@@ -1,3 +1,11 @@
+### 12 September, 13:10 — Composed-path pass; one geographic amplitude miss
+
+The frozen half-update key support passes downstream write/effect fidelity on
+fresh controls. Three geographic families pass, but one misses at17% despite
+preserving all transfer directions. Executed diagnosis finds closely matched
+write direction (cosine0.9991) with underestimated magnitude; no fitted scalar
+is adopted. Earlier key/score misses remain. [Results and extraction limits](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md#composed-path-fidelity-improves-geographic-amplitude-remains-unresolved).
+
 ### 12 September, 12:54 — Short-prefix key replay and folded update interface
 
 All112 corrected prompts reduce to12 unique cue prefixes. Native joint-key

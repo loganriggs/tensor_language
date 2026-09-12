@@ -1,0 +1,959 @@
+{
+  "cells": [
+    {
+      "arm": "forward",
+      "family": 0,
+      "cosine": 0.9996460883893779,
+      "norm_ratio": 1.0257081437970845,
+      "diagnostic_scalar": 0.9745911587371945,
+      "scalar_error_floor": 0.026602593253571578,
+      "raw_error": 0.0372414916442583,
+      "prefixes": [
+        {
+          "row_id": 0,
+          "text": "The London newspaper reporter wrote about manual",
+          "cosine": 0.999972385413298,
+          "norm_ratio": 0.995565773805341,
+          "diagnostic_scalar": 1.0044262385508826,
+          "scalar_error_floor": 0.007431581987577428,
+          "raw_error": 0.008639828511114328
+        },
+        {
+          "row_id": 1,
+          "text": "The Boston newspaper reporter wrote about manual",
+          "cosine": 0.9999595801846964,
+          "norm_ratio": 1.041387827612063,
+          "diagnostic_scalar": 0.9602182334679652,
+          "scalar_error_floor": 0.008990995320028922,
+          "raw_error": 0.04239266070616267
+        },
+        {
+          "row_id": 2,
+          "text": "The London newspaper reporter asked for a small",
+          "cosine": 0.9999698348351144,
+          "norm_ratio": 0.9977165554336385,
+          "diagnostic_scalar": 1.002258436415838,
+          "scalar_error_floor": 0.007767201544594121,
+          "raw_error": 0.008087440132418956
+        },
+        {
+          "row_id": 3,
+          "text": "The Boston newspaper reporter asked for a small",
+          "cosine": 0.9999498961492017,
+          "norm_ratio": 1.0472615517795498,
+          "diagnostic_scalar": 0.9548234578554381,
+          "scalar_error_floor": 0.010010254302492989,
+          "raw_error": 0.04835905240681649
+        },
+        {
+          "row_id": 4,
+          "text": "The London newspaper reporter said the meeting was well",
+          "cosine": 0.9999819631480029,
+          "norm_ratio": 0.9807486274505995,
+          "diagnostic_scalar": 1.019610871898337,
+          "scalar_error_floor": 0.006006111776084875,
+          "raw_error": 0.020149307201882655
+        },
+        {
+          "row_id": 5,
+          "text": "The Boston newspaper reporter said the meeting was well",
+          "cosine": 0.9999795175259661,
+          "norm_ratio": 1.0416328170437057,
+          "diagnostic_scalar": 0.9600115330122206,
+          "scalar_error_floor": 0.006400353782053425,
+          "raw_error": 0.042142162844946346
+        },
+        {
+          "row_id": 6,
+          "text": "The London newspaper reporter wanted to",
+          "cosine": 0.9999734724757224,
+          "norm_ratio": 1.0136806457469345,
+          "diagnostic_scalar": 0.986477818898168,
+          "scalar_error_floor": 0.0072838413523646384,
+          "raw_error": 0.01552227251189252
+        },
+        {
+          "row_id": 7,
+          "text": "The Boston newspaper reporter wanted to",
+          "cosine": 0.9999572345418085,
+          "norm_ratio": 1.0618591703765619,
+          "diagnostic_scalar": 0.941704194339819,
+          "scalar_error_floor": 0.009248193742431242,
+          "raw_error": 0.06258896666016613
+        },
+        {
+          "row_id": 8,
+          "text": "The London newspaper reporter spoke to a",
+          "cosine": 0.9999581938922965,
+          "norm_ratio": 0.9872174464799801,
+          "diagnostic_scalar": 1.0129057154102619,
+          "scalar_error_floor": 0.00914387596463743,
+          "raw_error": 0.01568238222596025
+        },
+        {
+          "row_id": 9,
+          "text": "The Boston newspaper reporter spoke to a",
+          "cosine": 0.9999551494597161,
+          "norm_ratio": 1.0421859846576702,
+          "diagnostic_scalar": 0.9594785999623413,
+          "scalar_error_floor": 0.009470959243722718,
+          "raw_error": 0.04327981643344883
+        },
+        {
+          "row_id": 10,
+          "text": "The London newspaper reporter went to the",
+          "cosine": 0.9999623547468306,
+          "norm_ratio": 1.002902580409015,
+          "diagnostic_scalar": 0.9970682838795922,
+          "scalar_error_floor": 0.008676928556439863,
+          "raw_error": 0.00916155096684654
+        },
+        {
+          "row_id": 11,
+          "text": "The Boston newspaper reporter went to the",
+          "cosine": 0.9999565909214241,
+          "norm_ratio": 1.041724943922053,
+          "diagnostic_scalar": 0.9599046243019074,
+          "scalar_error_floor": 0.009317525036392034,
+          "raw_error": 0.04279499486141989
+        }
+      ]
+    },
+    {
+      "arm": "forward",
+      "family": 1,
+      "cosine": 0.999886059826307,
+      "norm_ratio": 1.0530427042107724,
+      "diagnostic_scalar": 0.949520903405047,
+      "scalar_error_floor": 0.015095276248663423,
+      "raw_error": 0.05525844919322311,
+      "prefixes": [
+        {
+          "row_id": 12,
+          "text": "The Edinburgh newspaper reporter wrote about manual",
+          "cosine": 0.9998928105848985,
+          "norm_ratio": 1.0559856355995407,
+          "diagnostic_scalar": 0.9468810719354196,
+          "scalar_error_floor": 0.014641288899301563,
+          "raw_error": 0.057972168829155485
+        },
+        {
+          "row_id": 13,
+          "text": "The Chicago newspaper reporter wrote about manual",
+          "cosine": 0.9998913769830137,
+          "norm_ratio": 1.0475531463443615,
+          "diagnostic_scalar": 0.9545018126023744,
+          "scalar_error_floor": 0.014738868172726141,
+          "raw_error": 0.04988866097288388
+        },
+        {
+          "row_id": 14,
+          "text": "The Edinburgh newspaper reporter asked for a small",
+          "cosine": 0.9999278000618825,
+          "norm_ratio": 1.0615170566799046,
+          "diagnostic_scalar": 0.9419799651541596,
+          "scalar_error_floor": 0.012016433056615509,
+          "raw_error": 0.06275054736147469
+        },
+        {
+          "row_id": 15,
+          "text": "The Chicago newspaper reporter asked for a small",
+          "cosine": 0.9999181401097486,
+          "norm_ratio": 1.0563960866741182,
+          "diagnostic_scalar": 0.9465371490136997,
+          "scalar_error_floor": 0.012795041205917276,
+          "raw_error": 0.057909166179361406
+        },
+        {
+          "row_id": 16,
+          "text": "The Edinburgh newspaper reporter said the meeting was well",
+          "cosine": 0.9998993275771908,
+          "norm_ratio": 1.045541739797927,
+          "diagnostic_scalar": 0.9563456813980878,
+          "scalar_error_floor": 0.014189246304213976,
+          "raw_error": 0.047797118155901895
+        },
+        {
+          "row_id": 17,
+          "text": "The Chicago newspaper reporter said the meeting was well",
+          "cosine": 0.9999532633636482,
+          "norm_ratio": 1.05104714381984,
+          "diagnostic_scalar": 0.9513876415947429,
+          "scalar_error_floor": 0.009668044703587,
+          "raw_error": 0.0520005356555315
+        },
+        {
+          "row_id": 18,
+          "text": "The Edinburgh newspaper reporter wanted to",
+          "cosine": 0.999935699428396,
+          "norm_ratio": 1.0699816021476178,
+          "diagnostic_scalar": 0.9345354138999876,
+          "scalar_error_floor": 0.011340062109383044,
+          "raw_error": 0.0709579135572304
+        },
+        {
+          "row_id": 19,
+          "text": "The Chicago newspaper reporter wanted to",
+          "cosine": 0.9998657220442045,
+          "norm_ratio": 1.0604768170962675,
+          "diagnostic_scalar": 0.9428454313428323,
+          "scalar_error_floor": 0.016387125465507888,
+          "raw_error": 0.06278728154994888
+        },
+        {
+          "row_id": 20,
+          "text": "The Edinburgh newspaper reporter spoke to a",
+          "cosine": 0.9999265034066627,
+          "norm_ratio": 1.0485804995866832,
+          "diagnostic_scalar": 0.9536001325609254,
+          "scalar_error_floor": 0.012123851901364826,
+          "raw_error": 0.050141790247374425
+        },
+        {
+          "row_id": 21,
+          "text": "The Chicago newspaper reporter spoke to a",
+          "cosine": 0.9998836778431103,
+          "norm_ratio": 1.0425596030228597,
+          "diagnostic_scalar": 0.959066201053626,
+          "scalar_error_floor": 0.015252238620450073,
+          "raw_error": 0.045319591490686754
+        },
+        {
+          "row_id": 22,
+          "text": "The Edinburgh newspaper reporter went to the",
+          "cosine": 0.9999709714589288,
+          "norm_ratio": 1.0560959102001999,
+          "diagnostic_scalar": 0.946856210502101,
+          "scalar_error_floor": 0.00761946451443804,
+          "raw_error": 0.05663978273438443
+        },
+        {
+          "row_id": 23,
+          "text": "The Chicago newspaper reporter went to the",
+          "cosine": 0.9998861722436602,
+          "norm_ratio": 1.0474120046815423,
+          "diagnostic_scalar": 0.9546254652176418,
+          "scalar_error_floor": 0.01508782807171583,
+          "raw_error": 0.049863286141562255
+        }
+      ]
+    },
+    {
+      "arm": "forward",
+      "family": 2,
+      "cosine": 0.999078380308396,
+      "norm_ratio": 0.8352635592941263,
+      "diagnostic_scalar": 1.1961235099885206,
+      "scalar_error_floor": 0.04292307072370972,
+      "raw_error": 0.1693448717389738,
+      "prefixes": [
+        {
+          "row_id": 24,
+          "text": "According to a newspaper from London, the reporter wrote about manual",
+          "cosine": 0.9999268273195527,
+          "norm_ratio": 0.7545857980429242,
+          "diagnostic_scalar": 1.3251333776926881,
+          "scalar_error_floor": 0.012097107367191596,
+          "raw_error": 0.24563908616742733
+        },
+        {
+          "row_id": 25,
+          "text": "According to a newspaper from Boston, the reporter wrote about manual",
+          "cosine": 0.9999539533817746,
+          "norm_ratio": 0.8258815491381293,
+          "diagnostic_scalar": 1.2107716347765647,
+          "scalar_error_floor": 0.009596411629351903,
+          "raw_error": 0.17433672314037285
+        },
+        {
+          "row_id": 26,
+          "text": "According to a newspaper from London, the reporter asked for a small",
+          "cosine": 0.9999485100281172,
+          "norm_ratio": 0.8146685658442279,
+          "diagnostic_scalar": 1.2274298431925952,
+          "scalar_error_floor": 0.010147772787616891,
+          "raw_error": 0.18555763258172403
+        },
+        {
+          "row_id": 27,
+          "text": "According to a newspaper from Boston, the reporter asked for a small",
+          "cosine": 0.9999542036340586,
+          "norm_ratio": 0.8633078021500097,
+          "diagnostic_scalar": 1.1582823659692885,
+          "scalar_error_floor": 0.009570299607408078,
+          "raw_error": 0.1369811288941494
+        },
+        {
+          "row_id": 28,
+          "text": "According to a newspaper from London, the reporter said the meeting was well",
+          "cosine": 0.9998875822302131,
+          "norm_ratio": 0.7348003054672947,
+          "diagnostic_scalar": 1.360760977901794,
+          "scalar_error_floor": 0.014994095565233961,
+          "raw_error": 0.2655109926225265
+        },
+        {
+          "row_id": 29,
+          "text": "According to a newspaper from Boston, the reporter said the meeting was well",
+          "cosine": 0.9999343859446218,
+          "norm_ratio": 0.8107372038156304,
+          "diagnostic_scalar": 1.2333643765680902,
+          "scalar_error_floor": 0.011455295960897706,
+          "raw_error": 0.18954365600331358
+        },
+        {
+          "row_id": 30,
+          "text": "According to a newspaper from London, the reporter wanted to",
+          "cosine": 0.9998582772412059,
+          "norm_ratio": 0.8083623867396095,
+          "diagnostic_scalar": 1.2368936180639996,
+          "scalar_error_floor": 0.016835243753740074,
+          "raw_error": 0.1922344961531286
+        },
+        {
+          "row_id": 31,
+          "text": "According to a newspaper from Boston, the reporter wanted to",
+          "cosine": 0.9999048297700649,
+          "norm_ratio": 0.8562289914934494,
+          "diagnostic_scalar": 1.1678007165186186,
+          "scalar_error_floor": 0.013796064746781411,
+          "raw_error": 0.14433668247187026
+        },
+        {
+          "row_id": 32,
+          "text": "According to a newspaper from London, the reporter spoke to a",
+          "cosine": 0.9999178231720517,
+          "norm_ratio": 0.8045624465431166,
+          "diagnostic_scalar": 1.2428094642849656,
+          "scalar_error_floor": 0.012819785601353384,
+          "raw_error": 0.19577556047856923
+        },
+        {
+          "row_id": 33,
+          "text": "According to a newspaper from Boston, the reporter spoke to a",
+          "cosine": 0.999955892913194,
+          "norm_ratio": 0.8590636276922576,
+          "diagnostic_scalar": 1.1640067867841433,
+          "scalar_error_floor": 0.00939213650756328,
+          "raw_error": 0.14120496672307062
+        },
+        {
+          "row_id": 34,
+          "text": "According to a newspaper from London, the reporter went to the",
+          "cosine": 0.9999250470743076,
+          "norm_ratio": 0.8219662426280258,
+          "diagnostic_scalar": 1.2165037871595603,
+          "scalar_error_floor": 0.012243375083840238,
+          "raw_error": 0.17837947279155655
+        },
+        {
+          "row_id": 35,
+          "text": "According to a newspaper from Boston, the reporter went to the",
+          "cosine": 0.9999336158003637,
+          "norm_ratio": 0.8686405033123245,
+          "diagnostic_scalar": 1.1511478131486945,
+          "scalar_error_floor": 0.01152232582470481,
+          "raw_error": 0.131797744211377
+        }
+      ]
+    },
+    {
+      "arm": "forward",
+      "family": 3,
+      "cosine": 0.9995279604460208,
+      "norm_ratio": 0.9522951860433461,
+      "diagnostic_scalar": 1.0495988797327855,
+      "scalar_error_floor": 0.030722244166383174,
+      "raw_error": 0.05634528608848121,
+      "prefixes": [
+        {
+          "row_id": 36,
+          "text": "According to a newspaper from Edinburgh, the reporter wrote about manual",
+          "cosine": 0.9997839150493789,
+          "norm_ratio": 0.949701040877764,
+          "diagnostic_scalar": 1.0527354104248696,
+          "scalar_error_floor": 0.020787573416257667,
+          "raw_error": 0.05422561658318076
+        },
+        {
+          "row_id": 37,
+          "text": "According to a newspaper from Chicago, the reporter wrote about manual",
+          "cosine": 0.9997977184529021,
+          "norm_ratio": 0.9117684821683203,
+          "diagnostic_scalar": 1.096547794759515,
+          "scalar_error_floor": 0.02011273667037201,
+          "raw_error": 0.09029766673186221
+        },
+        {
+          "row_id": 38,
+          "text": "According to a newspaper from Edinburgh, the reporter asked for a small",
+          "cosine": 0.9998372129128228,
+          "norm_ratio": 0.9785342078752065,
+          "diagnostic_scalar": 1.021770322249514,
+          "scalar_error_floor": 0.018042939747124693,
+          "raw_error": 0.027917121956804285
+        },
+        {
+          "row_id": 39,
+          "text": "According to a newspaper from Chicago, the reporter asked for a small",
+          "cosine": 0.9998336692828663,
+          "norm_ratio": 0.9395647218953478,
+          "diagnostic_scalar": 1.0641456048561937,
+          "scalar_error_floor": 0.0182382501452321,
+          "raw_error": 0.06296808546843022
+        },
+        {
+          "row_id": 40,
+          "text": "According to a newspaper from Edinburgh, the reporter said the meeting was well",
+          "cosine": 0.9996414965692529,
+          "norm_ratio": 0.9402084635592636,
+          "diagnostic_scalar": 1.0632126122168686,
+          "scalar_error_floor": 0.026774583783581926,
+          "raw_error": 0.06518560998832919
+        },
+        {
+          "row_id": 41,
+          "text": "According to a newspaper from Chicago, the reporter said the meeting was well",
+          "cosine": 0.9995496704056283,
+          "norm_ratio": 0.9093565017253806,
+          "diagnostic_scalar": 1.0991835088979052,
+          "scalar_error_floor": 0.030007605569260506,
+          "raw_error": 0.09505400606278457
+        },
+        {
+          "row_id": 42,
+          "text": "According to a newspaper from Edinburgh, the reporter wanted to",
+          "cosine": 0.9998678906983792,
+          "norm_ratio": 0.9751052239844948,
+          "diagnostic_scalar": 1.025394866220385,
+          "scalar_error_floor": 0.016254265605481488,
+          "raw_error": 0.029620783466283856
+        },
+        {
+          "row_id": 43,
+          "text": "According to a newspaper from Chicago, the reporter wanted to",
+          "cosine": 0.9998623579991425,
+          "norm_ratio": 0.930024867630397,
+          "diagnostic_scalar": 1.0750920677494178,
+          "scalar_error_floor": 0.01659111377802648,
+          "raw_error": 0.07178119612684061
+        },
+        {
+          "row_id": 44,
+          "text": "According to a newspaper from Edinburgh, the reporter spoke to a",
+          "cosine": 0.9999054118561688,
+          "norm_ratio": 0.9671384314368622,
+          "diagnostic_scalar": 1.0338803415873208,
+          "scalar_error_floor": 0.013753811862365762,
+          "raw_error": 0.035536493166104154
+        },
+        {
+          "row_id": 45,
+          "text": "According to a newspaper from Chicago, the reporter spoke to a",
+          "cosine": 0.9998986278493985,
+          "norm_ratio": 0.9261819554915358,
+          "diagnostic_scalar": 1.0795919980094417,
+          "scalar_error_floor": 0.014238469892839386,
+          "raw_error": 0.07507917026982808
+        },
+        {
+          "row_id": 46,
+          "text": "According to a newspaper from Edinburgh, the reporter went to the",
+          "cosine": 0.999860129914692,
+          "norm_ratio": 0.9803046904157466,
+          "diagnostic_scalar": 1.019948327994485,
+          "scalar_error_floor": 0.0167248499836488,
+          "raw_error": 0.025731999941171615
+        },
+        {
+          "row_id": 47,
+          "text": "According to a newspaper from Chicago, the reporter went to the",
+          "cosine": 0.999835714212976,
+          "norm_ratio": 0.946995881545109,
+          "diagnostic_scalar": 1.0557973204504905,
+          "scalar_error_floor": 0.0181257988576361,
+          "raw_error": 0.05586226365441804
+        }
+      ]
+    },
+    {
+      "arm": "backward",
+      "family": 0,
+      "cosine": 0.9999211332664824,
+      "norm_ratio": 0.9761230758440259,
+      "diagnostic_scalar": 1.0243801811588968,
+      "scalar_error_floor": 0.012558950874635535,
+      "raw_error": 0.026908637723862407,
+      "prefixes": [
+        {
+          "row_id": 0,
+          "text": "The London newspaper reporter wrote about manual",
+          "cosine": 0.999991165764278,
+          "norm_ratio": 0.9711738559735636,
+          "diagnostic_scalar": 1.0296726581069529,
+          "scalar_error_floor": 0.004203378807488409,
+          "raw_error": 0.029122255011816367
+        },
+        {
+          "row_id": 1,
+          "text": "The Boston newspaper reporter wrote about manual",
+          "cosine": 0.9999999754085594,
+          "norm_ratio": 0.981296898212517,
+          "diagnostic_scalar": 1.0190595498978052,
+          "scalar_error_floor": 0.00022177213502448743,
+          "raw_error": 0.018704391983729758
+        },
+        {
+          "row_id": 2,
+          "text": "The London newspaper reporter asked for a small",
+          "cosine": 0.9999958122335543,
+          "norm_ratio": 0.9599033567517598,
+          "diagnostic_scalar": 1.0417671791642285,
+          "scalar_error_floor": 0.0028940482639474405,
+          "raw_error": 0.04019677228228353
+        },
+        {
+          "row_id": 3,
+          "text": "The Boston newspaper reporter asked for a small",
+          "cosine": 0.9999996501746435,
+          "norm_ratio": 0.9807211128686735,
+          "diagnostic_scalar": 1.019657512266234,
+          "scalar_error_floor": 0.0008364511883590328,
+          "raw_error": 0.019296674616321716
+        },
+        {
+          "row_id": 4,
+          "text": "The London newspaper reporter said the meeting was well",
+          "cosine": 0.9999970589127312,
+          "norm_ratio": 0.9579430283204762,
+          "diagnostic_scalar": 1.0439003462095098,
+          "scalar_error_floor": 0.00242531768801994,
+          "raw_error": 0.042123908353121374
+        },
+        {
+          "row_id": 5,
+          "text": "The Boston newspaper reporter said the meeting was well",
+          "cosine": 0.9999996610616532,
+          "norm_ratio": 0.9903740880932359,
+          "diagnostic_scalar": 1.0097191284426161,
+          "scalar_error_floor": 0.0008233326050321261,
+          "raw_error": 0.009660721067747919
+        },
+        {
+          "row_id": 6,
+          "text": "The London newspaper reporter wanted to",
+          "cosine": 0.9999969714127743,
+          "norm_ratio": 0.9701391409496062,
+          "diagnostic_scalar": 1.0307768537551665,
+          "scalar_error_floor": 0.0024611308942400173,
+          "raw_error": 0.029959092196625518
+        },
+        {
+          "row_id": 7,
+          "text": "The Boston newspaper reporter wanted to",
+          "cosine": 0.9999998033523284,
+          "norm_ratio": 0.9923086183563199,
+          "diagnostic_scalar": 1.007750799351867,
+          "scalar_error_floor": 0.000627132605251527,
+          "raw_error": 0.007716710565221007
+        },
+        {
+          "row_id": 8,
+          "text": "The London newspaper reporter spoke to a",
+          "cosine": 0.9999900429342109,
+          "norm_ratio": 0.9542187299462113,
+          "diagnostic_scalar": 1.0479673177140212,
+          "scalar_error_floor": 0.004462514138354601,
+          "raw_error": 0.04598833683751174
+        },
+        {
+          "row_id": 9,
+          "text": "The Boston newspaper reporter spoke to a",
+          "cosine": 0.9999997694394034,
+          "norm_ratio": 0.9830120001059635,
+          "diagnostic_scalar": 1.017281344817366,
+          "scalar_error_floor": 0.0006790590104367174,
+          "raw_error": 0.017001336067080642
+        },
+        {
+          "row_id": 10,
+          "text": "The London newspaper reporter went to the",
+          "cosine": 0.9999917569976331,
+          "norm_ratio": 0.9719270999283318,
+          "diagnostic_scalar": 1.0288752696281143,
+          "scalar_error_floor": 0.004060287771344368,
+          "raw_error": 0.028356849493616797
+        },
+        {
+          "row_id": 11,
+          "text": "The Boston newspaper reporter went to the",
+          "cosine": 0.9999995252053673,
+          "norm_ratio": 0.9809285620693369,
+          "diagnostic_scalar": 1.0194417451723488,
+          "scalar_error_floor": 0.000974468593565935,
+          "raw_error": 0.019095843107223148
+        }
+      ]
+    },
+    {
+      "arm": "backward",
+      "family": 1,
+      "cosine": 0.999844383803066,
+      "norm_ratio": 0.9773366162512207,
+      "diagnostic_scalar": 1.02302969844533,
+      "scalar_error_floor": 0.017641093431785274,
+      "raw_error": 0.028597338646049606,
+      "prefixes": [
+        {
+          "row_id": 12,
+          "text": "The Edinburgh newspaper reporter wrote about manual",
+          "cosine": 0.9999954141896992,
+          "norm_ratio": 0.9835786123741642,
+          "diagnostic_scalar": 1.0166908893798614,
+          "scalar_error_floor": 0.0030284648869929676,
+          "raw_error": 0.01669380068834849
+        },
+        {
+          "row_id": 13,
+          "text": "The Chicago newspaper reporter wrote about manual",
+          "cosine": 0.9997686317357802,
+          "norm_ratio": 0.9742064772456019,
+          "diagnostic_scalar": 1.0262389494293358,
+          "scalar_error_floor": 0.02151006734450405,
+          "raw_error": 0.03340818371813798
+        },
+        {
+          "row_id": 14,
+          "text": "The Edinburgh newspaper reporter asked for a small",
+          "cosine": 0.9999852983137173,
+          "norm_ratio": 0.9781454604427402,
+          "diagnostic_scalar": 1.0223278016963777,
+          "scalar_error_floor": 0.005422467743168473,
+          "raw_error": 0.02250292591322923
+        },
+        {
+          "row_id": 15,
+          "text": "The Chicago newspaper reporter asked for a small",
+          "cosine": 0.9997168688339658,
+          "norm_ratio": 0.9685923869609835,
+          "diagnostic_scalar": 1.0321337254886311,
+          "scalar_error_floor": 0.02379458276187625,
+          "raw_error": 0.03917799817082736
+        },
+        {
+          "row_id": 16,
+          "text": "The Edinburgh newspaper reporter said the meeting was well",
+          "cosine": 0.9999996079788157,
+          "norm_ratio": 0.9899841119961622,
+          "diagnostic_scalar": 1.0101168249684924,
+          "scalar_error_floor": 0.0008854615830627695,
+          "raw_error": 0.01005456125316406
+        },
+        {
+          "row_id": 17,
+          "text": "The Chicago newspaper reporter said the meeting was well",
+          "cosine": 0.999838694641764,
+          "norm_ratio": 0.9883634647493733,
+          "diagnostic_scalar": 1.0116103339527025,
+          "scalar_error_floor": 0.01796064300223984,
+          "raw_error": 0.02131350741049237
+        },
+        {
+          "row_id": 18,
+          "text": "The Edinburgh newspaper reporter wanted to",
+          "cosine": 0.9999978728827839,
+          "norm_ratio": 0.9863283407810054,
+          "diagnostic_scalar": 1.0138590077326122,
+          "scalar_error_floor": 0.002062578460877089,
+          "raw_error": 0.013824266265839522
+        },
+        {
+          "row_id": 19,
+          "text": "The Chicago newspaper reporter wanted to",
+          "cosine": 0.9997458163518527,
+          "norm_ratio": 0.9744919588079947,
+          "diagnostic_scalar": 1.0259148957727144,
+          "scalar_error_floor": 0.022545569120527274,
+          "raw_error": 0.033853508057717224
+        },
+        {
+          "row_id": 20,
+          "text": "The Edinburgh newspaper reporter spoke to a",
+          "cosine": 0.99999474851015,
+          "norm_ratio": 0.9731791205148743,
+          "diagnostic_scalar": 1.027554668436668,
+          "scalar_error_floor": 0.003240825839499884,
+          "raw_error": 0.027010754467489354
+        },
+        {
+          "row_id": 21,
+          "text": "The Chicago newspaper reporter spoke to a",
+          "cosine": 0.9997734824340446,
+          "norm_ratio": 0.9699935667542271,
+          "diagnostic_scalar": 1.0307011476163357,
+          "scalar_error_floor": 0.021283416589047244,
+          "raw_error": 0.03660365008574925
+        },
+        {
+          "row_id": 22,
+          "text": "The Edinburgh newspaper reporter went to the",
+          "cosine": 0.999982426653373,
+          "norm_ratio": 0.9800857764671691,
+          "diagnostic_scalar": 1.020300927392216,
+          "scalar_error_floor": 0.0059284386167257055,
+          "raw_error": 0.020761095179793063
+        },
+        {
+          "row_id": 23,
+          "text": "The Chicago newspaper reporter went to the",
+          "cosine": 0.9997619487255303,
+          "norm_ratio": 0.9659168055059864,
+          "diagnostic_scalar": 1.035039397830763,
+          "scalar_error_floor": 0.021818475669269602,
+          "raw_error": 0.040268344888782615
+        }
+      ]
+    },
+    {
+      "arm": "backward",
+      "family": 2,
+      "cosine": 0.9992481933965875,
+      "norm_ratio": 0.8468369288552652,
+      "diagnostic_scalar": 1.1799771117059679,
+      "scalar_error_floor": 0.038769162921779725,
+      "raw_error": 0.15726487704742115,
+      "prefixes": [
+        {
+          "row_id": 24,
+          "text": "According to a newspaper from London, the reporter wrote about manual",
+          "cosine": 0.9999395261509615,
+          "norm_ratio": 0.7915268253936797,
+          "diagnostic_scalar": 1.2633046588833219,
+          "scalar_error_floor": 0.01099745611449578,
+          "raw_error": 0.20870265421871023
+        },
+        {
+          "row_id": 25,
+          "text": "According to a newspaper from Boston, the reporter wrote about manual",
+          "cosine": 0.9999860157049796,
+          "norm_ratio": 0.8479030465854009,
+          "diagnostic_scalar": 1.1793636309387416,
+          "scalar_error_floor": 0.00528851533800843,
+          "raw_error": 0.15217489244519627
+        },
+        {
+          "row_id": 26,
+          "text": "According to a newspaper from London, the reporter asked for a small",
+          "cosine": 0.9999614477228106,
+          "norm_ratio": 0.8412406146256588,
+          "diagnostic_scalar": 1.1886747148647607,
+          "scalar_error_floor": 0.008780835273488795,
+          "raw_error": 0.15896353647033082
+        },
+        {
+          "row_id": 27,
+          "text": "According to a newspaper from Boston, the reporter asked for a small",
+          "cosine": 0.9999838656881369,
+          "norm_ratio": 0.8718203922957939,
+          "diagnostic_scalar": 1.1470067396047547,
+          "scalar_error_floor": 0.005680524923897097,
+          "raw_error": 0.1282892991461124
+        },
+        {
+          "row_id": 28,
+          "text": "According to a newspaper from London, the reporter said the meeting was well",
+          "cosine": 0.9998740198236241,
+          "norm_ratio": 0.7390800059161274,
+          "diagnostic_scalar": 1.3528630348810873,
+          "scalar_error_floor": 0.01587275910946244,
+          "raw_error": 0.2612766008882743
+        },
+        {
+          "row_id": 29,
+          "text": "According to a newspaper from Boston, the reporter said the meeting was well",
+          "cosine": 0.9999722093081644,
+          "norm_ratio": 0.8206704922468698,
+          "diagnostic_scalar": 1.218481983640467,
+          "scalar_error_floor": 0.007455240529203978,
+          "raw_error": 0.17945664198484504
+        },
+        {
+          "row_id": 30,
+          "text": "According to a newspaper from London, the reporter wanted to",
+          "cosine": 0.9998973709506584,
+          "norm_ratio": 0.8219792558902275,
+          "diagnostic_scalar": 1.2164508578355067,
+          "scalar_error_floor": 0.0143264638331022,
+          "raw_error": 0.17849398654469556
+        },
+        {
+          "row_id": 31,
+          "text": "According to a newspaper from Boston, the reporter wanted to",
+          "cosine": 0.9999637174423117,
+          "norm_ratio": 0.8628185321676861,
+          "diagnostic_scalar": 1.1589502081394463,
+          "scalar_error_floor": 0.008518438762616326,
+          "raw_error": 0.1374094816341426
+        },
+        {
+          "row_id": 32,
+          "text": "According to a newspaper from London, the reporter spoke to a",
+          "cosine": 0.9999429704347023,
+          "norm_ratio": 0.8157640841157142,
+          "diagnostic_scalar": 1.225774693818051,
+          "scalar_error_floor": 0.010679694669027611,
+          "raw_error": 0.18448825990812104
+        },
+        {
+          "row_id": 33,
+          "text": "According to a newspaper from Boston, the reporter spoke to a",
+          "cosine": 0.9999845048749547,
+          "norm_ratio": 0.8626264067087691,
+          "diagnostic_scalar": 1.1592324291233516,
+          "scalar_error_floor": 0.005566867161319072,
+          "raw_error": 0.13747085924596267
+        },
+        {
+          "row_id": 34,
+          "text": "According to a newspaper from London, the reporter went to the",
+          "cosine": 0.9999592187265819,
+          "norm_ratio": 0.8483914377920956,
+          "diagnostic_scalar": 1.1786531242334728,
+          "scalar_error_floor": 0.00903110645072678,
+          "raw_error": 0.15183660000516583
+        },
+        {
+          "row_id": 35,
+          "text": "According to a newspaper from Boston, the reporter went to the",
+          "cosine": 0.9999841107296495,
+          "norm_ratio": 0.8763938711801994,
+          "diagnostic_scalar": 1.1410213416748531,
+          "scalar_error_floor": 0.005637223450581212,
+          "raw_error": 0.1237187358491926
+        }
+      ]
+    },
+    {
+      "arm": "backward",
+      "family": 3,
+      "cosine": 0.9997950557708182,
+      "norm_ratio": 0.9478666776881899,
+      "diagnostic_scalar": 1.0547844747631396,
+      "scalar_error_floor": 0.02024466488299312,
+      "raw_error": 0.05573511376607454,
+      "prefixes": [
+        {
+          "row_id": 36,
+          "text": "According to a newspaper from Edinburgh, the reporter wrote about manual",
+          "cosine": 0.9999953441701221,
+          "norm_ratio": 0.9418679061992287,
+          "diagnostic_scalar": 1.0617150638516373,
+          "scalar_error_floor": 0.00305149767808517,
+          "raw_error": 0.05820747961507525
+        },
+        {
+          "row_id": 37,
+          "text": "According to a newspaper from Chicago, the reporter wrote about manual",
+          "cosine": 0.9998186226348197,
+          "norm_ratio": 0.9269072827649085,
+          "diagnostic_scalar": 1.0786608771186061,
+          "scalar_error_floor": 0.019045257483468556,
+          "raw_error": 0.0753577156914764
+        },
+        {
+          "row_id": 38,
+          "text": "According to a newspaper from Edinburgh, the reporter asked for a small",
+          "cosine": 0.9999920602685364,
+          "norm_ratio": 0.9609290688514576,
+          "diagnostic_scalar": 1.0406512745667775,
+          "scalar_error_floor": 0.003984896471459423,
+          "raw_error": 0.039265719124180004
+        },
+        {
+          "row_id": 39,
+          "text": "According to a newspaper from Chicago, the reporter asked for a small",
+          "cosine": 0.9998482292580295,
+          "norm_ratio": 0.9503401140652507,
+          "diagnostic_scalar": 1.0520951546294293,
+          "scalar_error_floor": 0.0174217808958449,
+          "raw_error": 0.052484015847915906
+        },
+        {
+          "row_id": 40,
+          "text": "According to a newspaper from Edinburgh, the reporter said the meeting was well",
+          "cosine": 0.9998969133628984,
+          "norm_ratio": 0.9332022595241947,
+          "diagnostic_scalar": 1.0714685944638722,
+          "scalar_error_floor": 0.014358365065295683,
+          "raw_error": 0.06822271980808775
+        },
+        {
+          "row_id": 41,
+          "text": "According to a newspaper from Chicago, the reporter said the meeting was well",
+          "cosine": 0.9994949482439193,
+          "norm_ratio": 0.9133513969263848,
+          "diagnostic_scalar": 1.0943158915696907,
+          "scalar_error_floor": 0.03177811251295484,
+          "raw_error": 0.09181808029186105
+        },
+        {
+          "row_id": 42,
+          "text": "According to a newspaper from Edinburgh, the reporter wanted to",
+          "cosine": 0.9999937939770263,
+          "norm_ratio": 0.9636728710123882,
+          "diagnostic_scalar": 1.037690095941459,
+          "scalar_error_floor": 0.0035230679006457285,
+          "raw_error": 0.036491388743589225
+        },
+        {
+          "row_id": 43,
+          "text": "According to a newspaper from Chicago, the reporter wanted to",
+          "cosine": 0.9998717532701425,
+          "norm_ratio": 0.9380598013658562,
+          "diagnostic_scalar": 1.0658934023335034,
+          "scalar_error_floor": 0.01601489970281162,
+          "raw_error": 0.06385291231188253
+        },
+        {
+          "row_id": 44,
+          "text": "According to a newspaper from Edinburgh, the reporter spoke to a",
+          "cosine": 0.9999981578209809,
+          "norm_ratio": 0.9541813770091936,
+          "diagnostic_scalar": 1.0480168466035211,
+          "scalar_error_floor": 0.0019194672813728354,
+          "raw_error": 0.04585697066531552
+        },
+        {
+          "row_id": 45,
+          "text": "According to a newspaper from Chicago, the reporter spoke to a",
+          "cosine": 0.999890353605263,
+          "norm_ratio": 0.9348301764400131,
+          "diagnostic_scalar": 1.0695957178158386,
+          "scalar_error_floor": 0.014808131791068524,
+          "raw_error": 0.06672411423102874
+        },
+        {
+          "row_id": 46,
+          "text": "According to a newspaper from Edinburgh, the reporter went to the",
+          "cosine": 0.9999993919048827,
+          "norm_ratio": 0.9660517117690565,
+          "diagnostic_scalar": 1.0351406448767229,
+          "scalar_error_floor": 0.0011028099857152834,
+          "raw_error": 0.03396558812193563
+        },
+        {
+          "row_id": 47,
+          "text": "According to a newspaper from Chicago, the reporter went to the",
+          "cosine": 0.9999015632509327,
+          "norm_ratio": 0.9506418725798351,
+          "diagnostic_scalar": 1.0518172953369045,
+          "scalar_error_floor": 0.014030816381848249,
+          "raw_error": 0.051218950920077895
+        }
+      ]
+    }
+  ],
+  "source_sha": "c9445741f7cd496d9675aff4753d6f18e10f720b9c99cfc31baaf698eb22d2a4",
+  "artifact_sha": "4fd4533599b91497c7d5f21eec95fd1ecd0656df8c1e1bde2328b9a0caec96d8",
+  "scope": "Post-result geometric diagnosis, signed scalar optimum only. No scalar is installed or scored as a repaired circuit; original 10% write/effect predictions remain failed. No claim about normalization as the cause."
+}

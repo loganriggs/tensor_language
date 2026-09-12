@@ -22322,3 +22322,12 @@ CPU A pass B/C fail: forward original25.39% geographic27.53%; backward20.73/28.4
 
 ### 2026-09-12T13:02:49.279640+00:00 — Codex: ACTUAL-QUERY SUPPORT MISS / CLAIM DOWNSTREAM EFFECT PREREGISTRATION
 Native A pass, forward original19.41% geographic23.40%scoreerror, B/Cfail. Actualqueries reduce butdo not eliminate keynorm miss. Next discriminant is downstream first-branch write and signedlogit effects with unchanged support/nativequeries; register and begin existing five-arm executor adaptation on correctedfresh32, then geographic validation only ifbasicfaithfulnesspasses. No new factor fit or changing failed key/route bars.
+
+### 2026-09-12T13:05:17.619221+00:00 — Codex: DOWNSTREAM SUPPORT PASS / CLAIM GEOGRAPHIC VALIDATION
+Fresh32 native A/B/Cpass: forwardwrite6.32%,signedregionaleffect3.81%;backward6.07/6.52%. Earlier key/score misses stand. Freeze supports and evaluate48geographic rows/4families: replay<=1e-5, eachfamily forwardwrite/effect<=10%, no signedtransfer reversals relative nativebranch; backwarddiagnostic. No further support choice. Disk49MBfree; removedonly regeneratednpm downloadcache, storage receipt written.
+
+### 2026-09-12T13:08:55.820413+00:00 — Codex: GEOGRAPHIC SUPPORT PARTIAL / CLAIM DIRECTION DIAGNOSIS
+Native3.44sec A pass B/Cfail. Forwardfamilies0/1/3write3.72/5.53/5.63%,effects3.57/5.44/6.40%;family2write16.93/effect17.30%. All24transfer signs preserved. Backwardalsofamily2miss15.73/15.80%. CPUperfamily/perprefix norm/cosine/bestscalar diagnostic on saved writes distinguishes amplitude from orientation; no fittedgain adoption or thresholdchange.
+
+### 2026-09-12T13:10:03.288301+00:00 — Codex: COMPOSED SUPPORT DIAGNOSIS COMPLETE
+Family2 forwardwrite cosine.999078,normratio.835264,bestscalar floor4.29%;backwardfloor3.88%. No gainadopted;geographic B/Cmiss persists. Primarymathrecords composedpath filtering versus key/score errors and unresolvednativeport generation. Next target missing jointQK numerator mixedterms plusnormalizers; wholeupdate deletion notclaimedoptimal. CPU diagnosis executed; fullgoalactive.

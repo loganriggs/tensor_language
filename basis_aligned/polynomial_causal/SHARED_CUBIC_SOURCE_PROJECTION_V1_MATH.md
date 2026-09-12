@@ -1209,3 +1209,51 @@ Binding, managed preflight and native execution remain pending. It keeps both
 supports frozen, preserves every earlier miss and uses correctedfresh32 queries
 for a basic fidelity/control screen. These duplicate original key prefixes;
 new geographic downstream evidence is not claimed.
+
+
+## Composed-path fidelity improves; geographic amplitude remains unresolved
+
+The [fresh downstream test](REGIONAL_KEY_SUPPORT_EFFECT_V1_RESULT.json) now
+passes all three registered predictions. The unchanged forward13 key support
+has6.32% first-branch write error and3.81% regional signed-effect error; controls
+retain their answers. Backward13 gives6.07%/6.52%. This does not repair earlier
+key and routing errors: it measures their consequences after value and downstream
+write composition. The distinction is evidence for examining composed paths.
+
+The [geographic test](REGIONAL_KEY_SUPPORT_EFFECT_OOD_V1_RESULT.json) uses all48
+previously registered geographic rows and eight key prefixes excluded from
+support selection. No support or scalar is refit. Its overall verdict is
+**A pass, B/C fail**:
+
+| Geographic family | Forward write error | Forward signed-effect error | Transfer signs preserved |
+|---|---:|---:|---:|
+| 0 | 3.72% | 3.57% | 6/6 |
+| 1 | 5.53% | 5.44% | 6/6 |
+| 2 | 16.93% | 17.30% | 6/6 |
+| 3 | 5.63% | 6.40% | 6/6 |
+
+Family2 exceeds the unchanged10% bars. Backward13 also misses there at15.73%
+write and15.80% effect error. Exact all-update write replay is at most2.31e-7.
+The native experiment takes3.44seconds excluding managed startup/model loading.
+This is geographic/template transfer, not a fresh natural-text corpus test.
+
+The executed [write geometry diagnosis](REGIONAL_KEY_SUPPORT_EFFECT_GEOMETRY_V1_RESULT.json)
+shows family2's forward write has cosine0.999078 with the true first-value write
+but norm ratio0.835264. The best diagnostic scalar1.1961 leaves4.29% write error;
+backward gives cosine0.999248, ratio0.846837 and3.88% scalar-error floor. No gain
+is installed, fit on selection data, or validated as a replacement. The original
+17.30% effect miss remains. Across the four forward families, diagnostic scales
+range0.9495–1.1961, so these receipts do not establish one universal correction.
+
+This localizes the remaining discrepancy mainly to the magnitude of an already
+closely matched composed write, rather than a different output direction.
+It does not identify normalization as the cause: the joint QK numerators can
+also change amplitude. A useful next algebraic target is the omitted-update
+contribution to the product of both QK scores, including its mixed terms and
+changing key normalizers. Whole native update deletion is only one possible
+structural assumption, and its failure is not absent weight structure.
+
+All prefix update terms are still generated natively. Thirteen selected terms
+in a conditional expression are not thirteen recursively executable modules;
+removing upstream computation can change later retained terms. Independent
+extraction and joint composition of the resulting replacements remain open.
