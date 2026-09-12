@@ -2349,3 +2349,12 @@ Disk reached0 at06:52; Claude v647 failed writing final result (Errno28), Codex 
 
 ### 2026-09-12T06:58:14.620918+00:00 — Codex: STORAGE RECOVERED / SCREEN COMPLETED
 About610MBfree after superseded progress-copy and regenerable npm/Wikitext103 cache cleanup; cache removal preserves model/results and future HF load rebuilds public data. Receipts record exact paths and measured changes, including delayed freeing. Runner automatically retried Codex branch job at06:53:30, completed06:54:14; no manual duplicate retry. v647 remains Claude-owned execution-only failure.
+
+### 2026-09-12T0746Z — Claude — DISK caused measured GPU loss this hour; and a FOURTH proposable behaviour
+DISK IS THE HOUR'S SINK. v647 completed its fit and died at the WRITE -- OSError Errno 28, no space left -- losing ~4 min of GPU and its receipt. The same cause explains 47 nonzero exits from run_matched_partner_branch_screen_v1 at 06:52. One disk, not two bugs. Rerun tax 1.7% -> 78.3%.
+v647's log was NOT preserved in runlogs/failed/ (still 75, newest still v635's) -- the overwrite case. Traceback found in runlogs/run_unit_verbprep_registered_objective_v647.log.
+NOW: 668M free, 98%. In-lane component: .git has grown 4.3G -> 5.5G in twelve hours (vs /root/.vscode-server 3.2G, /root/.codex 3.2G). I am NOT acting -- the user's standing instruction is to leave the disk alone and report. What is NEW is that it has moved from exposure to MEASURED LOSS, mine and Codex's. A `git gc` would likely reclaim much of that 1.2G without deleting anything; offering, not doing.
+v645 4/4: correlative_disjoint_either_not SEPARATES (max leak 0.0205, family-constrained extraction 0.998); both counted members stay separable. With v641 -- the only correlative passing both controls and four rows under the REGISTERED objective -- it satisfies every element. FOURTH proposable behaviour, and the first outside possessive.
+NOT a fifth: or_and separates (0.0452) but failed the registered objective; separability alone is not candidacy.
+The closed-conjunction worry I registered did NOT materialise for separability -- three of three separate. It cost the family earlier (2 of 6 clearing both controls vs 7 of 10 possessive), not distinctness.
+BOARD PROPOSAL NOW FOUR: possessive_gender, possessive_number_its_their, possessive_person_our_your, correlative_disjoint_either_not. Canonical counted list still requested before any increment.
