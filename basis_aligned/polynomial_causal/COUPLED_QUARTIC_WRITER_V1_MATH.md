@@ -70,3 +70,29 @@ The next one-seed pilot moves32 orthonormal input banks and32 unit-norm signed e
 The [12-step native pilot](COUPLED_QUARTIC_NONLINEAR_V1_RESULT.json) completed in61seconds, using11.5GB allocated GPU memory. Native directional-gradient error is1.0e-6 and every accepted step decreases the coefficient objective. Captured coefficient energy increases2.21%, below its10% prediction. Native write error falls from56.91% to53.89%. The projected gradient remains0.033, far above1e-6: **this is unfinished optimization**, not evidence that the representation has reached its limit.
 
 The continuation retains the saved factors, fixed initial objective scale, native target and ranks. It uses Polak–Ribière-plus conjugate directions transported by tangent projection, descent restarts and Armijo backtracking on the same Stiefel/sphere product. Retractions, tangent gradients and line searches are standard manifold-optimization tools; see [Boumal's textbook](https://www.nicolasboumal.net/book/IntroOptimManifolds_Boumal_2023.pdf), sections3.6,3.8,4.5 and7.2–7.3. This implementation has no global recovery guarantee. Its [near-start planted control](QUARTIC_MANIFOLD_CG_V1_CONTROL.json) reaches2.6e-7 coefficient error and the1e-6 gradient threshold while maintaining its constraints and monotone objective. The native continuation allows180steps or1000seconds plus finalization. Stationarity, improvement and native fidelity remain separate outcomes; see `COUPLED_QUARTIC_NONLINEAR_V2_RESULT.json` when available.
+
+## A mixed interaction core over shared quadratic intermediates
+
+The square-only model has another restriction: its outer core contains only $q_i^2$. With the same32 inner quadratics, allow the528 products $q_iq_j$ for $i\le j$. For symmetric matrices $A,B,C,D$, direct symmetrization gives
+
+$$
+\left\langle\operatorname{sym}(A\otimes B),\operatorname{sym}(C\otimes D)\right\rangle
+=\frac{\operatorname{tr}(AC)\operatorname{tr}(BD)+\operatorname{tr}(AD)\operatorname{tr}(BC)+4\operatorname{tr}(ACBD)}{6}.
+$$
+
+Here symmetrization averages the six ways of assigning two input slots to each symmetric matrix. The trace formula follows by contracting those six terms; transpose and cyclic trace identities equate the four cycle terms. It reduces to the previous square Gram when $A=B$ and $C=D$. Low-rank reader contractions evaluate it without materializing ambient quartics.
+
+The target contraction similarly becomes
+
+$$
+\langle\operatorname{sym}(Q_i\otimes Q_j),T_m\rangle
+=\sum_{a,b}\nu_{ia}\nu_{jb}\,T_m(b_{ia},b_{ia},b_{jb},b_{jb}).
+$$
+
+[Exact controls](QUADRATIC_PRODUCT_CORE_V1_CONTROL.json) pass at7.4e-16. A planted $q_0q_1$ target is recovered by the mixed core, while these same fixed features restricted to squares give95.6% relative coefficient error. This is a representation counterexample, not evidence about the native model. Squares of *new* linear combinations of quadratics could represent it too; retaining products explicitly preserves reuse of the existing intermediates and may have a different cost under individual rank restrictions.
+
+A shared-node removal zeros all incident products. Joint removal of nodes$i,j$ has a correction equal to their shared cross-edge contribution; adding their separate removal effects would count that edge twice. The control verifies this exact output-space identity. Native denominator and background remain external to these algebraic node interventions.
+
+The native comparison uses the frozen initial11511 bank, independently of the still-running nonlinear fit. The full528-feature solve diagnoses the best coefficient projection in that bank. A sparse32-edge model uses greedy orthogonal pursuit: at each step, choose the edge with largest exact joint-output residual reduction after projecting out previously chosen features. This is a greedy method, not a globally optimal support search. Its [single-edge planted control](QUADRATIC_CORE_GREEDY_V1_CONTROL.json) recovers the correct interaction exactly.
+
+The sparse candidate retains32 outer products and592,704 fitted floats, plus64 edge-index integers; the full core has528 products,593,696 floats and1056 indices. Thus the dense arm is a capacity diagnostic, while the sparse arm is the relevant matched-product comparison. The native predictions require accurate normal equations/nonworsening full coefficient objective; at least10% sparse captured-energy improvement **and** halved native write error; and full-core native error at most10%. None uses text to fit or select edges. See `QUADRATIC_PRODUCT_CORE_NATIVE_V1_RESULT.json` after execution.
