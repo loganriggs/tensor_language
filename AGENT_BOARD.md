@@ -21536,3 +21536,18 @@ Learned core exactreplay2.09e-13,22scalar+5pairblocks,condition666; truncatingne
 
 ### 2026-09-12T02:01:42.867630+00:00 — Codex: 02:00 MATHEMATICAL REVIEW / MIXED-GRAPH PRICE QUEUED
 Primaryterminalcomparison and THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_0200.md recorded. Selected-edge Gram/targetcross CPUidentitiesexact, tangentFD3.11e-10. Nativeprice queued lane1 SHA7af76175dbafe91b30aaf551bc6c128d806e845c2efb54372b0015a269f6cd41 behindClaudev631. Firstsubmission was staticgatefalsepositive counting controlkeytuple asnewpredictions, beforeexecution; equivalentexplicitcontrolchecks fixed it. No nativefit yet: price receipt controls nextbudget. No newcircuits orOOD claim.
+
+### 2026-09-12T02:03:26.526703+00:00 — Codex: CLAIM MIXED-GRAPH PLANTED RECOVERY CONTROL
+While native price waits behind liveClaudev631, test actual selected-edge nonlinearobjective on a known3quadratic/rank2/4edge target in7D. Two near and two independent starts,2000steps or60CPUseconds each. A exacttarget/oracle agreement,descent,constraints; B allrelativecoefficienterrors<=1e-4; C allgradients<=1e-6. Misses distinguish localnumericalcorrectness from recovery; do not gate truth onall-startsuccess. No GPU outside managedlane.
+
+### 2026-09-12T02:05:13.864618+00:00 — Codex: MIXED RECOVERY MISS / CLAIM EXACT SMALL SUPPORT EXCHANGE
+Mixed planted: near2/2 recover<=2.2e-6, independent2/2 stationarymiss14.4/23.3%; A/Cpass,Bfail. On savedworstcase compareall15 four-edge subsets of6possibleedges atfixedreaders, choosebestexactcoefficientfit thenrefitreaders; atmost3cycles,2000steps/30sec each. A exactnoincrease and originalreplay; B finalerror<=1e-4; C finalgrad<=1e-6. This red-teams fixedtopology, not native/globaloptimization guarantee.
+
+### 2026-09-12T02:07:34.987963+00:00 — Codex: SUPPORT EXCHANGE MISS / CLAIM CONDITIONAL LINEAR QUADRATIC UPDATE
+Exact15-supportsearch doesnotescapeworst23.3% stationarymiss. For a node withoutselfedge, fixingotherquadratics andmixing makesfunction linear in its symmetricQ. Test exact28-variable leastsquares in7D, rank2truncate, thenjointrefit. A fullQ solve andoldreplay<=1e-10/descent; B truncated-plus-core-refit error improves>=10%; C joint error<=1e-4. This probes a different optimization block, with rankprojection caveat explicit.
+
+### 2026-09-12T02:09:34.720629+00:00 — Codex: CONDITIONAL NODE MISS / CLAIM SECOND-ORDER DIAGNOSIS
+Exactlinear middle-node update improvesunconstrainederror23.34->23.09%, butrank2projection andjointrefit return23.34%; Aheld,B/Cmiss. Finalsmall-scale discriminator: build36-dimensional tangent Hessian by transported-gradient centraldifferences at1e-4 and5e-5. A symmetry<=1e-5 andstepagreement<=1e-4; B eigenvalue<-1e-5; C ifnegativecurvature,lineprobe+refit lowerserror>=10%. No formalminimum/globalcertificate from finite differences.
+
+### 2026-09-12T02:11:40.391474+00:00 — Codex: MIXED-GRAPH BAD BASIN CHARACTERIZED / CONTINUATION RETAINED
+Primary COUPLED_QUARTIC_WRITER_V1_MATH.md recordsnear2/2 recovery,independent2/2miss andthreeexecutedredteams. Worst23.3%misstangentHessian eigenrange0.000883..4.432,epsagreement1.91e-8: numericalpositivecurvature,notrigorousminimumcertificate. No furthersmallescapevariantsnow; nativeprice queuedSHA7af... behindliveClaudev631. Use measuredprice tosetnativefitbudget; independently initialized/residual-derived route remainsneededfornegativeaudit.

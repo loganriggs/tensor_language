@@ -1,0 +1,81 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "initial_error": 0.23336851213514234,
+  "initial_replay_error": 0.0,
+  "supports_per_cycle": 15,
+  "rows": [
+    {
+      "cycle": 0,
+      "edges": [
+        [
+          0,
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2,
+          2
+        ]
+      ],
+      "selected_error": 0.23336851213514234,
+      "final_error": 0.23336851213514234,
+      "gradient": 7.801376262669788e-07,
+      "iterations": 1,
+      "termination": "stationary",
+      "seconds": 0.016256563365459442
+    },
+    {
+      "cycle": 1,
+      "edges": [
+        [
+          0,
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2,
+          2
+        ]
+      ],
+      "selected_error": 0.23336851213514234,
+      "final_error": 0.23336851213514234,
+      "gradient": 7.801376262669788e-07,
+      "iterations": 1,
+      "termination": "stationary",
+      "seconds": 0.0045626722276210785
+    },
+    {
+      "cycle": 2,
+      "edges": [
+        [
+          0,
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2,
+          2
+        ]
+      ],
+      "selected_error": 0.23336851213514234,
+      "final_error": 0.23336851213514234,
+      "gradient": 7.801376262669788e-07,
+      "iterations": 1,
+      "termination": "stationary",
+      "seconds": 0.004461590200662613
+    }
+  ],
+  "wall_seconds": 0.029910918325185776,
+  "scope": "Exact fixed-reader support search on one small failed case; joint refits remain nonconvex. No native or global guarantee."
+}

@@ -1,0 +1,58 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "identity_error": 3.086735950667238e-15,
+  "rows": [
+    {
+      "kind": "near",
+      "seed": 91932,
+      "initial_error": 0.09161930682055623,
+      "final_error": 9.787901697964001e-07,
+      "gradient": 7.553652764058553e-07,
+      "iterations": 61,
+      "seconds": 0.2108692079782486,
+      "termination": "stationary",
+      "constraint_error": 6.661338147750939e-16,
+      "monotone": true
+    },
+    {
+      "kind": "near",
+      "seed": 91933,
+      "initial_error": 0.11960340486353367,
+      "final_error": 2.1699972335175003e-06,
+      "gradient": 9.296025739743693e-07,
+      "iterations": 82,
+      "seconds": 0.2660408839583397,
+      "termination": "stationary",
+      "constraint_error": 4.440892098500626e-16,
+      "monotone": true
+    },
+    {
+      "kind": "independent",
+      "seed": 91934,
+      "initial_error": 0.9768585379863577,
+      "final_error": 0.14403086541081517,
+      "gradient": 9.76766708144502e-07,
+      "iterations": 410,
+      "seconds": 1.3547361716628075,
+      "termination": "stationary",
+      "constraint_error": 4.440892098500626e-16,
+      "monotone": true
+    },
+    {
+      "kind": "independent",
+      "seed": 91935,
+      "initial_error": 0.9633593861359012,
+      "final_error": 0.23336851213514234,
+      "gradient": 7.80137626125343e-07,
+      "iterations": 274,
+      "seconds": 0.9081651046872139,
+      "termination": "stationary",
+      "constraint_error": 4.440892098500626e-16,
+      "monotone": true
+    }
+  ],
+  "wall_seconds": 2.743436612188816,
+  "scope": "Small fixed-graph realizable target; near and independent recovery separate from global/native guarantees."
+}

@@ -203,3 +203,28 @@ The [executed re-encoding](LEARNED_QUADRATIC_PENCIL_V1_RESULT.json) reconstructs
 Keeping the original32 quadratics as shared parents avoids truncation: calculate the32 new quadratics as linear combinations, then evaluate the block core. This exact two-stage DAG preserves the full mixed program and its failed behavioral checks. With both symmetric off-diagonal entries consolidated, its core uses1024 basis-change weights and74 output-core coefficients versus1056 original output coefficients; it stores42 additional floats. Core scalar multiplications become1024+37+74=1135 versus528+1056=1584. The saving is449 multiplications, about0.076% of the original594736 multiplications including quadratic readers and the two physical writers, before external normalization/background costs. This is a generic algebraic reuse example, not substantial whole-program simplification or semantic identification.
 
 The [02:00 mathematical review](THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_0200.md) therefore selects joint reader optimization for the frozen32-edge mixed graph. The [selected-edge kernel](quartic_selected_edges_v1.py) avoids computing all528 candidate features when only32 are needed. Its [synthetic control](QUARTIC_SELECTED_EDGES_V1_CONTROL.json) matches the full kernel exactly and checks the variable-projection tangent derivative to3.11e-10. [Native price runner](../bilinear_quotient/ops/run_quartic_selected_edges_price_v1.py) tests baseline replay, finite differences, gradient, time and memory before a fit budget is chosen. This remains weights-only discovery; native examples do not determine the graph or fit objective.
+
+## Mixed-graph recovery and a numerically positive-curvature miss, 12 September 02:11
+
+Before treating convergence of the richer graph as a solution, the [planted recovery control](QUARTIC_MIXED_RECOVERY_V1_CONTROL.json) fits three rank2 quadratics with four product edges in seven input dimensions. The target is constructed independently as a dense symmetric quartic. Coefficient/oracle agreement is3.09e-15. Two nearby starts recover error below2.2e-6; two independent starts stop with gradients below1e-6 but errors14.4% and23.3%. Numerical validity and stationarity pass; all-start recovery fails. All four fits finish in2.74seconds total. The sixty-second budgets were not reached.
+
+Three targeted checks investigate the worse miss:
+
+| Potential explanation | Executed discriminator | Outcome |
+|---|---|---|
+| Wrong product connections at fixed readers | Enumerate all15 four-edge subsets of the six possible products, solve each output fit exactly, then refit readers. | The original support remains best; error stays23.3%. [Receipt](QUARTIC_MIXED_SUPPORT_V1_CONTROL.json). This is exhaustive only for that frozen small bank. |
+| Poor local updates of an individual quadratic | For the middle node, which has no self-edge, solve its unconstrained symmetric matrix by exact28-variable linear least squares, project to rank2, then refit. | Full-matrix error improves23.34→23.09%; rank projection loses the gain, and refitting returns23.34%. [Receipt](QUARTIC_MIXED_LINEAR_NODE_V1_CONTROL.json). |
+| A saddle missed by first-order stopping | Form the36-dimensional tangent Hessian using transported-gradient central differences at two step sizes. | All measured eigenvalues are positive, from0.000883 to4.432. Symmetry errors are below8.50e-9; step-size disagreement is1.91e-8. [Receipt](QUARTIC_MIXED_CURVATURE_V1_CONTROL.json). |
+
+The conditional linear update uses a useful algebraic restriction. If node $j$ has no square edge and all other quadratics and output coefficients are fixed, its contribution is
+
+$$
+q_j(x)g_m(x),\qquad
+g_m(x)=\sum_{k:(j,k)\in E}A_{jk,m}q_k(x).
+$$
+
+This is linear in the symmetric matrix $Q_j$. The unrestricted least-squares subproblem is therefore convex. Requiring rank2 or rank16 reintroduces a nonconvex constraint, and ordinary eigenvalue truncation does not solve the induced weighted least-squares problem. The test's projection failure is not evidence that every rank-constrained block update fails.
+
+The curvature check is numerical evidence of a locally stable bad fit, **not a rigorous local-minimum certificate**. In particular the gradient is small rather than exactly zero, and finite differences do not bound all higher derivatives. It does rule against the tested explanation of a readily visible negative-curvature direction at this endpoint. The exact planted solution still exists; no absent-structure conclusion is possible.
+
+For the native experiment, keep initialization, graph search and local convergence separate. A locally converged mixed graph still needs independent initialization or an effective residual-derived restart before a broad negative interpretation. The pending native gradient-price job remains useful: it tests whether the mixed objective is executable and supplies the cost of that experiment. These toy misses do not invalidate its gradient or justify fitting the validation text. The reusable [mixed objective](mixed_quartic_objective_v1.py) now supports the fixed graph and exact target oracle without copying the optimizer itself.
