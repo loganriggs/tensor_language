@@ -1,3 +1,7 @@
+### 12 September, 17:30 — Requested full report and control correction
+
+[New full update for Logan](../for_logan/research_update_2026-09-12_1730_shared_producer_interactions.md) covers results since16:20. Fresh shared producers pass conditional confirmation; newlineV1 is inconclusive because native capability and whole-head positive controls fail. V2 rows/prereg exist but its runner is not yet implemented. A CPU physical-writer lift passes exact commutation; recursive producer removal remains untested.
+
 ### 12 September, 17:03 — Fresh confirmation and executable shared producers pass
 
 [Primary results](../../FOLDED_PRODUCER_NATIVE_V1_MATH.md): frozen head8.2/head9.8

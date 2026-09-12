@@ -1,0 +1,15 @@
+# Factorial audit of newline service: context and intervention
+
+2026-09-12, before V2 model evaluation. V1 failed native capability and the zero-removal positive control on16authored prompts. Its tiny candidate changes do not prove preservation. Inspection of newline_crew_screen.py/newline_crews.py shows that the older dossier used natural FineWeb next-newline targets and replacement of the pre-output head vector by a24-prefix mean. V2 explicitly crosses those two methodological differences; it does not revise V1's failed prediction.
+
+Source: immutable .rowcache/fineweb_n192_skip11000.pt, SHA b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868. This is the model's training-domain corpus, not corpus OOD. Rows are513-token chunks; do not assert document disjointness. The cache has prior research use. No model scores select or filter examples.
+
+Control mean: first24cache rows, first256input tokens each. Average the native head8.2 pre-output128-vector over all24x256 positions. This is a nuisance baseline for a validation counterfactual, not fitting circuit factors. Evaluation: from remaining168rows with a bare newline198 at positions64through256, shuffle eligible row indices with seed9231726, select32distinct rows, and take each prefix ending immediately before its first eligible newline. Split selected order into two16-row halves before model evaluation. Include the same16authored V1 rows unchanged as an intervention/context factorial control.
+
+Arms on all48test prefixes: native; three frozen regional edge removals (8.2,9.8,joint); actual wholehead8.2zero; actual wholehead8.2mean replacement. Both wholehead interventions propagate through every subsequent native layer. Source components/shared writer remain frozen. Do not replace globally shared first values or refit on these examples.
+
+A: original head/compiled contribution/subtraction replay<=1e-5, no-edit final logits/CE<=1e-4. Also reproduce V1 authored native/zero CE and effects<=1e-4relative; a failed replay blocks the factorial interpretation.
+B: EACHnatural16-row half native newline-minus-comma mean>=.2,>=12/16positive,meannewlineCE<=5; mean-head replacement increases newlineCE by>=.02mean and>=8/16positive. Report zero-head effects separately and the complete authored counterparts. Mean replacement is the new registered positive control matching the dossier's intervention type, not a rescue of the old zero-removal claim.
+C: EACHcandidate/naturalhalf meanabsnewlineCEchange<=.02,maxabs<=.1, conditional on A/B. All original preservation bars retained. Inadequate native/mean-control capability remains inconclusive. Report signed effects and actual next-token labels; no absolute-score-only interpretation.
+
+Price:6four-row mean batches plus3x48single-row native/wholehead bodies=150bodyforwards;4suffixevaluations pertestrow; maxprefix256;300seconds. No optimization. Managed lane1 only. A pass is a training-domain newline preservation control for a consumer-specific edge intervention, not global circuit completion.

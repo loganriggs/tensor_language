@@ -1,11 +1,12 @@
 # Requested full reports for Logan
 
-**Latest full update: [12 September — Interaction-path decomposition and extraction](research_update_2026-09-12_1536_interaction_decomposition.md).** Covers everything since the September11,21:42 report, with a high-level overview, explained maths, mathematical-review contributions, and four-property status. Updated through 16:20 UTC; section 10 covers the newest upstream interaction factorization.
+**Latest full update: [12 September, 17:30 — Shared producers and interaction-path decomposition](research_update_2026-09-12_1730_shared_producer_interactions.md).** Covers the work since the previous report’s 16:20 addendum, with high-level events, explained computations, results and failures, and the four-property status.
 
 **Background references:** [What the factorization means: CP versus LL1 versus shared-input groups](research_update_2026-09-11_1327.md#factorization-explained). [Copyable browser-Codex brief](factorization_browser_brief_2026-09-11.md).
 
 This directory is for fuller updates explicitly requested by Logan. Routine automatic experiment notes remain in the dated explanation folders.
 
+- [12 September, 17:30 — Shared producers and interaction-path decomposition](research_update_2026-09-12_1730_shared_producer_interactions.md)
 - [12 September — Interaction-path decomposition and extraction update](research_update_2026-09-12_1536_interaction_decomposition.md)
 - [11 September — Interaction-path decomposition project proposal](interaction_path_decomposition_proposal_2026-09-11.md)
 - [11 September, 21:42 — Shared graphs, local prediction, and upstream dependencies](research_update_2026-09-11_2142.md)
