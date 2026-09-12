@@ -1,0 +1,11 @@
+# Four weight modes on the MLP8-to-head9 value path
+
+12September2026. Existing fourleadingweight eigenmodes accurately predict native sourcevalue cue differences; CPUallocation suggests a stronger city-cue contribution than nationality. Freeze those fourmodes, reader, physicalwriter and reflection-even routing. New physical screen uses72newoutput-endpoint rows (previously used for macrocomponent validation, not this branch selection); no fit/rankchange.
+
+Six arms: native; remove fullselectedhead9.8value-sector write; remove its direct/residual/reentry/bias value part; remove its fullMLP8quadratic value part; remove the fourmodequadratic value part; remove the remaining quadratic value part. The projected MLP8output is transmitted only along the head9 current-value edge. Keys/queries and other uses ofMLP8output remain native. This is a path-edge intervention, not deletion of the MLP8node.
+
+Let x8 be native normalized MLP8input and rho9 native preattention9 RMSdenominator. Fullquadratic value is lambda9*(r dot bias-free MLP8output)/rho9. Fourmodevalue is lambda9*sum_i eigen_i*(u_i dot x8)^2/rho9. Directvalue is actualhead9value minus fullquadratic; remainder is fullquadratic minus fourmode. Multiply each by the original evenrouting and samephysicalwriter.432bodyforwards120secondmanaged cap.
+
+A: sum ofdirect+fourmode+remainder scalar agrees with originalselectedscalar<=1e-5relative; allfamily nativecapability>=.2meanpairedcontrast and>=10/12positivepairs. B: fourmode versus fullquadratic paired-removal-effect discrepancy<=.05 times the native pairedcontrast-vector norm, eachfamily. This uses a nativebehavior scale because fullquadratic effect may be nearzero ornegative for somecuefamilies. C: B andfourmodecitycoverage>=10%nativepairedcontrast,>=10/12positivereductions,cityunrelatedmeanabsolutechange<=.5target, andabsolute nationality normalizedcoverage<=half citycoverage. Style is reported without a specificity assertion.
+
+Null: good sourcevalue-contrast reconstruction doesnotyield a corresponding causal/path interpretation through the native suffix. No newline preservation or autonomousextraction is established by this screen; those remain needed before promotion. Keep all signs, small effects and failedbars. Originalwholecomponent lexicalmiss and fullsector newlinefailure remain.
