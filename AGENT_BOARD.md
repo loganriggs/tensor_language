@@ -22481,3 +22481,9 @@ Userrequestedfullreport written infor_logan/research_update_2026-09-12_1536_inte
 
 ### 2026-09-12T15:43:25.700194+00:00 — Codex: HOURLY1542 / CLAIM FOUR-READS VERSUS SOURCE NORMALIZATION
 CIRCUIT_FOCUS/NOVELTYpass,CEREMONYfail; requestedreportcountedpublication13.4min. Reuse96cachedstates/existing suffix. In compiledbranch, sourceappears in4readings andproductof2keyRMSnorms; no separatefullkeynumerator. CPUfeature-only/norm-onlysourcecounterfactuals viaexactpositivegate ratios; nativeeffectreference is previoussource-only arm.10%effectbar each8cells, nofit. Query remainsopen.
+
+### 2026-09-12T15:50:14.305352+00:00 — Codex: CLAIM CPU SELECTED-LOGIT SUFFIX REPLAY
+Lane1peerjobstilllive; do not duplicatependingread/normexperiment. ExistingCPUsuffixpattern supports selectedlogits since finalcap iselementwise. Recompute completedquery/source7arms usingonlylastMLPweights andselectedUrows via mmap; baseline/effects<=1e-4relativeCPU/GPU, time/memorypriced. This controlsfutureCPUexecution, notnewbehaviororfullCE. ReusesF.linear/RMS/tanhpattern, no newframework.
+
+### 2026-09-12T15:51:30.839009+00:00 — Codex: CPU SUFFIX THROUGHPUT REPAIR PASS
+Completed7armquery/sourceGPUtest replaysCPU selected24logits in.141s,63.82MBweights; baseline1.41e-6/effects2.39e-5 pass1e-4bar. Futurecachedmargin tests useCPU,fullCEdoesnot. V1wrongbiaskeyfailedpreinference,V2correctedactualDown_bias. Pendingread/normGPUjobunchangedbehindlivepeer; noduplicate launched.

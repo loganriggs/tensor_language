@@ -1,0 +1,22 @@
+{
+  "pred_a": true,
+  "checks": {
+    "baseline": 1.4076643910384284e-06,
+    "effects": 2.3917770422725424e-05,
+    "baseline_maxabs": 9.059906005859375e-06,
+    "effects_maxabs": 1.621246337890625e-05
+  },
+  "selected_token_count": 24,
+  "suffix_seconds": [
+    0.02392558380961418,
+    0.01723850518465042,
+    0.0160992294549942,
+    0.015474043786525726,
+    0.01522340252995491,
+    0.01504792645573616,
+    0.015214100480079651
+  ],
+  "total_seconds": 0.14130456000566483,
+  "weight_tensor_bytes": 63816192,
+  "scope": "CPU selected-logit oracle for cached last-MLP inputs and edits, validated against a completed GPU experiment. Not a duplicate of queued read/norm test, not full vocabulary CE or upstream extraction."
+}

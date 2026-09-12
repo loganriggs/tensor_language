@@ -13,3 +13,13 @@ The phase audit covers98.02%of the61.8minwindow. Native jobs for the local head/
 Alternatives: (1) distinguish four source readings from source normalization on cached states, then trace the dominant producer; (2) reopen broader composed-path dictionary search; (3) simplify more normalization matrices. Choose1 as a bounded extraction decision;2 remains program scope but benefits from knowing the sufficient inputs;3 is demoted after repeated native-effect failures. The source input of the current projected branch affects four source readings and the product of two key RMS factors. It does not retain an independent full source-key numerator outside those readings. Therefore isolate those precise ports, rather than describe another vague QK split.
 
 Opposing predictions: donor feature readings alone reproduce source-swap effects within10%, versus source normalization changes materially correcting them. Execute exact rescaling of cached per-position branch writes and score against prior source-only native effects. No fitting. A miss requires retaining joint features/normalization, not more rank sweeps. Query correction remains independently required by15–33%source-only native error. Physical vector norms are not causal fractions; final suffix scores are the functional check. Next hourly16:42; math17:06 UTC.
+
+
+Executed throughput repair at15:50: the existing selected-logit CPU suffix pattern
+replays the completed seven-arm query/source test using only last-MLP weights and
+24unembedding rows. Native GPU baseline relativeerror1.41e-6; effecterror2.39e-5,
+both pass the1e-4 CPU/GPU bar. Seven evaluations total0.141s including mmap/setup;
+weighttensor footprint63.82MB. V1 used the wrong bias key and stopped before
+inference; V2 uses the actual Down_bias parameter. Failure receipt preserved.
+Use this path for future cached selected-margin tests; it does not compute full
+CE or regenerate context. The alreadyqueuedread/normrun remains unchanged.
