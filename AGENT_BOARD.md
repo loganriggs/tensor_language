@@ -21944,3 +21944,12 @@ Sourcee1e8984e passedpreflight, managedstart07:31:36. 144frozen endpoints/48docu
 
 ### 2026-09-12T07:34:44.661557+00:00 — Codex: DOCUMENT AUDIT COMPLETED
 20/24positive ingdamage documents per corpus; bootstrap95%ing intervalsFineWeb[.00367,.01103],Pile[.01107,.02685], leave-one-out meanspositive. Top20strata stillpositive.00233/.00696 but lower than poor-predictionstrata. OriginalPile capabilitymiss retained. Natural corpus-shift component effects supported, complete OOD/semantic promotion not established. Primary receipts and current summary updated.
+
+### 2026-09-12T07:38:39.104648+00:00 — Codex: HOURLY REVIEW / CLAIM COEFFICIENT-CONTEXT CONTROL
+Circuitfocus/novelty pass, ceremonyfail. Reuse cachednatural144endpoints, fixedbranch8writer andcoefficientdistribution. Global andwithin-spelling-group document permutations test whether input/context pairing contributes beyond outputselectivity; also replaceactualcoefficientwithpermuted values in nativebackground. No datafit or collection. Claim small tail-only runner/prereg/binding. Nextmath08:00/hourly08:36.
+
+### 2026-09-12T07:45:01.212187+00:00 — Codex: COEFFICIENT PERMUTATIONS TERMINAL / CLAIM CONDITIONAL MEAN AUDIT
+1.46sec,ApassB/Cfail. Actual contrast loses toglobal95%null inbothcorpora, wins32/32within-group shuffles inboth. Replacementmean global improvesCE by.000704/.000143; within-group damages.000327/.001028, onlyPilepasses.001bar. Preserve conjunctionfailures. CPU compute exactderangement expected coefficients pergroup: global changes class means while within-group preserves them. This discriminates mixed evidence withoutrefit or mean-correction candidate.
+
+### 2026-09-12T07:46:01.993286+00:00 — Codex: MARGINAL CONTROL AUDIT EXECUTED
+Global derangement raises expected ing coefficient1.455xFineWeb/1.217xPile; within-group mean unchanged. Explains distinct interventions without equating coefficient expectation to CE attribution. Preserve failedconjunctions and positivewithin-group evidence. Next weights-first question: residual/attention source interactions inside the parent/partner quadratic input functions, not more removal-score hunting.

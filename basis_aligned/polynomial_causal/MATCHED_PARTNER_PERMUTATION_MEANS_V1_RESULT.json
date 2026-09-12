@@ -1,0 +1,55 @@
+{
+  "cells": [
+    {
+      "corpus": "fineweb",
+      "group": "ing",
+      "actual_mean": 3.1280664701205975e-06,
+      "expected_within_group_derangement_mean": 3.1280664701205975e-06,
+      "expected_global_derangement_mean": 4.55182189925104e-06,
+      "global_actual_ratio": 1.4551551070702
+    },
+    {
+      "corpus": "fineweb",
+      "group": "base",
+      "actual_mean": 5.3766767600230225e-06,
+      "expected_within_group_derangement_mean": 5.3766767600230225e-06,
+      "expected_global_derangement_mean": 4.5201513317876255e-06,
+      "global_actual_ratio": 0.840696127651957
+    },
+    {
+      "corpus": "fineweb",
+      "group": "other",
+      "actual_mean": 5.091399324729067e-06,
+      "expected_within_group_derangement_mean": 5.091399324729067e-06,
+      "expected_global_derangement_mean": 4.52416932383402e-06,
+      "global_actual_ratio": 0.8885905495292825
+    },
+    {
+      "corpus": "pile_ood",
+      "group": "ing",
+      "actual_mean": 4.428870490869601e-06,
+      "expected_within_group_derangement_mean": 4.428870490869601e-06,
+      "expected_global_derangement_mean": 5.3890653253143925e-06,
+      "global_actual_ratio": 1.2168035476368737
+    },
+    {
+      "corpus": "pile_ood",
+      "group": "base",
+      "actual_mean": 6.728229467623778e-06,
+      "expected_within_group_derangement_mean": 6.728229467623778e-06,
+      "expected_global_derangement_mean": 5.356679987613629e-06,
+      "global_actual_ratio": 0.7961500144116604
+    },
+    {
+      "corpus": "pile_ood",
+      "group": "other",
+      "actual_mean": 4.970087899347933e-06,
+      "expected_within_group_derangement_mean": 4.970087899347933e-06,
+      "expected_global_derangement_mean": 5.381442544913289e-06,
+      "global_actual_ratio": 1.0827660705194622
+    }
+  ],
+  "source_sha": "4a15fa077b63be601d95c46eebb9ae8e72fe8b8b1d120dc728f52384703c67ff",
+  "formula": "Uniform derangement: E(alpha_perm_i)=(N*mean(alpha)-alpha_i)/(N-1); average this within each target group.",
+  "scope": "Exact marginal expectation, not an exact CE-effect attribution. It explains why global and class-preserving controls test different hypotheses; no fitted surrogate or failed-bar revision."
+}

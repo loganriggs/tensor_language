@@ -1,3 +1,7 @@
+# Current result —12 September07:44 UTC
+
+[Input/context permutation controls](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#inputcontext-controls-narrow-the-interpretation-12-september0744): global shuffling preserves natural removal selectivity; within-spelling-group shuffling reduces it. Registered all-controls/replacement-loss conjunctions fail. Compact/stable component remains, stronger contextual semantics unproved.
+
 # Current result —12 September07:33 UTC
 
 [Natural-text and corpus-shift screen](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#natural-text-removal-and-corpus-shift-12-september0733): branch8 ing removaldamage+.00728FineWeb/+.01833Pile, selective-control/joint bars pass. Pile native-capability bar fails8/24top20. Document audit supports positive means without exclusions; no complete OOD/circuit claim.

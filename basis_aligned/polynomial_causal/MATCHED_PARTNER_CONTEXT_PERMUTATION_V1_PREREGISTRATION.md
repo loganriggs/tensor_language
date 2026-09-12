@@ -1,0 +1,9 @@
+# Does the context-dependent coefficient matter beyond the writer?
+
+Freeze branch8 output writer and all natural endpoint coefficients.32seeded derangements per corpus in each of two modes: global across72endpoints, and whole-document permutation preserving ing/base/other group membership. Within-group mode uses the same document permutation for allthreegroups. Seeds73110(FineWeb)/73111(Pile), sequential generator draws. No outcomes used to choose permutations. Each preserves the coefficient multiset and contains no fixed points.
+
+For each permutation compute (i) removal of the permuted coefficient times the same writer from native h; (ii) replacement of the actual branch with that permuted branch, h+(alpha_perm-alpha_actual)w. Native RMS/tanh/full nexttoken CE retained. These are diagnostic interventions, not surrogate fits. Nearby rows belong to the same document; group-preserving permutations respect that pairing.
+
+A: exact coefficient multiset/fixed-point checks, actual coefficient removal replays saved natural CE effects<=1e-5, finite. B: actual ing-minus-base removal contrast exceeds the95thpercentile of permutation contrasts in BOTH modes and BOTH corpora. C: permuted replacement mean CE damage>=.001 in BOTH modes/corpora. Report negative/zero changes and distributions. Null: output direction plus marginal coefficient distribution explains the earlier selective-removal score; input-context matching is not established by it. A miss does not invalidate the exact factorization, stable identification or conditional execution.32permutations are a bounded screen, not a precise tail probability. Pile capability miss remains.
+
+0body forwards, cached144endpoints. Same frozenwriter/background, no data fitting or selection. Use existing endpoint states and checkpoint unembedding only.
