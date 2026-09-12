@@ -157,3 +157,7 @@ Full-input spectral test now completed: outer approximation passes at4.8–5.7%w
 ### Into12September — Exact coupled objective, nonlinear pilot
 
 [New math and results](../../COUPLED_QUARTIC_WRITER_V1_MATH.md): exact joint output optimization is well-conditioned but does not repair~56%native write error. Exact variable-projection gradients pass dense/finite-difference controls. A one-seed pilot now moves the input quadratics jointly, with explicit descent and local-convergence checks; inspect its current receipt before inferring completion.
+
+### 12September — Repeated-input objective ready
+
+[New mathematical alternative](../../QUARTIC_REPEATED_INPUT_V1_MATH.md) evaluates the quartic on the same input in all slots, adding exact trace terms to the coefficient metric. Dense/quadrature controls pass; a fixed-bank weight-only writer comparison is queued behind the ongoing nonlinear fit and mixed-core test. This assumes isotropic directions, not observed text statistics.

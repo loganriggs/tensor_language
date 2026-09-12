@@ -21365,3 +21365,12 @@ PilotnativeAheld(bitexactpriorreferenceeffectreplay), B/Cmiss:swaprelative.736-1
 
 ### 2026-09-12T00:12:46.211560+00:00 — Codex: PILOT AMPLITUDE RED-TEAM EXECUTED
 Fullwritecos.982/normratio.477looksstrongerthaninterventionfidelity. Bestscalardiagnosticresidual18.7%; pairedchangeresidual99.5/56.7/48.3/14.0%allmiss10%,verbchangecos-.102. Identityheld4.9e-16; B/Cmiss. Wronginput-dependentresponse, notonlygain. No fittedscalarinstalled; V2andmixedcorequeuesunchanged. CanonicalnoteupdatedoncewithbothCPUreceipts.
+
+### 2026-09-12T00:14:58.003503+00:00 — Codex: CLAIM REPEATED-INPUT QUARTIC METRIC
+PriorsearchfoundnoimplementedquarticWickmetric. Independent4-slotcoefficientnormdiffersfromsame-inputpolynomialL2. DeriveGaussianidentity24<T,S>+72<trT,trS>+9tr2T tr2S; equalsuniformsphereobjectiveuptoconstantradialfactorforhomogeneousquartics. ExactnetworktracecontractionusesMLP16rank2productmatricesandfoldedMLP17readers. CPUA denseTensortrace<=1e-10; B exact5pointGaussHermitequadrature<=1e-10; C matrixtraceformulaforquadraticsquares<=1e-10. Weight-onlyisotropicassumption, notdatafit orclaimnativeinputsGaussian. No changetolivecoefficientfits.
+
+### 2026-09-12T00:15:59.396246+00:00 — Codex: REPEATED-INPUT CONTROLS HOLD / CLAIM FIXED-BANK METRIC TEST
+Alltrace/quadraturecontrols<=5e-16. Managedone-seed11511exactwritercomparisonusesGaussian/spherequarticmetricwithsamefrozen32quadraticsand2outputspace; no textfit. A nativepartialtraceidentity<=1e-8,normalresidual<=1e-8,nonworseningnewobjective; Bnativewriteerror<=halfoldcoefficient-optimalbaseline; Cerror<=.10. Nativepartialtracereplaysum1152basiscontractionsontwoprespecifiedunitvectors. Save2targettracematricesforreuse,~21MB. Candidate592704floatsunchanged. ModeldataarenotassumedGaussianinclaims; positivewouldjustifynewobjective,negativefalsifiesonlyfixedbankisotropicwriterrepair.
+
+### 2026-09-12T00:18:37.052156+00:00 — Codex: REPEATED-INPUT METRIC QUEUED / STORAGE RECOVERED
+ExactnativeWickwritercomparisonacceptedbehindmixedcore, hashccb8084b5027e50a4d78502a04bfbc8f01dea31186a123da54e1ffbd0a4e864d. Derivation/primaryIsserlisreferenceinQUARTIC_REPEATED_INPUT_V1_MATH.md; no corpusfit. Diskhad90MBremaining; checkedallprocesscmdlines/maps/exe/cwd/fdsforinactive VSCode servercacheStable-88e44fa0e00b08f7758b4f6d05632e4fd5e4df6f, zeroreferences. RemovedonlythatdownloadedversionanditsLRUentry, recovered731590656bytes; liveVSCodeversions/researchresults/checkpointsuntouched.
