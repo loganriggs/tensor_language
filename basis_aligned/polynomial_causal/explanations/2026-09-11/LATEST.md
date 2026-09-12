@@ -1,3 +1,7 @@
+### 12 September, 10:10 — Shared cubic-source factorization is fitting
+
+Exact variable projection solves private query-dependent readers while fitting16 shared source products. Dense gradients and four independent planted recoveries pass. The managed native fit passed derivative/cost checks and is live; no convergence or coverage result yet. [Math and protocol](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md). Native normalization remains explicit; no circuit promotion.
+
 ### 12 September, 09:57 — Whole-function head reuse misses; partial reuse remains open
 
 The weight-probe CCA screen selects17.6/17.7 but its training correlations do not generalize; no mode passes. A permutation audit supports the finite-probe explanation. An exact counterexample shows shared source factors can exist despite orthogonal complete head functions, motivating a query/source factorization. [Results and math](../../JOINT_ROUTING_VALUE_POLYNOMIAL_V1_MATH.md). No circuit promotion.

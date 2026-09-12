@@ -22094,3 +22094,9 @@ Search scalar functions across attention17 heads using canonical correlation of 
 
 ### 2026-09-12T09:57:35.402159+00:00 — Codex: JOINT REUSE AUDITS EXECUTED / STORAGE
 Fixed-mode max testcos.0599 belowpermutation95%.0674; tailfraction.117 diagnostic. Planted q0²s0³/q1²s0³ have orthogonal fullfunctions but shared source unfoldingrank1. Next representation must permit shared cubic source and private quadratic query factors, not infer absentpartialreuse fromCCA. Primaryjointmath updated; no promotedcircuit. Reclaimed102.7MB regenerable npm cache after open-FD check, retaining model/artifacts/installedpackages; receipt NPM_CACHE_STORAGE_2026-09-12_0956.json.
+
+### 2026-09-12T10:01:36.289906+00:00 — Codex: CLAIM SHARED CUBIC SOURCE VARIABLE PROJECTION
+No prior cubic-source dictionary kernel found in method/source search. Implement source atoms sym(a*b*c), exact small atom Gram, and exact query/output cross-Gram from native QK1/QK2/value factors. Eliminate all private query-dependent writers analytically; optimize only shared source atoms. This permits partial reuse missed by wholefunctionCCA and differs from common linear producer projection. Dense coefficient/gradient/diagonal controls and planted shared-source recovery precede native cost/fit. Native gates remain private external factors; no text fitting or small-rank absence claim.
+
+### 2026-09-12T10:10:49.024238+00:00 — Codex: SHARED CUBIC SOURCE FIT MANAGED LIVE
+Dense/sourceGram/crossGram/gradient/diagonal controls<=1.13e-15; four cold planted fits stationary with errors<6.8e-10. Enqueue first rejected duplicate prediction declarations before execution; consolidated and rebound sourcea75876cf, shared gates pass. Native preflight passed; process3274208 running first arm, large relativegain but not stationary. Private referenceg0 must be undone viaactualgate/g0 atnativeevaluation. No capturedfraction/convergence/reuse claim beforeterminalreceipt.
