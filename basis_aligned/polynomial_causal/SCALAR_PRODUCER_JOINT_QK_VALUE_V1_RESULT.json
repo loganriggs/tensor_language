@@ -1,0 +1,39 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "cells": [
+    {
+      "family": 0,
+      "native_replay": 1.1776525564770573e-07,
+      "changed_replay": 1.774624289132626e-07,
+      "factorial_replay": 1.2521133060934009e-17,
+      "value_only_error": 0.5660817441146836,
+      "routing_only_error": 1.3646499378394943,
+      "mixed_to_full_norm": 0.19324591684771153,
+      "value_to_full_norm": 1.2171351647511546,
+      "routing_to_full_norm": 0.6911049763340218,
+      "routing_value_cosine": -0.6808234377999138
+    },
+    {
+      "family": 1,
+      "native_replay": 1.549594504484628e-07,
+      "changed_replay": 1.5928126964631695e-07,
+      "factorial_replay": 1.3284084193962525e-17,
+      "value_only_error": 0.09925101768129434,
+      "routing_only_error": 1.0529960408004069,
+      "mixed_to_full_norm": 0.07501162280235282,
+      "value_to_full_norm": 1.0319555069241606,
+      "routing_to_full_norm": 0.17150586191666095,
+      "routing_value_cosine": -0.31930326559242594
+    }
+  ],
+  "arms": [
+    "native",
+    "joint_changed",
+    "value_changed",
+    "routing_changed"
+  ],
+  "seconds": 0.05965183675289154,
+  "scope": "Four-corner conditional scalar9 decomposition after component8 removal; QK1*QK2 kept together. Reused native states, no factor fitting or final-effect adoption."
+}

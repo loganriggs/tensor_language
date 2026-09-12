@@ -118,3 +118,7 @@ transfer and exact causal removal.
 ## 2026-09-12 — Specific regional producer interaction through MLP8
 
 A frozen physical head8.2 value-component removal changes head9.8's component and explains much of the pair's regional joint-removal nonadditivity in a hybrid frozen-second-write diagnostic. This is distinct from the earlier equality or generic rank ladders. For its fixed writer d, the exact MLP8 directional response has constant mixed map J_d=D[diag(Rd)L+diag(Ld)R] and square term J_d*d/2. Independent actual-weight algebra controls pass; native term-mediation testing is queued. The native background MLP output and prefix inputs remain explicit, so this is not standalone MLP extraction. [Primary evidence and exact equations](../FOLDED_PRODUCER_NATIVE_V1_MATH.md).
+
+### 12September18:10 — Native and signed-effect bridge confirmation
+
+Fixed MLP8 direct+mixed response predicts head9.8scalar change within.5–1.3% and the signed serial native effect within.38–1.14%, while direct-only misses~34%. The directional constant-map runtime also passes native numerical checks. Originalbackground/input generation remains external; this doesnotreplacewholeMLP8. [Native and behavioral receipts](../FOLDED_PRODUCER_NATIVE_V1_MATH.md).

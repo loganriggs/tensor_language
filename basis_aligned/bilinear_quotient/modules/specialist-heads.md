@@ -323,3 +323,7 @@ Natural FineWeb32-prefix V2 control passes: actual wholehead8.2mean replacement 
 ### 12September17:46 — Physical producer removal and serial dependence
 
 Original8.2/9.8source components removed recursively reduce67–70%regionalcuecontrast (all24pairsdirection), versus7.6–8.5%underconditionaledge removal. Wholeheadfidelitymisses andoneFineWebrownewlinejointCEdamage.1665failmax.1selectivity; nofullcircuitpromotion. Frozen-second-write diagnostic explains muchofjointnonadditivity, butMLP8/normsintervene. [Results and exactMLP8bridge](../../polynomial_causal/FOLDED_PRODUCER_NATIVE_V1_MATH.md).
+
+### 12September18:10 — Regional serial path confirmed; collateral retained
+
+Head8.2->MLP8->head9.8 direct+mixed generator predicts signed serial effect within.38–1.14%onreused48rows. JointQKroutingneeded: value-onlyscalartransfermisses56.6%inonefamily, with19.3%routing/valueinteraction. Sixfixedcountryvariants ofthepreservednewlineoutlier remaincapable;5/6jointdamages>.1. No globallyselectivecircuitpromotion. [Primary evidence](../../polynomial_causal/FOLDED_PRODUCER_NATIVE_V1_MATH.md).

@@ -182,3 +182,32 @@ This packages the full finite-amplitude response as one linear map with a shared
 The comparison is conditional: z, the native background u, and amplitude a still require generation, and the rest of the native model remains charged. It is not a12fold whole-model compression claim. The square term is already implicit in this program; removing it is an approximation, not an equivalent rewrite.
 
 [Native-state preregistration](SCALAR_PRODUCER_MLP_BRIDGE_NATIVE_V1_PREREGISTRATION.md) and cache/scorer implementations are committed. At17:54 the96-forward native cache is queued behind the confirmed live peer663 process. It will capture pristine z8, pristine/changed raw r9 and scalar fields on48reusedregional rows; no native bridge result exists yet. The fixed CPU comparison tests exact four-term replay, direct+mixed sufficiency, and whether direct-only misses. It must complete before assigning native importance to any of the algebraic terms.
+
+## 18:10 — The composed interaction predicts native scalar and behavioral changes
+
+The queued [native cache](SCALAR_PRODUCER_MLP_BRIDGE_CACHE_V1_RESULT.json) completed96forwards in2.28seconds after the peer job finished. All cache bars pass; native/physical8 margins replay exactly. No duplicate job was launched during the live wait.
+
+[Native four-term bridge](SCALAR_PRODUCER_MLP_BRIDGE_NATIVE_V1_RESULT.json) passes A/B/C. Exact residual-change errors are1.38e-5/1.37e-5, including FP32 native rounding; exact scalar9-change errors are7.98e-7/5.35e-7. Direct+mixed scalar prediction errors are1.32%/.50%; direct-only33.45/36.20%, confirming that the MLP response matters. The changed-normalizer background term is small on this panel, but actual normalization remains in all executions. Median perturbation norm is.57%of native z8norm, maximum2.06%; the native regime differs from the earlier random large-amplitude probes.
+
+[Directional runtime](SCALAR_PRODUCER_DIRECTIONAL_NATIVE_V1_RESULT.json) also passes both FP64 and FP32 native checks. FP32 scalar-change error<=9.37e-7 with the original bias-free MLP output supplied as background. This verifies the fixed constant-map program on actual states; it does not eliminate the cost of producing those states or background.
+
+[Signed end-effect test](SCALAR_PRODUCER_MLP_BRIDGE_EFFECT_V1_RESULT.json),240forwards4.08seconds, passes A/B/C. Comparisons use the difference between dynamic joint removal and the prior frozen-second-write joint removal, preserving the serial-effect denominator. Exact bridge effect errors are4.75e-6/4.78e-6. Direct+mixed errors are1.143%/.377%; direct-only33.724%in bothfamilies. Thus the shortened interaction path predicts the measured signed native serial effect, not only intermediate activity. These are reused48regional rows, not another fresh or corpusOOD test.
+
+### Newline collateral survives the fixed country audit
+
+[Country audit](SCALAR_PRODUCERS_NEWLINE_COUNTRY_AUDIT_V1_RESULT.json),30forwards1.37seconds, reproduces the original failure exactly and passes capability/mean-head control for allsixvariants. Joint newline CE changes are Australia.16654, Britain.14274, Canada.10615, America.09792, France.12756, Germany.12234. Five exceed the original.1max preservation threshold. The range is41.2%of Australia's damage, missing the registered50%country-dependence bar. This is appreciable variation, not no country effect, but it does not support an Australia-only explanation. All variants derive from one postselected paragraph; they are not six independent natural observations. The original32-row failure stays included.
+
+### Joint QK remains necessary; value-only transfer is not generally sufficient
+
+[Four-corner routing/value auditV2](SCALAR_PRODUCER_JOINT_QK_VALUE_V2_RESULT.json) keeps QK1*QK2 together. Let gamma0,gamma1 be the original/changed complete routing operators and v0,v1 the scalar value fields after component8 removal. Then
+
+$$
+\Delta a_9=
+\gamma_0\Delta v+\Delta\gamma\,v_0+\Delta\gamma\,\Delta v.
+$$
+
+The three terms are value-only, routing-only, and their interaction. Native endpoints replay<=1.78e-7. V1 defined the mixed term by subtraction, making its identity check tautological; V2 independently contracts (gamma1-gamma0)(v1-v0) and reproduces the full change within7.43e-16. The numerical B/C misses are unchanged.
+
+Value-only scalar-change error is56.61%in template0 and9.925%in template1; routing-only errors136.46/105.30%. The mixed term has19.32/7.50%of the full-change norm. Routing/value effect cosines are−.681/−.319: contributions partly oppose, so component norms cannot be read as additive percentages of explanation. The registered general value-only and small-interaction claims fail. This does not assign a task to QK1 versus QK2 or prove disjoint task input spaces. The supported bridge retains complete joint routing. Its end-task routing/value partition is a next test, not yet measured.
+
+The new supported object is a conditional arithmetic interaction across head8.2, MLP8 and head9.8, with a common downstream writer available at the regional consumer. Independent input generation, broadOOD and robust selective removal remain unresolved. The explicit native newline collateral prevents a four-property promotion.
