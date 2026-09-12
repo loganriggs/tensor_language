@@ -1,0 +1,9 @@
+# Frozen regional component on new output contrasts
+
+12September2026, token-only construction before model scoring. The six pairs programme/program, humour/humor, catalogue/catalog, apologise/apologize, offence/offense, organising/organizing are single tokens on both sides and absent as endpoints from14 inspected root-level paired rowcollections. This is a bounded novelty claim about the inspected experiment records, not pretraining or corpus OOD. City/nationality/style cue templates and the unrelated control contrast are reused.72newprefixes,12pairs percuefamily, no modelscorefiltering. Programme context is television, not computer software.
+
+Freeze the original rank64 reflection-even joint-key component in heads8.2/9.8. Three arms: native, joint component removal with actual sequential states, and paired-native donor fields substituted at both heads. The donor head9 field comes from the donor's native run; it is not recomputed under the donor's own head8 edit.216fullforwards120second managed GPU cap.
+
+A: noedit replay<=1e-6relative, matched one-token paired cues and donor lengths, minimum native scalar norm>1e-8. B: allthreefamilies natively capable (meanpairedcontrast>=.2,>=10/12positive), removal coverage>=50%,>=10/12positive paired reductions, unrelated meanabsolute change<=.5target. C: B plus donor transfer>=50%,>=20/24correct directed shifts, unrelated meanabsolute change<=.5target eachfamily. These are the existing frozen transfer bars; no criterion change based on new output scores.
+
+Report endpoint-level native contrasts and interventions descriptively to expose aggregation. A weak endpoint is not filtered out or silently changed. The null is lack of lexical generalization under this manipulation; if native capability is absent, distinguish that from a missing circuit contribution. No new response predictor fitting and no autonomous extraction claim.
