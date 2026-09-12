@@ -1,0 +1,216 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "recipient_replay_error": 0.0,
+  "all_payload_donor_replay_error": 2.679345104757418e-08,
+  "compiled_producer_errors": [
+    1.3412428770256055e-07,
+    1.843412086714616e-07,
+    1.6896057653342045e-07,
+    2.597384039870757e-07,
+    1.9398689394811573e-07,
+    2.9419428251162165e-07,
+    2.2924594557735396e-07
+  ],
+  "child_decomposition_errors": [
+    1.6134011286812025e-07,
+    4.365463765557838e-08,
+    2.2265038570455064e-08,
+    1.0315547570586087e-07,
+    8.699024953901344e-08,
+    9.885417472330194e-08,
+    6.578837341882378e-08,
+    7.99317389339641e-08,
+    9.308486933374265e-08,
+    1.8507434109113492e-07,
+    7.381677096093124e-08,
+    4.4260886756350406e-08,
+    1.0738378713777724e-07,
+    1.1638823658266827e-07,
+    5.414159001948674e-08,
+    1.3751345578932428e-07,
+    4.6518905403371727e-07,
+    1.4872524059891214e-07,
+    9.649047553495295e-08,
+    5.359349055710914e-08,
+    5.09933328882323e-08,
+    5.926572753779975e-08,
+    5.933001405081412e-08,
+    9.229909568891184e-08,
+    2.71188863916346e-07,
+    1.871216395779642e-07,
+    1.6058452210821412e-07,
+    4.9793554698145485e-08,
+    7.974115264944125e-08,
+    5.328904432820433e-08,
+    3.1140343955822325e-08,
+    8.130919483270429e-08,
+    1.1658791237937476e-07,
+    6.2859370642258e-07,
+    2.2387836532182799e-07,
+    9.960013696492638e-08,
+    2.1365124123770022e-08,
+    8.031479845469863e-08,
+    1.2018713111107295e-07,
+    6.14216889319784e-08,
+    9.125825034094266e-08,
+    1.127125339561143e-07,
+    1.4273092783298206e-07,
+    1.9811067010930517e-07,
+    1.0240175876917199e-07,
+    3.471803396561048e-07,
+    7.442569856278522e-08,
+    2.917204373790478e-08,
+    3.0121444901197175e-08,
+    8.155636242633448e-08,
+    8.031098475169041e-08,
+    9.441554358086678e-08,
+    1.240928869595227e-07,
+    1.3668813956842183e-07,
+    1.0066991341146248e-07,
+    8.528088621386314e-08
+  ],
+  "native_attention_replay_errors": [
+    1.1799422848230597e-07,
+    1.8994993129619362e-07,
+    1.7258870149161775e-07,
+    1.524224563294383e-07,
+    1.89243424325966e-07,
+    1.4392238072789187e-07,
+    1.675361110467163e-07
+  ],
+  "cells": [
+    {
+      "family": 0,
+      "native_regional_gap": 1.8357042074203491,
+      "mean_transfer_by_arm": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.003972351551055908,
+          -8.927285671234131e-05
+        ],
+        [
+          0.2627691328525543,
+          0.00011517107486724854
+        ],
+        [
+          0.0010654628276824951,
+          -2.294778823852539e-06
+        ],
+        [
+          -0.0028605610132217407,
+          3.364682197570801e-05
+        ],
+        [
+          -0.00614456832408905,
+          1.4856457710266113e-05
+        ],
+        [
+          0.2583421319723129,
+          7.413327693939209e-05
+        ]
+      ],
+      "positive_regional_by_arm": [
+        0,
+        7,
+        8,
+        8,
+        0,
+        0,
+        8
+      ],
+      "mlp_regional_meanabs": 0.004292905330657959,
+      "mlp_unrelated_meanabs": 0.0002563744783401489
+    },
+    {
+      "family": 1,
+      "native_regional_gap": 2.731873244047165,
+      "mean_transfer_by_arm": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          -0.009916648268699646,
+          1.4960765838623047e-05
+        ],
+        [
+          0.547919973731041,
+          -0.000841781497001648
+        ],
+        [
+          0.0007637739181518555,
+          -2.8759241104125977e-06
+        ],
+        [
+          -0.0012383610010147095,
+          1.1831521987915039e-05
+        ],
+        [
+          -0.004478424787521362,
+          2.5823712348937988e-05
+        ],
+        [
+          0.5318324565887451,
+          -0.0007982701063156128
+        ]
+      ],
+      "positive_regional_by_arm": [
+        0,
+        0,
+        8,
+        8,
+        0,
+        0,
+        8
+      ],
+      "mlp_regional_meanabs": 0.009916648268699646,
+      "mlp_unrelated_meanabs": 0.00032764673233032227
+    }
+  ],
+  "arm_names": [
+    "native",
+    "MLP16_numerator",
+    "pre_MLP16_numerator",
+    "embedding_reentry",
+    "RMS_divisor",
+    "first_stream",
+    "all_payload_ports"
+  ],
+  "body_forwards": 7,
+  "seconds": 2.3332348130643368,
+  "artifact_sha": "4565304756800afe5bf55aa06533d62ab39a98a8764d2227290499c28929fe83",
+  "source_shas": {
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/fastload.py": "5803de7f127d1f556470107b559c06daecf7fbc2bccf4574aeb1c347b6225d90",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_in_situ_usage_rank_map_probe.py": "c701af71491d29f33f5ad691f89380a9fa7c2d86514a61fd7423ad8a78fd4d16",
+    "/workspace/tensor_language/jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/cubic_source_mixture_execute_v1.py": "76c2b3048c5e0fceba606d3d476f626b654f05a9c0008c45ed05b63aa2f9f8af",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CUBIC_SOURCE_MIXTURE_EXECUTE_V1_CONTROL.json": "431f49b79569b90ba0e9e692a3dc171232fc763a0f5261c5e62f51b7b8818109",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/shared_cubic_source_projection_v1.py": "78eb18cc03b5e82b19edb1951ddefbebda0a226df824e1959ca43a19f7545fe2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/folded_normalized_router_v1.py": "a374ea1f2c29ed68f7b33f3eb9d28a7034a25260ec95fe4b4e9fc2d7b0e48d9c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/sparse_path_stability_atlas_v1.py": "ccebc47d0c90b75c2a4b5646e6ef58c79cd55d3b518af265b55c747828549cf0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CUBIC_SECANT_BLOCK_NATIVE_V1_ARTIFACT.pt": "f8075d535c7c88ee79be34e0a4360a4002efa3e98a64fcf611c7de4ad0c7baf9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/COMMON_QUADRATIC_SOURCE_BLOCK_V1_ARTIFACT.pt": "c23fbb6658ca6a5176341c7ca3a99885bc16564ea0188af658bd467da854539e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/COMMON_QUADRATIC_NATIVE_V1_RESULT.json": "8900ba6efae2d04ffd3735ec6f073940b426297c90a52993f3e31a78c2a1f659",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_SOURCE_BLOCK_V2_ROWS.json": "0da4a2faf6b1b9148bc2e707fcc8807d2870b0c5accea623fc99fbfbedbd0c0f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_SOURCE_BLOCK_V1_RESULT.json": "9bde8529ee5997b586501bcc450da03bc46e1b45089d383fcd8d4dae186cced5",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_FACTOR_INTERCHANGE_V1_PAIR_CONTROL.json": "2985464f7cad34d6df2884c1363d1813472b138b29e27daaf9b74b00782faea7",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/common_quadratic_ports_v1.py": "28dc46aed076bf72d5d5b63db40fc7ae8fd8489961c1e7a8d40ea24af836aae3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/factorial_source_ports_v1.py": "b219f9bd36cd1dc3e58c6442a2de39275459d4776dbf48f47f0a7ede1d20cf2a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FACTORIAL_SOURCE_PORTS_V1_CONTROL.json": "b074c2cae0f2e489e9b2c402b93f69fbf5e845aa22af65170d248a1e629d7fae",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/COMMON_QUADRATIC_PORTS_V1_CONTROL.json": "117a269948c069b655370614e6cf66e2a3801cfd9045b8c9d22d87c308ceacfd",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_SOURCE_BLOCK_V2_ARTIFACT.pt": "553647a6813c7f571aeada2e64f0ee1789cb5d3d09b9fa1bcb4e18f1b95ece3f",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_regional_payload_producer_v1.py": "fd2c0b7af1e95ed59dc07970ff31e09f2483a97968fa700238dc537a8b19a405",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_PAYLOAD_PRODUCER_V1_PREREGISTRATION.md": "6d115e5e33f8e4673cadf0bbfee9836a374da6d2f32274cb635835a0f5f43a13",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_PAYLOAD_MLP16_FOLD_V1_ARTIFACT.pt": "e4dd30afc8cf57b6320e9c88e3610190ff7477b96c11327191bd2704eeb41a4c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_PAYLOAD_MLP16_FOLD_V1_RESULT.json": "9131d01d2489ace2d12927efbac68ff120492382c9108701b73ea313ea08ca0b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/fold_regional_payload_mlp16_v1.py": "83c6a6818a29af33a1ad10c74743e63836e97457caa901607586acebfe46f913",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_FACTOR_INTERCHANGE_V1_ARTIFACT.pt": "d91af8b135f787773553ad596fb1b080f92b10a6279b42778144e4b68c0c17ef"
+  },
+  "scope": "Conditional regional payload producer mediation; isolated numerator swaps retain recipient divisor. No independent upstream extraction or four-property promotion."
+}

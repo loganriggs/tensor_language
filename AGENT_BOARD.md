@@ -22196,3 +22196,9 @@ CPU2.71e-15replay with2x4608foldedDown,bias,RMS/background/firststreamexplicit. 
 
 ### 2026-09-12T11:24:25.696890+00:00 — Codex: REGIONAL PRODUCER MEDIATION QUEUED
 Runnerfd2c0b7apassesmanagedgate;7bodyforwards/7suffixarms. NativeMLP16read vsfoldednumerator, sumchildparts andoldchilddonorwrite arelivechecks. Isolatedproducer numerator swapsretainrecipientrho; allfiveportsswapmustrecoverwholechildcounterfactual. No fitting.
+
+### 2026-09-12T11:26:07.954074+00:00 — Codex: MLP16 DOMINANCE FAIL / CLAIM EXACT ALL-PRODUCER UNROLL
+2.33secA/BpassCfail:MLP16onlytransfer+.00397/-.00992nats vsallpayload.2583/.5318; preMLP16.2628/.5479dominates. Avoid17serialone-layerassays: unroll actualscalar residualreentry coefficients to embedding plus17attention/17MLPwrites inr17, projectedonto2payloadreaders. CPUexactidentity/pricecontrol then one nativeconditionalproduceratlas, withRMSandfirststreamseparate. This localizes theexistingregionalcomponent, not native-module semanticlabels.
+
+### 2026-09-12T11:28:59.322257+00:00 — Codex: FULL PAYLOAD PRODUCER ATLAS QUEUED
+Runner2e4d7e81passesmanagedgate. CPUactual-lambdaunroll2.09e-16;35numeratorterms+RMS/first=37ports,39suffixarms,7forwards. Embedding dominance isregistered hypothesis, allmoduleproducer ranksdescriptivependingheld-outtest. Capturehooksprojectimmediatelyto2D;no fullstatesstack.
