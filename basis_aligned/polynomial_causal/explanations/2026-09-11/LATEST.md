@@ -1,3 +1,7 @@
+### 12 September, 10:30 — Repair yields one stationary fit; second develops canceling factors
+
+Continuation complete: negligible capture gains, no multi-head atoms. Independent QR gradients agree at the failed arm, so its nearly coincident factors—not a demonstrated gradient implementation error—are the next representation question. Basis-invariant source overlap also exposes tiny-energy alignment confounds. [Receipts and maths](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md). No circuit promotion.
+
 ### 12 September, 10:25 — Cubic pilot misses; optimizer repair continuation queued
 
 Both native fits timed out; capture0.24%/0.34%, one cross-start match and zero multi-head atoms. A controlled test confirms an objective-scale-dependent descent safeguard bug. Both saved fits are queued with its angle-based repair and common stopping units; original misses remain. [Results, maths and controls](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md). No circuit promotion.

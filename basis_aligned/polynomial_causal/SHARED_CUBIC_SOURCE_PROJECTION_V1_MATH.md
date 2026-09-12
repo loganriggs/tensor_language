@@ -207,3 +207,56 @@ This is useful for nearly coincident atoms, but current native conditions do not
 justify the more expensive evaluator. The continuation retains the original exact
 Gram objective. Detached local spans are justified for first derivatives of this
 squared norm; no higher-derivative claim is made.
+
+
+## Continuation outcome and source-space audit
+
+The [continuation](SHARED_CUBIC_SOURCE_CONTINUE_V1_RESULT.json) completed in93.09seconds:
+A passed, B/C failed. Arm0 reached the new stationary bar in1015 history rows;
+capture increased by0.000971%. Arm1 failed its line search after671 rows with
+capture gain0.001048%, Gram condition320512 and cancellation ratio1831.
+There were two cross-start atom matches and no literal multi-head atoms.
+This repairs one convergence obstacle without producing materially better structure.
+
+The [native CPU QR audit](SHARED_CUBIC_SOURCE_NATIVE_QR_V1_AUDIT.json) at arm1's
+terminal point compares the exact same objective using the independent coefficient
+QR evaluator: capture differs by2.97e-13 absolute and tangent gradients by4.79e-6
+relative. QR costs2.44seconds versus0.52seconds for Gram plus gradient on CPU.
+Directional finite differences have large truncation error at step1e-3, falling
+to0.15% for QR at1e-5; they support the same sharply curved local behavior.
+These findings do not support blaming the line-search failure primarily on
+normal-equation roundoff. GPU and CPU capture differ by roughly1e-12, so numerical
+noise can still matter for extremely small improvements.
+The [coalescence audit](SHARED_CUBIC_SOURCE_CONTINUE_V1_COALESCENCE.json) identifies
+arm1 atoms5/6 at absolute coefficient cosine0.999970986. Near-coincident products
+with opposing writers can represent a finite difference or tangent direction.
+This motivates testing a block/difference representation; it does not prove
+border-rank degeneracy or nonexistence of a finite optimum.
+
+The atom-use count also depends on coordinates. For source Gram $G$ and per-head
+cross coefficient Gram $K_h$, define the source energy operator in orthonormal
+source coordinates and its overlap as
+
+$$
+M_h=G^{-1/2}K_hG^{-1/2},\qquad
+\omega_{hk}=\frac{\operatorname{tr}(M_hM_k)}
+{\|M_h\|_F\|M_k\|_F}.
+$$
+
+For independent source functions these operators transform by a common orthogonal
+change under any invertible dictionary re-encoding, so the overlap is invariant.
+Their trace is the captured coefficient energy per head. Linear combinations of
+cubic products need not themselves be single products: this is a function-span
+diagnostic, not an equivalence preserving the original product-atom price.
+
+The [planted control](SOURCE_ENERGY_OVERLAP_V1_CONTROL.json) rotates two disjoint
+source functions: overlap remains zero, while literal shared atoms change from
+zero to two. [Original native dictionaries](SOURCE_ENERGY_OVERLAP_SHARED_CUBIC_SOURCE_NATIVE_V1_RESULT.json)
+and [continued dictionaries](SOURCE_ENERGY_OVERLAP_SHARED_CUBIC_SOURCE_CONTINUE_V1_RESULT.json)
+are audited without fitting. Large overlap alone is misleading here: original
+arm0 heads4/5 have overlap0.901, but captured energies0.07619 and0.00001149.
+Thus a tiny projection onto a dominant head's source direction can appear highly
+aligned. The original no-sharing prediction remains failed; no causal or global
+source-reuse claim follows from this diagnostic. Any later grouping test must
+report each participating head's absolute captured fraction, not just normalized
+similarity in a selected dictionary.

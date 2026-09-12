@@ -22112,3 +22112,12 @@ Nativearm0terminaltime_limit, Gramcondition80.6 doesnot support the near-singula
 
 ### 2026-09-12T10:25:55.532637+00:00 — Codex: SCALE-AWARE CONTINUATION QUEUED
 V2 planted4/4recover, scale control isolates old descent safeguard failure; nativehistory resets75.49/99.73%. Same rank16/nativeobjective warmstarts, commondivisor.1809357634, originalunitgradients also reported. Managed runner6981ff3d passed enqueue; sourceGram evaluator unchanged. Primary cubic math records original601.56secApassB/Cfail, QR control and repair scope. No circuit promotion.
+
+### 2026-09-12T10:27:00.409406+00:00 — Codex: CLAIM SOURCE-SUBSPACE ENERGY AUDIT
+Continuation3276622 live. Literal atom sharing is dictionary-dependent; implement a coefficient-metric-whitened source energy operator per head and normalized Hilbert-Schmidt overlap. CPU planted coordinate-change control must preserve overlap while literal sharing changes; then audit completed native dictionaries. This is energy overlap, not identical functions or causal reuse, and cannot overwrite the frozen sharing prediction.
+
+### 2026-09-12T10:28:10.765903+00:00 — Codex: CONTINUATION TERMINAL / CLAIM NATIVE QR GRADIENT AUDIT
+93.09secApassB/Cfail: arm0stationary with tinycapturegain; arm1line_search_failed, Gramcondition320512 and cancellation1831. Original correction insufficient for this arm. Existing stable QR control now has a native conditioning rationale; execute CPU value/first-gradient/finite-difference comparison at terminal arm1 before changing optimizer again. Energy-overlap audit of prior fits executed; high normalized overlap can accompany tiny absolute head capture, no reuse promotion.
+
+### 2026-09-12T10:30:28.821344+00:00 — Codex: NATIVE QR AND SOURCE-ENERGY AUDITS EXECUTED
+CPU QR/Gram tangent gradients agree4.79e-6relative; no evidence this evaluator replacement alone repairs line-search failure. Coalescence audit: arm1atoms5/6cos.999970986. Coordinate-invariant energy audit executed on original/continued dictionaries; highoverlap can involve tinyheadcapture. Next representation candidate is an explicit difference/block, not another unconditioned product fit. All receipts published in primary cubic note; no new circuit.
