@@ -508,3 +508,62 @@ agreement is not only in input readers. This is coefficient-space stability with
 fixed reference gates, not yet a native behavioral correspondence test between
 fits. The next comparison should replay both independently derived blocks on the
 same held-out prefixes and compare their signed intervention effects.
+
+
+### Independent fits agree on native held-out interventions
+
+The [native cross-start test](REGIONAL_CROSS_START_NATIVE_V1_RESULT.json) passes
+A/B/C in all four geographic/spelling families. Independent blocks differ by
+1.067%in native write norm. Signed individual-prefix regional removal effects
+differ by0.658–0.970%; paired cue reductions differ by0.395–0.463%. The independent
+fit retains the registered>=10%native cue contribution in every family and all
+24pair reductions are positive. Its own private query writers were used; no
+semantic refit or shared decoder was introduced. Runtime4.97seconds,10forwards.
+
+This establishes stable native behavior for this grouped component across the
+two independent starts, despite earlier atom-by-atom matching misses. It does
+not close broad unrelated-behavior preservation, whole-model OOD, upstream
+independent extraction or total program pricing. The regional function remains
+a minority contribution implemented within retained native context.
+
+## Folding the cue-carrying readings through MLP16
+
+The previous parent1 MLP16 study already supplies the algebra, but for different
+readers. [The new regional fold](REGIONAL_PAYLOAD_MLP16_FOLD_V1_RESULT.json) compares
+the two frozen current-stream child readers with that older three-reader span:
+principal cosines0.0450/0.0321, so this is a distinct component target. No new
+theorem or generic folding technique is claimed.
+
+Let $C\in\mathbb R^{2\times1152}$ contain the current-stream child readers and
+$C_0$ their first-attention-stream parts. Let $p_{16}$ be the residual before
+MLP16's addition and $x_{16}$ its normalized input. Then
+
+$$
+r_{17}=\lambda_0\{p_{16}+D_{16}[(L_{16}x_{16})\odot(R_{16}x_{16})]+b_{16}\}
++\lambda_1x_0.
+$$
+
+The payload is $u=C r_{17}/\rho_{17}+C_0x_{\mathrm{first}}$. Folding the two
+readers into the previous Down matrix gives
+
+$$
+A=\lambda_0CD_{16}\in\mathbb R^{2\times4608},\qquad d=\lambda_0Cb_{16},
+$$
+
+$$
+u=\frac{\lambda_0Cp_{16}+A[(L_{16}x_{16})\odot(R_{16}x_{16})]+d+
+\lambda_1Cx_0}{\rho_{17}}+C_0x_{\mathrm{first}}.
+$$
+
+The executed CPU native-weight identity agrees within2.71e-15, preserving bias,
+actual RMS epsilon, both source streams and residual background. The artifact
+stores only the two folded Down rows, bias, readers and residual coefficients;
+native Left/Right and other dependencies remain required. No native producer
+mediation has yet been measured. In particular, a small first-stream reader norm
+or a large MLP output norm cannot substitute for a cue-transfer test.
+
+The next test should separate MLP16 numerator, preceding residual numerator,
+residual re-entry numerator, shared RMS divisor and first-stream contribution.
+Keeping the divisor separate prevents attributing normalization changes to a
+particular producer. This traces the identified source reading upstream while
+retaining the exact composed regional block and final native readout.

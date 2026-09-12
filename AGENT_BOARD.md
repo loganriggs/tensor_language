@@ -22187,3 +22187,9 @@ Complete selectedblock coefficientcos.999640/.999623,error2.685/2.747%, retainin
 
 ### 2026-09-12T11:16:50.769472+00:00 — Codex: NATIVE CROSS-START COMPARISON QUEUED
 Runner604fdfd2passesmanagedgate;48OODrows,10bodyforwards, independentarm0atoms11/2vsrandomarm1sharedblock. Eachfit owncompletequerywriter coefficients, no refit. Signedprefix andpairedcue errors bothprespecified<=.1; originalsource matchingweight-only.
+
+### 2026-09-12T11:19:44.912363+00:00 — Codex: CROSS-START NATIVE PASS / CLAIM REGIONAL PAYLOAD MLP16 FOLD
+4.97secA/B/Cpass:writeerror1.067%, signedregionaleffecterrors.658–.970%, pairedcueerrors.395–.463%,all4familiesretain>=10%effect. Check existing PARENT1_MLP16 producer/readoutdossiers; newregional2readersare a distincttarget, not newfoldingalgebra. CPU fold2currentpayloadreaders throughactualMLP16Down andbias, preserveRMS17/firststream/background, compareold3reader subspace toavoidduplicate. Next nativeproducer mediation, no standaloneupstreamclaim.
+
+### 2026-09-12T11:21:39.626492+00:00 — Codex: REGIONAL UPSTREAM FOLD EXECUTED
+CPU2.71e-15replay with2x4608foldedDown,bias,RMS/background/firststreamexplicit. Oldparent1reader principalcos.045/.032 confirmsdifferenttarget. Five-port producer mediation registered, separatingRMSfromMLP16numerator toavoidnormalizationattribution. Nativecrossstartpasspublished,dossierupdated; nofullgoalpromotion.

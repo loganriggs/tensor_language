@@ -1,3 +1,7 @@
+### 12 September, 11:20 — Independent fits agree on native regional effects
+
+Native cross-start screen passes: writeerror1.067%, signedeffecterror0.66–0.97%across4held-outfamilies, no shared/refitted decoder. The cue-carrying two-reader interface folds through MLP16 exactly; it differs from earlier parent1readers. [Results and upstream maths](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md). Native producer mediation is registered next.
+
 ### 12 September, 11:13 — Cue transfer lies in the linear children; graph matches across starts
 
 Four-port intervention finds child-linear tuple carries most regional cue transfer, confirmed on all4held-out families; parent-dominance prediction fails. Weight-only graph matching recovers the same shared parent in the other fit; full block coefficient functions differ~2.7%. [Results and scope](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md). Native cross-start correspondence is next; full goal remains open.

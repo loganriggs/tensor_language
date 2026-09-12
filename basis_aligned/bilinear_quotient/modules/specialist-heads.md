@@ -283,3 +283,10 @@ parent-dominance prediction on the original32prompts failed and remains recorded
 finds the same parent/two-dimensional source span in the other weight fit; complete
 coefficient-function errors are2.7%. Native cross-start intervention agreement and
 upstream producers remain untested.
+
+
+[Native cross-start correspondence](../../polynomial_causal/REGIONAL_CROSS_START_NATIVE_V1_RESULT.json)
+passes all4held-out families:1.067%write error,0.658–0.970%signed removal-effect
+error with each fit's own query writers. This strengthens grouped identification
+beyond input-angle matching. The two payload readers have now been folded exactly
+through MLP16; native producer mediation is registered, not yet measured.
