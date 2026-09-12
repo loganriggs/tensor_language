@@ -1,0 +1,28 @@
+{
+  "sources": [
+    {
+      "corpus": "fineweb",
+      "path": "basis_aligned/bilinear_quotient/.rowcache_compiler_v21/fineweb_n192_skip39000.pt",
+      "sha": "6982853519be38f627fec91532f2e622573f57304bd8b04fe08220491122c8da",
+      "eligible_documents": 181,
+      "selected_documents": 24,
+      "available_documents": 192
+    },
+    {
+      "corpus": "pile_ood",
+      "path": "basis_aligned/polynomial_causal/MILLION_TOKEN_PANEL_V1_ROWS.pt",
+      "sha": "e07a655a71b011b97083cdfc490bdd75e2ddf0ff83a3a9571ce387b0c968ccb6",
+      "eligible_documents": 171,
+      "selected_documents": 24,
+      "available_documents": 224
+    }
+  ],
+  "documents": 48,
+  "endpoints": 144,
+  "body_forwards": 20,
+  "sequences": 160,
+  "input_length": 128,
+  "artifact_sha": "3f32d7bde8d9b2bf82a2bacd2868a5144dea9161c052e247eec30c02cb58c0dc",
+  "removed_overlap_ids": [],
+  "scope": "Source-only matched-document spelling groups. FineWeb in-distribution; Pile corpus shift, historical cached test split. Not POS annotation, no capability filtering, no data fitting. Nearby windows may overlap; document is sampling unit."
+}

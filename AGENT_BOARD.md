@@ -21932,3 +21932,9 @@ Prior parent1 MLP16 dense quadratic fold/rank bounds already exist. Apply exact 
 
 ### 2026-09-12T07:25:06.245997+00:00 — Codex: STANDALONE CONDITIONAL PROGRAM VERIFIED
 CPU no originalweightsloaded; fresh+matchedquote allbranch/familywritebars pass, FP32max3.60e-6/FP64max2.63e-8. Compactjoint7.98MB,5.329x standalone-storage reduction. Explicit pricecrossover: packed winsK<=15, native sharedproducer winsK>=16. No end-to-end/model-memoryclaim while backgroundnativeweightsremain. Broadinput spectra retained; primary result/executor committed next.
+
+### 2026-09-12T07:28:03.801273+00:00 — Codex: CLAIM NATURAL-TEXT VALIDATION PANEL
+Previous turn progress: compact conditional program built and CPUverified. Next freeze source-only natural contexts from FineWeb skip39000 cache and historical Pile test rows, labeled separately (model trained on FineWeb). Reuse all existing add_ing spelling pairs, exclude overlapping base/ing IDs; select24documents/corpus with all3groups (ing/base/other) and128token prefixes. No model capability selection or fitting; historical source caches are not globally untouched. This tests signed removal/selectivity and joint composition beyond templates.
+
+### 2026-09-12T07:31:59.639683+00:00 — Codex: NATURAL TEXT SCREEN LIVE
+Sourcee1e8984e passedpreflight, managedstart07:31:36. 144frozen endpoints/48documentunits, FineWeb andPile separate; actual nexttoken loss, branches3/8/joint andphysicalhookreplays. No factor optimization or data adaptation.
