@@ -74,3 +74,25 @@ package. It supports approximate behavioral addition on these96contexts,
 not a general composition guarantee. The next identification question is which
 source positions and contextual QK products create the clause-order dependence;
 more precision tuning cannot answer it.
+
+
+## Source positions and query/source dependence — 15:35 UTC
+
+[Position partition](REGIONAL_SOURCE_POSITIONS_V1_RESULT.json) passes numerical
+replay. Removing only the two city read-site writes misses full target/distractor
+contrast effects by95–97%; these sites contribute only3–5%of own contrast norms.
+[CPU two-port accounting](REGIONAL_QUERY_SOURCE_ACCOUNTING_V1_RESULT.json)
+replays cached GPU writes within2.70e-7 and finds no pre-cue state changes.
+Source changes dominate, with opposing query contributions; the exact symmetric
+query/source allocation sums to the joint write change within7.51e-8.
+
+[Native suffix test](REGIONAL_QUERY_SOURCE_EFFECT_V1_RESULT.json) has exact
+baseline replay and fails both10%effect-fidelity predicates. Source-only effects
+are14.6–32.9%from full query+source swaps; query-only107–117%and mostlyopposed.
+Full/source-only direction holds192/192directed swaps. The12.8–16.1%joint versus
+sum-of-single-port discrepancy includes the mixed branch response and the final
+suffix; the inherited field `nonlinear_interaction_relative` must not be read
+as a measurement of final-suffix nonlinearity alone. These results require
+joint contextual-source/query extraction, not just a city lookup. Definitions
+and the exact four-vertex formula appear in the requested
+[full update](explanations/for_logan/research_update_2026-09-12_1536_interaction_decomposition.md).

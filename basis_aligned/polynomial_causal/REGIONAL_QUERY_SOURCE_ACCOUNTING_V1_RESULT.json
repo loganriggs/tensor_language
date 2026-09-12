@@ -1,0 +1,96 @@
+{
+  "cpu_gpu_replay": 2.701864048049174e-07,
+  "before_cue_state_max_difference": 0.0,
+  "cells": [
+    {
+      "cue": "editor",
+      "assignment": 0,
+      "family": 0,
+      "partition_error": 7.268349833111643e-08,
+      "query_norm_relative": 0.23676462471485138,
+      "source_norm_relative": 1.1237361431121826,
+      "query_source_cosine": -0.5991857647895813,
+      "source_only_error": 0.25350087881088257,
+      "query_only_error": 1.1273804903030396
+    },
+    {
+      "cue": "editor",
+      "assignment": 0,
+      "family": 1,
+      "partition_error": 7.50204378618946e-08,
+      "query_norm_relative": 0.3311409652233124,
+      "source_norm_relative": 1.16169273853302,
+      "query_source_cosine": -0.5968335866928101,
+      "source_only_error": 0.34268584847450256,
+      "query_only_error": 1.1650362014770508
+    },
+    {
+      "cue": "editor",
+      "assignment": 1,
+      "family": 0,
+      "partition_error": 7.026046233704619e-08,
+      "query_norm_relative": 0.15822483599185944,
+      "source_norm_relative": 1.0862926244735718,
+      "query_source_cosine": -0.5965479612350464,
+      "source_only_error": 0.18391762673854828,
+      "query_only_error": 1.0903311967849731
+    },
+    {
+      "cue": "editor",
+      "assignment": 1,
+      "family": 1,
+      "partition_error": 7.098488907786304e-08,
+      "query_norm_relative": 0.20902718603610992,
+      "source_norm_relative": 1.104801893234253,
+      "query_source_cosine": -0.5721970796585083,
+      "source_only_error": 0.22276617586612701,
+      "query_only_error": 1.107483148574829
+    },
+    {
+      "cue": "tourist",
+      "assignment": 0,
+      "family": 0,
+      "partition_error": 7.311341931881543e-08,
+      "query_norm_relative": 0.2736889719963074,
+      "source_norm_relative": 1.1399133205413818,
+      "query_source_cosine": -0.5998866558074951,
+      "source_only_error": 0.286903977394104,
+      "query_only_error": 1.143157720565796
+    },
+    {
+      "cue": "tourist",
+      "assignment": 0,
+      "family": 1,
+      "partition_error": 7.368013399400297e-08,
+      "query_norm_relative": 0.17754371464252472,
+      "source_norm_relative": 1.0938352346420288,
+      "query_source_cosine": -0.5870047807693481,
+      "source_only_error": 0.2002691775560379,
+      "query_only_error": 1.0977528095245361
+    },
+    {
+      "cue": "tourist",
+      "assignment": 1,
+      "family": 0,
+      "partition_error": 7.37230152481061e-08,
+      "query_norm_relative": 0.3942013680934906,
+      "source_norm_relative": 1.1821787357330322,
+      "query_source_cosine": -0.5932641625404358,
+      "source_only_error": 0.40277916193008423,
+      "query_only_error": 1.1850664615631104
+    },
+    {
+      "cue": "tourist",
+      "assignment": 1,
+      "family": 1,
+      "partition_error": 7.405472501886834e-08,
+      "query_norm_relative": 0.2418234646320343,
+      "source_norm_relative": 1.1178029775619507,
+      "query_source_cosine": -0.5696455836296082,
+      "source_only_error": 0.25383007526397705,
+      "query_only_error": 1.1204620599746704
+    }
+  ],
+  "seconds": 0.39952482655644417,
+  "scope": "Exact two-port Shapley accounting of physical component write changes on96cached native contexts. Query/source norms are not additive fractions or native logit mediation. Source port includes current-state readers, keys and token lookup; query port includes both QK factors and query norms."
+}

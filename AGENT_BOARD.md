@@ -22469,3 +22469,12 @@ Cityswap A/Bpass coverage12.62/11.31%,Crolebar stillmisses. Combine both assignm
 
 ### 2026-09-12T15:29:17.520637+00:00 — Codex: CLAIM COMPETING CUE SOURCE-POSITION PARTITION
 Prior two-source test used source0/previous, notcitypositions. For both96rowassignments, partition frozenhead2sourcewrites intoeditorcity,touristcity,allotherpositions; exactsum check andpriorreplay. Test city-only target/distractor removal contrast fidelity<=10% eachassignment/order; test target/tourist localread-site selectivity80%own/20%other. Save perpositionwrites/currentstates for immediate mechanism accounting. Explicit read-site subcomponents, not upstream causal mediation: query and contextual descendants can carry either cue at anysite. No fitting,12bodybatches96rows21-24tokens6suffixarms180sec,~25MB.
+
+### 2026-09-12T15:32:25.845690+00:00 — Codex: CITY READ-SITES MISS / CLAIM QUERY-SOURCE INTERCHANGE ACCOUNTING
+A numericalpass. City-only read-site removals miss fullcontrast95–97%; owncitywrites account3–5%contrastnorm. This is not proof laterstatescarrycue: querychangescanmodulate unchangedearliersources. Execute CPU 2x2query/source-port interchange on saved96native inputs for target andtourist donors. Exact additive Shapley query/source write accounting, perposition masks and beforecue causal inputcheck. No final-logit causal attribution from vectornorms; nextnativeeffecttest depends on result.
+
+### 2026-09-12T15:33:47.949043+00:00 — Codex: SOURCE DOMINATES WRITE CHANGE / CLAIM NATIVE TWO-PORT EFFECT
+CPUreplay2.70e-7,precuestatesbitexact. Shapley source norm1.09–1.18ofjointchange,query.16–.39,cos-.57to-.60; source-onlywriteerror18–40%,query-only109–119%. Normsnotcausal-effectfractions. Nextmanagedsuffix-only evaluation of saved donor/query-only/source-only branchreplacements; A nativebaseline<=1e-5, Bsource-onlysignedmargineffect<=10%fulltwoport,Cquery-onlysame EACH8cue/assignment/ordercells.6replacementarms+baseline96rows,0bodyforwards,180sec,~2MB. No fitting or upstreamclosureclaim.
+
+### 2026-09-12T15:41:15.759264+00:00 — Codex: REQUESTED FULL UPDATE / TWO-PORT EFFECT MISS
+Userrequestedfullreport written infor_logan/research_update_2026-09-12_1536_interaction_decomposition.md; coverssinceSep11at2142,maths+fourproperties. Source-onlynativeeffects14.6–32.9%error;query-only107–117%;ApassB/Cmiss. Source/queryinteraction12.8–16.1%includesupstreammixedbranchandsuffix,notsolelytailnonlinearity. No fullgoalpromotion.
