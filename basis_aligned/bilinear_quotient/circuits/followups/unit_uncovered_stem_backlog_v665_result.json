@@ -1,0 +1,1870 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.05,
+    "ext_floor": 0.5,
+    "instr_tol": 0.03,
+    "k_d": 2,
+    "k_kept": 2,
+    "k_new": 10,
+    "keep": 0.8
+  },
+  "candidate_id": "corpus.unit_uncovered_stem_backlog_v665",
+  "families": {
+    "uncovered_stems": [
+      "possessive_gender",
+      "correlative_or_and",
+      "number_reflexive_myself_ourselves",
+      "animacy_place_anyone_anywhere",
+      "countability_fewer_less",
+      "equative_result",
+      "case_he_him",
+      "durativity_until_by",
+      "rather_prefer",
+      "let_want_complement",
+      "both_either",
+      "category_selection_because_of",
+      "numeral_dual_both_all",
+      "raising_extraposition_happened",
+      "gender_object_him_her",
+      "aux_copy_so"
+    ]
+  },
+  "finished_utc": "2026-09-12T19:31:23.030763+00:00",
+  "members": {
+    "animacy_place_anyone_anywhere": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.8181,
+            "ce_lb975": 0.602,
+            "ce_ub975": 1.025
+          },
+          "C": {
+            "ce_damage": 0.0008,
+            "ce_lb975": -0.0081,
+            "ce_ub975": 0.0101
+          },
+          "extraction": 1.066,
+          "sib_abs_max": 0.0087,
+          "siblings": {
+            "aux_copy_so": 0.0015,
+            "both_either": -0.0044,
+            "case_he_him": -0.0006,
+            "category_selection_because_of": -0.0014,
+            "correlative_or_and": -0.0024,
+            "countability_fewer_less": -0.0013,
+            "durativity_until_by": -0.0087,
+            "equative_result": -0.0005,
+            "gender_object_him_her": 0.0014,
+            "let_want_complement": 0.0008,
+            "number_reflexive_myself_ourselves": 0.0053,
+            "numeral_dual_both_all": 0.0048,
+            "possessive_gender": -0.0021,
+            "raising_extraposition_happened": -0.0003,
+            "rather_prefer": -0.0004
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.8467,
+            "ce_lb975": 0.636,
+            "ce_ub975": 1.0571
+          },
+          "C": {
+            "ce_damage": -0.0072,
+            "ce_lb975": -0.0196,
+            "ce_ub975": 0.0047
+          },
+          "extraction": 1.054,
+          "sib_abs_max": 0.1316,
+          "siblings": {
+            "aux_copy_so": -0.0155,
+            "both_either": 0.0122,
+            "case_he_him": 0.1316,
+            "category_selection_because_of": -0.0022,
+            "correlative_or_and": 0.0514,
+            "countability_fewer_less": -0.0297,
+            "durativity_until_by": 0.0807,
+            "equative_result": -0.0046,
+            "gender_object_him_her": -0.001,
+            "let_want_complement": 0.0094,
+            "number_reflexive_myself_ourselves": 0.106,
+            "numeral_dual_both_all": -0.015,
+            "possessive_gender": 0.0135,
+            "raising_extraposition_happened": 0.0046,
+            "rather_prefer": -0.0
+          }
+        }
+      },
+      "exact_held": 0.897,
+      "family": "uncovered_stems",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 15,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 170.1,
+      "separable": true,
+      "units": [
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:05:head:08",
+        "attn:04:head:01",
+        "attn:09:head:07",
+        "attn:03:head:06",
+        "attn:09:head:01",
+        "attn:08:head:08",
+        "attn:11:head:02",
+        "attn:05:head:06",
+        "attn:14:head:03",
+        "attn:07:head:00",
+        "attn:12:head:08",
+        "attn:04:head:05",
+        "attn:09:head:08"
+      ]
+    },
+    "aux_copy_so": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.1009,
+            "ce_lb975": 1.0441,
+            "ce_ub975": 1.1518
+          },
+          "C": {
+            "ce_damage": -0.0013,
+            "ce_lb975": -0.0024,
+            "ce_ub975": -0.0001
+          },
+          "extraction": 1.015,
+          "sib_abs_max": 0.003,
+          "siblings": {
+            "animacy_place_anyone_anywhere": 0.0001,
+            "both_either": 0.0022,
+            "case_he_him": -0.0009,
+            "category_selection_because_of": 0.0001,
+            "correlative_or_and": -0.0004,
+            "countability_fewer_less": -0.0013,
+            "durativity_until_by": 0.003,
+            "equative_result": -0.0011,
+            "gender_object_him_her": -0.001,
+            "let_want_complement": 0.0006,
+            "number_reflexive_myself_ourselves": -0.0013,
+            "numeral_dual_both_all": 0.0013,
+            "possessive_gender": 0.0022,
+            "raising_extraposition_happened": 0.0009,
+            "rather_prefer": 0.0021
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.0982,
+            "ce_lb975": 1.0439,
+            "ce_ub975": 1.1455
+          },
+          "C": {
+            "ce_damage": -0.0003,
+            "ce_lb975": -0.0022,
+            "ce_ub975": 0.0018
+          },
+          "extraction": 1.013,
+          "sib_abs_max": 0.0428,
+          "siblings": {
+            "animacy_place_anyone_anywhere": -0.0036,
+            "both_either": -0.0021,
+            "case_he_him": -0.0225,
+            "category_selection_because_of": 0.0014,
+            "correlative_or_and": 0.0023,
+            "countability_fewer_less": 0.0428,
+            "durativity_until_by": 0.0339,
+            "equative_result": 0.0006,
+            "gender_object_him_her": -0.0009,
+            "let_want_complement": -0.0028,
+            "number_reflexive_myself_ourselves": -0.0114,
+            "numeral_dual_both_all": 0.0146,
+            "possessive_gender": 0.0053,
+            "raising_extraposition_happened": -0.0025,
+            "rather_prefer": -0.0016
+          }
+        }
+      },
+      "exact_held": 0.901,
+      "family": "uncovered_stems",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 140.9,
+      "separable": true,
+      "units": [
+        "attn:13:head:08",
+        "attn:09:head:01",
+        "attn:15:head:05",
+        "attn:08:head:01",
+        "attn:14:head:00",
+        "attn:09:head:04",
+        "attn:11:head:03",
+        "attn:08:head:03",
+        "attn:08:head:04",
+        "attn:11:head:01",
+        "attn:12:head:08"
+      ]
+    },
+    "both_either": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.1464,
+            "ce_lb975": 0.8857,
+            "ce_ub975": 1.4005
+          },
+          "C": {
+            "ce_damage": -0.0009,
+            "ce_lb975": -0.0084,
+            "ce_ub975": 0.0062
+          },
+          "extraction": 0.997,
+          "sib_abs_max": 0.0379,
+          "siblings": {
+            "animacy_place_anyone_anywhere": -0.0068,
+            "aux_copy_so": -0.003,
+            "case_he_him": 0.0039,
+            "category_selection_because_of": -0.0035,
+            "correlative_or_and": 0.0379,
+            "countability_fewer_less": 0.0012,
+            "durativity_until_by": 0.0023,
+            "equative_result": 0.0077,
+            "gender_object_him_her": -0.0007,
+            "let_want_complement": 0.0015,
+            "number_reflexive_myself_ourselves": 0.0065,
+            "numeral_dual_both_all": 0.0082,
+            "possessive_gender": 0.0014,
+            "raising_extraposition_happened": 0.0007,
+            "rather_prefer": 0.0031
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.1534,
+            "ce_lb975": 0.8864,
+            "ce_ub975": 1.4131
+          },
+          "C": {
+            "ce_damage": 0.0018,
+            "ce_lb975": -0.0025,
+            "ce_ub975": 0.006
+          },
+          "extraction": 1.002,
+          "sib_abs_max": 0.602,
+          "siblings": {
+            "animacy_place_anyone_anywhere": 0.0536,
+            "aux_copy_so": 0.0083,
+            "case_he_him": 0.0268,
+            "category_selection_because_of": -0.0026,
+            "correlative_or_and": 0.602,
+            "countability_fewer_less": 0.0181,
+            "durativity_until_by": -0.0355,
+            "equative_result": -0.016,
+            "gender_object_him_her": 0.0006,
+            "let_want_complement": 0.0015,
+            "number_reflexive_myself_ourselves": -0.0489,
+            "numeral_dual_both_all": 0.0326,
+            "possessive_gender": 0.0192,
+            "raising_extraposition_happened": -0.0056,
+            "rather_prefer": 0.0069
+          }
+        }
+      },
+      "exact_held": 0.881,
+      "family": "uncovered_stems",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 12,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row4_v3": true,
+        "row5": true
+      },
+      "seconds": 148.7,
+      "separable": true,
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:16:head:08",
+        "attn:14:head:08",
+        "attn:09:head:07",
+        "attn:10:head:05",
+        "attn:09:head:05",
+        "attn:11:head:07",
+        "attn:15:head:01",
+        "attn:12:head:02",
+        "attn:11:head:02",
+        "attn:13:head:08"
+      ]
+    },
+    "case_he_him": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.3454,
+            "ce_lb975": 1.0218,
+            "ce_ub975": 1.6494
+          },
+          "C": {
+            "ce_damage": 0.0054,
+            "ce_lb975": -0.0012,
+            "ce_ub975": 0.0118
+          },
+          "extraction": 0.975,
+          "sib_abs_max": 0.0093,
+          "siblings": {
+            "animacy_place_anyone_anywhere": -0.0093,
+            "aux_copy_so": -0.0025,
+            "both_either": -0.0061,
+            "category_selection_because_of": -0.0002,
+            "correlative_or_and": -0.0033,
+            "countability_fewer_less": -0.0039,
+            "durativity_until_by": 0.0027,
+            "equative_result": 0.0053,
+            "gender_object_him_her": 0.0006,
+            "let_want_complement": 0.0011,
+            "number_reflexive_myself_ourselves": -0.0043,
+            "numeral_dual_both_all": -0.0006,
+            "possessive_gender": 0.0003,
+            "raising_extraposition_happened": 0.007,
+            "rather_prefer": -0.0026
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.4678,
+            "ce_lb975": 1.1062,
+            "ce_ub975": 1.8052
+          },
+          "C": {
+            "ce_damage": 0.0043,
+            "ce_lb975": -0.0,
+            "ce_ub975": 0.0091
+          },
+          "extraction": 0.992,
+          "sib_abs_max": 0.0785,
+          "siblings": {
+            "animacy_place_anyone_anywhere": -0.0122,
+            "aux_copy_so": 0.0785,
+            "both_either": 0.0133,
+            "category_selection_because_of": 0.0044,
+            "correlative_or_and": -0.0226,
+            "countability_fewer_less": -0.0103,
+            "durativity_until_by": -0.0239,
+            "equative_result": 0.0086,
+            "gender_object_him_her": 0.0136,
+            "let_want_complement": -0.004,
+            "number_reflexive_myself_ourselves": -0.0168,
+            "numeral_dual_both_all": 0.0715,
+            "possessive_gender": -0.0033,
+            "raising_extraposition_happened": 0.0692,
+            "rather_prefer": -0.0061
+          }
+        }
+      },
+      "exact_held": 0.93,
+      "family": "uncovered_stems",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 8,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 159.9,
+      "separable": true,
+      "units": [
+        "attn:06:head:03",
+        "attn:07:head:08",
+        "attn:04:head:01",
+        "attn:03:head:06",
+        "attn:05:head:08",
+        "attn:05:head:03",
+        "attn:08:head:01",
+        "attn:08:head:08"
+      ]
+    },
+    "category_selection_because_of": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.3119,
+            "ce_lb975": 0.2958,
+            "ce_ub975": 0.3287
+          },
+          "C": {
+            "ce_damage": -0.0031,
+            "ce_lb975": -0.0107,
+            "ce_ub975": 0.0041
+          },
+          "extraction": 0.927,
+          "sib_abs_max": 0.0331,
+          "siblings": {
+            "animacy_place_anyone_anywhere": -0.0062,
+            "aux_copy_so": 0.001,
+            "both_either": -0.0331,
+            "case_he_him": 0.0089,
+            "correlative_or_and": -0.0086,
+            "countability_fewer_less": 0.0086,
+            "durativity_until_by": 0.0063,
+            "equative_result": 0.0097,
+            "gender_object_him_her": 0.015,
+            "let_want_complement": -0.0016,
+            "number_reflexive_myself_ourselves": -0.0104,
+            "numeral_dual_both_all": 0.0007,
+            "possessive_gender": -0.0093,
+            "raising_extraposition_happened": 0.004,
+            "rather_prefer": 0.0097
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.3406,
+            "ce_lb975": 0.3215,
+            "ce_ub975": 0.3602
+          },
+          "C": {
+            "ce_damage": -0.0169,
+            "ce_lb975": -0.0356,
+            "ce_ub975": 0.0025
+          },
+          "extraction": 1.002,
+          "sib_abs_max": 0.2397,
+          "siblings": {
+            "animacy_place_anyone_anywhere": -0.0387,
+            "aux_copy_so": -0.0033,
+            "both_either": -0.0481,
+            "case_he_him": 0.2397,
+            "correlative_or_and": -0.152,
+            "countability_fewer_less": 0.0105,
+            "durativity_until_by": 0.0228,
+            "equative_result": -0.027,
+            "gender_object_him_her": -0.0085,
+            "let_want_complement": -0.0035,
+            "number_reflexive_myself_ourselves": 0.0035,
+            "numeral_dual_both_all": 0.0018,
+            "possessive_gender": -0.0283,
+            "raising_extraposition_happened": -0.0025,
+            "rather_prefer": -0.0188
+          }
+        }
+      },
+      "exact_held": 0.903,
+      "family": "uncovered_stems",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 10,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 167.2,
+      "separable": true,
+      "units": [
+        "attn:03:head:06",
+        "attn:07:head:08",
+        "attn:05:head:08",
+        "attn:04:head:01",
+        "attn:05:head:03",
+        "attn:02:head:03",
+        "attn:09:head:07",
+        "attn:04:head:00",
+        "attn:06:head:03",
+        "attn:11:head:02"
+      ]
+    },
+    "correlative_or_and": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.9211,
+            "ce_lb975": 0.8718,
+            "ce_ub975": 0.967
+          },
+          "C": {
+            "ce_damage": -0.001,
+            "ce_lb975": -0.0088,
+            "ce_ub975": 0.0067
+          },
+          "extraction": 0.953,
+          "sib_abs_max": 0.0275,
+          "siblings": {
+            "animacy_place_anyone_anywhere": 0.0052,
+            "aux_copy_so": 0.0057,
+            "both_either": 0.0275,
+            "case_he_him": -0.0012,
+            "category_selection_because_of": 0.0032,
+            "countability_fewer_less": -0.0019,
+            "durativity_until_by": -0.0066,
+            "equative_result": 0.0006,
+            "gender_object_him_her": -0.0063,
+            "let_want_complement": -0.0068,
+            "number_reflexive_myself_ourselves": 0.0045,
+            "numeral_dual_both_all": 0.0011,
+            "possessive_gender": -0.0051,
+            "raising_extraposition_happened": 0.0097,
+            "rather_prefer": -0.0004
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9948,
+            "ce_lb975": 0.9315,
+            "ce_ub975": 1.0581
+          },
+          "C": {
+            "ce_damage": 0.0112,
+            "ce_lb975": 0.0057,
+            "ce_ub975": 0.0172
+          },
+          "extraction": 0.987,
+          "sib_abs_max": 0.8847,
+          "siblings": {
+            "animacy_place_anyone_anywhere": 0.0856,
+            "aux_copy_so": -0.0226,
+            "both_either": 0.8847,
+            "case_he_him": -0.0348,
+            "category_selection_because_of": -0.0072,
+            "countability_fewer_less": 0.0254,
+            "durativity_until_by": -0.0672,
+            "equative_result": -0.0139,
+            "gender_object_him_her": 0.001,
+            "let_want_complement": 0.0046,
+            "number_reflexive_myself_ourselves": 0.0478,
+            "numeral_dual_both_all": 0.0435,
+            "possessive_gender": 0.0022,
+            "raising_extraposition_happened": 0.0021,
+            "rather_prefer": -0.0078
+          }
+        }
+      },
+      "exact_held": 0.881,
+      "family": "uncovered_stems",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 14,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": false,
+        "row5": true
+      },
+      "seconds": 159.2,
+      "separable": true,
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:16:head:08",
+        "attn:09:head:07",
+        "attn:14:head:08",
+        "attn:09:head:01",
+        "attn:10:head:05",
+        "attn:11:head:07",
+        "attn:05:head:03",
+        "attn:12:head:02",
+        "attn:11:head:03",
+        "attn:15:head:01",
+        "attn:12:head:08",
+        "attn:05:head:06"
+      ]
+    },
+    "countability_fewer_less": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.4812,
+            "ce_lb975": 0.413,
+            "ce_ub975": 0.5534
+          },
+          "C": {
+            "ce_damage": 0.0089,
+            "ce_lb975": 0.001,
+            "ce_ub975": 0.0161
+          },
+          "extraction": 1.019,
+          "sib_abs_max": 0.007,
+          "siblings": {
+            "animacy_place_anyone_anywhere": -0.0024,
+            "aux_copy_so": 0.0021,
+            "both_either": -0.007,
+            "case_he_him": 0.0025,
+            "category_selection_because_of": -0.0003,
+            "correlative_or_and": 0.0012,
+            "durativity_until_by": 0.0018,
+            "equative_result": 0.0009,
+            "gender_object_him_her": -0.0026,
+            "let_want_complement": 0.0008,
+            "number_reflexive_myself_ourselves": 0.0022,
+            "numeral_dual_both_all": -0.002,
+            "possessive_gender": -0.0056,
+            "raising_extraposition_happened": -0.0015,
+            "rather_prefer": -0.0007
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.4844,
+            "ce_lb975": 0.4203,
+            "ce_ub975": 0.5527
+          },
+          "C": {
+            "ce_damage": 0.0119,
+            "ce_lb975": -0.0029,
+            "ce_ub975": 0.0276
+          },
+          "extraction": 1.027,
+          "sib_abs_max": 0.1184,
+          "siblings": {
+            "animacy_place_anyone_anywhere": -0.034,
+            "aux_copy_so": -0.0622,
+            "both_either": -0.0246,
+            "case_he_him": -0.0214,
+            "category_selection_because_of": -0.0157,
+            "correlative_or_and": -0.0262,
+            "durativity_until_by": 0.0348,
+            "equative_result": 0.0039,
+            "gender_object_him_her": -0.0154,
+            "let_want_complement": -0.0035,
+            "number_reflexive_myself_ourselves": 0.0224,
+            "numeral_dual_both_all": 0.1184,
+            "possessive_gender": 0.0308,
+            "raising_extraposition_happened": 0.0277,
+            "rather_prefer": 0.0263
+          }
+        }
+      },
+      "exact_held": 0.873,
+      "family": "uncovered_stems",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 22,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": false,
+        "row5": true
+      },
+      "seconds": 168.3,
+      "separable": true,
+      "units": [
+        "attn:09:head:06",
+        "attn:08:head:03",
+        "attn:11:head:01",
+        "attn:11:head:06",
+        "attn:10:head:03",
+        "attn:13:head:00",
+        "attn:05:head:06",
+        "attn:10:head:08",
+        "attn:10:head:04",
+        "attn:14:head:04",
+        "attn:13:head:03",
+        "attn:07:head:00",
+        "attn:15:head:03",
+        "attn:06:head:07",
+        "attn:13:head:07",
+        "attn:14:head:07",
+        "attn:15:head:01",
+        "attn:11:head:07",
+        "attn:08:head:08",
+        "attn:09:head:00",
+        "attn:13:head:05",
+        "attn:09:head:01"
+      ]
+    },
+    "durativity_until_by": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.3752,
+            "ce_lb975": 1.2815,
+            "ce_ub975": 1.467
+          },
+          "C": {
+            "ce_damage": 0.0013,
+            "ce_lb975": -0.0025,
+            "ce_ub975": 0.0053
+          },
+          "extraction": 0.996,
+          "sib_abs_max": 0.0075,
+          "siblings": {
+            "animacy_place_anyone_anywhere": 0.0075,
+            "aux_copy_so": -0.0017,
+            "both_either": 0.0035,
+            "case_he_him": -0.0015,
+            "category_selection_because_of": 0.0013,
+            "correlative_or_and": 0.0016,
+            "countability_fewer_less": -0.0028,
+            "equative_result": -0.0017,
+            "gender_object_him_her": 0.0066,
+            "let_want_complement": 0.0,
+            "number_reflexive_myself_ourselves": -0.0044,
+            "numeral_dual_both_all": -0.0015,
+            "possessive_gender": 0.0007,
+            "raising_extraposition_happened": 0.0012,
+            "rather_prefer": 0.0025
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.4073,
+            "ce_lb975": 1.3014,
+            "ce_ub975": 1.5091
+          },
+          "C": {
+            "ce_damage": 0.0044,
+            "ce_lb975": 0.0003,
+            "ce_ub975": 0.0088
+          },
+          "extraction": 1.0,
+          "sib_abs_max": 0.0661,
+          "siblings": {
+            "animacy_place_anyone_anywhere": -0.0661,
+            "aux_copy_so": 0.0376,
+            "both_either": 0.0095,
+            "case_he_him": -0.0302,
+            "category_selection_because_of": 0.0031,
+            "correlative_or_and": 0.009,
+            "countability_fewer_less": -0.0106,
+            "equative_result": 0.0088,
+            "gender_object_him_her": 0.0061,
+            "let_want_complement": 0.0138,
+            "number_reflexive_myself_ourselves": -0.0188,
+            "numeral_dual_both_all": -0.0064,
+            "possessive_gender": -0.0005,
+            "raising_extraposition_happened": 0.0259,
+            "rather_prefer": 0.0274
+          }
+        }
+      },
+      "exact_held": 0.895,
+      "family": "uncovered_stems",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 12,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 163.3,
+      "separable": true,
+      "units": [
+        "attn:06:head:03",
+        "attn:09:head:01",
+        "attn:07:head:08",
+        "attn:14:head:08",
+        "attn:08:head:01",
+        "attn:11:head:03",
+        "attn:09:head:07",
+        "attn:10:head:05",
+        "attn:04:head:01",
+        "attn:08:head:08",
+        "attn:12:head:08",
+        "attn:16:head:08"
+      ]
+    },
+    "equative_result": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.6548,
+            "ce_lb975": 0.5562,
+            "ce_ub975": 0.7544
+          },
+          "C": {
+            "ce_damage": 0.0009,
+            "ce_lb975": -0.0056,
+            "ce_ub975": 0.007
+          },
+          "extraction": 0.992,
+          "sib_abs_max": 0.0191,
+          "siblings": {
+            "animacy_place_anyone_anywhere": 0.0035,
+            "aux_copy_so": -0.0073,
+            "both_either": -0.0191,
+            "case_he_him": 0.0003,
+            "category_selection_because_of": 0.0013,
+            "correlative_or_and": 0.0048,
+            "countability_fewer_less": 0.0026,
+            "durativity_until_by": -0.0009,
+            "gender_object_him_her": 0.0039,
+            "let_want_complement": 0.0046,
+            "number_reflexive_myself_ourselves": -0.0043,
+            "numeral_dual_both_all": -0.0012,
+            "possessive_gender": 0.0045,
+            "raising_extraposition_happened": -0.0115,
+            "rather_prefer": -0.0028
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.6785,
+            "ce_lb975": 0.5774,
+            "ce_ub975": 0.7852
+          },
+          "C": {
+            "ce_damage": 0.0006,
+            "ce_lb975": -0.0071,
+            "ce_ub975": 0.0073
+          },
+          "extraction": 0.995,
+          "sib_abs_max": 0.1172,
+          "siblings": {
+            "animacy_place_anyone_anywhere": 0.0384,
+            "aux_copy_so": 0.0151,
+            "both_either": 0.0374,
+            "case_he_him": -0.0178,
+            "category_selection_because_of": -0.0019,
+            "correlative_or_and": 0.0961,
+            "countability_fewer_less": -0.0877,
+            "durativity_until_by": -0.008,
+            "gender_object_him_her": -0.0226,
+            "let_want_complement": 0.0328,
+            "number_reflexive_myself_ourselves": -0.1172,
+            "numeral_dual_both_all": -0.06,
+            "possessive_gender": 0.0373,
+            "raising_extraposition_happened": -0.0814,
+            "rather_prefer": -0.061
+          }
+        }
+      },
+      "exact_held": 0.893,
+      "family": "uncovered_stems",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 11,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 171.5,
+      "separable": true,
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:06:head:03",
+        "attn:02:head:02",
+        "attn:04:head:01",
+        "attn:04:head:07",
+        "attn:08:head:04",
+        "attn:01:head:05",
+        "attn:03:head:06",
+        "attn:04:head:03",
+        "attn:04:head:00"
+      ]
+    },
+    "gender_object_him_her": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.5125,
+            "ce_lb975": 0.4566,
+            "ce_ub975": 0.5671
+          },
+          "C": {
+            "ce_damage": 0.0024,
+            "ce_lb975": -0.0035,
+            "ce_ub975": 0.0081
+          },
+          "extraction": 0.884,
+          "sib_abs_max": 0.0827,
+          "siblings": {
+            "animacy_place_anyone_anywhere": 0.0016,
+            "aux_copy_so": -0.0003,
+            "both_either": -0.0046,
+            "case_he_him": -0.0154,
+            "category_selection_because_of": 0.0134,
+            "correlative_or_and": 0.0012,
+            "countability_fewer_less": -0.0041,
+            "durativity_until_by": -0.0034,
+            "equative_result": 0.0016,
+            "let_want_complement": -0.006,
+            "number_reflexive_myself_ourselves": -0.0015,
+            "numeral_dual_both_all": -0.0052,
+            "possessive_gender": 0.0827,
+            "raising_extraposition_happened": -0.0009,
+            "rather_prefer": -0.0049
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5891,
+            "ce_lb975": 0.5267,
+            "ce_ub975": 0.6462
+          },
+          "C": {
+            "ce_damage": -0.0051,
+            "ce_lb975": -0.0104,
+            "ce_ub975": 0.0004
+          },
+          "extraction": 0.967,
+          "sib_abs_max": 0.2517,
+          "siblings": {
+            "animacy_place_anyone_anywhere": 0.0043,
+            "aux_copy_so": 0.0026,
+            "both_either": -0.0029,
+            "case_he_him": 0.2517,
+            "category_selection_because_of": 0.0158,
+            "correlative_or_and": -0.0054,
+            "countability_fewer_less": -0.0138,
+            "durativity_until_by": -0.0076,
+            "equative_result": -0.0022,
+            "let_want_complement": -0.0049,
+            "number_reflexive_myself_ourselves": 0.0134,
+            "numeral_dual_both_all": -0.0195,
+            "possessive_gender": 0.2172,
+            "raising_extraposition_happened": -0.0014,
+            "rather_prefer": -0.0018
+          }
+        }
+      },
+      "exact_held": 0.918,
+      "family": "uncovered_stems",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 9,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 147.7,
+      "separable": false,
+      "units": [
+        "attn:12:head:04",
+        "attn:10:head:01",
+        "attn:09:head:06",
+        "attn:13:head:01",
+        "attn:15:head:01",
+        "attn:06:head:01",
+        "attn:16:head:01",
+        "attn:13:head:02",
+        "attn:14:head:01"
+      ]
+    },
+    "let_want_complement": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.8726,
+            "ce_lb975": 0.7929,
+            "ce_ub975": 0.9472
+          },
+          "C": {
+            "ce_damage": -0.0026,
+            "ce_lb975": -0.006,
+            "ce_ub975": 0.0011
+          },
+          "extraction": 1.009,
+          "sib_abs_max": 0.0121,
+          "siblings": {
+            "animacy_place_anyone_anywhere": -0.0004,
+            "aux_copy_so": 0.0049,
+            "both_either": 0.0057,
+            "case_he_him": -0.0016,
+            "category_selection_because_of": 0.0002,
+            "correlative_or_and": -0.0033,
+            "countability_fewer_less": -0.0051,
+            "durativity_until_by": 0.001,
+            "equative_result": 0.0012,
+            "gender_object_him_her": -0.0009,
+            "number_reflexive_myself_ourselves": -0.0004,
+            "numeral_dual_both_all": -0.0041,
+            "possessive_gender": -0.0039,
+            "raising_extraposition_happened": 0.0039,
+            "rather_prefer": 0.0121
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.8802,
+            "ce_lb975": 0.8077,
+            "ce_ub975": 0.9544
+          },
+          "C": {
+            "ce_damage": -0.0001,
+            "ce_lb975": -0.0053,
+            "ce_ub975": 0.0049
+          },
+          "extraction": 1.003,
+          "sib_abs_max": 0.1138,
+          "siblings": {
+            "animacy_place_anyone_anywhere": 0.1138,
+            "aux_copy_so": -0.085,
+            "both_either": 0.0104,
+            "case_he_him": 0.0246,
+            "category_selection_because_of": -0.002,
+            "correlative_or_and": -0.054,
+            "countability_fewer_less": 0.111,
+            "durativity_until_by": -0.0663,
+            "equative_result": 0.0024,
+            "gender_object_him_her": 0.0033,
+            "number_reflexive_myself_ourselves": 0.0034,
+            "numeral_dual_both_all": 0.0622,
+            "possessive_gender": -0.0208,
+            "raising_extraposition_happened": 0.0206,
+            "rather_prefer": -0.0052
+          }
+        }
+      },
+      "exact_held": 0.907,
+      "family": "uncovered_stems",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 12,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 161.6,
+      "separable": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:11:head:03",
+        "attn:06:head:03",
+        "attn:05:head:08",
+        "attn:08:head:01",
+        "attn:13:head:08",
+        "attn:14:head:03",
+        "attn:04:head:01",
+        "attn:16:head:08",
+        "attn:14:head:08",
+        "attn:09:head:01",
+        "attn:09:head:07"
+      ]
+    },
+    "number_reflexive_myself_ourselves": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.0157,
+            "ce_lb975": 0.9188,
+            "ce_ub975": 1.11
+          },
+          "C": {
+            "ce_damage": -0.0014,
+            "ce_lb975": -0.0058,
+            "ce_ub975": 0.0031
+          },
+          "extraction": 0.992,
+          "sib_abs_max": 0.0024,
+          "siblings": {
+            "animacy_place_anyone_anywhere": -0.0005,
+            "aux_copy_so": 0.0004,
+            "both_either": -0.0001,
+            "case_he_him": 0.0022,
+            "category_selection_because_of": -0.0007,
+            "correlative_or_and": 0.0006,
+            "countability_fewer_less": 0.0018,
+            "durativity_until_by": -0.0015,
+            "equative_result": -0.0019,
+            "gender_object_him_her": 0.0008,
+            "let_want_complement": -0.0004,
+            "numeral_dual_both_all": 0.0002,
+            "possessive_gender": -0.0024,
+            "raising_extraposition_happened": -0.0004,
+            "rather_prefer": 0.0015
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.0173,
+            "ce_lb975": 0.9218,
+            "ce_ub975": 1.1088
+          },
+          "C": {
+            "ce_damage": -0.0009,
+            "ce_lb975": -0.0067,
+            "ce_ub975": 0.005
+          },
+          "extraction": 0.996,
+          "sib_abs_max": 0.0583,
+          "siblings": {
+            "animacy_place_anyone_anywhere": -0.0344,
+            "aux_copy_so": -0.0122,
+            "both_either": -0.0242,
+            "case_he_him": -0.0407,
+            "category_selection_because_of": -0.021,
+            "correlative_or_and": -0.0583,
+            "countability_fewer_less": -0.0409,
+            "durativity_until_by": -0.0113,
+            "equative_result": 0.0021,
+            "gender_object_him_her": 0.0136,
+            "let_want_complement": -0.0035,
+            "numeral_dual_both_all": -0.0273,
+            "possessive_gender": 0.0201,
+            "raising_extraposition_happened": 0.0016,
+            "rather_prefer": -0.0015
+          }
+        }
+      },
+      "exact_held": 0.887,
+      "family": "uncovered_stems",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 14,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 161.4,
+      "separable": true,
+      "units": [
+        "attn:15:head:01",
+        "attn:09:head:06",
+        "attn:12:head:04",
+        "attn:13:head:02",
+        "attn:13:head:01",
+        "attn:09:head:07",
+        "attn:08:head:01",
+        "attn:10:head:01",
+        "attn:05:head:03",
+        "attn:16:head:01",
+        "attn:11:head:03",
+        "attn:11:head:06",
+        "attn:10:head:05",
+        "attn:06:head:01"
+      ]
+    },
+    "numeral_dual_both_all": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.11,
+            "ce_lb975": 0.1024,
+            "ce_ub975": 0.1181
+          },
+          "C": {
+            "ce_damage": -0.003,
+            "ce_lb975": -0.0061,
+            "ce_ub975": 0.0007
+          },
+          "extraction": 0.785,
+          "sib_abs_max": 0.008,
+          "siblings": {
+            "animacy_place_anyone_anywhere": 0.0064,
+            "aux_copy_so": 0.0011,
+            "both_either": 0.0025,
+            "case_he_him": 0.0003,
+            "category_selection_because_of": 0.0004,
+            "correlative_or_and": -0.0007,
+            "countability_fewer_less": 0.0033,
+            "durativity_until_by": 0.0015,
+            "equative_result": 0.0009,
+            "gender_object_him_her": -0.0015,
+            "let_want_complement": -0.0017,
+            "number_reflexive_myself_ourselves": 0.008,
+            "possessive_gender": 0.0042,
+            "raising_extraposition_happened": 0.0002,
+            "rather_prefer": 0.0017
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.1374,
+            "ce_lb975": 0.128,
+            "ce_ub975": 0.1473
+          },
+          "C": {
+            "ce_damage": 0.0002,
+            "ce_lb975": -0.0019,
+            "ce_ub975": 0.0022
+          },
+          "extraction": 0.987,
+          "sib_abs_max": 0.0221,
+          "siblings": {
+            "animacy_place_anyone_anywhere": 0.0063,
+            "aux_copy_so": 0.0105,
+            "both_either": 0.0017,
+            "case_he_him": -0.0006,
+            "category_selection_because_of": 0.0008,
+            "correlative_or_and": -0.0028,
+            "countability_fewer_less": 0.0221,
+            "durativity_until_by": 0.0046,
+            "equative_result": 0.0021,
+            "gender_object_him_her": 0.0023,
+            "let_want_complement": -0.0017,
+            "number_reflexive_myself_ourselves": 0.0151,
+            "possessive_gender": 0.0042,
+            "raising_extraposition_happened": -0.0006,
+            "rather_prefer": 0.0057
+          }
+        }
+      },
+      "exact_held": 0.9,
+      "family": "uncovered_stems",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 9,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 152.3,
+      "separable": false,
+      "units": [
+        "attn:09:head:06",
+        "attn:13:head:06",
+        "attn:14:head:06",
+        "attn:16:head:01",
+        "attn:13:head:01",
+        "attn:05:head:06",
+        "attn:09:head:00",
+        "attn:11:head:01",
+        "attn:15:head:01"
+      ]
+    },
+    "possessive_gender": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.3699,
+            "ce_lb975": 0.3379,
+            "ce_ub975": 0.4017
+          },
+          "C": {
+            "ce_damage": 0.0004,
+            "ce_lb975": -0.0075,
+            "ce_ub975": 0.0083
+          },
+          "extraction": 0.904,
+          "sib_abs_max": 0.0954,
+          "siblings": {
+            "animacy_place_anyone_anywhere": 0.0091,
+            "aux_copy_so": -0.0042,
+            "both_either": -0.0022,
+            "case_he_him": -0.0144,
+            "category_selection_because_of": -0.0026,
+            "correlative_or_and": 0.0013,
+            "countability_fewer_less": 0.0086,
+            "durativity_until_by": -0.0039,
+            "equative_result": 0.0001,
+            "gender_object_him_her": 0.0954,
+            "let_want_complement": 0.0029,
+            "number_reflexive_myself_ourselves": 0.0003,
+            "numeral_dual_both_all": 0.0055,
+            "raising_extraposition_happened": 0.0046,
+            "rather_prefer": 0.0017
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.4413,
+            "ce_lb975": 0.4183,
+            "ce_ub975": 0.465
+          },
+          "C": {
+            "ce_damage": 0.0006,
+            "ce_lb975": -0.0028,
+            "ce_ub975": 0.0047
+          },
+          "extraction": 0.99,
+          "sib_abs_max": 0.3287,
+          "siblings": {
+            "animacy_place_anyone_anywhere": -0.0041,
+            "aux_copy_so": -0.008,
+            "both_either": 0.0011,
+            "case_he_him": 0.0912,
+            "category_selection_because_of": 0.0076,
+            "correlative_or_and": 0.0016,
+            "countability_fewer_less": -0.0059,
+            "durativity_until_by": -0.013,
+            "equative_result": 0.0004,
+            "gender_object_him_her": 0.3287,
+            "let_want_complement": 0.0041,
+            "number_reflexive_myself_ourselves": -0.0163,
+            "numeral_dual_both_all": 0.0068,
+            "raising_extraposition_happened": 0.0009,
+            "rather_prefer": 0.0026
+          }
+        }
+      },
+      "exact_held": 0.89,
+      "family": "uncovered_stems",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 7,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 154.6,
+      "separable": false,
+      "units": [
+        "attn:10:head:01",
+        "attn:12:head:04",
+        "attn:09:head:06",
+        "attn:06:head:01",
+        "attn:08:head:01",
+        "attn:15:head:01",
+        "attn:04:head:05"
+      ]
+    },
+    "raising_extraposition_happened": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.0661,
+            "ce_lb975": 0.7739,
+            "ce_ub975": 1.3816
+          },
+          "C": {
+            "ce_damage": 0.0038,
+            "ce_lb975": -0.0052,
+            "ce_ub975": 0.0128
+          },
+          "extraction": 1.0,
+          "sib_abs_max": 0.0179,
+          "siblings": {
+            "animacy_place_anyone_anywhere": -0.0013,
+            "aux_copy_so": 0.0047,
+            "both_either": 0.0022,
+            "case_he_him": 0.0093,
+            "category_selection_because_of": -0.0029,
+            "correlative_or_and": 0.0008,
+            "countability_fewer_less": -0.0108,
+            "durativity_until_by": -0.0043,
+            "equative_result": 0.009,
+            "gender_object_him_her": -0.0067,
+            "let_want_complement": 0.0179,
+            "number_reflexive_myself_ourselves": -0.011,
+            "numeral_dual_both_all": 0.0093,
+            "possessive_gender": 0.0078,
+            "rather_prefer": -0.0004
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.1215,
+            "ce_lb975": 0.8066,
+            "ce_ub975": 1.4612
+          },
+          "C": {
+            "ce_damage": 0.0061,
+            "ce_lb975": 0.0001,
+            "ce_ub975": 0.0133
+          },
+          "extraction": 1.006,
+          "sib_abs_max": 0.1448,
+          "siblings": {
+            "animacy_place_anyone_anywhere": 0.1188,
+            "aux_copy_so": -0.0166,
+            "both_either": 0.0065,
+            "case_he_him": 0.0797,
+            "category_selection_because_of": 0.0113,
+            "correlative_or_and": 0.0145,
+            "countability_fewer_less": 0.01,
+            "durativity_until_by": -0.0029,
+            "equative_result": 0.1448,
+            "gender_object_him_her": -0.005,
+            "let_want_complement": 0.0197,
+            "number_reflexive_myself_ourselves": -0.0081,
+            "numeral_dual_both_all": -0.1166,
+            "possessive_gender": -0.0041,
+            "rather_prefer": 0.0077
+          }
+        }
+      },
+      "exact_held": 0.878,
+      "family": "uncovered_stems",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 17,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": false,
+        "row5": true
+      },
+      "seconds": 169.6,
+      "separable": true,
+      "units": [
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:05:head:03",
+        "attn:09:head:01",
+        "attn:05:head:08",
+        "attn:04:head:01",
+        "attn:09:head:07",
+        "attn:08:head:01",
+        "attn:04:head:05",
+        "attn:06:head:03",
+        "attn:05:head:06",
+        "attn:03:head:06",
+        "attn:04:head:04",
+        "attn:04:head:00",
+        "attn:14:head:08",
+        "attn:09:head:05",
+        "attn:09:head:03"
+      ]
+    },
+    "rather_prefer": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.2678,
+            "ce_lb975": 0.2103,
+            "ce_ub975": 0.3209
+          },
+          "C": {
+            "ce_damage": -0.0006,
+            "ce_lb975": -0.005,
+            "ce_ub975": 0.0037
+          },
+          "extraction": 1.006,
+          "sib_abs_max": 0.0148,
+          "siblings": {
+            "animacy_place_anyone_anywhere": 0.0048,
+            "aux_copy_so": 0.0065,
+            "both_either": -0.0037,
+            "case_he_him": -0.0032,
+            "category_selection_because_of": -0.0099,
+            "correlative_or_and": -0.006,
+            "countability_fewer_less": 0.0012,
+            "durativity_until_by": -0.0014,
+            "equative_result": -0.0017,
+            "gender_object_him_her": -0.0004,
+            "let_want_complement": 0.0148,
+            "number_reflexive_myself_ourselves": -0.0043,
+            "numeral_dual_both_all": 0.0008,
+            "possessive_gender": -0.0004,
+            "raising_extraposition_happened": 0.0032
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.2542,
+            "ce_lb975": 0.1971,
+            "ce_ub975": 0.3096
+          },
+          "C": {
+            "ce_damage": 0.0003,
+            "ce_lb975": -0.0067,
+            "ce_ub975": 0.007
+          },
+          "extraction": 1.005,
+          "sib_abs_max": 0.1499,
+          "siblings": {
+            "animacy_place_anyone_anywhere": 0.0216,
+            "aux_copy_so": -0.0418,
+            "both_either": -0.0069,
+            "case_he_him": -0.0708,
+            "category_selection_because_of": -0.0071,
+            "correlative_or_and": 0.0821,
+            "countability_fewer_less": 0.0014,
+            "durativity_until_by": 0.0195,
+            "equative_result": -0.005,
+            "gender_object_him_her": 0.0018,
+            "let_want_complement": 0.068,
+            "number_reflexive_myself_ourselves": 0.1499,
+            "numeral_dual_both_all": 0.0626,
+            "possessive_gender": 0.0163,
+            "raising_extraposition_happened": 0.0304
+          }
+        }
+      },
+      "exact_held": 0.892,
+      "family": "uncovered_stems",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 9,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 175.4,
+      "separable": true,
+      "units": [
+        "attn:11:head:03",
+        "attn:07:head:08",
+        "attn:04:head:01",
+        "attn:01:head:05",
+        "attn:00:head:03",
+        "attn:02:head:03",
+        "attn:02:head:06",
+        "attn:06:head:03",
+        "attn:05:head:08"
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_new_separable": true,
+    "pred_b_counted_kept": true,
+    "pred_c_row4_kept": true,
+    "pred_d_instrument": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "evaluated": [
+      "possessive_gender",
+      "correlative_or_and",
+      "number_reflexive_myself_ourselves",
+      "animacy_place_anyone_anywhere",
+      "countability_fewer_less",
+      "equative_result",
+      "case_he_him",
+      "durativity_until_by",
+      "rather_prefer",
+      "let_want_complement",
+      "both_either",
+      "category_selection_because_of",
+      "numeral_dual_both_all",
+      "raising_extraposition_happened",
+      "gender_object_him_her",
+      "aux_copy_so"
+    ],
+    "lambda": 30.0,
+    "lr": 0.05,
+    "rank": 1,
+    "seed": 0,
+    "split": "within-direction: fit rows[0::4]+rows[1::4] (fits and controls), held rows[2::4]+rows[3::4] (evaluation)",
+    "steps": 120,
+    "units_source": "v197 ... v257 battery receipts (later receipts override earlier ones)"
+  },
+  "schema": "unit_uncovered_stem_backlog_v665",
+  "seconds": 2577.5,
+  "separable_counts": {
+    "uncovered_stems": 13
+  },
+  "summary": {
+    "animacy_place_anyone_anywhere": {
+      "fam": [
+        1.066,
+        0.0087,
+        0.0101
+      ],
+      "family": "uncovered_stems",
+      "n_units": 15,
+      "own": [
+        1.054,
+        0.1316,
+        0.0047
+      ],
+      "separable": true
+    },
+    "aux_copy_so": {
+      "fam": [
+        1.015,
+        0.003,
+        -0.0001
+      ],
+      "family": "uncovered_stems",
+      "n_units": 11,
+      "own": [
+        1.013,
+        0.0428,
+        0.0018
+      ],
+      "separable": true
+    },
+    "both_either": {
+      "fam": [
+        0.997,
+        0.0379,
+        0.0062
+      ],
+      "family": "uncovered_stems",
+      "n_units": 12,
+      "own": [
+        1.002,
+        0.602,
+        0.006
+      ],
+      "separable": true
+    },
+    "case_he_him": {
+      "fam": [
+        0.975,
+        0.0093,
+        0.0118
+      ],
+      "family": "uncovered_stems",
+      "n_units": 8,
+      "own": [
+        0.992,
+        0.0785,
+        0.0091
+      ],
+      "separable": true
+    },
+    "category_selection_because_of": {
+      "fam": [
+        0.927,
+        0.0331,
+        0.0041
+      ],
+      "family": "uncovered_stems",
+      "n_units": 10,
+      "own": [
+        1.002,
+        0.2397,
+        0.0025
+      ],
+      "separable": true
+    },
+    "correlative_or_and": {
+      "fam": [
+        0.953,
+        0.0275,
+        0.0067
+      ],
+      "family": "uncovered_stems",
+      "n_units": 14,
+      "own": [
+        0.987,
+        0.8847,
+        0.0172
+      ],
+      "separable": true
+    },
+    "countability_fewer_less": {
+      "fam": [
+        1.019,
+        0.007,
+        0.0161
+      ],
+      "family": "uncovered_stems",
+      "n_units": 22,
+      "own": [
+        1.027,
+        0.1184,
+        0.0276
+      ],
+      "separable": true
+    },
+    "durativity_until_by": {
+      "fam": [
+        0.996,
+        0.0075,
+        0.0053
+      ],
+      "family": "uncovered_stems",
+      "n_units": 12,
+      "own": [
+        1.0,
+        0.0661,
+        0.0088
+      ],
+      "separable": true
+    },
+    "equative_result": {
+      "fam": [
+        0.992,
+        0.0191,
+        0.007
+      ],
+      "family": "uncovered_stems",
+      "n_units": 11,
+      "own": [
+        0.995,
+        0.1172,
+        0.0073
+      ],
+      "separable": true
+    },
+    "gender_object_him_her": {
+      "fam": [
+        0.884,
+        0.0827,
+        0.0081
+      ],
+      "family": "uncovered_stems",
+      "n_units": 9,
+      "own": [
+        0.967,
+        0.2517,
+        0.0004
+      ],
+      "separable": false
+    },
+    "let_want_complement": {
+      "fam": [
+        1.009,
+        0.0121,
+        0.0011
+      ],
+      "family": "uncovered_stems",
+      "n_units": 12,
+      "own": [
+        1.003,
+        0.1138,
+        0.0049
+      ],
+      "separable": true
+    },
+    "number_reflexive_myself_ourselves": {
+      "fam": [
+        0.992,
+        0.0024,
+        0.0031
+      ],
+      "family": "uncovered_stems",
+      "n_units": 14,
+      "own": [
+        0.996,
+        0.0583,
+        0.005
+      ],
+      "separable": true
+    },
+    "numeral_dual_both_all": {
+      "fam": [
+        0.785,
+        0.008,
+        0.0007
+      ],
+      "family": "uncovered_stems",
+      "n_units": 9,
+      "own": [
+        0.987,
+        0.0221,
+        0.0022
+      ],
+      "separable": false
+    },
+    "possessive_gender": {
+      "fam": [
+        0.904,
+        0.0954,
+        0.0083
+      ],
+      "family": "uncovered_stems",
+      "n_units": 7,
+      "own": [
+        0.99,
+        0.3287,
+        0.0047
+      ],
+      "separable": false
+    },
+    "raising_extraposition_happened": {
+      "fam": [
+        1.0,
+        0.0179,
+        0.0128
+      ],
+      "family": "uncovered_stems",
+      "n_units": 17,
+      "own": [
+        1.006,
+        0.1448,
+        0.0133
+      ],
+      "separable": true
+    },
+    "rather_prefer": {
+      "fam": [
+        1.006,
+        0.0148,
+        0.0037
+      ],
+      "family": "uncovered_stems",
+      "n_units": 9,
+      "own": [
+        1.005,
+        0.1499,
+        0.007
+      ],
+      "separable": true
+    }
+  }
+}

@@ -1213,3 +1213,68 @@ receipt had to be added to the parent chain because both_either's parent was out
 all-members _parent_cdas resolution check rather than on GPU.
 pred_d registered at 60%, the lowest of the four: these thirteen parents come from THIRTEEN different batteries, so
 it is the widest instrument check in the sequence.
+
+## 2026-09-12T19:44Z HOURLY CIRCUIT TICK
+CIRCUIT_FOCUS: v665 terminal. All four registered predicates TRUE; ELEVEN of thirteen candidates separable in one
+16-member family. The backlog query converted into eleven candidate circuits in one 43-minute run, none of them
+authored -- all eleven were already lifted on disk and never followed up.
+  separable, sibmax: aux_copy_so 0.003, case_he_him 0.009, animacy_place_anyone_anywhere 0.009, durativity_until_by
+  0.007, countability_fewer_less 0.007, let_want_complement 0.012, rather_prefer 0.015, raising_extraposition_
+  happened 0.018, equative_result 0.019, category_selection_because_of 0.033, both_either 0.038.
+THE ADVERSARIAL SUB-TEST CAME BACK AGAINST MY OWN PREDICTION, WHICH IS THE USEFUL PART. rather_prefer and
+let_want_complement share the readout pair (" carry", " to") EXACTLY and sit on different stems. I registered them
+as the pair most likely to fuse. They did not: 0.015 and 0.012, among the cleanest in the family. Sharing a readout
+pair is NOT sufficient for fusion. That replicates the standing v321 result -- the readout pair is not a behaviour's
+identity, the cue-to-token MAPPING is -- in a place where I had predicted the opposite, so it is a real replication
+and not a restatement.
+THE FUSION THAT DID HAPPEN BREAKS MY OWN SELECTION QUERY. possessive_gender and gender_object_him_her leak into each
+other mutually, +0.095 and +0.083, and both fall. They are the SAME AXIS -- gender -- but my query treated
+gender_object_him_her as sitting on an UNCOVERED stem because no counted cell's name BEGINS with "gender", while
+possessive_gender is counted under "possessive". The stem STRING is not the axis. My "uncovered stem" filter is a
+naming heuristic that silently admits cells on covered axes whenever the axis is spelled into the second word.
+Correction to the rule I wrote last hour: author or select onto an uncovered AXIS; the stem prefix is only a proxy
+and it fails exactly where a cell is named by its construction rather than its variable.
+THE OTHER FAILURE IS NOT A DUPLICATE AND I WILL NOT REPORT IT AS ONE. numeral_dual_both_all has a sibling leak of
+0.008 -- the third cleanest in the family -- and fell because family-constrained extraction came in at 0.7850
+against a keep floor of 0.7896, a miss of 0.0046. That is a collapse-under-constraint near-miss on a DIFFERENT
+criterion, not evidence of a shared direction. It stays a candidate pending a rerun, and calling it a duplicate
+would be reading the verdict instead of the number.
+WHAT STILL BLOCKS THE ELEVEN, CHECKED NOT ASSUMED. I swept every receipt naming them: all eleven have only single-
+control evidence (arms cdas + dim). The standard these proposals are held to is four rows AND BOTH controls AND
+separability. Four rows: on record. Separability: now on record. The second control is the entire remaining gap,
+and that is the next rung rather than anything new.
+THROUGHPUT FACT, MEASURED AND AGAINST MY ESTIMATE. I sized v665 at 84 GPU-s per member from v663's rate. It ran
+2577 s for 16 members = 161 s per member, nearly double. Cost per member GROWS with family size, because each
+member is fitted against every sibling. Large families are not free, and a 16-member family is close to the point
+where one rung stops being "a screen per ten minutes". Plan the next one at ~160 s/member, not 84.
+HOW LONG. hour_review + latency 12 s. Receipt read + failure diagnosis + two-control sweep ~9 min. Ledger ~4 min.
+GPU 43 min, unattended. Queue wait 18:48 to 19:31 = 43 min before v665 started -- the largest latency sink this
+hour, and it is Codex's scalar lane holding the serial runner, not a fault of mine.
+CEREMONY_BUDGET: hour_review + latency 12 s; no lint or tests this span -- v665 was gated before enqueue.
+NOVELTY_LESSON_GATE: lesson 6 applied deliberately after yesterday's smoke failure -- I read the numeral_dual
+DEFINITION (which floor it missed) rather than the boolean, which is what stopped me recording a false duplicate.
+
+## 2026-09-12T19:49Z (same tick, circuit work) v667 queued -- the second control, and a dead anchor made live
+v667 runs the eleven v665-separable backlog cells through the SECOND same-answer control, which the receipt sweep
+showed is the only missing piece: all eleven carry cdas + dim only. Four rows on record, separability on record,
+second control missing. No new cells and no new axes in this rung.
+WHY IT CAN FAIL, REGISTERED. These eleven were lifted in old tier3 batteries against the canonical control alone,
+and the canonical control is a measured WEAK regularizer -- 32% transfer against the weekly control's 64%. A row-4
+pass earned against it is the easier bar. pred_d is set at six of eleven, not eleven of eleven, because the honest
+expectation is that some fail. If pred_d FAILS the result is about the CORPUS, not these cells: old-battery row 4
+passes would not be comparable to recent ones, and every count mixing them would need revisiting.
+A DEAD REPRODUCTION ANCHOR, FOUND AND FIXED. v659 declared ANCHOR and a dict of the anchor's prior control bounds,
+then wrote `anc = new.get(ANCHOR, {})` and never used `anc` again. The anchor was never compared to anything, and
+every runner derived from v659 -- including v663 and v665 this week -- inherited a reproduction guarantee that did
+not execute. That is lesson 7 ("make a new module reproduce the OLD digest through the NEW code path") passing on
+paper while running nothing. v667 adds pred_f: the anchor must reproduce the canonical 0.0075 and weekly 0.0096 that
+v659 actually recorded, within 0.01. I verified those two numbers against v659's receipt rather than trusting the
+constant I inherited.
+A SECOND INHERITED-DEFAULT BUG, CAUGHT ON CPU. The smoke default named verb_preposition_against_for and
+finiteness_selection -- neither is in this rung's NAMES -- so the first smoke measured NOTHING and returned an empty
+rows dict with all predicates False. Had I read that as a result I would have recorded a total null. It is the same
+family as the v635 KeyError and the v663 smoke: inherited constants that no longer match the rung. Fixed to two real
+members; the rerun builds both cells and both controls with v3_dropped 0, which is the only thing a smoke is allowed
+to tell me.
+COST NOTE CARRIED FORWARD. v665 measured 161 GPU-s per member at 16 members, not the 84 I projected from v663's 7.
+v667 is 12 members on a different protocol, so I am not projecting a number for it.
