@@ -1433,3 +1433,46 @@ joint intervention. It does not establish multi-task reuse, fresh unseen-panel
 selection independence, standalone extraction, or selective removal across unrelated
 tasks. Native queries, contextual values, omitted key projections and normalizers
 remain required. The prior recursive key-generator failure remains unresolved.
+
+## Arbitrary consumer combinations fail (12 September14:15)
+
+The previous first/current/both result does not extend to all combinations.
+The [registered span stress](REGIONAL_CONSUMER_SPAN_V1_RESULT.json) tests this
+without fitting another approximation. Let $K$ contain the two native branch
+writes as rows, and $E$ their approximation errors. For any coefficient vector
+$c$, the squared relative write error is
+
+$$
+\frac{\|E^\top c\|^2}{\|K^\top c\|^2}
+=\frac{c^\top EE^\top c}{c^\top KK^\top c}.
+$$
+
+Its maximum is the largest generalized eigenvalue of $(EE^\top,KK^\top)$.
+Both matrices are2-by-2. We verify the reference Gram is nonsingular before
+whitening; a singular reference would require checking errors on its nullspace.
+Stacking a family's outputs uses one shared coefficient pair across its prompts.
+Separate per-prompt eigenvectors allow independent port edits. All stress
+coefficients are rescaled to maximum absolute value1 before suffix execution.
+These are adversarial port combinations, not necessarily realizable token swaps.
+
+Family span error bounds are12.99%,6.77%,15.96%,5.96%: the10%prediction fails.
+The fixed opposing pair $(1,-1)$ still passes native regional effect errors
+2.26–6.75%. But bounded per-prompt worst-write directions fail effect prediction
+in3/4families: relative errors17.18,0.0765,9.32,0.415. For families0/2, native
+effect norms are tiny (0.000211/0.000493) while error norms0.00363/0.00460.
+These large relative effect numbers must not be read as large ordinary-task
+failures. They show lost cancellation under particular permitted port edits.
+Old ten-arm FP64-versus-native suffix replay maxabs8.91e-6 passes its1e-4bar.
+
+The [executed direct witness check](REGIONAL_CONSUMER_SPAN_WITNESS_V1_RESULT.json)
+replays all48 eigenvector contractions at amplitudes0.1,1,10. Bound disagreement
+is at most3.14e-13; the worst relative write error remains155.14% at every scale.
+Thus the write failure is algebraic, not a tiny-logit subtraction artifact.
+
+The frozen approximation is supported for the previously registered swaps,
+including their sum, but not for arbitrary two-consumer manipulation. Its omitted
+joint-key product can matter when larger branch contributions cancel. Restoring
+all native routing would trivially restore this identity without improving
+extraction; no such fallback is counted as a new circuit. Future simplifications
+must preserve both common and difference computations, with their dependencies
+charged. The standalone producer and multi-task criteria remain open.

@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "cells": [
+    {
+      "scale": 0.1,
+      "max_bound_replay_error": 3.1397107136399427e-13,
+      "max_relative_write_error": 1.5513618944519927,
+      "native_write_norm_min": 0.08980066273857522,
+      "error_write_norm_max": 0.3215402705957941
+    },
+    {
+      "scale": 1.0,
+      "max_bound_replay_error": 3.1397107136399427e-13,
+      "max_relative_write_error": 1.5513618944519931,
+      "native_write_norm_min": 0.8980066273857523,
+      "error_write_norm_max": 3.2154027059579406
+    },
+    {
+      "scale": 10.0,
+      "max_bound_replay_error": 3.133049375492192e-13,
+      "max_relative_write_error": 1.5513618944519934,
+      "native_write_norm_min": 8.98006627385752,
+      "error_write_norm_max": 32.154027059579406
+    }
+  ],
+  "scope": "Direct contraction reproduces worst-span witness at three amplitudes. Scale-invariant relative write failure is algebraic cancellation, not a small-logit subtraction artifact. No claim these ports correspond to real token swaps."
+}

@@ -22382,3 +22382,12 @@ Prior firstvalue-only correction and allposition streamcomposition checked. Free
 
 ### 2026-09-12T14:12:18.511649+00:00 — Codex: CONSUMER REUSE RED-TEAM COMPLETE
 Writes cosine.947–.977: strongly aligned same-behavior consumers, not independent tasks. Error cancellation present but every individualbranch passes. Shared primarymath records frozen reuse and jointinteraction pass with nativecontext scope. CPU geometry audit is concrete continuation; no circuit promotion.
+
+### 2026-09-12T14:13:37.379540+00:00 — Codex: CLAIM TWO-CONSUMER SPAN STRESS TEST
+Prior alignedbranches cosine.947–.977 motivates exact2x2 generalized-Gram worst relativewrite error over all linear first/current cue combinations. CPU savedvertices; require eachfamily span bound<=10%, report perrow bounds. Test fixed opposing edits and bounded perrow worstwrite direction through nativeFP64 suffix; max coefficient magnitude1. These are adversarial port edits chosen on savedresponses, not tokenrealizability/freshOOD. Replay old tenarms contrast absolute<=1e-4; opposing/worst signed effect relative<=10%eachfamily. No fitting or changed oldverdict.
+
+### 2026-09-12T14:15:14.637534+00:00 — Codex: CONSUMER SPAN FAIL / CLAIM DIRECT WITNESS CHECK
+A suffixreplay8.91e-6 passes; B familyspanworst13.0/6.77/15.96/5.96% fails; C boundedworstwrite directional nativeeffects fail3/4families, with smallreferenceeffects and absoluteerrors. Fixedopposingpasses2.26–6.75%. Prior first/current/bothpass preserved but arbitrarylinearconsumer manipulation unsupported. CPU directly replay generalizedeigenvector witnesses under amplitude0.1/1/10; quantify cancellation and floatingpointgap. No posthoc gain/fallback.
+
+### 2026-09-12T14:15:56.151577+00:00 — Codex: SPAN WITNESS VERIFIED
+Direct2branch contractions match generalizedeigen bounds<=3.14e-13 at0.1/1/10 amplitudes; worst155%writeerror scaleinvariant. Narrow arbitraryport failure is real, ordinary swaps remain passed. Primarymath adds exact Rayleigh quotient and native effect magnitudes. No absentstructure claim or fullnativefallback adoption. CPU redteam complete; fullgoalactive.
