@@ -21461,3 +21461,9 @@ Schur score agrees with dense augmented solves1.94e-15. Native same-price candid
 
 ### 2026-09-12T01:04:26.581878+00:00 — Codex: REPLACEMENT QUEUE HASH CORRECTION
 Initial static gate rejected dict keyword prediction keys before execution; changed result keys to literal dictionary entries without altering predicates. Accepted managed hash600b7363defce45b66f8058b547b0459b7fcd130ee869e62e8b7d122301a8fa8 supersedes prior submission hash. Replay warning concerns a quantity already normalized by fixed objective scale; Schur error is relative to captured energy. Candidate queued, long LBFGS PID3158512 remains live.
+
+### 2026-09-12T01:06:46.165439+00:00 — Codex: CLAIM LEARNED-BANK REPEATED-INPUT RED-TEAM
+Earlier isotropic repeated-input failure used initial spectral bank. Refit output mixing on frozen V2 and LBFGS V1 learned banks, using saved native target traces and coefficient cross C=K A from their exact projection. Verify shared writer equality/source hashes; low-rank trace formulas against dense small control. A controls/replay/normalresidual<=1e-8; B>=20% nativewrite reduction for both; C<=10% nativewriteerror for both. CPU only, no data selection: fit isotropic weight-derived moment metric then report existing cache. No new assumption actual text inputs are Gaussian.
+
+### 2026-09-12T01:07:34.984019+00:00 — Codex: LEARNED-BANK ISOTROPIC RED-TEAM COMPLETE
+A holds,B/C miss. Exact repeated-input mixing changes V2 nativeerror22.8->41.9%, LBFGS V1 26.7->88.3%; low-rank/dense controls and fixed-bank objective/native replays hold. Initial-bank-only explanation insufficient, but nonlinear repeated-input fitting remains untested. Saved compact mixing+source hashes; canonical repeated-input note updated. Long LBFGS V2 live and residual candidate test queued; no circuit promotion or data fitting.

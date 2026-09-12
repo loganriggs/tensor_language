@@ -1,0 +1,33 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "dense_control_error": 8.789622869524025e-16,
+  "reports": [
+    {
+      "stem": "COUPLED_QUARTIC_NONLINEAR_V2",
+      "program_sha256": "d4dfb51ea23e2668381903e90681d8f02ea2f6a5fdee5cd351a40cf60ce5e3e9",
+      "baseline_error": 0.2280854843899665,
+      "repeated_input_error": 0.41895119479602955,
+      "normal_residual": 8.611394597003296e-16,
+      "objective_replay_error": 4.440892098500626e-16,
+      "native_replay_error": 4.163336342344337e-16,
+      "objective_before": -1.5831193490225703e+20,
+      "objective_after": -2.4173216858827957e+21
+    },
+    {
+      "stem": "COUPLED_QUARTIC_LBFGS_V1",
+      "program_sha256": "44ab545a6110c9ba49cb449e03d328fa86924ed4ddc3fef7a5f7adeefa841524",
+      "baseline_error": 0.26652073742700316,
+      "repeated_input_error": 0.883256890740325,
+      "normal_residual": 1.8190897401982295e-15,
+      "objective_replay_error": 1.5543122344752192e-15,
+      "native_replay_error": 6.661338147750939e-16,
+      "objective_before": 8.230844349824203e+19,
+      "objective_after": -2.126367572815868e+21
+    }
+  ],
+  "artifact_sha256": "71af767cb706b9f803f53020eec7cdc79c6c2de601fd90b191e9a5cc1e6faf7a",
+  "target_trace_sha256": "a8e10a71925fe8e1d87ab0acf199a3ad17afed7638436e54a47d3e17e67f8d4e",
+  "scope": "Exact fixed learned-bank isotropic mixing using previously checked native traces; C=KA uses saved coefficient-optimal mixing. No nonlinear reader fitting or text fitting."
+}
