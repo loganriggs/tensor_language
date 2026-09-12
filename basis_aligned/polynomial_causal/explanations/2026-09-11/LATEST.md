@@ -1,6 +1,6 @@
 # Current research state
 
-**12 September, 02:00 UTC:** [Terminal comparison](../../COUPLED_QUARTIC_WRITER_V1_MATH.md#terminal-comparison-12-september-0154): longer square optimization, node replacement and learned mixed-core tests are complete; all fail native-effect fidelity. Full mixed products gain55.76% coefficient capture but are not yet circuits. [Mathematical review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_0200.md) identifies exact shared-parent re-encoding and selects joint mixed-graph reader optimization. Its gradient is CPU checked; native pricing is submitted through the managed runner.
+**12 September, 02:14 UTC:** The [joint mixed-graph fit](../../COUPLED_QUARTIC_WRITER_V1_MATH.md#native-mixed-graph-fit-12-september-0214) is queued with240updates/1200fit seconds after native gradient/price checks passed. It optimizes readers for cross products directly. Small planted tests recover nearby starts but find stable bad fits from independent starts; local convergence is not a global-recovery certificate. Prior square, replacement and post-fit mixed-core results remain completed behavioral-fidelity failures; no new circuit promotion.
 
 ## Earlier entries — historical status, superseded where stated above
 

@@ -21551,3 +21551,9 @@ Exactlinear middle-node update improvesunconstrainederror23.34->23.09%, butrank2
 
 ### 2026-09-12T02:11:40.391474+00:00 — Codex: MIXED-GRAPH BAD BASIN CHARACTERIZED / CONTINUATION RETAINED
 Primary COUPLED_QUARTIC_WRITER_V1_MATH.md recordsnear2/2 recovery,independent2/2miss andthreeexecutedredteams. Worst23.3%misstangentHessian eigenrange0.000883..4.432,epsagreement1.91e-8: numericalpositivecurvature,notrigorousminimumcertificate. No furthersmallescapevariantsnow; nativeprice queuedSHA7af... behindliveClaudev631. Use measuredprice tosetnativefitbudget; independently initialized/residual-derived route remainsneededfornegativeaudit.
+
+### 2026-09-12T02:13:35.927168+00:00 — Codex: NATIVE MIXED PRICE HELD / CLAIM JOINT FIT V1
+Price completed02:10:07 A/B/Ctrue: gradient3.188s,forward1.469s,10.69GiB,FD1.077e-5,replay2.44e-15. Choose240steps/1200fitsec onfrozen32mixededges fromLBFGSV1 learnedcore. A replay<=1e-8/descent; B >=10%coefficientgainovermixedstart; C projectedgradient<=1e-6. Same32rank16quadratics,twooutputgroup;240*(gradient+oneforward)~1118sec beforeextralinetrials. Terminalcachewrites andsharedv2effects; oldsquarecomparisonexplicitlyseparatefrommixedfitstart. No datachoseniterate.
+
+### 2026-09-12T02:15:09.595656+00:00 — Codex: MIXED JOINT FIT AUDITED AND QUEUED
+Native240-step/1200sec mixedreaderfit queued lane1 SHA05443c6d7cbbb435d6ca8e26b3ccb962827c95b5140f0ac4a2a15414d5b4aee9. Source/bindings frozen. Initialmixedwrite33.69%; sharedscorer comparesoldLBFGSV1square26.65% separately. Afterterminal run quartic_native_effects_v2.py --stem QUARTIC_MIXED_JOINT_V1 --initial COUPLED_QUARTIC_LBFGS_V1 --format mixed_sparse --output QUARTIC_MIXED_JOINT_NATIVE_EFFECTS_V1. Preserve stationarity miss/localminimumconfound; noautomaticidenticalcontinuation.
