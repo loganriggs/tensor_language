@@ -22430,3 +22430,6 @@ Head2write3.03–3.92%,removaleffect.404–.434%; heads2+4effect.173–.272%; na
 
 ### 2026-09-12T14:52:48.124856+00:00 — Codex: COMPILED PRIVATE BRANCH CHECK PASS
 Standaloneq1152/source2304/R interface,666656storedscalars withnativehead2norms. Sixpositions16independentprobe pairs<=4.64e-15 versusexistingfactoralgebra. Selectedbranchnativeeffectpass separatefromcompiledprobe; nativeintegration remainsnext. Newprimary COMPILED_SHARED_HEAD2_V1_MATH.md containsmath/price/scopes; no fullgoalpromotion.
+
+### 2026-09-12T14:53:53.790456+00:00 — Codex: CLAIM COMPILED HEAD2 NATIVE INTEGRATION
+Load666656-scalar savedpackage, execute onnativeq/source/R across48geocontexts. A original/fullpriorreplay<=1e-5; compiledFP64write<=1e-10/effect<=1e-5 versusoriginalhead2. B FP32packagewrite<=1e-5/effect<=1e-3. C twochildcompiledwrites sumfull<=1e-10 and match correspondingoriginalfactorchildwrites<=1e-10; report nonlinear suffixinteraction.7suffixarms9bodybatches180sec. Nativecontext andsuffixstillrequired; no false standalonefromtokensclaim.
