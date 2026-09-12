@@ -379,3 +379,7 @@ Omit beta*u0 in fixedwriter response: cached scalar/routing bars hold; native12s
 ## 2026-09-12 22:46 — Regional component transfers directionally to six new output spellings but misses50%coverage
 
 72score-free newendpointprefixes: selected64removal48.10/44.67/46.55%, donor52.40/46.33/48.40%; primaryApass,B/Cmiss. All36removalpairs/72donordirectionspositive; eachendpoint nativelycapable, no singleendpoint exclusion repairsallmisses. Fullvalue-sector control54.52–57.55% passes, adding9.45–10.33points; oldnewlinefullsectorfailure stays. Conditionalincrement positiveall36pairs, notisolatedmixed-onlyeffect. [Primary evidence and executed negative-result controls](../../polynomial_causal/SCALAR_NEW_ENDPOINTS_V1_MATH.md).
+
+## 2026-09-12 23:00 — Head9.8 native cue contrast enters mainly through source inputs
+
+CPUfourcorner query/source hybrids on36prior pairedcueexamples: source-only scalarcontrast error5.46–7.90%; query-only103–111%(style101.91%), querysymmetricfractionnegative3.79–7.89%. Sourcekey/value split puts92.78–97.27%alignedfraction onvalue, but fixedAmerican-key value-only20%bar failscity/style(22.91/22.95%); British-key errors3.80–13.83%. Baselineinteraction17.50–35.99%; no keydeletion or nativeend-effectclaim. [Derivation, anchors and executed baseline diagnostic](../../polynomial_causal/SCALAR_CUE_COMPUTATION_PORTS_V1_MATH.md).

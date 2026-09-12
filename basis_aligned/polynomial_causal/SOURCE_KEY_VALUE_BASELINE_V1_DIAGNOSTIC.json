@@ -1,0 +1,26 @@
+{
+  "records": [
+    {
+      "family": 0,
+      "value_with_American_keys_error": 0.22912732863879756,
+      "value_with_British_keys_error": 0.13831748527603965,
+      "symmetric_value_error": 0.05858834567392178,
+      "orientation_difference_over_target": 0.35990518463791293
+    },
+    {
+      "family": 1,
+      "value_with_American_keys_error": 0.1208309596661145,
+      "value_with_British_keys_error": 0.054448950929051644,
+      "symmetric_value_error": 0.033571460507022845,
+      "orientation_difference_over_target": 0.17498984627662983
+    },
+    {
+      "family": 2,
+      "value_with_American_keys_error": 0.2294653152334918,
+      "value_with_British_keys_error": 0.038004861199170445,
+      "symmetric_value_error": 0.09826253040028478,
+      "orientation_difference_over_target": 0.2637713047647155
+    }
+  ],
+  "scope": "Executed red-team of failed fixed-American-key value-only20%bar. Alternative baseline orientations and symmetric allocation reuse bothobservedcontexts; they do not repair that preregistered predictor or remove sourcekey dependency."
+}

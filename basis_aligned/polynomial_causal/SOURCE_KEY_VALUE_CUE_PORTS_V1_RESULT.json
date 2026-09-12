@@ -1,0 +1,38 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "tied_corner_anchor": 0.0,
+  "accounting_error": 9.008396461748539e-17,
+  "records": [
+    {
+      "family": 0,
+      "name": "new_cities",
+      "key_aligned_fraction": 0.043170608488759456,
+      "value_aligned_fraction": 0.9568293915112405,
+      "key_only_error": 1.123408884825346,
+      "value_only_error": 0.22912732863879756,
+      "interaction_norm_over_target": 0.3599051846379129
+    },
+    {
+      "family": 1,
+      "name": "nationality",
+      "key_aligned_fraction": 0.027318284710441607,
+      "value_aligned_fraction": 0.9726817152895583,
+      "key_only_error": 1.0477547589839364,
+      "value_only_error": 0.1208309596661145,
+      "interaction_norm_over_target": 0.17498984627662986
+    },
+    {
+      "family": 2,
+      "name": "style_rule",
+      "key_aligned_fraction": 0.07220033999367227,
+      "value_aligned_fraction": 0.9277996600063279,
+      "key_only_error": 1.0348072200301806,
+      "value_only_error": 0.2294653152334918,
+      "interaction_norm_over_target": 0.2637713047647155
+    }
+  ],
+  "seconds": 0.24964864179491997,
+  "scope": "Same36paired nativecue contexts, query fixedAmerican. TwoQKsourcekeys tied asone factor, value another. SourceKV contrast from priorfactorial is target, not fullnativecontrast. Local computational allocation, not signed logit mediation."
+}

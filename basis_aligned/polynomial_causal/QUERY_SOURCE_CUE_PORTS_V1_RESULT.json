@@ -1,0 +1,41 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "max_native_anchor_error": 3.059823194079677e-07,
+  "accounting_error": 8.52442789862587e-17,
+  "records": [
+    {
+      "family": 0,
+      "name": "new_cities",
+      "target_norm": 8.05430234014587,
+      "query_aligned_fraction": -0.07890670311792433,
+      "source_aligned_fraction": 1.0789067031179245,
+      "query_only_error": 1.1135907891566976,
+      "source_only_error": 0.07895398417050317,
+      "interaction_norm_over_target": 0.11626684858375749
+    },
+    {
+      "family": 1,
+      "name": "nationality",
+      "target_norm": 4.334824115079672,
+      "query_aligned_fraction": -0.03786285205328105,
+      "source_aligned_fraction": 1.0378628520532809,
+      "query_only_error": 1.0293634219802525,
+      "source_only_error": 0.05464083218488875,
+      "interaction_norm_over_target": 0.04391401600806986
+    },
+    {
+      "family": 2,
+      "name": "style_rule",
+      "target_norm": 4.989743736613934,
+      "query_aligned_fraction": -0.04138852133059739,
+      "source_aligned_fraction": 1.0413885213305973,
+      "query_only_error": 1.0191249049700166,
+      "source_only_error": 0.07134129016519525,
+      "interaction_norm_over_target": 0.05501848746933843
+    }
+  ],
+  "seconds": 0.24840890616178513,
+  "scope": "36paired nativecue contexts from prior shortpanel. Head9.8 even scalar only, factorial query vs sourceKV hybrids; symmetric partition is a descriptive computation allocation, not final-logit causal mediation or standalone extraction."
+}

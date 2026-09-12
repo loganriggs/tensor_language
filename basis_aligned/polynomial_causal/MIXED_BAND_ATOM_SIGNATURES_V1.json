@@ -1,0 +1,250 @@
+{
+  "baseline_absolute_replay_error": 0.0,
+  "records": [
+    {
+      "head": "8.2",
+      "band_pair": [
+        0,
+        1
+      ],
+      "source_arm": 2,
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.03693452955916807,
+          "positive_pairs": 12
+        },
+        {
+          "family": 1,
+          "coverage": 0.050155452376145195,
+          "positive_pairs": 12
+        }
+      ],
+      "newline_maxabs": 0.008110970258712769,
+      "newline_worst_retained_delta": 0.008110970258712769,
+      "additive_even_union_worst_delta": 0.10305735468864441,
+      "additive_even_union_maxabs": 0.10305735468864441
+    },
+    {
+      "head": "8.2",
+      "band_pair": [
+        0,
+        2
+      ],
+      "source_arm": 3,
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.019216382899129855,
+          "positive_pairs": 12
+        },
+        {
+          "family": 1,
+          "coverage": 0.02215995373712675,
+          "positive_pairs": 12
+        }
+      ],
+      "newline_maxabs": 0.005081444978713989,
+      "newline_worst_retained_delta": 0.005081444978713989,
+      "additive_even_union_worst_delta": 0.10002782940864563,
+      "additive_even_union_maxabs": 0.10002782940864563
+    },
+    {
+      "head": "8.2",
+      "band_pair": [
+        0,
+        3
+      ],
+      "source_arm": 4,
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.00748104265310303,
+          "positive_pairs": 12
+        },
+        {
+          "family": 1,
+          "coverage": 0.002967415290676783,
+          "positive_pairs": 12
+        }
+      ],
+      "newline_maxabs": 0.000571519136428833,
+      "newline_worst_retained_delta": 0.000571519136428833,
+      "additive_even_union_worst_delta": 0.09551790356636047,
+      "additive_even_union_maxabs": 0.09551790356636047
+    },
+    {
+      "head": "9.8",
+      "band_pair": [
+        0,
+        1
+      ],
+      "source_arm": 12,
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.03504987216574795,
+          "positive_pairs": 12
+        },
+        {
+          "family": 1,
+          "coverage": 0.049049091839654765,
+          "positive_pairs": 12
+        }
+      ],
+      "newline_maxabs": 0.007200300693511963,
+      "newline_worst_retained_delta": 0.007200300693511963,
+      "additive_even_union_worst_delta": 0.1021466851234436,
+      "additive_even_union_maxabs": 0.1021466851234436
+    },
+    {
+      "head": "9.8",
+      "band_pair": [
+        0,
+        2
+      ],
+      "source_arm": 13,
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.01741939761197224,
+          "positive_pairs": 12
+        },
+        {
+          "family": 1,
+          "coverage": 0.02505111580692085,
+          "positive_pairs": 12
+        }
+      ],
+      "newline_maxabs": 0.004874765872955322,
+      "newline_worst_retained_delta": 0.004874765872955322,
+      "additive_even_union_worst_delta": 0.09982115030288696,
+      "additive_even_union_maxabs": 0.09982115030288696
+    },
+    {
+      "head": "9.8",
+      "band_pair": [
+        0,
+        3
+      ],
+      "source_arm": 14,
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.007803523400311499,
+          "positive_pairs": 12
+        },
+        {
+          "family": 1,
+          "coverage": 0.007249406148449278,
+          "positive_pairs": 12
+        }
+      ],
+      "newline_maxabs": 0.0028444528579711914,
+      "newline_worst_retained_delta": 0.0007138550281524658,
+      "additive_even_union_worst_delta": 0.0956602394580841,
+      "additive_even_union_maxabs": 0.0956602394580841
+    }
+  ],
+  "regional_effect_cosines": [
+    [
+      1.0,
+      0.9750578446460709,
+      0.8033598419345236,
+      0.8958426410198002,
+      0.8664120889481604,
+      0.7299985977892772
+    ],
+    [
+      0.9750578446460709,
+      1.0,
+      0.8367904460757728,
+      0.8171999184992722,
+      0.7886096151775863,
+      0.6273933122705391
+    ],
+    [
+      0.8033598419345236,
+      0.8367904460757728,
+      1.0,
+      0.724019366282809,
+      0.6897353852325829,
+      0.6569866080858386
+    ],
+    [
+      0.8958426410198002,
+      0.8171999184992722,
+      0.724019366282809,
+      0.9999999999999999,
+      0.9581511712558294,
+      0.8622590162533297
+    ],
+    [
+      0.8664120889481605,
+      0.7886096151775863,
+      0.6897353852325829,
+      0.9581511712558293,
+      1.0,
+      0.7804489257897269
+    ],
+    [
+      0.7299985977892773,
+      0.6273933122705391,
+      0.6569866080858388,
+      0.8622590162533298,
+      0.7804489257897269,
+      0.9999999999999999
+    ]
+  ],
+  "newline_ce_effect_cosines": [
+    [
+      0.9999999999999998,
+      0.8082220502422951,
+      0.5185179351437298,
+      0.75665381147563,
+      0.6074375365502034,
+      0.38482499696229433
+    ],
+    [
+      0.8082220502422951,
+      1.0,
+      0.7121842117180652,
+      0.8119421256861314,
+      0.7206380112462526,
+      0.42204332656687904
+    ],
+    [
+      0.5185179351437298,
+      0.7121842117180652,
+      1.0000000000000002,
+      0.6526913255567912,
+      0.7702652749496243,
+      0.6814323206062693
+    ],
+    [
+      0.75665381147563,
+      0.8119421256861314,
+      0.6526913255567912,
+      0.9999999999999999,
+      0.848556216034034,
+      0.5259634532124632
+    ],
+    [
+      0.6074375365502034,
+      0.7206380112462526,
+      0.7702652749496242,
+      0.848556216034034,
+      1.0,
+      0.8197142214149995
+    ],
+    [
+      0.3848249969622942,
+      0.4220433265668791,
+      0.6814323206062693,
+      0.5259634532124632,
+      0.8197142214149995,
+      0.9999999999999999
+    ]
+  ],
+  "scope": "Existing48regional/32newline panels, six single mixedband removals. Additive even-union values are predictions, not measured union results. Do not select or promote from near-threshold additive estimates; the frozen six-union native run is queued separately."
+}
