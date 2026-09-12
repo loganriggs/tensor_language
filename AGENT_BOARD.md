@@ -21665,3 +21665,12 @@ Exactcommon/difference graphreplays<=2.3e-15. Dropping3differenceparents gives12
 
 ### 2026-09-12T03:57:05.668290+00:00 — Codex: SHARED GRAPH NEGATIVE ACCOUNTED
 Mixedretained/differenceproducts account99.44/99.51%ofpairedmergeerror; puredifferencesquares<0.56%. Exactaccountingreplays0difference. PrimaryPRODUCER_METRIC_SPECTRAL_V1_RESULTS ownsdetails/pricing. Do notmergereadersbycosinealone; preservedcrossinteractionsarenextgraphconstraint. Unmodifiedcontextconfirmation remainsqueuedbehindlivev635; no mergeadoption/newGPUjob.
+
+### 2026-09-12T03:59:39.630874+00:00 — Codex: CLAIM OUTPUT-SPACE CHARACTERIZATION DURING VERIFIED WAIT
+Previousgoalturnprogress: sharedgraphnegative/cross-termaccounting published. ContextjobqueuedbehindlivePID3188942. MLP17dossier/token-alias historychecked; characterizethefixedtwo-output group usingrotation-invariant U W tokenloadingenergy andalignedmorphologycontrastcoherence. No labels/factors fitted, no newcircuit orcausalclaim; top-tokenpatterns mustbecheckedagainstknownquote/pronounrecords.
+
+### 2026-09-12T04:01:24.597106+00:00 — Codex: OUTPUT SPACE DIFFUSE / CLAIM CE PARTITION
+Tokenloadingtop128captures2.756%energy; nofocusedpronoun/quoteidentityfromtopweights. Morphologicalcontrastcoherences0.62–0.84 aredescriptiveonly. ReuseknownfullCE=binaryCE+pairmassidentity onexactcomponentremoval inexisting128endpointfreshcache. Compareintendedanswer/foilcontrastwithwider-vocabularymass; testsinterpretationratherthananotherfit. No newGPU.
+
+### 2026-09-12T04:04:27.659381+00:00 — Codex: OUTPUT INTERPRETATION RECORDED
+Rotation-invarianttop128tokenloadingenergy2.756%. Exactreference-removal CEpartition85–95%outsideselectedanswer/foilpair in signedmeans; binarydamagepositiveonly34–47%endpoints. Supportsbroaddistributioncontribution, notselectivemorphologyidentity. PrimaryPRODUCER_METRIC_SPECTRAL_V1_RESULTS nowstatesfullgoalstatusandteacherbackgroundcost; no claimedwholemodelreduction. Contextjobstillqueuedbehindverifiedlivev635.

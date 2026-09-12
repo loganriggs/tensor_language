@@ -45,3 +45,35 @@ Dropping the three difference functions is a separately registered approximation
 The executed [cross-term accounting](PAIRED_COMMON_DIFFERENCE_CROSS_TERMS_V1.json) identifies why the merge loses information: **99.44/99.51% of its paired coefficient error comes from mixed retained/difference products**, not from squared difference functions. For one squared root, the coefficient of $hd$ is $\sqrt{1-c^2}$, equal to0.173/0.275/0.379 for these three correlations. Thus a small difference in an input function can remain important after multiplication with a shared function. The full branches also mix these coordinates with other parents; the matrix-level accounting includes all those interactions and reproduces the measured error exactly.
 
 This is useful evidence for interaction-based graphs: keep common computations and the products involving their differences, rather than merging approximately aligned readers solely by cosine. It does not prove that joint graph optimization cannot find a better basis, or that these variables are semantic circuits. The fixed merge's failure is preserved; no merge-size sweep or label-driven repair has been run. The contextual confirmation of the unmodified weighted program remains a separate queued experiment.
+
+## What the partial component writes—and what fidelity has not established
+
+The [output-space description](PAIRED_OUTPUT_SPACE_DESCRIPTION_V1.json) examines centered token loadings $UW$ of the fixed two-dimensional write basis. Top16/64/128/1024vocabulary rows contain0.495/1.576/2.756/14.191% of its loading energy. This is diffuse, not a tight token cluster. Some leading individual rows are formatting symbols or byte fragments; unused output rows contain0.791% of the energy. These observations do not justify a frequency-based or linguistic name. Individual basis coordinates can rotate; the reported row-energy ranking is rotation invariant. The selected morphology contrast directions have descriptive coherence0.62–0.84, not causal identification.
+
+The [loss-partition analysis](PAIRED_OUTPUT_CE_PARTITION_V1.json) evaluates removal of the **exact reference component** on the already inspected lexical panel. For answer/foil logits $z_a,z_f$,
+
+$$
+\mathrm{CE}(a)=\operatorname{softplus}(z_f-z_a)
++\log\sum_v e^{z_v}-\log(e^{z_a}+e^{z_f}).
+$$
+
+The first term measures the binary contrast; the second concerns probability outside that pair. Subtract the native baseline from each term to obtain an exact removal-effect partition. Native logits are evaluated in float32, followed by float64 loss accounting; the identity holds within5.4e-15. This precision choice differs slightly from the original float32-loss effect receipts and does not replace their scores.
+
+| Family | Mean signed full CE damage | Binary-contrast part | Outside-pair part |
+|---|---:|---:|---:|
+| Agreement |0.19713|0.01838|0.17875|
+| Count |0.19684|0.02998|0.16686|
+| Past |0.11251|0.00522|0.10729|
+| Progressive |0.16969|0.01122|0.15847|
+
+The outside-pair part accounts for84.8–95.4% of the **signed mean** damage, not that fraction on every example or a variance decomposition. Binary damage is positive on only34.4–46.9% of endpoints; the means include heterogeneous signs. Thus accurately reproducing this component's removal mostly reproduces a broader vocabulary-distribution contribution on this panel. It does not, by itself, establish a selective morphology circuit.
+
+The full goal remains substantially open:
+
+- Prediction: developmental effects pass; the first new lexical panel failed for the ordinary program. The weighted program's inspected-panel pass is diagnostic; its new contextual confirmation is pending at this entry.
+- Extraction: the executable scalar-quartic interface is specified, but exact native MLP16 and normalization/background dependencies remain. The hook screen evaluates native background plus approximation minus exact reference. It does not remove the original native machinery from a compiled full model.
+- Removal: effect replication is tested; semantic selectivity and preservation across unrelated behaviors are not established by these four families alone.
+- Composition/reuse: exact shared-coordinate algebra is checked, while the attempted simpler merge fails. Joint adoption with another independent extracted program and stable identification remain untested.
+- Structural simplicity:76,096 fitted values describe this approximation conditional on15.93million shared producer values. The entire teacher background also remains in the test harness. There is no claimed whole-model parameter reduction or end-to-end cheaper deployment.
+
+The handoff's updated criterion requires a previously unspecified reusable computation with explicit consumers and fewer independently specified computations. These results provide a controlled approximation and constraints on graph discovery; they do not satisfy that criterion merely by reproducing a selected two-output projection.
