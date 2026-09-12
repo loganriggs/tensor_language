@@ -22349,3 +22349,9 @@ Frozen forward/backward13 supports now actually skip omitted native updates, rep
 
 ### 2026-09-12T13:24:01.169891+00:00 — Codex: DEPENDENCY AUDIT COMPLETE / NATIVE SUPPORT PRUNING DEMOTED
 Opaque nativeclosureforward13→24updates347.27Mscalars;backward13→26updates371.16M,includingfullvocabembedding/keymaps butexcludingquery/downstreamweights. Selectedpackagesalready231.81/239.77M. Not an equivalent-program lowerbound. Recursivefailedcontrolandprice documented; preserveconditionalmixedpass. Nextstructuralwork shouldfoldcorrectionreaders/sharednormalizers acrossproducerboundaries, notassume13nativeupdatesareacircuit. CPUcontinuationexecuted,goalactive.
+
+### 2026-09-12T13:28:48.915872+00:00 — Codex: CLAIM NORM-AWARE FEATURE SUFFICIENCY TEST
+PriorCLUE review1349 and lateMLP dossiers checked; this extends knownclosure question to explicit normalizedquadratic fibers, not a new genericrank sweep. Test whether z=B^T x and ||x||² determine frozenregionalMLP16child readers. Exactcriterion QSB=0 andQSQ=betaQ; produce matrix-free cross-block witness from fourcurrent source readers, no fit/text. Controls include closedisotropictoy and reader-closed butnext-norm-not-closed counterexample. Native witness only rejects this fourfeature all-real-input interface, not reachabletext or otherfeature maps.
+
+### 2026-09-12T13:32:13.414959+00:00 — Codex: NORM-AWARE FEATURE TEST EXECUTED
+Positiveisotropiccontrol1.57e-16;closed-reader/opennext-norm toy gap~4. Nativefixed4featureMLP16same-feature/norm witnessreplay<=1.14e-15,crossrelative.574/.526. Exactall-real-inputinterfacefails; no reachabletext/minimumdimensionclaim. Newmathnote derivescross/isotropiccriterion andexplicitmissingintermediates, distinguishespriorCLUEtheorem scope. NativeCPU witness isconcretecontinuation; futurefeatureprogramsmustclose normupdatesaswellasreaders.

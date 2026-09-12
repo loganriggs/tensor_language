@@ -1,0 +1,37 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "cells": [
+    {
+      "reader": 0,
+      "cross_singular_value": 9.77582257213883,
+      "cross_relative_to_sb": 0.5741749280698184,
+      "feature_equality_error": 2.4331553834696257e-16,
+      "norm_equality_error": 1.9737298215558337e-16,
+      "outputs": [
+        11620.48950213105,
+        -10903.0030190673
+      ],
+      "observed_gap": 22523.49252119835,
+      "predicted_gap": 22523.492521198325,
+      "relative_gap_replay_error": 1.1306351191172692e-15
+    },
+    {
+      "reader": 1,
+      "cross_singular_value": 10.926598311493661,
+      "cross_relative_to_sb": 0.526019624012709,
+      "feature_equality_error": 1.2451553005931453e-15,
+      "norm_equality_error": 1.9737298215558337e-16,
+      "outputs": [
+        9437.201252221901,
+        -15737.678256379993
+      ],
+      "observed_gap": 25174.879508601894,
+      "predicted_gap": 25174.879508601894,
+      "relative_gap_replay_error": 0.0
+    }
+  ],
+  "scope": "Exact failure certificate only for the fixed4linear-current-features plus norm, over arbitrary real MLP16 inputs. Witnesses need not be token-reachable. Does not reject approximate/reachable-domain closure or alternative nonlinear shared features.",
+  "source_sha": "af0d0f3a84b690aabff00e6451990d635e80ae6f33a55478b0f3412850ba2271",
+  "checkpoint_sha": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+}

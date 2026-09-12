@@ -1,3 +1,11 @@
+### 12 September, 13:32 — Feature sufficiency test replaces module counting
+
+[New math and executable test](../../NORM_AWARE_FEATURE_SUFFICIENCY_V1_MATH.md)
+checks whether shared linear features plus norm determine a bilinear reader.
+Native-weight counterexamples reject the fixed four-feature interface over all
+real states; they do not reject approximate text-domain structure. A separate
+control shows that the next norm must also be generated from the reduced state.
+
 ### 12 September, 13:24 — Stronger extraction test fails
 
 Retained updates cannot reproduce their conditional behavior when run on their

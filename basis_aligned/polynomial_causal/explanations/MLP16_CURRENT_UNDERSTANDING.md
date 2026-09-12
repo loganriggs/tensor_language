@@ -128,3 +128,8 @@ The native MLP16 donor swap has negative task recovery −.02162/−.02928/−.0
 12September00:56: [matched quartic optimization](../COUPLED_QUARTIC_WRITER_V1_MATH.md#matched-optimizer-endpoint-12-september-0056) improves coefficient fit but native write error rises to26.7%; swaps/removal still fail and convergence remains unfinished. Current learned quartic is not an extracted circuit.
 
 [12 September producer-interface update](../QUARTIC_RESIDUAL_EIGENMATRIX_V1_MATH.md#reusing-the-native-producer-and-recovering-the-stronger-baseline): learned full quadratics are mostly, but not exactly, representable in native neuron/output spans. Reusing the exact bias-free producer with32outer modes per frozen output passes developmental component swaps/removals; native L/R/D weights remain charged. Fresh validation is preregistered, not yet executed; no new semantic circuit.
+
+
+### 12 September: norm-aware regional reader sufficiency
+
+The fourcurrent source-parent/child readers plus inputnorm do not exactly determine the two existing foldedregionalMLP16outputs on allrealinputs. Matrix-free equal-feature/equal-norm witnesses have replay<=1.14e-15. This is an interface closure counterexample, not a new causal contribution/rank result or a token-reachable failure. [Criterion, controls and scope](../NORM_AWARE_FEATURE_SUFFICIENCY_V1_MATH.md).

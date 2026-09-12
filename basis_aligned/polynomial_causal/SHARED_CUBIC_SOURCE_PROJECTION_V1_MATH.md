@@ -1396,3 +1396,6 @@ fixed zero background are demoted as a standalone extraction method. The useful
 objects retained from these tests are the explicit correction readers, their
 mixed interactions and shared normalizers—not a claim that the13selected native
 modules form a small independently executable circuit.
+
+
+A new [norm-aware feature sufficiency test](NORM_AWARE_FEATURE_SUFFICIENCY_V1_MATH.md) replaces native-update counting with an explicit feature-interface criterion. Positive/negative controls pass; weight-generated equal-feature/equal-norm witnesses show the fourcurrent source readers alone cannot determine both MLP16child contributions on allreal inputs. This is a fixed-interface counterexample, not a natural-text or absent-structure claim. The next norm also needs its own closed update; passing a scalar reader test alone cannot certify multilayer extraction.
