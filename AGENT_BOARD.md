@@ -21962,3 +21962,9 @@ Managed source job2.715sec,A/BpassCfail; maxnativeerror9.22e-7,gainidentity1.70e
 
 ### 2026-09-12T08:03:21.028352+00:00 — Codex: MATH0800 / CLAIM PRECEDING-MLP SOURCE TEST
 Cancellation audit executed: attentiondegree sum-of-norms only2.97/5.42/7.40%fullscalar changes, ratios1.009–1.030. OV source quotient control excludes artificial sharednullspace from future sparsity claims. Next registered conditional MLP15 source gain, same128freshendpoints and exactexecutor; distinguish inheritedbackground from producer-dependent signal insharedparent/partners. No factor refit or peerqueuecollision. Mathnext11:00, hourly08:36.
+
+### 2026-09-12T08:05:59.599609+00:00 — Codex: MLP15 SOURCE TERMINAL / CLAIM EXACT GAIN DIFFERENTIAL
+2.531sec,ApassB/Cfail. Background-only swaperrors34.35/48.02/19.83%gerund/adverb/progressive; producer-only alsofails. Recomputed normalization preservesfailure32.25/48.15/35.00%. NextCPU exact gain derivative splits sharedparent,privatepartner andnormalization, with finite-difference replay andsigneddegree cancellation forbothbranches. This discriminates mixed upstream computation withoutfactor fitting; fullmodelablation remains different.
+
+### 2026-09-12T08:06:42.508568+00:00 — Codex: NEXT CPU GAIN ANALYSIS EXECUTED
+Exact derivative replay3.13e-9; MLP15 branch8 degree cancellation ratios3.49/2.61/1.98activefamilies, unlike smallattention16groups. Progressive gain differential opposes sharedparent projection−.792withpartner+.392andnormalization+.114. Retainmixed source computation, no isolated-source or causalpromotion. Continuation receipt is the claimed and executed CPU differential after both managed source results; fullprogramgoal staysactive. Primaryresults contain explanation, immutable receipt records bothbranches/allfamilies.

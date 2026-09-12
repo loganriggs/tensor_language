@@ -201,3 +201,21 @@ The [native source experiment](MATCHED_PARTNER_ATTENTION16_SOURCE_V1_RESULT.json
 The strongest immediate cancellation alternative was checked in the [CPU audit](ATTENTION16_SOURCE_CANCELLATION_V1_RESULT.json). Sum-of-norms of attention-degree scalar changes is2.97/5.42/7.40%of the full scalar-change norm; cancellationratios1.009–1.030. Smallnetattention is not hiding large cancelling *degree groups* here. Cancellation within a degreegroup, amongheads orpositions, is not excluded. No absence-of-attention or four-property circuit claim follows.
 
 The [08:00 mathematical review](THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_0800.md) derives the exact observable quotient of the OV-folded source form, verifies its artificial nullspace on a CPU control, and maps simultaneous block methods versus hierarchical arithmetic representations to this object. The next trace separates MLP15's write from the remaining residual contribution; current branch computation is mainly inherited before attention16 on these fresh constructions.
+
+
+## MLP15 produces a mixed interaction, not an isolated substitute (08:05)
+
+The [next managed source test](MATCHED_PARTNER_MLP15_SOURCE_V1_RESULT.json) completed in2.531seconds, with16nativeforwards/128endpoints; replay passed, both source-isolation hypotheses failed. Here producer means the full MLP15 write including bias, scaled by block16's residual coefficient. Background includes the remaining residual and native attention16. This freezes attention16 even though it is another descendant of MLP15; it is explicitly an edge intervention.
+
+Background-only numerator swap errors are34.35%gerund,48.02%adverb,19.83%progressive; producer-dependent terms alone also fail. Recomputed background normalization gives32.25/48.15/35.00%errors, so normalization alone does not account for the isolation failures. Neither result negates the exact composed branch; they show the relevant computation mixes these sources.
+
+The executed [gain differential audit](MATCHED_PARTNER_MLP15_SOURCE_V1_DIFFERENTIAL.json) separates where this dependence enters. With unnormalized reader numerators $q_0(g),q_j(g)$ and input mean-square $n(g)$,
+
+$$
+\frac{d\alpha_j}{dg}
+=\underbrace{\frac{q'_0q_j}{n^2n_{17}}}_{\text{shared parent}}
++\underbrace{\frac{q_0q'_j}{n^2n_{17}}}_{\text{private partner}}
+-\underbrace{2\frac{n'}n\alpha_j}_{\text{normalization}}.
+$$
+
+CPU finite differences reproduce this derivative to3.13e-9relativeerror. Unlike attention16, MLP15 has appreciable cancellation between its signed degree groups: branch8 sum-of-norms/net ratios are3.49gerund,2.61adverb,1.98progressive. In branch8's progressive scalar change, derivative projections on that change are−.792sharedparent,+.392privatepartner,+.114normalization. These are dimensionless local gain sensitivities, not percentages of causal effect or an additive decomposition of finite CE changes. The same shared reader can therefore mediate opposing upstream adjustments when multiplied by different partners; inspecting only net branch changes would obscure them. Bothbranches and the quotedcontrol remain in the receipt. Next structural work should retain these mixed reader/producer terms, rather than taking the failed isolated sectors as evidence against discoverable structure.

@@ -1,3 +1,7 @@
+### 12 September, 08:06 — Deeper MLP15 path exposes mixed source interactions
+
+Neither MLP15-dependent terms nor the remaining background reproduce the frozen branch alone. Recomputing normalization preserves that failure. The executed exact differential reveals opposing shared-parent/private-partner contributions and appreciable signed source cancellation. [Native results, math and CPU audit](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#mlp15-produces-a-mixed-interaction-not-an-isolated-substitute-0805). This supports retaining composed interactions in the next structural search; it is not a new identified circuit.
+
 ### 12 September, 08:00 — This branch mostly inherits its signal before attention16
 
 The exact source test passes native replay. Residual-only branch8 reproduces three active fresh-family swaps within3.2–8.0%; attention-dependent terms alone fail. An executed signed-sector audit finds little cancellation between attention-degree groups. The quoted-control approximation remains weaker. [Results and limits](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#attention16-source-test-and-the-next-upstream-boundary-12-september-0800). [Math review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_0800.md): deeper folding must distinguish genuine structure from automatic source-coordinate nullspaces. Next math11:00, hourly08:36. No circuit promotion.
