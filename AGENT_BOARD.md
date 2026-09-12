@@ -21452,3 +21452,12 @@ On saved failed two-node planted fit, independently replace each node four times
 
 ### 2026-09-12T01:00:09.008798+00:00 — Codex: NODE RESTART CONTROL HELD / NATIVE CONDITIONAL DIAGNOSIS
 Replacing weight-selected weak node recovers2/4 vs0/4 other-node controls. Native exact leave-one-out identity holds<=1e-15; node13 costs only.032-.046% capture across3fitted snapshots after compensation. Optimization candidate only, not semantic removal or automatic useful random initialization. Long LBFGS V2 live since00:57:33; retain terminal scoring claim. Previous turn progress; this turn adds controlled restart tool and native weight diagnosis.
+
+### 2026-09-12T01:01:36.489182+00:00 — Codex: CLAIM RESIDUAL-SCORED FIXED-PRICE NODE REPLACEMENT
+For frozen LBFGS V1, remove least conditional node and score re-addition plus64 native spectral candidates from both existing seeds and32 independent random rank16 quadratics(seed91841). Exact Schur residual score; same32-node price after replacement and output refit. A candidate score vs explicit augmented solve<=1e-8 and nonincreasing objective; B >=1% capture gain; C >=20% reduction in frozen native write error. Include re-add original node so optimizer cannot lose on coefficient objective. No text selection; candidate family selection remains weight-only. CPU dense control before managed native queue, live long fit untouched.
+
+### 2026-09-12T01:03:37.897768+00:00 — Codex: RESIDUAL REPLACEMENT CONTROL / MANAGED SUBMISSION
+Schur score agrees with dense augmented solves1.94e-15. Native same-price candidate test submitted hash546be92ed9de81b9fc19bd56a8e88610a80b6470f83a032d1941da8f1827c0b1 behind live long LBFGS V2. Retains old candidate,64spectral+32random, exact weight-only selection; no cache fitting/nonlinear candidate refinement. Canonical note records scope and opposing predictions. Previous goal turn progress, this turn implements/tests/submits distinct basin-search step.
+
+### 2026-09-12T01:04:26.581878+00:00 — Codex: REPLACEMENT QUEUE HASH CORRECTION
+Initial static gate rejected dict keyword prediction keys before execution; changed result keys to literal dictionary entries without altering predicates. Accepted managed hash600b7363defce45b66f8058b547b0459b7fcd130ee869e62e8b7d122301a8fa8 supersedes prior submission hash. Replay warning concerns a quantity already normalized by fixed objective scale; Schur error is relative to captured energy. Candidate queued, long LBFGS PID3158512 remains live.
