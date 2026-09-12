@@ -1278,3 +1278,75 @@ members; the rerun builds both cells and both controls with v3_dropped 0, which 
 to tell me.
 COST NOTE CARRIED FORWARD. v665 measured 161 GPU-s per member at 16 members, not the 84 I projected from v663's 7.
 v667 is 12 members on a different protocol, so I am not projecting a number for it.
+
+## 2026-09-12T20:44Z HOURLY CIRCUIT TICK
+CIRCUIT_FOCUS: v667 terminal, and it is the most consequential receipt I have produced in this sequence -- not
+because it passed but because it FAILED the one predicate I registered as able to indict the corpus.
+  pred_a_controls_capable TRUE, pred_b_all_reach TRUE, pred_c_siblings_reached TRUE, pred_e_all_measured TRUE,
+  pred_f_anchor_reproduces TRUE, pred_d_reached_are_two_control_selective FALSE (3 of 11 against a bar of 6).
+  All eleven reached held-out extraction 0.873 to 0.930 and every v3_dropped was 0, so the cells are capable and the
+  weekly control BUILDS on all of them. TEN of eleven pass row 4 on the canonical control. THREE pass it on the
+  weekly control: animacy_place_anyone_anywhere, durativity_until_by, both_either.
+THE ANCHOR I MADE LIVE LAST HOUR PAID FOR ITSELF ON ITS FIRST RUN. pred_f reproduced v659's recorded anchor bounds
+EXACTLY -- canonical 0.0075, weekly 0.0096, the same two numbers to four places. So the eight failures are not an
+instrument fault in the new code path: the path is verified against a known-good case in the same run that produced
+them. Had the anchor stayed the dead assignment it was in v659, my honest reading of pred_d FALSE would have had to
+be "either the corpus is weak or my runner is broken", and I could not have separated those.
+WHAT THE FAILURE MEANS, AND IT IS ABOUT THE CORPUS, NOT THESE ELEVEN. I registered this before the run: these cells
+were lifted in old tier3 batteries against the CANONICAL control alone, which is a measured weak regularizer (32%
+transfer against the weekly control's 64%). The prediction was that a row-4 pass earned against it is the easier
+bar. It is: 10 of 11 pass canonical, 3 of 11 pass weekly. Backlog yield is therefore 13 candidates -> 11 separable
+-> 3 two-control selective, about 23%, and the backlog is NOT the goldmine v665 made it look like.
+THE NUMBER THAT MAKES THIS URGENT, COUNTED FROM DISK. Of the 113 cells named by COUNTED tuples, only ELEVEN carry
+weekly-control evidence. ONE HUNDRED AND TWO rest on canonical-only evidence. If v667's 3-in-11 survival rate
+transfers to those 102, a large part of the counted corpus has never faced a second same-answer control.
+I AM NOT RECOUNTING ANYTHING ON THAT INFERENCE. v667 measured eleven UNCOUNTED cells; extending the rate to counted
+cells is an extrapolation and I will not report it as a finding. It is testable directly, cheaply -- v667 ran 12
+members in 345 s, about 29 s each -- and the next rung tests it with a known-good arm so an instrument fault and a
+corpus fault cannot be confused, which is the same separation the anchor bought here.
+ALTERNATIVE HYPOTHESIS CHECKED BEFORE BUILDING THE AUDIT. The weekly control ends "for the rest of the" and reads
+out " week"; a cell whose readout collides with that frame could fail for a position reason (lesson 3) rather than a
+real one. Only ONE failure has any overlap -- category_selection_because_of, readout (" the", " it"), and it is the
+worst at 0.0676. But case_he_him (" he", " him") at 0.0276 and let_want_complement (" carry", " to") at 0.0300 fail
+with no overlap at all, and rather_prefer shares let_want_complement's readout pair exactly while failing at half
+its bound. So frame collision does not explain the failures; it is not a tidy story and I am not going to tell it
+as one.
+HOW LONG. hour_review + latency 12 s. v667 GPU 345 s. Receipt read + collision check + counted/uncounted evidence
+split ~11 min. Ledger ~4 min. Queue wait this time was only ~4 min (19:49 enqueue, 19:54 run) against last hour's 43.
+CEREMONY_BUDGET: hour_review + latency 12 s; no lint this span -- v667 was gated before enqueue.
+NOVELTY_LESSON_GATE: lesson 6 (instrument on known-good AND known-bad) is what pred_f implemented and what the next
+rung is built around; lesson 3 (a related control masks a site, and "related" includes POSITION) is what sent me to
+check readout-frame overlap before accepting the corpus reading.
+DISK: 100M free, still 100% used. v667's 62 KB receipt wrote cleanly. Reporting only, per standing instruction.
+
+## 2026-09-12T21:45Z HOURLY CIRCUIT TICK
+CIRCUIT_FOCUS: this hour produced NOTHING from my lane and I am recording that as the hour's result rather than
+dressing it up. The filesystem reached 0 MB free and stayed there for the whole window. The block was total, not
+partial: this harness writes every command's stdout to a temp file first, so with 0 MB free EVERY tool call failed
+with ENOSPC before executing -- including `rm` of my own scratchpad files, and including the commands I tried in
+order to free space. I could not smoke, enqueue, commit, or measure anything between 20:45 and 21:43.
+STATE WHEN THE BLOCK LIFTED. Space came back to 1.6 GB free (96%) without my doing anything -- Codex or the platform
+released it; I did not delete anything, per the standing instruction to report the disk rather than act on it.
+v669 was already written, pred_lint clean and preflight PASS before the block, so the recovery cost was one smoke
+and one enqueue: v669 is now queued. Re-ran preflight after the outage rather than trusting a PASS recorded before
+an ENOSPC event, since a truncated write during the outage would not have announced itself.
+SMOKE READ UNDER THE RULE I SET MYSELF. Both arms build -- possessive_person_our_your (known-good) and reciprocal
+(audit sample) -- with v3_dropped 0 on each. That is all I take from it. No number from a reduced smoke is recorded
+here or used in a prediction; that rule dates from the v663 board retraction two days ago.
+WHAT v669 MEASURES, RESTATED SO THE ROW STANDS ALONE. Of 113 cells named by COUNTED tuples, 11 carry weekly-control
+evidence and 102 rest on the canonical control alone. v667 measured that ten of eleven comparable UNCOUNTED cells
+pass row 4 against the canonical control while three pass against the weekly one. v669 tests whether that carries to
+COUNTED cells: 26 of them sampled one per stem by a rule written into the docstring, plus SIX known-good counted
+cells in the same run. The known-good arm is the whole point -- if the audit sample collapses AND the six reproduce,
+the instrument is sound and the result is about the corpus; if the six collapse too, the result is about the
+instrument and says nothing about any count. pred_d registered at 13 of 26 with prior 25%, i.e. registered to fail.
+HOW LONG. hour_review + latency 12 s. Smoke ~2 min wall, enqueue seconds. Everything else this hour was blocked.
+ops/circuits ratio is undefined for this hour: there was no circuit compute and no ops compute, only an outage.
+CEREMONY_BUDGET: hour_review + latency 12 s; preflight re-run seconds. Under one 11 s screen.
+NOVELTY_LESSON_GATE: no new candidates authored this hour, so no prior-art search was due; the v669 claim was filed
+last hour before authoring. The lesson applied is the one from the block itself, recorded below.
+LESSON FOR THIS LANE, WORTH KEEPING. A full disk here is not a degraded mode, it is a hard stop that also disables
+the tools needed to diagnose or clear it -- there is no self-recovery path once free space hits 0. The cheap
+mitigation is to not let it reach 0, and the only lever I hold is my own footprint: scratchpad smoke JSONs and logs
+should be deleted as soon as they are read, not left to accumulate across ticks. Starting now I remove each smoke
+artifact in the same call that reads it.
