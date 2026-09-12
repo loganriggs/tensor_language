@@ -1,6 +1,6 @@
 ### 12 September, 09:33 — Larger exact-metric audit closes this local search
 
-Two independent65,536-probe gradients remain uncorrelated; all three proposed steps fail independent validation. The executed16-block noise audit accounts for essentially the full observed gradient norms. No more estimator-budget escalation at this frame is justified now; different representations remain open. [Results and limits](../../MIXED_REPEATED_CONTRACTION_V1_MATH.md). No new circuit promotion. Next hourly09:36/math11:00.
+Two independent65,536-probe gradients remain uncorrelated; all three proposed steps fail independent validation. The executed16-block noise audit accounts for essentially the full observed gradient norms. No more estimator-budget escalation at this frame is justified now; different representations remain open. [Results and limits](../../MIXED_REPEATED_CONTRACTION_V1_MATH.md). No new circuit promotion. [Hourly09:36](../../HOURLY_STRATEGIC_REVIEW_2026-09-12_0936.md) redirects representation search; a new exact dependency-projection control rules out treating an oblique map as a better formal fixed-subspace solution. Next hourly10:36/math11:00.
 
 ### 12 September, 09:16 — Exact mixed-input audit completed
 
