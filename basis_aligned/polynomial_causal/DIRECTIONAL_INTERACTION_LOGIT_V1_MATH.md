@@ -144,3 +144,39 @@ The corresponding key denominator has the same form, and the value is $v^Th_-/\r
 CPU checks on the earlier72short contexts: direct raw-feature baseline error<=1.89e-7relative; contracted predicted scalar versus the existing rank64 state executor<=3.43e-7; Gram squared-norm error<=2.45e-16. All registered numerical bars pass. This is algebraic execution evidence, not another native behavioral confirmation. [Control](CONTRACTED_QK_RESPONSE_V1_CONTROL.json) · [Executor](contracted_qk_response_v1.py).
 
 The first explicit implementation stores1,088,643FP64 scalars (8,709,144tensor bytes), including expanded reader matrices and redundant precomputations. No speedup or storage adoption is claimed. Its scientific gain is making the composed QK/value computation and remaining pristine inputs explicit. Those native inputs still need independent generation for autonomous extraction; this step does not resolve that gap.
+
+## 22:38 — Pristine MLP-output port removed; conditional interface made explicit
+
+The exact response contains the normalization-compensation term $(r/r_--1)u_0$. A cached dependency audit found that omitting this term keeps head9 scalar-response errors0.414–0.969% and routing-change errors2.043–4.347%. Radial/transverse splits of $u_0$ were diagnostic controls, not fitted weights. The simplified formula is approximate; retain the original exact identity. [CPU dependency audit](PRISTINE_MLP_PORT_V1_RESULT.json).
+
+Native signed-strength confirmation now passes all12cells at $t=-1,0.5,1.5,2$: maximum interaction error3.515%, maximum joint-effect error0.413%, with all original full-map controls passing. This reuses the longer-context panel and tests the simplified interface. The native controls still read $u_0$; the primary predictor's API does not accept it.2016forwards took30.43seconds. [Native receipt](RESPONSE_WITHOUT_MLP_PORT_V1_RESULT.json) · [Preregistered bars](RESPONSE_WITHOUT_MLP_PORT_V1_PREREGISTRATION.md).
+
+For this simplified rule the needed pristine quantities can be listed completely:
+
+| Supplied quantity per token | Scalars |
+|---|---:|
+| $Bz$ | 64 |
+| $z^Td$, $\|z\|^2$ | 2 |
+| $Ch$ | 769 |
+| $A^Th$ | 64 |
+| $h^Td$, $\|h\|^2$ | 2 |
+| Total, excluding edit amplitude | 901 |
+
+From these inputs, compute
+
+$$
+r_- = \frac{\|z\|^2-2az^Td+a^2\|d\|^2}{1152}+\epsilon,
+\quad c=-\frac a{r_-}\left(Bz-\frac a2 Bd\right),
+\quad Ch_-=Ch+\lambda(-aCd+CAc).
+$$
+
+The changed norm is also determined by supplied scalars and fixed Gram matrices:
+
+$$
+\|h_-\|^2=\|h\|^2+2\lambda[-ah^Td+(A^Th)^Tc]
++\lambda^2[a^2d^Td-2ac^TA^Td+c^TA^TAc].
+$$
+
+The [declared-port executor](response_ports_v1.py) accepts those quantities and the edit amplitude, with no full $z,h$ or $u_0$ arguments. It evaluates the QK/value equation above. On216cached removal/addition/donor cases, its scalar agrees with the simplified state executor within3.57e-7relative and its squared norm within2.24e-16. This is numerical equivalence evidence; the newly sealed executor itself has not had a separate native suffix run. [Control receipt](RESPONSE_PORTS_V1_CONTROL.json).
+
+The executor stores54,211FP64 scalars,433,688tensor bytes. **The input projection matrices add1,034,496scalars**, and native prefix/background generation remains required. Do not quote only the small executor as the circuit's total price. The901 readings are redundant and are not claimed semantic units. Removing $u_0$ is an operational dependency reduction: pristine $h$ already contains the native MLP computation, so this does not bypass that computation or establish autonomous extraction.

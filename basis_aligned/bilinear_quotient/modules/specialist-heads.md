@@ -371,3 +371,7 @@ Frozen64response passes all12strength/family cells at t=-1,.5,1.5,2 onreusedlong
 ## 2026-09-12 22:32 — Donor interaction transfer and direct QK contraction
 
 Frozen64 donor-response predictor passes on72reusedlongercontexts: interaction.729/.737/.529%, joint-edit.276/.294/.176%; fullanchor<=5.11e-6relative. Subsequent CPUdirectQK/value contraction agrees with existingstateexecutor<=3.43e-7relative and Gramnorm<=2.45e-16. No changedattention9residual output is built; pristinez8/u0/raw9 remaininputs. Expanded769reader implementation isnot a price/speedadoption. [Primary derivation and receipts](../../polynomial_causal/DIRECTIONAL_INTERACTION_LOGIT_V1_MATH.md#2232--donor-transfer-and-direct-contraction-into-qkvalue).
+
+## 2026-09-12 22:38 — Regional response no longer requires explicit pristine MLP8 output
+
+Omit beta*u0 in fixedwriter response: cached scalar/routing bars hold; native12strength/family cells allpass with max3.515%interaction/.413%joint-effect error. A declared901scalar/token port executor (plusamplitude) numericallyreplays simplifiedstateexecutor<=3.57e-7; fixedexecutor54,211scalars, projectionmatrices1,034,496additional. Nativeh9 stillcontainsMLP8computation, no autonomy or total-price shortcut. [Primary result and interface](../../polynomial_causal/DIRECTIONAL_INTERACTION_LOGIT_V1_MATH.md#2238--pristine-mlp-output-port-removed-conditional-interface-made-explicit).
