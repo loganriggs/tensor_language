@@ -1,0 +1,3537 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "checks": {
+    "regional_baseline": 0.0,
+    "regional_inside_effect": 0.0,
+    "regional_fullmask_effect": 0.0,
+    "regional_sector_effect": 1.922010447794543e-06,
+    "newline_baseline": 0.0,
+    "newline_inside_effect": 0.0,
+    "newline_fullmask_effect": 0.0,
+    "newline_sector_effect": 3.2302083228782715e-05,
+    "newline_mean_effect": 0.0,
+    "meanhead_subtraction": 1.6231204824634915e-07,
+    "sector_sum": 5.430961175439032e-07
+  },
+  "capability": [
+    {
+      "family": 0,
+      "regional": true,
+      "newline": true,
+      "meanhead": true
+    },
+    {
+      "family": 1,
+      "regional": true,
+      "newline": true,
+      "meanhead": true
+    }
+  ],
+  "records": [
+    {
+      "mask": 1,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.2700460986753837,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06349281657415702,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.2595650677320806,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04932962701438211,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0005538873374462128,
+          "meanabs_change": 0.0018826387822628021,
+          "maxabs_change": 0.007694840431213379,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.002649025060236454,
+          "meanabs_change": 0.0035407571122050285,
+          "maxabs_change": 0.024782776832580566,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 2,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.06476185435171322,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08045070494400108,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.07761022325501205,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06954349495170578,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0008273813873529434,
+          "meanabs_change": 0.0012978296726942062,
+          "maxabs_change": 0.007375240325927734,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.000949992798268795,
+          "meanabs_change": 0.0017754798755049706,
+          "maxabs_change": 0.01588168740272522,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 3,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.3485130393220136,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0636266780467219,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.3613861500690405,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05073713037351102,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.001530935987830162,
+          "meanabs_change": 0.0030299481004476547,
+          "maxabs_change": 0.014888405799865723,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.004343893378973007,
+          "meanabs_change": 0.00596569012850523,
+          "maxabs_change": 0.05372992157936096,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 4,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.005509794597938304,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.09362536767812796,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.006536978231049667,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.09205268337797275,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0005439184606075287,
+          "meanabs_change": 0.0006139911711215973,
+          "maxabs_change": 0.002724170684814453,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -5.3043942898511887e-05,
+          "meanabs_change": 0.0005594962276518345,
+          "maxabs_change": 0.002559751272201538,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 5,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.27649598398068254,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06366621752495756,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.268305738633358,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04972747496525982,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0011421125382184982,
+          "meanabs_change": 0.002244798466563225,
+          "maxabs_change": 0.00984269380569458,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0027698662597686052,
+          "meanabs_change": 0.00386834261007607,
+          "maxabs_change": 0.02953818440437317,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 6,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.07068303344826786,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0806830477773896,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.08511357496593784,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.070104107277892,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.001419316977262497,
+          "meanabs_change": 0.0017848573625087738,
+          "maxabs_change": 0.010309219360351562,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0009703261312097311,
+          "meanabs_change": 0.0023576433304697275,
+          "maxabs_change": 0.019917815923690796,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 7,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.3552567020346087,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06371574332898772,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.3709719597204833,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05107197423881306,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0021685417741537094,
+          "meanabs_change": 0.0033239591866731644,
+          "maxabs_change": 0.01800692081451416,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.00455445540137589,
+          "meanabs_change": 0.006396499695256352,
+          "maxabs_change": 0.06021600961685181,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 8,
+      "elements": [
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.4612532848501729,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.054300958232474404,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.33780396207776586,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05056155083899432,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0006678663194179535,
+          "meanabs_change": 0.0028316043317317963,
+          "maxabs_change": 0.008683323860168457,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0030465631280094385,
+          "meanabs_change": 0.006095425458624959,
+          "maxabs_change": 0.06035301089286804,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 9,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.5913981332284973,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.053811627246581416,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.49443376232067665,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04610693219662362,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0013519581407308578,
+          "meanabs_change": 0.004017723724246025,
+          "maxabs_change": 0.009862184524536133,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.005905794678255916,
+          "meanabs_change": 0.008908630115911365,
+          "maxabs_change": 0.09028750658035278,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 10,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.502300968472618,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0546588987106693,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.39550345416657773,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.048106927415133505,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0018181446939706802,
+          "meanabs_change": 0.0038805175572633743,
+          "maxabs_change": 0.009486675262451172,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.004127169493585825,
+          "meanabs_change": 0.007848780136555433,
+          "maxabs_change": 0.08099180459976196,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 11,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.6344036519900728,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.054516760674103354,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.5575367066433194,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04819675938115385,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0025493819266557693,
+          "meanabs_change": 0.0051763299852609634,
+          "maxabs_change": 0.018068552017211914,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.007138828048482537,
+          "meanabs_change": 0.01079245307482779,
+          "maxabs_change": 0.11459159851074219,
+          "passed": false
+        }
+      ],
+      "regional_pass": true,
+      "newline_pass": false
+    },
+    {
+      "mask": 12,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.46562448359146763,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.054345494051984036,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.343812210292767,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05037929693662214,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0013835560530424118,
+          "meanabs_change": 0.003470165655016899,
+          "maxabs_change": 0.00899052619934082,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0029955802019685507,
+          "meanabs_change": 0.006647317437455058,
+          "maxabs_change": 0.06386962532997131,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 13,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.5959058192799869,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05388278315339596,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.5009633974508204,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04631365015083147,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.002082599326968193,
+          "meanabs_change": 0.004553286358714104,
+          "maxabs_change": 0.013296127319335938,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.00591846345923841,
+          "meanabs_change": 0.00905447150580585,
+          "maxabs_change": 0.0944693386554718,
+          "passed": true
+        }
+      ],
+      "regional_pass": true,
+      "newline_pass": true
+    },
+    {
+      "mask": 14,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.5067354467382718,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05480236542178214,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.40175916086948465,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.048132688647096404,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.002553017809987068,
+          "meanabs_change": 0.004615331068634987,
+          "maxabs_change": 0.01295328140258789,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.004092342918738723,
+          "meanabs_change": 0.008384928805753589,
+          "maxabs_change": 0.08496147394180298,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 15,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.6389473411319703,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05459810239834928,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.5642555503443466,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.048365107001172636,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0032974909991025925,
+          "meanabs_change": 0.005807964131236076,
+          "maxabs_change": 0.021601617336273193,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.007168549345806241,
+          "meanabs_change": 0.010976039106026292,
+          "maxabs_change": 0.11921760439872742,
+          "passed": false
+        }
+      ],
+      "regional_pass": true,
+      "newline_pass": false
+    },
+    {
+      "mask": 16,
+      "elements": [
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.06060930266384718,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06692356283655204,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.08192206803122169,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05895963411858557,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0012559276074171066,
+          "meanabs_change": 0.0018322523683309555,
+          "maxabs_change": 0.008805692195892334,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.00040068640373647213,
+          "meanabs_change": 0.0015413465443998575,
+          "maxabs_change": 0.013020068407058716,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 17,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.31199543666461604,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06223158165547873,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.31515480266553225,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04843446409258605,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0016723554581403732,
+          "meanabs_change": 0.0028609614819288254,
+          "maxabs_change": 0.015556275844573975,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.003272613510489464,
+          "meanabs_change": 0.0043592024594545364,
+          "maxabs_change": 0.04087638854980469,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 18,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.12253907912415853,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07134932756093136,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.15190365209591694,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.054675941118962304,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0019729789346456528,
+          "meanabs_change": 0.0026197489351034164,
+          "maxabs_change": 0.012278378009796143,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0014696272555738688,
+          "meanabs_change": 0.00324614136479795,
+          "maxabs_change": 0.030846089124679565,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 19,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.38600072775208033,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06243050072475556,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.40576508323418253,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05098375584932057,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0025262515991926193,
+          "meanabs_change": 0.003677656874060631,
+          "maxabs_change": 0.020087599754333496,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0050007994286715984,
+          "meanabs_change": 0.00683071231469512,
+          "maxabs_change": 0.07045918703079224,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 20,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.06602334436176435,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06825330887597064,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.08787179882097085,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05804843239794132,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0017465204000473022,
+          "meanabs_change": 0.002221308648586273,
+          "maxabs_change": 0.010299444198608398,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.00035730842500925064,
+          "meanabs_change": 0.0019522346556186676,
+          "maxabs_change": 0.015778809785842896,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 21,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.3182605151178584,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.062376932173431085,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.323017096919101,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04867064970583105,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0022033993154764175,
+          "meanabs_change": 0.0032350514084100723,
+          "maxabs_change": 0.017374515533447266,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.003387579694390297,
+          "meanabs_change": 0.004679840058088303,
+          "maxabs_change": 0.04560050368309021,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 22,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.12833945185602766,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07178711304945207,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.15870625262367055,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.055302577054547025,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0025078468024730682,
+          "meanabs_change": 0.0031409524381160736,
+          "maxabs_change": 0.014085054397583008,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0014914493076503277,
+          "meanabs_change": 0.0038488986901938915,
+          "maxabs_change": 0.03492724895477295,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 23,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.39253790966207297,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06250667945601936,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.4143596678912079,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05116915670764867,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.003102598711848259,
+          "meanabs_change": 0.004139674827456474,
+          "maxabs_change": 0.022226572036743164,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0051887501031160355,
+          "meanabs_change": 0.007237608544528484,
+          "maxabs_change": 0.07662299275398254,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 24,
+      "elements": [
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.5288599691265614,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.054586809512244976,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.4270887393681361,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05255613640034918,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0020295046269893646,
+          "meanabs_change": 0.004657100886106491,
+          "maxabs_change": 0.012195825576782227,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0035640401765704155,
+          "meanabs_change": 0.0077545130625367165,
+          "maxabs_change": 0.07625675201416016,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 25,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.63564949109474,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05372653454467151,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.5525567868141983,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.047179462824123115,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.002585379406809807,
+          "meanabs_change": 0.005735455080866814,
+          "maxabs_change": 0.017666935920715332,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.006625316338613629,
+          "meanabs_change": 0.009966403478756547,
+          "maxabs_change": 0.10883715748786926,
+          "passed": false
+        }
+      ],
+      "regional_pass": true,
+      "newline_pass": false
+    },
+    {
+      "mask": 26,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.5659668839458931,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.054507971674750334,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.47576670366528406,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05000946296466642,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0030805226415395737,
+          "meanabs_change": 0.00561915896832943,
+          "maxabs_change": 0.015470385551452637,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.004750604974105954,
+          "meanabs_change": 0.009626303566619754,
+          "maxabs_change": 0.09863170981407166,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 27,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.6735377946384324,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.0543166687562003,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.603468351201657,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.048637984778537556,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0036652255803346634,
+          "meanabs_change": 0.006813431158661842,
+          "maxabs_change": 0.024849355220794678,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.00781912193633616,
+          "meanabs_change": 0.011815791251137853,
+          "maxabs_change": 0.13260361552238464,
+          "passed": false
+        }
+      ],
+      "regional_pass": true,
+      "newline_pass": false
+    },
+    {
+      "mask": 28,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.5330785640303323,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05438367493868393,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.4324349314653947,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05236075346477603,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.002697465941309929,
+          "meanabs_change": 0.005257761105895042,
+          "maxabs_change": 0.012422800064086914,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0035179483238607645,
+          "meanabs_change": 0.008312814636155963,
+          "maxabs_change": 0.079924076795578,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 29,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.6399362470432631,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05377778011446475,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.5581292908738029,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.047284331250983,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.003262067213654518,
+          "meanabs_change": 0.006223814561963081,
+          "maxabs_change": 0.02083379030227661,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.006616495782509446,
+          "meanabs_change": 0.010094397934153676,
+          "maxabs_change": 0.11276260018348694,
+          "passed": false
+        }
+      ],
+      "regional_pass": true,
+      "newline_pass": false
+    },
+    {
+      "mask": 30,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.5702214368798836,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05454755342464707,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.48122843256696013,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04991682692170057,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.003760943189263344,
+          "meanabs_change": 0.006281072273850441,
+          "maxabs_change": 0.018641948699951172,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0047054707538336515,
+          "meanabs_change": 0.010156942764297128,
+          "maxabs_change": 0.10247102379798889,
+          "passed": false
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": false
+    },
+    {
+      "mask": 31,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.6778435960265206,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05438030914432985,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.6091306443985682,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.048767884870179946,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.004352143034338951,
+          "meanabs_change": 0.007365448400378227,
+          "maxabs_change": 0.028073608875274658,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0078097921796143055,
+          "meanabs_change": 0.012047729920595884,
+          "maxabs_change": 0.13665243983268738,
+          "passed": false
+        }
+      ],
+      "regional_pass": true,
+      "newline_pass": false
+    },
+    {
+      "mask": 32,
+      "elements": [
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0002920200599546833,
+          "positive_pairs": 8,
+          "unrelated_ratio": 0.08585643390646147,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0011128208602382522,
+          "positive_pairs": 10,
+          "unrelated_ratio": 0.07409467629125595,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -7.329508662223816e-06,
+          "meanabs_change": 7.368065416812897e-05,
+          "maxabs_change": 0.0004093647003173828,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 4.4477637857198715e-05,
+          "meanabs_change": 6.84182159602642e-05,
+          "maxabs_change": 0.0003967881202697754,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 33,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.27014784458044144,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06352825562388105,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.2602765994969106,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04939686013920106,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0005646683275699615,
+          "meanabs_change": 0.0018716119229793549,
+          "maxabs_change": 0.007330060005187988,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.002694407245144248,
+          "meanabs_change": 0.003580090356990695,
+          "maxabs_change": 0.025200963020324707,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 34,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.06504930831259238,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08036638721279164,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0785581787932717,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06885168000152554,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0008372198790311813,
+          "meanabs_change": 0.0012709330767393112,
+          "maxabs_change": 0.007487654685974121,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0009952739346772432,
+          "meanabs_change": 0.0018079516012221575,
+          "maxabs_change": 0.016263872385025024,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 35,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.3486048569655947,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06364628443250783,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.361896034130305,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05076502906938603,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0015443507581949234,
+          "meanabs_change": 0.0029896963387727737,
+          "maxabs_change": 0.014990568161010742,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.004389229929074645,
+          "meanabs_change": 0.0060060766991227865,
+          "maxabs_change": 0.054149478673934937,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 36,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.005803842366364023,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.09107001444076955,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.007633307208925465,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08183939989171136,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0005517099052667618,
+          "meanabs_change": 0.0006232913583517075,
+          "maxabs_change": 0.002838611602783203,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": -9.046867489814758e-06,
+          "meanabs_change": 0.000537484884262085,
+          "maxabs_change": 0.0029215216636657715,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 37,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.27659966747383485,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06369947848389715,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.2689980098056479,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04979093430774673,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0011531561613082886,
+          "meanabs_change": 0.0022353418171405792,
+          "maxabs_change": 0.009858489036560059,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0028151271399110556,
+          "meanabs_change": 0.003908113343641162,
+          "maxabs_change": 0.029949218034744263,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 38,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.07097183921479437,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.08060836767449657,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.08604364757904048,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06947511974247672,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0014301296323537827,
+          "meanabs_change": 0.0017976034432649612,
+          "maxabs_change": 0.01041865348815918,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0010156019125133753,
+          "meanabs_change": 0.002340757055208087,
+          "maxabs_change": 0.020295530557632446,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 39,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.3553511632092335,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06373297995970485,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.371460884511949,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05109862399872792,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0021833591163158417,
+          "meanabs_change": 0.003329269587993622,
+          "maxabs_change": 0.018108129501342773,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.004599472042173147,
+          "meanabs_change": 0.006436898838728666,
+          "maxabs_change": 0.06062418222427368,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 40,
+      "elements": [
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.46156777492399925,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.054335746506119095,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.33900060664178794,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05065180354672665,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0006771460175514221,
+          "meanabs_change": 0.002888977527618408,
+          "maxabs_change": 0.008750677108764648,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0030969809740781784,
+          "meanabs_change": 0.00609208457171917,
+          "maxabs_change": 0.060805946588516235,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 41,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.5915017716614615,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05382863299885459,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.49517116213132095,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04614627685407992,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0013637300580739975,
+          "meanabs_change": 0.004029868170619011,
+          "maxabs_change": 0.00950402021408081,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.005955438362434506,
+          "meanabs_change": 0.008963685715571046,
+          "maxabs_change": 0.0907767117023468,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 42,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.5026092853006547,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05468446512216694,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.39651567855702846,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.048173004528232644,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.001829022541642189,
+          "meanabs_change": 0.0038913358002901077,
+          "maxabs_change": 0.009604454040527344,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.004177173133939505,
+          "meanabs_change": 0.007849149871617556,
+          "maxabs_change": 0.0814490020275116,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 43,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.6344987740474585,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05452693374686049,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.5580589362093856,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.048219509697215786,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.002562694251537323,
+          "meanabs_change": 0.005188077688217163,
+          "maxabs_change": 0.017744064331054688,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.007185861933976412,
+          "meanabs_change": 0.010845578741282225,
+          "maxabs_change": 0.11504876613616943,
+          "passed": false
+        }
+      ],
+      "regional_pass": true,
+      "newline_pass": false
+    },
+    {
+      "mask": 44,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.4659409112533885,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.054379071162735104,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.3449909986824551,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.050465329137144035,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0013933293521404266,
+          "meanabs_change": 0.0034804679453372955,
+          "maxabs_change": 0.009056687355041504,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.003045337274670601,
+          "meanabs_change": 0.006643574684858322,
+          "maxabs_change": 0.06431540846824646,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 45,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.5960116356220494,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05389957696415933,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.5016803462573024,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04635104240182211,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.002094389870762825,
+          "meanabs_change": 0.00456530787050724,
+          "maxabs_change": 0.012945294380187988,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.005967353703454137,
+          "meanabs_change": 0.009109775768592954,
+          "maxabs_change": 0.09494638442993164,
+          "passed": true
+        }
+      ],
+      "regional_pass": true,
+      "newline_pass": true
+    },
+    {
+      "mask": 46,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.5070461367362228,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05482457985271843,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.40275288706585005,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.048195222420290174,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0025646016001701355,
+          "meanabs_change": 0.004625961184501648,
+          "maxabs_change": 0.013068675994873047,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.004142415011301637,
+          "meanabs_change": 0.008384284796193242,
+          "maxabs_change": 0.08540821075439453,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 47,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.639044370737325,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.054608169049386764,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.5647567805143795,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.048386648697845015,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0033117644488811493,
+          "meanabs_change": 0.005819398909807205,
+          "maxabs_change": 0.021290957927703857,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.007215420017018914,
+          "meanabs_change": 0.01102904905565083,
+          "maxabs_change": 0.11965572834014893,
+          "passed": false
+        }
+      ],
+      "regional_pass": true,
+      "newline_pass": false
+    },
+    {
+      "mask": 48,
+      "elements": [
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.0609062042441951,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06703222449377187,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.08305912513707289,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.059232472607574076,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.001262495294213295,
+          "meanabs_change": 0.0018427539616823196,
+          "maxabs_change": 0.008377313613891602,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0004479270428419113,
+          "meanabs_change": 0.0015338100492954254,
+          "maxabs_change": 0.013410568237304688,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 49,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.3120978584724975,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06226181174096668,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.3158729552590479,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.048495374501877825,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0016823410987854004,
+          "meanabs_change": 0.002863973379135132,
+          "maxabs_change": 0.015174627304077148,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0033208285458385944,
+          "meanabs_change": 0.004401486832648516,
+          "maxabs_change": 0.04131770133972168,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 50,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.12282988255903059,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07137544800073273,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.15286914279863498,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.054801477664459995,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0019823797047138214,
+          "meanabs_change": 0.002630997449159622,
+          "maxabs_change": 0.01189357042312622,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0015174031723290682,
+          "meanabs_change": 0.003239450743421912,
+          "maxabs_change": 0.031252145767211914,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 51,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.38609346161948904,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06244915665451593,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.406277414995749,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05101365279748471,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0025388263165950775,
+          "meanabs_change": 0.0036905892193317413,
+          "maxabs_change": 0.019751667976379395,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.005047943908721209,
+          "meanabs_change": 0.006872755941003561,
+          "maxabs_change": 0.07089409232139587,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 52,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.06632162778788511,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06832330208608875,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.0889923506690481,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05830489812095388,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0017539877444505692,
+          "meanabs_change": 0.002230444923043251,
+          "maxabs_change": 0.009883522987365723,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.00040427246131002903,
+          "meanabs_change": 0.0019443824421614408,
+          "maxabs_change": 0.016163557767868042,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 53,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.31836479941352064,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06240566013256294,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.32371546727902867,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04872840291375841,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0022139698266983032,
+          "meanabs_change": 0.003238387405872345,
+          "maxabs_change": 0.01700812578201294,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.003435567719861865,
+          "meanabs_change": 0.004722627578303218,
+          "maxabs_change": 0.04603460431098938,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 54,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.12863220789905702,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.07180804915818798,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.15965455592262887,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05541501465011876,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.002518225461244583,
+          "meanabs_change": 0.0031545795500278473,
+          "maxabs_change": 0.01371687650680542,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0015393148642033339,
+          "meanabs_change": 0.003832621732726693,
+          "maxabs_change": 0.03532695770263672,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 55,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.39263280641851744,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.06252311303083558,
+          "passed": false
+        },
+        {
+          "family": 1,
+          "coverage": 0.41485173590437274,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05119654702066979,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.003116115927696228,
+          "meanabs_change": 0.004152163863182068,
+          "maxabs_change": 0.021905183792114258,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.005235488759353757,
+          "meanabs_change": 0.007279698038473725,
+          "maxabs_change": 0.07704424858093262,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 56,
+      "elements": [
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.5291761414474156,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.054617703860775794,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.4282990669781086,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.052623239945192864,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.002037467435002327,
+          "meanabs_change": 0.004668684676289558,
+          "maxabs_change": 0.012265324592590332,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0036161860916763544,
+          "meanabs_change": 0.007750889053568244,
+          "maxabs_change": 0.07672274112701416,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 57,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.6357529492869511,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05374253929243181,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.5532965674480872,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04721470980459038,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0025961175560951233,
+          "meanabs_change": 0.005747199058532715,
+          "maxabs_change": 0.017293870449066162,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.006676493911072612,
+          "meanabs_change": 0.010022576665505767,
+          "maxabs_change": 0.10933375358581543,
+          "passed": false
+        }
+      ],
+      "regional_pass": true,
+      "newline_pass": false
+    },
+    {
+      "mask": 58,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.566277273542589,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.054532204009867864,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.4767888793618805,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.050066878617273367,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0030909590423107147,
+          "meanabs_change": 0.005628783255815506,
+          "maxabs_change": 0.015091896057128906,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.004802540177479386,
+          "meanabs_change": 0.009626318467780948,
+          "maxabs_change": 0.09910020232200623,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 59,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.6736326613547514,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.054326712176260984,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.603991757803934,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.048659436626623816,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.003678254783153534,
+          "meanabs_change": 0.006825245916843414,
+          "maxabs_change": 0.024516701698303223,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.007867093430832028,
+          "meanabs_change": 0.011870229849591851,
+          "maxabs_change": 0.13305902481079102,
+          "passed": false
+        }
+      ],
+      "regional_pass": true,
+      "newline_pass": false
+    },
+    {
+      "mask": 60,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.5333968391599712,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05441252720079366,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.43362682775833916,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.052426718939410304,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0027066823095083237,
+          "meanabs_change": 0.005267156288027763,
+          "maxabs_change": 0.012490034103393555,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.0035698385909199715,
+          "meanabs_change": 0.008308595046401024,
+          "maxabs_change": 0.08038422465324402,
+          "passed": true
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": true
+    },
+    {
+      "mask": 61,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.6400424388868944,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05379400284437658,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.5588487943838787,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.04731760970960515,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0032732635736465454,
+          "meanabs_change": 0.006236478686332703,
+          "maxabs_change": 0.020468413829803467,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.006667350186035037,
+          "meanabs_change": 0.01015119138173759,
+          "maxabs_change": 0.11324629187583923,
+          "passed": false
+        }
+      ],
+      "regional_pass": true,
+      "newline_pass": false
+    },
+    {
+      "mask": 62,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.5705345300878744,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05457067992669705,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.48223118716607866,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.049972167796250015,
+          "passed": false
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0037719272077083588,
+          "meanabs_change": 0.006291087716817856,
+          "maxabs_change": 0.018275439739227295,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.004757080227136612,
+          "meanabs_change": 0.010154723189771175,
+          "maxabs_change": 0.10292711853981018,
+          "passed": false
+        }
+      ],
+      "regional_pass": false,
+      "newline_pass": false
+    },
+    {
+      "mask": 63,
+      "elements": [
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "inside"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "mixed"
+        },
+        {
+          "head": "8.2",
+          "value": "first",
+          "grade": "outside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "inside"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "mixed"
+        },
+        {
+          "head": "9.8",
+          "value": "current",
+          "grade": "outside"
+        }
+      ],
+      "regional": [
+        {
+          "family": 0,
+          "coverage": 0.6779408058726283,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.05438988140735831,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "coverage": 0.6096323962096492,
+          "positive_pairs": 12,
+          "unrelated_ratio": 0.048788389460928915,
+          "passed": true
+        }
+      ],
+      "newline": [
+        {
+          "family": 0,
+          "mean_change": -0.0043663568794727325,
+          "meanabs_change": 0.007376614958047867,
+          "maxabs_change": 0.02775251865386963,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "mean_change": 0.007857875898480415,
+          "meanabs_change": 0.012055877596139908,
+          "maxabs_change": 0.13708990812301636,
+          "passed": false
+        }
+      ],
+      "regional_pass": true,
+      "newline_pass": false
+    }
+  ],
+  "regional_passers": [
+    11,
+    13,
+    15,
+    25,
+    27,
+    29,
+    31,
+    43,
+    45,
+    47,
+    57,
+    59,
+    61,
+    63
+  ],
+  "joint_passers": [
+    13,
+    45
+  ],
+  "body_forwards": 5232,
+  "seconds": 107.66853421926498,
+  "scope": "All63 frozen inside/mixed/outside grade masks in selected8first/9current value sectors; exploratory reused-panel screen. Full jointquery and native keynormalizers retained. Fresh confirmation required; prior sector/fullpair failure preserved.",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_NATIVE_V1_PREREGISTRATION.md": "40a5a81fa3ec49c575f4feb59812ce91867d16f907b58e80b69a537c82791bc0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_COMPETING_CUES_V1_ROWS.json": "7eeafb875fd3687f7e8225264a129d015d807d677235b3b6129af6d04dc19621",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_CITY_ROLE_CROSSOVER_V1_ROWS.json": "e79ab43eff592829724de70e6ac038d1046d0172b4a26975896b738311b995cf",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/MIXED_TOKEN_HEAD2_NATIVE_V1_PROGRAM.pt": "75d043f471023fa70455f22f634f1372b3cd4347bb2646ea2cec85347dbe88ee",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_SOURCE_POSITIONS_V1_ARTIFACT.pt": "b66146b4945366051eeb8641d3c85bd4918ced6b28103dcecfb0cb5d600d1829",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_cue_row_check_v1.py": "c6dda30ba85cff6d7cccff280faec0f1a437362ecb4875511aca263c258d16ed",
+    "/workspace/tensor_language/jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/compiled_reading_head_v1.py": "c829a4dd80c61c3ba70cbdf4e405e4a23bb94b2aa13b4f2f310f8b549835aba8",
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_BANK_V1_PREREGISTRATION.md": "3a19319760502562ecb2cd7186b642607dc9e9aba7a62c83cd82dcdf86fbb4f2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_PASSERS_CONFIRMATION_V1_PREREGISTRATION.md": "a26809fbfe6e9e43d0eeaa74280ac931f66b628f5045f45840612a12cf3d3084",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_CONFIRMATION_V1_ROWS.json": "e6bf664fa6dc88cc4ca52763d46fb7ab9085121aead3453192dcd867b03c1ede",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_SHARED_OUTPUT_V1_ARTIFACT.pt": "fbf2df661f1a09a063fe068aff166f37750a29973ff4f215a9d88d6e851816aa",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/compiled_mixed_token_head_v1.py": "adb47f8387c75f557d13c0dfaf192180547fce677417b5b89c47406b3a29b331",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/folded_normalized_router_v1.py": "a374ea1f2c29ed68f7b33f3eb9d28a7034a25260ec95fe4b4e9fc2d7b0e48d9c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NATIVE_V1_PREREGISTRATION.md": "8d39a530df165fc8df1ea94f70dfa59d1ddbd89b55d506d6e8226c3ae1e2f524",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_COMPILE_V1_PROGRAM.pt": "d2e5fd65ab43dd25bf8548438c918ea7b4c9a93e6664931b5d52b37dcbd92490",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/PRODUCER_FRESH_CONFIRMATION_CACHE_V1_ARTIFACT.pt": "50626223f54f56c261127f0154a54f3ef9b5b8a7fec1abf8ac1692023c4dcb4f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/compiled_scalar_producers_v1.py": "aa0666a6dc2d2f840e830d4107811958038fe9305556e9857e75059c89d6be4b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_BANK_WEIGHTS_V1_ARTIFACT.pt": "5cf244ecf66632b6145f2f32c8d013958a2d98217607f680a91d0d9e7dd92e5b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_V1_PREREGISTRATION.md": "e977e0646181d1b782a4f943c923282f2f2032a2c3ac04ed38dbd9d096dd425c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_V1_ROWS.json": "c41e462bfda16d3fa0e1f5ca18275ea219f63525e31db8e8920f2c9506980f40",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_NATURAL_V2_PREREGISTRATION.md": "e1a7bcbdd958b52703fd4aca510086c1033dfe58cdd8b1c39d8c553901917deb",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_NATURAL_V2_ROWS.json": "2bbd64ee8d4e6dd98b42b313786370b1f1f0a6984f0cde174510bb1f99a3d042",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_V1_ARTIFACT.pt": "8ba9cf53ba687387d006b208bd9df556d576191701580b5fc5a2d1688ebeef75",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/scalar_producers_newline_natural_rows_v2.py": "de1a5ff0a6ff63bcf2aadaa9d614598fbead8d732e8c6ddc0f1d13cf3c634708",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_RECURSIVE_REMOVAL_V1_PREREGISTRATION.md": "b08fdf2d6968452ef7d101a2cc309f10aa610e2cb1cad9644e165b800d1c59e1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_NATIVE_LIFT_V1_RESULT.json": "68bfdd6a7697ca5d9a5fa890fc4a8ea29dff7edb691571c73509b568e067aa76",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_NATIVE_LIFT_V1_ARTIFACT.pt": "abac8ee3ad606366028ff0c26dbf6110a6edb08b71bb8ba379de74b2cc5bbf51",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_NATURAL_V2_RESULT.json": "a351c1318926c7e700a17e16d86fd4924739e0724190b7bef7f3d1dd290c53b1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_NATURAL_V2_ARTIFACT.pt": "a43d66e0650d83cf0f27ef868dc17e7473a0bac0aa0767a74d20cc15eae5e2c1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_SERIAL_INTERACTION_V1_PREREGISTRATION.md": "6f9831ed0901ac08f440100232b624e9be10e14d8bdb412c3d9721b302b5609b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_SERIAL_NATIVE_SCALARS_V1_ARTIFACT.pt": "fcf1ae76dfc04ce295fedc38e05bab297ca409c69a9991345683fba99ba521dd",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_RECURSIVE_REMOVAL_V1_ARTIFACT.pt": "171e01f2c5b4d30500c08e4119f61d895ccfd72738eddb56c2229ed1e91179bd",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_RECURSIVE_REMOVAL_V1_RESULT.json": "53a376e6139df1d0182391950a557d1e0b1394f3becc3b3c81d11c69fb664577",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_NATIVE_V1_PREREGISTRATION.md": "5a22072aa0c196162a5e0bfc8ef4b4a377e60319fac40c7c2aa9b60bd1ac950a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_V1_RESULT.json": "13cf919769530af5064e364632f5ff7cde3e6191efc6c5db85e36286bc278437",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_EFFECT_V1_PREREGISTRATION.md": "0e873f62b64dade1f88554150bc992b5b17273d372c271a97369ddb27c566e29",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_NATIVE_V1_ARTIFACT.pt": "b66448cbca59cf113abff0d1c9a8bce9f6cbf5209e5101d4d29b6044edbbc39b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_NATIVE_V1_RESULT.json": "7d3a5d9ed44bd52c686122f6aad853fc50bde2d6e38efa35743dd31cdf8f7e87",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_SERIAL_INTERACTION_V1_ARTIFACT.pt": "25d07a1b6f8f721ea3f48b051596a1f4cc30f6b90600f0bfaf1aee8f0a2e6bf1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_CONTEXT_TRANSFER_V1_PREREGISTRATION.md": "35760079dfe5d2dfb95bb6465473aaafe0bc35a0f65763fe3f5a60f3b8e9a906",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_CONTEXT_TRANSFER_V1_ROWS.json": "738d430059208837acf8871924cef0a1b38d755dfd26d5fa69282da54cb15f55",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_DIRECTIONAL_MLP_V1_PROGRAM.pt": "2e07e9eb98ac60f5f0acde03875a08bdd16014ecadcb1605c0e1307e83c6bbcc",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/directional_mlp_bridge_v1.py": "2dd44cc26e7699e0cdebc26f1feae8508e34f5edf5299a4f35608acc925655d3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/scalar_producers_context_transfer_rows_v1.py": "53ca2ca1bd7ce1a27f8b7ae5529eb10410726eda3a837ee94f973734a4e5d05e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/scalar_value_sectors_v1.py": "a9f2e3dd080d486919d3ba895083b9e21cb202684da91582501d7c6f1d2971fe",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_VALUE_SECTORS_V1_CONTROL.json": "53b3d081d65adf90ca27ef7eaefc0bd5d8c91073375d5d2cd0b83c1be7e97396",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_CONTEXT_TRANSFER_V1_ARTIFACT.pt": "494d907c6f40008060a6d08801681d0560865e55258043e1846038188f2829c4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_PATH_SCREEN_V1_PREREGISTRATION.md": "0e6cb2c71522d1b80b35388a2d8405ce268a123edea983db4356c24197b04e43",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_VALUE_SECTOR_FACTORIAL_V1_ARTIFACT.pt": "0281877b2bb48eadb23496f10628c15ea2560534252d70f9e35a62005e96f369",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_VALUE_SECTOR_FACTORIAL_V1_RESULT.json": "e06c5b20d1542b4801c9cfa8079a9f184606fd3c435bcf1b5f0c920328e8662f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_BANK_V1_ARTIFACT.pt": "523623c338a0220e2a6ab8cf2dd4bf241bb61e22d8efed3f4123399432aa6209",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_BANK_V1_RESULT.json": "f52503145cb32aae8dfdaae8f2b489d996abb9cb5a2d2dac265efae44fbf5165",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_PATHS_V1_CONTROL.json": "359a4696bc337bbab81f35f8d5aa9170a4d886c4a9b960b126b301780bf73b43",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/scalar_joint_key_paths_v1.py": "9ec0f791a424bffc240be67c7e02ba7469ee743555ca549742519e232b978d0e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_GRADES_V1_PREREGISTRATION.md": "8b0d4edfd39e560437387fe231bd0daa3db6b8b1aadb49822b069cef7ab4140d",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_PATH_SCREEN_V1_ARTIFACT.pt": "e1ba7bd5a408df1afe1bf6cd3b843ae38afbd07995d9a31e0b5ad3a84bc7a853",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_PATH_SCREEN_V1_RESULT.json": "a2708ac90b6d1c4f1e8e24bab4a166fdee71d3b4c63f1443fb6253614bf9d32c",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_scalar_joint_key_grades_v1.py": "85703bc602a94ef1a3b7daf21989ce116916c9bf24f4a473a3e54473927ede72"
+  },
+  "artifact_sha": "1578f8538e8c9074926854814026059cdf88300d9a3ac909e7fde973f19cda26"
+}

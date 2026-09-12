@@ -1,0 +1,63 @@
+{
+  "selected": {
+    "mask": 45,
+    "elements": [
+      {
+        "head": "8.2",
+        "value": "first",
+        "grade": "inside"
+      },
+      {
+        "head": "8.2",
+        "value": "first",
+        "grade": "outside"
+      },
+      {
+        "head": "9.8",
+        "value": "current",
+        "grade": "inside"
+      },
+      {
+        "head": "9.8",
+        "value": "current",
+        "grade": "outside"
+      }
+    ],
+    "regional": [
+      {
+        "family": 0,
+        "coverage": 0.5960116356220494,
+        "positive_pairs": 12,
+        "unrelated_ratio": 0.05389957696415933,
+        "passed": true
+      },
+      {
+        "family": 1,
+        "coverage": 0.5016803462573024,
+        "positive_pairs": 12,
+        "unrelated_ratio": 0.04635104240182211,
+        "passed": true
+      }
+    ],
+    "newline": [
+      {
+        "family": 0,
+        "mean_change": -0.002094389870762825,
+        "meanabs_change": 0.00456530787050724,
+        "maxabs_change": 0.012945294380187988,
+        "passed": true
+      },
+      {
+        "family": 1,
+        "mean_change": 0.005967353703454137,
+        "meanabs_change": 0.009109775768592954,
+        "maxabs_change": 0.09494638442993164,
+        "passed": true
+      }
+    ],
+    "regional_pass": true,
+    "newline_pass": true
+  },
+  "rule": "maximum minimumcoverage, then minimum maximumnewlinechange, then lowestmaskid",
+  "screen_sha": "d140d55bc47ed488370c0b8018c7831e179edfeb7061e5bb90bad3511c566656"
+}
