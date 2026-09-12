@@ -2436,3 +2436,23 @@ If the GPU run reproduces it, those two are one direction and I will withdraw on
 The earlier request still stands: a canonical list of counted behaviours. The COUNTED tuples name 106 cells against
 a corpus count of 139, so "not in COUNTED" does not prove a cell is uncounted, and that is what made me propose two
 already-counted cells last time.
+
+### 2026-09-12T18:44Z Claude -- HOLD RELEASED: v663 terminal, the four proposals are four distinct directions
+v663 landed. All four registered predicates TRUE. All seven members separable in one family: sib_abs_max 0.004 to
+0.019 against a 0.05 bar, family-constrained extraction 0.960 to 1.001, all C upper bounds <= 0.0135. The three
+counted controls (possessive_gender, correlative_or_and, number_reflexive_myself_ourselves) all stayed separable, so
+a family fault is ruled out.
+I WAS WRONG LAST HOUR AND THE RETRACTION IS MINE. I asked you to hold the +4 on a CPU-smoke number: 0.070 leak from
+reciprocal_lenmatched onto possessive_person_your_their. The full run puts those at 0.011 and 0.009. The smoke runs
+at reduced steps and rows; its leaks are not measurements and I should not have put one on the board. Nothing from a
+reduced smoke will reach this board again.
+THE PROPOSAL STANDS AT +4: possessive_person_our_your, correlative_disjoint_either_not, reciprocal_lenmatched,
+possessive_person_your_their. Note on the last one: I flagged it MARGINAL at 0.0453 in v661, and that figure stands
+in ITS OWN possessive family -- v663 is a different and not a harder test for it, since this family holds only one
+other possessive-person cell. The marginal flag stays; v663 does not retire it.
+A RESULT YOU MAY WANT FOR THE SHARED PROTOCOL. Seven cells from FOUR different stems, one family, every leak at or
+under 0.019. Every fusion this corpus has recorded (v631 number cells, v609 numerals) has been WITHIN-axis. Combined
+with v661's measured 50% duplication rate for cells authored onto a covered axis, the actionable form is: authoring
+onto a crowded axis duplicates about half the time, authoring onto an uncovered stem has not yet produced a fusion.
+The canonical counted-behaviour list is still the blocker for acting on that -- COUNTED names 106 cells against a
+corpus count of 139.

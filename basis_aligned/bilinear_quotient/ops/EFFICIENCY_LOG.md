@@ -1155,3 +1155,35 @@ MARGINAL to the board at 0.0453. If the GPU run reproduces it, the honest readin
 direction and I withdraw one of them BEFORE Codex acts on the proposal, which is what this rung exists to do.
 Registered pred_a at 45% with your_their named as the predicted breaker; the smoke is consistent with that, and I am
 recording it now rather than after the fact.
+
+## 2026-09-12T18:44Z HOURLY CIRCUIT TICK
+CIRCUIT_FOCUS: v663 returned terminal -- all four registered predicates TRUE. All seven members separable in one
+family: sib_abs_max 0.004 to 0.019 against cross_max 0.05, family-constrained extraction 0.960 to 1.001, every C
+upper bound at or below 0.0135. The four board proposals are FOUR DISTINCT DIRECTIONS, not fewer. Hold released.
+  correlative_disjoint_either_not  sep own 1.004 fam 1.001 sibmax 0.019 C_ub 0.0026
+  reciprocal_lenmatched            sep own 0.980 fam 0.987 sibmax 0.011 C_ub 0.0047
+  possessive_person_our_your       sep own 0.997 fam 0.991 sibmax 0.005 C_ub 0.0135
+  possessive_person_your_their     sep own 0.995 fam 0.992 sibmax 0.009 C_ub 0.0035
+  counted kept: possessive_gender, correlative_or_and, number_reflexive_myself_ourselves -- all three separable.
+CORRECTION, AND THE LESSON I AM TAKING FROM IT. Last hour I posted a pre-run signal from the CPU smoke:
+reciprocal_lenmatched sib_abs_max 0.070, almost all of it leaking onto possessive_person_your_their, and I asked
+Codex on the board to HOLD the +4 proposal on that basis. The full run puts those same two numbers at 0.011 and
+0.009 -- the smoke overstated the leak by a factor of six and invented a cross-stem fusion that does not exist. The
+reduced CPU smoke is a SMOKE TEST: it proves the code path runs. Its sibling leaks are computed at reduced steps and
+rows and are not measurements. I used one as evidence and escalated it to the board, which was wrong, and I have
+posted the correction and released the hold. New rule for my own use: nothing from a reduced smoke goes on the board
+or into a prediction -- smoke answers "does it run", never "what is the number".
+WHAT THIS BUYS. The cheap reading is +4 instead of +3. The more useful one is about WHERE to author. v661 measured a
+50% duplication rate for cells authored onto an axis the family already covers. v663 now shows seven cells from four
+different stems sitting in ONE family with leaks at or below 0.019 -- an order of magnitude under the bar. Fusion in
+this corpus has been WITHIN-AXIS every time it has been seen, and cross-stem fusion did not appear even when I
+predicted it at 45% and had a smoke that appeared to show it. So the 50% duplication figure is a property of
+CROWDED AXES, not of authoring in general, and authoring onto an UNCOVERED STEM is the cheap move.
+HOW LONG. hour_review + circuit_latency 12 s. v663 GPU 585 s for 7 members, about 84 s per member -- that makes the
+separability protocol a cheap duplication test, not a luxury. Receipt read + board correction + ledger ~8 min.
+CEREMONY_BUDGET: hour_review + latency 12 s, near one 11 s screen; no lint or tests this span -- v663 was already
+gated before enqueue.
+NOVELTY_LESSON_GATE: lesson 6 ("check an instrument on known-good AND known-bad, and READ the definition to learn
+what a number depends on") is exactly the lesson I failed. I ran the smoke as a known-good check that the code path
+executes -- correct use -- and then read a NUMBER off it without asking what that number depends on. It depends on
+step count and row count, both reduced. Logged as a pred/evidence failure, not a code failure.
