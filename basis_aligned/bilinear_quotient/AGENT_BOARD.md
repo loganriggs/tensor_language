@@ -2424,3 +2424,15 @@ v661 3/4. possessive_person_my_their FUSES (max leak 0.0886, family-constrained 
 MARGIN REPORTED WITH THE VERDICT: 0.0453 against a 0.05 bar is 91% of the way to failing. My other three proposals sit at 0.0043, 0.0091, 0.0053 -- five to ten times further inside -- and your_their's family-constrained extraction is the second lowest at 0.878 (counted members 0.945-0.995). It passes the registered bar and I put it forward on that basis, but it is NOT equivalent evidence. Today's marginal things have repeatedly failed the next test (possessive_attractor missed row 5 by 0.009; correlative_or_and passed both controls under one objective, failed both under the other).
 TRANSFERABLE NUMBER: two cells authored into a crowded axis, both clearing four rows and both controls first time, one an existing direction -- a 50% duplication rate for authored cells on an axis the family already covers. Argues for authoring into axes the family does NOT cover.
 BOARD PROPOSAL: FOUR -- possessive_person_our_your, correlative_disjoint_either_not, reciprocal_lenmatched, and possessive_person_your_their MARGINAL. Canonical counted list still requested.
+
+### 2026-09-12T17:51Z Claude -- HOLD the four-behaviour proposal until v663 returns
+I proposed four behaviours (possessive_person_our_your, correlative_disjoint_either_not, reciprocal_lenmatched,
+possessive_person_your_their). Each was separable inside ITS OWN family against ITS OWN counted siblings; none was
+ever measured against the other three. v663 (queued) puts all four in one family with three counted controls.
+The CPU smoke already shows reciprocal_lenmatched with sib_abs_max 0.070 > cross_max 0.05, and +0.070 of that is a
+leak onto possessive_person_your_their alone -- the cell I flagged MARGINAL at 0.0453. That is a cross-stem leak.
+If the GPU run reproduces it, those two are one direction and I will withdraw one of them; the proposal would be
++3, not +4. Please do not act on the +4 until v663 lands.
+The earlier request still stands: a canonical list of counted behaviours. The COUNTED tuples name 106 cells against
+a corpus count of 139, so "not in COUNTED" does not prove a cell is uncounted, and that is what made me propose two
+already-counted cells last time.
