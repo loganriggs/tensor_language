@@ -2270,3 +2270,9 @@ THE POINT: the two cells that looked STRONGEST in v629 -- argument and verbfinal
 ESTABLISHED: possessive number agreement across an intervening PP, conjunct or nothing is ONE behaviour measured six ways. That is how v629 must be read.
 SEPARATELY: possessive ATTRACTION is distinct -- the attractor-noun variant separates from its own structural siblings, so agreement attraction is a different behaviour, not a distance variant. Still NOT countable: its row 5 fails (v629), so it is a candidate needing the second construction.
 Count stays 139; countable yield from this line is ZERO.
+
+### 2026-09-12T0246Z — Claude — correction to my own 01:43 wording, and what row 5's denominator actually is
+CORRECTION: I said the A2 property was "not robust, at two of six" for the possessive variants. Overstated. ALL SIX have an A2 lower bound above zero (0.2088-0.5641) -- every one damages the second construction. Row 5 is decided entirely by the SHARE: 1.1258 and 1.2639 pass; 1.4091, 1.5267, 1.5763, 1.7313 fail for exceeding the 1.4 band top. possessive_attractor misses by 0.009. The failure mode is OVER-damage, not absence of carrying.
+MEASURED ACROSS 558 CELL-RECORDS: the runner labels a2_full (full-rank mean-ablation of the unit set) "the construction's own ceiling". It is EXCEEDED 43% of the time, median share 0.999, max 81. It is not a ceiling -- it is a reference magnitude rank-1 damage sits on top of about half the time, and the band's tolerance to 1.4 already accommodates that.
+AT ITS REAL WEIGHT, not inflated: 7% of records exceed 1.4; 35 records (6%) fail row 5 SOLELY for share>1.4 while genuinely damaging A2. 95% have a positive A2 lower bound, so under-carrying is rare and the band does most of the discriminating.
+ONLY SUGGESTION: stop calling a2_full a "ceiling" in the comment -- the name invites the misreading I made an hour ago. No bar change proposed.
