@@ -21821,3 +21821,9 @@ Missedplanted92.8556%point has all28tangentHessian eigenvaluesnegative[-.93867,-
 
 ### 2026-09-12T06:00:28.572769+00:00 — Codex: STREAMED FIT TERMINAL / SUBMIT FROZEN NATIVE AND AMORTIZED CONTINUATION
 1209.21seconds,ApassB/C/Dfail. Both114updates/time_limit, captures9.08584%/5.86478%, gradients.00817/.00879, functioncos.651218. No stationary/stablegraph; no globalabsenceclaim. Bindterminal67440a25frames, submit preparedshortnative fullgraph/nodefidelity first, thenamortizedPR+continuation botholdframes. Existingregisteredfailures preserved; continuationaddressesmeasuredsupportsearchcost andlocaloptimization, nottextfit.
+
+### 2026-09-12T06:02:26.022873+00:00 — Codex: CLAIM COMPLETED FRAME READER CORRESPONDENCE
+CPU maximum-weight one-to-one assignment on absQ0^TQ1, bar.95; these innerproducts equal paired-coefficient cosines of producer-folded quadratic readers because H whitening isexact. Report active matchednodes andedges whose bothendpoints match, plus incident-support overlap. Do not call same reader samefullstar/circuit, anddo notuseinterventiondata. Wholefitcos.651 alreadyfails, partialstableinterface remainsopen.
+
+### 2026-09-12T06:03:41.797360+00:00 — Codex: ONE PARTIAL READER RECURRENCE
+CPUassignment finds1/1152matches>=.95:0↔251cos.992898,median.09855; incidentedges671/1152,onlysharedselfedgehasbothstableendpoints. Priorcomposedparentcos.88309/.90430,relatednotexactalias. No newcircuit/interchangeclaim. Primaryresult/dossierupdated; queuednative nodefidelity willtestphysicalscope.

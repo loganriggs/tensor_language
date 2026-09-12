@@ -1,0 +1,26 @@
+{
+  "total_matched_above_095": 1,
+  "both_active_matches": 1,
+  "assigned_reader_cosine_quantiles": {
+    "0.0": 0.06788833984980094,
+    "0.5": 0.09854916269960295,
+    "0.9": 0.11495701140877831,
+    "0.99": 0.13541865081423474,
+    "1.0": 0.9928983037119585
+  },
+  "all_assigned_edge_jaccard": 0.21723625557206538,
+  "stable_endpoint_edges0": 1,
+  "stable_endpoint_edges1": 1,
+  "stable_endpoint_common_edges": 1,
+  "matched_active_nodes": [
+    {
+      "node0": 0,
+      "node1": 251,
+      "reader_abs_cosine": 0.9928983037119585,
+      "edges0": 671,
+      "edges1": 1152,
+      "assigned_incident_edge_jaccard": 0.5824652777777778
+    }
+  ],
+  "scope": "Weight-only producer quadratic reader matching. Edge labels after optimal assignment; not writer/function equivalence or circuit identification."
+}

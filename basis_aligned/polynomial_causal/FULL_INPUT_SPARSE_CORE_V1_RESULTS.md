@@ -66,3 +66,7 @@ The amortized PR+ solver recovers both diagonal planted starts, then4of5starts o
 ## Full-frame gradient run terminal —12 September05:59
 
 Both arms hit600second limits after114updates each: spectral capture8.18386%→9.08584%, independent0.80584%→5.86478%. Relative gradients0.00817/0.00879 miss1e-6; fullfunctioncosine0.651218 misses0.95. Numericalidentity bar passes; convergence,25%gain andstability fail. Total1209.21seconds. [Terminal receipt](STREAMED_SPARSE_FRAME_NATIVE_V1_RESULT.json), [frozenframes](STREAMED_SPARSE_FRAME_NATIVE_V1_FRAMES.pt). These aredifferent unconverged fits, not identified circuits or proofagainst bettergraphs. Prepared frozennativefidelity andamortizedPR+continuation nowboundtofinalartifacts; originalresults retained.
+
+## One recurring reader inside unstable full fits —12 September06:03
+
+Maximum-weight one-to-one matching of the two complete frames finds exactly one paired-quadratic reader cosine>=0.95: spectralnode0 andindependentnode251 at0.992898. Median assignedcosine is0.09855. Only their self-edge has two stable endpoints in bothgraphs; incidentedge counts are671and1152, so similar readers do not establish similar complete consumer functions. [Correspondence](STREAMED_FRAME_READER_CORRESPONDENCE_V1.json). The recurringreader hascosine0.88309/0.90430with thepreviousconvergedsharedparent, hence it is related butnotanexactalias under thismetric. [Prior-parentcheck](STREAMED_FRAME_PRIOR_PARENT_V1.json). Do notcounta newcircuit orassumeinterchangeability. Frozen nativefidelity andcontinuation remain queued.

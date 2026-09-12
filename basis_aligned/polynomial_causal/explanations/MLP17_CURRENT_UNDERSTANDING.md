@@ -648,3 +648,7 @@ The subsequent full-partner native interchangeability test fails: matched old
 parent gives5.07/11.51/15.99/30.13%swap errors and allremoval bars fail. Preserve
 both interfaces; related weights are not sufficient for a merged circuit node.
 [Receipt](../PARENT_INTERCHANGE_NATIVE_V1_RESULT.json).
+
+###12 September06:03 — partial reader recurrence in composed sparse graphs
+
+The full1152input sparse-graph fits remainunconverged andwholefunctioncosine0.651, but oneproducer-quadraticreader recurs atcosine0.992898 (nodes0/251). It hasdifferentincidentedgecoverage671/1152andonly0.883/0.904cosine withtheoldcomposedsharedparent. Readerrecurrence isnotconsumer/interventionequivalence ornewsemanticcircuit. [Primary result and receipts](../FULL_INPUT_SPARSE_CORE_V1_RESULTS.md).
