@@ -1,0 +1,58 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "max_noedit_relative_error": 0.0,
+  "min_native_scalar_norm": 0.15151873523488169,
+  "records": [
+    {
+      "family": 0,
+      "name": "city_cue",
+      "native_mean_contrast": 3.4961068828900657,
+      "native_positive_pairs": 12,
+      "capable": true,
+      "removal_coverage": 0.4809549517855049,
+      "removal_positive_pairs": 12,
+      "removal_unrelated_ratio": 0.10761245457228326,
+      "donor_transfer": 0.5240270013970576,
+      "donor_positive_directions": 24,
+      "donor_unrelated_ratio": 0.11062834156275407,
+      "removal_pass": false,
+      "donor_pass": true
+    },
+    {
+      "family": 1,
+      "name": "nationality",
+      "native_mean_contrast": 2.1956499020258584,
+      "native_positive_pairs": 12,
+      "capable": true,
+      "removal_coverage": 0.44668606593835214,
+      "removal_positive_pairs": 12,
+      "removal_unrelated_ratio": 0.09402472430079017,
+      "donor_transfer": 0.46326893406626285,
+      "donor_positive_directions": 24,
+      "donor_unrelated_ratio": 0.09058011651029166,
+      "removal_pass": false,
+      "donor_pass": false
+    },
+    {
+      "family": 2,
+      "name": "style_rule",
+      "native_mean_contrast": 1.9717788298924763,
+      "native_positive_pairs": 12,
+      "capable": true,
+      "removal_coverage": 0.46548208728892365,
+      "removal_positive_pairs": 12,
+      "removal_unrelated_ratio": 0.07207379202373702,
+      "donor_transfer": 0.48401467156162076,
+      "donor_positive_directions": 24,
+      "donor_unrelated_ratio": 0.06633111071135638,
+      "removal_pass": false,
+      "donor_pass": false
+    }
+  ],
+  "body_forwards": 216,
+  "seconds": 4.6304524056613445,
+  "scope": "Frozenrank64 on72score-free newcueprompts. Removal/pairednative-donorfields with actual sequentialrecipient states; hybrid conditionalintervention, not full donor model. Weak nativecapability reportedwithoutdroppingrows. Controlleddistribution shift, notcorpus/pretraining OOD; new endpoints; cue templates/controlcontrast reused.",
+  "artifact_sha": "75f1ac7e383378c9e6edf486f8981ce5a1c594226a157c9bf0c4885a0cac1f56"
+}

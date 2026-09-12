@@ -1,0 +1,115 @@
+{
+  "endpoints": [
+    {
+      "uk": " programme",
+      "us": " program",
+      "native_mean_contrast": 4.054664293924968,
+      "native_positive_pairs": 6,
+      "removal_coverage": 0.4045406260870847,
+      "donor_transfer": 0.4424889322675235,
+      "removal_positive_pairs": 6,
+      "donor_positive_directions": 12
+    },
+    {
+      "uk": " humour",
+      "us": " humor",
+      "native_mean_contrast": 2.5341731707255044,
+      "native_positive_pairs": 6,
+      "removal_coverage": 0.4955131008673742,
+      "donor_transfer": 0.5207063299664525,
+      "removal_positive_pairs": 6,
+      "donor_positive_directions": 12
+    },
+    {
+      "uk": " catalogue",
+      "us": " catalog",
+      "native_mean_contrast": 1.4382471243540447,
+      "native_positive_pairs": 6,
+      "removal_coverage": 0.5012785582762811,
+      "donor_transfer": 0.524623484659649,
+      "removal_positive_pairs": 6,
+      "donor_positive_directions": 12
+    },
+    {
+      "uk": " apologise",
+      "us": " apologize",
+      "native_mean_contrast": 1.9941959381103516,
+      "native_positive_pairs": 6,
+      "removal_coverage": 0.4856858495459572,
+      "donor_transfer": 0.4988261569298466,
+      "removal_positive_pairs": 6,
+      "donor_positive_directions": 12
+    },
+    {
+      "uk": " offence",
+      "us": " offense",
+      "native_mean_contrast": 2.9192001024881997,
+      "native_positive_pairs": 6,
+      "removal_coverage": 0.477115753827762,
+      "donor_transfer": 0.5138616594047954,
+      "removal_positive_pairs": 6,
+      "donor_positive_directions": 12
+    },
+    {
+      "uk": " organising",
+      "us": " organizing",
+      "native_mean_contrast": 2.386590600013733,
+      "native_positive_pairs": 6,
+      "removal_coverage": 0.49519332325449933,
+      "donor_transfer": 0.5213030460159693,
+      "removal_positive_pairs": 6,
+      "donor_positive_directions": 12
+    }
+  ],
+  "leave_one_endpoint_out_removal": [
+    {
+      "omitted_concept": 0,
+      "coverage": [
+        0.5113917587707818,
+        0.4624683660812178,
+        0.4783615314171374
+      ]
+    },
+    {
+      "omitted_concept": 1,
+      "coverage": [
+        0.4770209100099236,
+        0.4439299066070457,
+        0.4550026992374891
+      ]
+    },
+    {
+      "omitted_concept": 2,
+      "coverage": [
+        0.47807724585340955,
+        0.44382602270919064,
+        0.45970628165166155
+      ]
+    },
+    {
+      "omitted_concept": 3,
+      "coverage": [
+        0.4745384424306158,
+        0.44469266821552306,
+        0.46855445187660694
+      ]
+    },
+    {
+      "omitted_concept": 4,
+      "coverage": [
+        0.47411135137669447,
+        0.44602765823355667,
+        0.46970670905080725
+      ]
+    },
+    {
+      "omitted_concept": 5,
+      "coverage": [
+        0.4733456415246847,
+        0.4420980157543995,
+        0.46422710781082815
+      ]
+    }
+  ],
+  "scope": "Post-result diagnostic on same frozen panel; no removal of endpoints from primary score. Native contrast and signs test dead/ambiguous endpoint explanation; leave-one-out tests single-endpoint domination. Not independent confirmation or confidence interval."
+}
