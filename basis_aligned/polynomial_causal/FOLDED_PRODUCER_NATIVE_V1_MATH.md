@@ -259,3 +259,26 @@ The [requested full update](explanations/for_logan/research_update_2026-09-12_18
 [Signed query/source result](SCALAR_SERIAL_JOINT_PORTS_EFFECT_V1_RESULT.json) completes240forwards in4.14seconds after peer665 finishes. AllregisteredA/B/C pass. Native/dynamicjoint replay is exact; complete generated serialeffect error<=5.24e-6. Source-only (jointkey and value change with original jointquery) errors9.825/2.812% meet10%bothfamilies. Query-only errors115.94/101.30% exceed25%as predicted. The first source-only result is close to the threshold. Prior scalar-field error24.1/5.3% remains; behavioral sensitivity changes which discrepancies matter. Reused original48prompts, no general query-independence or selectivecircuitclaim.
 
 The120candidate joint-key screen began19:31:30. No result from that screen exists at this entry. Prospective72regional/32newline confirmation rows and fixed selection rule were committed before any candidate scores.
+
+## 19:48 — Fresh selective confirmation and reflection-even package
+
+[One-path screen](SCALAR_JOINT_KEY_PATH_SCREEN_V1_RESULT.json) had no passer: bestpair59.14/49.44%regionalcoverage,NLmax.09029. [Executed remainder audit](SCALAR_JOINT_KEY_SCREEN_REMAINDER_V1_AUDIT.json) preserved that miss and identified omitted net regionalcoverage8.65/11.52percentagepoints. This did not justify lowering50%.
+
+[New complete-grade screen](SCALAR_JOINT_KEY_GRADES_V1_RESULT.json),5232forwards107.67seconds, passesA/B/C. Fixedleading64Dsourceprojectors define inside, mixed and outside grades; all63nonempty masks evaluated. Passers13/45; frozenrule selects45, inside+outside forboth8first/9current. Coverage59.60/50.168%,NLmax.09495. No refit, changedrank, changedbar or discardedcontrol. This remains exploratory until confirmation.
+
+[Prospective confirmation](SCALAR_JOINT_KEY_GRADES_CONFIRMATION_V1_RESULT.json),632forwards14.88seconds, passesA/B/C on previously frozen72newtemplate prompts plus32unusedFineWebnewlinecacheindices. Regionalcoverage53.80/52.51/57.30%; donortransfer56.24/54.82/60.26%; every36pairedremoval and72directeddonor effect positive. Selfdonorbitexact; scalar/pathsum<=4.62e-7. Allnativecapabilityandmeanheadcontrols held. NewNLmeanabs.01255/.00527,max.05036/.03323. The fullsectorreference ALSO passes newnewline; its old retained.13709failure still distinguishes the selectedcomponent on the originalpanel. Neither panel is erased.
+
+Thirdfamily is an explicit writer/reader opposed-city challenge with bothmentionsswapped. Its nativecontrast is.4359 versus2.22/2.76forotherfamilies. This does not identify independentwriter-versusreader causal sensitivity or settle older naturalrole/distractor failures. Cities/endpoints reused; newcontexts and cacheindices are not document/corpusOOD. Current states, native backgrounds and suffix remain external, so full four-property objective is unfinished.
+
+### Exact reflection-even numerator
+
+Let P be the frozenleadingkey-source projector, x the source state, and q the unchangedquery. For each score factor, write s_j=s_{j,in}+s_{j,out}, with the ORIGINAL fullkey denominator. Then
+
+$$
+\gamma_{even}=s_{1,in}s_{2,in}+s_{1,out}s_{2,out}
+=\tfrac12\left[\gamma(q,x)+\gamma(q,(I-2P)x)\right].
+$$
+
+On the right, reflection acts on key numerators only: query, fullkeynormalizers and value readings stay original. The complementary mixed grade is odd under this numerator reflection. This is a subspace-reflection parity, not a claim that the whole normalized attention head is invariant under rawstate reflection.
+
+[Independent native9 identity](SCALAR_JOINT_KEY_EVEN_V1_CONTROL.json) replays retained grade sums within3.90e-16. [Conditional package](extracted_circuits/regional_even_key_producers_8_2_9_8_v1/README.md) computes the selectedscalarfields and physicalwrites from supplied nativeinputs, with completeQK maps and no unexplained attentionpattern cache. Unused8currentreader/9firstlookup/oldmergedwriter removed. Program1,380,864scalars/6,328,320tensorbytes. Densekeybases andfullQK remain charged; this is not proof of minimalstructuraldescription or whole-modelcompression. [CPU package equivalence](SCALAR_EVEN_PRODUCERS_V1_CONTROL.json) is exact on randomhead8/nativehead9 checks. NativeGPU package-removal replay is the next implementation check; existing freshcandidate confirmation used the original path executor.

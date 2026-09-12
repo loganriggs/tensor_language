@@ -335,3 +335,7 @@ Frozen8.2/9.8physicalpair reduces65–70%cuecontrast on48newemail/letter rows wi
 ### 12 September, 18:55 — Regional producer sectors and newline overlap
 
 Frozen8.2/9.8scalar donor interchange passes; head8.2first-state value and head9.8current-state value dominate the regional source effect. Their joint removal covers67.8/61.0% on email/letter families but fails natural newline max-preservation(.1371>.1). All15nonempty current/first masks were tested; none passes both requirements. Routing remains the complete jointQK product, so this does not identify separate task-specific QK spaces. On the preserved worst newline row the two sector damages mostly add. [Primary math/results](../../polynomial_causal/FOLDED_PRODUCER_NATIVE_V1_MATH.md).
+
+### 12 September, 19:48 — Fresh-confirmed selective joint-key grade component
+
+For8.2first-statevalue and9.8current-statevalue, retaining inside-inside+outside-outside jointkeyproducts relative to frozen64Dsourceprojectors yields a reflection-even numerator component. Frozen selectedmask45passes prospective72prompt regionalremoval/interchange and32newnewlinepreservation, with coverage52.5–57.3%, donor54.8–60.3%,newline max.0504/.0332. Original fullsectornewlinefailure remains. Contextualinputs/background stillnative; rolechallenge swapsbothcitymentions and doesnot establish independentrolecausality. [Math/evidence](../../polynomial_causal/FOLDED_PRODUCER_NATIVE_V1_MATH.md), [conditional package](../../polynomial_causal/extracted_circuits/regional_even_key_producers_8_2_9_8_v1/README.md).
