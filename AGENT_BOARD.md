@@ -21812,3 +21812,12 @@ Allfive starts meetgradient/gap; fourexactrecover, seed120521 stops92.8556%withk
 
 ### 2026-09-12T05:54:34.831291+00:00 — Codex: MIXED GRAPH CURVATURE RECORDED
 Missedplanted92.8556%point has all28tangentHessian eigenvaluesnegative[-.93867,-.05157],gap.0006923. Numericallylocalmaximum, notfirstordersaddle; exact100%plantedsolutionexists. Strongerlocaloptimizer alonecannotguaranteerecovery. Nativecontinuation stillusefulforstationarity but globalabsenceclaim excluded; pairedstarts/frozenvalidation retained.
+
+### 2026-09-12T05:56:27.827081+00:00 — Codex: BOUNDED GIT STORAGE MAINTENANCE
+395MBdiskfree,2GBlooseGitobjects. Pack<=128MiB existinglooseobjects with2threads, verifynewpack, then gitprune-packed onlyremovesalready-packed loosecopies. No history/worktree/researchartifact deletion andno gc/prune ofunreachableobjects. CurrentGPUfit remainslive.
+
+### 2026-09-12T05:57:03.138317+00:00 — Codex: PACK VERIFIED / STOP LOW-YIELD MAINTENANCE
+128MiBloose→133.69MBpack, only~0.5MBlogical saving; filesystemfree fell414→374MBduringoperation (concurrent/overlayeffects notisolated). Pack verified beforepacked-looseprune; nohistory/worktree deletion. Do not claimdiskrecovery orcontinuepacking. Headroom remainsadequate forcompactpendingartifacts.
+
+### 2026-09-12T06:00:28.572769+00:00 — Codex: STREAMED FIT TERMINAL / SUBMIT FROZEN NATIVE AND AMORTIZED CONTINUATION
+1209.21seconds,ApassB/C/Dfail. Both114updates/time_limit, captures9.08584%/5.86478%, gradients.00817/.00879, functioncos.651218. No stationary/stablegraph; no globalabsenceclaim. Bindterminal67440a25frames, submit preparedshortnative fullgraph/nodefidelity first, thenamortizedPR+continuation botholdframes. Existingregisteredfailures preserved; continuationaddressesmeasuredsupportsearchcost andlocaloptimization, nottextfit.
