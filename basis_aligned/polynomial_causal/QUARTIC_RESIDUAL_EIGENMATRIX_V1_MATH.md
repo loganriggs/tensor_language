@@ -90,3 +90,31 @@ The adapter calls [SciPy's symmetric ARPACK interface](https://docs.scipy.org/do
 The [CPU control](QUARTIC_MATRIXFREE_EIGEN_V2_CONTROL.json) uses an independently assembled dense signed quartic flattening. Four returned eigenvalues agree to5.01e-16 relative error, individual eigen residuals are below1.02e-15, and the norm/roundtrip identities hold. A one-action cap terminates explicitly. V2 constructs coordinate scales in float64 even if the caller's default tensor dtype is float32; the earlier V1 control used a float64 default and did not cover that boundary. Previously executed V1 files are preserved, and V2 is the selected implementation.
 
 The managed [GPU operator-price job](../bilinear_quotient/ops/run_quartic_eigen_operator_price_v1.py) is queued behind the mixed fit. It checks the same native identity and signed rank2 contractions as the earlier CPU receipt, then measures a third action including packed CPU/GPU transfer. Numerical agreement at1e-8, speed relative to the recorded CPU actions, and allocation below28GiB are separate predictions. An eigensolve budget will use that measured cost. This preparation introduces neither a new native factorization result nor a new circuit claim.
+
+## Four output directions without estimating a residual covariance
+
+The [candidate implementation](../bilinear_quotient/ops/run_quartic_residual_eigen_candidate_v1.py) is drafted, not queued or executed. Its action/time configuration and input binding will be fixed after the GPU price arrives and the running mixed-fit result is interpreted. It uses the frozen LBFGS V1 square program so the comparison remains directly matched to the earlier node-replacement experiment.
+
+Remove the weakest conditionally contributing node, refit the31 retained nodes, and let $R_0,R_1$ be their two-output coefficient residual. For a unit-Frobenius quadratic matrix $Q$, write
+
+$$
+c(Q)=\big(\langle R_0,F_Q\rangle,\langle R_1,F_Q\rangle\big).
+$$
+
+Use the four fixed directions
+
+$$
+\mathcal D=\left\{(1,0),(0,1),\frac{(1,1)}{\sqrt2},\frac{(1,-1)}{\sqrt2}\right\}.
+$$
+
+For every two-dimensional vector $c$, one of these unoriented axes is within $\pi/8$ of it. Hence
+
+$$
+\max_{w\in\mathcal D}|w^Tc|\ge\cos(\pi/8)\,\|c\|_2.
+$$
+
+This avoids needing an estimated residual output Gram merely to choose a direction. If each scalar residual operator were solved exactly over unrestricted unit-Frobenius matrices, the best sampled correlation would also be within this factor of the unrestricted two-output optimum: maximize the pointwise inequality over $Q$. Our numerical solver verifies eigen residuals rather than certifying spectral extrema. More importantly, neither rank16 truncation nor the Schur-complement feature normalization preserves this guarantee. It is a rationale for covering four directions, not a guarantee on native candidate quality.
+
+The draft requests two largest-magnitude eigenmatrices per direction, producing at most eight proposed rank16 quadratics. It adds them to the old bank, scores actual conditional gains, includes the deleted node as a fallback, and refits the selected32-node output map. The resulting program remains592704 floats. It reuses the diagonal target correlations from the already bound full mixed-core receipt; the source readers, quadratic eigenvalues and output writers must match the square baseline exactly, and the reconstructed original objective must agree within1e-8. Newly proposed correlations still use the native four-slot contraction oracle.
+
+Registered comparisons are separate: all eigen/replay checks and nonincrease; at least1% capture improvement; at least20% lower native write error. The latter does not enter selection. An incomplete eigensolve records an explicit failed numerical stage with no candidate program, rather than silently returning an old node as successful new evidence. Joint nonlinear refitting, more output directions, and the four circuit properties remain further questions.

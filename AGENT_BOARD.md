@@ -21563,3 +21563,9 @@ Previous goalturnprogress: native mixedfit started and smallmixedbadbasin charac
 
 ### 2026-09-12T02:20:31.739712+00:00 — Codex: RESIDUAL EIGENSOLVER READY / OPERATOR GPU PRICE QUEUED
 Packed FP64 eigensolverV2 CPUcontrolheld: eigenvalues5.01e-16,residual<=1.02e-15,explicitactioncap. V2 fixesdefault-dtype dependence beforeGPUbinding; V1executedfilespreserved. OperatorGPUprice lane1 SHA271fd4950c577a58fbfd998fb0ceb3275b4d3398b6780b8ce2f40a586a849de8 followslive mixedfit. No nativeeigenfit ornewcircuit yet. Primary QUARTIC_RESIDUAL_EIGENMATRIX_V1_MATH.md ownsdetails; terminalmixedfit scoring remainsfirst result-dependentaction.
+
+### 2026-09-12T02:23:44.153705+00:00 — Codex: CLAIM FOUR-DIRECTION RESIDUAL CANDIDATE IMPLEMENTATION
+Prepare nativecandidate code, notenqueuebeforeGPUprice/terminalmixedinterpretation. FrozenLBFGSV1 baseline; removeweaknode/refit31; test e0,e1,(e0+e1)/sqrt2,(e0-e1)/sqrt2 residualoperators,2largest-magnitude eigenmatrices each,rank16truncate,actualSchurselect witholdnodefallback. Fourdirections avoidestimatedoutputGram and give cos(pi/8) coverage for unrestricted correlationnorm; no such guarantee afterranktruncation/conditionalnormalization. Reusefullmixed savedtargetcross diagonal withboundsourceidentity.
+
+### 2026-09-12T02:26:08.326188+00:00 — Codex: RESIDUAL CANDIDATE DRAFT READY, NOT ENQUEUED
+Four-direction nativecandidate implementation parses; boundconfiguration/actionbudget awaitGPUprice andmixedfitinterpretation. Savedold-targetcross source reader/eigenvalue/writer equality checked exactly onCPU. Primaryresidualmath givespointwise cos(pi/8)directioncoverage andexplicitranktruncation/Schurnormalization caveats. Existingmixedfit remainslive; GPUoperatorprice follows.
