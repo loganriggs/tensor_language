@@ -1,0 +1,27 @@
+{
+  "source": "basis_aligned/polynomial_causal/SHARED_INPUT_FACTOR_NATIVE_V1_RESULT.json",
+  "sha256": "6c96b1c63210c0053ded21e312d62bc850961cfdd2aec0ba4c8af323aaf8c7ee",
+  "prior": {
+    "full": {
+      "capture": 0.016583663567101205,
+      "upper_bound": 0.02067277552350998,
+      "fraction_of_upper_bound": 0.8021982122449663,
+      "all_starts_converged": true,
+      "minimum_reader_cosine": 0.9999999999998405,
+      "rank16_partner_capture": 0.7956309771414738,
+      "partner_rank90": 105
+    },
+    "centered": {
+      "capture": 0.010487583724119722,
+      "upper_bound": 0.011308570444841798,
+      "fraction_of_upper_bound": 0.9274013700735664,
+      "all_starts_converged": true,
+      "minimum_reader_cosine": 0.9999999999954778,
+      "rank16_partner_capture": 0.552566812793306,
+      "partner_rank90": 279
+    }
+  },
+  "decision": "Reuse shared_input_factor_v1.optimize and native_partner for a later producer-folded comparison; single-layer stable-parent discovery already exists. Do not repeat it as new work.",
+  "new_object": "L17 H^0.5, R17 H^0.5, full centered U D17; H is exact MLP16 producer coefficient Gram",
+  "not_yet_run": true
+}
