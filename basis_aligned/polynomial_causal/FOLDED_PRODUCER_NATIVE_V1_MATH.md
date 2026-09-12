@@ -282,3 +282,17 @@ $$
 On the right, reflection acts on key numerators only: query, fullkeynormalizers and value readings stay original. The complementary mixed grade is odd under this numerator reflection. This is a subspace-reflection parity, not a claim that the whole normalized attention head is invariant under rawstate reflection.
 
 [Independent native9 identity](SCALAR_JOINT_KEY_EVEN_V1_CONTROL.json) replays retained grade sums within3.90e-16. [Conditional package](extracted_circuits/regional_even_key_producers_8_2_9_8_v1/README.md) computes the selectedscalarfields and physicalwrites from supplied nativeinputs, with completeQK maps and no unexplained attentionpattern cache. Unused8currentreader/9firstlookup/oldmergedwriter removed. Program1,380,864scalars/6,328,320tensorbytes. Densekeybases andfullQK remain charged; this is not proof of minimalstructuraldescription or whole-modelcompression. [CPU package equivalence](SCALAR_EVEN_PRODUCERS_V1_CONTROL.json) is exact on randomhead8/nativehead9 checks. NativeGPU package-removal replay is the next implementation check; existing freshcandidate confirmation used the original path executor.
+
+## 19:56 — Reflection does not independently close the key normalizers
+
+[Normalizer-closure audit](SCALAR_EVEN_NORMALIZER_CLOSURE_V1_RESULT.json) passes its independent dense algebra control but misses bothclosure predictions. For an orthogonal reflectionR=I-2P, keynormalization is invariant for allinputs iffR(K^TK)R=K^TK, equivalently the inside/outside crossblock vanishes. RelativeGramreflectiondefects are.603/.691for8.2keys and.646/.689for9.8keys. Thus the frozenleadingPdoesnot define exactindependentnormalizedattention sectors.
+
+On reusednative9states, recomputing keynormalizers separately on the reflected branch changes the evenfield3.02–3.62%, exceeding the registered1%bar; serialfieldchangeerrors2.79/3.26%. This is smaller than geometricmatrixdefects but not an equivalentrewrite. Originalqueries/valueswereunchanged; it is not a fullinputreflection test. The confirmedcandidate andpackage keeporiginalfullkeynormalizers. Earlier attention0congruence andfullUcommutant notes were checked; this audit concerns the newly selected8.2/9.8projectors, not a rerun of those objects.
+
+## 20:09 — Package replay passes; independent role specificity fails
+
+The [native package replay](SCALAR_EVEN_PRODUCERS_NATIVE_V1_RESULT.json) passes A/B/C on 104 prior confirmation contexts, 208 forwards in 6.89 seconds. Scalar error is 4.65e-15; recorded regional and newline effects replay exactly. This is implementation equivalence, not independent behavioral evidence.
+
+The [independent writer/reader factorial](SCALAR_EVEN_ROLE_V1_RESULT.json) passes instrument/native capability but fails coverage and specificity: writer coverage .4873/.4484, reader-to-writer donor norm .6772/1.1997 versus .25 ceiling. All 96 directed writer swaps have the expected sign. The native model also responds strongly to reader city. [CPU contrast accounting](SCALAR_EVEN_ROLE_V1_INTERPRETATION.json) shows removal reduces reader contrasts by 44.87%/41.07%, alongside writer 48.73%/44.84%. Retain general regional-cue component; withdraw any clean writer-role interpretation. Prior regional/newline confirmation remains valid.
+
+User-requested [standalone derivation](explanations/for_logan/standalone_best_result.md) and [report addendum/Q&A](explanations/for_logan/research_update_2026-09-12_1536_interaction_decomposition.md#11-update-through-1955-utc) now include these results.

@@ -1,6 +1,8 @@
 # Research update: interaction-path decomposition, shared computations, and the remaining extraction gap
 
-**12 September 2026. Main report through 15:35 UTC; latest findings added through 16:20 UTC. Requested update for Logan.**
+**12 September 2026. Original report through 15:35, first addendum through 16:20; new update below includes results completed at 19:55 UTC. Requested update for Logan.**
+
+**New reading guide:** [latest developments and answers](#11-update-through-1955-utc) · [standalone derivation of the strongest current result](standalone_best_result.md). Sections 1–10 retain their historical sequence; their pending statements are superseded where described below.
 
 This covers the work since the [last major update, 11 September at 21:42](research_update_2026-09-11_2142.md), including implementation of the [interaction-path proposal](interaction_path_decomposition_proposal_2026-09-11.md). It covers Codex's research, without counting Claude's parallel experiments as mine. Layer numbers start at zero: MLP17 and attention17 are the last block.
 
@@ -175,7 +177,7 @@ The deeper-MLP route produced a shared quadratic parent with different quadratic
 
 An exact input fold produced a roughly **7.98 MB local executable**, about 5.33 times smaller than its standalone unfused native-factor representation. It still required the native MLP16 input, downstream normalization and background.
 
-On natural text, removing the `ing` branch added about 0.00728 nats of loss on the FineWeb subset and 0.01833 on the Pile subset. The Pile native-capability gate failed, and context-permutation controls limited the semantic interpretation. These results do not establish general OOD success.
+On the selected natural-text **`ing` targets**, removing the `ing` branch added about 0.00728 nats of loss on FineWeb and 0.01833 on Pile. These are target-conditioned means, not whole-corpus average loss. Base-form and nearby other-token controls were measured separately; see the correction and answers at the end. The Pile native-capability gate failed, and context-permutation controls limited the semantic interpretation. These results do not establish general OOD success.
 
 Tracing this branch backward was informative. Attention16-dependent terms were small on several active construction families; earlier residual/MLP computations mattered more. Folding through MLP15 exposed substantial mixed interactions. Shared weight-derived input coordinates beat random coordinates, but even converged coupled fits failed the full intervention-fidelity criterion. Larger exact-metric probe checks eventually found noise-dominated search directions rather than a reliable improvement.
 
@@ -386,3 +388,140 @@ The intervening source-port test separated changes in four source features from 
 We also checked that these cached interventions can run through the last MLP and selected unembedding rows on CPU. Seven 96-context evaluations took about **0.14 seconds**, agreeing with the completed GPU effects to relative error $2.4\times10^{-5}$. This avoids waiting for the shared GPU queue when only selected-token margins are required; full-vocabulary loss is a different computation. Both managed runners were running when checked at 16:20 UTC. [CPU replay](../../REGIONAL_SELECTED_SUFFIX_CPU_V2_RESULT.json).
 
 **What this changes in the proposal:** continue decomposing composed paths, but compare arithmetic representations that preserve joint bilinear operations against dictionaries that flatten them into fixed source factors. The new result supports that comparison; it does not yet show that deeper folding produces a more selective or independently executable circuit.
+
+
+## 11. Update through 19:55 UTC
+
+**The main advance is a more selective decomposition of two upstream attention producers, together with an exact equation for their interaction through the intervening bilinear MLP.** We can now remove a particular part of their joint QK computation, transfer regional-spelling effects on fresh prompts, and preserve the tested newline behavior. The latest role test also gives a clear limitation: this component responds to regional cues in both writer and reader positions. It does not isolate the writer's location.
+
+This is the continuation of the regional branch in sections 5–10. It is separate from the `ing` branch in section 4. The [17:30 report](research_update_2026-09-12_1730_shared_producer_interactions.md) and [18:55 report](research_update_2026-09-12_1855_composed_circuit_interactions.md) give the intervening detail. Here is the full causal sequence at a higher level:
+
+1. **The structured upstream baseline became behaviorally useful, but the initially conspicuous head13.0 was not the final answer.** A bank of 27 weight-derived producer components identified heads8.2 and9.8 as useful producers for the regional consumer. Their downstream writing directions are almost the same, while their source readers differ. This is evidence for grouping by downstream use across native head boundaries.
+2. **Moving from a selected consumer edge to physical producer removal exposed collateral damage.** Removing both physical components affects about two thirds of the tested spelling cue, but damages a natural newline endpoint by 0.1665 nats, above the 0.1 ceiling. The original outlier remains in the evaluation.
+3. **We derived the interaction through MLP8.** Removing head8.2 changes the input of head9.8 through residual propagation and a quadratic MLP. The exact conditional bridge predicts the signed serial interaction on fresh prompts; retaining the direct and mixed terms is also accurate on these panels. The direct residual term alone is insufficient. This is a concrete success for decomposing an interaction path rather than treating two modules independently.
+4. **Splitting current versus first-token value sources was insufficient.** The promising head8 first-value/head9 current-value pair still failed newline preservation. Exact finite-interaction accounting showed that the problematic loss damage was mostly already present in the two individual changes, rather than caused by a large joint remainder.
+5. **Splitting the joint key product worked better.** We constructed source subspaces from the weights of QK1 and QK2 together. Keeping the products within a leading subspace and within its complement, while omitting cross-products between them, yielded the first passing regional/newline candidate. Both QK factors remain active in every retained term.
+6. **A frozen fresh confirmation passed; a harder semantic interpretation did not.** The packaged implementation then reproduced the tested removal effects exactly at the saved output precision. These are three different claims: behavioral confirmation, implementation equivalence, and semantic specificity. Only the first two passed.
+
+### The newer measurements
+
+“Coverage” below means the reduction in the average paired British/American spelling-margin contrast divided by that contrast in the native model. It is not accuracy or a percentage of the entire language computation. A donor swap replaces the selected component with its value from the paired alternate-cue prompt, retaining the recipient background.
+
+| Test | Measured outcome | Interpretation |
+|---|---|---|
+| First fine key-path screen | Best two-path candidate: 59.14% / 49.44% coverage | Missed the unchanged 50%-in-both-families criterion. |
+| Expanded, complete three-grade screen | Selected candidate: 59.60% / 50.17%; worst newline damage 0.09495 nats | Passed, narrowly on the second coverage family. |
+| Frozen confirmation, 72 prompts / three families | Coverage 53.80%, 52.51%, 57.30%; donor transfer 56.24%, 54.82%, 60.26% | All 36 paired removals and all 72 directed swaps had the expected sign. |
+| Fresh 32-prefix FineWeb newline check | Largest absolute changes 0.05036 / 0.03323 nats in the two halves | Passed mean and maximum preservation bars. |
+| Portable package replay, 104 contexts | Regional and newline effects replay exactly at recorded output precision; scalar error below $4.7\times10^{-15}$ | Local implementation validated; not a new independent behavioral sample. |
+| Independent writer/reader city factorial, 96 prompts | Writer coverage 48.73% / 44.84%; reader/writer donor-effect norm ratios 0.677 / 1.200 | Failed coverage and writer-specificity criteria. Both roles carry regional information. |
+
+The first confirmation's opposing-city family changed both cities together. The subsequent factorial changed one city at a time, which resolves that ambiguity. The native model itself also responds substantially to the reader city; the component cannot be called a clean writer-role computation merely because the prompt requests the writer's spelling. Twenty-four prompts in the factorial reuse prior confirmation prompts, and the cities and spelling endpoints remain familiar. These are controlled generalization tests, not broad corpus-OOD success.
+
+A new CPU accounting of the factorial separately measures how removal reduces writer and reader contrasts: [role interpretation](../../SCALAR_EVEN_ROLE_V1_INTERPRETATION.json). This supports the narrower label **regional-cue producer component**. It does not erase the passing regional/newline results.
+
+There is another useful negative result: the elegant reflection identity for the selected key numerator does **not** allow us to reflect the entire normalized head input for free. The actual key normalizers change under that reflection. The compiled component therefore retains the original key normalizers. The standalone explanation derives this distinction explicitly.
+
+Primary receipts: [key-path screen](../../SCALAR_JOINT_KEY_PATH_SCREEN_V1_RESULT.json), [three-grade screen](../../SCALAR_JOINT_KEY_GRADES_V1_RESULT.json), [fresh confirmation](../../SCALAR_JOINT_KEY_GRADES_CONFIRMATION_V1_RESULT.json), [package replay](../../SCALAR_EVEN_PRODUCERS_NATIVE_V1_RESULT.json), [role test](../../SCALAR_EVEN_ROLE_V1_RESULT.json), [normalizer audit](../../SCALAR_EVEN_NORMALIZER_CLOSURE_V1_RESULT.json). The [standalone derivation](standalone_best_result.md) explains the actual matrices, folding, selection and remaining native dependencies.
+
+## 12. Answers to your questions
+
+### Could a stronger solver or ten different initializations address the local optima?
+
+**Yes. Ten starts are a reasonable baseline for a small nonconvex fit, and two unsuccessful starts are weak evidence against structure.** We have already used independent starts, longer continuations, exact linear elimination, conjugate-gradient and L-BFGS updates, and targeted node replacement. We have not run a ten-start, well-conditioned, second-order comparison for every proposed factorization. The report should not imply that we have exhausted robust optimization.
+
+There are three distinct situations:
+
+- **Unfinished optimization:** the gradient remains large or a line search fails. More steps, a repaired parameterization, and better local solvers can matter. Calling this “the local optimum” is premature.
+- **A genuine local trap:** a converged point can still be inferior to another solution. Independent starts, replacing weak factors, and changing the arithmetic parameterization can escape it. Small planted examples in this project demonstrate that restarts sometimes succeed where local perturbations fail.
+- **A restrictive representation:** even a perfect optimizer cannot recover a computation outside its factor family. A short fixed dictionary of source cubics can struggle to represent a simple query-dependent bilinear operation. Preserving that operation explicitly was the useful change in the newer producer result.
+
+The convex equivalent-Gram problem in section 3 is different again: its small primal-dual gap certifies the chosen convex objective. Ten random starts are not the priority there. Nor does the latest spectral key-space construction have a random-initialization local optimum: it uses QR and symmetric eigendecomposition. Its 64-dimensional boundary and subsequent behavioral selection still require robustness tests.
+
+The literature gives concrete improvements to compare:
+
+| Method | Application here | What it cannot guarantee |
+|---|---|---|
+| Nonlinear least squares with damped Gauss–Newton / trust-region steps | Optimize reader factors using residual Jacobian information instead of only a first-order direction; use matrix-free products for our implicit tensors. | Finding the global optimum of the general constrained fit. |
+| Variable projection with stable QR/SVD | For each nonlinear reader bank, solve output writers exactly; avoid unstable normal-equation inverses when features nearly coincide. We already use linear elimination, but conditioning still matters. | Removing nonconvexity in the reader bank. |
+| Geometry-aware factor scaling and ill-conditioning-triggered restarts | Detect growing cancellation and restart/rewrite the problematic components before huge opposing coefficients dominate. | That every limiting cancellation is meaningless; some expose real reusable arithmetic. |
+| Diverse multi-starts plus targeted factor replacement | Combine spectral, random, and perturbed useful banks; compare complete fitted functions and held-out effects. | Reliable discovery merely because ten objectives are similar. |
+
+These are established methods, not a claim that we have benchmarked the current best implementation on this model. Tensorlab provides CP nonlinear least squares and distinct random initialization options, as well as [block-term nonlinear least squares](https://www.tensorlab.com/doc/btd.html), relevant to the LL1 alternative. Its deterministic initialization must actually be changed to obtain different starts. [Tensorlab CP documentation](https://tensorlab.net/doc/cpd.html).
+
+Breiding and Vannieuwenhoven's method combines Riemannian Gauss–Newton, a trust region, and restarts triggered by ill-conditioned CP decompositions. That is a particularly relevant comparison to our cancelling-product failures. Their experiments concern small dense CP approximation; our tied, repeated-input, implicit, multi-output problem needs a mapped implementation, not a claim that their guarantees transfer unchanged. [Primary paper](https://arxiv.org/abs/1709.00033).
+
+Variable projection eliminates the linear coefficients before the nonlinear search; stable factorization and appropriate derivatives are central to its implementation. Our exact writer solves follow that general principle. [O'Leary and Rust, implementation and derivation](https://www.cs.umd.edu/users/oleary/software/varpro.pdf).
+
+### What would ten starts cost?
+
+These are **measured run times**, followed by explicit serial extrapolations; they exclude queue delay and do not predict GPU batching speedup.
+
+| Existing fit | Observed cost | Ten comparable starts, serial estimate |
+|---|---:|---:|
+| Folded producer cubic fit, section 10 | Two starts together: 93.87 seconds | About 7.8 minutes total, if cost scales similarly; those endpoints were not converged. |
+| Quartic L-BFGS V1 | 180 updates, 814.6 seconds total | About 2.3 hours. |
+| Longer quartic L-BFGS V2 | 720 updates, 3,237 fit seconds | About 9.0 fit hours; still failed its stationarity bar. |
+
+The initial quartic pilot allocated about 11.5 GB on the GPU. Ten independently replicated processes could therefore exceed 100 GB just by repeating that footprint. Shared-target batched starts may be cheaper, but their peak memory and throughput need measurement. “Ten at once” is a batching choice, not free compute; a batch of two or four may be faster and more practical. These experiments belong in the managed GPU queue, not ten competing background processes.
+
+For comparison, the later key-path causal screens took about 188 and 108 execution seconds, fresh confirmation about 15 seconds, and the latest package/role tests about 7 seconds each. Those times describe fixed-component validation, not factor optimization.
+
+The sensible next solver comparison is a bounded, weights-only multi-start benchmark with a stable parameterization and a second-order comparator, including planted recoverability and complete-function agreement. Select by the predeclared coefficient objective; then validate frozen candidates on fresh behavior. Do not select restarts by repeatedly peeking at the same behavioral panel. No new ten-start run is being claimed in this update. [Cubic cost receipt](../../FOLDED_PRODUCER_CUBIC_NATIVE_V1_RESULT.json) · [Quartic optimization history](../../COUPLED_QUARTIC_WRITER_V1_MATH.md).
+
+### Should the “ing” loss damage be specific to “ing” words?
+
+**Yes, preferential damage to the intended targets is part of the claim—and the quoted numbers already were conditioned on those targets. I omitted that crucial denominator in section 4.** The actual panel contained 144 endpoints from 48 documents, balanced across mechanically selected spelling groups.
+
+| Measurement after removing the branch | FineWeb | Pile |
+|---|---:|---:|
+| Mean loss increase on `ing` targets | 0.00728 | 0.01833 |
+| `ing` damage minus base-form damage | 0.00815 | 0.01948 |
+| Mean absolute change on nearby other-token controls | 0.00295 | 0.00293 |
+| Native `ing` target in top 20 | 13/24 | 8/24 |
+
+Units for the first three rows are nats. The Pile capability threshold was 12/24, so that corpus still fails. The groups are based on token spelling, not a complete grammatical annotation of gerunds or progressive tense. Context-permutation controls further limit a clean grammar interpretation. [Natural-text receipt](../../MATCHED_PARTNER_NATURAL_TEXT_V1_RESULT.json) · [Interpretation and permutation controls](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md).
+
+We should expect preferential rather than mathematically exclusive damage. With score vector $z$ and target $y$,
+
+$$
+\ell_y(z)=-z_y+\log\sum_v e^{z_v}.
+$$
+
+If removal changes scores by $\delta z$, the exact loss change is
+
+$$
+\Delta\ell_y=-\delta z_y+\log\!\left(\sum_v p_v e^{\delta z_v}\right),
+\qquad p_v=\frac{e^{z_v}}{\sum_w e^{z_w}}.
+$$
+
+Even changing only `ing` scores changes the probability normalizer for other targets. A branch also writes a residual direction that can affect many scores downstream. The useful claim is therefore a controlled difference between target and unrelated effects, alongside swaps and construction tests—not zero effect on every other word.
+
+### Can we keep folding backward or forward until we get a circuit?
+
+**Yes. That is a promising way to use a discovered component, and the head8.2 → MLP8 → head9.8 bridge is an actual example.** Choose an output family or component, pull its readers backward through producers, then test which incoming paths and interactions are needed. Forward folding shows who reads a producer's write. Shared downstream use can group pieces of different modules.
+
+For a selected downstream reader $c\in\mathbb R^{1152}$ and head output matrix $O_h\in\mathbb R^{1152\times128}$, folding backward is simply
+
+$$
+c^T O_h v=(O_h^Tc)^T v.
+$$
+
+For a bilinear MLP, the same scalar read becomes
+
+$$
+c^TD[(Lx)\odot(Rx)]
+=x^T\operatorname{sym}\!\left(L^T\operatorname{diag}(D^Tc)R\right)x.
+$$
+
+That gives an input interaction matrix for this consumer, instead of decomposing every output equally. With several readers, keep the whole bank so shared factors remain visible. Token subsets work by selecting unembedding rows or token contrasts. Full-vocabulary coefficient objectives can often use $U^TU$ without materializing every token slice, but that does not automatically close final normalization or full-vocabulary probabilities.
+
+The difficult step is “cut out the rest.” A background vector may be necessary inside a product or a normalizer even when its direct output contribution is uninteresting. If $x=b+p$, then
+
+$$
+x^TSx=b^TSb+2b^TSp+p^TSp.
+$$
+
+Deleting $b$ deletes the mixed computation too. Exact backward expansion can keep multiplying the number and degree of terms; keeping a shared DAG of useful intermediates is often better than expanding a dense tensor. Attention additionally needs query, key, value, position, normalization and source-position summation. Folding only OV leaves those dependencies open.
+
+The practical progression is: derive the exact local identity; declare which background ports remain; validate removals/swaps; replace one more upstream dependency; rerun the composed intervention with downstream states recomputed. That distinguishes a faithful conditional component from a genuinely sufficient circuit. The standalone file walks through this process for the current strongest example.

@@ -1,7 +1,9 @@
-# Latest full update for Logan
+# Latest requested update for Logan
 
-**[12 September, results checked at 18:55 UTC — Predicting composed circuit interactions](research_update_2026-09-12_1855_composed_circuit_interactions.md).**
+**Newest results: [19:55 UTC addendum and answers in the interaction-decomposition report](research_update_2026-09-12_1536_interaction_decomposition.md#11-update-through-1955-utc), 12 September 2026.** The filename retains its original 15:36 timestamp; sections 11–12 are the new material.
 
-Covers work since the17:30 report: physical source removal, the exact head8.2 → MLP8 → head9.8 response, fresh-context prediction, donor interchange, joint-QK/value tests, and the four-sector selectivity screen. Includes explained display equations, denominators, failed newline preservation and its finite-interaction audit, and the status of all four circuit properties.
+**New standalone explanation: [standalone_best_result.md](standalone_best_result.md).** Derives the shared regional consumer, upstream producer folding, exact MLP interaction, and selective joint-key decomposition with shapes. Includes the latest failed writer-role interpretation.
 
-[Previous full update](research_update_2026-09-12_1730_shared_producer_interactions.md) · [All requested reports](README.md).
+The addendum also answers the solver/multi-start cost question, corrects the `ing` target-loss denominator, and explains continued backward/forward folding.
+
+[Previous full update, 18:55](research_update_2026-09-12_1855_composed_circuit_interactions.md) · [All requested reports](README.md).
