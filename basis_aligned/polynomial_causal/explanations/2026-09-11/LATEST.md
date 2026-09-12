@@ -1,3 +1,7 @@
+### 12 September, 08:12 — Common weight-derived producer coordinates beat random, but joint fidelity misses
+
+A shared128-coordinate MLP15 interface gives2.9/7.7%branchwriteerror versus72.6/60.4%forrandom128. The main joint intervention-fidelity criterion fails. Predeclared512 preserves branch8's swaps acrossallfourfamilies; branch3stillmissesone. Exact CPU error accounting distinguishes shared-parent from private-partner failure. [Math, results, prices and limits](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#a-common-mlp15-interface-is-useful-but-not-yet-sufficient-0812). All fits are exact restricted spectral solves; no new circuit promotion.
+
 ### 12 September, 08:06 — Deeper MLP15 path exposes mixed source interactions
 
 Neither MLP15-dependent terms nor the remaining background reproduce the frozen branch alone. Recomputing normalization preserves that failure. The executed exact differential reveals opposing shared-parent/private-partner contributions and appreciable signed source cancellation. [Native results, math and CPU audit](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#mlp15-produces-a-mixed-interaction-not-an-isolated-substitute-0805). This supports retaining composed interactions in the next structural search; it is not a new identified circuit.

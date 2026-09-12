@@ -219,3 +219,50 @@ $$
 $$
 
 CPU finite differences reproduce this derivative to3.13e-9relativeerror. Unlike attention16, MLP15 has appreciable cancellation between its signed degree groups: branch8 sum-of-norms/net ratios are3.49gerund,2.61adverb,1.98progressive. In branch8's progressive scalar change, derivative projections on that change are−.792sharedparent,+.392privatepartner,+.114normalization. These are dimensionless local gain sensitivities, not percentages of causal effect or an additive decomposition of finite CE changes. The same shared reader can therefore mediate opposing upstream adjustments when multiplied by different partners; inspecting only net branch changes would obscure them. Bothbranches and the quotedcontrol remain in the receipt. Next structural work should retain these mixed reader/producer terms, rather than taking the failed isolated sectors as evidence against discoverable structure.
+
+
+## A common MLP15 interface is useful but not yet sufficient (08:12)
+
+The [shared-interface experiment](SHARED_MLP15_INTERFACE_V1_RESULT.json) completed in3.141seconds, A/Cpassed andBfailed. It selects common producer coordinates from weights only, then freezes them before inspecting the128cachedfreshendpoints. No native body forwards or text fitting were used.
+
+For MLP15 quadratic product atoms, let $G$ be their exact coefficient Gram, $D$ their output matrix and $\lambda$ the block16 re-entry coefficient. The nonconstant producer metric and normalized downstream maps are
+
+$$
+H=\lambda^2DGD^T,\qquad
+M_j=\frac{A_jH^{1/2}}{\|A_jH^{1/2}\|_F},\quad j\in\{0,3,8\}.
+$$
+
+Choose a common orthonormal frame $P$ minimizing
+
+$$
+\sum_j\|M_j(I-PP^T)\|_F^2
+=3-\operatorname{tr}\!\left(P^T\left[\sum_jM_j^TM_j\right]P\right).
+$$
+
+The leading eigenvectors solve this restricted objective globally. There are no gradient iterations to leave unconverged. The exact tail identity and planted common-space control pass. The normalization makes the objective insensitive to arbitrary nonzero rescaling of individual quadratic readers. This remains a fixed linear-interface objective, not optimal factorization of the full quartic or eighth-degree composed polynomial.
+
+The common approximation to the producer is
+
+$$
+\widehat m=b_{15}+H^{1/2}PP^TH^{-1/2}(m-b_{15}),
+$$
+
+where $b_{15}$ denotes the scaled producer bias. All three readers use this same reconstructed producer. The existing background and actual native RMS16/RMS17 remain external ports; treating them as free would give a misleading end-to-end price. The coefficient metric condition is70.20; fullrank replay gives branch errors below2.06e-7.
+
+| Interface | Branch3 write error | Branch8 write error | Active-family swap fidelity |
+|---|---:|---:|---|
+| Shared128 | 2.87% | 7.72% | fails joint criterion |
+| Random128 | 72.55% | 60.38% | matched size control |
+| Shared512, preregistered diagnostic | 2.46% | 4.42% | branch8 passes; branch3 adverb misses |
+
+Shared128 branch3 symmetric swap errors are8.06%gerund,31.08%adverb,28.71%progressive; branch8 gives18.21%,9.83%,5.13%. Signs agree throughout the active families, and removal-CE disagreement is small, but magnitude failures remain. Shared512 branch8 errors are4.63%,2.16%,8.50%, with quotedcontrol4.62%; branch3 adverb remains13.51%, above10%. Diagnostic512 does not repair the main128 failure. Actual source interfaces are saved with FP32 read/write maps and maps compiled into MLP15's Down projection. Native Left/Right and the packed downstream program are still required. A rank128 producer interface has294,912read/write coefficients, or737,280when its read is compiled into native hidden products; this is useful cross-boundary grouping evidence, not a smaller whole-model implementation.
+
+The executed [exact error split](SHARED_MLP15_INTERFACE_V1_ERROR_SPLIT.json) audits the negative result. For original and approximate quadratic values $q_j,\widehat q_j$,
+
+$$
+\widehat q_0\widehat q_j-q_0q_j
+=(\widehat q_0-q_0)\frac{\widehat q_j+q_j}{2}
++(\widehat q_j-q_j)\frac{\widehat q_0+q_0}{2}.
+$$
+
+All algebra checks are below1.25e-13. Shared128 branch3's progressive scalar-change error is dominated by shared-parent error (91.7% signed projection on total error), while branch8's gerund error is dominated by its private partner (83.7%). These projections allocate the scalar error, not finite CE. Different task/context failures therefore arise at different factors; simply boosting the common-parent weight based on these validation outcomes would be data-guided tuning and is not adopted. Strong performance against random establishes a useful restricted shared interface, while the failed joint magnitude bar motivates a weight-only objective preserving the coupled quadratic products, not another interpretation of high coefficient capture as a circuit.

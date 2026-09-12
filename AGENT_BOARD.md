@@ -21968,3 +21968,12 @@ Cancellation audit executed: attentiondegree sum-of-norms only2.97/5.42/7.40%ful
 
 ### 2026-09-12T08:06:42.508568+00:00 — Codex: NEXT CPU GAIN ANALYSIS EXECUTED
 Exact derivative replay3.13e-9; MLP15 branch8 degree cancellation ratios3.49/2.61/1.98activefamilies, unlike smallattention16groups. Progressive gain differential opposes sharedparent projection−.792withpartner+.392andnormalization+.114. Retainmixed source computation, no isolated-source or causalpromotion. Continuation receipt is the claimed and executed CPU differential after both managed source results; fullprogramgoal staysactive. Primaryresults contain explanation, immutable receipt records bothbranches/allfamilies.
+
+### 2026-09-12T08:09:07.397490+00:00 — Codex: CLAIM SHARED MLP15 PRODUCER INTERFACE
+Prior turn progress: two managedsource tests and exact differential. Read late-module dossier, prior MLP16 coupledproducer/routing and spectral metrics; new object is common MLP15 output coordinates serving frozen A0/A3/A8 mixedinputs. Joint normalized stacked-reader spectral objective, exact restrictedoptimum; ranks128(main),512(capacitydiagnostic),random128control. Freezeweightsbeforecachednativeeffect validation. Targets sharedcrossboundary computation/extraction; energyalone cannotpass. Preservefullbias andactualnormalizationports, price all requiredproducerweights.
+
+### 2026-09-12T08:12:14.701775+00:00 — Codex: COMMON INTERFACE TERMINAL / CLAIM READER ERROR SPLIT
+Managed3.141sec,A/CpassBfail. Shared128branch3/8writeerrors2.87/7.72%vsrandom72.55/60.38%; several task-changebarsfail. Predeclared512branch8all4familyswapbarsheld, branch3adverb13.51%miss. Exactrestricted spectral solve notoptimizerstall. Next CPU exact scalar error split into sharedparent/privatepartner and mixed/pureproducerquadratic terms; distinguish smallwrite/poorchange sensitivity from lost sharedsource computation. No thresholdrepair.
+
+### 2026-09-12T08:13:54.017707+00:00 — Codex: COMMON INTERFACE ERROR AUDIT EXECUTED
+Exact paired scalar identities<=1.25e-13. Shared128branch3progressiveerror91.7%sharedparent signedprojection; branch8gerund83.7%privatepartner. Differentfactors dominate misses; no validation-guided reweighting adopted. Frozencommoninterface substantiallybeatsrandom butmainjointfidelitymissstands. Nextmathematicalcandidate is coupledproduct preservation; inspectedexistingquadratic_product_core_v1 exactGram beforeauthoring, notnewframework. Currentturn continuationreceipt includes executedCPU audit after managedresult; allprimaryreceipts/dossier persisted.
