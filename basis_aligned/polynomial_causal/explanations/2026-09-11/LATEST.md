@@ -1,3 +1,11 @@
+### 12 September, 12:00 — Token branch passes full-vocabulary endpoint audit
+
+Across80tested prefixes, off-pair probability-weighted changes are5.6–8.3%of
+target spelling effects; off-pairTVmeans0.07–0.29%. Token profile includes other
+regional spellings/geography plus smaller nonregional changes. This strengthens
+endpoint selectivity, not yet unrelated-task preservation or independent extraction.
+[Metrics, token profile and scope](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md).
+
 ### 12 September, 11:55 — Token-only value branch executes and composes
 
 Current-only dominance failed; both streams contribute. A weight-derived token

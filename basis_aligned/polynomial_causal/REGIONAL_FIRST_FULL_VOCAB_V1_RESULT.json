@@ -1,0 +1,183 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "panels": {
+    "V1": {
+      "replay_relative_error": 1.638780491345812e-06,
+      "cells": [
+        {
+          "family": 0,
+          "target_logodds_effect_rms": 0.048925481097181804,
+          "offpair_logprob_effect_rms": 0.002715508360632511,
+          "offpair_to_target_ratio": 0.055502946516532654,
+          "offpair_kl_mean": 3.688815387553215e-06,
+          "offpair_tv_mean": 0.0007220745887058049,
+          "full_kl_mean": 7.724555564358148e-06,
+          "full_tv_mean": 0.0008889797182499302,
+          "baseline_target_pair_probability_mean": 0.017702903023386205,
+          "target_pair_logmass_change_rms": 0.008989540803991461,
+          "prefix_offpair_to_target_ratios": [
+            0.07811593909381337,
+            0.06567567765821526,
+            0.0464115490622965,
+            0.035287392033403434,
+            0.030392330382779085,
+            0.022139254397810233,
+            0.055202372703391595,
+            0.047909363987368114,
+            0.057680816262189745,
+            0.05108775822106124,
+            0.08467860546689081,
+            0.0607566286334042,
+            0.07613383855440145,
+            0.06433936072519095,
+            0.05757244160715904,
+            0.04733617726434078
+          ]
+        },
+        {
+          "family": 1,
+          "target_logodds_effect_rms": 0.15947984454923256,
+          "offpair_logprob_effect_rms": 0.009275842933935073,
+          "offpair_to_target_ratio": 0.05816310493751174,
+          "offpair_kl_mean": 4.279531056187521e-05,
+          "offpair_tv_mean": 0.0025109845878632147,
+          "full_kl_mean": 9.665347217562892e-05,
+          "full_tv_mean": 0.0032050624211267483,
+          "baseline_target_pair_probability_mean": 0.02231186370673446,
+          "target_pair_logmass_change_rms": 0.03750690103673192,
+          "prefix_offpair_to_target_ratios": [
+            0.07351806639088185,
+            0.06576069432775208,
+            0.04776455457482076,
+            0.04049947412045674,
+            0.037542097113042,
+            0.029624227158873973,
+            0.05074700277723625,
+            0.04476617643475611,
+            0.05670342440461777,
+            0.048828571807895176,
+            0.0841346515267065,
+            0.06370416270505652,
+            0.07097527636138624,
+            0.059224740963411786,
+            0.06018737818550458,
+            0.04817392126904912
+          ]
+        }
+      ]
+    },
+    "OOD_V1": {
+      "replay_relative_error": 9.214169540552462e-07,
+      "cells": [
+        {
+          "family": 0,
+          "target_logodds_effect_rms": 0.07714936805722356,
+          "offpair_logprob_effect_rms": 0.0058489625413403155,
+          "offpair_to_target_ratio": 0.07581348608068958,
+          "offpair_kl_mean": 1.7090971371034885e-05,
+          "offpair_tv_mean": 0.001655914314435164,
+          "full_kl_mean": 8.468992593192646e-05,
+          "full_tv_mean": 0.0032251698961308895,
+          "baseline_target_pair_probability_mean": 0.08981455517430788,
+          "target_pair_logmass_change_rms": 0.014809760777704774,
+          "prefix_offpair_to_target_ratios": [
+            0.09464983812419403,
+            0.08979525785256758,
+            0.05904967237244577,
+            0.055474599071363526,
+            0.03415664239264462,
+            0.029365087660992537,
+            0.040295007011494105,
+            0.0359048663132314,
+            0.08718657454464522,
+            0.07290217045506979,
+            0.14878847904867332,
+            0.11902910950832832
+          ]
+        },
+        {
+          "family": 1,
+          "target_logodds_effect_rms": 0.11930588122308575,
+          "offpair_logprob_effect_rms": 0.009881041102127345,
+          "offpair_to_target_ratio": 0.08282107303370187,
+          "offpair_kl_mean": 4.865948230614171e-05,
+          "offpair_tv_mean": 0.002794105504055334,
+          "full_kl_mean": 0.00022317096526843386,
+          "full_tv_mean": 0.005412387246638301,
+          "baseline_target_pair_probability_mean": 0.09509913404029634,
+          "target_pair_logmass_change_rms": 0.027804238760610913,
+          "prefix_offpair_to_target_ratios": [
+            0.09661030904319441,
+            0.10741835439955569,
+            0.06310653282998219,
+            0.05949711778401837,
+            0.03394386753634259,
+            0.027266393059542385,
+            0.041136175004314476,
+            0.037450191880535076,
+            0.09599591032223767,
+            0.07239121018668047,
+            0.17680078032230814,
+            0.12387674231573013
+          ]
+        },
+        {
+          "family": 2,
+          "target_logodds_effect_rms": 0.06793745889737614,
+          "offpair_logprob_effect_rms": 0.005050100144296835,
+          "offpair_to_target_ratio": 0.07433454571689727,
+          "offpair_kl_mean": 1.2751989019289245e-05,
+          "offpair_tv_mean": 0.0014049789625891756,
+          "full_kl_mean": 5.590991840588838e-05,
+          "full_tv_mean": 0.0025948901144707947,
+          "baseline_target_pair_probability_mean": 0.08510530802947895,
+          "target_pair_logmass_change_rms": 0.011695560895352192,
+          "prefix_offpair_to_target_ratios": [
+            0.0898888983918002,
+            0.08754025521925544,
+            0.05732970918172064,
+            0.05439704774222665,
+            0.028166899293549905,
+            0.025867716172079114,
+            0.044074565308726076,
+            0.04055403264488484,
+            0.09996990729472208,
+            0.08360234084838102,
+            0.14292329281111013,
+            0.1196924743667772
+          ]
+        },
+        {
+          "family": 3,
+          "target_logodds_effect_rms": 0.12481615001352026,
+          "offpair_logprob_effect_rms": 0.010328544754246728,
+          "offpair_to_target_ratio": 0.08275006682330713,
+          "offpair_kl_mean": 5.314289097738795e-05,
+          "offpair_tv_mean": 0.0028766856806978296,
+          "full_kl_mean": 0.00023712327322648972,
+          "full_tv_mean": 0.005603307282014781,
+          "baseline_target_pair_probability_mean": 0.09014960854571012,
+          "target_pair_logmass_change_rms": 0.030255802544688553,
+          "prefix_offpair_to_target_ratios": [
+            0.09434071756841127,
+            0.10404124248135314,
+            0.06440604389064568,
+            0.05886509939484595,
+            0.026032077581364218,
+            0.024117968798203132,
+            0.045198750666115096,
+            0.04177413601342059,
+            0.1149661948188154,
+            0.08796172485872299,
+            0.17243738644968015,
+            0.1256769977009317
+          ]
+        }
+      ]
+    }
+  },
+  "scope": "Strict off-pair vocabulary endpoint screen; off-pair is not equivalent to semantically unrelated. First-valueswap withnativebackground, not full-network circuitremoval. No arrays saved.",
+  "script_sha": "9efb7db870d73d065ed705b24fc1862a7f3f65d7a572a916fac6d9de6a7125eb"
+}

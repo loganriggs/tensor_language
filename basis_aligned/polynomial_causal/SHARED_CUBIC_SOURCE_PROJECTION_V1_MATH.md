@@ -779,3 +779,48 @@ Operational note: disk exhaustion interrupted audit-file creation before that
 script ran. Removing only the regenerated npm download cache recovered~100MB;
 model, installed packages and research artifacts were preserved. The audit then
 ran successfully. [Storage receipt](NPM_CACHE_STORAGE_2026-09-12_1154.json).
+
+
+### Full-vocabulary selectivity of the token branch on these endpoints
+
+The [full-vocabulary audit](REGIONAL_FIRST_FULL_VOCAB_V1_RESULT.json) recomputes
+all50304capped logits from the saved baseline and first-value-swap endpoints.
+This adds a stronger output measurement without fitting or new model-body runs.
+Replay of saved target/control contrasts is within1.64e-6relative. It does not
+introduce a new held-out text panel: these are the already tested80prefixes.
+
+For each row, remove its two regional target tokens and renormalize the remaining
+probabilities to obtain $p_{\neg T},q_{\neg T}$. The primary spillover metric is
+
+$$
+E_{\neg T}=\sqrt{\mathbb E_{\text{rows}}
+\sum_{v\notin T}p_{\neg T}(v)
+\left[\log q_{\neg T}(v)-\log p_{\neg T}(v)\right]^2}.
+$$
+
+Compare it with the RMS change in target-pair log odds. All6families pass the
+registered25%ratio bar: observed ratios5.55–8.28%. Individual-prefix ratios are
+at most17.68%. Off-pair conditional total-variation means are0.00072–0.00288,
+below the0.005bar, and conditionalKL means3.69e-6–5.31e-5nats. These are
+probability-weighted measures; they do not guarantee tiny effects on every
+rare token. Target-pair total logmass changes have RMS0.0090–0.0375nats and are
+reported separately rather than hidden by conditional renormalization.
+
+On the held-out panel, full-distribution TV means (including the intended pair)
+are0.00259–0.00560. This is a different metric from the registered off-pair TV;
+do not describe the entire distribution as unchanged. The measured branch also
+accounts for only part of the overall regional computation, so small absolute
+spillover alone would be weak evidence without the relative target-effect bar.
+
+The [descriptive token profile](REGIONAL_FIRST_OFFPAIR_PROFILE_V1.json) completes
+the registered follow-up. Large raw-logit changes include regional spellings
+such as “realise”, “colour”, “recognise”, “centre”, and geographic/currency tokens.
+Probability-weighted changes also include quotation marks, “reporter”, “handling”,
+and other words. Rankings are descriptive, not semantic annotations or proof of
+cross-task reuse. Other regional tokens outside a row's target pair are counted
+as off-pair; off-pair is not synonymous with semantically unrelated.
+
+Thus the compiled token branch now has a passing full-vocabulary endpoint
+spillover screen in addition to narrow control contrasts. This is still a paired
+interchange with recipient routing/background fixed. Broad behavior-preservation
+panels, standalone extraction and independent multi-task reuse remain open.

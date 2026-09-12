@@ -100,3 +100,11 @@ Actual mixing at these layers is4.0,−0.65625,4.1875; historicalone-half notati
 above is not the execution rule for this checkpoint. Native routing and remaining
 states are still required; no full independent circuit claim.
 [Primary maths and receipts](../../polynomial_causal/SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md).
+
+The [full-vocabulary endpoint audit](../../polynomial_causal/REGIONAL_FIRST_FULL_VOCAB_V1_RESULT.json)
+of this specific regional first-value branch passes its frozen relative spillover
+and off-pairTV bars on the80existing prefixes. Off-pair weighted logprob changes
+are5.6–8.3%of regional logodds effects; TVmeans0.07–0.29%. Otherregional tokens
+and some nonregional tokens change. This doesnot repair the older whole-channel
+lexical/form selectivity failures above: the intervention is a different narrow
+reader-directed branch with recipient routing/background fixed.

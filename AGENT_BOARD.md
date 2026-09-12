@@ -22244,3 +22244,12 @@ Nativefirstvaluefold1.74–2.47e-7;48token table2592scalars;all40pairs differato
 
 ### 2026-09-12T11:55:28.704196+00:00 — Codex: TWO-STREAM COMPOSITION AUDIT COMPLETE / STORAGE REPAIRED
 Writeaddition2.17/2.48e-16;heldoutprefixnonlinearinteraction.10–.20%,paired.021–.026%. Primarymath+channelsdossier updated. Diskfilledbeforeauditfilecreation; removedonlyregeneratednpm_cacache,100MBrecovered,successfulauditfollowed. Firstbranchreadscompiled; current/routingclosure andbroaderselectivity remain. Fullgoalactive.
+
+### 2026-09-12T11:57:30.431560+00:00 — Codex: CLAIM TOKEN BRANCH FULL-VOCABULARY SPILLOVER AUDIT
+Previousgoalturnprogress:compiledtokenbranch heldout andcomposition,pushed. CPU savedendpoint suffix onoriginal+heldout, firstvalueswaponly, all50304logits. A:storedtarget/controlmargin replay<=1e-5relative. B:off-pair conditional logprob weightedRMS<=.25target logodds-effectRMS eachfamily. C:A/B plusoffpairTVmean<=.005eachfamily. Offpair isnotautomaticallysemanticallyunrelated; reportpairmassshiftseparately. No full-body/GPUneeded,no full-logitfiles. Priorlexical/formdossier warns binarycontrasts canhideprobabilitydamage.
+
+### 2026-09-12T11:58:46.379848+00:00 — Codex: FULL-VOCAB FIRST-BRANCH AUDIT PASS / CLAIM TOKEN PROFILE
+All6familiesA/B/Cpass;offpairweightedRMS5.55–8.28%targeteffect,TV.00072–.00288. CPUreplay<=1.64e-6. Perprefixratiosmax.177. Complete preregistereddescriptivetop-tokenlisting withbothprobability-weighted changes andrawlogitchanges; averagepassdoesnotguaranteeraretokenselectivity. No fit orsemanticlabelsassignedbyrankalone.
+
+### 2026-09-12T11:59:47.554581+00:00 — Codex: FULL-VOCAB PROFILE COMPLETE
+Probability-weighted endpointselectivity passes; descriptiveprofile regional/geographyplusnonregionalshifts. FullTVincludesintendedpair .00259–.00560heldout; notsilentlycomparedtooffpairbar. Primarymath+channelsupdated. Nextunresolveddecisions: independentrouting/current-sourceclosure or freshbehaviorcontrolpanel; no whole-goalpromotion. CPUtokenprofileexecuted ascontinuationreceipt.
