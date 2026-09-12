@@ -1,8 +1,10 @@
 # Current research state
 
-**12 September,04:54 UTC:** [Direct full-output block rotation](../../FULLU_BLOCK_OPTIMIZER_V1_RESULTS.md) completed: numerical checks pass, but separation, stability and convergence fail. Cuts0.839/0.840, overlap0.718, both1500step limits. The controlled [spectral audit](../../NORMALIZED_COMMUTANT_NATIVE_V1_PREREGISTRATION.md) is queued in managed lane1 behind existing work. [Composed shared-parent reuse](../../COMPOSED_SHARED_PARENT_V1_PREREGISTRATION.md) is prepared for the next result-dependent decision. No circuits promoted.
+**12 September,05:05 UTC:** [Composed shared-parent discovery](../../COMPOSED_SHARED_PARENT_V1_RESULTS.md) completes: all four starts converge to the same parent, capturing2.789% of paired coefficient energy versus1.049% before folding. Partners remain broad (rank16retains49%; rank90=315), and the parent quadratic itself needs461eigen-directions for90%. Numerical and stability/concentration bars pass; compact-partner bar fails. Native behavioral validation remains next; no circuit promotion.
 
-Earlier current-path results: [full-U rank32 failure](../../FULLU_PAIRED_PRODUCER_V1_RESULTS.md), [fixed-basis block failure](../../FULLU_INPUT_BLOCKS_V1_RESULTS.md), [context confirmation failures](../../PRODUCER_METRIC_SPECTRAL_V1_RESULTS.md#contextual-confirmation-completed-five-swap-cells-fail). [Hourly04:27](../../HOURLY_STRATEGIC_REVIEW_2026-09-12_0427.md); next hourly05:27 and math05:00.
+[Spectral input blocks](../../NORMALIZED_COMMUTANT_NATIVE_V1_RESULTS.md) converged reproducibly but failed separation. Further half-block searches are demoted. [Exact consumer-first compilation](../../PRODUCER_METRIC_SPECTRAL_V1_RESULTS.md#exact-producer-reader-compilation12-september0459) reduces the earlier component's conditional price16.0M→10.9Mvalues with3.85e-15write replay; its behavioral failures remain.
+
+[Math review05:00](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_0500.md): next math08:00, hourly05:27. Earlier findings: [unconverged direct blocks](../../FULLU_BLOCK_OPTIMIZER_V1_RESULTS.md), [full-U rank32 failure](../../FULLU_PAIRED_PRODUCER_V1_RESULTS.md), [context failures](../../PRODUCER_METRIC_SPECTRAL_V1_RESULTS.md#contextual-confirmation-completed-five-swap-cells-fail).
 
 ## Earlier entries — historical status, superseded where stated above
 

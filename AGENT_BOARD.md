@@ -21725,3 +21725,18 @@ Source0d739692979e172703b952e592a383db6dc628c4be523b0fd5d0e35bbf6f3f4d dry-run p
 
 ### 2026-09-12T04:54:21.435902+00:00 — Codex: DIRECT BLOCK OPTIMIZATION TERMINAL / SUBMIT SPECTRAL AUDIT
 Terminal1113.56sec: A pass,B/C/D fail. Cuts0.839183/0.840153, overlap0.717588; both1500step limits with gradients9.56e-4/8.93e-4, not converged. Exact full-output descent improves restricted search but does not establish blocks or no-block theorem. Submit already controlled normalized commutant sourcec17abf213285c68058111a9f4b51779a2c61a244c6a3ec7476196e84edebf2f0 to audit local/fixed-basis restriction, preserving originalcut/stabilitybars. Shared-parentjob remains prepared pending spectralresult.
+
+### 2026-09-12T04:58:55.702130+00:00 — Codex: CLAIM EXACT PRODUCER READER COMPILATION
+Prior selected component retained full native MLP16 output although only64output readers were used. CPU fold those readers into D16 and verify existing weighted outer32 program on cached128formal boundary vectors. This is exact execution/pricing of an existing failed-confirmation component, not rediscovery, behavior repair or whole-model savings. Claim producer_reader_compile_v1.py/result/program. Spectral job remains queued behind verifiedlivev639.
+
+### 2026-09-12T05:02:23.057344+00:00 — Codex: SPECTRAL TERMINAL / SUBMIT COMPOSED SHARED PARENT
+Spectral completed04:59:41 in30.95sec: A/Cpass,Bfail. Both62actions converge to relaxed0.417819/0.528010, agreement4e-15, residual<=5.7e-11; roundedcuts0.900116, overlap1.0, no independentblocks. Ritz values remain non-certified. Interpret before nextstep: demote more half-block searches and submit prepared shared-parent source0d739692979e172703b952e592a383db6dc628c4be523b0fd5d0e35bbf6f3f4d, exactexistingoptimizer/newproducerobject. No changedbars or datafit.
+
+### 2026-09-12T05:03:01.003184+00:00 — Codex: MATH05:00 / EXACT COMPILATION RECORDED
+Mathematical review maps commutant, matrix-subspace and shared-arithmetic assumptions to full producer-folded object; nextmath08:00/hourly05:27. SpectralA/CpassBfail nowinterpreted; sharedparentjobsubmitted. CPU exact64reader fold saves5,087,232conditionalvalues,16.001M→10.914M includingnativeL/R, savedwrite3.85e-15. Doesnotrepairbehavior orreducefullmodelwherebackgroundstillneedsD16. Primaryresultnote updatedonce.
+
+### 2026-09-12T05:03:56.231087+00:00 — Codex: COMPOSED SHARED PARENT CONVERGES / CLAIM PARENT ANATOMY
+Terminal05:02:44,2.45sec: A/B/Cpass,Dfail. All4starts21–36steps converge to sameparentcos>=.9999999999998, capture2.7891%vsprior1.0488%, bound2.9414%; partner16captures49.01%,rank90=315. Explicit extracted shared computation, not semantic circuit. Next CPU fold physicalreader throughD16 to one actual input quadratic, score signed/eigen/radial structure and exactcachedparent replay. MLP16/17 dossiers alreadychecked; no newlabel or datafit. Claim COMPOSED_SHARED_PARENT_V1_ANATOMY.json/script.
+
+### 2026-09-12T05:05:32.695888+00:00 — Codex: SHARED PARENT ANATOMY RECORDED / NEXT NATIVE INTERFACE
+CPU quadraticnorm1 andparentreplay1.29e-15; top32energy28.86%,rank90=461,radial3.48%. Primary COMPOSED_SHARED_PARENT_V1_RESULTS records stablecomputation butbroadpartners, no semantic/OODclaim. Nextfreezeexistingrank16partner approximation andscoreexactstar/referencevsapprox on reuseddevelopmentalcache withsharednative tail; no datafit/rankselection. Exactproducerconsumercompilation alreadyexecuted.

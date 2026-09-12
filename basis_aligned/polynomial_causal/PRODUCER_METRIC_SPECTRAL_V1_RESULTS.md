@@ -87,3 +87,35 @@ Weighted swaps pass27/32cells, compared with20/32for the ordinary baseline. The 
 Native capability fails in six past-tense base cells: contexts0,2,4,5,6,7 have0–12.5%correct proposed base-answer contrasts. The preceding past-tense wording can support a narrative reading, so this is a failure to establish the intended native capability, not a claim that the model violates an unambiguous grammar rule. No examples were relabelled or deleted. The [cell audit](PRODUCER_METRIC_CONTEXT_HOLDOUT_V1_CELL_AUDIT.json) shows these failures are **disjoint** from the five weighted swap failures; they cannot explain away B. An all-cell criterion is not replaced by an average over favorable contexts.
 
 The next experiment broadens the weight-first object to the [full-unembedding paired producer path](FULLU_PAIRED_PRODUCER_V1_PREREGISTRATION.md), reusing the established full-U output-function spectrum with the producer metric. Its small explicit-tensor control passes; native execution is submitted separately. The point is to test structure and sufficiency for the complete interaction path, rather than continuing to tune this selected two-output slice. No circuit is promoted from these contextual results.
+
+
+## Exact producer-reader compilation,12 September04:59
+
+The existing64producer readers can be folded into MLP16 Down before execution.
+This is a literal implementation improvement of the same component, not a refit:
+
+$$
+h(x)=(L_{16}x)\odot(R_{16}x),\qquad
+p(x)=\lambda D_{16}h(x),\qquad
+A^Tp(x)=(\lambda D_{16}^TA)^Th(x).
+$$
+
+[Executed CPU receipt](PRODUCER_READER_COMPILE_V1_RESULT.json) and
+[compiler](producer_reader_compile_v1.py) reproduce readers at2.55e-15relative
+error, output writes at3.81e-15, and the saved weighted program at3.85e-15 on
+128cached endpoints. The producer scale is absorbed into the folded readers.
+No corpus fit, new factor, changed component, or new behavioral test is involved.
+
+The earlier conditional price16,001,344matrix values falls to10,914,112:
+10,616,832retained L16/R16 values,294,912folded product-reader coefficients,
+64outer weights and2,304output-writer values. This saves5,087,232values while
+avoiding the full1152Dproducer output. The new artifact contains the folded
+readers, weights and writers plus references to the required native input maps.
+
+This is a correction to the best known **conditional execution price**, not a
+rewrite of frozen historical receipts or a whole-model memory reduction. Other
+native background computations may still need D16. RMS denominators, bias,
+residual paths and head remain external. Fresh/contextual swap failures and the
+absence of a selective semantic circuit remain unchanged. The same consumer-first
+folding applies to future shared-parent programs; native producer weights should
+not automatically be charged in full when only a few readers are needed.
