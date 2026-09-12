@@ -1,0 +1,54 @@
+{
+  "families": [
+    {
+      "family": "A1",
+      "actual_margin_error_rms": 0.04204484580081558,
+      "node_predicted_error_rms": 0.004939032496511271,
+      "complement_predicted_error_rms": 0.038964191696402285,
+      "prediction_relative_error": 4.893777340701085e-05,
+      "margin_cross_mean": 0.00022521250218829285,
+      "write_node_energy": 2260631.060397466,
+      "write_complement_energy": 106567363.66235346,
+      "write_cross_energy": 1181129.3476212597,
+      "write_total_error_energy": 110009124.07037216
+    },
+    {
+      "family": "A2",
+      "actual_margin_error_rms": 0.02265190309452927,
+      "node_predicted_error_rms": 0.003346649475828314,
+      "complement_predicted_error_rms": 0.02119438857420884,
+      "prediction_relative_error": 9.346969094190589e-05,
+      "margin_cross_mean": 5.267405183265687e-05,
+      "write_node_energy": 2385805.78738295,
+      "write_complement_energy": 169679641.85152152,
+      "write_cross_energy": 4990969.012902068,
+      "write_total_error_energy": 177056416.65180653
+    },
+    {
+      "family": "past",
+      "actual_margin_error_rms": 0.021480995908863605,
+      "node_predicted_error_rms": 0.002089608040674087,
+      "complement_predicted_error_rms": 0.020958618574483417,
+      "prediction_relative_error": 7.630902857121e-05,
+      "margin_cross_mean": 1.7809977276985982e-05,
+      "write_node_energy": 4117898.4842731357,
+      "write_complement_energy": 113013139.40582377,
+      "write_cross_energy": 3129046.330826615,
+      "write_total_error_energy": 120260084.22092354
+    },
+    {
+      "family": "progressive",
+      "actual_margin_error_rms": 0.028613891627706122,
+      "node_predicted_error_rms": 0.0029507362442851826,
+      "complement_predicted_error_rms": 0.028317542129418703,
+      "prediction_relative_error": 6.091010490452167e-05,
+      "margin_cross_mean": 8.182222436526316e-06,
+      "write_node_energy": 4248877.805148346,
+      "write_complement_energy": 135021097.06006694,
+      "write_cross_energy": 1325117.2438373724,
+      "write_total_error_energy": 140595092.1090527
+    }
+  ],
+  "write_identity_error": 0.0,
+  "scope": "Midpoint-gradient error accounting in full-graph swapped states, not isolated node effects; cancellation retained, no fitting."
+}

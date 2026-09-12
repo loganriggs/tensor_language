@@ -21830,3 +21830,9 @@ CPUassignment finds1/1152matches>=.95:0↔251cos.992898,median.09855; incidented
 
 ### 2026-09-12T06:05:02.143948+00:00 — Codex: NATIVE GRAPH FAILS / NODE PARTIAL FIDELITY
 Native2.48sec,ApassB/C/Dfail. Fullgraph write14.52→9.12%,allswap/removalbarsfail. Weightselectednode0matchesrecurringreader;671edges,nodewrite5.37%,swaps3.44/10.54/3.34/4.87%,removalallpass. A2barstillfails; noscope/ranktuning/promotion. ExactnodesignedremovalCEnegativeallfamilies, nohelpfulmorphologylabel. Amortizedfitlive PID3216494; optimizationauditpending.
+
+### 2026-09-12T06:06:21.344264+00:00 — Codex: CLAIM GRAPH ERROR SPLIT
+CPU split cachedfullgraph approximationerror into recurringnode andcomplement, retainingcross terms. Attribute actualdonor-base marginerror via nativeFP32tail midpointgradient; no datafit andnoerrorpercentageswithoutcancellation. Tests whethernearlyfaithfulnodeorremaininggraphcauses fullswapfailures. Reuse existingnativewrites/rows/scorerconventions; fitlivePID3216494unchanged.
+
+### 2026-09-12T06:07:27.655880+00:00 — Codex: FULL GRAPH ERROR MOSTLY COMPLEMENT
+Cachedwriteerror split exact0; midpointnativemargin predictionrelativeerror4.9e-5–9.4e-5. ComplementRMS6.3–10.0times nodeRMS acrossfourfamilies, crosspositiveandretained. Existingnearfaithfulnode notprimarysourceoffullgraphmiss. No A2refit; amortizedglobalfit remainslive. Primaryresultcontainsaccounting, no newcircuit.
