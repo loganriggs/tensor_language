@@ -122,3 +122,7 @@ A frozen physical head8.2 value-component removal changes head9.8's component an
 ### 12September18:10 — Native and signed-effect bridge confirmation
 
 Fixed MLP8 direct+mixed response predicts head9.8scalar change within.5–1.3% and the signed serial native effect within.38–1.14%, while direct-only misses~34%. The directional constant-map runtime also passes native numerical checks. Originalbackground/input generation remains external; this doesnotreplacewholeMLP8. [Native and behavioral receipts](../FOLDED_PRODUCER_NATIVE_V1_MATH.md).
+
+### 12September18:23 — Held-out contextual bridge transfer
+
+The fixed MLP8direct+mixed response predicts signed head8.2/head9.8serial interaction within.87–.93%on48newcity/endpoint/email-letter contexts. FullnativebackgroundandJmatrixcontentremaincharged. This is controlled contextual confirmation of one specific path, not new generalMLPunderstanding. [Receipt](../SCALAR_PRODUCERS_CONTEXT_TRANSFER_V1_RESULT.json).

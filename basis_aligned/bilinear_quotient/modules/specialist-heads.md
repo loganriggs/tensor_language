@@ -327,3 +327,7 @@ Original8.2/9.8source components removed recursively reduce67–70%regionalcueco
 ### 12September18:10 — Regional serial path confirmed; collateral retained
 
 Head8.2->MLP8->head9.8 direct+mixed generator predicts signed serial effect within.38–1.14%onreused48rows. JointQKroutingneeded: value-onlyscalartransfermisses56.6%inonefamily, with19.3%routing/valueinteraction. Sixfixedcountryvariants ofthepreservednewlineoutlier remaincapable;5/6jointdamages>.1. No globallyselectivecircuitpromotion. [Primary evidence](../../polynomial_causal/FOLDED_PRODUCER_NATIVE_V1_MATH.md).
+
+### 12September18:23 — Fresh contextual confirmation of the regional producer pair
+
+Frozen8.2/9.8physicalpair reduces65–70%cuecontrast on48newemail/letter rows with newcities/endpoints; all24pairsdirection, unrelatedmarginratios.05–.065. MLP8direct+mixed bridge predicts signed serial effect within.87–.93%. Scalarinputgeneration/backgroundremainnative; originalnewlinefailurepreserved. Donorinterchangepending. [Primary results](../../polynomial_causal/FOLDED_PRODUCER_NATIVE_V1_MATH.md).

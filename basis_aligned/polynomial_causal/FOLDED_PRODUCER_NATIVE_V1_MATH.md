@@ -211,3 +211,21 @@ The three terms are value-only, routing-only, and their interaction. Native endp
 Value-only scalar-change error is56.61%in template0 and9.925%in template1; routing-only errors136.46/105.30%. The mixed term has19.32/7.50%of the full-change norm. Routing/value effect cosines are−.681/−.319: contributions partly oppose, so component norms cannot be read as additive percentages of explanation. The registered general value-only and small-interaction claims fail. This does not assign a task to QK1 versus QK2 or prove disjoint task input spaces. The supported bridge retains complete joint routing. Its end-task routing/value partition is a next test, not yet measured.
 
 The new supported object is a conditional arithmetic interaction across head8.2, MLP8 and head9.8, with a common downstream writer available at the regional consumer. Independent input generation, broadOOD and robust selective removal remain unresolved. The explicit native newline collateral prevents a four-property promotion.
+
+## 18:23 — Fresh contextual removal and interaction transfer pass
+
+[Signed routing/value test](SCALAR_PRODUCER_JOINT_QK_VALUE_EFFECT_V1_RESULT.json) completes240forwards4.12sec, A/Cpass,Bmiss. Value-only generation has35.15/6.19%serial-effect error; routing-only139.50/102.01%. Joint-field replay<=5.24e-6. This confirms at the behavioral boundary that the general value-only shortcut fails; bothQK factors remain together in the retained routing computation.
+
+The new [48-row email/letter panel](SCALAR_PRODUCERS_CONTEXT_TRANSFER_V1_ROWS.json) changes templates, cities (Glasgow/Phoenix,Cambridge/Detroit) and six endpoint pairs (neighbours,organise,realise,labelled,defence,metre versus US spellings). Novelty checks covered existing regional/producer row files, not pretraining data. Factors and the directional MLP map were frozen before evaluation.
+
+[Fresh result](SCALAR_PRODUCERS_CONTEXT_TRANSFER_V1_RESULT.json),336forwards5.29sec, passes A/B/C. Both template families have12/12positive native cue contrasts, means2.646/2.971. Physical pair removal reduces70.49/65.10%of those contrasts; every individual/joint removal reduces all24paired contrasts. Unrelated margin ratios.050–.065 remain below the fixed.5bar. This strengthens controlled contextual generalization; it does not repair the prior natural newline max-error miss.
+
+The composed direct+mixed MLP response predicts the signed serial effect within.866/.929%, while the exact directional response is within3.51e-6/3.31e-6. Exact scalar-change replay<=3.10e-7. Pair nonadditivity is31.9/38.5%on this panel, so success is actual predicted composition rather than an assumption that individual effects add. Native z8,a8,u8,r9 and the remaining fullQK/background/suffix are still external dependencies.
+
+[Post-result subgroup audit](SCALAR_PRODUCERS_CONTEXT_AUDIT_V1_RESULT.json) reports allfourtemplate/city strata: mean joint coverage64.2–72.2%, allsixpairs positive in each. Individual concept fractions range53.7–87.9%. This is descriptive heterogeneity evidence, not a new pre-registered criterion or six independent domain shifts. No endpoint or city was removed.
+
+The controlling handoff's appended success criterion was reread: memory savings alone are not interpretation, and a large matrix cannot be called one explained operation. The supported structural result is the explicit shared-writer/serial interaction with native correspondence and held-out effect prediction. The1.33Mdirectional matrix is still arbitrary numerical content, and background generation is still charged. No four-property or whole-model completion claim.
+
+### Next intervention is donor interchange, not another removal-only validation
+
+[Interchange preregistration](SCALAR_PRODUCERS_INTERCHANGE_V1_PREREGISTRATION.md) and [all-row matched donor map](SCALAR_PRODUCERS_INTERCHANGE_V1_DONORS.json) are now prepared. Replace component8/9scalar fields with the opposite-cue donor's fields, singly and jointly. The bridge then receives signed amplitude a8_recipient-a8_donor instead of the earlier zero-removal amplitude. Preserve native re-execution and compare exact/directmixed generated9effects against the explicit frozen-recipient9 control. This tests whether the operation supports new manipulations, not just its original lesion. Runner implementation and native outcomes are still pending.

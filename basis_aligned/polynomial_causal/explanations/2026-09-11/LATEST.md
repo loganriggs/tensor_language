@@ -1,3 +1,7 @@
+### 12 September, 18:23 — Fresh email/letter contexts confirm removal and composition
+
+[Primary results](../../FOLDED_PRODUCER_NATIVE_V1_MATH.md): frozen physical pair removes65–70%of regional cue contrast on48newcity/endpoint/template rows; all24pairsdirection. Direct+mixed bridge predicts signed interaction within.87–.93%. Controlled contextual transfer strengthened; native input dependencies and newline failure remain. Donor-interchange protocol/map prepared, not yet executed.
+
 ### 12 September, 18:10 — Composed MLP bridge predicts signed native interaction
 
 [Primary evidence](../../FOLDED_PRODUCER_NATIVE_V1_MATH.md): direct+mixed head8.2->MLP8->head9.8 path predicts native serial effects within.38–1.14%; direct-only misses33.7%. Exact directional runtime passes native checks with supplied background. Country substitutions preserve the newline collateral in5/6variants; original failure retained. Joint-QK/value scalar audit rejects general value-only transfer. Full input closure and broaderOOD remain open.
