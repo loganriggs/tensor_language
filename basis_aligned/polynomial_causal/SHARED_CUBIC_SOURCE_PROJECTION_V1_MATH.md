@@ -670,3 +670,50 @@ shared value-reader subspace or rule out shared upstream computation. The next
 useful test is native replay of these folded producers and paired routing-versus-
 value interchange with both QK factors kept together. It should distinguish
 shared cue values from task-dependent routing before attempting a new factor fit.
+
+
+### Upstream values carry the cue; routing remains an explicit dependency
+
+The [original-template routing/value test](REGIONAL_PRODUCER_ROUTE_VALUE_V1_RESULT.json)
+passes native producer replay (maximum1.97e-7relative) and the saved three-layer
+joint swap replay (2.34e-7). This validates the folded OV executor on native
+inputs, beyond the earlier synthetic identity. Each producer is evaluated as
+
+$$
+N(\Gamma,Z)_t=\sum_{h,s}\Gamma_{h,ts}Z_{h,s},
+\qquad Z_{h,s}=E_h\bar r_s+H_h\bar r_{0,s}.
+$$
+
+The experiment evaluates recipient/recipient, donor-routing/recipient-values,
+recipient-routing/donor-values, and donor/donor. Routing includes both normalized,
+position-corrected QK factors together. The projected current and first-stream
+values travel together. These are upstream producer ports; downstream attention17
+routing, parent, writers and recipient normalization stay fixed. The native last
+MLP, final normalization and capped unembedding are recomputed after each edit.
+
+On the original two templates, value-only transfers are0.11346/0.28650nats,
+versus0.11118/0.29729for the full group:102.05%/96.37%. Routing-only transfers
+are−0.00137/+0.00690. The value-dominance criterion passes. The
+[prospective held-out role test](REGIONAL_PRODUCER_ROUTE_VALUE_OOD_V1_RESULT.json)
+then passes all four families: value/full ratios102.01%,97.68%,103.68%,99.56%.
+This is role generalization on previously defined held-out spellings and location
+cues, not discovery on untouched text or full-vocabulary preservation.
+
+The executed [original-prefix audit](REGIONAL_ROUTE_VALUE_ROLE_AUDIT_ORIGINAL.json)
+and [held-out-prefix audit](REGIONAL_ROUTE_VALUE_ROLE_AUDIT_OOD.json) check that
+small average effects are not hiding large opposed effects. Across the24held-out
+pairs, every value-only effect is positive and its ratio to the full group lies
+between96.20%and105.40%. At individual-prefix level, value-only effect errors
+are2.79–7.25%in relative Euclidean norm; routing effects are2.74–6.94%of full
+norm. The finite interaction (full minus routing-only minus value-only) reaches
+13.44%of full norm. Interaction includes the final nonlinear suffix response;
+it is not solely the bilinear numerator cross term.
+
+The resulting specification is sharper: regional cue changes are transported
+mainly by value readings in this fixed producer group, while its recipient routing
+provides the context in which those values are used. This does not license
+replacing routing with a constant or dropping either QK factor. The next unresolved
+input distinction is current-layer value state versus the shared first-layer
+value stream; those were bundled here. Closing that distinction can determine
+which upstream computation needs to be folded next. Broad selective removal,
+independent extraction and reuse across different behaviors remain unfinished.

@@ -65,3 +65,11 @@ producer-numerator swaps with recipient RMS and downstream ports fixed, not
 whole-module deletions or evidence of three regional-specialist modules. This
 specific reader-directed result does not reopen the older generic pooling-rank
 campaign. [Primary maths and receipts](../../polynomial_causal/SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md).
+
+The subsequent [routing/value role test](../../polynomial_causal/REGIONAL_PRODUCER_ROUTE_VALUE_OOD_V1_RESULT.json)
+passes all4families: values-only swaps explain98–104%of this group's regional
+cue transfer, with recipient routing fixed. Native folded-OV replay passes;
+individual-prefix value-only effect errors2.8–7.3%. Both QK factors remain joint,
+and routing/value interaction norms can reach13.4%of the full effect. This is
+specific to the frozen downstream readers and contrasts, not an adoption of
+static attention. Current and shared-first value sources remain bundled.

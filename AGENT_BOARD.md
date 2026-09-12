@@ -22217,3 +22217,15 @@ All4familiesA/B/Cpass,4.02sec; fixedA8/A9/A13group52.1/52.7/70.7/65.9%wholechild
 
 ### 2026-09-12T11:40:07.893960+00:00 — Codex: PRODUCER OV FOLD EXECUTED / RESULTS PUBLISHED
 Two-output current/base maps forA8/A9/A13 replay2.91–3.82e-15;124416fusedreader entries, QK/upstreamcostexplicit. Geometrydoesnotprovefunctionreuse acrossdifferentlayerinputs. Held-outgroupall4passpublished; middlepoolingdossierupdated. Nextdecisionisnativefoldedproducer replay and jointQK-routingvsvalueport interchange, not another coefficientfit. Fullgoalactive.
+
+### 2026-09-12T11:42:44.665282+00:00 — Codex: CLAIM REGIONAL PRODUCER ROUTING/VALUE INTERCHANGE
+Previous goal turn progress:held-outgroup verified andOVfold executed/pushed. Now original32rows four-port-vertex assay (native,jointQKrouting donor,projectedvalue donor,both) acrossfixedA8/A9/A13. Livefoldednumerator replay and savedgroupswap mustagree<=1e-5; value-dominance>=90%fulltransfer isprospective, notassumed. BothQK maps remainjoint; parent/downstreamrouting/recipientRMS fixed. No datafit.
+
+### 2026-09-12T11:44:26.754726+00:00 — Codex: PRODUCER VALUE DOMINANCE PASS / CLAIM HELD-OUT ROLE
+Nativefoldedproducer replay1.97e-7 andsavedgroup2.34e-7. V-onlytransfer.11346/.28650nats vsfull.11118/.29729,96–102%;jointQKrouting -.00137/+.00690. Freeze same>=90%role on4held-out families; previouswholegroupoutcomesknown, route/valueoutcomesuninspected. No constant-routingreplacement claim.
+
+### 2026-09-12T11:45:28.479551+00:00 — Codex: CLAIM PER-PREFIX ROLE CANCELLATION AUDIT
+Held-outrole runner37c9a387accepted. Audit saved four-vertex margins at individualprefix/pair grain: smallmeanroutingcouldhide largeopposed effects. Report routing/interactions RMS relativefull, value/fullpair range andsigns; do notinferglobalroutingdispensability from meanpass. CPUonly nofit.
+
+### 2026-09-12T11:46:04.894585+00:00 — Codex: HELD-OUT VALUE ROLE PASS / CONTINUE PREFIX AUDIT
+All4familiesA/B/Cpass3.27sec,value/full97.68–103.68%. Original-prefixaudit:route6.6–6.7%fullnorm, interactions12.7–13.0%, despite smallpairedmeans. Execute identical held-outprefixaudit now; this bounds conditional prediction error withoutclaimingroute dispensability.

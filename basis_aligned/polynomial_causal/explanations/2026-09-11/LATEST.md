@@ -1,3 +1,11 @@
+### 12 September, 11:46 — Folded producer values explain regional cue transfer
+
+Native OV-fold replay passes. Values-only swaps reproduce98–104%of the fixed
+producer group's transfer in all4held-out families;24/24pairs positive. Prefix
+prediction errors2.8–7.3%; routing/value interactions remain nonzero. This
+supports value-carried cue changes with native routing retained, not independent
+extraction. [Results and port maths](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md).
+
 ### 12 September, 11:40 — Regional producer group passes held-out test
 
 Fixed attention8/9/13 group transfers52–71%of the two-child cue effect across
