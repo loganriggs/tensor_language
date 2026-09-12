@@ -139,3 +139,7 @@ Four frozen eigenmodes of the consumer-folded MLP8 quadratic support city-cue re
 ### 23:44 — Fresh-context limitation and full-quadratic control
 
 Frozen four-mode value edge fails newconstruction confirmation: nearquote donor−4.10%,2/24correct despite native12/12positive. Fullquadratic donor−2.35% retains reversal; selectedhead9removal35.90% remainspositive. Four-mode/fullbranch donor error51.97% onthissmallbranch, so native-normalized1.72% isnot strong relativefidelity. [Primary account and executed audits](../MLP8_VALUE_FRESH_V1_MATH.md).
+
+### 23:57 — Opposed source contributions physically separated
+
+City-position phi4 donation positive96/96 (1.46–4.68%); later-source donation nearquote negative24/24 (−8.68%). Exact write composition,1.41–2.68% logit-effect nonadditivity. Finaltarget-only insufficient; context-independent citypair oracle at least24.67%error onfreshcityvalue contrasts. No independent inputgenerator or broadsemantic identification. [Primary equations and controls](../MLP8_VALUE_FRESH_V1_MATH.md#2357--the-reversal-splits-into-stable-city-and-context-dependent-later-source-effects).

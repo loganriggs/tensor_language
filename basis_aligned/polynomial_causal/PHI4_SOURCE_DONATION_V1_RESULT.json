@@ -1,0 +1,171 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "replay": {
+    "old": 0.0,
+    "fresh": 0.0
+  },
+  "field_sum_error": 1.1481224040704072e-16,
+  "records": [
+    {
+      "group": 0,
+      "arms": [
+        {
+          "arm": 1,
+          "transfer": 0.1231534540645485,
+          "positive": 24,
+          "negative": 0,
+          "unrelated": 0.10409050239343025
+        },
+        {
+          "arm": 2,
+          "transfer": 0.03088610535397868,
+          "positive": 24,
+          "negative": 0,
+          "unrelated": 0.09513791319310791
+        },
+        {
+          "arm": 3,
+          "transfer": 0.09009049598612669,
+          "positive": 24,
+          "negative": 0,
+          "unrelated": 0.10750971534416913
+        },
+        {
+          "arm": 4,
+          "transfer": 0.07373679822059433,
+          "positive": 24,
+          "negative": 0,
+          "unrelated": 0.1409248457572428
+        }
+      ],
+      "post_relative_to_full": 0.2690956234083118,
+      "post_error_over_native": 0.03376018420743905,
+      "finalonly_relative_to_full": 0.3991147526903446,
+      "sum_effect_nonadditivity": 0.021994392676790975
+    },
+    {
+      "group": 1,
+      "arms": [
+        {
+          "arm": 1,
+          "transfer": 0.09034898014708753,
+          "positive": 24,
+          "negative": 0,
+          "unrelated": 0.12494505739343109
+        },
+        {
+          "arm": 2,
+          "transfer": 0.027792765179816867,
+          "positive": 24,
+          "negative": 0,
+          "unrelated": 0.11348417156630394
+        },
+        {
+          "arm": 3,
+          "transfer": 0.061309374526014426,
+          "positive": 24,
+          "negative": 0,
+          "unrelated": 0.13267069083662317
+        },
+        {
+          "arm": 4,
+          "transfer": 0.04855104144165125,
+          "positive": 24,
+          "negative": 0,
+          "unrelated": 0.184130717904592
+        }
+      ],
+      "post_relative_to_full": 0.31908594058191886,
+      "post_error_over_native": 0.028401538004331706,
+      "finalonly_relative_to_full": 0.4537655826850386,
+      "sum_effect_nonadditivity": 0.01739453891221286
+    },
+    {
+      "group": 2,
+      "arms": [
+        {
+          "arm": 1,
+          "transfer": -0.04102256505434741,
+          "positive": 2,
+          "negative": 22,
+          "unrelated": 0.1570304863848815
+        },
+        {
+          "arm": 2,
+          "transfer": 0.046784617090726115,
+          "positive": 24,
+          "negative": 0,
+          "unrelated": 0.12529231190186915
+        },
+        {
+          "arm": 3,
+          "transfer": -0.08677070353769235,
+          "positive": 0,
+          "negative": 24,
+          "unrelated": 0.13967892327512774
+        },
+        {
+          "arm": 4,
+          "transfer": -0.031467879845062635,
+          "positive": 2,
+          "negative": 22,
+          "unrelated": 0.16965473739706768
+        }
+      ],
+      "post_relative_to_full": 1.044101456047213,
+      "post_error_over_native": 0.04652693256803961,
+      "finalonly_relative_to_full": 0.22281548833531667,
+      "sum_effect_nonadditivity": 0.02682274674632914
+    },
+    {
+      "group": 3,
+      "arms": [
+        {
+          "arm": 1,
+          "transfer": 0.10645636299558756,
+          "positive": 24,
+          "negative": 0,
+          "unrelated": 0.12191492307332054
+        },
+        {
+          "arm": 2,
+          "transfer": 0.014638319120170459,
+          "positive": 24,
+          "negative": 0,
+          "unrelated": 0.10902884488665768
+        },
+        {
+          "arm": 3,
+          "transfer": 0.09053066009072754,
+          "positive": 24,
+          "negative": 0,
+          "unrelated": 0.12652897896306156
+        },
+        {
+          "arm": 4,
+          "transfer": 0.06228599020052585,
+          "positive": 24,
+          "negative": 0,
+          "unrelated": 0.1725532242229741
+        }
+      ],
+      "post_relative_to_full": 0.14662427377104498,
+      "post_error_over_native": 0.01595403417810688,
+      "finalonly_relative_to_full": 0.4085024492135838,
+      "sum_effect_nonadditivity": 0.014088804738774496
+    }
+  ],
+  "body_forwards": 480,
+  "seconds": 7.644563212990761,
+  "arm_names": [
+    "native",
+    "fullphi_donor",
+    "citysource_donor",
+    "postcitysource_donor",
+    "finaltarget_only_fullphi_donor"
+  ],
+  "scope": "Reused96prefixes; physical source-edge donation partitions, native suffix recomputed. Finaltargetonly descriptive sufficiency control. No newtext confirmation.",
+  "artifact_sha": "d4be1ec075c5322693bb33fc9418832fcaefe7b9314709f55ec4a0b133f7faa2"
+}

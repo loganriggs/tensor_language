@@ -58,3 +58,47 @@ Keep both statements: the reversal survives the full quadratic; the four-mode ap
 ## Consequence for the next step
 
 Do not expand a generic factorization solely to repair this semantic label. Trace the value computation and routing on the positive and reversed constructions: determine whether the sign changes in the computed value difference, its routed physical write, or the suffix's response. The natural next object is a context-dependent cross-boundary path with a stated input specification. Earlier donor/preservation positives remain valid on their panels; general city-cue transfer, autonomous extraction, broad OOD and composition remain unproven.
+
+
+## 23:57 — The reversal splits into stable city and context-dependent later-source effects
+
+The new provenance run replays all96 native/donor endpoints exactly. Decomposing each donor write into source positions and four modes agrees to $7.74\times10^{-16}$ relative error. There is no value difference before the city token, as causal ordering requires.
+
+At the city position itself, the native British-minus-American four-mode value difference is negative in all four groups. The **final physical write** reverses sign in22/24 near-quote examples before the downstream layers respond. Later source positions carry79%,78%,146%,90% of the aligned final-write contribution in the old/fronted/near-quote/distant groups. The near-quote city contribution opposes the total, with aligned fraction−46%. These are signed projections, not probabilities. [Provenance receipt](PHI4_PROVENANCE_V1_RESULT.json) · [Exact source/mode accounting](PHI4_PROVENANCE_ANALYSIS_V1_RESULT.json).
+
+A further sign audit distinguishes changed values from negative routing weights. In the reversed construction, positive post-city value differences with positive routing coefficients contribute+0.2674 to the mean directed final scalar write, against−0.0246 from negative values with positive routing. Terms using negative routing coefficients are small. The other constructions are dominated by negative value differences with positive routing. Thus the observed reversal is not mainly a negative-routing sign flip: later contextual value computations already differ in sign. This is algebraic provenance, not identification of which earlier head computed those differences. [Executed sign audit](PHI4_SIGN_ORIGIN_V1_RESULT.json).
+
+### Physical source partition
+
+Let $c$ be the differing city-token position. Define the donor value difference $\delta v_j$ with recipient normalization as above. The exact write split is
+
+$$
+\Delta h_t^{\mathrm{city}}=w_9\gamma_{tc}\delta v_c,
+\qquad
+\Delta h_t^{\mathrm{later}}=w_9\sum_{c<j\le t}\gamma_{tj}\delta v_j.
+$$
+
+The city term is zero when $t<c$. Native causal masking is retained. We independently applied each source-masked donor field, their full combination, and a control that applies the full donor write only at the final target position. Every native suffix was recomputed.480 full forwards took7.64seconds; replay was exact and the two source fields sum to the full field within $1.15\times10^{-16}$.
+
+| Construction | City-source donor transfer | Later-source donor transfer | Full donor transfer |
+|---|---:|---:|---:|
+| Original city panel |3.09%|9.01%|12.32%|
+| Fronted city |2.78%|6.13%|9.03%|
+| Near quote |4.68%|−8.68%|−4.10%|
+| Distant city |1.46%|9.05%|10.65%|
+
+City-source donation moves **96/96** suffix endpoints in the expected direction. Later-source donation reverses **24/24** near-quote endpoints while preserving the expected direction elsewhere. This establishes the predicted source opposition on these panels. It doesnot turn the entire four-mode path into a uniformly positive city circuit or establish broad OOD generalization. The split uses a supplied city-token position, and is a post-failure diagnostic on reused examples.
+
+The preregistered approximation that later sources alone reproduce the full effect within50% relative error **fails** near quote:104.41% error, because the omitted city effect opposes a small total. Other groups have14.66–31.91% error. This is explained by the independently executed city intervention, not by dropping the failed group. Summing the two separately measured logit effects predicts their joint effect within1.41–2.68% relative error. The physical writes compose exactly; the logits approximately compose on these tested donations. That is local composition evidence, not a general interaction predictor trained or confirmed across arbitrary edits.
+
+Applying only the final-target write loses22.28–45.38% of the full branch effect. Therefore the convenient final-position scalar used for provenance is not a sufficient interface for the entire behavioral effect. Retain the all-position write field. [Physical source-partition receipt](PHI4_SOURCE_DONATION_V1_RESULT.json).
+
+### Can token weights alone generate the stable city contribution?
+
+We evaluated the **same frozen** four-mode quadratic directly on the RMS-normalized city-token embedding. No weights or scale were fitted. It predicts the sign of every tested city difference, but its magnitude error is679% overall. The48 paired evaluations contain only eight distinct city-pair/prefix settings: six spelling suffixes repeat the same causal city state, so they are not48 independent tests of city-state generation.
+
+A separate oracle calculation gives a limitation independent of that particular embedding approximation. Any context-independent lookup assigning one constant contrast to each city-token pair must incur at least24.67% relative RMS error on the fresh native city-value contrasts across these three constructions. The bound is obtained by assigning each pair its empirical mean contrast, the least-squares optimal constant; it is an in-sample lower bound, **not a newly fitted deployed circuit**. The original panel has no such within-pair context variation, so including it lowers the combined bound to20.03%.
+
+This doesnot rule out a compact contextual generator. It does show that simply tabulating city tokens cannot exactly close this value port. Sign-consistent token structure is promising; magnitude requires a contextual correction, and routing/normalization remain additional context dependencies. [Weight-only check and oracle limitation](PHI4_CITY_TOKEN_GENERATOR_V1_RESULT.json).
+
+The next useful fold is into the generators of these city and later-token MLP8 readings, with their different context requirements. Preserve the stable city-source contribution as a candidate computational edge; do not discard the later branch merely because its semantic effect can oppose it.

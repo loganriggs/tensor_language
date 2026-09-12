@@ -1,0 +1,76 @@
+{
+  "quadrants": [
+    "value_positive_route_positive",
+    "value_negative_route_positive",
+    "value_positive_route_negative",
+    "value_negative_route_negative"
+  ],
+  "max_accounting_error": 7.325644529824639e-16,
+  "records": [
+    {
+      "group": 0,
+      "mean_contributions": [
+        0.024585146580743834,
+        -0.4990870327567472,
+        -0.007490527302536635,
+        0.027025340006282168
+      ],
+      "aligned_fractions": [
+        -0.04073425376620539,
+        1.0679305580760805,
+        0.009820244869790062,
+        -0.037016549179665334
+      ],
+      "mean_postcity_write": -0.4549670734722577
+    },
+    {
+      "group": 1,
+      "mean_contributions": [
+        0.07018600770207052,
+        -0.35213584508667156,
+        -0.00536197680767906,
+        0.007564409159741735
+      ],
+      "aligned_fractions": [
+        -0.1621253134164808,
+        1.175316391857124,
+        0.00630525857711217,
+        -0.019496337017755442
+      ],
+      "mean_postcity_write": -0.27974740503253837
+    },
+    {
+      "group": 2,
+      "mean_contributions": [
+        0.26737819563344417,
+        -0.024647419633253745,
+        -0.0057604572087948565,
+        0.00659322996022448
+      ],
+      "aligned_fractions": [
+        1.0488809844111302,
+        -0.06157095768129983,
+        -0.014975026703080239,
+        0.027664999973250004
+      ],
+      "mean_postcity_write": 0.2435635487516201
+    },
+    {
+      "group": 3,
+      "mean_contributions": [
+        0.07683016260861066,
+        -0.6718281736299255,
+        -0.004324173778940149,
+        0.01419291248980247
+      ],
+      "aligned_fractions": [
+        -0.11139918996429328,
+        1.1320979425593753,
+        0.004502512076836755,
+        -0.025201264671918893
+      ],
+      "mean_postcity_write": -0.5851292723104525
+    }
+  ],
+  "scope": "Exact post-city final-write sign accounting on reused native cache; not an independently validated semantic split."
+}

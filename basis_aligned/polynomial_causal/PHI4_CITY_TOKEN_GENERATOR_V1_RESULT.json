@@ -1,0 +1,44 @@
+{
+  "records": [
+    {
+      "group": 0,
+      "embedding_generator_error": 5.7666352189057974,
+      "correct_difference_signs": 12,
+      "pairs": 12,
+      "native_mean_difference": -695.7164752020427,
+      "embedding_mean_difference": -4835.6975223993,
+      "oracle_group_error": 5.577132096476827e-17
+    },
+    {
+      "group": 1,
+      "embedding_generator_error": 6.739178198466348,
+      "correct_difference_signs": 12,
+      "pairs": 12,
+      "native_mean_difference": -616.8830279401803,
+      "embedding_mean_difference": -4408.11726942597,
+      "oracle_group_error": 0.10254745068476148
+    },
+    {
+      "group": 2,
+      "embedding_generator_error": 11.809080650945662,
+      "correct_difference_signs": 12,
+      "pairs": 12,
+      "native_mean_difference": -368.33044053134626,
+      "embedding_mean_difference": -4408.11726942597,
+      "oracle_group_error": 0.5305072424480352
+    },
+    {
+      "group": 3,
+      "embedding_generator_error": 5.855053909400971,
+      "correct_difference_signs": 12,
+      "pairs": 12,
+      "native_mean_difference": -697.1039912805755,
+      "embedding_mean_difference": -4408.11726942597,
+      "oracle_group_error": 0.19589587389979124
+    }
+  ],
+  "embedding_total_error": 6.793568900079782,
+  "oracle_best_token_pair_constant_error": 0.2002860926875795,
+  "oracle_fresh_error": 0.24668594221009438,
+  "scope": "Fixed phi4 applied directly to RMS token embedding, no fitted weights. Oracle pairwise mean is an in-sample lower bound for any context-independent paired-token contrast; not a deployed learned circuit or held-out prediction. RMS-normalized city-state generation remains the target; downstream rho9/routing also remain context-dependent."
+}
