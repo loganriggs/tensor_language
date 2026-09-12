@@ -1,0 +1,169 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "records": [
+    {
+      "mode": "full",
+      "cells": [
+        {
+          "family": 0,
+          "name": "new_cities",
+          "response_reference_norm": 1.312680070201265,
+          "scalar_response_error": 1.0645226980695693e-06,
+          "routing_change_error": 2.147730907918565e-06,
+          "raw_state_change_error": 1.2501853007089259e-05,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "name": "nationality",
+          "response_reference_norm": 1.065590938966047,
+          "scalar_response_error": 7.09604514377626e-07,
+          "routing_change_error": 4.292921616299052e-06,
+          "raw_state_change_error": 1.3681592748871039e-05,
+          "passed": true
+        },
+        {
+          "family": 2,
+          "name": "style_rule",
+          "response_reference_norm": 1.054783687676563,
+          "scalar_response_error": 9.640669543979316e-07,
+          "routing_change_error": 3.2768022401842273e-06,
+          "raw_state_change_error": 1.2595948371581011e-05,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "mode": "rank64",
+      "cells": [
+        {
+          "family": 0,
+          "name": "new_cities",
+          "response_reference_norm": 1.312680070201265,
+          "scalar_response_error": 0.012155635466345726,
+          "routing_change_error": 0.02006085616704151,
+          "raw_state_change_error": 0.20861806252406753,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "name": "nationality",
+          "response_reference_norm": 1.065590938966047,
+          "scalar_response_error": 0.005362962852420058,
+          "routing_change_error": 0.04438926481758654,
+          "raw_state_change_error": 0.3414163103154093,
+          "passed": true
+        },
+        {
+          "family": 2,
+          "name": "style_rule",
+          "response_reference_norm": 1.054783687676563,
+          "scalar_response_error": 0.004438302446752237,
+          "routing_change_error": 0.022125863605114086,
+          "raw_state_change_error": 0.2673419733687038,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "mode": "omit_u0",
+      "cells": [
+        {
+          "family": 0,
+          "name": "new_cities",
+          "response_reference_norm": 1.312680070201265,
+          "scalar_response_error": 0.00968742583692151,
+          "routing_change_error": 0.020430559020193282,
+          "raw_state_change_error": 0.20833929864957593,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "name": "nationality",
+          "response_reference_norm": 1.065590938966047,
+          "scalar_response_error": 0.005050832282704199,
+          "routing_change_error": 0.043471789141648315,
+          "raw_state_change_error": 0.340798678093811,
+          "passed": true
+        },
+        {
+          "family": 2,
+          "name": "style_rule",
+          "response_reference_norm": 1.054783687676563,
+          "scalar_response_error": 0.0041373190578824865,
+          "routing_change_error": 0.022029435863177165,
+          "raw_state_change_error": 0.2670273249829511,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "mode": "radial_u0",
+      "cells": [
+        {
+          "family": 0,
+          "name": "new_cities",
+          "response_reference_norm": 1.312680070201265,
+          "scalar_response_error": 0.009784200354373248,
+          "routing_change_error": 0.020404748177710957,
+          "raw_state_change_error": 0.20832264768107947,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "name": "nationality",
+          "response_reference_norm": 1.065590938966047,
+          "scalar_response_error": 0.005108912652846724,
+          "routing_change_error": 0.04346353804130623,
+          "raw_state_change_error": 0.340785315028276,
+          "passed": true
+        },
+        {
+          "family": 2,
+          "name": "style_rule",
+          "response_reference_norm": 1.054783687676563,
+          "scalar_response_error": 0.004145834551447389,
+          "routing_change_error": 0.022004218409918654,
+          "raw_state_change_error": 0.26694359346711544,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "mode": "transverse_u0",
+      "cells": [
+        {
+          "family": 0,
+          "name": "new_cities",
+          "response_reference_norm": 1.312680070201265,
+          "scalar_response_error": 0.012050725320059078,
+          "routing_change_error": 0.020084132700030555,
+          "raw_state_change_error": 0.20863468991573883,
+          "passed": true
+        },
+        {
+          "family": 1,
+          "name": "nationality",
+          "response_reference_norm": 1.065590938966047,
+          "scalar_response_error": 0.005302294630407602,
+          "routing_change_error": 0.04439723488565461,
+          "raw_state_change_error": 0.3414296486846969,
+          "passed": true
+        },
+        {
+          "family": 2,
+          "name": "style_rule",
+          "response_reference_norm": 1.054783687676563,
+          "scalar_response_error": 0.004413643128581806,
+          "routing_change_error": 0.022145852813050735,
+          "raw_state_change_error": 0.267425580150976,
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "seconds": 0.3352680392563343,
+  "scope": "CPU dependency audit on existing shortcue cache. Frozen weights. u0 radial/transverse split is a diagnostic using native raw9; eliminating u0 port does not generate raw9 independently."
+}
