@@ -1,3 +1,7 @@
+### 12 September, 10:56 — All-source regional-spelling basic screen passes
+
+Corrected templates: frozen parent removal reduces regional cue effects13.1%/18.2%, all16contrasts in predicted direction, beyond matched direction controls; unrelated contrasts much smaller. Two-source program still misses. [Math and scope](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md).48unseen spelling/location-template rows frozen for next test; no four-property promotion.
+
 ### 12 September, 10:45 — Shared quadratic block passes native preservation screen
 
 64cached FineWeb prefixes: native replay1.78e-7, block write error0.30–0.42%, full-logit removal-effect error0.37%; all per-prefix write errors<1%. This preserves a fitted component, not yet a semantic or OOD circuit. Regional/geographic shifted logits are exploratory only. [Results and scope](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md).

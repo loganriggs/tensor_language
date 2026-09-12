@@ -22151,3 +22151,9 @@ Frozen32prompts2families8spellingpairs, nativecuecapability/parentremoval/matche
 
 ### 2026-09-12T10:52:49.108706+00:00 — Codex: REGIONAL SCREEN A PASS B/C FAIL / CLAIM GRAMMAR AND SOURCE-COVERAGE AUDIT
 1.85sec, nativecue1.836/2.578nats8/8positiveeach; removal.0496/.0564nats8/8positiveeach, only2.7/2.2%vs10%bar. Matchedcontrolreductionsnegative; unrelatedcontrastchanges~.0018. Family1has a American grammaticalconfound, caughtafterrun. V2correctsarticle to the and reports originaltwo-source versusall-source removals separately with unchangedbars. Do not promote V1 or replaceitsverdict; broadercoverage is a new declaredprogram.
+
+### 2026-09-12T10:54:47.737948+00:00 — Codex: REGIONAL ALL-SOURCE BASIC SCREEN PASS / CLAIM PER-CONTRAST AND OOD ROWS
+V2correctedgrammar:two-sourceApassB/Cfail; all-sourceA/B/Cpass. Nativecue1.836/2.732nats, removal.2406/.4965nats=13.1/18.2%,8/8positiveeach; unrelated.0089/.0169nats, matchedcontrol.0105/-.4296. Frozenblock, nofit,3.62sec. Basiccomponent screenonly; now CPU per-contrast audit and freeze previouslyunused locationcue/spelling contrasts for OOD capability/removal screen before any further native scores.
+
+### 2026-09-12T10:56:22.987797+00:00 — Codex: REGIONAL PER-CONTRAST AUDIT AND OOD ROWS EXECUTED
+All16reductionspositive, fractions9.40–27.05%,15/16above10%. New48rowstestuses6disjointspellingpairs,London/Boston+Edinburgh/Chicago,2newtemplates; no scores used. Preregistered samefractionalbars,4/6positiveeachof4families. Mainmath/specialistdossier updated withbasicpassonly. Next nativeOODexecution; mathreview11:00/hourly11:36.

@@ -257,3 +257,12 @@ This is a frozen component preservation screen, not semantic identification;
 its relation to this dossier's exclamation/capitalization roles is untested.
 [Primary math and scope](../../polynomial_causal/SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md),
 [native receipt](../../polynomial_causal/COMMON_QUADRATIC_NATIVE_V1_RESULT.json).
+
+
+The subsequent [regional-spelling screen](../../polynomial_causal/REGIONAL_SOURCE_BLOCK_V2_RESULT.json)
+passes its registered basic bars when the frozen quadratic block is evaluated at
+all causal source positions: removal reduces British/American cue effects by
+13.1/18.2%across two templates; all16spelling contrasts move in the predicted
+direction. Two-source coverage still misses. This adds a candidate within-head
+role beyond the old exclamation/capitalization labels; it is not yet an identified
+four-property circuit. New location cues and spelling pairs are frozen for testing.

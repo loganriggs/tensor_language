@@ -369,3 +369,65 @@ for a future independently registered behavior screen, not circuit labels.
 Prior dossier checks show head17.2 already participates in exclamation and
 capitalization computations. The new block must not inherit either semantic
 label just because it lies mostly in the same head.
+
+
+## Prospective regional-spelling screen: small signed contribution, bar missed
+
+The [new regional-spelling protocol](REGIONAL_SOURCE_BLOCK_V1_PREREGISTRATION.md)
+uses British/American cue pairs for eight spelling contrasts in two templates.
+It is a prospective behavioral test of frozen weights, motivated by the preceding
+post-hoc vocabulary inspection. No word, reader or threshold was fitted to scores.
+[The result](REGIONAL_SOURCE_BLOCK_V1_RESULT.json) passes instrument/capability A,
+but fails B and C. Native cue shifts average1.836/2.578nats and are positive for
+all8contrasts per family. Removing the parent at source0 and the immediately
+previous position reduces those shifts by0.0496/0.0564nats, positive in all16cases.
+That is2.70%/2.19%of the native cue effect, below the registered10%bar.
+
+The norm-matched paired-context direction control has negative mean reductions
+(-0.0091/-0.0220nats). Actual-minus-control improvements are about3%of native,
+below the registered5%bar. Unrelated token-contrast differential effects average
+0.0017/0.0018nats, much smaller than the regional changes. This is evidence of a
+small consistently signed contribution on these rows, not a passed selective
+circuit screen. The whole model's spelling capability is not attributed to this
+small projected component.
+
+After execution, a grammar defect was found in family1: the American cue produced
+“In a American newspaper.” Family0has no such article defect. The original result
+and misses remain recorded. [V2](REGIONAL_SOURCE_BLOCK_V2_PREREGISTRATION.md) changes
+that article to “the” and separately measures the original two-source program
+and a broader all-causal-source program. All-source evaluation charges additional
+position-specific maps/gates and must not be described as the same tested program.
+All thresholds remain unchanged. Extending across source positions changes only
+where the fixed weight-derived source computation is evaluated, not its readers.
+
+
+### All-source block passes the corrected basic semantic screen
+
+[V2 results](REGIONAL_SOURCE_BLOCK_V2_RESULT.json) preserve the two-source miss:
+A passes, B/C fail after correcting the article. The separately declared all-source
+program passes A/B/C on both templates. Native cue effects are1.836/2.732nats;
+parent removal reduces them by0.2406/0.4965nats, or13.11%/18.17%. The paired,
+norm-matched direction control gives0.0105/-0.4296nats reduction. Unrelated
+contrast differential changes average0.00893/0.01690nats, about3–4%of the
+regional changes. All-source collapsed/old-block write error is0.1221%.
+The run uses7bodyforwards and completes in3.62seconds, with no reader fitting.
+
+The [per-contrast audit](REGIONAL_SOURCE_BLOCK_V2_PAIR_AUDIT.json) retains every
+case: all16native cue effects and all16removal reductions are positive; individual
+reductions span9.40–27.05%of the native cue effect, with15/16above10%. Thus the
+family-mean success is not produced by a few positive cases hiding opposite signs.
+
+This is a passed prospective basic screen for a weight-discovered shared
+quadratic component contributing to regional spelling. It is not a four-property
+circuit promotion. The component explains a minority of the cue effect; native
+inputs, private query writers, gates and downstream background remain required.
+The two-source miss was a real coverage limitation for that smaller program.
+All-source replication reuses source readers but adds position-specific edges.
+Matched-context direction controls and eight unrelated contrasts are useful but
+not exhaustive semantic or downstream-output-geometry controls.
+
+The next frozen test changes both the output spelling pairs and the cues:
+[48new rows](REGIONAL_SOURCE_BLOCK_OOD_V1_ROWS.json) use London/Boston and
+Edinburgh/Chicago contexts, six previously unused spelling pairs and two new
+sentence templates. These are out-of-template/lexicon tests, not a new natural
+corpus or an OOD guarantee. No scores were inspected during their construction.
