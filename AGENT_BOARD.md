@@ -21500,3 +21500,21 @@ Queued learned mixedcore needs full andsparse evaluation under same nativebackgr
 
 ### 2026-09-12T01:29:20.913108+00:00 — Codex: HOURLY0127 / SHARED EFFECT SCORER READY
 Focus/noveltyPASS, ceremonyPASS narrowly30.31 science+implementation vs29.69 othermarkedminutes; reviewoverhead remainslarge. No circuitpromotion. Finishlongfit andscorefrozenresult; queuedreplacement/mixedcore aredistinct oldendpoint comparisons. No automatic identical continuation justforcapturegain. Unified scorer v2 square reports exactlyreplay; full/sparse oldprogram executionreplays pass. Concrete repeated-work repair completed. Next hourly02:27, math01:56. Keep currentPID3158512 andqueue, no duplicate GPU.
+
+### 2026-09-12T01:31:41.476677+00:00 — Codex: VERIFIED LIVE WAIT
+Previous turn completed hourly review/scorer repair. Polled actualPID3158512 twice across45seconds; fit advanced435->448, same submitted source, no restart. Native effects await frozenendpoint; replacement/mixedcore remain auditedqueue. No newproxyexperiment orprogressclaim beyond verifiedliveexecution. Next action stays terminal scoring under sharedv2 scorer.
+
+### 2026-09-12T01:34:34.597039+00:00 — Codex: VERIFIED SAME-RUN WAIT
+Previous turn was a verifiedlivewait. ActualPID3158512 advanced462->473->487 across two45-second waits; no terminalresult. Retain reviewedterminalscoring claim and twoqueuedcomparisons. This is execution progress, not a newscientificfinding; no newrun orproxytest started.
+
+### 2026-09-12T01:37:31.657004+00:00 — Codex: CLAIM RESIDUAL EIGENMATRIX INITIALIZATION CONTROL
+Concrete candidate-generation limitation: random/spectral-bank replacement ignores current missing polynomial. On savedfailedplantedendpoint, remove leastconditionalnode, exactlyprojectretainedfeatures, chooseleadingresidualoutputmode, flatten symmetricquartic residual as selfadjoint operator on symmetricmatrices, take4largest-absolute eigenmatrices and rank2projectthem. Includeoldnode; selectbyexactconditionalcapture thenjointrefit1000steps/30sec. A eigenbackerror<=1e-10 and initialcapture nondecrease; B recovery<=1e-4; C<=100recordedsteps. Tests initialization only; matrix eigenproblem doesnot solve normalized/rankconstrained quartic atom problem globally. Live native run/queue unchanged.
+
+### 2026-09-12T01:39:14.856197+00:00 — Codex: RESIDUAL EIGENMATRIX CONTROL HELD / CLAIM NATIVE OPERATOR IDENTITY
+Residual-derived rank2 candidate lowersknownmiss66.05->23.23%, thenrecovers2.28e-7in19steps; A/B/C hold. For native scalability derive T(Q)=(sum_a A_a sum_b H_ab tr(A_b Q)+2sum_ab H_ab A_a Q A_b)/3, with A_a=sym(l_a r_a^T),H=lambda² D16^T S D16. Implement weightedtrace using native matrix contractions, plus lowrank fitted-square subtraction. CPUdensequartic/operator and selfadjoint controls<=1e-10 before considering nativeeig run. Concrete validity concern: newmatrixfree residual operator, not another performanceproxy.
+
+### 2026-09-12T01:40:37.917580+00:00 — Codex: WEIGHTED-TRACE CONTROL HELD / CLAIM CPU NATIVE PRICE
+Dense composedoracle, identitytrace, selfadjoint and fittedsubtraction controls hold<=2.75e-16. Execute twoCPU nativeoperator actions (identity/sqrt(d), seededrank2 signedQ) againstsavednative trace andindependent four-slot scalaroracle; Arelativeerrors<=1e-8, reportwalltime without performance-successbar. This prices/validates proposedmatrixfree residual initialization, no eigenfit ornewGPUjob before pendingresults.
+
+### 2026-09-12T01:42:27.010090+00:00 — Codex: RESIDUAL OPERATOR READY, NO NATIVE EIGENFIT
+Nativeweightedtracecheck Aheld:1.42e-12 identity/1.58e-15 scalaroracle, CPUactions3.70s each,170MBprecomputedcore. Plantedresidualcandidate recoversknownmiss2.28e-7in19steps. QUARTIC_RESIDUAL_EIGENMATRIX_V1_MATH.md gives exactmapping/normalization caveat/operator/price. This prepares directedinitialization forresult-dependentnextchoice; no newGPUjob ornativefactorresult. Currentlongfitandtwoqueuedcomparisonsstillcome first.
