@@ -1,3 +1,7 @@
+### 12 September, 17:46 — Recursive pair removal changes most of regional cue contrast
+
+[Primary evidence and bridge maths](../../FOLDED_PRODUCER_NATIVE_V1_MATH.md): physical8.2/9.8pair removal reduces67–70%native regional contrast on reused48rows. Wholehead-fidelity bars and one natural newline max-error control fail. Freezing the second removed write explains much of joint nonadditivity in a registered hybrid diagnostic. Exact producer->MLP8->head9raw-read expansion passes CPU algebra probes; native term attribution remains untested. Hourly1744 complete; next18:44, math20:12.
+
 ### 12 September, 17:40 — Natural newline preservation control passes
 
 [Primary results](../../FOLDED_PRODUCER_NATIVE_V1_MATH.md): V2 reproduces the authored failure exactly, while32natural FineWeb prefixes pass capability and actual mean-head positive controls. Conditional pair removal changes newline CE by<.00035meanabs perhalf. This supports consumer-edge preservation; recursive physical producer removal is the next committed test. The requested17:30fullreport remains a timestamped snapshot.

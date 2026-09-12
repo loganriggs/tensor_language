@@ -125,3 +125,32 @@ On the two fixed16-row FineWeb halves, native newline CE is.8933/.6095 and all32
 Conditional joint regional-edge removal has meanabs newline CE change.000260/.000347, maximum.000967/.002065, well inside the unchanged.02mean/.1max preservation bars. All individual candidates pass too. This establishes a training-domain natural newline control for the consumer-specific regional edges, not global head/component selectivity. Source examples were selected by true next-token labels, without model-score filtering; factors remain weight-frozen. The old V1 failure remains recorded.
 
 The next [recursive physical-removal test](SCALAR_PRODUCERS_RECURSIVE_REMOVAL_V1_PREREGISTRATION.md) removes original unmerged source components at their own producer outputs and recomputes every subsequent layer. It uses the natural OV-derived residual lift, with original QK routing and source readers; it does not lift the common four-reader approximation arbitrarily. Its implementation is committed. Queue gate initially rejected dict-key syntax before model execution; explicit quoted prediction keys resolve that parser requirement with unchanged predictions.
+
+## 17:46 — Physical removal is stronger, but not fully selective
+
+[Recursive removal](SCALAR_PRODUCERS_RECURSIVE_REMOVAL_V1_RESULT.json) completes496forwards in6.61seconds. Baseline and head-subtraction checks pass. Native pair removal reduces cue contrasts by2.172/1.343, or70.3/67.4%of the native contrasts. Individual/joint reductions have the expected direction on all24paired examples. These are reused regional validation contexts, not newOOD. The physical unmerged source components are removed at their actual outputs and every subsequent layer recomputes.
+
+Registered wholehead fidelity fails: individual errors8.2=39.4/31.7%,9.8=7.47/21.7%; joint10.48/15.22%, against10%. Unrelated-margin ratios.08–.11 pass. Joint nonadditivity is17.7/32.8%, much larger than the former consumer-edge result. This is neither a failed component effect nor a completed selective circuit: the component effect is large, but it is not the same as wholehead removal.
+
+Natural newline meanabs changes for joint removal are.00995/.01476, within.02. Maximum changes.0494/.1665 fail the.1bar in the secondhalf. The rowwise audit identifies one fixed sourcechunk177 (baselineNLCE.2996): component8 damage.10834,component9.07473,joint.16654,meanwholeheadcontrol.07898. Every row remains included. This is an actual collateral failure, not an invalid capability control. [Audit](SCALAR_PRODUCERS_RECURSIVE_AUDIT_V1_RESULT.json).
+
+### Serial component dependence explains much of the interaction diagnostic
+
+[Serial audit](SCALAR_PRODUCERS_SERIAL_INTERACTION_V1_RESULT.json),144forwards3.13sec, passes A/B/C. Let e8,e9,eJ be individual/joint baseline-subtracted margin effects and I=e8+e9-eJ. Repeating joint removal while subtracting head9's pristine-native component field gives eF. The change D=eF-eJ has cosine.958/.998 with I; its norm is1.286/1.093times I. The residual norm ||I-D||/||I|| is.436/.113. Baseline/dynamicjoint replay is exact and recovered scalar fields match native within1.64e-6.
+
+This indicates that changing the second removed component after the first removal explains a substantial aligned part of the measured nonadditivity. It does not isolate the direct8->9edge: MLP8 and norms intervene. Freezing a baseline subtraction after its source changes is a hybrid counterfactual and may over-remove a component; it is not adopted as the circuit intervention. Newline selectivity remains failed.
+
+### Exact composed bridge through the intervening bilinear MLP
+
+Let z be the residual entering MLP8, d the physical writer of the8.2component, and a its scalar output at this position. Removing it gives z'=z-ad. Define rho²=mean(z²)+epsilon, rho'²=mean(z'²)+epsilon, and the bias-free quadratic M(z)=D[(Lz) elementwise (Rz)]. The MLP bias cancels between the two states. The exact output change is
+
+$$
+\Delta x_8=-ad+
+\left(\frac{1}{\rho'^2}-\frac{1}{\rho^2}\right)M(z)
+-\frac{a}{\rho'^2}D\big[(Lz)\odot(Rd)+(Ld)\odot(Rz)\big]
++\frac{a^2}{\rho'^2}D\big[(Ld)\odot(Rd)\big].
+$$
+
+For the layer9 raw read stack E9 and residual coefficient lambda9, the next interface change is lambda9 E9 Delta x8. This is a direct producer term, a background term changed by normalization, a mixed producer/MLP term, and an amplitude-square term. After computing it, layer9 input RMS and projected QK normalization still need their actual norms; the expression alone does not close their generation.
+
+[CPU actual-weight algebra test](SCALAR_PRODUCER_MLP_BRIDGE_V1_RESULT.json) replays all513rawQK/value reads to2.33e-15aggregate relative error on32independent probes at perturbation/input norm ratios0,.01,.1,1. Dropping quadratic or normalization terms produces nonzero probe errors; these random-domain numbers are not native mediation estimates. The exact bridge is a new composed-path tool, not another fitted low-rank representation. Native z8/a8 evaluation is the next required evidence before attributing the regional interaction to these terms.

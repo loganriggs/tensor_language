@@ -1,0 +1,30 @@
+{
+  "pred_a": true,
+  "exact_relative_error": 2.3258463133324253e-15,
+  "records": [
+    {
+      "perturbation_to_input_norm": 0.01,
+      "exact_relative_error": 7.058264593510201e-14,
+      "omit_normalizer_term_error": 0.008111887952826998,
+      "omit_quadratic_term_error": 0.02405403715576024,
+      "direct_only_error": 0.9992139168655985
+    },
+    {
+      "perturbation_to_input_norm": 0.1,
+      "exact_relative_error": 1.0115289310470465e-14,
+      "omit_normalizer_term_error": 0.031721747243927255,
+      "omit_quadratic_term_error": 0.3322867660248468,
+      "direct_only_error": 1.0006600400134908
+    },
+    {
+      "perturbation_to_input_norm": 1.0,
+      "exact_relative_error": 2.1787815654262815e-15,
+      "omit_normalizer_term_error": 0.0797145873427669,
+      "omit_quadratic_term_error": 0.9919613350134378,
+      "direct_only_error": 1.0000708122250768
+    }
+  ],
+  "read_count": 513,
+  "direct_component8_to_value9_coefficient": 404.57541939093124,
+  "scope": "Actual weight matrices, random algebra inputs and registered amplitude ratios. Exact four-term raw-read update through MLP8 with actual changed norm; Down bias cancels. Does not generate z8 or a8, preserve final input9 RMS automatically, or establish native term mediation."
+}
