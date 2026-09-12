@@ -1,10 +1,8 @@
 # Current research state
 
-**12 September,04:30 UTC:** [full-U producer folding](../../FULLU_PAIRED_PRODUCER_V1_RESULTS.md) fails rank32 sufficiency despite improvement. The [full-output input-block screen](../../FULLU_INPUT_BLOCKS_V1_RESULTS.md) also fails: normalized cuts0.912/0.921 and cross-seed overlap0.513. Exact-gradient CPU controls now enable direct input-subspace rotation to audit that search restriction. No circuit promotion. [Context results](../../PRODUCER_METRIC_SPECTRAL_V1_RESULTS.md#contextual-confirmation-completed-five-swap-cells-fail) remain failed without exclusions. [Hourly04:27](../../HOURLY_STRATEGIC_REVIEW_2026-09-12_0427.md); next math05:00.
+**12 September,04:54 UTC:** [Direct full-output block rotation](../../FULLU_BLOCK_OPTIMIZER_V1_RESULTS.md) completed: numerical checks pass, but separation, stability and convergence fail. Cuts0.839/0.840, overlap0.718, both1500step limits. The controlled [spectral audit](../../NORMALIZED_COMMUTANT_NATIVE_V1_PREREGISTRATION.md) is queued in managed lane1 behind existing work. [Composed shared-parent reuse](../../COMPOSED_SHARED_PARENT_V1_PREREGISTRATION.md) is prepared for the next result-dependent decision. No circuits promoted.
 
-**04:34:** [Exact input-partition optimization](../../FULLU_BLOCK_OPTIMIZER_V1_PREREGISTRATION.md) is audited and queued: two frozen starts, exact full-output loss, explicit local-convergence checks. Planted recovery2/3 exposes a strict local minimum; no global-recovery claim.
-
-**04:54:** [Direct full-output block rotation](../../FULLU_BLOCK_OPTIMIZER_V1_RESULTS.md) completed: numerical A passes; separation/stability/convergence B/C/D fail. Cuts0.839/0.840, overlap0.718, both1500step limits. The controlled [spectral audit](../../NORMALIZED_COMMUTANT_NATIVE_V1_PREREGISTRATION.md) is queued in managed lane1 behind existing work; [shared-parent reuse](../../COMPOSED_SHARED_PARENT_V1_PREREGISTRATION.md) is prepared for a result-dependent next decision.
+Earlier current-path results: [full-U rank32 failure](../../FULLU_PAIRED_PRODUCER_V1_RESULTS.md), [fixed-basis block failure](../../FULLU_INPUT_BLOCKS_V1_RESULTS.md), [context confirmation failures](../../PRODUCER_METRIC_SPECTRAL_V1_RESULTS.md#contextual-confirmation-completed-five-swap-cells-fail). [Hourly04:27](../../HOURLY_STRATEGIC_REVIEW_2026-09-12_0427.md); next hourly05:27 and math05:00.
 
 ## Earlier entries — historical status, superseded where stated above
 
