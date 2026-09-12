@@ -142,3 +142,68 @@ rank16 pilot does not rule out a larger or differently structured dictionary.
 Source readers alone cost110592coefficients; Gram256. Private query/value maps,
 all native normalization dependencies and any remaining opaque computation must
 also be priced. No whole-model saving is claimed by this representation yet.
+
+
+## Native pilot and the optimizer scaling correction, 12 September
+
+The [native pilot](SHARED_CUBIC_SOURCE_NATIVE_V1_RESULT.json) ran601.56seconds.
+Derivative and price checks passed; both fits reached their time limits, so
+convergence and sharing predictions failed. The aligned/random arms captured
+0.2431%/0.3415% of estimated reference coefficient energy at the fitted position,
+and0.1053%/0.1150% at the held position. These percentages use1024 independent
+coefficient probes per position; reference energy52.9773±0.8140 standard error
+at source7 and50.5641±0.8451 at source0. No text validation is implied.
+Only one cubic source feature matched across starts at coefficient cosine>=.9.
+Neither arm had an atom meeting the literal multi-head-use bar. Cancellation
+ratios1.8003/1.5924 and Gram condition numbers80.60/14.45 were moderate.
+
+The [history audit](SHARED_CUBIC_SOURCE_NATIVE_V1_SCALE_AUDIT.json) found a
+specific optimization problem: the old safeguard reset curvature history on
+75.49%/99.73% of updates. With gradient $g$ and proposed direction $d$, it used
+
+$$
+g^T d < -10^{-3}\|g\|^2.
+$$
+
+For an inverse-Hessian-scaled direction, multiplying the objective changes the
+right-hand side quadratically while the left typically changes only linearly.
+Thus this check can reject a useful descent direction solely because of units.
+The V2 safeguard instead requires
+
+$$
+g^T d < -10^{-3}\|g\|\,\|d\|.
+$$
+
+This bounds the direction's angle with the negative gradient. The
+[controlled quadratic comparison](LBFGS_DESCENT_SCALE_V1_CONTROL.json) changes
+only this check: at objective scale1000, V1 resets255times and misses its256-update
+limit; V2 reaches stationarity in22 history rows with no resets. At scale1 the
+solvers agree. This establishes a bug in the safeguard, not global convergence
+of the complete optimizer, whose other numerical thresholds remain finite.
+The [V2 cubic planted control](SHARED_CUBIC_SOURCE_FIT_V2_CONTROL.json) also
+recovers the shared source in all four starts, errors<=6.8e-10.
+
+The [registered continuation](SHARED_CUBIC_SOURCE_CONTINUE_V1_PREREGISTRATION.md)
+warms both saved native dictionaries, changes that safeguard, and uses the common
+fixed divisor $c=0.1809357634075061$. The loss remains
+
+$$
+\mathcal L=-\operatorname{capture}/c.
+$$
+
+Its minima are unchanged, but its numerical stopping units are different.
+The old final gradients become4.33e-5/9.67e-5 in these common units, both still
+above the new1e-6 bar. Original convergence misses are preserved. This continuation
+combines a safeguard repair and a common-unit choice; their separate native
+contributions are not isolated. It tests whether properly scaled local fitting
+resolves the current convergence obstacle. Multi-head use and cross-start
+agreement remain independent requirements. No circuit has been promoted.
+
+A separate [QR control](SHARED_CUBIC_SOURCE_QR_V1_CONTROL.json) implements direct
+coefficient QR in the span of the source readers, avoiding source normal equations.
+Ordinary value/gradient agreement is within1.67e-15. At a planted Gram condition
+near2e10, relative capture error drops from7.28e-7 to3.20e-11 against direct SVD.
+This is useful for nearly coincident atoms, but current native conditions do not
+justify the more expensive evaluator. The continuation retains the original exact
+Gram objective. Detached local spans are justified for first derivatives of this
+squared norm; no higher-derivative claim is made.

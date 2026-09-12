@@ -1,3 +1,7 @@
+### 12 September, 10:25 — Cubic pilot misses; optimizer repair continuation queued
+
+Both native fits timed out; capture0.24%/0.34%, one cross-start match and zero multi-head atoms. A controlled test confirms an objective-scale-dependent descent safeguard bug. Both saved fits are queued with its angle-based repair and common stopping units; original misses remain. [Results, maths and controls](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md). No circuit promotion.
+
 ### 12 September, 10:10 — Shared cubic-source factorization is fitting
 
 Exact variable projection solves private query-dependent readers while fitting16 shared source products. Dense gradients and four independent planted recoveries pass. The managed native fit passed derivative/cost checks and is live; no convergence or coverage result yet. [Math and protocol](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md). Native normalization remains explicit; no circuit promotion.

@@ -1,0 +1,41 @@
+{
+  "reports": [
+    {
+      "scale": 1.0,
+      "solver": "old",
+      "reason": "stationary",
+      "unscaled_objective": 2.3285542756573384e-16,
+      "gradient": 1.176614363064776e-07,
+      "steps": 20,
+      "history_resets": 0
+    },
+    {
+      "scale": 1.0,
+      "solver": "angle",
+      "reason": "stationary",
+      "unscaled_objective": 2.3285542756573384e-16,
+      "gradient": 1.176614363064776e-07,
+      "steps": 20,
+      "history_resets": 0
+    },
+    {
+      "scale": 1000.0,
+      "solver": "old",
+      "reason": "iteration_limit",
+      "unscaled_objective": 1.1152042479779476e-05,
+      "gradient": 13.63076331436437,
+      "steps": 257,
+      "history_resets": 255
+    },
+    {
+      "scale": 1000.0,
+      "solver": "angle",
+      "reason": "stationary",
+      "unscaled_objective": 1.748233628385147e-27,
+      "gradient": 7.026531992347421e-10,
+      "steps": 22,
+      "history_resets": 0
+    }
+  ],
+  "scope": "Same sphere Rayleigh objective under positive scalar multiplication; only the sufficient-descent test differs. No native continuation result."
+}

@@ -22100,3 +22100,15 @@ No prior cubic-source dictionary kernel found in method/source search. Implement
 
 ### 2026-09-12T10:10:49.024238+00:00 — Codex: SHARED CUBIC SOURCE FIT MANAGED LIVE
 Dense/sourceGram/crossGram/gradient/diagonal controls<=1.13e-15; four cold planted fits stationary with errors<6.8e-10. Enqueue first rejected duplicate prediction declarations before execution; consolidated and rebound sourcea75876cf, shared gates pass. Native preflight passed; process3274208 running first arm, large relativegain but not stationary. Private referenceg0 must be undone viaactualgate/g0 atnativeevaluation. No capturedfraction/convergence/reuse claim beforeterminalreceipt.
+
+### 2026-09-12T10:13:34.261851+00:00 — Codex: CLAIM SOURCE-DICTIONARY NUMERICAL CONDITIONING CONTROL
+Live fit3274208 unchanged; not yet terminal. Build an equivalent direct coefficient-QR evaluation in the span of its <=48 linear source readers, with small detached query/output spans. This avoids forming source normal equations and query-output Gram cancellation when cubic features nearly coincide. CPU dense/SVD and derivative controls will compare ordinary and nearly dependent dictionaries. No assertion yet that this explains the native fit.
+
+### 2026-09-12T10:16:19.007426+00:00 — Codex: CLAIM DESCENT-SAFEGUARD SCALE CONTROL
+Nativearm0terminaltime_limit, Gramcondition80.6 doesnot support the near-singular explanation yet; arm1live. Existing L-BFGS rejects directions when g.dot(d)>=-.001||g||², which depends on objective units. Test identical sphere quadratic at scales1/1000 and compare a version using direction-angle sufficient descent, leaving other optimizer mechanics unchanged. No native controller is modified while live.
+
+### 2026-09-12T10:19:26.508175+00:00 — Codex: CUBIC PILOT TERMINAL / CLAIM SCALE-AWARE CONTINUATION
+601.56sec,ApassB/Cfail: bothtime_limit; capture.2431/.3415%fitposition,.1053/.1150%heldposition; source matches1, sharedatoms0/0. Gramconditions80.6/14.5 do not support near-singularity. CPU scale control isolates safeguardbug: oldscale1000 resets255times/256updates andmisses, angle-onlyrepair stationary22updates. Next CPU nativehistory audit quantifies resets/common-unit gradients, then same-source-objective continuation with fixed common divisor=max priorcapturedenergy and angle safeguard. Original time-limit and sharing misses remain; new gradient units are explicitly different. QR stable evaluator is controlled but not required by current native conditioning.
+
+### 2026-09-12T10:25:55.532637+00:00 — Codex: SCALE-AWARE CONTINUATION QUEUED
+V2 planted4/4recover, scale control isolates old descent safeguard failure; nativehistory resets75.49/99.73%. Same rank16/nativeobjective warmstarts, commondivisor.1809357634, originalunitgradients also reported. Managed runner6981ff3d passed enqueue; sourceGram evaluator unchanged. Primary cubic math records original601.56secApassB/Cfail, QR control and repair scope. No circuit promotion.

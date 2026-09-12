@@ -1,0 +1,25 @@
+{
+  "ordinary_value_error": 0.0,
+  "ordinary_gradient_error": 1.664730575483778e-15,
+  "near_dependent_cases": [
+    {
+      "epsilon": 0.001,
+      "gram_condition": 2036098.9176549588,
+      "normal_equation_relative_error": 8.831043258724585e-11,
+      "qr_relative_error": 1.4203351072775434e-13
+    },
+    {
+      "epsilon": 0.0001,
+      "gram_condition": 203060571.45424756,
+      "normal_equation_relative_error": 4.945403160312078e-09,
+      "qr_relative_error": 4.274638599151728e-12
+    },
+    {
+      "epsilon": 1e-05,
+      "gram_condition": 20300563948.58532,
+      "normal_equation_relative_error": 7.277596456375761e-07,
+      "qr_relative_error": 3.198937160549978e-11
+    }
+  ],
+  "scope": "Direct-SVD coefficient reference on small cases; detached spans preserve tested first derivatives, not a higher-derivative guarantee. Native Gram condition is only80.6 in the first completed arm, so this control alone does not explain that native stall."
+}

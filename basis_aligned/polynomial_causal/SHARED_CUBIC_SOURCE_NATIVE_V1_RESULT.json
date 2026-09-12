@@ -1,0 +1,92 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "native_fd_error": 5.2815742348922505e-11,
+  "evaluation_seconds": 0.20131060481071472,
+  "reports": [
+    {
+      "arm": 0,
+      "initial_capture": 0.0002654873893979808,
+      "final_capture": 0.12878862554193493,
+      "gain_ratio": 485.1026100862117,
+      "held_initial_capture": 0.00021400851492106826,
+      "held_final_capture": 0.053246225469215036,
+      "reason": "time_limit",
+      "gradient": 0.029536146657385947,
+      "steps": 1577,
+      "shared_atoms": 0,
+      "cancellation_ratio": 1.8003165912806511,
+      "gram_condition": 80.59533365048746
+    },
+    {
+      "arm": 1,
+      "initial_capture": 4.274549577310904e-07,
+      "final_capture": 0.1809357634075061,
+      "gain_ratio": 423286.15011954505,
+      "held_initial_capture": 3.9682633199102666e-07,
+      "held_final_capture": 0.05812865914530177,
+      "reason": "time_limit",
+      "gradient": 40.918235116425365,
+      "steps": 735,
+      "shared_atoms": 0,
+      "cancellation_ratio": 1.592426694533845,
+      "gram_condition": 14.452581709872272
+    }
+  ],
+  "matched_source_atoms": 1,
+  "matched_cosines": [
+    0.004469578524271618,
+    0.028670974128217667,
+    0.5624735366269852,
+    0.0033536921348854194,
+    0.6778259380165937,
+    0.34167650070478905,
+    0.9995941107322233,
+    0.4222696137466019,
+    0.8134116470274091,
+    0.0015241524113883747,
+    0.01796548797692149,
+    0.855015831726583,
+    0.005812439957139077,
+    0.7726541779308777,
+    0.24981257465486673,
+    0.010795116248222795
+  ],
+  "coverage": [
+    {
+      "position": 7,
+      "total_energy_estimate": 52.97734216442504,
+      "standard_error": 0.8140292626651159,
+      "capture_fractions": [
+        0.0024310133404242037,
+        0.003415342408947929
+      ]
+    },
+    {
+      "position": 0,
+      "total_energy_estimate": 50.56410097597431,
+      "standard_error": 0.8450957546238218,
+      "capture_fractions": [
+        0.0010530440459035383,
+        0.001149603335633749
+      ]
+    }
+  ],
+  "execution_seconds": 601.5633794292808,
+  "artifact_sha": "cf0ace4a5f8f24ac34467e0052f0440b8b48b30531ab830bd4d0ef6d37537c11",
+  "source_shas": {
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_shared_cubic_source_native_v1.py": "a75876cf637c84625b3c578dcb7fcecba3de27686a369c4dcbc56ddf4188ac65",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/shared_cubic_source_projection_v1.py": "78eb18cc03b5e82b19edb1951ddefbebda0a226df824e1959ca43a19f7545fe2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/shared_cubic_source_fit_v1.py": "f0ad4984846fa378aa8d8d38703b1ab640e1ff95d221c460034c2a7c47e55b3f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/quartic_manifold_lbfgs_v1.py": "1b0f18f3b2215a4de4dd32f4e29e35102272715e2f63674c867ac023ef74cca5",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/quartic_manifold_cg_v1.py": "bd2d0aef547ca12c332c669c4ee4cd503ef6f588c2c02ebda31b0554f7440dc2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/joint_routing_value_polynomial_v1.py": "f0af5035abcbc6924145e0fe95fd833f867d4003a71804a3fd793a59170918f1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/folded_normalized_router_v1.py": "a374ea1f2c29ed68f7b33f3eb9d28a7034a25260ec95fe4b4e9fc2d7b0e48d9c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/sparse_path_stability_atlas_v1.py": "ccebc47d0c90b75c2a4b5646e6ef58c79cd55d3b518af265b55c747828549cf0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_CUBIC_SOURCE_PROJECTION_V1_CONTROL.json": "aae7c71027bac76cd405cf0ead8bf2c91f21edfafc0ef769f9ec7c6d1b3081d2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_CUBIC_SOURCE_FIT_V1_CONTROL.json": "968db922042f15d823d295f595790347885c7addd8318381db071036601bf377",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_CUBIC_SOURCE_NATIVE_V1_PREREGISTRATION.md": "080ac610a993b9272d3a6eedc0a37cf91cc952eafc390db6c6d8c3f430966db1"
+  }
+}

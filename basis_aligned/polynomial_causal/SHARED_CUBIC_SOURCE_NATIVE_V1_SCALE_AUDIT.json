@@ -1,0 +1,24 @@
+{
+  "common_divisor": 0.1809357634075061,
+  "reports": [
+    {
+      "arm": 0,
+      "history_resets": 1189,
+      "updates": 1575,
+      "reset_fraction": 0.7549206349206349,
+      "gradient_in_common_units": 4.3338444104522394e-05,
+      "original_gradient": 0.029536146657385947,
+      "mean_line_trials": 7.583492063492064
+    },
+    {
+      "arm": 1,
+      "history_resets": 731,
+      "updates": 733,
+      "reset_fraction": 0.9972714870395635,
+      "gradient_in_common_units": 9.666802257732548e-05,
+      "original_gradient": 40.918235116425365,
+      "mean_line_trials": 17.914051841746247
+    }
+  ],
+  "scope": "Changing the fixed positive objective scale preserves minimizers but changes numerical stopping units; original convergence verdicts remain failed. Reset count diagnoses executed optimizer behavior, not global optimality."
+}
