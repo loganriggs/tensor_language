@@ -1402,3 +1402,34 @@ A new [norm-aware feature sufficiency test](NORM_AWARE_FEATURE_SUFFICIENCY_V1_MA
 
 
 The [closed feature executor](CLOSED_FEATURE_PROGRAM_V1_MATH.md) provides a positive18-layer control for genuine reduced-state execution with RMS and re-entry. Output, norm and joint-edit predictions pass with no original intermediate state. This validates the stronger testing machinery, not a native decomposition; common reader/writer support is an explicit remaining assumption.
+
+## Frozen routing transfers to two cue-value consumers (12 September14:12)
+
+The [new native test](REGIONAL_ROUTING_CONSUMER_REUSE_V1_RESULT.json) freezes the
+forward13 mixed-numerator/true-denominator approximation. It applies the same
+routing to token-derived first values, contextual values at the cue position,
+and both together. This contextual intervention is cue-local, unlike the earlier
+all-position current-value interchange. All48 geographic rows and native
+background dependencies are unchanged; there is no new fitting.
+
+All registered bars pass in3.47seconds: native/complete replay, each branch's
+write and signed-prefix effect within10%, and combined nonlinear interaction
+within10%relative or1e-5absoluteL2. First effect errors1.21–3.08%, contextual
+cue0.70–2.16%, both0.94–1.93%; all72 branch/pair transfer signs match. Interaction
+relative errors3.36–7.69% pass through the relative arm of the criterion;
+absolute errors1.73–2.58e-5 do not meet the absolute alternative. Native interaction
+norms are2.47–7.68e-4. Linear write composition errors are below3.61e-16.
+
+The executed [geometry red-team](REGIONAL_CONSUMER_GEOMETRY_V1_RESULT.json) limits
+the interpretation: first/current cue writes have cosine0.947–0.977, so these
+are strongly aligned consumers serving the SAME regional behavior. Their normalized
+two-column singular ratios0.108–0.165 exclude exact collinearity on these outputs
+but do not establish independent semantics. Error cancellation reduces the sum
+error to0.647–0.843 of the sum of individual error norms. Individual branches
+pass on their own, so cancellation is not the sole source of the positive result.
+
+This extends a frozen approximation from one value consumer to another and their
+joint intervention. It does not establish multi-task reuse, fresh unseen-panel
+selection independence, standalone extraction, or selective removal across unrelated
+tasks. Native queries, contextual values, omitted key projections and normalizers
+remain required. The prior recursive key-generator failure remains unresolved.

@@ -22376,3 +22376,9 @@ Fixedwriter h=alpha*x0+W*a closes all reads/norms with immutable input encodings
 
 ### 2026-09-12T14:08:44.017503+00:00 — Codex: CLAIM JOINT ROUTING TWO-CONSUMER TEST
 Prior firstvalue-only correction and allposition streamcomposition checked. Freeze forward13 mixed+trueD approximation. Test cue-local first/current/both value swaps with native, approximate and full-replay routing on48 geographic rows. This is reuse across value consumers of same behavior, not multiple tasks. A replay/linearwritecomposition<=1e-5; B eachstream/family write+effect<=10%; C combined nonlinear interaction absL2<=1e-5 or relative<=10%. Native contextualvalue/queries/omittedkeygenerators retained.10bodybatches10suffixarms,180sec cap; no fit.
+
+### 2026-09-12T14:11:19.419599+00:00 — Codex: ROUTING REUSE PASS / CLAIM CONSUMER GEOMETRY AUDIT
+3.47sec A/B/C pass: first/currentcue/both effect errors0.70–3.08%; nonlinear interaction3.36–7.69%;72/72 branch-pair signs match. Same behavior and native generator scope remain. Next CPU savedwrite audit branch collinearity, effective two-column rank and error cancellation; no refit or posthocbar replacement.
+
+### 2026-09-12T14:12:18.511649+00:00 — Codex: CONSUMER REUSE RED-TEAM COMPLETE
+Writes cosine.947–.977: strongly aligned same-behavior consumers, not independent tasks. Error cancellation present but every individualbranch passes. Shared primarymath records frozen reuse and jointinteraction pass with nativecontext scope. CPU geometry audit is concrete continuation; no circuit promotion.
