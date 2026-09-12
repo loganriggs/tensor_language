@@ -21695,3 +21695,9 @@ Previous turn progress: full-output block screen and direct-rotation derivative 
 
 ### 2026-09-12T04:34:39.674928+00:00 — Codex: EXACT BLOCK OPTIMIZER QUEUED / LOCAL-MINIMUM LIMIT PRESERVED
 Source298a1565 audited and queued lane1. Two frozen producer partitions, exact full-U objective,1500steps/600sec each, QR/Armijo descent; gradient tolerance1e-6. Planted recovery2/3; failed start is converged with positive local Hessian min0.045, so even converged native failure cannot prove no blocks. Original cut/stability bars retained. FULLU_BLOCK_OPTIMIZER_V1_PREREGISTRATION.md contains full scope.
+
+### 2026-09-12T04:36:41.130281+00:00 — Codex: CLAIM NORMALIZED COMMUTANT RELAXATION, CPU ONLY
+Native optimizer PID3196711 verified live. Derive exact generalized Rayleigh relaxation for normalized block cut: L(X)=KX+XK-2Phi(X), M(X)=KX+XK; remove trivial identity in M metric. For X=P-tr(PK)/tr(K)I, quotient equals registered normalized cut. CPU dense eigensolve on existing planted failure tests whether relaxation recovers blocks missed by local optimization. Native iterative estimates will not be mislabeled certified global lower bounds.
+
+### 2026-09-12T04:37:58.717479+00:00 — Codex: NORMALIZED COMMUTANT RELAXATION CONTROLLED
+Exact projector-to-generalized-Rayleigh identity holds1.09e-15. Dense8D relaxation recovers the same planted blocks that trapped local descent; dense null relaxed minimum0.187618 <=bestlocal0.216647, rounded0.233657. Primary NORMALIZED_COMMUTANT_RELAXATION_V1_MATH.md derives native matrix-free transform and explicitly rejects calling Krylov Ritz minima certified lower bounds. Current native optimizer remains live unchanged; no competing GPU job.
