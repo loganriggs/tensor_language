@@ -131,3 +131,55 @@ position fidelity; a held-position check and physical intervention screen are
 required. The useful circuit decision is whether stable quadratic blocks can
 replace the identified joint-key/value computation and preserve its selective
 removal or swaps. Better coefficient error alone is not promotion.
+
+## 21:27 — Native solve and discriminating checks
+
+[Native SVD](FIXED_VALUE_QUADRATIC_SVD_V1_RESULT.json) completed all four arms in
+1.47seconds, peak allocated570MB. Singular-pair residuals<=5.6e-15 and two-seed
+singular-value differences<=7.5e-16. A/C hold; B fails. Leading eight blocks capture
+6.35%full and9.29%even coefficient energy; heldposition5.16% and8.18%.
+These are genuinely well-resolved numerical singular pairs, unlike the earlier
+unconverged nonlinear fits, subject to the stated leading-mode caveat.
+
+[Native cached field check](FIXED_VALUE_QUADRATIC_NATIVE_V1_FIELDS.json) compares
+48pristine and48after-head8-removal contexts. Independent reduced-querywriter
+replay agrees1.92e-15. Rank8 scalarfield errors are66.95/69.81%full and66.58/68.85%
+even; cosines .875–.903 do not rescue amplitude error. No newphysical language
+intervention has been claimed. This executed check limits the counterargument
+that coefficient loss might be irrelevant on these actual contexts.
+
+[Rank accounting](FIXED_VALUE_QUADRATIC_SVD_V1_RANK_BOUND.json) uses
+
+$$
+R\ge 8+\left\lceil
+\frac{\eta\|T\|_F^2-\sum_{i=1}^8\sigma_i^2}{\sigma_8^2}
+\right\rceil
+$$
+
+when the numerator is positive and the computed values are the leading eight.
+At50%capture this gives at least80full or54even quadratic blocks; at90%,146or99.
+Eight dense sourcequadratics alone already cost528,392scalars, before bases and
+retained QK. This demotes this separation as a short faithful implementation.
+The numerical leading-mode assumption is explicit; this is not a general circuit
+or behavior lower bound.
+
+A sharper counter-review is the [executed coupled counterexample](FIXED_VALUE_COUPLED_COUNTEREXAMPLE_V1.json):
+
+$$
+p(q,s)=(q^Ts)^2(v^Ts).
+$$
+
+It uses one dot product, a square and a value multiplication. Nevertheless, its
+weighted query/source quadratic operator has full symmetric rank n(n+1)/2 for
+nonzero v. The5-dimensional control returns rank15. Thus a very simple coupled
+arithmetic program can look high-rank after this separation. Native fulljointQK
+has similarly explicit bilinear couplings; the even component is a sum of two
+such products. We should preserve useful query/source coupling and investigate
+shared or task-selective subspaces inside it, rather than equating flattened
+rank with the complexity the user wants to explain.
+
+Decision: retain the solver and exactnorm as cheap probes; do not promote the
+rank8 approximation or launch a blind large-rank sweep. The known selective
+joint-key component is unchanged. Next circuit-level question is stability and
+selectivity of its coupled subspace split, or closing a declared input port,
+using existing native executors. Tensor-sim graph search remains deferred.

@@ -1,3 +1,7 @@
+## 12 September, 21:27 — Fixed-value native SVD probe
+
+[Primary result](../../FIXED_VALUE_QUADRATIC_OPERATOR_V1_MATH.md): native matrix-free solves finish1.47sec with stable singularvalues; rank8 fails coefficient and cachedfield fidelity. An executed coupled-arithmetic counterexample limits the negative: high query/source-separated rank does not imply a complex circuit. Preserve jointQK coupling; known selective component remains unchanged.
+
 ## 12 September, 21:09 — Current optimizer, physical screen and requested review
 
 [Latest requested review](../for_logan/method_redteam_and_roi_2026-09-12.md): longerfits remain unconverged; head13 physicalprojection has negligible regionalcuecoverage despite stable replica effects. Existing selective8.2/9.8 regional result remains. Exactsupport audit opens a smaller equation-specific fit; tensor-sim search deferred. [Primary method note](../../FOLDED_CUBIC_TRUST_PILOT_V1_MATH.md).

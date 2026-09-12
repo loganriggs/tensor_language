@@ -1,0 +1,115 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "rows": [
+    {
+      "target": "full",
+      "seed": 17,
+      "termination": "svds_returned",
+      "singular_values": [
+        15192.488915419623,
+        14384.660475695868,
+        13948.770822476592,
+        12813.369346169393,
+        12715.869748580566,
+        11673.833277544565,
+        11623.315131560299,
+        11402.104393103607
+      ],
+      "max_singular_residual": 1.0774480521407896e-15,
+      "target_energy": 21412557328.923798,
+      "captured_fraction": 0.06349367630939669,
+      "held_target_energy": 19869185936.623447,
+      "held_captured_fraction": 0.05155378085689045,
+      "seconds": 0.35432111099362373,
+      "operator_calls": [
+        68,
+        76
+      ]
+    },
+    {
+      "target": "full",
+      "seed": 29,
+      "termination": "svds_returned",
+      "singular_values": [
+        15192.488915419619,
+        14384.660475695859,
+        13948.770822476594,
+        12813.369346169391,
+        12715.86974858057,
+        11673.833277544574,
+        11623.315131560305,
+        11402.104393103606
+      ],
+      "max_singular_residual": 5.5942062443524025e-15,
+      "target_energy": 21412557328.923798,
+      "captured_fraction": 0.06349367630939669,
+      "held_target_energy": 19869185936.623447,
+      "held_captured_fraction": 0.051553780856890434,
+      "seconds": 0.21666225045919418,
+      "operator_calls": [
+        68,
+        76
+      ]
+    },
+    {
+      "target": "even",
+      "seed": 17,
+      "termination": "svds_returned",
+      "singular_values": [
+        14885.909261281004,
+        14043.602922249924,
+        13619.73510831029,
+        12549.015302362164,
+        12397.127808908084,
+        11422.86845143317,
+        11324.70672393725,
+        11153.911650346703
+      ],
+      "max_singular_residual": 2.680625317209943e-15,
+      "target_energy": 13973212204.886517,
+      "captured_fraction": 0.09293621660267366,
+      "held_target_energy": 12893263017.457829,
+      "held_captured_fraction": 0.08176674339178619,
+      "seconds": 0.15409273654222488,
+      "operator_calls": [
+        67,
+        75
+      ]
+    },
+    {
+      "target": "even",
+      "seed": 29,
+      "termination": "svds_returned",
+      "singular_values": [
+        14885.909261281018,
+        14043.602922249936,
+        13619.735108310291,
+        12549.015302362182,
+        12397.127808908084,
+        11422.868451433174,
+        11324.706723937252,
+        11153.911650346705
+      ],
+      "max_singular_residual": 1.6598016976134932e-15,
+      "target_energy": 13973212204.886517,
+      "captured_fraction": 0.09293621660267377,
+      "held_target_energy": 12893263017.457829,
+      "held_captured_fraction": 0.08176674339178623,
+      "seconds": 0.22783954814076424,
+      "operator_calls": [
+        67,
+        75
+      ]
+    }
+  ],
+  "seed_singular_value_relative_errors": [
+    4.1274296810608946e-16,
+    7.486880270304619e-16
+  ],
+  "seconds": 1.4699911996722221,
+  "peak_allocated_bytes": 570164224,
+  "scope": "Head9.8 fixed current-value; fulljointkey and earlierselected even numerator. Rank8 weighted quadratic blocks at query8/source7; frozen sourcequadratics rescored atsource0. Iterative residuals and two-seed agreement are numerical evidence, not proof no leading mode was missed. No native normalization or causal validation; no CP rank/budget equivalence.",
+  "artifact_sha": "4c43f271c6147a3167f44405d8778156cc42183d62a09f56e7cc89953977e19b"
+}

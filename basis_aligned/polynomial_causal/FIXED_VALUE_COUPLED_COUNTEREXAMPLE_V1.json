@@ -1,0 +1,25 @@
+{
+  "dimension": 5,
+  "separated_quadratic_rank": 15,
+  "expected_rank": 15,
+  "singular_values": [
+    1.0,
+    0.8164965809277261,
+    0.8164965809277261,
+    0.8164965809277261,
+    0.8164965809277261,
+    0.5773502691896258,
+    0.5773502691896258,
+    0.5773502691896258,
+    0.5773502691896258,
+    0.5773502691896258,
+    0.5773502691896258,
+    0.5773502691896257,
+    0.5773502691896257,
+    0.5773502691896257,
+    0.5773502691896257
+  ],
+  "rank8_captured_fraction": 0.6666666666666665,
+  "exact_arithmetic": "(q dot s)^2 * (v dot s)",
+  "interpretation": "One bilinear dot product, squared, times fixed value has full symmetric flattening rank. A large separated-quadratic rank is compatible with a short coupled arithmetic program."
+}

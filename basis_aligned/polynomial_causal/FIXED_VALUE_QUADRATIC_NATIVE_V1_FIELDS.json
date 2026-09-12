@@ -1,0 +1,41 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "querywriter_relative_error": 1.9224516678883803e-15,
+  "rows": [
+    {
+      "target": "full",
+      "state": 0,
+      "relative_field_error": 0.669490635543962,
+      "cosine": 0.8841640181957676,
+      "reference_rms": 0.8616531380407516,
+      "prediction_rms": 0.348640963626128
+    },
+    {
+      "target": "full",
+      "state": 1,
+      "relative_field_error": 0.6980621308411195,
+      "cosine": 0.9030440833967762,
+      "reference_rms": 0.6146232102343747,
+      "prediction_rms": 0.21683303471940865
+    },
+    {
+      "target": "even",
+      "state": 0,
+      "relative_field_error": 0.6657989184939894,
+      "cosine": 0.8751148076523756,
+      "reference_rms": 0.6875856536308618,
+      "prediction_rms": 0.28729035674955555
+    },
+    {
+      "target": "even",
+      "state": 1,
+      "relative_field_error": 0.6884930728909394,
+      "cosine": 0.9013388106874883,
+      "reference_rms": 0.49429270471597925,
+      "prediction_rms": 0.18098190277242665
+    }
+  ],
+  "seconds": 1.8098834604024887,
+  "scope": "Frozen seed17 rank8 blocks on48pristine and48after8-removal cachedhead9states. FP64 nativeweights/norms/rotarytables, endpointcausalsum only. This is field approximation, not new LM intervention or nativeFP32operation-order equivalence. Same contexts as previous discovery panels."
+}

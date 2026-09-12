@@ -1,0 +1,19 @@
+{
+  "rows": [
+    {
+      "target": "full",
+      "rank8_capture_fraction": 0.06349367630939669,
+      "rank_lower_bound_for_50pct": 80,
+      "rank_lower_bound_for_90pct": 146,
+      "rank8_source_quadratic_scalars": 528392
+    },
+    {
+      "target": "even",
+      "rank8_capture_fraction": 0.09293621660267366,
+      "rank_lower_bound_for_50pct": 54,
+      "rank_lower_bound_for_90pct": 99,
+      "rank8_source_quadratic_scalars": 528392
+    }
+  ],
+  "scope": "Conditional on numerically returned leading eight singular values and independently computed target norm. Each later squared singular value is bounded by sigma8 squared. This is a rank requirement for query/source-separated quadratic blocks in coefficient norm, not a general arithmetic-circuit lower bound or native-behavior bound. Repeated-seed agreement and residuals support, but do not formally certify, leading-mode computation."
+}
