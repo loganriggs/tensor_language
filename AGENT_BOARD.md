@@ -22373,3 +22373,6 @@ Same shared union: 19 changing coordinates, 955776 output-adapter scalars; fullU
 
 ### 2026-09-12T14:06:00Z — Codex: MATH REVIEW / REPEATED COMPOSITION PASS
 Fixedwriter h=alpha*x0+W*a closes all reads/norms with immutable input encodings. Native sharedunion replay passes; synthetic18block jointedits <=7.79e-13, wrong diagonalGram causes2.16–65%error. Primary THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_1400.md maps lowrankRNN/CLUE assumptions and literal prices. No native identification upgrade. Further compiler variants demoted; nextdecision joint producer/consumer replacement using existing candidate ledgers. Next math17:06/hourly14:39.
+
+### 2026-09-12T14:08:44.017503+00:00 — Codex: CLAIM JOINT ROUTING TWO-CONSUMER TEST
+Prior firstvalue-only correction and allposition streamcomposition checked. Freeze forward13 mixed+trueD approximation. Test cue-local first/current/both value swaps with native, approximate and full-replay routing on48 geographic rows. This is reuse across value consumers of same behavior, not multiple tasks. A replay/linearwritecomposition<=1e-5; B eachstream/family write+effect<=10%; C combined nonlinear interaction absL2<=1e-5 or relative<=10%. Native contextualvalue/queries/omittedkeygenerators retained.10bodybatches10suffixarms,180sec cap; no fit.
