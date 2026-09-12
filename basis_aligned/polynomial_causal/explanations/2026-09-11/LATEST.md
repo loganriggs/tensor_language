@@ -1,3 +1,7 @@
+### 12 September, 08:57 — Converged fit still misses; exact deeper-input audit narrows the explanation
+
+Bothfits nowconverge reproducibly, but jointnativefidelity stillfails;16rotationplanes findno meaningfulescape. Exact eighth-degree contraction passes dense/native/gradient checks. On2048syntheticweightprobes, the frozenframes' actualsymmetrizederror85.8%is onlymodestlydifferent fromformal87.0%; uncertainty audit preserves the material-gap miss. [Convergence and replica evidence](../../COUPLED_GRADED_SOURCE_V1_MATH.md), [deeper contraction and results](../../COMPOSED_EIGHTH_CONTRACTION_V2_MATH.md). No circuit promotion; next hourly09:36/math11:00.
+
 ### 12 September, 08:43 — Two fits time-limited; convergence continuation submitted
 
 Both degree-balanced fits finishnear0.684loss withoutmeetinggradientthresholds; allthree registered criteria fail, including jointnativeeffectfidelity. The exact rank128lowerbound0.4803doesnotcertify near-optimality. Existing manifoldLBFGS passes its adaptercontrol and is submitted as a same-objective continuation. [Results, bound and optimizer status](../../COUPLED_GRADED_SOURCE_V1_MATH.md). Originalmissesremain. Hourly08:36completed; next09:36, math11:00.

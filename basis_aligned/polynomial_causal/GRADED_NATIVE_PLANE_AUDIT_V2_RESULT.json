@@ -1,0 +1,398 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "reports": [
+    {
+      "arm": 0,
+      "original_loss": 0.6839546888074413,
+      "best_loss": 0.6839546888057115,
+      "improvement": 1.7297274723659939e-12,
+      "original_status": "converged",
+      "original_gradient": 8.473354872902444e-07,
+      "planes": [
+        {
+          "angle": 2.38960522199245e-07,
+          "value": 0.683954688807441,
+          "initial": 0.6839546888074413,
+          "improvement": 2.220446049250313e-16,
+          "interpolation_max_error": 2.220446049250313e-16,
+          "candidate_count": 3,
+          "stationary_derivative": 2.337810934421869e-19,
+          "candidate_angles": [
+            0.0,
+            2.38960522199245e-07,
+            1.5729451938939172
+          ],
+          "candidate_values": [
+            0.6839546888074413,
+            0.683954688807441,
+            0.6882674001829785
+          ],
+          "kind": "random",
+          "orthogonality": 1.0374230850339986e-14,
+          "angle_distance": 2.38960522199245e-07
+        },
+        {
+          "angle": 1.9663969526296183e-07,
+          "value": 0.683954688807441,
+          "initial": 0.6839546888074413,
+          "improvement": 2.220446049250313e-16,
+          "interpolation_max_error": 3.3306690738754696e-16,
+          "candidate_count": 3,
+          "stationary_derivative": 7.860465750519907e-19,
+          "candidate_angles": [
+            0.0,
+            1.9663969526296183e-07,
+            1.5722764698605358
+          ],
+          "candidate_values": [
+            0.6839546888074413,
+            0.683954688807441,
+            0.6908107629054755
+          ],
+          "kind": "random",
+          "orthogonality": 1.1015317746093858e-14,
+          "angle_distance": 1.9663969526296183e-07
+        },
+        {
+          "angle": 0.0,
+          "value": 0.6839546888074413,
+          "initial": 0.6839546888074413,
+          "improvement": 0.0,
+          "interpolation_max_error": 4.440892098500626e-16,
+          "candidate_count": 3,
+          "stationary_derivative": 7.334186023564077e-10,
+          "candidate_angles": [
+            0.0,
+            4.7003084494012936e-08,
+            1.5710184846332442
+          ],
+          "candidate_values": [
+            0.6839546888074413,
+            0.6839546888074414,
+            0.6916372777750985
+          ],
+          "kind": "random",
+          "orthogonality": 9.634584890047367e-15,
+          "angle_distance": 0.0
+        },
+        {
+          "angle": 0.0,
+          "value": 0.6839546888074413,
+          "initial": 0.6839546888074413,
+          "improvement": 0.0,
+          "interpolation_max_error": 3.3306690738754696e-16,
+          "candidate_count": 3,
+          "stationary_derivative": 1.4096817950262542e-09,
+          "candidate_angles": [
+            0.0,
+            1.105604815927761e-07,
+            1.5705538034266422
+          ],
+          "candidate_values": [
+            0.6839546888074413,
+            0.6839546888074413,
+            0.6902043602822184
+          ],
+          "kind": "random",
+          "orthogonality": 9.634584890047367e-15,
+          "angle_distance": 0.0
+        },
+        {
+          "angle": 7.671686030532308e-05,
+          "value": 0.6839546888057115,
+          "initial": 0.6839546888074413,
+          "improvement": 1.7297274723659939e-12,
+          "interpolation_max_error": 3.3306690738754696e-16,
+          "candidate_count": 3,
+          "stationary_derivative": 1.6355676815888506e-19,
+          "candidate_angles": [
+            0.0,
+            1.5693002781231398,
+            7.671686030532308e-05
+          ],
+          "candidate_values": [
+            0.6839546888074413,
+            0.6842494791043505,
+            0.6839546888057115
+          ],
+          "kind": "gradient",
+          "orthogonality": 1.1164189289543415e-14,
+          "angle_distance": 7.671686030532308e-05
+        },
+        {
+          "angle": 5.0120027225715336e-05,
+          "value": 0.6839546888066574,
+          "initial": 0.6839546888074413,
+          "improvement": 7.838174553853605e-13,
+          "interpolation_max_error": 3.3306690738754696e-16,
+          "candidate_count": 3,
+          "stationary_derivative": 2.80579663777987e-19,
+          "candidate_angles": [
+            0.0,
+            1.559681559497406,
+            5.0120027225715336e-05
+          ],
+          "candidate_values": [
+            0.6839546888074413,
+            0.6842693152655467,
+            0.6839546888066574
+          ],
+          "kind": "gradient",
+          "orthogonality": 1.0400034800408523e-14,
+          "angle_distance": 5.0120027225715336e-05
+        },
+        {
+          "angle": 6.152201785045069e-06,
+          "value": 0.6839546888074277,
+          "initial": 0.6839546888074413,
+          "improvement": 1.354472090042691e-14,
+          "interpolation_max_error": 4.440892098500626e-16,
+          "candidate_count": 3,
+          "stationary_derivative": 1.9439406139486193e-19,
+          "candidate_angles": [
+            0.0,
+            1.5758027036469175,
+            6.152201785045069e-06
+          ],
+          "candidate_values": [
+            0.6839546888074413,
+            0.6843155103502232,
+            0.6839546888074277
+          ],
+          "kind": "gradient",
+          "orthogonality": 1.0791352217073307e-14,
+          "angle_distance": 6.152201785045069e-06
+        },
+        {
+          "angle": 4.0451643443674345e-06,
+          "value": 0.6839546888074353,
+          "initial": 0.6839546888074413,
+          "improvement": 5.995204332975845e-15,
+          "interpolation_max_error": 3.3306690738754696e-16,
+          "candidate_count": 3,
+          "stationary_derivative": 6.522153693858113e-20,
+          "candidate_angles": [
+            0.0,
+            1.5562748783211782,
+            4.0451643443674345e-06
+          ],
+          "candidate_values": [
+            0.6839546888074413,
+            0.6843215075355884,
+            0.6839546888074353
+          ],
+          "kind": "gradient",
+          "orthogonality": 1.003957791820111e-14,
+          "angle_distance": 4.0451643443674345e-06
+        }
+      ]
+    },
+    {
+      "arm": 1,
+      "original_loss": 0.6839546886888148,
+      "best_loss": 0.6839546886885762,
+      "improvement": 2.3858692799194614e-13,
+      "original_status": "converged",
+      "original_gradient": 8.916714674630551e-07,
+      "planes": [
+        {
+          "angle": 3.1415924219843805,
+          "value": 0.6839546886888148,
+          "initial": 0.683954688688815,
+          "improvement": 2.220446049250313e-16,
+          "interpolation_max_error": 2.220446049250313e-16,
+          "candidate_count": 3,
+          "stationary_derivative": 1.0512737666609935e-18,
+          "candidate_angles": [
+            0.0,
+            3.1415924219843805,
+            1.5711019508481319
+          ],
+          "candidate_values": [
+            0.683954688688815,
+            0.6839546886888148,
+            0.6884356818475638
+          ],
+          "kind": "random",
+          "orthogonality": 1.0022984462082369e-14,
+          "angle_distance": 2.3160541262612355e-07
+        },
+        {
+          "angle": 0.0,
+          "value": 0.683954688688815,
+          "initial": 0.683954688688815,
+          "improvement": 0.0,
+          "interpolation_max_error": 3.3306690738754696e-16,
+          "candidate_count": 3,
+          "stationary_derivative": 2.05354239872274e-10,
+          "candidate_angles": [
+            0.0,
+            3.141592629358808,
+            1.5719658138508426
+          ],
+          "candidate_values": [
+            0.683954688688815,
+            0.6839546886888153,
+            0.6880102180941131
+          ],
+          "kind": "random",
+          "orthogonality": 9.716480970665481e-15,
+          "angle_distance": 0.0
+        },
+        {
+          "angle": 0.0,
+          "value": 0.683954688688815,
+          "initial": 0.683954688688815,
+          "improvement": 0.0,
+          "interpolation_max_error": 2.220446049250313e-16,
+          "candidate_count": 3,
+          "stationary_derivative": 2.2770967372836215e-10,
+          "candidate_angles": [
+            0.0,
+            3.1415926283783175,
+            1.572745869013545
+          ],
+          "candidate_values": [
+            0.683954688688815,
+            0.683954688688815,
+            0.6883657066560112
+          ],
+          "kind": "random",
+          "orthogonality": 9.716480970665481e-15,
+          "angle_distance": 0.0
+        },
+        {
+          "angle": 2.2099711969475626e-07,
+          "value": 0.6839546886888148,
+          "initial": 0.683954688688815,
+          "improvement": 2.220446049250313e-16,
+          "interpolation_max_error": 2.220446049250313e-16,
+          "candidate_count": 3,
+          "stationary_derivative": 1.6432439176733427e-19,
+          "candidate_angles": [
+            0.0,
+            2.2099711969475626e-07,
+            1.5735229239478115
+          ],
+          "candidate_values": [
+            0.683954688688815,
+            0.6839546886888148,
+            0.688129537184093
+          ],
+          "kind": "random",
+          "orthogonality": 1.020841487317111e-14,
+          "angle_distance": 2.2099711969475626e-07
+        },
+        {
+          "angle": 3.141585583217822,
+          "value": 0.6839546886888004,
+          "initial": 0.683954688688815,
+          "improvement": 1.4654943925052066e-14,
+          "interpolation_max_error": 4.440892098500626e-16,
+          "candidate_count": 3,
+          "stationary_derivative": 7.31360010394885e-20,
+          "candidate_angles": [
+            0.0,
+            1.5723628809509111,
+            3.141585583217822
+          ],
+          "candidate_values": [
+            0.683954688688815,
+            0.6842494722540566,
+            0.6839546886888004
+          ],
+          "kind": "gradient",
+          "orthogonality": 1.1107871146182078e-14,
+          "angle_distance": 7.070371971007461e-06
+        },
+        {
+          "angle": 2.766277860427447e-05,
+          "value": 0.6839546886885762,
+          "initial": 0.683954688688815,
+          "improvement": 2.3880897259687117e-13,
+          "interpolation_max_error": 3.3306690738754696e-16,
+          "candidate_count": 3,
+          "stationary_derivative": 3.5998900258307764e-20,
+          "candidate_angles": [
+            0.0,
+            1.5598359382160252,
+            2.766277860427447e-05
+          ],
+          "candidate_values": [
+            0.683954688688815,
+            0.6842692367560225,
+            0.6839546886885762
+          ],
+          "kind": "gradient",
+          "orthogonality": 1.0315098278924086e-14,
+          "angle_distance": 2.766277860427447e-05
+        },
+        {
+          "angle": 3.1415767006702144,
+          "value": 0.6839546886887236,
+          "initial": 0.683954688688815,
+          "improvement": 9.14823772291129e-14,
+          "interpolation_max_error": 3.3306690738754696e-16,
+          "candidate_count": 3,
+          "stationary_derivative": 3.5575383784680614e-20,
+          "candidate_angles": [
+            0.0,
+            1.575639007217857,
+            3.1415767006702144
+          ],
+          "candidate_values": [
+            0.683954688688815,
+            0.6843154937625773,
+            0.6839546886887236
+          ],
+          "kind": "gradient",
+          "orthogonality": 1.1080496177258032e-14,
+          "angle_distance": 1.5952919578676727e-05
+        },
+        {
+          "angle": 3.1415775528354777,
+          "value": 0.6839546886887289,
+          "initial": 0.683954688688815,
+          "improvement": 8.615330671091215e-14,
+          "interpolation_max_error": 3.3306690738754696e-16,
+          "candidate_count": 3,
+          "stationary_derivative": 2.1429933565533799e-19,
+          "candidate_angles": [
+            0.0,
+            1.584725656756783,
+            3.1415775528354777
+          ],
+          "candidate_values": [
+            0.683954688688815,
+            0.6843216902195632,
+            0.6839546886887289
+          ],
+          "kind": "gradient",
+          "orthogonality": 1.0977501499595855e-14,
+          "angle_distance": 1.5100754315433562e-05
+        }
+      ]
+    }
+  ],
+  "evaluations": 400,
+  "artifact_sha": "b1c3fd3f91515bcd5de011298bfdfee4f707aae59dd396b8fe75403b6f1018ed",
+  "original_program_sha": "4f6fad67e4d4a28a87f193865b2a192e5f7d25c28d2ad6c24c85bac5d2e36a59",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_graded_source_projection_native_v1.py": "903a25712d22da8348b196dc647b14b04fa92ee2372d18f2dccaf5a2b8d1a03a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/GRADED_SOURCE_PROJECTION_NATIVE_V1_PREREGISTRATION.md": "6372d3db0c56d8eda0ec8e78e0a3d15de5f1d9d84761a5161790f8c9c2eaeb64",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/graded_source_projection_v1.py": "36e658e8fb01d670e59e7ce8c8485c16d0156bf818eeead1fd4542d4840eb8c9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/GRADED_SOURCE_PROJECTION_V1_CONTROL.json": "643a0458377f183b9ce8fab6fa4b239267782f3d2b283ad87adb0c2bb9af0eee",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/coupled_source_projection_v1.py": "e48a2ad3da5d9ff5291a1a6b03be7abe51d2c759fc986497b13fd1dd4fbc9510",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/sparse_path_stability_atlas_v1.py": "ccebc47d0c90b75c2a4b5646e6ef58c79cd55d3b518af265b55c747828549cf0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/COUPLED_SOURCE_PROJECTION_NATIVE_V1_INPUTS.pt": "922225e1689ad43cc43895a417f46c5bbb4a8cc26937fbd12bf1fe6f5e535c59",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/graded_projection_plane_v1.py": "5b1bf1a85dcf6da96deb656fa7dde81e15ee745fa93de5839b8e01515ff05c93",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/GRADED_PROJECTION_PLANE_V1_CONTROL.json": "70902d2c534b4403987aadab5eaa55e7948d67a6ad605ca3fe4f0f9bef4a2527",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_graded_native_plane_audit_v2.py": "060fad1c326b2b485f6da14dd5ee537f73398f5dd8f313ea0f8145ea46be0305",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/GRADED_NATIVE_PLANE_AUDIT_V2_PREREGISTRATION.md": "72486c2fab5db9732eb8f7d2e9e79e52933cc509681e8cda236d78fd6c8ab75a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/GRADED_SOURCE_LBFGS_V1_RESULT.json": "bd2773d9e308f77ae1269f0b4038f8eb835a1fb95f722e4bed365cc1a6819822",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/GRADED_SOURCE_LBFGS_V1_PROGRAM.pt": "4f6fad67e4d4a28a87f193865b2a192e5f7d25c28d2ad6c24c85bac5d2e36a59"
+  },
+  "execution_seconds": 21.321578048169613
+}

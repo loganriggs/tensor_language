@@ -271,3 +271,8 @@ All algebra checks are below1.25e-13. Shared128 branch3's progressive scalar-cha
 ## Coupled product metric and degree weighting (08:24)
 
 The next exact common-source objective and its native/dense controls are documented once in [COUPLED_GRADED_SOURCE_V1_MATH.md](COUPLED_GRADED_SOURCE_V1_MATH.md). Raw coefficient scale puts99.9976%ofnorm in pureproducer terms; an independently registered, scale-invariant per-degree relative metric includes mixed terms explicitly. This is a change of inductive bias, not a repaired previous verdict. Native kernel checks pass at~.13sec/gradient. Two-start rank128Grassmann fit submitted with gradient-defined convergence and subsequent frozen nativevalidation; no fitting outcome claimed before its terminal receipt.
+
+
+## Convergence does not repair fidelity; actual eighth-degree audit completed (08:57)
+
+Both [continued fits](COUPLED_GRADED_SOURCE_V1_MATH.md#converged-continuation-and-bounded-escape-audit-0850) converge reproducibly; the original joint effect-fidelity criterion remains failed. Sixteen registered rotationplanes offer no meaningful improvement. A [new exact eighth-degree contraction](COMPOSED_EIGHTH_CONTRACTION_V2_MATH.md) passes dense/native/gradient controls and compares the actual repeated-input coefficient metric using2048syntheticprobes. Error85.8%versusformal87.0%doesnotmeet the material-gap bar; pairedbootstrap agrees. This narrows two methodological explanations—unfinished local optimization and a large fixed-frame purepath metric discrepancy—without denying other structures or mixedpath effects. No new circuit is identified.

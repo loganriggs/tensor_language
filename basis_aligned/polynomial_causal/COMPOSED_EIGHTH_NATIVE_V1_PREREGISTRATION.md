@@ -1,0 +1,9 @@
+# Native repeated-input eighth-degree coefficient audit
+
+Use the corrected V2 contraction, whose dense, diagonal, permutation and producer/reader gradient controls pass. Exact object is the homogeneous pure MLP15 producer m(x)=lambda*D15[(L15x)*(R15x)], followed by q_j=m^T A_j m and branch coefficients q_0*q_3,q_0*q_8. Excludes bias, mixed background terms and RMS denominators; these omissions are explicit, not claimed to reconstruct the whole model.
+
+Reuse all28pair contractions across70four-slot subsets to evaluate the fully symmetric eight-linear coefficient tensor. Independent Rademacher vectors in eight slots have identity covariance, so mean squared contraction estimates its coefficient Frobenius norm. These are synthetic weight probes, not text data or activation fitting.
+
+Sample2048independent probe tuples in batches64, seed73190. Compare exact native producer with each of the two frozen converged rank128FP32read/write interfaces folded into Down15. Full-U writerGram weights bothbranches. No refit or outcome-based frame choice. Save per-probe reference/error energies to make uncertainty inspectable.
+
+A: native diagonal and slot-permutation relativeerrors<=1e-8; all finite positive reference means; exact2048probes. B: at least one actual eighth-coefficient relativeerror differs from its formal independent-producer degree4 prediction by>.05+2*estimated standarderror (delta-method paired ratio). C: relative standarderror<=.1 forboth actual relativeerror estimates and runtime<=120seconds. These are metric-discrimination and instrument bars, not circuit-identification criteria. Report misses and sampling uncertainty. Null: exact repeated-input symmetrization yields no resolved material metric difference in this bounded audit. Watchdog180seconds,0bodyforwards; no large tensor stored.

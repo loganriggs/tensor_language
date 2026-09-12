@@ -22010,3 +22010,21 @@ CPU2.276sec: rank128lossfloor.480319, trace1/PSDchecksheld; exacttoyboundequalsg
 
 ### 2026-09-12T08:43:47.172421+00:00 — Codex: GRADED FIT TERMINAL / SUBMIT CONVERGENCE CONTINUATION
 1082sec,A/B/Cfail. Both540secarms time_limit: losses.683979/.683968,gradients1.56e-4/2.74e-5. Bothbranch/family fidelityconjunctions fail; originalall-signspositive doesnotrepairmagnitude. Lowerbound.480319leavesoptimalityopen. ExistingLBFGSadaptercontrolpasses12updates; submit sameobjective300sec/arm continuation withoriginal10%loss/nativebars andsourcehashes. Planeauditheld untilconvergenceoutcome, noauto-adoption.
+
+### 2026-09-12T08:48:35.798023+00:00 — Codex: LBFGS CONVERGED / CLAIM V2 PLANE AUDIT
+157.27sec,ApassB/Cfail. Bothstationary gradients8.47e-7/8.92e-7, losses.683954688807/.683954688689. Originaltime-limit explanation no longerapplies to continuation; behavioral missstands. V2planeaudit rebindsunchanged8planes/arm toconvergedprogram; unexecutedV1originalinput audit preserved. Weight-onlychosenplane escapecheck next, no globaloptimalityclaim.
+
+### 2026-09-12T08:49:47.267630+00:00 — Codex: CLAIM CONVERGED CROSS-START AUDIT
+Beforeinterpretingmatchinglossasstablecomputation, CPUcomparefullprojectoroverlap andactualconditionalbranchwrites usingfrozen128endpoints. A meanprincipaloverlap>=.99; B everybranch/familyinterarmwriteerror<=1e-3. No refit/rematching orrepair ofnativefidelity misses. V2weight-onlyplaneauditmanagedsubmitted separately.
+
+### 2026-09-12T08:51:26.328649+00:00 — Codex: CONVERGED REPLICA / PLANE NULL / CLAIM EIGHTH CONTRACTION
+ReplicaA/Bpass: meanprincipaloverlap.99999894,mincos.99995947, allconditionalwriteerrors<=.000231. Planeaudit21.32sec,ApassB/Cfail; bestimprovements1.73e-12/2.39e-13 over16weight-onlyplanes. No meaningfulescapeinpanel; notglobalcertificate. Next changingobject: exactsymmetric8slotcontract forpureMLP15 producer throughfrozenA0/A3/A8. Reuse28bilinear pairs and70quartic-subset products, no dense1152^8tensor. Readpriorquarticoracle; existing8momentnote is different. CPUdense/diagonal/permutation/gradient controls next, mixedpathsremainexplicitfuturework.
+
+### 2026-09-12T08:54:59.862703+00:00 — Codex: EIGHTH V2 CONTROL PASS / NATIVE METRIC AUDIT
+V1forwardchecksheldbutambientreadergradient24.6%miss exposedimplicitmatrixsymmetry. V2explicitlysymmetrizesreaders; dense/diagonal/permutation/reader+producergradientsall<=3.34e-15. Bothfailedandcorrectedreceiptsretained. Native2048independent8slotRademacherprobescomparefullysymmetrizedpureproducererror withformaldegree4 prediction; no textfit, mixedtermsnotincluded. Managedsubmissionb3161992, exactbars/pricingpreregistered.
+
+### 2026-09-12T08:57:45.406827+00:00 — Codex: EIGHTH NATIVE TERMINAL / CLAIM PAIRED UNCERTAINTY AUDIT
+3.345sec,A/CpassBfail. Native diagonal/permutation<=1.79e-15. Actual8threlativeerror.85762/.85761 vsformal.87013; SE~.00769, no registered5pointgap. NextCPU pairedbootstrap/leave-probebatch-out audit; formal-to-symmetricnorm ratio andmeanoverlap across105producer-pairingcosets quantify scalechange. No proofthatmetricschoose samefactors, no mixedpathorabsentstructureclaim.
+
+### 2026-09-12T08:59:24.446967+00:00 — Codex: EIGHTH UNCERTAINTY AUDIT EXECUTED
+Pairedbootstrap95%errorinterval~[.8433,.8730], leave64probebatchout~[.8554,.8613]; materialmetricgapmissretained. Symmetric/pairedsquarednorm.010738impliesmeanotherpairingcosetoverlap.001226 via105cosets; averageonly, notindividualindependence. Exactdeeperoracle ready; no mixedpathorstructureabsenceclaim. Goalactive; nextCPUaudit wasexecuted after native result andallreceipts published.
