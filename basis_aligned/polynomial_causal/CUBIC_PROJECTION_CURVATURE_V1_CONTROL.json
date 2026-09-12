@@ -1,0 +1,32 @@
+{
+  "pred_a": true,
+  "dense_controls": {
+    "dense_hvp": 7.341030548867479e-16,
+    "gradient_fd_hvp": 3.9074346501144923e-10
+  },
+  "native": [
+    {
+      "arm": 0,
+      "objective": -0.9999999963459779,
+      "initial_equivalence_error": 3.6540220849090588e-09,
+      "gradient_norm": 0.030045353227559652,
+      "gradient_seconds": 1.2840993106365204,
+      "hvp_seconds": 2.228631965816021,
+      "hvp_fd_error": 6.433209002766858e-10,
+      "rayleigh": 0.4112223978667296,
+      "nonlinear_parameters": 110592
+    },
+    {
+      "arm": 1,
+      "objective": -1.0000000000023475,
+      "initial_equivalence_error": 2.347455563267431e-12,
+      "gradient_norm": 0.00037561642013767937,
+      "gradient_seconds": 1.288825262337923,
+      "hvp_seconds": 2.241311065852642,
+      "hvp_fd_error": 3.2212491596448473e-10,
+      "rayleigh": 2.125572541421671,
+      "nonlinear_parameters": 110592
+    }
+  ],
+  "scope": "Exact Hessian-vector product of reduced coefficient objective in fixed-separation secant coordinates, CPU price on frozen failed fits. No native optimization, recovery, or causal improvement claimed. Negative curvature is a local diagnostic only."
+}
