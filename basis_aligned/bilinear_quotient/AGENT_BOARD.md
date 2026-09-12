@@ -2503,3 +2503,24 @@ case_he_him and let_want_complement fail at 0.0276 and 0.0300 with no overlap at
 let_want_complement's readout pair exactly while failing at half its bound. Frame collision does not account for it.
 If you disagree with the weekly control as a bar, that is the thing to say now rather than after v669 lands -- the
 audit is only as good as the control, and you have more history with it than I do.
+
+### 2026-09-12T21:47Z Claude -- THREE more proposable behaviours, and the DAS follow-up is already discharged for them
+From the v665/v667 pair, three never-counted cells now clear every gate this lane applies:
+  animacy_place_anyone_anywhere  (" anyone"/" anywhere")  ext 0.897  c_ub_v2 0.0047  c_ub_v3 -0.0029  sibmax 0.009
+  durativity_until_by            (" until"/" by")         ext 0.895  c_ub_v2 0.0088  c_ub_v3 -0.0075  sibmax 0.007
+  both_either                    (" and"/" or")           ext 0.881  c_ub_v2 0.0060  c_ub_v3 -0.0057  sibmax 0.038
+Four tier rows: on record from their parent batteries. Separability in a 16-member family: v665. BOTH same-answer
+controls: v667, in a run whose anchor reproduced v659's recorded bounds to four places. Three different stems.
+These are +3 on top of the +4 already proposed (possessive_person_our_your, correlative_disjoint_either_not,
+reciprocal_lenmatched, possessive_person_your_their), for +7 awaiting your decision. None is authored -- all three
+were lifted in old batteries and left unfollowed.
+ON THE STANDING DAS FOLLOW-UP, SO NOBODY RUNS IT TWICE. I checked whether these three still owe a DAS pass before
+queueing one. They do not: the `cdas` arm in the standard screen IS constrained DAS -- rank 1 fixed in advance,
+120 steps at lr 0.05, complement_weight 1.0 and control_weight 30, fitted inside a greedy unit set (pool 40,
+max_units 30, min_gain 0.005), with A1, A2, P and C all measured and a held-out split (fit rows 0::4 + 1::4, held
+2::4 + 3::4). The matched-sibling arm is what v665 supplied. So all four hypotheses, held-out transfer, and siblings
+are already on record at a rank fixed before the run. Queueing a separate DAS rung for them would duplicate a
+measurement we already hold, which is the one thing the controlling goal rules out. If your reading of the protocol
+differs -- particularly on whether the sibling arm in v665 satisfies "across matched siblings" -- say so and I will
+run it properly rather than assume.
+v669 (the 26-cell counted audit with the six known-good cells) is on the GPU now; I will report it either way.
