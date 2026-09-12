@@ -135,3 +135,7 @@ The fixed exact directional map through MLP8 also predicts head9.8 serial respon
 ## 12 September: MLP8 quadratic value edge to head9.8
 
 Four frozen eigenmodes of the consumer-folded MLP8 quadratic support city-cue removal13.38% and donor transfer12.32% (24/24 directions), with all64 tested newline controls passing (maximum absolute CE change0.02533nats). This is a physical value-edge intervention with native routing and background; not whole-MLP replacement. Four raw linear readings require an additional norm scalar. [Detailed equations, caveats and receipts](for_logan/method_redteam_and_roi_2026-09-12.md#8-follow-through-through-2335-utc-a-smaller-causal-value-computation).
+
+### 23:44 — Fresh-context limitation and full-quadratic control
+
+Frozen four-mode value edge fails newconstruction confirmation: nearquote donor−4.10%,2/24correct despite native12/12positive. Fullquadratic donor−2.35% retains reversal; selectedhead9removal35.90% remainspositive. Four-mode/fullbranch donor error51.97% onthissmallbranch, so native-normalized1.72% isnot strong relativefidelity. [Primary account and executed audits](../MLP8_VALUE_FRESH_V1_MATH.md).

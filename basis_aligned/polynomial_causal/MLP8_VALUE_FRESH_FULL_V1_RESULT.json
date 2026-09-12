@@ -1,0 +1,152 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "replay": {
+    "anchor": 0.0,
+    "selfdonor": 0.0
+  },
+  "records": [
+    {
+      "family": 0,
+      "capable": true,
+      "removal_error_over_native": 0.005210595926927353,
+      "donor_error_over_native": 0.007100803464912977,
+      "arms": [
+        {
+          "arm": 1,
+          "coverage": 0.08831813532412633,
+          "positive": 12,
+          "count": 12,
+          "unrelated": 0.122796636439766
+        },
+        {
+          "arm": 2,
+          "coverage": 0.0904185176722205,
+          "positive": 12,
+          "count": 12,
+          "unrelated": 0.12794739817283493
+        },
+        {
+          "arm": 3,
+          "coverage": 0.09034898014708753,
+          "positive": 24,
+          "count": 24,
+          "unrelated": 0.12494505739343109
+        },
+        {
+          "arm": 4,
+          "coverage": 0.09764255304131438,
+          "positive": 24,
+          "count": 24,
+          "unrelated": 0.1241202088188442
+        },
+        {
+          "arm": 5,
+          "coverage": 0.40579540105716655,
+          "positive": 12,
+          "count": 12,
+          "unrelated": 0.10910800923264943
+        }
+      ]
+    },
+    {
+      "family": 1,
+      "capable": true,
+      "removal_error_over_native": 0.012024464039584067,
+      "donor_error_over_native": 0.017231960062858043,
+      "arms": [
+        {
+          "arm": 1,
+          "coverage": 0.014617406132206245,
+          "positive": 6,
+          "count": 12,
+          "unrelated": 0.14054528694828944
+        },
+        {
+          "arm": 2,
+          "coverage": 0.01129508771862582,
+          "positive": 6,
+          "count": 12,
+          "unrelated": 0.14206557076793297
+        },
+        {
+          "arm": 3,
+          "coverage": -0.04102256505434741,
+          "positive": 2,
+          "count": 24,
+          "unrelated": 0.1570304863848815
+        },
+        {
+          "arm": 4,
+          "coverage": -0.02353844229587956,
+          "positive": 2,
+          "count": 24,
+          "unrelated": 0.17003316798158144
+        },
+        {
+          "arm": 5,
+          "coverage": 0.35895432750800027,
+          "positive": 12,
+          "count": 12,
+          "unrelated": 0.13359359382368496
+        }
+      ]
+    },
+    {
+      "family": 2,
+      "capable": true,
+      "removal_error_over_native": 0.008943136372443436,
+      "donor_error_over_native": 0.006240313604919176,
+      "arms": [
+        {
+          "arm": 1,
+          "coverage": 0.0733283805227951,
+          "positive": 12,
+          "count": 12,
+          "unrelated": 0.13928884757045443
+        },
+        {
+          "arm": 2,
+          "coverage": 0.08165073884509948,
+          "positive": 12,
+          "count": 12,
+          "unrelated": 0.1486572577417921
+        },
+        {
+          "arm": 3,
+          "coverage": 0.10645636299558756,
+          "positive": 24,
+          "count": 24,
+          "unrelated": 0.12191492307332054
+        },
+        {
+          "arm": 4,
+          "coverage": 0.11260836799897388,
+          "positive": 24,
+          "count": 24,
+          "unrelated": 0.12102168917641404
+        },
+        {
+          "arm": 5,
+          "coverage": 0.37017781398422683,
+          "positive": 12,
+          "count": 12,
+          "unrelated": 0.11543271466395137
+        }
+      ]
+    }
+  ],
+  "body_forwards": 432,
+  "seconds": 6.856593802571297,
+  "arm_names": [
+    "native",
+    "phi4_remove",
+    "fullquad_remove",
+    "phi4_donor",
+    "fullquad_donor",
+    "fullselected9_remove"
+  ],
+  "scope": "Reused fresh panel, full-quadratic discriminator of rank4 failure; donor numerator with recipient QK/rho, native context retained.",
+  "artifact_sha": "07e21a5ee314eab5d3e0f73b09a0d375c5e23b89364c02ced1bce7cacd2db95e"
+}

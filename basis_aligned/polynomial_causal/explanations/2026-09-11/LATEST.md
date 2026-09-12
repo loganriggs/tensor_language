@@ -1,3 +1,7 @@
+## 12 September, 23:44 — Fresh-context confirmation fails; full quadratic preserves reversal
+
+[Primary result and executed counter-review](../../MLP8_VALUE_FRESH_V1_MATH.md): four-mode donor9.03/−4.10/10.65% across three new constructions; allnativecapable, originalB/Cfail. Fullquad nearquote−2.35% retains reversal while selectedhead9 removal35.90%. Branch-relative donor approximation error51.97% despite1.72%native-normalized discrepancy. No general city-circuit promotion.
+
 ## 12 September, 23:35 — Four-mode MLP8 value path transfers city information
 
 [Latest requested review, section8](../for_logan/method_redteam_and_roi_2026-09-12.md#8-follow-through-through-2335-utc-a-smaller-causal-value-computation): city donor transfer12.32%,24/24 correct directions;64 newline controls pass, maximum absolute CE change0.02533nats. Endpoint concentration audit supports the narrow result. Four raw readings require a norm scalar; native routing/background remain supplied.

@@ -375,3 +375,8 @@ That uses three real scalar products. It reuses an earlier algebraic idea from t
 The latest six finer mixed-key additions did not solve the earlier coverage/preservation tradeoff: stronger additions hurt the adverse newline control; weaker ones left coverage below the registered bar. That rejects those six fixed assemblies, not the existence of another useful split. [Completed comparison](../../MIXED_BAND_ADDITIONS_V1_RESULT.json).
 
 The practical bottleneck remains experiment preparation and interpretation more than these small native runs. Reuse the existing executor and scorer, preserve exact controls, and avoid building a general structure-search framework now. **Your normalized Frobenius tensor-sim proposal remains the deferred note in section5.** It becomes attractive when several concrete graph hypotheses share an inexpensive, already-tested contraction objective; it is not a new implementation campaign.
+
+
+### Subsequent confirmation at23:44: an important limitation
+
+The next frozen test failed on new sentence constructions. City-value donor transfer was9.03%,−4.10%,10.65%; the native model was capable in every family. A full-quadratic control also reverses the middle construction (−2.35%), while the broader selectedhead9 component still removes35.90% of its contrast. The four-mode branch is therefore not a uniformly positive city-cue mechanism. An executed error audit also finds51.97% donor error relative to the small full-quadratic branch, despite only1.72% relative to the whole native contrast. These results preserve the earlier positive panels but block broader promotion. [Full explanation, controls and next inference](../../MLP8_VALUE_FRESH_V1_MATH.md).

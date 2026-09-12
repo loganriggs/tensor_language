@@ -1,0 +1,95 @@
+{
+  "records": [
+    {
+      "family": 0,
+      "removal": {
+        "error_over_native": 0.005210595926927353,
+        "error_over_full_branch": 0.05913944573957059,
+        "full_branch_norm": 1.0013141596518957,
+        "four_branch_norm": 0.9833827165512463,
+        "cosine": 0.9983826461598482
+      },
+      "donor": {
+        "error_over_native": 0.007100803464912977,
+        "error_over_full_branch": 0.0740114475717928,
+        "full_branch_norm": 1.541997975944335,
+        "four_branch_norm": 1.4305709424321376,
+        "cosine": 0.9998620435777295
+      }
+    },
+    {
+      "family": 1,
+      "removal": {
+        "error_over_native": 0.012024464039584067,
+        "error_over_full_branch": 0.3591258911262514,
+        "full_branch_norm": 0.26174411418547683,
+        "four_branch_norm": 0.34193583904983155,
+        "cosine": 0.9865635525265187
+      },
+      "donor": {
+        "error_over_native": 0.017231960062858043,
+        "error_over_full_branch": 0.5196749491360177,
+        "full_branch_norm": 0.3665859436005002,
+        "four_branch_norm": 0.49264562572972453,
+        "cosine": 0.9435170062320308
+      }
+    },
+    {
+      "family": 2,
+      "removal": {
+        "error_over_native": 0.008943136372443436,
+        "error_over_full_branch": 0.11170303420758193,
+        "full_branch_norm": 1.173368437731497,
+        "four_branch_norm": 1.055720568426658,
+        "cosine": 0.9986526679246784
+      },
+      "donor": {
+        "error_over_native": 0.006240313604919176,
+        "error_over_full_branch": 0.0542703746721044,
+        "full_branch_norm": 2.3832418269044005,
+        "four_branch_norm": 2.255221279149929,
+        "cosine": 0.9999684238823828
+      }
+    }
+  ],
+  "nearquote_endpoints": [
+    {
+      "concept": 0,
+      "fullquad_donor": 0.006307094190930656,
+      "positive": 2,
+      "directions": 4
+    },
+    {
+      "concept": 1,
+      "fullquad_donor": -0.031794397798167735,
+      "positive": 0,
+      "directions": 4
+    },
+    {
+      "concept": 2,
+      "fullquad_donor": -0.023900645497429478,
+      "positive": 0,
+      "directions": 4
+    },
+    {
+      "concept": 3,
+      "fullquad_donor": -0.056258499478171575,
+      "positive": 0,
+      "directions": 4
+    },
+    {
+      "concept": 4,
+      "fullquad_donor": -0.04228377851829629,
+      "positive": 0,
+      "directions": 4
+    },
+    {
+      "concept": 5,
+      "fullquad_donor": -0.027858444551085836,
+      "positive": 0,
+      "directions": 4
+    }
+  ],
+  "replay_error": 0.0,
+  "scope": "Descriptive post-result error-normalization audit; original 5%native bars unchanged, no promotion or absence-of-structure claim."
+}
