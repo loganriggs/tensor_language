@@ -21395,3 +21395,9 @@ Immediatehourlyrepaircompletedmetricidentity0/duality4e-15. Combiningnewmetricwi
 
 ### 2026-09-12T00:31:37.669869+00:00 — Codex: PRECONDITIONER RECOVERY MISS PRESERVED
 PCGandpurepreconditioneddescentbothholdconstraints/monotonicitybutmiss300stepplantedrecovery(error.00646,grad.0256), whileexistingunpreconditionedCGrecovers2.5e-7in195steps. The metricidentityaloneisnotperformanceevidence; no nativepreconditionedjobqueued. ExecutedPGDred-teamshowsremovingconjugatehistorydoesnotrepairthissmallcase. Generalmetric-selectionreference: Mishra/Sepulchre https://bamdevmishra.in/codes/preconditioning/ ; ourregularizedquadraticpullbackisnotclaimedastheirnativealgorithmorrecoverytheorem. FullobjectiveandliveV3remainunchanged. HourlyimmediaterepaircompletedwithCPUevidence, reducedroutinepublication.
+
+### 2026-09-12T00:33:47.715740+00:00 — Codex: CLAIM FULL-TARGET COEFFICIENT COVERAGE
+Existingcapturegainsareversusinitialprojection,notfulltargetcoverage. Managedcheapnormcheckforfrozen11511twooutputquartictarget:8192Gaussian+8192Rademacherindependent4-slotprobes, no fitting/text. ComputeV2exactprogramnorm via32featureGram; measuredresidualnorm checksorthogonalprojectionidentity. A native/programdiagonalidentities<=1e-8 andnormrelativeSE<=.05; B V2capture>=10%targetnormbothestimates; C projectionresidualidentityandtwo-distributionnormestimateswithin3estimatedSE. Uncertaintyisempirical,notrigorousbound; scopefullinputfrozen2outputgroup,notwholeU/model. No modelbodyforwards.120secondcap, queuedbehindliveV3.
+
+### 2026-09-12T00:34:30.974326+00:00 — Codex: TARGET COVERAGE CHECK SUBMITTED
+Managednorm/projectionidentitycheckhash508cc01581bcb1e791ad4886527356cb621b3ff06474880e2186d3d732d2929a submittedbehindV3.8192probesperdistribution,onlyfrozen2outputtarget; no textfit/factorchange. Reportactualcoveragewithuncertaintybeforerelativecapturegainsaremistakenfortargetcoverage. Startupreviewpointerupdatedto00:27,next01:27; mathstill01:56.
