@@ -1,3 +1,5 @@
+Current composed comparison: [12 September06:32 results](COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md). Sparse-frame continuation remains unconverged; one recurring node passes development but fails12of32context swap cells. Matched-cost trained-product OLS captures39.67%but hasworse nativewrite24.22%; symmetricquartic rescore doesnotrescueoldgraph. Earlier status rows below are historical.
+
 # Weight-only structural methods: current receipt index
 
 Current composed-route status verified **12 September 03:26 UTC**. Use this index before opening a structural family

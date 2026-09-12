@@ -1,3 +1,11 @@
+# Current result —12 September06:44 UTC
+
+[Matched optimal partners](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#matched-optimal-partner-subspace--12-september0644): same-cost SVD reduces squared coefficient error58.27% and context swap failures12→5. Development passes; broader swap fidelity still fails. No circuit promotion.
+
+# Current result —12 September06:32 UTC
+
+[Composed-method comparison](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md): continued node passes all developmental bars; broader context passes all32write/removal cells but fails12swap cells. Full graphs and matched-cost dictionary still fail native fidelity; symmetrization leaves graph capture near9.1%. No circuit promotion.
+
 # Current result —12 September06:04 UTC
 
 [Native sparse graph fidelity](../../FULL_INPUT_SPARSE_CORE_V1_RESULTS.md): fullgraph writeerror9.12%, allswapfamiliesfail. Recurringnode removalpassesallfourfamilies, A2swap10.54%misses10%bar; no promotion. AmortizedPR+continuation live; previoustwofitsunconverged.

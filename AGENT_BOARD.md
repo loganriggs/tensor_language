@@ -21854,3 +21854,21 @@ Prior COMPOSED_QUARTIC_NATIVE_V1 alreadyimplements fullU quarticoracle (3.61sec)
 
 ### 2026-09-12T06:20:12.297650+00:00 — Codex: SYMMETRIC METRIC AUDIT QUEUED
 Source1c17af5bb602f4ac41fd76f69d0e1213306c937dc340e46b7cc5ef40d71baff2 passespreflight, queuedafterdictionarybaseline. Reusesnativequarticoracle, no newfactorfit/text. Pred25%capturegain tests pairedmetricexcuse onfixedoldgraph; full/centeredmetrics andpaired-sampleSEreported. Currentindependentamortizedarm720updates9.1836%,stillunconverged.
+
+### 2026-09-12T06:24:47.917338+00:00 — Codex: THREE TERMINAL RECEIPTS / SUBMIT CONTINUED FIDELITY
+Amortized1209sec,A/CpassB/Dfail:10.358%/9.506%,functioncos.820316,1180/1187updates,bothunconverged. MatchedOLS2.66sec,A/B/DpassCfail:39.673%vsrandom31.243%,nativewrite24.22%vsgraph9.12%,allfidelityfamiliesfail. Symmetricmetric4.66sec,A/CpassBfail:centered9.144%/9.062%vs paired9.086%,SE.058pp; no25%gain. Weightspaceadvantageisnotnativefidelity; symmetrizationdoesnotrescuethisfixedgraph. Submitpreparedunchangedfidelity oncontinuedframes, no changedbars.
+
+### 2026-09-12T06:29:03.316896+00:00 — Codex: CONTINUED NODE PASSES DEVELOPMENT / CLAIM CONTEXT CONFIRMATION
+Continuedfullgraphstillfails; selectednode0passesallwrite/swap/removalbars (3.109%write; swaps1.22/7.00/2.90/3.74%; readercosold.99885). This ispassingcomponentscreen,notsemantic/OODcircuit. Freezeexactfit671edge program; next reusecached1024endpoints/32contextcells withsamebars, no refit/no exclusions. Thispanelwasinspectedforotherprograms, so labelbroadercontextvalidationnotuntouchedholdout. Nativecapability failuresreportedseparately. Claimrun_sparse_node_context_v1/prereg/binding.
+
+### 2026-09-12T06:32:08.932903+00:00 — Codex: CONTEXT TERMINAL / CLAIM FAILURE MAGNITUDE AUDIT
+5.22sec,A/C/DpassBfail:all32write/removalcells pass,12swapcellsfail including2sign-onlymisses. Noexclusions/barrepair. CPUreportnativecapability andreferenceeffect RMS forfailedcells, deriveabsolutemarginerror fromregisteredrelativeerror to distinguishsmall-effectnormalization frombroadloss. Exactnode/approximationunchanged. ClaimcontextfailuremagnitudeJSON.
+
+### 2026-09-12T06:35:04.827873+00:00 — Codex: CLAIM MATCHED PARTNER SUBSPACE
+Contextfailed12cells;6havebothnativecapabilities>=.75, absoluteerrors.00126–.00281. Preserveverdict. Exactnode0+selfterm fixed, replace670coordinatepartners withoptimal670dimensional perpendicularpartner subspace viaweightedSVD, same14,481,792floats as671edges. Prior shared-parent rank16globalpartnerSVD alreadychecked; thisisconstrainedexactself andmatchedcurrentbudget, notanuntriedgenericSVDclaim. CPUprove/replay feasibleprojection dominance thenpreparemanagednative fit/validation; no A2datafit.
+
+### 2026-09-12T06:42:51.407942+00:00 — Codex: MATCHED PARTNER IMPLEMENTED
+Fixed reader and exact self; rank670 weighted SVD replaces670 coordinate partners at unchanged14,481,792floats. Both cached panels reuse frozen scorer/reference effects; algebra, old feasible projection and SVD residual checks included. No text fit, no changed fidelity bars. Preparing managed submission.
+
+### 2026-09-12T06:45:31.186952+00:00 — Codex: MATCHED PARTNER TERMINAL / CLAIM FROZEN TOKEN READOUT
+7.00sec, A/C/Dpass Bfail. Squared coefficient error falls58.27% at identical price; development all pass, context swap failures12→5, write3.020→2.182%. Conditional SVD residual identity5.1e-13 excludes incomplete optimization within this class. Next CPU inspect leading8 fixed partner output branches across all vocabulary: raw centered-token loadings plus cosine-normalized loadings, positive/negative extremes, no task selection/refitting or semantic promotion. Reuse saved program; no GPU work.
