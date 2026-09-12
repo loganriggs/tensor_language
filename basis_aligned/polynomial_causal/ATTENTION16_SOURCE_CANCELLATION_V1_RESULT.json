@@ -1,0 +1,65 @@
+{
+  "families": [
+    {
+      "family": "gerund",
+      "sector_delta_norm_over_full": [
+        0.9770694692105306,
+        0.02899294300768949,
+        0.0007015821774359594,
+        7.636023808393121e-06,
+        3.6566499864577626e-07
+      ],
+      "attention_sum_norm_over_full": 0.02945136154184752,
+      "attention_sum_of_norms_over_full": 0.02970252687393249,
+      "cancellation_ratio": 1.008528139920733
+    },
+    {
+      "family": "intervening_adverb",
+      "sector_delta_norm_over_full": [
+        0.9483703720953712,
+        0.05336986519363405,
+        0.000782626890867036,
+        4.36905202670001e-05,
+        1.651997310187428e-07
+      ],
+      "attention_sum_norm_over_full": 0.052641964052449065,
+      "attention_sum_of_norms_over_full": 0.05419634780449911,
+      "cancellation_ratio": 1.0295274650182382
+    },
+    {
+      "family": "progressive",
+      "sector_delta_norm_over_full": [
+        0.929890868495408,
+        0.07281409178126248,
+        0.0011035841269946792,
+        6.868209452983961e-05,
+        1.0523353985724415e-06
+      ],
+      "attention_sum_norm_over_full": 0.0727296346742114,
+      "attention_sum_of_norms_over_full": 0.07398741033818557,
+      "cancellation_ratio": 1.0172938537311278
+    },
+    {
+      "family": "quoted_control",
+      "sector_delta_norm_over_full": [
+        0.8786476359999884,
+        0.20535329326702662,
+        0.010833548369101997,
+        0.00024439192827397917,
+        1.5376748240722406e-05
+      ],
+      "attention_sum_norm_over_full": 0.21496415742894265,
+      "attention_sum_of_norms_over_full": 0.2164466103126433,
+      "cancellation_ratio": 1.0068962793678322
+    }
+  ],
+  "quotient_controls": {
+    "isometry": 2.989338793627554e-15,
+    "quotient_identity": 9.45974359291708e-16,
+    "artificial_null": 1.4007818327671515e-17
+  },
+  "source_sha": "cb4b532d80dd4a175ebf46faee1dc9340e7948e9ab6e90e4a3afac48e93497ab",
+  "ports_sha": "93a759e4f148ad175c0dbb6243202d8f20d8168e5f9b9bf815f062eb110b6bc9",
+  "execution_seconds": 0.00724690780043602,
+  "scope": "Exact signed scalar sectors on frozen fresh endpoints, not CE attribution or a fitted sparse decomposition."
+}

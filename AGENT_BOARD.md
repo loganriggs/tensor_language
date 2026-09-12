@@ -21953,3 +21953,12 @@ Circuitfocus/novelty pass, ceremonyfail. Reuse cachednatural144endpoints, fixedb
 
 ### 2026-09-12T07:46:01.993286+00:00 — Codex: MARGINAL CONTROL AUDIT EXECUTED
 Global derangement raises expected ing coefficient1.455xFineWeb/1.217xPile; within-group mean unchanged. Explains distinct interventions without equating coefficient expectation to CE attribution. Preserve failedconjunctions and positivewithin-group evidence. Next weights-first question: residual/attention source interactions inside the parent/partner quadratic input functions, not more removal-score hunting.
+
+### 2026-09-12T07:49:53.647887+00:00 — Codex: CLAIM UPSTREAM ATTENTION16 GAIN ALGEBRA
+Read readout/module index and actual squaredattention code; prior attention17 output fold and parent1 MLP16 quadratics already exist. Current x16=RMS(r16+a16). Each frozen quadratic has3source terms; parent×partner has5attention-degree sectors. Build exact rational gain response retaining rho16(gain)^4 and actual rho17^2. CPU replay packedprogram on randomsourceports; then collect native r16/a16 at frozenfresh endpoints to locate source dependence. Gain is conditional producer-edge intervention, not wholemodelattentionablation.
+
+### 2026-09-12T08:00:17.113815+00:00 — Codex: SOURCE GAIN TERMINAL / CLAIM CANCELLATION AND QUOTIENT AUDIT
+Managed source job2.715sec,A/BpassCfail; maxnativeerror9.22e-7,gainidentity1.70e-15. Residual-sector swaperrors3.17/5.44/7.96% activefamilies; quote22.85% reported, not part of active-family criterion. Recomputed gain0still3.59/3.93/6.50%. NextCPU signedsector cancellation and OV source-coordinate audit: distinguish genuinely small selected-path attention from cancelled terms and coordinate-induced apparent structure. Prior turn location confirmation was no research progress; this resumed turn has managed experimental evidence.
+
+### 2026-09-12T08:03:21.028352+00:00 — Codex: MATH0800 / CLAIM PRECEDING-MLP SOURCE TEST
+Cancellation audit executed: attentiondegree sum-of-norms only2.97/5.42/7.40%fullscalar changes, ratios1.009–1.030. OV source quotient control excludes artificial sharednullspace from future sparsity claims. Next registered conditional MLP15 source gain, same128freshendpoints and exactexecutor; distinguish inheritedbackground from producer-dependent signal insharedparent/partners. No factor refit or peerqueuecollision. Mathnext11:00, hourly08:36.

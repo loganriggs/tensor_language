@@ -1,0 +1,7 @@
+# Native source test for the frozen parent/partner program
+
+Use all64fresh construction pairs,128endpoints,16actual native body forwards of at most18tokens. Capture block16 post-re-entry residual, attention16 output, pre-output-projection head vector and normalized MLP16 input. Replay cached native tail and source sum before interpreting paths.
+
+A: exact counts and source input, head-projection and cached native-tail relative errors<=1e-5; gain1branch writes reproduce cached branch3/8<=1e-5; rational gain program agrees with direct packed execution at gains0,.5,1,1.5<=1e-8. B: for branch8 the residual-only numerator sector at the actual native denominator reproduces full branch swap effects within.1relative RMS/sign>=.9/live>=4 in allthree active fresh families. C: the complementary attention-dependent numerator sectors do so under the same bars. Quoted control is reported separately and never discarded from saved scores. These are opposing conditional approximation hypotheses, not assertions that both must hold. Report all signed sectors and their cancellations.
+
+Also report gain0effects with the MLP16 normalization recomputed from residual-only input, while retaining downstream rho17/nativebackground ports. The five polynomial sectors at native gain use common actual denominators. Removing attention in the whole model would also change other descendants, so none of these isolated writes is labelled full attention ablation. No new factor fit, data-driven weight selection or semantic circuit promotion. Reuse exact gain helper and shared scorer.

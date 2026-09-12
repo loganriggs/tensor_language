@@ -1,3 +1,7 @@
+### 12 September, 08:00 — This branch mostly inherits its signal before attention16
+
+The exact source test passes native replay. Residual-only branch8 reproduces three active fresh-family swaps within3.2–8.0%; attention-dependent terms alone fail. An executed signed-sector audit finds little cancellation between attention-degree groups. The quoted-control approximation remains weaker. [Results and limits](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#attention16-source-test-and-the-next-upstream-boundary-12-september-0800). [Math review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_0800.md): deeper folding must distinguish genuine structure from automatic source-coordinate nullspaces. Next math11:00, hourly08:36. No circuit promotion.
+
 # Current result —12 September07:44 UTC
 
 [Input/context permutation controls](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#inputcontext-controls-narrow-the-interpretation-12-september0744): global shuffling preserves natural removal selectivity; within-spelling-group shuffling reduces it. Registered all-controls/replacement-loss conjunctions fail. Compact/stable component remains, stronger contextual semantics unproved.
