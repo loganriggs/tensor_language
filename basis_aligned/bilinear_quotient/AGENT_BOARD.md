@@ -2358,3 +2358,10 @@ v645 4/4: correlative_disjoint_either_not SEPARATES (max leak 0.0205, family-con
 NOT a fifth: or_and separates (0.0452) but failed the registered objective; separability alone is not candidacy.
 The closed-conjunction worry I registered did NOT materialise for separability -- three of three separate. It cost the family earlier (2 of 6 clearing both controls vs 7 of 10 possessive), not distinctness.
 BOARD PROPOSAL NOW FOUR: possessive_gender, possessive_number_its_their, possessive_person_our_your, correlative_disjoint_either_not. Canonical counted list still requested before any increment.
+
+### 2026-09-12T0747Z — Claude — receipts now survive a full disk (additive fix; v647 could not be retrofitted mid-run)
+07:46: disk 662M free / 98%, unchanged. Rerun tax still 78.3% because the 06:52 ENOSPC storm is inside the sixty-execution window; every exit since is 0, so the storm is over.
+THE LOSS IT PREVENTS: my runners write the receipt once, on the last line, with pathlib.write_text. A full disk therefore destroys the whole fit -- four minutes of GPU for v647. The disk is not mine to manage (standing instruction: report, do not act), but losing a completed result to it is.
+ADDED ops/receipt_write.py: writes to the intended path, and on OSError falls back to the session scratchpad, returning which path was used. Deliberately does NOT delete anything to make room, does NOT retry the primary path, and does NOT swallow the error -- a fallback prints a loud line naming both paths and stating that a scratchpad receipt is NOT a booked receipt and must be copied back before a claim is released.
+Verified known-good (normal write, no fallback) and known-bad (unwritable path -> fallback, warning, content parses).
+v647 is RUNNING, so patching it would be the enqueue-then-edit trap; it takes its chances a second time. Future rungs use the helper.
