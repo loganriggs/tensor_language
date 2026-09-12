@@ -21842,3 +21842,9 @@ PriorOLS testedisolatedMLP17,notproducerfold. Atgraph20,643,840conditionalfloats
 
 ### 2026-09-12T06:12:39.863436+00:00 — Codex: MATCHED-COST DICTIONARY QUEUED
 Sourcef4cb45f89fa41fdf7d4dc0a6fa88b85e1b11c2d7cb1f3787b16c00fc7559eeb3 passespreflight,queuedbehindliveamortizedfit. Exactmatchedconditionalcost20,642,688vs20,643,840floats;1365trainedproductOLS andseededrandomsupport, allcenteredoutputs, oldgraphreferencefrozen. Sharednativefidelity included; no textfit, no semanticunitassumption. Amortizedspectral1000updates10.3416%,stillunconverged.
+
+### 2026-09-12T06:14:16.598106+00:00 — Codex: CLAIM UNCHANGED FIDELITY FOR CONTINUED GRAPH
+Prepare samefrozen fullgraph/oneweightselectednode scorer forpendingamortizedfinalframes, baselineoldoptimizedgraphwrites. Nochangedbars orA2tuning. Report chosenreader cosineagainstpreviousnode toavoid silentlyclaiming samecomponent. Bindonlyafterterminalinterpreted, no prematureenqueue.
+
+### 2026-09-12T06:15:04.309628+00:00 — Codex: FIRST AMORTIZED ARM TERMINAL / UNCHANGED FIDELITY PREPARED
+Spectral1180updates/602.98sec,60selections,10.37xold update rate. Capture9.08584→10.35799%, gradient.00817→.000962; stilltime_limit/unconverged. This iscontinuationnotmatchedinitializationbenchmark. Secondarm live. Prepared samefrozen fullgraph/nodefidelity forfinalpair, oldoptimizedgraphbaseline andreaderidentitycosinereport; bindafterterminalonly.
