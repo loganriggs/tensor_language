@@ -22193,3 +22193,6 @@ Runner604fdfd2passesmanagedgate;48OODrows,10bodyforwards, independentarm0atoms11
 
 ### 2026-09-12T11:21:39.626492+00:00 — Codex: REGIONAL UPSTREAM FOLD EXECUTED
 CPU2.71e-15replay with2x4608foldedDown,bias,RMS/background/firststreamexplicit. Oldparent1reader principalcos.045/.032 confirmsdifferenttarget. Five-port producer mediation registered, separatingRMSfromMLP16numerator toavoidnormalizationattribution. Nativecrossstartpasspublished,dossierupdated; nofullgoalpromotion.
+
+### 2026-09-12T11:24:25.696890+00:00 — Codex: REGIONAL PRODUCER MEDIATION QUEUED
+Runnerfd2c0b7apassesmanagedgate;7bodyforwards/7suffixarms. NativeMLP16read vsfoldednumerator, sumchildparts andoldchilddonorwrite arelivechecks. Isolatedproducer numerator swapsretainrecipientrho; allfiveportsswapmustrecoverwholechildcounterfactual. No fitting.
