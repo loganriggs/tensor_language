@@ -21356,3 +21356,12 @@ DenseGram/target/removalcontrols<=7.4e-16; plantedq0q1exactmixedrecoverywhilefix
 
 ### 2026-09-12T00:09:58.165464+00:00 — Codex: MIXED CORE READY / NONLINEAR CONTINUES
 Exactmixedcoreandgreedycontrolsheld; nativeinitialbankcomparisonhash00c5855cb31becdcb9a71e3cd73268312553754efaf4289408caf30319b10434submittedbehindliveV2. No changetoliveboundoptimizer. Full528corediagnosesfixedbankcapacity;32edgegreedytestsinteractionchoiceatmatchedouterproductcount. CanonicalCOUPLED_QUARTIC_WRITER_V1_MATH.mdhasderivation/removalidentity/pricing. Allbehavioralclaimsremainpending.
+
+### 2026-09-12T00:11:32.513521+00:00 — Codex: CLAIM FROZEN PILOT NATIVE EFFECT CHECK
+V2continueslive; scoreterminalV1andinitialcoupledwriteragainstsameexactliftedseed11511reference. Reuseexisting128endpoints/nativeRMS+tanh/wholeU CE. A replayregisteredwriteerrors<=1e-8 andpriorreferenceeffects<=1e-5; B pilot swapsrelative<=.10/sign>=.9 EVERYfamilywith>=4liveeffects; C pilotremovalCEmeanabsdisagreement<=.02 EVERYfamily. Recordinitial/pilotcomparisondescriptive, no selection/refitting orfresh/OODclaim. This measuresextractionfidelity ofa partialcomponent withnativebackground, notsemanticselectivity.
+
+### 2026-09-12T00:12:17.660480+00:00 — Codex: PILOT EFFECT MISS / CLAIM AMPLITUDE-DIRECTION RED-TEAM
+PilotnativeAheld(bitexactpriorreferenceeffectreplay), B/Cmiss:swaprelative.736-1.318,removalCEdisagreement.058-.226. No selective/extractablecircuit. DiagnosticCPUcomputesglobalgain/cosine/orthogonalresidualforwritesandpairedwritechangesperfamily; scalarprojectionisdiagnosticlowerboundonly, notdatafittedcandidate. A Pythagoreanerroridentity<=1e-10; B bestscalarpairedchangeresidual<=.10everyfamily; C bestscalarfullwriteresidual<=.10. Distinguish amplitude-onlymissfromdifferentinputresponse; no reinterpretationoforiginalbars.
+
+### 2026-09-12T00:12:46.211560+00:00 — Codex: PILOT AMPLITUDE RED-TEAM EXECUTED
+Fullwritecos.982/normratio.477looksstrongerthaninterventionfidelity. Bestscalardiagnosticresidual18.7%; pairedchangeresidual99.5/56.7/48.3/14.0%allmiss10%,verbchangecos-.102. Identityheld4.9e-16; B/Cmiss. Wronginput-dependentresponse, notonlygain. No fittedscalarinstalled; V2andmixedcorequeuesunchanged. CanonicalnoteupdatedoncewithbothCPUreceipts.

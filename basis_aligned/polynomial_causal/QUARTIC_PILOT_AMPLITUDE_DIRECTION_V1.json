@@ -1,0 +1,43 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "full": {
+    "cosine": 0.9823962783178399,
+    "norm_ratio": 0.47687021896252696,
+    "diagnostic_best_gain": 2.060091486642064,
+    "best_scalar_relative_residual": 0.18680886581545966
+  },
+  "families": [
+    {
+      "family": "A1",
+      "cosine": -0.10172826851467368,
+      "norm_ratio": 0.5988280004699009,
+      "diagnostic_best_gain": -0.16987894426253833,
+      "best_scalar_relative_residual": 0.9948122231783288
+    },
+    {
+      "family": "A2",
+      "cosine": 0.8237556868593132,
+      "norm_ratio": 0.6203419119648076,
+      "diagnostic_best_gain": 1.327905903133699,
+      "best_scalar_relative_residual": 0.5669449429767781
+    },
+    {
+      "family": "past",
+      "cosine": 0.8754176390213436,
+      "norm_ratio": 0.5585936047517934,
+      "diagnostic_best_gain": 1.5671816354043753,
+      "best_scalar_relative_residual": 0.48336731094510005
+    },
+    {
+      "family": "progressive",
+      "cosine": 0.9901988764407378,
+      "norm_ratio": 0.4134828559947101,
+      "diagnostic_best_gain": 2.394776136627552,
+      "best_scalar_relative_residual": 0.13966454487629468
+    }
+  ],
+  "maximum_identity_error": 4.856018006000911e-16,
+  "scope": "Posthoc geometric diagnosis only; no rescaled candidate installed or selected."
+}

@@ -1,0 +1,114 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "reports": [
+    {
+      "name": "initial",
+      "physical_error": 0.5691156740163624,
+      "families": [
+        {
+          "family": "A1",
+          "swap_relative_rms": 1.3393276356550805,
+          "swap_live": 16,
+          "swap_sign_agreement": 0.6875,
+          "zero_ce_meanabs_disagreement": 0.13969607651233673,
+          "zero_ce_mean": [
+            0.03784888982772827,
+            0.17224235832691193
+          ]
+        },
+        {
+          "family": "A2",
+          "swap_relative_rms": 0.7951918378868431,
+          "swap_live": 16,
+          "swap_sign_agreement": 0.9375,
+          "zero_ce_meanabs_disagreement": 0.23821601271629333,
+          "zero_ce_mean": [
+            0.10650773718953133,
+            0.3286854363977909
+          ]
+        },
+        {
+          "family": "past",
+          "swap_relative_rms": 0.9021133275149916,
+          "swap_live": 16,
+          "swap_sign_agreement": 0.9375,
+          "zero_ce_meanabs_disagreement": 0.06106729060411453,
+          "zero_ce_mean": [
+            -0.0009020492434501648,
+            0.0033954083919525146
+          ]
+        },
+        {
+          "family": "progressive",
+          "swap_relative_rms": 0.8462436038055441,
+          "swap_live": 16,
+          "swap_sign_agreement": 1.0,
+          "zero_ce_meanabs_disagreement": 0.11094918847084045,
+          "zero_ce_mean": [
+            0.03550940006971359,
+            0.09450850635766983
+          ]
+        }
+      ]
+    },
+    {
+      "name": "pilot",
+      "physical_error": 0.5389379825495398,
+      "families": [
+        {
+          "family": "A1",
+          "swap_relative_rms": 1.318405193877473,
+          "swap_live": 16,
+          "swap_sign_agreement": 0.6875,
+          "zero_ce_meanabs_disagreement": 0.13442616164684296,
+          "zero_ce_mean": [
+            0.04283928871154785,
+            0.17224235832691193
+          ]
+        },
+        {
+          "family": "A2",
+          "swap_relative_rms": 0.7358798823373927,
+          "swap_live": 16,
+          "swap_sign_agreement": 1.0,
+          "zero_ce_meanabs_disagreement": 0.22602267563343048,
+          "zero_ce_mean": [
+            0.117522943764925,
+            0.3286854363977909
+          ]
+        },
+        {
+          "family": "past",
+          "swap_relative_rms": 0.9514112432542745,
+          "swap_live": 16,
+          "swap_sign_agreement": 0.9375,
+          "zero_ce_meanabs_disagreement": 0.05774688720703125,
+          "zero_ce_mean": [
+            -0.0027822256088256836,
+            0.0033954083919525146
+          ]
+        },
+        {
+          "family": "progressive",
+          "swap_relative_rms": 0.8014555570014951,
+          "swap_live": 16,
+          "swap_sign_agreement": 1.0,
+          "zero_ce_meanabs_disagreement": 0.10582394897937775,
+          "zero_ce_mean": [
+            0.03568974882364273,
+            0.09450850635766983
+          ]
+        }
+      ]
+    }
+  ],
+  "write_replay_errors": [
+    1.5543122344752192e-15,
+    6.661338147750939e-16
+  ],
+  "prior_reference_effect_max_error": 0.0,
+  "artifact_sha256": "9875a338b18abac9e465bdede0647b259de00b91ad02986b5bba96039b307e9f",
+  "scope": "Frozen partialcomponent fidelity on reuseddevelopmentalrows, nativebackground retained; no OOD/selectivity proof."
+}
