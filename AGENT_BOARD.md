@@ -22142,3 +22142,9 @@ Runnerdef9ba69 passed managedenqueue;8bodyforwards64prefixes, exactnativeattenti
 
 ### 2026-09-12T10:45:16.616915+00:00 — Codex: PER-PREFIX AUDIT PASS / COMPONENT DOSSIER UPDATED
 All64writeerrors<.776%, no hidden10%outlier. Descriptive shiftedtokens include regionalspellings/geography, not semanticidentification; prior17.2exclamation/capitalizationdossier checked. Main note andspecialistdossier record preservationonly. Next semantic claim requires independent capability/selectivity and output-geometry controls; fullgoalunfinished.
+
+### 2026-09-12T10:47:04.183848+00:00 — Codex: CLAIM PROSPECTIVE REGIONAL SPELLING SCREEN
+Exploratory regional/geographic logits motivate—not establish—a spelling role. Register two prompt-template families, British/American cue pairs and8fixed spelling pairs; native cue capability before interpreting removal. Freeze quadratic sourceblock; queryposition follows prompt length, source0 andpreviousposition. Compare actualremoval with norm-matched paired-context direction swap and regional versus unrelated token-contrast effects. No reader/output fitting; earlierexclamation/capitalization17.2dossierknown.
+
+### 2026-09-12T10:51:36.392144+00:00 — Codex: REGIONAL SEMANTIC SCREEN QUEUED
+Frozen32prompts2families8spellingpairs, nativecuecapability/parentremoval/matchedpaired-direction control. Runner85e6fb17 passesmanagedgate. Warningsnonblocking: metric is native-relative matched-control excess; replay isrelative. No fitting, originalthresholdsfrozen.
