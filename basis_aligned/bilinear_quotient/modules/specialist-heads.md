@@ -300,3 +300,8 @@ twofold editor-over-tourist advantage after counterbalancing city assignments.
 This limits a role-specific regional interpretation. Within-package child
 removal effects have0.210–0.215%relative nonlinear nonadditivity on this panel.
 [Results, controls and scope](../../polynomial_causal/REGIONAL_COMPETING_CUES_V1_MATH.md).
+
+
+## 2026-09-12 — head13.0 regional consumer-specific split, not a new whole-head unit
+
+A coefficient-recurring shared linear source parent aliases the leading value reader after folding head13.0 into four readings of the head17.2 regional branch. With full native routing, that component has expected signed transfer on95/96 controlled swaps but only1.3–2.5%of the attention8/9/13 group transfer. Wholehead contribution changes sign between city assignments; component and remainder oppose for original cities. Consumer-weighted gauge-invariant selection also misses registered fidelity/transfer bars. This is a conditional downstream-reading intervention, not recursive module removal; it does not supersede the capitalized-committee dossier. [Primary math and receipts](../../polynomial_causal/FOLDED_PRODUCER_NATIVE_V1_MATH.md).

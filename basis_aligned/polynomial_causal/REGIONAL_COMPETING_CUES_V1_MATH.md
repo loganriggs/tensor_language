@@ -118,3 +118,8 @@ exact private query-to-four-output solves. The linear fold commutes with source
 projection and gradients within2.42e-16 in the densecontrol. The native fit's
 status belongs to its result/runner, not this preparation note. No global sparse
 model or semantic reuse claim follows from these coefficient controls.
+
+
+## 16:32 — Upstream structure fails native sufficiency
+
+The [producer study](FOLDED_PRODUCER_NATIVE_V1_MATH.md) is complete through two native comparisons. Head13.0 leading value direction is a recurring coefficient component but carries only1.3–2.5%of producer-group cue transfer. A gauge-invariant consumer metric passes exact controls yet its selected component also fails native fidelity/transfer. These are narrow component failures; exact mixed producer paths are the next object.

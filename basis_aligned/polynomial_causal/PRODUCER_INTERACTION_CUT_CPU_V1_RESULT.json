@@ -1,0 +1,160 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "checks": {
+    "feature_replay": 0.0,
+    "partition_write_replay": 1.0270158412595265e-07,
+    "full_group_effect_replay": 0.0,
+    "zero_background_delta": 0.0
+  },
+  "paths": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      2,
+      2
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2
+    ]
+  ],
+  "group_names": [
+    "background",
+    "head13_0",
+    "other_selected_producers"
+  ],
+  "cells": [
+    {
+      "assignment": 0,
+      "family": 0,
+      "mixed_vs_full_error": 0.002049087908167608,
+      "cross_producer_to_full_effect_norm": 0.009616285548553084,
+      "cross_producer_mean_directed": 0.00160600741704305,
+      "linear_in_producers_vs_full_error": 0.12174396533626278,
+      "individual_mean_directed": [
+        0.0,
+        -0.009104301532109579,
+        0.16058078408241272,
+        -0.00037033359209696454,
+        0.0016109049320220947,
+        0.01691200335820516,
+        -4.251797993977864e-06,
+        -1.0013580322265625e-05,
+        5.036592483520508e-06,
+        8.789698282877605e-05
+      ],
+      "full_mean_directed": 0.16969467202822366,
+      "sum_individual_vs_full_effect_error": 0.0004932129019878875
+    },
+    {
+      "assignment": 0,
+      "family": 1,
+      "mixed_vs_full_error": 0.0028542586427801778,
+      "cross_producer_to_full_effect_norm": 0.008146467950117735,
+      "cross_producer_mean_directed": 0.001087278127670288,
+      "linear_in_producers_vs_full_error": 0.14116392975526817,
+      "individual_mean_directed": [
+        0.0,
+        -0.007882734139760336,
+        0.129397451877594,
+        -0.00020038088162740073,
+        0.001104136308034261,
+        0.015988280375798542,
+        -1.2914339701334635e-07,
+        -5.3246815999348956e-06,
+        -1.1454025904337565e-05,
+        0.00021436810493469238
+      ],
+      "full_mean_directed": 0.13859203457832336,
+      "sum_individual_vs_full_effect_error": 0.0004777724838102119
+    },
+    {
+      "assignment": 1,
+      "family": 0,
+      "mixed_vs_full_error": 0.001612609648379142,
+      "cross_producer_to_full_effect_norm": 0.018017144534495388,
+      "cross_producer_mean_directed": 0.004450350999832153,
+      "linear_in_producers_vs_full_error": 0.11759566191176363,
+      "individual_mean_directed": [
+        0.0,
+        0.008212278286616007,
+        0.21275079250335693,
+        0.00023256738980611166,
+        0.00433767835299174,
+        0.022415151198705036,
+        7.192293802897136e-06,
+        4.7832727432250977e-05,
+        6.576379140218099e-05,
+        0.00014546513557434082
+      ],
+      "full_mean_directed": 0.24814979235331217,
+      "sum_individual_vs_full_effect_error": 0.0010777058595818742
+    },
+    {
+      "assignment": 1,
+      "family": 1,
+      "mixed_vs_full_error": 0.0020397420984059065,
+      "cross_producer_to_full_effect_norm": 0.019447025905209796,
+      "cross_producer_mean_directed": 0.003883232673009237,
+      "linear_in_producers_vs_full_error": 0.12739736482173739,
+      "individual_mean_directed": [
+        0.0,
+        0.007475594679514567,
+        0.16780835390090942,
+        0.00023395816485087076,
+        0.003832926352818807,
+        0.019434491793314617,
+        7.778406143188477e-06,
+        3.1719605127970375e-05,
+        1.823902130126953e-05,
+        0.0002171198527018229
+      ],
+      "full_mean_directed": 0.19902153809865317,
+      "sum_individual_vs_full_effect_error": 0.0009180377817434225
+    }
+  ],
+  "seconds": 1.697887122631073,
+  "scope": "Exact ten-path grouped cubic expansion of frozen regional reader interface. Donor producers and recipient background/query/key gates. Individual path native effects need not add; full write partition does. No unsupervised factor fit or wholemodel causal closure."
+}

@@ -1,0 +1,142 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "no_edit_position_replay_max": 4.874102046414919e-07,
+  "baseline_replay": 1.4076643910384284e-06,
+  "cells": [
+    {
+      "assignment": 0,
+      "family": 0,
+      "head_regional_effect_norm": 0.054081010286719515,
+      "rank1_vs_head_relative_error": 1.482693907508054,
+      "mean_directed_regional_transfer": [
+        0.16969467202822366,
+        -0.01051043470700582,
+        0.005078643560409546,
+        -0.01558658480644226
+      ],
+      "positive_directed_count": [
+        24,
+        0,
+        24,
+        0
+      ],
+      "meanabs_regional": [
+        0.16969467202822366,
+        0.01051043470700582,
+        0.005078643560409546,
+        0.01558658480644226
+      ],
+      "meanabs_unrelated": [
+        0.014167328675587973,
+        0.0018791258335113525,
+        0.0007404784361521403,
+        0.0013350148995717366
+      ],
+      "rank1_plus_complement_vs_head_relative_error": 0.005469761125292602
+    },
+    {
+      "assignment": 0,
+      "family": 1,
+      "head_regional_effect_norm": 0.045981779750841244,
+      "rank1_vs_head_relative_error": 1.4249261660745816,
+      "mean_directed_regional_transfer": [
+        0.13859203457832336,
+        -0.008882770935694376,
+        0.003922114769617717,
+        -0.012801667054494223
+      ],
+      "positive_directed_count": [
+        24,
+        0,
+        24,
+        0
+      ],
+      "meanabs_regional": [
+        0.13859203457832336,
+        0.008882770935694376,
+        0.003922114769617717,
+        0.012801667054494223
+      ],
+      "meanabs_unrelated": [
+        0.012196123600006104,
+        0.0015638371308644612,
+        0.0005629559357961019,
+        0.0011629263559977214
+      ],
+      "rank1_plus_complement_vs_head_relative_error": 0.003454826481847125
+    },
+    {
+      "assignment": 1,
+      "family": 0,
+      "head_regional_effect_norm": 0.049177023547085676,
+      "rank1_vs_head_relative_error": 0.5469250837671824,
+      "mean_directed_regional_transfer": [
+        0.24814979235331217,
+        0.009189744790395101,
+        0.003983497619628906,
+        0.005198587973912557
+      ],
+      "positive_directed_count": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "meanabs_regional": [
+        0.24814979235331217,
+        0.009189744790395101,
+        0.003983497619628906,
+        0.005198587973912557
+      ],
+      "meanabs_unrelated": [
+        0.020683149496714275,
+        0.0007180372873942057,
+        0.0005854566891988119,
+        0.0004353920618693034
+      ],
+      "rank1_plus_complement_vs_head_relative_error": 0.0037455338770149885
+    },
+    {
+      "assignment": 1,
+      "family": 1,
+      "head_regional_effect_norm": 0.04371595282633111,
+      "rank1_vs_head_relative_error": 0.507115823727173,
+      "mean_directed_regional_transfer": [
+        0.19902153809865317,
+        0.008465617895126343,
+        0.004072248935699463,
+        0.004388193289438884
+      ],
+      "positive_directed_count": [
+        24,
+        24,
+        24,
+        24
+      ],
+      "meanabs_regional": [
+        0.19902153809865317,
+        0.008465617895126343,
+        0.004072248935699463,
+        0.004388193289438884
+      ],
+      "meanabs_unrelated": [
+        0.017531832059224445,
+        0.0007526179154713949,
+        0.0006426076094309489,
+        0.00040995081265767414
+      ],
+      "rank1_plus_complement_vs_head_relative_error": 0.004012986466216749
+    }
+  ],
+  "arm_names": [
+    "three_producer_group",
+    "head13_0",
+    "head13_0_consumer_weighted_value_rank1",
+    "head13_0_value_complement"
+  ],
+  "metric_control": true,
+  "seconds": 0.43353719264268875,
+  "scope": "Frozen conditional producer contribution swaps into regional four-reader interface. Query, native key norms, other states, first-token lookup fixed. No text fitting, no whole module replacement or independent extraction."
+}

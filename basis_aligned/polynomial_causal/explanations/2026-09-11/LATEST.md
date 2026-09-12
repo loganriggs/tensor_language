@@ -1,3 +1,12 @@
+### 12 September, 16:36 — Producer component misses; mixed interaction paths pass locally
+
+[Primary results and maths](../../FOLDED_PRODUCER_NATIVE_V1_MATH.md): head13.0 value
+component fails native fidelity/transfer; a gauge-invariant weights-only consumer
+metric passes controls but does not rescue it. Exact ten-path producer/background
+expansion replays; mixed paths reproduce group swap effects within .16–.29%.
+Terms linear in producers miss by 12–14%; head13.0 cross-producer paths are small.
+Native background/query/state dependencies remain. No four-property promotion.
+
 ### 12 September, 15:28 — Competing cues limit semantic selectivity
 
 [New contextual screen](../../REGIONAL_COMPETING_CUES_V1_MATH.md): frozen token

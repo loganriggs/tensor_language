@@ -1,0 +1,68 @@
+{
+  "pred_a": true,
+  "gauges": [
+    {
+      "axis": 0,
+      "metric_covariance_error": 3.7776777407270375e-16,
+      "source_direction_cosine": 0.9999999999999992,
+      "selected_map_error": 2.356460649429755e-15
+    },
+    {
+      "axis": 1,
+      "metric_covariance_error": 5.629761222763868e-16,
+      "source_direction_cosine": 0.9999999999999986,
+      "selected_map_error": 1.169220448362404e-14
+    },
+    {
+      "axis": 2,
+      "metric_covariance_error": 2.9244053301495546e-16,
+      "source_direction_cosine": 1.000000000000002,
+      "selected_map_error": 3.5303322396824204e-13
+    },
+    {
+      "axis": 3,
+      "metric_covariance_error": 4.728860100808236e-17,
+      "source_direction_cosine": 1.000000000000001,
+      "selected_map_error": 4.295959692175254e-15
+    }
+  ],
+  "fourth_moment_monte_carlo_error": 0.01504948628929266,
+  "query_gram_monte_carlo_error": 0.007838075311132736,
+  "metric_eigenvalues": [
+    0.1748142858694513,
+    0.18211433386887296,
+    0.19921923363436933,
+    0.44385214662730643
+  ],
+  "metric": [
+    [
+      0.30547954477919176,
+      -0.12323621441001444,
+      -0.040712089328094225,
+      0.009767079420332553
+    ],
+    [
+      -0.12323621441001444,
+      0.30516298062048547,
+      0.040961632450329216,
+      -0.009168906241084495
+    ],
+    [
+      -0.040712089328094225,
+      0.040961632450329216,
+      0.2104720377245669,
+      -0.011706910373520871
+    ],
+    [
+      0.009767079420332553,
+      -0.009168906241084495,
+      -0.011706910373520871,
+      0.1788854368757559
+    ]
+  ],
+  "weighted_rank1_fraction": 0.5667034456298655,
+  "euclidean_source_cosine": 0.9991626369174332,
+  "projector_idempotence": 1.8298973664620173e-15,
+  "seconds": 3.272152751684189,
+  "scope": "Exact polynomial consumer derivative metric under independent isotropic query/current and uniform full-vocabulary initialization. Average32relativepositions. Native QK/RMS gates and correlations omitted in discovery metric; native validation retains them. Weighted rank1 solve is global for this fixed one-sided metric only."
+}
