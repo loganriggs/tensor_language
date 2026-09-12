@@ -1,0 +1,90 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "cells": [
+    {
+      "family": 0,
+      "native_mean": 1.9696810751171216,
+      "native_positive": 6,
+      "removal_mean": 0.2737152044755493,
+      "removal_fraction": 0.13896422519024995,
+      "removal_positive": 6,
+      "regional_meanabs": 0.2737152044755493,
+      "unrelated_meanabs": 0.02544798655656333,
+      "control_mean_reductions": [
+        -0.02508626826040102,
+        0.012986233277583118,
+        -0.003250463670579906,
+        0.002495124880659579,
+        0.0017485935079942412,
+        -0.007818314267347507,
+        -0.015756728400853588,
+        -0.012976646908870348
+      ]
+    },
+    {
+      "family": 1,
+      "native_mean": 3.372898355748653,
+      "native_positive": 6,
+      "removal_mean": 0.5017973771640537,
+      "removal_fraction": 0.14877334690765506,
+      "removal_positive": 6,
+      "regional_meanabs": 0.5017973771640537,
+      "unrelated_meanabs": 0.04624275641268579,
+      "control_mean_reductions": [
+        -0.046170081446501664,
+        0.02057758962802995,
+        -0.0013318295208830655,
+        1.6132673585245172e-05,
+        0.0011103175827409384,
+        -0.014677569550126593,
+        -0.025323151597499056,
+        -0.019687260241511167
+      ]
+    },
+    {
+      "family": 2,
+      "native_mean": 2.302270566136471,
+      "native_positive": 6,
+      "removal_mean": 0.28855533896821606,
+      "removal_fraction": 0.12533511187282034,
+      "removal_positive": 6,
+      "regional_meanabs": 0.28855533896821606,
+      "unrelated_meanabs": 0.02909931814524554,
+      "control_mean_reductions": [
+        -0.025856506469607465,
+        0.012747235131313595,
+        -0.0021898514075278097,
+        0.0009835897782020098,
+        0.001201470039591035,
+        -0.010341292309045494,
+        -0.015284442223552963,
+        -0.011288660729978991
+      ]
+    },
+    {
+      "family": 3,
+      "native_mean": 3.2281662870240306,
+      "native_positive": 6,
+      "removal_mean": 0.4526435649209364,
+      "removal_fraction": 0.14021692957403928,
+      "removal_positive": 6,
+      "regional_meanabs": 0.4526435649209364,
+      "unrelated_meanabs": 0.04688900872196237,
+      "control_mean_reductions": [
+        -0.041736005675802636,
+        0.018280902943151583,
+        -0.0008863741268690569,
+        -0.00354161249850334,
+        0.00010933028321380434,
+        -0.01602803377766615,
+        -0.021489030786718304,
+        -0.01650505079874587
+      ]
+    }
+  ],
+  "native_replay_maxabs": 6.9137441545130685e-06,
+  "max_control_gram_error": 1.2465569715339093e-15,
+  "scope": "Entire frozen shared component removal on fresh geography/templates. Native final MLP/RMS/readout evaluated in FP64 from saved native pre-state; all upstream dependencies remain. Eight matched controls and narrow unrelated contrasts, not broad selectivity or independent extraction."
+}

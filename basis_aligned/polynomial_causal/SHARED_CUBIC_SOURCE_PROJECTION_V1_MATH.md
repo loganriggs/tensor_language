@@ -1505,3 +1505,35 @@ The earlier approximate-routing cancellation failure is preserved separately;
 this experiment retains full native routing. A frozen dry-run print incorrectly
 retains6–14tokens; actual rows, length assertions, BQGATE and preregistration
 specify13–19 and9batches. Execution followed those correct values.
+
+## Fresh-context removal of the whole component passes (14:27)
+
+The [native-suffix removal test](REGIONAL_FRESH_REMOVAL_V1_RESULT.json) uses the
+same newly constructed48 geographic prompts. It removes the entire all-source
+shared component's baseline write, unlike the upstream first-value donor swap.
+Native final MLP, both RMS operations and capped readout are evaluated in FP64
+from the saved pre-MLP state. Zero-edit contrast replay differs from the saved
+native result by at most6.92e-6, passing1e-4.
+
+Whole-component removal reduces native regional cue gaps by12.53–14.88%, with
+24/24positive reductions. The0.274–0.502nat reductions exceed all eight seeded
+signed-permutation controls in each family. Those controls preserve write norms
+and the entire across-row Gram (error<=1.25e-15); their largest positive mean
+reductions are only4.04–4.74%of the true component's. The specified unrelated
+contrast changes are9.22–10.36%of regional changes, below the50%bar. A/B/C pass.
+This supports selective removal on this narrow fresh panel, not corpus-wide
+selectivity, independent extraction, or multiple-task reuse.
+
+The executed [intervention accounting](REGIONAL_FRESH_REMOVAL_ACCOUNTING_V1_RESULT.json)
+keeps the two findings distinct. First-value donor transfer is11.8–18.8%of the
+whole-component removal magnitude; both value transfers are43.5–53.7%. These
+are ratios of DIFFERENT counterfactuals, not additive mediation fractions.
+The small first-value coverage miss therefore does not imply the whole shared
+component has only a2%effect. Conversely, the whole component's removal result
+does not make the token-only branch sufficient.
+
+The unresolved extraction cost includes query/key norm generation. A useful
+next structural test is whether weight-derived norm approximations preserve this
+component's effects; another attribution expansion of the already simple joint
+key product would not remove that dependency. Preserve all prior approximate-
+routing cancellation failures when testing a different boundary.

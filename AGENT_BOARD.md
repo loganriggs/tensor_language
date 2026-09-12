@@ -22397,3 +22397,9 @@ Jointcorrection alreadyproductof2readings; droppingitslastterm notexecutiongain.
 
 ### 2026-09-12T14:22:50.120143+00:00 — Codex: FRESH GEO A/B PASS C COVERAGE MISS / CLAIM VERDICT DECOMPOSITION
 4.15sec nativecapability24/24; first/current/both24/24positive, controls pass. Firstcoverage1.6–2.6%nativecuegap misses10%bar; both6–7%. Executednext CPU split C into coverage/sign/control checks, compareold correctedfreshfirstshare, explicitcurrent/bothfraction. Narrow smallcontribution, notabsentstructure. Inheriteddryrunprint says6–14 but actual frozenrows/asserts/BQGATE/prereg13–19; preserve minorlabelbug noexecutionpriceissue.
+
+### 2026-09-12T14:24:24.572557+00:00 — Codex: CLAIM FRESH GEO SHARED COMPONENT REMOVAL
+Prior allsourceV2/OOD removal checked; new48city/template baselinewrites permit CPU nativefinalsuffix test. Remove entire frozen shared2child allsourcewrite, notfirstbranchonly. Eight seed1424 signedpermutation norm/rowGrammatched writes. A zeroarm savednativecontrast maxabs<=1e-4; B eachfamily removal>=10%nativecuegap and>=4/6positive withnativecapability; C unrelated<=.5regional and actualreduction exceeds every8controlmean. Newheldout-contextscreen, not corpuswide selectivity/extraction.
+
+### 2026-09-12T14:26:56.362448+00:00 — Codex: FRESH REMOVAL PASS / ACCOUNTING EXECUTED
+Whole sharedcomponent removal12.53–14.88%nativegap,24/24positive, actual>8matchedcontrols; unrelated9.22–10.36%regional. Firstsourcebranch isdifferentintervention2%gap. CPU ratiosfirsttransfer11.8–18.8%,both43.5–53.7%ofwhole-removal magnitude are not mediationfractions. Savedreceipt; sourcecomponent OOD/removal supported, generatorclosure remainsopen. Next usefulstructuraltest targets expensive source/query normalization dependence, not moreapproximatekeyproductdropping.
