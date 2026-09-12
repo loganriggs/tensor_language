@@ -1,0 +1,47 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "reports": [
+    {
+      "angle": 0.1139157230834599,
+      "minority_node_energy": 0.10630569766260002,
+      "exclusive_refit_relative_error": 0.1885390112127077,
+      "assigned_counts": [
+        13,
+        19
+      ],
+      "node_energy_sum_over_program_energy": 0.7035680018498457,
+      "rotation_error": 1.3877787807814457e-17,
+      "version": 1,
+      "program_sha256": "9875a338b18abac9e465bdede0647b259de00b91ad02986b5bba96039b307e9f"
+    },
+    {
+      "angle": 1.2239168052313463,
+      "minority_node_energy": 0.026013006171259026,
+      "exclusive_refit_relative_error": 0.2327106129580837,
+      "assigned_counts": [
+        16,
+        16
+      ],
+      "node_energy_sum_over_program_energy": 3.391024192233102,
+      "rotation_error": 0.0,
+      "version": 2,
+      "program_sha256": "d4dfb51ea23e2668381903e90681d8f02ea2f6a5fdee5cd351a40cf60ce5e3e9"
+    },
+    {
+      "angle": 1.2151137408944506,
+      "minority_node_energy": 0.01473367550697441,
+      "exclusive_refit_relative_error": 0.22328972949286177,
+      "assigned_counts": [
+        17,
+        15
+      ],
+      "node_energy_sum_over_program_energy": 5.867473361423607,
+      "rotation_error": 5.204170427930421e-18,
+      "version": 3,
+      "program_sha256": "aaf14ddbad8ce3d942bc37f978dcf89f4db8e832a1180f924b6c54d43524b40c"
+    }
+  ],
+  "scope": "Fixed 32-node program, common orthogonal two-output rotation. Nodewise penalty ignores cancellation; exclusive refit uses full Gram. Assignment minimizes nodewise penalty, not global refitted error. No semantic or native causal claim."
+}

@@ -21422,3 +21422,9 @@ Confirmed requested interaction-path proposal is in explanations/for_logan and l
 
 ### 2026-09-12T00:46:00.299587+00:00 — Codex: V3 SCORED / COVERAGE DENOMINATOR RESOLVED
 Executed reusable scorer: V3 execution passes, swap/removal fail; write error 22.8% -> 24.1%. V3 capture gain 4.15%, gradient .0923, time limit; not converged. Independent two-output coverage V2 ~10.8%, derived V3 ~11.3%, not full-model coverage. Canonical writer note and LATEST updated. Matched LBFGS PID3154071 live; its terminal scoring remains the next claim. Prior turn classified verified live wait/location response; this turn adds native-effect and coverage evidence.
+
+### 2026-09-12T00:47:08.222450+00:00 — Codex: CLAIM OUTPUT-GAUGE REUSE DIAGNOSTIC
+While matched LBFGS remains live, test V1/V2/V3 frozen programs for apparent two-output reuse removable by a common orthogonal output rotation. Minimize summed per-node discarded coefficient energy when each node keeps only its stronger output branch, then refit exclusive coefficients to the fitted program using exact Gram contractions. A rotation invariance <=1e-8; B minority energy >=5% for V3; C exclusive refit error >=10% for V3. This tests this fixed-bank/output-gauge restriction, not general DAG minimality or semantic reuse. No text fitting or model forwards.
+
+### 2026-09-12T00:48:46.336084+00:00 — Codex: OUTPUT-GAUGE SCREEN / CLAIM ASSIGNMENT RED-TEAM
+V3 A/C hold, B misses: optimized nodewise minority energy only1.47%, but exclusive refit error22.33%; summed node energies5.87x programenergy indicate cancellations. Before interpreting necessary reuse, execute greedy single-node branch reassignment with exact refits at frozen chosen angle; stop at no improving flip or64 accepted flips. Tests assignment weakness, not global optimum; no native text fitting.
