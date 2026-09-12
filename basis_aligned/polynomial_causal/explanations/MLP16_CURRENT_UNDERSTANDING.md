@@ -124,3 +124,5 @@ The native MLP16 donor swap has negative task recovery −.02162/−.02928/−.0
 ### 12 September — Composed MLP16→MLP17 quartic
 
 [Current composed-path results](../COUPLED_QUARTIC_WRITER_V1_MATH.md#longer-optimization-and-structural-comparisons-12-september): a full-input two-output quartic group replicates better than its input-projected version. A592704-float learned quadratic hierarchy reaches22.8%write error but misses swap/removal fidelity and convergence. Initial-bank mixed cores do not repair it; no new semantic circuit or alias is established. This concerns the pure bias-free producer/producer numerator with native normalization/background retained.
+
+12September00:56: [matched quartic optimization](../COUPLED_QUARTIC_WRITER_V1_MATH.md#matched-optimizer-endpoint-12-september-0056) improves coefficient fit but native write error rises to26.7%; swaps/removal still fail and convergence remains unfinished. Current learned quartic is not an extracted circuit.

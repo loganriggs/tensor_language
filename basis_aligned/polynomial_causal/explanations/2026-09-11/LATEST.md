@@ -1,6 +1,6 @@
 # Current research state
 
-**12 September, 00:45 UTC:** [Quartic continuation and absolute coverage](../../COUPLED_QUARTIC_WRITER_V1_MATH.md#continued-optimization-and-absolute-coverage-12-september-0045): V3 gains another 4.15% coefficient capture but remains unconverged; native write error rises from 22.8% to 24.1% and swap/removal fidelity fails. Independent probes put selected two-output target coverage at about 10.8% for V2 and 11.3% for V3. Matched limited-memory optimizer is live. No circuit promotion.
+**12 September, 00:56 UTC:** [Matched quartic optimizer comparison](../../COUPLED_QUARTIC_WRITER_V1_MATH.md#matched-optimizer-endpoint-12-september-0056): limited-memory optimization gains11.83% coefficient capture versus4.15% for CG from the same start, but native write error worsens to26.7% and swap/removal fidelity fails. Both remain unconverged. A longer weight-only continuation is submitted. Independent planted starts recover3/4; a stationary66% error miss survives12 local perturbations. No circuit promotion.
 
 ## Earlier entries — historical status, superseded where stated above
 

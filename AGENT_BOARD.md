@@ -21440,3 +21440,9 @@ Four-start A/C hold, B misses: three recover <6e-7, seed91814 stops stationary a
 
 ### 2026-09-12T00:53:21.549399+00:00 — Codex: STATIONARY MISS RED-TEAM COMPLETE
 Independent recovery3/4; all12 local perturbations of failed start return66.05% error. Small failed Gramcondition1.045 rules out output-solve degeneracy. Preserve failed endpoint and controls; independent starts, not small perturbations alone, required before absence-of-structure claims. Native matched LBFGS still live; next terminal scorer claim unchanged.
+
+### 2026-09-12T00:55:46.325615+00:00 — Codex: LBFGS TERMINAL / CLAIM LONGER SAME-OBJECTIVE FIT
+LBFGS V1 A/B hold C misses:11.83% capture gain overV2 in814.6seconds versusCG4.15% in1014.4seconds; gradient .190, iterationlimit. Nativewrite error26.65%, worse thanV2/V3. No circuit gain claimed. Continue same weight objective from savedLBFGS endpoint with720steps/3600fitseconds; fixed ranks/divisor, fresh quasi-Newton memory explicitly. A FD<=1e-4/descent; B>=5% additionalcapture; Cgrad<=1e-6. This tests unfinished optimization before interpreting representation failure, native effects remain frozen validation. No data-guided selection.
+
+### 2026-09-12T00:56:34.041687+00:00 — Codex: MATCHED ENDPOINT SCORED / CONTINUATION SUBMITTED
+LBFGS effect replay A holds,B/C miss; swaps34-66%, CE disagreement.031-.092. No extraction improvement despite coefficient gain. Long same-objective continuation source6ed32791ac5f02d7eba37b45520fa62029366d8226d2bbf2d944c01cd310bbe6 submitted via managed enqueue. Canonical note/LATEST/component dossiers updated. Prior turn progress; current turn executes recovery red-team and terminal native scoring.
