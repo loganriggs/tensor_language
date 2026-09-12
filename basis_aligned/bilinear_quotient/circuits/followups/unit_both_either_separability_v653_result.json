@@ -1,0 +1,419 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.05,
+    "ext_floor": 0.5,
+    "instr_tol": 0.03,
+    "k_d": 2,
+    "k_kept": 2,
+    "k_new": 2,
+    "keep": 0.8
+  },
+  "candidate_id": "corpus.unit_both_either_separability_v653",
+  "families": {
+    "correlative": [
+      "correlative_but_and",
+      "correlative_or_and",
+      "both_either",
+      "correlative_disjoint_either_not"
+    ]
+  },
+  "finished_utc": "2026-09-12T10:48:20.648857+00:00",
+  "members": {
+    "both_either": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.062,
+            "ce_lb975": 0.8805,
+            "ce_ub975": 1.2418
+          },
+          "C": {
+            "ce_damage": 0.0248,
+            "ce_lb975": 0.0057,
+            "ce_ub975": 0.0457
+          },
+          "extraction": 0.942,
+          "sib_abs_max": 0.2306,
+          "siblings": {
+            "correlative_but_and": -0.0019,
+            "correlative_disjoint_either_not": 0.2306,
+            "correlative_or_and": 0.0347
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.1534,
+            "ce_lb975": 0.8864,
+            "ce_ub975": 1.4131
+          },
+          "C": {
+            "ce_damage": 0.0018,
+            "ce_lb975": -0.0025,
+            "ce_ub975": 0.006
+          },
+          "extraction": 1.002,
+          "sib_abs_max": 0.763,
+          "siblings": {
+            "correlative_but_and": 0.2229,
+            "correlative_disjoint_either_not": 0.763,
+            "correlative_or_and": 0.602
+          }
+        }
+      },
+      "exact_held": 0.881,
+      "family": "correlative",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 12,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row4_v3": true,
+        "row5": true
+      },
+      "seconds": 53.4,
+      "separable": false,
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:16:head:08",
+        "attn:14:head:08",
+        "attn:09:head:07",
+        "attn:10:head:05",
+        "attn:09:head:05",
+        "attn:11:head:07",
+        "attn:15:head:01",
+        "attn:12:head:02",
+        "attn:11:head:02",
+        "attn:13:head:08"
+      ]
+    },
+    "correlative_but_and": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.9065,
+            "ce_lb975": 0.6148,
+            "ce_ub975": 1.2166
+          },
+          "C": {
+            "ce_damage": 0.0021,
+            "ce_lb975": -0.0044,
+            "ce_ub975": 0.009
+          },
+          "extraction": 0.963,
+          "sib_abs_max": 0.0301,
+          "siblings": {
+            "both_either": -0.0029,
+            "correlative_disjoint_either_not": 0.0181,
+            "correlative_or_and": 0.0301
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.232,
+            "ce_lb975": 1.1495,
+            "ce_ub975": 1.3125
+          },
+          "C": {
+            "ce_damage": -0.0028,
+            "ce_lb975": -0.0075,
+            "ce_ub975": 0.0016
+          },
+          "extraction": 1.015,
+          "sib_abs_max": 0.7774,
+          "siblings": {
+            "both_either": 0.2164,
+            "correlative_disjoint_either_not": 0.3376,
+            "correlative_or_and": 0.7774
+          }
+        }
+      },
+      "exact_held": 0.875,
+      "family": "correlative",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 19,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 64.4,
+      "separable": true,
+      "units": [
+        "attn:07:head:08",
+        "attn:09:head:01",
+        "attn:10:head:05",
+        "attn:16:head:08",
+        "attn:05:head:03",
+        "attn:11:head:03",
+        "attn:09:head:07",
+        "attn:05:head:06",
+        "attn:08:head:01",
+        "attn:09:head:05",
+        "attn:13:head:08",
+        "attn:08:head:08",
+        "attn:04:head:04",
+        "attn:12:head:08",
+        "attn:09:head:03",
+        "attn:14:head:08",
+        "attn:15:head:01",
+        "attn:04:head:07",
+        "attn:03:head:04"
+      ]
+    },
+    "correlative_disjoint_either_not": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.3957,
+            "ce_lb975": 1.0531,
+            "ce_ub975": 1.7176
+          },
+          "C": {
+            "ce_damage": -0.0101,
+            "ce_lb975": -0.0253,
+            "ce_ub975": 0.0015
+          },
+          "extraction": 0.996,
+          "sib_abs_max": 0.0091,
+          "siblings": {
+            "both_either": -0.0091,
+            "correlative_but_and": -0.0014,
+            "correlative_or_and": 0.0064
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.3803,
+            "ce_lb975": 1.3051,
+            "ce_ub975": 1.4517
+          },
+          "C": {
+            "ce_damage": -0.003,
+            "ce_lb975": -0.0078,
+            "ce_ub975": 0.0015
+          },
+          "extraction": 1.004,
+          "sib_abs_max": 0.6851,
+          "siblings": {
+            "both_either": 0.6851,
+            "correlative_but_and": 0.3522,
+            "correlative_or_and": 0.4637
+          }
+        }
+      },
+      "exact_held": 0.913,
+      "family": "correlative",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 15,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row4_v3": true,
+        "row5": true
+      },
+      "seconds": 61.7,
+      "separable": true,
+      "units": [
+        "attn:16:head:08",
+        "attn:07:head:08",
+        "attn:14:head:08",
+        "attn:10:head:05",
+        "attn:08:head:01",
+        "attn:04:head:00",
+        "attn:11:head:07",
+        "attn:09:head:07",
+        "attn:13:head:08",
+        "attn:09:head:05",
+        "attn:05:head:06",
+        "attn:12:head:08",
+        "attn:04:head:01",
+        "attn:15:head:01",
+        "attn:03:head:00"
+      ]
+    },
+    "correlative_or_and": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.9518,
+            "ce_lb975": 0.6543,
+            "ce_ub975": 1.2658
+          },
+          "C": {
+            "ce_damage": 0.002,
+            "ce_lb975": -0.0057,
+            "ce_ub975": 0.0104
+          },
+          "extraction": 0.944,
+          "sib_abs_max": 0.0442,
+          "siblings": {
+            "both_either": 0.0305,
+            "correlative_but_and": 0.0442,
+            "correlative_disjoint_either_not": 0.0172
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9948,
+            "ce_lb975": 0.9315,
+            "ce_ub975": 1.0581
+          },
+          "C": {
+            "ce_damage": 0.0112,
+            "ce_lb975": 0.0057,
+            "ce_ub975": 0.0172
+          },
+          "extraction": 0.987,
+          "sib_abs_max": 0.8847,
+          "siblings": {
+            "both_either": 0.8847,
+            "correlative_but_and": 0.555,
+            "correlative_disjoint_either_not": 0.6037
+          }
+        }
+      },
+      "exact_held": 0.881,
+      "family": "correlative",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 14,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": false,
+        "row5": true
+      },
+      "seconds": 58.0,
+      "separable": true,
+      "units": [
+        "attn:08:head:01",
+        "attn:07:head:08",
+        "attn:16:head:08",
+        "attn:09:head:07",
+        "attn:14:head:08",
+        "attn:09:head:01",
+        "attn:10:head:05",
+        "attn:11:head:07",
+        "attn:05:head:03",
+        "attn:12:head:02",
+        "attn:11:head:03",
+        "attn:15:head:01",
+        "attn:12:head:08",
+        "attn:05:head:06"
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_new_separable": false,
+    "pred_b_counted_kept": true,
+    "pred_c_row4_kept": true,
+    "pred_d_instrument": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "evaluated": [
+      "correlative_but_and",
+      "correlative_or_and",
+      "both_either",
+      "correlative_disjoint_either_not"
+    ],
+    "lambda": 30.0,
+    "lr": 0.05,
+    "rank": 1,
+    "seed": 0,
+    "split": "within-direction: fit rows[0::4]+rows[1::4] (fits and controls), held rows[2::4]+rows[3::4] (evaluation)",
+    "steps": 120,
+    "units_source": "v197 ... v257 battery receipts (later receipts override earlier ones)"
+  },
+  "schema": "unit_both_either_separability_v653",
+  "seconds": 239.1,
+  "separable_counts": {
+    "correlative": 3
+  },
+  "summary": {
+    "both_either": {
+      "fam": [
+        0.942,
+        0.2306,
+        0.0457
+      ],
+      "family": "correlative",
+      "n_units": 12,
+      "own": [
+        1.002,
+        0.763,
+        0.006
+      ],
+      "separable": false
+    },
+    "correlative_but_and": {
+      "fam": [
+        0.963,
+        0.0301,
+        0.009
+      ],
+      "family": "correlative",
+      "n_units": 19,
+      "own": [
+        1.015,
+        0.7774,
+        0.0016
+      ],
+      "separable": true
+    },
+    "correlative_disjoint_either_not": {
+      "fam": [
+        0.996,
+        0.0091,
+        0.0015
+      ],
+      "family": "correlative",
+      "n_units": 15,
+      "own": [
+        1.004,
+        0.6851,
+        0.0015
+      ],
+      "separable": true
+    },
+    "correlative_or_and": {
+      "fam": [
+        0.944,
+        0.0442,
+        0.0104
+      ],
+      "family": "correlative",
+      "n_units": 14,
+      "own": [
+        0.987,
+        0.8847,
+        0.0172
+      ],
+      "separable": true
+    }
+  }
+}
