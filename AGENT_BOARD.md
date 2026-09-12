@@ -22304,3 +22304,12 @@ Previous turn only located an existing report: no research progress. Corrected a
 
 ### 2026-09-12T12:47:39.364952+00:00 — Codex: CORRECTED ROUTING AUDIT COMPLETE / KEY PREFIX BOUNDARY
 V2 scalar floors raw94.47%, anchored28.75%, anchoredQ/nativeK23.64%; original10% misses stand. Exact projection identity checked. Corrected panels have4/8/2 unique cue prefixes; key computation can be traced on short causal prefixes, but query/downstream dependencies remain. Correction published in primary math and two component dossiers. Next native prefix replay remains unrun; CPU boundary audit executed, full goal active.
+
+### 2026-09-12T12:49:23.795406+00:00 — Codex: CLAIM CAUSAL KEY PREFIX AND UPDATE-FAMILY REPLAY V1
+Previous turn progress: corrected controls and direction audit pushed. New managed test on all112 corrected rows and14 unique cue prefixes: verify native joint QK keys from truncated prefixes, exact zero-anchor plus embedding plus update-delta unroll, then compare all-attention versus all-MLP contextual update restoration. A replay<=2e-5; B attention-only joint-key error<=.1 at all3producer layers; C MLP-only same bar. Both QK factors always joint; these are conditional key-family sufficiency screens, not behavioral circuit promotion. No fitting or new token panels.
+
+### 2026-09-12T12:54:01.570556+00:00 — Codex: PREFIX REPLAY PASS / FAMILY SUFFICIENCY FAIL / CLAIM FOLDED JOINT-KEY PORTS
+Native V3 completed1.35sec33batches: prefix joint-key error9.96e-7, unroll1.31e-7; attention-only worst.967, MLP-only.473, both fail10%. Pre-native V1 count (union12 not14) and V2 schema failures preserved. CPU compile saved update ports Z through K1/K2 and Gram ZZ^T; key normalization is p/sqrt(mean(p²)+eps*rho²). Check native-port, family and seeded amplitude edits against directFP64 nestedRMS; no fitted coefficients, no independent upstream extraction claim.
+
+### 2026-09-12T12:55:12.178204+00:00 — Codex: FOLDED KEY-PORT AUDIT COMPLETE
+144 FP64 native/family/synthetic amplitude cases pass, max2.50e-15. Fold both K readers and norm Gram;27ports/62,937scalars atlayer13 percontext, generator costs retained. Prefix native replay and family misses recorded in primarymath andmiddlepoolingdossier. Concrete CPU continuation executed; next unresolved task is shared simplification of port producers, not table adoption. Full four-property goal active.

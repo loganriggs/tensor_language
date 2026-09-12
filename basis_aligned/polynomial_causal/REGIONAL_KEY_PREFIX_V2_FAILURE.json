@@ -1,0 +1,5 @@
+{
+  "stage": "enqueue static schema",
+  "reason": "Gate recognizes literal pred_a/b/c dictionary keys, not dict keyword syntax. No native execution.",
+  "repair": "V3 changes serialization syntax only; all computations, rows and bars identical."
+}

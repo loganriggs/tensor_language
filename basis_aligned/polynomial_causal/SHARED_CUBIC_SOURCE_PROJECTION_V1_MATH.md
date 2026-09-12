@@ -1096,3 +1096,81 @@ key equality has not yet been measured here. A finite prefix table would only
 cache native computation: it would not establish general extraction, and it
 would not close the full-prompt queries or downstream writers. Those dependencies
 remain explicitly charged.
+
+
+## Causal key boundary and folded contextual-update ports — 12 September
+
+The [native prefix experiment](REGIONAL_KEY_PREFIX_V3_RESULT.json) executes all
+112 corrected prompts and the **12 unique prefixes in their union**. The earlier
+per-panel counts 4/8/2 overlap: the two fresh prefixes were already in the original
+panel. V1 caught this count mistake before loading the model; V2 was rejected by
+the queue's literal-key schema. V3 preserves all rows and original numerical bars.
+
+Across attention8/9/13, full-prompt and truncated-prefix joint keys agree within
+$9.96\times10^{-7}$ relative error. The exact raw residual update expansion agrees
+within $1.31\times10^{-7}$; reconstructed joint keys within $5.27\times10^{-7}$.
+All are below the registered $2\times10^{-5}$ tolerance. The 33 native batches
+took 1.35 seconds of experiment time, excluding managed startup/loading.
+
+Restoring only one family of contextual update differences is insufficient:
+
+| Key layer | Background only | Restore attention differences | Restore MLP differences |
+|---|---:|---:|---:|
+| 8 | 106.12% | 96.70% | 47.25% |
+| 9 | 96.69% | 81.59% | 40.60% |
+| 13 | 90.48% | 76.57% | 40.73% |
+
+Entries are worst-prefix relative errors of the joint key outer product over
+heads. Both family-sufficiency predictions fail the unchanged 10% bar. MLP
+restoration helps more here, but these are interacting update families, not
+additive explained-variance shares or independently identified circuits.
+The exact all-update arm passes, so the family misses are not explained by a
+broken residual unroll. Grouping all updates of one native type may hide useful
+cross-type combinations; this test does not reject those combinations.
+
+These edits replace terms in the key's incoming-residual expression. They do
+not recursively remove earlier modules, and no downstream behavior was measured
+by this experiment. Prefix replay reduces the necessary key-input context; it
+still computes that context with native weights.
+
+### Folding both key readers and retaining their normalization
+
+The saved port matrix $Z$ has one row for the background plus embedding term,
+and one row per earlier attention/MLP update difference at the cue. Let $a$
+contain their editable scalar amplitudes, so $r=Z^\top a$. Compile
+
+$$
+P_{i,h}=ZK_{i,h}^{\top},\qquad
+G=ZZ^\top/d,\qquad
+\rho^2=a^\top G a+\epsilon,
+\quad i\in\{1,2\}.
+$$
+
+$K_{i,h}$ is the native key reader for QK factor $i$ and head $h$. With
+$p_{i,h}=P_{i,h}^{\top}a$, the two nested RMS operations reduce exactly to
+
+$$
+\operatorname{RMS}_{128}\!\left(K_{i,h}\frac{r}{\rho}\right)
+=
+\frac{p_{i,h}}
+{\sqrt{\|p_{i,h}\|^2/128+\epsilon\rho^2}}.
+$$
+
+Use the native float32 epsilon in this expression, including when calculating
+in float64. Fixed-position rotary maps apply afterward. The input RMS nearly
+cancels, but dropping its remaining epsilon term would change the exact model.
+Both normalized key vectors still participate together in the routing product.
+
+The [executed CPU port audit](REGIONAL_KEY_PORTS_V1_RESULT.json),
+[code](audit_regional_key_ports_v1.py), checks native amplitudes, each update
+family alone, and an independently seeded arbitrary amplitude edit at all36
+prefix/layer combinations. All144 cases pass the $10^{-10}$ FP64 error bar;
+maximum key-vector error is $2.50\times10^{-15}$. This is an exact conditional
+execution check, not a new semantic result or native FP64 equivalence claim.
+
+At layer13 the representation has27ports and62,937 scalar coefficients for
+both reader projections plus the norm Gram matrix. This prices a single
+context's compiled interface only. The native weights and work generating $Z$,
+the queries, and the downstream branch are still required and charged. The next
+extraction task is to simplify those port-producing computations jointly across
+prefixes, rather than treating a native-generated table as the circuit.

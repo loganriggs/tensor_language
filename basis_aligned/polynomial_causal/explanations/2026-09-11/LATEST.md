@@ -1,3 +1,11 @@
+### 12 September, 12:54 — Short-prefix key replay and folded update interface
+
+All112 corrected prompts reduce to12 unique cue prefixes. Native joint-key
+replay passes at~1e-6 error. Attention-only and MLP-only contextual restoration
+both fail; an exact folded key-reader plus normalization expression passes144
+CPU edit cases at2.5e-15 error. Upstream port generation remains native, so this
+is conditional extraction progress. [Math and evidence](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md#causal-key-boundary-and-folded-contextual-update-ports--12-september).
+
 ### 12 September, 12:48 — Article repair complete; routing dependency remains
 
 Corrected fresh controls and matched-write controls pass: 0.06187-nat regional

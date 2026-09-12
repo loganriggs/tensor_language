@@ -1,0 +1,6 @@
+{
+  "stage": "model-free dry run",
+  "reason": "Summed per-panel prefix counts incorrectly assumed disjoint. Actual union has12 distinct prefixes, not14. No native execution.",
+  "observed_union": 12,
+  "repair": "V2 uses exact deduplicated union, all112 rows unchanged; numerical and scientific bars unchanged."
+}

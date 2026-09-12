@@ -1,0 +1,2240 @@
+{
+  "passed": true,
+  "max_error": 2.4977117563305924e-15,
+  "cells": [
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 8,
+      "arm": "native",
+      "relative_errors": [
+        1.8331226330232767e-15,
+        1.9204012135802598e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "relative_errors": [
+        2.1920341304046867e-15,
+        2.2515253151005713e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "relative_errors": [
+        1.8321053472863234e-15,
+        1.84658217382681e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 8,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.9588635374844947e-15,
+        1.8379617659306015e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 9,
+      "arm": "native",
+      "relative_errors": [
+        1.656032502558469e-15,
+        1.8287769536707898e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "relative_errors": [
+        1.7952977680901163e-15,
+        1.970694384634765e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "relative_errors": [
+        1.7509653542794035e-15,
+        1.885481564437365e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 9,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.8977266497013262e-15,
+        2.14371824478847e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 13,
+      "arm": "native",
+      "relative_errors": [
+        1.2401799444172173e-15,
+        1.496416012548866e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "relative_errors": [
+        1.3979220370641885e-15,
+        1.71408785034159e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "relative_errors": [
+        1.2062596351091305e-15,
+        1.440445261959045e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 13,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.4345724735432965e-15,
+        1.7805948762480516e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 8,
+      "arm": "native",
+      "relative_errors": [
+        1.7464907943327842e-15,
+        1.7963208788277166e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "relative_errors": [
+        2.1946524570358108e-15,
+        2.352864422696481e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "relative_errors": [
+        1.768696142106539e-15,
+        1.7776523545290137e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 8,
+      "arm": "synthetic",
+      "relative_errors": [
+        2.2021023009491645e-15,
+        2.2142134693591435e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 9,
+      "arm": "native",
+      "relative_errors": [
+        1.6185946679567527e-15,
+        1.7663278917253662e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "relative_errors": [
+        1.7626935375793732e-15,
+        1.8650769971205047e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "relative_errors": [
+        1.5966448136224228e-15,
+        1.801155511686647e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 9,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.7006756309682789e-15,
+        1.812644206069941e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 13,
+      "arm": "native",
+      "relative_errors": [
+        1.1864489666086909e-15,
+        1.4326551689591684e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "relative_errors": [
+        1.3707744031774854e-15,
+        1.6712413894889785e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "relative_errors": [
+        1.1558996723171497e-15,
+        1.4214036252450166e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 13,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.4823852193744178e-15,
+        1.79098943633499e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 8,
+      "arm": "native",
+      "relative_errors": [
+        1.8658517809552118e-15,
+        1.994748558784358e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "relative_errors": [
+        2.4057927011941184e-15,
+        2.4977117563305924e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "relative_errors": [
+        1.9748447870226428e-15,
+        1.945782062251562e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 8,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.7271133430415885e-15,
+        1.8382766778687867e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 9,
+      "arm": "native",
+      "relative_errors": [
+        1.590774461881559e-15,
+        1.8429420128806983e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "relative_errors": [
+        1.6805546045362271e-15,
+        1.964675757194026e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "relative_errors": [
+        1.7405927367615205e-15,
+        1.978880626330732e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 9,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.7496992511743058e-15,
+        1.8845052574912105e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 13,
+      "arm": "native",
+      "relative_errors": [
+        1.2092167677168055e-15,
+        1.5821936301223256e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "relative_errors": [
+        1.4053818225575048e-15,
+        1.7792894226781298e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "relative_errors": [
+        1.242141267294635e-15,
+        1.5243046191514625e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 13,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.38266965136877e-15,
+        1.6827229556485519e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 8,
+      "arm": "native",
+      "relative_errors": [
+        1.7914138975185384e-15,
+        1.7567309579555045e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "relative_errors": [
+        2.22576437668869e-15,
+        2.317992728578515e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "relative_errors": [
+        1.5966919772277307e-15,
+        1.7067012523819593e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 8,
+      "arm": "synthetic",
+      "relative_errors": [
+        2.2185619310836132e-15,
+        2.29686661401485e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 9,
+      "arm": "native",
+      "relative_errors": [
+        1.594624077989267e-15,
+        1.717178503955694e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "relative_errors": [
+        1.7474776489904162e-15,
+        1.93253231223455e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "relative_errors": [
+        1.686954505948834e-15,
+        1.6919826223464692e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 9,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.6621589305609152e-15,
+        1.688299851020432e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 13,
+      "arm": "native",
+      "relative_errors": [
+        1.2401699742104743e-15,
+        1.5827706874359285e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "relative_errors": [
+        1.44182133508614e-15,
+        1.9736278705309283e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "relative_errors": [
+        1.1798371550666232e-15,
+        1.4785066636549084e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 13,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.2951751891282852e-15,
+        1.5904917940067663e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 8,
+      "arm": "native",
+      "relative_errors": [
+        1.843744210276453e-15,
+        2.023397846761988e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "relative_errors": [
+        2.2462431031735924e-15,
+        2.3819522811324828e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "relative_errors": [
+        1.8091196731667142e-15,
+        1.8687714486121885e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 8,
+      "arm": "synthetic",
+      "relative_errors": [
+        2.3162742326075794e-15,
+        2.2316390329882216e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 9,
+      "arm": "native",
+      "relative_errors": [
+        1.6249165367213115e-15,
+        1.845835001567952e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "relative_errors": [
+        1.6462762590876797e-15,
+        1.8153251521319143e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "relative_errors": [
+        1.6991013351528987e-15,
+        1.785941103986552e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 9,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.7799246957854703e-15,
+        1.87156278727013e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 13,
+      "arm": "native",
+      "relative_errors": [
+        1.3024538955170683e-15,
+        1.628351004928244e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "relative_errors": [
+        1.477076875165041e-15,
+        1.8511445635846205e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "relative_errors": [
+        1.3310549934791003e-15,
+        1.6612654037339482e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 13,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.2955682798810784e-15,
+        1.7578948045521629e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 8,
+      "arm": "native",
+      "relative_errors": [
+        1.858384899091313e-15,
+        2.0803242986272312e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "relative_errors": [
+        2.2220370362249478e-15,
+        2.3481329646992768e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "relative_errors": [
+        1.7977052701465465e-15,
+        2.1084432080944006e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 8,
+      "arm": "synthetic",
+      "relative_errors": [
+        2.2873159453106114e-15,
+        2.272715481030983e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 9,
+      "arm": "native",
+      "relative_errors": [
+        1.614747294048315e-15,
+        1.8499862592627103e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "relative_errors": [
+        1.809672567603136e-15,
+        1.836188085555118e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "relative_errors": [
+        1.6857009911360459e-15,
+        1.7308757276442624e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 9,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.6365265402606324e-15,
+        1.7318909007213714e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 13,
+      "arm": "native",
+      "relative_errors": [
+        1.3278371239484609e-15,
+        1.5894518401027798e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "relative_errors": [
+        1.4945142495482783e-15,
+        1.872652886208937e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "relative_errors": [
+        1.2989880218185084e-15,
+        1.6361946624495733e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 13,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.5422106653010127e-15,
+        1.903313687784363e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 8,
+      "arm": "native",
+      "relative_errors": [
+        1.763033874652731e-15,
+        1.8663117038595235e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "relative_errors": [
+        2.1439585617124933e-15,
+        2.273930067850399e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "relative_errors": [
+        1.7835425051727153e-15,
+        1.7150729782905685e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 8,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.554521388506736e-15,
+        1.7436386293373355e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 9,
+      "arm": "native",
+      "relative_errors": [
+        1.6316165197778232e-15,
+        1.8231301244900425e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "relative_errors": [
+        1.6765775786488826e-15,
+        1.924407244744596e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "relative_errors": [
+        1.7700859656933151e-15,
+        1.7979910587576696e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 9,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.9809876746085904e-15,
+        1.946662145655248e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 13,
+      "arm": "native",
+      "relative_errors": [
+        1.2028756478305906e-15,
+        1.4176072620583604e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "relative_errors": [
+        1.4475874033853717e-15,
+        1.7534343355403926e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "relative_errors": [
+        1.1422701837742017e-15,
+        1.4436360254670085e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 13,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.2294994677943882e-15,
+        1.5081770463918322e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 8,
+      "arm": "native",
+      "relative_errors": [
+        1.813095577380019e-15,
+        1.7443727131162186e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "relative_errors": [
+        2.243387643327477e-15,
+        2.259557205898456e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "relative_errors": [
+        1.7776268416212656e-15,
+        1.7708447576260851e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 8,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.9157108155914334e-15,
+        1.9697336966400918e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 9,
+      "arm": "native",
+      "relative_errors": [
+        1.525690553483592e-15,
+        1.6208071444179156e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "relative_errors": [
+        1.6368836834322997e-15,
+        1.941589537804813e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "relative_errors": [
+        1.5283406380406068e-15,
+        1.6992551319077938e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 9,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.7327854739389723e-15,
+        1.850957735740017e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 13,
+      "arm": "native",
+      "relative_errors": [
+        1.2339199990618118e-15,
+        1.450234438804755e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "relative_errors": [
+        1.3825062916012947e-15,
+        1.742441998689893e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "relative_errors": [
+        1.1948836019121919e-15,
+        1.3937328338006732e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 13,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.4326683072934752e-15,
+        1.6705473578491571e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 8,
+      "arm": "native",
+      "relative_errors": [
+        1.6238370519132487e-15,
+        1.6053918298863574e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "relative_errors": [
+        1.8201568727602844e-15,
+        1.8820753131632526e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "relative_errors": [
+        1.6553540968443771e-15,
+        1.5888444583506796e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 8,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.5075245608973573e-15,
+        1.5769723664713031e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 9,
+      "arm": "native",
+      "relative_errors": [
+        1.4236732919494028e-15,
+        1.6405492343114825e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "relative_errors": [
+        1.6359050844764146e-15,
+        1.8250742616402054e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "relative_errors": [
+        1.4516353650433346e-15,
+        1.6959318728622536e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 9,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.5933093717484845e-15,
+        1.7574442662112094e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 13,
+      "arm": "native",
+      "relative_errors": [
+        1.165286641644173e-15,
+        1.435833557126954e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "relative_errors": [
+        1.2418027259615125e-15,
+        1.6240065101177146e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "relative_errors": [
+        1.1907162249813295e-15,
+        1.418350730928992e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 13,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.399051166942438e-15,
+        1.6665133542779265e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 8,
+      "arm": "native",
+      "relative_errors": [
+        1.6359797839520516e-15,
+        1.682239439557426e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "relative_errors": [
+        1.84399769703896e-15,
+        2.026800153751572e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "relative_errors": [
+        1.6226744881204718e-15,
+        1.6283313823159873e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 8,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.8481698883989e-15,
+        1.8961909893699407e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 9,
+      "arm": "native",
+      "relative_errors": [
+        1.3990768964221727e-15,
+        1.6670957956907096e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "relative_errors": [
+        1.6709595871125962e-15,
+        1.91333033653826e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "relative_errors": [
+        1.543934849333424e-15,
+        1.669141209987403e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 9,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.685974409692729e-15,
+        1.6504129101397144e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 13,
+      "arm": "native",
+      "relative_errors": [
+        1.188153494560976e-15,
+        1.4567304373182309e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "relative_errors": [
+        1.3076344291383964e-15,
+        1.5740320614647038e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "relative_errors": [
+        1.2132131020028708e-15,
+        1.3773139406671623e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 13,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.1247138927301492e-15,
+        1.4197942234318504e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 8,
+      "arm": "native",
+      "relative_errors": [
+        1.7886762339760968e-15,
+        1.6952797925740303e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "relative_errors": [
+        1.905997162539242e-15,
+        1.9192405096118563e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "relative_errors": [
+        1.7596662929592957e-15,
+        1.7282861757291321e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 8,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.5450120082527909e-15,
+        1.491885554189668e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 9,
+      "arm": "native",
+      "relative_errors": [
+        1.5255614466576046e-15,
+        1.6888966000560516e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "relative_errors": [
+        1.6340933422193551e-15,
+        1.9845564006761574e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "relative_errors": [
+        1.6512110856216875e-15,
+        1.7385150837714675e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 9,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.6747453695816299e-15,
+        1.8366674119991814e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 13,
+      "arm": "native",
+      "relative_errors": [
+        1.2692519103440405e-15,
+        1.4704119750277784e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "relative_errors": [
+        1.3954413426176635e-15,
+        1.5814385347867293e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "relative_errors": [
+        1.241945483738763e-15,
+        1.401762496701052e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 13,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.448573629807072e-15,
+        1.6564844732914271e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 8,
+      "arm": "native",
+      "relative_errors": [
+        1.9156253839833022e-15,
+        1.8843084584178782e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "relative_errors": [
+        1.96564898950685e-15,
+        2.0070391341587056e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "relative_errors": [
+        1.8493076585386956e-15,
+        1.849672745900476e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 8,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.7190708654238518e-15,
+        1.775477033912981e-15
+      ],
+      "port_count": 17,
+      "conditional_stored_scalars": 39457
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 9,
+      "arm": "native",
+      "relative_errors": [
+        1.5035509981375086e-15,
+        1.6359790777195443e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "relative_errors": [
+        1.6669632510971982e-15,
+        1.8450089088916305e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "relative_errors": [
+        1.6711776311317542e-15,
+        1.683164853736733e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 9,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.6568168203101952e-15,
+        1.779401620636485e-15
+      ],
+      "port_count": 19,
+      "conditional_stored_scalars": 44137
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 13,
+      "arm": "native",
+      "relative_errors": [
+        1.3257480944577343e-15,
+        1.4968134582786794e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "relative_errors": [
+        1.3067761477475477e-15,
+        1.5809174743408494e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "relative_errors": [
+        1.3190256966834487e-15,
+        1.4087674511087062e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 13,
+      "arm": "synthetic",
+      "relative_errors": [
+        1.2552137677993235e-15,
+        1.5144025704560001e-15
+      ],
+      "port_count": 27,
+      "conditional_stored_scalars": 62937
+    }
+  ],
+  "epsilon": 1.1920928955078125e-07,
+  "scope": "Exact FP64 conditional key expression before fixed rotary maps. Saved native-generated ports are fixed; scalar edits do not recompute upstream model states. Native rounded execution was checked separately in prefix V3. No discovery, behavioral or independent extraction claim."
+}

@@ -1,0 +1,1543 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "max_prefix_joint_key_error": 9.96435218682474e-07,
+  "max_raw_unroll_error": 1.306948513172202e-07,
+  "max_errors": {
+    "anchor": 1.06119329642889,
+    "attention": 0.966957752263101,
+    "mlp": 0.47250001965738864,
+    "all": 5.274419228837675e-07
+  },
+  "cells": [
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 8,
+      "arm": "anchor",
+      "error": 1.0309759823742313
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "error": 0.862877356734264
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "error": 0.39409575731772634
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 8,
+      "arm": "all",
+      "error": 4.7130120949538127e-07
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 9,
+      "arm": "anchor",
+      "error": 0.9485314442300415
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "error": 0.7655147276230332
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "error": 0.3573153523816283
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 9,
+      "arm": "all",
+      "error": 4.608422606823306e-07
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 13,
+      "arm": "anchor",
+      "error": 0.8791672916058952
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "error": 0.6796704845690563
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "error": 0.3531680025824315
+    },
+    {
+      "prefix": [
+        464,
+        1605
+      ],
+      "layer": 13,
+      "arm": "all",
+      "error": 4.179058140634408e-07
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 8,
+      "arm": "anchor",
+      "error": 1.0473823102022308
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "error": 0.8881906896723452
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "error": 0.3861842309712395
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 8,
+      "arm": "all",
+      "error": 4.652512373460858e-07
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 9,
+      "arm": "anchor",
+      "error": 0.9274498358353819
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "error": 0.7499165944772027
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "error": 0.31147667185065536
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 9,
+      "arm": "all",
+      "error": 4.47955399176288e-07
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 13,
+      "arm": "anchor",
+      "error": 0.871714187550185
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "error": 0.6872651228065589
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "error": 0.32661225190734694
+    },
+    {
+      "prefix": [
+        464,
+        3517
+      ],
+      "layer": 13,
+      "arm": "all",
+      "error": 3.96213200388898e-07
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 8,
+      "arm": "anchor",
+      "error": 1.0248387937163324
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "error": 0.8908493056548104
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "error": 0.3887800006070077
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 8,
+      "arm": "all",
+      "error": 5.085170116899887e-07
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 9,
+      "arm": "anchor",
+      "error": 0.9394967982354363
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "error": 0.7724871810806598
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "error": 0.32115270499971166
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 9,
+      "arm": "all",
+      "error": 5.204328575353863e-07
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 13,
+      "arm": "anchor",
+      "error": 0.8847564861026473
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "error": 0.6988282463979008
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "error": 0.3714570276050934
+    },
+    {
+      "prefix": [
+        464,
+        3576
+      ],
+      "layer": 13,
+      "arm": "all",
+      "error": 4.789804784432638e-07
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 8,
+      "arm": "anchor",
+      "error": 1.026647981908106
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "error": 0.910115561151863
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "error": 0.34820930831956115
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 8,
+      "arm": "all",
+      "error": 4.4782434436784627e-07
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 9,
+      "arm": "anchor",
+      "error": 0.9590830033779417
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "error": 0.7994102460067575
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "error": 0.32493103906347903
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 9,
+      "arm": "all",
+      "error": 4.808808409447941e-07
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 13,
+      "arm": "anchor",
+      "error": 0.8979827553577512
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "error": 0.7509627937366185
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "error": 0.34346704955205676
+    },
+    {
+      "prefix": [
+        464,
+        4842
+      ],
+      "layer": 13,
+      "arm": "all",
+      "error": 4.3600380089270074e-07
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 8,
+      "arm": "anchor",
+      "error": 1.0276719603938176
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "error": 0.9154573348064842
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "error": 0.3501184524505503
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 8,
+      "arm": "all",
+      "error": 4.538387230762082e-07
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 9,
+      "arm": "anchor",
+      "error": 0.9537327490485982
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "error": 0.7951562505595254
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "error": 0.33027689911047486
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 9,
+      "arm": "all",
+      "error": 4.75737075143127e-07
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 13,
+      "arm": "anchor",
+      "error": 0.8935423582755708
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "error": 0.7473026425363231
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "error": 0.34753581772379927
+    },
+    {
+      "prefix": [
+        464,
+        6182
+      ],
+      "layer": 13,
+      "arm": "all",
+      "error": 4.739719337193598e-07
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 8,
+      "arm": "anchor",
+      "error": 1.06119329642889
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "error": 0.966957752263101
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "error": 0.34876958545446785
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 8,
+      "arm": "all",
+      "error": 5.274419228837675e-07
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 9,
+      "arm": "anchor",
+      "error": 0.9497389056332513
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "error": 0.8158863937021681
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "error": 0.30366546232428443
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 9,
+      "arm": "all",
+      "error": 4.76900968061152e-07
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 13,
+      "arm": "anchor",
+      "error": 0.8994133289172175
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "error": 0.7657173976559105
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "error": 0.33815475876359136
+    },
+    {
+      "prefix": [
+        464,
+        23475
+      ],
+      "layer": 13,
+      "arm": "all",
+      "error": 4.3613772640005165e-07
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 8,
+      "arm": "anchor",
+      "error": 1.0274340452970887
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "error": 0.8092167060291838
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "error": 0.4585730626969808
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 8,
+      "arm": "all",
+      "error": 4.4862911219237846e-07
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 9,
+      "arm": "anchor",
+      "error": 0.966889899815022
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "error": 0.7436291590362616
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "error": 0.39961026282143486
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 9,
+      "arm": "all",
+      "error": 4.5406797040392707e-07
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 13,
+      "arm": "anchor",
+      "error": 0.8921414402030781
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "error": 0.6682292240633488
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "error": 0.4073380200469903
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        1605
+      ],
+      "layer": 13,
+      "arm": "all",
+      "error": 3.8475800458334966e-07
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 8,
+      "arm": "anchor",
+      "error": 1.0348654979643033
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "error": 0.8377806573988814
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "error": 0.4386198702247525
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 8,
+      "arm": "all",
+      "error": 4.75163955897488e-07
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 9,
+      "arm": "anchor",
+      "error": 0.9508659595817921
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "error": 0.7389594479485005
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "error": 0.35620015364944146
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 9,
+      "arm": "all",
+      "error": 4.442408603097314e-07
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 13,
+      "arm": "anchor",
+      "error": 0.8829138700327682
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "error": 0.6707707169143784
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "error": 0.3809028083600485
+    },
+    {
+      "prefix": [
+        818,
+        262,
+        3517
+      ],
+      "layer": 13,
+      "arm": "all",
+      "error": 4.0352831809574315e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 8,
+      "arm": "anchor",
+      "error": 0.8732135492696435
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "error": 0.7128071984070546
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "error": 0.46061014156039765
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 8,
+      "arm": "all",
+      "error": 4.204742484417872e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 9,
+      "arm": "anchor",
+      "error": 0.9251223720625927
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "error": 0.7342280665474914
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "error": 0.38643347336870154
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 9,
+      "arm": "all",
+      "error": 4.280877984837287e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 13,
+      "arm": "anchor",
+      "error": 0.8279668129790272
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "error": 0.6544680472112584
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "error": 0.39946847387726564
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        3576
+      ],
+      "layer": 13,
+      "arm": "all",
+      "error": 3.803726866367524e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 8,
+      "arm": "anchor",
+      "error": 0.8820343977423787
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "error": 0.7367025364167155
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "error": 0.4549034610909303
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 8,
+      "arm": "all",
+      "error": 4.109815518855921e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 9,
+      "arm": "anchor",
+      "error": 0.9361044669536511
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "error": 0.7410947620942847
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "error": 0.38847574749424274
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 9,
+      "arm": "all",
+      "error": 4.210007352065763e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 13,
+      "arm": "anchor",
+      "error": 0.8691789933582792
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "error": 0.709400665434729
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "error": 0.3800975942825879
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        4842
+      ],
+      "layer": 13,
+      "arm": "all",
+      "error": 3.995088495437586e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 8,
+      "arm": "anchor",
+      "error": 0.8911911353671734
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "error": 0.7464165136822157
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "error": 0.44986182880391545
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 8,
+      "arm": "all",
+      "error": 4.4380444025591073e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 9,
+      "arm": "anchor",
+      "error": 0.9328201935666117
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "error": 0.7455295643322876
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "error": 0.4059680919633166
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 9,
+      "arm": "all",
+      "error": 4.6045690442374266e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 13,
+      "arm": "anchor",
+      "error": 0.8732655516008487
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "error": 0.7266452019344902
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "error": 0.3855081164009052
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        6182
+      ],
+      "layer": 13,
+      "arm": "all",
+      "error": 4.138432291002094e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 8,
+      "arm": "anchor",
+      "error": 0.9338978074728888
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 8,
+      "arm": "attention",
+      "error": 0.8078300703632918
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 8,
+      "arm": "mlp",
+      "error": 0.47250001965738864
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 8,
+      "arm": "all",
+      "error": 4.582332944856879e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 9,
+      "arm": "anchor",
+      "error": 0.9236830196919595
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 9,
+      "arm": "attention",
+      "error": 0.7608154397767769
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 9,
+      "arm": "mlp",
+      "error": 0.3780729642075144
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 9,
+      "arm": "all",
+      "error": 4.356298558545548e-07
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 13,
+      "arm": "anchor",
+      "error": 0.9047923847010856
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 13,
+      "arm": "attention",
+      "error": 0.7652392073681373
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 13,
+      "arm": "mlp",
+      "error": 0.40396240409395634
+    },
+    {
+      "prefix": [
+        4821,
+        284,
+        257,
+        7533,
+        422,
+        23475
+      ],
+      "layer": 13,
+      "arm": "all",
+      "error": 3.914502675068999e-07
+    }
+  ],
+  "calls": 33,
+  "seconds": 1.3542410284280777,
+  "source_shas": {
+    "/workspace/tensor_language/jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/fastload.py": "5803de7f127d1f556470107b559c06daecf7fbc2bccf4574aeb1c347b6225d90",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/sparse_path_stability_atlas_v1.py": "ccebc47d0c90b75c2a4b5646e6ef58c79cd55d3b518af265b55c747828549cf0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_cue_row_check_v1.py": "c6dda30ba85cff6d7cccff280faec0f1a437362ecb4875511aca263c258d16ed",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_KEY_PREFIX_V3_PREREGISTRATION.md": "65653c9f9959d43658a73655fa2353704f125c387b7e12eb0df06c118d9df9f5",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_regional_key_prefix_v3.py": "b69940a454ecf2c0722939f32f444f06473522b5f2eb22a7e4d1bb56f8cdf33d",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_SOURCE_BLOCK_V2_ROWS.json": "0da4a2faf6b1b9148bc2e707fcc8807d2870b0c5accea623fc99fbfbedbd0c0f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_SOURCE_BLOCK_OOD_V1_ROWS.json": "6ef7ce810de87d75a838335ae39152053158dce6a2d2ac7714000506334b5fa0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_BEHAVIOR_CONTROLS_V2_ROWS.json": "35cc4c36b27b0257b9bffaf6e16ce8ea42c5428498d9b1638e03afc82d0fca65",
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "scope": "Frozen conditional joint-key sufficiency of upstream update families. All original upstream updates are computed natively; family removal is at the projected residual port, not recursive network ablation. No behavioral or independent extraction claim. Prefix counts are finite panel coverage.",
+  "artifact_sha": "ebbd3f8fe1fbe17960abf3f5c4a9fdfbea30e46ad12c49bea4f4d8a47be263a0"
+}
