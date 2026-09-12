@@ -1,0 +1,9 @@
+# Selective even component plus one mixed joint-key band pair
+
+12September2026. Prior-art audit: all63inside/mixed/outside masks and120atom/one-atom-per-head candidates already ran. The proposed even-plus-one-mixed-pair unions did not. No new basis, rank or weight fit. Use existing four64D joint-key bands. Retain the original even component in bothheads, then add exactlyone symmetric pair(0,1),(0,2),(0,3) at eitherhead8.2or9.8. These are six fixed candidate product-space computations. Both QK factors, original full denominators and first/current value sectors stay intact.
+
+72reused newendpoint contexts and32original FineWebnewline contexts, including the retained adverse row. Regional arms: native, even, six additions, fullsector. Newline also actualmeanhead8.2positivecontrol.968bodyforwards,180second managed cap. Fullsector/meanhead/native/even are replay controls, not candidate promotions.
+
+A: previous regional native/even/full and originalnewline native/even/full/mean replay<=1e-4relative; pathsum<=1e-5 and meanhead subtraction<=1e-4. B: at leastone ofsix additions passes allthree regionalfamilies: nativecapability>=.2meancontrast and>=10/12positive, removal>=50%,>=10/12positive reductions, unrelatedmeanabsoluteeffect<=.5target. C: the sameBcandidate also preserves eachnewlinehalf atmeanabsoluteCEchange<=.02,maxabsolute<=.1.
+
+Null: none ofthese fixed finer joint-input-product additions restores coverage within the collateral budget. This doesnotexhaust all possible input decompositions. Any passing candidate is selected on reused panels and needs freshconfirmation; oldselected64failure/newlinefullsectorfailure stay onrecord. Report allsix, including misses. Existingfactorialdiagnostic shows even+mixed alreadyexceedsnewlinebudget additively; do not presume a dominant nonlinear synergy.

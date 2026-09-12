@@ -1,0 +1,56 @@
+{
+  "records": [
+    {
+      "quantity": "regional",
+      "family": 0,
+      "interaction_norm_over_full": 0.06511007439851715,
+      "mixed_norm_over_full": 0.17668981521465424,
+      "max_abs_interaction": 0.1370830535888672
+    },
+    {
+      "quantity": "regional",
+      "family": 1,
+      "interaction_norm_over_full": 0.08385206981258536,
+      "mixed_norm_over_full": 0.23042842152414977,
+      "max_abs_interaction": 0.20599842071533203
+    },
+    {
+      "quantity": "newline_ce",
+      "family": 0,
+      "interaction_norm_over_full": 0.07191724196005507,
+      "mixed_norm_over_full": 0.40582432480055963,
+      "max_abs_interaction": 0.002528846263885498
+    },
+    {
+      "quantity": "newline_ce",
+      "family": 1,
+      "interaction_norm_over_full": 0.08345944700815233,
+      "mixed_norm_over_full": 0.22942962237398692,
+      "max_abs_interaction": 0.011297434568405151
+    },
+    {
+      "quantity": "newline_margin",
+      "family": 0,
+      "interaction_norm_over_full": 0.07765762103907091,
+      "mixed_norm_over_full": 0.28327370545314834,
+      "max_abs_interaction": 0.007037162780761719
+    },
+    {
+      "quantity": "newline_margin",
+      "family": 1,
+      "interaction_norm_over_full": 0.0708700417628502,
+      "mixed_norm_over_full": 0.3182571148042332,
+      "max_abs_interaction": 0.013644218444824219
+    }
+  ],
+  "worst_newline": {
+    "index": 30,
+    "even_damage": 0.09494638442993164,
+    "mixed_damage": 0.030846089124679565,
+    "additive_prediction": 0.1257924735546112,
+    "actual_full_damage": 0.13708990812301636,
+    "interaction": 0.011297434568405151,
+    "threshold": 0.1
+  },
+  "scope": "Reuse completed factorial grade screen; no new model run. CE is nonlinear, so CE interaction alone is not a unique circuit-interaction attribution. Recorded newline logit margin provides a separate partial check; full vocabulary logits were not retained."
+}
