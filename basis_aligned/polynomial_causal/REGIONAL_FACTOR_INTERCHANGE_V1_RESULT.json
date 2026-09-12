@@ -1,0 +1,365 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "recipient_replay_error": 1.190139053958485e-15,
+  "donor_replay_error": 1.190139053958485e-15,
+  "grid_reconstruction_error": 0.0,
+  "native_attention_replay_errors": [
+    1.1799422848230597e-07,
+    1.8994993129619362e-07,
+    1.7258870149161775e-07,
+    1.524224563294383e-07,
+    1.89243424325966e-07,
+    1.4392238072789187e-07,
+    1.675361110467163e-07
+  ],
+  "cells": [
+    {
+      "family": 0,
+      "native_regional_gap": 1.8357042074203491,
+      "mean_transfer_by_mask": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          -0.023074030876159668,
+          0.00012610852718353271
+        ],
+        [
+          0.012607336044311523,
+          9.655952453613281e-06
+        ],
+        [
+          -0.006505846977233887,
+          0.00012373924255371094
+        ],
+        [
+          0.2583424299955368,
+          7.408857345581055e-05
+        ],
+        [
+          0.2374412566423416,
+          0.0001568049192428589
+        ],
+        [
+          0.276446670293808,
+          7.906556129455566e-05
+        ],
+        [
+          0.25134149193763733,
+          0.00017406046390533447
+        ],
+        [
+          -0.0035184919834136963,
+          8.61138105392456e-05
+        ],
+        [
+          -0.02726207673549652,
+          0.00022795796394348145
+        ],
+        [
+          0.009514078497886658,
+          8.781254291534424e-05
+        ],
+        [
+          -0.010193288326263428,
+          0.00021311640739440918
+        ],
+        [
+          0.2543863207101822,
+          0.0001363903284072876
+        ],
+        [
+          0.2341248095035553,
+          0.0002111494541168213
+        ],
+        [
+          0.2719522714614868,
+          0.00014735758304595947
+        ],
+        [
+          0.24757497012615204,
+          0.00023636221885681152
+        ]
+      ],
+      "positive_regional_by_mask": [
+        0,
+        0,
+        8,
+        1,
+        8,
+        8,
+        8,
+        8,
+        0,
+        0,
+        8,
+        0,
+        8,
+        8,
+        8,
+        8
+      ],
+      "parent_regional_meanabs": 0.012607336044311523,
+      "parent_unrelated_meanabs": 0.0007566213607788086,
+      "interaction_contrast_by_mask": [
+        [
+          0.9178521037101746,
+          0.00826069712638855
+        ],
+        [
+          0.023074030876159668,
+          -0.00012610852718353271
+        ],
+        [
+          -0.012607336044311523,
+          -9.655952453613281e-06
+        ],
+        [
+          -0.003960847854614258,
+          1.2025237083435059e-05
+        ],
+        [
+          -0.2583424299955368,
+          -7.408857345581055e-05
+        ],
+        [
+          -0.0021728575229644775,
+          4.3392181396484375e-05
+        ],
+        [
+          -0.005496904253959656,
+          4.678964614868164e-06
+        ],
+        [
+          0.008164852857589722,
+          -2.4303793907165527e-05
+        ],
+        [
+          0.0035184919834136963,
+          -8.61138105392456e-05
+        ],
+        [
+          0.0006695538759231567,
+          -1.5735626220703125e-05
+        ],
+        [
+          -0.00042523443698883057,
+          7.957220077514648e-06
+        ],
+        [
+          -7.537007331848145e-05,
+          4.51505184173584e-06
+        ],
+        [
+          0.00043761730194091797,
+          2.3812055587768555e-05
+        ],
+        [
+          -0.001309216022491455,
+          2.3692846298217773e-05
+        ],
+        [
+          0.0009635239839553833,
+          -1.3947486877441406e-05
+        ],
+        [
+          -1.284480094909668e-05,
+          -6.4820051193237305e-06
+        ]
+      ]
+    },
+    {
+      "family": 1,
+      "native_regional_gap": 2.731873244047165,
+      "mean_transfer_by_mask": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          -0.032914578914642334,
+          -0.00025106966495513916
+        ],
+        [
+          0.011338382959365845,
+          0.00010102987289428711
+        ],
+        [
+          -0.013151302933692932,
+          -0.00016701221466064453
+        ],
+        [
+          0.5318320840597153,
+          -0.0007981657981872559
+        ],
+        [
+          0.5011343508958817,
+          -0.0011857300996780396
+        ],
+        [
+          0.555489718914032,
+          -0.0006637722253799438
+        ],
+        [
+          0.5159051865339279,
+          -0.0010442882776260376
+        ],
+        [
+          -0.008737847208976746,
+          -1.862645149230957e-05
+        ],
+        [
+          -0.044889286160469055,
+          -0.00025776028633117676
+        ],
+        [
+          0.004258379340171814,
+          6.39110803604126e-05
+        ],
+        [
+          -0.02326272428035736,
+          -0.0001897662878036499
+        ],
+        [
+          0.5204888433218002,
+          -0.0009071379899978638
+        ],
+        [
+          0.49296170473098755,
+          -0.0012988448143005371
+        ],
+        [
+          0.5421886295080185,
+          -0.0007630735635757446
+        ],
+        [
+          0.5060147941112518,
+          -0.0011444687843322754
+        ]
+      ],
+      "positive_regional_by_mask": [
+        0,
+        0,
+        8,
+        0,
+        8,
+        8,
+        8,
+        8,
+        0,
+        0,
+        7,
+        0,
+        8,
+        8,
+        8,
+        8
+      ],
+      "parent_regional_meanabs": 0.011338382959365845,
+      "parent_unrelated_meanabs": 0.0009401440620422363,
+      "interaction_contrast_by_mask": [
+        [
+          1.3659366220235825,
+          -0.025037437677383423
+        ],
+        [
+          0.032914578914642334,
+          0.00025106966495513916
+        ],
+        [
+          -0.011338382959365845,
+          -0.00010102987289428711
+        ],
+        [
+          -0.008424893021583557,
+          1.697242259979248e-05
+        ],
+        [
+          -0.5318320840597153,
+          0.0007981657981872559
+        ],
+        [
+          -0.002216845750808716,
+          0.00013649463653564453
+        ],
+        [
+          -0.012319251894950867,
+          -3.33636999130249e-05
+        ],
+        [
+          0.017311692237854004,
+          -2.4020671844482422e-05
+        ],
+        [
+          0.008737847208976746,
+          1.862645149230957e-05
+        ],
+        [
+          0.0032368600368499756,
+          -1.1935830116271973e-05
+        ],
+        [
+          -0.0016578435897827148,
+          1.849234104156494e-05
+        ],
+        [
+          -0.00020544230937957764,
+          -2.428889274597168e-06
+        ],
+        [
+          0.0026053935289382935,
+          9.034574031829834e-05
+        ],
+        [
+          -0.006407454609870911,
+          1.607835292816162e-05
+        ],
+        [
+          0.0036156922578811646,
+          -2.816319465637207e-05
+        ],
+        [
+          -3.466010093688965e-05,
+          -8.344650268554688e-07
+        ]
+      ]
+    }
+  ],
+  "port_bits": {
+    "gate": 1,
+    "parent": 2,
+    "children": 4,
+    "query_writers": 8
+  },
+  "body_forwards": 7,
+  "seconds": 2.3411317579448223,
+  "artifact_sha": "d91af8b135f787773553ad596fb1b080f92b10a6279b42778144e4b68c0c17ef",
+  "source_shas": {
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/fastload.py": "5803de7f127d1f556470107b559c06daecf7fbc2bccf4574aeb1c347b6225d90",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_in_situ_usage_rank_map_probe.py": "c701af71491d29f33f5ad691f89380a9fa7c2d86514a61fd7423ad8a78fd4d16",
+    "/workspace/tensor_language/jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/cubic_source_mixture_execute_v1.py": "76c2b3048c5e0fceba606d3d476f626b654f05a9c0008c45ed05b63aa2f9f8af",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CUBIC_SOURCE_MIXTURE_EXECUTE_V1_CONTROL.json": "431f49b79569b90ba0e9e692a3dc171232fc763a0f5261c5e62f51b7b8818109",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/shared_cubic_source_projection_v1.py": "78eb18cc03b5e82b19edb1951ddefbebda0a226df824e1959ca43a19f7545fe2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/folded_normalized_router_v1.py": "a374ea1f2c29ed68f7b33f3eb9d28a7034a25260ec95fe4b4e9fc2d7b0e48d9c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/sparse_path_stability_atlas_v1.py": "ccebc47d0c90b75c2a4b5646e6ef58c79cd55d3b518af265b55c747828549cf0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CUBIC_SECANT_BLOCK_NATIVE_V1_ARTIFACT.pt": "f8075d535c7c88ee79be34e0a4360a4002efa3e98a64fcf611c7de4ad0c7baf9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/COMMON_QUADRATIC_SOURCE_BLOCK_V1_ARTIFACT.pt": "c23fbb6658ca6a5176341c7ca3a99885bc16564ea0188af658bd467da854539e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/COMMON_QUADRATIC_NATIVE_V1_RESULT.json": "8900ba6efae2d04ffd3735ec6f073940b426297c90a52993f3e31a78c2a1f659",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_SOURCE_BLOCK_V2_ROWS.json": "0da4a2faf6b1b9148bc2e707fcc8807d2870b0c5accea623fc99fbfbedbd0c0f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_SOURCE_BLOCK_V1_RESULT.json": "9bde8529ee5997b586501bcc450da03bc46e1b45089d383fcd8d4dae186cced5",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_regional_factor_interchange_v1.py": "75ba2bcc81962a831df3daf0730abd0eddf696e3676af2b48f82711cd2363e8c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_FACTOR_INTERCHANGE_V1_PREREGISTRATION.md": "9545e4e4033d9f36a0e2f4c86e93a9d2ac656893e6e27160d8ae8c2630b40cdc",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_FACTOR_INTERCHANGE_V1_PAIR_CONTROL.json": "2985464f7cad34d6df2884c1363d1813472b138b29e27daaf9b74b00782faea7",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/common_quadratic_ports_v1.py": "28dc46aed076bf72d5d5b63db40fc7ae8fd8489961c1e7a8d40ea24af836aae3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/factorial_source_ports_v1.py": "b219f9bd36cd1dc3e58c6442a2de39275459d4776dbf48f47f0a7ede1d20cf2a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FACTORIAL_SOURCE_PORTS_V1_CONTROL.json": "b074c2cae0f2e489e9b2c402b93f69fbf5e845aa22af65170d248a1e629d7fae",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/COMMON_QUADRATIC_PORTS_V1_CONTROL.json": "117a269948c069b655370614e6cf66e2a3801cfd9045b8c9d22d87c308ceacfd",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_SOURCE_BLOCK_V2_ARTIFACT.pt": "553647a6813c7f571aeada2e64f0ee1789cb5d3d09b9fa1bcb4e18f1b95ece3f"
+  },
+  "scope": "Paired-context factor interventions with recipient native remainder fixed. Conditional finite-grid accounting, not a universal semantic abstraction or four-property promotion."
+}

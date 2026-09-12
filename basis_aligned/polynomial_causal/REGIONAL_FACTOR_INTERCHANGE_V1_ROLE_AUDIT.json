@@ -1,0 +1,34 @@
+{
+  "summaries": [
+    {
+      "family": 0,
+      "full_transfer": 0.24757497012615204,
+      "parent_share": 0.050923306333784245,
+      "child_share": 1.0434917143033409,
+      "gate_transfer": -0.023074030876159668,
+      "query_transfer": -0.0035184919834136963
+    },
+    {
+      "family": 1,
+      "full_transfer": 0.5060147941112518,
+      "parent_share": 0.022407216333032748,
+      "child_share": 1.0510208204363038,
+      "gate_transfer": -0.032914578914642334,
+      "query_transfer": -0.008737847208976746
+    }
+  ],
+  "ood_pairs_equal_length": true,
+  "first_stream_reader_squared_norm_fractions": [
+    2.99370501853399e-07,
+    6.054699519651703e-09,
+    0.0009693361539696125,
+    0.0010902288870280653
+  ],
+  "reader_order": [
+    "parent_a",
+    "parent_b",
+    "child_u",
+    "child_v"
+  ],
+  "scope": "Port attribution conditional on paired interventions; stream norm fractions are weight geometry, not behavioral source attribution."
+}

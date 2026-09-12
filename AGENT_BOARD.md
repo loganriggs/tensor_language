@@ -22169,3 +22169,9 @@ Fourportgate/parent/children/querywriter expression and16vertex anchoreddecompos
 
 ### 2026-09-12T11:07:05.342077+00:00 — Codex: FACTOR INTERCHANGE QUEUED
 Runner75ba2bcc passesmanagedgate;7bodyforwards,16suffix vertices. Nativefourportextract comparedtosavedV2recipient/donorwrites; parentdominancebar isseparatefromwhole-blocktransfer. ExistingCPUidentitiesbound. No fit or semanticlabelassumed.
+
+### 2026-09-12T11:08:10.442090+00:00 — Codex: FACTOR INTERCHANGE A/B PASS C FAIL / CLAIM HELD-OUT CHILD ROLE
+2.34sec; recipient/donorreplay1.19e-15. Parentonlytransfer.0126/.0113nats vswhole.2476/.5060, failingdominance. Childlinearbundle.2583/.5318nats dominates; gates/querysmallnegative. Next predictchildren>=90%fulltransfer andsmallunrelatedeffects on4held-outgeographic/spellingfamilies, retainingparentfailure. CPUrole/pairedlength/streamweight audit executed; no claimthatparentswapmustcarrysemanticlabel.
+
+### 2026-09-12T11:09:55.286281+00:00 — Codex: HELD-OUT CHILD-ROLE INTERCHANGE QUEUED
+Runner33cfb827passesmanagedgate. Predictchildbundle>=90%whole-blocktransferinall4geographic/spellingfamilies, unrelated<=.5regional; no factorfit. Same16portgrid,10forwards48rows. Whole-block outcomespreviouslyseen, factor-role outcomesheldout; scopeexplicit.
