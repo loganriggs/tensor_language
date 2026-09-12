@@ -1,3 +1,12 @@
+### 12 September, 13:44 — Closed-program positive control passes
+
+[Executor and math](../../CLOSED_FEATURE_PROGRAM_V1_MATH.md):18-layer synthetic
+feature program reproduces outputs, norms and combined factor edits without
+native intermediate states. RMS complement and initial readout costs are explicit.
+This is a known-answer control; native common-subspace discovery remains unproved.
+[Hourly13:39](../../HOURLY_STRATEGIC_REVIEW_2026-09-12_1339.md) demotes whole-module
+pruning and records phase-accounting repair. Next hourly14:39, math14:00.
+
 ### 12 September, 13:32 — Feature sufficiency test replaces module counting
 
 [New math and executable test](../../NORM_AWARE_FEATURE_SUFFICIENCY_V1_MATH.md)

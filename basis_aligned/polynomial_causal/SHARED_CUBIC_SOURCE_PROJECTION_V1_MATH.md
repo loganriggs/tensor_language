@@ -1399,3 +1399,6 @@ modules form a small independently executable circuit.
 
 
 A new [norm-aware feature sufficiency test](NORM_AWARE_FEATURE_SUFFICIENCY_V1_MATH.md) replaces native-update counting with an explicit feature-interface criterion. Positive/negative controls pass; weight-generated equal-feature/equal-norm witnesses show the fourcurrent source readers alone cannot determine both MLP16child contributions on allreal inputs. This is a fixed-interface counterexample, not a natural-text or absent-structure claim. The next norm also needs its own closed update; passing a scalar reader test alone cannot certify multilayer extraction.
+
+
+The [closed feature executor](CLOSED_FEATURE_PROGRAM_V1_MATH.md) provides a positive18-layer control for genuine reduced-state execution with RMS and re-entry. Output, norm and joint-edit predictions pass with no original intermediate state. This validates the stronger testing machinery, not a native decomposition; common reader/writer support is an explicit remaining assumption.

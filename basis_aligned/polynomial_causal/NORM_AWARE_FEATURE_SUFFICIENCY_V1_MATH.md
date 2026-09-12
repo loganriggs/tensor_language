@@ -148,3 +148,6 @@ view motivates the closure question, but its algorithm and guarantees do not
 directly solve this discrete normalized transformer with nonlinear norm state.
 The quadratic-plus-norm criterion and witness above are derived here for this
 specific object; they are not a claim that CLUE proved a transformer reduction.
+
+
+A [positive closed-program executor](CLOSED_FEATURE_PROGRAM_V1_MATH.md) now tracks feature state, initial-complement norm and residual re-entry across18layers without original intermediate states. Known-answer multi-layer and combined-edit controls pass. Its common reader/writer subspace is imposed in the synthetic control, not discovered in the native model.

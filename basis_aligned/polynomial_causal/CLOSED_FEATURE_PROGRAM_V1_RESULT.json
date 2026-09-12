@@ -1,0 +1,74 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "cells": [
+    {
+      "scale": 0.3,
+      "max_logits_error": 6.734097365625982e-16,
+      "max_feature_error": 8.138060828520161e-16,
+      "max_norm_error": 7.572302573133865e-16,
+      "effect_errors": [
+        1.7583380869129417e-13,
+        1.0608908394314881e-13,
+        9.254660559795944e-14
+      ],
+      "effect_norms": [
+        0.24080215950392758,
+        0.34975241159379106,
+        0.44982408843856436
+      ],
+      "interaction_norm": 0.005431824985298277,
+      "interaction_relative_error": 9.7273491448899e-12,
+      "missing_complement_norm_error": 1.3256784950156852
+    },
+    {
+      "scale": 1.0,
+      "max_logits_error": 7.010430450654188e-16,
+      "max_feature_error": 8.488479371375226e-16,
+      "max_norm_error": 7.924403344399678e-16,
+      "effect_errors": [
+        5.268776066908368e-13,
+        3.1350780555349867e-13,
+        2.577644490852785e-13
+      ],
+      "effect_norms": [
+        0.07904740561572686,
+        0.12207023427553895,
+        0.1617024723077382
+      ],
+      "interaction_norm": 0.0011547700291599375,
+      "interaction_relative_error": 4.646435467529049e-11,
+      "missing_complement_norm_error": 2.1059006367725446
+    },
+    {
+      "scale": 3.0,
+      "max_logits_error": 6.850767909865432e-16,
+      "max_feature_error": 8.035785989067615e-16,
+      "max_norm_error": 7.6720964692887285e-16,
+      "effect_errors": [
+        1.857510205241129e-12,
+        9.335505994561594e-13,
+        8.166424338403622e-13
+      ],
+      "effect_norms": [
+        0.02183262916896853,
+        0.04032140759220363,
+        0.05049495738650266
+      ],
+      "interaction_norm": 6.409668925089973e-05,
+      "interaction_relative_error": 8.230498484673429e-10,
+      "missing_complement_norm_error": 2.1262862378724967
+    }
+  ],
+  "price": {
+    "dense_weight_scalars": 48804,
+    "reduced_weight_scalars": 12788,
+    "per_input_encoded_scalars": 105,
+    "per_input_changing_features": 8,
+    "caveat": "Arbitrary full readout retains96 initial-complement values per input and original readout weights for encoding. This is not an8-scalar total state or a native compression measurement."
+  },
+  "source_sha": "3072f59d9e0719c71bb16caf24793c802cb5e945a865105a4741104ebb9714df",
+  "helper_sha": "1ff60dc4c79c658173ff2c9ca943ee6932551b80b133b82b5a3b0d54f46c9717",
+  "scope": "Seeded common-frame positive control, not trained bilin18 or linguistic OOD. Candidate closure does not use intermediate native state; restrictive reader/writer support assumption is known by construction."
+}
