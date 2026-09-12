@@ -22406,3 +22406,6 @@ Whole sharedcomponent removal12.53–14.88%nativegap,24/24positive, actual>8matc
 
 ### 2026-09-12T14:28:07.406444+00:00 — Codex: CLAIM WEIGHT-ONLY NORMALIZER DEPENDENCY TEST
 Frozen sharedsourcecomponent on48freshgeo rows; substitute E||Qx||²/128=||Q||F²/128 for query, key, both headnorm factors. Isotropic RMS input assumption, no datafitting. Numerator/readers/parent remain unchanged. A nativeattention andpriorcomponent replay<=1e-5; B queryconstant write/signedremovaleffect<=10%eachfamily; C keyconstant same; D bothsame. Nativeconstant direction null mayfail; neither absentstructure nor arbitraryinputcertificate.9bodybatches5suffixarms180sec. Removed normalization projection cost only if foldednumerator executes separately; upstreamstate stillnative.
+
+### 2026-09-12T14:30:37.621476+00:00 — Codex: NORMALIZER CONSTANTS FAIL / CLAIM GEOMETRY RED-TEAM
+4.12secApass priorcomponentexact; queryeffect20–22%,key25–57%,both46–89%. Trace/isotropy substitution fails, notproof no simpler normalizer. CPU optimal-scalar residual floor perpanel/family and cosine; diagnostic only,no gainadoption/datafit circuit. Quantify fixedscale versus input/positional changes before next weight-derivednormrepresentation.

@@ -1537,3 +1537,34 @@ next structural test is whether weight-derived norm approximations preserve this
 component's effects; another attribution expansion of the already simple joint
 key product would not remove that dependency. Preserve all prior approximate-
 routing cancellation failures when testing a different boundary.
+
+## Weight-derived constant normalizers fail (14:31)
+
+The [normalizer test](REGIONAL_SOURCE_NORMALIZERS_V1_RESULT.json) keeps the
+frozen shared numerator, input states and positional operators, and replaces
+query norms, key norms, or both by weight-derived constants. For each128-row
+map A the nominal mean squared projection is ||A||F²/128 plus nativeepsilon,
+assuming isotropic inputs with unit coordinate second moments. No text means
+or fitted scales enter the candidate. This targets extraction cost: the small
+folded numerator need not otherwise compute all128 projected coordinates/head.
+
+A native/prior replay passes; the shared component matches its prior write
+exactly. B/C/D all fail. Queryconstant write errors15.9–18.2%, effect20.4–22.2%;
+keyconstant write26.2–56.7%, effect25.1–57.3%; bothconstant write39.9–82.0%,
+effect45.6–89.3%.9bodybatches completed in4.12seconds. These are signed-prefix
+removal-effect preservation errors, not improvement/damage percentages.
+
+The executed [geometry red-team](REGIONAL_SOURCE_NORMALIZERS_V1_GEOMETRY.json)
+shows much of the miss is scale, but a single scalar is not an exact repair.
+Across all48contexts, optimal-scalar write residual floors are10.70%,9.95%,
+15.94%for query/key/both; separately projected effect floors11.14%,10.61%,15.67%.
+Write and effect optima differ because the suffix is nonlinear. No scalar is
+adopted and these descriptive optima do not change the registered failures.
+
+This rejects the trace-only isotropy assumption for preserving the component;
+it does not establish that native128-coordinate norm projections are necessary.
+A distinct weight-only alternative is to retain leading eigendirections of each
+norm quadratic and model its remaining orthogonal complement isotropically.
+That preserves anisotropy and can be checked against the exact full-rank endpoint.
+Any such test must score component removal effects and combined use, not merely
+norm reconstruction. Original opaque upstream states remain an extraction cost.
