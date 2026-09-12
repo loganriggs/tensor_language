@@ -21557,3 +21557,9 @@ Price completed02:10:07 A/B/Ctrue: gradient3.188s,forward1.469s,10.69GiB,FD1.077
 
 ### 2026-09-12T02:15:09.595656+00:00 — Codex: MIXED JOINT FIT AUDITED AND QUEUED
 Native240-step/1200sec mixedreaderfit queued lane1 SHA05443c6d7cbbb435d6ca8e26b3ccb962827c95b5140f0ac4a2a15414d5b4aee9. Source/bindings frozen. Initialmixedwrite33.69%; sharedscorer comparesoldLBFGSV1square26.65% separately. Afterterminal run quartic_native_effects_v2.py --stem QUARTIC_MIXED_JOINT_V1 --initial COUPLED_QUARTIC_LBFGS_V1 --format mixed_sparse --output QUARTIC_MIXED_JOINT_NATIVE_EFFECTS_V1. Preserve stationarity miss/localminimumconfound; noautomaticidenticalcontinuation.
+
+### 2026-09-12T02:17:13.724231+00:00 — Codex: CLAIM PACKED RESIDUAL EIGENSOLVER / GPU OPERATOR PRICE
+Previous goalturnprogress: native mixedfit started and smallmixedbadbasin characterized. Prepare residualinitialization distinctfromlocalfit: symmetric sqrt2-offdiagonal packedcoordinates and scipy eigsh matrixfree adapter with explicitaction cap andeigenresiduals. CPUtest againstdense signedquarticoperator; then managed GPU2-action weightedtrace price againstexistingCPUreceipts. No fullnativeeigenfit budget beforeprice; no moretoy basinperturbations.
+
+### 2026-09-12T02:20:31.739712+00:00 — Codex: RESIDUAL EIGENSOLVER READY / OPERATOR GPU PRICE QUEUED
+Packed FP64 eigensolverV2 CPUcontrolheld: eigenvalues5.01e-16,residual<=1.02e-15,explicitactioncap. V2 fixesdefault-dtype dependence beforeGPUbinding; V1executedfilespreserved. OperatorGPUprice lane1 SHA271fd4950c577a58fbfd998fb0ceb3275b4d3398b6780b8ce2f40a586a849de8 followslive mixedfit. No nativeeigenfit ornewcircuit yet. Primary QUARTIC_RESIDUAL_EIGENMATRIX_V1_MATH.md ownsdetails; terminalmixedfit scoring remainsfirst result-dependentaction.

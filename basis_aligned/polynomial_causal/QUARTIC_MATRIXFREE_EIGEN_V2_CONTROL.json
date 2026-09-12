@@ -1,0 +1,34 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "metric_error": 2.220446049250313e-16,
+  "roundtrip_error": 2.907389832241037e-17,
+  "eigenvalue_error": 5.010291999069266e-16,
+  "diagnostics": {
+    "status": "converged",
+    "operator_actions": 17,
+    "verification_actions": 4,
+    "relative_eigen_residuals": [
+      3.553594622874591e-16,
+      1.0157764515314285e-15,
+      7.543375581765801e-16,
+      4.992663047827949e-16
+    ],
+    "packed_dimension": 36,
+    "requested_eigenpairs": 4,
+    "lanczos_vectors": 16,
+    "seed": 91951
+  },
+  "capped_diagnostics": {
+    "status": "action_limit",
+    "operator_actions": 1,
+    "verification_actions": 0,
+    "relative_eigen_residuals": [],
+    "packed_dimension": 36,
+    "requested_eigenpairs": 4,
+    "lanczos_vectors": 16,
+    "seed": 91951
+  },
+  "scope": "CPU packed-coordinate and signed quartic eigensolver validity only; no native spectrum or atom-recovery claim."
+}
