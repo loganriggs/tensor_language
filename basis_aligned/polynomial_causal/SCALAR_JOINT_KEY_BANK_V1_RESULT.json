@@ -1,0 +1,49 @@
+{
+  "pred_a": true,
+  "max_instrument_error": 1.940938283740144e-14,
+  "rows": [
+    {
+      "head": "8.2",
+      "band_influence_fractions": [
+        0.7965966442851423,
+        0.13104453073162653,
+        0.0526866721835464,
+        0.019672152799684896
+      ],
+      "relative_boundary_gaps": [
+        0.0005386673651217898,
+        8.886589181598706e-05,
+        7.150682493957539e-05
+      ],
+      "position_top64_overlap": [
+        0.9129817740798318,
+        0.9540173675218561,
+        0.9260709257514046
+      ],
+      "mean_coefficient_norm_squared": 56767965006.56123
+    },
+    {
+      "head": "9.8",
+      "band_influence_fractions": [
+        0.750871615541138,
+        0.14877830872501172,
+        0.06933583117431481,
+        0.031014244559535498
+      ],
+      "relative_boundary_gaps": [
+        0.0012063708397096829,
+        0.0004740491362183308,
+        0.0001759106304280362
+      ],
+      "position_top64_overlap": [
+        0.9123976184992799,
+        0.9301885737011051,
+        0.9283343478233895
+      ],
+      "mean_coefficient_norm_squared": 55176133694.622986
+    }
+  ],
+  "seconds": 0.6829147189855576,
+  "source_sha": "d2e5fd65ab43dd25bf8548438c918ea7b4c9a93e6664931b5d52b37dcbd92490",
+  "scope": "Weights-only complete joint-key source basis for heads8.2/9.8; ten unordered source-band pair paths per scalar value sector. Native full denominators required. No low-rank approximation, fitting text, task-specific input identification, or causal result. Boundary gaps/position overlaps are descriptive, not stability certification."
+}
