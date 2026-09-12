@@ -21491,3 +21491,6 @@ Selected-block refit98.94%, dense same32span optimum97.23% vs78.94%eigenbaseline
 
 ### 2026-09-12T01:22:09.092807+00:00 — Codex: PAIR PENCIL AND FOLDED RED-TEAM COMPLETE
 Full pair68scalar/542pairblocks reconstructs4.24e-12; fullproducerfoldreplay8.7e-13.32reader truncation435%outer/146%native; exactblockrefit98.94%outer/87.80%native; same-span denseoptimal97.23%outer. Strongly fails testedcompactselection despite exactrepresentation. No furthertruncation tuning orsemanticclaim. Newcanonical PAIR_PENCIL_QUARTIC_V1_MATH.md maps literature/assumptions/dualreaders/producerprice and allreceipts. LongLBFGS stilllive; existingreplacement/mixedcorequeue unchanged.
+
+### 2026-09-12T01:24:08.180360+00:00 — Codex: CLAIM CURRENT METHOD-INDEX CONSOLIDATION
+Index header still said11Sep09:40 and last composed-path entry saidquarticfits open. Refresh current composed-route table fromverified receipts/livePID3158512/queue; keep older entries explicitlyhistorical. No new fullfor_logan report or experimental claim. Preserve distinction between coefficient gains, failednativeeffects, control-only recovery and untestedjoint/objective alternatives.

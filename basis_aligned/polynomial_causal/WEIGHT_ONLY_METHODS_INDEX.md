@@ -1,11 +1,33 @@
 # Weight-only structural methods: current receipt index
 
-Updated 11 September 09:40 UTC. Use this index before opening a structural family
+Current composed-route status verified **12 September 01:24 UTC**. Use this index before opening a structural family
 or resuming a checkpoint. The25-hypothesis campaign's initial status column is
 historical. Current receipts, queues and source hashes override summaries.
 Different capacities, penalties and centered/full metrics are not a leaderboard.
 “Converged” below means local convergence under the recorded criterion, never
 global recovery or semantic circuit identification.
+
+## Current composed-path methods
+
+No new circuit has passed the four-property gate. Coefficient improvement and exact algebra below are not extraction, selective removal, OOD prediction, or semantic reuse. The active objective follows the bilinear handoff and later user directions, not the stale `better_math_ideas` wording in the goal record.
+
+| Method | Verified outcome | Remaining scope or next step |
+|---|---|---|
+| Full-U joint source-path fits | [Sparse path results](COUPLED_SPARSE_PATH_V1_MATH.md): coefficient fits converged; selected component native replication failed | Do not restart completed fits or promote coefficient correspondences as circuits |
+| Full-input nested quadratic squares for the selected two-output quartic | [Optimizer comparison](COUPLED_QUARTIC_WRITER_V1_MATH.md#matched-optimizer-endpoint-12-september-0056): LBFGS gains11.83% versusCG4.15% from the same V2 start; native write error worsens to26.65%, swap/removal fail | Both unfinished; LBFGS V2 longer continuation is live, not a terminal result |
+| Absolute coefficient coverage | [Independent probe check](QUARTIC_TARGET_COVERAGE_V1_RESULT.json): V2 captures about10.8% of the full-input two-output target; fixed-scale LBFGS V1 gain implies about12.1% | Relative gain over an initial fit is not total coverage; selected group is not whole-U/model coverage |
+| Mixed products of quadratic intermediates | [Initial-bank result](QUADRATIC_PRODUCT_CORE_NATIVE_V1_RESULT.json): full528 and sparse32 improve coefficients modestly but fail native fidelity | Learned-bank comparison is queued as `run_quadratic_product_core_learned_v1.py`; nonlinear mixed-core fitting remains open |
+| Independent starts and node restarts | [Independent control](QUARTIC_LBFGS_INDEPENDENT_V1_CONTROL.json):3/4 recover, one stationary66% error miss; [node replacement](QUARTIC_NODE_REPLACEMENT_V1_CONTROL.json): weak-node replacement recovers2/4 | Small controls, not native/global recovery guarantees; [residual-scored candidate test](QUARTIC_NODE_REPLACEMENT_V1_BINDING.json) queued |
+| Output-coordinate reuse diagnostic | [Gauge/assignment checks](COUPLED_QUARTIC_WRITER_V1_MATH.md#apparent-reuse-and-output-coordinates-12-september-0049): V3 minority node energy only1.47%, but exclusive refit remains21.93% error after a local assignment repair | Coordinate support is not semantic sharing; cancellation matters; no global assignment optimum |
+| Isotropic repeated-input metric | [Learned-bank red-team](QUARTIC_REPEATED_INPUT_V1_MATH.md#red-team-using-learned-input-banks-12-september-0108): exact mixing refits worsen V2/LBFGS V1 native errors to41.9%/88.3% | Tested initial and two learned frozen banks; moving readers under this metric remains untested |
+| Harmonic quartic plus exact lower terms | [Projection and native test](QUARTIC_REPEATED_INPUT_V1_MATH.md#fit-the-harmonic-remainder-and-restore-exact-lower-terms-12-september-0114): identities hold; combined native errors67.8%/68.2% | Exact lower correction does not rescue these frozen harmonic factors; no correction compression pursued |
+| Two-output real pencil blocks | [Math and folded tests](PAIR_PENCIL_QUARTIC_V1_MATH.md): full pair exact;32-reader block truncation/refit fail even after exact MLP16 folding | Generic pair representation, distinct from old whole-family congruence screen; not semantic blocks or useful compact initialization under tested selection |
+
+**Live continuation:** PID3158512 runs the longer coefficient-only fit through managed lane1. Residual-scored node replacement and the learned mixed core follow it. Recheck processes and queue before action. Freeze and score each terminal program with the existing native-effect machinery; no data-guided iterate selection. Joint convergence, independent native starts, stable identification and the four behavioral properties remain unresolved.
+
+## Earlier campaign entries and historical checkpoints
+
+The following entries preserve the earlier campaign record. Statements such as “queued,” “live,” or “results pending” are historical unless reconfirmed above or by current primary receipts. Do not use their narrative timestamps to restart a completed run.
 
 | Family / campaign IDs | Latest authoritative evidence | What remains unresolved |
 |---|---|---|

@@ -1,6 +1,6 @@
 # Current research state
 
-**12 September, 00:56 UTC:** [Matched quartic optimizer comparison](../../COUPLED_QUARTIC_WRITER_V1_MATH.md#matched-optimizer-endpoint-12-september-0056): limited-memory optimization gains11.83% coefficient capture versus4.15% for CG from the same start, but native write error worsens to26.7% and swap/removal fidelity fails. Both remain unconverged. A longer weight-only continuation is submitted. Independent planted starts recover3/4; a stationary66% error miss survives12 local perturbations. No circuit promotion.
+**12 September, 01:24 UTC:** [Current method comparison](../../WEIGHT_ONLY_METHODS_INDEX.md#current-composed-path-methods) consolidates the completed optimizer, restart, isotropic, harmonic and pair-pencil checks. No new circuit passes extraction or swap/removal fidelity. The longer weight-only fit remains live; residual-scored replacement and learned cross-products are queued. [Two-output pencil blocks](../../PAIR_PENCIL_QUARTIC_V1_MATH.md) reconstruct exactly but their tested compact versions fail after upstream folding.
 
 ## Earlier entries — historical status, superseded where stated above
 
