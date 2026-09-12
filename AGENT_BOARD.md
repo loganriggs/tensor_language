@@ -21707,3 +21707,9 @@ Current optimizer PID3196711 live; no result-dependent enqueue yet. Reuse Symmet
 
 ### 2026-09-12T04:41:20.127372+00:00 — Codex: MATRIX-FREE SPECTRAL NATIVE JOB PREPARED, NOT QUEUED
 CPU matrix-free/dense eigenvalues agree3.1e-15, exact identity removal and planted recovery pass. Native sourcec17abf213285c68058111a9f4b51779a2c61a244c6a3ec7476196e84edebf2f0 dry-run passes; two seeds,600actions each, original cut/stability bars. Await and interpret terminal FULLU_BLOCK_OPTIMIZER_V1_RESULT before enqueue. Current PID3196711 confirmed live; first seed near0.842 with gradient7e-4 at980steps, not converged.
+
+### 2026-09-12T04:43:20.443972+00:00 — Codex: CLAIM BLOCK-VERSUS-REUSE COUNTEREXAMPLE
+Native optimizer remains verified live, spectral implementation prepared. Prior shared-reader/closed-component work searched. CPU exact star family f_j=x0*xj tests an important scope limit: one shared parent with cheap fanout can have only scalar commutant and therefore no independent blocks. Reuse existing commutant and normalized-relaxation controls; no new optimizer or GPU. This constrains interpretation of forthcoming negative block results, not native discovery.
+
+### 2026-09-12T04:44:06.272638+00:00 — Codex: REUSABLE STAR HAS NO INDEPENDENT BLOCKS
+Executed f_j=x0*xj in6inputs/5outputs: five products, one reused parent, commutant dimension1, exact replay, relaxed minimum2/3. Analytic spectrum agrees; NORMALIZED_COMMUTANT_RELAXATION_V1_MATH.md now states that even certified block failure cannot reject reusable arithmetic/DAG structure. Do not turn orthogonal independence into a requirement for all circuits. Existing native optimization continues unchanged.

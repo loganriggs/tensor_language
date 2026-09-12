@@ -119,3 +119,34 @@ After its terminal receipt, a native spectral candidate can audit local-search
 failure without fitting text or changing the original separation criteria.
 Behavioral extraction, removal, OOD prediction and composition remain untested
 for this proposed block representation.
+
+## Independence is not the same as reusable arithmetic
+
+An additional [executed control](BLOCK_VERSUS_REUSE_V1_CONTROL.json) makes this
+limitation concrete. Take six inputs and five outputs,
+
+$$
+f_j(x)=x_0x_j,\qquad j=1,\ldots,5.
+$$
+
+This needs five multiplications and reuses the same parent $x_0$ five times.
+It is an extremely simple arithmetic DAG. Nevertheless, its five symmetric
+output forms have only a scalar commutant, so they cannot be split into
+nontrivial independent orthogonal blocks. The code recovers commutant dimension1,
+exact function replay, and relaxed minimum $2/3$—far above our0.1cut bar.
+
+This value can also be derived analytically. For $n$ leaves,
+$S_j=(e_0e_j^T+e_je_0^T)/2$ and
+$K=\operatorname{diag}(n,1,\ldots,1)/4$. On the symmetric center/leaf
+off-diagonal subspace the generalized eigenvalue is $(n-1)/(n+1)$;
+on traceless leaf-diagonal and leaf/leaf off-diagonal subspaces it is1.
+The remaining diagonal contrast has eigenvalue2, and identity has eigenvalue0.
+For $n=5$ the smallest nontrivial eigenvalue is exactly $2/3$.
+
+Thus even a **certified** negative for independent input blocks would not reject
+the user's shared-parent/DAG hypothesis. In this example the shared parent is
+precisely what couples the groups. The block search tests one proposed form of
+structure; it must not become a requirement imposed on every reusable circuit.
+After interpreting the running local and prepared spectral tests, a block miss
+should return attention to shared intermediate computations and cross terms,
+not motivate indefinite block-rank or threshold tuning.
