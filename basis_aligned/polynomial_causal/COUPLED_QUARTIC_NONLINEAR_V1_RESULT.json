@@ -1,0 +1,94 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "directional_gradient_relative_error": 1.0063020912383943e-06,
+  "history": [
+    {
+      "iteration": 0,
+      "objective": -1.0,
+      "projected_gradient_norm": 0.09250068258330289,
+      "wall_seconds": 8.255473654717207
+    },
+    {
+      "iteration": 1,
+      "objective": -1.0055503441328753,
+      "projected_gradient_norm": 0.0533481729487948,
+      "wall_seconds": 12.67993202060461
+    },
+    {
+      "iteration": 2,
+      "objective": -1.00805010034271,
+      "projected_gradient_norm": 0.04564348328654016,
+      "wall_seconds": 17.104104425758123
+    },
+    {
+      "iteration": 3,
+      "objective": -1.0100228884058022,
+      "projected_gradient_norm": 0.04208597464371271,
+      "wall_seconds": 21.528731983155012
+    },
+    {
+      "iteration": 4,
+      "objective": -1.0117404703096895,
+      "projected_gradient_norm": 0.039895827184666034,
+      "wall_seconds": 25.953661017119884
+    },
+    {
+      "iteration": 5,
+      "objective": -1.013298198499832,
+      "projected_gradient_norm": 0.03833067539529125,
+      "wall_seconds": 30.37795341014862
+    },
+    {
+      "iteration": 6,
+      "objective": -1.0147428710598283,
+      "projected_gradient_norm": 0.03711836392759647,
+      "wall_seconds": 34.802272107452154
+    },
+    {
+      "iteration": 7,
+      "objective": -1.0161015145441417,
+      "projected_gradient_norm": 0.03613329659863964,
+      "wall_seconds": 39.22663490846753
+    },
+    {
+      "iteration": 8,
+      "objective": -1.0173916322656535,
+      "projected_gradient_norm": 0.03530887962363339,
+      "wall_seconds": 43.65088038891554
+    },
+    {
+      "iteration": 9,
+      "objective": -1.0186254574165146,
+      "projected_gradient_norm": 0.03460491569802607,
+      "wall_seconds": 48.07495893910527
+    },
+    {
+      "iteration": 10,
+      "objective": -1.019812039162847,
+      "projected_gradient_norm": 0.03399530836846788,
+      "wall_seconds": 52.4989446438849
+    },
+    {
+      "iteration": 11,
+      "objective": -1.0209583470376813,
+      "projected_gradient_norm": 0.03346185063412629,
+      "wall_seconds": 56.92282533273101
+    },
+    {
+      "iteration": 12,
+      "objective": -1.0220699112702238,
+      "projected_gradient_norm": 0.03299120481290007,
+      "wall_seconds": 61.34699535742402
+    }
+  ],
+  "capture_gain_fraction": 0.02206991127022384,
+  "line_search_failed": false,
+  "initial_native_error": 0.569115674016364,
+  "final_native_error": 0.5389379825495405,
+  "artifact_sha256": "9875a338b18abac9e465bdede0647b259de00b91ad02986b5bba96039b307e9f",
+  "wall_seconds": 61.353342432528734,
+  "peak_gpu_bytes": 11506682880,
+  "scope": "One-seed exact nonlinear pilot; localstationarity separate from gain, no OOD or selectivity evidence."
+}

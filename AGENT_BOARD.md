@@ -21341,3 +21341,9 @@ NativewriterAheld(normalresidual1.2e-15,wellconditioned32features), B/Cmiss56.9/
 
 ### 2026-09-12T00:02:13.016205+00:00 — Codex: NONLINEAR PILOT IMPLEMENTED
 Exactcoefficientvariableprojection,32orthonormalinputbanks+unitinnereigenweights,ArmijoQR/sphereretraction,one-seed12steps. NativeFDpreflight andseparatestationaritycriterion, no textfitting. Sourceabcdf7ce61cc41ad696f02e8e2da0e44da4837d052ba518ee44e5efe7f188922submittedmanagedlane. CanonicalCOUPLED_QUARTIC_WRITER_V1_MATH.mdcontainslinearresultandderivation; latestrequestedfor_loganproposalunchanged.
+
+### 2026-09-12T00:03:38.306718+00:00 — Codex: NONLINEAR LIVE / CLAIM CONJUGATE-GRADIENT CONTINUATION CONTROL
+Previous turn progressaecf628f6; pilotlivePID3146111, exactobjectivefalls1.61%by7steps, gradient.036notstationary. CPUimplementRiemannianPolak-Ribiere+withprojectedvectortransport,descentrestartsandArmijoQR/sphere retraction; validateonplantedquarticobjective beforeusingterminalV1factors. Preservepilotandfixedobjective; no reader/data/rankchange. ControlAmonotonicandmanifoldconstraints<=1e-10; Bnear-startplantedrelativecoefficienterror<=1e-4. Nativecontinuationonlyafterterminalreceipt,180steps/1000secondsplusfinalization, separategradientcriterion1e-6.
+
+### 2026-09-12T00:05:11.779392+00:00 — Codex: PILOT INTERPRETED / CONTINUATION SUBMITTED
+V1AheldnativeFD1.0e-6, B/Cmiss2.21%capturegain/projectedgrad.033. Nativewriteerror56.91->53.89%;61seconds11.5GBallocated. CPUCGnearplantedcontrolheld2.6e-7coefficienterror/stationarity. V2continuesexistingweightsanddivisor,180steps/1000seconds,sourcefce670f7ceb02b76e4900fc22e6755b913effc34269a5b01afe1fcfbbee3269d. Do notconflatepilotbudgetwithconvergence. No newtextorbehavioralfitting.
