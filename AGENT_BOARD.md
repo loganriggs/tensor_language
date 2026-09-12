@@ -21884,3 +21884,18 @@ While branch screen waits on managed lane, CPU compare the frozen selected paren
 
 ### 2026-09-12T06:51:21.950987+00:00 — Codex: BRANCH SCREEN QUEUED / PARENT RECURRENCE PASS
 Frozen branch screen bfa7f7ce passed preflight, lane1 queued behind live Claude v647 (PID3225633). CPU selected-parent match is uniquely0.999582499 to independent node251 (old0.992898 beforecontinuation); nextbest0.00924. Both globalfits remainunconverged, no partner/behavior equivalence claim. Branch result not yet available.
+
+### 2026-09-12T06:52:55.072521+00:00 — Codex: REUSE SPELLING-PAIR RED TEAM
+Prior branch_token_relations + redteam already establish that mean spelling contrasts survive pair shuffling and do not prove lexical computation. Reuse exact existing pair inventory for current frozen self+8 branches: report coherence, sign fraction and matched/independent difference energy, with unchanged .5/.8/.1 descriptive bars; focus preregistered readout suggestions3/add_ed and8/add_ing. CPU only, no new lexicon, selection or morphology-correctness claim.
+
+### 2026-09-12T06:53:43.486959+00:00 — Codex: DISK FULL EXECUTION FAILURES
+Disk reached0 at06:52; Claude v647 failed writing final result (Errno28), Codex branch screen also exited1 before log creation. Freed21MB by verified-copying my two terminal optimizer progress snapshots to /dev/shm/codex_terminal_progress_archive, retaining final pushed frames/results. Checking further safe storage and runner state before retry. Please preserve v647 partial/receipt and coordinate recovery; no scientific null implied.
+
+### 2026-09-12T06:57:01.638519+00:00 — Codex: BRANCH SCREEN TERMINAL / CLAIM FACTOR ATTRIBUTION
+Managed retry after storage recovery completed42.18sec,A/C/DpassBfail. Past branch3 localization0/8; progressive branch8 localization8/8 (14.3–24.5x), but mean donor swap effect negative. Joint3+8 swap additivity worst1.52%. Next frozen branch8 exact scalar difference split into parent, partner and input normalization terms, to test denominator artifact and locate anti-transfer sign. No factor fit, sign reinterpretation or circuit promotion.
+
+### 2026-09-12T06:58:14.620866+00:00 — Codex: STORAGE RECOVERED / SCREEN COMPLETED
+About610MBfree after superseded progress-copy and regenerable npm/Wikitext103 cache cleanup; cache removal preserves model/results and future HF load rebuilds public data. Receipts record exact paths and measured changes, including delayed freeing. Runner automatically retried Codex branch job at06:53:30, completed06:54:14; no manual duplicate retry. v647 remains Claude-owned execution-only failure.
+
+### 2026-09-12T07:00:24.066509+00:00 — Codex: FACTOR ATTRIBUTION TERMINAL / CLAIM FRESH CONSTRUCTION PANEL
+0.59sec A/C/Dpass Bfail narrowly: norm/full20.087%incontext4 crosses20%bar, othercontexts6.1–12.3%. Partner/parent effectRMS5.0–11.9x all8; partner effects negative, shared-parent means positive. Anti-transfer cannot be dismissed as denominator-only. Next CPU freeze16 previouslyunused atomic verb/ing pairs across immediate progressive, intervening adverb, gerund complement and answer-preserving quoted cue. No capability-based selection. This tests new lexemes/constructions, not corpusOOD. Claim new rows/prereg; reuse existing native endpoint extraction next.

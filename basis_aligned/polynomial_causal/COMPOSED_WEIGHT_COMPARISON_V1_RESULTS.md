@@ -119,3 +119,21 @@ This yields a concrete reuse hypothesis: one producer computation gates several 
 
 
 The frozen parent now matches the independent continued frame at cosine **0.9995825**, uniquely above the unchanged0.95 bar (next best0.00924). This is stronger reader recurrence than before continuation; the full fitted programs remain unconverged. [CPU receipt](MATCHED_PARTNER_PARENT_RECURRENCE_V1_RESULT.json). A [frozen branch intervention screen](MATCHED_PARTNER_BRANCH_SCREEN_V1_PREREGISTRATION.md) tests task localization, input-coefficient changes and nonlinear joint effects; it is queued, with no result implied here.
+
+
+## Frozen branch interventions —12 September06:54
+
+The registered past/progressive conjunction fails, with a useful split. Branch3 (past-token readout) passes localization in0/8contexts; its progressive swap effects exceed its past effects. Branch8 (ing-token readout) passes in8/8contexts: progressive swap RMS0.022–0.032 versus other-task maxima0.00115–0.00190, a14.3–24.5fold ratio. Both have live input-coefficient changes. Joint3+8 writes replay exactly and summed individual swap effects predict joint effects within1.53% in every cell. These are conditional write interventions on an inspected panel, not upstream extraction or OOD evidence.
+
+Signs prevent a simple support label. Branch8's mean progressive donor-swap effect is **−0.02752**, although its mean removal CE damage on that family is **+0.00814**. Removal and interchange answer different questions; neither sign should be silently reversed. A frozen factor-attribution follow-up separates parent, partner and input-normalization changes before interpreting this behavior. [Branch screen](MATCHED_PARTNER_BRANCH_SCREEN_V1_RESULT.json), [attribution mathematics](MATCHED_PARTNER_FACTOR_ATTRIBUTION_V1_PREREGISTRATION.md).
+
+A CPU red-team reused the existing full spelling-pair inventory. Branch3 has95.4%consistent add-ed differences across1008pairs; branch8 has98.9%consistent add-ing differences across921pairs. However, paired difference energy relative to independently paired marginals is0.877 and1.009 respectively. Mean contrast is exactly invariant to pairing. The output pattern is real and broad, but does not demonstrate a lexeme-preserving transformation or explain why the branch's input changes. This is especially clear for branch3: strong spelling readout coexists with failed task localization. [Spelling-pair receipt](MATCHED_PARTNER_SPELLING_REDTEAM_V1_RESULT.json).
+
+An initial execution attempt failed when disk space reached zero, before a Codex result was written. The managed retry completed in42.18seconds after space recovery. That infrastructure failure is separate from the scored scientific miss above.
+
+
+### Partner change explains the sign better than normalization
+
+The exact coefficient split $\Delta(str)=\bar r\bar s\Delta t+\bar r\bar t\Delta s+\overline{st}\Delta r$ separates partner, parent and inverse-RMS changes. Native margin replay is exact at the reported precision. Partner-only progressive swap effects are negative and5.0–11.9times the parent-only RMS across all8contexts; parent mean effects are positive. Norm/full effect RMS is6.1–20.09%, so the all-context20%bar fails narrowly in one context. Keep that miss: normalization is not negligible, but it is not the sole source of the negative sign. The sum of separate native effects passes the10%error bar everywhere. [Attribution receipt](MATCHED_PARTNER_FACTOR_ATTRIBUTION_V1_RESULT.json).
+
+Next, a [frozen new-construction panel](MATCHED_PARTNER_FRESH_CONSTRUCTION_V1_PREREGISTRATION.md) uses16 previously unused verbs across immediate progressive, intervening adverb, gerund complement and quoted distractor. Rows are built, but no native outcomes have been measured. This tests generalization and output-cue confounds without fitting to data.

@@ -1,0 +1,56 @@
+{
+  "path": "/workspace/.hf_home/datasets/Salesforce___wikitext/wikitext-103-raw-v1/0.0.0/b08601e04326c79dfdd32d625aee71d232d685c3",
+  "dataset_info": {
+    "description": "",
+    "citation": "",
+    "homepage": "",
+    "license": "",
+    "features": {
+      "text": {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    },
+    "builder_name": "parquet",
+    "dataset_name": "wikitext",
+    "config_name": "wikitext-103-raw-v1",
+    "version": {
+      "version_str": "0.0.0",
+      "major": 0,
+      "minor": 0,
+      "patch": 0
+    },
+    "splits": {
+      "test": {
+        "name": "test",
+        "num_bytes": 1305088,
+        "num_examples": 4358,
+        "dataset_name": "wikitext"
+      },
+      "train": {
+        "name": "train",
+        "num_bytes": 546500949,
+        "num_examples": 1801350,
+        "shard_lengths": [
+          1648675,
+          152675
+        ],
+        "dataset_name": "wikitext"
+      },
+      "validation": {
+        "name": "validation",
+        "num_bytes": 1159288,
+        "num_examples": 3760,
+        "dataset_name": "wikitext"
+      }
+    },
+    "download_size": 315466397,
+    "dataset_size": 548965325,
+    "size_in_bytes": 864431722
+  },
+  "bytes": 549277793,
+  "free_before": 123199488,
+  "open_handles": [],
+  "scope": "Regenerable public HF Wikitext103 Arrow cache; no model weights, results or training data changed. Future dataset load rebuilds cache.",
+  "free_after": 172027904
+}

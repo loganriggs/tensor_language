@@ -1,3 +1,7 @@
+# Current result —12 September06:58 UTC
+
+[Frozen branch interventions](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#frozen-branch-interventions-12-september0654): ing branch selective8/8contexts (14–25x), past branch0/8. Ing swaps have negative sign, chiefly driven by partner changes; no support/circuit/OOD label. New disjoint-lexeme/construction rows frozen for next validation.
+
 # Current result —12 September06:44 UTC
 
 [Matched optimal partners](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#matched-optimal-partner-subspace--12-september0644): same-cost SVD reduces squared coefficient error58.27% and context swap failures12→5. Development passes; broader swap fidelity still fails. No circuit promotion.

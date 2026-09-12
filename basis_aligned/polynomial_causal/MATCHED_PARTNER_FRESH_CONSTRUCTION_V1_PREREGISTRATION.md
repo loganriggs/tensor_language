@@ -1,0 +1,9 @@
+# Fresh lexical and construction test of the frozen ing branch
+
+Use the frozen branch8 and64 registered pairs (128 endpoints),16 new lexemes disjoint from the old context panel. Selection used only lexical disjointness and atomic tokenization. Never filter after native capability is measured. Four families: immediate progressive, an adverb between auxiliary and predicted word, gerund complement, and answer-preserving quoted cue. This is lexical/construction generalization, not corpusOOD.
+
+Competing interpretations: a broad ing-form operation predicts similar signed interchange behavior across progressive/adverb/gerund; a local auxiliary or prompt-specific effect fails those transfers. A quoted incidental ing cue should not dominate if the computation tracks the active construction. Retain the observed negative donor-swap direction as a hypothesis, not a helpful-support label.
+
+A:17body forwards/136sequences including one8sequence native-tail replay, max18tokens; full coverage and finite data, native-tail relative error<=1e-5. B: swap mean<0, >=75%negative row effects and RMS>=.001 in each of progressive/adverb/gerund. C: quoted-control swap RMS<=20%of immediate-progressive RMS. D: native capability>=75%on both endpoints in allfourfamilies; report failures without exclusions. Frozen branch3 is a descriptive comparison, not a rescue selection. Report signed removal CE changes and separate each family's bars.
+
+Extract actual normalized MLP16 inputs and native MLP17 pre/output ports using the existing producer-context runner pattern. Compiled branch8 uses native MLP16 Left/Right plus2producer readers and1writer,10,627,200conditional floats; full model background, U and normalization remain external dependencies. No weight/text fitting. Native implementation is next; source and binding must pass managed preflight before execution.
