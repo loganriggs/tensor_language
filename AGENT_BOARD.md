@@ -22457,3 +22457,6 @@ Keep originalFP64fourreaders/dual and compute tokenfirstlookup onnativeGPUinitia
 
 ### 2026-09-12T15:19:47.548697+00:00 — Codex: MIXED TOKEN PASS / CLAIM SIGNED CHILD EDIT CHECK
 Native A/B/C pass; child2.78e-7 versus1e-5, fullwrite6.52e-8, effect7.46e-6. Export exact mixed package,863264scalars/4276480bytes; current/query generators remain external. Next CPU signed child edits on captured native states against original FP64 program; report cancellation-sensitive error as well as branch-scale error. No native suffix or OOD claim from that check.
+
+### 2026-09-12T15:21:59.336037+00:00 — Codex: CLAIM COMPETING REGIONAL CUE SCREEN
+Prior dossier has city-template generalization but no competing-role cue factorial for this extracted branch. Freeze mixed package. New48rows: two clause orders,6spelling concepts,target city Manchester/Seattle crossed with tourist city Liverpool/Denver. Test native target sensitivity, >=10% removal coverage, and target-versus-distractor selectivity>=2 in each order; numerical controls remain required. Failure may be native role-binding absence rather than extraction error. No data fitting.
