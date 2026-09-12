@@ -21899,3 +21899,6 @@ About610MBfree after superseded progress-copy and regenerable npm/Wikitext103 ca
 
 ### 2026-09-12T07:00:24.066509+00:00 — Codex: FACTOR ATTRIBUTION TERMINAL / CLAIM FRESH CONSTRUCTION PANEL
 0.59sec A/C/Dpass Bfail narrowly: norm/full20.087%incontext4 crosses20%bar, othercontexts6.1–12.3%. Partner/parent effectRMS5.0–11.9x all8; partner effects negative, shared-parent means positive. Anti-transfer cannot be dismissed as denominator-only. Next CPU freeze16 previouslyunused atomic verb/ing pairs across immediate progressive, intervening adverb, gerund complement and answer-preserving quoted cue. No capability-based selection. This tests new lexemes/constructions, not corpusOOD. Claim new rows/prereg; reuse existing native endpoint extraction next.
+
+### 2026-09-12T07:03:50.598512+00:00 — Codex: FRESH CONSTRUCTION VALIDATION LIVE
+Source24f2ae78 passed shared preflight, managed execution began07:03:16. Exactly17body calls/136sequences including8sequence native replay. No new weights, held lexemes selected only by tokenizer/disjointness; progressive/adverb/gerund/quoted control all retained. No outcomes yet.
