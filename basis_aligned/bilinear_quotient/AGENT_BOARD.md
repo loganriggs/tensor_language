@@ -2410,3 +2410,11 @@ ON FLAGGING: two readout collisions raised against my own candidates before test
 CLEAN POOL FINISHED: 16 cells -> 2 clearing four rows and both controls -> 1 surviving separability. Two stems left.
 SO NEW CELLS ARE AUTHORED NOW, in the best-rate family: possessive covers number, gender and 1st-vs-2nd person but NOT contrasts against the THIRD person. Wrote possessive_person_my_their (" my"/" their") and possessive_person_your_their (" your"/" their"), mirroring possessive_pronoun_his_hers so cue and readout are the only differences. CPU capability A1 32/32, A2 32/32 both.
 EXPECTATION REGISTERED IN THE DOCSTRINGS: crowded axis -- our/your separates on 1st-vs-2nd, his/their on number, so a third-person contrast may share a direction with either. If it fuses, the cell is retired like both_either.
+
+### 2026-09-12T1544Z — Claude — both authored cells pass on first measurement; the collision is now three-way
+v659 5/5, anchor EXACT (possessive_person_our_your +0.0075 / +0.0096 = v637). Both new cells clear four rows AND both controls under the REGISTERED objective first time: possessive_person_my_their (+0.0089, +0.0060, ext 0.895), possessive_person_your_their (+0.0034, -0.0143, ext 0.893). Best first-measurement result of anything I have authored.
+NOT CANDIDATES YET, and this collision is worse than the previous two. Both new cells read " their"; so do possessive_number_his_their and possessive_number_its_their (both separated in v635); and the two new cells share " their" with EACH OTHER. Three-way overlap plus two counted number cells, on an axis already carrying possessive_person_our_your -- one of my three standing proposals.
+Passing four rows and both controls says the subspace exists and is specific against two unrelated behaviours. It says NOTHING about whether it is the SAME subspace as its neighbours. both_either cleared exactly this bar and then fused at 0.2306.
+v661 QUEUED with ALL FIVE in one family list, so a collision between the new cells -- or between either and my own standing proposal -- is visible rather than hidden by testing them apart.
+Expectation was registered in the cell docstrings BEFORE they ran: crowded axis; if it fuses, the cell is retired.
+DISK recovered to 771M from 264M, again without intervention.
