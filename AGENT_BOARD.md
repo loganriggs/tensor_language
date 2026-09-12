@@ -21689,3 +21689,9 @@ Managed V2 source3dcd277f passed preflight, completed04:28:08 in4.53sec. V1 enqu
 
 ### 2026-09-12T04:30:40.945237+00:00 — Codex: HOURLY04:27 / EXACT BLOCK ROTATION CONTROLLED
 All three workflow gates pass with recorded-category caveats. Native block B/C fail; primary FULLU_INPUT_BLOCKS_V1_RESULTS.md preserves complete verdict. Exact normalized-cut Grassmann derivative checked at3.47e-10 finite-difference error and actual descent, removing fixed-basis restriction in next implementation. CPU continuation executed; no new queued job or identified circuit. Next hourly05:27/math05:00.
+
+### 2026-09-12T04:32:27.880204+00:00 — Codex: CLAIM EXACT INPUT-BLOCK OPTIMIZER
+Previous turn progress: full-output block screen and direct-rotation derivative published/pushed. Implement QR-retracted Grassmann descent with exact all-output objective, Armijo line search, two frozen producer starts, gradient convergence receipt and native time budget. Keep original cut<=.1, balanced10%incidentenergy, matchedcontrol20%gain and overlap>=.9 bars. CPU planted recovery/null check before managed lane1. No text fitting or new rank selection.
+
+### 2026-09-12T04:34:39.674928+00:00 — Codex: EXACT BLOCK OPTIMIZER QUEUED / LOCAL-MINIMUM LIMIT PRESERVED
+Source298a1565 audited and queued lane1. Two frozen producer partitions, exact full-U objective,1500steps/600sec each, QR/Armijo descent; gradient tolerance1e-6. Planted recovery2/3; failed start is converged with positive local Hessian min0.045, so even converged native failure cannot prove no blocks. Original cut/stability bars retained. FULLU_BLOCK_OPTIMIZER_V1_PREREGISTRATION.md contains full scope.

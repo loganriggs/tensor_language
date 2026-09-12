@@ -2,6 +2,8 @@
 
 **12 September,04:30 UTC:** [full-U producer folding](../../FULLU_PAIRED_PRODUCER_V1_RESULTS.md) fails rank32 sufficiency despite improvement. The [full-output input-block screen](../../FULLU_INPUT_BLOCKS_V1_RESULTS.md) also fails: normalized cuts0.912/0.921 and cross-seed overlap0.513. Exact-gradient CPU controls now enable direct input-subspace rotation to audit that search restriction. No circuit promotion. [Context results](../../PRODUCER_METRIC_SPECTRAL_V1_RESULTS.md#contextual-confirmation-completed-five-swap-cells-fail) remain failed without exclusions. [Hourly04:27](../../HOURLY_STRATEGIC_REVIEW_2026-09-12_0427.md); next math05:00.
 
+**04:34:** [Exact input-partition optimization](../../FULLU_BLOCK_OPTIMIZER_V1_PREREGISTRATION.md) is audited and queued: two frozen starts, exact full-output loss, explicit local-convergence checks. Planted recovery2/3 exposes a strict local minimum; no global-recovery claim.
+
 ## Earlier entries — historical status, superseded where stated above
 
 **18:10:** [Native branch screen](../../SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md#native-behavioral-screen-completed-at-1759-utc) passed execution/capability but failed the predicted support direction: removals improved target CE. Sign accounting supports direct suppression; branch specificity is unresolved. A separate128-prefix follow-up is queued, and the optimizer comparison is live. [Two-parent composition](../../GLOBAL_READER_REBASE_V2_MATH.md#two-parents-preserving-the-other-read-changes-the-intervention) now has a checked exact interface.
