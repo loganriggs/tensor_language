@@ -1,0 +1,2917 @@
+{
+  "max_source_sum_error": 9.220653811630857e-16,
+  "max_pre_city_mode_difference": 0.0,
+  "groups": [
+    {
+      "group": 0,
+      "source_names": [
+        "before_city",
+        "city",
+        "after_city"
+      ],
+      "source_aligned_fractions": [
+        0.0,
+        0.20958416194287333,
+        0.7904158380571269
+      ],
+      "mode_aligned_fractions": [
+        0.7923526106380523,
+        0.24797572088570302,
+        -0.057256369671258696,
+        0.016928038147503228
+      ],
+      "mean_directed_city_mode_differences": [
+        -548.0388792641589,
+        -172.13677268313867,
+        36.401948548580826,
+        -11.942771803326059
+      ],
+      "mean_directed_city_value_difference": -695.7164752020427,
+      "mean_directed_final_write": -0.5800883126372196,
+      "positive_final_writes": 0,
+      "mean_directed_logit": 0.43055763840675354,
+      "positive_logits": 24,
+      "write_logit_cosine": -0.9367897091904626
+    },
+    {
+      "group": 1,
+      "source_names": [
+        "before_city",
+        "city",
+        "after_city"
+      ],
+      "source_aligned_fractions": [
+        0.0,
+        0.22281598980540898,
+        0.7771840101945912
+      ],
+      "mode_aligned_fractions": [
+        0.7085654934772893,
+        0.26882414064342003,
+        -0.04158193641049143,
+        0.06419230228978222
+      ],
+      "mean_directed_city_mode_differences": [
+        -551.5684522836299,
+        -82.37400953830038,
+        12.356491588762898,
+        4.70294229298711
+      ],
+      "mean_directed_city_value_difference": -616.8830279401803,
+      "mean_directed_final_write": -0.3693397119419481,
+      "positive_final_writes": 0,
+      "mean_directed_logit": 0.2817905346552531,
+      "positive_logits": 24,
+      "write_logit_cosine": -0.9406450770872479
+    },
+    {
+      "group": 2,
+      "source_names": [
+        "before_city",
+        "city",
+        "after_city"
+      ],
+      "source_aligned_fractions": [
+        0.0,
+        -0.460694971518849,
+        1.4606949715188486
+      ],
+      "mode_aligned_fractions": [
+        0.9356619920113227,
+        -0.20058320716421774,
+        0.3203253066977073,
+        -0.05540409154481234
+      ],
+      "mean_directed_city_mode_differences": [
+        -234.8314805464158,
+        -151.6195404900386,
+        23.06111458537598,
+        -4.940534080267806
+      ],
+      "mean_directed_city_value_difference": -368.33044053134614,
+      "mean_directed_final_write": 0.135071264425637,
+      "positive_final_writes": 22,
+      "mean_directed_logit": -0.08633523186047871,
+      "positive_logits": 2,
+      "write_logit_cosine": -0.9597121462232574
+    },
+    {
+      "group": 3,
+      "source_names": [
+        "before_city",
+        "city",
+        "after_city"
+      ],
+      "source_aligned_fractions": [
+        0.0,
+        0.10211504811886593,
+        0.8978849518811342
+      ],
+      "mode_aligned_fractions": [
+        0.988924641830598,
+        -0.013102840553416177,
+        -0.03286650236208108,
+        0.057044701084899424
+      ],
+      "mean_directed_city_mode_differences": [
+        -490.14181407916504,
+        -237.6146524403074,
+        44.27974542262,
+        -13.6272701837231
+      ],
+      "mean_directed_city_value_difference": -697.1039912805758,
+      "mean_directed_final_write": -0.6535026866424883,
+      "positive_final_writes": 0,
+      "mean_directed_logit": 0.43526647488276166,
+      "positive_logits": 24,
+      "write_logit_cosine": -0.9268223862093328
+    }
+  ],
+  "rows": [
+    {
+      "row": 0,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.316256320327753
+        },
+        {
+          "position": 16,
+          "token": " television",
+          "directed_contribution": -0.2858905179276398
+        },
+        {
+          "position": 6,
+          "token": " Leeds",
+          "directed_contribution": -0.22304843617905373
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.14336084913524338
+        }
+      ],
+      "directed_final_write": -1.2697497214304834,
+      "directed_logit": 0.5627145767211914
+    },
+    {
+      "row": 1,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.2830628818702622
+        },
+        {
+          "position": 6,
+          "token": " Dallas",
+          "directed_contribution": -0.13569923838527218
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.11486520505293603
+        },
+        {
+          "position": 15,
+          "token": " evening",
+          "directed_contribution": 0.05752420353220679
+        }
+      ],
+      "directed_final_write": -0.40601460837808573,
+      "directed_logit": 0.3243598937988281
+    },
+    {
+      "row": 2,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.20852349564262163
+        },
+        {
+          "position": 6,
+          "token": " Leeds",
+          "directed_contribution": -0.1136750896247751
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.08700274904906835
+        },
+        {
+          "position": 7,
+          "token": ".",
+          "directed_contribution": -0.07373402138214205
+        }
+      ],
+      "directed_final_write": -0.5231590903059437,
+      "directed_logit": 0.5813179016113281
+    },
+    {
+      "row": 3,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.21004846985105155
+        },
+        {
+          "position": 6,
+          "token": " Dallas",
+          "directed_contribution": -0.10013020514283781
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.07894194953746836
+        },
+        {
+          "position": 7,
+          "token": ".",
+          "directed_contribution": -0.06744459567742403
+        }
+      ],
+      "directed_final_write": -0.49817493442700994,
+      "directed_logit": 0.6940937042236328
+    },
+    {
+      "row": 4,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.3134645484585059
+        },
+        {
+          "position": 6,
+          "token": " Leeds",
+          "directed_contribution": -0.16126462122203677
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.14500620813781884
+        },
+        {
+          "position": 15,
+          "token": " shop",
+          "directed_contribution": -0.08262157108557248
+        }
+      ],
+      "directed_final_write": -0.891872252253742,
+      "directed_logit": 0.32922935485839844
+    },
+    {
+      "row": 5,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.25641122449003817
+        },
+        {
+          "position": 6,
+          "token": " Dallas",
+          "directed_contribution": -0.11050430714715158
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.10424257530235548
+        },
+        {
+          "position": 15,
+          "token": " shop",
+          "directed_contribution": -0.0660137475947858
+        }
+      ],
+      "directed_final_write": -0.5209963168906487,
+      "directed_logit": 0.1940302848815918
+    },
+    {
+      "row": 6,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.25186163146656076
+        },
+        {
+          "position": 6,
+          "token": " Leeds",
+          "directed_contribution": -0.11947138088065733
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.11313864461443653
+        },
+        {
+          "position": 7,
+          "token": ".",
+          "directed_contribution": -0.06020262447263704
+        }
+      ],
+      "directed_final_write": -0.500109158643479,
+      "directed_logit": 0.45184898376464844
+    },
+    {
+      "row": 7,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.3169131526374513
+        },
+        {
+          "position": 6,
+          "token": " Dallas",
+          "directed_contribution": -0.15958934251784296
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.1354143532963749
+        },
+        {
+          "position": 7,
+          "token": ".",
+          "directed_contribution": -0.06659418514621453
+        }
+      ],
+      "directed_final_write": -0.6358321145754047,
+      "directed_logit": 0.46564579010009766
+    },
+    {
+      "row": 8,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.3018353233898733
+        },
+        {
+          "position": 6,
+          "token": " Leeds",
+          "directed_contribution": -0.13788417451865798
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.12799010789419285
+        },
+        {
+          "position": 14,
+          "token": "The",
+          "directed_contribution": -0.07984780265202947
+        }
+      ],
+      "directed_final_write": -0.7500846673560179,
+      "directed_logit": 0.4289064407348633
+    },
+    {
+      "row": 9,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.4061573901399112
+        },
+        {
+          "position": 6,
+          "token": " Dallas",
+          "directed_contribution": -0.21223597893642393
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.15637274221983002
+        },
+        {
+          "position": 7,
+          "token": ".",
+          "directed_contribution": -0.09883404330530197
+        }
+      ],
+      "directed_final_write": -0.9651454629183781,
+      "directed_logit": 0.7939662933349609
+    },
+    {
+      "row": 10,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.41186528046350396
+        },
+        {
+          "position": 6,
+          "token": " Leeds",
+          "directed_contribution": -0.18007040369205563
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.1568461255591896
+        },
+        {
+          "position": 7,
+          "token": ".",
+          "directed_contribution": -0.12854238429585113
+        }
+      ],
+      "directed_final_write": -0.9161728308989086,
+      "directed_logit": 0.5340571403503418
+    },
+    {
+      "row": 11,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.34923435603176667
+        },
+        {
+          "position": 6,
+          "token": " Dallas",
+          "directed_contribution": -0.12912033114111673
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.10984923765283877
+        },
+        {
+          "position": 7,
+          "token": ".",
+          "directed_contribution": -0.07796289550170137
+        }
+      ],
+      "directed_final_write": -0.5653759838431649,
+      "directed_logit": 0.45471668243408203
+    },
+    {
+      "row": 12,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.2670207585370022
+        },
+        {
+          "position": 6,
+          "token": " Birmingham",
+          "directed_contribution": -0.21980614036873267
+        },
+        {
+          "position": 16,
+          "token": " television",
+          "directed_contribution": -0.15854843106849426
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.1445987874576007
+        }
+      ],
+      "directed_final_write": -0.9506654041730211,
+      "directed_logit": 0.6705446243286133
+    },
+    {
+      "row": 13,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.16001700866054722
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.08922646028836483
+        },
+        {
+          "position": 6,
+          "token": " Houston",
+          "directed_contribution": -0.06942899673208228
+        },
+        {
+          "position": 15,
+          "token": " evening",
+          "directed_contribution": 0.03027258178360543
+        }
+      ],
+      "directed_final_write": -0.2591397818943255,
+      "directed_logit": 0.1858835220336914
+    },
+    {
+      "row": 14,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.1338267582307314
+        },
+        {
+          "position": 6,
+          "token": " Birmingham",
+          "directed_contribution": -0.0772113369218581
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.06842299251811558
+        },
+        {
+          "position": 17,
+          "token": " dry",
+          "directed_contribution": -0.03638802732720401
+        }
+      ],
+      "directed_final_write": -0.33636962340398885,
+      "directed_logit": 0.5351409912109375
+    },
+    {
+      "row": 15,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.11386827747115388
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.05675907222212856
+        },
+        {
+          "position": 6,
+          "token": " Houston",
+          "directed_contribution": -0.05239562158427887
+        },
+        {
+          "position": 17,
+          "token": " dry",
+          "directed_contribution": -0.03905921127507575
+        }
+      ],
+      "directed_final_write": -0.26658201905079804,
+      "directed_logit": 0.36671876907348633
+    },
+    {
+      "row": 16,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.21124693568506692
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.11752500501947843
+        },
+        {
+          "position": 6,
+          "token": " Birmingham",
+          "directed_contribution": -0.11582476415539524
+        },
+        {
+          "position": 15,
+          "token": " shop",
+          "directed_contribution": -0.07278269424129777
+        }
+      ],
+      "directed_final_write": -0.5797884820491599,
+      "directed_logit": 0.2951240539550781
+    },
+    {
+      "row": 17,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.14166321362158604
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.07764387909947824
+        },
+        {
+          "position": 6,
+          "token": " Houston",
+          "directed_contribution": -0.05497715147831355
+        },
+        {
+          "position": 15,
+          "token": " shop",
+          "directed_contribution": -0.05399623311903529
+        }
+      ],
+      "directed_final_write": -0.31567708930021204,
+      "directed_logit": 0.10735607147216797
+    },
+    {
+      "row": 18,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.18077234267927236
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.09887768158882519
+        },
+        {
+          "position": 6,
+          "token": " Birmingham",
+          "directed_contribution": -0.09209621735962607
+        },
+        {
+          "position": 7,
+          "token": ".",
+          "directed_contribution": -0.03184018593427347
+        }
+      ],
+      "directed_final_write": -0.3728330965647992,
+      "directed_logit": 0.39173030853271484
+    },
+    {
+      "row": 19,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.17610179130541453
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.09966773788921995
+        },
+        {
+          "position": 6,
+          "token": " Houston",
+          "directed_contribution": -0.08137942846250067
+        },
+        {
+          "position": 17,
+          "token": ",",
+          "directed_contribution": 0.027661718820243784
+        }
+      ],
+      "directed_final_write": -0.3449858836784003,
+      "directed_logit": 0.2407846450805664
+    },
+    {
+      "row": 20,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.23840217686102283
+        },
+        {
+          "position": 6,
+          "token": " Birmingham",
+          "directed_contribution": -0.1409969111589298
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.1208476172310063
+        },
+        {
+          "position": 7,
+          "token": ".",
+          "directed_contribution": -0.04755189690677107
+        }
+      ],
+      "directed_final_write": -0.6114540777070447,
+      "directed_logit": 0.529139518737793
+    },
+    {
+      "row": 21,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.2229842391751506
+        },
+        {
+          "position": 6,
+          "token": " Houston",
+          "directed_contribution": -0.11616016884431349
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.11374990218642321
+        },
+        {
+          "position": 7,
+          "token": ".",
+          "directed_contribution": -0.03286133732382947
+        }
+      ],
+      "directed_final_write": -0.5161704042949696,
+      "directed_logit": 0.4135293960571289
+    },
+    {
+      "row": 22,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.2791956108241204
+        },
+        {
+          "position": 6,
+          "token": " Birmingham",
+          "directed_contribution": -0.13342654147230204
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.1286168799804986
+        },
+        {
+          "position": 7,
+          "token": ".",
+          "directed_contribution": -0.05879597094781432
+        }
+      ],
+      "directed_final_write": -0.6038500301153029,
+      "directed_logit": 0.5430755615234375
+    },
+    {
+      "row": 23,
+      "group": 0,
+      "cue_position": 6,
+      "top_source_positions": [
+        {
+          "position": 13,
+          "token": " \"",
+          "directed_contribution": -0.1955295922223001
+        },
+        {
+          "position": 12,
+          "token": ":",
+          "directed_contribution": -0.08381079254819096
+        },
+        {
+          "position": 6,
+          "token": " Houston",
+          "directed_contribution": -0.06651295203287037
+        },
+        {
+          "position": 7,
+          "token": ".",
+          "directed_contribution": -0.025871827110357157
+        }
+      ],
+      "directed_final_write": -0.3219164691399814,
+      "directed_logit": 0.23946881294250488
+    },
+    {
+      "row": 24,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.22238191466136364
+        },
+        {
+          "position": 13,
+          "token": " television",
+          "directed_contribution": -0.2117208101929681
+        },
+        {
+          "position": 2,
+          "token": " Nottingham",
+          "directed_contribution": -0.1529312174460944
+        },
+        {
+          "position": 11,
+          "token": "The",
+          "directed_contribution": -0.08481520045695837
+        }
+      ],
+      "directed_final_write": -0.7730774810514877,
+      "directed_logit": 0.3839836120605469
+    },
+    {
+      "row": 25,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.24105150019891475
+        },
+        {
+          "position": 2,
+          "token": " Detroit",
+          "directed_contribution": -0.09448430358528416
+        },
+        {
+          "position": 11,
+          "token": "The",
+          "directed_contribution": -0.03163771282244916
+        },
+        {
+          "position": 9,
+          "token": ":",
+          "directed_contribution": 0.028784751277617614
+        }
+      ],
+      "directed_final_write": -0.32885088480319025,
+      "directed_logit": 0.2728004455566406
+    },
+    {
+      "row": 26,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.1331266861902141
+        },
+        {
+          "position": 2,
+          "token": " Nottingham",
+          "directed_contribution": -0.062479924763149244
+        },
+        {
+          "position": 13,
+          "token": " her",
+          "directed_contribution": 0.03601008297724785
+        },
+        {
+          "position": 14,
+          "token": " dry",
+          "directed_contribution": -0.02808176965195506
+        }
+      ],
+      "directed_final_write": -0.17186938610301372,
+      "directed_logit": 0.26915740966796875
+    },
+    {
+      "row": 27,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.13734749237130872
+        },
+        {
+          "position": 2,
+          "token": " Detroit",
+          "directed_contribution": -0.04705382634634838
+        },
+        {
+          "position": 14,
+          "token": " dry",
+          "directed_contribution": -0.03545315244560673
+        },
+        {
+          "position": 13,
+          "token": " her",
+          "directed_contribution": 0.030669536223595507
+        }
+      ],
+      "directed_final_write": -0.16140132944131416,
+      "directed_logit": 0.27301597595214844
+    },
+    {
+      "row": 28,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.19811343137278306
+        },
+        {
+          "position": 2,
+          "token": " Nottingham",
+          "directed_contribution": -0.0880576282603331
+        },
+        {
+          "position": 11,
+          "token": "The",
+          "directed_contribution": -0.06077633775474872
+        },
+        {
+          "position": 12,
+          "token": " shop",
+          "directed_contribution": -0.03818449023500895
+        }
+      ],
+      "directed_final_write": -0.40922840222564494,
+      "directed_logit": 0.18713092803955078
+    },
+    {
+      "row": 29,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.2129720326509384
+        },
+        {
+          "position": 2,
+          "token": " Detroit",
+          "directed_contribution": -0.06343946405205025
+        },
+        {
+          "position": 11,
+          "token": "The",
+          "directed_contribution": -0.035078784707376624
+        },
+        {
+          "position": 12,
+          "token": " shop",
+          "directed_contribution": -0.03310249068959621
+        }
+      ],
+      "directed_final_write": -0.3217449205336199,
+      "directed_logit": 0.14924907684326172
+    },
+    {
+      "row": 30,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.18533657016364669
+        },
+        {
+          "position": 2,
+          "token": " Nottingham",
+          "directed_contribution": -0.09559621793877672
+        },
+        {
+          "position": 15,
+          "token": " I",
+          "directed_contribution": 0.059899227324945604
+        },
+        {
+          "position": 14,
+          "token": ",",
+          "directed_contribution": 0.0538290567665769
+        }
+      ],
+      "directed_final_write": -0.1756188825443207,
+      "directed_logit": 0.19461345672607422
+    },
+    {
+      "row": 31,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.23601664859806287
+        },
+        {
+          "position": 2,
+          "token": " Detroit",
+          "directed_contribution": -0.09709820715913613
+        },
+        {
+          "position": 14,
+          "token": ",",
+          "directed_contribution": 0.04675865775422504
+        },
+        {
+          "position": 15,
+          "token": " I",
+          "directed_contribution": 0.045428127994703554
+        }
+      ],
+      "directed_final_write": -0.23981457101041162,
+      "directed_logit": 0.18564701080322266
+    },
+    {
+      "row": 32,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.20656194771448994
+        },
+        {
+          "position": 2,
+          "token": " Nottingham",
+          "directed_contribution": -0.08607264646156271
+        },
+        {
+          "position": 11,
+          "token": "The",
+          "directed_contribution": -0.07474226405398712
+        },
+        {
+          "position": 12,
+          "token": " remark",
+          "directed_contribution": 0.043720722997058335
+        }
+      ],
+      "directed_final_write": -0.33961564009861167,
+      "directed_logit": 0.255401611328125
+    },
+    {
+      "row": 33,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.25532965020116666
+        },
+        {
+          "position": 2,
+          "token": " Detroit",
+          "directed_contribution": -0.11016332419748028
+        },
+        {
+          "position": 11,
+          "token": "The",
+          "directed_contribution": -0.06617014488464847
+        },
+        {
+          "position": 12,
+          "token": " remark",
+          "directed_contribution": 0.04566721192338541
+        }
+      ],
+      "directed_final_write": -0.39127474492578784,
+      "directed_logit": 0.34574222564697266
+    },
+    {
+      "row": 34,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.25335723470771554
+        },
+        {
+          "position": 2,
+          "token": " Nottingham",
+          "directed_contribution": -0.10634577396042373
+        },
+        {
+          "position": 12,
+          "token": " are",
+          "directed_contribution": -0.09982589955858012
+        },
+        {
+          "position": 11,
+          "token": "They",
+          "directed_contribution": 0.03372146574324463
+        }
+      ],
+      "directed_final_write": -0.4740423861220832,
+      "directed_logit": 0.3158383369445801
+    },
+    {
+      "row": 35,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.25832208431439346
+        },
+        {
+          "position": 2,
+          "token": " Detroit",
+          "directed_contribution": -0.06246488852375941
+        },
+        {
+          "position": 13,
+          "token": " busy",
+          "directed_contribution": 0.037536202570912516
+        },
+        {
+          "position": 12,
+          "token": " are",
+          "directed_contribution": -0.033014184518785
+        }
+      ],
+      "directed_final_write": -0.28493438309993674,
+      "directed_logit": 0.2692079544067383
+    },
+    {
+      "row": 36,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.2736969559337179
+        },
+        {
+          "position": 13,
+          "token": " television",
+          "directed_contribution": -0.2188894414888467
+        },
+        {
+          "position": 2,
+          "token": " Sheffield",
+          "directed_contribution": -0.16467309352845833
+        },
+        {
+          "position": 11,
+          "token": "The",
+          "directed_contribution": -0.12403386420088039
+        }
+      ],
+      "directed_final_write": -0.8735661177615833,
+      "directed_logit": 0.4475545883178711
+    },
+    {
+      "row": 37,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.28570301235331774
+        },
+        {
+          "position": 2,
+          "token": " Baltimore",
+          "directed_contribution": -0.10992516430013136
+        },
+        {
+          "position": 11,
+          "token": "The",
+          "directed_contribution": -0.05058431190832315
+        },
+        {
+          "position": 9,
+          "token": ":",
+          "directed_contribution": 0.04298441387035598
+        }
+      ],
+      "directed_final_write": -0.4228371456506969,
+      "directed_logit": 0.35019397735595703
+    },
+    {
+      "row": 38,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.15756747846447225
+        },
+        {
+          "position": 2,
+          "token": " Sheffield",
+          "directed_contribution": -0.055895317819966386
+        },
+        {
+          "position": 13,
+          "token": " her",
+          "directed_contribution": 0.038196661674991576
+        },
+        {
+          "position": 14,
+          "token": " dry",
+          "directed_contribution": -0.02985614782590763
+        }
+      ],
+      "directed_final_write": -0.18414148890759544,
+      "directed_logit": 0.2897005081176758
+    },
+    {
+      "row": 39,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.15592023302680152
+        },
+        {
+          "position": 2,
+          "token": " Baltimore",
+          "directed_contribution": -0.04457848675193808
+        },
+        {
+          "position": 13,
+          "token": " her",
+          "directed_contribution": 0.03548366152985222
+        },
+        {
+          "position": 14,
+          "token": " dry",
+          "directed_contribution": -0.03455898646563382
+        }
+      ],
+      "directed_final_write": -0.16699836709713603,
+      "directed_logit": 0.3059978485107422
+    },
+    {
+      "row": 40,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.23532154043092549
+        },
+        {
+          "position": 11,
+          "token": "The",
+          "directed_contribution": -0.08493965087271972
+        },
+        {
+          "position": 2,
+          "token": " Sheffield",
+          "directed_contribution": -0.07971251677877955
+        },
+        {
+          "position": 12,
+          "token": " shop",
+          "directed_contribution": -0.052104458956642494
+        }
+      ],
+      "directed_final_write": -0.46756875936531944,
+      "directed_logit": 0.21809959411621094
+    },
+    {
+      "row": 41,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.2463513870835283
+        },
+        {
+          "position": 2,
+          "token": " Baltimore",
+          "directed_contribution": -0.06425785774283027
+        },
+        {
+          "position": 11,
+          "token": "The",
+          "directed_contribution": -0.05143566095844222
+        },
+        {
+          "position": 12,
+          "token": " shop",
+          "directed_contribution": -0.0488073840225906
+        }
+      ],
+      "directed_final_write": -0.38634921829914054,
+      "directed_logit": 0.18340492248535156
+    },
+    {
+      "row": 42,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.21650551262580406
+        },
+        {
+          "position": 2,
+          "token": " Sheffield",
+          "directed_contribution": -0.09607021040739123
+        },
+        {
+          "position": 14,
+          "token": ",",
+          "directed_contribution": 0.05123277107435455
+        },
+        {
+          "position": 9,
+          "token": ":",
+          "directed_contribution": 0.041520427257954254
+        }
+      ],
+      "directed_final_write": -0.22189412498523012,
+      "directed_logit": 0.22306537628173828
+    },
+    {
+      "row": 43,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.2717050673352464
+        },
+        {
+          "position": 2,
+          "token": " Baltimore",
+          "directed_contribution": -0.1045224522229931
+        },
+        {
+          "position": 14,
+          "token": ",",
+          "directed_contribution": 0.04752682648706078
+        },
+        {
+          "position": 9,
+          "token": ":",
+          "directed_contribution": 0.04272477722827703
+        }
+      ],
+      "directed_final_write": -0.30126899945781427,
+      "directed_logit": 0.23019123077392578
+    },
+    {
+      "row": 44,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.24219991357769163
+        },
+        {
+          "position": 11,
+          "token": "The",
+          "directed_contribution": -0.1044228662940349
+        },
+        {
+          "position": 2,
+          "token": " Sheffield",
+          "directed_contribution": -0.07768006379014705
+        },
+        {
+          "position": 12,
+          "token": " remark",
+          "directed_contribution": 0.038711616947508715
+        }
+      ],
+      "directed_final_write": -0.3980268972319111,
+      "directed_logit": 0.29111576080322266
+    },
+    {
+      "row": 45,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.29172262748392663
+        },
+        {
+          "position": 2,
+          "token": " Baltimore",
+          "directed_contribution": -0.10753028767888267
+        },
+        {
+          "position": 11,
+          "token": "The",
+          "directed_contribution": -0.09742721630982033
+        },
+        {
+          "position": 12,
+          "token": " remark",
+          "directed_contribution": 0.04266270072490522
+        }
+      ],
+      "directed_final_write": -0.45909742281141497,
+      "directed_logit": 0.4123725891113281
+    },
+    {
+      "row": 46,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.2971424843577226
+        },
+        {
+          "position": 12,
+          "token": " are",
+          "directed_contribution": -0.10948628153922725
+        },
+        {
+          "position": 2,
+          "token": " Sheffield",
+          "directed_contribution": -0.10731088757522887
+        },
+        {
+          "position": 9,
+          "token": ":",
+          "directed_contribution": 0.0431386888635014
+        }
+      ],
+      "directed_final_write": -0.5443081209519819,
+      "directed_logit": 0.3624892234802246
+    },
+    {
+      "row": 47,
+      "group": 1,
+      "cue_position": 2,
+      "top_source_positions": [
+        {
+          "position": 10,
+          "token": " \"",
+          "directed_contribution": -0.30142681491431045
+        },
+        {
+          "position": 2,
+          "token": " Baltimore",
+          "directed_contribution": -0.07187160453469
+        },
+        {
+          "position": 12,
+          "token": " are",
+          "directed_contribution": -0.044847676638315695
+        },
+        {
+          "position": 9,
+          "token": ":",
+          "directed_contribution": 0.040056883841858675
+        }
+      ],
+      "directed_final_write": -0.36662341212750876,
+      "directed_logit": 0.3469991683959961
+    },
+    {
+      "row": 48,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 9,
+          "token": " Nottingham",
+          "directed_contribution": -0.2516109296466231
+        },
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.18943460893720557
+        },
+        {
+          "position": 14,
+          "token": " television",
+          "directed_contribution": -0.16920441662322291
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.13532483740752665
+        }
+      ],
+      "directed_final_write": -0.09030457985729251,
+      "directed_logit": 0.040557861328125
+    },
+    {
+      "row": 49,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.1537705134785383
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.09243081627625292
+        },
+        {
+          "position": 9,
+          "token": " Detroit",
+          "directed_contribution": -0.09004836188971962
+        },
+        {
+          "position": 14,
+          "token": " television",
+          "directed_contribution": -0.015018655341101538
+        }
+      ],
+      "directed_final_write": 0.1631473736327421,
+      "directed_logit": -0.09480762481689453
+    },
+    {
+      "row": 50,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.10262252957695978
+        },
+        {
+          "position": 9,
+          "token": " Nottingham",
+          "directed_contribution": -0.10010015027580539
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.06797074693099026
+        },
+        {
+          "position": 14,
+          "token": " her",
+          "directed_contribution": 0.03221025885562924
+        }
+      ],
+      "directed_final_write": 0.10136521097065501,
+      "directed_logit": -0.10451173782348633
+    },
+    {
+      "row": 51,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.08841579184382853
+        },
+        {
+          "position": 9,
+          "token": " Detroit",
+          "directed_contribution": -0.058209636619179606
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.04797829157474117
+        },
+        {
+          "position": 15,
+          "token": " dry",
+          "directed_contribution": -0.0374318624998334
+        }
+      ],
+      "directed_final_write": 0.0852895857941288,
+      "directed_logit": -0.10976457595825195
+    },
+    {
+      "row": 52,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 9,
+          "token": " Nottingham",
+          "directed_contribution": -0.16449875313869708
+        },
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.15958410085277386
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.11356475527535984
+        },
+        {
+          "position": 14,
+          "token": " mailed",
+          "directed_contribution": 0.029551168195805815
+        }
+      ],
+      "directed_final_write": 0.14104732881456608,
+      "directed_logit": -0.053882598876953125
+    },
+    {
+      "row": 53,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.13768623323973414
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.08451949796828959
+        },
+        {
+          "position": 9,
+          "token": " Detroit",
+          "directed_contribution": -0.07275715255453766
+        },
+        {
+          "position": 14,
+          "token": " mailed",
+          "directed_contribution": 0.023653223157164716
+        }
+      ],
+      "directed_final_write": 0.17343923924973173,
+      "directed_logit": -0.0602564811706543
+    },
+    {
+      "row": 54,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.1408022096193635
+        },
+        {
+          "position": 9,
+          "token": " Nottingham",
+          "directed_contribution": -0.11900198382836491
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.10312766948451076
+        },
+        {
+          "position": 16,
+          "token": " I",
+          "directed_contribution": 0.045660327482708866
+        }
+      ],
+      "directed_final_write": 0.2238969779522943,
+      "directed_logit": -0.11339759826660156
+    },
+    {
+      "row": 55,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.1281559951872643
+        },
+        {
+          "position": 9,
+          "token": " Detroit",
+          "directed_contribution": -0.09895711352048003
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.08031070739935955
+        },
+        {
+          "position": 16,
+          "token": " I",
+          "directed_contribution": 0.033208126043365704
+        }
+      ],
+      "directed_final_write": 0.17981438742715972,
+      "directed_logit": -0.09914588928222656
+    },
+    {
+      "row": 56,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.1567914259689974
+        },
+        {
+          "position": 9,
+          "token": " Nottingham",
+          "directed_contribution": -0.1458450449698837
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.10275667575685928
+        },
+        {
+          "position": 13,
+          "token": " remark",
+          "directed_contribution": 0.05702317168960112
+        }
+      ],
+      "directed_final_write": 0.2040015142253397,
+      "directed_logit": -0.12266826629638672
+    },
+    {
+      "row": 57,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.1503751737301103
+        },
+        {
+          "position": 9,
+          "token": " Detroit",
+          "directed_contribution": -0.11006587869559681
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.0857579931252232
+        },
+        {
+          "position": 13,
+          "token": " remark",
+          "directed_contribution": 0.05748824373650597
+        }
+      ],
+      "directed_final_write": 0.21289230444475182,
+      "directed_logit": -0.15696430206298828
+    },
+    {
+      "row": 58,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.17613007703502973
+        },
+        {
+          "position": 9,
+          "token": " Nottingham",
+          "directed_contribution": -0.16874669287880104
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.11109615975072525
+        },
+        {
+          "position": 12,
+          "token": "They",
+          "directed_contribution": 0.03917065140830561
+        }
+      ],
+      "directed_final_write": 0.1380778030528637,
+      "directed_logit": -0.08323192596435547
+    },
+    {
+      "row": 59,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.15361091520217646
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.07911734503186249
+        },
+        {
+          "position": 9,
+          "token": " Detroit",
+          "directed_contribution": -0.05034110791032679
+        },
+        {
+          "position": 14,
+          "token": " busy",
+          "directed_contribution": 0.02610307686299493
+        }
+      ],
+      "directed_final_write": 0.22398741438386147,
+      "directed_logit": -0.14185714721679688
+    },
+    {
+      "row": 60,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 9,
+          "token": " Sheffield",
+          "directed_contribution": -0.214574182585164
+        },
+        {
+          "position": 14,
+          "token": " television",
+          "directed_contribution": -0.19452294089513278
+        },
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.1533361901502347
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.13791880011462682
+        }
+      ],
+      "directed_final_write": -0.13879770857628015,
+      "directed_logit": 0.06852340698242188
+    },
+    {
+      "row": 61,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.1309538608482162
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.10299167921802943
+        },
+        {
+          "position": 9,
+          "token": " Baltimore",
+          "directed_contribution": -0.08356960865609643
+        },
+        {
+          "position": 14,
+          "token": " television",
+          "directed_contribution": -0.028635985019099294
+        }
+      ],
+      "directed_final_write": 0.13437406096891744,
+      "directed_logit": -0.08364391326904297
+    },
+    {
+      "row": 62,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.08189267955374446
+        },
+        {
+          "position": 9,
+          "token": " Sheffield",
+          "directed_contribution": -0.07529317331490169
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.06766212122929424
+        },
+        {
+          "position": 15,
+          "token": " dry",
+          "directed_contribution": -0.030233417661928066
+        }
+      ],
+      "directed_final_write": 0.09312391205665378,
+      "directed_logit": -0.09741401672363281
+    },
+    {
+      "row": 63,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.0749379180923062
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.05411716050414841
+        },
+        {
+          "position": 9,
+          "token": " Baltimore",
+          "directed_contribution": -0.047921974855368296
+        },
+        {
+          "position": 15,
+          "token": " dry",
+          "directed_contribution": -0.03396815396263939
+        }
+      ],
+      "directed_final_write": 0.089899737758603,
+      "directed_logit": -0.11627769470214844
+    },
+    {
+      "row": 64,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.1284228264120158
+        },
+        {
+          "position": 9,
+          "token": " Sheffield",
+          "directed_contribution": -0.12669458300738554
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.11384830285381639
+        },
+        {
+          "position": 14,
+          "token": " mailed",
+          "directed_contribution": 0.023211030431642563
+        }
+      ],
+      "directed_final_write": 0.11487477525065573,
+      "directed_logit": -0.04434013366699219
+    },
+    {
+      "row": 65,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.11671371320096072
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.09241357972211278
+        },
+        {
+          "position": 9,
+          "token": " Baltimore",
+          "directed_contribution": -0.05485678586782707
+        },
+        {
+          "position": 14,
+          "token": " mailed",
+          "directed_contribution": 0.018724852869828053
+        }
+      ],
+      "directed_final_write": 0.16224072013596408,
+      "directed_logit": -0.05756568908691406
+    },
+    {
+      "row": 66,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.11251322881868996
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.1039209358809577
+        },
+        {
+          "position": 9,
+          "token": " Sheffield",
+          "directed_contribution": -0.10197314691484827
+        },
+        {
+          "position": 16,
+          "token": " I",
+          "directed_contribution": 0.033099968283991435
+        }
+      ],
+      "directed_final_write": 0.18698126605183507,
+      "directed_logit": -0.09758853912353516
+    },
+    {
+      "row": 67,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.10771456727049548
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.0883731982003189
+        },
+        {
+          "position": 9,
+          "token": " Baltimore",
+          "directed_contribution": -0.07998705077814619
+        },
+        {
+          "position": 15,
+          "token": ",",
+          "directed_contribution": 0.02631830227507156
+        }
+      ],
+      "directed_final_write": 0.1719842437245925,
+      "directed_logit": -0.09780311584472656
+    },
+    {
+      "row": 68,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.12667020681733046
+        },
+        {
+          "position": 9,
+          "token": " Sheffield",
+          "directed_contribution": -0.11729154664694673
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.10496471711086455
+        },
+        {
+          "position": 13,
+          "token": " remark",
+          "directed_contribution": 0.04640001894034268
+        }
+      ],
+      "directed_final_write": 0.16979769428225353,
+      "directed_logit": -0.1037740707397461
+    },
+    {
+      "row": 69,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.12306427689189335
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.09129362993167016
+        },
+        {
+          "position": 9,
+          "token": " Baltimore",
+          "directed_contribution": -0.0876751304000546
+        },
+        {
+          "position": 13,
+          "token": " remark",
+          "directed_contribution": 0.04933324013193799
+        }
+      ],
+      "directed_final_write": 0.1912952193599114,
+      "directed_logit": -0.14519691467285156
+    },
+    {
+      "row": 70,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.1409689388349272
+        },
+        {
+          "position": 9,
+          "token": " Sheffield",
+          "directed_contribution": -0.13641815530962767
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.1127469823709905
+        },
+        {
+          "position": 13,
+          "token": " are",
+          "directed_contribution": -0.045225060913815424
+        }
+      ],
+      "directed_final_write": 0.10242566042655432,
+      "directed_logit": -0.061081886291503906
+    },
+    {
+      "row": 71,
+      "group": 2,
+      "cue_position": 9,
+      "top_source_positions": [
+        {
+          "position": 11,
+          "token": " \"",
+          "directed_contribution": 0.12953076753942377
+        },
+        {
+          "position": 10,
+          "token": ":",
+          "directed_contribution": 0.0886171294205277
+        },
+        {
+          "position": 9,
+          "token": " Baltimore",
+          "directed_contribution": -0.047376679559212015
+        },
+        {
+          "position": 14,
+          "token": " busy",
+          "directed_contribution": 0.035232440065479105
+        }
+      ],
+      "directed_final_write": 0.20685620468482507,
+      "directed_logit": -0.13595271110534668
+    },
+    {
+      "row": 72,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.2838038322820962
+        },
+        {
+          "position": 22,
+          "token": " television",
+          "directed_contribution": -0.2528750784257346
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.14250552100809025
+        },
+        {
+          "position": 5,
+          "token": " Nottingham",
+          "directed_contribution": -0.09776167080399258
+        }
+      ],
+      "directed_final_write": -0.9756176316230118,
+      "directed_logit": 0.3753824234008789
+    },
+    {
+      "row": 73,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.39325827246956724
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.13683425918618855
+        },
+        {
+          "position": 5,
+          "token": " Detroit",
+          "directed_contribution": -0.0670445443978671
+        },
+        {
+          "position": 22,
+          "token": " television",
+          "directed_contribution": -0.06494829406903802
+        }
+      ],
+      "directed_final_write": -0.6376082937428098,
+      "directed_logit": 0.4874086380004883
+    },
+    {
+      "row": 74,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.1916784467426592
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.06434501977697221
+        },
+        {
+          "position": 5,
+          "token": " Nottingham",
+          "directed_contribution": -0.05559216370636922
+        },
+        {
+          "position": 6,
+          "token": ".",
+          "directed_contribution": -0.02874856157904082
+        }
+      ],
+      "directed_final_write": -0.39555328869765205,
+      "directed_logit": 0.36948394775390625
+    },
+    {
+      "row": 75,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.2510677996048802
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.061007532409714016
+        },
+        {
+          "position": 5,
+          "token": " Detroit",
+          "directed_contribution": -0.04597978096176318
+        },
+        {
+          "position": 23,
+          "token": " dry",
+          "directed_contribution": -0.02977532766770253
+        }
+      ],
+      "directed_final_write": -0.42617788130228335,
+      "directed_logit": 0.595850944519043
+    },
+    {
+      "row": 76,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.2958764408729982
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.12357846786955828
+        },
+        {
+          "position": 21,
+          "token": " shop",
+          "directed_contribution": -0.11072877048497932
+        },
+        {
+          "position": 5,
+          "token": " Nottingham",
+          "directed_contribution": -0.06627647834751492
+        }
+      ],
+      "directed_final_write": -0.7082528430874314,
+      "directed_logit": 0.23362350463867188
+    },
+    {
+      "row": 77,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.3461560749253433
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.10687727690560594
+        },
+        {
+          "position": 21,
+          "token": " shop",
+          "directed_contribution": -0.09323039134587768
+        },
+        {
+          "position": 5,
+          "token": " Detroit",
+          "directed_contribution": -0.050351378303735955
+        }
+      ],
+      "directed_final_write": -0.6001601451815435,
+      "directed_logit": 0.23409080505371094
+    },
+    {
+      "row": 78,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.243414557336732
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.13028254879587498
+        },
+        {
+          "position": 23,
+          "token": ",",
+          "directed_contribution": 0.09893969428851224
+        },
+        {
+          "position": 5,
+          "token": " Nottingham",
+          "directed_contribution": -0.05942624827893731
+        }
+      ],
+      "directed_final_write": -0.34388845930243883,
+      "directed_logit": 0.29065990447998047
+    },
+    {
+      "row": 79,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.43698213609720915
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.17757935635239608
+        },
+        {
+          "position": 23,
+          "token": ",",
+          "directed_contribution": 0.08980588898011735
+        },
+        {
+          "position": 5,
+          "token": " Detroit",
+          "directed_contribution": -0.07090196918022312
+        }
+      ],
+      "directed_final_write": -0.6130574734409876,
+      "directed_logit": 0.4361696243286133
+    },
+    {
+      "row": 80,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.28629390378915986
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.10024330955480437
+        },
+        {
+          "position": 5,
+          "token": " Nottingham",
+          "directed_contribution": -0.06263187044649292
+        },
+        {
+          "position": 20,
+          "token": "The",
+          "directed_contribution": -0.055885477969101385
+        }
+      ],
+      "directed_final_write": -0.4855572433317523,
+      "directed_logit": 0.28876352310180664
+    },
+    {
+      "row": 81,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.4725134057061592
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.12179642932773047
+        },
+        {
+          "position": 5,
+          "token": " Detroit",
+          "directed_contribution": -0.09735137778496061
+        },
+        {
+          "position": 21,
+          "token": " remark",
+          "directed_contribution": 0.059734652134521796
+        }
+      ],
+      "directed_final_write": -0.7294734501791788,
+      "directed_logit": 0.6253881454467773
+    },
+    {
+      "row": 82,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.34185235290384264
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.1415449000914673
+        },
+        {
+          "position": 5,
+          "token": " Nottingham",
+          "directed_contribution": -0.09175759216296733
+        },
+        {
+          "position": 6,
+          "token": ".",
+          "directed_contribution": -0.0738145692491726
+        }
+      ],
+      "directed_final_write": -0.8012125970791997,
+      "directed_logit": 0.34821391105651855
+    },
+    {
+      "row": 83,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.4642699028360436
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.1384236582129813
+        },
+        {
+          "position": 5,
+          "token": " Detroit",
+          "directed_contribution": -0.06386687050693902
+        },
+        {
+          "position": 6,
+          "token": ".",
+          "directed_contribution": -0.06148219287877587
+        }
+      ],
+      "directed_final_write": -0.7431726919747442,
+      "directed_logit": 0.5997140407562256
+    },
+    {
+      "row": 84,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.3157097280080693
+        },
+        {
+          "position": 22,
+          "token": " television",
+          "directed_contribution": -0.2658790332318524
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.12324144101459035
+        },
+        {
+          "position": 5,
+          "token": " Sheffield",
+          "directed_contribution": -0.10208912255080091
+        }
+      ],
+      "directed_final_write": -1.0372614721216777,
+      "directed_logit": 0.41941165924072266
+    },
+    {
+      "row": 85,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.4505168488058973
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.12548310075378005
+        },
+        {
+          "position": 22,
+          "token": " television",
+          "directed_contribution": -0.07115326854018103
+        },
+        {
+          "position": 5,
+          "token": " Baltimore",
+          "directed_contribution": -0.06749807935643172
+        }
+      ],
+      "directed_final_write": -0.726728647611565,
+      "directed_logit": 0.5694904327392578
+    },
+    {
+      "row": 86,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.21291068302574306
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.054940323528121636
+        },
+        {
+          "position": 5,
+          "token": " Sheffield",
+          "directed_contribution": -0.05465639385372742
+        },
+        {
+          "position": 6,
+          "token": ".",
+          "directed_contribution": -0.02400275357786806
+        }
+      ],
+      "directed_final_write": -0.4176903374152056,
+      "directed_logit": 0.40435123443603516
+    },
+    {
+      "row": 87,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.27954159405711604
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.05576746810096683
+        },
+        {
+          "position": 5,
+          "token": " Baltimore",
+          "directed_contribution": -0.04008564982499288
+        },
+        {
+          "position": 6,
+          "token": ".",
+          "directed_contribution": -0.029016917117730707
+        }
+      ],
+      "directed_final_write": -0.46681187441786964,
+      "directed_logit": 0.6652631759643555
+    },
+    {
+      "row": 88,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.3203626428931493
+        },
+        {
+          "position": 21,
+          "token": " shop",
+          "directed_contribution": -0.1170162077034244
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.10404944402053334
+        },
+        {
+          "position": 5,
+          "token": " Sheffield",
+          "directed_contribution": -0.06085365217617643
+        }
+      ],
+      "directed_final_write": -0.7460296628470915,
+      "directed_logit": 0.2584209442138672
+    },
+    {
+      "row": 89,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.3927514448395305
+        },
+        {
+          "position": 21,
+          "token": " shop",
+          "directed_contribution": -0.11616300848071928
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.09683464505919631
+        },
+        {
+          "position": 5,
+          "token": " Baltimore",
+          "directed_contribution": -0.03843928295327094
+        }
+      ],
+      "directed_final_write": -0.667813469255472,
+      "directed_logit": 0.2712736129760742
+    },
+    {
+      "row": 90,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.26743994567455737
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.11440416822872705
+        },
+        {
+          "position": 23,
+          "token": ",",
+          "directed_contribution": 0.09333198531596373
+        },
+        {
+          "position": 5,
+          "token": " Sheffield",
+          "directed_contribution": -0.06150780490933454
+        }
+      ],
+      "directed_final_write": -0.38801551678752166,
+      "directed_logit": 0.3271617889404297
+    },
+    {
+      "row": 91,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.5029784908532211
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.15844171220302883
+        },
+        {
+          "position": 23,
+          "token": ",",
+          "directed_contribution": 0.08814601831006481
+        },
+        {
+          "position": 5,
+          "token": " Baltimore",
+          "directed_contribution": -0.0761706129413915
+        }
+      ],
+      "directed_final_write": -0.7228538694504119,
+      "directed_logit": 0.514892578125
+    },
+    {
+      "row": 92,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.3167064152192767
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.08678490710808998
+        },
+        {
+          "position": 20,
+          "token": "The",
+          "directed_contribution": -0.06041849187892587
+        },
+        {
+          "position": 5,
+          "token": " Sheffield",
+          "directed_contribution": -0.05974553307043456
+        }
+      ],
+      "directed_final_write": -0.5334949469212871,
+      "directed_logit": 0.32491302490234375
+    },
+    {
+      "row": 93,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.5267484988410522
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.10700052267174431
+        },
+        {
+          "position": 5,
+          "token": " Baltimore",
+          "directed_contribution": -0.09211226372101758
+        },
+        {
+          "position": 20,
+          "token": "The",
+          "directed_contribution": -0.07152114980935052
+        }
+      ],
+      "directed_final_write": -0.8189406073921683,
+      "directed_logit": 0.709019660949707
+    },
+    {
+      "row": 94,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.3841066703888041
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.1227184571210677
+        },
+        {
+          "position": 5,
+          "token": " Sheffield",
+          "directed_contribution": -0.09199340283331696
+        },
+        {
+          "position": 6,
+          "token": ".",
+          "directed_contribution": -0.06906234738244842
+        }
+      ],
+      "directed_final_write": -0.8495117919913072,
+      "directed_logit": 0.3951282501220703
+    },
+    {
+      "row": 95,
+      "group": 3,
+      "cue_position": 5,
+      "top_source_positions": [
+        {
+          "position": 19,
+          "token": " \"",
+          "directed_contribution": -0.5268390944629213
+        },
+        {
+          "position": 18,
+          "token": ":",
+          "directed_contribution": -0.12557756336538603
+        },
+        {
+          "position": 6,
+          "token": ".",
+          "directed_contribution": -0.08026672981107466
+        },
+        {
+          "position": 5,
+          "token": " Baltimore",
+          "directed_contribution": -0.06686820089620205
+        }
+      ],
+      "directed_final_write": -0.8491802842651099,
+      "directed_logit": 0.7023196220397949
+    }
+  ],
+  "scope": "Exact donor-write computational allocation on reused panels. Aligned fractions can be negative or exceed one. Final-position write alone doesnot specify downstream effect; all-position field remains external interface. No new fit or semantic mode identification."
+}
