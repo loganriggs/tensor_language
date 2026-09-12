@@ -1,0 +1,782 @@
+{
+  "pred_a": true,
+  "families": [
+    {
+      "family": "A1",
+      "error_rms": 0.0013350201180966884,
+      "first_order_relative_error": 0.0014140748319369065,
+      "largest_row_energy_fraction": 0.24515890884241387,
+      "largest_four_energy_fraction": 0.6321800885950489,
+      "largest_rows": [
+        {
+          "row_id": "cab92296fe6ccb9dbdc37a86d0770e90ca3a4ed871d97087206718385df1943d",
+          "family": "A1",
+          "lexeme": "collect",
+          "reference_effect": -0.024272918701171875,
+          "candidate_effect": -0.026916980743408203,
+          "error": -0.002644062042236328,
+          "first_order_error": -0.0026403162082524034
+        },
+        {
+          "row_id": "d23551da13d9bb0076e19d2856be9b824f75197292be7a2611b870ed5db8d963",
+          "family": "A1",
+          "lexeme": "follow",
+          "reference_effect": -0.043810367584228516,
+          "candidate_effect": -0.04128599166870117,
+          "error": 0.0025243759155273438,
+          "first_order_error": 0.0025257602356393676
+        },
+        {
+          "row_id": "78b2d32820c66f9886bcd004194c5a1dff8fe6e3ff895103a9331a662d10b302",
+          "family": "A1",
+          "lexeme": "accept",
+          "reference_effect": -0.042989253997802734,
+          "candidate_effect": -0.044554710388183594,
+          "error": -0.0015654563903808594,
+          "first_order_error": -0.0015671869456742162
+        },
+        {
+          "row_id": "da495e128826597d9c43c22eca95245c9f53583b190534f23b026d7dcda91b98",
+          "family": "A1",
+          "lexeme": "visit",
+          "reference_effect": -0.01762247085571289,
+          "candidate_effect": -0.01911020278930664,
+          "error": -0.00148773193359375,
+          "first_order_error": -0.0014871038787840493
+        }
+      ]
+    },
+    {
+      "family": "A2",
+      "error_rms": 0.0036322927803332547,
+      "first_order_relative_error": 0.0016196957225135125,
+      "largest_row_energy_fraction": 0.22630541398227938,
+      "largest_four_energy_fraction": 0.6496303020566252,
+      "largest_rows": [
+        {
+          "row_id": "62eaf7a30bfb2b96ad8e13e50f7367cbab69110beec0ea1274b5b12cc9c8a76a",
+          "family": "A2",
+          "lexeme": "lake",
+          "reference_effect": 0.14758062362670898,
+          "candidate_effect": 0.1406688690185547,
+          "error": -0.006911754608154297,
+          "first_order_error": -0.006906915012031998
+        },
+        {
+          "row_id": "bcd4e4fd1bf9c65530b4d542d92aea9393ef7a2c4bca7110424787a6301cf17b",
+          "family": "A2",
+          "lexeme": "truck",
+          "reference_effect": 0.33924055099487305,
+          "candidate_effect": 0.33362579345703125,
+          "error": -0.005614757537841797,
+          "first_order_error": -0.005614939678685633
+        },
+        {
+          "row_id": "c4213d2f66d3fd13df0c33a587a83d470fc1dedec7971cf4342b2bfd3f7e9799",
+          "family": "A2",
+          "lexeme": "picture",
+          "reference_effect": -0.019025802612304688,
+          "candidate_effect": -0.024621009826660156,
+          "error": -0.005595207214355469,
+          "first_order_error": -0.005603241632992317
+        },
+        {
+          "row_id": "f14de4ebc7081cbc11d8c8999545668109408a7bfe7cafafef056750062d21da",
+          "family": "A2",
+          "lexeme": "shirt",
+          "reference_effect": 0.013833999633789062,
+          "candidate_effect": 0.008683204650878906,
+          "error": -0.005150794982910156,
+          "first_order_error": -0.005144585938960899
+        }
+      ]
+    },
+    {
+      "family": "past",
+      "error_rms": 0.00488880662986728,
+      "first_order_relative_error": 0.0008560535009576502,
+      "largest_row_energy_fraction": 0.22578986838680223,
+      "largest_four_energy_fraction": 0.6182377947308161,
+      "largest_rows": [
+        {
+          "row_id": "6f7e51337b6549afeb6aa5862ad4d0f3025f97a420f06d8fc7423ad78a3a9f11",
+          "family": "past",
+          "lexeme": "repair",
+          "reference_effect": 0.03851652145385742,
+          "candidate_effect": 0.029224395751953125,
+          "error": -0.009292125701904297,
+          "first_order_error": -0.009287590033355672
+        },
+        {
+          "row_id": "731c8777d7ae07ca4215eb9e5890044bf1e8baacf49b5920e73f5ae733142ceb",
+          "family": "past",
+          "lexeme": "rest",
+          "reference_effect": 0.1338815689086914,
+          "candidate_effect": 0.12609291076660156,
+          "error": -0.007788658142089844,
+          "first_order_error": -0.007784729900678901
+        },
+        {
+          "row_id": "bc2cac3e7296804cf5da77c47a6bf39b0eeb3371223497b937a3ea332466dc78",
+          "family": "past",
+          "lexeme": "return",
+          "reference_effect": 0.046807289123535156,
+          "candidate_effect": 0.03970813751220703,
+          "error": -0.007099151611328125,
+          "first_order_error": -0.007095553689587312
+        },
+        {
+          "row_id": "7e541af6ba2055c532907b405b97bd970d92a316926d956ab9cb34582ef9169e",
+          "family": "past",
+          "lexeme": "hunt",
+          "reference_effect": 0.09095001220703125,
+          "candidate_effect": 0.08470392227172852,
+          "error": -0.006246089935302734,
+          "first_order_error": -0.0062437617250237065
+        }
+      ]
+    },
+    {
+      "family": "progressive",
+      "error_rms": 0.02176245217497401,
+      "first_order_relative_error": 0.0007901138381079499,
+      "largest_row_energy_fraction": 0.15895579994422318,
+      "largest_four_energy_fraction": 0.47237432927255096,
+      "largest_rows": [
+        {
+          "row_id": "66d1714cae8b0219a84a0887d671ef3393063489ec0ae01993f374f61264ded8",
+          "family": "progressive",
+          "lexeme": "need",
+          "reference_effect": 0.31858253479003906,
+          "candidate_effect": 0.2838764190673828,
+          "error": -0.03470611572265625,
+          "first_order_error": -0.03469572699376131
+        },
+        {
+          "row_id": "b2dfb48fa40d360f5429e60d48ce01eacea2b1ec40afc7e8a56abd5aa6862f15",
+          "family": "progressive",
+          "lexeme": "want",
+          "reference_effect": 0.23435592651367188,
+          "candidate_effect": 0.20429229736328125,
+          "error": -0.030063629150390625,
+          "first_order_error": -0.0300661211675681
+        },
+        {
+          "row_id": "2399862e1bdf14885f9041e2f3a82a53921d6ad5b248fb9d0be13a34e2bd9e56",
+          "family": "progressive",
+          "lexeme": "lift",
+          "reference_effect": 0.21453571319580078,
+          "candidate_effect": 0.1859884262084961,
+          "error": -0.028547286987304688,
+          "first_order_error": -0.028563864998862494
+        },
+        {
+          "row_id": "7449e0ba44c6b9edaa5393ea61e6b83d37c17b1920b51dc9d2fd4314c6082ef8",
+          "family": "progressive",
+          "lexeme": "burn",
+          "reference_effect": 0.247955322265625,
+          "candidate_effect": 0.22233867645263672,
+          "error": -0.02561664581298828,
+          "first_order_error": -0.025626878282441753
+        }
+      ]
+    }
+  ],
+  "weight_only_tail": [
+    {
+      "mode": 0,
+      "tail_frobenius_energy_fraction": 0.5591441551663219,
+      "isotropic_complement_capture_fraction": 0.004051140496766363,
+      "isotropic_coefficient": 27.109825177993123,
+      "tail_retained_space_residual": 1.4216948892849092e-15,
+      "isotropic_projection_identity": 2.552190507386128e-15
+    },
+    {
+      "mode": 1,
+      "tail_frobenius_energy_fraction": 0.5669611499448041,
+      "isotropic_complement_capture_fraction": 0.001044378995580567,
+      "isotropic_coefficient": 15.056022654362938,
+      "tail_retained_space_residual": 1.857162610472618e-15,
+      "isotropic_projection_identity": 1.3999779924163984e-15
+    }
+  ],
+  "rows": [
+    {
+      "row_id": "a6ed969564acb5ef817598df3434babc2ac6d2396e185af2afabe22be89fcfde",
+      "family": "A1",
+      "lexeme": "call",
+      "reference_effect": 0.000209808349609375,
+      "candidate_effect": -0.0005521774291992188,
+      "error": -0.0007619857788085938,
+      "first_order_error": -0.0007588475279714426
+    },
+    {
+      "row_id": "6713a947b124be44c02d0353fdd6158afb2f8f659e1f803d90ada060438565d9",
+      "family": "A2",
+      "lexeme": "island",
+      "reference_effect": 0.16965818405151367,
+      "candidate_effect": 0.16656970977783203,
+      "error": -0.0030884742736816406,
+      "first_order_error": -0.0030928552449699578
+    },
+    {
+      "row_id": "30e6ebaf6578ca8e1025b4880494d995fa760b31a5db0510fff0dd4070baf306",
+      "family": "past",
+      "lexeme": "call",
+      "reference_effect": 0.02806568145751953,
+      "candidate_effect": 0.02328014373779297,
+      "error": -0.0047855377197265625,
+      "first_order_error": -0.004796682294417379
+    },
+    {
+      "row_id": "11b9bbdbf39eb0eb8e96484996ec5f447b612688d04dc6d8e58a11592ee2a4d8",
+      "family": "progressive",
+      "lexeme": "call",
+      "reference_effect": 0.17754650115966797,
+      "candidate_effect": 0.15526390075683594,
+      "error": -0.02228260040283203,
+      "first_order_error": -0.02228304502086365
+    },
+    {
+      "row_id": "ee79f96aca825a5d16f52f94cb271bebada882ec444ba98229f44d83fa66c20f",
+      "family": "A1",
+      "lexeme": "need",
+      "reference_effect": -0.005109310150146484,
+      "candidate_effect": -0.005407810211181641,
+      "error": -0.00029850006103515625,
+      "first_order_error": -0.00029898847185763655
+    },
+    {
+      "row_id": "816e246c84236f26377d062f2c7eba5c9533372bb32750ef8b9cfbd78aa07448",
+      "family": "A2",
+      "lexeme": "plane",
+      "reference_effect": -0.07221794128417969,
+      "candidate_effect": -0.07099723815917969,
+      "error": 0.001220703125,
+      "first_order_error": 0.0012080118826372135
+    },
+    {
+      "row_id": "d8baf3a53ab1d359e15d09f90abfd2cf4226f53e6b935282b08e21bf5b05da92",
+      "family": "past",
+      "lexeme": "need",
+      "reference_effect": 0.028338909149169922,
+      "candidate_effect": 0.026202678680419922,
+      "error": -0.00213623046875,
+      "first_order_error": -0.002139997129150393
+    },
+    {
+      "row_id": "66d1714cae8b0219a84a0887d671ef3393063489ec0ae01993f374f61264ded8",
+      "family": "progressive",
+      "lexeme": "need",
+      "reference_effect": 0.31858253479003906,
+      "candidate_effect": 0.2838764190673828,
+      "error": -0.03470611572265625,
+      "first_order_error": -0.03469572699376131
+    },
+    {
+      "row_id": "965fc36575925266dc4cb4e61ad01cccf25f0ca9ae5b86a9450e489af14c9983",
+      "family": "A1",
+      "lexeme": "want",
+      "reference_effect": -0.006127834320068359,
+      "candidate_effect": -0.006243228912353516,
+      "error": -0.00011539459228515625,
+      "first_order_error": -0.00011800338375726272
+    },
+    {
+      "row_id": "bcd4e4fd1bf9c65530b4d542d92aea9393ef7a2c4bca7110424787a6301cf17b",
+      "family": "A2",
+      "lexeme": "truck",
+      "reference_effect": 0.33924055099487305,
+      "candidate_effect": 0.33362579345703125,
+      "error": -0.005614757537841797,
+      "first_order_error": -0.005614939678685633
+    },
+    {
+      "row_id": "ac7700ed42c616c58cfa4eca866c79d33ee5855b2cf693f416d30a97ab66256a",
+      "family": "past",
+      "lexeme": "want",
+      "reference_effect": 0.02051067352294922,
+      "candidate_effect": 0.018578529357910156,
+      "error": -0.0019321441650390625,
+      "first_order_error": -0.0019347861369720248
+    },
+    {
+      "row_id": "b2dfb48fa40d360f5429e60d48ce01eacea2b1ec40afc7e8a56abd5aa6862f15",
+      "family": "progressive",
+      "lexeme": "want",
+      "reference_effect": 0.23435592651367188,
+      "candidate_effect": 0.20429229736328125,
+      "error": -0.030063629150390625,
+      "first_order_error": -0.0300661211675681
+    },
+    {
+      "row_id": "da495e128826597d9c43c22eca95245c9f53583b190534f23b026d7dcda91b98",
+      "family": "A1",
+      "lexeme": "visit",
+      "reference_effect": -0.01762247085571289,
+      "candidate_effect": -0.01911020278930664,
+      "error": -0.00148773193359375,
+      "first_order_error": -0.0014871038787840493
+    },
+    {
+      "row_id": "f14de4ebc7081cbc11d8c8999545668109408a7bfe7cafafef056750062d21da",
+      "family": "A2",
+      "lexeme": "shirt",
+      "reference_effect": 0.013833999633789062,
+      "candidate_effect": 0.008683204650878906,
+      "error": -0.005150794982910156,
+      "first_order_error": -0.005144585938960899
+    },
+    {
+      "row_id": "8e39db9602c53c39aa061569f518c305cfab2b347a98a14521f44def2a572650",
+      "family": "past",
+      "lexeme": "visit",
+      "reference_effect": 0.05301713943481445,
+      "candidate_effect": 0.04948139190673828,
+      "error": -0.003535747528076172,
+      "first_order_error": -0.0035372398023620485
+    },
+    {
+      "row_id": "d2ac37852228c57fbf0384525cc6581b9e29ec2e9455cc6516920cf8af3ff624",
+      "family": "progressive",
+      "lexeme": "visit",
+      "reference_effect": 0.2775259017944336,
+      "candidate_effect": 0.2574272155761719,
+      "error": -0.02009868621826172,
+      "first_order_error": -0.020110440399368518
+    },
+    {
+      "row_id": "eea55d2b783f41efe9a2c9347efa5753d6f4e2a9f33ad0d4868e7737d53d30ef",
+      "family": "A1",
+      "lexeme": "rest",
+      "reference_effect": -0.02400970458984375,
+      "candidate_effect": -0.025421142578125,
+      "error": -0.00141143798828125,
+      "first_order_error": -0.0014108285595587477
+    },
+    {
+      "row_id": "fad023e056f85a209d20667c6b4040871e6325fa6e467a7dc048a791b57e5714",
+      "family": "A2",
+      "lexeme": "hat",
+      "reference_effect": 0.10580968856811523,
+      "candidate_effect": 0.10941743850708008,
+      "error": 0.0036077499389648438,
+      "first_order_error": 0.003609866912787395
+    },
+    {
+      "row_id": "731c8777d7ae07ca4215eb9e5890044bf1e8baacf49b5920e73f5ae733142ceb",
+      "family": "past",
+      "lexeme": "rest",
+      "reference_effect": 0.1338815689086914,
+      "candidate_effect": 0.12609291076660156,
+      "error": -0.007788658142089844,
+      "first_order_error": -0.007784729900678901
+    },
+    {
+      "row_id": "3a35ceca14c2aa5fb95448477cfca74e64237571c8c484334d90157cbc2c9ffb",
+      "family": "progressive",
+      "lexeme": "rest",
+      "reference_effect": 0.23137474060058594,
+      "candidate_effect": 0.21060800552368164,
+      "error": -0.020766735076904297,
+      "first_order_error": -0.020765461601470477
+    },
+    {
+      "row_id": "ef6078895bb179a22cc069f3ec8b13f40add62ec2f8de80355d9c98a1ff88464",
+      "family": "A1",
+      "lexeme": "hunt",
+      "reference_effect": 0.009409427642822266,
+      "candidate_effect": 0.009064197540283203,
+      "error": -0.0003452301025390625,
+      "first_order_error": -0.00034448064749424223
+    },
+    {
+      "row_id": "0f599fb7d3e0c9096eebedbf6e51ed116681c971db7bd243131b2f220ae2d65a",
+      "family": "A2",
+      "lexeme": "gift",
+      "reference_effect": 0.031943321228027344,
+      "candidate_effect": 0.03012847900390625,
+      "error": -0.0018148422241210938,
+      "first_order_error": -0.001813183904582365
+    },
+    {
+      "row_id": "7e541af6ba2055c532907b405b97bd970d92a316926d956ab9cb34582ef9169e",
+      "family": "past",
+      "lexeme": "hunt",
+      "reference_effect": 0.09095001220703125,
+      "candidate_effect": 0.08470392227172852,
+      "error": -0.006246089935302734,
+      "first_order_error": -0.0062437617250237065
+    },
+    {
+      "row_id": "7f2b93cbeec4068b04f1e0762b41102d23c8766056a5c532c9a0739b9ed03010",
+      "family": "progressive",
+      "lexeme": "hunt",
+      "reference_effect": 0.021120071411132812,
+      "candidate_effect": 0.011622428894042969,
+      "error": -0.009497642517089844,
+      "first_order_error": -0.00953102321490335
+    },
+    {
+      "row_id": "ec0e682a84dfb68a50d6e264e67e4e397351d45d34e61f1b98973bcdca5f6a2e",
+      "family": "A1",
+      "lexeme": "burn",
+      "reference_effect": -0.031500816345214844,
+      "candidate_effect": -0.03287315368652344,
+      "error": -0.0013723373413085938,
+      "first_order_error": -0.0013721158806179832
+    },
+    {
+      "row_id": "550e4ae6feda3400a12a511961a8fde971966e4311bc7648331270e3177ed658",
+      "family": "A2",
+      "lexeme": "letter",
+      "reference_effect": 0.09503650665283203,
+      "candidate_effect": 0.09320545196533203,
+      "error": -0.0018310546875,
+      "first_order_error": -0.0018346692994374416
+    },
+    {
+      "row_id": "1b508271951bd50576bae481330d6133fe131b1fa84e336b41566b630aac8390",
+      "family": "past",
+      "lexeme": "burn",
+      "reference_effect": 0.07375907897949219,
+      "candidate_effect": 0.06894683837890625,
+      "error": -0.0048122406005859375,
+      "first_order_error": -0.004815134668621928
+    },
+    {
+      "row_id": "7449e0ba44c6b9edaa5393ea61e6b83d37c17b1920b51dc9d2fd4314c6082ef8",
+      "family": "progressive",
+      "lexeme": "burn",
+      "reference_effect": 0.247955322265625,
+      "candidate_effect": 0.22233867645263672,
+      "error": -0.02561664581298828,
+      "first_order_error": -0.025626878282441753
+    },
+    {
+      "row_id": "cf539c06e64b494aae33602c7643bc0ca31da3f9aad592acdda3af6b7f32cd5d",
+      "family": "A1",
+      "lexeme": "lift",
+      "reference_effect": -0.027577877044677734,
+      "candidate_effect": -0.026161670684814453,
+      "error": 0.0014162063598632812,
+      "first_order_error": 0.0014160248409551745
+    },
+    {
+      "row_id": "c4213d2f66d3fd13df0c33a587a83d470fc1dedec7971cf4342b2bfd3f7e9799",
+      "family": "A2",
+      "lexeme": "picture",
+      "reference_effect": -0.019025802612304688,
+      "candidate_effect": -0.024621009826660156,
+      "error": -0.005595207214355469,
+      "first_order_error": -0.005603241632992317
+    },
+    {
+      "row_id": "129dc0a631e5b7bc69e6a45b72dced355949dedd8628d745e04c8add6a2857f5",
+      "family": "past",
+      "lexeme": "lift",
+      "reference_effect": 0.059123992919921875,
+      "candidate_effect": 0.05324840545654297,
+      "error": -0.005875587463378906,
+      "first_order_error": -0.0058787139229384
+    },
+    {
+      "row_id": "2399862e1bdf14885f9041e2f3a82a53921d6ad5b248fb9d0be13a34e2bd9e56",
+      "family": "progressive",
+      "lexeme": "lift",
+      "reference_effect": 0.21453571319580078,
+      "candidate_effect": 0.1859884262084961,
+      "error": -0.028547286987304688,
+      "first_order_error": -0.028563864998862494
+    },
+    {
+      "row_id": "6677b29a1ffb0c69ed32953732ed76bfda82eaa237c88db72f728c4ae63a0692",
+      "family": "A1",
+      "lexeme": "return",
+      "reference_effect": -0.0028944015502929688,
+      "candidate_effect": -0.003200531005859375,
+      "error": -0.00030612945556640625,
+      "first_order_error": -0.00030309046378856896
+    },
+    {
+      "row_id": "4d93ccd08b32fb3c69ccccd5636cc865806108de856c9c711230cf0a8f26fcc0",
+      "family": "A2",
+      "lexeme": "camera",
+      "reference_effect": 0.2779116630554199,
+      "candidate_effect": 0.2734551429748535,
+      "error": -0.004456520080566406,
+      "first_order_error": -0.004467725160311593
+    },
+    {
+      "row_id": "bc2cac3e7296804cf5da77c47a6bf39b0eeb3371223497b937a3ea332466dc78",
+      "family": "past",
+      "lexeme": "return",
+      "reference_effect": 0.046807289123535156,
+      "candidate_effect": 0.03970813751220703,
+      "error": -0.007099151611328125,
+      "first_order_error": -0.007095553689587312
+    },
+    {
+      "row_id": "68680a10672a3ad78533bec3332dc85eba77102c6a42e7dc82e11f20d0054edf",
+      "family": "progressive",
+      "lexeme": "return",
+      "reference_effect": 0.22983980178833008,
+      "candidate_effect": 0.21065902709960938,
+      "error": -0.019180774688720703,
+      "first_order_error": -0.019184464434581366
+    },
+    {
+      "row_id": "d23551da13d9bb0076e19d2856be9b824f75197292be7a2611b870ed5db8d963",
+      "family": "A1",
+      "lexeme": "follow",
+      "reference_effect": -0.043810367584228516,
+      "candidate_effect": -0.04128599166870117,
+      "error": 0.0025243759155273438,
+      "first_order_error": 0.0025257602356393676
+    },
+    {
+      "row_id": "7e5bf56b1528af6ade95d55547b5c749ab84cbf598a5f3c7fac0fd2d3a0c49e3",
+      "family": "A2",
+      "lexeme": "computer",
+      "reference_effect": 0.0713510513305664,
+      "candidate_effect": 0.06884479522705078,
+      "error": -0.002506256103515625,
+      "first_order_error": -0.0025136989977540395
+    },
+    {
+      "row_id": "516728d8ef70df01c6254166a8c78aa2ef1f19bd987d5e1ded029ce8a7446097",
+      "family": "past",
+      "lexeme": "follow",
+      "reference_effect": 0.02830028533935547,
+      "candidate_effect": 0.026775360107421875,
+      "error": -0.0015249252319335938,
+      "first_order_error": -0.0015250591702509553
+    },
+    {
+      "row_id": "c75d7dd5cf1ab0f849377ecd3ff2841f43f77d648734d299bb5faee8fe456544",
+      "family": "progressive",
+      "lexeme": "follow",
+      "reference_effect": -0.02577972412109375,
+      "candidate_effect": -0.03969717025756836,
+      "error": -0.01391744613647461,
+      "first_order_error": -0.013956784463110534
+    },
+    {
+      "row_id": "cab92296fe6ccb9dbdc37a86d0770e90ca3a4ed871d97087206718385df1943d",
+      "family": "A1",
+      "lexeme": "collect",
+      "reference_effect": -0.024272918701171875,
+      "candidate_effect": -0.026916980743408203,
+      "error": -0.002644062042236328,
+      "first_order_error": -0.0026403162082524034
+    },
+    {
+      "row_id": "6ed87dc8d3d406f49e8f0a59c3f90367eef5aaddfc175d91296942432d0258a3",
+      "family": "A2",
+      "lexeme": "tower",
+      "reference_effect": 0.11010217666625977,
+      "candidate_effect": 0.10846519470214844,
+      "error": -0.0016369819641113281,
+      "first_order_error": -0.0016425605414018144
+    },
+    {
+      "row_id": "11c92b7df1280ffc1b8a78c257124176081622aeb55abfef437a13a669ffd2af",
+      "family": "past",
+      "lexeme": "collect",
+      "reference_effect": 0.04995155334472656,
+      "candidate_effect": 0.046352386474609375,
+      "error": -0.0035991668701171875,
+      "first_order_error": -0.003598323532045045
+    },
+    {
+      "row_id": "b9b0e3f803c20d2a0dfdd2752a97d3f44c28f81b94408d7ea2613846a37f1d80",
+      "family": "progressive",
+      "lexeme": "collect",
+      "reference_effect": 0.2015666961669922,
+      "candidate_effect": 0.18543148040771484,
+      "error": -0.016135215759277344,
+      "first_order_error": -0.016150582758067095
+    },
+    {
+      "row_id": "99542a030e8a91b8a70877d72c6e21adf80d536aab8cec3e492b15ba0c1efff5",
+      "family": "A1",
+      "lexeme": "deliver",
+      "reference_effect": -0.02382516860961914,
+      "candidate_effect": -0.023967742919921875,
+      "error": -0.00014257431030273438,
+      "first_order_error": -0.00014502205370210772
+    },
+    {
+      "row_id": "4ee76a2cae5bf20789b535f73788bc963dec67d881ecbc0231b254b83dfffeae",
+      "family": "A2",
+      "lexeme": "park",
+      "reference_effect": -0.008046150207519531,
+      "candidate_effect": -0.007651329040527344,
+      "error": 0.0003948211669921875,
+      "first_order_error": 0.00039322549258829793
+    },
+    {
+      "row_id": "d79250e8aca26fbb253b5859264814f8e36f55c74385e844215b2925a8d328e1",
+      "family": "past",
+      "lexeme": "deliver",
+      "reference_effect": -0.00492095947265625,
+      "candidate_effect": -0.004733085632324219,
+      "error": 0.00018787384033203125,
+      "first_order_error": 0.0001815352383703131
+    },
+    {
+      "row_id": "4c3bd729e56abec73a7b0a7e9b7fa05ef9d2e291dbb25205e554211392108bc8",
+      "family": "progressive",
+      "lexeme": "deliver",
+      "reference_effect": 0.1266937255859375,
+      "candidate_effect": 0.10933208465576172,
+      "error": -0.01736164093017578,
+      "first_order_error": -0.017373128844216126
+    },
+    {
+      "row_id": "9969a430e8fd14994b3ab4aa61880bd629366432a22cde61fea7a4627c9632ab",
+      "family": "A1",
+      "lexeme": "repair",
+      "reference_effect": -0.012752532958984375,
+      "candidate_effect": -0.012696266174316406,
+      "error": 5.626678466796875e-05,
+      "first_order_error": 5.5011322554474225e-05
+    },
+    {
+      "row_id": "62eaf7a30bfb2b96ad8e13e50f7367cbab69110beec0ea1274b5b12cc9c8a76a",
+      "family": "A2",
+      "lexeme": "lake",
+      "reference_effect": 0.14758062362670898,
+      "candidate_effect": 0.1406688690185547,
+      "error": -0.006911754608154297,
+      "first_order_error": -0.006906915012031998
+    },
+    {
+      "row_id": "6f7e51337b6549afeb6aa5862ad4d0f3025f97a420f06d8fc7423ad78a3a9f11",
+      "family": "past",
+      "lexeme": "repair",
+      "reference_effect": 0.03851652145385742,
+      "candidate_effect": 0.029224395751953125,
+      "error": -0.009292125701904297,
+      "first_order_error": -0.009287590033355672
+    },
+    {
+      "row_id": "5dd77da25b4c5ea3b3152a84d2fa87206cf782d98a8d22a46fe8ca5afb411432",
+      "family": "progressive",
+      "lexeme": "repair",
+      "reference_effect": 0.1765584945678711,
+      "candidate_effect": 0.15875530242919922,
+      "error": -0.017803192138671875,
+      "first_order_error": -0.017805185058819912
+    },
+    {
+      "row_id": "5640be28f447db3445025f0e0577aa373869b6ec1ae18139c1fd6fb4cebcc66f",
+      "family": "A1",
+      "lexeme": "order",
+      "reference_effect": -0.05441474914550781,
+      "candidate_effect": -0.053130149841308594,
+      "error": 0.0012845993041992188,
+      "first_order_error": 0.0012839343563481897
+    },
+    {
+      "row_id": "b28af9ada661d5b67c14c00be583976eec92fd024431450cb1e79d93508c0850",
+      "family": "A2",
+      "lexeme": "egg",
+      "reference_effect": 0.01788616180419922,
+      "candidate_effect": 0.019680023193359375,
+      "error": 0.0017938613891601562,
+      "first_order_error": 0.0017940352349476191
+    },
+    {
+      "row_id": "2894656f628e1d15952b64cdf6c14851dcb4cd1b3b8b5dc4dc0f235362c8515c",
+      "family": "past",
+      "lexeme": "order",
+      "reference_effect": 0.024669647216796875,
+      "candidate_effect": 0.019835472106933594,
+      "error": -0.004834175109863281,
+      "first_order_error": -0.004837687640034227
+    },
+    {
+      "row_id": "96e0627527f44a1aadb9da235967224c5c0f8577394ed0200cd8a39d61d0f3fb",
+      "family": "progressive",
+      "lexeme": "order",
+      "reference_effect": 0.3707704544067383,
+      "candidate_effect": 0.35111570358276367,
+      "error": -0.01965475082397461,
+      "first_order_error": -0.01965496247463196
+    },
+    {
+      "row_id": "edec92d9acc249d9faded5ef3db77da9133e687c55a98897348e4720968e5ecc",
+      "family": "A1",
+      "lexeme": "offer",
+      "reference_effect": 0.006526947021484375,
+      "candidate_effect": 0.005099296569824219,
+      "error": -0.0014276504516601562,
+      "first_order_error": -0.0014292415345992812
+    },
+    {
+      "row_id": "43a0314b4fb86fe6cc435acd79a35dc3dbfd2efd5d0a86755fa87819c4f3f7d7",
+      "family": "A2",
+      "lexeme": "wheel",
+      "reference_effect": 0.283632755279541,
+      "candidate_effect": 0.2817959785461426,
+      "error": -0.0018367767333984375,
+      "first_order_error": -0.0018354068018427395
+    },
+    {
+      "row_id": "f39d0f16316e3c7c931aab13e4d32839170f38f236710db89f595654aa37e3ea",
+      "family": "past",
+      "lexeme": "offer",
+      "reference_effect": 0.027936935424804688,
+      "candidate_effect": 0.026123046875,
+      "error": -0.0018138885498046875,
+      "first_order_error": -0.001815252324127754
+    },
+    {
+      "row_id": "9bb1874f924e15fa577d61468999af2fb02fcdd9e5e966b8ea97bf21532d37f4",
+      "family": "progressive",
+      "lexeme": "offer",
+      "reference_effect": 0.11186027526855469,
+      "candidate_effect": 0.09290122985839844,
+      "error": -0.01895904541015625,
+      "first_order_error": -0.018988983923557624
+    },
+    {
+      "row_id": "78b2d32820c66f9886bcd004194c5a1dff8fe6e3ff895103a9331a662d10b302",
+      "family": "A1",
+      "lexeme": "accept",
+      "reference_effect": -0.042989253997802734,
+      "candidate_effect": -0.044554710388183594,
+      "error": -0.0015654563903808594,
+      "first_order_error": -0.0015671869456742162
+    },
+    {
+      "row_id": "7123a4b6e085021fcb0bf7bc2ca3ec3f6377ec50a2aee2bdb11a2212389f943b",
+      "family": "A2",
+      "lexeme": "ship",
+      "reference_effect": -0.05365467071533203,
+      "candidate_effect": -0.050879478454589844,
+      "error": 0.0027751922607421875,
+      "first_order_error": 0.0027720057700083376
+    },
+    {
+      "row_id": "fde5ee97d9459736680b01fcc2af6b48febb1760c681f62ef90b52ebbfd544c0",
+      "family": "past",
+      "lexeme": "accept",
+      "reference_effect": 0.02776193618774414,
+      "candidate_effect": 0.026138782501220703,
+      "error": -0.0016231536865234375,
+      "first_order_error": -0.001625393777837737
+    },
+    {
+      "row_id": "dd4fe12c180922e5b121353c01a3c6b87b1427c0f312754f57773d31e8cde944",
+      "family": "progressive",
+      "lexeme": "accept",
+      "reference_effect": 0.17694759368896484,
+      "candidate_effect": 0.1571950912475586,
+      "error": -0.01975250244140625,
+      "first_order_error": -0.019764875774586223
+    }
+  ],
+  "scope": "Post-hoc diagnostic, no exclusions or retuning. First-order expansion of native final RMS/capped readout; outer-tail isotropy is a separate weight-only structural test."
+}

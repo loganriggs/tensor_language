@@ -226,3 +226,22 @@ This is a material comparison correction: the new full-matrix fits were not the 
 A separately registered, fixed **32 outer terms per output** then tests that single unresolved extraction limit. Its [receipt](QUARTIC_OUTER32_NATIVE_EFFECTS_V1.json) passes replay, swaps and removals in2.50CPU seconds. Write error is1.69%; swaps are2.01/7.44/2.53/0.80%, all64 signs agree, and removal disagreements0.0018/0.0118/0.0016/0.0024nats all pass. This uses76,096 fitted values plus the15,925,248-value shared native producer and its declared normalization/background dependencies. Eigen truncation solves its individual symmetric-matrix approximation; it does not establish global optimality for the composed quartic or semantic uniqueness.
 
 The result supports a faithful **partial-component interface on developmental rows**, not an isolated linguistic circuit, full-unembedding decomposition, or the four-property goal. The next step is a frozen fresh lexical/construction validation before naming or adopting factors. Continued growth of the dense eigenmatrix bank is demoted in light of this stronger simple baseline.
+
+## Frozen fresh validation: removal generalizes, progressive swaps narrowly fail
+
+[The fresh receipt](QUARTIC_OUTER32_FRESH_V1_RESULT.json) completes18body forwards/144sequences in1.96seconds excluding binding checks. All128 native answer-versus-foil contrasts are correct. Actual model-hook versus manual-tail relative error is below8.3e-7; exact composed numerator identities are within3.8e-15. The previously frozen program is unchanged.
+
+| Fresh family | Write error | Swap error | Swap sign agreement | Removal CE disagreement |
+|---|---:|---:|---:|---:|
+| Agreement |2.38%|5.11%|93.75%|0.00801 nats|
+| Count |2.75%|2.40%|100%|0.01135 nats|
+| Past |1.37%|9.17%|100%|0.00278 nats|
+| Progressive |1.96%|10.54%|100%|0.00545 nats|
+
+All families have16live swap pairs. Registered A/C/D/E pass; **B fails** because progressive exceeds10%. This is a narrow but real failed prediction. There is no threshold adjustment, row filtering or claim that the complete fresh screen passed. It is lexical/construction generalization, not corpus OOD or proof of a selective standalone circuit.
+
+The [executed error diagnosis](QUARTIC_FRESH_ERROR_DIAGNOSIS_V1.json) finds progressive error distributed across examples: the largest row contributes15.9% of squared error and the largest four47.2%. First-order propagation of the swap-state discrepancy through native RMS and capped logits predicts the margin error within0.079%relative for progressive, and0.086–0.162%for the other families. This is consistent with ordinary approximation sensitivity; nonlinear curvature and a single bad example do not explain away the miss.
+
+Independently, a weight-only test finds the omitted outer matrix spectrum holds55.9/56.7% of its two matrices' squared Frobenius norms, despite the small native write error. A scalar identity on the omitted subspace explains only0.405/0.104% of that tail energy. A predominantly isotropic omitted tail is therefore not supported in this matrix metric; a small-energy correction could still matter behaviorally, but no data-driven correction is fitted.
+
+The next [producer-metric derivation](PRODUCER_METRIC_SPECTRAL_V1_MATH.md) changes the weight objective: compose the native producer's exact quadratic Gram into the outer matrix before truncation. Its explicit paired-tensor control passes. Native execution is still pending; no improvement is inferred from the derivation.

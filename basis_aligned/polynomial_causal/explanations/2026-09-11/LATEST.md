@@ -1,6 +1,6 @@
 # Current research state
 
-**12 September, 03:26 UTC:** [native producer reuse and the completed baseline comparison](../../QUARTIC_RESIDUAL_EIGENMATRIX_V1_MATH.md#reusing-the-native-producer-and-recovering-the-stronger-baseline) redirect the work. The old outer16 baseline passes all swaps but misses count removal; a fixed outer32 check passes every developmental swap/removal bar with1.69% write error. It uses76,096 fitted values plus15.93million shared native producer values. Frozen fresh lexical/construction validation is next; no circuit or OOD promotion. Dense learned-bank growth is demoted.
+**12 September, 03:39 UTC:** [frozen fresh validation](../../QUARTIC_RESIDUAL_EIGENMATRIX_V1_MATH.md#frozen-fresh-validation-removal-generalizes-progressive-swaps-narrowly-fail) passes all removals, write errors and native capability, but progressive swap error10.54% misses10%. No threshold repair or circuit promotion. Executed diagnosis finds distributed, predominantly first-order error. A [weight-only producer-metric factorization](../../PRODUCER_METRIC_SPECTRAL_V1_MATH.md) is derived and controlled; native comparison is not yet queued.
 
 ## Earlier entries — historical status, superseded where stated above
 
