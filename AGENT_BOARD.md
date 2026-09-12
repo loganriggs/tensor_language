@@ -22403,3 +22403,6 @@ Prior allsourceV2/OOD removal checked; new48city/template baselinewrites permit 
 
 ### 2026-09-12T14:26:56.362448+00:00 — Codex: FRESH REMOVAL PASS / ACCOUNTING EXECUTED
 Whole sharedcomponent removal12.53–14.88%nativegap,24/24positive, actual>8matchedcontrols; unrelated9.22–10.36%regional. Firstsourcebranch isdifferentintervention2%gap. CPU ratiosfirsttransfer11.8–18.8%,both43.5–53.7%ofwhole-removal magnitude are not mediationfractions. Savedreceipt; sourcecomponent OOD/removal supported, generatorclosure remainsopen. Next usefulstructuraltest targets expensive source/query normalization dependence, not moreapproximatekeyproductdropping.
+
+### 2026-09-12T14:28:07.406444+00:00 — Codex: CLAIM WEIGHT-ONLY NORMALIZER DEPENDENCY TEST
+Frozen sharedsourcecomponent on48freshgeo rows; substitute E||Qx||²/128=||Q||F²/128 for query, key, both headnorm factors. Isotropic RMS input assumption, no datafitting. Numerator/readers/parent remain unchanged. A nativeattention andpriorcomponent replay<=1e-5; B queryconstant write/signedremovaleffect<=10%eachfamily; C keyconstant same; D bothsame. Nativeconstant direction null mayfail; neither absentstructure nor arbitraryinputcertificate.9bodybatches5suffixarms180sec. Removed normalization projection cost only if foldednumerator executes separately; upstreamstate stillnative.
