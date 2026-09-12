@@ -1,0 +1,1633 @@
+{
+  "pred_a": true,
+  "baseline_replay": 1.4076643910384284e-06,
+  "no_edit_replay": 4.874102046414919e-07,
+  "head13_0_component_effect_replay": 0.0,
+  "fidelity_pass_count": 2,
+  "transfer_specificity_pass_count": 2,
+  "both_pass_count": 2,
+  "candidates": [
+    {
+      "layer": 8,
+      "head": 0,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 2.3999882568807867e-05,
+          "component_vs_head_error": 1.8821490244300088,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": -4.9173831939697266e-06,
+          "component_group_fraction": -2.8977829033735755e-05,
+          "component_positive_count": 0,
+          "component_meanabs": 4.9173831939697266e-06,
+          "unrelated_meanabs": 9.040037790934244e-07,
+          "remainder_interaction_error": 0.49281825376547167
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.00010021013952084921,
+          "component_vs_head_error": 1.540513406543159,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": -1.1632839838663736e-05,
+          "component_group_fraction": -8.393584720837328e-05,
+          "component_positive_count": 0,
+          "component_meanabs": 1.1632839838663736e-05,
+          "unrelated_meanabs": 1.9073486328125e-06,
+          "remainder_interaction_error": 0.14434818825347617
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 4.3280032136312084e-05,
+          "component_vs_head_error": 0.5867263997604735,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": 2.572933832804362e-06,
+          "component_group_fraction": 1.0368470625762422e-05,
+          "component_positive_count": 18,
+          "component_meanabs": 4.579623540242513e-06,
+          "unrelated_meanabs": 1.1920928955078125e-06,
+          "remainder_interaction_error": 0.22288295679531958
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 3.333088324985751e-05,
+          "component_vs_head_error": 0.6700648486160112,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": -4.500150680541992e-06,
+          "component_group_fraction": -2.2611375248799997e-05,
+          "component_positive_count": 1,
+          "component_meanabs": 4.579623540242513e-06,
+          "unrelated_meanabs": 1.3907750447591145e-06,
+          "remainder_interaction_error": 0.23992170233245327
+        }
+      ]
+    },
+    {
+      "layer": 8,
+      "head": 1,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.0012196533058606077,
+          "component_vs_head_error": 0.4057267401551795,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": 0.00014035900433858237,
+          "component_group_fraction": 0.0008271267604397021,
+          "component_positive_count": 22,
+          "component_meanabs": 0.00014409422874450684,
+          "unrelated_meanabs": 1.3152758280436197e-05,
+          "remainder_interaction_error": 0.015449153492780572
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.0007886900290600698,
+          "component_vs_head_error": 0.45426881832998267,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": 8.295973141988118e-05,
+          "component_group_fraction": 0.0005985894620299959,
+          "component_positive_count": 24,
+          "component_meanabs": 8.295973141988118e-05,
+          "unrelated_meanabs": 7.241964340209961e-06,
+          "remainder_interaction_error": 0.023750999118594972
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.0011533432413250411,
+          "component_vs_head_error": 0.24874073032522548,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": 0.0001475512981414795,
+          "component_group_fraction": 0.0005946057691291477,
+          "component_positive_count": 20,
+          "component_meanabs": 0.00015931328137715658,
+          "unrelated_meanabs": 1.2973944346110025e-05,
+          "remainder_interaction_error": 0.01884778897582509
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.0008202689952167103,
+          "component_vs_head_error": 0.7944719591706783,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": 0.00012356042861938477,
+          "component_group_fraction": 0.0006208394819968529,
+          "component_positive_count": 24,
+          "component_meanabs": 0.00012356042861938477,
+          "unrelated_meanabs": 1.0768572489420572e-05,
+          "remainder_interaction_error": 0.021052222056368378
+        }
+      ]
+    },
+    {
+      "layer": 8,
+      "head": 2,
+      "pred_b": true,
+      "pred_c": true,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.24529236068606608,
+          "component_vs_head_error": 0.016551669433796042,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": 0.04756332437197367,
+          "component_group_fraction": 0.2802876708118622,
+          "component_positive_count": 24,
+          "component_meanabs": 0.04756332437197367,
+          "unrelated_meanabs": 0.003992100556691487,
+          "remainder_interaction_error": 0.0014052013754147577
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.22549966825298473,
+          "component_vs_head_error": 0.016700651431653793,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": 0.04386822382609049,
+          "component_group_fraction": 0.3165277424461142,
+          "component_positive_count": 24,
+          "component_meanabs": 0.04386822382609049,
+          "unrelated_meanabs": 0.003923763831456502,
+          "remainder_interaction_error": 0.0018171511502446725
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.36066888912415235,
+          "component_vs_head_error": 0.025529227987672376,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": 0.068756769100825,
+          "component_group_fraction": 0.2770776813825823,
+          "component_positive_count": 24,
+          "component_meanabs": 0.068756769100825,
+          "unrelated_meanabs": 0.00581735372543335,
+          "remainder_interaction_error": 0.0008090998210086593
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.3077304687747062,
+          "component_vs_head_error": 0.02265224011183598,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": 0.059509058793385826,
+          "component_group_fraction": 0.29900813430498024,
+          "component_positive_count": 24,
+          "component_meanabs": 0.059509058793385826,
+          "unrelated_meanabs": 0.005298097928365071,
+          "remainder_interaction_error": 0.001441326063735367
+        }
+      ]
+    },
+    {
+      "layer": 8,
+      "head": 3,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.006108711878733963,
+          "component_vs_head_error": 0.3251515531411019,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": 0.0007866819699605306,
+          "component_group_fraction": 0.004635867234710171,
+          "component_positive_count": 24,
+          "component_meanabs": 0.0007866819699605306,
+          "unrelated_meanabs": 5.453824996948242e-05,
+          "remainder_interaction_error": 0.003946011911266941
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.007368264898530676,
+          "component_vs_head_error": 0.32509796138097996,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": 0.0009751319885253906,
+          "component_group_fraction": 0.007035988695110095,
+          "component_positive_count": 24,
+          "component_meanabs": 0.0009751319885253906,
+          "unrelated_meanabs": 8.259216944376628e-05,
+          "remainder_interaction_error": 0.003784443617224921
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.006200373662947672,
+          "component_vs_head_error": 0.5664078278638895,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": 0.000520030657450358,
+          "component_group_fraction": 0.0020956320475575725,
+          "component_positive_count": 24,
+          "component_meanabs": 0.000520030657450358,
+          "unrelated_meanabs": 3.345807393391927e-05,
+          "remainder_interaction_error": 0.0036081693471062535
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.005478834602652131,
+          "component_vs_head_error": 0.5195216631377756,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": 0.0005179345607757568,
+          "component_group_fraction": 0.0026024045725092397,
+          "component_positive_count": 24,
+          "component_meanabs": 0.0005179345607757568,
+          "unrelated_meanabs": 4.430611928304037e-05,
+          "remainder_interaction_error": 0.0050202415977860584
+        }
+      ]
+    },
+    {
+      "layer": 8,
+      "head": 4,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.001009065873110809,
+          "component_vs_head_error": 0.3195043154041585,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": -0.00013583898544311523,
+          "component_group_fraction": -0.0008004905741561671,
+          "component_positive_count": 0,
+          "component_meanabs": 0.00013583898544311523,
+          "unrelated_meanabs": 9.63608423868815e-06,
+          "remainder_interaction_error": 0.01621896803277552
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.00012110772062498265,
+          "component_vs_head_error": 1.4753982555235219,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": 1.7454226811726887e-05,
+          "component_group_fraction": 0.0001259396102007787,
+          "component_positive_count": 24,
+          "component_meanabs": 1.7454226811726887e-05,
+          "unrelated_meanabs": 1.9272168477376303e-06,
+          "remainder_interaction_error": 0.12295784422209415
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.0004036227974511021,
+          "component_vs_head_error": 1.7616117017926742,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": -0.00010489424069722493,
+          "component_group_fraction": -0.0004227053333491329,
+          "component_positive_count": 1,
+          "component_meanabs": 0.00010549028714497884,
+          "unrelated_meanabs": 1.0311603546142578e-05,
+          "remainder_interaction_error": 0.05181657690902409
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.0005730246588103102,
+          "component_vs_head_error": 0.9817531836927412,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": -1.0857979456583658e-05,
+          "component_group_fraction": -5.455680606388167e-05,
+          "component_positive_count": 10,
+          "component_meanabs": 3.358721733093262e-05,
+          "unrelated_meanabs": 3.814697265625e-06,
+          "remainder_interaction_error": 0.02827136134109455
+        }
+      ]
+    },
+    {
+      "layer": 8,
+      "head": 5,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.0002825441233952904,
+          "component_vs_head_error": 1.0385963755713437,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": -2.602736155192057e-06,
+          "component_group_fraction": -1.533776001381569e-05,
+          "component_positive_count": 6,
+          "component_meanabs": 5.602836608886719e-06,
+          "unrelated_meanabs": 1.3709068298339844e-06,
+          "remainder_interaction_error": 0.03970476453077509
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.0003215566676319736,
+          "component_vs_head_error": 0.6181360021801705,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": 2.777576446533203e-05,
+          "component_group_fraction": 0.00020041385891939514,
+          "component_positive_count": 24,
+          "component_meanabs": 2.777576446533203e-05,
+          "unrelated_meanabs": 2.37425168355306e-06,
+          "remainder_interaction_error": 0.04061095509663466
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.00033336996648301474,
+          "component_vs_head_error": 1.0092517866381765,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": 1.152356465657552e-06,
+          "component_group_fraction": 4.6437937937777644e-06,
+          "component_positive_count": 11,
+          "component_meanabs": 9.47713851928711e-06,
+          "unrelated_meanabs": 1.1920928955078125e-06,
+          "remainder_interaction_error": 0.04392375556556386
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.00038594820776216945,
+          "component_vs_head_error": 0.9640522812701133,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": 1.9371509552001953e-06,
+          "component_group_fraction": 9.733373451470198e-06,
+          "component_positive_count": 13,
+          "component_meanabs": 7.659196853637695e-06,
+          "unrelated_meanabs": 1.7484029134114583e-06,
+          "remainder_interaction_error": 0.029741836557172226
+        }
+      ]
+    },
+    {
+      "layer": 8,
+      "head": 6,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.00022983897273830988,
+          "component_vs_head_error": 1.6753196859202921,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": -8.392333984375e-05,
+          "component_group_fraction": -0.0004945549488424236,
+          "component_positive_count": 0,
+          "component_meanabs": 8.392333984375e-05,
+          "unrelated_meanabs": 7.251898447672526e-06,
+          "remainder_interaction_error": 0.08377995306730286
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.00013703656164882415,
+          "component_vs_head_error": 1.9950212575962865,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": -5.1190455754597984e-05,
+          "component_group_fraction": -0.000369360734982705,
+          "component_positive_count": 0,
+          "component_meanabs": 5.1190455754597984e-05,
+          "unrelated_meanabs": 5.930662155151367e-06,
+          "remainder_interaction_error": 0.11506494426180869
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.0003520952467000245,
+          "component_vs_head_error": 1.8113344693113886,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": -8.348623911539714e-05,
+          "component_group_fraction": -0.0003364348538181753,
+          "component_positive_count": 0,
+          "component_meanabs": 8.348623911539714e-05,
+          "unrelated_meanabs": 7.132689158121745e-06,
+          "remainder_interaction_error": 0.03812497472022612
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.00020156313344058061,
+          "component_vs_head_error": 1.909168577382163,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": -4.8448642094930015e-05,
+          "component_group_fraction": -0.0002434341657580521,
+          "component_positive_count": 0,
+          "component_meanabs": 4.8448642094930015e-05,
+          "unrelated_meanabs": 4.649162292480469e-06,
+          "remainder_interaction_error": 0.11747176953826348
+        }
+      ]
+    },
+    {
+      "layer": 8,
+      "head": 7,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.004206965333208231,
+          "component_vs_head_error": 0.3668960038789307,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": -0.0005302031834920248,
+          "component_group_fraction": -0.00312445392159302,
+          "component_positive_count": 0,
+          "component_meanabs": 0.0005302031834920248,
+          "unrelated_meanabs": 4.6481688817342125e-05,
+          "remainder_interaction_error": 0.004374429397923416
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.002059822995536604,
+          "component_vs_head_error": 0.4930450297262914,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": -0.00020856658617655435,
+          "component_group_fraction": -0.0015048959113064023,
+          "component_positive_count": 0,
+          "component_meanabs": 0.00020856658617655435,
+          "unrelated_meanabs": 1.9679466883341472e-05,
+          "remainder_interaction_error": 0.009437472487132309
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.006073785978898828,
+          "component_vs_head_error": 0.7700028161615358,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": -0.00027822454770406085,
+          "component_group_fraction": -0.0011211959722614987,
+          "component_positive_count": 0,
+          "component_meanabs": 0.00027822454770406085,
+          "unrelated_meanabs": 2.5401512781778972e-05,
+          "remainder_interaction_error": 0.004161632882035548
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.0032639898896173265,
+          "component_vs_head_error": 0.7690010036928134,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": -0.00015266736348470053,
+          "component_group_fraction": -0.0007670896574471488,
+          "component_positive_count": 0,
+          "component_meanabs": 0.00015266736348470053,
+          "unrelated_meanabs": 1.3987223307291666e-05,
+          "remainder_interaction_error": 0.007356192637974877
+        }
+      ]
+    },
+    {
+      "layer": 8,
+      "head": 8,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.0006926946862243188,
+          "component_vs_head_error": 0.34995558780506636,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": 2.7974446614583332e-05,
+          "component_group_fraction": 0.0001648516496141412,
+          "component_positive_count": 14,
+          "component_meanabs": 7.369120915730794e-05,
+          "unrelated_meanabs": 6.218751271565755e-06,
+          "remainder_interaction_error": 0.019718211819927785
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.00033846597121553126,
+          "component_vs_head_error": 0.40565964890854006,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": 1.7801920572916668e-05,
+          "component_group_fraction": 0.00012844836737609303,
+          "component_positive_count": 17,
+          "component_meanabs": 3.1888484954833984e-05,
+          "unrelated_meanabs": 4.112720489501953e-06,
+          "remainder_interaction_error": 0.05380783442538802
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.0002253586590471142,
+          "component_vs_head_error": 0.8149593695426589,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": 1.8676122029622395e-06,
+          "component_group_fraction": 7.526148562329481e-06,
+          "component_positive_count": 13,
+          "component_meanabs": 2.8908252716064453e-05,
+          "unrelated_meanabs": 4.202127456665039e-06,
+          "remainder_interaction_error": 0.07729566364854476
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.00023498591277439426,
+          "component_vs_head_error": 0.49151237549379617,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": -2.086162567138672e-05,
+          "component_group_fraction": -0.00010482094486198675,
+          "component_positive_count": 7,
+          "component_meanabs": 3.0656655629475914e-05,
+          "unrelated_meanabs": 4.291534423828125e-06,
+          "remainder_interaction_error": 0.0986102905848629
+        }
+      ]
+    },
+    {
+      "layer": 9,
+      "head": 0,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.0005062844210344654,
+          "component_vs_head_error": 1.1915375738820115,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": 1.300374666849772e-05,
+          "component_group_fraction": 7.663025900032344e-05,
+          "component_positive_count": 16,
+          "component_meanabs": 2.432862917582194e-05,
+          "unrelated_meanabs": 2.9007593790690103e-06,
+          "remainder_interaction_error": 0.030351403448737727
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.0003953452392674962,
+          "component_vs_head_error": 0.932884448386994,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": 1.2069940567016602e-05,
+          "component_group_fraction": 8.708971337162557e-05,
+          "component_positive_count": 14,
+          "component_meanabs": 1.761317253112793e-05,
+          "unrelated_meanabs": 1.5894571940104167e-06,
+          "remainder_interaction_error": 0.0393427208701399
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.002284842343260044,
+          "component_vs_head_error": 0.46650880672088313,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": 0.00025260448455810547,
+          "component_group_fraction": 0.001017951625760181,
+          "component_positive_count": 24,
+          "component_meanabs": 0.00025260448455810547,
+          "unrelated_meanabs": 1.5805164972941082e-05,
+          "remainder_interaction_error": 0.0074854643734303585
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.0014095805243851786,
+          "component_vs_head_error": 0.7991296830734652,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": 4.8379103342692055e-05,
+          "component_group_fraction": 0.0002430847626085121,
+          "component_positive_count": 19,
+          "component_meanabs": 5.30083974202474e-05,
+          "unrelated_meanabs": 4.74850336710612e-06,
+          "remainder_interaction_error": 0.012517614574746209
+        }
+      ]
+    },
+    {
+      "layer": 9,
+      "head": 1,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.0015915026278900046,
+          "component_vs_head_error": 0.6748998338196277,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": -0.0001049041748046875,
+          "component_group_fraction": -0.0006181936860530294,
+          "component_positive_count": 0,
+          "component_meanabs": 0.0001049041748046875,
+          "unrelated_meanabs": 8.781750996907553e-06,
+          "remainder_interaction_error": 0.01349762191392098
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.0006421768910848158,
+          "component_vs_head_error": 0.8237594849479054,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": -4.229942957560221e-05,
+          "component_group_fraction": -0.00030520823007109603,
+          "component_positive_count": 7,
+          "component_meanabs": 4.8776467641194664e-05,
+          "unrelated_meanabs": 4.023313522338867e-06,
+          "remainder_interaction_error": 0.018286509685730565
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.0019767704949893287,
+          "component_vs_head_error": 1.1255294093287145,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": 9.184082349141438e-05,
+          "component_group_fraction": 0.00037010235882306406,
+          "component_positive_count": 16,
+          "component_meanabs": 0.00010229150454203288,
+          "unrelated_meanabs": 8.60293706258138e-06,
+          "remainder_interaction_error": 0.009390566903582533
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.001114404782423646,
+          "component_vs_head_error": 0.927372884133793,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": 8.311867713928223e-05,
+          "component_group_fraction": 0.00041763659317154436,
+          "component_positive_count": 19,
+          "component_meanabs": 8.538365364074707e-05,
+          "unrelated_meanabs": 7.60952631632487e-06,
+          "remainder_interaction_error": 0.013302340279018285
+        }
+      ]
+    },
+    {
+      "layer": 9,
+      "head": 2,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.0006713270267859754,
+          "component_vs_head_error": 0.5691342468385436,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": -6.446242332458496e-05,
+          "component_group_fraction": -0.000379872995151336,
+          "component_positive_count": 2,
+          "component_meanabs": 6.913145383199056e-05,
+          "unrelated_meanabs": 5.1657358805338544e-06,
+          "remainder_interaction_error": 0.026941925301402853
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.001315862355833066,
+          "component_vs_head_error": 0.796547350668446,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": 5.109111467997233e-05,
+          "component_group_fraction": 0.0003686439472183295,
+          "component_positive_count": 12,
+          "component_meanabs": 0.0001010596752166748,
+          "unrelated_meanabs": 9.864568710327148e-06,
+          "remainder_interaction_error": 0.021741060130557197
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.0010928354260222237,
+          "component_vs_head_error": 1.0639238847229626,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": 0.0003005564212799072,
+          "component_group_fraction": 0.0012111894933685024,
+          "component_positive_count": 24,
+          "component_meanabs": 0.0003005564212799072,
+          "unrelated_meanabs": 2.3444493611653645e-05,
+          "remainder_interaction_error": 0.02251967183348142
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.002534479041415107,
+          "component_vs_head_error": 0.78507714039118,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": 0.00012168288230895996,
+          "component_group_fraction": 0.0006114055969592741,
+          "component_positive_count": 24,
+          "component_meanabs": 0.00012168288230895996,
+          "unrelated_meanabs": 1.0778506596883139e-05,
+          "remainder_interaction_error": 0.0073561338317599855
+        }
+      ]
+    },
+    {
+      "layer": 9,
+      "head": 3,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.004479565870433295,
+          "component_vs_head_error": 0.5571494584689065,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": 0.00038350621859232586,
+          "component_group_fraction": 0.002259977959287614,
+          "component_positive_count": 24,
+          "component_meanabs": 0.00038350621859232586,
+          "unrelated_meanabs": 2.9186407725016277e-05,
+          "remainder_interaction_error": 0.004439625942414313
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.0020956527517092156,
+          "component_vs_head_error": 0.6897120235747457,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": 0.00011665622393290202,
+          "component_group_fraction": 0.0008417238717061721,
+          "component_positive_count": 24,
+          "component_meanabs": 0.00011665622393290202,
+          "unrelated_meanabs": 1.0768572489420572e-05,
+          "remainder_interaction_error": 0.0068733301590487095
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.0017494686321346316,
+          "component_vs_head_error": 0.7669464766337117,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": -0.0005485514799753825,
+          "component_group_fraction": -0.0022105659439535723,
+          "component_positive_count": 0,
+          "component_meanabs": 0.0005485514799753825,
+          "unrelated_meanabs": 4.2329231897989907e-05,
+          "remainder_interaction_error": 0.009378638196606155
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.0010304510289841963,
+          "component_vs_head_error": 1.3606834195245272,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": -0.0003777444362640381,
+          "component_group_fraction": -0.0018980078230366887,
+          "component_positive_count": 0,
+          "component_meanabs": 0.0003777444362640381,
+          "unrelated_meanabs": 3.187855084737142e-05,
+          "remainder_interaction_error": 0.016782122583737846
+        }
+      ]
+    },
+    {
+      "layer": 9,
+      "head": 4,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.0009088345800745097,
+          "component_vs_head_error": 1.501848478305038,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": 0.00013877948125203451,
+          "component_group_fraction": 0.0008178187305076536,
+          "component_positive_count": 24,
+          "component_meanabs": 0.00013877948125203451,
+          "unrelated_meanabs": 1.1682510375976562e-05,
+          "remainder_interaction_error": 0.018288302093214272
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.0013512291096109878,
+          "component_vs_head_error": 0.8441334987467823,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": -4.026293754577637e-05,
+          "component_group_fraction": -0.0002905140809013979,
+          "component_positive_count": 0,
+          "component_meanabs": 4.026293754577637e-05,
+          "unrelated_meanabs": 4.430611928304036e-06,
+          "remainder_interaction_error": 0.01399827341700813
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.000919809330257381,
+          "component_vs_head_error": 0.5761693492727674,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": -8.578101793924968e-05,
+          "component_group_fraction": -0.0003456824087006121,
+          "component_positive_count": 8,
+          "component_meanabs": 0.00010008613268534343,
+          "unrelated_meanabs": 8.970499038696289e-06,
+          "remainder_interaction_error": 0.020394951965223354
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.000923261502277908,
+          "component_vs_head_error": 0.28239581864106983,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": -0.00014372666676839194,
+          "component_group_fraction": -0.0007221663953634402,
+          "component_positive_count": 0,
+          "component_meanabs": 0.00014372666676839194,
+          "unrelated_meanabs": 1.3172626495361328e-05,
+          "remainder_interaction_error": 0.01829828885940184
+        }
+      ]
+    },
+    {
+      "layer": 9,
+      "head": 5,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.0010773449962686744,
+          "component_vs_head_error": 0.7490870931360528,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": 7.712841033935547e-05,
+          "component_group_fraction": 0.0004545128578139887,
+          "component_positive_count": 23,
+          "component_meanabs": 7.768472035725911e-05,
+          "unrelated_meanabs": 8.046627044677734e-06,
+          "remainder_interaction_error": 0.018486333305578674
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.000685039229271304,
+          "component_vs_head_error": 0.8660746884036864,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": -6.566445032755534e-06,
+          "component_group_fraction": -4.7379671225221816e-05,
+          "component_positive_count": 13,
+          "component_meanabs": 2.333521842956543e-05,
+          "unrelated_meanabs": 2.4239222208658853e-06,
+          "remainder_interaction_error": 0.03456791598585234
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.0007473773334917707,
+          "component_vs_head_error": 0.8044462733492449,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": -2.4120012919108074e-05,
+          "component_group_fraction": -9.719940802838288e-05,
+          "component_positive_count": 9,
+          "component_meanabs": 4.543860753377279e-05,
+          "unrelated_meanabs": 3.923972447713216e-06,
+          "remainder_interaction_error": 0.02366894141212342
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.0011582328194407192,
+          "component_vs_head_error": 0.7190913206459336,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": -5.6912501653035484e-05,
+          "component_group_fraction": -0.00028596152053062955,
+          "component_positive_count": 4,
+          "component_meanabs": 5.828340848286947e-05,
+          "unrelated_meanabs": 4.957119623819987e-06,
+          "remainder_interaction_error": 0.017610435746139443
+        }
+      ]
+    },
+    {
+      "layer": 9,
+      "head": 6,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.001322058947399788,
+          "component_vs_head_error": 0.35007819808212925,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": -0.00019525488217671713,
+          "component_group_fraction": -0.0011506247063799522,
+          "component_positive_count": 11,
+          "component_meanabs": 0.00021794438362121582,
+          "unrelated_meanabs": 1.8328428268432617e-05,
+          "remainder_interaction_error": 0.013600944534417396
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.0018319887830908327,
+          "component_vs_head_error": 0.1710802339171895,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": -0.00025986631711324054,
+          "component_group_fraction": -0.0018750451128299202,
+          "component_positive_count": 2,
+          "component_meanabs": 0.00026032328605651855,
+          "unrelated_meanabs": 2.2917985916137695e-05,
+          "remainder_interaction_error": 0.00805514497439461
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.0016697885144668447,
+          "component_vs_head_error": 0.19921201818817966,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": -0.0002841850121815999,
+          "component_group_fraction": -0.0011452155953327631,
+          "component_positive_count": 2,
+          "component_meanabs": 0.0002846817175547282,
+          "unrelated_meanabs": 2.414981524149577e-05,
+          "remainder_interaction_error": 0.012923305107573982
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.002761018726033262,
+          "component_vs_head_error": 0.30690253495014175,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": -0.00031630198160807293,
+          "component_group_fraction": -0.0015892851830503134,
+          "component_positive_count": 0,
+          "component_meanabs": 0.00031630198160807293,
+          "unrelated_meanabs": 2.7944644292195637e-05,
+          "remainder_interaction_error": 0.007868433200301879
+        }
+      ]
+    },
+    {
+      "layer": 9,
+      "head": 7,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.003134196404072408,
+          "component_vs_head_error": 0.8531764285134537,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": 9.452303250630696e-05,
+          "component_group_fraction": 0.0005570182692040317,
+          "component_positive_count": 14,
+          "component_meanabs": 0.00012569626172383627,
+          "unrelated_meanabs": 1.1225541432698568e-05,
+          "remainder_interaction_error": 0.006298216958359749
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.005050751388221664,
+          "component_vs_head_error": 0.7017819910393419,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": 0.00027753909428914386,
+          "component_group_fraction": 0.002002561656112325,
+          "component_positive_count": 20,
+          "component_meanabs": 0.0002802610397338867,
+          "unrelated_meanabs": 2.637505531311035e-05,
+          "remainder_interaction_error": 0.005391663637298175
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.005637877566284188,
+          "component_vs_head_error": 0.5723312092520986,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": 0.0004587868849436442,
+          "component_group_fraction": 0.0018488304205003321,
+          "component_positive_count": 22,
+          "component_meanabs": 0.00046061476071675617,
+          "unrelated_meanabs": 3.4918387730916343e-05,
+          "remainder_interaction_error": 0.003336523076316616
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.004321036269165985,
+          "component_vs_head_error": 0.5651217638505656,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": 0.0003278652826944987,
+          "component_group_fraction": 0.0016473859353452432,
+          "component_positive_count": 20,
+          "component_meanabs": 0.00033473968505859375,
+          "unrelated_meanabs": 3.0547380447387695e-05,
+          "remainder_interaction_error": 0.005542398735011205
+        }
+      ]
+    },
+    {
+      "layer": 9,
+      "head": 8,
+      "pred_b": true,
+      "pred_c": true,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.6606515918847845,
+          "component_vs_head_error": 0.02715057265158336,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": 0.12217022975285848,
+          "component_group_fraction": 0.719941458931245,
+          "component_positive_count": 24,
+          "component_meanabs": 0.12217022975285848,
+          "unrelated_meanabs": 0.01058921217918396,
+          "remainder_interaction_error": 0.0015165634106935084
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.5365496571034686,
+          "component_vs_head_error": 0.029699941821198568,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": 0.09732801715532939,
+          "component_group_fraction": 0.7022627054394371,
+          "component_positive_count": 24,
+          "component_meanabs": 0.09732801715532939,
+          "unrelated_meanabs": 0.008823633193969727,
+          "remainder_interaction_error": 0.001463431710984916
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.7862180687272736,
+          "component_vs_head_error": 0.018406020409188217,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": 0.1502070128917694,
+          "component_group_fraction": 0.605307832286665,
+          "component_positive_count": 24,
+          "component_meanabs": 0.1502070128917694,
+          "unrelated_meanabs": 0.013150920470555624,
+          "remainder_interaction_error": 0.004300104062991857
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.6235910818356918,
+          "component_vs_head_error": 0.0371847243233481,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": 0.11965802311897278,
+          "component_group_fraction": 0.6012315263067628,
+          "component_positive_count": 24,
+          "component_meanabs": 0.11965802311897278,
+          "unrelated_meanabs": 0.010892818371454874,
+          "remainder_interaction_error": 0.0059777915913938155
+        }
+      ]
+    },
+    {
+      "layer": 13,
+      "head": 0,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.054081010286719515,
+          "component_vs_head_error": 1.482693907508054,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": 0.005078643560409546,
+          "component_group_fraction": 0.029928126202836025,
+          "component_positive_count": 24,
+          "component_meanabs": 0.005078643560409546,
+          "unrelated_meanabs": 0.0007404784361521403,
+          "remainder_interaction_error": 0.005469761125292602
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.045981779750841244,
+          "component_vs_head_error": 1.4249261660745816,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": 0.003922114769617717,
+          "component_group_fraction": 0.028299712761639183,
+          "component_positive_count": 24,
+          "component_meanabs": 0.003922114769617717,
+          "unrelated_meanabs": 0.0005629559357961019,
+          "remainder_interaction_error": 0.003454826481847125
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.049177023547085676,
+          "component_vs_head_error": 0.5469250837671824,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": 0.003983497619628906,
+          "component_group_fraction": 0.016052794490987357,
+          "component_positive_count": 24,
+          "component_meanabs": 0.003983497619628906,
+          "unrelated_meanabs": 0.0005854566891988119,
+          "remainder_interaction_error": 0.0037455338770149885
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.04371595282633111,
+          "component_vs_head_error": 0.507115823727173,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": 0.004072248935699463,
+          "component_group_fraction": 0.020461347925473706,
+          "component_positive_count": 24,
+          "component_meanabs": 0.004072248935699463,
+          "unrelated_meanabs": 0.0006426076094309489,
+          "remainder_interaction_error": 0.004012986466216749
+        }
+      ]
+    },
+    {
+      "layer": 13,
+      "head": 1,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.004350167120195078,
+          "component_vs_head_error": 0.7471283304070214,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": 0.00020333131154378256,
+          "component_group_fraction": 0.0011982185952777848,
+          "component_positive_count": 24,
+          "component_meanabs": 0.00020333131154378256,
+          "unrelated_meanabs": 1.4354785283406576e-05,
+          "remainder_interaction_error": 0.004623300515094651
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.003958514567409076,
+          "component_vs_head_error": 0.7172647406291968,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": 0.00020180145899454752,
+          "component_group_fraction": 0.0014560826645524294,
+          "component_positive_count": 24,
+          "component_meanabs": 0.00020180145899454752,
+          "unrelated_meanabs": 1.4762083689371744e-05,
+          "remainder_interaction_error": 0.00490748727575917
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.005979074165656456,
+          "component_vs_head_error": 0.8169445339561184,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": 0.0002132256825764974,
+          "component_group_fraction": 0.0008592619826693616,
+          "component_positive_count": 24,
+          "component_meanabs": 0.0002132256825764974,
+          "unrelated_meanabs": 1.465280850728353e-05,
+          "remainder_interaction_error": 0.0036724449034273043
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.004682816481055531,
+          "component_vs_head_error": 0.7894358054283099,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": 0.00018972158432006836,
+          "component_group_fraction": 0.0009532716214162967,
+          "component_positive_count": 24,
+          "component_meanabs": 0.00018972158432006836,
+          "unrelated_meanabs": 1.3877948125203451e-05,
+          "remainder_interaction_error": 0.005083452328783064
+        }
+      ]
+    },
+    {
+      "layer": 13,
+      "head": 2,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.013706125432809788,
+          "component_vs_head_error": 0.3046990242828171,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": 0.0018630623817443848,
+          "component_group_fraction": 0.010978909116454286,
+          "component_positive_count": 24,
+          "component_meanabs": 0.0018630623817443848,
+          "unrelated_meanabs": 0.0001541574796040853,
+          "remainder_interaction_error": 0.0016872290635171312
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.011599067739934953,
+          "component_vs_head_error": 0.318336219586655,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": 0.0015466113885243733,
+          "component_group_fraction": 0.011159453667233143,
+          "component_positive_count": 24,
+          "component_meanabs": 0.0015466113885243733,
+          "unrelated_meanabs": 0.00013132890065511069,
+          "remainder_interaction_error": 0.0020438512157402106
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.019423212845187908,
+          "component_vs_head_error": 0.3567903886757733,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": 0.0024672051270802817,
+          "component_group_fraction": 0.009942402545183315,
+          "component_positive_count": 24,
+          "component_meanabs": 0.0024672051270802817,
+          "unrelated_meanabs": 0.0001987318197886149,
+          "remainder_interaction_error": 0.0012207848386955734
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.012782402440231355,
+          "component_vs_head_error": 0.410427425205237,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": 0.0014794568220774333,
+          "component_group_fraction": 0.007433651835933858,
+          "component_positive_count": 24,
+          "component_meanabs": 0.0014794568220774333,
+          "unrelated_meanabs": 0.0001248021920522054,
+          "remainder_interaction_error": 0.0016411723525402366
+        }
+      ]
+    },
+    {
+      "layer": 13,
+      "head": 3,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.022007004018046783,
+          "component_vs_head_error": 0.07874619255024816,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": 0.004061837991078694,
+          "component_group_fraction": 0.023936155110415774,
+          "component_positive_count": 24,
+          "component_meanabs": 0.004061837991078694,
+          "unrelated_meanabs": 0.00035500526428222656,
+          "remainder_interaction_error": 0.0010201582049771123
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.012436649240933607,
+          "component_vs_head_error": 0.1700150534099616,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": 0.002073983351389567,
+          "component_group_fraction": 0.014964664871973461,
+          "component_positive_count": 24,
+          "component_meanabs": 0.002073983351389567,
+          "unrelated_meanabs": 0.00018416841824849448,
+          "remainder_interaction_error": 0.0017741910873537155
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.050360427095917565,
+          "component_vs_head_error": 0.022969087651788844,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": 0.0098248819510142,
+          "component_group_fraction": 0.039592545525992916,
+          "component_positive_count": 24,
+          "component_meanabs": 0.0098248819510142,
+          "unrelated_meanabs": 0.0008536775906880697,
+          "remainder_interaction_error": 0.0007059106348444789
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.03661890197971343,
+          "component_vs_head_error": 0.02360861292364267,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": 0.007155895233154297,
+          "component_group_fraction": 0.03595538101814481,
+          "component_positive_count": 24,
+          "component_meanabs": 0.007155895233154297,
+          "unrelated_meanabs": 0.0006443162759145101,
+          "remainder_interaction_error": 0.0005882109064250764
+        }
+      ]
+    },
+    {
+      "layer": 13,
+      "head": 4,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.0018639649140670146,
+          "component_vs_head_error": 0.3980043483269761,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": 0.0002215405305226644,
+          "component_group_fraction": 0.0013055243743057396,
+          "component_positive_count": 24,
+          "component_meanabs": 0.0002215405305226644,
+          "unrelated_meanabs": 1.7344951629638672e-05,
+          "remainder_interaction_error": 0.012037080531185292
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.0006844277378905422,
+          "component_vs_head_error": 0.6185796391756055,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": 4.28160031636556e-05,
+          "component_group_fraction": 0.00030893552644584876,
+          "component_positive_count": 17,
+          "component_meanabs": 5.958477656046549e-05,
+          "unrelated_meanabs": 5.5034955342610674e-06,
+          "remainder_interaction_error": 0.023754121302461875
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.0010816963700768206,
+          "component_vs_head_error": 0.5134035761432878,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": -8.545319239298503e-05,
+          "component_group_fraction": -0.00034436132943169254,
+          "component_positive_count": 6,
+          "component_meanabs": 0.00010750691095987956,
+          "unrelated_meanabs": 1.0818243026733398e-05,
+          "remainder_interaction_error": 0.018184970395567754
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.0005129905809078915,
+          "component_vs_head_error": 0.41891516830766395,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": -6.495912869771321e-05,
+          "component_group_fraction": -0.0003263924564059673,
+          "component_positive_count": 0,
+          "component_meanabs": 6.495912869771321e-05,
+          "unrelated_meanabs": 6.179014841715495e-06,
+          "remainder_interaction_error": 0.03610217418614298
+        }
+      ]
+    },
+    {
+      "layer": 13,
+      "head": 5,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.017733611016184682,
+          "component_vs_head_error": 0.6453178881460949,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": -0.0012407700220743816,
+          "component_group_fraction": -0.007311779487502215,
+          "component_positive_count": 0,
+          "component_meanabs": 0.0012407700220743816,
+          "unrelated_meanabs": 0.00010266900062561035,
+          "remainder_interaction_error": 0.0040743327085357856
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.009538993623564179,
+          "component_vs_head_error": 0.7760653102720919,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": -0.0004540880521138509,
+          "component_group_fraction": -0.0032764368709604975,
+          "component_positive_count": 0,
+          "component_meanabs": 0.0004540880521138509,
+          "unrelated_meanabs": 4.139542579650879e-05,
+          "remainder_interaction_error": 0.0028697539541098984
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.007195241831493628,
+          "component_vs_head_error": 0.24165409614956757,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": 0.0011674463748931885,
+          "component_group_fraction": 0.004704603472853183,
+          "component_positive_count": 24,
+          "component_meanabs": 0.0011674463748931885,
+          "unrelated_meanabs": 9.597341219584148e-05,
+          "remainder_interaction_error": 0.002637975864132608
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.0021008587223167283,
+          "component_vs_head_error": 0.8110114786970721,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": 0.0006383657455444336,
+          "component_group_fraction": 0.0032075209127767944,
+          "component_positive_count": 24,
+          "component_meanabs": 0.0006383657455444336,
+          "unrelated_meanabs": 5.683302879333496e-05,
+          "remainder_interaction_error": 0.01315706553205104
+        }
+      ]
+    },
+    {
+      "layer": 13,
+      "head": 6,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.0047877549134348035,
+          "component_vs_head_error": 1.1267499796917293,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": -0.0001288751761118571,
+          "component_group_fraction": -0.0007594532849588969,
+          "component_positive_count": 0,
+          "component_meanabs": 0.0001288751761118571,
+          "unrelated_meanabs": 1.0947386423746744e-05,
+          "remainder_interaction_error": 0.0039242257647730166
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.004548452486555421,
+          "component_vs_head_error": 1.30273283647156,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": -0.0003063877423604329,
+          "component_group_fraction": -0.0022107168228869757,
+          "component_positive_count": 0,
+          "component_meanabs": 0.0003063877423604329,
+          "unrelated_meanabs": 2.6802221934000652e-05,
+          "remainder_interaction_error": 0.006306896734912668
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.007510335515804623,
+          "component_vs_head_error": 1.1160889458058143,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": -0.00017816821734110513,
+          "component_group_fraction": -0.0007179865663052087,
+          "component_positive_count": 0,
+          "component_meanabs": 0.00017816821734110513,
+          "unrelated_meanabs": 1.6550223032633465e-05,
+          "remainder_interaction_error": 0.002205334213336034
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.006101652858578115,
+          "component_vs_head_error": 1.3700872657696175,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": -0.00045311450958251953,
+          "component_group_fraction": -0.0022767109224023523,
+          "component_positive_count": 0,
+          "component_meanabs": 0.00045311450958251953,
+          "unrelated_meanabs": 3.943840662638346e-05,
+          "remainder_interaction_error": 0.003947870791843115
+        }
+      ]
+    },
+    {
+      "layer": 13,
+      "head": 7,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.001880050684365239,
+          "component_vs_head_error": 0.7228850762924801,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": 0.00010981162389119466,
+          "component_group_fraction": 0.0006471129740180102,
+          "component_positive_count": 24,
+          "component_meanabs": 0.00010981162389119466,
+          "unrelated_meanabs": 7.887681325276693e-06,
+          "remainder_interaction_error": 0.011073641559637946
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.0003614027748750992,
+          "component_vs_head_error": 0.8762046124638011,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": -3.973642985026042e-07,
+          "component_group_fraction": -2.8671510575020763e-06,
+          "component_positive_count": 9,
+          "component_meanabs": 3.4014383951822914e-05,
+          "unrelated_meanabs": 3.6656856536865234e-06,
+          "remainder_interaction_error": 0.045212538616340094
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.0030433548597854406,
+          "component_vs_head_error": 1.4008913083187615,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": 0.0002968013286590576,
+          "component_group_fraction": 0.0011960571308336058,
+          "component_positive_count": 24,
+          "component_meanabs": 0.0002968013286590576,
+          "unrelated_meanabs": 2.100070317586263e-05,
+          "remainder_interaction_error": 0.008229877039759073
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.0014173843360627812,
+          "component_vs_head_error": 1.0982862007613563,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": 3.504753112792969e-05,
+          "component_group_fraction": 0.00017609918736813775,
+          "component_positive_count": 17,
+          "component_meanabs": 5.094210306803385e-05,
+          "unrelated_meanabs": 4.470348358154297e-06,
+          "remainder_interaction_error": 0.011959500640880178
+        }
+      ]
+    },
+    {
+      "layer": 13,
+      "head": 8,
+      "pred_b": false,
+      "pred_c": false,
+      "cells": [
+        {
+          "assignment": 0,
+          "family": 0,
+          "fullhead_effect_norm": 0.0007801308385895146,
+          "component_vs_head_error": 0.9955556011647956,
+          "group_mean_directed": 0.16969467202822366,
+          "component_mean_directed": -1.2715657552083333e-06,
+          "component_group_fraction": -7.493256800642781e-06,
+          "component_positive_count": 9,
+          "component_meanabs": 4.5299530029296875e-06,
+          "unrelated_meanabs": 1.4503796895345051e-06,
+          "remainder_interaction_error": 0.014107965024972934
+        },
+        {
+          "assignment": 0,
+          "family": 1,
+          "fullhead_effect_norm": 0.002253666522434073,
+          "component_vs_head_error": 0.9982840634066301,
+          "group_mean_directed": 0.13859203457832336,
+          "component_mean_directed": -1.3709068298339844e-06,
+          "component_group_fraction": -9.891671148382164e-06,
+          "component_positive_count": 11,
+          "component_meanabs": 9.51687494913737e-06,
+          "unrelated_meanabs": 1.708666483561198e-06,
+          "remainder_interaction_error": 0.0070761728329269
+        },
+        {
+          "assignment": 1,
+          "family": 0,
+          "fullhead_effect_norm": 0.0017276945209783808,
+          "component_vs_head_error": 0.97160190870815,
+          "group_mean_directed": 0.24814979235331217,
+          "component_mean_directed": -1.0708967844645182e-05,
+          "component_group_fraction": -4.315525611803819e-05,
+          "component_positive_count": 9,
+          "component_meanabs": 1.8338362375895183e-05,
+          "unrelated_meanabs": 3.2087167104085288e-06,
+          "remainder_interaction_error": 0.011526766639207651
+        },
+        {
+          "assignment": 1,
+          "family": 1,
+          "fullhead_effect_norm": 0.0013655314586588088,
+          "component_vs_head_error": 1.0273487395122125,
+          "group_mean_directed": 0.19902153809865317,
+          "component_mean_directed": 7.639328638712565e-06,
+          "component_group_fraction": 3.8384431713746576e-05,
+          "component_positive_count": 20,
+          "component_meanabs": 8.354584376017252e-06,
+          "unrelated_meanabs": 1.6589959462483723e-06,
+          "remainder_interaction_error": 0.010788382793587094
+        }
+      ]
+    }
+  ],
+  "seconds": 6.267228502780199,
+  "scope": "All27 frozen consumer-weighted value components, full native joint QK retained. Reused96contexts; passes are exploratory screens requiring fresh confirmation. No rank/hyperparameter search or text fitting."
+}

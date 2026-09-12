@@ -305,3 +305,8 @@ removal effects have0.210–0.215%relative nonlinear nonadditivity on this panel
 ## 2026-09-12 — head13.0 regional consumer-specific split, not a new whole-head unit
 
 A coefficient-recurring shared linear source parent aliases the leading value reader after folding head13.0 into four readings of the head17.2 regional branch. With full native routing, that component has expected signed transfer on95/96 controlled swaps but only1.3–2.5%of the attention8/9/13 group transfer. Wholehead contribution changes sign between city assignments; component and remainder oppose for original cities. Consumer-weighted gauge-invariant selection also misses registered fidelity/transfer bars. This is a conditional downstream-reading intervention, not recursive module removal; it does not supersede the capitalized-committee dossier. [Primary math and receipts](../../polynomial_causal/FOLDED_PRODUCER_NATIVE_V1_MATH.md).
+
+
+## 2026-09-12 — head8.2/head9.8 regional edge screens
+
+A frozen27-head consumer-weighted value bank has two passers:8.2and9.8. Components reproduce corresponding wholehead effects at the four-reader regional interface within1.7–3.8%on96reusedcontexts, and carry28–32%/60–72%of selected producer-group transfer. Writers nearly align(Hcos.99949), source readers differ. This is consumer-specific edge evidence, not wholehead semantic renaming;8.2newline-setter record above still governs. Fresh confirmation/common-output grouping pending. [Primary results and all-candidate receipt](../../polynomial_causal/FOLDED_PRODUCER_NATIVE_V1_MATH.md).

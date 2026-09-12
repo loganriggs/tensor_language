@@ -1,3 +1,11 @@
+### 12 September, 16:48 — Two frozen producer components pass exploratory screen
+
+[Producer bank and common-output lead](../../FOLDED_PRODUCER_NATIVE_V1_MATH.md):
+head8.2/head9.8 components pass native conditional fidelity and transfer bars on
+the reused96-context panel;25other candidates miss. Writers have H-cosine.99949,
+with distinct source readings. Fresh48-row lexical/template confirmation and a
+fixed shared-output candidate are prepared; native confirmation remains pending.
+
 ### 12 September, 16:36 — Producer component misses; mixed interaction paths pass locally
 
 [Primary results and maths](../../FOLDED_PRODUCER_NATIVE_V1_MATH.md): head13.0 value
