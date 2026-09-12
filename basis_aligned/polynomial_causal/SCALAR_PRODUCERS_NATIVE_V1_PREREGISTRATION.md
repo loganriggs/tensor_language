@@ -1,0 +1,9 @@
+# Native validation of compiled scalar producer pair
+
+12 September, before compiled native execution. This implements the already fresh-confirmed shared-output approximation; no new fitted component. Program1282566scalars,5541936tensorbytes, including1179648fullQKscalars and50304x2 FP64 first-token lookup. Inputs: native normalized layer8 and9 attention states and token IDs; output: shared four-reading producer contribution at every query position. All native state generators, downstream reader background and final suffix remain required.
+
+Managed runner:8bodybatches,48fresh rows18–22tokens,180seconds. A per-head compiled four-reading contribution vs frozen shared-output reference <=1e-5relative eachbatch. B full-vocabulary token lookup vs native first-attention input dot products <=1e-5 on encounteredIDs. C summed pair contribution and recomputed pre-MLP17 state <=1e-5. Freeze source/weights/rows byhash; do not relax bars for sliced-matmul or rotary precision differences.
+
+CPU suffix check after A/B/C: substitute compiled producer contributions into the same downstream reader interface. Individual and joint donor swaps versus the prior shared-output swaps <=1e-4relative margin effect EACHtemplate. Measure merged-component removals against a direct frozen-matrix reference on the same cached native head contributions, also<=1e-4. This is execution fidelity of an already approximated component, not another semantic test or full-model extraction. If a precision miss occurs, preserve it and diagnose before a separately versioned repair.
+
+The runtime includes both complete QK operations and their actual RMS gates, causal summation and native BF16-rounded rotary tables. Only the value computation is scalar and the two output directions are merged. All first-token rows are compiled from weights with no corpus fit.
