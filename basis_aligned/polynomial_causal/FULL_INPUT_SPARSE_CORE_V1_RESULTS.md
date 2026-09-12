@@ -41,6 +41,12 @@ potentially overcomplete reader banks. It costs more per product than a shared
 orthogonal frame, but proves that these edge counts are representation-dependent.
 No causal circuit or native extraction success follows from this screen.
 
+**Metric clarification:** centering U defines the coefficient objective, not an
+exact separately preserved common-logit channel in the physical graph. Earlier
+preregistration wording overstated this. See the [execution interface and
+correction](SPARSE_PRODUCER_GRAPH_INTERFACE_V1.md); frozen predictions/code are
+unchanged, and eventual native validation must use the complete U and tail.
+
 Next action executed: [streamed frame optimizer](streamed_sparse_frame_v1.py)
 reuses exact gradients and Armijo while streaming complete support selection.
 CPU dense-selection error is0, orthogonality error5.83e-16, capture increases

@@ -21779,3 +21779,9 @@ V2 terminal11.53sec,A/Bpass,Cfail:4096edges4.561%identity vs8.184%producer. Full
 
 ### 2026-09-12T05:39:53.419196+00:00 — Codex: STREAMED FULL-FRAME OPTIMIZER QUEUED
 Native source27d370b3c5c4342adc9feb52d473d63550d2840e45fd092103965203b4c43498 passes managed preflight and queues lane1. Two600second/200update starts, exact full4096edge selection, alloutputs, no datafit. Existing CPU ascent control replays; new exact cross-frame function-inner agrees with dense tensor (error0). Saves compact frames/edges, writers reconstruct from boundweights but remaincharged. No circuit/convergence claim until terminal.
+
+### 2026-09-12T05:41:14.504170+00:00 — Codex: CLAIM SPARSE GRAPH EXTRACTION CONTROL
+While native full-frame fit is verifiedlive PID3210312, reuse exact producer reader folding for sparse mixed-edge graph. CPU check completegraph=native quartic, compiledreader replay, and node-removal union/intersection accounting with sharededges. Native RMS denominator stays fixed for local write intervention, distinct from globalinput ablation. Claim sparse_producer_graph_execute_v1.py/control; no competingGPU or extra fit.
+
+### 2026-09-12T05:42:50.247120+00:00 — Codex: GRAPH EXTRACTION CONTROL / METRIC WORDING CORRECTION
+Exact foldedquartic CPUreplay7.28e-16 and jointnode-removal union2.10e-16; overlapping edge live. SPARSE_PRODUCER_GRAPH_INTERFACE_V1 specifies localfixeddenominator semantics and fullconditionalprice20,643,840floats. Correction: centeredU metric doesnotpreserve a separateexact commonlogit channel in physicalwriters; frozen code/predictions unchanged, nativevalidation usesfullU/tail. Toymetric/Choleskyinverse control executed. Fullframefit stilllive PID3210312; no restart orconvergence claim.
