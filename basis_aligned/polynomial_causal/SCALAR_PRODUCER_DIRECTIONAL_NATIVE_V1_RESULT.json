@@ -1,0 +1,37 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "cells": [
+    {
+      "family": 0,
+      "residual_change_errors": [
+        1.3800733448582039e-05,
+        1.3820425309806128e-05
+      ],
+      "scalar_change_errors": [
+        7.979778717909123e-07,
+        9.360100915439784e-07
+      ],
+      "baseline_scalar_replay": 1.1776525564770573e-07
+    },
+    {
+      "family": 1,
+      "residual_change_errors": [
+        1.3724201199287285e-05,
+        1.3775819792534539e-05
+      ],
+      "scalar_change_errors": [
+        5.352300960290395e-07,
+        5.16794232840715e-07
+      ],
+      "baseline_scalar_replay": 1.549594504484628e-07
+    }
+  ],
+  "arms": [
+    "fp64",
+    "fp32"
+  ],
+  "seconds": 2.5724179185926914,
+  "scope": "Exact fixed-direction runtime with supplied native biasfree MLP background; native-state numerical fidelity, not independent input closure or task adoption."
+}

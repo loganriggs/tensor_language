@@ -1,0 +1,68 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "cells": [
+    {
+      "family": 0,
+      "exact_residual_change_error": 1.3800733448605312e-05,
+      "baseline_scalar_replay": 1.1776525564770573e-07,
+      "scalar_change_errors": [
+        7.979778717909123e-07,
+        0.013224314588583252,
+        0.0010762857096369499,
+        0.013830607988751135,
+        0.3345220294692527
+      ],
+      "actual_scalar_change_norm": 6.269769788140724,
+      "actual_residual_change_norm": 2866.2370504368782,
+      "raw_term_to_full_delta_norm": [
+        0.7331647309648779,
+        0.0038873240857554806,
+        0.483895249042075,
+        0.05670342044480779
+      ]
+    },
+    {
+      "family": 1,
+      "exact_residual_change_error": 1.372420119925184e-05,
+      "baseline_scalar_replay": 1.549594504484628e-07,
+      "scalar_change_errors": [
+        5.352300960290395e-07,
+        0.004991831755846524,
+        0.0005077977232237733,
+        0.005088131067142847,
+        0.3620497154528832
+      ],
+      "actual_scalar_change_norm": 7.551474604921356,
+      "actual_residual_change_norm": 2867.598770734909,
+      "raw_term_to_full_delta_norm": [
+        0.7209147028686808,
+        0.0032688068026392432,
+        0.4888348413285446,
+        0.047738068576592685
+      ]
+    }
+  ],
+  "arms": [
+    "native",
+    "exact",
+    "direct_plus_mixed",
+    "omit_norm_background",
+    "omit_quadratic",
+    "direct_only"
+  ],
+  "term_order": [
+    "direct",
+    "norm_background",
+    "mixed",
+    "quadratic"
+  ],
+  "perturbation_ratio_min_median_max": [
+    3.9434465494873535e-06,
+    0.0057108234614133835,
+    0.020594708508665415
+  ],
+  "seconds": 0.9316908232867718,
+  "scope": "Conditional prediction of actual head9 scalar change through MLP8 on reused native rows. No fitting, end-task adoption or new OOD. Norms and native z8/a8/r9 inputs remain explicit."
+}
