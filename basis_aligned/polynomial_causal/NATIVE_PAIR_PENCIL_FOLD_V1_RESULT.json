@@ -1,0 +1,74 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "reports": [
+    {
+      "name": "full",
+      "write_error": 8.673683099390871e-13,
+      "families": [
+        {
+          "family": "A1",
+          "paired_write_error": 3.0929887460596486e-12
+        },
+        {
+          "family": "A2",
+          "paired_write_error": 1.4168038364769757e-12
+        },
+        {
+          "family": "past",
+          "paired_write_error": 1.104166534179608e-12
+        },
+        {
+          "family": "progressive",
+          "paired_write_error": 1.205880372150539e-12
+        }
+      ]
+    },
+    {
+      "name": "truncated",
+      "write_error": 1.46133109855942,
+      "families": [
+        {
+          "family": "A1",
+          "paired_write_error": 1.7738597660908852
+        },
+        {
+          "family": "A2",
+          "paired_write_error": 1.5040255141973056
+        },
+        {
+          "family": "past",
+          "paired_write_error": 1.3878809153590246
+        },
+        {
+          "family": "progressive",
+          "paired_write_error": 1.536359790269195
+        }
+      ]
+    },
+    {
+      "name": "refit",
+      "write_error": 0.878004313197264,
+      "families": [
+        {
+          "family": "A1",
+          "paired_write_error": 0.7819448724247051
+        },
+        {
+          "family": "A2",
+          "paired_write_error": 0.8132186268007487
+        },
+        {
+          "family": "past",
+          "paired_write_error": 0.8588691175927772
+        },
+        {
+          "family": "progressive",
+          "paired_write_error": 0.8452730454072211
+        }
+      ]
+    }
+  ],
+  "scope": "Exact native producer followed by fixed pair approximation, external normalization/background. Reused development inputs, no full model or semantic extraction claim."
+}

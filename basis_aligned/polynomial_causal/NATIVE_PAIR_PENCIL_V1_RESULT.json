@@ -1,0 +1,24 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "diagnostics": {
+    "reconstruction_error": 4.242487881037115e-12,
+    "transformed_offblock_error": 3.3624390412274226e-13,
+    "eigen_backward_error": 2.720936969932306e-16,
+    "frame_condition": 842.4505362544962,
+    "scalar_blocks": 68,
+    "pair_blocks": 542
+  },
+  "writer_metric_error": 1.1055600879217309e-12,
+  "selected_readers": 32,
+  "selected_blocks": 19,
+  "block_truncation_error": 4.351733990465116,
+  "independent_spectral_error": 0.7894253507014384,
+  "full_outer_floats": 1333880,
+  "truncated_outer_floats": 39284,
+  "artifact_sha256": "877e0f6ba14b1ebe68686a0fcc35ee9abc8da43aceda1c76cc3e30f1c9e4481a",
+  "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "seconds": 8.146815150976181,
+  "scope": "Exact pair representation screen in MLP17 input coordinates, before folding dual readers through full native MLP16. Outer-form Frobenius error is not composed quartic error or native effect fidelity. Generic pair blocks do not imply semantic independence; truncation is a heuristic."
+}
