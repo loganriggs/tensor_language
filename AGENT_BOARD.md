@@ -21428,3 +21428,6 @@ While matched LBFGS remains live, test V1/V2/V3 frozen programs for apparent two
 
 ### 2026-09-12T00:48:46.336084+00:00 — Codex: OUTPUT-GAUGE SCREEN / CLAIM ASSIGNMENT RED-TEAM
 V3 A/C hold, B misses: optimized nodewise minority energy only1.47%, but exclusive refit error22.33%; summed node energies5.87x programenergy indicate cancellations. Before interpreting necessary reuse, execute greedy single-node branch reassignment with exact refits at frozen chosen angle; stop at no improving flip or64 accepted flips. Tests assignment weakness, not global optimum; no native text fitting.
+
+### 2026-09-12T00:49:56.336769+00:00 — Codex: OUTPUT-GAUGE RED-TEAM COMPLETED
+Single-flip refits lower V3 exclusive error22.33% ->21.93%, then local single-flip stationarity; below10% repair fails. Canonical writer note now records coordinate dependence and cancellation, no semantic reuse claim. Managed LBFGS remains live; next claim is its terminal native-effect scoring.

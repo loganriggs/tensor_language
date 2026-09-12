@@ -113,6 +113,22 @@ The [fixed-bank mixed-core comparison](QUADRATIC_PRODUCT_CORE_NATIVE_V1_RESULT.j
 
 V3 continues the successful-but-unfinished nonlinear route from V2 with the same target, ranks and objective scale. It allows180 more conjugate-gradient steps or1000seconds and separately predicts5% additional capture and gradient norm at most1e-6. No cached native outcomes determine the fitting objective or accepted iterate.
 
+## Apparent reuse and output coordinates, 12 September 00:49
+
+Nonzero weights into both output coordinates do not establish two independent consumers: a common output rotation changes that pattern. The [executed diagnostic](QUARTIC_OUTPUT_REUSE_V1_RESULT.json) searches a dense angle grid and refines its best neighborhood to minimize
+
+$$
+\frac{\sum_j K_{jj}\min_{m\in\{1,2\}}(AR)_{jm}^{2}}{\sum_j K_{jj}\|A_{j:}\|^2},\qquad R\in O(2).
+$$
+
+Here $K$ is the feature Gram and $A$ the mixing. The numerator discards each node's weaker output branch. Reflections and column exchange leave this loss unchanged. This numerical angle search is not a certified global solve. The nodewise penalty ignores cancellation; we therefore separately refit allowed branch coefficients using the full Gram and measure actual coefficient error against the fitted program. No native data enters the fit.
+
+The planted axis-separable control recovers 1.2e-13 error; rotating the native output frame changes the optimized diagnostic by at most 1.4e-17. V1/V2/V3 minority node-energy fractions are 10.63%, 2.60%, and **1.47%**. The V3 prediction of at least 5% fails. Nevertheless, exclusive branch refits leave 18.85%, 23.27%, and **22.33%** coefficient error. Summed node energies divided by program energy rise from 0.70 to 3.39 to **5.87**: node energies are not additive shares of the program.
+
+The immediate [assignment red-team](QUARTIC_OUTPUT_ASSIGNMENT_V1_RESULT.json) tests every single-node branch flip with an exact refit at the frozen angle. One improving flip lowers V3 error to **21.93%**, after which no single flip improves it. The below-10% repair prediction fails. This excludes that cheap repair, not joint angle/support optimization, simultaneous flips, nonorthogonal coordinates, or different learned quadratics.
+
+Raw two-column support therefore overstates evidence of shared computation, while small secondary weights can still matter through cancellation. These output branches remain coordinates, not identified tasks. No semantic reuse claim follows. The matched nonlinear optimizer remains live, with terminal native extraction scoring next.
+
 ## Continued optimization and absolute coverage, 12 September 00:45
 
 The [V3 continuation](COUPLED_QUARTIC_NONLINEAR_V3_RESULT.json) reached its time limit after 1006 fit seconds. Captured coefficient energy increased another **4.15% relative to V2**, missing the registered 5% bar. Its final projected gradient is 0.0923 versus the 1e-6 stationarity bar. Numerical directional checks pass; convergence does not. The run made 169 accepted updates, with 38 descent restarts and 343 line-search objective evaluations.
