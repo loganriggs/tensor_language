@@ -1,0 +1,601 @@
+{
+  "bars": {
+    "c_ub_max": 0.01,
+    "cross_max": 0.05,
+    "ext_floor": 0.5,
+    "instr_tol": 0.03,
+    "k_d": 2,
+    "k_kept": 3,
+    "k_new": 2,
+    "keep": 0.8
+  },
+  "candidate_id": "corpus.unit_possessive_their_separability_v661",
+  "families": {
+    "number_readout": [
+      "possessive_person_our_your",
+      "possessive_number_his_their",
+      "possessive_number_its_their",
+      "possessive_gender",
+      "possessive_person_my_their",
+      "possessive_person_your_their"
+    ]
+  },
+  "finished_utc": "2026-09-12T15:51:39.838554+00:00",
+  "members": {
+    "possessive_gender": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.4047,
+            "ce_lb975": 0.3811,
+            "ce_ub975": 0.429
+          },
+          "C": {
+            "ce_damage": 0.009,
+            "ce_lb975": 0.0057,
+            "ce_ub975": 0.0119
+          },
+          "extraction": 0.945,
+          "sib_abs_max": 0.0395,
+          "siblings": {
+            "possessive_number_his_their": 0.0395,
+            "possessive_number_its_their": -0.0047,
+            "possessive_person_my_their": 0.0017,
+            "possessive_person_our_your": 0.0008,
+            "possessive_person_your_their": -0.0006
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.4413,
+            "ce_lb975": 0.4183,
+            "ce_ub975": 0.465
+          },
+          "C": {
+            "ce_damage": 0.0006,
+            "ce_lb975": -0.0028,
+            "ce_ub975": 0.0047
+          },
+          "extraction": 0.99,
+          "sib_abs_max": 0.225,
+          "siblings": {
+            "possessive_number_his_their": 0.225,
+            "possessive_number_its_their": 0.0012,
+            "possessive_person_my_their": -0.0027,
+            "possessive_person_our_your": -0.0009,
+            "possessive_person_your_their": -0.0022
+          }
+        }
+      },
+      "exact_held": 0.89,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 7,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 72.9,
+      "separable": true,
+      "units": [
+        "attn:10:head:01",
+        "attn:12:head:04",
+        "attn:09:head:06",
+        "attn:06:head:01",
+        "attn:08:head:01",
+        "attn:15:head:01",
+        "attn:04:head:05"
+      ]
+    },
+    "possessive_number_his_their": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.8706,
+            "ce_lb975": 0.7204,
+            "ce_ub975": 1.0105
+          },
+          "C": {
+            "ce_damage": -0.007,
+            "ce_lb975": -0.0143,
+            "ce_ub975": 0.0003
+          },
+          "extraction": 0.954,
+          "sib_abs_max": 0.0143,
+          "siblings": {
+            "possessive_gender": -0.0091,
+            "possessive_number_its_their": -0.0064,
+            "possessive_person_my_their": 0.0143,
+            "possessive_person_our_your": 0.0057,
+            "possessive_person_your_their": 0.0105
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9172,
+            "ce_lb975": 0.7607,
+            "ce_ub975": 1.0613
+          },
+          "C": {
+            "ce_damage": 0.0012,
+            "ce_lb975": -0.0017,
+            "ce_ub975": 0.0044
+          },
+          "extraction": 0.992,
+          "sib_abs_max": 0.4656,
+          "siblings": {
+            "possessive_gender": 0.0796,
+            "possessive_number_its_their": 0.2985,
+            "possessive_person_my_their": 0.4644,
+            "possessive_person_our_your": 0.0064,
+            "possessive_person_your_their": 0.4656
+          }
+        }
+      },
+      "exact_held": 0.897,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 9,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 69.5,
+      "separable": true,
+      "units": [
+        "attn:09:head:06",
+        "attn:12:head:04",
+        "attn:15:head:01",
+        "attn:10:head:01",
+        "attn:10:head:05",
+        "attn:13:head:02",
+        "attn:09:head:07",
+        "attn:16:head:01",
+        "attn:07:head:00"
+      ]
+    },
+    "possessive_number_its_their": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.5913,
+            "ce_lb975": 0.5154,
+            "ce_ub975": 0.6681
+          },
+          "C": {
+            "ce_damage": 0.0014,
+            "ce_lb975": -0.0028,
+            "ce_ub975": 0.0059
+          },
+          "extraction": 0.994,
+          "sib_abs_max": 0.0131,
+          "siblings": {
+            "possessive_gender": -0.0047,
+            "possessive_number_his_their": 0.0131,
+            "possessive_person_my_their": 0.0087,
+            "possessive_person_our_your": -0.0021,
+            "possessive_person_your_their": 0.0096
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.5862,
+            "ce_lb975": 0.4527,
+            "ce_ub975": 0.7151
+          },
+          "C": {
+            "ce_damage": 0.0012,
+            "ce_lb975": -0.0027,
+            "ce_ub975": 0.0045
+          },
+          "extraction": 1.003,
+          "sib_abs_max": 0.2882,
+          "siblings": {
+            "possessive_gender": 0.007,
+            "possessive_number_his_their": 0.2882,
+            "possessive_person_my_their": 0.1357,
+            "possessive_person_our_your": -0.0067,
+            "possessive_person_your_their": 0.1387
+          }
+        }
+      },
+      "exact_held": 0.887,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 7,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 73.3,
+      "separable": true,
+      "units": [
+        "attn:12:head:04",
+        "attn:09:head:06",
+        "attn:15:head:01",
+        "attn:09:head:07",
+        "attn:10:head:05",
+        "attn:04:head:05",
+        "attn:05:head:03"
+      ]
+    },
+    "possessive_person_my_their": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.7594,
+            "ce_lb975": 0.5654,
+            "ce_ub975": 0.9763
+          },
+          "C": {
+            "ce_damage": -0.0057,
+            "ce_lb975": -0.0232,
+            "ce_ub975": 0.0081
+          },
+          "extraction": 0.832,
+          "sib_abs_max": 0.0886,
+          "siblings": {
+            "possessive_gender": 0.0082,
+            "possessive_number_his_their": -0.0081,
+            "possessive_number_its_their": 0.005,
+            "possessive_person_our_your": -0.006,
+            "possessive_person_your_their": 0.0886
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9204,
+            "ce_lb975": 0.8031,
+            "ce_ub975": 1.0301
+          },
+          "C": {
+            "ce_damage": 0.0036,
+            "ce_lb975": -0.0022,
+            "ce_ub975": 0.0089
+          },
+          "extraction": 0.989,
+          "sib_abs_max": 0.6362,
+          "siblings": {
+            "possessive_gender": 0.0235,
+            "possessive_number_his_their": 0.5678,
+            "possessive_number_its_their": 0.3072,
+            "possessive_person_our_your": -0.0016,
+            "possessive_person_your_their": 0.6362
+          }
+        }
+      },
+      "exact_held": 0.895,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 13,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row4_v3": true,
+        "row5": true
+      },
+      "seconds": 75.4,
+      "separable": false,
+      "units": [
+        "attn:09:head:06",
+        "attn:12:head:04",
+        "attn:15:head:01",
+        "attn:16:head:01",
+        "attn:13:head:02",
+        "attn:10:head:05",
+        "attn:06:head:01",
+        "attn:10:head:01",
+        "attn:09:head:07",
+        "attn:11:head:01",
+        "attn:07:head:00",
+        "attn:05:head:01",
+        "attn:10:head:02"
+      ]
+    },
+    "possessive_person_our_your": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 0.9624,
+            "ce_lb975": 0.887,
+            "ce_ub975": 1.0347
+          },
+          "C": {
+            "ce_damage": 0.0048,
+            "ce_lb975": 0.0008,
+            "ce_ub975": 0.009
+          },
+          "extraction": 0.995,
+          "sib_abs_max": 0.0048,
+          "siblings": {
+            "possessive_gender": 0.0018,
+            "possessive_number_his_their": -0.0048,
+            "possessive_number_its_their": -0.001,
+            "possessive_person_my_their": -0.001,
+            "possessive_person_your_their": 0.004
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 0.9658,
+            "ce_lb975": 0.8443,
+            "ce_ub975": 1.079
+          },
+          "C": {
+            "ce_damage": 0.0014,
+            "ce_lb975": -0.0035,
+            "ce_ub975": 0.0075
+          },
+          "extraction": 0.997,
+          "sib_abs_max": 0.5707,
+          "siblings": {
+            "possessive_gender": -0.0012,
+            "possessive_number_his_their": -0.0049,
+            "possessive_number_its_their": 0.0314,
+            "possessive_person_my_their": 0.0366,
+            "possessive_person_your_their": 0.5707
+          }
+        }
+      },
+      "exact_held": 0.89,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 13,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row5": true
+      },
+      "seconds": 74.8,
+      "separable": true,
+      "units": [
+        "attn:09:head:06",
+        "attn:15:head:01",
+        "attn:10:head:05",
+        "attn:13:head:02",
+        "attn:12:head:04",
+        "attn:10:head:01",
+        "attn:16:head:01",
+        "attn:09:head:07",
+        "attn:08:head:01",
+        "attn:08:head:05",
+        "attn:09:head:01",
+        "attn:06:head:01",
+        "attn:07:head:00"
+      ]
+    },
+    "possessive_person_your_their": {
+      "arms": {
+        "fam": {
+          "A1": {
+            "ce_damage": 1.0545,
+            "ce_lb975": 0.7549,
+            "ce_ub975": 1.3822
+          },
+          "C": {
+            "ce_damage": -0.0007,
+            "ce_lb975": -0.0103,
+            "ce_ub975": 0.0109
+          },
+          "extraction": 0.878,
+          "sib_abs_max": 0.0453,
+          "siblings": {
+            "possessive_gender": -0.0097,
+            "possessive_number_his_their": -0.0139,
+            "possessive_number_its_their": 0.0019,
+            "possessive_person_my_their": 0.0453,
+            "possessive_person_our_your": 0.0081
+          }
+        },
+        "own": {
+          "A1": {
+            "ce_damage": 1.1838,
+            "ce_lb975": 1.1461,
+            "ce_ub975": 1.2247
+          },
+          "C": {
+            "ce_damage": 0.0004,
+            "ce_lb975": -0.0024,
+            "ce_ub975": 0.0034
+          },
+          "extraction": 0.995,
+          "sib_abs_max": 0.5469,
+          "siblings": {
+            "possessive_gender": -0.0142,
+            "possessive_number_his_their": 0.5469,
+            "possessive_number_its_their": 0.3411,
+            "possessive_person_my_their": 0.5436,
+            "possessive_person_our_your": 0.5429
+          }
+        }
+      },
+      "exact_held": 0.893,
+      "family": "number_readout",
+      "n_dropped": {
+        "C_fit": 0,
+        "C_held": 0,
+        "fit": 0,
+        "held": 0
+      },
+      "n_units": 13,
+      "parent_rows": {
+        "row2": true,
+        "row3": true,
+        "row4": true,
+        "row4_v3": true,
+        "row5": true
+      },
+      "seconds": 75.6,
+      "separable": true,
+      "units": [
+        "attn:09:head:06",
+        "attn:12:head:04",
+        "attn:15:head:01",
+        "attn:13:head:02",
+        "attn:10:head:05",
+        "attn:09:head:07",
+        "attn:16:head:01",
+        "attn:06:head:01",
+        "attn:10:head:01",
+        "attn:05:head:01",
+        "attn:11:head:01",
+        "attn:10:head:02",
+        "attn:07:head:07"
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_new_separable": false,
+    "pred_b_counted_kept": true,
+    "pred_c_row4_kept": true,
+    "pred_d_instrument": true
+  },
+  "recipe": {
+    "complement_weight": 1.0,
+    "evaluated": [
+      "possessive_person_our_your",
+      "possessive_number_his_their",
+      "possessive_number_its_their",
+      "possessive_gender",
+      "possessive_person_my_their",
+      "possessive_person_your_their"
+    ],
+    "lambda": 30.0,
+    "lr": 0.05,
+    "rank": 1,
+    "seed": 0,
+    "split": "within-direction: fit rows[0::4]+rows[1::4] (fits and controls), held rows[2::4]+rows[3::4] (evaluation)",
+    "steps": 120,
+    "units_source": "v197 ... v257 battery receipts (later receipts override earlier ones)"
+  },
+  "schema": "unit_possessive_their_separability_v661",
+  "seconds": 444.0,
+  "separable_counts": {
+    "number_readout": 5
+  },
+  "summary": {
+    "possessive_gender": {
+      "fam": [
+        0.945,
+        0.0395,
+        0.0119
+      ],
+      "family": "number_readout",
+      "n_units": 7,
+      "own": [
+        0.99,
+        0.225,
+        0.0047
+      ],
+      "separable": true
+    },
+    "possessive_number_his_their": {
+      "fam": [
+        0.954,
+        0.0143,
+        0.0003
+      ],
+      "family": "number_readout",
+      "n_units": 9,
+      "own": [
+        0.992,
+        0.4656,
+        0.0044
+      ],
+      "separable": true
+    },
+    "possessive_number_its_their": {
+      "fam": [
+        0.994,
+        0.0131,
+        0.0059
+      ],
+      "family": "number_readout",
+      "n_units": 7,
+      "own": [
+        1.003,
+        0.2882,
+        0.0045
+      ],
+      "separable": true
+    },
+    "possessive_person_my_their": {
+      "fam": [
+        0.832,
+        0.0886,
+        0.0081
+      ],
+      "family": "number_readout",
+      "n_units": 13,
+      "own": [
+        0.989,
+        0.6362,
+        0.0089
+      ],
+      "separable": false
+    },
+    "possessive_person_our_your": {
+      "fam": [
+        0.995,
+        0.0048,
+        0.009
+      ],
+      "family": "number_readout",
+      "n_units": 13,
+      "own": [
+        0.997,
+        0.5707,
+        0.0075
+      ],
+      "separable": true
+    },
+    "possessive_person_your_their": {
+      "fam": [
+        0.878,
+        0.0453,
+        0.0109
+      ],
+      "family": "number_readout",
+      "n_units": 13,
+      "own": [
+        0.995,
+        0.5469,
+        0.0034
+      ],
+      "separable": true
+    }
+  }
+}

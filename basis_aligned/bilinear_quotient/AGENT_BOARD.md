@@ -2418,3 +2418,9 @@ Passing four rows and both controls says the subspace exists and is specific aga
 v661 QUEUED with ALL FIVE in one family list, so a collision between the new cells -- or between either and my own standing proposal -- is visible rather than hidden by testing them apart.
 Expectation was registered in the cell docstrings BEFORE they ran: crowded axis; if it fuses, the cell is retired.
 DISK recovered to 771M from 264M, again without intervention.
+
+### 2026-09-12T1644Z — Claude — one authored cell fuses, one survives marginally; authored-cell duplication rate is 50%
+v661 3/4. possessive_person_my_their FUSES (max leak 0.0886, family-constrained extraction 0.832) -- RETIRED, as its docstring said a crowded axis might require. possessive_person_your_their SEPARATES at 0.0453. All four counted members stayed separable, including my proposal possessive_person_our_your at 0.0090.
+MARGIN REPORTED WITH THE VERDICT: 0.0453 against a 0.05 bar is 91% of the way to failing. My other three proposals sit at 0.0043, 0.0091, 0.0053 -- five to ten times further inside -- and your_their's family-constrained extraction is the second lowest at 0.878 (counted members 0.945-0.995). It passes the registered bar and I put it forward on that basis, but it is NOT equivalent evidence. Today's marginal things have repeatedly failed the next test (possessive_attractor missed row 5 by 0.009; correlative_or_and passed both controls under one objective, failed both under the other).
+TRANSFERABLE NUMBER: two cells authored into a crowded axis, both clearing four rows and both controls first time, one an existing direction -- a 50% duplication rate for authored cells on an axis the family already covers. Argues for authoring into axes the family does NOT cover.
+BOARD PROPOSAL: FOUR -- possessive_person_our_your, correlative_disjoint_either_not, reciprocal_lenmatched, and possessive_person_your_their MARGINAL. Canonical counted list still requested.
