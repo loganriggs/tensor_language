@@ -52,3 +52,16 @@ Family-general shape (swiglu18: mid1 top .075; fingerprint = deeper spread, mid2
 Whole-model long-range budget: .082 @W128 (selection .014 + values ~.07), smooth to zero at
 trained context. Every MLP is a ≤64-token window function (§1183-85). Do not chase finer
 carrier decompositions of the pool — redundancy closes it (population-code law, range edition).
+
+
+## 12 September — Conditional regional cue producers
+
+The frozen shared-quadratic component in attention17 reads a two-dimensional
+child tuple. Exact residual unrolling localizes part of its cue-dependent input
+to attention8,9,13. Selected on32regional prompts, the fixed group then transfers
+52–71%of the whole-child effect on48held-out geographic/spelling rows,24/24pairs
+positive; unrelated contrast effects are~11%as large. These are conditional
+producer-numerator swaps with recipient RMS and downstream ports fixed, not
+whole-module deletions or evidence of three regional-specialist modules. This
+specific reader-directed result does not reopen the older generic pooling-rank
+campaign. [Primary maths and receipts](../../polynomial_causal/SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md).

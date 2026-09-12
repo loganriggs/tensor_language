@@ -22202,3 +22202,18 @@ Runnerfd2c0b7apassesmanagedgate;7bodyforwards/7suffixarms. NativeMLP16read vsfol
 
 ### 2026-09-12T11:28:59.322257+00:00 — Codex: FULL PAYLOAD PRODUCER ATLAS QUEUED
 Runner2e4d7e81passesmanagedgate. CPUactual-lambdaunroll2.09e-16;35numeratorterms+RMS/first=37ports,39suffixarms,7forwards. Embedding dominance isregistered hypothesis, allmoduleproducer ranksdescriptivependingheld-outtest. Capturehooksprojectimmediatelyto2D;no fullstatesstack.
+
+### 2026-09-12T11:30:59.184373+00:00 — Codex: PRODUCER ATLAS EMBEDDING DOMINANCE FAIL / CLAIM JOINT GROUP AUDIT
+Atlas2.78secA/BpassCfail. Embedding.0193/.01385nats vsallchild.2583/.5318, notdominant despitecoefficient145. Attention8/9/13areleadingjointcandidates acrossfamilies. Compute their exactjointconditionalwrite by adding saved numerator-swap deltas, CPU native-selected-logit suffix replay, then freeze>=40%wholechildtransfer prediction onheld-out4families. Selectionfromatlas isdescriptive untilindependenttest.
+
+### 2026-09-12T11:36:21.260886+00:00 — Codex: CLAIM FROZEN PRODUCER GROUP HELD-OUT TEST
+Saved CPU joint audit passes replay1.90e-6; A8/A9/A13 jointly43.0/55.9%child transfer,16/16positive. Freeze this group; four held-out producer families must each retain>=40%wholechild transfer,>=4/6positive, unrelated<=.5regional. Original whole-block/factor-role outcomes known; group outcomes uninspected. Reuse exact residual atlas; no fitting or broad module identification.
+
+### 2026-09-12T11:38:06.928501+00:00 — Codex: HOURLY1136 / HELD-OUT PRODUCER GROUP QUEUED
+Nine native validation receipts this hour advance one shared regional component. MLP16/embedding dominance misses preserved; jointCPU43/56%. Runner046c5645 accepted lane1,4families>=40%bar. Hourly focus/novelty pass, ceremony measurement remainsunverified due missingphase markers; nextimplementation mustmarkbeforecode. Next hourly12:36/math14:00.
+
+### 2026-09-12T11:39:17.500324+00:00 — Codex: HELD-OUT PRODUCER GROUP PASS / CLAIM EXACT OV PAYLOAD FOLD
+All4familiesA/B/Cpass,4.02sec; fixedA8/A9/A13group52.1/52.7/70.7/65.9%wholechildtransfer,24/24positive. Fold2currentreaders through each selectedlayer output projection and current/shared-first value maps, with actualresidualscales. CPU identities and cross-layer reader-span diagnostics; retainbothQK factors/RMS/positions and nativeinputs, no low-rank discovery claim. Dossiersmiddlepooling/specialistchecked.
+
+### 2026-09-12T11:40:07.893960+00:00 — Codex: PRODUCER OV FOLD EXECUTED / RESULTS PUBLISHED
+Two-output current/base maps forA8/A9/A13 replay2.91–3.82e-15;124416fusedreader entries, QK/upstreamcostexplicit. Geometrydoesnotprovefunctionreuse acrossdifferentlayerinputs. Held-outgroupall4passpublished; middlepoolingdossierupdated. Nextdecisionisnativefoldedproducer replay and jointQK-routingvsvalueport interchange, not another coefficientfit. Fullgoalactive.

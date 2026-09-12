@@ -1,0 +1,571 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "recipient_replay_error": 0.0,
+  "all_payload_donor_replay_error": 5.2959142739943826e-08,
+  "residual_unroll_errors": [
+    1.772798116011031e-07,
+    1.0478438774397485e-07,
+    1.3365742353751947e-07,
+    1.195936028521754e-07,
+    1.0246063017349633e-07,
+    1.2952943381736515e-07,
+    1.1323180620799408e-07
+  ],
+  "child_decomposition_errors": [
+    7.259772426959125e-07,
+    8.798639927693956e-08,
+    8.545266941005877e-08,
+    3.8365630143792176e-07,
+    3.2799460622852096e-07,
+    7.226130888564089e-08,
+    9.339555730197621e-08,
+    1.2501272571525708e-07,
+    1.9465889515550023e-07,
+    3.810868235203241e-07,
+    1.1421803585121637e-07,
+    1.1039603286943914e-07,
+    8.755406343364382e-08,
+    1.1847823396157467e-07,
+    1.677074128817366e-07,
+    2.4822562971423927e-07,
+    6.040495630683567e-07,
+    1.639644051402332e-07,
+    1.2505859876333334e-07,
+    7.317897068606763e-08,
+    9.113031581943916e-08,
+    1.2483776690941088e-07,
+    9.429964538542311e-08,
+    2.5361011718768064e-07,
+    4.813563348773907e-07,
+    3.317822494615599e-07,
+    1.4307961632637714e-07,
+    6.457603491951689e-08,
+    1.1628683258998296e-07,
+    9.19235273639433e-08,
+    8.480792075029653e-08,
+    1.350004752463812e-07,
+    1.3393090117549572e-07,
+    9.27020999997214e-07,
+    1.7087065724918846e-07,
+    1.6379201221061417e-07,
+    6.527569988030045e-08,
+    5.782148413484892e-08,
+    9.976522471719209e-08,
+    9.016671293331461e-08,
+    2.528180470786771e-07,
+    1.3637301398633828e-07,
+    2.947511682314008e-07,
+    1.2563926785989424e-07,
+    6.086727336213504e-07,
+    8.684061354404736e-08,
+    1.0146223930713745e-07,
+    7.047387280414857e-08,
+    7.363946994047704e-08,
+    9.848016805670907e-08,
+    8.05239380864003e-08,
+    1.4738240413929732e-07,
+    2.5428042578482217e-07,
+    1.679775793694955e-07,
+    6.378221833794609e-08,
+    1.7373131175062673e-07
+  ],
+  "native_attention_replay_errors": [
+    1.1799422848230597e-07,
+    1.8994993129619362e-07,
+    1.7258870149161775e-07,
+    1.524224563294383e-07,
+    1.89243424325966e-07,
+    1.4392238072789187e-07,
+    1.675361110467163e-07
+  ],
+  "cells": [
+    {
+      "family": 0,
+      "native_regional_gap": 1.8357042074203491,
+      "mean_transfer_by_arm": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.01931650936603546,
+          -2.625584602355957e-05
+        ],
+        [
+          -5.960464477539063e-08,
+          -3.2782554626464844e-07
+        ],
+        [
+          3.774464130401611e-05,
+          -1.341104507446289e-07
+        ],
+        [
+          9.851157665252686e-05,
+          -6.109476089477539e-07
+        ],
+        [
+          8.90195369720459e-05,
+          -1.1324882507324219e-06
+        ],
+        [
+          0.0003869384527206421,
+          1.8924474716186523e-06
+        ],
+        [
+          -0.00010585784912109375,
+          1.8477439880371094e-06
+        ],
+        [
+          0.0165787935256958,
+          -5.647540092468262e-06
+        ],
+        [
+          0.00932428240776062,
+          1.5676021575927734e-05
+        ],
+        [
+          0.023566052317619324,
+          9.939074516296387e-06
+        ],
+        [
+          0.056248053908348083,
+          -0.0002608448266983032
+        ],
+        [
+          0.0021323412656784058,
+          3.661215305328369e-05
+        ],
+        [
+          0.008168593049049377,
+          -1.2189149856567383e-05
+        ],
+        [
+          0.017367467284202576,
+          6.201863288879395e-05
+        ],
+        [
+          0.03138388693332672,
+          0.0003798454999923706
+        ],
+        [
+          -0.009203031659126282,
+          -1.4707446098327637e-05
+        ],
+        [
+          0.011170953512191772,
+          2.0459294319152832e-05
+        ],
+        [
+          0.004725560545921326,
+          -7.852911949157715e-06
+        ],
+        [
+          2.1323561668395996e-05,
+          -4.76837158203125e-07
+        ],
+        [
+          0.00018852949142456055,
+          -5.513429641723633e-07
+        ],
+        [
+          0.0001589655876159668,
+          2.3692846298217773e-06
+        ],
+        [
+          0.0002270340919494629,
+          -3.0547380447387695e-06
+        ],
+        [
+          -0.00015974044799804688,
+          -3.635883331298828e-06
+        ],
+        [
+          0.0005228221416473389,
+          -2.16066837310791e-06
+        ],
+        [
+          -0.0031299889087677,
+          -1.7270445823669434e-05
+        ],
+        [
+          0.015537187457084656,
+          -9.386241436004639e-05
+        ],
+        [
+          0.01132151484489441,
+          -0.0001001507043838501
+        ],
+        [
+          0.007062256336212158,
+          5.304813385009766e-06
+        ],
+        [
+          0.006873384118080139,
+          2.8431415557861328e-05
+        ],
+        [
+          0.010565429925918579,
+          1.7821788787841797e-05
+        ],
+        [
+          0.009247422218322754,
+          6.230175495147705e-05
+        ],
+        [
+          0.0066184550523757935,
+          8.283555507659912e-05
+        ],
+        [
+          0.0100412517786026,
+          -4.559755325317383e-05
+        ],
+        [
+          -0.002396419644355774,
+          -2.728402614593506e-05
+        ],
+        [
+          0.0039723217487335205,
+          -8.948147296905518e-05
+        ],
+        [
+          -0.0028604865074157715,
+          3.357231616973877e-05
+        ],
+        [
+          -0.006144613027572632,
+          1.4469027519226074e-05
+        ],
+        [
+          0.25834237039089203,
+          7.419288158416748e-05
+        ]
+      ],
+      "positive_regional_by_arm": [
+        0,
+        8,
+        4,
+        8,
+        8,
+        8,
+        8,
+        2,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        0,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        1,
+        8,
+        0,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        0,
+        7,
+        0,
+        0,
+        8
+      ],
+      "embedding_regional_meanabs": 0.01931650936603546,
+      "embedding_unrelated_meanabs": 0.0005604028701782227
+    },
+    {
+      "family": 1,
+      "native_regional_gap": 2.731873244047165,
+      "mean_transfer_by_arm": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.013847708702087402,
+          -6.270408630371094e-05
+        ],
+        [
+          2.2351741790771484e-07,
+          8.940696716308594e-08
+        ],
+        [
+          6.57886266708374e-05,
+          2.682209014892578e-07
+        ],
+        [
+          0.0001049041748046875,
+          9.5367431640625e-07
+        ],
+        [
+          0.0001243501901626587,
+          -2.4437904357910156e-06
+        ],
+        [
+          0.000394672155380249,
+          1.1622905731201172e-06
+        ],
+        [
+          3.0681490898132324e-05,
+          5.9157609939575195e-06
+        ],
+        [
+          0.016078263521194458,
+          -4.385411739349365e-05
+        ],
+        [
+          0.015337333083152771,
+          -2.193450927734375e-05
+        ],
+        [
+          0.1095723807811737,
+          -0.00035518407821655273
+        ],
+        [
+          0.1066228449344635,
+          -0.0004339069128036499
+        ],
+        [
+          0.008559539914131165,
+          2.1159648895263672e-05
+        ],
+        [
+          0.019157931208610535,
+          -5.9917569160461426e-05
+        ],
+        [
+          0.03470660746097565,
+          1.1920928955078125e-07
+        ],
+        [
+          0.08128306269645691,
+          0.00043497979640960693
+        ],
+        [
+          -0.009577915072441101,
+          4.366040229797363e-05
+        ],
+        [
+          0.023915812373161316,
+          -2.1651387214660645e-05
+        ],
+        [
+          0.0037158578634262085,
+          -1.990795135498047e-05
+        ],
+        [
+          2.0951032638549805e-05,
+          1.9371509552001953e-07
+        ],
+        [
+          8.621811866760254e-05,
+          1.1920928955078125e-06
+        ],
+        [
+          3.3482909202575684e-05,
+          1.1920928955078125e-06
+        ],
+        [
+          2.041459083557129e-06,
+          -1.7434358596801758e-06
+        ],
+        [
+          -0.00039777159690856934,
+          1.043081283569336e-07
+        ],
+        [
+          2.987682819366455e-05,
+          -5.692243576049805e-06
+        ],
+        [
+          -0.0012643933296203613,
+          -4.559755325317383e-06
+        ],
+        [
+          0.0013126134872436523,
+          -1.2129545211791992e-05
+        ],
+        [
+          0.01226341724395752,
+          -9.59932804107666e-05
+        ],
+        [
+          0.010083168745040894,
+          0.00011701881885528564
+        ],
+        [
+          0.014523729681968689,
+          2.403557300567627e-05
+        ],
+        [
+          0.02265794575214386,
+          -5.589425563812256e-05
+        ],
+        [
+          0.020836636424064636,
+          0.00011911988258361816
+        ],
+        [
+          0.02434629201889038,
+          -4.8786401748657227e-05
+        ],
+        [
+          0.024564653635025024,
+          -0.00025366246700286865
+        ],
+        [
+          -0.0035489052534103394,
+          -7.072091102600098e-05
+        ],
+        [
+          -0.009916722774505615,
+          1.519918441772461e-05
+        ],
+        [
+          -0.0012382566928863525,
+          1.1667609214782715e-05
+        ],
+        [
+          -0.004478320479393005,
+          2.6017427444458008e-05
+        ],
+        [
+          0.5318319946527481,
+          -0.0007981956005096436
+        ]
+      ],
+      "positive_regional_by_arm": [
+        0,
+        8,
+        4,
+        8,
+        8,
+        8,
+        8,
+        3,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        0,
+        8,
+        8,
+        8,
+        8,
+        8,
+        5,
+        0,
+        3,
+        0,
+        6,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        0,
+        0,
+        0,
+        0,
+        8
+      ],
+      "embedding_regional_meanabs": 0.013847708702087402,
+      "embedding_unrelated_meanabs": 0.00039333105087280273
+    }
+  ],
+  "arm_names": [
+    "native",
+    "embedding_numerator",
+    "attention_0",
+    "attention_1",
+    "attention_2",
+    "attention_3",
+    "attention_4",
+    "attention_5",
+    "attention_6",
+    "attention_7",
+    "attention_8",
+    "attention_9",
+    "attention_10",
+    "attention_11",
+    "attention_12",
+    "attention_13",
+    "attention_14",
+    "attention_15",
+    "attention_16",
+    "MLP_0",
+    "MLP_1",
+    "MLP_2",
+    "MLP_3",
+    "MLP_4",
+    "MLP_5",
+    "MLP_6",
+    "MLP_7",
+    "MLP_8",
+    "MLP_9",
+    "MLP_10",
+    "MLP_11",
+    "MLP_12",
+    "MLP_13",
+    "MLP_14",
+    "MLP_15",
+    "MLP_16",
+    "RMS_divisor",
+    "first_stream",
+    "all_payload_ports"
+  ],
+  "body_forwards": 7,
+  "seconds": 2.78039713203907,
+  "artifact_sha": "073787525728ed6488867488a023445032b2584fe7b693d1c723f0db752b265a",
+  "source_shas": {
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/fastload.py": "5803de7f127d1f556470107b559c06daecf7fbc2bccf4574aeb1c347b6225d90",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_in_situ_usage_rank_map_probe.py": "c701af71491d29f33f5ad691f89380a9fa7c2d86514a61fd7423ad8a78fd4d16",
+    "/workspace/tensor_language/jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/cubic_source_mixture_execute_v1.py": "76c2b3048c5e0fceba606d3d476f626b654f05a9c0008c45ed05b63aa2f9f8af",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CUBIC_SOURCE_MIXTURE_EXECUTE_V1_CONTROL.json": "431f49b79569b90ba0e9e692a3dc171232fc763a0f5261c5e62f51b7b8818109",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/shared_cubic_source_projection_v1.py": "78eb18cc03b5e82b19edb1951ddefbebda0a226df824e1959ca43a19f7545fe2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/folded_normalized_router_v1.py": "a374ea1f2c29ed68f7b33f3eb9d28a7034a25260ec95fe4b4e9fc2d7b0e48d9c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/sparse_path_stability_atlas_v1.py": "ccebc47d0c90b75c2a4b5646e6ef58c79cd55d3b518af265b55c747828549cf0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CUBIC_SECANT_BLOCK_NATIVE_V1_ARTIFACT.pt": "f8075d535c7c88ee79be34e0a4360a4002efa3e98a64fcf611c7de4ad0c7baf9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/COMMON_QUADRATIC_SOURCE_BLOCK_V1_ARTIFACT.pt": "c23fbb6658ca6a5176341c7ca3a99885bc16564ea0188af658bd467da854539e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/COMMON_QUADRATIC_NATIVE_V1_RESULT.json": "8900ba6efae2d04ffd3735ec6f073940b426297c90a52993f3e31a78c2a1f659",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_SOURCE_BLOCK_V2_ROWS.json": "0da4a2faf6b1b9148bc2e707fcc8807d2870b0c5accea623fc99fbfbedbd0c0f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_SOURCE_BLOCK_V1_RESULT.json": "9bde8529ee5997b586501bcc450da03bc46e1b45089d383fcd8d4dae186cced5",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_FACTOR_INTERCHANGE_V1_PAIR_CONTROL.json": "2985464f7cad34d6df2884c1363d1813472b138b29e27daaf9b74b00782faea7",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/common_quadratic_ports_v1.py": "28dc46aed076bf72d5d5b63db40fc7ae8fd8489961c1e7a8d40ea24af836aae3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/factorial_source_ports_v1.py": "b219f9bd36cd1dc3e58c6442a2de39275459d4776dbf48f47f0a7ede1d20cf2a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FACTORIAL_SOURCE_PORTS_V1_CONTROL.json": "b074c2cae0f2e489e9b2c402b93f69fbf5e845aa22af65170d248a1e629d7fae",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/COMMON_QUADRATIC_PORTS_V1_CONTROL.json": "117a269948c069b655370614e6cf66e2a3801cfd9045b8c9d22d87c308ceacfd",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_SOURCE_BLOCK_V2_ARTIFACT.pt": "553647a6813c7f571aeada2e64f0ee1789cb5d3d09b9fa1bcb4e18f1b95ece3f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_PAYLOAD_MLP16_FOLD_V1_ARTIFACT.pt": "e4dd30afc8cf57b6320e9c88e3610190ff7477b96c11327191bd2704eeb41a4c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_PAYLOAD_MLP16_FOLD_V1_RESULT.json": "9131d01d2489ace2d12927efbac68ff120492382c9108701b73ea313ea08ca0b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/fold_regional_payload_mlp16_v1.py": "83c6a6818a29af33a1ad10c74743e63836e97457caa901607586acebfe46f913",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_FACTOR_INTERCHANGE_V1_ARTIFACT.pt": "d91af8b135f787773553ad596fb1b080f92b10a6279b42778144e4b68c0c17ef",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_regional_payload_atlas_v1.py": "2e4d7e81f6e9a12340bd0b39813d9f47490e80402bd208f78f7768a564d537d7",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_PAYLOAD_ATLAS_V1_PREREGISTRATION.md": "5046a545392c22c64457cfd5b0eb8a63463d1ad926d6ac1f4611aaff6676bb3e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/residual_payload_unroll_v1.py": "b2244270c0b891811c77f3f4ef4a6657f677e3ac683f885c7b9f0df2e49f3cd3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/RESIDUAL_PAYLOAD_UNROLL_V1_CONTROL.json": "930438bf6e7bb8e6abcc87a6b2637f54c1756b3f58bd82599cfc59ecff75faa5",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_PAYLOAD_PRODUCER_V1_RESULT.json": "6e0def1cc2de6cd9111cd05adcc7cc2c13e2c9cdd7f0711c7048cf13ea0b5597"
+  },
+  "scope": "Exact conditional residual-write atlas for frozen regional payload. Isolated producer swaps retain recipient RMS and all downstream gates. Module labels are attribution ports, not identified semantic circuits."
+}

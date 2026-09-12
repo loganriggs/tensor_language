@@ -1,0 +1,27 @@
+{
+  "native_baseline_relative_error": 1.8989033688119028e-06,
+  "group": [
+    "attention8",
+    "attention9",
+    "attention13"
+  ],
+  "cells": [
+    {
+      "family": 0,
+      "joint_transfer": 0.11117801070213318,
+      "whole_child_transfer": 0.25834237039089203,
+      "fraction": 0.4303514384183757,
+      "positive": 8,
+      "unrelated_meanabs": 0.004146292805671692
+    },
+    {
+      "family": 1,
+      "joint_transfer": 0.297293484210968,
+      "whole_child_transfer": 0.5318319946527481,
+      "fraction": 0.5589988703200932,
+      "positive": 8,
+      "unrelated_meanabs": 0.01053735613822937
+    }
+  ],
+  "scope": "Post-selection joint audit from existing rows. Numerator-swap write deltas add exactly; nonlinear suffix recomputed. Not held-out group identification."
+}

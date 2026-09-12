@@ -567,3 +567,106 @@ residual re-entry numerator, shared RMS divisor and first-stream contribution.
 Keeping the divisor separate prevents attributing normalization changes to a
 particular producer. This traces the identified source reading upstream while
 retaining the exact composed regional block and final native readout.
+
+
+## Upstream producer accounting: cue transfer is distributed
+
+The child tuple is linear in the normalized attention17 input. Write its two
+current-stream readers as the rows of $C$. The native residual recurrence admits
+an exact numerator expansion:
+
+$$
+r_{17}=e x_0+\sum_{j=0}^{16}s_j(A_j+M_j),
+\qquad s_j=\prod_{k=j+1}^{17}\lambda_{k,0}.
+$$
+
+Here $A_j,M_j$ are actual attention and MLP writes, and $e$ collects all learned
+embedding re-entries. Thus the two child values are
+
+$$
+u=\frac{eCx_0+\sum_j s_j CA_j+\sum_j s_j CM_j}{\rho_{17}}
++C_{\mathrm{first}}x_{\mathrm{first}}.
+$$
+
+This exposes35 numerator terms plus a shared RMS divisor and the first-stream
+term. Swapping a producer numerator while holding the recipient divisor and
+remaining downstream inputs fixed measures that edge's conditional mediation.
+It does not measure the result of removing that entire module throughout the
+network. The [residual-unroll control](RESIDUAL_PAYLOAD_UNROLL_V1_CONTROL.json)
+agrees to2.09e-16 on synthetic writes using the actual learned coefficients.
+
+The [MLP16 producer test](REGIONAL_PAYLOAD_PRODUCER_V1_RESULT.json) passes replay
+but fails the registered dominance prediction. Its signed transfers are+0.00397
+and−0.00992nats, versus0.25834/0.53183 for the whole child tuple. The pre-MLP16
+residual instead transfers0.26277/0.54792. This executed partition test rules out
+spending another decomposition fit on MLP16 solely because its fold is simple.
+It does not imply that MLP16 is globally unimportant.
+
+The [all-producer atlas](REGIONAL_PAYLOAD_ATLAS_V1_RESULT.json) also passes replay
+and fails embedding dominance:0.01932/0.01385nats, despite its coefficient
+$e=145.12$. A large recurrence coefficient alone does not locate semantic signal.
+Attention8,9,13 are the strongest group across the discovery templates. Their
+[CPU joint audit](REGIONAL_PRODUCER_GROUP_V1_AUDIT.json), recomputing the native
+nonlinear suffix after summing write deltas, transfers0.11118/0.29729nats:43.04%
+and55.90%of whole-child transfer. All16 pairs are positive; unrelated contrast
+mean absolute transfers are0.00415/0.01054nats. Baseline replay error is1.90e-6.
+
+This group was selected using these outcomes. Its prospective producer-role test
+on the four previously defined geographic/spelling families is registered in
+[the held-out protocol](REGIONAL_PAYLOAD_ATLAS_OOD_V1_PREREGISTRATION.md).
+The earlier embedding and MLP16 failures remain failures. The group may support
+cross-module extraction, but still requires native intermediate states and does
+not yet provide an independent circuit or broad selective-removal guarantee.
+
+
+### Frozen producer group generalizes; exact upstream value fold executed
+
+The [held-out producer result](REGIONAL_PAYLOAD_ATLAS_OOD_V1_RESULT.json) passes
+all three registered criteria in every family. The fixed attention8/9/13 group
+transfers52.06%,52.69%,70.69%,65.91%of the whole-child effect. All24 pairs move
+in the predicted direction; unrelated contrast mean absolute effects are
+10.9–11.4%of regional effects. Native execution took4.02seconds. This supports
+the selected group across these lexical/cue/template shifts; it does not prove
+that these modules are independently sufficient or that their individual heads
+are regional specialists.
+
+The [next CPU computation](REGIONAL_PRODUCER_OV_FOLD_V1_RESULT.json) folds the two
+current-stream readers into each selected attention layer. For head $h$ in layer
+$j$, define the two-output maps
+
+$$
+F_{jh}=s_j C O_{jh},\qquad
+E_{jh}=(1-\mu_j)F_{jh}V_{jh},\qquad
+H_{jh}=\mu_jF_{jh}V_{0h}.
+$$
+
+The contribution to the child numerator at recipient position $t$ is exactly
+
+$$
+s_j C A_{j,t}=\sum_{h=1}^{9}\sum_{s\leq t}
+\gamma_{j,h,ts}\left(E_{jh}\bar r_{j,s}
++H_{jh}\bar r_{0,s}\right).
+$$
+
+$\gamma$ retains the product of BOTH native QK scores, their normalization and
+positions. The first-layer value stream is explicit; signed mixing is retained.
+This computes the two downstream-relevant numbers directly from each producer's
+input streams, without reconstructing its1152-dimensional output. Synthetic
+arbitrary-input/routing identities agree to2.91–3.82e-15. Native routing replay
+of this newly folded executor remains untested.
+
+The artifact stores131,382 tensor entries including diagnostic singular values.
+The two fused current/base reader maps alone use124,416 values across three
+layers. This is not the total extracted-program cost: unchanged QK weights alone
+cost15,925,248 entries, and producer inputs still require the upstream model.
+Thus the fold is progress toward an explicit interface, not a standalone small
+circuit claim.
+
+Descriptive cross-layer principal cosines of the fused value-reader row spaces
+have maxima0.530,0.594,0.281 for8/9,8/13,9/13. These are different layer input
+boundaries, so the comparisons measure coefficient geometry in residual
+coordinates, not equality of the realized functions. They do not show an exactly
+shared value-reader subspace or rule out shared upstream computation. The next
+useful test is native replay of these folded producers and paired routing-versus-
+value interchange with both QK factors kept together. It should distinguish
+shared cue values from task-dependent routing before attempting a new factor fit.

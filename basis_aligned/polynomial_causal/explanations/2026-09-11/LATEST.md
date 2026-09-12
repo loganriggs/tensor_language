@@ -1,3 +1,12 @@
+### 12 September, 11:40 — Regional producer group passes held-out test
+
+Fixed attention8/9/13 group transfers52–71%of the two-child cue effect across
+all4held-out families;24/24pairs positive. MLP16 and embedding dominance failed.
+Two downstream readers now fold exactly into each selected layer's OV and
+shared-first-value maps; native QK/routing and upstream states remain dependencies.
+[Results, maths and limitations](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md).
+[Hourly11:36](../../HOURLY_STRATEGIC_REVIEW_2026-09-12_1136.md); next12:36/math14:00.
+
 ### 12 September, 11:20 — Independent fits agree on native regional effects
 
 Native cross-start screen passes: writeerror1.067%, signedeffecterror0.66–0.97%across4held-outfamilies, no shared/refitted decoder. The cue-carrying two-reader interface folds through MLP16 exactly; it differs from earlier parent1readers. [Results and upstream maths](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md). Native producer mediation is registered next.
