@@ -328,3 +328,44 @@ The nearly shared readers warrant a direct projection-function comparison and
 local block fit. They do not establish any of the four behavioral properties.
 
 The [direct coefficient-function comparison](CUBIC_SOURCE_BLOCK_FUNCTION_COMPARISON_V1.json) closes the scalar-capture gap: tangent-limit squared relative error is around1e-14 (roundoff-sensitive), while the common-quadratic function has0.4708%/0.5827%relative norm error at source7/0. This is relative to the entire fitted projection, not a relative-error guarantee for its much smaller block alone. Native gates and text behavior remain untested.
+
+
+## Frozen native FineWeb extraction/removal screen
+
+The [registered native screen](COMMON_QUADRATIC_NATIVE_V1_PREREGISTRATION.md)
+[passed A/B/C](COMMON_QUADRATIC_NATIVE_V1_RESULT.json), using64cached FineWeb
+9-token prefixes and8partial-body forwards in1.36seconds. Actual full attention
+replay error was1.78e-7. This includes both normalized QK factors, rounded rotary,
+the signed first-layer value mixture and native source/query inputs.
+
+The simplified versus stable-secant full projected writes differ by0.0731% at
+source0 and0.0442% at source7. Their two-child block writes differ by0.4197% and
+0.3026%. After deleting the parent (both children at both source positions), the
+full50304-logit effect differs by0.3683%, with original effect norm5.2068 across
+all rows/logits. The complete native MLP17, its input RMS, the final RMS and tanh
+cap were recomputed. The two individual child effects are nearly additive here,
+with0.1465%relative nonadditivity, but joint prediction does not assume additivity.
+
+The [per-prefix audit](COMMON_QUADRATIC_NATIVE_V1_PREFIX_AUDIT.json) finds median
+summed-block write error0.2891%,90th percentile0.6648%, maximum0.7759%; none of
+64prefixes exceeds1%. Child norm cancellation ratios range1.019–1.468. This
+checks aggregate masking for writes; per-prefix suffix-effect errors have not
+been computed. The preserved block is around3.96%of the norm of the selected
+native source writes, which is a descriptive norm ratio, not additive energy
+coverage or a claim that the entire attention operation has been extracted.
+
+This establishes a native preservation screen for one frozen fitted component.
+It does not establish semantic selectivity, cross-task reuse, general OOD
+prediction or independent whole-circuit sufficiency. Upstream inputs, private
+query writers, normalizers and native background remain explicit dependencies.
+The actual implementation still uses dense native private query factors.
+
+[Post-hoc token inspection](COMMON_QUADRATIC_NATIVE_V1_DESCRIPTIVE_TOKENS.json)
+finds many largest shifted logits among regional spellings (realise, realised,
+colour) and geographic terms (Australia/NZ, Philippine/Filipino, Norwegian).
+Largest displayed changes reach0.0856nats. These are not necessarily likely
+continuations and can reflect downstream output geometry. They are hypotheses
+for a future independently registered behavior screen, not circuit labels.
+Prior dossier checks show head17.2 already participates in exclamation and
+capitalization computations. The new block must not inherit either semantic
+label just because it lies mostly in the same head.

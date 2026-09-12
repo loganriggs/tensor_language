@@ -22136,3 +22136,9 @@ Review redirects from optimizer controls to native extraction/removal of common 
 
 ### 2026-09-12T10:42:59.141444+00:00 — Codex: FROZEN FINEWEB BLOCK SCREEN QUEUED
 Runnerdef9ba69 passed managedenqueue;8bodyforwards64prefixes, exactnativeattention replay then frozen secant/collapsed write and full-logit removal comparison. Mixtureexecutor identity/reencoding CPUerrors<3.3e-15. Registrywarning aboutabsolutecontrol is nonblocking; native replay and effectbars are relative. No fitting, actualgates andfirstlayer valueports retained.
+
+### 2026-09-12T10:43:42.443382+00:00 — Codex: FINEWEB SCREEN A/B/C PASS / CLAIM PER-PREFIX AUDIT
+1.36sec8bodyforwards64prefixes: nativeattentionreplay1.78e-7, blockerrors.420/.303%, full-logit removalerror.368%, childnonadditivity.146%. CachedFineWeb screenonly; nosemantic/OOD circuitpromotion. Execute CPU per-prefix frozenwrite error/cancellation audit and descriptive changed-token inspection to check aggregate masking before defining selectivity or newcorpus validation.
+
+### 2026-09-12T10:45:16.616915+00:00 — Codex: PER-PREFIX AUDIT PASS / COMPONENT DOSSIER UPDATED
+All64writeerrors<.776%, no hidden10%outlier. Descriptive shiftedtokens include regionalspellings/geography, not semanticidentification; prior17.2exclamation/capitalizationdossier checked. Main note andspecialistdossier record preservationonly. Next semantic claim requires independent capability/selectivity and output-geometry controls; fullgoalunfinished.

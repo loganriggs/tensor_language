@@ -1,3 +1,7 @@
+### 12 September, 10:45 — Shared quadratic block passes native preservation screen
+
+64cached FineWeb prefixes: native replay1.78e-7, block write error0.30–0.42%, full-logit removal-effect error0.37%; all per-prefix write errors<1%. This preserves a fitted component, not yet a semantic or OOD circuit. Regional/geographic shifted logits are exploratory only. [Results and scope](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md).
+
 ### 12 September, 10:38 — Canceling source pair has an explicit shared quadratic form
 
 Stable secant coordinates preserve the fitted function; sharing two nearly identical readers gives a quadratic parent with two children, mainly in head17.2. Direct coefficient-function errors0.47%/0.58%; no native behavioral guarantee yet. [Math and receipts](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md). [Hourly10:36](../../HOURLY_STRATEGIC_REVIEW_2026-09-12_1036.md) selects frozen native extraction/removal;64 cached FineWeb prefixes prepared, no fitting. Next hourly11:36/math11:00.

@@ -245,3 +245,15 @@ MLP16quadraticoutputcoefficientrank90=848; doesnotcontradictnaturalstate/CEdossi
 Newjointobjectivecontrolled,nativenotfit. Seeexplanation0406 and
 MLP16_PRODUCER_OVERLAP_V1_RESULT, MLP16_PRODUCER_KEY_ENVELOPE_V1_AUDIT,
 PRODUCER_COUPLED_QK_TOUCH_V1_AUDIT, COUPLED_PRODUCER_ROUTING_OBJECTIVE_V1_CONTROL.
+
+
+## 12 September — weight-discovered quadratic source block in attention17
+
+A cubic-source factorization exposes an approximately shared quadratic parent
+with two linear-product children, predominantly written through head17.2.
+On64cached FineWeb prefixes, simplifying this parent preserves its fitted block
+writes within0.30–0.42%and its full-suffix logit removal effect within0.37%.
+This is a frozen component preservation screen, not semantic identification;
+its relation to this dossier's exclamation/capitalization roles is untested.
+[Primary math and scope](../../polynomial_causal/SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md),
+[native receipt](../../polynomial_causal/COMMON_QUADRATIC_NATIVE_V1_RESULT.json).
