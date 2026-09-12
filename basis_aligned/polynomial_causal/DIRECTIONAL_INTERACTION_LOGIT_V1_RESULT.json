@@ -1,0 +1,68 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "records": [
+    {
+      "family": 0,
+      "name": "new_cities",
+      "native_paired_contrast": 3.456251780192057,
+      "positive_native_pairs": 12,
+      "capable": true,
+      "actual_interaction_norm": 0.677447567763465,
+      "full_interaction_error": 1.1371418860799906e-05,
+      "rank64_interaction_error": 0.01581080284832497,
+      "rank64_joint_effect_error": 0.0021892583820931674,
+      "actual_joint_coverage": 0.5160188460204106,
+      "control_interaction_error": 0.012533613036317956,
+      "anchor_pass": true,
+      "interaction_pass": true,
+      "joint_effect_pass": true
+    },
+    {
+      "family": 1,
+      "name": "nationality",
+      "native_paired_contrast": 2.2716999848683677,
+      "positive_native_pairs": 12,
+      "capable": true,
+      "actual_interaction_norm": 0.624555750204829,
+      "full_interaction_error": 8.771741919265535e-06,
+      "rank64_interaction_error": 0.008122631043755593,
+      "rank64_joint_effect_error": 0.0017719587624689935,
+      "actual_joint_coverage": 0.46919084160034275,
+      "control_interaction_error": 0.008633381835731764,
+      "anchor_pass": true,
+      "interaction_pass": true,
+      "joint_effect_pass": true
+    },
+    {
+      "family": 2,
+      "name": "style_rule",
+      "native_paired_contrast": 2.4493550459543862,
+      "positive_native_pairs": 12,
+      "capable": true,
+      "actual_interaction_norm": 0.6988423350788604,
+      "full_interaction_error": 8.896421388944677e-06,
+      "rank64_interaction_error": 0.00576765390262183,
+      "rank64_joint_effect_error": 0.0010888664104821075,
+      "actual_joint_coverage": 0.5001703924971623,
+      "control_interaction_error": 0.004761189308521891,
+      "anchor_pass": true,
+      "interaction_pass": true,
+      "joint_effect_pass": true
+    }
+  ],
+  "max_full_scalar_relative_error": 1.2471045248638868e-06,
+  "body_forwards": 432,
+  "seconds": 7.579214829951525,
+  "arms": [
+    "native",
+    "remove8",
+    "remove8_actual9",
+    "remove8_predicted64_9",
+    "remove8_frozen9",
+    "remove8_predicted_full9"
+  ],
+  "scope": "Frozen rank64 selected on earlier short cue panel; fresh longer contexts, same cue families and endpoints. Pristine z8, bias-free MLP8 output, raw9 and head8 amplitude are inputs. Conditional surrogate-removal simulator with native prefix/background/suffix, not autonomous circuit extraction or corpus OOD.",
+  "artifact_sha": "e56e7929b3ad6ad96000d0d525413285ee88139feda93ebce884e580130333c8"
+}

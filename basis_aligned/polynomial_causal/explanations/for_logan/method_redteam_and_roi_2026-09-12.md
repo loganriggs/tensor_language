@@ -285,3 +285,23 @@ and validate frozen candidates through the shared physical executor. In parallel
 as a research priority, the strongest existing component still needs broader
 selectivity/generalization and closure of a declared input dependency. Further
 head13 regional fitting and a generic tensor-sim graph search are lower priority.
+
+## 7. Follow-through through 22:22 UTC: equation-specific response wins
+
+The highest-return follow-up was the **known producer interaction**, rather than more generic tensor fitting. We folded the head8.2 edit through MLP8 and predicted how head9.8 changes. Its value response is simple: four weight-derived modes suffice. But routing changes in the opposite direction, so predicting value alone misses10.74–56.69% of the full scalar response. This negative result was useful: it identified precisely what the smaller model omitted.
+
+A rank64 SVD of the existing fixed-writer MLP response map now predicts both routing and value, using only pristine native inputs. It recomputes the changed normalizations analytically and sends the predicted head9 component through the remaining native layers. On72 fresh longer contexts:
+
+| Cue family | Signed final-logit interaction error | Joint-removal effect error |
+|---|---:|---:|
+| New cities | 1.58% | 0.219% |
+| Nationality | 0.81% | 0.177% |
+| Style rule | 0.58% | 0.109% |
+
+The exact, uncompressed response-map control agrees within0.0012%, and all registered predictor criteria pass. A further diagnostic finds correct interaction signs on all72 individual contexts and36 paired cue differences. The managed test used432 forwards and7.58seconds. The [full derivation, shapes, intervention definition and receipts](../../DIRECTIONAL_INTERACTION_LOGIT_V1_MATH.md) explain the computation.
+
+The red-team distinction still matters: these are **conditional interaction predictions**, with pristine model states and the native background/suffix supplied. They are not autonomous extraction. Nationality cue coverage remains only46.92% on this panel; accurately predicting an incomplete component does not make it complete. The counter-review is that the compressed map makes a signed, quantitatively accurate prediction on new contexts without observing the intervened hidden states. That is a substantive advance toward the interaction-path goal.
+
+The computational lesson is to compress the response that a known downstream computation needs. Rank64 captures66.81% of the full mixed-map coefficient energy and predicts the residual change much less accurately than the final interaction. Whole-tensor or whole-residual fidelity would have undervalued this useful structure. Conversely, a separated quadratic SVD had low capture even though a coupled QK equation is cheap; an executed dot-product-square counterexample showed why flattened rank can overstate arithmetic complexity.
+
+The next priority is closing another declared native input or transferring the frozen response across intervention strengths, while retaining an exact-map control. The normalized Frobenius guessed-structure idea remains a deferred note, as requested; no generic search framework has been started.

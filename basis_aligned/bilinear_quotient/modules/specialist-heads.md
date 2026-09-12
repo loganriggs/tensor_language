@@ -359,3 +359,7 @@ Frozen64component passes newcity andstyle-rule removal/donor bars; nationality48
 ## 2026-09-12 — Selective producer response and routing cancellation
 
 Actualrank64head8removal on72newcuecontexts: four-mode pristine-only valuechangeexecutor(5771scalars) predictshead9value-mediatedresponse1.34/3.06/1.20%error. Valuealone misses fullscalarresponse56.69/10.74/28.03%; routingopposesit. No totalhead/logitprediction or autonomousprefixclaim. [Port evidence and compiled interface](../../polynomial_causal/SCALAR_VALUE_GENERATOR_MLP8_V1_MATH.md).
+
+## 2026-09-12 22:22 — Coupled producer response reaches final logits
+
+Rank64 weight-SVD of existing MLP8 fixed-writer mixed map predicts changed raw attention9 input from pristine z8/u0/raw9/amplitude, then recomputes QK/value/norms. On72 fresh longer cue contexts, signed final-logit interaction errors1.581/.812/.577%, joint-removal effect errors.219/.177/.109%; full-map control<=1.14e-5relative. All registered predictor bars hold; all72 context/36 paired signs agree. Conditional native ports/background remain; nationality coverage46.92% is not promoted. [Derivation and receipts](../../polynomial_causal/DIRECTIONAL_INTERACTION_LOGIT_V1_MATH.md).
