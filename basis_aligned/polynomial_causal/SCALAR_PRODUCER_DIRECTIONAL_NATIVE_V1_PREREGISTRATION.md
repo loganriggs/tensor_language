@@ -1,0 +1,5 @@
+# Native replay of the fixed directional MLP program
+
+2026-09-12, before compiled native evaluation. Separate implementation-fidelity check, no revision of the original native bridge A/B/C predictions. Use frozen directional J_d,d program, exact runtime directional_mlp_bridge_v1.execute, and the same pending native bridge cache. Compute pristine biasfree MLP output from actual z8 with original weights solely to supply the declared external background input.
+
+Each template's compiled predicted raw-r9 change and scalar9 change must agree with captured native physical8 removal within1e-4relative, comparing changes rather than absolute outputs. Native scalar baseline replay<=1e-5. Full-map FP64 execution and mixed-map FP32 execution are separately reported. No rank reduction, background closure, newOOD or semantic adoption claim. Existing source/state generation remains charged. Price48rows x2compiled scalar evaluations onCPU, no additional native forwards or fitting. All prior misses remain.
