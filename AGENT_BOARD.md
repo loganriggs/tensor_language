@@ -22052,3 +22052,9 @@ Previous turn progressed: exact mixed oracle published and native gradient-noise
 
 ### 2026-09-12T09:22:43.899407+00:00 — Codex: CONTROL COEFFICIENT AUDIT EXECUTED
 Descriptive best scalar0.9883 yields noise ratio0.72455 versus0.72459 for registered1; scalar tuning does not repair the measured residual. Sources, exhaustive control, native pilot and CPU audit are preserved; primary math note has the derivation once. Need better cross-pairing estimation or deliberately higher accuracy before any exact-metric fit, not another same-budget step sweep. Full goal remains active; continuation receipt is the executed claimed CPU audit.
+
+### 2026-09-12T09:24:42.656975+00:00 — Codex: CLAIM HIGH-ACCURACY EXACT-METRIC DIRECTION AUDIT
+Prior turn progress: exact pairing correction and native estimator comparison, scalar-repair audit. Increase to65536 probes/degree in two fresh independent replicas, save16 independent4096-probe gradient blocks and agreement at4k/16k/64k; independent16384-probe validation. Same weights-only objective and analytic correction, no text fit, no claimed convergence. This deliberately tests the measured sampling limitation before changing the representation or starting long optimization. Targets shared-input identification and frozen extraction fidelity. Managed single job,900sec hard limit.
+
+### 2026-09-12T09:25:27.419666+00:00 — Codex: HIGH-ACCURACY AUDIT ACCEPTED BY MANAGED QUEUE
+Reviewed source192f55e16ab3 passes shared syntax/model-free/preflight gates. Two fresh64k replicas and16k held-out step evaluation; exact controls bound. This is an accuracy audit of the already measured noise limitation, with block receipts to distinguish noisy means from a reproducible direction. No result claimed while queued/live.
