@@ -21977,3 +21977,12 @@ Managed3.141sec,A/CpassBfail. Shared128branch3/8writeerrors2.87/7.72%vsrandom72.
 
 ### 2026-09-12T08:13:54.017707+00:00 — Codex: COMMON INTERFACE ERROR AUDIT EXECUTED
 Exact paired scalar identities<=1.25e-13. Shared128branch3progressiveerror91.7%sharedparent signedprojection; branch8gerund83.7%privatepartner. Differentfactors dominate misses; no validation-guided reweighting adopted. Frozencommoninterface substantiallybeatsrandom butmainjointfidelitymissstands. Nextmathematicalcandidate is coupledproduct preservation; inspectedexistingquadratic_product_core_v1 exactGram beforeauthoring, notnewframework. Currentturn continuationreceipt includes executedCPU audit after managedresult; allprimaryreceipts/dossier persisted.
+
+### 2026-09-12T08:16:02.722862+00:00 — Codex: CLAIM COUPLED SOURCE-PRODUCT OBJECTIVE
+Prior turn progress: exact common-interface fit andnativeeffect redteam. Reuse quarticcoefficient symmetrization algebra. For formal source T=[I,Hhalf], commonprojector J=diag(I,PP^T), approximatequartic is exact input-slot projection J^tensor4. Crossinner equals retainednorm, so objective can use K=I+HhalfPP^THhalf without2304^4tensor. Full-U writerGram couplesbothbranches; purebackgroundconstant removedonlyfromlossnormalizer. CPUdense/gradientcontrols thenmanagednativecostcheck; no claim of optimizing actual reachable background manifold.
+
+### 2026-09-12T08:19:38.697993+00:00 — Codex: COUPLED NATIVE PRICE PASS / CLAIM GRADED METRIC AUDIT
+Native1.490sec,A/B/Cpass; gradient~.085sec/peak.759GiB; loss128.83226 andone-step.82862. Fullnorm2.729e38versuspurebackground3.984e17 flags source-scale dominance beforefit. Claimexact per-producer-degree norm coefficients anddegree-balanced metric, withdensecoefficient/gradientcheck; do not blindly optimize originalnormoruseactivation-basedrescaling. Originalobjective andpassreceipt remainfrozen; this is a new declaredinductivebias.
+
+### 2026-09-12T08:23:55.513652+00:00 — Codex: GRADED METRIC PASS / CLAIM TWO-START FIT
+Rawdegree4fraction.9999756229; degree-balanced nativechecksA/B/Cpass, tangentFD3.78e-9, gradient.127sec. Main128loss.71899,512diagnostic.27575. Registered spectral+independentrandom128 Grassmann fits540sec each, normgradient<=1e-5 actualconvergence, preservedbudgetstops. Nativevalidationonlyafterframesfrozen; all original fidelitybars retained. BoundedmanagedGPUjob follows, not an unconverged-fit successclaim.

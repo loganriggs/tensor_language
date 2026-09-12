@@ -1,3 +1,7 @@
+### 12 September, 08:24 — Exact coupled objective controlled; two-start fitting submitted
+
+The new objective preserves complete shared-parent/partner products in formal coefficient space. Native derivatives pass and cost~0.13seconds. An executed grade audit found99.9976%rawnorm in pureproducer terms; the new explicit degree-balanced metric keeps mixed terms influential without data-derived weights. [Math, controls, assumptions and fitting protocol](../../COUPLED_GRADED_SOURCE_V1_MATH.md). Two rank128fits submitted through the managed runner; inspectlivejob/receipt for currentstatus. No converged-fit or behavioral result yet. Next hourly08:36, math11:00.
+
 ### 12 September, 08:12 — Common weight-derived producer coordinates beat random, but joint fidelity misses
 
 A shared128-coordinate MLP15 interface gives2.9/7.7%branchwriteerror versus72.6/60.4%forrandom128. The main joint intervention-fidelity criterion fails. Predeclared512 preserves branch8's swaps acrossallfourfamilies; branch3stillmissesone. Exact CPU error accounting distinguishes shared-parent from private-partner failure. [Math, results, prices and limits](../../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#a-common-mlp15-interface-is-useful-but-not-yet-sufficient-0812). All fits are exact restricted spectral solves; no new circuit promotion.

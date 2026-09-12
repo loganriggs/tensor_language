@@ -266,3 +266,8 @@ $$
 $$
 
 All algebra checks are below1.25e-13. Shared128 branch3's progressive scalar-change error is dominated by shared-parent error (91.7% signed projection on total error), while branch8's gerund error is dominated by its private partner (83.7%). These projections allocate the scalar error, not finite CE. Different task/context failures therefore arise at different factors; simply boosting the common-parent weight based on these validation outcomes would be data-guided tuning and is not adopted. Strong performance against random establishes a useful restricted shared interface, while the failed joint magnitude bar motivates a weight-only objective preserving the coupled quadratic products, not another interpretation of high coefficient capture as a circuit.
+
+
+## Coupled product metric and degree weighting (08:24)
+
+The next exact common-source objective and its native/dense controls are documented once in [COUPLED_GRADED_SOURCE_V1_MATH.md](COUPLED_GRADED_SOURCE_V1_MATH.md). Raw coefficient scale puts99.9976%ofnorm in pureproducer terms; an independently registered, scale-invariant per-degree relative metric includes mixed terms explicitly. This is a change of inductive bias, not a repaired previous verdict. Native kernel checks pass at~.13sec/gradient. Two-start rank128Grassmann fit submitted with gradient-defined convergence and subsequent frozen nativevalidation; no fitting outcome claimed before its terminal receipt.

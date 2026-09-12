@@ -1,0 +1,7 @@
+# Graded native coefficient check
+
+Reuse the exact native forms/root/full-U writerGram and spectral starts from COUPLED_SOURCE_PROJECTION_NATIVE_V1_INPUTS.pt. No model body or text. Compute all five source-degree coefficient norms c_k explicitly, not by subtracting large sampled polynomial values. Grades count producer source slots, k=0..4. Report raw full-norm grade fractions to test the anticipated pure-producer dominance; this is descriptive, not an assumed pass.
+
+Normalize root by its RMS entry-row norm for numerical conditioning; per-grade relative errors are invariant to this rescaling. Equal-weight objective mean_{k=1..4}(1-retained_k/full_k) is a newly declared coefficient metric, not a repair to the previous unweighted objective. The purebackground grade is exact and excluded from the average. It does not use activation statistics.
+
+A: all grade norms positive; sum rawgrade norms agrees with previous fullnorm relative<=1e-8; tangent finite-difference at rank128 relative<=1e-5, epsilon1e-4. B: one negative normalized-gradient step (.1, up to12halvings) reduces balancedloss>=1e-6. C: gradient evaluation<=2seconds. Report rank128 and512 losses and pergrade retention. Limit120seconds,0bodyforwards, no optimization outcome or new circuit claim. Null: exact graded weighting is unstable or too costly. If passes, authorize the separately registered bounded two-start common-interface fit.
