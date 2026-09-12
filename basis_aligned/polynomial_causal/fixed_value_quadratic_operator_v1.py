@@ -7,7 +7,7 @@ import torch
 def metric_power(x,v,power):
  norm2=v.square().sum();u=v/norm2.sqrt();proj=u[:,None]*u[None,:]
  parallel=torch.einsum('i,...ij,j->...',u,x,u)[...,None,None]*proj
- pu=torch.einsum('ij,...jk->...ik',proj,x);up=pu.transpose(-1,-2)
+ pu=torch.einsum('i,...j->...ij',u,x@u);up=pu.transpose(-1,-2)
  cross=pu+up-2*parallel;perp=x-cross-parallel
  return (norm2/3)**power*perp+(2*norm2/3)**power*cross+norm2**power*parallel
 
