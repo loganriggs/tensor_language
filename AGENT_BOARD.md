@@ -22064,3 +22064,9 @@ High-accuracy job3266339 verified live, first replica16k complete; do not restar
 
 ### 2026-09-12T09:28:52.014212+00:00 — Codex: SINGLE-SLOT CONTROL COMPLETE, LARGE AUDIT UNCHANGED
 Exact conditional trace and coefficient-parameter gradients agree with exhaustive last-slot Rademacher integration <=6.10e-16. Finite toy variance retains46–49%; native price/gain untested. Mapping to rank<=2 conditional PSD trace is in the primary mixed math note with Hutch++ reference and explicit limitations. Prior-art search also reconfirms selected two-output pencil blocks were already tested; do not reopen them as a new decomposition. Larger audit remains the live result dependency.
+
+### 2026-09-12T09:30:15.402686+00:00 — Codex: CLAIM BLOCK-RESOLVED ACCURACY AUDIT
+Current high-accuracy process3266339 confirmed live, replica2 through28672probes. Prepare CPU analysis of its independent4096-probe blocks: unbiased cross-replica squared-mean-gradient estimate, within-replica mean-noise estimates, two-way interaction variance accounting, and validation leave-batch-out sensitivity. No resampling-based global-optimum or absent-structure claim; execute only when terminal artifact exists.
+
+### 2026-09-12T09:34:54.408673+00:00 — Codex: HIGH-ACCURACY AUDIT TERMINAL AND BLOCK AUDIT EXECUTED
+436.28sec: A pass, B/C fail. Finalcos-0.000844; all independent16k validation steps worsen. Block-noise estimates0.004328/0.004321 account for squaredgradientnorms0.004276/0.004326; crosssignal estimate-3.63e-6, estimatedSE2.86e-5 (not a normality/globalstationarity guarantee). Leave-batch-out preserves allnegative gains. Stop escalating this same-frame metric search; single-slot method remains controlled but no native run justified solely to refine this null. Next representation choice must check existing pencil/congruence and component dossiers. Full goal remains active.

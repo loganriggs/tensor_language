@@ -1,0 +1,47 @@
+{
+  "probes_per_gradient_grade": 65536,
+  "independent_blocks": [
+    16,
+    16
+  ],
+  "cross_replica_signal_squared_estimate": -3.629214199214559e-06,
+  "signal_variance_estimate": 8.181240410207376e-10,
+  "signal_standard_error_estimate": 2.8602867706241235e-05,
+  "mean_gradient_noise_squared": [
+    0.004327652250846094,
+    0.004321394818703228
+  ],
+  "mean_gradient_norm_squared": [
+    0.004276113447515812,
+    0.004326356661279853
+  ],
+  "interaction_variance_estimate": 2.96526366548799e-07,
+  "validation": [
+    {
+      "step_index": 1,
+      "mean_improvement": -4.840470977728926e-05,
+      "leave_batch_out_range": [
+        -5.8762607780100795e-05,
+        -3.955263665373934e-05
+      ]
+    },
+    {
+      "step_index": 2,
+      "mean_improvement": -0.0006471563306344484,
+      "leave_batch_out_range": [
+        -0.0006773548240845685,
+        -0.0006205152441247881
+      ]
+    },
+    {
+      "step_index": 3,
+      "mean_improvement": -0.007680400822497162,
+      "leave_batch_out_range": [
+        -0.007768466981752615,
+        -0.007585249763734643
+      ]
+    }
+  ],
+  "artifact_sha": "2c16f3f89820ce807e4b4f2c8c83a5dfda1718047e1c709ca30bb9507d97a517",
+  "scope": "Cross mean is unbiased for squared mean gradient under independent identically distributed blocks. Variance uses two-way row/column/interaction accounting; its finite-sample estimate can be negative and is preserved. No Gaussian confidence guarantee, no claim of zero true gradient, and no inference about alternative stationary points or native circuit behavior."
+}

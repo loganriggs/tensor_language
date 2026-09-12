@@ -1,3 +1,7 @@
+### 12 September, 09:33 — Larger exact-metric audit closes this local search
+
+Two independent65,536-probe gradients remain uncorrelated; all three proposed steps fail independent validation. The executed16-block noise audit accounts for essentially the full observed gradient norms. No more estimator-budget escalation at this frame is justified now; different representations remain open. [Results and limits](../../MIXED_REPEATED_CONTRACTION_V1_MATH.md). No new circuit promotion. Next hourly09:36/math11:00.
+
 ### 12 September, 09:16 — Exact mixed-input audit completed
 
 All mixed degrees now have an exact coefficient contraction. Native controls pass; frozen-frame error differences from the formal metric remain small relative to probe uncertainty. [Math, results and limits](../../MIXED_REPEATED_CONTRACTION_V1_MATH.md). The direction pilot is now completed: independent gradients have cosine0.00877 and no held-out step improves. An analytic pairing correction now reduces observed gradient noise by28%, but still gives no reliable direction or improving step. Its executed scalar-coefficient audit finds negligible further gain. No absence-of-structure claim or circuit promotion.

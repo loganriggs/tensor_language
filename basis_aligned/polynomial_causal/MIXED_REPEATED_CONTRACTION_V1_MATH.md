@@ -242,3 +242,53 @@ $6.10\times10^{-16}$ across all four producer degrees. The finite toy design
 retains46–49%of the ordinary gradient variance. Those percentages are not
 native-model predictions. Native timing and variance need a separate test;
 the running larger-probe audit has not been changed to use this method.
+
+## 65,536-probe audit: no resolved useful direction at this frame
+
+The [larger native audit](ACCURATE_REPEATED_DIRECTION_V1_RESULT.json) completed
+in436.28 seconds. Each of two independent replicas uses65,536 probes per
+producer degree, organized into16 independent blocks. Degree1 is analytic.
+The existing instrument checks pass. Gradient agreement does not improve:
+
+| Probes per degree per replica | Gradient cosine |
+|---|---:|
+| 4,096 | -0.00266 |
+| 16,384 | 0.000215 |
+| 65,536 | -0.000844 |
+
+Final gradient norms are0.06539/0.06578. Within-replica block estimates of
+squared noise in those means are0.004328/0.004321, accounting for essentially
+their entire observed squared norms0.004276/0.004326.
+
+The independent16,384-probe-per-degree validation starts at balanced squared
+loss0.684653. Positive improvement would favor the proposed step:
+
+| Tangent step length | Held-out improvement | Paired standard error |
+|---|---:|---:|
+| 0.05 | -0.0000484 | 0.0000512 |
+| 0.15 | -0.0006472 | 0.0001534 |
+| 0.5 | -0.0076804 | 0.0005046 |
+
+Both gradient-reliability and improvement criteria fail. The
+[executed block audit](ACCURATE_REPEATED_DIRECTION_V1_BLOCK_AUDIT.json) leaves
+each64-probe validation batch out in turn; every resulting mean improvement
+remains negative. No candidate is adopted.
+
+For independent block gradients $g_i,h_j$, the average cross inner product
+is an unbiased estimate of the squared population mean gradient. It is
+$-3.63\times10^{-6}$ here; the negative value is retained rather than silently
+clipped. A two-way row/column/interaction variance calculation gives an
+estimated standard error $2.86\times10^{-5}$. An
+[exhaustive finite-distribution control](GRADIENT_BLOCK_VARIANCE_FORMULA_V1_CONTROL.json)
+verifies that variance formula in both zero- and nonzero-mean examples. This
+does not supply a Gaussian confidence guarantee or prove a zero true gradient.
+
+**Decision:** stop increasing this estimator's budget at the same formal-fit
+frame for now. The much larger audit finds no repeatable useful descent and
+does not support a long exact-metric fit initialized here. The newly controlled
+single-slot integration method remains available but has not earned another
+native run solely to refine this same null. The next structural comparison
+should change the representation rather than repeat this local search.
+Alternative stationary points and different sparse/block/DAG representations
+remain open. Existing native intervention failures are unchanged; no new OOD,
+extraction, selective-removal, or reuse property is established.

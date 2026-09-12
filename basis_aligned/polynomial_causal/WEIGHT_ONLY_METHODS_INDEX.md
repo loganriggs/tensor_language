@@ -1,4 +1,4 @@
-Current composed comparison: [12 September, exact mixed repeated-input audit](MIXED_REPEATED_CONTRACTION_V1_MATH.md). The formal common-interface fits converge reproducibly but fail native effect fidelity. Exact mixed coefficient rescoring does not resolve a large fixed-frame error change. The completed exact-metric direction pilot finds nearly orthogonal independent gradients and no held-out step improvement at512 probes per degree; its noise audit motivates a better estimator before a long fit. Earlier status rows below are historical.
+Current composed comparison: [12 September09:33 exact mixed-input results](MIXED_REPEATED_CONTRACTION_V1_MATH.md). Formal common-interface fits converge but fail native effects. Two65,536-probe exact-metric gradients show no resolved agreement or improving held-out step; block noise audit preserves the null. Stop escalating this local search for now; alternative representations remain open. Earlier status rows below are historical.
 
 # Weight-only structural methods: current receipt index
 
