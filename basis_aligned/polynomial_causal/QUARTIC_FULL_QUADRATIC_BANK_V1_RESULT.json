@@ -1,0 +1,76 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "single_full_replay_error": 0.0,
+  "solver": {
+    "rank": 39,
+    "normal_residual": 1.352861714579975e-15,
+    "minimum_scaled_eigenvalue": 0.0011944502148575748
+  },
+  "captured_energy": 2.0477702148582528e+18,
+  "extra_capture_over_single_fraction": 0.7313264359646003,
+  "baseline_native_error": 0.2665207374270021,
+  "final_native_error": 0.10892260105649325,
+  "old_capture": 5.333258367740671e+17,
+  "eigen_reports": [
+    {
+      "status": "converged",
+      "operator_actions": 22,
+      "verification_actions": 2,
+      "relative_eigen_residuals": [
+        3.350470875135203e-15,
+        1.8695122702411384e-08
+      ],
+      "packed_dimension": 664128,
+      "requested_eigenpairs": 2,
+      "lanczos_vectors": 12,
+      "seed": 91961
+    },
+    {
+      "status": "converged",
+      "operator_actions": 22,
+      "verification_actions": 2,
+      "relative_eigen_residuals": [
+        3.1700705569072587e-15,
+        1.0233555577283753e-10
+      ],
+      "packed_dimension": 664128,
+      "requested_eigenpairs": 2,
+      "lanczos_vectors": 12,
+      "seed": 91962
+    },
+    {
+      "status": "converged",
+      "operator_actions": 22,
+      "verification_actions": 2,
+      "relative_eigen_residuals": [
+        3.2381681971208867e-15,
+        3.048446289575193e-08
+      ],
+      "packed_dimension": 664128,
+      "requested_eigenpairs": 2,
+      "lanczos_vectors": 12,
+      "seed": 91963
+    },
+    {
+      "status": "converged",
+      "operator_actions": 13,
+      "verification_actions": 2,
+      "relative_eigen_residuals": [
+        1.6604951292998432e-07,
+        5.0157038024611385e-08
+      ],
+      "packed_dimension": 664128,
+      "requested_eigenpairs": 2,
+      "lanczos_vectors": 12,
+      "seed": 91964
+    }
+  ],
+  "fitted_floats": 5887294,
+  "validation_write_floats": 147456,
+  "artifact_sha256": "2e22a1abf0920ab00cbbc068bf3784542866419342ab3f8c67a43ae262685d23",
+  "wall_seconds": 38.82417129352689,
+  "peak_gpu_bytes": 1803462656,
+  "scope": "Eight coefficient-derived full quadratic squares plus31 retained rank16 nodes, exact output refit; reused native validation only, no circuit/OOD claim."
+}

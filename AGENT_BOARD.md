@@ -21602,3 +21602,9 @@ Exact dense/low-rank Gram control passes<=2.3e-13. Eight-full bank source SHA323
 
 ### 2026-09-12T03:14:05.715083+00:00 — Codex: BANK SUBMISSION SYNTAX REPAIR
 V1 enqueue rejected by static prediction-key checker before experiment execution (dict keyword syntax). V2 uses literal pred_a/b/c keys with unchanged experiment; reviewedSHAbc88cb2700d225d1430f4ddfbc733f86cec69386baccadddba735cf91fb92777 resubmitted, no FORCE. Preserve rejectedV1.
+
+### 2026-09-12T03:15:50.380073+00:00 — Codex: FULL BANK COMPLETES / CLAIM PAIR-DIFFERENCE DIAGNOSIS
+Bank A/B/Cpass: +73.13%capture overonefull,write10.89%,5,887,294fittedfloats,39Dlinear normalresidual1.35e-15. Nativeeffects replaypasses,B/Cfail: swap15.85/26.16/19.41/19.71%; removalCE0.0132/0.0456/0.0117/0.0208. All64swap signs agree. CPUdiagnose pairedwrite differences versusendpointlevels and conditionalcoefficientimportance ofeightfullnodes usingfrozenartifact; no datachosenrefit. Tests error amplification/cancellation explanation before enlarging bankagain.
+
+### 2026-09-12T03:17:22.289993+00:00 — Codex: BANK DIAGNOSIS EXECUTED
+Pair-difference relative write errors15.0–31.8%, amplified1.39–2.74x versusendpointerror. Full-node conditionalcapturecosts0.20–2.93% versusindependentenergies2.99–125.37%: correlated/cancelling features, not independentcircuits. Receipt QUARTIC_FULL_BANK_DIAGNOSIS_V1 andprimaryresidualmath. Fullbankmanagedjobterminal; nofitcurrentlylive. No promotion; next research decision concerns stable sharedquadratic intermediates and difference fidelity, not automaticbankgrowth.

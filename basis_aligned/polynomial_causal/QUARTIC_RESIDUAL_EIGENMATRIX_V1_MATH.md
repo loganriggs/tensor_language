@@ -176,3 +176,21 @@ $$
 Combine this block with the retained-feature Gram and their cross terms, then solve $KA=C$ for the output coefficients. The existing scaled eigensolver discards eigenvalues below $10^{-12}$ of the maximum and reports its normal-equation residual. This is a converged linear output solve when the residual passes, not joint nonlinear convergence or a globally optimal discovery algorithm. Dense explicit-quartic and low-rank/full cross checks agree within2.3e-13 in [the focused control](QUARTIC_FULL_BANK_V1_CONTROL.json).
 
 Registered A requires single-full replay and normal-equation residual at most1e-8, with each eigen residual at most1e-5. B requires10% extra coefficient capture over the one-full-node program; C requires native write error at most20%. Native data do not choose the bank, weights or iterate. Shared swap/removal scoring follows the frozen result. A miss would not show that sparse arithmetic structure is absent: the eight matrices come from only four residual directions, their readers are frozen, and cross-products between distinct full quadratics are excluded.
+
+### Eight-full bank completed: substantial improvement, intervention thresholds still missed
+
+The [bank receipt](QUARTIC_FULL_QUADRATIC_BANK_V1_RESULT.json) passes all three registered bars in38.82seconds. Captured coefficient energy is2.04777e18, **73.13% above the one-full-node program**. The39-feature linear solve has relative normal residual1.35e-15 and full numerical rank; this establishes its fixed-bank output solve only. Native write error falls to**10.89%**. Literal fitted storage is5,887,294 floats, plus separately recorded validation/Gram caches. The static enqueue checker rejected the first runner's prediction-key syntax before execution; the [second runner](../bilinear_quotient/ops/run_quartic_full_quadratic_bank_v2.py) preserves the experiment and completed normally.
+
+[Native effects](QUARTIC_FULL_QUADRATIC_BANK_NATIVE_EFFECTS_V1.json), computed by the shared scorer's bank extension, reproduce the saved write and exact-reference effects. All64 live swap signs agree. Swap relative errors are15.85/26.16/19.41/19.71% for agreement/count/past/progressive; all still miss10%. Removal CE disagreements are0.0132/0.0456/0.0117/0.0208nats: agreement and past pass individually, count and progressive fail, so the registered all-family removal verdict remains failed. This is a better approximation of the selected two-output composed component; it is not full-unembedding recovery or an identified circuit.
+
+The executed [paired-difference diagnosis](QUARTIC_FULL_BANK_DIAGNOSIS_V1.json) explains why11% endpoint accuracy can coexist with larger swap errors. Before the final native normalization/readout, reference donor-minus-base writes have norms only3.90–23.69% of the combined endpoint norms. Approximation errors in those differences are15.0–31.8%, or1.39–2.74times the relative endpoint errors. Exact common/difference accounting holds within3.7e-16. This supports sensitivity to small differences, without claiming it completely explains the nonlinear margin errors.
+
+For endpoint errors $e_b,e_d$, define $e_+=(e_b+e_d)/2$ and $e_-=e_d-e_b$. Then
+
+$$
+\|e_b\|^2+\|e_d\|^2=2\|e_+\|^2+\frac12\|e_-\|^2.
+$$
+
+The same CPU receipt measures redundancy in coefficient space. Deleting any one of the eight full nodes and optimally refitting the remaining output coefficients loses only0.20–2.93% of total captured energy, whereas individual unfitted node energies range2.99–125.37% of that capture. These are different interventions: conditional importance permits compensation, direct node energy does not. Their disparity shows correlated/cancelling features and cautions against treating eigenmatrices as independent circuits. No behavioral data were used to repair the factors.
+
+The remaining question is how to discover stable shared quadratic subcomputations and preserve their small input-dependent differences. This result justifies relaxing the rank restriction; it does not justify unlimited bank growth or a claim that eigendecomposition alone has found the circuit DAG.

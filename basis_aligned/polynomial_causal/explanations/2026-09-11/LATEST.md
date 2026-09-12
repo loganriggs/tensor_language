@@ -1,6 +1,6 @@
 # Current research state
 
-**12 September, 03:14 UTC:** the [full quadratic capacity test](../../QUARTIC_RESIDUAL_EIGENMATRIX_V1_MATH.md#full-quadratic-result-the-capacity-restriction-matters-but-extraction-still-fails) gives121.77% extra coefficient capture versus0.348% with rank16 truncation. Native write error is25.02%; swaps improve in all four families but swap/removal fidelity still fails. The earlier180-update residual refit also failed its gain/convergence/effect bars. The next eight-full-quadratic bank is implemented and submitted for managed execution; check its receipt for live status. No circuits promoted.
+**12 September, 03:17 UTC:** the [eight-full-quadratic bank](../../QUARTIC_RESIDUAL_EIGENMATRIX_V1_MATH.md#eight-full-bank-completed-substantial-improvement-intervention-thresholds-still-missed) completes with10.89% native write error,73.13% more coefficient capture than the one-full-node model, and5.89million fitted floats. Its fixed-bank output solve converges. All64 swap signs agree, but15.85–26.16% swap errors and two failed removal families prevent circuit promotion. Executed CPU analysis finds amplified error in small paired differences and correlated/cancelling factors. Weight-only discovery remains separate from developmental validation.
 
 ## Earlier entries — historical status, superseded where stated above
 

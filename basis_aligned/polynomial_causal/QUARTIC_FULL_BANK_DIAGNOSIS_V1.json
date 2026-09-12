@@ -1,0 +1,60 @@
+{
+  "pred_a": true,
+  "coefficient_capture": 2.047770214858253e+18,
+  "full_node_conditional_capture_fraction": [
+    0.00195166376483658,
+    0.00649765555082276,
+    0.002779890761383841,
+    0.010202136613276284,
+    0.005781534499534133,
+    0.02932063466448664,
+    0.005689166438169543,
+    0.0019636878836995515
+  ],
+  "full_node_independent_energy_fraction": [
+    0.2917704362221814,
+    0.0794352523855765,
+    0.8591022104786784,
+    0.11260335130591434,
+    1.2536562551825796,
+    0.02988640914942274,
+    0.4848427983304358,
+    0.26463673215783295
+  ],
+  "families": [
+    {
+      "family": "A1",
+      "endpoint_relative_error": 0.11629196770461737,
+      "paired_difference_relative_error": 0.31831434502261063,
+      "relative_error_amplification": 2.7371997508128154,
+      "difference_to_endpoint_reference_norm": 0.11850217164213424,
+      "error_pair_identity_relative": 1.194869391775671e-16
+    },
+    {
+      "family": "A2",
+      "endpoint_relative_error": 0.10781552910362789,
+      "paired_difference_relative_error": 0.20376053226978538,
+      "relative_error_amplification": 1.8898996643975012,
+      "difference_to_endpoint_reference_norm": 0.03897922306750166,
+      "error_pair_identity_relative": 3.6437292089784096e-16
+    },
+    {
+      "family": "past",
+      "endpoint_relative_error": 0.11199553625333268,
+      "paired_difference_relative_error": 0.1561717493790517,
+      "relative_error_amplification": 1.3944461949429208,
+      "difference_to_endpoint_reference_norm": 0.13470282103107406,
+      "error_pair_identity_relative": 1.1732122082984127e-16
+    },
+    {
+      "family": "progressive",
+      "endpoint_relative_error": 0.10525963784022788,
+      "paired_difference_relative_error": 0.1503756904279121,
+      "relative_error_amplification": 1.4286168327518403,
+      "difference_to_endpoint_reference_norm": 0.2369374603293159,
+      "error_pair_identity_relative": 1.115172290609407e-16
+    }
+  ],
+  "artifact_sha256": "2e22a1abf0920ab00cbbc068bf3784542866419342ab3f8c67a43ae262685d23",
+  "scope": "Post-hoc diagnostic only. Paired write differences precede native RMS/readout nonlinearities; no causal or OOD claims and no fitted changes."
+}
