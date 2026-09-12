@@ -97,3 +97,20 @@ A post-result diagnostic checks aggregation: predicted interaction signs agree o
 Best next investment: inspect the equation's actually consumed QK/value coordinates before another rank sweep, and test whether they close a native port or generalize across a second intervention amplitude. Preserve the full map as an anchor. Do not implement generic guessed-graph tensor-sim search; the user's deferred note remains deferred.
 
 [Native result](DIRECTIONAL_INTERACTION_LOGIT_V1_RESULT.json) · [Frozen preregistration](DIRECTIONAL_INTERACTION_LOGIT_V1_PREREGISTRATION.md) · [Aggregation diagnostic](DIRECTIONAL_INTERACTION_LOGIT_V1_DIAGNOSTIC.json) · [Earlier rank ladder](DIRECTIONAL_ROUTING_PREDICTOR_V1_RESULT.json) · [Value-only derivation](SCALAR_VALUE_GENERATOR_MLP8_V1_MATH.md).
+
+## 22:27 — Signed intervention strength transfer
+
+The frozen map also passes all12 cells formed by strengths $t\in\{-1,0.5,1.5,2\}$ and the same three longer-context families. The edit is $z\mapsto z-ta d$; negative strength adds the component and strength2 reverses its scalar sign. This reuses the text panel and tests new interventions, not further text OOD.
+
+Across cells, rank64 signed-interaction error is0.382–3.570%, joint-effect error0.064–0.419%, and all exact-map controls pass the original1e-4relative bar.2016native forwards took30.31seconds. No rank or weights were refitted. [Strength receipt](DIRECTIONAL_INTERACTION_STRENGTH_V1_RESULT.json) · [Preregistration](DIRECTIONAL_INTERACTION_STRENGTH_V1_PREREGISTRATION.md).
+
+The same-rank tangent comparator uses
+
+$$
+\Delta x_{8,\mathrm{linear}}=ta\left[-d+
+\frac{2\operatorname{mean}(z\odot d)}r u_0-\frac{J_{64}z}r\right],
+$$
+
+then recomputes the nonlinear attention9 and suffix. Its interaction errors are0.892–9.442%; the finite-response formula wins every cell. This is a descriptive mechanistic comparison, not a preregistered superiority claim. It supports retaining finite MLP normalization/quadratic terms, without claiming they alone explain all downstream nonlinearity. Both alternatives retain the same native ports.
+
+Next, a CPU novelty check asks whether paired donor-field edits merely duplicate uniform strengths. On the earlier short-cue cache, the displacement at each token is $a_i-a_{\mathrm{donor},i}$. Even the best separately fitted scalar gain for each recipient leaves21.28–30.97% relative residual across families; every donor displacement is nonzero. Thus donor transfer tests a meaningfully different tokenwise intervention. This diagnostic does not establish successful native donor-response prediction. [Executed novelty check](DIRECTIONAL_DONOR_FIELD_V1_NOVELTY.json).

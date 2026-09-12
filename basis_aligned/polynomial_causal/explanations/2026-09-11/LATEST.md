@@ -1,3 +1,7 @@
+## 12 September, 22:27 — Coupled interaction predicts signed final-logit changes
+
+[Primary derivation and results](../../DIRECTIONAL_INTERACTION_LOGIT_V1_MATH.md): frozen rank64 response predicts fresh longer-context interactions within0.58–1.58%, and new signed edit strengths within0.38–3.57%. Exact-map controls pass; native pristine inputs/background remain. Donor-field novelty audit executed; native donor-response prediction remains next.
+
 ## 12 September, 22:05 — Compact value response and opposing routing
 
 [Latest primary result](../../SCALAR_VALUE_GENERATOR_MLP8_V1_MATH.md):5771scalar pristine-input response predicts the value-mediated selectiveinteraction within1.20–3.06% acrossnewcuechannels. Native routingopposes that effect; value-only fullresponse fails11–57%. Sourceprefix andbaselinenorm remain supplied; nexttarget is routingprediction, not droppingcancellation.

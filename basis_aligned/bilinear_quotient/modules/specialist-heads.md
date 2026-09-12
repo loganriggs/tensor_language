@@ -363,3 +363,7 @@ Actualrank64head8removal on72newcuecontexts: four-mode pristine-only valuechange
 ## 2026-09-12 22:22 — Coupled producer response reaches final logits
 
 Rank64 weight-SVD of existing MLP8 fixed-writer mixed map predicts changed raw attention9 input from pristine z8/u0/raw9/amplitude, then recomputes QK/value/norms. On72 fresh longer cue contexts, signed final-logit interaction errors1.581/.812/.577%, joint-removal effect errors.219/.177/.109%; full-map control<=1.14e-5relative. All registered predictor bars hold; all72 context/36 paired signs agree. Conditional native ports/background remain; nationality coverage46.92% is not promoted. [Derivation and receipts](../../polynomial_causal/DIRECTIONAL_INTERACTION_LOGIT_V1_MATH.md).
+
+## 2026-09-12 22:27 — Regional interaction rule transfers across edit strength
+
+Frozen64response passes all12strength/family cells at t=-1,.5,1.5,2 onreusedlongercontexts: signedinteractionerror.382–3.570%, joint-effect.064–.419%; fullmapcontrols pass. Same-rank tangenterror.892–9.442%, worseineverycell. No newtextOOD or autonomyclaim. CPUdonorfieldaudit establishes21.28–30.97%residual frombestuniformgain, justifying a distinct donorresponse test. [Primary continuation](../../polynomial_causal/DIRECTIONAL_INTERACTION_LOGIT_V1_MATH.md#2227--signed-intervention-strength-transfer).
