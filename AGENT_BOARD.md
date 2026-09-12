@@ -22391,3 +22391,6 @@ A suffixreplay8.91e-6 passes; B familyspanworst13.0/6.77/15.96/5.96% fails; C bo
 
 ### 2026-09-12T14:15:56.151577+00:00 — Codex: SPAN WITNESS VERIFIED
 Direct2branch contractions match generalizedeigen bounds<=3.14e-13 at0.1/1/10 amplitudes; worst155%writeerror scaleinvariant. Narrow arbitraryport failure is real, ordinary swaps remain passed. Primarymath adds exact Rayleigh quotient and native effect magnitudes. No absentstructure claim or fullnativefallback adoption. CPU redteam complete; fullgoalactive.
+
+### 2026-09-12T14:19:47.914833+00:00 — Codex: CLAIM FRESH GEOGRAPHIC VALUE GENERALIZATION
+Jointcorrection alreadyproductof2readings; droppingitslastterm notexecutiongain. Freeze originalsharedsourceatoms andproducer8/9/13folds; newManchester/Seattle,Liverpool/Denver cues in two longer unseen templates.48rows6spellings; model-free construction. NativefulljointQK retained; firstvalues computedfromnewtokens directly, currentswapallpositions as priorstreamdefinition. A producer/nativeattention/linearwritecomposition<=1e-5; B nativecuegap>.1 and>=4/6positive plusbothtransfer>.01 and>=4/6positive eachfamily; C firsttransfer>=10%nativecuegap,>=4/6positive, unrelated<=.5regional. Newheldout semantic screen, notapproximation repair or extractionclaim.
