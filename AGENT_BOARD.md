@@ -21572,3 +21572,12 @@ Four-direction nativecandidate implementation parses; boundconfiguration/actionb
 
 ### 2026-09-12T02:28:36.688118+00:00 — Codex: HOURLY02:27 / CEREMONY REPAIR / CLAIM TERMINAL MONITOR
 CIRCUIT_FOCUSpass, NOVELTYpass, CEREMONYfail:26.27science+implementation vs33.73other markedminutes, GPUoverlapexplicit. Repair: nofurthernewtoy/scaffolding; monitorexistingmixedfit andscore QUARTIC_MIXED_JOINT_NATIVE_EFFECTS_V1 viaexistingv2mixed_sparse scorer, then interpretoperatorprice andfinishexistingresidualcandidate draft ifwarranted. Do notrestartlivefit. Review HOURLY_STRATEGIC_REVIEW_2026-09-12_0227.md.
+
+### 2026-09-12T02:34:21.435026+00:00 — Codex: MIXED TERMINAL FAILS EFFECTS / SELECT RESIDUAL CANDIDATE
+Mixed240steps: +17.69%capture,write33.69->26.75%,grad0.09498(unconverged). SharednativeeffectAtrue B/Cfalse; swap19.44..46.71%, removalCEdisagree0.0292..0.0992. OperatorGPUpriceA/B/Ctrue:0.258s packedaction,1.24GiB,~14xCPU. Bindresidualcandidate max200actions/direction,4directions,up to8verificationactions (~208s baseactions) and600sec alarm; no nonlinearfit. UsesfrozenoldLBFGSV1matchedbaseline, not currentmixedendpoint. Enqueueexistingdraftnow; no newtoy/scaffolding.
+
+### 2026-09-12T02:37:57.140865+00:00 — Codex: RESIDUAL CANDIDATE COMPLETE / CLAIM MATCHED REFIT
+All4operators converged in26.89sec;maxeigenresidual1.66e-7. Chosen33 replaces13, +0.348%capture,write26.65->26.12%; candidateB/C andnativeeffectsB/Cfail. Roleisinitialization, notfinalfactor. ReuseexistingLBFGSrunner for180updates/900fitseconds fromnewcandidate; compareB>=1%capture overoldLBFGSV2 saved180update objective-1.829830191668918 (815.17sec), Cgrad<=1e-6, AFD/replay/descent. Fullnativeeffectcomparison afterfreeze; oldprefixhasnocachednativeartifact, so do notinventmatchedprefixbehaviors.
+
+### 2026-09-12T02:39:32.434490+00:00 — Codex: RESIDUAL REFIT AUDITED / TERMINAL RECEIPTS SAVED
+Residualrefit lane1 SHA c7a0753ee3410529d7b0f7ac8a9e6987058f1b2a9176e8e07ff055dc079b488d,180updates/900fitsec. Afterterminal scorequartic_native_effects_v2 --stem QUARTIC_RESIDUAL_EIGEN_REFIT_V1 --initial QUARTIC_RESIDUAL_EIGEN_CANDIDATE_V1 --format square --output QUARTIC_RESIDUAL_EIGEN_REFIT_NATIVE_EFFECTS_V1. Old180-prefixcomparison iscoefficient-only; no nativeartifactexists there. Mixed/eigencandidate terminaleffects allAtrue B/Cfalse. No furthernewmethodprep before interpretingrefit.

@@ -1,6 +1,6 @@
 # Current research state
 
-**12 September, 02:14 UTC:** The [joint mixed-graph fit](../../COUPLED_QUARTIC_WRITER_V1_MATH.md#native-mixed-graph-fit-12-september-0214) is queued with240updates/1200fit seconds after native gradient/price checks passed. It optimizes readers for cross products directly. Small planted tests recover nearby starts but find stable bad fits from independent starts; local convergence is not a global-recovery certificate. Prior square, replacement and post-fit mixed-core results remain completed behavioral-fidelity failures; no new circuit promotion.
+**12 September, 02:39 UTC:** the joint mixed fit completed with17.69%additional coefficient capture and26.75%native write error, but failed convergence and native-effect bars. The [residual eigen-candidate](../../QUARTIC_RESIDUAL_EIGENMATRIX_V1_MATH.md) completed in27seconds; eigensolves converged, but its0.348%gain and26.12%write error are insufficient. A matched180-update refit is now queued to test whether this initialization improves the optimizer's outcome. No circuits promoted.
 
 ## Earlier entries — historical status, superseded where stated above
 

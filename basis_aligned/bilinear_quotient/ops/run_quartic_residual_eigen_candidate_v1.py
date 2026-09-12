@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # BQGATE:0bodyforwards,0textsequences;4residualdirections,8eigenmatrices,128cached validationvectors.
-"""DRAFT: requires completed operator price and bound configuration before enqueue.
+"""Native operator price passed; bound config caps200actions/direction,600sec total.
 pred_a all eigen residuals<=1e-5, baseline/Schur replay<=1e-8 and descent;
 pred_b capture gain>=1%; pred_c native write error reduced>=20%.
 Frozen LBFGS V1,32rank16quadratics,592704floats. No nonlinear refit/textfit.
@@ -49,7 +49,7 @@ def main():
   def action(q):return native_action(l,r,h,q)-fitted_action(b[retained],n[retained],a,q)
   values,matrices,report=eigenmatrices(action,1152,device='cuda',k=2,seed=91961+index,tol=1e-6,ncv=12,maxiter=100,max_actions=config['max_actions'])
   report['direction']=direction.cpu().tolist();report['eigenvalues']=values.tolist();reports.append(report);print(json.dumps(report),flush=True)
-  if report['status']!='converged' or len(matrices)!=2 or max(report['relative_eigen_residuals'],default=1.)>1e-5:
+  if report['status']!='converged' or len(matrices)!=2 or any(not math.isfinite(e) or e>1e-5 for e in report['relative_eigen_residuals']):
    out.write_text(json.dumps(dict(pred_a=False,pred_b=False,pred_c=False,stage='eigensolver_incomplete',eigen_reports=reports,scope='No valid candidate program; do not interpret as absent structure.'),indent=2)+'\n');return
   for q in matrices:
    values,frame=torch.linalg.eigh(q.cpu());ids=values.abs().argsort()[-16:]

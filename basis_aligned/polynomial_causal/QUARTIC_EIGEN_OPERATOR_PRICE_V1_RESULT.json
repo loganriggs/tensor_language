@@ -1,0 +1,21 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "identity_error": 1.4169759103487865e-12,
+  "scalar_contraction_error": 3.365623263157563e-15,
+  "packed_replay_error": 1.4989925673772446e-15,
+  "gpu_action_seconds": [
+    0.2589278295636177,
+    0.2550933249294758
+  ],
+  "cpu_reference_seconds": [
+    3.7020445242524147,
+    3.6980266496539116
+  ],
+  "packed_roundtrip_seconds": 0.2578754350543022,
+  "core_bytes": 169869312,
+  "peak_gpu_bytes": 1330569216,
+  "wall_seconds": 1.4740675128996372,
+  "scope": "First fixed output native quartic operator GPU price including packed roundtrip; no eigensolver convergence, residual candidate, fit or behavioral claim."
+}
