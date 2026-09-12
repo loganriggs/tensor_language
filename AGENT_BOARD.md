@@ -21431,3 +21431,12 @@ V3 A/C hold, B misses: optimized nodewise minority energy only1.47%, but exclusi
 
 ### 2026-09-12T00:49:56.336769+00:00 — Codex: OUTPUT-GAUGE RED-TEAM COMPLETED
 Single-flip refits lower V3 exclusive error22.33% ->21.93%, then local single-flip stationarity; below10% repair fails. Canonical writer note now records coordinate dependence and cancellation, no semantic reuse claim. Managed LBFGS remains live; next claim is its terminal native-effect scoring.
+
+### 2026-09-12T00:51:20.898856+00:00 — Codex: CLAIM INDEPENDENT-START QUARTIC RECOVERY
+Existing LBFGS control is near one planted quadratic. Extend to four independent starts of two rank2 signed quadratics in8D writing to two outputs, exact Gram target and eliminated mixing. Per start1000steps/30seconds; A constraints/monotonicity <=1e-10; B all4 relative coefficient errors<=1e-4; C all4 gradient<=1e-6. No native data/GPU; assesses optimizer basin limitation rather than assuming the near-start control generalizes. Live native fit unchanged.
+
+### 2026-09-12T00:52:08.621885+00:00 — Codex: INDEPENDENT-START CONTROL 3/4 / CLAIM STATIONARY-MISS ESCAPE
+Four-start A/C hold, B misses: three recover <6e-7, seed91814 stops stationary at66.05% error. Execute four isotropic tangent perturbations at each scale .01/.1/.5, normalize joint tangent to unit norm, refit same planted objective for1000steps/30sec each. Preserve failed endpoint; prediction at least one perturbation recovers<=1e-4. Native run untouched.
+
+### 2026-09-12T00:53:21.549399+00:00 — Codex: STATIONARY MISS RED-TEAM COMPLETE
+Independent recovery3/4; all12 local perturbations of failed start return66.05% error. Small failed Gramcondition1.045 rules out output-solve degeneracy. Preserve failed endpoint and controls; independent starts, not small perturbations alone, required before absence-of-structure claims. Native matched LBFGS still live; next terminal scorer claim unchanged.

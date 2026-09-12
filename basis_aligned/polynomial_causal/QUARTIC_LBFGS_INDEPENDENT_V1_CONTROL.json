@@ -1,0 +1,48 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "reports": [
+    {
+      "seed": 91811,
+      "relative_coefficient_error": 4.837281402060437e-07,
+      "constraint_error": 2.220446049250313e-16,
+      "monotonic": true,
+      "termination": "stationary",
+      "iterations": 269,
+      "seconds": 0.43436194956302643,
+      "gradient": 7.909900873738545e-07
+    },
+    {
+      "seed": 91812,
+      "relative_coefficient_error": 5.762052691032937e-07,
+      "constraint_error": 2.220446049250313e-16,
+      "monotonic": true,
+      "termination": "stationary",
+      "iterations": 60,
+      "seconds": 0.09204258769750595,
+      "gradient": 9.26384271389731e-07
+    },
+    {
+      "seed": 91813,
+      "relative_coefficient_error": 5.389141304930137e-07,
+      "constraint_error": 3.3306690738754696e-16,
+      "monotonic": true,
+      "termination": "stationary",
+      "iterations": 65,
+      "seconds": 0.09758741408586502,
+      "gradient": 7.955125786755695e-07
+    },
+    {
+      "seed": 91814,
+      "relative_coefficient_error": 0.6604963536455498,
+      "constraint_error": 2.220446049250313e-16,
+      "monotonic": true,
+      "termination": "stationary",
+      "iterations": 41,
+      "seconds": 0.05701752379536629,
+      "gradient": 3.495513657496308e-07
+    }
+  ],
+  "scope": "Four independent starts on one realizable two-node planted target; no native/global recovery guarantee."
+}
