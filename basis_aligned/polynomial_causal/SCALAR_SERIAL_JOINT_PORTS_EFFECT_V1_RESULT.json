@@ -1,0 +1,118 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "checks": {
+    "baseline_replay": 0.0,
+    "dynamic_joint_replay": 0.0
+  },
+  "cells": [
+    {
+      "family": 0,
+      "serial_effect_errors": [
+        5.235411308104516e-06,
+        0.09824943554138552,
+        1.159389730926172
+      ],
+      "reference_serial_effect_norm": 1.468608232345996,
+      "mean_pair_cue_reduction": [
+        0.0,
+        2.1720118522644043,
+        2.172011613845825,
+        2.134766141573588,
+        2.815309484799703
+      ],
+      "control_meanabs_changes": [
+        0.0,
+        0.11535462737083435,
+        0.11535432934761047,
+        0.11378944913546245,
+        0.14799032608668009
+      ]
+    },
+    {
+      "family": 1,
+      "serial_effect_errors": [
+        4.6003513883840976e-06,
+        0.028117746321317732,
+        1.0130427924434005
+      ],
+      "reference_serial_effect_norm": 1.3711914916605685,
+      "mean_pair_cue_reduction": [
+        0.0,
+        1.3432109355926514,
+        1.343210260073344,
+        1.3440020084381104,
+        1.796625018119812
+      ],
+      "control_meanabs_changes": [
+        0.0,
+        0.058695768316586815,
+        0.058695768316586815,
+        0.05879727005958557,
+        0.0764554391304652
+      ]
+    }
+  ],
+  "arms": [
+    "native",
+    "dynamicjoint",
+    "joint_field",
+    "source_field",
+    "query_field"
+  ],
+  "body_forwards": 240,
+  "seconds": 4.136356957256794,
+  "scope": "Conditional joint-query/source generation tested at signed native serial-effect boundary; removed component field is changed, not the full head routing. Reused contexts; no newline repair or global extraction.",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_NATIVE_V1_PREREGISTRATION.md": "40a5a81fa3ec49c575f4feb59812ce91867d16f907b58e80b69a537c82791bc0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_COMPETING_CUES_V1_ROWS.json": "7eeafb875fd3687f7e8225264a129d015d807d677235b3b6129af6d04dc19621",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_CITY_ROLE_CROSSOVER_V1_ROWS.json": "e79ab43eff592829724de70e6ac038d1046d0172b4a26975896b738311b995cf",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/MIXED_TOKEN_HEAD2_NATIVE_V1_PROGRAM.pt": "75d043f471023fa70455f22f634f1372b3cd4347bb2646ea2cec85347dbe88ee",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_SOURCE_POSITIONS_V1_ARTIFACT.pt": "b66146b4945366051eeb8641d3c85bd4918ced6b28103dcecfb0cb5d600d1829",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_cue_row_check_v1.py": "c6dda30ba85cff6d7cccff280faec0f1a437362ecb4875511aca263c258d16ed",
+    "/workspace/tensor_language/jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/compiled_reading_head_v1.py": "c829a4dd80c61c3ba70cbdf4e405e4a23bb94b2aa13b4f2f310f8b549835aba8",
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_BANK_V1_PREREGISTRATION.md": "3a19319760502562ecb2cd7186b642607dc9e9aba7a62c83cd82dcdf86fbb4f2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_PASSERS_CONFIRMATION_V1_PREREGISTRATION.md": "a26809fbfe6e9e43d0eeaa74280ac931f66b628f5045f45840612a12cf3d3084",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_CONFIRMATION_V1_ROWS.json": "e6bf664fa6dc88cc4ca52763d46fb7ab9085121aead3453192dcd867b03c1ede",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_SHARED_OUTPUT_V1_ARTIFACT.pt": "fbf2df661f1a09a063fe068aff166f37750a29973ff4f215a9d88d6e851816aa",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/compiled_mixed_token_head_v1.py": "adb47f8387c75f557d13c0dfaf192180547fce677417b5b89c47406b3a29b331",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/folded_normalized_router_v1.py": "a374ea1f2c29ed68f7b33f3eb9d28a7034a25260ec95fe4b4e9fc2d7b0e48d9c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NATIVE_V1_PREREGISTRATION.md": "8d39a530df165fc8df1ea94f70dfa59d1ddbd89b55d506d6e8226c3ae1e2f524",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_COMPILE_V1_PROGRAM.pt": "d2e5fd65ab43dd25bf8548438c918ea7b4c9a93e6664931b5d52b37dcbd92490",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/PRODUCER_FRESH_CONFIRMATION_CACHE_V1_ARTIFACT.pt": "50626223f54f56c261127f0154a54f3ef9b5b8a7fec1abf8ac1692023c4dcb4f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/compiled_scalar_producers_v1.py": "aa0666a6dc2d2f840e830d4107811958038fe9305556e9857e75059c89d6be4b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_BANK_WEIGHTS_V1_ARTIFACT.pt": "5cf244ecf66632b6145f2f32c8d013958a2d98217607f680a91d0d9e7dd92e5b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_V1_PREREGISTRATION.md": "e977e0646181d1b782a4f943c923282f2f2032a2c3ac04ed38dbd9d096dd425c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_V1_ROWS.json": "c41e462bfda16d3fa0e1f5ca18275ea219f63525e31db8e8920f2c9506980f40",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_NATURAL_V2_PREREGISTRATION.md": "e1a7bcbdd958b52703fd4aca510086c1033dfe58cdd8b1c39d8c553901917deb",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_NATURAL_V2_ROWS.json": "2bbd64ee8d4e6dd98b42b313786370b1f1f0a6984f0cde174510bb1f99a3d042",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_V1_ARTIFACT.pt": "8ba9cf53ba687387d006b208bd9df556d576191701580b5fc5a2d1688ebeef75",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/scalar_producers_newline_natural_rows_v2.py": "de1a5ff0a6ff63bcf2aadaa9d614598fbead8d732e8c6ddc0f1d13cf3c634708",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_RECURSIVE_REMOVAL_V1_PREREGISTRATION.md": "b08fdf2d6968452ef7d101a2cc309f10aa610e2cb1cad9644e165b800d1c59e1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_NATIVE_LIFT_V1_RESULT.json": "68bfdd6a7697ca5d9a5fa890fc4a8ea29dff7edb691571c73509b568e067aa76",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_NATIVE_LIFT_V1_ARTIFACT.pt": "abac8ee3ad606366028ff0c26dbf6110a6edb08b71bb8ba379de74b2cc5bbf51",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_NATURAL_V2_RESULT.json": "a351c1318926c7e700a17e16d86fd4924739e0724190b7bef7f3d1dd290c53b1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_NATURAL_V2_ARTIFACT.pt": "a43d66e0650d83cf0f27ef868dc17e7473a0bac0aa0767a74d20cc15eae5e2c1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_SERIAL_INTERACTION_V1_PREREGISTRATION.md": "6f9831ed0901ac08f440100232b624e9be10e14d8bdb412c3d9721b302b5609b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_SERIAL_NATIVE_SCALARS_V1_ARTIFACT.pt": "fcf1ae76dfc04ce295fedc38e05bab297ca409c69a9991345683fba99ba521dd",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_RECURSIVE_REMOVAL_V1_ARTIFACT.pt": "171e01f2c5b4d30500c08e4119f61d895ccfd72738eddb56c2229ed1e91179bd",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_RECURSIVE_REMOVAL_V1_RESULT.json": "53a376e6139df1d0182391950a557d1e0b1394f3becc3b3c81d11c69fb664577",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_NATIVE_V1_PREREGISTRATION.md": "5a22072aa0c196162a5e0bfc8ef4b4a377e60319fac40c7c2aa9b60bd1ac950a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_V1_RESULT.json": "13cf919769530af5064e364632f5ff7cde3e6191efc6c5db85e36286bc278437",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_EFFECT_V1_PREREGISTRATION.md": "0e873f62b64dade1f88554150bc992b5b17273d372c271a97369ddb27c566e29",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_NATIVE_V1_ARTIFACT.pt": "b66448cbca59cf113abff0d1c9a8bce9f6cbf5209e5101d4d29b6044edbbc39b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_NATIVE_V1_RESULT.json": "7d3a5d9ed44bd52c686122f6aad853fc50bde2d6e38efa35743dd31cdf8f7e87",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_SERIAL_INTERACTION_V1_ARTIFACT.pt": "25d07a1b6f8f721ea3f48b051596a1f4cc30f6b90600f0bfaf1aee8f0a2e6bf1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_JOINT_QK_VALUE_V2_ARTIFACT.pt": "57b4569e1a2a374352f859bdda072b51eb4b6fa659213dee85a24235ce0b0f4c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_JOINT_QK_VALUE_V2_RESULT.json": "d990b98ba1c458f4dd71e08159825d782b65780822b5dc7959cef930da1878ce",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_SERIAL_JOINT_PORTS_EFFECT_V1_PREREGISTRATION.md": "ab57df86e48f86a19c87df098414f4e94f852a38404592636ea728add9781148",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_SERIAL_JOINT_PORTS_V1_RESULT.json": "f4648432db7439887448234a0b59428c2564652330c3a5ac4f16fedfa0132539",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_SERIAL_JOINT_PORTS_V1_ARTIFACT.pt": "2f9f760cf1637bf27ed632cc196f417f2f1631c94aed479f02bf0d6a69d3f532",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/scalar_serial_joint_ports_v1.py": "d2c8d6b4776e722ce06bf0728abd5bd1a16a6347d87f64d0a52a1a55b7ba3b06",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_scalar_serial_joint_ports_effect_v1.py": "4d0dae509cdae7d6b072fa6e5d28655dd355c2a1ade18cdad48a9a25224514e6"
+  },
+  "artifact_sha": "cad20734fefc9f13287521684274dc01d0fc74fe15de72bea984aa045935ae9d"
+}
