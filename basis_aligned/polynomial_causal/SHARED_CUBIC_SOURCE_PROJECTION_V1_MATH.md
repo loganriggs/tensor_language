@@ -260,3 +260,71 @@ aligned. The original no-sharing prediction remains failed; no causal or global
 source-reuse claim follows from this diagnostic. Any later grouping test must
 report each participating head's absolute captured fraction, not just normalized
 similarity in a selected dictionary.
+
+
+## An explicit difference block replaces the canceling pair
+
+The literature supplies a reason to take coalescence seriously: ordinary tensor
+rank-constrained approximation can fail to attain a best solution
+([de Silva and Lim, 2008](https://arxiv.org/abs/math/0607647)). That theorem concerns
+general tensor rank, not a proof about this separately symmetric cubic dictionary
+with variable-projected query writers. We use it as motivation for an explicit
+algebraic test, and do not claim this trained example is an unattained optimum.
+
+Align the three readers of the two products by permutation and signs. Write them
+as $a_i+t d_i$ and $a_i-t d_i$, with $t$ the joint norm of their half difference.
+Let $a_i$ and $d_i$ below abbreviate their scalar readings on the same source.
+The pair spans the following two functions for nonzero $t$:
+
+$$
+E=a_1a_2a_3+t^2(d_1d_2a_3+d_1a_2d_3+a_1d_2d_3),
+$$
+
+$$
+O=d_1a_2a_3+a_1d_2a_3+a_1a_2d_3+t^2d_1d_2d_3.
+$$
+
+They are exactly the average of the two products and their difference divided by
+$2t$. Executing these expressions avoids subtracting nearly equal products.
+At $t=0$ the same formulas define a tangent block; this limit is a distinct
+source space, not an exact rewriting at finite separation.
+
+The [CPU control](CUBIC_SECANT_BLOCK_V1_CONTROL.json) checks the polynomial
+identity down to separations4.42e-5, relative diagonal discrepancy<=3.25e-12.
+The [native audit](CUBIC_SECANT_BLOCK_NATIVE_V1_RESULT.json) finds $t=0.00390310$:
+exact-block capture agrees with the original within1.65e-12 relative, while
+source Gram condition falls from320512 to27.821 and individual-energy ratio
+from1831 to1.863. These are improvements in the coordinates used to execute
+one unchanged projected computation, not increased coverage or new behavior.
+The tangent limit changes capture by less than5e-11 relative in the fit position.
+Equality of capture alone does not establish equality of the two projected
+functions; a native replacement still requires direct function-error validation.
+
+A stronger simplification is suggested by aligned reader cosines
+0.999999989,0.999999999,0.999969544: two readers are almost shared. The
+[common-quadratic test](COMMON_QUADRATIC_SOURCE_BLOCK_V1_RESULT.json) replaces
+the pair by
+
+$$
+z(s)=(a_1^Ts)(a_2^Ts),\qquad
+h_1(s)=z(s)(u^Ts),\quad h_2(s)=z(s)(v^Ts).
+$$
+
+This is a concrete two-consumer arithmetic graph. Its shared intermediate $z$
+is quadratic, and each child multiplies it by another linear reading. It needs
+four independently stored source readers instead of six. Across the complete
+16-feature candidate, source reader count falls48 to46, before counting private
+query writers and all native dependencies. The prototype artifact materializes
+duplicate shared readers for comparison; a compiled representation must store
+and execute $z$ once to realize that price.
+
+Without optimizing these readers, the collapsed block retains99.9861% of the
+pair's marginal captured energy at source7 and99.9908% at source0; marginal
+means the increase over refitting the other14 features alone. Total capture
+falls0.001633%/0.001538%, and Gram condition remains27.821. The block's individual
+energy is overwhelmingly assigned to head17.2 (0.02128 at source7), so this is
+within-head shared computation, not evidence of reuse across heads or tasks.
+The nearly shared readers warrant a direct projection-function comparison and
+local block fit. They do not establish any of the four behavioral properties.
+
+The [direct coefficient-function comparison](CUBIC_SOURCE_BLOCK_FUNCTION_COMPARISON_V1.json) closes the scalar-capture gap: tangent-limit squared relative error is around1e-14 (roundoff-sensitive), while the common-quadratic function has0.4708%/0.5827%relative norm error at source7/0. This is relative to the entire fitted projection, not a relative-error guarantee for its much smaller block alone. Native gates and text behavior remain untested.

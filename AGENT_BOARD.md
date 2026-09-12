@@ -22121,3 +22121,15 @@ Continuation3276622 live. Literal atom sharing is dictionary-dependent; implemen
 
 ### 2026-09-12T10:30:28.821344+00:00 — Codex: NATIVE QR AND SOURCE-ENERGY AUDITS EXECUTED
 CPU QR/Gram tangent gradients agree4.79e-6relative; no evidence this evaluator replacement alone repairs line-search failure. Coalescence audit: arm1atoms5/6cos.999970986. Coordinate-invariant energy audit executed on original/continued dictionaries; highoverlap can involve tinyheadcapture. Next representation candidate is an explicit difference/block, not another unconditioned product fit. All receipts published in primary cubic note; no new circuit.
+
+### 2026-09-12T10:32:10.208379+00:00 — Codex: CLAIM CENTERED SECANT SOURCE BLOCK
+Represent nearcoalescing cubic pair by its centered even polynomial and divided odd difference, using eight explicit products without subtracting nearly equal polynomials. Exact at nonzero separation; derivative-block limit at zero is a distinct approximation. CPU dense identity and native capture/conditioning/energy checks precede any fitting. This addresses within-module component definition and extraction stability, not rank-only improvement.
+
+### 2026-09-12T10:33:49.513012+00:00 — Codex: SECANT BLOCK EXACT / CLAIM COMMON-QUADRATIC COLLAPSE
+Native exactblock capture agrees1.65e-12relative; condition320512->27.82, individualenergy ratio1831->1.863. Tangentlimit capture changes<5e-11relative. Pair alignedreader cosines.999999989,.999999999,.999969544: test commonfirsttwo-readers times2Dthird-reader block, price4sourcevectors instead of6. Preserve marginalcapture and heldposition; native gates remain external. This is an explicit reusable quadratic candidate, not a circuit claim.
+
+### 2026-09-12T10:35:41.967991+00:00 — Codex: CLAIM EXACT PROJECTED-FUNCTION COMPARISON
+Shared quadratic collapse preserves99.986/99.991%ofpair marginalcapture but scalar capture can hide changed functions. Execute exact coefficient inner products between stable secant baseline, tangent limit and collapsed block, through source cross-Gram and private query/output cross-Gram. This tests extraction fidelity before any behavioral claim or optimizer expansion.
+
+### 2026-09-12T10:38:20.538050+00:00 — Codex: HOURLY1036 / CLAIM FROZEN BLOCK FINEWEB SCREEN
+Review redirects from optimizer controls to native extraction/removal of common quadratic parent with twochildren. CEREMONY_BUDGET failtoverify due omittedphasemarkers/33minlatency; next uses oneexisting-style nativecapture runner. Prepare64distinctcached FineWeb9-token prefixes; fixed q8/source0,7. No data fitting or historicallyuntouchedOOD claim. Compare exactsecant vs collapsed block and actualnativegates, then fullsuffix removal effects; all opaque dependencies charged.

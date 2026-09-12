@@ -1,0 +1,45 @@
+{
+  "reports": [
+    {
+      "candidate": "tangent",
+      "position": 7,
+      "reference_norm_squared": 0.18093765883019425,
+      "candidate_norm_squared": 0.18093765882157267,
+      "inner_product": 0.18093765882588278,
+      "squared_error": 1.3877787807814457e-15,
+      "relative_squared_error": 7.66992780692406e-15,
+      "relative_norm_error": 8.757812402035145e-08
+    },
+    {
+      "candidate": "tangent",
+      "position": 0,
+      "reference_norm_squared": 0.05813021307175148,
+      "candidate_norm_squared": 0.058130213072941556,
+      "inner_product": 0.05813021307234619,
+      "squared_error": 6.522560269672795e-16,
+      "relative_squared_error": 1.1220602721035696e-14,
+      "relative_norm_error": 1.0592734642685851e-07
+    },
+    {
+      "candidate": "common_quadratic",
+      "position": 7,
+      "reference_norm_squared": 0.18093765883019425,
+      "candidate_norm_squared": 0.1809347037621377,
+      "inner_product": 0.18093417574209023,
+      "squared_error": 4.01110815145822e-06,
+      "relative_squared_error": 2.216845391606703e-05,
+      "relative_norm_error": 0.004708338763944989
+    },
+    {
+      "candidate": "common_quadratic",
+      "position": 0,
+      "reference_norm_squared": 0.05813021307175148,
+      "candidate_norm_squared": 0.05812931896819422,
+      "inner_product": 0.05812877916376882,
+      "squared_error": 1.9737124080515533e-06,
+      "relative_squared_error": 3.3953297326045476e-05,
+      "relative_norm_error": 0.0058269457974178445
+    }
+  ],
+  "scope": "Exact coefficient-space projected-function comparison; roundoff may make tiny squared errors signed. No native normalization or text-distribution guarantee."
+}
