@@ -52,7 +52,7 @@ def check(path, expect_rows=32, families=("A1", "A2", "P", "C")):
     if dup:
         problems.append(f"module-level constants assigned twice: {', '.join(dup)}")
 
-    names = _names_dict(path)
+    names = _cells_evaluated(path)
     if names is None:
         problems.append("could not read a NAMES mapping; skipping cell checks")
         return problems
@@ -130,7 +130,28 @@ def _const_counts(tree):
     return seen
 
 
-def _names_dict(path):
+def _cells_evaluated(path):
+    """The cells this rung actually evaluates, which is NOT always NAMES.
+
+    Tier-lift runners evaluate exactly their NAMES. Separability runners import a long chain of predecessors and
+    build NAMES as the UNION of every historical behaviour->module mapping, so checking NAMES there flags dozens of
+    cells the rung never touches -- including other lanes' cells with avoided readouts. On 2026-09-12 that produced
+    a 20-cell false alarm on v631. What a separability runner evaluates is its FAMILIES members, so prefer those.
+    """
+    mod = _load(path)
+    if mod is None:
+        return None
+    families = getattr(mod, "FAMILIES", None)
+    names = getattr(mod, "NAMES", None)
+    if isinstance(families, dict):
+        members = [m for v in families.values() for m in v]
+        if isinstance(names, dict):
+            return {m: names.get(m, m) for m in members}
+        return {m: m for m in members}
+    return names if isinstance(names, dict) else None
+
+
+def _load(path):
     spec = importlib.util.spec_from_file_location("_rung", path)
     mod = importlib.util.module_from_spec(spec)
     try:
@@ -139,8 +160,7 @@ def _names_dict(path):
         pass
     except Exception:
         return None
-    names = getattr(mod, "NAMES", None)
-    return names if isinstance(names, dict) else None
+    return mod
 
 
 if __name__ == "__main__":
