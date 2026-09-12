@@ -21803,3 +21803,12 @@ Evidence80→100support99.76%retained motivates20fixedsupport Riemannian PR+ ste
 
 ### 2026-09-12T05:52:23.186466+00:00 — Codex: AMORTIZED RCG CONTROLS PASS / CONTINUATION PREPARED
 CPUplanted nearandindependent bothrecover>1-2e-13 in21/25updates,3fullselections each; freshselection/orthogonality/epochmonotonicity pass. This isnotglobalguarantee. Nativecontinuation wrapper prepared for botholdterminalframes,600sec/2000updates each; bind/queue onlyafteroldrunterminalinterpreted. Existingrun secondHaararm live, nochanges.
+
+### 2026-09-12T05:53:31.576873+00:00 — Codex: CLAIM MIXED-EDGE RECOVERY CONTROL
+Existing amortizedsolver plantedcontrols useddiagonal squares. Test known connected12edge/8reader graph withsharednodes,mixedproducts anddenseoutputwriters:one near/four independentstarts, fixed2000updates/30sec each. Sameobjective/gradient/gap; reportfailedrecovery separately fromstationarity. This targetsactualmixedinteraction assumption whilecurrentnativefit remainslive; no extraGPU.
+
+### 2026-09-12T05:54:09.528601+00:00 — Codex: MIXED GRAPH4/5RECOVERY / CLAIM CURVATURE CHECK
+Allfive starts meetgradient/gap; fourexactrecover, seed120521 stops92.8556%withknown100%solution. CPU tangent-Hessian check on samefixedsupport distinguishes first-order saddle from localmaximum; positive supportgap protectslocal smooth objective. No globalclaim, no liveGPUchange.
+
+### 2026-09-12T05:54:34.831291+00:00 — Codex: MIXED GRAPH CURVATURE RECORDED
+Missedplanted92.8556%point has all28tangentHessian eigenvaluesnegative[-.93867,-.05157],gap.0006923. Numericallylocalmaximum, notfirstordersaddle; exact100%plantedsolutionexists. Strongerlocaloptimizer alonecannotguaranteerecovery. Nativecontinuation stillusefulforstationarity but globalabsenceclaim excluded; pairedstarts/frozenvalidation retained.
