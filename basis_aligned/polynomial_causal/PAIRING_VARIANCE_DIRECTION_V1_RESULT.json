@@ -1,0 +1,57 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "noise_ratio": 0.7245904989148425,
+  "noise_squared": 0.5340649294135793,
+  "analytic_gradient_norm": 6.156276571701154e-05,
+  "fd_error": 5.771000393872351e-08,
+  "orthogonality_error": 1.0832746758780092e-14,
+  "gradient_cosine": 0.0033253715070987724,
+  "gradient_norms": [
+    0.7264394760429765,
+    0.7375492621862954
+  ],
+  "fit_losses": [
+    0.6868105841474107,
+    0.6656242641735003
+  ],
+  "initial_validation_loss": 0.6831603230749151,
+  "reports": [
+    {
+      "step": 0.01,
+      "improvement": -1.5416992744590658e-05,
+      "standard_error": 2.9535096926844095e-05,
+      "loss": 0.6831757400676598
+    },
+    {
+      "step": 0.05,
+      "improvement": -0.0001429614268778994,
+      "standard_error": 0.00014758383678449503,
+      "loss": 0.6833032845017931
+    },
+    {
+      "step": 0.15,
+      "improvement": -0.0009176915811460229,
+      "standard_error": 0.0004416940361918547,
+      "loss": 0.6840780146560612
+    }
+  ],
+  "execution_seconds": 14.829014211893082,
+  "artifact_sha": "de644897ca234483c80955c2c31e03d1991054e53e16bc4d34886ff7303a12d0",
+  "source_shas": {
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mixed_repeated_contraction_v1.py": "306fc5100bb9112b3112bb0dca8df80aa127e0375515c3f4cf3329afac325f0c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/sparse_path_stability_atlas_v1.py": "ccebc47d0c90b75c2a4b5646e6ef58c79cd55d3b518af265b55c747828549cf0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/COUPLED_SOURCE_PROJECTION_NATIVE_V1_INPUTS.pt": "922225e1689ad43cc43895a417f46c5bbb4a8cc26937fbd12bf1fe6f5e535c59",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/GRADED_SOURCE_LBFGS_V1_PROGRAM.pt": "4f6fad67e4d4a28a87f193865b2a192e5f7d25c28d2ad6c24c85bac5d2e36a59",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/MIXED_REPEATED_NATIVE_V1_ENERGIES.pt": "bf03d6509d8061bfa725895a37e2c906193a9b3ce56b4c1a6c668d042f5e4d95",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_pairing_variance_direction_v1.py": "5dde063e776bfb88041996f4883f75bad0141396f6e45686f2dfe2fbcc4d2c83",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mixed_pairing_control_variate_v1.py": "673a1f0cac967222cfa28a359bc54e21daccf4c3d50b3092e3940027aec9914c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/graded_source_projection_v1.py": "36e658e8fb01d670e59e7ce8c8485c16d0156bf818eeead1fd4542d4840eb8c9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/check_mixed_pairing_control_variate_v1.py": "418e97f6fb3cce3f05d6b3301af79ec053856a0ca9151ed6ba20019b7be70db7",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/MIXED_PAIRING_CONTROL_VARIATE_V1_CONTROL.json": "80fa1a02447e52fc4b333834eacba2e5175aa0743f4b7216edc10d44bf915284",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/PAIRING_VARIANCE_DIRECTION_V1_PREREGISTRATION.md": "8e2d694ba559e68592a8fd43cbb31e5e25bdcfe2cbe40426032153ad422d6780",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REPEATED_METRIC_DIRECTION_V1_ARTIFACT.pt": "1e1c0854fbe74d5850b4503c091df7f0cbf09f6b23ca4b6f61f68c856053f723"
+  }
+}

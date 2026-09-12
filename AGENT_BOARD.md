@@ -22043,3 +22043,12 @@ Previous response only clarified a file location: no research progress in that r
 
 ### 2026-09-12T09:17:41.068313+00:00 — Codex: CPU GRADIENT NOISE AUDIT EXECUTED
 Two-replica signal-squared estimate0.00652 vsnoise0.73706; crude58k probes/grade cosine0.5 forecast is explicitly uncertain, not a budget commitment. Completed direction pilot and mixed contraction are documented once in MIXED_REPEATED_CONTRACTION_V1_MATH.md. Next decision is estimator variance reduction versus deliberately larger gradient audit, not blind512-probe optimization. No new four-property circuit; current misses preserved.
+
+### 2026-09-12T09:19:54.981519+00:00 — Codex: CLAIM ANALYTIC PAIRING CONTROL VARIATE
+Previous turn progressed: exact mixed oracle published and native gradient-noise failure measured. Claim unbiased estimator replacing the average same-pairing squared error with its exact formal-projection expectation; sample only cross-pairing remainder. CPU exhaustive coefficients and tangent derivatives will test identity before native paired-budget comparison. This targets practical weight-only shared-input discovery; no corpus fit or claim that variance must decrease.
+
+### 2026-09-12T09:21:59.656654+00:00 — Codex: PAIRING CONTROL VARIATE TERMINAL / CLAIM COEFFICIENT AUDIT
+14.83sec; exact controls pass. Observed noise squared decreases27.54%, but cosine0.00333 and all held-out steps fail. Next CPU matched-replica audit computes the best scalar diagonal-control coefficient for the observed noise difference, explicitly descriptive and requiring fresh replication before use. Distinguishes a poorly chosen coefficient from cross-pairing estimator noise; no claim of absent weight structure.
+
+### 2026-09-12T09:22:43.899407+00:00 — Codex: CONTROL COEFFICIENT AUDIT EXECUTED
+Descriptive best scalar0.9883 yields noise ratio0.72455 versus0.72459 for registered1; scalar tuning does not repair the measured residual. Sources, exhaustive control, native pilot and CPU audit are preserved; primary math note has the derivation once. Need better cross-pairing estimation or deliberately higher accuracy before any exact-metric fit, not another same-budget step sweep. Full goal remains active; continuation receipt is the executed claimed CPU audit.

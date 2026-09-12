@@ -162,3 +162,48 @@ reduction or a deliberate higher-accuracy gradient audit, before a long fit.
 It does not rule out alternative sparse/block/DAG representations.
 
 Literal-count clarification: the preregistration calls4096 probe cases “total gradient contractions.” There are4096 candidate-gradient probe cases and4096 reference probe cases, hence8192 contractions when both are counted. Validation has8192 probe cases, each with one reference and four candidate/start evaluations. The executed schedule matches the stated seeds, batch counts and sizes; no body forwards are used.
+
+## Analytic pairing correction: partial noise reduction, still no usable direction
+
+For each degree, retain the separate pairing error contractions $e_\pi$ before
+averaging. Write $N$ for the number of pairings, $G=W^TU^TUW$, and $F_k,R_k(P)$
+for the exact formal full/retained squared norms. The new unbiased estimator is
+
+$$
+\left\|\frac1N\sum_\pi e_\pi\right\|_G^2
+-\frac1{N^2}\sum_\pi\|e_\pi\|_G^2
++\frac{\binom4k}{N}\bigl(F_k-R_k(P)\bigr).
+$$
+
+It replaces the sampled same-pairing contributions with their exact expected
+value, leaving cross-pairing terms sampled. A *control variate* is such a
+zero-mean correction to an estimator; unbiasedness alone does not guarantee
+lower variance. Degree1 becomes fully analytic. The exact last term assumes
+$P^TP=I$: its derivative is valid along the orthonormal-frame manifold, so
+native finite differences use QR retraction rather than unconstrained steps.
+
+[Exhaustive toy coefficient and tangent-gradient checks](MIXED_PAIRING_CONTROL_VARIATE_V1_CONTROL.json)
+pass within $3.62\times10^{-14}$. The [matched native pilot](PAIRING_VARIANCE_DIRECTION_V1_RESULT.json)
+uses the same training probe seeds, frame and validation budget as the naive
+pilot. It completes in14.83 seconds; the analytic derivative check is within
+$5.78\times10^{-8}$. The squared difference between gradient replicas decreases
+to72.46%of the old value, a27.54%observed noise reduction. However, gradient cosine
+is only0.00333, and all three independent validation improvements remain
+negative (-0.0000154, -0.0001430, -0.0009177). Instrument criteria pass; the
+registered reliability and improvement criteria fail. These two replicas do
+not establish a population variance-reduction percentage.
+
+The strongest immediate alternative explanation is a poor scalar control
+coefficient. The [executed paired CPU audit](PAIRING_VARIANCE_DIRECTION_V1_COEFFICIENT_AUDIT.json)
+minimizes the observed replica-difference norm over that scalar. The best value
+is0.9883, almost the implemented1. Its residual ratio is0.72455 versus0.72459.
+Thus scalar tuning offers negligible repair of this observed discrepancy.
+This descriptive minimum is not an unbiased estimate of future variance and
+does not justify selecting a coefficient without fresh replication.
+
+The analytic term's tangent gradient norm is only $6.16\times10^{-5}$ here;
+the sampled residual dominates. The next meaningful estimator choice concerns
+cross-pairing contractions or a substantially larger deliberate probe budget.
+Blindly extending this small-batch fit is not supported. Nothing here rules
+out shared structure, establishes exact stationarity, or repairs the native
+extraction/removal/composition failures.
