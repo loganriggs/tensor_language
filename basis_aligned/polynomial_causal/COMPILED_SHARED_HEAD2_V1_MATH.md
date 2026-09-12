@@ -95,7 +95,7 @@ native removal test and this compilation control are distinct receipts.
 | Total | 666,656 |
 
 The saved artifact is FP64 (about5.33MB of tensor values). Nominal FP32 storage
-would be2.67MB; FP32 execution has not been validated. Relative rotary operators,
+would be2.67MB; FP32 execution was not yet validated at the initial check; the native integration below now supplies that evidence. Relative rotary operators,
 input-state generation, final MLP/RMS/unembedding and their caches remain outside
 this price. Comparing norm maps alone gives589,824 versus5,308,416 scalars for
 all nine consumers; that is not a whole-model saving.
@@ -108,3 +108,21 @@ is not repaired by this result. Next integration should execute this exact packa
 on native states and compare both writes and interventions, before claiming it
 replaces the existing component implementation. Upstream closure remains the
 largest unresolved extraction dependency.
+
+## Native integration and portable export (14:59)
+
+[Native integration](COMPILED_SHARED_HEAD2_NATIVE_V1_RESULT.json) executes the
+saved package on actual query/source states at every causal position in48prompts.
+All predictions pass in5.03seconds: FP64write<=2.97e-15 with unchanged scored
+removal effects; FP32write<=1.65e-7 and removal-effect<=8.29e-6. Child reference
+writes agree within1.25e-14, their sum within1.60e-16. Native suffix interaction
+is0.112–0.159%of the joint effect, measured rather than assumed zero.
+
+The [portable package](extracted_circuits/regional_shared_head2_v1/README.md)
+contains validated FP32 weights and a torch-only runtime,2,669,957serializedbytes.
+Reloaded tensors and the exported runtime function match the validated versions;
+an execution round trip is identical. It needs only its declared query/source/R
+inputs at runtime, not the research factor-fitting code. Input-state generation
+and final readout remain external. An initial disk-full export was repaired by
+clearing regenerated npm downloads and rebuilding the incomplete owned file;
+see NPM_CACHE_STORAGE_2026-09-12_1457.json. No research/model data were removed.

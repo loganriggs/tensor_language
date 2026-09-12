@@ -22433,3 +22433,9 @@ Standaloneq1152/source2304/R interface,666656storedscalars withnativehead2norms.
 
 ### 2026-09-12T14:53:53.790456+00:00 — Codex: CLAIM COMPILED HEAD2 NATIVE INTEGRATION
 Load666656-scalar savedpackage, execute onnativeq/source/R across48geocontexts. A original/fullpriorreplay<=1e-5; compiledFP64write<=1e-10/effect<=1e-5 versusoriginalhead2. B FP32packagewrite<=1e-5/effect<=1e-3. C twochildcompiledwrites sumfull<=1e-10 and match correspondingoriginalfactorchildwrites<=1e-10; report nonlinear suffixinteraction.7suffixarms9bodybatches180sec. Nativecontext andsuffixstillrequired; no false standalonefromtokensclaim.
+
+### 2026-09-12T14:56:55.887024+00:00 — Codex: COMPILED NATIVE INTEGRATION PASS / CLAIM PORTABLE EXPORT
+5.03sec A/B/Cpass:FP64write<=2.97e-15,FP32<=1.65e-7/effect<=8.29e-6; childreference<=1.25e-14,partition1.59e-16,nonlinearinteraction.112–.159%joint. ExportsamevalidatedFP32tensorvalues with torch-only executor and declaredq/source/Rinterface. Verifyreloadvalues andcopiedfunction AST identity; no native-generator/readout included or fullgoalclaim.
+
+### 2026-09-12T14:59:08.505348+00:00 — Codex: PORTABLE FP32 EXPORT VERIFIED
+extracted_circuits/regional_shared_head2_v1 contains666656scalars/2669957serializedbytes,torch-onlyruntime. Exporttensoridentity/ASTidentity/executionroundtrip pass; nativeFP32validation alreadyheld. Initialdiskfullpartialartifact rebuilt after npmcacheonlycleanup,receipt preserved. Inputgenerators/finalreadout remainexternal; fullgoalactive.
