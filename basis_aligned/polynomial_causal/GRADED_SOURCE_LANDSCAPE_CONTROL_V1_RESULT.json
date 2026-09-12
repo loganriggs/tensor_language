@@ -1,0 +1,44 @@
+{
+  "stationary_points": [
+    {
+      "theta": 0.0,
+      "loss": 0.3902439024390244,
+      "gradient": 0.0,
+      "curvature": 2.8536585365853653
+    },
+    {
+      "theta": 1.5707963267948966,
+      "loss": 0.6097560975609757,
+      "gradient": -1.0080934017371501e-16,
+      "curvature": 1.6463414634146336
+    }
+  ],
+  "analytic_errors": [
+    5.551115123125783e-17,
+    1.1000100623363558e-15
+  ],
+  "fits": [
+    {
+      "initial_angle": 0.2,
+      "initial_loss": 0.44442421789625275,
+      "loss": 0.3902439024390244,
+      "gradient": 2.7466708054379e-09,
+      "iterations": 12,
+      "monotone": true,
+      "axis1_squared": 1.0
+    },
+    {
+      "initial_angle": 1.4,
+      "initial_loss": 0.6327949841961322,
+      "loss": 0.6097560975609756,
+      "gradient": 2.4264511863184753e-08,
+      "iterations": 999,
+      "monotone": true,
+      "axis1_squared": 2.1722173869881229e-16
+    }
+  ],
+  "strict_bad_local_minimum": true,
+  "execution_seconds": 1.7495809979736805,
+  "source_sha": "23d2d408018219dbffaa68c0339c27179e952f04b46c6b535e9440241eb8c16e",
+  "scope": "Exact two-dimensional counterexample, not proof of a native-model trap or a global-recovery algorithm."
+}

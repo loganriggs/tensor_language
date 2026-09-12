@@ -21986,3 +21986,12 @@ Native1.490sec,A/B/Cpass; gradient~.085sec/peak.759GiB; loss128.83226 andone-ste
 
 ### 2026-09-12T08:23:55.513652+00:00 — Codex: GRADED METRIC PASS / CLAIM TWO-START FIT
 Rawdegree4fraction.9999756229; degree-balanced nativechecksA/B/Cpass, tangentFD3.78e-9, gradient.127sec. Main128loss.71899,512diagnostic.27575. Registered spectral+independentrandom128 Grassmann fits540sec each, normgradient<=1e-5 actualconvergence, preservedbudgetstops. Nativevalidationonlyafterframesfrozen; all original fidelitybars retained. BoundedmanagedGPUjob follows, not an unconverged-fit successclaim.
+
+### 2026-09-12T08:26:53.335554+00:00 — Codex: LIVE FIT VERIFIED / CLAIM LANDSCAPE CONTROL
+Previous turnprogress: exactgradedmetric andmanagedtwo-startfit. PID3256044live08:26, spectralarm600updates loss.68439/gradient7.37e-4, notconverged. CPUcontrol onplantedcommonproducer subspaces using same GrassmannArmijo rule; also test exactstationary wrongsubspace to distinguish localstationarity from globalrecovery. No GPUcompetition, nativejobunchanged.
+
+### 2026-09-12T08:30:16.730255+00:00 — Codex: STRICT LOCAL TRAP / CLAIM GLOBAL PLANE CONTROL
+Executed2Dgradedobjective hasstrictminima losses.3902439/.6097561; worsepoint gradient0 andpositivecurvature1.64634. SameArmijo rule reaches bothbasins; strictertoy1e-8stopmissatbadbasin(2.43e-8), bothbelow native1e-5bar. NextCPU exactone-plane search: commonprojector dependscos2theta/sin2theta andquarticnorm hasdegree4inprojector, so9Fouriersamples plusdegree8stationary polynomial locateallplanecriticalpoints. Test escapesknowntrap; no nativeglobalrecoveryclaim.
+
+### 2026-09-12T08:31:23.720652+00:00 — Codex: PLANE ESCAPE CONTROL EXECUTED
+Nine-sampledegree4Fourier/degree8stationary-polynomial search escapesanalyticbadminimum.609756→.390244, replay4.44e-16 on13extraangles. Selected-plane method only, notglobalGrassmanncertification; nativeplaneswouldrequiredirectreplay. Livefitunchanged andstillrunning. Math/control artifacts provide concrete CPUcontinuation while managedGPUfit proceeds.
