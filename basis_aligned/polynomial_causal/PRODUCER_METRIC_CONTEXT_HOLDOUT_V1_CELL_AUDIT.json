@@ -1,0 +1,47 @@
+{
+  "pred_a": true,
+  "arms": [
+    {
+      "name": "initial",
+      "passed_swap_cells": 20,
+      "failed_swap_cells": [
+        "A1:context0",
+        "A1:context2",
+        "A1:context7",
+        "A2:context0",
+        "A2:context1",
+        "A2:context2",
+        "A2:context3",
+        "A2:context4",
+        "A2:context6",
+        "A2:context7",
+        "progressive:context0",
+        "progressive:context3"
+      ],
+      "swap_failures_also_capability_failures": [],
+      "maximum_removal_disagreement": 0.021104801446199417
+    },
+    {
+      "name": "candidate",
+      "passed_swap_cells": 27,
+      "failed_swap_cells": [
+        "A2:context1",
+        "progressive:context0",
+        "progressive:context1",
+        "progressive:context3",
+        "progressive:context6"
+      ],
+      "swap_failures_also_capability_failures": [],
+      "maximum_removal_disagreement": 0.010944575071334839
+    }
+  ],
+  "failed_capability_cells": [
+    "past:context0",
+    "past:context2",
+    "past:context4",
+    "past:context5",
+    "past:context6",
+    "past:context7"
+  ],
+  "scope": "Post-result registered-cell accounting. No cell exclusion or threshold repair; native-capability failures do not account for weighted swap failures."
+}

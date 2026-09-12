@@ -1,0 +1,113 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "reports": [
+    {
+      "metric": "identity",
+      "seed": 120423,
+      "kind": "candidate",
+      "offblock_energy_fraction": 0.44950801882647573,
+      "incident_fraction": 0.4990256563718042,
+      "normalized_cut": 0.8990194515732554
+    },
+    {
+      "metric": "identity",
+      "seed": 120423,
+      "kind": "random_basis",
+      "offblock_energy_fraction": 0.4991080722870771,
+      "incident_fraction": 0.5004534701267116,
+      "normalized_cut": 0.9982169656481592
+    },
+    {
+      "metric": "identity",
+      "seed": 120424,
+      "kind": "candidate",
+      "offblock_energy_fraction": 0.4497350654884942,
+      "incident_fraction": 0.4993160248108112,
+      "normalized_cut": 0.8994718141480144
+    },
+    {
+      "metric": "identity",
+      "seed": 120424,
+      "kind": "random_basis",
+      "offblock_energy_fraction": 0.4990987108972973,
+      "incident_fraction": 0.4995335599948854,
+      "normalized_cut": 0.9981982904917432
+    },
+    {
+      "metric": "producer",
+      "seed": 120423,
+      "kind": "candidate",
+      "offblock_energy_fraction": 0.4562397978489867,
+      "incident_fraction": 0.5004639817341903,
+      "normalized_cut": 0.9124803814496107
+    },
+    {
+      "metric": "producer",
+      "seed": 120423,
+      "kind": "random_basis",
+      "offblock_energy_fraction": 0.49915703420882224,
+      "incident_fraction": 0.5007745567430435,
+      "normalized_cut": 0.9983164641301677
+    },
+    {
+      "metric": "producer",
+      "seed": 120424,
+      "kind": "candidate",
+      "offblock_energy_fraction": 0.4598684800072574,
+      "incident_fraction": 0.481779902510543,
+      "normalized_cut": 0.9209598914279342
+    },
+    {
+      "metric": "producer",
+      "seed": 120424,
+      "kind": "random_basis",
+      "offblock_energy_fraction": 0.4987060631567806,
+      "incident_fraction": 0.49754865559380945,
+      "normalized_cut": 0.9974361010443602
+    }
+  ],
+  "agreement": {
+    "identity": 0.5137812146477461,
+    "producer": 0.5127648880144092
+  },
+  "numerical_errors": [
+    6.820718005557855e-16,
+    3.883889320167731e-15,
+    0.0,
+    6.91765380863957e-16,
+    1.791012848370356e-15,
+    0.0,
+    5.097881626105952e-16,
+    3.871037403897049e-15,
+    1.9737298215558337e-16,
+    8.095650819891089e-16,
+    1.7886899978092823e-15,
+    0.0,
+    6.096631827724265e-16,
+    3.7479079232934195e-15,
+    1.9737298215558337e-16,
+    6.397701878198453e-16,
+    1.8018632107240898e-15,
+    0.0,
+    3.856682154958145e-16,
+    3.771990953140098e-15,
+    0.0,
+    6.493169544192429e-16,
+    1.7817836244594343e-15,
+    1.9737298215558337e-16
+  ],
+  "execution_seconds": 4.5307517275214195,
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/fullu_input_blocks_v1.py": "2e1ef4567b0938f17d4520023c54bd3ea34e2de91122e4e937ecd9c40c001cea",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FULLU_INPUT_BLOCKS_V1_MATH.md": "9d360a0279076dd06999b340a1812c19caa797001df2c1099bdfc3f1d136ca6f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/FULLU_INPUT_BLOCKS_V1_CONTROL.json": "f8feee3390b17dc09a0c0817e3c1f20738764bf495dfdd1741753356ed795986",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/quadratic_producer_projection_v1.py": "3918dbcddf683ad606746e9f3037965f4b6ecd5eedf7e682a62960a877590c08",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/sparse_path_stability_atlas_v1.py": "ccebc47d0c90b75c2a4b5646e6ef58c79cd55d3b518af265b55c747828549cf0",
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_fullu_input_blocks_v2.py": "3dcd277fce733b048197ab765ef5bc9c605226ca6c680c5912a15f9d47a6f0cf"
+  },
+  "artifact_sha": "e43829947d4790e7400e9a29979618fb16f8df9ff956542b6a06b2278e73c335",
+  "scope": "weight-only block screen; no behavioral identification"
+}

@@ -1,6 +1,6 @@
 # Current research state
 
-**12 September, 03:48 UTC:** [producer-metric results](../../PRODUCER_METRIC_SPECTRAL_V1_RESULTS.md) pass original developmental swaps/removals at equal size; coefficient-error improvement3.1–3.3% misses the10% prediction. The inspected-panel diagnostic also passes, including progressive4.52%, but is not clean confirmation. A frozen512-pair contextual test comparing both programs is submitted through the shared runner; no circuit promotion. Independent CPU analysis finds strong shared mixtures but a three-parent merge fails removal fidelity: over99% of its coefficient error comes from mixed products involving the discarded differences.
+**12 September,04:30 UTC:** [full-U producer folding](../../FULLU_PAIRED_PRODUCER_V1_RESULTS.md) fails rank32 sufficiency despite improvement. The [full-output input-block screen](../../FULLU_INPUT_BLOCKS_V1_RESULTS.md) also fails: normalized cuts0.912/0.921 and cross-seed overlap0.513. Exact-gradient CPU controls now enable direct input-subspace rotation to audit that search restriction. No circuit promotion. [Context results](../../PRODUCER_METRIC_SPECTRAL_V1_RESULTS.md#contextual-confirmation-completed-five-swap-cells-fail) remain failed without exclusions. [Hourly04:27](../../HOURLY_STRATEGIC_REVIEW_2026-09-12_0427.md); next math05:00.
 
 ## Earlier entries — historical status, superseded where stated above
 

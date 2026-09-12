@@ -77,3 +77,13 @@ The full goal remains substantially open:
 - Structural simplicity:76,096 fitted values describe this approximation conditional on15.93million shared producer values. The entire teacher background also remains in the test harness. There is no claimed whole-model parameter reduction or end-to-end cheaper deployment.
 
 The handoff's updated criterion requires a previously unspecified reusable computation with explicit consumers and fewer independently specified computations. These results provide a controlled approximation and constraints on graph discovery; they do not satisfy that criterion merely by reproducing a selected two-output projection.
+
+## Contextual confirmation completed: five swap cells fail
+
+The [512-pair result](PRODUCER_METRIC_CONTEXT_HOLDOUT_V1_RESULT.json) completes130body forwards/1040sequences in7.42seconds excluding binding checks. Numerical A passes: physical/manual controls<=7.0e-7 and composed algebra<=3.9e-15. All32weighted removal and write-error cells pass; maximum disagreement0.010945nats and maximum write error1.957%. Registered B and E fail.
+
+Weighted swaps pass27/32cells, compared with20/32for the ordinary baseline. The weighted failures are count/context1 at10.95% and progressive/contexts0,1,3,6 at15.78/10.58/12.66/14.41%. All failed cells remain in the result. This improves contextual fidelity but does not pass the registered all-cell prediction.
+
+Native capability fails in six past-tense base cells: contexts0,2,4,5,6,7 have0–12.5%correct proposed base-answer contrasts. The preceding past-tense wording can support a narrative reading, so this is a failure to establish the intended native capability, not a claim that the model violates an unambiguous grammar rule. No examples were relabelled or deleted. The [cell audit](PRODUCER_METRIC_CONTEXT_HOLDOUT_V1_CELL_AUDIT.json) shows these failures are **disjoint** from the five weighted swap failures; they cannot explain away B. An all-cell criterion is not replaced by an average over favorable contexts.
+
+The next experiment broadens the weight-first object to the [full-unembedding paired producer path](FULLU_PAIRED_PRODUCER_V1_PREREGISTRATION.md), reusing the established full-U output-function spectrum with the producer metric. Its small explicit-tensor control passes; native execution is submitted separately. The point is to test structure and sufficiency for the complete interaction path, rather than continuing to tune this selected two-output slice. No circuit is promoted from these contextual results.

@@ -21674,3 +21674,18 @@ Tokenloadingtop128captures2.756%energy; nofocusedpronoun/quoteidentityfromtopwei
 
 ### 2026-09-12T04:04:27.659381+00:00 — Codex: OUTPUT INTERPRETATION RECORDED
 Rotation-invarianttop128tokenloadingenergy2.756%. Exactreference-removal CEpartition85–95%outsideselectedanswer/foilpair in signedmeans; binarydamagepositiveonly34–47%endpoints. Supportsbroaddistributioncontribution, notselectivemorphologyidentity. PrimaryPRODUCER_METRIC_SPECTRAL_V1_RESULTS nowstatesfullgoalstatusandteacherbackgroundcost; no claimedwholemodelreduction. Contextjobstillqueuedbehindverifiedlivev635.
+
+### 2026-09-12T04:10:51.343531+00:00 — Codex: CONTEXT CONFIRMATION FAILS / CLAIM FULL-U PAIRED EXTENSION
+Contextterminal7.42sec,A/C/Dpass,B/Efail. Weighted27/32swapcells vsordinary20/32; maxwrite1.957%,maxremoval.010945. FailedswapcellsA2context1 andprogressive0/1/3/6; sixnative-capabilityfailuresarepastcells,disjointfromswapfailures. Preserveall. Nextweight-first fulltargetextension: comparefull-U output-function spectrum H=I versusnativeproducerH, reusingaudit_fullu_output_functions_v1.spectrum. CPUexplicitpairedquarticcontrol thennativefull-U rank32sufficiency/interventioncomparison, notmoretuningofselectedtwo-outputslice. Oldfull-Ubaselinechecked; newmetricdistinct.
+
+### 2026-09-12T04:14:50.183474+00:00 — Codex: CONTEXT FAILURE PUBLISHED / FULL-U JOB SUBMITTED
+Contextcell audit confirmsallfiveweightedBfailuresareoutside thesixweak-nativepastcells; no relabel/drop. Full-U pairedextension sourceac9889ecf5fe97fd0f84687c2da2f8f50c22c529e471c10abf854f4983eb5f43 submittedmanagedlane1. Reusesoldfull-U spectrumfunction andexactpairedproducercontrol<=2.4e-15. Newreferenceiscompletebias-freetwo-layerpath, notoldtwo-outputgroup; no sparsity/semanticclaimfromspectraalone.
+
+### 2026-09-12T04:23:32.378071+00:00 — Codex: FULL-U TERMINAL / CLAIM COMPOSED INPUT-BLOCK KERNEL
+Full-U job terminal exit0: centered rank32 capture11.546→12.700%, relativegain9.9948% misses10%; fullpathwrite82.66→47.41%, intervention bars fail. Test common input blocks retaining all output directions, rather than tune output rank. Prior MLP0 commutant rungs340/346 and existing toy checked; new object is producer-weighted full-U two-MLP composition. Claim fullu_input_blocks_v1.py plus math/control: exact Gram-contracted commutator and normalized block leakage, with explicit dense oracle and quiet-direction counterexample. CPU only initially; no queue change.
+
+### 2026-09-12T04:29:23.440672+00:00 — Codex: INPUT-BLOCK SCREEN TERMINAL / CLAIM EXACT ROTATION GRADIENT
+Managed V2 source3dcd277f passed preflight, completed04:28:08 in4.53sec. V1 enqueue rejected keyword-style pred keys; V2 makes identical predictions explicit string keys. A passes; B/C fail: producer normalized cuts near0.92 vsrandom0.998, substantial cross-block energy. Next executed CPU step derives/checks Grassmann gradient of exact all-output normalized cut, removing the fixed sketch-eigenbasis restriction. Claim fullu_block_rotation_v1.py/control and unbound result note; no behavior/rank retuning.
+
+### 2026-09-12T04:30:40.945237+00:00 — Codex: HOURLY04:27 / EXACT BLOCK ROTATION CONTROLLED
+All three workflow gates pass with recorded-category caveats. Native block B/C fail; primary FULLU_INPUT_BLOCKS_V1_RESULTS.md preserves complete verdict. Exact normalized-cut Grassmann derivative checked at3.47e-10 finite-difference error and actual descent, removing fixed-basis restriction in next implementation. CPU continuation executed; no new queued job or identified circuit. Next hourly05:27/math05:00.
