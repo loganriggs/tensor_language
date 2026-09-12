@@ -1,0 +1,38 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "reports": [
+    {
+      "seed": 11511,
+      "diagnostics": {
+        "rank": 32,
+        "normal_residual": 1.0925259390433249e-15,
+        "minimum_scaled_eigenvalue": 0.2157016307107446
+      },
+      "baseline_native_error": 0.5543982385995914,
+      "coupled_native_error": 0.5691156740163639,
+      "objective_without_target_constant_before": -2.956252878556271e+17,
+      "objective_without_target_constant_after": -3.027959768220522e+17,
+      "objective_delta": -7170688966425152.0,
+      "relative_objective_delta": -0.0242560067118719
+    },
+    {
+      "seed": 11512,
+      "diagnostics": {
+        "rank": 32,
+        "normal_residual": 1.187115745191613e-15,
+        "minimum_scaled_eigenvalue": 0.22601073689820836
+      },
+      "baseline_native_error": 0.5489428439546125,
+      "coupled_native_error": 0.5631173789269873,
+      "objective_without_target_constant_before": -3.0060445465437734e+17,
+      "objective_without_target_constant_after": -3.076955129587594e+17,
+      "objective_delta": -7091058304382080.0,
+      "relative_objective_delta": -0.023589332076050195
+    }
+  ],
+  "artifact_sha256": "6b7373b7bcd846626f6178d075aa9b56ebbbc4ccb2baa52515f8254b8bfdbbab",
+  "wall_seconds": 3.7393657565116882,
+  "scope": "Exact global linear writer optimum in fixed32feature span, not nonlinear optimum or OOD validation."
+}
