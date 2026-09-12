@@ -22460,3 +22460,6 @@ Native A/B/C pass; child2.78e-7 versus1e-5, fullwrite6.52e-8, effect7.46e-6. Exp
 
 ### 2026-09-12T15:21:59.336037+00:00 — Codex: CLAIM COMPETING REGIONAL CUE SCREEN
 Prior dossier has city-template generalization but no competing-role cue factorial for this extracted branch. Freeze mixed package. New48rows: two clause orders,6spelling concepts,target city Manchester/Seattle crossed with tourist city Liverpool/Denver. Test native target sensitivity, >=10% removal coverage, and target-versus-distractor selectivity>=2 in each order; numerical controls remain required. Failure may be native role-binding absence rather than extraction error. No data fitting.
+
+### 2026-09-12T15:24:47.798807+00:00 — Codex: COMPETING CUES A PASS B/C MISS / CLAIM CITY-ROLE CROSSOVER
+Native capability24/24 positive; mixedbranch target coverage11.15/9.59% misses10%bothorders. Target/distractor responses bothlarge in nativeandcomponent; relevance2xbar fails. Numerical4.19e-7child,6.40e-8fullpass. Citypairassignedtorole confounds semantic conclusion. Next48samefactorialrows with editor Liverpool/Denver andtourist Manchester/Seattle; identical bars and frozenpackage. Combine96rows for role main effects, lexicalpair interaction; originalmisspreserved.
