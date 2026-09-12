@@ -21740,3 +21740,15 @@ Terminal05:02:44,2.45sec: A/B/Cpass,Dfail. All4starts21–36steps converge to sa
 
 ### 2026-09-12T05:05:32.695888+00:00 — Codex: SHARED PARENT ANATOMY RECORDED / NEXT NATIVE INTERFACE
 CPU quadraticnorm1 andparentreplay1.29e-15; top32energy28.86%,rank90=461,radial3.48%. Primary COMPOSED_SHARED_PARENT_V1_RESULTS records stablecomputation butbroadpartners, no semantic/OODclaim. Nextfreezeexistingrank16partner approximation andscoreexactstar/referencevsapprox on reuseddevelopmentalcache withsharednative tail; no datafit/rankselection. Exactproducerconsumercompilation alreadyexecuted.
+
+### 2026-09-12T05:08:05.073832+00:00 — Codex: CLAIM FROZEN SHARED-PARENT NATIVE VALIDATION
+Freeze discovered program311c87dd and rank16 partner from weight-metric SVD, no text/rank fitting. Compare exact star and compact partner on existing128endpoint developmental cache using quartic_frozen_native_score_v2; newexactstarreference, no oldcomponent effect replay. A formal/compiledwriteidentity<=1e-8, B eachfamilyswap<=.1/sign>=.9/live>=4, C removalCEerror<=.02, D familywrite<=.05. Report fullreference signed effects without task-semantic assumption. Consumer-first compile17neededreads intoD16 andprice allnativeL/R. Claim runner/prereg/binding/artifact/results.
+
+### 2026-09-12T05:08:58.545118+00:00 — Codex: FROZEN PARENT NATIVE VALIDATION QUEUED
+Source6dc666096ae77e5f6aafe99be8f252c00a314a0c2fba69bddac86a1126ae2b0c passes managed preflight. Rank16 fixed in weight search, same128reused endpoints, nativefloat32tail. Compiled17producerproductreaders and16writers include exactparent pluslowrankpartner, nativeL16/R16/background stillrequired. Awaitactualterminalreceipt before interpretingfidelity.
+
+### 2026-09-12T05:10:34.015845+00:00 — Codex: PARENT RANK16 NATIVE FIDELITY FAILS / CLAIM SWAP ERROR ACCOUNTING
+Terminal2.37sec,ApassB/C/Dfail. Write13.39%; swaps6.92/44.09/38.33/41.55%,removalerrors.0450/.0629/.0315/.0359. Exactparent retained, so no reader refit. CPU decompose donor-base error into mean(parent/den)*delta(partnererror) plus mean(partnererror)*delta(parent/den), with exact vector identity and midpoint native-margin derivative attribution. This tests counterfactual error source without datafit, rankchange orfailedbarrepair.
+
+### 2026-09-12T05:11:54.597603+00:00 — Codex: PARENT NATIVE FAILURE ACCOUNTED
+Exactdelta-error identity7.05e-15. Midpoint native-margin derivative predicts actualerror within0.0035–0.0072%; partner-change RMS dominates failed A2/past/progressive. Scalarincludesnative denominator; cross terms retained, no attribution percentages withoutcancellation. Primary COMPOSED_PARENT_NATIVE_V1_RESULTS contains scoredfailedbars,price andmixedreferenceeffects. No rankselection ordatafitrepair; fullparent stillnotsemantic circuit.

@@ -1,0 +1,47 @@
+{
+  "vector_identity_relative_error": 7.046497368804339e-15,
+  "families": [
+    {
+      "family": "A1",
+      "partner_change_vector_energy": 1.183457268729039,
+      "scalar_change_vector_energy": 0.8283120234796366,
+      "cross_vector_energy": -1.0117692922086763,
+      "midpoint_margin_relative_error": 7.159614129440118e-05,
+      "partner_change_margin_rms": 0.030025232552998982,
+      "scalar_change_margin_rms": 0.01631413788136523,
+      "actual_margin_error_rms": 0.01827060140797146
+    },
+    {
+      "family": "A2",
+      "partner_change_vector_energy": 1.007802971897027,
+      "scalar_change_vector_energy": 0.11186934746559984,
+      "cross_vector_energy": -0.11967231936262665,
+      "midpoint_margin_relative_error": 4.5763664336330876e-05,
+      "partner_change_margin_rms": 0.026265879993674662,
+      "scalar_change_margin_rms": 0.0048420830643326,
+      "actual_margin_error_rms": 0.02876201217573537
+    },
+    {
+      "family": "past",
+      "partner_change_vector_energy": 0.8725418258067341,
+      "scalar_change_vector_energy": 0.05505093437226646,
+      "cross_vector_energy": 0.07240723982099818,
+      "midpoint_margin_relative_error": 3.870307534985305e-05,
+      "partner_change_margin_rms": 0.030708671121260498,
+      "scalar_change_margin_rms": 0.001702190415796746,
+      "actual_margin_error_rms": 0.030742063306709307
+    },
+    {
+      "family": "progressive",
+      "partner_change_vector_energy": 0.6288670132162323,
+      "scalar_change_vector_energy": 0.31723324117600443,
+      "cross_vector_energy": 0.05389974560776319,
+      "midpoint_margin_relative_error": 3.522688240153048e-05,
+      "partner_change_margin_rms": 0.029083452584658772,
+      "scalar_change_margin_rms": 0.011099319976808728,
+      "actual_margin_error_rms": 0.03325511610861757
+    }
+  ],
+  "execution_seconds": 0.12632906436920166,
+  "scope": "Diagnostic on reused development rows. Scalar includes parent and fixed native MLP17 denominator. Energy terms include signed cross contribution, not independent percentages; midpoint derivative is approximate."
+}
