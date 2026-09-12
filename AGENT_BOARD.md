@@ -22175,3 +22175,12 @@ Runner75ba2bcc passesmanagedgate;7bodyforwards,16suffix vertices. Nativefourport
 
 ### 2026-09-12T11:09:55.286281+00:00 — Codex: HELD-OUT CHILD-ROLE INTERCHANGE QUEUED
 Runner33cfb827passesmanagedgate. Predictchildbundle>=90%whole-blocktransferinall4geographic/spellingfamilies, unrelated<=.5regional; no factorfit. Same16portgrid,10forwards48rows. Whole-block outcomespreviouslyseen, factor-role outcomesheldout; scopeexplicit.
+
+### 2026-09-12T11:11:11.031064+00:00 — Codex: CHILD ROLE HELD-OUT PASS / CLAIM CROSS-START GRAPH AUDIT
+All4familiesfactorA/B/Cpass,3.28sec; child-onlytransfer~100–106%fulltransfer,parent small. Check structuralstability atsharedparent+childsubspace grain, sinceoldliteralatom matchingmissed. CPUweight-onlymatch frozencommonquadratic parent against allsourceatoms ofotherindependentfit; require2atoms withbothparentreaderabs cos>=.99, then report2Dsourcefunctionprincipalcosines. No semanticdata used to select matches.
+
+### 2026-09-12T11:12:23.925431+00:00 — Codex: CROSS-START GRAPH MATCH PASS / CLAIM PRIVATE-WRITER FUNCTION CHECK
+Otherfitatoms11/2match bothparentreaders>=.999664; pairedcubicfunctionspan principalcosines.999894/.999670. This recoversstableblock missedbyliteralatommatching. Next CPU exact coefficient innerproduct of selectedtwo-child writes, keepingeachfit ownfull-dictionary eliminatedquerywriters; source-onlymatching doesnotprovefunctionmatching.
+
+### 2026-09-12T11:14:03.465081+00:00 — Codex: CROSS-START FUNCTION AUDIT PASS / NATIVE CORRESPONDENCE REGISTERED
+Complete selectedblock coefficientcos.999640/.999623,error2.685/2.747%, retainingindependentquerywriters. Sourcegraphmatchthereforenotjustinputangles. Mainmath/dossierrecordchild-roleheld-outpass andparentfailure; nextfrozennativeindependent-fit removalcomparison on48OODrows registered. No four-propertypromotion.

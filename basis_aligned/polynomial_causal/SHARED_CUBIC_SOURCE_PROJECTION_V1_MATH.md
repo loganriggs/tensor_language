@@ -458,3 +458,53 @@ separate the block into actual gate, quadratic parent, child-linear bundle and
 private query writers. Exact controlled extraction and16vertex intervention
 algebra now permit a test of which port carries the cue. A useful shared operation
 need not itself be the semantic label; preserve that distinction during naming.
+
+
+## Factor interchange identifies the child readings as the cue-carrying port
+
+The [native four-port experiment](REGIONAL_FACTOR_INTERCHANGE_V1_RESULT.json)
+passes A/B and fails C, the registered quadratic-parent dominance prediction.
+Recipient and complete-donor write replay agree with the saved implementation
+within1.20e-15; all16finite intervention vertices reconstruct exactly at reported
+precision. Full-block paired transplant transfers0.2476/0.5060nats of regional
+cue effect. Parent-only swaps transfer0.0126/0.0113nats, just5.09%/2.24%of that.
+Swapping the child-linear tuple transfers0.2583/0.5318nats, or104.35%/105.10%.
+Gate-only and query-writer-only transfers are small and negative on these rows.
+Values above100%are possible because other ports and interactions partly oppose
+this transfer. Do not sum single-port effects as an exact decomposition.
+
+The [registered held-out role test](REGIONAL_FACTOR_INTERCHANGE_OOD_V1_PREREGISTRATION.md)
+then predicts child-tuple dominance on the geographic/new-spelling rows, without
+fitting. [All four families pass A/B/C](REGIONAL_FACTOR_INTERCHANGE_OOD_V1_RESULT.json).
+Child-only transfers are0.3213,0.4656,0.1812,0.4000nats versus complete-block
+0.3201,0.4592,0.1766,0.3785nats. Thus the two-dimensional linear reading carries
+most of this paired cue difference. The shared quadratic remains a reusable
+modulating computation, not itself the dominant regional cue representation.
+This distinction is a result of the intervention test, not a semantic name
+assigned merely from factor shape or top output tokens.
+
+[Weight stream accounting](REGIONAL_FACTOR_INTERCHANGE_V1_ROLE_AUDIT.json) finds
+first-layer-stream squared reader-norm fractions around0.097%/0.109%for the two
+children, even smaller for the parent readers. This suggests current residual
+inputs dominate weight geometry, but does not justify dropping the first stream
+without functional validation. The upstream producer of the regional reading
+remains unresolved; these are conditional port interventions, not input erasure.
+
+## The shared graph is stable across the two independent weight fits
+
+Earlier literal cubic-atom matching failed. A
+[weight-only graph audit](REGIONAL_SOURCE_CROSS_START_GRAPH_V1_AUDIT.json) instead
+matches the common quadratic parent to all atoms in the other independently
+initialized source fit, without semantic data. Exactly two leading matches,
+atoms11and2, have both parent-reader absolute cosines above0.99966. Their two
+cubic source functions span a subspace with principal cosines0.999894/0.999670
+against the current two-child block. This does not amend the original atom-level
+prediction; it identifies a more stable grouped unit.
+
+The [complete coefficient-function comparison](REGIONAL_SOURCE_CROSS_START_FUNCTION_V1_AUDIT.json)
+keeps each fit's own full-dictionary private query writers. Block function cosines
+are0.999640/0.999623at source7/0; relative norm errors2.685%/2.747%. Thus the
+agreement is not only in input readers. This is coefficient-space stability with
+fixed reference gates, not yet a native behavioral correspondence test between
+fits. The next comparison should replay both independently derived blocks on the
+same held-out prefixes and compare their signed intervention effects.

@@ -273,3 +273,13 @@ also passes all4families:10.2–13.9%regional cue reduction,24/24positive contra
 with the frozen all-source block. This supports limited lexical/template transfer.
 Which of the parent, children, query writers or gates carries the regional cue
 remains unresolved; a four-port interchange test is registered.
+
+
+[Factor interchange](../../polynomial_causal/REGIONAL_FACTOR_INTERCHANGE_OOD_V1_RESULT.json)
+locates most paired regional-cue transfer in the block's two child-linear readings,
+not its shared quadratic parent; this role passes all4held-out families. The
+parent-dominance prediction on the original32prompts failed and remains recorded.
+[Cross-start graph matching](../../polynomial_causal/REGIONAL_SOURCE_CROSS_START_GRAPH_V1_AUDIT.json)
+finds the same parent/two-dimensional source span in the other weight fit; complete
+coefficient-function errors are2.7%. Native cross-start intervention agreement and
+upstream producers remain untested.

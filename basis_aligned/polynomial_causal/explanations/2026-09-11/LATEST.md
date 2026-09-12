@@ -1,3 +1,7 @@
+### 12 September, 11:13 — Cue transfer lies in the linear children; graph matches across starts
+
+Four-port intervention finds child-linear tuple carries most regional cue transfer, confirmed on all4held-out families; parent-dominance prediction fails. Weight-only graph matching recovers the same shared parent in the other fit; full block coefficient functions differ~2.7%. [Results and scope](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md). Native cross-start correspondence is next; full goal remains open.
+
 ### 12 September, 11:04 — Regional component transfers to unseen spellings and city cues
 
 All4newfamilies pass; removal reduces regional cue gaps10.2–13.9%,24/24contrasts positive, no fitting. [Results and limits](../../SHARED_CUBIC_SOURCE_PROJECTION_V1_MATH.md). [Math11:00](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_1100.md) supplies exact four-port interchange to locate the cue within the shared graph; controls and paired-position checks pass. Native interchange remains next. Nextmath14:00/hourly11:36.
