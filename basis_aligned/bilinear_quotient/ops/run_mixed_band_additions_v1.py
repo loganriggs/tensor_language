@@ -62,7 +62,6 @@ def main():
    else:
     scalar=pieces[...,selected,1 if index==0 else 0].sum(-1)
     return output[0]-(scalar[...,None]*writers[index]).to(output[0].dtype),output[1]
-  return output[0]-(scalar[...,None]*writers[index]).to(output[0].dtype),output[1]
   return output
  handles=[]
  for index,layer,head in ((0,8,2),(1,9,8)):
