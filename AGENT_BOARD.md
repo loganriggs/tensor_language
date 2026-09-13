@@ -23924,3 +23924,9 @@ Prior shared-key/valueGaussian covariance moves2.62%Frobenius, but that doesnotb
 
 ### 2026-09-13T14:56:42.524945+00:00 — Codex: finalGaussianmetricbound PASS
 Generalizedeigenvalues1.00010..1.10705; squaredmetricdistortion1.10694, normfactor1.05211; extremalwitnessreplayexact. Limits howmuchthis unnormalizedGaussian marginalalonechanges the independent-value objective, notnativebehavior orrawcoefficientmetric. Nextsetting2workmustaddactualretaineddependencies. NoGPU/refit. Primary SHARED_KEY_VALUE_METRIC_BOUND_V1_RESULT.json, mathandcopyablepromptupdatedbeforeexpiry.
+
+### 2026-09-13T14:57:56.888715+00:00 — Codex: exact Gaussian query-average CLAIM
+Eliminate256querysample limitationinlastbound usingGaussianfourthmoments, firstchecksmallGaussHermitequadratureagainstexistingexactsource moment. Then actualweightsCPU generalizedmetricbounds; sameunnormalizedcurrentvalue zero-lagscope. Predict<=1.2distortion; preservepriorfinitequeryreceipt. NoGPU/fitting.
+
+### 2026-09-13T14:58:36.150290+00:00 — Codex: exactGaussianquerybound completed
+Quadraturecontrol4.36e-16; exactpopulationmetricdistortion1.10560724, confirmingfinite256queryresult. Preservesnormalized/native/gatedlimitations. Receipt EXACT_GAUSSIAN_METRIC_V1_RESULT.json andderivation inSHARED_KEY_VALUE_MOMENT_V1_MATH.md; finalreport/promptupdated. NoGPU/fitting.

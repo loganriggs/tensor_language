@@ -177,3 +177,5 @@ The project’s four desired properties remain the goal: OOD prediction, extract
 
 
 **Late CPU addendum,14:55UTC:** a final calculation strengthens the earlier joint QK/value marginal diagnostic. For the same simplified Gaussian model, the exact shared-input metric and the independent-value metric differ by at most a1.107factor in relative squared-error weighting, including weak directions. This argues against an expensive refit based only on that correction. The proposed next objective must include actual retained gates, normalization or other missing dependencies. No new fit or behavioral experiment was run. [Derivation and limits](../../SHARED_KEY_VALUE_MOMENT_V1_MATH.md#1455--bound-the-metric-change-including-weak-directions).
+
+At14:58, exact Gaussian query integration replaced the256-query average and confirmed the conclusion: squared-error metric distortion1.1056, with a quadrature-checked formula. The bound now applies to that full assumed Gaussian model; it still does not cover native normalized inputs.

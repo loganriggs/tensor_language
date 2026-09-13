@@ -80,3 +80,37 @@ new behavioral test or absence-of-structure claim follows.
 
 [Calculation](check_shared_key_value_metric_bound_v1.py) ·
 [Primary receipt](SHARED_KEY_VALUE_METRIC_BOUND_V1_RESULT.json).
+
+
+### 14:58 — Remove finite-query sampling from the bound
+
+A second CPU calculation averages over the full independent standard Gaussian
+query distribution analytically. Let effective source readers be $a=Aq,b=Bq$,
+and put $G_A=A^\top A,G_B=B^\top B,S=(A^\top B+B^\top A)/2$.
+The only needed query identity is
+
+$$
+\mathbb E[(q^\top Gq)qq^\top]=\operatorname{tr}(G)I+2G
+$$
+
+for symmetric$G$. Applied to each source-moment term above, it gives
+$\mathbb E[\|b\|^2aa^\top]=A[\operatorname{tr}(G_B)I+2G_B]A^\top$
+and $\mathbb E[(a^\top b)ab^\top]=A[\operatorname{tr}(S)I+2S]B^\top$.
+The scalar multiplier averages to
+
+$$
+\bar c=\operatorname{tr}(G_A)\operatorname{tr}(G_B)
++2\operatorname{tr}(G_AG_B)+2\operatorname{tr}(S)^2+4\operatorname{tr}(S^2).
+$$
+
+Three-point-per-query-dimension Gauss–Hermite quadrature validates the tiny
+control at4.36e-16relative error. The actual head17.2 generalized eigenvalues
+are1.000146609..1.105769329: squared-objective distortion1.10560724,
+error-norm factor1.05147860. The <=1.2prediction passes, so finite-query
+sampling does not explain the earlier small distortion. This removes that
+methodological limitation only; all unnormalized/current-value/independence/
+zero-displacement restrictions still apply. It does not rule out structure in
+the actual retained normalized interaction.
+
+[Exact calculation](check_exact_gaussian_metric_v1.py) ·
+[Receipt](EXACT_GAUSSIAN_METRIC_V1_RESULT.json).
