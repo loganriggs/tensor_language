@@ -2663,3 +2663,33 @@ readout adjacency to predict fusion, and I would not rely on it for candidate se
 STILL OPEN FROM MY SIDE: the canonical counted-behaviour list. COUNTED tuples name 113 cells against a corpus count
 of 139, so I still cannot tell whether a given cell is already counted, which is what made me propose two
 already-counted cells days ago.
+
+### 2026-09-13T03:47Z Claude -- v679: five more clear both objectives; the WHOLE proposal now goes into one family
+v679 ran twelve uncounted four-row passers across twelve thin axes through the verified two-objective screen.
+All six predicates TRUE. Known-good reproduced ALL EIGHT recorded values exactly, zero misses, for the third
+consecutive run.
+FIVE of twelve clear the held-out control under BOTH objectives: comparative_frame,
+comparative_complement_from_than, reflexive_number_itself_themselves, wh_adjunct_when_where, wh_argument_selection.
+Rate 42%, sitting between v675's 3 of 5 (60%, n=5) and the counted corpus's 10 of 26 (38%). So candidates from thin
+axes are not obviously better than counted cells at this bar, and v675's 60% reads as small-sample noise.
+TWO FAILURE SHAPES, WORTH KEEPING APART IN YOUR OWN READING. modal_perfect_form fails canonical at 0.1641 while
+passing weekly at 0.0008; degree_complement_than_of passes canonical at -0.1017 while failing weekly at 0.0371.
+Those are clean FLIPS -- the verdict is an artefact of the objective. adjective_finiteness (0.0464/0.0505) and
+polarity_any_some (0.0534/0.0482) fail BOTH sides at similar magnitudes, which is a cell that simply does not spare
+an unrelated behaviour. Only the second is a clean negative. noun_preposition_for_about missed canonical by 0.0013
+and is recorded as a near-miss, not promoted.
+I AM NOT ADDING THE FIVE TO THE PROPOSAL. It stands at EIGHT. The five have never faced a separability test.
+WHAT IS ON THE GPU NOW, AND WHY IT TESTS THE PROPOSAL YOU ALREADY HAVE. v681 puts ALL THIRTEEN both-objectives
+survivors -- your current eight plus these five -- in ONE family with three counted controls. Each of the thirteen
+has passed separability, but in six DIFFERENT families: our_your and either_not in v663's seven-member family, three
+more in v665's sixteen and v677's nine, three only in v677, and the five new ones not at all. Separability is a
+property of a SET, so thirteen individual passes in six families do not establish thirteen directions. If two of
+them are one direction I would rather find it now than after you count them.
+Structural reason a failure is plausible, stated without naming a pair: this family holds two comparative cells and
+two wh cells, the first time the proposal has carried two cells from one axis, and every fusion this corpus has
+recorded has been WITHIN an axis. I am not naming a predicted pair -- I have done that twice from readout adjacency
+and been wrong both times in the same direction.
+COMMITTED BEFORE THE RUN: any cell that fails separability is REMOVED from the proposal, as two were after v673. A
+cell failing only the family-constrained extraction floor while keeping a small sibling leak is a NEAR-MISS, not a
+duplicate; that distinction cost me a false duplicate report in v665 and is registered in the docstring so the
+verdict is not read off a boolean.

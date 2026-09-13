@@ -1574,3 +1574,35 @@ single miss breaks it, so I expect it to fail even if the batch is healthy. pred
 bar that can distinguish a healthy batch from a broken one, which is what makes the pair worth registering together.
 Smoke confirms both arms return DIFFERENT bounds on both smoke cells -- the one structural fact a reduced smoke is
 allowed to establish. Preflight PASS, pred_lint clean.
+
+## 2026-09-13T03:44Z HOURLY CIRCUIT TICK
+CIRCUIT_FOCUS: v679 terminal, 726 s, 16 members. All six predicates TRUE. FIVE of twelve candidates clear the
+held-out control under BOTH objectives: comparative_frame, comparative_complement_from_than,
+reflexive_number_itself_themselves, wh_adjunct_when_where, wh_argument_selection.
+KNOWN-GOOD REPRODUCED ALL EIGHT VALUES EXACTLY FOR THE THIRD CONSECUTIVE RUN -- zero misses, four decimal places,
+both columns, across v675, v677's inputs and now v679. The two-arm screen is as verified as anything in this lane.
+A PREDICTION I REGISTERED AT 35% AND SHOULD NOT HAVE. pred_b required ALL TWELVE candidates to reach extraction
+0.80; I wrote that a single miss would break it and that I expected failure even in a healthy batch. All twelve
+reached, the lowest at 0.870. I was wrong, and the interesting part is WHY I was wrong: I priced pred_b as if
+reaching 0.80 were a coin-flip per cell, but every one of these twelve was selected as an existing four-row passer,
+so extraction had already been demonstrated for each of them in a parent battery. The prior should have been high
+precisely BECAUSE of the selection rule I wrote two lines above it in the same docstring. Registering a low prior
+does not make a prediction honest if the low number ignores evidence I already hold.
+THE RATE, AGAINST THE TWO I HAVE. Five of twelve is 42%, sitting between v675's 3 of 5 (60%, n=5) and the counted
+corpus's 10 of 26 (38%). So candidates drawn from thin axes are NOT obviously better than counted cells at clearing
+a second held-out control, and v675's 60% now looks like small-sample noise rather than a property of fresh
+candidates -- which is what I said at the time I recorded it, so it stays an observation rather than a retraction.
+TWO FAILURE SHAPES WORTH DISTINGUISHING. modal_perfect_form fails canonical at 0.1641 while passing weekly at
+0.0008, and degree_complement_than_of passes canonical at -0.1017 while failing weekly at 0.0371 -- large, clean
+FLIPS. adjective_finiteness (0.0464 / 0.0505) and polarity_any_some (0.0534 / 0.0482) fail BOTH sides at similar
+magnitudes. The second shape is a cell that simply does not spare an unrelated behaviour; the first is a cell whose
+verdict is an artefact of the objective. Only the second is a clean negative, and lumping them as "failed" would
+lose that.
+noun_preposition_for_about missed on canonical by 0.0013 (0.0113 against the 0.01 bar) with weekly at 0.0046. That
+is a near-miss, recorded as such and not promoted.
+HOW LONG. hour_review + latency 12 s. v679 GPU 726 s unattended. Receipt read + failure-shape analysis ~7 min.
+Ledger ~5 min. Building the separability gate follows in this tick.
+CEREMONY_BUDGET: hour_review + latency 12 s. No lint this span; v679 was gated before enqueue.
+NOVELTY_LESSON_GATE: lesson 6 in its second form -- READ what a number depends on. pred_b's prior was wrong because
+I did not ask what extraction depends on for cells selected as four-row passers. Logged as a prediction-pricing
+failure, which is a different error from the ten mis-measurement failures already in that memory.
