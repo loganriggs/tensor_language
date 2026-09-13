@@ -1454,3 +1454,31 @@ CEREMONY_BUDGET: hour_review + latency 12 s. No lint or preflight this span; v67
 NOVELTY_LESSON_GATE: the lesson that paid here is the one about registering the ACTION before the result -- the
 docstring committed the withdrawal in advance, so the decision did not get relitigated once I could see which cells
 failed. Prior-art search and claim were filed for v673 last hour; its claim is released this hour with the receipt.
+
+## 2026-09-13T00:48Z (same tick, circuit work) v675 queued -- a screen that fits BOTH objectives in one run
+WHY THIS IS THE RIGHT THING TO BUILD RATHER THAN ANOTHER BATCH. v671 and v673 between them established that a
+single-objective row-4 verdict is underdetermined for 40-46% of cells. Every screen in this lane has been
+single-objective, so every verdict it has produced carries that exposure. Getting both numbers has until now meant
+two runs of two different runners, comparable only because a known-good arm reproduced across them. v675 fits BOTH
+objectives on the SAME greedy unit set in one run and reports `both_objectives`, which is true only when a cell
+clears the HELD-OUT control either way. That is the standard v671 implies, computed in one place, and it is the
+reusable-codebase half of the controlling goal rather than another one-off.
+THE REPRODUCTION CHECK IS THE STRICTEST I HAVE WRITTEN. This module rebuilds TWO authorities, so pred_a demands all
+four known-good cells reproduce BOTH recorded bounds -- eight values, drawn from two different older single-arm
+runners, each within 0.01. It is built to catch one specific failure: if the second arm silently fitted the same
+objective as the first, the weekly column would equal the canonical column and pred_a would fail on every cell. It
+cannot pass by accident, which is the property lesson 7 actually asks for.
+STRUCTURAL CHECK ALREADY PASSED ON CPU. The smoke returns canonical 0.0128 and weekly 0.0014 for the same cell --
+DIFFERENT numbers from the two arms, which is the one thing the smoke can legitimately tell me. I read it as "the
+second objective is really being fitted", not as a measurement; both values are at 4 rows.
+FIVE CANDIDATES, AND WHAT I DROPPED. Uncounted four-row passers on stems no counted cell occupies, none used in
+v665: adj_adv_feel, aux_copy_ellipsis, countability_few_little, definiteness_anaphor_needed,
+determiner_number_crates. Dropped: lexical_number_pp, partitive_agreement, perfect_number, requested_subjunctive
+for avoided readouts; finiteness_selection, interrogative_licensing, lexical_number, narrative_tense,
+numbered_list_choice, numeric_sequence_choice, preposition_selection for having no readable vocabulary -- a readout
+I cannot inspect is one I cannot certify; did_has_negation for using "has" as a CUE despite clean readouts
+(" lift"/" lifted"), which the readout-only filter would have let through; and the entire gender stem, after v665
+showed gender_object_him_her fusing with the counted possessive_gender across a stem-name boundary.
+BAR REGISTERED LOW AND DELIBERATELY. Two of five. v667 put the single-objective yield on comparable backlog cells at
+3 of 11, and the both-objectives standard is strictly harder -- v673 lost 2 of 5 cells that had already cleared one
+objective. I expect a thin yield. The value here is the screen plus honest candidates, not a big number.
