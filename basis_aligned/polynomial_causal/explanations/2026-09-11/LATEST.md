@@ -1,3 +1,7 @@
+# Latest research state
+
+**13 September, 00:48 — Head8.2 value/routing split and conditional token-source executor.** Physical first-value-only path transfers−4.88% nearquote,24/24 opposing; mixed terms remain necessary. Weight-derived token inputs replay1.4e-7 and executablepath fields<4.7e-8, with contextual QK/Q7/norm/suffix explicitly external. Generated-first-sector20%field criterion remains failed. [Primary math and evidence](../../ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md). [Newest requested full report](../for_logan/LATEST.md).
+
 ## 13 September, 00:27 — Head8.2 path confirmed; scalar shortcut rejected
 
 [Native head test and weight-only scalar controls](../../MLP7_PHI_READERS_FOLD_V1_MATH.md#0027--head82-supplies-the-tested-attention8-partner-path): head8.2matchesnearH-only effect5.54%,24/24opposed; head/rest effectscomposewithin.103%. TwoexactweightSVD scalarizations missnativefield accuracy; retainfourreadings. Nexttargetcurrent/firstvalue andjointQK sourcecomputation, notmore scalarfitting.

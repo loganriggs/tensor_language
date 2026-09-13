@@ -41,3 +41,25 @@ Nine arms over the same96 prefixes: native, full head8.2 H-input donation, gener
 A: native/full replay <=1e-4. B: near-quote first-value-only has at least20/24 opposing effects and <=40% relative effect error to the full head8.2 path. C: separately measured generated current/first effects sum to full within10% relative error in every construction. Other routing/value compositions are reported descriptively. The earlier20% generated-first field criterion remains failed; this is a distinct physical input-port test, not a revised pass for that criterion.
 
 Price:864 full forwards,180-second runtime cap, cached conditional inputs, no data fitting. Primary script: `../bilinear_quotient/ops/run_attention8_phi_value_ports_v1.py`. No new OOD or broad preservation claim.
+
+## Physical value-port results
+
+The test completed with A/B/C held: full/native replay $2.37\times10^{-7}$,864 forwards in8.57seconds. In the near-quote construction, full head8.2 transfer is−5.787%; generated current is−1.491% and generated first is−4.312%, each24/24 opposing. Their separately measured effects sum within0.097–0.361% relative error across constructions.
+
+With recipient joint routing fixed, **first-value-only** transfer is−4.880%,24/24 opposing,31.06% relative effect error to the full path. Current-value-only is−1.379%,also24/24 opposing; routing-only is+0.079%,12/24 positive. Both values together give−6.241%. The two mixed routing/value terms together give+0.407% on average but mixed directions. Omitting mixed terms causes59.30% relative effect error across individual near-quote endpoints despite that small mean; the full three-group sum(routing,values,mixed) predicts the full effect within0.14–0.82% across constructions. This preserves the distinction between mean signed effect and the norm of a vector of per-prefix effects. [Physical receipt](ATTENTION8_PHI_VALUE_PORTS_V1_RESULT.json).
+
+First-value-only is not a uniformly opposing path: it is mixed on old anchors,19/24 opposing when fronted,24/24 opposing near-quote, and23/24 positive when distant. Its context dependence still comes through native routing and Q7. No broad sign-generalization claim follows.
+
+## Closing the first-value token generator
+
+Unlike the full contextual phi8 value(which failed the earlier token-only hypothesis), the shared first-layer **source value** precedes attention0. Its fixedweight generator is
+
+$$
+F(t)=A_{0,8.2}\operatorname{RMS}\!\left[(\alpha_0+\beta_0)\operatorname{RMS}(E_t)\right].
+$$
+
+The implementation retains actual FP32 operations rather than simplifying the normalization numerically. Here E is the native embedding matrix; both learned block0 coefficients are6.09375. On all63 distinct tokens in the96-prefix panel, the folded generator reproduces native first-value readings to $1.40\times10^{-7}$ relative error. Donor/recipient first-value differences are **exactly zero away from the changed city token**. No token table is fitted. [Generator check](ATTENTION8_PHI_FIRST_TOKEN_GENERATOR_V1_RESULT.json).
+
+The resulting [conditional executor](extracted_circuits/first_token_value_path_v1/README.md) computes the token differences from weights, then routes them through supplied recipient context. It reproduces the physically tested first-value-only fields within $2.91$–$4.67\times10^{-8}$ across constructions. It stores4,615 coefficients, but explicitly references the57,950,208-weight embedding matrix and native QK/Q7/norm/writer/suffix interfaces. Closing this input port is real extraction progress; calling the whole result a4.6k-parameter extracted model would be false.
+
+The next high-information step is an untouched-context test of this fixed executable path, with native capability and selective controls, followed by decomposition of the remaining contextual routing/Q7 ports. Do not turn the first-generated-sector miss into an excuse to discard the structure, or the successful token generator into a claim that all contextual computation has been eliminated.

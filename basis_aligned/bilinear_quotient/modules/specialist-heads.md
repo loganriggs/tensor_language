@@ -387,3 +387,7 @@ CPUfourcorner query/source hybrids on36prior pairedcueexamples: source-only scal
 ## 13 September00:27 — Head8.2 in the Q7/H8/MLP8/head9.8 value path
 
 Nativefourreader headcache andphysical H-inputdonation confirm8.2: nearquote effect−5.79%,24/24opposed,5.54%errorfullH-only; allgrouprelativeerrors.54–5.54%. Otherhead effectscomposewithin.103%. This is a conditionalpath inputedit, notwholehead donor/globalregional sign. Uncomposed andcomposedweight-only rank1 controls missnativefield fidelity; retainfourreadings, no absentstructureclaim. [Primary continuation](../../polynomial_causal/MLP7_PHI_READERS_FOLD_V1_MATH.md#0027--head82-supplies-the-tested-attention8-partner-path).
+
+## 13 September00:48 — Head8.2 value/routing inputs to the Q7 interaction
+
+Firstgeneratedsector alone misses nearquote20%field bar(26.82%error). Physical first-value-only change withrecipient routing gives−4.88%,24/24opposed,31.06%errorfullhead8.2path. Routingonlysmallmixed; ignoringrouting/value mixedterms misses59.30%endpoint-effectvector. First-layer sourcevalues are fixedtoken functions; exactcity-only difference and conditionalexecutor replay<4.7e-8 close thisinputport. Contextual QK/Q7/norm/suffix retained. [Primary note](../../polynomial_causal/ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md).

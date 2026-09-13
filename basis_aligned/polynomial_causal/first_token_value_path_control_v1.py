@@ -1,0 +1,13 @@
+"""Validate fixed-weight conditional executor against the physically tested source input."""
+from pathlib import Path
+import json,torch,importlib.util
+P=Path(__file__).resolve().parent;OUT=P/'extracted_circuits/first_token_value_path_v1'
+@torch.no_grad()
+def main():
+ torch.set_num_threads(2);s=importlib.util.spec_from_file_location('first_token_execute',OUT/'execute.py');m=importlib.util.module_from_spec(s);s.loader.exec_module(m);b=json.loads((P/'PHI4_PROVENANCE_V1_BINDING.json').read_text())['files'];sd=torch.load(next(k for k in b if k.endswith('pytorch_model.bin')),weights_only=True,mmap=True);f=torch.load(P/'ATTENTION8_PHI_READER_FOLD_V1_PROGRAM.pt',weights_only=True);g=torch.load(P/'SCALAR_VALUE_GENERATOR_MLP8_V1_PROGRAM.pt',weights_only=True);program=dict(first_value_map=f['first_value_readers'][2].clone(),block0_lambdas=sd['transformer.h.0.lambdas'].clone(),eigenvalues=g['eigenvalues'][:4].clone(),head9_gain=g['lambdas'][0].clone());torch.save(program,OUT/'program.pt')
+ a=torch.load(P/'ATTENTION8_PHI_VALUE_ROUTING_V1_ARTIFACT.pt',weights_only=True);par=torch.load(P/'MLP7_PHI_PARENTS_V1_ARTIFACT.pt',weights_only=True);prov=torch.load(P/'PHI4_PROVENANCE_V1_ARTIFACT.pt',weights_only=True);target=torch.load(P/'ATTENTION8_PHI_ROUTING_VALUE_DELTA_V1_ARTIFACT.pt',weights_only=True)['fields'][:,:,2];old=json.loads((P/'SCALAR_NEW_ENDPOINTS_V1_ROWS.json').read_text())['rows'][:24];fresh=json.loads((P/'MLP8_VALUE_FRESH_V1_ROWS.json').read_text())['rows'];rows=old+[dict(r,donor_id=r['donor_id']+24) for r in fresh];out=torch.zeros_like(target)
+ for i,r in enumerate(rows):
+  n=len(r['ids']);j=r['donor_id'];mask=torch.arange(n)>int(prov['cue_positions'][i]);out[i,:n]=m.donor_field(torch.tensor(r['ids']),torch.tensor(rows[j]['ids']),sd['transformer.wte.weight'],program,a['routing'][i,:n,:n],par['parents'][i,:n,1],par['rho8_squared'][i,:n],prov['gamma'][i,:n,:n],prov['rho9'][i,:n],mask)
+ rel=lambda a,b:float((a-b).norm()/b.norm().clamp_min(1e-30));errors=[rel(out[k*24:(k+1)*24],target[k*24:(k+1)*24]) for k in range(4)];result=dict(all_groups_pass=all(e<=1e-5 for e in errors),group_field_errors=errors,stored_scalars=sum(t.numel() for t in program.values()),external_embedding_scalars=sd['transformer.wte.weight'].numel(),external_context_ports=['gamma8 jointQK','Q7 fourreadings','rms8_squared','gamma9 selectedjointQK','rms9','source_mask','head9writer andnative suffix'],scope='CPU executor replay of physicallytested first-value-only path on reused96prefixes. Token reading generator computed from fixedweights, no activationlookup; native context ports still supplied.')
+ assert result['all_groups_pass'];(OUT/'CONTROL.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2))
+if __name__=='__main__':main()
