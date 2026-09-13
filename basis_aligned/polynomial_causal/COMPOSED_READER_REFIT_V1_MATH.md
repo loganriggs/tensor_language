@@ -86,3 +86,30 @@ global initialization coverage. Total alarm budget is 1800 seconds. Only the
 best frozen program is retained; no fit uses native text or behavioral scores.
 Follow `COMPOSED_READER_MULTISTART_V1_RESULT.json` and its progress receipt
 before deciding whether any apparent negative is robust to these starts.
+
+## Joint-graph pricing audit while the ten starts run
+
+The standalone price cannot be used for the current complete interaction
+executor. `composed_joint_response_v1.branch` still needs the full pristine
+MLP9 output $m_0$ through both response basis vectors, and
+`response_attention_projection_v2` reads it for changed Q/K/V projections
+and response normalization. Thus those consumers prevent deleting the original
+MLP9 producer when replacing only $J_{10}B_9$.
+
+The native producer stores 15,925,248 scalars. Once its output is available,
+the exact compiled downstream consumer adds only 1,327,104 scalars. Their
+combined subgraph costs 17,252,352. The independent learned factorization
+costs 15,524,352 scalars: a 10.016% standalone reduction, but adding it beside
+the still-required producer costs 31,449,600—an **82.29% increase** for this
+joint subgraph. Common context, biases and other model components are excluded
+from both counts. Learned input readers cannot be counted as shared native
+readers merely because they started there.
+
+This resolves the earlier conditional pricing caveat: even a fidelity pass
+would not justify adopting this candidate as joint-circuit compression. Let
+the bounded ten-start comparison finish as evidence about the representation,
+but do not escalate it on standalone savings. An adopted change must either
+replace the common producer with all its consumers preserved, or improve the
+incremental consumer while reusing $m_0$. The existing exact shared-tail
+implementation already follows the latter dependency structure. Receipt:
+`COMPOSED_READER_JOINT_PRICE_V1_AUDIT.json`.

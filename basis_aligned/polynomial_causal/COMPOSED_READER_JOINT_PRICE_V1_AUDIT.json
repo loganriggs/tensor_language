@@ -1,0 +1,17 @@
+{
+  "native_producer_scalars": 15925248,
+  "compiled_exact_consumer_scalars": 1327104,
+  "candidate_standalone_scalars": 15524352,
+  "standalone_reference_scalars": 17252352,
+  "standalone_saving": 0.10016025641025639,
+  "joint_reference_scalars": 17252352,
+  "joint_candidate_scalars": 31449600,
+  "joint_scalar_increase": 10.697916666666666,
+  "joint_total_relative_increase": 0.8229166666666667,
+  "dependencies": {
+    "composed_joint_response_v1.branch": "basis includes v1 and v2, both requiring full baseline m0",
+    "response_attention_projection_v2.prepare": "projects m0 into each Q/K/V map",
+    "response_attention_projection_v2.changed": "uses baseline in exact response and normalization"
+  },
+  "scope": "Priced subgraph only: native producer still needed by other consumers. Shared L/R/Down bias/context bookkeeping outside both counts. Changed-reader candidate stores independently learned inputs, so native reader storage cannot be silently reused. No whole-model benchmark."
+}
