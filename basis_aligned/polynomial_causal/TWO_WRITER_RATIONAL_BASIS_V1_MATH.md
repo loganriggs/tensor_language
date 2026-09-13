@@ -78,3 +78,18 @@ This opens an exact compression route for multi-writer composed interactions. It
 [Matched preparation timing](TWO_WRITER_DIRECT_BANK_V1_PRICE.json) compares against an optimized 28-product implementation that also projects the seven vectors only once. Seven interleaved FP64, two-thread CPU trials give median times of 9.28 versus 8.69 ms for one context (1.07×), and 38.24 versus 26.39 ms for eight (1.45×). The declared requirement of at least 1.1× at both batch sizes **fails**. These are local preparation measurements on synthetic vector banks with actual MLP10 weights; they exclude generating the response vectors, attention, and the suffix.
 
 The output bank has 21,888 rather than 32,256 scalars per context, a 32.1% reduction. This is a valid local representation saving, not a measured reduction of total circuit state or whole-model latency.
+
+## Precision: compress in independent writer coordinates
+
+[An FP32 stress test](TWO_WRITER_PRECISION_V1_CONTROL.json) exposes cancellation when nearly identical writers receive opposite amplitudes. With writer cosine 0.999999, the nineteen-bank relative error reaches 1.29–4.28, while direct response-product evaluation stays around 0.00010–0.00018. The declared 0.001 bar fails. These are synthetic contexts and writer pairs using actual MLP weights, not failures measured on native text.
+
+The failure is avoidable in this screen. For unit-RMS orthogonal directions $u,v$, write
+
+$$
+w_1=u,\qquad w_2=c u+\sqrt{1-c^2}v,\qquad
+a w_1+b w_2=(a+cb)u+b\sqrt{1-c^2}v.
+$$
+
+Compile the bank in $(u,v)$ coordinates and transform amplitudes accordingly. This preserves the input edit, but avoids expanding a small difference in two nearly identical writer coordinates. [The executed countercheck](TWO_WRITER_ORTHOGONAL_PRECISION_V1_CONTROL.json) lowers the maximum relative error on material cases to $4.77\times10^{-7}$ and gives zero computed response for exactly cancelling identical writers. The tiny nonzero FP64 reference there is rounding residue. The original failure remains recorded.
+
+This suggests orthogonalizing a writer span before compiling its interaction bank; orthogonal coordinates are computational choices, not newly identified semantic circuits. The screen constructs its orthogonal directions explicitly. A general rank-revealing compiler for arbitrary stored writers, its coordinate-map cost, native BF16 execution and behavioral validation remain outstanding.
