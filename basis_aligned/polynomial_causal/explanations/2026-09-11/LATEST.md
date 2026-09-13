@@ -1,5 +1,9 @@
 # Latest research state
 
+**13 September, 01:55 — Native MLP9 response/mediation test queued behind live shared v677.** No resultyet. Prepared-context responsekernel agreeswithfrozenformula1.13e-15 andmeasures5.49x CPUkernel-only speedup across24amplitudes; no wholemodelspeedupclaim. [Math/status](../../MLP9_CROSSFIRST_RESPONSE_V1_MATH.md). [Main evidence](../../ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md). [Requested report](../for_logan/LATEST.md).
+
+# Latest research state
+
 **13 September, 01:47 — Final readout alone does not explain hierarchy interactions.** Exactpartitionpasses; regionalinternalinteraction remains87–101%total. Reusedfixed-writer formula atMLP9 givesexactRMS-aware response andthree-vector mixedspan onactualweight CPUcontrols; nativevalidationpending. [Newforwardfoldmath](../../MLP9_CROSSFIRST_RESPONSE_V1_MATH.md). [Main evidence](../../ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md). [Requested report](../for_logan/LATEST.md).
 
 # Latest research state
