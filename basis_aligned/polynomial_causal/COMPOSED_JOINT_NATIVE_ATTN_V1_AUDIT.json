@@ -1,0 +1,50 @@
+{
+  "cpu_native_corners_exactly_match": true,
+  "pilot_sign_reversals": [
+    {
+      "row": 96,
+      "endpoint": 0,
+      "native": 2.980232238769531e-07,
+      "generated": -2.2649765014648438e-06
+    }
+  ],
+  "cells": [
+    {
+      "row": 0,
+      "pairs": 1,
+      "native_attention_vs_custom_shared_speedup": 5.610465323375405,
+      "native_attention_vs_direct_speedup": 0.812960346390251
+    },
+    {
+      "row": 0,
+      "pairs": 4,
+      "native_attention_vs_custom_shared_speedup": 5.167493200012104,
+      "native_attention_vs_direct_speedup": 0.9255514798589234
+    },
+    {
+      "row": 0,
+      "pairs": 12,
+      "native_attention_vs_custom_shared_speedup": 4.490631233880854,
+      "native_attention_vs_direct_speedup": 1.0871913175693388
+    },
+    {
+      "row": 96,
+      "pairs": 1,
+      "native_attention_vs_custom_shared_speedup": 5.309824124523142,
+      "native_attention_vs_direct_speedup": 0.90118361840314
+    },
+    {
+      "row": 96,
+      "pairs": 4,
+      "native_attention_vs_custom_shared_speedup": 4.809334811066268,
+      "native_attention_vs_direct_speedup": 1.1474164070178374
+    },
+    {
+      "row": 96,
+      "pairs": 12,
+      "native_attention_vs_custom_shared_speedup": 3.884097747724652,
+      "native_attention_vs_direct_speedup": 1.3515200320101983
+    }
+  ],
+  "scope": "Saved matched-receipt audit. Changing customFP64attention/projections to nativeFP32attention removes most overhead, but combines precision and operator changes; not precision-only causal attribution. Pilot endpoint fidelity still weaker; no adoption."
+}

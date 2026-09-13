@@ -59,3 +59,23 @@ Interpretation: the CPU benefit does not transfer to this GPU implementation. Hi
 Next implementation question is a native-compatible lower-cost evaluation, with its own fidelity test; merely extending reuse or caching is not the discriminating next step. Keep the original-interaction target and small-effect sign checks. Avoid announcing a faster compressed circuit until it beats native execution at the precision needed to preserve that target.
 
 [GPU registration](COMPOSED_JOINT_GPU_COST_V1_PREREGISTRATION.md) · [Inclusive GPU result](COMPOSED_JOINT_GPU_COST_V1_RESULT.json) · [Warm-context result](COMPOSED_JOINT_GPU_WARM_V1_RESULT.json) · [Break-even audit](COMPOSED_JOINT_GPU_COST_BREAK_EVEN_V1.json) · [Execution-only repair](COMPOSED_JOINT_GPU_COST_V1_EXECUTION_REPAIR.json).
+
+
+## 07:48 — Fold the response but keep native attention
+
+A separate candidate now uses the exact FP64 MLP9 response, adds it to the pristine raw attention10 input, rounds that raw input toFP32, and executes native attention10/MLP10. It still generates individual and joint branches at a,b,a+b, retaining the inherited mixed response. It removes the custom attention projection machinery; the previous validated implementation remains unchanged.
+
+The eight-prefix CPU pilot passes its registered regional/state/absolute-output bars. Regional original-interaction errors are0.0467%target and0.2289%control. FineWeb errors are11.50%/22.75%, worse than the earlier CPU pilot's4.46%/11.79%. Both pilots have exactly identical native corner scores, checked in an executed receipt audit. FineWeb row96 reverses a tiny target effect from+2.98e-7 to−2.26e-6. Therefore state fidelity and regional accuracy do not justify adopting this as an equivalent replacement.
+
+The managed GPU comparison keeps native FP32 direct and the custom mixed-precision versions as contemporaneous controls. The new response-only/native-attention version is3.88–5.61times faster than the custom shared version, including preparation. Against native batched direct execution its speed ratios are:
+
+| Prefix length |1pair|4pairs|12pairs|
+|---|---:|---:|---:|
+|15positions|0.813×|0.926×|1.087×|
+|78positions|0.901×|1.147×|1.352×|
+
+State replay passes. Both speed criteria fail as registered: one-pair execution loses, and the short prefix at twelve pairs misses the10%lower-time bar. The longer repeated workload nevertheless shows a real bounded gain. These results are neither a universal speed win nor a complete speed null.
+
+The experiment demonstrates that replacing the custom attention implementation removes most of the measured overhead. It simultaneously changes precision, projection reuse and execution kernels, so it does not isolate precision alone as the cause. Its weaker FineWeb fidelity remains a separate unresolved requirement. No full-panel or freshOOD behavioral promotion has been run for this candidate. Keep the more accurate full generator as the reference and the simpler response-only version as an unadopted repeated-intervention candidate.
+
+[Candidate implementation](composed_joint_native_attention_v1.py) · [CPU pilot](COMPOSED_JOINT_NATIVE_ATTN_V1_RESULT.json) · [GPU cost](COMPOSED_JOINT_NATIVE_ATTN_GPU_V1_RESULT.json) · [Matched reference/sign/cost audit](COMPOSED_JOINT_NATIVE_ATTN_V1_AUDIT.json).
