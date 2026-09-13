@@ -1,0 +1,65 @@
+{
+  "control": {
+    "mixed_partition_error": 2.955142764365982e-16,
+    "adjacent_effect_error": 4.992866364139104e-15
+  },
+  "cells": [
+    {
+      "cell": "regional0",
+      "last_block_local_effect_norm_over_total": 0.597288006200656,
+      "last_block_local_aligned_over_total": 0.5327949098982044,
+      "last_block_local_cosine_total": 0.8920234532873151,
+      "maxabs_last_block_local_effect": 0.004220008850097656
+    },
+    {
+      "cell": "regional1",
+      "last_block_local_effect_norm_over_total": 0.42304697731992036,
+      "last_block_local_aligned_over_total": 0.40002944263916146,
+      "last_block_local_cosine_total": 0.9455910669151233,
+      "maxabs_last_block_local_effect": 0.0040836334228515625
+    },
+    {
+      "cell": "regional2",
+      "last_block_local_effect_norm_over_total": 0.33920454251031557,
+      "last_block_local_aligned_over_total": 0.31680553896211117,
+      "last_block_local_cosine_total": 0.9339660861188992,
+      "maxabs_last_block_local_effect": 0.005537986755371094
+    },
+    {
+      "cell": "regional3",
+      "last_block_local_effect_norm_over_total": 0.42786666929177014,
+      "last_block_local_aligned_over_total": 0.42373996100794753,
+      "last_block_local_cosine_total": 0.9903551536494924,
+      "maxabs_last_block_local_effect": 0.006382942199707031
+    },
+    {
+      "cell": "newline0",
+      "last_block_local_effect_norm_over_total": 0.9742210854022054,
+      "last_block_local_aligned_over_total": 0.5030265498676583,
+      "last_block_local_cosine_total": 0.5163371614565133,
+      "maxabs_last_block_local_effect": 5.1081180572509766e-05
+    },
+    {
+      "cell": "newline1",
+      "last_block_local_effect_norm_over_total": 0.3057135677162446,
+      "last_block_local_aligned_over_total": -0.27676688624867335,
+      "last_block_local_cosine_total": -0.9053143709524898,
+      "maxabs_last_block_local_effect": 0.00019487738609313965
+    },
+    {
+      "cell": "newline2",
+      "last_block_local_effect_norm_over_total": 0.43010577905790776,
+      "last_block_local_aligned_over_total": 0.3400486223374992,
+      "last_block_local_cosine_total": 0.7906162597543623,
+      "maxabs_last_block_local_effect": 5.543231964111328e-05
+    },
+    {
+      "cell": "newline3",
+      "last_block_local_effect_norm_over_total": 0.4986304498222501,
+      "last_block_local_aligned_over_total": -0.04551567432061042,
+      "last_block_local_cosine_total": -0.09128137749476725,
+      "maxabs_last_block_local_effect": 0.00022864341735839844
+    }
+  ],
+  "scope": "Adjacent reset contrast equals causal effect of newly generated block mixed state around additive output background, conditional on original N/C/R states and fixed shared x0/v1. It is not local attribution on native parent state and need not sum across layers. No new fitting or native forwards."
+}
