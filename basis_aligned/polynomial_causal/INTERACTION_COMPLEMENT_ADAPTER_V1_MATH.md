@@ -59,3 +59,32 @@ This establishes greater spectral compressibility than those generic controls. I
 The irregular sparse-entry representation still saves more storage at10%error. The useful new point is that a smaller core need not pay for a dense retained basis. Combining this compact adapter with edge sparsity is a distinct next comparison; it must share an explicit total error budget and include both support and adapter costs. No claim is made that this construction beats all earlier representations.
 
 [Executable construction](interaction_complement_adapter_v1.py) · [Actual-weight receipt](INTERACTION_COMPLEMENT_ADAPTER_V1_RESULT.json) · [Generic control code](interaction_complement_generic_v1.py) · [Generic results](INTERACTION_COMPLEMENT_GENERIC_V1_RESULT.json) · [Earlier node bounds and dense prices](INTERACTION_BLOCK_SPARSITY_V1_MATH.md).
+
+
+## 08:01 — Combining complement reduction with sparse edges
+
+The next weights-only comparison allocated0%,10%,25%,50%,75%or100%of the squared error budget to the discarded input subspace, then used the remainder for optimal entry support in the surviving core. Both native and output/head frames were tested at2%,5%and10%total error. All36configurations include reflector tails, reflection coefficients, output/head adapters, a support bitmap and stored core values.
+
+Because the discarded input subspace is orthogonal to the retained core, the exact error partition is
+
+$$
+\|M-\widehat M\|_F^2
+=\|M_{\mathrm{discarded}}\|_F^2
++\|C-\widehat C\|_F^2.
+$$
+
+Actual reconstructed-matrix errors agree with this accounting to1.3e-15. Thus two approximations were not each given the entire error budget.
+
+| Total error | Best entry-only bytes | Best tested nonzero complement bytes | Additional cost |
+|---|---:|---:|---:|
+|2%|6,499,468|6,518,964|0.30%|
+|5%|5,783,372|5,822,232|0.67%|
+|10%|4,896,936|4,989,988|1.90%|
+
+Every best nonzero case uses the smallest tested nonzero budget fraction,10%. They discard7,33and85residual directions. Both registered improvement criteria fail. These are fixed spectral subspaces, a fixed completion convention and a coarse allocation grid, not an optimized general sparse-frame search.
+
+The executed cost-source audit shows that core coefficients and bitmap do get smaller, but adapter overhead exceeds that saving. At10%total error the support/core saving is284,348bytes and the additional adapter costs377,400bytes. Holding this support fixed would require24.7%less adapter storage merely to match entry-only compression. If the complement adapter were free, the saving would be5.81%; that is an accounting diagnostic, not an executable representation. At2%even this impossible free-adapter gain is only0.20%for the best tested nonzero case.
+
+Decision: preserve the compact-complement positive result for a dense reduced core, but do not claim that it composes profitably with current edge sparsity. A different coordinate construction or jointly learned structure must improve the actual combined price/error frontier. Simply adding the two separate compression percentages is invalid.
+
+[Combined-budget code](interaction_complement_sparse_v1.py) · [All comparisons](INTERACTION_COMPLEMENT_SPARSE_V1_RESULT.json) · [Executed cost-source audit](INTERACTION_COMPLEMENT_SPARSE_V1_COST_AUDIT.json).
