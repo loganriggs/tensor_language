@@ -1,0 +1,28 @@
+{
+  "records": [
+    {
+      "route": "quadratic_route_only",
+      "mean_kl_reduction": 0.03758901069525508,
+      "relative_mean_kl_reduction": 0.24719194130184685,
+      "paired_sequence_bootstrap_95pct_interval": [
+        0.021533905720612836,
+        0.05540675432053696
+      ],
+      "fraction_sequences_grouped_better": 0.75
+    },
+    {
+      "route": "whole_unembedding",
+      "mean_kl_reduction": 0.8263272144106177,
+      "relative_mean_kl_reduction": 0.21315744486811627,
+      "paired_sequence_bootstrap_95pct_interval": [
+        0.6517004822870345,
+        1.0233799135078196
+      ],
+      "fraction_sequences_grouped_better": 0.9375
+    }
+  ],
+  "bootstrap_samples": 4000,
+  "seed": 9591,
+  "sampling_unit": "64 historical sequences, two fixed positions kept together",
+  "scope": "Descriptive uncertainty conditional on this reused panel; not fresh replication or a changed registered bar."
+}
