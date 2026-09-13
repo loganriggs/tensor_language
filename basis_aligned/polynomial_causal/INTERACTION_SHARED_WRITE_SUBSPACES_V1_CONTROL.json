@@ -1,0 +1,28 @@
+{
+  "planted_error": 9.326961088710334e-17,
+  "rows": [
+    {
+      "rank": 2,
+      "initial_error": 0.6727346682909596,
+      "one_update_error": 0.5242975528401429,
+      "execution_error": 1.0164027990707802e-14,
+      "bytes": 1330176
+    },
+    {
+      "rank": 4,
+      "initial_error": 0.5327284486078833,
+      "one_update_error": 0.3674418195687616,
+      "execution_error": 1.5585808839032623e-14,
+      "bytes": 2512896
+    },
+    {
+      "rank": 8,
+      "initial_error": 0.23919249023531064,
+      "one_update_error": 0.17050758591905835,
+      "execution_error": 1.0082894773521526e-14,
+      "bytes": 4878336
+    }
+  ],
+  "seconds": 1.404668889939785,
+  "scope": "Operator feasibility and one actual-weight update only, K32,r2/4/8. Not converged fitting or native behavior. Per input product r signed coefficients plus uint8group, shared12xr orthonormal writers; each group feature is a sparse bilinear form. Full input rank allowed."
+}
