@@ -1,0 +1,23 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "rows": [
+    {
+      "batch": 1,
+      "old_seconds": 0.00927501916885376,
+      "new_seconds": 0.00868932530283928,
+      "speedup": 1.0674038369610932,
+      "relative_error": 2.4256867980042446e-15
+    },
+    {
+      "batch": 8,
+      "old_seconds": 0.03824429214000702,
+      "new_seconds": 0.02639186382293701,
+      "speedup": 1.4490940236956336,
+      "relative_error": 2.5489359715788376e-15
+    }
+  ],
+  "old_output_scalars_per_context": 32256,
+  "new_output_scalars_per_context": 21888,
+  "scope": "FP64 two-thread CPU, actualMLP10weights/synthetic vectorbanks. Both project7vectorsonce. Localbankpreparation only; no upstreambasis generation, original two-path semantics, native suffix or wholemodel savings."
+}
