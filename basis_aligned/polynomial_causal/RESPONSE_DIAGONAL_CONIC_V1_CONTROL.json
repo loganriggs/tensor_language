@@ -1,0 +1,63 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "rows": [
+    {
+      "strength": -1.0,
+      "relative_error": 1.0647385885938002e-16,
+      "fp32_relative_error": 8.281993744920491e-08
+    },
+    {
+      "strength": -0.2,
+      "relative_error": 1.092384016387035e-16,
+      "fp32_relative_error": 9.126234713324065e-08
+    },
+    {
+      "strength": -0.0001,
+      "relative_error": 1.4170207822011546e-16,
+      "fp32_relative_error": 8.000109314627512e-08
+    },
+    {
+      "strength": -1e-08,
+      "relative_error": 1.3144118664861788e-16,
+      "fp32_relative_error": 7.357524409006347e-08
+    },
+    {
+      "strength": 0.0,
+      "relative_error": 0.0,
+      "fp32_relative_error": 0.0
+    },
+    {
+      "strength": 1e-08,
+      "relative_error": 1.3288014021388398e-16,
+      "fp32_relative_error": 7.422748230131974e-08
+    },
+    {
+      "strength": 0.0001,
+      "relative_error": 1.4221437008968197e-16,
+      "fp32_relative_error": 6.486081250483755e-08
+    },
+    {
+      "strength": 0.2,
+      "relative_error": 1.032491766553788e-16,
+      "fp32_relative_error": 8.847066627805882e-08
+    },
+    {
+      "strength": 1.0,
+      "relative_error": 1.0912568180885063e-16,
+      "fp32_relative_error": 7.280646266617632e-08
+    },
+    {
+      "strength": 2.0,
+      "relative_error": 1.0912040402173747e-16,
+      "fp32_relative_error": 4.8438592441572116e-08
+    }
+  ],
+  "conic_max_absolute_residual": 3.469446951953614e-18,
+  "independent_cross_conic_residual": 0.048600401295083404,
+  "stored_product_scalars_before": 6912,
+  "stored_product_scalars_after": 5760,
+  "seconds": 0.08414793014526367,
+  "scope": "Actual weights, four synthetic contexts; diagonal/self response only. Five-bank generated from existing six-bank, so no preparation FLOP saving established. No native attention/denominator/suffix validation or global five-factor claim."
+}
