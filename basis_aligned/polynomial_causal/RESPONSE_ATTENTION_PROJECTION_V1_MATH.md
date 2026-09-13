@@ -87,3 +87,26 @@ The native model discrepancies remain unchanged. Regional per-prefix target abso
 The weight inventory also limits the compression claim: J/w, attention10 projections/output and MLP10 L/R/D still cost25,216,128scalars before the additional global projection cache. The exact simplification reduces prepared per-context intermediates and repeated operations; it does not eliminate those dense weights. A runtime comparison of the whole integrated executor, including preparation, remains unmeasured. A single edit pair need not benefit from constructing a six-product bank.
 
 [Two-prefix receipt](COMPOSED_MLP10_REAL_TEXT_V2_CONTROL.json) · [Eight-group receipt](COMPOSED_MLP10_REAL_TEXT_V2_EIGHT_GROUP_CONTROL.json) · [Executed prior-outcome comparison](COMPOSED_MLP10_V2_PRIOR_OUTCOME_AUDIT.json) · [Native test source](check_composed_mlp10_real_text_v2.py).
+
+
+## Full conditional-operator timing and the right place to share products
+
+The [reusable context executor](composed_mlp10_context_v1.py) separates preparation from evaluating edit pairs. It caches the response basis, projected basis and pristine attention once, then generates both changed attention branches and the complete MLP10 cross-product for each pair. Actual-weight controls on a synthetic17-position context give generator replay2.25e-15, product replay1.57e-15 and exact zero product when either edit is zero.
+
+There is an important compiler choice. If only the **sum** of residual/residual, mixed and attention/attention contributions is consumed, use bilinearity to add the residual and attention input changes first, then apply the common Down map once. Preparing a six-vector residual product bank and separately projecting every other term would repeat work. The six-vector bank remains useful when the residual/residual component is independently consumed or manipulated; it is not automatically the cheapest implementation of their sum. This makes the chosen consumers part of the compression problem.
+
+The complete conditional operator—not just attention projections—was timed with preparation and final bilinear product included. It excludes common pristine-context generation and the model suffix. A matched countercheck also gives the baseline a cached Jz, pristine projections and pristine attention, while retaining direct projection of each changed residual.
+
+| Edit pairs | Original independent calls | Simple pristine cache | Shared response/projection context |
+|---|---:|---:|---:|
+| 1 | 27.83ms | 27.65ms | 33.29ms |
+| 4 | 108.40ms | 96.15ms | 86.89ms |
+| 12 | 332.39ms | 282.06ms | 232.52ms |
+
+These are median five-repeat CPU measurements with two threads. The original registered12-pair speed criterion passes. Against the stronger simple-cache baseline the shared graph is1.11× faster at four pairs and1.21× at twelve, but slower at one pair. Thus ordinary loop-invariant caching explains some, but not all, of the repeated-work improvement.
+
+The prepared FP64 context adds3,235,232unique tensor-storage bytes for17positions, excluding supplied common arrays and model weights. This is persistent prepared state, not peak memory; per-evaluation attention/product workspaces are additional. The simple-cache benchmark returns its output list for replay checks, while the other timed paths discard outputs; this small allocation-policy difference is retained as a timing limitation rather than claiming tightly resolved kernel speed bounds. The useful result is a repeated-query tradeoff, not a universal choice or whole-model speedup.
+
+No new behavioral fit was performed and native-text preservation evidence remains the earlier integration checks. The next use should be an actual multi-strength intervention or composition workload, where reusing one context has a scientific purpose, rather than further polishing isolated timing constants.
+
+[Initial whole-operator benchmark](COMPOSED_MLP10_CONTEXT_V1_CONTROL.json) · [Matched pristine-cache countercheck](COMPOSED_MLP10_CONTEXT_MATCHED_V1_RESULT.json) · [Reproducible control](check_composed_mlp10_context_v1.py).

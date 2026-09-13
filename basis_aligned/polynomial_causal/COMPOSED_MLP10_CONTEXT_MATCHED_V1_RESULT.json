@@ -1,0 +1,36 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "generator_error": 2.246391447173022e-15,
+  "product_error": 1.5640395052103815e-15,
+  "zero_product_maxabs": 0.0,
+  "cells": [
+    {
+      "pairs": 1,
+      "original_seconds": 0.02782684564590454,
+      "shared_seconds": 0.03328724578022957,
+      "speed_ratio": 0.8359611915513856,
+      "simple_cache_seconds": 0.02764781191945076,
+      "versus_simple_cache_speed_ratio": 0.83058274337229
+    },
+    {
+      "pairs": 4,
+      "original_seconds": 0.10839805006980896,
+      "shared_seconds": 0.08688918501138687,
+      "speed_ratio": 1.2475436391261276,
+      "simple_cache_seconds": 0.09614516422152519,
+      "versus_simple_cache_speed_ratio": 1.1065262519026426
+    },
+    {
+      "pairs": 12,
+      "original_seconds": 0.33239277079701424,
+      "shared_seconds": 0.23251784965395927,
+      "speed_ratio": 1.4295365766184924,
+      "simple_cache_seconds": 0.2820648103952408,
+      "versus_simple_cache_speed_ratio": 1.2130888480820674
+    }
+  ],
+  "extra_prepared_tensor_bytes": 3235232,
+  "seconds": 8.680782251060009,
+  "scope": "Full conditional input generator plus one complete bilinear cross-product, synthetic17position context and actualweights. Includes global/context preparation; excludes common pristine states generation and native suffix. No six-product bank allocated when only sumRR+mixed+AA is consumed."
+}
