@@ -1,6 +1,8 @@
 # Compression of interactions: three settings and what would count as success
 
-Requested direction, 13 September 2026. **Status at 07:32 UTC: campaign underway.** Initial interaction fits, a small exact graph simplification, full-U shared/private fits and sparse-core baselines have completed; see the progress note below. This supersedes the previous restriction against compression as a primary task. Discover structure from weights first, then validate on text. Earlier failed fits remain relevant controls.
+Requested direction, 13 September 2026. **Status at 08:37 UTC: campaign underway.** Initial interaction fits, a small exact graph simplification, full-U shared/private fits and sparse-core baselines have completed; see the progress note below. This supersedes the previous restriction against compression as a primary task. Discover structure from weights first, then validate on text. Earlier failed fits remain relevant controls.
+
+The strongest current outcomes are the exact ten-to-six product-bank reduction in setting1 and roughly31% less packed tensor storage in setting2. Neither is a whole-model compression claim. The sparse setting2 executor uses more working memory and runs slower than dense contraction. A newer shared-output-subspace fit converges locally but misses fidelity:12.48% coefficient error, and own-term behavioral errors above10% in two regional groups. It preserves paired common outputs much better than their differences. An executed weights-only balanced-metric control addresses that tradeoff without increasing nominal program size; it has not yet established a converged fit or behavioral improvement. [Shared-write results](../../INTERACTION_SHARED_WRITES_V1_MATH.md) · [Balanced metric derivation and control](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-13_0829.md).
 
 ### Initial progress
 
