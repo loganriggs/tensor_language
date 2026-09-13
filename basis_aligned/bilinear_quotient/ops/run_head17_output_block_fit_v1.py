@@ -79,8 +79,8 @@ def main():
     torch.save(dict(output_basis=Q.cpu(),left=left.cpu(),right=right.cpu(),token_ids=torch.tensor(ids)),artifact)
     reconstructions=[(states[i]@obj.evaluate(states[i])[3].flatten(1)).flatten() for i in chosen]
     cosines=[float(torch.dot(reconstructions[i],reconstructions[j])/(reconstructions[i].norm()*reconstructions[j].norm())) for i in range(3) for j in range(i)]
-    result=dict(pred_a=replay<=1e-8,pred_b=sum(x['converged'] for x in refined)>=2,
-                pred_c=loss<=.9*min(initial),initial_losses=initial,screen=records,refined=refined,
+    result={'pred_a':replay<=1e-8,'pred_b':sum(x['converged'] for x in refined)>=2,
+                'pred_c':loss<=.9*min(initial),**dict(initial_losses=initial,screen=records,refined=refined,
                 best_start=best_index,best_loss=loss,best_relative_error=loss**.5,best_intrinsic_gradient=gn,
                 relative_loss_improvement=1-loss/min(initial),promoted_function_cosines=cosines,
                 gpu_replay_error=replay,reconstruction_loss_error=rebuild_error,
@@ -88,7 +88,7 @@ def main():
                 seconds=time.perf_counter()-tic,artifact_sha=digest(artifact),
                 scope='Ten initial output bases; top three refined with chart recentering. '
                 'Orthogonal twelve-output LL1 family with fixed matrix rank32; all block readers '
-                'refit by exact SVD. No global recovery guarantee or full normalized/native behavior claim.')
+                'refit by exact SVD. No global recovery guarantee or full normalized/native behavior claim.')}
     out.write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result),flush=True)
 
 
