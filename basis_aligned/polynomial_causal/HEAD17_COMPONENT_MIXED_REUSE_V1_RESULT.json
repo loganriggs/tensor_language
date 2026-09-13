@@ -1,0 +1,98 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "anchor_replay": [
+    0.0,
+    0.0
+  ],
+  "joint_port_state_error": [
+    5.560952751200069e-05,
+    0.00022699847877616586,
+    6.345032280230084e-05,
+    5.228289182591653e-05,
+    7.182738433114219e-05
+  ],
+  "cells": [
+    {
+      "old_component_error": 0.5778708696246385,
+      "projection_effect_error": 0.009955993379343834,
+      "old_component_norm_ratio": 0.4344364084820345,
+      "maxabs_old_component_effect": 0.0008707046508789062,
+      "group": 0,
+      "fresh": false,
+      "effect_error": 0.046731389369851335,
+      "same_sign": 24,
+      "reference_zeros": 0,
+      "native_positive_pairs": 12,
+      "native_mean_contrast": 2.1045790712038674,
+      "formula_native_effect_error": 0.0004252447953235021,
+      "maxabs_prediction_error": 0.0001010894775390625
+    },
+    {
+      "old_component_error": 0.6287613260379966,
+      "projection_effect_error": 0.006842624575346806,
+      "old_component_norm_ratio": 0.4098722612150518,
+      "maxabs_old_component_effect": 0.000553131103515625,
+      "group": 1,
+      "fresh": true,
+      "effect_error": 0.051998180386016724,
+      "same_sign": 24,
+      "reference_zeros": 0,
+      "native_positive_pairs": 12,
+      "native_mean_contrast": 2.2255386114120483,
+      "formula_native_effect_error": 0.0014948578926448188,
+      "maxabs_prediction_error": 5.14984130859375e-05
+    },
+    {
+      "old_component_error": 0.6279428584846752,
+      "projection_effect_error": 0.008491603378945913,
+      "old_component_norm_ratio": 0.3817854980857583,
+      "maxabs_old_component_effect": 0.0008831024169921875,
+      "group": 2,
+      "fresh": true,
+      "effect_error": 0.03973577515637168,
+      "same_sign": 24,
+      "reference_zeros": 0,
+      "native_positive_pairs": 12,
+      "native_mean_contrast": 2.3699613412221274,
+      "formula_native_effect_error": 0.0005409111945047833,
+      "maxabs_prediction_error": 8.7738037109375e-05
+    },
+    {
+      "old_component_error": 0.6716996468530185,
+      "projection_effect_error": 0.007277267725097346,
+      "old_component_norm_ratio": 0.3347159635359968,
+      "maxabs_old_component_effect": 0.0014247894287109375,
+      "group": 3,
+      "fresh": true,
+      "effect_error": 0.03633397927101954,
+      "same_sign": 24,
+      "reference_zeros": 0,
+      "native_positive_pairs": 12,
+      "native_mean_contrast": 2.4190804958343506,
+      "formula_native_effect_error": 0.0002864676790868094,
+      "maxabs_prediction_error": 0.0001373291015625
+    },
+    {
+      "old_component_error": 0.6686368562562508,
+      "projection_effect_error": 0.00787512985157677,
+      "old_component_norm_ratio": 0.3420601981202822,
+      "maxabs_old_component_effect": 0.0011997222900390625,
+      "group": 4,
+      "fresh": true,
+      "effect_error": 0.035258965598756034,
+      "same_sign": 23,
+      "reference_zeros": 1,
+      "native_positive_pairs": 12,
+      "native_mean_contrast": 2.7143091758092246,
+      "formula_native_effect_error": 0.00019086029880479918,
+      "maxabs_prediction_error": 0.00012302398681640625
+    }
+  ],
+  "body_forwards": 600,
+  "extra_final_readouts": 720,
+  "seconds": 11.799967434257269,
+  "scope": "Known old source component mixed response versus fullhead17.2 mixed response, plus projected-reader variant.120 reused regional prefixes, no new OOD or fitting; four native corners and final additive background retained.",
+  "artifact_sha": "471c129625acc10db39a4e290254470b85e0007ef25a2ed2a3fa058372aaa6d3"
+}
