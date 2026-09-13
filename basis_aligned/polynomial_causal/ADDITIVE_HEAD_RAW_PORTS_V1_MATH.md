@@ -40,3 +40,26 @@ The registered native comparison uses120 previously scored regional prefixes. It
 The test still runs600 full forwards and720readouts because it collects the validation references. It doesnot yet demonstrate an actual reduction in deployed fullforward count. The current interface also still receives three1152-wide raw state arrays; changing this to only projected features requires retaining the missing norm information. A closed input interface is progress toward extraction, not an autonomous token-to-logit model.
 
 [Algebra and nullspace control](ADDITIVE_HEAD_RAW_PORTS_V1_CONTROL.json) · [Executor](additive_head_raw_ports_v1.py).
+
+## 03:17 — Native reconstruction passes; projected-input norm closure derived
+
+The native validation completed600forwards and720readouts in8.58seconds. A/B/C allpass. All prior native and four readout anchors replay exactly. Full reconstructed mixed-effect errors are0.075%,0.134%,0.042%,0.050%,0.052% across theoldanchor andfournewercontext groups. Compact reconstructed effects differ fromtheprior supplied-port compact predictor by0.056%,0.170%,0.072%,0.054%,0.055%. Maximum full-effect score-margin error is1.91e-6.
+
+An independent per-prefix outcome audit retains all119 nonzero reference signs and the remaining exactzero for both reconstruction comparisons. Against the actual fullhead mixedwrite, the reconstructed compact predictor remains approximate:4.68% onoldanchors and5.19%,3.95%,3.64%,3.52% onthefournewer groups. All95nonzero signs andonezero match onthe96newergroup examples. These rows were previously scored; this is interface validation, not newheldout evidence.
+
+This removes the need to supply the A-corner head scores/values. It doesnot yet prove fewer executed native forwards: the test still computed P/A references. A three-trajectory deployment must be run separately, using onlyN/C/R andtheirfinalbackground states.
+
+The next executed CPU step makes the missing norm information explicit. Put deltaC=rC-rN anddeltaR=rR-rN. Then
+
+$$
+\rho_A=\rho_C+\rho_R-\rho_N+
+2\operatorname{mean}(\delta_C\odot\delta_R).
+$$
+
+Thus one cross-inner-product scalar perposition, beyondthethree individualnorms, suffices. `three_corner_head_interface_v1.execute` receives three sets of rawQ1/K1/Q2/K2/V projections, three normarrays, that crossscalar, andshared firstvalues. It computes the fourthnorm andallfour attentionportcorners internally, returning either thefullmixed128-vector orthecompactapproximation. It doesnotinfer thecrossscalar fromprojections. The residual-nullspacecounterexample remains relevant.
+
+Actual-weight synthetic checks comparewithdirectrawA calculation: normidentity2.80e-16, fullmixedwrite3.81e-14, compactmixedwrite2.81e-14. The projected-only wrapper hasalgebra validation; thenative experimentabove suppliedrawstates andcomputedtheA normdirectly. Do not conflate these distinct interface receipts.
+
+The current wrapper carries allfive128-dimensional projections pertoken percorner; onlythefinalquery projections are mathematically needed, butthat additional interface optimization isnotimplemented. Projection/norm/crossscalar generators andnativebackground/readout remainoutside it. No fullmodel simplicity orautonomousinputgeneration claim.
+
+[Native result](ADDITIVE_HEAD_RAW_PORTS_NATIVE_V1_RESULT.json) · [Per-prefix audit](ADDITIVE_HEAD_RAW_PORTS_NATIVE_V1_AUDIT.json) · [Projected interface control](THREE_CORNER_HEAD_INTERFACE_V1_CONTROL.json) · [Projected interface](three_corner_head_interface_v1.py).

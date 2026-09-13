@@ -1,0 +1,93 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "anchor_replay": [
+    0.0,
+    0.0
+  ],
+  "joint_port_state_error": [
+    5.560952751200069e-05,
+    0.00022699847877616586,
+    6.345032280230084e-05,
+    5.228289182591653e-05,
+    7.182738433114219e-05
+  ],
+  "cells": [
+    {
+      "rebuilt_full_error": 0.0007517336960938345,
+      "rebuilt_small_error": 0.0005629813130952558,
+      "maxabs_rebuilt_full_error": 1.9073486328125e-06,
+      "group": 0,
+      "fresh": false,
+      "effect_error": 0.046731389369851335,
+      "same_sign": 24,
+      "reference_zeros": 0,
+      "native_positive_pairs": 12,
+      "native_mean_contrast": 2.1045790712038674,
+      "formula_native_effect_error": 0.0004252447953235021,
+      "maxabs_prediction_error": 0.0001010894775390625
+    },
+    {
+      "rebuilt_full_error": 0.0013370415458623592,
+      "rebuilt_small_error": 0.0016954155119986438,
+      "maxabs_rebuilt_full_error": 9.5367431640625e-07,
+      "group": 1,
+      "fresh": true,
+      "effect_error": 0.051998180386016724,
+      "same_sign": 24,
+      "reference_zeros": 0,
+      "native_positive_pairs": 12,
+      "native_mean_contrast": 2.2255386114120483,
+      "formula_native_effect_error": 0.0014948578926448188,
+      "maxabs_prediction_error": 5.14984130859375e-05
+    },
+    {
+      "rebuilt_full_error": 0.00042060885903528274,
+      "rebuilt_small_error": 0.000715126136262826,
+      "maxabs_rebuilt_full_error": 1.9073486328125e-06,
+      "group": 2,
+      "fresh": true,
+      "effect_error": 0.03973577515637168,
+      "same_sign": 24,
+      "reference_zeros": 0,
+      "native_positive_pairs": 12,
+      "native_mean_contrast": 2.3699613412221274,
+      "formula_native_effect_error": 0.0005409111945047833,
+      "maxabs_prediction_error": 8.7738037109375e-05
+    },
+    {
+      "rebuilt_full_error": 0.0005002942934335937,
+      "rebuilt_small_error": 0.0005374298211814832,
+      "maxabs_rebuilt_full_error": 1.9073486328125e-06,
+      "group": 3,
+      "fresh": true,
+      "effect_error": 0.03633397927101954,
+      "same_sign": 24,
+      "reference_zeros": 0,
+      "native_positive_pairs": 12,
+      "native_mean_contrast": 2.4190804958343506,
+      "formula_native_effect_error": 0.0002864676790868094,
+      "maxabs_prediction_error": 0.0001373291015625
+    },
+    {
+      "rebuilt_full_error": 0.000519196145096382,
+      "rebuilt_small_error": 0.0005546013452118647,
+      "maxabs_rebuilt_full_error": 1.9073486328125e-06,
+      "group": 4,
+      "fresh": true,
+      "effect_error": 0.035258965598756034,
+      "same_sign": 23,
+      "reference_zeros": 1,
+      "native_positive_pairs": 12,
+      "native_mean_contrast": 2.7143091758092246,
+      "formula_native_effect_error": 0.00019086029880479918,
+      "maxabs_prediction_error": 0.00012302398681640625
+    }
+  ],
+  "body_forwards": 600,
+  "extra_final_readouts": 720,
+  "seconds": 8.58144273981452,
+  "scope": "Three rawpreattention state inputs plusfirstvalues reconstruct allfourhead corners; no additivecorner score/value supplied.120 reusedprefixes, nativebackground/readout retained. Fiveforwardarms are validation references, not reducedforward deployment.",
+  "artifact_sha": "141d2b1550bb69641018e18a6aa3567291f49f23d04208db719ac661f36fad5e"
+}
