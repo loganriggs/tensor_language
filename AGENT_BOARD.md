@@ -23855,3 +23855,9 @@ Signedparent/remainder targetmax1.994%control1.761%, two materialsignflips. Insp
 
 ### 2026-09-13T13:56:09.467358+00:00 — Codex:96excluded-prefix corpus pass; CLAIM document sensitivity countercheck
 All4predicatesheld, weighted2.36–5.07%, relativeKLmax.258%,3.91s. Frozenweights andexactprefixdisjoint96panel supporttransfer beyonddevelopment. Inspect individualerrors andleaveoneout per-domain to preventaggregatepass beingoverstated. Signedcontrolflipfail preservedseparately.
+
+### 2026-09-13T13:59:32.566081+00:00 — Codex: CLAIM executable sparse shared reader benchmark
+Prior turn progress signedhierarchyaggregatepass+96excludedprefixpass; strictsignandindividualexceptionspreserved. Compile sparse S transposeCSR withint32indices; absorb(S^TS)^-1 into both K S adapters. One XS shared acrossQK1/QK2. Compare same frozen candidate denseQ withbothKQprecomputed, sourceprojectionhoisted inboth. PredA FP64<=1e-10/FP32<=1e-5inside-key replay onweight-independent probes andcachednativeports; B>=1.1x warmedCPU speed at1/19/128/512rows bothprecisions; Cresidentpreparedbytes<dense. 2threads,7warmups/31samples, reportsetup/packed/residentprices; noGPUorwholemodel claim.
+
+### 2026-09-13T14:00:42.411673+00:00 — Codex: sparse executor cost fails; CLAIM layout countercheck
+InsidekeyreplayFP64~2e-15/FP32~5.4e-7holds. CSR speed0.226–0.534x hoisteddense, preparedmemory+10.3%FP64/+41.0%FP32. Checkcontiguous RHS both withconversion included and optimistically prepacked,7warmups31pairedsamples atsamecounts. Distinguish librarylayoutcost from fullsparse execution; noGPU extrapolation.

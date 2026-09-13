@@ -1,0 +1,106 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "controls": [
+    {
+      "dtype": "torch.float64",
+      "inputs": "native",
+      "sparse_relative_error": 1.6290385266521329e-15,
+      "dense_relative_error": 3.973165610213388e-17
+    },
+    {
+      "dtype": "torch.float64",
+      "inputs": "independent",
+      "sparse_relative_error": 2.0418597547416718e-15,
+      "dense_relative_error": 7.079574695509311e-17
+    },
+    {
+      "dtype": "torch.float32",
+      "inputs": "native",
+      "sparse_relative_error": 5.170360065556755e-07,
+      "dense_relative_error": 3.464400564732549e-07
+    },
+    {
+      "dtype": "torch.float32",
+      "inputs": "independent",
+      "sparse_relative_error": 5.391375161801807e-07,
+      "dense_relative_error": 2.8266247034810463e-07
+    }
+  ],
+  "prices": [
+    {
+      "dtype": "torch.float64",
+      "sparse_bytes": 794884,
+      "dense_bytes": 720896,
+      "combined_prepare_seconds": 0.010305050760507584,
+      "scope": "Prepared source matrix+both folded key adapters. Shared native Q/K/RMS/value/prefix not counted on either side. Correction absorbed into adapters, not retained."
+    },
+    {
+      "dtype": "torch.float32",
+      "sparse_bytes": 508164,
+      "dense_bytes": 360448,
+      "combined_prepare_seconds": 0.0017270483076572418,
+      "scope": "Prepared source matrix+both folded key adapters. Shared native Q/K/RMS/value/prefix not counted on either side. Correction absorbed into adapters, not retained."
+    }
+  ],
+  "timings": [
+    {
+      "dtype": "torch.float64",
+      "token_rows": 1,
+      "dense_median_seconds": 1.5027821063995361e-05,
+      "sparse_median_seconds": 2.814456820487976e-05,
+      "speedup": 0.5339510258107214
+    },
+    {
+      "dtype": "torch.float64",
+      "token_rows": 19,
+      "dense_median_seconds": 8.023157715797424e-05,
+      "sparse_median_seconds": 0.00016310811042785645,
+      "speedup": 0.49189201534807236
+    },
+    {
+      "dtype": "torch.float64",
+      "token_rows": 128,
+      "dense_median_seconds": 0.00035871192812919617,
+      "sparse_median_seconds": 0.0008056126534938812,
+      "speedup": 0.44526600541027955
+    },
+    {
+      "dtype": "torch.float64",
+      "token_rows": 512,
+      "dense_median_seconds": 0.0011541694402694702,
+      "sparse_median_seconds": 0.004165142774581909,
+      "speedup": 0.2771020113194857
+    },
+    {
+      "dtype": "torch.float32",
+      "token_rows": 1,
+      "dense_median_seconds": 7.484108209609985e-06,
+      "sparse_median_seconds": 2.7492642402648926e-05,
+      "speedup": 0.2722222222222222
+    },
+    {
+      "dtype": "torch.float32",
+      "token_rows": 19,
+      "dense_median_seconds": 3.0409544706344604e-05,
+      "sparse_median_seconds": 6.636232137680054e-05,
+      "speedup": 0.4582350959919165
+    },
+    {
+      "dtype": "torch.float32",
+      "token_rows": 128,
+      "dense_median_seconds": 0.00010647252202033997,
+      "sparse_median_seconds": 0.0003656558692455292,
+      "speedup": 0.291182313687535
+    },
+    {
+      "dtype": "torch.float32",
+      "token_rows": 512,
+      "dense_median_seconds": 0.0003811195492744446,
+      "sparse_median_seconds": 0.0016886629164218903,
+      "speedup": 0.22569308863725107
+    }
+  ],
+  "scope": "Actual sparse shared-source execution against a hoisted dense baseline.\nPred_a FP64 relative replay<=1e-10 and FP32<=1e-5.\nPred_b >=1.1x speed at all1/19/128/512 rows in both precisions.\nPred_c prepared resident storage smaller than dense in both precisions.\nCPU two threads; packed payload and execution memory are different prices.\n"
+}

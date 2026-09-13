@@ -1,0 +1,53 @@
+{
+  "rows": [
+    {
+      "dtype": "torch.float64",
+      "token_rows": 1,
+      "layout_included_speedup": 0.5378261439622394,
+      "prepacked_speedup": 0.5664181165423916
+    },
+    {
+      "dtype": "torch.float64",
+      "token_rows": 19,
+      "layout_included_speedup": 0.49082871470044864,
+      "prepacked_speedup": 0.5733333333333334
+    },
+    {
+      "dtype": "torch.float64",
+      "token_rows": 128,
+      "layout_included_speedup": 0.4449692852896584,
+      "prepacked_speedup": 0.49075984752223634
+    },
+    {
+      "dtype": "torch.float64",
+      "token_rows": 512,
+      "layout_included_speedup": 0.2971544442078285,
+      "prepacked_speedup": 0.28007873745407935
+    },
+    {
+      "dtype": "torch.float32",
+      "token_rows": 1,
+      "layout_included_speedup": 0.2874845105328377,
+      "prepacked_speedup": 0.2980302597773337
+    },
+    {
+      "dtype": "torch.float32",
+      "token_rows": 19,
+      "layout_included_speedup": 0.4586911620828351,
+      "prepacked_speedup": 0.6119208179247335
+    },
+    {
+      "dtype": "torch.float32",
+      "token_rows": 128,
+      "layout_included_speedup": 0.2927264750594309,
+      "prepacked_speedup": 0.3765074865818931
+    },
+    {
+      "dtype": "torch.float32",
+      "token_rows": 512,
+      "layout_included_speedup": 0.23312934081523143,
+      "prepacked_speedup": 0.23664160854196115
+    }
+  ],
+  "scope": "Prepacked variant excludes transpose/copy cost; optimistic layout-only countercheck, not full execution price."
+}

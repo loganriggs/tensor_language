@@ -542,3 +542,63 @@ Additional-document receipts: `COMPOSED_SPARSE_NEW_DOCS_V1_ROWS.json`,
 `COMPOSED_SPARSE_NEW_DOCS_V1_DOCUMENT_AUDIT.json`,
 `COMPOSED_SPARSE_NEW_DOCS_V1_SMALL_EFFECT_AUDIT.json`;
 runner `ops/run_composed_sparse_new_docs_v1.py`.
+
+
+## Actual sparse execution: correct, but slower and larger in memory
+
+The packed payload is now executed through an actual sparse source projection,
+without expanding an orthobasis. Let $G=S^TS$ and precompute both adapters
+
+$$
+A_i=K_iSG^{-1}\in\mathbb R^{128\times64}.
+$$
+
+For current source rows $X$, calculate $Z=XS$ **once**, then produce both
+inside-key projections as $ZA_1^T$ and $ZA_2^T$. The inverse correction is
+absorbed into the adapters and need not remain in runtime state. This makes
+shared computation explicit: both QK factors consume the same64 source reads.
+
+The fair dense comparator uses the same approximate projector's orthobasis $Q$,
+precomputes both $K_iQ$, and also computes $XQ$ once. It does not repeat the
+source read just because the earlier reference routing loop did so. Runtime
+comparison is consequently between two implementations of the same candidate,
+not a comparison that credits sparse execution for fixing a duplicate baseline.
+
+The sparse implementation stores $S^T$ in CSR with32-bit indices. On cached
+native ports and independent probes, inside-key replay error is at most2.05e-15
+in FP64 and5.40e-7 in FP32 against the dense FP64 reference. Normalization,
+position rotation, score products, value contraction and suffix are outside
+this kernel benchmark; earlier native validation establishes candidate behavior.
+
+Two-thread CPU benchmarks use7 warmups and31 alternating timing samples at
+1,19,128,512 token rows. Sparse/dense speed ratios are0.277–0.534 in FP64 and
+0.226–0.458 in FP32. Thus this CSR kernel is about1.9–4.4 times slower, failing
+the1.1-times speed criterion at every tested size. Prepared resident storage,
+including both folded-key adapters, also loses:
+
+| Precision | Shared dense | CSR sparse | Change |
+|---|---:|---:|---:|
+| FP64 |720,896bytes|794,884bytes|+10.26%|
+| FP32 |360,448bytes|508,164bytes|+40.98%|
+
+The bitmask/value payload remains smaller for storage. CSR replaces compact mask
+bits with per-entry indices, which erase that gain at75% density. Do not present
+the packed-storage saving as a memory or inference-speed improvement.
+
+A layout countercheck explicitly makes the sparse right-hand input contiguous,
+and separately times an optimistic prepacked input that excludes copying cost.
+Neither wins: even prepacked speed ratios are only0.237–0.612. Input transposition
+alone does not explain the negative runtime result. No GPU implementation was
+benchmarked, so this is a CPU/library result rather than a hardware-independent
+speed bound.
+
+The candidate remains a useful behavioral and packed-representation result,
+not an adopted runtime compression. If execution becomes the priority, the next
+structural assumption should constrain the sparsity pattern during weight-only
+composed fitting (for example small fixed groups), instead of continuing to
+optimize this irregular mask and expecting an execution gain from entry count.
+Higher sparsity may harm fidelity and must be measured, not assumed.
+
+Code/results: `sparse_parent_executor_v1.py`,
+`SPARSE_PARENT_EXECUTOR_V1_RESULT.json`,
+`SPARSE_PARENT_EXECUTOR_V1_LAYOUT_AUDIT.json`.
