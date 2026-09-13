@@ -91,3 +91,14 @@ The registered next countercheck removes the full residual-self term and
 measures approximation error against that component's own effect, using
 `SHARED_TAIL_LEXICAL_SELF_V1_RESULT.json` when terminal. This guards against
 the surrounding circuit hiding approximation error.
+
+The own-component countercheck has completed. Compression error relative to
+the removed self term's own effect is 0.418–3.946% for targets and
+0.967–2.218% for controls, passing 10% in every style. The separate prediction
+that self removal changes at least 10% of the target interaction in every
+style **fails**: the four fractions are 6.40%, 7.73%, 8.87% and 42.30%.
+The compressed component is therefore less prominent in three styles than on
+the earlier lexical panel, while its own effect is still preserved to the
+registered accuracy. This does not establish semantic selectivity. A
+descriptive leave-one-pair-out audit is saved in
+`SHARED_TAIL_LEXICAL_SELF_V1_PAIR_AUDIT.json` to check lexical concentration.
