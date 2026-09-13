@@ -1,3 +1,5 @@
+**13 September02:35:** Native jointQK/value mixed-port expansion passesreplay; cross-onlyfails because inheritedportmixedchanges contribute31–37%alignedregionaleffect. Two groups composewithin0.15–0.34%. Cachedterm audit completed; withinheadalias stillopen. [Primary result](../../CROSSFIRST_ATTENTION17_PORTS_V1_MATH.md).
+
 **13 September02:29:** Fixedknownhead17.2 predictsregionalattentionmixedwriteeffect within1.25–1.62%; notyet a withinheadalias. Mathreview derives andexecutes jointQK/value mixed-port expansion, retaining cross-factor interactions. [Review and controls](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-13_0229.md).
 
 **13 September02:23:** Direct attention17 mixed write predicts its regional propagated effect within3.5–9.5%; cross+normalization correction reduceserror to0.064–0.135%, signs96/96. TinyFineWebrelativeprecision remainslimited despite allregisteredregionalcriteria passing. [Native result and audit](../../CROSSFIRST_LAST_BLOCK_SPLIT_V1_MATH.md).

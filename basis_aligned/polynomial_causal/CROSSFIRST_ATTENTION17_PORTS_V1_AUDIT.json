@@ -1,0 +1,137 @@
+{
+  "write_geometry": [
+    {
+      "panel": "regional",
+      "terms": {
+        "score_score": {
+          "aligned_fraction": -0.004536550526409076,
+          "norm_over_total": 0.02439003845510808,
+          "omission_error": 0.02439003845510808
+        },
+        "score_value": {
+          "aligned_fraction": 0.4187894307025906,
+          "norm_over_total": 0.5506888534044956,
+          "omission_error": 0.5506888534044956
+        },
+        "defect_1": {
+          "aligned_fraction": 0.11836748654321869,
+          "norm_over_total": 0.1454523101011284,
+          "omission_error": 0.1454523101011284
+        },
+        "defect_2": {
+          "aligned_fraction": 0.4416352611744761,
+          "norm_over_total": 0.5243647137295872,
+          "omission_error": 0.5243647137295872
+        },
+        "defect_3": {
+          "aligned_fraction": -2.9212903873701198e-05,
+          "norm_over_total": 0.00023257458130657543,
+          "omission_error": 0.00023257458130657543
+        },
+        "defect_4": {
+          "aligned_fraction": 0.025776568494181428,
+          "norm_over_total": 0.02809884506205846,
+          "omission_error": 0.02809884506205846
+        },
+        "defect_5": {
+          "aligned_fraction": -1.9641783902179297e-06,
+          "norm_over_total": 1.1119538681288845e-05,
+          "omission_error": 1.1119538681288845e-05
+        },
+        "defect_6": {
+          "aligned_fraction": -1.0397393869346745e-06,
+          "norm_over_total": 5.0973774488637477e-05,
+          "omission_error": 5.0973774488637477e-05
+        },
+        "defect_7": {
+          "aligned_fraction": 2.0433593124233927e-08,
+          "norm_over_total": 2.4090334191770258e-08,
+          "omission_error": 2.4090334191770258e-08
+        }
+      },
+      "aligned_sum": 1.0
+    },
+    {
+      "panel": "FineWeb",
+      "terms": {
+        "score_score": {
+          "aligned_fraction": -0.06567338953843782,
+          "norm_over_total": 0.09195731761066232,
+          "omission_error": 0.09195731761066232
+        },
+        "score_value": {
+          "aligned_fraction": 0.6615954290720181,
+          "norm_over_total": 0.7574338463526706,
+          "omission_error": 0.7574338463526706
+        },
+        "defect_1": {
+          "aligned_fraction": 0.019393202930408877,
+          "norm_over_total": 0.03550056861654248,
+          "omission_error": 0.03550056861654248
+        },
+        "defect_2": {
+          "aligned_fraction": 0.35538212707969297,
+          "norm_over_total": 0.5184699314384879,
+          "omission_error": 0.5184699314384879
+        },
+        "defect_3": {
+          "aligned_fraction": -5.9046808659356176e-05,
+          "norm_over_total": 0.00010181873091944764,
+          "omission_error": 0.00010181873091944764
+        },
+        "defect_4": {
+          "aligned_fraction": 0.029540752407084314,
+          "norm_over_total": 0.03290637361590097,
+          "omission_error": 0.03290637361590097
+        },
+        "defect_5": {
+          "aligned_fraction": -4.948863081268913e-06,
+          "norm_over_total": 6.1500166568025864e-06,
+          "omission_error": 6.1500166568025864e-06
+        },
+        "defect_6": {
+          "aligned_fraction": -0.0001741710295233726,
+          "norm_over_total": 0.0002051330589751563,
+          "omission_error": 0.0002051330589751563
+        },
+        "defect_7": {
+          "aligned_fraction": 4.47504975527956e-08,
+          "norm_over_total": 5.7164952027367284e-08,
+          "omission_error": 5.7164952027367284e-08
+        }
+      },
+      "aligned_sum": 1.0
+    }
+  ],
+  "outcomes": [
+    {
+      "group": 0,
+      "cross_defect_cosine": 0.9745763221818031,
+      "cross_signs_matching_reference": 24,
+      "defect_signs_matching_reference": 23,
+      "full_signs_matching_reference": 24
+    },
+    {
+      "group": 1,
+      "cross_defect_cosine": 0.9820932718495828,
+      "cross_signs_matching_reference": 24,
+      "defect_signs_matching_reference": 23,
+      "full_signs_matching_reference": 24
+    },
+    {
+      "group": 2,
+      "cross_defect_cosine": 0.9854455144952553,
+      "cross_signs_matching_reference": 22,
+      "defect_signs_matching_reference": 23,
+      "full_signs_matching_reference": 24
+    },
+    {
+      "group": 3,
+      "cross_defect_cosine": 0.9958204077808517,
+      "cross_signs_matching_reference": 24,
+      "defect_signs_matching_reference": 21,
+      "full_signs_matching_reference": 24
+    }
+  ],
+  "scope": "Cached nativeport algebra and measured outcome audit. Geometry uses residualwrite norm, not finaleffect attribution. Maskbits1=score1,2=score2,4=value. score_score holdsnativevalue; score_value contains a changed value and opposite-edit score change. All terms retain bothscores. No fittedstructure or newheldout evidence."
+}

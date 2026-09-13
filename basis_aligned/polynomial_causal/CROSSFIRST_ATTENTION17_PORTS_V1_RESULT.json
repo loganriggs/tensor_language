@@ -1,0 +1,112 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "anchor_replay": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "joint_port_state_error": [
+    5.0794609668898484e-05,
+    0.00017315235969267317
+  ],
+  "cells": [
+    {
+      "cell": "regional0",
+      "formula_error": 0.0004252447953235021,
+      "cross_error": 0.34814765357464744,
+      "defect_error": 0.6569070593442519,
+      "composition_error": 0.003421051977546158,
+      "cross_aligned": 0.6557339840817168,
+      "defect_aligned": 0.3450878940446215,
+      "reference_norm": 0.004485295655086143,
+      "formula_maxabs": 9.5367431640625e-07
+    },
+    {
+      "cell": "regional1",
+      "formula_error": 0.00020046329372533356,
+      "cross_error": 0.3177398221810147,
+      "defect_error": 0.6865371837576506,
+      "composition_error": 0.002637029179075228,
+      "cross_aligned": 0.6849428461708793,
+      "defect_aligned": 0.3146877319996321,
+      "reference_norm": 0.006727910767527049,
+      "formula_maxabs": 9.5367431640625e-07
+    },
+    {
+      "cell": "regional2",
+      "formula_error": 0.00025846077574919683,
+      "cross_error": 0.3212304741371564,
+      "defect_error": 0.6820460805614366,
+      "composition_error": 0.001794692711822719,
+      "cross_aligned": 0.6809177819890089,
+      "defect_aligned": 0.3189752544837064,
+      "reference_norm": 0.007379644463589084,
+      "formula_maxabs": 9.5367431640625e-07
+    },
+    {
+      "cell": "regional3",
+      "formula_error": 0.00022745466066772323,
+      "cross_error": 0.36770621116946667,
+      "defect_error": 0.6333532390024877,
+      "composition_error": 0.0015402370192311677,
+      "cross_aligned": 0.6329181619458002,
+      "defect_aligned": 0.367001518500021,
+      "reference_norm": 0.009375409559073617,
+      "formula_maxabs": 9.5367431640625e-07
+    },
+    {
+      "cell": "newline0",
+      "formula_error": 0.031586111928660975,
+      "cross_error": 0.7219387482023754,
+      "defect_error": 0.47055253510475603,
+      "composition_error": 0.2879016552514368,
+      "cross_aligned": 0.3188530808642424,
+      "defect_aligned": 0.5976568318731835,
+      "reference_norm": 1.6012169629266842e-05,
+      "formula_maxabs": 4.76837158203125e-07
+    },
+    {
+      "cell": "newline1",
+      "formula_error": 0.012503146111821137,
+      "cross_error": 1.2462087170242204,
+      "defect_error": 0.37497058691369556,
+      "composition_error": 0.05404023344065642,
+      "cross_aligned": -0.20954423360143212,
+      "defect_aligned": 1.2236852133542162,
+      "reference_norm": 6.875312855547697e-05,
+      "formula_maxabs": 7.152557373046875e-07
+    },
+    {
+      "cell": "newline2",
+      "formula_error": 0.05644700249669298,
+      "cross_error": 0.9290189156964604,
+      "defect_error": 0.41026096872324114,
+      "composition_error": 0.11189071992137345,
+      "cross_aligned": 0.1610290338412549,
+      "defect_aligned": 0.9013060011516152,
+      "reference_norm": 3.032037368704695e-05,
+      "formula_maxabs": 1.5497207641601562e-06
+    },
+    {
+      "cell": "newline3",
+      "formula_error": 0.008261934693007905,
+      "cross_error": 0.7846098833020396,
+      "defect_error": 0.5282285593715161,
+      "composition_error": 0.1322649684764088,
+      "cross_aligned": 0.35097361767817714,
+      "defect_aligned": 0.6376427871955558,
+      "reference_norm": 3.6786207843992725e-05,
+      "formula_maxabs": 2.384185791015625e-07
+    }
+  ],
+  "body_forwards": 800,
+  "extra_final_readouts": 800,
+  "seconds": 9.183972861617804,
+  "scope": "Nativehead17.2 source-summed QK1*QK2*value finite mixed expansion. Cross-edit versus inherited portmixed inputs; conditional borrowedports/background, no fitting or OODclaim.",
+  "artifact_sha": "9ab0eb1d01a694689776ee86ef3a0b7b46dac4017ef76eafabceca8aa218fa31"
+}
