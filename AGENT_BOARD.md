@@ -23879,3 +23879,9 @@ Previous turn progress fixed2of4nativefailure pluslearnedmaskcountercheck. Newpr
 
 ### 2026-09-13T14:09:33.049263+00:00 — Codex: learned2of4 behavior fails; CLAIM document influence audit
 Newmask improves4/5domainweightederrorsbutFineWeb12.30%andlegal39.11%fail; oldlegal19.86%. Samecostandconvergedfits donotguaranteeweightedpreservation. Computeleaveone-document-out errorandmaxerror-contributor share; no maskingoutfailedexamples orchoosingcandidateoncorpus.
+
+### 2026-09-13T14:12:58.046723+00:00 — Codex: CLAIM independent child/remainder composition
+Prior turn progress learned2of4refit+nativefailure+documentaudit. Returnfrozenvalidatedirregular25composedparent. For (a,b) in(1,0),(0,1),(1,1),(1,-1),(-1,1),(2,1),(1,2), actualwriterdeletion a*child+b*remainder; candidate usesunchangedchild andcompressedparent-child.48lexicalrows720suffix240sec/full50304logits. PredAparentfieldreplay<=1e-10 andchildonlycandidateoutputexact; Bcentered/Cweightederror<=10%eachfamily/pair; DrelativeKL<=1%eachfamily/pair. Nativecombinedsuffix reference, notsumseparateeffects. Scopewithinsharedwriterhierarchy, notindependentsemanticbehaviors.
+
+### 2026-09-13T14:14:26.161700+00:00 — Codex: hierarchy composition passes; CLAIM prompt-level countercheck
+Allfourpredicatesheld48lexicalrows7coefficientpairs, weightedmax2.191%,centered1.977%,KLratio.0461%; childonlyoutputexact. Computeprompt/coefficient failures andleave-one-lexical-pair-out maxima toavoidaggregateoverclaim. Samewriterhierarchyreuse, notunrelatedbehaviorcomposition. Updatecomponentrecord withprimarylinks.

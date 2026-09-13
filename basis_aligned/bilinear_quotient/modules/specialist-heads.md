@@ -403,3 +403,36 @@ Allsource Q7/H8.2first/MLP8/head9 interaction removal strengthensnearregionalcon
 ## 13 September01:23 — Fresh newline preservation of all-source crossfirst path
 
 32new-to-path FineWebprefixes pass frozenallsource removal preservation, maxabsCE.001415;31/32nativepositive;wholehead8.2positivecontrolmeans.0327/.0509 meetprospective minimumandrelativebars. OldcontrolCmissunchanged. Documentindependence/corpusOODnotestablished. Explicit-stateimplementationawaitsnativereplay. [Primary note](../../polynomial_causal/ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md).
+
+
+## 13 September14:15 — Head9.8 even-key parent compression and hierarchy reuse
+
+This is a representation change to the already documented current-value/even-key
+parent, not a new whole-head or regional-circuit discovery. The child/remainder
+hierarchy writes along its existing fixed head9 direction; native input context,
+normalizers, other attention terms and suffix remain dependencies.
+
+A weight-only composed two-QK numerator fit retains64source reader nodes and
+prunes25%ofreader entries. Ten starts converge; correcting the sparse basis with
+its Gram inverse preserves a valid projection. Logical packed storage saves
+16.31%ofreader representation,1.806%ofdeclaredparent interface. It passes all five
+corpus aggregates on40development and96additional exact-prefix-disjoint inputs;
+additional-panel weighted errors2.36–5.07%, with12/96individual relative failures.
+These are existing project caches, not historically untouched/pretraining-disjoint
+data. Signed parent/remainder aggregates pass below2%, but two small work/jobs
+control effects reverse sign and fail the registered strict criterion.
+
+Independent child/remainder coefficients atseven settings preserve combined
+full-vocabulary effects within2.191%weighted aggregate error on48lexical prompts;
+child-only outputs match exactly. Sevennontrivial prompt/coefficient cells exceed
+10%. This supports conditional same-writer hierarchy composition, not independent
+semantic-task reuse or autonomy. Exactchilddefinition stays fixed.
+
+Known traps: rank48parent projection fails broader corpus preservation; better
+basis reconstruction alone does not guarantee better behavior; dense product-space
+adapters erase factorization savings. The successful sparse mask's actual CSR
+CPU executor is slower and uses more resident memory than shared dense execution.
+Stronger regular two-of-four masks, including a learned/refitted mask, fail native
+preservation; no global impossibility claim. Read [the primary derivation and all
+receipts](../../polynomial_causal/DIRECT_PARENT_KEY_COMPRESSION_V1_MATH.md) before
+repeating these component tests.

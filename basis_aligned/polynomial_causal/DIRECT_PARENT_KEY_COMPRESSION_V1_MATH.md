@@ -706,3 +706,53 @@ Refit code/artifact/results: `refit_structured_parent_frame_v1.py`,
 Native runner and receipts: `ops/run_structured_frame_corpus_v1.py`,
 `STRUCTURED_FRAME_CORPUS_V1_BINDING.json`, `STRUCTURED_FRAME_CORPUS_V1_RESULT.json`,
 `STRUCTURED_FRAME_CORPUS_V1_DOCUMENT_AUDIT.json`.
+
+
+## Independent child/remainder composition across the full vocabulary
+
+Return to the frozen successful irregular sparse reader, not the failed
+structured candidate. Let $c$ be the exact child and $r=p-c$ the native remainder.
+The approximation uses $\widehat r=\widehat p-c$. For independent coefficients
+$a,b$, the native and compressed writer removals are
+
+$$
+\delta z=-(ac+br)w,\qquad
+\widehat{\delta z}=-(ac+b\widehat r)w.
+$$
+
+Their input-write discrepancy is $-b(\widehat p-p)w$, independent of $a$.
+However, the final logit discrepancy can depend on both coefficients because
+MLP9, normalization and the native suffix act on the *combined changed state*.
+Consequently we compare actual combined executions rather than adding two
+separately measured logit effects.
+
+Seven coefficient pairs are tested on48 existing lexical prompts:
+$(1,0),(0,1),(1,1),(1,-1),(-1,1),(2,1),(1,2)$.
+The first is a child-only control; others include remainder-only, the combined
+parent, opposite-sign edits and unequal-strength edits. Each native/candidate
+execution scores all50,304 output logits. No weights or rows are refitted.
+
+All four registered aggregate criteria pass in5.33seconds. Across every family
+and pair, maximum centered-vocabulary effect error is1.977%, probability-weighted
+error2.191%, and relative KL0.0461% against bars10%,10%,1%. Native parent replay
+is exact and the candidate's child-only output is bit-for-bit identical to the
+reference. This checks that changing the parent representation does not silently
+change the retained child's execution.
+
+Removing any one lexical pair keeps aggregate weighted error below2.259%.
+Seven individual prompt/coefficient cells exceed10%, with maximum24.80%; this
+is7 of288 non-child-only cells (336 total including48 exact child-only controls).
+No claim of universal per-prompt preservation follows from the aggregate pass.
+The earlier two selected-control sign failures remain separate, unretracted
+results; this test did not impose a sign criterion on all vocabulary entries.
+
+This is direct approximate composition evidence **within the declared shared-
+writer hierarchy**, under supplied native context and suffix. It is not evidence
+that unrelated semantic circuits compose, that the source inputs are autonomous,
+or that the sparse CPU implementation is faster. It strengthens one of the four
+requested circuit properties without claiming their overall completion.
+
+Runner/receipts: `ops/run_sparse_hierarchy_composition_v1.py`,
+`SPARSE_HIERARCHY_COMPOSITION_V1_BINDING.json`,
+`SPARSE_HIERARCHY_COMPOSITION_V1_RESULT.json`,
+`SPARSE_HIERARCHY_COMPOSITION_V1_PROMPT_AUDIT.json`.
