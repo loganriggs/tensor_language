@@ -1,0 +1,38 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "margin_replay_error": 0.0,
+  "max_checks": {
+    "q": 1.3565908119432323e-06,
+    "read": 4.417603196509887e-07,
+    "phi": 1.0221232475858106e-06,
+    "six": 5.724604319580542e-16
+  },
+  "records": [
+    {
+      "group": 0,
+      "independent_square_citycue_error": 0.5802511202588149,
+      "native_citycue_norm": 2496.5765385445284
+    },
+    {
+      "group": 1,
+      "independent_square_citycue_error": 0.68512943484953,
+      "native_citycue_norm": 2140.4923422192915
+    },
+    {
+      "group": 2,
+      "independent_square_citycue_error": 0.6523047082006468,
+      "native_citycue_norm": 1280.6542696655847
+    },
+    {
+      "group": 3,
+      "independent_square_citycue_error": 0.7072213674722084,
+      "native_citycue_norm": 2415.3618240096557
+    }
+  ],
+  "body_forwards": 96,
+  "seconds": 2.337826479226351,
+  "scope": "Exact native reader-parent and sixpath computation; mixedpath omission oncity contrasts, not newcausal intervention or autonomous generation.",
+  "artifact_sha": "5e02b8cb92048e59f4bff4d01ff36efcd9ae5fd88dc4f7c499a3ed8081b38b00"
+}

@@ -1,3 +1,7 @@
+## 13 September, 00:05 — Next backward fold exposes essential parent interactions
+
+[MLP7-to-MLP8 reader fold](../../MLP7_PHI_READERS_FOLD_V1_MATH.md): exactfourquadraticparents, nativephi replay1.03e-6; droppingmixedterms misses58–71%cityvaluecontrast. Q-containingterms dominate thenearquote laterwrite computationally; parent-levelcausal test stillneeded. Nativeinput/normalizer generation remains external.
+
 ## 12 September, 23:57 — Physical source split explains the context reversal
 
 [Primary continuation](../../MLP8_VALUE_FRESH_V1_MATH.md#2357--the-reversal-splits-into-stable-city-and-context-dependent-later-source-effects): city-source donor positive96/96 (1.46–4.68%); later-source nearquote reverses24/24 (−8.68%). Separate effects sum within1.41–2.68% of joint effect. Final-target-only write is insufficient; token-only city-value oracle misses24.67% onfreshcontexts. Conditional source interfaces retained; no broadpromotion.

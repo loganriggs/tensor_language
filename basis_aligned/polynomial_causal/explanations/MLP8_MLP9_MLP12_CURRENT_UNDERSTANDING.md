@@ -143,3 +143,7 @@ Frozen four-mode value edge fails newconstruction confirmation: nearquote donor�
 ### 23:57 — Opposed source contributions physically separated
 
 City-position phi4 donation positive96/96 (1.46–4.68%); later-source donation nearquote negative24/24 (−8.68%). Exact write composition,1.41–2.68% logit-effect nonadditivity. Finaltarget-only insufficient; context-independent citypair oracle at least24.67%error onfreshcityvalue contrasts. No independent inputgenerator or broadsemantic identification. [Primary equations and controls](../MLP8_VALUE_FRESH_V1_MATH.md#2357--the-reversal-splits-into-stable-city-and-context-dependent-later-source-effects).
+
+### 13 September00:05 — Four input readers folded through MLP7
+
+C7=U4^TD7 generatesfourquadratic readings; B+Q7+H8 expandsinto6exactpaths withnativeRMS8. Nativephi error1.03e-6; independentparent squares miss58–71%citycontrast. Q-containinggroup computationallyaccountsfor116%nearquote laterwrite, withopposedQ-free remainder; notyetparentcausality. [Primary fold and receipts](../MLP7_PHI_READERS_FOLD_V1_MATH.md).
