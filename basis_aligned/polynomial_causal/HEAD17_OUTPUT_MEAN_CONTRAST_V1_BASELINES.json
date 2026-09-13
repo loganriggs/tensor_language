@@ -1,0 +1,51 @@
+{
+  "results": {
+    "identity": {
+      "total_relative_error": 0.6868818568711664,
+      "mean_target_energy_fraction": 0.8521966854426728,
+      "difference_target_energy_fraction": 0.14780331455732704,
+      "mean_relative_error": 0.6639315713123508,
+      "difference_relative_error": 0.8065691768204549,
+      "per_pair_difference_errors": [
+        0.8082471597160454,
+        0.794742768196239,
+        0.8082525283707018,
+        0.8210959099456113,
+        0.8139563715795273,
+        0.7946583641765783
+      ],
+      "error_partition_relative_check": 7.724428577861251e-17
+    },
+    "output_spectral": {
+      "total_relative_error": 0.685829805367743,
+      "mean_target_energy_fraction": 0.8521966854426728,
+      "difference_target_energy_fraction": 0.14780331455732704,
+      "mean_relative_error": 0.6852733100119293,
+      "difference_relative_error": 0.6890296509752836,
+      "per_pair_difference_errors": [
+        0.6831188624506042,
+        0.6836692266966573,
+        0.6815373992925294,
+        0.6958973228201918,
+        0.6981550636501169,
+        0.6894596942819908
+      ],
+      "error_partition_relative_check": 1.5448857155722502e-16
+    }
+  },
+  "token_ids": [
+    11383,
+    1430,
+    14148,
+    6907,
+    31049,
+    14733,
+    34614,
+    18388,
+    39012,
+    16521,
+    46729,
+    16924
+  ],
+  "scope": "Orthogonal pair sums/differences partition the original twelve-token coefficient norm exactly. Diagnostic only: no fitting, changed output weights or native softcap claim."
+}

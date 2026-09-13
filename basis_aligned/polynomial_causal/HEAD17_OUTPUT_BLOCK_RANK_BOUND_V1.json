@@ -1,0 +1,11 @@
+{
+  "input_rank_budget": 384,
+  "any_12_rank32_blocks_error_lower": 0.4019156359749215,
+  "minimum_total_block_ranks_for_error": {
+    "0.02": 1105,
+    "0.05": 1008,
+    "0.1": 869,
+    "0.2": 662
+  },
+  "scope": "Input unfolding rank of a sum of LL1 blocks is at most sum of matrix block ranks, even with nonorthogonal output directions. Spectral tail gives coefficient-Frobenius lower bound at that rank budget; not a sparse-DAG/arithmetic complexity or native-behavior bound."
+}
