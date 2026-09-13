@@ -1,0 +1,33 @@
+{
+  "schema": "shared.local.exchange.control.v1",
+  "original_loss": 0.016989606424141716,
+  "replacements": [
+    {
+      "replaced_group": 0,
+      "proposal_loss": 0.03146439377928978,
+      "polished_loss": 0.017514007456156395,
+      "sweeps": 100
+    },
+    {
+      "replaced_group": 1,
+      "proposal_loss": 0.06813788898835961,
+      "polished_loss": 0.01741582684537575,
+      "sweeps": 100
+    },
+    {
+      "replaced_group": 2,
+      "proposal_loss": 0.02662883862235008,
+      "polished_loss": 0.018058800889884388,
+      "sweeps": 100
+    },
+    {
+      "replaced_group": 3,
+      "proposal_loss": 0.0626550443513296,
+      "polished_loss": 0.017415826845375747,
+      "sweeps": 100
+    }
+  ],
+  "best_loss": 0.017415826845375747,
+  "wall_seconds": 0.5290739759802818,
+  "scope": "Post-failure algorithm discriminator, no retroactive repair of original four-start result. Only this planted fixture; native usefulness untested."
+}

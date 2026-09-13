@@ -1,0 +1,72 @@
+{
+  "schema": "shared.local.solver.control.v1",
+  "starts": [
+    {
+      "seed": 0,
+      "initial_loss": 0.06605167627310093,
+      "final_loss": 5.6530043302598097e-11,
+      "sweeps": 9,
+      "max_loss_increase": -4.6329528682827836e-10,
+      "next_sweep_gain": 5.036578662791933e-11,
+      "recoding_prediction_error": 1.8302146861401803e-15,
+      "counts": [
+        80,
+        80,
+        80,
+        80
+      ],
+      "recovered": true
+    },
+    {
+      "seed": 1,
+      "initial_loss": 0.07258132970929043,
+      "final_loss": 3.279433825437782e-11,
+      "sweeps": 9,
+      "max_loss_increase": -2.5383225465572707e-10,
+      "next_sweep_gain": 2.9019963182301684e-11,
+      "recoding_prediction_error": 1.0718438516347422e-15,
+      "counts": [
+        80,
+        80,
+        80,
+        80
+      ],
+      "recovered": true
+    },
+    {
+      "seed": 2,
+      "initial_loss": 0.07426221997822002,
+      "final_loss": 0.016989606424141716,
+      "sweeps": 150,
+      "max_loss_increase": 3.469446951953614e-18,
+      "next_sweep_gain": 0.0,
+      "recoding_prediction_error": 1.139741519683393e-15,
+      "counts": [
+        75,
+        80,
+        85,
+        80
+      ],
+      "recovered": false
+    },
+    {
+      "seed": 3,
+      "initial_loss": 0.06115784849132671,
+      "final_loss": 2.8789622968931164e-11,
+      "sweeps": 9,
+      "max_loss_increase": -2.1488382832352683e-10,
+      "next_sweep_gain": 2.5366490969802246e-11,
+      "recoding_prediction_error": 9.24614154019e-16,
+      "counts": [
+        80,
+        80,
+        80,
+        80
+      ],
+      "recovered": true
+    }
+  ],
+  "recovered_starts": 3,
+  "wall_seconds": 0.18533004820346832,
+  "scope": "No planted labels/banks passed to solver. Exact-data recovery is stronger than loss plateau; one-more-sweep gain is not a global or differential stationarity certificate."
+}
