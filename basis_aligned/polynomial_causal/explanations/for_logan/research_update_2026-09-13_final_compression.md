@@ -76,7 +76,7 @@ First we rotated the original basis and fitted sparse entries to minimize basis 
 
 The better fit changed the objective to the coefficient error of **$F_S-F_B$**, including both repeated query slots and both repeated source slots. We evaluated that polynomial coefficient norm through small Gram-matrix contractions, without materializing a $1152^4$ tensor. This was weight-only fitting: no text examples, token probabilities or loss gradients trained $S$.
 
-Two fixed masks and five perturbation sizes gave ten starts. Each used a limited-memory quasi-Newton optimizer, L-BFGS, with a line search and normalized columns. All ten met the registered local stationary criterion in about **19 seconds total**. The best mask had two distinguishable solution basins across the campaign; this is evidence of adequate local optimization for these starts, not proof of a globally best sparse graph. Explicit small-tensor and finite-difference controls checked the loss and its gradients.
+Two fixed masks and five perturbation sizes gave ten starts. Each used a limited-memory quasi-Newton optimizer, L-BFGS, with a line search and normalized columns. All ten met the registered local stationary criterion in about **19 seconds total**. The two fixed masks led to two different final loss levels; this is evidence of adequate local optimization for these starts, not proof of a globally best sparse graph. Explicit small-tensor and finite-difference controls checked the loss and its gradients.
 
 The best composed objective was 41.60% lower than the rotated-basis starting candidate’s objective. That number is a reduction in squared coefficient loss, **not** the percentage of circuit behavior explained. New position-lag checks improved too, but do not replace native execution.
 

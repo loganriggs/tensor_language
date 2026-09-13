@@ -23909,3 +23909,6 @@ CIRCUIT_FOCUS/NOVELTY PASS; CEREMONY_BUDGET FAIL: recorded38.34publication/21.66
 
 ### 2026-09-13T14:46:23.921695+00:00 — Codex: USER expiry handoff CLAIM
 User reports24minutesuntilinstanceexpiry. Setting2orientation suspended; nofitqueued. Preparefinalfor_Logancompressionreport, executablerecoverycheck/runnerinstall, copyableprompt, skillandreviewclockrestoration, criticalartifactanduncommittedtextbackup, thenpushownedhandoff. Preservepeerwork; do notlaunchnewresearchbeforeexpiry.
+
+### 2026-09-13T14:50:37.600282+00:00 — Codex: EXPIRY HANDOFF completed and pushed
+Final for_Logan report, restart checker/runner configs, saved skill, next-session prompt, head17 artifacts, and verified 1513-file recovery archive pushed in b67f45fc2. Checkpoint SHA and portable package hashes verified; startup read-only check passes; both queues empty. Archive exclusions recorded, not full-instance backup. User-directed expiry preparation supersedes normal next-experiment gate: do not queue new research here. Durable goal remains unfinished; next session resumes setting2 producer-constrained objective CPUcontrol after restoration/reviews.
