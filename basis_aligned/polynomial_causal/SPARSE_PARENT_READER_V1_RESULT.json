@@ -1,0 +1,139 @@
+{
+  "pred_a": true,
+  "pred_b": {
+    "0.25": true,
+    "0.4": false
+  },
+  "pred_c": {
+    "0.25": true,
+    "0.4": true
+  },
+  "controls": [
+    {
+      "method": "0.25",
+      "orthogonality_error": 2.250824214326118e-15,
+      "factored_replay_error": 1.7705952804886953e-15,
+      "projector_relative_error": 0.12477367003149191
+    },
+    {
+      "method": "0.4",
+      "orthogonality_error": 2.624318121743917e-15,
+      "factored_replay_error": 1.6936818440258532e-15,
+      "projector_relative_error": 0.2566523934945393
+    }
+  ],
+  "prices": [
+    {
+      "method": "0.25",
+      "basis_bytes_before": 294912,
+      "packed_basis_bytes_after": 246800,
+      "basis_storage_saving": 0.1631401909722222,
+      "retained_reader_nodes": 64,
+      "sparse_reader_edges": 55296,
+      "correction_entries": 4096,
+      "full_interface_storage_saving": 0.01806396578239139,
+      "resident_expanded_basis_bytes": 589824,
+      "scope": "FP32 payload plus bitmask, 16 shape bytes and charged FP32 runtime correction; archive container overhead excluded. Reference execution expands dense FP64 basis; no resident-memory/runtime saving."
+    },
+    {
+      "method": "0.4",
+      "basis_bytes_before": 294912,
+      "packed_basis_bytes_after": 202564,
+      "basis_storage_saving": 0.31313747829861116,
+      "retained_reader_nodes": 64,
+      "sparse_reader_edges": 44237,
+      "correction_entries": 4096,
+      "full_interface_storage_saving": 0.03467266195693964,
+      "resident_expanded_basis_bytes": 589824,
+      "scope": "FP32 payload plus bitmask, 16 shape bytes and charged FP32 runtime correction; archive container overhead excluded. Reference execution expands dense FP64 basis; no resident-memory/runtime saving."
+    }
+  ],
+  "rows": [
+    {
+      "method": "0.25",
+      "context": 0,
+      "family": 0,
+      "relative_error": 0.03366953498402316,
+      "endpoint_relative_error": 0.0198343732893804
+    },
+    {
+      "method": "0.25",
+      "context": 0,
+      "family": 1,
+      "relative_error": 0.05164791052747844,
+      "endpoint_relative_error": 0.025890936653131854
+    },
+    {
+      "method": "0.25",
+      "context": 0,
+      "family": 2,
+      "relative_error": 0.04623961101239908,
+      "endpoint_relative_error": 0.02485002121226418
+    },
+    {
+      "method": "0.4",
+      "context": 0,
+      "family": 0,
+      "relative_error": 0.08880233992211056,
+      "endpoint_relative_error": 0.09941578988663384
+    },
+    {
+      "method": "0.4",
+      "context": 0,
+      "family": 1,
+      "relative_error": 0.1705418461283565,
+      "endpoint_relative_error": 0.15590708306785941
+    },
+    {
+      "method": "0.4",
+      "context": 0,
+      "family": 2,
+      "relative_error": 0.1794782274768134,
+      "endpoint_relative_error": 0.1352109334113471
+    },
+    {
+      "method": "0.25",
+      "context": 1,
+      "family": 0,
+      "relative_error": 0.03063518106161905,
+      "endpoint_relative_error": 0.01678312370450516
+    },
+    {
+      "method": "0.25",
+      "context": 1,
+      "family": 1,
+      "relative_error": 0.05292876769748145,
+      "endpoint_relative_error": 0.026919712975089022
+    },
+    {
+      "method": "0.25",
+      "context": 1,
+      "family": 2,
+      "relative_error": 0.04656104867567651,
+      "endpoint_relative_error": 0.025335435764169672
+    },
+    {
+      "method": "0.4",
+      "context": 1,
+      "family": 0,
+      "relative_error": 0.07470193999483903,
+      "endpoint_relative_error": 0.08852117902363885
+    },
+    {
+      "method": "0.4",
+      "context": 1,
+      "family": 1,
+      "relative_error": 0.17663378049373038,
+      "endpoint_relative_error": 0.1655128776148188
+    },
+    {
+      "method": "0.4",
+      "context": 1,
+      "family": 2,
+      "relative_error": 0.17075079148857836,
+      "endpoint_relative_error": 0.13341542276988722
+    }
+  ],
+  "seconds": 0.22869230061769485,
+  "scope": "Weight-first full-rank sparse parent reader, fixed original basis gauge.\n\nPred_a projector/factored replay <=1e-10 in FP64.\nPred_b every family/context and actual endpoint direct-field error <=10%.\nPred_c packed FP32 basis storage saves >=10%, charging dense64x64 correction.\nPacked execution tested after value rounding; CPU reference expands orthobasis.\nNo native suffix validation or faster sparse executor claim.\n"
+}

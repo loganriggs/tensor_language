@@ -239,3 +239,76 @@ position semantics, rather than expand the source map into dense output features
 Code and receipts: `source_product_spectrum_v1.py`,
 `SOURCE_PRODUCT_SPECTRUM_V1_RESULT.json`,
 `SOURCE_PRODUCT_SPECTRUM_V1_GAUSSIAN_AUDIT.json`.
+
+
+## Keep the nodes, prune reader edges
+
+A different candidate keeps64 source directions but sets the smallest25% or40%
+of entries of the original basis $B$ to zero. Call the resulting matrix $S$.
+Its columns are no longer orthonormal, so using $SS^T$ as a projector would
+change the parity construction. Instead use
+
+$$
+P_S=S(S^TS)^{-1}S^T=QQ^T,
+\qquad Q=S\operatorname{chol}(S^TS)^{-T}.
+$$
+
+Thus reflection remains a reflection in the new subspace. Both candidates are
+chosen entirely from weights in the original basis gauge; no text fitting.
+The payload stores a bitmask and FP32 nonzero values. The CPU/GPU reference
+reconstructs the orthobasis in FP64 after unpacking. Projection orthogonality
+and an independent factored-inside contraction replay to below3e-15. Native
+runtime normalization and all other readers remain unchanged.
+
+The25% candidate passes direct-parent validation on72 cached contexts in two
+states: all-token relative error3.06–5.30%, actual-endpoint error1.68–2.69%.
+The40% candidate fails, with all-token errors up to17.95%. It is not promoted.
+The25% basis is not the original subspace: its projector error is12.48%.
+This is an approximation, not an exact re-encoding of the original parent.
+
+Pricing at common FP32 precision: original basis294,912bytes; sparse25 payload,
+bitmask, shape metadata and a conservatively charged dense64-by64 correction
+require246,800bytes, a16.31% saving. The declared entire parent interface saves
+only1.806%. This is an edge-sparse representation with an additional small dense
+correction, not a node reduction. The current reference expands a dense FP64
+basis (589,824bytes), so it demonstrates neither resident-memory nor runtime
+savings. Archive-container overhead is excluded from the logical payload count.
+The40% candidate's larger storage saving does not rescue its failed fidelity.
+
+The frozen25% candidate then runs unit parent removal through native MLP9 and
+the entire suffix on the same40 fixed128-token corpus prefixes used earlier.
+All50,304 output logits are scored. Exact64-basis re-encoding replays exactly.
+
+| Domain | Probability-weighted effect error | Relative KL |
+|---|---:|---:|
+| FineWeb |5.42%|0.317%|
+| Discussion |9.81%|0.963%|
+| Reference |7.95%|0.651%|
+| Biomedical |2.77%|0.076%|
+| Legal/patent |16.48%|2.714%|
+
+Uniformly centered output error passes10% in all domains (maximum9.65%), but
+weighted error and the1% KL-ratio criterion fail on legal/patent. These are
+separate metrics; the centered pass cannot replace the failed weighted claim.
+FineWeb improves over the earlier rank48 candidate's13.94%, at a different
+storage budget. This is not a matched-cost superiority result.
+
+Leaving out one document at a time keeps FineWeb weighted errors at2.43–6.96%
+and legal/patent at10.07–18.18%. The latter failure is not erased by deleting
+one document. Discussion/reference passes are fragile to document deletion;
+individual prompts also fail in every domain. These small reused corpus panels
+support a candidate comparison, not broad OOD certification or selective reuse.
+
+This fixed-gauge magnitude pruning is only a baseline for sparse readers. A
+weights-only orthogonal re-encoding can change which edges are small while
+leaving the original unpruned subspace fixed. A useful next structural test
+would alternate that re-encoding with sparse approximation, with the projection
+correction still charged. Do not fit the failed legal documents to erase this
+validation failure. Full native extraction/removal/composition checks remain
+required even if a later weight-only sparse fit improves preservation.
+
+Code/payload/results: `sparse_parent_reader_v1.py`,
+`SPARSE_PARENT_READER_V1_PROGRAM.pt`, `SPARSE_PARENT_READER_V1_RESULT.json`;
+managed `ops/run_sparse_parent_corpus_v1.py`,
+`SPARSE_PARENT_CORPUS_V1_BINDING.json`, `SPARSE_PARENT_CORPUS_V1_RESULT.json`,
+`SPARSE_PARENT_CORPUS_V1_DOCUMENT_AUDIT.json`.

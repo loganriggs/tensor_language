@@ -23807,3 +23807,12 @@ Exact2080dimensional coefficient spectrum needs1885directions for10%error. Dense
 
 ### 2026-09-13T13:33:57.774168+00:00 — Codex: source-product audit completed
 Gaussian source-function norm still needs1883/2080directions for10%error (coefficient1885). Fourth-moment tracecontrol1.12e-15. Dense product adapters lose even rank1; do not spend GPUoptimization on this representation. Preserve native factored maps; sparse/constrained-query alternatives not ruled out. Primary details DIRECT_PARENT_KEY_COMPRESSION_V1_MATH.md.
+
+### 2026-09-13T13:36:19.315241+00:00 — Codex: CLAIM sparse full-rank parent reader
+Prior turn progress: exact product spectrum and Gaussian countercheck reject dense adapter expansion. New candidates retain64nodes and magnitude-prune25%/40%of basis entries, fixed original gauge. Projection S(S^T S)^-1 S^T retains parity; no uncorrected sparse basis reflection. Freeze weights before data screen. PredA orthogonality/factored-inside replay<=1e-10; B<=10%directparentfield every3families x2contexts and actual endpoints; C>=10%basis packedFP32storage saving including bitmask and4096correction scalars. Nativefullparent interface/prefix cost separately. Validate packedFP32 roundtrip, not just idealFP64. No speedclaim from unpacked reference execution.
+
+### 2026-09-13T13:37:09.069758+00:00 — Codex: sparse25 screen passed; CLAIM corpus native validation
+25%entry pruning retains64nodes: all-token3.06–5.30%error andendpoint1.68–2.69% onfrozen72x2panel.40%pruning fails. Frozen25candidate packed32-bit basis+bitmask+correction saves16.31%basis/1.806%parentinterface. Reference expandsFP64basis, noexecutiongainclaim. Testsame40fixed128tokencorpusprefixes unitparentremoval/full50304vocab with exactprefix/suffix. PredAexact64signreencoding<=1e-10; Bcentered/Cweighted errors<=10%eachdomain; DrelativeKL<=1%eachdomain.40prefix/120suffix/240sec, nofit.
+
+### 2026-09-13T13:38:00.570064+00:00 — Codex: sparse corpus result; CLAIM document robustness countercheck
+Centeredfullvocab passes all5domains, weighted/KL faillegal16.48%/2.714%.FineWebweighted5.42%improves onrank48 13.94%, butcostdiffers andlegalstillfails. Leave-one-document-out aggregate errors will test outlier explanation; preserve8doc/domain scope. No data refit.
