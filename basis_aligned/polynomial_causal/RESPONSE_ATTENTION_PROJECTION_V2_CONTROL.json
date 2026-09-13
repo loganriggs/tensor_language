@@ -1,0 +1,42 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "projection_error": 1.4669252611582624e-15,
+  "norm_error": 1.5963440015341968e-16,
+  "attention_error": 2.2629296037923916e-15,
+  "cells": [
+    {
+      "contexts": 1,
+      "queries": 2,
+      "v1_seconds": 0.0108107291162014,
+      "v2_seconds": 0.010895319283008575,
+      "speed_ratio": 0.9922361002362644
+    },
+    {
+      "contexts": 1,
+      "queries": 21,
+      "v1_seconds": 0.02484222501516342,
+      "v2_seconds": 0.023120775818824768,
+      "speed_ratio": 1.0744546467570115
+    },
+    {
+      "contexts": 4,
+      "queries": 2,
+      "v1_seconds": 0.03271820768713951,
+      "v2_seconds": 0.02968236431479454,
+      "speed_ratio": 1.1022776804485153
+    },
+    {
+      "contexts": 4,
+      "queries": 21,
+      "v1_seconds": 0.05077160894870758,
+      "v2_seconds": 0.05165649950504303,
+      "speed_ratio": 0.9828697150442983
+    }
+  ],
+  "v1_extra_projection_scalars_per_position": 17280,
+  "v2_extra_projection_scalars_per_position": 11520,
+  "v2_global_projection_scalars": 11520,
+  "seconds": 1.7946347072720528,
+  "scope": "Actual weights, synthetic contexts; exact two-level projection reuse. Timings include global projection preparation but exclude common response-context construction, attention routing and suffix; response fields and coefficients supplied to v1."
+}

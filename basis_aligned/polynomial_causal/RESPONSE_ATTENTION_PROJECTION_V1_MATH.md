@@ -39,3 +39,36 @@ Thus it helps repeated amplitude sweeps in this test, but loses for a single chi
 The native six-product run did not use this new projection cache and must not be cited as native validation of it. A useful next integration would reuse the same prepared context across a genuine multi-strength removal/composition panel, comparing full execution and cache costs.
 
 [Executable projection cache](response_attention_projection_v1.py) · [Control](RESPONSE_ATTENTION_PROJECTION_V1_CONTROL.json) · [Break-even countercheck](RESPONSE_ATTENTION_PROJECTION_BREAKEVEN_V1_RESULT.json) · [Existing attention equations](RAW_ATTENTION_RESPONSE_V1_MATH.md).
+
+
+## Two levels of reuse: fixed model vectors and changing context vectors
+
+The three-vector basis is economical within one context, but it hides another sharing opportunity. The original four ingredients are $w,m_0,Jz,Jw$. The first and last are fixed for this writer and model; only $m_0,Jz$ change with context. A computation graph can exploit that distinction even though the local response span has only three dimensions.
+
+For each attention projection $W$, store $Ww$ and $WJw$ once globally. At each new context, compute $Wm_0$ and $WJz$ once. Apply the exact response coefficients:
+
+$$
+W\Delta(a)=-aWw+
+\frac{2\beta a-\gamma a^2}{\rho_a}Wm_0
+-\frac{a}{\rho_a}WJz+
+\frac{a^2}{2\rho_a}WJw.
+$$
+
+The implementation includes the actual block10 re-entry scale in these projected vectors. The same scalar coefficient calculations serve all five projection consumers. The pristine projection and changing raw-state norm remain explicit.
+
+The extra dynamic projection cache falls from **17,280 to 11,520 scalars per position**, plus **11,520 scalars stored once globally**. At one position there is no total storage advantage; across more than two positions the shared global cost is repaid. This counts the projected banks only, excluding common response contexts and pristine projections. It is reuse across contexts of fixed functions, not new evidence that different semantic behaviors share a circuit.
+
+Actual-weight controls across one/four synthetic 17-position contexts and 21 signed strength fields pass: projection error1.47e-15, complete attention error2.27e-15, raw-norm error1.60e-16. No native-text promotion has yet tested this new cache.
+
+The registered cold-start speed criterion fails: including model-global preparation, the two-query workload is not at least10% faster in both context sizes. The executed amortization countercheck separately measures reuse with that global cache already prepared:
+
+| Contexts | Queries | Earlier cache | Two-level cache, global setup excluded | Speed ratio |
+|---|---:|---:|---:|---:|
+| 1 | 2 | 10.64ms | 9.14ms | 1.16× |
+| 1 | 21 | 24.28ms | 20.57ms | 1.18× |
+| 4 | 2 | 33.84ms | 27.38ms | 1.24× |
+| 4 | 21 | 45.48ms | 40.75ms | 1.12× |
+
+The one-time global setup is1.69–1.83ms in that run. These are descriptive CPU measurements of projection updates, not a repaired passing cold-start registration or a whole-model speedup. They do not compare against direct uncached projection on the same new panel. The positive conclusion is narrower: fixed/global and context-dependent sharing can reduce cache size and improve repeated use of the previously proposed projection cache.
+
+[Two-level executor](response_attention_projection_v2.py) · [Original control and cold verdict](RESPONSE_ATTENTION_PROJECTION_V2_CONTROL.json) · [Warm-cache countercheck](RESPONSE_ATTENTION_PROJECTION_V2_WARM_RESULT.json).

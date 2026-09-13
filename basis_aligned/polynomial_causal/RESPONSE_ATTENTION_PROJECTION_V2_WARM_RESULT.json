@@ -1,0 +1,54 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "projection_error": 1.4669252611582624e-15,
+  "norm_error": 1.5963440015341968e-16,
+  "attention_error": 2.2629296037923916e-15,
+  "cells": [
+    {
+      "contexts": 1,
+      "queries": 2,
+      "v1_seconds": 0.010637253522872925,
+      "v2_seconds": 0.011063545942306519,
+      "speed_ratio": 0.9614687351002476,
+      "v2_warm_seconds": 0.009144879877567291,
+      "warm_speed_ratio": 1.1631922633523573,
+      "global_setup_seconds": 0.0018265806138515472
+    },
+    {
+      "contexts": 1,
+      "queries": 21,
+      "v1_seconds": 0.024276718497276306,
+      "v2_seconds": 0.023554235696792603,
+      "speed_ratio": 1.0306731583136057,
+      "v2_warm_seconds": 0.02056969329714775,
+      "warm_speed_ratio": 1.1802178159186545,
+      "global_setup_seconds": 0.001701556146144867
+    },
+    {
+      "contexts": 4,
+      "queries": 2,
+      "v1_seconds": 0.03384369611740112,
+      "v2_seconds": 0.03052099049091339,
+      "speed_ratio": 1.1088662449364792,
+      "v2_warm_seconds": 0.027379360049962997,
+      "warm_speed_ratio": 1.236102525977296,
+      "global_setup_seconds": 0.0017032884061336517
+    },
+    {
+      "contexts": 4,
+      "queries": 21,
+      "v1_seconds": 0.04547777771949768,
+      "v2_seconds": 0.04401423782110214,
+      "speed_ratio": 1.033251510666711,
+      "v2_warm_seconds": 0.04075019806623459,
+      "warm_speed_ratio": 1.116013660733108,
+      "global_setup_seconds": 0.0016928017139434814
+    }
+  ],
+  "v1_extra_projection_scalars_per_position": 17280,
+  "v2_extra_projection_scalars_per_position": 11520,
+  "v2_global_projection_scalars": 11520,
+  "seconds": 2.3760389164090157,
+  "scope": "Actual weights, synthetic contexts; exact two-level projection reuse. Timings include global projection preparation but exclude common response-context construction, attention routing and suffix; response fields and coefficients supplied to v1."
+}
