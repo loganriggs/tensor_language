@@ -1,0 +1,37 @@
+{
+  "pred_a": false,
+  "pred_b": true,
+  "rows": [
+    {
+      "name": "previous_sparse",
+      "total_error": 0.0999998846251579,
+      "common_error": 0.06118302765631203,
+      "difference_error": 0.2146486378569373,
+      "per_pair_difference_errors": [
+        0.24836030908741955,
+        0.18367283079251484,
+        0.24266318917116467,
+        0.2099091635186288,
+        0.19580521945985438,
+        0.22110954533100624
+      ],
+      "partition_identity_error": 1.2069419652908205e-18
+    },
+    {
+      "name": "matched_givens",
+      "total_error": 0.09423245832394676,
+      "common_error": 0.05800717095333686,
+      "difference_error": 0.201686441835091,
+      "per_pair_difference_errors": [
+        0.23173169920709047,
+        0.17252553829816436,
+        0.22878232992065337,
+        0.1968508915123363,
+        0.18528253266266634,
+        0.20765223894730747
+      ],
+      "partition_identity_error": 1.2069419652908205e-18
+    }
+  ],
+  "scope": "Weight-only partition of fixed errors, no activation fit. Contrast coefficient error is not a causal/behavioral metric."
+}
