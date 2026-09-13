@@ -1,0 +1,85 @@
+{
+  "cells": [
+    {
+      "group": 1,
+      "targets": {
+        "native_head17_2_conditional_write": {
+          "relative_error": 0.05200902568105129,
+          "maximum_absolute_margin_error": 5.14984130859375e-05,
+          "zero_predictor_relative_error": 1.0
+        },
+        "full_local_block17_generation": {
+          "relative_error": 0.3932422188353021,
+          "maximum_absolute_margin_error": 0.0007486343383789062,
+          "zero_predictor_relative_error": 1.0
+        },
+        "original_child_remainder_nonadditivity": {
+          "relative_error": 0.8142090051109545,
+          "maximum_absolute_margin_error": 0.005076408386230469,
+          "zero_predictor_relative_error": 1.0
+        }
+      }
+    },
+    {
+      "group": 2,
+      "targets": {
+        "native_head17_2_conditional_write": {
+          "relative_error": 0.03964819533704503,
+          "maximum_absolute_margin_error": 8.7738037109375e-05,
+          "zero_predictor_relative_error": 1.0
+        },
+        "full_local_block17_generation": {
+          "relative_error": 0.42717154921125694,
+          "maximum_absolute_margin_error": 0.0014157295227050781,
+          "zero_predictor_relative_error": 1.0
+        },
+        "original_child_remainder_nonadditivity": {
+          "relative_error": 0.7788585412809803,
+          "maximum_absolute_margin_error": 0.006927967071533203,
+          "zero_predictor_relative_error": 1.0
+        }
+      }
+    },
+    {
+      "group": 3,
+      "targets": {
+        "native_head17_2_conditional_write": {
+          "relative_error": 0.03640084503503296,
+          "maximum_absolute_margin_error": 0.00013828277587890625,
+          "zero_predictor_relative_error": 1.0
+        },
+        "full_local_block17_generation": {
+          "relative_error": 0.27031409335086537,
+          "maximum_absolute_margin_error": 0.001560211181640625,
+          "zero_predictor_relative_error": 1.0
+        },
+        "original_child_remainder_nonadditivity": {
+          "relative_error": 0.7189441306013414,
+          "maximum_absolute_margin_error": 0.011254310607910156,
+          "zero_predictor_relative_error": 1.0
+        }
+      }
+    },
+    {
+      "group": 4,
+      "targets": {
+        "native_head17_2_conditional_write": {
+          "relative_error": 0.03526052979655659,
+          "maximum_absolute_margin_error": 0.00012302398681640625,
+          "zero_predictor_relative_error": 1.0
+        },
+        "full_local_block17_generation": {
+          "relative_error": 0.22071297378317353,
+          "maximum_absolute_margin_error": 0.0009393692016601562,
+          "zero_predictor_relative_error": 1.0
+        },
+        "original_child_remainder_nonadditivity": {
+          "relative_error": 0.7401614224741038,
+          "maximum_absolute_margin_error": 0.011812210083007812,
+          "zero_predictor_relative_error": 1.0
+        }
+      }
+    }
+  ],
+  "scope": "Diagnostic, no fitted scaling: different conditional backgrounds prevent interpreting these errors as unique causal coverage. Small local prediction error is not total-interaction sufficiency."
+}
