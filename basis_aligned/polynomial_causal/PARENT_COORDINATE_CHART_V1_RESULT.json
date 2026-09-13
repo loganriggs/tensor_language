@@ -1,0 +1,74 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pivot_condition": 11.638265004372048,
+  "max_interpolation_entry": 1.0848040986953142,
+  "saved_reader_coefficients": 4096,
+  "FP32_prepared_dense_bytes": 360448,
+  "FP32_prepared_chart_bytes": 353280,
+  "controls": [
+    {
+      "dtype": "torch.float64",
+      "inputs": "native",
+      "relative_error": 3.1379236398539058e-15
+    },
+    {
+      "dtype": "torch.float64",
+      "inputs": "independent",
+      "relative_error": 3.172386746425374e-15
+    },
+    {
+      "dtype": "torch.float32",
+      "inputs": "native",
+      "relative_error": 5.820964871815953e-07
+    },
+    {
+      "dtype": "torch.float32",
+      "inputs": "independent",
+      "relative_error": 5.612703835289991e-07
+    }
+  ],
+  "timings": [
+    {
+      "dtype": "torch.float64",
+      "rows": 1,
+      "speedup": 0.662357648507233
+    },
+    {
+      "dtype": "torch.float64",
+      "rows": 19,
+      "speedup": 0.6972052313203339
+    },
+    {
+      "dtype": "torch.float64",
+      "rows": 128,
+      "speedup": 0.7014829472024066
+    },
+    {
+      "dtype": "torch.float64",
+      "rows": 512,
+      "speedup": 0.673096183360113
+    },
+    {
+      "dtype": "torch.float32",
+      "rows": 1,
+      "speedup": 0.5284572535722936
+    },
+    {
+      "dtype": "torch.float32",
+      "rows": 19,
+      "speedup": 0.5159287595635269
+    },
+    {
+      "dtype": "torch.float32",
+      "rows": 128,
+      "speedup": 0.4338128506565973
+    },
+    {
+      "dtype": "torch.float32",
+      "rows": 512,
+      "speedup": 0.41914607221123307
+    }
+  ],
+  "scope": "Adaptation of existing coordinate-chart idea to frozenparent, unchangedprojector. Preparedindices includeI/Jint64; no nativebehavior rerun orwholemodel claim."
+}
