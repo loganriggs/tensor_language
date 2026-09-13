@@ -1,0 +1,113 @@
+{
+  "pred_a": true,
+  "pred_b": {
+    "query_product": true,
+    "complete_even": true
+  },
+  "replays": [
+    1.7748182365274404e-07,
+    1.3515426060111674e-07
+  ],
+  "rows": [
+    {
+      "context": 0,
+      "method": "query_product",
+      "family": 0,
+      "relative_error": 0.07954691528443873,
+      "reference_norm": 19.93865247068975,
+      "final_position_relative_error": 0.06616638071229687
+    },
+    {
+      "context": 0,
+      "method": "query_product",
+      "family": 1,
+      "relative_error": 0.08962222596291086,
+      "reference_norm": 12.352354399102055,
+      "final_position_relative_error": 0.07849211051661893
+    },
+    {
+      "context": 0,
+      "method": "query_product",
+      "family": 2,
+      "relative_error": 0.05414560209587556,
+      "reference_norm": 14.356354621002604,
+      "final_position_relative_error": 0.05959103572281149
+    },
+    {
+      "context": 0,
+      "method": "complete_even",
+      "family": 0,
+      "relative_error": 0.08362267678467998,
+      "reference_norm": 19.93865247068975,
+      "final_position_relative_error": 0.06725166812078835
+    },
+    {
+      "context": 0,
+      "method": "complete_even",
+      "family": 1,
+      "relative_error": 0.09645869319163049,
+      "reference_norm": 12.352354399102055,
+      "final_position_relative_error": 0.08381856738293407
+    },
+    {
+      "context": 0,
+      "method": "complete_even",
+      "family": 2,
+      "relative_error": 0.05902091042938515,
+      "reference_norm": 14.356354621002604,
+      "final_position_relative_error": 0.06335369155560576
+    },
+    {
+      "context": 1,
+      "method": "query_product",
+      "family": 0,
+      "relative_error": 0.07953854733948124,
+      "reference_norm": 17.29900070671441,
+      "final_position_relative_error": 0.06394393361372584
+    },
+    {
+      "context": 1,
+      "method": "query_product",
+      "family": 1,
+      "relative_error": 0.08792057551050213,
+      "reference_norm": 10.127927964665664,
+      "final_position_relative_error": 0.08088625761592186
+    },
+    {
+      "context": 1,
+      "method": "query_product",
+      "family": 2,
+      "relative_error": 0.049344804408564466,
+      "reference_norm": 12.897079355467838,
+      "final_position_relative_error": 0.05779220678827594
+    },
+    {
+      "context": 1,
+      "method": "complete_even",
+      "family": 0,
+      "relative_error": 0.08353626162546844,
+      "reference_norm": 17.29900070671441,
+      "final_position_relative_error": 0.06504122010266962
+    },
+    {
+      "context": 1,
+      "method": "complete_even",
+      "family": 1,
+      "relative_error": 0.09484780811641881,
+      "reference_norm": 10.127927964665664,
+      "final_position_relative_error": 0.08672044048911251
+    },
+    {
+      "context": 1,
+      "method": "complete_even",
+      "family": 2,
+      "relative_error": 0.05400772485656386,
+      "reference_norm": 12.897079355467838,
+      "final_position_relative_error": 0.06151862974173556
+    }
+  ],
+  "basis_scalars_before": 73728,
+  "basis_scalars_after": 55296,
+  "seconds": 0.1486602984368801,
+  "scope": "Correction: final-position diagnostic now gathers each actual sequence endpoint; earlier padded-index NaNs preserved separately. Direct even-key parent-field screen with existing frozen rank48 fits.\n\nPred_a original cached scalar replay <=1e-5 relative per context.\nPred_b all three families/two contexts <=10% direct parent scalar error.\nThis differs from prior upstream-induced scalar-response preservation.\n Cached contexts, no new fitting or native behavior validation. All full Q/K/value weights and child producer remain required."
+}

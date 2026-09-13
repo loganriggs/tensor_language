@@ -1,0 +1,125 @@
+{
+  "flips": [
+    {
+      "row": 34,
+      "family": 2,
+      "text": "Style record\nLanguage: British English\nText awaiting completion: The artist mixed several bright",
+      "method": "query_product",
+      "branch": "remainder",
+      "strength": 2.0,
+      "endpoint": "control",
+      "native_effect": 0.0009989738464355469,
+      "candidate_effect": -0.00044727325439453125,
+      "absolute_error": 0.0014462471008300781
+    },
+    {
+      "row": 34,
+      "family": 2,
+      "text": "Style record\nLanguage: British English\nText awaiting completion: The artist mixed several bright",
+      "method": "complete_even",
+      "branch": "remainder",
+      "strength": 2.0,
+      "endpoint": "control",
+      "native_effect": 0.0009989738464355469,
+      "candidate_effect": -0.0004544258117675781,
+      "absolute_error": 0.001453399658203125
+    },
+    {
+      "row": 34,
+      "family": 2,
+      "text": "Style record\nLanguage: British English\nText awaiting completion: The artist mixed several bright",
+      "method": "query_product",
+      "branch": "parent",
+      "strength": 2.0,
+      "endpoint": "control",
+      "native_effect": 0.0005877017974853516,
+      "candidate_effect": -0.0008664131164550781,
+      "absolute_error": 0.0014541149139404297
+    },
+    {
+      "row": 34,
+      "family": 2,
+      "text": "Style record\nLanguage: British English\nText awaiting completion: The artist mixed several bright",
+      "method": "complete_even",
+      "branch": "parent",
+      "strength": 2.0,
+      "endpoint": "control",
+      "native_effect": 0.0005877017974853516,
+      "candidate_effect": -0.000865936279296875,
+      "absolute_error": 0.0014536380767822266
+    },
+    {
+      "row": 35,
+      "family": 2,
+      "text": "Style record\nLanguage: American English\nText awaiting completion: The artist mixed several bright",
+      "method": "query_product",
+      "branch": "remainder",
+      "strength": 2.0,
+      "endpoint": "control",
+      "native_effect": -3.910064697265625e-05,
+      "candidate_effect": 6.723403930664062e-05,
+      "absolute_error": 0.00010633468627929688
+    },
+    {
+      "row": 35,
+      "family": 2,
+      "text": "Style record\nLanguage: American English\nText awaiting completion: The artist mixed several bright",
+      "method": "complete_even",
+      "branch": "remainder",
+      "strength": 2.0,
+      "endpoint": "control",
+      "native_effect": -3.910064697265625e-05,
+      "candidate_effect": 6.771087646484375e-05,
+      "absolute_error": 0.0001068115234375
+    },
+    {
+      "row": 35,
+      "family": 2,
+      "text": "Style record\nLanguage: American English\nText awaiting completion: The artist mixed several bright",
+      "method": "query_product",
+      "branch": "parent",
+      "strength": 1.0,
+      "endpoint": "control",
+      "native_effect": -1.6927719116210938e-05,
+      "candidate_effect": 3.552436828613281e-05,
+      "absolute_error": 5.245208740234375e-05
+    },
+    {
+      "row": 35,
+      "family": 2,
+      "text": "Style record\nLanguage: American English\nText awaiting completion: The artist mixed several bright",
+      "method": "complete_even",
+      "branch": "parent",
+      "strength": 1.0,
+      "endpoint": "control",
+      "native_effect": -1.6927719116210938e-05,
+      "candidate_effect": 3.552436828613281e-05,
+      "absolute_error": 5.245208740234375e-05
+    },
+    {
+      "row": 38,
+      "family": 3,
+      "text": "Instruction: preserve British spelling in the answer.\nContinuation: The engineer specialises in mathematical",
+      "method": "query_product",
+      "branch": "remainder",
+      "strength": 2.0,
+      "endpoint": "control",
+      "native_effect": -0.00041961669921875,
+      "candidate_effect": 0.0001735687255859375,
+      "absolute_error": 0.0005931854248046875
+    },
+    {
+      "row": 38,
+      "family": 3,
+      "text": "Instruction: preserve British spelling in the answer.\nContinuation: The engineer specialises in mathematical",
+      "method": "complete_even",
+      "branch": "remainder",
+      "strength": 2.0,
+      "endpoint": "control",
+      "native_effect": -0.00041961669921875,
+      "candidate_effect": 0.0002970695495605469,
+      "absolute_error": 0.0007166862487792969
+    }
+  ],
+  "scope": "Every original material sign reversal, no threshold change. Absolute sizes distinguish narrow endpoint failure from aggregate preservation; this audit does not erase the failed predicate."
+}
