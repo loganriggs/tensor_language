@@ -1,0 +1,101 @@
+{
+  "schema": "fullu.shared.local.feasibility.v1",
+  "controls": {
+    "dense_metric_relative_error": 3.876002771224982e-16,
+    "compiled_reader_metric_error": 3.1010267975110113e-15,
+    "planted_exact_representation_error": 0.0,
+    "planted_matched_global_relative_error": 0.6281533880202977,
+    "planted_price": {
+      "float_parameters": 8800,
+      "assignment_int32": 2048,
+      "total_bytes": 43392,
+      "matched_global_rank": 5,
+      "total_bank_width": 18,
+      "active_coefficients_per_token": 4
+    },
+    "caveat": "Known planted banks/labels demonstrate representational advantage, not solver recovery."
+  },
+  "native_shape": [
+    50304,
+    1152
+  ],
+  "native_U_float_parameters": 57950208,
+  "coefficient_energy": 99245061353.47289,
+  "mean_energy_fraction": 0.07195127741259001,
+  "centered_trace_replay_error": 8.881784197001252e-16,
+  "configurations": [
+    {
+      "global_width": 32,
+      "groups": 16,
+      "private_width": 4,
+      "float_parameters": 1922688,
+      "assignment_int32": 50304,
+      "total_bytes": 7891968,
+      "matched_global_rank": 38,
+      "total_bank_width": 96,
+      "active_coefficients_per_token": 36,
+      "bytes_fraction_of_native_U": 0.034046331636980495,
+      "optimal_matched_global_relative_error": 0.8993524006346053,
+      "optimistic_union_span_error_lower_bound": 0.8412380408892383
+    },
+    {
+      "global_width": 64,
+      "groups": 16,
+      "private_width": 8,
+      "float_parameters": 3844224,
+      "assignment_int32": 50304,
+      "total_bytes": 15578112,
+      "matched_global_rank": 75,
+      "total_bank_width": 192,
+      "active_coefficients_per_token": 72,
+      "bytes_fraction_of_native_U": 0.06720472858354538,
+      "optimal_matched_global_relative_error": 0.8613985638361232,
+      "optimistic_union_span_error_lower_bound": 0.7560231477340158
+    },
+    {
+      "global_width": 64,
+      "groups": 32,
+      "private_width": 8,
+      "float_parameters": 3991680,
+      "assignment_int32": 50304,
+      "total_bytes": 16167936,
+      "matched_global_rank": 78,
+      "total_bank_width": 320,
+      "active_coefficients_per_token": 72,
+      "bytes_fraction_of_native_U": 0.06974925784563189,
+      "optimal_matched_global_relative_error": 0.8584783315330841,
+      "optimistic_union_span_error_lower_bound": 0.653016412133673
+    },
+    {
+      "global_width": 128,
+      "groups": 32,
+      "private_width": 16,
+      "float_parameters": 7982208,
+      "assignment_int32": 50304,
+      "total_bytes": 32130048,
+      "matched_global_rank": 156,
+      "total_bank_width": 640,
+      "active_coefficients_per_token": 144,
+      "bytes_fraction_of_native_U": 0.13861058100084817,
+      "optimal_matched_global_relative_error": 0.7869213172251581,
+      "optimistic_union_span_error_lower_bound": 0.42297389510714717
+    },
+    {
+      "global_width": 128,
+      "groups": 64,
+      "private_width": 16,
+      "float_parameters": 8572032,
+      "assignment_int32": 50304,
+      "total_bytes": 34489344,
+      "matched_global_rank": 167,
+      "total_bank_width": 1152,
+      "active_coefficients_per_token": 144,
+      "bytes_fraction_of_native_U": 0.14878869804919423,
+      "optimal_matched_global_relative_error": 0.7773549727257861,
+      "optimistic_union_span_error_lower_bound": 0.0
+    }
+  ],
+  "wall_seconds": 3.5442673973739147,
+  "body_forwards": 0,
+  "scope": "Uncentered full-token quadratic coefficient Frobenius error; mean retained exactly. Only output-map storage is priced here; native L/R/Down and nonlinear execution remain. No native grouped fit, behavioral result, or arithmetic lower bound."
+}

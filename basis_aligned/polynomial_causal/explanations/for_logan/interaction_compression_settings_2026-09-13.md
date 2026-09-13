@@ -1,6 +1,12 @@
 # Compression of interactions: three settings and what would count as success
 
-Requested direction, 13 September2026. **Status: proposed campaign, with a checked weight/dimension inventory; no new compression fit has run.** This supersedes the previous restriction against compression as a primary task. Discover structure from weights first, then validate on text. Earlier failed fits remain relevant controls.
+Requested direction, 13 September 2026. **Status at 05:01 UTC: campaign underway.** Initial interaction fits, a small exact graph simplification, and the third-setting feasibility analysis have completed; see the progress note below. This supersedes the previous restriction against compression as a primary task. Discover structure from weights first, then validate on text. Earlier failed fits remain relevant controls.
+
+### Initial progress
+
+- **Setting 1:** Fixed-reader and native-product pruning baselines are weak on the unrestricted interaction tensor. The executed bounds apply to those representation classes, not all possible sparse graphs or the actual upstream input distribution. [Product baseline and bound](../../INTERACTION_PRODUCT_NODES_V1_MATH.md).
+- **Setting 2:** An exact shared-expression rewrite preserves all 120 cached writes and removes two scalar multiplications, but saves only about 0.51% of core multiplications. The learned output-block fit improves squared coefficient error by only 0.85% after three promoted starts converge; it also worsens spelling-contrast preservation despite improving total error. [Exact graph rewrite](../../THREE_GROUP_SHARED_DAG_V1_MATH.md) · [Learned fit and counterchecks](../../HEAD17_OUTPUT_BLOCK_FIT_V1_MATH.md).
+- **Setting 3:** Shared global functions plus group-specific subspaces have a useful storage advantage in principle. A full combined function span can cost 14.88% of native U storage while each token reads only 144 coefficients. This is a priced capacity calculation, **not a native fit**; existing bilinear products remain. [Derivation and executed feasibility checks](../../FULLU_SHARED_LOCAL_FEASIBILITY_V1_MATH.md).
 
 The central comparison is **separate compression versus joint compression of composed terms**. A layer can be complicated while a particular downstream interaction reads only a small part of it. Conversely, two apparently separate interactions may use the same intermediate computation. We should allow both outcomes instead of forcing a separate decomposition for every module.
 

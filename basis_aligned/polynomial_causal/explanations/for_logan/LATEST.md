@@ -1,6 +1,6 @@
 # Latest requested update for Logan
 
-**New compression plan (13 September): [Three interaction settings, compression families, simplicity and reuse](interaction_compression_settings_2026-09-13.md).** Proposal, not a new results report.
+**New compression plan (13 September): [Three interaction settings, compression families, simplicity and reuse](interaction_compression_settings_2026-09-13.md).** Campaign plan with an initial-results note; the latest full report remains below.
 
 **Newest: [13 September, 02:55 UTC — A compact predictor of a circuit interaction](research_update_2026-09-13_0255_joint_attention_predictor.md).** Covers work since the 02:00 report: later-layer localization, joint QK/value mathematics, the three-contraction predictor, fresh confirmation, and an explicit audit of how much remains unexplained.
 
