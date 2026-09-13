@@ -815,3 +815,42 @@ Runner/artifacts/receipts: `ops/run_sparse_selective_pair_v1.py`,
 `SPARSE_SELECTIVE_PAIR_V1_BINDING.json`, `SPARSE_SELECTIVE_PAIR_V1_RESULT.json`,
 `SPARSE_SELECTIVE_PAIR_V1_ARTIFACT.pt`,
 `SPARSE_SELECTIVE_PAIR_V1_PRESERVATION_AUDIT.json`.
+
+
+## Portable packed conditional component
+
+The validated pair is now available as
+[an independent package](extracted_circuits/sparse_even_key_producers_8_2_9_8_v1/README.md)
+containing execute.py, program.pt and manifest.json. It stores the required
+QK/value/writer maps, exacthead8basis, and a bitmask/FP32value encoding of sparse
+head9. The loader reconstructs the corrected orthobasis onCPU, then moves runtime
+tensors to the requested device. It imports PyTorch but no research helpers or
+original checkpoint. Retained tensor slices are cloned to avoid serializing an
+omitted backing storage.
+
+CPU scalar tests replay the frozen candidate exactly for independenthead8/head9
+probes and both cachedhead9contexts. Native execution of the packaged scalar for
+both heads passes all five registered criteria on the existing selective-pair
+panel. Regional and newline score arrays exactly match the prior compressed
+implementation; this verifies packaging, not an independent behavioral replicate.
+An isolated Python process outside the repository also loads and executes both
+heads using only copied execute.py/program.pt files and installed PyTorch.
+
+Actual program.pt size falls from6,340,557 to5,972,357bytes. Tensor payload falls
+from6,328,320 to5,968,896bytes. These mixed-precision/serialization differences
+must not be conflated with the separately charged common-FP32head9interface
+saving of1.806%. The runtime expands a dense corrected basis, so packaging does
+not claim faster execution or reduced working memory.
+
+The caller supplies actual normalized attention contexts and matching token IDs.
+For sequential removal, head9 must receive the state produced after the head8
+edit and intervening native computation. Context generators, other-head
+background and the suffix remain outside the package. This is portable conditional
+extraction of the tested computation, not an autonomous token-to-logit circuit
+or completion of the full-model goal.
+
+Package manifest supplies hashes and byte counts. Native binding/results:
+`SPARSE_PAIR_PACKAGE_NATIVE_V1_BINDING.json`,
+`SPARSE_PAIR_PACKAGE_NATIVE_V1_RESULT.json`,
+`SPARSE_PAIR_PACKAGE_NATIVE_V1_ARTIFACT.pt`; isolated-load countercheck:
+`SPARSE_PAIR_PACKAGE_V1_ISOLATION_AUDIT.json`.

@@ -1,0 +1,36 @@
+{
+  "pred_a": true,
+  "checks": [
+    {
+      "inputs": "independent",
+      "index": 0,
+      "relative_error": 0.0
+    },
+    {
+      "inputs": "independent",
+      "index": 1,
+      "relative_error": 0.0
+    },
+    {
+      "inputs": "cached_native",
+      "context": 0,
+      "index": 1,
+      "relative_error": 0.0
+    },
+    {
+      "inputs": "cached_native",
+      "context": 1,
+      "index": 1,
+      "relative_error": 0.0
+    }
+  ],
+  "old_tensor_bytes": 6328320,
+  "packed_tensor_bytes": 5968896,
+  "old_file_bytes": 6340557,
+  "packed_file_bytes": 5972357,
+  "common_FP32_parent_interface_logical_saving": 0.01806396578239139,
+  "program_sha256": "672cbcc0db1ea17a65126a12188a5103019a7c20946d34100a0b3a8eec683e0e",
+  "runtime_sha256": "afdc65da0726972df5d368ee43ea35fe04fcd861d3bbe3b73e3a1a96fe2f4872",
+  "source_candidate_sha256": "6348e0410584700ece112a513f9876df1fa885eb89783fc540edbed8f188df7c",
+  "scope": "CPU package-vs-frozen validated candidate. File difference includes mixed precision and archive overhead; commonprecision parentinterface price separate. Dense corrected basis reconstructed atload; nativecontexts/suffix external, no memory/runtime gain."
+}

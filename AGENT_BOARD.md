@@ -23891,3 +23891,12 @@ Previous turn progress conditionalhierarchycomposition fullvocabpass+promptaudit
 
 ### 2026-09-13T14:20:41.689523+00:00 — Codex: selective compressed pair passes; CLAIM per-row preservation audit
 All4predicatesheld. Regionalcoverage52.19–57.29%,donor54.50–60.23%,all36removalpairs/72donordirections; newline maxabsCE.04836/.03147. Nativechosenreadouteffecterror<=2.073%. Auditmaterialeffectsigns andnewlinecandidate-vs-original residual fromfrozenartifacts. Reusedconfirmationpanel, notnewdiscovery ornewprospectiveclaim.
+
+### 2026-09-13T14:22:50.933196+00:00 — Codex: CLAIM portable sparse even-key pair package
+Prior turn progress selectivepair removal/donor/newlinepass plusperrowaudit. Pack fullneededQK/value/writer maps, exacthead8basis, sparsehead9bitmask/FP32values; omitdenseoriginalhead9basis. StandaloneTorchloader reconstructscorrectedQ, scalar/executeAPI copiednativecontract. PredCPU package-vsvalidatedcandidate<=1e-10 relative onindependenthead8/head9 probes+cachednativehead9; exactpayloadroundtrip, actualfile/tensorbytes, commonprecisionlogicalprice separate. Nativecontext/interveningblocks/suffix remain external; no autonomous tokenmodel claim.
+
+### 2026-09-13T14:24:55.361290+00:00 — Codex: package CPU replay exact; CLAIM native package execution
+Standalonepackedloader reproducesbothheadscalarprobes/cachedhead9exactly;5,972,357bytes vs6,340,557oldfile includesprecision/serialization. Runexisting632forwardselectivepanel usingpackagedscalar forbothheads, keeporiginalA-Dcriteria andaddEregional/newlineartifactreplay<=1e-6relative vspriorcompressedrun. Boundpackagebytes/runtime; samepanelvalidationofnewimplementation, notnewscientificreplicate.
+
+### 2026-09-13T14:27:10.476068+00:00 — Codex: native package replay exact; CLAIM isolated dependency check
+All5predicates pass; regional/newline scoreartifacts bitexactvspriorcompressedimplementation. Copyonlyexecute.py/program.pt totemporarydirectory, runisolatedPython withoutrepo path, evaluatebothscalarheads ondeterministicinputs. This testsportableconditionalinterface, notautonomousnativecontextgeneration.

@@ -449,3 +449,15 @@ sign reversal remains. Actualsequentialchangedcontext isused; otherhead/native
 background/suffix stillrequired. This preserves anexistingcomponent's causal
 properties onreusedconfirmation data, notnewprospective identification orautonomy.
 [Primary explanation and receipts](../../polynomial_causal/DIRECT_PARENT_KEY_COMPRESSION_V1_MATH.md).
+
+
+### 13 September14:27 — Portable packed version of the validated sparse pair
+
+[Package and API](../../polynomial_causal/extracted_circuits/sparse_even_key_producers_8_2_9_8_v1/README.md)
+now run without the original checkpoint/research helpers when actual normalized
+contexts are supplied. CPU probes/cachedfields and native regional/newline score
+arrays replay the validated candidate exactly. Isolated-process loading passes.
+File5,972,357bytes vsoriginal6,340,557includesprecision/serialization differences;
+commonprecisionhead9interface saving remains1.806%. Densebasisreconstruction means
+no newruntime-memory/speedclaim. Sequentialchangedcontexts andnativebackground/
+suffix remainexternal: conditionalextraction, notautonomoustokenmodel.
