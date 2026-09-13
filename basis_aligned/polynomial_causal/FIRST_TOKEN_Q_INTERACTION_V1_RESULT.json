@@ -1,0 +1,164 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "replay_error": 2.643422670789438e-07,
+  "field_sum_error": 1.9907827472962452e-16,
+  "Baltimore_F_native": [
+    -0.010213851928710938,
+    -0.02096843719482422,
+    -0.009580612182617188,
+    -0.015636444091796875,
+    -0.02084827423095703,
+    -0.022997379302978516
+  ],
+  "Baltimore_F_afterQ": [
+    0.06991767883300781,
+    0.05341053009033203,
+    0.03050994873046875,
+    0.044501304626464844,
+    0.06498146057128906,
+    0.06714487075805664
+  ],
+  "records": [
+    {
+      "group": 0,
+      "arms": [
+        {
+          "arm": 1,
+          "transfer": -0.0488035087355923,
+          "positive": 0,
+          "negative": 24
+        },
+        {
+          "arm": 2,
+          "transfer": -0.010544480694064842,
+          "positive": 6,
+          "negative": 18
+        },
+        {
+          "arm": 3,
+          "transfer": -0.05474375907777865,
+          "positive": 0,
+          "negative": 24
+        },
+        {
+          "arm": 4,
+          "transfer": 0.0046510409208203925,
+          "positive": 12,
+          "negative": 12
+        }
+      ],
+      "F_afterQ_positive": 0,
+      "F_afterQ_negative": 24,
+      "mixed_prediction_error": 0.0198359366670179
+    },
+    {
+      "group": 1,
+      "arms": [
+        {
+          "arm": 1,
+          "transfer": -0.03187630423871462,
+          "positive": 0,
+          "negative": 24
+        },
+        {
+          "arm": 2,
+          "transfer": -0.0023089608908757973,
+          "positive": 6,
+          "negative": 18
+        },
+        {
+          "arm": 3,
+          "transfer": -0.033600854446281435,
+          "positive": 0,
+          "negative": 24
+        },
+        {
+          "arm": 4,
+          "transfer": 0.0006164029222382322,
+          "positive": 11,
+          "negative": 13
+        }
+      ],
+      "F_afterQ_positive": 0,
+      "F_afterQ_negative": 24,
+      "mixed_prediction_error": 0.016721527563876147
+    },
+    {
+      "group": 2,
+      "arms": [
+        {
+          "arm": 1,
+          "transfer": -0.02401607355399694,
+          "positive": 0,
+          "negative": 24
+        },
+        {
+          "arm": 2,
+          "transfer": -0.0014337295162377176,
+          "positive": 12,
+          "negative": 12
+        },
+        {
+          "arm": 3,
+          "transfer": -0.02036582888638774,
+          "positive": 0,
+          "negative": 24
+        },
+        {
+          "arm": 4,
+          "transfer": 0.005483292256474351,
+          "positive": 12,
+          "negative": 12
+        }
+      ],
+      "F_afterQ_positive": 0,
+      "F_afterQ_negative": 24,
+      "mixed_prediction_error": 0.020897243648164695
+    },
+    {
+      "group": 3,
+      "arms": [
+        {
+          "arm": 1,
+          "transfer": 0.008643812605188693,
+          "positive": 18,
+          "negative": 6
+        },
+        {
+          "arm": 2,
+          "transfer": 0.0006242771057913774,
+          "positive": 12,
+          "negative": 12
+        },
+        {
+          "arm": 3,
+          "transfer": 0.010022464904918392,
+          "positive": 19,
+          "negative": 5
+        },
+        {
+          "arm": 4,
+          "transfer": 0.000930796319143494,
+          "positive": 12,
+          "negative": 12
+        }
+      ],
+      "F_afterQ_positive": 18,
+      "F_afterQ_negative": 6,
+      "mixed_prediction_error": 0.012898838956021575
+    }
+  ],
+  "body_forwards": 480,
+  "seconds": 4.913718905299902,
+  "arm_names": [
+    "native",
+    "F_only",
+    "Q_only",
+    "Q_and_F",
+    "isolated_mixed"
+  ],
+  "scope": "Physical Q7/token-value input corners in crossfirst path only; nativejoint routing/norm/background. Reused96prefixes, no repair of failed fresh signcriterion orwholemodule claim.",
+  "artifact_sha": "4af6e76ebe8ca8eb6f75408cace9c6c80bdc288a7672edff84fad1312bb7ce55"
+}

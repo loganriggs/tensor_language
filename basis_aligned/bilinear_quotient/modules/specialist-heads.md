@@ -391,3 +391,7 @@ Nativefourreader headcache andphysical H-inputdonation confirm8.2: nearquote eff
 ## 13 September00:48 — Head8.2 value/routing inputs to the Q7 interaction
 
 Firstgeneratedsector alone misses nearquote20%field bar(26.82%error). Physical first-value-only change withrecipient routing gives−4.88%,24/24opposed,31.06%errorfullhead8.2path. Routingonlysmallmixed; ignoringrouting/value mixedterms misses59.30%endpoint-effectvector. First-layer sourcevalues are fixedtoken functions; exactcity-only difference and conditionalexecutor replay<4.7e-8 close thisinputport. Contextual QK/Q7/norm/suffix retained. [Primary note](../../polynomial_causal/ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md).
+
+## 13 September01:03 — First-token path context modulation
+
+Freshnearfirst-value pathopposes48/48; distant18/24positive misses20bar. All6exceptionsBaltimore, alsofullhead8.2sign. Q7inputswap flips6Baltimore positive and6Sheffield negative; isolatedmixed term predictsphysicalDOD1.29–2.09%. ThisidentifiescontextualQ7modulationoftheknownhead8.2first-value path, notwholeheadcontrol/generalizationrepair. [Primary note](../../polynomial_causal/ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md).

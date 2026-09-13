@@ -1,5 +1,9 @@
 # Latest research state
 
+**13 September, 01:03 — Fresh context test has a preserved sign miss; Q7/token interaction confirmed.** Near-opposing48/48; distantpositive18/24misses20bar. First/full fidelity andhalf-strength scaling hold. PhysicalQ7swap flips all6Baltimore cases andall6Sheffield cases theotherway; mixedterm predicts physicalinteraction1.29–2.09%. This explains asymmetry, notgeneralizationrepair. [Primary derivation and receipts](../../ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md). [Newest requested full report](../for_logan/LATEST.md).
+
+# Latest research state
+
 **13 September, 00:48 — Head8.2 value/routing split and conditional token-source executor.** Physical first-value-only path transfers−4.88% nearquote,24/24 opposing; mixed terms remain necessary. Weight-derived token inputs replay1.4e-7 and executablepath fields<4.7e-8, with contextual QK/Q7/norm/suffix explicitly external. Generated-first-sector20%field criterion remains failed. [Primary math and evidence](../../ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md). [Newest requested full report](../for_logan/LATEST.md).
 
 ## 13 September, 00:27 — Head8.2 path confirmed; scalar shortcut rejected

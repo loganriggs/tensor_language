@@ -78,3 +78,39 @@ $$
 This is an exact contraction, not a fitted predictor. CPU replay of all-position first-value-only fields is $2.31\times10^{-16}$. On the existing panel, the directed final-position write is positive24/24 near-quote but negative24/24 distant, although the city-token value difference is context-independent. The physical regional effect is opposing24/24 near-quote and positive23/24 distant. Thus contextual sign changes already appear in this composed reader before the final suffix. Final-write/effect correlations range−0.80 to−0.91, but that descriptive relation does not establish final-position-only sufficiency. [Context contraction receipt](FIRST_TOKEN_EFFECTIVE_CONTEXT_V1_RESULT.json).
 
 A fixed, score-free confirmation has been registered:24oldnear-quote anchors plus72untouched prefixes(two near-quote constructions andone distant). It tests native capability, predicted near-opposing/distant-positive signs, first-path fidelity to full head8.2, and half-strength scaling. The executor, rows and runner are frozen before scoring. This is context generalization, not corpus OOD; the cities and lexical endpoints are reused. At00:55 the job is queued behind the live shared v675 experiment; no result is claimed yet. See `FIRST_TOKEN_PATH_FRESH_V1_ROWS.json` and the prediction docstring of `../bilinear_quotient/ops/run_first_token_path_fresh_v1.py`.
+
+## 01:03 — Fresh confirmation and a causal explanation of its remaining miss
+
+The fresh test is completed. Native capability holds on36/36 new paired contrasts. Both new near-quote constructions have first-value-only opposing effects on24/24 prefixes each, with directed transfer−3.19% and−2.40%. The distant construction gives+0.864% on average but only18/24 positive directions, missing the registered20/24 bar. **A and C pass; B fails.** First-path effect errors relative to full head8.2 are21.89%,30.64%,38.00%; doubling half-strength effects predicts full first-path effects within0.45–0.59% relative error. These support approximation and local edit scaling, not the failed universal sign rule. [Fresh receipt](FIRST_TOKEN_PATH_FRESH_V1_RESULT.json).
+
+All six distant exceptions are Baltimore recipients, across all six endpoints. The full head8.2 path agrees with the first-value path's sign on all24 distant prefixes. Thus the sign miss is not a first-value approximation artifact. [Executed sign audit](FIRST_TOKEN_PATH_FRESH_V1_SIGN_AUDIT.json).
+
+### Which context input changes the sign?
+
+For paired recipients, the **directed** token contrast is the same fixed British-minus-American four-vector. Their different writes therefore arise from the effective context reader K. We evaluated all16 combinations of recipient/donor settings for gamma8, gamma9, Q7 and the combined inverse RMS factor. Averaging marginal changes over the other settings gives an exact four-input Shapley allocation; the sum error is $2.09\times10^{-16}$.
+
+For the distant Sheffield/Baltimore pairs, Q7 contributes130–138% of the aligned all-position context-write difference; routing contributions oppose it, and normalization contributes about1.3–1.4%. Fractions above100% reflect cancellation, not probabilities. This is an algebraic allocation on hybrid context inputs, so it motivated a physical discriminator rather than establishing causality by itself. [Context-input allocation](FIRST_TOKEN_CONTEXT_PORT_ALLOCATION_V1_RESULT.json).
+
+### Physical input corners confirm Q7 modulation
+
+Restrict the tested generated value to the Q7/first-value cross term, retaining recipient routing and normalizers. Its dependence on the two input ports is bilinear:
+
+$$
+G(Q,F)\propto Q^T\Lambda\Gamma_8F.
+$$
+
+We physically injected changes corresponding to F alone, Q alone, Q and F together, and the isolated mixed term. In particular,
+
+$$
+G(Q+\Delta Q,F+\Delta F)-G(Q+\Delta Q,F)
+-G(Q,F+\Delta F)+G(Q,F)
+\propto\Delta Q^T\Lambda\Gamma_8\Delta F.
+$$
+
+All fields are transported through the retained head9 path, and the native suffix is recomputed. The Q-only change acts on the specified all-source first-value cross term; the F difference is supported only at the changed city token. Neither is a whole-MLP7 intervention.
+
+The six previously negative Baltimore first-value effects become positive6/6 after donating the paired Sheffield Q7 readings: the conditional marginal effects range+0.0305 to+0.0699 logit-margin units, versus−0.0096 to−0.0230 before that Q donation. The isolated mixed-term intervention predicts the physically measured difference-of-differences within1.29–2.09% across all four constructions. Native/F replay is $2.64\times10^{-7}$;480 forwards took4.91seconds. All registered A/B/C criteria pass. [Physical Q/token interaction](FIRST_TOKEN_Q_INTERACTION_V1_RESULT.json).
+
+**Counter-review:** the six Sheffield recipients flip the other way when receiving Baltimore Q readings, while Nottingham/Detroit's twelve distant recipients remain positive. The manipulation transfers the asymmetry; it does not improve the count of positive distant effects or retroactively pass the fresh sign criterion. This is evidence for a contextual modulator, not a repaired universally positive regional circuit. [All-recipient counter-review](FIRST_TOKEN_Q_INTERACTION_V1_COUNTER_REVIEW.json).
+
+This also clarifies why two earlier statements can coexist. Donating the entire Q-containing MLP8 path showed that much changing information entered through B/H partners. Within the now isolated first-token-value interaction, holding the token contrast fixed and changing the recipient context exposes an important Q7 modulation. These are different interventions on different arguments, not contradictory assignments of a single global causal percentage to MLP7.
