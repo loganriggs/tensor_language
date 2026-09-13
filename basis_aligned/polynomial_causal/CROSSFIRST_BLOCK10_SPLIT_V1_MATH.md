@@ -62,3 +62,26 @@ Residual andoutputbias cancel inreal arithmetic. Thefirstterm isdirectcrossmulti
 `mlp_two_edit_mixed_v1.decompose` implements this usingprojected products. An actualMLP10-weight FP64control againstdirectnormalized four-corner evaluation passes at2.04e-13; exchangingtheedit labels changesit by2.38e-15. Thisisnewlocalinterfaceapplicationofknownbilinear/RMS algebra, notanewfactorizationtheorem. Native termmediation hasnotrun; the next test must determine which term carries the measured regional effect andcheck theFP32mixed-state comparison.
 
 [Native split](CROSSFIRST_BLOCK10_SPLIT_V1_RESULT.json) · [Sign/absolute audit](CROSSFIRST_BLOCK10_SPLIT_V1_AUDIT.json) · [Boundary telescope](INHERITED_INTERACTION_BOUNDARY_V1_AUDIT.json) · [Two-edit algebra control](MLP_TWO_EDIT_MIXED_V1_CONTROL.json).
+
+## 03:39 — Native direct-product mediation passes
+
+The product-versus-normalization experiment passesA/B/C. Allprevious8armoutcomes replayexactly. The fulltwo-edit formula matchesnativeMLPmixedstate within0.172%regional and0.541%FineWeb aggregateerror; nativeFP32four-corner subtraction andFP64algebra remain distinct.
+
+| Regional group | Fullformula effect error | Directproduct-only error | Product+normalization separate-effect addition error |
+|---|---:|---:|---:|
+| Old near | 0.185% | 1.188% | 0.410% |
+| Near-message | 0.156% | 0.797% | 0.345% |
+| Near-person | 0.084% | 0.636% | 0.188% |
+| Distant | 0.132% | 0.839% | 0.228% |
+
+The directproduct is q_cr/rho_A. It **retains the joint RMS denominator**; this result doesnotjustify removing normalization fromthemodel. Rather, theextra terms causedbychangingdenominators contribute little tothisregionalmixed effect. Their effectnorm is0.56–1.05% ofthenativeMLPinteractionnorm.
+
+An executed per-prefix audit finds96/96directproduct/nativeMLP signs match, and96/96directproduct/fullblock10localeffect signs match. Against thebroaderwholeblocklocaltarget, directproducterrors are3.41%,2.36%,1.68%,3.53%. This makes theweight-defined product a useful conditional computational specification ofthislocalregionalinteraction; it doesnotidentify independentsemanticproductchannels or remove theinput/suffixdependencies.
+
+FineWeb fullformula effecterrors are13.65%,2.95%,4.26%,1.76%, withmaximumabsoluteCEerrors0.95e-6–2.74e-6nats. DirectproductMLPeffecterrors3.05–14.42%, anditswholeblockeffecterrors6.19–76.36%, remain descriptive. The firstFineWebgroup hastwo oppositeproduct/MLPsigns. A/B/Cpassing onlylicenses the registeredregional behavioral claims andpanelstatecheck, notuniformcontrol-effect fidelity. Absolute/per-prefixaudits areexecuted; fullFP64suffixprecision discrimination remainsuntested.
+
+The run used1760forwards and160extraMLPevaluations, taking19.67seconds. No solver ordatafit wasused. Inputs c,r areactualpreMLP10 changes underchild/remainderremoval; downstreamsuffix11–17 remainsnative.
+
+The next structural question is which earlier computations generate c andr. Eachsplits into theaffine-residual change fromblock9 andtheattention10 outputchange. Bilinearity then gives residual/residual, residual/attention, attention/residual andattention/attention products. The smallnessofattention10's ownmixedstate doesnotimply itsindividualinputchangesareunimportant inside theseproducts. That inputsplit mustbe tested, ratherthan inferreddirectlyfromthepresentMLPdominance.
+
+[Native term experiment](MLP10_MIXED_PRODUCT_NORM_V1_RESULT.json) · [Registered criteria](MLP10_MIXED_PRODUCT_NORM_V1_PREREGISTRATION.md) · [Executed sign/absolute/scope audit](MLP10_MIXED_PRODUCT_NORM_V1_AUDIT.json).
