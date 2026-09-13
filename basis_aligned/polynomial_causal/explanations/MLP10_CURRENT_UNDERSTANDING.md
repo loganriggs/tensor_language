@@ -205,3 +205,8 @@ The [primary explanation and receipts](../FIXED_WRITER_PRODUCTS_V1_MATH.md) dist
 ### 13 September: fixed residual–attention mixed component
 
 The shared fixed residual writer also defines an exact mixed operator through attention10: $M=J_{\lambda w}^{(10)}O_{10}$. Its isolated compilation nearly halves repeated CPU contraction time against separate J/O maps. Native deletion changes regional interaction targets by 1.63–3.47% and creates one material sign reversal; it fails safe pruning. A weights-only rank-128 approximation preserves its own regional target effect within 3.73–6.37%, but misses controls and FineWeb preservation. This is a conditional computational component, not a selective spelling unit. [Derivation and primary receipts](../FIXED_WRITER_ATTENTION_OPERATOR_V1_MATH.md).
+
+
+### 13 September: three-term self-interaction transfer
+
+The producer-constrained rational numerator can retain three coefficients while preserving a material residual-self component on48new template prompts. Live-generated fields pass old anchors; own-effect errors are0.41–1.05%target and1.09–2.97%control. Whole-self deletion changes target interaction norms10–16%. No semantic-selectivity or full-branch speed claim follows. [Math and receipts](../CONIC_AMPLITUDE_POLYNOMIAL_V1_MATH.md).

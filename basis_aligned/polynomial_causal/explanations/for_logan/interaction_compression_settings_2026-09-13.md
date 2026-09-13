@@ -1,5 +1,7 @@
 # Compression of interactions: three settings and what would count as success
 
+**New result, 13 September10:30:** the three-term rational interaction representation passes48fresh template prompts with live-generated upstream fields. Original-interaction target error is0.09–0.19%; error relative to the compressed self-term's own behavioral effect is0.41–1.05%target and1.09–2.97%control. This strengthens conditional transfer and component preservation; full-branch speed still does not improve. [Derivation and all counterchecks](../../CONIC_AMPLITUDE_POLYNOMIAL_V1_MATH.md).
+
 Requested direction, 13 September 2026. **Latest campaign status: 09:46 UTC.** This supersedes the previous restriction against compression as a primary task. Discover structure from weights first, then validate on text.
 
 **The best result is an exact simplification of a composed interaction, rather than a new low-rank fit.** In setting 1, respecting the upstream producer reduced ten symmetric products to six; a further algebraic relation reduces the same-input quadratic part to five. One of these five is a fixed output vector shared across contexts. It can be stored once and reused, with four varying vectors per context. The separate-input cross product still needs six: the five-term identity has a specific domain.

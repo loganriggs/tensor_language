@@ -102,3 +102,27 @@ Stored output vectors fall from five per context to three; compared with the imp
 The timing panel also exposes 0.87–1.36% full-branch approximation errors on its synthetic backgrounds and amplitudes. Those examples have a different cancellation structure from the native panel. Native success therefore must not be promoted to arbitrary-background preservation. The local numerator bound does not control relative error after background cancellation or nonlinear suffix amplification.
 
 The result is a smaller, weight-derived conditional interaction representation with historical native preservation. It is not a faster whole-model replacement, independent circuit extraction, selective manipulation, or fresh/OOD validation. The next useful structural target is the expensive background/response computation, rather than repeatedly shaving the now-small self-product bank.
+
+## Fresh-template prediction and own-term preservation, 13 September10:30
+
+[The fresh test](THREE_TERM_FRESH_TEMPLATE_V1_RESULT.json) evaluates48new prompts across four templates and the same six lexical spelling contrasts. Their token sequences are disjoint from1037sequences in48checked row inventories. This is a constructed template shift, not unseen vocabulary or corpus-wide OOD. No fitting or rank selection uses the new examples.
+
+The upstream child/parent fields are generated from live native states by the assembled executor, rather than loaded from cached fresh examples. Historical anchors at rows0/24/48/72 reproduce child fields and postMLP9 states exactly; parent-field error is at most $4.84\times10^{-17}$. The prefix and suffix remain native dependencies, so this does not establish an autonomous small language model.
+
+All four registered predicates pass in5.18seconds. Compressed original-interaction target errors are0.092–0.191%; controls0.417–0.758%. Incremental error versus the exact five-bank program is0.051–0.114%target and0.234–0.601%control. All four families have positive native paired cue capability, and no material interaction sign reversals occur. The preserved quantity is the original two-edit interaction, not the entire regional task effect.
+
+A further [native self-term removal](THREE_TERM_FRESH_SELF_REMOVAL_V1_RESULT.json) guards against surrounding computation hiding approximation error. In every changed branch, remove the entire $K(r,r)/(2\rho_{10})$ contribution, keeping background and mixed terms. Native/exact references replay identically. The removal changes target interaction norms by10.26–15.81%, and controls by12.34–29.31%. Thus the approximated component is behaviorally material on this panel.
+
+Define its removal-based contribution as $E=I_{\mathrm{exact}}-I_{\mathrm{removed}}$, and its reconstructed contribution as $\widehat E=I_{\mathrm{three}}-I_{\mathrm{removed}}$. Then the stricter error is
+
+$$
+\frac{\|\widehat E-E\|_2}{\|E\|_2}
+=\frac{\|I_{\mathrm{three}}-I_{\mathrm{exact}}\|_2}
+{\|I_{\mathrm{exact}}-I_{\mathrm{removed}}\|_2}.
+$$
+
+It is0.413–1.050%for targets and1.094–2.968%for controls, passing10%in every family. This uses actual nonlinear suffix evaluations; no additivity of suffix effects is assumed. The removal receipt reuses the fresh panel and is a countercheck, not a second independent transfer panel. Its inherited third-arm field names refer to the removed-self arm; `own_groups` explicitly records the compression comparison with the original fresh receipt.
+
+[Leaving out each lexical pair in turn](THREE_TERM_FRESH_SELF_PAIR_V1_AUDIT.json) raises the worst error to2.83%target and4.75%control, still below10%. There are no own-component sign reversals, including below the material threshold. These descriptive checks address concentration in one concept; they are not statistical guarantees for arbitrary text.
+
+This is the strongest current evidence for the three-term representation: fewer conditional output vectors, prediction on new templates with live-generated fields, and preservation of a material component's own effect. Selective semantic manipulation, independent extraction of the full input/background generator, general composition with other replacements, and whole-program runtime/storage gains remain unproven.
