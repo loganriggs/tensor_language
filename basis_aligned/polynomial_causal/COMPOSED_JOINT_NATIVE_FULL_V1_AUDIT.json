@@ -1,0 +1,198 @@
+{
+  "native_corners_maxabs_error": 0.0,
+  "groups": [
+    {
+      "name": "regional0",
+      "old_relative_errors": [
+        0.11932243832425324,
+        0.3888318519433522
+      ],
+      "new_relative_errors": [
+        0.0008354483473378725,
+        0.0016723741068321047
+      ],
+      "sign_reversals": [
+        0,
+        0
+      ],
+      "material_sign_reversals": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "regional1",
+      "old_relative_errors": [
+        0.12162629154335224,
+        0.3873816326575028
+      ],
+      "new_relative_errors": [
+        0.0006473938428117254,
+        0.0012996013754010582
+      ],
+      "sign_reversals": [
+        0,
+        0
+      ],
+      "material_sign_reversals": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "regional2",
+      "old_relative_errors": [
+        0.16050574530372969,
+        0.30568330023446455
+      ],
+      "new_relative_errors": [
+        0.0006236590178624168,
+        0.0024354628262493916
+      ],
+      "sign_reversals": [
+        0,
+        0
+      ],
+      "material_sign_reversals": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "regional3",
+      "old_relative_errors": [
+        0.14574410459503967,
+        0.29442597827553185
+      ],
+      "new_relative_errors": [
+        0.0003753024993310658,
+        0.0013118950059560338
+      ],
+      "sign_reversals": [
+        0,
+        0
+      ],
+      "material_sign_reversals": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "FineWeb0",
+      "old_relative_errors": [
+        0.4084542149239418,
+        0.7090685044559881
+      ],
+      "new_relative_errors": [
+        0.07670826881462343,
+        0.054724263996618165
+      ],
+      "sign_reversals": [
+        1,
+        0
+      ],
+      "material_sign_reversals": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "FineWeb1",
+      "old_relative_errors": [
+        0.11020348993336326,
+        0.13802917950881563
+      ],
+      "new_relative_errors": [
+        0.0044616969986187,
+        0.013108388869898218
+      ],
+      "sign_reversals": [
+        0,
+        1
+      ],
+      "material_sign_reversals": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "FineWeb2",
+      "old_relative_errors": [
+        0.5722368372101867,
+        0.35561851927569865
+      ],
+      "new_relative_errors": [
+        0.041174157218957376,
+        0.0232034854498294
+      ],
+      "sign_reversals": [
+        1,
+        0
+      ],
+      "material_sign_reversals": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "FineWeb3",
+      "old_relative_errors": [
+        0.40543324005252973,
+        0.28503938088249897
+      ],
+      "new_relative_errors": [
+        0.014051248007275339,
+        0.013275313644885265
+      ],
+      "sign_reversals": [
+        1,
+        2
+      ],
+      "material_sign_reversals": [
+        0,
+        0
+      ]
+    }
+  ],
+  "all_sign_reversals": [
+    {
+      "row": 109,
+      "endpoint": 0,
+      "native": -1.1920928955078125e-06,
+      "generated": 1.1920928955078125e-07
+    },
+    {
+      "row": 125,
+      "endpoint": 1,
+      "native": 3.814697265625e-06,
+      "generated": -1.9073486328125e-06
+    },
+    {
+      "row": 131,
+      "endpoint": 0,
+      "native": 4.172325134277344e-07,
+      "generated": -5.21540641784668e-07
+    },
+    {
+      "row": 146,
+      "endpoint": 1,
+      "native": -9.5367431640625e-07,
+      "generated": 9.5367431640625e-07
+    },
+    {
+      "row": 154,
+      "endpoint": 0,
+      "native": 7.152557373046875e-07,
+      "generated": -1.0728836059570312e-06
+    },
+    {
+      "row": 157,
+      "endpoint": 1,
+      "native": 9.5367431640625e-07,
+      "generated": -3.814697265625e-06
+    }
+  ],
+  "maximum_state_error": 2.945879313831668e-07,
+  "maximum_branch_output_error": 8.58306884765625e-06,
+  "scope": "Post-result aligned historical-panel comparison. Same native corners exactly. Old model predicts parent using generated additive background plus local cross; new predicts all changed branches including inherited mixed response. Extra branch/dense suffix cost remains."
+}

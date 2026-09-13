@@ -34,3 +34,27 @@ One synthetic17-position context, actual model weights, three nonzero signed/amp
 This shares preparation across three changed branches rather than two. It introduces no learned parameters, but retains dense attention/MLP maps, pristine context and separate branch execution. The control establishes algebraic correctness on its declared domain. Native FP32 text fidelity, original-interaction prediction and complete execution cost are still untested for this extension. Prior local FineWeb failures are not rescinded.
 
 [Implementation](composed_joint_response_v1.py) · [Independent control](check_composed_joint_response_v1.py) · [Receipt](COMPOSED_JOINT_RESPONSE_V1_CONTROL.json) · [Coverage gap motivating it](COMPOSED_ORIGINAL_INTERACTION_COVERAGE_V1_MATH.md).
+
+
+## 07:32 — Native original-interaction validation
+
+The eight-prefix CPU pilot passed, followed by a preregistered managed GPU run on all160 historical prefixes. The GPU job terminated normally in9.16seconds, with all three registered criteria passing. The implementation uses the generated pre-MLP10 input rounded toFP32, then native MLP10 and the suffix. All three changed branches are generated; no changed native reference enters the predictor.
+
+An executed cross-receipt audit confirms that all native no-edit/child/remainder/parent endpoint scores exactly equal the original17-arm experiment. Thus the following comparison uses identical native references:
+
+| Regional group | Previous original-target error | Complete generated target error | Complete generated control error |
+|---|---:|---:|---:|
+|0|11.93%|0.0835%|0.1672%|
+|1|12.16%|0.0647%|0.1300%|
+|2|16.05%|0.0624%|0.2435%|
+|3|14.57%|0.0375%|0.1312%|
+
+FineWeb target errors are7.67%,0.446%,4.12% and1.41%; control errors5.47%,1.31%,2.32% and1.33%. All meet this experiment’s preregistered10%/15% group bars. This does not retroactively change failures of the previous local-product target. Maximum post10 state relative error is2.95e-7; maximum branch endpoint discrepancy8.59e-6.
+
+The sign audit records no regional reversals and six FineWeb reversals: three target and three control. All reference magnitudes are below4e-6. None crosses the descriptive material threshold1e-5. Aggregate success therefore does not establish accurate signs for arbitrarily small effects.
+
+What changed: the generated parent now contains the inherited MLP9 mixed response and its subsequent attention/MLP interactions. The predictor also generates the child and remainder used in its own final interaction calculation. The native comparison supports conditional computation/composition fidelity; it does not show that all relevant computation has been compressed or interpreted. The native downstream suffix still produces much of the effect. There is no new fresh text/OOD test, independent scalar-field extraction, or demonstrated additional speed/storage gain from this extension. Its third branch and all retained native weights must be priced.
+
+Next decision: compare execution/storage of this shared representation against a matched direct three-branch computation, then simplify shared readers where their actual consumers justify the cost. Do not replace this now-valid original-interaction target with the easier local-product target.
+
+[Full-panel receipt](COMPOSED_JOINT_NATIVE_FULL_V1_RESULT.json) · [Registered bars](COMPOSED_JOINT_NATIVE_FULL_V1_PREREGISTRATION.md) · [Aligned reference and sign audit](COMPOSED_JOINT_NATIVE_FULL_V1_AUDIT.json) · [Audit code](audit_composed_joint_native_v1.py).
