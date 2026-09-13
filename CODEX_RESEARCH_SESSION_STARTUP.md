@@ -1,40 +1,12 @@
 # Codex research-session startup and continuation
 
-## Start this program with Astra
+## Replacement-instance entry point — 13 September 2026
 
-The installed Codex CLI is `0.153.4`. On 2026-09-08, `codex update` resolved and successfully
-installed that same latest version. At 14:16 UTC, `codex debug models` reconfirmed that this
-account's live catalog lists `GPT-6-Astra` under the exact slug `gpt-6-astra` with
-`visibility = "list"`. Astra is already the default in `/root/.codex/config.toml`.
+The previous instance was expiring. Read the [final compression report](basis_aligned/polynomial_causal/explanations/for_logan/research_update_2026-09-13_final_compression.md), [recovery instructions](session_recovery/README.md), and [copyable next-session prompt](NEXT_CODEX_PROMPT.md).
 
-In a running Codex terminal session, enter `/model` and select **GPT-6-Astra**. If Astra is absent
-from that picker, exit the session and explicitly override the model. To preserve the current
-conversation history, use:
+Run `/venv/main/bin/python /workspace/tensor_language/research_session_startup.py` for a read-only check of packages, checkpoint presence, portable-artifact hashes, queues, Supervisor services, disk and both review clocks. On a replacement instance, restore dependencies/model first, then use `--install-skill --install-runners --start-runners` as needed. `--verify-checkpoint` checks the full model hash. The script preserves existing differing configurations and never restarts a running service. It does not perform unattended research reviews: the active Codex session must perform them.
 
-```bash
-codex resume --last -m gpt-6-astra -C /workspace/tensor_language -a never -s danger-full-access
-```
-
-To start a clean session instead, use:
-
-```bash
-codex -m gpt-6-astra -C /workspace/tensor_language -a never -s danger-full-access
-```
-
-In the ChatGPT desktop app, first use **Menu > Check for Updates**, then create a new Codex chat
-and open its model picker. Astra is rolling out gradually, so it may still be absent from the
-desktop picker even when the CLI catalog already exposes it. The explicit CLI command above is
-the verified path for this account. If the command ever reports an access error, that is an
-account/workspace rollout issue rather than a repository or GPU-instance problem.
-
-For a clean session, ask Codex to read this guide and continue the durable research goal.
-A resumed session keeps its history but should reread the current pointers and clocks.
-The guide remains the restart authority for research reviews and managed runners.
-To diagnose a stale picker, query the actual catalog:
-
-```bash
-codex debug models | jq '.models[] | select(.slug == "gpt-6-astra")'
-```
+Keep the checkout at `/workspace/tensor_language` and Python at `/venv/main`; current executors contain absolute paths. The user prefers Astra; use the available model selection interface without treating a particular CLI version as a research dependency.
 
 ## Purpose and authority
 
@@ -88,55 +60,17 @@ Follow [the three-setting compression plan](basis_aligned/polynomial_causal/expl
    its relevant dossier, aliases and primary receipts. Missing consolidated
    coverage is documentation debt, not evidence the module is unexplored.
 
-## Current handoff — 11 September 16:22 matched joint fits
+## Current handoff — 13 September 14:34 research cutoff
 
-Use [the latest requested report](basis_aligned/polynomial_causal/explanations/for_logan/LATEST.md),
-[current state](basis_aligned/polynomial_causal/explanations/2026-09-11/LATEST.md),
-and the [method index](basis_aligned/polynomial_causal/WEIGHT_ONLY_METHODS_INDEX.md).
+The [final requested report](basis_aligned/polynomial_causal/explanations/for_logan/research_update_2026-09-13_final_compression.md) supersedes the old September11 fit snapshot. The startup script and prompt were prepared after this cutoff; no new setting2 fit was run during expiry preparation.
 
-- The output-eliminated LL1 run completed16:01:20:11.8891/11.8510%capture,
-  both unconverged; functioncos.90849 and7/64groupmatches missstability.
-  Read PROJECTED_LL1_CONVERGENCE_V3_RESULT.json; do not restart this completed run.
-- Joint multi-parent graphs now execute correctly. Compatible parent selection
-  and converged matched all-core solves leave most approximation loss.
-- New all-core variable-projection kernel moves shared/private readers and output
-  directions jointly. Dense gradient/FD checks pass. Planted near4/4recover,
-  independent0/4; coordinate re-encoding recovers1/4 after cycles.
-- Raw parameter norms reachedmillions and caused false gradient stopping.
-  Same-function re-encoding exposes a large gradient; raw optimizerrestart doesnot.
-  Read SHARED_READER_VARIABLE_PROJECTION_V2_MATH.md before fitting or claiming
-  convergence. A new controller must bound/reset redundant coordinate scales.
-- Native kernel preflight completed with all bars held at~.28s/evaluation.
-  The bounded/re-encoded controller preserves function but still recovers only
-  1/4independent planted starts; no global guarantee or absent-structure claim.
-- First spectral pair completed: original11.88387%, sharedgraph11.86782%capture;
-  gap.000160538 with1.16446%floats saved, but bothunconverged. Postfit12parents
-  retain twoeffectiveconsumers and exact joint-removal accounting. See
-  SHARED_READER_POSTFIT_INTERFACE_V1_SPECTRAL.json and the primary method note.
-- All four matched arms completed by17:42:21. Both price/capture comparisons
-  hold, all fits remain unconverged, and zero frozen cross-start node matches
-  meet stability bars. See SHARED_READER_JOINT_FIT_V1_AGGREGATE.json and
-  SHARED_READER_CROSS_START_V1_RESULT.json. The retained-history comparison completed unconverged and worse than
-  its baseline. The original parent1 support-direction screen failed; the
-  separate128-prefix suppression/specificity screen passed, while prospective
-  input-gating specificity missed. All these screens are completed. Read SHARED_NODE_CANONICAL_BRANCHES_V1_MATH.md. Check
-  livequeue/results beforeaction. Allboundhelpers remainfrozen.
-- Frozen cross-start correspondence has been scored; descriptive rematching
-  does not repair its miss. Do not call current nodes identified circuits.
-- Hourly1722 records all three workflow gates held. Read
-  SHARED_FACTOR_OUTPUT_MIXTURES_V1_MATH.md for exact output-basis search, full-native
-  reader lifting, and graph-node versus global input-removal scope. The queued
-  behavioral screen is validation of frozen weights, with no data fitting.
-- GLOBAL_READER_REBASE_V2_MATH.md adds exact global single/two-parent interfaces:
-  nonorthogonal node deletion uses dual readers and oblique input removal.
-  Execution/composition holds, but generic controls prevent a special-circuit
-  interpretation of improved cross-start agreement. Costs increase; no adoption.
-- Requested fuller reports remain in explanations/for_logan/; latest is
-  the21:42report covering shared graphs, local prediction and upstream interactions.
-  The13:27report retains the CP/LL1 and hierarchy/DAG reference appendices. General reliable DAG
-  discovery and the four behavioral properties remain unfinished. Follow
-  RESIDUAL_PARENT_EDGE_V1_MATH.md and livequeue for the current two matched
-  closed-component graph refits; older completed runs must not be restarted.
+- Best setting1 candidate: `SPARSE_COMPLETE_EVEN_FIT_V1_PROGRAM.pt`, key `0.25`. A sparse 1152×64 reader with25% entry pruning and the correct Gram inverse, fitted to the complete two-QK even numerator. Ten starts locally converged. All five corpus aggregates pass on96additional prefixes, with12individual >10% failures and small signed-control exceptions preserved. Composition and the selected producer-pair aggregate bars pass.
+- Price:16.31%reader representation /1.806%declared parent interface saved at commonFP32. All64nodes remain. SparseCPU execution1.9–4.4times slower and more memory-hungry than shared dense execution. No fullmodel/runtime adoption.
+- Portable validated package: `basis_aligned/polynomial_causal/extracted_circuits/sparse_even_key_producers_8_2_9_8_v1/`. Its native score arrays exactly replay the frozen compressed implementation. Standalone loading passes; actual normalized contexts and native suffix remain external.
+- Stronger regular2of4sparsity fails native transfer even after converged learned-maskrefits. Exact coordinate-chart adaptation also losesCPUtiming. Do not rerun these completed jobs.
+- Setting2 sparse mixed tensor saves30.81%versusdense folded storage, retains its conditional regional result, fails broader fullhead inputs. Prior shared-write/balanced/private fits do not beat it; allnodesremain. Setting3fullUshared/privatefits improve matched-budget coefficients but remain unconverged and behaviorally fail.
+- Next: inspect setting2producer constraints and derive a weights-only complete retained-contraction error objective at matched total cost. Read `INTERACTION_SPARSE_REGIONAL_V1_MATH.md`, `SPARSE_INTERACTION_EXECUTOR_V1_MATH.md`, `INTERACTION_SHARED_WRITES_V1_MATH.md`, `HEAD17_OUTPUT_BLOCK_FIT_V1_MATH.md`, `THREE_GROUP_SHARED_DAG_V1_MATH.md`, `SHARED_KEY_VALUE_MOMENT_V1_MATH.md` and relevant dossiers first. Start with an exact CPUcontrol; no new fit is implemented or queued. Do not duplicate existing outputsubspace, coordinatecomplement orlinearVpullback probes.
+- Both managedrunners wereRUNNING, bothqueuesempty at14:44UTC. LastresearchGPUjob: `run_sparse_pair_package_native_v1`, completed14:25:37. Idlecanariescontinue. Inspect live state on migration; do not treat this snapshot as a livewait.
 
 User correction: discover from weights first. No new data/CE/Fisher-guided fits
 until distinct weight-only assumptions and adequate optimization have been
@@ -166,13 +100,9 @@ Newest user-directed proposal: [joint composed interaction paths](basis_aligned/
 
 ## Review clocks and throughput
 
-Latest hourly review:
-[18:55](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-12_1855.md).
-Next hourly review is due **19:55 UTC on12September** at the first safe boundary.
-Latest mathematical review:
-[17:06 cycle](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_1706.md).
-Next mathematical review is due **20:12 UTC on12September**. Derive later deadlines from the
-newest authoritative review files, not this snapshot. Do not duplicate reviews.
+Latest hourly review: [13 September14:28](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-13_1428.md); next15:28UTC.
+Latest mathematical review: [13 September14:29](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-13_1429.md); next17:29UTC.
+Derive subsequent deadlines from the newest review filenames. If migration makes them overdue, review at the first safe boundary and establish new clocks; do not backfill offline hours. The14:28ceremonybudget failed: mark phases before operations and keep routine work to primaryreceipts plus shortboard notes untilhourly/major/userrequestedpublication.
 
 Hourly reviews restate seven circuit targets: explicit computation;
 cross-boundary grouping and within-module splitting; held-out/OOD prediction;

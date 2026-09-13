@@ -1,7 +1,5 @@
 # Latest requested update for Logan
 
-**New compression plan (13 September): [Three interaction settings, compression families, simplicity and reuse](interaction_compression_settings_2026-09-13.md).** Campaign plan with an initial-results note; the latest full report remains below.
+**Newest full report: [13 September — Final instance update: compression of composed circuit interactions](research_update_2026-09-13_final_compression.md).** Covers work since02:55 through14:34: all three settings, the successful composed sparse parent, exact simplifications, failed alternatives, literal costs, behavioral limits, and what the math reviews contributed.
 
-**Newest: [13 September, 02:55 UTC — A compact predictor of a circuit interaction](research_update_2026-09-13_0255_joint_attention_predictor.md).** Covers work since the 02:00 report: later-layer localization, joint QK/value mathematics, the three-contraction predictor, fresh confirmation, and an explicit audit of how much remains unexplained.
-
-[Previous full update](research_update_2026-09-13_0200_executable_interaction_path.md) · [Standalone derivation](standalone_best_result.md) · [All requested reports](README.md).
+[Restart guide](../../../../CODEX_RESEARCH_SESSION_STARTUP.md) · [Copyable next-session prompt](../../../../NEXT_CODEX_PROMPT.md) · [Three-setting plan](interaction_compression_settings_2026-09-13.md) · [All reports](README.md).
