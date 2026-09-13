@@ -179,3 +179,63 @@ nor rules out effects of context length on nearby-token representations.
 Receipts: `PARENT_LAG_ERROR_V1_RESULT.json`,
 `PARENT_LAG_ERROR_V1_DOCUMENT_AUDIT.json`; frozen execution/binding:
 `ops/run_parent_lag_error_v1.py`, `PARENT_LAG_ERROR_V1_BINDING.json`.
+
+
+## Product-space compression: exact spectrum and a pricing rejection
+
+Instead of pruning the shared source readers, consider compressing their products.
+Let $u=B^T x\in\mathbb R^{64}$, $A=K_1B\in\mathbb R^{128\times64}$,
+and $C=K_2B$ with the same shape. The inside/inside contribution has source feature
+
+$$
+F(u)=(Au)(Cu)^T\in\mathbb R^{128\times128}.
+$$
+
+Its contraction with the two query vectors is the product of both QK scores.
+This is one retained numerator term. The outside/outside term, source-position
+rotations, native normalizers and scalar value are still required. In particular,
+this is not the spectrum of the whole behavioral parent or its actual query distribution.
+
+On an orthonormal basis of symmetric64-by64 matrices, the linear map
+$X\mapsto AXC^T$ has2,080 input coordinates and16,384 output coordinates.
+We compute its coefficient Gram exactly from $A^TA$ and $C^TC$, without
+materializing the full feature map. A tiny explicit-matrix control agrees to
+$1.99\times10^{-16}$ relative error. The best rank128 approximation has84.19%
+relative coefficient error; reaching10% requires1,885 directions.
+
+The stronger practical rejection is cost: a dense rank1,885 two-adapter map
+stores34,804,640 scalars, versus16,384 in the original two factored maps $A,C$.
+Even rank1 would require18,464 scalars. Shared $B$, native producers and other
+terms remain on both sides. These figures price the explicit materialized
+$A,C$ representation; native-map reuse could make its incremental storage even
+smaller. Consequently this dense adapter family cannot provide the requested
+local storage saving. Low matrix rank is not the same as low arithmetic complexity:
+the original product expression is already a compact nonlinear program.
+
+A repeated-input countercheck changes the norm. For isotropic Gaussian $u$,
+the second moment of its symmetric quadratic features is
+
+$$
+M=2I+tt^T,\qquad t=\operatorname{coordinates}(I_{64}).
+$$
+
+The Gaussian output spectrum is obtained from $M^{1/2}GM^{1/2}$, where $G$
+is the coefficient Gram. It needs1,883 directions for10% error; rank128 gives
+83.53% error. Its trace agrees to$1.12\times10^{-15}$ with the independent identity
+
+$$
+\mathbb E\|F(u)\|_F^2
+=\operatorname{tr}(A^TA)\operatorname{tr}(C^TC)
++2\operatorname{tr}(A^TA C^TC).
+$$
+
+Thus the broad spectrum is not repaired by this particular function-space norm.
+It does not rule out sparse/block arithmetic graphs, actual-query-constrained
+compression, or reuse across terms. Do not launch a learned dense product-space
+fit here: its storage loses before optimization. A useful successor must retain
+factored adapters and exploit the complete query/source contraction, including
+position semantics, rather than expand the source map into dense output features.
+
+Code and receipts: `source_product_spectrum_v1.py`,
+`SOURCE_PRODUCT_SPECTRUM_V1_RESULT.json`,
+`SOURCE_PRODUCT_SPECTRUM_V1_GAUSSIAN_AUDIT.json`.

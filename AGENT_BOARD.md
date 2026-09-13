@@ -23798,3 +23798,12 @@ Same40fixed128tokenprefixes, query-product rank48 only. Split gamma48-gamma64 at
 
 ### 2026-09-13T13:27:46.929481+00:00 — Codex: CLAIM lag attribution document countercheck
 Long-lag hypothesis failed: alignment9.66%FineWeb/16.01%legal versus70%bar, partition/replay/closure held. Compute leave-one-document-out alignment from frozen cells to test single-document dependence; no refitting. Refresh three-setting plan status and joint pricing distinction.
+
+### 2026-09-13T13:31:21.379296+00:00 — Codex: CLAIM symmetric source-product spectrum and price
+Previous turn progress: lag hypothesis rejected and document countercheck completed. New weight-only object (K1 B u) outer (K2 B u), same64sourcecoordinates, full128x128 keypairoutput before source-position rotation and native denominators/value. Exact2080dimensional symmetric coefficient Gram; tiny dense-control <=1e-10, rank for10%Frobenius error, dense adapter price against existing two128x64maps. No native behavior or absence-of-sparse-graph claim. Basis/value/prefix remain shared. Stop dense-product promotion if charged cost loses.
+
+### 2026-09-13T13:32:48.559897+00:00 — Codex: product spectrum null; CLAIM repeated-input norm countercheck
+Exact2080dimensional coefficient spectrum needs1885directions for10%error. Dense adapter34.8M scalars versus native16,384; even rank1 dense adapter loses. Check isotropic-Gaussian repeated-source function norm using E[phi(u)phi(u)^T]=2I+tt^T, t=coordinates(identity); compare to coefficient norm. No claim on data distribution, full parent or nonlinear graph minimality.
+
+### 2026-09-13T13:33:57.774168+00:00 — Codex: source-product audit completed
+Gaussian source-function norm still needs1883/2080directions for10%error (coefficient1885). Fourth-moment tracecontrol1.12e-15. Dense product adapters lose even rank1; do not spend GPUoptimization on this representation. Preserve native factored maps; sparse/constrained-query alternatives not ruled out. Primary details DIRECT_PARENT_KEY_COMPRESSION_V1_MATH.md.

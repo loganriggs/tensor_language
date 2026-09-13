@@ -1,0 +1,25 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "control_relative_error": 1.9896257024357107e-16,
+  "input_product_dimension": 2080,
+  "output_pair_dimension": 16384,
+  "rank_for_10_percent": 1885,
+  "relative_errors": {
+    "64": 0.8995589673629334,
+    "128": 0.8418868810203775,
+    "256": 0.7536647962084435,
+    "512": 0.620751164241868,
+    "1024": 0.4101217822354625,
+    "1536": 0.22579227429435253,
+    "2080": 0.0
+  },
+  "local_scalars_before": 16384,
+  "dense_adapter_scalars_after": 34804640,
+  "minimum_nonzero_dense_adapter_scalars": 18464,
+  "minimum_eigenvalue": 145.79016580386275,
+  "maximum_eigenvalue": 88874.35577901729,
+  "seconds": 1.0420863628387451,
+  "scope": "Exact same-source key-product spectrum; no activation fitting.\n\nPred_a explicit small tensor Gram replay <=1e-10 relative.\nPred_b rank <=128 reaches10% coefficient Frobenius error.\nPred_c dense two-adapter replacement saves at least10% local scalars.\nScope: inside/inside key numerator only; arbitrary independent query ports.\nNative denominators, position rotations, value and outside terms remain.\n"
+}
