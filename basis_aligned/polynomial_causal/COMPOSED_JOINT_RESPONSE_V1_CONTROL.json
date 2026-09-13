@@ -1,0 +1,44 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "cells": [
+    {
+      "alpha": 1,
+      "beta": 1,
+      "branch_error": 8.76072447093681e-15,
+      "mixed_error": 1.2751731867857113e-14,
+      "zero_maxabs": null
+    },
+    {
+      "alpha": -1,
+      "beta": 1,
+      "branch_error": 8.76072447093681e-15,
+      "mixed_error": 1.1720961019399644e-14,
+      "zero_maxabs": null
+    },
+    {
+      "alpha": 0.5,
+      "beta": 1.5,
+      "branch_error": 2.271062222841307e-14,
+      "mixed_error": 2.275149650020202e-14,
+      "zero_maxabs": null
+    },
+    {
+      "alpha": 0,
+      "beta": 1,
+      "branch_error": 8.76072447093681e-15,
+      "mixed_error": null,
+      "zero_maxabs": 4.547473508864641e-13
+    },
+    {
+      "alpha": 1,
+      "beta": 0,
+      "branch_error": 8.712160429767657e-15,
+      "mixed_error": null,
+      "zero_maxabs": 0.0
+    }
+  ],
+  "seconds": 0.7663114033639431,
+  "scope": "Actual weights, one synthetic 17-position context, five signed/amplitude pairs. Pristine context and dense weights supplied; generated changes include parent inherited response. No text or suffix validation."
+}
