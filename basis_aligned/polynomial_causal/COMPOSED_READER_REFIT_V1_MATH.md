@@ -113,3 +113,14 @@ replace the common producer with all its consumers preserved, or improve the
 incremental consumer while reusing $m_0$. The existing exact shared-tail
 implementation already follows the latter dependency structure. Receipt:
 `COMPOSED_READER_JOINT_PRICE_V1_AUDIT.json`.
+
+All ten starts completed in 442.19 seconds. Every arm passes the declared
+unit-coordinate gradient criterion (maximum $1.87\times10^{-9}$). The five
+composed-support starts return 11.6786% error; the five upstream-support starts
+return 12.0344%. Several upstream arms also reach their 60-iteration setting,
+so preserve that fact alongside their independently small gradients. No arm
+meets 10% fidelity. Different initial supports reach different locally stationary
+values; this is robustness to the tested perturbations, not a global optimality
+certificate. The best saved FP32 program replays coefficient loss numerically.
+The cost and shared-dependency findings do not justify further escalation of
+this particular standalone fit as a joint-circuit compression candidate.

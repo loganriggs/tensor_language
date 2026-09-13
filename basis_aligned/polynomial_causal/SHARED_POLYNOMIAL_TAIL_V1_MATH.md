@@ -62,3 +62,32 @@ other three families, with no material sign reversals. This checks the effect
 scale rather than relying only on absolute score agreement. The native
 prefix/background/suffix remain in use. See
 `SHARED_TAIL_NATIVE_V1_RELATIVE_AUDIT.json`.
+
+## Transfer to six new exact lexical contrasts
+
+The frozen shared-tail executor now passes 48 rows covering
+civilisation/civilization, modelling/modeling, criticised/criticized,
+organisation/organization, metres/meters and colours/colors. Four instruction
+styles are reused, each with paired British/American cues. The row builder
+checks single-token endpoints, exact prefix-plus-completion tokenization, and
+absence of the exact contrasts and token sequences from 54 local row inventories
+containing 37 prior contrast pairs and 1085 sequences. Some roots or inflections
+are related to earlier concepts: this is lexical transfer, not six independent
+semantic mechanisms or corpus-wide OOD.
+
+All four registered predicates pass in 5.15 seconds. Original-interaction
+target errors range 0.122–0.278%; controls 0.530–0.828%. Incremental errors
+against the exact five-bank program are 0.119–0.253% target and 0.280–0.556%
+control. Native paired cue capability is positive in every style and there are
+no material sign reversals. Live upstream generation and native prefix/suffix
+remain dependencies; no fitting uses this panel.
+
+Primary receipt: `SHARED_TAIL_LEXICAL_V1_RESULT.json`, rows and reproducible
+builder `SHARED_TAIL_LEXICAL_V1_ROWS.json` / `shared_tail_lexical_rows_v1.py`.
+The receipt's inherited phrase “six existing lexical contrasts” is a stale
+scorer label: these six exact endpoint pairs are new under the stated inventory
+check. Its opening scope and frozen rows describe the actual experiment.
+The registered next countercheck removes the full residual-self term and
+measures approximation error against that component's own effect, using
+`SHARED_TAIL_LEXICAL_SELF_V1_RESULT.json` when terminal. This guards against
+the surrounding circuit hiding approximation error.
