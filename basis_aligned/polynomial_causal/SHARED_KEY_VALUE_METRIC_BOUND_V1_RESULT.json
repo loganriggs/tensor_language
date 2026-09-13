@@ -1,0 +1,10 @@
+{
+  "pred_a": true,
+  "lambda_min": 1.000103760415148,
+  "lambda_max": 1.1070519560377856,
+  "squared_objective_distortion": 1.1069370997847694,
+  "error_norm_factor": 1.0521107830379695,
+  "extremal_witness_replay_error": 0.0,
+  "scope": "Bound downstream squared-error distortion for the existing Gaussian marginal.\n\nSame 256 queries/seed/current-value/zero-displacement scope as the original\nshared-key/value weight diagnostic. Predict generalized condition <=1.2.\nNo normalization, first-layer values, retained gates, text or fitting.\n",
+  "consequence": "For every downstream linear error map E, low*tr(E H0 E.T) <= tr(E H E.T) <= high*tr(E H0 E.T). Within the same feasible class a GLOBAL H0 optimizer is within high/low of the optimal H squared error. No guarantee about a merely local optimizer or native behavior."
+}

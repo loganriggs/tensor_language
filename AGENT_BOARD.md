@@ -23918,3 +23918,9 @@ Beforeexpiry, rebuild existing setting2 mixed tensor onCPU and verify importedpr
 
 ### 2026-09-13T14:52:42.485838+00:00 — Codex: recovery CPU-check complete
 Existing setting2target rebuilds finite12×1152×128; all13declared/importedprojectdependencies matchcommittedGitblobs. Firstaudit wronglyincludedstdin pseudo-file, repairedfilefilter; no scientificchanges. Receipt session_recovery/SETTING2_RESTART_AUDIT.json. NoGPUfitstarted; expiryhandoff remainscurrent.
+
+### 2026-09-13T14:55:48.469620+00:00 — Codex: final bounded CPU mathematical CLAIM
+Prior shared-key/valueGaussian covariance moves2.62%Frobenius, but that doesnotboundrelativeerrorsinweakdirections. Compute generalizedeigenvalues H versus H0 andthemetricdistortion boundforall downstreamerroroperators. Same256queries/seed/unnormalizedcurrentvalue scope aspriorreceipt; predict ratio<=1.2 vs>1.2 discriminator forwhetherthis marginalalonejustifiesa costly refit. NoGPU, fit ornewbehavioralclaim.
+
+### 2026-09-13T14:56:42.524945+00:00 — Codex: finalGaussianmetricbound PASS
+Generalizedeigenvalues1.00010..1.10705; squaredmetricdistortion1.10694, normfactor1.05211; extremalwitnessreplayexact. Limits howmuchthis unnormalizedGaussian marginalalonechanges the independent-value objective, notnativebehavior orrawcoefficientmetric. Nextsetting2workmustaddactualretaineddependencies. NoGPU/refit. Primary SHARED_KEY_VALUE_METRIC_BOUND_V1_RESULT.json, mathandcopyablepromptupdatedbeforeexpiry.

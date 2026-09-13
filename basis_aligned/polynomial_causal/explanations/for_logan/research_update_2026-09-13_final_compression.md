@@ -174,3 +174,6 @@ The second priority is an efficient implementation of the successful sparse pare
 Keep normalized Frobenius tensor similarity and a search over proposed arithmetic graphs as Logan’s deferred idea, to use when it fits the situation well. Do not let a large new graph-search framework displace these cheaper discriminating tests.
 
 The project’s four desired properties remain the goal: OOD prediction, extraction, selective removal, and composition/reuse. We have improved conditional evidence for a small compressed interface. Producing a substantially smaller, independently executable and generally reusable model remains unfinished.
+
+
+**Late CPU addendum,14:55UTC:** a final calculation strengthens the earlier joint QK/value marginal diagnostic. For the same simplified Gaussian model, the exact shared-input metric and the independent-value metric differ by at most a1.107factor in relative squared-error weighting, including weak directions. This argues against an expensive refit based only on that correction. The proposed next objective must include actual retained gates, normalization or other missing dependencies. No new fit or behavioral experiment was run. [Derivation and limits](../../SHARED_KEY_VALUE_MOMENT_V1_MATH.md#1455--bound-the-metric-change-including-weak-directions).
