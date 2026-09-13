@@ -85,3 +85,8 @@ $$
 $$
 
 Zeroamplitude returns exactzero. Against the frozenresponse implementation,24signedamplitudes over32syntheticcontexts agree within $1.13\times10^{-15}$. In the measuredCPU kernel comparison(including preparation), time fellfrom0.0290 to0.00529seconds,about5.49timesfaster; Jz matrixapplications fellfrom24to1. Nativebackground generation andremainingmodel execution areexcluded, so this isnot a5.49times wholemodelspeedup. No queuedexperiment code waschanged. [Kernel receipt](DIRECTIONAL_MLP_RESPONSE_CONTEXT_V1_CONTROL.json).
+
+
+## 02:01 native completion and outcome counter-review
+
+A/B pass, C fails all eight cells. Native local-response aggregate errors are 8.08e-6 regional and 2.23e-5 FineWeb. Correcting the predicted MLP9 mixed state leaves 84.6–89.7% regional and 65.1–99.9% FineWeb interaction norm. Regional remaining/total cosines are 0.9986–0.9997; the removed contribution aligns positively (0.910–0.989). This is partial coherent mediation, not a sufficient single-layer composition correction. Native mixed-state errors are 0.128–0.212% regional and 0.293–1.313% FineWeb; their downstream amplification remains untested. No later layer is yet causally assigned the remainder. [Native result](MLP9_CROSSFIRST_RESPONSE_V1_RESULT.json), [executed CPU counter-review](MLP9_CROSSFIRST_RESPONSE_V1_COUNTER_REVIEW.json).

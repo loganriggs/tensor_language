@@ -1,5 +1,5 @@
 # Latest requested update for Logan
 
-**Newest: [13 September, results through 00:29 UTC — Following the interaction path backward](research_update_2026-09-13_0033_interaction_paths.md).** Full update after the previous report’s 23:44 addition: context reversal, source splitting, MLP7/attention8 mixed terms, physical head8.2 confirmation, failed scalar simplifications, and progress against the four circuit properties.
+**Newest: [13 September, 02:00 UTC — An executable interaction path, and where composition breaks](research_update_2026-09-13_0200_executable_interaction_path.md).** Covers work since the 00:33 report: token/context interactions, new removal controls, executable extraction, exact parent/child hierarchy, nonlinear composition, and the completed MLP9 forward fold and its mediation limit.
 
-[Previous critical review](method_redteam_and_roi_2026-09-12.md) · [Earlier standalone derivation](standalone_best_result.md) · [All requested reports](README.md).
+[Previous full update](research_update_2026-09-13_0033_interaction_paths.md) · [Standalone derivation](standalone_best_result.md) · [All requested reports](README.md).

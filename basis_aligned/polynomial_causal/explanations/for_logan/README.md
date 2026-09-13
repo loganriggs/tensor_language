@@ -1,6 +1,8 @@
 # Requested full reports for Logan
 
-**Latest: [13 September — Following the interaction path backward](research_update_2026-09-13_0033_interaction_paths.md).** Results through 00:29 UTC: context reversal, six interaction terms, physical head8.2 confirmation, scalar controls, and remaining extraction/generalization gaps.
+**Latest: [13 September, 02:00 UTC — An executable interaction path, and where composition breaks](research_update_2026-09-13_0200_executable_interaction_path.md).** Token/context interactions, fresh preservation controls, explicit extraction, hierarchy, and completed forward-folding test and its limits.
+
+**Previous: [13 September — Following the interaction path backward](research_update_2026-09-13_0033_interaction_paths.md).** Results through 00:29 UTC: context reversal, six interaction terms, physical head8.2 confirmation, scalar controls, and remaining extraction/generalization gaps.
 
 **Previous: [12 September — Critical review, counter-review and best ROI](method_redteam_and_roi_2026-09-12.md).** Includes additions through 23:44 UTC.
 

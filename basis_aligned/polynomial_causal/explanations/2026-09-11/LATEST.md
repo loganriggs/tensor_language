@@ -1,3 +1,5 @@
+**13 September, 02:01 result:** MLP9 exact local response passes native validation; its mixed-state correction leaves 85–90% of regional interaction. [Newest requested full report](../for_logan/research_update_2026-09-13_0200_executable_interaction_path.md) · [Primary result and counter-review](../../MLP9_CROSSFIRST_RESPONSE_V1_MATH.md).
+
 # Latest research state
 
 **13 September, 01:55 — Native MLP9 response/mediation test queued behind live shared v677.** No resultyet. Prepared-context responsekernel agreeswithfrozenformula1.13e-15 andmeasures5.49x CPUkernel-only speedup across24amplitudes; no wholemodelspeedupclaim. [Math/status](../../MLP9_CROSSFIRST_RESPONSE_V1_MATH.md). [Main evidence](../../ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md). [Requested report](../for_logan/LATEST.md).
