@@ -79,3 +79,23 @@ This is evidence for a useful shared computational primitive, not evidence that 
 Those supplied ports are substantial dependencies. The package does not generate text-dependent amplitudes, normalization, background or the nonlinear suffix. Combining its local branch differences is exact, but it does not replace separate suffix evaluations when predicting a joint behavioral effect. Fresh/OOD evidence and selective consumer interventions remain outstanding.
 
 The subsequent [signed-effect audit](FIXED_SELF_NODE_SIGNED_V1_AUDIT.json) cautions against calling this a supportive spelling feature. Its removal-defined contribution projects negatively onto the regional target interaction in all four groups (cosines−0.475,−0.680,−0.136,−0.867), while aligning positively with controls (0.842–0.962). It therefore participates in compensation rather than simply scaling the target effect. These descriptive projections are not additive causal percentages; FineWeb target alignment also varies. The arithmetic specification is stronger than any semantic label currently justified.
+
+## Position consumers and composition, 13 September 09:34
+
+The next test distinguishes two consumers of the same fixed writer: the final token position and all earlier positions. Within each child/remainder/parent branch, remove the node at the final position, at earlier positions, or at both; then rerun the actual nonlinear suffix. The unpruned and all-position endpoints replay the previous receipts exactly. [Managed result](FIXED_SELF_CONSUMERS_V1_RESULT.json):160historical prefixes,2560suffix readouts,16.10seconds.
+
+Final-position removal alone does **not** reproduce the whole-node behavioral effect: regional target errors relative to all-position removal are34.53–41.59%, failing the registered10%criterion. Earlier positions matter, and earlier-only removal is also insufficient (60.53–67.58%error).
+
+Let $I_U,I_A,I_F,I_E$ be the original two-edit interaction measured with the node unpruned, removed everywhere, removed finally, and removed earlier. The composition test compares
+
+$$
+(I_U-I_F)+(I_U-I_E)\quad\text{with}\quad I_U-I_A.
+$$
+
+These are actual interventions through the suffix; equality is not assumed. Regional target composition errors are0.677–1.424%, and control errors1.540–3.247%. Thus the two position-removal effects approximately compose on these regional examples, despite neither being sufficient alone.
+
+The overall registered composition criterion still fails. FineWeb groups1–3 have target errors6.21–12.65%and control errors2.80–10.61%, but group0 has64.32%target and52.80%control error, exceeding20%. Its all-node effect norms are small ($1.87\times10^{-5}$target, $5.11\times10^{-5}$control), so numerical explanations require examination.
+
+The [executed final-scalar rounding audit](FIXED_SELF_CONSUMER_ROUNDING_V1_AUDIT.json) bounds half an FP32 ULP for each of the12nonshared scalar endpoints in this composed difference; the structurally identical pristine corner cancels. Even after allowing those intervals, FineWeb0 retains residual norm at least56.86%of the observed all-node target-change norm and24.91%for controls. **Final scalar rounding alone does not explain the miss.** This is not a bound on rounding inside the body, RMS, softcap or log-softmax, so it does not yet isolate genuine nonlinear interaction from all numerical effects. Original predicates remain unchanged.
+
+The evidence is for distributed use of a shared computational component and approximate regional composition of its position-specific removals. It is not universal compositionality, task selectivity or fresh/OOD validation. The earlier source-star dossier's warning against assuming additive mediator effects remains applicable.

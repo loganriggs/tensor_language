@@ -13,3 +13,5 @@ $$
 Native removal of this node from all changed branches alters regional target interactions by8–18%and FineWeb targets by18–33%on the160historical-prefix panel. Controls also change, so selective regional semantics are not established. This is the fixed self-product $P_{00}/2$of the exact five-bank construction; other products containing the writer remain.
 
 The runtime needs only the supplied ports, PyTorch and the stored vector. The full checkpoint is needed to reproduce the extraction audit, not to execute this component. No fresh OOD, independent text-level extraction, or whole-model compression claim is made. See [the method and native removal evidence](../../FIXED_WRITER_PRODUCTS_V1_MATH.md).
+
+Position-consumer testing is now available: final-position removal alone misses the all-position regional target effect by35–42%. Combining final and earlier removals predicts it within0.68–1.42%on regional targets, but fails one FineWeb group's composition criterion. These are historical-panel conditional interventions through the native suffix, not a universal additivity guarantee.

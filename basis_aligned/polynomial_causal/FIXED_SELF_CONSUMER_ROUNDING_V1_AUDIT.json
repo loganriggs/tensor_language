@@ -1,0 +1,165 @@
+{
+  "rows": [
+    {
+      "group": "regional0",
+      "observed_composition_relative_error": [
+        0.007952258994679455,
+        0.032473342870389124
+      ],
+      "entries_within_scalar_rounding_bound": [
+        6,
+        8
+      ],
+      "rows": 24,
+      "minimum_residual_beyond_scalar_rounding_relative_to_observed_change": [
+        0.00666376621017324,
+        0.02657994261256648
+      ],
+      "max_absolute_composition_residual": [
+        7.62939453125e-06,
+        1.71661376953125e-05
+      ]
+    },
+    {
+      "group": "regional1",
+      "observed_composition_relative_error": [
+        0.006770272155672373,
+        0.018217887708971047
+      ],
+      "entries_within_scalar_rounding_bound": [
+        3,
+        8
+      ],
+      "rows": 24,
+      "minimum_residual_beyond_scalar_rounding_relative_to_observed_change": [
+        0.005796095351681485,
+        0.013014834606041298
+      ],
+      "max_absolute_composition_residual": [
+        9.5367431640625e-06,
+        1.049041748046875e-05
+      ]
+    },
+    {
+      "group": "regional2",
+      "observed_composition_relative_error": [
+        0.014241893933602486,
+        0.02491596014065208
+      ],
+      "entries_within_scalar_rounding_bound": [
+        1,
+        9
+      ],
+      "rows": 24,
+      "minimum_residual_beyond_scalar_rounding_relative_to_observed_change": [
+        0.012749289608687268,
+        0.01736655654220455
+      ],
+      "max_absolute_composition_residual": [
+        1.430511474609375e-05,
+        8.58306884765625e-06
+      ]
+    },
+    {
+      "group": "regional3",
+      "observed_composition_relative_error": [
+        0.009458421560130714,
+        0.015398462024958951
+      ],
+      "entries_within_scalar_rounding_bound": [
+        5,
+        11
+      ],
+      "rows": 24,
+      "minimum_residual_beyond_scalar_rounding_relative_to_observed_change": [
+        0.008548592805882872,
+        0.009362769401835076
+      ],
+      "max_absolute_composition_residual": [
+        9.5367431640625e-06,
+        8.58306884765625e-06
+      ]
+    },
+    {
+      "group": "FineWeb0",
+      "observed_composition_relative_error": [
+        0.6432044912534938,
+        0.5280326756729873
+      ],
+      "entries_within_scalar_rounding_bound": [
+        1,
+        10
+      ],
+      "rows": 16,
+      "minimum_residual_beyond_scalar_rounding_relative_to_observed_change": [
+        0.568604289020395,
+        0.2490725149704163
+      ],
+      "max_absolute_composition_residual": [
+        6.556510925292969e-06,
+        1.52587890625e-05
+      ]
+    },
+    {
+      "group": "FineWeb1",
+      "observed_composition_relative_error": [
+        0.06213140385019093,
+        0.028018380874326128
+      ],
+      "entries_within_scalar_rounding_bound": [
+        1,
+        10
+      ],
+      "rows": 16,
+      "minimum_residual_beyond_scalar_rounding_relative_to_observed_change": [
+        0.05091172222029872,
+        0.011664819136058269
+      ],
+      "max_absolute_composition_residual": [
+        4.5299530029296875e-06,
+        1.430511474609375e-05
+      ]
+    },
+    {
+      "group": "FineWeb2",
+      "observed_composition_relative_error": [
+        0.07913946973239203,
+        0.10611804741031462
+      ],
+      "entries_within_scalar_rounding_bound": [
+        3,
+        10
+      ],
+      "rows": 16,
+      "minimum_residual_beyond_scalar_rounding_relative_to_observed_change": [
+        0.055273493115931945,
+        0.048697622948596746
+      ],
+      "max_absolute_composition_residual": [
+        2.0265579223632812e-06,
+        1.239776611328125e-05
+      ]
+    },
+    {
+      "group": "FineWeb3",
+      "observed_composition_relative_error": [
+        0.1264944130358556,
+        0.0698879060961249
+      ],
+      "entries_within_scalar_rounding_bound": [
+        2,
+        7
+      ],
+      "rows": 16,
+      "minimum_residual_beyond_scalar_rounding_relative_to_observed_change": [
+        0.11092138748726194,
+        0.03717849946821022
+      ],
+      "max_absolute_composition_residual": [
+        7.3909759521484375e-06,
+        1.33514404296875e-05
+      ]
+    }
+  ],
+  "scope": "Conservative nearest-FP32 final-scalar rounding interval,12nonsharedendpoints; nativecornercancels. Not a bound on intermediate body/RMS/softcap/logsoftmax errors. Relative denominators remain observed values. Compatibility with interval is not proof of a rounding explanation; original predicates unchanged."
+}
