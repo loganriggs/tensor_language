@@ -115,3 +115,8 @@ $$
 wherea,b arethechild/remainder scalarfields andDelta9 is thepreviouslyvalidatedfixed-writer residual-plus-MLP9 response. That response lies inspan{w,baselineMLP9,J_wz,J_ww} forafixednativecontext, withexactamplitude-dependentnormalizationcoefficients. This offersa concrete two-bilinear-layer composition toimplement andtest. Itdoesnot removeattentionpartnerinputs: thepresentBfailure specificallyprevents discardingthem. NativeFP32replay ofthefoldedresidual generator isstillrequired beforeusingitinplaceoftheobservedc_R,r_R.
 
 [Input-source native result](MLP10_MIXED_INPUT_SOURCES_V1_RESULT.json) · [Preregistration](MLP10_MIXED_INPUT_SOURCES_V1_PREREGISTRATION.md) · [Executed counter-review](MLP10_MIXED_INPUT_SOURCES_V1_AUDIT.json).
+
+
+## 03:59 — Both-endpoint input-source audit
+
+The shared `audit_interaction_outcome_pairs_v1.py` now records every prefix effect, zero and opposite signs, absolute error and relative L2 for both endpoints. Applied to the existing input-source result, the two regional residual-only sign reversals have full-product reference effects 6.34e-5 and1.34e-4; they are not merely an aggregate-norm discrepancy. Regional unrelated-token margin errors are5.1–8.6% without opposite signs. FineWeb newline-versus-comma margin errors span6.8–46.4%, with three opposite signs across the last two groups. Newline CE has five opposite signs overall, all corresponding reference magnitudes <=9.54e-7. These observations do not establish a precision explanation or selective preservation. Keep the attention partner and score the pending folded joint intervention on both endpoints using this same audit. Receipt: `MLP10_MIXED_INPUT_SOURCES_V1_OUTCOME_PAIRS_AUDIT.json`.
