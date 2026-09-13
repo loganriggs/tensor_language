@@ -1,0 +1,41 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "rows": [
+    {
+      "context": 0,
+      "coefficient_identity_error": 4.0426037106437587e-16,
+      "response_identity_error": 1.1400782075562787e-14,
+      "product_identity_error": 1.2916578287756132e-13,
+      "fold_before_down_error": 2.7404022199610966e-15
+    },
+    {
+      "context": 1,
+      "coefficient_identity_error": 2.6739741930356706e-16,
+      "response_identity_error": 1.1444099534361762e-14,
+      "product_identity_error": 1.168908629969226e-13,
+      "fold_before_down_error": 2.871262741167926e-15
+    },
+    {
+      "context": 2,
+      "coefficient_identity_error": 2.0309474244292936e-16,
+      "response_identity_error": 1.2692417833836026e-14,
+      "product_identity_error": 1.0958790237607092e-13,
+      "fold_before_down_error": 2.8007703635885735e-15
+    },
+    {
+      "context": 3,
+      "coefficient_identity_error": 2.868592304711034e-16,
+      "response_identity_error": 1.123692108935735e-14,
+      "product_identity_error": 1.1458446598939642e-13,
+      "fold_before_down_error": 2.7355271128971664e-15
+    }
+  ],
+  "exact_polynomial_rank": 19,
+  "basis_rank": 19,
+  "writer_cosine": 0.8990324032596483,
+  "old_products": 28,
+  "new_products": 19,
+  "scope": "Two actual head9 writer directions normalized to unit RMS, four synthetic contexts, actual MLP9/10 weights, signed two-writer strengths. Exact self-product within one combined branch, not arbitrary independent cross-response product. No native behavioral test or semantic interpretation."
+}
