@@ -1,0 +1,184 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "cells": [
+    {
+      "pairs": 1,
+      "branch_replay_errors": {
+        "direct": 0.0,
+        "shared": 2.7828815127182307e-13,
+        "batched_direct": 1.00730677228018e-13,
+        "batched_shared": 2.7828518955444383e-13
+      },
+      "median_seconds": {
+        "direct": 0.06699097156524658,
+        "shared": 0.04509057477116585,
+        "batched_direct": 0.04702569171786308,
+        "batched_shared": 0.043921712785959244
+      },
+      "samples_seconds": {
+        "direct": [
+          0.0667148046195507,
+          0.06699097156524658,
+          0.0668216161429882,
+          0.06706012412905693,
+          0.06715796887874603,
+          0.06692026183009148,
+          0.0670880600810051
+        ],
+        "shared": [
+          0.04484478384256363,
+          0.044649187475442886,
+          0.04523298144340515,
+          0.044882576912641525,
+          0.0461401641368866,
+          0.045806754380464554,
+          0.04509057477116585
+        ],
+        "batched_direct": [
+          0.048264533281326294,
+          0.0479089692234993,
+          0.04702569171786308,
+          0.04817693680524826,
+          0.04685672000050545,
+          0.04698634147644043,
+          0.046621762216091156
+        ],
+        "batched_shared": [
+          0.04412882775068283,
+          0.043921712785959244,
+          0.04251905158162117,
+          0.04209976643323898,
+          0.044806674122810364,
+          0.04269896447658539,
+          0.04412940517067909
+        ]
+      },
+      "shared_speedup_over_direct": 1.4856978848733908,
+      "batched_shared_speedup_over_batched_direct": 1.0706707169419885,
+      "batched_median_best_speedup": 1.0706707169419885
+    },
+    {
+      "pairs": 4,
+      "branch_replay_errors": {
+        "direct": 0.0,
+        "shared": 2.7828815127182307e-13,
+        "batched_direct": 1.00730677228018e-13,
+        "batched_shared": 2.78292935022144e-13
+      },
+      "median_seconds": {
+        "direct": 0.2677597478032112,
+        "shared": 0.1390746422111988,
+        "batched_direct": 0.14417925849556923,
+        "batched_shared": 0.09489317983388901
+      },
+      "samples_seconds": {
+        "direct": [
+          0.2673170417547226,
+          0.2677597478032112,
+          0.2682991959154606,
+          0.26735006272792816,
+          0.2683390602469444,
+          0.2680087238550186,
+          0.266148641705513
+        ],
+        "shared": [
+          0.13892383500933647,
+          0.13969657942652702,
+          0.1395850107073784,
+          0.1370994672179222,
+          0.1390746422111988,
+          0.14127251878380775,
+          0.1384679265320301
+        ],
+        "batched_direct": [
+          0.143983606249094,
+          0.14417925849556923,
+          0.14504310488700867,
+          0.1417781598865986,
+          0.144279595464468,
+          0.1427973508834839,
+          0.14777957275509834
+        ],
+        "batched_shared": [
+          0.09476017206907272,
+          0.09489317983388901,
+          0.09445023536682129,
+          0.10078990831971169,
+          0.09473729506134987,
+          0.0993775837123394,
+          0.10048230364918709
+        ]
+      },
+      "shared_speedup_over_direct": 1.9252952482638148,
+      "batched_shared_speedup_over_batched_direct": 1.5193848361700573,
+      "batched_median_best_speedup": 1.5193848361700573
+    },
+    {
+      "pairs": 12,
+      "branch_replay_errors": {
+        "direct": 0.0,
+        "shared": 3.363108294000483e-13,
+        "batched_direct": 1.00730677228018e-13,
+        "batched_shared": 3.3631318574917104e-13
+      },
+      "median_seconds": {
+        "direct": 0.8020514138042927,
+        "shared": 0.3878960572183132,
+        "batched_direct": 0.4208490587770939,
+        "batched_shared": 0.25777335092425346
+      },
+      "samples_seconds": {
+        "direct": [
+          0.8020514138042927,
+          0.8045414052903652,
+          0.8012199029326439,
+          0.8014228418469429,
+          0.8065429031848907,
+          0.7972664684057236,
+          0.8047152608633041
+        ],
+        "shared": [
+          0.3878960572183132,
+          0.3881785236299038,
+          0.38524238020181656,
+          0.38687240332365036,
+          0.38802092894911766,
+          0.40067264810204506,
+          0.38485023379325867
+        ],
+        "batched_direct": [
+          0.4149353951215744,
+          0.4209771156311035,
+          0.4208490587770939,
+          0.42643269523978233,
+          0.41628938168287277,
+          0.4188416078686714,
+          0.43054112419486046
+        ],
+        "batched_shared": [
+          0.2573419474065304,
+          0.24640652164816856,
+          0.24680758640170097,
+          0.26773104816675186,
+          0.25777335092425346,
+          0.2590233124792576,
+          0.25946808606386185
+        ]
+      },
+      "shared_speedup_over_direct": 2.0676967421529815,
+      "batched_shared_speedup_over_batched_direct": 1.632632144743155,
+      "batched_median_best_speedup": 1.632632144743155
+    }
+  ],
+  "local_weight_scalars": {
+    "common": 23889024,
+    "direct_specific": 15926400,
+    "folded_specific": 1328256,
+    "direct_total": 39815424,
+    "folded_total": 25217280
+  },
+  "seconds": 23.058380249887705,
+  "scope": "Actual weights, synthetic B1,T17,d1152,FP64,CPU2threads. Three changed branches per pair. Identical output list retention. Shared includes all global/context preparation each measured call. Batched variants stack all3Nknown amplitudes in batch dimension, with first-values expanded, same causal sequence length. Pristine z9/MLP9/raw10/z10/first-values common supplied; no prefix or suffix cost. Local weight inventory counts objects needed by conditional operator only; native weights remain necessary for pristine background and other edits. Not whole-model compression/speed."
+}

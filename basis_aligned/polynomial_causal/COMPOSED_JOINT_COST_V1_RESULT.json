@@ -1,0 +1,148 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "cells": [
+    {
+      "pairs": 1,
+      "branch_replay_errors": {
+        "direct": 0.0,
+        "response_only": 2.7824237752339755e-13,
+        "shared": 2.7828815127182307e-13
+      },
+      "median_seconds": {
+        "direct": 0.0656193308532238,
+        "response_only": 0.04074655473232269,
+        "shared": 0.04438503459095955
+      },
+      "samples_seconds": {
+        "direct": [
+          0.06643207371234894,
+          0.06566552072763443,
+          0.0656193308532238,
+          0.06574202328920364,
+          0.06550320237874985,
+          0.06533635407686234,
+          0.06535907089710236
+        ],
+        "response_only": [
+          0.04068372771143913,
+          0.04085789993405342,
+          0.04074655473232269,
+          0.0408858023583889,
+          0.04087582230567932,
+          0.0405927449464798,
+          0.040464624762535095
+        ],
+        "shared": [
+          0.044302184134721756,
+          0.04438503459095955,
+          0.04406849667429924,
+          0.045074447989463806,
+          0.044300228357315063,
+          0.044958095997571945,
+          0.04881246015429497
+        ]
+      },
+      "shared_speedup_over_direct": 1.4784111684930241,
+      "shared_speedup_over_response_only": 0.918024624917653
+    },
+    {
+      "pairs": 4,
+      "branch_replay_errors": {
+        "direct": 0.0,
+        "response_only": 2.7824237752339755e-13,
+        "shared": 2.7828815127182307e-13
+      },
+      "median_seconds": {
+        "direct": 0.2666212171316147,
+        "response_only": 0.16333525255322456,
+        "shared": 0.1375732496380806
+      },
+      "samples_seconds": {
+        "direct": [
+          0.26616203412413597,
+          0.26603033393621445,
+          0.2666212171316147,
+          0.2661232091486454,
+          0.2673160433769226,
+          0.26700080931186676,
+          0.26699551939964294
+        ],
+        "response_only": [
+          0.16333525255322456,
+          0.1634768508374691,
+          0.16281744837760925,
+          0.16344290599226952,
+          0.16434140130877495,
+          0.16322024911642075,
+          0.16322800889611244
+        ],
+        "shared": [
+          0.13806906715035439,
+          0.13691261783242226,
+          0.1367647647857666,
+          0.1375732496380806,
+          0.14254183694720268,
+          0.1375037096440792,
+          0.1375817358493805
+        ]
+      },
+      "shared_speedup_over_direct": 1.9380309604739707,
+      "shared_speedup_over_response_only": 1.1872602630447204
+    },
+    {
+      "pairs": 12,
+      "branch_replay_errors": {
+        "direct": 0.0,
+        "response_only": 3.362947576086539e-13,
+        "shared": 3.363108294000483e-13
+      },
+      "median_seconds": {
+        "direct": 0.7996081635355949,
+        "response_only": 0.4883658289909363,
+        "shared": 0.3837130777537823
+      },
+      "samples_seconds": {
+        "direct": [
+          0.7976270653307438,
+          0.7996081635355949,
+          0.7996767833828926,
+          0.7988479100167751,
+          0.79973454028368,
+          0.7993131056427956,
+          0.8001740947365761
+        ],
+        "response_only": [
+          0.48834802955389023,
+          0.4885479733347893,
+          0.4871762655675411,
+          0.48830846697092056,
+          0.4883658289909363,
+          0.48844366148114204,
+          0.49260179698467255
+        ],
+        "shared": [
+          0.383519921451807,
+          0.3837130777537823,
+          0.39308013394474983,
+          0.3836805112659931,
+          0.3837839439511299,
+          0.3832879848778248,
+          0.3967921920120716
+        ]
+      },
+      "shared_speedup_over_direct": 2.0838699796640254,
+      "shared_speedup_over_response_only": 1.2727369936145536
+    }
+  ],
+  "local_weight_scalars": {
+    "common": 23889024,
+    "direct_specific": 15926400,
+    "folded_specific": 1328256,
+    "direct_total": 39815424,
+    "folded_total": 25217280
+  },
+  "seconds": 20.544654700905085,
+  "scope": "Actual weights, synthetic B1,T17,d1152,FP64,CPU2threads. Three changed branches per pair. Identical output list retention. Shared includes all global/context preparation each measured call. Pristine z9/MLP9/raw10/z10/first-values common supplied; no prefix or suffix cost. Local weight inventory counts objects needed by conditional operator only; native weights remain necessary for pristine background and other edits. Not whole-model compression/speed."
+}

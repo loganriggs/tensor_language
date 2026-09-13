@@ -58,3 +58,8 @@ What changed: the generated parent now contains the inherited MLP9 mixed respons
 Next decision: compare execution/storage of this shared representation against a matched direct three-branch computation, then simplify shared readers where their actual consumers justify the cost. Do not replace this now-valid original-interaction target with the easier local-product target.
 
 [Full-panel receipt](COMPOSED_JOINT_NATIVE_FULL_V1_RESULT.json) · [Registered bars](COMPOSED_JOINT_NATIVE_FULL_V1_PREREGISTRATION.md) · [Aligned reference and sign audit](COMPOSED_JOINT_NATIVE_FULL_V1_AUDIT.json) · [Audit code](audit_composed_joint_native_v1.py).
+
+
+## Complete-operator cost follow-up
+
+Matched batched CPU execution, including preparation, gives1.07×/1.52×/1.63×speedup at1/4/12amplitude pairs. Local constant weights fall36.7%, but native weights remain needed for pristine context; no whole-model savings. The batched direct countercheck narrows earlier serial speed claims. [Exact scope, comparison and price](COMPOSED_JOINT_COST_V1_MATH.md).
