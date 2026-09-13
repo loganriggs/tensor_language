@@ -151,3 +151,7 @@ C7=U4^TD7 generatesfourquadratic readings; B+Q7+H8 expandsinto6exactpaths withna
 ### 13 September00:10 — Physical parent-path grouping and signal-source caveat
 
 Q-containing/Q-free generatedvalue donations composewithin.41–2.53% logiteffect error; nearpostQ-containing donor−10.75%,24/24opposed. However Q-onlyinputswap computationalerror93.75% versuspartner-only18.16%; partner residual/attention8 shares40.66/59.34%. Native one-inputcausaltest stillneeded; do notattribute changinginformation toMLP7 merelybecause Qappearsin thepath. [Primary continuation](../MLP7_PHI_READERS_FOLD_V1_MATH.md#0010--physical-path-group-donation-and-composition-pass).
+
+### 13 September00:18 — Rawinput partner swap confirmed physically
+
+Nearpost B/H-only donation−4.06/−5.98%,each24/24opposed; jointB+H matchesfullQpath17.33%error versusQ-only94.16%. B/Hlogitcomposition.35–1.00% acrossfourgroups. OthergroupsS-onlyerrors72–86%; Qnotgloballydispensable. Attention8OV-to-fourreader maps exactlyfolded, nativeheadallocationpending. [Primary result and equations](../MLP7_PHI_READERS_FOLD_V1_MATH.md#0018--individual-raw-input-swaps-confirm-the-partner-signal).

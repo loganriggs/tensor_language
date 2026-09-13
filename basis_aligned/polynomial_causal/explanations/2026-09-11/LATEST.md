@@ -1,3 +1,7 @@
+## 13 September, 00:18 — Native raw-input swaps support partner-driven reversal
+
+[Native test and next attention fold](../../MLP7_PHI_READERS_FOLD_V1_MATH.md#0018--individual-raw-input-swaps-confirm-the-partner-signal): nearquote B+H-only effecterror17.33% versusQ-only94.16%; B/H effectssumwithin.35–1.00%. Exacthead-wiseattention8 OV-to-fourreader maps nowverified; nohead causalranking yet. Othercontexts stillrequireQ; nativeinputs/normalizers retained.
+
 ## 13 September, 00:10 — Parent-path composition passes; input audit prevents module misattribution
 
 [Physical grouping and counter-review](../../MLP7_PHI_READERS_FOLD_V1_MATH.md#0010--physical-path-group-donation-and-composition-pass): Q-containing laterpath donor−10.75%nearquote,24/24opposed; grouped logiteffects composewithin.41–2.53%. But Q-onlyfinalwrite misses93.75%, partner-only18.16%; changing partner combines residual andattention8. Compositepathcausality held, Q-node signal attribution notestablished.

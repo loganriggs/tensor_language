@@ -120,3 +120,46 @@ $$
 For near-quote later sources, the aligned allocation is40.66% to B and59.34% to attention8 H. Neither alone reproduces the partner-only write closely: B-only error59.39%, H-only40.74%. Across other constructions, attention8 supplies roughly69–76% of the later partner-only allocation. Accounting agrees within $4.10\times10^{-16}$. These are all-head attention8 and aggregate residual/reentry readings; no individual attention head is identified by this result. [Partner split](MLP7_QPATH_PARTNER_SPLIT_V1_RESULT.json).
 
 The next causal discriminator should transplant the specified Q, B and H input readings with explicit recipient normalizers. It should test the changing input signal rather than infer it from which module's weights appear in a polynomial. Retain the successful composite path and its local composition evidence while testing that stronger mechanistic interpretation.
+
+
+## 00:18 — Individual raw-input swaps confirm the partner signal
+
+The input-port discriminator is now physically executed. For the Q-containing function F, it swaps Q, B, H or R while retaining all other recipient inputs, and applies the resulting value change only at post-city source positions of the selected head9 edge. It also tests B+H and Q+B+H together. This is an input-port intervention inside the generated path, not a whole native-module swap.768 full forwards took10.79seconds; native/full-path replay is exact and B/H write-field addition agrees within $1.68\times10^{-16}$.
+
+Near-quote results:
+
+| Swapped inputs | Directed transfer | Opposing directions | Relative effect error versus full path |
+|---|---:|---:|---:|
+| All Q/B/H/R |−10.75%|24/24|reference|
+| Q alone |−0.82%|14/24|94.16%|
+| B alone |−4.06%|24/24|62.43%|
+| H alone |−5.98%|24/24|46.22%|
+| B+H |−9.97%|24/24|17.33%|
+| Q+B+H, recipient R |−10.77%|24/24|0.63%|
+
+All preregistered A/B/C criteria pass: the partner inputs explain this physical effect substantially better than Q alone. Separately measured B/H logit effects sum to their joint effect within0.35–1.00% relative error across all four groups. That is local compositional evidence for these small interventions; exact algebra alone would not guarantee it after the nonlinear suffix.
+
+Partner-only is not a universal approximation: its effect errors relative to the full Q-containing path are85.96%,79.64%,17.33%,71.79% across original/fronted/near-quote/distant groups. The result identifies the changing input signal in the problematic construction; it doesnot authorize dropping Q elsewhere. Likewise keeping recipient R while swapping Q+B+H has only0.63–1.22% effect error on these paired swaps, but that doesnot remove the general need to compute normalization for arbitrary inputs. [Native raw-port receipt](MLP7_QPATH_PORT_DONATION_V1_RESULT.json).
+
+## Exact next fold: attention8 heads into the four readings
+
+The physical H-only effect motivates decomposing H, rather than assuming a particular head supplies it. For head h, define
+
+$$
+C_h=U^TO_{8,h}\in\mathbb R^{4\times128},
+\qquad A_h=(1-\mu_8)C_hV_{8,h},
+\qquad A_{0,h}=\mu_8C_hV_{0,h}.
+$$
+
+Both A maps have shape $4\times1152$. Here $O_{8,h}$ is that head's physical output slice, $V_{8,h}$ its current-stream value map, $V_{0,h}$ the corresponding shared first-layer value map, and $\mu_8$ the actual learned value-mixing parameter. If $\gamma_{8,h}(j,k)$ denotes that head's full product of the two normalized, rotated QK scores, then
+
+$$
+H_j=\sum_{h=1}^{9}\sum_{k\le j}\gamma_{8,h}(j,k)
+\left[A_h x_{8,k}+A_{0,h}x_{\mathrm{attn0},k}\right].
+$$
+
+$x_{8,k}$ and $x_{\mathrm{attn0},k}$ are the actual normalized attention inputs. The first-layer input is not silently replaced by a raw embedding. Folding values doesnot eliminate either QK factor or its native normalization.
+
+Substituting this expression into $2Q_j^T\Lambda H_j/R_j$ exposes an explicit two-attention interaction path: attention8 brings information from k to j; MLP7-derived Q modulates the four readings there; head9 carries the resulting value from j to the target t. The output/value coefficients are fixed weights, while the inputs, QK routing and normalization are still contextual.
+
+The CPU fold stores87,553 scalars and matches direct head-wise value projection and summed physical output readings within $1.47\times10^{-15}$. This is an exact linear algebra control, not a measured model speedup, a standalone87k-parameter circuit, or evidence ranking the nine heads. The next native head-reading cache must replay H and then test individual head contributions under the already specified H-input intervention. [Fold and price receipt](ATTENTION8_PHI_READER_FOLD_V1_CONTROL.json).
