@@ -37,7 +37,7 @@ def main():
   anchors.append(dict(row=index,child_error=rel(live['child'][...,0],child[index].cuda()),parent_error=rel((live['child']+live['remainder'])[...,0],parents[index].cuda()),h9_error=rel(live['h9'],x)))
  A=all(r['child_error']<=1e-4 and r['parent_error']<=1e-4 and r['h9_error']<=1e-6 for r in anchors)
  if not A:
-  out.write_text(json.dumps({'pred_a':False,'pred_b':False,'pred_c':False,'pred_d':False,'anchors':anchors,'scope':'Invalid live-prefix instrument; fresh rows not evaluated.'},indent=2)+'\n');return
+  out.write_text(json.dumps({**{'pred_'+key:False for key in 'abcd'},'anchors':anchors,'scope':'Invalid live-prefix instrument; fresh rows not evaluated.'},indent=2)+'\n');return
  b9,b10=model.transformer.h[9],model.transformer.h[10];w=program['direction']
  matrices=[getattr(b10.attn,k).weight.double() for k in ('c_q','c_k','c_q2','c_k2','c_v')]
  mlp_matrices=[getattr(b10.mlp,k).weight.double() for k in ('Left','Right','Down')];cells=[]
