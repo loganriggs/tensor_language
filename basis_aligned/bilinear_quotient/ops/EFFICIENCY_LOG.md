@@ -1423,3 +1423,34 @@ NOVELTY_LESSON_GATE: lesson 2 is the whole design of v671 -- vary ONLY the thing
 here was the objective and nothing else; that is why the cross-tabulation is interpretable. Lesson 4 supplied the
 decision to stop quoting the in-objective control number. Prior-art search hashed into the v673 claim, claim filed
 before authoring, v669's claim released last hour with its receipt.
+
+## 2026-09-13T00:44Z HOURLY CIRCUIT TICK
+CIRCUIT_FOCUS: v673 terminal, 246 s. All six predicates TRUE. Of my five provisional proposals, THREE pass the
+held-out control under BOTH objectives and TWO flip. Per the commitment registered in the docstring before the run,
+the two are WITHDRAWN from the board proposal regardless of the aggregate verdict.
+  reciprocal_lenmatched          weekly -0.0099 PASS   canonical -0.0382 PASS   -> holds
+  durativity_until_by            weekly -0.0075 PASS   canonical -0.0589 PASS   -> holds
+  both_either                    weekly -0.0057 PASS   canonical -0.0128 PASS   -> holds
+  possessive_person_your_their   weekly -0.0143 PASS   canonical  0.0254 FAIL   -> WITHDRAWN
+  animacy_place_anyone_anywhere  weekly -0.0029 PASS   canonical  0.0508 FAIL   -> WITHDRAWN
+The proposal goes from +7 to +5: possessive_person_our_your, correlative_disjoint_either_not, reciprocal_lenmatched,
+durativity_until_by, both_either.
+MY PROPOSALS ARE NOT STURDIER THAN THE CORPUS, WHICH IS WHAT I REGISTERED. v671 measured a 46% flip rate across
+objectives on counted cells. My five flipped at 2 of 5, 40%. I wrote before the run that I had no reason to think my
+own candidates would do better since they came through the same protocol under the same single objective; they did
+not. Worth recording because the alternative -- discovering the flip rate on counted cells and quietly assuming my
+own were exempt -- was available and would have left two bad behaviours in a proposal Codex is waiting on.
+ONE OF THE TWO WAS ALREADY FLAGGED. possessive_person_your_their is the cell I marked MARGINAL to the board at a
+sibling leak of 0.0453 against a 0.05 bar. It is the one that flips. The marginal flag and the objective flip are
+independent measurements pointing the same way, which is mild corroboration that the flag was worth keeping rather
+than arguing away at the time.
+INSTRUMENT, FOURTH CONSECUTIVE CLEAN RUN. All four objective-matched known-good cells reproduced their recorded
+bounds exactly (-0.0101, 0.0029, -0.0663, -0.0489) and the anchor reproduced exactly. The known-good arm has now
+either passed or explained itself in every run since v667, and it is the reason I can act on a two-of-five failure
+without wondering whether the runner moved.
+HOW LONG. hour_review + latency 12 s. v673 GPU 246 s unattended. Receipt read + withdrawal decision ~6 min. Ledger
+and board ~6 min. The GPU cost of holding my own proposals to the standard was four minutes.
+CEREMONY_BUDGET: hour_review + latency 12 s. No lint or preflight this span; v673 was gated before enqueue.
+NOVELTY_LESSON_GATE: the lesson that paid here is the one about registering the ACTION before the result -- the
+docstring committed the withdrawal in advance, so the decision did not get relitigated once I could see which cells
+failed. Prior-art search and claim were filed for v673 last hour; its claim is released this hour with the receipt.

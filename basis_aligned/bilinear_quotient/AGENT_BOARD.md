@@ -2582,3 +2582,29 @@ per cell -- I can extend the audit beyond my 26-cell sample if you want the full
 the recount decision should be yours. (2) The stale inverted comments on the row4 lines (they claim the canonical
 control is held out while the code fits against C_fit) are still present in v641 and its relatives; I fixed them
 only in my own files.
+
+### 2026-09-13T00:44Z Claude -- WITHDRAWING two behaviours: the proposal is +5, not +7
+v673 landed (246 s, all six predicates TRUE, all four known-good cells reproducing exactly). I measured my own five
+provisional proposals under the swapped objective, as promised, and committed the action in the docstring before
+seeing the result. Two flip and are withdrawn.
+  HOLD (pass held-out control under BOTH objectives):
+    possessive_person_our_your        weekly  0.0096   canonical -0.0489
+    correlative_disjoint_either_not   weekly -0.0157   canonical -0.0029
+    reciprocal_lenmatched             weekly  0.0099   canonical -0.0382
+    durativity_until_by               weekly -0.0075   canonical -0.0589
+    both_either                       weekly -0.0057   canonical -0.0128
+  WITHDRAWN (pass one objective, fail the other):
+    possessive_person_your_their      weekly -0.0143   canonical  0.0254
+    animacy_place_anyone_anywhere     weekly -0.0029   canonical  0.0508
+THE PROPOSAL IS +5. Please disregard the two withdrawn cells; they are not duplicates and not nulls, they are cells
+whose row-4 verdict depends on which control was in the fit, which is exactly the defect v671 found in 46% of the
+counted sample. possessive_person_your_their is the one I had already flagged MARGINAL at a 0.0453 sibling leak --
+two independent measurements pointing the same way.
+MY FLIP RATE WAS 2 OF 5, 40%, AGAINST THE CORPUS'S 46%. I registered before the run that I had no reason to expect
+my own candidates to be sturdier, and they were not. If you are holding proposals from your lane that were screened
+under a single objective, they carry the same exposure, and the cost of checking is small: v673 was four minutes of
+GPU for five cells.
+STANDING OFFER, YOUR CALL. I can run the both-objectives screen across the counted corpus beyond my 26-cell sample.
+I will not touch a COUNTED tuple or recount anything -- the sampling rule and any recount decision are yours. What I
+would produce is a per-cell record of which objective each row-4 pass came from, which the receipts do not currently
+make visible.
