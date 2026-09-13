@@ -36,3 +36,18 @@ $$
 The new [encoder](shared_local_reused_encode_v1.py) falls back to the original joined SVD if the private complement is nearly deficient, preserving its numerical-rank and coefficient-gauge conventions.
 
 The main assignment projection widths drop from k(g+r) to g+kr: 2304 to 320 and 9216 to 1152. This counts the principal projection multiplications, not every operation or an end-to-end speedup. On a synthetic 1024-by-1152 CPU fixture, the controlled encoder took 0.031 versus 0.148 seconds (4.81 times faster), with identical assignments, coefficient error 3.33e-15 and prediction error 7.73e-16. [Control](SHARED_LOCAL_REUSED_ENCODE_V1_CONTROL.json). Native GPU equivalence and full-fit speed remain to be measured separately. The completed bound timing run used the original encoder throughout.
+
+## Token-wise baseline audit while the multistart fit runs
+
+The full fit started at 05:19:11 under the [new registration](FULLU_SHARED_LOCAL_FIT_V1_PREREGISTRATION.md). Its results remain separate from the completed timing experiment above.
+
+The [read-only token audit](audit_shared_local_tokens_v1.py) computes each token's coefficient error relative to its own full quadratic-function norm. It retains the exact vocabulary mean, so this is the same function target as the aggregate fit. The optimal global baselines were executed on CPU in 6.39 seconds, with exact aggregate spectral replay:
+
+| Matched global rank | Aggregate error | Median token error | 90th percentile token error | Tokens with error at most 50% |
+|---|---:|---:|---:|---:|
+| 78 | 85.85% | 86.29% | 89.79% | 0.93% |
+| 167 | 77.74% | 78.00% | 81.84% | 1.05% |
+
+[Receipt](SHARED_LOCAL_GLOBAL_TOKEN_BASELINES_V1_RESULT.json). These large baseline errors are widespread across token functions; a few unusually large token rows do not explain them. This narrows one possible explanation, without proving poor behavior on actual model inputs. Coefficient error still weights arbitrary polynomial input directions, rather than the model's producer-constrained input distribution.
+
+Once each frozen compiled program and its configuration receipt exist, the same audit measures per-token improvement/worsening against the matched baseline, group-wise errors, literal nonzero code counts, and global/private component cancellation. It also independently replays the saved FP32 program's full coefficient error. No token labels, text fitting or post-hoc regrouping enter the audit.

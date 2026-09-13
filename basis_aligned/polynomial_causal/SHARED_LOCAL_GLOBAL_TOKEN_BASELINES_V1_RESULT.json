@@ -1,0 +1,49 @@
+{
+  "schema": "shared.local.token.audit.v1",
+  "global_baselines": [
+    {
+      "rank": 78,
+      "full_coefficient_relative_error": 0.8584783315330815,
+      "median_token_relative_error": 0.862911856513506,
+      "token_relative_error_quantiles": {
+        "0.1": 0.8088546396921226,
+        "0.5": 0.8629120426328645,
+        "0.9": 0.8979440733051559,
+        "0.95": 0.9059518021784051,
+        "0.99": 0.9202824216522744
+      },
+      "fraction_tokens_error_below": {
+        "0.1": 0.0,
+        "0.25": 0.005943861323155216,
+        "0.5": 0.009263676844783715,
+        "1.0": 1.0
+      },
+      "zero_target_rows": 0,
+      "maximum_error_on_zero_target": 0.0,
+      "spectral_replay_error": 0.0
+    },
+    {
+      "rank": 167,
+      "full_coefficient_relative_error": 0.7773549727257829,
+      "median_token_relative_error": 0.7800178492115437,
+      "token_relative_error_quantiles": {
+        "0.1": 0.7268474217018792,
+        "0.5": 0.780017980922951,
+        "0.9": 0.818409184313154,
+        "0.95": 0.8283124902163347,
+        "0.99": 0.8511650263188187
+      },
+      "fraction_tokens_error_below": {
+        "0.1": 0.0,
+        "0.25": 0.006102894402035624,
+        "0.5": 0.01047630407124682,
+        "1.0": 1.0
+      },
+      "zero_target_rows": 0,
+      "maximum_error_on_zero_target": 0.0,
+      "spectral_replay_error": 0.0
+    }
+  ],
+  "scope": "Per-token quadratic coefficient errors; no language-model fidelity or semantic cluster claims.",
+  "wall_seconds": 6.391815267503262
+}
