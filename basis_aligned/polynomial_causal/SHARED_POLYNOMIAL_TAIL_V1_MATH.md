@@ -102,3 +102,46 @@ the earlier lexical panel, while its own effect is still preserved to the
 registered accuracy. This does not establish semantic selectivity. A
 descriptive leave-one-pair-out audit is saved in
 `SHARED_TAIL_LEXICAL_SELF_V1_PAIR_AUDIT.json` to check lexical concentration.
+
+## Native-background deletion changes the circuit interpretation
+
+Previous self-term removals acted in the changed counterfactual branches.
+To test ordinary native behavior, now form the full post-MLP10 interaction
+
+$$
+I_h=h_{CR}-h_C-h_R+h_N
+$$
+
+and run the suffix on $h_N-I_h$. Native counterfactual states provide the
+reference $I_h$; exact/generated-compressed programs provide candidate writes.
+All are subtracted from the same native background. Differences of the stored
+FP32 states are formed in FP64 before one final cast for native suffix execution.
+This is deletion of a reference-defined interaction, not automatically deletion
+of an autonomous semantic circuit.
+
+The test passes numerical and prediction bars: compressed deletion-effect
+errors are 0.196–0.519% target and 0.300–0.610% control, with no material sign
+reversals. But both substantive circuit-role predictions fail. Removing the
+interaction changes paired spelling capability by only -0.0062%, -0.0160%,
++0.0240% and -0.0050% across styles; negative damage means slight improvement.
+Control RMS changes are 75.9–93.0% of target changes, above the 50% criterion.
+Thus this small interaction is accurately predicted but is not a substantial,
+selective driver of native spelling behavior on this panel. Its paired-effect
+L2 norm is at most 0.047% of paired capability, and leave-one-pair-out averages
+remain below 0.029%: cancellation across words does not rescue its prominence.
+
+A descriptive comparison with already recorded original writer edits identifies
+a better-prioritized target. Removing the remainder branch reduces paired native
+capability by 21.43–36.16%; its control/target RMS ratios are 12.83–17.01%.
+Parent removal reduces capability by 23.44–36.99%. The existing compressed
+conditional program predicts these main removal effects with target relative
+errors below 0.00052%. These are reused-panel measurements and a single control
+contrast, not broad semantic selectivity or a newly discovered circuit. They
+nevertheless justify directing further compression toward the larger retained
+remainder/parent computation, while keeping the small cross term for composition
+accounting. Shared native dependencies still prevent an autonomous extraction
+claim.
+
+Receipts: `NATIVE_INTERACTION_DELETE_V1_RESULT.json` and
+`LEXICAL_MAIN_EFFECT_PRIORITY_V1_AUDIT.json`; managed executor:
+`ops/run_native_interaction_delete_v1.py`.

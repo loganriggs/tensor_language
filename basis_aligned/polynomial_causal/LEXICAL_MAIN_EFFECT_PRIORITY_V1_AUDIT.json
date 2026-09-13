@@ -1,0 +1,171 @@
+{
+  "first_order": [
+    {
+      "family": 0,
+      "branch": "child",
+      "paired_cue_damage": 0.02302400271097819,
+      "capability_fraction": 0.008498981063379894,
+      "target_rms": 0.018581184141953873,
+      "control_target_ratio": 0.09623468150159603,
+      "prediction_error": [
+        6.625994548983138e-05,
+        0.0010617855243622533
+      ]
+    },
+    {
+      "family": 0,
+      "branch": "remainder",
+      "paired_cue_damage": 0.7326368490854899,
+      "capability_fraction": 0.2704424067732985,
+      "target_rms": 0.3960375184670984,
+      "control_target_ratio": 0.12831549313927848,
+      "prediction_error": [
+        2.866141277521651e-06,
+        2.754258005355764e-05
+      ]
+    },
+    {
+      "family": 0,
+      "branch": "parent",
+      "paired_cue_damage": 0.757203737894694,
+      "capability_fraction": 0.2795109221568564,
+      "target_rms": 0.41237944158501455,
+      "control_target_ratio": 0.12689640445917272,
+      "prediction_error": [
+        3.949539664010469e-06,
+        3.162721639961504e-05
+      ]
+    },
+    {
+      "family": 1,
+      "branch": "child",
+      "paired_cue_damage": 0.018805980682373047,
+      "capability_fraction": 0.007591227687972742,
+      "target_rms": 0.015435095634976553,
+      "control_target_ratio": 0.15232965459977768,
+      "prediction_error": [
+        7.77458004829971e-05,
+        0.0006245693494784259
+      ]
+    },
+    {
+      "family": 1,
+      "branch": "remainder",
+      "paired_cue_damage": 0.8956967194875082,
+      "capability_fraction": 0.36155720096921495,
+      "target_rms": 0.5526774665746055,
+      "control_target_ratio": 0.17005465357607416,
+      "prediction_error": [
+        5.18264734409871e-06,
+        1.589698904101306e-05
+      ]
+    },
+    {
+      "family": 1,
+      "branch": "parent",
+      "paired_cue_damage": 0.9163782596588135,
+      "capability_fraction": 0.36990551755158224,
+      "target_rms": 0.5680965699780123,
+      "control_target_ratio": 0.16947376872381278,
+      "prediction_error": [
+        3.9961497361961785e-06,
+        1.2381847343972701e-05
+      ]
+    },
+    {
+      "family": 2,
+      "branch": "child",
+      "paired_cue_damage": -0.026231686274210613,
+      "capability_fraction": -0.013424709639218987,
+      "target_rms": 0.017353142250263007,
+      "control_target_ratio": 0.18458896890999332,
+      "prediction_error": [
+        8.08943166736947e-05,
+        0.0004669471721382768
+      ]
+    },
+    {
+      "family": 2,
+      "branch": "remainder",
+      "paired_cue_damage": 0.5981091658274332,
+      "capability_fraction": 0.30609705376366997,
+      "target_rms": 0.4800892087113427,
+      "control_target_ratio": 0.1525692868889999,
+      "prediction_error": [
+        2.145613719010697e-06,
+        1.5738930704165236e-05
+      ]
+    },
+    {
+      "family": 2,
+      "branch": "parent",
+      "paired_cue_damage": 0.5700775782267252,
+      "capability_fraction": 0.29175120041928143,
+      "target_rms": 0.4626277705889451,
+      "control_target_ratio": 0.15084608325389748,
+      "prediction_error": [
+        2.791188101446433e-06,
+        2.7095881046821305e-05
+      ]
+    },
+    {
+      "family": 3,
+      "branch": "child",
+      "paired_cue_damage": 0.042914390563964844,
+      "capability_fraction": 0.019783143354150424,
+      "target_rms": 0.036782350021795876,
+      "control_target_ratio": 0.1588947276014192,
+      "prediction_error": [
+        3.530490104175385e-05,
+        0.0003574770641093018
+      ]
+    },
+    {
+      "family": 3,
+      "branch": "remainder",
+      "paired_cue_damage": 0.464960257212321,
+      "capability_fraction": 0.21434244554174944,
+      "target_rms": 0.2988817873226447,
+      "control_target_ratio": 0.1518734714470183,
+      "prediction_error": [
+        4.5124835622475715e-06,
+        3.326239158520992e-05
+      ]
+    },
+    {
+      "family": 3,
+      "branch": "parent",
+      "paired_cue_damage": 0.5084474086761475,
+      "capability_fraction": 0.23438962645627778,
+      "target_rms": 0.31703497419147675,
+      "control_target_ratio": 0.1578484175525793,
+      "prediction_error": [
+        4.00296466190025e-06,
+        3.357570922636864e-05
+      ]
+    }
+  ],
+  "native_interaction_cancellation_countercheck": [
+    {
+      "family": 0,
+      "paired_damage_capability_l2_ratio": 0.00013175265624702613,
+      "max_leave_one_pair_mean_fraction": 8.989236878070004e-05
+    },
+    {
+      "family": 1,
+      "paired_damage_capability_l2_ratio": 0.0002633987265629873,
+      "max_leave_one_pair_mean_fraction": 0.0001926174615389807
+    },
+    {
+      "family": 2,
+      "paired_damage_capability_l2_ratio": 0.00046164840958625597,
+      "max_leave_one_pair_mean_fraction": 0.00028824129184780635
+    },
+    {
+      "family": 3,
+      "paired_damage_capability_l2_ratio": 0.0003526574097244312,
+      "max_leave_one_pair_mean_fraction": 0.00012601871655207374
+    }
+  ],
+  "scope": "Descriptive comparison on frozen lexical panel, no fitting or new native runs; first-order effects are original writer edits, distinct from native-background interaction deletion."
+}
