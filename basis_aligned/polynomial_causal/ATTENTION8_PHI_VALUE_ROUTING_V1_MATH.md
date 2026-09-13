@@ -164,3 +164,27 @@ These are prefixes new to thispath's validation from disjoint cacheindices, not 
 The next implementation removes opaque computed Q/routing inputs from the executor interface. `crossfirst_state_executor_v1` now computes Q7, fulljointhead8.2 routing, fixedtokenfirstvalues, andselectedjointhead9.8 routing from declared frozenweights andthree normalized stateports. It still needsRMS8/RMS9 andthe nativeprefix/suffix. Import/loading andliteralpricing pass:69,970,952declared tensor scalars, including68,567,040externalembedding/MLP7inputweights. No smallstandalone-model orspeedupclaim follows.
 
 **Native replay of this assembled implementation is pending.** The preregistered nextvalidation compares itsfields againstnativehook calculations anditsphysicalremoval against theexisting96regional/64FineWebreceipts(320forwards). It must pass before replacing thevalidated executor. [Implementation and status](extracted_circuits/crossfirst_state_executor_v1/README.md), [registered replay](CROSSFIRST_STATE_EXECUTOR_V1_PREREGISTRATION.md).
+
+## 01:29 — Explicit-state replay passes and parentage is made explicit
+
+The assembled executor passes all registered native replay criteria on96regional and64FineWeb prefixes. Native anchors replayexactly. Aggregate field errors against native-hook calculations are $7.93\times10^{-7}$ and $7.79\times10^{-7}$; physical removal outcome errors are $3.94\times10^{-7}$ and $1.39\times10^{-7}$. Individual Q7/token/gamma8 errors remain below $1.82\times10^{-6}$; the largest individual field error is $5.96\times10^{-6}$.320forwards took6.04seconds. [Native executor receipt](CROSSFIRST_STATE_EXECUTOR_V1_RESULT.json).
+
+This is now a validated executable computation from three normalized stateports,two normports,tokens anddeclaredweights. It doesnot require cachedQ orattentionpatterns. Its nativeprefix andsuffix dependencies remain; the literal declared69.97Mtensor count isnot a smaller autonomous model.
+
+The child path is contained in the already studied head9 current-value component. The downstream reader matches **exactly**. Writing
+
+$$
+M_8=U\Lambda U^T+M_{\mathrm{rest}},
+$$
+
+and expanding the four-mode term exposes the crossfirst child while retaining all other terms andthe fullmatrix remainder. A direct FP64control against the native MLP8 weights(including bias) reconstructs that scalar read within $3.49\times10^{-15}$. [Parentage control](CROSSFIRST_PARENTAGE_V1_RESULT.json).
+
+At the shared head9 writer interface, define
+
+$$
+P=C+R,
+$$
+
+where P is the full selected current-value parent, C is the derived crossfirst child, and R retains everything else. This is an algebraic hierarchy, not a claim that R is an identified semantic circuit or that the two inputs are orthogonal. Removing both P and C independently would subtract C twice. Joint removal must use C+R once each.
+
+The [hierarchy record](extracted_circuits/crossfirst_state_executor_v1/HIERARCHY.json) makes this containment explicit. Native parent/child/remainder physical composition remains the next test: exact equality of injected writes doesnot guarantee that separately measured logit effects add through the nonlinear suffix. That test should report composition error relative to the smaller child's effect as well as the parent, avoiding another easy pass from a large denominator.

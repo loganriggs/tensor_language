@@ -1,5 +1,9 @@
 # Latest research state
 
+**13 September, 01:29 — Explicit-state executor validated.**160prefixes: nativeanchors exact, fieldreplay~8e-7, removaloutcomes<4e-7. Nativeprefix/suffix stillrequired;69.97Mdeclaredweights includingexternals. Weightidentity placescrossfirst insideexistinghead9current-value parent; child+remainder hierarchy avoidsdouble-removal, physicalcompositionpending. [Evidence](../../ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md). [Executor](../../extracted_circuits/crossfirst_state_executor_v1/README.md). [Requested report](../for_logan/LATEST.md).
+
+# Latest research state
+
 **13 September, 01:23 — Fresh FineWeb preservation passes.**32new-to-path prefixes: maxabsoluteCEchange.001415nats,31/32nativepositive,positivecontrols meetprospectivebars;32oldanchorsreplayexact. Earliercontrol-Cfailureunchanged. Explicit-state conditionalexecutor implemented/imported andpriced69.97Mdeclaredscalars; native replaypending. [Primary evidence](../../ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md). [Nextreplay](../../CROSSFIRST_STATE_EXECUTOR_V1_PREREGISTRATION.md). [Newest requested report](../for_logan/LATEST.md).
 
 # Latest research state
