@@ -1,0 +1,21 @@
+{
+  "target_sum_energy_fraction": 0.8521966854426728,
+  "target_difference_energy_fraction": 0.14780331455732704,
+  "methods": [
+    {
+      "method": "shared_output_subspaces",
+      "total_relative_error": 0.12475248537214241,
+      "sum_relative_error": 0.022312714023442447,
+      "difference_relative_error": 0.320040707489751,
+      "difference_fraction_of_squared_residual": 0.9727387210936173
+    },
+    {
+      "method": "sparse_entry_10percent",
+      "total_relative_error": 0.0999998846251579,
+      "sum_relative_error": 0.06118302765631204,
+      "difference_relative_error": 0.2146486378569373,
+      "difference_fraction_of_squared_residual": 0.6809911205940169
+    }
+  ],
+  "scope": "Post-fit coefficient audit using existing six token pairs. Exact orthogonal sum/difference partition; no textfit or change to original total-Frobenius objective. Does not by itself explain conditional behavioral error."
+}
