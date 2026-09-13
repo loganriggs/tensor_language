@@ -159,3 +159,8 @@ Nearpost B/H-only donation−4.06/−5.98%,each24/24opposed; jointB+H matchesful
 ## 13 September01:47 — MLP9 fixed-writer interaction response
 
 Child/remainder edits inside selectedhead9currentvalue shareonewriter. Finalreadout-only correction fails toexplainphysicalnonadditivity. ExistingMLP8 directionalbridge formula isnowcompiled atMLP9: exactRMS-aware arbitraryamplitude response in4per-context vectors,mixedtwo-edit response in3. ActualweightFP64errors<5e-15;nativevalidationpending. NativebaselineMLPoutput/state remainexternal;not3semanticcircuits orstandaloneMLP9extraction. [Primary math](../MLP9_CROSSFIRST_RESPONSE_V1_MATH.md).
+
+
+## 13 September02:08 — MLP9 local response validated; single-layer mediation insufficient
+
+The fixed-writer RMS-aware MLP9 response passes native validation on96regional/64FineWeb prefixes (aggregate local errors8.08e-6/2.23e-5). Correcting its two-edit mixed state leaves most final nonadditivity. A separate measured-native-state correction confirms that failure in all8cells, although two FineWeb precision ratios miss their1%bar. This supports exact conditional response extraction, not autonomous MLP9 replacement or sufficiency for downstream behavioral composition. [Primary evidence](../MLP9_CROSSFIRST_RESPONSE_V1_MATH.md).

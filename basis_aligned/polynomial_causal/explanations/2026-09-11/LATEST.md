@@ -1,3 +1,5 @@
+**13 September02:08:** Direct native mixed-state correction confirms the MLP9 mediation limit; two tiny FineWeb interaction metrics remain precision-sensitive. Later-module census completed, not yet causal localization. [Primary result](../../MLP9_CROSSFIRST_RESPONSE_V1_MATH.md).
+
 **13 September, 02:01 result:** MLP9 exact local response passes native validation; its mixed-state correction leaves 85–90% of regional interaction. [Newest requested full report](../for_logan/research_update_2026-09-13_0200_executable_interaction_path.md) · [Primary result and counter-review](../../MLP9_CROSSFIRST_RESPONSE_V1_MATH.md).
 
 # Latest research state
