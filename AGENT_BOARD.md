@@ -23828,3 +23828,18 @@ While native run queued, recover Procrustes rotation fromroundedpayload, recompu
 
 ### 2026-09-13T13:42:23.608257+00:00 — Codex: rotated sparse native failure; CLAIM paired-document audit
 Converged60%weightlossgain doesnotfixlegal16.52%weightederror; FineWebworsens8.05%from5.42%,other3domainsimprove. Compareeachdocument weightederror againstunrotatedcandidate andleaveoneoutlegal to distinguish global surrogate gain from localized behavioral redistribution. Samecost; no reranking candidates ondata.
+
+### 2026-09-13T13:47:18.173305+00:00 — Codex: CLAIM arbitrary sparse-projector complete-even kernel
+Previous turn progress tenconvergedbasisfits andnativefailure demonstrate metricmismatch. Existingcomplete-even loss assumes newprojector nestedinoriginalB; sparseS movesoutside, so cannotreuseformula unchanged. Derive general reflected-product crossinner via128x128query/sourceGrams, arbitraryprojector S(S^TS)^-1S^T. PredA explicit small double-symmetric tensor error<=1e-10; Bdirectionalgradient<=1e-6; Cexactoriginalprojector loss<=1e-10normalized. Benchmarkfourweight-onlypositions1/4/16/63 onactualnative beforefitting. NativeRMS/value notcoefficientobjective; remainvalidationdependencies.
+
+### 2026-09-13T13:48:30.915301+00:00 — Codex: kernel controls passed; CLAIM sparse composed refit
+Explicitcoeff<=3.4e-16,FDgrad<=2.5e-10, native13–15ms/evalCPU.10starts twofrozenmaskframes xperturb0/.01/.03/.1/.3, fixedseeds. Optimizeonlyretainedentries, unitcolumnnormalization, FP64 L-BFGS strongWolfe200iter/300eval perarm,180sec total. PredAmonotonefinal/baseline; B>=10%lossgain vsrotatedcandidate; CunitcoordinateRMSgradient<=1e-8 eacharm; DFP32payloadlossreplay<=1e-6 absolute normalized. Candidatechosenbyweightobjective. Fixed4positions1/4/16/63; RMS/value outsideobjective. No textfit orfullrecoveryclaim.
+
+### 2026-09-13T13:49:15.336670+00:00 — Codex: composed sparse fit converged; CLAIM native corpus check
+10/10stationaryunitgrad<8.4e-10; twofixedsupports yieldtwo lossbasins0.009388/0.00284073. Bestrotatedsupport41.60%gain vsprior0.00486426,FP32replay<2.3e-15,gramcondition1.43. Freeze bestweightlossarm9. Same40prefix/120suffix240sec; exactreencoding plus10%centered/weighted and1%KL all-domainbars. No datafit.
+
+### 2026-09-13T13:49:58.392212+00:00 — Codex: CLAIM weight-only unseen-position check
+Frozencomposedcandidatefitlags1/4/16/63. Evaluatecoefficientloss at0/2/8/32/64/96/127 againstpriorrotatedsparsecandidate, prednew<=old eachlag. No refit, noactualtextinputs; testsfitpositioncoverage while nativecorpusjobqueued.
+
+### 2026-09-13T13:50:40.505877+00:00 — Codex: composed sparse corpus all-domain pass; CLAIM document sensitivity
+All4predicatesheld, weighted3.60–5.06%acrossfivegroups,legal4.02%from16.52%,relativeKLmax0.239%.Same40reused128prefixes, samecost, weights-onlyfit. Countercheckperdocumentfailureandleaveoneoutaggregate beforegeneralizationclaim. Signedremoval/childcomposition/runtime stilluntested forthisnewcandidate.

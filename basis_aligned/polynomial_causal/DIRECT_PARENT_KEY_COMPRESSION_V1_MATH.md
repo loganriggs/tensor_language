@@ -378,3 +378,94 @@ Code/payload/receipts: `sparse_reader_rotation_v1.py`,
 `ROTATED_SPARSE_PARENT_CORPUS_V1_BINDING.json`,
 `ROTATED_SPARSE_PARENT_CORPUS_V1_RESULT.json`,
 `ROTATED_SPARSE_PARENT_CORPUS_V1_DOCUMENT_AUDIT.json`.
+
+
+## Composed sparse fitting passes the five-domain aggregate test
+
+The important change is to optimize the actual even-key *numerator composition*,
+not basis reconstruction. This still uses only model weights. The old
+`complete_even_key_objective_v1.py` assumes a candidate subspace contained in
+original $B$. Sparse readers move outside that subspace, so applying that formula
+unchanged would be invalid. The new kernel allows an arbitrary full-rank $S$.
+
+Write $H_S=I-2S(S^TS)^{-1}S^T$. At a fixed relative position let
+$M_i=Q_i^T R^T K_i$, with the same rounded position convention as before.
+The complete even numerator is the polynomial
+
+$$
+F_S(x,y)=\frac12\left[(x^TM_1y)(x^TM_2y)
++(x^TM_1H_Sy)(x^TM_2H_Sy)\right].
+$$
+
+The two query slots share $x$, and the two source slots share $y$, so the
+coefficient tensor must be symmetric in each pair. Comparing with original
+$H_B$, the unchanged first term cancels. Both reflected product tensors have
+the same coefficient norm because reflection is orthogonal. Their cross-inner
+product therefore suffices to calculate the squared difference exactly.
+
+For $M_i=L_iK_i$ with $L_i\in\mathbb R^{1152\times128}$, the kernel uses
+128-by128 query Grams and cross-Grams of the reflected key readers. It avoids
+materializing a1152-to-the-fourth tensor. Small explicit tensors verify the
+loss to3.4e-16 and directional gradients to2.5e-10 normalized error. The original
+projector gives zero loss to numerical precision. Native value/gradient cost
+is13–15ms on two CPU threads.
+
+Fitting retains the same55,296 nonzero entries and the same two candidate masks
+(original-frame and learned-frame). Five starts per mask perturb the retained
+weights by different amounts. Each forward pass normalizes column scales and
+uses the corrected projector. FP64 L-BFGS with strong-Wolfe line search fits four
+fixed relative positions:1,4,16,63. All ten fits reach unit-coordinate gradient
+RMS below8.4e-10 in19.08seconds total; Gram conditions are1.43–1.72. Each mask's
+five starts converge to essentially the same objective, but this is not a
+certificate over all masks or all local optima.
+
+The best composed objective falls from0.00486426 for the learned-frame sparse
+baseline to0.00284073, a41.60% reduction. These are squared coefficient errors
+normalized by the full unreflected product's squared norm, summed over the four
+positions. They are not native behavioral error percentages. FP32 payload
+rounding changes the objective by less than2.3e-15. The frozen best arm also
+improves the coefficient objective at all seven tested unfit positions:
+0,2,8,32,64,96,127. This checks numerator-position transfer, not normalized
+attention or corpus transfer by itself.
+
+Native validation then keeps the original normalization, values, positions,
+context and suffix, and performs unit parent removal on the same40 corpus
+prefixes. All four registered predicates pass in2.46seconds:
+
+| Domain | Weighted effect error | Relative KL |
+|---|---:|---:|
+| FineWeb |5.06%|0.239%|
+| Discussion |3.60%|0.130%|
+| Reference |4.35%|0.183%|
+| Biomedical |3.85%|0.148%|
+| Legal/patent |4.02%|0.162%|
+
+Centered-vocabulary error is2.66–5.07%, also below10%. This is the first
+all-domain aggregate preservation pass among the directly tested parent
+compression candidates. Legal/patent improves from16.52% for the basis-fitted
+candidate to4.02% at identical support and storage price. It supports the user's
+proposal to fit the composition rather than independent module reconstruction.
+It does not prove that numerator fitting is sufficient for general circuits.
+
+Counterchecks: every leave-one-document-out domain aggregate stays below5.62%
+weighted error. However,6 of40 individual documents exceed10%, with a maximum
+of25.00%; an aggregate pass is not a uniform per-document guarantee. These are
+small, reused validation panels. Although no model text fitted the weights,
+this panel has informed method development, so it is not a fresh final test.
+Signed strengths, child/remainder reuse, selective controls and genuinely new
+corpus inputs remain required for promotion.
+
+The logical storage price is unchanged:16.31% saving on the basis representation
+and1.806% on the declared parent interface, including the bitmask and correction.
+The existing dense reference execution still establishes no runtime or working-
+memory gain. Neither full-model compression nor all four circuit properties is
+claimed.
+
+Kernel/controls: `sparse_complete_even_v1.py`,
+`check_sparse_complete_even_v1.py`, `SPARSE_COMPLETE_EVEN_V1_CONTROL.json`.
+Fit: `fit_sparse_complete_even_v1.py`, `SPARSE_COMPLETE_EVEN_FIT_V1_RESULT.json`,
+`SPARSE_COMPLETE_EVEN_FIT_V1_PROGRAM.pt`, `SPARSE_COMPLETE_EVEN_V1_POSITION_AUDIT.json`.
+Native: `ops/run_composed_sparse_parent_corpus_v1.py`,
+`COMPOSED_SPARSE_PARENT_CORPUS_V1_BINDING.json`,
+`COMPOSED_SPARSE_PARENT_CORPUS_V1_RESULT.json`,
+`COMPOSED_SPARSE_PARENT_CORPUS_V1_DOCUMENT_AUDIT.json`.

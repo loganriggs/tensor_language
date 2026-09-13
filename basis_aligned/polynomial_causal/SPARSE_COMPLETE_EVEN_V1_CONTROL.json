@@ -1,0 +1,40 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "controls": [
+    {
+      "coefficient_error": 7.293971031250701e-17,
+      "gradient_error": 2.4206939299673577e-10,
+      "identity_error": 7.293971031250701e-17
+    },
+    {
+      "coefficient_error": 2.545333715689041e-16,
+      "gradient_error": 5.172408702546006e-11,
+      "identity_error": 1.6968891437926941e-16
+    },
+    {
+      "coefficient_error": 3.3831045058720645e-16,
+      "gradient_error": 4.650395630893776e-12,
+      "identity_error": 2.5373283794040484e-16
+    },
+    {
+      "coefficient_error": 2.3970612660278566e-16,
+      "gradient_error": 1.1634106891400377e-11,
+      "identity_error": 5.992653165069641e-17
+    }
+  ],
+  "candidates": {
+    "original_frame": {
+      "normalized_squared_error": 0.011868807672240517,
+      "evaluation_gradient_seconds": 0.01503843441605568,
+      "gradient_rms": 38512906.374791466
+    },
+    "rotated_frame": {
+      "normalized_squared_error": 0.004864257420293802,
+      "evaluation_gradient_seconds": 0.013286985456943512,
+      "gradient_rms": 24681805.11899858
+    }
+  },
+  "scope": "Explicit tensor and derivative controls, followed by native CPU pricing.\nPred_a explicit coefficient loss replay <=1e-10 normalized.\nPred_b finite-difference derivative error <=1e-6 normalized.\nPred_c original-basis zero loss <=1e-10 normalized.\n Native benchmark uses four positional numerator coefficients; no normalized behavioral guarantee."
+}
