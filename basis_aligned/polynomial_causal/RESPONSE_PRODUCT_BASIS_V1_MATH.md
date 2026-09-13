@@ -1,3 +1,5 @@
+**13 September update:** The ten-product upper bound is sharpened exactly to six by combining normalization-dependent coefficients. [Three-vector/six-product derivation and controls](RESPONSE_PRODUCT_BASIS_V2_MATH.md). The original result below remains valid.
+
 # A reusable conditional basis for the two-layer residual interaction
 
 13 September 2026, CPU consequence while the native backward-fold test is queued.

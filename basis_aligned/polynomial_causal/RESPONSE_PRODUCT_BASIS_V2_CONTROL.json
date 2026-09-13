@@ -1,0 +1,24 @@
+{
+  "relative_errors": {
+    "response": 1.369399256063992e-16,
+    "product": 4.019341716311891e-15,
+    "old_replay": 3.873050942607299e-15,
+    "fp32": 6.314769955998571e-08,
+    "mixed": 1.9655193108404288e-16
+  },
+  "zero_edit_maxabs": 0.0,
+  "response_basis_count": 3,
+  "mixed_response_basis_count": 2,
+  "symmetric_product_count": 6,
+  "product_scalars_per_context": 6912,
+  "previous_product_scalars": 11520,
+  "contexts": 4,
+  "strength_pairs": 121,
+  "preparation_seconds_six": 0.0077911317348480225,
+  "preparation_seconds_ten": 0.010380897670984268,
+  "contraction_grid_seconds_six": 0.0036003924906253815,
+  "contraction_grid_seconds_ten": 0.003677818924188614,
+  "ten_grid_including_coefficients_seconds": 0.008884191513061523,
+  "seconds": 1.2540887854993343,
+  "scope": "Exact context-dependent response-family simplification. Actual weights and synthetic signed edits; normalized response coefficients exact, attention and MLP10 joint denominator/background/suffix external. Six-vector bank is per context, not global factors or six identified circuits."
+}
