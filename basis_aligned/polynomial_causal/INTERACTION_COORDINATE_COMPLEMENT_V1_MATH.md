@@ -62,3 +62,26 @@ The correction matrices have spectral norms21.3–41.2, so this amplification is
 Next useful promotion is native conditional behavioral validation of a frozen dense-core candidate. Weighted sparsity can follow if that representation preserves the circuit's effect; the current evidence alone does not establish the requested behavioral properties.
 
 [Construction and execution](interaction_coordinate_complement_v1.py) · [Price/precision receipt](INTERACTION_COORDINATE_COMPLEMENT_V1_RESULT.json) · [Metric control code](interaction_coordinate_metric_v1.py) · [Metric results](INTERACTION_COORDINATE_METRIC_V1_RESULT.json).
+
+
+## 08:09 — Native conditional validation rejects the frozen projection candidates
+
+The2%,5%and10%coefficient-error candidates were frozen from weights and executed through their actual coordinate-correction readers on120cached regional intervention ports. No fitting used these examples. Native normalizers, background states, other retained terms and the token softcaps were supplied exactly as in the previous sparse-interaction validation. This evaluates replacement of the modeled mixed numerator, not the whole original circuit.
+
+Two effects were scored separately. The larger compact-predictor effect compares its native baseline and changed readout. The modeled mixed term's own effect compares the changed readout with the same raw logits after removing that mixed numerator and reapplying the softcap. This explicit zero-term reference prevents a small contribution from making a poor approximation look accurate.
+
+| Coefficient error | Own-effect errors across five groups | Maximum compact-effect error |
+|---|---|---:|
+|2%|10.96%,1.35%,6.73%,1.90%,1.12%|0.194%|
+|5%|18.04%,1.92%,10.75%,4.13%,2.30%|0.310%|
+|10%|27.09%,3.17%,14.22%,4.22%,3.43%|0.465%|
+
+All three candidates fail the registered requirement of at most10%own-effect error in every group. All pass the separate5%compact-effect criterion and preserve signs above the registered1e-5material threshold. Small own-effect sign reversals remain. The executor's exact projected-tensor replay passes, so this is not evidence of an erroneous coordinate adapter. The run took0.92seconds using the existing cache and zero model-body forwards.
+
+An executed post-result concentration check narrows the strict2%miss. Group0has own-effect norm1.38e-4 across24rows, with maximum absolute error8.75e-6. Its14rows whose reference magnitude is at least1e-5give9.79%relative error. Leaving out one cue pair at a time gives9.38–13.27%; the largest pair contributes33.4%of error energy. Thus the10.96%registered miss is borderline and somewhat panel-sensitive, not a universal catastrophic failure. These descriptive checks do not replace the registered criterion.
+
+The earlier sparse-entry candidate provides a stronger matched comparison. Its native compact and zero-term references align to the present references within1e-10. At2%coefficient error its five own-effect errors are3.79%,1.52%,3.02%,1.46%and0.66%. It also stores less. At10%coefficient error its own-effect errors remain2.72–8.12%, below the coordinate projection's worst27.09%. This is evidence favoring edge sparsity over the tested low-energy reader deletion for this conditional interaction; it does not establish a universal advantage for sparse entries or absence of better reader structure.
+
+The coordinate adapter remains a valid compact implementation of its chosen projector. That projector is not adopted for this circuit. Further work should preserve the successful sparse-edge behavioral baseline and seek cheaper executable/shared structure without assuming that low coefficient-energy directions are behaviorally dispensable.
+
+[Validation code](interaction_coordinate_regional_v1.py) · [All effects and verdicts](INTERACTION_COORDINATE_REGIONAL_V1_RESULT.json) · [Concentration and matched-baseline audit](INTERACTION_COORDINATE_REGIONAL_V1_AUDIT.json).
