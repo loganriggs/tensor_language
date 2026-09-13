@@ -35,3 +35,13 @@ The previously uncharacterized 243 tokens with at most 10% coefficient error all
 That correction does **not** explain away the entire grouped-fit improvement. These rows contain only 0.2288% of total target coefficient energy. The global baseline's error is at most each token's target norm for every measured token. Therefore the maximum possible improvement from this subset is its 0.2288% energy, whereas the total reduction is 3.7973% of target energy. The [executed bound](SHARED_LOCAL_DUPLICATE_GAIN_BOUND_V1_RESULT.json) shows that **at least 93.97% of the total improvement comes from outside this subset**. The overall modest gain remains real; semantic interpretation and adequate optimization remain unresolved.
 
 Deduplicating these 243 native U rows exactly would save 271,872 floats before IDs/dispatch costs. That is a useful conventional sharing opportunity, but separate from identifying reusable computational circuits or from the learned grouped approximation.
+
+## Do the private banks just repeat the shared functions?
+
+The [frozen subspace audit](SHARED_LOCAL_SUBSPACE_AUDIT_V1_G64_RESULT.json) compares function spans, so rotating the coordinates inside one bank cannot create or hide agreement. Each private bank places 6.69–12.64% of its orthonormalized function-space energy in the global span. Remove that common span before comparing the genuinely additional directions.
+
+The 32 eight-dimensional private complements jointly have rank 256, with singular condition number 7.22. Median pairwise subspace overlap is 1.53%; the largest is 11.07%. No pair contains a principal direction with cosine at least 0.99; the maximum is 0.824. Thus there is no immediate near-exact merge of these frozen complementary banks. This does not rule out better jointly learned shared parents or approximate sharing under the actual token coefficients.
+
+Deleting every private branch while keeping the existing global coefficients raises full coefficient error from 83.61% to 88.41%. If the global coefficients are instead refitted optimally within the **same frozen global span**, error is 87.83%. This second comparison removes cancellation as the sole explanation for the deletion damage. The private directions add necessary capacity to this fitted representation; neither operation is a native causal removal experiment.
+
+These checks took 4.86 CPU seconds and did not modify the saved program or running larger fit. Sparse group membership remains meaningful storage structure, but the branches have not been identified as reusable semantic circuits.

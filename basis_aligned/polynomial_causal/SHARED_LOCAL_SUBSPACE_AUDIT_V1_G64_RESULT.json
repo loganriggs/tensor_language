@@ -1,0 +1,106 @@
+{
+  "schema": "shared.local.private.subspaces.v1",
+  "global_width": 64,
+  "fixed_code_private_deletion_coefficient_error": 0.8840723080258449,
+  "optimal_recoding_frozen_global_coefficient_error": 0.8782533942620678,
+  "private_bank_fraction_in_global_span": [
+    0.09263401331777027,
+    0.07938190623333614,
+    0.07256154826857118,
+    0.07705050874462355,
+    0.09373833862859177,
+    0.10230566634992846,
+    0.11007555864824102,
+    0.08029319604474212,
+    0.11806800060669612,
+    0.07967624919142975,
+    0.08434486076834251,
+    0.0922559893729584,
+    0.0738827840478606,
+    0.08452667495170711,
+    0.09355651795057736,
+    0.07492997873284944,
+    0.11091598845080554,
+    0.08863504685166029,
+    0.06693860514740657,
+    0.07879854497182373,
+    0.07229032908467752,
+    0.10949980576096721,
+    0.08372491443031836,
+    0.1263906805248891,
+    0.10278676843151002,
+    0.07737250143212206,
+    0.09625260772299468,
+    0.10834086219933654,
+    0.09331437710117818,
+    0.09392384790428893,
+    0.09550297426612549,
+    0.09697469910958119
+  ],
+  "median_pairwise_complement_overlap": 0.015277170322319102,
+  "maximum_pairwise_complement_overlap": 0.11071637199583038,
+  "pairs_with_principal_cosine_above_99pct": 0,
+  "complementary_union_rank": 256,
+  "complementary_union_rows": 256,
+  "complementary_union_condition": 7.223738848364579,
+  "strongest_pairs": [
+    {
+      "first": 23,
+      "second": 8,
+      "maximum_principal_cosine": 0.8238740968357208,
+      "mean_subspace_overlap": 0.11071637199583038,
+      "directions_cosine_above_99pct": 0
+    },
+    {
+      "first": 17,
+      "second": 5,
+      "maximum_principal_cosine": 0.7532686551279982,
+      "mean_subspace_overlap": 0.07623765290916695,
+      "directions_cosine_above_99pct": 0
+    },
+    {
+      "first": 14,
+      "second": 4,
+      "maximum_principal_cosine": 0.6169441105746881,
+      "mean_subspace_overlap": 0.07340876932713307,
+      "directions_cosine_above_99pct": 0
+    },
+    {
+      "first": 29,
+      "second": 25,
+      "maximum_principal_cosine": 0.5753603725100399,
+      "mean_subspace_overlap": 0.05594427653176428,
+      "directions_cosine_above_99pct": 0
+    },
+    {
+      "first": 11,
+      "second": 6,
+      "maximum_principal_cosine": 0.5725091333998629,
+      "mean_subspace_overlap": 0.05968082121666877,
+      "directions_cosine_above_99pct": 0
+    },
+    {
+      "first": 26,
+      "second": 8,
+      "maximum_principal_cosine": 0.566698081468317,
+      "mean_subspace_overlap": 0.055919230913139016,
+      "directions_cosine_above_99pct": 0
+    },
+    {
+      "first": 30,
+      "second": 18,
+      "maximum_principal_cosine": 0.5614871237187804,
+      "mean_subspace_overlap": 0.05515781598581232,
+      "directions_cosine_above_99pct": 0
+    },
+    {
+      "first": 27,
+      "second": 0,
+      "maximum_principal_cosine": 0.537759913044126,
+      "mean_subspace_overlap": 0.057640982276785546,
+      "directions_cosine_above_99pct": 0
+    }
+  ],
+  "wall_seconds": 4.859358161687851,
+  "scope": "Full coefficient geometry of frozen banks. Complement angles remove global overlap and are invariant to nonsingular within-bank recoding. Counterfactual deletion and optimal recoding are distinct, neither is native causal removal or cross-behavior reuse."
+}
