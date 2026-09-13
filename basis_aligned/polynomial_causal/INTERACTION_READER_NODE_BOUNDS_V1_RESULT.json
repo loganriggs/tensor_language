@@ -1,0 +1,70 @@
+{
+  "shape": [
+    12,
+    1152,
+    128
+  ],
+  "token_ids": [
+    11383,
+    1430,
+    14148,
+    6907,
+    31049,
+    14733,
+    34614,
+    18388,
+    39012,
+    16521,
+    46729,
+    16924
+  ],
+  "rows": [
+    {
+      "tolerance": 0.02,
+      "necessary_mode_ranks": [
+        12,
+        1105,
+        128
+      ],
+      "truncated_hosvd_error": 0.019941406044869225,
+      "dense_core_scalars": 1697280,
+      "dense_adapter_scalars": 1289488,
+      "dense_tucker_scalars": 2986768,
+      "over_dense_tensor": 1.6879430700231481,
+      "omit_full_rank_rotations_scalars": 2970240,
+      "omit_full_rank_rotations_ratio": 1.6786024305555556
+    },
+    {
+      "tolerance": 0.05,
+      "necessary_mode_ranks": [
+        12,
+        1008,
+        128
+      ],
+      "truncated_hosvd_error": 0.049786901476125814,
+      "dense_core_scalars": 1548288,
+      "dense_adapter_scalars": 1177744,
+      "dense_tucker_scalars": 2726032,
+      "over_dense_tensor": 1.5405906394675926,
+      "omit_full_rank_rotations_scalars": 2709504,
+      "omit_full_rank_rotations_ratio": 1.53125
+    },
+    {
+      "tolerance": 0.1,
+      "necessary_mode_ranks": [
+        12,
+        869,
+        125
+      ],
+      "truncated_hosvd_error": 0.13358608376064965,
+      "dense_core_scalars": 1303500,
+      "dense_adapter_scalars": 1017232,
+      "dense_tucker_scalars": 2320732,
+      "over_dense_tensor": 1.3115392614293981,
+      "omit_full_rank_rotations_scalars": 2320588,
+      "omit_full_rank_rotations_ratio": 1.3114578812210649
+    }
+  ],
+  "seconds": 0.7452925369143486,
+  "scope": "Necessary per-mode ranks from exact numerical unfolding spectra under coefficient Frobenius norm and arbitrary independent input ports. Any multilinear shared-reader graph has unfolding rank no larger than its reader count. Not bounds for sparse full-rank arithmetic graphs, producer-constrained inputs or behavioral fidelity. Separate ranks not jointly sufficient; tested dense HOSVD cost includes adapters."
+}

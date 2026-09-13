@@ -1,0 +1,5531 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "shape": [
+    12,
+    1152,
+    128
+  ],
+  "token_ids": [
+    11383,
+    1430,
+    14148,
+    6907,
+    31049,
+    14733,
+    34614,
+    18388,
+    39012,
+    16521,
+    46729,
+    16924
+  ],
+  "dense_bytes": 7077888,
+  "replay_error": 2.3106693990264193e-15,
+  "best": [
+    {
+      "tolerance": 0.02,
+      "block": {
+        "frame": "native",
+        "block_shape": [
+          3,
+          8,
+          8
+        ],
+        "tolerance": 0.02,
+        "blocks_retained": 9210,
+        "blocks_total": 9216,
+        "actual_error": 0.019441864990294613,
+        "bytes": 7074432,
+        "dense_bytes_ratio": 0.99951171875,
+        "active_nodes": [
+          12,
+          1152,
+          128
+        ],
+        "all_nodes": [
+          12,
+          1152,
+          128
+        ],
+        "active_input_block_pairs": 2304
+      },
+      "best_entry": {
+        "frame": "output_head",
+        "tolerance": 0.02,
+        "bytes": 6499468
+      }
+    },
+    {
+      "tolerance": 0.05,
+      "block": {
+        "frame": "output_head",
+        "block_shape": [
+          1,
+          4,
+          4
+        ],
+        "tolerance": 0.05,
+        "blocks_retained": 106231,
+        "blocks_total": 110592,
+        "actual_error": 0.04999682154363359,
+        "bytes": 6878720,
+        "dense_bytes_ratio": 0.9718605324074074,
+        "active_nodes": [
+          12,
+          1152,
+          128
+        ],
+        "all_nodes": [
+          12,
+          1152,
+          128
+        ],
+        "active_input_block_pairs": 9216
+      },
+      "best_entry": {
+        "frame": "output_head",
+        "tolerance": 0.05,
+        "bytes": 5783372
+      }
+    },
+    {
+      "tolerance": 0.1,
+      "block": {
+        "frame": "output_head",
+        "block_shape": [
+          1,
+          4,
+          4
+        ],
+        "tolerance": 0.1,
+        "blocks_retained": 98097,
+        "blocks_total": 110592,
+        "actual_error": 0.09999504041947431,
+        "bytes": 6358144,
+        "dense_bytes_ratio": 0.8983109085648148,
+        "active_nodes": [
+          12,
+          1152,
+          128
+        ],
+        "all_nodes": [
+          12,
+          1152,
+          128
+        ],
+        "active_input_block_pairs": 9216
+      },
+      "best_entry": {
+        "frame": "output_head",
+        "tolerance": 0.1,
+        "bytes": 4896936
+      }
+    }
+  ],
+  "cells": [
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        4,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 110389,
+      "blocks_total": 110592,
+      "actual_error": 0.019972116181763002,
+      "bytes": 7078720,
+      "dense_bytes_ratio": 1.0001175491898149,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9216
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        4,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 109617,
+      "blocks_total": 110592,
+      "actual_error": 0.04998297596204981,
+      "bytes": 7029312,
+      "dense_bytes_ratio": 0.9931369357638888,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9216
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        4,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 107449,
+      "blocks_total": 110592,
+      "actual_error": 0.09999392058383079,
+      "bytes": 6890560,
+      "dense_bytes_ratio": 0.9735333478009259,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9216
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        4,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 55232,
+      "blocks_total": 55296,
+      "actual_error": 0.01993241386905922,
+      "bytes": 7076608,
+      "dense_bytes_ratio": 0.9998191550925926,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        4,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 54956,
+      "blocks_total": 55296,
+      "actual_error": 0.049958951584749146,
+      "bytes": 7041280,
+      "dense_bytes_ratio": 0.9948278356481481,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        4,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 54112,
+      "blocks_total": 55296,
+      "actual_error": 0.09997123011590946,
+      "bytes": 6933248,
+      "dense_bytes_ratio": 0.9795645254629629,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        4,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 27624,
+      "blocks_total": 27648,
+      "actual_error": 0.019848479615412258,
+      "bytes": 7075200,
+      "dense_bytes_ratio": 0.9996202256944444,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        4,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 27514,
+      "blocks_total": 27648,
+      "actual_error": 0.04987503440547403,
+      "bytes": 7047040,
+      "dense_bytes_ratio": 0.9956416377314815,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        4,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 27161,
+      "blocks_total": 27648,
+      "actual_error": 0.09999319095119076,
+      "bytes": 6956672,
+      "dense_bytes_ratio": 0.9828739872685185,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        8,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 55232,
+      "blocks_total": 55296,
+      "actual_error": 0.01997178505912299,
+      "bytes": 7076608,
+      "dense_bytes_ratio": 0.9998191550925926,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        8,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 54956,
+      "blocks_total": 55296,
+      "actual_error": 0.0499556378555128,
+      "bytes": 7041280,
+      "dense_bytes_ratio": 0.9948278356481481,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        8,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 54116,
+      "blocks_total": 55296,
+      "actual_error": 0.09998542369703424,
+      "bytes": 6933760,
+      "dense_bytes_ratio": 0.9796368634259259,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        8,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 27624,
+      "blocks_total": 27648,
+      "actual_error": 0.019959426409501137,
+      "bytes": 7075200,
+      "dense_bytes_ratio": 0.9996202256944444,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        8,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 27514,
+      "blocks_total": 27648,
+      "actual_error": 0.049980673977183726,
+      "bytes": 7047040,
+      "dense_bytes_ratio": 0.9956416377314815,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        8,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 27161,
+      "blocks_total": 27648,
+      "actual_error": 0.09993211776392008,
+      "bytes": 6956672,
+      "dense_bytes_ratio": 0.9828739872685185,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        8,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 13814,
+      "blocks_total": 13824,
+      "actual_error": 0.019755860027504228,
+      "bytes": 7074496,
+      "dense_bytes_ratio": 0.9995207609953703,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        8,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 13767,
+      "blocks_total": 13824,
+      "actual_error": 0.049610378708270994,
+      "bytes": 7050432,
+      "dense_bytes_ratio": 0.9961208767361112,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        8,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 13609,
+      "blocks_total": 13824,
+      "actual_error": 0.09991690302766032,
+      "bytes": 6969536,
+      "dense_bytes_ratio": 0.9846914785879629,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        16,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 27624,
+      "blocks_total": 27648,
+      "actual_error": 0.019965374758512747,
+      "bytes": 7075200,
+      "dense_bytes_ratio": 0.9996202256944444,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        16,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 27513,
+      "blocks_total": 27648,
+      "actual_error": 0.04993677322540449,
+      "bytes": 7046784,
+      "dense_bytes_ratio": 0.99560546875,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        16,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 27159,
+      "blocks_total": 27648,
+      "actual_error": 0.09989659625633932,
+      "bytes": 6956160,
+      "dense_bytes_ratio": 0.9828016493055556,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        16,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 13815,
+      "blocks_total": 13824,
+      "actual_error": 0.01912564965667299,
+      "bytes": 7075008,
+      "dense_bytes_ratio": 0.9995930989583334,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        16,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 13767,
+      "blocks_total": 13824,
+      "actual_error": 0.04988439418384561,
+      "bytes": 7050432,
+      "dense_bytes_ratio": 0.9961208767361112,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        16,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 13610,
+      "blocks_total": 13824,
+      "actual_error": 0.09986201918731975,
+      "bytes": 6970048,
+      "dense_bytes_ratio": 0.9847638165509259,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        16,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 6908,
+      "blocks_total": 6912,
+      "actual_error": 0.019182797614796056,
+      "bytes": 7074656,
+      "dense_bytes_ratio": 0.9995433666087963,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 576
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        16,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 6887,
+      "blocks_total": 6912,
+      "actual_error": 0.04919888431079902,
+      "bytes": 7053152,
+      "dense_bytes_ratio": 0.9965051721643519,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 576
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        1,
+        16,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 6814,
+      "blocks_total": 6912,
+      "actual_error": 0.09996255619549634,
+      "bytes": 6978400,
+      "dense_bytes_ratio": 0.9859438295717593,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 576
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        4,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 36826,
+      "blocks_total": 36864,
+      "actual_error": 0.0199283250656205,
+      "bytes": 7075200,
+      "dense_bytes_ratio": 0.9996202256944444,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9216
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        4,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 36658,
+      "blocks_total": 36864,
+      "actual_error": 0.04989549970306966,
+      "bytes": 7042944,
+      "dense_bytes_ratio": 0.9950629340277778,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9216
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        4,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 36137,
+      "blocks_total": 36864,
+      "actual_error": 0.09993156837483182,
+      "bytes": 6942912,
+      "dense_bytes_ratio": 0.9809299045138888,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9216
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        4,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 18418,
+      "blocks_total": 18432,
+      "actual_error": 0.019328773522050924,
+      "bytes": 7074816,
+      "dense_bytes_ratio": 0.9995659722222222,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        4,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 18349,
+      "blocks_total": 18432,
+      "actual_error": 0.04988110367478599,
+      "bytes": 7048320,
+      "dense_bytes_ratio": 0.9958224826388888,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        4,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 18128,
+      "blocks_total": 18432,
+      "actual_error": 0.09996049061404096,
+      "bytes": 6963456,
+      "dense_bytes_ratio": 0.9838324652777778,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        4,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 9211,
+      "blocks_total": 9216,
+      "actual_error": 0.01824039996640251,
+      "bytes": 7075200,
+      "dense_bytes_ratio": 0.9996202256944444,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        4,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 9181,
+      "blocks_total": 9216,
+      "actual_error": 0.04946870633584725,
+      "bytes": 7052160,
+      "dense_bytes_ratio": 0.9963650173611112,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        4,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 9082,
+      "blocks_total": 9216,
+      "actual_error": 0.09993278950035474,
+      "bytes": 6976128,
+      "dense_bytes_ratio": 0.9856228298611112,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        8,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 18418,
+      "blocks_total": 18432,
+      "actual_error": 0.01940116143351986,
+      "bytes": 7074816,
+      "dense_bytes_ratio": 0.9995659722222222,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        8,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 18349,
+      "blocks_total": 18432,
+      "actual_error": 0.049961282445660025,
+      "bytes": 7048320,
+      "dense_bytes_ratio": 0.9958224826388888,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        8,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 18129,
+      "blocks_total": 18432,
+      "actual_error": 0.09994477982103177,
+      "bytes": 6963840,
+      "dense_bytes_ratio": 0.98388671875,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        8,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 9210,
+      "blocks_total": 9216,
+      "actual_error": 0.019441864990294613,
+      "bytes": 7074432,
+      "dense_bytes_ratio": 0.99951171875,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        8,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 9181,
+      "blocks_total": 9216,
+      "actual_error": 0.04933460662252223,
+      "bytes": 7052160,
+      "dense_bytes_ratio": 0.9963650173611112,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        8,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 9082,
+      "blocks_total": 9216,
+      "actual_error": 0.09987860791312177,
+      "bytes": 6976128,
+      "dense_bytes_ratio": 0.9856228298611112,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        8,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 4606,
+      "blocks_total": 4608,
+      "actual_error": 0.01712241446382472,
+      "bytes": 7075392,
+      "dense_bytes_ratio": 0.9996473524305556,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        8,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 4592,
+      "blocks_total": 4608,
+      "actual_error": 0.04956655815218015,
+      "bytes": 7053888,
+      "dense_bytes_ratio": 0.9966091579861112,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        8,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 4546,
+      "blocks_total": 4608,
+      "actual_error": 0.09981742529007301,
+      "bytes": 6983232,
+      "dense_bytes_ratio": 0.9866265190972222,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        16,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 9210,
+      "blocks_total": 9216,
+      "actual_error": 0.019673900963676612,
+      "bytes": 7074432,
+      "dense_bytes_ratio": 0.99951171875,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        16,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 9181,
+      "blocks_total": 9216,
+      "actual_error": 0.04963426281443916,
+      "bytes": 7052160,
+      "dense_bytes_ratio": 0.9963650173611112,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        16,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 9083,
+      "blocks_total": 9216,
+      "actual_error": 0.09961220326942433,
+      "bytes": 6976896,
+      "dense_bytes_ratio": 0.9857313368055556,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        16,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 4606,
+      "blocks_total": 4608,
+      "actual_error": 0.01704040468807057,
+      "bytes": 7075392,
+      "dense_bytes_ratio": 0.9996473524305556,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        16,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 4592,
+      "blocks_total": 4608,
+      "actual_error": 0.04984671559033569,
+      "bytes": 7053888,
+      "dense_bytes_ratio": 0.9966091579861112,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        16,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 4547,
+      "blocks_total": 4608,
+      "actual_error": 0.09952029885657489,
+      "bytes": 6984768,
+      "dense_bytes_ratio": 0.9868435329861112,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        16,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 2303,
+      "blocks_total": 2304,
+      "actual_error": 0.017654896195959686,
+      "bytes": 7075104,
+      "dense_bytes_ratio": 0.9996066623263888,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 576
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        16,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 2297,
+      "blocks_total": 2304,
+      "actual_error": 0.047954731664541526,
+      "bytes": 7056672,
+      "dense_bytes_ratio": 0.9970024956597222,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 576
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        3,
+        16,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 2275,
+      "blocks_total": 2304,
+      "actual_error": 0.09925217911865447,
+      "bytes": 6989088,
+      "dense_bytes_ratio": 0.9874538845486112,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 576
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        4,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 18418,
+      "blocks_total": 18432,
+      "actual_error": 0.019532011868406102,
+      "bytes": 7074816,
+      "dense_bytes_ratio": 0.9995659722222222,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9216
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        4,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 18349,
+      "blocks_total": 18432,
+      "actual_error": 0.04972747506567903,
+      "bytes": 7048320,
+      "dense_bytes_ratio": 0.9958224826388888,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9216
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        4,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 18124,
+      "blocks_total": 18432,
+      "actual_error": 0.09994019179211247,
+      "bytes": 6961920,
+      "dense_bytes_ratio": 0.9836154513888888,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9213
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        4,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 9210,
+      "blocks_total": 9216,
+      "actual_error": 0.01991985083885344,
+      "bytes": 7074432,
+      "dense_bytes_ratio": 0.99951171875,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        4,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 9181,
+      "blocks_total": 9216,
+      "actual_error": 0.049594854732249595,
+      "bytes": 7052160,
+      "dense_bytes_ratio": 0.9963650173611112,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        4,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 9083,
+      "blocks_total": 9216,
+      "actual_error": 0.09969817816328637,
+      "bytes": 6976896,
+      "dense_bytes_ratio": 0.9857313368055556,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4606
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        4,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 4606,
+      "blocks_total": 4608,
+      "actual_error": 0.017194409883548336,
+      "bytes": 7075392,
+      "dense_bytes_ratio": 0.9996473524305556,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        4,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 4593,
+      "blocks_total": 4608,
+      "actual_error": 0.048420177252907,
+      "bytes": 7055424,
+      "dense_bytes_ratio": 0.996826171875,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2303
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        4,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 4547,
+      "blocks_total": 4608,
+      "actual_error": 0.09980393545105269,
+      "bytes": 6984768,
+      "dense_bytes_ratio": 0.9868435329861112,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2302
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        8,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 9210,
+      "blocks_total": 9216,
+      "actual_error": 0.019753414805289693,
+      "bytes": 7074432,
+      "dense_bytes_ratio": 0.99951171875,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        8,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 9181,
+      "blocks_total": 9216,
+      "actual_error": 0.049300108389899205,
+      "bytes": 7052160,
+      "dense_bytes_ratio": 0.9963650173611112,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        8,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 9082,
+      "blocks_total": 9216,
+      "actual_error": 0.09979970038118824,
+      "bytes": 6976128,
+      "dense_bytes_ratio": 0.9856228298611112,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4606
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        8,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 4606,
+      "blocks_total": 4608,
+      "actual_error": 0.017319000503547805,
+      "bytes": 7075392,
+      "dense_bytes_ratio": 0.9996473524305556,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        8,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 4593,
+      "blocks_total": 4608,
+      "actual_error": 0.048645416892635684,
+      "bytes": 7055424,
+      "dense_bytes_ratio": 0.996826171875,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        8,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 4548,
+      "blocks_total": 4608,
+      "actual_error": 0.09933801322818586,
+      "bytes": 6986304,
+      "dense_bytes_ratio": 0.987060546875,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        8,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 2303,
+      "blocks_total": 2304,
+      "actual_error": 0.018147367454904553,
+      "bytes": 7075104,
+      "dense_bytes_ratio": 0.9996066623263888,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        8,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 2297,
+      "blocks_total": 2304,
+      "actual_error": 0.048732775263677586,
+      "bytes": 7056672,
+      "dense_bytes_ratio": 0.9970024956597222,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        8,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 2276,
+      "blocks_total": 2304,
+      "actual_error": 0.09897785570677695,
+      "bytes": 6992160,
+      "dense_bytes_ratio": 0.9878879123263888,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        16,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 4606,
+      "blocks_total": 4608,
+      "actual_error": 0.016664166834964942,
+      "bytes": 7075392,
+      "dense_bytes_ratio": 0.9996473524305556,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        16,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 4592,
+      "blocks_total": 4608,
+      "actual_error": 0.04957815325343914,
+      "bytes": 7053888,
+      "dense_bytes_ratio": 0.9966091579861112,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        16,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 4547,
+      "blocks_total": 4608,
+      "actual_error": 0.09958263235812113,
+      "bytes": 6984768,
+      "dense_bytes_ratio": 0.9868435329861112,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2302
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        16,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 2303,
+      "blocks_total": 2304,
+      "actual_error": 0.017686955724889843,
+      "bytes": 7075104,
+      "dense_bytes_ratio": 0.9996066623263888,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        16,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 2297,
+      "blocks_total": 2304,
+      "actual_error": 0.048512738281137884,
+      "bytes": 7056672,
+      "dense_bytes_ratio": 0.9970024956597222,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        16,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 2276,
+      "blocks_total": 2304,
+      "actual_error": 0.09900243821461041,
+      "bytes": 6992160,
+      "dense_bytes_ratio": 0.9878879123263888,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1150
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        16,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 1152,
+      "blocks_total": 1152,
+      "actual_error": 0.0,
+      "bytes": 7078032,
+      "dense_bytes_ratio": 1.0000203450520833,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 576
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        16,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 1149,
+      "blocks_total": 1152,
+      "actual_error": 0.04604560541913239,
+      "bytes": 7059600,
+      "dense_bytes_ratio": 0.9974161783854166,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 575
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        6,
+        16,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 1139,
+      "blocks_total": 1152,
+      "actual_error": 0.09736067003526559,
+      "bytes": 6998160,
+      "dense_bytes_ratio": 0.9887356228298612,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 575
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        4,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 9210,
+      "blocks_total": 9216,
+      "actual_error": 0.01970036963577971,
+      "bytes": 7074432,
+      "dense_bytes_ratio": 0.99951171875,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9210
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        4,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 9181,
+      "blocks_total": 9216,
+      "actual_error": 0.04933939398016729,
+      "bytes": 7052160,
+      "dense_bytes_ratio": 0.9963650173611112,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9181
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        4,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 9082,
+      "blocks_total": 9216,
+      "actual_error": 0.09976644099047058,
+      "bytes": 6976128,
+      "dense_bytes_ratio": 0.9856228298611112,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9082
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        4,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 4606,
+      "blocks_total": 4608,
+      "actual_error": 0.01731268984971273,
+      "bytes": 7075392,
+      "dense_bytes_ratio": 0.9996473524305556,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4606
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        4,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 4592,
+      "blocks_total": 4608,
+      "actual_error": 0.049936505756298044,
+      "bytes": 7053888,
+      "dense_bytes_ratio": 0.9966091579861112,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4592
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        4,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 4548,
+      "blocks_total": 4608,
+      "actual_error": 0.09932796487281025,
+      "bytes": 6986304,
+      "dense_bytes_ratio": 0.987060546875,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4548
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        4,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 2303,
+      "blocks_total": 2304,
+      "actual_error": 0.017575178218230385,
+      "bytes": 7075104,
+      "dense_bytes_ratio": 0.9996066623263888,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2303
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        4,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 2297,
+      "blocks_total": 2304,
+      "actual_error": 0.047945732175727736,
+      "bytes": 7056672,
+      "dense_bytes_ratio": 0.9970024956597222,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2297
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        4,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 2276,
+      "blocks_total": 2304,
+      "actual_error": 0.09855620784931149,
+      "bytes": 6992160,
+      "dense_bytes_ratio": 0.9878879123263888,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2276
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        8,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 4606,
+      "blocks_total": 4608,
+      "actual_error": 0.017404011239304996,
+      "bytes": 7075392,
+      "dense_bytes_ratio": 0.9996473524305556,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4606
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        8,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 4593,
+      "blocks_total": 4608,
+      "actual_error": 0.048597337736676544,
+      "bytes": 7055424,
+      "dense_bytes_ratio": 0.996826171875,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4593
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        8,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 4548,
+      "blocks_total": 4608,
+      "actual_error": 0.09941682136321128,
+      "bytes": 6986304,
+      "dense_bytes_ratio": 0.987060546875,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4548
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        8,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 2303,
+      "blocks_total": 2304,
+      "actual_error": 0.01807811507486235,
+      "bytes": 7075104,
+      "dense_bytes_ratio": 0.9996066623263888,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2303
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        8,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 2297,
+      "blocks_total": 2304,
+      "actual_error": 0.048881524726598284,
+      "bytes": 7056672,
+      "dense_bytes_ratio": 0.9970024956597222,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2297
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        8,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 2276,
+      "blocks_total": 2304,
+      "actual_error": 0.09959219477428284,
+      "bytes": 6992160,
+      "dense_bytes_ratio": 0.9878879123263888,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2276
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        8,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 1152,
+      "blocks_total": 1152,
+      "actual_error": 0.0,
+      "bytes": 7078032,
+      "dense_bytes_ratio": 1.0000203450520833,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        8,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 1149,
+      "blocks_total": 1152,
+      "actual_error": 0.046021583254376434,
+      "bytes": 7059600,
+      "dense_bytes_ratio": 0.9974161783854166,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1149
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        8,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 1139,
+      "blocks_total": 1152,
+      "actual_error": 0.09768419957248833,
+      "bytes": 6998160,
+      "dense_bytes_ratio": 0.9887356228298612,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1139
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        16,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 2303,
+      "blocks_total": 2304,
+      "actual_error": 0.01795300745888397,
+      "bytes": 7075104,
+      "dense_bytes_ratio": 0.9996066623263888,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2303
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        16,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 2297,
+      "blocks_total": 2304,
+      "actual_error": 0.04813052726963671,
+      "bytes": 7056672,
+      "dense_bytes_ratio": 0.9970024956597222,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2297
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        16,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 2276,
+      "blocks_total": 2304,
+      "actual_error": 0.09840510002559631,
+      "bytes": 6992160,
+      "dense_bytes_ratio": 0.9878879123263888,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2276
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        16,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 1152,
+      "blocks_total": 1152,
+      "actual_error": 4.344397704933063e-08,
+      "bytes": 7078032,
+      "dense_bytes_ratio": 1.0000203450520833,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        16,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 1149,
+      "blocks_total": 1152,
+      "actual_error": 0.045885947749794015,
+      "bytes": 7059600,
+      "dense_bytes_ratio": 0.9974161783854166,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1149
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        16,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 1139,
+      "blocks_total": 1152,
+      "actual_error": 0.09788362707529802,
+      "bytes": 6998160,
+      "dense_bytes_ratio": 0.9887356228298612,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1139
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        16,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 576,
+      "blocks_total": 576,
+      "actual_error": 0.0,
+      "bytes": 7077960,
+      "dense_bytes_ratio": 1.0000101725260417,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 576
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        16,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 575,
+      "blocks_total": 576,
+      "actual_error": 0.0372998092395149,
+      "bytes": 7065672,
+      "dense_bytes_ratio": 0.9982740614149306,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 575
+    },
+    {
+      "frame": "native",
+      "block_shape": [
+        12,
+        16,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 570,
+      "blocks_total": 576,
+      "actual_error": 0.09502832657578023,
+      "bytes": 7004232,
+      "dense_bytes_ratio": 0.989593505859375,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 570
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        4,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 109599,
+      "blocks_total": 110592,
+      "actual_error": 0.019988437403356908,
+      "bytes": 7094272,
+      "dense_bytes_ratio": 1.0023148148148149,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9216
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        4,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 106231,
+      "blocks_total": 110592,
+      "actual_error": 0.04999682154363359,
+      "bytes": 6878720,
+      "dense_bytes_ratio": 0.9718605324074074,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9216
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        4,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 98097,
+      "blocks_total": 110592,
+      "actual_error": 0.09999504041947431,
+      "bytes": 6358144,
+      "dense_bytes_ratio": 0.8983109085648148,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9216
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        4,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 54886,
+      "blocks_total": 55296,
+      "actual_error": 0.01998110363902355,
+      "bytes": 7098432,
+      "dense_bytes_ratio": 1.0029025607638888,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        4,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 53374,
+      "blocks_total": 55296,
+      "actual_error": 0.049993409695304476,
+      "bytes": 6904896,
+      "dense_bytes_ratio": 0.9755588107638888,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        4,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 49505,
+      "blocks_total": 55296,
+      "actual_error": 0.09999077967529935,
+      "bytes": 6409664,
+      "dense_bytes_ratio": 0.9055899160879629,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        4,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 27468,
+      "blocks_total": 27648,
+      "actual_error": 0.019968398345820523,
+      "bytes": 7101376,
+      "dense_bytes_ratio": 1.0033185040509258,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        4,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 26757,
+      "blocks_total": 27648,
+      "actual_error": 0.04999300643574666,
+      "bytes": 6919360,
+      "dense_bytes_ratio": 0.9776023582175926,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        4,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 24873,
+      "blocks_total": 27648,
+      "actual_error": 0.09999234328609966,
+      "bytes": 6437056,
+      "dense_bytes_ratio": 0.9094599971064815,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        8,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 54888,
+      "blocks_total": 55296,
+      "actual_error": 0.019975376883170533,
+      "bytes": 7098688,
+      "dense_bytes_ratio": 1.0029387297453705,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        8,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 53369,
+      "blocks_total": 55296,
+      "actual_error": 0.04998746498980684,
+      "bytes": 6904256,
+      "dense_bytes_ratio": 0.9754683883101852,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        8,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 49499,
+      "blocks_total": 55296,
+      "actual_error": 0.09999735236836164,
+      "bytes": 6408896,
+      "dense_bytes_ratio": 0.9054814091435185,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        8,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 27465,
+      "blocks_total": 27648,
+      "actual_error": 0.019951615804495868,
+      "bytes": 7100608,
+      "dense_bytes_ratio": 1.0032099971064814,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        8,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 26753,
+      "blocks_total": 27648,
+      "actual_error": 0.0499915877330891,
+      "bytes": 6918336,
+      "dense_bytes_ratio": 0.9774576822916666,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        8,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 24868,
+      "blocks_total": 27648,
+      "actual_error": 0.09999002219652116,
+      "bytes": 6435776,
+      "dense_bytes_ratio": 0.9092791521990741,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        8,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 13741,
+      "blocks_total": 13824,
+      "actual_error": 0.01988245630577892,
+      "bytes": 7103232,
+      "dense_bytes_ratio": 1.0035807291666667,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        8,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 13396,
+      "blocks_total": 13824,
+      "actual_error": 0.049952702843648174,
+      "bytes": 6926592,
+      "dense_bytes_ratio": 0.9786241319444444,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        8,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 12468,
+      "blocks_total": 13824,
+      "actual_error": 0.09996739948770371,
+      "bytes": 6451456,
+      "dense_bytes_ratio": 0.9114945023148148,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        16,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 27466,
+      "blocks_total": 27648,
+      "actual_error": 0.01999332573573284,
+      "bytes": 7100864,
+      "dense_bytes_ratio": 1.003246166087963,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        16,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 26752,
+      "blocks_total": 27648,
+      "actual_error": 0.049971355523515004,
+      "bytes": 6918080,
+      "dense_bytes_ratio": 0.9774215133101852,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        16,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 24864,
+      "blocks_total": 27648,
+      "actual_error": 0.09999349961361786,
+      "bytes": 6434752,
+      "dense_bytes_ratio": 0.9091344762731481,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        16,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 13740,
+      "blocks_total": 13824,
+      "actual_error": 0.01988062584458111,
+      "bytes": 7102720,
+      "dense_bytes_ratio": 1.0035083912037037,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        16,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 13394,
+      "blocks_total": 13824,
+      "actual_error": 0.04993418884206918,
+      "bytes": 6925568,
+      "dense_bytes_ratio": 0.9784794560185185,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        16,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 12464,
+      "blocks_total": 13824,
+      "actual_error": 0.09999491704277653,
+      "bytes": 6449408,
+      "dense_bytes_ratio": 0.9112051504629629,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        16,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 6872,
+      "blocks_total": 6912,
+      "actual_error": 0.019986069529568568,
+      "bytes": 7103904,
+      "dense_bytes_ratio": 1.0036756727430556,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 576
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        16,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 6702,
+      "blocks_total": 6912,
+      "actual_error": 0.04998237463595055,
+      "bytes": 6929824,
+      "dense_bytes_ratio": 0.9790807653356481,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 576
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        1,
+        16,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 6242,
+      "blocks_total": 6912,
+      "actual_error": 0.09999906739491354,
+      "bytes": 6458784,
+      "dense_bytes_ratio": 0.9125298394097222,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 576
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        4,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 36625,
+      "blocks_total": 36864,
+      "actual_error": 0.01998722190616966,
+      "bytes": 7102720,
+      "dense_bytes_ratio": 1.0035083912037037,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9216
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        4,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 35681,
+      "blocks_total": 36864,
+      "actual_error": 0.04999715377599161,
+      "bytes": 6921472,
+      "dense_bytes_ratio": 0.9779007523148148,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9216
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        4,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 33218,
+      "blocks_total": 36864,
+      "actual_error": 0.09999977596557509,
+      "bytes": 6448576,
+      "dense_bytes_ratio": 0.9110876012731481,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9216
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        4,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 18323,
+      "blocks_total": 18432,
+      "actual_error": 0.019985614343105456,
+      "bytes": 7104448,
+      "dense_bytes_ratio": 1.0037525318287037,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        4,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 17871,
+      "blocks_total": 18432,
+      "actual_error": 0.04999840263711141,
+      "bytes": 6930880,
+      "dense_bytes_ratio": 0.9792299623842593,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        4,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 16662,
+      "blocks_total": 18432,
+      "actual_error": 0.0999737404424485,
+      "bytes": 6466624,
+      "dense_bytes_ratio": 0.9136375144675926,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        4,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 9166,
+      "blocks_total": 9216,
+      "actual_error": 0.0199726321668357,
+      "bytes": 7106752,
+      "dense_bytes_ratio": 1.004078052662037,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        4,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 8944,
+      "blocks_total": 9216,
+      "actual_error": 0.04999265291673513,
+      "bytes": 6936256,
+      "dense_bytes_ratio": 0.9799895109953703,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        4,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 8345,
+      "blocks_total": 9216,
+      "actual_error": 0.09994982881638323,
+      "bytes": 6476224,
+      "dense_bytes_ratio": 0.9149938512731481,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        8,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 18323,
+      "blocks_total": 18432,
+      "actual_error": 0.01994896586745259,
+      "bytes": 7104448,
+      "dense_bytes_ratio": 1.0037525318287037,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        8,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 17870,
+      "blocks_total": 18432,
+      "actual_error": 0.04995662705164751,
+      "bytes": 6930496,
+      "dense_bytes_ratio": 0.9791757089120371,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        8,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 16660,
+      "blocks_total": 18432,
+      "actual_error": 0.09999442548170419,
+      "bytes": 6465856,
+      "dense_bytes_ratio": 0.9135290075231481,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        8,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 9165,
+      "blocks_total": 9216,
+      "actual_error": 0.019795453366000835,
+      "bytes": 7105984,
+      "dense_bytes_ratio": 1.0039695457175926,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        8,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 8943,
+      "blocks_total": 9216,
+      "actual_error": 0.04999477238607854,
+      "bytes": 6935488,
+      "dense_bytes_ratio": 0.9798810040509259,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        8,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 8343,
+      "blocks_total": 9216,
+      "actual_error": 0.09997999664194304,
+      "bytes": 6474688,
+      "dense_bytes_ratio": 0.9147768373842593,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        8,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 4585,
+      "blocks_total": 4608,
+      "actual_error": 0.01959305208213,
+      "bytes": 7109248,
+      "dense_bytes_ratio": 1.0044307002314814,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        8,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 4475,
+      "blocks_total": 4608,
+      "actual_error": 0.04979542959212713,
+      "bytes": 6940288,
+      "dense_bytes_ratio": 0.9805591724537037,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        8,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 4176,
+      "blocks_total": 4608,
+      "actual_error": 0.09991017203683393,
+      "bytes": 6481024,
+      "dense_bytes_ratio": 0.9156720196759259,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        16,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 9165,
+      "blocks_total": 9216,
+      "actual_error": 0.01993133700706293,
+      "bytes": 7105984,
+      "dense_bytes_ratio": 1.0039695457175926,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        16,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 8943,
+      "blocks_total": 9216,
+      "actual_error": 0.049942221722889805,
+      "bytes": 6935488,
+      "dense_bytes_ratio": 0.9798810040509259,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        16,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 8342,
+      "blocks_total": 9216,
+      "actual_error": 0.09998202693713623,
+      "bytes": 6473920,
+      "dense_bytes_ratio": 0.9146683304398148,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        16,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 4584,
+      "blocks_total": 4608,
+      "actual_error": 0.019652545970281994,
+      "bytes": 7107712,
+      "dense_bytes_ratio": 1.0042136863425926,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        16,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 4474,
+      "blocks_total": 4608,
+      "actual_error": 0.04984486571109526,
+      "bytes": 6938752,
+      "dense_bytes_ratio": 0.9803421585648148,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        16,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 4175,
+      "blocks_total": 4608,
+      "actual_error": 0.09995771641083626,
+      "bytes": 6479488,
+      "dense_bytes_ratio": 0.9154550057870371,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        16,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 2293,
+      "blocks_total": 2304,
+      "actual_error": 0.019519679738703277,
+      "bytes": 7110496,
+      "dense_bytes_ratio": 1.0046070240162037,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 576
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        16,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 2238,
+      "blocks_total": 2304,
+      "actual_error": 0.049733428594736215,
+      "bytes": 6941536,
+      "dense_bytes_ratio": 0.9807354962384259,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 576
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        3,
+        16,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 2089,
+      "blocks_total": 2304,
+      "actual_error": 0.0997739020574831,
+      "bytes": 6483808,
+      "dense_bytes_ratio": 0.9160653573495371,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 576
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        4,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 18348,
+      "blocks_total": 18432,
+      "actual_error": 0.019965276452758807,
+      "bytes": 7114048,
+      "dense_bytes_ratio": 1.0051088686342593,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9216
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        4,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 17983,
+      "blocks_total": 18432,
+      "actual_error": 0.0499793607888426,
+      "bytes": 6973888,
+      "dense_bytes_ratio": 0.9853063512731481,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9216
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        4,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 16919,
+      "blocks_total": 18432,
+      "actual_error": 0.09999347242024252,
+      "bytes": 6565312,
+      "dense_bytes_ratio": 0.9275806568287037,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9216
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        4,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 9178,
+      "blocks_total": 9216,
+      "actual_error": 0.019918811870813048,
+      "bytes": 7115968,
+      "dense_bytes_ratio": 1.0053801359953705,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        4,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 9003,
+      "blocks_total": 9216,
+      "actual_error": 0.04991846479205997,
+      "bytes": 6981568,
+      "dense_bytes_ratio": 0.9863914207175926,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        4,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 8479,
+      "blocks_total": 9216,
+      "actual_error": 0.09997436598397207,
+      "bytes": 6579136,
+      "dense_bytes_ratio": 0.9295337818287037,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        4,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 4591,
+      "blocks_total": 4608,
+      "actual_error": 0.019727241060557198,
+      "bytes": 7118464,
+      "dense_bytes_ratio": 1.0057327835648149,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        4,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 4507,
+      "blocks_total": 4608,
+      "actual_error": 0.04996680000518147,
+      "bytes": 6989440,
+      "dense_bytes_ratio": 0.9875036168981481,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        4,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 4246,
+      "blocks_total": 4608,
+      "actual_error": 0.09993437276986605,
+      "bytes": 6588544,
+      "dense_bytes_ratio": 0.9308629918981481,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        8,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 9178,
+      "blocks_total": 9216,
+      "actual_error": 0.01986739010564344,
+      "bytes": 7115968,
+      "dense_bytes_ratio": 1.0053801359953705,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        8,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 9003,
+      "blocks_total": 9216,
+      "actual_error": 0.04992296572771463,
+      "bytes": 6981568,
+      "dense_bytes_ratio": 0.9863914207175926,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        8,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 8480,
+      "blocks_total": 9216,
+      "actual_error": 0.0999404536457456,
+      "bytes": 6579904,
+      "dense_bytes_ratio": 0.9296422887731481,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4608
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        8,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 4590,
+      "blocks_total": 4608,
+      "actual_error": 0.01996227848449466,
+      "bytes": 7116928,
+      "dense_bytes_ratio": 1.0055157696759258,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        8,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 4505,
+      "blocks_total": 4608,
+      "actual_error": 0.04983681795819995,
+      "bytes": 6986368,
+      "dense_bytes_ratio": 0.9870695891203703,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        8,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 4246,
+      "blocks_total": 4608,
+      "actual_error": 0.09990463286425681,
+      "bytes": 6588544,
+      "dense_bytes_ratio": 0.9308629918981481,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        8,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 2296,
+      "blocks_total": 2304,
+      "actual_error": 0.019673174588775395,
+      "bytes": 7119712,
+      "dense_bytes_ratio": 1.005909107349537,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        8,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 2255,
+      "blocks_total": 2304,
+      "actual_error": 0.04996031529324373,
+      "bytes": 6993760,
+      "dense_bytes_ratio": 0.9881139684606481,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        8,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 2125,
+      "blocks_total": 2304,
+      "actual_error": 0.09980122152628562,
+      "bytes": 6594400,
+      "dense_bytes_ratio": 0.9316903573495371,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        16,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 4590,
+      "blocks_total": 4608,
+      "actual_error": 0.01984752080290554,
+      "bytes": 7116928,
+      "dense_bytes_ratio": 1.0055157696759258,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        16,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 4504,
+      "blocks_total": 4608,
+      "actual_error": 0.04996509081730968,
+      "bytes": 6984832,
+      "dense_bytes_ratio": 0.9868525752314815,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        16,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 4245,
+      "blocks_total": 4608,
+      "actual_error": 0.09995841556549132,
+      "bytes": 6587008,
+      "dense_bytes_ratio": 0.9306459780092593,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2304
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        16,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 2296,
+      "blocks_total": 2304,
+      "actual_error": 0.019138390471899424,
+      "bytes": 7119712,
+      "dense_bytes_ratio": 1.005909107349537,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        16,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 2253,
+      "blocks_total": 2304,
+      "actual_error": 0.049915427135422415,
+      "bytes": 6987616,
+      "dense_bytes_ratio": 0.9872459129050926,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        16,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 2124,
+      "blocks_total": 2304,
+      "actual_error": 0.09998719927912302,
+      "bytes": 6591328,
+      "dense_bytes_ratio": 0.9312563295717593,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1152
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        16,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 1148,
+      "blocks_total": 1152,
+      "actual_error": 0.01981007810321909,
+      "bytes": 7119568,
+      "dense_bytes_ratio": 1.0058887622974537,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 576
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        16,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 1128,
+      "blocks_total": 1152,
+      "actual_error": 0.04976735724252085,
+      "bytes": 6996688,
+      "dense_bytes_ratio": 0.9885276511863426,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 576
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        6,
+        16,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 1063,
+      "blocks_total": 1152,
+      "actual_error": 0.09977479177002875,
+      "bytes": 6597328,
+      "dense_bytes_ratio": 0.9321040400752315,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 576
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        4,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 9202,
+      "blocks_total": 9216,
+      "actual_error": 0.019792462387299512,
+      "bytes": 7134400,
+      "dense_bytes_ratio": 1.007984302662037,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9202
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        4,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 9137,
+      "blocks_total": 9216,
+      "actual_error": 0.049689347866940514,
+      "bytes": 7084480,
+      "dense_bytes_ratio": 1.0009313512731481,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 9137
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        4,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 8929,
+      "blocks_total": 9216,
+      "actual_error": 0.09993169192639038,
+      "bytes": 6924736,
+      "dense_bytes_ratio": 0.9783619068287037,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 8929
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        4,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 4602,
+      "blocks_total": 4608,
+      "actual_error": 0.01918796730073382,
+      "bytes": 7135360,
+      "dense_bytes_ratio": 1.0081199363425926,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4602
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        4,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 4572,
+      "blocks_total": 4608,
+      "actual_error": 0.04945772267805097,
+      "bytes": 7089280,
+      "dense_bytes_ratio": 1.0016095196759258,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4572
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        4,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 4472,
+      "blocks_total": 4608,
+      "actual_error": 0.09967665223366545,
+      "bytes": 6935680,
+      "dense_bytes_ratio": 0.9799081307870371,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4472
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        4,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 2301,
+      "blocks_total": 2304,
+      "actual_error": 0.019759420622609703,
+      "bytes": 7135072,
+      "dense_bytes_ratio": 1.0080792462384258,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2301
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        4,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 2288,
+      "blocks_total": 2304,
+      "actual_error": 0.048548260270969944,
+      "bytes": 7095136,
+      "dense_bytes_ratio": 1.0024368851273149,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2288
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        4,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 2241,
+      "blocks_total": 2304,
+      "actual_error": 0.09932070040937059,
+      "bytes": 6950752,
+      "dense_bytes_ratio": 0.9820375795717593,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2241
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        8,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 4602,
+      "blocks_total": 4608,
+      "actual_error": 0.019343137185395858,
+      "bytes": 7135360,
+      "dense_bytes_ratio": 1.0081199363425926,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4602
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        8,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 4571,
+      "blocks_total": 4608,
+      "actual_error": 0.049535353004653435,
+      "bytes": 7087744,
+      "dense_bytes_ratio": 1.001392505787037,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4571
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        8,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 4470,
+      "blocks_total": 4608,
+      "actual_error": 0.0997987101578576,
+      "bytes": 6932608,
+      "dense_bytes_ratio": 0.9794741030092593,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 4470
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        8,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 2301,
+      "blocks_total": 2304,
+      "actual_error": 0.019997838046193896,
+      "bytes": 7135072,
+      "dense_bytes_ratio": 1.0080792462384258,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2301
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        8,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 2287,
+      "blocks_total": 2304,
+      "actual_error": 0.0492124742353919,
+      "bytes": 7092064,
+      "dense_bytes_ratio": 1.002002857349537,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2287
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        8,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 2238,
+      "blocks_total": 2304,
+      "actual_error": 0.09939498779495409,
+      "bytes": 6941536,
+      "dense_bytes_ratio": 0.9807354962384259,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2238
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        8,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 1151,
+      "blocks_total": 1152,
+      "actual_error": 0.0167789804234535,
+      "bytes": 7138000,
+      "dense_bytes_ratio": 1.0084929289641205,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1151
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        8,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 1144,
+      "blocks_total": 1152,
+      "actual_error": 0.0497160098621766,
+      "bytes": 7094992,
+      "dense_bytes_ratio": 1.0024165400752314,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1144
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        8,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 1121,
+      "blocks_total": 1152,
+      "actual_error": 0.0997436485295052,
+      "bytes": 6953680,
+      "dense_bytes_ratio": 0.9824512622974537,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1121
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        16,
+        4
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 2301,
+      "blocks_total": 2304,
+      "actual_error": 0.0197498249772686,
+      "bytes": 7135072,
+      "dense_bytes_ratio": 1.0080792462384258,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2301
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        16,
+        4
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 2286,
+      "blocks_total": 2304,
+      "actual_error": 0.04966613545514744,
+      "bytes": 7088992,
+      "dense_bytes_ratio": 1.0015688295717593,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2286
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        16,
+        4
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 2237,
+      "blocks_total": 2304,
+      "actual_error": 0.09938363106598508,
+      "bytes": 6938464,
+      "dense_bytes_ratio": 0.9803014684606481,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 2237
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        16,
+        8
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 1151,
+      "blocks_total": 1152,
+      "actual_error": 0.01627265810965359,
+      "bytes": 7138000,
+      "dense_bytes_ratio": 1.0084929289641205,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1151
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        16,
+        8
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 1144,
+      "blocks_total": 1152,
+      "actual_error": 0.04820528179982118,
+      "bytes": 7094992,
+      "dense_bytes_ratio": 1.0024165400752314,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1144
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        16,
+        8
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 1120,
+      "blocks_total": 1152,
+      "actual_error": 0.09858337327310344,
+      "bytes": 6947536,
+      "dense_bytes_ratio": 0.9815832067418981,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 1120
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        16,
+        16
+      ],
+      "tolerance": 0.02,
+      "blocks_retained": 576,
+      "blocks_total": 576,
+      "actual_error": 4.344397704933063e-08,
+      "bytes": 7144072,
+      "dense_bytes_ratio": 1.0093508119936343,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 576
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        16,
+        16
+      ],
+      "tolerance": 0.05,
+      "blocks_retained": 573,
+      "blocks_total": 576,
+      "actual_error": 0.04322033153544084,
+      "bytes": 7107208,
+      "dense_bytes_ratio": 1.0041424786603008,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 573
+    },
+    {
+      "frame": "output_head",
+      "block_shape": [
+        12,
+        16,
+        16
+      ],
+      "tolerance": 0.1,
+      "blocks_retained": 561,
+      "blocks_total": 576,
+      "actual_error": 0.0988541067343879,
+      "bytes": 6959752,
+      "dense_bytes_ratio": 0.9833091453269676,
+      "active_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "all_nodes": [
+        12,
+        1152,
+        128
+      ],
+      "active_input_block_pairs": 561
+    }
+  ],
+  "seconds": 0.9253351017832756,
+  "scope": "Equal-size blocks in two fixed weight-derived frames. Exact optimal energy support within each tiling, not learned grouping/global graph search. Dense adapters fully charged; bitmap and FP32 values priced. Native-domain fidelity, runtime and wholemodel savings untested."
+}
