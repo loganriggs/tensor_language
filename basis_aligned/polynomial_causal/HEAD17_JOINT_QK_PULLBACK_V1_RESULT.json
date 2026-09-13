@@ -1,0 +1,171 @@
+{
+  "schema": "head17.joint.qk.pullback.v1",
+  "positions": [
+    {
+      "query_position": 1,
+      "source_position": 0,
+      "head_gram_condition": 7.085311623468053,
+      "query_trace_to_gaussian_frobenius": 0.006639611189482263,
+      "targets": [
+        {
+          "target": "individual_tokens",
+          "coefficient_energy": 6226081850156.366,
+          "ranks": [
+            {
+              "rank": 16,
+              "value_only_fit_in_joint_metric": 0.7099205730028446,
+              "joint_qk_fit_error": 0.7099141670977275,
+              "squared_error_gain": 1.8046740605015543e-05
+            },
+            {
+              "rank": 32,
+              "value_only_fit_in_joint_metric": 0.5812626865211474,
+              "joint_qk_fit_error": 0.5812573411247013,
+              "squared_error_gain": 1.8392275958900584e-05
+            },
+            {
+              "rank": 64,
+              "value_only_fit_in_joint_metric": 0.3930384434547255,
+              "joint_qk_fit_error": 0.3930343067186565,
+              "squared_error_gain": 2.1049922053539838e-05
+            },
+            {
+              "rank": 96,
+              "value_only_fit_in_joint_metric": 0.23259924310528815,
+              "joint_qk_fit_error": 0.2325963235644521,
+              "squared_error_gain": 2.5103456695041437e-05
+            },
+            {
+              "rank": 120,
+              "value_only_fit_in_joint_metric": 0.09775211848239863,
+              "joint_qk_fit_error": 0.09775123252478589,
+              "squared_error_gain": 1.812653498756145e-05
+            }
+          ],
+          "rank_for_2pct": 128
+        },
+        {
+          "target": "pair_contrasts",
+          "coefficient_energy": 1854496021830.5532,
+          "ranks": [
+            {
+              "rank": 16,
+              "value_only_fit_in_joint_metric": 0.706605130948355,
+              "joint_qk_fit_error": 0.7065988520170192,
+              "squared_error_gain": 1.7772028996887457e-05
+            },
+            {
+              "rank": 32,
+              "value_only_fit_in_joint_metric": 0.5771046644793009,
+              "joint_qk_fit_error": 0.577099673333516,
+              "squared_error_gain": 1.7297119600301336e-05
+            },
+            {
+              "rank": 64,
+              "value_only_fit_in_joint_metric": 0.3891499179454918,
+              "joint_qk_fit_error": 0.38914618023438724,
+              "squared_error_gain": 1.9209528164809697e-05
+            },
+            {
+              "rank": 96,
+              "value_only_fit_in_joint_metric": 0.22970841591825755,
+              "joint_qk_fit_error": 0.22970572824051133,
+              "squared_error_gain": 2.3400640434156905e-05
+            },
+            {
+              "rank": 120,
+              "value_only_fit_in_joint_metric": 0.09659091937762003,
+              "joint_qk_fit_error": 0.09659005894431967,
+              "squared_error_gain": 1.7815949439725642e-05
+            }
+          ],
+          "rank_for_2pct": 128
+        }
+      ]
+    },
+    {
+      "query_position": 8,
+      "source_position": 0,
+      "head_gram_condition": 7.083545764963427,
+      "query_trace_to_gaussian_frobenius": 0.007002513289626545,
+      "targets": [
+        {
+          "target": "individual_tokens",
+          "coefficient_energy": 5771955160153.811,
+          "ranks": [
+            {
+              "rank": 16,
+              "value_only_fit_in_joint_metric": 0.7098845297565448,
+              "joint_qk_fit_error": 0.7098779025982813,
+              "squared_error_gain": 1.867100085062301e-05
+            },
+            {
+              "rank": 32,
+              "value_only_fit_in_joint_metric": 0.5812252434152528,
+              "joint_qk_fit_error": 0.5812196782864252,
+              "squared_error_gain": 1.914955431880916e-05
+            },
+            {
+              "rank": 64,
+              "value_only_fit_in_joint_metric": 0.39300726091192617,
+              "joint_qk_fit_error": 0.39300349390618805,
+              "squared_error_gain": 1.917006660823173e-05
+            },
+            {
+              "rank": 96,
+              "value_only_fit_in_joint_metric": 0.23258214854317807,
+              "joint_qk_fit_error": 0.23257954283819524,
+              "squared_error_gain": 2.2406624092363714e-05
+            },
+            {
+              "rank": 120,
+              "value_only_fit_in_joint_metric": 0.09774282686758794,
+              "joint_qk_fit_error": 0.09774213656272927,
+              "squared_error_gain": 1.4124871218879065e-05
+            }
+          ],
+          "rank_for_2pct": 128
+        },
+        {
+          "target": "pair_contrasts",
+          "coefficient_energy": 1719223015690.6045,
+          "ranks": [
+            {
+              "rank": 16,
+              "value_only_fit_in_joint_metric": 0.7065810534740028,
+              "joint_qk_fit_error": 0.7065741212098163,
+              "squared_error_gain": 1.96218965853312e-05
+            },
+            {
+              "rank": 32,
+              "value_only_fit_in_joint_metric": 0.5770712364037403,
+              "joint_qk_fit_error": 0.5770658699811267,
+              "squared_error_gain": 1.8598735555208634e-05
+            },
+            {
+              "rank": 64,
+              "value_only_fit_in_joint_metric": 0.38912101891985407,
+              "joint_qk_fit_error": 0.38911762103416514,
+              "squared_error_gain": 1.746433982341422e-05
+            },
+            {
+              "rank": 96,
+              "value_only_fit_in_joint_metric": 0.22969266302702487,
+              "joint_qk_fit_error": 0.22969020516008767,
+              "squared_error_gain": 2.1401238980645054e-05
+            },
+            {
+              "rank": 120,
+              "value_only_fit_in_joint_metric": 0.09658169190340353,
+              "joint_qk_fit_error": 0.09658101625792445,
+              "squared_error_gain": 1.3991121971423937e-05
+            }
+          ],
+          "rank_for_2pct": 128
+        }
+      ]
+    }
+  ],
+  "wall_seconds": 1.6393059380352497,
+  "scope": "Exact separately symmetric query2/source3 numerator metric at fixed rounded RoPE. MLP residual input is an independent port. QK/RMS denominators, multi-source interactions, retained finite-edit trajectory dependence and native behavior remain outside this object."
+}

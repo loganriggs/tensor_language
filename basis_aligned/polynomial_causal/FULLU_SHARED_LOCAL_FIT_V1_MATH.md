@@ -1,0 +1,29 @@
+# Shared global/private full-U fit: first capacity completed
+
+13 September 2026. [Registration](FULLU_SHARED_LOCAL_FIT_V1_PREREGISTRATION.md). The larger 128/64/16 capacity remains live; this note covers the completed 64/32/8 configuration only.
+
+**The smaller model gives a modest, broadly distributed improvement, but misses both the registered gain and local-convergence criteria.** Do not call it a converged discovery of token structure.
+
+The representation has 64 shared functions, 32 groups with eight private functions each, and one group assignment per token. Every token reads 72 coefficients; the combined function bank has width 320. Its compiled tensor payload is 16,167,936 bytes, about 6.97% of native U storage, local to the quadratic numerator. Native bilinear products remain. Original U may still be required on other routes, so this is not a net whole-model storage reduction.
+
+All ten starts were screened; three received 240 refinement sweeps. The best full coefficient error is **83.6069%**, versus **85.8478%** for the optimal global rank78 representation at the same byte budget. This is a **5.1525% squared-error gain**, below the registered 10% bar. The configuration ran for 963.34 seconds.
+
+| Refined start | Final centered squared error | Maximum intrinsic gradient | Local convergence |
+|---|---:|---:|---|
+| 8 | 0.75372264 | 8.94e-6 | No: sweep limit |
+| 5 | 0.75345460 | 1.29e-5 | No: sweep limit |
+| 1 | 0.75320587 | 1.75e-5 | No: sweep limit |
+
+All gradients exceed 1e-6. Assignment stability alone does not pass the convergence rule. The promoted predictions have pairwise function cosines 0.842–0.850 despite similar errors; no stable factor identification follows. The unresolved optimization limit remains a plausible explanation for additional recoverable gain. This result does not establish the best achievable grouped fit.
+
+## Independent frozen-program audit
+
+The saved [FP32 program](FULLU_SHARED_LOCAL_FIT_V1_G64_PROGRAM.pt) agrees with the fitted computation to 2.18e-8 in full coefficient norm. Its SHA256 is `26b9aa3a35f80dcc20585e0f168eb05c77b47b00ccda6004410b036c0b63ed32`.
+
+The independent [token audit](SHARED_LOCAL_TOKEN_AUDIT_V1_G64_RESULT.json) replays aggregate error to 4.89e-12 absolute difference. **88.06% of token functions improve** over the matched global baseline; 11.94% worsen. Median token error decreases from 86.29% to 84.37%; the 90th percentile decreases from 89.79% to 88.50%. Thus the aggregate gain is not confined to a few high-energy rows, but most individual functions remain poorly approximated in this coefficient metric.
+
+About 0.48% of tokens have error below 10%; this small subset has not been semantically characterized or tested for duplicate/unused output rows. It is not yet a circuit discovery. Global-plus-private component energy is 1.133 times combined centered prediction energy, showing some cancellation. All 3,219,456 global and 402,432 private code entries are nonzero: sparsity comes from the one-private-group-per-token graph, not sparse coefficients within a selected group.
+
+The [configuration receipt](FULLU_SHARED_LOCAL_FIT_V1_G64_RESULT.json) retains all histories and stops. The frozen audit is an executed check against hidden token-level regressions and compilation errors. It does not resolve the unfinished optimization. Overall registered convergence and 10%-gain predictions can no longer pass for **both** capacities as written; keep that miss even if the larger capacity succeeds.
+
+No text was used to fit or audit these factors. Native behavioral fidelity, selective removal, OOD prediction and cross-behavior reuse remain untested. The larger fit continues without changing its source, criterion or budget.
