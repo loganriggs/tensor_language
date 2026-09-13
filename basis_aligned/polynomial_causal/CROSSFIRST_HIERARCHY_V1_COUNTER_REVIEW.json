@@ -1,0 +1,137 @@
+{
+  "scope": "Post-hoc exact outcome analysis; least-squares scalar gain is diagnostic only, not fitted/deployed predictor. Original child-relative10% criterion remains failed. CE andmargin are distinctoutputs, neither replacesregisteredmetric.",
+  "records": [
+    {
+      "cell": "regional0",
+      "metric": "regional_margin",
+      "native_child_norm": 0.25935457238467885,
+      "oracle_gain": 1.0407900899824647,
+      "residual_after_oracle_gain_over_child": 0.03371386718414325,
+      "unscaled_error_over_child": 0.05291933749857049,
+      "same_sign_count": 24,
+      "count": 24,
+      "max_absolute_discrepancy": 0.006436347961425781
+    },
+    {
+      "cell": "regional1",
+      "metric": "regional_margin",
+      "native_child_norm": 0.19667640182822255,
+      "oracle_gain": 1.0840428800413198,
+      "residual_after_oracle_gain_over_child": 0.08536821787663315,
+      "unscaled_error_over_child": 0.11979540186948733,
+      "same_sign_count": 24,
+      "count": 24,
+      "max_absolute_discrepancy": 0.010638236999511719
+    },
+    {
+      "cell": "regional2",
+      "metric": "regional_margin",
+      "native_child_norm": 0.25082965469322743,
+      "oracle_gain": 1.0393168412884406,
+      "residual_after_oracle_gain_over_child": 0.08680063301165387,
+      "unscaled_error_over_child": 0.09528989400835872,
+      "same_sign_count": 24,
+      "count": 24,
+      "max_absolute_discrepancy": 0.016577720642089844
+    },
+    {
+      "cell": "regional3",
+      "metric": "regional_margin",
+      "native_child_norm": 0.14330095388619393,
+      "oracle_gain": 1.1718770922493613,
+      "residual_after_oracle_gain_over_child": 0.10683725333540064,
+      "unscaled_error_over_child": 0.20237572369320406,
+      "same_sign_count": 24,
+      "count": 24,
+      "max_absolute_discrepancy": 0.015176773071289062
+    },
+    {
+      "cell": "newline0",
+      "metric": "CE",
+      "native_child_norm": 0.001265741801008057,
+      "oracle_gain": 0.9938571000139429,
+      "residual_after_oracle_gain_over_child": 0.0449783929969907,
+      "unscaled_error_over_child": 0.045395936567389404,
+      "same_sign_count": 15,
+      "count": 16,
+      "max_absolute_discrepancy": 3.4809112548828125e-05
+    },
+    {
+      "cell": "newline0",
+      "metric": "newline_margin",
+      "native_child_norm": 0.008101777662248854,
+      "oracle_gain": 1.01227991301073,
+      "residual_after_oracle_gain_over_child": 0.024183944097676574,
+      "unscaled_error_over_child": 0.027123042153686296,
+      "same_sign_count": 16,
+      "count": 16,
+      "max_absolute_discrepancy": 0.00015354156494140625
+    },
+    {
+      "cell": "newline1",
+      "metric": "CE",
+      "native_child_norm": 0.0031777244996333883,
+      "oracle_gain": 1.1784750661150498,
+      "residual_after_oracle_gain_over_child": 0.10694943473909549,
+      "unscaled_error_over_child": 0.20806616932068375,
+      "same_sign_count": 14,
+      "count": 16,
+      "max_absolute_discrepancy": 0.0006460845470428467
+    },
+    {
+      "cell": "newline1",
+      "metric": "newline_margin",
+      "native_child_norm": 0.005365967081845887,
+      "oracle_gain": 0.8685692848276698,
+      "residual_after_oracle_gain_over_child": 0.22072446080481972,
+      "unscaled_error_over_child": 0.2568916512623339,
+      "same_sign_count": 16,
+      "count": 16,
+      "max_absolute_discrepancy": 0.0012464523315429688
+    },
+    {
+      "cell": "newline2",
+      "metric": "CE",
+      "native_child_norm": 0.0019125798158204836,
+      "oracle_gain": 0.9454969256617349,
+      "residual_after_oracle_gain_over_child": 0.07089378085983693,
+      "unscaled_error_over_child": 0.08942322560121072,
+      "same_sign_count": 15,
+      "count": 16,
+      "max_absolute_discrepancy": 0.0001423358917236328
+    },
+    {
+      "cell": "newline2",
+      "metric": "newline_margin",
+      "native_child_norm": 0.003573977174877859,
+      "oracle_gain": 0.9025811415591375,
+      "residual_after_oracle_gain_over_child": 0.16364189092517029,
+      "unscaled_error_over_child": 0.19044448651900145,
+      "same_sign_count": 15,
+      "count": 16,
+      "max_absolute_discrepancy": 0.00049591064453125
+    },
+    {
+      "cell": "newline3",
+      "metric": "CE",
+      "native_child_norm": 0.0011489621095935993,
+      "oracle_gain": 0.6509366442664302,
+      "residual_after_oracle_gain_over_child": 0.3211543766308388,
+      "unscaled_error_over_child": 0.4743262168013945,
+      "same_sign_count": 16,
+      "count": 16,
+      "max_absolute_discrepancy": 0.0004596114158630371
+    },
+    {
+      "cell": "newline3",
+      "metric": "newline_margin",
+      "native_child_norm": 0.007399250628326572,
+      "oracle_gain": 0.9087088019560025,
+      "residual_after_oracle_gain_over_child": 0.10070354463722536,
+      "unscaled_error_over_child": 0.13592382698706665,
+      "same_sign_count": 15,
+      "count": 16,
+      "max_absolute_discrepancy": 0.000701904296875
+    }
+  ]
+}

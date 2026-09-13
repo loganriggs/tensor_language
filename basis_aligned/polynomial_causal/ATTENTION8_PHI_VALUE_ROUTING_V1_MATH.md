@@ -188,3 +188,34 @@ $$
 where P is the full selected current-value parent, C is the derived crossfirst child, and R retains everything else. This is an algebraic hierarchy, not a claim that R is an identified semantic circuit or that the two inputs are orthogonal. Removing both P and C independently would subtract C twice. Joint removal must use C+R once each.
 
 The [hierarchy record](extracted_circuits/crossfirst_state_executor_v1/HIERARCHY.json) makes this containment explicit. Native parent/child/remainder physical composition remains the next test: exact equality of injected writes doesnot guarantee that separately measured logit effects add through the nonlinear suffix. That test should report composition error relative to the smaller child's effect as well as the parent, avoiding another easy pass from a large denominator.
+
+## 01:39 — Exact hierarchy, limited additive-effect composition
+
+The physical hierarchy test passed A/B and failed C. Native/child anchors replayexactly, and jointly removing child plusremainder produces **exactly the same measured outputs** as removing theparent. The field partition has errorbelow $8\times10^{-17}$. However separatechild/remainder effects do notadd to theparent effect with the requested10%child-relative accuracy in allgroups.
+
+| Group | Additive-effect error relative to child | Relative to parent |
+|---|---:|---:|
+| Regional old near | 5.29% | 0.64% |
+| Regional near-message | 11.98% | 0.74% |
+| Regional near-person | 9.53% | 0.66% |
+| Regional distant | 20.24% | 0.90% |
+| FineWeb old family0 | 4.54% | 0.36% |
+| FineWeb old family1 | 20.81% | 1.05% |
+| FineWeb new family2 | 8.94% | 0.21% |
+| FineWeb new family3 | 47.43% | 2.77% |
+
+Four ofeightcells miss. The parent denominator would conceal much ofthe limitation; retaining thechild denominator was useful.800forwards took9.27seconds. Parentremoval reduces native regionalcontrast35–41%, while thechild is muchsmaller andcontext-dependent. [Physical hierarchy](CROSSFIRST_HIERARCHY_V1_RESULT.json).
+
+The counter-review compares the child's marginal effect with andwithout theremainder removed. Its sign ispreserved96/96regional prefixes. An in-sample diagnostic scalar gain ranges1.04–1.17 there; after thatoracle rescaling, residualerrors remain3.37–10.68%ofchild norm. This oracle isnot a fitted/deployed predictor anddoesnotrescue C. FornewFineWebfamily3, the47.43%CE discrepancy becomes13.59%innewline margin; otherFineWebfamilies canhave worse marginerror thanCE. Thus changing theoutputmetric isnot a general cure. WorstabsoluteCE compositiondiscrepancy is0.000646nats; relativeinteractionfidelity canfail whileabsolute preservation remainsgood. [Executed counter-review](CROSSFIRST_HIERARCHY_V1_COUNTER_REVIEW.json).
+
+The correct surviving statement is that thefields form an exact executable hierarchy, but their finaleffects require nonlinear composition. `hierarchy.py` exposes parent/child/remainder and rejects selecting a parent together with a descendant. It doesnot label the remainder as a semanticunit.
+
+A useful next discriminator is to cache finalresidual states for native/child/remainder/parent arms. If h denotes thatstate and f theknown finalRMS/unembedding/softcap/readout, define $h_{\mathrm{add}}=h_C+h_R-h_N$. The full effect nonadditivity splits exactly into
+
+$$
+\underbrace{f(h_P)-f(h_{\mathrm{add}})}_{\text{interaction generated inside the suffix}}
++
+\underbrace{f(h_{\mathrm{add}})-f(h_C)-f(h_R)+f(h_N)}_{\text{final readout nonlinearity}}.
+$$
+
+This can determine whether an explicit small final-readout correction is sufficient, or whether further writer folding through the suffix is necessary. It doesnot require activationfitting or a generic tensoroptimizer. That discriminator is notyet executed.
