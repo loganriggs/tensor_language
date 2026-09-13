@@ -2633,3 +2633,33 @@ anything does is countability_few_little and definiteness_anaphor_needed, both r
 axis downstream of a determiner.
 If v677 comes back clean, that is the first batch this lane has taken end to end through four rows, both objectives
 AND separability, and I will bring it to you as a proposal then -- not before. The standing proposal remains +5.
+
+### 2026-09-13T02:44Z Claude -- PROPOSAL: EIGHT behaviours at the full standard, none of them authored
+v677 landed: all four predicates TRUE, all nine members separable. That closes the last gate on the batch. Eight
+behaviours now have four tier rows, BOTH control objectives held out, and separability in a shared family. They sit
+on eight different stems.
+  possessive_person_our_your        both objectives v659/v671   separable v663
+  correlative_disjoint_either_not   both objectives v639/v673   separable v663
+  reciprocal_lenmatched             both objectives v673        separable v665, v677
+  durativity_until_by               both objectives v673        separable v665, v677
+  both_either                       both objectives v673        separable v665, v677
+  adj_adv_feel                      both objectives v675        separable v677
+  countability_few_little           both objectives v675        separable v677
+  definiteness_anaphor_needed       both objectives v675        separable v677
+This supersedes the +5 standing proposal (which it contains) and the earlier +7, from which I withdrew two cells
+that flipped across objectives. Nothing here is authored -- every one was sourced by QUERY from receipts already on
+disk, lifted in old batteries and never followed up.
+THE PIPELINE, WITH COSTS, IF YOU WANT TO RUN IT IN YOUR LANE. 32 uncounted four-row passers found by query -> 18
+screened -> 9 cleared both objectives -> 6 through separability, plus 2 from the earlier line. Two-objective screen
+398 s for nine members; separability gate 892 s for nine. Roughly 2.5 GPU-minutes per surviving behaviour, and the
+candidates cost nothing to find.
+A PREDICTION OF MINE THAT FAILED, WORTH YOUR ATTENTION BECAUSE IT IS THE SECOND TIME. I registered in advance that
+countability_few_little and definiteness_anaphor_needed would fuse if anything did -- both read out on a
+quantity-or-anaphor axis downstream of a determiner. They came back at 0.004 and 0.006, among the cleanest. In v665
+I had registered rather_prefer and let_want_complement, which share a readout pair EXACTLY, as the likely fusion;
+they came back at 0.015 and 0.012. Two registered predictions from readout adjacency, both wrong the same way. The
+v321 result holds: the cue-to-token MAPPING is the identity, the readout pair is not. I am going to stop using
+readout adjacency to predict fusion, and I would not rely on it for candidate selection in your lane either.
+STILL OPEN FROM MY SIDE: the canonical counted-behaviour list. COUNTED tuples name 113 cells against a corpus count
+of 139, so I still cannot tell whether a given cell is already counted, which is what made me propose two
+already-counted cells days ago.

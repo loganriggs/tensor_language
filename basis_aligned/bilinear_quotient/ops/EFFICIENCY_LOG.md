@@ -1517,3 +1517,37 @@ Ledger ~5 min. Building v677 follows in this same tick.
 CEREMONY_BUDGET: hour_review + latency 12 s. No lint this span; v675 was gated before enqueue.
 NOVELTY_LESSON_GATE: lesson 7 is what this hour tested and it held. The reason the result is usable at all is that
 the check could fail -- lesson 4's logic applied to an instrument check rather than to a control.
+
+## 2026-09-13T02:43Z HOURLY CIRCUIT TICK
+CIRCUIT_FOCUS: v677 terminal, 892 s. All four predicates TRUE and ALL NINE members separable -- six of six candidates
+plus all three counted controls. This completes the first batch this lane has taken END TO END through the full
+standard: four tier rows, BOTH control objectives held out, and separability in a shared family.
+  adj_adv_feel                 NEW   own 0.952 fam 0.947 sibmax 0.004 C_ub 0.0031
+  countability_few_little      NEW   own 0.997 fam 0.994 sibmax 0.004 C_ub 0.0103
+  definiteness_anaphor_needed  NEW   own 0.994 fam 1.015 sibmax 0.006 C_ub 0.0128
+  reciprocal_lenmatched        v673  own 0.980 fam 0.983 sibmax 0.006
+  durativity_until_by          v673  own 1.000 fam 1.002 sibmax 0.006
+  both_either                  v673  own 1.002 fam 0.997 sibmax 0.034
+MY NAMED PREDICTION WAS WRONG AND I AM RECORDING IT AS WRONG. I wrote in the docstring, before the run, that if
+anything fused it would be countability_few_little (" few"/" little") and definiteness_anaphor_needed (" one"/" it")
+-- both reading out on a quantity-or-anaphor axis downstream of a determiner -- and that adj_adv_feel would be the
+cleanest. The named pair came back at 0.004 and 0.006, among the CLEANEST in the family, and adj_adv_feel at 0.004
+was merely joint-cleanest. Semantic adjacency of the readout pair again failed to predict fusion. That is now the
+second time: v665 registered rather_prefer and let_want_complement as the likely fusion on an EXACT shared readout
+pair and they came back at 0.015 and 0.012. Two registered predictions, both wrong in the same direction. The
+standing v321 result -- the cue-to-token MAPPING is a behaviour's identity, the readout pair is not -- keeps being
+confirmed in places where I bet against it, so I should stop using readout adjacency to predict fusion at all.
+WHAT IS NOW PROPOSABLE: EIGHT behaviours at the full standard, on eight different stems.
+  possessive_person_our_your, correlative_disjoint_either_not (both objectives + separable from v663/v673)
+  reciprocal_lenmatched, durativity_until_by, both_either (both objectives v673, separable v665 AND v677)
+  adj_adv_feel, countability_few_little, definiteness_anaphor_needed (both objectives v675, separable v677)
+THE PIPELINE END TO END, MEASURED. Sourcing candidates by QUERY from existing receipts rather than authoring them:
+32 uncounted four-row passers found -> 18 screened across v665/v675 -> 9 cleared both objectives -> 6 through the
+separability gate, plus 2 more from the earlier proposal line. The two-objective screen costs 398 s for nine members
+and the separability gate 892 s for nine; the whole standard is roughly 2.5 GPU-minutes per surviving behaviour.
+None of the eight was authored, which is the cheapest route this lane has found.
+HOW LONG. hour_review + latency 12 s. v677 GPU 892 s unattended. Receipt read + prediction post-mortem ~6 min.
+Ledger and board ~7 min.
+CEREMONY_BUDGET: hour_review + latency 12 s. No lint this span; v677 was gated before enqueue.
+NOVELTY_LESSON_GATE: the gate that earned its cost this hour is separability itself -- v665 had shown ~1 in 6 cells
+failing it AFTER passing the earlier gates, so running it was not a formality even though everything passed.
