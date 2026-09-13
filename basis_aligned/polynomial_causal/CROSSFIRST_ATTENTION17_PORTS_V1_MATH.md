@@ -46,3 +46,24 @@ FineWebrelativeerrors9.3–21.8%andmaximumabsoluteCEpredictionerrors1.91–6.68e
 96newfullprefixes have now been frozen without model scoring: fourconstructions, citypairsLondon/Boston andManchester/Chicago, andthe existing sixspellingendpoints. They pass the pairedone-token-cue check and full-prefix duplicate scan againstrepositoryrowfiles. These citypairs are new tothislocalpathscreen, not globally unstudiedtokens. Nativelexical/construction confirmation hasnotrun; nocorpusOODclaim.
 
 [Three-contraction executor](joint_attention_three_group_v1.py), [control](CROSSFIRST_THREE_GROUP_V1_CONTROL.json), [native screen](CROSSFIRST_THREE_GROUP_V1_RESULT.json), [frozen confirmation rows](CROSSFIRST_THREE_GROUP_FRESH_V1_ROWS.json).
+
+## 02:46 — Frozen predictor generalizes to the new city and construction panel
+
+The unchanged three-contraction predictor passed all registered confirmation checks on 96 previously unscored prefixes, with 24 old anchors replaying exactly. The validated upstream state executor generated the child and parent fields on these new inputs; no cached old fields or fitted replacement coefficients were substituted.
+
+| New construction | Effect prediction error | Nonzero effect signs matched | Native regional pairs positive |
+|---|---:|---:|---:|
+| Reader reply | 5.20% | 24/24 | 12/12 |
+| Grew up | 3.97% | 24/24 | 12/12 |
+| Return home | 3.63% | 24/24 | 12/12 |
+| Exact spelling | 3.53% | 23/23 | 12/12 |
+
+The remaining exact-spelling reference effect was exactly zero at the measured precision; the candidate also predicted exactly zero. The registered count was at least23/24 per group and remains scored as written. Across the panel, all95 nonzero signs match. These signs concern the conditional head17.2 mixed write, not a universally positive regional-support direction.
+
+An executed counter-review compares the candidate directly with the independent native head write rather than only the full port formula: errors remain3.53–5.20%, with the same sign results. Native capability is positive on48/48 city pairs. Thus this is useful lexical/construction generalization of a fixed conditional response, not an artifact of an inaccurate formula reference or weak native behavior.
+
+The scope remains limited. Candidate response norms are21.9–29.0% of the original child/remainder behavioral nonadditivity and61.8–78.8% of the final block's local mixed-generation effect under the additive-state background. These ratios are not global causal coverage fractions. Its mean absolute regional-margin changes are0.000194–0.000717. It predicts a small contribution accurately; it does not explain the full regional mechanism. The original child removal changes regional contrast by+0.79%,+4.16%,+0.12% and−0.47% across the four new constructions, preserving context dependence.
+
+600 native forwards and480 final readouts took7.54seconds. Full-formula local write errors are below0.023% in every old/new group. Four native input corners, background states and model weights are still required. No corpus-OOD or autonomous extraction claim is made, and the new panel is now diagnostic for subsequent work.
+
+[Confirmation result](CROSSFIRST_THREE_GROUP_FRESH_V1_RESULT.json), [preregistration](CROSSFIRST_THREE_GROUP_FRESH_V1_PREREGISTRATION.md), [independent native-reference and scale audit](CROSSFIRST_THREE_GROUP_FRESH_V1_AUDIT.json).

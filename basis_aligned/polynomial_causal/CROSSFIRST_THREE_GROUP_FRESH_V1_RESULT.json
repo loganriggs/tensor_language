@@ -1,0 +1,78 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "anchor_replay": [
+    0.0,
+    0.0
+  ],
+  "joint_port_state_error": [
+    5.560952751200069e-05,
+    0.00022699847877616586,
+    6.345032280230084e-05,
+    5.228289182591653e-05,
+    7.182738433114219e-05
+  ],
+  "cells": [
+    {
+      "group": 0,
+      "fresh": false,
+      "effect_error": 0.046731389369851335,
+      "same_sign": 24,
+      "reference_zeros": 0,
+      "native_positive_pairs": 12,
+      "native_mean_contrast": 2.1045790712038674,
+      "formula_native_effect_error": 0.0004252447953235021,
+      "maxabs_prediction_error": 0.0001010894775390625
+    },
+    {
+      "group": 1,
+      "fresh": true,
+      "effect_error": 0.051998180386016724,
+      "same_sign": 24,
+      "reference_zeros": 0,
+      "native_positive_pairs": 12,
+      "native_mean_contrast": 2.2255386114120483,
+      "formula_native_effect_error": 0.0014948578926448188,
+      "maxabs_prediction_error": 5.14984130859375e-05
+    },
+    {
+      "group": 2,
+      "fresh": true,
+      "effect_error": 0.03973577515637168,
+      "same_sign": 24,
+      "reference_zeros": 0,
+      "native_positive_pairs": 12,
+      "native_mean_contrast": 2.3699613412221274,
+      "formula_native_effect_error": 0.0005409111945047833,
+      "maxabs_prediction_error": 8.7738037109375e-05
+    },
+    {
+      "group": 3,
+      "fresh": true,
+      "effect_error": 0.03633397927101954,
+      "same_sign": 24,
+      "reference_zeros": 0,
+      "native_positive_pairs": 12,
+      "native_mean_contrast": 2.4190804958343506,
+      "formula_native_effect_error": 0.0002864676790868094,
+      "maxabs_prediction_error": 0.0001373291015625
+    },
+    {
+      "group": 4,
+      "fresh": true,
+      "effect_error": 0.035258965598756034,
+      "same_sign": 23,
+      "reference_zeros": 1,
+      "native_positive_pairs": 12,
+      "native_mean_contrast": 2.7143091758092246,
+      "formula_native_effect_error": 0.00019086029880479918,
+      "maxabs_prediction_error": 0.00012302398681640625
+    }
+  ],
+  "body_forwards": 600,
+  "extra_final_readouts": 480,
+  "seconds": 7.535202708095312,
+  "scope": "Frozen three-group conditional response on96new city/construction prefixes plus24anchors. Oldstateexecutor generates path fields. No fitting/corpusOOD or autonomous extraction; native fourportcorners/background retained.",
+  "artifact_sha": "0e827b5606be163112eba571ed87458a2afc88c9ef4a5752fc712a8fbe149aab"
+}

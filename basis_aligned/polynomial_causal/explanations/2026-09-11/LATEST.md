@@ -1,3 +1,5 @@
+**13 September02:46:** Frozen three-contraction predictor passes96newcity/construction prefixes:3.5–5.2%effecterror, all95nonzero signs plusoneexactzero match; native48/48pairspositive. Conditional contribution remains small andnative-state dependent. [Confirmation and independent-reference audit](../../CROSSFIRST_ATTENTION17_PORTS_V1_MATH.md).
+
 **13 September02:40:** Fixedthree-contraction predictor passescachedregional screen:2.9–4.7%effecterror,96/96signs,0.63secondreadout test. 96newlexical/construction prefixes frozen withoutscoring; nativeconfirmation pending. [Primary evidence](../../CROSSFIRST_ATTENTION17_PORTS_V1_MATH.md).
 
 **13 September02:35:** Native jointQK/value mixed-port expansion passesreplay; cross-onlyfails because inheritedportmixedchanges contribute31–37%alignedregionaleffect. Two groups composewithin0.15–0.34%. Cachedterm audit completed; withinheadalias stillopen. [Primary result](../../CROSSFIRST_ATTENTION17_PORTS_V1_MATH.md).
