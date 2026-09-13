@@ -1,0 +1,145 @@
+{
+  "ports": [
+    "Q7_readings",
+    "B_plus_H_readings",
+    "RMS8_squared"
+  ],
+  "max_field_replay_error": 7.569586542205609e-16,
+  "max_shapley_sum_error": 2.4816750523706543e-16,
+  "records": [
+    {
+      "group": 0,
+      "cells": [
+        {
+          "source": "city",
+          "shapley_aligned": [
+            0.3053926206637594,
+            0.7092890156096786,
+            -0.01468163627343805
+          ],
+          "single_port_relative_errors": [
+            0.8849025045741895,
+            0.6859039509028477,
+            1.0192934609515196
+          ],
+          "mean_full_write": -0.019244095561626925
+        },
+        {
+          "source": "postcity",
+          "shapley_aligned": [
+            0.4944068630634152,
+            0.508023185618405,
+            -0.002430048681819789
+          ],
+          "single_port_relative_errors": [
+            0.7533147634535997,
+            0.696489805549632,
+            1.0070841251388076
+          ],
+          "mean_full_write": -0.021395355580248198
+        }
+      ]
+    },
+    {
+      "group": 1,
+      "cells": [
+        {
+          "source": "city",
+          "shapley_aligned": [
+            0.3800747931897005,
+            0.5939231405255663,
+            0.026002066284733196
+          ],
+          "single_port_relative_errors": [
+            0.6422480685686135,
+            0.44236321331851347,
+            0.9577381882621286
+          ],
+          "mean_full_write": -0.032059912258318335
+        },
+        {
+          "source": "postcity",
+          "shapley_aligned": [
+            -0.10491052078567424,
+            1.1114203884697849,
+            -0.006509867684110805
+          ],
+          "single_port_relative_errors": [
+            1.3572820641268308,
+            0.7705006301297653,
+            1.0093006950085046
+          ],
+          "mean_full_write": 0.09619413373041413
+        }
+      ]
+    },
+    {
+      "group": 2,
+      "cells": [
+        {
+          "source": "city",
+          "shapley_aligned": [
+            0.23068336999651656,
+            0.7193492301953484,
+            0.04996739980813537
+          ],
+          "single_port_relative_errors": [
+            0.6508713527248792,
+            0.4873384445691413,
+            0.9035900125749952
+          ],
+          "mean_full_write": -0.03975404494802976
+        },
+        {
+          "source": "postcity",
+          "shapley_aligned": [
+            0.0815764692145144,
+            0.9204665406901259,
+            -0.0020430099046403805
+          ],
+          "single_port_relative_errors": [
+            0.9374790168155264,
+            0.1816089306271223,
+            1.0016665855423237
+          ],
+          "mean_full_write": 0.3027302928052851
+        }
+      ]
+    },
+    {
+      "group": 3,
+      "cells": [
+        {
+          "source": "city",
+          "shapley_aligned": [
+            0.5892107028294793,
+            0.3425411398217577,
+            0.06824815734876291
+          ],
+          "single_port_relative_errors": [
+            0.5481567703638509,
+            0.7259012942700146,
+            0.9084728983323089
+          ],
+          "mean_full_write": -0.021311713461901412
+        },
+        {
+          "source": "postcity",
+          "shapley_aligned": [
+            0.39806238803291566,
+            0.5982609288701839,
+            0.003676683096900367
+          ],
+          "single_port_relative_errors": [
+            0.6921829731004837,
+            0.5277575672945285,
+            0.9958105990996231
+          ],
+          "mean_full_write": -0.19771412953456488
+        }
+      ]
+    }
+  ],
+  "Qonly_nearpost_20percent_pass": false,
+  "scope": "Exact native/donor 8corner computational allocation. Shapley averages hybridinput marginal changes, not native causal responsibility. One-port swap keeps otherrecipientinputs; full pathdonation changesallthree. OriginalQgroupcausalscreen remains composite."
+}

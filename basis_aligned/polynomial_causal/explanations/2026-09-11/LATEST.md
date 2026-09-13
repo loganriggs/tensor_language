@@ -1,3 +1,7 @@
+## 13 September, 00:10 — Parent-path composition passes; input audit prevents module misattribution
+
+[Physical grouping and counter-review](../../MLP7_PHI_READERS_FOLD_V1_MATH.md#0010--physical-path-group-donation-and-composition-pass): Q-containing laterpath donor−10.75%nearquote,24/24opposed; grouped logiteffects composewithin.41–2.53%. But Q-onlyfinalwrite misses93.75%, partner-only18.16%; changing partner combines residual andattention8. Compositepathcausality held, Q-node signal attribution notestablished.
+
 ## 13 September, 00:05 — Next backward fold exposes essential parent interactions
 
 [MLP7-to-MLP8 reader fold](../../MLP7_PHI_READERS_FOLD_V1_MATH.md): exactfourquadraticparents, nativephi replay1.03e-6; droppingmixedterms misses58–71%cityvaluecontrast. Q-containingterms dominate thenearquote laterwrite computationally; parent-levelcausal test stillneeded. Nativeinput/normalizer generation remains external.

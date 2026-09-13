@@ -81,3 +81,42 @@ $$
 $$
 
 It keeps all mixed terms involving MLP7 together instead of treating the MLP7 square alone as its computation. Physical donation/removal of these generated value-path contributions can test whether that grouping explains the stable city effect and the later reversal, and whether the two contributions predictably compose. This test is not yet executed. The exact algebra and native allocations justify it; they do not substitute for it. No factors were fitted to this panel, and the earlier failed broad city-circuit claim remains failed.
+
+
+## 00:10 — Physical path-group donation and composition pass
+
+The two-group test above is now executed on96 reused prefixes. It donates each **generated composite value** from the native donor, retaining recipient head9 routing and normalization. Thus a Q-containing donation changes the generated expression involving donor Q, B, H and RMS8 together; it is not a Q-node-only transplant. Native/full-source anchors replay exactly and the grouped write fields sum to the full source field within $2.87\times10^{-7}$ relative error.672 full forwards took9.59seconds.
+
+| Group | City Q-containing | City Q-free | Later Q-containing | Later Q-free |
+|---|---:|---:|---:|---:|
+| Original |0.48%|2.60%|0.51%|8.45%|
+| Fronted |0.99%|1.78%|−2.07%|8.31%|
+| Near quote |1.70%|2.96%|−10.75%|2.15%|
+| Distant |0.45%|1.00%|2.82%|6.09%|
+
+Percentages are directed donor logit effects divided by mean native paired contrast. Both city groups have24/24 correct directions in each construction. Near-quote later Q-containing donation has24/24 opposing directions; its effect differs from full later-source donation by41.11% relative error, within the registered50% criterion. The Q-free near-quote later group has only16/24 correct directions despite a positive mean, so it is not a uniformly positive substitute.
+
+The sum of separately measured Q-containing and Q-free logit effects predicts full-source donation within0.41–0.69% for city sources and0.89–2.53% for later sources. All A/B/C criteria pass. This supports local physical composition of the declared value-path groups, with native contextual inputs and suffix supplied. It doesnot certify unseen-context reuse or whole-MLP7 causality. [Native path-group receipt](MLP7_PHI_PATH_DONATION_V1_RESULT.json).
+
+## Counter-review: does a Q-containing path carry changing information from Q?
+
+Not necessarily. Write $S=B+H$, $R=r_8$ and
+
+$$
+F(Q,S,R)=\frac{Q^T\Lambda Q+2Q^T\Lambda S}{R}.
+$$
+
+The composite transplant changes all three arguments. We evaluated all eight recipient/donor corners and exactly allocated the full change by averaging each argument's marginal change across the other arguments' two settings (three-input Shapley allocation). The allocations sum within $2.49\times10^{-16}$; their routed fields replay the composite intervention within $7.57\times10^{-16}$.
+
+For the reversed near-quote **later-source final-position write**, aligned fractions are Q8.16%, S92.05%, R−0.20%. Swapping Q alone with recipient S/R misses93.75% of the full composite write; swapping S alone misses18.16%. The registered20% Q-only hypothesis fails. This is a computational input-localization test, not an independently measured native one-port intervention. In particular, the causal composite result must not be summarized as “MLP7 supplies the reversal signal.” Q participates in the operation while much of the changing information enters through its partner. [Eight-corner input audit](MLP7_QPATH_INPUT_ALLOCATION_V1_RESULT.json).
+
+With recipient Q and R fixed, the partner change splits exactly as
+
+$$
+\Delta_S F=\frac{2Q^T\Lambda\Delta B}{R}
++\frac{2Q^T\Lambda\Delta H}{R}.
+$$
+
+For near-quote later sources, the aligned allocation is40.66% to B and59.34% to attention8 H. Neither alone reproduces the partner-only write closely: B-only error59.39%, H-only40.74%. Across other constructions, attention8 supplies roughly69–76% of the later partner-only allocation. Accounting agrees within $4.10\times10^{-16}$. These are all-head attention8 and aggregate residual/reentry readings; no individual attention head is identified by this result. [Partner split](MLP7_QPATH_PARTNER_SPLIT_V1_RESULT.json).
+
+The next causal discriminator should transplant the specified Q, B and H input readings with explicit recipient normalizers. It should test the changing input signal rather than infer it from which module's weights appear in a polynomial. Retain the successful composite path and its local composition evidence while testing that stronger mechanistic interpretation.

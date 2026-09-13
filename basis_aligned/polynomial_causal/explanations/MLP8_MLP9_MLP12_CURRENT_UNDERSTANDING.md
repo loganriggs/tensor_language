@@ -147,3 +147,7 @@ City-position phi4 donation positive96/96 (1.46–4.68%); later-source donation 
 ### 13 September00:05 — Four input readers folded through MLP7
 
 C7=U4^TD7 generatesfourquadratic readings; B+Q7+H8 expandsinto6exactpaths withnativeRMS8. Nativephi error1.03e-6; independentparent squares miss58–71%citycontrast. Q-containinggroup computationallyaccountsfor116%nearquote laterwrite, withopposedQ-free remainder; notyetparentcausality. [Primary fold and receipts](../MLP7_PHI_READERS_FOLD_V1_MATH.md).
+
+### 13 September00:10 — Physical parent-path grouping and signal-source caveat
+
+Q-containing/Q-free generatedvalue donations composewithin.41–2.53% logiteffect error; nearpostQ-containing donor−10.75%,24/24opposed. However Q-onlyinputswap computationalerror93.75% versuspartner-only18.16%; partner residual/attention8 shares40.66/59.34%. Native one-inputcausaltest stillneeded; do notattribute changinginformation toMLP7 merelybecause Qappearsin thepath. [Primary continuation](../MLP7_PHI_READERS_FOLD_V1_MATH.md#0010--physical-path-group-donation-and-composition-pass).
