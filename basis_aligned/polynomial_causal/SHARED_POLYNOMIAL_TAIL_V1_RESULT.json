@@ -1,0 +1,42 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "rows": [
+    {
+      "batch": 1,
+      "max_full_error": 2.7020372499379448e-15,
+      "max_tail_error": 2.6994749007655094e-15,
+      "median_seconds": {
+        "old": 0.0051831938326358795,
+        "shared": 0.0033610276877880096
+      },
+      "speedup": 1.5421455322931572
+    },
+    {
+      "batch": 16,
+      "max_full_error": 3.991844963315973e-15,
+      "max_tail_error": 3.990583947679632e-15,
+      "median_seconds": {
+        "old": 0.015445925295352936,
+        "shared": 0.006795719265937805
+      },
+      "speedup": 2.2728904315945733
+    },
+    {
+      "batch": 64,
+      "max_full_error": 3.998395650898186e-15,
+      "max_tail_error": 3.998638684085106e-15,
+      "median_seconds": {
+        "old": 0.05174197256565094,
+        "shared": 0.01874256134033203
+      },
+      "speedup": 2.7606671055309624
+    }
+  ],
+  "global_setup_seconds": 0.004045993089675903,
+  "global_cache_scalars": 11520,
+  "private_scalars_per_context": 1152,
+  "old_private_scalars_per_context": 2305,
+  "scope": "FP64 CPU, synthetic pristine contexts, actual weights, same writer across contexts. Global setup excluded from reused preparation timing and reported separately. Native dense maps and response state remain. No fresh/native/OOD behavior claim."
+}
