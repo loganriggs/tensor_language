@@ -1,0 +1,41 @@
+{
+  "baseline_error": 5.576326340004577e-07,
+  "cells": [
+    {
+      "strength": 0.0,
+      "projection_identity_error": 0.0,
+      "native_output_error": 5.576326340004577e-07,
+      "native_change_error": 0.0,
+      "maxabs_change_error": 0.0
+    },
+    {
+      "strength": 0.001,
+      "projection_identity_error": 2.7464184659685694e-15,
+      "native_output_error": 5.55600014374942e-07,
+      "native_change_error": 0.0004246587277415768,
+      "maxabs_change_error": 1.830405803371349e-05
+    },
+    {
+      "strength": 0.03,
+      "projection_identity_error": 2.7020799734247327e-15,
+      "native_output_error": 5.647094142048888e-07,
+      "native_change_error": 1.4536954503966586e-05,
+      "maxabs_change_error": 1.839763783006987e-05
+    },
+    {
+      "strength": 0.3,
+      "projection_identity_error": 2.6089978466889236e-15,
+      "native_output_error": 5.756196311174091e-07,
+      "native_change_error": 1.5469006492832922e-06,
+      "maxabs_change_error": 2.7476073031440507e-05
+    },
+    {
+      "strength": -0.3,
+      "projection_identity_error": 2.6173251948073755e-15,
+      "native_output_error": 5.792393041167482e-07,
+      "native_change_error": 1.508989782237565e-06,
+      "maxabs_change_error": 1.8038867566128047e-05
+    }
+  ],
+  "scope": "Actual attention10 weights, FP32 native module versus FP64 projection algebra, two synthetic 17-token contexts. Both QK factors, all heads/positions, causal mask, rounded rotary and unchanged shared first values included. No native corpus or MLP9-generator accuracy claim; no fitting or state compression."
+}
