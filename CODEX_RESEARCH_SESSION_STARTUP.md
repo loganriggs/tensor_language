@@ -52,6 +52,12 @@ not better_math_ideas.md. The two unembedding paths are both active: individual
 token readers, and shared clusters/hierarchy contrasts/components with their
 token-specific remainders, folded backward through the actual model.
 
+## User direction change — 13 September, interaction compression
+
+The user explicitly requests compression again, focused on composed interactions and retained terms.
+This supersedes earlier skill/startup restrictions against compression as the primary research task.
+Follow [the three-setting compression plan](basis_aligned/polynomial_causal/explanations/for_logan/interaction_compression_settings_2026-09-13.md): recent MLP9–attention10–MLP10 interaction, recent head17.2–MLP17 interaction, and full-unembedding/MLP17 control. Compare independent versus joint shared graphs; count nodes, edges, stored weights and execution costs. Discover from weights first, validate behavior after freezing. Do not claim compression itself completes OOD prediction, extraction, selective removal, or reuse. Already queued work may finish; unsubmitted background-closure extensions are deferred while this campaign becomes primary.
+
 ## Restore current state
 
 1. Read `/root/.agents/skills/bilin18-research-driver/SKILL.md` completely when

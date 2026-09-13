@@ -1,5 +1,7 @@
 # Requested full reports for Logan
 
+**New compression plan (13 September): [Three interaction settings, compression families, simplicity and reuse](interaction_compression_settings_2026-09-13.md).** Proposal, not a new results report.
+
 **Latest: [13 September, 02:55 UTC — A compact predictor of a circuit interaction](research_update_2026-09-13_0255_joint_attention_predictor.md).** High-level rundown, explained equations, fresh prediction results, mathematical-cycle contribution, limits and next steps.
 
 **Previous: [13 September, 02:00 UTC — An executable interaction path, and where composition breaks](research_update_2026-09-13_0200_executable_interaction_path.md).** Token/context interactions, fresh preservation controls, explicit extraction, hierarchy, and completed forward-folding test and its limits.

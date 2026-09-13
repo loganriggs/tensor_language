@@ -1,0 +1,39 @@
+{
+  "checkpoint_shapes": {
+    "transformer.h.10.mlp.Left.weight": [
+      4608,
+      1152
+    ],
+    "transformer.h.10.mlp.Right.weight": [
+      4608,
+      1152
+    ],
+    "transformer.h.10.mlp.Down.weight": [
+      1152,
+      4608
+    ],
+    "transformer.h.17.mlp.Left.weight": [
+      4608,
+      1152
+    ],
+    "transformer.h.17.mlp.Right.weight": [
+      4608,
+      1152
+    ],
+    "transformer.h.17.mlp.Down.weight": [
+      1152,
+      4608
+    ],
+    "lm_head.weight": [
+      50304,
+      1152
+    ]
+  },
+  "mlp10_bilinear_weight_scalars": 15925248,
+  "mlp17_bilinear_weight_scalars": 15925248,
+  "unembedding_scalars": 57950208,
+  "full_output_tensor_entries": 66758639616,
+  "full_output_tensor_fp32_bytes": 267034558464,
+  "local_four_response_basis_symmetric_products": 10,
+  "scope": "CPU checkpoint shape inventory, not a fitted compression. Counts exclude biases/norms/context generators unless named. Baselines must charge those at declared interface. Ten products conditional on each pristine context, not a global factorization."
+}
