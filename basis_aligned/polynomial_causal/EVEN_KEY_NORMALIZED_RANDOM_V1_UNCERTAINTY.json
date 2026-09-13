@@ -1,0 +1,25 @@
+{
+  "resamples": 2048,
+  "blocks": 32,
+  "results": {
+    "svd": {
+      "normalization_relative_change_95pct": [
+        0.021421279266059485,
+        0.04232447679920955
+      ]
+    },
+    "queryfold": {
+      "normalization_relative_change_95pct": [
+        0.023944381764094382,
+        0.04537623988109403
+      ]
+    },
+    "complete": {
+      "normalization_relative_change_95pct": [
+        0.02409016046675147,
+        0.0455818780629323
+      ]
+    }
+  },
+  "scope": "Paired draw-block bootstrap; allfourpositions andcandidate results retained together. MonteCarlo uncertainty only, not uncertainty about native text distribution."
+}

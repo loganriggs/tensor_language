@@ -1,0 +1,6174 @@
+{
+  "pred_a": false,
+  "relative_errors": {
+    "raw": {
+      "svd": 0.45945690262252065,
+      "queryfold": 0.42982472968688196,
+      "complete": 0.4306781663530453
+    },
+    "normalized": {
+      "svd": 0.47431393610636136,
+      "queryfold": 0.44480224028837423,
+      "complete": 0.44580114127472403
+    }
+  },
+  "normalization_relative_change": {
+    "svd": 0.03233607635240365,
+    "queryfold": 0.034845623266960724,
+    "complete": 0.03511432922114244
+  },
+  "pairs": 8192,
+  "positions": [
+    1,
+    4,
+    16,
+    63
+  ],
+  "blocks": [
+    {
+      "block": 0,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 37942.60380323852,
+      "reference2": 113441.73819057454
+    },
+    {
+      "block": 0,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.004435194770366082,
+      "reference2": 0.014756889001636242
+    },
+    {
+      "block": 0,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 30091.520919131723,
+      "reference2": 113441.73819057454
+    },
+    {
+      "block": 0,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0035598410126495717,
+      "reference2": 0.014756889001636242
+    },
+    {
+      "block": 0,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 30083.345184453538,
+      "reference2": 113441.73819057454
+    },
+    {
+      "block": 0,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003587532389140258,
+      "reference2": 0.014756889001636242
+    },
+    {
+      "block": 0,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 36501.44626539561,
+      "reference2": 110058.04636605026
+    },
+    {
+      "block": 0,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.004139625181581396,
+      "reference2": 0.014410234170391154
+    },
+    {
+      "block": 0,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 35019.02834969589,
+      "reference2": 110058.04636605026
+    },
+    {
+      "block": 0,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0037907623409137764,
+      "reference2": 0.014410234170391154
+    },
+    {
+      "block": 0,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 34874.007370827094,
+      "reference2": 110058.04636605026
+    },
+    {
+      "block": 0,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.00381958150255001,
+      "reference2": 0.014410234170391154
+    },
+    {
+      "block": 0,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 38936.550566995946,
+      "reference2": 115735.12222077117
+    },
+    {
+      "block": 0,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0044109980810720095,
+      "reference2": 0.01324081212517558
+    },
+    {
+      "block": 0,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 28568.925746901074,
+      "reference2": 115735.12222077117
+    },
+    {
+      "block": 0,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0035668676115114322,
+      "reference2": 0.01324081212517558
+    },
+    {
+      "block": 0,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 29271.02363412769,
+      "reference2": 115735.12222077117
+    },
+    {
+      "block": 0,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0036512795978353536,
+      "reference2": 0.01324081212517558
+    },
+    {
+      "block": 0,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 25449.590331250383,
+      "reference2": 94792.98411821332
+    },
+    {
+      "block": 0,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003327074594311025,
+      "reference2": 0.012412005626956274
+    },
+    {
+      "block": 0,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 20190.217730832203,
+      "reference2": 94792.98411821332
+    },
+    {
+      "block": 0,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002870848860140432,
+      "reference2": 0.012412005626956274
+    },
+    {
+      "block": 0,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 20330.49196428245,
+      "reference2": 94792.98411821332
+    },
+    {
+      "block": 0,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0029007899959622315,
+      "reference2": 0.012412005626956274
+    },
+    {
+      "block": 1,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 31897.777835130408,
+      "reference2": 163260.01985704433
+    },
+    {
+      "block": 1,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003990988915727224,
+      "reference2": 0.01935118834893501
+    },
+    {
+      "block": 1,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 30629.996862755605,
+      "reference2": 163260.01985704433
+    },
+    {
+      "block": 1,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0037406857256360123,
+      "reference2": 0.01935118834893501
+    },
+    {
+      "block": 1,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 30378.331605118205,
+      "reference2": 163260.01985704433
+    },
+    {
+      "block": 1,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003731237146133726,
+      "reference2": 0.01935118834893501
+    },
+    {
+      "block": 1,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 32584.81065830464,
+      "reference2": 167930.0130026777
+    },
+    {
+      "block": 1,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.004092648461443125,
+      "reference2": 0.02008379518041359
+    },
+    {
+      "block": 1,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 26381.34711175054,
+      "reference2": 167930.0130026777
+    },
+    {
+      "block": 1,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003277155955926976,
+      "reference2": 0.02008379518041359
+    },
+    {
+      "block": 1,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 26569.673529893793,
+      "reference2": 167930.0130026777
+    },
+    {
+      "block": 1,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003314591286176621,
+      "reference2": 0.02008379518041359
+    },
+    {
+      "block": 1,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 29986.98296563029,
+      "reference2": 125224.39393247903
+    },
+    {
+      "block": 1,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003662875166281808,
+      "reference2": 0.01402660106898283
+    },
+    {
+      "block": 1,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 28944.141513762566,
+      "reference2": 125224.39393247903
+    },
+    {
+      "block": 1,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0034953718172915822,
+      "reference2": 0.01402660106898283
+    },
+    {
+      "block": 1,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 28790.65566394783,
+      "reference2": 125224.39393247903
+    },
+    {
+      "block": 1,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0035107474486910277,
+      "reference2": 0.01402660106898283
+    },
+    {
+      "block": 1,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 27143.749955623076,
+      "reference2": 120250.16623368018
+    },
+    {
+      "block": 1,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003271596932116086,
+      "reference2": 0.01402478373998509
+    },
+    {
+      "block": 1,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 18277.28834583168,
+      "reference2": 120250.16623368018
+    },
+    {
+      "block": 1,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0022189695470824725,
+      "reference2": 0.01402478373998509
+    },
+    {
+      "block": 1,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 18255.75275850241,
+      "reference2": 120250.16623368018
+    },
+    {
+      "block": 1,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0022020695141186223,
+      "reference2": 0.01402478373998509
+    },
+    {
+      "block": 2,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 34438.169460564735,
+      "reference2": 148501.5778923916
+    },
+    {
+      "block": 2,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.004018383931921875,
+      "reference2": 0.016220709770996357
+    },
+    {
+      "block": 2,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 32144.486855730756,
+      "reference2": 148501.5778923916
+    },
+    {
+      "block": 2,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0037794558072028047,
+      "reference2": 0.016220709770996357
+    },
+    {
+      "block": 2,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 32747.50569727282,
+      "reference2": 148501.5778923916
+    },
+    {
+      "block": 2,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0038329319020157645,
+      "reference2": 0.016220709770996357
+    },
+    {
+      "block": 2,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 32886.71944196827,
+      "reference2": 122668.44220669207
+    },
+    {
+      "block": 2,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003988761514253973,
+      "reference2": 0.013562725175644127
+    },
+    {
+      "block": 2,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 29091.725191193258,
+      "reference2": 122668.44220669207
+    },
+    {
+      "block": 2,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003489600273238972,
+      "reference2": 0.013562725175644127
+    },
+    {
+      "block": 2,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 29319.110718073356,
+      "reference2": 122668.44220669207
+    },
+    {
+      "block": 2,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0034856259877527307,
+      "reference2": 0.013562725175644127
+    },
+    {
+      "block": 2,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 28891.274177844567,
+      "reference2": 101587.47075655338
+    },
+    {
+      "block": 2,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0036971789832992968,
+      "reference2": 0.011546960047069885
+    },
+    {
+      "block": 2,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 25874.55997588049,
+      "reference2": 101587.47075655338
+    },
+    {
+      "block": 2,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0032734047822539046,
+      "reference2": 0.011546960047069885
+    },
+    {
+      "block": 2,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 25719.919693480875,
+      "reference2": 101587.47075655338
+    },
+    {
+      "block": 2,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003232949507418202,
+      "reference2": 0.011546960047069885
+    },
+    {
+      "block": 2,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 27968.793141591123,
+      "reference2": 110330.5310408561
+    },
+    {
+      "block": 2,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0035958414238091495,
+      "reference2": 0.012333546404760141
+    },
+    {
+      "block": 2,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 24521.138612474402,
+      "reference2": 110330.5310408561
+    },
+    {
+      "block": 2,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0031468713361351014,
+      "reference2": 0.012333546404760141
+    },
+    {
+      "block": 2,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 24524.17951498151,
+      "reference2": 110330.5310408561
+    },
+    {
+      "block": 2,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0031462977689736002,
+      "reference2": 0.012333546404760141
+    },
+    {
+      "block": 3,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 28604.028435276472,
+      "reference2": 126105.04715390565
+    },
+    {
+      "block": 3,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0035191161725586133,
+      "reference2": 0.015160999388946383
+    },
+    {
+      "block": 3,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 22343.550786549626,
+      "reference2": 126105.04715390565
+    },
+    {
+      "block": 3,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0028818232115724956,
+      "reference2": 0.015160999388946383
+    },
+    {
+      "block": 3,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 21448.01067661382,
+      "reference2": 126105.04715390565
+    },
+    {
+      "block": 3,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0027443263960451477,
+      "reference2": 0.015160999388946383
+    },
+    {
+      "block": 3,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 32108.56416348021,
+      "reference2": 128113.66132212279
+    },
+    {
+      "block": 3,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003936289954747793,
+      "reference2": 0.014592661077944227
+    },
+    {
+      "block": 3,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 26851.29306928165,
+      "reference2": 128113.66132212279
+    },
+    {
+      "block": 3,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003387240193169637,
+      "reference2": 0.014592661077944227
+    },
+    {
+      "block": 3,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 26081.453187541407,
+      "reference2": 128113.66132212279
+    },
+    {
+      "block": 3,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003255300700193589,
+      "reference2": 0.014592661077944227
+    },
+    {
+      "block": 3,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 32437.69873405517,
+      "reference2": 99844.37439142361
+    },
+    {
+      "block": 3,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.00393207296631987,
+      "reference2": 0.011645797311770375
+    },
+    {
+      "block": 3,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 24896.19192471938,
+      "reference2": 99844.37439142361
+    },
+    {
+      "block": 3,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0032036043613289434,
+      "reference2": 0.011645797311770375
+    },
+    {
+      "block": 3,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 24289.17672274318,
+      "reference2": 99844.37439142361
+    },
+    {
+      "block": 3,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0031068903160151253,
+      "reference2": 0.011645797311770375
+    },
+    {
+      "block": 3,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 19058.96848336708,
+      "reference2": 107792.29082674478
+    },
+    {
+      "block": 3,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0021570175768644054,
+      "reference2": 0.01175496869652331
+    },
+    {
+      "block": 3,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 15704.0984575041,
+      "reference2": 107792.29082674478
+    },
+    {
+      "block": 3,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0021401594765296486,
+      "reference2": 0.01175496869652331
+    },
+    {
+      "block": 3,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 15894.204244698261,
+      "reference2": 107792.29082674478
+    },
+    {
+      "block": 3,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0021678400235862444,
+      "reference2": 0.01175496869652331
+    },
+    {
+      "block": 4,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 25281.10991280385,
+      "reference2": 201164.92629851092
+    },
+    {
+      "block": 4,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0029631142377715865,
+      "reference2": 0.022213854289359986
+    },
+    {
+      "block": 4,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 23022.072589892392,
+      "reference2": 201164.92629851092
+    },
+    {
+      "block": 4,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002643074314602006,
+      "reference2": 0.022213854289359986
+    },
+    {
+      "block": 4,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 22911.3736741103,
+      "reference2": 201164.92629851092
+    },
+    {
+      "block": 4,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0026571443926562896,
+      "reference2": 0.022213854289359986
+    },
+    {
+      "block": 4,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 25983.270386706125,
+      "reference2": 217280.36468773207
+    },
+    {
+      "block": 4,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0029225832846813417,
+      "reference2": 0.023738730439293903
+    },
+    {
+      "block": 4,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 26104.09839080224,
+      "reference2": 217280.36468773207
+    },
+    {
+      "block": 4,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0028090364691271998,
+      "reference2": 0.023738730439293903
+    },
+    {
+      "block": 4,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 26379.39091922585,
+      "reference2": 217280.36468773207
+    },
+    {
+      "block": 4,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002849879260249907,
+      "reference2": 0.023738730439293903
+    },
+    {
+      "block": 4,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 27211.834242109097,
+      "reference2": 172591.79154006875
+    },
+    {
+      "block": 4,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0031112150536514675,
+      "reference2": 0.018912117108559265
+    },
+    {
+      "block": 4,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 26170.9599803233,
+      "reference2": 172591.79154006875
+    },
+    {
+      "block": 4,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003152984854113338,
+      "reference2": 0.018912117108559265
+    },
+    {
+      "block": 4,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 26463.394898815342,
+      "reference2": 172591.79154006875
+    },
+    {
+      "block": 4,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0031892079201266132,
+      "reference2": 0.018912117108559265
+    },
+    {
+      "block": 4,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 25677.9072880631,
+      "reference2": 145386.33092193218
+    },
+    {
+      "block": 4,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.002948541328096039,
+      "reference2": 0.01656023349866201
+    },
+    {
+      "block": 4,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 25851.84044767507,
+      "reference2": 145386.33092193218
+    },
+    {
+      "block": 4,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0028375191717235114,
+      "reference2": 0.01656023349866201
+    },
+    {
+      "block": 4,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 26494.712122692436,
+      "reference2": 145386.33092193218
+    },
+    {
+      "block": 4,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002940079321441181,
+      "reference2": 0.01656023349866201
+    },
+    {
+      "block": 5,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 32390.631178276908,
+      "reference2": 146611.32457617013
+    },
+    {
+      "block": 5,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.004076760539502844,
+      "reference2": 0.0190421598350766
+    },
+    {
+      "block": 5,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 30947.234558210428,
+      "reference2": 146611.32457617013
+    },
+    {
+      "block": 5,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0037058492667095015,
+      "reference2": 0.0190421598350766
+    },
+    {
+      "block": 5,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 30852.457612285776,
+      "reference2": 146611.32457617013
+    },
+    {
+      "block": 5,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0036840514647812034,
+      "reference2": 0.0190421598350766
+    },
+    {
+      "block": 5,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 31066.55095068008,
+      "reference2": 123722.53596609205
+    },
+    {
+      "block": 5,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003975564136319155,
+      "reference2": 0.01547358606832595
+    },
+    {
+      "block": 5,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 30031.896164642592,
+      "reference2": 123722.53596609205
+    },
+    {
+      "block": 5,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003503946941351534,
+      "reference2": 0.01547358606832595
+    },
+    {
+      "block": 5,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 30104.282724842233,
+      "reference2": 123722.53596609205
+    },
+    {
+      "block": 5,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003494830608906907,
+      "reference2": 0.01547358606832595
+    },
+    {
+      "block": 5,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 30618.78111328668,
+      "reference2": 114433.17121121177
+    },
+    {
+      "block": 5,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003921457333007966,
+      "reference2": 0.014506924046381035
+    },
+    {
+      "block": 5,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 27987.528330304674,
+      "reference2": 114433.17121121177
+    },
+    {
+      "block": 5,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.00361751485103914,
+      "reference2": 0.014506924046381035
+    },
+    {
+      "block": 5,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 27660.55945652331,
+      "reference2": 114433.17121121177
+    },
+    {
+      "block": 5,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0035692667403169442,
+      "reference2": 0.014506924046381035
+    },
+    {
+      "block": 5,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 25815.18025515075,
+      "reference2": 81811.72160159136
+    },
+    {
+      "block": 5,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0034130954719784677,
+      "reference2": 0.010425344616295514
+    },
+    {
+      "block": 5,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 23364.16846066681,
+      "reference2": 81811.72160159136
+    },
+    {
+      "block": 5,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0030027810416999447,
+      "reference2": 0.010425344616295514
+    },
+    {
+      "block": 5,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 22506.700436794617,
+      "reference2": 81811.72160159136
+    },
+    {
+      "block": 5,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002882716343584954,
+      "reference2": 0.010425344616295514
+    },
+    {
+      "block": 6,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 29077.084975126607,
+      "reference2": 169933.3494806483
+    },
+    {
+      "block": 6,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0036060067767070872,
+      "reference2": 0.019494516970336592
+    },
+    {
+      "block": 6,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 21918.277728172496,
+      "reference2": 169933.3494806483
+    },
+    {
+      "block": 6,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0027375342478372115,
+      "reference2": 0.019494516970336592
+    },
+    {
+      "block": 6,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 21834.08815251902,
+      "reference2": 169933.3494806483
+    },
+    {
+      "block": 6,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002770534524409854,
+      "reference2": 0.019494516970336592
+    },
+    {
+      "block": 6,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 28690.949434492424,
+      "reference2": 170310.71207328554
+    },
+    {
+      "block": 6,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0036320629545472504,
+      "reference2": 0.018948049075235618
+    },
+    {
+      "block": 6,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 21551.62434577435,
+      "reference2": 170310.71207328554
+    },
+    {
+      "block": 6,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002558673539119983,
+      "reference2": 0.018948049075235618
+    },
+    {
+      "block": 6,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 21521.16984248691,
+      "reference2": 170310.71207328554
+    },
+    {
+      "block": 6,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002564490851869869,
+      "reference2": 0.018948049075235618
+    },
+    {
+      "block": 6,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 26555.67788836186,
+      "reference2": 167174.01836474866
+    },
+    {
+      "block": 6,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0032609182444260977,
+      "reference2": 0.01853312932341982
+    },
+    {
+      "block": 6,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 24908.62716825097,
+      "reference2": 167174.01836474866
+    },
+    {
+      "block": 6,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0031997408298413293,
+      "reference2": 0.01853312932341982
+    },
+    {
+      "block": 6,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 24731.295113378954,
+      "reference2": 167174.01836474866
+    },
+    {
+      "block": 6,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003176590629855881,
+      "reference2": 0.01853312932341982
+    },
+    {
+      "block": 6,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 22293.716129653658,
+      "reference2": 121383.02765546564
+    },
+    {
+      "block": 6,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0028692502720440117,
+      "reference2": 0.013977622766614422
+    },
+    {
+      "block": 6,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 20146.075046453258,
+      "reference2": 121383.02765546564
+    },
+    {
+      "block": 6,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0026316197467318786,
+      "reference2": 0.013977622766614422
+    },
+    {
+      "block": 6,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 20169.126026046088,
+      "reference2": 121383.02765546564
+    },
+    {
+      "block": 6,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002619712898324845,
+      "reference2": 0.013977622766614422
+    },
+    {
+      "block": 7,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 26753.66517341807,
+      "reference2": 199932.66771060094
+    },
+    {
+      "block": 7,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0032738090160791523,
+      "reference2": 0.020651609112129075
+    },
+    {
+      "block": 7,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 27246.285635015618,
+      "reference2": 199932.66771060094
+    },
+    {
+      "block": 7,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0033031824461065913,
+      "reference2": 0.020651609112129075
+    },
+    {
+      "block": 7,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 26550.807348227554,
+      "reference2": 199932.66771060094
+    },
+    {
+      "block": 7,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0032550982946049586,
+      "reference2": 0.020651609112129075
+    },
+    {
+      "block": 7,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 29588.163581654168,
+      "reference2": 168116.9804016574
+    },
+    {
+      "block": 7,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0036429649168081757,
+      "reference2": 0.01816241406226998
+    },
+    {
+      "block": 7,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 25008.89669509637,
+      "reference2": 168116.9804016574
+    },
+    {
+      "block": 7,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003033518887881899,
+      "reference2": 0.01816241406226998
+    },
+    {
+      "block": 7,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 24857.795613145456,
+      "reference2": 168116.9804016574
+    },
+    {
+      "block": 7,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0030194168308513942,
+      "reference2": 0.01816241406226998
+    },
+    {
+      "block": 7,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 30981.169396690202,
+      "reference2": 139854.85416856012
+    },
+    {
+      "block": 7,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0037905106507635433,
+      "reference2": 0.016236425825696274
+    },
+    {
+      "block": 7,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 29228.63885651582,
+      "reference2": 139854.85416856012
+    },
+    {
+      "block": 7,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0036154049282440173,
+      "reference2": 0.016236425825696274
+    },
+    {
+      "block": 7,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 28261.898808502774,
+      "reference2": 139854.85416856012
+    },
+    {
+      "block": 7,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0035015250303830087,
+      "reference2": 0.016236425825696274
+    },
+    {
+      "block": 7,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 26805.441981478412,
+      "reference2": 131363.50985263448
+    },
+    {
+      "block": 7,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0031611186633533975,
+      "reference2": 0.014268836065596481
+    },
+    {
+      "block": 7,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 22780.654300740065,
+      "reference2": 131363.50985263448
+    },
+    {
+      "block": 7,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0024960599478009464,
+      "reference2": 0.014268836065596481
+    },
+    {
+      "block": 7,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 22729.068232807847,
+      "reference2": 131363.50985263448
+    },
+    {
+      "block": 7,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0024981062676372005,
+      "reference2": 0.014268836065596481
+    },
+    {
+      "block": 8,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 29952.250536040854,
+      "reference2": 110730.02350283283
+    },
+    {
+      "block": 8,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003573164421049762,
+      "reference2": 0.012904752607887317
+    },
+    {
+      "block": 8,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 25412.40463372325,
+      "reference2": 110730.02350283283
+    },
+    {
+      "block": 8,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0031749218640424685,
+      "reference2": 0.012904752607887317
+    },
+    {
+      "block": 8,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 24805.569432482844,
+      "reference2": 110730.02350283283
+    },
+    {
+      "block": 8,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0031135144192110174,
+      "reference2": 0.012904752607887317
+    },
+    {
+      "block": 8,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 31180.119199903696,
+      "reference2": 109502.31446987583
+    },
+    {
+      "block": 8,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0036984510797376394,
+      "reference2": 0.011956839390330373
+    },
+    {
+      "block": 8,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 26593.46730377397,
+      "reference2": 109502.31446987583
+    },
+    {
+      "block": 8,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003226686674163102,
+      "reference2": 0.011956839390330373
+    },
+    {
+      "block": 8,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 26607.630851750997,
+      "reference2": 109502.31446987583
+    },
+    {
+      "block": 8,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0032426281548261584,
+      "reference2": 0.011956839390330373
+    },
+    {
+      "block": 8,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 30089.198717967858,
+      "reference2": 107714.55758356597
+    },
+    {
+      "block": 8,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0032918538811768944,
+      "reference2": 0.012070093935283474
+    },
+    {
+      "block": 8,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 28495.433359356965,
+      "reference2": 107714.55758356597
+    },
+    {
+      "block": 8,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003270928915363595,
+      "reference2": 0.012070093935283474
+    },
+    {
+      "block": 8,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 28636.397038666684,
+      "reference2": 107714.55758356597
+    },
+    {
+      "block": 8,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003298614248012749,
+      "reference2": 0.012070093935283474
+    },
+    {
+      "block": 8,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 22911.071174234552,
+      "reference2": 76957.5889462545
+    },
+    {
+      "block": 8,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.002846414199764528,
+      "reference2": 0.00935632057747369
+    },
+    {
+      "block": 8,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 16508.14343994564,
+      "reference2": 76957.5889462545
+    },
+    {
+      "block": 8,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0022181982014550386,
+      "reference2": 0.00935632057747369
+    },
+    {
+      "block": 8,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 16861.32885765171,
+      "reference2": 76957.5889462545
+    },
+    {
+      "block": 8,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002238621124386049,
+      "reference2": 0.00935632057747369
+    },
+    {
+      "block": 9,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 36697.99357151006,
+      "reference2": 138534.60639302758
+    },
+    {
+      "block": 9,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.004234507054101348,
+      "reference2": 0.015884412538050424
+    },
+    {
+      "block": 9,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 29969.650064044934,
+      "reference2": 138534.60639302758
+    },
+    {
+      "block": 9,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0037425404060703223,
+      "reference2": 0.015884412538050424
+    },
+    {
+      "block": 9,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 29705.59545182852,
+      "reference2": 138534.60639302758
+    },
+    {
+      "block": 9,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0037339254731336277,
+      "reference2": 0.015884412538050424
+    },
+    {
+      "block": 9,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 33182.22076633562,
+      "reference2": 118982.92866718344
+    },
+    {
+      "block": 9,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0038172345224368716,
+      "reference2": 0.01430216123529279
+    },
+    {
+      "block": 9,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 25960.069391207457,
+      "reference2": 118982.92866718344
+    },
+    {
+      "block": 9,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003389511367143922,
+      "reference2": 0.01430216123529279
+    },
+    {
+      "block": 9,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 25565.160970512192,
+      "reference2": 118982.92866718344
+    },
+    {
+      "block": 9,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003366647443660122,
+      "reference2": 0.01430216123529279
+    },
+    {
+      "block": 9,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 29274.52381903047,
+      "reference2": 112620.77431500235
+    },
+    {
+      "block": 9,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0033819253250701015,
+      "reference2": 0.012678629070949212
+    },
+    {
+      "block": 9,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 23504.71481556315,
+      "reference2": 112620.77431500235
+    },
+    {
+      "block": 9,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0028738539672364524,
+      "reference2": 0.012678629070949212
+    },
+    {
+      "block": 9,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 23574.97239169332,
+      "reference2": 112620.77431500235
+    },
+    {
+      "block": 9,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002896754171811044,
+      "reference2": 0.012678629070949212
+    },
+    {
+      "block": 9,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 22624.793881664395,
+      "reference2": 77282.74895730098
+    },
+    {
+      "block": 9,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0029302606045618802,
+      "reference2": 0.00943648709974951
+    },
+    {
+      "block": 9,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 17113.643679354303,
+      "reference2": 77282.74895730098
+    },
+    {
+      "block": 9,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0023806899465945988,
+      "reference2": 0.00943648709974951
+    },
+    {
+      "block": 9,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 17453.541345205864,
+      "reference2": 77282.74895730098
+    },
+    {
+      "block": 9,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0024117727173791274,
+      "reference2": 0.00943648709974951
+    },
+    {
+      "block": 10,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 32692.53445116087,
+      "reference2": 137363.82996260418
+    },
+    {
+      "block": 10,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0038184795880922386,
+      "reference2": 0.015947463489071754
+    },
+    {
+      "block": 10,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 23495.01311262478,
+      "reference2": 137363.82996260418
+    },
+    {
+      "block": 10,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0027904711191133204,
+      "reference2": 0.015947463489071754
+    },
+    {
+      "block": 10,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 23425.03305111578,
+      "reference2": 137363.82996260418
+    },
+    {
+      "block": 10,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0027815320004969703,
+      "reference2": 0.015947463489071754
+    },
+    {
+      "block": 10,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 29985.306124960825,
+      "reference2": 148485.1573399845
+    },
+    {
+      "block": 10,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0034619765348488105,
+      "reference2": 0.016555826700607977
+    },
+    {
+      "block": 10,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 24407.08498482175,
+      "reference2": 148485.1573399845
+    },
+    {
+      "block": 10,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0027789927625113627,
+      "reference2": 0.016555826700607977
+    },
+    {
+      "block": 10,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 23733.88958310159,
+      "reference2": 148485.1573399845
+    },
+    {
+      "block": 10,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0027223524205966364,
+      "reference2": 0.016555826700607977
+    },
+    {
+      "block": 10,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 25710.74152926251,
+      "reference2": 123689.30198603083
+    },
+    {
+      "block": 10,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0029586951951991285,
+      "reference2": 0.014642370346469662
+    },
+    {
+      "block": 10,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 20544.300186154367,
+      "reference2": 123689.30198603083
+    },
+    {
+      "block": 10,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0024430246032368028,
+      "reference2": 0.014642370346469662
+    },
+    {
+      "block": 10,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 20494.912445751455,
+      "reference2": 123689.30198603083
+    },
+    {
+      "block": 10,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0024415612093789687,
+      "reference2": 0.014642370346469662
+    },
+    {
+      "block": 10,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 20109.935336322087,
+      "reference2": 95638.73495793033
+    },
+    {
+      "block": 10,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0024891885967288224,
+      "reference2": 0.011358921737036733
+    },
+    {
+      "block": 10,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 16216.738059884996,
+      "reference2": 95638.73495793033
+    },
+    {
+      "block": 10,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0019223435863098936,
+      "reference2": 0.011358921737036733
+    },
+    {
+      "block": 10,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 15890.213021501844,
+      "reference2": 95638.73495793033
+    },
+    {
+      "block": 10,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0019091301188333236,
+      "reference2": 0.011358921737036733
+    },
+    {
+      "block": 11,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 43992.02802520158,
+      "reference2": 169332.27644558996
+    },
+    {
+      "block": 11,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.005032183478748851,
+      "reference2": 0.019220183125314403
+    },
+    {
+      "block": 11,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 32697.31653231792,
+      "reference2": 169332.27644558996
+    },
+    {
+      "block": 11,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0034987055460783565,
+      "reference2": 0.019220183125314403
+    },
+    {
+      "block": 11,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 31803.52872544853,
+      "reference2": 169332.27644558996
+    },
+    {
+      "block": 11,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0034025545242099883,
+      "reference2": 0.019220183125314403
+    },
+    {
+      "block": 11,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 41324.73879163864,
+      "reference2": 168410.21385029456
+    },
+    {
+      "block": 11,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.004717577408132175,
+      "reference2": 0.019306536550961303
+    },
+    {
+      "block": 11,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 30051.71969738136,
+      "reference2": 168410.21385029456
+    },
+    {
+      "block": 11,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003202329401668101,
+      "reference2": 0.019306536550961303
+    },
+    {
+      "block": 11,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 29878.604480985596,
+      "reference2": 168410.21385029456
+    },
+    {
+      "block": 11,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003167409826720309,
+      "reference2": 0.019306536550961303
+    },
+    {
+      "block": 11,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 34342.211282750446,
+      "reference2": 100956.82285588967
+    },
+    {
+      "block": 11,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003839059859485155,
+      "reference2": 0.0119641729277575
+    },
+    {
+      "block": 11,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 28061.73772296191,
+      "reference2": 100956.82285588967
+    },
+    {
+      "block": 11,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0030415295167363727,
+      "reference2": 0.0119641729277575
+    },
+    {
+      "block": 11,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 28018.49277788967,
+      "reference2": 100956.82285588967
+    },
+    {
+      "block": 11,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003033638153465486,
+      "reference2": 0.0119641729277575
+    },
+    {
+      "block": 11,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 34872.083344390354,
+      "reference2": 90108.11263675711
+    },
+    {
+      "block": 11,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0038857663180612003,
+      "reference2": 0.010617321756104678
+    },
+    {
+      "block": 11,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 30150.037718957676,
+      "reference2": 90108.11263675711
+    },
+    {
+      "block": 11,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003272241399552821,
+      "reference2": 0.010617321756104678
+    },
+    {
+      "block": 11,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 30035.454862789204,
+      "reference2": 90108.11263675711
+    },
+    {
+      "block": 11,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0032471677385365076,
+      "reference2": 0.010617321756104678
+    },
+    {
+      "block": 12,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 31032.055599015905,
+      "reference2": 178040.08574256525
+    },
+    {
+      "block": 12,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0038202410499893857,
+      "reference2": 0.020006922695089354
+    },
+    {
+      "block": 12,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 33692.75429246266,
+      "reference2": 178040.08574256525
+    },
+    {
+      "block": 12,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.004187563551565089,
+      "reference2": 0.020006922695089354
+    },
+    {
+      "block": 12,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 36064.88749240087,
+      "reference2": 178040.08574256525
+    },
+    {
+      "block": 12,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.004458137468181173,
+      "reference2": 0.020006922695089354
+    },
+    {
+      "block": 12,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 31818.502870897326,
+      "reference2": 205468.8361835255
+    },
+    {
+      "block": 12,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0038292627268662104,
+      "reference2": 0.022541830916048354
+    },
+    {
+      "block": 12,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 30821.85735099541,
+      "reference2": 205468.8361835255
+    },
+    {
+      "block": 12,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0037984532227033343,
+      "reference2": 0.022541830916048354
+    },
+    {
+      "block": 12,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 32556.16368432967,
+      "reference2": 205468.8361835255
+    },
+    {
+      "block": 12,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003996069574666378,
+      "reference2": 0.022541830916048354
+    },
+    {
+      "block": 12,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 31156.559466716666,
+      "reference2": 194378.59966427885
+    },
+    {
+      "block": 12,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003878825582391185,
+      "reference2": 0.02180113172771376
+    },
+    {
+      "block": 12,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 27963.484753138837,
+      "reference2": 194378.59966427885
+    },
+    {
+      "block": 12,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0033406990597499987,
+      "reference2": 0.02180113172771376
+    },
+    {
+      "block": 12,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 29334.154107074275,
+      "reference2": 194378.59966427885
+    },
+    {
+      "block": 12,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003494347688086675,
+      "reference2": 0.02180113172771376
+    },
+    {
+      "block": 12,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 23322.378265027077,
+      "reference2": 113733.00703428095
+    },
+    {
+      "block": 12,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.002897108081179858,
+      "reference2": 0.012994188028643355
+    },
+    {
+      "block": 12,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 23499.77852322015,
+      "reference2": 113733.00703428095
+    },
+    {
+      "block": 12,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002951940430262011,
+      "reference2": 0.012994188028643355
+    },
+    {
+      "block": 12,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 23934.10835864653,
+      "reference2": 113733.00703428095
+    },
+    {
+      "block": 12,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003009789859698823,
+      "reference2": 0.012994188028643355
+    },
+    {
+      "block": 13,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 38650.27218905686,
+      "reference2": 140718.13752259407
+    },
+    {
+      "block": 13,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.004201133950566279,
+      "reference2": 0.01672752076786537
+    },
+    {
+      "block": 13,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 28736.84903658168,
+      "reference2": 140718.13752259407
+    },
+    {
+      "block": 13,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003535900636596666,
+      "reference2": 0.01672752076786537
+    },
+    {
+      "block": 13,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 29314.1547286324,
+      "reference2": 140718.13752259407
+    },
+    {
+      "block": 13,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003579448454917781,
+      "reference2": 0.01672752076786537
+    },
+    {
+      "block": 13,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 34417.494719898634,
+      "reference2": 143920.61903604993
+    },
+    {
+      "block": 13,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003813326800818431,
+      "reference2": 0.016540700738494545
+    },
+    {
+      "block": 13,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 24608.06296856127,
+      "reference2": 143920.61903604993
+    },
+    {
+      "block": 13,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0030274668343564584,
+      "reference2": 0.016540700738494545
+    },
+    {
+      "block": 13,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 25243.221770013886,
+      "reference2": 143920.61903604993
+    },
+    {
+      "block": 13,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003084997111946127,
+      "reference2": 0.016540700738494545
+    },
+    {
+      "block": 13,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 26969.334644501705,
+      "reference2": 148144.25660202542
+    },
+    {
+      "block": 13,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0031335642222831655,
+      "reference2": 0.01568541164441742
+    },
+    {
+      "block": 13,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 22895.838173294676,
+      "reference2": 148144.25660202542
+    },
+    {
+      "block": 13,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.00284117241582526,
+      "reference2": 0.01568541164441742
+    },
+    {
+      "block": 13,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 22468.350646980165,
+      "reference2": 148144.25660202542
+    },
+    {
+      "block": 13,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0027899647455256935,
+      "reference2": 0.01568541164441742
+    },
+    {
+      "block": 13,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 22987.768839999535,
+      "reference2": 105060.07169010257
+    },
+    {
+      "block": 13,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.002607577768703724,
+      "reference2": 0.012069247057251535
+    },
+    {
+      "block": 13,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 18066.75636900304,
+      "reference2": 105060.07169010257
+    },
+    {
+      "block": 13,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002179066899912303,
+      "reference2": 0.012069247057251535
+    },
+    {
+      "block": 13,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 18263.494546169488,
+      "reference2": 105060.07169010257
+    },
+    {
+      "block": 13,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002188749701588629,
+      "reference2": 0.012069247057251535
+    },
+    {
+      "block": 14,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 34511.110734633294,
+      "reference2": 203973.94266167533
+    },
+    {
+      "block": 14,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.004011736814655779,
+      "reference2": 0.020953696196115208
+    },
+    {
+      "block": 14,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 28287.28916785711,
+      "reference2": 203973.94266167533
+    },
+    {
+      "block": 14,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003342413631296188,
+      "reference2": 0.020953696196115208
+    },
+    {
+      "block": 14,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 28948.62205098195,
+      "reference2": 203973.94266167533
+    },
+    {
+      "block": 14,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0034175701468385665,
+      "reference2": 0.020953696196115208
+    },
+    {
+      "block": 14,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 33047.666782543165,
+      "reference2": 224374.04883760592
+    },
+    {
+      "block": 14,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0037072702310965346,
+      "reference2": 0.022365639977571676
+    },
+    {
+      "block": 14,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 30929.794740987934,
+      "reference2": 224374.04883760592
+    },
+    {
+      "block": 14,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0034852218169208267,
+      "reference2": 0.022365639977571676
+    },
+    {
+      "block": 14,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 32045.36036732311,
+      "reference2": 224374.04883760592
+    },
+    {
+      "block": 14,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003609708110441347,
+      "reference2": 0.022365639977571676
+    },
+    {
+      "block": 14,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 25963.54268661778,
+      "reference2": 190125.44193534358
+    },
+    {
+      "block": 14,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.002911248574007842,
+      "reference2": 0.018783726410560184
+    },
+    {
+      "block": 14,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 26453.838775176166,
+      "reference2": 190125.44193534358
+    },
+    {
+      "block": 14,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0030692708448648016,
+      "reference2": 0.018783726410560184
+    },
+    {
+      "block": 14,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 26713.213771347426,
+      "reference2": 190125.44193534358
+    },
+    {
+      "block": 14,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003086523766998289,
+      "reference2": 0.018783726410560184
+    },
+    {
+      "block": 14,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 26006.96431295231,
+      "reference2": 119808.71679028796
+    },
+    {
+      "block": 14,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003097213328800738,
+      "reference2": 0.012027427842045055
+    },
+    {
+      "block": 14,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 24422.165473539768,
+      "reference2": 119808.71679028796
+    },
+    {
+      "block": 14,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0028708181009745454,
+      "reference2": 0.012027427842045055
+    },
+    {
+      "block": 14,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 24276.245886628873,
+      "reference2": 119808.71679028796
+    },
+    {
+      "block": 14,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.00285349343493352,
+      "reference2": 0.012027427842045055
+    },
+    {
+      "block": 15,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 29305.612745516097,
+      "reference2": 151632.983294289
+    },
+    {
+      "block": 15,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0034118466437412466,
+      "reference2": 0.01729723980239196
+    },
+    {
+      "block": 15,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 21629.298751431812,
+      "reference2": 151632.983294289
+    },
+    {
+      "block": 15,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002654840584742293,
+      "reference2": 0.01729723980239196
+    },
+    {
+      "block": 15,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 21026.873543267695,
+      "reference2": 151632.983294289
+    },
+    {
+      "block": 15,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0026027559821282715,
+      "reference2": 0.01729723980239196
+    },
+    {
+      "block": 15,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 30449.37448633028,
+      "reference2": 132029.09025197002
+    },
+    {
+      "block": 15,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0036728052060484083,
+      "reference2": 0.01456992726467821
+    },
+    {
+      "block": 15,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 21981.004293063434,
+      "reference2": 132029.09025197002
+    },
+    {
+      "block": 15,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0027327433454236256,
+      "reference2": 0.01456992726467821
+    },
+    {
+      "block": 15,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 21334.551818595228,
+      "reference2": 132029.09025197002
+    },
+    {
+      "block": 15,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002665238108403736,
+      "reference2": 0.01456992726467821
+    },
+    {
+      "block": 15,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 31119.503690526253,
+      "reference2": 139441.93784097023
+    },
+    {
+      "block": 15,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0036388200126439276,
+      "reference2": 0.014032253697791994
+    },
+    {
+      "block": 15,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 19167.946762858923,
+      "reference2": 139441.93784097023
+    },
+    {
+      "block": 15,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0024146675651182605,
+      "reference2": 0.014032253697791994
+    },
+    {
+      "block": 15,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 19106.078020422996,
+      "reference2": 139441.93784097023
+    },
+    {
+      "block": 15,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002397178164927172,
+      "reference2": 0.014032253697791994
+    },
+    {
+      "block": 15,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 28199.38692951301,
+      "reference2": 100481.24902578318
+    },
+    {
+      "block": 15,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.00317931645317377,
+      "reference2": 0.01134449368944285
+    },
+    {
+      "block": 15,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 18482.25698000112,
+      "reference2": 100481.24902578318
+    },
+    {
+      "block": 15,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0022260551530138865,
+      "reference2": 0.01134449368944285
+    },
+    {
+      "block": 15,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 18197.200157963656,
+      "reference2": 100481.24902578318
+    },
+    {
+      "block": 15,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002193108298928567,
+      "reference2": 0.01134449368944285
+    },
+    {
+      "block": 16,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 27914.254087233894,
+      "reference2": 183340.19180032684
+    },
+    {
+      "block": 16,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003323130646295533,
+      "reference2": 0.01856639773760252
+    },
+    {
+      "block": 16,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 22592.908797328833,
+      "reference2": 183340.19180032684
+    },
+    {
+      "block": 16,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0028735147429178633,
+      "reference2": 0.01856639773760252
+    },
+    {
+      "block": 16,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 22856.894372231054,
+      "reference2": 183340.19180032684
+    },
+    {
+      "block": 16,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0029229700149690464,
+      "reference2": 0.01856639773760252
+    },
+    {
+      "block": 16,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 28270.790519365153,
+      "reference2": 166174.2961645957
+    },
+    {
+      "block": 16,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0033820172438546086,
+      "reference2": 0.01720164183648047
+    },
+    {
+      "block": 16,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 26004.99854899047,
+      "reference2": 166174.2961645957
+    },
+    {
+      "block": 16,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0030731462619924942,
+      "reference2": 0.01720164183648047
+    },
+    {
+      "block": 16,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 26389.37820617603,
+      "reference2": 166174.2961645957
+    },
+    {
+      "block": 16,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0031262238246186785,
+      "reference2": 0.01720164183648047
+    },
+    {
+      "block": 16,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 27612.420607519205,
+      "reference2": 121129.47086118479
+    },
+    {
+      "block": 16,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003158007874251882,
+      "reference2": 0.012819025901977792
+    },
+    {
+      "block": 16,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 23398.892883702574,
+      "reference2": 121129.47086118479
+    },
+    {
+      "block": 16,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002723393987368375,
+      "reference2": 0.012819025901977792
+    },
+    {
+      "block": 16,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 22969.535887592785,
+      "reference2": 121129.47086118479
+    },
+    {
+      "block": 16,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002693070964296736,
+      "reference2": 0.012819025901977792
+    },
+    {
+      "block": 16,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 24835.3785305233,
+      "reference2": 131108.4103697754
+    },
+    {
+      "block": 16,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.002953406670856786,
+      "reference2": 0.012963923152822833
+    },
+    {
+      "block": 16,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 22186.30916749373,
+      "reference2": 131108.4103697754
+    },
+    {
+      "block": 16,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002614104583875487,
+      "reference2": 0.012963923152822833
+    },
+    {
+      "block": 16,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 21624.195449178267,
+      "reference2": 131108.4103697754
+    },
+    {
+      "block": 16,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002555769905644204,
+      "reference2": 0.012963923152822833
+    },
+    {
+      "block": 17,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 32151.362551655875,
+      "reference2": 164419.3294971529
+    },
+    {
+      "block": 17,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003972597841398231,
+      "reference2": 0.018712369721079824
+    },
+    {
+      "block": 17,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 34988.82070720258,
+      "reference2": 164419.3294971529
+    },
+    {
+      "block": 17,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.004217314098204566,
+      "reference2": 0.018712369721079824
+    },
+    {
+      "block": 17,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 35228.67953403958,
+      "reference2": 164419.3294971529
+    },
+    {
+      "block": 17,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.004246134134094465,
+      "reference2": 0.018712369721079824
+    },
+    {
+      "block": 17,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 29245.188147663037,
+      "reference2": 184878.42957866465
+    },
+    {
+      "block": 17,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003462818743338646,
+      "reference2": 0.020225418120355405
+    },
+    {
+      "block": 17,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 31907.808248355,
+      "reference2": 184878.42957866465
+    },
+    {
+      "block": 17,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0037330579347928466,
+      "reference2": 0.020225418120355405
+    },
+    {
+      "block": 17,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 32295.485503837466,
+      "reference2": 184878.42957866465
+    },
+    {
+      "block": 17,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0037895070727323207,
+      "reference2": 0.020225418120355405
+    },
+    {
+      "block": 17,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 26784.47167593801,
+      "reference2": 165680.76376553113
+    },
+    {
+      "block": 17,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0033145536948898,
+      "reference2": 0.018072976656417588
+    },
+    {
+      "block": 17,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 29011.846341217788,
+      "reference2": 165680.76376553113
+    },
+    {
+      "block": 17,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0034652305830711726,
+      "reference2": 0.018072976656417588
+    },
+    {
+      "block": 17,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 28742.96233026886,
+      "reference2": 165680.76376553113
+    },
+    {
+      "block": 17,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0034662084888349614,
+      "reference2": 0.018072976656417588
+    },
+    {
+      "block": 17,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 31231.464032829113,
+      "reference2": 143179.1876787459
+    },
+    {
+      "block": 17,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0036513215934709927,
+      "reference2": 0.014644637487691688
+    },
+    {
+      "block": 17,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 28225.33399031275,
+      "reference2": 143179.1876787459
+    },
+    {
+      "block": 17,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003335654752534063,
+      "reference2": 0.014644637487691688
+    },
+    {
+      "block": 17,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 28493.42654257461,
+      "reference2": 143179.1876787459
+    },
+    {
+      "block": 17,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003363286269988294,
+      "reference2": 0.014644637487691688
+    },
+    {
+      "block": 18,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 30369.586709123192,
+      "reference2": 181704.40628893237
+    },
+    {
+      "block": 18,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.004074637259006462,
+      "reference2": 0.02136131474886846
+    },
+    {
+      "block": 18,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 29255.91921547298,
+      "reference2": 181704.40628893237
+    },
+    {
+      "block": 18,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0037117087617355403,
+      "reference2": 0.02136131474886846
+    },
+    {
+      "block": 18,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 29752.45921655712,
+      "reference2": 181704.40628893237
+    },
+    {
+      "block": 18,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0037569948311274672,
+      "reference2": 0.02136131474886846
+    },
+    {
+      "block": 18,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 28856.04957478302,
+      "reference2": 174767.73785070181
+    },
+    {
+      "block": 18,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003897254749290036,
+      "reference2": 0.019822664999518406
+    },
+    {
+      "block": 18,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 22570.152252048098,
+      "reference2": 174767.73785070181
+    },
+    {
+      "block": 18,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0029265992844247158,
+      "reference2": 0.019822664999518406
+    },
+    {
+      "block": 18,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 22850.128821789636,
+      "reference2": 174767.73785070181
+    },
+    {
+      "block": 18,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0029569695877889064,
+      "reference2": 0.019822664999518406
+    },
+    {
+      "block": 18,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 30136.401329148623,
+      "reference2": 175404.00222367054
+    },
+    {
+      "block": 18,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.004020958903778029,
+      "reference2": 0.020171291229583783
+    },
+    {
+      "block": 18,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 28545.644232759398,
+      "reference2": 175404.00222367054
+    },
+    {
+      "block": 18,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0037024518810271417,
+      "reference2": 0.020171291229583783
+    },
+    {
+      "block": 18,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 28609.944094571896,
+      "reference2": 175404.00222367054
+    },
+    {
+      "block": 18,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0036944202605031047,
+      "reference2": 0.020171291229583783
+    },
+    {
+      "block": 18,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 21851.55377319402,
+      "reference2": 123917.15261309565
+    },
+    {
+      "block": 18,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0029209236560652383,
+      "reference2": 0.014487692601976234
+    },
+    {
+      "block": 18,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 19704.796080900607,
+      "reference2": 123917.15261309565
+    },
+    {
+      "block": 18,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.00236087324550416,
+      "reference2": 0.014487692601976234
+    },
+    {
+      "block": 18,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 19866.49255072987,
+      "reference2": 123917.15261309565
+    },
+    {
+      "block": 18,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0023551227421872364,
+      "reference2": 0.014487692601976234
+    },
+    {
+      "block": 19,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 43527.08780729893,
+      "reference2": 207523.54782319447
+    },
+    {
+      "block": 19,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.00515264003874151,
+      "reference2": 0.02437920431024358
+    },
+    {
+      "block": 19,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 36906.202548917696,
+      "reference2": 207523.54782319447
+    },
+    {
+      "block": 19,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.004332906232454643,
+      "reference2": 0.02437920431024358
+    },
+    {
+      "block": 19,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 36800.72627068335,
+      "reference2": 207523.54782319447
+    },
+    {
+      "block": 19,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.004340636674888116,
+      "reference2": 0.02437920431024358
+    },
+    {
+      "block": 19,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 37916.24361705237,
+      "reference2": 166435.9147651214
+    },
+    {
+      "block": 19,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.004492135698635987,
+      "reference2": 0.018986573112279925
+    },
+    {
+      "block": 19,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 33210.760710916235,
+      "reference2": 166435.9147651214
+    },
+    {
+      "block": 19,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0039396327079835106,
+      "reference2": 0.018986573112279925
+    },
+    {
+      "block": 19,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 33619.718887307,
+      "reference2": 166435.9147651214
+    },
+    {
+      "block": 19,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003983136088320929,
+      "reference2": 0.018986573112279925
+    },
+    {
+      "block": 19,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 33533.39468705267,
+      "reference2": 136416.7058023615
+    },
+    {
+      "block": 19,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003835169701767717,
+      "reference2": 0.015760854280332234
+    },
+    {
+      "block": 19,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 28221.62090663727,
+      "reference2": 136416.7058023615
+    },
+    {
+      "block": 19,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0033323051134819858,
+      "reference2": 0.015760854280332234
+    },
+    {
+      "block": 19,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 28302.66661337339,
+      "reference2": 136416.7058023615
+    },
+    {
+      "block": 19,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003322502533481539,
+      "reference2": 0.015760854280332234
+    },
+    {
+      "block": 19,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 28428.96321122323,
+      "reference2": 113087.55356952165
+    },
+    {
+      "block": 19,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0034550018635139935,
+      "reference2": 0.013315867044336422
+    },
+    {
+      "block": 19,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 26364.588249868044,
+      "reference2": 113087.55356952165
+    },
+    {
+      "block": 19,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0032396733426048353,
+      "reference2": 0.013315867044336422
+    },
+    {
+      "block": 19,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 26491.033319347385,
+      "reference2": 113087.55356952165
+    },
+    {
+      "block": 19,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003252394477722923,
+      "reference2": 0.013315867044336422
+    },
+    {
+      "block": 20,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 31111.002905888217,
+      "reference2": 104631.65294030028
+    },
+    {
+      "block": 20,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003809807027419578,
+      "reference2": 0.012802610174338421
+    },
+    {
+      "block": 20,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 26557.802916730274,
+      "reference2": 104631.65294030028
+    },
+    {
+      "block": 20,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0032749979743603662,
+      "reference2": 0.012802610174338421
+    },
+    {
+      "block": 20,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 26641.285272378394,
+      "reference2": 104631.65294030028
+    },
+    {
+      "block": 20,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003288678859162582,
+      "reference2": 0.012802610174338421
+    },
+    {
+      "block": 20,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 28066.825094526102,
+      "reference2": 108656.36876223878
+    },
+    {
+      "block": 20,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0033727415286130547,
+      "reference2": 0.013105943829017835
+    },
+    {
+      "block": 20,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 25970.040953559856,
+      "reference2": 108656.36876223878
+    },
+    {
+      "block": 20,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003137620645412978,
+      "reference2": 0.013105943829017835
+    },
+    {
+      "block": 20,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 26188.952429906767,
+      "reference2": 108656.36876223878
+    },
+    {
+      "block": 20,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0031684647801427605,
+      "reference2": 0.013105943829017835
+    },
+    {
+      "block": 20,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 31105.18137571095,
+      "reference2": 118600.62285583664
+    },
+    {
+      "block": 20,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0035690575135868974,
+      "reference2": 0.01484319391601847
+    },
+    {
+      "block": 20,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 28795.967045970858,
+      "reference2": 118600.62285583664
+    },
+    {
+      "block": 20,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0032457201190216013,
+      "reference2": 0.01484319391601847
+    },
+    {
+      "block": 20,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 28898.72599094336,
+      "reference2": 118600.62285583664
+    },
+    {
+      "block": 20,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003253813981898468,
+      "reference2": 0.01484319391601847
+    },
+    {
+      "block": 20,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 22703.707800890927,
+      "reference2": 94593.814797601
+    },
+    {
+      "block": 20,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0027913084028987874,
+      "reference2": 0.011383040611814672
+    },
+    {
+      "block": 20,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 21832.32332820445,
+      "reference2": 94593.814797601
+    },
+    {
+      "block": 20,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0027023818626730053,
+      "reference2": 0.011383040611814672
+    },
+    {
+      "block": 20,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 21140.27208190842,
+      "reference2": 94593.814797601
+    },
+    {
+      "block": 20,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0026298737299383316,
+      "reference2": 0.011383040611814672
+    },
+    {
+      "block": 21,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 29721.557798645325,
+      "reference2": 155933.6186696369
+    },
+    {
+      "block": 21,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0033683619374434547,
+      "reference2": 0.017411743427169512
+    },
+    {
+      "block": 21,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 25446.13492105861,
+      "reference2": 155933.6186696369
+    },
+    {
+      "block": 21,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0030189999998132414,
+      "reference2": 0.017411743427169512
+    },
+    {
+      "block": 21,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 25513.54046684236,
+      "reference2": 155933.6186696369
+    },
+    {
+      "block": 21,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003051807840080517,
+      "reference2": 0.017411743427169512
+    },
+    {
+      "block": 21,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 26491.602224406037,
+      "reference2": 178781.19591982872
+    },
+    {
+      "block": 21,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0032131018774911747,
+      "reference2": 0.018451001191928443
+    },
+    {
+      "block": 21,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 30660.510723654468,
+      "reference2": 178781.19591982872
+    },
+    {
+      "block": 21,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0036497458770623882,
+      "reference2": 0.018451001191928443
+    },
+    {
+      "block": 21,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 31184.39080488358,
+      "reference2": 178781.19591982872
+    },
+    {
+      "block": 21,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003752530928348112,
+      "reference2": 0.018451001191928443
+    },
+    {
+      "block": 21,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 20444.570655734926,
+      "reference2": 148001.41527739828
+    },
+    {
+      "block": 21,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0024780875600615383,
+      "reference2": 0.016528309993098757
+    },
+    {
+      "block": 21,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 23897.998891797695,
+      "reference2": 148001.41527739828
+    },
+    {
+      "block": 21,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0028131886162661816,
+      "reference2": 0.016528309993098757
+    },
+    {
+      "block": 21,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 24155.681721826848,
+      "reference2": 148001.41527739828
+    },
+    {
+      "block": 21,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002861048528281943,
+      "reference2": 0.016528309993098757
+    },
+    {
+      "block": 21,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 21520.66651827209,
+      "reference2": 111431.38237756278
+    },
+    {
+      "block": 21,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0025158956624964117,
+      "reference2": 0.012853010333858557
+    },
+    {
+      "block": 21,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 23550.80004887368,
+      "reference2": 111431.38237756278
+    },
+    {
+      "block": 21,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0027349830029247827,
+      "reference2": 0.012853010333858557
+    },
+    {
+      "block": 21,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 23965.928831601686,
+      "reference2": 111431.38237756278
+    },
+    {
+      "block": 21,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002797996053828436,
+      "reference2": 0.012853010333858557
+    },
+    {
+      "block": 22,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 27437.880714599185,
+      "reference2": 150427.94582517864
+    },
+    {
+      "block": 22,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0031869997117341823,
+      "reference2": 0.017406409240780293
+    },
+    {
+      "block": 22,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 26339.604316241694,
+      "reference2": 150427.94582517864
+    },
+    {
+      "block": 22,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003085779948201327,
+      "reference2": 0.017406409240780293
+    },
+    {
+      "block": 22,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 27102.92724592791,
+      "reference2": 150427.94582517864
+    },
+    {
+      "block": 22,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003145333370235351,
+      "reference2": 0.017406409240780293
+    },
+    {
+      "block": 22,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 26096.977636461255,
+      "reference2": 153446.54141830726
+    },
+    {
+      "block": 22,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003180749613421861,
+      "reference2": 0.01771773903523293
+    },
+    {
+      "block": 22,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 26225.461849204345,
+      "reference2": 153446.54141830726
+    },
+    {
+      "block": 22,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0033091548586971988,
+      "reference2": 0.01771773903523293
+    },
+    {
+      "block": 22,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 25949.46345613077,
+      "reference2": 153446.54141830726
+    },
+    {
+      "block": 22,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0032742430963421457,
+      "reference2": 0.01771773903523293
+    },
+    {
+      "block": 22,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 22692.13220560632,
+      "reference2": 134619.08232717973
+    },
+    {
+      "block": 22,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0028592454892739047,
+      "reference2": 0.015652735170592787
+    },
+    {
+      "block": 22,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 25631.312221197717,
+      "reference2": 134619.08232717973
+    },
+    {
+      "block": 22,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003263040289266883,
+      "reference2": 0.015652735170592787
+    },
+    {
+      "block": 22,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 25384.597797358936,
+      "reference2": 134619.08232717973
+    },
+    {
+      "block": 22,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0032413164041769377,
+      "reference2": 0.015652735170592787
+    },
+    {
+      "block": 22,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 23653.26762865602,
+      "reference2": 113040.15676043881
+    },
+    {
+      "block": 22,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003029903757575354,
+      "reference2": 0.012831617141456518
+    },
+    {
+      "block": 22,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 26613.580972389536,
+      "reference2": 113040.15676043881
+    },
+    {
+      "block": 22,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003513511592230598,
+      "reference2": 0.012831617141456518
+    },
+    {
+      "block": 22,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 26823.613610354776,
+      "reference2": 113040.15676043881
+    },
+    {
+      "block": 22,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003526403017098713,
+      "reference2": 0.012831617141456518
+    },
+    {
+      "block": 23,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 23635.406883552056,
+      "reference2": 123263.19286013542
+    },
+    {
+      "block": 23,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0027681570099820883,
+      "reference2": 0.014479499539036385
+    },
+    {
+      "block": 23,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 25240.740182660484,
+      "reference2": 123263.19286013542
+    },
+    {
+      "block": 23,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0030553017136550386,
+      "reference2": 0.014479499539036385
+    },
+    {
+      "block": 23,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 25309.734656282013,
+      "reference2": 123263.19286013542
+    },
+    {
+      "block": 23,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003049211101798796,
+      "reference2": 0.014479499539036385
+    },
+    {
+      "block": 23,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 21295.555621740616,
+      "reference2": 106251.03364674107
+    },
+    {
+      "block": 23,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.002622230023751287,
+      "reference2": 0.01309655888047749
+    },
+    {
+      "block": 23,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 21646.880215988727,
+      "reference2": 106251.03364674107
+    },
+    {
+      "block": 23,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0027231523671432936,
+      "reference2": 0.01309655888047749
+    },
+    {
+      "block": 23,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 21435.12923262537,
+      "reference2": 106251.03364674107
+    },
+    {
+      "block": 23,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0026751523094391046,
+      "reference2": 0.01309655888047749
+    },
+    {
+      "block": 23,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 22061.420616848987,
+      "reference2": 111721.39826085482
+    },
+    {
+      "block": 23,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0027985956907885614,
+      "reference2": 0.013547818407113166
+    },
+    {
+      "block": 23,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 20910.54410550237,
+      "reference2": 111721.39826085482
+    },
+    {
+      "block": 23,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002794389933702572,
+      "reference2": 0.013547818407113166
+    },
+    {
+      "block": 23,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 21054.65979307351,
+      "reference2": 111721.39826085482
+    },
+    {
+      "block": 23,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0028033473597088624,
+      "reference2": 0.013547818407113166
+    },
+    {
+      "block": 23,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 20017.12574456309,
+      "reference2": 78030.43194647413
+    },
+    {
+      "block": 23,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0024447938768944076,
+      "reference2": 0.009541326802374735
+    },
+    {
+      "block": 23,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 18660.85029339092,
+      "reference2": 78030.43194647413
+    },
+    {
+      "block": 23,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002407468105202651,
+      "reference2": 0.009541326802374735
+    },
+    {
+      "block": 23,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 18657.82733891494,
+      "reference2": 78030.43194647413
+    },
+    {
+      "block": 23,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0023956084936967194,
+      "reference2": 0.009541326802374735
+    },
+    {
+      "block": 24,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 31127.64327610842,
+      "reference2": 175715.82352505112
+    },
+    {
+      "block": 24,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003850010528772244,
+      "reference2": 0.020636368381262628
+    },
+    {
+      "block": 24,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 26620.238678407044,
+      "reference2": 175715.82352505112
+    },
+    {
+      "block": 24,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0030229818355447476,
+      "reference2": 0.020636368381262628
+    },
+    {
+      "block": 24,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 27725.040056756432,
+      "reference2": 175715.82352505112
+    },
+    {
+      "block": 24,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003144023027600574,
+      "reference2": 0.020636368381262628
+    },
+    {
+      "block": 24,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 32605.527024302915,
+      "reference2": 171205.0944870421
+    },
+    {
+      "block": 24,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003963758134008307,
+      "reference2": 0.01993690736581539
+    },
+    {
+      "block": 24,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 28069.426760338945,
+      "reference2": 171205.0944870421
+    },
+    {
+      "block": 24,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0032972238416101984,
+      "reference2": 0.01993690736581539
+    },
+    {
+      "block": 24,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 29231.115992184852,
+      "reference2": 171205.0944870421
+    },
+    {
+      "block": 24,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0034275684723538077,
+      "reference2": 0.01993690736581539
+    },
+    {
+      "block": 24,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 21484.71593465829,
+      "reference2": 115951.78284502708
+    },
+    {
+      "block": 24,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.002636726971095212,
+      "reference2": 0.01345065659689429
+    },
+    {
+      "block": 24,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 17066.68135340673,
+      "reference2": 115951.78284502708
+    },
+    {
+      "block": 24,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0019828908029164423,
+      "reference2": 0.01345065659689429
+    },
+    {
+      "block": 24,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 17148.861870191362,
+      "reference2": 115951.78284502708
+    },
+    {
+      "block": 24,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0020008501650165735,
+      "reference2": 0.01345065659689429
+    },
+    {
+      "block": 24,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 21756.612779925843,
+      "reference2": 95403.17310776073
+    },
+    {
+      "block": 24,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0027216549346558167,
+      "reference2": 0.011307248211052813
+    },
+    {
+      "block": 24,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 19447.317591635256,
+      "reference2": 95403.17310776073
+    },
+    {
+      "block": 24,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002317744125260157,
+      "reference2": 0.011307248211052813
+    },
+    {
+      "block": 24,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 19398.003831372003,
+      "reference2": 95403.17310776073
+    },
+    {
+      "block": 24,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0023107068968692534,
+      "reference2": 0.011307248211052813
+    },
+    {
+      "block": 25,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 22939.892827349264,
+      "reference2": 110376.63256405832
+    },
+    {
+      "block": 25,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0026308240644192485,
+      "reference2": 0.012882985237453506
+    },
+    {
+      "block": 25,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 20239.975336108124,
+      "reference2": 110376.63256405832
+    },
+    {
+      "block": 25,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002506648810497416,
+      "reference2": 0.012882985237453506
+    },
+    {
+      "block": 25,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 20187.151680040755,
+      "reference2": 110376.63256405832
+    },
+    {
+      "block": 25,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0024938611501284748,
+      "reference2": 0.012882985237453506
+    },
+    {
+      "block": 25,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 23393.462334204436,
+      "reference2": 121412.04194554729
+    },
+    {
+      "block": 25,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.002640759909887342,
+      "reference2": 0.01356637322522979
+    },
+    {
+      "block": 25,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 22088.91478191496,
+      "reference2": 121412.04194554729
+    },
+    {
+      "block": 25,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0027117696991352472,
+      "reference2": 0.01356637322522979
+    },
+    {
+      "block": 25,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 22079.08290009734,
+      "reference2": 121412.04194554729
+    },
+    {
+      "block": 25,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0026894863602585297,
+      "reference2": 0.01356637322522979
+    },
+    {
+      "block": 25,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 22034.96258934821,
+      "reference2": 118006.39812660732
+    },
+    {
+      "block": 25,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0026635539221134263,
+      "reference2": 0.013101280373073291
+    },
+    {
+      "block": 25,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 23211.69678313772,
+      "reference2": 118006.39812660732
+    },
+    {
+      "block": 25,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002806514734223203,
+      "reference2": 0.013101280373073291
+    },
+    {
+      "block": 25,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 23683.44692411466,
+      "reference2": 118006.39812660732
+    },
+    {
+      "block": 25,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0028439577023243357,
+      "reference2": 0.013101280373073291
+    },
+    {
+      "block": 25,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 24633.972843510688,
+      "reference2": 92260.12866131969
+    },
+    {
+      "block": 25,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0029921295600789355,
+      "reference2": 0.010705839986031453
+    },
+    {
+      "block": 25,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 22720.991442126826,
+      "reference2": 92260.12866131969
+    },
+    {
+      "block": 25,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002815480613760817,
+      "reference2": 0.010705839986031453
+    },
+    {
+      "block": 25,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 22586.18124120705,
+      "reference2": 92260.12866131969
+    },
+    {
+      "block": 25,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002811874749906075,
+      "reference2": 0.010705839986031453
+    },
+    {
+      "block": 26,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 34468.4972702643,
+      "reference2": 136142.53826388248
+    },
+    {
+      "block": 26,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.004133537397073297,
+      "reference2": 0.015548421157563216
+    },
+    {
+      "block": 26,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 21204.488550374284,
+      "reference2": 136142.53826388248
+    },
+    {
+      "block": 26,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002693878539484047,
+      "reference2": 0.015548421157563216
+    },
+    {
+      "block": 26,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 21301.489768311414,
+      "reference2": 136142.53826388248
+    },
+    {
+      "block": 26,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0027265321229830355,
+      "reference2": 0.015548421157563216
+    },
+    {
+      "block": 26,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 36702.8355707543,
+      "reference2": 141374.99015443612
+    },
+    {
+      "block": 26,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.004471478305333322,
+      "reference2": 0.01665628914731528
+    },
+    {
+      "block": 26,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 23108.097101592786,
+      "reference2": 141374.99015443612
+    },
+    {
+      "block": 26,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002891732558563641,
+      "reference2": 0.01665628914731528
+    },
+    {
+      "block": 26,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 23084.48699957612,
+      "reference2": 141374.99015443612
+    },
+    {
+      "block": 26,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002896973511928327,
+      "reference2": 0.01665628914731528
+    },
+    {
+      "block": 26,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 22959.553873150366,
+      "reference2": 135203.8091973631
+    },
+    {
+      "block": 26,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.002820479367164596,
+      "reference2": 0.01542636897084303
+    },
+    {
+      "block": 26,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 17759.280146330853,
+      "reference2": 135203.8091973631
+    },
+    {
+      "block": 26,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002166683533759761,
+      "reference2": 0.01542636897084303
+    },
+    {
+      "block": 26,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 17714.667927654256,
+      "reference2": 135203.8091973631
+    },
+    {
+      "block": 26,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0021590179784446587,
+      "reference2": 0.01542636897084303
+    },
+    {
+      "block": 26,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 23349.086065679992,
+      "reference2": 108386.40095589292
+    },
+    {
+      "block": 26,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.002778778686810931,
+      "reference2": 0.01274375290442962
+    },
+    {
+      "block": 26,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 17855.196243679722,
+      "reference2": 108386.40095589292
+    },
+    {
+      "block": 26,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0022795797650774054,
+      "reference2": 0.01274375290442962
+    },
+    {
+      "block": 26,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 17208.390297140304,
+      "reference2": 108386.40095589292
+    },
+    {
+      "block": 26,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002211789233466731,
+      "reference2": 0.01274375290442962
+    },
+    {
+      "block": 27,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 39562.6742360254,
+      "reference2": 131828.22017418963
+    },
+    {
+      "block": 27,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.004751963216380983,
+      "reference2": 0.013684134213605233
+    },
+    {
+      "block": 27,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 32834.610609476,
+      "reference2": 131828.22017418963
+    },
+    {
+      "block": 27,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003890314832180034,
+      "reference2": 0.013684134213605233
+    },
+    {
+      "block": 27,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 33898.89556394548,
+      "reference2": 131828.22017418963
+    },
+    {
+      "block": 27,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003966541047252931,
+      "reference2": 0.013684134213605233
+    },
+    {
+      "block": 27,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 34866.140802384274,
+      "reference2": 113814.03263067793
+    },
+    {
+      "block": 27,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.004393155736154807,
+      "reference2": 0.012391801039478333
+    },
+    {
+      "block": 27,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 26968.18836013432,
+      "reference2": 113814.03263067793
+    },
+    {
+      "block": 27,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003388519854331659,
+      "reference2": 0.012391801039478333
+    },
+    {
+      "block": 27,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 28261.024243781674,
+      "reference2": 113814.03263067793
+    },
+    {
+      "block": 27,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003519251305605815,
+      "reference2": 0.012391801039478333
+    },
+    {
+      "block": 27,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 26831.487504707857,
+      "reference2": 107791.1450969724
+    },
+    {
+      "block": 27,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003325128979578328,
+      "reference2": 0.01195730729161507
+    },
+    {
+      "block": 27,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 24975.580324217302,
+      "reference2": 107791.1450969724
+    },
+    {
+      "block": 27,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003024787376556234,
+      "reference2": 0.01195730729161507
+    },
+    {
+      "block": 27,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 25556.612142433827,
+      "reference2": 107791.1450969724
+    },
+    {
+      "block": 27,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003096243619890402,
+      "reference2": 0.01195730729161507
+    },
+    {
+      "block": 27,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 21933.936391345298,
+      "reference2": 96720.64264346167
+    },
+    {
+      "block": 27,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0029093574851113404,
+      "reference2": 0.01017507231696032
+    },
+    {
+      "block": 27,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 20969.371177854067,
+      "reference2": 96720.64264346167
+    },
+    {
+      "block": 27,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0026151060820600825,
+      "reference2": 0.01017507231696032
+    },
+    {
+      "block": 27,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 21406.51851306103,
+      "reference2": 96720.64264346167
+    },
+    {
+      "block": 27,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002655357099053704,
+      "reference2": 0.01017507231696032
+    },
+    {
+      "block": 28,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 24996.962391698613,
+      "reference2": 123168.66582177387
+    },
+    {
+      "block": 28,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.002942197590677255,
+      "reference2": 0.014496401798216221
+    },
+    {
+      "block": 28,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 24070.555746708014,
+      "reference2": 123168.66582177387
+    },
+    {
+      "block": 28,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0028597015138416455,
+      "reference2": 0.014496401798216221
+    },
+    {
+      "block": 28,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 24156.64815223244,
+      "reference2": 123168.66582177387
+    },
+    {
+      "block": 28,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002900338943351427,
+      "reference2": 0.014496401798216221
+    },
+    {
+      "block": 28,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 23304.525921521355,
+      "reference2": 137505.32036047854
+    },
+    {
+      "block": 28,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0028170406641120794,
+      "reference2": 0.01690940758406196
+    },
+    {
+      "block": 28,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 24978.1136500668,
+      "reference2": 137505.32036047854
+    },
+    {
+      "block": 28,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002883862696085114,
+      "reference2": 0.01690940758406196
+    },
+    {
+      "block": 28,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 24545.184631685443,
+      "reference2": 137505.32036047854
+    },
+    {
+      "block": 28,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0028636243818596875,
+      "reference2": 0.01690940758406196
+    },
+    {
+      "block": 28,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 27622.55691538108,
+      "reference2": 94697.86891007402
+    },
+    {
+      "block": 28,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003278616811497688,
+      "reference2": 0.011491783554710268
+    },
+    {
+      "block": 28,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 23157.552938327015,
+      "reference2": 94697.86891007402
+    },
+    {
+      "block": 28,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002678852747388236,
+      "reference2": 0.011491783554710268
+    },
+    {
+      "block": 28,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 23126.02286908799,
+      "reference2": 94697.86891007402
+    },
+    {
+      "block": 28,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.002680275703767043,
+      "reference2": 0.011491783554710268
+    },
+    {
+      "block": 28,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 21775.211811657056,
+      "reference2": 111659.17596145795
+    },
+    {
+      "block": 28,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0025237034999715155,
+      "reference2": 0.012212367691790914
+    },
+    {
+      "block": 28,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 19969.152651937307,
+      "reference2": 111659.17596145795
+    },
+    {
+      "block": 28,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0023307849242145016,
+      "reference2": 0.012212367691790914
+    },
+    {
+      "block": 28,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 20232.200178506588,
+      "reference2": 111659.17596145795
+    },
+    {
+      "block": 28,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0023741518106052254,
+      "reference2": 0.012212367691790914
+    },
+    {
+      "block": 29,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 28362.29695861447,
+      "reference2": 179914.66207453204
+    },
+    {
+      "block": 29,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0034901702955585845,
+      "reference2": 0.018026362703984455
+    },
+    {
+      "block": 29,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 20958.169865736036,
+      "reference2": 179914.66207453204
+    },
+    {
+      "block": 29,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002715138159319759,
+      "reference2": 0.018026362703984455
+    },
+    {
+      "block": 29,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 20898.249421859437,
+      "reference2": 179914.66207453204
+    },
+    {
+      "block": 29,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0027397203515353366,
+      "reference2": 0.018026362703984455
+    },
+    {
+      "block": 29,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 29784.073418689302,
+      "reference2": 143677.98108867384
+    },
+    {
+      "block": 29,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0036174744562303385,
+      "reference2": 0.0150253356911058
+    },
+    {
+      "block": 29,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 23826.656081830064,
+      "reference2": 143677.98108867384
+    },
+    {
+      "block": 29,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002946964299556245,
+      "reference2": 0.0150253356911058
+    },
+    {
+      "block": 29,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 23405.700185177546,
+      "reference2": 143677.98108867384
+    },
+    {
+      "block": 29,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0029196636995486285,
+      "reference2": 0.0150253356911058
+    },
+    {
+      "block": 29,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 28252.678511959442,
+      "reference2": 146598.25538982276
+    },
+    {
+      "block": 29,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0035709529287221743,
+      "reference2": 0.016364637059447483
+    },
+    {
+      "block": 29,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 26210.557021734377,
+      "reference2": 146598.25538982276
+    },
+    {
+      "block": 29,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0033237257699398172,
+      "reference2": 0.016364637059447483
+    },
+    {
+      "block": 29,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 26207.19680431287,
+      "reference2": 146598.25538982276
+    },
+    {
+      "block": 29,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003346314465085425,
+      "reference2": 0.016364637059447483
+    },
+    {
+      "block": 29,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 26075.017823184367,
+      "reference2": 127361.00143645405
+    },
+    {
+      "block": 29,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.002989722189632996,
+      "reference2": 0.01386489268837572
+    },
+    {
+      "block": 29,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 31148.840141536395,
+      "reference2": 127361.00143645405
+    },
+    {
+      "block": 29,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0038265855027197265,
+      "reference2": 0.01386489268837572
+    },
+    {
+      "block": 29,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 32020.524564705287,
+      "reference2": 127361.00143645405
+    },
+    {
+      "block": 29,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003950482126998276,
+      "reference2": 0.01386489268837572
+    },
+    {
+      "block": 30,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 42238.29401502193,
+      "reference2": 146488.238358172
+    },
+    {
+      "block": 30,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.004949225660091678,
+      "reference2": 0.01508007523119022
+    },
+    {
+      "block": 30,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 34427.77333496869,
+      "reference2": 146488.238358172
+    },
+    {
+      "block": 30,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0038108665970309472,
+      "reference2": 0.01508007523119022
+    },
+    {
+      "block": 30,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 35166.712716775706,
+      "reference2": 146488.238358172
+    },
+    {
+      "block": 30,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.00390300847262787,
+      "reference2": 0.01508007523119022
+    },
+    {
+      "block": 30,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 38413.70348342624,
+      "reference2": 155014.5416362718
+    },
+    {
+      "block": 30,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.004537495077907998,
+      "reference2": 0.015607532108379268
+    },
+    {
+      "block": 30,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 29250.985320169457,
+      "reference2": 155014.5416362718
+    },
+    {
+      "block": 30,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003200790657296651,
+      "reference2": 0.015607532108379268
+    },
+    {
+      "block": 30,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 29925.382886653504,
+      "reference2": 155014.5416362718
+    },
+    {
+      "block": 30,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0032719996063314944,
+      "reference2": 0.015607532108379268
+    },
+    {
+      "block": 30,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 30596.80111833153,
+      "reference2": 120328.59191824266
+    },
+    {
+      "block": 30,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.003687758925797354,
+      "reference2": 0.013759878254276214
+    },
+    {
+      "block": 30,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 26882.9398894764,
+      "reference2": 120328.59191824266
+    },
+    {
+      "block": 30,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.003051729118825758,
+      "reference2": 0.013759878254276214
+    },
+    {
+      "block": 30,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 26578.842030938784,
+      "reference2": 120328.59191824266
+    },
+    {
+      "block": 30,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003028560842202707,
+      "reference2": 0.013759878254276214
+    },
+    {
+      "block": 30,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 28909.689098487313,
+      "reference2": 131781.1898558735
+    },
+    {
+      "block": 30,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.0036024513157344213,
+      "reference2": 0.015527848220138547
+    },
+    {
+      "block": 30,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 20566.683044276055,
+      "reference2": 131781.1898558735
+    },
+    {
+      "block": 30,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.002488811660550387,
+      "reference2": 0.015527848220138547
+    },
+    {
+      "block": 30,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 19977.022340409356,
+      "reference2": 131781.1898558735
+    },
+    {
+      "block": 30,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0024179160564902135,
+      "reference2": 0.015527848220138547
+    },
+    {
+      "block": 31,
+      "position": 1,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 38512.36645516356,
+      "reference2": 219445.5885355035
+    },
+    {
+      "block": 31,
+      "position": 1,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.004379706229523975,
+      "reference2": 0.022290762179502967
+    },
+    {
+      "block": 31,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 37350.03808117078,
+      "reference2": 219445.5885355035
+    },
+    {
+      "block": 31,
+      "position": 1,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0040009638216829185,
+      "reference2": 0.022290762179502967
+    },
+    {
+      "block": 31,
+      "position": 1,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 37623.3436548138,
+      "reference2": 219445.5885355035
+    },
+    {
+      "block": 31,
+      "position": 1,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.004036284329667437,
+      "reference2": 0.022290762179502967
+    },
+    {
+      "block": 31,
+      "position": 4,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 34986.34904819063,
+      "reference2": 191557.56776071206
+    },
+    {
+      "block": 31,
+      "position": 4,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.004047465956819861,
+      "reference2": 0.019836966570218766
+    },
+    {
+      "block": 31,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 33619.56741674947,
+      "reference2": 191557.56776071206
+    },
+    {
+      "block": 31,
+      "position": 4,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0037675278138684315,
+      "reference2": 0.019836966570218766
+    },
+    {
+      "block": 31,
+      "position": 4,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 34205.0280536523,
+      "reference2": 191557.56776071206
+    },
+    {
+      "block": 31,
+      "position": 4,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0038238515740507658,
+      "reference2": 0.019836966570218766
+    },
+    {
+      "block": 31,
+      "position": 16,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 36389.55055410336,
+      "reference2": 167812.06265874303
+    },
+    {
+      "block": 31,
+      "position": 16,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.004425419732019836,
+      "reference2": 0.017057121430993957
+    },
+    {
+      "block": 31,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 31495.57742020875,
+      "reference2": 167812.06265874303
+    },
+    {
+      "block": 31,
+      "position": 16,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0036795987639168023,
+      "reference2": 0.017057121430993957
+    },
+    {
+      "block": 31,
+      "position": 16,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 31908.116063430825,
+      "reference2": 167812.06265874303
+    },
+    {
+      "block": 31,
+      "position": 16,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.003747769504240319,
+      "reference2": 0.017057121430993957
+    },
+    {
+      "block": 31,
+      "position": 63,
+      "name": "svd",
+      "mode": "raw",
+      "error2": 24919.82387808089,
+      "reference2": 146982.54026649529
+    },
+    {
+      "block": 31,
+      "position": 63,
+      "name": "svd",
+      "mode": "normalized",
+      "error2": 0.002963808168303053,
+      "reference2": 0.014328402170099806
+    },
+    {
+      "block": 31,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "raw",
+      "error2": 20174.046227361338,
+      "reference2": 146982.54026649529
+    },
+    {
+      "block": 31,
+      "position": 63,
+      "name": "queryfold",
+      "mode": "normalized",
+      "error2": 0.0023618307154028182,
+      "reference2": 0.014328402170099806
+    },
+    {
+      "block": 31,
+      "position": 63,
+      "name": "complete",
+      "mode": "raw",
+      "error2": 21215.969478658124,
+      "reference2": 146982.54026649529
+    },
+    {
+      "block": 31,
+      "position": 63,
+      "name": "complete",
+      "mode": "normalized",
+      "error2": 0.0024792900859437576,
+      "reference2": 0.014328402170099806
+    }
+  ],
+  "scope": "Independent Gaussian residual query/key pairs with sharedquerysource androundedrotation. Completeeven score; normalizersmatch native QK epsilon, input residualRMS not imposed (would alter epsilon only). No value/suffix, text fit or native semantic/OOD claim."
+}

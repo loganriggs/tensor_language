@@ -50,3 +50,17 @@ Thus the incomplete numerator objective was a real mathematical mismatch, but co
 ### Lower-bound countercheck
 
 The retained/discarded contribution is nonnegative, so a global rank48 lower bound is the sum of the sixteen smallest eigenvalues of $\sum_s H_s$. [The executed bound](COMPLETE_EVEN_KEY_V1_LOWER_BOUND.json) is $7.38183\times10^9$, versus best loss $2.69818\times10^{10}$. This bound is loose: it leaves up to 72.6% possible coefficient-error reduction and cannot certify near-global optimality. It neither proves that another optimizer can achieve that gain nor that behavioral error has the same bound. Preserve this uncertainty rather than treating agreement among ten starts as a global theorem.
+
+## Does normalization alone change the ranking?
+
+[A text-independent diagnostic](EVEN_KEY_NORMALIZED_RANDOM_V1_CONTROL.json) evaluates the three frozen rank48 bases on 8,192 independent Gaussian residual query/key pairs, reused at the four position pairs. It compares complete raw even scores with the same scores divided by their full QK normalizers. Both queries share their source state. No fitting uses these probes. Residual input RMS is not separately imposed, so the epsilon contribution is not exactly the native residual-RMS composition; full QK normalization uses native epsilon.
+
+| Basis | Raw functional relative error | QK-normalized relative error |
+|---|---:|---:|
+| Original key-map SVD | 45.95% | 47.43% |
+| Shared-query inside-product fit | 42.98% | 44.48% |
+| Complete-error fit | 43.07% | 44.58% |
+
+Normalization changes errors by only 3.23–3.51% relative and leaves the ranking unchanged, missing the declared 10% material-change bar. [A paired block bootstrap](EVEN_KEY_NORMALIZED_RANDOM_V1_UNCERTAINTY.json), with 2,048 resamples of the 32 independent draw blocks and positions kept together, puts the 95% intervals between 2.14% and 4.56% across candidates. Sampling noise does not plausibly hide a 10% effect in this probe distribution.
+
+This weakens the case for an expensive normalization-focused fit on isotropic probes as the immediate next action. It does **not** rule out important normalization weighting on native, anisotropic circuit states. Also, Gaussian functional error is not coefficient Frobenius error: repeated-input fourth moments weight traces differently. The raw functional column controls for that distinction before attributing changes to normalization. These numbers are not native behavior, OOD performance, or evidence that the weight-first search is exhausted.
