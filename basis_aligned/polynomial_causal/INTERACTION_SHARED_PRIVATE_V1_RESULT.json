@@ -1,0 +1,99 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "rows": [
+    {
+      "rank": 0,
+      "shared_bytes": 0,
+      "private_entries": 1168938,
+      "bitmap_bytes": 221184,
+      "total_bytes": 4896936,
+      "relative_error": 0.1441773365208047,
+      "residual_energy_identity_error": 3.469446951953614e-18,
+      "readout_replay_error": 0.0
+    },
+    {
+      "rank": 1,
+      "shared_bytes": 738816,
+      "private_entries": 984234,
+      "bitmap_bytes": 221184,
+      "total_bytes": 4896936,
+      "relative_error": 0.1906917820613171,
+      "residual_energy_identity_error": 0.0,
+      "readout_replay_error": 1.6200493643559554e-14
+    },
+    {
+      "rank": 2,
+      "shared_bytes": 1330176,
+      "private_entries": 836394,
+      "bitmap_bytes": 221184,
+      "total_bytes": 4896936,
+      "relative_error": 0.22225206682582482,
+      "residual_energy_identity_error": 0.0,
+      "readout_replay_error": 1.9089802841765895e-14
+    },
+    {
+      "rank": 3,
+      "shared_bytes": 1921536,
+      "private_entries": 688554,
+      "bitmap_bytes": 221184,
+      "total_bytes": 4896936,
+      "relative_error": 0.23969260819160806,
+      "residual_energy_identity_error": 0.0,
+      "readout_replay_error": 1.360423576298435e-14
+    },
+    {
+      "rank": 4,
+      "shared_bytes": 2512896,
+      "private_entries": 540714,
+      "bitmap_bytes": 221184,
+      "total_bytes": 4896936,
+      "relative_error": 0.2547933105263207,
+      "residual_energy_identity_error": 1.3877787807814457e-17,
+      "readout_replay_error": 1.3914051980774636e-14
+    },
+    {
+      "rank": 5,
+      "shared_bytes": 3104256,
+      "private_entries": 392874,
+      "bitmap_bytes": 221184,
+      "total_bytes": 4896936,
+      "relative_error": 0.2518126746976837,
+      "residual_energy_identity_error": 1.3877787807814457e-17,
+      "readout_replay_error": 1.63219683799123e-14
+    },
+    {
+      "rank": 6,
+      "shared_bytes": 3695616,
+      "private_entries": 245034,
+      "bitmap_bytes": 221184,
+      "total_bytes": 4896936,
+      "relative_error": 0.24177581573626925,
+      "residual_energy_identity_error": 0.0,
+      "readout_replay_error": 1.1040264386685422e-14
+    },
+    {
+      "rank": 7,
+      "shared_bytes": 4286976,
+      "private_entries": 97194,
+      "bitmap_bytes": 221184,
+      "total_bytes": 4896936,
+      "relative_error": 0.20311216937058793,
+      "residual_energy_identity_error": 6.938893903907228e-18,
+      "readout_replay_error": 1.4854985677839568e-14
+    }
+  ],
+  "best": {
+    "rank": 0,
+    "shared_bytes": 0,
+    "private_entries": 1168938,
+    "bitmap_bytes": 221184,
+    "total_bytes": 4896936,
+    "relative_error": 0.1441773365208047,
+    "residual_energy_identity_error": 3.469446951953614e-18,
+    "readout_replay_error": 0.0
+  },
+  "seconds": 1.8985843621194363,
+  "scope": "Fixed ordinary K32 assignments; exact conditional output PCA then globally largest residual entries at matched nominal byte budget. No joint optimization or serialized artifact; bitmap metadata/runtime costs not discounted. Compared with existing ~10% output/head sparse baseline; no native fidelity or behavioral reuse claim."
+}
