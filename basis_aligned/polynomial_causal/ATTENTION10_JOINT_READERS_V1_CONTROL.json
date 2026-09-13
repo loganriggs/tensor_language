@@ -1,0 +1,78 @@
+{
+  "prediction": "Some rank<=768 gives <=10% relative error for each of O,LO,RO.",
+  "pred_a": false,
+  "rows": [
+    {
+      "rank": 256,
+      "relative_errors": [
+        0.6338205960493472,
+        0.6090789034599389,
+        0.6088194317892972
+      ],
+      "joint_relative_error": 0.6173509966355051,
+      "direct_change_macs": 11943936,
+      "shared_change_macs": 2949120,
+      "additional_factor_scalars": 2949120,
+      "scope": "Original L/R/O remain needed for pristine context and other paths; factor storage is additional unless those dependencies are separately replaced."
+    },
+    {
+      "rank": 512,
+      "relative_errors": [
+        0.3666589470433166,
+        0.34531071893915943,
+        0.34498017581334567
+      ],
+      "joint_relative_error": 0.3524625737887642,
+      "direct_change_macs": 11943936,
+      "shared_change_macs": 5898240,
+      "additional_factor_scalars": 5898240,
+      "scope": "Original L/R/O remain needed for pristine context and other paths; factor storage is additional unless those dependencies are separately replaced."
+    },
+    {
+      "rank": 768,
+      "relative_errors": [
+        0.16607060767108867,
+        0.15387244216531984,
+        0.15371489956402234
+      ],
+      "joint_relative_error": 0.15799203095741082,
+      "direct_change_macs": 11943936,
+      "shared_change_macs": 8847360,
+      "additional_factor_scalars": 8847360,
+      "scope": "Original L/R/O remain needed for pristine context and other paths; factor storage is additional unless those dependencies are separately replaced."
+    },
+    {
+      "rank": 1024,
+      "relative_errors": [
+        0.031476271306511976,
+        0.028909900869936164,
+        0.028784639361658607
+      ],
+      "joint_relative_error": 0.029749473311034655,
+      "direct_change_macs": 11943936,
+      "shared_change_macs": 11796480,
+      "additional_factor_scalars": 11796480,
+      "scope": "Original L/R/O remain needed for pristine context and other paths; factor storage is additional unless those dependencies are separately replaced."
+    },
+    {
+      "rank": 1152,
+      "relative_errors": [
+        0.0,
+        2.3770979717438876e-08,
+        4.3350717296280175e-08
+      ],
+      "joint_relative_error": 0.0,
+      "direct_change_macs": 11943936,
+      "shared_change_macs": 13271040,
+      "additional_factor_scalars": 13271040,
+      "scope": "Original L/R/O remain needed for pristine context and other paths; factor storage is additional unless those dependencies are separately replaced."
+    }
+  ],
+  "seconds": 0.8356718569993973,
+  "block_order": [
+    "O",
+    "L O",
+    "R O"
+  ],
+  "scope": "Exact optimal common input subspace for equally Frobenius-normalized block objective, FP64 actual weights. No text fit, native fidelity, or claim about sparse/block/DAG alternatives."
+}
