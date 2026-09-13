@@ -1,0 +1,364 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "pred_d": true,
+  "initial_loss": 0.014533384836233619,
+  "final_loss": 0.013639066122115419,
+  "relative_error": 0.11678641240365002,
+  "cpu_initial_replay_relative_error": 1.193612840727864e-16,
+  "unit_reader_gradient_rms": 8.546041247585021e-10,
+  "fp32_artifact_loss": 0.013639066122114914,
+  "iterations": 36,
+  "function_evaluations": 49,
+  "evaluations": [
+    {
+      "evaluation": 0,
+      "loss": 0.014533384836233619,
+      "seconds": 0.7666203044354916,
+      "reader_norm_min": 0.9999999999999998,
+      "reader_norm_max": 1.0000000000000002
+    },
+    {
+      "evaluation": 1,
+      "loss": 0.01453296031947928,
+      "seconds": 0.7132837139070034,
+      "reader_norm_min": 1.000000000001722,
+      "reader_norm_max": 1.0000000003388287
+    },
+    {
+      "evaluation": 2,
+      "loss": 0.014529146333449516,
+      "seconds": 0.7131684832274914,
+      "reader_norm_min": 1.0000000001721876,
+      "reader_norm_max": 1.0000000338828685
+    },
+    {
+      "evaluation": 3,
+      "loss": 0.01449166639913073,
+      "seconds": 0.7130963802337646,
+      "reader_norm_min": 1.0000000172187697,
+      "reader_norm_max": 1.0000033882811696
+    },
+    {
+      "evaluation": 4,
+      "loss": 0.014182955590292723,
+      "seconds": 0.7131235487759113,
+      "reader_norm_min": 1.000001721875507,
+      "reader_norm_max": 1.000338771307988
+    },
+    {
+      "evaluation": 5,
+      "loss": 0.013799972697460035,
+      "seconds": 0.7134686186909676,
+      "reader_norm_min": 1.0000182954064494,
+      "reader_norm_max": 1.0050615102311051
+    },
+    {
+      "evaluation": 6,
+      "loss": 0.013818659198067157,
+      "seconds": 0.7134844549000263,
+      "reader_norm_min": 1.0000109311862364,
+      "reader_norm_max": 1.0346317640289135
+    },
+    {
+      "evaluation": 7,
+      "loss": 0.013709695049695894,
+      "seconds": 0.7130826413631439,
+      "reader_norm_min": 1.0000129140168414,
+      "reader_norm_max": 1.0127774341903222
+    },
+    {
+      "evaluation": 8,
+      "loss": 0.013681714669057524,
+      "seconds": 0.7134405113756657,
+      "reader_norm_min": 1.0000096359427553,
+      "reader_norm_max": 1.0148917705724816
+    },
+    {
+      "evaluation": 9,
+      "loss": 0.013658961340985877,
+      "seconds": 0.7133904919028282,
+      "reader_norm_min": 1.0000097128212901,
+      "reader_norm_max": 1.020056722714525
+    },
+    {
+      "evaluation": 10,
+      "loss": 0.01364959293380505,
+      "seconds": 0.7134096994996071,
+      "reader_norm_min": 1.0000119754485306,
+      "reader_norm_max": 1.025584283331703
+    },
+    {
+      "evaluation": 11,
+      "loss": 0.013644691685913302,
+      "seconds": 0.7134220898151398,
+      "reader_norm_min": 1.0000129024707356,
+      "reader_norm_max": 1.0257268789560483
+    },
+    {
+      "evaluation": 12,
+      "loss": 0.013642548290503048,
+      "seconds": 0.7134022377431393,
+      "reader_norm_min": 1.000014669238173,
+      "reader_norm_max": 1.0262774758808957
+    },
+    {
+      "evaluation": 13,
+      "loss": 0.013640935322337849,
+      "seconds": 0.713402271270752,
+      "reader_norm_min": 1.00001649235536,
+      "reader_norm_max": 1.0270696491525177
+    },
+    {
+      "evaluation": 14,
+      "loss": 0.013640799494239299,
+      "seconds": 0.713408425450325,
+      "reader_norm_min": 1.000018657638314,
+      "reader_norm_max": 1.0280721711011422
+    },
+    {
+      "evaluation": 15,
+      "loss": 0.01364019092340472,
+      "seconds": 0.7130464427173138,
+      "reader_norm_min": 1.0000175949417327,
+      "reader_norm_max": 1.0275912684248607
+    },
+    {
+      "evaluation": 16,
+      "loss": 0.013639481638972105,
+      "seconds": 0.7133913971483707,
+      "reader_norm_min": 1.0000185484426298,
+      "reader_norm_max": 1.0281594695237515
+    },
+    {
+      "evaluation": 17,
+      "loss": 0.013639327404081131,
+      "seconds": 0.7133742459118366,
+      "reader_norm_min": 1.0000185155628403,
+      "reader_norm_max": 1.0281816095267928
+    },
+    {
+      "evaluation": 18,
+      "loss": 0.01363920006947457,
+      "seconds": 0.7133572548627853,
+      "reader_norm_min": 1.0000184822116656,
+      "reader_norm_max": 1.0281601947735994
+    },
+    {
+      "evaluation": 19,
+      "loss": 0.013639144872701861,
+      "seconds": 0.7133398056030273,
+      "reader_norm_min": 1.0000186476420196,
+      "reader_norm_max": 1.0282382268581236
+    },
+    {
+      "evaluation": 20,
+      "loss": 0.013639107318885667,
+      "seconds": 0.7133905999362469,
+      "reader_norm_min": 1.0000187365106117,
+      "reader_norm_max": 1.02826682291037
+    },
+    {
+      "evaluation": 21,
+      "loss": 0.013639090595645902,
+      "seconds": 0.7133619226515293,
+      "reader_norm_min": 1.000018841499546,
+      "reader_norm_max": 1.0283053418561596
+    },
+    {
+      "evaluation": 22,
+      "loss": 0.013639081866575878,
+      "seconds": 0.7133630178868771,
+      "reader_norm_min": 1.00001888738551,
+      "reader_norm_max": 1.0283255150141135
+    },
+    {
+      "evaluation": 23,
+      "loss": 0.01363907944047166,
+      "seconds": 0.7134100124239922,
+      "reader_norm_min": 1.0000189874639218,
+      "reader_norm_max": 1.028379139628853
+    },
+    {
+      "evaluation": 24,
+      "loss": 0.013639070122404638,
+      "seconds": 0.7135522104799747,
+      "reader_norm_min": 1.0000189476190358,
+      "reader_norm_max": 1.0283590294253098
+    },
+    {
+      "evaluation": 25,
+      "loss": 0.013639069182725951,
+      "seconds": 0.7132887542247772,
+      "reader_norm_min": 1.0000189342902877,
+      "reader_norm_max": 1.0283536013374803
+    },
+    {
+      "evaluation": 26,
+      "loss": 0.013639067971273868,
+      "seconds": 0.7132978737354279,
+      "reader_norm_min": 1.0000189273329751,
+      "reader_norm_max": 1.0283519069705327
+    },
+    {
+      "evaluation": 27,
+      "loss": 0.013639067583606149,
+      "seconds": 0.7133010849356651,
+      "reader_norm_min": 1.0000189400134099,
+      "reader_norm_max": 1.0283586279146224
+    },
+    {
+      "evaluation": 28,
+      "loss": 0.013639066733332175,
+      "seconds": 0.713292371481657,
+      "reader_norm_min": 1.0000189422165435,
+      "reader_norm_max": 1.0283593827595086
+    },
+    {
+      "evaluation": 29,
+      "loss": 0.01363906658403458,
+      "seconds": 0.7134390287101269,
+      "reader_norm_min": 1.0000189448759786,
+      "reader_norm_max": 1.0283604100413415
+    },
+    {
+      "evaluation": 30,
+      "loss": 0.013639066511793906,
+      "seconds": 0.7133332043886185,
+      "reader_norm_min": 1.000018945154345,
+      "reader_norm_max": 1.0283605306340056
+    },
+    {
+      "evaluation": 31,
+      "loss": 0.013639066458416572,
+      "seconds": 0.7133466936647892,
+      "reader_norm_min": 1.0000189448561936,
+      "reader_norm_max": 1.0283604116144818
+    },
+    {
+      "evaluation": 32,
+      "loss": 0.01363906641640261,
+      "seconds": 0.7132925055921078,
+      "reader_norm_min": 1.0000189444547005,
+      "reader_norm_max": 1.028360250636707
+    },
+    {
+      "evaluation": 33,
+      "loss": 0.01363906638232664,
+      "seconds": 0.7132505513727665,
+      "reader_norm_min": 1.0000189440790546,
+      "reader_norm_max": 1.0283601001794895
+    },
+    {
+      "evaluation": 34,
+      "loss": 0.01363906622678505,
+      "seconds": 0.7131491973996162,
+      "reader_norm_min": 1.000018940723716,
+      "reader_norm_max": 1.028358746090179
+    },
+    {
+      "evaluation": 35,
+      "loss": 0.013639066158858185,
+      "seconds": 0.7167277671396732,
+      "reader_norm_min": 1.0000189421923824,
+      "reader_norm_max": 1.0283595409715955
+    },
+    {
+      "evaluation": 36,
+      "loss": 0.013639066141943726,
+      "seconds": 0.7167992554605007,
+      "reader_norm_min": 1.000018940877296,
+      "reader_norm_max": 1.0283589813008847
+    },
+    {
+      "evaluation": 37,
+      "loss": 0.013639066376163985,
+      "seconds": 0.7167922779917717,
+      "reader_norm_min": 1.000018940464369,
+      "reader_norm_max": 1.0283587909047773
+    },
+    {
+      "evaluation": 38,
+      "loss": 0.013639066130183756,
+      "seconds": 0.7164382003247738,
+      "reader_norm_min": 1.0000189408023814,
+      "reader_norm_max": 1.028358944711787
+    },
+    {
+      "evaluation": 39,
+      "loss": 0.013639066130848119,
+      "seconds": 0.7168124318122864,
+      "reader_norm_min": 1.0000189406906055,
+      "reader_norm_max": 1.028358881659967
+    },
+    {
+      "evaluation": 40,
+      "loss": 0.013639066127315127,
+      "seconds": 0.7164295539259911,
+      "reader_norm_min": 1.000018940748654,
+      "reader_norm_max": 1.0283589146724035
+    },
+    {
+      "evaluation": 41,
+      "loss": 0.01363906615416698,
+      "seconds": 0.7167961373925209,
+      "reader_norm_min": 1.0000189408825284,
+      "reader_norm_max": 1.0283589994128455
+    },
+    {
+      "evaluation": 42,
+      "loss": 0.013639066125498867,
+      "seconds": 0.7165131270885468,
+      "reader_norm_min": 1.000018940775498,
+      "reader_norm_max": 1.0283589311965888
+    },
+    {
+      "evaluation": 43,
+      "loss": 0.013639066126253157,
+      "seconds": 0.7168091274797916,
+      "reader_norm_min": 1.0000189409259368,
+      "reader_norm_max": 1.0283590045033997
+    },
+    {
+      "evaluation": 44,
+      "loss": 0.013639066124122905,
+      "seconds": 0.7164434231817722,
+      "reader_norm_min": 1.0000189408425173,
+      "reader_norm_max": 1.0283589637208883
+    },
+    {
+      "evaluation": 45,
+      "loss": 0.013639066140445247,
+      "seconds": 0.7168264277279377,
+      "reader_norm_min": 1.0000189406518936,
+      "reader_norm_max": 1.0283588865142728
+    },
+    {
+      "evaluation": 46,
+      "loss": 0.013639066123015717,
+      "seconds": 0.7164741642773151,
+      "reader_norm_min": 1.0000189408041142,
+      "reader_norm_max": 1.028358947771682
+    },
+    {
+      "evaluation": 47,
+      "loss": 0.013639066123546702,
+      "seconds": 0.7168270498514175,
+      "reader_norm_min": 1.0000189409484046,
+      "reader_norm_max": 1.0283590169294528
+    },
+    {
+      "evaluation": 48,
+      "loss": 0.013639066122115419,
+      "seconds": 0.7164384014904499,
+      "reader_norm_min": 1.0000189408679256,
+      "reader_norm_max": 1.0283589782533584
+    }
+  ],
+  "seconds": 37.95036684721708,
+  "artifact_sha256": "e870ddcc3f55b49ac09646589408f04c0ab9b493fd6a64ca734e04140b5ad287",
+  "artifact_bytes": 62099842,
+  "peak_cuda_bytes": 4429226496,
+  "scope": "pred_a CPU loss replay <=1e-8 relative.\npred_b final relative coefficient error <=.1.\npred_c unit-reader gradient RMS <=1e-7.\npred_d FP32 artifact normalized loss change <=1e-6 absolute.\nPrice: one FP64 GPU, 40 L-BFGS iterations / 80 evaluations, 900s alarm.\nWeights-only fit; no data, native suffix or circuit-adoption claim.\n Budget termination is not convergence; unit-coordinate gradient predicate is separate."
+}

@@ -66,3 +66,23 @@ multiple-start recovery claim. Binding and terminal receipt are
 `COMPOSED_READER_LBFGS_V1_BINDING.json` and
 `COMPOSED_READER_LBFGS_V1_RESULT.json`; inspect the latter and live runner state
 before launching any continuation.
+
+The first GPU fit completed in 37.95 seconds, 36 L-BFGS iterations and 49
+objective/gradient evaluations. Typical evaluation cost is 0.71 seconds.
+Relative error reaches 11.6786%; the unit-coordinate gradient RMS is
+$8.55\times10^{-10}$, passing the declared local stationarity criterion.
+Reader norms remain between approximately 1 and 1.0284. The CPU initial loss
+replays to $1.19\times10^{-16}$ relative difference, and FP32 storage changes
+normalized loss by roughly $5\times10^{-16}$. Peak allocated GPU memory is
+4.43 GB. This is a locally stationary miss of the 10% fidelity target, not a
+global absence result. The frozen program is 62.10 MB including serialization.
+
+The measured cost justifies a ten-start countercheck through the same managed
+GPU lane: composed/upstream norm-ranked supports, each crossed with reader
+perturbation scales 0, 0.01, 0.03, 0.1 and 0.3 using fixed distinct seeds.
+Each gets 60 iterations/100 evaluations and reports its final unit-coordinate
+gradient separately. These are structured and perturbed starts, not arbitrary
+global initialization coverage. Total alarm budget is 1800 seconds. Only the
+best frozen program is retained; no fit uses native text or behavioral scores.
+Follow `COMPOSED_READER_MULTISTART_V1_RESULT.json` and its progress receipt
+before deciding whether any apparent negative is robust to these starts.
