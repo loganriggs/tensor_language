@@ -1,0 +1,43 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "history": [
+    {
+      "iteration": 0,
+      "relative_squared_error": 0.014533384836233617,
+      "reader_gradient_rms": 1.076012509064777e-05,
+      "elapsed_seconds": 13.361861757934093,
+      "step": 929.3572254742246,
+      "backtracks": 0,
+      "accepted": true
+    },
+    {
+      "iteration": 1,
+      "relative_squared_error": 0.013951532811503964,
+      "reader_gradient_rms": 6.420320777493391e-06,
+      "elapsed_seconds": 29.28528017178178,
+      "step": 778.7772875037078,
+      "backtracks": 1,
+      "accepted": true
+    },
+    {
+      "iteration": 2,
+      "relative_squared_error": 0.013845982836613502,
+      "reader_gradient_rms": 7.735598568746055e-06,
+      "elapsed_seconds": 50.310840737074614,
+      "step": 323.1811963589589,
+      "backtracks": 2,
+      "accepted": true
+    },
+    {
+      "iteration": 3,
+      "relative_squared_error": 0.0137648553039493,
+      "reader_gradient_rms": 3.913214805884138e-06,
+      "elapsed_seconds": 76.53610322251916
+    }
+  ],
+  "squared_error_improvement": 0.052880285008917796,
+  "final_relative_error": 0.11732372012491464,
+  "seconds": 76.53611099720001,
+  "scope": "Three-step CPU escape screen; not a converged fit or adopted circuit.\n\nFixed 4492 product budget, native norm-ranked initialization, free readers.\nPred_a >=1% decrease in squared coefficient error; pred_b final error <=10%.\nNo text fitting. Backtracking accepts only objective decrease.\n"
+}

@@ -1,0 +1,48 @@
+# Moving the product readers after folding the private correction
+
+13 September 2026. The fixed-native-product lower bound does not apply when
+the two input readers of each product move. This tests that larger class at
+4492 products, the largest count compatible with 10% local scalar savings.
+
+Each candidate atom is $S_k=(l_kr_k^T+r_kl_k^T)/2$, with unit-norm reader rows.
+The output weights are solved exactly for each reader setting. If $G$ is the
+candidate atom Gram and $B$ its inner products with each target output tensor,
+the optimal output writer matrix $W$ satisfies $GW=B$. The reduced objective is
+
+$$
+\mathcal L=\frac{\|T\|_F^2-\operatorname{tr}(W^TB)}{\|T\|_F^2}.
+$$
+
+For differentiation, hold the solved writers fixed and differentiate
+$\|T\|^2+\operatorname{tr}(W^TGW)-2\operatorname{tr}(W^TB)$.
+The normal equations cancel the writer derivative. This avoids differentiating
+through a large linear solve while retaining the exact reduced gradient.
+No ridge changes the objective; a dependent candidate dictionary fails the
+Cholesky solve explicitly. Row normalization removes trivial scaling freedom,
+though permutations and swapping the two readers remain symmetries.
+
+The kernel agrees with a small explicit symmetric tensor to $1.11\times10^{-16}$
+in normalized loss. Directional finite-difference gradient error is
+$4.88\times10^{-10}$. A full planted dictionary reconstructs within numerical
+precision. These validate the objective and derivative, not global optimization.
+
+The actual composed target starts from 4492 norm-ranked native products and
+performs three backtracked gradient updates. Output weights are refit at every
+trial. Squared coefficient loss falls from 0.0145334 to 0.0137649, a 5.29%
+improvement. Relative error moves from approximately 12.06% to 11.73%.
+Reader gradient RMS falls from $1.08\times10^{-5}$ to $3.91\times10^{-6}$ but
+does not establish stationarity. The run takes 76.54 CPU seconds. The 1%
+improvement predicate passes; the 10% error predicate fails.
+
+This is evidence that changing readers improves over the fixed dictionary,
+not a converged answer. The next optimization should use quasi-Newton curvature
+and a bounded GPU cost check, keeping exact writer solves and monitoring reader
+scales and meaningful stationarity. Multiple starts become useful after that
+cost and convergence check; repeating many copies of three crude steps is not
+a robust comparison. No data fitting, native replacement or adopted parameter
+reduction is claimed. The full goal remains open.
+
+Kernel/control: `symmetric_product_varpro_v1.py` and
+`SYMMETRIC_PRODUCT_VARPRO_V1_CONTROL.json`. Actual fit:
+`composed_reader_descent_v1.py`, `COMPOSED_READER_DESCENT_V1_RESULT.json`.
+Keep subsequent fitting results in this primary note.
