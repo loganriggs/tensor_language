@@ -46,3 +46,23 @@ Kernel/control: `symmetric_product_varpro_v1.py` and
 `SYMMETRIC_PRODUCT_VARPRO_V1_CONTROL.json`. Actual fit:
 `composed_reader_descent_v1.py`, `COMPOSED_READER_DESCENT_V1_RESULT.json`.
 Keep subsequent fitting results in this primary note.
+
+## Managed GPU curvature fit
+
+`ops/run_composed_reader_lbfgs_v1.py` uses the same 4492-product initialization
+and exact FP64 objective with L-BFGS, eight curvature-history pairs, strong-Wolfe
+line search and a 40-iteration/80-evaluation setting under a 900-second alarm.
+The initial GPU loss must replay the CPU value within $10^{-8}$ relative error.
+Stationarity is measured again after converting readers to unit coordinates:
+gradient RMS at most $10^{-7}$ is a separate predicate from reaching the iteration
+budget or the 10% coefficient-error target. Reader norm ranges and evaluation
+costs are recorded to expose scale-gauge stopping or poor GPU return on cost.
+
+The fit saves a frozen FP32 reader/writer program, and recomputes its exact
+coefficient loss in FP64 to check the storage conversion within $10^{-6}$
+absolute normalized loss. This is an implementation tolerance, not a native
+effect-preservation bar. The first run is a cost/convergence pilot, not a
+multiple-start recovery claim. Binding and terminal receipt are
+`COMPOSED_READER_LBFGS_V1_BINDING.json` and
+`COMPOSED_READER_LBFGS_V1_RESULT.json`; inspect the latter and live runner state
+before launching any continuation.
