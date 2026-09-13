@@ -1,0 +1,26 @@
+{
+  "cells": [
+    {
+      "strength": 0.003,
+      "child_error": 2.7840940659728744e-05,
+      "remainder_error": 2.3879892483416163e-05,
+      "joint_denominator_error": 3.9686325484671263e-07,
+      "product_error": 2.5896043072277367e-05
+    },
+    {
+      "strength": 0.03,
+      "child_error": 2.648058150126601e-06,
+      "remainder_error": 2.175848129167026e-06,
+      "joint_denominator_error": 4.224201103009371e-07,
+      "product_error": 2.461500979508958e-06
+    },
+    {
+      "strength": 0.3,
+      "child_error": 3.1674142901201433e-07,
+      "remainder_error": 2.9530934959516435e-07,
+      "joint_denominator_error": 1.3652483644258589e-07,
+      "product_error": 2.641717951824319e-07
+    }
+  ],
+  "scope": "Actual-weight synthetic FP32 MLP9/attention10 branch execution; generated inputs and joint denominator, then FP64 MLP10 product comparison. Two 17-token contexts and three signed-amplitude scales. Native pristine states/first values retained; no corpus, downstream effect or extraction claim."
+}

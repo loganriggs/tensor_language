@@ -42,3 +42,12 @@ This is a CPU implementation control, not corpus evidence or validation of the M
 All five projection matrices and the output matrix remain charged:6×1152²=7,962,624 attention weight scalars, plus the mixing scalar. No storage reduction or measured runtime improvement is claimed. The implementation exposes the full source/query/head dependence for later selective path tests rather than assuming that a native head is the circuit.
 
 Receipt: `RAW_ATTENTION_RESPONSE_V1_CONTROL.json`. The already queued `MLP9_TO_MLP10_RESIDUAL_FOLD_V1` does **not** use this new helper; its frozen scope and results remain distinct.
+
+
+## Integrated MLP9 → attention10 → MLP10 input control
+
+`composed_mlp10_inputs_v1.execute` now combines the fixed-writer MLP9 response with the full raw-projection attention generator. It returns both pre-MLP10 input changes and computes the joint RMS denominator from the pristine pre-MLP10 state plus these predicted changes. Neither observed child/remainder attention changes nor their observed joint denominator are inputs. The pristine states, bias-free baseline MLP9 output, first values, scalar edit fields and actual weights remain supplied.
+
+The executed `check_composed_mlp10_inputs_v1.py` compares against separate actual-weight FP32 MLP9 and attention10 branch execution on two synthetic17-token contexts and signed edits at scales.003,.03,.3. Worst relative errors: child input2.78e-5, remainder2.39e-5, joint denominator4.23e-7, and the normalized MLP10 cross-product2.59e-5. Thus the largest product discrepancy is0.0026%. These are computational controls; the backgrounds are synthetic and no downstream behavioral measurement has been made. Receipt: `COMPOSED_MLP10_INPUTS_V1_CONTROL.json`.
+
+This integrated helper is the candidate for the next native dependency-removal test after interpreting the already queued residual-only fold. It must preserve the full cross-product effect with its own generated denominator, and separately report the residual-plus-mixed approximation. A passed control cannot establish real-text effect preservation or replace the earlier registered test.
