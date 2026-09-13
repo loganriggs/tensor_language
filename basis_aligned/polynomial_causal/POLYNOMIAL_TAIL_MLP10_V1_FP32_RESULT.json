@@ -1,0 +1,88 @@
+{
+  "dtype": "torch.float32",
+  "replay_tolerance": 2e-05,
+  "pred_a": true,
+  "pred_tail_speed": false,
+  "tail_bank_scalars": 2305,
+  "pred_b": false,
+  "pred_c": false,
+  "rows": [
+    {
+      "tail_replay_error": 6.953689535293961e-07,
+      "tail_speedup": 1.224954327923787,
+      "batch": 1,
+      "relative_error": 6.80910659411893e-07,
+      "three_relative_error": 0.012701630592346191,
+      "median_seconds": {
+        "tail_reused": 0.0010827891528606415,
+        "tail_preparation_included": 0.0037419945001602173,
+        "direct": 0.0010735094547271729,
+        "bank_preparation_included": 0.006016891449689865,
+        "bank_reused": 0.0011700242757797241,
+        "three_preparation_included": 0.004406299442052841,
+        "three_reused": 0.0013263672590255737
+      },
+      "speedup_with_preparation": 0.24363061767473476,
+      "speedup_reused": 0.809360640819674
+    },
+    {
+      "tail_replay_error": 6.887003678457404e-07,
+      "tail_speedup": 1.0544850286006455,
+      "batch": 3,
+      "relative_error": 6.548248165927362e-07,
+      "three_relative_error": 0.012976547703146935,
+      "median_seconds": {
+        "tail_reused": 0.0027978122234344482,
+        "tail_preparation_included": 0.005416642874479294,
+        "direct": 0.00279293954372406,
+        "bank_preparation_included": 0.007584575563669205,
+        "bank_reused": 0.002930913120508194,
+        "three_preparation_included": 0.0058205462992191315,
+        "three_reused": 0.0029502511024475098
+      },
+      "speedup_with_preparation": 0.47984147881424005,
+      "speedup_reused": 0.9466785865810049
+    },
+    {
+      "tail_replay_error": 5.572238706008648e-07,
+      "tail_speedup": 1.2148002867269325,
+      "batch": 16,
+      "relative_error": 5.360455475056369e-07,
+      "three_relative_error": 0.008688184432685375,
+      "median_seconds": {
+        "tail_reused": 0.003741830587387085,
+        "tail_preparation_included": 0.006519142538309097,
+        "direct": 0.003730490803718567,
+        "bank_preparation_included": 0.009131219238042831,
+        "bank_reused": 0.00444580614566803,
+        "three_preparation_included": 0.007718347012996674,
+        "three_reused": 0.004545576870441437
+      },
+      "speedup_with_preparation": 0.4833276862826865,
+      "speedup_reused": 0.8206858909320977
+    },
+    {
+      "tail_replay_error": 5.583165147982072e-07,
+      "tail_speedup": 1.260136766793314,
+      "batch": 64,
+      "relative_error": 5.363850732464925e-07,
+      "three_relative_error": 0.008326565846800804,
+      "median_seconds": {
+        "tail_reused": 0.009610749781131744,
+        "tail_preparation_included": 0.012721754610538483,
+        "direct": 0.0099341981112957,
+        "bank_preparation_included": 0.017257515341043472,
+        "bank_reused": 0.01215532049536705,
+        "three_preparation_included": 0.015694182366132736,
+        "three_reused": 0.012110859155654907
+      },
+      "speedup_with_preparation": 0.6329860249829392,
+      "speedup_reused": 0.8202719545835968
+    }
+  ],
+  "additional_prepared_scalars": 31105,
+  "additional_prepared_fp64_bytes": 248840,
+  "direct_main_mac_per_input": 15925248,
+  "bank_main_mac_per_input": 15925248,
+  "scope": "Local fullMLPbranch declared-dtype two-thread CPU, same batched z inputs. Cold includes each bank/readers preparation, excludes shared upstreamresponsecontext and attentioninputgeneration onbothsides. Warm assumes bank prepared after prior use; three-term approximation errors are reported separately. Both retain same dense L/R/Downmaps; bankaddsworkandstate. No GPU/wholemodeltiming."
+}
