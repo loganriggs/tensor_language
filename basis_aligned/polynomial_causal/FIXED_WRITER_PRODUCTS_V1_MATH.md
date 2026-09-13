@@ -42,3 +42,21 @@ An additional [per-product audit](FIXED_WRITER_PRODUCTS_COMPONENT_V1_AUDIT.json)
 ## Interpretation
 
 Prefer the small cache for repeated product preparation. Keep the dense compilation optional until its extra storage and setup are justified by the workload. This is exact computational reuse across contexts of one fixed-writer circuit interface; it does not establish reuse across semantic tasks or reduce the native MLP's stored weights. The previous full five-bank branch still retains its expensive attention/background contractions, so its failed whole-branch price remains unchanged. The same fixed-writer sharing can next be folded directly into five-bank preparation, with a comparison against the already optimized five-bank baseline.
+
+## Combined five-bank preparation and one shared node, 13 September 09:17
+
+That combination is now implemented in [cached_diagonal_products_v1.py](cached_diagonal_products_v1.py). It uses the fixed writer's cached Left/Right projections, constructs the four varying conic-bank vectors before Down, and reuses $P_{00}$. It is compared against the existing direct five-bank preparation, not the older six-bank baseline.
+
+[Matched benchmark](check_cached_diagonal_products_v1.py), [receipt](CACHED_DIAGONAL_PRODUCTS_V1_CONTROL.json): reused speedups are1.33,1.27,1.35times at context batches1,16,128. Each vector is checked separately, with maximum error $3.06\times10^{-15}$. One-time setup costs4.86ms. Including that first setup loses at batches1and16, while batch128 remains1.28times faster. Measured batched amortization is about19contexts. These are local CPU preparation results, not a new full-branch speed claim.
+
+The first version still copied the constant vector into every bank. `prepare_split` now returns one shared fixed vector and four varying vectors per context. `execute_split` multiplies the shared vector by each context's coefficient and adds the four private contributions. The [shared-node control](CACHED_DIAGONAL_SHARED_NODE_V1_CONTROL.json) verifies the fixed vector actually aliases the global cache rather than duplicating storage;128actual-weight synthetic contexts with different amplitudes replay the previous five-bank output within $9.36\times10^{-17}$.
+
+Including **all11,520global-cache scalars**, stored bank-plus-cache size is
+
+$$
+4Nd+11520\quad\text{versus}\quad5Nd,\qquad d=1152.
+$$
+
+At16,128,1024contexts the savings are7.5%,18.44%,19.80%, respectively. At one context it costs more; storage breaks even at10contexts. The benchmark above measures the expanded-output preparation wrapper; the split-bank has a separate exactness/storage check, so no additional split-executor timing gain is claimed.
+
+This is now a literal shared computation graph: one fixed self-product node serves multiple context-specific branches, with four varying vectors per context. Native matrices, response generators, attention/background processing and suffix remain required. It improves this repeated product-bank representation without changing the earlier conclusion that the complete branch schedule has not beaten direct native MLP execution.

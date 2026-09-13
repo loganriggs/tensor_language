@@ -1,0 +1,54 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "rows": [
+    {
+      "batch": 1,
+      "per_vector_relative_errors": [
+        2.5733072050812177e-15,
+        4.94464944401632e-16,
+        5.622358109626117e-17,
+        4.3136623258686906e-18,
+        3.058394267191539e-15
+      ],
+      "baseline_seconds": 0.006272368133068085,
+      "cached_seconds": 0.0047128088772296906,
+      "reused_speedup": 1.3309192662943596,
+      "including_first_setup_speedup": 0.655553665059572,
+      "break_even_contexts": 3.1132115583519053
+    },
+    {
+      "batch": 16,
+      "per_vector_relative_errors": [
+        3.0020338143107913e-15,
+        1.3300030967697605e-15,
+        1.1254157901125866e-16,
+        9.574554637507492e-18,
+        3.538107424015464e-17
+      ],
+      "baseline_seconds": 0.019271712750196457,
+      "cached_seconds": 0.015116889029741287,
+      "reused_speedup": 1.2748464788145817,
+      "including_first_setup_speedup": 0.9649304161155646,
+      "break_even_contexts": 18.697256886475593
+    },
+    {
+      "batch": 128,
+      "per_vector_relative_errors": [
+        3.0020338143108587e-15,
+        1.334647088902753e-15,
+        1.162667574609293e-16,
+        1.500439308750504e-17,
+        3.8631706488912706e-17
+      ],
+      "baseline_seconds": 0.13405175134539604,
+      "cached_seconds": 0.0996590293943882,
+      "reused_speedup": 1.3451039224444272,
+      "including_first_setup_speedup": 1.2826167643337711,
+      "break_even_contexts": 18.069824547189377
+    }
+  ],
+  "setup_seconds": 0.004855237901210785,
+  "cache_scalars": 11520,
+  "scope": "Actualweights/syntheticcontexts,FP64two-threadCPU; optimizedfivebaseline vsfixedwritercachedfive. Four varyingDownwrites plusglobalP00. Outputstillmaterializesfivevectors/context; onlypreparationreuse, notextraoutputstorageorwholebranchgain."
+}
