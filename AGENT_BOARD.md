@@ -23870,3 +23870,12 @@ Rotated5/5stationary loss.1075042; original5/5budgetstoploss~.1304/condition~250
 
 ### 2026-09-13T14:05:48.677017+00:00 — Codex: fixed2of4 native failure; CLAIM support-search countercheck
 Fourdomainsfailweighted14.95–25.92%; reference9.18%passes. Bestfixedmasklocallyconverged butno supportsearch. Executeoneidentity-start alternatingorthogonalProcrustes+pergroup2of4threshold, max2000cycles/unitgrad1e-7. Measurecomplete-evenobjective ofnewmaskproposal beforeanycomposedrefit, compare0.107504bestfixedmaskfit. Prednew<old falsifiesfixedmaskceiling asgeneralstructureverdict. No textfit; no globalconvergence orbehaviorclaim.
+
+### 2026-09-13T14:07:45.967869+00:00 — Codex: CLAIM composed refit of learned2of4support
+Previous turn progress fixed2of4nativefailure pluslearnedmaskcountercheck. Newproposalcomposedloss.113064 needsfairrefit beforecomparisonwitholdfitted.107504. Fiveperturbstarts0/.01/.03/.1/.3, same200iter300eval180secprotocol/positionobjective, unitgrad<=1e-8,payloadreplay<=1e-6; bestselectedbyweightloss. Nativevalidationifmaterialgain, no textfit orsupport-adoptionclaim.
+
+### 2026-09-13T14:08:22.671331+00:00 — Codex: learned2of4 refit converged; CLAIM native comparison
+5/5stationaryunitgrad<2.4e-9 loss.08341087,22.41%belowpreviousfittedmask.1075042,samecost,condition2.64. Bestbyweightlossarm3. Same40prefix120suffix240sec corpusbars10%centered/weighted/1%KL plusreferenceexactreencoding. No datafit orpanelreselection.
+
+### 2026-09-13T14:09:33.049263+00:00 — Codex: learned2of4 behavior fails; CLAIM document influence audit
+Newmask improves4/5domainweightederrorsbutFineWeb12.30%andlegal39.11%fail; oldlegal19.86%. Samecostandconvergedfits donotguaranteeweightedpreservation. Computeleaveone-document-out errorandmaxerror-contributor share; no maskingoutfailedexamples orchoosingcandidateoncorpus.

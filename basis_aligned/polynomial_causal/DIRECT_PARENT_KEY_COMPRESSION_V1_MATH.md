@@ -658,3 +658,51 @@ Native: `ops/run_structured_parent_corpus_v1.py`,
 `STRUCTURED_PARENT_CORPUS_V1_BINDING.json`, `STRUCTURED_PARENT_CORPUS_V1_RESULT.json`.
 Support-search countercheck: `STRUCTURED_PARENT_FRAME_V1_PROGRAM.pt`,
 `STRUCTURED_PARENT_FRAME_V1_RESULT.json`.
+
+
+## Fair composed refit of the learned two-of-four mask
+
+The support-search proposal is now refitted against the same complete-even
+numerator objective, so it can be compared fairly with the preceding fitted
+fixed mask. Five perturbation starts all converge to loss0.08341087, with
+unit-coordinate gradient RMS below2.39e-9 and Gram condition2.64. This is26.23%
+below its own starting loss0.113064 and22.41% below the previous fitted mask's
+0.107504. Storage, number of readers and two-of-four structure are unchanged.
+The best arm is frozen using weight loss before native scoring.
+
+| Domain | Previous fitted mask weighted error | Learned/refitted mask weighted error |
+|---|---:|---:|
+| FineWeb |19.28%|12.30%|
+| Discussion |14.95%|7.17%|
+| Reference |9.18%|8.33%|
+| Biomedical |25.92%|6.04%|
+| Legal/patent |19.86%|39.11%|
+
+Four groups improve but FineWeb and legal/patent still fail10%. Centered
+and KL criteria also fail overall; legal/patent relative KL is15.32% against
+the1% bar. The single largest legal document contributes70.60% of squared
+weighted error, but removing any one document leaves legal error26.35–43.18%.
+Thus one outlier does not explain away that failure. FineWeb's failure can
+change with one document removed; passing discussion/reference/biomedical
+aggregates are likewise not robust to every single-document deletion.
+
+This completes the immediate countercheck to fixed-mask pessimism: support
+learning plus composed refitting gives a material coefficient improvement,
+but this specific stronger-sparsity candidate still fails behavioral preservation.
+Neither basis-error nor unnormalized numerator-error improvement guarantees
+weighted native preservation. No global impossibility or absence of a better
+two-of-four support is established. The preceding irregular25%-pruned composed
+reader remains the better-supported representation; it has broader preservation
+evidence but only packed-storage, not runtime, savings.
+
+Do not benchmark GPU execution of this failed candidate as though speed could
+make it an adopted replacement. Further work should change the representation
+or address a demonstrated objective/dependency mismatch, not repeat these same
+fixed-support starts. Full model simplification and all four circuit properties
+remain unfinished.
+
+Refit code/artifact/results: `refit_structured_parent_frame_v1.py`,
+`STRUCTURED_FRAME_REFIT_V1_PROGRAM.pt`, `STRUCTURED_FRAME_REFIT_V1_RESULT.json`.
+Native runner and receipts: `ops/run_structured_frame_corpus_v1.py`,
+`STRUCTURED_FRAME_CORPUS_V1_BINDING.json`, `STRUCTURED_FRAME_CORPUS_V1_RESULT.json`,
+`STRUCTURED_FRAME_CORPUS_V1_DOCUMENT_AUDIT.json`.

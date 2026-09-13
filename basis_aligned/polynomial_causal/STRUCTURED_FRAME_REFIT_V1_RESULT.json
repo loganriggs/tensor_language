@@ -1,0 +1,83 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "pred_d": true,
+  "baseline_loss": 0.11306395341202455,
+  "best_arm": 3,
+  "relative_gain": 0.2622682135566148,
+  "rows": [
+    {
+      "arm": 0,
+      "frame": "2of4",
+      "perturb": 0,
+      "initial_loss": 0.11306395341202717,
+      "final_loss": 0.08341087233555208,
+      "evaluations": 137,
+      "iterations": 129,
+      "gradient_rms": 2.3832649575243e-09,
+      "converged": true,
+      "payload_loss_delta": 2.9698465908722937e-15,
+      "gram_condition": 2.636693175163666,
+      "timed_out": false
+    },
+    {
+      "arm": 1,
+      "frame": "2of4",
+      "perturb": 0.01,
+      "initial_loss": 0.11312931406879906,
+      "final_loss": 0.08341087233396619,
+      "evaluations": 117,
+      "iterations": 111,
+      "gradient_rms": 1.6834235795228888e-09,
+      "converged": true,
+      "payload_loss_delta": 2.1094237467877974e-15,
+      "gram_condition": 2.6366934943177798,
+      "timed_out": false
+    },
+    {
+      "arm": 2,
+      "frame": "2of4",
+      "perturb": 0.03,
+      "initial_loss": 0.11366861156990289,
+      "final_loss": 0.08341087233359176,
+      "evaluations": 130,
+      "iterations": 123,
+      "gradient_rms": 1.051813468144717e-09,
+      "converged": true,
+      "payload_loss_delta": 2.123301534595612e-15,
+      "gram_condition": 2.6366920263529194,
+      "timed_out": false
+    },
+    {
+      "arm": 3,
+      "frame": "2of4",
+      "perturb": 0.1,
+      "initial_loss": 0.1193538811450163,
+      "final_loss": 0.08341087233300455,
+      "evaluations": 194,
+      "iterations": 120,
+      "gradient_rms": 1.0230638655801042e-09,
+      "converged": true,
+      "payload_loss_delta": 2.1371793224034263e-15,
+      "gram_condition": 2.6366906977667437,
+      "timed_out": false
+    },
+    {
+      "arm": 4,
+      "frame": "2of4",
+      "perturb": 0.3,
+      "initial_loss": 0.16474311406709635,
+      "final_loss": 0.08341087233342158,
+      "evaluations": 193,
+      "iterations": 121,
+      "gradient_rms": 7.676819812989796e-10,
+      "converged": true,
+      "payload_loss_delta": 2.1510571102112408e-15,
+      "gram_condition": 2.636687820371389,
+      "timed_out": false
+    }
+  ],
+  "seconds": 10.823114711791277,
+  "scope": "Five fixed-support two-of-four sparse complete-even fits, weights only.\n200 L-BFGS iterations/300 evaluations per arm,180seconds overall.\nPred_a final loss <=initial each arm. Pred_b >=10%gain vs rotated baseline.\nPred_c normalized-column coordinate gradient RMS<=1e-8 for all five starts.\nPred_d FP32 stored payload normalized loss delta<=1e-6.\n"
+}
