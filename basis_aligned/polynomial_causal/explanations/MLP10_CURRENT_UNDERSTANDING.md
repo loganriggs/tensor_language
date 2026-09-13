@@ -194,3 +194,9 @@ This leaves exact individual terms, six fixed source families, Left/Right/joint 
 consumer-local terms, and source stars unidentified as reusable MLP10 circuit units at the tested scale. A return to MLP10 should
 start from a task-defined learned causal subspace or a new downstream operational interface, use document-disjoint
 data, and physically test joint composition. Do not retry these groupings with more rank or relaxed thresholds.
+
+## 13 September2026: fixed-writer response self-product
+
+A new intervention-conditioned component is the squared direct residual-writer path through MLP10: $a^2c/\rho_{10}$, with fixed $c=D_{10}[(L_{10}\lambda w)\odot(R_{10}\lambda w)]$. The exact response-bank/conic construction exposes this same1152-dimensional writer across contexts. Removing it from all three changed branches alters regional target interactions by8–18%and FineWeb targets by18–33%on160historical prefixes; controls also change. Therefore it is material but not identified as a selective spelling circuit. It is not one of the earlier unconditional source-star groupings.
+
+The [primary explanation and receipts](../FIXED_WRITER_PRODUCTS_V1_MATH.md) distinguish numerical fidelity, shared computation and semantic limitations. A [port-conditioned package](../extracted_circuits/fixed_writer_self_mlp10_v1/README.md) executes without the checkpoint once amplitude and the actual whole-branch normalizer are supplied. No independent text-level extraction, freshOOD or whole-model compression is established.

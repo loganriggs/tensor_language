@@ -60,3 +60,20 @@ $$
 At16,128,1024contexts the savings are7.5%,18.44%,19.80%, respectively. At one context it costs more; storage breaks even at10contexts. The benchmark above measures the expanded-output preparation wrapper; the split-bank has a separate exactness/storage check, so no additional split-executor timing gain is claimed.
 
 This is now a literal shared computation graph: one fixed self-product node serves multiple context-specific branches, with four varying vectors per context. Native matrices, response generators, attention/background processing and suffix remain required. It improves this repeated product-bank representation without changing the earlier conclusion that the complete branch schedule has not beaten direct native MLP execution.
+
+## Shared-node removal and port-conditioned extraction, 13 September 09:23
+
+The shared fixed node is behaviorally material. A managed test zeros $Q_0=P_{00}$ in the child, remainder and parent generated branches while retaining all other terms. In each branch this removes exactly
+
+$$
+\frac{a^2}{2\rho_{10}}P_{00}
+=\frac{a^2}{\rho_{10}}D_{10}[(L_{10}\lambda w)\odot(R_{10}\lambda w)].
+$$
+
+This is the squared direct residual-writer path; it is not removal of the entire writer or every product involving it. The [native receipt](FIXED_SELF_NODE_REMOVAL_V1_RESULT.json) verifies this local deletion against direct MLP algebra within $7.59\times10^{-16}$ and replays native reference corners exactly. It takes12.61seconds on160historical prefixes. Both preservation criteria fail, so the node must not be pruned on this evidence.
+
+[The aligned effect audit](FIXED_SELF_NODE_REMOVAL_V1_AUDIT.json) measures changes relative to the unpruned five-bank program. Joint target effects change by8.28–18.43%of the native interaction norm on regional groups and18.49–33.44%on FineWeb groups. Regional controls also change by13.23–15.35%; this does not identify a selective spelling component. Pruned regional predictions introduce nine material sign reversals across target/control endpoints. Effects are far larger than the verified numerical replay discrepancy.
+
+This is evidence for a useful shared computational primitive, not evidence that it is an independent semantic circuit. Its fixed output direction is now [exported with a checkpoint-free executor](extracted_circuits/fixed_writer_self_mlp10_v1/README.md). The package stores1152FP64scalars (10,793serialized bytes) and takes amplitude plus the actual whole-branch normalizer as inputs. [Extraction control](FIXED_SELF_NODE_EXTRACTION_V1_CONTROL.json) matches direct actual-weight computation within $3.32\times10^{-15}$; the local child/remainder/parent combination matches separate calls within $1.25\times10^{-16}$.
+
+Those supplied ports are substantial dependencies. The package does not generate text-dependent amplitudes, normalization, background or the nonlinear suffix. Combining its local branch differences is exact, but it does not replace separate suffix evaluations when predicting a joint behavioral effect. Fresh/OOD evidence and selective consumer interventions remain outstanding.
