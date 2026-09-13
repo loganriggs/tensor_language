@@ -1,3 +1,5 @@
+**13 September, 03:22 — Three-trajectory conditional predictor validated and exported.** OnlyN/C/R executed; savedpredictions match thepreviousfive-trajectoryreference exactly. Nativeinputgenerators/backgroundremain. Oldwithinheadcomponentexplains onlyapart ofthefullinteraction. [Current derivation](../../ADDITIVE_HEAD_RAW_PORTS_V1_MATH.md) · [Portable core](../../extracted_circuits/three_corner_head17_interaction_v1/README.md) · [Latest requested full report](../for_logan/LATEST.md).
+
 **13 September02:46:** Frozen three-contraction predictor passes96newcity/construction prefixes:3.5–5.2%effecterror, all95nonzero signs plusoneexactzero match; native48/48pairspositive. Conditional contribution remains small andnative-state dependent. [Confirmation and independent-reference audit](../../CROSSFIRST_ATTENTION17_PORTS_V1_MATH.md).
 
 **13 September02:40:** Fixedthree-contraction predictor passescachedregional screen:2.9–4.7%effecterror,96/96signs,0.63secondreadout test. 96newlexical/construction prefixes frozen withoutscoring; nativeconfirmation pending. [Primary evidence](../../CROSSFIRST_ATTENTION17_PORTS_V1_MATH.md).

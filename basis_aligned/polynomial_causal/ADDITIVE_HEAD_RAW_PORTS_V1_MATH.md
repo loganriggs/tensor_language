@@ -63,3 +63,15 @@ Actual-weight synthetic checks comparewithdirectrawA calculation: normidentity2.
 The current wrapper carries allfive128-dimensional projections pertoken percorner; onlythefinalquery projections are mathematically needed, butthat additional interface optimization isnotimplemented. Projection/norm/crossscalar generators andnativebackground/readout remainoutside it. No fullmodel simplicity orautonomousinputgeneration claim.
 
 [Native result](ADDITIVE_HEAD_RAW_PORTS_NATIVE_V1_RESULT.json) · [Per-prefix audit](ADDITIVE_HEAD_RAW_PORTS_NATIVE_V1_AUDIT.json) · [Projected interface control](THREE_CORNER_HEAD_INTERFACE_V1_CONTROL.json) · [Projected interface](three_corner_head_interface_v1.py).
+
+## 03:22 — Actual three-trajectory execution and portable core
+
+The reduced execution test passes A/B/C using only native, child-removal and remainder-removal trajectories. It executes360fullforwards and360readouts for120prefixes, versus600forwards/720readouts in the earlier reference test. Its nativeN/C/R andadditivebackground anchors replayexactly, andcompactpredictions areidentical tothoseoftheprior five-trajectory reconstruction. Fullmixed-effect errors remain0.042–0.134% onthefournewer groups. The run took6.76seconds ofbodytime versus8.58seconds forthepreviousreference protocol; this single comparison isnot a general speed benchmark.
+
+The parent FIELD remains necessary todefine remainder=P-C athead9. The parent TRAJECTORY and additive TRAJECTORY are no longer executed. Candidate inputs do not use their saved reference states. Three upstream nativeconditions andthefinalbackground/readout stillremain; this is conditional extraction progress, not a replacement model.
+
+The [portable core](extracted_circuits/three_corner_head17_interaction_v1/README.md) packages the frozen projected-input arithmetic and147,457 output-map/mixture scalars. Allnative projection/norm/crossscalar andfirstvaluegenerators are explicitly external. An independent package import withreloadedweights exactlymatches thevalidatedcore onactual-weight synthetic inputs forbothfullandcompact modes. This is exportequivalence, not an additionalnativeGPUexperiment.
+
+This bounded interface route is now validated. The larger scientific gap remains upstream generation of thethreeconditions andtheunexplainedinteraction remainder. Further micro-optimizing the local core shouldnot displace tests that expand the actual circuit specification or improve its coverage and selective composition.
+
+[Three-trajectory native result](THREE_TRAJECTORY_HEAD_PREDICTOR_V1_RESULT.json) · [Preregistered criteria](THREE_TRAJECTORY_HEAD_PREDICTOR_V1_PREREGISTRATION.md) · [Export and reload control](THREE_CORNER_HEAD_EXPORT_V1_CONTROL.json).

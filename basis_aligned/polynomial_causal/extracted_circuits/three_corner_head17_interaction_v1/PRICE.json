@@ -1,0 +1,21 @@
+{
+  "stored_tensor_scalars": 147457,
+  "stored_tensor_bytes": 589828,
+  "source_projection_scalars_per_token": 1920,
+  "norm_and_cross_scalars_per_token": 4,
+  "first_value_scalars_per_token": 128,
+  "output_residual_width": 1152,
+  "conditions": [
+    "native",
+    "child_removed",
+    "remainder_removed"
+  ],
+  "excluded_but_required": [
+    "Projection generators and all associated native weights",
+    "Norm and cross-inner-product generators",
+    "Shared first-value generator",
+    "Three condition executions and upstream child/remainder definition",
+    "Final additive background, final RMS, unembedding, soft-cap and scored-token selection"
+  ],
+  "scope": "Local conditional interface price. Native model generation remains required; no wholemodel compression/adoption or autonomous circuit claim."
+}
