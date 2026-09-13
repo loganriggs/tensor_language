@@ -59,7 +59,7 @@ def main():
             za=raw9+(att9-(amplitudes*w).to(att9.dtype))
             ha=za+b9.mlp(F.rms_norm(za,(1152,)))
             raw=b10.lambdas[0]*ha+b10.lambdas[1]*x0
-            state=raw+b10.attn(F.rms_norm(raw,(1152,)),v1.expand(raw.shape[0],-1,-1))[0]
+            state=raw+b10.attn(F.rms_norm(raw,(1152,)),v1.expand(raw.shape[0],*v1.shape[1:]))[0]
             return post(state)
         def amplitudes(count):
             return [v for aa,bb in pairs[:count] for v in (aa,bb,aa+bb)]
@@ -70,7 +70,7 @@ def main():
             return torch.cat([post(branch(v,context)) for v in amplitudes(count)],dim=0)
         def shared_batch(count):
             context=prepare(*arguments);values=torch.cat(amplitudes(count),dim=0)
-            context['first_values']=arguments[4].expand(values.shape[0],-1,-1)
+            context['first_values']=arguments[4].expand(values.shape[0],*arguments[4].shape[1:])
             return post(branch(values,context))
         variants={'native_serial':native_serial,'native_batch':native_batch,'shared_serial':shared_serial,'shared_batch':shared_batch}
         for count in (1,4,12):

@@ -1,0 +1,6 @@
+{
+  "failure": "First launch terminal exit1 before timing: native first values have shape B,T,H,Dh, while batch expansion assumed B,T,D.",
+  "repair": "Expand batch axis preserving all trailing dimensions in both native and shared variants.",
+  "scope": "Execution-only shape repair; no changed amplitudes, thresholds, precision, timing policy or experiment object.",
+  "source_sha256": "90d0b5e6c1080637a9aff50285bea9e5f1bae91a434f2949b318e3a3665320d5"
+}
