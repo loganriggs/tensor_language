@@ -1,0 +1,627 @@
+{
+  "reference_cross_bitwise_replay": true,
+  "telescoping_maxabs": 0.0,
+  "groups": [
+    {
+      "group": "regional0",
+      "original_effect_norm": [
+        0.01372487214782225,
+        0.006316359066281734
+      ],
+      "prediction_relative_error": [
+        0.11932243832425324,
+        0.3888318519433522
+      ],
+      "opposite_signs": [
+        0,
+        2
+      ],
+      "decomposition": {
+        "before10": {
+          "norm_over_original": [
+            0.11407452471176131,
+            0.3959628959408824
+          ],
+          "signed_projection": [
+            0.1038710630282325,
+            0.3462788645427167
+          ]
+        },
+        "block10_total": {
+          "norm_over_original": [
+            0.2521012935380416,
+            0.18844018887784622
+          ],
+          "signed_projection": [
+            0.07193874104151692,
+            0.17160935542527062
+          ]
+        },
+        "suffix_baseline": {
+          "norm_over_original": [
+            0.8595507546489398,
+            0.5177181523694891
+          ],
+          "signed_projection": [
+            0.8241901959302506,
+            0.48211178003201266
+          ]
+        },
+        "local_cross": {
+          "norm_over_original": [
+            0.2527962313382803,
+            0.20163788752009046
+          ],
+          "signed_projection": [
+            0.06591082624999096,
+            0.18314938649689813
+          ]
+        },
+        "unmodeled_block10": {
+          "norm_over_original": [
+            0.008601361937823288,
+            0.023562068362576464
+          ],
+          "signed_projection": [
+            0.006027914791525952,
+            -0.011540031071627493
+          ]
+        },
+        "current_predicted_interaction": {
+          "norm_over_original": [
+            0.8912572674580177,
+            0.6940717793656601
+          ],
+          "signed_projection": [
+            0.8900508362545436,
+            0.6652727129130583
+          ]
+        }
+      }
+    },
+    {
+      "group": "regional1",
+      "original_effect_norm": [
+        0.023560928595256693,
+        0.007742155553796886
+      ],
+      "prediction_relative_error": [
+        0.12162629154335224,
+        0.3873816326575028
+      ],
+      "opposite_signs": [
+        0,
+        2
+      ],
+      "decomposition": {
+        "before10": {
+          "norm_over_original": [
+            0.11929249478552767,
+            0.38055842417841523
+          ],
+          "signed_projection": [
+            0.11556405402529114,
+            0.33028808177420343
+          ]
+        },
+        "block10_total": {
+          "norm_over_original": [
+            0.2010869807379396,
+            0.2025081085831226
+          ],
+          "signed_projection": [
+            0.1504434455767293,
+            0.18159064294441582
+          ]
+        },
+        "suffix_baseline": {
+          "norm_over_original": [
+            0.7459739076671663,
+            0.5333112895460316
+          ],
+          "signed_projection": [
+            0.7339925003979796,
+            0.4881212752813807
+          ]
+        },
+        "local_cross": {
+          "norm_over_original": [
+            0.19894529732589986,
+            0.20531151075545734
+          ],
+          "signed_projection": [
+            0.14784087703297166,
+            0.18459621033598353
+          ]
+        },
+        "unmodeled_block10": {
+          "norm_over_original": [
+            0.004744335215665441,
+            0.02734085682435635
+          ],
+          "signed_projection": [
+            0.002602568543757635,
+            -0.003005567391567689
+          ]
+        },
+        "current_predicted_interaction": {
+          "norm_over_original": [
+            0.8822416707626173,
+            0.7041449358747692
+          ],
+          "signed_projection": [
+            0.881778705417713,
+            0.6728777806988453
+          ]
+        }
+      }
+    },
+    {
+      "group": "regional2",
+      "original_effect_norm": [
+        0.023901531209870857,
+        0.005313429976349611
+      ],
+      "prediction_relative_error": [
+        0.16050574530372969,
+        0.30568330023446455
+      ],
+      "opposite_signs": [
+        0,
+        2
+      ],
+      "decomposition": {
+        "before10": {
+          "norm_over_original": [
+            0.15790828054887782,
+            0.3076384883210602
+          ],
+          "signed_projection": [
+            0.15452941412948884,
+            0.228394227198561
+          ]
+        },
+        "block10_total": {
+          "norm_over_original": [
+            0.31644469495473687,
+            0.2327672857357808
+          ],
+          "signed_projection": [
+            0.28337997169410184,
+            0.20618688794662485
+          ]
+        },
+        "suffix_baseline": {
+          "norm_over_original": [
+            0.5808480859304722,
+            0.5961623631793023
+          ],
+          "signed_projection": [
+            0.5620906141764094,
+            0.5654188848548142
+          ]
+        },
+        "local_cross": {
+          "norm_over_original": [
+            0.31568455359797176,
+            0.22756327190349743
+          ],
+          "signed_projection": [
+            0.2808823287395345,
+            0.1959030500171297
+          ]
+        },
+        "unmodeled_block10": {
+          "norm_over_original": [
+            0.005308414533501842,
+            0.03900580209124212
+          ],
+          "signed_projection": [
+            0.002497642954567335,
+            0.010283837929495141
+          ]
+        },
+        "current_predicted_interaction": {
+          "norm_over_original": [
+            0.843701346394377,
+            0.7852619458971628
+          ],
+          "signed_projection": [
+            0.8430349338160893,
+            0.7615970218159824
+          ]
+        }
+      }
+    },
+    {
+      "group": "regional3",
+      "original_effect_norm": [
+        0.02900063424864496,
+        0.008475603803974083
+      ],
+      "prediction_relative_error": [
+        0.14574410459503967,
+        0.29442597827553185
+      ],
+      "opposite_signs": [
+        0,
+        1
+      ],
+      "decomposition": {
+        "before10": {
+          "norm_over_original": [
+            0.1398754646506104,
+            0.2995887401509584
+          ],
+          "signed_projection": [
+            0.13836257133667476,
+            0.24029463059599224
+          ]
+        },
+        "block10_total": {
+          "norm_over_original": [
+            0.19459656025567557,
+            0.2343058023219682
+          ],
+          "signed_projection": [
+            0.1911373706661089,
+            0.22982834614247868
+          ]
+        },
+        "suffix_baseline": {
+          "norm_over_original": [
+            0.671917593488234,
+            0.5495178817219647
+          ],
+          "signed_projection": [
+            0.6705000579972163,
+            0.5298770232615291
+          ]
+        },
+        "local_cross": {
+          "norm_over_original": [
+            0.18859287379016582,
+            0.23367783298890704
+          ],
+          "signed_projection": [
+            0.18550368592481925,
+            0.23066797752423165
+          ]
+        },
+        "unmodeled_block10": {
+          "norm_over_original": [
+            0.006871878695791819,
+            0.02577108579255267
+          ],
+          "signed_projection": [
+            0.0056336847412896485,
+            -0.0008396313817529822
+          ]
+        },
+        "current_predicted_interaction": {
+          "norm_over_original": [
+            0.8563408724739262,
+            0.7793687053465937
+          ],
+          "signed_projection": [
+            0.8560391729225977,
+            0.7603644610950608
+          ]
+        }
+      }
+    },
+    {
+      "group": "fineweb0",
+      "original_effect_norm": [
+        5.7459534509254986e-05,
+        0.00021974485705296968
+      ],
+      "prediction_relative_error": [
+        0.4084542149239418,
+        0.7090685044559881
+      ],
+      "opposite_signs": [
+        1,
+        4
+      ],
+      "decomposition": {
+        "before10": {
+          "norm_over_original": [
+            0.6349576780180596,
+            0.37441684263537883
+          ],
+          "signed_projection": [
+            0.4301507370061193,
+            0.10822518976136214
+          ]
+        },
+        "block10_total": {
+          "norm_over_original": [
+            0.4537378372688422,
+            0.2305880550852225
+          ],
+          "signed_projection": [
+            0.42272485526336673,
+            0.09157516056730643
+          ]
+        },
+        "suffix_baseline": {
+          "norm_over_original": [
+            0.4369242311170217,
+            0.9261324726324901
+          ],
+          "signed_projection": [
+            0.147124407730514,
+            0.8001996496713314
+          ]
+        },
+        "local_cross": {
+          "norm_over_original": [
+            0.5577254350301166,
+            0.49419815826977775
+          ],
+          "signed_projection": [
+            0.4744561128075477,
+            0.4042529146968527
+          ]
+        },
+        "unmodeled_block10": {
+          "norm_over_original": [
+            0.3464694559766915,
+            0.4669395132066386
+          ],
+          "signed_projection": [
+            -0.05173125754418096,
+            -0.3126777541295463
+          ]
+        },
+        "current_predicted_interaction": {
+          "norm_over_original": [
+            0.6593766153033935,
+            1.3998703024268613
+          ],
+          "signed_projection": [
+            0.633971337559913,
+            1.2284293598026106
+          ]
+        }
+      }
+    },
+    {
+      "group": "fineweb1",
+      "original_effect_norm": [
+        0.0006611769637952056,
+        0.0013784721442747171
+      ],
+      "prediction_relative_error": [
+        0.11020348993336326,
+        0.13802917950881563
+      ],
+      "opposite_signs": [
+        1,
+        3
+      ],
+      "decomposition": {
+        "before10": {
+          "norm_over_original": [
+            0.10875062086270895,
+            0.11018425145623871
+          ],
+          "signed_projection": [
+            0.006894902826121442,
+            -0.01641669171521618
+          ]
+        },
+        "block10_total": {
+          "norm_over_original": [
+            0.15051660575687353,
+            0.3515103822905851
+          ],
+          "signed_projection": [
+            0.14260610463610385,
+            0.342506686526816
+          ]
+        },
+        "suffix_baseline": {
+          "norm_over_original": [
+            0.8630951163934433,
+            0.6912615739675225
+          ],
+          "signed_projection": [
+            0.8504989925377747,
+            0.6739100051884002
+          ]
+        },
+        "local_cross": {
+          "norm_over_original": [
+            0.13103459444181165,
+            0.2565334286261351
+          ],
+          "signed_projection": [
+            0.11910387455129683,
+            0.23529921369890813
+          ]
+        },
+        "unmodeled_block10": {
+          "norm_over_original": [
+            0.024714752889803033,
+            0.11299583782608817
+          ],
+          "signed_projection": [
+            0.02350223008480702,
+            0.10720747282790785
+          ]
+        },
+        "current_predicted_interaction": {
+          "norm_over_original": [
+            0.9762792772666488,
+            0.9151294316903047
+          ],
+          "signed_projection": [
+            0.9704882090133986,
+            0.9092049111749716
+          ]
+        }
+      }
+    },
+    {
+      "group": "fineweb2",
+      "original_effect_norm": [
+        0.00017102905635043715,
+        0.0006806442479002454
+      ],
+      "prediction_relative_error": [
+        0.5722368372101867,
+        0.35561851927569865
+      ],
+      "opposite_signs": [
+        2,
+        2
+      ],
+      "decomposition": {
+        "before10": {
+          "norm_over_original": [
+            0.42567284854107645,
+            0.31309013868568847
+          ],
+          "signed_projection": [
+            0.3801530098634592,
+            0.28916443191500224
+          ]
+        },
+        "block10_total": {
+          "norm_over_original": [
+            0.4117428074253429,
+            0.43180872980809304
+          ],
+          "signed_projection": [
+            0.3996377137733244,
+            0.4180490716128298
+          ]
+        },
+        "suffix_baseline": {
+          "norm_over_original": [
+            0.35009062548620906,
+            0.3410144408073835
+          ],
+          "signed_projection": [
+            0.2202092763632164,
+            0.29278649647216803
+          ]
+        },
+        "local_cross": {
+          "norm_over_original": [
+            0.2873045217755224,
+            0.39147677673715847
+          ],
+          "signed_projection": [
+            0.23964387191651232,
+            0.3729872511180302
+          ]
+        },
+        "unmodeled_block10": {
+          "norm_over_original": [
+            0.1883886048328324,
+            0.06238197514509894
+          ],
+          "signed_projection": [
+            0.1599938418568121,
+            0.04506182049479954
+          ]
+        },
+        "current_predicted_interaction": {
+          "norm_over_original": [
+            0.5003369014424917,
+            0.674703129375671
+          ],
+          "signed_projection": [
+            0.4614410085423779,
+            0.6643798907687415
+          ]
+        }
+      }
+    },
+    {
+      "group": "fineweb3",
+      "original_effect_norm": [
+        0.0005449828506916811,
+        0.0010057344622386051
+      ],
+      "prediction_relative_error": [
+        0.40543324005252973,
+        0.28503938088249897
+      ],
+      "opposite_signs": [
+        2,
+        2
+      ],
+      "decomposition": {
+        "before10": {
+          "norm_over_original": [
+            0.40085917592050857,
+            0.2886816235984016
+          ],
+          "signed_projection": [
+            0.3424805544043871,
+            0.28095018873217653
+          ]
+        },
+        "block10_total": {
+          "norm_over_original": [
+            0.3401640358389471,
+            0.4364289620784463
+          ],
+          "signed_projection": [
+            0.3107333119588914,
+            0.42417084622868334
+          ]
+        },
+        "suffix_baseline": {
+          "norm_over_original": [
+            0.47575324212978765,
+            0.30660907456042336
+          ],
+          "signed_projection": [
+            0.34678613363672145,
+            0.29487896503914013
+          ]
+        },
+        "local_cross": {
+          "norm_over_original": [
+            0.3390715359506883,
+            0.4477708287847957
+          ],
+          "signed_projection": [
+            0.3152194716728148,
+            0.4369163374268764
+          ]
+        },
+        "unmodeled_block10": {
+          "norm_over_original": [
+            0.021052897993650604,
+            0.04482111315101561
+          ],
+          "signed_projection": [
+            -0.004486159713923388,
+            -0.012745491198193062
+          ]
+        },
+        "current_predicted_interaction": {
+          "norm_over_original": [
+            0.6978289552020909,
+            0.7319846772732704
+          ],
+          "signed_projection": [
+            0.6612945692894748,
+            0.7272770595544877
+          ]
+        }
+      }
+    }
+  ],
+  "sources": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/MLP9_TO_MLP10_RESIDUAL_FOLD_V1_ARTIFACT.pt": "73a98df4f05a8946855ac7efcd952a3ebd25dda7caab8b0b5af52baee2a56ef0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/COMPOSED_BACKGROUND_SHARED_V2_RESULT.json": "43c0f4f4bcc4d88bd779baf1ab2b1c0135abc5d6fe60b606a4f9289826c357ab"
+  },
+  "scope": "Historical native endpoint receipt identity and signed projections. Current parent candidate = generated additive postMLP10 background + generated fullcross, then native suffix. Telescoping differences are path-specific, not invariant causal shares. No fitting/newforwards."
+}
