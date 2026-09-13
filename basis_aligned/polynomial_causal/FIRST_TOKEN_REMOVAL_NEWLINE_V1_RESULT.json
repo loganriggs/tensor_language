@@ -1,0 +1,33 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "native_positive_control_replay_error": 0.0,
+  "max_token_reader_error": 2.4813437768823643e-07,
+  "records": [
+    {
+      "family": 0,
+      "native_mean_margin": 12.487940698862076,
+      "native_positive": 16,
+      "mean_CE_change": 1.3241544365882874e-05,
+      "meanabs_CE_change": 0.0001873467117547989,
+      "maxabs_CE_change": 0.0009456872940063477,
+      "wholehead_meanabs_CE_change": 0.03822890482842922,
+      "half_CE_linearity_error": 0.009041414068840233
+    },
+    {
+      "family": 1,
+      "native_mean_margin": 13.346816837787628,
+      "native_positive": 16,
+      "mean_CE_change": 0.00027086283080279827,
+      "meanabs_CE_change": 0.00034965272061526775,
+      "maxabs_CE_change": 0.0029321014881134033,
+      "wholehead_meanabs_CE_change": 0.037896158872172236,
+      "half_CE_linearity_error": 0.004014670723902657
+    }
+  ],
+  "body_forwards": 128,
+  "seconds": 2.076306503266096,
+  "scope": "All-source crossfirst removal on32reusedcapableFineWebnewlinecontrols; no cueannotation. Head8.2zero positivecontrol. PositiveCEchange isdamage; preservation usesabsolutechanges. NotbroadcorpusOOD orglobalcomponentadoption.",
+  "artifact_sha": "3e0b4cf1c8a2ede7955fdf021d123bce7fcb69ed1af1c9ba4c5da49da977ec93"
+}

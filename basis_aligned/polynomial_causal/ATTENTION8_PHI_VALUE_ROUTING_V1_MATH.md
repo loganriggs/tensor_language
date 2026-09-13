@@ -114,3 +114,43 @@ The six previously negative Baltimore first-value effects become positive6/6 aft
 **Counter-review:** the six Sheffield recipients flip the other way when receiving Baltimore Q readings, while Nottingham/Detroit's twelve distant recipients remain positive. The manipulation transfers the asymmetry; it does not improve the count of positive distant effects or retroactively pass the fresh sign criterion. This is evidence for a contextual modulator, not a repaired universally positive regional circuit. [All-recipient counter-review](FIRST_TOKEN_Q_INTERACTION_V1_COUNTER_REVIEW.json).
 
 This also clarifies why two earlier statements can coexist. Donating the entire Q-containing MLP8 path showed that much changing information entered through B/H partners. Within the now isolated first-token-value interaction, holding the token contrast fixed and changing the recipient context exposes an important Q7 modulation. These are different interventions on different arguments, not contradictory assignments of a single global causal percentage to MLP7.
+
+## 01:16 — Donor-free removal and unrelated-behavior controls
+
+Donation alone does not define an independently removable component. We therefore tested the absolute crossfirst value
+
+$$
+G_j=\frac{2Q_j^T\Lambda H^{\mathrm{first}}_{8.2,j}}{s_{8,j}},
+\qquad
+w_t=\alpha_9\sum_j\frac{\gamma_9(t,j)G_j}{\rho_{9,j}}.
+$$
+
+The **all-source** version sums every attention8 source contributing to H and every head9 source j; it needs no city annotation or donor prompt. The city-source version restricts attention8 to the city source c and head9 sources to j>c. Both retain contextual input generation and native background. Subtracting w at the specified head9 writer removes that generated interaction contribution; it does not zero a whole module.
+
+The native city-source and all-source fields have roughly0.45–0.63times the norm of the earlier donor field across the four constructions. Replacing the native city value with its donor reconstructs the earlier donor field to $3.81\times10^{-8}$. This is a direct algebraic check that the absolute component and donation use the same defined path. [Definition/control](FIRST_TOKEN_ABSOLUTE_REMOVAL_V1_CONTROL.json).
+
+Physical removals pass the registered regional A/B/C criteria:
+
+| Construction | City-source removal: change in native regional contrast | All-source removal: change in native regional contrast |
+|---|---:|---:|
+| Old near-quote anchor | +5.51% | +4.42% |
+| New near-message | +3.40% | +2.70% |
+| New near-person | +2.24% | +1.52% |
+| New distant-note | −0.85% | −1.33% |
+
+Positive entries here mean **stronger** regional contrast after removal, unlike the damage-sign convention in the JSON. Every near pair increases contrast. Distant city-source removal decreases11/12 pairs and all-source removal decreases12/12. Doubling half-strength all-source effects predicts full removal within0.20–0.32% relative error. This confirms a small context-dependent inhibitory/supportive interaction, not a universally supportive regional unit. [Removal receipt](FIRST_TOKEN_ABSOLUTE_REMOVAL_V1_RESULT.json).
+
+### FineWeb preservation: small observed damage, with a preserved control-design miss
+
+The annotation-free all-source component was removed on32 existing ground-truth-next-newline FineWeb prefixes(two16-row families). All32 native newline-versus-comma margins arepositive. Native andwholehead8.2-zero reference outputs replayexactly; weight-derived token input readings replaywithin $2.49\times10^{-7}$.
+
+| FineWeb family | Mean absolute CE change | Maximum absolute CE change | Whole-head8.2-zero mean absolute CE change |
+|---|---:|---:|---:|
+| 0 | 0.000187 nats | 0.000946 nats | 0.038229 nats |
+| 1 | 0.000350 nats | 0.002932 nats | 0.037896 nats |
+
+A(instrument replay) andB(candidate preservation)pass. **C fails:** I registered a requirement thatwholehead removal produce>0.1nats meanabsolute change, although the already published fixture strength is onlyabout0.038. That was an avoidable preregistration mistake, not a newly weak model capability. The registered result remainsA/Btrue,Cfalse. [FineWeb receipt](FIRST_TOKEN_REMOVAL_NEWLINE_V1_RESULT.json).
+
+The executed counter-review reads the prior fixture directly: wholeheadzero effects are108–204times thecandidate's meanabsolute effects; prior meanreplacement effects are116–219times. This indicates comparative sensitivity, but doesnot retrospectivelypass the.1criterion. We will not rerun the same experiment or silently substitute another threshold to manufacture a pass. [Control-strength audit](FIRST_TOKEN_REMOVAL_NEWLINE_V1_CONTROL_AUDIT.json).
+
+The hourly review marked the control-fixture novelty/lesson gate failed and repaired it with the small `newline_control_fixture_v1.py` helper: proposedminimumcontrolstrength is checked against thepublishedfixture before registration. Running it with.1 correctly rejects that design. The next control panel has been built without model-score selection:32 new-to-this-path FineWeb prefixes plus32oldanchors, excluding priorcontrol andmean-calibration cacheindices and known fullprefix duplicates. These share a cache; documentindependence and corpusOOD are notclaimed. The new panel is not yet scored. [Rows and selection scope](FIRST_TOKEN_REMOVAL_NEWLINE_FRESH_V1_ROWS.json).

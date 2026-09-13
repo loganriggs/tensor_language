@@ -1,5 +1,9 @@
 # Latest research state
 
+**13 September, 01:16 — Donor-free all-source interaction removal.** Regional removal follows registered context-dependent signs; half-strength error.20–.32%. On32reusedFineWebnewlinecontrols maxabsoluteCEchange.002932nats. Candidate preservation passes, but positivecontrolstrength Cfails a wrongly chosen.1bar(alreadypublishedwholeheadstrength.038); failure retained andfixture precheck added. New32controlprefixes built, notscored. [Primary math/evidence](../../ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md). [Hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-13_0112.md). [Newest requested report](../for_logan/LATEST.md).
+
+# Latest research state
+
 **13 September, 01:03 — Fresh context test has a preserved sign miss; Q7/token interaction confirmed.** Near-opposing48/48; distantpositive18/24misses20bar. First/full fidelity andhalf-strength scaling hold. PhysicalQ7swap flips all6Baltimore cases andall6Sheffield cases theotherway; mixedterm predicts physicalinteraction1.29–2.09%. This explains asymmetry, notgeneralizationrepair. [Primary derivation and receipts](../../ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md). [Newest requested full report](../for_logan/LATEST.md).
 
 # Latest research state

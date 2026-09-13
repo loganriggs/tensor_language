@@ -1,0 +1,126 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "replay_error": 0.0,
+  "records": [
+    {
+      "group": 0,
+      "arms": [
+        {
+          "arm": 1,
+          "mean_fractional_contrast_damage": -0.05510523938232027,
+          "pairs_contrast_decreased": 0,
+          "pairs_contrast_increased": 12,
+          "unrelated_margin_effect_ratio": 0.13232327056674606
+        },
+        {
+          "arm": 2,
+          "mean_fractional_contrast_damage": -0.0442012797632874,
+          "pairs_contrast_decreased": 0,
+          "pairs_contrast_increased": 12,
+          "unrelated_margin_effect_ratio": 0.13517934023706427
+        },
+        {
+          "arm": 3,
+          "mean_fractional_contrast_damage": -0.022138382879451444,
+          "pairs_contrast_decreased": 0,
+          "pairs_contrast_increased": 12,
+          "unrelated_margin_effect_ratio": 0.1350785121517613
+        }
+      ],
+      "half_linearity_error": 0.002042558112734791
+    },
+    {
+      "group": 1,
+      "arms": [
+        {
+          "arm": 1,
+          "mean_fractional_contrast_damage": -0.03401216856460022,
+          "pairs_contrast_decreased": 0,
+          "pairs_contrast_increased": 12,
+          "unrelated_margin_effect_ratio": 0.1317459940731895
+        },
+        {
+          "arm": 2,
+          "mean_fractional_contrast_damage": -0.027001987817018354,
+          "pairs_contrast_decreased": 0,
+          "pairs_contrast_increased": 12,
+          "unrelated_margin_effect_ratio": 0.1385457303289462
+        },
+        {
+          "arm": 3,
+          "mean_fractional_contrast_damage": -0.013526938920336712,
+          "pairs_contrast_decreased": 0,
+          "pairs_contrast_increased": 12,
+          "unrelated_margin_effect_ratio": 0.13824439956488463
+        }
+      ],
+      "half_linearity_error": 0.0021657527857976283
+    },
+    {
+      "group": 2,
+      "arms": [
+        {
+          "arm": 1,
+          "mean_fractional_contrast_damage": -0.0223805044126384,
+          "pairs_contrast_decreased": 0,
+          "pairs_contrast_increased": 12,
+          "unrelated_margin_effect_ratio": 0.12501788223038182
+        },
+        {
+          "arm": 2,
+          "mean_fractional_contrast_damage": -0.015197486848249245,
+          "pairs_contrast_decreased": 0,
+          "pairs_contrast_increased": 12,
+          "unrelated_margin_effect_ratio": 0.13070716360955367
+        },
+        {
+          "arm": 3,
+          "mean_fractional_contrast_damage": -0.007622429082330766,
+          "pairs_contrast_decreased": 0,
+          "pairs_contrast_increased": 12,
+          "unrelated_margin_effect_ratio": 0.1302669654563778
+        }
+      ],
+      "half_linearity_error": 0.0027533725211182788
+    },
+    {
+      "group": 3,
+      "arms": [
+        {
+          "arm": 1,
+          "mean_fractional_contrast_damage": 0.00848867732293311,
+          "pairs_contrast_decreased": 11,
+          "pairs_contrast_increased": 1,
+          "unrelated_margin_effect_ratio": 0.09829855323156175
+        },
+        {
+          "arm": 2,
+          "mean_fractional_contrast_damage": 0.013286532460234025,
+          "pairs_contrast_decreased": 12,
+          "pairs_contrast_increased": 0,
+          "unrelated_margin_effect_ratio": 0.0879038492905506
+        },
+        {
+          "arm": 3,
+          "mean_fractional_contrast_damage": 0.0066196434798880145,
+          "pairs_contrast_decreased": 12,
+          "pairs_contrast_increased": 0,
+          "unrelated_margin_effect_ratio": 0.0881209626707826
+        }
+      ],
+      "half_linearity_error": 0.0032143400654414465
+    }
+  ],
+  "body_forwards": 384,
+  "seconds": 3.932745549827814,
+  "arm_names": [
+    "native",
+    "citysource_KO",
+    "allsource_KO",
+    "half_allsource_KO"
+  ],
+  "scope": "Donor-free crossfirst value removal atselectedhead9edge; citysourcehasexternalcueposition,allsourcehasnone. Reusedregionalcontexts; unrelatedFineWebcontrols pending. Positivecontrastdamage means weaker regionalbehavior; no broadselectivityclaim.",
+  "artifact_sha": "9c6ce586016d35bc07ddcb2842be8ee7c8cab8bb9a66a6a2ea6c87133883e46a"
+}

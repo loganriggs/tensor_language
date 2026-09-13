@@ -395,3 +395,7 @@ Firstgeneratedsector alone misses nearquote20%field bar(26.82%error). Physical f
 ## 13 September01:03 — First-token path context modulation
 
 Freshnearfirst-value pathopposes48/48; distant18/24positive misses20bar. All6exceptionsBaltimore, alsofullhead8.2sign. Q7inputswap flips6Baltimore positive and6Sheffield negative; isolatedmixed term predictsphysicalDOD1.29–2.09%. ThisidentifiescontextualQ7modulationoftheknownhead8.2first-value path, notwholeheadcontrol/generalizationrepair. [Primary note](../../polynomial_causal/ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md).
+
+## 13 September01:16 — Annotation-free crossfirst path removal
+
+Allsource Q7/H8.2first/MLP8/head9 interaction removal strengthensnearregionalcontrast1.52–2.70% andweakensdistant1.33% onreusednewsyntaxrows; everypaired directionholds.32FineWebnewlinecandidatepreservationpasses maxabsCE.002932. RegisteredcontrolstrengthCfails mistakenlyhigh.1bar versusknownwholehead8.2zero.038; noall-checks-passclaim. Sharedfixtureprecheckadded; freshcontrolrows builtunscored. [Primary note](../../polynomial_causal/ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md).
