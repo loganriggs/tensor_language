@@ -1,0 +1,81 @@
+{
+  "pred_a": false,
+  "pred_b": true,
+  "full_dictionary_writer_replay": 4.010790716679582e-15,
+  "baseline_scalars": 17252352,
+  "rows": [
+    {
+      "selection": "upstream",
+      "products": 1024,
+      "relative_error": 0.8372147449388465,
+      "normal_equation_error": 1.8881930944049065e-15,
+      "stored_scalars": 3538944,
+      "scalar_saving": 0.7948717948717949
+    },
+    {
+      "selection": "upstream",
+      "products": 2048,
+      "relative_error": 0.6890689994314901,
+      "normal_equation_error": 2.6702748938333743e-15,
+      "stored_scalars": 7077888,
+      "scalar_saving": 0.5897435897435898
+    },
+    {
+      "selection": "upstream",
+      "products": 3072,
+      "relative_error": 0.5172430063237399,
+      "normal_equation_error": 3.252106979474747e-15,
+      "stored_scalars": 10616832,
+      "scalar_saving": 0.3846153846153846
+    },
+    {
+      "selection": "upstream",
+      "products": 4096,
+      "relative_error": 0.28386379813175133,
+      "normal_equation_error": 3.758032066330701e-15,
+      "stored_scalars": 14155776,
+      "scalar_saving": 0.17948717948717952
+    },
+    {
+      "selection": "composed",
+      "products": 1024,
+      "relative_error": 0.8249241887379126,
+      "normal_equation_error": 1.8937828381185305e-15,
+      "stored_scalars": 3538944,
+      "scalar_saving": 0.7948717948717949
+    },
+    {
+      "selection": "composed",
+      "products": 2048,
+      "relative_error": 0.6740095311645717,
+      "normal_equation_error": 2.6687887627607126e-15,
+      "stored_scalars": 7077888,
+      "scalar_saving": 0.5897435897435898
+    },
+    {
+      "selection": "composed",
+      "products": 3072,
+      "relative_error": 0.503388507358099,
+      "normal_equation_error": 3.2689362037072736e-15,
+      "stored_scalars": 10616832,
+      "scalar_saving": 0.3846153846153846
+    },
+    {
+      "selection": "composed",
+      "products": 4096,
+      "relative_error": 0.2734401045232349,
+      "normal_equation_error": 3.767810299371803e-15,
+      "stored_scalars": 14155776,
+      "scalar_saving": 0.17948717948717952
+    }
+  ],
+  "seconds": 10.269933838397264,
+  "scope": "Exact least squares at norm-ranked supports, free output vectors, frozen native input readers. No global support optimum, learned readers, normalization, text fit, behavioral validation or adopted executor. Local price assumes standalone J10 B9; if native B9 is independently needed, joint graph accounting differs.",
+  "normalized_dictionary_min_eigenvalue": 0.8023941848242081,
+  "any_support_relative_error_lower_bounds": {
+    "1024": 0.7341648904919644,
+    "2048": 0.6017196780231082,
+    "3072": 0.45073692547466565,
+    "4096": 0.24553362619383973
+  }
+}
