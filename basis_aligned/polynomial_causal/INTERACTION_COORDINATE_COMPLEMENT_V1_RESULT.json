@@ -1,0 +1,63 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "rows": [
+    {
+      "tolerance": 0.02,
+      "discarded": 47,
+      "retained": 1105,
+      "coefficient_projection_error": 0.01994140604486252,
+      "chart_replay_error": 1.9403614453584793e-15,
+      "readout_error": 2.369029225826046e-15,
+      "fp32_readout_error": 4.644659509471548e-07,
+      "pivot_matrix_condition": 17.509354703143245,
+      "correction_matrix_spectral_norm": 21.279901008832734,
+      "adapter_scalars": 51935,
+      "core_scalars": 1697280,
+      "mask_bytes": 144,
+      "total_bytes": 6997004,
+      "dense_storage_saving": 0.01142770272714122,
+      "reflection_total_bytes": 7001372,
+      "native_input_coordinates_read": 1152
+    },
+    {
+      "tolerance": 0.05,
+      "discarded": 144,
+      "retained": 1008,
+      "coefficient_projection_error": 0.0497869014761228,
+      "chart_replay_error": 7.318171377293996e-15,
+      "readout_error": 6.963120727653084e-15,
+      "fp32_readout_error": 7.816330187589858e-07,
+      "pivot_matrix_condition": 33.897842355924716,
+      "correction_matrix_spectral_norm": 38.836727111464576,
+      "adapter_scalars": 145152,
+      "core_scalars": 1548288,
+      "mask_bytes": 144,
+      "total_bytes": 6773904,
+      "dense_storage_saving": 0.04294840494791663,
+      "reflection_total_bytes": 6815520,
+      "native_input_coordinates_read": 1152
+    },
+    {
+      "tolerance": 0.1,
+      "discarded": 283,
+      "retained": 869,
+      "coefficient_projection_error": 0.0999875890473671,
+      "chart_replay_error": 1.8573455317318718e-14,
+      "readout_error": 1.9008565643093457e-14,
+      "fp32_readout_error": 1.0685279950347453e-06,
+      "pivot_matrix_condition": 38.72501346283355,
+      "correction_matrix_spectral_norm": 41.173435744781614,
+      "adapter_scalars": 245927,
+      "core_scalars": 1334784,
+      "mask_bytes": 144,
+      "total_bytes": 6322988,
+      "dense_storage_saving": 0.1066561098451968,
+      "reflection_total_bytes": 6483588,
+      "native_input_coordinates_read": 1152
+    }
+  ],
+  "seconds": 0.7545663714408875,
+  "scope": "Exact same optimal input projection, alternative coordinate chart. Dense correction/core plus144bytepivotmask, implicitidentity. Arbitrary-inputFP64/FP32readout controls; nativebehavior/runtime untested. Reader metric is nonorthogonal; future sparsecore errors require I+C C.T weighting. All native input coordinates remain read."
+}

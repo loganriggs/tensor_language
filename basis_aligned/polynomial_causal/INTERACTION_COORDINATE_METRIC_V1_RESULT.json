@@ -1,0 +1,150 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "rows": [
+    {
+      "metric_checks": [
+        {
+          "core_tolerance": 0.01,
+          "retained_entries": 1598740,
+          "naive_relative_to_target": 0.009797873353434763,
+          "lifted_relative_to_target": 0.017945707360442303,
+          "amplification": 1.8315920928036102,
+          "actual_total_error": 0.026827375714234908,
+          "metric_identity_error": 0.0
+        },
+        {
+          "core_tolerance": 0.05,
+          "retained_entries": 1410159,
+          "naive_relative_to_target": 0.04898961493172694,
+          "lifted_relative_to_target": 0.08974319220106766,
+          "amplification": 1.8318819677626748,
+          "actual_total_error": 0.0919320413212053,
+          "metric_identity_error": 2.9971836624569195e-16
+        },
+        {
+          "core_tolerance": 0.1,
+          "retained_entries": 1243726,
+          "naive_relative_to_target": 0.09797927094341696,
+          "lifted_relative_to_target": 0.17909603240024352,
+          "amplification": 1.8278971733079283,
+          "actual_total_error": 0.18020279824840585,
+          "metric_identity_error": 1.505131516262675e-16
+        }
+      ],
+      "tolerance": 0.02,
+      "discarded": 47,
+      "retained": 1105,
+      "coefficient_projection_error": 0.01994140604486252,
+      "chart_replay_error": 1.9403614453584793e-15,
+      "readout_error": 2.369029225826046e-15,
+      "fp32_readout_error": 4.644659509471548e-07,
+      "pivot_matrix_condition": 17.509354703143245,
+      "correction_matrix_spectral_norm": 21.279901008832734,
+      "adapter_scalars": 51935,
+      "core_scalars": 1697280,
+      "mask_bytes": 144,
+      "total_bytes": 6997004,
+      "dense_storage_saving": 0.01142770272714122,
+      "reflection_total_bytes": 7001372,
+      "native_input_coordinates_read": 1152
+    },
+    {
+      "metric_checks": [
+        {
+          "core_tolerance": 0.01,
+          "retained_entries": 1458541,
+          "naive_relative_to_target": 0.009351780322570594,
+          "lifted_relative_to_target": 0.026067202215583517,
+          "amplification": 2.787405319249226,
+          "actual_total_error": 0.056198172478660574,
+          "metric_identity_error": 1.3321674236565016e-15
+        },
+        {
+          "core_tolerance": 0.05,
+          "retained_entries": 1286594,
+          "naive_relative_to_target": 0.04675913884677424,
+          "lifted_relative_to_target": 0.13121442743916914,
+          "amplification": 2.806177159702359,
+          "actual_total_error": 0.14034230127364333,
+          "metric_identity_error": 7.010083781910046e-16
+        },
+        {
+          "core_tolerance": 0.1,
+          "retained_entries": 1134769,
+          "naive_relative_to_target": 0.09351861461608861,
+          "lifted_relative_to_target": 0.2589966228757988,
+          "amplification": 2.769465992829645,
+          "actual_total_error": 0.26373848073358996,
+          "metric_identity_error": 1.4394221204278324e-16
+        }
+      ],
+      "tolerance": 0.05,
+      "discarded": 144,
+      "retained": 1008,
+      "coefficient_projection_error": 0.0497869014761228,
+      "chart_replay_error": 7.318171377293996e-15,
+      "readout_error": 6.963120727653084e-15,
+      "fp32_readout_error": 7.816330187589858e-07,
+      "pivot_matrix_condition": 33.897842355924716,
+      "correction_matrix_spectral_norm": 38.836727111464576,
+      "adapter_scalars": 145152,
+      "core_scalars": 1548288,
+      "mask_bytes": 144,
+      "total_bytes": 6773904,
+      "dense_storage_saving": 0.04294840494791663,
+      "reflection_total_bytes": 6815520,
+      "native_input_coordinates_read": 1152
+    },
+    {
+      "metric_checks": [
+        {
+          "core_tolerance": 0.01,
+          "retained_entries": 1257688,
+          "naive_relative_to_target": 0.008680499977144478,
+          "lifted_relative_to_target": 0.03150088413207818,
+          "amplification": 3.628925086690762,
+          "actual_total_error": 0.10483235981607901,
+          "metric_identity_error": 3.648901635704717e-15
+        },
+        {
+          "core_tolerance": 0.05,
+          "retained_entries": 1109202,
+          "naive_relative_to_target": 0.04340281170238822,
+          "lifted_relative_to_target": 0.15828140589618467,
+          "amplification": 3.6468007414246695,
+          "actual_total_error": 0.18721784481180692,
+          "metric_identity_error": 7.708086370277924e-16
+        },
+        {
+          "core_tolerance": 0.1,
+          "retained_entries": 978304,
+          "naive_relative_to_target": 0.08680578259586035,
+          "lifted_relative_to_target": 0.3151812807500586,
+          "amplification": 3.630878857661369,
+          "actual_total_error": 0.33066109190340687,
+          "metric_identity_error": 5.831856020678166e-16
+        }
+      ],
+      "tolerance": 0.1,
+      "discarded": 283,
+      "retained": 869,
+      "coefficient_projection_error": 0.0999875890473671,
+      "chart_replay_error": 1.8573455317318718e-14,
+      "readout_error": 1.9008565643093457e-14,
+      "fp32_readout_error": 1.0685279950347453e-06,
+      "pivot_matrix_condition": 38.72501346283355,
+      "correction_matrix_spectral_norm": 41.173435744781614,
+      "adapter_scalars": 245927,
+      "core_scalars": 1334784,
+      "mask_bytes": 144,
+      "total_bytes": 6322988,
+      "dense_storage_saving": 0.1066561098451968,
+      "reflection_total_bytes": 6483588,
+      "native_input_coordinates_read": 1152
+    }
+  ],
+  "seconds": 1.2640491276979446,
+  "scope": "Exact same optimal input projection, alternative coordinate chart. Dense correction/core plus144bytepivotmask, implicitidentity. Arbitrary-inputFP64/FP32readout controls; nativebehavior/runtime untested. Reader metric is nonorthogonal; future sparsecore errors require I+C C.T weighting. All native input coordinates remain read."
+}
