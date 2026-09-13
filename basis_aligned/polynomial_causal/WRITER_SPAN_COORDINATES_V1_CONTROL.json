@@ -1,0 +1,44 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "rows": [
+    {
+      "name": "stored",
+      "rank": 2,
+      "relative_error": 9.673679843552698e-16,
+      "bound_excess": 4.477311738465145e-17,
+      "basis_scalars": 2304,
+      "map_scalars": 4,
+      "original_scalars": 2304
+    },
+    {
+      "name": "near",
+      "rank": 2,
+      "relative_error": 2.864547870502458e-15,
+      "bound_excess": 7.496379950029784e-17,
+      "basis_scalars": 2304,
+      "map_scalars": 4,
+      "original_scalars": 2304
+    },
+    {
+      "name": "duplicate",
+      "rank": 1,
+      "relative_error": 1.2584145282230068e-15,
+      "bound_excess": 4.0231280313455834e-17,
+      "basis_scalars": 1152,
+      "map_scalars": 2,
+      "original_scalars": 2304
+    },
+    {
+      "name": "rescaled",
+      "rank": 2,
+      "relative_error": 3.8182684507651395e-16,
+      "bound_excess": 5.090616490714369e-17,
+      "basis_scalars": 2304,
+      "map_scalars": 4,
+      "original_scalars": 2304
+    }
+  ],
+  "scope": "Writer edit equivalence, not behavioral circuit identification. Full-rank basis plus map costs four extra scalars for two writers; rank-one duplicates save representation."
+}
