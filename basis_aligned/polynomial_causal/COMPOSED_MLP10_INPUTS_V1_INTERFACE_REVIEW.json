@@ -1,0 +1,23 @@
+{
+  "utc": "2026-09-13T04:06:28.965874+00:00",
+  "parameters": [
+    "z9",
+    "biasfree_mlp9",
+    "raw10",
+    "pristine_z10",
+    "first_values",
+    "a",
+    "b",
+    "response_program",
+    "reentry_scale",
+    "attention_matrices",
+    "attention_mixture",
+    "attention_output"
+  ],
+  "native_calls": [
+    "generate_inputs(ctx['z9'], ctx['m9'], raw[0], z[0], ctx['first10'], child[i][..., None], (parent[i] - child[i])[..., None], response_program, float(module.lambdas[0]), attention_matrices, attention_mixture, attention_output)"
+  ],
+  "source_sha256": "d9b51b8b67311ebce3953dad0a1a38cb1ce7b066df73166002bd2d7cc3364b3e",
+  "runner_sha256": "86c35f811254d1693a5821bad78a633314a8ba9f7d5e69f2d1384d3db4dd45c9",
+  "review": "Call-site review: raw[0],z[0],ctx z9/m9/first10 all captured in pristine arm0. Intervention inputs are only scalar fields child and parent-child. No observed child/remainder state or joint denominator passed to generator. Native additive output background and suffix remain supplied outside helper. Static interface review, not runtime information-flow proof."
+}
