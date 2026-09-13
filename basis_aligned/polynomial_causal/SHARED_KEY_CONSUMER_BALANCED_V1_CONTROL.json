@@ -1,0 +1,85 @@
+{
+  "records": [
+    {
+      "rank": 16,
+      "weight_error": 0.7182548755197171,
+      "cells": [
+        {
+          "family": 0,
+          "response_error": 0.3833594770825347,
+          "reference_norm": 1.299741825155408
+        },
+        {
+          "family": 1,
+          "response_error": 0.3237055256862323,
+          "reference_norm": 1.0612701489354777
+        },
+        {
+          "family": 2,
+          "response_error": 0.3125024611669936,
+          "reference_norm": 1.0531566168521462
+        }
+      ],
+      "program_scalars": 800659,
+      "saved_fraction": 0.08114184329607754,
+      "pred_a": false,
+      "pred_b": false,
+      "pred_c": true
+    },
+    {
+      "rank": 32,
+      "weight_error": 0.5358153204730612,
+      "cells": [
+        {
+          "family": 0,
+          "response_error": 0.328883576590519,
+          "reference_norm": 1.299741825155408
+        },
+        {
+          "family": 1,
+          "response_error": 0.3160066832797621,
+          "reference_norm": 1.0612701489354777
+        },
+        {
+          "family": 2,
+          "response_error": 0.2826916863304718,
+          "reference_norm": 1.0531566168521462
+        }
+      ],
+      "program_scalars": 824227,
+      "saved_fraction": 0.054094562197385065,
+      "pred_a": false,
+      "pred_b": false,
+      "pred_c": true
+    },
+    {
+      "rank": 48,
+      "weight_error": 0.3508547838751825,
+      "cells": [
+        {
+          "family": 0,
+          "response_error": 0.22730268712468102,
+          "reference_norm": 1.299741825155408
+        },
+        {
+          "family": 1,
+          "response_error": 0.19302477124862602,
+          "reference_norm": 1.0612701489354777
+        },
+        {
+          "family": 2,
+          "response_error": 0.20274969853330357,
+          "reference_norm": 1.0531566168521462
+        }
+      ],
+      "program_scalars": 847795,
+      "saved_fraction": 0.027047281098692477,
+      "pred_a": false,
+      "pred_b": false,
+      "pred_c": true
+    }
+  ],
+  "orthogonality_error": 1.5741083388652398e-14,
+  "baseline_program_scalars": 871363,
+  "scope": "Exact SVD after equalizing consumer Frobenius norms, not data fit. Paired scalar effects versus same rank64-transport program, existing72prompts. No fresh/native-logit/semantic-selectivity claim."
+}
