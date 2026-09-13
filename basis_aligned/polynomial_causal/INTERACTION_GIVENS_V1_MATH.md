@@ -56,3 +56,21 @@ This countercheck changes the interpretation of the first null: the objective ma
 A next refinement should optimize actual reconstruction/graph cost and judge marginal gain per added rotation, or change to shared block/product topology. Do not use the impressive fourth-power increase as evidence of useful circuit simplification.
 
 [Fourth-power receipt](INTERACTION_GIVENS_V1_RESULT.json) · [Objective mismatch audit](INTERACTION_GIVENS_SURROGATE_AUDIT_V1_RESULT.json) · [Capped-energy receipt](INTERACTION_GIVENS_CAPPED_V1_RESULT.json) · [First solver](interaction_givens_v1.py) · [Direct-objective solver](interaction_givens_capped_v1.py).
+
+## Retained-circuit validation, 13 September 11:57
+
+The existing winner was reconstructed deterministically rather than searched again: seed61332, round10, exactly 1,122,633 retained entries and 2,333 rotations, totaling 4,805,824 nominal bytes. [Reconstruction](reconstruct_givens_candidate_v1.py) checks those recorded counts before validation. The coefficient tensor is reconstructed in FP64 for this screen; packed FP32 rotation execution and runtime remain untested.
+
+[The retained-effect check](INTERACTION_GIVENS_RETAINED_EFFECT_V1_RESULT.json) uses the existing 120 regional mixed-input ports, with native RMS factors and final softcap. Its reference is the effect of the mixed term itself: original margin minus the margin after removing that term. Candidate and baseline are compared on the same five groups of24, with a 10% own-effect-error bar and no material sign reversals.
+
+| Group | Original sparse-frame effect error | Learned rotations, original smaller artifact | Learned rotations, matched budget |
+|---|---:|---:|---:|
+| 0 | 7.35% | 10.93% | 11.62% |
+| 1 | 3.63% | 4.90% | 4.01% |
+| 2 | 8.12% | 9.59% | 8.12% |
+| 3 | 6.63% | 7.46% | 6.60% |
+| 4 | 2.72% | 4.94% | 4.59% |
+
+The original smaller learned candidate fails group0, with no material sign reversals. A storage mismatch could have unfairly penalized it, so [the matched-budget countercheck](INTERACTION_GIVENS_MATCHED_EFFECT_V1_RESULT.json) keeps the rotations fixed and spends the saved91,112bytes on22,778additional coefficients. It now uses the same4,896,936byte budget as the baseline. Coefficient error improves from approximately10% to9.423%, but group0 effect error rises to11.62%, still failing. No material sign reversals occur.
+
+Thus the additional storage saving was real, but this learned frame does not preserve the retained interaction as reliably as the earlier frame. Lower coefficient error at matched bytes does not rescue the behavioral criterion. This is a limited failure of the recorded greedy trajectory, not an optimal sparse-frame or structure-absence result. The native context, input-port and historical-panel limitations remain; no new OOD or full-head preservation claim is made.
