@@ -1,0 +1,1423 @@
+{
+  "schema": "shared.local.token.audit.v1",
+  "global_baselines": [
+    {
+      "rank": 78,
+      "full_coefficient_relative_error": 0.8584783315330815,
+      "median_token_relative_error": 0.862911856513506,
+      "token_relative_error_quantiles": {
+        "0.1": 0.8088546396921226,
+        "0.5": 0.8629120426328645,
+        "0.9": 0.8979440733051559,
+        "0.95": 0.9059518021784051,
+        "0.99": 0.9202824216522744
+      },
+      "fraction_tokens_error_below": {
+        "0.1": 0.0,
+        "0.25": 0.005943861323155216,
+        "0.5": 0.009263676844783715,
+        "1.0": 1.0
+      },
+      "zero_target_rows": 0,
+      "maximum_error_on_zero_target": 0.0,
+      "spectral_replay_error": 0.0
+    },
+    {
+      "rank": 167,
+      "full_coefficient_relative_error": 0.7773549727257829,
+      "median_token_relative_error": 0.7800178492115437,
+      "token_relative_error_quantiles": {
+        "0.1": 0.7268474217018792,
+        "0.5": 0.780017980922951,
+        "0.9": 0.818409184313154,
+        "0.95": 0.8283124902163347,
+        "0.99": 0.8511650263188187
+      },
+      "fraction_tokens_error_below": {
+        "0.1": 0.0,
+        "0.25": 0.006102894402035624,
+        "0.5": 0.01047630407124682,
+        "1.0": 1.0
+      },
+      "zero_target_rows": 0,
+      "maximum_error_on_zero_target": 0.0,
+      "spectral_replay_error": 0.0
+    }
+  ],
+  "scope": "Per-token quadratic coefficient errors; no language-model fidelity or semantic cluster claims.",
+  "program": {
+    "global_width": 128,
+    "sha256": "da002c3f80614b85af1710fa9be3d795d309cc713bbd2f9ca23d305bbf6e3bc9",
+    "full_coefficient_relative_error": 0.7441479354902144,
+    "median_token_relative_error": 0.7564938225673506,
+    "token_relative_error_quantiles": {
+      "0.1": 0.6517076592928772,
+      "0.5": 0.7564956396864955,
+      "0.9": 0.8065001992692619,
+      "0.95": 0.8166684717906141,
+      "0.99": 0.8342789307104925
+    },
+    "fraction_tokens_error_below": {
+      "0.1": 0.004870388040712468,
+      "0.25": 0.006381202290076336,
+      "0.5": 0.012006997455470738,
+      "1.0": 1.0
+    },
+    "zero_target_rows": 0,
+    "maximum_error_on_zero_target": 0.0,
+    "error_replay_absolute_difference": 3.1757929619402603e-12,
+    "groups": [
+      {
+        "group": 0,
+        "tokens": 573,
+        "full_coefficient_relative_error": 0.7449424462576308,
+        "median_token_relative_error": 0.7576054308409695,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6388302126851924,
+          "0.5": 0.7576054308409695,
+          "0.9": 0.8083698295083213,
+          "0.95": 0.8183607780562983,
+          "0.99": 0.8408656022040917
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 1,
+        "tokens": 656,
+        "full_coefficient_relative_error": 0.7497991619855794,
+        "median_token_relative_error": 0.7628733029305087,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6520532233769205,
+          "0.5": 0.7629355699889756,
+          "0.9": 0.8087627869558042,
+          "0.95": 0.8163457448965727,
+          "0.99": 0.8344571877586625
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.003048780487804878,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 2,
+        "tokens": 629,
+        "full_coefficient_relative_error": 0.7392435778047473,
+        "median_token_relative_error": 0.7510435047045189,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6475572489293957,
+          "0.5": 0.7510435047045189,
+          "0.9": 0.8075279972804207,
+          "0.95": 0.8169474275531157,
+          "0.99": 0.833003694185491
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 3,
+        "tokens": 570,
+        "full_coefficient_relative_error": 0.7244937831132009,
+        "median_token_relative_error": 0.7403855338319739,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6016613183285677,
+          "0.5": 0.7404787371191737,
+          "0.9": 0.8054263513840193,
+          "0.95": 0.8146306440747907,
+          "0.99": 0.8380601787814328
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0017543859649122807,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 4,
+        "tokens": 737,
+        "full_coefficient_relative_error": 0.7526086815117932,
+        "median_token_relative_error": 0.7617360995116118,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6720155277692789,
+          "0.5": 0.7617360995116118,
+          "0.9": 0.8111583556301627,
+          "0.95": 0.8219875422190601,
+          "0.99": 0.838249327526254
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 5,
+        "tokens": 532,
+        "full_coefficient_relative_error": 0.7477152779917751,
+        "median_token_relative_error": 0.7664063846407867,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6518854936844465,
+          "0.5": 0.7665484812996621,
+          "0.9": 0.8091809442219587,
+          "0.95": 0.8170940440437435,
+          "0.99": 0.8298074990538815
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 6,
+        "tokens": 745,
+        "full_coefficient_relative_error": 0.7530358053992116,
+        "median_token_relative_error": 0.7667869696575605,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6636539797546728,
+          "0.5": 0.7667869696575605,
+          "0.9": 0.8082150591074977,
+          "0.95": 0.8174343888036419,
+          "0.99": 0.8311302196067952
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 7,
+        "tokens": 744,
+        "full_coefficient_relative_error": 0.7484888015903332,
+        "median_token_relative_error": 0.7579072861406541,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6709225009543576,
+          "0.5": 0.7579203326185782,
+          "0.9": 0.8053912186702697,
+          "0.95": 0.8151895527181339,
+          "0.99": 0.8348044779352625
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 8,
+        "tokens": 608,
+        "full_coefficient_relative_error": 0.743833613186996,
+        "median_token_relative_error": 0.7617151578715443,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6444544050196142,
+          "0.5": 0.7617746827799488,
+          "0.9": 0.8060129746843949,
+          "0.95": 0.8145604505458514,
+          "0.99": 0.8318329080015591
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.004934210526315789,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 9,
+        "tokens": 576,
+        "full_coefficient_relative_error": 0.7302198544540484,
+        "median_token_relative_error": 0.7451478308294565,
+        "token_relative_error_quantiles": {
+          "0.1": 0.592887063456135,
+          "0.5": 0.7455986789549467,
+          "0.9": 0.8030080309787846,
+          "0.95": 0.817408175249644,
+          "0.99": 0.8361661594792571
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.027777777777777776,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 10,
+        "tokens": 849,
+        "full_coefficient_relative_error": 0.7497256891266343,
+        "median_token_relative_error": 0.7589112924260953,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6702515366829064,
+          "0.5": 0.7589112924260953,
+          "0.9": 0.8043163610498091,
+          "0.95": 0.8120241599739435,
+          "0.99": 0.830072725510238
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 11,
+        "tokens": 646,
+        "full_coefficient_relative_error": 0.7499724266970554,
+        "median_token_relative_error": 0.7642272477407264,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6684702913025996,
+          "0.5": 0.7643428517582367,
+          "0.9": 0.8123935519301153,
+          "0.95": 0.8244879050808346,
+          "0.99": 0.837866409071936
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.006191950464396285,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 12,
+        "tokens": 586,
+        "full_coefficient_relative_error": 0.744905218685425,
+        "median_token_relative_error": 0.7599057528775826,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6426865828604496,
+          "0.5": 0.7600126321241061,
+          "0.9": 0.809370929731817,
+          "0.95": 0.8184537310438422,
+          "0.99": 0.8315119116363555
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 13,
+        "tokens": 764,
+        "full_coefficient_relative_error": 0.745896073805856,
+        "median_token_relative_error": 0.7542621625648441,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6657666364262397,
+          "0.5": 0.7544212057400943,
+          "0.9": 0.8010603660907818,
+          "0.95": 0.8107167064434717,
+          "0.99": 0.8267124659998805
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.002617801047120419,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 14,
+        "tokens": 996,
+        "full_coefficient_relative_error": 0.7042210432258018,
+        "median_token_relative_error": 0.6868767241196351,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6013949692877354,
+          "0.5": 0.6869332380594042,
+          "0.9": 0.7890855233597596,
+          "0.95": 0.8050438491236436,
+          "0.99": 0.8300879432613667
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.004016064257028112,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 15,
+        "tokens": 556,
+        "full_coefficient_relative_error": 0.7381940327191392,
+        "median_token_relative_error": 0.7499204341483191,
+        "token_relative_error_quantiles": {
+          "0.1": 0.641822275798136,
+          "0.5": 0.7499873571208477,
+          "0.9": 0.7993481371375211,
+          "0.95": 0.8127844694113264,
+          "0.99": 0.8293481702983111
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 16,
+        "tokens": 722,
+        "full_coefficient_relative_error": 0.7423506513702494,
+        "median_token_relative_error": 0.7512328572724645,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6588816058006756,
+          "0.5": 0.7512433853118053,
+          "0.9": 0.8046145333386906,
+          "0.95": 0.8124217470547653,
+          "0.99": 0.8334356092182954
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 17,
+        "tokens": 679,
+        "full_coefficient_relative_error": 0.7554831228726109,
+        "median_token_relative_error": 0.7653019965825719,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6881087524724268,
+          "0.5": 0.7653019965825719,
+          "0.9": 0.8078525176812936,
+          "0.95": 0.8204282580943201,
+          "0.99": 0.833907829568784
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0014727540500736377,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 18,
+        "tokens": 610,
+        "full_coefficient_relative_error": 0.7317775132441638,
+        "median_token_relative_error": 0.7423610276070275,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6275591574327638,
+          "0.5": 0.7423883083898479,
+          "0.9": 0.8027667928009307,
+          "0.95": 0.812688984125432,
+          "0.99": 0.8286606893523093
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.003278688524590164,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 19,
+        "tokens": 1447,
+        "full_coefficient_relative_error": 0.6351051289735707,
+        "median_token_relative_error": 0.62118325753087,
+        "token_relative_error_quantiles": {
+          "0.1": 0.04966350889247353,
+          "0.5": 0.62118325753087,
+          "0.9": 0.7857777351364168,
+          "0.95": 0.8003217571377869,
+          "0.99": 0.8266460106807796
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.16931582584657912,
+          "0.25": 0.22183828610919143,
+          "0.5": 0.3524533517622668,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 20,
+        "tokens": 679,
+        "full_coefficient_relative_error": 0.7491890196530452,
+        "median_token_relative_error": 0.762973973146134,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6629647141138186,
+          "0.5": 0.762973973146134,
+          "0.9": 0.8070870743978883,
+          "0.95": 0.820128867067963,
+          "0.99": 0.8331538566300587
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0014727540500736377,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 21,
+        "tokens": 747,
+        "full_coefficient_relative_error": 0.7511695234685771,
+        "median_token_relative_error": 0.7513417059023818,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6851503546671459,
+          "0.5": 0.7513417059023818,
+          "0.9": 0.8007995709934872,
+          "0.95": 0.8149161558056056,
+          "0.99": 0.8370109253921019
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 22,
+        "tokens": 933,
+        "full_coefficient_relative_error": 0.7181285351115799,
+        "median_token_relative_error": 0.7143951444820921,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6327263726348001,
+          "0.5": 0.7143951444820921,
+          "0.9": 0.7890674427688602,
+          "0.95": 0.8029919125172341,
+          "0.99": 0.8194293583351473
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.003215434083601286,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 23,
+        "tokens": 642,
+        "full_coefficient_relative_error": 0.7403802901924176,
+        "median_token_relative_error": 0.7481361729862923,
+        "token_relative_error_quantiles": {
+          "0.1": 0.654759271229012,
+          "0.5": 0.748161253057664,
+          "0.9": 0.8014334194104473,
+          "0.95": 0.8115689949355068,
+          "0.99": 0.8295957398852286
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 24,
+        "tokens": 939,
+        "full_coefficient_relative_error": 0.7513217639000316,
+        "median_token_relative_error": 0.7619858276267908,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6727099351648431,
+          "0.5": 0.7619858276267908,
+          "0.9": 0.8047398949578249,
+          "0.95": 0.8172881420152202,
+          "0.99": 0.831737628947664
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 25,
+        "tokens": 778,
+        "full_coefficient_relative_error": 0.7535485308316359,
+        "median_token_relative_error": 0.7625585418656928,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6737967034696688,
+          "0.5": 0.7626419710073014,
+          "0.9": 0.8055044589855127,
+          "0.95": 0.814172634170392,
+          "0.99": 0.8293458055396575
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 26,
+        "tokens": 777,
+        "full_coefficient_relative_error": 0.7612937074031363,
+        "median_token_relative_error": 0.7716686007570672,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6806968690636834,
+          "0.5": 0.7716686007570672,
+          "0.9": 0.8159921761867761,
+          "0.95": 0.8254152717599339,
+          "0.99": 0.8405419694995704
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 27,
+        "tokens": 681,
+        "full_coefficient_relative_error": 0.7515583052292243,
+        "median_token_relative_error": 0.7612447507154138,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6627441391600655,
+          "0.5": 0.7612447507154138,
+          "0.9": 0.8080884727886961,
+          "0.95": 0.8183520415979483,
+          "0.99": 0.8384936403144131
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 28,
+        "tokens": 1708,
+        "full_coefficient_relative_error": 0.7559494878194737,
+        "median_token_relative_error": 0.758287013659325,
+        "token_relative_error_quantiles": {
+          "0.1": 0.7028508885272633,
+          "0.5": 0.758364495731767,
+          "0.9": 0.7970097516615318,
+          "0.95": 0.8079799538925683,
+          "0.99": 0.8261492299922739
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 29,
+        "tokens": 625,
+        "full_coefficient_relative_error": 0.747917957709793,
+        "median_token_relative_error": 0.7589828461113689,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6681785581478003,
+          "0.5": 0.7589828461113689,
+          "0.9": 0.8100776998377408,
+          "0.95": 0.8201924240435359,
+          "0.99": 0.8317347135816594
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 30,
+        "tokens": 562,
+        "full_coefficient_relative_error": 0.7417009217856793,
+        "median_token_relative_error": 0.7605411332049246,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6241017020535999,
+          "0.5": 0.7605706574181916,
+          "0.9": 0.8075888727749744,
+          "0.95": 0.8196683307583515,
+          "0.99": 0.8365093405044605
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.008896797153024912,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 31,
+        "tokens": 1171,
+        "full_coefficient_relative_error": 0.724932244143994,
+        "median_token_relative_error": 0.7147013621005288,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6480237387210588,
+          "0.5": 0.7147013621005288,
+          "0.9": 0.7963373164663882,
+          "0.95": 0.8136214289352972,
+          "0.99": 0.827780555297762
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0008539709649871904,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 32,
+        "tokens": 585,
+        "full_coefficient_relative_error": 0.7474694538699042,
+        "median_token_relative_error": 0.7634165700080657,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6571614581940715,
+          "0.5": 0.7634165700080657,
+          "0.9": 0.8048786924774001,
+          "0.95": 0.8158553962299389,
+          "0.99": 0.8285069231521724
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0017094017094017094,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 33,
+        "tokens": 598,
+        "full_coefficient_relative_error": 0.7332498496857115,
+        "median_token_relative_error": 0.7514807725379391,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6304096700402597,
+          "0.5": 0.7515642575398882,
+          "0.9": 0.8046252170271764,
+          "0.95": 0.8139092211462455,
+          "0.99": 0.8360615737579755
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.008361204013377926,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 34,
+        "tokens": 826,
+        "full_coefficient_relative_error": 0.7562773470010714,
+        "median_token_relative_error": 0.7659510869126926,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6820076512103586,
+          "0.5": 0.7659569761707337,
+          "0.9": 0.8063043122322578,
+          "0.95": 0.814396450126179,
+          "0.99": 0.8279372423452479
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 35,
+        "tokens": 616,
+        "full_coefficient_relative_error": 0.7450340156250196,
+        "median_token_relative_error": 0.7585702043791249,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6556969815933512,
+          "0.5": 0.75858197902857,
+          "0.9": 0.806862478804619,
+          "0.95": 0.8149333434262706,
+          "0.99": 0.8306272272857992
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0016233766233766235,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 36,
+        "tokens": 809,
+        "full_coefficient_relative_error": 0.7479714207168376,
+        "median_token_relative_error": 0.7589265728152786,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6621903317415577,
+          "0.5": 0.7589265728152786,
+          "0.9": 0.806153056993643,
+          "0.95": 0.8167863786997921,
+          "0.99": 0.832153544575916
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.002472187886279357,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 37,
+        "tokens": 867,
+        "full_coefficient_relative_error": 0.7543785237222389,
+        "median_token_relative_error": 0.7632367016315176,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6794885109400038,
+          "0.5": 0.7632367016315176,
+          "0.9": 0.8088033045466251,
+          "0.95": 0.8193064059328287,
+          "0.99": 0.8312714063244421
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 38,
+        "tokens": 623,
+        "full_coefficient_relative_error": 0.7467635473124195,
+        "median_token_relative_error": 0.7559385017010856,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6662627609407662,
+          "0.5": 0.7559385017010856,
+          "0.9": 0.8065092656890304,
+          "0.95": 0.8161722902902135,
+          "0.99": 0.8301464015626024
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 39,
+        "tokens": 738,
+        "full_coefficient_relative_error": 0.7491321065754686,
+        "median_token_relative_error": 0.7564708172143373,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6658426900060392,
+          "0.5": 0.7564739499986308,
+          "0.9": 0.8069400369463073,
+          "0.95": 0.820011033262713,
+          "0.99": 0.8358148217454248
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 40,
+        "tokens": 859,
+        "full_coefficient_relative_error": 0.7571390957460149,
+        "median_token_relative_error": 0.76846576055539,
+        "token_relative_error_quantiles": {
+          "0.1": 0.685976280404939,
+          "0.5": 0.76846576055539,
+          "0.9": 0.8081790013238666,
+          "0.95": 0.8159450599095647,
+          "0.99": 0.8368185274815412
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 41,
+        "tokens": 750,
+        "full_coefficient_relative_error": 0.7539635187592452,
+        "median_token_relative_error": 0.7677710502720144,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6607803315644669,
+          "0.5": 0.7678988860671643,
+          "0.9": 0.8119783008496919,
+          "0.95": 0.8187903925821424,
+          "0.99": 0.8288676361273101
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 42,
+        "tokens": 641,
+        "full_coefficient_relative_error": 0.7531854343393269,
+        "median_token_relative_error": 0.7679214140319284,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6636776031536711,
+          "0.5": 0.7679214140319284,
+          "0.9": 0.8097794944565845,
+          "0.95": 0.818243258067693,
+          "0.99": 0.8398568995140635
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0031201248049922,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 43,
+        "tokens": 816,
+        "full_coefficient_relative_error": 0.7496184154153113,
+        "median_token_relative_error": 0.7606457918285194,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6603150010273442,
+          "0.5": 0.7607110718698498,
+          "0.9": 0.8067357772500007,
+          "0.95": 0.8142553558545016,
+          "0.99": 0.8301332320589258
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 44,
+        "tokens": 929,
+        "full_coefficient_relative_error": 0.7542914389330525,
+        "median_token_relative_error": 0.7643429625130449,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6755487122578048,
+          "0.5": 0.7643429625130449,
+          "0.9": 0.8070745850358007,
+          "0.95": 0.8174775020180268,
+          "0.99": 0.8370755318935721
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 45,
+        "tokens": 687,
+        "full_coefficient_relative_error": 0.7494740611996297,
+        "median_token_relative_error": 0.7625746599122223,
+        "token_relative_error_quantiles": {
+          "0.1": 0.667611697666189,
+          "0.5": 0.7625746599122223,
+          "0.9": 0.8072614634576476,
+          "0.95": 0.8143210246023131,
+          "0.99": 0.8325240659610793
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 46,
+        "tokens": 672,
+        "full_coefficient_relative_error": 0.7444442182341771,
+        "median_token_relative_error": 0.7485124424567141,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6561726247061586,
+          "0.5": 0.7485886059722774,
+          "0.9": 0.8070192921512525,
+          "0.95": 0.8179866853397415,
+          "0.99": 0.8447333259429548
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.002976190476190476,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 47,
+        "tokens": 706,
+        "full_coefficient_relative_error": 0.7400216877982031,
+        "median_token_relative_error": 0.7488588542540675,
+        "token_relative_error_quantiles": {
+          "0.1": 0.66062890614245,
+          "0.5": 0.7490756442804024,
+          "0.9": 0.8015359538540565,
+          "0.95": 0.8127395021145801,
+          "0.99": 0.8312003167628339
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 48,
+        "tokens": 1103,
+        "full_coefficient_relative_error": 0.7491236202124869,
+        "median_token_relative_error": 0.7585247158036271,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6675849645620797,
+          "0.5": 0.7585247158036271,
+          "0.9": 0.8062320151191643,
+          "0.95": 0.8165278839223912,
+          "0.99": 0.8329505114036893
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 49,
+        "tokens": 719,
+        "full_coefficient_relative_error": 0.741305584624315,
+        "median_token_relative_error": 0.7490543289916757,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6600694188853088,
+          "0.5": 0.7490543289916757,
+          "0.9": 0.8036635436937943,
+          "0.95": 0.8140434535387086,
+          "0.99": 0.8295230084800431
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 50,
+        "tokens": 628,
+        "full_coefficient_relative_error": 0.7348695598915848,
+        "median_token_relative_error": 0.748516102817472,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6331540887610343,
+          "0.5": 0.748587388324703,
+          "0.9": 0.8022468355357228,
+          "0.95": 0.8114992414946972,
+          "0.99": 0.8233012657120199
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0015923566878980893,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 51,
+        "tokens": 791,
+        "full_coefficient_relative_error": 0.7521628040780783,
+        "median_token_relative_error": 0.7665394263096332,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6601538580135401,
+          "0.5": 0.7665394263096332,
+          "0.9": 0.8128303550731407,
+          "0.95": 0.8224699791987238,
+          "0.99": 0.8430377467123362
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 52,
+        "tokens": 630,
+        "full_coefficient_relative_error": 0.7501959426487277,
+        "median_token_relative_error": 0.7632413444884076,
+        "token_relative_error_quantiles": {
+          "0.1": 0.655188633581645,
+          "0.5": 0.7633745389612597,
+          "0.9": 0.8094536200053645,
+          "0.95": 0.8200759099387819,
+          "0.99": 0.8335988079325894
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 53,
+        "tokens": 871,
+        "full_coefficient_relative_error": 0.759226474892231,
+        "median_token_relative_error": 0.7680234066191555,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6854257471874803,
+          "0.5": 0.7680234066191555,
+          "0.9": 0.8154660297429447,
+          "0.95": 0.8273777950233002,
+          "0.99": 0.8384705336876779
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.001148105625717566,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 54,
+        "tokens": 1057,
+        "full_coefficient_relative_error": 0.7587462774531544,
+        "median_token_relative_error": 0.7642552564035568,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6916802701100337,
+          "0.5": 0.7642552564035568,
+          "0.9": 0.8096527599802618,
+          "0.95": 0.8184297642193937,
+          "0.99": 0.8358236980993453
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 55,
+        "tokens": 962,
+        "full_coefficient_relative_error": 0.7518741831126718,
+        "median_token_relative_error": 0.7608682556887577,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6728680132234128,
+          "0.5": 0.760886305346411,
+          "0.9": 0.8071684055013706,
+          "0.95": 0.8187441877852144,
+          "0.99": 0.8354693529742162
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 56,
+        "tokens": 777,
+        "full_coefficient_relative_error": 0.7507736974878143,
+        "median_token_relative_error": 0.7663226557099931,
+        "token_relative_error_quantiles": {
+          "0.1": 0.656788567270968,
+          "0.5": 0.7663226557099931,
+          "0.9": 0.8177657465982193,
+          "0.95": 0.8249070197470759,
+          "0.99": 0.8372607828907016
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.005148005148005148,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 57,
+        "tokens": 439,
+        "full_coefficient_relative_error": 0.7281720721458554,
+        "median_token_relative_error": 0.7538968061673764,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6050450011056641,
+          "0.5": 0.7538968061673764,
+          "0.9": 0.8118307537551733,
+          "0.95": 0.824642035090264,
+          "0.99": 0.8426125706839946
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.00683371298405467,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 58,
+        "tokens": 663,
+        "full_coefficient_relative_error": 0.7439919386871687,
+        "median_token_relative_error": 0.7513584450175176,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6620038031308987,
+          "0.5": 0.7513584450175176,
+          "0.9": 0.8029614964089494,
+          "0.95": 0.8173748091663406,
+          "0.99": 0.8350309508991467
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 59,
+        "tokens": 615,
+        "full_coefficient_relative_error": 0.7509889707572999,
+        "median_token_relative_error": 0.7662183197559501,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6683652412691183,
+          "0.5": 0.7662183197559501,
+          "0.9": 0.8065371695330141,
+          "0.95": 0.8175222167314363,
+          "0.99": 0.8279225352024275
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 60,
+        "tokens": 731,
+        "full_coefficient_relative_error": 0.6836302664343665,
+        "median_token_relative_error": 0.6885163070313883,
+        "token_relative_error_quantiles": {
+          "0.1": 0.5929538245281059,
+          "0.5": 0.6885163070313883,
+          "0.9": 0.76686156063883,
+          "0.95": 0.7841575504867162,
+          "0.99": 0.8193021991764621
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.03419972640218878,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 61,
+        "tokens": 1005,
+        "full_coefficient_relative_error": 0.758258620939084,
+        "median_token_relative_error": 0.7634895468150764,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6976556532977295,
+          "0.5": 0.7634895468150764,
+          "0.9": 0.8060515760524547,
+          "0.95": 0.8144294548401316,
+          "0.99": 0.8303379682366258
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.001990049751243781,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 62,
+        "tokens": 2418,
+        "full_coefficient_relative_error": 0.7626748701907627,
+        "median_token_relative_error": 0.7684710148203149,
+        "token_relative_error_quantiles": {
+          "0.1": 0.7012958898566439,
+          "0.5": 0.7684725529970018,
+          "0.9": 0.8113188491143067,
+          "0.95": 0.8202438209286902,
+          "0.99": 0.8329262944436793
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      },
+      {
+        "group": 63,
+        "tokens": 706,
+        "full_coefficient_relative_error": 0.7456761020970012,
+        "median_token_relative_error": 0.7559240190247256,
+        "token_relative_error_quantiles": {
+          "0.1": 0.6658183562907412,
+          "0.5": 0.7559403205624116,
+          "0.9": 0.8047125408919282,
+          "0.95": 0.8129736793171773,
+          "0.99": 0.8334017380598183
+        },
+        "fraction_tokens_error_below": {
+          "0.1": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "1.0": 1.0
+        },
+        "zero_target_rows": 0,
+        "maximum_error_on_zero_target": 0.0
+      }
+    ],
+    "fraction_tokens_improved_vs_matched_global": 0.7306774809160306,
+    "fraction_tokens_worsened_vs_matched_global": 0.2693225190839695,
+    "worst_squared_error_increase": 158614.31000898988,
+    "component_energy_over_combined": 1.0795221225537828,
+    "exact_nonzero_global_codes": 6438912,
+    "exact_nonzero_private_codes": 804864
+  },
+  "wall_seconds": 8.179188791662455
+}

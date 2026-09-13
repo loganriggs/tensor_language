@@ -1,0 +1,87 @@
+{
+  "source_sha256": "6d928e332986908d15966f438ed8a845227174dc9352108be57f4776b3916b75",
+  "mask_bytes": 221184,
+  "frames": [
+    {
+      "frame": "native",
+      "cells": [
+        {
+          "relative_error_ceiling": 0.5,
+          "bitmap_bytes": 2111544,
+          "bitmap_over_dense": 0.2983296712239583,
+          "coo_bytes": 3780720,
+          "best_storage_bytes": 2111544
+        },
+        {
+          "relative_error_ceiling": 0.2,
+          "bitmap_bytes": 4332968,
+          "bitmap_over_dense": 0.6121837474681713,
+          "coo_bytes": 8223568,
+          "best_storage_bytes": 4332968
+        },
+        {
+          "relative_error_ceiling": 0.1,
+          "bitmap_bytes": 5407192,
+          "bitmap_over_dense": 0.7639555754484953,
+          "coo_bytes": 10372016,
+          "best_storage_bytes": 5407192
+        },
+        {
+          "relative_error_ceiling": 0.05,
+          "bitmap_bytes": 6101568,
+          "bitmap_over_dense": 0.862060546875,
+          "coo_bytes": 11760768,
+          "best_storage_bytes": 6101568
+        },
+        {
+          "relative_error_ceiling": 0.02,
+          "bitmap_bytes": 6647768,
+          "bitmap_over_dense": 0.9392304597077547,
+          "coo_bytes": 12853168,
+          "best_storage_bytes": 6647768
+        }
+      ]
+    },
+    {
+      "frame": "full_hosvd",
+      "cells": [
+        {
+          "relative_error_ceiling": 0.5,
+          "bitmap_bytes": 6095612,
+          "bitmap_over_dense": 0.8612190529152199,
+          "coo_bytes": 6374328,
+          "best_storage_bytes": 6095612
+        },
+        {
+          "relative_error_ceiling": 0.2,
+          "bitmap_bytes": 7869440,
+          "bitmap_over_dense": 1.1118344907407407,
+          "coo_bytes": 9921984,
+          "best_storage_bytes": 7869440
+        },
+        {
+          "relative_error_ceiling": 0.1,
+          "bitmap_bytes": 9250200,
+          "bitmap_over_dense": 1.306915283203125,
+          "coo_bytes": 12683504,
+          "best_storage_bytes": 9250200
+        },
+        {
+          "relative_error_ceiling": 0.05,
+          "bitmap_bytes": 10349672,
+          "bitmap_over_dense": 1.4622542769820601,
+          "coo_bytes": 14882448,
+          "best_storage_bytes": 10349672
+        },
+        {
+          "relative_error_ceiling": 0.02,
+          "bitmap_bytes": 11346052,
+          "bitmap_over_dense": 1.6030279088903356,
+          "coo_bytes": 16875208,
+          "best_storage_bytes": 11346052
+        }
+      ]
+    }
+  ],
+  "scope": "Same entries and errors; alternative dense bitmap plus packed FP32 coefficients. Counts stored bytes only. Decode cost, runtime working memory and execution speed are not measured; no assertion of sparse speedup."
+}

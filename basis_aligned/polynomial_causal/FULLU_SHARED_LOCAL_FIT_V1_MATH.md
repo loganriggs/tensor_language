@@ -1,6 +1,17 @@
-# Shared global/private full-U fit: first capacity completed
+# Shared global/private full-U fit: both capacities completed
 
-13 September 2026. [Registration](FULLU_SHARED_LOCAL_FIT_V1_PREREGISTRATION.md). The larger 128/64/16 capacity remains live; this note covers the completed 64/32/8 configuration only.
+13 September 2026. [Registration](FULLU_SHARED_LOCAL_FIT_V1_PREREGISTRATION.md). Both capacities completed at 05:56:30 UTC, with 2238.30 seconds of measured run time. Numerical checks passed; convergence and the registered 10% squared-gain criterion failed. The earlier detailed sections below describe G64; the completed comparison follows here.
+
+| Shared / groups / private | Compiled bytes | Coefficient error | Matched global error | Squared-error gain |
+|---|---:|---:|---:|---:|
+| 64 / 32 / 8 | 16,167,936 | 83.61% | 85.85% | 5.15% |
+| 128 / 64 / 16 | 34,489,344 | 74.41% | 77.74% | 8.36% |
+
+The larger capacity also stopped all three promoted starts at 240 refinement sweeps, with maximum intrinsic gradients 4.28e-6, 1.65e-6 and 2.88e-6. None met the 1e-6 criterion. Its promoted function cosines are 0.851–0.854. This remains an unfinished optimization comparison, not a global-optimum or identified-factor claim.
+
+The [G128 frozen token audit](SHARED_LOCAL_TOKEN_AUDIT_V1_G128_RESULT.json) replays coefficient error to 3.18e-12. It improves 73.07% of token functions, while 26.93% worsen; median error is 75.65% versus 78.00% globally. The [compiled G128 program](FULLU_SHARED_LOCAL_FIT_V1_G128_PROGRAM.pt) differs from the fit by 2.58e-8 in full coefficient norm. [Complete fit receipt](FULLU_SHARED_LOCAL_FIT_V1_RESULT.json).
+
+Both programs subsequently beat matched global baselines on [historical FineWeb](SHARED_LOCAL_FINEWEB_V1_MATH.md), but fail preservation. On the [regional circuit panel](SHARED_LOCAL_REGIONAL_V1_MATH.md), the larger grouped model is worse than its matched global baseline in all five context groups. Better aggregate fit and lower FineWeb KL did not guarantee preservation of this circuit. No replacement is adopted.
 
 **The smaller model gives a modest, broadly distributed improvement, but misses both the registered gain and local-convergence criteria.** Do not call it a converged discovery of token structure.
 
@@ -26,7 +37,7 @@ About 0.48% of tokens have error below 10%; this small subset has not been seman
 
 The [configuration receipt](FULLU_SHARED_LOCAL_FIT_V1_G64_RESULT.json) retains all histories and stops. The frozen audit is an executed check against hidden token-level regressions and compilation errors. It does not resolve the unfinished optimization. Overall registered convergence and 10%-gain predictions can no longer pass for **both** capacities as written; keep that miss even if the larger capacity succeeds.
 
-No text was used to fit or audit these factors. Native behavioral fidelity, selective removal, OOD prediction and cross-behavior reuse remain untested. The larger fit continues without changing its source, criterion or budget.
+No text was used to fit these factors or conduct the coefficient audits. Subsequent frozen historical text checks are linked above. Selective removal of identified factors, fresh/OOD prediction and cross-behavior reuse remain unproved; neither the source nor the original fit criteria were changed.
 
 ## Accurate-token subset: duplicate audit and its limit
 

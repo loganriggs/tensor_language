@@ -1,6 +1,6 @@
 # Frozen readout factors on historical FineWeb: improvement without preservation
 
-13 September 2026. [Registered protocol](SHARED_LOCAL_FINEWEB_V1_PREREGISTRATION.md), [G64 result](SHARED_LOCAL_FINEWEB_V1_G64_RESULT.json). The larger-capacity fit remains live and will receive the same frozen check when its artifact is complete.
+13 September 2026. [Registered protocol](SHARED_LOCAL_FINEWEB_V1_PREREGISTRATION.md), [G64 result](SHARED_LOCAL_FINEWEB_V1_G64_RESULT.json), [G128 result](SHARED_LOCAL_FINEWEB_V1_G128_RESULT.json). Both completed programs received the same frozen check; neither passes preservation.
 
 **The grouped fit improves on the matched global baseline, but fails the preservation criterion.** Replacing the entire unembedding is much worse than changing only its final bilinear contribution. This is a useful distinction between the local folded objective and a whole-readout replacement.
 
@@ -22,3 +22,9 @@ The comparison itself tests a major alternative explanation for the failure: the
 The positive comparison also needs qualification. [Paired uncertainty audit](SHARED_LOCAL_FINEWEB_PAIRED_V1_G64_RESULT.json) resamples whole sequences, keeping their two positions together; it reports differences in KL for this fixed historical panel. This is descriptive uncertainty, not independent replication. The larger fit and further weight-only structural alternatives should be interpreted before selecting a native replacement.
 
 For pricing, retaining native U on the residual route means the quadratic-only arm does not remove the original unembedding storage. The whole-U arm could remove it but currently causes large damage. Neither is adopted, and neither establishes selective removal or reusable semantic circuits.
+
+## Larger capacity, same frozen protocol
+
+For G128, the quadratic-only route has mean KL **0.09522** versus **0.14729** for matched global rank167. Mean absolute position CE change is **0.30682**, versus **0.39343** globally. The grouped whole-U route has KL **2.25603** and CE added **+2.42241**, versus **3.46603** and **+3.61817** globally. Instrument and grouped-versus-global KL checks pass; preservation fails.
+
+The numerical checks are unchanged and hold. This CPU validation took 7.09 seconds without new body forwards. The later [regional circuit check](SHARED_LOCAL_REGIONAL_V1_MATH.md) reverses the larger model's advantage over its matched global baseline, illustrating why this small FineWeb average is insufficient for circuit selection.

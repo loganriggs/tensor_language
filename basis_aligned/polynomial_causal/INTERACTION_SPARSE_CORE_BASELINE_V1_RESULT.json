@@ -1,0 +1,120 @@
+{
+  "schema": "interaction.sparse.core.baseline.v1",
+  "tensor_shape": [
+    12,
+    1152,
+    128
+  ],
+  "token_ids": [
+    11383,
+    1430,
+    14148,
+    6907,
+    31049,
+    14733,
+    34614,
+    18388,
+    39012,
+    16521,
+    46729,
+    16924
+  ],
+  "dense_tensor_bytes": 7077888,
+  "full_reconstruction_error": 5.014433774387461e-15,
+  "frames": [
+    {
+      "frame": "native",
+      "adapter_floats": 0,
+      "curves": [
+        {
+          "relative_error_ceiling": 0.5,
+          "retained_entries": 472590,
+          "retained_fraction": 0.2670796712239583,
+          "actual_relative_error": 0.4999995807587714,
+          "total_bytes": 3780720,
+          "bytes_over_dense": 0.5341593424479166
+        },
+        {
+          "relative_error_ceiling": 0.2,
+          "retained_entries": 1027946,
+          "retained_fraction": 0.5809337474681713,
+          "actual_relative_error": 0.19999984657433126,
+          "total_bytes": 8223568,
+          "bytes_over_dense": 1.1618674949363426
+        },
+        {
+          "relative_error_ceiling": 0.1,
+          "retained_entries": 1296502,
+          "retained_fraction": 0.7327055754484953,
+          "actual_relative_error": 0.0999999358005681,
+          "total_bytes": 10372016,
+          "bytes_over_dense": 1.4654111508969907
+        },
+        {
+          "relative_error_ceiling": 0.05,
+          "retained_entries": 1470096,
+          "retained_fraction": 0.830810546875,
+          "actual_relative_error": 0.04999990910474657,
+          "total_bytes": 11760768,
+          "bytes_over_dense": 1.66162109375
+        },
+        {
+          "relative_error_ceiling": 0.02,
+          "retained_entries": 1606646,
+          "retained_fraction": 0.9079804597077547,
+          "actual_relative_error": 0.019999917417731685,
+          "total_bytes": 12853168,
+          "bytes_over_dense": 1.8159609194155093
+        }
+      ]
+    },
+    {
+      "frame": "full_hosvd",
+      "adapter_floats": 1343632,
+      "curves": [
+        {
+          "relative_error_ceiling": 0.5,
+          "retained_entries": 124975,
+          "retained_fraction": 0.07062841344762731,
+          "actual_relative_error": 0.4999992580137088,
+          "total_bytes": 6374328,
+          "bytes_over_dense": 0.9005974663628472
+        },
+        {
+          "relative_error_ceiling": 0.2,
+          "retained_entries": 568432,
+          "retained_fraction": 0.32124385127314814,
+          "actual_relative_error": 0.1999998871505143,
+          "total_bytes": 9921984,
+          "bytes_over_dense": 1.4018283420138888
+        },
+        {
+          "relative_error_ceiling": 0.1,
+          "retained_entries": 913622,
+          "retained_fraction": 0.5163246437355324,
+          "actual_relative_error": 0.09999988434898546,
+          "total_bytes": 12683504,
+          "bytes_over_dense": 1.7919899269386574
+        },
+        {
+          "relative_error_ceiling": 0.05,
+          "retained_entries": 1188490,
+          "retained_fraction": 0.6716636375144676,
+          "actual_relative_error": 0.04999992035421268,
+          "total_bytes": 14882448,
+          "bytes_over_dense": 2.1026679144965277
+        },
+        {
+          "relative_error_ceiling": 0.02,
+          "retained_entries": 1437585,
+          "retained_fraction": 0.8124372694227431,
+          "actual_relative_error": 0.01999998200073316,
+          "total_bytes": 16875208,
+          "bytes_over_dense": 2.3842151783130787
+        }
+      ]
+    }
+  ],
+  "wall_seconds": 0.9965637102723122,
+  "scope": "Best entry support in each fixed orthogonal frame for selected-output mixed T. One uint32 packed edge ID plus FP32 coefficient per entry; adapters fully priced. No learned rotations, native-domain preservation or whole-model compression claim."
+}
