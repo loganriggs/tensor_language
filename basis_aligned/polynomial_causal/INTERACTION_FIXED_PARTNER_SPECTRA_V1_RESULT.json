@@ -1,0 +1,51 @@
+{
+  "partner_w": {
+    "relative_errors": {
+      "4": 0.7141552204625772,
+      "8": 0.6936905851783468,
+      "16": 0.6626387950375415,
+      "32": 0.6133509616776307,
+      "64": 0.5365221986039311,
+      "128": 0.42233422649731944
+    },
+    "ranks_for_error": {
+      "0.02": 831,
+      "0.05": 675,
+      "0.1": 522
+    },
+    "frobenius_norm": 1678390068.2207513
+  },
+  "partner_Jw_w": {
+    "relative_errors": {
+      "4": 0.7772386420181298,
+      "8": 0.7545361743723679,
+      "16": 0.7207823066269474,
+      "32": 0.668225854613846,
+      "64": 0.5855149009457014,
+      "128": 0.46245631604132476
+    },
+    "ranks_for_error": {
+      "0.02": 845,
+      "0.05": 695,
+      "0.1": 547
+    },
+    "frobenius_norm": 37223458239900.695
+  },
+  "joint_unit_normalized": {
+    "relative_errors": {
+      "4": 0.7505406053979513,
+      "8": 0.7308346569449414,
+      "16": 0.7019391114965337,
+      "32": 0.656789125491842,
+      "64": 0.5857442277468499,
+      "128": 0.4780730407168579
+    },
+    "ranks_for_error": {
+      "0.02": 941,
+      "0.05": 790,
+      "0.1": 627
+    },
+    "frobenius_norm": 1.4142135623731031
+  },
+  "scope": "Actual fixed directions in response basis, weight-only matrix spectra. Joint bank uses equal unit-Frobenius function weighting, not amplitude- or text-distribution weighting. Only K(Jz,w) and K(Jz,Jw*w) paths, not remaining variable-partner terms. Spectral rank lower bounds only for linear matrix representations; no behavioral or whole-program storage claim."
+}

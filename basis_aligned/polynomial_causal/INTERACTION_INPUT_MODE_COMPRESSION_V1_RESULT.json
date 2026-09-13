@@ -1,0 +1,83 @@
+{
+  "cells": [
+    {
+      "separate_rank_each": 4,
+      "joint_rank": 4,
+      "separate_extra_scalars": 46080,
+      "joint_extra_scalars": 41472,
+      "separate_relative_error": 0.9622048942473401,
+      "joint_relative_error": 0.9625070002635318,
+      "separate_storage_over_original_J": 0.034722222222222224,
+      "joint_storage_over_original_J": 0.03125
+    },
+    {
+      "separate_rank_each": 8,
+      "joint_rank": 8,
+      "separate_extra_scalars": 92160,
+      "joint_extra_scalars": 82944,
+      "separate_relative_error": 0.9437454697037825,
+      "joint_relative_error": 0.9444567616094048,
+      "separate_storage_over_original_J": 0.06944444444444445,
+      "joint_storage_over_original_J": 0.0625
+    },
+    {
+      "separate_rank_each": 16,
+      "joint_rank": 17,
+      "separate_extra_scalars": 184320,
+      "joint_extra_scalars": 176256,
+      "separate_relative_error": 0.9150418417589488,
+      "joint_relative_error": 0.9134523087090551,
+      "separate_storage_over_original_J": 0.1388888888888889,
+      "joint_storage_over_original_J": 0.1328125
+    },
+    {
+      "separate_rank_each": 32,
+      "joint_rank": 35,
+      "separate_extra_scalars": 368640,
+      "joint_extra_scalars": 362880,
+      "separate_relative_error": 0.868219750823142,
+      "joint_relative_error": 0.863667742336463,
+      "separate_storage_over_original_J": 0.2777777777777778,
+      "joint_storage_over_original_J": 0.2734375
+    },
+    {
+      "separate_rank_each": 64,
+      "joint_rank": 71,
+      "separate_extra_scalars": 737280,
+      "joint_extra_scalars": 736128,
+      "separate_relative_error": 0.7914181687234069,
+      "joint_relative_error": 0.7826529549259902,
+      "separate_storage_over_original_J": 0.5555555555555556,
+      "joint_storage_over_original_J": 0.5546875
+    },
+    {
+      "separate_rank_each": 128,
+      "joint_rank": 142,
+      "separate_extra_scalars": 1474560,
+      "joint_extra_scalars": 1472256,
+      "separate_relative_error": 0.6690399670030788,
+      "joint_relative_error": 0.6556811630902398,
+      "separate_storage_over_original_J": 1.1111111111111112,
+      "joint_storage_over_original_J": 1.109375
+    }
+  ],
+  "gram_checks": [
+    2.144257136578537e-15,
+    2.0772875117695104e-15,
+    2.5645190342727534e-15
+  ],
+  "total_tensor_squared_norm": 1.75430733368068e+16,
+  "cross_term_fraction": 0.02551904021232003,
+  "original_J_scalars": 1327104,
+  "common_L_R_D_scalars": 15925248,
+  "folded_A_B_scalars": 10616832,
+  "joint_ranks_for_relative_error": {
+    "0.01": 1067,
+    "0.02": 1019,
+    "0.05": 912,
+    "0.1": 782,
+    "0.2": 595
+  },
+  "seconds": 4.4876962415874,
+  "scope": "Weights-only exact coefficient Frobenius metric for D[(LJz)*(Ry)+(RJz)*(Ly)]. Independent z,y on one folded Jw leg; joint spectral input projector is optimal only within shared orthogonal-input projection class. Separate term eigensolves optimize each term, not globally optimal joint loss for two distinct projectors. Common L/R/D weights and native normalizers/generators remain external. No native behavioral or global compression claim; storage comparison uses original J, not inflated folded matrices."
+}
