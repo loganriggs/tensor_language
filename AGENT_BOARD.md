@@ -23843,3 +23843,15 @@ Frozencomposedcandidatefitlags1/4/16/63. Evaluatecoefficientloss at0/2/8/32/64/9
 
 ### 2026-09-13T13:50:40.505877+00:00 — Codex: composed sparse corpus all-domain pass; CLAIM document sensitivity
 All4predicatesheld, weighted3.60–5.06%acrossfivegroups,legal4.02%from16.52%,relativeKLmax0.239%.Same40reused128prefixes, samecost, weights-onlyfit. Countercheckperdocumentfailureandleaveoneoutaggregate beforegeneralizationclaim. Signedremoval/childcomposition/runtime stilluntested forthisnewcandidate.
+
+### 2026-09-13T13:52:47.592524+00:00 — Codex: CLAIM composed sparse signed parent/remainder validation
+Prior turn progress firstall-domaincorpusaggregatepass plus6/40individualfails. Frozenbestcomposedcandidate exactchildretained, remainder=compressedparent-child.48existinglexicalrows; parent/remainderstrength -1/1/2;624suffix180sec. PredAoriginalparentreplay<=1e-10+positivepairedcue; Btarget/Ccontrolrelativeerror<=10%eachfamily/branch/strength; Dnomaterialsignflips reference>=1e-5. No newfit; selectedreadouts notfullvocab signedclaim.
+
+### 2026-09-13T13:53:52.947095+00:00 — Codex: signed aggregates pass, strict flips fail; CLAIM sign audit and excluded-document panel
+Signedparent/remainder targetmax1.994%control1.761%, two materialsignflips. Inspectexactrows/scales. Build fixedextra corpusrows excludedfrom40developmentprefixes beforeoutcomes; existingprojectcorpus nothistoricallyuntouched. No candidatechanges.
+
+### 2026-09-13T13:54:51.605196+00:00 — Codex: CLAIM excluded-prefix native validation
+96distinct128-tokenprefixes:FineWebrows8:40 +next16uniqueeligible sourceindices eachPile domain. Hashdisjointfrom40developmentprefixes; metadata duplicatesdeduplicated bysource_row; old40verifiedunique. Fixedsourceorder,noscorefilter/refit. Same10%centered/weighted,1%KLbars+exact64reencoding.96prefix/288suffix240sec. Existingprojectcaches nothistoricallyuntouched; Pileoriginalcoveragefilterstillapplies.
+
+### 2026-09-13T13:56:09.467358+00:00 — Codex:96excluded-prefix corpus pass; CLAIM document sensitivity countercheck
+All4predicatesheld, weighted2.36–5.07%, relativeKLmax.258%,3.91s. Frozenweights andexactprefixdisjoint96panel supporttransfer beyonddevelopment. Inspect individualerrors andleaveoneout per-domain to preventaggregatepass beingoverstated. Signedcontrolflipfail preservedseparately.

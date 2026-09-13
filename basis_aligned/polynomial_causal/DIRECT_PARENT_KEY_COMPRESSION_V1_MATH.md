@@ -469,3 +469,76 @@ Native: `ops/run_composed_sparse_parent_corpus_v1.py`,
 `COMPOSED_SPARSE_PARENT_CORPUS_V1_BINDING.json`,
 `COMPOSED_SPARSE_PARENT_CORPUS_V1_RESULT.json`,
 `COMPOSED_SPARSE_PARENT_CORPUS_V1_DOCUMENT_AUDIT.json`.
+
+
+## Signed hierarchy preservation and additional-document transfer
+
+The same frozen composed sparse candidate now replaces the parent while keeping
+the existing child exact. Its remainder is still defined as compressed parent
+minus original child. On48 lexical prompts, evaluate actual parent and remainder
+writer removal at strengths$-1,1,2$, then recompute MLP9 and the native suffix.
+This covers signed use of both hierarchy branches; it does not yet test every
+independent combination of child and remainder strengths or every output token.
+
+All family/branch/strength aggregate errors pass10%: maximum1.994% on spelling
+targets and1.761% on the work/jobs control contrast. Native parent replay is
+exact and paired spelling capability remains positive. The strict no-material-
+sign-flip criterion fails twice, both on controls:
+
+| Row | Branch/strength | Native effect | Candidate effect | Absolute error |
+|---|---|---:|---:|---:|
+|34|parent,2|0.00058770|-0.00006342|0.00065112|
+|38|remainder,1|0.00015831|-0.00013638|0.00029469|
+
+Effects are logit-contrast changes in nats. These are small effects, but exceed
+the registered1e-5 reference threshold; they are not relabelled numerical noise.
+No spelling-target sign reversals occur. This strengthens signed preservation
+while explicitly failing universal control-sign preservation.
+
+For input transfer, a second corpus panel contains96 distinct128-token prefixes:
+32 FineWeb documents and16 each from discussion, reference, biomedical and
+legal/patent. Fixed source order selects documents excluded from the40-prefix
+compression-development panel. Exact prefix hashes are distinct within the new
+panel and disjoint from the old one. The Pile metadata contains repeated entries
+for different target positions, so selection deduplicates source-row indices;
+the old40-prefix panel was also checked and has no such duplication.
+
+No candidate changes or text fitting precede this test. These are existing
+project caches, not historically untouched documents. The Pile cache was
+coverage-filtered for another study, and pretraining disjointness/near-duplicate
+exclusion are not claimed. This is input transfer outside this compression
+comparison's development panel, with those provenance limits.
+
+All four native unit-parent criteria pass in3.91seconds:
+
+| Domain | Documents | Weighted effect error | Relative KL |
+|---|---:|---:|---:|
+| FineWeb |32|5.07%|0.258%|
+| Discussion |16|2.69%|0.073%|
+| Reference |16|2.36%|0.053%|
+| Biomedical |16|3.10%|0.096%|
+| Legal/patent |16|3.13%|0.098%|
+
+Centered-vocabulary error is2.37–5.10%. Each domain still passes after deleting
+any one document (maximum weighted error5.65%). However,12/96 individual
+prefixes exceed10% relative error. The two largest ratios,74.65% and66.52%,
+have tiny reference effects: probability-weighted reference RMS1.46e-5 and
+8.86e-5nats, with candidate-distribution KL5.89e-11 and1.74e-9nats. Other failures
+have larger absolute effects; the legal example at20.46% error has weighted
+error RMS0.000839nats. Relative exceptions remain recorded rather than erased
+by an after-the-fact threshold.
+
+Together these results support approximate preservation of this declared parent
+interface across additional corpus inputs and signed hierarchy use. They do not
+establish universal per-input fidelity, new semantic selectivity, arbitrary
+cross-circuit composition or faster execution. Logical storage savings remain
+16.31%of the reader representation and1.806%of the parent interface.
+
+Signed receipts: `COMPOSED_SPARSE_SIGNED_V1_BINDING.json`,
+`COMPOSED_SPARSE_SIGNED_V1_RESULT.json`, `COMPOSED_SPARSE_SIGNED_V1_SIGN_AUDIT.json`;
+runner `ops/run_composed_sparse_signed_v1.py`.
+Additional-document receipts: `COMPOSED_SPARSE_NEW_DOCS_V1_ROWS.json`,
+`COMPOSED_SPARSE_NEW_DOCS_V1_BINDING.json`, `COMPOSED_SPARSE_NEW_DOCS_V1_RESULT.json`,
+`COMPOSED_SPARSE_NEW_DOCS_V1_DOCUMENT_AUDIT.json`,
+`COMPOSED_SPARSE_NEW_DOCS_V1_SMALL_EFFECT_AUDIT.json`;
+runner `ops/run_composed_sparse_new_docs_v1.py`.
