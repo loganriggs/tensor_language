@@ -1,0 +1,67 @@
+{
+  "native_ports": {
+    "original": {
+      "max_relative_write_error": 0.0,
+      "aggregate_relative_write_error": 0.0,
+      "identical_fp32_residual_writes": 120,
+      "median_120_core_calls_seconds": 0.006498750299215317
+    },
+    "horner": {
+      "max_relative_write_error": 0.0,
+      "aggregate_relative_write_error": 0.0,
+      "identical_fp32_residual_writes": 120,
+      "median_120_core_calls_seconds": 0.005892440676689148
+    },
+    "shared_product": {
+      "max_relative_write_error": 0.0,
+      "aggregate_relative_write_error": 0.0,
+      "identical_fp32_residual_writes": 120,
+      "median_120_core_calls_seconds": 0.006042990833520889
+    }
+  },
+  "fp32_stress": [
+    {
+      "strength": 1.0,
+      "relative_errors": {
+        "original": 1.3468213290449052e-07,
+        "horner": 1.292659417946052e-07,
+        "shared_product": 1.195162147951757e-07
+      }
+    },
+    {
+      "strength": 0.01,
+      "relative_errors": {
+        "original": 9.430189449192209e-06,
+        "horner": 9.434469811804069e-06,
+        "shared_product": 9.871362824969661e-06
+      }
+    },
+    {
+      "strength": 0.0001,
+      "relative_errors": {
+        "original": 8.769627863589961e-07,
+        "horner": 8.770139474143413e-07,
+        "shared_product": 6.261322305281136e-05
+      }
+    },
+    {
+      "strength": 1e-06,
+      "relative_errors": {
+        "original": 1.1856922143085574e-07,
+        "horner": 1.1856922143085574e-07,
+        "shared_product": 5.1816509833971e-07
+      }
+    }
+  ],
+  "gate_multiplications": {
+    "original": 8,
+    "horner": 6,
+    "shared_product": 5
+  },
+  "total_core_multiplications_per_source_at_width128": {
+    "original": 392,
+    "horner": 390,
+    "shared_product": 389
+  },
+  "scope": "Exact real-arithmetic rewrite of the retained approximation, not of full attention. 120cached native FP64 port contexts; scalar graph savings only, three value contractions and all input generators unchanged. Timings CPU eager core only, not GPU or full model. FP32 stress is synthetic on quantized inputs; recorded failures are not filtered."
+}
