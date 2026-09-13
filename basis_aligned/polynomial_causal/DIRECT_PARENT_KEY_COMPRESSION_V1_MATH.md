@@ -602,3 +602,59 @@ Higher sparsity may harm fidelity and must be measured, not assumed.
 Code/results: `sparse_parent_executor_v1.py`,
 `SPARSE_PARENT_EXECUTOR_V1_RESULT.json`,
 `SPARSE_PARENT_EXECUTOR_V1_LAYOUT_AUDIT.json`.
+
+
+## Regular two-of-four sparsity: stronger compression fails this fidelity screen
+
+To test a regular graph, keep exactly two entries in every four consecutive
+input coordinates of each64-dimensional reader. The mask is defined on
+$S^T\in\mathbb R^{64\times1152}$, grouped along its1152-wide input axis. Two
+fixed proposals use original $B$ and its previously learned orthogonal frame.
+Each has36,864 retained reader edges instead of55,296. The same projection
+correction makes reflection valid; no hardware speed is assumed from the mask.
+
+Ten composed-objective starts use the same L-BFGS protocol and four relative
+positions. All five original-mask starts hit200 iterations without convergence,
+with Gram condition around237–259 and loss around0.1304. These outcomes must
+not be reported as stationary. All five rotated-mask starts converge to loss
+0.1075042, unit-coordinate gradient below2.63e-9 and Gram condition3.67. The
+best stored payload preserves two entries per group exactly, and corrected
+orthogonality error is2.75e-15. Its larger error than the successful irregular
+candidate (loss0.0028407) is a representation warning, not a behavioral verdict.
+
+Native validation of the frozen best converged candidate gives:
+
+| Domain | Weighted effect error |
+|---|---:|
+| FineWeb |19.28%|
+| Discussion |14.95%|
+| Reference |9.18%|
+| Biomedical |25.92%|
+| Legal/patent |19.86%|
+
+Four domains fail the10% bar; centered and KL criteria also fail overall. Exact
+reference replay passes. The current logical packed price would save41.31% of
+the basis representation, or4.575% of the parent interface, including the same
+bitmask and correction charges. Fidelity failure prevents adoption. A specialized
+GPU representation or kernel has not been tested and cannot rescue this
+candidate's numerical approximation error by running it faster.
+
+The strongest methodological limitation is fixed support. A countercheck lets
+an orthogonal frame and a per-group two-of-four mask alternate, starting from
+identity. Exact hard-threshold and Procrustes steps reach a local basis-objective
+fixed point in428 cycles (0.70seconds, tangent RMS7.28e-8). Basis loss falls from
+8.3708 to5.1794. Its composed loss before composed refitting is0.113064, which
+does not beat0.107504 for the already-refitted fixed mask. This misses the
+registered immediate-improvement prediction; it does **not** establish that
+refitting the new support would fail. The new frozen proposal remains available
+for that test. Neither one mask search nor five unconverged old-mask fits excludes
+regular sparse graphs generally. No further runtime benchmarking of the failed
+candidate is warranted before a fidelity improvement.
+
+Initial masks/fit: `STRUCTURED_PARENT_READER_V1_INITIAL.pt`,
+`fit_structured_parent_v1.py`, `STRUCTURED_PARENT_FIT_V1_PROGRAM.pt`,
+`STRUCTURED_PARENT_FIT_V1_RESULT.json`, `STRUCTURED_PARENT_V1_PAYLOAD_AUDIT.json`.
+Native: `ops/run_structured_parent_corpus_v1.py`,
+`STRUCTURED_PARENT_CORPUS_V1_BINDING.json`, `STRUCTURED_PARENT_CORPUS_V1_RESULT.json`.
+Support-search countercheck: `STRUCTURED_PARENT_FRAME_V1_PROGRAM.pt`,
+`STRUCTURED_PARENT_FRAME_V1_RESULT.json`.

@@ -23861,3 +23861,12 @@ Prior turn progress signedhierarchyaggregatepass+96excludedprefixpass; strictsig
 
 ### 2026-09-13T14:00:42.411673+00:00 — Codex: sparse executor cost fails; CLAIM layout countercheck
 InsidekeyreplayFP64~2e-15/FP32~5.4e-7holds. CSR speed0.226–0.534x hoisteddense, preparedmemory+10.3%FP64/+41.0%FP32. Checkcontiguous RHS both withconversion included and optimistically prepacked,7warmups31pairedsamples atsamecounts. Distinguish librarylayoutcost from fullsparse execution; noGPU extrapolation.
+
+### 2026-09-13T14:02:57.041080+00:00 — Codex: CLAIM structured two-of-four sparse reader fit
+Prior turn progress CSR execution failure+layoutcountercheck. Newfixedmasks keep2entries per4consecutiveinputcoordinates ineach64reader, originalB and learnedorthogonalframe. Samecomplete-even weightobjective atlags1/4/16/63. Reuse10startL-BFGS protocol,200iter/300eval/180sec, unitgrad<=1e-8,FP32replay<=1e-6,10%objectivegainbarvsnewrotated2of4baseline. 50%readeredges; no GPUcompatibility/speedclaim beforemeasurement. Freeze bestbyweights; native10%behaviorgate independentofrelativefitgain.
+
+### 2026-09-13T14:04:02.100424+00:00 — Codex: structured fit partial convergence; CLAIM native screen
+Rotated5/5stationary loss.1075042; original5/5budgetstoploss~.1304/condition~250, notconverged. Bestarm7rotatedcondition3.67. Fixedsupport notglobalsearch; prior25%prunedloss.0028407. Native40prefix120suffix240sec same10%centered/weighted,1%KL,exactreencoding bars. Freeze bestweightloss; nofitoncorpus.
+
+### 2026-09-13T14:05:48.677017+00:00 — Codex: fixed2of4 native failure; CLAIM support-search countercheck
+Fourdomainsfailweighted14.95–25.92%; reference9.18%passes. Bestfixedmasklocallyconverged butno supportsearch. Executeoneidentity-start alternatingorthogonalProcrustes+pergroup2of4threshold, max2000cycles/unitgrad1e-7. Measurecomplete-evenobjective ofnewmaskproposal beforeanycomposedrefit, compare0.107504bestfixedmaskfit. Prednew<old falsifiesfixedmaskceiling asgeneralstructureverdict. No textfit; no globalconvergence orbehaviorclaim.
