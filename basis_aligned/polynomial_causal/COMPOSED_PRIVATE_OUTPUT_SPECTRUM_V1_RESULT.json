@@ -1,0 +1,64 @@
+{
+  "pred_a": false,
+  "pred_b": true,
+  "spectra": {
+    "upstream_quadratic": {
+      "relative_errors": {
+        "16": 0.974978148908189,
+        "32": 0.9570127777960646,
+        "64": 0.9240436768358743,
+        "128": 0.8634495719287346,
+        "256": 0.7534262865103745,
+        "512": 0.5558103964488835,
+        "768": 0.3716562276140051,
+        "1024": 0.17812267844462384
+      },
+      "necessary_output_ranks": {
+        "0.1": 1104,
+        "0.05": 1139,
+        "0.01": 1152
+      },
+      "min_raw_eigenvalue": 18900.370926698037
+    },
+    "linear_reader": {
+      "relative_errors": {
+        "16": 0.8964622213202933,
+        "32": 0.8580312036234705,
+        "64": 0.7930581984450755,
+        "128": 0.6850083545517975,
+        "256": 0.5155062199715775,
+        "512": 0.2757355858974296,
+        "768": 0.1175911964729639,
+        "1024": 0.02143215721522202
+      },
+      "necessary_output_ranks": {
+        "0.1": 806,
+        "0.05": 930,
+        "0.01": 1075
+      },
+      "min_raw_eigenvalue": 1.521180343238008
+    },
+    "composed_quadratic": {
+      "relative_errors": {
+        "16": 0.8905152741075285,
+        "32": 0.8459618272386819,
+        "64": 0.7719231391184108,
+        "128": 0.6531656136707102,
+        "256": 0.47453890596599396,
+        "512": 0.23946013065174623,
+        "768": 0.09767692785860797,
+        "1024": 0.017199359775304405
+      },
+      "necessary_output_ranks": {
+        "0.1": 763,
+        "0.05": 898,
+        "0.01": 1063
+      },
+      "min_raw_eigenvalue": 114001.02022207045
+    }
+  },
+  "oracle_error": 1.5737552027295544e-16,
+  "seconds": 2.760168056935072,
+  "scope": "Exact output-mode spectra of the producer-folded private correction.\n\nNo normalization, affine constant or text weighting in the quadratic numerator.\nPred_a rank64 composition error <=.1; pred_b Gram slice oracle <=1e-10.\nOutput-rank optimum is exact for this coefficient norm, not global graph rank.\n",
+  "prices": "Native J10 is 1152 squared scalars; a rank-r factored J10 costs 2304r. Output rank of the composed tensor alone does not price input computation or an executor."
+}

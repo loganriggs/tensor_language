@@ -1,0 +1,100 @@
+{
+  "pred_a": false,
+  "pred_b": true,
+  "spectra": {
+    "upstream_quadratic": {
+      "relative_errors": {
+        "16": 0.974978148908189,
+        "32": 0.9570127777960646,
+        "64": 0.9240436768358743,
+        "128": 0.8634495719287346,
+        "256": 0.7534262865103745,
+        "512": 0.5558103964488835,
+        "768": 0.3716562276140051,
+        "1024": 0.17812267844462384
+      },
+      "necessary_output_ranks": {
+        "0.1": 1104,
+        "0.05": 1139,
+        "0.01": 1152
+      },
+      "min_raw_eigenvalue": 18900.370926698037
+    },
+    "linear_reader": {
+      "relative_errors": {
+        "16": 0.8964622213202933,
+        "32": 0.8580312036234705,
+        "64": 0.7930581984450755,
+        "128": 0.6850083545517975,
+        "256": 0.5155062199715775,
+        "512": 0.2757355858974296,
+        "768": 0.1175911964729639,
+        "1024": 0.02143215721522202
+      },
+      "necessary_output_ranks": {
+        "0.1": 806,
+        "0.05": 930,
+        "0.01": 1075
+      },
+      "min_raw_eigenvalue": 1.521180343238008
+    },
+    "composed_quadratic": {
+      "relative_errors": {
+        "16": 0.8905152741075285,
+        "32": 0.8459618272386819,
+        "64": 0.7719231391184108,
+        "128": 0.6531656136707102,
+        "256": 0.47453890596599396,
+        "512": 0.23946013065174623,
+        "768": 0.09767692785860797,
+        "1024": 0.017199359775304405
+      },
+      "necessary_output_ranks": {
+        "0.1": 763,
+        "0.05": 898,
+        "0.01": 1063
+      },
+      "min_raw_eigenvalue": 114001.02022207045
+    },
+    "gaussian_second_moment": {
+      "relative_errors": {
+        "16": 0.8662020930900595,
+        "32": 0.8226527522737246,
+        "64": 0.7505261509891021,
+        "128": 0.6349222522868968,
+        "256": 0.4611446927500075,
+        "512": 0.23268543089656457,
+        "768": 0.09490065763522959,
+        "1024": 0.016712792325094192
+      },
+      "necessary_output_ranks": {
+        "0.1": 756,
+        "0.05": 894,
+        "0.01": 1061
+      },
+      "min_raw_eigenvalue": 228050.93849064517
+    },
+    "traceless_coefficient": {
+      "relative_errors": {
+        "16": 0.8905356543076696,
+        "32": 0.8459825127240839,
+        "64": 0.771942229931432,
+        "128": 0.6531824927847094,
+        "256": 0.47455286971431243,
+        "512": 0.23946724119817972,
+        "768": 0.09768012465906435,
+        "1024": 0.01719976154325694
+      },
+      "necessary_output_ranks": {
+        "0.1": 763,
+        "0.05": 898,
+        "0.01": 1063
+      },
+      "min_raw_eigenvalue": 113998.99420992006
+    }
+  },
+  "oracle_error": 1.5737552027295544e-16,
+  "seconds": 2.9688977412879467,
+  "scope": "Exact output-mode spectra of the producer-folded private correction.\n\nNo normalization, affine constant or text weighting in the quadratic numerator.\nPred_a rank64 composition error <=.1; pred_b Gram slice oracle <=1e-10.\nOutput-rank optimum is exact for this coefficient norm, not global graph rank.\n",
+  "prices": "Native J10 is 1152 squared scalars; a rank-r factored J10 costs 2304r. Output rank of the composed tensor alone does not price input computation or an executor."
+}
