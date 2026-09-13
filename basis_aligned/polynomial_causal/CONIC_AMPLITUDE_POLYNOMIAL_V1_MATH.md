@@ -126,3 +126,21 @@ It is0.413–1.050%for targets and1.094–2.968%for controls, passing10%in every
 [Leaving out each lexical pair in turn](THREE_TERM_FRESH_SELF_PAIR_V1_AUDIT.json) raises the worst error to2.83%target and4.75%control, still below10%. There are no own-component sign reversals, including below the material threshold. These descriptive checks address concentration in one concept; they are not statistical guarantees for arbitrary text.
 
 This is the strongest current evidence for the three-term representation: fewer conditional output vectors, prediction on new templates with live-generated fields, and preservation of a material component's own effect. Selective semantic manipulation, independent extraction of the full input/background generator, general composition with other replacements, and whole-program runtime/storage gains remain unproven.
+
+## Reuse across signed intervention strengths, 13 September10:35
+
+[The full strength-grid test](THREE_TERM_STRENGTH_GRID_V1_RESULT.json) reuses the48template prompts with independently varied child and remainder multipliers in $\{-1,0,1,2\}$. Negative strength adds the declared writer contribution; strength2removes twice its original amount. These are intervention-domain changes, not an additional fresh-text panel.
+
+One prepared context and one coefficient bank serve every strength pair. For each native/exact/compressed variant, the16joint branch outputs are evaluated once and reused to form16four-corner interactions. This requires2304suffix evaluations rather than separately recomputing all four corners of every query. The same caching opportunity applies to the exact baseline: this is computational reuse, not a speedup attributable solely to compression or semantic reuse across different tasks.
+
+All registered predicates pass in14.31seconds. Across four families and nine nonzero strength pairs each, compressed target errors are0.033–0.191%; controls0.079–1.413%. Incremental three-term versus five-bank error is at most0.150%target and0.792%control. The unit-strength reference replays exactly, and there are no material target/control sign reversals. Zero-strength interactions cancel exactly through shared-state lookup; this is an explicit consistency construction rather than an independent numerical discovery.
+
+A [quadratic-scaling countercheck](THREE_TERM_STRENGTH_GRID_V1_QUADRATIC_AUDIT.json) asks whether the test is too easy. Supply the native unit-strength interaction and predict
+
+$$
+I(\alpha,\beta)\approx\alpha\beta I(1,1).
+$$
+
+This comparator has access to the native reference at unit strength and is not a weights-only extracted predictor. Excluding the trivial unit pair, its median relative errors are17.77%target and15.60%control, with maxima40.74%and170.15%. It fails the2%target criterion in26of32family/strength cells and the5%control criterion in25of32. Thus accurate prediction over this grid is not explained by merely scaling one cached bilinear effect. The composed response, attention and normalization dependencies retained by the program matter collectively; this comparison does not separately attribute the improvement to each of them.
+
+The supported claim is prediction by a shared conditional program across signed intervention strengths. Arbitrary composition with other circuit replacements, semantic selectivity, corpus-wide OOD, autonomous prefix extraction and whole-program efficiency remain open.
