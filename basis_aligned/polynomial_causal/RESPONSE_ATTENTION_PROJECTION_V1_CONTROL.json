@@ -1,0 +1,17 @@
+{
+  "projection_error": 1.598773344058012e-15,
+  "full_attention_error": 2.0220661493501163e-15,
+  "rho_maxabs": 0.0,
+  "zero_projection_change": 0.0,
+  "strengths": 21,
+  "positions": 17,
+  "heads": 9,
+  "old_seconds": 0.07179781049489975,
+  "shared_seconds": 0.025706879794597626,
+  "speed_ratio": 2.7929414642530155,
+  "old_projection_matrix_applications": 110,
+  "shared_projection_vector_applications": 20,
+  "added_projected_bank_scalars_per_position": 17280,
+  "seconds": 0.7888145409524441,
+  "scope": "Same synthetic fixed context, actual weights, position-dependent signed edits. Both QK factors and V vary; raw state norms recomputed. Timing only projection updates including bank preparation, not complete attention/model. Existing deltas supplied to baseline; shared method forms them for norms."
+}

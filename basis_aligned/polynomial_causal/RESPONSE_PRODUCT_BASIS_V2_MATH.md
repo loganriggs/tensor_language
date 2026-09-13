@@ -100,3 +100,14 @@ The residual/attention mixed terms remain important in the native circuit; this 
 Compared with the small gains from coordinate sparsity, the useful lesson is concrete: respecting the producer's rational coefficient relations removes computations exactly. The next extension should carry this response interface into the mixed attention terms while keeping their changing inputs explicit.
 
 [Executable basis](response_product_basis_v2.py) · [Actual-weight control](RESPONSE_PRODUCT_BASIS_V2_CONTROL.json) · [Reproducible test](check_response_product_basis_v2.py) · [Previous upper-bound derivation](RESPONSE_PRODUCT_BASIS_V1_MATH.md).
+
+
+## Native validation completed
+
+The managed GPU test completed in37.87seconds, executing2880body forwards on the160 historical prefixes (96regional,64FineWeb). It retained the original17arms and added one physical intervention with the six-product residual/residual numerator plus the three-vector residual responses in both residual/attention mixed terms. All three registered criteria pass.
+
+The original17outcomes replay exactly. The new joint intervention gives exactly the same measured target/control outcomes as the old folded joint on every prefix, including FineWeb. Maximum per-prefix RR-state relative error is4.34e-15; joint-state error is4.16e-15. Thus native rounding and the nonlinear suffix do not distinguish the two implementations at the measured endpoints on this panel.
+
+This validates preservation of the existing conditional intervention, not fresh/OOD discovery or complete sufficiency. The old approximation's errors relative to the full model remain unchanged. Native attention partners, joint denominator, additive background and suffix are still supplied. The run measures correctness; its total runtime is not a comparison of isolated six-product versus ten-product execution speed.
+
+[Native receipt](RESPONSE_PRODUCT_BASIS_V2_NATIVE_RESULT.json) · [Registered comparison](RESPONSE_PRODUCT_BASIS_V2_NATIVE_PREREGISTRATION.md). The runner preflight required separating legacy verdict keys from the three new registered keys; no numerical thresholds or intervention semantics changed during that repair.

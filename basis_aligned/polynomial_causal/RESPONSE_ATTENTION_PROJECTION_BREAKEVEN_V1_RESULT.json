@@ -1,0 +1,49 @@
+{
+  "timing_cells": [
+    {
+      "count": 1,
+      "old_seconds": 0.006002198904752731,
+      "shared_seconds": 0.010680630803108215,
+      "speed_ratio": 0.5619704505660851
+    },
+    {
+      "count": 2,
+      "old_seconds": 0.009317278861999512,
+      "shared_seconds": 0.01124211773276329,
+      "speed_ratio": 0.8287832491600622
+    },
+    {
+      "count": 4,
+      "old_seconds": 0.014982733875513077,
+      "shared_seconds": 0.01270243152976036,
+      "speed_ratio": 1.1795169956563218
+    },
+    {
+      "count": 8,
+      "old_seconds": 0.028264686465263367,
+      "shared_seconds": 0.015602074563503265,
+      "speed_ratio": 1.8115979609135298
+    },
+    {
+      "count": 21,
+      "old_seconds": 0.07010741531848907,
+      "shared_seconds": 0.025418635457754135,
+      "speed_ratio": 2.758110892105434
+    }
+  ],
+  "projection_error": 1.598773344058012e-15,
+  "full_attention_error": 2.0220661493501163e-15,
+  "rho_maxabs": 0.0,
+  "zero_projection_change": 0.0,
+  "strengths": 21,
+  "positions": 17,
+  "heads": 9,
+  "old_seconds": 0.07010741531848907,
+  "shared_seconds": 0.025418635457754135,
+  "speed_ratio": 2.758110892105434,
+  "old_projection_matrix_applications": 110,
+  "shared_projection_vector_applications": 20,
+  "added_projected_bank_scalars_per_position": 17280,
+  "seconds": 1.4321902059018612,
+  "scope": "Same synthetic fixed context, actual weights, position-dependent signed edits. Both QK factors and V vary; raw state norms recomputed. Timing only projection updates including bank preparation, not complete attention/model. Existing deltas supplied to baseline; shared method forms them for norms."
+}
