@@ -1,0 +1,16 @@
+{
+  "queries": 256,
+  "seed": 7131206,
+  "relative_covariance_change": 0.02621803070495639,
+  "correction_trace_fraction": 0.010264140529713204,
+  "independent_key_value": {
+    "rank": 128,
+    "rank64_tail_fraction": 0.33318829840991987
+  },
+  "shared_key_value": {
+    "rank": 128,
+    "rank64_tail_fraction": 0.33098464171406666
+  },
+  "scope": "Weight-only diagnostic, independent Gaussian queries/sources, no normalization.\n\nEqual query/key rotary frame (zero relative displacement). This is an algebraic\ncontrol, not a sample from causal attention or the retained interaction ports.\n",
+  "interpretation": "Conditional rank-two correction need not remain rank two after averaging queries. No compression fit or behavior claim."
+}
