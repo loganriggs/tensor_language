@@ -1,0 +1,106 @@
+{
+  "scope": "CPU rebuild of existing setting2 target and exact committed-blob dependency check; no fit or new behavioral evidence. External checkpoint separately hash verified. FP64 tensor hash environment-specific, not a crosshardware exactness bar.",
+  "shape": [
+    12,
+    1152,
+    128
+  ],
+  "token_ids": [
+    11383,
+    1430,
+    14148,
+    6907,
+    31049,
+    14733,
+    34614,
+    18388,
+    39012,
+    16521,
+    46729,
+    16924
+  ],
+  "tensor_norm": 27778.377213402393,
+  "tensor_sha256": "3eb6573281195cc291bcdc8157b95542cf8abfcd3246643116e4b381aa39f6ce",
+  "dependencies": [
+    {
+      "path": "basis_aligned/polynomial_causal/COMPOSED_LAST_BLOCK_STATES_V1_ARTIFACT.pt",
+      "sha256": "66ef5dee8255c19c88f346dc23efa773b6a876d37654c395a443148434c207fa",
+      "committed": true,
+      "equals_committed": true
+    },
+    {
+      "path": "basis_aligned/polynomial_causal/COMPOSED_LAST_BLOCK_STATES_V1_RESULT.json",
+      "sha256": "fa701dc02a6b248f6ac310eddccd09bd51dfe92dde01aa0ec3525977f7a04bb6",
+      "committed": true,
+      "equals_committed": true
+    },
+    {
+      "path": "basis_aligned/polynomial_causal/CROSSFIRST_ATTENTION17_HEADS_V1_ARTIFACT.pt",
+      "sha256": "c77bc50045e82c0156bf673863400f12d118a138a92d671f6aa268bdf03e6f0b",
+      "committed": true,
+      "equals_committed": true
+    },
+    {
+      "path": "basis_aligned/polynomial_causal/CROSSFIRST_ATTENTION17_PORTS_V1_ARTIFACT.pt",
+      "sha256": "9ab0eb1d01a694689776ee86ef3a0b7b46dac4017ef76eafabceca8aa218fa31",
+      "committed": true,
+      "equals_committed": true
+    },
+    {
+      "path": "basis_aligned/polynomial_causal/CROSSFIRST_THREE_GROUP_FRESH_V1_ROWS.json",
+      "sha256": "01557fc071b80b2bfb99908f4cf94de2990e2e1d8e3d8f2bae715e36d13f64ee",
+      "committed": true,
+      "equals_committed": true
+    },
+    {
+      "path": "basis_aligned/polynomial_causal/FIRST_TOKEN_PATH_FRESH_V1_ROWS.json",
+      "sha256": "3eb2ac4f066d360df3a30570f8191e4427da792b36d59390619eecc23078813a",
+      "committed": true,
+      "equals_committed": true
+    },
+    {
+      "path": "basis_aligned/polynomial_causal/compiled_shared_head_v1.py",
+      "sha256": "127733d203b75e9da01520f6e29a43dcc2c325bf9cfaea1a37cc2985748a2aaf",
+      "committed": true,
+      "equals_committed": true
+    },
+    {
+      "path": "basis_aligned/polynomial_causal/extracted_circuits/three_corner_head17_interaction_v1/program.pt",
+      "sha256": "ff80167d4caed85a40660499a95224ebfa551f13f35fa8dea90fe38e1a00580d",
+      "committed": true,
+      "equals_committed": true
+    },
+    {
+      "path": "basis_aligned/polynomial_causal/folded_normalized_router_v1.py",
+      "sha256": "a374ea1f2c29ed68f7b33f3eb9d28a7034a25260ec95fe4b4e9fc2d7b0e48d9c",
+      "committed": true,
+      "equals_committed": true
+    },
+    {
+      "path": "basis_aligned/polynomial_causal/head17_output_block_objective_v1.py",
+      "sha256": "9213a10f33a1a889b8aaddd7a173db37cdaa8cbf06bf415c40331a72b69036c3",
+      "committed": true,
+      "equals_committed": true
+    },
+    {
+      "path": "basis_aligned/polynomial_causal/head17_source_interface_v1.py",
+      "sha256": "8315ee0037b0341f5cf057073b676ef835477a9c826781ac50f73e13833b155c",
+      "committed": true,
+      "equals_committed": true
+    },
+    {
+      "path": "basis_aligned/polynomial_causal/shared_cubic_source_projection_v1.py",
+      "sha256": "78eb18cc03b5e82b19edb1951ddefbebda0a226df824e1959ca43a19f7545fe2",
+      "committed": true,
+      "equals_committed": true
+    },
+    {
+      "path": "basis_aligned/polynomial_causal/shared_head_native_ports_v1.py",
+      "sha256": "885dcf587fd3da3e7ab193f99f77055855c6b38822aa34d06604dbd6b85a5caf",
+      "committed": true,
+      "equals_committed": true
+    }
+  ],
+  "seconds": 0.8566647507250309,
+  "instrument_repair": "First audit mistakenly included Python pseudo-file <stdin>; corrected by filtering to existing files. No target or evidence changed."
+}

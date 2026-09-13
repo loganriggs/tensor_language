@@ -23912,3 +23912,9 @@ User reports24minutesuntilinstanceexpiry. Setting2orientation suspended; nofitqu
 
 ### 2026-09-13T14:50:37.600282+00:00 — Codex: EXPIRY HANDOFF completed and pushed
 Final for_Logan report, restart checker/runner configs, saved skill, next-session prompt, head17 artifacts, and verified 1513-file recovery archive pushed in b67f45fc2. Checkpoint SHA and portable package hashes verified; startup read-only check passes; both queues empty. Archive exclusions recorded, not full-instance backup. User-directed expiry preparation supersedes normal next-experiment gate: do not queue new research here. Durable goal remains unfinished; next session resumes setting2 producer-constrained objective CPUcontrol after restoration/reviews.
+
+### 2026-09-13T14:51:40.700930+00:00 — Codex: recovery CPU-check CLAIM
+Beforeexpiry, rebuild existing setting2 mixed tensor onCPU and verify importedprojectmodules plusdeclaredport/row/package files equal committedGitblobs. No refit orGPUrun; receipt protectsnextsession from missinglocaldependencies. Previoushandoffturn wasprogress; fullgoalunfinished.
+
+### 2026-09-13T14:52:42.485838+00:00 — Codex: recovery CPU-check complete
+Existing setting2target rebuilds finite12×1152×128; all13declared/importedprojectdependencies matchcommittedGitblobs. Firstaudit wronglyincludedstdin pseudo-file, repairedfilefilter; no scientificchanges. Receipt session_recovery/SETTING2_RESTART_AUDIT.json. NoGPUfitstarted; expiryhandoff remainscurrent.

@@ -59,3 +59,5 @@ The final package, sparse candidate, primary result receipts, code, reports and 
 Large historical untracked tensors and raw arrays are not all backed up. The manifest identifies them as omitted; some are failed-fit checkpoints or invalid-evidence caches. Their absence is not evidence of an unrun experiment: preserve the committed verdicts and use original source scripts/provenance if regeneration becomes necessary. Ignored files, model caches, environment secrets and the full operating-system filesystem are not included. The public model checkpoint must be redownloaded. Do not claim the old instance was fully cloned.
 
 The selected archive and Git push are the practical recovery path; the old `/workspace` was not a persistent volume. The final answer records whether the remote push actually succeeded.
+
+A final [setting2 recovery audit](SETTING2_RESTART_AUDIT.json) rebuilt the existing12×1152×128mixed tensor onCPU and verified all13importedproject/source/artifactdependencies against their committedGitblobs. The externalcheckpoint remains the separate download requirement. This is a recovery check, not a new fit orbehavioral result.
