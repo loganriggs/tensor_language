@@ -1,0 +1,133 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "old_anchor_replay_error": 3.165076770565369e-07,
+  "max_token_generator_error": 1.67686117683574e-07,
+  "records": [
+    {
+      "group": 0,
+      "native_mean_contrast": 2.1045790712038674,
+      "native_positive_pairs": 12,
+      "arms": [
+        {
+          "arm": 1,
+          "transfer": -0.057867015747543646,
+          "positive": 0,
+          "negative": 24,
+          "unrelated": 0.13631529107862234
+        },
+        {
+          "arm": 2,
+          "transfer": -0.0488035087355923,
+          "positive": 0,
+          "negative": 24,
+          "unrelated": 0.13122885960748268
+        },
+        {
+          "arm": 3,
+          "transfer": -0.02449791027179084,
+          "positive": 0,
+          "negative": 24,
+          "unrelated": 0.13111349048367654
+        }
+      ],
+      "first_relative_to_full": 0.3106083436899672,
+      "half_linearity_error": 0.005050216355278284
+    },
+    {
+      "group": 1,
+      "native_mean_contrast": 2.805824100971222,
+      "native_positive_pairs": 12,
+      "arms": [
+        {
+          "arm": 1,
+          "transfer": -0.03922635472775012,
+          "positive": 0,
+          "negative": 24,
+          "unrelated": 0.13436413309987544
+        },
+        {
+          "arm": 2,
+          "transfer": -0.031876410454647314,
+          "positive": 0,
+          "negative": 24,
+          "unrelated": 0.132849843140587
+        },
+        {
+          "arm": 3,
+          "transfer": -0.016017192705676055,
+          "positive": 0,
+          "negative": 24,
+          "unrelated": 0.13206594588094658
+        }
+      ],
+      "first_relative_to_full": 0.21890346304452124,
+      "half_linearity_error": 0.005941593516915177
+    },
+    {
+      "group": 2,
+      "native_mean_contrast": 3.583057701587677,
+      "native_positive_pairs": 12,
+      "arms": [
+        {
+          "arm": 1,
+          "transfer": -0.03390793414875765,
+          "positive": 0,
+          "negative": 24,
+          "unrelated": 0.12718934063341808
+        },
+        {
+          "arm": 2,
+          "transfer": -0.02401593492788079,
+          "positive": 0,
+          "negative": 24,
+          "unrelated": 0.1260557888508882
+        },
+        {
+          "arm": 3,
+          "transfer": -0.012063979346172586,
+          "positive": 0,
+          "negative": 24,
+          "unrelated": 0.12505282946453503
+        }
+      ],
+      "first_relative_to_full": 0.30639854877009026,
+      "half_linearity_error": 0.005359742047612907
+    },
+    {
+      "group": 3,
+      "native_mean_contrast": 2.5845857858657837,
+      "native_positive_pairs": 12,
+      "arms": [
+        {
+          "arm": 1,
+          "transfer": 0.006886519828635204,
+          "positive": 18,
+          "negative": 6,
+          "unrelated": 0.09837795575728951
+        },
+        {
+          "arm": 2,
+          "transfer": 0.008643781856408702,
+          "positive": 18,
+          "negative": 6,
+          "unrelated": 0.09963868141371236
+        },
+        {
+          "arm": 3,
+          "transfer": 0.004302269362971836,
+          "positive": 18,
+          "negative": 6,
+          "unrelated": 0.0995784469137822
+        }
+      ],
+      "first_relative_to_full": 0.3799841078371884,
+      "half_linearity_error": 0.004537614033413872
+    }
+  ],
+  "body_forwards": 384,
+  "seconds": 4.75563432648778,
+  "scope": "72untouched fullprefixes plus24oldanchors. Fixedweight token input generator andnativecontext ports; physical full/first/half path edits. Syntax generalization test, not corpusOOD/autonomousextraction.",
+  "artifact_sha": "ee9ff8696fb864c83b4aaf322ee3f613590d6ba82638b54f52e18165375a9809"
+}
