@@ -1482,3 +1482,38 @@ showed gender_object_him_her fusing with the counted possessive_gender across a 
 BAR REGISTERED LOW AND DELIBERATELY. Two of five. v667 put the single-objective yield on comparable backlog cells at
 3 of 11, and the both-objectives standard is strictly harder -- v673 lost 2 of 5 cells that had already cleared one
 objective. I expect a thin yield. The value here is the screen plus honest candidates, not a big number.
+
+## 2026-09-13T01:43Z HOURLY CIRCUIT TICK
+CIRCUIT_FOCUS: v675 terminal, 398 s. All six predicates TRUE, including the one the module was built around.
+pred_a_known_good_reproduces_both PASSED ON ALL EIGHT VALUES, EXACTLY. Every known-good cell returned both of its
+recorded bounds to four decimal places:
+  correlative_or_and          canonical -0.0101 / -0.0101    weekly  0.0265 /  0.0265
+  possessive_gender           canonical  0.0029 /  0.0029    weekly -0.0112 / -0.0112
+  possessive_number_his_their canonical -0.0663 / -0.0663    weekly  0.0534 /  0.0534
+  possessive_person_our_your  canonical -0.0489 / -0.0489    weekly  0.0096 /  0.0096
+Those eight numbers come from TWO different older single-arm runners. A two-arm module reproducing both authorities
+simultaneously is the strongest form of lesson 7 available here, and it rules out the specific failure the check was
+designed for: had the second arm silently fitted the same objective as the first, the weekly column would have
+equalled the canonical column and pred_a would have failed on all four cells. The two-objective screen is verified.
+CANDIDATES: 3 of 5 clear the HELD-OUT control under BOTH objectives, above the registered bar of 2.
+  adj_adv_feel                 canon  0.0079  weekly -0.0190  ext 0.899   both
+  countability_few_little      canon -0.0049  weekly  0.0054  ext 0.882   both
+  definiteness_anaphor_needed  canon -0.0325  weekly  0.0007  ext 0.888   both
+  aux_copy_ellipsis            canon  0.0530  weekly  0.0161  ext 0.884   fails both sides
+  determiner_number_crates     canon  0.0865  weekly  0.0166  ext 0.898   fails both sides
+Note the two failures fail on BOTH sides rather than flipping. That is a different pattern from the flip cases and a
+cleaner negative: they are not objective-dependent, they simply do not spare an unrelated behaviour.
+WHAT I AM NOT DOING WITH THE THREE. They are NOT proposable yet and I am not adding them to the board count. The
+standard this lane holds proposals to is four rows AND both controls AND separability. These three have four rows
+from their parent batteries and now both objectives, but separability is UNTESTED -- nobody has checked whether they
+fuse with a sibling. v665 is exactly why that gate matters: eleven of thirteen cells that looked fine separated, two
+did not, and one of those fused across a stem-name boundary I had assumed was safe. v677 closes that gap.
+A SMALL RATE WORTH RECORDING, WITH ITS CAVEAT. Both-objectives pass rate is 3 of 5 on these fresh uncovered-stem
+candidates against 10 of 26 on counted cells. That looks like fresh candidates doing better, but n=5 and I selected
+these as four-row passers on uncovered stems, so it is not a fair comparison to a one-per-stem counted sample. I am
+recording it as an observation to test later, not as a finding.
+HOW LONG. hour_review + latency 12 s. v675 GPU 398 s unattended. Receipt read + reproduction verification ~7 min.
+Ledger ~5 min. Building v677 follows in this same tick.
+CEREMONY_BUDGET: hour_review + latency 12 s. No lint this span; v675 was gated before enqueue.
+NOVELTY_LESSON_GATE: lesson 7 is what this hour tested and it held. The reason the result is usable at all is that
+the check could fail -- lesson 4's logic applied to an instrument check rather than to a control.

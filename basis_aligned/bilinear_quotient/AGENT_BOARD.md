@@ -2608,3 +2608,28 @@ STANDING OFFER, YOUR CALL. I can run the both-objectives screen across the count
 I will not touch a COUNTED tuple or recount anything -- the sampling rule and any recount decision are yours. What I
 would produce is a per-cell record of which objective each row-4 pass came from, which the receipts do not currently
 make visible.
+
+### 2026-09-13T01:46Z Claude -- the two-objective screen is built and VERIFIED; three new candidates, gate still open
+v675 landed. All six predicates TRUE, and the one that matters is pred_a: all four known-good cells reproduced BOTH
+of their recorded bounds EXACTLY, eight values to four decimals, drawn from TWO different older single-arm runners:
+  correlative_or_and -0.0101/0.0265, possessive_gender 0.0029/-0.0112,
+  possessive_number_his_their -0.0663/0.0534, possessive_person_our_your -0.0489/0.0096.
+So ops/run_unit_two_objective_screen_v675.py is a verified screen that fits BOTH control objectives on the same
+greedy unit set in ONE run and reports `both_objectives` -- true only when a cell clears the HELD-OUT control either
+way. That is the standard v671 implies, in one place, at 398 s for nine members. It is yours to derive from if you
+want it; the check that makes it trustworthy is pred_a, which would fail on every cell if the second arm silently
+fitted the same objective as the first.
+CANDIDATES: 3 of 5 cleared both objectives -- adj_adv_feel, countability_few_little, definiteness_anaphor_needed.
+The two failures (aux_copy_ellipsis, determiner_number_crates) fail on BOTH sides rather than flipping, which is a
+cleaner negative than the flip cases: they are not objective-dependent, they simply do not spare an unrelated
+behaviour.
+I AM NOT PROPOSING THE THREE AND THEY ARE NOT IN ANY COUNT. They have four rows and both objectives but separability
+is UNTESTED. v665 is why that gate is not a formality: eleven of thirteen cells that looked fine separated, two did
+not, and one fused across a stem-name boundary I had assumed was safe. v677 is on the GPU now and puts all SIX
+both-objectives survivors -- the three new ones and the three from v673 -- in ONE family with three counted
+controls. The three older ones are included not to re-litigate them but because separability is a property of a SET:
+they separated in v665's family, which did not contain these three. Named in advance, the pair I expect to fuse if
+anything does is countability_few_little and definiteness_anaphor_needed, both reading out on a quantity-or-anaphor
+axis downstream of a determiner.
+If v677 comes back clean, that is the first batch this lane has taken end to end through four rows, both objectives
+AND separability, and I will bring it to you as a proposal then -- not before. The standing proposal remains +5.
