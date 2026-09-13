@@ -312,3 +312,69 @@ Code/payload/results: `sparse_parent_reader_v1.py`,
 managed `ops/run_sparse_parent_corpus_v1.py`,
 `SPARSE_PARENT_CORPUS_V1_BINDING.json`, `SPARSE_PARENT_CORPUS_V1_RESULT.json`,
 `SPARSE_PARENT_CORPUS_V1_DOCUMENT_AUDIT.json`.
+
+
+## Learned sparse coordinates: converged fit, mixed behavioral transfer
+
+Keep the same55,296 nonzero reader entries and optimize their coordinate frame:
+
+$$
+\min_{R^TR=I,\;\|S\|_0\le55296}\|BR-S\|_F^2.
+$$
+
+For fixed $R$, retaining the largest-magnitude entries of $BR$ solves the $S$
+step exactly. For fixed $S$, write $B^TS=U\Sigma V^T$; $R=UV^T$ solves the
+orthogonal Procrustes step exactly. Each cycle therefore cannot increase this
+objective. It is a nonconvex alternating solver, with no global recovery guarantee.
+The objective approximates a basis after a freely chosen orthogonal re-encoding;
+it does not directly minimize the full normalized QK parent or behavioral error.
+
+Ten starts (identity plus nine seeded random orthogonal frames) all reach
+Riemannian tangent-gradient RMS below1e-7 in568–1,383 cycles. Total CPU time is
+15.28seconds. No recorded cycle increases the objective. The best weight-only
+arm reduces squared basis loss from0.52723 to0.21062, a60.05% reduction, at the
+same representation cost. Its projector error falls from12.48% to8.00%.
+The best arm is selected by weight loss, before native validation.
+
+The saved sparse values are FP32. Recovering a Procrustes frame from this payload
+and redoing hard thresholding changes zero support entries. The threshold margin
+is6.04e-6 and tangent-gradient RMS remains8.38e-8. This supports a stable local
+fixed point after storage rounding. Cross-start node correspondence was not
+measured, so no stable identified-reader claim is made.
+
+| Domain | Original-frame sparse25 weighted error | Learned-frame sparse25 weighted error |
+|---|---:|---:|
+| FineWeb |5.42%|8.05%|
+| Discussion |9.81%|3.48%|
+| Reference |7.95%|5.02%|
+| Biomedical |2.77%|1.96%|
+| Legal/patent |16.48%|16.52%|
+
+The unchanged native corpus test again passes centered-vocabulary error in all
+domains but fails the probability-weighted and KL-ratio criteria on legal/patent
+(relative KL2.723%). Better weight fit is not uniformly better circuit preservation.
+The comparison now has matched support/storage and locally converged optimization.
+It does not establish that the global best sparse basis would fail, nor that a
+composed-operator objective would behave like this unweighted basis objective.
+
+A paired-document audit finds lower squared output error on30/40 documents,
+including6/8 FineWeb and6/8 legal/patent. Yet those two aggregate metrics worsen:
+counting wins hides error magnitude. Legal/patent remains10.99–19.10% weighted
+error after deleting any one document; the other four domains stay below10%
+under that check. Do not select another start using these validation outcomes.
+
+The useful next change is the *weight-only composed fitting objective*, retaining
+the sparse reader graph and charging its projection correction. The shared two-QK
+product and full even-key terms supply a more relevant metric than uniform basis
+error. Existing query-product and complete-even objectives are prior art to reuse,
+not newly discovered ideas. Native normalization, positions and outside terms must
+remain explicit. These results support investigating that objective mismatch;
+they do not prove it is the sole cause of the legal/patent failure.
+
+Code/payload/receipts: `sparse_reader_rotation_v1.py`,
+`SPARSE_READER_ROTATION_V1_PROGRAM.pt`, `SPARSE_READER_ROTATION_V1_RESULT.json`,
+`SPARSE_READER_ROTATION_V1_PAYLOAD_AUDIT.json`; native runner
+`ops/run_rotated_sparse_parent_corpus_v1.py`,
+`ROTATED_SPARSE_PARENT_CORPUS_V1_BINDING.json`,
+`ROTATED_SPARSE_PARENT_CORPUS_V1_RESULT.json`,
+`ROTATED_SPARSE_PARENT_CORPUS_V1_DOCUMENT_AUDIT.json`.

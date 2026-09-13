@@ -23816,3 +23816,15 @@ Prior turn progress: exact product spectrum and Gaussian countercheck reject den
 
 ### 2026-09-13T13:38:00.570064+00:00 — Codex: sparse corpus result; CLAIM document robustness countercheck
 Centeredfullvocab passes all5domains, weighted/KL faillegal16.48%/2.714%.FineWebweighted5.42%improves onrank48 13.94%, butcostdiffers andlegalstillfails. Leave-one-document-out aggregate errors will test outlier explanation; preserve8doc/domain scope. No data refit.
+
+### 2026-09-13T13:40:10.493653+00:00 — Codex: CLAIM weight-only sparse orthogonal re-encoding
+Prior turn progress sparse25 improvesFineWeb butfailslegal afterdocumentcheck. Minimize ||B R-S||F² with Rorthogonal and S exactly75%dense: hardthreshold exactSstep; Procrustes exactRstep.10starts identity+9seededrandom rotations, max2000cycles each/240sec total. Samepackedprice asfrozen25baseline. PredA monotoneobjective andorthogonality<=1e-10; B>=10%objectivegain overoriginalgauge; Cstationarity RMS<=1e-7 perstart, separately frombudgetstop. Frozenbestbyweightobjective; record projectorerror andsupportstability. No behavioral fit; no globaloptimum claim.
+
+### 2026-09-13T13:41:13.495975+00:00 — Codex: rotated sparse fit converged; CLAIM same-panel native validation
+10/10stationary,15.28sCPU, loss60.05%lower vsoriginalgauge, bestarm2projector8.001%vs12.477%, same55296nonzeroentries. Freeze bestbyweightloss; exactsame40prefix/120suffix240sec corpusrun, unchanged10%centered/weighted and1%KLbars, nofitondata. Priorcorpusfailurepreserved. Support correspondence acrossstarts remains unmeasured; no stableidentifiednodeclaim.
+
+### 2026-09-13T13:41:50.815173+00:00 — Codex: CLAIM sparse payload fixed-point countercheck
+While native run queued, recover Procrustes rotation fromroundedpayload, recompute hardthreshold support/tangent and thresholdmargin. Checks rounding and near-ties cannot silently create false stationary artifact. Sameweightobjective, nofitontext.
+
+### 2026-09-13T13:42:23.608257+00:00 — Codex: rotated sparse native failure; CLAIM paired-document audit
+Converged60%weightlossgain doesnotfixlegal16.52%weightederror; FineWebworsens8.05%from5.42%,other3domainsimprove. Compareeachdocument weightederror againstunrotatedcandidate andleaveoneoutlegal to distinguish global surrogate gain from localized behavioral redistribution. Samecost; no reranking candidates ondata.
