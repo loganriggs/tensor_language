@@ -77,3 +77,10 @@ The executed per-prefix audit finds that direct-only, direct+cross+normalizer an
 [Native response-term result](CROSSFIRST_LAST_ATTENTION_TERMS_V1_RESULT.json), [registered criteria](CROSSFIRST_LAST_ATTENTION_TERMS_V1_PREREGISTRATION.md), [per-prefix/absolute-error audit](CROSSFIRST_LAST_ATTENTION_TERMS_V1_AUDIT.json).
 
 The next structural target is the generator of the attention17 mixed write: split it across actual head/value/query-key contributions while retaining both QK factors and normalization. Existinghead dossiers and the initial first/current-value mixture needchecking. The response formula supplies a conditional downstream interpreter for thatsplit; it doesnotbyitselfgenerate theattentionwrite.
+
+
+## 02:27 — Known head17.2 supplies the regional direct mixed write
+
+The fixedpriorhead17.2 hypothesis passes alongside replay and head-effect composition. Its directeffect differs fromfullattention17 by1.25–1.62%regional. Allheadsumstateerror0.128%regional/0.417%FineWeb andsumwrite-effecterror0.043–0.122%regional. Individualheadeffects sumwithin0.56–1.03%regional. Head17.2 was already known; this doesnot establish that the samepreviouslyextracted sourceblock carries the newmixedwrite. FineWeb head2errors37.8–73.5%limit a universalheadclaim. 800forwards+1920readouts took9.20seconds.
+
+[Native head screen](CROSSFIRST_ATTENTION17_HEADS_V1_RESULT.json). The new[mathematical review](THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-13_0229.md) gives an executable jointQK/value mixed-product decomposition, preserving cross-port interactions that independent port analyses would miss. Its synthetic exactness and falsifier controls are completed; native port testing remains next.
