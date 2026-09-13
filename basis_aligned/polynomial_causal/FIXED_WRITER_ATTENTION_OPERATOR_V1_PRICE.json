@@ -1,0 +1,43 @@
+{
+  "rows": [
+    {
+      "batch": 1,
+      "relative_error": 2.9936155978149522e-15,
+      "seconds": {
+        "native_maps": 0.004735518246889114,
+        "precompiled_J_then_O": 0.0005267299711704254,
+        "folded": 0.00027157366275787354
+      },
+      "folded_vs_precompiled_speedup": 1.9395473251028807,
+      "break_even_inputs_after_J": 97.25225935497058
+    },
+    {
+      "batch": 16,
+      "relative_error": 4.029827838289892e-15,
+      "seconds": {
+        "native_maps": 0.007542293518781662,
+        "precompiled_J_then_O": 0.0011232011020183563,
+        "folded": 0.0005820468068122864
+      },
+      "folded_vs_precompiled_speedup": 1.929743602872467,
+      "break_even_inputs_after_J": 733.6769627921385
+    },
+    {
+      "batch": 128,
+      "relative_error": 3.9242522765603505e-15,
+      "seconds": {
+        "native_maps": 0.04141385108232498,
+        "precompiled_J_then_O": 0.005617868155241013,
+        "folded": 0.002817530184984207
+      },
+      "folded_vs_precompiled_speedup": 1.9938981258057051,
+      "break_even_inputs_after_J": 1134.241492064759
+    }
+  ],
+  "compile_J_seconds": 0.23000776767730713,
+  "additional_fold_seconds": 0.024814527481794357,
+  "compiled_scalars": 1327104,
+  "unshared_J_and_O_scalars": 2654208,
+  "pred_a": true,
+  "scope": "Isolated K(lambda*w,O*u), exact FP64 CPU. Shared global M reusable at all contexts/positions; constructing head-write u, other two residual modes, normalization, background and suffix excluded. If O/J still needed elsewhere, M is additional storage rather than a replacement. No native semantic intervention or whole-branch speed claim."
+}
