@@ -75,3 +75,44 @@ outside this interface cost. See `DIRECT_PARENT_KEY_COMPRESSION_V1_PRICE.json`.
 The next relevant check is broader downstream preservation and selectivity,
 rather than claiming these two readouts cover all consumers or refitting on
 the few observed exceptions.
+
+## Full-vocabulary preservation, with individual-prompt limits
+
+The next managed test evaluates unit parent removal on the same frozen 48
+lexical rows, scoring all 50,304 modeled output logits. This expands the output
+scope, not the input panel or intervention strengths. Let $d$ be the native
+removal's logit change and $e$ the candidate's error in that change. Compare
+their norms after subtracting their vocabulary means, so uniform score shifts
+do not count as behavioral information. A second metric uses baseline token
+probabilities as weights and subtracts the corresponding weighted means.
+Square errors and reference norms are summed over each family before division.
+
+The distribution comparison uses
+
+$$
+\frac{\sum_x D_{\mathrm{KL}}(p_{\mathrm{native\ removed}}\Vert
+ p_{\mathrm{candidate\ removed}})}
+{\sum_x D_{\mathrm{KL}}(p_{\mathrm{native\ removed}}\Vert p_{\mathrm{baseline}})}.
+$$
+
+All four registered predicates pass in 2.80 seconds, including prior selected
+readout replay within $4.77\times10^{-7}$. The query-product candidate has
+2.405–4.028% centered vocabulary error and 2.368–4.185% probability-weighted
+error. Its KL error is 0.054–0.168% of the native-removal KL; mean absolute
+candidate KL ranges from $9.34\times10^{-7}$ to $1.42\times10^{-5}$ nats.
+The complete-even candidate also passes, with worst weighted error 4.798%.
+Thus the preservation result is not confined to the two selected readouts.
+
+An individual-prompt audit narrows this result. Each candidate exceeds 10%
+weighted error on five of 48 prompts; maxima are 14.752% for query-product
+and 14.219% for complete-even. These exceptions are American-cued prompts
+with relatively small native-removal KL. The query-product maximum centered
+error is 15.465%. These are not erased by family aggregation, and the earlier
+specific control sign failures remain. The supported claim is aggregate
+full-vocabulary preservation for this input panel and unit parent removal,
+not uniform per-token/per-prompt fidelity, corpus-wide OOD or universal
+composition with other edits.
+
+Executor/binding: `ops/run_parent_full_vocab_v1.py` and
+`PARENT_FULL_VOCAB_V1_BINDING.json`. Primary receipt and countercheck:
+`PARENT_FULL_VOCAB_V1_RESULT.json`, `PARENT_FULL_VOCAB_V1_PROMPT_AUDIT.json`.

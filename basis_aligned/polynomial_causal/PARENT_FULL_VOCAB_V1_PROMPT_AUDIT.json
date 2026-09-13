@@ -1,0 +1,101 @@
+{
+  "methods": [
+    {
+      "method": "query_product",
+      "max_centered": 0.15464628275242392,
+      "max_weighted": 0.14752039106512085,
+      "over_10_percent": 5,
+      "worst_weighted": [
+        {
+          "row": 15,
+          "family": 1,
+          "centered_error": 0.09407875330176425,
+          "weighted_error": 0.14752039106512085,
+          "relative_kl": 0.021747978812519938,
+          "native_removal_kl": 4.0815426876138585e-06
+        },
+        {
+          "row": 35,
+          "family": 2,
+          "centered_error": 0.15464628275242392,
+          "weighted_error": 0.1418395130336135,
+          "relative_kl": 0.02002589259985356,
+          "native_removal_kl": 3.4159263556365665e-05
+        },
+        {
+          "row": 31,
+          "family": 2,
+          "centered_error": 0.11535034814575106,
+          "weighted_error": 0.13641017774405018,
+          "relative_kl": 0.018655919633482388,
+          "native_removal_kl": 4.5782306242118215e-06
+        },
+        {
+          "row": 25,
+          "family": 2,
+          "centered_error": 0.12031552485133354,
+          "weighted_error": 0.12897000432877584,
+          "relative_kl": 0.016704845239949254,
+          "native_removal_kl": 4.6991682687034316e-05
+        },
+        {
+          "row": 43,
+          "family": 3,
+          "centered_error": 0.10006400351969276,
+          "weighted_error": 0.10681891495667473,
+          "relative_kl": 0.011424469693418784,
+          "native_removal_kl": 2.8342107452121955e-06
+        }
+      ]
+    },
+    {
+      "method": "complete_even",
+      "max_centered": 0.13515766649104052,
+      "max_weighted": 0.14219187269902514,
+      "over_10_percent": 5,
+      "worst_weighted": [
+        {
+          "row": 43,
+          "family": 3,
+          "centered_error": 0.13515766649104052,
+          "weighted_error": 0.14219187269902514,
+          "relative_kl": 0.02024669825931206,
+          "native_removal_kl": 2.8342107452121955e-06
+        },
+        {
+          "row": 25,
+          "family": 2,
+          "centered_error": 0.11754894825292377,
+          "weighted_error": 0.12634246972706104,
+          "relative_kl": 0.016031344670996567,
+          "native_removal_kl": 4.6991682687034316e-05
+        },
+        {
+          "row": 31,
+          "family": 2,
+          "centered_error": 0.10492130324724333,
+          "weighted_error": 0.11847331522274858,
+          "relative_kl": 0.0140712553960901,
+          "native_removal_kl": 4.5782306242118215e-06
+        },
+        {
+          "row": 29,
+          "family": 2,
+          "centered_error": 0.08582223714756641,
+          "weighted_error": 0.10560823192295811,
+          "relative_kl": 0.01115648523145228,
+          "native_removal_kl": 1.2213813114513884e-06
+        },
+        {
+          "row": 35,
+          "family": 2,
+          "centered_error": 0.1211337185545857,
+          "weighted_error": 0.10446618856877098,
+          "relative_kl": 0.010869388366619638,
+          "native_removal_kl": 3.4159263556365665e-05
+        }
+      ]
+    }
+  ],
+  "scope": "Individual-prompt audit of the same frozen full-vocabulary test, not an additional held-out panel. Aggregate predicates unchanged."
+}
