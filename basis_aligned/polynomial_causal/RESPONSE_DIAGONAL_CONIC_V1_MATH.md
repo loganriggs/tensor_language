@@ -61,3 +61,19 @@ Initially deriving five vectors from six saves only retained working state. `pre
 [Direct-preparation control](RESPONSE_DIAGONAL_CONIC_DIRECT_V1_CONTROL.json): agreement with the converted six-bank is $3.79\times10^{-15}$; an unequal-positive-denominator finite-difference check agrees within $3.62\times10^{-15}$. Eleven interleaved two-thread FP64 CPU timings on four contexts give7.86ms for six-product preparation and7.33ms for direct five-product preparation, about1.07times faster. This small local timing is not a whole-model or GPU speedup.
 
 Retained bank size falls from6912to5760scalars per context, **16.7% less than the six-bank**. It does not remove native weights or context preparation. No native full-circuit adoption or fresh/OOD validation is claimed yet. The useful structural lesson is that the producer's rational coefficient curve constrains its diagonal products even when its arbitrary two-input cross-products remain independent.
+
+## Complete normalized branch and native validation, 13 September 09:04
+
+The [full branch implementation](diagonal_mlp10_branch_v1.py) now retains the omitted terms explicitly. For the actual pre-MLP10 state $z$, let $r=\delta(a)$ be the generated residual response and $y=z-r$. This definition also absorbs any rounding correction into $y$. Then
+
+$$
+g(z)=z+\frac{B(y)+K(y,r)+\tfrac12K(r,r)}{\operatorname{mean}(z^2)+\epsilon}+b_{10}.
+$$
+
+The five-bank computes only the last numerator term. The first two terms retain the pristine background, attention response and their cross terms through the actual Left/Right/Down maps. Their hidden products are summed before a shared Down projection. The denominator uses the actual whole $z$, not the residual response alone; the native MLP bias remains. [Actual-weight CPU control](DIAGONAL_MLP10_BRANCH_V1_CONTROL.json) agrees with direct FP64 normalized MLP evaluation within $3.84\times10^{-15}$ on signed amplitudes, arbitrary attention/background terms and FP32-rounded inputs.
+
+The [managed native comparison](DIAGONAL_MLP10_NATIVE_V1_RESULT.json) is complete:160historical prefixes,1280suffix evaluations,11.27seconds. All three registered criteria pass. Native reference corners replay exactly; maximum post-MLP10 state discrepancy is $2.97\times10^{-7}$. Maximum endpoint change versus the previous generated program is $6.68\times10^{-6}$.
+
+Original-interaction target errors are0.033–0.084%across four regional groups and0.433–8.295%across four FineWeb groups, within their existing thresholds. [The sign audit](DIAGONAL_MLP10_NATIVE_V1_AUDIT.json) retains six small FineWeb sign reversals, with native reference magnitudes below $5\times10^{-6}$, and none at or above $10^{-5}$. The old program also had six small reversals, but the affected rows are not identical; this is tolerance-level preservation, not bitwise-equivalent behavior.
+
+This establishes native-panel fidelity of the complete conditional branch implementation. It does not establish fresh OOD behavior, independent extraction, selective reuse or a whole-branch speedup. Prepared Left/Right basis readings, five output vectors, full native matrices, context generation and suffix still cost memory and computation. The earlier16.7%bank reduction compares diagonal product representations; it is not a net reduction relative to direct native MLP execution, which does not prepare that bank.

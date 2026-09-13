@@ -1,0 +1,93 @@
+{
+  "native_corner_replay_exact": true,
+  "methods": [
+    {
+      "method": "previous",
+      "total_sign_reversals": 6,
+      "material_sign_reversals": 0,
+      "flips": [
+        {
+          "row": 109,
+          "endpoint": 0,
+          "reference": -1.1920928955078125e-06,
+          "predicted": 1.1920928955078125e-07
+        },
+        {
+          "row": 125,
+          "endpoint": 1,
+          "reference": 3.814697265625e-06,
+          "predicted": -1.9073486328125e-06
+        },
+        {
+          "row": 131,
+          "endpoint": 0,
+          "reference": 4.172325134277344e-07,
+          "predicted": -5.21540641784668e-07
+        },
+        {
+          "row": 146,
+          "endpoint": 1,
+          "reference": -9.5367431640625e-07,
+          "predicted": 9.5367431640625e-07
+        },
+        {
+          "row": 154,
+          "endpoint": 0,
+          "reference": 7.152557373046875e-07,
+          "predicted": -1.0728836059570312e-06
+        },
+        {
+          "row": 157,
+          "endpoint": 1,
+          "reference": 9.5367431640625e-07,
+          "predicted": -3.814697265625e-06
+        }
+      ]
+    },
+    {
+      "method": "five_bank",
+      "total_sign_reversals": 6,
+      "material_sign_reversals": 0,
+      "flips": [
+        {
+          "row": 118,
+          "endpoint": 1,
+          "reference": -9.5367431640625e-07,
+          "predicted": 9.5367431640625e-07
+        },
+        {
+          "row": 124,
+          "endpoint": 0,
+          "reference": 2.980232238769531e-07,
+          "predicted": -7.450580596923828e-07
+        },
+        {
+          "row": 131,
+          "endpoint": 0,
+          "reference": 4.172325134277344e-07,
+          "predicted": -4.172325134277344e-07
+        },
+        {
+          "row": 136,
+          "endpoint": 1,
+          "reference": 4.76837158203125e-06,
+          "predicted": -9.5367431640625e-07
+        },
+        {
+          "row": 154,
+          "endpoint": 0,
+          "reference": 7.152557373046875e-07,
+          "predicted": -1.3113021850585938e-06
+        },
+        {
+          "row": 157,
+          "endpoint": 1,
+          "reference": 9.5367431640625e-07,
+          "predicted": -3.814697265625e-06
+        }
+      ]
+    }
+  ],
+  "maximum_state_error": 2.970414749705565e-07,
+  "scope": "Same160historicalprefixes andexactnativecorners; materialthreshold1e-5 descriptive. Full goal properties and speed/adoption remainunproven."
+}
