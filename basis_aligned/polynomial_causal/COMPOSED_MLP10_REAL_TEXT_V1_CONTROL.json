@@ -1,0 +1,48 @@
+{
+  "cells": [
+    {
+      "native_effects": [
+        0.00037288665771484375,
+        0.0001685619354248047
+      ],
+      "predicted_effects": [
+        0.00037384033203125,
+        0.00016546249389648438
+      ],
+      "absolute_effect_errors": [
+        9.5367431640625e-07,
+        3.0994415283203125e-06
+      ],
+      "row": 0,
+      "tokens": 15,
+      "child_error": 0.00013619759786905733,
+      "remainder_error": 1.1758330977620907e-05,
+      "joint_denominator_error": 1.0108965534745346e-07,
+      "product_error": 2.1841647229611428e-05,
+      "product_reference_norm": 6.752312841277498
+    },
+    {
+      "native_effects": [
+        1.6689300537109375e-06,
+        1.52587890625e-05
+      ],
+      "predicted_effects": [
+        1.5497207641601562e-06,
+        1.621246337890625e-05
+      ],
+      "absolute_effect_errors": [
+        1.1920928955078125e-07,
+        9.5367431640625e-07
+      ],
+      "row": 96,
+      "tokens": 78,
+      "child_error": 0.0005300945180606322,
+      "remainder_error": 2.6888095898248e-05,
+      "joint_denominator_error": 9.487665160849571e-08,
+      "product_error": 8.36088509438444e-05,
+      "product_reference_norm": 2.241823176345759
+    }
+  ],
+  "seconds": 1.639710146933794,
+  "scope": "Fixed rows0 and96, actual native CPU pristine prefix and head9 edits through attention10. Previously frozen GPU-produced scalar fields supplied identically to direct and predicted branches. Three native suffix readouts compare generated versus direct-product local effects at an additive background. No data fitting, fresh OOD or CPU/GPU equivalence claim. Small real-state check; does not replace pending160-prefix GPU experiment."
+}
