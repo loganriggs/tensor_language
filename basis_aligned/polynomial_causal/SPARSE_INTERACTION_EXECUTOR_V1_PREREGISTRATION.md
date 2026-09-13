@@ -1,0 +1,5 @@
+# Executable sparse interaction control
+
+Use the previously evaluated output/head full-HOSVD frames and 10% Frobenius-error support. Freeze by largest coefficient energy, independent of text. Serialize FP32 active values, one-bit support mask and FP32 output/head adapters. Decode once to CSR matrices; count CSR row and column indexes in resident bytes.
+
+A: sparse FP32 contraction matches the corresponding dense pruned FP64 operator within 1e-5 relative error on both cached regional ports and deterministic independent Gaussian ports; exact dense T agrees with native factored contraction within 1e-5. B: serialized operator below 75% of dense FP32 T bytes. C: warmed median CPU runtime below dense and native factored baselines at both batch1 and batch120. C is an empirical speed claim on two CPU threads only; failure does not rule out another kernel/GPU implementation. Report all timings and resident bytes. Repeat each timing seven times after two warmups. No end-to-end normalizer/suffix cost or adoption claim.
