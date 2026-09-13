@@ -1,0 +1,72 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "anchor_replay": [
+    0.0,
+    0.0
+  ],
+  "cells": [
+    {
+      "group": 0,
+      "full_effect_error": 0.01053765485213422,
+      "compact_preservation_error": 0.021273149136775357,
+      "mlp_only_error": 0.5338183567356243,
+      "compact_native_effect_error": 0.021273149136775357,
+      "compact_same_nonzero_sign": 23,
+      "native_zero_count": 0,
+      "maxabs_full_error": 4.1961669921875e-05
+    },
+    {
+      "group": 1,
+      "full_effect_error": 0.015141049104980353,
+      "compact_preservation_error": 0.04026296617498102,
+      "mlp_only_error": 0.5851107908177291,
+      "compact_native_effect_error": 0.04026296617498102,
+      "compact_same_nonzero_sign": 22,
+      "native_zero_count": 0,
+      "maxabs_full_error": 2.574920654296875e-05
+    },
+    {
+      "group": 2,
+      "full_effect_error": 0.0103622802385243,
+      "compact_preservation_error": 0.02230537596480271,
+      "mlp_only_error": 0.6196705312793779,
+      "compact_native_effect_error": 0.02230537596480271,
+      "compact_same_nonzero_sign": 24,
+      "native_zero_count": 0,
+      "maxabs_full_error": 4.100799560546875e-05
+    },
+    {
+      "group": 3,
+      "full_effect_error": 0.012223549781067069,
+      "compact_preservation_error": 0.021943365558751968,
+      "mlp_only_error": 0.7200221425615442,
+      "compact_native_effect_error": 0.021943365558751968,
+      "compact_same_nonzero_sign": 24,
+      "native_zero_count": 0,
+      "maxabs_full_error": 7.62939453125e-05
+    },
+    {
+      "group": 4,
+      "full_effect_error": 0.010883894536638038,
+      "compact_preservation_error": 0.022497116657884567,
+      "mlp_only_error": 0.7456219094693587,
+      "compact_native_effect_error": 0.022497116657884567,
+      "compact_same_nonzero_sign": 23,
+      "native_zero_count": 0,
+      "maxabs_full_error": 5.245208740234375e-05
+    }
+  ],
+  "body_forwards": 360,
+  "extra_final_readouts": 480,
+  "extra_mlp_evaluations": 360,
+  "seconds": 7.079516343772411,
+  "executed_arms": [
+    0,
+    1,
+    3
+  ],
+  "scope": "Three-trajectory composed head17.2 mixedwrite plusnativeMLP17 predictor ofwholelastblocklocalgeneration atadditivebackground. FullMLPweights andzN/C/R supplied; no Atrajectory orfreshOOD; nottotalchild/remainderinteraction.",
+  "artifact_sha": "ea6171a82e2eeef9237bebc892b84f2565c485cfa9b81603f9175bb16616f1e9"
+}

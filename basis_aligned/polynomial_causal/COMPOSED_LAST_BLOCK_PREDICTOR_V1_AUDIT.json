@@ -1,0 +1,287 @@
+{
+  "cells": [
+    {
+      "group": 0,
+      "candidate": "full_head_plus_mlp",
+      "local_relative_error": 0.01053765485213422,
+      "same_nonzero_sign": 23,
+      "opposite_nonzero_sign": 1,
+      "zero_prediction_count": 0,
+      "maxabs_reference_on_wrong_sign": 1.9073486328125e-06,
+      "reference_norm_fraction_on_wrong_sign": 0.0002326687093980457,
+      "original_total_relative_error": 0.5395168193103598,
+      "original_total_aligned_fraction": 0.5339908259325139,
+      "meanabs_predicted_effect": 0.0010772546132405598
+    },
+    {
+      "group": 0,
+      "candidate": "compact_head_plus_mlp",
+      "local_relative_error": 0.021273149136775357,
+      "same_nonzero_sign": 23,
+      "opposite_nonzero_sign": 1,
+      "zero_prediction_count": 0,
+      "maxabs_reference_on_wrong_sign": 1.9073486328125e-06,
+      "reference_norm_fraction_on_wrong_sign": 0.0002326687093980457,
+      "original_total_relative_error": 0.5476227050819943,
+      "original_total_aligned_fraction": 0.5216399320150931,
+      "meanabs_predicted_effect": 0.0010490119457244873
+    },
+    {
+      "group": 0,
+      "candidate": "mlp_only",
+      "local_relative_error": 0.5338183567356243,
+      "same_nonzero_sign": 18,
+      "opposite_nonzero_sign": 6,
+      "zero_prediction_count": 0,
+      "maxabs_reference_on_wrong_sign": 0.0002880096435546875,
+      "reference_norm_fraction_on_wrong_sign": 0.039931502468164466,
+      "original_total_relative_error": 0.7798838022233601,
+      "original_total_aligned_fraction": 0.2421200123365702,
+      "meanabs_predicted_effect": 0.0006201267242431641
+    },
+    {
+      "group": 1,
+      "candidate": "full_head_plus_mlp",
+      "local_relative_error": 0.015141049104980353,
+      "same_nonzero_sign": 23,
+      "opposite_nonzero_sign": 1,
+      "zero_prediction_count": 0,
+      "maxabs_reference_on_wrong_sign": 1.9073486328125e-06,
+      "reference_norm_fraction_on_wrong_sign": 0.0007581787132925161,
+      "original_total_relative_error": 0.6946662418131572,
+      "original_total_aligned_fraction": 0.31810962814206345,
+      "meanabs_predicted_effect": 0.0002753535906473796
+    },
+    {
+      "group": 1,
+      "candidate": "compact_head_plus_mlp",
+      "local_relative_error": 0.04026296617498102,
+      "same_nonzero_sign": 22,
+      "opposite_nonzero_sign": 2,
+      "zero_prediction_count": 0,
+      "maxabs_reference_on_wrong_sign": 4.76837158203125e-06,
+      "reference_norm_fraction_on_wrong_sign": 0.0020414586621706893,
+      "original_total_relative_error": 0.6870110929853248,
+      "original_total_aligned_fraction": 0.3246253978058775,
+      "meanabs_predicted_effect": 0.0002716382344563802
+    },
+    {
+      "group": 1,
+      "candidate": "mlp_only",
+      "local_relative_error": 0.5851107908177291,
+      "same_nonzero_sign": 19,
+      "opposite_nonzero_sign": 5,
+      "zero_prediction_count": 0,
+      "maxabs_reference_on_wrong_sign": 4.8160552978515625e-05,
+      "reference_norm_fraction_on_wrong_sign": 0.023157054314254025,
+      "original_total_relative_error": 0.854317359699507,
+      "original_total_aligned_fraction": 0.1472553986305711,
+      "meanabs_predicted_effect": 0.00013305743535359701
+    },
+    {
+      "group": 2,
+      "candidate": "full_head_plus_mlp",
+      "local_relative_error": 0.0103622802385243,
+      "same_nonzero_sign": 24,
+      "opposite_nonzero_sign": 0,
+      "zero_prediction_count": 0,
+      "maxabs_reference_on_wrong_sign": 0,
+      "reference_norm_fraction_on_wrong_sign": 0.0,
+      "original_total_relative_error": 0.6461098696824028,
+      "original_total_aligned_fraction": 0.36611338020523854,
+      "meanabs_predicted_effect": 0.0011307299137115479
+    },
+    {
+      "group": 2,
+      "candidate": "compact_head_plus_mlp",
+      "local_relative_error": 0.02230537596480271,
+      "same_nonzero_sign": 24,
+      "opposite_nonzero_sign": 0,
+      "zero_prediction_count": 0,
+      "maxabs_reference_on_wrong_sign": 0,
+      "reference_norm_fraction_on_wrong_sign": 0.0,
+      "original_total_relative_error": 0.653327387517502,
+      "original_total_aligned_fraction": 0.3582762029153676,
+      "meanabs_predicted_effect": 0.0010994970798492432
+    },
+    {
+      "group": 2,
+      "candidate": "mlp_only",
+      "local_relative_error": 0.6196705312793779,
+      "same_nonzero_sign": 21,
+      "opposite_nonzero_sign": 3,
+      "zero_prediction_count": 0,
+      "maxabs_reference_on_wrong_sign": 9.202957153320312e-05,
+      "reference_norm_fraction_on_wrong_sign": 0.015628918653103605,
+      "original_total_relative_error": 0.8648540885141123,
+      "original_total_aligned_fraction": 0.13931863634353672,
+      "meanabs_predicted_effect": 0.0005591809749603271
+    },
+    {
+      "group": 3,
+      "candidate": "full_head_plus_mlp",
+      "local_relative_error": 0.012223549781067069,
+      "same_nonzero_sign": 24,
+      "opposite_nonzero_sign": 0,
+      "zero_prediction_count": 0,
+      "maxabs_reference_on_wrong_sign": 0,
+      "reference_norm_fraction_on_wrong_sign": 0.0,
+      "original_total_relative_error": 0.6122513440290026,
+      "original_total_aligned_fraction": 0.3908498827555547,
+      "meanabs_predicted_effect": 0.001004358132680257
+    },
+    {
+      "group": 3,
+      "candidate": "compact_head_plus_mlp",
+      "local_relative_error": 0.021943365558751968,
+      "same_nonzero_sign": 24,
+      "opposite_nonzero_sign": 0,
+      "zero_prediction_count": 0,
+      "maxabs_reference_on_wrong_sign": 0,
+      "reference_norm_fraction_on_wrong_sign": 0.0,
+      "original_total_relative_error": 0.6218592608036643,
+      "original_total_aligned_fraction": 0.38124313072444177,
+      "meanabs_predicted_effect": 0.0009755293528238932
+    },
+    {
+      "group": 3,
+      "candidate": "mlp_only",
+      "local_relative_error": 0.7200221425615442,
+      "same_nonzero_sign": 22,
+      "opposite_nonzero_sign": 2,
+      "zero_prediction_count": 0,
+      "maxabs_reference_on_wrong_sign": 6.67572021484375e-06,
+      "reference_norm_fraction_on_wrong_sign": 0.0009679860608332118,
+      "original_total_relative_error": 0.8882197637449251,
+      "original_total_aligned_fraction": 0.11191516585011338,
+      "meanabs_predicted_effect": 0.00030926863352457684
+    },
+    {
+      "group": 4,
+      "candidate": "full_head_plus_mlp",
+      "local_relative_error": 0.010883894536638038,
+      "same_nonzero_sign": 23,
+      "opposite_nonzero_sign": 0,
+      "zero_prediction_count": 1,
+      "maxabs_reference_on_wrong_sign": 0,
+      "reference_norm_fraction_on_wrong_sign": 0.0,
+      "original_total_relative_error": 0.6664681274502994,
+      "original_total_aligned_fraction": 0.3357716402682115,
+      "meanabs_predicted_effect": 0.000713646411895752
+    },
+    {
+      "group": 4,
+      "candidate": "compact_head_plus_mlp",
+      "local_relative_error": 0.022497116657884567,
+      "same_nonzero_sign": 23,
+      "opposite_nonzero_sign": 1,
+      "zero_prediction_count": 0,
+      "maxabs_reference_on_wrong_sign": 9.5367431640625e-07,
+      "reference_norm_fraction_on_wrong_sign": 0.00013816154684197744,
+      "original_total_relative_error": 0.6728702874742218,
+      "original_total_aligned_fraction": 0.3290320385387283,
+      "meanabs_predicted_effect": 0.0006929437319437662
+    },
+    {
+      "group": 4,
+      "candidate": "mlp_only",
+      "local_relative_error": 0.7456219094693587,
+      "same_nonzero_sign": 15,
+      "opposite_nonzero_sign": 9,
+      "zero_prediction_count": 0,
+      "maxabs_reference_on_wrong_sign": 2.288818359375e-05,
+      "reference_norm_fraction_on_wrong_sign": 0.004659240835539045,
+      "original_total_relative_error": 0.913285968918597,
+      "original_total_aligned_fraction": 0.08677695959445238,
+      "meanabs_predicted_effect": 0.0001904765764872233
+    }
+  ],
+  "exact_outcome_partition": [
+    {
+      "group": 0,
+      "terms": {
+        "inherited_before_block17": {
+          "norm_over_total": 0.5011668999903196,
+          "aligned_over_total": 0.3154977061717108
+        },
+        "local_block17": {
+          "norm_over_total": 0.597288006200656,
+          "aligned_over_total": 0.5327949098982044
+        },
+        "final_readout": {
+          "norm_over_total": 0.255345582236443,
+          "aligned_over_total": 0.15170738393008473
+        }
+      }
+    },
+    {
+      "group": 1,
+      "terms": {
+        "inherited_before_block17": {
+          "norm_over_total": 0.6550265933349402,
+          "aligned_over_total": 0.6347586165347978
+        },
+        "local_block17": {
+          "norm_over_total": 0.34025632345780604,
+          "aligned_over_total": 0.31375417129628724
+        },
+        "final_readout": {
+          "norm_over_total": 0.0817029485823229,
+          "aligned_over_total": 0.05148721216891493
+        }
+      }
+    },
+    {
+      "group": 2,
+      "terms": {
+        "inherited_before_block17": {
+          "norm_over_total": 0.5712756949298538,
+          "aligned_over_total": 0.5305340798424821
+        },
+        "local_block17": {
+          "norm_over_total": 0.3849694889785295,
+          "aligned_over_total": 0.3645886214826889
+        },
+        "final_readout": {
+          "norm_over_total": 0.17060721383185726,
+          "aligned_over_total": 0.10487729867482895
+        }
+      }
+    },
+    {
+      "group": 3,
+      "terms": {
+        "inherited_before_block17": {
+          "norm_over_total": 0.5701006765477867,
+          "aligned_over_total": 0.5657392840760466
+        },
+        "local_block17": {
+          "norm_over_total": 0.3926268033458927,
+          "aligned_over_total": 0.38803781041111857
+        },
+        "final_readout": {
+          "norm_over_total": 0.07175907655499107,
+          "aligned_over_total": 0.04622290551283488
+        }
+      }
+    },
+    {
+      "group": 4,
+      "terms": {
+        "inherited_before_block17": {
+          "norm_over_total": 0.6209629891102548,
+          "aligned_over_total": 0.6156754078601601
+        },
+        "local_block17": {
+          "norm_over_total": 0.3368769964491577,
+          "aligned_over_total": 0.33243120485158484
+        },
+        "final_readout": {
+          "norm_over_total": 0.0677755655475034,
+          "aligned_over_total": 0.05189338728825514
+        }
+      }
+    }
+  ],
+  "scope": "Existing diagnostic rows. Different additive backgrounds prevent unique causal coverage interpretation; original total residual is a predictive sufficiency comparison. No fitted gain."
+}
