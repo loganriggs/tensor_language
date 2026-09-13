@@ -1,0 +1,96 @@
+{
+  "schema": "head17.value.pullback.matched.metric.v1",
+  "targets": [
+    {
+      "target": "individual_tokens",
+      "cells": [
+        {
+          "rank": 16,
+          "port_fit_folded_error": 0.7230160597305747,
+          "producer_fit_folded_error": 0.7123201227507918,
+          "squared_error_gain": 0.029368149360386786,
+          "folded_reader_scalars": 258048,
+          "head_reader_scalars_if_F_supplied": 223232
+        },
+        {
+          "rank": 32,
+          "port_fit_folded_error": 0.5968066416258836,
+          "producer_fit_folded_error": 0.5834782971816477,
+          "squared_error_gain": 0.0441667840499147,
+          "folded_reader_scalars": 516096,
+          "head_reader_scalars_if_F_supplied": 446464
+        },
+        {
+          "rank": 64,
+          "port_fit_folded_error": 0.4080187190539173,
+          "producer_fit_folded_error": 0.3946203456869637,
+          "squared_error_gain": 0.06459697678251208,
+          "folded_reader_scalars": 1032192,
+          "head_reader_scalars_if_F_supplied": 892928
+        },
+        {
+          "rank": 96,
+          "port_fit_folded_error": 0.2449254114688298,
+          "producer_fit_folded_error": 0.23355272224545257,
+          "squared_error_gain": 0.09071050282720428,
+          "folded_reader_scalars": 1548288,
+          "head_reader_scalars_if_F_supplied": 1339392
+        },
+        {
+          "rank": 120,
+          "port_fit_folded_error": 0.10575327458877685,
+          "producer_fit_folded_error": 0.09816895275174053,
+          "squared_error_gain": 0.13829092196210357,
+          "folded_reader_scalars": 1935360,
+          "head_reader_scalars_if_F_supplied": 1674240
+        }
+      ]
+    },
+    {
+      "target": "pair_contrasts",
+      "cells": [
+        {
+          "rank": 16,
+          "port_fit_folded_error": 0.7197783909306679,
+          "producer_fit_folded_error": 0.7090436517495569,
+          "squared_error_gain": 0.029605474773374274,
+          "folded_reader_scalars": 147456,
+          "head_reader_scalars_if_F_supplied": 112640
+        },
+        {
+          "rank": 32,
+          "port_fit_folded_error": 0.5918130014840912,
+          "producer_fit_folded_error": 0.579359578804597,
+          "squared_error_gain": 0.041642866906402176,
+          "folded_reader_scalars": 294912,
+          "head_reader_scalars_if_F_supplied": 225280
+        },
+        {
+          "rank": 64,
+          "port_fit_folded_error": 0.4037720661697786,
+          "producer_fit_folded_error": 0.3907557135740938,
+          "squared_error_gain": 0.06343454812763294,
+          "folded_reader_scalars": 589824,
+          "head_reader_scalars_if_F_supplied": 450560
+        },
+        {
+          "rank": 96,
+          "port_fit_folded_error": 0.24276236515684904,
+          "producer_fit_folded_error": 0.2306751849158495,
+          "squared_error_gain": 0.09710128531416695,
+          "folded_reader_scalars": 884736,
+          "head_reader_scalars_if_F_supplied": 675840
+        },
+        {
+          "rank": 120,
+          "port_fit_folded_error": 0.1056575050226532,
+          "producer_fit_folded_error": 0.09701037565847999,
+          "squared_error_gain": 0.15698428527155395,
+          "folded_reader_scalars": 1105920,
+          "head_reader_scalars_if_F_supplied": 844800
+        }
+      ]
+    }
+  ],
+  "scope": "Both fits evaluated on identical T composed with mixed current/first value F. Fixed shared-head-mode rank; no full QK/RMS/retained-path or native behavior claim. Folding gains compared without changing denominator or output scope."
+}

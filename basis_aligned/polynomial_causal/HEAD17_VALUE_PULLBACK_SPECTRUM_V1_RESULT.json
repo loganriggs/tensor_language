@@ -1,0 +1,160 @@
+{
+  "schema": "head17.value.pullback.spectrum.v1",
+  "token_ids": [
+    11383,
+    1430,
+    14148,
+    6907,
+    31049,
+    14733,
+    34614,
+    18388,
+    39012,
+    16521,
+    46729,
+    16924
+  ],
+  "mixture": -0.0888671875,
+  "producers": [
+    {
+      "producer": "head_port",
+      "shape": [
+        128,
+        128
+      ],
+      "row_rank": 128,
+      "singular_condition": 1.0,
+      "targets": {
+        "individual_tokens": {
+          "coefficient_energy": 771638240.6100781,
+          "direct_slice_energy_replay": 0.0,
+          "shared_rank_relative_errors": {
+            "8": 0.8893236995685534,
+            "16": 0.8265395792199669,
+            "32": 0.7166934036453805,
+            "64": 0.5246066629319369,
+            "96": 0.333457295918584,
+            "120": 0.15121634919110144
+          },
+          "ranks_for_relative_error": {
+            "0.1": 125,
+            "0.05": 128,
+            "0.02": 128
+          }
+        },
+        "pair_contrasts": {
+          "coefficient_energy": 228101379.20270753,
+          "direct_slice_energy_replay": 0.0,
+          "shared_rank_relative_errors": {
+            "8": 0.889230697841911,
+            "16": 0.825556153008744,
+            "32": 0.714817643277452,
+            "64": 0.5210494576516461,
+            "96": 0.3294417472033343,
+            "120": 0.14872330714604362
+          },
+          "ranks_for_relative_error": {
+            "0.1": 125,
+            "0.05": 128,
+            "0.02": 128
+          }
+        }
+      },
+      "source_interface_replay": 0.0
+    },
+    {
+      "producer": "current_value",
+      "shape": [
+        128,
+        1152
+      ],
+      "row_rank": 128,
+      "singular_condition": 2.6338643212486175,
+      "targets": {
+        "individual_tokens": {
+          "coefficient_energy": 86682939173.68253,
+          "direct_slice_energy_replay": 0.0,
+          "shared_rank_relative_errors": {
+            "8": 0.8014927964146904,
+            "16": 0.7121017406973913,
+            "32": 0.5831967349502124,
+            "64": 0.3943192594029183,
+            "96": 0.23330772393819837,
+            "120": 0.09802897021944122
+          },
+          "ranks_for_relative_error": {
+            "0.1": 120,
+            "0.05": 126,
+            "0.02": 128
+          }
+        },
+        "pair_contrasts": {
+          "coefficient_energy": 25814907360.663532,
+          "direct_slice_energy_replay": 0.0,
+          "shared_rank_relative_errors": {
+            "8": 0.7974280147916744,
+            "16": 0.7088200658954347,
+            "32": 0.5790756956478101,
+            "64": 0.3904595552447765,
+            "96": 0.23043328576751218,
+            "120": 0.0968690970594948
+          },
+          "ranks_for_relative_error": {
+            "0.1": 120,
+            "0.05": 126,
+            "0.02": 128
+          }
+        }
+      },
+      "source_interface_replay": 1.6404384132931416e-15
+    },
+    {
+      "producer": "mixed_value",
+      "shape": [
+        128,
+        2304
+      ],
+      "row_rank": 128,
+      "singular_condition": 2.627602217079046,
+      "targets": {
+        "individual_tokens": {
+          "coefficient_energy": 86855182132.57559,
+          "direct_slice_energy_replay": 2.220446049250313e-16,
+          "shared_rank_relative_errors": {
+            "8": 0.8016534894081764,
+            "16": 0.7123201227507917,
+            "32": 0.5834782971816477,
+            "64": 0.39462034568696375,
+            "96": 0.23355272224545262,
+            "120": 0.09816895275174055
+          },
+          "ranks_for_relative_error": {
+            "0.1": 120,
+            "0.05": 126,
+            "0.02": 128
+          }
+        },
+        "pair_contrasts": {
+          "coefficient_energy": 25865892783.350975,
+          "direct_slice_energy_replay": 1.1102230246251565e-16,
+          "shared_rank_relative_errors": {
+            "8": 0.7975970516652285,
+            "16": 0.7090436517495569,
+            "32": 0.579359578804597,
+            "64": 0.39075571357409367,
+            "96": 0.23067518491584948,
+            "120": 0.09701037565847995
+          },
+          "ranks_for_relative_error": {
+            "0.1": 120,
+            "0.05": 126,
+            "0.02": 128
+          }
+        }
+      },
+      "source_interface_replay": 2.3163629905674126e-15
+    }
+  ],
+  "wall_seconds": 0.6341468580067158,
+  "scope": "Exact shared-head-mode spectral restriction after linear V pullback only. Arbitrary independent normalized source inputs; no QK product folding, shared-source polynomial constraint, normalized circuit fit, or causal validation. Known V interface reused."
+}
