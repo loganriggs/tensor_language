@@ -1,0 +1,53 @@
+{
+  "cells": [
+    {
+      "row": 0,
+      "pairs": 1,
+      "preparation_difference_seconds": 0.003957841545343399,
+      "warm_slowdown": 1.6959634855407721,
+      "required_warm_time_reduction_fraction_to_match": 0.410364663788064,
+      "caching_alone_can_match": false
+    },
+    {
+      "row": 0,
+      "pairs": 4,
+      "preparation_difference_seconds": 0.003998655825853348,
+      "warm_slowdown": 1.6925499153482397,
+      "required_warm_time_reduction_fraction_to_match": 0.40917547486671824,
+      "caching_alone_can_match": false
+    },
+    {
+      "row": 0,
+      "pairs": 12,
+      "preparation_difference_seconds": 0.004219304770231247,
+      "warm_slowdown": 1.5280283689895382,
+      "required_warm_time_reduction_fraction_to_match": 0.34556188857849235,
+      "caching_alone_can_match": false
+    },
+    {
+      "row": 96,
+      "pairs": 1,
+      "preparation_difference_seconds": 0.004268057644367218,
+      "warm_slowdown": 2.0120351151791485,
+      "required_warm_time_reduction_fraction_to_match": 0.5029907815943055,
+      "caching_alone_can_match": false
+    },
+    {
+      "row": 96,
+      "pairs": 4,
+      "preparation_difference_seconds": 0.00451253354549408,
+      "warm_slowdown": 1.9831152292688792,
+      "required_warm_time_reduction_fraction_to_match": 0.49574286695953973,
+      "caching_alone_can_match": false
+    },
+    {
+      "row": 96,
+      "pairs": 12,
+      "preparation_difference_seconds": 0.0044835396111011505,
+      "warm_slowdown": 1.97630513362729,
+      "required_warm_time_reduction_fraction_to_match": 0.4940052611386936,
+      "caching_alone_can_match": false
+    }
+  ],
+  "conclusion": "No tested workload can match native by eliminating preparation alone. Difference of medians is descriptive, not an independently profiled component. Precision/kernel choice and graph simplification remain unseparated."
+}

@@ -63,3 +63,5 @@ Next decision: compare execution/storage of this shared representation against a
 ## Complete-operator cost follow-up
 
 Matched batched CPU execution, including preparation, gives1.07×/1.52×/1.63×speedup at1/4/12amplitude pairs. Local constant weights fall36.7%, but native weights remain needed for pristine context; no whole-model savings. The batched direct countercheck narrows earlier serial speed claims. [Exact scope, comparison and price](COMPOSED_JOINT_COST_V1_MATH.md).
+
+The subsequent practical GPU comparison **fails speed adoption**: the validated mixed-precision generator is2.9–6.7×slower than native batchedFP32, and warm preparation reuse still leaves1.53–2.01×slowdown. State fidelity passes. See the cost note above; CPU timing is not a GPU speed claim.

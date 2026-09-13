@@ -35,3 +35,27 @@ Graphically, the simplification replaces repeated MLP9 product computations with
 Next performance discriminator: compare the validated mixed-precision generator with native FP32 execution on the managed GPU, including preparation. The present FP64CPU result cannot establish that practical GPU comparison. Continue preserving the full original-interaction target during further compression.
 
 [Initial comparison code](composed_joint_cost_v1.py) · [Initial receipt](COMPOSED_JOINT_COST_V1_RESULT.json) · [Batched countercheck](composed_joint_cost_batched_v1.py) · [Batched receipt](COMPOSED_JOINT_COST_BATCHED_V1_RESULT.json) · [Native fidelity evidence](COMPOSED_JOINT_RESPONSE_V1_MATH.md).
+
+
+## 07:43 — Practical GPU comparison rejects speed adoption
+
+The managed RTX5090 experiment compares native FP32 MLP9/attention10/MLP10 execution against the validated FP64 input generator followed by native FP32 MLP10. Fixed historical prefixes0 and96 have15 and78positions. Each workload uses three changed branches per amplitude pair; both implementations batch them. Shared preparation is included. Every state replay criterion passes, with maximum relative error below2.7e-7. Both registered speed criteria fail.
+
+| Prefix / pairs | Native batched | Shared, including preparation | Shared with already prepared context |
+|---|---:|---:|---:|
+|15positions /1|0.778ms|5.277ms|1.319ms|
+|15positions /4|1.021ms|5.727ms|1.728ms|
+|15positions /12|1.624ms|6.701ms|2.482ms|
+|78positions /1|1.095ms|6.471ms|2.203ms|
+|78positions /4|2.045ms|8.568ms|4.055ms|
+|78positions /12|5.007ms|14.378ms|9.895ms|
+
+This table comes from the second, registered warm-context discriminator, which reran the original inclusive variants alongside the additional warm variant. The initial inclusive experiment gave the same conclusion: shared was2.9–6.7times slower. Seven synchronized timing repeats rotate implementation order; all use the same returned stacked state tensor. The initial launch failed before timing because native first-values have an explicit head dimension; an execution-only expansion repair was recorded before the successful managed rerun.
+
+Warm evaluation excludes rebuilding the identical context and therefore describes repeated access to that context only. It is still1.53–2.01times slower. An executed saved-timing audit shows that deleting preparation cost entirely cannot make any tested workload competitive. At twelve pairs, warm evaluation would need another34.6%time reduction for the shorter prefix and49.4%for the longer one just to match native. Differences between inclusive and warm medians suggest roughly4.0–4.5ms of preparation-related overhead, but are not independent kernel profiles.
+
+Interpretation: the CPU benefit does not transfer to this GPU implementation. Higher precision and implementation overhead are plausible explanations, but this experiment does not isolate their contributions. It does not disprove the exact response simplification or useful compression of interactions. It rejects speed adoption of the currently validated mixed-precision implementation on these workloads. No freshOOD or whole-model performance claim is added.
+
+Next implementation question is a native-compatible lower-cost evaluation, with its own fidelity test; merely extending reuse or caching is not the discriminating next step. Keep the original-interaction target and small-effect sign checks. Avoid announcing a faster compressed circuit until it beats native execution at the precision needed to preserve that target.
+
+[GPU registration](COMPOSED_JOINT_GPU_COST_V1_PREREGISTRATION.md) · [Inclusive GPU result](COMPOSED_JOINT_GPU_COST_V1_RESULT.json) · [Warm-context result](COMPOSED_JOINT_GPU_WARM_V1_RESULT.json) · [Break-even audit](COMPOSED_JOINT_GPU_COST_BREAK_EVEN_V1.json) · [Execution-only repair](COMPOSED_JOINT_GPU_COST_V1_EXECUTION_REPAIR.json).
