@@ -1,0 +1,132 @@
+{
+  "pairs": [
+    [
+      11383,
+      1430
+    ],
+    [
+      14148,
+      6907
+    ],
+    [
+      31049,
+      14733
+    ],
+    [
+      34614,
+      18388
+    ],
+    [
+      39012,
+      16521
+    ],
+    [
+      46729,
+      16924
+    ]
+  ],
+  "tensor_shape": [
+    6,
+    1152,
+    128
+  ],
+  "mixed_scalars": 884736,
+  "quadratic_scalars": 98304,
+  "linear_scalars": 768,
+  "formula_check": 2.7156261821524624e-15,
+  "cells": [
+    {
+      "per_output_rank": 1,
+      "per_output_scalars": 7680,
+      "per_output_error": 0.9561773299424455,
+      "output_rotated_error": 0.9561224913718643,
+      "rotated_adapter_extra_scalars": 36,
+      "shared_head_rank": 1,
+      "shared_head_scalars": 7040,
+      "shared_head_error": 0.9570350152482354,
+      "shared_input_rank": 4,
+      "shared_input_scalars": 7680,
+      "shared_input_error": 0.955512786885528
+    },
+    {
+      "per_output_rank": 2,
+      "per_output_scalars": 15360,
+      "per_output_error": 0.943146865505247,
+      "output_rotated_error": 0.9423247453445143,
+      "rotated_adapter_extra_scalars": 36,
+      "shared_head_rank": 2,
+      "shared_head_scalars": 14080,
+      "shared_head_error": 0.945632962970293,
+      "shared_input_rank": 8,
+      "shared_input_scalars": 15360,
+      "shared_input_error": 0.9387660151782136
+    },
+    {
+      "per_output_rank": 4,
+      "per_output_scalars": 30720,
+      "per_output_error": 0.9200876451303822,
+      "output_rotated_error": 0.918499183403991,
+      "rotated_adapter_extra_scalars": 36,
+      "shared_head_rank": 4,
+      "shared_head_scalars": 28160,
+      "shared_head_error": 0.9248630222682561,
+      "shared_input_rank": 16,
+      "shared_input_scalars": 30720,
+      "shared_input_error": 0.9101092642747894
+    },
+    {
+      "per_output_rank": 8,
+      "per_output_scalars": 61440,
+      "per_output_error": 0.8798280629115058,
+      "output_rotated_error": 0.8779278431363937,
+      "rotated_adapter_extra_scalars": 36,
+      "shared_head_rank": 8,
+      "shared_head_scalars": 56320,
+      "shared_head_error": 0.8892306978419109,
+      "shared_input_rank": 32,
+      "shared_input_scalars": 61440,
+      "shared_input_error": 0.8629057684604134
+    },
+    {
+      "per_output_rank": 16,
+      "per_output_scalars": 122880,
+      "per_output_error": 0.8095029469057394,
+      "output_rotated_error": 0.8078315359103183,
+      "rotated_adapter_extra_scalars": 36,
+      "shared_head_rank": 17,
+      "shared_head_scalars": 119680,
+      "shared_head_error": 0.8181049234096351,
+      "shared_input_rank": 64,
+      "shared_input_scalars": 122880,
+      "shared_input_error": 0.7850778674589561
+    },
+    {
+      "per_output_rank": 32,
+      "per_output_scalars": 245760,
+      "per_output_error": 0.6891030892596703,
+      "output_rotated_error": 0.6872722898814906,
+      "rotated_adapter_extra_scalars": 36,
+      "shared_head_rank": 34,
+      "shared_head_scalars": 239360,
+      "shared_head_error": 0.7018642071587816,
+      "shared_input_rank": 128,
+      "shared_input_scalars": 245760,
+      "shared_input_error": 0.6591073499966948
+    },
+    {
+      "per_output_rank": 64,
+      "per_output_scalars": 491520,
+      "per_output_error": 0.4843900006834763,
+      "output_rotated_error": 0.483436847780627,
+      "rotated_adapter_extra_scalars": 36,
+      "shared_head_rank": 69,
+      "shared_head_scalars": 485760,
+      "shared_head_error": 0.4920343624234528,
+      "shared_input_rank": 256,
+      "shared_input_scalars": 491520,
+      "shared_input_error": 0.4644008327174739
+    }
+  ],
+  "seconds": 0.484527051448822,
+  "scope": "Weight-derived six fixed UK-US pre-readout contrast numerators for MLP17 change under arbitrary residual z and head17.2 write W h. T mixed tensor compressed; S quadratic and linear output terms retained, not counted as compressed. Per-output rank matrices are an LL1 baseline with fixed output directions; output rotation is a spectral candidate not optimized LL1. Shared input/head projections are exact one-mode optima. Input RMS, final RMS and separate token softcaps remain external; contrasts alone do not reconstruct saturated token-logit differences. No native effect or whole-program claim."
+}

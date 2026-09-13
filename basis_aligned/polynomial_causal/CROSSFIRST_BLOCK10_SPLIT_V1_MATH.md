@@ -120,3 +120,10 @@ wherea,b arethechild/remainder scalarfields andDelta9 is thepreviouslyvalidatedf
 ## 03:59 — Both-endpoint input-source audit
 
 The shared `audit_interaction_outcome_pairs_v1.py` now records every prefix effect, zero and opposite signs, absolute error and relative L2 for both endpoints. Applied to the existing input-source result, the two regional residual-only sign reversals have full-product reference effects 6.34e-5 and1.34e-4; they are not merely an aggregate-norm discrepancy. Regional unrelated-token margin errors are5.1–8.6% without opposite signs. FineWeb newline-versus-comma margin errors span6.8–46.4%, with three opposite signs across the last two groups. Newline CE has five opposite signs overall, all corresponding reference magnitudes <=9.54e-7. These observations do not establish a precision explanation or selective preservation. Keep the attention partner and score the pending folded joint intervention on both endpoints using this same audit. Receipt: `MLP10_MIXED_INPUT_SOURCES_V1_OUTCOME_PAIRS_AUDIT.json`.
+
+
+## Queued residual-fold validation completed04:30UTC
+
+MLP9_TO_MLP10_RESIDUAL_FOLD_V1 passesA/B/C in33.45seconds. The physical joint residual-plus-mixed product predicts the full product within0.208–0.477%regional error. Replacing residual inputs with the MLP9 formula preserves that joint effect within0.116–0.206%; folded input aggregate errors9.77e-6regional and2.65e-5FineWeb. The folded full product predicts its observed counterpart within0.070–0.188%regional error. All96 target signs agree for both folded comparisons.
+
+FineWeb folded-full effect errors1.90–10.01% and two opposite signs remain, with maximum absolute newline-CE differences1.55e-6–2.38e-6. The unfiltered outcome-pair audit has been executed. Native attention partners and joint norm remain supplied in this particular GPU registration; the separate later CPU integrated-generator results are not retroactively part of it. The run confirms its narrow interface claim. User-directed compression is now primary; unsubmitted closure successors remain deferred.
