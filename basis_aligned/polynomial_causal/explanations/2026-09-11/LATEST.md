@@ -1,5 +1,9 @@
 # Latest research state
 
+**13 September, 01:40 — Hierarchy field composition exact; additive effects fail.** Parentremoval equalsjointchild/remainder outputs exactly. Independent effectaddition misses10%child-relative bar in4/8cells, worst47.43%; regional signs persist96/96. Counter-review preservesfailedC andsmallabsoluteFineWebdamage. Nextdiscriminator: finalreadout versusinternal-suffix interactions. [Evidence](../../ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md). [Hierarchy](../../extracted_circuits/crossfirst_state_executor_v1/README.md). [Requested report](../for_logan/LATEST.md).
+
+# Latest research state
+
 **13 September, 01:29 — Explicit-state executor validated.**160prefixes: nativeanchors exact, fieldreplay~8e-7, removaloutcomes<4e-7. Nativeprefix/suffix stillrequired;69.97Mdeclaredweights includingexternals. Weightidentity placescrossfirst insideexistinghead9current-value parent; child+remainder hierarchy avoidsdouble-removal, physicalcompositionpending. [Evidence](../../ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md). [Executor](../../extracted_circuits/crossfirst_state_executor_v1/README.md). [Requested report](../for_logan/LATEST.md).
 
 # Latest research state
