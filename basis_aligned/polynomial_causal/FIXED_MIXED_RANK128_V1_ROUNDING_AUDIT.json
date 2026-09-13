@@ -1,0 +1,149 @@
+{
+  "groups": [
+    {
+      "lo": 0,
+      "hi": 24,
+      "min_error_beyond_final_rounding_relative_to_own": [
+        0.04871922303925817,
+        0.23801915140266539
+      ],
+      "material": [
+        {
+          "count": 20,
+          "relative_error": 0.050194542544702535
+        },
+        {
+          "count": 12,
+          "relative_error": 0.22378879560581677
+        }
+      ]
+    },
+    {
+      "lo": 24,
+      "hi": 48,
+      "min_error_beyond_final_rounding_relative_to_own": [
+        0.036087300046493256,
+        0.2377591079104066
+      ],
+      "material": [
+        {
+          "count": 23,
+          "relative_error": 0.037350294122980035
+        },
+        {
+          "count": 11,
+          "relative_error": 0.19327455131527874
+        }
+      ]
+    },
+    {
+      "lo": 48,
+      "hi": 72,
+      "min_error_beyond_final_rounding_relative_to_own": [
+        0.05954925823404396,
+        0.3880598185276867
+      ],
+      "material": [
+        {
+          "count": 23,
+          "relative_error": 0.06298145587905493
+        },
+        {
+          "count": 9,
+          "relative_error": 0.4088692302825154
+        }
+      ]
+    },
+    {
+      "lo": 72,
+      "hi": 96,
+      "min_error_beyond_final_rounding_relative_to_own": [
+        0.043300631659800366,
+        0.3171071500140007
+      ],
+      "material": [
+        {
+          "count": 19,
+          "relative_error": 0.043882239152429406
+        },
+        {
+          "count": 7,
+          "relative_error": 0.2999507553010329
+        }
+      ]
+    },
+    {
+      "lo": 96,
+      "hi": 112,
+      "min_error_beyond_final_rounding_relative_to_own": [
+        0.7349956435081012,
+        0.6779688253414597
+      ],
+      "material": [
+        {
+          "count": 0,
+          "relative_error": null
+        },
+        {
+          "count": 2,
+          "relative_error": 0.803666431263258
+        }
+      ]
+    },
+    {
+      "lo": 112,
+      "hi": 128,
+      "min_error_beyond_final_rounding_relative_to_own": [
+        0.20774214589421128,
+        0.3608134044998726
+      ],
+      "material": [
+        {
+          "count": 2,
+          "relative_error": 0.12830209222070466
+        },
+        {
+          "count": 3,
+          "relative_error": 0.38108713677701606
+        }
+      ]
+    },
+    {
+      "lo": 128,
+      "hi": 144,
+      "min_error_beyond_final_rounding_relative_to_own": [
+        0.473423611096281,
+        0.729465127875933
+      ],
+      "material": [
+        {
+          "count": 0,
+          "relative_error": null
+        },
+        {
+          "count": 1,
+          "relative_error": 0.9230769230769231
+        }
+      ]
+    },
+    {
+      "lo": 144,
+      "hi": 160,
+      "min_error_beyond_final_rounding_relative_to_own": [
+        0.8945448933620295,
+        0.6469039108023082
+      ],
+      "material": [
+        {
+          "count": 0,
+          "relative_error": null
+        },
+        {
+          "count": 2,
+          "relative_error": 0.2883505980845719
+        }
+      ]
+    }
+  ],
+  "scope": "Conservative final scalar rounding only; no bound on FP32 transformer, RMS or softcap intermediates. Material subset descriptive, not new success criterion."
+}
