@@ -1,0 +1,74 @@
+{
+  "source_stack_shape": [
+    384,
+    2304
+  ],
+  "reader_shape": [
+    4,
+    2304
+  ],
+  "original_reader_dtype": "torch.float64",
+  "mu": -0.0888671875,
+  "stack_condition": 9.880891763563167,
+  "relative_reader_errors": [
+    0.003338210026165399,
+    0.00182922212754837,
+    0.0030222988358982335,
+    0.002107855631765052
+  ],
+  "qr_svd_projection_disagreement": 4.3873346177075515e-15,
+  "residual_normal_equation_error": 3.4646203403506597e-16,
+  "random_probe_cubic_feature_errors": [
+    0.0044245518208870785,
+    0.004296272536829144
+  ],
+  "scope": "Untruncated weight-space membership and Gaussian feature check, not native causal equivalence. The four readers belong to a globally fitted source block; dominance of head17.2 writes does not imply head17.2 support of each reader.",
+  "cached_native_write_check": {
+    "prefixes": 64,
+    "target_position": 8,
+    "source_positions": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "relative_all_source_write_error": 0.012513648926806505,
+    "per_source_write_errors": [
+      0.014475709232064062,
+      0.011216493081989775,
+      0.010264258269629912,
+      0.011621395464262028,
+      0.01155888562749195,
+      0.010578940509796821,
+      0.00890562074747021,
+      0.008876427934820637,
+      0.008745364957188072
+    ],
+    "per_source_reader_errors": [
+      0.002968001072370518,
+      0.0028469175864292346,
+      0.0028959895157084077,
+      0.0029747887352205276,
+      0.0030971599952455027,
+      0.0029377245913677105,
+      0.0028866372419679245,
+      0.0028392114954572875,
+      0.002926606116837915
+    ],
+    "max_port_interface_replay_error": 2.930104908335358e-15,
+    "max_exact_four_read_correction_error": 2.6764259553679077e-15,
+    "scope": "Existing FineWeb native normalized states; old selected branch only. Final behavioral effect and equality to new mixed-write circuit remain untested."
+  },
+  "interface_price": {
+    "query_inputs": 256,
+    "source_inputs": 384,
+    "optional_exact_correction_inputs": 4,
+    "stored_scalars": 69152,
+    "scope": "Local port executor only. Native query/key/value producers remain charged; exact correction also requires four residual readers of the full source. This is not a whole-model saving."
+  }
+}
