@@ -109,3 +109,16 @@ The original head8.2 edit passes through MLP8 before reaching head9. [A cached n
 The strongest counterargument is that inaccurate reads might nevertheless produce an accurate final scalar. [The complete routing countercheck](TRANSPORTED_WRITER_SPAN_ROUTING_V1_CONTROL.json) replays pristine routing within $1.92\times10^{-7}$, but projected-transport routing changes have 16.4–26.0% error. Final-position producer scalar changes have 15.0%, 6.9% and 5.0% error across the three families. Thus the 10% all-family routing/scalar criterion fails, while two scalar-only families pass. These are reused native examples, not fresh or final-logit validation.
 
 This rejects the shortcut of carrying only the two original physical directions through the earlier layer. It does not reject composition compression: the existing exact MLP8 response introduces context-dependent mixed and quadratic directions. Those transported directions, and changed attention, must be included before seeking shared computations with the later writer. Their generation cost remains part of the program price.
+
+### Compressing the transported directions themselves
+
+[A three-term screen](TRANSPORTED_RATIONAL_TERMS_V1_CONTROL.json) uses the actual MLP8 transport
+
+$$
+\Delta h_9(a)=\lambda_9\left[-aw-\frac{a}{\rho(a)}p+\frac{a^2}{2\rho(a)}q\right],
+\quad p=J_wz-2\beta m_0,\quad q=J_ww-2\gamma m_0.
+$$
+
+The full expression replays native changed states within $1.37\times10^{-5}$ and head9 scalar changes within $1.07\times10^{-6}$. Dropping $w$ or $p$ fails the 10% response criterion. Dropping $q$ passes on the original unit removals: scalar error 1.39–2.74%, routing error 3.45–5.39%. This is two retained response directions rather than three, with the exact amplitude-dependent denominator retained. Dense $J_w$, pristine context and background remain charged.
+
+[The signed-strength countercheck](TRANSPORTED_RATIONAL_Q_STRENGTH_V1_CONTROL.json) prevents overgeneralizing that positive screen. Relative to the exact conditional generator at multipliers $-2,-1,0.5,1,2$, only $0.5$ and $1$ pass the all-family 10% routing/scalar bar. Negative strengths reach 19.7% scalar error; strength two reaches 12.2% routing error. These extra strengths use the analytic generator as reference, not newly executed native interventions. Preserve $q$ for a general signed-edit program. Its omission is currently a restricted-amplitude candidate, not a reusable replacement.

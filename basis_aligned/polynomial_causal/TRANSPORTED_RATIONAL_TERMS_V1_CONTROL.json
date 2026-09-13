@@ -1,0 +1,102 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "passing_omissions": [
+    "q"
+  ],
+  "records": [
+    {
+      "omitted": "full",
+      "cells": [
+        {
+          "family": 0,
+          "state_error": 1.250185300709071e-05,
+          "routing_error": 2.147730907918565e-06,
+          "scalar_error": 1.0645226980695693e-06
+        },
+        {
+          "family": 1,
+          "state_error": 1.3681592748848914e-05,
+          "routing_error": 4.292921616299052e-06,
+          "scalar_error": 7.09604514377626e-07
+        },
+        {
+          "family": 2,
+          "state_error": 1.259594837157713e-05,
+          "routing_error": 3.2768022401842273e-06,
+          "scalar_error": 9.640669543979316e-07
+        }
+      ]
+    },
+    {
+      "omitted": "w",
+      "cells": [
+        {
+          "family": 0,
+          "state_error": 0.6289647840621363,
+          "routing_error": 0.6339049387713188,
+          "scalar_error": 0.7572271267889671
+        },
+        {
+          "family": 1,
+          "state_error": 0.9169226393805331,
+          "routing_error": 0.9479139298180789,
+          "scalar_error": 1.1251049797116128
+        },
+        {
+          "family": 2,
+          "state_error": 0.7739575583973978,
+          "routing_error": 0.7555522599989382,
+          "scalar_error": 0.9888452078162286
+        }
+      ]
+    },
+    {
+      "omitted": "p",
+      "cells": [
+        {
+          "family": 0,
+          "state_error": 0.6025138012919654,
+          "routing_error": 0.40531239863759644,
+          "scalar_error": 0.47516043699132376
+        },
+        {
+          "family": 1,
+          "state_error": 0.6353065628973519,
+          "routing_error": 0.24567168478305745,
+          "scalar_error": 0.3117823733214129
+        },
+        {
+          "family": 2,
+          "state_error": 0.5843604816507507,
+          "routing_error": 0.3811218678604429,
+          "scalar_error": 0.20685827387316572
+        }
+      ]
+    },
+    {
+      "omitted": "q",
+      "cells": [
+        {
+          "family": 0,
+          "state_error": 0.06628301152596383,
+          "routing_error": 0.03450998907902573,
+          "scalar_error": 0.02744445089558561
+        },
+        {
+          "family": 1,
+          "state_error": 0.08910569254122343,
+          "routing_error": 0.053905024826399923,
+          "scalar_error": 0.01389102458888626
+        },
+        {
+          "family": 2,
+          "state_error": 0.062101774263968686,
+          "routing_error": 0.037131512911133174,
+          "scalar_error": 0.013978375280906005
+        }
+      ]
+    }
+  ],
+  "scope": "Cached native head8 removal, full head9 routing/scalar reevaluation. Rational term grouping with native pristine MLP background and dense J. No fitted coefficients, fresh data, logit or whole-program savings claim."
+}

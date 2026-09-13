@@ -1,0 +1,125 @@
+{
+  "pred_a": false,
+  "passing_strengths": [
+    0.5,
+    1.0
+  ],
+  "records": [
+    {
+      "strength": -2.0,
+      "cells": [
+        {
+          "family": 0,
+          "state_error": 0.12316482388384842,
+          "routing_error": 0.030653491207210722,
+          "scalar_error": 0.1922951310298173
+        },
+        {
+          "family": 1,
+          "state_error": 0.1612172930594919,
+          "routing_error": 0.07197568155228726,
+          "scalar_error": 0.08268429661160043
+        },
+        {
+          "family": 2,
+          "state_error": 0.11610147373915324,
+          "routing_error": 0.04281002751343778,
+          "scalar_error": 0.12158509889673784
+        }
+      ]
+    },
+    {
+      "strength": -1.0,
+      "cells": [
+        {
+          "family": 0,
+          "state_error": 0.06331992542247722,
+          "routing_error": 0.019401930404657614,
+          "scalar_error": 0.1969377005008494
+        },
+        {
+          "family": 1,
+          "state_error": 0.08379699053371181,
+          "routing_error": 0.041467528025000235,
+          "scalar_error": 0.026452465278751974
+        },
+        {
+          "family": 2,
+          "state_error": 0.0595424747131576,
+          "routing_error": 0.025179152421907804,
+          "scalar_error": 0.042829310634088937
+        }
+      ]
+    },
+    {
+      "strength": 0.5,
+      "cells": [
+        {
+          "family": 0,
+          "state_error": 0.03281097949879024,
+          "routing_error": 0.015012974191253851,
+          "scalar_error": 0.02382978588635127
+        },
+        {
+          "family": 1,
+          "state_error": 0.04397985893005065,
+          "routing_error": 0.025269414391661447,
+          "scalar_error": 0.0074201145448494436
+        },
+        {
+          "family": 2,
+          "state_error": 0.03076343453465663,
+          "routing_error": 0.0167518511398365,
+          "scalar_error": 0.010213274161724545
+        }
+      ]
+    },
+    {
+      "strength": 1.0,
+      "cells": [
+        {
+          "family": 0,
+          "state_error": 0.06628305870345876,
+          "routing_error": 0.03451003538983577,
+          "scalar_error": 0.02744483012519873
+        },
+        {
+          "family": 1,
+          "state_error": 0.08910560900119889,
+          "routing_error": 0.05390498040773668,
+          "scalar_error": 0.013891215615542612
+        },
+        {
+          "family": 2,
+          "state_error": 0.06210183827456787,
+          "routing_error": 0.03713106396278572,
+          "scalar_error": 0.013978360553633605
+        }
+      ]
+    },
+    {
+      "strength": 2.0,
+      "cells": [
+        {
+          "family": 0,
+          "state_error": 0.1348181938183752,
+          "routing_error": 0.08653701114910495,
+          "scalar_error": 0.02451679223613515
+        },
+        {
+          "family": 1,
+          "state_error": 0.18184498317049866,
+          "routing_error": 0.12221103712128292,
+          "scalar_error": 0.02987781306298259
+        },
+        {
+          "family": 2,
+          "state_error": 0.12618841372209866,
+          "routing_error": 0.09095053167756201,
+          "scalar_error": 0.007389008569546778
+        }
+      ]
+    }
+  ],
+  "scope": "Signed strength comparison to exact conditional finite-response generator using cached pristine inputs, not native strength interventions.  full head9 routing/scalar reevaluation. Rational term grouping with native pristine MLP background and dense J. No fitted coefficients, fresh data, logit or whole-program savings claim."
+}
