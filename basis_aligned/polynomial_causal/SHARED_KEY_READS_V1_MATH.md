@@ -43,3 +43,25 @@ Response error compares the difference between edited and pristine outputs for e
 [An equal-consumer countercheck](SHARED_KEY_CONSUMER_BALANCED_V1_CONTROL.json) normalizes each consumer by its Frobenius norm before fitting the shared basis, then restores actual amplitudes in the adapters. It also fails: at width48 response errors remain 19.3–22.7%. Consumer weighting does not explain away this miss.
 
 Retain the exact 64-coordinate shared read. This null concerns a common linear subspace chosen by two coefficient objectives. It does not rule out structure in the joint QK product, position-dependent interactions, or sparse/block representations with a different approximation target.
+
+## Directly fitting the inside-key product
+
+The next screen changes the objective to the product itself. For $A_1=K_1B$, $A_2=K_2B$, define the tensor
+
+$$
+T_{ijab}=\tfrac12\left[(A_1)_{ia}(A_2)_{jb}+(A_1)_{ib}(A_2)_{ja}\right],
+\qquad G_i=A_i^\top A_i.
+$$
+
+Here $i,j$ index the two 128-dimensional query ports, and $a,b$ index the same 64-dimensional key input. For an orthogonal key projector $P$, its captured squared coefficient norm is
+
+$$
+F(P)=\tfrac12\left[\operatorname{tr}(PG_1)\operatorname{tr}(PG_2)
++\operatorname{tr}(PG_1PG_2)\right].
+$$
+
+The full norm is $F(I)$, and projected tensor error squared is $F(I)-F(P)$. [An explicit small-tensor check](JOINT_KEY_PRODUCT_OBJECTIVE_V1_CONTROL.json) verifies both identities and the analytic gradient. This coefficient objective uses independent query ports and only the inside-inside numerator product. It excludes full normalization, outside terms, position-dependent query generation, and the fact that both queries originate from one state.
+
+[Ten rank48 fits](JOINT_KEY_PRODUCT_FIT_V1_RESULT.json) use monotone gradient ascent with QR retraction: one spectral start, four perturbed spectral starts and five random starts. They finish in 11.08 CPU seconds. All are monotone; only the best start meets the $10^{-7}$ normalized tangent-gradient threshold, while nine reach the 3,000-step cap. Their objective values are close, but this is not a global certificate. Capture rises from 0.7739590 to 0.7739838, only **0.01098% less squared residual**, missing the declared 1% improvement bar.
+
+[The frozen best fit's response check](SHARED_KEY_CONSUMER_PRODUCT_V1_CONTROL.json) also fails: 20.6–23.4% error across the three families, slightly worse than ordinary SVD in every family. Keep exact shared64 reads. This product-objective screen does not rescue common-subspace truncation, and does not exhaust compression of the complete position-corrected joint QK computation.
