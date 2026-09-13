@@ -1551,3 +1551,26 @@ Ledger and board ~7 min.
 CEREMONY_BUDGET: hour_review + latency 12 s. No lint this span; v677 was gated before enqueue.
 NOVELTY_LESSON_GATE: the gate that earned its cost this hour is separability itself -- v665 had shown ~1 in 6 cells
 failing it AFTER passing the earlier gates, so running it was not a formality even though everything passed.
+
+## 2026-09-13T02:48Z (same tick, circuit work) v679 queued -- the verified screen at scale, and an axis I am NOT touching yet
+v679 runs twelve uncounted four-row passers through the two-objective screen v675 verified. Nothing new in the
+method; this is throughput on a proven pipeline.
+THE SELECTION IS THE DESIGN DECISION. Sweeping every receipt for four-row passers no COUNTED tuple names, minus
+avoided readouts, minus avoided CUES, minus cells with no readable vocabulary, leaves SEVENTY. Half are
+verb_preposition and verb_particle. I am deliberately not screening those here: the verb stem carries 38 counted
+cells, v661 measured 50% duplication for candidates on a covered axis, and v665 showed fusion is within-axis.
+Thirty verb_preposition cells in one family would mostly measure them fusing with each other, and the yield would be
+a statement about the family rather than about the cells. The twelve chosen sit on twelve distinct thin axes. The
+crowded verb axes stay available but need a design that EXPECTS fusion -- probably one family per contrast set, not
+one family for the whole stem -- which is a rung to write deliberately rather than to stumble into.
+NO FUSION PREDICTION THIS TIME, AND THE REASON IS IN THE LEDGER. I have twice named a pair as the likely fusion from
+readout adjacency (v665 rather_prefer/let_want_complement on an EXACT shared readout pair; v677
+countability_few_little/definiteness_anaphor_needed on a shared quantity axis) and both times the named pair came
+back among the CLEANEST in its family. Two registered predictions from the same signal, both wrong the same way.
+Making a third would be using a signal I have twice measured to be uninformative. So this docstring makes none, and
+I have said so in it rather than quietly omitting it.
+pred_b registered at prior 35% ON PURPOSE. It requires ALL TWELVE to reach extraction 0.80; with twelve cells a
+single miss breaks it, so I expect it to fail even if the batch is healthy. pred_c carries the same information at a
+bar that can distinguish a healthy batch from a broken one, which is what makes the pair worth registering together.
+Smoke confirms both arms return DIFFERENT bounds on both smoke cells -- the one structural fact a reduced smoke is
+allowed to establish. Preflight PASS, pred_lint clean.
