@@ -35,3 +35,21 @@ The support audit finds all 12 output, 1152 residual and 128 head nodes active. 
 This changes the next structural experiment: fit shared blocks or intermediate functions directly, and compare against this fixed-frame baseline. Further optimizing the same irregular kernel is lower priority. The current artifact is a conditional executable operator and a storage result, not an adopted faster circuit.
 
 [Primary receipt](SPARSE_INTERACTION_EXECUTOR_V1_RESULT.json) · [Stacked-call countercheck](SPARSE_INTERACTION_STACKED_V1_RESULT.json) · [Support graph](SPARSE_INTERACTION_SUPPORT_GRAPH_V1_RESULT.json) · [Executor](sparse_interaction_executor_v1.py) · [Packed program](SPARSE_INTERACTION_EXECUTOR_V1_PROGRAM.pt).
+
+## Broader native-port transfer, 13 September 08:52
+
+The same frozen packed operator was evaluated on64existing FineWeb prefixes that were not used in its weight-only fit. This test uses the **full native head17.2 contribution**, rather than the retained child/remainder mixed write of the regional experiment. Consequently it changes both text and input-port regime; it does not isolate corpus shift. FineWeb is the training corpus, and these are historical prefixes: no fresh OOD claim.
+
+At the final position, let $z$ be the actual input to MLP17, $a$ the native head2pre-output vector, $v=Wa$, and $z_0=z-v$. The tested numerator is the same operator $T(z_0,a)$. Native final state $h$, RMS factors and other terms remain fixed. For the twelve selected token logits, remove only this mixed numerator to define its own-effect reference:
+
+$$
+\ell_{\rm zero}=\ell_{\rm raw}-\frac{T(z_0,a)}{(\operatorname{mean}(z^2)+\epsilon)\sqrt{\operatorname{mean}(h^2)+\epsilon}},
+$$
+
+then add the compressed numerator and apply the native $30\tanh(\ell/30)$ softcap. Compare all six paired-output margins per prefix. These are selected-output probes, not next-token CE or whole-head removal effects.
+
+[Managed receipt](SPARSE_INTERACTION_FINEWEB_V1_RESULT.json):64bodyforwards,2.05seconds. Exact tensor/native-factor replay error is $2.93\times10^{-15}$, and the actual FP32 CSR executor agrees with its dense reconstructed operator within $2.06\times10^{-7}$. Raw mixed-numerator error is7.66%, but the paired-margin own-effect errors are19.80%,19.18%,19.62%,22.14%across the four16-prefix groups. All miss the10%bar. There are18sign reversals, all at reference effect magnitude at least $10^{-5}$; the sign criterion also fails.
+
+The [executed countercheck](SPARSE_INTERACTION_FINEWEB_V1_AUDIT.json) finds17.24–25.54%error across individual output pairs, so a single pair does not explain the aggregate miss. Restricting to reference effects at least $10^{-3}$ leaves351/384probes,20.27%error and8sign reversals. Thus tiny references alone do not explain the failure. These descriptive slices do not replace the registered criteria.
+
+This limits the current candidate's broader reuse. It preserves its earlier regional retained-port result, while showing that10%total coefficient error and smaller storage are insufficient for reliable selected-output effects on these native full-head ports. A matched-port comparison across text families is needed before attributing the difference specifically to text distribution. No additional fitting or weight changes were made.
