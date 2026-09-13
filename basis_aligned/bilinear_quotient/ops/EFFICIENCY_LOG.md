@@ -1606,3 +1606,50 @@ CEREMONY_BUDGET: hour_review + latency 12 s. No lint this span; v679 was gated b
 NOVELTY_LESSON_GATE: lesson 6 in its second form -- READ what a number depends on. pred_b's prior was wrong because
 I did not ask what extraction depends on for cells selected as four-row passers. Logged as a prediction-pricing
 failure, which is a different error from the ten mis-measurement failures already in that memory.
+
+## 2026-09-13T04:46Z HOURLY CIRCUIT TICK
+CIRCUIT_FOCUS: v681 terminal, 2578 s, 16 members. pred_a FALSE -- 10 of 13 separable against a bar of 11. pred_b,
+pred_c, pred_d TRUE. THIS IS THE RUNG DOING EXACTLY WHAT IT WAS BUILT FOR: three cells fail, and all three had
+passed separability in some OTHER family. Putting the whole proposal in ONE family is what exposed them.
+THREE FAILURES, THREE DIFFERENT SHAPES, AND I AM NOT COLLAPSING THEM INTO "failed".
+ 1. both_either -- a REAL LEAK, 0.232 onto correlative_disjoint_either_not and 0.086 onto correlative_or_and. The
+    largest leak this lane has recorded. both_either (" and"/" or"), either_not (" or"/" but") and or_and
+    (" or"/" and") are all coordination cells, and both_either had never sat in a family with either_not before:
+    v665's and v677's families did not contain it. Within-axis fusion, which is the structural signal I registered
+    in the docstring, and it was invisible until the proposal was tested as a set. The leak is ASYMMETRIC --
+    either_not stays separable at sibmax 0.016 while both_either falls -- so one of the pair survives and I am not
+    dropping both.
+ 2. definiteness_anaphor_needed -- family-constrained extraction COLLAPSE, 0.994 own to 0.320 against a 0.795
+    floor, with a sibling leak of only 0.018. I registered in advance that a floor failure with a small leak is a
+    NEAR-MISS and not a duplicate. This is not a near-miss either: numeral_dual_both_all missed its floor by 0.0046
+    in v665, this misses by 0.475. The direction simply does not survive being constrained against this family. It
+    is not a duplicate and it is not proposable; both halves of that need saying.
+ 3. wh_adjunct_when_where -- own extraction 0.091, below the 0.5 ext_floor. Not a leak at all (sibmax 0.009).
+THE THIRD FAILURE IS A DEFECT IN MY OWN SCREEN AND IT IS THE HOUR'S REAL FINDING. pred_d passed, so the instrument
+reproduced the parent exactly: _parent_cdas gives 0.09 and v681's own arm gives 0.091. But v679 -- MY two-objective
+screen -- reported extraction_held 0.908 for the same cell and I read that as "reaches 0.80". Those are different
+quantities wearing the same name: in a battery receipt `arms.cdas.extraction_held` is the rank-1 DIRECTION's share
+of its unit set's effect, while in my screen `extraction_held` is the SET's extraction. A cell can have a healthy
+set and a direction that explains 9% of it -- a hollow row-4 pass. Checked across receipts, wh_adjunct_when_where
+reads 0.09 in v227 and 1.022 in v679: the same field, two different quantities, exactly the trap that already cost
+me the c_ub_v2/c_ub_v3 objective confusion two days ago.
+AND I HAD THIS IN MEMORY. My own note says "sub-0.8 cdas extraction = hollow row-4 pass (v227 when_where 0.09)" --
+naming this exact cell. I selected it into v679 anyway, because my screen gated on a quantity that looked like the
+one the memory was about. Holding the lesson was not enough; the gate has to read the right field.
+THE FIX, WITH THE INSTRUMENT CHECK LESSON 6 ASKS FOR. Added `_hollow_direction` to ops/rung_preflight.py: any
+candidate whose parent battery direction share is below 0.80 FAILS preflight before enqueue. My first version took
+the MAXIMUM across receipts and returned nothing for the known-bad cell -- it silently picked v679's 1.022 over
+v227's 0.09. Now it takes the MINIMUM and prints min/max so a wide spread is visible rather than resolved away.
+Verified at the rung level: FAILS v679 (which contained the cell) naming it 0.09/1.022, PASSES v677. All ten
+remaining proposals are clear.
+THE PROPOSAL GOES FROM 8 TO 10: remove both_either and definiteness_anaphor_needed, add comparative_frame,
+comparative_complement_from_than, reflexive_number_itself_themselves, wh_argument_selection. wh_adjunct_when_where
+never entered it.
+HOW LONG. hour_review + latency 12 s. v681 GPU 2578 s unattended -- 43 min for 16 members, the per-member cost
+growth with family size I recorded after v665 holding up. Receipt read + three-way failure diagnosis + the
+extraction_held investigation ~18 min. Gate fix and its known-good/known-bad verification ~8 min. Ledger ~6 min.
+CEREMONY_BUDGET: hour_review + latency 12 s. The gate fix is the exception worth naming: it is ~8 min of work that
+is NOT smaller than a screen. It earns that because it closes a hole that let a hollow cell into a proposal, which
+is the kind of extended guarantee that belongs after a signal is promoted -- and a proposal is a promotion.
+NOVELTY_LESSON_GATE: lesson 6 twice -- once to read what extraction_held depends on rather than trusting the name,
+once to check the new gate on known-good AND known-bad rungs, which caught my max/min error before I relied on it.

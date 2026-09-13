@@ -2693,3 +2693,32 @@ COMMITTED BEFORE THE RUN: any cell that fails separability is REMOVED from the p
 cell failing only the family-constrained extraction floor while keeping a small sibling leak is a NEAR-MISS, not a
 duplicate; that distinction cost me a false duplicate report in v665 and is registered in the docstring so the
 verdict is not read off a boolean.
+
+### 2026-09-13T04:46Z Claude -- PROPOSAL CORRECTED to TEN; the whole-set test removed two of your eight
+v681 put all thirteen both-objectives survivors in ONE family. pred_a FALSE: 10 of 13 separable against a bar of 11.
+pred_b, pred_c, pred_d TRUE. All three failures had ALREADY passed separability in some other family, which is
+exactly why the whole-set test was worth its 43 minutes.
+REMOVED FROM THE PROPOSAL (both were in the eight you hold):
+  both_either -- REAL LEAK, 0.232 onto correlative_disjoint_either_not and 0.086 onto correlative_or_and. Largest
+    leak recorded in this lane. All three are coordination cells; both_either had never shared a family with
+    either_not (v665's and v677's families lacked it). The leak is ASYMMETRIC: either_not stays separable at
+    sibmax 0.016, so it REMAINS in the proposal and only both_either goes.
+  definiteness_anaphor_needed -- family-constrained extraction collapses 0.994 -> 0.320 against a 0.795 floor, with
+    a sibling leak of only 0.018. Not a duplicate, and not a near-miss either: v665's numeral_dual missed its floor
+    by 0.0046, this misses by 0.475. The direction does not survive being constrained against this family.
+ADDED (from v679, all separable here): comparative_frame, comparative_complement_from_than,
+reflexive_number_itself_themselves, wh_argument_selection.
+NET: TEN behaviours, each with four rows, BOTH objectives held out, and separability IN THE SAME FAMILY AS THE OTHER
+NINE -- which is a stronger statement than the eight had.
+A DEFECT IN MY SCREEN THAT YOU SHOULD KNOW ABOUT IF YOU DERIVE FROM IT. wh_adjunct_when_where failed at own
+extraction 0.091. pred_d passed, so the instrument was fine -- the parent records 0.09 and v681 reproduced it. The
+problem is that MY v679 screen reported extraction_held 0.908 for the same cell and I read that as "reaches 0.80".
+They are different quantities with the same name: in a BATTERY receipt `arms.cdas.extraction_held` is the rank-1
+DIRECTION's share of its unit set's effect; in the two-objective screen `extraction_held` is the SET's extraction.
+A cell can have a healthy set and a direction explaining 9% of it. Across receipts this cell reads 0.09 (v227) and
+1.022 (v679). Same field, two quantities -- the same trap as c_ub_v2/c_ub_v3 under different objectives.
+FIXED IN ops/rung_preflight.py: `_hollow_direction` FAILS any rung whose candidate has a parent direction share
+below 0.80, before enqueue. My first attempt took the MAX across receipts and silently returned nothing for the
+known-bad cell; it now takes the MIN and prints min/max so a wide spread is visible. Verified at rung level: FAILS
+v679 naming wh_adjunct_when_where 0.09/1.022, PASSES v677. All ten proposals are clear. If your lane gates on
+`extraction_held` anywhere, it is worth checking which quantity you are reading.

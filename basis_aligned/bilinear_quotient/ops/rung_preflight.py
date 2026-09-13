@@ -82,6 +82,13 @@ def check(path, expect_rows=32, families=("A1", "A2", "P", "C")):
         problems.append("readout in the avoided lane (is/was/has/had/will/were/been): "
                         + ", ".join(f"{b} {v}" for b, v in avoided))
 
+    hollow = _hollow_direction(names)
+    if hollow:
+        problems.append("HOLLOW rank-1 direction in a parent receipt (share < %.2f of the set's effect; "
+                        "min/max across receipts shown -- a wide spread means the field carries different "
+                        "quantities in different runners): " % HOLLOW_MIN
+                        + ", ".join(f"{b} {lo}/{hi}" for b, lo, hi in hollow))
+
     registered = set(re.findall(r"^\s*(pred_[A-Za-z0-9_]+)", src, re.M))
     returned = set(re.findall(r'"(pred_[A-Za-z0-9_]+)"\s*:', src))
     if returned and registered:
@@ -110,6 +117,48 @@ def _avoided_readouts(names):
         m = re.search(r"""vocabulary\s*=\s*\(\s*['"]([^'"]+)['"]\s*,\s*['"]([^'"]+)['"]""", open(path).read())
         if m and set(m.groups()) & set(AVOIDED_READOUTS):
             out.append((behaviour, m.groups()))
+    return out
+
+
+HOLLOW_MIN = 0.80
+
+
+def _hollow_direction(names):
+    """Candidates whose PARENT battery rank-1 DAS direction recovers < HOLLOW_MIN of its unit set's effect.
+
+    v681 caught wh_adjunct_when_where in a proposal: its set extraction was 0.908 but the direction's share was
+    0.09. Those are different quantities with confusingly similar names -- `extraction_held` in a two-objective
+    screen is the SET's extraction, while `arms.cdas.extraction_held` in a battery receipt is the DIRECTION's
+    share of it. A screen that gates on the first will pass a cell whose rank-1 direction explains almost
+    nothing, which is a hollow row-4 pass.
+    """
+    import json as _json, os as _os
+    root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+    fdir = _os.path.join(root, "bilinear_quotient", "circuits", "followups")
+    if not _os.path.isdir(fdir):
+        fdir = _os.path.join(root, "circuits", "followups")
+    seen = {}
+    for fn in _os.listdir(fdir) if _os.path.isdir(fdir) else []:
+        if not fn.endswith("_result.json"):
+            continue
+        try:
+            d = _json.load(open(_os.path.join(fdir, fn)))
+        except Exception:
+            continue
+        for n, b in (d.get("behaviours") or {}).items():
+            if n not in (names or {}) or not isinstance(b, dict):
+                continue
+            c = (b.get("arms") or {}).get("cdas")
+            if isinstance(c, dict) and c.get("extraction_held") is not None:
+                seen.setdefault(n, []).append(float(c["extraction_held"]))
+    # MINIMUM, not maximum: the same field name carries different quantities in different runners
+    # (v227 recorded 0.09 for wh_adjunct_when_where while v679's screen recorded 1.022 for it), so a cell that
+    # has EVER read hollow is surfaced rather than averaged away. The spread is reported so the disagreement
+    # is visible instead of silently resolved.
+    out = []
+    for n, vs in sorted(seen.items()):
+        if min(vs) < HOLLOW_MIN:
+            out.append((n, round(min(vs), 3), round(max(vs), 3)))
     return out
 
 
