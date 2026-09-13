@@ -53,3 +53,27 @@ An executed actual-MLP17-weight FP64control on24random signed perturbations matc
 [Control implementation](crossfirst_last_attention_response_v1.py), [receipt](CROSSFIRST_LAST_ATTENTION_RESPONSE_V1_CONTROL.json).
 
 The next useful circuit question is which of these response terms predicts the attention branch's final effect, then which attention17 inputs/heads generate v. No new independent semantic circuit, OOD prediction or autonomous extraction has been established by this local split.
+
+
+## 02:23 — Native response terms: mostly direct regional write, with a useful correction
+
+The native response-term experiment passes its registered A/B/C criteria. Original five trajectories and additive-background/native-attention readouts replay exactly. Fullformula local response errors are0.751%regional and0.692%FineWeb relative to the small native attention-propagated mixed response. The actual-weight FP64 algebra control remains3.12e-14; native FP32 subtraction and accumulation are a separate comparison.
+
+| Regional group | Direct-only effect error | Direct+cross | Direct+cross+normalizer | Full formula |
+|---|---:|---:|---:|---:|
+| Old near | 3.53% | 3.85% | 0.135% | 0.124% |
+| Near-message | 4.59% | 3.21% | 0.084% | 0.087% |
+| Near-person | 9.45% | 1.77% | 0.098% | 0.099% |
+| Distant | 7.07% | 1.67% | 0.064% | 0.060% |
+
+The direct attention mixed write already predicts this branch's regional effect fairly closely. Retaining its bilinear cross and exact normalization correction makes it much closer. The perturbation-square term changes little at this tested strength; do not extrapolate its smallness to arbitrary edits. Direct-only was a recorded diagnostic arm, not a newly preregistered holdout sufficiency claim.
+
+The executed per-prefix audit finds that direct-only, direct+cross+normalizer andfullformula all retain the native attention-branch effect sign on96/96regional prefixes. Direct+cross alone missesone sign. This supports a coherent local response rather than merely matching a groupmean. The native branch's own sign neednot always support the originalregional behavior; matching that sign doesnotrepair earlier task-direction failures.
+
+**FineWeb precision limit:** fullformula effect-relative errors are33.4%,5.40%,8.46%,5.39% across thefour groups, despite maximumabsoluteCEerrors1.43–2.32e-6nats. Meanabsolute nativeattention effects areonly2.00–5.99e-6nats. Formula signagreement is11–14/16, with someexactzero nativeeffects. Thus allregisteredA/B/Cpassing doesnot license uniformly accurate control-effect prediction: A's localstate criterion is weaker than these tinybehavioral ratios, andB/C concernregionalgroups. Preserve bothmeasurements. The absolute/per-prefix audit was executed; stronger full-FP64 native mediation or larger-strength control prediction remains untested.
+
+800nativeforwards,160extraMLPevaluations and1280finalreadouts took9.87seconds. Finalstate interventions needno additional transformer suffix, so terms were scored byreadout only. No datafit, autonomousprefixgenerator ornewOODevidence.
+
+[Native response-term result](CROSSFIRST_LAST_ATTENTION_TERMS_V1_RESULT.json), [registered criteria](CROSSFIRST_LAST_ATTENTION_TERMS_V1_PREREGISTRATION.md), [per-prefix/absolute-error audit](CROSSFIRST_LAST_ATTENTION_TERMS_V1_AUDIT.json).
+
+The next structural target is the generator of the attention17 mixed write: split it across actual head/value/query-key contributions while retaining both QK factors and normalization. Existinghead dossiers and the initial first/current-value mixture needchecking. The response formula supplies a conditional downstream interpreter for thatsplit; it doesnotbyitselfgenerate theattentionwrite.
