@@ -756,3 +756,62 @@ Runner/receipts: `ops/run_sparse_hierarchy_composition_v1.py`,
 `SPARSE_HIERARCHY_COMPOSITION_V1_BINDING.json`,
 `SPARSE_HIERARCHY_COMPOSITION_V1_RESULT.json`,
 `SPARSE_HIERARCHY_COMPOSITION_V1_PROMPT_AUDIT.json`.
+
+
+## Preserve the previously selective producer pair
+
+The original extracted reflection-even pair combines head8.2 first-layer value
+and head9.8 current-layer value. Its earlier selective-removal and donor evidence
+is documented in `SCALAR_JOINT_KEY_GRADES_CONFIRMATION_V1_RESULT.json` and the
+module dossier. This test changes only head9.8's source basis to the frozen
+irregular sparse composed candidate; head8.2, physical writers and other native
+maps remain exact. Head9 is evaluated on the actual state after any head8 edit,
+not on a cached pristine context.
+
+We repeat the original72regional/32newline panel and its original bars. Regional
+arms include separate and joint removals, full value-sector removal, opposite-cue
+donor interchange and self-donor control. The donor's scalar is taken from the
+specified paired native context; the recipient's changed computation and suffix
+are recomputed. Newline arms retain full-sector and mean-head controls. These
+are reused confirmation examples, not a new prospective panel. The inherited
+dry-run message still says prospective confirmation; the new result's scope
+correctly labels reuse.
+
+All four registered predicates pass in15.75seconds (632 body forwards):
+
+| Regional family | Joint-removal cue coverage | Donor transfer |
+|---|---:|---:|
+|0|53.74%|56.18%|
+|1|52.19%|54.50%|
+|2|57.29%|60.23%|
+
+Every36 paired removal direction and72 individual donor direction is correct.
+Unrelated-readout/target effect ratios are4.17–7.11%, below the50% bar; self-donor
+outputs are exact. Compared with the original uncompressed pair, selected target
+and control effect errors across head9 removal, joint removal and donor arms
+are at most1.573% and2.073% respectively, below the10% preservation bar.
+
+Both16-example newline halves pass the original mean absolute CE-change<=0.02
+and maximum<=0.1 criteria. Their mean changes are0.01208/0.00508nats and maxima
+0.04836/0.03147nats. Native capability and the mean-head positive control remain
+live. The compressed-versus-original change in newline damage has maximum
+absolute error0.002519nats and mean0.000370nats. The broader value-sector's old
+newline failure remains a separate historical result; full-sector behavior on
+this panel does not erase it.
+
+A per-row audit finds one small control-effect sign reversal in donor arm5,
+row54: original-0.0001230nats versus compressed+0.0002069nats. Thus the registered
+aggregate criteria pass, but exact preservation of every control sign does not.
+This complements, rather than supersedes, the two earlier signed-strength
+control exceptions on a different panel.
+
+This is evidence that the compressed representation preserves an already
+supported selective circuit manipulation and donor interchange—not merely
+unembedding reconstruction. The pair still requires native contextual inputs,
+other-head background and suffix. It is not an autonomous token-to-logit
+extraction, new semantic-unit discovery, or full-model/runtime compression.
+
+Runner/artifacts/receipts: `ops/run_sparse_selective_pair_v1.py`,
+`SPARSE_SELECTIVE_PAIR_V1_BINDING.json`, `SPARSE_SELECTIVE_PAIR_V1_RESULT.json`,
+`SPARSE_SELECTIVE_PAIR_V1_ARTIFACT.pt`,
+`SPARSE_SELECTIVE_PAIR_V1_PRESERVATION_AUDIT.json`.

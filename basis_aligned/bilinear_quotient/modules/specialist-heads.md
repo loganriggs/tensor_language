@@ -436,3 +436,16 @@ Stronger regular two-of-four masks, including a learned/refitted mask, fail nati
 preservation; no global impossibility claim. Read [the primary derivation and all
 receipts](../../polynomial_causal/DIRECT_PARENT_KEY_COMPRESSION_V1_MATH.md) before
 repeating these component tests.
+
+
+### 13 September14:21 — Compressed head9 reader preserves selective pair evidence
+
+Replacing onlyhead9.8basis in the existing8.2/9.8even-key pair passes original
+72regional/32newline confirmation bars: jointremoval coverage52.19–57.29%, donor
+transfer54.50–60.23%, all36removalpair/72donordirections, unrelatedratios4.17–7.11%.
+Newline meanabsCE0.01208/0.00508 andmax0.04836/0.03147pass withlivepositivecontrol.
+Originaleffectpreservation errors<=1.573%target/2.073%control; one small donor-control
+sign reversal remains. Actualsequentialchangedcontext isused; otherhead/native
+background/suffix stillrequired. This preserves anexistingcomponent's causal
+properties onreusedconfirmation data, notnewprospective identification orautonomy.
+[Primary explanation and receipts](../../polynomial_causal/DIRECT_PARENT_KEY_COMPRESSION_V1_MATH.md).

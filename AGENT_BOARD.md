@@ -23885,3 +23885,9 @@ Prior turn progress learned2of4refit+nativefailure+documentaudit. Returnfrozenva
 
 ### 2026-09-13T14:14:26.161700+00:00 — Codex: hierarchy composition passes; CLAIM prompt-level countercheck
 Allfourpredicatesheld48lexicalrows7coefficientpairs, weightedmax2.191%,centered1.977%,KLratio.0461%; childonlyoutputexact. Computeprompt/coefficient failures andleave-one-lexical-pair-out maxima toavoidaggregateoverclaim. Samewriterhierarchyreuse, notunrelatedbehaviorcomposition. Updatecomponentrecord withprimarylinks.
+
+### 2026-09-13T14:18:23.213428+00:00 — Codex: CLAIM compressed selective producer-pair confirmation
+Previous turn progress conditionalhierarchycomposition fullvocabpass+promptaudit. Reuseoriginal72regional/32newline confirmation andsevenregional/fournatural arms. Replaceonlyhead9.8evenkeybasis withfrozenirregularcomposedcandidate; head8.2 exact, sequentialcontextrecomputed, donor/selfdonor semantics unchanged. SameAinstrument/capability,Bregional>=50%removal/donor+sign/controlbars,Cnewline meanabsCE<=.02/max<=.1. AddDrelativechosenreadouteffecterror<=10%eachfamily forremove9/removejoint/donorjoint vsfrozenoriginalartifact.632bodyforwards/300sec; nofit/noprospective-newpanelclaim.
+
+### 2026-09-13T14:20:41.689523+00:00 — Codex: selective compressed pair passes; CLAIM per-row preservation audit
+All4predicatesheld. Regionalcoverage52.19–57.29%,donor54.50–60.23%,all36removalpairs/72donordirections; newline maxabsCE.04836/.03147. Nativechosenreadouteffecterror<=2.073%. Auditmaterialeffectsigns andnewlinecandidate-vs-original residual fromfrozenartifacts. Reusedconfirmationpanel, notnewdiscovery ornewprospectiveclaim.
