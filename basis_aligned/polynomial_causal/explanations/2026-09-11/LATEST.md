@@ -1,3 +1,5 @@
+**13 September02:18:** Final-block MLP-only account fails; attention-generated input propagated throughMLP17 contributes51–80% of aligned regional local interaction. The two branch effects compose within0.12–0.19%. Exact response-term CPU control completed. [Primary evidence](../../CROSSFIRST_LAST_BLOCK_SPLIT_V1_MATH.md).
+
 **13 September02:14:** Causal boundary curve rejects early universal sufficiency and monotonicity. An exact adjacent-boundary identity exposes a substantial final-block local mixed-generation effect under an additive-state background. [Primary math and native results](../../CROSSFIRST_BOUNDARY_CURVE_V1_MATH.md) · [Hourly02:12](../../HOURLY_STRATEGIC_REVIEW_2026-09-13_0212.md).
 
 **13 September02:08:** Direct native mixed-state correction confirms the MLP9 mediation limit; two tiny FineWeb interaction metrics remain precision-sensitive. Later-module census completed, not yet causal localization. [Primary result](../../MLP9_CROSSFIRST_RESPONSE_V1_MATH.md).

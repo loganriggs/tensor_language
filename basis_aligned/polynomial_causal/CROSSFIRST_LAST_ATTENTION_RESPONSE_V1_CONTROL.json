@@ -1,0 +1,40 @@
+{
+  "actual_weight_FP64_response_error": 3.1157585468804924e-14,
+  "control_contexts": 24,
+  "seconds": 0.07483431696891785,
+  "regional_component_audit": [
+    {
+      "group": 0,
+      "MLP_attention_cosine": 0.8381534147542957,
+      "MLP_same_sign_full": 18,
+      "attention_same_sign_full": 18,
+      "MLP_norm_over_full": 0.5087267728125914,
+      "attention_norm_over_full": 0.5338755554699269
+    },
+    {
+      "group": 1,
+      "MLP_attention_cosine": 0.8470898829555299,
+      "MLP_same_sign_full": 21,
+      "attention_same_sign_full": 15,
+      "MLP_norm_over_full": 0.3823106495293914,
+      "attention_norm_over_full": 0.6556075045316743
+    },
+    {
+      "group": 2,
+      "MLP_attention_cosine": 0.34828390611447724,
+      "MLP_same_sign_full": 17,
+      "attention_same_sign_full": 18,
+      "MLP_norm_over_full": 0.3248176767292421,
+      "attention_norm_over_full": 0.8392009906447842
+    },
+    {
+      "group": 3,
+      "MLP_attention_cosine": 0.9699960410202398,
+      "MLP_same_sign_full": 17,
+      "attention_same_sign_full": 19,
+      "MLP_norm_over_full": 0.29787791803320834,
+      "attention_norm_over_full": 0.7086541299020839
+    }
+  ],
+  "scope": "Random-state actual-MLP17weight expansion for context-dependent attention perturbation: direct write + bilinear cross + square + normalization rescale. Native attention-branch term mediation not yet tested. Full L/R/D and baseline states retained; no smaller model or new theorem."
+}

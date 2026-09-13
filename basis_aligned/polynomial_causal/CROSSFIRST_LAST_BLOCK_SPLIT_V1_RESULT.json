@@ -1,0 +1,99 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "anchor_replay": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "max_state_partition_error": 0.0,
+  "cells": [
+    {
+      "cell": "regional0",
+      "MLP_only_error": 0.534066491490386,
+      "attention_only_error": 0.5094084879989469,
+      "composition_error": 0.0018911043044992674,
+      "MLP_aligned": 0.48678795602173164,
+      "attention_aligned": 0.5127630505414749,
+      "full_norm": 0.008197701520531668,
+      "maxabs_composition": 8.58306884765625e-06
+    },
+    {
+      "cell": "regional1",
+      "MLP_only_error": 0.6553763220452499,
+      "attention_only_error": 0.3818963397811183,
+      "composition_error": 0.0013651110284122164,
+      "MLP_aligned": 0.358321654623013,
+      "attention_aligned": 0.641988192830017,
+      "full_norm": 0.009967379625073821,
+      "maxabs_composition": 4.76837158203125e-06
+    },
+    {
+      "cell": "regional2",
+      "MLP_only_error": 0.8393139215590442,
+      "attention_only_error": 0.32508444685037863,
+      "composition_error": 0.0018184930830970262,
+      "MLP_aligned": 0.2005293320964806,
+      "attention_aligned": 0.7992892025575853,
+      "full_norm": 0.008107507959340274,
+      "maxabs_composition": 6.67572021484375e-06
+    },
+    {
+      "cell": "regional3",
+      "MLP_only_error": 0.7084391298604433,
+      "attention_only_error": 0.29765400893549043,
+      "composition_error": 0.001235703873308427,
+      "MLP_aligned": 0.2934226266671884,
+      "attention_aligned": 0.7067963833959552,
+      "full_norm": 0.012408404783316555,
+      "maxabs_composition": 8.58306884765625e-06
+    },
+    {
+      "cell": "newline0",
+      "MLP_only_error": 0.18387607211539775,
+      "attention_only_error": 0.8172123045234047,
+      "composition_error": 0.08065148403766319,
+      "MLP_aligned": 0.8306086729769833,
+      "attention_aligned": 0.18823526077177846,
+      "full_norm": 5.597829007631187e-05,
+      "maxabs_composition": 2.384185791015625e-06
+    },
+    {
+      "cell": "newline1",
+      "MLP_only_error": 0.2503682016811777,
+      "attention_only_error": 0.9426503022869543,
+      "composition_error": 0.016376219951452716,
+      "MLP_aligned": 0.9120358173626122,
+      "attention_aligned": 0.08660175561868301,
+      "full_norm": 0.00020213076849362658,
+      "maxabs_composition": 1.6689300537109375e-06
+    },
+    {
+      "cell": "newline2",
+      "MLP_only_error": 0.4892421062709376,
+      "attention_only_error": 0.9277605239648221,
+      "composition_error": 0.053410121985435294,
+      "MLP_aligned": 0.8158500288288361,
+      "attention_aligned": 0.1802154126085359,
+      "full_norm": 7.356058552314358e-05,
+      "maxabs_composition": 2.384185791015625e-06
+    },
+    {
+      "cell": "newline3",
+      "MLP_only_error": 0.20036981297723405,
+      "attention_only_error": 0.8310678580570091,
+      "composition_error": 0.02543804024689264,
+      "MLP_aligned": 0.8302551761317143,
+      "attention_aligned": 0.17398523070525163,
+      "full_norm": 0.0002717450439858051,
+      "maxabs_composition": 4.291534423828125e-06
+    }
+  ],
+  "body_forwards": 1280,
+  "extra_MLP17_evaluations": 160,
+  "seconds": 13.561495885252953,
+  "scope": "Finite local block17 generation split at additive output background: MLP own mixed response versus propagation of attention mixed input. Native borrowed states/fullweights/readout remain; no fitting/OOD/semantic promotion.",
+  "artifact_sha": "537e0318a478129731948b15d694aa790cb4dfac5c1bc28123e6f40c366fcdf5"
+}

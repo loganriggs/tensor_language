@@ -663,3 +663,8 @@ Thefrozen671edge approximation ofthatnodepasses removalCEpreservation onallfourd
 
 
 12 September07:14: independent-start same-ordinal ing branch has paired-function cosine0.998855 and passes all fresh swap/removal-preservation bars; three5%write bars fail. Most endpoint discrepancy is common across each counterfactual pair. [Whole-branch recurrence and limitations](../COMPOSED_WEIGHT_COMPARISON_V1_RESULTS.md#the-whole-branch-recurs-across-starts-12-september0714).
+
+
+## 13 September02:18 — Crossfirst child/remainder final-block interaction
+
+A causal adjacent-boundary analysis identifies local block17 mixed generation under an additive-state background. Its native split gives MLP-own aligned regional effect20–49% and attention-generated-input propagation51–80%; separate final effects sum within0.12–0.19%. MLP-only prediction fails53–84%error. The attention term includes its nonlinear passage throughMLP17. Exact arbitrary-direction RMS-aware response control passes onactualweights/randomFP64states, reusing earlier known algebra. No whole-MLP replacement, semantic factor or OOD claim. [Primary math/native receipts](../CROSSFIRST_LAST_BLOCK_SPLIT_V1_MATH.md).
