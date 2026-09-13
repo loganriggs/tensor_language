@@ -1,0 +1,27 @@
+{
+  "rows": [
+    {
+      "method": "cached",
+      "per_product_relative_errors": [
+        3.0020338143107995e-15,
+        2.0614482291507793e-15,
+        2.057435841465607e-15,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "method": "compiled",
+      "per_product_relative_errors": [
+        3.0020338143107995e-15,
+        3.825402589787866e-15,
+        3.924106828644984e-15,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "scope": "Each00/01/02/11/12/22product assessed separately on actualMLP10weights and fixedwriter with independent random privatevectors. Prevents largeprivateproducts hiding fixedwriter-crosserrors; CPUFP64control, notnativebehavior."
+}

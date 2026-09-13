@@ -1,0 +1,61 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "rows": [
+    {
+      "batch": 1,
+      "relative_errors": {
+        "original": 0.0,
+        "cached": 2.24507072318035e-17,
+        "compiled": 3.3742221828253657e-16
+      },
+      "median_seconds": {
+        "original": 0.006963353604078293,
+        "cached": 0.005046963691711426,
+        "compiled": 0.005244620144367218
+      },
+      "cached_speedup": 1.3797114521576872,
+      "compiled_speedup_over_cached": 0.9623125322301792,
+      "compiled_break_even_contexts": null
+    },
+    {
+      "batch": 16,
+      "relative_errors": {
+        "original": 0.0,
+        "cached": 7.881016731079906e-20,
+        "compiled": 1.8855095593950488e-19
+      },
+      "median_seconds": {
+        "original": 0.023168712854385376,
+        "cached": 0.016081325709819794,
+        "compiled": 0.014028206467628479
+      },
+      "cached_speedup": 1.4407215718687787,
+      "compiled_speedup_over_cached": 1.146356503016198,
+      "compiled_break_even_contexts": 1087.5408125124743
+    },
+    {
+      "batch": 128,
+      "relative_errors": {
+        "original": 0.0,
+        "cached": 7.750468648525008e-20,
+        "compiled": 1.8401552793366467e-19
+      },
+      "median_seconds": {
+        "original": 0.15837355703115463,
+        "cached": 0.10514513775706291,
+        "compiled": 0.08721144869923592
+      },
+      "cached_speedup": 1.5062375722696337,
+      "compiled_speedup_over_cached": 1.2056345735027805,
+      "compiled_break_even_contexts": 996.0475891548841
+    }
+  ],
+  "contiguous_private": true,
+  "cheap_global_preparation_seconds": 0.005091231316328049,
+  "dense_global_preparation_seconds": 0.14464441686868668,
+  "cached_global_scalars": 11520,
+  "compiled_global_scalars": 1338624,
+  "scope": "Actual weights,synthetic pristinecontexts,FP64two-threadCPU; same six-product outputs, fixed writer reused acrosscontexts. Globalsetup andstoragecharged, nativeL/R/Down retained. Productbankpreparation only, not fullbranch/modeladoption. One-shot global compiletime makes break-even descriptive."
+}

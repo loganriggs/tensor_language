@@ -1,0 +1,60 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "rows": [
+    {
+      "batch": 1,
+      "relative_errors": {
+        "original": 0.0,
+        "cached": 2.24507072318035e-17,
+        "compiled": 3.3742221828253657e-16
+      },
+      "median_seconds": {
+        "original": 0.006775647401809692,
+        "cached": 0.00496644526720047,
+        "compiled": 0.005079537630081177
+      },
+      "cached_speedup": 1.3642851249278036,
+      "compiled_speedup_over_cached": 0.9777356973967531,
+      "compiled_break_even_contexts": null
+    },
+    {
+      "batch": 16,
+      "relative_errors": {
+        "original": 0.0,
+        "cached": 1.966443410972285e-15,
+        "compiled": 1.966443416597843e-15
+      },
+      "median_seconds": {
+        "original": 0.022424902766942978,
+        "cached": 0.029129769653081894,
+        "compiled": 0.027871500700712204
+      },
+      "cached_speedup": 0.7698276723094668,
+      "compiled_speedup_over_cached": 1.0451453606994883,
+      "compiled_break_even_contexts": 1725.923046861122
+    },
+    {
+      "batch": 128,
+      "relative_errors": {
+        "original": 0.0,
+        "cached": 2.0877803589941224e-15,
+        "compiled": 2.0877803643202497e-15
+      },
+      "median_seconds": {
+        "original": 0.15700648352503777,
+        "cached": 0.2079688385128975,
+        "compiled": 0.19945450127124786
+      },
+      "cached_speedup": 0.7549519661105419,
+      "compiled_speedup_over_cached": 1.0426881177781522,
+      "compiled_break_even_contexts": 2040.488012075868
+    }
+  ],
+  "cheap_global_preparation_seconds": 0.006016161292791367,
+  "dense_global_preparation_seconds": 0.14174587279558182,
+  "cached_global_scalars": 11520,
+  "compiled_global_scalars": 1338624,
+  "scope": "Actual weights,synthetic pristinecontexts,FP64two-threadCPU; same six-product outputs, fixed writer reused acrosscontexts. Globalsetup andstoragecharged, nativeL/R/Down retained. Productbankpreparation only, not fullbranch/modeladoption. One-shot global compiletime makes break-even descriptive."
+}
