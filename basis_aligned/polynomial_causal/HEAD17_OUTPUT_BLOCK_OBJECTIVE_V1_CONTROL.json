@@ -1,0 +1,36 @@
+{
+  "token_ids": [
+    11383,
+    1430,
+    14148,
+    6907,
+    31049,
+    14733,
+    34614,
+    18388,
+    39012,
+    16521,
+    46729,
+    16924
+  ],
+  "tensor_shape": [
+    12,
+    1152,
+    128
+  ],
+  "rank_per_block": 32,
+  "normalized_squared_error": 0.4719274492224744,
+  "relative_error": 0.6869697585938368,
+  "finite_difference_relative_errors": [
+    3.658824615419677e-08,
+    3.065030459730497e-08,
+    3.089185445242508e-08
+  ],
+  "reconstruction_loss_error": 1.6653345369377348e-16,
+  "orthogonality_error": 3.388569420661031e-15,
+  "intrinsic_gradient_norm": 0.002320847409876663,
+  "mixed_representation_scalars": 491664,
+  "dense_mixed_scalars": 1769472,
+  "seconds": 1.2366486191749573,
+  "scope": "Actual twelve-token mixed coefficient tensor; fixed block rank32, orthogonal output basis only. SVD block fits exact; envelope gradient and skew-chart derivative checked. No iterative fit/convergence result, native normalization or behavioral validation yet."
+}
