@@ -1,0 +1,101 @@
+{
+  "controls": [
+    {
+      "seed": 61401,
+      "tolerance": 0.02,
+      "discarded": 18,
+      "storage_saving": 0.00399271647135413
+    },
+    {
+      "seed": 61401,
+      "tolerance": 0.05,
+      "discarded": 69,
+      "storage_saving": 0.01629977756076384
+    },
+    {
+      "seed": 61401,
+      "tolerance": 0.1,
+      "discarded": 160,
+      "storage_saving": 0.04191080729166663
+    },
+    {
+      "seed": 61402,
+      "tolerance": 0.02,
+      "discarded": 18,
+      "storage_saving": 0.00399271647135413
+    },
+    {
+      "seed": 61402,
+      "tolerance": 0.05,
+      "discarded": 70,
+      "storage_saving": 0.0165557861328125
+    },
+    {
+      "seed": 61402,
+      "tolerance": 0.1,
+      "discarded": 160,
+      "storage_saving": 0.04191080729166663
+    },
+    {
+      "seed": 61403,
+      "tolerance": 0.02,
+      "discarded": 18,
+      "storage_saving": 0.00399271647135413
+    },
+    {
+      "seed": 61403,
+      "tolerance": 0.05,
+      "discarded": 70,
+      "storage_saving": 0.0165557861328125
+    },
+    {
+      "seed": 61403,
+      "tolerance": 0.1,
+      "discarded": 160,
+      "storage_saving": 0.04191080729166663
+    }
+  ],
+  "comparison": [
+    {
+      "tolerance": 0.02,
+      "model_discarded": 47,
+      "model_storage_saving": 0.01081056948061343,
+      "generic_discarded_range": [
+        18,
+        18
+      ],
+      "generic_saving_range": [
+        0.00399271647135413,
+        0.00399271647135413
+      ]
+    },
+    {
+      "tolerance": 0.05,
+      "model_discarded": 144,
+      "model_storage_saving": 0.03706868489583337,
+      "generic_discarded_range": [
+        69,
+        70
+      ],
+      "generic_saving_range": [
+        0.01629977756076384,
+        0.0165557861328125
+      ]
+    },
+    {
+      "tolerance": 0.1,
+      "model_discarded": 283,
+      "model_storage_saving": 0.08396572536892366,
+      "generic_discarded_range": [
+        160,
+        160
+      ],
+      "generic_saving_range": [
+        0.04191080729166663,
+        0.04191080729166663
+      ]
+    }
+  ],
+  "seconds": 0.4037843979895115,
+  "scope": "Three fixed iidGaussian matrices with same1152x1536shape and Frobenius-relative tolerance. Generic dimension/control, not null preserving native tensor marginals or circuit semantics."
+}
