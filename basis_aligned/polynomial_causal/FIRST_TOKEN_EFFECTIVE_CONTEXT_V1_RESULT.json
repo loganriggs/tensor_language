@@ -1,0 +1,47 @@
+{
+  "replay_error": 2.3073175569805126e-16,
+  "effective_reader_shape": [
+    96,
+    26,
+    4
+  ],
+  "groups": [
+    {
+      "group": 0,
+      "directed_final_write_mean": 0.00044579792307985106,
+      "positive_final_writes": 13,
+      "negative_final_writes": 11,
+      "positive_effects": 12,
+      "negative_effects": 12,
+      "write_effect_correlation": -0.9049521749695059
+    },
+    {
+      "group": 1,
+      "directed_final_write_mean": 0.0465364121346726,
+      "positive_final_writes": 20,
+      "negative_final_writes": 4,
+      "positive_effects": 5,
+      "negative_effects": 19,
+      "write_effect_correlation": -0.9104599294238278
+    },
+    {
+      "group": 2,
+      "directed_final_write_mean": 0.13481668893653034,
+      "positive_final_writes": 24,
+      "negative_final_writes": 0,
+      "positive_effects": 0,
+      "negative_effects": 24,
+      "write_effect_correlation": -0.8153185588710968
+    },
+    {
+      "group": 3,
+      "directed_final_write_mean": -0.07983732727224932,
+      "positive_final_writes": 0,
+      "negative_final_writes": 24,
+      "positive_effects": 23,
+      "negative_effects": 1,
+      "write_effect_correlation": -0.8017089485088612
+    }
+  ],
+  "scope": "Exact conditional context contraction with fixedcity source c. EffectiveT-by4readers still require native gamma8/gamma9/Q7/norms. Finalwrite comparison descriptive, not final-position-only causal sufficiency or autonomous prediction."
+}

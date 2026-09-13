@@ -63,3 +63,18 @@ The implementation retains actual FP32 operations rather than simplifying the no
 The resulting [conditional executor](extracted_circuits/first_token_value_path_v1/README.md) computes the token differences from weights, then routes them through supplied recipient context. It reproduces the physically tested first-value-only fields within $2.91$–$4.67\times10^{-8}$ across constructions. It stores4,615 coefficients, but explicitly references the57,950,208-weight embedding matrix and native QK/Q7/norm/writer/suffix interfaces. Closing this input port is real extraction progress; calling the whole result a4.6k-parameter extracted model would be false.
 
 The next high-information step is an untouched-context test of this fixed executable path, with native capability and selective controls, followed by decomposition of the remaining contextual routing/Q7 ports. Do not turn the first-generated-sector miss into an excuse to discard the structure, or the successful token generator into a claim that all contextual computation has been eliminated.
+
+## 00:55 — Effective context reader and registered fresh test
+
+The remaining contextual dependence can be gathered into an explicit four-vector for each recipient position t and changed city position c:
+
+$$
+K_{t,c}=2\alpha_9\sum_{j>c}
+\frac{\gamma_9(t,j)\gamma_8(j,c)}{\rho_{9,j}s_{8,j}}\Lambda Q_j,
+\qquad
+\Delta w_t=K_{t,c}^{T}\Delta F_c.
+$$
+
+This is an exact contraction, not a fitted predictor. CPU replay of all-position first-value-only fields is $2.31\times10^{-16}$. On the existing panel, the directed final-position write is positive24/24 near-quote but negative24/24 distant, although the city-token value difference is context-independent. The physical regional effect is opposing24/24 near-quote and positive23/24 distant. Thus contextual sign changes already appear in this composed reader before the final suffix. Final-write/effect correlations range−0.80 to−0.91, but that descriptive relation does not establish final-position-only sufficiency. [Context contraction receipt](FIRST_TOKEN_EFFECTIVE_CONTEXT_V1_RESULT.json).
+
+A fixed, score-free confirmation has been registered:24oldnear-quote anchors plus72untouched prefixes(two near-quote constructions andone distant). It tests native capability, predicted near-opposing/distant-positive signs, first-path fidelity to full head8.2, and half-strength scaling. The executor, rows and runner are frozen before scoring. This is context generalization, not corpus OOD; the cities and lexical endpoints are reused. At00:55 the job is queued behind the live shared v675 experiment; no result is claimed yet. See `FIRST_TOKEN_PATH_FRESH_V1_ROWS.json` and the prediction docstring of `../bilinear_quotient/ops/run_first_token_path_fresh_v1.py`.
