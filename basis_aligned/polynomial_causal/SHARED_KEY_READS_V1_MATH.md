@@ -91,3 +91,9 @@ $$
 Crucially, [the frozen response check](SHARED_KEY_CONSUMER_QUERYFOLD_V1_CONTROL.json) now passes the 10% scalar-effect bar in all three families: **7.17–7.56% error**, versus 20.1–23.2% for the original rank48 SVD. Both use 847,795 program scalars, saving another 2.70% relative to exact shared64 reads. The old individual-key coefficient error rises to 36.6%, so that original 10% weight bar remains failed. The improved behavioral metric comes from a better matched composition target, not extra capacity or data fitting.
 
 This is a promising conditional compression screen. It uses the same 72 cached prompts and rank64 transport baseline; it has not established fresh/OOD transfer, signed-strength robustness, full-model logits, or selective circuit manipulation. Keep the exact shared64 executor as the reference while testing those properties before adoption.
+
+### Signed-strength boundary
+
+[The frozen signed-strength check](SHARED_KEY_QUERYFOLD_STRENGTH_V1_CONTROL.json) compares candidate and reference on the same pristine contexts at multipliers $-2,-1,0.5,1,2$. Maximum family scalar-response errors are respectively **10.45%, 15.37%, 8.60%, 7.56%, 7.33%**. Thus only the positive tested strengths pass the 10% all-family bar. No refitting uses these examples.
+
+The worst relative miss has reference norm 0.326 and error norm about 0.050; its smaller reference magnifies the relative percentage, but the discrepancy is not a negligible rounding residual. These references are the conditional rank64 response generator, not new native strength interventions. Retain exact shared64 for general edits. The promising unit-removal result does not establish signed compositional reuse.
