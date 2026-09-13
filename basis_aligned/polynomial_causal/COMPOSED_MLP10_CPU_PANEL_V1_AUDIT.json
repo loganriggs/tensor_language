@@ -1,0 +1,79 @@
+{
+  "discrepancies": [
+    {
+      "row": 77,
+      "endpoint": 1,
+      "reference": 2.384185791015625e-07,
+      "prediction": -2.384185791015625e-07,
+      "absolute_error": 4.76837158203125e-07
+    },
+    {
+      "row": 105,
+      "endpoint": 0,
+      "reference": 3.5762786865234375e-07,
+      "prediction": -4.76837158203125e-07,
+      "absolute_error": 8.344650268554688e-07
+    },
+    {
+      "row": 124,
+      "endpoint": 0,
+      "reference": -4.76837158203125e-07,
+      "prediction": 0.0,
+      "absolute_error": 4.76837158203125e-07
+    },
+    {
+      "row": 124,
+      "endpoint": 1,
+      "reference": 1.9073486328125e-06,
+      "prediction": -1.9073486328125e-06,
+      "absolute_error": 3.814697265625e-06
+    },
+    {
+      "row": 125,
+      "endpoint": 0,
+      "reference": 0.0,
+      "prediction": -6.556510925292969e-07,
+      "absolute_error": 6.556510925292969e-07
+    },
+    {
+      "row": 130,
+      "endpoint": 1,
+      "reference": -9.5367431640625e-07,
+      "prediction": 9.5367431640625e-07,
+      "absolute_error": 1.9073486328125e-06
+    },
+    {
+      "row": 131,
+      "endpoint": 0,
+      "reference": 2.086162567138672e-07,
+      "prediction": 0.0,
+      "absolute_error": 2.086162567138672e-07
+    },
+    {
+      "row": 131,
+      "endpoint": 1,
+      "reference": -1.9073486328125e-06,
+      "prediction": 1.9073486328125e-06,
+      "absolute_error": 3.814697265625e-06
+    },
+    {
+      "row": 148,
+      "endpoint": 1,
+      "reference": 3.337860107421875e-06,
+      "prediction": -2.384185791015625e-06,
+      "absolute_error": 5.7220458984375e-06
+    },
+    {
+      "row": 158,
+      "endpoint": 0,
+      "reference": -1.6093254089355469e-06,
+      "prediction": 1.1920928955078125e-07,
+      "absolute_error": 1.7285346984863281e-06
+    }
+  ],
+  "max_child_error": 0.0020437661054572903,
+  "max_remainder_error": 0.00010752225075946066,
+  "max_norm_error": 1.2161934431955033e-07,
+  "max_product_error": 0.0004892902266154553,
+  "scope": "Unfiltered signed/zero discrepancies; no precision attribution. Both registered bars preserved; full effect background still supplied."
+}
