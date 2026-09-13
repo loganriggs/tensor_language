@@ -27,3 +27,11 @@ About 0.48% of tokens have error below 10%; this small subset has not been seman
 The [configuration receipt](FULLU_SHARED_LOCAL_FIT_V1_G64_RESULT.json) retains all histories and stops. The frozen audit is an executed check against hidden token-level regressions and compilation errors. It does not resolve the unfinished optimization. Overall registered convergence and 10%-gain predictions can no longer pass for **both** capacities as written; keep that miss even if the larger capacity succeeds.
 
 No text was used to fit or audit these factors. Native behavioral fidelity, selective removal, OOD prediction and cross-behavior reuse remain untested. The larger fit continues without changing its source, criterion or budget.
+
+## Accurate-token subset: duplicate audit and its limit
+
+The previously uncharacterized 243 tokens with at most 10% coefficient error all belong to private group5. The [executed audit](SHARED_LOCAL_ACCURATE_TOKENS_V1_G64_RESULT.json) finds only **seven distinct native U rows**: one exact duplicate group contains 237 IDs. Of all 243 IDs, 196 are present in the GPT-2 tokenizer and 47 are outside its vocabulary. Tokenizer membership does not establish actual training frequency or use. One leading quadratic function captures 99.9919% of this subset's coefficient energy. This extends the existing MLP17 dossier's duplicate-row observation; it is not a new semantic circuit.
+
+That correction does **not** explain away the entire grouped-fit improvement. These rows contain only 0.2288% of total target coefficient energy. The global baseline's error is at most each token's target norm for every measured token. Therefore the maximum possible improvement from this subset is its 0.2288% energy, whereas the total reduction is 3.7973% of target energy. The [executed bound](SHARED_LOCAL_DUPLICATE_GAIN_BOUND_V1_RESULT.json) shows that **at least 93.97% of the total improvement comes from outside this subset**. The overall modest gain remains real; semantic interpretation and adequate optimization remain unresolved.
+
+Deduplicating these 243 native U rows exactly would save 271,872 floats before IDs/dispatch costs. That is a useful conventional sharing opportunity, but separate from identifying reusable computational circuits or from the learned grouped approximation.
