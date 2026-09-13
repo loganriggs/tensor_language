@@ -2,7 +2,7 @@
 A exactcoreexecution/reconstruction<=1e-10; nativeport/replaychecks inherited.
 B modeledmixedterm own-effecterror<=10%eachgroup for eachcandidate.
 C wholecompacteffecterror<=5%andnomaterialsignreversal eachgroup.
-120historicalprefixes,zero-body-forward cache,2/5/10%weightonlyprojections.
+120 historical prefixes, zero-body-forward cache, frozen K32/r8 program.
 """
 import json,time
 import numpy as np
@@ -16,7 +16,7 @@ from regional_cue_row_check_v1 import validate
 P=Path(__file__).resolve().parent
 
 @torch.no_grad()
-def main():
+def main(program_prefix='INTERACTION_SHARED_WRITE_POLISH_V1', result_prefix='INTERACTION_SHARED_WRITE_REGIONAL_V1'):
     torch.set_num_threads(2);start=time.perf_counter();t,ids=build()
     sd=torch.load(CHECKPOINT,map_location='cpu',mmap=True,weights_only=True)
     u=sd['lm_head.weight'].double()
@@ -44,8 +44,8 @@ def main():
     native=margin(raw);reference=native[:,2]-native[:,0]
     replay=float((native-data['readouts'][:,:,0]).abs().max())
     assert formula_error<=1e-10 and replay<=1e-4 and port_error<=1e-3
-    path=P/'INTERACTION_SHARED_WRITE_POLISH_V1_PROGRAM.pt'
-    fit_receipt=json.loads((P/'INTERACTION_SHARED_WRITE_POLISH_V1_RESULT.json').read_text())
+    path=P/(program_prefix+'_PROGRAM.pt')
+    fit_receipt=json.loads((P/(program_prefix+'_RESULT.json')).read_text())
     assert digest(path)==fit_receipt['artifact_sha256']
     program=torch.load(path,map_location='cpu',weights_only=True);assert program['token_ids']==ids
     bases=program['output_bases'].double();labels=program['groups'].long();codes=program['codes'].double()
@@ -80,7 +80,7 @@ def main():
         port_projection_error=port_error,formula_error=formula_error,margin_replay=replay,
         artifact_sha256=digest(path),cache_sha256=digest(cache),seconds=time.perf_counter()-start,
         scope='Frozen K32r8shared-output-group executor,120cachedregionalports, conditionalmixednumerator replacement. Own modeledtermzero reference, native normalizers/background retained; no fitting,freshOOD,fullcircuitextraction orselectivity claim.')
-    (P/'INTERACTION_SHARED_WRITE_REGIONAL_V1_RESULT.json').write_text(json.dumps(result,indent=2)+'\n')
+    (P/(result_prefix+'_RESULT.json')).write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps({k:v for k,v in result.items() if not k.endswith('effects')},indent=2))
 
 if __name__=='__main__':main()

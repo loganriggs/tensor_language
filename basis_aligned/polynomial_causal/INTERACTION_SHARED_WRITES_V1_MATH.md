@@ -65,3 +65,24 @@ An executed coefficient audit explains a specific mismatch in what the fit prese
 Next objective question: a separately registered weights-only balanced sum/difference geometry could test that bias at unchanged storage. It must retain the old total-error and native-effect scores for comparison; changing the metric cannot retroactively pass this result. Another alternative is explicit shared common writes plus private contrast blocks. No such refit is claimed yet.
 
 [First fit](INTERACTION_SHARED_WRITE_SUBSPACES_V1_RESULT.json) · [FP64 continuation](INTERACTION_SHARED_WRITE_POLISH_V1_RESULT.json) · [Saved program](INTERACTION_SHARED_WRITE_POLISH_V1_PROGRAM.pt) · [Native conditional result](INTERACTION_SHARED_WRITE_REGIONAL_V1_RESULT.json) · [Sum/difference audit](INTERACTION_SHARED_WRITE_CONTRAST_V1_AUDIT.json).
+# Balanced objective follow-up, 13 September 08:41 UTC
+
+The [balanced metric](THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-13_0829.md) has now been optimized, not merely checked for one update. Ten starts (one transformed prior, nine random), twenty screening updates, then the strongest three FP64 continuations all reached two consecutive normalized conditional gains below $10^{-8}$. Promoted starts used 524,891,649 updates. Total managed execution took7.48seconds. This is coordinate convergence, not global optimality.
+
+The [fit receipt](INTERACTION_BALANCED_SUBSPACES_V1_RESULT.json) preserves the original criteria: serialization and convergence pass; coefficient fidelity fails. At4,880,979serialized bytes, total coefficient error is19.06%, paired-sum error18.89%, paired-difference error20.02%. The ordinary-objective fit had12.48%,2.23%,32.00%, respectively. Rebalancing substantially changes the tradeoff but does not beat the original10%total-error target. The inverse output transform is absorbed in the decoder, without extra runtime adapter storage.
+
+The [frozen native validation](INTERACTION_BALANCED_REGIONAL_V1_RESULT.json) uses the same120cached regional ports, explicit zero-mixed-term reference, native normalizers and softcap. The actual grouped executor agrees with its reconstructed tensor to $1.04\times10^{-14}$.
+
+| Regional group | Ordinary fit: own-term error | Balanced fit: own-term error |
+|---|---:|---:|
+|0|23.32%|19.57%|
+|1|7.87%|3.25%|
+|2|14.23%|9.99%|
+|3|6.28%|8.29%|
+|4|4.27%|3.31%|
+
+The balanced fit fails the10%bar in group0. Four groups improve, one worsens; whole-compact-effect errors remain below0.42% and no material sign reversals occur. There are four small own-effect sign reversals. These low whole-effect errors must not conceal the failed own-term criterion. No fresh OOD, independent extraction or selective reuse claim follows.
+
+**Red team and countercheck.** A plausible objection is that group0 fails only because near-zero effects make relative errors unstable, or one cue pair dominates. The [executed concentration audit](INTERACTION_BALANCED_FAILURE_V1_AUDIT.json) finds19.47%error on the14rows with native own-effect magnitude at least $10^{-5}$. Leaving out any one contiguous cue pair leaves16.59–23.89%error. Thus neither explanation rescues this failure. Group2's9.99%pass is borderline: its leave-one-pair-out range is8.80–11.85%; that descriptive range does not change the registered verdict.
+
+Conclusion: objective imbalance explained part of the difference loss, but changing that objective alone has not made K32/r8 shared output spaces preferable to the existing sparse-entry representation. This is a narrow failure of this representation/objective/capacity combination. The sparse baseline remains the stronger local preservation/storage candidate. Further work should change the graph or improve sparse execution, rather than repeatedly tune the balancing scalar. Computational sharing remains distinct from demonstrated behavioral reuse.
