@@ -51,8 +51,8 @@ def main():
  factors=best[1];assert sum(v.numel() for v in factors.values())==479232
  path=P/'FIXED_MIXED_HEAD_PRIVATE_V1_PROGRAM.pt';torch.save(factors,path)
  replay=reconstruct(torch.load(path,weights_only=True)).cuda();replayloss=float((x-replay).square().sum()/norm)
- result=dict(pred_a=monotone and abs(replayloss-best[0])<=1e-5,pred_b=sum(r['stop']=='objective_plateau' for r in promoted)>=2,
-  pred_c=best[0]<=.95*baseline_loss,baseline_rank208_squared_error=baseline_loss,best_squared_error=best[0],squared_error_gain=1-best[0]/baseline_loss,
+ predictions={'pred_a':monotone and abs(replayloss-best[0])<=1e-5,'pred_b':sum(r['stop']=='objective_plateau' for r in promoted)>=2,'pred_c':best[0]<=.95*baseline_loss}
+ result=dict(**predictions,baseline_rank208_squared_error=baseline_loss,best_squared_error=best[0],squared_error_gain=1-best[0]/baseline_loss,
   screened=screened,promoted=promoted,serialized_loss=replayloss,scalars=479232,serialized_bytes=path.stat().st_size,program_sha256=sha256(path.read_bytes()).hexdigest(),seconds=time.perf_counter()-tic,
   scope='Weights-only sharedrank128 plus9private rank16 blocks, matchedglobal208. Exact conditional SVD, objective plateau not global optimality. No native behavior, OOD, selective manipulation, or runtime claim.')
  (P/'FIXED_MIXED_HEAD_PRIVATE_V1_RESULT.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps({k:v for k,v in result.items() if k not in ['screened','promoted']},indent=2))
