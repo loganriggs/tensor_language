@@ -1,0 +1,47 @@
+{
+  "pred_a": true,
+  "pred_b": null,
+  "pred_c": null,
+  "cells": [
+    {
+      "row": 96,
+      "alpha": 1.5,
+      "beta": 1.5,
+      "product_error": 5.678675624922185e-05,
+      "zero_product_maxabs": null,
+      "native_effect": [
+        -6.556510925292969e-07,
+        4.76837158203125e-05
+      ],
+      "predicted_effect": [
+        -1.6689300537109375e-06,
+        5.054473876953125e-05
+      ],
+      "absolute_effect_error": [
+        1.0132789611816406e-06,
+        2.86102294921875e-06
+      ],
+      "legacy_product_replay": 1.6939019844839294e-14,
+      "legacy_effect": [
+        -1.6689300537109375e-06,
+        5.054473876953125e-05
+      ],
+      "legacy_vs_new_effect_maxabs": 0.0
+    }
+  ],
+  "panels": [
+    {
+      "row": 96,
+      "target_effect_error": 1.5454545454545454,
+      "control_effect_error": 0.06,
+      "max_absolute_error": 2.86102294921875e-06,
+      "opposite_signs": [
+        0,
+        0
+      ],
+      "material_target_sign_reversals": 0
+    }
+  ],
+  "seconds": 1.6212212070822716,
+  "scope": "Native strength-grid conditional full-cross prediction; two historical prefixes, changed attention/joint norm generated, native additive background and suffix supplied. No language OOD or full intervention-effect sufficiency claim."
+}
