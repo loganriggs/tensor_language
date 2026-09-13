@@ -85,3 +85,33 @@ The run used1760forwards and160extraMLPevaluations, taking19.67seconds. No solve
 The next structural question is which earlier computations generate c andr. Eachsplits into theaffine-residual change fromblock9 andtheattention10 outputchange. Bilinearity then gives residual/residual, residual/attention, attention/residual andattention/attention products. The smallnessofattention10's ownmixedstate doesnotimply itsindividualinputchangesareunimportant inside theseproducts. That inputsplit mustbe tested, ratherthan inferreddirectlyfromthepresentMLPdominance.
 
 [Native term experiment](MLP10_MIXED_PRODUCT_NORM_V1_RESULT.json) · [Registered criteria](MLP10_MIXED_PRODUCT_NORM_V1_PREREGISTRATION.md) · [Executed sign/absolute/scope audit](MLP10_MIXED_PRODUCT_NORM_V1_AUDIT.json).
+
+## 03:45 — Attention is a smaller but necessary input partner
+
+The input-source experiment splits c=c_R+c_A andr=r_R+r_A. Residualchanges c_R,r_R aredifferences oftheactualpre-attention10 affine re-entry states; c_A,r_A aretheremainingpreMLPchanges, includingattentionoutputchanges andFP32residual-additionrounding. The threebilinear groupsRR,mixedRA+AR,andAA sharethesame fulljointRMS denominator. Their statepartition matches thefullproduct within4.03e-15.
+
+| Regional group | Residual/residual-only error | Three separately measured effects: addition error | Mixed-effect norm/full | Attention/attention norm/full |
+|---|---:|---:|---:|---:|
+| Old near | 13.58% | 0.534% | 13.07% | 0.461% |
+| Near-message | 11.54% | 0.404% | 11.15% | 0.456% |
+| Near-person | 5.77% | 0.275% | 5.56% | 0.197% |
+| Distant | 5.06% | 0.404% | 4.76% | 0.388% |
+
+A replay/partition andCphysicaleffectcomposition pass. B residual-only within10% fails inthefirsttwo groups. Residual/full effectcosines remain0.993–0.999; this is a predominantly shared direction withanimportantpartner correction, notanunrelatedresidualcomputation. Residual-only misses one sign ineachfirstgroup. Themixedterm can reinforce oroppose it depending oncontext; near-person anddistant alignedmixedcontributions haveopposite signs.
+
+The executed counter-review adds the **separately measured** RR andmixed finaleffects. This arithmeticprediction matches thefullproduct within0.685%,0.567%,0.315%,0.440% andall96regional signs. It isnot anewphysicaljointRR+mixedintervention anddoesnot retroactivelyrepairB. SmallAA andthealreadymeasuredthree-term effectcomposition explain whythis is a promising approximation toconfirm.
+
+FineWeb RR-only errors8.2–21.4% andthree-term composition4.8–18.5% remain descriptive. Thetwo-effect arithmeticprediction errors3.3–15.7% haveabsoluteCEdiscrepancies1.97e-6–4.29e-6. No uniformFineWeb approximation isadopted. The run used2240forwards and160extraMLPevaluations in26.69seconds; no fitting.
+
+## Next backward fold
+
+The residualinput has a specific generator: bothhead9child andremainder are scalar removals alongthesame fixedwriterw. Beforeattention10, thelearnedre-entry map isaffine andtheinitialstateisunchanged. Therefore, inreal arithmetic,
+
+$$
+c_R=\lambda_{10,0}\Delta_9(a),\qquad
+r_R=\lambda_{10,0}\Delta_9(b),
+$$
+
+wherea,b arethechild/remainder scalarfields andDelta9 is thepreviouslyvalidatedfixed-writer residual-plus-MLP9 response. That response lies inspan{w,baselineMLP9,J_wz,J_ww} forafixednativecontext, withexactamplitude-dependentnormalizationcoefficients. This offersa concrete two-bilinear-layer composition toimplement andtest. Itdoesnot removeattentionpartnerinputs: thepresentBfailure specificallyprevents discardingthem. NativeFP32replay ofthefoldedresidual generator isstillrequired beforeusingitinplaceoftheobservedc_R,r_R.
+
+[Input-source native result](MLP10_MIXED_INPUT_SOURCES_V1_RESULT.json) · [Preregistration](MLP10_MIXED_INPUT_SOURCES_V1_PREREGISTRATION.md) · [Executed counter-review](MLP10_MIXED_INPUT_SOURCES_V1_AUDIT.json).
