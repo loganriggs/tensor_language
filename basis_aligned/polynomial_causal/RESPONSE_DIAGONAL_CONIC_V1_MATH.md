@@ -77,3 +77,20 @@ The [managed native comparison](DIAGONAL_MLP10_NATIVE_V1_RESULT.json) is complet
 Original-interaction target errors are0.033–0.084%across four regional groups and0.433–8.295%across four FineWeb groups, within their existing thresholds. [The sign audit](DIAGONAL_MLP10_NATIVE_V1_AUDIT.json) retains six small FineWeb sign reversals, with native reference magnitudes below $5\times10^{-6}$, and none at or above $10^{-5}$. The old program also had six small reversals, but the affected rows are not identical; this is tolerance-level preservation, not bitwise-equivalent behavior.
 
 This establishes native-panel fidelity of the complete conditional branch implementation. It does not establish fresh OOD behavior, independent extraction, selective reuse or a whole-branch speedup. Prepared Left/Right basis readings, five output vectors, full native matrices, context generation and suffix still cost memory and computation. The earlier16.7%bank reduction compares diagonal product representations; it is not a net reduction relative to direct native MLP execution, which does not prepare that bank.
+
+## Full-branch price: no adoption gain, 13 September 09:08
+
+[The matched CPU benchmark](diagonal_mlp10_cost_v1.py) and [receipt](DIAGONAL_MLP10_COST_V1_RESULT.json) now compare the implemented full five-bank branch against direct FP64 MLP10 evaluation on identical batched inputs. Bank preparation is charged separately from an already-prepared reuse case. Both sides receive the same input states; shared upstream response-context/attention generation is outside these local timings.
+
+| Batch | Direct | Five-bank, preparation included | Five-bank, already prepared |
+|---|---:|---:|---:|
+|1|3.56ms|12.97ms|3.71ms|
+|3|5.53ms|14.22ms|5.42ms|
+|16|6.93ms|18.03ms|8.56ms|
+|64|19.99ms|33.83ms|24.01ms|
+
+All numerical comparisons pass, but both registered10%speedup criteria fail. The small warm batch3 advantage is about2%, not robust evidence for adoption. Seven interleaved timings per case use two CPU threads; these are not GPU measurements.
+
+The operation count explains why simply amortizing preparation is insufficient. Both implementations still apply Left, Right and Down to one full vector per input: $3\cdot1152\cdot4608=15,925,248$multiply-accumulates in their main dense contractions. The five-bank implementation adds response reconstruction, basis projections, cross products and bank combination; it has not eliminated a main contraction. It also stores33,408extra prepared scalars per context (267,264bytes in FP64), excluding the already-shared response context. Native matrices remain identical.
+
+Therefore retain the conic identity as an exact structural simplification of the diagonal product bank, but do not adopt this full-branch schedule as a faster or smaller replacement for direct MLP10. The executed warm-bank countercheck rules out preparation cost as the sole explanation. Further computation savings would require simplifying the surviving background/attention contractions or a justified truncation of the actual amplitude-dependent response, rather than merely choosing five coordinates instead of six.

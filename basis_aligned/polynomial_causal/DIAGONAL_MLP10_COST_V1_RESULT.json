@@ -1,0 +1,56 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "rows": [
+    {
+      "batch": 1,
+      "relative_error": 1.99718129098078e-15,
+      "median_seconds": {
+        "direct": 0.0035590343177318573,
+        "bank_preparation_included": 0.01297290250658989,
+        "bank_reused": 0.003706086426973343
+      },
+      "speedup_with_preparation": 0.2743437188342364,
+      "speedup_reused": 0.9603214571114093
+    },
+    {
+      "batch": 3,
+      "relative_error": 1.855648546620091e-15,
+      "median_seconds": {
+        "direct": 0.0055254362523555756,
+        "bank_preparation_included": 0.014224428683519363,
+        "bank_reused": 0.0054166242480278015
+      },
+      "speedup_with_preparation": 0.3884469721274239,
+      "speedup_reused": 1.020088527345679
+    },
+    {
+      "batch": 16,
+      "relative_error": 2.4656066221059254e-15,
+      "median_seconds": {
+        "direct": 0.00693298876285553,
+        "bank_preparation_included": 0.018033549189567566,
+        "bank_reused": 0.00856073945760727
+      },
+      "speedup_with_preparation": 0.38444948856025934,
+      "speedup_reused": 0.8098586339635319
+    },
+    {
+      "batch": 64,
+      "relative_error": 2.4379748862509275e-15,
+      "median_seconds": {
+        "direct": 0.0199875645339489,
+        "bank_preparation_included": 0.03382771834731102,
+        "bank_reused": 0.024013429880142212
+      },
+      "speedup_with_preparation": 0.5908635140193461,
+      "speedup_reused": 0.8323494242060572
+    }
+  ],
+  "additional_prepared_scalars": 33408,
+  "additional_prepared_fp64_bytes": 267264,
+  "direct_main_mac_per_input": 15925248,
+  "bank_main_mac_per_input": 15925248,
+  "scope": "Local fullMLPbranch FP64 two-thread CPU, same batched z inputs. Cold includes fivebank/readers preparation, excludes shared upstreamresponsecontext and attentioninputgeneration onbothsides. Warm assumesbankfreeafterprioruse. Both retain same dense L/R/Downmaps; bankaddsworkandstate. No GPU/wholemodeltiming."
+}
