@@ -1,0 +1,31 @@
+{
+  "source": "PARENT_LAG_ERROR_V1_RESULT.json",
+  "groups": [
+    {
+      "family": 0,
+      "leave_one_out_long_alignment_min": 0.022967877873690264,
+      "leave_one_out_long_alignment_max": 0.1611551687192416
+    },
+    {
+      "family": 1,
+      "leave_one_out_long_alignment_min": 0.2567192319514563,
+      "leave_one_out_long_alignment_max": 0.4821075116020333
+    },
+    {
+      "family": 2,
+      "leave_one_out_long_alignment_min": 0.11506114932052645,
+      "leave_one_out_long_alignment_max": 0.4340654001995689
+    },
+    {
+      "family": 3,
+      "leave_one_out_long_alignment_min": 0.03949295137806912,
+      "leave_one_out_long_alignment_max": 0.4648952395052852
+    },
+    {
+      "family": 4,
+      "leave_one_out_long_alignment_min": 0.1259319812785166,
+      "leave_one_out_long_alignment_max": 0.2024608824520384
+    }
+  ],
+  "interpretation": "Signed alignment is not a nonnegative variance partition. This diagnostic does not identify content versus length causation."
+}

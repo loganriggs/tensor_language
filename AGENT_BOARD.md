@@ -22745,3 +22745,1056 @@ Compile four-mode frozen-normalizer response from pristinez8, interventionamplit
 
 ### 2026-09-12T22:06:02.816462+00:00 — Codex: selective port result / compact pristine-only value predictor verified
 Nativeports A/Cpass, Bfails: value-only fullhead9responseerror56.69/10.74/28.03%; routingopposesvalue onallchannels. Compiled5771scalar valuechangeexecutor, nochangedstate/norm inputs, predictsvalue-mediatedpart1.338/3.064/1.196%error onnewcity/nationality/style. Fullsourcevaluechanges1.58/3.23/2.01%. Prefix/baselinenorm remainports, averageroutingusedonlyforportscoring. Nextinputgenerator target opposingQKrouting viaexistingJd, not droppingcancellation. See SCALAR_VALUE_GENERATOR_MLP8_V1_MATH.md.
+
+### 2026-09-12T22:09:36.988136+00:00 — Codex: CLAIM full directional-map routing predictor CPU
+Previous turn progress: compactvalue-response extractedandfreshselectivevalidated; opposingrouting remains. SVD the existing fixedwriter Jd (notnewfittedJacobian), then predict changedraw9 from pristinez8/nativebiasfreeMLP8output/raw9/amplitude andanalyticrho8change. Recomputeallhead9QK/norm/value frompredictedstate, no changedoracle. A CPUbaseline scalar/gamma<=1e-5; B fullmap response/rawstate-change<=1e-4 eachfamily; C anyrank<=64 totalresponse AND routingchange<=5% eachfamily. Ranks0/1/4/16/64/256/full; frozenweightSVD, no datafit. This tests compactcoupled inputgeneration, not scalarvaluealone.
+
+### 2026-09-12T22:14:18.729800+00:00 — Codex: directional predictor terminal / signed-logit validation claimed
+A/B/Cpass: rank64wholehead9scalarresponseerror1.22/.54/.44%, routing2.01/4.44/2.21%; fullmapanchorresponse~1e-6. Hourly22:10requiresruntime reuse. Freeze64onnewlonger72prefixes; native,only8,jointactual,jointpred64,frozen9-under8,jointfullJd:432forwards120sec. A fullJd signedinteraction<=1e-4, capable nativecue; B rank64signedinteraction<=5%; C fulljointremoval effect<=1%. Signedinteraction comparesjointremoval against frozenbaseline9field under8removal. Declaredpristine z8/u8/raw9 ports retained; no poststateoracle forprediction.
+
+### 2026-09-12T22:23:12.130378+00:00 — Codex: native interaction predictor terminal / aggregation diagnostic executed
+All A/B/C pass on72 fresh longer contexts: rank64 signedinteraction error1.581/.812/.577%, jointremoval error.219/.177/.109%, full-map anchor<=1.14e-5relative. Diagnostic on samepanel confirms all72context/36paired signs; paired errors1.013/.689/.500%. Nationality coverage46.92% remains below50; nativeports/background remain. Requested redteam/ROI report section7 and component dossier updated with limits. This turn made progress; next result-dependent science is frozen-map response across intervention strengths or an equation-derived consumer-support audit, not generic tensor-sim graphsearch. No GPU job remains from this experiment.
+
+### 2026-09-12T22:24:58.372825+00:00 — Codex: CLAIM directional interaction strength transfer
+Previous turn progress: frozen64 native signedinteraction confirmation and individual/pair diagnostic. Dossier checked; no prior amplitude-transfer receipt for this selective predictor. Reuse72 longercontexts at strengths -1,.5,1.5,2 with frozen64, fullmap and same-rank infinitesimal response control. Targets manipulation/composition and finite-response computation; not ranksearch. A fullmapinteraction<=1e-4 eachstrength/family and nativecapability; B rank64interaction<=5%; C rank64joint-effect<=1%. 2016forwards180sec managedlane1. Linearized response is a descriptive mechanistic comparator; no rank/refitting or token selection.
+
+### 2026-09-12T22:27:19.486485+00:00 — Codex: strength-transfer terminal / CLAIM donor-field novelty audit CPU
+All12strength/family cells pass fullanchor, frozen64signedinteraction<=5%, joint-effect<=1%. Observed .382–3.570% interaction and .064–.419% joint-effect errors; finite response beats same-rank tangent in everycell (tangent .892–9.442%). Next CPU check paired-native head8 donor displacement against eachrecipient scalar field onexisting72shortprefix cache. Test if a per-context uniform amplitude can represent donor edits; >10% relative residual after optimal globalgain identifies a distinct tokenwise manipulation test. No new rank or weightfit; least-squares gain is diagnostic only.
+
+### 2026-09-12T22:29:18.973687+00:00 — Codex: CLAIM frozen directional donor-response native test
+Previous turn progress: allstrength-transferbars passed; CPUdonor-novelty audit finds21–31% residual beyondbestuniformgain. Reuse72longercontexts, cache nativehead8scalar from donor prefixes, replace eachrecipienthead8field by paireddonor at allpositions. Predict updatedhead9 removal using samefrozen64/fullJd pristine-port rule. A fullanchorinteraction<=1e-4 plus oldnativebaseline<=1e-6; B rank64interaction<=5%eachfamily; C joint-effect<=1%. Sixarms432fullforwards+72eightblockprefixes,120secmanagedGPU. No newfit/textOOD or autonomousprefixclaim.
+
+### 2026-09-12T22:32:13.488533+00:00 — Codex: donor-response terminal / CLAIM direct QK-value response contraction CPU
+DonorA/B/Cpass: signedinteraction.729/.737/.529%, joint-effect.276/.294/.176%, fullanchor<=5.11e-6relative, nativebaselineexact. Next extraction step: fold frozen response left factor into actualQK/key-inside/value readers; evaluate changed9scalar from projectedfeatures and a Gram-computed norm without building the1152Dchangedstate. Preserve eps*rho9-squared in projectednorms and nativeBF16rotarytables. A directrawfeature nativebaseline<=1e-5; B contractedrank64scalar versus existingfullstate rank64executor<=1e-5; C Gramnormreplay<=1e-10. CPU existing72shortprefix cache; this is executable equation/interface check, not new native intervention evidence.
+
+### 2026-09-12T22:34:26.928190+00:00 — Codex: CLAIM pristine MLP-output dependency audit CPU
+Previous turn progress: native donortransfer passes; direct QK/value contraction exactwithin FP tolerance. Audit beta*u0 normalization-compensation dependency onexisting72shortprefix nativecache. Frozen64/fullmapanchor, omit u0, keep onlyradial-to-raw9 u0, keep onlytransverse u0. A fullmapresponse<=1e-4 and64response/routing<=5%; B omitted-u0 response/routing<=5% eachfamily; C anydeclaredsinglepiece likewise. Perstate radial projection is a diagnostic, not weightfit. Removing redundantu0 input doesnotclose nativeh9 generator; interpret operationalport only.
+
+### 2026-09-12T22:35:37.530417+00:00 — Codex: u0-dependency CPU pass / CLAIM native port-removal strength screen
+Omitting beta*u0 keeps scalar response.969/.505/.414%, routing2.043/4.347/2.203%; allCPUbars hold. Freeze no-u0 API(z,raw9,a,weights), test same4signedstrengths throughnative suffix. FullJd anchor remains withu0; originalrank64-withu0 replaces tangent comparator. A exactanchor<=1e-4; B nou0signedinteraction<=5%; C joint-effect<=1%, every12cells.2016forwards180sec. This is post-identification interface simplification, not autonomousinputgeneration.
+
+### 2026-09-12T22:37:20.770438+00:00 — Codex: CLAIM sealed response interface CPU during managed native check
+For the already screened omitted-u0 formula, derive sufficient pristine ports: Bz64, z·d,||z||², Ch769,A^Th64,h·d,||h||² (901scalars/token) plus interventionamplitude. Compile CA,Cd,A^TA,A^Td,Bd; executor must accept no1152D z/h ornativeMLPoutput. Numerical comparison<=1e-5 against existingno-u0 stateexecutor on removal/addition/donor amplitudes; Gramnorm<=1e-10. This seals a declared conditionalinterface; generating thoseports remains native and ischargedseparately, no standalone tokenprogramclaim.
+
+### 2026-09-12T22:38:23.724044+00:00 — Codex: no-u0 native confirmation / declared-port executor control terminal
+Native all12cells A/B/Cpass: max3.515%interaction/.413%joint-effect. Subsequent901port executor CPUcomparison216cases<=3.57e-7scalar,2.24e-16norm. Executor54,211FP64scalars; projectionmatrices1,034,496additional, nativeprefix/background stillcharged. Previous turn progress preserved; thisturn simplifies a validatedconditionalinteraction interface. Primary DIRECTIONAL_INTERACTION_LOGIT_V1_MATH.md has completeport equations/prices. No automaticautonomy or totalcompressionclaim.
+
+### 2026-09-12T22:40:35.737438+00:00 — Codex: CLAIM frozen regional component lexical transfer
+Previous turn progress: nativeu0-port removal and declaredinterface. Novelty scan14root rowcollections found sixunused single-token contrasts programme/program,humour/humor,catalogue/catalog,apologise/apologize,offence/offense,organising/organizing. Freeze score-free72prompts with existingcity/nationality/style cues; native/removal/bothpaired-donor component arms. A noedit<=1e-6, nonzerofields; B capableeachfamily andremoval>=50%,>=10/12signs,unrelated<=.5target; C B plusdonor>=50%,>=20/24directions,unrelated<=.5target.216forwards120sec. Newoutputlexicon generalization notnewcorpus; no rank/refit. Endpoint-level capability/effects reported to expose aggregation.
+
+### 2026-09-12T22:42:35.680968+00:00 — Codex: new-output transfer terminal / CLAIM endpoint negative-result diagnostic CPU
+Apass, B/Cmiss: removal48.10/44.67/46.55%, donor52.40/46.33/48.40%; nativeall36pairspositive and all36removals/72donorscorrectdirection. Controlsratios .066–.111. Preserve50%bar misses. Now score each endpoint across all three cues to discriminate dead/native-incapable lexicalitems or a single dominatingendpoint from a broadlypartialcomponent. Do not change endpoints, rank or thresholds.
+
+### 2026-09-12T22:43:53.933907+00:00 — Codex: endpoint diagnostic interpreted / CLAIM boundary-scope control
+All6newendpoints have6/6positive native/removal pairs and12/12donors; coverage40.45–50.13%. Leavinganyoneout cannotrepair allfamily50%misses. Test fullvalue-sector removal versus selectedeven64 on same72rows: this discriminates selectivity-boundary cost from weakness of chosenproducerpaths, not a revisedprimarycomponent. Fullsector previously fails retainednewlineoutlier; no promotion. A native/selectedreplay<=1e-6; B fullsectorcoverage>=50%,>=10/12signs,unrelated<=.5 eachfamily; C B plus>=5percentagepoint coveragegain over64 eachfamily.216forwards120sec.
+
+### 2026-09-12T22:45:31.696423+00:00 — Codex: boundary-scope control passes / CLAIM conditional mixed-increment diagnostic CPU
+Fullsector54.52–57.55% removes9.45–10.33points morethanselected onnewlexicon; allA/B/Cpass, primaryreplayexact. Oldnewlinefullsectorfailure remains, no promotion. Next CPU quantify full-minus-even endpoint/contexteffects and alignment, explicitly conditionalincrement notisolatedmixed-sector causal effect. This determines whether missingcoverage is sharedacrossnewwords versus few examples before any mixed-branch factorization.
+
+### 2026-09-12T22:49:04.941433+00:00 — Codex: mixed-sector prior-art collision avoided / CLAIM existing factorial analysis CPU
+Earlierall63grade masks already include isolatedmixed18, even45, full63 andsingleheadmixed2/16; no need rerun these old contexts. Mixed18alone passesoldnewline(max.03085) but unionfullfails(.13709). Compute existingregional/newlinemargin/CE factorial interaction and outlier budget to distinguish nonadditivity from simply combining twoindividuallysmall damages. Individual10band-pair screen tested atoms andoneatomperhead, not even-plus-one-mixed-band additions; onlyafterthisaudit consider6such fixedproduct additions.
+
+### 2026-09-12T22:50:58.954665+00:00 — Codex: factorial audit terminal / CLAIM six mixed-band additions
+Oldnewlineworst even.09495+mixed.03085=.12579alreadyfails.1; actual.13709adds.01130interaction. Regionalfactorialinteraction6.51/8.39%offull, notdominant. Preserveoriginalmasks/priorwork. Six untested assemblies: fixed even45 plus exactlyone mixedband pair(0,1),(0,2),(0,3) in either8.2or9.8, usingexistingfourweightbands; earlier120screen wasatoms/pairs, nottheseunions. On72newendpoint+32oldnewline rows, A oldeven/full/native/meanreplay<=1e-4; B anyaddition>=50%coverage all3families; C sameadditionoldnewline<=.02meanabs/.1maxeachhalf.968forwards180sec managedGPU; no fitting, no newrank, no freshconfirmationclaim.
+
+### 2026-09-12T22:53:20.748225+00:00 — Codex: CLAIM old single-band causal signature analysis while lane1 occupied
+Previous turn progress: reusedfactorialaudit and6additionpreregqueued. Verified peer671pythonpid3536102live; our immutableaddition job queued, not restarted. Use completed120atom screen to compare sixmixedband atoms: oldregional effects, newlineworstrow30 and additivelypredicted even-union damage. This is a diagnostic of causal-profile differences, not a selection/confirmation result or substitute for queuednativeunion execution. Calibrate additive approximation using completedmixed18/even45/full63 factorial first.
+
+### 2026-09-12T22:56:19.838554+00:00 — Codex: CLAIM head9 query-versus-source cue dependence CPU
+Prior source-city screen was compiledmixedtokenhead and alreadywarns againstassumingcitypositions containallcueeffect. Newquestion: on actualselectedhead9.8, factorialswap query versus entire sourceKV usingcachednative pairedcue inputs. Four hybrids perpair, exactsymmetricquery/source decomposition ofnative scalarcuecontrast. A nativehybridanchors<=1e-5 andsymmetricaccounting<=1e-10; B query-onlychange (sourceheldAmerican)<=20%fullcuechange erroreachfamily; C source-only analogous. This is computationalportlocalization, not nativeendbehaviorcausality or newfitting; keep bothQKqueryfactorsjoint and sourceK/Vjoint.
+
+### 2026-09-12T22:57:28.993815+00:00 — Codex: query/source cue allocation terminal / CLAIM key/value source split CPU
+A/Cpass,Bmiss: fixedAmericanquery sourceKV substitution predicts nativehead9cue scalar within5.46–7.90%; query-onlyerror102–111%. Symmetricqueryalignedfraction -3.79 to-7.89%, source103.79–107.89%; accounting8.52e-17. Nextsourcekey/value factorial withqueryheldAmerican: A tiedK/V recovers prior sourcecorner<=1e-10; B key-only<=20%sourcechange eachfamily; C value-onlyanalogous. Opposing predictions localize the neededinputgenerator; no nativeend-effect or changedweights.
+
+### 2026-09-12T23:01:21.932874+00:00 — Codex: CLAIM existing MLP8 value factors on native cue contrasts CPU
+Previous turn progress: query/source and sourceK/V localization with executedbaseline redteam; GPUaddition remainsqueuedbehind verified671. Reuse existing absoluteMLP8fold/eigenvectors, not a newfit. Evaluate nativeBritish-American sourcevalue differences on72shortcue cachedstates; score allvalidpositions and symmetric native-routing value-mediated scalarcuecontrast. A fullgenerator absolutevalue<=1e-4; B fullcuevalue/port<=1e-4; C frozen4modes cuevalue/port<=5%eachfamily.16/64reporteddescriptively, no automaticrankpromotion. z8/x0/native9norm remainports; unlike priorfixedwriteredit this is nativecuevariation.
+
+### 2026-09-12T23:03:06.624856+00:00 — Codex: nativecue value-generator pass / CLAIM value-path allocation CPU
+Frozen4eigenmodes predict nativecue sourcevalue differences1.73–3.70% and value-mediatedscalarcontrast1.45–2.08%; fullanchorpasses. Absolutevalue12.1–17.1%errorsremain. Next allocate symmetricnative-routing cuecontrast into directresidual/reentry+bias, fourquadraticmodes, omittedquadratic remainder; calibrate sumagainstfullgenerator. This identifies whether4modesare actualsourcecuecomputation versus negligibleadd-on, before targetedphysicalvalue-edge intervention. Nativez8/x0/rho9 remainports; no value-only sufficiency claim.
+
+### 2026-09-12T23:07:34.141610+00:00 — Codex: value-path allocation terminal / CLAIM four-mode MLP8-to-head9 physical edge screen
+Symmetricvaluecueallocation: direct65.93/103.96/85.41%, fourquadratic32.68/-4.68/15.20%, remainder1.39/.72/-.62% (city/nationality/style). This suggests city-dependent transformation, not an allcue amplifier. Test physicalhead9value-edge removals on72newoutputrows: native/fullselected9/directvalue/fullMLP8quadratic/fourmodequadratic/remainder.432forwards120sec. A valuepathsum<=1e-5; B quad4/fullquad paired-effect discrepancy<=5%nativecontrastnorm eachfamily; C B andcityquad4coverage>=10%,>=10/12positives,cityunrelated<=.5target,nationalityabsolute normalizedcoverage<=half city. SourceQKroute/nativebackground retained; no originalMLPnode deletion or newlineselectivitypromotion.
+
+### 2026-09-12T23:14:00.195505+00:00 — Codex: hourly2312 / CLAIM fourmode value transfer andpreservation
+Hourly2312allthreeworkflowgates pass withlabor-timinglimitation explicit. Mixed6additionsApassB/Cfail; newfourmodeMLP8→head9edge A/B/Cpass city13.38%, nationality-.86%,style4.76%. Freezephi4 andtest native/removal/pairedphi-donation on72newoutputrows plusold/new32+32FineWebnewline panels(native/quad4/fullquad/meanhead8).472forwards180sec. A priorbaseline/quad4replay<=1e-4 pluslivecap/meancontrols; B citydonor>=10%nativecontrast,20/24positives,unrelated<=.5 and absnationality<=half city; C B plusquad4newlineeach4strata meanabs<=.02,maxabs<=.1. No new fit, standaloneprefix or broadOODclaim.
+
+### 2026-09-12T23:23:38.438900+00:00 — Codex: phi4 transfer/preservation terminal / mathematical review norm-interface audit
+MLP8value transferA/B/Cpass: city12.315%donor,24/24positive; nationality-.630%,style5.423%;64newline max.02533, all4stratameanabs<=.00375. Replayexact. Due3hourreview begins: distinguish rank4numerator from normalizedraw-input ridgefunction. For nonzeroM andeps>0, f(z)=zMz/(||z||²/d+eps) cannotfactor globallythroughnoninjectivelinearmap; a normscalar plus4reads suffices. Execute same4reads/differentcomplement-norm witness, native5portreplay, andreuse prior real-productpairing toverify3products for(1+,3-)phi4. Pairing isoldrepoalgebra, notnewdiscovery; circuitscope/normalizersremaincharged.
+
+### 2026-09-12T23:28:50.721865+00:00 — Codex: mathematical review complete / norm-aware phi executor verified
+THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-12_2328.md maps normalizedquadratic to ridgefunctions and SDC. Executedglobalfourrawread obstruction: same4reads,phi changes50/80% withcomplementnorm; 5portexecutor nativeerror1.33e-7. Reusedexistinginertiapairing gives3realproducts for numerator, not3semanticcircuits or fullnormalizedprogram. Sourcevalue nativecitydonor12.315%,newline max.02533 preserved. Nextmathdeadline 2026-09-13T02:28:50+00:00; continue freshcontext/composition work withnormportcharged.
+
+### 2026-09-12T23:34:09.869687+00:00 — Codex: CLAIM four-mode transfer endpoint concentration audit CPU
+Reuse completed frozen phi4 donor artifact; compute city endpoint and leave-one-endpoint-out transfers with aggregate replay. This tests whether one spelling pair drives the positive; descriptive reused-data audit, not fresh confirmation. No new fit or GPU work. Update requested red-team/ROI report with latest native evidence and charged norm interface.
+
+### 2026-09-12T23:37:33.310264+00:00 — Codex: CLAIM frozen phi4 fresh-context confirmation
+72 new full prefixes: three city-cue sentence constructions including cue displacement, two city pairs Nottingham/Detroit and Sheffield/Baltimore, six existing spelling endpoints. Cities can occur in earlier macrocomponent panels; full prefixes new and no phi4 score selection. Include24 original city rows as native/removal/donor replay anchors.288 native forwards,180sec managed cap. A anchor<=1e-4/self<=1e-8 and each newfamily native meancontrast>=.2,10/12positive. B eachfamily removal>=10%,10/12positive,unrelated<=.5. C B and donor>=10%,20/24positive,unrelated<=.5. No row filtering; misses retain original bars.
+
+### 2026-09-12T23:41:14.866791+00:00 — Codex: fresh-context terminal / CLAIM full-quadratic discriminator
+Fresh A passes exactreplay/allnativecapable, B/C fail. Fronted transfer9.03%(24/24), nearquote -4.10%(2/24), distant10.65%(24/24); removals8.83/1.46/7.33%. Test whether rank4 truncation causes reversal:72samefresh rows native/phi4remove/fullquadremove/phi4donor/fullquaddonor/fullselected9remove.432forwards180sec. A previous0/1/2 replay via0/1/3<=1e-4; B fullquad-vs4mode removal anddonor discrepancy<=5%nativecontrastnorm eachfamily; C B plusnearquote fullquaddonornegative while fullselected9removal>=10%. Frozenfields/no fitting. Narrownegative and rank-truncation audit, not newconfirmation.
+
+### 2026-09-12T23:42:06.125764+00:00 — Codex: CLAIM fresh failure city-pair concentration CPU
+While fullquadratic discriminator queues, decompose already-scored fresh donor effects by construction x citypair and construction x endpoint. This separates one unfamiliar citypair from construction-wide reversal without dropping rows or fitting. Aggregate replay required; descriptive reuseddata, no newconfirmation.
+
+### 2026-09-12T23:43:14.451815+00:00 — Codex: fullquad discriminator terminal / CLAIM effect-relative error audit CPU
+A/B/Cpass: fullquad nearquote donor -2.35%(2/24correct), selectedhead9removal35.90%(12/12correct). Fourmode-versusfull errors<=1.73%nativecontrastnorm, but smallbranch effect canmake this misleading. Compute same discrepancies normalized by fullquadratic branch effect, plus perendpoint fullquadnearquote signs. This tests strength of approximate branch fidelity, while preserving native-normalized registered pass and primaryfreshfailure. No re-fit; followup decision is context-dependent path specification, not rank expansion.
+
+### 2026-09-12T23:45:34.670694+00:00 — Codex: CLAIM phi4 source/mode provenance cache
+Prior source-only macrocomponent work doesnot supply fresh phi4 mode provenance. Cache native four signedmode values, rho9, selectedgamma and actualdonor delta scalar field on24oldcity+72freshrows, withnative/donor endmargin replay.192forwards120sec. A native/donor replay<=1e-4relative oldandfresh; B sum mode/source donor contributions reproduces actualdonor scalarfield<=1e-10; C cue-token-only contribution predicts final-position donorwrite<=20%relative each4groups. C is computational source-localization hypothesis, not semantic promotion; donorfield and original end-effect remain authoritative. Nativebackground retained. No fitting or large activationdump.
+
+### 2026-09-12T23:48:49.458801+00:00 — Codex: provenance queued / CLAIM CPU source-sign analysis implementation
+Verified peer673 PID3567446live, own provenance queued behind it. Prepare deterministic analysis of cached signedmodevalues, source partitions(before/city/after), mode-aligned contribution, and directed physicalwrite versus final-logit effect. Require mode/source and causal-prefix accounting; final-position scalar isnot assumed sufficient for fullsuffix effect. No score-based newfactorselection. Execute once receipt lands; no duplicate GPU job.
+
+### 2026-09-12T23:52:20.393455+00:00 — Codex: provenance terminal / CLAIM source-partition physical donation
+A/Bpass exactmargins and7.74e-16sum; Cfails cityonlyerror78–157%. CityvalueB−A negativeallgroups; finaldirectedwrite reversesnearquote22/24. Aftersource alignedshare79/78/146/90%, citynearopposes−46%; pre-city mode differencesexact0. Physicaltest96rows native/fullphi/citysourcephi/postcitysourcephi/final-target-onlyfullphi.480forwards120sec. A native/full replay<=1e-4 andcity+postfield sum<=1e-10. B postcitybranch-vs-full donor relativeerror<=.5 all4groups (reportnative-scale also). C A pluscityonlypositive>=20/24eachgroup andpostcitynearquote negative>=20/24. Finaltargetonly isdescriptive sufficiencytest; no automaticpromotion. This tests source-group causal effects, not rankfitting or newtextconfirmation.
+
+### 2026-09-12T23:54:18.758789+00:00 — Codex: CLAIM value-versus-routing sign audit CPU
+Using nativeprovenance cache, classify eachpostcity finalwrite term by signof directedphi difference and routinggain/rho coefficient. Exact4quadrant accounting determines whether reversedaggregate comes from positive valuechanges or negative routing of negativevalues. No causal sign attribution beyond thisalgebra; physicalsourcepartition queued.
+
+### 2026-09-12T23:55:46.978763+00:00 — Codex: source donation terminal / CLAIM token-only city-generator check CPU
+A/Cpass,Bmiss nearquote: citydonor positive96/96 (1.46–4.68%), postcitynearnegative24/24(-8.68%), full−4.10%. Exactwriteaddition and logiteffectnonadditivity1.4–2.7%; finaltarget-only misses22–45%fullbranch. Next fixedweight phi4(RMS(tokenembedding)) atcity comparedwithnativecitycuephi contrast; also oracle besttoken-pair constantcontrast lowerbound acrosscontexts, clearly diagnostic notdatafitdeployment. This tests closureof city inputport, notanother rank sweep. Preserve earliercontext dependence and sourceposition externalinterface.
+
+### 2026-09-12T23:59:17.772271+00:00 — Codex: CLAIM MLP7 to four MLP8 reader fold CPU
+Priorart search finds existingMLP8fixed-writer bridge and downstream fourreader folds, not these frozen eigenreaders throughMLP7; MLP7p768replacement isdistinct. Compute C7=U4.T D7, four symmetric quadratics; verifyexactreadand sixpaths forphi8 of B+Q7+A8 withnativeRMSports retained. Keep lowstorage C7/nativeL7R7 interface; no rankfit or sparse-DAG claim. Nextnativecache willmeasure whichparent generatescity/later phi contrast beforephysicaledge screen.
+
+### 2026-09-13T00:01:20.804840+00:00 — Codex: CLAIM native MLP7/attention8 parent cache
+Weightfoldcontrol3.86e-15,sixpath2.68e-16.96nativeforwards120sec; cache B=residual/reentry+bias, Q=lambda8 MLP7quadratic, H=attention8 in4rawreader coordinates, nativeRMS8 andsixphi paths. A endmarginreplay<=1e-4 andfoldQnative<=1e-4; B rawread/phi<=1e-5,sixpathsum<=1e-10. C deleting mixed terms causes>=20%citycuephi error each4groups. C tests essentialparentinteractions, not nativepathcausality. No fit, nativeprefix retained, about300KBcache plus23kcoeffprogram andchargednativeL7/R7.
+
+### 2026-09-13T00:02:57.684106+00:00 — Codex: MLP7 parent cache terminal / CLAIM sixpath contribution CPU
+Native A/B/Cpass: qfold1.36e-6,phi1.02e-6,exactendmargin; independentparent squares miss58–71%cityphi contrast. Execute preparedsixpath allocation into knowncity andlater donorwrite fields; require reconstructedfield<=1e-4. This determineswhich fixedcrossboundarypath warrants causal screening withoutselecting newweightfactors.
+
+### 2026-09-13T00:06:51.241235+00:00 — Codex: CLAIM Q7-containing versus Q7-free physical path values
+96reusedrows sevenarms(native,fullcity,fullpost,cityQcont,cityQfree,postQcont,postQfree),672forwards180sec. Qcont=Q²+2BQ+2QH; Qfree=(B+H)²; eachusesnativeRMS8. Donategeneratedpath valuefromnative donor, notQnodealone withrecipientB/H. Recipienthead9QK/rho retained. A native/fullcity/fullpost margins<=1e-4 prior and Qcont+Qfree field<=1e-4 full. B nearpostQcont negative>=20/24 and<=.5relative fullposteffect. C A plus sumtwo separatepath effects predictsfullsourceeffect<=.1relative each8cells. Usesexistingboundcacheasconditionalinput; no datafit, wholeMLP7 removal, or autonomousextraction claim.
+
+### 2026-09-13T00:09:18.741746+00:00 — Codex: path donation terminal / CLAIM Q/S/norm input allocation CPU
+A/B/Cpass: postQcont nearquote−10.75%,24/24negative; sumQcont/Qfree effects errors.41–2.53% across8cells. But compositeQpath cancarry partneror normchanges, so donot callQnodeidentified. Evaluate8native/donor corners ofF(Q,S,R)=(QΛQ+2QΛS)/R with S=B+H,R=rho8²; exactShapley3inputallocation andfixedrecipientoneport swaps. Readthroughnativeγ/gain9rho9 atcity/post. Replay actualcompositepathfields<=1e-4; testQ-onlynearpost<=20%targetfield error asstrictsourceinfohypothesis, retainmissandbaseline-dependence. No physicalQnodecausalityclaimed.
+
+### 2026-09-13T00:10:13.629205+00:00 — Codex: Qpath input allocation terminal / CLAIM partner B/H split CPU
+Exactfields7.57e-16. NearpostQ-only93.75%error fails20%; S-only18.16%, ShapleyQ8.16% S92.05% norm−.20%. Compositepathcausality doesnot implyQnode supplieschanginginformation. AtfixedrecipientQ/R, S-onlyswap splitslinearly into2QΛdeltaB/R and2QΛdeltaH/R; executeB/H readoutallocationagainstS-only andfullQpath, no newdatafit ornativeoneportcausalityclaim.
+
+### 2026-09-13T00:13:12.327840+00:00 — Codex: hourly0012 complete / CLAIM physical input-port discriminator
+Sevennativejobs2632forwards42.23s; allthreeworkflowgates pass, phaselogging incompleteness explicit. Freshcontextfailure ledto source andparentpath splits; no broadpromotion. Nextnative96rows8arms: native,fullpostQpath,Q-only,B-only,H-only,S-only,R-only,Q+S withrecipientR.768forwards180sec. A oldfullpost replay<=1e-4; B nearpostS-only effecterror<=.25 andopposingdirections>=20/24; C nearpostQ-only error>=.5 while S-onlybeatsQ-only. B/HsumS effecterror<=.1 reportasadditionalcompositioncheck. Rawparentreads aredonatedwithotherrecipientinputs; thischangesonegeneratedpath, notglobalmodule.
+
+### 2026-09-13T00:17:03.222408+00:00 — Codex: rawport native terminal / CLAIM attention8 fourreader OV fold CPU
+A/B/Cpass: nearpost S-only−9.97%,24/24opposed,17.33%errorfullQpath; Q-only94.16%error. B-only−4.06%,H-only−5.98%,each24/24; B/Hcomposition.35–1.00%allgroups. Norm-onlysmall; Q+S frozenR error.63–1.22%. Nextweight-only foldU4 intoeachattention8OV current/firstvalue input map; exactrandomalgebra control, no modelscorefit/headselection. Existinghead8.2producer/directional records noted; newtarget isthisphysicallysupportedH8partner port over9heads. KeepQK/contextgenerationcharged.
+
+### 2026-09-13T00:20:08.935537+00:00 — Codex: CLAIM attention8 native head-reader cache
+Prior8.2producer andMLP8response dossierchecked; newtarget is H-only inputport inQ-containing MLP7/8/head9path.96nativeforwards120sec, cache9headsx4readings. A nativeendmargin<=1e-4 andsumheadH<=1e-5; B head-summed donorwrite reproduces priorphysicalH-onlyfield<=1e-4; C knownhead8.2 alone predicts nearpost H-onlyall-position field<=20%relative. No newheadselectionbyweightsfit orbroaderconfirmation. NativeQ/R8/head9routing retained. Cmiss would motivateotherhead/split diagnostics, notdisprovesstructure.
+
+### 2026-09-13T00:22:33.851111+00:00 — Codex: headcache terminal / CLAIM head8.2 physical H-input edge
+A/B/Cpass nativeheadsum3.63e-8, H-onlyfield1.88e-8; known8.2nearfield5.45%error passes20%.96reusedrows fourarms native/fullH-only/head8.2H-only/otherheadsH-only,384forwards120sec. RecipientQ/R8/head9QK/rho retained, onlypostcitysources. A fullH replay<=1e-4 andfieldsum<=1e-10; B near8.2donoreffecterror<=.1fullH,negative>=20/24; C independenthead8.2/rest effects sumtofullH<=.1relative each4groups. No wholehead8 intervention/globalreuseclaim.
+
+### 2026-09-13T00:24:59.148776+00:00 — Codex: head8.2 physical terminal / CLAIM scalar H8.2 factor test CPU
+A/B/Cpass; near8.2effect−5.79%,24/24opposed,5.54%errorfullH; head/restcomposition<=.103%. Weight-onlySVD of diag(sqrtabs eig8) U4^TO8_2 proposesone scalar headvalue andone Q7quadratic modulator. Validate rank1 vsactualhead8.2H-onlyall-positiondonorfields<=10%each4groups, plusexactrank4control; compareleading4readerwriter withpreviousknown8.2writer toavoidclaimingoldscalar asnew. This targets executablepathspecification andreadergrouping, notcoefficientcapturealone; nativeQK/input/normcostremains.
+
+### 2026-09-13T00:26:46.001192+00:00 — Codex: scalarized H reader misses / CLAIM composed-coefficient metric control CPU
+Uncomposedabs-eigenmetricrank1 captures49.21% butdonorfield13.52–31.52%error misses10%; knownwriter cosine.852, not identicaloldscalar. Plausiblemetric mismatch: targetis Q7ΛC8z, notHvector. Computeweight-only GramG_ij=Frob(M7_i,M7_j) forfourQ7quadratics; SVD G^1/2 Λ C8_2 givesbest rank1 in separated(z7quadratic,headvalue) coefficientFrob metric, withGinverseleftdecode. Validateall4groupdonorfields<=10%, exactrank4control; report no globalnormalized/native-optimal guarantee. No datafit or genericoptimizer.
+
+### 2026-09-13T00:37:25.238092+00:00 — Codex: requested report / CLAIM next value-sector CPU audit
+Publishing full requested update through00:29 in for_logan. Next CPU step compares frozen head8.2 current/first value maps in the four-reader interface: test proportionality and per-reader cancellation to determine whether these inputs can be conflated before the native source/value/QK cache. Weight-only diagnostic, no behavioral attribution or activation fit. Preserve known head8.2 sector work; new target is its H-input contribution to the Q7/MLP8/head9 interaction.
+
+### 2026-09-13T00:39:43.305235+00:00 — Codex: CLAIM head8.2 value/routing native cache
+96native forwards, <=120sec. Capture actual jointQK routing and current/first fourvalue readings athead8.2; replay nativeH and priorconditionalH-only donorfield. A margins<=1e-4 andHreplay<=1e-5; B fieldreplay<=1e-4; C first-layer generated-H contribution alone predicts nearquote head8.2 donorfield<=20%relative. Existing regionalfirst-value sector isprior, notproof forthisinteraction. Cache enables fixedrecipient joint-routing/current/first port swaps; no separateQK1-versusQK2 task claim.
+
+### 2026-09-13T00:42:22.442399+00:00 — Codex: value-routing cache terminal / CLAIM exact joint-routing/value delta CPU
+A/Bpass read2.32e-7,field1.09e-7, nativeendmarginexact. Cfails first-generated-sector nearquote26.82%error>20%; allgroups12.97–26.82%. Do not discard currentsector. Next exact five-term expansion deltaH=deltaGamma(C+F)+Gamma deltaC+Gamma deltaF+deltaGamma deltaC+deltaGamma deltaF. Measure all-position conditionalhead9 fields and separate generatedsector from rawinput changes; no separateQK taskinterpretation or physicalport claim.
+
+### 2026-09-13T00:43:45.707420+00:00 — Codex: CLAIM physical head8.2 value/routing decomposition
+Exact5term replay1.09e-7; near routing-only105%,first-only31%,bothvalues28%,dropmixed58%field errors. Firstgeneratedsector26.82%miss remains. 864forwards9arms native/full/currentgenerated/firstgenerated/routingonly/currentonly/firstonly/bothvalues/mixedboth. A native/fullhead8.2margin replay<=1e-4; B near first-only donornegative>=20/24 and effecterror<=.4full; C sum separatelydonated generatedcurrent/firsteffects predictsfull<=.1each4groups. Other5termcomposition andmissmixeddescriptive; no broadOOD/selectivityclaim.
+
+### 2026-09-13T00:45:46.102869+00:00 — Codex: CLAIM first-value token input generator CPU
+Physicalvalueport test queued. First-layer shared V is computed before attention0, so its source readings should be token-only once native block0 reentry/RMS andmu8 are retained. Check deltaF support exactly citytoken and fixedweight embedding-to-fourreader generator for everyobserved token (no table fitting). If held this closes first-value inputport, not contextual QK/Q7 orwholecircuit. Distinct from failed token-only fullphi8 generator.
+
+### 2026-09-13T00:47:03.029942+00:00 — Codex: valueport physical terminal / CLAIM conditional token-source executor CPU
+A/B/Cpass: first-onlynear−4.880%,24/24opposed,31.06%errorfull−5.787%; routingonly+.079%mixed; dropmixed59.30%effecterror. Generatedcurrent/firstcomposition .097–.361%. Fixedweight first-token generatorreplays1.40e-7,deltaFoffcityexact0. Package first-value-only path with computedtoken readings andexplicitnativeQ7/rho8/rho9/gamma8/gamma9/embedding ports; CPU replay against physicallytested first-only fields<=1e-5. This closesoneinputgenerator, notautonomousextraction.
+
+### 2026-09-13T00:50:15.952051+00:00 — Codex: CLAIM first-token path untouched-context confirmation
+24oldnearquote anchors+72score-free newprefixes in2near and1distant constructions, samecities/endpoints. Frozen fourreader tokeninput executor, fulljointgamma8,selectedgamma9, nativeQ7/norms. 384forwards: native, fullhead8.2H donation, firstvalue-only, half-firstvalue. A native/full/first oldanchor marginreplay<=1e-4 andtokeninputreplay<=1e-5. B eachnewfamily nativecontrastmean>.05 and>=10/12positive; firstvalue signedprediction>=20/24(nearopposing,distantpositive). C first-only effectrelativeerror<=.4 fullhead8.2 anddoublinghalfeffectpredictsfullfirst<=.1 eachnewfamily. No contextselectionaftermodelscore. Broadselectivecontrols stillpending.
+
+### 2026-09-13T00:54:32.195843+00:00 — Codex: CLAIM effective-context reader CPU while fresh test waits
+Peer675verifiedlivePID3604975; frozenfreshjobqueued. Contract recipient gamma9/gamma8/Q7/norms intoT-by4 effectivecity-value reader, replayphysicallytested first-only fields. Comparefinalwrite sign with signednativeeffect, explicitlynotfinal-onlysufficiency orindependentcontextgeneration. No edits to queuedexecutor/boundfiles.
+
+### 2026-09-13T00:55:51.404569+00:00 — Codex: fresh test terminal / CLAIM failed distant sign audit CPU
+A/Cpass,Bmiss: native36/36positive; bothnear first-only48/48opposed; distant18/24positive misses20bar. First/full effecterrors21.89/30.64/38.00%,halflin.45–.59%. Preserve Bmiss. Auditdistant failures byendpoint/city andfullheadsign todiscriminate approximationerror fromcontext/endpoint dependence; compareall-position effectivewrite withsignedeffect, no rescoringnewcriteria orposthocpromotion.
+
+### 2026-09-13T00:57:21.189133+00:00 — Codex: CLAIM paired-context reader allocation CPU
+Distant6signmisses allBaltimore; fullhead8.2same24/24signs asfirst-path. Directedtokencontrast identical acrosspairedrecipients; contextK differs. Evaluate16corners of gamma8,gamma9,Q7,combinedinverseRMSports, exact4input Shapley for British-versusAmerican context write difference. This isoff-manifold algebraiclocalization beforephysicalinputtest, notnewOODrescue.
+
+### 2026-09-13T00:58:35.277618+00:00 — Codex: CLAIM physical Q7-by-token interaction discriminator
+Exact4contextport allocation identifiesQ7 as130–138%aligned distantSheffield/Baltimore contrast, routingopposes. Distinct fromearlierQ-containingpath donorwhosechanginginfo enteredpartner. Test explicitcrossfirstpath G(Q,F)=2QΛgamma8F/(RMS8RMS9), recipientrouting.96reusedfreshtestrows5arms native,Fdonor,Qdonor,Q+Fdonor,isolatedmixed.480forwards180sec. A F-onlyreplay<=1e-4 andwriteQF=Q+F+mixed<=1e-10. B sixpreviousBaltimoremisses effectofFafterQdonation positive>=5/6 versusnativeF0/6. C physicaldifference-of-differences predictedbyisolatedmixed intervention<=.15relative each4groups. This testsmodulator causality/localcomposition, notrecoverfailedOODbar orwholeMLP7manipulation.
+
+### 2026-09-13T01:04:32.431694+00:00 — Codex: Q/token physical terminal and executed counter-review
+A/B/Cpass: Baltimore6/6FafterQpositive versus0/6native; isolatedmixed predicts DOD1.29–2.09%eachgroup. Counter-reviewCPU executed acrossall24distant recipients: all6Sheffield fliptheotherway, Nottingham/Detroit12stablepositive. ThusQmodulation transfersasymmetry, notglobalrepair ornewOODpass. FreshBmisspreserved; data nowdiagnostic. Nextresearch decision should compare deeperQ7generation versus explicitjoint-keysplit/selectivecontrols; no compression-only turn.
+
+### 2026-09-13T01:07:16.456590+00:00 — Codex: CLAIM donor-free city/all-source crossfirst removal CPU
+Define absolute G=2Q7ΛH8.2first through selectedhead9 edge. Citysource restrictsattention8k=c andhead9j>c; allsource sumsallk,j andhasno cueannotation. Compute nativefields fromweights/cache and donoridentity beforephysical removal. Compareliteral amplitude to registered donorpath; no extraRMS/QK fitting. Nextbasic removal screen uses regional96 and32existing capableFineWebnewline controls; preserve authoredcontrol incapability lesson.
+
+### 2026-09-13T01:08:48.912924+00:00 — Codex: CLAIM regional absolute removal
+384forwards96reusedrows4arms native/citysourceKO/allsourceKO/halfallsourceKO. A native replay<=1e-4. B cityKO increasespairedcontrast nearfamilies1/2>=10/12 and>=1%mean; decreasesdistant>=10/12 and>=.3%mean. C allsourceKO absolutecontrastchange>=.5%eachfreshfamily and2*half effect predictsfull<=.1each4groups. Null: donor sensitivity doesnot imply donor-free selectivecomponent. FineWebnewlineallsourcecontrol isnecessarynextscreen, notinherited.
+
+### 2026-09-13T01:11:18.895439+00:00 — Codex: CLAIM all-source removal FineWeb newline control
+32existing capableFineWebnewline rows,128forwards<=179tokens,180sec. Native/allsourceKO/halfallsourceKO/wholehead8.2zero positivecontrol. A nativeandwholeheadCE/margin replay<=1e-4 andfirsttokenread<=1e-5. B allsourceKO meanabsCE<=.02 andmaxabsCE<=.1 each16rowfamily. C nativepositive>=14/16 andmeanmargin>0,positivecontrolmeanabsCE>.1 eachfamily. ReusedvalidationnotnewOOD. Allsourcepath hasno cityannotation; omission/removal directlyfromweightsandnativecontext. Fullheadzero livesonlypositivecontrolarm.
+
+### 2026-09-13T01:15:11.814525+00:00 — Codex: hourly0112 / fixture mistake repaired before new work
+Allsource removalregionalA/B/Cpass; FineWebA/Bpass,Cfails becauseknownzeroheadmean.038 cannotmeetregistered.1. Candidate maxabsCE.002932. Executed priorfixtureaudit confirmscontrol108–204xcandidate; originalCnotrewritten. HourlyCIRCUIT_FOCUS/PREFLIGHTceremony pass,NOVELTY_LESSON_GATEfails controlstrengthcheck. Smallnewline_control_fixture_v1.py now rejectsbad.1 beforefutureprereg; executedexpectedexit2. Nextpriority independentFineWebpreservation/removal, thenjointkeysplit ordeeperQ7generation result-dependently.
+
+### 2026-09-13T01:16:25.476925+00:00 — Codex: CLAIM next groundtruth-selected FineWeb control rows CPU
+Afterfixture repair, build32newprefixes fromdisjoint cacheindices excludingmean-calibration andold32controls, andcheckfullprefixcollision againstknownROWS files. No modelscoreselection; sameFineWebcache meansdocumentindependence notestablished. Prospective newcontrolstrength shouldrequirezerohead>=.005 and>=10xcandidatemeanabs, nativecapability>=14/16; oldCfailure remains. This CPUrowbuild isnextcontinuationreceipt.
+
+### 2026-09-13T01:18:36.039964+00:00 — Codex: CLAIM frozen fresh FineWeb control execution
+64rows(32oldanchors+32new),256forwards<=248tokens,180sec. Native/allsourceKO/halfKO/head8.2zero. A oldallarms CE/marginreplay<=1e-4 andtokenread<=1e-5. B freshmeanabsCE<=.02,maxabs<=.1each16rowfamily. C freshnativepositive>=14/16,meanmargin>0,headzero meanabsCE>=.005 and>=10xcandidatemeanabs. Fixturecheckedprospectively; original Cfalse notrewritten. Newprefixes arecache-row-disjoint, notdocument-independent/corpusOOD.
+
+### 2026-09-13T01:22:02.620910+00:00 — Codex: freshFineWeb terminal / CLAIM explicit-state conditional executor implementation
+New32controlsA/B/Cpass maxabsCE.001415, native31/32positive,positivecontrolmean.0327/.0509. OldCfailureunchanged. Nextcompile Q7 andgamma8/gamma9 from frozenweights andnative normalizedstateinputs, ratherthanreceivealreadycomputedq/routing. Preserve RMS8/rho9ports andprefixdependence; native replayrequired beforepromotion. No further scalarfit orrank reduction.
+
+### 2026-09-13T01:26:03.942903+00:00 — Codex: CLAIM registered explicit-state executor replay
+Implement320nativeforwards over96regional+64FineWeb existingrows. Compare assembledQ/gamma8/tokenvalue/field againstindependentnativeMLP7output andnativeattention8QK/valueargs, thenphysicalallsourceKOagainstpriorresults. FixedA/B/C1e-4bars fromCROSSFIRST_STATE_EXECUTOR_V1_PREREGISTRATION. No cachedQ/patterns suppliedtocandidate; onlythree normalizedstates,two norms,tokens anddeclaredweights. Prefix/suffixstillnative.
+
+### 2026-09-13T01:30:36.976281+00:00 — Codex: assembled replay terminal / CLAIM parentage weight identity CPU
+A/B/Cpass field~7.9e-7,physicaloutcomes<4e-7 over160prefixes. Verify childcrossfirst residesinsidepreviousselectedhead9current-value parent byexactreaderidentity andfullMLP8 weight expansion (fourmodes plusremainingmatrix, allmixedterms). Then represent parent=child+remainder withoutindependentdouble-removal. This targets compositional bookkeeping/grouping, notnewsemanticremainder identification. Nativeparent/child/remainder physicalcomposition isnexttest.
+
+### 2026-09-13T01:34:20.917890+00:00 — Codex: CLAIM physical parent-child-remainder composition
+160reusedprefixes96regional64FineWeb,800forwards5arms native/childKO/parentKO/remainderKO/jointchild-remainderKO. A previousnative/child outcomesreplay<=1e-4. B parent/jointoutcomes<=1e-5 andfieldsC+R=P<=1e-10. C separateEchild+Eremainder predictsEparent witherror<=.1relativeSMALLCHILD each8cells; reportparent-relativetoo. Null: nonlinear suffixmodulateschild materially despiteexactalgebra. Childnestedinselectedhead9current parent; no double removalorsemanticremainderclaim.
+
+### 2026-09-13T01:35:58.233793+00:00 — Codex: CLAIM small hierarchy interface implementation
+While compositionjobqueued, add explicitparent/child/remainder field interface tovalidatedstate package, preservingqueuedboundexecutorbytes. Rejectparent+descendant selection toavoidaccidentaldouble-removal. No compilerframework orclaim thatremainderissemanticunit. Nativecomposition verdictstillpending.
+
+### 2026-09-13T01:38:08.357346+00:00 — Codex: hierarchy terminal / CLAIM nonlinear-effect counter-review CPU
+A/Bpass exactnative/child andparentjointoutcomes; Cmiss4/8cells,child-relative5.29/11.98/9.53/20.24%regional and4.54/20.81/8.94/47.43%newline. Parent-relativeerrors.21–2.77%wouldhideproblem. Audit effectgainversusdirection andnewlineCEversusmargin withexistingoutcomes; diagnosticoraclegain notdeployedfit. Exacthierarchy notinvalidated; independentlinear-effectaddition islimited.
+
+### 2026-09-13T01:42:16.045541+00:00 — Codex: CLAIM final-readout versus suffix interaction discriminator
+160existingrows4nativearms N/C/P/R,640forwards180sec, cachefinal1152state. hAdd=hC+hR-hN thenexactnativefinalRMS/U/tanh/CEormargin(no extra fullforward). A prior4armoutcomes<=1e-4 andinteractionpartition<=1e-10. B internalresidual effect P-f(hAdd) <=20%totalDOD each8cells; C readout-correctedprediction f(hAdd) vsP<=10%child effect eachcell. Null: internal-suffix interactions dominate. No fitting andno newOOD claim; thischooseswhereforwardfoldingisneeded.
+
+### 2026-09-13T01:45:23.191008+00:00 — Codex: readout split terminal / CLAIM MLP9 fixed-writer response CPU
+Apass,B/Cmiss. RegionalinternalDOD norm87–101%total; finalreadoutcorrection leaves4.62/10.63/9.64/19.23%child error. Reuse directional_mlp_bridge_v1.execute frompriorMLP8 work, compileJ9=D9[diag(R9w)L9+diag(L9w)R9] forhead9writer. VerifyactualweightFP64 responseincludingRMS againstdirectMLP9 over signedamplitudes; no solver/datafit. Exactconditionalresponse spansw,baselineMLP,Jz,Jw; mixedtwo-edit part<=3directions percontext. Neednative mediationtestnext; backgroundstillcharged.
+
+### 2026-09-13T01:50:22.062750+00:00 — Codex: CLAIM native MLP9 response andmixed-state mediation
+160existingprefixes5arms N/C/P/R/parent-minus-predictedMLP9mixedstate,800forwards180sec. A nativefirst4outcomes<=1e-4prior. B aggregateindividualpostMLP9responseerror<=1%eachregional/FineWebpanel; reportmixederrorrelativebothchildandmixed toexposenoisefloor. C removingonlylocalmixedstate fromparenttrajectory leaves<=50%totalfinalDODnorm each8cells. Null: laterlayers dominatecomposition. FrozenJ9 andRMS-aware formula; no fit. Prefix/nativebiasfreeMLP9background required.
+
+### 2026-09-13T01:54:32.951118+00:00 — Codex: CLAIM amortized fixed-writer kernel CPU while sharedGPUbusy
+Peer677verifiedlivePID3638477; nativeMLP9jobqueued. Split existingresponse into prepare(z,m0,Jw) once andscalar-amplitudeevaluate manytimes, avoidingrepeatedJz multiply. StablepositiveRMS denominator viaorthogonalparallel decomposition; no queue-boundbytes changed. Compare24signedamplitudes againstfrozenv1 onCPU, measuredkernel-onlytime notwholemodelspeedup.
+
+### 2026-09-13T02:03:04.852969+00:00 — Codex: requested full update / continuing queued MLP9 test
+Published for_logan/research_update_2026-09-13_0200_executable_interaction_path.md covering completed results since 00:29, with exact versus behavioral composition and pending native MLP9 clearly separated. Continuing ownership of frozen MLP9 response/mediation job, SHA960af98d, verified queued behind live peer677. No duplicate GPU run or altered bound code.
+
+### 2026-09-13T02:03:53.640341+00:00 — Codex: MLP9 terminal / CLAIM mediation counter-review CPU
+Native MLP9 A/B pass, C fails all eight groups; local responses accurate, regional remaining interaction 84.6–89.7%. Before publication compute corrected-effect directions and exact removed/remaining alignment from saved native outcomes; distinguish partial coherent mediation from overcorrection. Does not establish insensitivity to small local FP32 error; downstream precision amplification remains an untested alternative.
+
+### 2026-09-13T02:06:53.495466+00:00 — Codex: CLAIM MLP9 precision and suffix mixed-state census
+Previous turn made progress: native response passed, half-mediation failed, CPU directional audit completed. Reuse frozen rows and six arms N/C/P/R/predicted-mixed correction/native-mixed correction, 960 forwards. A prior five-arm replay <=1e-4; B correction difference <=1% total nonadditivity per cell; C exact native mixed correction still leaves >50% per cell. Capture attention/MLP mixed increments blocks10–17 as descriptive accounting, not causal site identification.
+
+### 2026-09-13T02:08:12.043121+00:00 — Codex: precision terminal / CLAIM suffix census and metric audit CPU
+A/C pass: native mixed correction still fails half-mediation in all8cells. B misses FineWeb0/2 at5.49%/1.67% total interaction; regional differences only0.025–0.046%. Aggregate layerwise mixed increments and cancellation, plus absolute CE and newline-margin discrepancies; keep precision miss and distinguish changed estimate from unchanged scientific verdict.
+
+### 2026-09-13T02:11:28.418421+00:00 — Codex: CLAIM causal additive-state boundary curve
+Previous turn progress: precision control preserves MLP9 mediation miss, CPU suffix census completed. 160 existing rows, four native arms plus parent trajectory reset to child+remainder-native state at each post-block9–17 boundary, 2080 full forwards. This tests when accumulated interaction becomes necessary for final nonadditivity; it does not assign locally generated interaction by subtracting cumulative curves. A replay first4/boundary9/boundary17 <=1e-4; B some boundary<=12 leaves<=50%interaction in all4regional groups; C regional remaining-norm curves nonincreasing up to1%total slack.
+
+### 2026-09-13T02:12:46.295228+00:00 — Codex: hourly02:12 checkpoint
+All three workflow gates pass after earlier fixture repair. Native precision preserves MLP9 mediation miss; actual boundary reset job running. No rank drift or autonomous extraction claim. See HOURLY_STRATEGIC_REVIEW_2026-09-13_0212.md; next math02:28:50.
+
+### 2026-09-13T02:13:57.308766+00:00 — Codex: boundary curve terminal / CLAIM adjacent-boundary local-generation identity CPU
+A pass, B/C fail. No early<=12 common half boundary; curves nonmonotone. Final16->17 regional remaining norm37–79% ->8–26%. Derive exact identity: adjacent reset outputs compare suffix(F_l(hC+hR-hN)) versus suffix(F_l(hC)+F_l(hR)-F_l(hN)). This is physical effect of locally generated mixed state under additive-input/background convention, not an additive attribution on original parent trajectory. Verify toy and score saved native adjacent contrasts, no new GPU.
+
+### 2026-09-13T02:17:20.141262+00:00 — Codex: CLAIM block17 local-generation attention/MLP split
+Prior turn progress: boundary curve and exact adjacent-reset interpretation. Dossierchecked: MLP17 response/gating/output folding already known; this is new crossfirst child/remainder conditional two-input interaction. Let zBar=zC+zR-zN beforeMLP17, zA fromblock17(additive block16state). Define Gmlp=g(zBar)-hBar and Gatt=g(zA)-g(zBar), g=residual+normalizedMLP17. Test physical effects of each and sum atfinalstate. 160existingrows8arms1280forwards+160extraMLP evaluations. A anchors/statepartition<=1e-4; B MLP-only effect predictsfull local effect<=20%eachregional; C sumseparateeffects<=10%full eachregional. FineWeb descriptive/absolute.
+
+### 2026-09-13T02:19:00.604642+00:00 — Codex: block17 split terminal / CLAIM attention response exact CPU expansion
+A/C pass, B MLP-only fails53–84%regional error. Attention-propagated aligned effect51–80%, MLPlocal20–49%; effectaddition error0.12–0.19%. Execute native-outcome component-angle/cancellation audit and actualMLP17weight arbitrary-direction RMS-aware response control (reuse known bilinear expansion, not new theorem). This prepares direct attention-write versus MLP cross/square/norm propagation test; no random-state result claimed native.
+
+### 2026-09-13T02:21:54.369730+00:00 — Codex: CLAIM native last-attention response terms
+Previous turn progress: exact native block17 split rejects MLP-only, CPU actualweight response verified. 800fullforwards plus160MLP calls and8finalreadouts perrow, existing160prefixes. A native5+base/refattention anchors<=1e-4 and compiled response<=1%local eachpanel; B direct+cross effect<=20%attentionbranch error eachregional; C direct+cross+norm<=10%eachregional. Square/full/norm/direct readouts retained, no fit. Final-only term readouts are exact physical boundary interventions because no later block remains.
+
+### 2026-09-13T02:23:33.120016+00:00 — Codex: response terms terminal / CLAIM per-prefix and precision audit CPU
+A/B/C pass. Regional direct-only3.5–9.5%error; direct+cross1.67–3.85%; plusnormalizer0.064–0.135%. Formula native localstateerror0.69–0.75%; tinyFineWebbehavioralrelative5–33%despite<=2.33e-6nats. Audit regional per-prefix effect signs and absolute FineWebprediction errors fromsavedoutcomes beforecallingdirectwrite sufficient; no newfit/OOD.
+
+### 2026-09-13T02:26:40.774508+00:00 — Codex: CLAIM native attention17 head mixed-write screen
+Previous turn progress: response-term tests and per-prefix audit. Existing17.2 regional source branch checked; no newheadclaim. Capture nativepre-c_proj headoutputs forN/C/R/additiveincomingstates, project eachhead mixed difference withactualW_h. 800forwards+1920finalreadouts,160reusedprefixes. A anchors<=1e-4, summedheadwrite<=2%state errorpanel; B fixedknownhead17.2 predictsfull directeffect<=20%eachregional; C allseparateheadeffects sum<=5%eachregional. Otherhead rankings descriptive, not heldoutdiscovery.
+
+### 2026-09-13T02:29:50.975273+00:00 — Codex: heads terminal / CLAIM three-port anchored product kernel CPU
+A/B/C pass: fixed17.2 error1.25–1.62%, effectcomposition0.56–1.03%regional. Knownhead recurrence notwithinheadalias. Math02:29 maps anchored projection decomposition to actual score1*score2*value contraction, preserving jointQK. Implement12 cross-edit monomials plus7 groups containing inherited portmixed defects; exact planted andswapcontrols before nativeuse. No newGPU orrankfit.
+
+### 2026-09-13T02:34:01.909825+00:00 — Codex: CLAIM native joint head17.2 score/value mixed-port split
+Previous turn progress: fixedheadscreen passes, anchored product kernel andfalsifier executed. Native q/k/v/q2/k2 captured at squared_attention call; exactbothscores andmixedvalues retainnormalization/RoPE. 800forwards+800readouts. A previousfive/base/head2 anchors<=1e-4 andmixedportwrite<=2%panel; B cross-edit productgroup predictshead2effect<=20%regional; C crossgroup+inheriteddefect effects add<=5%regional. No independent QK-task claim; source ports jointly multiplied.
+
+### 2026-09-13T02:35:33.196497+00:00 — Codex: nativeports terminal / CLAIM cached jointterm attribution CPU
+A/Cpass,Bcross-onlyfails31.8–36.8%regionalerror. Crossaligned63–68%, inherited31–37%, effectcomposition0.15–0.34%. Use savedportcorners to sum19terms into geometric score-score/value-involving groups and inheritedmaskgroups; separate nativeoutcome cross/defectangle audit. No functionfit or semanticportpromotion fromwritegeometry.
+
+### 2026-09-13T02:38:22.495450+00:00 — Codex: CLAIM three-group conditional mixed-write predictor
+Previous turn nativejointdecomp+cachedaudit progress. Retain score/valuecross andsingle score1/score2 inheriteddefects, selected fromknown-panel geometric audit. Implement equivalent three sourcecontractions, compare with19termkernelonexistingports. Native-readout-only screen willtest <=10%effecterror and>=23/24 signs eachregional before freshcontext confirmation. Not an autonomous predictor: fourportcorners, outputprojection/background/readout stillsupplied.
+
+### 2026-09-13T02:41:19.907457+00:00 — Codex: three-group terminal / CLAIM score-free freshconfirmation rows CPU
+CachedscreenA/B/Cpass, effecterror2.87–4.67%, signs96/96;0.63sec480readouts. These aredevelopmentrows. Freeze96newfullprefixes across4constructions and2new-to-this-path citypairs, oldsixspellingendpoints. Scanexistingrowfiles forduplicates andone-token cueconfound check; no modelscorefilter. Nativeconfirmation notyetexecuted.
+
+### 2026-09-13T02:44:49.384125+00:00 — Codex: CLAIM frozen three-group fresh-context confirmation
+Previous turn progress: cachedscreenpass,96freshrows frozen. Reuse validatedstateexecutor togenerateC/Pfields fromnativeprefix on24oldanchors+96newrows.600forwards+480readouts,180sec. A oldnative5/base/full replay<=1e-4 plusfullportstate<=2%; B fixedthree-group effecterror<=10%eachfreshgroup; C signs>=23/24 andnative regionalcontrastpositive>=10/12 eachfreshgroup. No parameterfit/rowfilter; newcitypairs/constructions only, notcorpusOOD orautonomy.
+
+### 2026-09-13T02:46:43.281892+00:00 — Codex: freshthreegroup terminal / CLAIM native-reference and scale audit CPU
+A/B/Cpass, neweffecterrors3.53–5.20%, signs95/96 withoneexactzeroreference, native48/48positivepairs. Execute comparison toindependentnativehead2write ratherthanonlyfullportformula, andreport candidateeffectagainstoriginaltotalnonadditivity/childremoval. No freshrefit or corpusOODclaim.
+
+### 2026-09-13T02:55:01.182924+00:00 — Codex: requested full report / CLAIM conditional-versus-total prediction audit CPU
+Write for_logan update since02:00 through02:46 completed results. Before publication, compute error if the frozen three-contraction contribution alone were used to predict total child/remainder nonadditivity on the96 fresh prefixes. Compare native-head and full-local-block references, with zero predictor baseline; no fitting or new GPU. This tests scope of sufficiency, not a new rejection of the validated local predictor. Old head17.2 source-reader reuse check remains unexecuted.
+
+### 2026-09-13T02:58:36.229424+00:00 — Codex: full requested update and scope audit completed
+for_logan/research_update_2026-09-13_0255_joint_attention_predictor.md covers02:00–02:46 plusnewCPUaudit. Frozen local predictor3.53–5.20% native-head error; predictingtotaloriginalnonadditivitywithitalone leaves71.9–81.4%, versuszero100%. Background-dependent predictivecomparison, notuniquecausalcoverage. Existinglocalresultretained. LATEST/README updated. Nextunresolvedstructuralstepisoldhead17.2source-reader/nativeport reuse; no claimthatithasrun. CPU continuation receipt: crossfirst_three_group_scope_audit_v1.py andCROSSFIRST_THREE_GROUP_SCOPE_V1_AUDIT.json executed; fullgoalactive.
+
+### 2026-09-13T02:59:46.539122+00:00 — Codex: CLAIM head17.2 native-source interface CPU
+Previous turn progress: requested report plus total-interaction scope audit completed. Dossier and old compiler checked; fullhead source384 support previouslyknown, but four extracted reader membership notverified. Test FP64 least-squares membership in stacked K1/K2/mixedV[384,2304], reporting eachreader residual and projected cubic-feature function error on independent Gaussian probes. No truncation, fitting to text, or GPU. Native normalized score scalars are not equivalent to raw key/value projections.
+
+### 2026-09-13T03:03:07.868795+00:00 — Codex: source interface executed / next native reuse discriminator
+Weight residual0.18–0.33% verifiedQR/SVD; cached64FineWeb summedwrite error1.251%. New rawprojection executor replays projectedbranch2.93e-15; supplyingfourresidualreadings restoresoriginal2.68e-15. See HEAD17_SOURCE_INTERFACE_V1_MATH.md. Local69152scalars excludesnativeprojectionproducers; no causalreuseclaim. Nextnative discriminator must compareoldbranch projection/correction anditsmixedresponse againstnewhead17.2 interaction. CPU continuation accomplished: nativecachewritecountercheck plus exact-correction executor implemented/tested, noGPUqueue changes.
+
+### 2026-09-13T03:04:15.617453+00:00 — Codex: CLAIM old head17.2 component mixed-response reuse test
+Previous turn progress: rawprojection interface andcachednative write audit. Reuse120 scoredprefixes andfiveN/C/P/R/A16trajectories600forwards; compareoldcomponentmixedwriteandprojectedvariant atsamefinaladditivebackground againstfullhead mixedwrite. A priornative/readout anchors<=1e-4, B oldcomponent predictsfullhead effect<=20%eachfreshgroup, C projectedold effect<=10%ofexactold eachfreshgroup; alloutcomes/absoluteerrorsretained. Thisisdiagnosticreuseofknowncomponent, notnewheldoutconfirmation. No taskfit.
+
+### 2026-09-13T03:06:41.008002+00:00 — Codex: mixed-response reuse test queued
+HEAD17_COMPONENT_MIXED_REUSE_V1 preregistration+implementation committed51af1ed9d. Managedlane1 queue accepted reviewedSHA dbc8cf4b;600forwards720readouts. Dryrun andindependentbatchedrotary replay2.10e-15pass. A/B/C gatesfixed; no resultyet. Continueinterpretationofsamejob, no duplicate enqueue.
+
+### 2026-09-13T03:08:00.240640+00:00 — Codex: mixedreuse terminal / CLAIM partial-contribution audit CPU
+A/Cpass,Bfails63–67%fournewergroups; projectedinterface preservesoldmixed effect0.68–0.85%. Nativeanchors0. Executeold/full effectcosine,alignedfraction,perprefixsigns,anddiagnosticbestgainresidual fromsavedoutcomes; fittedgainisnotdeployedpredictor. Distinguishpartialreusefromno relationship; sameheaddoesnotimplysamecompletecircuit.
+
+### 2026-09-13T03:09:10.693818+00:00 — Codex: mixedreuse counter-review completed
+Oldaligned/full33–39%,cos.943–.987; diagnosticbestgainstill16–33%error,17oppositesigns among96newergroupcasesmostlysmalleffects. Projectioneffecterror<1%,onesignmismatcholdmargin4.77e-7. Bfailurepreserved,partialreuseandinterfaceCpassretained. PrimaryHEAD17_SOURCE_INTERFACE_V1_MATH.md updated. NextquestionremainingjointQK/inputgenerator; no blanketabsenceofstructure. ExecutedCPUdirection/scale/sign-energy audit iscontinuationreceipt; no newGPUqueued.
+
+### 2026-09-13T03:10:06.719576+00:00 — Codex: CLAIM three-corner rawprojection attention closure CPU
+Previous turn progress: oldcomponentpartialreuse measured andcounter-reviewed. DeriveAcorner fromN/C/R raw preattention states/projections plus exactadditiveresidual norm andsharedfirstvalues. NestedRMS requires eps*rho inheadnormalizer; omittingnormisnotexact. TestactualheadweightsFP64againstindependentRMS->projection->headRMS->RoPE computation, andplantednullspacepair demonstratingprojectedportsalonecannotdetermineRMS. Targetsinputgeneration/extraction, no rankfit.
+
+### 2026-09-13T03:14:17.116953+00:00 — Codex: hourly03:12 and native three-state closure claim
+Allworkflowgatespass withcontinuedauthoring-costwatch. ExactnestedRMSreconstruction2.2e-15, nullspacecounterexample68%valuechangeforcesnorminput. Nativeimplementation600forwards720readouts prepared; Aanchors,Bfullheadmixed andCcompactmixed2%barsfixed. SeeHOURLY_STRATEGIC_REVIEW_2026-09-13_0312.md. Nextmath05:29.
+
+### 2026-09-13T03:15:53.903724+00:00 — Codex: CLAIM projected-input norm closure CPU while nativejobqueued
+Previous turn progress: nativeclosure prereg+implementation andmanagedenqueue. Extendinputinterface algebra: rhoA=rhoC+rhoR-rhoN+2mean((rC-rN)*(rR-rN)). Thus projectedN/C/R inputs needonecross-normscalar perposition beyondtheirindividualnorms, notfullresidualstates atruntime. Frozenqueuedhelperunchanged; implementwrapper andactualweight syntheticidentity control. Normcrossscalar generatorremainsexternal, nocovertclosureclaim.
+
+### 2026-09-13T03:17:18.275242+00:00 — Codex: three-state nativeclosure terminal andprojectednorm interface CPU
+A/B/Cpass:fullmixedeffect.042–.134%,compactpreservation.054–.170%newergroups; all95nonzeros+zero retained vsnativehead. CPUwrapperusingthreeprojectedcorners+three norms+onecrossscalar derivesA normexactly2.8e-16 andmixedwrite3.8e-14. Nativewrappervalidationandactualthreeforwarddeploymentremainnext; nativecurrentteststillran5referencearms. CompletedCPUinterface+signauditiscontinuationreceipt. SeeADDITIVE_HEAD_RAW_PORTS_V1_MATH.md.
+
+### 2026-09-13T03:18:05.002052+00:00 — Codex: CLAIM actual three-trajectory conditional predictor
+Previous turn progress: three-state nativeclosure passes andprojectednorm wrapper CPUidentity. RunonlyN/C/R, neverP/A;120reusedprefixes360forwards360readouts. CandidateusesprojectedN/C/R+norms+crossscalar+firstvalues, derivesadditivecorner;backgroundfromthreefinalstates. A priorN/C/Randbaseanchors<=1e-4; B fullheadmixednativeeffect<=2%eachfivegroups; C compacteffectvspriorvalidatedthree-statecompact<=1%eachfivegroups. Count360tripwire; no model-wide speedupclaim.
+
+### 2026-09-13T03:20:49.382265+00:00 — Codex: three-trajectory terminal / CLAIM portable conditional core CPU
+A/B/Cpass,360forwards360readouts6.76sec; compactpredictionsidenticaltoprior5trajectoryrun. Exportfrozenprojection/norm/crossscalar coreplusheadoutputweights into existingextracted_circuits layout; CPUcompareindependentimport againstvalidatedcore. Explicitlychargeexternalinputgenerators,3nativeconditions andbackground/unembedding. Notnewsemanticcircuit orwholemodeladoption.
+
+### 2026-09-13T03:23:14.571216+00:00 — Codex: reduced-execution core exported andaudited
+360forwards3trajectories,all3readoutssavedidenticaltopriorreferenceon120rows. Packageextracted_circuits/three_corner_head17_interaction_v1 copiedfrozencore+outputweights; independentimport/reloadfull+compactoutputs0difference. Local147457scalars excludesnativegenerators,threeconditions,background/readout. CurrentLATESTupdated; for_loganreportunchanged. CPUexport/reloadandoutcomeauditcompletedcontinuationreceipt. Nextscience shouldexpandinputgeneration orinteractioncoverage, notlocalmicro-optimization.
+
+### 2026-09-13T03:24:46.692273+00:00 — Codex: CLAIM composed finalblock local-interaction predictor
+Previous turn progress: validated3trajectory predictor/export. Expandtargetfromdirecthead17.2 mixedwrite tofullblock17localgeneration. ThreeN/C/Rtrajectories givezBarandhBar; evaluateg17(zBar+v2) wherev2isfullorcompactreconstructedhead2mixedwrite. ComparetonativeA16finaloutcome fromfrozenreference. MLP-onlyg17(zBar)control.360forwards+360extraMLP+480readouts. A anchors<=1e-4; B fullhead2+MLP local-effecterror<=10%eachfivegroups; C compact+MLP<=10%eachfivegroups. No Atrajectory,weightsfit orfreshOOD.
+
+### 2026-09-13T03:26:45.845400+00:00 — Codex: composedlastblock terminal / CLAIM fulltarget scope andsignaudit CPU
+A/B/Cpass:fullhead2+MLP1.0–1.5%localerror,compact2.2–4.0%newergroups,MLPonly59–75%.360forwards+360MLP+480readouts7.08sec. ExecuteindependentnativeA16 referenceaudits,perprefixsignmissmagnitudes,andoriginaltotalnonadditivity residual. Broaderlocaltargetisnotwholeoriginalinteraction.
+
+### 2026-09-13T03:28:53.016172+00:00 — Codex: composedpredictor audit completed / inheritedinteraction next
+Localfullerror1.0–1.5%,compact2.2–4.0%; originaltotalstill61–69%. ExactY_P-Y_A +Y_A-f(hBar)+f(hBar)-Y_C-Y_R+Y_N audit attributes53–64%alignedtotaltoinheritedpre17effect,31–39%local,5–10%readout onnewergroups. Conditionalorderedpartition, notuniquecircuitfractions. Fulloneoppositesign+onezero,compactthreeoppositesignsnewergroupsallref<=4.77e-6. PrimaryCOMPOSED_LAST_BLOCK_PREDICTOR_V1_MATH.md. CPUcounter-reviewandpartitionexecutedcontinuationreceipt; nexthighestvalueisupstreammixedstategenerator,notlocalfitpolishing.
+
+### 2026-09-13T03:29:47.329233+00:00 — Codex: CLAIM inheritedinteraction boundary telescope CPU
+Previous turn progress: composedlastblockprediction andexactinherited/local/readout audit. Reuseearlier160-prefix boundaryoutcomes todecomposeY_P-Y_reset16 intoinitialY_P-Y_reset9 andadjacentreset contrasts10..16. Scoreeachrelativeinheritedtarget andjoint10+11 plusinitial9; no newGPU,fitting oruniqueattributionclaim. Chooseswhereupstreamcircuitworkhasbestcoveragevalue.
+
+### 2026-09-13T03:30:47.131395+00:00 — Codex: CLAIM block10 localinteraction branch split
+DossierMLP10checked: questionwriter/exact253terms/familyfailures known; thisisnewcrossfirstC/R localfiniteinteraction. Boundarytelescope10+11 aligned59–67%inherited,through11residual11–47%regional. Reusevalidatedblock17localbranch instrumentatblock10, same160oldregional/FineWebrows1280forwards160extraMLP. A native4/reset9/reset10anchors<=1e-4; B MLP-onlypredictslocalblock10effect<=20%eachregional; C separateMLP+att propagated effectscompose<=10%eachregional. No fit ornewsemanticmoduleclaim.
+
+### 2026-09-13T03:33:29.766142+00:00 — Codex: block10split terminal / CLAIM MLPmixed multiplication-versus-norm CPU
+A/B/CpassregionalMLPonly2.1–4.1%,composition.19–.37%;FineWebMLPerror5.7–65%descriptive. Executeregionalperprefix/absoluteauditandderiveexacttwoperturbationMLPcross D[(Lc)(Rr)+(Lr)(Rc)]/rhoA plusnormalizationremainder. ActualweightsFP64checkreusingnormalizationalgebra; newnative termmediation remainsneeded.
+
+### 2026-09-13T03:34:37.019774+00:00 — Codex: block10 audit andtwo-editMLP kernel completed
+96/96regionalMLP/fullsigns; attentionnorm2.1–4.1%full. FineWebMLP5.7–65%,composition3.7–26%,maxabsCE3.8e-6 retained. Exacttwoeditcrossplusnorm kernel passesactualweightFP64fourcorner2.04e-13, exchange2.38e-15. Nativecross-versus-norm termmediationnext, notyetqueued. PrimaryCROSSFIRST_BLOCK10_SPLIT_V1_MATH.md. ExecutedCPUaudit+newkernelcontroliscontinuationreceipt.
+
+### 2026-09-13T03:35:55.230384+00:00 — Codex: CLAIM nativeMLP10 product/norm mediation
+Previous turn progress: regionalMLPdominance andtwoeditactualweightCPUalgebra. Extendfrozen8armblock10screenwithcrossproduct,normremainder,fullformula atsamehBar10 background.1760forwards160extraMLP180sec. A previous8anchors<=1e-4; B formulaeffect<=2%regional andformulastate<=2%regional/FineWebpanels; C cross-onlyeffect<=20%regional. Reportnormandcompositiondiagnostics,absoluteCE andprecisionfailures. No datafit/newOOD.
+
+### 2026-09-13T03:38:41.286459+00:00 — Codex: MLP10productnorm terminal / CLAIM signed andscope audit CPU
+A/B/Cpass;crossonly.64–1.19%regionalMLPeffecterror,fullformula.08–.18%,state.172%regional/.541%FineWeb. FineWebformula1.76–13.65%descriptivewithabsoluteCE<=2.75e-6. Auditcross/fullMLPsigns andcross/wholeblockeffect beforepromotion. Nextinputsplitc/r=residualpropagated+attention10change willidentifyfactor generators; localattentionmixedsmall alone doesnot implyitsindividualinputchangesareirrelevant.
+
+### 2026-09-13T03:39:34.112007+00:00 — Codex: directMLPproduct audit completed
+96/96product/MLP andproduct/fullblockregionalsigns;wholeblockerror1.68–3.53%. Extra normeffectnorm.56–1.05%ofMLP,butjointRMSdenominatorretained. FineWebformula1.76–13.65%relativewithmaxCE<=2.75e-6,firstgroup2oppositeproduct/MLPsigns. PrimaryCROSSFIRST_BLOCK10_SPLIT_V1_MATH.md updated. Nextinputfactor split residual9propagationvsatt10changes; no inferencethatattentioninputsirrelevantfromlocalmixedsmallness. ExecutedCPUoutcomeauditiscontinuationreceipt.
+
+### 2026-09-13T03:40:35.929089+00:00 — Codex: CLAIM MLP10 interaction input-source split
+Previous turn progress: directproductmediation andsignaudit. Splitc/r into rawresidualreentrychanges fromblock9 andremainingattention10/add-roundingchanges; exactRR/mixed/AA bilinearproducts shareactualjointdenominator. CPUactualweightpartitioncheck thennative14arms2240forwards160extraMLP. A previous11anchors<=1e-4 andproductpartition<=1e-10; B RRonlyeffect<=10%fullproductregional; C threephysicaleffectscompose<=10%regional. No inferencethatattentioninputsirrelevantfromsmallattentionmixedstate.
+
+### 2026-09-13T03:44:32.740472+00:00 — Codex: input-source split terminal / CLAIM mixed-correction audit CPU
+A/Cpass,RRonlyBmiss13.58/11.54%twofirstregionalgroups,5.77/5.06%others. Exactpartition4.02e-15;physical3effectscompose.28–.53%. ExecutediagnosticRR+mixedarithmetic-effectsum vsfullcross, perprefixsigns andAAeffectnorm todiscriminateomittedmixedpartnerfrombroadfailure. NotnewjointRR+mixedphysicalrun.
+
+### 2026-09-13T03:45:42.767398+00:00 — Codex: inputpartner counter-review completed
+RR+mixedseparatemeasuredeffectsum.315–.685%error,96signs;AAeffectnorm.20–.46%. Thisisarithmeticprediction,notjointintervention;RRonlyBfailurepreserved. NextbackwardfoldcR=lambda10*Delta9(childamp),rR=lambda10*Delta9(remainderamp) withknownfourvectorfixedwriterresponse;attentionpartnersretained. PrimaryCROSSFIRST_BLOCK10_SPLIT_V1_MATH.md. ExecutedCPUauditcontinuationreceipt, no furtherGPUqueued.
+
+### 2026-09-13T03:47:18.287203+00:00 — Codex: CLAIM fixed-writer MLP9 toMLP10 residualinput fold CPU
+Previous turn progress: RRonlymiss explainedbymixedattentionpartnerandoutcomeaudit. ReuseexactMLP9response prepare/evaluate togeneratecR/rR fromonepristineMLP9 context,scalarfieldsandlambda10. ActualweightCPUresponse/productcheck thennativejointRR+mixedandfoldedreplacementtest. AttentionpartnersandjointMLP10normretained; no missing-generatorclaim.
+
+### 2026-09-13T03:53:36.321518+00:00 — Codex: CLAIM native MLP9 to MLP10 residual fold
+Previous user-update turn: no research progress; revalidated pending implementation and live managed runner. Freeze17arms/2720forwards, A prior14 replay<=1e-4/productpartition<=1e-10, B physicaljoint RR+mixed<=1% regional, C foldedinputs<=1% bothpanels andfoldedjoint<=1% regional. Native attentionpartners/jointnorm/background retained. No fit ornewOOD.
+
+### 2026-09-13T03:54:15.044680+00:00 — Codex: native backward fold queued
+Implementation/prereg/control committed and pushed76458eaef; dryrun allboundhashes verified. Managedlane1 acceptedrun_mlp9_to_mlp10_residual_fold_v1 SHA b940d6c29fcd584b1133ff6e35b76e618d4ff0d5c2acf24b62c3cd3fae340cd8. Queue receipt is continuation; no native verdict yet.
+
+### 2026-09-13T03:55:40.732745+00:00 — Codex: CLAIM conditional response-product basis CPU
+Previous turn progress: committed and queued native fold; lane1 predecessor PID3713979 confirmed live. While waiting, test exact four-vector fixed-writer response => at most ten symmetric MLP10 product vectors over signed edit strengths on actual weights. No global rank, semantic factor, or native behavioral claim; assess amortization for repeated intervention strengths, not rank-search drift.
+
+### 2026-09-13T03:56:43.112852+00:00 — Codex: response-product CPU consequence completed
+Actual-weight four-context121-strength-pair check: four-response-vector reconstruction1.23e-16, ten symmetric product reconstruction3.96e-15, zero-edit exactlyzero. Conditional residual/residual numerator only; attention generators remain needed and per-contextstorage11520scalars means no assumed speedup foronepair. Committed/pushed576f0f333; primaryRESPONSE_PRODUCT_BASIS_V1_MATH.md. Nativefold remains verified queued behindlivev681; no native verdict.
+
+### 2026-09-13T03:57:45.691681+00:00 — Codex: CLAIM per-prefix folded intervention audit
+Previous turn progress: exact symmetric response-product CPU consequence. Pending fold remains queued; predecessor emits progressing family results. Build shared outcome-pair audit for signed agreement, zero effects, both endpoints, absolute error and relative error on full unfiltered panels; execute on existing input-source outcomes now, then apply same frozen diagnostics to folded run on completion.
+
+### 2026-09-13T03:58:21.233942+00:00 — Codex: both-endpoint CPU audit completed
+RR-only regional sign reversals ref6.34e-5/1.34e-4; unrelatedregionalmargin5.1–8.6%error/noopposites. FineWeb newline-comma6.8–46.4%error/3opposites; newlineCE5opposites ref<=9.54e-7. Retainattentionpartner; no precision-floor rescue. Sharedaudit nowreadyforpendingfold. PrimaryCROSSFIRST_BLOCK10_SPLIT_V1_MATH.md andOUTCOME_PAIRS_AUDIT receipt.
+
+### 2026-09-13T03:59:51.181688+00:00 — Codex: CLAIM attention10 raw projection generator CPU
+Reuse projected-port algebra and native rounded RoPE for all query positions/heads. Generate attention change from pristine raw10 plus folded residual response, shared first values and actual weights, with both QK factors retained. CPU native module control first; synthetic backgrounds only. Dossier specialist-heads10.5/10.2 reviewed, no new whole-head claim. Nativefold queue unchanged.
+
+### 2026-09-13T04:00:49.236215+00:00 — Codex: raw attention generator CPU control complete
+Actual attention10 FP32module vs FP64rawprojection algebra: fulloutput<=5.8e-7, change<=4.25e-4 relative overtwo synthetic17tokencontexts/fivestrengths; zerochangeexact. Allheads/bothQK/nativeroundedRoPE/sharedfirstvalues retained. Newhelper can generate attentionpartner fromfoldedresidual change; no corpus/nativefold verdict yet. Committed/pushed64f34b0d1; primaryRAW_ATTENTION_RESPONSE_V1_MATH.md. Currentfrozenfold remains queued anddoesnotuse newhelper; next integrated test must also rebuildjointMLP10norm.
+
+### 2026-09-13T04:02:13.420450+00:00 — Codex: CLAIM integrated input generator CPU
+Previous turn progress: actual-weight raw attention response control. Compose MLP9 fixed-writer response -> attention10 projection changes -> both MLP10 input changes and rebuilt joint RMS. Compare direct actual-weight FP32 synthetic branch execution; no intervention-state or joint-denominator oracle in helper. Pristine contexts and full attention weights remain charged. Pending native fold unchanged.
+
+### 2026-09-13T04:02:41.322074+00:00 — Codex: integrated input CPU control completed
+Composed MLP9response/attention10 generator rebuilds both preMLP10 changes andjointnorm without observed intervention states. ActualweightFP32 syntheticbranches: inputerrors<=2.79e-5,norm<=4.23e-7,normalizedproduct<=2.59e-5. Native pristinecontext/fullweights retained; no behavioralclaim. PrimaryRAW_ATTENTION_RESPONSE_V1_MATH.md. Awaitfirstfoldresult before native integratedsuccessor.
+
+### 2026-09-13T04:04:22.917178+00:00 — Codex: CLAIM integrated native input-generator preparation
+Previous turn progress: composed actual-weight CPU input/product control. Prepare19arms/3040forwards/160extraMLP/480FP64attentionevaluations; A prior17replay<=1e-4, B predictedc/r<=1% bothpanels andjointnorm<=.1%, C fullproduct andRR+mixed behavior<=2% eachregionalgroup. Same160rows nofit/newOOD. Submit only after predecessor result interpreted; no rebinding of frozen previous job.
+
+### 2026-09-13T04:05:09.210794+00:00 — Codex: integrated native successor prepared, not submitted
+Committed/pushedaacc95025 runner/prereg19arms3040forwards+160MLP+480FP64attention. Generatedcross directly usesgeneratedjointdenominator (no numeric dependence on observedrho). Syntaxpasses; binding/dryrun awaits predecessor artifact andverdict. Existingresidualfold verifiedqueued behindlivePID3713979v681, progressing975s receipt. This is implementation continuation, not native success.
+
+### 2026-09-13T04:06:28.966084+00:00 — Codex: integrated interface review / verified managed wait
+Previous turn progress: preregistered successor implementation. Executed AST/callsite review confirms only pristine states, scalarfields andweights enter generator; observedinterventionstate/jointnorm absent. Review receipt COMPOSED_MLP10_INPUTS_V1_INTERFACE_REVIEW.json; not runtime noninterferenceproof. Livepredecessor PID3713979 progressing7/16cases1139s, ~160s/case, thus remainingwait tensofminutes. Ownfold stillqueued; no restart or competingGPU.
+
+### 2026-09-13T04:07:50.529588+00:00 — Codex: CLAIM real-text integrated CPU check
+Previous turn progress: input dependency review. Use fixedfirstregionalrow0 andfirstFineWebrow96; execute pristineCPUblocks0..8 once then nativehead9 C/R edits throughMLP9/attention10. Compare generatedc/r,jointnorm,MLP10product withdirectFP32 branches; nofullsuffix or behavioralclaim. TwoCPUthreads CUDAhidden,120sec bound; GPUqueue unchanged.
+
+### 2026-09-13T04:09:07.139530+00:00 — Codex: integrated real-text CPU pilot completed
+Fixedrows0/96 input-product errors2.18e-5/8.36e-5. Native suffixregionaltargeteffect.000372887vs.000373840(.256%); unrelatedmargin1.84%/3.10e-6abs. FineWebnewlineCE7.14%/1.19e-7abs, newline-comma6.25%/9.54e-7abs. Allfour signsagree; tinyrelative-effectlimit retained. TwoCPUthreads1.64sec, zeroGPU; existingrows/frozengpu scalarfields noOOD/equivalenceclaim. PrimaryRAW_ATTENTION_RESPONSE_V1_MATH.md. CPU pilot latencyisnew scheduling evidence while queuedlaneoccupied.
+
+### 2026-09-13T04:10:15.089082+00:00 — Codex: CLAIM full existing-panel CPU integrated prediction
+Previous turn progress: two-realprefix pilot1.64sec inclnative suffix. CPU latencybeats ~20minGPUwait. Freezeall160existingrows, same direct/generator scalarfields; A eachregional targeteffect<=2% relativeL2, B generatedc/r<=1% andnorm<=.1% bothpanels; controls/FineWeb bothendpoints/signs/absolute errors descriptive. TwoCPUthreads,300sec; noGPU/no freshOOD or equivalenceclaim. Separate frompendingGPU17/19armregistrations.
+
+### 2026-09-13T04:13:25.085598+00:00 — Codex: fullCPU integrated panel andhourlyreview complete
+A/Bpass105.53sec;regionaltargeterror.095–.215%,96signs. FineWebCE2.2–7.6%/2opposites withabs<=2.39e-6; executedallsign/zeroaudit preserveslimits. Hourly0412 allgatespass, schedulingrepairCPUbeatslongqueue; nextgenerateadditivebackground toremove remainingnativeC/Rstate dependency. PrimaryRAW_ATTENTION_RESPONSE_V1_MATH.md; GPUregistrationsseparate. CPUcounterauditexecutedcontinuationreceipt.
+
+### 2026-09-13T04:14:23.365132+00:00 — Codex: CLAIM generated background CPU screen
+Previous turn progress:160prefixinputprediction A/Bpass, signaudit andhourlyreview. Fixed8rows0,24,48,72,96,112,128,144. Generate postMLP10C/R states frompristine z10+generatedinputs thenhBarhat. Scoreoriginalbar,bar+directproduct,bar+predproduct,barhat,barhat+predproduct separately. Reportbar drift, transported effect andtotaloutput difference; no posthoc changeofbaseline target. CPUdiscriminating screen, notfreshconfirmation.
+
+### 2026-09-13T04:15:24.739443+00:00 — Codex: background screen / CLAIM suffix precision discriminator
+Eightprefixbackgroundstate~3e-7, regional effectsclose, FineWeb tiny effects have largerrelative errors. Execute sameFP32injected states through FP64suffix with explicitnativeEPS32 atallRMS calls, sameweights/roundedRoPE. Distinguishes suffixarithmetic fromstate-generation/input-rounding error without refitting orrepairing originalmetrics.
+
+### 2026-09-13T04:17:09.054389+00:00 — Codex: generatedbackground screen andprecision discriminator complete
+Eightfixedprefixbarstate3.06–3.72e-7;FP32regionaleffect0–.256%,FineWeb0–68.4%. SameFP32injectedstates,FP64suffixwithEPS32:regional.0001–.00305%,FineWeb.0113–.9602%,FineWebeffectabs<=9.01e-9. Supports substantialsuffixrounding contribution ontheseprefixes, notallpanelclaim orretroactiveFP32repair. Totaloutput/background drift separatelyretained, otherFineWebendpoint<=1.69e-6. PrimaryCOMPOSED_MLP10_BACKGROUND_V1_MATH.md. Executednegative-result discriminatorcontinuationreceipt.
+
+### 2026-09-13T04:19:36.583774+00:00 — Codex: USER DIRECTION CHANGE / CLAIM interaction compression settings
+Logan explicitly authorizes compression again, targeting composed interactions/retained terms; supersedes earlier compression-primary prohibition. Three settings: recentMLP9-att10-MLP10 regional interaction, recenthead17.2-MLP17 local interaction, fullU-foldedMLP17 broadweights control. Compareseparate vsjoint sharedgraph compressions with node/edge/weight/compute prices andbehavioral validation. Finishalreadyqueuedresidualfold unchanged; unsubmittedclosure successorsdeferred pendingthiscampaign. Preparingconcretesettings/methods/reusecriteria plusCPUliteralbaselineinventory; nofitresultsclaimed.
+
+### 2026-09-13T04:21:47.996217+00:00 — Codex: three-setting compression plan published
+Committed/pushedc19d08771; for_logan/interaction_compression_settings_2026-09-13.md andstartupauthorityupdated. CPUcheckpointinventoryexecuted: MLPbilinearweights15,925,248 each, U57,950,208, fulltensor267GBFP32 implicitonly. Priorcomposedfitfailures explicit; CP/sparseTucker/LL1/sharedDAG comparedatmatchedscope/cost; reuseproducer vsparameterreuse distinguished. No newfitclaimed. Nextcompressionworksetting1sharedresidual/mixedgraph andsetting2retainedterms; pendingGPUfold unchanged.
+
+### 2026-09-13T04:24:39.217013+00:00 — Codex: CLAIM setting1 exact input-mode compression baseline
+Previous turn progress:userdirectedcompressionplan+checkpointinventory. Fold Jw intooneinput ofMLP10cross: D[(LJw z)(R y)+(RJw z)(L y)]. ExactFrobeniusinputGrams includeDownweights/crosscancellation. Compareindependentterm projectors vsjointprojector atmatchedextra-storagebudgets; ranks4..128 andbudgetmatchedjoint. Eigensolvesavoidnonconvexsolverambiguity. Chargecompressedextraweights againstoriginalJw(1152²), notinflatedmaterializedfoldedmaps; commonL/R/D remaincharged. TextfreeCPU; arbitraryindependentz/y domain isexplicitrestrictedoperatorbaseline, notwholecircuitcompression.
+
+### 2026-09-13T04:25:57.641197+00:00 — Codex: input-mode weakresult / CLAIM physical fixed-partner discriminator
+Exactbroadonelegprojection needsrank1019for2%coefferror; matchedbudgetjointmodestlybetter butnotuseful. Strongestalternative: arbitraryindependentpartner y greatlybroaderthanretainedresponsebasis. Compute spectra ofactualfixedpartners w andJw w in K(Jw z,y), individually andsharedinputbasis; no textfit andno claimremainingvariablepartnerterms compress.
+
+### 2026-09-13T04:27:37.434787+00:00 — Codex: first interaction-compression baseline completed
+Exactweightsprojector metric, nooptimizerambiguity: jointslightlybetter, rank71error78.27% at55.47%oforiginalJstorage;2%requiresrank1019. Executedfixedpartnerw/Jw spectra:rank128errors42.23/46.25%,2%needs831/845. Narrowlowrank-readernegative, notsparse/DAG impossibility (identityfullrankyetcheap). Committed/pushede60634037; primaryINTERACTION_INPUT_MODE_COMPRESSION_V1_MATH.md. Nextchange representation toproduct/edge/block sharing ratherthan spectralrestarts; setting2stillneeded. Executedcountercheckiscontinuationreceipt.
+
+### 2026-09-13T04:29:28.579089+00:00 — Codex: CLAIM paired product-node sparse fit setting1
+Previous turn progress: lowrank-reader weakresult andfixedpartnercountercheck. Same T(z,y)=K(Jz,y), retainnativepairedchannel blocks Dk[(LkJz)(Rky)+(RkJz)(Lky)]. ExactchannelGram includingbothterms; greedyorthogonalleastsquares withcoefficientrefit up to512/4608blocks. No narrowinputsubspace. Comparetopnorm-supportrefits andrecord stationarity/trueweightcost J+3dk, notfoldedmatrixinflation. Fixednativeatomdictionary limitationexplicit; no globalabsenceclaim.
+
+### 2026-09-13T04:31:22.617511+00:00 — Codex: sparseproduct baseline andcounterbound completed
+512/4608pairedblocks91.02%coefferror at3.097Mvs17.252Mscalars; coefficientstationarity1.44e-15. ExactnormalizedGram restrictedGershgorin gamma512=.7407 givesany512supporterror>=87.45%(FP64evaluatedbound), so greedyselectionisnotmainissue. Onlyfixednativeatoms/arbitraryz,y, notlearnedfactors/DAGs orbehavior. PrimaryINTERACTION_PRODUCT_NODES_V1_MATH.md. Executednegative-result boundcontinuationreceipt; nextsetting2andchangedfactor/block representations.
+
+### 2026-09-13T04:33:38.054690+00:00 — Codex: queuedfold terminal / CLAIM setting2 output-selected tensor baseline
+GPUfold A/B/Cpass33.45sec:jointRR+mixed.208–.477%regional,foldedpreservation.116–.206%;FineWebfoldfull1.90–10.0%descriptive. Sharedperprefixauditexecuted. Compressiondirectionprimary; no unsubmittedclosurejobsqueued. NextsixknownregionalUcontrasts foldthroughMLP17 onhead17.2W128: mixedtensor6x1152x128 plusquadratic6x128x128 andlinearterm. CompareperoutputLL1/SVD vs sharedinput/headbanks atmatchedweights; textfree, norms/readoutnonlinearitiesexplicitoutsidecoefficienttarget.
+
+### 2026-09-13T04:36:24.519964+00:00 — Codex: setting2 coefficient baseline complete
+Sixcontrast/head17.2W/MLP17 mixedtensor6x1152x128 exactcontrol2.72e-15. At245760scalars peroutputrank32error68.91%,sharedinput65.91%; spectraloutputrotation68.73%. Weakarbitraryportbaseline, notactualthreecontractionproducer fit oroptimizedLL1. Twelveindividualtoken(or mean/contrast) interface neededbeforefinalsoftcapnativeprediction. PrimaryHEAD17_OUTPUT_INTERACTION_COMPRESSION_V1_MATH.md. GPUfoldverdictandperprefixaudit recordedseparately; actualnextCPUweightbaselineexecutedcontinuationreceipt.
+
+### 2026-09-13T04:39:41.665272+00:00 — Codex: CLAIM retainedthreecontraction DAG rewrite
+Previous turn progress: setting2coefficientbaseline andGPUfoldaudit. Testactualretainedportprogram exactsharedP=abar*bbar rewrite (8->5scalar gate multiplications), plusHornerwc=ar*bbar+(a+ac)*br etc (8->6, avoidslargeproduct subtraction). Cached120nativeports writefidelity andCPUtiming; small-edit numericalcountercheck. Three128dim valuecontractionsunchanged, soallcoremultiply savings<1%, not37.5%wholeprogram. Boundpackageuntouched.
+
+### 2026-09-13T04:41:13.267203+00:00 — Codex: retainedDAG exactsmall compression complete
+Hornerusesexistingbbar acrossbranches:8->6gateproducts, identical120cachedFP64residualwrites andFP32casts. FiveproductsharedPvariant numericalstressworse6.26e-5vs8.77e-7at1e-4edits. Totalcoreincluding3x128valuecontractions392->390(~.51%); no weightsavings/fullmodelspeedup. CPUeager120callsmedian6.50->5.89ms. PrimaryTHREE_GROUP_SHARED_DAG_V1_MATH.md; boundoriginalpackageuntouched. Executedprecision/pricecountercheckscontinuationreceipt; nextlargercontraction/blockreuse ratherthan scalarpolish.
+
+### 2026-09-13T04:43:36.701212+00:00 — Codex: CLAIM setting2 learnedoutput LL1 objective
+Previous turn progress: exactsmallretainedDAG reduction. Build12individualtoken mixedtensor, orthogonaloutputmixtures withrank32matrixblocks. ExactSVD variableprojection ofblockreaders; optimize12x12outputbasis withsmallskewchart andintrinsicgradient stopping toavoidchart/gaugescale falseconvergence. CPUactualweight FD/control beforemanaged10starts(two structured+8random), promote3. ThisisrestrictedorthogonaloutputLL1 family, notgeneraloverlappingblocks. No textfit, no learnedDAG claim.
+
+### 2026-09-13T04:47:20.094390+00:00 — Codex: learnedoutputblock fit queued
+Actualweight12tokenobjective/controlFDerrors<=3.66e-8, lossreconstruction1.67e-16. ManagedGPUaccepted10starts/top3recenteredrefinement600sec, literalpredkeysrepairedafterpreflight(nonexecution). ReviewedSHA91b77b9feb9cdb02f2899ad1c8b5cbf748aa10cad39a2eda81205d4b14ff68f2; committed/pushed4f80bda9d. Rank32orthogonaloutputLL1 family491664scalars vsdense1,769,472; nofitresultyet. Queuedreceiptcontinuation; allnormalization/behavior dependencies remainseparate.
+
+### 2026-09-13T04:48:45.179214+00:00 — Codex: CLAIM output mean/contrast audit CPU
+Previous turn progress: managed10startfitrunning, screen7/10nowlive. Decompose12token target/fitted residual into orthonormalpair sums/differences; scoreenergies anderrors tocheck commonlogit fitdoesnot masquerade as spellingcontrastpreservation. Runonidentity/spectralinitials now andsamefrozenaudit onlearnedartifact afterterminal. No refit/reweight/posthocbar.
+
+### 2026-09-13T04:51:56.542215+00:00 — Codex: learnedblocks terminal andcounterreview complete
+A/Bpass,Cfails.10starts3refinedallintrinsicgrad<5.3e-8,140.70sec. Bestcoefferror68.29%,squaredlossgain.8456%; twofunctionbasinscos.92986near-equalloss. Mean/contrast audit:85.22%targetnormmean; learnedcontrast81.19%vsinitialspectral68.90% whiletotalimproves. Executedrankbound: any12rank32LL1blocks error>=40.19%,2%needsrankbudget>=1105. Neither globaloptimum norarithmeticDAG impossibility. PrimaryHEAD17_OUTPUT_BLOCK_FIT_V1_MATH.md. Noidenticalrank32restart; setting3andproducer/graph/objective alternativesnext. CPUauditsandboundexecutedcontinuationreceipt.
+
+### 2026-09-13T04:59:10.016033+00:00 — Codex: CLAIM setting3 shared-global/local-function feasibility
+Prior art checked: old fixed token-group means and overlapping sparse dictionary are completed, not new. New restriction is shared global functions plus group-specific residual subspaces in the exact folded coefficient metric. Execute centered native spectrum/matched literal storage and total-span lower bounds, plus a planted shared/private representation discriminator and direct folded-metric control. This is a feasibility/pricing analysis, not a new native grouped fit, product compression or circuit identification. No GPU or peer queue changes.
+
+### 2026-09-13T05:01:24.705050+00:00 — Codex: setting3 feasibility completed
+Exact folded metric/compiled-reader controls <=3.11e-15; native energy replay 8.88e-16, 3.54 CPU seconds. Shared 128-global/64-group/16-private model costs 14.88% of U bytes, combined span1152 with144 coefficients/token. This removes a rank obstruction but does not fit the model or simplify native products. Planted representation discriminator exact versus62.82% matched-global error; supplied banks, not solver recovery. Primary FULLU_SHARED_LOCAL_FEASIBILITY_V1_MATH.md; requested plan now distinguishes completed initial fits from pending grouped fit. No GPU changes.
+
+### 2026-09-13T05:03:30.896404+00:00 — Codex: CLAIM shared/local conditional solver controls
+Previous turn progress: actual full-U metric/pricing and planted representation discriminator. Build additive shared-global/private-group low-rank solver with exact conditional SVD updates and joint code/assignment projection; unknown groups and functions. Check loss monotonicity, independent planted recovery and a one-more-sweep stationarity audit before native GPU registration. No text fitting, peer source or queue edits.
+
+### 2026-09-13T05:06:51.510260+00:00 — Codex: shared/local solver controls complete
+Unknown-bank/group planted fit recovers3/4 starts in9sweeps. Fourth remains squaredloss.01699 after150sweeps; executed joint-code envelope FD2.80e-10, stalled intrinsicgrad4.21e-15 confirms wrong stationary solution. Targeted top-residual private-bank exchange fails(best.01742); preserve original failure, use multistarts. Primary SHARED_LOCAL_SUBSPACES_V1_MATH.md. Native grouped fit still pending; actual solver and executed negative-result discriminators are continuation receipt. No queue changes.
+
+### 2026-09-13T05:08:57.980708+00:00 — Codex: CLAIM native shared/local timing and first-sweep screen
+Previous turn progress: implemented solver,3/4 planted recovery, executed wrong-stationary and exchange discriminators. Add exact smaller-Gram bank solve and CPU direct-SVD controls. Managed GPU will build all-token folded metric and execute one initialization plus one sweep for both proposed capacities, recording literal cost, actual timings, errors and live numerical controls. This is scheduling evidence and first native fit step, not converged multistart result. No text or peer modifications.
+
+### 2026-09-13T05:12:04.012661+00:00 — Codex: native timing queued / CLAIM shared projection reuse control
+Managed timing accepted reviewed SHA23349e83b36f39e7d6ff2d380e00686d15939ef3e8b7ca5153472f89d909765c. While it runs, test independent encoder: project global bank once, orthogonalize each private bank against it, score only private complement, recover same joint coefficients. Algebra predicts assignment matmul width2304->320 and9216->1152; fallback to bound original on near-dependent spans. No change to live bound helpers or registered native timing.
+
+### 2026-09-13T05:18:53.182775+00:00 — Codex: native timing terminal; hourly review; CLAIM full multistart fit
+Timing A/B/C pass14.95sec, sweeps2.60/8.32sec; initial full errors85.08/76.49% versus matched-global85.85/77.74%. Exact reused encoder CPU4.81x faster, prediction7.73e-16, not full-fit speed claim. Hourly0512 preserves user compression override, zero new identified circuits; phase-time accounting was incomplete, repaired prospectively without invented times. Full fit now implemented/registered: both capacities10starts3screensweeps,top3<=240sweeps,1800sec/capacity; gradient plus stable-assignment convergence, matched-byte10% squared-gain bar, compiled artifacts. Reviewed SHA7f9dae0be917f8a25c6440a9195b7ecb250101b9a2f10c1f75e577aae8fe76eb; local numerator price not net whole-model U saving if other routes retain U. No peer source edits.
+
+### 2026-09-13T05:19:27.970375+00:00 — Codex: multistart managed queue accepted
+FULLU_SHARED_LOCAL_FIT_V1 queued on lane1 with reviewed SHA7f9dae0be917f8a25c6440a9195b7ecb250101b9a2f10c1f75e577aae8fe76eb, committed/pushedf391c591e. Two capacities, tenstarts each, separate1800sec budgets; original timing terminal interpreted, exact encoder CPU discriminator completed. Current queued receipt, not yet a completed or converged fit. Next inspect same handle and score registered bars without changing live helpers.
+
+### 2026-09-13T05:20:55.978227+00:00 — Codex: CLAIM frozen token-error and output-graph audit
+Previous turn progress: native timing interpreted, reused encoder controlled, managed20-start fit now emitting first-capacity screens. Build read-only per-token exact folded-function audit: unweighted error quantiles, aggregate coefficient replay, comparison with matched-cost global fit, group counts and global/private cancellation. Execute optimal-global token baselines now; audit each immutable compiled artifact when it lands. No live fitter/helper edits, no text or regrouping after results.
+
+### 2026-09-13T05:22:36.122124+00:00 — Codex: token baseline audit complete; same fit live
+CPU6.39sec all50304token exact-function baselines: global78 median86.29% vsaggregate85.85%,global167 median78.00% vsaggregate77.74%; only.93/1.05%tokens <=50%error. Large errors widespread, not a handful of high-energy outliers; no native-domain behavior inference. Frozen-program audit implemented for per-token/group outcomes, compiled replay and cancellation after artifacts land. PID3767423 verified live, firstcapacity refinement70sweeps loss.7541048,30assignmentschanged; not converged. Live sources unchanged.
+
+### 2026-09-13T05:25:07.970076+00:00 — Codex: CLAIM setting2 value-producer pullback audit
+Previous turn progress: exact token baselines, compiled audit ready, same full-U GPU fit live. Reuse known head17_source_interface current/first value maps and12token mixed tensor; check whether folding only V actually restricts head space or merely changes its metric. Compute exact pulled-back shared-head spectra via128x128 value Gram, current-only and mixedfirst sources; include pair contrasts. No full QK folding claim, datafit or livehelper changes.
+
+### 2026-09-13T05:27:57.110576+00:00 — Codex: setting2 value pullback and matched countercheck complete
+Known current/first Vmaps fullrowrank128,condition2.63: no linearspan restriction. Exact outputmixedtensor pullback improves spectral concentration, but executed same-metric comparison limits realgain: rank64 individual40.80->39.46%error(6.46%squaredgain),contrasts40.38->39.08%(6.34%). 2%stillrequires128directions withinthisrankfamily. Replays<=2.32e-15; CPU spectrum.63sec. Primary HEAD17_VALUE_PULLBACK_SPECTRUM_V1_MATH.md. No fullQK/normalization/producer-domain claim. Nextjoint-source polynomial constraints should reuse existingoracles. Full-U PID3767423 stilllive; no boundsourcechanges.
+
+### 2026-09-13T05:30:03.941441+00:00 — Codex: CLAIM 05:29 math review / exact joint-QK source Gram
+Reuse prior cubic/Segre tools; new target is effective128output coefficient Gram for p(q,s)=(q^T A s)(q^T B s)F s, symmetrized query degree2/source degree3. Derive Wick contraction minus query-trace contribution to recover coefficient Frobenius (Gaussian L2 is not interchangeable). Execute small dense12-permutation control before actualweight application. Rational norms, multiple source positions and shared MLP/query-state dependence remain explicit outside scope. Full-U GPU job unchanged.
+
+### 2026-09-13T05:40:11.593788+00:00 — Codex: math0529 complete + firstcapacity terminal audited
+Exact query2/source3 Gram derived via Wick minusquerytrace, dense12permutation controls<=4.15e-16; native2positions1.64sec. Joint-QK sharedrank64 squaredgain~.002% overvaluefit in samejointmetric. Executedmetric-equivalence discriminator ratios1.0498/1.0510 bound metric-only gain<=4.74/4.85%; notQKtopology/arithmeticbound. Review THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-13_0529.md,next08:29. Full-U G64terminal963.34sec:5.15%squaredgain,83.61%error,all3promotedunconverged; originaloverallB/Ccannotpassbothcapacities. Frozenprogramaudit replays4.89e-12;88.06%tokensimprove,median84.37%,no circuitclaim. G128samePID3767423live. Primary FULLU_SHARED_LOCAL_FIT_V1_MATH.md.
+
+### 2026-09-13T05:41:55.069234+00:00 — Codex: CLAIM accurate-token subset duplicate audit
+Previous turn progress: G64 frozen audit plus exactjointQK review. MLP17 dossier already records duplicate Urows196/50274 and whole-reader clustering failure. Audit all G64 tokens with <=10% coefficienterror for exact Uduplication, near-proportional function neighbors, dimensional concentration and actual tokenizer membership. Descriptive frozen positive-result countercheck, not new semantic labels or datafit. Larger fit samePID remainslive; no livehelper edits.
+
+### 2026-09-13T05:43:38.490852+00:00 — Codex: accurate subset audit and counteraudit complete
+G64<=10%error subset243IDs has7distinct Urows,one237IDduplicategroup,47out-of-tokenizerIDs;allgroup5,topfunction99.9919%energy. KnownMLP17duplicate observation extended,notnewsemanticcircuit. Executed reversebound:subsetonly.2288%targetenergy versus3.7973%totalerrorreduction,so>=93.97%gain liesoutside; do notdiscardoverallmodestgain. Primary FULLU_SHARED_LOCAL_FIT_V1_MATH.md andMLP17dossier updated. LargerGPUfitunchangedlive.
+
+### 2026-09-13T05:45:40.546083+00:00 — Codex: CLAIM frozen private-subspace overlap audit
+Previous turn progress: accurate-subset duplicate audit and reverse gain bound. Measure each saved G64 private bank after projecting out global span, pairwise principal angles, and total complementary span. Compare literal private-branch deletion with optimal recoding into the frozen global bank, separating cancellation from indispensable private directions. Coefficient-only frozen audit, no live fit edits, no semantic reuse claim.
+
+### 2026-09-13T05:47:29.328643+00:00 — Codex: private-span audit complete
+G64 privatecomplements unionrank256/256,condition7.22;medianpair overlap1.53%,maximum11.07%,maxprincipalcos.824 andnone>=.99. No near-exact frozen-bank merge. Private deletionerror88.41%vs83.61%; optimalrecoding withinfrozenglobal87.83% distinguishes capacity fromcode cancellation. CPU4.86sec; notnativecausalremoval/semanticreuse. Primary FULLU_SHARED_LOCAL_FIT_V1_MATH.md. Largerfit samePID3767423live, boundsourcesunchanged.
+
+### 2026-09-13T05:50:59.758898+00:00 — Codex: CLAIM cached FineWeb output-route validation
+Previous turn progress: private-span audit confirms distinct capacity; full-U largerfit live. Reuse128historicalFineWebpositions(cachehashb1107a91...) for frozenG64 vs matched-global78. Two declaredroutes: change only U-reading of finalbilinear contribution (originalU retainedelsewhere) and replaceentireU. NativeFP32/FP64replay, signed/absoluteperpositionCE andKL; no refit/newtext/bodyforwards orOODclaim. Same protocol will scoreG128afterartifactterminal.
+
+### 2026-09-13T05:53:17.500879+00:00 — Codex: frozen FineWeb G64 validation complete
+128historicalFineWebpositions,0forwards,6.78CPUsec. A/Bpass,Cfails: groupedquadratic-only KL.11448/meanabsoluteCE.34210 versusglobal.15206/.40371;wholeUgroupedKL3.0503/CEadded+3.3363. Nativeprecisions<=5.39e-7. Executed routecountercheck isolates extrapolationbeyondquadraticobjective; localfidelitystillfails. Pairedwhole-sequencebootstrap recordedwithoutchangingbars. Sourcegroupsunchanged; notOOD/adoption/storage-savingclaim iforiginalUretainedelsewhere. Primary SHARED_LOCAL_FINEWEB_V1_MATH.md; G128samePIDlive.
+
+### 2026-09-13T05:57:04.226120+00:00 — Codex: CLAIM regional composed-state cache
+Previous turn progress: two-route FineWebvalidation, G128now230sweepsfinalrefinement. Existing COMPOSED_LAST_BLOCK_PREDICTOR artifact stores outcomes only. Reuse its validated nativeN/C/Rexecutor to collect4readoutstates and matching linear parts per120prefixes (about9MB), enabling frozen U-factor causal-effect checks without repeatbodyruns. Oldsources unchanged; sameknownrows/controls, notfreshOOD. Cache runner360forwards plus existing360MLPevals, managedlaneonly.
+
+### 2026-09-13T06:10:16.265898+00:00 — Codex: CLAIM next-family composed sparse-core baseline
+Allgroupedfits andregionalcache terminal; target/controlpreservationfails. Move to setting2 actual mixedinteraction tensor, checking entry sparsity in native coordinates and full HOSVD frames. Exact best-entry thresholding in each fixed frame, charge every orthogonal adapter and packed uint32 edge index against alreadyfolded denseT. This is a baseline for learned sparse frames, not another rank-reduction fit or an absence-of-structure claim. Prior MSP/LL1/source tools checked; no existing identical mixedT core receipt found.
+
+### 2026-09-13T06:17:04.574185+00:00 — Codex: CLAIM partial-frame sparse interaction control
+Full shared/private fits and regional validation are terminal; both capacities fail preservation. Native/full-HOSVD entry baselines are complete. Execute all eight subsets of mode rotations on the same mixed interaction, charging only used adapters and the cheaper bitmap/COO encoding. This discriminates adapter overhead from absent entry concentration; no learned-frame or causal success claim. No GPU queue changes.
+
+### 2026-09-13T06:20:44.135219+00:00 — Codex: CLAIM sparse mixed-operator regional validation
+Previous turn progress: all eight fixed rotation subsets executed and published. Evaluate frozen output-only and output/head sparse tensors at 2/5/10 percent coefficient error on cached compact-predictor ports. Replace only the mixed quadratic numerator; retain exact normalization and all other contributions. This is a conditional operator test, not a self-contained compressed state generator. Verify recovered head-port write and direct quadratic mixed contraction. No GPU or text fitting.
+
+### 2026-09-13T06:21:11.342798+00:00 — Codex: sparse regional test passes; CLAIM deletion countercheck
+All six frozen candidates pass conditional compact-effect fidelity and material signs; maximum error below0.6%. Execute zero mixed-operator control to test whether this success merely reflects a negligible tested route. Original outcome remains unchanged; original normalizers/background still supplied.
+
+### 2026-09-13T06:24:56.212171+00:00 — Codex: CLAIM executable sparse mixed operator
+Previous turn progress: frozen sparse regional validation and executed zero/own-effect counterchecks. Build bitmap-packed FP32 operator for output/head 10% coefficient support, decode to CSR once, execute with explicit head/output adapters. Compare dense folded tensor and native factored L/R/C/LW/RW on same raw ports; report serialized and resident bytes, warm CPU timings, independent-port precision, and regional numerical replay. No new data fitting, GPU or peer changes.
+
+### 2026-09-13T06:25:38.025778+00:00 — Codex: sparse executor speed miss; CLAIM stacked-CSR countercheck
+Packed artifact4.90MB vsdense7.08MB, precision3.1e-7, but CSRresident9.34MB and2.2–2.8xslower than denseCPU. Execute same operator with one stacked CSR matmul rather than twelve to discriminate call overhead from sparse-kernel cost. Same coefficients/support, no refit or GPU.
+
+### 2026-09-13T06:26:09.067609+00:00 — Codex: CLAIM sparse-support graph structure audit
+One-call stacked CSR remains slower than identical-frame dense contraction. Inspect frozen mask for dead reader/output nodes, reused input products and occupied4/8/16tiles. This determines whether the existing edge support supports node or block simplification, rather than continuing kernel tweaks. No fitting or GPU.
+
+### 2026-09-13T06:29:38.220845+00:00 — Codex: CLAIM short-Givens sparse interaction pilot
+Prior rank32 LL1 fit already converged and rank-bound prohibits high fidelity in that budget. New family: residual coordinate transform represented by a finite sequence of cheap two-coordinate rotations, starting from existing output/head HOSVD frame. Derive exact pair fourth-power maximizer, check planted recovery and monotonicity, execute3fixed schedules40rounds, price each stored rotation. This is learned sparse frame with structured adapter, not repeated LL1. Weights only; no global convergence or native adoption claim.
+
+### 2026-09-13T06:31:00.837405+00:00 — Codex: Givens surrogate failed; CLAIM capped-energy objective discriminator
+Fourth-power rises8.0–8.3x but removes only2633–3635 entries at10%error after23040rotations; cost defeats gain. New bounded test uses sum min(entry²,threshold²), equal to optimized L0-penalized reconstruction at fixedthreshold. Seventeen pair angles includingidentity, accept only gain>3threshold² to charge12byte rotation against4byte coefficient. Three pairing schedules10rounds at10% coefficient scope. Recompute threshold eachround from global tail; report actual finalstorage, not surrogateonly. This changes objective, not an extension of failed run.
+
+### 2026-09-13T06:35:35.925292+00:00 — Codex: CLAIM exact three-vector response / six-product basis
+Checked existing RESPONSE_PRODUCT_BASIS_V1: four ingredient/ten product upper bound, not minimal. Exact coefficient identity merges m0 into Jz and Jw: response basis w,Jz-2beta*m0,Jw-2gamma*m0 with coefficients -a,-a/rho,a²/(2rho). This reduces mixed response to two directions and downstream symmetric products to six. Execute actual-weight signed-strength replay, zeros, float32 comparison and fair vectorized10vs6 preparation/evaluation timing. Background/attention/denominators remain charged; no global six-factor claim.
+
+### 2026-09-13T06:39:44.338760+00:00 — Codex: CLAIM native six-product joint validation
+Reuse validated17arm residual-fold executor, append one arm installing six-product RR plus three-vector residual responses in mixed attention terms. Original17arms replay;160historical regional/FineWebprefixes,2880forwards, nofitting. Original sources untouched, managedlane1only. Test conditional native preservation, not new OOD or fully extracted circuit.
+
+### 2026-09-13T06:42:09.751105+00:00 — Codex: CLAIM attention projection reuse from three response vectors
+Native six-product runner preflight repaired duplicate/unsupported prediction key syntax; current reviewedSHA c196d81aa319b2abf81725397ea8f531f0a8e6447007b5fee8b241a852c53952. Independently prepare five attention10 projections of the three response vectors once percontext, then execute arbitrary perposition coefficients with explicit raw-state norms. Check projection and full joint-QK/value response replay against existing raw_attention helper; count cache and compare strength-sweep cost including preparation. No changes to queued bound sources.
+
+### 2026-09-13T06:43:55.092489+00:00 — Codex: native six-product terminal; CLAIM reuse break-even timing
+Managed native job exit0,37.87sec, A/B/Cpass; original17andnewjoint outcomes exactlymatch all160rows, state errors<=4.35e-15. Projection reuse actualweightcontrol passes<=2.03e-15;21strengthprojection sweep2.79xfaster includingpreparation. Measure declared1/2/4/8/21querycounts before suggesting useful two-branch speedup; projectedbank costs17280scalars perposition.
+
+### 2026-09-13T06:48:05.635111+00:00 — Codex: CLAIM two-level attention projection cache
+Previous turn progress: native six-product preservation and projection break-even measured. New graph shares projected w and Jw globally, projected m0 and Jz percontext, amplitude coefficients across all five consumers. Compare exactprojection/fullattention replay, global/context storage and preparation-inclusive two/21query timing against v1; no broad native claim or changes to bound helpers.
+
+### 2026-09-13T06:48:52.936330+00:00 — Codex: two-level cache exact, cold-speed bar fails; CLAIM warm-global countercheck
+Projection/attention errors<=2.27e-15; extra dynamiccache17280->11520scalars/position plus11520global once. Cold benchmark fails >=10%saving across both twoquerysizes. Repeat same cases with model-global cache already prepared, report setupseparately and preservecoldmiss. This checks amortization acrosscontexts, not a new fittedmethod.
+
+### 2026-09-13T06:51:29.405351+00:00 — Codex: CLAIM integrated shared input-generator native pilot
+Previous turn progress: two-level projection reuse controls and cold/warm price discrimination. Build composed_v2 with model-global projections and percontext response, generate both changed attention partners and own jointnorm. Include exact six-product RR plus mixed/AA products. Reuse fixed nativeCPUrows0/96 against direct model and old composedgenerator, preserving native additive evaluationbackground. No supplied changedstates/changednorms in candidate; oldsources untouched.
+
+### 2026-09-13T06:52:35.654465+00:00 — Codex: integrated pilot passes; CLAIM eight-group native check
+Rows0/96 oldgenerator replay<=1.32e-12 and fullproduct<=2.47e-14; native outcome discrepancy matchespreviouspilot. Extend unchanged check to fixedindices12,36,60,84,104,120,136,152 (oneeachhistoricalregional/FineWebgroup). Same <=1e-10oldgenerator/product controls; nativeeffects unfiltered. No fitting or freshOODclaim.
+
+### 2026-09-13T06:57:43.870976+00:00 — Codex: CLAIM reusable whole interaction context and timing
+For the full RR+mixed+AA target, sum input changes before the final bilinear contraction to share Down application; the six-vector RR bank remains useful only when that component is separately consumed. Prepare common response/projection/pristine-attention context once, evaluate1/4/12amplitude pairs, compare original independent generator plus fullproduct. Include preparation/globalcache and measure full conditionaloperator, notprojectiononly. Actualweight replay<=1e-10; no textfit or wholemodelspeedclaim.
+
+### 2026-09-13T06:58:43.879240+00:00 — Codex: full conditional operator passes; CLAIM matched pristine-cache baseline
+Actualweight fullproduct replay1.57e-15;1pairslower,4/12pairs1.26/1.42xfaster includingpreparation, extra3.24MB per17positioncontextFP64. Add simpler baseline caching Jz/pristine projections/pristine attention only, retaining direct delta projections. This separates response-bank reuse from generic loop-invariant caching; original result preserved.
+
+### 2026-09-13T07:01:48.304763+00:00 — Codex: CLAIM multi-strength native interaction screen
+Use prepared shared context for fixedrows0/96 and all16 child/remainder multiplier pairs{0,.5,1,1.5}². Native branch states computed independently; compare generated fullcross and local suffixeffect at same nativeadditivebackground. Check numerical input/product errors, zeroedits, signedoutcomes. No fitting or newlanguageOOD; now tests amplitude-composition domain beyond original(1,1). Native evaluationbackground remains explicit.
+
+### 2026-09-13T07:04:52.377568+00:00 — Codex: strength grid passes regional; CLAIM worst FineWeb legacy replay
+Allregisteredbars pass; regionalaggregate target0.802%,FineWebdescriptive50.31%relativeCEerror. Native signs preserved. Compare highestabsolute FineWebCE-errorpair against old uncached generator and physically score its suffix to identify whether newsharedrewrite caused discrepancy. Preserve alloriginalcells; this is a post-result diagnosis, not changingbars.
+
+### 2026-09-13T07:08:00.065689+00:00 — Codex: CLAIM shared-generator background closure pilot
+Compression/sweep preservation now tested; promote same representation toward extraction by generating additive postMLP10 background from pristinez10 and generatedc/r, sharing L/R projections with fullcross. No changednativebranch inputs. Check both baseline drift and own-background producteffect on native rows0/96. Existingbackground-preregs searched; this pilot specificallytests currentcompressedsharedinterface and retains allnativeweightcosts. No global circuit/OOD claim.
+
+### 2026-09-13T07:09:44.935407+00:00 — Codex: prior-art correction / CLAIM full-panel background promotion
+COMPOSED_MLP10_BACKGROUND_V1_MATH already contains8prefix closure andFP64suffix discriminator. Do not duplicate claimednewclosure. Promote currentsharedgenerator over all160historicalprefixes with separate backgrounddrift/effect/totaloutput bars, using existingexecutor GPUadaptation. Candidatechangedstates/denominator/background generated frompristine inputs; reference nativebranches only for scoring. No freshOOD.
+
+### 2026-09-13T07:11:41.622239+00:00 — Codex: background fullpanel terminal; CLAIM error-source partition
+Managedexit0,7.84sec,A/Bpass,CfailsFineWeb0(12.22%vs10%). Regionaltarget.115–.305%, no materialflips; maxbackgroundstate4.79e-7. Execute saved-score decomposition into generatedproduct error at observedbackground and effecttransport due generatedbackground, plus separatebaseline drift/totaloutputidentity. No newforwards or amendedbars.
+
+### 2026-09-13T07:15:25.892752+00:00 — Codex: CLAIM original-interaction coverage and telescoping audit
+Fullpanel newnativecross effects exactlymatch old17arm GPUreceipt, permitting alignedcomparison. Quantify generatedbackground+cross parent prediction vsactual parent output and original mixed causal effect. Telescope missing pre10mixedpropagation, fullblock10generation and suffixcomposition using existingarms4/5. Report signed projections/error norms without treating them as independentcausalshares. No newforwards or fit.
+
+### 2026-09-13T07:24:42.052943+00:00 — Codex: CLAIM complete generated joint branch control
+Coverage audit locates omitted inherited MLP9 mixed response. Reuse prepared response/projection context at a, b and a+b, then execute normalized MLP10. Actual-weight CPU control compares direct full branch computation, zero edits and mixed response; no oracle parent inputs or new learned parameters. Three-setting compression remains user authority.
+
+### 2026-09-13T07:28:39.319592+00:00 — Codex: CLAIM generated joint native eight-prefix screen
+Previous turn progress: actual-weight complete-branch algebra passed and committed. Test fixedindices0,24,48,72,96,112,128,144, native FP32 MLP10/suffix after generated attention input. Score original parent-child-remainder+native effect using all generated branches, state precision and absolute output error. Regional target <=2%, controls <=5%, per-row absolute output <=1e-4; FineWeb descriptive. No refitting or new OOD claim.
+
+### 2026-09-13T07:29:56.546520+00:00 — Codex: CLAIM full-panel generated original-interaction validation
+Eight-prefix original-effect screen passes regional0.039/0.149%, FineWeb4.46/11.79%aggregate but row96 tiny target sign flips. Promote frozen generator all160prefixes, pergroup regional2/5%, FineWeb10/15%, state1e-5/output1e-4 bars. ManagedGPU only,1280suffixreadouts180sec; no fit.
+
+### 2026-09-13T07:31:34.065571+00:00 — Codex: full joint validation terminal; CLAIM aligned-reference/sign audit
+Managedexit0,9.16sec,allregisteredbars pass. Regional original target0.0375–0.0835%,FineWeb0.446–7.67%. Execute bitwise original native-corner comparison with17arm receipt, quantify old/new target error on same reference, and list all sign reversals including subthreshold ones. Native suffix remains opaque and charged.
+
+### 2026-09-13T07:33:51.901857+00:00 — Codex: CLAIM full three-branch cost comparison
+Previous turn progress: full160prefix original-interaction passes with inherited response. CPU actualweight17position test compares direct MLP9/attention10/MLP10, response-only folding with direct attention projections, and shared projection context;1/4/12pairs, identical output retention and precision. Include all per-context preparation and global-cache construction for shared; native pristine context common excluded. Register replay1e-10 and >=10%faster at12pairs, report1pair without assumed benefit. Literal local weight inventory separate from peak/wholemodel.
+
+### 2026-09-13T07:35:58.957013+00:00 — Codex: cost comparison passes; CLAIM batched baseline discriminator
+FP64CPUshared1.48–2.08xfaster directserial, but responseonlywins singlepair. Batch all3Nknownamplitudes in both direct andshared paths to test whether serialsmallmatmul overhead overstates benefit. Preserve original timings; compare1/4/12pairs with identical firstvalue expansion and retained outputs, replay1e-10, report inclusiveprep.
+
+### 2026-09-13T07:39:13.140047+00:00 — Codex: CLAIM native GPU full-generator pricing
+Previous turn progress: matched batched FP64CPU reuse savings survive. Benchmark validated FP64-generated/FP32MLP10 path against native FP32 directbranches, serialandbatched1/4/12pairs at fixedhistoricalrows0/96. Every variant retains sameoutputstate tensor; inclusivecontextprep and CUDA synchronization. Astate<=1e-5;Bsharedbatched>=10%faster at12pairs bothrows;Csinglepair<=nativebatched bothrows. Failuresguidehardwareimplementation, no accuracybarrelaxation. ManagedGPU180sec.
+
+### 2026-09-13T07:40:41.515037+00:00 — Codex: GPU cost execution-only repair
+Launchterminalexit1beforetiming: nativefirstvalues[B,T,H,Dh], expansionassumed[B,T,D]. Preservealltrailingdimensionsinbothvariants; no scientificchanges. RecordrepairandrebindsourcebeforemanagedFORCErerun.
+
+### 2026-09-13T07:42:20.106241+00:00 — Codex: GPU speed fails; CLAIM warm-context discriminator
+NativeFP32batched2.9–6.7xfaster thanvalidatedmixedprecisiongenerator; state<2.7e-7. Executeadditionalwarmshared variant onidenticalcontexts to separatepreparation fromevaluation, preservingoriginalinclusivevariant. Same1/4/12pairs,rows0/96,precision,statebars;warm12pair>=10%fasterpredictioncanfail. Warmresultonly repeatedfixedcontexts, notnewcontextprice. Managed180sec.
+
+### 2026-09-13T07:43:14.864872+00:00 — Codex: warm GPU test fails; CLAIM saved-timing break-even audit
+Terminalexit0,statepasses,warmsharedstill1.53–2.01xslowernativebatched. Compute required corecostreduction and inclusive-minuswarm preparation estimates fromsavedmedians. This tests whether caching alone can repairtestedworkloads; do notattributeentiregaptoFP64withoutprecisiondiscriminator. No furthercachemicrotuning.
+
+### 2026-09-13T07:45:21.187126+00:00 — Codex: CLAIM response-only folding with native attention
+Previous turn progress: GPU inclusive/warm comparison rejects currentimplementation speed. Test FP64 exactMLP9response plus nativeFP32attention10/MLP10, removing customattentionprojectiongenerator. Samefixed8prefix originalinteractionbars2/5%regional,state1e-5,absoluteendpoint1e-4. Nativecontext retained; changedbranches generatedat a,b,a+b; no datafit. This separates attentionimplementation fromresponseprecision.
+
+### 2026-09-13T07:46:16.460014+00:00 — Codex: nativeattention pilot passes regional; CLAIM GPUcost discriminator
+Regionaltarget0.0467%,control0.2289%;FineWebdescriptive11.50/22.75%worse. Do notadopt. Measure simplerresponsefoldednativeattention alongsideunchangednative/sharedvariants, same2prefixes1/4/12pairtimings,statebar1e-5,12pair>=10%faster/1pairnonslowerpredictions. Purpose decide whetherfidelityrepair hascomputationalROI.
+
+### 2026-09-13T07:47:24.196646+00:00 — Codex: nativeattention GPU partial gain; CLAIM comparative receipt audit
+Astatepasses,B/Cspeedfail:12pairs1.087/1.352xspeedup,1pairloses. PreservenarrowgainalongsideFineWebpilotworsening. Execute matched-in-run customvsnativeattention timing reduction andpilot sign/reference audit; no precision-only causal attribution oradoption.
+
+### 2026-09-13T07:50:32.120321+00:00 — Codex: CLAIM whole-block interaction compression baseline
+Prior sparseentrysupport retainedallnodes/all8x8tiles; LL1rank32lowerboundalreadyrulesoutstrictfidelity. Newweights-onlytest removeswholeblocks directly in native/output-head frames, fixedoutputwidth1/3/6/12,residualwidth4/8/16,headwidth4/8/16. Exactoptimalfixedtileenergyselectionat2/5/10%error, bitmap+adapterprices, activeinput/outputnodes. Comparebestentrybaseline anddense; register>=10%densebytesaving at10%error and>=10%residualorheadnodepruning. No learnedframe/globaloptimality/behaviorclaim.
+
+### 2026-09-13T07:51:36.158875+00:00 — Codex: whole-block sparsity modest; CLAIM all-mode node bounds
+Exactfixedblockselectionbest10.17%savingat10%error,allinputnodes retained;2%errornearlydense. Computeallthreeunfoldingnecessaryranksat2/5/10%errorandtruncatedHOSVDactualerror/adapters. ExtendsknownLL1inputrankbound1105at2% toactualnodebudgetdecision; notglobalarithmeticDAGbound.
+
+### 2026-09-13T07:55:34.135125+00:00 — Codex: CLAIM compact complement adapter
+NoHouseholder/complementadapter priorfile found; existingboundspricedfullretainedreaderbasis. UseQRofdiscardedlowenergyinputsubspace to alignkdiscardeddirections withfirstkcoordinates via kHouseholderreflectors, keepingd-krows. Exactsamebestinputprojector, adapterstores triangularreflectortails+tau ratherthan dense1152xr. Registered replay<=1e-10,error<=2/5/10%,anystrict2%netstoragegainafteradapters. Countreflectorsandallnativeinputdependence; coredimensionreductionisnotwholegraphnodepruning. CPUactualweightscontrol.
+
+### 2026-09-13T07:56:38.557474+00:00 — Codex: complement adapter saves storage; CLAIM generic-matrix countercheck
+Exactprojection/readoutpasses<=2.4e-15, net1.08/3.71/8.40%savingat2/5/10%error. Thisconstructionworksforanymatrix,so compare3seededGaussian1152x1536unfoldings atsametolerances andsamepackedadapterformula. Testsmodeltailadvantagevsdimension-onlycompression,notsemanticcircuitdiscovery.
+
+### 2026-09-13T07:59:24.211270+00:00 — Codex: CLAIM joint complement/edge compression
+Previous turn progress: compactadapteravoidsdensebasispenalty;genericspectralcountercheckexecuted. Allocate0/.1/.25/.5/.75/1of squared2/5/10%coefficientbudgettooptimalinputsubspacediscard; spendremainderonexactbestcoreentrysupport. Native/output-head frames; chargeHouseholdertails,tau,output/headadapters,bitmap,FP32corevalues. Aorthogonalerrorpartition/replay;B>=5%bytesavingoversame-framebestentrybaselineatanytol;Cwinningcandidatealso>=10%coreinputdimensionreduction. No textfit/nativebehaviorclaim.
+
+### 2026-09-13T08:00:40.549037+00:00 — Codex: combined reader/edge support loses; CLAIM cost-source audit
+All36casesmeetglobalerrorbudget, bestnonzero0.30/0.67/1.90%morebytes thanentryonly. Auditcoefficients/support/adapters andhypotheticalfreecomplementadapter to identifyneededrepresentationgain. Samecoefficientnorm, noframeoptimality/absenceclaim.
+
+### 2026-09-13T08:02:35.894721+00:00 — Codex: CLAIM coordinate-complement adapter
+Previous turn progress: sharederrorbudgetcombinationfailsadapterprice. Newrepresentation: pivotkrows ofdiscardedbasisN, C=N_B inv(N_A), orthogonalcomplementbasisB=[-C.T;I]. ProjectedM=B F withF=projectedM_B, inputreadersx_B-C x_A. Storekrcoefficients+144bytespivotmask, nofullrotations. Exactsamebestinputprojector; registerreplay1e-10,FP32executor1e-5,andlowerstoredprice thanHouseholder at2/5/10%. Coreerrorinsparsificationwouldneedweightedmetric, notorthogonalentrythreshold. CPUactualweights first.
+
+### 2026-09-13T08:04:12.125475+00:00 — Codex: coordinateadapter passes; CLAIM nonorthogonal core metric control
+Net1.14/4.29/10.67%storagegain,FP32readout<=1.07e-6;correctionnorm21–41. Naivecoresparsitymayhideamplifiederror. Executepruning1/5/10%relativecoreFrobenius atallthreeprojections; verifyliftederror||E||²+||C.T E||²againstfullreconstruction andreportunderestimation. No useofnaivenormtofit/adopt.
+
+### 2026-09-13T08:06:46.620365+00:00 — Codex: CLAIM coordinate-adapter regional validation
+Previous turn progress: exactcoordinateadapter/weightedmetriccontrols. Freeze2/5/10%projectioncandidates, execute x_B-Cx_A anddensecoreon120cachedregionalports. Acoefficient/readoutreplay;Bown-modeledmixedtermeffecterror<=10%eachgroup;Cwholecompacteffect<=5%andnomaterialsignreversals. Explicitzero-mixedtermreferencewithsameRMS/softcaps. No datafit, freshOOD or originalwholeinteractionclaim.
+
+### 2026-09-13T08:08:00.365647+00:00 — Codex: own-effect fidelity fails; CLAIM concentration/paired comparison audit
+Allthreeprojectioncandidates failown-effect10%bar despitecompact<0.5%;strict2%group0=10.96%. Executefixedthreshold1e-5descriptiveslice,leaveonecuepairout,andmatchedearlierentry-onlyown-effectsifnative/zeroreferencesalign. Originalbarsunchanged; coordinateexecutionreplayalreadyrulesoutadapteralgebrabug.
+
+### 2026-09-13T08:12:15.090085+00:00 — Codex: CLAIM shared output-ray interaction dictionary
+Priorindex: tokenfunction/nativeinputdictionaries exist; this target is147456coordinateinputproducts with12-outputwritevectors. Eachproduct getsone signedcoefficient andoneofKsharedunitoutputdirections, producingfullranksparsebilinearatoms withsharedwriters. Exactassignment maximizesdot²; fixedassignmentwriter isleadingeigenvectorofclusterGram. CPUplanted/replay andnativeK32three-start20sweep feasibility, notconvergence/absenceclaim. Pricecoeff+uint8assignments+12Kdictionary, allinputproducts charged. No textfit.
+
+### 2026-09-13T08:13:55.972896+00:00 — Codex: raypilotunconverged; CLAIM broaderstartsandassignmentrefinement
+K32pilot60.2%errorafter20sweeps,3.24CPUsec,notabsenceevidence. Screen10fixedseedstarts20sweeps; strongest3refineupto300sweepsusingexactassignment/eigenupdates. Assignmentunchanged certifiesfixedpoint; iterationlimitremainsunconverged. No globaloptimumclaim. SameK32/price/objective; recordfullhistories.
+
+### 2026-09-13T08:16:36.629599+00:00 — Codex: rayrefinementunfinished; CLAIM shared output-subspace control
+Tenstarts/top3x300sweeps51.9CPUsec,60.03–60.07%error,last50squaredlossgain0.0035–0.0137%,assignmentsstill60–149changes. Preserveunfinishedstatus. ImplementKsharedorthonormaloutputsubspaces, eachinputproductstoresrcoefficientsandonegroupindex. Exactassignmentmaxprojectedenergy, conditionalupdateleadingrGramvectors. Plantedtwo-planecontrolplusoneactualweightalternationr2/4/8,K32; monotone/replay checks, no nativeoptimizationverdict.
+
+### 2026-09-13T08:20:24.574003+00:00 — Codex: CLAIM managed shared-output-subspace fit
+K32r8,147456productwritevectors12D,4878336nominalbytes versus4896936sparsebaseline. Ten20stepstarts,strongest3upto500furtherupdates or240fitsecondseach(global900seccap). Float32assignment/eigenupdates; finalFP64orthonormalizedpolish<=20steps/twoexactconditionalgain<=1e-8convergencechecks. Aobjective/orthogonality;B>=2stationarypromotions;C<=10%coefficienterroratbaselinebytes. Preserveallmisses/unfinishedstatuses; bestexplicitprogramstored. ManagedGPUonly, no datafit.
+
+### 2026-09-13T08:23:19.599005+00:00 — Codex: subspacefitterminalunfinished; CLAIM saved FP64 continuation
+Apasses,B/Cfail:12.5385%error,4,881,015bytes;3.29secexecution,all3conditionalgains~1e-7afterlimits. ContinuebestsavedbasisaloneFP64<=5000steps/180sec, same2consecutivegain<=1e-8bar; newreceiptpreservesoriginalB/Cmiss. No changedcapacity/objective/data. Savebestpolishedprogram separately.
+
+### 2026-09-13T08:25:18.083451+00:00 — Codex: FP64subspaceconverged; hourly0824 / CLAIM frozen regional validation
+Savedcandidate1027steps3.96sec,coordinatebarheld,error12.4752%misses10%;4,880,988bytes. OriginalmultistartB/Cmissretained. Reusecached120regionalexecutor, actualgroupfeaturesandcodes; Acoefficient/executorreplay, Bown-term<=10%eachgroup,Ccompact<=5%nomaterialsignflips. No datafit; currentstagebeatsstaticcoefficientrankingquestion.
+
+### 2026-09-13T08:27:03.766331+00:00 — Codex: sharedwrite native own-effect fails; CLAIM mean/contrast objective audit
+Frozenconvergedcandidateownerrors23.3/7.87/14.2/6.28/4.27%,compact<0.42%. Compareexactpairedoutputsum/differencecoefficientloss ofsharedsubspaceandmatchedsparseentry10% to locateobjectivebias. Reuseexisting12tokenpairs; no refit orchangedbehaviorbars.
+
+### 2026-09-13T08:35:25.669211+00:00 — Codex: CLAIM balanced output-metric control
+Three-hour review: transform paired sum/difference coefficient geometry to equal energy, reuse K32/r8 conditional subspace solver, absorb inverse metric into stored writers. CPU identity/replay and one exact update only; original failed fit and behavior bars remain. No text fitting or new GPU claim.
+
+### 2026-09-13T08:38:36.065517+00:00 — Codex: CLAIM balanced K32/r8 managed fit
+Previous goal turn progress: exact balanced-metric identity and decoder-folding control committed. Fit ten20-step starts including transformed prior and nine random seeds; top3 up to5000 FP64 updates/120seconds each, total420seconds. Same nominal bytes, paired weight-only geometry. A serialization/objective, B >=2 coordinate-stationary candidates, C original total coefficient error<=10% at<=4896936bytes. Native own-term validation follows, preserving prior failures.
+
+### 2026-09-13T08:40:07.832440+00:00 — Codex: balanced fit terminal; CLAIM paired failure concentration audit
+All3promotions coordinate-converged,7.48GPU sec. Total19.06%,sum18.89%,difference20.02%; original coefficient bar fails. Regional own19.57/3.25/9.99/8.29/3.31%,failsgroup0;compact<0.42%,no materialsignflips. CPU audit material-effect slice and leave-one-pair-out, compare frozen ordinary fit and sparse baseline if references align. No threshold repair or freshOOD claim.
+
+### 2026-09-13T08:42:07.449887+00:00 — Codex: CLAIM shared-writer plus sparse-private residual screen
+Previous turn progress: balanced fit convergence/native failure and concentration audit. New graph: fixed32groups from converged ordinary fit, exact conditional output PCA ranks1..7, plus largest native-coordinate residual entries at4896936nominal bytes (bitmap charged). Include rank0native-sparse control. A exact residual energy/readout identity; B besterror<=10%; C >=10%squared-error gain vs matched output/head sparse baseline. CPU screen only, no topology optimality/behavior claim.
+
+### 2026-09-13T08:42:58.511674+00:00 — Codex: sequential shared/private fails; CLAIM joint alternating countercheck
+Fixed-group ranks1..7allworse than native-entryrank0 atsamebudget, not joint fitting. Execute bestnonzerorank1 exact alternating PCAofX-S and globally top residual support, <=100sweeps/60CPU seconds, monotone1e-10. Preserve unfinishedstatus unless relative squared improvement<=1e-7 for two sweeps; one initialization notglobal. Compare initial/sparse14.42%native and10%rotated.
+
+### 2026-09-13T08:44:09.106490+00:00 — Codex: shared/private jointfit unfinished; extended objective check
+100updates15.74CPU seconds reaches14.326% vs19.069initial, relative gain1.45e-6 stillabove1e-7. Replay deterministic sameinitialization with1000steps/120seconds, separate LONGreceipt, same two-sweep objective criterion. Original unfinishedreceipt preserved. No changeofcapacity/supportbudget/behaviorbars.
+
+### 2026-09-13T08:46:10.809090+00:00 — Codex: CLAIM retained attention value-support audit
+Previous goal turn progress: joint shared/private fit plateau and negative matched-budget receipt. Existing sparse graph support already audited, no repeat. Inspect exact zero value differences in120cached native/child/remainder/additive ports and corresponding gate-weighted contraction counts; possible producer-constrained source skipping rather than arbitrary-port factorization. CPU no datafit; cache evidence cannot establish universal sparsity.
+
+### 2026-09-13T08:47:28.543380+00:00 — Codex: exact value-support dense; CLAIM noise-floor countercheck
+All2228sources active in each of three contractions; exactskip gain0%,replayexact. Check whether nonzero child/remainder value changes are merely floating noise: relative source norm changes against nativevalue norm, fixed1e-12/1e-8/1e-4 thresholds descriptive only. No conversion of approximate zeros into exact support claim.
+
+### 2026-09-13T08:50:18.459054+00:00 — Codex: CLAIM sparse folded-operator FineWeb transfer
+Previous goal turn progress: exactsource support rejection andnoiseaudit. Freeze packed sparse candidate;64existing FineWebprefixes notusedinweightfit, fullnativehead17.2 mixedterm ratherthanretainedregionaldelta. A exactformula<=1e-10 andCPUexecutor/densefit<=1e-5; B own selected sixpaired-margin effects<=10%in4groups; C nomaterialsignflips>=1e-5. Native RMS/softcap retained,64bodyforwards/120sec, weights unchanged. This is broader operator-port transfer, notfreshOOD/fullretainedcircuit validation.
+
+### 2026-09-13T08:51:41.569572+00:00 — Codex: sparse full-head FineWeb transfer fails; CLAIM material-effect audit
+Managed2.05sec/64forwards,exactformula2.93e-15,executor2.06e-7;ownerrors19.2–22.1%,18materialflips. Differenttext AND fullnativeheadport; do notcallpureOODfailure or retractretainedregionalresult. CPU peroutputpair error/signmagnitudes and fixedthreshold1e-4/1e-3 audit to assess rare/tiny selected-output effects.
+
+### 2026-09-13T08:53:16.020251+00:00 — Codex: CLAIM matched full-head regional transfer
+Previous turn progress: FineWeb full-head own-effect failure and material-effect audit. Exact same frozen operator, full nativehead ports, 12selectedoutputs andsixpairmargins;96historicalregionalprefixes,4groups24. Same10%own/1e-5signbars,96bodyforwards/120sec. Isolate whether failure also exists on regional fullhead ports; no newfit/freshOOD claim.
+
+### 2026-09-13T08:54:55.708268+00:00 — Codex: matched fullhead regional fails; output-scope countercheck completed
+96forwards2.15sec,formulareplay2.33e-15. Allpairgroup errors14.62/10.41/7.95/11.94%,18materialflips. Matchedfullheadaggregate regional10.24% vsFineWeb20.51%; designated regionalpairs13.69/11.53/6.22/14.37%. Onlyfirst24prefixes overlap retainedgroup0. CPUscopeaudit executed; broadheadreuse notadopted, priorretainedresult preserved. Next science should retain producer-constrained interaction scope ratherthanassume fullhead equivalence.
+
+### 2026-09-13T08:57:27.184478+00:00 — Codex: CLAIM diagonal response conic compression
+Previous turn progress: matched fullhead/text/output scope validation. Exact coefficient relation u0*u1=rho0*u1²+4beta*u1*u2+4gamma*u2² reduces SAME-amplitude self-product bank6to5. Independent-amplitude cross remains6generically; do notclaimreplacementofoldcrosskernel. CPUactualweights signedgrid/FP32/zero controls; diagonal branch contributions feed joint finite differences with native denominators retained.
+
+### 2026-09-13T08:58:29.617109+00:00 — Codex: conic identity passes; CLAIM five-writer preparation
+Exactdiagonal replay<=1.43e-16,FP32<=9.13e-8,signed1e-8..2;independentcrosscounterexample0.0486. Fold P01 into three hiddenproduct combinations beforeDown, fiveoutput contractionsinstead6. CPU actualweights directpreparation/replay/timing and unequal-normalizer finite-difference combination; no fulljoint/nativeadoptionclaim.
+
+### 2026-09-13T09:01:32.966771+00:00 — Codex: CLAIM complete MLP10 diagonal-bank branch
+Previous turn progress: exact5bank/hiddenDownfoldcontrols. Full z=y+r where r=generatedresidual, y=pristine+attention (includingroundingcorrection); B(z)=B(y)+K(y,r)+0.5K(r,r). Fivebank replacesonlylastterm; normalizercomputedfromactualz,biasretained. CPUactualweights replaybeforemanagednative160panel. Priceextra preparedreaders/bank, notautomaticwholebranchspeedup.
+
+### 2026-09-13T09:03:56.574181+00:00 — Codex: fivebank native panel passes; CLAIM sign/previous-program audit
+160prefixes11.27sec,allABCheld. Regionaltarget0.033–0.084%,FineWeb0.433–8.295%;nativecornersreplayexact,oldgeneratedmaxabs6.68e-6. CPU signedinteractionauditmaterial1e-5andalltinyflips vsoldgenerated; no fullmodelcompression/speedup claim.
+
+### 2026-09-13T09:06:27.945637+00:00 — Codex: CLAIM fivebank fullbranch cost
+Previous turn progress:native160panelpassesandtiny-signaudit. Matched FP64CPU directMLP vsfivebank, batches1/3/16/64samepreparedz/amplitudes, include bankpreparation and warmreuse separately,7interleaved repeats. Countsame L/R/Downmatmulsplusaddedwork/state; no assumptionbank16.7%savingmeanswholebranchgain.
+
+### 2026-09-13T09:10:37.830979+00:00 — Codex: CLAIM context-shared fixed-writer products
+Previous turn progress: fullfivebranchcostfails, same3densemaps retained. In sixbank v0=lambda*wglobal: cacheLv0,Rv0,P00 once (cheap), or compileJ10_v0=D[diag(Rv0)L+diag(Lv0)R] once (dense). ExactremainingP01/P02 viaJ;3privatequadratics. CPUactualweights compareoriginal/cached/J atbatches1/16/128, chargecompiletime/globalbytes andmeasuredamortization vscheapcachedbaseline. No globalmodelstorage orfullbranchspeedclaim.
+
+### 2026-09-13T09:11:41.371840+00:00 — Codex: fixedwriter exact, batchcostfails; CLAIM private-layout countercheck
+Aexact<=2.1e-15;cached1context1.36xbut16/128~0.76x,compileonly~1.04x. Privatebasis slice noncontiguous mayforcebatchedratherthanflattenedmatrixmultiplication. Executeidenticalbenchmarkwithcontiguousprivatecopy, chargecopytiming, separateCONTROL_PACKEDreceipt; originalfailurespreserved. No source/math/fit change.
+
+### 2026-09-13T09:14:53.098120+00:00 — Codex: CLAIM cached fivebank preparation
+Previous turn progress: exactcontextreuseandlayoutrepair. Cachefixedv0projections/P00 globally, prepareonlyfour contextdependentconicvectors beforeDown. Comparebestexistingdirectfivebank, actualweights/batches1/16/128, pervectorerror<=1e-10, reusedspeed>=1.1allbatches, setupchargedseparately. No wholebranchspeedclaim.
+
+### 2026-09-13T09:16:07.503616+00:00 — Codex: cachedfive speedpasses; CLAIM shared-node storage
+Cachedfive1.27–1.35x reusedprepvsoptimizedfive,pervector<=3.1e-15;setup4.86ms break-even~19batchedcontexts. ReplacecopiedP00withoneglobalnodeplus4varyingvectors/context, preserveexpandedwrapper. CPUindependentamplitudes replay anduniquestoragepointercheck; chargeall11520globalscalars, notjustP00.
+
+### 2026-09-13T09:19:35.221997+00:00 — Codex: CLAIM shared fixed self-product removal
+Previous turn progress: cachedfiveprep and literalsharednode storage. Zero Q0=P00 ineachchild/remainder/parent generatedbranch; removesdirectresidualwriter-square path a²P00/(2rho10), notwholewriter/head.160historicalprefixes/1280suffixes. Aexactlocalremoval<=1e-10 andnativecornersreplay0; B regionaltarget<=2%control<=5%; C FineWebtarget<=10%control<=15%. Comparejointbehaviorwithunprunedfiveprogram, materialitydescriptive; noprunedexecutioncostclaimyet.
+
+### 2026-09-13T09:22:06.189877+00:00 — Codex: fixed selfnode removal material; CLAIM port-conditioned extraction
+Aexact7.59e-16/nativecorners0;pruningB/Cfail. Changesjointtarget8.3–18.4%regional,18.5–33.4%FineWeb,also13–15%regionalcontrols;notselectivespellingunit. Export1152-vectorD10[(L10lambda*w)*(R10lambda*w)] andcheckpoint-freea²/rho executor with3consumer mixed identity; amplitude/nativewholebranchrho remainports. CPUcompareactualweights andstatepruningformula.
+
+### 2026-09-13T09:25:41.715648+00:00 — Codex: hourly0924 / CLAIM signed fixed-node contribution
+Review selects circuitinterpretation overmoreprep-timing. Compute removednode joint-effect signedprojection/cosine versusnativeinteraction, separatelytarget/controlandtextfamilies, beforecallingnode supportiveorselective. Oldminusprunedgeneratedeffects,exactmatchednativecorners. CPUdescriptive,no refit/thresholdchange. Phaseaccountingstillincomplete; markthisscienceboundarynow.
+
+### 2026-09-13T09:29:52.596037+00:00 — Codex: CLAIM fixed selfnode position-consumer composition
+Previous turn progress: materialnode/extraction/signedaudit/hourreview.160historicalprefixes, frozenexportedwriter; unpruned/all/finalposition/earlierpositions in eachcounterfactualbranch. Aoldunpruned/all endpoints replay<=1e-4; Bfinalonlypredictsall-removaljointtarget<=10%eachregionalgroup; Csumseparate-removalchangespredictsallchange<=10%regional/20%FineWeb,bothendpoints.2560suffixreadouts/240sec. Nativecontext/fields supplied,noOOD/fit. Compareactualjointinterventions, notassumeadditivity.
+
+### 2026-09-13T09:33:02.480369+00:00 — Codex: consumercomposition regionalpasses/FineWeb0fails; CLAIM scalar-ULP audit
+Nativeoldreplays0. Finalonlymiss35–42%regionaltarget; sumseparateremovals0.68–1.42%target/1.54–3.25%controls. FineWeb0composition64/53%,smallfullnodechange1.87e-5/5.11e-5. Calculateconservative12nonsharedendpoint half-ULProundingbound perrow; sharednativecornercancelsexactly. Testsfinalscalarquantizationonly, notallFP32bodyerror, no predicate repair.
+
+### 2026-09-13T09:37:02.386672+00:00 — Codex: CLAIM FineWeb0 dual-readout precision diagnostic
+Previous turn progress: positionconsumers/regionalcomposition, FineWeb0failure, finalscalarULPcountercheck.16prefixesrows96:112, sameFP32body/branchstates, computeFP32andFP64finalRMS/logits/logsoftmaxfromidenticalfinalstates. AentireFP32scorepanelreplayexact; BFP64composition<=20%bothendpoints; CbothFP64relativeerrors<=halfoldFP32.256suffixes/512readouts/120sec. OriginalnativeFP32failureunchanged; notFP64bodyornewmodeladoption.
+
+### 2026-09-13T09:39:57.876376+00:00 — Codex: readoutprecisionhelpsbutfails; CLAIM fourfold strength diagnostic
+SameFP32panelreplay0;FP64readouterrors33.36/39.10%vs64.32/52.80%. Increase ONLYnodeinterventionstrengthto4, same16prefixes/dualreadout. AunprunedFP32replayexact andFP64allnodechangenormgrowth2..6; Bcompositionresidualnormgrowth>=8bothendpoints(smoothnonlinear hypothesis); Cgrowth<=2both(numericalfloor hypothesis). Neither/both handledasdescriptivebounds, notuniversaltheorem; no restorationoforiginalfailedbars.256suffixes/120sec.
+
+### 2026-09-13T09:44:51.989024+00:00 — Codex: strength scaling supports numerical-floor hypothesis; CLAIM directional residual audit
+Fourfold node intervention grows effects4.09/4.02x, composition residual1.41/1.09x; original unit-strength failure preserved. Compare full residual vectors at strengths1/4 against fixed and quadratic scaling, rather than relying only on norms. CPU descriptive countercheck, no new success criterion or OOD claim.
+
+### 2026-09-13T09:46:54.958210+00:00 — Codex: CLAIM rational numerator compression of the five-bank interaction
+Previous turn: progress (strength/precision results and campaign update pushed). Prior search finds no five-bank minimality or amplitude-polynomial truncation receipt. Derive exact degree-four numerator after extracting a^2/rho(a)^2. CPU actual-weight synthetic contexts: verify identity; test numerical five-dimensional output span; compare degree truncation with best rank-matched SVD across declared dimensionless amplitude ranges. This tests approximate compression on producer-constrained interactions, not arbitrary input tensor rank or semantic identification. Native normalization/background retained; no text fitting.
+
+### 2026-09-13T09:49:56.289178+00:00 — Codex: CLAIM three-vector numerator native preservation
+Actual-weight Gaussian check exact degree-four identity2.1e-16; degree-two approximation max0.194% over fixed grids but this is not behavioral evidence. Direct three-output preparation avoids constructing five-bank. Native160prefixes/1280suffixes/180sec: Astate<=1e-5 and oldfivebank endpoints<=1e-4; Bregional original-interaction target<=2%,controls<=5%; Cendpointmax<=1e-4 andFineWebtarget<=10%,controls<=15%. Same historical panel/native context; no newdata fit. Original criteria retained.
+
+### 2026-09-13T09:51:47.978224+00:00 — Codex: three-term native passes; CLAIM matched full-branch CPU price
+All original bars pass160historicalprefixes,10.81sec; regional target0.051–0.081%,FineWeb0.381–7.799%,native replay0. Countercheck representation savings against actual full-branch timing (direct,exactfive,three; cold/warm), same inputs and unchanged dense weights. No whole-model adoption from smaller bank alone.
+
+### 2026-09-13T09:52:33.177816+00:00 — Codex: three-term smaller bank, no full-branch speed win; CLAIM incremental fidelity audit
+CPU price keeps3densemaps/input; cold faster than uncached fivebank but slower than direct, warm no>=10%gain. Synthetic full-branch errors0.87–1.36%, so native-panel success is not universal arbitrary-background preservation. Audit compression error against uncompressed generated interaction separately from original model, including material sign flips.
+
+### 2026-09-13T09:54:24.498777+00:00 — Codex: CLAIM joint attention10 output/MLP10 reader compression
+Previous turn progress: three-term conditional compression passes historical native bars; full-branch cost still fails. Weight-only joint reader object stacks O10, L10 O10, R10 O10 with equal Frobenius block weights. Exact eigensolve compares shared head-write input ranks256/512/768/1024, separately reports each block error and literal MAC/parameter price. Target is compression of attention changes consumed by residual and both MLP readers, not compression of background or fresh circuit identification. Check spectra before funding native approximation.
+
+### 2026-09-13T09:55:43.160387+00:00 — Codex: common-reader rank768 fails; CLAIM exact capacity countercheck
+Equal-block optimum error15.799%, individual15.37–16.61%; optimizing longer cannot repair this objective. Compute full cumulative spectra, minimum rank meeting10%allblock error, and independent per-block optimal rank thresholds. Tests capacity versus tying, preserves rank768 failure.
+
+### 2026-09-13T09:57:46.020084+00:00 — Codex: CLAIM folded fixed-writer/attention10 mixed operator
+Previous turn progress: common-reader spectral lower bound and capacity countercheck committed. Examine M=J_(lambda*w)^MLP10 O10, the exact mixed product between globally shared residual writer and attention head writes. Compare head-block Frobenius concentration before/after folding and exact SVD rank thresholds. A<=3heads capture>=90%energy; B<=128rank gives<=10%Frobenius error. These are weight-only structure screens for a specific interaction term, not whole-head/task removal evidence.
+
+### 2026-09-13T09:59:09.620243+00:00 — Codex: fixed mixed fold no strong rank/head sparsity; CLAIM exact executable price
+Folded operator rank642 at10% vsO871; top3heads46.88%vs47.37%, both strong predictions fail. Countercheck full-rank compiledM=JwO as standalone mixed-term executor against direct bilinear expansion and precompiledJw+O. Measure literal matrices, cold compilation, repeated CPU contractions. No full-branch gain or isolated semantic circuit claim; head-write producer and other residual modes remain external.
+
+### 2026-09-13T10:01:17.588605+00:00 — Codex: CLAIM fixed residual-attention mixed node native removal
+Previous turn progress: exact compiledM cost1.93–1.99xspeedup forisolatedterm, stronghead/rankpredsfail. Remove only -a*K(lambda*w,changed_attention)/rho10 in eachchangedbranch, keeping all other terms. Compile M=JwO once; obtain head-write changes with same rounded rotary/normalization generator. Acompilednode/directbilinear relative<=1e-10 and native replay0; Bregionalpreservation2%target/5%control; CFineWeb10%target/15%control.160historicalprefixes/1280suffixes/180sec. Tests safe pruning/materiality, not semantic labeling.
+
+### 2026-09-13T10:02:56.687536+00:00 — Codex: mixed removal material; CLAIM frozen rank128 replacement
+Exactnode/directerror8.37e-12,native replay0; removal failsregional2groups andFineWeb0. Fit M by exact weights-only rank128 SVD, no text fitting. Replace only exact mixed node with lowranknode. Aexactnode/direct<=1e-10 native replay0; Bregional original target<=2%,control<=5%; CFineWebtarget<=10%,control<=15%; Dall8groups bothendpoints replacement error<=10%of uncompressed node own removal effect. Same160historicalprefixes/1280suffixes/180sec. Dprevents hiding approximation in fullinteraction.
+
+### 2026-09-13T10:04:19.793208+00:00 — Codex: rank128 passes regional target but fails own controls/FineWeb; CLAIM scalar rounding bound
+Ownregionaltarget3.73–6.37%,controls27.11–45.44%; FineWebown23–109%. Fullregionalbars pass, FineWeb0target12.91%fails. Bound final scalar half-ULPs for6nonsharedcorners in candidate-minus-exact interaction; pristine scores cancel. Compare residual beyond bound to exact removal-effect norm. Also score rows withown effect>=1e-5. This doesnot bound internal FP32error; original predicates unchanged.
+
+### 2026-09-13T10:06:52.140735+00:00 — Codex: CLAIM shared plus head-private mixed matrix fit
+Previous turn progress: native mixed removal and rank128 replacement; own-controls/FineWeb failures survive final-rounding check. Novel object compared with prior output-group sparse residuals: M=JwO input split into9nativehead blocks128wide. Sharedrank128 plus private rank16/head costs479232scalars, exactly globalrank208. Exact conditional SVD updates,10starts x6cycles then top3 up to80cycles/420sec; stop3relative decreases<=1e-7. Amonotone numerical replay; Batleast2promotedobjectiveplateaus; C>=5%lower squared weight error than global208. No textfit; failure not absence of other structure. CPU planted check before managed GPU.
+
+### 2026-09-13T10:11:13.961794+00:00 — Codex: head-private fit live; CLAIM postfit cancellation and execution audit
+Previous turn progress: registered new structured fit and executor, jobPID3897528 confirmed live. Prepare CPU audit of final serialized factors: shared/private norm and cosine, independent one-cycle conditional improvement, factored-vs-dense execution and matched-rank208 CPU timing. No rerun or altered fitting budget. Use result only after terminal receipt.
+
+### 2026-09-13T10:13:27.514748+00:00 — Codex: CLAIM equal-head-budget countercheck after current fit
+At fixed final shared matrix, reallocate144private singular directions across9heads by globally selecting largest residual singularvalues; equal cost because eachhead128wide. This is exact conditional rank allocation and tests the arbitrary16/head assumption. Do not replace current frozenrun or report this as converged joint topology optimization.
+
+### 2026-09-13T10:17:42.571286+00:00 — Codex: head-private fit underperforms unconverged; CLAIM CPU continuation
+ManagedGPUterminal381sec,ApassB/Cfail: squaredloss.253271 vsrank208 .222835. No largecancellation; onecyclegain1.28e-5; fixedsharedrankallocationgain0.2334%. CPUexactcycle.27sec vsGPU~1.7secaverage. Extend only bestserialized private state, sameobjective/fixed16perhead, up to800cycles/240sec; stop3relativegains<=1e-7. Amonotone/replay; Bplateau; C>=5%squaredgainvsoriginalglobal208. Originalfailedpredicates unchanged; no randomrestart/globalguarantee.
+
+### 2026-09-13T10:21:38.722836+00:00 — Codex: head-private best reachesplateau; CLAIM fresh-template three-term compression
+CPUextension112sec reached3gains<=1e-7, final .253041666vsrank208 .222835; originalmulti-startB/Cremainfailed. Move to fresh48regionalprompts (4newtemplates x6concepts x2cues), live assembled child/parent fields from native states, no cachedfresh amplitudes. Prepare disjoint row inventory and preregister exactvscompressedvsnative comparison beforeGPU. This closes a known transfer gap in stronger three-term result rather than another head-private fit.
+
+### 2026-09-13T10:25:43.965692+00:00 — Codex: hourly1025
+Compression/own-effect/fresh transfer remain focus; head-private equal-cost fit closed belowbaseline afterbestplateau. Fresh48template managedtest current. CIRCUIT_FOCUS PASS, NOVELTY PASS, CEREMONY FAIL TO VERIFY incompletephaseboundaries; explicit currentvalidation/analysis/publicationmarkers required, no backfill/framework. Next hourly11:25/math11:29.
+
+### 2026-09-13T10:28:15.028288+00:00 — Codex: fresh three-term passes; CLAIM own-self-effect countercheck
+Fresh48templates allA/B/C/Dpass5.18sec; anchorchild/h9exact,parent<=4.9e-17. Targetoriginal0.092–0.191%,controls0.417–0.758%. Remove fullresidualself quadraticterm .5K(r,r)/rho10 from eachchangedbranch and comparefrozencompressed-minus-exact error to exactself removal effect. Aanchorandoldnative/exactscoresreplay0; Bselfremovalchangesoriginaltarget>=10%eachfamily (materialityhypothesis); Cfrozen3termownerror<=10%bothendpoints/allfamilies; Dnativecapabilityunchangedpositive. Samefreshpanel nowvalidationreuse,52prefixes576suffixes180sec,nofit.
+
+### 2026-09-13T10:29:33.463217+00:00 — Codex: freshself materiality/preservation passes; CLAIM paired sensitivity audit
+AllA/B/C/Dpass5.19sec, oldreferencesreplay0. Selfremoval10.26–15.81%targetinteractionnorm; compressionownerrors0.413–1.050%target,1.094–2.968%controls. Compute leave-one-lexical-pair-out ratios and material own-effect sign preservation to rule out one dominant concept hiding a weak component fit. Descriptive stability check, not corpus confidence guarantee.
+
+### 2026-09-13T10:32:37.496463+00:00 — Codex: CLAIM reusable three-term signed strength grid
+Previous turn progress: fresh48template native/own-self fidelity and paired sensitivity allpass. Existing old grid was twohistoricalrows/localcross; newtest fulloriginalinteraction with current3term/livefields. Reuse eachpreparedcontext and16joint branchoutputs permodelvariant over strengths{-1,0,1,2}².48existingfreshpanelrows,2304suffixes,240sec. Aanchors/nativeprefix andunit-strength reference replay<=1e-6, zerocornerscancel exactly bysharedstate lookup; Beachfamily/nonzero strengthpair fullnative target<=2%,control<=5%; Cincremental3vs5target<=1%,control<=2.5%; Dnomaterialtarget/controlsignflips>=1e-5. Signedaddition/overremoval are intervention-domain tests, not new text OOD.
+
+### 2026-09-13T10:34:42.370306+00:00 — Codex: signed grid passes; CLAIM quadratic-scaling control
+AllA/B/C/Dpass14.31sec,unit reference replay0; targetmax0.191%,controlmax1.413%. Compare native I(alpha,beta) with alpha*beta*I(1,1), using only existing recorded outcomes. This is an empirical oracle baseline with nativeunit interaction supplied, not weights-only extraction. Tests whether extra strength variations discriminate rationalprogram from local bilinear scaling; no new fit or altered criteria.
+
+### 2026-09-13T10:38:24.344641+00:00 — Codex: CLAIM upstream MLP9 response-map compression
+Previous turn progress: signedstrength3term prediction passes and unitquadratic-scaling controlfails. Priorresponse notes contain no J9w matrix rank fit. Compare unconstrainedSVD to preserving exact Jw along intervention writer, compressing only J(I-wwT/||w||²). Exact constraint keeps quadraticresponsecoefficient and inputparallel-w response. CPU actualprogram spectrum, matchedtotalrank, independent directmatrix reconstruction check. Nominal useful threshold:10%error with less than halfdense storage, no nativefaithfulness inference.
+
+### 2026-09-13T10:40:36.156387+00:00 — Codex: J9 weight-rank screen weak; CLAIM actual-input response check
+Rank256constrainedweight error52.62%,rank12870.12%; preservingexactJw costsonefactor andachieves~1e-15writererror. Weight-only factors frozen fromJ9; native48templatecontexts, child/remainder/parent at strengths{-1,1,2}. Measure response error relative to exact fixed-writer response and z9, not fullbackgroundonly. Aexactwriter<=1e-10 and erroridentity<=1e-10; Batleastone rank<=256 <=1%aggregate ownresponseerror for everybranch/strength; Cselectedrank maxpercontext<=5%. No suffix/semanticclaim.52prefixequivalentbudget120sec, no datafit.
+
+### 2026-09-13T10:42:39.867181+00:00 — Codex: upstream lowrank actual-input fails; CLAIM protected sparse alternative
+Native48context localresponseerror23–24%at rank256, allpreservationfails; no suffixrun. At same589824FP32-equivalentscalar budget, sparseS plus rank1correction d*vT preservesJv. Bitmap charged41472equivalents, rank1cost2304,546048nonzeros. SupportfixedbylargestentriesofJ(I-vvT); exactrowwise leastsquares onthat support via rank1Gram inverse. Compareto rawthresholdsameprotectedmode andlowrankbudget; do notclaimoptimal support or nativefidelity.
+
+### 2026-09-13T10:43:34.726147+00:00 — Codex: protected sparse improves weight error; CLAIM same-input validation
+At rank256matchedbytebudget sparseprotected map error34.516%vs52.622%constrainedlowrank. SupportedLSgradient9e-17,writeraction6e-16. Same48livecontext/nine signedresponses screen, Aidentity<=1e-10, Baggregate<=1%everybranchstrength, Cmaxcontext<=5%. Materializedmapforfidelityscreen, no sparseexecutor/storageadoptionclaim.48prefixes432responses120sec,no textfit.
+
+### 2026-09-13T10:45:10.284871+00:00 — Codex: sparse live error worse despite weight gain; CLAIM matched residual alignment audit
+Sparse ownresponseerror41.4–43.0% vsrank25623.0–24.2%; bothfail. Match432row/branch/strength reference norms exactly before comparing aggregate residuals. Relate actualerrorratio to Frobeniuserrorratio; diagnoses input-direction relevance, not semantic selectivity or a new datafit. Keep exact upstreammap.
+
+### 2026-09-13T10:48:42.968076+00:00 — Codex: CLAIM two-writer rational product basis
+Previous turn progress: upstreamlowrank/sparse approximations rejected byliveownresponse errors; exactmapretained. Newalgebra for twoindependentfixedwriters:7responsevectors lead28symmetricproducts; exploit commonquadraticRMSdenominator tospan by19scalarfunctions (3degree2 withoutdenominator,4degree3/rho,12degree2..4/rho²). CPU exactpolynomialrank and actualMLP9/10-weight checks on signedtwo-writer strengths. Tests cross-direction generalization of algebra, not nativebehavior or semanticunitclaim.
+
+### 2026-09-13T10:52:37.342501+00:00 — Codex: two-writer19-bank identity holds; CLAIM independent-cross domain check
+Actualweights4contexts16signedstrengthpairs: response1.27e-14, selfproduct1.30e-13; exactrationalpolynomialrank19. Twohead9writers cosine.899, independentbutnotdistinctsemanticcircuitsclaimed. Check scalarfunctiondesign for independentlychosen left/right strengths; expectfull28dimensional symmetriccross space, preserving distinction from19selfbasis.
+
+### 2026-09-13T10:55:45.239216+00:00 — Codex: CORRECTION two-writer provenance; CLAIM direct19compiler
+Previous turn progress exact19scalarbasis/domaincheck, butwriters[0]/[1]arehead8.2/head9.8 perpackageREADME, nottwohead9writers. Algebra testtransplantedbothdirectionsatMLP9input; not originalpathscomposition. Preserve originalreceiptwithcorrectioninprimarynote. Implement direct polynomial19hidden-coefficient compiler eliminating percontextleast-squares transform, compare againstold28 and19transform actualweights. Nativepath test deferred until proper transported intervention specified, not relabeled asvalid.
+
+### 2026-09-13T10:57:10.128832+00:00 — Codex: CLAIM direct19-bank preparation price
+Compareoptimized28bank (project7vectorsonce,28hiddenproducts/sharedDown) vsdirect19compiler, no repeated-projection strawbaseline. ActualMLP10maps, syntheticbanks atbatch1/8, seven interleaved trials. Require>=1.1xspeedbothbatches forlocalpreparationclaim. Upstreambasisconstruction/attention/suffix excluded, no originaltwo-pathbehaviorclaim.
+
+### 2026-09-13T11:03:59.774189+00:00 — Codex: CLAIM two-writer precision and near-collinearity screen
+Previous turn progress: direct compiler and measured bank price committed; original writer-path provenance corrected. Compare FP32 nineteen-bank evaluation against direct response-product evaluation and FP64 reference at writer cosines .9, .999999, 1, signed strengths including cancellation. Preregister relative error <=1e-3 where reference norm is >=1e-6 of constituent scale; otherwise report absolute error normalized to constituent scale. This tests usable representation precision, not native behavior.
+
+### 2026-09-13T11:04:33.420728+00:00 — Codex: precision failure; CLAIM orthogonal writer-coordinate countercheck
+FP32 bank fails near-identical opposing writers (relative errors1.29–4.28), direct response product remains1.0e-4–1.8e-4. Recompute bank on orthogonal writer directions, transform amplitudes exactly; same input edit, no behavioral fit. Require <=1e-3 on original material cases. Preserve original failure.
+
+### 2026-09-13T11:06:09.949948+00:00 — Codex: CLAIM reusable writer-span coordinates
+Previous turn progress: cancellation diagnosed and orthogonal-coordinate repair verified. Implement FP64 thin-SVD writer span with explicit numerical rank threshold, amplitude map and reconstruction residual. Test stored head8.2/head9.8 directions, nearly redundant/identical pairs and rescaled coordinates. Preserve near-collinear rank2; exact duplicates numerical rank1. Require edit reconstruction <=1e-12 and computed residual bound valid with rounding allowance. Use compiler countercheck on generic SVD basis, not hand-specified orthogonal directions.
+
+### 2026-09-13T11:08:04.689407+00:00 — Codex: CLAIM original-path transported-span screen
+Previous turn progress writer-coordinate utility verified/pushed. Prior dossier/code has exact MLP8 transport and directional routing study, so reuse SELECTIVE_INTERACTION_PORTS cache. Test whether original w8/w9 span captures >=90% of native changed raw9 norm in each of three cue families. Countercheck project read effect through head9 current-value and complete QK linear maps; a full-state miss alone cannot reject reader-specific folding. Weight-defined span only, no data fitting; cache is validation, not fresh evidence.
+
+### 2026-09-13T11:09:09.417233+00:00 — Codex: original-span miss; CLAIM full head9 routing countercheck
+Original raw span misses45–54%, QK reads21–30%. Before rejecting shortcut, evaluate complete regional_even_routing plus value response against same native cache, baseline<=1e-5, full scalar/routing changes<=10% each family. No fresh claim and no rejection of three-vector transported bank.
+
+### 2026-09-13T11:11:10.984961+00:00 — Codex: CLAIM transported rational-bank term screen
+Previous original-span shortcut failed. Prior normalization-port omission exists, but does not test p=Jw z−2beta m0 and q=Jw w−2gamma m0 rational grouping. Screen omission of each of three transported response directions with complete head9 routing/scalar, 72cachedprompts. Full generator <=1e-4 state/scalar reference; candidate<=10% routing/scalar each family. No activation fit. Local node pruning only, full dense J/context costs remain.
+
+### 2026-09-13T11:11:45.612211+00:00 — Codex: transported q omission passes; CLAIM signed-strength countercheck
+Native cached unit edit q omission scalar1.39–2.74%, routing3.45–5.39%; othertermomissionsfail. Test q omission at multipliers -2,-1,.5,1,2 against exact finite-response generator with same pristine background. Require10% scalar/routing allfamilies/strengths. Beyond unit strength reference is analytic conditional generator, not new native execution.
+
+### 2026-09-13T11:13:41.875915+00:00 — Codex: CLAIM shared64-key read compiler
+Previous transportedq omission fails signedreuse, keepfullresponse. Existing contractedQKresponse materializes769readers:512fullQK+256insideQK+1value. Bothinside readers factor throughsame64basis, so577readers+two128x64adapters suffice. Compile this exactsharedgraph for existing foldedresponse executor; compare oldfeatures/scalars actualweights+cache. A<=1e-10 feature equivalence and scalar<=1e-10 againstoldFP64; B total storedtensor scalars decrease includingadapters. Price independently; no general nativebaseline improvement claim.
+
+### 2026-09-13T11:14:19.268365+00:00 — Codex: shared key reads exact/storage pass; CLAIM matched executor price
+Featureerror1.03e-15/scalar5.32e-15; compiledtensor count1088643->871363 (19.96%). Benchmark old/new foldedfeatures+scalar inclcompactexpansion atfinalcachedprefix, seveninterleaved trials20repetitions. Require1.1xspeed forlocalexecution claim. No complete nativeprogram pricing or memory claim.
+
+### 2026-09-13T11:16:38.341520+00:00 — Codex: CLAIM weight-only shared-key consumer compression
+Previous exactreadsharing saves19.96% compiledtensor count. Fit stacked256x64 keyconsumer map by exact SVD at ranks16,32,48; shared basis orthogonality checked. Freeze weights before72cachedresponse validation. A same folded map <=10% Frobenius error; B paired scalar response<=10% eachfamily; C >=2% totalscalar savings vs exactshared64program. Report component scalar changes, not absolute outputs only. Conditional rank64transport baseline unchanged.
+
+### 2026-09-13T11:17:25.549485+00:00 — Codex: consumer rank screen fails; CLAIM balanced-consumer countercheck
+JointSVD ranks16/32/48 missweight/responsebars, rank48response20–23% for2.7%storage. Check whetheroneQKconsumernorm dominates: normalizeeach128x64consumer byFrobeniusnorm before exactSVD, retain actual amplitudes in adapters, same rank/budget. Same10%response bar. Null is limited to common linear reader subspace and these objectives, not absent nonlinear/product structure.
+
+### 2026-09-13T11:19:43.112075+00:00 — Codex: CLAIM joint key-product objective
+Previous commonlinear-mapSVD andbalanced objectives fail. Derive symmetric key-input tensor T_ijab=(A1_ia A2_jb+A1_ib A2_ja)/2. Frobenius norm squared=.5(trG1trG2+trG1G2); projection P bothkeyslots captures .5(trPG1trPG2+trPG1PG2). Check dense toy norm/projection and analyticgradient finite differences before fitting. This targets inside-inside product only, not complete even-key routing (outside/cross remain), hence limited screen.
+
+### 2026-09-13T11:20:14.577264+00:00 — Codex: product objective verified; CLAIM ten-start rank48fit
+Dense toy coefficient/projection identities exact, gradient8.7e-13normalizederror. Fit actual twoinside-keyconsumer product atsame rank48 using spectral,4perturbedspectral,5random starts; monotone QR gradient up to3000steps each, normalizedstationarity<=1e-7. Require1%relative reduction of squared product residual vsspectral for meaningfulfitgain; report allconvergenceflags, no global guarantee.
+
+### 2026-09-13T11:20:54.764005+00:00 — Codex: productfit weak gain; CLAIM frozen best response check
+Tenstarts11.08sec, monotoneall, oneconverged(best), ninehit3000steps. Productresidual improvement0.01098% misses1%bar. Freeze bestconvergedrank48 for same72pairedresponse screen; require10%eachfamily. Distinguishes small coefficientgain from behavior benefit.
+
+### 2026-09-13T11:22:53.208690+00:00 — Codex: CLAIM shared-query position-folded product objective
+Previous independent-queryproduct fit weakgain/behaviorfail. Fold M_i=Q_i^T R_query^T R_key K_i B, respecting BF16roundedrotations. Bothqueryslots sharex, keyslots sharet. Double sym tensor norm F(P)=1/4[trPG1trPG2+trPG1PG2+trPC^T PC+(trPC)^2], C=M1^TM2. Validate explicittoy andgradient first. This still excludesdenominators/outsidepaths, remainscoefficientobjective not semantics.
+
+### 2026-09-13T11:23:27.196554+00:00 — Codex: double-sym identity holds; CLAIM folded-query rank48 multistart
+Toyexact andgradient1.45e-12. Fit sumofcoefficienterrors at query/key positions(1,0),(4,0),(16,0),(63,0), equalrawtensorweight (not eachpositionnormalized). Tenstarts spectral/4perturbed/5random,3000steps,stationarity1e-7; target>=1%residualimprovement versusoriginalkeySVD. Preserve allconvergenceflags; nativebehavior followsonlyfrozenbest.
+
+### 2026-09-13T11:24:14.928387+00:00 — Codex: queryfoldedfit improves; CLAIM frozen response validation
+All10startsconverged26.4sec, capture.812837->.837964 (13.425% residualimprovement). Freeze best48basis and test same72pairedresponses againstuncompressedshared64program; 10% eachfamily bar. Not fresh/native suffix; querynorm/outsidepaths absentfromfit remainpotential mismatch.
+
+### 2026-09-13T11:25:54.774934+00:00 — Codex: CLAIM signed queryfold response preservation
+Previous turn progress all10queryfoldfits converged, rank48pairedscalar7.17–7.56% at2.7%extra savings. Freeze candidate and compare same baseline at multipliers -2,-1,.5,1,2 using72cachedpristinecontexts. Require10% eachfamily/strength. Conditional analytic baseline, not freshnative execution; no refit. Hourlyreview due being completed atsafe boundary.
+
+### 2026-09-13T11:27:47.705371+00:00 — Codex: hourly11:25 and signed-queryfold verdict
+Review HOURLY_STRATEGIC_REVIEW_2026-09-13_1125.md committed. Positive .5/1/2 strengths pass, negative-1/-2 fail15.37/10.45%; worstnorm.326,error.050 is not negligible rounding. Keep exactshared64reference. Nextmathreview11:29 should examine outside/cross terms andnormalizers; no more cosmeticrankfits. Phaseaudit70.38%coverage cannot verifyceremonybudget; prospective scientificexecution labels repaired, no backfill.
+
+### 2026-09-13T11:29:09.255672+00:00 — Codex: CLAIM exact even-key error attribution
+Frozen48compression only changes inside-key numerators; fullQK/value/rho remainexact same betweenreference/candidate. gamma=f1f2−f1i2−i1f2+2i1i2. Decompose paired response error into mixedfull/inside and insideinside contributions at strengths±1 on72cachedcontexts; verify additiveidentity<=1e-10 normalized. Tests whetherinside-onlyobjective omitted material error paths; no newfit.
+
+### 2026-09-13T11:30:22.914338+00:00 — Codex: CLAIM discarded-pair cancellation identity
+Exacterrorattribution passes1.46e-15; mixed andinsideerrorcos−.995to−.999, identicaldenominators. For inside=iP+iD andoutside=o, preservingfullkeymeansapproxoutside=o+iD. Approx-original evenproduct residual=(o1−iP1)iD2+iD1(o2−iP2); iD1iD2 cancels. Execute independent scalar/matrix probe before writingmathreview.
+
+### 2026-09-13T11:31:56.646987+00:00 — Codex: mathematical11:29 review complete
+THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-13_1129.md citesprimaryliterature, mapslimits, derivescompleteevenreplacementerror. Executed discarded-pair cancellation1.95e-16 andnativecached errorattribution1.46e-15. Missingcross terms cancelinsideerror strongly; denominatorsunchanged. Nextfit musttargetcompletereplacementerror atmatchedbudget, not anotherinside-onlyobjective. Nextmath14:29, hourly12:25.
+
+### 2026-09-13T11:33:43.885320+00:00 — Codex: CLAIM complete-error Gram contraction
+Derive orthogonal retained/discarded/outside keyblock errornorm: outside contribution linear inD=I-P; retained-discarded contribution quadratic inP,D. Precompute queryfolded G1,G2,C plusoutsideH, all64x64. Check against explicitly doublesymmetrized complete replacementtensor, including randomrank/swap/edgeprojectors andgradient. No fitting until thisoracleholds.
+
+### 2026-09-13T11:34:25.212601+00:00 — Codex: completeerrororacle holds; CLAIM actual-weight Gram build/price
+Explicittensorerrors<=4.3e-16,gradient<=5.3e-12. Build complete64Gramobjects forpositions1/4/16/63, compareoriginalSVD andqueryfoldrank48 undernewobjective, pricevalue+gradient before multistart. Retain frozenGramartifact forfit, no tensor materialization.
+
+### 2026-09-13T11:36:20.909554+00:00 — Codex: CLAIM complete-even rank48 multistart
+Previous progress completeobjective verified andactualGramspriced1.85ms/eval. Tenstarts:originalSVD,priorqueryfold,outsideeigen,2perturbedprior,5random; monotone QRgradientdescent max3000steps, tangentresidual1e-7 normalizedtooriginalSVDloss. A monotone, B allconverged, C>=1%residualreduction vspriorqueryfold (strongerbaseline). Freezebestbefore signed72context response check at10%eachfamily/strength. Weight-only fit; no data objective.
+
+### 2026-09-13T11:38:34.180364+00:00 — Codex: completefit weakgain signedfail; CLAIM outside-block lowerbound
+All10startsconverged79.3sec, .1545%residualgain vsprior misses1%bar; signederrors10.97/15.55% at-2/-1. Completeerror=trDH+nonnegative retained-discarded block. Sum16smallesteigenvalues ofsumH isglobalrank48lowerbound. Comparebestloss to bound; constrains optimizerheadroom without claimingglobaloptimality.
+
+### 2026-09-13T11:40:55.659139+00:00 — Codex: CLAIM normalization-only random-input diagnostic
+Previous completecoefficientfit convergedbut signedreusefails. Comparefixed originalSVD/queryfold/complete48projectors oncompleteeven scores, raw vsnativeQKnormalized, 8192independentGaussianquery/keypairs reused at4positions. No text/datafit. Register normalizationmaterial if relativeerror changes>=10% versusraw for anycandidate; reportblockspread andrankings. Gaussian functionnorm differs fromcoefficientFrobenius already, so compare rawfunctional control before attributing anychange tonormalizers.
+
+### 2026-09-13T11:41:34.499393+00:00 — Codex: randomnormalization effectsmall; CLAIM paired block uncertainty
+8192Gaussianpairs at4positions: normalization raisesrelativeerrors3.23–3.51%, misses10%materialbar andkeepsranking. Bootstrap32independentdrawblocks, retainingwithinblockpositions/candidates coupling,2048resamples, report95%intervals. Doesnotruleoutnativeanisotropicinput effects.
+
+### 2026-09-13T11:43:37.387350+00:00 — Codex: CLAIM setting2 node-sparse Tucker feasibility
+Previous keycompression objective investigations complete, no signedadoption. Revisitedhead17retainedmixedtensor dossiers: irregularsparseedges noinputnodepruning; sharedoutput/privatefitslose. Check Tucker residual/head subspace ranks forT[12,1152,128] withdensecore, adapterscharged at4896936bytebudget. Exactunfoldingspectra lowerbounderror=max(residualtail,headtail); enumerateallfeasible(r,h). Ifbestlowerbound>10%, thisrepresentationcannotmatchbaselinebudget/error regardlessoptimizer. Otherwisefitbestfeasible later. No behavior absenceclaim.
+
+### 2026-09-13T11:44:37.451554+00:00 — Codex: two-modeTucker impossibleatbudget; CLAIM outputmode countercheck
+Bestnecessaryerror29.93% at(r,h)=(509,102), none10%. Strongestrestriction is keeping12outputs. Addoutputranko and12o adaptercost; exhaustive allthree-mode ranks withmaxmode-tail bound. This can overturnbroadTuckerrejection; currentclaimonlytwo-mode densecore.
+
+### 2026-09-13T11:48:08.474978+00:00 — Codex: CLAIM adaptive mixed dense/factored output blocks
+Priorrank32LL1fit exists andnotrepeated. Fixedoutputframes native/spectral/priorlearned/pair±, globalrankallocation by exactknapsack under4896936bytes including12²outputadapter. Eachblock may choose rank0..115 factors cost1280r orfull dense128 cost147456 (cheaperthanfullfactors). Singularenergy yields exact perblock loss. Pred<=10%totalcoefficienterror; scorecontrast errors separately. No newnonlinearframefit/behaviorclaim.
+
+### 2026-09-13T11:49:11.188210+00:00 — Codex: adaptiveblocks fail; CLAIM balanced common/difference allocation
+Bestfrozen spectral21.94%total/57.02%contrast, pairframe23.14/60.18%; energyreplayexact. Change pairframeobjective toequalrelative squared common/difference error, same exactknapsack/budget. Testsdominantcommonsuppression explanation, no datafit or posthocclaim oldpredpassed.
+
+### 2026-09-13T11:51:29.469992+00:00 — Codex: CLAIM charged sparse Tucker core
+PriorfullHOSVD losesadapterprice; newtesttruncates residual/headframes atnecessaryrankrange r869/900/960/1000/1024,h125/128, output12. Rankdiscard+largestentrycorepruningerrors addorthogonally, alladapters+bitmap+FP32valuescharged4896936bytes. Countercheck cheapfixedDCT residualframe with nolearneddenseadapter, output/headHOSVD asbefore. Pred<=10% coefficienterror. Fixedframes not learnedoptimizedsparsity.
+
+### 2026-09-13T11:55:27.936925+00:00 — Codex: CLAIM existingGivenscandidate retained-effect validation
+PriorsearchfoundGivensalreadydone06:31; notnewsearch. Deterministically reconstruct publishedwinner seed61332 round10 (1122633entries,2333rotations,4805824bytes), verifyreceiptcounts. Freeze thenevaluate120cachedretainedmixedports withnativeRMS/softcap andownmixedtermremovaleffect reference; compareexistingunrotated10%sparsebaseline. Require<=10%own-effecterror all5groups andnomaterialsignflips. No fresh/OOD/wholehead claim.
+
+### 2026-09-13T11:56:10.668960+00:00 — Codex: Givensretained miss; CLAIM equalbudget countercheck
+Reconstructedoldwinner counts exact, own-effect10.93% group0 fails10%, nomaterialflips. Candidatecost4805824 vsbaseline4896936. Keeprotationsequence fixed, spend912? correction91112bytes on22778additional largestcoefficients, compareat4896936budget. No rotationrefit or taskbasedselection, same10%allgroups criterion.
+
+### 2026-09-13T11:57:55.955806+00:00 — Codex: CLAIM learnedframe coefficienterror partition
+PreviousmatchedGivens lowers totalcoefferror9.42%butfailsgroup0effect11.62%. Partitionerror into orthonormal pair-sum/difference sectors andsixindividualdifferences, comparingfrozenbaseline/matchedGivens. Hypothesis: worseningcontrastcoefferror explainsbehaviorgap; opposingprediction bettercontrastmeans directional/port weighting stillmissing. No taskfit.
+
+### 2026-09-13T11:58:58.336638+00:00 — Codex: contrastweight hypothesisfails; CLAIM numerator/normalizer scope check
+MatchedGivens improvesall6contrastcoefferrors (aggregate21.46->20.17%) yet group0behaviorworse. Evaluatefrozen coefficienterror on samephysicalports beforeRMS andbefore softcap withRMS, designatedpair/group. If worsensalreadyraw, rejectsoftcap-only explanation; no datafit.
+
+### 2026-09-13T12:02:00.868282+00:00 — Codex: CLAIM shared-key/value Gaussian pullback
+PriorVfoldalreadyexists; notduplicate. For fixedquery keyreadersa,b andsource y~N(0,I), valueFy, integrate H=E[(aTy)^2(bTy)^2 FyyTF^T]. Exactsourcecov cI+2||b||²aaT+2||a||²bbT+4(aTb)(abT+baT), c=||a||²||b||²+2(aTb)^2. Validate Gauss-Hermite degree6toy exactly beforeactualweights. Keynormalizers/valueRMS excluded frompolynomialobject, not native/OODdata metric.
+
+### 2026-09-13T12:08:57.127444+00:00 — Codex: CLAIM complementary tail executor
+Previous turn progress: shared-key/value moment checked, weak broad-Gaussian spectrum gain. For existing degree-two numerator approximation, evaluate native MLP10 minus exact degree3/4 tail instead of rebuilding background/mixed terms. Same approximation in real arithmetic; expect <1e-10 FP64 agreement, smaller prepared state, benchmark >=1.1x old warm executor at all batches 1/3/16/64. Native dense maps remain charged; no full-model compression claim. Search found no existing tail executor.
+
+### 2026-09-13T12:12:36.426804+00:00 — Codex: CLAIM shared complementary tail
+Prior fixed-writer cache already exists; reuse it. Exact omitted numerator E=a^5/(2 rho^2)[-gamma P02+(a gamma^2-4 gamma beta)P00], P02=K(v0,v2), P00=K(v0,v0). Linear response vector v1 not needed. Compare to previous two-tail executor: FP64 <=1e-10, per-tail error <=1e-10, preparation speed >=1.1x at context batches1/16/64, setup charged separately. Test wrong-writer rejection; no native/OOD claim.
+
+### 2026-09-13T12:13:47.791285+00:00 — Codex: shared tail CPU held; CLAIM managed native replay
+Shared preparation 1.54/2.27/2.76x previous two-tail at context batches1/16/64; global11520 plus1152/context vs2305/context, break-even10contexts. Exact tail and full output replay <4e-15; wrong writer rejected. Run shared-tail replacement on existing48template panel with existing live-prefix/native/suffix scorer, same oldbars plus prior score replay <=1e-5. This is implementation replay, not newfresh/OOD evidence. Globalcache shared across all contexts; 52prefix/576suffix/180s budget, binding/dryrun held.
+
+### 2026-09-13T12:15:18.287403+00:00 — Codex: native shared-tail replay held; CLAIM relative interaction countercheck
+All five native predicates passed in5.09s; largest prior score delta3.81e-6. Inspect effect differences by family and material sign flips against old three-term program so absolute score replay cannot hide small interaction corruption. Same panel; no new data fitting.
+
+### 2026-09-13T12:17:37.178205+00:00 — Codex: CLAIM output spectrum of composed private correction
+Prior turn progress shared-tail native replay held. Private P02=K10(v0,lambda J9w)-2gamma lambda J10 m0. New weight-only target J10 B9(z), retain RMS/exact constant externally. Form exact symmetrized quadratic output Gram using hidden Gram Hkl=0.5[(Lk.Ll)(Rk.Rl)+(Lk.Rl)(Rk.Ll)]; compare output-rank spectra of B9, J10, and J10 B9. Pred rank64 relative coefficienterror <=10% forcomposition; no sampled covariance or arbitrary hidden-independent fit. Prior fixed-writer dense compilation exists; not claiming that identity new.
+
+### 2026-09-13T12:20:35.380678+00:00 — Codex: CLAIM composed quadratic product dictionary
+Prior INTERACTION_PRODUCT_NODES tests K(Jz,y) with fixed native output vectors and scalar coefficients; new target J10 B9(z), arbitrary refitted output vectors per retained MLP9 product. Select by norm contribution, solve all output weights exactly via symmetrized hidden Gram. Supports1024/2048/3072/4096, compare upstream vs composed rankings at samecost. Pred <=10% coefficienterror with >=10% local stored-scalar savings. No claimed global support optimum. Full4608 recovery and normal equations are controls.
+
+### 2026-09-13T12:24:07.669097+00:00 — Codex: CLAIM free-reader symmetric-product variable projection
+Use exact symmetrized cross-Grams; solve output writers by Cholesky at each reader setting. Differentiate envelope with solved writers detached and unit reader rows to avoid scale gauge. Small explicit-tensor/finite-difference/planted-full-span controls precede actual composed-target reader descent. Tests escape from fixed-dictionary limitation, not global convergence or behavior.
+
+### 2026-09-13T12:29:17.081590+00:00 — Codex: CLAIM managed GPU free-reader L-BFGS
+Same4492 products/native initialization/composed full-width quadratic coefficient objective; exact output solve, FP64, normalized reader rows. L-BFGS40iterations/80evals, history8, 900s alarm. Pred_a CPU starting loss replay <=1e-8 relative; pred_b <=10% final relativeerror; pred_c unit-coordinate reader gradient RMS<=1e-7 (separate from budget termination); pred_d FP32 artifact loss change <=1e-6 absolute. Record evaluation cost, norms, all stopping evidence. Save frozen candidate for continuation if improved. One fit cost/convergence pilot, not ten-start claim.
+
+### 2026-09-13T12:31:56.226144+00:00 — Codex: L-BFGS locally converged; CLAIM ten-start countercheck
+GPU49evals/37.95s, error11.6786%, unit-gradient8.55e-10, CPUreplay andFP32artifact held. No10%fit. GPUcost supports10serial starts: composed/upstream ranked dictionaries crossed with reader perturbations0/.01/.03/.1/.3, distinct fixedseeds, 60iter/100eval perarm and1800s totalalarm. Record convergence separately eacharm, bestFP32loss check, goal <=10%error atsame4492products. Savebest only; no nativevalidation before frozen candidate passes.
+
+### 2026-09-13T12:35:02.387394+00:00 — Codex: CLAIM shared-dependency pricing audit completed
+Native m0 remains required by residual response, attention projections and RMS. Full producer15,925,248scalars +compiledconsumer1,327,104 vsnewconsumer15,524,352 plusretainedproducer. Standalone10.014%saving becomes82.29%jointsubgraph increase. Current10starts mayfinish asrepresentationcountercheck, notpromote asjointcompression. Nextadoption mustreplace sharedproducer jointly orcompressincrementalconsumer.
+
+### 2026-09-13T12:40:12.539412+00:00 — Codex: CLAIM lexical transfer panel for shared-tail program
+Ten-start run remains live. New48rows: existing4instructionstyles crossed6 previously untested exact token contrasts (civilisation/civilization, modelling/modeling, criticised/criticized, organisation/organization, metres/meters, colours/colors), British/Americanpaired. Include some inflections/relatedroots; not unseen semanticfamilies or corpusOOD. Samefrozen program/nativeprefix/suffix, nofit. Require token/sequence novelty in checkedrow inventories and nativepairedcapability perstyle; preserveexisting2%target/5%control totalerror and1%/2.5%incrementalerror bars.
+
+### 2026-09-13T12:43:18.828368+00:00 — Codex: lexical transfer passed; CLAIM own-self removal countercheck
+New48lexical panel all4predicates held, target0.12–0.28%totalinteractionerror, controls0.53–0.83%, nomaterialflips. Reuse existing full-self removal scorer on these rows, same10%materiality/own-preservation bars; newfrozenapproximation receipt supplies errors. Newmodeldata notfit; oldscript inheritedsix-existing label incorrect for thisrowfile, clarifyprimarynote.
+
+### 2026-09-13T12:48:43.846537+00:00 — Codex: CLAIM native-background interaction deletion
+Previous selfremoval acted in changedcounterfactual branches, notordinarynativeinput. Define I_h=h_parent-h_child-h_remainder+h_native atMLP10. Evaluate native suffix at h_native-I_h for native/generatedexact/generatedcompressed I_h on same nativebackground; compare untouchedh_native. 48lexicalrows alreadyfrozen, nofit. PredAanchors; B<=10%effecterror eachstyle/endpoint; Cnativepairedcue damage>=1%nativecapability eachstyle; DcontrolRMSchange<=0.5targetRMS eachstyle. Allscoresabsolute nats andrelative; fullinteractionwrite, notonlyselfcomponent. 52prefixes/192suffixes/180s.
+
+### 2026-09-13T12:54:21.641276+00:00 — Codex: CLAIM direct parent even-key compression screen
+Existingqueryfold/complete-even rank48 rotations were tested on upstream-induced scalar changes, notdirectparentfield. Test unchanged fullQK denominators/value, keybasis B64R48 on direct72cachedparentfields in2contexts; expected<=10%relative error each3families/context. Replayoriginalscalar first. No newfit, nochildredefinition, parent-minus-exactchild definescandidate remainder. Reduceone1152x64 basis to1152x48; sharedfullmodelreaders remain.
+
+### 2026-09-13T12:57:03.894229+00:00 — Codex: direct parent screen passed; CLAIM native signed main-effect preservation
+Bothexistingrank48candidates passall-token directparentfield<=10%; actualendpointcheckalsoheld afterpadded-index correction. Freeze both; test remainder andparentremoval atstrength -1/1/2 on48lexicalrows. Originalchild stays exact; compressedremainder=compressedparent-child. NativeMLP9+suffix recomputed for each actualamplitude, unchangedbaseline. PredAfullparentreplay/positivecapability; B<=10%targeterror eachfamily/branch/strength/method; C<=10%control; Dno materialsignflips. 48prefixes/912suffixes/180s. No opaque producer deletion or fullmodelcompression claim.
+
+### 2026-09-13T13:04:25.749855+00:00 — Codex: CLAIM full-vocabulary unit-parent preservation
+Same48frozenlexicalrows, nativeunitparentremoval andbothfrozenrank48candidates; nativeprefix/suffix. 48prefix/192suffix/180s. PredAselectedpriorreadoutreplay<=1e-5; B<=10%centeredfullvocab effectL2 eachstyle/method; C<=10%baseline-probability-weighted centered effectL2; DKL(native_removed||candidate_removed)/KL(native_removed||baseline)<=.01 eachstyle/method. Aggregate squarednorms/KL before ratios. Full50304modeledoutputs; no newfit. Unitparentonly; signed/remainder fullvocabnotclaimed.
+
+### 2026-09-13T13:12:44.425397+00:00 — Codex: CLAIM parent corpus-transfer screen
+40fixed128tokenprefixes:8FineWeb and8eachfourPile domains fromexistingpanels; sourcehashes frozen. Twoexistingrank48candidates unitparentremoval. Fullvocabcentered/weighted effecterror<=10%eachdomain/method; relativeKL<=1%eachdomain; original64projectionidentity control viaorthogonalreencoding withfixedsignflip ofbasis columns. 40prefix/160suffix/240s. Nochildcomputationneeded forunitparent; nativeprefixthrough9 directly. No newdatafit, scorefilter orpretraining-disjoint claim.
+
+### 2026-09-13T13:21:38.465678+00:00 — Codex: CLAIM long/short lag error attribution
+Same40fixed128tokenprefixes, query-product rank48 only. Split gamma48-gamma64 atquery-keydistance64; add each errorpart independently toexactparentfield and propagate native writerdeletion/suffix. Fullcandidateunchanged. PredAfieldpartition/reencoding<=1e-10; B>=70%probability-weighted fullerror alignment assignedlonglag inFineWeb/legal failedgroups; Coutputerroradditiveclosure<=10%fullerrorallgroups; Dpriorfullcandidateweightederrorreplay<=1e-6relative. Hybridarms diagnostic notcompressioncandidates. 40prefix/200suffix/240s, nofit.
+
+### 2026-09-13T13:27:46.929481+00:00 — Codex: CLAIM lag attribution document countercheck
+Long-lag hypothesis failed: alignment9.66%FineWeb/16.01%legal versus70%bar, partition/replay/closure held. Compute leave-one-document-out alignment from frozen cells to test single-document dependence; no refitting. Refresh three-setting plan status and joint pricing distinction.

@@ -157,3 +157,25 @@ Rows, binding and results: `PARENT_CORPUS_TRANSFER_V1_ROWS.json`,
 `PARENT_CORPUS_TRANSFER_V1_BINDING.json`, `PARENT_CORPUS_TRANSFER_V1_RESULT.json`,
 `PARENT_CORPUS_TRANSFER_V1_DOCUMENT_AUDIT.json`. Managed implementation:
 `ops/run_parent_corpus_transfer_v1.py`.
+
+## Long-range error hypothesis fails (13 September 13:28 UTC)
+
+Split the routing error into query–key distances below64 and at least64,
+add each part separately to the exact parent scalar, then propagate the actual
+writer removal through the native suffix. No candidate was refitted.
+The long-distance component accounts for only9.66% of probability-weighted
+full-error alignment on FineWeb and16.01% on legal/patent, missing the70% bar.
+Short-distance-only error remains12.74% and13.88%, above the10% fidelity bar.
+The output errors nearly add: closure error is0.24–0.97% of full error across
+all five domains. Field partition error is3.83e-15 and prior metric replay exact.
+
+Deleting one document at a time leaves long-distance alignment at2.30–16.12%
+on FineWeb and12.59–20.25% on legal/patent. A single document does not rescue
+the long-distance explanation. Alignment is a signed projection, not a
+nonnegative variance allocation. These hybrids retain the exact64-dimensional
+reference and are diagnostic, not compressed implementations. This rejects
+one explanation of the transfer gap; it neither identifies content as its cause
+nor rules out effects of context length on nearby-token representations.
+Receipts: `PARENT_LAG_ERROR_V1_RESULT.json`,
+`PARENT_LAG_ERROR_V1_DOCUMENT_AUDIT.json`; frozen execution/binding:
+`ops/run_parent_lag_error_v1.py`, `PARENT_LAG_ERROR_V1_BINDING.json`.
