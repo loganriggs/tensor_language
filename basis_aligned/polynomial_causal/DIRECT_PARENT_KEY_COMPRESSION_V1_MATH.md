@@ -116,3 +116,44 @@ composition with other edits.
 Executor/binding: `ops/run_parent_full_vocab_v1.py` and
 `PARENT_FULL_VOCAB_V1_BINDING.json`. Primary receipt and countercheck:
 `PARENT_FULL_VOCAB_V1_RESULT.json`, `PARENT_FULL_VOCAB_V1_PROMPT_AUDIT.json`.
+
+## Corpus transfer fails uniformly across domains
+
+Forty fixed 128-token prefixes extend the test beyond spelling instructions:
+eight FineWeb documents and eight each from Pile discussion, reference,
+biomedical and legal/patent panels. FineWeb is the training-corpus comparison;
+Pile supplies corpus shifts. These are existing cached panels, with no new
+score filtering or fitting. The Pile panel was originally coverage-filtered
+for another study; pretraining disjointness and historical nonuse are not claimed.
+Only the parent is needed, so this runner executes the native prefix directly
+without constructing the child. Exact 64-basis sign re-encoding replays its
+scalar field exactly.
+
+| Domain | Query-product weighted error | Complete-even weighted error |
+|---|---:|---:|
+| FineWeb | 13.94% | 14.59% |
+| Discussion | 8.32% | 9.08% |
+| Reference | 8.55% | 9.49% |
+| Biomedical | 1.51% | 2.22% |
+| Legal/patent | 16.16% | 18.05% |
+
+Both candidates fail the all-domain centered, probability-weighted and relative
+KL criteria. For the query-product candidate, centered errors are 12.41% on
+FineWeb and 13.58% on legal/patent text; KL ratios are 1.924% and 2.616%,
+above the 1% bar. The run takes 2.48 seconds. The spelling-panel aggregate
+success therefore does not justify general corpus preservation.
+
+Deleting any one document leaves both failed domains above 10% weighted error.
+For query-product, leave-one-out errors remain 12.52–14.90% on FineWeb and
+14.95–17.97% on legal/patent text. Thus a single outlier does not explain the
+failures. Some passing discussion/reference aggregates are less stable under
+document deletion, which also limits broad positive claims from eight documents.
+Context length and content both differ from the lexical panel; this experiment
+does not attribute the gap to corpus identity alone. Keep the exact 64-dimensional
+parent as the general reference. Further work should diagnose the transfer gap
+before refitting on these documents or claiming the smaller interface adopted.
+
+Rows, binding and results: `PARENT_CORPUS_TRANSFER_V1_ROWS.json`,
+`PARENT_CORPUS_TRANSFER_V1_BINDING.json`, `PARENT_CORPUS_TRANSFER_V1_RESULT.json`,
+`PARENT_CORPUS_TRANSFER_V1_DOCUMENT_AUDIT.json`. Managed implementation:
+`ops/run_parent_corpus_transfer_v1.py`.
