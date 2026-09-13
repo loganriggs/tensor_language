@@ -1,0 +1,46 @@
+{
+  "pred_a": false,
+  "pred_b": false,
+  "records": [
+    {
+      "family": 0,
+      "positions": 436,
+      "raw_change_relative_error": 0.45179568742148846,
+      "normalized_change_relative_error": 0.454182460176451,
+      "reader_change_errors": {
+        "q1": 0.2373557888127052,
+        "q2": 0.20963654828748285,
+        "k1": 0.2276638706850897,
+        "k2": 0.22737080091566253,
+        "value": 0.13017839846475135
+      }
+    },
+    {
+      "family": 1,
+      "positions": 376,
+      "raw_change_relative_error": 0.5388861815047037,
+      "normalized_change_relative_error": 0.5469452073452994,
+      "reader_change_errors": {
+        "q1": 0.2914496207825177,
+        "q2": 0.26944340560892927,
+        "k1": 0.2859294852411282,
+        "k2": 0.3035755856286076,
+        "value": 0.08492681965322449
+      }
+    },
+    {
+      "family": 2,
+      "positions": 388,
+      "raw_change_relative_error": 0.4766929265615346,
+      "normalized_change_relative_error": 0.4752039680272112,
+      "reader_change_errors": {
+        "q1": 0.26283486262745687,
+        "q2": 0.22229837223854332,
+        "k1": 0.21720456234975488,
+        "k2": 0.232070006324805,
+        "value": 0.1034896828613418
+      }
+    }
+  ],
+  "scope": "Existing 72-prompt native removal cache; original two physical writers define span without fitting. Raw9 after original head8 path, before attention9. Recomputed RMS; linear QK reads before per-head normalization/RoPE/product, not routing/logit behavior. No claim that richer transported response bank fails."
+}
