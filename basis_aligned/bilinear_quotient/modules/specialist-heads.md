@@ -399,3 +399,7 @@ Freshnearfirst-value pathopposes48/48; distant18/24positive misses20bar. All6exc
 ## 13 September01:16 — Annotation-free crossfirst path removal
 
 Allsource Q7/H8.2first/MLP8/head9 interaction removal strengthensnearregionalcontrast1.52–2.70% andweakensdistant1.33% onreusednewsyntaxrows; everypaired directionholds.32FineWebnewlinecandidatepreservationpasses maxabsCE.002932. RegisteredcontrolstrengthCfails mistakenlyhigh.1bar versusknownwholehead8.2zero.038; noall-checks-passclaim. Sharedfixtureprecheckadded; freshcontrolrows builtunscored. [Primary note](../../polynomial_causal/ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md).
+
+## 13 September01:23 — Fresh newline preservation of all-source crossfirst path
+
+32new-to-path FineWebprefixes pass frozenallsource removal preservation, maxabsCE.001415;31/32nativepositive;wholehead8.2positivecontrolmeans.0327/.0509 meetprospective minimumandrelativebars. OldcontrolCmissunchanged. Documentindependence/corpusOODnotestablished. Explicit-stateimplementationawaitsnativereplay. [Primary note](../../polynomial_causal/ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md).

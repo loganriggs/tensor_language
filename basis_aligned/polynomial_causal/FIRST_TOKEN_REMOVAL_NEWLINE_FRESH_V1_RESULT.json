@@ -1,0 +1,53 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "native_positive_control_replay_error": 0.0,
+  "max_token_reader_error": 2.4813437768823643e-07,
+  "records": [
+    {
+      "family": 0,
+      "native_mean_margin": 12.487940698862076,
+      "native_positive": 16,
+      "mean_CE_change": 1.3241544365882874e-05,
+      "meanabs_CE_change": 0.0001873467117547989,
+      "maxabs_CE_change": 0.0009456872940063477,
+      "wholehead_meanabs_CE_change": 0.03822890482842922,
+      "half_CE_linearity_error": 0.009041414068840233
+    },
+    {
+      "family": 1,
+      "native_mean_margin": 13.346816837787628,
+      "native_positive": 16,
+      "mean_CE_change": 0.00027086283080279827,
+      "meanabs_CE_change": 0.00034965272061526775,
+      "maxabs_CE_change": 0.0029321014881134033,
+      "wholehead_meanabs_CE_change": 0.037896158872172236,
+      "half_CE_linearity_error": 0.004014670723902657
+    },
+    {
+      "family": 2,
+      "native_mean_margin": 12.913415789604187,
+      "native_positive": 16,
+      "mean_CE_change": 0.0002018902450799942,
+      "meanabs_CE_change": 0.000277521088719368,
+      "maxabs_CE_change": 0.0014147758483886719,
+      "wholehead_meanabs_CE_change": 0.03274369053542614,
+      "half_CE_linearity_error": 0.005130870089023414
+    },
+    {
+      "family": 3,
+      "native_mean_margin": 10.400101631879807,
+      "native_positive": 15,
+      "mean_CE_change": 5.0321221351623535e-05,
+      "meanabs_CE_change": 0.0002143383026123047,
+      "maxabs_CE_change": 0.0006864070892333984,
+      "wholehead_meanabs_CE_change": 0.05090757645666599,
+      "half_CE_linearity_error": 0.016826898755871626
+    }
+  ],
+  "body_forwards": 256,
+  "seconds": 3.789341900497675,
+  "scope": "Frozenallsource interaction on32old+32newFineWebnewlineprefixes; cacheindicesdisjoint,documentindependence notestablished. No modelscorefilter. Prospectivecontrolbar; oldCfailureunchanged. NotcorpusOOD orautonomousextraction.",
+  "artifact_sha": "fc1f4ec0dc4fb1dc0f78ef8ae73b7ad61254d934ad1e865a8f277051c02e2c3a"
+}

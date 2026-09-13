@@ -1,5 +1,9 @@
 # Latest research state
 
+**13 September, 01:23 — Fresh FineWeb preservation passes.**32new-to-path prefixes: maxabsoluteCEchange.001415nats,31/32nativepositive,positivecontrols meetprospectivebars;32oldanchorsreplayexact. Earliercontrol-Cfailureunchanged. Explicit-state conditionalexecutor implemented/imported andpriced69.97Mdeclaredscalars; native replaypending. [Primary evidence](../../ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md). [Nextreplay](../../CROSSFIRST_STATE_EXECUTOR_V1_PREREGISTRATION.md). [Newest requested report](../for_logan/LATEST.md).
+
+# Latest research state
+
 **13 September, 01:16 — Donor-free all-source interaction removal.** Regional removal follows registered context-dependent signs; half-strength error.20–.32%. On32reusedFineWebnewlinecontrols maxabsoluteCEchange.002932nats. Candidate preservation passes, but positivecontrolstrength Cfails a wrongly chosen.1bar(alreadypublishedwholeheadstrength.038); failure retained andfixture precheck added. New32controlprefixes built, notscored. [Primary math/evidence](../../ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md). [Hourly review](../../HOURLY_STRATEGIC_REVIEW_2026-09-13_0112.md). [Newest requested report](../for_logan/LATEST.md).
 
 # Latest research state
