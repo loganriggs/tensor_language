@@ -1,0 +1,224 @@
+{
+  "direct_degree2_relative_error": 3.696798983268268e-15,
+  "identity_relative_error": 2.0892318039078278e-16,
+  "absolute_bound_excess": 6.350428520818241e-06,
+  "relative_bound_excess": 4.546042660370996e-16,
+  "execution_correction": "Initial run failed fixed 1e-10 absolute floating-point bound check at large amplitudes. Preserve absolute excess and check it relative to output-plus-bound scale; mathematical bound is unchanged.",
+  "equilibrated_coefficient_smin_smax": [
+    0.27378581396288704,
+    0.2580925802411369,
+    0.33809100339488696,
+    0.3334574824837725,
+    0.31063167035042677,
+    0.2733313060374919,
+    0.3211353071243042,
+    0.3042098661069633,
+    0.17619833152130632,
+    0.30137229160543777,
+    0.22978009134424757,
+    0.32671628490215576,
+    0.3211519519771124,
+    0.3265328476323529,
+    0.32584838689531154,
+    0.21212313008825856,
+    0.32744686824616737,
+    0.3291010967857071,
+    0.3438326111230928,
+    0.32770367111145343,
+    0.33924911768573784,
+    0.30411856230719686,
+    0.2688022669511124,
+    0.30789431240411347,
+    0.3072367666616615,
+    0.3200114150839032,
+    0.31627867664701514,
+    0.3163680015118464,
+    0.3393513516582706,
+    0.3248311481504502,
+    0.2238713175645632,
+    0.2979829981278355
+  ],
+  "rows": [
+    {
+      "radius": 0.001,
+      "degree": 0,
+      "writers": 1,
+      "relative_error_median": 0.0027159003593576043,
+      "relative_error_max": 0.0037816992151825254,
+      "optimal_grid_rank_error_median": 0.0026882494946909746,
+      "max_absolute_bound": 56.66210211212258
+    },
+    {
+      "radius": 0.001,
+      "degree": 1,
+      "writers": 2,
+      "relative_error_median": 7.915480966365073e-06,
+      "relative_error_max": 8.999451194744501e-06,
+      "optimal_grid_rank_error_median": 2.179169843122407e-06,
+      "max_absolute_bound": 0.11346130648728854
+    },
+    {
+      "radius": 0.001,
+      "degree": 2,
+      "writers": 3,
+      "relative_error_median": 1.6019445244466596e-11,
+      "relative_error_max": 1.8421062312846598e-11,
+      "optimal_grid_rank_error_median": 3.213776629450335e-12,
+      "max_absolute_bound": 2.384760932664238e-07
+    },
+    {
+      "radius": 0.001,
+      "degree": 3,
+      "writers": 4,
+      "relative_error_median": 1.7902105470514527e-16,
+      "relative_error_max": 1.996492203917457e-16,
+      "optimal_grid_rank_error_median": 2.2383168036664423e-15,
+      "max_absolute_bound": 7.604173340864003e-14
+    },
+    {
+      "radius": 0.01,
+      "degree": 0,
+      "writers": 1,
+      "relative_error_median": 0.02716186969932608,
+      "relative_error_max": 0.0377865056892805,
+      "optimal_grid_rank_error_median": 0.026872447242877986,
+      "max_absolute_bound": 57679.45870689268
+    },
+    {
+      "radius": 0.01,
+      "degree": 1,
+      "writers": 2,
+      "relative_error_median": 0.0007911414149794506,
+      "relative_error_max": 0.0008996391784510437,
+      "optimal_grid_rank_error_median": 0.0002178653328001566,
+      "max_absolute_bound": 1135.1458851645425
+    },
+    {
+      "radius": 0.01,
+      "degree": 2,
+      "writers": 3,
+      "relative_error_median": 1.6013825767042495e-08,
+      "relative_error_max": 1.8412509402707422e-08,
+      "optimal_grid_rank_error_median": 3.2122563838175624e-09,
+      "max_absolute_bound": 0.023888436014938372
+    },
+    {
+      "radius": 0.01,
+      "degree": 3,
+      "writers": 4,
+      "relative_error_median": 4.642298794296312e-14,
+      "relative_error_max": 5.477404012649273e-14,
+      "optimal_grid_rank_error_median": 3.0545895220432475e-15,
+      "max_absolute_bound": 7.611886472726392e-08
+    },
+    {
+      "radius": 0.1,
+      "degree": 0,
+      "writers": 1,
+      "relative_error_median": 0.2734370421062251,
+      "relative_error_max": 0.35072186829014185,
+      "optimal_grid_rank_error_median": 0.2583031418050243,
+      "max_absolute_bound": 66946499.11952618
+    },
+    {
+      "radius": 0.1,
+      "degree": 1,
+      "writers": 2,
+      "relative_error_median": 0.07575580736129144,
+      "relative_error_max": 0.08672363953932645,
+      "optimal_grid_rank_error_median": 0.021038775600374277,
+      "max_absolute_bound": 11203891.508045984
+    },
+    {
+      "radius": 0.1,
+      "degree": 2,
+      "writers": 3,
+      "relative_error_median": 1.5282168687815957e-05,
+      "relative_error_max": 1.754863370007133e-05,
+      "optimal_grid_rank_error_median": 3.064767251821989e-06,
+      "max_absolute_bound": 2404.7419141811256
+    },
+    {
+      "radius": 0.1,
+      "degree": 3,
+      "writers": 4,
+      "relative_error_median": 4.418415781205558e-10,
+      "relative_error_max": 5.218002544983875e-10,
+      "optimal_grid_rank_error_median": 2.226463925971519e-11,
+      "max_absolute_bound": 0.0760994294397187
+    },
+    {
+      "radius": 0.3,
+      "degree": 0,
+      "writers": 1,
+      "relative_error_median": 0.7262901816905094,
+      "relative_error_max": 0.7606349546762217,
+      "optimal_grid_rank_error_median": 0.5145516837468287,
+      "max_absolute_bound": 2124110204.6618075
+    },
+    {
+      "radius": 0.3,
+      "degree": 1,
+      "writers": 2,
+      "relative_error_median": 0.477501396768308,
+      "relative_error_max": 0.5359113002969144,
+      "optimal_grid_rank_error_median": 0.11023348759420254,
+      "max_absolute_bound": 790434676.2885841
+    },
+    {
+      "radius": 0.3,
+      "degree": 2,
+      "writers": 3,
+      "relative_error_median": 0.00028948613966654194,
+      "relative_error_max": 0.00031682498836616625,
+      "optimal_grid_rank_error_median": 6.12249886642005e-05,
+      "max_absolute_bound": 529961.7345694054
+    },
+    {
+      "radius": 0.3,
+      "degree": 3,
+      "writers": 4,
+      "relative_error_median": 2.5011460353806058e-08,
+      "relative_error_max": 2.8288518460311907e-08,
+      "optimal_grid_rank_error_median": 1.3084389355777832e-09,
+      "max_absolute_bound": 50.8219240645059
+    },
+    {
+      "radius": 1.0,
+      "degree": 0,
+      "writers": 1,
+      "relative_error_median": 0.9851291015562104,
+      "relative_error_max": 0.9967145558356457,
+      "optimal_grid_rank_error_median": 0.3181619483697606,
+      "max_absolute_bound": 45174967173.98076
+    },
+    {
+      "radius": 1.0,
+      "degree": 1,
+      "writers": 2,
+      "relative_error_median": 0.9297537947302582,
+      "relative_error_max": 0.9500493356053705,
+      "optimal_grid_rank_error_median": 0.054112418000887945,
+      "max_absolute_bound": 31131273968.049423
+    },
+    {
+      "radius": 1.0,
+      "degree": 2,
+      "writers": 3,
+      "relative_error_median": 0.0018254849841227213,
+      "relative_error_max": 0.0019376140921000013,
+      "optimal_grid_rank_error_median": 0.0005010183774507111,
+      "max_absolute_bound": 70601592.33730985
+    },
+    {
+      "radius": 1.0,
+      "degree": 3,
+      "writers": 4,
+      "relative_error_median": 5.196794256362552e-07,
+      "relative_error_max": 5.699949808627711e-07,
+      "optimal_grid_rank_error_median": 3.996214660567304e-08,
+      "max_absolute_bound": 22563.30242537793
+    }
+  ],
+  "scope": "32 synthetic Gaussian contexts, actual weights, FP64 CPU; dimensionless amplitude grid. No text fit, circuit transfer, runtime or whole-model compression claim."
+}
