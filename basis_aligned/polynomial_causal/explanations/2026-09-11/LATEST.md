@@ -1,3 +1,7 @@
+## 13 September, 00:27 — Head8.2 path confirmed; scalar shortcut rejected
+
+[Native head test and weight-only scalar controls](../../MLP7_PHI_READERS_FOLD_V1_MATH.md#0027--head82-supplies-the-tested-attention8-partner-path): head8.2matchesnearH-only effect5.54%,24/24opposed; head/rest effectscomposewithin.103%. TwoexactweightSVD scalarizations missnativefield accuracy; retainfourreadings. Nexttargetcurrent/firstvalue andjointQK sourcecomputation, notmore scalarfitting.
+
 ## 13 September, 00:18 — Native raw-input swaps support partner-driven reversal
 
 [Native test and next attention fold](../../MLP7_PHI_READERS_FOLD_V1_MATH.md#0018--individual-raw-input-swaps-confirm-the-partner-signal): nearquote B+H-only effecterror17.33% versusQ-only94.16%; B/H effectssumwithin.35–1.00%. Exacthead-wiseattention8 OV-to-fourreader maps nowverified; nohead causalranking yet. Othercontexts stillrequireQ; nativeinputs/normalizers retained.

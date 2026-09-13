@@ -163,3 +163,33 @@ $x_{8,k}$ and $x_{\mathrm{attn0},k}$ are the actual normalized attention inputs.
 Substituting this expression into $2Q_j^T\Lambda H_j/R_j$ exposes an explicit two-attention interaction path: attention8 brings information from k to j; MLP7-derived Q modulates the four readings there; head9 carries the resulting value from j to the target t. The output/value coefficients are fixed weights, while the inputs, QK routing and normalization are still contextual.
 
 The CPU fold stores87,553 scalars and matches direct head-wise value projection and summed physical output readings within $1.47\times10^{-15}$. This is an exact linear algebra control, not a measured model speedup, a standalone87k-parameter circuit, or evidence ranking the nine heads. The next native head-reading cache must replay H and then test individual head contributions under the already specified H-input intervention. [Fold and price receipt](ATTENTION8_PHI_READER_FOLD_V1_CONTROL.json).
+
+
+## 00:27 — Head8.2 supplies the tested attention8 partner path
+
+The native nine-head reading cache passes: summed head readings reproduce H within $3.64\times10^{-8}$, and their summed H-only donor fields replay within $1.88\times10^{-8}$. Head8.2 was the preregistered candidate, based on prior producer work; it predicts the near-quote H-only all-position write within5.45%. This reuses a known head in a more specific interaction path rather than claiming a newly discovered head. [Cache receipt](ATTENTION8_PHI_HEADS_V1_RESULT.json).
+
+Physical head-specific H-input donation confirms it. Near-quote head8.2 donation transfers−5.79% of native contrast with24/24 opposing directions, versus−5.98% for full attention8 H donation. Its relative effect error is5.54%; errors across all four groups are3.05%,3.87%,5.54%,0.54%. Head8.2 and the remaining eight heads' separately measured effects sum to the full H-only effect within0.022–0.103%. All A/B/C criteria pass;384 forwards took5.77seconds. Old-panel H donation remains tiny and directionally mixed (12/24); faithful approximation of that effect is not evidence of a large useful signal there. [Physical confirmation](ATTENTION8_PHI_HEAD_DONATION_V1_RESULT.json).
+
+This is a specific path through head8.2 output readings, the Q-containing MLP8 value computation, and head9.8. All other uses of head8.2 remain native. It doesnot imply whole-head donation would have the same sign or effect.
+
+## Scalar simplification: two weight-only tests miss, so retain the four readings
+
+We tested whether one scalar head8.2 reading could replace its four-dimensional H contribution. Such a factorization would also collapse the Q interaction to one quadratic modulator. This was a bounded executable-interface test after causal localization, not a new broad rank campaign.
+
+First, SVD of $|\Lambda|^{1/2}C_{8.2}$ in the frozen eigenreader coordinates retains49.21% of that matrix's energy with one component. The resulting conditional donor-field errors are26.11%,13.52%,31.52%,26.79% across the four groups, missing the registered10% bar. The leading writer has cosine0.852 with the earlier known head8.2 writer after the same reader weighting; it is not simply that old scalar component. Exact four-component replay remains accurate to numerical precision. [First scalar check](ATTENTION8_PHI_SCALAR_V1_RESULT.json).
+
+The strongest plausible objection is objective mismatch: this SVD preserves H readings, while the actual target is their interaction with Q. We therefore executed a composed, still weight-only, control. Let $Q_i(x)=x^TM_{7,i}x$ include the block8 mixing coefficient and define
+
+$$
+G_{ij}=\langle M_{7,i},M_{7,j}\rangle_F,
+\qquad Z=G^{1/2}\Lambda C_{8.2}.
+$$
+
+An SVD of Z gives the optimal rank-one approximation to the **separated quadratic-input/head-value coefficient tensor** in Frobenius norm. The left factor is decoded using $G^{-1/2}$. This metric uses only weights, not text activations. It includes the symmetric quadratic coefficients but not the contextual RMS denominators or language-distribution weighting.
+
+The composed rank-one coefficient capture improves to53.74%, yet native donor-field errors worsen to44.91%,48.46%,97.84%,46.00%. Gram conditioning is benign(2.33), and exact/right-decoding controls are near machine precision. Thus this miss is not an unconverged optimizer: the restricted coefficient problem has been solved exactly, but its objective doesnot predict this conditional native effect well. It doesnot prove that all scalar hypotheses fail on text. [Composed-metric control](ATTENTION8_PHI_COMPOSED_SCALAR_V1_RESULT.json).
+
+All four singular values of Z are nonzero. Consequently, four products are required for **exact** representation in this particular separation: quadratic forms in the MLP7 input times linear readings of the head8 pre-output value. That statement concerns the unnormalized coefficient object on independent input ports; it is not a lower bound on every possible arithmetic rewrite or on approximate native behavior.
+
+We retain the tested four-reading path and stop this scalar shortcut. The next informative decomposition is head8.2's current versus first-layer value contribution and joint-QK routing, using the already folded maps. That can specify where the changing information is read; shaving four readings to one is not required for a useful circuit explanation.

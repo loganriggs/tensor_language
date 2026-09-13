@@ -1,0 +1,34 @@
+{
+  "records": [
+    {
+      "rank": 1,
+      "group_errors": [
+        0.2610864509508572,
+        0.13523480738380594,
+        0.31517333174107975,
+        0.2679051569374108
+      ]
+    },
+    {
+      "rank": 4,
+      "group_errors": [
+        2.2998854527594994e-16,
+        1.4296180813603466e-16,
+        3.1800560091687175e-16,
+        3.0225655687014006e-16
+      ]
+    }
+  ],
+  "rank1_weight_capture": 0.4921355514737609,
+  "singular_values": [
+    171.64943573693574,
+    128.09016176098996,
+    93.73641817333429,
+    72.19135817034662
+  ],
+  "known_head8_2_scaled_writer_cosine": 0.8517149545186341,
+  "rank1_all_group_10percent_pass": false,
+  "program_scalars": 7044,
+  "seconds": 0.04215165227651596,
+  "scope": "Frozen weight SVD in abs-eigenvalue-scaled fourreader metric; tested actualconditional head8.2 donorwrite fields. Current/first scalar readers contractvalueweights; MLP7quadratic usesexternalnativeL7/R7. QK/input/normgeneration noteliminated, no native rank1 physicalconfirmation yet."
+}

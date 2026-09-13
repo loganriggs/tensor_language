@@ -383,3 +383,7 @@ Omit beta*u0 in fixedwriter response: cached scalar/routing bars hold; native12s
 ## 2026-09-12 23:00 — Head9.8 native cue contrast enters mainly through source inputs
 
 CPUfourcorner query/source hybrids on36prior pairedcueexamples: source-only scalarcontrast error5.46–7.90%; query-only103–111%(style101.91%), querysymmetricfractionnegative3.79–7.89%. Sourcekey/value split puts92.78–97.27%alignedfraction onvalue, but fixedAmerican-key value-only20%bar failscity/style(22.91/22.95%); British-key errors3.80–13.83%. Baselineinteraction17.50–35.99%; no keydeletion or nativeend-effectclaim. [Derivation, anchors and executed baseline diagnostic](../../polynomial_causal/SCALAR_CUE_COMPUTATION_PORTS_V1_MATH.md).
+
+## 13 September00:27 — Head8.2 in the Q7/H8/MLP8/head9.8 value path
+
+Nativefourreader headcache andphysical H-inputdonation confirm8.2: nearquote effect−5.79%,24/24opposed,5.54%errorfullH-only; allgrouprelativeerrors.54–5.54%. Otherhead effectscomposewithin.103%. This is a conditionalpath inputedit, notwholehead donor/globalregional sign. Uncomposed andcomposedweight-only rank1 controls missnativefield fidelity; retainfourreadings, no absentstructureclaim. [Primary continuation](../../polynomial_causal/MLP7_PHI_READERS_FOLD_V1_MATH.md#0027--head82-supplies-the-tested-attention8-partner-path).

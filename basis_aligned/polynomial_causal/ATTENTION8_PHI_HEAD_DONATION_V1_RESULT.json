@@ -1,0 +1,131 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "replay_error": 2.0947772487394892e-07,
+  "field_sum_error": 1.6510206613960694e-16,
+  "records": [
+    {
+      "group": 0,
+      "arms": [
+        {
+          "arm": 1,
+          "transfer": -7.766893361031521e-05,
+          "positive": 12,
+          "negative": 12,
+          "unrelated": 0.11178350476508907
+        },
+        {
+          "arm": 2,
+          "transfer": -0.00018837003789524498,
+          "positive": 12,
+          "negative": 12,
+          "unrelated": 0.11245765547783412
+        },
+        {
+          "arm": 3,
+          "transfer": 0.00011019532137051416,
+          "positive": 19,
+          "negative": 5,
+          "unrelated": 0.08463949843260188
+        }
+      ],
+      "head8_2_relative_error": 0.030505405187702093,
+      "composition_error": 0.0002123308462093337
+    },
+    {
+      "group": 1,
+      "arms": [
+        {
+          "arm": 1,
+          "transfer": -0.01708136814125163,
+          "positive": 5,
+          "negative": 19,
+          "unrelated": 0.14149250025584692
+        },
+        {
+          "arm": 2,
+          "transfer": -0.016477475887213395,
+          "positive": 4,
+          "negative": 20,
+          "unrelated": 0.1417517227538758
+        },
+        {
+          "arm": 3,
+          "transfer": -0.000611918754740652,
+          "positive": 6,
+          "negative": 18,
+          "unrelated": 0.13527781081600354
+        }
+      ],
+      "head8_2_relative_error": 0.03873272634098792,
+      "composition_error": 0.0005824773187220028
+    },
+    {
+      "group": 2,
+      "arms": [
+        {
+          "arm": 1,
+          "transfer": -0.05977491107006752,
+          "positive": 0,
+          "negative": 24,
+          "unrelated": 0.13704613226026896
+        },
+        {
+          "arm": 2,
+          "transfer": -0.057867015747543646,
+          "positive": 0,
+          "negative": 24,
+          "unrelated": 0.13631529107862234
+        },
+        {
+          "arm": 3,
+          "transfer": -0.001937986819650485,
+          "positive": 6,
+          "negative": 18,
+          "unrelated": 0.15016920003409945
+        }
+      ],
+      "head8_2_relative_error": 0.05538736213268861,
+      "composition_error": 0.0010286863210002967
+    },
+    {
+      "group": 3,
+      "arms": [
+        {
+          "arm": 1,
+          "transfer": 0.009208224009628134,
+          "positive": 22,
+          "negative": 2,
+          "unrelated": 0.18309841243806027
+        },
+        {
+          "arm": 2,
+          "transfer": 0.009206268134425393,
+          "positive": 22,
+          "negative": 2,
+          "unrelated": 0.18335702072482382
+        },
+        {
+          "arm": 3,
+          "transfer": 2.998198757991548e-06,
+          "positive": 10,
+          "negative": 14,
+          "unrelated": 0.1556117185888178
+        }
+      ],
+      "head8_2_relative_error": 0.005365807617644509,
+      "composition_error": 0.00024672566231130193
+    }
+  ],
+  "body_forwards": 384,
+  "seconds": 5.766922641545534,
+  "arm_names": [
+    "native",
+    "fullH_only",
+    "head8_2_H_only",
+    "restH_only"
+  ],
+  "scope": "Head-specific H-reading donation through Q-containing path, recipientQ/R8/head9QK/rho andnativebackground retained. Reusedcontexts; notwholehead8.2 donation.",
+  "artifact_sha": "d9248e91ac65f1a5136e3bd01a75a1b06763c76756f731e13fdf577fb46ab09a"
+}
