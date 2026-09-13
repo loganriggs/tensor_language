@@ -10,8 +10,9 @@ def execute(qa, qb, ka, kb, value, rotation, program, reader_coefficients,
         reads = reads + reader_correction
     z = (reads[:, 0]*reads[:, 1])[:, None]*reads[:, 2:]
     dual = z @ program['dual']
-    a = torch.einsum('nk,kl,ril->nri', qa, rotation, program['atom_k1'])
-    b = torch.einsum('nk,kl,ril->nri', qb, rotation, program['atom_k2'])
+    equation = 'nk,kl,ril->nri' if rotation.ndim == 2 else 'nk,nkl,ril->nri'
+    a = torch.einsum(equation, qa, rotation, program['atom_k1'])
+    b = torch.einsum(equation, qb, rotation, program['atom_k2'])
     eps = torch.finfo(torch.float32).eps
     gate = 1/(qa.shape[-1]**2*((qa.square().mean(-1)+eps)
         *(qb.square().mean(-1)+eps)*(ka.square().mean(-1)+eps)

@@ -88,6 +88,8 @@ def main():
         scope='Local port executor only. Native query/key/value producers remain charged; exact correction also requires four residual readers of the full source. This is not a whole-model saving.',
     )
     assert max(interface_errors+corrected_errors) < 1e-10
+    torch.save(dict(stack=stack, coefficients=coefficients, residual=residual),
+               P/'HEAD17_SOURCE_INTERFACE_V1_PROGRAM.pt')
     (P/'HEAD17_SOURCE_INTERFACE_V1_RESULT.json').write_text(json.dumps(result, indent=2)+'\n')
     print(json.dumps(result, indent=2))
 
