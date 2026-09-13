@@ -1,0 +1,50 @@
+{
+  "rows": [
+    {
+      "total_rank": 32,
+      "unconstrained_error": 0.8808454933566111,
+      "constrained_error": 0.8825388794316837,
+      "plain_writer_error": 0.18183971858299497,
+      "constrained_writer_error": 6.061667326532059e-16,
+      "scalar_ratio": 0.05555555555555555
+    },
+    {
+      "total_rank": 64,
+      "unconstrained_error": 0.8123694375492803,
+      "constrained_error": 0.8137559952411368,
+      "plain_writer_error": 0.1584863183557484,
+      "constrained_writer_error": 6.248199533036897e-16,
+      "scalar_ratio": 0.1111111111111111
+    },
+    {
+      "total_rank": 128,
+      "unconstrained_error": 0.7001271114108882,
+      "constrained_error": 0.7012459815122918,
+      "plain_writer_error": 0.12090840527948993,
+      "constrained_writer_error": 6.653501899911801e-16,
+      "scalar_ratio": 0.2222222222222222
+    },
+    {
+      "total_rank": 256,
+      "unconstrained_error": 0.5253828194594614,
+      "constrained_error": 0.5262151700947864,
+      "plain_writer_error": 0.08709072979115429,
+      "constrained_writer_error": 7.113432579872469e-16,
+      "scalar_ratio": 0.4444444444444444
+    },
+    {
+      "total_rank": 512,
+      "unconstrained_error": 0.27962376305654724,
+      "constrained_error": 0.28014118602095567,
+      "plain_writer_error": 0.044711206425754116,
+      "constrained_writer_error": 8.153701105182488e-16,
+      "scalar_ratio": 0.8888888888888888
+    }
+  ],
+  "shape": [
+    1152,
+    1152
+  ],
+  "fixed_direction_energy_fraction": 0.012045243299125206,
+  "scope": "Weights-only MLP9 response map; exact intervention-writer action plus rank-r-1 orthogonal-input approximation. No native prediction or general structure-absence claim."
+}
