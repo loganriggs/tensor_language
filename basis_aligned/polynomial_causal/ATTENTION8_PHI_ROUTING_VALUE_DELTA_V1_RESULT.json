@@ -1,0 +1,73 @@
+{
+  "replay_error": 1.0877864603242139e-07,
+  "terms": [
+    "routing_only",
+    "current_value_only",
+    "first_value_only",
+    "routing_current_mixed",
+    "routing_first_mixed"
+  ],
+  "groups": [
+    {
+      "group": 0,
+      "aligned_fractions": [
+        0.1071661564851392,
+        0.20350575407558222,
+        0.9289911018655667,
+        -0.056074122464815086,
+        -0.18358890732030633
+      ],
+      "routing_only_error": 0.903215975863468,
+      "current_only_error": 0.803931028983154,
+      "first_only_error": 0.13294771720656737,
+      "both_values_error": 0.1906002406653055,
+      "without_mixed_error": 0.3292821726298577
+    },
+    {
+      "group": 1,
+      "aligned_fractions": [
+        -0.12245265082964767,
+        0.16995494581120105,
+        0.6757298612580837,
+        0.06826991441807533,
+        0.20849792757024785
+      ],
+      "routing_only_error": 1.1237818532889687,
+      "current_only_error": 0.8320167557735002,
+      "first_only_error": 0.32802086862934765,
+      "both_values_error": 0.172264012253348,
+      "without_mixed_error": 0.3049100667985408
+    },
+    {
+      "group": 2,
+      "aligned_fractions": [
+        -0.0019044519410486354,
+        0.23164249282976418,
+        0.8644537568991403,
+        0.015419991308186819,
+        -0.10961180906323056
+      ],
+      "routing_only_error": 1.0507990552341353,
+      "current_only_error": 0.7687910986087492,
+      "first_only_error": 0.30883119408197596,
+      "both_values_error": 0.2786523966336492,
+      "without_mixed_error": 0.580697527991485
+    },
+    {
+      "group": 3,
+      "aligned_fractions": [
+        0.042347043757657576,
+        0.12189346308139483,
+        0.9122704659392189,
+        -0.01676047120680544,
+        -0.05975042643905488
+      ],
+      "routing_only_error": 0.9652387619688103,
+      "current_only_error": 0.8802427235406111,
+      "first_only_error": 0.16908878341467448,
+      "both_values_error": 0.14653596243891934,
+      "without_mixed_error": 0.27137403374240043
+    }
+  ],
+  "scope": "Exact all-position conditional donorwrite allocation with recipient Q7/norm/head9 routing. Aligned fractions can be negative; not native causal effects. No data fitting."
+}
