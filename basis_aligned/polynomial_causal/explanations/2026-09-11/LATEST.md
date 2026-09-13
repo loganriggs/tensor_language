@@ -1,5 +1,9 @@
 # Latest research state
 
+**13 September, 01:47 — Final readout alone does not explain hierarchy interactions.** Exactpartitionpasses; regionalinternalinteraction remains87–101%total. Reusedfixed-writer formula atMLP9 givesexactRMS-aware response andthree-vector mixedspan onactualweight CPUcontrols; nativevalidationpending. [Newforwardfoldmath](../../MLP9_CROSSFIRST_RESPONSE_V1_MATH.md). [Main evidence](../../ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md). [Requested report](../for_logan/LATEST.md).
+
+# Latest research state
+
 **13 September, 01:40 — Hierarchy field composition exact; additive effects fail.** Parentremoval equalsjointchild/remainder outputs exactly. Independent effectaddition misses10%child-relative bar in4/8cells, worst47.43%; regional signs persist96/96. Counter-review preservesfailedC andsmallabsoluteFineWebdamage. Nextdiscriminator: finalreadout versusinternal-suffix interactions. [Evidence](../../ATTENTION8_PHI_VALUE_ROUTING_V1_MATH.md). [Hierarchy](../../extracted_circuits/crossfirst_state_executor_v1/README.md). [Requested report](../for_logan/LATEST.md).
 
 # Latest research state

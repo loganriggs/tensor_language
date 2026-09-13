@@ -155,3 +155,7 @@ Q-containing/Q-free generatedvalue donations composewithin.41–2.53% logiteffec
 ### 13 September00:18 — Rawinput partner swap confirmed physically
 
 Nearpost B/H-only donation−4.06/−5.98%,each24/24opposed; jointB+H matchesfullQpath17.33%error versusQ-only94.16%. B/Hlogitcomposition.35–1.00% acrossfourgroups. OthergroupsS-onlyerrors72–86%; Qnotgloballydispensable. Attention8OV-to-fourreader maps exactlyfolded, nativeheadallocationpending. [Primary result and equations](../MLP7_PHI_READERS_FOLD_V1_MATH.md#0018--individual-raw-input-swaps-confirm-the-partner-signal).
+
+## 13 September01:47 — MLP9 fixed-writer interaction response
+
+Child/remainder edits inside selectedhead9currentvalue shareonewriter. Finalreadout-only correction fails toexplainphysicalnonadditivity. ExistingMLP8 directionalbridge formula isnowcompiled atMLP9: exactRMS-aware arbitraryamplitude response in4per-context vectors,mixedtwo-edit response in3. ActualweightFP64errors<5e-15;nativevalidationpending. NativebaselineMLPoutput/state remainexternal;not3semanticcircuits orstandaloneMLP9extraction. [Primary math](../MLP9_CROSSFIRST_RESPONSE_V1_MATH.md).

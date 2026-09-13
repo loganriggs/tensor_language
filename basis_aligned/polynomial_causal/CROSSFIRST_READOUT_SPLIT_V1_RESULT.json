@@ -1,0 +1,96 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "anchor_replay": [
+    0.0,
+    0.0
+  ],
+  "interaction_partition_error": 0.0,
+  "cells": [
+    {
+      "cell": "regional0",
+      "total_interaction_norm": 0.01372487214782225,
+      "internal_over_total": 0.8728038717303555,
+      "readout_over_total": 0.255345582236443,
+      "readout_aligned_fraction": 0.15170738393008473,
+      "corrected_error_over_child": 0.04618820265815771,
+      "uncorrected_error_over_child": 0.05291933749857049,
+      "final_state_mixed_over_child": 0.14267985557158747
+    },
+    {
+      "cell": "regional1",
+      "total_interaction_norm": 0.023560928595256693,
+      "internal_over_total": 0.8870029625348402,
+      "readout_over_total": 0.18102704749789017,
+      "readout_aligned_fraction": 0.1229982681901101,
+      "corrected_error_over_child": 0.106258876356287,
+      "uncorrected_error_over_child": 0.11979540186948733,
+      "final_state_mixed_over_child": 0.2057318740591893
+    },
+    {
+      "cell": "regional2",
+      "total_interaction_norm": 0.023901531209870857,
+      "internal_over_total": 1.0115633448888077,
+      "readout_over_total": 0.12294251969593561,
+      "readout_aligned_fraction": -0.004072768786723598,
+      "corrected_error_over_child": 0.09639176391719528,
+      "uncorrected_error_over_child": 0.09528989400835872,
+      "final_state_mixed_over_child": 0.13774726682340968
+    },
+    {
+      "cell": "regional3",
+      "total_interaction_norm": 0.02900063424864496,
+      "internal_over_total": 0.9503031148087053,
+      "readout_over_total": 0.0813869535822663,
+      "readout_aligned_fraction": 0.0517739130991373,
+      "corrected_error_over_child": 0.19231828058731773,
+      "uncorrected_error_over_child": 0.20237572369320406,
+      "final_state_mixed_over_child": 0.2683308097429926
+    },
+    {
+      "cell": "newline0",
+      "total_interaction_norm": 5.7459534509254986e-05,
+      "internal_over_total": 1.4467837414197606,
+      "readout_over_total": 0.6807233467814907,
+      "readout_aligned_fraction": -0.31489945979158357,
+      "corrected_error_over_child": 0.06567810295222178,
+      "uncorrected_error_over_child": 0.045395936567389404,
+      "final_state_mixed_over_child": 0.06198827670306497
+    },
+    {
+      "cell": "newline1",
+      "total_interaction_norm": 0.0006611769637952056,
+      "internal_over_total": 0.6440469431552922,
+      "readout_over_total": 1.5612704761661187,
+      "readout_aligned_fraction": 1.5113845173801512,
+      "corrected_error_over_child": 0.13400438032501782,
+      "uncorrected_error_over_child": 0.20806616932068375,
+      "final_state_mixed_over_child": 0.216031097121409
+    },
+    {
+      "cell": "newline2",
+      "total_interaction_norm": 0.00017102905635043715,
+      "internal_over_total": 1.4600728589142826,
+      "readout_over_total": 0.6814058654291414,
+      "readout_aligned_fraction": -0.33374939994844477,
+      "corrected_error_over_child": 0.1305644246568966,
+      "uncorrected_error_over_child": 0.08942322560121072,
+      "final_state_mixed_over_child": 0.1154326090822897
+    },
+    {
+      "cell": "newline3",
+      "total_interaction_norm": 0.0005449828506916811,
+      "internal_over_total": 1.014806184907427,
+      "readout_over_total": 0.4357037178863185,
+      "readout_aligned_fraction": 0.08000306842679676,
+      "corrected_error_over_child": 0.48134917847379627,
+      "uncorrected_error_over_child": 0.4743262168013945,
+      "final_state_mixed_over_child": 0.11620355207445077
+    }
+  ],
+  "body_forwards": 640,
+  "seconds": 8.08151737228036,
+  "scope": "Exactreadout onadditivefinal-state hypothesis, splitting totalDOD into internalstateinteraction andfinalreadoutnonlinearity. Nativeinterventionstates borrowed; no fit,newOOD orautonomouspredictor.",
+  "artifact_sha": "fd57e054e8e54d8d35a6b1821e70956f7ec16096d13c8b5c2bf3f4f608582155"
+}

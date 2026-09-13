@@ -219,3 +219,9 @@ $$
 $$
 
 This can determine whether an explicit small final-readout correction is sufficient, or whether further writer folding through the suffix is necessary. It doesnot require activationfitting or a generic tensoroptimizer. That discriminator is notyet executed.
+
+## 01:47 — Internal suffix interactions require forward folding
+
+The final-readout discriminator is completed:Apasses,B/Cfail. Regionalinternal-interaction norms remain87–101%of totalnonadditivity; exactreadout onadditivefinalstates leaves4.62–19.23%child-relative predictionerrors. The partition itselfreplays exactly, so thisis not a failedinstrument. FineWebreadout corrections canhelp orhurt; no universalreadout-only repair. [Receipt](CROSSFIRST_READOUT_SPLIT_V1_RESULT.json).
+
+We therefore reused the existingMLP8 fixed-writer expansion atMLP9. Because childandremainder share a writer, their arbitrary-amplitude residual-plus-MLP9 response is an exact rationalcombination of four per-context vectors, with thetwo-edit mixedresponse requiring onlythree. Actualweight FP64controls hold near $10^{-15}$, includingchangingRMS denominators; no optimizer ordatafit isused. NativeMLP9response andmediation tests remainpending. [Exactmath, price andnexttest](MLP9_CROSSFIRST_RESPONSE_V1_MATH.md).
