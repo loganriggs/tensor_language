@@ -1,0 +1,50 @@
+{
+  "shared_norm_over_target": 0.8227881225303464,
+  "private_norm_over_target": 0.42516227128704276,
+  "shared_private_cosine": -0.15878172037861965,
+  "serialized_relative_error": 0.5032605402286701,
+  "conditional_cycle_relative_gain": 1.2836294950577815e-05,
+  "timings": [
+    {
+      "batch": 1,
+      "replay_error": 1.3589601013314068e-15,
+      "median_seconds": {
+        "structured": 8.371099829673767e-05,
+        "global208": 6.331130862236023e-05,
+        "dense_exact": 0.0001330152153968811
+      }
+    },
+    {
+      "batch": 16,
+      "replay_error": 1.7610825634411435e-15,
+      "median_seconds": {
+        "structured": 0.0002283044159412384,
+        "global208": 0.0001851990818977356,
+        "dense_exact": 0.00043921172618865967
+      }
+    },
+    {
+      "batch": 128,
+      "replay_error": 1.7460412491794646e-15,
+      "median_seconds": {
+        "structured": 0.0011634677648544312,
+        "global208": 0.0010983906686306,
+        "dense_exact": 0.002631876617670059
+      }
+    }
+  ],
+  "private_reallocated_ranks": [
+    16,
+    16,
+    15,
+    23,
+    18,
+    16,
+    12,
+    12,
+    16
+  ],
+  "fixed_shared_reallocation_squared_error": 0.2526800037098156,
+  "fixed_shared_reallocation_relative_gain": 0.0023341292192208263,
+  "scope": "CPU postfit diagnostic on serialized best weights. Same scalar count for global208/structured, different approximation errors. One-cycle gain and component norms are not uniqueness/global-optimality certificates. No new fit adopted."
+}
