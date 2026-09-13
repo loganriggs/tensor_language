@@ -32,3 +32,22 @@ Do not launch a large HOOI or other dense-core Tucker fit at this budget: the re
 It does not rule out a **sparse core**, overlapping/block-term factors, arithmetic sharing, cheaper structured adapters, or a producer-constrained target. At the individually necessary ranks above, dense adapters alone cost 4,068,928 bytes, leaving only 828,008 bytes for a sparse core and its support representation under the current budget. That is a concrete, demanding budget for a sparse-core successor; sparsity must be substantial enough to pay for the adapters.
 
 Existing sparse interaction behavioral failures on broader native-head ports remain unchanged. This screen neither repairs them nor rejects the retained-interaction result. It redirects the node-sparsity search toward structured/sparse cores or composed producer restrictions instead of an infeasible dense-core model.
+
+## Alternative: different input factors for each output block
+
+The earlier [rank32 output-block study](HEAD17_OUTPUT_BLOCK_FIT_V1_MATH.md) already tested an orthogonal-output LL1 restriction. A new [adaptive allocation screen](INTERACTION_ADAPTIVE_OUTPUT_BLOCKS_V1_RESULT.json) avoids repeating it: at the same 4,896,936-byte budget, each of twelve output combinations can use its own rank, or a full dense matrix if cheaper.
+
+Each factored rank costs $(1152+128)r=1280r$ scalars. A full dense block costs 147,456, making ranks116–127 dominated in this storage objective by exact dense storage. We solve the remaining choices—ranks0–115 or full dense—by exact knapsack allocation using each slice's singular-value energy. Costs are multiples of 256 scalars; the 144-scalar output adapter is charged separately. This is the optimal allocation **for a fixed output frame**, not a globally optimized block decomposition.
+
+| Frozen output frame | Total coefficient error | Spelling-difference coefficient error | Dense blocks |
+|---|---:|---:|---:|
+| Native token rows | 38.56% | 52.70% | 3 |
+| Output spectral basis | 21.94% | 57.02% | 7 |
+| Previously learned rank32 basis | 34.19% | 61.66% | 4 |
+| Pair sum/difference basis | 23.14% | 60.18% | 6 |
+
+All use 4.892–4.896 MB; none reaches 10%. Reconstructed error matches allocated discarded energy within $2.06\times10^{-15}$. The screen takes 0.77 CPU seconds. The prior learned basis was optimized for a different rank budget and is only a frozen comparison here.
+
+The large contrast errors expose a weighting issue: shared token content can consume the budget. [The balanced countercheck](INTERACTION_ADAPTIVE_OUTPUT_BALANCED_V1_RESULT.json) gives equal weight to relative squared error in the pair-sum and pair-difference groups, and solves the same exact allocation again. Difference error improves to 36.65%, while total error rises to 39.61%; the joint target still fails. This is a separately defined weight-only objective, not a repair of the original verdict.
+
+Adaptive dense/factored allocation is therefore insufficient in these frames. Unlike the Tucker spectral bound, this result does not rule out better learned output frames, overlapping LL1 blocks or nonorthogonal shared computations. It does show that neither uniform rank allocation nor dominance of common token content alone explains the current miss.

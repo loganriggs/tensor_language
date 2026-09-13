@@ -1,0 +1,98 @@
+{
+  "records": [
+    {
+      "frame": "native",
+      "ranks": [
+        68,
+        69,
+        128,
+        128,
+        65,
+        68,
+        72,
+        72,
+        128,
+        74,
+        60,
+        62
+      ],
+      "dense_blocks": 3,
+      "bytes": 4893248,
+      "relative_error": 0.38562532727236504,
+      "contrast_error": 0.5269941433613347,
+      "energy_replay_error": 1.3322676295501878e-15,
+      "pred_a": false
+    },
+    {
+      "frame": "spectral",
+      "ranks": [
+        15,
+        19,
+        30,
+        39,
+        46,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+      ],
+      "dense_blocks": 7,
+      "bytes": 4892224,
+      "relative_error": 0.21943657591309337,
+      "contrast_error": 0.5701783923895857,
+      "energy_replay_error": 2.0539125955565396e-15,
+      "pred_a": false
+    },
+    {
+      "frame": "prior_learned",
+      "ranks": [
+        128,
+        72,
+        39,
+        128,
+        83,
+        128,
+        128,
+        84,
+        31,
+        65,
+        72,
+        49
+      ],
+      "dense_blocks": 4,
+      "bytes": 4894272,
+      "relative_error": 0.34192735632392873,
+      "contrast_error": 0.6165703848843783,
+      "energy_replay_error": 1.2212453270876722e-15,
+      "pred_a": false
+    },
+    {
+      "frame": "pair_sum_difference",
+      "ranks": [
+        128,
+        31,
+        128,
+        57,
+        128,
+        32,
+        128,
+        47,
+        128,
+        54,
+        128,
+        44
+      ],
+      "dense_blocks": 6,
+      "bytes": 4896320,
+      "relative_error": 0.23137818487826817,
+      "contrast_error": 0.6018389942848154,
+      "energy_replay_error": 8.604228440844963e-16,
+      "pred_a": false
+    }
+  ],
+  "seconds": 0.767829392105341,
+  "scope": "Exact rank/dense choice for four frozen outputframes, totalcoefficient Frobeniusobjective. Outputframe not optimized atthisbudget. Metadata/runtime/nativecontext costs excluded; no behavior or generalLL1 impossibility claim."
+}

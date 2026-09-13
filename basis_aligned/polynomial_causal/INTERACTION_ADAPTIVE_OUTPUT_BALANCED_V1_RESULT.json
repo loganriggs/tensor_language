@@ -1,0 +1,31 @@
+{
+  "records": [
+    {
+      "frame": "pair_sum_difference",
+      "ranks": [
+        71,
+        57,
+        128,
+        128,
+        68,
+        59,
+        72,
+        75,
+        78,
+        128,
+        59,
+        71
+      ],
+      "dense_blocks": 3,
+      "bytes": 4893248,
+      "relative_error": 0.3961450734964917,
+      "contrast_error": 0.3665151520381499,
+      "objective_error": 0.384176751426377,
+      "energy_replay_error": 2.220446049250313e-16,
+      "pred_a": false
+    }
+  ],
+  "seconds": 0.569424893707037,
+  "scope": "Exact rank/dense choice for listed frozen outputframes and explicit objective. Outputframe not optimized atthisbudget. Metadata/runtime/nativecontext costs excluded; no behavior or generalLL1 impossibility claim.",
+  "objective": "equal relative squared common/difference error"
+}
