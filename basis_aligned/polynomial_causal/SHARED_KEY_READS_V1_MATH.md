@@ -65,3 +65,29 @@ The full norm is $F(I)$, and projected tensor error squared is $F(I)-F(P)$. [An 
 [Ten rank48 fits](JOINT_KEY_PRODUCT_FIT_V1_RESULT.json) use monotone gradient ascent with QR retraction: one spectral start, four perturbed spectral starts and five random starts. They finish in 11.08 CPU seconds. All are monotone; only the best start meets the $10^{-7}$ normalized tangent-gradient threshold, while nine reach the 3,000-step cap. Their objective values are close, but this is not a global certificate. Capture rises from 0.7739590 to 0.7739838, only **0.01098% less squared residual**, missing the declared 1% improvement bar.
 
 [The frozen best fit's response check](SHARED_KEY_CONSUMER_PRODUCT_V1_CONTROL.json) also fails: 20.6–23.4% error across the three families, slightly worse than ordinary SVD in every family. Keep exact shared64 reads. This product-objective screen does not rescue common-subspace truncation, and does not exhaust compression of the complete position-corrected joint QK computation.
+
+## Folding the shared query source changes the result
+
+Both queries come from the same residual vector $x$, rather than independent arbitrary query ports. At query/key positions $(s,t)$, fold their weight maps and actual BF16-rounded rotary matrices into
+
+$$
+M_i=Q_i^\top R_s^\top R_tK_iB\in\mathbb R^{1152\times64}.
+$$
+
+The inside-product numerator is $(x^\top M_1v)(x^\top M_2v)$, where $v$ is the shared key coordinate. Symmetrize both repeated-input pairs in its fourth-order coefficient tensor. Define $G_i=M_i^\top M_i$ and $C=M_1^\top M_2$. For an orthogonal key projector $P$, the captured squared coefficient norm is
+
+$$
+F(P)=\tfrac14\left[
+\operatorname{tr}(PG_1)\operatorname{tr}(PG_2)
++\operatorname{tr}(PG_1PG_2)
++\operatorname{tr}(PC^\top PC)
++\bigl(\operatorname{tr}(PC)\bigr)^2\right].
+$$
+
+[The explicit tensor/gradient check](SHARED_QUERY_PRODUCT_OBJECTIVE_V1_CONTROL.json) passes. This supplies a small Gram-matrix objective without materializing the large tensor. The fit sums coefficient errors at positions $(1,0),(4,0),(16,0),(63,0)$, without separately normalizing each position's tensor. Full query/key denominators and the outside-key paths remain excluded from this fitting objective.
+
+[Ten rank48 starts](SHARED_QUERY_PRODUCT_FIT_V1_RESULT.json) all converge under the declared $10^{-7}$ tangent-gradient criterion in 26.4 CPU seconds total. They agree in objective value to about $10^{-12}$, not a proof of global optimality or identical bases. Capture increases from 0.8128373 for the original key-map SVD basis to 0.8379636: **13.42% less squared product residual**. These capture values use this new target and cannot be compared directly with the previous independent-query target's values.
+
+Crucially, [the frozen response check](SHARED_KEY_CONSUMER_QUERYFOLD_V1_CONTROL.json) now passes the 10% scalar-effect bar in all three families: **7.17–7.56% error**, versus 20.1–23.2% for the original rank48 SVD. Both use 847,795 program scalars, saving another 2.70% relative to exact shared64 reads. The old individual-key coefficient error rises to 36.6%, so that original 10% weight bar remains failed. The improved behavioral metric comes from a better matched composition target, not extra capacity or data fitting.
+
+This is a promising conditional compression screen. It uses the same 72 cached prompts and rank64 transport baseline; it has not established fresh/OOD transfer, signed-strength robustness, full-model logits, or selective circuit manipulation. Keep the exact shared64 executor as the reference while testing those properties before adoption.
