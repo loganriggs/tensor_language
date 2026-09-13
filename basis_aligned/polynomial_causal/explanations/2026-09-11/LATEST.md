@@ -1,3 +1,5 @@
+**13 September02:40:** Fixedthree-contraction predictor passescachedregional screen:2.9–4.7%effecterror,96/96signs,0.63secondreadout test. 96newlexical/construction prefixes frozen withoutscoring; nativeconfirmation pending. [Primary evidence](../../CROSSFIRST_ATTENTION17_PORTS_V1_MATH.md).
+
 **13 September02:35:** Native jointQK/value mixed-port expansion passesreplay; cross-onlyfails because inheritedportmixedchanges contribute31–37%alignedregionaleffect. Two groups composewithin0.15–0.34%. Cachedterm audit completed; withinheadalias stillopen. [Primary result](../../CROSSFIRST_ATTENTION17_PORTS_V1_MATH.md).
 
 **13 September02:29:** Fixedknownhead17.2 predictsregionalattentionmixedwriteeffect within1.25–1.62%; notyet a withinheadalias. Mathreview derives andexecutes jointQK/value mixed-port expansion, retaining cross-factor interactions. [Review and controls](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-13_0229.md).

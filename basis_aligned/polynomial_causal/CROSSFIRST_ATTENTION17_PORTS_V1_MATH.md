@@ -34,3 +34,15 @@ A useful nextquestion is whether the score/valuecrossgroup plus single-score inh
 The currenthead isalreadyknown. No equalitywiththeolder sharedquadraticsourceblockhasbeenestablished, andthe fixednativeport/background interface isnot autonomous extraction. The full four-property goal remainsopen.
 
 [Executed cached audit](CROSSFIRST_ATTENTION17_PORTS_V1_AUDIT.json), [reproducible scorer](crossfirst_attention17_ports_audit_v1.py).
+
+## 02:40 — Three-contraction conditional predictor and frozen confirmation rows
+
+The fixed approximation retains score/value cross terms and the single-score inherited defects. Exact algebra regroups these into three source contractions; equivalence to the selected groups holds within5.61e-16 on cachednativeports. The other terms remain omitted, so this is an approximation to the fullinteraction, not a new exact19-term identity.
+
+Cached-native readout checks A/B/Cpass: exactbase/fullanchors, regional effecterrors4.67%,3.56%,2.87%,4.00%, signs96/96.480finalreadouts andzero transformerforwards took0.63seconds. This is local arithmetic/readout efficiency, not wholemodel speedup or autonomous extraction: four context-derived portcorners, outputprojection andnativebackground/readout remain required.
+
+FineWebrelativeerrors9.3–21.8%andmaximumabsoluteCEpredictionerrors1.91–6.68e-6nats remain diagnostic. Keep the full19-term reference. The approximation was selected fromtheknownpanel geometric audit, so passingthisscreen isnotfreshconfirmation.
+
+96newfullprefixes have now been frozen without model scoring: fourconstructions, citypairsLondon/Boston andManchester/Chicago, andthe existing sixspellingendpoints. They pass the pairedone-token-cue check and full-prefix duplicate scan againstrepositoryrowfiles. These citypairs are new tothislocalpathscreen, not globally unstudiedtokens. Nativelexical/construction confirmation hasnotrun; nocorpusOODclaim.
+
+[Three-contraction executor](joint_attention_three_group_v1.py), [control](CROSSFIRST_THREE_GROUP_V1_CONTROL.json), [native screen](CROSSFIRST_THREE_GROUP_V1_RESULT.json), [frozen confirmation rows](CROSSFIRST_THREE_GROUP_FRESH_V1_ROWS.json).
