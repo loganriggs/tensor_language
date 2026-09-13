@@ -1,7 +1,5 @@
 # Latest requested update for Logan
 
-**Newest: [Critical review, counter-review and best ROI — 12 September 2026](method_redteam_and_roi_2026-09-12.md).** Includes the completed longer optimizer comparison, physical head13 screen, exact support-reduction audit, and your deferred tensor-sim idea. **Section8 extends the update through 23:35 UTC:** the four-mode MLP8 value path, donor transfer and preservation, an executed endpoint-concentration red-team, the normalization-interface result, and revised next-step priorities. **The closing23:44 addition records a failed fresh-context confirmation and its full-quadratic control; read it before generalizing the positive.** Section7 retains the successful native interaction predictor.
+**Newest: [13 September, results through 00:29 UTC — Following the interaction path backward](research_update_2026-09-13_0033_interaction_paths.md).** Full update after the previous report’s 23:44 addition: context reversal, source splitting, MLP7/attention8 mixed terms, physical head8.2 confirmation, failed scalar simplifications, and progress against the four circuit properties.
 
-**Detailed derivation: [standalone_best_result.md](standalone_best_result.md).** The selective regional component remains the strongest result; the new report distinguishes it from the generic cubic-fit null.
-
-[Previous requested update and answers through19:55](research_update_2026-09-12_1536_interaction_decomposition.md#11-update-through-1955-utc) · [All requested reports](README.md).
+[Previous critical review](method_redteam_and_roi_2026-09-12.md) · [Earlier standalone derivation](standalone_best_result.md) · [All requested reports](README.md).
