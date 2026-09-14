@@ -600,6 +600,34 @@ can enter O through paired inherited framing values; it is carried by the
 contextual block9 current-value input. The next intervention traces when that
 current-value difference appears across upstream block boundaries.
 
+[The isolated layer-onset trace](ODD_CURRENT_VALUE_LAYER_ONSET_V1_RESULT.json)
+passes its instrument and capability gates but rejects both early and registered
+late profiles. Layers0--6 have at most6.56% of the layer9 target-effect norm;
+layer7 reaches19.42%/9.74% and layer8 reaches27.03%/13.42%. Layer9 then anchors
+the full current-value swap exactly. Earlier layers1--6 are also oppositely
+oriented. Since patching at layer8 propagates through block8 but supplies only
+a minority of the donor layer9 state, most cue information is written into the
+framing positions during block8 from other positions or amplified there. The
+next exact residual identity splits block8 input carry, attention write and MLP
+write before the block9 normalization and the isolated O current-value reader.
+
+[The block8 split](ODD_BLOCK8_WRITER_SPLIT_V1_RESULT.json) finds a stable sum
+but no stable single writer class. Separate carry+attention+MLP behavioral
+effects compose the full hybrid within2.08%/.18%. Radio is attention dominated
+(14.62% error; carry79.02%, MLP107.51%), while local-history is distributed
+(attention53.33%, MLP68.90%, carry79.78%). The registered `1e-10` residual
+identity bar fails at9.67e-7 through separately rounded native FP32 writes; its
+score anchor passes at3.34e-6. Failed A is preserved. The next screen splits
+attention8's output projection into nine exact head writes.
+
+[The head-write screen](ODD_ATTENTION8_HEAD_WRITERS_V1_RESULT.json) identifies
+head8.2 as the common attention writer feeding the O current-value interface.
+Its cue error versus all attention8 is2.78% on local-history and.91% on radio;
+every other head is near100%. Nine separate effects compose within.128%/.034%,
+all controls are small, and the exact projected head sum matches within1.75e-7.
+This crosses native module boundaries: head8.2 writes the contextual value later
+read by the O branch of head9.8. Its attention source position is tested next.
+
 [The equal-count split](ODD_FRAMING_EQUAL_HALVES_NATIVE_V1_RESULT.json) also
 rejects a stable positional role. Local-history remains early dominated
 (31.89% versus70.04% error), while radio is distributed with late closer

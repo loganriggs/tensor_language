@@ -1,0 +1,294 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "pred_d": false,
+  "max_frozen_anchor_error": 0.0,
+  "max_layer0_target_effect": 0.0,
+  "max_restored_attn_input_error": 0.0,
+  "max_outside_patch_error": 0.0,
+  "families": [
+    {
+      "family": 0,
+      "native_positive_pairs": 12,
+      "native_cue_mean": 3.640370557705561,
+      "layer9_target_rms": 0.40782274209457403,
+      "profiles": [
+        {
+          "layer": 0,
+          "target_norm_ratio_to_layer9": 0.0,
+          "target_cosine_to_layer9": 0.0,
+          "control_ratios_to_layer9_target": {
+            "cat_dog": 0.0,
+            "red_blue": 0.0,
+            "monday_tuesday": 0.0,
+            "apple_orange": 0.0
+          }
+        },
+        {
+          "layer": 1,
+          "target_norm_ratio_to_layer9": 0.010846577479558351,
+          "target_cosine_to_layer9": -0.8893484620137891,
+          "control_ratios_to_layer9_target": {
+            "cat_dog": 0.0011025847373610437,
+            "red_blue": 0.0012399777633910261,
+            "monday_tuesday": 0.0005248881968249829,
+            "apple_orange": 0.0009427998126547775
+          }
+        },
+        {
+          "layer": 2,
+          "target_norm_ratio_to_layer9": 0.01216732949061461,
+          "target_cosine_to_layer9": -0.9596485699092524,
+          "control_ratios_to_layer9_target": {
+            "cat_dog": 0.0014281475636827223,
+            "red_blue": 0.0008681564353213363,
+            "monday_tuesday": 0.00038987635105901215,
+            "apple_orange": 0.0005989408050647826
+          }
+        },
+        {
+          "layer": 3,
+          "target_norm_ratio_to_layer9": 0.012177652030498113,
+          "target_cosine_to_layer9": -0.9063286806183886,
+          "control_ratios_to_layer9_target": {
+            "cat_dog": 0.0011806979608846285,
+            "red_blue": 0.0005089826625514235,
+            "monday_tuesday": 0.00026396621515098007,
+            "apple_orange": 0.0008558002829373754
+          }
+        },
+        {
+          "layer": 4,
+          "target_norm_ratio_to_layer9": 0.01920297824137781,
+          "target_cosine_to_layer9": -0.7665823514720563,
+          "control_ratios_to_layer9_target": {
+            "cat_dog": 0.0018003150590266174,
+            "red_blue": 0.0008699688501195535,
+            "monday_tuesday": 0.0005012891592477422,
+            "apple_orange": 0.0018617412680591407
+          }
+        },
+        {
+          "layer": 5,
+          "target_norm_ratio_to_layer9": 0.05721250168104206,
+          "target_cosine_to_layer9": -0.7199321203865963,
+          "control_ratios_to_layer9_target": {
+            "cat_dog": 0.004676204438020619,
+            "red_blue": 0.0013924113472990635,
+            "monday_tuesday": 0.0006452510602907816,
+            "apple_orange": 0.00461426806632794
+          }
+        },
+        {
+          "layer": 6,
+          "target_norm_ratio_to_layer9": 0.06562533095719492,
+          "target_cosine_to_layer9": -0.5768079747236102,
+          "control_ratios_to_layer9_target": {
+            "cat_dog": 0.0038864696942180386,
+            "red_blue": 0.00237493135924343,
+            "monday_tuesday": 0.002005665426894406,
+            "apple_orange": 0.006206573309158292
+          }
+        },
+        {
+          "layer": 7,
+          "target_norm_ratio_to_layer9": 0.1942184075440109,
+          "target_cosine_to_layer9": 0.997911071472028,
+          "control_ratios_to_layer9_target": {
+            "cat_dog": 0.02499683929541468,
+            "red_blue": 0.009585705152721691,
+            "monday_tuesday": 0.008457284020350595,
+            "apple_orange": 0.009067125381213341
+          }
+        },
+        {
+          "layer": 8,
+          "target_norm_ratio_to_layer9": 0.27026085936533073,
+          "target_cosine_to_layer9": 0.9954454620442305,
+          "control_ratios_to_layer9_target": {
+            "cat_dog": 0.0318755275856131,
+            "red_blue": 0.012237448147547531,
+            "monday_tuesday": 0.011037619447450311,
+            "apple_orange": 0.012081031197987504
+          }
+        },
+        {
+          "layer": 9,
+          "target_norm_ratio_to_layer9": 1.0,
+          "target_cosine_to_layer9": 0.9999999999999999,
+          "control_ratios_to_layer9_target": {
+            "cat_dog": 0.09247186778321467,
+            "red_blue": 0.03276541605403622,
+            "monday_tuesday": 0.023490054942567774,
+            "apple_orange": 0.060083805474577645
+          }
+        }
+      ],
+      "capability_pass": true,
+      "early_onset_pass": false,
+      "late_onset_pass": false
+    },
+    {
+      "family": 1,
+      "native_positive_pairs": 12,
+      "native_cue_mean": 2.775461177031199,
+      "layer9_target_rms": 0.33983815211620455,
+      "profiles": [
+        {
+          "layer": 0,
+          "target_norm_ratio_to_layer9": 0.0,
+          "target_cosine_to_layer9": 0.0,
+          "control_ratios_to_layer9_target": {
+            "cat_dog": 0.0,
+            "red_blue": 0.0,
+            "monday_tuesday": 0.0,
+            "apple_orange": 0.0
+          }
+        },
+        {
+          "layer": 1,
+          "target_norm_ratio_to_layer9": 0.00545843525971835,
+          "target_cosine_to_layer9": -0.6808073961055523,
+          "control_ratios_to_layer9_target": {
+            "cat_dog": 0.0004990243779268279,
+            "red_blue": 0.0011990079663228889,
+            "monday_tuesday": 0.0003744589012738382,
+            "apple_orange": 0.0008135334527523486
+          }
+        },
+        {
+          "layer": 2,
+          "target_norm_ratio_to_layer9": 0.014774058828215768,
+          "target_cosine_to_layer9": -0.84653549666383,
+          "control_ratios_to_layer9_target": {
+            "cat_dog": 0.0015337107950793326,
+            "red_blue": 0.0009340146148079832,
+            "monday_tuesday": 0.0009548107099760851,
+            "apple_orange": 0.002384120384377206
+          }
+        },
+        {
+          "layer": 3,
+          "target_norm_ratio_to_layer9": 0.022831463976264843,
+          "target_cosine_to_layer9": -0.8781968194684708,
+          "control_ratios_to_layer9_target": {
+            "cat_dog": 0.002286796000374093,
+            "red_blue": 0.0013234361328248003,
+            "monday_tuesday": 0.0011779072165226995,
+            "apple_orange": 0.0035521576091510046
+          }
+        },
+        {
+          "layer": 4,
+          "target_norm_ratio_to_layer9": 0.025989817326154237,
+          "target_cosine_to_layer9": -0.8254909608786666,
+          "control_ratios_to_layer9_target": {
+            "cat_dog": 0.0028548507928951345,
+            "red_blue": 0.0013076063135107575,
+            "monday_tuesday": 0.001577554556346472,
+            "apple_orange": 0.003909752585589449
+          }
+        },
+        {
+          "layer": 5,
+          "target_norm_ratio_to_layer9": 0.027848195159259098,
+          "target_cosine_to_layer9": -0.9779787625811188,
+          "control_ratios_to_layer9_target": {
+            "cat_dog": 0.0014516508838549281,
+            "red_blue": 0.0010006592526439959,
+            "monday_tuesday": 0.0012732074020691123,
+            "apple_orange": 0.0032525571396385977
+          }
+        },
+        {
+          "layer": 6,
+          "target_norm_ratio_to_layer9": 0.028468297574595694,
+          "target_cosine_to_layer9": -0.9383207689882999,
+          "control_ratios_to_layer9_target": {
+            "cat_dog": 0.0015299894219917972,
+            "red_blue": 0.0020295962700905244,
+            "monday_tuesday": 0.0013185706953119732,
+            "apple_orange": 0.004358104526029134
+          }
+        },
+        {
+          "layer": 7,
+          "target_norm_ratio_to_layer9": 0.09742341799010751,
+          "target_cosine_to_layer9": 0.9570094585874659,
+          "control_ratios_to_layer9_target": {
+            "cat_dog": 0.010421731827923364,
+            "red_blue": 0.005654844183242561,
+            "monday_tuesday": 0.005687410202616905,
+            "apple_orange": 0.019743757273181554
+          }
+        },
+        {
+          "layer": 8,
+          "target_norm_ratio_to_layer9": 0.13416216864479621,
+          "target_cosine_to_layer9": 0.9881922763194054,
+          "control_ratios_to_layer9_target": {
+            "cat_dog": 0.01206908120269754,
+            "red_blue": 0.008639973144221784,
+            "monday_tuesday": 0.0066721339171114495,
+            "apple_orange": 0.02488478380658247
+          }
+        },
+        {
+          "layer": 9,
+          "target_norm_ratio_to_layer9": 1.0,
+          "target_cosine_to_layer9": 1.0000000000000002,
+          "control_ratios_to_layer9_target": {
+            "cat_dog": 0.04908863807471179,
+            "red_blue": 0.020340873581708576,
+            "monday_tuesday": 0.01660933511966777,
+            "apple_orange": 0.07226696151472142
+          }
+        }
+      ],
+      "capability_pass": true,
+      "early_onset_pass": false,
+      "late_onset_pass": false
+    }
+  ],
+  "body_forwards": 528,
+  "seconds": 7.585782785004994,
+  "artifact_sha256": "3995bf477fff47dc22c737c58f01a15469a841422146a65b2daef2205ee3a3e7",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_odd_current_value_layer_onset_v1.py": "116b2743102f6c23b421cd26b1e161adafc8af6b8b57176e3c2eaa81f7c3a062",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_CURRENT_VALUE_LAYER_ONSET_V1_PREREGISTRATION.md": "02de33e769f2a76f51a8cca7c55711ded03c251dd37bf4b3b908ad4f1082c2be",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_VALUE_SOURCE_SPLIT_NATIVE_V1_ARTIFACT.pt": "4af24ee2be0536295a81afdfc587e5cdb3519ea4d8e7edf518bdea6606d341fb",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_VALUE_SOURCE_SPLIT_NATIVE_V1_RESULT.json": "6e618a778b53385dc6e46a27c179a2eec9ecc7bf4b81841906ffb6f75c95af9e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_FRAMING_FRESH_V1_ROWS.json": "e98dcf08e351d296cd20a5fdfad9ced1652252142d1ae85e2410920b4c75c77f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_source_swap_interaction_v1.py": "a156341eb90224a450e4abda512d2fefa9d487e567db44ec4a5a3493dc4424d9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_value_source_split_v1.py": "4da1a2c9472b78c38bd4970681a9f71ba8d6cbdea4afeba07ebbc504bbf54d13",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_semantic_positions_v1.py": "e8476b5a72af7e7ae90d1dec6852d58d6a14e34c18ff41cadd24dd5d9c9a5463",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_source_positions_v1.py": "b67386c1a306fcbcbe300bf9e9114601b43635b20880d80d6167cc7d5ecbc1ac",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/EVEN_VALUE_SHARED_GRAPH_PACKED_V1_PROGRAM.pt": "cbe8a94a2057ca3c53614d3bb70a5e8c0cb660e6e6cb57b531bf6dc0a2ccdd7f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/even_value_shared_graph_v1.py": "547e8b3202d191e1d51d30e1457cc3c445560157fc7bb9b39087c629d0a9908e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_cue_row_check_v1.py": "9d58e3dc5426f94f3bf2a142e5cb45dbadbfed2f743bee262221482bd3db76ef",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_city_article_check_v1.py": "ead978a7fbdfdf83dbff241597c17720c2c7fb8983b4651134684db815d77a40"
+  },
+  "arm_order": [
+    "native",
+    "layer_0_source_onset",
+    "layer_1_source_onset",
+    "layer_2_source_onset",
+    "layer_3_source_onset",
+    "layer_4_source_onset",
+    "layer_5_source_onset",
+    "layer_6_source_onset",
+    "layer_7_source_onset",
+    "layer_8_source_onset",
+    "layer_9_source_onset"
+  ],
+  "readout_order": [
+    "target",
+    "work_jobs",
+    "cat_dog",
+    "red_blue",
+    "monday_tuesday",
+    "apple_orange"
+  ],
+  "scope": "Layer-onset trace for paired framing information entering O current values; recipient block9 residual/query/key and native suffix restored. No generic residual-patch, semantic identification, corpus OOD, compression adoption, or quantization claim."
+}

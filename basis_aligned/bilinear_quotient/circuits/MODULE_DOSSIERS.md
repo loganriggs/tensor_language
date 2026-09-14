@@ -309,6 +309,25 @@ behaviorally omissible here (<=2.29% target error). This identifies value
 transport at the all-query-fixed head9.8 boundary; current versus inherited
 value provenance remains open.
 
+An isolated layer-onset trace keeps block9 queries, keys and residual path fixed.
+Layers0--6 explain <=6.56% of the transported current-value effect, layer7
+9.74--19.42%, layer8 13.42--27.03%, and direct layer9 input interchange gives
+100%. Both frozen onset hypotheses fail. The unresolved writer lies mainly in
+block8's transformation into the block9 residual, motivating an attention/MLP/
+carry split rather than another semantic source mask.
+
+Block8 carry/attention/MLP hybrids compose the isolated effect, but the writer
+class is template dependent: attention suffices for radio (14.62% error) and no
+single class suffices for local-history (best attention at53.33%). Registered A
+remains failed because separately rounded FP32 writes miss its `1e-10` residual
+identity bar at9.67e-7. Attention8 head writes are the next screen.
+
+[Attention8 head decomposition](../../polynomial_causal/ODD_ATTENTION8_HEAD_WRITERS_V1_RESULT.json)
+finds one stable upstream writer: head8.2 reproduces full attention8 transport
+within2.78%/.91%; all other heads have approximately100% error. Head effects
+compose and controls remain small. This supports a cross-layer head8.2 write to
+head9.8-O current-value read; the head8.2 source edge remains unresolved.
+
 Current-value provenance is exact on the paired framing sources: current-only
 and full-value swaps are behaviorally identical, while inherited-first swap is
 zero. The registered both-arms-live gate fails and remains visible. Architecture
