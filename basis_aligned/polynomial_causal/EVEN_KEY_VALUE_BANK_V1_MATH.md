@@ -248,3 +248,25 @@ The next source-localization question concerns inherited values at the controlle
 city positions versus all other positions. Even routing remains computed from
 the complete native context; value-source localization alone cannot identify all
 cue information entering through Q/K or the upstream prefix.
+
+
+## Inherited city sources are insufficient
+
+[192 native forwards](INHERITED_SOURCE_POSITIONS_NATIVE_V1_RESULT.json),3.72seconds,
+replay the corrected native anchor exactly. City-source-only cue errors are
+112.68/90.46% of the full inherited effect, failing20%. Whole inherited cue effects
+are1.591/0.667% of full-head effects, so museum also fails the1%materiality floor.
+City/other source effects compose within0.11–0.57% on cue/control readouts. Thus
+values outside the changed city position dominate this conditional inherited
+contribution. Routing and upstream context remain intact; this does not locate
+all cue information or show that city information is absent from Q/K.
+
+Demote further work on this small inherited contribution. The larger current
+remainder admits an exact cross-boundary port factorization Rc(r,v)=G_even(r)Z_R(v),
+where Z_R(v)=(1−lambda)V(v)−(V(v)·c)u. The original SRO coordinates specify c,u.
+No new model coefficients are fitted. [CPU control](CURRENT_REMAINDER_CROSSED_V1_CPU_CONTROL.json)
+replays the original current remainder within1.69e-16 and independently contracts
+(dG)(dZ), giving the complete three-term change within2.77e-16. Synthetic mixed
+norm is1.437×full change; cancellation makes scalar norm fractions non-additive.
+Native behavioral sufficiency and composition are tested separately by the
+[registered crossed-port test](CURRENT_REMAINDER_CROSSED_NATIVE_V1_PREREGISTRATION.md).
