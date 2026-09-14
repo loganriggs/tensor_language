@@ -2891,6 +2891,303 @@
    ],
    "translation_ids": [],
    "next_missing": "A post-result audit separates copied-answer behavior from broader output collateral in 3/4 live-clamp joint cells. The prospective 96-row response-restoration screen then finds zero eligible singleton downstream sublayers across MLP8 through MLP17; the best worst-cell vocabulary-RMS reduction is only 15.05% versus the frozen 25% bar, so CONFIRM remains unopened. Preserve the clean instrument and scientific null. Do not tune sites, subsets, gains, ranks or thresholds. Future induction work requires an independently motivated multi-module or typed-consumer intervention grammar; move to a distinct circuit target now."
+  },
+  {
+   "claim_id": "induction_selector_and_payload.v13",
+   "revision": 13,
+   "status": "site_live",
+   "supersedes": "induction_selector_and_payload.v12",
+   "causal_variable": {
+    "id": "induction_selector_payload",
+    "domain": "valid earlier source positions and the token/value following each source",
+    "read": "token equality and source position",
+    "operation": "select a matching earlier source, then transport its following payload",
+    "write": "selector-dependent payload contribution to the target-token logits",
+    "endpoint": "signed donor-answer minus base-answer logit margin at the query continuation"
+   },
+   "alternative_explanations": [
+    "generic token identity",
+    "generic copy service",
+    "lag/corpus shortcut"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "two_valid_sources_selector_swap",
+     "role": "interchange",
+     "changes": [
+      "the final query selects A rather than C or vice versa",
+      "the correct payload changes"
+     ],
+     "holds_fixed": [
+      "all three source-payload pairs",
+      "payload assignment",
+      "filler and pair positions"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "selector_payload_joint_answer_preserved",
+      "irrelevant_source_edit",
+      "copy_relation_preserved_nuisance_change"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "payload_swap_match_preserved",
+     "role": "interchange",
+     "changes": [
+      "the B and D payload assignments to A and C are exchanged",
+      "the correct payload changes"
+     ],
+     "holds_fixed": [
+      "query and selector",
+      "source identities and positions",
+      "neutral X-to-E pair"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "selector_payload_joint_answer_preserved",
+      "irrelevant_payload_edit",
+      "copy_relation_preserved_nuisance_change"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "selector_payload_joint_answer_preserved",
+     "role": "invariance",
+     "changes": [
+      "selector and target payload assignment change together"
+     ],
+     "holds_fixed": [
+      "correct answer",
+      "source and payload token sets",
+      "neutral pair and filler"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "two_valid_sources_selector_swap",
+      "payload_swap_match_preserved",
+      "match_break_payload_preserved"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "match_break_payload_preserved",
+     "role": "necessity",
+     "changes": [
+      "the selected earlier source is replaced, breaking its only query match"
+     ],
+     "holds_fixed": [
+      "query token",
+      "both target payload tokens",
+      "contrast and neutral pairs"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "irrelevant_source_edit",
+      "contrast_target_source_edit",
+      "irrelevant_payload_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "irrelevant_source_edit",
+     "role": "invariance",
+     "changes": [
+      "the endpoint-neutral X source is replaced by a decoy"
+     ],
+     "holds_fixed": [
+      "both target pairs",
+      "query and answers",
+      "neutral E payload"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_payload_edit",
+      "contrast_target_source_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "irrelevant_payload_edit",
+     "role": "invariance",
+     "changes": [
+      "the endpoint-neutral E payload is replaced by a decoy"
+     ],
+     "holds_fixed": [
+      "both target pairs",
+      "query and answers",
+      "neutral X source"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_source_edit",
+      "contrast_target_source_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "contrast_target_source_edit",
+     "role": "invariance",
+     "changes": [
+      "the unselected target source immediately before the competing payload is replaced"
+     ],
+     "holds_fixed": [
+      "selected target pair",
+      "query",
+      "both answer-token identities"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_source_edit",
+      "irrelevant_payload_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "copy_relation_preserved_nuisance_change",
+     "role": "invariance",
+     "changes": [
+      "filler identities or the source-to-query lag"
+     ],
+     "holds_fixed": [
+      "all three source-payload pairs",
+      "selector and payload assignment",
+      "correct answer"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "irrelevant_source_edit",
+      "irrelevant_payload_edit",
+      "match_break_payload_preserved"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "natural_pair_interchange",
+     "role": "interchange",
+     "changes": [
+      "naturally occurring selector/payload state",
+      "pair natural copy-positive positions matched on query class, lag, frequency, and base loss"
+     ],
+     "holds_fixed": [
+      "matching strata",
+      "corpus role",
+      "position band"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "within-stratum wrong donor",
+      "matched negative donor",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "equality_qk_selector_sites",
+     "tensor_path": "equality/QK selector sites",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "ov_value_write",
+     "tensor_path": "OV/value write",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "later_mlp_products",
+     "tensor_path": "later MLP products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "native_three_source_final_token_logits",
+     "tensor_path": "unmodified final-query model logits for R578 prompts",
+     "shape": [
+      "batch",
+      "vocabulary"
+     ],
+     "intervention": "no intervention; measure native B-versus-D margins, factorial interaction, and controls",
+     "ceiling_event_ids": [
+      "induction_selector_payload_native_capability.r580.preregistered.v1"
+     ]
+    },
+    {
+     "site_id": "r594_fixed_equality_partial_output_write",
+     "tensor_path": "attention output at zero-index L5H5/L7H3/L8H3/L8H4, final query",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "centered score/payload/joint partial equality-source output deltas; later layers live; L8 additions aggregated",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "r595_downstream_complete_write_response",
+     "tensor_path": "complete final-query attention/MLP write from MLP8 through MLP17",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "while four-site live joint edit is installed, restore exactly one downstream sublayer complete write to its native recipient value",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "induction_selector_payload_three_source_split_r578_v1",
+    "joint_split_v1"
+   ],
+   "evidence_event_ids": [
+    "induction_terminal_collateral_failure.legacy.v1",
+    "induction_selector_payload_capability.r554.preregistered.v1",
+    "induction_selector_payload_capability_audit.r555.preregistered.v1",
+    "induction_factor_intervention_semantics.r557.held.v1",
+    "induction_selector_payload_capability.r554.complete.null.v1",
+    "induction_selector_payload_capability_audit.r555.complete.held.v1",
+    "induction_selector_payload_native_capability.r580.preregistered.v1",
+    "induction_selector_payload_native_capability.r580.preregistered.v2",
+    "induction_selector_payload_native_capability.r580.invalid_instrument.v1",
+    "induction_selector_payload_native_capability.r586.complete.held.v1",
+    "induction_selector_payload_native_capability_audit.r587.complete.held.v1",
+    "induction_selector_payload.r594.complete.failed.v1",
+    "induction_live_equality_clamp.v1.complete.failed",
+    "induction_contextual_consumer_response.v1.complete.failed",
+    "induction.typed_consumer_group.v1.invalid",
+    "induction.typed_consumer_group.v2.invalid",
+    "induction.typed_consumer_group.v3.invalid",
+    "induction.typed_consumer_group.v4.complete.null"
+   ],
+   "translation_ids": [],
+   "next_missing": "singleton and architecture-defined multi-module native response restoration are both null. Early MLP8-12 removes 37.9-49.9% of vocabulary response, but necessarily causes >.10 answer CE damage in at least one cell; no typed group is an eligible mediator. Do not tune groups or bars. A future induction continuation needs a non-oracle factorization of answer-preserving versus collateral response, derived independently; otherwise move circuits."
   }
  ],
  "split_plans": [
@@ -3800,6 +4097,249 @@
    "notes": "Outcome-blind lexicographic24-group subset split12 DISCOVERY/12 CONFIRM. Complete native-write restoration at each of19 downstream sublayers is active, but no singleton is DISCOVERY-eligible; CONFIRM is not used for selection or scored for a candidate. MLP8 has the strongest uniform vocabulary reduction,15.05--19.59%, below25%, and answer preservation also fails the full conjunction. This rejects a localized singleton complete-write mediator under the registered grammar, not distributed or typed consumers. Zero fits/backwards/updates;8.70s. No SELECT/FINAL/OOD or compression claim.",
    "design_key": "437f90d3108eb2d696ec914906a53535909017135ff3ca0849d9a4f9143be1de",
    "execution_key": "b827af9e6cd1f0f3a9ec733533bd4910f56d969e443c235f304466de49aed720"
+  },
+  {
+   "event_id": "induction.typed_consumer_group.v1.invalid",
+   "test_type": "compiled_equivalence",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "site_id": null,
+   "result_artifact_id": "typed_consumer_v1_result",
+   "prereg_artifact_id": "typed_consumer_v1_prereg",
+   "metrics": [
+    {
+     "name": "actual_forwards",
+     "estimate": 33,
+     "ci95": null,
+     "bar": "registered 30"
+    },
+    {
+     "name": "actual_sequences",
+     "estimate": 1056,
+     "ci95": null,
+     "bar": "registered 960"
+    }
+   ],
+   "supersedes_event_id": null,
+   "notes": {
+    "reason": "native capture omitted from price"
+   },
+   "claim_id": "induction_selector_and_payload.v13",
+   "family_ids": [
+    "two_valid_sources_selector_swap",
+    "payload_swap_match_preserved",
+    "selector_payload_joint_answer_preserved",
+    "match_break_payload_preserved",
+    "irrelevant_source_edit",
+    "irrelevant_payload_edit",
+    "contrast_target_source_edit",
+    "copy_relation_preserved_nuisance_change",
+    "natural_pair_interchange"
+   ],
+   "evaluation_role": "frozen FIT screen",
+   "input_artifact_ids": [
+    "contextual_consumer_rows",
+    "typed_consumer_v1_binding"
+   ],
+   "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "replicates_event_id": null,
+   "sections": [],
+   "design_key": "d0e870c4e42d6434f02764c6928cb8538ce053651ba3e00ec9281552da34c07a",
+   "execution_key": "26f09a9585cc5cd1b05ad4375fba3494e9e6fee63e33a8a83a744bc5ab31aed5"
+  },
+  {
+   "event_id": "induction.typed_consumer_group.v2.invalid",
+   "test_type": "compiled_equivalence",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "site_id": null,
+   "result_artifact_id": "typed_consumer_v2_result",
+   "prereg_artifact_id": "typed_consumer_v2_prereg",
+   "metrics": [
+    {
+     "name": "actual_forwards",
+     "estimate": 33,
+     "ci95": null,
+     "bar": "registered 33"
+    }
+   ],
+   "supersedes_event_id": null,
+   "notes": {
+    "reason": "instrument predicate retained stale 66/2112 literal"
+   },
+   "claim_id": "induction_selector_and_payload.v13",
+   "family_ids": [
+    "two_valid_sources_selector_swap",
+    "payload_swap_match_preserved",
+    "selector_payload_joint_answer_preserved",
+    "match_break_payload_preserved",
+    "irrelevant_source_edit",
+    "irrelevant_payload_edit",
+    "contrast_target_source_edit",
+    "copy_relation_preserved_nuisance_change",
+    "natural_pair_interchange"
+   ],
+   "evaluation_role": "frozen FIT screen",
+   "input_artifact_ids": [
+    "contextual_consumer_rows",
+    "typed_consumer_v2_binding"
+   ],
+   "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "replicates_event_id": null,
+   "sections": [],
+   "design_key": "1e1a99532ff221e102bb564eb3962c5bedcf26fe0c9763256f283cefd10738c7",
+   "execution_key": "beb41b64877fb33ca614cd01c64ba05e573ba3b0f6497e9784c1c501d517b4ed"
+  },
+  {
+   "event_id": "induction.typed_consumer_group.v3.invalid",
+   "test_type": "compiled_equivalence",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "site_id": null,
+   "result_artifact_id": "typed_consumer_v3_result",
+   "prereg_artifact_id": "typed_consumer_v3_prereg",
+   "metrics": [
+    {
+     "name": "runtime_instrument",
+     "estimate": 1,
+     "ci95": null,
+     "bar": "passed"
+    }
+   ],
+   "supersedes_event_id": null,
+   "notes": {
+    "reason": "result omitted per-candidate CE/choice reports needed to reproduce no-eligible terminal; not registered as scientific authority"
+   },
+   "claim_id": "induction_selector_and_payload.v13",
+   "family_ids": [
+    "two_valid_sources_selector_swap",
+    "payload_swap_match_preserved",
+    "selector_payload_joint_answer_preserved",
+    "match_break_payload_preserved",
+    "irrelevant_source_edit",
+    "irrelevant_payload_edit",
+    "contrast_target_source_edit",
+    "copy_relation_preserved_nuisance_change",
+    "natural_pair_interchange"
+   ],
+   "evaluation_role": "frozen FIT screen",
+   "input_artifact_ids": [
+    "contextual_consumer_rows",
+    "typed_consumer_v3_binding"
+   ],
+   "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "replicates_event_id": null,
+   "sections": [],
+   "design_key": "ab321b1ef38e9c06e3e05eb0f6426180392d9a7c1e6efd388429d99dc7663d06",
+   "execution_key": "37e7d2edcfc0c850139061b0f6ac487598e7a43559dcf2fbc55b50954b7a3153"
+  },
+  {
+   "event_id": "induction.typed_consumer_group.v4.complete.null",
+   "test_type": "compiled_equivalence",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "site_id": null,
+   "result_artifact_id": "typed_consumer_v4_result",
+   "prereg_artifact_id": "typed_consumer_v4_prereg",
+   "metrics": [
+    {
+     "name": "eligible_DISCOVERY_groups",
+     "estimate": 0,
+     "ci95": null,
+     "bar": ">=1 to open CONFIRM"
+    },
+    {
+     "name": "early_mlp_vocab_RMS_reduction_range",
+     "estimate": [
+      0.379,
+      0.499
+     ],
+     "ci95": null,
+     "bar": ">=.25"
+    },
+    {
+     "name": "early_all_vocab_RMS_reduction_range",
+     "estimate": [
+      0.42,
+      0.532
+     ],
+     "ci95": null,
+     "bar": ">=.25"
+    },
+    {
+     "name": "all_mlp_vocab_RMS_reduction_range",
+     "estimate": [
+      0.313,
+      0.644
+     ],
+     "ci95": null,
+     "bar": ">=.25"
+    },
+    {
+     "name": "minimum_positive_CE_damage_early_mlp",
+     "estimate": 0.194,
+     "ci95": null,
+     "bar": "<=.10 every cell"
+    },
+    {
+     "name": "minimum_positive_CE_damage_early_all",
+     "estimate": 0.149,
+     "ci95": null,
+     "bar": "<=.10 every cell"
+    },
+    {
+     "name": "actual_forwards",
+     "estimate": 33,
+     "ci95": null,
+     "bar": "must equal 33"
+    },
+    {
+     "name": "actual_sequences",
+     "estimate": 1056,
+     "ci95": null,
+     "bar": "must equal 1056"
+    }
+   ],
+   "supersedes_event_id": null,
+   "notes": {
+    "terminal": "complete",
+    "interpretation": "response is concentrated in early MLPs but cannot be restored as complete native module writes without removing needed answer computation",
+    "confirm": "sealed because no discovery group eligible"
+   },
+   "claim_id": "induction_selector_and_payload.v13",
+   "family_ids": [
+    "two_valid_sources_selector_swap",
+    "payload_swap_match_preserved",
+    "selector_payload_joint_answer_preserved",
+    "match_break_payload_preserved",
+    "irrelevant_source_edit",
+    "irrelevant_payload_edit",
+    "contrast_target_source_edit",
+    "copy_relation_preserved_nuisance_change",
+    "natural_pair_interchange"
+   ],
+   "evaluation_role": "frozen FIT screen",
+   "input_artifact_ids": [
+    "contextual_consumer_rows",
+    "typed_consumer_v4_binding"
+   ],
+   "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "replicates_event_id": null,
+   "sections": [],
+   "design_key": "fd13e69b0dfd3edfbaba36ac9273a3e5d40346368edf370e8a87047571f7f351",
+   "execution_key": "9ead7f10c387c50aa870108d94e4880b336099613ec79adbb74826c7afb8a3c5"
   }
  ],
  "translations": [],
@@ -4180,6 +4720,78 @@
    "path": "basis_aligned/polynomial_causal/INDUCTION_OUTPUT_CHANNEL_SEPARATION_V1_RESULT.json",
    "sha256": "f448608887e054d6a3422d54501557ff559eb47494b0614c61abaee2919c13ae",
    "kind": "result",
+   "status": "frozen"
+  },
+  "typed_consumer_v1_prereg": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_TYPED_CONSUMER_GROUP_RESPONSE_V1_PREREGISTRATION.md",
+   "sha256": "95df0732d2b97d50007185ed7965fb0fddfa4d76de0e77812a4fd05db545b5a1",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "typed_consumer_v1_binding": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_TYPED_CONSUMER_GROUP_RESPONSE_V1_BINDING.json",
+   "sha256": "344245ce35dd41d3d973556a71040bd4884cd7d4c4a59fa34f9f883232ceb27e",
+   "kind": "binding",
+   "status": "frozen"
+  },
+  "typed_consumer_v1_result": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_TYPED_CONSUMER_GROUP_RESPONSE_V1_RESULT.json",
+   "sha256": "b7a9688bd07a47eb87670082d31093b344bd358c98b455242bd923bcd4b4e430",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "typed_consumer_v2_prereg": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_TYPED_CONSUMER_GROUP_RESPONSE_V2_PREREGISTRATION.md",
+   "sha256": "4bbaf0ccb4ff2a020146f8fccfccba017773529563d4ba8951445b17f84bda07",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "typed_consumer_v2_binding": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_TYPED_CONSUMER_GROUP_RESPONSE_V2_BINDING.json",
+   "sha256": "136ede92d00a56120900bd67eb1c5c731d036ffc7d104a889bfa465285378368",
+   "kind": "binding",
+   "status": "frozen"
+  },
+  "typed_consumer_v2_result": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_TYPED_CONSUMER_GROUP_RESPONSE_V2_RESULT.json",
+   "sha256": "840f4e400d57da289c4e5e34dbb84891a202b12e447963b35bf83db12d79e18f",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "typed_consumer_v3_prereg": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_TYPED_CONSUMER_GROUP_RESPONSE_V3_PREREGISTRATION.md",
+   "sha256": "3bdbf0bbadeb94ce4cdb49d07fdc4477c2d0ebc6e4eb7a56cb67061e0b911a3e",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "typed_consumer_v3_binding": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_TYPED_CONSUMER_GROUP_RESPONSE_V3_BINDING.json",
+   "sha256": "9f7e08af074430c07ff70be2a8b474767888579d2812597d11c4e2af3188eb23",
+   "kind": "binding",
+   "status": "frozen"
+  },
+  "typed_consumer_v3_result": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_TYPED_CONSUMER_GROUP_RESPONSE_V3_RESULT.json",
+   "sha256": "de2614f17fd7c2b8128d55f398346ff70610af3b8a0b40d1b6ac4d9cb72549d9",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "typed_consumer_v4_prereg": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_TYPED_CONSUMER_GROUP_RESPONSE_V4_PREREGISTRATION.md",
+   "sha256": "9ea58527371059f25863381d7169a553f37d8e9a3ad86f2cd0b2e23f5acf886d",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "typed_consumer_v4_binding": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_TYPED_CONSUMER_GROUP_RESPONSE_V4_BINDING.json",
+   "sha256": "c968e6b4fdd79ffe9c65b3a5c610fe3bb9eb5d4896a28a7a6ebefb0712194fdf",
+   "kind": "binding",
+   "status": "frozen"
+  },
+  "typed_consumer_v4_result": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_TYPED_CONSUMER_GROUP_RESPONSE_V4_RESULT.json",
+   "sha256": "c2e22db3f26862bd22fd6efb7cf4a76fbc935d3a26b7087184aef0bafe722f8c",
+   "kind": "screen_result",
    "status": "frozen"
   }
  },
