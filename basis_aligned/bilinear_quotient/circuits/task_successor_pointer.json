@@ -340,6 +340,199 @@
    ],
    "translation_ids": [],
    "next_missing": "The stale proposed status is repaired: primary receipts support a site-live layer-0 value-cache token pointer with distributed readers and identity-keyed successor tables on the calibrated element domain. Do not repeat L8 full swaps, rank/DAS fits, pointer zero/placebo/dial tests, cross-family imposition or generic code extraction. The code fails generation for 3/4 held-out elements and full-vocabulary substitution costs .4513 nats; the recent H3+H7 FINAL/OOD screen is perfectly donorward but donor-answer wins are 1.0 lower-to-higher and 0.0 higher-to-lower. Next freeze fresh bidirectionally capable rows and test the pointer-by-prefix-coherence interaction with explicit joint and answer-preserving controls."
+  },
+  {
+   "claim_id": "successor_pointer_state.v3",
+   "revision": 3,
+   "status": "site_live",
+   "supersedes": "successor_pointer_state.v2",
+   "causal_variable": {
+    "id": "successor_pointer_state",
+    "domain": "elements of weekday, month, alphabet, digit, and list vocabularies",
+    "read": "the final element's exact layer-0 value-cache pointer plus a separately prefix-conditioned baseline state",
+    "operation": "apply an identity-keyed successor map whose effect competes with, but is not simply multiplied by, the prefix-conditioned continuation baseline",
+    "write": "evidence for the successor token",
+    "endpoint": "signed donor-successor minus base-successor logit margin"
+   },
+   "alternative_explanations": [
+    "token identity",
+    "sequence-family identity",
+    "prefix coherence"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "same_family_last_element_swap",
+     "role": "interchange",
+     "changes": [
+      "identity pointer supplied to successor lookup",
+      "replace the final sequence element by another element from the same family"
+     ],
+     "holds_fixed": [
+      "prefix",
+      "length",
+      "positions",
+      "family"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "position-only edit",
+      "family-matched nonsuccessor",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "coherent_whole_sequence_shift",
+     "role": "interchange",
+     "changes": [
+      "successor pointer in a coherent context",
+      "shift the whole sequence coherently so the last element and answer change without an intruder conflict"
+     ],
+     "holds_fixed": [
+      "format",
+      "length",
+      "family",
+      "coherence"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "prefix shift with final fixed",
+      "incoherent sequence",
+      "boundary cases"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    },
+    {
+     "family_id": "internal_pointer_imposition",
+     "role": "interchange",
+     "changes": [
+      "internal identity pointer",
+      "keep the prompt fixed and impose another element's calibrated identity payload internally"
+     ],
+     "holds_fixed": [
+      "all prompt tokens",
+      "position",
+      "syntax",
+      "family context"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "zero payload",
+      "uncalibrated payload",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "prefix_change_final_pointer_preserved",
+     "role": "invariance",
+     "changes": [
+      "prefix coherence nuisance",
+      "alter the earlier sequence while keeping the final element and correct successor fixed"
+     ],
+     "holds_fixed": [
+      "identity pointer",
+      "correct successor",
+      "final position"
+     ],
+     "builder_artifact_id": "pointer_prefix_rows_v1",
+     "control_ids": [
+      "coherent prefix",
+      "out-of-order prefix",
+      "list-end boundary"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "validated"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "embedding_block-0_payload",
+     "tensor_path": "embedding/block-0 payload",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "post-attention-8",
+     "tensor_path": "post-attention-8",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "mlp8-11_products",
+     "tensor_path": "MLP8-11 products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "layer0_value_cache_pointer",
+     "tensor_path": "layer-0 shared value cache at the final sequence-element position, read across layers1--17",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "replace, zero, scale or impose the calibrated token-identity value code at every downstream reader",
+     "ceiling_event_ids": [
+      "successor_pointer_semantics.legacy_reconciliation.v1"
+     ]
+    },
+    {
+     "site_id": "distributed_pointer_readers",
+     "tensor_path": "attention readers of the final-position layer-0 value cache, with L8H3+H7 as the largest registered pair",
+     "shape": [
+      "layer",
+      "head",
+      "batch",
+      128
+     ],
+     "intervention": "replace cached-value contributions while preserving current routing and downstream recomputation",
+     "ceiling_event_ids": [
+      "successor_pointer_semantics.legacy_reconciliation.v1"
+     ]
+    },
+    {
+     "site_id": "prefix_conditioned_baseline_branch",
+     "tensor_path": "unknown complete native module response at the final query under fixed final pointer",
+     "shape": [
+      "module",
+      "batch",
+      1152
+     ],
+     "intervention": "transplant coherent versus late-swap complete module responses while final pointer, token multiset, position and answer stay fixed",
+     "ceiling_event_ids": [
+      "successor_pointer_prefix_interaction.v2.complete.mixed"
+     ]
+    }
+   ],
+   "split_plan_ids": [
+    "joint_split_v1"
+   ],
+   "evidence_event_ids": [
+    "successor_cross_family_transfer.legacy.v1",
+    "successor_layer8_input_ceiling.legacy.v1",
+    "successor_pointer_semantics.legacy_reconciliation.v1",
+    "successor_pointer_prefix_interaction.v2.complete.mixed"
+   ],
+   "translation_ids": [],
+   "next_missing": "Exact pointer effects are large but a late prefix-coherence break does not selectively amplify them; donor-win flips are caused mainly by a separate changed baseline decision state. Next run a fixed-pointer prefix-only complete-module response screen on the frozen coherent/late/early rows, scoring backward-alternative suppression with forward and early controls. Do not repeat legacy final-element component patching, which changes pointer and coherence together."
   }
  ],
  "split_plans": [
@@ -494,6 +687,84 @@
    "notes": "Reconciles the registry with legacy model-backed receipts. Coded self substitution is lossless on51 calibrated-domain prompts; zeroing the pointer collapses success; coded wrong-content effects agree with real activation edits; restricted natural-text replacement is lossless. Preserve limits: holdout-element generation fails in3/4 comparisons, full-vocabulary replacement costs.4513nats, and the later prospective H3+H7 screen is directionally asymmetric. Site-live only; no current-standard stable identification or compression adoption.",
    "design_key": "65bb611aa4e060afe9efa541878fe0b4d603f6eaf95c98fc8eb07cd981792c2d",
    "execution_key": "18b8e7643262745d377c000c026eb83073b22a7d4c6ab17fd64b491fb17c065b"
+  },
+  {
+   "event_id": "successor_pointer_prefix_interaction.v2.complete.mixed",
+   "claim_id": "successor_pointer_state.v3",
+   "test_type": "invariance",
+   "stage": "complete",
+   "verdict": "inconclusive",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "prefix_change_final_pointer_preserved",
+    "internal_pointer_imposition"
+   ],
+   "site_id": "layer0_value_cache_pointer",
+   "split_plan_id": null,
+   "evaluation_role": "prospective_fresh_authored_factorial_screen",
+   "metrics": [
+    {
+     "name": "exact_self_replay_max_logit_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=1e-5"
+    },
+    {
+     "name": "minimum_native_and_self_capability",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": ">=0.75 every family-condition cell"
+    },
+    {
+     "name": "digit_backward_late_pointer_interaction_scale",
+     "estimate": -0.09645838991799313,
+     "ci95": null,
+     "bar": ">=0.20 for coherent-run gate"
+    },
+    {
+     "name": "month_backward_late_pointer_interaction_scale",
+     "estimate": 0.006801479194375551,
+     "ci95": null,
+     "bar": ">=0.20 for coherent-run gate"
+    },
+    {
+     "name": "digit_backward_flip_baseline_absolute_share",
+     "estimate": 0.7470129689302709,
+     "ci95": null,
+     "bar": "descriptive decomposition"
+    },
+    {
+     "name": "month_backward_flip_baseline_absolute_share",
+     "estimate": 0.8688955601275637,
+     "ci95": null,
+     "bar": "descriptive decomposition"
+    }
+   ],
+   "prereg_artifact_id": "pointer_prefix_prereg_v1",
+   "result_artifact_id": "pointer_prefix_result_v2",
+   "input_artifact_ids": [
+    "pointer_prefix_rows_v1",
+    "pointer_prefix_prereg_v1",
+    "pointer_prefix_binding_v1",
+    "pointer_prefix_runner_v1",
+    "pointer_prefix_invalid_v1",
+    "pointer_prefix_correction_v2",
+    "pointer_prefix_binding_v2",
+    "pointer_prefix_runner_v2",
+    "pointer_prefix_result_v2",
+    "pointer_prefix_analysis_source_v2",
+    "pointer_prefix_analysis_v2"
+   ],
+   "seed": null,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "basis_aligned/polynomial_causal/SUCCESSOR_POINTER_PREFIX_INTERACTION_V1_PREREGISTRATION.md"
+   ],
+   "notes": "V1 was invalid only for a batch-shape self-replay error. V2 preserved rows and bars, replayed self exactly, and rejected both a selective multiplicative coherence gate and strict pointer invariance. All six backward donor-win flips under the late swap are baseline dominated; this opens a separate fixed-pointer baseline branch rather than a threshold or site rescue.",
+   "design_key": "cfa0de42b1add39b1e61f837867b598994d26a1cce145fefc33cb02c51657d6b",
+   "execution_key": "2bd03cab98a4a2c1d30cae33e092aa500d0b734352dc3d39888c0c958e61b124"
   }
  ],
  "translations": [],
@@ -568,6 +839,72 @@
    "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/attn8_h3_h7_cached_successor_final_ood_v1_result.json",
    "sha256": "d044f1b294d00af2afda5f7c35ba622237eaabeb1722f332a8a2816f60f90e6d",
    "kind": "result",
+   "status": "frozen"
+  },
+  "pointer_prefix_rows_v1": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_POINTER_PREFIX_INTERACTION_V1_ROWS.json",
+   "sha256": "86d9bb342e1a880f130de04ee49e04c87b8bcde790dccf93cc2ef3669ec7707e",
+   "kind": "dataset",
+   "status": "frozen"
+  },
+  "pointer_prefix_prereg_v1": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_POINTER_PREFIX_INTERACTION_V1_PREREGISTRATION.md",
+   "sha256": "6590c40f0d4865bbe4144697c2e0309f258ee9f7ccb8366abb017ac3314bca15",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "pointer_prefix_binding_v1": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_POINTER_PREFIX_INTERACTION_V1_BINDING.json",
+   "sha256": "a252235a6c466ec7c62ec8492916d9a276aa9c6900475bfc55b82f3299c7f60e",
+   "kind": "binding",
+   "status": "frozen"
+  },
+  "pointer_prefix_runner_v1": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_successor_pointer_prefix_interaction_v1.py",
+   "sha256": "41d86ab5f93649d55356f9714adf4e745f6e278273dd6e6b49cedefb87ec81de",
+   "kind": "runner",
+   "status": "frozen"
+  },
+  "pointer_prefix_invalid_v1": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_POINTER_PREFIX_INTERACTION_V1_RESULT.json",
+   "sha256": "1bde823e87c9dd1a33b52e3e64db560e1dde8c495d30a3da36d7bf90c4b1a6d0",
+   "kind": "invalid_result",
+   "status": "frozen"
+  },
+  "pointer_prefix_correction_v2": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_POINTER_PREFIX_INTERACTION_V2_INSTRUMENT_CORRECTION.md",
+   "sha256": "8877dddaab88bc6ecb56f456d2cd7ece22d3e9e24c6682fd5418bd2dedd7613c",
+   "kind": "preregistration_amendment",
+   "status": "frozen"
+  },
+  "pointer_prefix_binding_v2": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_POINTER_PREFIX_INTERACTION_V2_BINDING.json",
+   "sha256": "5acf721582d71f6f84e0d6557b967d67ca4c4817af62e9524dd232b820feadd1",
+   "kind": "binding",
+   "status": "frozen"
+  },
+  "pointer_prefix_runner_v2": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_successor_pointer_prefix_interaction_v2.py",
+   "sha256": "a234a0f76220bebcad65799b78803b47b5098ad20176fbd18ef54d7d27564c59",
+   "kind": "runner",
+   "status": "frozen"
+  },
+  "pointer_prefix_result_v2": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_POINTER_PREFIX_INTERACTION_V2_RESULT.json",
+   "sha256": "0775a995ee22e05854156f9744f7bd3a1a0b4413bb54ff07ef45880ca6b06019",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "pointer_prefix_analysis_source_v2": {
+   "path": "basis_aligned/polynomial_causal/successor_pointer_prefix_interaction_v2_analysis.py",
+   "sha256": "39d564327da5c4666abcc98060a6b9b0f35a7dee4ecb5813b68a35f0915fa3e7",
+   "kind": "audit_implementation",
+   "status": "frozen"
+  },
+  "pointer_prefix_analysis_v2": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_POINTER_PREFIX_INTERACTION_V2_ANALYSIS.json",
+   "sha256": "4544fcfbc1f56b9c18d81e9853df646d7e525190ee017b7d21bc6504b2a794dd",
+   "kind": "audit",
    "status": "frozen"
   }
  },
