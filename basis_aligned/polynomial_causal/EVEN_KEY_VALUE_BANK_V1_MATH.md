@@ -231,3 +231,20 @@ controlled city as an experimental restriction, not a general grammar checker.
 [SRO_ARTICLE_CORRECTION_V1](SRO_ARTICLE_CORRECTION_V1_PREREGISTRATION.md) freezes
 uniform article correction across all 48 affected rows and tests both response
 rules at the original10%bar. No favorable-row selection or silent replacement.
+
+
+[Corrected article results](SRO_ARTICLE_CORRECTION_V1_RESULT.json): 384 forwards,
+5.55 seconds; A/B/C pass, D fails. Both corrected families have 12/12 positive
+native cue pairs. Four-term maximum cue errors are4.20/2.54%; three-term errors
+10.049/8.231%, so the original10%bar still rejects the three-term rule narrowly.
+Do not present the marginal miss as a large effect or silently round it to a pass.
+Four-term unrelated-control errors reach7.72/13.50%; no general preservation
+criterion was registered or passed. The unaffected manuscript family passes
+four-term prediction at5.60%, but the opposed publisher/author family remains
+capability-failed. This supports limited conditional response prediction with
+five calibration corners, not a clean writer-role circuit or static compression.
+
+The next source-localization question concerns inherited values at the controlled
+city positions versus all other positions. Even routing remains computed from
+the complete native context; value-source localization alone cannot identify all
+cue information entering through Q/K or the upstream prefix.

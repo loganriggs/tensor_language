@@ -194,3 +194,16 @@ family also misses native capability. Post-failure accounting attributes the
 main omission to direct R, while pair-only composition remains within 0.455%.
 R cannot be classified as generally unrelated background. This failure supersedes
 any generalization from the earlier development-panel reduction.
+
+
+### 2026-09-14 — remainder source and confirmation corrections
+[Source removal](../../polynomial_causal/REMAINDER_SOURCES_NATIVE_V1_RESULT.json)
+finds current-only cue errors22.18/18.88/9.82%; inherited values are not uniformly
+negligible. Source-effect composition passes <=4.49%. Family2 of both fresh and
+four-term panels had an indefinite-article/city confound; retain their original
+results but supersede clean-template interpretations with the
+[uniform correction](../../polynomial_causal/SRO_ARTICLE_CORRECTION_V1_RESULT.json).
+Corrected four-term cue errors4.20/2.54% pass; three-term10.049/8.231% fails its
+unchanged10%bar. Native capability passes corrected families, but the unaffected
+opposed publisher/author family has only1/12 positive native contrasts. No clean
+writer-role claim, general control preservation or static parameter saving.
