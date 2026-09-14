@@ -1604,18 +1604,18 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "b8ae360cd80f2e4c535c4490b13a7d6f5ce7115a6a1f3b356c996450b25dc12c",
+   "record_sha256": "d68b8e86ead83442291315e54bb3c1dfd997daaf5aa31bba5c1118d494971cef",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "numbered_list_index_successor.v11",
+   "active_claim_id": "numbered_list_index_successor.v12",
    "claim_status": "weights_translated",
    "causal_variable_id": "list_index_state",
    "interchange_family_count": 3,
    "invariance_family_count": 4,
-   "negative_event_count": 7,
-   "active_negative_event_count": 3,
-   "latest_blocker": "numbered_list.spaced_cached_list_selectivity.null.v1",
-   "latest_active_event": "numbered_list.spaced_cached_list_selectivity.null.v1",
+   "negative_event_count": 9,
+   "active_negative_event_count": 5,
+   "latest_blocker": "numbered_list.r590.cross_representation_reuse.null.v1",
+   "latest_active_event": "numbered_list.r590.independent_terminal_audit.held.v1",
    "active_event_ids": [
     "numbered_list_native_capability.r569.held.v1",
     "numbered_list_capability_audit.r571.held.v1",
@@ -1628,7 +1628,11 @@
     "numbered_list.attn8_h3_h7_cross_behavior.v5.invalid_ood_instrument.v1",
     "numbered_list.spaced_ood_capability.held.v1",
     "numbered_list.spaced_cached_bidirectional.held.v1",
-    "numbered_list.spaced_cached_list_selectivity.null.v1"
+    "numbered_list.spaced_cached_list_selectivity.null.v1",
+    "numbered_list.r590.exact_downstream_factorial.held.v1",
+    "numbered_list.r590.coarse_mlp_action_component.null.v1",
+    "numbered_list.r590.cross_representation_reuse.null.v1",
+    "numbered_list.r590.independent_terminal_audit.held.v1"
    ],
    "held_test_types": [
     "capability",
@@ -1636,9 +1640,12 @@
     "composition",
     "cross_family_transfer",
     "null_control",
-    "ood"
+    "ood",
+    "seed_stability"
    ],
    "active_blocking_test_types": [
+    "composition",
+    "cross_family_transfer",
     "null_control",
     "ood",
     "removal"
@@ -1646,6 +1653,7 @@
    "design_keys": [
     "0ac3f1655be62ef52ee3b23034f342c4f4e278dc723e3ebd10054a5b549d7d31",
     "1f2b41829c0d5acb92a1459d71bdd16981017c03494226d1c7710f27fd38d8cd",
+    "371e8f76573cc271dcec6e65fcf3286f9905f7a02bf4887929eaace566f80569",
     "469dfa51b9caba3337cd715e1b7885eed01684bb06ea9a204c2ce48cf2f15871",
     "49bf0e3c743533df4d87c6aeaf5c16d4a3c8c378224afb8cfb8c2c4f63b2d354",
     "4f99aa4667e3a80f119f1c5870003f6001a1cfb1c1fde119de513e107f673812",
@@ -1656,11 +1664,14 @@
     "8705f953819b3f185c964381f14bce467e82593f57e1837a48937ca7eae2ccc2",
     "9174409b37706899db0bf6359ee5e3b83adecc04b6dde5ca14b4624d234a47e7",
     "953e545b904b1e9333e7165468aa179df8a172ec7e6c597c3528d5f2aec6814c",
+    "adf361f55e314b10452ed9af8085e03051bf5afcd2472d14b9a3d853c409cde6",
     "b9c47b36d226cb8f253e129c8fe37a9696788484e6dc09017de02144964ef75c",
     "c943ab3906ab1df4bb72f431aceb9adad3669afa3b6fc7ad2fda3e6160171fbd",
+    "d9d26149931f9238faa34b766cad09a9ed2c4aa100356c0796afbaa39517cba2",
     "eba19eccfad339b6fde6a2c447beecbed10da11640fd2203e88831704a74a3ce",
     "f08ff67b960da25d4b9136118965b4012e8e352bb3eceb04e7ede9ae11a45598",
     "fa23989c15091f16c6ff2a754e0eeea7dbacb341fc878485532a7db2876c1f83",
+    "fbd995fa9cf3b6b1f52d088f033dce4164d47d7fbafb5de0aa952cbfa1a2265c",
     "fc97ac0ffdf6340937e49a2a3f1fdd0de790b5ae5501fab0e5ab63e34fe0f817",
     "ff5ca75ef3545fe1f15fd635957163daf5ae8f8306c72de8ec689dca707a3c09"
    ]
@@ -1671,18 +1682,18 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "4c4448168e1ae429559e800e707154bf639249471b230a7bc242060d5a531708",
+   "record_sha256": "5e78bb8b3df9cd960845c983cc0f7862d41efd6dbbfde2ef8a62653249daa000",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "numeric_sequence_continuation.v9",
+   "active_claim_id": "numeric_sequence_continuation.v10",
    "claim_status": "weights_translated",
    "causal_variable_id": "numeric_sequence_state_and_rule",
    "interchange_family_count": 6,
    "invariance_family_count": 7,
-   "negative_event_count": 10,
-   "active_negative_event_count": 7,
-   "latest_blocker": "numeric_sequence.final_source_factor_selectivity.null.v1",
-   "latest_active_event": "numeric_sequence.final_source_factor_selectivity.null.v1",
+   "negative_event_count": 12,
+   "active_negative_event_count": 9,
+   "latest_blocker": "numeric_sequence.r590.cross_representation_reuse.null.v1",
+   "latest_active_event": "numeric_sequence.r590.independent_terminal_audit.held.v1",
    "active_event_ids": [
     "numeric_sequence_native_capability.r570.held.v1",
     "numeric_sequence_capability_audit.r571.held.v1",
@@ -1697,13 +1708,19 @@
     "numeric_sequence.cached_payload_plus1_transfer.held.v1",
     "numeric_sequence.score_router_transfer.null.v1",
     "numeric_sequence.score_cached_interaction.null.v1",
-    "numeric_sequence.final_source_factor_selectivity.null.v1"
+    "numeric_sequence.final_source_factor_selectivity.null.v1",
+    "numeric_sequence.r590.exact_downstream_factorial.held.v1",
+    "numeric_sequence.r590.coarse_mlp_action_component.null.v1",
+    "numeric_sequence.r590.cross_representation_reuse.null.v1",
+    "numeric_sequence.r590.independent_terminal_audit.held.v1"
    ],
    "held_test_types": [
     "capability",
+    "composition",
     "cross_family_transfer",
     "null_control",
-    "ood"
+    "ood",
+    "seed_stability"
    ],
    "active_blocking_test_types": [
     "composition",
@@ -1714,7 +1731,10 @@
    "design_keys": [
     "0586556bcf02f51cca5e341d64b101aa1194939b6f6950b50cb956717b7d5234",
     "0c917f48ad9a885203f225cbc746acfa1156e6bb3469747a405caacfc8d1a905",
+    "1cd00e7f13e4f46fd33049e5a07bbb2e4541b76acfb92b40a9f626ac855febf7",
+    "1fb55d63b0a8628ac8a815c586cb1851d9a121f91bd9f9bd1ee49d81d3b720ac",
     "3b6881cc6c530b23fa0328e834eef96d676d5cc3974b39fcd5e8b2ac7c12615e",
+    "3d0d5e3242f0a1e075e24a20aeb4b19440039754662d11d7830620e4f6e91c03",
     "50e458fabc170c0aacf745e35b83e3bf232fc581a673257de7b57c8c10179950",
     "5e00e4bab615bfdfbbb56656dcc6cb3ce748ac196d8c68d9e96ddf980196209b",
     "653130ab93c4b7833723bcc4f7a190f45760b6c7639501388d44c9739e3261ae",
@@ -1730,6 +1750,7 @@
     "bc7a7da1850ac7c55210c36aaddfc4ba4c3765d8efb368675f3993b04866c125",
     "c004f96f1e6792bab33231903ae0bce94f94bf512ccefbd61a73cce34bb413c1",
     "d917ddd2bfca577ee55756c1bc2f83e3ca25d174cb446c9a16f547d56f5fa743",
+    "dbf52e09615f3e8c2f39439c0113abdbd8807fcb1762bf9340133a7a759e75ef",
     "ef7cae5cf8cfee0dd16d3f48799e81b0306f5ba2bfc8d460c92add0b543ca21f"
    ]
   },
