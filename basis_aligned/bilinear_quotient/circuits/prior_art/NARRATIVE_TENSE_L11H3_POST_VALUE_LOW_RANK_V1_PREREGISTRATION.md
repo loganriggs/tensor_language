@@ -1,0 +1,12 @@
+# Narrative tense L11H3 post-value low-rank compression V1
+
+The licensed carrier is an exact six-source effective-value interaction, but a valid source-position test shows it is distributed across all six positions. This experiment asks an independent compression question: whether those row-specific 128D L11H3 head deltas occupy a low-rank residual basis even though they do not occupy a small source subset.
+
+For each target FIT row (groups 0–7, A1/A2 only), compute the exact post-source value delta
+`sum_j p_base[j] * (u_donor[j] - u_base[j])` over self-relative offsets −6:−1. Stack the 16 deltas without centering and freeze the right-singular-vector bases at ranks 1, 2, 4, and 8. Projection means orthogonal projection of each exact row delta into that basis, added once to the native L11H3 head. No labels, logits, HOLDOUT activations, or control rows enter basis fitting.
+
+On FIT, evaluate expanded native, exact native reinstall, complete H3, exact full post value, and all four projected ranks for all A1/A2/P/C rows. A rank is eligible only if every A1/A2 direction cell recovers at least .80 of full-post mean donor margin and full-vocabulary CE gain, has donorward fraction at least .75, and remains selective on both licensed P/C controls. The control bound is .25 times the smallest target full-post margin and CE effect. Select the smallest eligible rank in fixed order 1, 2, 4, 8. If none is eligible, stop without opening HOLDOUT.
+
+If FIT selects a rank, freeze that basis and rank before evaluating groups 8–15. HOLDOUT evaluates only expanded native, native reinstall, complete H3, exact full post value, and the selected projection. Every target cell must meet the same .80/.75 recovery bars and both controls must meet the same relative selectivity rule computed from HOLDOUT target effects. No fallback to a higher rank after HOLDOUT.
+
+Registered predictions: `pred_a_exact_instrument`, `pred_b_fit_rank_selected`, `pred_c_holdout_low_rank_transfer`, `pred_d_rank_at_most_two`, `pred_e_rank_four`, `pred_f_rank_eight`, and `pred_g_holdout_or_fit_null`. Report singular values, per-row projection energy, causal recovery, and P/C collateral. Passing supports a compact residual interaction basis for the exact six-source value carrier; it does not imply a universal tense vector or a source-position singleton. Maximum price: six forwards, 544 endpoint evaluations (320 FIT and 224 HOLDOUT), zero backwards, zero updates.
