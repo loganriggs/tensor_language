@@ -17,7 +17,8 @@ import run_task14_mlp6_7_contextual_midpoint_tangent_readout as tangent
 import run_task14_ood_fronted_mlp6_7_eauw_background_gate_factorial as factor_gate
 import run_task14_mlp6_7_direction_cardinality_prototype_causal_validation as original
 
-ROOT = Path(__file__).resolve().parent.parent
+RUNNER = Path(__file__).resolve()
+ROOT = RUNNER.parent.parent
 POLY = ROOT.parent / "polynomial_causal"
 PREREG = POLY / "SUBJECT_NUMBER_DIRECTION_CARDINALITY_RANK1_V1_PREREGISTRATION.md"
 RANK1 = POLY / "SUBJECT_NUMBER_DIRECTION_CARDINALITY_RANK1_V1_ARTIFACT.json"
@@ -33,7 +34,14 @@ BARS = {
     "minimum_intermediate_cosine": .70, "maximum_intermediate_relative_l2_error": .85, "minimum_intermediate_sign_agreement": .70,
     "minimum_template_cosine": .65, "maximum_template_relative_l2_error": .90, "minimum_template_sign_agreement": .65,
 }
-PRED_KEYS = ("pred_a_exact_artifact_instrument", "pred_b_rank1_reproduces_original", "pred_c_rank1_substitutes_native", "pred_d_intermediate_and_templates", "pred_e_compression_and_price")
+PREDICTION_REGISTRY = {
+    "pred_a_exact_artifact_instrument": None,
+    "pred_b_rank1_reproduces_original": None,
+    "pred_c_rank1_substitutes_native": None,
+    "pred_d_intermediate_and_templates": None,
+    "pred_e_compression_and_price": None,
+}
+PRED_KEYS = tuple(PREDICTION_REGISTRY)
 
 
 def sha(path): return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -150,7 +158,7 @@ def main():
     terminal = "rank1_compressed_program" if all(scored["predictions"].values()) else ("invalid" if not scored["predictions"][PRED_KEYS[0]] else "rank1_compression_null")
     payload = managed.atomic_create_json(OUT, {"schema": "subject_number_direction_cardinality_rank1_v1_result", "terminal": terminal,
         "created_utc": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"), "plan": plan, "score": scored,
-        "checkpoint_weights_sha256": checkpoint.weights_sha256, "runner_sha256": sha(Path(__file__).resolve())})
+        "checkpoint_weights_sha256": checkpoint.weights_sha256, "runner_sha256": sha(RUNNER)})
     print(json.dumps({"terminal": terminal, "predictions": scored["predictions"], "result_sha256": hashlib.sha256(payload).hexdigest()}, sort_keys=True))
 
 
