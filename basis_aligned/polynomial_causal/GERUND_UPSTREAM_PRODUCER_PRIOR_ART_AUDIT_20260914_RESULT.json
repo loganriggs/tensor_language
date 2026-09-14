@@ -1,0 +1,109 @@
+{
+  "utc": "2026-09-14T19:47:37.527003+00:00",
+  "source_shas": {
+    "TOKEN_CONTEXT_SOURCE_V1_RESULT.json": "104b14b8a6719ff65b0cd0b916ed2b9353f18e26eff817f8a9921d976b6d984b",
+    "TOKEN_CONTEXT_BROADCAST_V1_RESULT.json": "8bfcd1b5c5c95521a32febb19721450639e7a0850a9a6b4c3f3310ef00595110",
+    "LEXICAL_FORM_INTERCHANGE_V1_RESULT.json": "029d45cf4726000f6e87f7a79b6c30d3afa6850433efba72bd308b99ec8f2cfe",
+    "TERMINAL_COMPLEMENT_SOURCE_V2_RESULT.json": "fffbabeecf1bab13fec5f755b366045202dd61ae489e4d4cbe1aec7f991d1092"
+  },
+  "singleton_top5": {
+    "A1": [
+      [
+        "attn_11",
+        0.3590837104568337,
+        0.6566112007563808
+      ],
+      [
+        "mlp_16",
+        0.3399903922653338,
+        0.7488681260446244
+      ],
+      [
+        "mlp_12",
+        0.19706821116460002,
+        0.8149061280159741
+      ],
+      [
+        "attn_7",
+        0.1962130322077548,
+        0.8128139339632282
+      ],
+      [
+        "mlp_11",
+        0.18261639543712355,
+        0.8362677076943726
+      ]
+    ],
+    "A2": [
+      [
+        "mlp_16",
+        0.3700533794088764,
+        0.7106741800897874
+      ],
+      [
+        "attn_11",
+        0.31812516898677456,
+        0.7156498138559761
+      ],
+      [
+        "mlp_13",
+        0.3010614810158741,
+        0.7254409505847133
+      ],
+      [
+        "mlp_11",
+        0.2109731423610971,
+        0.8274526790393552
+      ],
+      [
+        "attn_7",
+        0.20058165423182858,
+        0.8244654656535291
+      ]
+    ]
+  },
+  "common_top5": [
+    "attn_11",
+    "attn_7",
+    "mlp_11",
+    "mlp_16"
+  ],
+  "max_singleton_transfer": {
+    "A1": 0.3590837104568337,
+    "A2": 0.3700533794088764
+  },
+  "prior_predictions": {
+    "TOKEN_CONTEXT_SOURCE_V1_RESULT.json": {
+      "pred_a_instrument": true,
+      "pred_b_shared_source_nomination": false,
+      "pred_c_fold_controls": true
+    },
+    "TOKEN_CONTEXT_BROADCAST_V1_RESULT.json": {
+      "pred_a_instrument": true,
+      "pred_b_shared_context_source": false,
+      "pred_c_lexical_behavior": false
+    },
+    "LEXICAL_FORM_INTERCHANGE_V1_RESULT.json": {
+      "pred_a_instrument": true,
+      "pred_b_lexical_reuse_selectivity": false,
+      "pred_c_form_reuse_selectivity": false,
+      "pred_d_joint_independent_effects": false,
+      "pred_e_agreement_margin": false
+    },
+    "TERMINAL_COMPLEMENT_SOURCE_V2_RESULT.json": {
+      "pred_a_instrument": true,
+      "pred_b_mlp_complement_sufficient": false,
+      "pred_c_carried_complement_sufficient": false
+    }
+  },
+  "closed_repeats": [
+    "all36 singleton attention/MLP output-source scan",
+    "attention0 first-value-only broadcast",
+    "independent lexical/form command axes",
+    "MLP17-only versus carried-only terminal complement"
+  ],
+  "nonduplicative_next_operator": "cumulative depth-interval interchange of the full contextual state feeding MLP17, evaluated on the already causal token/context readers and norm moments",
+  "why": "No singleton exceeds .371 transfer, but attn11 and mlp16 recur in both top-five lists and carried-only complement is closer than MLP17-only. A cumulative interval can test distributed buildup without selecting a singleton subset or retrying first-value broadcast.",
+  "pred_a": true,
+  "scope": "Read-only result audit; recommends an operator class, not a gerund producer or circuit verdict."
+}
