@@ -58,7 +58,7 @@ def main():
             if site["site_id"] == "prefix_conditioned_baseline_branch": site["ceiling_event_ids"] = [*site["ceiling_event_ids"], EVENT_ID]
         record["claims"].append(claim)
         m = audit["metrics"]
-        event = {"event_id": EVENT_ID, "claim_id": NEW_CLAIM, "test_type": "ood_transfer", "stage": "complete", "verdict": "failed", "failure_kind": "scientific_null",
+        event = {"event_id": EVENT_ID, "claim_id": NEW_CLAIM, "test_type": "ood", "stage": "complete", "verdict": "failed", "failure_kind": "scientific_null",
                  "family_ids": ["prefix_change_final_pointer_preserved"], "site_id": "prefix_conditioned_baseline_branch", "split_plan_id": None,
                  "evaluation_role": "prospective_sequence_length_transfer",
                  "metrics": [
