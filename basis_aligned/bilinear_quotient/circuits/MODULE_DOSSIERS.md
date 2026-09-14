@@ -175,3 +175,14 @@ A weight-derived shared S/R/O graph reuses native V/output coordinates and passe
 suffix and uses development panels; no newly named semantic circuit or full-model
 compression is established. The next registered S+O/R+O interventions resolve the
 remaining pair/triple ambiguity. [Primary method and receipts](../../polynomial_causal/EVEN_KEY_VALUE_BANK_V1_MATH.md).
+
+
+### 2026-09-14 — head9.8 S/R/O composed with MLP9
+The [primary record](../../polynomial_causal/EVEN_KEY_VALUE_BANK_V1_MATH.md)
+now includes complete native removal factorials (312 additional forwards), exact
+weight-derived rational MLP9 composition (110 native comparisons), and charged
+CPU query amortization. Pair-only full-removal error is <=0.276% on the old panel.
+The selected S/O/SO cue reduction has <=4.38% paired-cue error across all removal
+corners but loses most unrelated effects; full-value selectivity remains failed.
+Conditional execution/extraction and composition advance; fresh/OOD cue reduction,
+semantic identification of O and static model compression remain unproven.

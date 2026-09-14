@@ -21,8 +21,10 @@ class SharedGraph:
         keys=torch.cat([p['k1'],p['k2']]).double()
         self.adapters=((keys@keys.T)@p['key_coordinates']).reshape(2,128,64)
 
-    def state(self,current,initial):
+    def state(self,current,initial=None,*,first_values=None):
         """Prepare three 128-channel branches from supplied normalized contexts."""
+        if (initial is None)==(first_values is None):
+            raise ValueError('Supply initial normalized input or actual first-value channels, exactly one')
         p=self.p;x=current.double();n=x.shape[1]
         inv=1/(10000**(torch.arange(0,128,2,dtype=torch.float32)/128))
         angles=torch.outer(torch.arange(n,dtype=torch.float32),inv)
@@ -44,7 +46,8 @@ class SharedGraph:
         even=((native_gate+ref)/2).masked_fill(mask,0)
         odd=((native_gate-ref)/2).masked_fill(mask,0)
         current_values=x@p['current_value'].double().T
-        first_values=initial.double()@p['first_value'].double().T
+        first_values=(initial.double()@p['first_value'].double().T
+                      if first_values is None else first_values.double())
         lam=p['mixture'].double();mixed=(1-lam)*current_values+lam*first_values
         value_read=current_values@p['scalar_value_coordinates']
         scalar=(even@value_read[...,None])*p['scalar_output_coordinates']

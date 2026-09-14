@@ -115,5 +115,61 @@ in that program-file saving. This is exact reuse, not quantization.
 The [factorial identifiability control](EVEN_VALUE_FACTORIAL_V1_IDENTIFIABILITY.json)
 shows that the six measured S/R/O removal combinations leave two independent
 ambiguities among pair and triple interactions. The missing S+O and R+O removals
-are now [registered](EVEN_VALUE_FACTORIAL_NATIVE_V1_PREREGISTRATION.md); neither
-is imputed from an assumed linear response. This is the next native experiment.
+were [registered](EVEN_VALUE_FACTORIAL_NATIVE_V1_PREREGISTRATION.md) and then
+measured. The [completed factorial](EVEN_VALUE_FACTORIAL_NATIVE_V1_RESULT.json)
+adds 312 forwards in 4.91 seconds, with identical native anchors and shared-write
+error <=1.32e-15. Pair terms predict full-removal effects within 0.145–0.275%
+across the registered regional readouts and natural halves. This supports a
+conditional low-order response description on this development panel.
+
+
+## Crossing MLP9 with an exact conditional interaction program
+
+Write the post-attention residual as z(a)=z0−aS*S−aR*R−aO*O. The bilinear
+MLP9 numerator is quadratic in these three strengths: one constant, three linear
+and six quadratic vector coefficients. Native RMS contributes a quadratic scalar
+denominator, including the original FP32 epsilon. The residual and Down bias
+remain explicit. [The compiler](sro_mlp9_rational_v1.py) derives these coefficients
+from the original weights and pristine states; it does not fit intervention outputs.
+
+[44 CPU cases](SRO_MLP9_RATIONAL_V1_RESULT.json) replay the FP64 state within
+3.00e-16 relative error and its own change within 3.29e-14. The MLP9 triple term
+is 0.090–0.191% of full removal change; holding RMS fixed makes it <=1.03e-14.
+Thus normalization alone can produce local higher-order coupling even with a
+quadratic numerator. This does not attribute all downstream nonlinearity to MLP9.
+
+[Native suffix validation](SRO_MLP9_SUFFIX_NATIVE_V1_RESULT.json) compares five
+old prefixes at eleven binary and signed strength combinations: 110 forwards,
+2.20 seconds. Compiled post-MLP9 states have relative error <=2.13e-7 and full
+vocabulary scores <=6.30e-7. All registered baseline-subtracted target/control/CE
+checks pass. The compiled arm replaces block9 with its per-context program while
+keeping the native prefix, inherited values and downstream blocks explicit.
+
+[CPU amortization](SRO_MLP9_AMORTIZATION_V1_RESULT.json) compares a baseline
+that already caches shared input projections. Including preparation, 32 queries
+cost 83.07→26.62 ms at batch1 and 497.51→207.20 ms at batch8 (3.12×/2.40×).
+One query is slower (0.524×/0.492×); eight queries give 1.121×/0.944×.
+These are seven interleaved trials on one 16-token prefix, repeated at batch8,
+using FP64 and two CPU threads. They do not establish GPU or whole-model speed.
+Prepared program sizes across the five suffix prefixes are 2.07–20.67 MB.
+All 15,926,400 original MLP scalars and context generators remain required.
+This is exact conditional computation reuse, with no quantization or demonstrated
+static whole-model parameter saving.
+
+## Which branches carry paired cue changes?
+
+The [selected development-panel reduction](SRO_CUE_REDUCTION_V1_RESULT.json)
+retains S, O and their pair term SO, then predicts every measured removal corner.
+Maximum paired-cue error per family is 4.36/3.28/4.38% of the full-head removal
+cue effect, passing the registered 10% criterion. S alone gives 14.84/16.69/31.47%.
+Adding O is material; SO has only a small incremental benefit on these cases.
+This is a response reduction selected after development results, not an independent
+validation or a learned static circuit. O is a computational complement whose
+semantic role remains unresolved.
+
+Dropping R is inappropriate for general outputs: the same reduced description
+misses up to 72.6–79.3% of unrelated-control effects and 63.9/87.2% of natural CE
+effects. Retain the original full-value selectivity failure. The useful hypothesis
+is a cue-specific S/O interaction with a separately priced remainder, not a
+universal head replacement. Next test: freeze this reduction on unseen prompt
+constructions and reserve R-containing intervention combinations for prediction.
