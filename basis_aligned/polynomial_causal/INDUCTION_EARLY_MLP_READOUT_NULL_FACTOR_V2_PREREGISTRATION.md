@@ -1,0 +1,3 @@
+# Induction early-MLP readout-null response factor V2 execution correction
+
+V1 was consumed by bqrunner with exit zero but emitted only its dry-run receipt and created no result; no model was loaded and no scientific outcome was observed. V2 changes only dry-run detection: enqueue preflight requires both dry flags plus the caller's reviewed `EXPECTED_SHA256`, while the managed worker execution lacks that caller variable and therefore enters the model path. The frozen rows, early-MLP8-12 group, answer-axis factorization, arms, thresholds, price, and no-fit/no-quantization restrictions are unchanged from V1.
