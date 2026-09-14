@@ -1,0 +1,2296 @@
+{
+  "endpoint_count": 96,
+  "row_count": 48,
+  "row_manifest_sha256": "f01f06b1a32b4a038105f12addb82229a55087e5ae06ddc7fab7b0d0ab3e11d1",
+  "rows": [
+    {
+      "base": {
+        "answer": "7",
+        "answer_id": 22,
+        "ids": [
+          17,
+          13,
+          36505,
+          198,
+          19,
+          13,
+          1379,
+          482,
+          198,
+          21,
+          13,
+          269,
+          44226,
+          198
+        ],
+        "text": "2. amber\n4. brook\n6. cedar\n"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": "12",
+        "answer_id": 1065,
+        "ids": [
+          22,
+          13,
+          269,
+          44226,
+          198,
+          24,
+          13,
+          1379,
+          482,
+          198,
+          1157,
+          13,
+          36505,
+          198
+        ],
+        "text": "7. cedar\n9. brook\n11. amber\n"
+      },
+      "program_role": "list_step_two_spaced",
+      "row_id": "bcaa7bc7b7c12377149a486834a0ed9f427b6e7e4206e880f606365de8e6d108"
+    },
+    {
+      "base": {
+        "answer": " 2",
+        "answer_id": 362,
+        "ids": [
+          464,
+          36505,
+          8379,
+          14768,
+          362,
+          11,
+          362,
+          11,
+          362,
+          11
+        ],
+        "text": "The amber sequence stays 2, 2, 2,"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " 7",
+        "answer_id": 767,
+        "ids": [
+          464,
+          1379,
+          482,
+          8379,
+          14768,
+          767,
+          11,
+          767,
+          11,
+          767,
+          11
+        ],
+        "text": "The brook sequence stays 7, 7, 7,"
+      },
+      "program_role": "digit_copy_spaced_control",
+      "row_id": "c8d09bfd9ba70a94ac2d93b6ff190e3034cb345517c8512e866f720e488742bb"
+    },
+    {
+      "base": {
+        "answer": " two",
+        "answer_id": 734,
+        "ids": [
+          464,
+          36505,
+          8379,
+          14768,
+          734,
+          11,
+          734,
+          11,
+          734,
+          11
+        ],
+        "text": "The amber sequence stays two, two, two,"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " seven",
+        "answer_id": 3598,
+        "ids": [
+          464,
+          1379,
+          482,
+          8379,
+          14768,
+          3598,
+          11,
+          3598,
+          11,
+          3598,
+          11
+        ],
+        "text": "The brook sequence stays seven, seven, seven,"
+      },
+      "program_role": "word_copy_spaced_control",
+      "row_id": "7ff3381cd57d009f08f0b268339661ce1070ee2a5061b88c1f23c31a057f4ff2"
+    },
+    {
+      "base": {
+        "answer": "8",
+        "answer_id": 23,
+        "ids": [
+          18,
+          13,
+          288,
+          15668,
+          544,
+          198,
+          20,
+          13,
+          1556,
+          2838,
+          198,
+          22,
+          13,
+          957,
+          354,
+          198
+        ],
+        "text": "3. dahlia\n5. estuary\n7. finch\n"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": "13",
+        "answer_id": 1485,
+        "ids": [
+          23,
+          13,
+          957,
+          354,
+          198,
+          940,
+          13,
+          1556,
+          2838,
+          198,
+          1065,
+          13,
+          288,
+          15668,
+          544,
+          198
+        ],
+        "text": "8. finch\n10. estuary\n12. dahlia\n"
+      },
+      "program_role": "list_step_two_spaced",
+      "row_id": "0977f6e52a0ff2eb122b2e94ae53a502199a4f9c17b5559ba75a9801ce240c33"
+    },
+    {
+      "base": {
+        "answer": " 3",
+        "answer_id": 513,
+        "ids": [
+          464,
+          288,
+          15668,
+          544,
+          8379,
+          14768,
+          513,
+          11,
+          513,
+          11,
+          513,
+          11
+        ],
+        "text": "The dahlia sequence stays 3, 3, 3,"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " 8",
+        "answer_id": 807,
+        "ids": [
+          464,
+          1556,
+          2838,
+          8379,
+          14768,
+          807,
+          11,
+          807,
+          11,
+          807,
+          11
+        ],
+        "text": "The estuary sequence stays 8, 8, 8,"
+      },
+      "program_role": "digit_copy_spaced_control",
+      "row_id": "e5bae93e956062d6a678ef2e6b3867b48f02a5725accff5f2c8ad05269e0c88c"
+    },
+    {
+      "base": {
+        "answer": " three",
+        "answer_id": 1115,
+        "ids": [
+          464,
+          288,
+          15668,
+          544,
+          8379,
+          14768,
+          1115,
+          11,
+          1115,
+          11,
+          1115,
+          11
+        ],
+        "text": "The dahlia sequence stays three, three, three,"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " eight",
+        "answer_id": 3624,
+        "ids": [
+          464,
+          1556,
+          2838,
+          8379,
+          14768,
+          3624,
+          11,
+          3624,
+          11,
+          3624,
+          11
+        ],
+        "text": "The estuary sequence stays eight, eight, eight,"
+      },
+      "program_role": "word_copy_spaced_control",
+      "row_id": "78d8bb7a61d710fbeba37dfae73789734a0b12bd65b8513a3218b1a04fe67acb"
+    },
+    {
+      "base": {
+        "answer": "7",
+        "answer_id": 22,
+        "ids": [
+          17,
+          13,
+          36167,
+          316,
+          198,
+          19,
+          13,
+          339,
+          1032,
+          198,
+          21,
+          13,
+          318,
+          1616,
+          198
+        ],
+        "text": "2. garnet\n4. heather\n6. islet\n"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": "12",
+        "answer_id": 1065,
+        "ids": [
+          22,
+          13,
+          318,
+          1616,
+          198,
+          24,
+          13,
+          339,
+          1032,
+          198,
+          1157,
+          13,
+          36167,
+          316,
+          198
+        ],
+        "text": "7. islet\n9. heather\n11. garnet\n"
+      },
+      "program_role": "list_step_two_spaced",
+      "row_id": "797badcbdc3f24ac4e0adfb67bb5cfe32b7f9b4b8940fbf8ec5257f367a0e5f3"
+    },
+    {
+      "base": {
+        "answer": " 2",
+        "answer_id": 362,
+        "ids": [
+          464,
+          36167,
+          316,
+          8379,
+          14768,
+          362,
+          11,
+          362,
+          11,
+          362,
+          11
+        ],
+        "text": "The garnet sequence stays 2, 2, 2,"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " 7",
+        "answer_id": 767,
+        "ids": [
+          464,
+          339,
+          1032,
+          8379,
+          14768,
+          767,
+          11,
+          767,
+          11,
+          767,
+          11
+        ],
+        "text": "The heather sequence stays 7, 7, 7,"
+      },
+      "program_role": "digit_copy_spaced_control",
+      "row_id": "11466a6dde374b5493dfc27fd1c042f4a49b226db59ac83699ddcac0b453f589"
+    },
+    {
+      "base": {
+        "answer": " two",
+        "answer_id": 734,
+        "ids": [
+          464,
+          36167,
+          316,
+          8379,
+          14768,
+          734,
+          11,
+          734,
+          11,
+          734,
+          11
+        ],
+        "text": "The garnet sequence stays two, two, two,"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " seven",
+        "answer_id": 3598,
+        "ids": [
+          464,
+          339,
+          1032,
+          8379,
+          14768,
+          3598,
+          11,
+          3598,
+          11,
+          3598,
+          11
+        ],
+        "text": "The heather sequence stays seven, seven, seven,"
+      },
+      "program_role": "word_copy_spaced_control",
+      "row_id": "43deefec291b2fed43daed3bc91951c7e9e0965607b9e6cb86ecb8dd31130ac0"
+    },
+    {
+      "base": {
+        "answer": "8",
+        "answer_id": 23,
+        "ids": [
+          18,
+          13,
+          10891,
+          9346,
+          198,
+          20,
+          13,
+          1994,
+          6440,
+          198,
+          22,
+          13,
+          42280,
+          330,
+          198
+        ],
+        "text": "3. juniper\n5. keystone\n7. lilac\n"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": "13",
+        "answer_id": 1485,
+        "ids": [
+          23,
+          13,
+          42280,
+          330,
+          198,
+          940,
+          13,
+          1994,
+          6440,
+          198,
+          1065,
+          13,
+          10891,
+          9346,
+          198
+        ],
+        "text": "8. lilac\n10. keystone\n12. juniper\n"
+      },
+      "program_role": "list_step_two_spaced",
+      "row_id": "2c5a8aee05817d70c5185a10ee6343b4d0bd8dbdd577ce8ee62317a6c2262b63"
+    },
+    {
+      "base": {
+        "answer": " 3",
+        "answer_id": 513,
+        "ids": [
+          464,
+          10891,
+          9346,
+          8379,
+          14768,
+          513,
+          11,
+          513,
+          11,
+          513,
+          11
+        ],
+        "text": "The juniper sequence stays 3, 3, 3,"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " 8",
+        "answer_id": 807,
+        "ids": [
+          464,
+          1994,
+          6440,
+          8379,
+          14768,
+          807,
+          11,
+          807,
+          11,
+          807,
+          11
+        ],
+        "text": "The keystone sequence stays 8, 8, 8,"
+      },
+      "program_role": "digit_copy_spaced_control",
+      "row_id": "12830daa487ac6a83142047d952e23ac8e09c77933284c6e636239c9deb3a0b6"
+    },
+    {
+      "base": {
+        "answer": " three",
+        "answer_id": 1115,
+        "ids": [
+          464,
+          10891,
+          9346,
+          8379,
+          14768,
+          1115,
+          11,
+          1115,
+          11,
+          1115,
+          11
+        ],
+        "text": "The juniper sequence stays three, three, three,"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " eight",
+        "answer_id": 3624,
+        "ids": [
+          464,
+          1994,
+          6440,
+          8379,
+          14768,
+          3624,
+          11,
+          3624,
+          11,
+          3624,
+          11
+        ],
+        "text": "The keystone sequence stays eight, eight, eight,"
+      },
+      "program_role": "word_copy_spaced_control",
+      "row_id": "608f36e8e93012a3ce73155ccd36d3b4cbf49a43ce7ee0698959498a0786a37e"
+    },
+    {
+      "base": {
+        "answer": "7",
+        "answer_id": 22,
+        "ids": [
+          17,
+          13,
+          19972,
+          198,
+          19,
+          13,
+          299,
+          44504,
+          198,
+          21,
+          13,
+          319,
+          28391,
+          198
+        ],
+        "text": "2. magnet\n4. nectar\n6. onyx\n"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": "12",
+        "answer_id": 1065,
+        "ids": [
+          22,
+          13,
+          319,
+          28391,
+          198,
+          24,
+          13,
+          299,
+          44504,
+          198,
+          1157,
+          13,
+          19972,
+          198
+        ],
+        "text": "7. onyx\n9. nectar\n11. magnet\n"
+      },
+      "program_role": "list_step_two_spaced",
+      "row_id": "6f28c56055fdbed0db33b5aaee185c8bec4473c718dcc81d0a55f6b3e97b7719"
+    },
+    {
+      "base": {
+        "answer": " 2",
+        "answer_id": 362,
+        "ids": [
+          464,
+          19972,
+          8379,
+          14768,
+          362,
+          11,
+          362,
+          11,
+          362,
+          11
+        ],
+        "text": "The magnet sequence stays 2, 2, 2,"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " 7",
+        "answer_id": 767,
+        "ids": [
+          464,
+          299,
+          44504,
+          8379,
+          14768,
+          767,
+          11,
+          767,
+          11,
+          767,
+          11
+        ],
+        "text": "The nectar sequence stays 7, 7, 7,"
+      },
+      "program_role": "digit_copy_spaced_control",
+      "row_id": "b3fecb9fc5c1344ee6d69ed5ca9eea525a88a9ba71b70f4c397e6011b8fbd465"
+    },
+    {
+      "base": {
+        "answer": " two",
+        "answer_id": 734,
+        "ids": [
+          464,
+          19972,
+          8379,
+          14768,
+          734,
+          11,
+          734,
+          11,
+          734,
+          11
+        ],
+        "text": "The magnet sequence stays two, two, two,"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " seven",
+        "answer_id": 3598,
+        "ids": [
+          464,
+          299,
+          44504,
+          8379,
+          14768,
+          3598,
+          11,
+          3598,
+          11,
+          3598,
+          11
+        ],
+        "text": "The nectar sequence stays seven, seven, seven,"
+      },
+      "program_role": "word_copy_spaced_control",
+      "row_id": "09c5b5acc33697049735cdd31e310191f6a9fee4ffccd86b0fec786a8478a20b"
+    },
+    {
+      "base": {
+        "answer": "8",
+        "answer_id": 23,
+        "ids": [
+          18,
+          13,
+          7201,
+          28191,
+          198,
+          20,
+          13,
+          47969,
+          198,
+          22,
+          13,
+          37735,
+          198
+        ],
+        "text": "3. prairie\n5. quartz\n7. raven\n"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": "13",
+        "answer_id": 1485,
+        "ids": [
+          23,
+          13,
+          37735,
+          198,
+          940,
+          13,
+          47969,
+          198,
+          1065,
+          13,
+          7201,
+          28191,
+          198
+        ],
+        "text": "8. raven\n10. quartz\n12. prairie\n"
+      },
+      "program_role": "list_step_two_spaced",
+      "row_id": "da4c9e2c07e7639dce1e2a03f11095d7b1f235c1246bcd44d55262033f314c45"
+    },
+    {
+      "base": {
+        "answer": " 3",
+        "answer_id": 513,
+        "ids": [
+          464,
+          7201,
+          28191,
+          8379,
+          14768,
+          513,
+          11,
+          513,
+          11,
+          513,
+          11
+        ],
+        "text": "The prairie sequence stays 3, 3, 3,"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " 8",
+        "answer_id": 807,
+        "ids": [
+          464,
+          47969,
+          8379,
+          14768,
+          807,
+          11,
+          807,
+          11,
+          807,
+          11
+        ],
+        "text": "The quartz sequence stays 8, 8, 8,"
+      },
+      "program_role": "digit_copy_spaced_control",
+      "row_id": "0df64f3639ff7528961b64200dc124fccf728988059dd15d2d19eb810f7ebfbc"
+    },
+    {
+      "base": {
+        "answer": " three",
+        "answer_id": 1115,
+        "ids": [
+          464,
+          7201,
+          28191,
+          8379,
+          14768,
+          1115,
+          11,
+          1115,
+          11,
+          1115,
+          11
+        ],
+        "text": "The prairie sequence stays three, three, three,"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " eight",
+        "answer_id": 3624,
+        "ids": [
+          464,
+          47969,
+          8379,
+          14768,
+          3624,
+          11,
+          3624,
+          11,
+          3624,
+          11
+        ],
+        "text": "The quartz sequence stays eight, eight, eight,"
+      },
+      "program_role": "word_copy_spaced_control",
+      "row_id": "25180b05beeba4657339767c64405a8002d0956fdf0f3b02137e2afeda79271a"
+    },
+    {
+      "base": {
+        "answer": "7",
+        "answer_id": 22,
+        "ids": [
+          17,
+          13,
+          599,
+          26524,
+          198,
+          19,
+          13,
+          294,
+          34477,
+          198,
+          21,
+          13,
+          28996,
+          392,
+          198
+        ],
+        "text": "2. spruce\n4. thimble\n6. upland\n"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": "12",
+        "answer_id": 1065,
+        "ids": [
+          22,
+          13,
+          28996,
+          392,
+          198,
+          24,
+          13,
+          294,
+          34477,
+          198,
+          1157,
+          13,
+          599,
+          26524,
+          198
+        ],
+        "text": "7. upland\n9. thimble\n11. spruce\n"
+      },
+      "program_role": "list_step_two_spaced",
+      "row_id": "1ee2dde9af50387abc0e01d163487b648cc7643f737ba8be6ba13c9d018b203a"
+    },
+    {
+      "base": {
+        "answer": " 2",
+        "answer_id": 362,
+        "ids": [
+          464,
+          599,
+          26524,
+          8379,
+          14768,
+          362,
+          11,
+          362,
+          11,
+          362,
+          11
+        ],
+        "text": "The spruce sequence stays 2, 2, 2,"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " 7",
+        "answer_id": 767,
+        "ids": [
+          464,
+          294,
+          34477,
+          8379,
+          14768,
+          767,
+          11,
+          767,
+          11,
+          767,
+          11
+        ],
+        "text": "The thimble sequence stays 7, 7, 7,"
+      },
+      "program_role": "digit_copy_spaced_control",
+      "row_id": "85c79b6b05c26e6f37e9a677b6918a9e93c4db07f957e48c94ef9907ef1a2ace"
+    },
+    {
+      "base": {
+        "answer": " two",
+        "answer_id": 734,
+        "ids": [
+          464,
+          599,
+          26524,
+          8379,
+          14768,
+          734,
+          11,
+          734,
+          11,
+          734,
+          11
+        ],
+        "text": "The spruce sequence stays two, two, two,"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " seven",
+        "answer_id": 3598,
+        "ids": [
+          464,
+          294,
+          34477,
+          8379,
+          14768,
+          3598,
+          11,
+          3598,
+          11,
+          3598,
+          11
+        ],
+        "text": "The thimble sequence stays seven, seven, seven,"
+      },
+      "program_role": "word_copy_spaced_control",
+      "row_id": "d5536e179edfebbea89c5b7e2c652085c02302ffc2e731aacef2856d0fa1b2c0"
+    },
+    {
+      "base": {
+        "answer": "8",
+        "answer_id": 23,
+        "ids": [
+          18,
+          13,
+          481,
+          322,
+          198,
+          20,
+          13,
+          331,
+          6018,
+          198,
+          22,
+          13,
+          1976,
+          27446,
+          2417,
+          198
+        ],
+        "text": "3. willow\n5. yarrow\n7. zephyr\n"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": "13",
+        "answer_id": 1485,
+        "ids": [
+          23,
+          13,
+          1976,
+          27446,
+          2417,
+          198,
+          940,
+          13,
+          331,
+          6018,
+          198,
+          1065,
+          13,
+          481,
+          322,
+          198
+        ],
+        "text": "8. zephyr\n10. yarrow\n12. willow\n"
+      },
+      "program_role": "list_step_two_spaced",
+      "row_id": "1b030d002f3da6028f48ce9b0bac1ef07ce885f9df69b15dbcc0c7846d71f62c"
+    },
+    {
+      "base": {
+        "answer": " 3",
+        "answer_id": 513,
+        "ids": [
+          464,
+          481,
+          322,
+          8379,
+          14768,
+          513,
+          11,
+          513,
+          11,
+          513,
+          11
+        ],
+        "text": "The willow sequence stays 3, 3, 3,"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " 8",
+        "answer_id": 807,
+        "ids": [
+          464,
+          331,
+          6018,
+          8379,
+          14768,
+          807,
+          11,
+          807,
+          11,
+          807,
+          11
+        ],
+        "text": "The yarrow sequence stays 8, 8, 8,"
+      },
+      "program_role": "digit_copy_spaced_control",
+      "row_id": "abcb86a433d4b6aab802446362c4124e5e404f96cd17ef03c0ed28055b18d94e"
+    },
+    {
+      "base": {
+        "answer": " three",
+        "answer_id": 1115,
+        "ids": [
+          464,
+          481,
+          322,
+          8379,
+          14768,
+          1115,
+          11,
+          1115,
+          11,
+          1115,
+          11
+        ],
+        "text": "The willow sequence stays three, three, three,"
+      },
+      "construction": "fresh_plain",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " eight",
+        "answer_id": 3624,
+        "ids": [
+          464,
+          331,
+          6018,
+          8379,
+          14768,
+          3624,
+          11,
+          3624,
+          11,
+          3624,
+          11
+        ],
+        "text": "The yarrow sequence stays eight, eight, eight,"
+      },
+      "program_role": "word_copy_spaced_control",
+      "row_id": "24c909b6029c63f1d493f371d1bb2a514f20e0cc438a4f4db2940d252d83ff3d"
+    },
+    {
+      "base": {
+        "answer": "7",
+        "answer_id": 22,
+        "ids": [
+          36120,
+          16834,
+          25,
+          198,
+          17,
+          13,
+          36505,
+          198,
+          19,
+          13,
+          1379,
+          482,
+          198,
+          21,
+          13,
+          269,
+          44226,
+          198
+        ],
+        "text": "Reading queue:\n2. amber\n4. brook\n6. cedar\n"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": "12",
+        "answer_id": 1065,
+        "ids": [
+          36120,
+          16834,
+          25,
+          198,
+          22,
+          13,
+          269,
+          44226,
+          198,
+          24,
+          13,
+          1379,
+          482,
+          198,
+          1157,
+          13,
+          36505,
+          198
+        ],
+        "text": "Reading queue:\n7. cedar\n9. brook\n11. amber\n"
+      },
+      "program_role": "list_step_two_spaced",
+      "row_id": "6ed2cdd54bf95c40020f13792a4dff19a66e0ecf76fe884ae29ff7fb9f969b67"
+    },
+    {
+      "base": {
+        "answer": " 2",
+        "answer_id": 362,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          36505,
+          25,
+          362,
+          11,
+          362,
+          11,
+          362,
+          11
+        ],
+        "text": "Copy this stable sequence for amber: 2, 2, 2,"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " 7",
+        "answer_id": 767,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          1379,
+          482,
+          25,
+          767,
+          11,
+          767,
+          11,
+          767,
+          11
+        ],
+        "text": "Copy this stable sequence for brook: 7, 7, 7,"
+      },
+      "program_role": "digit_copy_spaced_control",
+      "row_id": "3f6dd2b878d448873046d157348ed07b36eefa7fc6dbc04507fdd23738ac39ea"
+    },
+    {
+      "base": {
+        "answer": " two",
+        "answer_id": 734,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          36505,
+          25,
+          734,
+          11,
+          734,
+          11,
+          734,
+          11
+        ],
+        "text": "Copy this stable sequence for amber: two, two, two,"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " seven",
+        "answer_id": 3598,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          1379,
+          482,
+          25,
+          3598,
+          11,
+          3598,
+          11,
+          3598,
+          11
+        ],
+        "text": "Copy this stable sequence for brook: seven, seven, seven,"
+      },
+      "program_role": "word_copy_spaced_control",
+      "row_id": "2bd5508706a9e9ef5abe024b7c8b4f3813089e73ff2c63510031abd410b477e4"
+    },
+    {
+      "base": {
+        "answer": "8",
+        "answer_id": 23,
+        "ids": [
+          36120,
+          16834,
+          25,
+          198,
+          18,
+          13,
+          288,
+          15668,
+          544,
+          198,
+          20,
+          13,
+          1556,
+          2838,
+          198,
+          22,
+          13,
+          957,
+          354,
+          198
+        ],
+        "text": "Reading queue:\n3. dahlia\n5. estuary\n7. finch\n"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": "13",
+        "answer_id": 1485,
+        "ids": [
+          36120,
+          16834,
+          25,
+          198,
+          23,
+          13,
+          957,
+          354,
+          198,
+          940,
+          13,
+          1556,
+          2838,
+          198,
+          1065,
+          13,
+          288,
+          15668,
+          544,
+          198
+        ],
+        "text": "Reading queue:\n8. finch\n10. estuary\n12. dahlia\n"
+      },
+      "program_role": "list_step_two_spaced",
+      "row_id": "ca7460aaa85642b99ecb9b82f051eb1019ae99c9861e66e14ab013182073dabb"
+    },
+    {
+      "base": {
+        "answer": " 3",
+        "answer_id": 513,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          288,
+          15668,
+          544,
+          25,
+          513,
+          11,
+          513,
+          11,
+          513,
+          11
+        ],
+        "text": "Copy this stable sequence for dahlia: 3, 3, 3,"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " 8",
+        "answer_id": 807,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          1556,
+          2838,
+          25,
+          807,
+          11,
+          807,
+          11,
+          807,
+          11
+        ],
+        "text": "Copy this stable sequence for estuary: 8, 8, 8,"
+      },
+      "program_role": "digit_copy_spaced_control",
+      "row_id": "52e026732cf7c5a1d3a26e442aba910ca6e34ead0b0e481d2b33056cb89d37d7"
+    },
+    {
+      "base": {
+        "answer": " three",
+        "answer_id": 1115,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          288,
+          15668,
+          544,
+          25,
+          1115,
+          11,
+          1115,
+          11,
+          1115,
+          11
+        ],
+        "text": "Copy this stable sequence for dahlia: three, three, three,"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " eight",
+        "answer_id": 3624,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          1556,
+          2838,
+          25,
+          3624,
+          11,
+          3624,
+          11,
+          3624,
+          11
+        ],
+        "text": "Copy this stable sequence for estuary: eight, eight, eight,"
+      },
+      "program_role": "word_copy_spaced_control",
+      "row_id": "2057ecc211426a475eaca999cce5631dcb01187b782dd52d37b4f8b549495247"
+    },
+    {
+      "base": {
+        "answer": "7",
+        "answer_id": 22,
+        "ids": [
+          36120,
+          16834,
+          25,
+          198,
+          17,
+          13,
+          36167,
+          316,
+          198,
+          19,
+          13,
+          339,
+          1032,
+          198,
+          21,
+          13,
+          318,
+          1616,
+          198
+        ],
+        "text": "Reading queue:\n2. garnet\n4. heather\n6. islet\n"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": "12",
+        "answer_id": 1065,
+        "ids": [
+          36120,
+          16834,
+          25,
+          198,
+          22,
+          13,
+          318,
+          1616,
+          198,
+          24,
+          13,
+          339,
+          1032,
+          198,
+          1157,
+          13,
+          36167,
+          316,
+          198
+        ],
+        "text": "Reading queue:\n7. islet\n9. heather\n11. garnet\n"
+      },
+      "program_role": "list_step_two_spaced",
+      "row_id": "34fdf0d1afd0bcef067fe2c45f6bb537b029fe5157a8cad2b8e6d70fcdeff15a"
+    },
+    {
+      "base": {
+        "answer": " 2",
+        "answer_id": 362,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          36167,
+          316,
+          25,
+          362,
+          11,
+          362,
+          11,
+          362,
+          11
+        ],
+        "text": "Copy this stable sequence for garnet: 2, 2, 2,"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " 7",
+        "answer_id": 767,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          339,
+          1032,
+          25,
+          767,
+          11,
+          767,
+          11,
+          767,
+          11
+        ],
+        "text": "Copy this stable sequence for heather: 7, 7, 7,"
+      },
+      "program_role": "digit_copy_spaced_control",
+      "row_id": "103a4f7aee32ea814b783e4d4703f5cedb609af1f8c30a0dd6554b51314564c5"
+    },
+    {
+      "base": {
+        "answer": " two",
+        "answer_id": 734,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          36167,
+          316,
+          25,
+          734,
+          11,
+          734,
+          11,
+          734,
+          11
+        ],
+        "text": "Copy this stable sequence for garnet: two, two, two,"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " seven",
+        "answer_id": 3598,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          339,
+          1032,
+          25,
+          3598,
+          11,
+          3598,
+          11,
+          3598,
+          11
+        ],
+        "text": "Copy this stable sequence for heather: seven, seven, seven,"
+      },
+      "program_role": "word_copy_spaced_control",
+      "row_id": "9153ececde0d0ecbfd8f06f95149c4c249dafb157b1a83f471e093c69cb9b187"
+    },
+    {
+      "base": {
+        "answer": "8",
+        "answer_id": 23,
+        "ids": [
+          36120,
+          16834,
+          25,
+          198,
+          18,
+          13,
+          10891,
+          9346,
+          198,
+          20,
+          13,
+          1994,
+          6440,
+          198,
+          22,
+          13,
+          42280,
+          330,
+          198
+        ],
+        "text": "Reading queue:\n3. juniper\n5. keystone\n7. lilac\n"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": "13",
+        "answer_id": 1485,
+        "ids": [
+          36120,
+          16834,
+          25,
+          198,
+          23,
+          13,
+          42280,
+          330,
+          198,
+          940,
+          13,
+          1994,
+          6440,
+          198,
+          1065,
+          13,
+          10891,
+          9346,
+          198
+        ],
+        "text": "Reading queue:\n8. lilac\n10. keystone\n12. juniper\n"
+      },
+      "program_role": "list_step_two_spaced",
+      "row_id": "1b5e875847dafe8fa8f10f7b497fe4f7b2a302508d2a24e3a64e9163ea8497c2"
+    },
+    {
+      "base": {
+        "answer": " 3",
+        "answer_id": 513,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          10891,
+          9346,
+          25,
+          513,
+          11,
+          513,
+          11,
+          513,
+          11
+        ],
+        "text": "Copy this stable sequence for juniper: 3, 3, 3,"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " 8",
+        "answer_id": 807,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          1994,
+          6440,
+          25,
+          807,
+          11,
+          807,
+          11,
+          807,
+          11
+        ],
+        "text": "Copy this stable sequence for keystone: 8, 8, 8,"
+      },
+      "program_role": "digit_copy_spaced_control",
+      "row_id": "49f9e6ca133ef245d8de46a5c9639338c304dfa347a1ef3a5ac433082de2c8dc"
+    },
+    {
+      "base": {
+        "answer": " three",
+        "answer_id": 1115,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          10891,
+          9346,
+          25,
+          1115,
+          11,
+          1115,
+          11,
+          1115,
+          11
+        ],
+        "text": "Copy this stable sequence for juniper: three, three, three,"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " eight",
+        "answer_id": 3624,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          1994,
+          6440,
+          25,
+          3624,
+          11,
+          3624,
+          11,
+          3624,
+          11
+        ],
+        "text": "Copy this stable sequence for keystone: eight, eight, eight,"
+      },
+      "program_role": "word_copy_spaced_control",
+      "row_id": "9ca09e1ea48fcfee1a9aac34145959a9eb7e015645e9db93c9cb56181155a20d"
+    },
+    {
+      "base": {
+        "answer": "7",
+        "answer_id": 22,
+        "ids": [
+          36120,
+          16834,
+          25,
+          198,
+          17,
+          13,
+          19972,
+          198,
+          19,
+          13,
+          299,
+          44504,
+          198,
+          21,
+          13,
+          319,
+          28391,
+          198
+        ],
+        "text": "Reading queue:\n2. magnet\n4. nectar\n6. onyx\n"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": "12",
+        "answer_id": 1065,
+        "ids": [
+          36120,
+          16834,
+          25,
+          198,
+          22,
+          13,
+          319,
+          28391,
+          198,
+          24,
+          13,
+          299,
+          44504,
+          198,
+          1157,
+          13,
+          19972,
+          198
+        ],
+        "text": "Reading queue:\n7. onyx\n9. nectar\n11. magnet\n"
+      },
+      "program_role": "list_step_two_spaced",
+      "row_id": "50120205952ee558aa3dd440fd62f474af3da9c6b037873fcd493e06aaf99a80"
+    },
+    {
+      "base": {
+        "answer": " 2",
+        "answer_id": 362,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          19972,
+          25,
+          362,
+          11,
+          362,
+          11,
+          362,
+          11
+        ],
+        "text": "Copy this stable sequence for magnet: 2, 2, 2,"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " 7",
+        "answer_id": 767,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          299,
+          44504,
+          25,
+          767,
+          11,
+          767,
+          11,
+          767,
+          11
+        ],
+        "text": "Copy this stable sequence for nectar: 7, 7, 7,"
+      },
+      "program_role": "digit_copy_spaced_control",
+      "row_id": "15146731e274af5080f243a36ad27818743740950fea147fc696ec1b1bac3d11"
+    },
+    {
+      "base": {
+        "answer": " two",
+        "answer_id": 734,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          19972,
+          25,
+          734,
+          11,
+          734,
+          11,
+          734,
+          11
+        ],
+        "text": "Copy this stable sequence for magnet: two, two, two,"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " seven",
+        "answer_id": 3598,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          299,
+          44504,
+          25,
+          3598,
+          11,
+          3598,
+          11,
+          3598,
+          11
+        ],
+        "text": "Copy this stable sequence for nectar: seven, seven, seven,"
+      },
+      "program_role": "word_copy_spaced_control",
+      "row_id": "c4d2e6f50ae6f0c0e54d1a48a45f53e378099642725ea90cabe880a60a635d13"
+    },
+    {
+      "base": {
+        "answer": "8",
+        "answer_id": 23,
+        "ids": [
+          36120,
+          16834,
+          25,
+          198,
+          18,
+          13,
+          7201,
+          28191,
+          198,
+          20,
+          13,
+          47969,
+          198,
+          22,
+          13,
+          37735,
+          198
+        ],
+        "text": "Reading queue:\n3. prairie\n5. quartz\n7. raven\n"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": "13",
+        "answer_id": 1485,
+        "ids": [
+          36120,
+          16834,
+          25,
+          198,
+          23,
+          13,
+          37735,
+          198,
+          940,
+          13,
+          47969,
+          198,
+          1065,
+          13,
+          7201,
+          28191,
+          198
+        ],
+        "text": "Reading queue:\n8. raven\n10. quartz\n12. prairie\n"
+      },
+      "program_role": "list_step_two_spaced",
+      "row_id": "929456a9665ba30a77e04664315364ca87dc86908a46b4c0304488e9ffb34f01"
+    },
+    {
+      "base": {
+        "answer": " 3",
+        "answer_id": 513,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          7201,
+          28191,
+          25,
+          513,
+          11,
+          513,
+          11,
+          513,
+          11
+        ],
+        "text": "Copy this stable sequence for prairie: 3, 3, 3,"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " 8",
+        "answer_id": 807,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          47969,
+          25,
+          807,
+          11,
+          807,
+          11,
+          807,
+          11
+        ],
+        "text": "Copy this stable sequence for quartz: 8, 8, 8,"
+      },
+      "program_role": "digit_copy_spaced_control",
+      "row_id": "d44832129b96b2169ea8c96251ab0b18b75b779819846c8d64990e7f7fd0637b"
+    },
+    {
+      "base": {
+        "answer": " three",
+        "answer_id": 1115,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          7201,
+          28191,
+          25,
+          1115,
+          11,
+          1115,
+          11,
+          1115,
+          11
+        ],
+        "text": "Copy this stable sequence for prairie: three, three, three,"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " eight",
+        "answer_id": 3624,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          47969,
+          25,
+          3624,
+          11,
+          3624,
+          11,
+          3624,
+          11
+        ],
+        "text": "Copy this stable sequence for quartz: eight, eight, eight,"
+      },
+      "program_role": "word_copy_spaced_control",
+      "row_id": "9624ca84d47358d42e8a44751655091349de46dbf8d606e3e004bcdde87130e3"
+    },
+    {
+      "base": {
+        "answer": "7",
+        "answer_id": 22,
+        "ids": [
+          36120,
+          16834,
+          25,
+          198,
+          17,
+          13,
+          599,
+          26524,
+          198,
+          19,
+          13,
+          294,
+          34477,
+          198,
+          21,
+          13,
+          28996,
+          392,
+          198
+        ],
+        "text": "Reading queue:\n2. spruce\n4. thimble\n6. upland\n"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": "12",
+        "answer_id": 1065,
+        "ids": [
+          36120,
+          16834,
+          25,
+          198,
+          22,
+          13,
+          28996,
+          392,
+          198,
+          24,
+          13,
+          294,
+          34477,
+          198,
+          1157,
+          13,
+          599,
+          26524,
+          198
+        ],
+        "text": "Reading queue:\n7. upland\n9. thimble\n11. spruce\n"
+      },
+      "program_role": "list_step_two_spaced",
+      "row_id": "94b7ad49e0a8940a2d6c9c49675a1ff4be465a7120255a83f8287b82ff59c922"
+    },
+    {
+      "base": {
+        "answer": " 2",
+        "answer_id": 362,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          599,
+          26524,
+          25,
+          362,
+          11,
+          362,
+          11,
+          362,
+          11
+        ],
+        "text": "Copy this stable sequence for spruce: 2, 2, 2,"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " 7",
+        "answer_id": 767,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          294,
+          34477,
+          25,
+          767,
+          11,
+          767,
+          11,
+          767,
+          11
+        ],
+        "text": "Copy this stable sequence for thimble: 7, 7, 7,"
+      },
+      "program_role": "digit_copy_spaced_control",
+      "row_id": "95dfa13671f6696c7f7970f52997c274e2a4c558b1f68713f0d91b33703175ba"
+    },
+    {
+      "base": {
+        "answer": " two",
+        "answer_id": 734,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          599,
+          26524,
+          25,
+          734,
+          11,
+          734,
+          11,
+          734,
+          11
+        ],
+        "text": "Copy this stable sequence for spruce: two, two, two,"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " seven",
+        "answer_id": 3598,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          294,
+          34477,
+          25,
+          3598,
+          11,
+          3598,
+          11,
+          3598,
+          11
+        ],
+        "text": "Copy this stable sequence for thimble: seven, seven, seven,"
+      },
+      "program_role": "word_copy_spaced_control",
+      "row_id": "89f2ead461c6a7d63625baeb1a8223fe368b49239c9570edf86a104d794b2a2e"
+    },
+    {
+      "base": {
+        "answer": "8",
+        "answer_id": 23,
+        "ids": [
+          36120,
+          16834,
+          25,
+          198,
+          18,
+          13,
+          481,
+          322,
+          198,
+          20,
+          13,
+          331,
+          6018,
+          198,
+          22,
+          13,
+          1976,
+          27446,
+          2417,
+          198
+        ],
+        "text": "Reading queue:\n3. willow\n5. yarrow\n7. zephyr\n"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": "13",
+        "answer_id": 1485,
+        "ids": [
+          36120,
+          16834,
+          25,
+          198,
+          23,
+          13,
+          1976,
+          27446,
+          2417,
+          198,
+          940,
+          13,
+          331,
+          6018,
+          198,
+          1065,
+          13,
+          481,
+          322,
+          198
+        ],
+        "text": "Reading queue:\n8. zephyr\n10. yarrow\n12. willow\n"
+      },
+      "program_role": "list_step_two_spaced",
+      "row_id": "5cecbf1c5cd82b072068f4dcfec92df8481d3e9b04f51ef14446ceaf339e0d14"
+    },
+    {
+      "base": {
+        "answer": " 3",
+        "answer_id": 513,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          481,
+          322,
+          25,
+          513,
+          11,
+          513,
+          11,
+          513,
+          11
+        ],
+        "text": "Copy this stable sequence for willow: 3, 3, 3,"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " 8",
+        "answer_id": 807,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          331,
+          6018,
+          25,
+          807,
+          11,
+          807,
+          11,
+          807,
+          11
+        ],
+        "text": "Copy this stable sequence for yarrow: 8, 8, 8,"
+      },
+      "program_role": "digit_copy_spaced_control",
+      "row_id": "bd7ee295b902bd66074586338e7f41544d5afe6f66a241c7b4dc234123c9e48e"
+    },
+    {
+      "base": {
+        "answer": " three",
+        "answer_id": 1115,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          481,
+          322,
+          25,
+          1115,
+          11,
+          1115,
+          11,
+          1115,
+          11
+        ],
+        "text": "Copy this stable sequence for willow: three, three, three,"
+      },
+      "construction": "fresh_headered",
+      "direction_policy": "evaluate_both",
+      "donor": {
+        "answer": " eight",
+        "answer_id": 3624,
+        "ids": [
+          29881,
+          428,
+          8245,
+          8379,
+          329,
+          331,
+          6018,
+          25,
+          3624,
+          11,
+          3624,
+          11,
+          3624,
+          11
+        ],
+        "text": "Copy this stable sequence for yarrow: eight, eight, eight,"
+      },
+      "program_role": "word_copy_spaced_control",
+      "row_id": "367985e49e41baba039a3ddf1bb67b3a20424cbed341af514432dcb29a028650"
+    }
+  ],
+  "schema": "numeric_successor_spaced_ood_v1_rows"
+}
