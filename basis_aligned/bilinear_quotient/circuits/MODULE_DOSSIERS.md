@@ -55,6 +55,17 @@ matches native CE within6.96e-8 and the matched manual/model CE check is exact.
 The frozen6/7/3 candidate must transfer to untouched natural and code corpora
 before any within-head routing/value/source factorization.
 
+That [prospective transfer](../../polynomial_causal/ATTENTION5_DEVIATION_LEADERS_TRANSFER_V1_RESULT.json)
+passes closure, live-correction, and leader sufficiency, but rejects an exclusive
+three-head circuit. Heads6/7/3 recover71.63% of mean-write damage on untouched
+natural documents and58.92% on code. The complementary six also recover63.20%
+and64.81%, failing their50% insufficiency bar; on code the complement wins in
+both fixed halves. Each leader remains individually positive on both corpora,
+with head3 falling from23.56% natural recovery to3.60% code. The correction is
+therefore overlapping and corpus-sensitive at native-head grain. No within-head
+factorization is licensed; the next test must ask whether all nine interventions
+share a lower-dimensional downstream response quotient.
+
 ## Saved correlative interface: 26 heads across layers 3–16
 
 10 September update: [weight pullback and input-reader overlap](../../polynomial_causal/explanations/2026-09-10/attention_ov_input_reader_overlap.md). The fixed block projector and complement use `O_P,h=(Oq)q_h^T` and `O_R,h=O_h-O_P,h`, respectively. Their within-head QK1/QK2 routing is identical by construction. At relative rank tolerance1e-6, 19 per-head remainder writers retain all128 coordinates and can read the saved scalar’s full value-input function. Seven single-head blocks retain127 coordinates with partial input overlap. Full-block cross-head cancellations prevent interpreting these per-head overlaps as globally duplicated computation.

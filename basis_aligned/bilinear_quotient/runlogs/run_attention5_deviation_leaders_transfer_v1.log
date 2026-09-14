@@ -1,0 +1,69 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "pred_d": false,
+  "pred_e": false,
+  "manual_module_ce_error": 0.0,
+  "corpora": {
+    "final_natural": {
+      "mean_damage": 0.13245325287183127,
+      "leaders_recovery": 0.7162620082934449,
+      "complement_recovery": 0.6320421960820903,
+      "all_restore_ce_error": -9.934107462565104e-09,
+      "singleton_recovery": {
+        "6": 0.37596797043406227,
+        "7": 0.3292191863292039,
+        "3": 0.2356361171426384
+      },
+      "half_leaders_gt_complement": [
+        true,
+        true
+      ],
+      "mean_ce": {
+        "native": 3.245091418425242,
+        "mean": 3.3775446712970734,
+        "leaders": 3.282673438390096,
+        "complement": 3.293828626473745,
+        "all": 3.2450914084911346
+      }
+    },
+    "ood_code": {
+      "mean_damage": 0.16734525561332703,
+      "leaders_recovery": 0.5892062728825608,
+      "complement_recovery": 0.6481337328459635,
+      "all_restore_ce_error": -6.953875223795573e-08,
+      "singleton_recovery": {
+        "6": 0.29618702889936643,
+        "7": 0.39767445656932626,
+        "3": 0.03604779310825878
+      },
+      "half_leaders_gt_complement": [
+        false,
+        false
+      ],
+      "mean_ce": {
+        "native": 3.7926629185676575,
+        "mean": 3.9600081741809845,
+        "leaders": 3.861407299836477,
+        "complement": 3.851546068986257,
+        "all": 3.7926628490289054
+      }
+    }
+  },
+  "body_forwards": 49,
+  "seconds": 5.382270527006767,
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_attention5_deviation_leaders_transfer_v1.py": "e6bff28884a2110030ff14be69e04c2bb3eb9c64be3aa8529f447fd4b4423748",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ATTENTION5_DEVIATION_LEADERS_TRANSFER_V1_PREREGISTRATION.md": "4d0ee32898bd4b6b77a4e7aadae5bf68ceda5d6cc2e097acd4e24754e314e368",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ATTENTION5_DEVIATION_LEADERS_TRANSFER_V1_CPU_CONTROL.json": "92d369855420276400d55eb495982b1c93dda71f365d0ac8ea17aa3e60e5f6c9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/attention5_deviation_leaders_transfer_v1.py": "784ad4ac278e0f9c74f4ec1824f68be97a35c8ee82322f993c43f19bf27443a1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ATTENTION5_MEAN_DEVIATION_HEAD_SPLIT_V2_RESULT.json": "b118148ceabeafef2e2fcab10016c3e98839909b47b82ce266ff01a62e33c4c4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ATTENTION5_MEAN_DEVIATION_HEAD_SPLIT_V2_ARTIFACT.pt": "63a0db146a84fedc641a40c574a7cc73702bb36c99716945c3318da332244215",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/final_natural.pt": "1997026ce15d0524bd16540047799a6461bc94a57fbdd2812ef41ff36e8d5e3c",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/ood_code.pt": "6cf514e75dfd03399f223a9ba5f6ebe5f4b1315bcb839a515e1c19e7b5474bd9",
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "scope": "Prospective transfer of discovery-selected attention5 mean-deviation heads6/7/3 to untouched natural and code caches; no refit or factor localization.",
+  "artifact_sha256": "0b8eed2015576362ea34343e0fa0929b2dfccab24ae2ea6b3eac2dab062ec069"
+}
