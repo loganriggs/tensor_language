@@ -207,3 +207,15 @@ Corrected four-term cue errors4.20/2.54% pass; three-term10.049/8.231% fails its
 unchanged10%bar. Native capability passes corrected families, but the unaffected
 opposed publisher/author family has only1/12 positive native contrasts. No clean
 writer-role claim, general control preservation or static parameter saving.
+
+
+### 2026-09-14 — current-remainder routing/value interaction retained
+The [primary record](../../polynomial_causal/EVEN_KEY_VALUE_BANK_V1_MATH.md)
+now rejects city-only inherited-value sufficiency (90–113%cue error) and demotes
+the small inherited branch. Full current remainder interchange is consequential
+(~11%full-head cue norm); value-only sufficiency fails, and dropping its mixed
+routing/value term causes up to48.65%control error. Three-term native composition
+passes<=3.47%. Exact coupled-strength MLP9 compilation merges equal monomials,
+retains the mixed interaction, and saves7.11%prepared-context payload across100
+CPUcases. Native prefix/weights and independent-strength restrictions remain
+explicit; no new semantic-role identification or static whole-model saving.

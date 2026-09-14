@@ -270,3 +270,36 @@ replays the original current remainder within1.69e-16 and independently contract
 norm is1.437×full change; cancellation makes scalar norm fractions non-additive.
 Native behavioral sufficiency and composition are tested separately by the
 [registered crossed-port test](CURRENT_REMAINDER_CROSSED_NATIVE_V1_PREREGISTRATION.md).
+
+
+[Crossed native results](CURRENT_REMAINDER_CROSSED_NATIVE_V1_RESULT.json) add288
+forwards in3.51seconds. Native/joint-recomposition anchors are identical, and
+component/field identities are <=4.02e-16. Joint current-remainder interchange
+has11.43/11.19% of full-head removal's paired-cue norm. Value-only error is
+33.74/14.09%, rejecting uniform20%sufficiency. Separately measured routing,
+value and mixed effects compose within0.49–3.47% across cue/control readouts.
+Omitting mixed effects gives14.73/9.83% cue error and32.26/48.65%control error,
+failing5%. Retain the mixed computation. These are conditional recipient-suffix
+interventions, not three independent semantic circuits. Cached routing/value
+ports for48prefixes cost1,051,456bytes, plus unchanged model/context generators.
+
+## Compressing coupled routing/value interactions without dropping mixed terms
+
+If routing and values interpolate with strengths a,b, the current-remainder
+write change is a*Dr+b*Dv+a*b*Dm. The mixed strength is determined by those two
+inputs. Feeding this state through bilinear MLP9 with RMS gives a rational
+function with numerator and denominator both of bidegree(2,2). Its nine monomials
+are1,a,b,ab,a²,a²b,b²,ab²,a²b². The earlier generic three-direction compiler has
+ten coefficients; its linear mixed coefficient and routing/value cross coefficient
+now multiply the same ab monomial and can be added exactly.
+
+[100 CPU cases](COUPLED_ROUTING_VALUE_MLP9_V1_RESULT.json) use four old cached
+paired contexts and all25 strengths from{-1,0,.5,1,2}². All registered checks pass:
+FP64 state error<=2.64e-16, own-change error<=8.39e-14, agreement with the generic
+compiler<=5.01e-17, native FP32 MLP state error<=1.20e-7. Context payload shrinks
+by7.113–7.116%, including residual basis, bias and denominator. First serialized
+examples are2,336,025bytes generic versus2,169,945bytes coupled. No quantization
+or response fitting is used. All15,926,400MLP scalars and native context/source
+weights remain required to construct programs. This does not reduce static
+whole-model weights or support arbitrary independent mixed-strength edits.
+The next validation boundary is the native suffix under these coupled strengths.
