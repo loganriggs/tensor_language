@@ -1,0 +1,20 @@
+{
+  "claim": "successor_fixed_pointer_module_response_v1",
+  "classification": "novel_followup_screen",
+  "reviewed_sources": [
+    "basis_aligned/qk_mdl/algo_tasks/successor/report.md",
+    "basis_aligned/qk_mdl/algo_tasks/successor/s2_patching.py",
+    "basis_aligned/qk_mdl/algo_tasks/semantics_successor/semlib.py",
+    "basis_aligned/polynomial_causal/SUCCESSOR_POINTER_PREFIX_INTERACTION_V2_RESULT.json",
+    "basis_aligned/polynomial_causal/SUCCESSOR_POINTER_PREFIX_INTERACTION_V2_ANALYSIS.json",
+    "basis_aligned/bilinear_quotient/circuits/task_successor_pointer.json"
+  ],
+  "nearest_prior_test": "Legacy component patching swaps the final element and therefore changes both the layer-0 pointer and prefix coherence. The prospective v2 factorial fixes the pointer but intervenes only on that pointer.",
+  "new_object": "One complete attention or MLP final-query response transplanted between coherent and prefix-swapped prompts while the final pointer remains fixed.",
+  "excluded_repeats": [
+    "final-element clean-to-corrupt component patching",
+    "layer-0 pointer substitution or scaling",
+    "successor-table extraction, DAS, or rank fitting"
+  ],
+  "evidence_level": "screen"
+}

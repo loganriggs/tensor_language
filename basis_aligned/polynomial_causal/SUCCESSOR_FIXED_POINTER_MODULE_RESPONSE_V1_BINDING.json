@@ -1,0 +1,29 @@
+{
+  "bars": {
+    "maximum_control_rms_fraction": 0.5,
+    "maximum_full_ceiling_logit_absolute_error": 0.0001,
+    "maximum_self_logit_absolute_error": 1e-05,
+    "minimum_family_cosine": 0.7,
+    "minimum_family_mean_late_backward_target": 1.0,
+    "minimum_family_projection": 0.5,
+    "minimum_native_accuracy": 0.75
+  },
+  "candidate_count": 36,
+  "files": {
+    "preregistration": "6db5f71ee2f6fef22fc138cd61517b29ae39ebe883152df0fd6a23d55c39f49f",
+    "prior_art": "b863535645b0208c3428d754de258b2ea8bb83da252085317def0ed98cb76d01",
+    "rows": "86d9bb342e1a880f130de04ee49e04c87b8bcde790dccf93cc2ef3669ec7707e"
+  },
+  "outcomes_opened_before_freeze": [
+    "native coherent/early/late and pointer factorial from V2",
+    "no complete-module transplant outcomes"
+  ],
+  "price": {
+    "fits": 0,
+    "forwards": 77,
+    "sequences": 770
+  },
+  "row_manifest_sha256": "f366c215e2bc08ff12728a798542eba9544887acb66d6a393e59f4153acf4307",
+  "schema": "successor_fixed_pointer_module_response_v1_binding",
+  "selection": "minimum family projection, then minimum family cosine, then module order"
+}
