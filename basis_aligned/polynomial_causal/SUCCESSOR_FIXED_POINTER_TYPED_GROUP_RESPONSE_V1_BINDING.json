@@ -1,0 +1,130 @@
+{
+  "bars": {
+    "maximum_control_rms_fraction": 0.5,
+    "maximum_full_ceiling_logit_absolute_error": 0.0001,
+    "maximum_self_logit_absolute_error": 1e-05,
+    "minimum_family_cosine": 0.7,
+    "minimum_family_mean_late_backward_target": 1.0,
+    "minimum_family_projection": 0.5,
+    "minimum_native_accuracy": 0.75
+  },
+  "files": {
+    "preregistration": "fe21195304242a9c557aa646a8fefa6ffaf31c8a24fd5b539a12a55d4a10fcb2",
+    "rows": "86d9bb342e1a880f130de04ee49e04c87b8bcde790dccf93cc2ef3669ec7707e",
+    "singleton_result": "12f53fddad2e9cca4b1330f2a5e2f6478ec6c38a9d979c12870eec3372014d79"
+  },
+  "groups": {
+    "all_attention": [
+      "attn0",
+      "attn1",
+      "attn2",
+      "attn3",
+      "attn4",
+      "attn5",
+      "attn6",
+      "attn7",
+      "attn8",
+      "attn9",
+      "attn10",
+      "attn11",
+      "attn12",
+      "attn13",
+      "attn14",
+      "attn15",
+      "attn16",
+      "attn17"
+    ],
+    "all_mlp": [
+      "mlp0",
+      "mlp1",
+      "mlp2",
+      "mlp3",
+      "mlp4",
+      "mlp5",
+      "mlp6",
+      "mlp7",
+      "mlp8",
+      "mlp9",
+      "mlp10",
+      "mlp11",
+      "mlp12",
+      "mlp13",
+      "mlp14",
+      "mlp15",
+      "mlp16",
+      "mlp17"
+    ],
+    "early_attention": [
+      "attn0",
+      "attn1",
+      "attn2",
+      "attn3",
+      "attn4",
+      "attn5",
+      "attn6",
+      "attn7"
+    ],
+    "late_all": [
+      "attn13",
+      "mlp13",
+      "attn14",
+      "mlp14",
+      "attn15",
+      "mlp15",
+      "attn16",
+      "mlp16",
+      "attn17",
+      "mlp17"
+    ],
+    "late_attention": [
+      "attn13",
+      "attn14",
+      "attn15",
+      "attn16",
+      "attn17"
+    ],
+    "late_mlp": [
+      "mlp13",
+      "mlp14",
+      "mlp15",
+      "mlp16",
+      "mlp17"
+    ],
+    "pointer_all": [
+      "attn8",
+      "mlp8",
+      "attn9",
+      "mlp9",
+      "attn10",
+      "mlp10",
+      "attn11",
+      "mlp11",
+      "attn12",
+      "mlp12"
+    ],
+    "pointer_attention": [
+      "attn8",
+      "attn9",
+      "attn10",
+      "attn11",
+      "attn12"
+    ],
+    "pointer_mlp": [
+      "mlp8",
+      "mlp9",
+      "mlp10",
+      "mlp11",
+      "mlp12"
+    ]
+  },
+  "outcomes_opened_before_freeze": [
+    "SUCCESSOR_FIXED_POINTER_MODULE_RESPONSE_V2_RESULT.json singleton reports; group membership fixed solely by architecture/depth"
+  ],
+  "price": {
+    "fits": 0,
+    "forwards": 23,
+    "sequences": 230
+  },
+  "row_manifest_sha256": "f366c215e2bc08ff12728a798542eba9544887acb66d6a393e59f4153acf4307",
+  "schema": "successor_fixed_pointer_typed_group_response_v1_binding"
+}
