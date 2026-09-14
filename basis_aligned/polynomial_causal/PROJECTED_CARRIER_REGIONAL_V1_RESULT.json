@@ -1,0 +1,32 @@
+{
+  "panels": [
+    {
+      "panel": "COMPOSED_LAST_BLOCK_STATES_V1",
+      "relative_squared_error_improvement": -0.04895424175473062,
+      "group_error_ratios": [
+        0.9128994935745178,
+        0.671485347544985,
+        1.1006293882059965,
+        1.0023326197409888,
+        1.1179432804063871
+      ],
+      "pred_b": true,
+      "pred_c": true,
+      "pred_d": false
+    },
+    {
+      "panel": "MINIMAX_FRESH_CACHE_V1",
+      "relative_squared_error_improvement": -1.0732920703864295,
+      "group_error_ratios": [
+        1.4714156595258168,
+        1.106871704616702,
+        1.7026927716717457,
+        1.285867917607672
+      ],
+      "pred_b": false,
+      "pred_c": true,
+      "pred_d": false
+    }
+  ],
+  "scope": "Frozen weight-generated projection, native conditional task contrasts; no fit/adoption or corpusOOD."
+}

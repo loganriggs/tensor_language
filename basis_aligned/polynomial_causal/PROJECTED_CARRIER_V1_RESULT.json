@@ -1,0 +1,38 @@
+{
+  "utc": "2026-09-14T10:47:39.765481+00:00",
+  "execution_replay": 2.764185840098529e-07,
+  "zero_ports": true,
+  "scalar_contrast_norm_ratios": [
+    0.9992242342842249,
+    0.9995826624394143,
+    0.9999854372852132,
+    0.9999294178774418,
+    0.999884132554329,
+    0.9999998038368527
+  ],
+  "coefficient_error": 0.09994633070323211,
+  "panels": [
+    {
+      "prefix": "COMPOSED_LAST_BLOCK_STATES_V1",
+      "baseline_energy": 1.062328422915273e-08,
+      "candidate_energy": 7.024382350654698e-09,
+      "relative_improvement": 0.33877488362984953
+    },
+    {
+      "prefix": "MINIMAX_FRESH_CACHE_V1",
+      "baseline_energy": 1.3464114825907317e-08,
+      "candidate_energy": 1.1536244930575335e-08,
+      "relative_improvement": 0.14318578831654216
+    }
+  ],
+  "price_ratio": 1.0022723399652433,
+  "artifact_bytes": 4910929,
+  "artifact_sha256": "fc2a5b86975cc6a9a423c3e0e546408de6acc5023fb367438320863eee04fb5c",
+  "resident_bytes": 9351488,
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "pred_d": true,
+  "seconds": 0.5589446049998514,
+  "scope": "Weights-generated fixed residual-direction exact correction; homogeneous bilinear program, no native-data fitting or adoption."
+}

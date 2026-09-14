@@ -1,0 +1,34 @@
+{
+  "utc": "2026-09-14T10:43:59.315133+00:00",
+  "bias_rms": 2459.282132742942,
+  "recurrence_replay": 2.0370280739531505e-16,
+  "bias_site_execution_replay": 1.0602362702095051e-07,
+  "price_ratio": 1.0013139325216667,
+  "artifact_bytes": 4906233,
+  "artifact_sha256": "1a846f9bdc1e8f7c9b4fe7cf88d0d4e07fb5ae5af5eea2122c4e0179ffd6afa8",
+  "correction_values": 1536,
+  "extra_macs_per_row": 1536,
+  "panels": [
+    {
+      "prefix": "COMPOSED_LAST_BLOCK_STATES_V1",
+      "baseline_energy": 1.0623284229152725e-08,
+      "corrected_energy": 3.0320013636887584e-08,
+      "relative_improvement": -1.8541092361703475,
+      "background_rms": 1675.720039251281,
+      "centered_background_rms": 2401.3085517753184
+    },
+    {
+      "prefix": "MINIMAX_FRESH_CACHE_V1",
+      "baseline_energy": 1.3464114825907316e-08,
+      "corrected_energy": 3.305034778650213e-08,
+      "relative_improvement": -1.454698895088704,
+      "background_rms": 1711.816714550945,
+      "centered_background_rms": 2411.0791710485687
+    }
+  ],
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "seconds": 0.9429601839983661,
+  "scope": "Weight-derived isotropic spherical MLP-mean carrier, not actual native mean; no fit to native data. Sparse body plus small dense correction; native conditional raw scores only, no adoption."
+}

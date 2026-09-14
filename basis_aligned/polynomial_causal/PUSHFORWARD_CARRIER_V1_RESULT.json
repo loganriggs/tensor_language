@@ -1,0 +1,34 @@
+{
+  "utc": "2026-09-14T10:45:43.157557+00:00",
+  "bias_rms": 1251.384905829053,
+  "half_mean_disagreement": 0.0481280156711559,
+  "bias_site_execution_replay": 1.74545560495282e-07,
+  "price_ratio": 1.0012806658237743,
+  "artifact_bytes": 4906070,
+  "artifact_sha256": "5eb801cf1b9d611f520131a74e45d644ab5c5d04f8ad6a0e1aa474ab763a2cf5",
+  "correction_values": 1536,
+  "extra_macs_per_row": 1536,
+  "panels": [
+    {
+      "prefix": "COMPOSED_LAST_BLOCK_STATES_V1",
+      "baseline_energy": 1.0623284229152725e-08,
+      "corrected_energy": 7.276042822732205e-09,
+      "relative_improvement": 0.31508536665477915,
+      "background_rms": 1675.720039251281,
+      "centered_background_rms": 1228.0250480893064
+    },
+    {
+      "prefix": "MINIMAX_FRESH_CACHE_V1",
+      "baseline_energy": 1.3464114825907317e-08,
+      "corrected_energy": 1.2249647459036923e-08,
+      "relative_improvement": 0.09020031265134087,
+      "background_rms": 1711.816714550945,
+      "centered_background_rms": 1269.2650817736494
+    }
+  ],
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "seconds": 13.415030636002484,
+  "scope": "Weights-generated uniform-token pushforward mean, not a native mean claim; no fit to native data. Sparse body plus small dense correction; native conditional raw scores only, no adoption."
+}
