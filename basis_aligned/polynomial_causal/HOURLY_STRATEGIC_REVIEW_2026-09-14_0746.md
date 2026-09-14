@@ -1,0 +1,37 @@
+# Hourly strategic review
+
+Seven circuit targets: **(1) computational specification** of reads, operations, writes and downstream consumers; **(2) cross-boundary grouping and within-module splitting** by computational role; **(3) held-out/OOD prediction** of activations and behavioral effects; **(4) extraction/sufficiency** through executable circuitry or an explicit conditional interface; **(5) selective manipulation** with unrelated-behavior controls, redundancy and interactions; **(6) composition/reuse** with predictable joint behavior; **(7) stable identification** across splits, gauges and restarts, or downstream operational equivalence.
+
+Full goal: a simpler predictive, composable, manipulable executable tensor program, charging all weights, adapters, dependencies and execution. User-authorized interaction compression supersedes old anti-compression restrictions; it does not itself satisfy these targets.
+
+Actual UTC: **2026-09-14T07:46:02+00:00**. Next deadline: **2026-09-14T08:46:02+00:00**. Previous [review](HOURLY_STRATEGIC_REVIEW_2026-09-14_0645.md): **06:45:29 UTC**, 60.55 minutes earlier. No offline backfill. Ownership: this review and append-only board entry; no CPU experimental consequence.
+
+## Evidence and interval audit
+
+Since 06:45:29, the board and recursive scientific-file modification inventory show **zero new screens/nulls, fits or dossiers**; only the preceding review appears in that inventory. Lane1 canaries ran **06:47:53–06:48:11** and **07:18:19–07:18:38 UTC**, exit 0. These are monitoring, not scientific receipts. Lane2's last local research remains **02:48:37–02:48:38**, after its **02:44:22** restart; earlier undated historical log lines are not current work. No new commit: tensor_language `3f30132a6`, **2026-09-13T14:58:36+00:00**; sibling theseus-bench `e233031`, clean. Concurrent dirty/untracked files were preserved.
+
+The [native-weight receipt](NATIVE_RETAINED_ERROR_V1_RESULT.json), completed **02:48:38 UTC**, still supports nine-term Gram/direct replay ≤1.97e-16 across four synthetic 32-row panels. Diagonal-only energy overstates joint error by **1.16–12.66%**; conditional mixed error is **8.47–9.08%**. The [source-pair receipt](NORMALIZED_PAIR_HT_CONTROL_20260914_0256_RESULT.json), internal UTC **02:51:47.477189**, exposes **46.57%** naive sampled-energy bias, **1.20%** sampled-denominator Gram bias and **26.55%** mask-only relative standard error. This favors exact source sums before outer-context integration. The [first local contraction control](RETAINED_CONTRACTION_ERROR_CONTROL_V1_RESULT.json), board **02:27 UTC**, is **algebraic evidence only**. None establishes native-text fidelity or a better fitted program.
+
+The [final campaign report](explanations/for_logan/research_update_2026-09-13_final_compression.md), research cutoff **13 September 14:34 UTC**, remains unrepaired: setting2 fails broader full-head transfer; setting3 fails behavioral preservation with incomplete convergence. Setting1 saves **1.806%** of a conditional parent interface, retains all 64 reader nodes, has individual/sign exceptions and slower CPU execution. No whole-model adoption.
+
+## Workflow verdicts
+
+**CIRCUIT_FOCUS: FAIL for interval advancement.** No new scientific or shared-infrastructure receipt since 06:45:29. Interaction compression remains authorized and relevant to targets 1/6; the failure is lack of progress, not its topic.
+
+**CEREMONY_BUDGET: FAIL, repair unproven.** The activity log still ends at **02:51:00.024595 UTC**, an unclosed publication phase. Prior-art → specification → capability → screen → dossier phase times are absent. Neither candidate latency median nor science/review ratio is measurable. Do not assign all elapsed time to that open phase or infer active/idle minutes from empty queues. This invocation's first tool clock was **07:44:09 UTC**, an observation rather than a retrospective phase marker. Next research must use the existing phase clock before operations, close phases, and publish only primary receipts plus short coordination notes between scheduled reviews.
+
+**NOVELTY_LESSON_GATE: PASS for this review and proposed direction.** Checked saved skill, startup, local restoration, board, latest review, primary controls, current explanation pointers, final report and connection/backlog tails. Preserve all nine moments, shared corners and complete denominators; discover from weights and freeze before behavioral validation. Completed Gaussian bounds, identity controls, coordinate-complement and sparse-runtime sweeps do not constitute new work. Any later implementation needs a fresh ownership/collision check.
+
+## Direction, confounds and next action
+
+Read-only checks at approximately **07:44 UTC** found systemd user `bilin18-runners.service` active/running since **02:44:20 UTC**, both Supervisor lanes RUNNING and both queues empty. Supervisor was verified with `/home/loganriggs/.local/share/bilin18/venv/bin/supervisorctl -c /home/loganriggs/.local/share/bilin18/supervisord.conf status`; an initial wrapper invocation redundantly supplied `-c` and was corrected without changing services. Together with [local restoration](../../session_recovery/LOCAL_START_2026-09-14.md) and the completed native-weight CPU receipt, this establishes that **setup no longer blocks CPU science**. Missing old native ports and a changed canary fingerprint require matched references for later behavioral comparisons. The records do not explain why research has not resumed.
+
+Confounds remain: synthetic corner laws may miss native intervention dependencies; supplied final RMS and omitted softcap/altered suffix limit the objective. Preserve baseline subtraction, common frames, inherited values and shared backgrounds. Nonlinear CE effects cannot be summed. Later validation must address token difficulty, leakage/reused panels, post-selection of candidates or input laws, control-family reversals, dead knobs, precision/noise floors and gauge freedom. Charge surviving consumers when claiming joint savings.
+
+Ranked alternatives and falsifiers:
+
+1. **Highest-value next action: one phase-marked CPU exact-source outer-context integration audit of the frozen setting2 sparse operator, without refitting.** Freeze shared-corner law, seeds, sample doublings and CPU cap before scoring; retain nine moments and full denominators. Test the previously proposed ≤1% relative energy disagreement across independent batches/doublings and report uncertainty. Failure to stabilize blocks fitting with that estimator; success improves objective reliability for targets 1/6, not native fidelity. This has not been executed by this review.
+2. **Direct causal-response/interchange equivalence** more directly tests grouping, selectivity and stability (2/5/7), but requires matched native execution. Held-out swap failure or a plausible control-family reversal defeats the grouping claim.
+3. **Exact shared-graph elimination** targets extraction/reuse (4/6), but needs a new removable-dependency argument. Surviving consumers or unfavorable fully charged execution defeat the saving; another coordinate/storage sweep has low information value.
+
+The objective route remains the best immediate discriminator because integration uncertainty precedes meaningful fitting. Repeated reviews cannot resolve it. This bounded invocation stops after the authorized review: no agents, goal, jobs, timer changes, commits, pushes, external messages, GPU model loads or existing experiment/result edits.

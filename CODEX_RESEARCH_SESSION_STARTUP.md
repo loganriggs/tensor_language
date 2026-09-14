@@ -1,5 +1,19 @@
 # Codex research-session startup and continuation
 
+## Local workstation continuation — 14 September 2026
+
+The local checkout is now restored; see
+[local runtime and service status](session_recovery/LOCAL_START_2026-09-14.md).
+Use `bash session_recovery/local_namespace.sh /venv/main/bin/python ...` for
+historical absolute-path scripts. Both managed runners run under the user's
+`bilin18-runners.service`. The user explicitly requested active hourly and
+three-hour review scheduling: `bilin18-hourly-review.timer` and
+`bilin18-mathematical-review.timer` launch serialized, bounded Codex reviews.
+Their prompts read the saved research-driver skill in `session_recovery/`;
+they do not generate template reviews. Do not create duplicate runners/timers.
+The first local native-weight CPU objective screen is
+`NATIVE_RETAINED_ERROR_V1_RESULT.json`; consult the current board for newer work.
+
 ## Replacement-instance entry point — 13 September 2026
 
 The previous instance was expiring. Read the [final compression report](basis_aligned/polynomial_causal/explanations/for_logan/research_update_2026-09-13_final_compression.md), [recovery instructions](session_recovery/README.md), and [copyable next-session prompt](NEXT_CODEX_PROMPT.md).

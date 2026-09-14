@@ -59,3 +59,18 @@ class Contexts:
 
 def branch_errors(error, z, terms, denominator):
     return torch.einsum('oih,ni,nkh->nko',error,z,terms)/denominator[:,None,None]
+
+
+def masked_balanced_direction(contexts):
+    """Weight-derived direction; final refit changes only occupied coefficients."""
+    package = torch.load(P/'SPARSE_INTERACTION_EXECUTOR_V1_PROGRAM.pt',weights_only=True,map_location='cpu')
+    sparse = contexts.decode('SPARSE_INTERACTION_EXECUTOR_V1')
+    balanced = contexts.decode('INTERACTION_BALANCED_SUBSPACES_V1')
+    output, head = package['output'].double(), package['head'].double()
+    difference_core = torch.einsum('op,oia,ah->pih',output,balanced-sparse,head)
+    mask = torch.from_numpy(np.unpackbits(package['mask'].numpy(),bitorder='little',count=sparse.numel()).copy()).bool()
+    values = difference_core.flatten()[mask]
+    flat = torch.zeros(sparse.numel(),dtype=torch.float64)
+    flat[mask] = values
+    direction = torch.einsum('op,pih,ah->oia',output,flat.reshape(package['shape']),head)
+    return package, values, direction

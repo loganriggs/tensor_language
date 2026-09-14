@@ -59,6 +59,11 @@ gpu_watchdog_tick () {
     echo "[bqrunner] $(date -u +%H:%M:%S) watchdog: nvidia-smi failed (${gpu_fails}/${GPU_FAILS_NEEDED})" \
         >> "$RUNLOGS/runner.log"
     [ "$gpu_fails" -lt "$GPU_FAILS_NEEDED" ] && return
+    if [ "${BQ_DISABLE_CLOUD_REBOOT:-0}" = "1" ]; then
+        echo "[bqrunner] local workstation: GPU unavailable; cloud reboot disabled" >> "$RUNLOGS/runner.log"
+        gpu_fails=0
+        return
+    fi
     local recent=0 ts rest
     if [ -f "$GPU_REBOOT_LOG" ]; then
         while read -r ts rest; do

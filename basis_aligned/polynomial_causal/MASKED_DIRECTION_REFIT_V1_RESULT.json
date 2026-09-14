@@ -1,0 +1,44 @@
+{
+  "utc": "2026-09-14T09:55:26.358363+00:00",
+  "fits": [
+    {
+      "first_seed": 170217000,
+      "contexts": 8192,
+      "alpha": -0.0005852152471904633,
+      "original_energy": 0.015825413681877232,
+      "optimum_energy": 0.01582539720476136,
+      "normalized_stationarity": 1.203357673393553e-16
+    },
+    {
+      "first_seed": 170218000,
+      "contexts": 8192,
+      "alpha": -0.0008281454235076725,
+      "original_energy": 0.015561014427836964,
+      "optimum_energy": 0.015560981846192468,
+      "normalized_stationarity": 0.0
+    }
+  ],
+  "validation_contexts": 8192,
+  "validation_seeds": [
+    170219000,
+    170219127
+  ],
+  "original_mean_energy": 0.015740933914279436,
+  "candidate_mean_energy": 0.015740894139937796,
+  "relative_energy_improvement": 2.52680951827211e-06,
+  "paired_improvement": 3.977434164109354e-08,
+  "paired_standard_error": 1.1041625313380473e-07,
+  "contrast_energy_ratio": 0.9999898851051814,
+  "alpha_gap": 0.00024293017631720913,
+  "quadratic_replay": 9.216596330612423e-16,
+  "fp32_executor_replay": 2.931407421791001e-07,
+  "mask_and_adapters_unchanged": true,
+  "artifact_bytes": 4899745,
+  "artifact_sha256": "5aa41cceb6ce0a4a0ae5946c11ca4c722a8f998ef6a9b6bfeacf44566c216828",
+  "price_ratio": 0.9999897954914441,
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "seconds": 22.230935610001325,
+  "scope": "Exact scalar least squares in a fixed weight-derived direction, frozen support and adapters. Synthetic Gaussian raw edits, conditional normalized objective; no native text, full sparse optimization or adoption."
+}
