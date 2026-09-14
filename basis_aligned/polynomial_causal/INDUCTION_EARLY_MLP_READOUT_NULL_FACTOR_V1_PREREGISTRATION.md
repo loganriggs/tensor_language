@@ -1,0 +1,7 @@
+# Induction early-MLP readout-null response factor V1
+
+The typed-group screen found that restoring the complete native MLP8-12 response removes 37.9–49.9% of joint-edit vocabulary RMS, but at least one cell exceeds the fixed +.10 answer-CE damage bar. This follow-up fixes `early_mlp` from that registered observation and does not rescreen modules.
+
+For each row, derive one unit answer-contrast axis directly from the frozen LM-head weights: `U[recipient_answer]-U[recipient_other]`. At each MLP8-12 output, split the native-minus-edited response exactly into its scalar projection on that axis and the orthogonal remainder. Evaluate joint, full early-MLP restoration, answer-parallel restoration, and readout-null restoration on the already frozen 96 rows and inherited FIT/CONFIRM groups. This is an explanatory screen on opened rows, not fresh confirmation.
+
+The readout-null factor passes only if every direction/variant cell in both splits retains at least .75 answer correctness, causes mean answer CE damage <=.10, and removes at least 25% of the joint-edit median vocabulary RMS. The vector partition must close within `1e-5`, self replay within the inherited tolerances, every arm must be active, and the observed price must be exactly 18 forwards/576 sequences. No group, threshold, gain, basis, fit, gradient, parameter update, or quantization is allowed. A screen pass requires a fresh authority before registration as a mediator.
