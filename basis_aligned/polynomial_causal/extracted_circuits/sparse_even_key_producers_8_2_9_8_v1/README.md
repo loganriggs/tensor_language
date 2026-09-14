@@ -8,6 +8,15 @@ model checkpoint or import project research helpers.
 
 ## Interface
 
+Optional shared runtime (14 September): `shared_execute.py:load_shared` reuses
+one basis read across both QK consumers and caches adapters. See
+`shared_manifest.json` for its three required files and hashes. Load with
+`runtime = load_shared("program.pt", device="cpu")`, then
+`runtime.scalar(current8, tokens, index=0)`. This preserves the original program;
+isolated loading replays exactly. Tested local CPU speed improves1.12–1.72×,
+at256KiB additional resident memory, without reducing serialized weights.
+The original manifest remains unchanged and covers only the original entry point.
+
 From this directory:
 
 ```python

@@ -1,6 +1,29 @@
 # September 14: continuous research restored; latest results and earlier idle gap
 
-## Latest result — 11:10 UTC / 07:10 EDT
+## Latest result — 11:19 UTC / 07:19 EDT
+
+An exact dependency rewrite now beats the previous sparse approximation on
+conditional storage and fidelity. The64-direction key basis was constructed
+inside the two full key maps' joint span. Since those key outputs are already
+computed, we can recover the basis read from256existing coordinates and stop
+storing its separate1152-dimensional reader.
+
+The resulting original-circuit program is5.41MB, versus6.34MB originally and
+5.97MB for the sparse approximation. Common-FP32 tensor payload drops8.31%.
+No weights were fitted to text. Managed native validation passed all six criteria:
+632forwards in18.28seconds and1200live scalar comparisons within3.67e-15 of the
+original, including edited contexts. This is the exact original pair, not a
+more forgiving metric for the sparse approximation.
+
+Incremental CPU timing is mixed:0.999–1.071× versus the already-shared runtime,
+so the all-cells3%improvement bar failed. The smaller stored program is supported;
+uniform extra speedup is not. Native contexts/suffix remain required and the
+behavioral panel is reused, not new OOD evidence. [Derivation, full costs and
+receipts](../../KEY_SPAN_REUSE_V1_MATH.md). Next, carry the same dependency reuse
+through the composed response generator, where it may remove additional folded
+reader weights rather than only terminal runtime work.
+
+## Earlier result — 11:10 UTC / 07:10 EDT
 
 There is a verified local runtime improvement in the larger parent executable.
 Both QK factors now reuse one64-coordinate input read and precomputed adapters.

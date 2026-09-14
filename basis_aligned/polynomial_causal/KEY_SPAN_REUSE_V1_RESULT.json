@@ -1,0 +1,52 @@
+{
+  "utc": "2026-09-14T11:13:57.909590+00:00",
+  "spans": [
+    {
+      "index": 0,
+      "original_residual": 1.2514715065283525e-15,
+      "sparse_residual": 1.2500781573429162e-15,
+      "condition": 13.692347367527702
+    },
+    {
+      "index": 1,
+      "original_residual": 1.2333548148524027e-15,
+      "sparse_residual": 0.0563726638367277,
+      "condition": 9.596865967526199
+    }
+  ],
+  "checks": [
+    {
+      "inputs": "independent",
+      "index": 0,
+      "relative": 2.7248750616204464e-15
+    },
+    {
+      "inputs": "independent",
+      "index": 1,
+      "relative": 2.407875310009306e-15
+    },
+    {
+      "inputs": "cached_native",
+      "context": 0,
+      "relative": 9.179893166692814e-16
+    },
+    {
+      "inputs": "cached_native",
+      "context": 1,
+      "relative": 8.398638809265549e-16
+    }
+  ],
+  "pred_a": true,
+  "pred_b": true,
+  "program_sha": "10fa245ee4786e98218feb8ba2f10b335d1537d2823bd39ed8ad651e0991ed1a",
+  "program_bytes": 5414601,
+  "original_file_bytes": 6340557,
+  "sparse_file_bytes": 5972357,
+  "original_payload_bytes": 6328320,
+  "candidate_payload_bytes": 5410816,
+  "original_common_fp32_payload": 5523456,
+  "candidate_common_fp32_payload": 5064704,
+  "resident_adapter_bytes": 262144,
+  "seconds": 0.16277576799984672,
+  "scope": "Exact original unsparsified parent; native normalized contexts/full QK maps/values/writers/suffix remain. Coordinates derived from weights before cached scoring. Sparse basis residual descriptive only, no projection rescue or whole-model saving."
+}

@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "entrypoint": "shared_execute.py:load_shared",
+  "files": {
+    "execute.py": {
+      "sha256": "afdc65da0726972df5d368ee43ea35fe04fcd861d3bbe3b73e3a1a96fe2f4872",
+      "bytes": 2567
+    },
+    "program.pt": {
+      "sha256": "672cbcc0db1ea17a65126a12188a5103019a7c20946d34100a0b3a8eec683e0e",
+      "bytes": 5972357
+    },
+    "shared_execute.py": {
+      "sha256": "93f60f4a833b81c1d213e6688310bbff889b440edbade213e0d18fba59e63658",
+      "bytes": 2364
+    }
+  },
+  "program_weights_unchanged": true,
+  "extra_resident_adapter_bytes": 262144,
+  "native_validated_class_sha256": "d2164f6b6a8221a755c985c5de760339f9fea5a315e54ab858af80d2226aff6a",
+  "scope": "Optional exact shared runtime; original manifest and weights remain unchanged. Native normalized contexts and suffix external. CPU speed evidence is not GPU/full-model speed.",
+  "required_file_bytes": 5977288
+}
