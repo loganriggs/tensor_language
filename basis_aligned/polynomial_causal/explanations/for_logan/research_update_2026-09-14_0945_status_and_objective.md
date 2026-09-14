@@ -1,4 +1,34 @@
-# September 14: runtime is healthy; continuous research did not run
+# September 14: continuous research restored; latest results and earlier idle gap
+
+## Latest status — 10:06 UTC / 06:06 EDT
+
+The durable research goal is active. Both queue runners and the hourly and
+three-hour review timers are active. The latest experiment has finished; the
+next producer-constraint check is being implemented. At the 10:03 service
+check, the next review invocations were 10:51:50 and 11:43:01 UTC.
+
+The precision audit and frozen-candidate comparison succeeded, but neither
+subsequent fit improved the operator meaningfully:
+
+- [Scalar refit](../../MASKED_DIRECTION_REFIT_V1_RESULT.json), 22.23 seconds:
+  only 0.000253% held-out improvement, 0.36 paired standard errors.
+- [Full-support gradient screen](../../MASKED_GRADIENT_SCREEN_V1_RESULT.json),
+  12.40 seconds: independent training gradients had cosine 0.001; fresh-sample
+  error worsened 0.456%, about 6.5 paired standard errors. Numerical replay and
+  storage checks passed; improvement and gradient-reproducibility criteria failed.
+
+Neither replaces the original sparse operator. The gradient result demonstrates
+overfitting at this sample budget, not that every possible refit must fail.
+Next is the [coupled-writer tail control](../../COUPLED_WRITER_TAIL_V1_PREREGISTRATION.md):
+the actual child and remainder edits initially share one upstream write
+direction, whereas independent full-width Gaussian edits omit that coupling.
+The functional suffix implementation has begun; independent native replay
+must pass before it supplies scientific evidence. This is still a weights-only
+synthetic control, not native-text validation or a global low-rank claim.
+
+The timestamped sections below preserve the earlier status and progression.
+
+## Original 09:45 UTC snapshot
 
 Status checked at **09:45 UTC / 05:45 EDT, September 14, 2026**.
 
