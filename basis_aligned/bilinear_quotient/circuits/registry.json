@@ -2007,23 +2007,24 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "099abe3b1ba58863e61408ba4206bc764d5e60c3788915e8e38fb71780e2d0d1",
+   "record_sha256": "7fabb2ff3124c2cd3e751ac0d0562a12b6d4383269db9713820ece1493be411c",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "successor_pointer_state.v3",
+   "active_claim_id": "successor_pointer_state.v4",
    "claim_status": "site_live",
    "causal_variable_id": "successor_pointer_state",
    "interchange_family_count": 3,
    "invariance_family_count": 1,
-   "negative_event_count": 2,
-   "active_negative_event_count": 2,
-   "latest_blocker": "successor_layer8_input_ceiling.legacy.v1",
-   "latest_active_event": "successor_pointer_prefix_interaction.v2.complete.mixed",
+   "negative_event_count": 3,
+   "active_negative_event_count": 3,
+   "latest_blocker": "successor_fixed_pointer_module_response.v2.complete.null",
+   "latest_active_event": "successor_fixed_pointer_module_response.v2.complete.null",
    "active_event_ids": [
     "successor_cross_family_transfer.legacy.v1",
     "successor_layer8_input_ceiling.legacy.v1",
     "successor_pointer_semantics.legacy_reconciliation.v1",
-    "successor_pointer_prefix_interaction.v2.complete.mixed"
+    "successor_pointer_prefix_interaction.v2.complete.mixed",
+    "successor_fixed_pointer_module_response.v2.complete.null"
    ],
    "held_test_types": [
     "compiled_equivalence"
@@ -2033,6 +2034,7 @@
     "full_swap_ceiling"
    ],
    "design_keys": [
+    "5fb6dd8fcd24fa8d656551415b67146fac1d21a4cc7d987ea9c86489fe250b4b",
     "65bb611aa4e060afe9efa541878fe0b4d603f6eaf95c98fc8eb07cd981792c2d",
     "8e53db4fddf4748e8ed33476974641f6dffdbfa7c14b493e6368287e57bba377",
     "c3d65e155a63086e99e74f81c8ea481d1b21ad562d596b84342207a48dec6002",

@@ -533,6 +533,201 @@
    ],
    "translation_ids": [],
    "next_missing": "Exact pointer effects are large but a late prefix-coherence break does not selectively amplify them; donor-win flips are caused mainly by a separate changed baseline decision state. Next run a fixed-pointer prefix-only complete-module response screen on the frozen coherent/late/early rows, scoring backward-alternative suppression with forward and early controls. Do not repeat legacy final-element component patching, which changes pointer and coherence together."
+  },
+  {
+   "claim_id": "successor_pointer_state.v4",
+   "revision": 4,
+   "status": "site_live",
+   "supersedes": "successor_pointer_state.v3",
+   "causal_variable": {
+    "id": "successor_pointer_state",
+    "domain": "elements of weekday, month, alphabet, digit, and list vocabularies",
+    "read": "the final element's exact layer-0 value-cache pointer plus a separately prefix-conditioned baseline state",
+    "operation": "apply an identity-keyed successor map whose effect competes with, but is not simply multiplied by, the prefix-conditioned continuation baseline",
+    "write": "evidence for the successor token",
+    "endpoint": "signed donor-successor minus base-successor logit margin"
+   },
+   "alternative_explanations": [
+    "token identity",
+    "sequence-family identity",
+    "prefix coherence"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "same_family_last_element_swap",
+     "role": "interchange",
+     "changes": [
+      "identity pointer supplied to successor lookup",
+      "replace the final sequence element by another element from the same family"
+     ],
+     "holds_fixed": [
+      "prefix",
+      "length",
+      "positions",
+      "family"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "position-only edit",
+      "family-matched nonsuccessor",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "coherent_whole_sequence_shift",
+     "role": "interchange",
+     "changes": [
+      "successor pointer in a coherent context",
+      "shift the whole sequence coherently so the last element and answer change without an intruder conflict"
+     ],
+     "holds_fixed": [
+      "format",
+      "length",
+      "family",
+      "coherence"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "prefix shift with final fixed",
+      "incoherent sequence",
+      "boundary cases"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    },
+    {
+     "family_id": "internal_pointer_imposition",
+     "role": "interchange",
+     "changes": [
+      "internal identity pointer",
+      "keep the prompt fixed and impose another element's calibrated identity payload internally"
+     ],
+     "holds_fixed": [
+      "all prompt tokens",
+      "position",
+      "syntax",
+      "family context"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "zero payload",
+      "uncalibrated payload",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "prefix_change_final_pointer_preserved",
+     "role": "invariance",
+     "changes": [
+      "prefix coherence nuisance",
+      "alter the earlier sequence while keeping the final element and correct successor fixed"
+     ],
+     "holds_fixed": [
+      "identity pointer",
+      "correct successor",
+      "final position"
+     ],
+     "builder_artifact_id": "pointer_prefix_rows_v1",
+     "control_ids": [
+      "coherent prefix",
+      "out-of-order prefix",
+      "list-end boundary"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "validated"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "embedding_block-0_payload",
+     "tensor_path": "embedding/block-0 payload",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "post-attention-8",
+     "tensor_path": "post-attention-8",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "mlp8-11_products",
+     "tensor_path": "MLP8-11 products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "layer0_value_cache_pointer",
+     "tensor_path": "layer-0 shared value cache at the final sequence-element position, read across layers1--17",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "replace, zero, scale or impose the calibrated token-identity value code at every downstream reader",
+     "ceiling_event_ids": [
+      "successor_pointer_semantics.legacy_reconciliation.v1"
+     ]
+    },
+    {
+     "site_id": "distributed_pointer_readers",
+     "tensor_path": "attention readers of the final-position layer-0 value cache, with L8H3+H7 as the largest registered pair",
+     "shape": [
+      "layer",
+      "head",
+      "batch",
+      128
+     ],
+     "intervention": "replace cached-value contributions while preserving current routing and downstream recomputation",
+     "ceiling_event_ids": [
+      "successor_pointer_semantics.legacy_reconciliation.v1"
+     ]
+    },
+    {
+     "site_id": "prefix_conditioned_baseline_branch",
+     "tensor_path": "distributed native final-query responses under fixed final pointer",
+     "shape": [
+      "module",
+      "batch",
+      1152
+     ],
+     "intervention": "transplant coherent versus late-swap complete module responses while final pointer, token multiset, position and answer stay fixed",
+     "ceiling_event_ids": [
+      "successor_pointer_prefix_interaction.v2.complete.mixed",
+      "successor_fixed_pointer_module_response.v2.complete.null"
+     ]
+    }
+   ],
+   "split_plan_ids": [
+    "joint_split_v1"
+   ],
+   "evidence_event_ids": [
+    "successor_cross_family_transfer.legacy.v1",
+    "successor_layer8_input_ceiling.legacy.v1",
+    "successor_pointer_semantics.legacy_reconciliation.v1",
+    "successor_pointer_prefix_interaction.v2.complete.mixed",
+    "successor_fixed_pointer_module_response.v2.complete.null"
+   ],
+   "translation_ids": [],
+   "next_missing": "The fixed-pointer prefix baseline is distributed at complete-module resolution: no singleton attention or MLP final-query response passed both month and digit, although attention8 was the strongest response. Do not threshold-rescue or immediately split attention8. Reopen successor only for an independently specified distributed or typed operation with fresh confirmation; otherwise move to a distinct unresolved circuit authority."
   }
  ],
  "split_plans": [
@@ -765,6 +960,87 @@
    "notes": "V1 was invalid only for a batch-shape self-replay error. V2 preserved rows and bars, replayed self exactly, and rejected both a selective multiplicative coherence gate and strict pointer invariance. All six backward donor-win flips under the late swap are baseline dominated; this opens a separate fixed-pointer baseline branch rather than a threshold or site rescue.",
    "design_key": "cfa0de42b1add39b1e61f837867b598994d26a1cce145fefc33cb02c51657d6b",
    "execution_key": "2bd03cab98a4a2c1d30cae33e092aa500d0b734352dc3d39888c0c958e61b124"
+  },
+  {
+   "event_id": "successor_fixed_pointer_module_response.v2.complete.null",
+   "claim_id": "successor_pointer_state.v4",
+   "test_type": "full_swap_ceiling",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "prefix_change_final_pointer_preserved"
+   ],
+   "site_id": "prefix_conditioned_baseline_branch",
+   "split_plan_id": null,
+   "evaluation_role": "prospective_fresh_authored_complete_module_screen",
+   "metrics": [
+    {
+     "name": "self_replay_max_logit_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=1e-5"
+    },
+    {
+     "name": "full_ceiling_max_logit_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=1e-4"
+    },
+    {
+     "name": "digit_late_backward_target_mean",
+     "estimate": 2.0184578895568848,
+     "ci95": null,
+     "bar": ">=1.0"
+    },
+    {
+     "name": "month_late_backward_target_mean",
+     "estimate": 1.5166775385538738,
+     "ci95": null,
+     "bar": ">=1.0"
+    },
+    {
+     "name": "attention8_digit_projection",
+     "estimate": 0.6181999133514342,
+     "ci95": null,
+     "bar": ">=0.50 each family"
+    },
+    {
+     "name": "attention8_month_projection",
+     "estimate": 0.49013722780559954,
+     "ci95": null,
+     "bar": ">=0.50 each family"
+    },
+    {
+     "name": "eligible_complete_modules",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": ">=1 for singleton response"
+    }
+   ],
+   "prereg_artifact_id": "fixed_pointer_module_prereg_v1",
+   "result_artifact_id": "fixed_pointer_module_result_v2",
+   "input_artifact_ids": [
+    "fixed_pointer_module_prereg_v1",
+    "fixed_pointer_module_prior_art_v1",
+    "fixed_pointer_module_binding_v1",
+    "fixed_pointer_module_runner_v1",
+    "fixed_pointer_module_invalid_v1",
+    "fixed_pointer_module_correction_v2",
+    "fixed_pointer_module_binding_v2",
+    "fixed_pointer_module_runner_v2",
+    "fixed_pointer_module_result_v2"
+   ],
+   "seed": null,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "basis_aligned/polynomial_causal/SUCCESSOR_FIXED_POINTER_MODULE_RESPONSE_V1_PREREGISTRATION.md"
+   ],
+   "notes": "V1 was invalid solely because its hook could not count calls made through the custom forward. V2 retained the design and counted at the call boundary. Exact instruments and capability pass; no complete module passes both families. Attention8 is a frozen near carrier, not a promoted site.",
+   "design_key": "5fb6dd8fcd24fa8d656551415b67146fac1d21a4cc7d987ea9c86489fe250b4b",
+   "execution_key": "44ada9ec98ade0d10c6d291288b172de7b7f59f20e663e791d031cea7babb5f4"
   }
  ],
  "translations": [],
@@ -905,6 +1181,60 @@
    "path": "basis_aligned/polynomial_causal/SUCCESSOR_POINTER_PREFIX_INTERACTION_V2_ANALYSIS.json",
    "sha256": "4544fcfbc1f56b9c18d81e9853df646d7e525190ee017b7d21bc6504b2a794dd",
    "kind": "audit",
+   "status": "frozen"
+  },
+  "fixed_pointer_module_prereg_v1": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_FIXED_POINTER_MODULE_RESPONSE_V1_PREREGISTRATION.md",
+   "sha256": "6db5f71ee2f6fef22fc138cd61517b29ae39ebe883152df0fd6a23d55c39f49f",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "fixed_pointer_module_prior_art_v1": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/successor_fixed_pointer_module_response_v1.json",
+   "sha256": "b863535645b0208c3428d754de258b2ea8bb83da252085317def0ed98cb76d01",
+   "kind": "prior_art",
+   "status": "frozen"
+  },
+  "fixed_pointer_module_binding_v1": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_FIXED_POINTER_MODULE_RESPONSE_V1_BINDING.json",
+   "sha256": "35d22ec6441345c1ea3bf383a2f48f661e26c5b253d857254823bdbe2638522e",
+   "kind": "binding",
+   "status": "frozen"
+  },
+  "fixed_pointer_module_runner_v1": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_successor_fixed_pointer_module_response_v1.py",
+   "sha256": "4d31a0d08fec46d9fd5b40ee7341c61b53a3bac2fd9dc5121883991d529d6ee7",
+   "kind": "runner",
+   "status": "frozen"
+  },
+  "fixed_pointer_module_invalid_v1": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_FIXED_POINTER_MODULE_RESPONSE_V1_RESULT.json",
+   "sha256": "6a6a367a850e7fca89224fee84c94c5ae780371c9e7a8f96e618b29394bea47c",
+   "kind": "invalid_result",
+   "status": "frozen"
+  },
+  "fixed_pointer_module_correction_v2": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_FIXED_POINTER_MODULE_RESPONSE_V2_INSTRUMENT_CORRECTION.md",
+   "sha256": "d2b7a299e0b6247e66ad99def5294090bf5976266947235591e4a64b8f56d5a8",
+   "kind": "preregistration_amendment",
+   "status": "frozen"
+  },
+  "fixed_pointer_module_binding_v2": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_FIXED_POINTER_MODULE_RESPONSE_V2_BINDING.json",
+   "sha256": "53270e8ecc3056887e19c9a09e0cd918f902c11b6ae8a99f73684007010b5886",
+   "kind": "binding",
+   "status": "frozen"
+  },
+  "fixed_pointer_module_runner_v2": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_successor_fixed_pointer_module_response_v2.py",
+   "sha256": "53b57ac9fffe172cc3d7bd594282d817bd4dd48b6fb9f9c23497c8e898c14c99",
+   "kind": "runner",
+   "status": "frozen"
+  },
+  "fixed_pointer_module_result_v2": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_FIXED_POINTER_MODULE_RESPONSE_V2_RESULT.json",
+   "sha256": "12f53fddad2e9cca4b1330f2a5e2f6478ec6c38a9d979c12870eec3372014d79",
+   "kind": "result",
    "status": "frozen"
   }
  },
