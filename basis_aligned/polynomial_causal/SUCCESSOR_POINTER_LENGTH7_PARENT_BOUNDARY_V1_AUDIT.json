@@ -1,0 +1,26 @@
+{
+  "binding_sha256": "b7bde3895e55918e1c195bea7f5adcc5b3a80c6a869901b1158bf072f8931020",
+  "checks": {
+    "binding_files_match": true,
+    "digit_joint_passes": true,
+    "fit_valid_and_rank8_selected": true,
+    "holdout_exact_instruments": true,
+    "holdout_native_capability": true,
+    "holdout_opened_at_full_price": true,
+    "holdout_target_live": true,
+    "low_rank_claim_unopened": true,
+    "month_joint_only_projection_fails": true,
+    "result_runner_matches": true
+  },
+  "claim_boundary": "parent typed-group length transfer only; V1-V3 low-rank interaction outcomes remain invalid",
+  "metrics": {
+    "digit_joint_projection": 0.8228155944022809,
+    "month_early_backward_control_fraction": 0.11192564570748177,
+    "month_joint_cosine": 0.9833870457380829,
+    "month_joint_projection": 0.4662450131030071,
+    "month_late_forward_control_fraction": 0.21367933598326927
+  },
+  "result_sha256": "d7abea624ce6c0002250b4741cbfeb2ecb68abab57631b05d0f22b21fa72e25b",
+  "schema": "successor_pointer_length7_parent_boundary_v1_audit",
+  "terminal": "length7_parent_mediator_boundary"
+}
