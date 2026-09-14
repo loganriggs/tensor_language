@@ -1,0 +1,23 @@
+{
+  "authority_logical_sha256": "f77914228dd2dabef7045fcd588ad172df1ed3bdd5006399f72d215553931830",
+  "cells": {
+    "count": 12,
+    "examples_each": 8,
+    "minimum_accuracy_each": 0.75
+  },
+  "files": {
+    "authority": "01d990ccdaa71d96d6e8fa7d496c6159a255f624ff036fb4605c91936cdbca61",
+    "preregistration": "025985df08fde7432fa28d785dd3c55cbf6249280019a10cbb1d09d954e59661",
+    "rank1_artifact": "f73126268794342809c2953b388ed83f6d1d0e2e245ce9ea78f2d665a0e87c1f",
+    "runner": "9b16ee389e2810ea7d93e032206253a5dd2b72ad429ff8ddc1f9b700f16a6d85"
+  },
+  "outcome_policy": "causal confirmation sealed unless every native capability cell passes; no fallback or tuning",
+  "price": {
+    "backwards": 0,
+    "causal_interventions": 0,
+    "example_evaluations": 96,
+    "model_forwards": 1,
+    "parameter_updates": 0
+  },
+  "schema": "subject_number_rank1_fresh_confirmation_native_capability_v1_binding"
+}
