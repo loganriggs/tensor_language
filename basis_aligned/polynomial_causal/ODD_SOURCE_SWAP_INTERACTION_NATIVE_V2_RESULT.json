@@ -1,0 +1,132 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "pred_d": true,
+  "pred_e": false,
+  "max_native_anchor_error": 0.0,
+  "legacy_query_mutating_full_swap_gap": 0.010976195335388184,
+  "max_source_helper_replay_error": 0.0,
+  "max_swap_expansion_error": 4.062940767463039e-16,
+  "min_mixed_source_norm": 1.2802837345693123,
+  "families": [
+    {
+      "family": 0,
+      "native_positive_pairs": 12,
+      "native_cue_mean": 3.640370557705561,
+      "full_swap_target_rms": 0.4020380038005148,
+      "cue_errors_to_full_swap": {
+        "routing_swap": 1.0311005219781308,
+        "value_swap": 0.020294462611420504,
+        "additive_no_mixed": 0.021710902024275242
+      },
+      "control_ratios_to_full_target": {
+        "full_swap": {
+          "cat_dog": 0.09174134888224081,
+          "red_blue": 0.035994766735294274,
+          "monday_tuesday": 0.024749069078338407,
+          "apple_orange": 0.059013891508115264
+        },
+        "routing_swap": {
+          "cat_dog": 0.006077088960773163,
+          "red_blue": 0.004934032794240603,
+          "monday_tuesday": 0.002522121183361048,
+          "apple_orange": 0.003349120967728047
+        },
+        "value_swap": {
+          "cat_dog": 0.09380240258249242,
+          "red_blue": 0.033236862422729795,
+          "monday_tuesday": 0.0238280424439266,
+          "apple_orange": 0.060948323473115046
+        },
+        "additive_no_mixed": {
+          "cat_dog": 0.09109369914224162,
+          "red_blue": 0.0336260906321662,
+          "monday_tuesday": 0.022020381074813553,
+          "apple_orange": 0.06056954297888831
+        }
+      },
+      "capability_pass": true,
+      "additive_no_mixed_pass": true,
+      "value_hypothesis_pass": true,
+      "routing_hypothesis_pass": false
+    },
+    {
+      "family": 1,
+      "native_positive_pairs": 12,
+      "native_cue_mean": 2.775461177031199,
+      "full_swap_target_rms": 0.3375400427518765,
+      "cue_errors_to_full_swap": {
+        "routing_swap": 1.0275722146537871,
+        "value_swap": 0.020440208793430076,
+        "additive_no_mixed": 0.022912184870340045
+      },
+      "control_ratios_to_full_target": {
+        "full_swap": {
+          "cat_dog": 0.04706993835774451,
+          "red_blue": 0.02532229721153003,
+          "monday_tuesday": 0.017873894813245857,
+          "apple_orange": 0.07181164014442838
+        },
+        "routing_swap": {
+          "cat_dog": 0.0038276074059144832,
+          "red_blue": 0.004234313588790538,
+          "monday_tuesday": 0.0011918512270641278,
+          "apple_orange": 0.004076532133573403
+        },
+        "value_swap": {
+          "cat_dog": 0.049422853410829796,
+          "red_blue": 0.020479362490093,
+          "monday_tuesday": 0.016722418202381694,
+          "apple_orange": 0.07275898426744294
+        },
+        "additive_no_mixed": {
+          "cat_dog": 0.04639411875475872,
+          "red_blue": 0.024405098484742423,
+          "monday_tuesday": 0.01699368219832121,
+          "apple_orange": 0.07031955136022115
+        }
+      },
+      "capability_pass": true,
+      "additive_no_mixed_pass": true,
+      "value_hypothesis_pass": true,
+      "routing_hypothesis_pass": false
+    }
+  ],
+  "body_forwards": 240,
+  "seconds": 4.576142416000948,
+  "artifact_sha256": "c1813fc5e3181af7558e5cd4eeebcaaf0c2fff69f35720d14627835ce89d113a",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_odd_source_swap_interaction_native_v2.py": "7e7aca4010affb62c5402e6527fe77918541249cd10ca71e28d2b698284c3ed6",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_SOURCE_SWAP_INTERACTION_NATIVE_V2_PREREGISTRATION.md": "4a60b3dd1b28d277230a03c361a6eeeb6b79d5a91b593c6975b0264d2fec02f4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_source_swap_interaction_v1.py": "a156341eb90224a450e4abda512d2fefa9d487e567db44ec4a5a3493dc4424d9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_SOURCE_SWAP_INTERACTION_V1_CPU_CONTROL.json": "c02016f426e483cbe5a54edc4113c34977a80f3c28e9d1b997bd1d8e5c2d98b4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_SOURCE_SWAP_INTERACTION_NATIVE_V1_RESULT.json": "4b9a3a8a1b0845e1f4afe803f58515f7b385ea423263251e5944905b87ff0e16",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_FRAMING_SOURCE_SWAP_V1_ARTIFACT.pt": "68c8b529c1239139818eff42fc507a360bb1d594d9461342a7caa81b45a74a9a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_FRAMING_SOURCE_SWAP_V1_RESULT.json": "50cc45572cd524841f3da21b40c8ee5bc40efa29affced49331624b3de97a0a6",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_FRAMING_FRESH_V1_ROWS.json": "e98dcf08e351d296cd20a5fdfad9ced1652252142d1ae85e2410920b4c75c77f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_semantic_positions_v1.py": "e8476b5a72af7e7ae90d1dec6852d58d6a14e34c18ff41cadd24dd5d9c9a5463",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_source_positions_v1.py": "b67386c1a306fcbcbe300bf9e9114601b43635b20880d80d6167cc7d5ecbc1ac",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/EVEN_VALUE_SHARED_GRAPH_PACKED_V1_PROGRAM.pt": "cbe8a94a2057ca3c53614d3bb70a5e8c0cb660e6e6cb57b531bf6dc0a2ccdd7f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/even_value_shared_graph_v1.py": "547e8b3202d191e1d51d30e1457cc3c445560157fc7bb9b39087c629d0a9908e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_cue_row_check_v1.py": "9d58e3dc5426f94f3bf2a142e5cb45dbadbfed2f743bee262221482bd3db76ef",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_city_article_check_v1.py": "ead978a7fbdfdf83dbff241597c17720c2c7fb8983b4651134684db815d77a40"
+  },
+  "arm_order": [
+    "native",
+    "full_swap",
+    "routing_swap",
+    "value_swap",
+    "additive_no_mixed"
+  ],
+  "readout_order": [
+    "target",
+    "work_jobs",
+    "cat_dog",
+    "red_blue",
+    "monday_tuesday",
+    "apple_orange"
+  ],
+  "supersedes_control_only": "V1 incorrectly required all-query-fixed full swap to replay a legacy swap that mutated nonfinal query rows; B-E and all intervention values are unchanged.",
+  "scope": "Exact all-query-fixed routing/value/mixed decomposition of paired O framing-source interchange with native suffix. No fitting, upstream necessity, corpus OOD, compression adoption, or quantization."
+}

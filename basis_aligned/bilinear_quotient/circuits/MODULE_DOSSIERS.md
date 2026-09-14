@@ -287,3 +287,29 @@ passes all four unrelated control pairs in both templates. Median control/target
 ratios are.226 and.101; the maximum is.374. The prior work/jobs failure remains
 part of the record and appears readout-family sensitive rather than broad
 collateral. Within-framing source roles are still unresolved.
+
+The [within-framing role test](../../polynomial_causal/ODD_FRAMING_ROLE_SPLIT_NATIVE_V2_RESULT.json)
+finds no template-invariant role. Description sources dominate local-history
+(31.89% framing-effect error) but instruction sources dominate radio (28.72%).
+The opposite roles miss by70.04% and71.89%. Exact anchors and source partition
+pass in corrected V2; V1's mislabeled all-O/full-head arm is retained as an
+instrument failure. Source count or position remains a live confound.
+
+Equal-count early/late removal does not resolve that confound: local-history is
+early dominated, while radio has a distributed effect with the late half closer
+but insufficient. Paired source-state interchange nevertheless transports the
+target direction selectively (cosine.989/.999; all new-control ratios<.1), while
+its twice-removal magnitude law fails local-history at56.08% and passes radio at
+12.00%. Routing and value change together, so their interaction remains open.
+
+The [exact interaction split](../../polynomial_causal/ODD_SOURCE_SWAP_INTERACTION_NATIVE_V2_RESULT.json)
+finds value-only interchange within2.04% of full swap in both templates, while
+routing-only error exceeds102%. The routing×value term is algebraically live but
+behaviorally omissible here (<=2.29% target error). This identifies value
+transport at the all-query-fixed head9.8 boundary; current versus inherited
+value provenance remains open.
+
+Equal-count early/late removal does not resolve that confound: local-history is
+early dominated, while radio has a distributed effect with the late half closer
+but insufficient. Stable semantic/position identification is therefore rejected
+on this panel. Paired source-state interchange is the next extraction test.

@@ -1,0 +1,63 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "pred_d": true,
+  "max_native_anchor_error": 0.0,
+  "max_source_recomposition_error": 1.4633604208367567e-16,
+  "max_outside_framing_patch": 0.0,
+  "families": [
+    {
+      "family": 0,
+      "native_positive_pairs": 12,
+      "native_cue_mean": 3.640370557705561,
+      "swap_target_rms": 0.3954026653226285,
+      "swap_to_twice_removal_error": 0.5608034663708584,
+      "swap_to_twice_removal_cosine": 0.9894932331072398,
+      "control_ratios": {
+        "cat_dog": 0.0935174300967028,
+        "red_blue": 0.03600316962439698,
+        "monday_tuesday": 0.025370540028259603,
+        "apple_orange": 0.06272390396329616
+      },
+      "capability_pass": true,
+      "transport_pass": false,
+      "selectivity_pass": true
+    },
+    {
+      "family": 1,
+      "native_positive_pairs": 12,
+      "native_cue_mean": 2.775461177031199,
+      "swap_target_rms": 0.3355076978555015,
+      "swap_to_twice_removal_error": 0.11995421163488747,
+      "swap_to_twice_removal_cosine": 0.9991709993486247,
+      "control_ratios": {
+        "cat_dog": 0.04685778941260495,
+        "red_blue": 0.025327717250400752,
+        "monday_tuesday": 0.017962532443583153,
+        "apple_orange": 0.07198920225316566
+      },
+      "capability_pass": true,
+      "transport_pass": true,
+      "selectivity_pass": true
+    }
+  ],
+  "body_forwards": 96,
+  "seconds": 2.0845484750025207,
+  "artifact_sha256": "68c8b529c1239139818eff42fc507a360bb1d594d9461342a7caa81b45a74a9a",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_odd_framing_source_swap_v1.py": "89cbbdcbedd53f3b52bf50055e13f7ebd742012cc37b272b626d91a5a48fc48a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_FRAMING_SOURCE_SWAP_V1_PREREGISTRATION.md": "94c3890ce913a1572c57fc6da97a29470cdc9d223cdc3f3d4c19ec46d2aab2b6",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_FRAMING_FRESH_V1_ROWS.json": "e98dcf08e351d296cd20a5fdfad9ced1652252142d1ae85e2410920b4c75c77f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_FRAMING_FRESH_V1_ARTIFACT.pt": "70872669f6fd54767666f0daf09aaba71551559d5d48fcaeadf9821485fe84b4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_FRAMING_FRESH_V1_RESULT.json": "b87b9dca1c604e6109200f9f0579d8d2ef927246b685e21b0c07b735aac82083",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_semantic_positions_v1.py": "e8476b5a72af7e7ae90d1dec6852d58d6a14e34c18ff41cadd24dd5d9c9a5463",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_contextual_positions_v1.py": "cd509290cd7a6b9a724e8708a6af61d6eb197533704323d4f32413e1064498d4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_source_positions_v1.py": "b67386c1a306fcbcbe300bf9e9114601b43635b20880d80d6167cc7d5ecbc1ac",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/EVEN_VALUE_SHARED_GRAPH_PACKED_V1_PROGRAM.pt": "cbe8a94a2057ca3c53614d3bb70a5e8c0cb660e6e6cb57b531bf6dc0a2ccdd7f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/even_value_shared_graph_v1.py": "547e8b3202d191e1d51d30e1457cc3c445560157fc7bb9b39087c629d0a9908e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_cue_row_check_v1.py": "9d58e3dc5426f94f3bf2a142e5cb45dbadbfed2f743bee262221482bd3db76ef",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_city_article_check_v1.py": "ead978a7fbdfdf83dbff241597c17720c2c7fb8983b4651134684db815d77a40"
+  },
+  "scope": "Paired framing-source state interchange only inside O at head9.8. Recipient query, other branches and native suffix retained; no upstream necessity, corpus OOD, static compression, or quantization claim."
+}

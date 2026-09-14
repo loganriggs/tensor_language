@@ -1,0 +1,102 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "pred_d": false,
+  "max_frozen_anchor_error": 0.0,
+  "max_source_partition_error": 1.158521997002999e-16,
+  "families": [
+    {
+      "family": 0,
+      "native_positive_pairs": 12,
+      "native_cue_mean": 3.640370557705561,
+      "early_to_framing_cue_error": 0.3189302662839157,
+      "late_to_framing_cue_error": 0.7004065942250417,
+      "target_rms": {
+        "early": 0.08817591846484316,
+        "late": 0.038890061338699836,
+        "framing": 0.12910352769704728
+      },
+      "new_control_ratios": {
+        "early": {
+          "cat_dog": 0.13390696611051786,
+          "red_blue": 0.10604173386865193,
+          "monday_tuesday": 0.032901176085036815,
+          "apple_orange": 0.0860993524746375
+        },
+        "late": {
+          "cat_dog": 0.30389390620602713,
+          "red_blue": 0.9907791642811734,
+          "monday_tuesday": 0.3702052606891414,
+          "apple_orange": 0.7546428386543667
+        }
+      },
+      "separate_effect_composition_error": 0.018560521290865335,
+      "capability_pass": true,
+      "early_hypothesis_pass": true,
+      "late_hypothesis_pass": false
+    },
+    {
+      "family": 1,
+      "native_positive_pairs": 12,
+      "native_cue_mean": 2.775461177031199,
+      "early_to_framing_cue_error": 0.6245570187314449,
+      "late_to_framing_cue_error": 0.3820539740968955,
+      "target_rms": {
+        "early": 0.05710372184969039,
+        "late": 0.09373380238790818,
+        "framing": 0.15085698700696237
+      },
+      "new_control_ratios": {
+        "early": {
+          "cat_dog": 0.09099953721478923,
+          "red_blue": 0.09712520199554615,
+          "monday_tuesday": 0.047202499199252554,
+          "apple_orange": 0.07453132112778596
+        },
+        "late": {
+          "cat_dog": 0.09270037609055147,
+          "red_blue": 0.24761394336647705,
+          "monday_tuesday": 0.060877775702764717,
+          "apple_orange": 0.16331418791304325
+        }
+      },
+      "separate_effect_composition_error": 0.0039052988164754872,
+      "capability_pass": true,
+      "early_hypothesis_pass": false,
+      "late_hypothesis_pass": false
+    }
+  ],
+  "body_forwards": 192,
+  "seconds": 2.8675527360028354,
+  "artifact_sha256": "103b5609bdc235627b8bff130299386a86920c87e24547c911be4fff47df4f19",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_odd_framing_equal_halves_native_v1.py": "9b114dbfeb0e2dec27c64b9e48a696c132ea7a161226d5521a438cadccb5143f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_FRAMING_EQUAL_HALVES_NATIVE_V1_PREREGISTRATION.md": "5e78ff5c9d608d2a48db50676ecc90bbaccfc6708e0f660df95d3d742de9eb84",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_framing_equal_halves_v1.py": "8cbe9dfbc7095b0e9f384983f921dfe4245c2796ed5994903005224d973507c4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_FRAMING_EQUAL_HALVES_V1_CPU_CONTROL.json": "2b9582e412cf68d066d9822e6466f2f3c711b1764eea06803a45a0a5b9ad8ab0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_FRAMING_FRESH_V1_ROWS.json": "e98dcf08e351d296cd20a5fdfad9ced1652252142d1ae85e2410920b4c75c77f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_FRAMING_FRESH_V1_ARTIFACT.pt": "70872669f6fd54767666f0daf09aaba71551559d5d48fcaeadf9821485fe84b4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_source_positions_v1.py": "b67386c1a306fcbcbe300bf9e9114601b43635b20880d80d6167cc7d5ecbc1ac",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_semantic_positions_v1.py": "e8476b5a72af7e7ae90d1dec6852d58d6a14e34c18ff41cadd24dd5d9c9a5463",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/EVEN_VALUE_SHARED_GRAPH_PACKED_V1_PROGRAM.pt": "cbe8a94a2057ca3c53614d3bb70a5e8c0cb660e6e6cb57b531bf6dc0a2ccdd7f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/even_value_shared_graph_v1.py": "547e8b3202d191e1d51d30e1457cc3c445560157fc7bb9b39087c629d0a9908e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_cue_row_check_v1.py": "9d58e3dc5426f94f3bf2a142e5cb45dbadbfed2f743bee262221482bd3db76ef",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_city_article_check_v1.py": "ead978a7fbdfdf83dbff241597c17720c2c7fb8983b4651134684db815d77a40"
+  },
+  "arm_order": [
+    "native",
+    "remove_odd_early_half",
+    "remove_odd_late_half",
+    "remove_odd_framing"
+  ],
+  "readout_order": [
+    "target",
+    "work_jobs",
+    "cat_dog",
+    "red_blue",
+    "monday_tuesday",
+    "apple_orange"
+  ],
+  "scope": "Frozen equal-count position split within fresh O framing sources; native context and suffix retained; no semantic identification, corpus OOD, static compression, or quantization claim."
+}

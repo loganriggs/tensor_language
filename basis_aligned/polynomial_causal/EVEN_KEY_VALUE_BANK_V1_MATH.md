@@ -549,3 +549,49 @@ readout collateral less likely and identifies the old local-history work/jobs
 failure as control-family sensitivity, while preserving that failure. It still
 does not identify a unique semantic unit. The next split separates the
 post-city descriptive continuation from the explicit reproduction instruction.
+
+[The role split](ODD_FRAMING_ROLE_SPLIT_NATIVE_V2_RESULT.json) rejects both
+uniform semantic-role hypotheses. Local-history is description dominated
+(description error31.89%, instruction70.04%), while radio is instruction
+dominated (71.89% versus28.72%). Separate effects nearly compose the framing
+effect (1.86%/.39% error), and the supported arm in each template is selective
+against the four new controls. V1 is preserved as an instrument failure: its
+arm labeled all-O removed full S+R+O, causing only the all-O anchor to fail;
+V2 changes that call alone and replays all anchors exactly. Because the role
+with more/equally many source tokens wins in each template, semantic identity
+is not stable. An equal-count early/late framing split is the next discriminator.
+
+[The equal-count split](ODD_FRAMING_EQUAL_HALVES_NATIVE_V1_RESULT.json) also
+rejects a stable positional role. Local-history remains early dominated
+(31.89% versus70.04% error), while radio is distributed with late closer
+(62.46%/38.21%) but outside the35% sufficiency bar. Both separate halves compose
+within1.86%/.40%, all frozen anchors pass, and controls are small. Thus neither
+semantic labels, source count, nor a universal early/late half identifies the
+relay.
+
+[Paired interchange](ODD_FRAMING_SOURCE_SWAP_V1_RESULT.json) is live, highly
+aligned and selective: swap-versus-twice-removal cosine is.989/.999 and all
+four control ratios are below.1. The radio magnitude passes at12.00% error;
+local-history fails at56.08%. Thus the distributed framing state transports
+the cue direction, but a uniform additive exchanged-write magnitude law fails.
+Because swapping current source states changes both odd routing and current
+values, the next exact expansion separates routing, value and their mixed term.
+
+[That expansion](ODD_SOURCE_SWAP_INTERACTION_NATIVE_V2_RESULT.json) identifies
+value transport. With every recipient query fixed, value-only swap differs from
+full key+value swap by2.03%/2.04%; routing-only misses by103.11%/102.76%.
+Omitting the explicit routing-times-value swap interaction changes the target
+effect by only2.17%/2.29%, despite a live algebraic mixed term. All controls
+remain small. V1's failed full-swap anchor compared against a legacy instrument
+that also mutated nonfinal query rows; correction-only V2 preserves B-E and
+reports the.01098 score gap. The next split separates current versus inherited
+first values within the identified value transport.
+
+[The equal-count split](ODD_FRAMING_EQUAL_HALVES_NATIVE_V1_RESULT.json) also
+rejects a stable positional role. Local-history remains early dominated
+(31.89% versus70.04% error), while radio is distributed with late closer
+(62.46%/38.21%) but outside the35% sufficiency bar. Both separate halves compose
+within1.86%/.40%, all frozen anchors pass, and controls are small. Thus neither
+semantic labels, source count, nor a universal early/late half identifies the
+relay. The next stronger test swaps complete framing-source states between each
+British/American pair inside O and predicts signed counterfactual transport.

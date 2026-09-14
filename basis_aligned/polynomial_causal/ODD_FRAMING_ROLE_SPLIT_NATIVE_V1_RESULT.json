@@ -1,0 +1,104 @@
+{
+  "pred_a": false,
+  "pred_b": true,
+  "pred_c": false,
+  "pred_d": false,
+  "max_frozen_anchor_error": 1.5959571599960327,
+  "max_source_partition_error": 1.1110986099936631e-16,
+  "families": [
+    {
+      "family": 0,
+      "native_positive_pairs": 12,
+      "native_cue_mean": 3.640370557705561,
+      "description_to_framing_cue_error": 0.3189302662839157,
+      "instruction_to_framing_cue_error": 0.7004065942250417,
+      "target_rms": {
+        "description": 0.08817591846484316,
+        "instruction": 0.038890061338699836,
+        "framing": 0.12910352769704728
+      },
+      "new_control_ratios": {
+        "description": {
+          "cat_dog": 0.13390696611051786,
+          "red_blue": 0.10604173386865193,
+          "monday_tuesday": 0.032901176085036815,
+          "apple_orange": 0.0860993524746375
+        },
+        "instruction": {
+          "cat_dog": 0.30389390620602713,
+          "red_blue": 0.9907791642811734,
+          "monday_tuesday": 0.3702052606891414,
+          "apple_orange": 0.7546428386543667
+        }
+      },
+      "separate_effect_composition_error": 0.018560521290865335,
+      "capability_pass": true,
+      "instruction_hypothesis_pass": false,
+      "description_hypothesis_pass": true
+    },
+    {
+      "family": 1,
+      "native_positive_pairs": 12,
+      "native_cue_mean": 2.775461177031199,
+      "description_to_framing_cue_error": 0.7189314763490638,
+      "instruction_to_framing_cue_error": 0.2871940625873516,
+      "target_rms": {
+        "description": 0.04279998728673473,
+        "instruction": 0.10797789735773498,
+        "framing": 0.15085698700696237
+      },
+      "new_control_ratios": {
+        "description": {
+          "cat_dog": 0.06423590578722861,
+          "red_blue": 0.03663175070035944,
+          "monday_tuesday": 0.048774513154339026,
+          "apple_orange": 0.08234442617974527
+        },
+        "instruction": {
+          "cat_dog": 0.10766638186943005,
+          "red_blue": 0.2535340242782267,
+          "monday_tuesday": 0.05733179753573834,
+          "apple_orange": 0.1492642013673535
+        }
+      },
+      "separate_effect_composition_error": 0.003878837247061,
+      "capability_pass": true,
+      "instruction_hypothesis_pass": true,
+      "description_hypothesis_pass": false
+    }
+  ],
+  "body_forwards": 240,
+  "seconds": 3.7190935510006966,
+  "artifact_sha256": "512733a0687089a17b791f4a682a55f524c7ec77c0d7263cfbf13e0dd25a4c01",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_odd_framing_role_split_native_v1.py": "c9eba7a1d5391f4a1b245b26cff59898d56cfd78ff9d5424e3a3802c00ac7dc2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_FRAMING_ROLE_SPLIT_NATIVE_V1_PREREGISTRATION.md": "b48fcef6608bb309feb1883ac486e6d043ed62f171378c3e0ac3e33b2618ee9b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_framing_role_split_v1.py": "189a8c4f0d838f7dbf1b5b04b137cd1e53540a148601830918a0409242454b00",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_FRAMING_ROLE_SPLIT_V1_CPU_CONTROL.json": "ba645702e2a4afae642df3804a4294b6e4c2272edf2127bfde9c3d9c577d0fba",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_FRAMING_FRESH_V1_ROWS.json": "e98dcf08e351d296cd20a5fdfad9ced1652252142d1ae85e2410920b4c75c77f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_FRAMING_FRESH_V1_ARTIFACT.pt": "70872669f6fd54767666f0daf09aaba71551559d5d48fcaeadf9821485fe84b4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_FRAMING_FRESH_V1_RESULT.json": "b87b9dca1c604e6109200f9f0579d8d2ef927246b685e21b0c07b735aac82083",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_semantic_positions_v1.py": "e8476b5a72af7e7ae90d1dec6852d58d6a14e34c18ff41cadd24dd5d9c9a5463",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_source_positions_v1.py": "b67386c1a306fcbcbe300bf9e9114601b43635b20880d80d6167cc7d5ecbc1ac",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/EVEN_VALUE_SHARED_GRAPH_PACKED_V1_PROGRAM.pt": "cbe8a94a2057ca3c53614d3bb70a5e8c0cb660e6e6cb57b531bf6dc0a2ccdd7f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/even_value_shared_graph_v1.py": "547e8b3202d191e1d51d30e1457cc3c445560157fc7bb9b39087c629d0a9908e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_cue_row_check_v1.py": "9d58e3dc5426f94f3bf2a142e5cb45dbadbfed2f743bee262221482bd3db76ef",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_city_article_check_v1.py": "ead978a7fbdfdf83dbff241597c17720c2c7fb8983b4651134684db815d77a40"
+  },
+  "arm_order": [
+    "native",
+    "remove_odd_description",
+    "remove_odd_instruction",
+    "remove_odd_framing",
+    "remove_all_odd"
+  ],
+  "readout_order": [
+    "target",
+    "work_jobs",
+    "cat_dog",
+    "red_blue",
+    "monday_tuesday",
+    "apple_orange"
+  ],
+  "scope": "Frozen native source-role split within the fresh O framing effect. Native upstream context and suffix remain; no unique semantic unit, corpus OOD, static compression, or quantization claim."
+}
