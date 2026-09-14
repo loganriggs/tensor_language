@@ -628,6 +628,35 @@ all controls are small, and the exact projected head sum matches within1.75e-7.
 This crosses native module boundaries: head8.2 writes the contextual value later
 read by the O branch of head9.8. Its attention source position is tested next.
 
+[The head8.2 source-edge intervention](ODD_ATTENTION8H2_SOURCE_EDGE_V1_RESULT.json)
+localizes the upstream read to the changed-city token conditional on the paired
+donor's framing queries. Donor city-source writes at the framing destinations
+reproduce the full head8.2 transported cue within3.04%/2.71%; all other sources
+miss by97.08%/102.63%. Separate city and other behavioral effects compose
+within.080%, and every frozen unrelated-control ratio is below.087. This
+supports a changed-city source plus donor-query -> head8.2 framing write ->
+head9.8-O current-value edge across both fresh templates.
+Registered `pred_a` remains failed because its source-partition bar was `1e-10`
+and separately rounded FP32 addition measured5.33e-8. The post-result
+[numerical control](ODD_ATTENTION8H2_SOURCE_EDGE_V1_FP32_CONTROL.json) classifies
+that residual within the existing native `1e-5` replay tolerance without
+altering the verdict.
+
+[The recipient-query-fixed factorial](ODD_ATTENTION8H2_CITY_KEY_VALUE_V1_RESULT.json)
+then isolates the changed-city key/value source. Value-only transfer reproduces
+the full city-source paired cue within8.12%/2.49%; routing-only errors are
+110.52%/104.84%. Dropping the explicit routing-times-value interaction passes
+on radio at4.29% but fails local-history at19.41%, so the value is dominant but
+the interaction is template dependent. The full fixed-query cue remains within
+3.42%/2.46% of the prior donor-query city cue with cosine>.9999, but the
+registered exact score anchor fails at.01794. Thus the earlier source-edge
+claim must retain its donor-query condition; it is not an exact pure-source
+intervention. The managed result preserves A/C failures and B/E passes. An
+accidental direct native invocation before enqueue is retained under the
+`DIRECT_EXECUTION_INVALID` filename; the content-bound managed rerun produced
+the reported receipt. Current versus inherited value at the city source is the
+next unresolved split.
+
 [The equal-count split](ODD_FRAMING_EQUAL_HALVES_NATIVE_V1_RESULT.json) also
 rejects a stable positional role. Local-history remains early dominated
 (31.89% versus70.04% error), while radio is distributed with late closer

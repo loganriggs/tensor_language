@@ -326,7 +326,21 @@ identity bar at9.67e-7. Attention8 head writes are the next screen.
 finds one stable upstream writer: head8.2 reproduces full attention8 transport
 within2.78%/.91%; all other heads have approximately100% error. Head effects
 compose and controls remain small. This supports a cross-layer head8.2 write to
-head9.8-O current-value read; the head8.2 source edge remains unresolved.
+head9.8-O current-value read. A subsequent
+[source-edge intervention](../../polynomial_causal/ODD_ATTENTION8H2_SOURCE_EDGE_V1_RESULT.json)
+finds that changed-city source alone reproduces the head8.2 effect within
+3.04%/2.71%, while all other sources miss by97.08%/102.63%. Effects compose and
+all four unrelated controls remain below.087. The source arms share paired
+donor framing queries, so this supports a donor-query-conditioned city source
+-> head8.2 framing write -> head9.8-O current-value edge. The
+registered exact-partition gate remains failed at5.33e-8 under FP32 arithmetic;
+the separate numerical control only classifies it within native tolerance.
+With recipient queries fixed, the city key/value factorial remains strongly
+value dominated: value-only cue errors8.12%/2.49%, versus routing-only errors
+110.52%/104.84%. The fixed-query cue closely matches the donor-query cue in
+paired direction, but its exact score anchor fails at.01794; this preserves the
+query condition on the earlier claim. The routing-value interaction is needed
+for one template under the registered10% bar.
 
 Current-value provenance is exact on the paired framing sources: current-only
 and full-value swaps are behaviorally identical, while inherited-first swap is

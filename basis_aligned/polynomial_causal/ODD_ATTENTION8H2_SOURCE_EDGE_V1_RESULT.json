@@ -1,0 +1,116 @@
+{
+  "pred_a": false,
+  "pred_b": true,
+  "pred_c": true,
+  "pred_d": false,
+  "pred_e": true,
+  "max_frozen_anchor_error": 1.9073486328125e-06,
+  "max_head_source_replay_error": 3.245110065108747e-07,
+  "max_city_other_partition_error": 5.3337469552161565e-08,
+  "max_outside_hybrid_delta": 0.0,
+  "families": [
+    {
+      "family": 0,
+      "native_positive_pairs": 12,
+      "native_cue_mean": 3.640370557705561,
+      "full_head_target_rms": 0.18523311376260077,
+      "city_to_full_cue_error": 0.030403950261062036,
+      "other_to_full_cue_error": 0.9707789966077474,
+      "separate_effect_composition_error": 0.0005504972683438004,
+      "control_ratios_to_full_target": {
+        "full_head8_2": {
+          "cat_dog": 0.08233901426718404,
+          "red_blue": 0.03196623986896324,
+          "monday_tuesday": 0.027139785975166197,
+          "apple_orange": 0.07105635780118313
+        },
+        "city_source": {
+          "cat_dog": 0.08002899654611867,
+          "red_blue": 0.031560572838914114,
+          "monday_tuesday": 0.02668309963324102,
+          "apple_orange": 0.06923866612393179
+        },
+        "other_sources": {
+          "cat_dog": 0.002531524561938863,
+          "red_blue": 0.001302092191027815,
+          "monday_tuesday": 0.0007071207587971579,
+          "apple_orange": 0.002072475571440503
+        }
+      },
+      "capability_pass": true,
+      "city_hypothesis_pass": true,
+      "other_hypothesis_pass": false,
+      "composition_pass": true
+    },
+    {
+      "family": 1,
+      "native_positive_pairs": 12,
+      "native_cue_mean": 2.775461177031199,
+      "full_head_target_rms": 0.29096409098361403,
+      "city_to_full_cue_error": 0.027066184012784437,
+      "other_to_full_cue_error": 1.0262639488308147,
+      "separate_effect_composition_error": 0.0007931461796349231,
+      "control_ratios_to_full_target": {
+        "full_head8_2": {
+          "cat_dog": 0.04212632049603961,
+          "red_blue": 0.01573794125669826,
+          "monday_tuesday": 0.02034593889675291,
+          "apple_orange": 0.08506679775946835
+        },
+        "city_source": {
+          "cat_dog": 0.043920812360762604,
+          "red_blue": 0.016030252311384986,
+          "monday_tuesday": 0.020579866929122025,
+          "apple_orange": 0.08675317524280533
+        },
+        "other_sources": {
+          "cat_dog": 0.0017727870410452192,
+          "red_blue": 0.00038851435059325653,
+          "monday_tuesday": 0.0002538421964944962,
+          "apple_orange": 0.0017179358996075272
+        }
+      },
+      "capability_pass": true,
+      "city_hypothesis_pass": true,
+      "other_hypothesis_pass": false,
+      "composition_pass": true
+    }
+  ],
+  "body_forwards": 192,
+  "seconds": 3.4437087449987303,
+  "artifact_sha256": "4df70b2b5dcacb6323ce4d3e9ac45bebacdbdb935eebac2927d5a51b73131c73",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_odd_attention8h2_source_edge_v1.py": "a5efd5828e7377c10497ed0ed2fee2b6f512516864cd7a7721055b9a2723d0ec",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_SOURCE_EDGE_V1_PREREGISTRATION.md": "9c4e4c76454b7f9fdd15df1216f1be9d359cfc62ee9deb2d2a52432b15cff366",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/attention8h2_source_edge_v1.py": "398d36010c9932ae761351151e1db516a1333b24ce623bcac60ffc95e781a384",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_SOURCE_EDGE_V1_CPU_CONTROL.json": "51acb0358fa2c89261668bc504b5187b970aefc32cbbe9299d8af29991ffbd11",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8_HEAD_WRITERS_V1_ARTIFACT.pt": "9bef17c96f5980c2a15d312e06a6033bfae3277cbd491e776644ff4643fb2234",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8_HEAD_WRITERS_V1_RESULT.json": "4aa86572f55636f9e8437e07881bdda6dcc1074084fdaf519f675276b9169541",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_BLOCK8_WRITER_SPLIT_V1_ARTIFACT.pt": "8037a7d83114b5fc61710fb6784d59639c5e42298049412d17eb6dc95da717ad",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_FRAMING_FRESH_V1_ROWS.json": "e98dcf08e351d296cd20a5fdfad9ced1652252142d1ae85e2410920b4c75c77f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_source_swap_interaction_v1.py": "a156341eb90224a450e4abda512d2fefa9d487e567db44ec4a5a3493dc4424d9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_value_source_split_v1.py": "4da1a2c9472b78c38bd4970681a9f71ba8d6cbdea4afeba07ebbc504bbf54d13",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_semantic_positions_v1.py": "e8476b5a72af7e7ae90d1dec6852d58d6a14e34c18ff41cadd24dd5d9c9a5463",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_contextual_positions_v1.py": "cd509290cd7a6b9a724e8708a6af61d6eb197533704323d4f32413e1064498d4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_source_positions_v1.py": "b67386c1a306fcbcbe300bf9e9114601b43635b20880d80d6167cc7d5ecbc1ac",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/EVEN_VALUE_SHARED_GRAPH_PACKED_V1_PROGRAM.pt": "cbe8a94a2057ca3c53614d3bb70a5e8c0cb660e6e6cb57b531bf6dc0a2ccdd7f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/even_value_shared_graph_v1.py": "547e8b3202d191e1d51d30e1457cc3c445560157fc7bb9b39087c629d0a9908e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_cue_row_check_v1.py": "9d58e3dc5426f94f3bf2a142e5cb45dbadbfed2f743bee262221482bd3db76ef",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_city_article_check_v1.py": "ead978a7fbdfdf83dbff241597c17720c2c7fb8983b4651134684db815d77a40"
+  },
+  "arm_order": [
+    "native",
+    "full_head8_2",
+    "city_source",
+    "other_sources"
+  ],
+  "readout_order": [
+    "target",
+    "work_jobs",
+    "cat_dog",
+    "red_blue",
+    "monday_tuesday",
+    "apple_orange"
+  ],
+  "scope": "Exact head8.2 city/other source-write donor hybrids evaluated through isolated head9.8-O current framing values and native suffix. No whole-head sufficiency, fitting, corpus OOD, compression adoption, or quantization."
+}
