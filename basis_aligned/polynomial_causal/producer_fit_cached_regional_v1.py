@@ -52,7 +52,8 @@ def main(program_prefix='INTERACTION_SHARED_WRITE_POLISH_V1', result_prefix='INT
     expected={'SPARSE_INTERACTION_EXECUTOR_V1':'5aefc860fe15be69fb854a4fad3f7c3301f0de6b01c07881f828f027727c730b',
               'UNIFORM_PRODUCER_GRADIENT_V1':'bf5d29ca117cd126ab7c61910b2b1bac74d07874e1e94c36029a9b7ebbad58ed',
               'MINIMAX_ROW_SUPPORT_V1':'538867f86b59d65dedb59b1ff438d5e8a8533d3dc7dd24947f499a532631b432',
-              'PROJECTED_CARRIER_V1':'fc2a5b86975cc6a9a423c3e0e546408de6acc5023fb367438320863eee04fb5c'}
+              'PROJECTED_CARRIER_V1':'fc2a5b86975cc6a9a423c3e0e546408de6acc5023fb367438320863eee04fb5c',
+              'PAIR_FRAME_SPARSE_V1':'6cdc85e6ecfe8b949d4e44fa333dad414c89fe2e13e51a71dd1753ece47f1922'}
     assert digest(path)==expected[program_prefix]
     program=torch.load(path,map_location='cpu',weights_only=True)
     reconstructed=model.decode(program_prefix)

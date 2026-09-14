@@ -1,6 +1,44 @@
 # September 14: continuous research restored; latest results and earlier idle gap
 
-## Latest decision — 10:38 UTC / 06:38 EDT
+## Latest decision — 11:00 UTC / 07:00 EDT
+
+The continuous research goal remains active. Both bqrunner lanes were verified
+RUNNING at10:58UTC (uptime8h14m); the hourly and three-hour review timers are
+active. The hourly review finished10:55UTC. The GPU queue is not a continuously
+busy workload: current work is CPU analysis of completed native captures.
+
+No new compression candidate is adopted. The carrier correction and explicit
+pair-frame candidate failed native task preservation; the latter's fresh
+mixed-effect squared error was2.14times the original's. The
+[completed error decomposition](../../PAIR_ERROR_DECOMPOSITION_V1_RESULT.json)
+took0.49seconds and replayed signed cue-error changes within the1e-10bar.
+Pair-frame all-six-contrast raw error improved46.7% on the fresh panel, while
+the prompt-selected contrast error worsened103.4%. Raw all-output error also
+worsened159.9%: this is a tradeoff, not a general improvement. Better average
+contrast accuracy does not preserve the input/reader combinations we need.
+
+More importantly, the [scope audit](../../FRESH_CUE_SCOPE_V1_RESULT.json)
+finds the native model responds in the expected direction on all48city-cue
+pairs, but the small terminal mixed term contributes only0.0013–0.0104% of
+the native cue-response norm across four families. Its1%materiality bar fails.
+This demotes further tiny-term optimization as evidence about the whole task.
+
+The [upstream removal audit](../../FRESH_REMOVAL_SCOPE_V1_RESULT.json) finds
+removing the larger remainder changes cue-response norms28.8–41.0%, aligned
+with the native response on all48pairs. Removing the child changes0.89–3.04%,
+with opposing signs across families. These are single-intervention norm ratios,
+not additive attribution fractions; joint-parent removal was not captured.
+The next direction is to inspect this larger interface and its previous
+compression failures before proposing another weights-only program. These
+reused controlled panels are development evidence, not corpus-OOD validation.
+
+The latest managed GPU experiment remains the10:35:46UTC capture:360forwards
+in6.69seconds. Subsequent experiments were CPU analyses, not a stalled GPU job.
+Exact elapsed time from your last message is unavailable because its timestamp
+is not exposed here. Remote publication remains
+blocked by Git authentication, not by research execution.
+
+## Earlier decision — 10:38 UTC / 06:38 EDT
 
 The original sparse operator remains the reference. A second, strictly
 weights-only candidate changed which coefficients survive at the same

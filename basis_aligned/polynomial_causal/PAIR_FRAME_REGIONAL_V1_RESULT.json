@@ -1,0 +1,32 @@
+{
+  "panels": [
+    {
+      "panel": "COMPOSED_LAST_BLOCK_STATES_V1",
+      "relative_squared_error_improvement": 0.11848044574689343,
+      "group_error_ratios": [
+        1.59889141876531,
+        0.4247420162904652,
+        0.9988404506819357,
+        0.8193411251762381,
+        0.9931267165837704
+      ],
+      "pred_b": false,
+      "pred_c": true,
+      "pred_d": false
+    },
+    {
+      "panel": "MINIMAX_FRESH_CACHE_V1",
+      "relative_squared_error_improvement": -1.1396175531333794,
+      "group_error_ratios": [
+        2.438994172386476,
+        1.2712839638214986,
+        1.8595207513503433,
+        0.8707206145683914
+      ],
+      "pred_b": false,
+      "pred_c": true,
+      "pred_d": false
+    }
+  ],
+  "scope": "Frozen weight-only pair-frame sparse program, native conditional task contrasts; no fit/adoption or corpusOOD."
+}
