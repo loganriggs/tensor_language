@@ -1,0 +1,43 @@
+{
+  "utc": "2026-09-14T10:15:39.641944+00:00",
+  "train_contexts_per_gradient": 256,
+  "validation_contexts": 512,
+  "train_seed_ranges": [
+    [
+      170225000,
+      170225015
+    ],
+    [
+      170226000,
+      170226015
+    ]
+  ],
+  "validation_seed_range": [
+    170227000,
+    170227031
+  ],
+  "gradient_cosine": 0.42413265692470925,
+  "gradient_norms": [
+    2.4525424790442917e-13,
+    2.2946247826296905e-13
+  ],
+  "gradient_cross_inner_product": 2.386876403915056e-26,
+  "gradient_directional_replay": 1.9730146176096344e-15,
+  "alpha": 0.0039234805046577245,
+  "relative_energy_improvement": 0.37238133721458644,
+  "paired_gain": 4.405107965381119e-13,
+  "paired_standard_error": 1.482511738654004e-13,
+  "original_energy": 1.1829561594926696e-12,
+  "candidate_energy": 7.424453629545575e-13,
+  "contrast_energy_ratio": 0.5986793738513236,
+  "runtime_replay": 1.3162385672079488e-07,
+  "price_ratio": 0.9999959181965776,
+  "artifact_bytes": 4899775,
+  "artifact_sha256": "bf5d29ca117cd126ab7c61910b2b1bac74d07874e1e94c36029a9b7ebbad58ed",
+  "mask_and_adapters_unchanged": true,
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "seconds": 46.50111946600009,
+  "scope": "One fixed-support gradient step with exact sampled line solve; uniform-token actual-producer measure with native injection ordering, no natural-text validation, no full convergence or adoption."
+}

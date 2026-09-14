@@ -29,7 +29,7 @@ class UniformProducer(Contexts):
                                           weights_only=True)['direction'].float()
 
     @torch.no_grad()
-    def sample(self, seed, batch=16):
+    def sample(self, seed, batch=16, suffix_fp64=False, native_site=False):
         generator = torch.Generator().manual_seed(seed)
         ids = torch.randint(50304, (batch, 5), generator=generator)
         initial = F.rms_norm(self.sd['transformer.wte.weight'][ids].float(), (1152,))
@@ -52,9 +52,14 @@ class UniformProducer(Contexts):
                     self.hierarchy_weights)
                 break
             x = x + block.mlp(F.rms_norm(x, (1152,)))
-        corners = [x] + [x-(fields[name][..., None]*self.upstream_writer).float()
-                         for name in ('child', 'remainder')]
-        raw17 = [self.tail(c, initial, inherited).double() for c in corners]
+        edits = [(fields[name][..., None]*self.upstream_writer).float()
+                 for name in ('child', 'remainder')]
+        corners = [x] + ([raw+(attention-edit) for edit in edits] if native_site
+                         else [x-edit for edit in edits])
+        if suffix_fp64:
+            raw17 = [self.tail64(c.double(), initial.double(), inherited.double()) for c in corners]
+        else:
+            raw17 = [self.tail(c, initial, inherited).double() for c in corners]
         first = inherited.reshape(batch, 5, 9, 128)[:, :, 2].double()
         attention_ports = [
             from_projections(project(r, self.maps), r.square().mean(-1)+EPS, first, self.mixture)

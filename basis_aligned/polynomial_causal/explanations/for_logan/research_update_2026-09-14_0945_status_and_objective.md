@@ -1,6 +1,47 @@
 # September 14: continuous research restored; latest results and earlier idle gap
 
-## Latest status — 10:06 UTC / 06:06 EDT
+## Latest research — 10:15 UTC / 06:15 EDT
+
+The [coupled suffix test](../../COUPLED_WRITER_TAIL_V1_RESULT.json) passed in
+2.68 seconds: bit-exact native FP32 replay on two synthetic contexts, and local
+derivative replay within 1.47e-7. The full suffix weights remain present; this
+validates an instrument, not a smaller circuit.
+
+The next [256-sequence comparison](../../UNIFORM_PRODUCER_RANKING_V1_RESULT.json)
+used actual uniformly sampled embedding rows, native upstream computation,
+and the existing child/remainder scalar fields. Both edits share their actual
+upstream write direction. These synthetic sequences are not natural-language
+or OOD validation. The supplied final background also now matches the previous
+conditional composed-last-block construction, rather than an arbitrary vector.
+
+That changed the ranking: sparse error relative to the mixed contribution was
+5.17%, ordinary shared-output 3.89%, and balanced shared-output 7.37%.
+Ordinary shared-output was better in both sample halves, but only by 1.67
+paired standard errors overall; the preregistered sparse-superiority criterion
+failed. This is suggestive, not a reliable shared-operator win. It also cannot
+isolate which changed aspect of the input/background construction caused it.
+No candidate is adopted. Absolute error energies are tiny, around 1e-12,
+because the selected mixed contribution is small on these synthetic inputs.
+
+A [precision countercheck](../../UNIFORM_PRODUCER_PRECISION_V1_RESULT.json)
+on 32 original sequences changed to FP64 suffix arithmetic and separately
+matched the native attention-output subtraction order. Relative changes in
+the mixed and candidate-error vectors stayed below 0.0374%, passing the 1% bar.
+This does not explain away the observed ranking reversal as a large numerical
+artifact on the tested rows; limited statistical precision remains.
+
+A [fixed-support fitting test](../../UNIFORM_PRODUCER_GRADIENT_V1_PREREGISTRATION.md)
+completed in 46.50 seconds: independent 256-context training gradients, an exact scalar
+line solve, and 512 fresh validation contexts. Mask, adapters and storage are
+fixed. Fresh energy fell 37.24%, and contrast energy fell 40.13%, but the run
+**failed its registered criteria**: improvement was 2.971 paired standard
+errors (required >3), and gradient cosine was 0.424 (required >=0.5).
+The numerical and storage checks passed. These results justify a separate
+[frozen-candidate replication](../../UNIFORM_PRODUCER_REPLICATION_V1_PREREGISTRATION.md),
+not adoption or rewriting the original failure. The new panel has 1024 fresh
+synthetic sequences and performs no further fitting.
+
+## Runtime snapshot — 10:06 UTC / 06:06 EDT
 
 The durable research goal is active. Both queue runners and the hourly and
 three-hour review timers are active. The latest experiment has finished; the

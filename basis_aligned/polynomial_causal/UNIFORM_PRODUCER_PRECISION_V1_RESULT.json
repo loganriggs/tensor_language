@@ -1,0 +1,159 @@
+{
+  "utc": "2026-09-14T10:13:40.800412+00:00",
+  "rows": [
+    {
+      "seed": 170224000,
+      "arm": "baseline",
+      "vector_relative_changes": {
+        "mixed_reference": 0.0,
+        "SPARSE_INTERACTION_EXECUTOR_V1": 0.0,
+        "INTERACTION_SHARED_WRITE_POLISH_V1": 0.0,
+        "INTERACTION_BALANCED_SUBSPACES_V1": 0.0
+      },
+      "vector_norms": [
+        1.3263757872403865e-05,
+        4.2133453306104546e-07,
+        4.2172825118486734e-07,
+        7.431944352828747e-07
+      ],
+      "passes": true,
+      "diagnostics": {
+        "producer_replay": 0.0,
+        "child_amplitude_rms": 0.004782915574920265,
+        "remainder_amplitude_rms": 0.1590934250554731,
+        "background_rms": 1180.2678784331033,
+        "retained_write_rms": 0.00013879498604797152,
+        "finite": true
+      }
+    },
+    {
+      "seed": 170224000,
+      "arm": "fp64_suffix",
+      "vector_relative_changes": {
+        "mixed_reference": 0.0002043730041438382,
+        "SPARSE_INTERACTION_EXECUTOR_V1": 0.00036019740228422273,
+        "INTERACTION_SHARED_WRITE_POLISH_V1": 0.00036364593791126255,
+        "INTERACTION_BALANCED_SUBSPACES_V1": 0.0002475386920247919
+      },
+      "vector_norms": [
+        1.3265457286486496e-05,
+        4.213753356929355e-07,
+        4.217469539537644e-07,
+        7.432202923473503e-07
+      ],
+      "passes": true,
+      "diagnostics": {
+        "producer_replay": 0.0,
+        "child_amplitude_rms": 0.004782915574920265,
+        "remainder_amplitude_rms": 0.1590934250554731,
+        "background_rms": 1180.2678609562383,
+        "retained_write_rms": 0.00013880715970879246,
+        "finite": true
+      }
+    },
+    {
+      "seed": 170224000,
+      "arm": "native_injection_site",
+      "vector_relative_changes": {
+        "mixed_reference": 0.00015641602166362403,
+        "SPARSE_INTERACTION_EXECUTOR_V1": 0.0003185335618063692,
+        "INTERACTION_SHARED_WRITE_POLISH_V1": 0.00037398018010866756,
+        "INTERACTION_BALANCED_SUBSPACES_V1": 0.000240152254375839
+      },
+      "vector_norms": [
+        1.3264347241367129e-05,
+        4.213564077649545e-07,
+        4.217156874131793e-07,
+        7.431936169337699e-07
+      ],
+      "passes": true,
+      "diagnostics": {
+        "producer_replay": 0.0,
+        "child_amplitude_rms": 0.004782915574920265,
+        "remainder_amplitude_rms": 0.1590934250554731,
+        "background_rms": 1180.2678707202604,
+        "retained_write_rms": 0.00013880097957925022,
+        "finite": true
+      }
+    },
+    {
+      "seed": 170224001,
+      "arm": "baseline",
+      "vector_relative_changes": {
+        "mixed_reference": 0.0,
+        "SPARSE_INTERACTION_EXECUTOR_V1": 0.0,
+        "INTERACTION_SHARED_WRITE_POLISH_V1": 0.0,
+        "INTERACTION_BALANCED_SUBSPACES_V1": 0.0
+      },
+      "vector_norms": [
+        0.00019303727542592573,
+        8.584115995928259e-06,
+        3.9006734103688495e-06,
+        1.0336467065590752e-05
+      ],
+      "passes": true,
+      "diagnostics": {
+        "producer_replay": 0.0,
+        "child_amplitude_rms": 0.03168148274222894,
+        "remainder_amplitude_rms": 0.22070950090410962,
+        "background_rms": 1388.5841756234279,
+        "retained_write_rms": 0.003251168997815008,
+        "finite": true
+      }
+    },
+    {
+      "seed": 170224001,
+      "arm": "fp64_suffix",
+      "vector_relative_changes": {
+        "mixed_reference": 2.079581527599673e-05,
+        "SPARSE_INTERACTION_EXECUTOR_V1": 3.2947420298731604e-05,
+        "INTERACTION_SHARED_WRITE_POLISH_V1": 6.900682880626022e-05,
+        "INTERACTION_BALANCED_SUBSPACES_V1": 3.983284607621983e-05
+      },
+      "vector_norms": [
+        0.0001930371729059538,
+        8.584013239368492e-06,
+        3.900625823458822e-06,
+        1.0336385195800357e-05
+      ],
+      "passes": true,
+      "diagnostics": {
+        "producer_replay": 0.0,
+        "child_amplitude_rms": 0.03168148274222894,
+        "remainder_amplitude_rms": 0.22070950090410962,
+        "background_rms": 1388.5842028748427,
+        "retained_write_rms": 0.0032511384761484447,
+        "finite": true
+      }
+    },
+    {
+      "seed": 170224001,
+      "arm": "native_injection_site",
+      "vector_relative_changes": {
+        "mixed_reference": 1.1410092954784047e-05,
+        "SPARSE_INTERACTION_EXECUTOR_V1": 1.6882841164562353e-05,
+        "INTERACTION_SHARED_WRITE_POLISH_V1": 3.580737164664019e-05,
+        "INTERACTION_BALANCED_SUBSPACES_V1": 1.845279265033776e-05
+      },
+      "vector_norms": [
+        0.00019303795321933608,
+        8.58412551355884e-06,
+        3.900655688352336e-06,
+        1.0336464281012816e-05
+      ],
+      "passes": true,
+      "diagnostics": {
+        "producer_replay": 0.0,
+        "child_amplitude_rms": 0.03168148274222894,
+        "remainder_amplitude_rms": 0.22070950090410962,
+        "background_rms": 1388.584148848749,
+        "retained_write_rms": 0.003251172325151028,
+        "finite": true
+      }
+    }
+  ],
+  "pred_fp64": true,
+  "pred_site": true,
+  "seconds": 5.085955249000108,
+  "scope": "Two original batches; suffix precision and injection-order audit only, upstream hierarchy remains FP32."
+}
