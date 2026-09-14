@@ -231,6 +231,17 @@ the immutable native states with zero new forwards. Primary receipts:
 `GERUND_DEPTH_INTERVAL_V2_AMENDMENT.md`, and
 `GERUND_DEPTH_INTERVAL_V2_RESULT.json`.
 
+The held-out-operator R test uses16 different bare/-ing pairs in the can/are
+frame. The21-site band7 interface transfers again: gate transfer.9702 with
+error.0688 and norm-moment transfer.9456 with error.1431. The registered onset
+predicate fails because prefix7 reaches.5115, just above its fixed.50 upper
+bar; prefix11/13 reach.8306/.8869. The prospectively promoted13-site band11
+also fails: its gate transfer.7241 is below.75, although gate error.3268 and
+norm transfer/error.8212/.4082 pass their individual bars. Preserve both
+failures and retain21 sites as the smallest validated fixed band. This is
+operator/lexicon transfer on previously used rows, not new-text or pretraining
+OOD evidence. Receipt: `GERUND_DEPTH_INTERVAL_LEXICON_TRANSFER_V1_RESULT.json`.
+
 ## Head9.8 conditional even/odd routing and selective scalar — 14 September, 12:17 UTC
 
 The full-value even-key extension retains both QK factors, 128 current/inherited

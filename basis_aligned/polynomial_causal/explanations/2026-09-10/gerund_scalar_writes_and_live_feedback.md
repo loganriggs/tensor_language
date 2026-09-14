@@ -879,3 +879,25 @@ Evidence: [preregistration](../../GERUND_DEPTH_INTERVAL_V1_PREREGISTRATION.md),
 [V1 native receipt](../../GERUND_DEPTH_INTERVAL_V1_RESULT.json),
 [fixed-reader amendment](../../GERUND_DEPTH_INTERVAL_V2_AMENDMENT.md), and
 [corrected result](../../GERUND_DEPTH_INTERVAL_V2_RESULT.json).
+
+### Held-out lexicon confirms 21 sites, rejects 13
+
+The same frozen operator was then evaluated on R's sixteen different bare/-ing
+pairs in a can/are frame. No R depth-band outcome was used to choose the bands
+or thresholds. The21-site band7 interface transfers the MLP17 context gate at
+.9702 with .0688 relative error and the final norm moment at .9456 with .1431
+error. This confirms the conditional interface across the A1/A2 and R lexicons.
+R is an existing authored panel, so this is held-out operator/lexicon transfer,
+not new natural text or pretraining OOD.
+
+Two registered predictions fail and remain failed. Prefix7 transfer is .5115,
+slightly above the opposing <=.50 onset bar, while prefix11/13 reach
+.8306/.8869. The prospectively promoted13-site band11 interface has gate
+transfer .7241, below its .75 bar; its .3268 gate error and .8212/.4082 norm
+transfer/error do not rescue the conjunction. The smallest validated fixed
+band remains21 sites, or40% fewer full-vector ports than the35-site upstream
+prefix. The prior G collateral failure remains unchanged, and no narrower
+boundary search follows.
+
+Evidence: [frozen transfer plan](../../GERUND_DEPTH_INTERVAL_LEXICON_TRANSFER_V1_PREREGISTRATION.md)
+and [native result](../../GERUND_DEPTH_INTERVAL_LEXICON_TRANSFER_V1_RESULT.json).
