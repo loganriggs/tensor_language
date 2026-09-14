@@ -1792,10 +1792,10 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "24d74abce1c8607952037e8802ecc9b66ea4b3f4da1b9e171ee8319279fa3468",
+   "record_sha256": "3296c4f892fa8344ea3617ae241941c3eef2a31eff96b99d07a78c3549a4302d",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "grammatical_subject_number.v23",
+   "active_claim_id": "grammatical_subject_number.v25",
    "claim_status": "weights_translated",
    "causal_variable_id": "complete_grammatical_subject_number",
    "interchange_family_count": 18,
@@ -1803,7 +1803,7 @@
    "negative_event_count": 74,
    "active_negative_event_count": 64,
    "latest_blocker": "task14.mlp6_7.direction_cardinality_program.single_mediator.null.v1",
-   "latest_active_event": "task14.mlp6_7.direction_cardinality_program.single_mediator.null.v1",
+   "latest_active_event": "task14.direction_cardinality_rank1.fresh_confirmation.held.v1",
    "active_event_ids": [
     "task14_native_capability.fit.complete.held.v1",
     "task14_subject_number_localization.fit.v2.authority_review_held",
@@ -1946,7 +1946,9 @@
     "task14.mlp6_7.direction_cardinality_program.narrow_collateral.held.v1",
     "task14.mlp6_7.direction_cardinality_program.possessive_reuse.null.v1",
     "task14.mlp6_7.direction_cardinality_program.mlp15_17_distributed.held.v1",
-    "task14.mlp6_7.direction_cardinality_program.single_mediator.null.v1"
+    "task14.mlp6_7.direction_cardinality_program.single_mediator.null.v1",
+    "task14.mlp6_7.direction_cardinality_rank1_compression.held.v1",
+    "task14.direction_cardinality_rank1.fresh_confirmation.held.v1"
    ],
    "held_test_types": [
     "capability",
@@ -2004,6 +2006,7 @@
     "29f7e33c38db18b967133e1f1109267dc2d280d3cc783a599348f889b560bd1f",
     "2ab90b2f2afc68339709cb07e07392ef920fb587d04d16b81c5c6bbf899ebc28",
     "2b4c903d4ebedb647f53c7744e3f8c104b63cfee3323f53e8d511eebba21801b",
+    "2bde5c4d3ab0f976d752cc9bae9843329a85405f0b7bf6b1ff3cb71178d81c58",
     "2e09b9f56a1689d1732d9497724e6bc6b9b9ecb5276965d1d1ba32a902a17de5",
     "2e72008cbace3938b2cc053f0086d1dcea3fcf79ccc0f326e0b9a7b50cd358bc",
     "300a329de750c319f4e57429a0f312c4e7d1aa46c8ddafe3ce024a2122830915",
@@ -2111,6 +2114,7 @@
     "edd91248b2ba2bb67495029f1998f57a8982be8a131ec1f8eee595904bb01ed3",
     "f16907e5d93c6bd48a81ed3f5b389a42d511cae50bbab6f29481569c82657289",
     "f2ebced0f0b5d15803fbb53bdf545180390a383a8be9d53f26d172edfc7c71db",
+    "f337f25cced6812785c8a313f67f94fa0f1bcb19d7cde0305c4e288a4b46d2dd",
     "f4013f7417e3f3ae4e699ba457b258a6f28f072564b3bbaf448320b4d3458cea",
     "f47501828ad418251d77e602ff0014dd5912d4ec16ff23cd3969e66df709d13b",
     "f47a4f96da4d2e1ec65e77653d683412fc4500b7f1a52eff5f143f806dfd2e1f",
@@ -2128,38 +2132,47 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "7fabb2ff3124c2cd3e751ac0d0562a12b6d4383269db9713820ece1493be411c",
+   "record_sha256": "83ac106a79cd310cf39f372f27c90406682e59cebb244b49577e25b07ae0f7e4",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "successor_pointer_state.v4",
+   "active_claim_id": "successor_pointer_state.v7",
    "claim_status": "site_live",
    "causal_variable_id": "successor_pointer_state",
    "interchange_family_count": 3,
    "invariance_family_count": 1,
-   "negative_event_count": 3,
-   "active_negative_event_count": 3,
-   "latest_blocker": "successor_fixed_pointer_module_response.v2.complete.null",
-   "latest_active_event": "successor_fixed_pointer_module_response.v2.complete.null",
+   "negative_event_count": 4,
+   "active_negative_event_count": 4,
+   "latest_blocker": "successor_pointer_typed_group_length7.v1.complete.failed",
+   "latest_active_event": "successor_pointer_typed_group_length7.v1.complete.failed",
    "active_event_ids": [
     "successor_cross_family_transfer.legacy.v1",
     "successor_layer8_input_ceiling.legacy.v1",
     "successor_pointer_semantics.legacy_reconciliation.v1",
     "successor_pointer_prefix_interaction.v2.complete.mixed",
-    "successor_fixed_pointer_module_response.v2.complete.null"
+    "successor_fixed_pointer_module_response.v2.complete.null",
+    "successor_fixed_pointer_typed_group_length6.v1.complete.held",
+    "successor_pointer_cross_type_interaction.v1.complete.held",
+    "successor_pointer_typed_group_length7.v1.complete.failed"
    ],
    "held_test_types": [
-    "compiled_equivalence"
+    "compiled_equivalence",
+    "composition",
+    "full_swap_ceiling"
    ],
    "active_blocking_test_types": [
     "cross_family_transfer",
-    "full_swap_ceiling"
+    "full_swap_ceiling",
+    "ood"
    ],
    "design_keys": [
     "5fb6dd8fcd24fa8d656551415b67146fac1d21a4cc7d987ea9c86489fe250b4b",
     "65bb611aa4e060afe9efa541878fe0b4d603f6eaf95c98fc8eb07cd981792c2d",
     "8e53db4fddf4748e8ed33476974641f6dffdbfa7c14b493e6368287e57bba377",
+    "9af7adc85e489b4b2f1fb38237c514f574e7d1afa7fb4fae5b999b2cc094c851",
+    "bbfb33376efcf541b1be2b2ee9b845760288bef3b3c0013fb447c5d5ca7ecaa9",
     "c3d65e155a63086e99e74f81c8ea481d1b21ad562d596b84342207a48dec6002",
-    "cfa0de42b1add39b1e61f837867b598994d26a1cce145fefc33cb02c51657d6b"
+    "cfa0de42b1add39b1e61f837867b598994d26a1cce145fefc33cb02c51657d6b",
+    "d9917c24f190e7a7288edbd7a41fb288b0a88670861894f33ae450943870726d"
    ]
   }
  }
