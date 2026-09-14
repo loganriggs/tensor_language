@@ -1,0 +1,3 @@
+# Bracket nested-pending score/payload interaction V2 closure correction
+
+V1 completed all six causal arms but was invalid because its bilinear source closure was summed in FP32 and produced `3.8028e-5`, above the frozen `1e-5` algebra bar. V2 changes only the diagnostic: lift the captured FP32 `p_r,p_d,u_r,u_d` inputs to FP64 before independently recomputing joint, additive, and `(p_d-p_r)(u_d-u_r)` terms. Intervention tensors, rows, arms, score/payload definitions, causal outcomes, bars, price, and exclusions remain unchanged. V1 outcomes are opened and uninterpreted until the corrected instrument passes.

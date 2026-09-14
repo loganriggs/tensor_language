@@ -1,0 +1,34 @@
+{
+  "arms": [
+    "native",
+    "replay",
+    "score",
+    "payload",
+    "joint",
+    "additive"
+  ],
+  "bars": {
+    "additive_cosine_min": 0.95,
+    "additive_relative_l2_max": 0.25,
+    "additive_sign_min": 0.9,
+    "closure_max": 1e-05,
+    "control_to_target_rms_max": 0.5,
+    "interaction_source_norm_fraction_min": 0.1,
+    "pair_positive_min": 0.9,
+    "replay_max": 1e-05
+  },
+  "files": {
+    "capability": "5f4a6bf1d1027dd3d63c3f61e65fcd2544334c59796495bd9b7972b09a64e538",
+    "preregistration": "c8646e59d3707cb26e6345529a36b99188767e9e8881943f53112f073593e785",
+    "prior_result": "d894c84adc3d7b4eaab19ef0dc603ab45034e010b238f60b1a738497be35f00d",
+    "rows": "8f57d07b3983bcfffe4c801cb304c3e71012f95801a971ab50120b5d08e657d2"
+  },
+  "outcomes_opened": [
+    "V1 causal arms opened under FP32 closure-invalid instrument; V2 changes only independent FP64 closure diagnostic"
+  ],
+  "price": {
+    "forwards": 6,
+    "sequences": 864
+  },
+  "schema": "bracket_nested_pending_score_payload_interaction_v2_binding"
+}
