@@ -1892,6 +1892,171 @@
    ],
    "translation_ids": [],
    "next_missing": "rank-one uncentered FIT basis prospectively transfers the exact six-source value carrier to lexical HOLDOUT; next test must independently distinguish a signed tense axis from construction or answer-token direction, using fixed-basis counterfactual scaling or cross-authority reuse rather than refitting"
+  },
+  {
+   "claim_id": "narrative_tense_at_final_position.v13",
+   "revision": 13,
+   "status": "weights_translated",
+   "supersedes": "narrative_tense_at_final_position.v12",
+   "causal_variable": {
+    "id": "narrative_tense_at_final_position",
+    "domain": "past or present narrative frame across direct narration and relative-clause constructions",
+    "read": "earlier lexical and inflectional tense cues",
+    "operation": "carry the narrative time frame to the copular continuation",
+    "write": "signed evidence for the one-token continuation ' was' versus ' is'",
+    "endpoint": "donor-answer versus recipient-answer logit margin and binary-contrast CE under exact donor interchange"
+   },
+   "alternative_explanations": [
+    "construction-specific lexical cue copying",
+    "a generic copula or output-token write shared with agreement",
+    "a broad attention-block effect not specific to head 3"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "a1_direct_narration",
+     "role": "interchange",
+     "changes": [
+      "past versus present narrative frame",
+      "correct answer was versus is"
+     ],
+     "holds_fixed": [
+      "direct-narration construction",
+      "final prompt token",
+      "answer position"
+     ],
+     "builder_artifact_id": "narrative_tense_authority",
+     "control_ids": [
+      "A2 independent construction",
+      "P same-state rewrite",
+      "C same-answer rewrite"
+     ],
+     "split_plan_id": "narrative_tense_fit_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "a2_relative_clause",
+     "role": "interchange",
+     "changes": [
+      "past versus present narrative frame",
+      "correct answer was versus is"
+     ],
+     "holds_fixed": [
+      "relative-clause construction",
+      "final prompt token",
+      "answer position"
+     ],
+     "builder_artifact_id": "narrative_tense_authority",
+     "control_ids": [
+      "A1 independent construction",
+      "P same-state rewrite",
+      "C same-answer rewrite"
+     ],
+     "split_plan_id": "narrative_tense_fit_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "p_surface_rewrite",
+     "role": "invariance",
+     "changes": [
+      "surface wording within a fixed narrative tense"
+     ],
+     "holds_fixed": [
+      "narrative tense",
+      "correct answer",
+      "answer position"
+     ],
+     "builder_artifact_id": "narrative_tense_authority",
+     "control_ids": [
+      "A1 opposite-tense transfer",
+      "A2 opposite-tense transfer"
+     ],
+     "split_plan_id": "narrative_tense_fit_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "c_same_answer_rewrite",
+     "role": "invariance",
+     "changes": [
+      "unrelated past-description wording"
+     ],
+     "holds_fixed": [
+      "correct answer was",
+      "answer position",
+      "final prompt token"
+     ],
+     "builder_artifact_id": "narrative_tense_authority",
+     "control_ids": [
+      "A1 opposite-tense transfer",
+      "A2 opposite-tense transfer"
+     ],
+     "split_plan_id": "narrative_tense_fit_v1",
+     "status": "validated"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.final_position.after_block18",
+     "tensor_path": "final-position residual after block 18",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "replace the complete residual state with the matched natural donor state",
+     "ceiling_event_ids": [
+      "narrative_tense.past_present.v2.held_localization"
+     ]
+    },
+    {
+     "site_id": "attention.block11.output.final_position",
+     "tensor_path": "attention block 11 output at the final position",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "replace the complete attention-block output with the matched natural donor output",
+     "ceiling_event_ids": [
+      "narrative_tense.attn11_head3_complement.v1.held"
+     ]
+    },
+    {
+     "site_id": "attention.block11.head3.pre_output_projection.final_position",
+     "tensor_path": "head 3's slice before attention block 11 output projection at the final position",
+     "shape": [
+      "batch",
+      128
+     ],
+     "intervention": "replace head 3 alone, with the other eight heads as the exact factorial complement",
+     "ceiling_event_ids": [
+      "narrative_tense.attn11_head3_complement.v1.held"
+     ]
+    }
+   ],
+   "split_plan_ids": [
+    "narrative_tense_fit_v1"
+   ],
+   "evidence_event_ids": [
+    "narrative_tense.past_present.v1.invalid_capability",
+    "narrative_tense.past_present.v2.held_localization",
+    "narrative_tense.short_cue.v1.invalid_capability",
+    "narrative_tense.short_cue.v2.invalid_capability",
+    "narrative_tense.attn11_head3_complement.v1.held",
+    "narrative_tense.attn11_head3_source_route_cross_task.v1.invalid",
+    "narrative_tense.attn11_head3_fresh_unchanged_carrier.v1.invalid_capability",
+    "narrative_tense.a1_template_capability_select_holdout.v1.held",
+    "narrative_tense.attn11_head3_newlex_carrier.v1.invalid_capability",
+    "narrative_tense.a2_c_native_capability_select_holdout.v1.complete.null",
+    "narrative_tense.newlex_a1_a2_native_capability.v1.complete.null",
+    "narrative_tense.answer_anchor_native_capability.v1.complete.null",
+    "narrative_tense.combined_native_capability.v1.held",
+    "narrative_tense.l11h3_combined_carrier.v1.held",
+    "narrative_tense.l11h3_suffix_compression.v1.invalid",
+    "narrative_tense.l11h3_suffix_compression.v2.invalid",
+    "narrative_tense.l11h3_suffix_compression.v3.complete.null",
+    "narrative_tense.l11h3_post_value_low_rank.v1.held",
+    "narrative_tense.l11h3_rank1_scalar_program.v1.held"
+   ],
+   "translation_ids": [],
+   "next_missing": "the six-source L11H3 value interaction compresses to one signed residual axis plus one global magnitude; sign alone selects past-to-present versus present-to-past and negation reverses every heldout row. Native state generation and downstream decoding remain external; move to another circuit rather than refitting amplitude."
   }
  ],
  "split_plans": [
@@ -3082,6 +3247,99 @@
    "sections": [],
    "design_key": "23ecf8501d611161416c24a6a12744d1cfe968f8f539eb192e0be63ddf6101fe",
    "execution_key": "fa408744a507012b5e7dbd9bc7a25f591ac2f5c030a11b55296987ecd0150709"
+  },
+  {
+   "event_id": "narrative_tense.l11h3_rank1_scalar_program.v1.held",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "site_id": "attention.block11.head3.pre_output_projection.final_position",
+   "result_artifact_id": "rank1_scalar_result_v1",
+   "prereg_artifact_id": "rank1_scalar_prereg_v1",
+   "metrics": [
+    {
+     "name": "FIT_direction_sign_agreement",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": "must equal 1 each direction"
+    },
+    {
+     "name": "FIT_direction_means",
+     "estimate": [
+      677.361,
+      -731.77
+     ],
+     "ci95": null,
+     "bar": "opposite signs"
+    },
+    {
+     "name": "global_absolute_amplitude",
+     "estimate": 704.566,
+     "ci95": null,
+     "bar": "frozen FIT mean absolute coefficient"
+    },
+    {
+     "name": "HOLDOUT_global_margin_recovery_range",
+     "estimate": [
+      1.009,
+      1.729
+     ],
+     "ci95": null,
+     "bar": ">=.80 each cell"
+    },
+    {
+     "name": "HOLDOUT_global_CE_recovery_range",
+     "estimate": [
+      1.023,
+      1.587
+     ],
+     "ci95": null,
+     "bar": ">=.80 each cell"
+    },
+    {
+     "name": "HOLDOUT_donorward_fraction",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": ">=.75"
+    },
+    {
+     "name": "wrong_sign_anti_donor_fraction",
+     "estimate": 1.0,
+     "ci95": null,
+     "bar": ">=.75"
+    },
+    {
+     "name": "native_reinstall_max_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=5e-5"
+    }
+   ],
+   "supersedes_event_id": null,
+   "notes": {
+    "terminal": "global_signed_scalar_program",
+    "program": "one rank-one 128D axis, one global positive magnitude, and direction sign",
+    "construction_conditioning": "unnecessary; pooled direction and global-signed programs both pass",
+    "scope": "licensed A1/A2 target manipulation; endogenous P/C selectivity established in v12"
+   },
+   "claim_id": "narrative_tense_at_final_position.v13",
+   "family_ids": [
+    "a1_direct_narration",
+    "a2_relative_clause"
+   ],
+   "evaluation_role": "frozen FIT screen",
+   "input_artifact_ids": [
+    "combined_authority_v1",
+    "combined_license_v1"
+   ],
+   "split_plan_id": "narrative_tense_fit_v1",
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "replicates_event_id": null,
+   "sections": [],
+   "design_key": "b5b98fd8cfdf395b8bb18afaa6ad7b2a308dd9982f1a3c74fd472c4ec5fc2874",
+   "execution_key": "910ab28ae01f328a1eee61901ef82a433a9c6981cd52363f6849a4f423756657"
   }
  ],
  "translations": [],
@@ -3323,6 +3581,18 @@
   "post_value_low_rank_result_v1": {
    "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_l11h3_post_value_low_rank_v1_result.json",
    "sha256": "13cc9b128d909343bdf3ff1869c21ca4945183a31a3d7c1a239d879db2a14585",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "rank1_scalar_prereg_v1": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/NARRATIVE_TENSE_L11H3_RANK1_SCALAR_PROGRAM_V1_PREREGISTRATION.md",
+   "sha256": "540aaf34ccffc9d8d43c3007933a3911f31cea47dfd50f412289c03779f6fad2",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "rank1_scalar_result_v1": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_l11h3_rank1_scalar_program_v1_result.json",
+   "sha256": "b8abb9abddcc4e62befd586cd1f68a4ba926ee58727d83c8fd9f6000b4008f16",
    "kind": "screen_result",
    "status": "frozen"
   }
