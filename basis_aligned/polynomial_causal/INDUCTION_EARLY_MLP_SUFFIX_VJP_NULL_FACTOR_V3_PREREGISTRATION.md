@@ -1,0 +1,3 @@
+# Induction early-MLP suffix-VJP-null response factor V3 answer binding correction
+
+V2 regenerated rotary tensors successfully and completed the first joint forward, then raised `KeyError` before constructing the loss or running reverse mode because it requested `recipient_answer_id` from endpoint specs. The frozen authority stores answer IDs on directed rows. V3 passes the aligned directed-row slice solely to construct the already preregistered recipient-CE target. A CPU audit confirms 96 aligned rows and 48 answer pairs. No result was serialized by V1/V2; rows, targets, group, VJP definition, arms, bars, price, and all exclusions remain unchanged.

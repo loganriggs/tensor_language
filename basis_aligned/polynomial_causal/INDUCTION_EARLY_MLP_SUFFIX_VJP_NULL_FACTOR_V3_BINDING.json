@@ -1,0 +1,42 @@
+{
+  "axis": "normalized per-row per-module recipient-CE VJP at joint-edited trajectory",
+  "bars": {
+    "maximum_mean_ce_damage_each_cell": 0.1,
+    "maximum_partition_error": 1e-05,
+    "minimum_correct_fraction_each_cell": 0.75,
+    "minimum_vocab_rms_reduction_each_cell": 0.25
+  },
+  "files": {
+    "/home/loganriggs/Coding/reverse_engineer/tensor_language/basis_aligned/bilinear_quotient/ops/induction_centered_fixed_geometry_rung594.py": "36be462065cd8dbea8b63558fbd10256122d2abfbe0226ee64ed8644917fce33",
+    "/home/loganriggs/Coding/reverse_engineer/tensor_language/basis_aligned/bilinear_quotient/ops/induction_centered_fixed_geometry_rung594_runtime.py": "cf28b62f5882ea84d4f4e8a5c5958ae38dc69328aab6e7f7f96e1ede230ff0bf",
+    "/home/loganriggs/Coding/reverse_engineer/tensor_language/basis_aligned/polynomial_causal/INDUCTION_CONTEXTUAL_CONSUMER_RESPONSE_V1_ROWS.json": "41d4b3bc8812633f59fa5ec12c780d37e59101568657ae58fdd217a8b28ecbd9",
+    "/home/loganriggs/Coding/reverse_engineer/tensor_language/basis_aligned/polynomial_causal/INDUCTION_EARLY_MLP_READOUT_NULL_FACTOR_V2_RESULT.json": "e8d3b5d9f9bb04a9cc37012b942b58fa0e3ef65fda8670fa59efedde95cbc086",
+    "/home/loganriggs/Coding/reverse_engineer/tensor_language/basis_aligned/polynomial_causal/INDUCTION_EARLY_MLP_SUFFIX_VJP_NULL_FACTOR_V3_PREREGISTRATION.md": "df0bea4c7de1d0212125d114eed2d43f663ff68d200fcf1de48b5a56822cef72",
+    "/home/loganriggs/Coding/reverse_engineer/tensor_language/basis_aligned/polynomial_causal/INDUCTION_SUFFIX_VJP_ANSWER_BINDING_AUDIT_V1.json": "439b8e83464b4799ae0a6055d06c8137f1ba3a10461092de10e7064f225f3084"
+  },
+  "modes": [
+    "self",
+    "joint",
+    "full",
+    "parallel",
+    "null"
+  ],
+  "modules": [
+    "mlp8",
+    "mlp9",
+    "mlp10",
+    "mlp11",
+    "mlp12"
+  ],
+  "outcomes_opened": [
+    "V1 runtime error before gradient forward",
+    "V2 one joint forward completed but no loss/gradient/result; no serialized scientific outcome",
+    "readout-null V2 and typed-group outcomes; explanatory screen only"
+  ],
+  "price": {
+    "backwards": 3,
+    "forwards": 18,
+    "sequences": 576
+  },
+  "schema": "induction_early_mlp_suffix_vjp_null_factor_v3_binding"
+}
