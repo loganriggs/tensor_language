@@ -1,0 +1,76 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "pred_d": false,
+  "pred_e": false,
+  "manual_module_ce_error": 0.0,
+  "corpora": {
+    "final_natural": {
+      "positive": {
+        "count": 26,
+        "mean_damage": 0.018527533276937902,
+        "recoveries": {
+          "h7": 0.4030508399629692,
+          "h5": -0.3198768245432626,
+          "h63": 1.2349002305240842,
+          "h57": -0.3231916480601581,
+          "h673": 1.7508721916236694
+        },
+        "all_restore_ce_error": 6.30075541826395e-08
+      },
+      "matched_negative": {
+        "count": 23,
+        "mean_damage": 0.21607075558732386,
+        "recoveries": {
+          "h7": 0.07934614280193887,
+          "h5": 0.10329712525306926,
+          "h63": 0.5861548013764036,
+          "h57": 0.13499286080975087,
+          "h673": 0.5870512573834386
+        },
+        "all_restore_ce_error": 1.2886265049809995e-06
+      }
+    },
+    "ood_code": {
+      "positive": {
+        "count": 164,
+        "mean_damage": 0.4109851733806952,
+        "recoveries": {
+          "h7": 0.3135012092984106,
+          "h5": 0.4257627198320225,
+          "h63": 0.30914269142809625,
+          "h57": 0.6759957726072311,
+          "h673": 0.4906177674922206
+        },
+        "all_restore_ce_error": -1.6180593974706604e-07
+      },
+      "matched_negative": {
+        "count": 127,
+        "mean_damage": -0.057116069559623873,
+        "recoveries": {
+          "h7": -0.7218203697917356,
+          "h5": 0.3996379861155395,
+          "h63": -0.14567655715829692,
+          "h57": -0.02534286492444923,
+          "h673": -0.9371446227931096
+        },
+        "all_restore_ce_error": 2.5921567218510183e-07
+      }
+    }
+  },
+  "body_forwards": 49,
+  "seconds": 5.514414345001569,
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_attention5_copy_content_deviation_split_v1.py": "be6ac658931b93f58dd6074aa8bf5cc02ac8e1dd9f323413ae1a96a11c9e46cf",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ATTENTION5_COPY_CONTENT_DEVIATION_SPLIT_V1_PREREGISTRATION.md": "b81f067960e3657090b82de543e657161fc2f6154364441c235aefa872bfb8dd",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ATTENTION5_COPY_CONTENT_DEVIATION_SPLIT_V1_CPU_CONTROL.json": "c8e0398412fb69535ae59315fa6dc78bef98751b9ac7fe2f3317010656bfe11f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/attention5_copy_content_deviation_split_v1.py": "4d18facd479149d9e0f7ac669baef69a2cd2621da1c1ee31d2e0970e37d0b6cc",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ATTENTION5_MEAN_DEVIATION_HEAD_SPLIT_V2_ARTIFACT.pt": "63a0db146a84fedc641a40c574a7cc73702bb36c99716945c3318da332244215",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/final_natural.pt": "1997026ce15d0524bd16540047799a6461bc94a57fbdd2812ef41ff36e8d5e3c",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/ood_code.pt": "6cf514e75dfd03399f223a9ba5f6ebe5f4b1315bcb839a515e1c19e7b5474bd9",
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "scope": "Task-defined terminal-copy versus matched-negative endpoint split of fixed attention5 deviation head groups.",
+  "artifact_sha256": "efd3e603d23b09312392439b4aeec46ea94ff2048eec99f750d16c2b3cc675f6"
+}

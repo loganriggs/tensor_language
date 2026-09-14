@@ -78,6 +78,16 @@ corpus-conditioned at this broad endpoint. Registered C/D/E fail. Further
 factorization now requires a task-defined causal endpoint; another document-CE,
 rank, or head-set search would not identify a stable circuit.
 
+The first such [task-defined split](../../polynomial_causal/ATTENTION5_COPY_CONTENT_DEVIATION_SPLIT_V1_RESULT.json)
+also rejects the proposed head roles. On final-natural copy-positive cells the
+mean-write damage is only.0185 nat, below the registered.05 live-effect gate;
+heads5/7 have negative recovery while heads6/7/3 over-recover. On code positives
+the mean damage is.411 nat and heads5/7 recover67.60%, but code matched negatives
+have negative mean damage and reverse the comparison. All-head restoration and
+manual/model checks pass. The frozen terminal-copy endpoint therefore does not
+support a corpus-stable copy/content split of these mean deviations. Preserve
+this null; do not tune masks, groups, ranks, or denominators around it.
+
 ## Saved correlative interface: 26 heads across layers 3–16
 
 10 September update: [weight pullback and input-reader overlap](../../polynomial_causal/explanations/2026-09-10/attention_ov_input_reader_overlap.md). The fixed block projector and complement use `O_P,h=(Oq)q_h^T` and `O_R,h=O_h-O_P,h`, respectively. Their within-head QK1/QK2 routing is identical by construction. At relative rank tolerance1e-6, 19 per-head remainder writers retain all128 coordinates and can read the saved scalar’s full value-input function. Seven single-head blocks retain127 coordinates with partial input overlap. Full-block cross-head cancellations prevent interpreting these per-head overlaps as globally duplicated computation.
