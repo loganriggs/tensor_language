@@ -1111,7 +1111,7 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "7cde73a0d24e5970f6797354a6d7fbf703077a51f3b21d310ad7660b84e3fcf0",
+   "record_sha256": "31aa04d140b118940abb3df07047872dacea6ac4f7bb616e1905effd5e72a9dd",
    "kind": "shared_subroutine",
    "identity_instance": null,
    "active_claim_id": "readout.lexical_form_commands.v1",
@@ -1119,17 +1119,18 @@
    "causal_variable_id": "lexical_form_commands",
    "interchange_family_count": 2,
    "invariance_family_count": 1,
-   "negative_event_count": 5,
-   "active_negative_event_count": 5,
-   "latest_blocker": "readout.lexical_form_commands.v1.coupled_readout_factors",
-   "latest_active_event": "readout.lexical_form_commands.v1.coupled_readout_factors",
+   "negative_event_count": 6,
+   "active_negative_event_count": 6,
+   "latest_blocker": "readout.lexical_form_commands.v1.terminal_complement_sources",
+   "latest_active_event": "readout.lexical_form_commands.v1.terminal_complement_sources",
    "active_event_ids": [
     "readout.lexical_form_commands.v1.instrument",
     "readout.lexical_form_commands.v1.lexical_reuse",
     "readout.lexical_form_commands.v1.form_reuse",
     "readout.lexical_form_commands.v1.joint",
     "readout.lexical_form_commands.v1.agreement_margin",
-    "readout.lexical_form_commands.v1.coupled_readout_factors"
+    "readout.lexical_form_commands.v1.coupled_readout_factors",
+    "readout.lexical_form_commands.v1.terminal_complement_sources"
    ],
    "held_test_types": [
     "null_control"
@@ -1142,6 +1143,7 @@
    ],
    "design_keys": [
     "4c94df0c036352e9cf652ed7a8c404f3f208e4e9bda65f61fecc2bb33135fe13",
+    "5aae46be980970289928a38e40ffd5ca21f2e471b70975f08bd0fafab4aa303c",
     "74c19003af6d85cc5cc6629747b7dd3542be2fe8753b13b4cb0671ad3c1a89c7",
     "7e2f7089dc00cb8a828e3483a5c3aec29a950e3004f8e86bb12eae8ec29032b5",
     "803d26253315f12123dca5d4e22c05c19562b31c2a5ef5d2e9f630e1208224cf",
@@ -1483,18 +1485,18 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "1a1933b912315fff9091ec0a5d2ed20bad910a4928b6af5860e75e7f54282e21",
+   "record_sha256": "269d426207430de33ca6b28e148fee5201491db2a7ab8e858123c299dc489203",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "induction_selector_and_payload.v11",
+   "active_claim_id": "induction_selector_and_payload.v12",
    "claim_status": "site_live",
    "causal_variable_id": "induction_selector_payload",
    "interchange_family_count": 3,
    "invariance_family_count": 5,
-   "negative_event_count": 5,
-   "active_negative_event_count": 4,
-   "latest_blocker": "induction_live_equality_clamp.v1.complete.failed",
-   "latest_active_event": "induction_live_equality_clamp.v1.complete.failed",
+   "negative_event_count": 6,
+   "active_negative_event_count": 5,
+   "latest_blocker": "induction_contextual_consumer_response.v1.complete.failed",
+   "latest_active_event": "induction_contextual_consumer_response.v1.complete.failed",
    "active_event_ids": [
     "induction_terminal_collateral_failure.legacy.v1",
     "induction_factor_intervention_semantics.r557.held.v1",
@@ -1503,7 +1505,8 @@
     "induction_selector_payload_native_capability.r586.complete.held.v1",
     "induction_selector_payload_native_capability_audit.r587.complete.held.v1",
     "induction_selector_payload.r594.complete.failed.v1",
-    "induction_live_equality_clamp.v1.complete.failed"
+    "induction_live_equality_clamp.v1.complete.failed",
+    "induction_contextual_consumer_response.v1.complete.failed"
    ],
    "held_test_types": [
     "capability",
@@ -1518,6 +1521,7 @@
    "design_keys": [
     "32bfcbe7436be5c0c62460e321609caa5771cdc8117af6d8d5e1f58fc6eb687a",
     "415d71f6164c7dd6f9198c4740e75e6e53cfd0db6baeafecaf3d719f3b0658f2",
+    "437f90d3108eb2d696ec914906a53535909017135ff3ca0849d9a4f9143be1de",
     "6eddaff09aca9329ee82c87abd93aedcf390e5284df9b33d433cd0ff2df02c12",
     "7937f22df3bf85532fa659eaf48875e87e3b8372afdf0592ed28e372473c71e5",
     "8a5adf197fe86a59db3e452554ecf92c40c29af23f059add4d8da15852fc8b2c",
