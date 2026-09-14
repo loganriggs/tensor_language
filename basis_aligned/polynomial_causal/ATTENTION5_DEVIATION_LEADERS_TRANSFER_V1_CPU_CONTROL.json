@@ -1,0 +1,30 @@
+{
+  "utc": "2026-09-14T19:32:53.898857+00:00",
+  "pred_a": true,
+  "leaders": [
+    6,
+    7,
+    3
+  ],
+  "parent_result_sha256": "b118148ceabeafef2e2fcab10016c3e98839909b47b82ce266ff01a62e33c4c4",
+  "parent_artifact_sha256": "63a0db146a84fedc641a40c574a7cc73702bb36c99716945c3318da332244215",
+  "caches": {
+    "final_natural.pt": {
+      "shape": [
+        192,
+        257
+      ],
+      "sha256": "1997026ce15d0524bd16540047799a6461bc94a57fbdd2812ef41ff36e8d5e3c",
+      "first24_sha256": "a1625e0ef5e8d313cdcdb144c0311d2fb9b94b3813e76f5854a88ac2e3d87247"
+    },
+    "ood_code.pt": {
+      "shape": [
+        192,
+        257
+      ],
+      "sha256": "6cf514e75dfd03399f223a9ba5f6ebe5f4b1315bcb839a515e1c19e7b5474bd9",
+      "first24_sha256": "36b4ca15a5a5e34205f6c1af7b76d8706daa5d6c86afdd7c8a0b2bce131a5f12"
+    }
+  },
+  "scope": "Frozen parent leader selection and cache identity only; no new model scores or transfer verdict."
+}
