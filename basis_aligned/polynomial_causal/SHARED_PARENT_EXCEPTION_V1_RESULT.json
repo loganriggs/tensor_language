@@ -1,0 +1,60 @@
+{
+  "utc": "2026-09-14T11:09:20.785335+00:00",
+  "rows": [
+    {
+      "arm": 2,
+      "readout": 0,
+      "sign_reversals": [],
+      "material_reversals": 0,
+      "relative_over10percent": 0,
+      "maximum_absolute_error": 0.022977352142333984
+    },
+    {
+      "arm": 2,
+      "readout": 1,
+      "sign_reversals": [],
+      "material_reversals": 0,
+      "relative_over10percent": 3,
+      "maximum_absolute_error": 0.0027790069580078125
+    },
+    {
+      "arm": 3,
+      "readout": 0,
+      "sign_reversals": [],
+      "material_reversals": 0,
+      "relative_over10percent": 1,
+      "maximum_absolute_error": 0.01709127426147461
+    },
+    {
+      "arm": 3,
+      "readout": 1,
+      "sign_reversals": [],
+      "material_reversals": 0,
+      "relative_over10percent": 1,
+      "maximum_absolute_error": 0.0020313262939453125
+    },
+    {
+      "arm": 5,
+      "readout": 0,
+      "sign_reversals": [],
+      "material_reversals": 0,
+      "relative_over10percent": 0,
+      "maximum_absolute_error": 0.019611358642578125
+    },
+    {
+      "arm": 5,
+      "readout": 1,
+      "sign_reversals": [
+        {
+          "row": 54,
+          "reference": -0.00012302398681640625,
+          "candidate": 0.00020551681518554688
+        }
+      ],
+      "material_reversals": 1,
+      "relative_over10percent": 3,
+      "maximum_absolute_error": 0.002559661865234375
+    }
+  ],
+  "scope": "Descriptive reused-panel exceptions versus exact uncompressed pair, not versus prior sparse implementation. Aggregate native passes do not erase individual or sign errors. No fitting or new gate."
+}

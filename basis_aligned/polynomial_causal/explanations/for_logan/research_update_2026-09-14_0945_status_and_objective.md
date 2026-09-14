@@ -1,6 +1,25 @@
 # September 14: continuous research restored; latest results and earlier idle gap
 
-## Latest decision — 11:00 UTC / 07:00 EDT
+## Latest result — 11:10 UTC / 07:10 EDT
+
+There is a verified local runtime improvement in the larger parent executable.
+Both QK factors now reuse one64-coordinate input read and precomputed adapters.
+CPU speedup is1.12–1.72times across tested head/batch/length combinations, at
+the cost of256KiB additional resident adapter memory. Stored weights are unchanged.
+
+The managed native test completed632forwards in18.56seconds. All six criteria
+passed, including exact old/new scalar agreement on1200actual pristine/edited
+contexts and preserved removal, donor and unrelated-control aggregates. The
+old sparse approximation still has eight per-example >10%effect-error cells
+and one small donor-control sign reversal against the uncompressed circuit.
+This is exact reuse and faster local CPU execution, not new model compression,
+full-model speedup or fresh/OOD validation. [Derivation, pricing and receipts](../../SHARED_PARENT_RUNTIME_V1_MATH.md).
+
+Continuous research remains active; portable integration is next. The research-driver
+skill kept this change tied to prior art, preregistered native tests, and explicit
+cost/exception accounting rather than treating the timing result as goal completion.
+
+## Earlier decision — 11:00 UTC / 07:00 EDT
 
 The continuous research goal remains active. Both bqrunner lanes were verified
 RUNNING at10:58UTC (uptime8h14m); the hourly and three-hour review timers are
