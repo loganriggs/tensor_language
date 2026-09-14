@@ -386,6 +386,16 @@ The1,933,572-scalar package remains conditional on native state ports and suffix
 dedicated ports cost about4.09 dense deltas. Donor interchange attenuates all48
 paired regional contrasts, supplying a concrete direction for a midpoint edit.
 
+That midpoint intervention now passes on all four frozen families. Its native
+behavioral effect is within.17--.38% of half the full donor effect and attenuates
+all12/12 paired regional contrasts per family. Mean attenuation is2.08--4.64%
+of the native cue, while all unrelated-control ratios stay below.088. The edge
+therefore supports selective, graded manipulation in addition to held-out
+prediction, causal transfer, extraction, and cross-boundary composition. The
+claim remains conditional on native state generators and suffix; corpus OOD,
+whole-head removal, and favorable dedicated serialization remain untested or
+failed as stated above.
+
 Current-value provenance is exact on the paired framing sources: current-only
 and full-value swaps are behaviorally identical, while inherited-first swap is
 zero. The registered both-arms-live gate fails and remains visible. Architecture

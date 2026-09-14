@@ -732,6 +732,18 @@ isolated serialization. Across all48 paired contrasts the donor edit attenuates
 the native regional cue; a midpoint city-value edit is the next registered
 selective-strength manipulation.
 
+[The midpoint edit](ODD_ATTENTION8H2_MIDPOINT_EDIT_V1_RESULT.json) passes all
+five registered gates across the four frozen template families. Replacing the
+city embedding by the recipient/donor midpoint gives the exact half write before
+the downstream nonlinear path, and the resulting behavioral effect differs from
+half the full donor effect by only.17--.38%. It attenuates all12/12 native paired
+regional contrasts in every family, by mean fractions2.08%,4.64%,2.26%, and
+3.04% of the native cue; every unrelated-control ratio is below.088. Together
+with the full donor edit, which attenuates the same48 contrasts by4.19%,9.33%,
+4.53%, and6.11%, this supplies selective and quantitatively predictable strength
+manipulation of the conditional edge. It does not establish whole-head removal,
+corpus OOD, independent state generation, or a favorable dedicated-port price.
+
 [The equal-count split](ODD_FRAMING_EQUAL_HALVES_NATIVE_V1_RESULT.json) also
 rejects a stable positional role. Local-history remains early dominated
 (31.89% versus70.04% error), while radio is distributed with late closer

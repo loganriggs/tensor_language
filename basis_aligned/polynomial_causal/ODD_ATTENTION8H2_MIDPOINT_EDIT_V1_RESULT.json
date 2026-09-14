@@ -1,0 +1,116 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "pred_d": true,
+  "pred_e": true,
+  "max_parent_anchor_error": 3.337860107421875e-06,
+  "max_self_score_error": 0.0,
+  "max_self_delta_norm": 0.0,
+  "families": [
+    {
+      "family": 0,
+      "native_positive_pairs": 12,
+      "full_target_rms": 0.1470564486255471,
+      "midpoint_half_effect_error": 0.0038153847970402804,
+      "midpoint_attenuating_pairs": 12,
+      "mean_midpoint_attenuation_fraction": 0.020839374862351365,
+      "midpoint_control_ratios": {
+        "cat_dog": 0.08783270432595791,
+        "red_blue": 0.03583725087578208,
+        "monday_tuesday": 0.03233807059580809,
+        "apple_orange": 0.06994051275398551
+      },
+      "capability_pass": true,
+      "half_scaling_pass": true,
+      "attenuation_pass": true,
+      "controls_pass": true
+    },
+    {
+      "family": 1,
+      "native_positive_pairs": 12,
+      "full_target_rms": 0.26018465513224714,
+      "midpoint_half_effect_error": 0.003646863384173778,
+      "midpoint_attenuating_pairs": 12,
+      "mean_midpoint_attenuation_fraction": 0.046426959821867154,
+      "midpoint_control_ratios": {
+        "cat_dog": 0.04756907477512707,
+        "red_blue": 0.016094083017224627,
+        "monday_tuesday": 0.020589310145864837,
+        "apple_orange": 0.0820881850050471
+      },
+      "capability_pass": true,
+      "half_scaling_pass": true,
+      "attenuation_pass": true,
+      "controls_pass": true
+    },
+    {
+      "family": 2,
+      "native_positive_pairs": 12,
+      "full_target_rms": 0.14704114041934083,
+      "midpoint_half_effect_error": 0.0017491006403836948,
+      "midpoint_attenuating_pairs": 12,
+      "mean_midpoint_attenuation_fraction": 0.022559595353198774,
+      "midpoint_control_ratios": {
+        "cat_dog": 0.037915752815335456,
+        "red_blue": 0.030025263246622944,
+        "monday_tuesday": 0.02942770227844104,
+        "apple_orange": 0.08416855085284505
+      },
+      "capability_pass": true,
+      "half_scaling_pass": true,
+      "attenuation_pass": true,
+      "controls_pass": true
+    },
+    {
+      "family": 3,
+      "native_positive_pairs": 12,
+      "full_target_rms": 0.16504457274412296,
+      "midpoint_half_effect_error": 0.001833853345391534,
+      "midpoint_attenuating_pairs": 12,
+      "mean_midpoint_attenuation_fraction": 0.03043763931023447,
+      "midpoint_control_ratios": {
+        "cat_dog": 0.023182216287529225,
+        "red_blue": 0.022282880952663467,
+        "monday_tuesday": 0.02179143008733758,
+        "apple_orange": 0.07322839064798956
+      },
+      "capability_pass": true,
+      "half_scaling_pass": true,
+      "attenuation_pass": true,
+      "controls_pass": true
+    }
+  ],
+  "body_forwards": 384,
+  "seconds": 5.0617895550021785,
+  "artifact_sha256": "713627783caac884f98c72a3d625bc3dc585aa02937e5449a1377dea67bd55e9",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_odd_attention8h2_midpoint_edit_v1.py": "ea76960c9fb737f05cf560bcabaebfc186019ea6966eca2f2c3f824511ae9612",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_MIDPOINT_EDIT_V1_PREREGISTRATION.md": "749d99957b398fe3d17a4171970e9d7f9afad3fff7ab9dbb85565b485c598dc8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_attention8h2_midpoint_edit_v1.py": "f307c35ec0f16a8d7bffa5764dfbb4c5a8a8f6c76a6313472cd8a7b21552cec0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_MIDPOINT_EDIT_V1_CPU_CONTROL.json": "c86526e0ccdfb85b29953f1e2cbf4dad6553cd0c8cbbe1c6d0adcd35333ce131",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_DESTINATION_ROLE_V1_ROWS.json": "d5655ede8d1207c96fdfa4892dc8db76ed93b8b3be3f8143886b6656cccba97b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_DESTINATION_ROLE_V1_ARTIFACT.pt": "308ccaf146a74d1dda586d8b3f48ebadf690dd6b5af7ecb67f3d6475ad45cb30",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_O_COMPOSED_EDGE_V1_PROGRAM.pt": "c16016a01df4f31c2303aa5be8d593771228f720ea42c0669d0ca0c7074d463c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_attention8h2_o_composed_edge_v1.py": "b8aee5c23ad918b8455f7ab501f8634cb6c83d4887b5e7f8889df902807ddad0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/even_value_shared_graph_v1.py": "547e8b3202d191e1d51d30e1457cc3c445560157fc7bb9b39087c629d0a9908e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_contextual_positions_v1.py": "cd509290cd7a6b9a724e8708a6af61d6eb197533704323d4f32413e1064498d4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_framing_role_split_v1.py": "189a8c4f0d838f7dbf1b5b04b137cd1e53540a148601830918a0409242454b00",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_cue_row_check_v1.py": "9d58e3dc5426f94f3bf2a142e5cb45dbadbfed2f743bee262221482bd3db76ef"
+  },
+  "arm_order": [
+    "native",
+    "full_donor",
+    "midpoint",
+    "self"
+  ],
+  "readout_order": [
+    "target",
+    "work_jobs",
+    "cat_dog",
+    "red_blue",
+    "monday_tuesday",
+    "apple_orange"
+  ],
+  "scope": "Midpoint strength intervention on the conditional head8.2 inherited-city to head9.8-O edge across four frozen templates. No whole-head removal or corpus OOD."
+}
