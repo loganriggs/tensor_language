@@ -217,10 +217,12 @@ through block7 to .8445/.7735 through block11 and .9294/.9304 through block13.
 This passes the registered distributed-band, onset and norm-state tests while
 using21 complete output-vector ports rather than35 for the full causal prefix.
 
-Selectivity fails: the same band reproduces the G agreement gate but changes
-correct-token CE by mean absolute .7465 nats, above .15. Treat the band as a
-conditional shared grammatical-state interface, not a gerund-specific
-producer. Native weights, donor generation, other positions, MLP17 and suffix
+Selectivity fails: the same band reproduces the G runs/run reader's gate but
+changes correct-token CE by mean absolute .7465 nats, above .15. Every arm
+cyclically changes the preceding lexical verb while holding the grammatical
+frame fixed; it does not swap G's he/they cue. Treat the band as a conditional
+broad lexical-context interface, not a gerund-specific producer or a semantic
+grammar state. Native weights, donor generation, other positions, MLP17 and suffix
 remain external, so the40% port reduction is not static model compression.
 V1's gate verdict is withdrawn because it rolled the row-specific reader with
 the state; V2 recomputes the preregistered fixed-recipient-reader metric from

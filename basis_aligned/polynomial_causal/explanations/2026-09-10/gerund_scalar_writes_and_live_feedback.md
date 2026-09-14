@@ -831,7 +831,7 @@ Evidence: [preregistration](../../GERUND_SCALAR_NETWORK_V1_PREREGISTRATION.md),
 [paired audit and counterexample](../../GERUND_SCALAR_NETWORK_AUDIT_V1_RESULT.json),
 and [MLP17 dossier](../MLP17_CURRENT_UNDERSTANDING.md).
 
-## Cumulative depth band supplies the gate and norm, but is not selective
+## Cumulative depth band supplies lexical context, but is not selective
 
 **14 September, 20:04 UTC.** A prior-art audit first closed the already tested
 all-36 singleton scan, attention0 first-value broadcast, independent
@@ -858,11 +858,13 @@ middle stack supplies the already causal MLP17 gate and normalization state.
 The fixed band uses21 full 1,152-vector output ports versus35 for the complete
 causal prefix, a40% conditional interface reduction.
 
-The agreement control rejects gerund specificity. The band reproduces that
-control's gate too (transfer1.0012, error.0578) and causes mean absolute
+The agreement control rejects gerund specificity. Every arm cyclically swaps
+the preceding lexical verb while holding its grammatical frame fixed; it does
+not swap the he/they cue in G. The band reproduces the runs/run reader's
+lexical-context gate (transfer1.0012, error.0578) and causes mean absolute
 correct-token CE change .7465 nats, versus the registered .15 limit. The
-supported object is therefore a shared grammatical-state band feeding MLP17,
-not an independently selective gerund producer. The native model, donor-state
+supported object is therefore a broad lexical-context band feeding MLP17, not
+an independently selective gerund producer or a semantic grammar state. The native model, donor-state
 generator, all other token positions, MLP17 and the suffix remain required;
 the port count does not establish static weight or runtime compression.
 
