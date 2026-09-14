@@ -342,3 +342,52 @@ recomputed tensor bit-identical before producing the result. No scientific
 threshold or result was replaced. Complete block9/attention10 replacement also
 needs the source program for the residual path; its native test charges that
 additional dependency instead of claiming the consumer-only45.29%for the pair.
+
+
+## Combined native replacement and layout recovery
+
+The first combined run stopped at its first compiled attention10 call: the native
+first-value tensor is B,T,9,128, whereas the CPU fixture was B,T,1152. The consumer
+incorrectly used that headed shape for the final output-map multiplication.
+[V1 failure receipt](COUPLED_ATTENTION10_NATIVE_V1_FAILURE.json) preserves the run,
+code, log and partial example. V2 canonicalizes this interface; all50 flat/headed
+CPU comparisons are bit-identical and malformed shapes are rejected. No weights,
+mathematical formula, rows, amplitudes or scientific criteria changed.
+
+[Combined V2 native validation](COUPLED_ATTENTION10_NATIVE_V2_RESULT.json) adds208
+forwards in2.86seconds. All100cases pass A/B/C. Post9 state error<=1.08e-7,
+post10<=1.53e-7, full-vocabulary score<=6.73e-7; all baseline-subtracted readout
+floors and exact zero-effect controls pass. Compiled arm replaces MLP9 output
+and full attention10 while retaining native re-entry, MLP10 and the later suffix.
+
+Charging both the source program needed by the residual path and required x0,
+combined payload is20,950,564bytes at18tokens versus34,183,452independent, and
+21,819,060bytes at19tokens versus34,312,548:36.41–38.71%saving. The example file
+is20,873,585bytes; required x0 is supplied externally and charged separately.
+These are prepared-context executors, with all original model/context generators
+still required globally. The earlier45.29%figure remains consumer-only. Long
+prefixes, general parameter reduction and execution speed are separate questions.
+
+
+[Matched CPU query cost](COUPLED_ATTENTION10_AMORTIZATION_V1_RESULT.json) retains
+B FAIL. Including attention-port preparation,32queries speed up1.358×atbatch1
+but0.991×atbatch8, below1.1×in both cells. Single-query ratios are0.115/0.081;
+eight-query0.658/0.480. Warm batch8 also misses acceleration at8/32queries
+(0.852/0.779); cold/warm ordering varies, so do not infer broad latency benefits.
+Three interleaved trials use one18-token prefix repeated atbatch8, FP64/two CPU
+threads. Dense weights and common source preparation are already cached;
+both arms produce source state and attention write. Replay error<=5.77e-17.
+Storage, fidelity and timing verdicts remain separate.
+
+[Isolated extraction](COUPLED_INTERACTION_EXTRACTION_V1_RESULT.json) exports
+[the fixed-context package](extracted_circuits/coupled_interaction_v1/README.md).
+Python-I executes all25strengths with exactly zero discrepancy from the compiled
+reference and no project imports outside the package. Total package size,
+including program, executable, manifest and README, is20,965,029bytes versus
+34,183,452bytes of independent payload. It returns postMLP9, attention10 and the
+post-attention10 residual; explicit x0 and re-entry lambdas are included. x0 was
+recomputed on CPU from checkpoint embeddings, while the postMLP9/attention10
+programs were copied from the native-validated example; this provenance is in
+the manifest. The package handles one fixed recipient/donor context. It requires
+no checkpoint at runtime, but original weights/native prefix generated it and
+MLP10/later blocks remain external. No arbitrary-text model extraction is claimed.

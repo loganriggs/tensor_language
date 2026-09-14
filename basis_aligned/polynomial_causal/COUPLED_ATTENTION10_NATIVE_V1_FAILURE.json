@@ -1,0 +1,8 @@
+{
+  "utc": "2026-09-14T13:32:30.609224+00:00",
+  "status": "terminal runtime failure; no scientific result",
+  "cause": "Native first_values had shape B,T,9,128; executor reshaped attention channels to that layout before multiplying the1152x1152 output map. CPU fixtures used B,T,1152.",
+  "stage": "first compiled attention10 call, after native captures and first native comparison",
+  "log_sha256": "c68b442aae6d06ecee029101e9c98242c02c97953e0eaf137e6bcab3e9356163",
+  "recovery": "V2 executor flattens inherited-value layout at the output consumer; same weights, rows, amplitudes and bars. V1 code/program/log preserved."
+}

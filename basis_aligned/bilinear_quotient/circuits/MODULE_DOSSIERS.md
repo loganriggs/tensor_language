@@ -219,3 +219,13 @@ passes<=3.47%. Exact coupled-strength MLP9 compilation merges equal monomials,
 retains the mixed interaction, and saves7.11%prepared-context payload across100
 CPUcases. Native prefix/weights and independent-strength restrictions remain
 explicit; no new semantic-role identification or static whole-model saving.
+
+
+### 2026-09-14 — coupled MLP9 to complete attention10
+[Combined native V2](../../polynomial_causal/COUPLED_ATTENTION10_NATIVE_V2_RESULT.json)
+passes100coupled signed cases: post10 error<=1.53e-7, full scores<=6.73e-7,
+registered own-effect floors hold. Runtime programs include the source residual
+path and attention10 projected polynomial ports; measured payload saving is
+36.41–38.71%for18–19token contexts. Native model/context generators remain external
+preparation dependencies. V1 shape failure and layout-only recovery are preserved.
+No static whole-model reduction or additional semantic role is claimed.

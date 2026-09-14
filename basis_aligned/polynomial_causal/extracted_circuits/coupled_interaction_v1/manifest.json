@@ -1,0 +1,24 @@
+{
+  "context": "SRO_ARTICLE_CORRECTION_V1 row0, paired donor row1",
+  "tokens": 18,
+  "inputs": [
+    "two scalar strengths a,b; mixed strength is a*b"
+  ],
+  "outputs": [
+    "post_mlp9",
+    "attention10",
+    "post_attention10"
+  ],
+  "dependencies": [
+    "torch",
+    "program.pt",
+    "execute.py"
+  ],
+  "external_preparation": "Original model weights and native prefix/source-port capture generate this context program; not needed by the exported executor.",
+  "remaining_native": "MLP10 and all later blocks remain external. This package is fixed-context, not an independent language model.",
+  "x0_provenance": "Recomputed from checkpoint embedding using native FP32 RMS formula on CPU; isolation compares this explicit frame. PostMLP9/attention10 programs are copied from the native-validated example.",
+  "hashes": {
+    "program.pt": "e8280e5feb975ebd2002d142a2150c3ef695588702c5e9fac7b86de7b03eecd3",
+    "execute.py": "611f8817822e3407b991e2d290dadf68441474172c6ba8211b446e00887227f3"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "utc": "2026-09-14T13:39:43.027501+00:00",
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "isolated": {
+    "error": 0.0,
+    "project_imports_outside_package": [],
+    "cases": 25,
+    "checkpoint_references": "absent from standalone runtime source"
+  },
+  "package_bytes": 20965029,
+  "baseline_payload_bytes": 34183452,
+  "package": "extracted_circuits/coupled_interaction_v1",
+  "scope": "MLP10 and all later blocks remain external. This package is fixed-context, not an independent language model.",
+  "x0_provenance": "Recomputed from checkpoint embedding using native FP32 RMS formula on CPU; isolation compares this explicit frame. PostMLP9/attention10 programs are copied from the native-validated example."
+}
