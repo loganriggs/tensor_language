@@ -1,0 +1,17 @@
+{
+  "claim": "bracket_nested_pending_ood_capability_v1",
+  "classification": "novel_structural_ood_capability_gate",
+  "reviewed_receipts": [
+    "circuits/fast_screens/bracket_l13h8_ordered_pair_program_ood_capability_v1_result.json",
+    "circuits/followups/bracket_l13h8_ordered_pair_displacement_program_ood_validation_v1_result.json",
+    "circuits/followups/bracket_ordered_pair_suffix_free_scalar_feasibility_v1_result.json",
+    "circuits/task_bracket_pending_opener.json"
+  ],
+  "existing_target_constructions": [
+    "one direct pending opener",
+    "one completed span followed by one reopened pending span"
+  ],
+  "new_construction": "two simultaneously pending delimiters with the changed inner delimiter at stack top and an unchanged third-type outer delimiter",
+  "control": "outer pending delimiter changes while inner stack-top delimiter and correct closer remain fixed",
+  "scope": "native capability only; the fixed displacement program remains unopened"
+}
