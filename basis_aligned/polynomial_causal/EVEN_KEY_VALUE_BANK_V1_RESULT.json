@@ -1,0 +1,74 @@
+{
+  "utc": "2026-09-14T11:47:41.483417+00:00",
+  "pred_a": true,
+  "pred_b": true,
+  "records": [
+    {
+      "row": 0,
+      "length": 18,
+      "current_error": 4.3071975916893175e-16,
+      "inherited_error": 1.156426502067114e-16,
+      "mixture_error": 4.3143453147019614e-16,
+      "full_write_error": 4.428784509716747e-16
+    },
+    {
+      "row": 18,
+      "length": 18,
+      "current_error": 4.568917631906563e-16,
+      "inherited_error": 1.0920594856578651e-16,
+      "mixture_error": 4.552176799855071e-16,
+      "full_write_error": 4.673116690782513e-16
+    },
+    {
+      "row": 36,
+      "length": 16,
+      "current_error": 4.609866711629794e-16,
+      "inherited_error": 1.0999252140684861e-16,
+      "mixture_error": 4.608527340212162e-16,
+      "full_write_error": 4.725231270257263e-16
+    },
+    {
+      "row": 54,
+      "length": 16,
+      "current_error": 5.185772230229674e-16,
+      "inherited_error": 1.1072248690235571e-16,
+      "mixture_error": 5.124952379627558e-16,
+      "full_write_error": 5.002067766229807e-16
+    }
+  ],
+  "timing": {
+    "trials": [
+      [
+        0.14039807399967685,
+        0.14229391700064298,
+        0.1438365360008902,
+        0.14024004800012335,
+        0.13956987799610943,
+        0.14044370799820172,
+        0.13998223500675522
+      ],
+      [
+        0.0028020739991916344,
+        0.0026978380046784878,
+        0.0028490430049714632,
+        0.0027253820007899776,
+        0.002845098999387119,
+        0.00291231300070649,
+        0.0027832679988932796
+      ]
+    ],
+    "median_seconds": [
+      0.14039807399967685,
+      0.0028020739991916344
+    ],
+    "speedup": 50.10505576946935,
+    "comparison": "256 independent current/inherited scalar evaluations vs one shared gate and 128 mixed channels; one fixed cached prefix, CPU only"
+  },
+  "program_scalars": 1048577,
+  "payload_bytes": 4259842,
+  "serialized_bytes": 4263970,
+  "source_bytes": 2351,
+  "program_sha256": "83b0c5e30f2b1c777031fc31c3fe606e8317217d1bdd86e0c3fcbc2cb9a97dc1",
+  "source_sha256": "5cecca7c217aa74400453c4d0093eef54cf679ccf9ea3c496572797200f5cb79",
+  "scope": "Full-value conditional even-key component of head9.8, not full native attention or a newly identified circuit. Existing key projection fixed; actual current/first value maps, signed mixture and full output map retained. No native suffix/capability/OOD test, full-model price or speed claim."
+}

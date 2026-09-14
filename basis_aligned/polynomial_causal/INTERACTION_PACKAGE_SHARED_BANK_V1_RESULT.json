@@ -1,0 +1,105 @@
+{
+  "utc": "2026-09-14T11:43:32.802868+00:00",
+  "pred_a": true,
+  "pred_b": false,
+  "programs": [
+    "regional_shared_producers_8_2_9_8_v1",
+    "regional_shared_head2_v1",
+    "three_corner_head17_interaction_v1",
+    "first_token_value_path_v1",
+    "fixed_writer_self_mlp10_v1"
+  ],
+  "checks": {
+    "regional_shared_producers_8_2_9_8_v1": true,
+    "regional_shared_head2_v1": true,
+    "three_corner_head17_interaction_v1": true,
+    "first_token_value_path_v1": true,
+    "fixed_writer_self_mlp10_v1": true
+  },
+  "independent_program_bytes": 8857413,
+  "bank_and_decoder_bytes": 8856599,
+  "serialized_saving_fraction": 9.190042284357158e-05,
+  "independent_tensor_payload": 8844512,
+  "unique_tensor_payload": 8844512,
+  "required_executor_source_bytes": 9412,
+  "complete_declared_independent_bytes": 8866825,
+  "complete_declared_shared_bytes": 8866011,
+  "tensor_leaves": 25,
+  "unique_tensors": 25,
+  "duplicate_groups": [],
+  "inputs": {
+    "regional_shared_producers_8_2_9_8_v1": {
+      "program_sha256": "d2e5fd65ab43dd25bf8548438c918ea7b4c9a93e6664931b5d52b37dcbd92490",
+      "serialized_bytes": 5545877,
+      "sources": {
+        "execute.py": {
+          "bytes": 1475,
+          "sha256": "aa0666a6dc2d2f840e830d4107811958038fe9305556e9857e75059c89d6be4b"
+        }
+      }
+    },
+    "regional_shared_head2_v1": {
+      "program_sha256": "0084d274eb95e7b573adfdf87d38525b55b0b34eb051e17946aa3f31637319bb",
+      "serialized_bytes": 2669957,
+      "sources": {
+        "execute.py": {
+          "bytes": 935,
+          "sha256": "af25bf472b149508f081904922fd2de847c83e60e44f3d6f15f1b4683c7a640a"
+        }
+      }
+    },
+    "three_corner_head17_interaction_v1": {
+      "program_sha256": "ff80167d4caed85a40660499a95224ebfa551f13f35fa8dea90fe38e1a00580d",
+      "serialized_bytes": 591589,
+      "sources": {
+        "execute.py": {
+          "bytes": 1246,
+          "sha256": "9bb02ffc7e84f121453ec9dbc277f208468ab5e369c3fb99c5c84565ae1dd357"
+        },
+        "rotary.py": {
+          "bytes": 454,
+          "sha256": "1a8f96a1b5f9c0daf98f9e44251a5b24b5123ba475e861a2ff6ddd97fa343e70"
+        },
+        "compact.py": {
+          "bytes": 587,
+          "sha256": "30c2665d1ce68a49bcbef67b9092f1abd524e162d070e6c87b0e7417bb192da9"
+        },
+        "__init__.py": {
+          "bytes": 136,
+          "sha256": "03bfcef21fe6c18c42cc8b9162707341874f19176de3b1e7e3eeb059fa6fad57"
+        },
+        "ports.py": {
+          "bytes": 1097,
+          "sha256": "58facff2bf6ea942b6e967b1c7e1be11a981524e65d01ecd935076386fe1dde7"
+        },
+        "mixed.py": {
+          "bytes": 1113,
+          "sha256": "a60467fa97562861b745103791453c6959d4d893a03ca82f6d8b6d3801eea09f"
+        }
+      }
+    },
+    "first_token_value_path_v1": {
+      "program_sha256": "0aae6a81bdeaf1563420e113c88947972ea6a091a09f2528d9832748f2e5ac3c",
+      "serialized_bytes": 39197,
+      "sources": {
+        "execute.py": {
+          "bytes": 1766,
+          "sha256": "6c9874244d3d831ee0d7f3c882572717a1ebed634b044185870de263d5b7ac7d"
+        }
+      }
+    },
+    "fixed_writer_self_mlp10_v1": {
+      "program_sha256": "153fe02654753db999b64db80b5df09dc225ab38c3124380a2dc8c1aa0fe9966",
+      "serialized_bytes": 10793,
+      "sources": {
+        "executor.py": {
+          "bytes": 603,
+          "sha256": "70a9acdfbc960bc48b253e429b65b0e37830e68cea0e99a3ffa7bb2fc8e0f067"
+        }
+      }
+    }
+  },
+  "artifact_sha256": "e2976277707e0e38fa9f5577e22b6c301b36a2a9b9d7044c659809cfd4382b22",
+  "decoder_sha256": "654431c49882bebd496d608b1a486f111ed3a8aa4f8876b11195480c480a4668",
+  "scope": "Five distinct conditional computations; excludes alternate same-circuit sparse/even/mixed versions. Exact whole-tensor storage sharing only, not new circuits, shared execution, native validation or closed-model pricing. Decoder clones to preserve independent mutability, so no resident-memory saving claimed."
+}

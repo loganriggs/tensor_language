@@ -1,0 +1,267 @@
+{
+  "utc": "2026-09-14T11:44:36.884536+00:00",
+  "pred_a": true,
+  "pred_b": false,
+  "independent_payload_bytes": 8844512,
+  "row_bank_payload_bytes": 7944192,
+  "unpartitioned_payload_bytes": 891104,
+  "route_index_bytes": 13752,
+  "layout_metadata_bytes": 1491,
+  "priced_shared_payload_bytes": 8850539,
+  "saving_fraction": -0.0006814395186529598,
+  "original_rows": 1719,
+  "unique_rows": 1717,
+  "records": [
+    {
+      "path": "regional_shared_producers_8_2_9_8_v1/q1",
+      "shape": [
+        2,
+        128,
+        1152
+      ],
+      "partitioned": true,
+      "rows": 256,
+      "replay": true
+    },
+    {
+      "path": "regional_shared_producers_8_2_9_8_v1/k1",
+      "shape": [
+        2,
+        128,
+        1152
+      ],
+      "partitioned": true,
+      "rows": 256,
+      "replay": true
+    },
+    {
+      "path": "regional_shared_producers_8_2_9_8_v1/q2",
+      "shape": [
+        2,
+        128,
+        1152
+      ],
+      "partitioned": true,
+      "rows": 256,
+      "replay": true
+    },
+    {
+      "path": "regional_shared_producers_8_2_9_8_v1/k2",
+      "shape": [
+        2,
+        128,
+        1152
+      ],
+      "partitioned": true,
+      "rows": 256,
+      "replay": true
+    },
+    {
+      "path": "regional_shared_producers_8_2_9_8_v1/current_value_readers",
+      "shape": [
+        2,
+        1152
+      ],
+      "partitioned": true,
+      "rows": 2,
+      "replay": true
+    },
+    {
+      "path": "regional_shared_producers_8_2_9_8_v1/first_token_values",
+      "shape": [
+        50304,
+        2
+      ],
+      "partitioned": false,
+      "replay": true
+    },
+    {
+      "path": "regional_shared_producers_8_2_9_8_v1/shared_output",
+      "shape": [
+        4
+      ],
+      "partitioned": false,
+      "replay": true
+    },
+    {
+      "path": "regional_shared_producers_8_2_9_8_v1/output_coefficients",
+      "shape": [
+        2
+      ],
+      "partitioned": false,
+      "replay": true
+    },
+    {
+      "path": "regional_shared_head2_v1/parent",
+      "shape": [
+        2,
+        2304
+      ],
+      "partitioned": false,
+      "replay": true
+    },
+    {
+      "path": "regional_shared_head2_v1/children",
+      "shape": [
+        2,
+        2304
+      ],
+      "partitioned": false,
+      "replay": true
+    },
+    {
+      "path": "regional_shared_head2_v1/dual",
+      "shape": [
+        2,
+        16
+      ],
+      "partitioned": false,
+      "replay": true
+    },
+    {
+      "path": "regional_shared_head2_v1/q1",
+      "shape": [
+        128,
+        1152
+      ],
+      "partitioned": true,
+      "rows": 128,
+      "replay": true
+    },
+    {
+      "path": "regional_shared_head2_v1/q2",
+      "shape": [
+        128,
+        1152
+      ],
+      "partitioned": true,
+      "rows": 128,
+      "replay": true
+    },
+    {
+      "path": "regional_shared_head2_v1/k1",
+      "shape": [
+        128,
+        1152
+      ],
+      "partitioned": true,
+      "rows": 128,
+      "replay": true
+    },
+    {
+      "path": "regional_shared_head2_v1/k2",
+      "shape": [
+        128,
+        1152
+      ],
+      "partitioned": true,
+      "rows": 128,
+      "replay": true
+    },
+    {
+      "path": "regional_shared_head2_v1/atom_k1",
+      "shape": [
+        16,
+        3,
+        128
+      ],
+      "partitioned": false,
+      "replay": true
+    },
+    {
+      "path": "regional_shared_head2_v1/atom_k2",
+      "shape": [
+        16,
+        3,
+        128
+      ],
+      "partitioned": false,
+      "replay": true
+    },
+    {
+      "path": "regional_shared_head2_v1/atom_write",
+      "shape": [
+        16,
+        3,
+        1152
+      ],
+      "partitioned": true,
+      "rows": 48,
+      "replay": true
+    },
+    {
+      "path": "three_corner_head17_interaction_v1/output_matrix",
+      "shape": [
+        1152,
+        128
+      ],
+      "partitioned": true,
+      "rows": 128,
+      "replay": true
+    },
+    {
+      "path": "three_corner_head17_interaction_v1/mixture",
+      "shape": [],
+      "partitioned": false,
+      "replay": true
+    },
+    {
+      "path": "first_token_value_path_v1/first_value_map",
+      "shape": [
+        4,
+        1152
+      ],
+      "partitioned": true,
+      "rows": 4,
+      "replay": true
+    },
+    {
+      "path": "first_token_value_path_v1/block0_lambdas",
+      "shape": [
+        2
+      ],
+      "partitioned": false,
+      "replay": true
+    },
+    {
+      "path": "first_token_value_path_v1/eigenvalues",
+      "shape": [
+        4
+      ],
+      "partitioned": false,
+      "replay": true
+    },
+    {
+      "path": "first_token_value_path_v1/head9_gain",
+      "shape": [],
+      "partitioned": false,
+      "replay": true
+    },
+    {
+      "path": "fixed_writer_self_mlp10_v1/writer",
+      "shape": [
+        1152
+      ],
+      "partitioned": true,
+      "rows": 1,
+      "replay": true
+    }
+  ],
+  "duplicate_row_groups": [
+    {
+      "sha256": "c793a75fc76bbc5af83fdd048290e6066f3724ca652bbeeb0c0f54b232a8120f",
+      "uses": [
+        "regional_shared_head2_v1/atom_write:42",
+        "regional_shared_head2_v1/atom_write:45"
+      ]
+    },
+    {
+      "sha256": "165e94abed55403491b01e67a4ec1e35a1bd96c46d21874dee14e8ac8a05bc72",
+      "uses": [
+        "regional_shared_head2_v1/atom_write:43",
+        "regional_shared_head2_v1/atom_write:46"
+      ]
+    }
+  ],
+  "scope": "Exact dtype-preserving row-storage screen on fixed five-package portfolio. Pricing includes routing/layout payload but no new serialization/executor implementation; no adoption, semantic identification, compute-speed or whole-model claim."
+}

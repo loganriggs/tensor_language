@@ -1,0 +1,45 @@
+{
+  "utc": "2026-09-14T11:51:09.844223+00:00",
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "records": [
+    {
+      "row": 0,
+      "native_error": 2.8874956545405804e-07,
+      "algebra_error": 8.891085310528905e-16,
+      "omitted_odd_error": 0.10411799993368173,
+      "even_norm": 4886.543064837497,
+      "odd_norm": 561.0422738224868,
+      "full_norm": 5388.523350235759
+    },
+    {
+      "row": 18,
+      "native_error": 3.039543794201349e-07,
+      "algebra_error": 8.95802930446989e-16,
+      "omitted_odd_error": 0.10367658714411153,
+      "even_norm": 5212.4721110200235,
+      "odd_norm": 595.231065664753,
+      "full_norm": 5741.229356222704
+    },
+    {
+      "row": 36,
+      "native_error": 2.6870640626000355e-07,
+      "algebra_error": 8.13029836465565e-16,
+      "omitted_odd_error": 0.15273806419828864,
+      "even_norm": 4101.303046719579,
+      "odd_norm": 731.2673129492221,
+      "full_norm": 4787.721494229977
+    },
+    {
+      "row": 54,
+      "native_error": 3.1525227697650714e-07,
+      "algebra_error": 8.082876110503994e-16,
+      "omitted_odd_error": 0.1409047265817092,
+      "even_norm": 3291.9363221130357,
+      "odd_norm": 532.9508753364462,
+      "full_norm": 3782.349167878305
+    }
+  ],
+  "scope": "Native attention class FP32 with other eight output heads zeroed; both values, mixture and full head9.8 writer retained. Dense-basis odd component plus compiled coordinate even component. Four old contexts, conditional module interface, no new text/OOD/selective suffix evidence."
+}

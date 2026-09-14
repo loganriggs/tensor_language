@@ -1,0 +1,35 @@
+{
+  "utc": "2026-09-14T11:48:43.514942+00:00",
+  "pred_a": true,
+  "pred_b": true,
+  "relative_error": 1.704695433499812e-16,
+  "independent_scalar_calls": 128,
+  "trials": [
+    [
+      0.07200495200231671,
+      0.07338313400396146,
+      0.0720033220059122,
+      0.07511964599689236,
+      0.07390442500036443,
+      0.07516051099810284,
+      0.07338154799799668
+    ],
+    [
+      0.002839444001438096,
+      0.002770402003079653,
+      0.00276110499544302,
+      0.0027390010000090115,
+      0.0029168729961384088,
+      0.00281014899519505,
+      0.0028564300009747967
+    ]
+  ],
+  "median_seconds": [
+    0.07338313400396146,
+    0.00281014899519505
+  ],
+  "speedup": 26.11360968028245,
+  "superseded_timing": "EVEN_KEY_VALUE_BANK_V1_RESULT.json: pred_b invalid for registered128comparison; original256timing retained descriptively",
+  "artifact_sha256": "83b0c5e30f2b1c777031fc31c3fe606e8317217d1bdd86e0c3fcbc2cb9a97dc1",
+  "scope": "Matched128independentmixed-channel evaluator versus one shared QK routing. Both include current/initial value projections, signed mixture and full output map. Firstfixed18tokenprefix only. Known computational sharing, not newsemanticcircuit or native/fullmodel speed."
+}

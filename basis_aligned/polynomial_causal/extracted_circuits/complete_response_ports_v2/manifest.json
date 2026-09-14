@@ -1,0 +1,20 @@
+{
+  "source_artifact": "COMPOSED_KEY_SPAN_V1_PROGRAM.pt",
+  "source_sha256": "0611b428c68e048fec6ef7a38a141a3789d506ec1eac3874de67f8d375c0f93c",
+  "runtime_files": {
+    "execute.py": {
+      "sha256": "f657359c0f15126796eb02cd06f827c256b7f7ce8b14154e911d99ee7f349e79",
+      "bytes": 3521
+    },
+    "program.pt": {
+      "sha256": "d14f30ccba656c3ca10261c6a9ec73d13de0280b39572ffea9113c5a1a7af420",
+      "bytes": 6050389
+    }
+  },
+  "external_inputs": [
+    "pristine z/h/bias-free u or their declared ports",
+    "intervention amplitude; native prefix and suffix not included"
+  ],
+  "precision": "FP64 CPU, native FP32 RMS epsilon and BF16-rounded rotary constants",
+  "assumption": "Unchanged rank64 directional approximation"
+}
