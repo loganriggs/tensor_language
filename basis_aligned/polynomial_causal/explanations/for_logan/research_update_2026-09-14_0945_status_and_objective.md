@@ -1,6 +1,31 @@
 # September 14: continuous research restored; latest results and earlier idle gap
 
-## Latest research — 10:15 UTC / 06:15 EDT
+## Latest decision — 10:22 UTC / 06:22 EDT
+
+**Do not adopt the fitted operator.** It passed independent synthetic
+replication but failed transfer to the historical native-text circuit cache.
+
+- [Independent 1024-sequence replication](../../UNIFORM_PRODUCER_REPLICATION_V1_RESULT.json):
+  41.39% lower normalized error energy, 3.39 paired standard errors, positive
+  gains in both halves, unchanged storage; all replication criteria pass.
+  Error is heavily concentrated: the top 11 sequences contribute 66.9% of
+  baseline energy. The original fit's confidence/gradient failures remain.
+- [Historical native-cache comparison](../../PRODUCER_FIT_CACHED_COMPARISON_V1_RESULT.json):
+  mixed-effect squared error worsens 79.04%, with degradation in all five
+  groups. One group's own-effect error reaches 11.26%, failing the 10% bar.
+  Numerical replay and whole-compact-effect preservation pass, but neither
+  rescues the failed mixed-term criterion. The original sparse operator stays
+  the reference. These 120 cached prefixes are not fresh or OOD validation.
+- [Score-boundary countercheck](../../PRODUCER_SCORE_BOUNDARY_V1_RESULT.json):
+  degradation is already 34.59% on all twelve normalized raw outputs, before
+  selecting the task contrast or applying softcap. Different scoring cannot
+  fully explain the transfer failure; input/background mismatch remains.
+
+The next [length-transport screen](../../UNIFORM_LENGTH_TRANSPORT_V1_PREREGISTRATION.md)
+is executing on frozen programs, testing lengths 5, 32 and 128. It is a small
+descriptive synthetic test, not another fit or proof of a good input law.
+
+## Earlier progression — 10:15 UTC / 06:15 EDT
 
 The [coupled suffix test](../../COUPLED_WRITER_TAIL_V1_RESULT.json) passed in
 2.68 seconds: bit-exact native FP32 replay on two synthetic contexts, and local

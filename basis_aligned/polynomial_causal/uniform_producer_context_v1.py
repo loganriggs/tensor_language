@@ -29,9 +29,9 @@ class UniformProducer(Contexts):
                                           weights_only=True)['direction'].float()
 
     @torch.no_grad()
-    def sample(self, seed, batch=16, suffix_fp64=False, native_site=False):
+    def sample(self, seed, batch=16, suffix_fp64=False, native_site=False, sequence_length=5):
         generator = torch.Generator().manual_seed(seed)
-        ids = torch.randint(50304, (batch, 5), generator=generator)
+        ids = torch.randint(50304, (batch, sequence_length), generator=generator)
         initial = F.rms_norm(self.sd['transformer.wte.weight'][ids].float(), (1152,))
         x, inherited = initial, None
         ports = {}
@@ -60,7 +60,7 @@ class UniformProducer(Contexts):
             raw17 = [self.tail64(c.double(), initial.double(), inherited.double()) for c in corners]
         else:
             raw17 = [self.tail(c, initial, inherited).double() for c in corners]
-        first = inherited.reshape(batch, 5, 9, 128)[:, :, 2].double()
+        first = inherited.reshape(batch, sequence_length, 9, 128)[:, :, 2].double()
         attention_ports = [
             from_projections(project(r, self.maps), r.square().mean(-1)+EPS, first, self.mixture)
             for r in raw17]
