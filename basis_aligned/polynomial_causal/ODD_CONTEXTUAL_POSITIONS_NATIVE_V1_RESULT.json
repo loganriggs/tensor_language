@@ -1,0 +1,107 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "pred_d": false,
+  "pred_e": true,
+  "anchors": {
+    "native": 0.0,
+    "all_odd": 0.0
+  },
+  "max_source_recomposition_error": 1.531058738283965e-16,
+  "families": [
+    {
+      "family": 0,
+      "cue_errors_vs_all": {
+        "pre": 1.005812748042734,
+        "city": 0.9202307039225531,
+        "post": 0.08732026539381507,
+        "self": 0.9991928997399236,
+        "after": 0.08456860362379777
+      },
+      "cue_norms": [
+        0.005386382742322959,
+        0.06881560005361301,
+        0.6947822069855751,
+        0.016335038367356634,
+        0.6954966253272744,
+        0.7512893816540276
+      ],
+      "control_norms": [
+        0.01368346202089484,
+        0.01038712890100486,
+        0.12275273584005118,
+        0.009081130770898671,
+        0.12245271586779148,
+        0.13339004286407738
+      ],
+      "after_target_rms": 0.2007725819265891,
+      "after_control_rms": 0.024995555957841514,
+      "after_control_to_target_rms": 0.12449685967071411,
+      "after_pass": true,
+      "relay_pass": true,
+      "self_pass": false,
+      "selectivity_pass": true
+    },
+    {
+      "family": 1,
+      "cue_errors_vs_all": {
+        "pre": 1.0036989116941313,
+        "city": 0.9646133549547647,
+        "post": 0.03182204881048556,
+        "self": 1.0057724693838572,
+        "after": 0.037784122216666716
+      },
+      "cue_norms": [
+        0.0059400493668842185,
+        0.06106170133678862,
+        1.485369746941128,
+        0.01670950398484946,
+        1.4763180772379068,
+        1.5263915394347438
+      ],
+      "control_norms": [
+        0.005301259173533251,
+        0.012173021000740624,
+        0.15321940264320202,
+        0.014289762997509468,
+        0.1557194358002202,
+        0.1635761337100209
+      ],
+      "after_target_rms": 0.4261763196514081,
+      "after_control_rms": 0.031786096728718585,
+      "after_control_to_target_rms": 0.07458438036800846,
+      "after_pass": true,
+      "relay_pass": true,
+      "self_pass": false,
+      "selectivity_pass": true
+    }
+  ],
+  "body_forwards": 336,
+  "seconds": 4.918644700002915,
+  "artifact_sha256": "95ca16ad485cb87e8f8177826e9ffa907adbf09ad3d743a9ee11aad4adb4e80f",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_odd_contextual_positions_native_v1.py": "006394acf58afafc8e9b22857d8f20c3eedd8342b7956007bf0a9165c61a335e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_CONTEXTUAL_POSITIONS_NATIVE_V1_PREREGISTRATION.md": "3b531213ba11e0de560a1d3b7a5cd7fa76ba1ee241c8850353f45b22ce46d0a5",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_CONTEXTUAL_POSITIONS_V1_CPU_CONTROL.json": "ba01b7d11e3e47bf0f2c10bdbcc16cfc3d339038bf3fe9143870dd8180be2df1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_contextual_positions_v1.py": "cd509290cd7a6b9a724e8708a6af61d6eb197533704323d4f32413e1064498d4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_source_positions_v1.py": "b67386c1a306fcbcbe300bf9e9114601b43635b20880d80d6167cc7d5ecbc1ac",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SRO_ARTICLE_CORRECTION_V1_ROWS.json": "0929814fdfcc12be721848152c50337d6de90dac7c3d4be7e76f82b4177252d3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SRO_ARTICLE_CORRECTION_V1_ARTIFACT.pt": "ed034b912e2cfdd43d251630d109a08112a327aa6d26a40e5c8e4348edcb1227",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/EVEN_VALUE_SHARED_GRAPH_PACKED_V1_PROGRAM.pt": "cbe8a94a2057ca3c53614d3bb70a5e8c0cb660e6e6cb57b531bf6dc0a2ccdd7f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/even_value_shared_graph_v1.py": "547e8b3202d191e1d51d30e1457cc3c445560157fc7bb9b39087c629d0a9908e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_cue_row_check_v1.py": "9d58e3dc5426f94f3bf2a142e5cb45dbadbfed2f743bee262221482bd3db76ef",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_city_article_check_v1.py": "ead978a7fbdfdf83dbff241597c17720c2c7fb8983b4651134684db815d77a40",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/inherited_source_positions_v1.py": "ed8559aa81cbb14b95d30f6617a2a05a0e7bf25c33619ab4f86d1dce457afcf2"
+  },
+  "arm_order": [
+    "native",
+    "remove_pre",
+    "remove_city",
+    "remove_post",
+    "remove_self",
+    "remove_after",
+    "remove_all_odd"
+  ],
+  "scope": "Token-defined pre/city/post/self localization of O on corrected rows. Full native context and suffix remain; removal at source read does not erase upstream descendants. No semantic identification, OOD, static compression or quantization claim."
+}

@@ -1,0 +1,55 @@
+{
+  "utc": "2026-09-14T17:28:11.480275+00:00",
+  "pred_a": true,
+  "source_partition_errors": [
+    1.4686459303901361e-16,
+    1.4674931309976917e-16,
+    1.5043964956475351e-16,
+    1.4771272785205392e-16
+  ],
+  "post_partition_errors": [
+    5.466821221966721e-17,
+    4.4619431386566074e-17,
+    4.078064216493666e-17,
+    3.965125058098168e-17
+  ],
+  "representative_counts": [
+    {
+      "pre": 2,
+      "city": 1,
+      "framing": 11,
+      "clause": 3,
+      "self": 1
+    },
+    {
+      "pre": 2,
+      "city": 1,
+      "framing": 11,
+      "clause": 3,
+      "self": 1
+    },
+    {
+      "pre": 1,
+      "city": 1,
+      "framing": 13,
+      "clause": 3,
+      "self": 1
+    },
+    {
+      "pre": 1,
+      "city": 1,
+      "framing": 13,
+      "clause": 3,
+      "self": 1
+    }
+  ],
+  "rows": 48,
+  "quote_id": 366,
+  "quote_positions": [
+    13,
+    14
+  ],
+  "additional_model_scalars": 0,
+  "supersedes_control_only": "ODD_SEMANTIC_POSITIONS_V1_CPU_CONTROL.json required bitwise-zero post addition instead of the registered 1e-10 numerical bar; original failed receipt preserved.",
+  "scope": "Frozen token-semantic mask control; exact O source partition on synthetic normalized states. Quote ID and text templates choose boundaries without model outcomes."
+}

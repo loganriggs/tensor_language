@@ -261,3 +261,29 @@ but direct changed-city sources recover only3.5–8.0% of its effect: city-only
 relative errors are92.02/96.46%. Exact source recomposition passes. The branch
 therefore carries cue information mainly through contextual source states on
 this panel; its specific source positions and semantic operation remain open.
+
+[The follow-up](../../polynomial_causal/ODD_CONTEXTUAL_POSITIONS_NATIVE_V1_RESULT.json)
+localizes that effect to post-city nonfinal sources: cue errors versus all-O are
+8.73/3.18%, compared with99.92/100.58% for the final self-source and >100% for
+pre-city sources. Selective controls pass. This supports a contextual relay at
+head9.8 on the corrected panel, with instruction versus quoted-clause carriers
+still unresolved.
+
+[Framing versus clause removal](../../polynomial_causal/ODD_SEMANTIC_POSITIONS_NATIVE_V1_RESULT.json)
+passes the framing prediction: framing errors are30.68/8.09% versus78.65/95.85%
+for copied-clause tokens, with selective control ratios. O therefore reads the
+regional cue after it has propagated into post-city prompt framing on these two
+templates. Fresh templates and finer within-framing localization remain required
+before identification.
+
+[Fresh authored templates](../../polynomial_causal/ODD_FRAMING_FRESH_V1_RESULT.json)
+confirm native capability, O materiality and framing-over-clause localization,
+but only one of two templates passes the work/jobs selectivity control (.863
+versus.298). The computational read transfers; robust selective identification
+does not yet. Control-family sensitivity is being tested explicitly.
+
+The [frozen multi-control diagnostic](../../polynomial_causal/ODD_FRAMING_CONTROL_FAMILIES_V1_RESULT.json)
+passes all four unrelated control pairs in both templates. Median control/target
+ratios are.226 and.101; the maximum is.374. The prior work/jobs failure remains
+part of the record and appears readout-family sensitive rather than broad
+collateral. Within-framing source roles are still unresolved.

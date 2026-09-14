@@ -503,3 +503,49 @@ mainly through contextual source states, not a direct read at the changed city
 token. This does not identify which contextual positions carry it or establish
 a semantic label. The next split separates before-city, post-city and self
 sources without fitting.
+
+[The contextual-position screen](ODD_CONTEXTUAL_POSITIONS_NATIVE_V1_RESULT.json)
+passes the exact instrument, after-city coverage, relay and selectivity gates;
+the opposing final-self hypothesis fails. Post-city nonfinal sources reproduce
+the all-O cue effect with8.73%/3.18% error. Adding self changes this only to
+8.46%/3.78%. Self-only errors are99.92%/100.58%, and pre-city errors exceed100%.
+After-city control/target RMS ratios are.124/.075. The native computation thus
+relays the material selective O cue through later context-token states, rather
+than consolidating it in the final token's self-source. These are source reads
+inside head9.8; upstream descendants remain native. The next frozen semantic
+split separates instruction/framing tokens from the copied quoted clause.
+
+[The semantic-position screen](ODD_SEMANTIC_POSITIONS_NATIVE_V1_RESULT.json)
+passes the framing-relay and selectivity predictions; the opposing clause-relay
+prediction fails. Framing-only removal differs from all-O by30.68%/8.09%, while
+the three copied-clause sources miss by78.65%/95.85%. Framing control/target RMS
+ratios are.117/.072. Native, post, self and all-O arms replay the preceding
+experiment exactly, and source recomposition is<=1.63e-16. The supported screen
+description is: O reads regional information carried in the post-city prompt
+framing before the quoted clause. The exact token or transformation within that
+framing is not yet identified, and both templates were already known. A new
+template/city panel is needed for held-out prediction.
+
+The first semantic-mask CPU receipt is retained as a control-code failure: it
+required bitwise-zero post addition despite the board's1e-10 bar. Its measured
+error was<=5.47e-17. V2 applies the frozen numerical tolerance and passes; no
+native prediction or boundary changed.
+
+[The fresh panel](ODD_FRAMING_FRESH_V1_RESULT.json) uses two newly authored
+templates, Cambridge/Phoenix and Leeds/Chicago, and six endpoints without model
+selection. Native capability is12/12 in both templates; all-O remains material
+at11.73%/14.59% of full-head cue norm. Framing transfer passes at29.99%/24.18%
+error while copied-clause errors are83.89%/83.52%. Selectivity is not robust:
+the radio template passes with a.298 work/jobs control ratio, but the local-history
+template fails at.863. This is held-out evidence for the framing computation,
+not identification. A frozen multi-control test will distinguish broad collateral
+from semantic collision with the work/jobs control.
+
+[That diagnostic](ODD_FRAMING_CONTROL_FAMILIES_V1_RESULT.json) passes all frozen
+gates. Across cat/dog, red/blue, Monday/Tuesday and apple/orange, every ratio is
+below.5: the local-history median is.226 (maximum.374) and the radio median is
+.101 (maximum.191). Target and work/jobs arms replay bitwise. This makes broad
+readout collateral less likely and identifies the old local-history work/jobs
+failure as control-family sensitivity, while preserving that failure. It still
+does not identify a unique semantic unit. The next split separates the
+post-city descriptive continuation from the explicit reproduction instruction.
