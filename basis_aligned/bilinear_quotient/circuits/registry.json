@@ -1555,18 +1555,18 @@
    "n_members": null,
    "headline": "",
    "cert": 0,
-   "record_sha256": "523603bf10256bd0eb4e1f05b6ebe2cadc5361a66e0d26c7f285716d535b3673",
+   "record_sha256": "b8ee90a50c8a705a82abe0b1a99ac83c152b282af151ca8a68857bdce1fd4952",
    "kind": "behavior_circuit",
    "identity_instance": null,
-   "active_claim_id": "narrative_tense_at_final_position.v10",
+   "active_claim_id": "narrative_tense_at_final_position.v11",
    "claim_status": "weights_translated",
    "causal_variable_id": "narrative_tense_at_final_position",
    "interchange_family_count": 2,
    "invariance_family_count": 2,
-   "negative_event_count": 9,
-   "active_negative_event_count": 8,
-   "latest_blocker": "narrative_tense.answer_anchor_native_capability.v1.complete.null",
-   "latest_active_event": "narrative_tense.l11h3_combined_carrier.v1.held",
+   "negative_event_count": 12,
+   "active_negative_event_count": 11,
+   "latest_blocker": "narrative_tense.l11h3_suffix_compression.v3.complete.null",
+   "latest_active_event": "narrative_tense.l11h3_suffix_compression.v3.complete.null",
    "active_event_ids": [
     "narrative_tense.past_present.v1.invalid_capability",
     "narrative_tense.past_present.v2.held_localization",
@@ -1580,7 +1580,10 @@
     "narrative_tense.newlex_a1_a2_native_capability.v1.complete.null",
     "narrative_tense.answer_anchor_native_capability.v1.complete.null",
     "narrative_tense.combined_native_capability.v1.held",
-    "narrative_tense.l11h3_combined_carrier.v1.held"
+    "narrative_tense.l11h3_combined_carrier.v1.held",
+    "narrative_tense.l11h3_suffix_compression.v1.invalid",
+    "narrative_tense.l11h3_suffix_compression.v2.invalid",
+    "narrative_tense.l11h3_suffix_compression.v3.complete.null"
    ],
    "held_test_types": [
     "capability",
@@ -1590,6 +1593,7 @@
    ],
    "active_blocking_test_types": [
     "capability",
+    "compiled_equivalence",
     "composition"
    ],
    "design_keys": [
@@ -1603,8 +1607,10 @@
     "88c0ec46d3cbaad179a211af5c4c85f8c972fe45524e471e34e24fcf0ad53272",
     "91f98cb21c3000b49f6360bc83403b141b6469d558711e4fb49eec4801ff6e11",
     "a2a47d7c3f5f238cd16383e6788a3bf1312092286f7726662e866d1ef28825c3",
+    "b812edfbbbd7e90e9bb2653cca9a9fbb990fad6275493db454b3b0b6bc8b17d6",
     "c940e90fae49ee72a0e134e8fec3eb9a7c0975eac99b62d2f7b97117418d3e19",
-    "eab8b67e5fbfe56facc8c3d603abdfbce325512370f4d2100492a2c46a2c31c5"
+    "eab8b67e5fbfe56facc8c3d603abdfbce325512370f4d2100492a2c46a2c31c5",
+    "f1a10275294f98f6493198cf5d4122ba1acf4d80bcd1e1b768f501805be09793"
    ]
   },
   "task.numbered_list.index_successor": {

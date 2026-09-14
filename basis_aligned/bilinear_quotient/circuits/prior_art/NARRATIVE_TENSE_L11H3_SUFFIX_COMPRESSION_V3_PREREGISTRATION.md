@@ -1,0 +1,5 @@
+# Narrative tense L11H3 suffix compression V3 same-batch correction
+
+V2 remained invalid at the identical `5.1975250244140625e-05` reinstall error. The reinstall mask was active, but V2 compared its 224-row intervention batch against a separately executed 32-row native batch. The parent exact evaluator avoids this batch-shape numerical drift by including an expanded-native row in the same intervention batch and comparing native reinstall against that row.
+
+V3 makes only that instrument correction: add an expanded-native arm with its replacement mask false, compute every causal delta against the matching expanded-native logits, and compare native reinstall within the same batch. The authority, license, source partitions, factor replacements, bars, predictions, and terminal logic remain unchanged. Maximum model forwards remain six; the explicit accounting rises to 768 endpoint-arm evaluations. V1 and V2 remain immutable invalid results, and neither contributes scientific suffix evidence.

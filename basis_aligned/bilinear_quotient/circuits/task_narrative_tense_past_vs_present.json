@@ -1565,6 +1565,169 @@
    ],
    "translation_ids": [],
    "next_missing": "compress the licensed post-last-change L11H3 effective-value carrier by exact self-relative suffix positions and test their interaction; do not repeat whole-R carrier localization"
+  },
+  {
+   "claim_id": "narrative_tense_at_final_position.v11",
+   "revision": 11,
+   "status": "weights_translated",
+   "supersedes": "narrative_tense_at_final_position.v10",
+   "causal_variable": {
+    "id": "narrative_tense_at_final_position",
+    "domain": "past or present narrative frame across direct narration and relative-clause constructions",
+    "read": "earlier lexical and inflectional tense cues",
+    "operation": "carry the narrative time frame to the copular continuation",
+    "write": "signed evidence for the one-token continuation ' was' versus ' is'",
+    "endpoint": "donor-answer versus recipient-answer logit margin and binary-contrast CE under exact donor interchange"
+   },
+   "alternative_explanations": [
+    "construction-specific lexical cue copying",
+    "a generic copula or output-token write shared with agreement",
+    "a broad attention-block effect not specific to head 3"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "a1_direct_narration",
+     "role": "interchange",
+     "changes": [
+      "past versus present narrative frame",
+      "correct answer was versus is"
+     ],
+     "holds_fixed": [
+      "direct-narration construction",
+      "final prompt token",
+      "answer position"
+     ],
+     "builder_artifact_id": "narrative_tense_authority",
+     "control_ids": [
+      "A2 independent construction",
+      "P same-state rewrite",
+      "C same-answer rewrite"
+     ],
+     "split_plan_id": "narrative_tense_fit_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "a2_relative_clause",
+     "role": "interchange",
+     "changes": [
+      "past versus present narrative frame",
+      "correct answer was versus is"
+     ],
+     "holds_fixed": [
+      "relative-clause construction",
+      "final prompt token",
+      "answer position"
+     ],
+     "builder_artifact_id": "narrative_tense_authority",
+     "control_ids": [
+      "A1 independent construction",
+      "P same-state rewrite",
+      "C same-answer rewrite"
+     ],
+     "split_plan_id": "narrative_tense_fit_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "p_surface_rewrite",
+     "role": "invariance",
+     "changes": [
+      "surface wording within a fixed narrative tense"
+     ],
+     "holds_fixed": [
+      "narrative tense",
+      "correct answer",
+      "answer position"
+     ],
+     "builder_artifact_id": "narrative_tense_authority",
+     "control_ids": [
+      "A1 opposite-tense transfer",
+      "A2 opposite-tense transfer"
+     ],
+     "split_plan_id": "narrative_tense_fit_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "c_same_answer_rewrite",
+     "role": "invariance",
+     "changes": [
+      "unrelated past-description wording"
+     ],
+     "holds_fixed": [
+      "correct answer was",
+      "answer position",
+      "final prompt token"
+     ],
+     "builder_artifact_id": "narrative_tense_authority",
+     "control_ids": [
+      "A1 opposite-tense transfer",
+      "A2 opposite-tense transfer"
+     ],
+     "split_plan_id": "narrative_tense_fit_v1",
+     "status": "validated"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.final_position.after_block18",
+     "tensor_path": "final-position residual after block 18",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "replace the complete residual state with the matched natural donor state",
+     "ceiling_event_ids": [
+      "narrative_tense.past_present.v2.held_localization"
+     ]
+    },
+    {
+     "site_id": "attention.block11.output.final_position",
+     "tensor_path": "attention block 11 output at the final position",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "replace the complete attention-block output with the matched natural donor output",
+     "ceiling_event_ids": [
+      "narrative_tense.attn11_head3_complement.v1.held"
+     ]
+    },
+    {
+     "site_id": "attention.block11.head3.pre_output_projection.final_position",
+     "tensor_path": "head 3's slice before attention block 11 output projection at the final position",
+     "shape": [
+      "batch",
+      128
+     ],
+     "intervention": "replace head 3 alone, with the other eight heads as the exact factorial complement",
+     "ceiling_event_ids": [
+      "narrative_tense.attn11_head3_complement.v1.held"
+     ]
+    }
+   ],
+   "split_plan_ids": [
+    "narrative_tense_fit_v1"
+   ],
+   "evidence_event_ids": [
+    "narrative_tense.past_present.v1.invalid_capability",
+    "narrative_tense.past_present.v2.held_localization",
+    "narrative_tense.short_cue.v1.invalid_capability",
+    "narrative_tense.short_cue.v2.invalid_capability",
+    "narrative_tense.attn11_head3_complement.v1.held",
+    "narrative_tense.attn11_head3_source_route_cross_task.v1.invalid",
+    "narrative_tense.attn11_head3_fresh_unchanged_carrier.v1.invalid_capability",
+    "narrative_tense.a1_template_capability_select_holdout.v1.held",
+    "narrative_tense.attn11_head3_newlex_carrier.v1.invalid_capability",
+    "narrative_tense.a2_c_native_capability_select_holdout.v1.complete.null",
+    "narrative_tense.newlex_a1_a2_native_capability.v1.complete.null",
+    "narrative_tense.answer_anchor_native_capability.v1.complete.null",
+    "narrative_tense.combined_native_capability.v1.held",
+    "narrative_tense.l11h3_combined_carrier.v1.held",
+    "narrative_tense.l11h3_suffix_compression.v1.invalid",
+    "narrative_tense.l11h3_suffix_compression.v2.invalid",
+    "narrative_tense.l11h3_suffix_compression.v3.complete.null"
+   ],
+   "translation_ids": [],
+   "next_missing": "six-token post-change value carrier is distributed: common role/of/the suffix is insufficient and construction-specific early3 is material; move to an independently defined residual-basis compression or another circuit, not more source-position slicing"
   }
  ],
  "split_plans": [
@@ -2466,6 +2629,197 @@
    "sections": [],
    "design_key": "91f98cb21c3000b49f6360bc83403b141b6469d558711e4fb49eec4801ff6e11",
    "execution_key": "6fc618d7ed553695d4ccab0ff64696e4565ea9897dc9a9688e79cb552cc27c99"
+  },
+  {
+   "event_id": "narrative_tense.l11h3_suffix_compression.v1.invalid",
+   "test_type": "compiled_equivalence",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "site_id": "attention.block11.head3.pre_output_projection.final_position",
+   "result_artifact_id": "suffix_compression_v1r",
+   "prereg_artifact_id": "suffix_compression_v1p",
+   "metrics": [
+    {
+     "name": "native_reinstall_max_error",
+     "estimate": 5.1975250244140625e-05,
+     "ci95": null,
+     "bar": "<=5e-5"
+    }
+   ],
+   "supersedes_event_id": null,
+   "notes": {
+    "reason": "generic replacement path and cross-batch native reference; no suffix evidence"
+   },
+   "claim_id": "narrative_tense_at_final_position.v11",
+   "family_ids": [
+    "a1_direct_narration",
+    "a2_relative_clause",
+    "p_surface_rewrite",
+    "c_same_answer_rewrite"
+   ],
+   "evaluation_role": "frozen FIT screen",
+   "input_artifact_ids": [
+    "combined_authority_v1",
+    "combined_license_v1"
+   ],
+   "split_plan_id": "narrative_tense_fit_v1",
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "replicates_event_id": null,
+   "sections": [],
+   "design_key": "b812edfbbbd7e90e9bb2653cca9a9fbb990fad6275493db454b3b0b6bc8b17d6",
+   "execution_key": "50013aedead6302ffcd9874316c4d21faae5273d82b67d6415b87c5b2b7b0bbd"
+  },
+  {
+   "event_id": "narrative_tense.l11h3_suffix_compression.v2.invalid",
+   "test_type": "compiled_equivalence",
+   "stage": "invalid",
+   "verdict": "invalid",
+   "failure_kind": "invalid_instrument",
+   "site_id": "attention.block11.head3.pre_output_projection.final_position",
+   "result_artifact_id": "suffix_compression_v2r",
+   "prereg_artifact_id": "suffix_compression_v2p",
+   "metrics": [
+    {
+     "name": "native_reinstall_max_error",
+     "estimate": 5.1975250244140625e-05,
+     "ci95": null,
+     "bar": "<=5e-5"
+    }
+   ],
+   "supersedes_event_id": null,
+   "notes": {
+    "reason": "native mask corrected but reference remained cross-batch; no suffix evidence"
+   },
+   "claim_id": "narrative_tense_at_final_position.v11",
+   "family_ids": [
+    "a1_direct_narration",
+    "a2_relative_clause",
+    "p_surface_rewrite",
+    "c_same_answer_rewrite"
+   ],
+   "evaluation_role": "frozen FIT screen",
+   "input_artifact_ids": [
+    "combined_authority_v1",
+    "combined_license_v1"
+   ],
+   "split_plan_id": "narrative_tense_fit_v1",
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "replicates_event_id": null,
+   "sections": [],
+   "design_key": "b812edfbbbd7e90e9bb2653cca9a9fbb990fad6275493db454b3b0b6bc8b17d6",
+   "execution_key": "f3255c257a60b7cc6803fa436afbbe049829d460b1e960e32b4bb6ec858b0b57"
+  },
+  {
+   "event_id": "narrative_tense.l11h3_suffix_compression.v3.complete.null",
+   "test_type": "compiled_equivalence",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "site_id": "attention.block11.head3.pre_output_projection.final_position",
+   "result_artifact_id": "suffix_compression_v3r",
+   "prereg_artifact_id": "suffix_compression_v3p",
+   "metrics": [
+    {
+     "name": "native_reinstall_max_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=5e-5"
+    },
+    {
+     "name": "shared_suffix_margin_fraction_range",
+     "estimate": [
+      0.603,
+      0.698
+     ],
+     "ci95": null,
+     "bar": ">=.85 every cell"
+    },
+    {
+     "name": "shared_suffix_CE_fraction_range",
+     "estimate": [
+      0.626,
+      0.737
+     ],
+     "ci95": null,
+     "bar": ">=.85 every cell"
+    },
+    {
+     "name": "early3_margin_fraction_range",
+     "estimate": [
+      0.315,
+      0.378
+     ],
+     "ci95": null,
+     "bar": "descriptive"
+    },
+    {
+     "name": "early3_CE_fraction_range",
+     "estimate": [
+      0.365,
+      0.408
+     ],
+     "ci95": null,
+     "bar": "descriptive"
+    },
+    {
+     "name": "role_fraction_of_suffix_range",
+     "estimate": [
+      0.791,
+      0.882
+     ],
+     "ci95": null,
+     "bar": ">=.70 every cell"
+    },
+    {
+     "name": "of_the_fraction_of_suffix_range",
+     "estimate": [
+      0.157,
+      0.235
+     ],
+     "ci95": null,
+     "bar": ">=.70 every cell"
+    },
+    {
+     "name": "maximum_absolute_role_by_of_the_interaction_fraction",
+     "estimate": 0.039,
+     "ci95": null,
+     "bar": ">=.20 every cell"
+    },
+    {
+     "name": "P_C_selectivity",
+     "estimate": 1,
+     "ci95": null,
+     "bar": "all candidate arms pass"
+    }
+   ],
+   "supersedes_event_id": null,
+   "notes": {
+    "terminal": "shared_suffix_compression_null",
+    "interpretation": "post-change carrier is distributed across all six answer-clause prefix positions; role is strongest within the common suffix but insufficient for the registered carrier compression",
+    "exact_head_additivity_max_error": 3.0517578125e-05
+   },
+   "claim_id": "narrative_tense_at_final_position.v11",
+   "family_ids": [
+    "a1_direct_narration",
+    "a2_relative_clause",
+    "p_surface_rewrite",
+    "c_same_answer_rewrite"
+   ],
+   "evaluation_role": "frozen FIT screen",
+   "input_artifact_ids": [
+    "combined_authority_v1",
+    "combined_license_v1"
+   ],
+   "split_plan_id": "narrative_tense_fit_v1",
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "replicates_event_id": null,
+   "sections": [],
+   "design_key": "f1a10275294f98f6493198cf5d4122ba1acf4d80bcd1e1b768f501805be09793",
+   "execution_key": "c771deb614d654f1499f4cf7c5e06d9362dbe037d2dc8230e403f3d872c55212"
   }
  ],
  "translations": [],
@@ -2659,6 +3013,42 @@
   "combined_carrier_result_v1": {
    "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_l11h3_combined_carrier_v1_result.json",
    "sha256": "9ffef5a3f87eed13ed40649e7748d6fabd6f0043cc732bf94cf779862b0f6e2b",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "suffix_compression_v1p": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/NARRATIVE_TENSE_L11H3_SUFFIX_COMPRESSION_V1_PREREGISTRATION.md",
+   "sha256": "2cc91706cf33e087423905cf5c39c68a81ded58b23a06b6aaac352a23f148067",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "suffix_compression_v1r": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_l11h3_suffix_compression_v1_result.json",
+   "sha256": "4078e6131e371796e6e32275544875a80ea28e1ce120f5ed760321c695b49894",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "suffix_compression_v2p": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/NARRATIVE_TENSE_L11H3_SUFFIX_COMPRESSION_V2_PREREGISTRATION.md",
+   "sha256": "25ad229b15ec2941b7b51da6d5f22ef36a46efdb44f27ef0ac7576406f1c76fb",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "suffix_compression_v2r": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_l11h3_suffix_compression_v2_result.json",
+   "sha256": "2989bf61708105610f908986cf20ad26a0212f7f3f8e89bfbf9de3bf9e923242",
+   "kind": "screen_result",
+   "status": "frozen"
+  },
+  "suffix_compression_v3p": {
+   "path": "basis_aligned/bilinear_quotient/circuits/prior_art/NARRATIVE_TENSE_L11H3_SUFFIX_COMPRESSION_V3_PREREGISTRATION.md",
+   "sha256": "381fb13cc87f81e6aa5efa6e46ef71995eba50cf16e1cf5dff6001efab0f5e32",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "suffix_compression_v3r": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/narrative_tense_l11h3_suffix_compression_v3_result.json",
+   "sha256": "0cc9935194488f6e7a84a7ab326637493cecb060356582672eadf90ab772c53b",
    "kind": "screen_result",
    "status": "frozen"
   }
