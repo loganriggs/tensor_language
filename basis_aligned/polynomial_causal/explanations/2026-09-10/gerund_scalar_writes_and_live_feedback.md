@@ -830,3 +830,50 @@ Evidence: [preregistration](../../GERUND_SCALAR_NETWORK_V1_PREREGISTRATION.md),
 [native result](../../GERUND_SCALAR_NETWORK_V1_RESULT.json),
 [paired audit and counterexample](../../GERUND_SCALAR_NETWORK_AUDIT_V1_RESULT.json),
 and [MLP17 dossier](../MLP17_CURRENT_UNDERSTANDING.md).
+
+## Cumulative depth band supplies the gate and norm, but is not selective
+
+**14 September, 20:04 UTC.** A prior-art audit first closed the already tested
+all-36 singleton scan, attention0 first-value broadcast, independent
+lexical/form commands, and MLP17-only versus carried-only split. The next test
+changed the intervention grain to fixed contiguous bands of complete native
+module outputs at the semantic position. It retained each recipient row's
+actual answer-minus-foil context reader and evaluated both its MLP17 input gate
+and the final pre-RMS second moment.
+
+The registered band from blocks7 through16 plus attention17 passes on both
+target frames:
+
+| Measurement | A1 | A2 |
+|---|---:|---:|
+| Gate transfer | .9751 | 1.0030 |
+| Gate relative error | .0412 | .0542 |
+| Norm-moment transfer | .9460 | 1.0548 |
+| Norm-moment relative error | .0795 | .1081 |
+
+The cumulative gate is weak through block7 (.4047/.2181), rises through
+block11 (.8445/.7735), and reaches .9294/.9304 through block13. Thus no single
+module was sufficient, but a distributed interaction established across the
+middle stack supplies the already causal MLP17 gate and normalization state.
+The fixed band uses21 full 1,152-vector output ports versus35 for the complete
+causal prefix, a40% conditional interface reduction.
+
+The agreement control rejects gerund specificity. The band reproduces that
+control's gate too (transfer1.0012, error.0578) and causes mean absolute
+correct-token CE change .7465 nats, versus the registered .15 limit. The
+supported object is therefore a shared grammatical-state band feeding MLP17,
+not an independently selective gerund producer. The native model, donor-state
+generator, all other token positions, MLP17 and the suffix remain required;
+the port count does not establish static weight or runtime compression.
+
+V1's native states, norm measurements and CE measurements are retained, but
+its gate metrics are invalid: the implementation used `tau.roll()` and thereby
+rolled the row-specific reader along with the donor state. The preregistration
+had fixed the recipient reader. V2 applies that intended reader to the immutable
+V1 states, makes zero new native forwards, and restores exact transfer1/error0
+for the complete upstream prefix. A–D pass and E fails under the original bars.
+
+Evidence: [preregistration](../../GERUND_DEPTH_INTERVAL_V1_PREREGISTRATION.md),
+[V1 native receipt](../../GERUND_DEPTH_INTERVAL_V1_RESULT.json),
+[fixed-reader amendment](../../GERUND_DEPTH_INTERVAL_V2_AMENDMENT.md), and
+[corrected result](../../GERUND_DEPTH_INTERVAL_V2_RESULT.json).

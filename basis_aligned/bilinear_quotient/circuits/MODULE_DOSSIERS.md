@@ -207,6 +207,28 @@ lexical/form operations and their producers, not independent-axis relabeling.
 ### MLP17 terminal complementary sources, 18:50 UTC
 V2 instrument held; MLP-only complement (.710–.833 error) and carried-only (.342–.373) both fail .20 lexical-drift sufficiency. Actual last-MLP complement clamp matches the physical readout counterfactual. V1 precision-check failure preserved, shared V1/V2 states bitwise equal. See polynomial_causal/explanations/2026-09-10/terminal_complement_sources.md and TERMINAL_COMPLEMENT_SOURCE_V2_RESULT.json. No independent producer or circuit promotion.
 
+### Cumulative depth-band producer, 14 September 20:04 UTC
+
+The fixed blocks7–16 plus attention17 band reproduces the actual-token MLP17
+context gate on A1/A2 with transfer .9751/1.0030 and relative error
+.0412/.0542. Its final pre-RMS second-moment transfer is .9460/1.0548 with
+error .0795/.1081. The cumulative target-gate transfer rises from .4047/.2181
+through block7 to .8445/.7735 through block11 and .9294/.9304 through block13.
+This passes the registered distributed-band, onset and norm-state tests while
+using21 complete output-vector ports rather than35 for the full causal prefix.
+
+Selectivity fails: the same band reproduces the G agreement gate but changes
+correct-token CE by mean absolute .7465 nats, above .15. Treat the band as a
+conditional shared grammatical-state interface, not a gerund-specific
+producer. Native weights, donor generation, other positions, MLP17 and suffix
+remain external, so the40% port reduction is not static model compression.
+V1's gate verdict is withdrawn because it rolled the row-specific reader with
+the state; V2 recomputes the preregistered fixed-recipient-reader metric from
+the immutable native states with zero new forwards. Primary receipts:
+`GERUND_DEPTH_INTERVAL_V1_RESULT.json`,
+`GERUND_DEPTH_INTERVAL_V2_AMENDMENT.md`, and
+`GERUND_DEPTH_INTERVAL_V2_RESULT.json`.
+
 ## Head9.8 conditional even/odd routing and selective scalar — 14 September, 12:17 UTC
 
 The full-value even-key extension retains both QK factors, 128 current/inherited
