@@ -17,15 +17,16 @@ from regional_cue_row_check_v1 import validate
 P=Path(__file__).resolve().parent
 
 @torch.no_grad()
-def main(program_prefix='INTERACTION_SHARED_WRITE_POLISH_V1', result_prefix='INTERACTION_SHARED_WRITE_REGIONAL_V1'):
+def main(program_prefix='INTERACTION_SHARED_WRITE_POLISH_V1', result_prefix='INTERACTION_SHARED_WRITE_REGIONAL_V1', cache_prefix='COMPOSED_LAST_BLOCK_STATES_V1', rows_prefix=None):
     torch.set_num_threads(2);start=time.perf_counter();model=Contexts();t,ids=model.tensor,model.ids
     target=P/(result_prefix+'_RESULT.json');assert not target.exists()
     sd=torch.load(CHECKPOINT,map_location='cpu',mmap=True,weights_only=True)
     u=sd['lm_head.weight'].double()
     l,r,d=[sd['transformer.h.17.mlp.'+k+'.weight'].double() for k in ['Left','Right','Down']]
     w=torch.load(P/'extracted_circuits/three_corner_head17_interaction_v1/program.pt',weights_only=True)['output_matrix'].double()
-    cache=P/'COMPOSED_LAST_BLOCK_STATES_V1_ARTIFACT.pt'
-    assert digest(cache)==json.loads((P/'COMPOSED_LAST_BLOCK_STATES_V1_RESULT.json').read_text())['artifact_sha']
+    cache=P/(cache_prefix+'_ARTIFACT.pt')
+    cache_receipt=json.loads((P/(cache_prefix+'_RESULT.json')).read_text())
+    assert cache_receipt['pred_a'] and digest(cache)==cache_receipt['artifact_sha']
     data=torch.load(cache,map_location='cpu',weights_only=True)
     z0=data['linear_parts'][:,3].double();z1=data['linear_parts'][:,2].double();v=z1-z0
     a=torch.linalg.lstsq(w,v.T).solution.T;vp=a@w.T
@@ -36,7 +37,8 @@ def main(program_prefix='INTERACTION_SHARED_WRITE_POLISH_V1', result_prefix='INT
     h=data['states'].double();eps=torch.finfo(torch.float32).eps
     rho=(h.square().mean(-1)+eps).sqrt()
     raw=torch.einsum('nsi,oi->nso',h,u[ids])/rho[:,:,None]
-    rows=json.loads((P/'FIRST_TOKEN_PATH_FRESH_V1_ROWS.json').read_text())['rows'][:24]+json.loads((P/'CROSSFIRST_THREE_GROUP_FRESH_V1_ROWS.json').read_text())['rows']
+    rows=(json.loads((P/(rows_prefix+'_ROWS.json')).read_text())['rows'] if rows_prefix else
+          json.loads((P/'FIRST_TOKEN_PATH_FRESH_V1_ROWS.json').read_text())['rows'][:24]+json.loads((P/'CROSSFIRST_THREE_GROUP_FRESH_V1_ROWS.json').read_text())['rows'])
     row_check=validate(rows)
     lookup={v:k for k,v in enumerate(ids)}
     uk=torch.tensor([lookup[row['uk_id']] for row in rows]);us=torch.tensor([lookup[row['us_id']] for row in rows]);idx=torch.arange(120)
@@ -77,7 +79,8 @@ def main(program_prefix='INTERACTION_SHARED_WRITE_POLISH_V1', result_prefix='INT
         coefficient_error=actual_coefficient_error,execution_error=execution_error,row_check=row_check,
         port_projection_error=port_error,formula_error=formula_error,margin_replay=replay,
         artifact_sha256=digest(path),cache_sha256=digest(cache),seconds=time.perf_counter()-start,
-        scope='Frozen sparse CSR executor,120cachedregionalports, conditionalmixednumerator replacement. Own modeledtermzero reference, native normalizers/background retained; no fitting,freshOOD,fullcircuitextraction orselectivity claim.')
+        cache_prefix=cache_prefix,rows_prefix=rows_prefix,
+        scope='Frozen sparse CSR executor,120cachedregionalports, conditionalmixednumerator replacement. Own modeledtermzero reference, native normalizers/background retained; no fitting,corpusOOD,fullcircuitextraction orselectivity claim. Fresh syntax only when the named rowfile explicitly records it.')
     target.write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps({k:v for k,v in result.items() if not k.endswith('effects')},indent=2))
 

@@ -1,6 +1,38 @@
 # September 14: continuous research restored; latest results and earlier idle gap
 
-## Latest decision — 10:22 UTC / 06:22 EDT
+## Latest decision — 10:38 UTC / 06:38 EDT
+
+The original sparse operator remains the reference. A second, strictly
+weights-only candidate changed which coefficients survive at the same
+1,152,410-value budget. It reduced the output-unfolding spectral error bound
+17.75% while keeping storage about 4.90 MB. This is an absolute-error
+certificate, not a guarantee of better relative task effects.
+
+The [historical native comparison](../../MINIMAX_CACHED_COMPARISON_V1_RESULT.json)
+improved aggregate mixed-effect squared error 35.56%, but worsened one group's
+error 63.47%; the no-regression gate failed. We then froze the candidate and
+generated96new controlled prefixes without score filtering, plus24anchors.
+
+The managed GPU runner completed360native forwards in6.69seconds.
+[Capture checks](../../MINIMAX_FRESH_CACHE_V1_RESULT.json) passed: anchor
+relative discrepancy<=4.36e-7 and maximum margin discrepancy5.72e-6.
+On the96fresh prefixes, both programs passed the basic own-effect<=10%,
+compact-effect<=5%, and material-sign-preservation checks. But the
+[fresh comparison](../../MINIMAX_FRESH_COMPARISON_V1_RESULT.json) failed:
+the new mask's aggregate mixed-effect squared error was **2.55times**
+the original's. It is not adopted.
+
+The [executed score diagnostic](../../MINIMAX_FRESH_SCORE_BOUNDARY_V1_RESULT.json)
+explains why aggregate scores are insufficient: across these same inputs,
+all12-output error improved18.4%, and all6-contrast error improved48.6%,
+while the particular contrast relevant to each prompt worsened155%.
+The program can improve outputs on average while allocating error badly
+across prompt/reader combinations. This is fresh syntax using existing
+endpoints/cities—not FineWeb or corpus-OOD validation, full-body compression,
+or discovered selectivity. The next check examines exact per-contrast
+weights-only error bounds without fitting to these native outcomes.
+
+## Earlier decision — 10:22 UTC / 06:22 EDT
 
 **Do not adopt the fitted operator.** It passed independent synthetic
 replication but failed transfer to the historical native-text circuit cache.
