@@ -39,6 +39,22 @@ module account, not a new functional localization.
 
 Any future attention-5 experiment must cite this dossier and state which unknown it resolves.
 
+### 2026-09-14 — input-dependent mean deviation is not the gross-value head pair
+
+The disjoint-document [head split](../../polynomial_causal/ATTENTION5_MEAN_DEVIATION_HEAD_SPLIT_V2_RESULT.json)
+preserves the earlier fixed-write account while separating its valuable variable
+correction. Replacing attention5 by its fit-set mean costs.12845 nats. Restoring
+only heads5/7's deviations recovers42.51% of that damage, while restoring the
+other seven recovers84.56%; the latter ordering holds in both fixed evaluation
+halves. Singleton recoveries rank heads6,7,3 first (.3510/.3451/.2895), while
+head5 ranks seventh (.0964). Thus the heads carrying most gross attention5 value
+are not the complete source of the input-dependent correction. Registered C/D/E
+fail. Registered A also remains failed because the head-sum tensor check is
+.001953 against a too-tight.001 absolute bar, although all-head restoration
+matches native CE within6.96e-8 and the matched manual/model CE check is exact.
+The frozen6/7/3 candidate must transfer to untouched natural and code corpora
+before any within-head routing/value/source factorization.
+
 ## Saved correlative interface: 26 heads across layers 3–16
 
 10 September update: [weight pullback and input-reader overlap](../../polynomial_causal/explanations/2026-09-10/attention_ov_input_reader_overlap.md). The fixed block projector and complement use `O_P,h=(Oq)q_h^T` and `O_R,h=O_h-O_P,h`, respectively. Their within-head QK1/QK2 routing is identical by construction. At relative rank tolerance1e-6, 19 per-head remainder writers retain all128 coordinates and can read the saved scalar’s full value-input function. Seven single-head blocks retain127 coordinates with partial input overlap. Full-block cross-head cancellations prevent interpreting these per-head overlaps as globally duplicated computation.
