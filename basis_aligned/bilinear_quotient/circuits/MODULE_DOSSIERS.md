@@ -342,6 +342,29 @@ paired direction, but its exact score anchor fails at.01794; this preserves the
 query condition on the earlier claim. The routing-value interaction is needed
 for one template under the registered10% bar.
 
+The city-source value itself is inherited-first dominated. With recipient
+routing fixed, inherited-only errors versus the full value effect are
+15.07%/16.44%; current-only errors are85.89%/84.03%. Both source deltas are live
+and separate behavioral effects compose within.514%. The supported chain is a
+static changed-city token value read by head8.2, a contextual framing write,
+and a head9.8-O current-value read. This is still conditional on two authored
+templates and the native prefix/suffix.
+
+The frozen inherited-city chain transfers to two new templates, two new city
+pairs and six unseen spelling endpoints. Value-only predicts the full city cue
+within2.54%/5.53%, and inherited-only predicts the full cross-layer cue within
+20.65%/23.08%; routing and current alternatives miss by75--107%. Native
+capability passes and all unrelated controls are below.087. This adds held-out
+authored-task prediction, while corpus OOD and independent prefix/suffix
+extraction remain open.
+
+Destination semantics do not define a stable submodule across the four
+constructions. Description/instruction errors versus the full inherited write
+are56.96/43.81%,79.89/20.56%,69.70/30.69%, and55.88/44.61%. Instruction alone
+suffices in two families; the other two are distributed. Effects compose within
+.70% and controls remain below.088. The invariant is instead the exact
+destination scalar times a shared projected inherited-city writer direction.
+
 Current-value provenance is exact on the paired framing sources: current-only
 and full-value swaps are behaviorally identical, while inherited-first swap is
 zero. The registered both-arms-live gate fails and remains visible. Architecture

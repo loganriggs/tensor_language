@@ -1,0 +1,50 @@
+{
+  "utc": "2026-09-14T18:36:22.408242+00:00",
+  "pred_a": true,
+  "relative_errors": [
+    4.795269072841577e-16,
+    4.703521565117913e-16,
+    4.869201311317564e-16
+  ],
+  "prices": [
+    {
+      "tokens": 18,
+      "dense_interface_scalars": 20736,
+      "rankone_interface_scalars": 1170,
+      "interface_fraction_saved": 0.9435763888888888,
+      "direct_projection_multiplies": 2654208,
+      "rankone_projection_and_scale_multiplies": 168192,
+      "multiply_fraction_saved": 0.9366319444444444
+    },
+    {
+      "tokens": 19,
+      "dense_interface_scalars": 21888,
+      "rankone_interface_scalars": 1171,
+      "interface_fraction_saved": 0.9465003654970761,
+      "direct_projection_multiplies": 2801664,
+      "rankone_projection_and_scale_multiplies": 169344,
+      "multiply_fraction_saved": 0.9395559210526316
+    },
+    {
+      "tokens": 20,
+      "dense_interface_scalars": 23040,
+      "rankone_interface_scalars": 1172,
+      "interface_fraction_saved": 0.9491319444444445,
+      "direct_projection_multiplies": 2949120,
+      "rankone_projection_and_scale_multiplies": 170496,
+      "multiply_fraction_saved": 0.9421875
+    },
+    {
+      "tokens": 21,
+      "dense_interface_scalars": 24192,
+      "rankone_interface_scalars": 1173,
+      "interface_fraction_saved": 0.9515128968253969,
+      "direct_projection_multiplies": 3096576,
+      "rankone_projection_and_scale_multiplies": 171648,
+      "multiply_fraction_saved": 0.9445684523809523
+    }
+  ],
+  "static_weight_scalars": 294912,
+  "runtime_input_scope": "normalized recipient/donor token embeddings plus destination routing scalars",
+  "scope": "Model-free distributive factorization of one attention source write. Price excludes upstream routing/embedding generation and downstream state/suffix."
+}

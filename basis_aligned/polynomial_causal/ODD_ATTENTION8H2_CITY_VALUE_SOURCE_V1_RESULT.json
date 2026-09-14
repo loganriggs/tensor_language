@@ -1,0 +1,118 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "pred_d": true,
+  "pred_e": true,
+  "max_frozen_anchor_error": 0.0,
+  "max_value_sum_error": 6.029672050544832e-08,
+  "min_current_city_delta_norm": 55.115196228027344,
+  "min_inherited_city_delta_norm": 355.7643737792969,
+  "max_outside_hybrid_delta": 0.0,
+  "families": [
+    {
+      "family": 0,
+      "native_positive_pairs": 12,
+      "native_cue_mean": 3.640370557705561,
+      "full_value_target_rms": 0.1721036694158613,
+      "current_to_full_cue_error": 0.8588632939011966,
+      "inherited_to_full_cue_error": 0.1506661854806108,
+      "separate_effect_composition_error": 0.005136227614840972,
+      "control_ratios_to_full_target": {
+        "full_value": {
+          "cat_dog": 0.08786071664071475,
+          "red_blue": 0.03457097322129081,
+          "monday_tuesday": 0.03217838697322086,
+          "apple_orange": 0.07077117447225463
+        },
+        "current_only": {
+          "cat_dog": 0.012840614314160325,
+          "red_blue": 0.005231307188378209,
+          "monday_tuesday": 0.005060567388654828,
+          "apple_orange": 0.011586239080579297
+        },
+        "inherited_only": {
+          "cat_dog": 0.0750421109075837,
+          "red_blue": 0.029948409928828194,
+          "monday_tuesday": 0.027266748787968347,
+          "apple_orange": 0.05953982241609393
+        }
+      },
+      "capability_pass": true,
+      "current_hypothesis_pass": false,
+      "inherited_hypothesis_pass": true,
+      "composition_pass": true
+    },
+    {
+      "family": 1,
+      "native_positive_pairs": 12,
+      "native_cue_mean": 2.775461177031199,
+      "full_value_target_rms": 0.31127814662836617,
+      "current_to_full_cue_error": 0.840349641143436,
+      "inherited_to_full_cue_error": 0.16439741244482212,
+      "separate_effect_composition_error": 0.0050202231608760355,
+      "control_ratios_to_full_target": {
+        "full_value": {
+          "cat_dog": 0.047151510973397065,
+          "red_blue": 0.01492353357856984,
+          "monday_tuesday": 0.020590461319846563,
+          "apple_orange": 0.08385990876702909
+        },
+        "current_only": {
+          "cat_dog": 0.007177087900662686,
+          "red_blue": 0.0022621959067584576,
+          "monday_tuesday": 0.0036849110295076506,
+          "apple_orange": 0.015230442845996799
+        },
+        "inherited_only": {
+          "cat_dog": 0.03975604913810297,
+          "red_blue": 0.013012278257726374,
+          "monday_tuesday": 0.017002524816925768,
+          "apple_orange": 0.06842517780342769
+        }
+      },
+      "capability_pass": true,
+      "current_hypothesis_pass": false,
+      "inherited_hypothesis_pass": true,
+      "composition_pass": true
+    }
+  ],
+  "body_forwards": 192,
+  "seconds": 3.2517473150001024,
+  "artifact_sha256": "80530e528a94f3394b88c475580bd642acd007d0d3e8af29180448851f58804a",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_odd_attention8h2_city_value_source_v1.py": "ac0d57fa976605de4cc18e8326c92ee3554f4cc0c933212880696da66949746d",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_CITY_VALUE_SOURCE_V1_PREREGISTRATION.md": "4c7da0f9fa181a685463d9288d8a04bb8590342a9763097c628283d33a4ad712",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/attention8h2_city_value_source_v1.py": "294834c88cf0ab06509caa13b0f442ce05d5ef29f5aae0d26e3075f1e3167963",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_CITY_VALUE_SOURCE_V1_CPU_CONTROL.json": "90340c5b11f4b15beae03d88b0c26c9fcd49381e08f3153b4c1a7a4ef0b20b30",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_CITY_KEY_VALUE_V1_ARTIFACT.pt": "61f1ed2c3ea5a62bb33e107b67af6205b91a9a26c70c6df5b4a58a3e95fdf1aa",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_CITY_KEY_VALUE_V1_RESULT.json": "21974729d1025fa5343e6290550baeaa637538b57f95ea3b3f261d9caba9aac9",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_odd_attention8h2_city_key_value_v1.py": "93d71314e7981029e717459c275323c1d9cb57502e019cb8af7497766188220a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/attention8h2_city_key_value_v1.py": "34824446f999f3d2cd405aa7eb72bf9f8f03199e0cb16eb3fa72bb5bb7ebaace",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_FRAMING_FRESH_V1_ROWS.json": "e98dcf08e351d296cd20a5fdfad9ced1652252142d1ae85e2410920b4c75c77f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_source_swap_interaction_v1.py": "a156341eb90224a450e4abda512d2fefa9d487e567db44ec4a5a3493dc4424d9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_value_source_split_v1.py": "4da1a2c9472b78c38bd4970681a9f71ba8d6cbdea4afeba07ebbc504bbf54d13",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_semantic_positions_v1.py": "e8476b5a72af7e7ae90d1dec6852d58d6a14e34c18ff41cadd24dd5d9c9a5463",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_contextual_positions_v1.py": "cd509290cd7a6b9a724e8708a6af61d6eb197533704323d4f32413e1064498d4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_source_positions_v1.py": "b67386c1a306fcbcbe300bf9e9114601b43635b20880d80d6167cc7d5ecbc1ac",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/EVEN_VALUE_SHARED_GRAPH_PACKED_V1_PROGRAM.pt": "cbe8a94a2057ca3c53614d3bb70a5e8c0cb660e6e6cb57b531bf6dc0a2ccdd7f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/even_value_shared_graph_v1.py": "547e8b3202d191e1d51d30e1457cc3c445560157fc7bb9b39087c629d0a9908e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_cue_row_check_v1.py": "9d58e3dc5426f94f3bf2a142e5cb45dbadbfed2f743bee262221482bd3db76ef",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_city_article_check_v1.py": "ead978a7fbdfdf83dbff241597c17720c2c7fb8983b4651134684db815d77a40"
+  },
+  "arm_order": [
+    "native",
+    "full_value",
+    "current_only",
+    "inherited_only"
+  ],
+  "readout_order": [
+    "target",
+    "work_jobs",
+    "cat_dog",
+    "red_blue",
+    "monday_tuesday",
+    "apple_orange"
+  ],
+  "scope": "Recipient-routing-fixed head8.2 city value split into current and inherited sources, propagated through framing writes, isolated head9.8-O current values, and native suffix. No whole-head sufficiency, corpus OOD, compression adoption, or quantization."
+}

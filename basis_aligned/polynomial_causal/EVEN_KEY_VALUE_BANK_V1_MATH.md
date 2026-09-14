@@ -657,6 +657,43 @@ accidental direct native invocation before enqueue is retained under the
 the reported receipt. Current versus inherited value at the city source is the
 next unresolved split.
 
+[That value-source split](ODD_ATTENTION8H2_CITY_VALUE_SOURCE_V1_RESULT.json)
+passes its exact instrument, capability, inherited-provenance and composition
+predictions; the opposing current-provenance prediction fails. With recipient
+routing fixed, inherited-first-only cue errors are15.07%/16.44%, while
+current-only errors are85.89%/84.03%. Both physical source deltas are live,
+their value sum closes within6.03e-8, and separately measured behavioral effects
+compose within.514%. This supplies the upstream side of the cross-layer chain:
+the changed city token's static first-layer value is routed by head8.2 into
+contextual framing states, which the head9.8 O branch later reads through its
+current-value port. The downstream port remains current even though the upstream
+city source is inherited. This result uses the same two fresh constructions;
+new cities, endpoints and templates are required for held-out prediction.
+
+[The frozen-chain fresh test](ODD_ATTENTION8H2_CHAIN_FRESH_V1_RESULT.json)
+passes all six registered gates on two additional templates, Bristol/Boston and
+Oxford/Austin, and six spelling endpoints not used in the discovery panel.
+Value-only cue errors versus the full city intervention are2.54%/5.53%, while
+routing-only errors are105.49%/106.65%. Inherited-only errors versus value-only
+are20.87%/24.93%, current-only errors are79.46%/75.50%, and the complete
+inherited chain predicts the full city cue within20.65%/23.08%. Native
+capability is12/12 in both templates and every unrelated-control ratio is below
+.087. This is held-out authored-task prediction of the entire conditional edge,
+not corpus OOD or full-model sufficiency. The next split localizes which framing
+destination role receives head8.2's inherited city write.
+
+[The four-template destination split](ODD_ATTENTION8H2_DESTINATION_ROLE_V1_RESULT.json)
+rejects both universal semantic-role predictions. Description/instruction errors
+are56.96%/43.81%,79.89%/20.56%,69.70%/30.69%, and55.88%/44.61%. Instruction
+suffices only in the radio and museum constructions; the letter and editor
+constructions are distributed. Exact destination partition and parent anchors
+pass, separately measured effects compose within.70%, and controls stay below
+.088. The stable computation is therefore not a description or instruction
+module. It is the lower-level interaction
+`routing8.2(destination, city) * inherited_city_value`, whose projected residual
+writer direction is shared across all destinations for a fixed city pair. That
+rank-one destination-by-residual structure is the next extraction target.
+
 [The equal-count split](ODD_FRAMING_EQUAL_HALVES_NATIVE_V1_RESULT.json) also
 rejects a stable positional role. Local-history remains early dominated
 (31.89% versus70.04% error), while radio is distributed with late closer

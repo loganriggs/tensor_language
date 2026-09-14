@@ -1,0 +1,153 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "pred_d": true,
+  "pred_e": true,
+  "pred_f": true,
+  "max_head_source_replay_error": 3.0505512427225767e-07,
+  "max_factorial_error": 7.709419236334725e-08,
+  "max_value_sum_error": 6.279855568891435e-08,
+  "min_current_city_delta_norm": 63.52431869506836,
+  "min_inherited_city_delta_norm": 324.1302795410156,
+  "max_outside_hybrid_delta": 0.0,
+  "families": [
+    {
+      "family": 0,
+      "native_positive_pairs": 12,
+      "native_cue_mean": 3.2191233932971954,
+      "full_city_target_rms": 0.18527291306890883,
+      "routing_to_full_error": 1.0549271539999547,
+      "value_to_full_error": 0.025449097998694183,
+      "inherited_to_value_error": 0.20873294850095697,
+      "current_to_value_error": 0.7946227165754359,
+      "inherited_to_full_error": 0.20648760091576956,
+      "control_ratios_to_full_target": {
+        "full_city": {
+          "cat_dog": 0.03929454535594239,
+          "red_blue": 0.02947348453763804,
+          "monday_tuesday": 0.030084624828456533,
+          "apple_orange": 0.08654206400723699
+        },
+        "routing_only": {
+          "cat_dog": 0.004684288234214493,
+          "red_blue": 0.007502991569914422,
+          "monday_tuesday": 0.004798011966197068,
+          "apple_orange": 0.01418396185631336
+        },
+        "value_only": {
+          "cat_dog": 0.03810875634850432,
+          "red_blue": 0.02968341815864433,
+          "monday_tuesday": 0.03019137821348318,
+          "apple_orange": 0.08591631217560686
+        },
+        "inherited_only": {
+          "cat_dog": 0.030159105869628604,
+          "red_blue": 0.023439904013962926,
+          "monday_tuesday": 0.023303097169871934,
+          "apple_orange": 0.06673423828113759
+        },
+        "current_only": {
+          "cat_dog": 0.007972925398451059,
+          "red_blue": 0.006686670497578557,
+          "monday_tuesday": 0.006898573263568154,
+          "apple_orange": 0.01916626794809504
+        }
+      },
+      "max_control_ratio": 0.08654206400723699,
+      "capability_pass": true,
+      "value_transport_pass": true,
+      "inherited_provenance_pass": true,
+      "complete_chain_pass": true,
+      "controls_pass": true
+    },
+    {
+      "family": 1,
+      "native_positive_pairs": 12,
+      "native_cue_mean": 2.6703952749570212,
+      "full_city_target_rms": 0.21421516689417539,
+      "routing_to_full_error": 1.066513021489963,
+      "value_to_full_error": 0.055301226151948074,
+      "inherited_to_value_error": 0.24928642493392422,
+      "current_to_value_error": 0.7549829866632681,
+      "inherited_to_full_error": 0.2307548945608407,
+      "control_ratios_to_full_target": {
+        "full_city": {
+          "cat_dog": 0.025960615662654615,
+          "red_blue": 0.02372681272214722,
+          "monday_tuesday": 0.022462242928156656,
+          "apple_orange": 0.07334767933041514
+        },
+        "routing_only": {
+          "cat_dog": 0.006272464329102384,
+          "red_blue": 0.006797541832270823,
+          "monday_tuesday": 0.007236333847971998,
+          "apple_orange": 0.016222850081731154
+        },
+        "value_only": {
+          "cat_dog": 0.02493944806727056,
+          "red_blue": 0.021934097653249596,
+          "monday_tuesday": 0.024132621845519567,
+          "apple_orange": 0.07593756064410088
+        },
+        "inherited_only": {
+          "cat_dog": 0.017886450724539604,
+          "red_blue": 0.01693148666509899,
+          "monday_tuesday": 0.01677215380056884,
+          "apple_orange": 0.05634055872857612
+        },
+        "current_only": {
+          "cat_dog": 0.007500399696720428,
+          "red_blue": 0.00533547237450002,
+          "monday_tuesday": 0.007349731332773874,
+          "apple_orange": 0.01962955789897343
+        }
+      },
+      "max_control_ratio": 0.07593756064410088,
+      "capability_pass": true,
+      "value_transport_pass": true,
+      "inherited_provenance_pass": true,
+      "complete_chain_pass": true,
+      "controls_pass": true
+    }
+  ],
+  "body_forwards": 288,
+  "seconds": 4.625294133002171,
+  "artifact_sha256": "cc3a8dbd12fcd18e6d1579f914f40d415119c8e1335799e2e84d0a0b5bc808ae",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_odd_attention8h2_chain_fresh_v1.py": "ef02b164faae0dc3e663cf1814a313c81516560595e7abcdc33cf10d28502d04",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_CHAIN_FRESH_V1_PREREGISTRATION.md": "70b40c52a26bbdbe7802c29ff3dde6b8414ee28a31da72597b8d500041b0b59f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_CHAIN_FRESH_V1_ROWS.json": "0a5e3c49707b5c266d9f7fc52aa5b88d6d9fb111c1caea09f6d518f777b5b1b9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_attention8h2_chain_fresh_v1.py": "be44d4b3737472386cf38d590284e5e02df1209188b7362cc1a9be7d98154dd6",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_CHAIN_FRESH_V1_CPU_CONTROL.json": "a048a58eca715afb2b5b848b14cb7eaae6e6bc4311e159ab889411243d18bf53",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/attention8h2_city_value_source_v1.py": "294834c88cf0ab06509caa13b0f442ce05d5ef29f5aae0d26e3075f1e3167963",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/attention8h2_city_key_value_v1.py": "34824446f999f3d2cd405aa7eb72bf9f8f03199e0cb16eb3fa72bb5bb7ebaace",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_odd_attention8h2_city_key_value_v1.py": "93d71314e7981029e717459c275323c1d9cb57502e019cb8af7497766188220a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_source_swap_interaction_v1.py": "a156341eb90224a450e4abda512d2fefa9d487e567db44ec4a5a3493dc4424d9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_value_source_split_v1.py": "4da1a2c9472b78c38bd4970681a9f71ba8d6cbdea4afeba07ebbc504bbf54d13",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_semantic_positions_v1.py": "e8476b5a72af7e7ae90d1dec6852d58d6a14e34c18ff41cadd24dd5d9c9a5463",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_contextual_positions_v1.py": "cd509290cd7a6b9a724e8708a6af61d6eb197533704323d4f32413e1064498d4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_source_positions_v1.py": "b67386c1a306fcbcbe300bf9e9114601b43635b20880d80d6167cc7d5ecbc1ac",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/EVEN_VALUE_SHARED_GRAPH_PACKED_V1_PROGRAM.pt": "cbe8a94a2057ca3c53614d3bb70a5e8c0cb660e6e6cb57b531bf6dc0a2ccdd7f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/even_value_shared_graph_v1.py": "547e8b3202d191e1d51d30e1457cc3c445560157fc7bb9b39087c629d0a9908e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_cue_row_check_v1.py": "9d58e3dc5426f94f3bf2a142e5cb45dbadbfed2f743bee262221482bd3db76ef",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_city_article_check_v1.py": "ead978a7fbdfdf83dbff241597c17720c2c7fb8983b4651134684db815d77a40"
+  },
+  "arm_order": [
+    "native",
+    "full_city",
+    "routing_only",
+    "value_only",
+    "inherited_only",
+    "current_only"
+  ],
+  "readout_order": [
+    "target",
+    "work_jobs",
+    "cat_dog",
+    "red_blue",
+    "monday_tuesday",
+    "apple_orange"
+  ],
+  "scope": "Frozen inherited-city head8.2 framing-write to head9.8-O chain on unseen templates, cities and endpoints. Authored task shift, not corpus OOD or whole-head/full-model sufficiency."
+}
