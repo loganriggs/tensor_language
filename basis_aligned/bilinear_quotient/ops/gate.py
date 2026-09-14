@@ -9,6 +9,8 @@ finding by hand before touching the script -- fix the GATE if the gate is wrong.
 """
 import re, ast, sys, builtins
 
+from circuit_exactness_preflight import static_prediction_keys
+
 
 def _targets(n):
     out = set()
@@ -202,13 +204,10 @@ def gate(path):
     # intervals, and my own amended whole_model_v1_floor does the same. Three was a floor
     # against under-registering, never a ceiling; enforcing it as a ceiling penalised adding
     # MORE falsifiable content. Distinctness and the a/b/c core are still required.
-    # A predicate key appears either as a dict key ('pred_a_x': bool) in a hand-written script, or as
-    # the first element of a (key, registered text, fn) triple in a B.run() declaration. Both count.
-    # 2026-09-03: accept BOTH quote styles -- a double-quoted "pred_a_x": key was silently missed and
-    # refused with "found 0" (cost two enqueue retries this session). Strictly more permissive: an
-    # unregistered script has NO pred_* keys in either quote style, so this cannot false-ACCEPT; it only
-    # removes a false REFUSAL. The consistency checks below stay single-quote (they no-op when empty).
-    keys = re.findall(r'''(?:'|")(pred_[A-Za-z0-9_]+)(?:'|")\s*[,:]''', s)
+    # Discover declarations from the AST: literal dict keys, dict(pred_a=...) keywords, and the first
+    # element of a B.run() predicate tuple. This excludes comments and prose while accepting the two
+    # equivalent result-dict spellings that previously caused needless enqueue retries.
+    keys = static_prediction_keys(s)
     letters = {k.split("_")[1] for k in keys}
     # 2026-08-29: ops/bqlib.py introduced a THIRD file class -- a shared library that no experiment
     # result comes out of. The predicate rules exist to stop an EXPERIMENT shipping unregistered; they

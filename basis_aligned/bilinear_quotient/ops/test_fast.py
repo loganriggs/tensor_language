@@ -23,7 +23,9 @@ sys.path.insert(0, HERE)
 BQ = os.path.dirname(HERE)
 
 import bqlib as B                                                          # noqa: E402
+import circuit_exactness_preflight as exact_preflight                      # noqa: E402
 import torch                                                              # noqa: E402
+import torch.nn.functional as F                                            # noqa: E402
 
 FAILS = []
 T0 = time.time()
@@ -418,7 +420,63 @@ def main():
               open('/dev/null', 'w'))
 main()
 '''),
+    ('dict keyword predicates are statically discoverable', True, '''
+import json
+def main():
+    json.dump(dict(pred_a_x=True, pred_b_y=True, pred_c_z=True), open('/dev/null', 'w'))
+main()
+'''),
 ]
+
+
+def test_exact_native_batch_preflight():
+    """Self values must use the full native batch geometry and operation order."""
+    class Attention(torch.nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.c_v = torch.nn.Linear(4, 4, bias=False)
+
+    class Block(torch.nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.register_buffer('lambdas', torch.tensor([0.75, 0.25]))
+            self.attn = Attention()
+
+    class Transformer(torch.nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.wte = torch.nn.Embedding(13, 4)
+            self.h = torch.nn.ModuleList([Block()])
+
+    class Model(torch.nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.transformer = Transformer()
+
+    torch.manual_seed(7)
+    model = Model()
+    tokens = torch.tensor([[1, 2, 3], [4, 5, 6]])
+    state = F.rms_norm(model.transformer.wte(tokens), (4,))
+    first = state
+    block = model.transformer.h[0]
+    state = block.lambdas[0] * state + block.lambdas[1] * first
+    expected = block.attn.c_v(F.rms_norm(state, (4,))).view(2, 3, 2, 2)
+    actual = exact_preflight.exact_static_first_value(
+        model, {'n_embd': 4, 'n_head': 2}, tokens, F)
+    check('exactness preflight: native full-batch static values replay bitwise',
+          torch.equal(actual, expected), float((actual - expected).detach().abs().max()))
+    try:
+        exact_preflight.exact_static_first_value(
+            model, {'n_embd': 4, 'n_head': 2}, tokens[:, 0], F)
+    except ValueError:
+        refused = True
+    else:
+        refused = False
+    check('exactness preflight: selected token vector is refused', refused)
+    source = "result = dict(pred_a_one=True, pred_b_two=False, pred_c_three=True)"
+    check('exactness preflight: predicate manifest is complete',
+          exact_preflight.static_prediction_keys(source) == [
+              'pred_a_one', 'pred_b_two', 'pred_c_three'])
 
 
 def test_every_ref_path_exists():
@@ -498,7 +556,8 @@ def test_gate_accepts_the_library_itself():
 for fn in (test_run_refuses_an_unknown_role, test_fresh_role_is_available_but_not_default, test_pooled_lookup_is_orientation_agnostic, test_run_refuses_a_vacuous_control_plan, test_composites_are_never_same_spec, test_inertness_requires_all36, test_per_site_table_ranks, test_penalty_accessor, test_composite_arm_grammar, test_whole_table_arms_are_not_fallback_variants, test_inert_side_of_the_control_is_still_strict, test_site_subsets_change_the_cache_key, test_no_build_level_comparison_is_vote_dependent, test_pooled_t_weights_by_evidence, test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
            test_inertness_pairs_warns_when_a_side_is_vacuous, test_ref_reads_published_triples,
            test_paired_t_arithmetic, test_cost_matches_the_published_closed_form,
-           test_arm_names_parse_the_way_the_grammar_says, test_gate_fixtures,
+           test_arm_names_parse_the_way_the_grammar_says, test_exact_native_batch_preflight,
+           test_gate_fixtures,
            test_gate_accepts_the_library_itself,
            test_gate_exempts_generators_but_still_catches_none_returners):
     try:

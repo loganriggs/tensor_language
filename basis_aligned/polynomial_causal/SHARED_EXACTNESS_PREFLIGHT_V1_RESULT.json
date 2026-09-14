@@ -1,0 +1,28 @@
+{
+  "files": {
+    "basis_aligned/bilinear_quotient/ops/circuit_exactness_preflight.py": "337d779e2c94be2749e97694c9616605f5482447280dd2760937d576d4388e80",
+    "basis_aligned/bilinear_quotient/ops/gate.py": "bd169b7e36fd5238d997fa17ffd19f28f345e0c8764a9d3d8c34836afcde60ae",
+    "basis_aligned/bilinear_quotient/ops/test_fast.py": "6425d275a0f049491f1773d246545e23e250cafa466627f15de3986904ecc6d4",
+    "basis_aligned/polynomial_causal/SUCCESSOR_POINTER_PREFIX_INTERACTION_V1_RESULT.json": "1bde823e87c9dd1a33b52e3e64db560e1dde8c495d30a3da36d7bf90c4b1a6d0",
+    "basis_aligned/polynomial_causal/SUCCESSOR_POINTER_PREFIX_INTERACTION_V2_RESULT.json": "0775a995ee22e05854156f9744f7bd3a1a0b4413bb54ff07ef45880ca6b06019"
+  },
+  "gpu_accessed": false,
+  "historical_reproduction": {
+    "frozen_bar": 1e-05,
+    "v1_singleton_batch_self_error": 2.2411346435546875e-05,
+    "v2_native_batch_self_error": 0.0
+  },
+  "model_loaded": false,
+  "passed": true,
+  "same_batch_static_value_max_absolute_error": 0.0,
+  "schema": "shared_exactness_preflight_v1_result",
+  "selected_token_vector_refused": true,
+  "shared_fast_suite_exit_code": 0,
+  "shared_fast_suite_terminal": "PASSED  0 failing  (1.01s)",
+  "static_gate_findings": [],
+  "static_predicate_keys": [
+    "pred_a_x",
+    "pred_b_y",
+    "pred_c_z"
+  ]
+}
