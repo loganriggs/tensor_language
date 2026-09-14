@@ -1,0 +1,70 @@
+{
+  "bars": {
+    "maximum_control_rms_fraction": 0.5,
+    "maximum_direct_readout_logit_absolute_error": 1e-05,
+    "maximum_full_ceiling_logit_absolute_error": 0.0001,
+    "maximum_self_logit_absolute_error": 1e-05,
+    "maximum_synthetic_projection": 1.2,
+    "minimum_family_mean_late_backward_target": 1.0,
+    "minimum_full_vocab_recovery": 0.8,
+    "minimum_joint_cosine": 0.7,
+    "minimum_joint_projection": 0.5,
+    "minimum_native_accuracy": 0.75,
+    "minimum_synthetic_cosine": 0.95,
+    "minimum_synthetic_projection": 0.8
+  },
+  "files": {
+    "confirmation_result": "e48faee03d4ff759af1a5dd14ba653f9b7ad9bce81079b0759f21e0de59e52ba",
+    "fit_rows": "f8277e4345790b085c6b10518a02ba9f9c88dc6a005dff37c6820367be4f9dc9",
+    "holdout_rows": "10551761def7a15e0a69e16f12f3e29c3feab39785e46edac8cff29f21b6ab54",
+    "interaction_result": "5483007745c17949919a5c6c239ef951ac04061f41b8f21e671f8b1a1b6681e6",
+    "preregistration": "c73f726fcc1f2af5a916afe80b0a596444438d85efdb2d32e7e838bf38303dd5"
+  },
+  "fit_row_manifest_sha256": "15e2983c1163db3ccf734589c09c6304ff47d54e5c291f5572e3b15333cdeb83",
+  "groups": {
+    "A": [
+      "attn8",
+      "attn9",
+      "attn10",
+      "attn11",
+      "attn12"
+    ],
+    "AM": [
+      "attn8",
+      "mlp8",
+      "attn9",
+      "mlp9",
+      "attn10",
+      "mlp10",
+      "attn11",
+      "mlp11",
+      "attn12",
+      "mlp12"
+    ],
+    "M": [
+      "mlp8",
+      "mlp9",
+      "mlp10",
+      "mlp11",
+      "mlp12"
+    ]
+  },
+  "holdout_row_manifest_sha256": "e5ab9ea8882f6d9d7af98fc3d84b9ea24cb6991e825b877cab185ff3f396516d",
+  "outcomes_opened_before_freeze": [
+    "length-six cross-type aggregate metrics; no raw interaction vectors or length-seven model outcomes"
+  ],
+  "price": {
+    "fits": 1,
+    "maximum_forwards": 22,
+    "maximum_readout_rows": 90,
+    "maximum_sequences": 154,
+    "updates": 0
+  },
+  "ranks": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "schema": "successor_pointer_interaction_low_rank_v1_binding"
+}
