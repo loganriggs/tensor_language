@@ -48,7 +48,8 @@ def main(program_prefix='INTERACTION_SHARED_WRITE_POLISH_V1', result_prefix='INT
     assert formula_error<=1e-10 and replay<=1e-4 and port_error<=1e-3
     path=P/(program_prefix+'_PROGRAM.pt')
     expected={'SPARSE_INTERACTION_EXECUTOR_V1':'5aefc860fe15be69fb854a4fad3f7c3301f0de6b01c07881f828f027727c730b',
-              'UNIFORM_PRODUCER_GRADIENT_V1':'bf5d29ca117cd126ab7c61910b2b1bac74d07874e1e94c36029a9b7ebbad58ed'}
+              'UNIFORM_PRODUCER_GRADIENT_V1':'bf5d29ca117cd126ab7c61910b2b1bac74d07874e1e94c36029a9b7ebbad58ed',
+              'MINIMAX_ROW_SUPPORT_V1':'538867f86b59d65dedb59b1ff438d5e8a8533d3dc7dd24947f499a532631b432'}
     assert digest(path)==expected[program_prefix]
     program=torch.load(path,map_location='cpu',weights_only=True)
     reconstructed=model.decode(program_prefix)
