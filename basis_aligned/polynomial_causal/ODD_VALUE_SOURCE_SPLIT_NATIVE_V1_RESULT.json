@@ -1,0 +1,113 @@
+{
+  "pred_a": false,
+  "pred_b": true,
+  "pred_c": true,
+  "pred_d": false,
+  "pred_e": true,
+  "max_frozen_anchor_error": 0.0,
+  "max_value_factor_error": 0.0,
+  "max_source_delta_recomposition_error": 0.0,
+  "min_source_delta_norm": 0.0,
+  "families": [
+    {
+      "family": 0,
+      "native_positive_pairs": 12,
+      "native_cue_mean": 3.640370557705561,
+      "full_value_swap_target_rms": 0.40782274209457403,
+      "current_to_full_cue_error": 0.0,
+      "inherited_to_full_cue_error": 1.0,
+      "separate_effect_composition_error": 0.0,
+      "control_ratios_to_full_target": {
+        "full_value_swap": {
+          "cat_dog": 0.09247186778321467,
+          "red_blue": 0.03276541605403622,
+          "monday_tuesday": 0.023490054942567774,
+          "apple_orange": 0.060083805474577645
+        },
+        "current_value_swap": {
+          "cat_dog": 0.09247186778321467,
+          "red_blue": 0.03276541605403622,
+          "monday_tuesday": 0.023490054942567774,
+          "apple_orange": 0.060083805474577645
+        },
+        "inherited_value_swap": {
+          "cat_dog": 0.0,
+          "red_blue": 0.0,
+          "monday_tuesday": 0.0,
+          "apple_orange": 0.0
+        }
+      },
+      "capability_pass": true,
+      "current_hypothesis_pass": true,
+      "inherited_hypothesis_pass": false,
+      "behavioral_composition_pass": true
+    },
+    {
+      "family": 1,
+      "native_positive_pairs": 12,
+      "native_cue_mean": 2.775461177031199,
+      "full_value_swap_target_rms": 0.33983815211620455,
+      "current_to_full_cue_error": 0.0,
+      "inherited_to_full_cue_error": 1.0,
+      "separate_effect_composition_error": 0.0,
+      "control_ratios_to_full_target": {
+        "full_value_swap": {
+          "cat_dog": 0.04908863807471179,
+          "red_blue": 0.020340873581708576,
+          "monday_tuesday": 0.01660933511966777,
+          "apple_orange": 0.07226696151472142
+        },
+        "current_value_swap": {
+          "cat_dog": 0.04908863807471179,
+          "red_blue": 0.020340873581708576,
+          "monday_tuesday": 0.01660933511966777,
+          "apple_orange": 0.07226696151472142
+        },
+        "inherited_value_swap": {
+          "cat_dog": 0.0,
+          "red_blue": 0.0,
+          "monday_tuesday": 0.0,
+          "apple_orange": 0.0
+        }
+      },
+      "capability_pass": true,
+      "current_hypothesis_pass": true,
+      "inherited_hypothesis_pass": false,
+      "behavioral_composition_pass": true
+    }
+  ],
+  "body_forwards": 192,
+  "seconds": 3.1156202319980366,
+  "artifact_sha256": "4af24ee2be0536295a81afdfc587e5cdb3519ea4d8e7edf518bdea6606d341fb",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_odd_value_source_split_native_v1.py": "07934b3db4a1b04a9a4dca434e171e88c14781fe0210413e34bcef6fcc037699",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_VALUE_SOURCE_SPLIT_NATIVE_V1_PREREGISTRATION.md": "8f98d9948984654082446054aa81183261bf1a679ad8b604402aeb3d27db8a06",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_value_source_split_v1.py": "4da1a2c9472b78c38bd4970681a9f71ba8d6cbdea4afeba07ebbc504bbf54d13",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_VALUE_SOURCE_SPLIT_V1_CPU_CONTROL.json": "80f84d4452f4e247a1c43bacdbf2b5cb53233e5bbc2164b06ed7a62122930a26",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_SOURCE_SWAP_INTERACTION_NATIVE_V2_ARTIFACT.pt": "c1813fc5e3181af7558e5cd4eeebcaaf0c2fff69f35720d14627835ce89d113a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_SOURCE_SWAP_INTERACTION_NATIVE_V2_RESULT.json": "1e35532fba348f2b05e7640ef08c22f4a71e34f0c8942e72b942d8307466b7ca",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_FRAMING_FRESH_V1_ROWS.json": "e98dcf08e351d296cd20a5fdfad9ced1652252142d1ae85e2410920b4c75c77f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_source_swap_interaction_v1.py": "a156341eb90224a450e4abda512d2fefa9d487e567db44ec4a5a3493dc4424d9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_semantic_positions_v1.py": "e8476b5a72af7e7ae90d1dec6852d58d6a14e34c18ff41cadd24dd5d9c9a5463",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_source_positions_v1.py": "b67386c1a306fcbcbe300bf9e9114601b43635b20880d80d6167cc7d5ecbc1ac",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/EVEN_VALUE_SHARED_GRAPH_PACKED_V1_PROGRAM.pt": "cbe8a94a2057ca3c53614d3bb70a5e8c0cb660e6e6cb57b531bf6dc0a2ccdd7f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/even_value_shared_graph_v1.py": "547e8b3202d191e1d51d30e1457cc3c445560157fc7bb9b39087c629d0a9908e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_cue_row_check_v1.py": "9d58e3dc5426f94f3bf2a142e5cb45dbadbfed2f743bee262221482bd3db76ef",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_city_article_check_v1.py": "ead978a7fbdfdf83dbff241597c17720c2c7fb8983b4651134684db815d77a40"
+  },
+  "arm_order": [
+    "native",
+    "full_value_swap",
+    "current_value_swap",
+    "inherited_value_swap"
+  ],
+  "readout_order": [
+    "target",
+    "work_jobs",
+    "cat_dog",
+    "red_blue",
+    "monday_tuesday",
+    "apple_orange"
+  ],
+  "scope": "Exact current/inherited value-source split of all-query-fixed O framing interchange with native suffix. No fitting, upstream necessity, corpus OOD, compression adoption, or quantization."
+}

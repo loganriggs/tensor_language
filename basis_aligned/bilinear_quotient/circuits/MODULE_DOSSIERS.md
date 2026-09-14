@@ -309,6 +309,13 @@ behaviorally omissible here (<=2.29% target error). This identifies value
 transport at the all-query-fixed head9.8 boundary; current versus inherited
 value provenance remains open.
 
+Current-value provenance is exact on the paired framing sources: current-only
+and full-value swaps are behaviorally identical, while inherited-first swap is
+zero. The registered both-arms-live gate fails and remains visible. Architecture
+explains the zero because block0 `v1` is a tokenwise projection and paired
+framing tokens match. The cue therefore reaches O through contextual current
+states; its upstream layer onset is not yet localized.
+
 Equal-count early/late removal does not resolve that confound: local-history is
 early dominated, while radio has a distributed effect with the late half closer
 but insufficient. Stable semantic/position identification is therefore rejected

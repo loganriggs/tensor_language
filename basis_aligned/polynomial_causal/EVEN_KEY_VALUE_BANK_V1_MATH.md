@@ -587,6 +587,19 @@ that also mutated nonfinal query rows; correction-only V2 preserves B-E and
 reports the.01098 score gap. The next split separates current versus inherited
 first values within the identified value transport.
 
+[The value-source split](ODD_VALUE_SOURCE_SPLIT_NATIVE_V1_RESULT.json) has a
+failed live-arm gate and an exact structural answer. Full-value and current-only
+swaps are bitwise identical in scores; inherited-first swap is exactly zero.
+Current/full cue error and separate-effect composition error are0; inherited
+error is100%. `pred_a` fails because the frozen inherited-delta tripwire is zero.
+This is expected from the native interface: block0 sets `v1` to its tokenwise
+value projection before any contextual attention output, and the paired framing
+tokens are identical. The existing blockzero audit independently reports token
+identity variance fraction and embedding prediction R2 of1.0. Thus no city cue
+can enter O through paired inherited framing values; it is carried by the
+contextual block9 current-value input. The next intervention traces when that
+current-value difference appears across upstream block boundaries.
+
 [The equal-count split](ODD_FRAMING_EQUAL_HALVES_NATIVE_V1_RESULT.json) also
 rejects a stable positional role. Local-history remains early dominated
 (31.89% versus70.04% error), while radio is distributed with late closer
