@@ -1,0 +1,1060 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "pred_d": true,
+  "instrument": true,
+  "capability": true,
+  "max_live_recomposition_error": 3.991331575404875e-07,
+  "replays": {
+    "native_regional": 3.715677962566778e-07,
+    "native_ce": 1.0727885833852733e-06,
+    "recompose_regional": 2.821951937253048e-07,
+    "recompose_ce": 7.19275221429922e-07,
+    "scalar_removal": 3.4744382139815756e-07
+  },
+  "regional": [
+    {
+      "family": 0,
+      "native_mean_contrast": 2.2193750143051147,
+      "native_positive_pairs": 12,
+      "native_capability": true,
+      "coverage": 0.43023572075263156,
+      "positive_removal_pairs": 12,
+      "donor_transfer": 0.4745811285713572,
+      "positive_donor_rows": 24,
+      "unrelated_ratios": [
+        0.5269125937412946,
+        0.15062538161636643
+      ],
+      "self_error": 0.0,
+      "self_pass": true,
+      "passed": false,
+      "arm_coverage": [
+        0.0,
+        0.43023572075263156,
+        0.05358754406994965,
+        0.49328654644587255,
+        -1.7904333244330892e-08,
+        0.422816397812513,
+        0.9491622571427144,
+        0.0
+      ],
+      "mean_absolute_target_effects": [
+        0.0,
+        0.4774272044499715,
+        0.061860740184783936,
+        0.5473939180374146,
+        9.735425313313801e-07,
+        0.46919407447179157,
+        1.0532734990119934,
+        0.0
+      ],
+      "mean_absolute_control_effects": [
+        0.0,
+        0.25156240661938983,
+        0.04284007350603739,
+        0.2904836634794871,
+        1.0331471761067708e-06,
+        0.03695611159006754,
+        0.15864972273508707,
+        0.0
+      ],
+      "nonlinear_combination_residual_norm": 0.08497724845731325
+    },
+    {
+      "family": 1,
+      "native_mean_contrast": 2.7559540271759033,
+      "native_positive_pairs": 12,
+      "native_capability": true,
+      "coverage": 0.4184203830869129,
+      "positive_removal_pairs": 12,
+      "donor_transfer": 0.46745697198105296,
+      "positive_donor_rows": 24,
+      "unrelated_ratios": [
+        0.2316564772804375,
+        0.08304650298253032
+      ],
+      "self_error": 0.0,
+      "self_pass": true,
+      "passed": false,
+      "arm_coverage": [
+        0.0,
+        0.4184203830869129,
+        0.07140788721309668,
+        0.49987373812742614,
+        4.3255180737879746e-08,
+        0.4195825056094039,
+        0.9349139439621059,
+        0.0
+      ],
+      "mean_absolute_target_effects": [
+        0.0,
+        0.5765736699104309,
+        0.09839842716852824,
+        0.6888145208358765,
+        8.940696716308594e-07,
+        0.5781750480333964,
+        1.2882899244626362,
+        0.0
+      ],
+      "mean_absolute_control_effects": [
+        0.0,
+        0.13356702526410422,
+        0.02483426531155904,
+        0.1613514026006063,
+        7.947285970052084e-07,
+        0.02821686863899231,
+        0.10698797305425008,
+        0.0
+      ],
+      "nonlinear_combination_residual_norm": 0.12719186205172306
+    },
+    {
+      "family": 2,
+      "native_mean_contrast": 0.43591896692911786,
+      "native_positive_pairs": 12,
+      "native_capability": true,
+      "coverage": 0.4450687586255932,
+      "positive_removal_pairs": 12,
+      "donor_transfer": 0.4747691485890034,
+      "positive_donor_rows": 24,
+      "unrelated_ratios": [
+        0.2651499825993677,
+        0.07628897570262777
+      ],
+      "self_error": 0.0,
+      "self_pass": true,
+      "passed": false,
+      "arm_coverage": [
+        0.0,
+        0.4450687586255932,
+        0.18376547137442503,
+        0.6340005615181408,
+        4.5577771174065157e-07,
+        0.43421432126494725,
+        0.9495382971780068,
+        0.0
+      ],
+      "mean_absolute_target_effects": [
+        0.0,
+        0.3076035976409912,
+        0.07025804122289021,
+        0.37268708149592084,
+        9.338061014811198e-07,
+        0.30423088868459064,
+        0.2069608767827352,
+        0.0
+      ],
+      "mean_absolute_control_effects": [
+        0.0,
+        0.08156108856201172,
+        0.019728322823842365,
+        0.09800638755162557,
+        1.2020270029703777e-06,
+        0.011149128278096518,
+        0.015788833300272625,
+        0.0
+      ],
+      "nonlinear_combination_residual_norm": 0.026809838535920585
+    }
+  ],
+  "newline": [
+    {
+      "family": 0,
+      "native_mean_ce": 0.7858603987842798,
+      "native_mean_margin": 13.014773666858673,
+      "native_positive": 16,
+      "capability": true,
+      "meanabs_change": 0.03448029514402151,
+      "maxabs_change": 0.1136469841003418,
+      "passed": false,
+      "mean_signed_ce_changes": [
+        0.0,
+        0.014935090206563473,
+        0.0014777444303035736,
+        0.017111231572926044,
+        1.0244548320770264e-07,
+        0.0031195608898997307
+      ],
+      "mean_absolute_ce_changes": [
+        0.0,
+        0.03448029514402151,
+        0.005110252648591995,
+        0.03951653931289911,
+        5.308538675308228e-07,
+        0.011410719715058804
+      ],
+      "full_head_positive_changes": 12
+    },
+    {
+      "family": 1,
+      "native_mean_ce": 1.145644742064178,
+      "native_mean_margin": 10.752938330173492,
+      "native_positive": 15,
+      "capability": true,
+      "meanabs_change": 0.025219967123121023,
+      "maxabs_change": 0.09792232513427734,
+      "passed": false,
+      "mean_signed_ce_changes": [
+        0.0,
+        0.019578210543841124,
+        -0.00010755285620689392,
+        0.01984384562820196,
+        -9.918585419654846e-08,
+        0.0034652594476938248
+      ],
+      "mean_absolute_ce_changes": [
+        0.0,
+        0.025219967123121023,
+        0.003522961400449276,
+        0.028443477116525173,
+        7.69738107919693e-07,
+        0.003892073407769203
+      ],
+      "full_head_positive_changes": 11
+    }
+  ],
+  "component_sizes": [
+    {
+      "pool": "regional",
+      "row": 0,
+      "even_norm": 4269.130982253936,
+      "odd_norm": 587.3674011795028,
+      "full_norm": 4815.37646484375
+    },
+    {
+      "pool": "regional",
+      "row": 1,
+      "even_norm": 4200.163622464663,
+      "odd_norm": 688.775965766729,
+      "full_norm": 4846.7158203125
+    },
+    {
+      "pool": "regional",
+      "row": 2,
+      "even_norm": 4625.6749619619695,
+      "odd_norm": 604.321728618778,
+      "full_norm": 5195.22900390625
+    },
+    {
+      "pool": "regional",
+      "row": 3,
+      "even_norm": 4266.47352598249,
+      "odd_norm": 700.8477790298923,
+      "full_norm": 4926.14697265625
+    },
+    {
+      "pool": "regional",
+      "row": 4,
+      "even_norm": 4317.189287993422,
+      "odd_norm": 635.9105588739167,
+      "full_norm": 4908.77392578125
+    },
+    {
+      "pool": "regional",
+      "row": 5,
+      "even_norm": 4239.193520415172,
+      "odd_norm": 702.8755431041503,
+      "full_norm": 4902.15087890625
+    },
+    {
+      "pool": "regional",
+      "row": 6,
+      "even_norm": 4169.522080805144,
+      "odd_norm": 524.7567976456386,
+      "full_norm": 4654.0830078125
+    },
+    {
+      "pool": "regional",
+      "row": 7,
+      "even_norm": 4130.007134629872,
+      "odd_norm": 650.4285318273157,
+      "full_norm": 4737.078125
+    },
+    {
+      "pool": "regional",
+      "row": 8,
+      "even_norm": 4017.258173578688,
+      "odd_norm": 556.8247009588389,
+      "full_norm": 4531.015625
+    },
+    {
+      "pool": "regional",
+      "row": 9,
+      "even_norm": 3992.1684875025026,
+      "odd_norm": 637.938880873985,
+      "full_norm": 4590.171875
+    },
+    {
+      "pool": "regional",
+      "row": 10,
+      "even_norm": 3906.291959876017,
+      "odd_norm": 501.6655396555839,
+      "full_norm": 4366.29345703125
+    },
+    {
+      "pool": "regional",
+      "row": 11,
+      "even_norm": 3835.915856491822,
+      "odd_norm": 598.2209855048724,
+      "full_norm": 4389.37158203125
+    },
+    {
+      "pool": "regional",
+      "row": 12,
+      "even_norm": 4715.712612399529,
+      "odd_norm": 661.1871162354273,
+      "full_norm": 5333.4580078125
+    },
+    {
+      "pool": "regional",
+      "row": 13,
+      "even_norm": 4167.287895858216,
+      "odd_norm": 689.4126898205853,
+      "full_norm": 4810.48876953125
+    },
+    {
+      "pool": "regional",
+      "row": 14,
+      "even_norm": 5005.768305499808,
+      "odd_norm": 688.757925789889,
+      "full_norm": 5657.3115234375
+    },
+    {
+      "pool": "regional",
+      "row": 15,
+      "even_norm": 4273.557751270043,
+      "odd_norm": 692.8742675908505,
+      "full_norm": 4923.408203125
+    },
+    {
+      "pool": "regional",
+      "row": 16,
+      "even_norm": 4733.760505141496,
+      "odd_norm": 687.8174429162143,
+      "full_norm": 5379.0302734375
+    },
+    {
+      "pool": "regional",
+      "row": 17,
+      "even_norm": 4260.70543418853,
+      "odd_norm": 697.8185338167979,
+      "full_norm": 4917.265625
+    },
+    {
+      "pool": "regional",
+      "row": 18,
+      "even_norm": 4648.85221813431,
+      "odd_norm": 606.73000045022,
+      "full_norm": 5215.2724609375
+    },
+    {
+      "pool": "regional",
+      "row": 19,
+      "even_norm": 4090.394550553682,
+      "odd_norm": 649.4068740409697,
+      "full_norm": 4694.56396484375
+    },
+    {
+      "pool": "regional",
+      "row": 20,
+      "even_norm": 4475.4956250834775,
+      "odd_norm": 619.3130372886768,
+      "full_norm": 5053.75732421875
+    },
+    {
+      "pool": "regional",
+      "row": 21,
+      "even_norm": 3952.1359778821197,
+      "odd_norm": 634.1622930388646,
+      "full_norm": 4543.84130859375
+    },
+    {
+      "pool": "regional",
+      "row": 22,
+      "even_norm": 4358.8579667996755,
+      "odd_norm": 569.6362947350228,
+      "full_norm": 4886.91455078125
+    },
+    {
+      "pool": "regional",
+      "row": 23,
+      "even_norm": 3801.738597312731,
+      "odd_norm": 588.3674440695686,
+      "full_norm": 4343.611328125
+    },
+    {
+      "pool": "regional",
+      "row": 24,
+      "even_norm": 4995.526223007513,
+      "odd_norm": 712.5845502808779,
+      "full_norm": 5658.3779296875
+    },
+    {
+      "pool": "regional",
+      "row": 25,
+      "even_norm": 3713.9932827683383,
+      "odd_norm": 724.3332512609393,
+      "full_norm": 4377.7939453125
+    },
+    {
+      "pool": "regional",
+      "row": 26,
+      "even_norm": 5435.471544023076,
+      "odd_norm": 757.9333337397808,
+      "full_norm": 6148.96826171875
+    },
+    {
+      "pool": "regional",
+      "row": 27,
+      "even_norm": 3839.9872218248674,
+      "odd_norm": 745.1786814250263,
+      "full_norm": 4524.5634765625
+    },
+    {
+      "pool": "regional",
+      "row": 28,
+      "even_norm": 5206.938867642962,
+      "odd_norm": 707.8407796490561,
+      "full_norm": 5871.88330078125
+    },
+    {
+      "pool": "regional",
+      "row": 29,
+      "even_norm": 3988.6669119799603,
+      "odd_norm": 717.6963589265806,
+      "full_norm": 4656.9697265625
+    },
+    {
+      "pool": "regional",
+      "row": 30,
+      "even_norm": 4770.605452098747,
+      "odd_norm": 660.7256884058186,
+      "full_norm": 5368.70556640625
+    },
+    {
+      "pool": "regional",
+      "row": 31,
+      "even_norm": 3525.8861597182877,
+      "odd_norm": 676.5929113725839,
+      "full_norm": 4124.10205078125
+    },
+    {
+      "pool": "regional",
+      "row": 32,
+      "even_norm": 4814.320361881588,
+      "odd_norm": 683.8115180340911,
+      "full_norm": 5447.1201171875
+    },
+    {
+      "pool": "regional",
+      "row": 33,
+      "even_norm": 3530.335645511895,
+      "odd_norm": 661.2880013305952,
+      "full_norm": 4133.4248046875
+    },
+    {
+      "pool": "regional",
+      "row": 34,
+      "even_norm": 4736.679411908028,
+      "odd_norm": 646.5158273759241,
+      "full_norm": 5327.505859375
+    },
+    {
+      "pool": "regional",
+      "row": 35,
+      "even_norm": 3446.573634161649,
+      "odd_norm": 635.2200739574579,
+      "full_norm": 4012.343994140625
+    },
+    {
+      "pool": "regional",
+      "row": 36,
+      "even_norm": 4972.671224447534,
+      "odd_norm": 728.8480356373,
+      "full_norm": 5646.87890625
+    },
+    {
+      "pool": "regional",
+      "row": 37,
+      "even_norm": 3779.8214460244208,
+      "odd_norm": 753.7264325202841,
+      "full_norm": 4464.07568359375
+    },
+    {
+      "pool": "regional",
+      "row": 38,
+      "even_norm": 5317.729274081945,
+      "odd_norm": 774.8056340795803,
+      "full_norm": 6041.12353515625
+    },
+    {
+      "pool": "regional",
+      "row": 39,
+      "even_norm": 3915.9296767472106,
+      "odd_norm": 769.6620903769456,
+      "full_norm": 4620.02099609375
+    },
+    {
+      "pool": "regional",
+      "row": 40,
+      "even_norm": 5197.047350710579,
+      "odd_norm": 714.2915369853499,
+      "full_norm": 5867.34375
+    },
+    {
+      "pool": "regional",
+      "row": 41,
+      "even_norm": 4052.653490115944,
+      "odd_norm": 750.7669696456744,
+      "full_norm": 4747.634765625
+    },
+    {
+      "pool": "regional",
+      "row": 42,
+      "even_norm": 4736.5113708811705,
+      "odd_norm": 678.2382305106634,
+      "full_norm": 5346.8310546875
+    },
+    {
+      "pool": "regional",
+      "row": 43,
+      "even_norm": 3603.1757330027112,
+      "odd_norm": 709.7458161163981,
+      "full_norm": 4228.97607421875
+    },
+    {
+      "pool": "regional",
+      "row": 44,
+      "even_norm": 4745.678576208773,
+      "odd_norm": 678.320062137644,
+      "full_norm": 5371.50927734375
+    },
+    {
+      "pool": "regional",
+      "row": 45,
+      "even_norm": 3650.8965685095354,
+      "odd_norm": 689.905526736922,
+      "full_norm": 4278.025390625
+    },
+    {
+      "pool": "regional",
+      "row": 46,
+      "even_norm": 4686.842184546757,
+      "odd_norm": 649.1226534161159,
+      "full_norm": 5275.83642578125
+    },
+    {
+      "pool": "regional",
+      "row": 47,
+      "even_norm": 3546.919330294715,
+      "odd_norm": 658.1271319550453,
+      "full_norm": 4130.41015625
+    },
+    {
+      "pool": "regional",
+      "row": 48,
+      "even_norm": 4728.3404107072065,
+      "odd_norm": 864.3955138080426,
+      "full_norm": 5524.4716796875
+    },
+    {
+      "pool": "regional",
+      "row": 49,
+      "even_norm": 4499.366661842247,
+      "odd_norm": 864.4949752237075,
+      "full_norm": 5291.20458984375
+    },
+    {
+      "pool": "regional",
+      "row": 50,
+      "even_norm": 4956.646451443385,
+      "odd_norm": 905.9807803276265,
+      "full_norm": 5795.365234375
+    },
+    {
+      "pool": "regional",
+      "row": 51,
+      "even_norm": 4663.426856919223,
+      "odd_norm": 903.0446785524842,
+      "full_norm": 5492.44677734375
+    },
+    {
+      "pool": "regional",
+      "row": 52,
+      "even_norm": 4668.430643284776,
+      "odd_norm": 925.4650715953486,
+      "full_norm": 5509.66552734375
+    },
+    {
+      "pool": "regional",
+      "row": 53,
+      "even_norm": 4431.978827784977,
+      "odd_norm": 915.8836967945026,
+      "full_norm": 5259.48876953125
+    },
+    {
+      "pool": "regional",
+      "row": 54,
+      "even_norm": 4625.364083714622,
+      "odd_norm": 869.868116114086,
+      "full_norm": 5411.291015625
+    },
+    {
+      "pool": "regional",
+      "row": 55,
+      "even_norm": 4385.92710148795,
+      "odd_norm": 877.944903938451,
+      "full_norm": 5171.826171875
+    },
+    {
+      "pool": "regional",
+      "row": 56,
+      "even_norm": 4545.042083856463,
+      "odd_norm": 857.4906454732364,
+      "full_norm": 5326.45263671875
+    },
+    {
+      "pool": "regional",
+      "row": 57,
+      "even_norm": 4280.486837666272,
+      "odd_norm": 850.7152483268047,
+      "full_norm": 5048.1220703125
+    },
+    {
+      "pool": "regional",
+      "row": 58,
+      "even_norm": 4464.590803974601,
+      "odd_norm": 818.8602171913936,
+      "full_norm": 5207.92919921875
+    },
+    {
+      "pool": "regional",
+      "row": 59,
+      "even_norm": 4221.882056329776,
+      "odd_norm": 813.6199728277805,
+      "full_norm": 4953.8125
+    },
+    {
+      "pool": "regional",
+      "row": 60,
+      "even_norm": 4411.365535545089,
+      "odd_norm": 858.6699818492663,
+      "full_norm": 5176.6162109375
+    },
+    {
+      "pool": "regional",
+      "row": 61,
+      "even_norm": 3880.5693926990652,
+      "odd_norm": 853.2968404251068,
+      "full_norm": 4649.8564453125
+    },
+    {
+      "pool": "regional",
+      "row": 62,
+      "even_norm": 4521.601985159638,
+      "odd_norm": 891.4779147246269,
+      "full_norm": 5318.31396484375
+    },
+    {
+      "pool": "regional",
+      "row": 63,
+      "even_norm": 3953.61814970376,
+      "odd_norm": 885.0463594328938,
+      "full_norm": 4749.986328125
+    },
+    {
+      "pool": "regional",
+      "row": 64,
+      "even_norm": 4387.737032132826,
+      "odd_norm": 915.0997961983617,
+      "full_norm": 5194.68408203125
+    },
+    {
+      "pool": "regional",
+      "row": 65,
+      "even_norm": 3862.6045237517483,
+      "odd_norm": 912.1326807884732,
+      "full_norm": 4677.07177734375
+    },
+    {
+      "pool": "regional",
+      "row": 66,
+      "even_norm": 4305.765125706888,
+      "odd_norm": 881.5665079908183,
+      "full_norm": 5070.75
+    },
+    {
+      "pool": "regional",
+      "row": 67,
+      "even_norm": 3765.0246522245798,
+      "odd_norm": 876.706984412535,
+      "full_norm": 4534.09375
+    },
+    {
+      "pool": "regional",
+      "row": 68,
+      "even_norm": 4225.95007518591,
+      "odd_norm": 841.8376394664402,
+      "full_norm": 4964.6416015625
+    },
+    {
+      "pool": "regional",
+      "row": 69,
+      "even_norm": 3680.952532115857,
+      "odd_norm": 826.3108065813954,
+      "full_norm": 4414.22705078125
+    },
+    {
+      "pool": "regional",
+      "row": 70,
+      "even_norm": 4185.244946276263,
+      "odd_norm": 807.3677895903957,
+      "full_norm": 4889.681640625
+    },
+    {
+      "pool": "regional",
+      "row": 71,
+      "even_norm": 3643.471100378381,
+      "odd_norm": 795.3645630872359,
+      "full_norm": 4345.29736328125
+    },
+    {
+      "pool": "natural",
+      "row": 0,
+      "even_norm": 11129.607341654626,
+      "odd_norm": 1967.3744824401967,
+      "full_norm": 12969.36328125
+    },
+    {
+      "pool": "natural",
+      "row": 1,
+      "even_norm": 7144.950232688129,
+      "odd_norm": 1490.4175266381658,
+      "full_norm": 8462.8486328125
+    },
+    {
+      "pool": "natural",
+      "row": 2,
+      "even_norm": 12848.469343421619,
+      "odd_norm": 2577.3305231587015,
+      "full_norm": 15209.193359375
+    },
+    {
+      "pool": "natural",
+      "row": 3,
+      "even_norm": 9345.919114030054,
+      "odd_norm": 1447.6666393791254,
+      "full_norm": 10593.7109375
+    },
+    {
+      "pool": "natural",
+      "row": 4,
+      "even_norm": 8868.546511545414,
+      "odd_norm": 1951.958563642045,
+      "full_norm": 10609.6240234375
+    },
+    {
+      "pool": "natural",
+      "row": 5,
+      "even_norm": 9019.078377150763,
+      "odd_norm": 1511.08614449491,
+      "full_norm": 10342.7099609375
+    },
+    {
+      "pool": "natural",
+      "row": 6,
+      "even_norm": 10499.723432883095,
+      "odd_norm": 1967.0043972550336,
+      "full_norm": 12344.388671875
+    },
+    {
+      "pool": "natural",
+      "row": 7,
+      "even_norm": 6729.325776554485,
+      "odd_norm": 1543.7457212106817,
+      "full_norm": 8020.38916015625
+    },
+    {
+      "pool": "natural",
+      "row": 8,
+      "even_norm": 6593.606826260729,
+      "odd_norm": 1353.9674981885441,
+      "full_norm": 7745.71484375
+    },
+    {
+      "pool": "natural",
+      "row": 9,
+      "even_norm": 10280.423875092149,
+      "odd_norm": 1533.19369275935,
+      "full_norm": 11647.3525390625
+    },
+    {
+      "pool": "natural",
+      "row": 10,
+      "even_norm": 7517.029768335136,
+      "odd_norm": 1520.839837817532,
+      "full_norm": 8841.1943359375
+    },
+    {
+      "pool": "natural",
+      "row": 11,
+      "even_norm": 9504.244118780567,
+      "odd_norm": 2729.3975141739443,
+      "full_norm": 11878.2041015625
+    },
+    {
+      "pool": "natural",
+      "row": 12,
+      "even_norm": 8739.694709685826,
+      "odd_norm": 1786.6345686092175,
+      "full_norm": 10313.6904296875
+    },
+    {
+      "pool": "natural",
+      "row": 13,
+      "even_norm": 19223.00116984212,
+      "odd_norm": 2732.9048010752017,
+      "full_norm": 21717.955078125
+    },
+    {
+      "pool": "natural",
+      "row": 14,
+      "even_norm": 14136.235598558646,
+      "odd_norm": 2769.3200231649544,
+      "full_norm": 16708.248046875
+    },
+    {
+      "pool": "natural",
+      "row": 15,
+      "even_norm": 9959.490499495578,
+      "odd_norm": 2000.1605300352724,
+      "full_norm": 11682.0615234375
+    },
+    {
+      "pool": "natural",
+      "row": 16,
+      "even_norm": 8004.257889528287,
+      "odd_norm": 1781.1806753883586,
+      "full_norm": 9420.20703125
+    },
+    {
+      "pool": "natural",
+      "row": 17,
+      "even_norm": 6939.304278148924,
+      "odd_norm": 1420.4939625241645,
+      "full_norm": 8071.22216796875
+    },
+    {
+      "pool": "natural",
+      "row": 18,
+      "even_norm": 10159.984377862773,
+      "odd_norm": 2384.566537301497,
+      "full_norm": 12165.1044921875
+    },
+    {
+      "pool": "natural",
+      "row": 19,
+      "even_norm": 3310.1242394524597,
+      "odd_norm": 1302.1118364039721,
+      "full_norm": 3977.736572265625
+    },
+    {
+      "pool": "natural",
+      "row": 20,
+      "even_norm": 7926.271464875619,
+      "odd_norm": 1948.026161375774,
+      "full_norm": 9754.837890625
+    },
+    {
+      "pool": "natural",
+      "row": 21,
+      "even_norm": 17238.179239203953,
+      "odd_norm": 2548.6340127962567,
+      "full_norm": 19567.521484375
+    },
+    {
+      "pool": "natural",
+      "row": 22,
+      "even_norm": 8996.026832108559,
+      "odd_norm": 1580.4218772631318,
+      "full_norm": 10340.4638671875
+    },
+    {
+      "pool": "natural",
+      "row": 23,
+      "even_norm": 9827.513037413102,
+      "odd_norm": 2082.6951704369712,
+      "full_norm": 11711.80859375
+    },
+    {
+      "pool": "natural",
+      "row": 24,
+      "even_norm": 7420.310566890062,
+      "odd_norm": 1171.7890467888653,
+      "full_norm": 8410.2626953125
+    },
+    {
+      "pool": "natural",
+      "row": 25,
+      "even_norm": 7527.9829314697345,
+      "odd_norm": 1383.145981024808,
+      "full_norm": 8752.2734375
+    },
+    {
+      "pool": "natural",
+      "row": 26,
+      "even_norm": 15050.41643627196,
+      "odd_norm": 2751.094525081616,
+      "full_norm": 17472.77734375
+    },
+    {
+      "pool": "natural",
+      "row": 27,
+      "even_norm": 6704.26661152096,
+      "odd_norm": 1968.323966685661,
+      "full_norm": 8516.30859375
+    },
+    {
+      "pool": "natural",
+      "row": 28,
+      "even_norm": 8122.761251665339,
+      "odd_norm": 2042.5782698612213,
+      "full_norm": 9943.1279296875
+    },
+    {
+      "pool": "natural",
+      "row": 29,
+      "even_norm": 5394.987730529649,
+      "odd_norm": 1392.579376459553,
+      "full_norm": 6591.87060546875
+    },
+    {
+      "pool": "natural",
+      "row": 30,
+      "even_norm": 9021.873623160936,
+      "odd_norm": 1718.3621411064455,
+      "full_norm": 10554.1513671875
+    },
+    {
+      "pool": "natural",
+      "row": 31,
+      "even_norm": 5209.344662092655,
+      "odd_norm": 1440.564899612087,
+      "full_norm": 6406.1865234375
+    }
+  ],
+  "arms_regional": [
+    "native",
+    "remove_even",
+    "remove_odd",
+    "remove_full",
+    "recompose",
+    "remove_scalar",
+    "donor_even",
+    "selfdonor_even"
+  ],
+  "arms_natural": [
+    "native",
+    "remove_even",
+    "remove_odd",
+    "remove_full",
+    "recompose",
+    "remove_scalar"
+  ],
+  "body_forwards": 768,
+  "seconds": 9.82257610099623,
+  "artifact_sha256": "856368938aaa29a9726b458e69c8c729421ff2a068f77010def0eabd62ce8117",
+  "source_shas": {
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_even_key_full_value_native_v1.py": "dd453b0848cf62ff4c7a5a1f9b108f0b575ba5e8fb5f28459f337df99a8ad739",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_key_span_native_v1.py": "e511f30846528cd2691317dd05170f1c870eeed22b0c0761dbee8589a6b3a6e4",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_scalar_joint_key_grades_confirmation_v1.py": "744db0ea32465cbb24a31c139fd73b991e1fff0929cb0face3aa5908e15f26cc",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_shared_parent_native_v1.py": "369951d5c2271f39adfd96695ffe083357e7467976fc2294777901049faeac38",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_sparse_pair_package_native_v1.py": "84bddc809f50653dcb3072c76eb34a87dbc145abac3a301257a510e6f81e61dc",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_sparse_selective_pair_v1.py": "77b959c999ee2e697736a3244d368787aa60ec15b8a18ccd741e86065b106d05",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/EVEN_KEY_FULL_VALUE_NATIVE_V1_CPU_CONTROL.json": "ae7cc2dbc273015ce9f122cb706c306ea21bd11da3a16b6dd38152eff155cb6b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/EVEN_KEY_FULL_VALUE_NATIVE_V1_PREREGISTRATION.md": "9416e2d33dbdb6ac3fe6defdfc0fb3ea7f4a418ec9f6ef1c39d6086b26ab17ca",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/EVEN_KEY_VALUE_BANK_V1_PROGRAM.pt": "83b0c5e30f2b1c777031fc31c3fe606e8317217d1bdd86e0c3fcbc2cb9a97dc1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/KEY_SPAN_NATIVE_V1_PREREGISTRATION.md": "281a61f558ae6b52951f630adb9d3309a58e1eb9a4ef67b6082dbbe18bfb58af",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/KEY_SPAN_REUSE_V1_PROGRAM.pt": "10fa245ee4786e98218feb8ba2f10b335d1537d2823bd39ed8ad651e0991ed1a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/MIXED_TOKEN_HEAD2_NATIVE_V1_PROGRAM.pt": "75d043f471023fa70455f22f634f1372b3cd4347bb2646ea2cec85347dbe88ee",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/PRODUCER_FRESH_CONFIRMATION_CACHE_V1_ARTIFACT.pt": "50626223f54f56c261127f0154a54f3ef9b5b8a7fec1abf8ac1692023c4dcb4f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_CITY_ROLE_CROSSOVER_V1_ROWS.json": "e79ab43eff592829724de70e6ac038d1046d0172b4a26975896b738311b995cf",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_COMPETING_CUES_V1_ROWS.json": "7eeafb875fd3687f7e8225264a129d015d807d677235b3b6129af6d04dc19621",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_SOURCE_POSITIONS_V1_ARTIFACT.pt": "b66146b4945366051eeb8641d3c85bd4918ced6b28103dcecfb0cb5d600d1829",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_BANK_V1_ARTIFACT.pt": "523623c338a0220e2a6ab8cf2dd4bf241bb61e22d8efed3f4123399432aa6209",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_BANK_V1_RESULT.json": "f52503145cb32aae8dfdaae8f2b489d996abb9cb5a2d2dac265efae44fbf5165",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_CONFIRMATION_V1_ROWS.json": "cda803da305f84eb7b08d6b13db1cba7b7ad8ac5b6a681918acb3a1ae7dce7b1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_GRADES_CONFIRMATION_V1_ARTIFACT.pt": "6e428e404c7e07cae178347ddb10f27fe47716b24feeb078cf9e532039516f93",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_GRADES_CONFIRMATION_V1_PREREGISTRATION.md": "8e04d44735f5d4e4a27ec862ff1305eaffae9637809055407b7dc7998f03606e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_GRADES_CONFIRMATION_V1_SELECTION.json": "9df463513825610aa47d7015cc085d0aacfc5984e569b6c3f245399e991470f1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_GRADES_V1_PREREGISTRATION.md": "8b0d4edfd39e560437387fe231bd0daa3db6b8b1aadb49822b069cef7ab4140d",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_GRADES_V1_RESULT.json": "d140d55bc47ed488370c0b8018c7831e179edfeb7061e5bb90bad3511c566656",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_PATHS_V1_CONTROL.json": "359a4696bc337bbab81f35f8d5aa9170a4d886c4a9b960b126b301780bf73b43",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_PATH_SCREEN_V1_ARTIFACT.pt": "e1ba7bd5a408df1afe1bf6cd3b843ae38afbd07995d9a31e0b5ad3a84bc7a853",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_PATH_SCREEN_V1_PREREGISTRATION.md": "0e6cb2c71522d1b80b35388a2d8405ce268a123edea983db4356c24197b04e43",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_JOINT_KEY_PATH_SCREEN_V1_RESULT.json": "a2708ac90b6d1c4f1e8e24bab4a166fdee71d3b4c63f1443fb6253614bf9d32c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_COMPILE_V1_PROGRAM.pt": "d2e5fd65ab43dd25bf8548438c918ea7b4c9a93e6664931b5d52b37dcbd92490",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_CONTEXT_TRANSFER_V1_ARTIFACT.pt": "494d907c6f40008060a6d08801681d0560865e55258043e1846038188f2829c4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_CONTEXT_TRANSFER_V1_PREREGISTRATION.md": "35760079dfe5d2dfb95bb6465473aaafe0bc35a0f65763fe3f5a60f3b8e9a906",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_CONTEXT_TRANSFER_V1_ROWS.json": "738d430059208837acf8871924cef0a1b38d755dfd26d5fa69282da54cb15f55",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NATIVE_V1_PREREGISTRATION.md": "8d39a530df165fc8df1ea94f70dfa59d1ddbd89b55d506d6e8226c3ae1e2f524",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_NATURAL_V2_ARTIFACT.pt": "a43d66e0650d83cf0f27ef868dc17e7473a0bac0aa0767a74d20cc15eae5e2c1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_NATURAL_V2_PREREGISTRATION.md": "e1a7bcbdd958b52703fd4aca510086c1033dfe58cdd8b1c39d8c553901917deb",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_NATURAL_V2_RESULT.json": "a351c1318926c7e700a17e16d86fd4924739e0724190b7bef7f3d1dd290c53b1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_NATURAL_V2_ROWS.json": "2bbd64ee8d4e6dd98b42b313786370b1f1f0a6984f0cde174510bb1f99a3d042",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_V1_ARTIFACT.pt": "8ba9cf53ba687387d006b208bd9df556d576191701580b5fc5a2d1688ebeef75",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_V1_PREREGISTRATION.md": "e977e0646181d1b782a4f943c923282f2f2032a2c3ac04ed38dbd9d096dd425c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_NEWLINE_V1_ROWS.json": "c41e462bfda16d3fa0e1f5ca18275ea219f63525e31db8e8920f2c9506980f40",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_RECURSIVE_REMOVAL_V1_ARTIFACT.pt": "171e01f2c5b4d30500c08e4119f61d895ccfd72738eddb56c2229ed1e91179bd",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_RECURSIVE_REMOVAL_V1_PREREGISTRATION.md": "b08fdf2d6968452ef7d101a2cc309f10aa610e2cb1cad9644e165b800d1c59e1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_RECURSIVE_REMOVAL_V1_RESULT.json": "53a376e6139df1d0182391950a557d1e0b1394f3becc3b3c81d11c69fb664577",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_SERIAL_INTERACTION_V1_ARTIFACT.pt": "25d07a1b6f8f721ea3f48b051596a1f4cc30f6b90600f0bfaf1aee8f0a2e6bf1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_SERIAL_INTERACTION_V1_PREREGISTRATION.md": "6f9831ed0901ac08f440100232b624e9be10e14d8bdb412c3d9721b302b5609b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCERS_SERIAL_NATIVE_SCALARS_V1_ARTIFACT.pt": "fcf1ae76dfc04ce295fedc38e05bab297ca409c69a9991345683fba99ba521dd",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_DIRECTIONAL_MLP_V1_PROGRAM.pt": "2e07e9eb98ac60f5f0acde03875a08bdd16014ecadcb1605c0e1307e83c6bbcc",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_EFFECT_V1_PREREGISTRATION.md": "0e873f62b64dade1f88554150bc992b5b17273d372c271a97369ddb27c566e29",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_NATIVE_V1_ARTIFACT.pt": "b66448cbca59cf113abff0d1c9a8bce9f6cbf5209e5101d4d29b6044edbbc39b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_NATIVE_V1_PREREGISTRATION.md": "5a22072aa0c196162a5e0bfc8ef4b4a377e60319fac40c7c2aa9b60bd1ac950a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_NATIVE_V1_RESULT.json": "7d3a5d9ed44bd52c686122f6aad853fc50bde2d6e38efa35743dd31cdf8f7e87",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_MLP_BRIDGE_V1_RESULT.json": "13cf919769530af5064e364632f5ff7cde3e6191efc6c5db85e36286bc278437",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_NATIVE_LIFT_V1_ARTIFACT.pt": "abac8ee3ad606366028ff0c26dbf6110a6edb08b71bb8ba379de74b2cc5bbf51",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_PRODUCER_NATIVE_LIFT_V1_RESULT.json": "68bfdd6a7697ca5d9a5fa890fc4a8ea29dff7edb691571c73509b568e067aa76",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_VALUE_SECTORS_V1_CONTROL.json": "53b3d081d65adf90ca27ef7eaefc0bd5d8c91073375d5d2cd0b83c1be7e97396",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_VALUE_SECTOR_FACTORIAL_V1_ARTIFACT.pt": "0281877b2bb48eadb23496f10628c15ea2560534252d70f9e35a62005e96f369",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SCALAR_VALUE_SECTOR_FACTORIAL_V1_RESULT.json": "e06c5b20d1542b4801c9cfa8079a9f184606fd3c435bcf1b5f0c920328e8662f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SHARED_PARENT_NATIVE_V1_PREREGISTRATION.md": "ad6b41a84971a49a175aadcef0d95057bf682ff4c3d8eae3e4605d18fc427e86",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SPARSE_COMPLETE_EVEN_FIT_V1_PROGRAM.pt": "6348e0410584700ece112a513f9876df1fa885eb89783fc540edbed8f188df7c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SPARSE_SELECTIVE_PAIR_V1_ARTIFACT.pt": "15fc91f86fb37341fcab2f249614323852fccc2bc1c77eb9369043ce5e286db7",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_BANK_V1_PREREGISTRATION.md": "3a19319760502562ecb2cd7186b642607dc9e9aba7a62c83cd82dcdf86fbb4f2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_BANK_WEIGHTS_V1_ARTIFACT.pt": "5cf244ecf66632b6145f2f32c8d013958a2d98217607f680a91d0d9e7dd92e5b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_CONFIRMATION_V1_ROWS.json": "e6bf664fa6dc88cc4ca52763d46fb7ab9085121aead3453192dcd867b03c1ede",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_NATIVE_V1_PREREGISTRATION.md": "40a5a81fa3ec49c575f4feb59812ce91867d16f907b58e80b69a537c82791bc0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_PASSERS_CONFIRMATION_V1_PREREGISTRATION.md": "a26809fbfe6e9e43d0eeaa74280ac931f66b628f5045f45840612a12cf3d3084",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURED_PRODUCER_SHARED_OUTPUT_V1_ARTIFACT.pt": "fbf2df661f1a09a063fe068aff166f37750a29973ff4f215a9d88d6e851816aa",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/compiled_mixed_token_head_v1.py": "adb47f8387c75f557d13c0dfaf192180547fce677417b5b89c47406b3a29b331",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/compiled_reading_head_v1.py": "c829a4dd80c61c3ba70cbdf4e405e4a23bb94b2aa13b4f2f310f8b549835aba8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/compiled_scalar_producers_v1.py": "aa0666a6dc2d2f840e830d4107811958038fe9305556e9857e75059c89d6be4b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/directional_mlp_bridge_v1.py": "2dd44cc26e7699e0cdebc26f1feae8508e34f5edf5299a4f35608acc925655d3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/even_key_value_native_backend_v1.py": "2e8d34c6e6198b2f60d1b1b39bb3caf0c8e2c596c487f8362eb75726b832c502",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/regional_even_key_producers_8_2_9_8_v1/program.pt": "04714ad19339c5643e9e9bd49953ebd5e418c3b31fdbabee357b10cccf6da2ce",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/sparse_even_key_producers_8_2_9_8_v1/execute.py": "afdc65da0726972df5d368ee43ea35fe04fcd861d3bbe3b73e3a1a96fe2f4872",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/sparse_even_key_producers_8_2_9_8_v1/program.pt": "672cbcc0db1ea17a65126a12188a5103019a7c20946d34100a0b3a8eec683e0e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/folded_normalized_router_v1.py": "a374ea1f2c29ed68f7b33f3eb9d28a7034a25260ec95fe4b4e9fc2d7b0e48d9c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/key_span_reuse_v1.py": "cd7f365fdf245d2ae3a2f9d79e3d019f99f508015f45cbc5a8802bf98a1101c0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/prepare_even_key_full_value_native_v1.py": "8febe8d983535a680596c0d285fed6086936b16de70190aa53ac6fe5b63be91d",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_cue_row_check_v1.py": "9d58e3dc5426f94f3bf2a142e5cb45dbadbfed2f743bee262221482bd3db76ef",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_even_routing_v1.py": "6e04996b3c8e947a73427fd12ea3acf4617d0eba2d4ae74eb1aea372d80c138e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/scalar_joint_key_confirmation_rows_v1.py": "8e13285f282ab3238041682dae04a05fdfd027bcd1ee3db2a7f40dd7fd04c282",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/scalar_joint_key_paths_v1.py": "9ec0f791a424bffc240be67c7e02ba7469ee743555ca549742519e232b978d0e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/scalar_producers_context_transfer_rows_v1.py": "53ca2ca1bd7ce1a27f8b7ae5529eb10410726eda3a837ee94f973734a4e5d05e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/scalar_producers_newline_natural_rows_v2.py": "de1a5ff0a6ff63bcf2aadaa9d614598fbead8d732e8c6ddc0f1d13cf3c634708",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/scalar_value_sectors_v1.py": "a9f2e3dd080d486919d3ba895083b9e21cb202684da91582501d7c6f1d2971fe",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/shared_parent_runtime_v1.py": "f0910ef35fb3216f3bbdbb2f584614e7d2ab7f5df712ccf0b017085dbfdf8b7a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/sparse_parent_reader_v1.py": "41d91ebfc9cd0c4efbb5ac295b76f6cc6c06b20766d32ccce54d816443badc1f",
+    "/workspace/tensor_language/jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+  },
+  "scope": "Frozen full128value even-key component, all current/first values and1152writer. Existing72regional/32natural developmentpanel. Fullnativeprefix/suffix retained; no new OOD/fit/fullmodelcompression claim."
+}

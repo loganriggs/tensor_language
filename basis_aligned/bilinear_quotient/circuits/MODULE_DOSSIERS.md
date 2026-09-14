@@ -157,3 +157,21 @@ lexical/form operations and their producers, not independent-axis relabeling.
 
 ### MLP17 terminal complementary sources, 18:50 UTC
 V2 instrument held; MLP-only complement (.710–.833 error) and carried-only (.342–.373) both fail .20 lexical-drift sufficiency. Actual last-MLP complement clamp matches the physical readout counterfactual. V1 precision-check failure preserved, shared V1/V2 states bitwise equal. See polynomial_causal/explanations/2026-09-10/terminal_complement_sources.md and TERMINAL_COMPLEMENT_SOURCE_V2_RESULT.json. No independent producer or circuit promotion.
+
+## Head9.8 conditional even/odd routing and selective scalar — 14 September, 12:17 UTC
+
+The full-value even-key extension retains both QK factors, 128 current/inherited
+value channels, native mixture and output map. Native instrument replay passes,
+but regional selectivity and unrelated preservation fail. Its cue coverage
+41.84–44.51% is close to the earlier scalar, with substantially larger collateral.
+Physical removal of the complement R=even−scalar changes paired cue contrast by
+only 3.91–6.36% of the scalar change, while causing 4.23–7.09 times its unrelated
+readout effect. Regional composition passes; one newline half fails at 5.458%.
+The executed CE-stage discriminator leaves substantial raw-score/final-RMS
+nonlinearity, so this is not dismissed as loss curvature.
+
+A weight-derived shared S/R/O graph reuses native V/output coordinates and passes
+36 signed-write controls. All evidence remains conditional on native contexts and
+suffix and uses development panels; no newly named semantic circuit or full-model
+compression is established. The next registered S+O/R+O interventions resolve the
+remaining pair/triple ambiguity. [Primary method and receipts](../../polynomial_causal/EVEN_KEY_VALUE_BANK_V1_MATH.md).
