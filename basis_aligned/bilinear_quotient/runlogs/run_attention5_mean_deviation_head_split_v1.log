@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_attention5_mean_deviation_head_split_v1.py", line 157, in <module>
+    main()
+    ~~~~^^
+  File "/home/loganriggs/Coding/tensor-similarity/.venv/lib/python3.13/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_attention5_mean_deviation_head_split_v1.py", line 100, in main
+    losses(fit, "collect")
+    ~~~~~~^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_attention5_mean_deviation_head_split_v1.py", line 95, in losses
+    row = F.cross_entropy(logits.reshape(-1, V), target.reshape(-1), reduction="none")
+                          ~~~~~~~~~~~~~~^^^^^^^
+RuntimeError: shape '[-1, 50257]' is invalid for input of size 102620160
