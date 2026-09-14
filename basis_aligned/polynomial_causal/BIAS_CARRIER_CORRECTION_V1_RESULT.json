@@ -1,0 +1,34 @@
+{
+  "utc": "2026-09-14T10:42:34.517359+00:00",
+  "bias_rms": 11.782397059970062,
+  "recurrence_replay": 1.5305305684803928e-16,
+  "bias_site_execution_replay": 1.2914330291153243e-07,
+  "price_ratio": 1.0013027075622551,
+  "artifact_bytes": 4906178,
+  "artifact_sha256": "97f54c4e892cd3b200c927edc6dae3982d5ae5a5bb7d44c38c00ef046d5ae557",
+  "correction_values": 1536,
+  "extra_macs_per_row": 1536,
+  "panels": [
+    {
+      "prefix": "COMPOSED_LAST_BLOCK_STATES_V1",
+      "baseline_energy": 1.0623284229152725e-08,
+      "corrected_energy": 1.0631533098199122e-08,
+      "relative_improvement": -0.0007764895364241742,
+      "background_rms": 1675.720039251281,
+      "centered_background_rms": 1674.9048479022808
+    },
+    {
+      "prefix": "MINIMAX_FRESH_CACHE_V1",
+      "baseline_energy": 1.3464114825907316e-08,
+      "corrected_energy": 1.3484701947688837e-08,
+      "relative_improvement": -0.0015290364088331732,
+      "background_rms": 1711.816714550945,
+      "centered_background_rms": 1711.002786197475
+    }
+  ],
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "seconds": 0.4234605299971008,
+  "scope": "Weight-derived exact affine-bias carrier, no fit to native data. Sparse body plus small dense correction; native conditional raw scores only, no adoption."
+}

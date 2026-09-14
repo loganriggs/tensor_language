@@ -1,0 +1,146 @@
+{
+  "rows": [
+    {
+      "name": "SPARSE_INTERACTION_EXECUTOR_V1",
+      "pairs": [
+        {
+          "pair": [
+            11383,
+            1430
+          ],
+          "spectral_bound": 165.41737165098186,
+          "witness_relative_error": 3.4363633210629975e-16,
+          "fresh_rows": 16,
+          "fresh_selected_error_energy": 3.6798766781170563e-10
+        },
+        {
+          "pair": [
+            14148,
+            6907
+          ],
+          "spectral_bound": 154.05900648163745,
+          "witness_relative_error": 5.534576019830097e-16,
+          "fresh_rows": 16,
+          "fresh_selected_error_energy": 2.5829067870113027e-10
+        },
+        {
+          "pair": [
+            31049,
+            14733
+          ],
+          "spectral_bound": 164.67212141424665,
+          "witness_relative_error": 6.903830274684273e-16,
+          "fresh_rows": 16,
+          "fresh_selected_error_energy": 3.46964797773357e-11
+        },
+        {
+          "pair": [
+            34614,
+            18388
+          ],
+          "spectral_bound": 159.22362494564197,
+          "witness_relative_error": 3.570036725405167e-16,
+          "fresh_rows": 16,
+          "fresh_selected_error_energy": 1.673843354643086e-10
+        },
+        {
+          "pair": [
+            39012,
+            16521
+          ],
+          "spectral_bound": 154.69744904938648,
+          "witness_relative_error": 9.18622433823408e-16,
+          "fresh_rows": 16,
+          "fresh_selected_error_energy": 1.6786093537782658e-11
+        },
+        {
+          "pair": [
+            46729,
+            16924
+          ],
+          "spectral_bound": 159.45747450665266,
+          "witness_relative_error": 3.564801150694035e-16,
+          "fresh_rows": 16,
+          "fresh_selected_error_energy": 4.017704814317373e-11
+        }
+      ]
+    },
+    {
+      "name": "MINIMAX_ROW_SUPPORT_V1",
+      "pairs": [
+        {
+          "pair": [
+            11383,
+            1430
+          ],
+          "spectral_bound": 141.67892692744098,
+          "witness_relative_error": 4.012129403684687e-16,
+          "fresh_rows": 16,
+          "fresh_selected_error_energy": 1.7221417234873854e-09
+        },
+        {
+          "pair": [
+            14148,
+            6907
+          ],
+          "spectral_bound": 142.33732182250918,
+          "witness_relative_error": 0.0,
+          "fresh_rows": 16,
+          "fresh_selected_error_energy": 2.031817212082046e-11
+        },
+        {
+          "pair": [
+            31049,
+            14733
+          ],
+          "spectral_bound": 141.89877618075096,
+          "witness_relative_error": 4.005913256672542e-16,
+          "fresh_rows": 16,
+          "fresh_selected_error_energy": 9.445405166759695e-11
+        },
+        {
+          "pair": [
+            34614,
+            18388
+          ],
+          "spectral_bound": 142.00408218259008,
+          "witness_relative_error": 4.0029425906023076e-16,
+          "fresh_rows": 16,
+          "fresh_selected_error_energy": 1.4942819685658798e-10
+        },
+        {
+          "pair": [
+            39012,
+            16521
+          ],
+          "spectral_bound": 141.4615713418261,
+          "witness_relative_error": 4.018294037145412e-16,
+          "fresh_rows": 16,
+          "fresh_selected_error_energy": 5.7012377467433703e-11
+        },
+        {
+          "pair": [
+            46729,
+            16924
+          ],
+          "spectral_bound": 140.90604264451468,
+          "witness_relative_error": 1.2102409050877037e-15,
+          "fresh_rows": 16,
+          "fresh_selected_error_energy": 2.1128241070998344e-10
+        }
+      ]
+    }
+  ],
+  "bound_ratios": [
+    0.8564936409845322,
+    0.9239143174629949,
+    0.8617049137527815,
+    0.8918530917197084,
+    0.9144402329263045,
+    0.8836590638379639
+  ],
+  "pred_a": true,
+  "pred_b": true,
+  "seconds": 0.4273691449998296,
+  "scope": "Exact scalar-reader absolute bilinear error norms, not native relative-error guarantees. Descriptive pair split, no fitting."
+}
