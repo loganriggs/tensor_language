@@ -1,0 +1,46 @@
+{
+  "authority_logical_sha256": "f77914228dd2dabef7045fcd588ad172df1ed3bdd5006399f72d215553931830",
+  "bars": {
+    "maximum_intermediate_relative_l2_error": 0.85,
+    "maximum_native_relative_l2_error": 0.75,
+    "maximum_original_relative_l2_error": 0.2,
+    "maximum_template_relative_l2_error": 0.9,
+    "minimum_intermediate_cosine": 0.7,
+    "minimum_intermediate_sign_agreement": 0.7,
+    "minimum_native_cosine": 0.75,
+    "minimum_native_sign_agreement": 0.75,
+    "minimum_original_cosine": 0.98,
+    "minimum_original_sign_agreement": 0.95,
+    "minimum_template_cosine": 0.65,
+    "minimum_template_sign_agreement": 0.65
+  },
+  "files": {
+    "authority": "01d990ccdaa71d96d6e8fa7d496c6159a255f624ff036fb4605c91936cdbca61",
+    "capability_license": "e8207b3863d6c9244690aea52aa2c75c8e4c5f7a1fc5d9444f1a65c1eb1a9390",
+    "capability_result": "ca4b04c99b2ac71ebd81d7a86d5727a9c230a8b4a411143fa563e075122ec4d4",
+    "original_causal_result": "9a488259efdb85477f35c612696368e8a3e372338a11253615a7b53650c88fe0",
+    "original_prototypes": "cce00d8f2309b0f9e0329c094238505819f2cf8a21c04e276af2085e068c1d07",
+    "preregistration": "4174db7a67a36835d0a7fd3ed2b5ca82bbdcf31d0930da90961d47f3b9ea2664",
+    "rank1_artifact": "f73126268794342809c2953b388ed83f6d1d0e2e245ce9ea78f2d665a0e87c1f"
+  },
+  "methods": [
+    "base",
+    "exact",
+    "original",
+    "rank1"
+  ],
+  "outcomes_opened_before_freeze": [
+    "native capability outcomes only; rank-one basis/scalars were frozen on prior weights-only prototype bank"
+  ],
+  "price": {
+    "backwards": 0,
+    "causal_installations": 2048,
+    "example_evaluations": 2144,
+    "maximum_patch_chunk_rows": 256,
+    "parameter_updates": 0,
+    "patch_chunks": 8,
+    "physical_model_forwards": 9
+  },
+  "rank": 1,
+  "schema": "subject_number_rank1_fresh_confirmation_v1_binding"
+}
