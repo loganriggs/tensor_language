@@ -1,0 +1,80 @@
+{
+  "utc": "2026-09-14T10:07:28.101724+00:00",
+  "native_replays": [
+    {
+      "seed": 170223000,
+      "relative_error": 0.0,
+      "absolute_error": 0.0
+    },
+    {
+      "seed": 170223001,
+      "relative_error": 0.0,
+      "absolute_error": 0.0
+    }
+  ],
+  "contexts": [
+    {
+      "seed": 170223000,
+      "directional_replay": 1.4677852163683016e-07,
+      "singular_values": [
+        156745.92694369334,
+        130263.55543316148,
+        128172.84431619123,
+        120454.94780090406,
+        116028.08650020444
+      ],
+      "linearization": [
+        {
+          "step": 0.001,
+          "relative_error": 0.005142233723615801,
+          "absolute_error": 1.9101864708658698,
+          "effect_norm": 371.4701768792235
+        },
+        {
+          "step": 0.0005,
+          "relative_error": 0.0025707718577701673,
+          "absolute_error": 0.4775010959178202,
+          "effect_norm": 185.74230711082797
+        }
+      ],
+      "halving_improvement": 2.0002684050213873,
+      "pred_b": true,
+      "pred_c": true
+    },
+    {
+      "seed": 170223001,
+      "directional_replay": 1.4318771703111883e-07,
+      "singular_values": [
+        133556.67947353845,
+        133014.81467484287,
+        124358.23502435604,
+        123890.34835124854,
+        123220.78227375483
+      ],
+      "linearization": [
+        {
+          "step": 0.001,
+          "relative_error": 0.0046994475450850455,
+          "absolute_error": 1.8171854833516237,
+          "effect_norm": 386.680661060286
+        },
+        {
+          "step": 0.0005,
+          "relative_error": 0.002350461268332184,
+          "absolute_error": 0.4542982520488881,
+          "effect_norm": 193.28046718729567
+        }
+      ],
+      "halving_improvement": 1.9993724671836992,
+      "pred_b": true,
+      "pred_c": true
+    }
+  ],
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "seconds": 2.682570887998736,
+  "tail_loaded_parameter_bytes_fp32": 860004972,
+  "source_sha256": "48861284379433588dd9f28f24c87a64735ccf78a72a9fb61e759bf40fda260e",
+  "scope": "Two synthetic backgrounds; actual fixed writer and weights; local tangent only. Full tail retained, no compression or native-text result."
+}
