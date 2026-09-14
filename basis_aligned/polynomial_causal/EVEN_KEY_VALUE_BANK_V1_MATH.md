@@ -744,6 +744,18 @@ with the full donor edit, which attenuates the same48 contrasts by4.19%,9.33%,
 manipulation of the conditional edge. It does not establish whole-head removal,
 corpus OOD, independent state generation, or a favorable dedicated-port price.
 
+[Natural-corpus transfer](ODD_ATTENTION8H2_CORPUS_TRANSFER_V1_RESULT.json) also
+passes all five frozen predictions on eight FineWeb and four separately labelled
+Pile/reference fragments selected without model scores. Native city-cue
+capability is45/48 and18/24 paired contrasts. Value-only reproduces the full
+city effect within7.07%/4.94%, routing-only misses by107.19%/107.01%, and the
+complete inherited edge is within19.48%/16.91% at cosine.9963/.9948. It moves
+every capable pair toward the donor spelling convention, with mean magnitude
+6.15%/9.16% of the native paired cue; all control ratios are below.176. This
+extends the operational edge beyond authored instruction templates. FineWeb is
+a training-corpus comparison and the Pile rows are cached reference text; the
+panel is not verified pretraining-disjoint or near-duplicate-free.
+
 [The equal-count split](ODD_FRAMING_EQUAL_HALVES_NATIVE_V1_RESULT.json) also
 rejects a stable positional role. Local-history remains early dominated
 (31.89% versus70.04% error), while radio is distributed with late closer

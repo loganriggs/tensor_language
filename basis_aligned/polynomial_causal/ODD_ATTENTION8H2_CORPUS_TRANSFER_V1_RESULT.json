@@ -1,0 +1,104 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "pred_d": true,
+  "pred_e": true,
+  "max_head_source_replay_error": 3.1725949156680144e-07,
+  "max_factorial_error": 6.695255194699712e-08,
+  "max_value_sum_error": 6.876681624135017e-08,
+  "min_arm_write_norms": {
+    "full_city": 396.0731506347656,
+    "routing_only": 74.71311950683594,
+    "value_only": 366.29852294921875,
+    "inherited_edge": 322.8101806640625
+  },
+  "max_outside_hybrid_delta": 0.0,
+  "corpora": [
+    {
+      "corpus": "fineweb",
+      "rows": 96,
+      "pairs": 48,
+      "native_positive_pairs": 45,
+      "native_cue_mean": 1.3975255110611517,
+      "full_city_effect_rms": 0.13353068606602456,
+      "value_to_full_error": 0.07065794224112572,
+      "routing_to_full_error": 1.0719332681007423,
+      "inherited_to_full_error": 0.19475406629387043,
+      "inherited_full_cosine": 0.9963282973641601,
+      "donor_directed_capable_pairs": 45,
+      "donor_directed_fraction": 1.0,
+      "inherited_meanabs_over_native_cue": 0.06150769060679299,
+      "inherited_target_row_rms": 0.05969697301332528,
+      "control_ratios": {
+        "cat_dog": 0.10308208598442643,
+        "red_blue": 0.07267133088661451,
+        "monday_tuesday": 0.07196510224555777,
+        "apple_orange": 0.0800900783844598
+      },
+      "capability_pass": true,
+      "transport_pass": true,
+      "manipulation_pass": true,
+      "controls_pass": true
+    },
+    {
+      "corpus": "pile",
+      "rows": 48,
+      "pairs": 24,
+      "native_positive_pairs": 18,
+      "native_cue_mean": 0.6443362087011337,
+      "full_city_effect_rms": 0.08175038417375328,
+      "value_to_full_error": 0.04938692973930017,
+      "routing_to_full_error": 1.0701058219649062,
+      "inherited_to_full_error": 0.1690587701006104,
+      "inherited_full_cosine": 0.9947663272267773,
+      "donor_directed_capable_pairs": 18,
+      "donor_directed_fraction": 1.0,
+      "inherited_meanabs_over_native_cue": 0.0915971502718249,
+      "inherited_target_row_rms": 0.036449117342784304,
+      "control_ratios": {
+        "cat_dog": 0.09578113443357555,
+        "red_blue": 0.0835557852847542,
+        "monday_tuesday": 0.11749633647362809,
+        "apple_orange": 0.17586700717528297
+      },
+      "capability_pass": true,
+      "transport_pass": true,
+      "manipulation_pass": true,
+      "controls_pass": true
+    }
+  ],
+  "body_forwards": 720,
+  "seconds": 10.457570434002264,
+  "artifact_sha256": "afe05f5662683e309931f90096cf7d46236eb169800b8cfcd91681ef7b487c33",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_odd_attention8h2_corpus_transfer_v1.py": "e81a44d49bbc911a40bada904e94bdd58f85a1193839c5fd01b6cd519dab66ce",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_CORPUS_TRANSFER_V1_PREREGISTRATION.md": "7cce83a14c7571543324375da68c6f190a34d2c8df5ed14fd4924b677d757a95",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_CORPUS_TRANSFER_V1_ROWS.json": "ecd2c53121edcfbc838be6102f10b1ac26f62bee16ae328d9302007d0e3f947b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_CORPUS_TRANSFER_V1_CPU_CONTROL.json": "d8fc143c88207095424829b18aaf259dadb4397a8a3a9210a3f1d6f2ea317135",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_attention8h2_corpus_transfer_v1.py": "2432478dfd2746ff2a6559a3920245d8843cbc965ec062a3fa7d3c148d05a75c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/attention8h2_city_value_source_v1.py": "294834c88cf0ab06509caa13b0f442ce05d5ef29f5aae0d26e3075f1e3167963",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/attention8h2_city_key_value_v1.py": "34824446f999f3d2cd405aa7eb72bf9f8f03199e0cb16eb3fa72bb5bb7ebaace",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_odd_attention8h2_city_key_value_v1.py": "93d71314e7981029e717459c275323c1d9cb57502e019cb8af7497766188220a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_source_swap_interaction_v1.py": "a156341eb90224a450e4abda512d2fefa9d487e567db44ec4a5a3493dc4424d9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_value_source_split_v1.py": "4da1a2c9472b78c38bd4970681a9f71ba8d6cbdea4afeba07ebbc504bbf54d13",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_source_positions_v1.py": "b67386c1a306fcbcbe300bf9e9114601b43635b20880d80d6167cc7d5ecbc1ac",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/EVEN_VALUE_SHARED_GRAPH_PACKED_V1_PROGRAM.pt": "cbe8a94a2057ca3c53614d3bb70a5e8c0cb660e6e6cb57b531bf6dc0a2ccdd7f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/even_value_shared_graph_v1.py": "547e8b3202d191e1d51d30e1457cc3c445560157fc7bb9b39087c629d0a9908e"
+  },
+  "arm_order": [
+    "native",
+    "full_city",
+    "routing_only",
+    "value_only",
+    "inherited_edge"
+  ],
+  "readout_order": [
+    "target",
+    "cat_dog",
+    "red_blue",
+    "monday_tuesday",
+    "apple_orange"
+  ],
+  "scope": "Outcome-blind cached FineWeb and Pile/reference fragments with one natural arm and one city substitution. No post-score filtering, verified pretraining-disjointness, whole-head removal, or isolated compression."
+}

@@ -396,6 +396,14 @@ claim remains conditional on native state generators and suffix; corpus OOD,
 whole-head removal, and favorable dedicated serialization remain untested or
 failed as stated above.
 
+The same edge transfers to a score-blind cached corpus panel. On FineWeb and
+Pile/reference, inherited-edge/full-city errors are19.48% and16.91%, effect
+cosines are.9963 and.9948, and all63 native-capable pairs move toward the donor
+spelling convention. Mean edge effects are6.15% and9.16% of native paired cue;
+the largest unrelated-control ratio is.176. This adds natural-fragment transfer
+and stable operational identification, while retaining the explicit caveat that
+the cached rows are not proven disjoint from pretraining or near duplicates.
+
 Current-value provenance is exact on the paired framing sources: current-only
 and full-value swaps are behaviorally identical, while inherited-first swap is
 zero. The registered both-arms-live gate fails and remains visible. Architecture
