@@ -728,6 +728,203 @@
    ],
    "translation_ids": [],
    "next_missing": "The fixed-pointer prefix baseline is distributed at complete-module resolution: no singleton attention or MLP final-query response passed both month and digit, although attention8 was the strongest response. Do not threshold-rescue or immediately split attention8. Reopen successor only for an independently specified distributed or typed operation with fresh confirmation; otherwise move to a distinct unresolved circuit authority."
+  },
+  {
+   "claim_id": "successor_pointer_state.v5",
+   "revision": 5,
+   "status": "site_live",
+   "supersedes": "successor_pointer_state.v4",
+   "causal_variable": {
+    "id": "successor_pointer_state",
+    "domain": "elements of weekday, month, alphabet, digit, and list vocabularies",
+    "read": "the final element's exact layer-0 value-cache pointer plus a separately prefix-conditioned baseline state",
+    "operation": "apply an identity-keyed successor map whose effect competes with, but is not simply multiplied by, the prefix-conditioned continuation baseline",
+    "write": "evidence for the successor token",
+    "endpoint": "signed donor-successor minus base-successor logit margin"
+   },
+   "alternative_explanations": [
+    "token identity",
+    "sequence-family identity",
+    "prefix coherence"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "same_family_last_element_swap",
+     "role": "interchange",
+     "changes": [
+      "identity pointer supplied to successor lookup",
+      "replace the final sequence element by another element from the same family"
+     ],
+     "holds_fixed": [
+      "prefix",
+      "length",
+      "positions",
+      "family"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "position-only edit",
+      "family-matched nonsuccessor",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "coherent_whole_sequence_shift",
+     "role": "interchange",
+     "changes": [
+      "successor pointer in a coherent context",
+      "shift the whole sequence coherently so the last element and answer change without an intruder conflict"
+     ],
+     "holds_fixed": [
+      "format",
+      "length",
+      "family",
+      "coherence"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "prefix shift with final fixed",
+      "incoherent sequence",
+      "boundary cases"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    },
+    {
+     "family_id": "internal_pointer_imposition",
+     "role": "interchange",
+     "changes": [
+      "internal identity pointer",
+      "keep the prompt fixed and impose another element's calibrated identity payload internally"
+     ],
+     "holds_fixed": [
+      "all prompt tokens",
+      "position",
+      "syntax",
+      "family context"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "zero payload",
+      "uncalibrated payload",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "prefix_change_final_pointer_preserved",
+     "role": "invariance",
+     "changes": [
+      "prefix coherence nuisance",
+      "alter the earlier sequence while keeping the final element and correct successor fixed"
+     ],
+     "holds_fixed": [
+      "identity pointer",
+      "correct successor",
+      "final position"
+     ],
+     "builder_artifact_id": "pointer_prefix_rows_v1",
+     "control_ids": [
+      "coherent prefix",
+      "out-of-order prefix",
+      "list-end boundary"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "validated"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "embedding_block-0_payload",
+     "tensor_path": "embedding/block-0 payload",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "post-attention-8",
+     "tensor_path": "post-attention-8",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "mlp8-11_products",
+     "tensor_path": "MLP8-11 products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "layer0_value_cache_pointer",
+     "tensor_path": "layer-0 shared value cache at the final sequence-element position, read across layers1--17",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "replace, zero, scale or impose the calibrated token-identity value code at every downstream reader",
+     "ceiling_event_ids": [
+      "successor_pointer_semantics.legacy_reconciliation.v1"
+     ]
+    },
+    {
+     "site_id": "distributed_pointer_readers",
+     "tensor_path": "attention readers of the final-position layer-0 value cache, with L8H3+H7 as the largest registered pair",
+     "shape": [
+      "layer",
+      "head",
+      "batch",
+      128
+     ],
+     "intervention": "replace cached-value contributions while preserving current routing and downstream recomputation",
+     "ceiling_event_ids": [
+      "successor_pointer_semantics.legacy_reconciliation.v1"
+     ]
+    },
+    {
+     "site_id": "prefix_conditioned_baseline_branch",
+     "tensor_path": "joint native final-query attention/MLP8-12 response group under fixed final pointer",
+     "shape": [
+      "module",
+      "batch",
+      1152
+     ],
+     "intervention": "restore the coherent attention/MLP8-12 final-query response group while preserving the recipient pointer and prompt",
+     "ceiling_event_ids": [
+      "successor_pointer_prefix_interaction.v2.complete.mixed",
+      "successor_fixed_pointer_module_response.v2.complete.null",
+      "successor_fixed_pointer_typed_group_length6.v1.complete.held"
+     ]
+    }
+   ],
+   "split_plan_ids": [
+    "joint_split_v1"
+   ],
+   "evidence_event_ids": [
+    "successor_cross_family_transfer.legacy.v1",
+    "successor_layer8_input_ceiling.legacy.v1",
+    "successor_pointer_semantics.legacy_reconciliation.v1",
+    "successor_pointer_prefix_interaction.v2.complete.mixed",
+    "successor_fixed_pointer_module_response.v2.complete.null",
+    "successor_fixed_pointer_typed_group_length6.v1.complete.held"
+   ],
+   "translation_ids": [],
+   "next_missing": "The fixed-pointer prefix baseline has a prospectively confirmed native-oracle typed mediator: joint attention/MLP8-12 response restoration passes month and digit at both length five and fresh length six, while attention-only and MLP-only groups fail the screen. Next decompose the frozen cross-type interaction or derive a non-oracle weight/executable interface; do not repeat group, singleton, gain, threshold, or quantization screens."
   }
  ],
  "split_plans": [
@@ -1041,6 +1238,88 @@
    "notes": "V1 was invalid solely because its hook could not count calls made through the custom forward. V2 retained the design and counted at the call boundary. Exact instruments and capability pass; no complete module passes both families. Attention8 is a frozen near carrier, not a promoted site.",
    "design_key": "5fb6dd8fcd24fa8d656551415b67146fac1d21a4cc7d987ea9c86489fe250b4b",
    "execution_key": "44ada9ec98ade0d10c6d291288b172de7b7f59f20e663e791d031cea7babb5f4"
+  },
+  {
+   "event_id": "successor_fixed_pointer_typed_group_length6.v1.complete.held",
+   "claim_id": "successor_pointer_state.v5",
+   "test_type": "full_swap_ceiling",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "prefix_change_final_pointer_preserved"
+   ],
+   "site_id": "prefix_conditioned_baseline_branch",
+   "split_plan_id": null,
+   "evaluation_role": "prospective_length_generalization_confirmation",
+   "metrics": [
+    {
+     "name": "screen_pointer_all_digit_projection",
+     "estimate": 0.8503044017958238,
+     "ci95": null,
+     "bar": ">=0.50"
+    },
+    {
+     "name": "screen_pointer_all_month_projection",
+     "estimate": 0.5559100449932097,
+     "ci95": null,
+     "bar": ">=0.50"
+    },
+    {
+     "name": "length6_digit_projection",
+     "estimate": 0.8312886214497605,
+     "ci95": null,
+     "bar": ">=0.50"
+    },
+    {
+     "name": "length6_month_projection",
+     "estimate": 0.5103605497363127,
+     "ci95": null,
+     "bar": ">=0.50"
+    },
+    {
+     "name": "length6_digit_cosine",
+     "estimate": 0.9999468509675954,
+     "ci95": null,
+     "bar": ">=0.70"
+    },
+    {
+     "name": "length6_month_cosine",
+     "estimate": 0.9828912747221115,
+     "ci95": null,
+     "bar": ">=0.70"
+    },
+    {
+     "name": "maximum_length6_control_fraction",
+     "estimate": 0.39102264779907353,
+     "ci95": null,
+     "bar": "<=0.50"
+    }
+   ],
+   "prereg_artifact_id": "successor_length6_prereg_v1",
+   "result_artifact_id": "successor_length6_result_v1",
+   "input_artifact_ids": [
+    "successor_typed_group_prereg_v1",
+    "successor_typed_group_binding_v1",
+    "successor_typed_group_runner_v1",
+    "successor_typed_group_result_v1",
+    "successor_length6_builder_v1",
+    "successor_length6_rows_v1",
+    "successor_length6_prereg_v1",
+    "successor_length6_binding_v1",
+    "successor_length6_runner_v1",
+    "successor_length6_result_v1"
+   ],
+   "seed": null,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "basis_aligned/polynomial_causal/SUCCESSOR_FIXED_POINTER_LENGTH6_CONFIRMATION_V1_PREREGISTRATION.md"
+   ],
+   "notes": "The architecture-defined screen selected the smallest eligible group before length-six outcomes. The outcome-blind builder then froze every valid length-six window. The preselected group passed both families with no all-attention fallback. This is native-oracle mediation, not extraction.",
+   "design_key": "9af7adc85e489b4b2f1fb38237c514f574e7d1afa7fb4fae5b999b2cc094c851",
+   "execution_key": "9eb336a5a82234354801df37dbdbaaa2940816e32a67792dd7287e898e33f243"
   }
  ],
  "translations": [],
@@ -1234,6 +1513,66 @@
   "fixed_pointer_module_result_v2": {
    "path": "basis_aligned/polynomial_causal/SUCCESSOR_FIXED_POINTER_MODULE_RESPONSE_V2_RESULT.json",
    "sha256": "12f53fddad2e9cca4b1330f2a5e2f6478ec6c38a9d979c12870eec3372014d79",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "successor_typed_group_prereg_v1": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_FIXED_POINTER_TYPED_GROUP_RESPONSE_V1_PREREGISTRATION.md",
+   "sha256": "fe21195304242a9c557aa646a8fefa6ffaf31c8a24fd5b539a12a55d4a10fcb2",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "successor_typed_group_binding_v1": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_FIXED_POINTER_TYPED_GROUP_RESPONSE_V1_BINDING.json",
+   "sha256": "c43c8d0ce5ace84c853d287a467c3d1296df3866e5d47d0ba900ad74b9ba4e7b",
+   "kind": "binding",
+   "status": "frozen"
+  },
+  "successor_typed_group_runner_v1": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_successor_fixed_pointer_typed_group_response_v1.py",
+   "sha256": "f522f63fe86e97da72550a5a5be0372056ea670dfa4c41854f65960757403f6e",
+   "kind": "runner",
+   "status": "frozen"
+  },
+  "successor_typed_group_result_v1": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_FIXED_POINTER_TYPED_GROUP_RESPONSE_V1_RESULT.json",
+   "sha256": "999196693839c299d21844cc9e15b44e192227b5bfa8e544f462ea99fd37389e",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "successor_length6_builder_v1": {
+   "path": "basis_aligned/polynomial_causal/build_successor_fixed_pointer_length6_confirmation_v1_rows.py",
+   "sha256": "9847fe7950afbfbc7b9a75f34f11fdc7ef575cf1cc77d0c54b3a558053c57efd",
+   "kind": "builder",
+   "status": "frozen"
+  },
+  "successor_length6_rows_v1": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_FIXED_POINTER_LENGTH6_CONFIRMATION_V1_ROWS.json",
+   "sha256": "f8277e4345790b085c6b10518a02ba9f9c88dc6a005dff37c6820367be4f9dc9",
+   "kind": "rows",
+   "status": "frozen"
+  },
+  "successor_length6_prereg_v1": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_FIXED_POINTER_LENGTH6_CONFIRMATION_V1_PREREGISTRATION.md",
+   "sha256": "671265fef220b99ff8240a1468f77002e07a75e60e65e7dfc47b771dc430f8cf",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "successor_length6_binding_v1": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_FIXED_POINTER_LENGTH6_CONFIRMATION_V1_BINDING.json",
+   "sha256": "f7b2d1cc4c240340769c5ffa6da15c5ec42e8981380981e67920ce6d201697fb",
+   "kind": "binding",
+   "status": "frozen"
+  },
+  "successor_length6_runner_v1": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_successor_fixed_pointer_length6_confirmation_v1.py",
+   "sha256": "a9c8c28933f0a9895f34e843844e1f75771a5f4d41c5e6f1ea1a831557e19610",
+   "kind": "runner",
+   "status": "frozen"
+  },
+  "successor_length6_result_v1": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_FIXED_POINTER_LENGTH6_CONFIRMATION_V1_RESULT.json",
+   "sha256": "e48faee03d4ff759af1a5dd14ba653f9b7ad9bce81079b0759f21e0de59e52ba",
    "kind": "result",
    "status": "frozen"
   }
