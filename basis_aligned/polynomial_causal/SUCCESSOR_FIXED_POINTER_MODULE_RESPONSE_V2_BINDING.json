@@ -1,0 +1,32 @@
+{
+  "bars": {
+    "maximum_control_rms_fraction": 0.5,
+    "maximum_full_ceiling_logit_absolute_error": 0.0001,
+    "maximum_self_logit_absolute_error": 1e-05,
+    "minimum_family_cosine": 0.7,
+    "minimum_family_mean_late_backward_target": 1.0,
+    "minimum_family_projection": 0.5,
+    "minimum_native_accuracy": 0.75
+  },
+  "candidate_count": 36,
+  "change": "counted_run wrapper replaces unreachable module hook; scientific design unchanged",
+  "files": {
+    "correction": "d2b7a299e0b6247e66ad99def5294090bf5976266947235591e4a64b8f56d5a8",
+    "preregistration": "6db5f71ee2f6fef22fc138cd61517b29ae39ebe883152df0fd6a23d55c39f49f",
+    "prior_art": "b863535645b0208c3428d754de258b2ea8bb83da252085317def0ed98cb76d01",
+    "rows": "86d9bb342e1a880f130de04ee49e04c87b8bcde790dccf93cc2ef3669ec7707e",
+    "v1_binding": "35d22ec6441345c1ea3bf383a2f48f661e26c5b253d857254823bdbe2638522e",
+    "v1_invalid_result": "6a6a367a850e7fca89224fee84c94c5ae780371c9e7a8f96e618b29394bea47c",
+    "v1_runner": "4d31a0d08fec46d9fd5b40ee7341c61b53a3bac2fd9dc5121883991d529d6ee7"
+  },
+  "outcomes_opened_before_freeze": [
+    "all V1 implementation output; invalid and unused for V2 design"
+  ],
+  "price": {
+    "fits": 0,
+    "forwards": 77,
+    "sequences": 770
+  },
+  "row_manifest_sha256": "f366c215e2bc08ff12728a798542eba9544887acb66d6a393e59f4153acf4307",
+  "schema": "successor_fixed_pointer_module_response_v2_binding"
+}

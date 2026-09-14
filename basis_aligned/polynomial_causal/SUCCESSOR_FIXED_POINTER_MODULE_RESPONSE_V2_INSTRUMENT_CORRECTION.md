@@ -1,0 +1,5 @@
+# Successor fixed-pointer module-response v2 instrument correction
+
+V1 is terminally invalid because its forward counter registers a hook on `block.attn`, while `successor_lib.run` invokes the attention projections directly and never calls that wrapper module. Consequently the receipt records zero forwards and sequences even though all 77 declared executions occurred. The exact all-late self error and full coherent-query ceiling error are both zero, and the native target/capability bars pass, but no candidate result is interpreted from V1.
+
+V2 changes only the counter: a local `counted_run` wrapper increments one forward and the input batch size immediately before each unchanged call to `successor_lib.run`. It retains the same 30 frozen rows, 36 modules, intervention tensors, order, metrics, predictions, bars, terminal grammar, and 77-forward/770-sequence price. V1's complete result is bound before V2 executes. Candidate values already emitted by the invalid run are disclosed as opened implementation output; they do not change any V2 choice.
