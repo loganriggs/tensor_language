@@ -247,3 +247,17 @@ duplicate projected consumers (45.04MB package versus75.01MB projected pair).
 Context-program generation and the native suffix are still external, so this is
 conditional extraction/reuse rather than a complete or semantically identified
 circuit.
+
+The [native shared-interface validation](../../polynomial_causal/COUPLED_SHARED_EXECUTOR_NATIVE_V1_RESULT.json)
+passes128 native-versus-exported comparisons on eight contexts and seven off-grid
+coupled interventions plus zero. Full-score error is at most7.88e-7 and every
+effect/fidelity/price gate passes. This closes conditional suffix fidelity and
+reuse for the tested interface. All545.9M native parameters still generate the
+contexts and suffix; no unseen-text, semantic-role or whole-model claim follows.
+
+[Odd-branch source localization](../../polynomial_causal/ODD_SOURCE_POSITIONS_NATIVE_V1_RESULT.json)
+finds a material/selective O cue effect (13.10–15.86% of full-head cue norm),
+but direct changed-city sources recover only3.5–8.0% of its effect: city-only
+relative errors are92.02/96.46%. Exact source recomposition passes. The branch
+therefore carries cue information mainly through contextual source states on
+this panel; its specific source positions and semantic operation remain open.

@@ -473,3 +473,33 @@ executor across lengths. It does not remove the original prefix/model and MLP9
 weights needed to generate each source program, and MLP10 plus the later suffix
 remain external. Native suffix fidelity for this shared-bank interface is the
 next registered boundary; the CPU result alone is not behavioral or OOD proof.
+
+[That native boundary](COUPLED_SHARED_EXECUTOR_NATIVE_V1_RESULT.json) passes all
+registered checks in140forwards/2.57seconds. Across eight existing recipients,
+zero plus seven off-grid coupled interventions give post9 error<=1.65e-7,
+post10<=2.32e-7 and full-score error<=7.88e-7. Every nonzero intervention is
+live and all baseline-subtracted target/control effect bars pass. The complete
+bank, eight caller contexts and runtime source occupy88,406,675bytes, only
+2,903bytes above the tensor-only shared-native formula and29.02%of the projected
+portfolio. This supports native conditional extraction and reuse across existing
+contexts, not unseen-text prediction. All545,902,902native parameters remain
+required for context generation and the suffix, so whole-model compression is
+still absent.
+
+### Odd-branch source localization
+
+The [exact source helper](ODD_SOURCE_POSITIONS_V1_CPU_CONTROL.json) partitions
+the reflection-odd branch by attention source and reconstructs O within1.47e-16.
+The [native screen](ODD_SOURCE_POSITIONS_NATIVE_V1_RESULT.json) then removes
+changed-city sources, all other sources, or all O on48 corrected rows. Native
+and frozen all-O anchors replay exactly; live source recomposition is<=1.61e-16.
+
+City-only localization fails decisively: its cue effect differs from all-O by
+92.02% and96.46% in the two families. Yet all-O removal is material at13.10%
+and15.86% of full-head cue norm, while city-source control/target RMS ratios are
+.107/.141 and pass the registered selectivity criterion. O is therefore a
+selective, material cue-dependent branch on this panel whose effect is carried
+mainly through contextual source states, not a direct read at the changed city
+token. This does not identify which contextual positions carry it or establish
+a semantic label. The next split separates before-city, post-city and self
+sources without fitting.

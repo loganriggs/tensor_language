@@ -1,0 +1,49 @@
+{
+  "utc": "2026-09-14T17:20:56.435142+00:00",
+  "pred_a": true,
+  "source_partition_errors": [
+    1.3349997966765695e-16,
+    1.3725334952824336e-16,
+    1.4121325409639603e-16,
+    1.3325034038096702e-16
+  ],
+  "layout_errors": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "representative_counts": [
+    {
+      "pre": 2,
+      "city": 1,
+      "post": 14,
+      "self": 1
+    },
+    {
+      "pre": 2,
+      "city": 1,
+      "post": 14,
+      "self": 1
+    },
+    {
+      "pre": 1,
+      "city": 1,
+      "post": 16,
+      "self": 1
+    },
+    {
+      "pre": 1,
+      "city": 1,
+      "post": 16,
+      "self": 1
+    }
+  ],
+  "rows": 48,
+  "city_positions": [
+    1,
+    2
+  ],
+  "additional_model_scalars": 0,
+  "scope": "Token-defined exact source partition on synthetic normalized current states. No native causal result; boundaries use only paired token differences and final position."
+}
