@@ -1,0 +1,106 @@
+{
+  "utc": "2026-09-14T11:03:23.279177+00:00",
+  "checks": [
+    {
+      "inputs": "cached_native",
+      "context": 0,
+      "relative": 0.0
+    },
+    {
+      "inputs": "cached_native",
+      "context": 1,
+      "relative": 0.0
+    },
+    {
+      "inputs": "independent",
+      "batch": 1,
+      "index": 0,
+      "relative": 0.0
+    },
+    {
+      "inputs": "independent",
+      "batch": 1,
+      "index": 1,
+      "relative": 0.0
+    },
+    {
+      "inputs": "independent",
+      "batch": 8,
+      "index": 0,
+      "relative": 0.0
+    },
+    {
+      "inputs": "independent",
+      "batch": 8,
+      "index": 1,
+      "relative": 0.0
+    }
+  ],
+  "timings": [
+    {
+      "batch": 1,
+      "length": 32,
+      "seconds": [
+        0.001080010900113848,
+        0.0006893071000376949
+      ],
+      "samples": [
+        [
+          0.001076425300198025,
+          0.001082628400035901,
+          0.0010749725999630755,
+          0.001080010900113848,
+          0.0010807042999658734,
+          0.0011029786001017783,
+          0.0010758943000837462
+        ],
+        [
+          0.0006966327000554884,
+          0.0006893416000821162,
+          0.0006971763999899849,
+          0.0006793888998799958,
+          0.0006893071000376949,
+          0.000671683399923495,
+          0.0006756192000466399
+        ]
+      ],
+      "speedup": 1.5668065801944986
+    },
+    {
+      "batch": 8,
+      "length": 32,
+      "seconds": [
+        0.003862187100094161,
+        0.003192312499959371
+      ],
+      "samples": [
+        [
+          0.003869729700090829,
+          0.003862187100094161,
+          0.003801070999907097,
+          0.003865609100103029,
+          0.0038084077998064457,
+          0.0038135626000439515,
+          0.00386260420018516
+        ],
+        [
+          0.003192312499959371,
+          0.0031123470998863922,
+          0.0032093197001813677,
+          0.003183032399829244,
+          0.0032763260998763142,
+          0.0031268065999029205,
+          0.0033307141999102895
+        ]
+      ],
+      "speedup": 1.2098399201654961
+    }
+  ],
+  "pred_a": true,
+  "pred_b": true,
+  "preparation_seconds": 0.0013396680005826056,
+  "extra_resident_adapter_bytes": 262144,
+  "saved_mac_per_call": "N*1152*64 + 2*128*1152*64; latter moves to one-time preparation",
+  "serialized_weight_change": 0,
+  "scope": "Exact reuse in existing conditional sparse parent. Native context/suffix external; resident adapters increase, no full-model speed or new circuit claim."
+}
