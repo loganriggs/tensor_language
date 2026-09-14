@@ -173,3 +173,28 @@ effects. Retain the original full-value selectivity failure. The useful hypothes
 is a cue-specific S/O interaction with a separately priced remainder, not a
 universal head replacement. Next test: freeze this reduction on unseen prompt
 constructions and reserve R-containing intervention combinations for prediction.
+
+
+## New-construction reduction failure and its cause
+
+The [frozen 72-row test](SRO_FRESH_CUE_V1_RESULT.json) executed all eight removal
+corners: 576 forwards in 8.05 seconds. Shared-write replay passes <=2.78e-15.
+Using only corners 0/1/4/5 to predict R-containing corners gives maximum cue errors
+8.20/31.96/10.43% for archival notes, opposed reviewer/diary locations, and
+community newsletters. The 10% reduction gate fails. Native positive cue pairs
+are 12/8/12 of 12, so the opposed-role capability gate also fails; newsletters
+pass capability and still miss the reduction bar. No failed family is discarded.
+
+The [post-failure decomposition](SRO_FRESH_REMAINDER_V1_RESULT.json) finds direct
+R paired effects of 8.11/31.42/10.43% of the full-head effect. Restoring that main
+term reduces maximum all-corner cue prediction errors to 1.69/4.80/4.44%.
+This is explanatory analysis on the failed test, not independent validation of a
+repaired reduction. Full pair-only output predictions still meet the transferred
+1% bar: individual target/control errors range 0.057–0.455%. The failure concerns
+which branch carries the cue, rather than a breakdown of low-order response
+composition. Withdraw any context-general treatment of R as unrelated background.
+
+Next discriminating direction: separate the full even remainder's current-value
+and inherited-value sources with the same routing/output maps, then measure which
+source carries the newly material cue effect. Earlier fixed-writer scalar sector
+results do not answer this full 128-channel remainder question.

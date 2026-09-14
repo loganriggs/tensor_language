@@ -186,3 +186,11 @@ The selected S/O/SO cue reduction has <=4.38% paired-cue error across all remova
 corners but loses most unrelated effects; full-value selectivity remains failed.
 Conditional execution/extraction and composition advance; fresh/OOD cue reduction,
 semantic identification of O and static model compression remain unproven.
+
+
+Fresh update: [72 new-construction rows](../../polynomial_causal/SRO_FRESH_CUE_V1_RESULT.json)
+falsify the S/O/SO reduction at its 10% gate (8.20/31.96/10.43%); the middle
+family also misses native capability. Post-failure accounting attributes the
+main omission to direct R, while pair-only composition remains within 0.455%.
+R cannot be classified as generally unrelated background. This failure supersedes
+any generalization from the earlier development-panel reduction.

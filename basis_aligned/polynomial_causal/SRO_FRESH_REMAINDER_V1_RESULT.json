@@ -1,0 +1,102 @@
+{
+  "utc": "2026-09-14T12:53:15.472153+00:00",
+  "pred_a": true,
+  "pred_b": true,
+  "coefficient_order": [
+    "R",
+    "SR",
+    "RO",
+    "SRO"
+  ],
+  "families": [
+    {
+      "family": 0,
+      "pair_only_full_removal_errors": [
+        0.0029819861279727967,
+        0.002469609609093409
+      ],
+      "restored_R_cue_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.013475151716529896,
+        0.0,
+        0.0,
+        0.003529732384413526,
+        0.016864122712062404
+      ],
+      "omitted_coefficient_norms_over_full": [
+        0.0810782486660874,
+        0.013475151716529896,
+        0.003529732384413526,
+        0.002880701048226502
+      ],
+      "signed_projection_on_omitted_full_effect": [
+        0.9996363622020179,
+        0.014776197235107287,
+        0.019154000001375952,
+        -0.033566559438501155
+      ]
+    },
+    {
+      "family": 1,
+      "pair_only_full_removal_errors": [
+        0.002595371223221699,
+        0.0005699117389303141
+      ],
+      "restored_R_cue_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.04795561002743421,
+        0.0,
+        0.0,
+        0.010178413946348977,
+        0.04673520395531464
+      ],
+      "omitted_coefficient_norms_over_full": [
+        0.31419138357866777,
+        0.04795561002743421,
+        0.010178413946348977,
+        0.003988292989794202
+      ],
+      "signed_projection_on_omitted_full_effect": [
+        1.1656972074079655,
+        -0.17411878273927223,
+        0.020548702284492064,
+        -0.012127126953185312
+      ]
+    },
+    {
+      "family": 2,
+      "pair_only_full_removal_errors": [
+        0.00455397372850912,
+        0.0033537011986147242
+      ],
+      "restored_R_cue_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.035988136332984574,
+        0.0,
+        0.0,
+        0.005436913302483617,
+        0.04440218528574895
+      ],
+      "omitted_coefficient_norms_over_full": [
+        0.10431333929634665,
+        0.035988136332984574,
+        0.005436913302483617,
+        0.003951123462615087
+      ],
+      "signed_projection_on_omitted_full_effect": [
+        1.5381734055292098,
+        -0.4344175163484022,
+        -0.050142852047084845,
+        -0.053613037133722674
+      ]
+    }
+  ],
+  "source_sha256": "5bc1dfef1423ead148574657dcafeb287c040d7be53883564f0c7f27d12addfa",
+  "scope": "Post-failure explanation on measured new-panel responses, not independent validation of a repaired reduction. Signed projections may exceed one or be negative; original failure and native capability miss remain."
+}
