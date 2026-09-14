@@ -707,6 +707,19 @@ the caller's head8.2 routing, normalized embeddings, downstream O and suffix.
 The next extraction step closes the routing port from block8 normalized state
 using the four native Q/K maps and exact rounded rotary semantics.
 
+[Routing closure](ODD_ATTENTION8H2_ROUTING_CLOSURE_V1_RESULT.json) passes native
+routing replay at1.62e-7 and composed inherited-city write replay at2.31e-7 on
+all96 rows. The standalone
+[state-conditional package](extracted_circuits/odd_attention8h2_routing_closed_v1/README.md)
+replays four template representatives within5.49e-7 and stores884,737 scalars.
+Closing this input changes the literal price: if the normalized block8 state is
+transmitted only for this edge, its runtime input is1.083--1.100 times the dense
+write, so registered favorable-price D fails and unfavorable-price C passes.
+The earlier94.91--95.75% output-interface saving remains valid only when block8
+state is already an amortized shared port. The next composed extraction reuses
+the existing exact O graph to close the edge through the head9.8-O output while
+charging both state ports and shared weights.
+
 [The equal-count split](ODD_FRAMING_EQUAL_HALVES_NATIVE_V1_RESULT.json) also
 rejects a stable positional role. Local-history remains early dominated
 (31.89% versus70.04% error), while radio is distributed with late closer

@@ -1,0 +1,25 @@
+{
+  "schema": "odd_attention8h2_routing_closed.package.v1",
+  "files": {
+    "program.pt": "39fbd0c43bd60332ae3690920898a934d33e84c4e35d0337930448ec3edb80df",
+    "execute.py": "58399d8ab3fc3d95723f5186985cb76a8ceb9d928b8d4360c4c97eabf56b17f1",
+    "control.py": "e7732956d8a8f7324d465be877b2c7b994a5fdc21ad44944d6ee6a86b77e532a",
+    "CONTROL.json": "a218574f76c43f5f79b74e6d30d46f96af1306acecc59ab5d7de5089049f5fee",
+    "README.md": "8cf69a87bf62c73518b22e43194de2b22204cded227c258b0ad9ccdf3d8c429b"
+  },
+  "program_sha256": "39fbd0c43bd60332ae3690920898a934d33e84c4e35d0337930448ec3edb80df",
+  "runtime_sha256": "58399d8ab3fc3d95723f5186985cb76a8ceb9d928b8d4360c4c97eabf56b17f1",
+  "static_weight_scalars": 884737,
+  "ports": [
+    "current[B,T,1152]",
+    "city_index",
+    "recipient_embedding[B,1152]",
+    "donor_embedding[B,1152]"
+  ],
+  "output": "write[B,T,1152]",
+  "external": [
+    "block8 state generation",
+    "head9.8 O",
+    "native suffix"
+  ]
+}

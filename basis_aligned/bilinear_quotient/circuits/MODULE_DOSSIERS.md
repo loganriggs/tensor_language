@@ -372,6 +372,13 @@ The294,913-scalar package saves94.91--95.75% of the conditional dense-write
 interface and94.22--95.05% of projection/scale multiplies at observed lengths.
 Head8.2 routing, block8 state generation, head9.8 O and suffix remain external.
 
+An extended884,737-scalar executor closes head8.2 city routing from normalized
+block8 state. Routing/write replay is1.62e-7/2.31e-7 over all96 rows and the
+standalone control is<=5.49e-7. If that state port is dedicated to this edge,
+the closed input is8.3--10.0% larger than the dense write; the large output
+saving applies only when block8 state is shared. Head9.8 O and suffix remain
+external.
+
 Current-value provenance is exact on the paired framing sources: current-only
 and full-value swaps are behaviorally identical, while inherited-first swap is
 zero. The registered both-arms-live gate fails and remains visible. Architecture
