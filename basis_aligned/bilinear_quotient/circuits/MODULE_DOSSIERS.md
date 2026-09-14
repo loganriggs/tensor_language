@@ -365,6 +365,13 @@ suffices in two families; the other two are distributed. Effects compose within
 .70% and controls remain below.088. The invariant is instead the exact
 destination scalar times a shared projected inherited-city writer direction.
 
+That invariant now has a standalone conditional executor. Native factor-first
+replay is within1.73e-7 and block0 token-value reconstruction within2.64e-7 on
+all96 rows; four standalone template representatives replay within2.92e-7.
+The294,913-scalar package saves94.91--95.75% of the conditional dense-write
+interface and94.22--95.05% of projection/scale multiplies at observed lengths.
+Head8.2 routing, block8 state generation, head9.8 O and suffix remain external.
+
 Current-value provenance is exact on the paired framing sources: current-only
 and full-value swaps are behaviorally identical, while inherited-first swap is
 zero. The registered both-arms-live gate fails and remains visible. Architecture

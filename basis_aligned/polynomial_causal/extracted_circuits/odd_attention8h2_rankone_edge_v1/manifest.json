@@ -1,0 +1,25 @@
+{
+  "schema": "odd_attention8h2_rankone_edge.package.v1",
+  "files": {
+    "program.pt": "0f402baa8b122f71b24b606b1182d233d3d6d374c225064dbcef9584544b9983",
+    "execute.py": "835a2da20890972707d58eeb2d85e307c68b33254659d20cb9896c64dc02a37e",
+    "control.py": "7d0b6e1a4b28030338b88a7511fae5fb53fd2fe3a4bba350adeaa4d32f333514",
+    "CONTROL.json": "92e7f9d1066b54c9816da5a009d19d58d3b9bb789be20b7f2422feb728680c77",
+    "README.md": "51ea3ea33eb7c7fb29ece9ed8ec07690763bb222c8bc71447128c26be2b16600"
+  },
+  "program_sha256": "0f402baa8b122f71b24b606b1182d233d3d6d374c225064dbcef9584544b9983",
+  "runtime_sha256": "835a2da20890972707d58eeb2d85e307c68b33254659d20cb9896c64dc02a37e",
+  "static_weight_scalars": 294913,
+  "ports": [
+    "routing[B,T]",
+    "recipient_embedding[B,1152]",
+    "donor_embedding[B,1152]"
+  ],
+  "output": "write[B,T,1152]",
+  "external": [
+    "head8.2 routing",
+    "normalized token embeddings",
+    "head9.8 O",
+    "native suffix"
+  ]
+}

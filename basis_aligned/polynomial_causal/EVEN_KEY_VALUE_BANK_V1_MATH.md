@@ -694,6 +694,19 @@ module. It is the lower-level interaction
 writer direction is shared across all destinations for a fixed city pair. That
 rank-one destination-by-residual structure is the next extraction target.
 
+[The native rank-one extraction](ODD_ATTENTION8H2_RANKONE_EDGE_V1_RESULT.json)
+passes all registered gates. Direct per-destination projection and factor-first
+execution agree within1.73e-7 relative error on all96 rows; reconstructing the
+inherited city value from normalized token embeddings and the block0 head2
+value map agrees within2.64e-7. The standalone
+[conditional package](extracted_circuits/odd_attention8h2_rankone_edge_v1/README.md)
+replays four template representatives within2.92e-7. It stores294,913 scalars.
+At the observed20--24 token lengths, the factor interface saves94.91--95.75%
+and the projection/scale multiply count falls94.22--95.05%. These prices exclude
+the caller's head8.2 routing, normalized embeddings, downstream O and suffix.
+The next extraction step closes the routing port from block8 normalized state
+using the four native Q/K maps and exact rounded rotary semantics.
+
 [The equal-count split](ODD_FRAMING_EQUAL_HALVES_NATIVE_V1_RESULT.json) also
 rejects a stable positional role. Local-history remains early dominated
 (31.89% versus70.04% error), while radio is distributed with late closer
