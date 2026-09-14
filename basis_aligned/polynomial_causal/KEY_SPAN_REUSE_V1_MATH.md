@@ -57,3 +57,19 @@ not a repaired runtime pass. No whole-model or GPU-speed improvement is establis
 The result improves the conditional storage/fidelity comparison: an exact program
 is smaller than the prior approximate one. Full-model simplification, autonomous
 input generation and broad OOD/selective/reuse evidence remain unfinished.
+
+## Carrying the identity through the response generator
+
+[The composed control](COMPOSED_KEY_SPAN_V1_RESULT.json) removes64rows from
+the actual read matrix and its folded response/direction maps. Prepared tensor
+count falls871363→809859 (7.058%). On72cached contexts, expanded-feature,
+scalar and norm errors are<=2.06e-15. This is exact versus the previously compiled
+rank64 response, not a correction of that response's native approximation error.
+
+[The fair serialization/timing audit](COMPOSED_KEY_SPAN_PRICE_V1_RESULT.json)
+omits regenerable caches from BOTH versions. Canonical FP64 file bytes still
+fall6,509,594→6,051,129; prepared memory is accounted separately. Reloading and
+rebuilding caches replays within8.58e-16. Full features-plus-scalar CPU speedup
+is1.037/1.064 atbatch1/8 on one fixed18-token prefix (batch8 repeats it), passing
+the registered1.03bar. Input generation and suffix are excluded; no broad runtime
+or new native-behavior claim follows. All three audit predicates pass.
