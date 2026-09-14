@@ -1,0 +1,24 @@
+{
+  "utc": "2026-09-14T19:41:41.984116+00:00",
+  "pred_a": true,
+  "corpora": {
+    "final_natural.pt": {
+      "positive": 26,
+      "matched_negative": 23,
+      "overlap": 0,
+      "sha256": "1997026ce15d0524bd16540047799a6461bc94a57fbdd2812ef41ff36e8d5e3c",
+      "positive_sha256": "5a94dd6ed4107cbe364da7596af4f9066cff4e7ac85fcae53a22f32b07a9a987",
+      "negative_sha256": "1ea0b63b1fae4487c565d7ee20880438383d6761b80d3197d3bbac077e68313e"
+    },
+    "ood_code.pt": {
+      "positive": 164,
+      "matched_negative": 127,
+      "overlap": 0,
+      "sha256": "6cf514e75dfd03399f223a9ba5f6ebe5f4b1315bcb839a515e1c19e7b5474bd9",
+      "positive_sha256": "47c527d1b06efc45ce7e44d54e906dac6136540b431d6b9587f0cb9c0363bae2",
+      "negative_sha256": "d9e39a4a78674d8848d68c09fd08514208aef90a25e697b0014cdf1a22f938c9"
+    }
+  },
+  "parent_artifact_sha256": "63a0db146a84fedc641a40c574a7cc73702bb36c99716945c3318da332244215",
+  "scope": "Frozen mask/hash audit only; no new model score or head-group verdict."
+}
