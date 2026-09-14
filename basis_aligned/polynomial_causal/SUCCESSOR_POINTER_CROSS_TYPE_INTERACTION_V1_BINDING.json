@@ -1,0 +1,59 @@
+{
+  "bars": {
+    "maximum_additive_residual_interaction_fraction": 0.1,
+    "maximum_control_rms_fraction": 0.5,
+    "maximum_full_ceiling_logit_absolute_error": 0.0001,
+    "maximum_self_logit_absolute_error": 1e-05,
+    "minimum_additive_pre_score_cosine": 0.95,
+    "minimum_additive_pre_score_projection": 0.9,
+    "minimum_cross_type_pre_score_target_projection": 0.1,
+    "minimum_cross_type_residual_interaction_fraction": 0.2,
+    "minimum_family_cosine": 0.7,
+    "minimum_family_mean_late_backward_target": 1.0,
+    "minimum_family_projection": 0.5,
+    "minimum_native_accuracy": 0.75
+  },
+  "files": {
+    "confirmation_result": "e48faee03d4ff759af1a5dd14ba653f9b7ad9bce81079b0759f21e0de59e52ba",
+    "preregistration": "6cb9aca776016f728876f1c6bc9710902f1d402587800a460e0ceeb932315262",
+    "rows": "f8277e4345790b085c6b10518a02ba9f9c88dc6a005dff37c6820367be4f9dc9"
+  },
+  "groups": {
+    "A": [
+      "attn8",
+      "attn9",
+      "attn10",
+      "attn11",
+      "attn12"
+    ],
+    "AM": [
+      "attn8",
+      "mlp8",
+      "attn9",
+      "mlp9",
+      "attn10",
+      "mlp10",
+      "attn11",
+      "mlp11",
+      "attn12",
+      "mlp12"
+    ],
+    "M": [
+      "mlp8",
+      "mlp9",
+      "mlp10",
+      "mlp11",
+      "mlp12"
+    ]
+  },
+  "outcomes_opened_before_freeze": [
+    "length-six joint confirmation only; no length-six A or M component outcomes"
+  ],
+  "price": {
+    "fits": 0,
+    "forwards": 11,
+    "sequences": 88
+  },
+  "row_manifest_sha256": "15e2983c1163db3ccf734589c09c6304ff47d54e5c291f5572e3b15333cdeb83",
+  "schema": "successor_pointer_cross_type_interaction_v1_binding"
+}
