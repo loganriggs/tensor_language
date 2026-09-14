@@ -925,6 +925,205 @@
    ],
    "translation_ids": [],
    "next_missing": "The fixed-pointer prefix baseline has a prospectively confirmed native-oracle typed mediator: joint attention/MLP8-12 response restoration passes month and digit at both length five and fresh length six, while attention-only and MLP-only groups fail the screen. Next decompose the frozen cross-type interaction or derive a non-oracle weight/executable interface; do not repeat group, singleton, gain, threshold, or quantization screens."
+  },
+  {
+   "claim_id": "successor_pointer_state.v6",
+   "revision": 6,
+   "status": "site_live",
+   "supersedes": "successor_pointer_state.v5",
+   "causal_variable": {
+    "id": "successor_pointer_state",
+    "domain": "elements of weekday, month, alphabet, digit, and list vocabularies",
+    "read": "the final element's exact layer-0 value-cache pointer plus a separately prefix-conditioned baseline state",
+    "operation": "apply an identity-keyed successor map whose effect competes with, but is not simply multiplied by, the prefix-conditioned continuation baseline",
+    "write": "evidence for the successor token",
+    "endpoint": "signed donor-successor minus base-successor logit margin"
+   },
+   "alternative_explanations": [
+    "token identity",
+    "sequence-family identity",
+    "prefix coherence"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "same_family_last_element_swap",
+     "role": "interchange",
+     "changes": [
+      "identity pointer supplied to successor lookup",
+      "replace the final sequence element by another element from the same family"
+     ],
+     "holds_fixed": [
+      "prefix",
+      "length",
+      "positions",
+      "family"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "position-only edit",
+      "family-matched nonsuccessor",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "coherent_whole_sequence_shift",
+     "role": "interchange",
+     "changes": [
+      "successor pointer in a coherent context",
+      "shift the whole sequence coherently so the last element and answer change without an intruder conflict"
+     ],
+     "holds_fixed": [
+      "format",
+      "length",
+      "family",
+      "coherence"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "prefix shift with final fixed",
+      "incoherent sequence",
+      "boundary cases"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    },
+    {
+     "family_id": "internal_pointer_imposition",
+     "role": "interchange",
+     "changes": [
+      "internal identity pointer",
+      "keep the prompt fixed and impose another element's calibrated identity payload internally"
+     ],
+     "holds_fixed": [
+      "all prompt tokens",
+      "position",
+      "syntax",
+      "family context"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "zero payload",
+      "uncalibrated payload",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "prefix_change_final_pointer_preserved",
+     "role": "invariance",
+     "changes": [
+      "prefix coherence nuisance",
+      "alter the earlier sequence while keeping the final element and correct successor fixed"
+     ],
+     "holds_fixed": [
+      "identity pointer",
+      "correct successor",
+      "final position"
+     ],
+     "builder_artifact_id": "pointer_prefix_rows_v1",
+     "control_ids": [
+      "coherent prefix",
+      "out-of-order prefix",
+      "list-end boundary"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "validated"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "embedding_block-0_payload",
+     "tensor_path": "embedding/block-0 payload",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "post-attention-8",
+     "tensor_path": "post-attention-8",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "mlp8-11_products",
+     "tensor_path": "MLP8-11 products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "layer0_value_cache_pointer",
+     "tensor_path": "layer-0 shared value cache at the final sequence-element position, read across layers1--17",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "replace, zero, scale or impose the calibrated token-identity value code at every downstream reader",
+     "ceiling_event_ids": [
+      "successor_pointer_semantics.legacy_reconciliation.v1"
+     ]
+    },
+    {
+     "site_id": "distributed_pointer_readers",
+     "tensor_path": "attention readers of the final-position layer-0 value cache, with L8H3+H7 as the largest registered pair",
+     "shape": [
+      "layer",
+      "head",
+      "batch",
+      128
+     ],
+     "intervention": "replace cached-value contributions while preserving current routing and downstream recomputation",
+     "ceiling_event_ids": [
+      "successor_pointer_semantics.legacy_reconciliation.v1"
+     ]
+    },
+    {
+     "site_id": "prefix_conditioned_baseline_branch",
+     "tensor_path": "attention/MLP8-12 joint response plus a negative cross-type final-residual calibration interaction",
+     "shape": [
+      "module",
+      "batch",
+      1152
+     ],
+     "intervention": "restore the coherent attention/MLP8-12 final-query response group while preserving the recipient pointer and prompt",
+     "ceiling_event_ids": [
+      "successor_pointer_prefix_interaction.v2.complete.mixed",
+      "successor_fixed_pointer_module_response.v2.complete.null",
+      "successor_fixed_pointer_typed_group_length6.v1.complete.held",
+      "successor_pointer_cross_type_interaction.v1.complete.held"
+     ]
+    }
+   ],
+   "split_plan_ids": [
+    "joint_split_v1"
+   ],
+   "evidence_event_ids": [
+    "successor_cross_family_transfer.legacy.v1",
+    "successor_layer8_input_ceiling.legacy.v1",
+    "successor_pointer_semantics.legacy_reconciliation.v1",
+    "successor_pointer_prefix_interaction.v2.complete.mixed",
+    "successor_fixed_pointer_module_response.v2.complete.null",
+    "successor_fixed_pointer_typed_group_length6.v1.complete.held",
+    "successor_pointer_cross_type_interaction.v1.complete.held"
+   ],
+   "translation_ids": [],
+   "next_missing": "The confirmed attention/MLP8-12 pointer mediator is not an additive union. Its negative cross-type inclusion-exclusion term is 63.5-80.3% of joint final-residual RMS and cancels 24.5-54.4% of the target before softcap. Next test whether this exact 1152D calibration interaction compresses to a frozen low-rank basis with prospective sequence-length transfer; do not repeat component/group screens or use quantization."
   }
  ],
  "split_plans": [
@@ -1320,6 +1519,70 @@
    "notes": "The architecture-defined screen selected the smallest eligible group before length-six outcomes. The outcome-blind builder then froze every valid length-six window. The preselected group passed both families with no all-attention fallback. This is native-oracle mediation, not extraction.",
    "design_key": "9af7adc85e489b4b2f1fb38237c514f574e7d1afa7fb4fae5b999b2cc094c851",
    "execution_key": "9eb336a5a82234354801df37dbdbaaa2940816e32a67792dd7287e898e33f243"
+  },
+  {
+   "event_id": "successor_pointer_cross_type_interaction.v1.complete.held",
+   "claim_id": "successor_pointer_state.v6",
+   "test_type": "composition",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "prefix_change_final_pointer_preserved"
+   ],
+   "site_id": "prefix_conditioned_baseline_branch",
+   "split_plan_id": null,
+   "evaluation_role": "mechanistic_interaction_decomposition",
+   "metrics": [
+    {
+     "name": "digit_final_residual_interaction_fraction",
+     "estimate": 0.8026770597167315,
+     "ci95": null,
+     "bar": ">=0.20"
+    },
+    {
+     "name": "month_final_residual_interaction_fraction",
+     "estimate": 0.635015779111666,
+     "ci95": null,
+     "bar": ">=0.20"
+    },
+    {
+     "name": "digit_pre_softcap_interaction_target_projection",
+     "estimate": -0.5435291466615941,
+     "ci95": null,
+     "bar": "absolute >=0.10"
+    },
+    {
+     "name": "month_pre_softcap_interaction_target_projection",
+     "estimate": -0.24483761982515553,
+     "ci95": null,
+     "bar": "absolute >=0.10"
+    },
+    {
+     "name": "maximum_interaction_control_fraction",
+     "estimate": 0.30712947674932173,
+     "ci95": null,
+     "bar": "<=0.50"
+    }
+   ],
+   "prereg_artifact_id": "successor_cross_type_prereg_v1",
+   "result_artifact_id": "successor_cross_type_result_v1",
+   "input_artifact_ids": [
+    "successor_cross_type_prereg_v1",
+    "successor_cross_type_binding_v1",
+    "successor_cross_type_runner_v1",
+    "successor_cross_type_result_v1"
+   ],
+   "seed": null,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "basis_aligned/polynomial_causal/SUCCESSOR_POINTER_CROSS_TYPE_INTERACTION_V1_PREREGISTRATION.md"
+   ],
+   "notes": "Inclusion-exclusion was measured at final residual, RMS-normalized pre-softcap score, and post-softcap margins. A and M over-add; a large selective negative interaction calibrates AM.",
+   "design_key": "bbfb33376efcf541b1be2b2ee9b845760288bef3b3c0013fb447c5d5ca7ecaa9",
+   "execution_key": "3ca2e31d1cd8ccf43cf43a0bf40596dc16e9fbc1264ae8db150aedbe8904ce76"
   }
  ],
  "translations": [],
@@ -1573,6 +1836,30 @@
   "successor_length6_result_v1": {
    "path": "basis_aligned/polynomial_causal/SUCCESSOR_FIXED_POINTER_LENGTH6_CONFIRMATION_V1_RESULT.json",
    "sha256": "e48faee03d4ff759af1a5dd14ba653f9b7ad9bce81079b0759f21e0de59e52ba",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "successor_cross_type_prereg_v1": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_POINTER_CROSS_TYPE_INTERACTION_V1_PREREGISTRATION.md",
+   "sha256": "6cb9aca776016f728876f1c6bc9710902f1d402587800a460e0ceeb932315262",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "successor_cross_type_binding_v1": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_POINTER_CROSS_TYPE_INTERACTION_V1_BINDING.json",
+   "sha256": "0a49fa8b911d28c298eb743650a4d25bcd9f31ae5587a39ac0699f764ad6e82c",
+   "kind": "binding",
+   "status": "frozen"
+  },
+  "successor_cross_type_runner_v1": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_successor_pointer_cross_type_interaction_v1.py",
+   "sha256": "c24472381203decddcc4bd999db268dd85f1f3ae7a0631a524e634b97c2b62df",
+   "kind": "runner",
+   "status": "frozen"
+  },
+  "successor_cross_type_result_v1": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_POINTER_CROSS_TYPE_INTERACTION_V1_RESULT.json",
+   "sha256": "5483007745c17949919a5c6c239ef951ac04061f41b8f21e671f8b1a1b6681e6",
    "kind": "result",
    "status": "frozen"
   }
