@@ -303,3 +303,42 @@ or response fitting is used. All15,926,400MLP scalars and native context/source
 weights remain required to construct programs. This does not reduce static
 whole-model weights or support arbitrary independent mixed-strength edits.
 The next validation boundary is the native suffix under these coupled strengths.
+
+
+The [coupled native suffix test](COUPLED_NATIVE_SUFFIX_V1_RESULT.json) adds208
+forwards in2.63seconds. All100signed cases pass: post-MLP9 state error<=1.08e-7,
+full-vocabulary scores<=7.07e-7, and all baseline-subtracted readout floors hold.
+Prepared savings remain7.11%at18–19tokens. This validates the constrained two-input
+interface through the native suffix on four fixed contexts.
+
+## Projecting the rational state into complete attention10
+
+After block10 re-entry, write raw10=P(a,b)/rho(a,b). P has bidegree(3,3), hence
+16vector coefficients, including re-entry lambdas and x0. Set
+r=mean(P²)+epsilon*rho². The normalized attention input is P/sqrt(r); a normalized
+query/key is QP/sqrt(mean((QP)²)+epsilon*r). These epsilon scale factors are
+required by the native model; normalization is not treated as exactly scale-free.
+
+Project all16coefficients through each of Q1,Q2,K1,K2,V once during preparation.
+A16×16Gram matrix per token computes mean(P²) without reconstructing ambient P.
+Runtime attention consumes these projected ports, original output weights,
+mixture and fixed first values; both QK products, rounded RoPE and causal masks
+remain explicit. This extends the existing shared-denominator principle to a
+complete normalized attention consumer, rather than dropping attention or bias
+as in a selected polynomial self-product.
+
+[25 CPU cases](COUPLED_ATTENTION10_PORTS_V1_RESULT.json) on one native18-token
+context pass all gates: normalized ports<=1.30e-15, full write<=7.20e-16, native
+FP32 attention write<=3.22e-7. Conditional consumer payload34,183,446→18,700,562
+bytes (-45.29%), serialized18,705,109bytes. Original model/context generators
+remain globally required. FP64 output-map cast cache costs10,616,832bytes;
+casting all independent attention weights costs63,701,000bytes, separately from
+stored payload. The measured layout saves payload only through43tokens; longer
+prefixes may lose. No latency or global parameter reduction follows from this.
+
+The first checker completed calculations and serialized its program, then failed
+on an st_size metadata typo. Recovery preserved the artifact and verified every
+recomputed tensor bit-identical before producing the result. No scientific
+threshold or result was replaced. Complete block9/attention10 replacement also
+needs the source program for the residual path; its native test charges that
+additional dependency instead of claiming the consumer-only45.29%for the pair.

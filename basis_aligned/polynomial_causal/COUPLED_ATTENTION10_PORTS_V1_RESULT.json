@@ -1,0 +1,212 @@
+{
+  "utc": "2026-09-14T13:26:55.999900+00:00",
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "maxima": {
+    "max_port_error": 1.2967056886548307e-15,
+    "write_error": 7.193250728528005e-16,
+    "native_fp32_error": 3.2158515674878005e-07
+  },
+  "compiled_payload_bytes": 18700562,
+  "independent_payload_bytes": 34183446,
+  "saving": 0.45293514293438997,
+  "serialized_program_bytes": 18705109,
+  "native_weight_dtypes": {
+    "c_q": "torch.float32",
+    "c_k": "torch.float32",
+    "c_q2": "torch.float32",
+    "c_k2": "torch.float32",
+    "c_v": "torch.float32",
+    "c_proj": "torch.float32",
+    "lamb": "torch.bfloat16"
+  },
+  "output_cast_cache_bytes": 10616832,
+  "independent_all_attention_cast_cache_bytes": 63701000,
+  "length_price_formula": {
+    "compiled_fixed": 5308418,
+    "compiled_per_token": 744008,
+    "independent_fixed": 31859718,
+    "independent_per_token": 129096,
+    "maximum_saving_length_under257": 43
+  },
+  "records": [
+    {
+      "a": -1,
+      "b": -1,
+      "max_port_error": 1.2463082434770767e-15,
+      "write_error": 7.019130543210369e-16,
+      "native_fp32_error": 3.1365911674926214e-07
+    },
+    {
+      "a": -1,
+      "b": 0,
+      "max_port_error": 1.2295856839537562e-15,
+      "write_error": 6.755409492468542e-16,
+      "native_fp32_error": 3.201991890134598e-07
+    },
+    {
+      "a": -1,
+      "b": 0.5,
+      "max_port_error": 1.2505950249327667e-15,
+      "write_error": 6.599274898074768e-16,
+      "native_fp32_error": 3.187877163503618e-07
+    },
+    {
+      "a": -1,
+      "b": 1,
+      "max_port_error": 1.2513631005568892e-15,
+      "write_error": 7.008105947516312e-16,
+      "native_fp32_error": 3.2158515674878005e-07
+    },
+    {
+      "a": -1,
+      "b": 2,
+      "max_port_error": 1.245002578451266e-15,
+      "write_error": 6.910326962045919e-16,
+      "native_fp32_error": 3.039097355515854e-07
+    },
+    {
+      "a": 0,
+      "b": -1,
+      "max_port_error": 1.2357286878274545e-15,
+      "write_error": 7.00693044080715e-16,
+      "native_fp32_error": 3.092357684992966e-07
+    },
+    {
+      "a": 0,
+      "b": 0,
+      "max_port_error": 1.2336521374175357e-15,
+      "write_error": 6.729394947119068e-16,
+      "native_fp32_error": 3.1457508475721724e-07
+    },
+    {
+      "a": 0,
+      "b": 0.5,
+      "max_port_error": 1.2520596593316533e-15,
+      "write_error": 6.643228557900109e-16,
+      "native_fp32_error": 3.2105526944713126e-07
+    },
+    {
+      "a": 0,
+      "b": 1,
+      "max_port_error": 1.2474942641011795e-15,
+      "write_error": 7.120618259516933e-16,
+      "native_fp32_error": 3.0301567130183457e-07
+    },
+    {
+      "a": 0,
+      "b": 2,
+      "max_port_error": 1.2368213052015017e-15,
+      "write_error": 6.501491135174452e-16,
+      "native_fp32_error": 3.189040263339427e-07
+    },
+    {
+      "a": 0.5,
+      "b": -1,
+      "max_port_error": 1.2685823548676072e-15,
+      "write_error": 6.94046854081492e-16,
+      "native_fp32_error": 2.968953898381571e-07
+    },
+    {
+      "a": 0.5,
+      "b": 0,
+      "max_port_error": 1.2566479713518928e-15,
+      "write_error": 7.022932811811534e-16,
+      "native_fp32_error": 3.012120816263457e-07
+    },
+    {
+      "a": 0.5,
+      "b": 0.5,
+      "max_port_error": 1.2642847503931354e-15,
+      "write_error": 7.134716139304656e-16,
+      "native_fp32_error": 2.946355216545236e-07
+    },
+    {
+      "a": 0.5,
+      "b": 1,
+      "max_port_error": 1.2667707517538736e-15,
+      "write_error": 6.913957360501193e-16,
+      "native_fp32_error": 3.125331370872478e-07
+    },
+    {
+      "a": 0.5,
+      "b": 2,
+      "max_port_error": 1.2644569025342383e-15,
+      "write_error": 6.814331153460611e-16,
+      "native_fp32_error": 3.1408208633073483e-07
+    },
+    {
+      "a": 1,
+      "b": -1,
+      "max_port_error": 1.2914816593194877e-15,
+      "write_error": 6.956233526582636e-16,
+      "native_fp32_error": 3.1057516239220843e-07
+    },
+    {
+      "a": 1,
+      "b": 0,
+      "max_port_error": 1.2593301576152238e-15,
+      "write_error": 6.673908889840769e-16,
+      "native_fp32_error": 3.0544413060546e-07
+    },
+    {
+      "a": 1,
+      "b": 0.5,
+      "max_port_error": 1.2698158974508632e-15,
+      "write_error": 6.716509454793658e-16,
+      "native_fp32_error": 2.988464996578452e-07
+    },
+    {
+      "a": 1,
+      "b": 1,
+      "max_port_error": 1.2765511503414294e-15,
+      "write_error": 6.759488881771976e-16,
+      "native_fp32_error": 2.9733321447860727e-07
+    },
+    {
+      "a": 1,
+      "b": 2,
+      "max_port_error": 1.2621205141485256e-15,
+      "write_error": 7.193250728528005e-16,
+      "native_fp32_error": 3.008380092440082e-07
+    },
+    {
+      "a": 2,
+      "b": -1,
+      "max_port_error": 1.2760061550745492e-15,
+      "write_error": 6.603715248762607e-16,
+      "native_fp32_error": 3.072258574028135e-07
+    },
+    {
+      "a": 2,
+      "b": 0,
+      "max_port_error": 1.2673454092666706e-15,
+      "write_error": 6.868392856930321e-16,
+      "native_fp32_error": 3.063444999926214e-07
+    },
+    {
+      "a": 2,
+      "b": 0.5,
+      "max_port_error": 1.2895171886648356e-15,
+      "write_error": 6.748927985774869e-16,
+      "native_fp32_error": 3.026791252531584e-07
+    },
+    {
+      "a": 2,
+      "b": 1,
+      "max_port_error": 1.2967056886548307e-15,
+      "write_error": 7.035488949098066e-16,
+      "native_fp32_error": 3.0788242220812915e-07
+    },
+    {
+      "a": 2,
+      "b": 2,
+      "max_port_error": 1.2891736574301877e-15,
+      "write_error": 6.745617404324178e-16,
+      "native_fp32_error": 2.922585569590089e-07
+    }
+  ],
+  "seconds": 0.34268390799843473,
+  "scope": "One native18-token context/25coupled cases, CPU attention10 only. Projected polynomial ports replace runtime QKV dense maps for this context; original source/model/context generators remain required. No global parameter saving, long-prefix win, whole-suffix or execution-speed claim."
+}
