@@ -1,0 +1,87 @@
+{
+  "utc": "2026-09-14T14:02:03.280105+00:00",
+  "pred_a": true,
+  "pred_b": false,
+  "contexts": 8,
+  "total_tokens": 438,
+  "shared_native_portfolio_bytes": 88403772,
+  "shared_projected_portfolio_bytes": 304594284,
+  "projected_to_native": 3.445489678879313,
+  "best_storage_plan": {
+    "projected_mask": 0,
+    "payload_bytes": 88403772,
+    "qkv_bank_retained": true
+  },
+  "shared_common_bytes": 5317644,
+  "shared_qkv_bank_bytes": 26542080,
+  "lazy_bytes_per_token": 129096,
+  "projected_bytes_per_token": 683280,
+  "per_context_checks": [
+    {
+      "row": 0,
+      "native_formula": 34183452,
+      "native_recorded": 34183452,
+      "projected_formula": 17616684,
+      "projected_recorded": 17616676,
+      "missing_reentry_bytes": 8
+    },
+    {
+      "row": 2,
+      "native_formula": 34183452,
+      "native_recorded": 34183452,
+      "projected_formula": 17616684,
+      "projected_recorded": 17616676,
+      "missing_reentry_bytes": 8
+    },
+    {
+      "row": 4,
+      "native_formula": 34312548,
+      "native_recorded": 34312548,
+      "projected_formula": 18299964,
+      "projected_recorded": 18299956,
+      "missing_reentry_bytes": 8
+    },
+    {
+      "row": 6,
+      "native_formula": 34312548,
+      "native_recorded": 34312548,
+      "projected_formula": 18299964,
+      "projected_recorded": 18299956,
+      "missing_reentry_bytes": 8
+    },
+    {
+      "row": 8,
+      "native_formula": 42703788,
+      "native_recorded": 42703788,
+      "projected_formula": 62713164,
+      "projected_recorded": 62713156,
+      "missing_reentry_bytes": 8
+    },
+    {
+      "row": 9,
+      "native_formula": 42703788,
+      "native_recorded": 42703788,
+      "projected_formula": 62713164,
+      "projected_recorded": 62713156,
+      "missing_reentry_bytes": 8
+    },
+    {
+      "row": 10,
+      "native_formula": 44511132,
+      "native_recorded": 44511132,
+      "projected_formula": 72279084,
+      "projected_recorded": 72279076,
+      "missing_reentry_bytes": 8
+    },
+    {
+      "row": 11,
+      "native_formula": 44511132,
+      "native_recorded": 44511132,
+      "projected_formula": 72279084,
+      "projected_recorded": 72279076,
+      "missing_reentry_bytes": 8
+    }
+  ],
+  "assignments_checked": 256,
+  "scope": "Exact retained-payload audit for eight existing fixed-context executors. Shared model maps/source bias/reentry counted once. Eight contexts are not eight circuits. Runtime/working-memory/fidelity not retested. Original prefix/model generators remain globally required; standalone single-context benefits do not establish shared-service weight compression."
+}

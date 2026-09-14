@@ -401,3 +401,75 @@ and90.43MB versus44.51MB at98tokens, so the general size claim is already reject
 for this layout. The registered204-forward native test will check accuracy on
 these contexts without replacing them with shorter favorable cases. The forecast
 is a payload calculation, not executed long-context accuracy or timing evidence.
+
+
+[Longer-context native validation](COUPLED_NATURAL_LENGTH_V1_RESULT.json) completes
+204forwards in3.71seconds. All100signed cases pass accuracy and own-effect gates:
+post10 error<=2.59e-7, full scores<=6.55e-7. Price C fails exactly as forecast:
+combined payload is1.833×independent at84tokens and2.032×at98tokens. Donors are
+different natural texts, not controlled cue swaps; this tests a different input
+and length distribution without identifying a new semantic circuit.
+
+## Keep the denominator factored: twelve rather than sixteen vectors
+
+Write P=rho*(B0+aB1+bB2+abB3)+sum_j N_j*m_j, with nine bidegree(2,2)
+monomials m_j. Since rho itself is in that nine-monomial span, absorb rho*B0
+into the nine N_j. The exact representation then needs three vectors weighted
+by rho*a,rho*b,rho*ab, plus nine vectors weighted by m_j:12vectors total.
+Use a12×12norm Gram instead of16×16. Compile directly from original vectors;
+do not recover coefficients by division through small mixed-denominator terms.
+
+The scalar functions are generically independent when the highest mixed rho
+coefficient is nonzero: rho*a,rho*b,rho*ab add distinct leading monomials outside
+the nine-monomial rectangle. The integer design control has rank12 for both
+old13columns and selected12columns. Degenerate physical contexts can have lower
+rank; no per-context minimality is claimed.
+
+[50 CPU cases](DENOMINATOR_FACTORED_ATTENTION10_V1_RESULT.json) on18- and84-token
+native-context fixtures pass: normalized ports<=5.21e-16, attention writes
+<=4.52e-16 against expanded16, and native FP32 attention<=3.45e-7. Identical CPU
+x0 frames and actual captured first values are used for both constructors.
+Consumer payload ratios are0.822/0.771; combined payload ratios to independent
+are0.515/1.469. The long-context size failure survives this exact improvement.
+The full short/long native-suffix test is separately registered.
+
+
+### Native twelve-vector validation and shared-weight limit
+
+[Native validation](DENOMINATOR_FACTORED_NATIVE_V1_RESULT.json) passes all200
+signed comparisons across eight short/long contexts (412 total forwards,5.52s):
+post10 error<=2.59e-7, full scores<=6.73e-7, and registered own-effect floors hold.
+Consumer payload is17.8–23.2% smaller than expanded16. Combined short programs
+save46.67–48.46%;84/98-token programs remain1.469/1.624 times the independent
+implementation. Prediction D fails. This is conditional execution fidelity,
+not a new semantic identification or evidence of faster execution.
+
+[Shared-weight portfolio audit](COUPLED_SHARED_WEIGHT_PORTFOLIO_V1_RESULT.json)
+counts each native map once across all eight contexts (438 tokens total).
+Projected programs require304,594,284bytes versus88,403,772bytes for the shared
+native bank, a3.44549 ratio. All256 assignments of projected versus dense contexts
+were enumerated; retaining the bank and projecting no contexts is smallest.
+The fixed-context export benefit therefore does not establish shared-service
+weight compression. Stop further short-prefix byte-only sweeps on this route.
+
+Accounting correction: prior combined payloads omitted8bytes for two block10
+re-entry scalars. The new audit adds them explicitly; original receipts remain
+unchanged and all verdicts survive. Original prefix/model generators are still
+required globally. Runtime and working memory were not tested by this audit.
+
+### Shared-bank conditional executor
+
+The [standalone shared executor](COUPLED_SHARED_EXECUTOR_V1_RESULT.json) retains
+one original-dtype attention10 weight bank and accepts source coefficients, x0
+and first values per context. It exactly executes post-MLP9, attention10 and the
+post-attention10 residual state for both18- and84-token examples. Across25
+registered and seven off-grid strength pairs per context, maximum relative
+error is7.55e-16. A Python isolated process imports no project module and reads
+no checkpoint. Headed and flattened first-value layouts agree within6.80e-16.
+
+The package plus two example contexts is45,039,673bytes versus75,012,204bytes
+for two projected12-vector programs. This demonstrates reuse of one conditional
+executor across lengths. It does not remove the original prefix/model and MLP9
+weights needed to generate each source program, and MLP10 plus the later suffix
+remain external. Native suffix fidelity for this shared-bank interface is the
+next registered boundary; the CPU result alone is not behavioral or OOD proof.

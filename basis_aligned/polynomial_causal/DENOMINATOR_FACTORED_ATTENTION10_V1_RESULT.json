@@ -1,0 +1,441 @@
+{
+  "utc": "2026-09-14T13:51:01.686552+00:00",
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "design_ranks": [
+    12,
+    12
+  ],
+  "maxima": {
+    "port_error": 5.207631950067802e-16,
+    "write_error": 4.514167829095415e-16,
+    "native_fp32_error": 3.4417302129528547e-07
+  },
+  "prices": [
+    {
+      "context": "short",
+      "tokens": 18,
+      "expanded_consumer_bytes": 18700562,
+      "factored_consumer_bytes": 15366674,
+      "consumer_ratio": 0.8217225771075757,
+      "combined_bytes": 17616674,
+      "independent_bytes": 34183446,
+      "combined_ratio": 0.5153568777120949
+    },
+    {
+      "context": "long",
+      "tokens": 84,
+      "expanded_consumer_bytes": 67805090,
+      "factored_consumer_bytes": 52246946,
+      "consumer_ratio": 0.7705460755232387,
+      "combined_bytes": 62713154,
+      "independent_bytes": 42703782,
+      "combined_ratio": 1.4685620585080732
+    }
+  ],
+  "records": [
+    {
+      "context": "short",
+      "a": -1,
+      "b": -1,
+      "port_error": 2.76109545193665e-16,
+      "write_error": 3.5981150844846857e-16,
+      "native_fp32_error": 3.1461403715305887e-07
+    },
+    {
+      "context": "short",
+      "a": -1,
+      "b": 0,
+      "port_error": 1.9473585908281313e-16,
+      "write_error": 3.61421358921349e-16,
+      "native_fp32_error": 3.212557484854703e-07
+    },
+    {
+      "context": "short",
+      "a": -1,
+      "b": 0.5,
+      "port_error": 3.3148321191649174e-16,
+      "write_error": 4.0217327977231895e-16,
+      "native_fp32_error": 3.1964343679483813e-07
+    },
+    {
+      "context": "short",
+      "a": -1,
+      "b": 1,
+      "port_error": 2.7844557110253436e-16,
+      "write_error": 3.859760847934952e-16,
+      "native_fp32_error": 3.192941349993347e-07
+    },
+    {
+      "context": "short",
+      "a": -1,
+      "b": 2,
+      "port_error": 2.7269286439281694e-16,
+      "write_error": 3.93654557700788e-16,
+      "native_fp32_error": 3.047739349899423e-07
+    },
+    {
+      "context": "short",
+      "a": 0,
+      "b": -1,
+      "port_error": 1.6143564045101013e-16,
+      "write_error": 3.098149153527043e-16,
+      "native_fp32_error": 3.075064559210476e-07
+    },
+    {
+      "context": "short",
+      "a": 0,
+      "b": 0,
+      "port_error": 0.0,
+      "write_error": 0.0,
+      "native_fp32_error": 3.130476649587406e-07
+    },
+    {
+      "context": "short",
+      "a": 0,
+      "b": 0.5,
+      "port_error": 1.551897356124462e-16,
+      "write_error": 3.20841255567522e-16,
+      "native_fp32_error": 3.2327419983262136e-07
+    },
+    {
+      "context": "short",
+      "a": 0,
+      "b": 1,
+      "port_error": 1.4405020317883695e-16,
+      "write_error": 3.08517209725757e-16,
+      "native_fp32_error": 3.0051468779230296e-07
+    },
+    {
+      "context": "short",
+      "a": 0,
+      "b": 2,
+      "port_error": 1.5682795020337165e-16,
+      "write_error": 3.084015448691424e-16,
+      "native_fp32_error": 3.1914570324906927e-07
+    },
+    {
+      "context": "short",
+      "a": 0.5,
+      "b": -1,
+      "port_error": 3.242124289735112e-16,
+      "write_error": 3.5246016878288035e-16,
+      "native_fp32_error": 3.013410698057197e-07
+    },
+    {
+      "context": "short",
+      "a": 0.5,
+      "b": 0,
+      "port_error": 1.8338593463287077e-16,
+      "write_error": 3.21367376401656e-16,
+      "native_fp32_error": 3.0057530268478533e-07
+    },
+    {
+      "context": "short",
+      "a": 0.5,
+      "b": 0.5,
+      "port_error": 3.454819744872036e-16,
+      "write_error": 3.731554305831386e-16,
+      "native_fp32_error": 2.9355345992060367e-07
+    },
+    {
+      "context": "short",
+      "a": 0.5,
+      "b": 1,
+      "port_error": 3.710359980900632e-16,
+      "write_error": 3.627488867806804e-16,
+      "native_fp32_error": 3.156657715023983e-07
+    },
+    {
+      "context": "short",
+      "a": 0.5,
+      "b": 2,
+      "port_error": 3.52819270284594e-16,
+      "write_error": 3.6936393151413704e-16,
+      "native_fp32_error": 3.1301158635265095e-07
+    },
+    {
+      "context": "short",
+      "a": 1,
+      "b": -1,
+      "port_error": 3.4680249785103613e-16,
+      "write_error": 3.85183691707168e-16,
+      "native_fp32_error": 3.0769583462101535e-07
+    },
+    {
+      "context": "short",
+      "a": 1,
+      "b": 0,
+      "port_error": 1.5715571008987449e-16,
+      "write_error": 3.140373101564669e-16,
+      "native_fp32_error": 3.0389266948042877e-07
+    },
+    {
+      "context": "short",
+      "a": 1,
+      "b": 0.5,
+      "port_error": 3.133954572727347e-16,
+      "write_error": 3.854039792944096e-16,
+      "native_fp32_error": 3.0097647865190644e-07
+    },
+    {
+      "context": "short",
+      "a": 1,
+      "b": 1,
+      "port_error": 3.5542416071449894e-16,
+      "write_error": 3.638456116215421e-16,
+      "native_fp32_error": 2.9594794395287596e-07
+    },
+    {
+      "context": "short",
+      "a": 1,
+      "b": 2,
+      "port_error": 3.4237471643884203e-16,
+      "write_error": 4.1861171669772915e-16,
+      "native_fp32_error": 2.977442721111708e-07
+    },
+    {
+      "context": "short",
+      "a": 2,
+      "b": -1,
+      "port_error": 3.4672778171657e-16,
+      "write_error": 3.9640750142915576e-16,
+      "native_fp32_error": 3.090568307411108e-07
+    },
+    {
+      "context": "short",
+      "a": 2,
+      "b": 0,
+      "port_error": 2.0421354411625636e-16,
+      "write_error": 3.2503513795656976e-16,
+      "native_fp32_error": 3.0477407530309757e-07
+    },
+    {
+      "context": "short",
+      "a": 2,
+      "b": 0.5,
+      "port_error": 3.0651691041516745e-16,
+      "write_error": 3.5394287885503965e-16,
+      "native_fp32_error": 3.0392454526959053e-07
+    },
+    {
+      "context": "short",
+      "a": 2,
+      "b": 1,
+      "port_error": 3.930718425861132e-16,
+      "write_error": 3.8443410734516447e-16,
+      "native_fp32_error": 3.0859650385776805e-07
+    },
+    {
+      "context": "short",
+      "a": 2,
+      "b": 2,
+      "port_error": 3.626703987169353e-16,
+      "write_error": 3.857061232200516e-16,
+      "native_fp32_error": 2.935136274257828e-07
+    },
+    {
+      "context": "long",
+      "a": -1,
+      "b": -1,
+      "port_error": 3.3771906596035893e-16,
+      "write_error": 4.1436821512799095e-16,
+      "native_fp32_error": 3.4417302129528547e-07
+    },
+    {
+      "context": "long",
+      "a": -1,
+      "b": 0,
+      "port_error": 2.084916379442733e-16,
+      "write_error": 3.334118195811544e-16,
+      "native_fp32_error": 3.0464676292457534e-07
+    },
+    {
+      "context": "long",
+      "a": -1,
+      "b": 0.5,
+      "port_error": 3.6119875733213263e-16,
+      "write_error": 3.69002438084726e-16,
+      "native_fp32_error": 2.904790925835509e-07
+    },
+    {
+      "context": "long",
+      "a": -1,
+      "b": 1,
+      "port_error": 3.896243445860133e-16,
+      "write_error": 3.715729342174856e-16,
+      "native_fp32_error": 2.795703150408902e-07
+    },
+    {
+      "context": "long",
+      "a": -1,
+      "b": 2,
+      "port_error": 4.679605792808835e-16,
+      "write_error": 3.76179380427908e-16,
+      "native_fp32_error": 2.6478386728270277e-07
+    },
+    {
+      "context": "long",
+      "a": 0,
+      "b": -1,
+      "port_error": 1.7742863923127184e-16,
+      "write_error": 3.2840593169376866e-16,
+      "native_fp32_error": 3.001268142658956e-07
+    },
+    {
+      "context": "long",
+      "a": 0,
+      "b": 0,
+      "port_error": 0.0,
+      "write_error": 0.0,
+      "native_fp32_error": 2.901755227646694e-07
+    },
+    {
+      "context": "long",
+      "a": 0,
+      "b": 0.5,
+      "port_error": 1.6432170828437883e-16,
+      "write_error": 3.303039458458796e-16,
+      "native_fp32_error": 2.9397546635567507e-07
+    },
+    {
+      "context": "long",
+      "a": 0,
+      "b": 1,
+      "port_error": 1.7498019905031762e-16,
+      "write_error": 3.1655488169930746e-16,
+      "native_fp32_error": 2.9342421028182895e-07
+    },
+    {
+      "context": "long",
+      "a": 0,
+      "b": 2,
+      "port_error": 2.1270077550797334e-16,
+      "write_error": 3.3144892144677326e-16,
+      "native_fp32_error": 2.8948687171246446e-07
+    },
+    {
+      "context": "long",
+      "a": 0.5,
+      "b": -1,
+      "port_error": 3.74100094876237e-16,
+      "write_error": 3.7732093201156697e-16,
+      "native_fp32_error": 2.931239345058842e-07
+    },
+    {
+      "context": "long",
+      "a": 0.5,
+      "b": 0,
+      "port_error": 1.869354680592253e-16,
+      "write_error": 3.1976619635012465e-16,
+      "native_fp32_error": 2.855073663612841e-07
+    },
+    {
+      "context": "long",
+      "a": 0.5,
+      "b": 0.5,
+      "port_error": 3.2751499295124117e-16,
+      "write_error": 3.603832389027946e-16,
+      "native_fp32_error": 2.8970359820885184e-07
+    },
+    {
+      "context": "long",
+      "a": 0.5,
+      "b": 1,
+      "port_error": 3.4935156325583994e-16,
+      "write_error": 3.5767984216712935e-16,
+      "native_fp32_error": 2.922307070234536e-07
+    },
+    {
+      "context": "long",
+      "a": 0.5,
+      "b": 2,
+      "port_error": 3.546970140601794e-16,
+      "write_error": 3.6907026352626943e-16,
+      "native_fp32_error": 2.901052177946172e-07
+    },
+    {
+      "context": "long",
+      "a": 1,
+      "b": -1,
+      "port_error": 3.673481504649896e-16,
+      "write_error": 3.706716020144039e-16,
+      "native_fp32_error": 2.7787942207293125e-07
+    },
+    {
+      "context": "long",
+      "a": 1,
+      "b": 0,
+      "port_error": 2.2785198033833084e-16,
+      "write_error": 3.203974000445163e-16,
+      "native_fp32_error": 2.86564334832342e-07
+    },
+    {
+      "context": "long",
+      "a": 1,
+      "b": 0.5,
+      "port_error": 3.601402706389407e-16,
+      "write_error": 3.647650483863865e-16,
+      "native_fp32_error": 2.839797955900927e-07
+    },
+    {
+      "context": "long",
+      "a": 1,
+      "b": 1,
+      "port_error": 3.635806247813745e-16,
+      "write_error": 3.7430477633484743e-16,
+      "native_fp32_error": 2.8477877520067517e-07
+    },
+    {
+      "context": "long",
+      "a": 1,
+      "b": 2,
+      "port_error": 4.0552340047595657e-16,
+      "write_error": 3.9342831156121946e-16,
+      "native_fp32_error": 2.8934188165792873e-07
+    },
+    {
+      "context": "long",
+      "a": 2,
+      "b": -1,
+      "port_error": 5.073086558543974e-16,
+      "write_error": 3.787992624097251e-16,
+      "native_fp32_error": 2.58696901137452e-07
+    },
+    {
+      "context": "long",
+      "a": 2,
+      "b": 0,
+      "port_error": 3.1003370095787796e-16,
+      "write_error": 3.492193447720963e-16,
+      "native_fp32_error": 2.707888445100713e-07
+    },
+    {
+      "context": "long",
+      "a": 2,
+      "b": 0.5,
+      "port_error": 4.256649786835095e-16,
+      "write_error": 3.7662310978686697e-16,
+      "native_fp32_error": 2.766972329338017e-07
+    },
+    {
+      "context": "long",
+      "a": 2,
+      "b": 1,
+      "port_error": 4.3209232144355734e-16,
+      "write_error": 4.127897451138223e-16,
+      "native_fp32_error": 2.828799262551443e-07
+    },
+    {
+      "context": "long",
+      "a": 2,
+      "b": 2,
+      "port_error": 5.207631950067802e-16,
+      "write_error": 4.514167829095415e-16,
+      "native_fp32_error": 3.074454903555618e-07
+    }
+  ],
+  "seconds": 1.127323193999473,
+  "scope": "Direct weight/context compilation of12vector basis; no inverse or fitted outputs. Shared denominator retained, no interactions dropped. Two CPU native-context fixtures/50grid cases, not new whole-suffix validation. Original generators remain; long price failure reported."
+}

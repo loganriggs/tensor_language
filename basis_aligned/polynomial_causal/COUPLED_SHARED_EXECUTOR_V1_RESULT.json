@@ -1,0 +1,25 @@
+{
+  "utc": "2026-09-14T14:09:53.160210+00:00",
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "isolated": {
+    "maxima": {
+      "post_mlp9": 0.0,
+      "attention10": 7.541399919273161e-16,
+      "post_attention10": 1.1214664532688219e-16
+    },
+    "flat_layout_error": 6.791663021476081e-16,
+    "project_imports_outside_package": [],
+    "cases": 64
+  },
+  "package_and_context_file_bytes": 45039673,
+  "shared_projected_payload_bytes": 75012204,
+  "package_to_projected": 0.6004312711568907,
+  "bank_tensor_bytes": 31859724,
+  "scope": "Original model/prefix and MLP9 weights generate source coefficients and contexts. MLP10 and later suffix remain external. No arbitrary-text language-model interface.",
+  "context_provenance": [
+    "Actual native capture, corrected regional row0/donor1",
+    "Natural row0/donor1 captured source/first values; x0 reconstructed using native FP32 embedding RMS on CPU"
+  ]
+}

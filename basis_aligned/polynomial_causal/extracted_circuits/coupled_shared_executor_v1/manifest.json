@@ -1,0 +1,33 @@
+{
+  "inputs": [
+    "bank",
+    "context: source numerator/denominator/linear_basis, x0, first_values",
+    "two scalar strengths a,b; mixed strength a*b"
+  ],
+  "outputs": [
+    "post_mlp9",
+    "attention10",
+    "post_attention10"
+  ],
+  "tokens": [
+    18,
+    84
+  ],
+  "runtime_dependencies": [
+    "torch",
+    "execute.py",
+    "bank.pt",
+    "caller-supplied context"
+  ],
+  "context_provenance": [
+    "Actual native capture, corrected regional row0/donor1",
+    "Natural row0/donor1 captured source/first values; x0 reconstructed using native FP32 embedding RMS on CPU"
+  ],
+  "external_dependencies": "Original model/prefix and MLP9 weights generate source coefficients and contexts. MLP10 and later suffix remain external. No arbitrary-text language-model interface.",
+  "precision": "Original FP32 attention matrices, native FP32 scalar mixture/reentry; FP64 source coefficients and runtime arithmetic. No quantization.",
+  "hashes": {
+    "execute.py": "c044f94b508b2d10aef39a087e9efcf71f46fcff91de23a5a5772806ec641d55",
+    "bank.pt": "7338fc5cc3a54e1926c33b1e0e914cbcf88856db07d2ee935651f9e4812a5242",
+    "contexts.pt": "2901915ff9b8e9ad5dda3e5f76b8dbd1d9dc91d67d7f44adc6042ac605c5db03"
+  }
+}

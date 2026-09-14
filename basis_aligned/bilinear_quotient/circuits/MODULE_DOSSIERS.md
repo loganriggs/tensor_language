@@ -229,3 +229,21 @@ path and attention10 projected polynomial ports; measured payload saving is
 36.41–38.71%for18–19token contexts. Native model/context generators remain external
 preparation dependencies. V1 shape failure and layout-only recovery are preserved.
 No static whole-model reduction or additional semantic role is claimed.
+
+
+### 2026-09-14 — longer contexts and shared-weight accounting
+The [primary interaction record](../../polynomial_causal/EVEN_KEY_VALUE_BANK_V1_MATH.md)
+adds200native short/long cases for the exact12-vector consumer: state/score and
+own-effect bars pass, but long-context storage fails (1.469–1.624x).
+Across eight contexts, shared native weights require88.4MB versus304.6MB for
+projected programs. This rejects shared-service weight compression from these
+context exports. Prior combined prices omitted8bytes of re-entry scalars;
+corrected prices preserve every verdict. No new semantic circuit is identified.
+
+The [shared-bank extraction](../../polynomial_causal/COUPLED_SHARED_EXECUTOR_V1_RESULT.json)
+then passes64 isolated CPU cases across18- and84-token contexts, including seven
+off-grid strength pairs. One31.86MB native bank plus caller contexts replaces
+duplicate projected consumers (45.04MB package versus75.01MB projected pair).
+Context-program generation and the native suffix are still external, so this is
+conditional extraction/reuse rather than a complete or semantically identified
+circuit.
