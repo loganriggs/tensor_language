@@ -45,3 +45,29 @@ This supports a modest, interaction-specific compression result. It does not est
 The next promotion should preserve this explicit boundary and compare an executable sparse contraction with the native factored operator, then extend to normalization dependencies before claiming a reusable extracted component.
 
 Receipts: [registered screen](INTERACTION_SPARSE_REGIONAL_V1_RESULT.json), [zero control](INTERACTION_SPARSE_REGIONAL_ZERO_V1_RESULT.json), [own-contribution diagnostic](INTERACTION_SPARSE_REGIONAL_OWN_EFFECT_V1_RESULT.json). Sources: [shared scorer](interaction_sparse_regional_v1.py), [zero-control entry point](interaction_sparse_regional_zero_v1.py). The original screen took 1.25 CPU seconds internally; no body forwards or fitting steps.
+
+## Native retained-law diagnostic, 14 September 20:21 UTC
+
+The Gaussian raw-state objective is now rejected as a fidelity model for this
+conditional circuit. A hash-bound managed run reconstructed the three native
+upstream trajectories on the frozen 120-row minimax panel, formed the exact
+additive fourth corner, retained all three normalized producer contractions and
+all nine error-Gram terms, and used the actual compact background, MLP17, and RMS
+denominator. Cached linear/final states replayed within `2.25e-6`/`1.62e-6`;
+the producer and complete-Gram identities were exact.
+
+The frozen sparse operator's native relative mixed-numerator error was 1.694%,
+only 0.195 times the 8.705% four-seed Gaussian mean. The normalized native and
+synthetic Grams had cosine 0.724, and the native off-diagonal signs were all
+positive versus `(+,-,-)` synthetically. Fixed 24-row group errors ranged from
+1.410% to 5.192%, so the registered group-stability condition also failed.
+Only the instrument predicate passed; scalar, interaction, and stability
+fidelity failed.
+
+This does not weaken the direct cached-native behavioral receipts above. It
+does rule out using the synthetic Gaussian objective to choose or refit the
+setting-2 operator. Any future optimization needs a prospectively frozen native
+trajectory measure and independent native validation; no threshold, support,
+rank, or denominator rescue is licensed. See
+`NATIVE_RETAINED_LAW_FIDELITY_V1_PREREGISTRATION.md` and
+`NATIVE_RETAINED_LAW_FIDELITY_V1_RESULT.json`.
