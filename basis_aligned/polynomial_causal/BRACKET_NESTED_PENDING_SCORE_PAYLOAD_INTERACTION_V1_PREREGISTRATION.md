@@ -1,0 +1,7 @@
+# Bracket nested-pending L13H8 score/payload interaction V1
+
+The fixed ordered-pair displacement preserves direction on a third nested construction but over-amplifies, while the six-scalar behavioral effect law transfers. Do not refit or scale those vectors. Instead factor the exact native L13H8 source term independently at fixed source distance: `t = p*u`, where `p` is the query-to-opener bilinear score and `u` is the projected opener value.
+
+For every directed endpoint construct self `(p_r,u_r)`, score-only `(p_d,u_r)`, payload-only `(p_r,u_d)`, joint `(p_d,u_d)`, and the additive source term `p_d*u_r + p_r*u_d - p_r*u_r`. Run score, payload, joint, and additive terms through the unchanged suffix. The exact omitted source interaction is `(p_d-p_r)*(u_d-u_r)`; its algebraic closure must be <=1e-5. This contrast is fixed by bilinearity and does not use prior causal magnitudes.
+
+Instrument requires native replay <=1e-5 and six forwards/864 sequences. Joint target effects must be donorward on >=.90 of every ordered-pair cell. Additive sufficiency requires cosine >=.95, relative L2 <=.25, and sign agreement >=.90 against joint. A material interaction instead requires source interaction/joint norm >=.10 and additive relative L2 >.25. Control closer-margin changes must be <=.50 of the target joint RMS. This is an explanatory factorization on the opened nested authority; no vector/scalar gain, fit, threshold rescue, rank sweep, or quantization.
