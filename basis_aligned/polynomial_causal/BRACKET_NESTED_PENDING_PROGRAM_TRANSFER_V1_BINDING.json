@@ -1,0 +1,40 @@
+{
+  "bars": {
+    "maximum_control_logit_change": 1e-05,
+    "maximum_norm_ratio": 1.5,
+    "maximum_overall_relative_l2": 0.6,
+    "maximum_pair_relative_l2": 0.6,
+    "maximum_replay_logit_error": 1e-05,
+    "minimum_norm_ratio": 0.5,
+    "minimum_overall_cosine": 0.8,
+    "minimum_overall_sign_agreement": 0.9,
+    "minimum_pair_cosine": 0.7,
+    "minimum_pair_exact_positive_fraction": 0.9,
+    "minimum_pair_sign_agreement": 0.9
+  },
+  "files": {
+    "artifact": "531434535daf526ebf584564afbfd5834c75df7bd636014ea233f9ae71206db0",
+    "capability": "5f4a6bf1d1027dd3d63c3f61e65fcd2544334c59796495bd9b7972b09a64e538",
+    "preregistration": "41c4855ab4e774ab272e01eb986df087efdc5dd9bdca52c4c54518caf4a2763d",
+    "rows": "8f57d07b3983bcfffe4c801cb304c3e71012f95801a971ab50120b5d08e657d2",
+    "scalar": "b7401c1dd9709143cd0ad31ac893e09afa98e64604ddb18f866b6998a749f504"
+  },
+  "ordered_pair_scalars": {
+    "1->60": 7.242771128813425,
+    "1->8": 6.036070664723715,
+    "60->1": 6.9730123082796736,
+    "60->8": 7.207242786884308,
+    "8->1": 4.891719102859497,
+    "8->60": 7.028711815675099
+  },
+  "outcomes_opened": [
+    "nested native capability only; no nested intervention outcomes"
+  ],
+  "price": {
+    "fits": 0,
+    "forwards": 4,
+    "sequences": 576
+  },
+  "row_manifest_sha256": "d1fc8e104bb07bbf49f56b6e8e8b8970946abafea4e59471603d213c36c22873",
+  "schema": "bracket_nested_pending_program_transfer_v1_binding"
+}
