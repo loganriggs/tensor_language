@@ -3188,6 +3188,315 @@
    ],
    "translation_ids": [],
    "next_missing": "singleton and architecture-defined multi-module native response restoration are both null. Early MLP8-12 removes 37.9-49.9% of vocabulary response, but necessarily causes >.10 answer CE damage in at least one cell; no typed group is an eligible mediator. Do not tune groups or bars. A future induction continuation needs a non-oracle factorization of answer-preserving versus collateral response, derived independently; otherwise move circuits."
+  },
+  {
+   "claim_id": "induction_selector_and_payload.v14",
+   "revision": 14,
+   "status": "site_live",
+   "supersedes": "induction_selector_and_payload.v13",
+   "causal_variable": {
+    "id": "induction_selector_payload",
+    "domain": "valid earlier source positions and the token/value following each source",
+    "read": "token equality and source position",
+    "operation": "select a matching earlier source, then transport its following payload",
+    "write": "selector-dependent payload contribution to the target-token logits",
+    "endpoint": "signed donor-answer minus base-answer logit margin at the query continuation"
+   },
+   "alternative_explanations": [
+    "generic token identity",
+    "generic copy service",
+    "lag/corpus shortcut"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "two_valid_sources_selector_swap",
+     "role": "interchange",
+     "changes": [
+      "the final query selects A rather than C or vice versa",
+      "the correct payload changes"
+     ],
+     "holds_fixed": [
+      "all three source-payload pairs",
+      "payload assignment",
+      "filler and pair positions"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "selector_payload_joint_answer_preserved",
+      "irrelevant_source_edit",
+      "copy_relation_preserved_nuisance_change"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "payload_swap_match_preserved",
+     "role": "interchange",
+     "changes": [
+      "the B and D payload assignments to A and C are exchanged",
+      "the correct payload changes"
+     ],
+     "holds_fixed": [
+      "query and selector",
+      "source identities and positions",
+      "neutral X-to-E pair"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "selector_payload_joint_answer_preserved",
+      "irrelevant_payload_edit",
+      "copy_relation_preserved_nuisance_change"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "selector_payload_joint_answer_preserved",
+     "role": "invariance",
+     "changes": [
+      "selector and target payload assignment change together"
+     ],
+     "holds_fixed": [
+      "correct answer",
+      "source and payload token sets",
+      "neutral pair and filler"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "two_valid_sources_selector_swap",
+      "payload_swap_match_preserved",
+      "match_break_payload_preserved"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "match_break_payload_preserved",
+     "role": "necessity",
+     "changes": [
+      "the selected earlier source is replaced, breaking its only query match"
+     ],
+     "holds_fixed": [
+      "query token",
+      "both target payload tokens",
+      "contrast and neutral pairs"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "irrelevant_source_edit",
+      "contrast_target_source_edit",
+      "irrelevant_payload_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "irrelevant_source_edit",
+     "role": "invariance",
+     "changes": [
+      "the endpoint-neutral X source is replaced by a decoy"
+     ],
+     "holds_fixed": [
+      "both target pairs",
+      "query and answers",
+      "neutral E payload"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_payload_edit",
+      "contrast_target_source_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "irrelevant_payload_edit",
+     "role": "invariance",
+     "changes": [
+      "the endpoint-neutral E payload is replaced by a decoy"
+     ],
+     "holds_fixed": [
+      "both target pairs",
+      "query and answers",
+      "neutral X source"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_source_edit",
+      "contrast_target_source_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "contrast_target_source_edit",
+     "role": "invariance",
+     "changes": [
+      "the unselected target source immediately before the competing payload is replaced"
+     ],
+     "holds_fixed": [
+      "selected target pair",
+      "query",
+      "both answer-token identities"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_source_edit",
+      "irrelevant_payload_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "copy_relation_preserved_nuisance_change",
+     "role": "invariance",
+     "changes": [
+      "filler identities or the source-to-query lag"
+     ],
+     "holds_fixed": [
+      "all three source-payload pairs",
+      "selector and payload assignment",
+      "correct answer"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "irrelevant_source_edit",
+      "irrelevant_payload_edit",
+      "match_break_payload_preserved"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "natural_pair_interchange",
+     "role": "interchange",
+     "changes": [
+      "naturally occurring selector/payload state",
+      "pair natural copy-positive positions matched on query class, lag, frequency, and base loss"
+     ],
+     "holds_fixed": [
+      "matching strata",
+      "corpus role",
+      "position band"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "within-stratum wrong donor",
+      "matched negative donor",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "equality_qk_selector_sites",
+     "tensor_path": "equality/QK selector sites",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "ov_value_write",
+     "tensor_path": "OV/value write",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "later_mlp_products",
+     "tensor_path": "later MLP products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "native_three_source_final_token_logits",
+     "tensor_path": "unmodified final-query model logits for R578 prompts",
+     "shape": [
+      "batch",
+      "vocabulary"
+     ],
+     "intervention": "no intervention; measure native B-versus-D margins, factorial interaction, and controls",
+     "ceiling_event_ids": [
+      "induction_selector_payload_native_capability.r580.preregistered.v1"
+     ]
+    },
+    {
+     "site_id": "r594_fixed_equality_partial_output_write",
+     "tensor_path": "attention output at zero-index L5H5/L7H3/L8H3/L8H4, final query",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "centered score/payload/joint partial equality-source output deltas; later layers live; L8 additions aggregated",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "r595_downstream_complete_write_response",
+     "tensor_path": "complete final-query attention/MLP write from MLP8 through MLP17",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "while four-site live joint edit is installed, restore exactly one downstream sublayer complete write to its native recipient value",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "early_mlp8_12_answer_parallel_null_factor",
+     "tensor_path": "native-minus-edited MLP8-12 final-query writes split by per-row LM-head answer contrast",
+     "shape": [
+      "batch",
+      5,
+      1152
+     ],
+     "intervention": "restore either the exact scalar answer-parallel projection or its exact orthogonal remainder",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "induction_selector_payload_three_source_split_r578_v1",
+    "joint_split_v1"
+   ],
+   "evidence_event_ids": [
+    "induction_terminal_collateral_failure.legacy.v1",
+    "induction_selector_payload_capability.r554.preregistered.v1",
+    "induction_selector_payload_capability_audit.r555.preregistered.v1",
+    "induction_factor_intervention_semantics.r557.held.v1",
+    "induction_selector_payload_capability.r554.complete.null.v1",
+    "induction_selector_payload_capability_audit.r555.complete.held.v1",
+    "induction_selector_payload_native_capability.r580.preregistered.v1",
+    "induction_selector_payload_native_capability.r580.preregistered.v2",
+    "induction_selector_payload_native_capability.r580.invalid_instrument.v1",
+    "induction_selector_payload_native_capability.r586.complete.held.v1",
+    "induction_selector_payload_native_capability_audit.r587.complete.held.v1",
+    "induction_selector_payload.r594.complete.failed.v1",
+    "induction_live_equality_clamp.v1.complete.failed",
+    "induction_contextual_consumer_response.v1.complete.failed",
+    "induction.typed_consumer_group.v1.invalid",
+    "induction.typed_consumer_group.v2.invalid",
+    "induction.typed_consumer_group.v3.invalid",
+    "induction.typed_consumer_group.v4.complete.null",
+    "induction.early_mlp_readout_null_factor.v2.complete.null"
+   ],
+   "translation_ids": [],
+   "next_missing": "Direct LM-head answer-axis factorization of the early MLP8-12 response is null: the exact readout-null remainder removes 31.4-50.3% of vocabulary RMS but still exceeds +.10 answer CE damage in both opened splits. Raw readout orthogonality does not survive later nonlinear consumers. Do not tune the axis, group, or bars; reopen induction only with an independently derived suffix-transported sensitivity/factorization, otherwise move circuits."
   }
  ],
  "split_plans": [
@@ -4340,6 +4649,79 @@
    "sections": [],
    "design_key": "fd13e69b0dfd3edfbaba36ac9273a3e5d40346368edf370e8a87047571f7f351",
    "execution_key": "9ead7f10c387c50aa870108d94e4880b336099613ec79adbb74826c7afb8a3c5"
+  },
+  {
+   "event_id": "induction.early_mlp_readout_null_factor.v2.complete.null",
+   "claim_id": "induction_selector_and_payload.v14",
+   "test_type": "compiled_equivalence",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "selector_payload_joint_answer_preserved"
+   ],
+   "site_id": "early_mlp8_12_answer_parallel_null_factor",
+   "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+   "evaluation_role": "opened_row_explanatory_factorization",
+   "metrics": [
+    {
+     "name": "partition_max_absolute_error",
+     "estimate": 0.0,
+     "ci95": null,
+     "bar": "<=1e-5"
+    },
+    {
+     "name": "readout_null_vocab_rms_reduction_min",
+     "estimate": 0.31400111341435444,
+     "ci95": null,
+     "bar": ">=0.25 each cell"
+    },
+    {
+     "name": "readout_null_vocab_rms_reduction_max",
+     "estimate": 0.5025784679137525,
+     "ci95": null,
+     "bar": "descriptive"
+    },
+    {
+     "name": "minimum_positive_readout_null_CE_damage",
+     "estimate": 0.18543659301660073,
+     "ci95": null,
+     "bar": "<=0.10 each cell"
+    },
+    {
+     "name": "mean_answer_parallel_component_norm",
+     "estimate": 52.07190722001928,
+     "ci95": null,
+     "bar": "descriptive"
+    },
+    {
+     "name": "mean_readout_null_component_norm",
+     "estimate": 899.5706511551601,
+     "ci95": null,
+     "bar": "descriptive"
+    }
+   ],
+   "prereg_artifact_id": "induction_readout_null_v2_prereg",
+   "result_artifact_id": "induction_readout_null_v2_result",
+   "input_artifact_ids": [
+    "induction_readout_null_v1_prereg",
+    "induction_readout_null_v1_binding",
+    "induction_readout_null_v1_runner",
+    "induction_readout_null_v2_prereg",
+    "induction_readout_null_v2_binding",
+    "induction_readout_null_v2_runner",
+    "induction_readout_null_v2_result"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "basis_aligned/polynomial_causal/INDUCTION_EARLY_MLP_READOUT_NULL_FACTOR_V2_PREREGISTRATION.md"
+   ],
+   "notes": "V1 emitted only a dry-run receipt and opened no model outcomes. V2 changed only dry-run detection. Factorization used no fitted basis, gradient, gain, rank sweep, or quantization.",
+   "design_key": "b132259a7809a70e0631f69eeedda3199df565e18ec05b7205b2795a218e6717",
+   "execution_key": "1287917156805a4d8ca33975b3b2f783269a3b9410281c98841e42ff343db66c"
   }
  ],
  "translations": [],
@@ -4792,6 +5174,48 @@
    "path": "basis_aligned/polynomial_causal/INDUCTION_TYPED_CONSUMER_GROUP_RESPONSE_V4_RESULT.json",
    "sha256": "c2e22db3f26862bd22fd6efb7cf4a76fbc935d3a26b7087184aef0bafe722f8c",
    "kind": "screen_result",
+   "status": "frozen"
+  },
+  "induction_readout_null_v1_prereg": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_EARLY_MLP_READOUT_NULL_FACTOR_V1_PREREGISTRATION.md",
+   "sha256": "aa2a1a16f8b5eeab03c0936d69822b67fcf2ba7cf8a52c32a2032f74c4582b54",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "induction_readout_null_v1_binding": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_EARLY_MLP_READOUT_NULL_FACTOR_V1_BINDING.json",
+   "sha256": "5588bafd72cf3dbfa094ffb06eee89c33cf7634974fcfd442de21c662071f35b",
+   "kind": "binding",
+   "status": "frozen"
+  },
+  "induction_readout_null_v1_runner": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_induction_early_mlp_readout_null_factor_v1.py",
+   "sha256": "54e80be84a47c0f6a547c57e34ccf7822613e8e013be3a03f051757b54076254",
+   "kind": "runner",
+   "status": "frozen"
+  },
+  "induction_readout_null_v2_prereg": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_EARLY_MLP_READOUT_NULL_FACTOR_V2_PREREGISTRATION.md",
+   "sha256": "0d107ef73f9c92b82abd8f7e302e787a61352cd21a08e18f9deca96388403e15",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "induction_readout_null_v2_binding": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_EARLY_MLP_READOUT_NULL_FACTOR_V2_BINDING.json",
+   "sha256": "409774a47aa982249f2204def8b221c6bd6dfe04b9daa7190a691446e4e9aabf",
+   "kind": "binding",
+   "status": "frozen"
+  },
+  "induction_readout_null_v2_runner": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_induction_early_mlp_readout_null_factor_v2.py",
+   "sha256": "fed1e921a97ec0503129133542dff0747d4d2581d88447922237fcf51367f6de",
+   "kind": "runner",
+   "status": "frozen"
+  },
+  "induction_readout_null_v2_result": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_EARLY_MLP_READOUT_NULL_FACTOR_V2_RESULT.json",
+   "sha256": "e8d3b5d9f9bb04a9cc37012b942b58fa0e3ef65fda8670fa59efedde95cbc086",
+   "kind": "result",
    "status": "frozen"
   }
  },
