@@ -66,6 +66,18 @@ therefore overlapping and corpus-sensitive at native-head grain. No within-head
 factorization is licensed; the next test must ask whether all nine interventions
 share a lower-dimensional downstream response quotient.
 
+The [all-nine response quotient](../../polynomial_causal/ATTENTION5_DEVIATION_RESPONSE_QUOTIENT_V1_RESULT.json)
+is local to natural text and fails code transfer. Three natural-text response
+coordinates explain87.41% of the nine corpus-mean final-vocabulary responses,
+but that frozen subspace reconstructs code with86.75% relative error. Median
+same-head natural/code response cosine is.221. Separately measured singleton
+responses miss the joint all-head response by73.42% on natural text and49.28%
+on code, despite all nine singleton deviations improving CE on both corpora.
+The mean-deviation correction is real, distributed, nonlinear downstream, and
+corpus-conditioned at this broad endpoint. Registered C/D/E fail. Further
+factorization now requires a task-defined causal endpoint; another document-CE,
+rank, or head-set search would not identify a stable circuit.
+
 ## Saved correlative interface: 26 heads across layers 3–16
 
 10 September update: [weight pullback and input-reader overlap](../../polynomial_causal/explanations/2026-09-10/attention_ov_input_reader_overlap.md). The fixed block projector and complement use `O_P,h=(Oq)q_h^T` and `O_R,h=O_h-O_P,h`, respectively. Their within-head QK1/QK2 routing is identical by construction. At relative rank tolerance1e-6, 19 per-head remainder writers retain all128 coordinates and can read the saved scalar’s full value-input function. Seven single-head blocks retain127 coordinates with partial input overlap. Full-block cross-head cancellations prevent interpreting these per-head overlaps as globally duplicated computation.

@@ -1,0 +1,84 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "pred_d": false,
+  "pred_e": false,
+  "manual_module_ce_error": 0.0,
+  "discovery_rank3_energy": 0.8740505982123804,
+  "discovery_singular_values": [
+    14.298785744554658,
+    6.481495388570914,
+    4.460688056105163,
+    3.396386272341106,
+    3.1598296381955153,
+    2.6163603817041943,
+    2.073970403164966,
+    1.764487783276875,
+    1.6131988800638568
+  ],
+  "code_rank3_reconstruction_error": 0.867514859197015,
+  "cross_corpus_head_cosines": [
+    -0.1466678738657104,
+    0.0693756870713988,
+    -0.23990085627832952,
+    0.22052732121253346,
+    0.0455790310552147,
+    0.5464546797924432,
+    0.2780430576291952,
+    0.3666288317583615,
+    0.4121374515032572
+  ],
+  "median_cross_corpus_head_cosine": 0.22052732110023499,
+  "corpora": {
+    "final_natural": {
+      "mean_damage": 0.13245325287183127,
+      "all_restore_ce_error": -9.934107462565104e-09,
+      "composition_error": 0.7342461041882764,
+      "positive_recovery_heads": 9,
+      "singleton_recovery": {
+        "0": 0.09624147455884693,
+        "1": 0.20433165948920967,
+        "2": 0.044565059155800925,
+        "3": 0.2356361171426384,
+        "4": 0.12850136812813093,
+        "5": 0.0911585914869078,
+        "6": 0.37596797043406227,
+        "7": 0.3292191863292039,
+        "8": 0.22018841565264893
+      }
+    },
+    "ood_code": {
+      "mean_damage": 0.16734525561332703,
+      "all_restore_ce_error": -6.953875223795573e-08,
+      "composition_error": 0.4927963847608187,
+      "positive_recovery_heads": 9,
+      "singleton_recovery": {
+        "0": 0.024571095290885858,
+        "1": 0.15779448844722863,
+        "2": 0.09567217406403185,
+        "3": 0.03604779310825878,
+        "4": 0.03835445912193298,
+        "5": 0.34624198414712515,
+        "6": 0.29618702889936643,
+        "7": 0.39767445656932626,
+        "8": 0.06593044740368732
+      }
+    }
+  },
+  "body_forwards": 73,
+  "seconds": 8.403157462998934,
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_attention5_deviation_response_quotient_v1.py": "21ca5e978e9eecc0c6075a2f5eb5a752d2e0f23acc75aadff2958cab0c0655ce",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ATTENTION5_DEVIATION_RESPONSE_QUOTIENT_V1_PREREGISTRATION.md": "6ff6f0db80e0aece435e16d88e60111de1c2b759e8ad14d988679bea611a01b3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ATTENTION5_DEVIATION_RESPONSE_QUOTIENT_V1_CPU_CONTROL.json": "c0c6e2518f9b23b6023cddb2cee5bcf94ed010135e71c0f44d612ddb34b63a7d",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/attention5_deviation_response_quotient_v1.py": "dc235fcdb1d0b9d6bbe12ce45fa67004df1844e05e204372920f81c11edbc595",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ATTENTION5_MEAN_DEVIATION_HEAD_SPLIT_V2_RESULT.json": "b118148ceabeafef2e2fcab10016c3e98839909b47b82ce266ff01a62e33c4c4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ATTENTION5_MEAN_DEVIATION_HEAD_SPLIT_V2_ARTIFACT.pt": "63a0db146a84fedc641a40c574a7cc73702bb36c99716945c3318da332244215",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/final_natural.pt": "1997026ce15d0524bd16540047799a6461bc94a57fbdd2812ef41ff36e8d5e3c",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/ood_code.pt": "6cf514e75dfd03399f223a9ba5f6ebe5f4b1315bcb839a515e1c19e7b5474bd9",
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "scope": "Aggregate final-vocabulary operational quotient for nine attention5 mean-deviation interventions; natural discovery/code heldout; no semantic or source claim.",
+  "artifact_sha256": "549910a0c9902ca72140b72440746e768edf8402eae98276edfc272f02752c4f"
+}
