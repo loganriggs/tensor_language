@@ -1,6 +1,8 @@
 # Requested full reports for Logan
 
-**Latest full report: [13 September — Final compression update](research_update_2026-09-13_final_compression.md).** Research through14:34; includes the successful sparse parent, all three settings, costs, failures, and restart priorities.
+**Latest requested update: [14 September, 09:45 UTC — Runtime status and overnight objective controls](research_update_2026-09-14_0945_status_and_objective.md).** Live but idle runners, actual overnight CPU results, failed integration/variance-reduction criteria, and the unstarted next research action.
+
+**Previous full report: [13 September — Final compression update](research_update_2026-09-13_final_compression.md).** Research through14:34; includes the successful sparse parent, all three settings, costs, failures, and restart priorities.
 
 **New compression plan (13 September): [Three interaction settings, compression families, simplicity and reuse](interaction_compression_settings_2026-09-13.md).** Proposal, not a new results report.
 

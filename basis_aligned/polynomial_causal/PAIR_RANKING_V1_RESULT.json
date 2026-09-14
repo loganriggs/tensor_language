@@ -1,0 +1,64 @@
+{
+  "utc": "2026-09-14T09:51:47.042684+00:00",
+  "contexts": 8192,
+  "seeds": [
+    170216000,
+    170216127
+  ],
+  "candidates": [
+    {
+      "name": "SPARSE_INTERACTION_EXECUTOR_V1",
+      "bytes": 4899795,
+      "sha256": "5aefc860fe15be69fb854a4fad3f7c3301f0de6b01c07881f828f027727c730b",
+      "coefficient_error": 0.09999988462206326,
+      "mean_energy": 0.015788630199076212,
+      "paired_difference": 0.0,
+      "paired_standard_error": 0.0,
+      "independent_half_differences": [
+        0.0,
+        0.0
+      ],
+      "contrast_mean_energy": 0.01085864442248859,
+      "contrast_paired_difference": 0.0,
+      "contrast_paired_standard_error": 0.0
+    },
+    {
+      "name": "INTERACTION_SHARED_WRITE_POLISH_V1",
+      "bytes": 4880988,
+      "sha256": "02071dd4af4aa3884739ef058879bee549513d7772ce91f53fdbc5932111e76b",
+      "coefficient_error": 0.12475248537214242,
+      "mean_energy": 0.027362940979220166,
+      "paired_difference": 0.011574310780143957,
+      "paired_standard_error": 0.0002693692335952122,
+      "independent_half_differences": [
+        0.011198791931551069,
+        0.011949829628736842
+      ],
+      "contrast_mean_energy": 0.026641556900751817,
+      "contrast_paired_difference": 0.015782912478263227,
+      "contrast_paired_standard_error": 0.00028023254933802363
+    },
+    {
+      "name": "INTERACTION_BALANCED_SUBSPACES_V1",
+      "bytes": 4880979,
+      "sha256": "cc5a20d88bfdefdc795e96bbfa629f82bf22254d6378de540eaa691f3da82bbf",
+      "coefficient_error": 0.1906149442269585,
+      "mean_energy": 0.062232041739183105,
+      "paired_difference": 0.046443411540106894,
+      "paired_standard_error": 0.0006213904556190714,
+      "independent_half_differences": [
+        0.045742690648481896,
+        0.047144132431731905
+      ],
+      "contrast_mean_energy": 0.010202221721293214,
+      "contrast_paired_difference": -0.0006564227011953771,
+      "contrast_paired_standard_error": 0.0001318260257186936
+    }
+  ],
+  "replay_relative_error": 6.467080988950841e-16,
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "seconds": 8.40738263500316,
+  "scope": "Frozen candidates, identical synthetic normalized producer contexts, conditional final RMS. Paired token differences before softcap; no text, fitting, native behavior or adoption claim."
+}

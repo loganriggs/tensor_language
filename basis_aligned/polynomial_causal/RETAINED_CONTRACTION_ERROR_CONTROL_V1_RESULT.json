@@ -1,0 +1,29 @@
+{
+  "producer_replay_relative_error": 0.0,
+  "complete_gram_replay_relative_error": 2.49975104462546e-16,
+  "joint_squared_error": 0.22206671880629258,
+  "diagonal_only_squared_error": 0.24626469108500604,
+  "cross_term_energy": -0.024197972278713398,
+  "gram": [
+    [
+      0.13132154116983868,
+      0.010405593317558163,
+      -0.017073488801764857
+    ],
+    [
+      0.010405593317558163,
+      0.03319493879284229,
+      -0.0054310906551500145
+    ],
+    [
+      -0.017073488801764857,
+      -0.0054310906551500145,
+      0.08174821112232507
+    ]
+  ],
+  "cancellation_witness_pass": true,
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "scope": "Synthetic normalized shared-corner producer, including both QK factors and inherited values. Conditional mixed numerator/raw logits with supplied final RMS. No native weights, downstream softcap, model extraction, fitting or behavioral evidence."
+}

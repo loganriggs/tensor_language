@@ -1,0 +1,126 @@
+{
+  "cells": [
+    {
+      "seed": 170214,
+      "gram": [
+        [
+          0.009240552168742703,
+          0.00010569342575972573,
+          -0.0006182386987415678
+        ],
+        [
+          0.00010569342575972573,
+          0.0049568402511746355,
+          0.000279588324661674
+        ],
+        [
+          -0.0006182386987415678,
+          0.000279588324661674,
+          0.00579282906467989
+        ]
+      ],
+      "joint_error_energy": 0.019524307587956893,
+      "diagonal_to_joint": 1.0238632737443516,
+      "relative_mixed_error": 0.09075941226166508,
+      "gram_replay_relative_error": 0.0,
+      "formula_relative_error": 1.0442142121561053e-15,
+      "producer_replay_relative_error": 0.0,
+      "pred_a": true,
+      "pred_b": true,
+      "pred_c": true
+    },
+    {
+      "seed": 170215,
+      "gram": [
+        [
+          0.0034095956467309952,
+          5.567235381634224e-05,
+          -0.0004502691565485251
+        ],
+        [
+          5.567235381634224e-05,
+          0.004917327384459449,
+          -0.0007205180045122226
+        ],
+        [
+          -0.0004502691565485251,
+          -0.0007205180045122226,
+          0.011516440824019236
+        ]
+      ],
+      "joint_error_energy": 0.017613134240720873,
+      "diagonal_to_joint": 1.126623097513934,
+      "relative_mixed_error": 0.08469124990720395,
+      "gram_replay_relative_error": 1.9698066820681974e-16,
+      "formula_relative_error": 1.1353087456968296e-15,
+      "producer_replay_relative_error": 0.0,
+      "pred_a": true,
+      "pred_b": true,
+      "pred_c": true
+    },
+    {
+      "seed": 170216,
+      "gram": [
+        [
+          0.005209047771182477,
+          -7.698384708697677e-05,
+          -0.00012629044040167255
+        ],
+        [
+          -7.698384708697677e-05,
+          0.003986274415472388,
+          -0.00018758806081817285
+        ],
+        [
+          -0.00012629044040167255,
+          -0.00018758806081817285,
+          0.004824467608958714
+        ]
+      ],
+      "joint_error_energy": 0.013238065098999933,
+      "diagonal_to_joint": 1.0590512805887848,
+      "relative_mixed_error": 0.08709238395714125,
+      "gram_replay_relative_error": 1.310405609130791e-16,
+      "formula_relative_error": 1.0828614388016058e-15,
+      "producer_replay_relative_error": 0.0,
+      "pred_a": true,
+      "pred_b": true,
+      "pred_c": true
+    },
+    {
+      "seed": 170217,
+      "gram": [
+        [
+          0.004458774451994289,
+          0.00016967939926192146,
+          -3.062287845628373e-05
+        ],
+        [
+          0.00016967939926192146,
+          0.007633489217395533,
+          -0.00022984750278494403
+        ],
+        [
+          -3.062287845628373e-05,
+          -0.00022984750278494403,
+          0.003690441865230947
+        ]
+      ],
+      "joint_error_energy": 0.015601123570662153,
+      "diagonal_to_joint": 1.0116390311977326,
+      "relative_mixed_error": 0.0856746847051525,
+      "gram_replay_relative_error": 1.1119221433762292e-16,
+      "formula_relative_error": 9.639115088069453e-16,
+      "producer_replay_relative_error": 0.0,
+      "pred_a": true,
+      "pred_b": true,
+      "pred_c": true
+    }
+  ],
+  "pred_a": true,
+  "pred_b": true,
+  "seconds": 0.5942315489996872,
+  "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "scope": "Actual frozen weights; synthetic Gaussian raw states and unconstrained edits, not native text/circuit intervention inputs. Complete retained three-contraction producer with normalized two-QK factors and inherited values. Shared synthetic background and exact conditional MLP/final RMS reference, no softcap or altered suffix recomputation. Finite Monte Carlo instrument only: no converged population objective, fitting, behavioral or compression improvement claim.",
+  "pred_c": true
+}

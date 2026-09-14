@@ -1,0 +1,73 @@
+{
+  "utc": "2026-09-14T09:49:43.005557+00:00",
+  "contexts": 32768,
+  "seeds": [
+    170215000,
+    170215511
+  ],
+  "target_token_ids": [
+    11383,
+    1430,
+    14148,
+    6907,
+    31049,
+    14733,
+    34614,
+    18388,
+    39012,
+    16521,
+    46729,
+    16924
+  ],
+  "mean_energy": 0.015691555829688276,
+  "relative_standard_error": 0.0052548172034771225,
+  "independent_half_relative_gap": 0.004450713980672736,
+  "panel_relative_standard_error": 0.005167575896513402,
+  "doubling_relative_changes": [
+    0.0033209413455558795,
+    0.002225356990336368
+  ],
+  "mean_gram": [
+    [
+      0.005135786171921629,
+      1.667414294318037e-07,
+      -3.236730612527194e-05
+    ],
+    [
+      1.667414294318037e-07,
+      0.005308978503339401,
+      -9.975162816267745e-05
+    ],
+    [
+      -3.236730612527194e-05,
+      -9.975162816267745e-05,
+      0.0055106955401442795
+    ]
+  ],
+  "gram_entry_standard_errors": [
+    [
+      3.893969764819766e-05,
+      9.728976455347793e-06,
+      1.014980807867187e-05
+    ],
+    [
+      9.728976455347793e-06,
+      4.034891920389609e-05,
+      1.0737471218498038e-05
+    ],
+    [
+      1.014980807867187e-05,
+      1.0737471218498038e-05,
+      4.551291691097306e-05
+    ]
+  ],
+  "relative_mixed_error_ratio_of_means": 0.08261937695153564,
+  "replay_relative_error": 4.0112777889077916e-16,
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "candidate_sha256": "5aefc860fe15be69fb854a4fad3f7c3301f0de6b01c07881f828f027727c730b",
+  "script_sha256": "02eed1d01b1a1db5b2d845c864aa54ba05bd7f7a2b321c4ab4c46d4e13e24a6e",
+  "seconds": 27.121119527997507,
+  "scope": "Frozen native weights, synthetic Gaussian raw corners, exact source sums/all nine moments and conditional final RMS. No fit, native-text fidelity, softcap, or finite-sample statistical guarantee."
+}

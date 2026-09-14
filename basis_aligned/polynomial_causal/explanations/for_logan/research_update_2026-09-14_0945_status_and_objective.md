@@ -1,0 +1,87 @@
+# September 14: runtime is healthy; continuous research did not run
+
+Status checked at **09:45 UTC / 05:45 EDT, September 14, 2026**.
+
+Both queue runners have been alive for seven hours, but **no research experiment is currently running or queued**. The GPU has no active compute process. Hourly and three-hour review timers are enabled; neither review is executing at this snapshot. The GPU runner has been running its periodic regression canary, most recently completing at 09:20:24 UTC with all checks green and a stable fingerprint relative to this machine's previous run.
+
+My earlier update was accurate about the services being running, but it did not adequately distinguish that from continuous scientific work. I configured bounded review jobs, not a continuous research driver. Several hourly reviews consequently repeated that the queues were empty and progress had stalled. There were useful CPU controls during the mathematical reviews, but no new compression fit or native-text experiment overnight. The experiment runner executes queued work; it does not choose or create the next experiment itself.
+
+At this snapshot, the next scheduled hourly invocation is 10:44 UTC / 06:44 EDT, and the next mathematical invocation is 11:43 UTC / 07:43 EDT. These are scheduler times, not evidence that a research experiment is pending. The 09:45 hourly invocation skipped writing a duplicate because the previous review was less than 55 minutes old.
+
+## What scientific work actually changed
+
+We are still working on **setting2: head17.2 → MLP17 → twelve selected output readers**. The retained attention predictor has three contributions to a 128-dimensional head write. That write interacts with a 1152-dimensional residual background through MLP17. The existing folded mixed operator is
+
+$$
+T\in\mathbb R^{12\times1152\times128},\qquad
+M_o(z,a)=\sum_{i,h}T_{oih}z_i a_h.
+$$
+
+Here, \(z\) is the supplied residual background and \(a=a_1+a_2+a_3\) is the sum of the three retained attention contractions. For a compressed operator \(\widehat T\), define \(E=\widehat T-T\). With the same supplied normalization denominator \(d\) for reference and candidate, each branch contributes error
+
+$$
+e_k=\frac{E(z,a_k)}{d},\qquad
+J=\mathbb E\left\|\sum_{k=1}^3e_k\right\|^2
+=\sum_{k,l=1}^3\mathbb E\langle e_k,e_l\rangle.
+$$
+
+The nine entries matter because errors can reinforce or cancel. This is a conditional raw-logit error objective; it does not include a freshly recomputed compressed suffix or the final token softcap. Using real weights on synthetic Gaussian states is still a modeling choice, not evidence about native text.
+
+| Completed control | Result | What it establishes |
+|---|---|---|
+| Native-weight, 128-context instrument | Direct error and full nine-term calculation agree within 1.97e-16 relative; native-factor replay within 1.14e-15 | The implemented contraction identity works. Dropping cross terms changes estimated energy by 1.16–12.66% across these small panels. |
+| Source-position sampling control | Correct inclusion weighting replays expected Gram entries within 2.31e-16; naively squaring a sampled write biases energy upward 46.57% | An unbiased sampled write does not automatically give an unbiased squared-error objective. Recomputing its normalization from sampled writes introduces another bias. |
+| 1024-context integration audit | Independent halves differ 2.13%; estimated relative standard error is 3.27%; both sample-doubling changes exceed the registered 1% threshold | Algebraic correctness does not yet provide the requested statistical precision. The integration criterion failed. |
+| Global-sign paired sampling | Paired energies have correlation 0.999999963; approximately twice the variance at equal evaluation count | Negating the entire Gaussian input supplies almost the same squared error, so this attempted variance reduction failed. |
+
+Primary receipts: [native-weight instrument](../../NATIVE_RETAINED_ERROR_V1_RESULT.json), [source-sampling control](../../NORMALIZED_PAIR_HT_CONTROL_20260914_0256_RESULT.json), [outer-context and sign-pair audit](../../OUTER_CONTEXT_ANTITHETIC_20260914_0844_RESULT.json). The controls use different declared synthetic constructions; their absolute energy values should not be compared as one common benchmark.
+
+The 1024-context audit used exact source sums and reported a descriptive mixed-error ratio of 8.25% for the existing sparse candidate. **That is not a new compression improvement or native-behavior result.** Its uncertainty estimates are diagnostics, not finite-sample guarantees. The [mathematical review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-14_0846.md) derives the sampling and sign-symmetry consequences and records their limits.
+
+## What remains unchanged, and the next decision
+
+No new candidate has replaced the previous setting2 sparse operator. Its earlier conditional regional result and broader full-head failures remain in force. The previous setting1 result also remains conditional, retains all 64 reader directions, saves only 1.806% of its declared parent interface, and is not faster. The [September 13 full report](research_update_2026-09-13_final_compression.md) remains the reference for those compression results.
+
+The latest strategic review recommends a **preregistered, fixed-budget 32,768-context fresh-IID precision audit** under the unchanged synthetic law, with exact source sums and all nine error terms. It must test independent-sample agreement and uncertainty before this objective is used to rank or fit candidates. That audit has **not been started or queued**. Even a pass would establish precision for the chosen synthetic measure, not its adequacy for real circuit interventions or native text.
+
+The immediate operational gap is execution continuity, not checkpoint access or GPU availability. This status update does not launch experiments or change the review schedules. [Latest strategic review](../../HOURLY_STRATEGIC_REVIEW_2026-09-14_0851.md) · [Local runtime and service instructions](../../../../session_recovery/LOCAL_START_2026-09-14.md).
+
+## Follow-up: elapsed time and the missing continuation mechanism
+
+Relative to the 09:45:17 UTC status check, the last mathematical-review CPU
+experiment finished at 08:45:44 UTC: about **59 minutes 33 seconds earlier**.
+Its internal execution took **1.76 seconds**. The last research job I put through
+the managed CPU lane finished at 02:48:38 UTC: **6 hours 56 minutes 39 seconds
+earlier**, with **0.59 seconds** of measured calculation. Periodic GPU canaries
+continued during that gap; they were regression checks, not new research.
+
+After Logan pointed out the prior session's fix, I checked this thread's durable
+goal state and found it empty. The recovered NEXT_CODEX_PROMPT explicitly says
+to create that goal when absent. I had missed that instruction while restoring
+the runners and timers. The durable research goal is now **active**, restoring
+the mechanism for continuing research across turns. It is distinct from the
+bounded scheduled reviews, which remain enabled. The next precision audit is
+now [preregistered](../../OUTER_CONTEXT_PRECISION_V1_PREREGISTRATION.md), with
+32,768 fresh contexts and fixed precision criteria. No result is claimed yet.
+
+### 09:52 UTC: continuation produced two new results
+
+The [32,768-context audit](../../OUTER_CONTEXT_PRECISION_V1_RESULT.json) now
+passes all registered criteria in27.12seconds: estimated relativeSE0.53%,
+independent-half gap0.45%, and doubling changes0.33%/0.22%. This repairs the
+precision limitation under the fixed synthetic law; it does not retroactively
+pass the earlier1024-context test or establish a native-text objective.
+
+A [fresh paired comparison](../../PAIR_RANKING_V1_RESULT.json),8192contexts in
+8.41seconds, ranks the existing sparse candidate ahead of both shared-output
+candidates in total normalized error at approximately equal4.9MBstorage.
+Ordinary shared error energy is0.02736, balanced0.06223, sparse0.01579.
+The paired gaps are43and75standard errors. Balanced improves the selected paired
+contrast energy slightly (0.01020versus0.01086), but its much larger total error
+remains a failure to replace the sparse operator. These are error energies under
+one synthetic measure, not CE or native effect-preservation scores.
+
+Next is a [fixed-support scalar refit](../../MASKED_DIRECTION_REFIT_V1_PREREGISTRATION.md):
+test whether a weight-derived direction can improve the sparse coefficients while
+keeping its mask, adapters and storage budget. Separate training and validation
+randomness is frozen. No fitted result or new compressed circuit is claimed yet.
