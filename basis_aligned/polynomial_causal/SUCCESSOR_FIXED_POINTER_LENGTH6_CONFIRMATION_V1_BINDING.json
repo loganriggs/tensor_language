@@ -1,0 +1,40 @@
+{
+  "bars": {
+    "maximum_control_rms_fraction": 0.5,
+    "maximum_full_ceiling_logit_absolute_error": 0.0001,
+    "maximum_self_logit_absolute_error": 1e-05,
+    "minimum_family_cosine": 0.7,
+    "minimum_family_mean_late_backward_target": 1.0,
+    "minimum_family_projection": 0.5,
+    "minimum_native_accuracy": 0.75
+  },
+  "files": {
+    "preregistration": "671265fef220b99ff8240a1468f77002e07a75e60e65e7dfc47b771dc430f8cf",
+    "rows": "f8277e4345790b085c6b10518a02ba9f9c88dc6a005dff37c6820367be4f9dc9",
+    "screen_result": "999196693839c299d21844cc9e15b44e192227b5bfa8e544f462ea99fd37389e"
+  },
+  "groups": {
+    "pointer_all": [
+      "attn8",
+      "mlp8",
+      "attn9",
+      "mlp9",
+      "attn10",
+      "mlp10",
+      "attn11",
+      "mlp11",
+      "attn12",
+      "mlp12"
+    ]
+  },
+  "outcomes_opened_before_freeze": [
+    "typed-group screen result only; no length-six model outcomes"
+  ],
+  "price": {
+    "fits": 0,
+    "forwards": 7,
+    "sequences": 56
+  },
+  "row_manifest_sha256": "15e2983c1163db3ccf734589c09c6304ff47d54e5c291f5572e3b15333cdeb83",
+  "schema": "successor_fixed_pointer_length6_confirmation_v1_binding"
+}
