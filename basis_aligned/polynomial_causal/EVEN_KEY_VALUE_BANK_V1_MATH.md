@@ -198,3 +198,36 @@ Next discriminating direction: separate the full even remainder's current-value
 and inherited-value sources with the same routing/output maps, then measure which
 source carries the newly material cue effect. Earlier fixed-writer scalar sector
 results do not answer this full 128-channel remainder question.
+
+
+The [native remainder source test](REMAINDER_SOURCES_NATIVE_V1_RESULT.json)
+adds 288 forwards in 4.31 seconds with identical native/R anchors. Removing only
+Rc approximates R cue effects with 22.18/18.88/9.82% error, failing the 20% bar
+in archival notes. Rc has the larger cue-effect norm, but inherited values cannot
+be discarded uniformly. Separate Rc/Rf effects compose within 1.12–4.49% across
+paired cue and control readouts. This remains localization on the reused panel,
+not selective identification of either source. The source instrument costs two
+routing evaluations plus a third reference call during this native test.
+
+
+## Confirmation and article-confound correction
+
+The [four-term confirmation](SRO_FOUR_TERM_CONFIRMATION_V1_RESULT.json) executes
+576 forwards in 8.02 seconds. Five calibration corners predict the remaining
+three with 5.60/4.75/2.96% maximum cue error. The response-error criterion passes,
+but overall confirmation does not: native positive pairs are 12/1/12, so the
+opposed publisher/author role family fails capability. No clean writer-role
+interpretation follows from accurately predicting the model's response.
+
+**Instrument correction:** text inspection found “A Oxford museum” here and
+“For a Austin community newsletter” in SRO_FRESH_CUE_V1. The old validator only
+checked British/American articles. Mark family2 in both original panels as
+article-confounded; native capability does not remove that confound. Prior raw
+results and thresholds remain, but the newsletter result alone cannot establish
+clean template generalization failure. Archival and opposed-role families do not
+contain this particular confound, and their results remain separately available.
+The new shared city guard rejects any indefinite article immediately before a
+controlled city as an experimental restriction, not a general grammar checker.
+[SRO_ARTICLE_CORRECTION_V1](SRO_ARTICLE_CORRECTION_V1_PREREGISTRATION.md) freezes
+uniform article correction across all 48 affected rows and tests both response
+rules at the original10%bar. No favorable-row selection or silent replacement.
