@@ -404,6 +404,13 @@ the largest unrelated-control ratio is.176. This adds natural-fragment transfer
 and stable operational identification, while retaining the explicit caveat that
 the cached rows are not proven disjoint from pretraining or near duplicates.
 
+Pair-centering the edge's city-value contrast on the same corpus panel removes
+3.07%/4.58% of native FineWeb/Pile-reference paired-cue magnitude and attenuates
+all63 capable pairs. Behavioral half scaling is accurate within.054%/.028%, self
+is an exact no-op, and controls stay below.176. This supports selective necessity
+of the narrow edge contrast. It leaves all other city paths and head services
+native and does not overturn the broader producer-pair newline collateral.
+
 Current-value provenance is exact on the paired framing sources: current-only
 and full-value swaps are behaviorally identical, while inherited-first swap is
 zero. The registered both-arms-live gate fails and remains visible. Architecture

@@ -756,6 +756,16 @@ extends the operational edge beyond authored instruction templates. FineWeb is
 a training-corpus comparison and the Pile rows are cached reference text; the
 panel is not verified pretraining-disjoint or near-duplicate-free.
 
+[Pair-centered corpus removal](ODD_ATTENTION8H2_CORPUS_MIDPOINT_REMOVAL_V1_RESULT.json)
+passes every registered gate. Its midpoint effect is within.054%/.028% of half
+the full inherited-edge effect on FineWeb/Pile-reference, attenuates every
+native-capable pair, and removes3.07%/4.58% of native paired-cue magnitude.
+Self intervention is exactly zero and all unrelated-control ratios remain below
+.176. This is selective necessity of the identified edge contrast with recipient
+routing and every other model path held native. It does not imply necessity of
+the whole heads, explain the remaining cue, or erase the broader producer-pair
+newline collateral already recorded elsewhere.
+
 [The equal-count split](ODD_FRAMING_EQUAL_HALVES_NATIVE_V1_RESULT.json) also
 rejects a stable positional role. Local-history remains early dominated
 (31.89% versus70.04% error), while radio is distributed with late closer
