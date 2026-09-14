@@ -774,3 +774,16 @@ within1.86%/.40%, all frozen anchors pass, and controls are small. Thus neither
 semantic labels, source count, nor a universal early/late half identifies the
 relay. The next stronger test swaps complete framing-source states between each
 British/American pair inside O and predicts signed counterfactual transport.
+
+[The destination-response quotient](ODD_ATTENTION8H2_DESTINATION_RESPONSE_QUOTIENT_V1_RESULT.json)
+passes all five registered gates. The six-endpoint response matrix from the two
+discovery families has99.94% of its energy in one singular direction. That
+frozen direction transfers to the two held-out families at cosine.9717/.9699
+and relative reconstruction error23.60%/24.34%. Separately measured destination
+effects sum to the full-edge behavioral effect within1.29% on every family, and
+the largest unrelated-control ratio is.179. The exact tensor deltas also sum to
+the full O delta within4.13e-16. This replaces the rejected semantic destination
+partition with an operational equivalence class: destinations share a causal
+six-endpoint response direction and differ primarily by scalar position gains.
+It does not name that direction semantically, generate the native destination
+states, close the suffix, or establish an isolated whole-model circuit.

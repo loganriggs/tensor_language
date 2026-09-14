@@ -422,3 +422,13 @@ Equal-count early/late removal does not resolve that confound: local-history is
 early dominated, while radio has a distributed effect with the late half closer
 but insufficient. Stable semantic/position identification is therefore rejected
 on this panel. Paired source-state interchange is the next extraction test.
+
+The failed semantic destination grouping now has a stable operational quotient.
+Across the two discovery families, individual destination interventions produce
+a six-endpoint response matrix with99.94% rank-one energy. Its frozen response
+direction transfers to both held-out families at cosine.972/.970 and24% relative
+reconstruction error. Individual destination effects compose to the complete
+edge within1.29%, with all unrelated-control ratios below.179. Thus the invariant
+is a shared causal response direction scaled by destination-specific gains, not
+a description/instruction label. Native state generators and suffix remain
+conditional dependencies, and the response direction has no semantic name.
