@@ -391,3 +391,13 @@ programs were copied from the native-validated example; this provenance is in
 the manifest. The package handles one fixed recipient/donor context. It requires
 no checkpoint at runtime, but original weights/native prefix generated it and
 MLP10/later blocks remain external. No arbitrary-text model extraction is claimed.
+
+
+The [longer-prefix forecast](COUPLED_NATURAL_LENGTH_V1_FORECAST.json) fixes two
+natural-text pairs at84 and98tokens before model scores. With the residual source
+program and x0 included, the combined layout breaks even only through35tokens
+(the consumer-only boundary was43). Forecasts are78.27MB versus42.70MB at84tokens,
+and90.43MB versus44.51MB at98tokens, so the general size claim is already rejected
+for this layout. The registered204-forward native test will check accuracy on
+these contexts without replacing them with shorter favorable cases. The forecast
+is a payload calculation, not executed long-context accuracy or timing evidence.
