@@ -14,7 +14,7 @@ The intervention keeps recipient head8.2 queries and applies the paired donor's
 changed-city key/value source only to destinations after the city and before the
 final readout token. It then propagates that write through block9 reentry/RMS and
 the isolated head9.8-O current-value branch into the native suffix. Arms are
-native, full-city, value-only, and inherited-city edge:576 body forwards. Report
+native, full-city, routing-only, value-only, and inherited-city edge:720 body forwards. Report
 FineWeb and Pile/reference separately; do not discard incapable pairs.
 
 - **A — instrument:** frozen row hashes and one-token pairing hold; native/source
@@ -38,3 +38,9 @@ failure of C or D rejects transfer of the current operational edge outside the
 authored prompt family. This is cached-corpus transfer with one untouched arm,
 not verified pretraining-disjoint OOD, a whole-head removal, or isolated model
 compression. No thresholds or rows change after native scoring.
+
+Pre-binding correction at19:05 UTC: the first text listed a routing-complement
+verdict in C but omitted the routing-only arm from its arm list and forward
+count. The correction adds that already-specified measurement and changes576 to
+720 forwards. Rows, thresholds, predictions, and every other arm are unchanged;
+no model execution or score occurred before this correction.
