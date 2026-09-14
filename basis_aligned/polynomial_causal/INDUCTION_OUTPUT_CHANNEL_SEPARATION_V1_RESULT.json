@@ -1,0 +1,59 @@
+{
+  "analysis_status": "post_result_exploratory_audit",
+  "cells": {
+    "selector_payload_joint_answer_preserved|payload_B|s0p0|base_to_donor": {
+      "answer_channel_preserved": true,
+      "answer_preserved_distribution_failed": true,
+      "correct_fraction": 0.8194444444444444,
+      "frozen_vocab_bar": 0.13762999597770692,
+      "full_distribution_preserved": false,
+      "groups": 72,
+      "mean_ce_damage": -0.012099357360040284,
+      "median_vocab_rms": 0.1920070311294202
+    },
+    "selector_payload_joint_answer_preserved|payload_B|s1p1|donor_to_base": {
+      "answer_channel_preserved": true,
+      "answer_preserved_distribution_failed": true,
+      "correct_fraction": 0.8888888888888888,
+      "frozen_vocab_bar": 0.1300748610303612,
+      "full_distribution_preserved": false,
+      "groups": 72,
+      "mean_ce_damage": 0.06519362963289677,
+      "median_vocab_rms": 0.22821711953033103
+    },
+    "selector_payload_joint_answer_preserved|payload_D|s0p1|donor_to_base": {
+      "answer_channel_preserved": true,
+      "answer_preserved_distribution_failed": true,
+      "correct_fraction": 0.9027777777777778,
+      "frozen_vocab_bar": 0.13030025904073983,
+      "full_distribution_preserved": false,
+      "groups": 72,
+      "mean_ce_damage": -0.001883608497934835,
+      "median_vocab_rms": 0.23280907946038046
+    },
+    "selector_payload_joint_answer_preserved|payload_D|s1p0|base_to_donor": {
+      "answer_channel_preserved": false,
+      "answer_preserved_distribution_failed": false,
+      "correct_fraction": 0.9166666666666666,
+      "frozen_vocab_bar": 0.13548937790548032,
+      "full_distribution_preserved": false,
+      "groups": 72,
+      "mean_ce_damage": 0.14156599956452914,
+      "median_vocab_rms": 0.25633542317315194
+    }
+  },
+  "claim_boundary": "No new threshold, factor, module, fit, intervention, held-out split, or consumer identity. A prospective native capture is required to locate or manipulate the contextual consumer.",
+  "experiment": "induction_output_channel_separation_v1",
+  "groups": 72,
+  "interpretation": "Three of four answer-preserving joint cells retain the frozen CE and answer-choice channel while all four fail the frozen vocabulary bar. The remaining cell retains answer choice but misses the CE bar. This is output-level evidence that the four-site operation has contextual uses outside the copied-answer channel; it does not identify the consumer.",
+  "parent_result_sha256": "7641ad403f2e4ade72455943164446f1311711e8b0adcd1a1e3cc586036f21ea",
+  "rows": 288,
+  "rows_sha256": "05b9bab8bccca25db5736683d22277d63fc14f683c60e845409fa91f825df891",
+  "source_sha256": "492163307d0eb961db5491a9aa658ebb9d9f503bf9136d3c99136536254977e6",
+  "summary": {
+    "all_cells_correct_fraction_at_least_0_75": true,
+    "answer_channel_pass_cells": 3,
+    "answer_preserved_distribution_failed_cells": 3,
+    "full_distribution_pass_cells": 0
+  }
+}
