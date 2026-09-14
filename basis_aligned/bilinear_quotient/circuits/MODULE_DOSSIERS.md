@@ -379,6 +379,13 @@ the closed input is8.3--10.0% larger than the dense write; the large output
 saving applies only when block8 state is shared. Head9.8 O and suffix remain
 external.
 
+The head8.2 program is now composed through block9 reentry/RMS and the exact
+head9.8-O current-value graph. Target scores replay within3.34e-6, controls
+within2.39e-6, and the standalone four-template delta control within6.20e-7.
+The1,933,572-scalar package remains conditional on native state ports and suffix;
+dedicated ports cost about4.09 dense deltas. Donor interchange attenuates all48
+paired regional contrasts, supplying a concrete direction for a midpoint edit.
+
 Current-value provenance is exact on the paired framing sources: current-only
 and full-value swaps are behaviorally identical, while inherited-first swap is
 zero. The registered both-arms-live gate fails and remains visible. Architecture

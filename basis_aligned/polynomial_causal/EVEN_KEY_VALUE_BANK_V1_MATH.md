@@ -720,6 +720,18 @@ state is already an amortized shared port. The next composed extraction reuses
 the existing exact O graph to close the edge through the head9.8-O output while
 charging both state ports and shared weights.
 
+[The composed conditional extraction](ODD_ATTENTION8H2_O_COMPOSED_EDGE_V1_RESULT.json)
+passes every registered gate. It recomputes the rank-one head8.2 inherited-city
+write, block9 reentry/RMS, and exact head9.8-O current-value response, then
+replays native-suffix target/control scores within3.34e-6/2.39e-6 on all96 rows.
+The standalone [package](extracted_circuits/odd_attention8h2_o_composed_edge_v1/README.md)
+replays four template deltas within6.20e-7. It reuses1,933,572 static scalars.
+Its dedicated runtime ports are4.084--4.101 times one dense residual delta, so
+the extraction is useful as a shared-state circuit and unfavorable as an
+isolated serialization. Across all48 paired contrasts the donor edit attenuates
+the native regional cue; a midpoint city-value edit is the next registered
+selective-strength manipulation.
+
 [The equal-count split](ODD_FRAMING_EQUAL_HALVES_NATIVE_V1_RESULT.json) also
 rejects a stable positional role. Local-history remains early dominated
 (31.89% versus70.04% error), while radio is distributed with late closer
