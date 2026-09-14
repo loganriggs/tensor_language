@@ -161,6 +161,185 @@
    ],
    "translation_ids": [],
    "next_missing": "expand families and test shared-plus-private projectors against failed cross-family transfer"
+  },
+  {
+   "claim_id": "successor_pointer_state.v2",
+   "revision": 2,
+   "status": "site_live",
+   "supersedes": "successor_pointer_state.v1",
+   "causal_variable": {
+    "id": "successor_pointer_state",
+    "domain": "elements of weekday, month, alphabet, digit, and list vocabularies",
+    "read": "the final element token identity from the layer-0 value cache plus prefix-coherence context",
+    "operation": "apply an identity-keyed successor table under a context-dependent continuation gate",
+    "write": "evidence for the successor token",
+    "endpoint": "signed donor-successor minus base-successor logit margin"
+   },
+   "alternative_explanations": [
+    "token identity",
+    "sequence-family identity",
+    "prefix coherence"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "same_family_last_element_swap",
+     "role": "interchange",
+     "changes": [
+      "identity pointer supplied to successor lookup",
+      "replace the final sequence element by another element from the same family"
+     ],
+     "holds_fixed": [
+      "prefix",
+      "length",
+      "positions",
+      "family"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "position-only edit",
+      "family-matched nonsuccessor",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "coherent_whole_sequence_shift",
+     "role": "interchange",
+     "changes": [
+      "successor pointer in a coherent context",
+      "shift the whole sequence coherently so the last element and answer change without an intruder conflict"
+     ],
+     "holds_fixed": [
+      "format",
+      "length",
+      "family",
+      "coherence"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "prefix shift with final fixed",
+      "incoherent sequence",
+      "boundary cases"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    },
+    {
+     "family_id": "internal_pointer_imposition",
+     "role": "interchange",
+     "changes": [
+      "internal identity pointer",
+      "keep the prompt fixed and impose another element's calibrated identity payload internally"
+     ],
+     "holds_fixed": [
+      "all prompt tokens",
+      "position",
+      "syntax",
+      "family context"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "zero payload",
+      "uncalibrated payload",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "prefix_change_final_pointer_preserved",
+     "role": "invariance",
+     "changes": [
+      "prefix coherence nuisance",
+      "alter the earlier sequence while keeping the final element and correct successor fixed"
+     ],
+     "holds_fixed": [
+      "identity pointer",
+      "correct successor",
+      "final position"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "coherent prefix",
+      "out-of-order prefix",
+      "list-end boundary"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "embedding_block-0_payload",
+     "tensor_path": "embedding/block-0 payload",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "post-attention-8",
+     "tensor_path": "post-attention-8",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "mlp8-11_products",
+     "tensor_path": "MLP8-11 products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "layer0_value_cache_pointer",
+     "tensor_path": "layer-0 shared value cache at the final sequence-element position, read across layers1--17",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "replace, zero, scale or impose the calibrated token-identity value code at every downstream reader",
+     "ceiling_event_ids": [
+      "successor_pointer_semantics.legacy_reconciliation.v1"
+     ]
+    },
+    {
+     "site_id": "distributed_pointer_readers",
+     "tensor_path": "attention readers of the final-position layer-0 value cache, with L8H3+H7 as the largest registered pair",
+     "shape": [
+      "layer",
+      "head",
+      "batch",
+      128
+     ],
+     "intervention": "replace cached-value contributions while preserving current routing and downstream recomputation",
+     "ceiling_event_ids": [
+      "successor_pointer_semantics.legacy_reconciliation.v1"
+     ]
+    }
+   ],
+   "split_plan_ids": [
+    "joint_split_v1"
+   ],
+   "evidence_event_ids": [
+    "successor_cross_family_transfer.legacy.v1",
+    "successor_layer8_input_ceiling.legacy.v1",
+    "successor_pointer_semantics.legacy_reconciliation.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "The stale proposed status is repaired: primary receipts support a site-live layer-0 value-cache token pointer with distributed readers and identity-keyed successor tables on the calibrated element domain. Do not repeat L8 full swaps, rank/DAS fits, pointer zero/placebo/dial tests, cross-family imposition or generic code extraction. The code fails generation for 3/4 held-out elements and full-vocabulary substitution costs .4513 nats; the recent H3+H7 FINAL/OOD screen is perfectly donorward but donor-answer wins are 1.0 lower-to-higher and 0.0 higher-to-lower. Next freeze fresh bidirectionally capable rows and test the pointer-by-prefix-coherence interaction with explicit joint and answer-preserving controls."
   }
  ],
  "split_plans": [
@@ -253,6 +432,68 @@
    "claim_id": "successor_pointer_state.v1",
    "design_key": "c3d65e155a63086e99e74f81c8ea481d1b21ad562d596b84342207a48dec6002",
    "execution_key": "208ac9ce91fbcf66e024669898b93b813cb594685bf6ea40036f2cf6843f538f"
+  },
+  {
+   "event_id": "successor_pointer_semantics.legacy_reconciliation.v1",
+   "claim_id": "successor_pointer_state.v2",
+   "test_type": "compiled_equivalence",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "same_family_last_element_swap",
+    "internal_pointer_imposition"
+   ],
+   "site_id": "layer0_value_cache_pointer",
+   "split_plan_id": null,
+   "evaluation_role": "retrospective_primary_receipt_reconciliation",
+   "metrics": [
+    {
+     "name": "coded_self_success",
+     "estimate": 0.9607843160629272,
+     "ci95": null,
+     "bar": "equals native baseline success"
+    },
+    {
+     "name": "zero_pointer_success",
+     "estimate": 0.019607843831181526,
+     "ci95": null,
+     "bar": "<0.05"
+    },
+    {
+     "name": "coded_real_prediction_agreement",
+     "estimate": 0.9411764740943909,
+     "ci95": null,
+     "bar": ">0.90"
+    },
+    {
+     "name": "restricted_fineweb_dce",
+     "estimate": 2.8655435801994145e-09,
+     "ci95": null,
+     "bar": "absolute <=0.0025"
+    }
+   ],
+   "prereg_artifact_id": null,
+   "result_artifact_id": "pointer_reconciliation_result",
+   "input_artifact_ids": [
+    "semantics_report",
+    "pointer_gate_receipt",
+    "pointer_natural_receipt",
+    "pointer_agreement_receipt",
+    "pointer_redteam_receipt",
+    "pointer_recent_ood_result",
+    "pointer_reconciliation_source"
+   ],
+   "seed": null,
+   "checkpoint_sha256": null,
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "qk_mdl/algo_tasks/semantics_successor/report.md"
+   ],
+   "notes": "Reconciles the registry with legacy model-backed receipts. Coded self substitution is lossless on51 calibrated-domain prompts; zeroing the pointer collapses success; coded wrong-content effects agree with real activation edits; restricted natural-text replacement is lossless. Preserve limits: holdout-element generation fails in3/4 comparisons, full-vocabulary replacement costs.4513nats, and the later prospective H3+H7 screen is directionally asymmetric. Site-live only; no current-standard stable identification or compression adoption.",
+   "design_key": "65bb611aa4e060afe9efa541878fe0b4d603f6eaf95c98fc8eb07cd981792c2d",
+   "execution_key": "18b8e7643262745d377c000c026eb83073b22a7d4c6ab17fd64b491fb17c065b"
   }
  ],
  "translations": [],
@@ -285,6 +526,48 @@
    "path": "basis_aligned/qk_mdl/algo_tasks/semantics_successor/report.md",
    "sha256": "fc4fe57cb344f85936f243c6d3f2b0b77fbe96f1920e76746f9ca93312a3d971",
    "kind": "report",
+   "status": "frozen"
+  },
+  "pointer_reconciliation_source": {
+   "path": "basis_aligned/polynomial_causal/successor_pointer_authority_reconciliation_v1.py",
+   "sha256": "0faee93e423085385ca4221742d0f5bdd453e4b253196bd5ed3ffdfb51b5f194",
+   "kind": "audit",
+   "status": "frozen"
+  },
+  "pointer_reconciliation_result": {
+   "path": "basis_aligned/polynomial_causal/SUCCESSOR_POINTER_AUTHORITY_RECONCILIATION_V1_RESULT.json",
+   "sha256": "d463cbf6b6afde000e307783c1338ba32da834cf8b5fd6b2f30fd6deb0a6231e",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "pointer_gate_receipt": {
+   "path": "basis_aligned/qk_mdl/algo_tasks/semantics_successor/s2_gate.json",
+   "sha256": "6ef6dc379f516116bec94ab87c9a796bdc0a4f726e33e5e2898361ec501295c6",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "pointer_natural_receipt": {
+   "path": "basis_aligned/qk_mdl/algo_tasks/semantics_successor/s2b_natural_fineweb.json",
+   "sha256": "a78457d7c09c4b62f34ead2072cbd1cd4028f1965e931624255050f98104d922",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "pointer_agreement_receipt": {
+   "path": "basis_aligned/qk_mdl/algo_tasks/semantics_successor/s2c_agreement.json",
+   "sha256": "ab0a5ebf85485bacc6430485bc504ee722b9ef452048c5d4843049395bd72e1e",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "pointer_redteam_receipt": {
+   "path": "basis_aligned/qk_mdl/algo_tasks/semantics_successor/s6_redteam.json",
+   "sha256": "884b60226cb409796491aae6a7345b7a29fbec61424ef9d377eeb2914e2ae50a",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "pointer_recent_ood_result": {
+   "path": "basis_aligned/bilinear_quotient/circuits/fast_screens/attn8_h3_h7_cached_successor_final_ood_v1_result.json",
+   "sha256": "d044f1b294d00af2afda5f7c35ba622237eaabeb1722f332a8a2816f60f90e6d",
+   "kind": "result",
    "status": "frozen"
   }
  },

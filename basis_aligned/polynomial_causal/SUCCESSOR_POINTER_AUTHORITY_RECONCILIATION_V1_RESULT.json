@@ -1,0 +1,41 @@
+{
+  "analysis_status": "retrospective_primary_receipt_audit",
+  "claim_boundary": "Registry reconciliation of legacy evidence, not a new prospective model run, stable identification claim, standalone lookup-table extraction, or compression adoption.",
+  "experiment": "successor_pointer_authority_reconciliation_v1",
+  "metrics": {
+    "baseline_success": 0.9607843160629272,
+    "coded_real_prediction_agreement": 0.9411764740943909,
+    "coded_self_success": 0.9607843160629272,
+    "coded_wrong_pointer_follow": 0.6470588445663452,
+    "full_vocabulary_fineweb_dce": 0.45132577419281006,
+    "heldout_element_failures_vs_full_fit": 3,
+    "heldout_elements": 4,
+    "real_wrong_pointer_follow": 0.7058823704719543,
+    "recent_direction_screen": {
+      "higher_to_lower": {
+        "donor_answer_win_fraction": 0.0,
+        "donorward_fraction": 1.0,
+        "rows": 32
+      },
+      "lower_to_higher": {
+        "donor_answer_win_fraction": 1.0,
+        "donorward_fraction": 1.0,
+        "rows": 32
+      }
+    },
+    "restricted_fineweb_dce": 2.8655435801994145e-09,
+    "zero_pointer_success": 0.019607843831181526
+  },
+  "registered_status_supported": "site_live",
+  "source_sha256": "0faee93e423085385ca4221742d0f5bdd453e4b253196bd5ed3ffdfb51b5f194",
+  "sources": {
+    "attn8_h3_h7_cached_successor_final_ood_v1_result.json": "d044f1b294d00af2afda5f7c35ba622237eaabeb1722f332a8a2816f60f90e6d",
+    "report.md": "fc4fe57cb344f85936f243c6d3f2b0b77fbe96f1920e76746f9ca93312a3d971",
+    "s2_gate.json": "6ef6dc379f516116bec94ab87c9a796bdc0a4f726e33e5e2898361ec501295c6",
+    "s2b_natural_fineweb.json": "a78457d7c09c4b62f34ead2072cbd1cd4028f1965e931624255050f98104d922",
+    "s2c_agreement.json": "ab0a5ebf85485bacc6430485bc504ee722b9ef452048c5d4843049395bd72e1e",
+    "s6_redteam.json": "884b60226cb409796491aae6a7345b7a29fbec61424ef9d377eeb2914e2ae50a"
+  },
+  "supported_boundary": "Legacy causal receipts support a token-identity pointer in the layer-0 value cache with distributed attention readers and identity-keyed successor tables. The code is lossless on its calibrated element domain and causally moves successor predictions.",
+  "unresolved_boundary": "The code does not generate unseen element identities, is not a full-vocabulary law, and the recent H3+H7 cached-value transfer is directionally gated by prefix context. A prospective pointer-by-context interaction test is required."
+}
