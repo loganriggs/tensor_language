@@ -1,6 +1,8 @@
 # Latest requested update for Logan
 
-**Newest requested update: [15 September, 03:46 UTC — Regional weight folding to QK interactions](research_update_2026-09-15_0346_regional_weight_folding.md).** Traces a task-matched UK/US reader backward through MLP17, MLP16, attention9, head9.8, and its block-8 QK source interactions, with equations, plots, limits, and experiment details.
+**Newest requested update: [15 September, 04:30 UTC — A multiplicative upstream response in the subject-number circuit](research_update_2026-09-15_0430_subject_response_interaction.md).** Shows that a native L11H3 coordinate must interact with its MLP6/7 response to predict circuit amplitude, and why a two-vector donor-free proxy transfers the response but fails after composition. Includes equations, a graph, limits, and a reproducibility appendix.
+
+**Previous requested update: [15 September, 03:46 UTC — Regional weight folding to QK interactions](research_update_2026-09-15_0346_regional_weight_folding.md).** Traces a task-matched UK/US reader backward through MLP17, MLP16, attention9, head9.8, and its block-8 QK source interactions, with equations, plots, limits, and experiment details.
 
 **Previous requested update: [15 September, 02:15 UTC — Interaction compression across the circuits](research_update_2026-09-15_0215_circuit_interaction_compression.md).** Defines the terms and computations, then covers the composable subject-number write, signed narrative axis, bracket source/suffix and key-factor localization, and the numeric, induction, and successor boundaries.
 
