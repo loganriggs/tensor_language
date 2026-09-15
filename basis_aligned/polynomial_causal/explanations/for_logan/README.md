@@ -34,6 +34,9 @@ definitions and the detailed computation. Use `$...$` for inline LaTeX and
 `$$...$$` for display equations. Plot groups of consequential numbers when a
 graph makes comparisons clearer; label the reference and whether higher or
 lower is better. Keep exact values in the prose or linked result artifacts.
+End with a reproducibility appendix covering representative dataset examples,
+split boundaries, hook points, intervention arms, fit method and hyperparameters,
+fixed thresholds, execution counts, and direct links to code and row manifests.
 
 - [12 September, 18:55 — Predicting composed circuit interactions](research_update_2026-09-12_1855_composed_circuit_interactions.md)
 - [12 September, 17:30 — Shared producers and interaction-path decomposition](research_update_2026-09-12_1730_shared_producer_interactions.md)

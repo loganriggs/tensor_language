@@ -377,3 +377,210 @@ The managed runner service, hourly strategic review, and three-hour mathematical
 review are enabled and active. Process inspection shows this CLI research
 session and two VS Code Codex app servers; no second interactive research Codex
 session is competing for the dossier or queue.
+
+## Appendix: datasets, interventions, code, and hyperparameters
+
+### Model and measurement conventions
+
+All reported causal runs use the same verified checkpoint, SHA-256
+`680d6c26...317d6de3`. The model has 18 transformer blocks, residual width
+1,152, nine attention heads per layer, head width 128, bilinear MLPs, and
+bilinear attention scores. Intervention arithmetic and the reported runs use
+FP32. Quantization is excluded because it changes storage precision without
+identifying a causal interaction.
+
+For an answer token $a$ and foil token $f$, the answer margin is
+
+$$
+m(x)=\operatorname{logit}_a(x)-\operatorname{logit}_f(x).
+$$
+
+For intervention $I$, the causal effect used in the cosine and relative-L2
+comparisons is
+
+$$
+e_I(x)=m(I(x))-m(x).
+$$
+
+Every row authority was serialized and hashed before the relevant outcome was
+opened. A native-capability gate checked that the model could solve each target
+cell before a circuit intervention was interpreted. Runners refuse to execute
+if the preregistration, row manifest, frozen program, thresholds, or expected
+execution price changes.
+
+### Representative dataset rows
+
+These are literal examples from the committed authorities. Token IDs and all
+other rows are available in the linked manifests.
+
+**Subject-number, single site.** The recipient is
+
+```text
+Behind the aide beside the backer, the activist
+```
+
+with expected continuation `is`; the same-lemma opposite-number donor ends in
+`the activists` with expected continuation `are`. A lexical control replaces
+`activist` with singular `assistant`. The fresh authority contains 32 base rows:
+two unseen templates, 16 unseen singular/plural noun pairs, and both edit
+directions. Each row is evaluated under all 16 subsets of the upstream E/A/U/W
+background factors. [Row builder](../../../bilinear_quotient/ops/circuit_fast_screen_candidate_subject_number_rank1_fresh_confirmation.py)
+
+**Subject-number, two sites.** One of the 16 fresh composition prompts is
+
+```text
+Above the players, the manager is ready; below the riders, the sailor
+```
+
+The two subject positions are `manager` and `sailor`. The frozen
+singular-to-plural write is installed at site 1, site 2, or both; `can` versus
+`will` is the unrelated control margin. [Rows](../../SUBJECT_NUMBER_TWO_SITE_COMPOSITION_V2_ROWS.json)
+
+**Narrative tense.** A FIT pair is
+
+```text
+Base:  Yesterday the glove served one role. At that time, the role of the tray
+Donor: Today the glove serves one role. At this time, the role of the tray
+```
+
+The target contrast is `was` versus `is`. FIT and HOLDOUT rows cover both tense
+directions and two construction families. Changed tense anchors, candidate
+carrier positions, and untouched complement positions are explicitly listed in
+each row. [Runner](../../../bilinear_quotient/ops/run_narrative_tense_l11h3_rank1_scalar_program_v1.py)
+
+**Bracket completion.** A serial-pending example is
+
+```text
+Base:  The botany ledger retained { a framing note; later " a secondary note
+       remained open; after another transition ( the orchid, the canopy, and
+       the specimen awaited completion
+Donor: The same text, but the final pending opener is [
+```
+
+The required completion changes from `)` to `]`. Rows balance all six ordered
+pairs among parenthesis, square bracket, and quote, while outer and middle
+pending delimiters vary independently. The separately generated eighth
+construction remains sealed because the latest key2 candidates failed FIT.
+[Rows](../../BRACKET_SERIAL_PENDING_OOD_V1_ROWS.json)
+
+**Numbered-list and numeric controls.** One list row is
+
+```text
+8. kettle
+8. inlet
+8. saddle
+```
+
+with next-token target `8`. The full authority contains 1,440 rows spanning
+list and numeric representations, copy and successor actions, source levels,
+and FIT/SELECT splits. The oriented-MLP experiment opened FIT only.
+[Rows](../../../bilinear_quotient/numbered_list_cached_value_downstream_use_rows_rung582.json)
+
+**Induction.** The 96-row authority is organized as matched recipient/donor
+endpoint pairs rather than storing duplicated text in the derived manifest.
+Cells cross selector/payload state, transfer direction, payload identity, and
+answer-preserved controls. Twenty-four group hashes are discovery groups and 24
+disjoint hashes are confirmation groups. [Rows](../../INDUCTION_CONTEXTUAL_CONSUMER_RESPONSE_V1_ROWS.json)
+
+**Successor pointer.** One prospective row is
+
+```text
+Series: January, February, March, April, May, June,
+```
+
+with native answer `July`, plus matched forward and backward donors. The 96-row
+authority crosses month/digit families, four prefixes, coherent and two control
+conditions, and both directions. [Rows](../../SUCCESSOR_POINTER_PREFIXED_LENGTH6_V2_ROWS.json)
+
+### Main experimental configurations
+
+**Subject rank-one confirmation.** Hook: L11H3 projected output at the final
+prediction position. Arms: base, exact native counterfactual, original
+direction-cardinality vector, and rank-one vector. There are 32 rows times 16
+background subsets, giving 512 causal effects and 2,048 installations. Patches
+run in chunks of 256. Price: nine forwards and 2,144 sequence evaluations. Main
+bars: rank-one versus original cosine `>=.98`, relative L2 `<=.20`, sign
+`>=.95`; rank-one versus native cosine/sign `>=.75`, relative L2 `<=.75`.
+[Runner](../../../bilinear_quotient/ops/run_subject_number_rank1_fresh_confirmation_v1.py) ·
+[preregistration](../../SUBJECT_NUMBER_RANK1_FRESH_CONFIRMATION_V1_PREREGISTRATION.md)
+
+**Four-scalar coefficient law.** The ten frozen amplitudes are targets for
+ordinary least squares with design columns
+$[1,d,c,dc]$. This is one four-parameter weights-only fit; no behavioral value
+enters it. The causal runner uses the same 512-effect panel, chunk size 256, and
+nine-forward/2,144-sequence price. The law-versus-rank-one bars are cosine
+`>=.995`, relative L2 `<=.15`, and sign `>=.95`.
+[Builder](../../build_subject_number_coefficient_bilinear_law_v1.py) ·
+[runner](../../../bilinear_quotient/ops/run_subject_number_coefficient_bilinear_law_v1.py) ·
+[preregistration](../../SUBJECT_NUMBER_COEFFICIENT_BILINEAR_LAW_V1_PREREGISTRATION.md)
+
+**Native weight axis.** The 1,152-by-128 L11H3 output-projection slice is
+factorized once by full SVD. The candidate is exactly its first left singular
+vector; there is no rank search, mixture, or fitted rescaling. Its sign is fixed
+by the prior-axis gauge. The causal configuration again uses 512 effects, patch
+chunks of 256, nine forwards, and 2,144 sequences. Bars versus the fitted axis
+law are cosine `>=.90`, relative L2 `<=.50`, and sign `>=.90`.
+[Builder](../../build_subject_number_native_weight_axis_v1.py) ·
+[runner](../../../bilinear_quotient/ops/run_subject_number_native_weight_axis_v1.py) ·
+[preregistration](../../SUBJECT_NUMBER_NATIVE_WEIGHT_AXIS_V1_PREREGISTRATION.md)
+
+**Two-site subject composition.** Sixteen rows are evaluated under five arms:
+native, zero replay, site 1 only, site 2 only, and joint. There are no fits.
+Composition is predicted as $e_1+e_2$ and must achieve cosine `>=.95`, relative
+L2 `<=.25`, sign `>=.90`, and norm ratio in `[.80,1.20]`. Price: five forwards
+and 80 sequences. [Runner](../../../bilinear_quotient/ops/run_subject_number_two_site_composition_v2.py) ·
+[preregistration](../../SUBJECT_NUMBER_TWO_SITE_COMPOSITION_V2_PREREGISTRATION.md)
+
+**Narrative signed-axis program.** The FIT split determines a rank-one axis by
+SVD and compares direction-specific, construction-specific, and one global
+absolute amplitude. HOLDOUT receives nine arms including exact/full ceilings
+and a wrong-sign negative control. Main recovery threshold: at least `.80` for
+both margin and cross-entropy effect with donorward fraction at least `.75`.
+Price: five forwards, 208 sequences, zero backwards or parameter updates.
+[Runner](../../../bilinear_quotient/ops/run_narrative_tense_l11h3_rank1_scalar_program_v1.py)
+
+**Bracket source and suffix.** The source factorial has eight exact/approximate
+key1-key2-payload corners on 72 rows and 144 endpoints: ten forwards, 1,440
+sequences, and no fits. The suffix experiment tests source-only plus exact
+quadratic, left-cross, right-cross, and combined-cross MLP13–17 removals on two
+construction panels. Maximum price: 12 forwards and 1,728 sequences. Overall
+transfer bars are cosine `>=.95`, relative L2 `<=.25`, sign `>=.90`, and norm
+ratio `[.75,1.25]`; every ordered pair has stricter subgroup gates.
+[Factorial runner](../../../bilinear_quotient/ops/run_bracket_cascade_source_component_factorial_v1.py) ·
+[suffix runner](../../../bilinear_quotient/ops/run_bracket_suffix_finite_bilinear_program_v2.py)
+
+**Bracket key2 corrections.** Native-relative transport tests two fixed
+full-vector candidates with no fits; FIT-null price was six forwards and 864
+sequences. The query-context experiment fits two activation-only laws on 216
+targets from three earlier constructions and evaluates 72 seventh-construction
+FIT targets. It performs two scalar least-squares fits, five forwards, and 720
+sequences. Selection required at least `.05` relative-L2 improvement, cosine
+`>=.95`, relative L2 `<=.35`, sign `>=.90`, and norm ratio `[.70,1.30]`.
+[Transport runner](../../../bilinear_quotient/ops/run_bracket_key2_native_relative_transport_v1.py) ·
+[scalar runner](../../../bilinear_quotient/ops/run_bracket_key2_query_context_scalar_v1.py)
+
+**Numeric/list oriented MLP screen.** At MLP8, 10, 12, and 14, the exact finite
+response is split into left-background/right-delta, left-delta/right-background,
+their cross sum, and the full joint response. Two null families test same-cell
+and same-source collateral effects. No fitting or backwards passes; maximum 632
+forwards. FIT chooses a candidate only if both target and null gates pass;
+SELECT remains closed otherwise. [Runner](../../../bilinear_quotient/ops/run_numeric_downstream_oriented_bilinear_v1.py)
+
+**Induction finite-MLP screen.** Sites MLP8–12 use seven arms: self, joint,
+quadratic, left, right, cross, and full. Candidate order is quadratic, left,
+right, then cross. Batch size is 32. Price: 24 forwards, 768 sequences, zero
+fits or backwards passes. The maximum observed algebraic closure error is
+reported separately from behavioral sufficiency. [Runner](../../../bilinear_quotient/ops/run_induction_early_mlp_finite_bilinear_factor_v2.py)
+
+**Successor interaction scalar.** The frozen coefficient is `0.6157508`.
+The 96-row authority is aligned into coherent, early-swap control, and
+late-swap-incoherent conditions. Main prediction bars are cosine `>=.90`,
+relative L2 `<=.35`, sign `>=.80`, and norm ratio `[.65,1.35]`; exact and
+predicted control RMS must be at most `.75` of target RMS. Price: 44 forwards,
+352 sequences, zero fits, backwards passes, updates, or quantization.
+[Runner](../../../bilinear_quotient/ops/run_successor_pointer_behavioral_interaction_scalar_v2.py)
+
+All detailed results store per-row evidence, observed execution counts,
+checkpoint and runner hashes, and terminal verdicts. The linked preregistrations
+are the authority for thresholds; the prose above rounds numbers only for
+readability.
