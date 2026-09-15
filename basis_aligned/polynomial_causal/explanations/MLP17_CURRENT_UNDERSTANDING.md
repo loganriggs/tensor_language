@@ -704,3 +704,14 @@ the important selected-reader terms are the heterogeneous background's self
 interaction, its interaction with MLP16, and the MLP16 self term. The next exact
 fold should split $g$ into earlier incoming residual and the other attention17
 heads before any causal promotion.
+
+Splitting that background again into earlier incoming residual $e$ and the other
+attention17 heads $o$ gives live change-norm ratios `ee .9545`, `ep .2923`,
+`pp .09691`, and `eo .07477`; `oo` is `.01261`, and every head17.2 term remains
+below `.017`. The ten-term sum and its aggregation back to the six-term census close
+at $3.06\times10^{-15}$ and $5.59\times10^{-16}$. This
+[four-source receipt](../SETTING2_EARLIER_RESIDUAL_ATTENTION_TERM_CENSUS_V1_RESULT.json)
+uses grammatical native endpoints with fixed UK/US token readers, so it is a
+generic weights/path diagnostic rather than task-matched regional circuit evidence.
+The next discriminating check must repeat the frozen terms on the actual regional
+prefixes before recursively attributing $e$ to earlier decoder layers.
