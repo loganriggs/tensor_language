@@ -218,6 +218,24 @@ native-generation problem is obtaining $d$ and $c$ from activations.
 [Result](../../../bilinear_quotient/circuits/fast_screens/subject_number_native_weight_axis_v1_result.json) ·
 [preregistration](../../SUBJECT_NUMBER_NATIVE_WEIGHT_AXIS_V1_PREREGISTRATION.md)
 
+The first direct activation readout did not solve that last step. On the older,
+already-open constructions, we projected each recipient/base L11H3 write onto
+the first 1, 2, 4, or 8 native output singular directions and fitted an affine
+readout of the outcome-blind program amplitude. Evaluation swapped which
+construction was held out. Rank 2 was best: cosine `.81152` and sign agreement
+`.95898`, but relative L2 `.58757` missed the preregistered `.50` gate. Error
+rose to `.92182` at cardinality four. The base head exposes number direction
+well enough to get most signs right, but it does not expose the needed context
+amplitude in these coordinates. The next readout must target the upstream
+E/A/U/W residual factors or their finite interactions.
+[Result](../../../bilinear_quotient/circuits/fast_screens/subject_number_native_scalar_feature_discovery_v1_result.json)
+
+![Native scalar feature discovery](assets/research_update_2026-09-15_native_scalar_discovery.png)
+
+*Figure 2. Leave-one-construction-out prediction from native L11H3 singular
+coordinates. Rank 2 is best, but every rank misses the fixed relative-L2 gate;
+adding dimensions becomes unstable rather than revealing the amplitude.*
+
 ## Narrative tense: six sources collapse to one signed axis
 
 For past-versus-present narrative completion, the relevant carrier is the value
@@ -523,6 +541,18 @@ law are cosine `>=.90`, relative L2 `<=.50`, and sign `>=.90`.
 [Builder](../../build_subject_number_native_weight_axis_v1.py) ·
 [runner](../../../bilinear_quotient/ops/run_subject_number_native_weight_axis_v1.py) ·
 [preregistration](../../SUBJECT_NUMBER_NATIVE_WEIGHT_AXIS_V1_PREREGISTRATION.md)
+
+**Native scalar feature discovery.** On the already-open 32-row subject
+authority, the recipient/base L11H3 write is projected onto the first
+$k\in\{1,2,4,8\}$ native output singular vectors. An intercept plus those $k$
+coordinates predicts the frozen program amplitude. Each rank is fitted once in
+each direction of the two-construction cross-validation and once on all rows:
+12 ordinary least-squares fits total. Selection chooses the smallest rank within
+`.01` relative L2 of the best. The predictive gate is relative L2 `<=.50`; the
+compactness gate is selected rank `<=4`. Price: one model forward, 96 role
+sequences, zero backwards or updates, and no causal or fresh outcomes.
+[Runner](../../../bilinear_quotient/ops/run_subject_number_native_scalar_feature_discovery_v1.py) ·
+[preregistration](../../SUBJECT_NUMBER_NATIVE_SCALAR_FEATURE_DISCOVERY_V1_PREREGISTRATION.md)
 
 **Two-site subject composition.** Sixteen rows are evaluated under five arms:
 native, zero replay, site 1 only, site 2 only, and joint. There are no fits.

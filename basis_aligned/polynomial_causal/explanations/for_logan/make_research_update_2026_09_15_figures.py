@@ -50,3 +50,21 @@ fig.suptitle("Subject-number circuit: compression fidelity and remaining native 
 fig.text(.5, -.01, "Fresh 512-intervention panel except two-site composition (32 effects). References are named in each label; cosine and relative L2 are not combined.", ha="center", fontsize=9)
 for suffix in ("png", "svg"):
     fig.savefig(ASSETS / f"research_update_2026-09-15_subject_compression.{suffix}", dpi=180, bbox_inches="tight")
+
+discovery = load("bilinear_quotient/circuits/fast_screens/subject_number_native_scalar_feature_discovery_v1_result.json")
+ranks = [1, 2, 4, 8]
+discovery_cosine = [discovery["reports"][str(k)]["cross_construction"]["cosine"] for k in ranks]
+discovery_error = [discovery["reports"][str(k)]["cross_construction"]["relative_l2_error"] for k in ranks]
+fig2, axes2 = plt.subplots(1, 2, figsize=(10.5, 4.2), constrained_layout=True)
+axes2[0].plot(ranks, discovery_cosine, marker="o", linewidth=2.5, color=blue)
+axes2[0].set(title="Cross-construction cosine", xlabel="Native singular-coordinate rank", ylabel="Cosine (higher is better)", xticks=ranks, ylim=(0, .9))
+axes2[1].plot(ranks, discovery_error, marker="o", linewidth=2.5, color=orange)
+axes2[1].axhline(.50, color="#333333", linestyle="--", label="preregistered gate (.50)")
+axes2[1].set(title="Cross-construction amplitude error", xlabel="Native singular-coordinate rank", ylabel="Relative L2 (lower is better)", xticks=ranks, ylim=(0, 1.5))
+axes2[1].legend(frameon=False)
+for ax, values in zip(axes2, (discovery_cosine, discovery_error)):
+    ax.grid(alpha=.22)
+    for x, value in zip(ranks, values): ax.annotate(f"{value:.3f}", (x, value), xytext=(0, 8), textcoords="offset points", ha="center")
+fig2.suptitle("Native base-head coordinates do not recover subject-program amplitude", fontsize=14, fontweight="bold")
+for suffix in ("png", "svg"):
+    fig2.savefig(ASSETS / f"research_update_2026-09-15_native_scalar_discovery.{suffix}", dpi=180, bbox_inches="tight")
