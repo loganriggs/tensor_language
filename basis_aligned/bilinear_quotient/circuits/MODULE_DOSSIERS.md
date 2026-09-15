@@ -66,10 +66,16 @@ error is $1.45\times10^{-7}$ and folded cross-term closure is
 $3.21\times10^{-16}$.
 
 The top five sources together still leave `.64073` relative error, so attention9
-is an organizing handle rather than a sufficient path. The existing regional
-setting1 work implicates head9.8, but this whole-block result does not yet assign
-the interaction to a head or prove causal reuse. See the
-[upstream fold](fast_screens/setting2_regional_mlp16_upstream_source_fold_v1_result.json).
+is an organizing handle rather than a sufficient path. The subsequent exact
+head split assigns nearly all aligned attention9 × MLP16 change to head9.8:
+its change-norm ratio is `1.01222`, its aligned fraction is `.97762`, and its
+family ratios are `.99497–1.05071`. Head9.7 is the only substantial secondary
+term (`.20124`); keeping both gives `.08243` relative replay error. The nine-head
+sum closes at $1.97\times10^{-16}$, while the separately rounded native attention
+output bridge is $1.43\times10^{-7}$. This establishes a computation-path overlap
+with the setting1 head9.8 circuit, without yet showing that this specific folded
+term is causally sufficient. See the [upstream fold](fast_screens/setting2_regional_mlp16_upstream_source_fold_v1_result.json)
+and [head split](fast_screens/setting2_regional_attn9_head_mlp16_fold_v2_result.json).
 
 ## `module.mlp.16`
 

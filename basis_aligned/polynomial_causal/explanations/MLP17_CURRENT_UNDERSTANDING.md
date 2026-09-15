@@ -745,3 +745,15 @@ still leave `.64073` relative error, so the interaction is distributed and the
 leader is not sufficient. Because independent setting1 regional work already
 implicates head9.8, splitting attention9 by head is now a direct overlap test rather
 than another whole-module screen. [Primary upstream fold](../../bilinear_quotient/circuits/fast_screens/setting2_regional_mlp16_upstream_source_fold_v1_result.json).
+
+That overlap test passes. In the exact nine-head expansion of the attention9 ×
+MLP16 folded term, head9.8 has change norm `1.01222` times the full attention9
+term and supplies `.97762` of its aligned change. Its ratio stays
+`.99497–1.05071` across all four construction families. Head9.7 is the only
+substantial secondary term at `.20124`; the two-head replay leaves `.08243`
+relative error. The exact projected-head sum closes at
+$1.97\times10^{-16}$, and its separately checked bridge to the native rounded
+attention output is $1.43\times10^{-7}$. Thus the previously identified setting1
+regional head is also the dominant component of this backward-folded setting2
+path. This is path attribution, not yet a selective intervention or proof that
+the isolated term is sufficient. [Primary head-fold receipt](../../bilinear_quotient/circuits/fast_screens/setting2_regional_attn9_head_mlp16_fold_v2_result.json).
