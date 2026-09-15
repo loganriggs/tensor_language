@@ -1,0 +1,40 @@
+{
+  "bars": {
+    "capability_accuracy_min": 0.75,
+    "control_to_target_rms_max": 0.5,
+    "effect_cosine_min": 0.95,
+    "effect_norm_ratio_max": 1.3,
+    "effect_norm_ratio_min": 0.7,
+    "effect_relative_l2_max": 0.3,
+    "effect_sign_min": 0.9,
+    "exact_positive_min": 0.9,
+    "pair_cosine_min": 0.85,
+    "pair_relative_l2_max": 0.4,
+    "pair_sign_min": 0.9,
+    "replay_max": 1e-05,
+    "score_only_improvement_min": 0.2,
+    "source_cosine_min": 0.9,
+    "source_relative_l2_max": 0.5
+  },
+  "eval_row_manifest_sha256": "918255751e827414d20c26d63e258058bf643122c645c9c16dba22e8618aae94",
+  "files": {
+    "builder": "ebe5469829c6d156c565b5f2426d55b1fd039cce61881e1bdade6d1ab5c88114",
+    "eval_rows": "9d19f8ebab08dc2f5476d20d87e99b59be6e17198158c6c8f51dc33ef2fcbb49",
+    "preregistration": "8e35ce407753fbd256e09d2a6af7e62776de61c7b15bb65d4beee50460bea390",
+    "prior_result": "f6cc54ac01b26635b30ef82d40b2bfbc3ffb4c9fdab25777514772303b1d158e",
+    "train_rows": "8f57d07b3983bcfffe4c801cb304c3e71012f95801a971ab50120b5d08e657d2",
+    "v1_runner": "eb4b54327f08f26794f4fb547b9bb817761484f53e99c405162755d4848e0ef4"
+  },
+  "outcomes_opened": false,
+  "price": {
+    "backwards": 0,
+    "fits": 1,
+    "forwards": 5,
+    "sequences": 1440,
+    "updates": 0
+  },
+  "program_rule": "unchanged from V1; only full-vocabulary logits residency moves to CPU",
+  "schema": "bracket_triple_pending_payload_rank2_interaction_v2_binding",
+  "train_row_manifest_sha256": "d1fc8e104bb07bbf49f56b6e8e8b8970946abafea4e59471603d213c36c22873",
+  "v1_status": "invalid_cuda_oom_no_result"
+}
