@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # BQLANE: gpu
-# BQGATE: 1forward96seq; outcome-blind native scalar feature discovery;12fits;0updates.
+# BQGATE: EXPERIMENT pred_a_exact_activation_instrument pred_b_native_singular_coordinates_predict_amplitude pred_c_compact_rank_selected
 from __future__ import annotations
 from datetime import datetime, timezone
 import hashlib, json, math, os
@@ -16,6 +16,7 @@ PREREG=POLY/'SUBJECT_NUMBER_NATIVE_SCALAR_FEATURE_DISCOVERY_V1_PREREGISTRATION.m
 LAW=POLY/'SUBJECT_NUMBER_COEFFICIENT_BILINEAR_LAW_V1_ARTIFACT.json'; AXIS=POLY/'SUBJECT_NUMBER_NATIVE_WEIGHT_AXIS_V1_ARTIFACT.json'
 BINDING=POLY/'SUBJECT_NUMBER_NATIVE_SCALAR_FEATURE_DISCOVERY_V1_BINDING.json'; OUT=ROOT/'circuits/fast_screens/subject_number_native_scalar_feature_discovery_v1_result.json'
 RANKS=(1,2,4,8); PRICE={'physical_model_forwards':1,'role_sequences':96,'scalar_least_squares_fits':12,'backwards':0,'parameter_updates':0}
+PREDICTION_REGISTRY={'pred_a_exact_activation_instrument':None,'pred_b_native_singular_coordinates_predict_amplitude':None,'pred_c_compact_rank_selected':None}
 def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def load_bound():
  b=json.loads(BINDING.read_text()); paths={'preregistration':PREREG,'law':LAW,'native_axis':AXIS,'authority':Path(authority.__file__)}
@@ -56,6 +57,8 @@ def main():
   reports[str(k)]={'cross_construction':stats(y,pred),'folds':folds,'all_row_beta':beta.tolist(),'by_direction':{d:stats(y[directions==d],pred[directions==d]) for d in sorted(set(directions))},'by_cardinality':{str(c):stats(y[cardinalities==c],pred[cardinalities==c]) for c in sorted(set(cardinalities))}}
  best=min(v['cross_construction']['relative_l2_error'] for v in reports.values());selected=next(k for k in RANKS if reports[str(k)]['cross_construction']['relative_l2_error']<=best+.01)
  instrument=len(y)==512 and fits==PRICE['scalar_least_squares_fits'] and max(closure['input_state_closure_max_absolute_error'],closure['input_normalized_closure_max_absolute_error'])<=5e-5
- result={'schema':'subject_number_native_scalar_feature_discovery_v1_result','terminal':'native_scalar_feature_selected' if instrument else 'invalid','selected_rank':selected,'best_relative_l2_error':best,'reports':reports,'instrument':{'examples':len(y),'fits':fits,'role_state_closure_max_absolute_error':closure['input_state_closure_max_absolute_error'],'role_normalized_closure_max_absolute_error':closure['input_normalized_closure_max_absolute_error']},'outcome_access':{'behavioral_effects':False,'answer_logits':False,'exact_donor_displacements':False,'fresh_authority':False},'price':PRICE,'checkpoint_weights_sha256':checkpoint.weights_sha256,'runner_sha256':sha(RUNNER),'binding_sha256':sha(BINDING),'created_utc':datetime.now(timezone.utc).isoformat().replace('+00:00','Z')}
+ predictions={'pred_a_exact_activation_instrument':bool(instrument),'pred_b_native_singular_coordinates_predict_amplitude':bool(instrument and best<=.50),'pred_c_compact_rank_selected':bool(instrument and selected<=4)}
+ terminal='invalid' if not instrument else 'native_scalar_feature_selected' if all(predictions.values()) else 'native_scalar_feature_discovery_null'
+ result={'schema':'subject_number_native_scalar_feature_discovery_v1_result','terminal':terminal,'predictions':predictions,'selected_rank':selected,'best_relative_l2_error':best,'reports':reports,'instrument':{'examples':len(y),'fits':fits,'role_state_closure_max_absolute_error':closure['input_state_closure_max_absolute_error'],'role_normalized_closure_max_absolute_error':closure['input_normalized_closure_max_absolute_error']},'outcome_access':{'behavioral_effects':False,'answer_logits':False,'exact_donor_displacements':False,'fresh_authority':False},'price':PRICE,'checkpoint_weights_sha256':checkpoint.weights_sha256,'runner_sha256':sha(RUNNER),'binding_sha256':sha(BINDING),'created_utc':datetime.now(timezone.utc).isoformat().replace('+00:00','Z')}
  managed.atomic_create_json(OUT,result); print(json.dumps({'terminal':result['terminal'],'selected_rank':selected,'best_relative_l2_error':best,'reports':{k:v['cross_construction'] for k,v in reports.items()},'instrument':result['instrument']},indent=2)); assert instrument
 if __name__=='__main__': main()

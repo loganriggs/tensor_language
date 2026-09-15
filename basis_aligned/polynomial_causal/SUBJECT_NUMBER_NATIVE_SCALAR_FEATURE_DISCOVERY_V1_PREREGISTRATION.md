@@ -4,4 +4,9 @@ Use only the already-open original direction-cardinality authority. For each rec
 
 Evaluate each rank by leave-one-construction-out prediction between the two original constructions, pooling both directions, all nouns, and all cardinalities. Select the smallest rank whose pooled cross-construction relative L2 error is within `.01` of the best candidate, then refit that fixed rank on all original rows for a later prospective causal test. Report cosine, relative L2, sign agreement, per-direction error, and per-cardinality error.
 
+The discovery is considered predictive if the best cross-construction relative
+L2 error is at most `.50`, and compact if the selected rank is at most four.
+These gates determine whether a prospective causal follow-up is licensed; a
+failure remains a valid discovery null.
+
 This is outcome-blind feature discovery. Program-amplitude labels come from the frozen symbolic law; no exact donor displacement, answer logit, behavioral effect, fresh-construction activation, or sealed outcome is read. No gradients, transformer updates, rank outside the fixed list, nonlinear feature, threshold rescue, or quantization. Price: one model forward over 96 role sequences and 12 scalar least-squares fits.
