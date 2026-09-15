@@ -88,6 +88,12 @@ behavioral logits, and closed at relative error $6.61\times10^{-16}$. See the
 The leading overall term is earlier residual × MLP16 (`.6184`), so future head17.2
 work should remain a secondary branch until a selective intervention distinguishes it.
 
+The later QK1 routing-removal census finds a full attention17 induced response of
+`.24952` of the final pre-RMS numerator-change norm, aligned at `.24518`. That
+receipt does not split attention17 by head, so it cannot assign this response to
+head17.2 despite the older regional association. The next weight-folding assay
+must compare all nine heads and preserve this as an open attribution.
+
 ## `module.attention.9`
 
 Aliases: attention block 9, attn9. Related route:
