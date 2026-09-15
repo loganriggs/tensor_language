@@ -294,6 +294,18 @@ The review is not satisfied by saying that the model is a tensor network, listin
 empirical decomposition. It must connect a known result to the actual Theseus contraction and produce a usable
 consequence. After recording it, immediately take the highest-information safe step it identifies.
 
+## Logan explanation format
+
+Keep research updates under `basis_aligned/polynomial_causal/explanations/for_logan/`
+easy to assess for a reader comfortable with Neel Nanda-style mechanistic
+interpretability. Begin with a plain high-level summary, then define every new
+activation, path, intervention, norm, and comparison. Put display mathematics in
+`$$ ... $$` blocks. Use graphs when several numerical results or thresholds are
+easier to compare visually. Include an appendix with representative dataset rows,
+splits, hook/intervention sites, code pointers, fit procedures, hyperparameters,
+execution counts, precision, and corrections. Preserve failed gates and distinguish
+exact algebra, descriptive attribution, held-out identification, and causal evidence.
+
 ## Shared GPU and repository rules
 
 - Follow `AGENT_BOARD.md`; claim a rung before building and do not take another agent's range.
@@ -301,6 +313,10 @@ consequence. After recording it, immediately take the highest-information safe s
   competing direct GPU process.
 - Every experiment needs registered predictions, measured bars, a stated null, literal price,
   live configuration tripwires, and syntax/dry-run gates appropriate to the script.
+- Before enqueueing a runner with multi-axis result arrays or rank-dependent
+  broadcasting, execute a small model-free shape smoke test covering the reporting
+  slices and helper branches. Record corrections when this check was missing; do
+  not rely on compilation or dry run to exercise code below model loading.
 - Coordinate before changing queues. Inspect GPU/process state before assuming a lane is idle.
 - Preserve unrelated dirty changes. Stage only owned files. Pull/rebase before push without
   stashing or rewriting another agent's live work.
