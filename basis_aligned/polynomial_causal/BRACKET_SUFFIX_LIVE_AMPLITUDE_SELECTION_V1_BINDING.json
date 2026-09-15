@@ -1,0 +1,39 @@
+{
+  "bars": {
+    "cosine_min": 0.9,
+    "norm_ratio_max": 1.4,
+    "norm_ratio_min": 0.6,
+    "relative_l2_max": 0.4,
+    "replay_max": 1e-05,
+    "sign_min": 0.9
+  },
+  "candidates": [
+    "global_direct",
+    "global_norm",
+    "global_direct_norm",
+    "pair_direct",
+    "pair_norm"
+  ],
+  "files": {
+    "fifth_result": "0e38e92a9fc06d1167294d8f1233d89e379657382d14b771973fc851f82ea4d7",
+    "fifth_rows": "8075fe09266d06fb0b5ea9aa8661cd1086242514b3afced01dfe70506029ca62",
+    "preregistration": "cee85756b3f555b46998db15109c7685f2df635bfb273b4bc74625fb74a94a3b",
+    "program": "0e38e92a9fc06d1167294d8f1233d89e379657382d14b771973fc851f82ea4d7",
+    "sixth_result": "59f28afe7181c0c30334717b277a9db064022cfe375d9e8757e2d2e2fa592b27",
+    "sixth_rows": "9788eecd9e5d512440a9ca85addd8e1620a257f9938d2b7c43aefc4807554ff9"
+  },
+  "future_outcomes_opened": false,
+  "outcomes_opened": [
+    "fifth donor-free program effect",
+    "sixth donor-free program effect"
+  ],
+  "price": {
+    "backwards": 0,
+    "fits": 11,
+    "forwards": 2,
+    "sequences": 576,
+    "updates": 0
+  },
+  "schema": "bracket_suffix_live_amplitude_selection_v1_binding",
+  "selection_order": "fewest coefficients, worst transfer relative L2, fixed candidate order"
+}
