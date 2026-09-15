@@ -479,6 +479,86 @@ def test_exact_native_batch_preflight():
               'pred_a_one', 'pred_b_two', 'pred_c_three'])
 
 
+def test_managed_experiment_contract():
+    """Regression fixture for the six plumbing failures named by the hourly review."""
+    preflight = {'BQLIB_DRYRUN': '1', 'BQLIB_NO_MODEL': '1',
+                 'BQLIB_MANAGED_PREFLIGHT': '1'}
+    check('managed contract: explicit preflight dispatch',
+          exact_preflight.managed_execution_mode(preflight) == 'preflight')
+    check('managed contract: clean environment dispatches model execution',
+          exact_preflight.managed_execution_mode({}) == 'execute')
+    try:
+        exact_preflight.managed_execution_mode({'BQLIB_DRYRUN': '1', 'BQLIB_NO_MODEL': '1'})
+    except RuntimeError:
+        refused_leak = True
+    else:
+        refused_leak = False
+    check('managed contract: leaked dry-run flags cannot suppress execution', refused_leak)
+    enqueue_source = open(os.path.join(HERE, 'enqueue.sh')).read()
+    check('managed contract: both enqueue preflight lanes carry the explicit marker',
+          enqueue_source.count('BQLIB_MANAGED_PREFLIGHT=1') == 2)
+
+    full = torch.arange(24, dtype=torch.bfloat16).view(2, 3, 4)
+    replacement = torch.tensor([[101, 102, 103, 104], [201, 202, 203, 204]],
+                               dtype=torch.float32)
+    changed = exact_preflight.replace_query_native(full, [2, 0], replacement)
+    check('managed contract: readout edit retains full native dtype and geometry',
+          changed.dtype == full.dtype and changed.shape == full.shape)
+    check('managed contract: readout edit touches only directed query rows',
+          torch.equal(changed[0, :2], full[0, :2]) and torch.equal(changed[1, 1:], full[1, 1:])
+          and torch.equal(changed[0, 2], replacement[0].to(full.dtype))
+          and torch.equal(changed[1, 0], replacement[1].to(full.dtype)))
+
+    class Rotary(torch.nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.seq_len_cached = 7
+            self.cos_cached = torch.ones(2)
+            self.sin_cached = torch.ones(2)
+
+    model = torch.nn.Sequential(torch.nn.Linear(2, 2), Rotary())
+    count = exact_preflight.clear_rotary_state(model)
+    rotary = model[1]
+    check('managed contract: rotary autograd state is cleared',
+          count == 1 and rotary.seq_len_cached is None
+          and rotary.cos_cached is None and rotary.sin_cached is None)
+
+    endpoints = [{'endpoint_id': 'left', 'answer_id': 999}, {'endpoint_id': 'right'}]
+    rows = [{'recipient_endpoint_id': 'left', 'recipient_answer_id': 17},
+            {'recipient_endpoint_id': 'right', 'recipient_answer_id': 23}]
+    bound = exact_preflight.bind_directed_answers(rows, endpoints)
+    check('managed contract: answers come from directed rows',
+          [answer for _endpoint, answer in bound] == [17, 23])
+
+    registry = {'pred_a_instrument': None, 'pred_b_transfer': None, 'pred_c_control': None}
+    source = "PREDICTION_REGISTRY={'pred_a_instrument':None,'pred_b_transfer':None,'pred_c_control':None}"
+    try:
+        exact_preflight.validate_literal_prediction_registry(source, registry)
+        literal_ok = True
+    except ValueError:
+        literal_ok = False
+    check('managed contract: literal predicate keys match registry', literal_ok)
+    digest = 'a' * 64
+    result = {'schema': 'fixture_result', 'terminal': 'fixture_terminal',
+              'predictions': {key: True for key in registry}, 'price': {'forwards': 1},
+              'runner_sha256': digest, 'binding_sha256': digest}
+    try:
+        exact_preflight.validate_result_contract(result, registry)
+        payload_ok = True
+    except ValueError:
+        payload_ok = False
+    check('managed contract: required result fields and prediction types pass', payload_ok)
+    incomplete = dict(result)
+    incomplete.pop('binding_sha256')
+    try:
+        exact_preflight.validate_result_contract(incomplete, registry)
+    except ValueError:
+        incomplete_refused = True
+    else:
+        incomplete_refused = False
+    check('managed contract: incomplete result payload is refused', incomplete_refused)
+
+
 def test_every_ref_path_exists():
     """Guards against exactly what Logan asked about: moving or deleting an artifact silently breaks a
     reproduction control in a script that still looks fine. 237 of 239 result JSONs are referenced by a
@@ -557,6 +637,7 @@ for fn in (test_run_refuses_an_unknown_role, test_fresh_role_is_available_but_no
            test_inertness_pairs_warns_when_a_side_is_vacuous, test_ref_reads_published_triples,
            test_paired_t_arithmetic, test_cost_matches_the_published_closed_form,
            test_arm_names_parse_the_way_the_grammar_says, test_exact_native_batch_preflight,
+           test_managed_experiment_contract,
            test_gate_fixtures,
            test_gate_accepts_the_library_itself,
            test_gate_exempts_generators_but_still_catches_none_returners):

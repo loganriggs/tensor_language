@@ -127,7 +127,8 @@ python3 "$D/ops/gate.py" "$check_path" >/dev/null 2>&1 || {
 # Safely capture it again, require the reviewed digest, and compile only those
 # captured bytes in the same Python process, with the original path semantics.
 if [ "$LANE" = "1" ]; then
-  BQLIB_DRYRUN=1 BQLIB_NO_MODEL=1 python3 - "$sha" "$check_path" "$f" \
+  BQLIB_DRYRUN=1 BQLIB_NO_MODEL=1 BQLIB_MANAGED_PREFLIGHT=1 \
+    python3 - "$sha" "$check_path" "$f" \
       >/tmp/bq_dryrun.out 2>&1 <<'PY'
 # BEGIN ENQUEUE_HASH_BOUND_PYTHON
 import hashlib
@@ -179,7 +180,8 @@ exec(compile(payload, logical_name, "exec"), module.__dict__, module.__dict__)
 PY
   preflight_rc=$?
 else
-  BQLIB_DRYRUN=1 BQLIB_NO_MODEL=1 python3 "$check_path" >/tmp/bq_dryrun.out 2>&1
+  BQLIB_DRYRUN=1 BQLIB_NO_MODEL=1 BQLIB_MANAGED_PREFLIGHT=1 \
+    python3 "$check_path" >/tmp/bq_dryrun.out 2>&1
   preflight_rc=$?
 fi
 if [ "$preflight_rc" -ne 0 ]; then
