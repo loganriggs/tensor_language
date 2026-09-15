@@ -52,7 +52,7 @@ def load_bound():
     binding=json.loads(BINDING.read_text())
     files={"preregistration":PREREG,"rows":ROWS,"row_check":P/"regional_cue_row_check_v1.py",
            "role_masks":P/"odd_framing_role_split_v1.py","head8_edge":P/"odd_attention8h2_o_composed_edge_v1.py",
-           "grouped_tools":Path(__file__).parent/"regional_grouped_interaction_tools.py",
+           "grouped_tools":RUNNER.parent/"regional_grouped_interaction_tools.py",
            "edge_program":EDGE,"parent_result":PARENT}
     if binding["files"]!={k:sha(v) for k,v in files.items()} or binding["price"]!=PRICE: raise ValueError("bound input or price changed")
     rows_doc=json.loads(ROWS.read_text()); rows=rows_doc["rows"]; checks=validate(rows); buckets={}
