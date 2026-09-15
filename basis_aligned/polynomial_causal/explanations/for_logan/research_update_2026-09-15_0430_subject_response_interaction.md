@@ -62,6 +62,13 @@ the shared pattern is positional and boundary-related rather than one stable
 word: the quote and colon lead both families, while other high-ranked offsets
 land on different tokens.
 
+Fresh testing confirms the instruction-source approximation itself but exposes
+a selectivity failure. On two more templates, instruction-only cross effects
+replay the complete recursive cross at `.247/.323` error with cosine above
+`.9978`. One template's work/jobs control is `1.151×` the target effect, however,
+so this is a transferable interaction mechanism and not yet an adoptable
+selective circuit.
+
 ![Prediction errors for the response interaction and donor-free proxy](assets/research_update_2026-09-15_subject_response_interaction.png)
 
 *Figure 1. Lower is better. Left: only the exact multiplicative response model passes the `.40` coefficient-error ceiling. Right: the two-vector proxy passes its response-scalar gate but fails after composition into the coefficient program.*
@@ -389,6 +396,27 @@ future fresh recursive intervention rather than held-out confirmation.
 
 *Figure 6. Lower is better. Four positions and the full instruction region both approximate the cross vector; the description region alone does not. The dashed line is the preregistered within-family four-offset gate.*
 
+### Fresh causal test of the instruction subset
+
+The next panel uses two new templates, Glasgow/Seattle and London/Dallas, and
+again has zero context overlap with prior row manifests. It compares an additive
+head edit with instruction-only and complete cross terms. Instruction-only
+replays the complete cross vector at `.189/.235` error and its recursive paired
+logit effect at `.247/.323` error. The corresponding effect cosines are
+`.9978/.9980`, so the source compression transfers in both geometry and target
+behavior.
+
+The second template nevertheless fails the registered unrelated-reader gate.
+Its work/jobs effect is `1.151` times the full-joint target effect, above `.75`;
+the first template's largest control ratio is only `.194`. This is a useful
+boundary: instruction sources carry most of the interaction, but the current
+package does not isolate only the regional-spelling service across prompt
+families.
+
+![Fresh instruction-cross fidelity and controls](assets/research_update_2026-09-15_instruction_cross_fresh.png)
+
+*Figure 7. Lower is better. Both fidelity bars pass in both templates. The orange control bar crosses its registered `.75` gate, so the overall result is a valid selectivity null.*
+
 ## What is established
 
 The missing subject-number amplitude is partly organized by a specific interaction at the L11H3 interface. The evidence is cross-construction, outcome-blind, and uses a native weight axis. The exact response variable remains donor-dependent, so this does not yet explain how a normal forward pass computes the amplitude.
@@ -513,6 +541,11 @@ execution but failed during reporting because a 20-token mask indexed the
 applying the unchanged mask. Source recomposition then closes at
 $3.59\times10^{-8}$ relative error.
 
+The fresh instruction test used 48 new rows, four intervention arms, 24 physical
+length-bucketed batches, and 192 sequences. It made no fit or parameter update.
+The exact audits remain below $1.07\times10^{-7}$. All rows and controls remain
+in the result despite the failed selectivity gate.
+
 ### Code and primary receipts
 
 - [Response-coordinate preregistration](../../SUBJECT_NUMBER_NATIVE_HEAD_RESPONSE_COORDINATE_DISCOVERY_V1_PREREGISTRATION.md)
@@ -549,3 +582,7 @@ $3.59\times10^{-8}$ relative error.
 - [Source-census V2 correction](../../SETTING2_REGIONAL_HEAD_CROSS_SOURCE_CENSUS_V2_CORRECTION.md)
 - [Source-census V2 runner](../../../bilinear_quotient/ops/run_setting2_regional_head_cross_source_census_v2.py)
 - [Source-census V2 result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_head_cross_source_census_v2_result.json)
+- [Fresh instruction-cross rows](../../SETTING2_REGIONAL_INSTRUCTION_CROSS_FRESH_V1_ROWS.json)
+- [Fresh instruction-cross preregistration](../../SETTING2_REGIONAL_INSTRUCTION_CROSS_FRESH_V1_PREREGISTRATION.md)
+- [Fresh instruction-cross runner](../../../bilinear_quotient/ops/run_setting2_regional_instruction_cross_fresh_v1.py)
+- [Fresh instruction-cross result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_instruction_cross_fresh_v1_result.json)

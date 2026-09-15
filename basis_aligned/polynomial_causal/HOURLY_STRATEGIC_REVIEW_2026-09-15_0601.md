@@ -176,3 +176,10 @@ leading common positions are quote, colon, and offset −7, but token identities
 at the latter position differ, so retain a positional/boundary candidate rather
 than inventing a shared word-level role. V1's padded-mask reporting failure and
 the token-length-only V2 correction are preserved.
+
+Fresh recursive instruction-source testing completed at 06:33 UTC. Geometry and
+target behavior transfer: head errors `.1891/.2351`, recursive cross-effect
+errors `.2467/.3226`, and cosines above `.9978`. The complete gate set is a valid
+null because family 1's work/jobs control reaches `1.1507×` target, over `.75`;
+family 0 remains below `.194`. Keep instruction-source compression as mechanism
+evidence but do not adopt it as a selective circuit package.

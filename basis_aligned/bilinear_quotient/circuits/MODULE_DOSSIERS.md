@@ -784,6 +784,17 @@ discovery on already opened rows and need a new recursive subset intervention.
 [V2 result](fast_screens/setting2_regional_head_cross_source_census_v2_result.json),
 [V2 correction](../../polynomial_causal/SETTING2_REGIONAL_HEAD_CROSS_SOURCE_CENSUS_V2_CORRECTION.md).
 
+Fresh recursive testing preserves the instruction-source compression but rejects
+selective adoption. On two new templates and four new cities, instruction-only
+cross vectors replay the full cross at `.18909/.23507` error and recursive
+paired-logit cross effects at `.24669/.32261`, with cosines
+`.99782/.99803`. Native capability and cross liveness pass. The second template
+fails the unrelated-reader gate: work/jobs changes at `1.15068×` the full-joint
+target effect, above the frozen `.75` bar; the first template's maximum is
+`.19368`. Record this as a transferring causal interaction subset and a valid
+selectivity null, not an adopted circuit. [Preregistration](../../polynomial_causal/SETTING2_REGIONAL_INSTRUCTION_CROSS_FRESH_V1_PREREGISTRATION.md),
+[result](fast_screens/setting2_regional_instruction_cross_fresh_v1_result.json).
+
 The same edge transfers to a score-blind cached corpus panel. On FineWeb and
 Pile/reference, inherited-edge/full-city errors are19.48% and16.91%, effect
 cosines are.9963 and.9948, and all63 native-capable pairs move toward the donor
