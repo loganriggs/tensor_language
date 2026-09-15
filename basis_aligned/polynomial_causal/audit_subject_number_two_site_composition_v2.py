@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+"""CPU audit of strong-direction subject-number two-site composition."""
+import hashlib,json
+from pathlib import Path
+HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1];RUNNER=ROOT/'basis_aligned/bilinear_quotient/ops/run_subject_number_two_site_composition_v2.py';ROWS=HERE/'SUBJECT_NUMBER_TWO_SITE_COMPOSITION_V2_ROWS.json';RESULT=HERE/'SUBJECT_NUMBER_TWO_SITE_COMPOSITION_V2_RESULT.json';OUT=HERE/'SUBJECT_NUMBER_TWO_SITE_COMPOSITION_V2_AUDIT.json'
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def main():
+ r=json.loads(RESULT.read_text());rows=json.loads(ROWS.read_text());checks={'runner_hash_bound':r['runner_sha256']==sha(RUNNER),'row_manifest_bound':r['row_manifest_sha256']==rows['row_manifest_sha256'],'fresh_strong_direction':all(s['direction']=='singular_to_plural' for row in rows['rows'] for s in row['sites']),'valid_terminal':r['terminal']=='two_site_additive_composition','all_predicates':r['predictions']=={'pred_a_exact_instrument_and_capability':True,'pred_b_single_site_writes_live_and_selective':True,'pred_c_two_site_additive_composition':True,'pred_d_two_site_interaction_live':False},'single_sites_live':all(x['passes'] for x in r['single_site'].values()),'composition_passes':all(x['passes'] for x in r['composition'].values()),'exact_price':r['price']['observed_forwards']==5 and r['price']['observed_sequences']==80,'no_quantization':r['quantized'] is False}
+ a={'schema':'subject_number_two_site_composition_v2_audit','result_sha256':sha(RESULT),'runner_sha256':sha(RUNNER),'checks':checks,'all_checks_pass':all(checks.values()),'site_effect_rms':[r['single_site'][x]['effect_rms'] for x in sorted(r['single_site'])],'overall_composition':r['composition']['overall'],'interaction_over_joint_rms':r['interaction_over_joint_rms'],'finding':'The immutable strong-direction rank-one write is live and selective at both fresh subject sites, and their native-background behavioral effects compose additively.'};OUT.write_text(json.dumps(a,indent=2,sort_keys=True)+'\n');print(json.dumps(a,indent=2,sort_keys=True))
+if __name__=='__main__':main()

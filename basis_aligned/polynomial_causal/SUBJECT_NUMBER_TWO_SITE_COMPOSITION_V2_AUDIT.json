@@ -1,0 +1,31 @@
+{
+  "all_checks_pass": true,
+  "checks": {
+    "all_predicates": true,
+    "composition_passes": true,
+    "exact_price": true,
+    "fresh_strong_direction": true,
+    "no_quantization": true,
+    "row_manifest_bound": true,
+    "runner_hash_bound": true,
+    "single_sites_live": true,
+    "valid_terminal": true
+  },
+  "finding": "The immutable strong-direction rank-one write is live and selective at both fresh subject sites, and their native-background behavioral effects compose additively.",
+  "interaction_over_joint_rms": 6.917687612548998e-05,
+  "overall_composition": {
+    "cosine": 0.9999999979560042,
+    "count": 32,
+    "passes": true,
+    "predicted_to_actual_norm_ratio": 0.9999735887017543,
+    "relative_l2_error": 6.917687612548998e-05,
+    "sign_agreement": 1.0
+  },
+  "result_sha256": "d1f32beed7ab835e9bf40483efa9c737c4fd002cc0856e04cf835cc98874fb6e",
+  "runner_sha256": "e2931e046b59f46d87784bd01dc2fff30a47547d99646206a0b7da5ae5160987",
+  "schema": "subject_number_two_site_composition_v2_audit",
+  "site_effect_rms": [
+    0.11644476579975833,
+    0.08671358644204344
+  ]
+}
