@@ -805,6 +805,17 @@ a fresh, causally transferring, cross-specifically selective component.
 [Attribution preregistration](../../polynomial_causal/SETTING2_REGIONAL_INSTRUCTION_CROSS_COLLATERAL_ATTRIBUTION_V1_PREREGISTRATION.md),
 [result](fast_screens/setting2_regional_instruction_cross_collateral_attribution_v1_result.json).
 
+The additive split assigns that work/jobs effect to the routing singleton. In
+the failed family, routing/additive/value work/jobs RMS is
+`.52600/.53042/.03269`; routing reproduces additive at `.07353` relative error.
+Both singles remain useful for the target (`.29078` routing and `.36474` value
+RMS), and their sum reproduces the additive target within `.09700`. Across all
+readers and families, recursive single-effect sums replay additive within
+`.11131`. Preserve the value and cross branches; the next circuit split should
+separate late-late, late-remainder, and remainder-late QK1 routing blocks for
+target versus work/jobs. [Preregistration](../../polynomial_causal/SETTING2_REGIONAL_ADDITIVE_BRANCH_COLLATERAL_V1_PREREGISTRATION.md),
+[result](fast_screens/setting2_regional_additive_branch_collateral_v1_result.json).
+
 The same edge transfers to a score-blind cached corpus panel. On FineWeb and
 Pile/reference, inherited-edge/full-city errors are19.48% and16.91%, effect
 cosines are.9963 and.9948, and all63 native-capable pairs move toward the donor

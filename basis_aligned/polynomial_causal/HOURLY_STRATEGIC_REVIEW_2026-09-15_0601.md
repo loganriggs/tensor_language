@@ -189,3 +189,9 @@ full-cross-specific controls are below `.0966/.0922`; the failed family's
 additive work/jobs RMS is `1.0036×` its full-joint RMS. Thus the original
 combined-package failure remains, but it is assigned to the additive single
 branches. The instruction-source cross advances as a fresh selective component.
+
+The 06:42 UTC additive split passes all four gates. In failed family 1,
+routing/additive/value work/jobs RMS is `.5260/.5304/.0327`; routing alone is
+within `.0735` of additive. Both singles are target-live (`.2908/.3647` RMS),
+and all recursive sums compose within `.1114`. Preserve value and cross; split
+the three selected QK1 routing blocks when the circuit track next resumes.

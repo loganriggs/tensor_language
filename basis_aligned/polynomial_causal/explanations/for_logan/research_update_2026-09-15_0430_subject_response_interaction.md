@@ -439,6 +439,17 @@ conclusion: the instruction-source cross is a fresh, causally transferring,
 selective interaction component, while one or both additive single branches
 need a finer decomposition before the combined package can be adopted.
 
+The additive split identifies QK1 routing as the failed reader's source. In the
+second template, routing reproduces the additive work/jobs vector with `.0735`
+relative error, while value alone misses at `.9926`. Routing, value, and additive
+work/jobs RMS are `.5260`, `.0327`, and `.5304`. Both branches remain useful for
+the regional target at `.2908` and `.3647` RMS, so the routing branch needs a
+finer interaction split rather than removal of the value path.
+
+![Routing and value contributions to target and failed reader](assets/research_update_2026-09-15_additive_branches.png)
+
+*Figure 9. QK1 routing nearly equals the failed work/jobs effect, while the value branch contributes little to that reader. Both branches contribute substantially to the regional target.*
+
 ## What is established
 
 The missing subject-number amplitude is partly organized by a specific interaction at the L11H3 interface. The evidence is cross-construction, outcome-blind, and uses a native weight axis. The exact response variable remains donor-dependent, so this does not yet explain how a normal forward pass computes the amplitude.
@@ -573,6 +584,11 @@ it added no rows, fits, or component choices. The full-package failure remains
 the parent result. Cross-specific target and control effects are reported for
 both pre-softcap numerators and final logits.
 
+The additive split used the same opened rows and 24 batches. Its four arms were
+native, routing-only, value-only, and additive. The single effects sum to the
+additive target within `.0059/.0970` and to every target/control effect within
+`.1114`. It introduced no row, fit, gradient, or parameter update.
+
 ### Code and primary receipts
 
 - [Response-coordinate preregistration](../../SUBJECT_NUMBER_NATIVE_HEAD_RESPONSE_COORDINATE_DISCOVERY_V1_PREREGISTRATION.md)
@@ -616,3 +632,6 @@ both pre-softcap numerators and final logits.
 - [Collateral-attribution preregistration](../../SETTING2_REGIONAL_INSTRUCTION_CROSS_COLLATERAL_ATTRIBUTION_V1_PREREGISTRATION.md)
 - [Collateral-attribution runner](../../../bilinear_quotient/ops/run_setting2_regional_instruction_cross_collateral_attribution_v1.py)
 - [Collateral-attribution result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_instruction_cross_collateral_attribution_v1_result.json)
+- [Additive-branch preregistration](../../SETTING2_REGIONAL_ADDITIVE_BRANCH_COLLATERAL_V1_PREREGISTRATION.md)
+- [Additive-branch runner](../../../bilinear_quotient/ops/run_setting2_regional_additive_branch_collateral_v1.py)
+- [Additive-branch result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_additive_branch_collateral_v1_result.json)
