@@ -96,7 +96,7 @@ def main():
         failures.append('Portable package manifest missing')
     review_due('HOURLY_STRATEGIC_REVIEW_', 1)
     review_due('THREE_HOURLY_MATHEMATICAL_REVIEW_', 3)
-    print('Reviews are active-agent duties, not unattended cron-generated research. Do not backfill missed hours.')
+    print('Restore active bounded Codex review timers or perform reviews in-session; alternate CIRCUIT/WEIGHT_FOLDING hourly and run the organization/efficiency audit every three hours. Do not backfill missed hours.')
     for queue in ['queue.txt', 'queue2.txt']:
         f = BQ / queue
         lines = f.read_text().splitlines() if f.exists() else []

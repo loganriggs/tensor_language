@@ -48,7 +48,14 @@ At14:44both services were running and both queues were empty. The last research 
 
 The startup script reads the newest `HOURLY_STRATEGIC_REVIEW_*` and `THREE_HOURLY_MATHEMATICAL_REVIEW_*` filenames and prints deadlines. Last reviews:14:28and14:29UTCSeptember13; then due15:28and17:29. On migration, perform overdue reviews at the first safe boundary and set fresh deadlines. Do not manufacture reports for offline hours.
 
-These are substantive duties of the **active Codex session**, not a background timer that can independently do mathematics. The saved skill and next-session prompt require hourly circuit/strategy reviews and separate three-hour reviews using primary literature and an executed mathematical consequence. Continue checking elapsed time during work. The main goal remains active; the instance-expiry handoff is a user-directed pause, not scientific completion.
+On the restored local workstation, user-level systemd timers launch serialized,
+bounded Codex reviews; see `LOCAL_START_2026-09-14.md`. On another machine, restore
+that scheduler or have the active Codex session maintain the same clocks. The saved
+skill alternates `CIRCUIT` and `WEIGHT_FOLDING` every hour and combines the
+three-hour mathematical review with an organization and efficiency audit. Reviews
+must inspect real receipts and take a bounded consequence; a timestamp-only template
+does not count. Continue checking elapsed time during work. The main goal remains
+active; the instance-expiry handoff is a user-directed pause, not scientific completion.
 
 ## What is backed up, and what is not
 

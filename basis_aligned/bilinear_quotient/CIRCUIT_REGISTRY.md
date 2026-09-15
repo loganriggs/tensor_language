@@ -8,6 +8,10 @@ views, this board, and `modules/specialist-heads.md` before opening a thread. Ol
 aggregate systems remain as historical data: CIRCUITS_SCOREBOARD.md (147 certified
 ownership clusters) and circuits/REPERTOIRE.json.
 
+Algebraically folded routes are indexed separately in
+[`COMPUTATION_PATH_REGISTRY.md`](COMPUTATION_PATH_REGISTRY.md). Cross-link a path
+here only after circuit evidence selects its semantic reader, writer, or intervention.
+
 Dedup discipline (§1092): before opening a thread, grep the ledger with MULTIPLE
 vocabularies (old arcs predate the § era: "sink", "cost map", dotted head names), check
 this board, and check `leaf_duplicates.json` if drawing census-tag controls.

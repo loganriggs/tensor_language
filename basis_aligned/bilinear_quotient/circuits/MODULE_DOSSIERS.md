@@ -3,6 +3,9 @@
 These records collect stable facts about native components independently of any one behavior
 circuit. They complement the task-defined records in `DOSSIER.md`. A native module boundary is an
 index for retrieving evidence, not an assumption that the module is one semantic unit.
+Folded cross-module and within-module routes are indexed in
+[`../COMPUTATION_PATH_REGISTRY.md`](../COMPUTATION_PATH_REGISTRY.md); path dossiers
+should link back to the relevant module sections here.
 
 ## `module.attention.5`
 

@@ -23,6 +23,7 @@ codex exec -C "$repo" -s danger-full-access \
 "$state/venv/bin/python" - "$repo" "$kind" <<'PY'
 import datetime as dt
 from pathlib import Path
+import re
 import sys
 
 root, kind = Path(sys.argv[1]), sys.argv[2]
@@ -37,5 +38,29 @@ if age < dt.timedelta(minutes=-2) or age > dt.timedelta(hours=hours, minutes=5):
     raise SystemExit(f'Scheduled review failed: stale or future receipt {latest.name}')
 if latest.stat().st_size < 500:
     raise SystemExit(f'Scheduled review failed: unexpectedly short receipt {latest.name}')
+body = latest.read_text()
+if kind == 'hourly':
+    match = re.search(r'ACTIVE_TRACK\s*:\s*(CIRCUIT|WEIGHT_FOLDING)', body, re.I)
+    if not match:
+        raise SystemExit(f'Scheduled review failed: missing ACTIVE_TRACK in {latest.name}')
+    track = match.group(1).upper()
+    prior_tracks = []
+    for record in records[:-1]:
+        found = re.search(r'ACTIVE_TRACK\s*:\s*(CIRCUIT|WEIGHT_FOLDING)', record.read_text(), re.I)
+        if found:
+            prior_tracks.append(found.group(1).upper())
+    expected = ('WEIGHT_FOLDING' if not prior_tracks else
+                ('CIRCUIT' if prior_tracks[-1] == 'WEIGHT_FOLDING' else 'WEIGHT_FOLDING'))
+    if track != expected:
+        raise SystemExit(f'Scheduled review failed: ACTIVE_TRACK {track}, expected {expected}')
+    required = ['TRACK_ALTERNATION', 'TRACK_PROGRESS', 'CEREMONY_BUDGET', 'NOVELTY_LESSON_GATE']
+    missing = [key for key in required if key not in body]
+    if missing:
+        raise SystemExit(f'Scheduled review failed: missing verdicts {missing}')
+else:
+    required_topics = ['organization', 'efficiency', 'CIRCUIT', 'WEIGHT_FOLDING']
+    missing = [term for term in required_topics if term.lower() not in body.lower()]
+    if missing:
+        raise SystemExit(f'Scheduled review failed: missing three-hour topics {missing}')
 print(f'Verified scheduled review: {latest}')
 PY

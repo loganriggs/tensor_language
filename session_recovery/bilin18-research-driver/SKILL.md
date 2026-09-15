@@ -1,6 +1,6 @@
 ---
 name: bilin18-research-driver
-description: Keep the bilin18/Theseus mechanistic-interpretability research program actively advancing, coordinated, mathematically rigorous, and periodically reconsidered. Use when working in /workspace/tensor_language or /workspace/theseus-bench on the compiled predictive/manipulable tensor-program goal, including research direction, experiment design, analysis, or GPU coordination.
+description: Keep the bilin18/Theseus mechanistic-interpretability program advancing through alternating causal-circuit and native weight-folding work, with organized dossiers and periodic mathematical and efficiency reviews. Use when working in /workspace/tensor_language or /workspace/theseus-bench on research direction, experiment design, analysis, or GPU coordination for the predictive, manipulable, simpler tensor-program goal.
 ---
 
 # Bilin18 Research Driver
@@ -35,19 +35,39 @@ Advance the project toward a smaller, transparent tensor program that is jointly
 Low CE alone is not completion. A useful result should improve or clarify at least one
 adoption ledger without silently regressing the others.
 
-## Current circuit-scale agenda
+## Alternating circuit and computation-path agenda
 
-While the user's circuit-scale directive is active, the immediate goal is a reusable codebase that can produce
-hundreds of high-quality, non-duplicated circuit records. Target roughly one basic causal screen or honest null per
-10 serial minutes. Use deep confirmation only for candidates that pass the basic screen. Do not make rank reduction,
-activation/weight reconstruction, variance preservation, quantization, or compression the primary research task.
+Alternate the primary research track at each hourly boundary. Read the `ACTIVE_TRACK` in the newest
+`HOURLY_STRATEGIC_REVIEW_*.md`; choose the opposite track and record it in the new review. If no review has this field,
+start with `WEIGHT_FOLDING`, because the work immediately before this directive was circuit work. The two tracks are:
+
+1. **`CIRCUIT`:** build high-quality, non-duplicated circuit records with explicit counterfactual semantics, causal
+   screens, promotion tests, and reusable infrastructure. Target roughly one basic screen or honest null per 10 serial
+   minutes. Use deep confirmation only for candidates that pass the basic screen.
+2. **`WEIGHT_FOLDING`:** follow full computation paths backward from the unembedding, forward from the embedding, or
+   between intermediate layers by algebraically folding native weights and nonlinear interactions. The unit may be a
+   complete module path such as unembedding -> last MLP -> penultimate MLP, or only selected terms that matter at one
+   decision point. Prefer simplicity as fewer independently specified computations, terms, states, or interfaces.
+   Quantization is out of scope and cannot satisfy this track.
+
+Treat the tracks as mutually informative. Circuit evidence should choose which readers, writers, positions, features,
+and interaction terms deserve folding. Folded paths should propose cross-module circuit groupings, splits inside a
+native head or MLP, and interventions that distinguish the proposed computation from correlated alternatives.
+
+For bilinear attention or MLP inputs, expand the chosen residual state into named earlier sources and preserve the
+self and cross terms separately. For example, if `r = r_0 + a_i + m_j`, inspect the relevant terms in
+`q(r)^T K k(r')`, or in a bilinear MLP input, including `a_i x a_i`, `m_j x m_j`, `a_i x m_j`, and `m_j x a_i` only
+where the chosen reader can use them. It is valid to fold a small subset of one attention output and one MLP output
+instead of whole modules. Record included and omitted terms, tensor shapes, gauges, nonlinearities, backgrounds,
+approximation norm, and the causal or predictive check that would show the retained subset matters.
 
 Treat the following as demonstrated workflow failures and check them at every hourly checkpoint:
 
-1. **Topic drift:** Count circuit receipts produced since the previous checkpoint. If the current work does not improve
-   circuit datasets, intervention machinery, causal screening, identification, dossiers, or throughput, stop it and
-   return to the circuit queue. Mathematical reviews must produce a circuit-level test or tool, not a decomposition
-   detour.
+1. **Topic drift:** Check that the hour followed its declared track and created a substantive receipt. Circuit hours
+   must improve circuit datasets, intervention machinery, causal screening, identification, dossiers, or throughput.
+   Weight-folding hours must derive, implement, or falsify a concrete native computation path rather than run a generic
+   rank/reconstruction sweep. Switch at the next boundary even when the current route is promising; preserve a clear
+   handoff so it can resume on its next hour.
 2. **Safeguards dominating the experiment:** A basic screen gets the small shared preflight: deterministic row build,
    prior-art/claim collision check, semantic-position and endpoint checks, dry-run price, focused unit tests, one
    positive-control replay, and managed execution. Do not attach a bespoke compiler, twenty backup protocols, or an
@@ -56,17 +76,17 @@ Treat the following as demonstrated workflow failures and check them at every ho
    boundary makes one necessary earlier. At the hourly checkpoint compare validation/review minutes with scientific
    design plus execution minutes; if safeguards are the largest bucket, simplify or reuse them before opening more
    candidates.
-3. **Duplicate work and forgotten lessons:** Before authoring a candidate, search task authorities, fast-screen and
-   follow-up ledgers, dossiers, prior-art receipts, and failure records. Explicitly check known lessons: activation-space
-   reconstruction/variance is not the target; CE or task logits are better functional outcomes but do not replace
-   causal transfer and selective controls; native head/MLP boundaries are not assumed semantic units; and control-family
-   choice can flip a verdict. Convert a new lesson into shared code or a short canonical failure record, not another
-   growing checklist copied into every preregistration.
+3. **Duplicate work and forgotten lessons:** Before authoring a candidate, search task authorities, circuit and path
+   registries, fast-screen and follow-up ledgers, module/path dossiers, prior-art receipts, and failure records.
+   Activation reconstruction and variance are not the target; CE or task logits do not replace causal transfer and
+   selective controls; native head/MLP boundaries are not assumed semantic units; and control-family choice can flip a
+   verdict. Convert a new lesson into shared code or a short canonical failure record.
 
 The basic-screen output is a **screen**, not an identified circuit. A high-quality circuit is promoted only with clear
 counterfactual semantics, native capability, causal transfer/localisation, robustness to plausible control and
 answer-preserving family choices, held-out/OOD prediction where applicable, selective intervention, and a dossier that
-states exactly which of these are held, failed, or untested.
+states exactly which of these are held, failed, or untested. A folded algebraic path is likewise a **path candidate**
+until held-out prediction and selective causal tests show that its retained terms carry the claimed computation.
 
 ## Restore working memory
 
@@ -113,7 +133,7 @@ check the durable goal state. If the program goal is active and the overall obje
 unfinished, do not treat the completed artifact as a stopping point. At the same safe boundary:
 
 1. interpret what the result changes at circuit level;
-2. choose the next highest-information in-scope action under the anti-rank-drift gate; and
+2. choose the next highest-information action within the current hourly track under the simplicity/evidence gate; and
 3. actually begin that action—perform the CPU step, publish its preregistration/claim, or enqueue
    its audited GPU job through the managed runner.
 
@@ -129,8 +149,9 @@ At the first safe boundary after each elapsed hour of active work, perform a ste
 Use the timestamp of the latest Codex strategic review or board checkpoint; do not create noisy
 duplicates within the same hour.
 
-The checkpoint must begin by restating the **circuit interpretation targets**. A useful circuit decomposition should
-eventually provide:
+The checkpoint must begin with `ACTIVE_TRACK: CIRCUIT` or `ACTIVE_TRACK: WEIGHT_FOLDING`, opposite the newest review,
+and name the last track's receipt plus the handoff preserved for its next turn. Then restate the **circuit interpretation
+targets**. A useful circuit decomposition should eventually provide:
 
 1. **Computational specification:** identify what information is read, what operation or composition is performed,
    what is written, and which downstream computations use it.
@@ -167,32 +188,32 @@ The checkpoint must then:
 7. Change direction when the evidence warrants it. If it does not, record why the current route
    survives the alternatives.
 
-### Anti-rank-drift gate
+### Simplicity and evidence gate
 
 For every proposed next experiment, name the circuit target(s) above that it can change and the measurement that
-would demonstrate that change. Reject or demote a proposal whose only expected result is lower rank, fewer stored
-values, lower reconstruction error, better CE, or preservation of more aggregate variance. Those quantities may be:
+would demonstrate that change. On `WEIGHT_FOLDING` hours, also name the exact path endpoint, native factors being
+folded, selected self/cross terms, and what simpler executable specification would result. Reject or demote a proposal
+whose only expected result is lower rank, fewer stored values, lower reconstruction error, better CE, or preservation
+of more aggregate variance. Those quantities may be:
 
 - matched-capacity controls preventing a task-guided method from winning by using more capacity;
 - mathematical lower bounds or implementation prices; or
 - post-identification engineering of a circuit already supported by task and intervention evidence.
 
-They do not by themselves discover, group, split, name, extract, or selectively manipulate a circuit. A low-rank or
+They do not by themselves discover, group, split, name, extract, selectively manipulate, or explain a circuit. A low-rank or
 sparse coordinate system with rotational freedom is a probe basis until downstream interchange, selective
-intervention, and held-out task prediction identify its units. When an hourly review selects a rank-focused action,
-it must explicitly explain why this is not merely another compression sweep and what circuit-level decision becomes
-possible afterward. Otherwise choose a task-conditioned decomposition or a more direct causal test.
+intervention, and held-out task prediction identify its units. A folding action must expose an explicit native algebraic
+computation and a simplicity claim in program terms; quantizing the same opaque arrays is never progress here.
 
 Write a concise review under `basis_aligned/polynomial_causal/` when it changes strategy or
 creates durable reasoning. Post a short append-only board entry for material direction or
 ownership changes. A reminder is not itself progress; take the chosen concrete next step.
 
-### Hourly circuit-throughput and systems checkpoint
+### Hourly alternating-track and systems checkpoint
 
-While the user has the circuit-only fast-loop directive active, every hourly strategic checkpoint
-must also audit research throughput from authoritative repository timestamps. Inspect commits,
-preregistrations, run logs, result files, dossier updates, and board claims from the preceding hour.
-Measure serial wall time for each candidate through:
+Every hourly strategic checkpoint must alternate the active track and audit research throughput from authoritative
+repository timestamps. Inspect commits, preregistrations, run logs, result files, circuit/path/module dossier updates,
+and board claims from the preceding hour. Measure serial wall time for each candidate through:
 
 `prior-art check -> hypothesis/counterfactual spec -> native capability -> causal screen -> scored dossier/null`.
 
@@ -200,10 +221,11 @@ Record where time went: scientific thinking, repeated authoring, validation/test
 review handoff, or idle/waiting. Do not use number of parallel agents or number of experiment arms to
 hide slow serial latency.
 
-Also record three explicit pass/fail lines: `CIRCUIT_FOCUS` (did the hour advance circuits or their shared
-infrastructure?), `CEREMONY_BUDGET` (did preflight/review remain smaller than the basic scientific screen, or was a
-specific elevated risk documented?), and `NOVELTY_LESSON_GATE` (was prior work searched and were relevant known
-failures applied?). A failed line forces the next bounded block to repair that workflow before unrelated research.
+Also record four explicit pass/fail lines: `TRACK_ALTERNATION` (is the new track opposite the previous one?),
+`TRACK_PROGRESS` (did the prior hour produce a circuit receipt or a concrete folded-path receipt as declared?),
+`CEREMONY_BUDGET` (did preflight/review remain smaller than the scientific work, or was a specific elevated risk
+documented?), and `NOVELTY_LESSON_GATE` (were registries/dossiers searched and relevant failures applied?). A failed
+line forces a bounded repair before unrelated work, without cancelling the required alternation.
 
 The operating target is one new circuit screen or honest null receipt every 10 serial minutes using
 shared machinery. This does not lower the evidence standard or redefine a screen as an identified
@@ -214,12 +236,14 @@ removing that repeated work before opening another bespoke experiment. Prefer a 
 specification and one reusable executor, scorer, prior-art check, and dossier writer. Do not build a
 new compiler, adapter, publisher, or audit framework for each circuit.
 
-During this directive, reject compression-only, rank-only, or frontier-pricing work as the primary
-research task. Existing results may be recorded, but new work must target circuit computation,
-grouping/splitting, prediction, extraction, selective manipulation, composition/reuse, or stable
-identification. Before starting, run the prior-result/novelty gate so faster throughput does not
-increase duplicated work. Communicate this same hourly throughput rule to collaborating research
-agents on the shared board and check their receipts rather than assuming the instruction propagated.
+On folding hours, use an analogous compact path pipeline:
+
+`endpoint/reader -> native algebra expansion -> selected source terms -> folded operator -> exact replay check -> causal/predictive test -> path dossier`.
+
+Organize durable evidence into a circuit registry, computation-path registry, and individual module dossiers with
+cross-links. A record must distinguish exact symbolic equality, approximation under a stated measure, predictive
+identification, and causal adoption. Before starting, run the prior-result/novelty gate so faster throughput does not
+increase duplicated work.
 
 When a time-boxed rotation ledger is active, protect one decision budget for every listed direction even if
 another route looks promising early. At the boundary, write the result or honest no-signal receipt, update the
@@ -227,10 +251,10 @@ status row, and immediately start the next direction. Use any remaining final bl
 one scorecard and exploit the best one or two. Do not let a long queued GPU run erase the other directions:
 leave a preregistration and cheap screen, then revisit the receipt when it lands.
 
-## Three-hour mathematical tensor-network checkpoint
+## Three-hour mathematical, organization, and efficiency checkpoint
 
-At the first safe boundary after each three elapsed hours of active research, take a separate mathematical
-step back. This is in addition to the hourly strategic checkpoint. Use the newest
+At the first safe boundary after each three elapsed hours of active research, take a separate mathematical and
+operational step back. This is in addition to the hourly strategic checkpoint. Use the newest
 `THREE_HOURLY_MATHEMATICAL_REVIEW_*.md` timestamp as the durable clock, and do not emit duplicate reviews
 inside one three-hour interval.
 
@@ -255,6 +279,16 @@ The checkpoint must:
 6. Save the review as
    `basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_YYYY-MM-DD_HHMM.md`, cite primary
    papers or authoritative monographs, and append a short board entry when the review changes strategy.
+7. Audit organization: circuit registry, computation-path registry, module dossiers, aliases, primary receipts,
+   preregistrations, and explanation indexes must agree and cross-link. Find orphaned or duplicated work and place it
+   in the appropriate dossier rather than copying narrative between files.
+8. Audit efficiency using actual timestamps and queue/runtime state. Identify repeated code, bespoke runners,
+   duplicated dataset construction/scoring, slow validation ceremony, idle lanes, or brittle handoffs. When justified,
+   perform one bounded safe refactor or organizational repair and validate it; otherwise record why no refactor beats
+   scientific work now. Do not let the audit consume the whole three-hour block.
+9. Compare the two tracks. Record where a circuit identifies a promising folded term or where a folded path proposes a
+   circuit split, grouping, or intervention. Set a concrete handoff for both tracks while leaving the hourly alternation
+   unchanged.
 
 The review is not satisfied by saying that the model is a tensor network, listing papers, or renaming an
 empirical decomposition. It must connect a known result to the actual Theseus contraction and produce a usable

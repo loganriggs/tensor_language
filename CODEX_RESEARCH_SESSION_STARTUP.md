@@ -14,6 +14,32 @@ they do not generate template reviews. Do not create duplicate runners/timers.
 The first local native-weight CPU objective screen is
 `NATIVE_RETAINED_ERROR_V1_RESULT.json`; consult the current board for newer work.
 
+## Hourly alternating research tracks — 14 September 2026 local directive
+
+At every hourly boundary, switch the primary track between `CIRCUIT` and
+`WEIGHT_FOLDING`. The newest hourly review records `ACTIVE_TRACK`; the following
+review must choose the opposite. If older reviews lack the field, the first new
+track is `WEIGHT_FOLDING`, because circuit work immediately preceded this rule.
+
+Circuit hours continue causal circuit screens, identification, manipulation,
+composition, and dossiers. Weight-folding hours trace native computation paths
+backward from unembedding, forward from embedding, or between intermediate layers.
+They may fold a whole path or only the pieces relevant to one prediction. In
+particular, expand bilinear QK and MLP inputs by earlier residual sources so an
+attention-output/MLP self term or either ordered cross term can be isolated and
+folded through its actual downstream reader. Measure simplicity as executable
+program structure and independently specified terms, states, edges, and weights;
+quantization is excluded.
+
+Use the [circuit registry](basis_aligned/bilinear_quotient/CIRCUIT_REGISTRY.md),
+[computation-path registry](basis_aligned/bilinear_quotient/COMPUTATION_PATH_REGISTRY.md),
+[module dossiers](basis_aligned/bilinear_quotient/circuits/MODULE_DOSSIERS.md), and
+[MLP dossier index](basis_aligned/polynomial_causal/explanations/MLP_MODULE_DOSSIER_INDEX.md).
+Cross-link a path to the circuits and modules that select its terms. Every three
+hours, combine the mathematical review with a bounded organization and efficiency
+audit: reconcile these indexes, find duplicate code/work, inspect queue/runtime
+health, and make one focused safe refactor or organizational repair when justified.
+
 ## Replacement-instance entry point — 13 September 2026
 
 The previous instance was expiring. Read the [final compression report](basis_aligned/polynomial_causal/explanations/for_logan/research_update_2026-09-13_final_compression.md), [recovery instructions](session_recovery/README.md), and [copyable next-session prompt](NEXT_CODEX_PROMPT.md).
@@ -118,19 +144,20 @@ Latest hourly review: [13 September14:28](basis_aligned/polynomial_causal/HOURLY
 Latest mathematical review: [13 September14:29](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-13_1429.md); next17:29UTC.
 Derive subsequent deadlines from the newest review filenames. If migration makes them overdue, review at the first safe boundary and establish new clocks; do not backfill offline hours. The14:28ceremonybudget failed: mark phases before operations and keep routine work to primaryreceipts plus shortboard notes untilhourly/major/userrequestedpublication.
 
-Hourly reviews restate seven circuit targets: explicit computation;
+Hourly reviews alternate `ACTIVE_TRACK: CIRCUIT` and `ACTIVE_TRACK: WEIGHT_FOLDING`, then restate seven circuit targets: explicit computation;
 cross-boundary grouping and within-module splitting; held-out/OOD prediction;
 extraction/sufficiency; selective manipulation; composition/reuse; stable
 identification. Audit changes, confounds, alternative directions, serial
-throughput and `CIRCUIT_FOCUS`, `CEREMONY_BUDGET`, `NOVELTY_LESSON_GATE`.
+throughput and `TRACK_ALTERNATION`, `TRACK_PROGRESS`, `CEREMONY_BUDGET`, `NOVELTY_LESSON_GATE`.
 A failed gate forces repair before unrelated work. Aim for one screen/null per
 10 serial minutes, with deeper confirmation only after a basic screen passes.
 
-Mathematical reviews define the actual tensors, indices, graph, nonlinearities,
+Three-hour reviews define the actual tensors, indices, graph, nonlinearities,
 gauges, domain, error norm and literal price. Search primary literature, map
-assumptions precisely, and derive an executable circuit consequence. Merely
-listing papers or renaming a tensor network is insufficient. Immediately act
-on the best consequence.
+assumptions precisely, and derive an executable consequence. They also reconcile
+circuit/path/module dossiers and audit repeated code, ceremony, handoffs, queues,
+and runtime efficiency. Merely listing papers or renaming a tensor network is
+insufficient. Immediately act on the best consequence or focused repair.
 
 Use the existing `research_phase_clock_v1.py` and
 `RESEARCH_ACTIVITY_2026-09-10_1614.jsonl`. Mark the first tool boundary, including
