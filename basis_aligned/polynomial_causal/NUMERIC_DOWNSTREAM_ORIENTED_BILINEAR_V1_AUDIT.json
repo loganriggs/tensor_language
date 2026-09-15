@@ -1,0 +1,101 @@
+{
+  "all_checks_pass": true,
+  "candidate_pass_counts": {
+    "mlp10_contrast_self": {
+      "action_gaps": 2,
+      "copies": 2,
+      "targets": 0
+    },
+    "mlp10_joint_response": {
+      "action_gaps": 6,
+      "copies": 3,
+      "targets": 8
+    },
+    "mlp10_left_background_right_delta": {
+      "action_gaps": 4,
+      "copies": 4,
+      "targets": 8
+    },
+    "mlp10_left_delta_right_background": {
+      "action_gaps": 8,
+      "copies": 2,
+      "targets": 7
+    },
+    "mlp12_contrast_self": {
+      "action_gaps": 8,
+      "copies": 0,
+      "targets": 5
+    },
+    "mlp12_joint_response": {
+      "action_gaps": 6,
+      "copies": 4,
+      "targets": 6
+    },
+    "mlp12_left_background_right_delta": {
+      "action_gaps": 4,
+      "copies": 4,
+      "targets": 4
+    },
+    "mlp12_left_delta_right_background": {
+      "action_gaps": 6,
+      "copies": 5,
+      "targets": 6
+    },
+    "mlp14_contrast_self": {
+      "action_gaps": 5,
+      "copies": 2,
+      "targets": 0
+    },
+    "mlp14_joint_response": {
+      "action_gaps": 6,
+      "copies": 2,
+      "targets": 2
+    },
+    "mlp14_left_background_right_delta": {
+      "action_gaps": 6,
+      "copies": 7,
+      "targets": 0
+    },
+    "mlp14_left_delta_right_background": {
+      "action_gaps": 6,
+      "copies": 4,
+      "targets": 2
+    },
+    "mlp8_contrast_self": {
+      "action_gaps": 9,
+      "copies": 0,
+      "targets": 6
+    },
+    "mlp8_joint_response": {
+      "action_gaps": 9,
+      "copies": 0,
+      "targets": 10
+    },
+    "mlp8_left_background_right_delta": {
+      "action_gaps": 5,
+      "copies": 0,
+      "targets": 10
+    },
+    "mlp8_left_delta_right_background": {
+      "action_gaps": 7,
+      "copies": 0,
+      "targets": 8
+    }
+  },
+  "checks": {
+    "complete_candidate_panel": true,
+    "exact_three_term_closure": true,
+    "fit_only": true,
+    "no_candidate_passed": true,
+    "no_optimization": true,
+    "predicate_consistent": true,
+    "price_consistent": true,
+    "runner_hash_bound": true,
+    "terminal_consistent": true
+  },
+  "finding": "The native left/right orientation split is exact, but no oriented, self, or joint MLP response passes the frozen FIT action/selectivity gates; SELECT remains sealed.",
+  "maximum_exactness_error": 7.141377056137704e-11,
+  "result_sha256": "1aaa45e8d2a0947be8da205d690cf3c0d015613e794e6e2ffb68d7c299482706",
+  "runner_sha256": "bd77571b6d80489d796ea98bc499f1b6bb265d353362524aaf20969f00c84674",
+  "schema": "numeric_downstream_oriented_bilinear_v1_audit"
+}
