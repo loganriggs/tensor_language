@@ -1,0 +1,52 @@
+{
+  "bars": {
+    "active_fraction_min": 0.9,
+    "closure_rse_max": 1e-10,
+    "control_to_target_rms_max": 0.5,
+    "exact_positive_min": 0.9,
+    "overall_cosine_min": 0.95,
+    "overall_norm_max": 1.25,
+    "overall_norm_min": 0.75,
+    "overall_relative_l2_max": 0.25,
+    "overall_sign_min": 0.9,
+    "pair_cosine_min": 0.85,
+    "pair_relative_l2_max": 0.35,
+    "pair_sign_min": 0.85,
+    "replay_max": 1e-05
+  },
+  "candidates": [
+    "source_only",
+    "quadratic",
+    "left",
+    "right",
+    "cross"
+  ],
+  "files": {
+    "preregistration": "2216348636d473ed8c22df33b27bd335bd4b3d4f578b34903f5699c3ce9d8644",
+    "seven_result": "88a2058f88a0adc895e4e97d00814f4b86638a3afd6a8c12791ec0ad0c10c6c6",
+    "seven_rows": "ff35fd9aa27843c2c29252ffb558d45338d036e75b281e74a5b3b532b65e026d",
+    "six_result": "59f28afe7181c0c30334717b277a9db064022cfe375d9e8757e2d2e2fa592b27",
+    "six_rows": "9788eecd9e5d512440a9ca85addd8e1620a257f9938d2b7c43aefc4807554ff9",
+    "v1_result": "803557aa2c6a37fd9671cde15637be85d60cdc82f1af2c1504211d2701abdf9c"
+  },
+  "outcomes_opened": true,
+  "price": {
+    "backwards": 0,
+    "fits": 0,
+    "maximum_forwards": 12,
+    "maximum_sequences": 1728,
+    "null_forwards": 8,
+    "null_sequences": 1152,
+    "updates": 0
+  },
+  "quantized": false,
+  "schema": "bracket_suffix_finite_bilinear_program_v2_binding",
+  "sites": [
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "sole_correction": "exclude untouched exact reference arm from candidate liveness conjunction"
+}
