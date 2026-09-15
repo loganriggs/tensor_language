@@ -1,4 +1,4 @@
-# September 15 research update: a multiplicative upstream response in the subject-number circuit
+# September 15 research update: subject response and a compact regional interaction path
 
 ## High-level summary
 
@@ -26,9 +26,23 @@ improves response error only `.28804→.28722` and coefficient error only
 rows. A future circuit coordinate must be selected by the head-response operator,
 not by activation energy.
 
+The alternating weight-folding track has also produced a clean result. In the
+regional UK/US spelling path, the dominant QK1 input to attention head 9.8 can be
+written as 289 exact query-source × key-source interactions. No individual pair
+dominates. But four late sources—attention5 and MLP5/6/7—form a useful group.
+Their self-interaction has change-norm ratio `.4548`; interactions crossing between
+this group and the other 13 sources jointly reach `.4409`. Keeping the three blocks
+that touch the late group reproduces the complete carry×carry path with `.1119`
+relative error. This is a compact attribution of the selected path, and the next
+test is a fresh causal routing intervention.
+
 ![Prediction errors for the response interaction and donor-free proxy](assets/research_update_2026-09-15_subject_response_interaction.png)
 
 *Figure 1. Lower is better. Left: only the exact multiplicative response model passes the `.40` coefficient-error ceiling. Right: the two-vector proxy passes its response-scalar gate but fails after composition into the coefficient program.*
+
+![Four exact late/remainder QK1 interaction blocks](assets/research_update_2026-09-15_regional_late_group.png)
+
+*Figure 2. Change norm of each exact QK1 block relative to the carry×carry parent. The blocks are correlated, so these ratios need not sum to one. The late self-block leads, and the two ordered cross-boundary blocks are both substantial.*
 
 ## Terms and computation
 
@@ -123,11 +137,76 @@ coefficient error remained `.51072`; its native-baseline improvement was `.09859
 and its oracle degradation was `.13383`, missing the `.10` gates on both sides.
 The result argues against choosing the next basis by activation variance.
 
+## Regional head9.8 interaction-path fold
+
+For the separate UK/US spelling path, let $c$ be the exact residual carry entering
+block 9 after learned residual coefficients are folded in. It decomposes into the
+embedding and 16 attention/MLP writes from layers 0–7:
+
+$$
+c=\sum_{i=1}^{17}c_i.
+$$
+
+Head 9.8's first routing score is bilinear in its query and key inputs. Holding
+the native RMS denominator fixed therefore gives an exact expansion
+
+$$
+B(c,c)=\sum_{i=1}^{17}\sum_{j=1}^{17}B(c_i,c_j).
+$$
+
+The 289-term census was distributed: its ten largest terms still had `.66738`
+relative replay error, and its largest term, MLP6-query × attention5-key, was
+only `.04839` of the parent change norm. We then froze
+
+$$
+D=A_5+M_5+M_6+M_7,
+\qquad
+R=c-D,
+$$
+
+and evaluated the exact four-block identity
+
+$$
+B(c,c)=B(D,D)+B(D,R)+B(R,D)+B(R,R).
+$$
+
+| Ordered block | Change-norm ratio | Aligned fraction | Family range |
+|---|---:|---:|---:|
+| $D\times D$ | `.45480` | `.45284` | `.42180–.48700` |
+| $D\times R$ | `.25335` | `.25227` | `.23494–.27360` |
+| $R\times D$ | `.19041` | `.18844` | `.15197–.20647` |
+| $R\times R$ | `.11186` | `.10645` | `.09656–.12851` |
+
+Here **change-norm ratio** means the $L_2$ norm of one block's paired UK/US
+change vector divided by the corresponding norm for the complete carry×carry
+parent. **Aligned fraction** is its dot product with the parent change, divided
+by the parent's squared norm. Since the four vectors can reinforce or cancel,
+the norm ratios are interaction magnitudes rather than additive percentages.
+
+All preregistered descriptive predictions passed. $D\times D$ leads globally and
+within every family. The two cross-boundary terms have joint change-norm ratio
+`.44088`, and
+
+$$
+B(D,D)+B(D,R)+B(R,D)
+$$
+
+replays the parent with relative error `.11186`. Carry reconstruction error was
+$8.39\times10^{-8}$; QK1 score closure and downstream folded closure were
+$1.51\times10^{-16}$ and $1.07\times10^{-16}$. These results show that the
+computation is compact at grouped interaction grain, despite being diffuse at
+individual module-pair grain. They do not yet show causal sufficiency.
+
 ## What is established
 
 The missing subject-number amplitude is partly organized by a specific interaction at the L11H3 interface. The evidence is cross-construction, outcome-blind, and uses a native weight axis. The exact response variable remains donor-dependent, so this does not yet explain how a normal forward pass computes the amplitude.
 
 The two-vector proxy shows that much of the MLP6/7 response is shared across lexical rows. It is not accurate enough for the complete coefficient program. Rank-2 activation/displacement PCA adds negligible useful information. The registered rules close lexical/background prototype expansion and activation-rank sweeps on this authority; the next representation must use response-oriented coordinates and earn fresh causal substitution.
+
+For the regional path, exact folding now connects the output reader backward
+through MLP17, MLP16, attention9 head 9.8, QK1, and the layer-0–7 carry sources.
+The late group is a compact interaction handle. A selective routing edit on fresh
+rows is required before treating those three late-touching blocks as a circuit.
 
 ## Appendix: experiment details
 
@@ -181,6 +260,23 @@ Discovery used one physical model forward over 96 role sequences and 1,024 row-w
 
 The first discovery runner failed before scientific output because it read a dtype from a component dictionary. The corrected runner changed only the dtype source. The first proxy receipt was implementation-invalid because construction-sliced float32 aggregation differed from the parent metric by $3.24\times10^{-9}$ against an unnecessarily tight $10^{-10}$ audit. The corrected $10^{-8}$ audit remains far below the project closure tolerance; all scientific gates were unchanged.
 
+### Regional-fold dataset, computation, and price
+
+The regional experiment reused 96 frozen sequences: 48 matched UK/US pairs over
+four prompt families (`distant_note`, `near_message`, `near_person`, and
+`old_near_anchor`). Each pair differs at the registered regional cue while the
+answer reader is the unembedding-row difference for the matched UK and US answer
+tokens. The 96 rows were processed in 14 length-bucketed physical forwards.
+
+The runner reconstructed 17 native carry sources, projected the fixed late and
+remainder sums through head 9.8's QK1 weights, retained QK2 and the value stream
+at their native values, and folded each resulting 128-dimensional head output
+through the attention output projection, residual coefficients, the exact
+MLP16 × MLP17 bilinear term, and the row-specific unembedding reader. It used
+float64 for the offline contractions, zero fits, zero backward passes, zero
+parameter updates, and no hyperparameter or group search. The late group and all
+thresholds were frozen from the preceding 289-term census.
+
 ### Code and primary receipts
 
 - [Response-coordinate preregistration](../../SUBJECT_NUMBER_NATIVE_HEAD_RESPONSE_COORDINATE_DISCOVERY_V1_PREREGISTRATION.md)
@@ -194,3 +290,7 @@ The first discovery runner failed before scientific output because it read a dty
 - [Rank-2 recipient-state result](../../../bilinear_quotient/circuits/fast_screens/subject_number_rank2_recipient_state_response_proxy_v2_result.json)
 - [Computation-path registry](../../../bilinear_quotient/COMPUTATION_PATH_REGISTRY.md)
 - [L11H3 module dossier](../../../bilinear_quotient/circuits/MODULE_DOSSIERS.md)
+- [Carry-source census result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_head9_8_qk1_carry_source_fold_v1_result.json)
+- [Late-group preregistration](../../SETTING2_REGIONAL_HEAD9_8_QK1_LATE_GROUP_FOLD_V1_PREREGISTRATION.md)
+- [Late-group runner](../../../bilinear_quotient/ops/run_setting2_regional_head9_8_qk1_late_group_fold_v1.py)
+- [Late-group result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_head9_8_qk1_late_group_fold_v1_result.json)

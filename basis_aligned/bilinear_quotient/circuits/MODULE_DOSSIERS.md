@@ -144,6 +144,16 @@ led by MLP6-query × attention5-key at `.04839`. See the
 [carry-source fold](fast_screens/setting2_regional_head9_8_qk1_carry_source_fold_v1_result.json).
 This licenses a frozen late-group block test, not an individual-pair causal claim.
 
+The frozen late group $D=\{\mathrm{attention5},\mathrm{MLP5},\mathrm{MLP6},
+\mathrm{MLP7}\}$ gives an exact four-block expansion against the other 13 carry
+sources. $D\times D$ leads at `.45480` of the parent change norm and remains
+`.42180–.48700` across the four prompt families. The ordered cross-boundary sum
+$D\times R+R\times D$ is `.44088`; retaining all three terms that touch $D$
+leaves only `.11186` relative replay error. The grouped score and downstream sum
+close at $1.51\times10^{-16}$ and $1.07\times10^{-16}$. This is selected-row
+attribution; causal use awaits the preregistered fresh routing edit. See the
+[late-group fold](fast_screens/setting2_regional_head9_8_qk1_late_group_fold_v1_result.json).
+
 ## `module.attention.8`
 
 Aliases: attention block 8, attn8. Related route:
@@ -227,6 +237,12 @@ This is exact path attribution with fixed denominators and value, not evidence
 that the attention5 induction/copy function itself implements regional spelling.
 The next grouped test must preserve this distinction.
 
+That fixed grouping test assigns `.45480` to late×late, `.25335` to late-query ×
+remainder-key, `.19041` to remainder-query × late-key, and `.11186` to
+remainder×remainder. Late×late leads in every family. Because these are norms of
+correlated change vectors, they are interaction magnitudes rather than additive
+percentages or causal recovery scores.
+
 ### 2026-09-14 — input-dependent mean deviation is not the gross-value head pair
 
 The disjoint-document [head split](../../polynomial_causal/ATTENTION5_MEAN_DEVIATION_HEAD_SPLIT_V2_RESULT.json)
@@ -290,6 +306,12 @@ MLP6×attention5 `.04839`, MLP7×attention5 `.03788`, attention5×MLP6 `.03734`,
 MLP6 self `.03252`, and MLP6×MLP7 `.03094`. Individual terms are small and the
 top-ten replay is poor, so these modules remain a candidate interaction group
 rather than three independent semantic components.
+
+Together with attention5 as a frozen late group, these sources account for the
+leading self-block (`.45480`) and participate in two substantial ordered boundary
+blocks (`.25335/.19041`). The three late-touching blocks replay the exact parent
+to `.11186` relative error. The next test should edit this grouped QK1 routing on
+fresh rows rather than subdivide the selected rows again.
 
 ## Saved correlative interface: 26 heads across layers 3–16
 

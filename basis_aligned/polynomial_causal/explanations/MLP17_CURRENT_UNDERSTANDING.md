@@ -780,3 +780,20 @@ Attention5 and MLP5/6/7 form the clearest descriptive cluster, occupying nine of
 the top ten slots; attention- and MLP-containing aggregates are `.62900/.81750`.
 The next bounded fold groups those four sources against the remainder before any
 fresh selective routing edit. [Primary carry receipt](../../bilinear_quotient/circuits/fast_screens/setting2_regional_head9_8_qk1_carry_source_fold_v1_result.json).
+
+That frozen grouping succeeds. Let
+
+$$
+D=\mathrm{attention5}+\mathrm{MLP5}+\mathrm{MLP6}+\mathrm{MLP7},
+\qquad R=\text{the other 13 carry sources}.
+$$
+
+The exact ordered expansion gives change-norm ratios `.45480` for $D\times D$,
+`.25335` for $D\times R$, `.19041` for $R\times D$, and `.11186` for
+$R\times R$. The $D\times D$ block leads in every construction family, while
+the two cross-boundary blocks jointly reach `.44088`. Keeping the three blocks
+that touch $D$ leaves `.11186` relative error. Grouped QK1 score closure is
+$1.51\times10^{-16}$ and downstream closure is $1.07\times10^{-16}$. This is a
+compact selected-row path description, not yet causal sufficiency; the next
+step is a fresh selective routing edit with matched QK2, value, and
+$R\times R$ controls. [Primary late-group receipt](../../bilinear_quotient/circuits/fast_screens/setting2_regional_head9_8_qk1_late_group_fold_v1_result.json).
