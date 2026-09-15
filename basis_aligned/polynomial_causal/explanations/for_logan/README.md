@@ -1,6 +1,8 @@
 # Requested full reports for Logan
 
-**Latest requested update: [15 September, 02:15 UTC — Interaction compression across the circuits](research_update_2026-09-15_0215_circuit_interaction_compression.md).** Definitions, equations, causal computations, positive circuit results, valid nulls, current boundaries, and next work.
+**Latest requested update: [15 September, 03:46 UTC — Regional weight folding to QK interactions](research_update_2026-09-15_0346_regional_weight_folding.md).** A task-matched unembedding-to-MLP17-to-MLP16 path converges on head9.8, then separates its QK carry/attention8/MLP8 interactions. Includes definitions, equations, plots, limits, and a reproducibility appendix.
+
+**Previous requested update: [15 September, 02:15 UTC — Interaction compression across the circuits](research_update_2026-09-15_0215_circuit_interaction_compression.md).** Definitions, equations, causal computations, positive circuit results, valid nulls, current boundaries, and next work.
 
 **Previous requested update: [14 September, 09:45 UTC — Runtime status and overnight objective controls](research_update_2026-09-14_0945_status_and_objective.md).** Live runtime status, overnight CPU results, and the earlier continuation gap.
 
