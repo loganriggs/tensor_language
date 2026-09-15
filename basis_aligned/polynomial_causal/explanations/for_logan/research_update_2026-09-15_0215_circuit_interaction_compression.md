@@ -113,6 +113,33 @@ not just a direction fitted to one location. The open problem is generating its
 axis and scalar from native text state. The weak plural-to-singular direction
 was not rescued or retuned. [Result](../../SUBJECT_NUMBER_TWO_SITE_COMPOSITION_V2_RESULT.json)
 
+The ten stored scalars also turned out to follow a much smaller interaction
+law. Encode edit direction as \(d=+1\) for plural-to-singular and \(d=-1\) for
+singular-to-plural, and let \(c\in\{0,1,2,3,4\}\) count the active background
+factors. Before reading any new causal outcome, we fitted
+
+\[
+\alpha(d,c)=\beta_0+\beta_d d+\beta_c c+\beta_{dc}dc.
+\]
+
+Ordinary least squares on the ten frozen, weights-only coefficients gave
+`beta = [26.84386, 31.83707, -9.61604, -2.91184]`. The cross term
+\(\beta_{dc}dc\) means that cardinality changes the write amplitude at a
+different rate in the two edit directions. This four-scalar law matched the ten
+coefficients with cosine `.999740`, relative L2 `.02279`, and maximum absolute
+error `1.004`.
+
+We then installed the resulting writes in all 512 interventions of the fresh
+noun/construction panel. Relative to the full ten-scalar rank-one program, the
+behavioral effects had cosine `.999816`, relative L2 `.02395`, and sign
+agreement `1.0`. Relative to the native exact effect, they retained cosine
+`.85527`, relative L2 `.54751`, and sign agreement `.97852`. All template and
+intermediate-cardinality bars passed with exactly zero decomposition closure
+error. The scalar table has therefore compressed from ten values to four. This
+is a held symbolic coefficient generator; deriving \(d\), \(c\), and the shared
+axis from hidden state remains open. [Result](../../../bilinear_quotient/circuits/fast_screens/subject_number_coefficient_bilinear_law_v1_result.json) ·
+[preregistration](../../SUBJECT_NUMBER_COEFFICIENT_BILINEAR_LAW_V1_PREREGISTRATION.md)
+
 ## Narrative tense: six sources collapse to one signed axis
 
 For past-versus-present narrative completion, the relevant carrier is the value
@@ -255,7 +282,7 @@ accuracy. We stopped adding prefix panels or tuning the control threshold.
 
 | Circuit | Current evidence | Remaining boundary |
 |---|---|---|
-| Subject-number | Held rank-one write; near-exact two-site composition | Generate axis and scalar from native state |
+| Subject-number | Held rank-one write; near-exact two-site composition; ten coefficients compressed to a four-scalar bilinear law | Derive direction, cardinality, and axis from native state |
 | Narrative tense | Held one signed axis plus global magnitude | Native sign/amplitude generation and decoder |
 | Bracket opener | Held rank-two source interaction; suffix interaction excluded; key2 localized; affine vector and two scalar context corrections null | Independently derive a query-conditioned adapter or move to native subject-axis generation |
 | Numeric sequence | Exact downstream factorization, valid selective null | New suffix-state interaction quotient |
