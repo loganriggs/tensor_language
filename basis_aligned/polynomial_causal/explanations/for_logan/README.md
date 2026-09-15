@@ -1,6 +1,8 @@
 # Requested full reports for Logan
 
-**Latest requested update: [14 September, 09:45 UTC — Runtime status and overnight objective controls](research_update_2026-09-14_0945_status_and_objective.md).** Live but idle runners, actual overnight CPU results, failed integration/variance-reduction criteria, and the unstarted next research action.
+**Latest requested update: [15 September, 02:15 UTC — Interaction compression across the circuits](research_update_2026-09-15_0215_circuit_interaction_compression.md).** Definitions, equations, causal computations, positive circuit results, valid nulls, current boundaries, and next work.
+
+**Previous requested update: [14 September, 09:45 UTC — Runtime status and overnight objective controls](research_update_2026-09-14_0945_status_and_objective.md).** Live runtime status, overnight CPU results, and the earlier continuation gap.
 
 **Previous full report: [13 September — Final compression update](research_update_2026-09-13_final_compression.md).** Research through14:34; includes the successful sparse parent, all three settings, costs, failures, and restart priorities.
 
