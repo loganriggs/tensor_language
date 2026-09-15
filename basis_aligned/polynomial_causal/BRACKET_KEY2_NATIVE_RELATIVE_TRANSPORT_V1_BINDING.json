@@ -1,0 +1,44 @@
+{
+  "bars": {
+    "capability_accuracy_min": 0.75,
+    "control_to_target_rms_max": 0.5,
+    "exact_positive_min": 0.9,
+    "key2_relative_l2_improvement_min": 0.05,
+    "pair_cosine_min": 0.75,
+    "pair_relative_l2_max": 0.5,
+    "pair_sign_min": 0.85,
+    "prediction_cosine_min": 0.9,
+    "prediction_norm_max": 1.4,
+    "prediction_norm_min": 0.6,
+    "prediction_relative_l2_max": 0.4,
+    "prediction_sign_min": 0.9,
+    "replay_max": 1e-05
+  },
+  "candidates": [
+    "relative_key2",
+    "relative_both"
+  ],
+  "files": {
+    "builder": "e7e0df7d322c4a5e9a4290d76f8cbefb141728cb411d0a0afdb954afce439143",
+    "factorial": "65589c677219e6715464e8e68cbefe1c11e40b73d8f702dbbece0100d8e3033e",
+    "fit_rows": "ff35fd9aa27843c2c29252ffb558d45338d036e75b281e74a5b3b532b65e026d",
+    "preregistration": "1e877878b5788addb10c01c7aab2f97875427ac9627312bdb4969748b0221fdf",
+    "program": "0e38e92a9fc06d1167294d8f1233d89e379657382d14b771973fc851f82ea4d7",
+    "select_rows": "14068b510d2b58a792fd8c213f78b7f659c28648423142c4627231b0a751c870"
+  },
+  "fit_split": "opened_seventh_cascade",
+  "outcomes_opened": false,
+  "price": {
+    "backwards": 0,
+    "fits": 0,
+    "maximum_forwards": 11,
+    "maximum_sequences": 1584,
+    "null_forwards": 6,
+    "null_sequences": 864,
+    "updates": 0
+  },
+  "quantized": false,
+  "schema": "bracket_key2_native_relative_transport_v1_binding",
+  "select_row_manifest_sha256": "cdb5577384044e7e5f0d6c352fc7b62c5353d050eb2f952b90d7bdbb8b0f7d0c",
+  "select_split": "sealed_eighth_serial"
+}
