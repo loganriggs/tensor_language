@@ -1,0 +1,13 @@
+# Subject-number rank-one two-site composition V1
+
+The frozen subject-number program represents ten direction-by-background writes as one shared 1,152-dimensional L11H3 axis plus ten scalars and already passed fresh single-site causal substitution. This experiment tests whether two independently fixed installations compose in one autoregressive prompt.
+
+The outcome-blind authority has 16 two-clause prompts: eight fresh noun-pair groups balance all four singular/plural combinations at site 1 and site 2, crossed with two new templates. Subject positions are fixed at tokens 5 and 14. The first subject is followed by its native `is`/`are` continuation in the prompt; the second subject is final. All nouns are one-token forms and were excluded from the earlier fresh authority.
+
+Use the frozen rank-one axis and only the independently fixed cardinality-four coefficient for each site's direction: `singular_to_plural.cardinality_4=-31.14876154002341` or `plural_to_singular.cardinality_4=7.605708871993355`. Add that L11H3 write delta at site 1 only, site 2 only, or both. A zero-delta replay is the exactness control. No row, template, site, or joint coefficient is allowed.
+
+At both subject positions, measure the opposite-number minus native-number (`are-is` or `is-are`) margin and an unrelated `can-will` margin. Native number accuracy must be at least .75 in each site-by-number-by-template cell. Each site's own single-site edit must have RMS at least .01 and positive-sign fraction at least .75 in each direction. The site-2-only edit must change the earlier site-1 number margin by at most `1e-5`. Unrelated-control RMS for each single and joint arm must be at most .75 of the corresponding number-effect RMS.
+
+Predict the joint two-site number-margin effect as the vector sum of the two independently measured single-site effects. Overall and separately at output site 1 and output site 2, require cosine at least .95, relative L2 error at most .25, sign agreement at least .90, and predicted/actual norm ratio from .80 to 1.20. If additive composition fails but the inclusion-exclusion interaction is at least .20 of joint-effect RMS, record `two_site_interaction_live`; otherwise record a composition null. This preserves a discovered interaction for a later compression test rather than fitting it here.
+
+A pass establishes predictable two-site reuse conditional on the fixed rank-one writes and native downstream background. It does not generate the axis/scalars from text or remove the rest of the model. No fit, gain, intercept, rank change, row repair, subgroup, threshold change, gradient, update, or quantization is allowed. Price is five forwards over 80 sequence evaluations.
