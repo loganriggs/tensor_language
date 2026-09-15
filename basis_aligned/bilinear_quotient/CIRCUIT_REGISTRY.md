@@ -33,12 +33,24 @@ facts must be checked in the prior-result gate even when the exact experiment pr
 
 ## Recent circuit-to-path cross-links
 
-- **Subject-number L11H3 (`grammatical_subject_number.v30`):** the held four-scalar
+- **Subject-number L11H3 (`grammatical_subject_number.v31`):** the held four-scalar
   direction/cardinality law and top native output-weight axis are causal substitution
-  results; the native singular-coordinate scalar readout is a predictive null. The
-  pending upstream E/A/U/W interaction and folded continuation are indexed as
+  results; both the native singular-coordinate scalar readout and its interaction
+  with the E/A/U/W MLP8-input secant coordinate are predictive nulls. The folded
+  continuation and the new causal-response-coordinate handoff are indexed as
   [`PATH-SUBJECT-001`](COMPUTATION_PATH_REGISTRY.md). Canonical event history remains
   in [`circuits/task_subject_verb_number_agreement.json`](circuits/task_subject_verb_number_agreement.json).
+
+- **Regional inherited-city edge (head8.2 → head9.8-O):** held-out authored
+  prediction, conditional extraction, cross-boundary composition, graded midpoint
+  editing, cached FineWeb/Pile transfer, and pair-centered selective removal are
+  recorded in the [module dossier](circuits/MODULE_DOSSIERS.md#head98-conditional-evenodd-routing-and-selective-scalar--14-september-1217-utc).
+  The independently backward-folded UK/US reader route converges on head9.8 and is
+  indexed as [`PATH-SET2-001`](COMPUTATION_PATH_REGISTRY.md). Primary causal receipts:
+  [fresh chain](../polynomial_causal/ODD_ATTENTION8H2_CHAIN_FRESH_V1_RESULT.json),
+  [midpoint edit](../polynomial_causal/ODD_ATTENTION8H2_MIDPOINT_EDIT_V1_RESULT.json),
+  [corpus transfer](../polynomial_causal/ODD_ATTENTION8H2_CORPUS_TRANSFER_V1_RESULT.json),
+  and [corpus removal](../polynomial_causal/ODD_ATTENTION8H2_CORPUS_MIDPOINT_REMOVAL_V1_RESULT.json).
 
 ## The pipeline (stages a circuit moves through)
 

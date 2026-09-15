@@ -28,8 +28,14 @@ Primary receipts: [coefficient law](fast_screens/subject_number_coefficient_bili
 [native axis](fast_screens/subject_number_native_weight_axis_v1_result.json), and
 [native scalar-readout null](fast_screens/subject_number_native_scalar_feature_discovery_v1_result.json).
 These establish a reusable causal output axis and compact coefficient law. They do
-not identify how earlier state computes direction/cardinality, so the upstream
-interaction remains proposed rather than identified.
+not identify how earlier state computes direction/cardinality. Adding the exact
+MLP8-input E/A/U/W secant coordinate $g$ and its interaction with the native axis
+coordinate $z$ is also a valid null: leave-one-construction-out relative L2 moves
+from `.616996` for `[1,z]` to `.553126` for `[1,z,g,zg]`, only `.063871`
+improvement versus the frozen `.10` gate and still above the `.40` ceiling. The
+quadratic-context extension reaches only `.549892`. See the
+[upstream-coordinate null](fast_screens/subject_number_upstream_context_coordinate_discovery_v1_result.json).
+Future discovery should change coordinate family rather than widen either readout.
 
 ## `module.attention.17.head2`
 
