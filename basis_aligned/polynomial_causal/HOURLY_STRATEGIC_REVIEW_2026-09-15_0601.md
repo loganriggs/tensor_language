@@ -167,3 +167,12 @@ interaction at `.99930/.99891` cosine and `.16533/.09669` relative error. All
 five gates pass. This assigns the interaction primarily to the explicit
 head9.8 product, with smaller downstream magnitude curvature, and does not count
 as another fresh-family transfer.
+
+The exact source-token census completed at 06:28 UTC. Four offsets selected by
+head-vector norm replay at `.2190/.1095` error and cross-transfer at
+`.1437/.2894`; instruction-only replay reaches `.1906/.1498`, while
+description-only misses at `.8171/.8544`. All three registered gates pass. The
+leading common positions are quote, colon, and offset −7, but token identities
+at the latter position differ, so retain a positional/boundary candidate rather
+than inventing a shared word-level role. V1's padded-mask reporting failure and
+the token-length-only V2 correction are preserved.

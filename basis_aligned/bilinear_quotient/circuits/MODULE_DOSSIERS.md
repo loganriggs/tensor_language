@@ -772,6 +772,18 @@ was already opened by the four-arm result, so it strengthens mechanism
 attribution rather than adding fresh transfer evidence. [Preregistration](../../polynomial_causal/SETTING2_REGIONAL_QK1_VALUE_INTERACTION_ATTRIBUTION_V1_PREREGISTRATION.md),
 [result](fast_screens/setting2_regional_qk1_value_interaction_attribution_v1_result.json).
 
+The exact cross term also separates over framing source tokens. On the opened
+panel, four relative-to-quote offsets replay its final-query vector with
+`.21902/.10950` error and transfer to the other template with
+`.14374/.28944` error. The common leading offsets are the quote, colon, and
+offset −7; the fourth is −9/−10 by family. Because −7 and the fourth offset map
+to different words across templates, this is positional/boundary compression,
+not a stable lexical role. Instruction-side sums alone reach `.19058/.14979`
+error, while description-side sums miss at `.81713/.85442`. These rankings are
+discovery on already opened rows and need a new recursive subset intervention.
+[V2 result](fast_screens/setting2_regional_head_cross_source_census_v2_result.json),
+[V2 correction](../../polynomial_causal/SETTING2_REGIONAL_HEAD_CROSS_SOURCE_CENSUS_V2_CORRECTION.md).
+
 The same edge transfers to a score-blind cached corpus panel. On FineWeb and
 Pile/reference, inherited-edge/full-city errors are19.48% and16.91%, effect
 cosines are.9963 and.9948, and all63 native-capable pairs move toward the donor

@@ -1,6 +1,6 @@
 # Latest requested update for Logan
 
-**Newest requested update: [15 September, updated through 06:13 UTC — Subject response and a compact regional interaction path](research_update_2026-09-15_0430_subject_response_interaction.md).** Covers the multiplicative L11H3 response result and donor-free nulls, then follows a regional reader through head9.8's QK1 source interactions, a fresh causal removal, the downstream response census, and the successful QK1-routing × current-value composition. Includes display equations, five graphs, limits, and a reproducibility appendix.
+**Newest requested update: [15 September, updated through 06:28 UTC — Subject response and a compact regional interaction path](research_update_2026-09-15_0430_subject_response_interaction.md).** Covers the multiplicative L11H3 response result and donor-free nulls, then follows a regional reader through head9.8's QK1 source interactions, a fresh causal removal, the downstream response census, the successful QK1-routing × current-value composition, and its source-token compression. Includes display equations, six graphs, limits, and a reproducibility appendix.
 
 **Previous requested update: [15 September, 03:46 UTC — Regional weight folding to QK interactions](research_update_2026-09-15_0346_regional_weight_folding.md).** Traces a task-matched UK/US reader backward through MLP17, MLP16, attention9, head9.8, and its block-8 QK source interactions, with equations, plots, limits, and experiment details.
 

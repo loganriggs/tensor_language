@@ -55,6 +55,13 @@ curvature. The explicit head cross predicts the recursive interaction at
 cosine `.9993/.9989` and relative error `.165/.097`. The interaction direction
 therefore comes from head9.8 itself; the suffix changes its magnitude modestly.
 
+An exact source-token split makes the product smaller again. Four framing
+positions replay its vector with `.219/.110` error and transfer between the two
+templates with `.144/.289` error. Most of the vector is instruction-side, but
+the shared pattern is positional and boundary-related rather than one stable
+word: the quote and colon lead both families, while other high-ranked offsets
+land on different tokens.
+
 ![Prediction errors for the response interaction and donor-free proxy](assets/research_update_2026-09-15_subject_response_interaction.png)
 
 *Figure 1. Lower is better. Left: only the exact multiplicative response model passes the `.40` coefficient-error ceiling. Right: the two-vector proxy passes its response-scalar gate but fails after composition into the coefficient program.*
@@ -351,6 +358,37 @@ computation, with the suffix attenuating its magnitude.
 
 *Figure 5. Both single branches are live. The factorial bar is the recursive difference-of-differences; the explicit-head bar comes from joint minus the additive-without-cross intervention. Their close sizes and directions localize most nonadditivity inside head9.8.*
 
+### Which source tokens carry the product?
+
+At the final query, the head cross has an exact source-position expansion:
+
+$$
+-R\Delta v
+=
+\sum_{k\in\mathrm{framing}}-R_{qk}\Delta v_k.
+$$
+
+Ranking offsets from the quote by their head-vector norm selects four positions
+per template. They reconstruct the complete cross vector with relative errors
+`.219/.110`; using either template's four offsets on the other gives
+`.144/.289`. Local UK/US reader cosines are `.9987/.9999`.
+
+The quote at offset 0 and colon at offset −1 lead both rankings. Offset −7 also
+appears in both, but it is the second half of “Preserve” in one template and the
+sentence period in the other. The fourth positions differ (−9 and −10). This
+supports a compact positional/boundary interface, while the present evidence
+does not support a shared lexical feature.
+
+Instruction-only vector errors are `.191/.150`; description-only errors are
+`.817/.854`. The interaction is therefore mostly carried by prompt-instruction
+states, though the description contribution remains part of the exact sum.
+Because the same opened rows selected these offsets, this is a candidate for a
+future fresh recursive intervention rather than held-out confirmation.
+
+![Source-position compression of the head cross](assets/research_update_2026-09-15_head_cross_sources.png)
+
+*Figure 6. Lower is better. Four positions and the full instruction region both approximate the cross vector; the description region alone does not. The dashed line is the preregistered within-family four-offset gate.*
+
 ## What is established
 
 The missing subject-number amplitude is partly organized by a specific interaction at the L11H3 interface. The evidence is cross-construction, outcome-blind, and uses a native weight axis. The exact response variable remains donor-dependent, so this does not yet explain how a normal forward pass computes the amplitude.
@@ -468,6 +506,13 @@ batches, or 240 sequences. It changed no fitted quantity or component. Its added
 arm installs the two single head-vector deltas without their product, providing
 a direct causal control for suffix-generated nonlinearity.
 
+The source census used only the six native length-bucketed batches needed for
+the same 48 rows. It made no new behavioral intervention. V1 completed model
+execution but failed during reporting because a 20-token mask indexed the
+21-token padded storage tensor. V2 slices storage to the true row length before
+applying the unchanged mask. Source recomposition then closes at
+$3.59\times10^{-8}$ relative error.
+
 ### Code and primary receipts
 
 - [Response-coordinate preregistration](../../SUBJECT_NUMBER_NATIVE_HEAD_RESPONSE_COORDINATE_DISCOVERY_V1_PREREGISTRATION.md)
@@ -500,3 +545,7 @@ a direct causal control for suffix-generated nonlinearity.
 - [Head-cross attribution preregistration](../../SETTING2_REGIONAL_QK1_VALUE_INTERACTION_ATTRIBUTION_V1_PREREGISTRATION.md)
 - [Head-cross attribution runner](../../../bilinear_quotient/ops/run_setting2_regional_qk1_value_interaction_attribution_v1.py)
 - [Head-cross attribution result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_qk1_value_interaction_attribution_v1_result.json)
+- [Source-census preregistration](../../SETTING2_REGIONAL_HEAD_CROSS_SOURCE_CENSUS_V1_PREREGISTRATION.md)
+- [Source-census V2 correction](../../SETTING2_REGIONAL_HEAD_CROSS_SOURCE_CENSUS_V2_CORRECTION.md)
+- [Source-census V2 runner](../../../bilinear_quotient/ops/run_setting2_regional_head_cross_source_census_v2.py)
+- [Source-census V2 result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_head_cross_source_census_v2_result.json)
