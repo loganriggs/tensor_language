@@ -200,9 +200,14 @@ Two outcome-blind activation laws are preregistered:
 The coefficients use exact factor2 activations from the first three
 constructions only. Selection uses factor2 activation fidelity on the seventh
 construction, without answer logits or behavioral effects. The first execution
-hit GPU memory while forming full logits for all 576 endpoints in one batch and
-produced no result. The scientific design remains frozen; execution is being
-changed to bounded panel batches. [Preregistration](../../BRACKET_KEY2_QUERY_CONTEXT_SCALAR_V1_PREREGISTRATION.md)
+hit GPU memory while forming full logits for all 576 endpoints in one batch.
+After memory-safe panel batching and a singleton rotary-shape repair, the frozen
+test completed. The absolute baseline had relative L2 `.57018`. The anchored
+law fitted `gamma=.32496` but worsened error to `.61197`; the two-scalar law
+fitted `alpha=.99273, gamma=.29996` and worsened error to `.60353`. Neither
+passed, no program was selected, and the eighth construction remained sealed.
+This closes the two simplest scalar context corrections as well as full-vector
+affine transport. [Result](../../BRACKET_KEY2_QUERY_CONTEXT_SCALAR_V1_RESULT.json)
 
 ## Numeric sequences and numbered lists: exact MLP algebra, no selective carrier
 
@@ -252,7 +257,7 @@ accuracy. We stopped adding prefix panels or tuning the control threshold.
 |---|---|---|
 | Subject-number | Held rank-one write; near-exact two-site composition | Generate axis and scalar from native state |
 | Narrative tense | Held one signed axis plus global magnitude | Native sign/amplitude generation and decoder |
-| Bracket opener | Held rank-two source interaction; suffix interaction excluded; key2 localized | Compress query2-key2 scalar and confirm on sealed eighth construction |
+| Bracket opener | Held rank-two source interaction; suffix interaction excluded; key2 localized; affine vector and two scalar context corrections null | Independently derive a query-conditioned adapter or move to native subject-axis generation |
 | Numeric sequence | Exact downstream factorization, valid selective null | New suffix-state interaction quotient |
 | Numbered list | Same shared bus and downstream null | New suffix-state interaction quotient |
 | Induction | Valid early-MLP interaction null | Independent later attention–MLP interface |

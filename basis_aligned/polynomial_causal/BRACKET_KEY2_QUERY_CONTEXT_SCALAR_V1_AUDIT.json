@@ -1,0 +1,20 @@
+{
+  "all_checks_pass": true,
+  "anchored_relative_l2": 0.6119700184337354,
+  "baseline_relative_l2": 0.5701840391971136,
+  "checks": {
+    "anchored_worsens": true,
+    "exact_instrument": true,
+    "exact_price": true,
+    "literal_verdict": true,
+    "no_selection": true,
+    "runner_hash_bound": true,
+    "two_scalar_worsens": true,
+    "valid_terminal": true
+  },
+  "finding": "Neither the anchored nor free two-scalar query-context law transfers factor2 activation to the seventh construction; both worsen the frozen absolute prototype baseline, with no behavioral access and no opening of the eighth panel.",
+  "result_sha256": "b9fcb12984068a8b698e4f84d10aeb5ebc2a288c38930ec02e3360381ee0d2b6",
+  "runner_sha256": "ddc17d8a1bc015d29a5a47509b7e8c57256a02ba45d972f96b6400d3459d5ec5",
+  "schema": "bracket_key2_query_context_scalar_v1_audit",
+  "two_scalar_relative_l2": 0.6035329809319777
+}
