@@ -1,0 +1,68 @@
+{
+  "bars": {
+    "maximum_control_rms_fraction": 0.5,
+    "maximum_full_ceiling_logit_absolute_error": 0.0001,
+    "maximum_prediction_norm_ratio": 1.35,
+    "maximum_prediction_relative_l2": 0.35,
+    "maximum_self_logit_absolute_error": 1e-05,
+    "minimum_family_mean_late_backward_target": 1.0,
+    "minimum_native_accuracy": 0.75,
+    "minimum_parent_cosine": 0.7,
+    "minimum_parent_projection": 0.5,
+    "minimum_prediction_cosine": 0.9,
+    "minimum_prediction_norm_ratio": 0.65,
+    "minimum_prediction_sign": 0.8
+  },
+  "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "coefficient_count": 1,
+  "files": {
+    "confirmation_result": "e48faee03d4ff759af1a5dd14ba653f9b7ad9bce81079b0759f21e0de59e52ba",
+    "fit_rows": "f8277e4345790b085c6b10518a02ba9f9c88dc6a005dff37c6820367be4f9dc9",
+    "holdout_rows": "9df2697a6715dd5993a3b0c65599ef971b28a61a005a33da743695e77647a3cc",
+    "interaction_result": "5483007745c17949919a5c6c239ef951ac04061f41b8f21e671f8b1a1b6681e6",
+    "preregistration": "ed224ebd2a5eb1f384a4bded00a538417a6f3337bbdeccaee2ce89433bb561ff"
+  },
+  "fit_row_manifest_sha256": "15e2983c1163db3ccf734589c09c6304ff47d54e5c291f5572e3b15333cdeb83",
+  "groups": {
+    "A": [
+      "attn8",
+      "attn9",
+      "attn10",
+      "attn11",
+      "attn12"
+    ],
+    "AM": [
+      "attn8",
+      "mlp8",
+      "attn9",
+      "mlp9",
+      "attn10",
+      "mlp10",
+      "attn11",
+      "mlp11",
+      "attn12",
+      "mlp12"
+    ],
+    "M": [
+      "mlp8",
+      "mlp9",
+      "mlp10",
+      "mlp11",
+      "mlp12"
+    ]
+  },
+  "holdout_outcomes_opened": false,
+  "holdout_row_manifest_sha256": "c85964b634c02bbac914803ee3e8a07f698aacb8a0e97648549664be65b5e485",
+  "holdout_rows_generated_before_model_execution": true,
+  "law": "beta_times_additive_component_effect",
+  "price": {
+    "backwards": 0,
+    "fits": 1,
+    "forwards": 55,
+    "sequences": 440,
+    "updates": 0
+  },
+  "quantized": false,
+  "schema": "successor_pointer_behavioral_interaction_scalar_v1_binding",
+  "through_origin": true
+}
