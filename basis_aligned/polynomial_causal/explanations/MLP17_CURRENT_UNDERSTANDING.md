@@ -715,3 +715,20 @@ uses grammatical native endpoints with fixed UK/US token readers, so it is a
 generic weights/path diagnostic rather than task-matched regional circuit evidence.
 The next discriminating check must repeat the frozen terms on the actual regional
 prefixes before recursively attributing $e$ to earlier decoder layers.
+
+The task-matched regional repeat changes the conclusion. Using every row's own
+UK-minus-US unembedding contrast and the native MLP17 input denominator, the
+normalized cue-change ranking is `ep .6184`, `ee .3978`, `ea .2655`, `pa .1272`,
+`pp .06872`, and `eo .06026`; remaining terms are below `.05`. Here $e$ is the
+earlier residual, $p$ the scaled MLP16 output, and $a$ head17.2. Terms containing
+head17.2 aggregate to `.3153`, while `ep` is at least `.531` in each of four
+construction families. Exact raw/normalized closure is below
+$6.61\times10^{-16}$ over 14 forwards and 96 sequences.
+
+Thus the MLP16 interaction with earlier state is the primary folded path at the
+regional decision point, and head17.2 contributes through cross terms rather than
+its self term. The earlier grammatical ranking was state specific, not a valid
+regional circuit ranking. This [task-matched screen](../../bilinear_quotient/circuits/fast_screens/setting2_regional_four_source_term_census_v1_result.json)
+uses no behavioral logits and does not yet establish selective causal use. Next
+decompose $e$ into propagated earlier module writes, then intervene on the leading
+folded term.

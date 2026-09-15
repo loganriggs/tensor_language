@@ -31,6 +31,26 @@ These establish a reusable causal output axis and compact coefficient law. They 
 not identify how earlier state computes direction/cardinality, so the upstream
 interaction remains proposed rather than identified.
 
+## `module.attention.17.head2`
+
+Aliases: head17.2, L17H2, regional late attention head. Related folded route:
+[`PATH-SET2-001`](../COMPUTATION_PATH_REGISTRY.md).
+
+### 2026-09-15 task-matched MLP17 interaction screen
+
+On 96 controlled British/American prefixes, exact source-term folding through each
+row's UK-minus-US unembedding reader finds that terms containing head17.2 jointly
+have normalized cue-change norm ratio `.3153`. The largest such terms are earlier
+residual × head17.2 (`.2655`) and MLP16 × head17.2 (`.1272`); head17.2 self is
+`.03236`. The same terms were below `.017` on unrelated grammatical endpoints.
+
+This establishes circuit-conditioned interaction magnitude, not causal necessity
+or sufficiency. The exact instrument used 14 forwards/96 sequences, no fits or
+behavioral logits, and closed at relative error $6.61\times10^{-16}$. See the
+[primary screen](fast_screens/setting2_regional_four_source_term_census_v1_result.json).
+The leading overall term is earlier residual × MLP16 (`.6184`), so future head17.2
+work should remain a secondary branch until a selective intervention distinguishes it.
+
 ## `module.attention.5`
 
 Aliases: attention block 5, `attn5`, L5 attention, induction gate, copy gate, content gatherer,
