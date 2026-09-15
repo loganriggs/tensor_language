@@ -60,6 +60,14 @@ baseline and degrading `.13896` from the exact-response oracle. See the
 This closes scalar direction prototypes as a complete program, while preserving
 their response-level transfer as a constraint for a vector-valued predictive state.
 
+A fixed rank-2 predictor then used the top two training-construction recipient-state
+PCs to predict the top two grouped MLP6/7 displacement PCs. It retained roughly
+`.37–.43` of recipient-state energy and `.49–.54` of displacement energy, but changed
+response error only `.28804→.28722` and coefficient error only `.51585→.51072`.
+See the [rank-2 null](fast_screens/subject_number_rank2_recipient_state_response_proxy_v2_result.json).
+This rejects activation/displacement energy as the next basis-selection criterion;
+future coordinates should be oriented by the frozen head-response operator.
+
 ## `module.attention.17.head2`
 
 Aliases: head17.2, L17H2, regional late attention head. Related folded route:
