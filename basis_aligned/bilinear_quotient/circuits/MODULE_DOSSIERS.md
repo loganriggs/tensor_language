@@ -50,6 +50,16 @@ This is donor-dependent discovery on opened rows. The next test must predict $s$
 from recipient-side upstream state and transfer to fresh rows before this becomes
 a native generation mechanism.
 
+A leave-one-construction-out donor-free test then replaces each row-specific
+MLP6/7 displacement with one training-construction mean vector per answer direction.
+Those two vectors predict the exact response scalar strongly (cosine `.96590`,
+relative L2 `.28804`), but the necessary $zs$ multiplication amplifies the residual:
+the complete coefficient error is `.51585`, improving only `.09346` over the native
+baseline and degrading `.13896` from the exact-response oracle. See the
+[donor-free proxy null](fast_screens/subject_number_donor_free_head_response_proxy_v2_result.json).
+This closes scalar direction prototypes as a complete program, while preserving
+their response-level transfer as a constraint for a vector-valued predictive state.
+
 ## `module.attention.17.head2`
 
 Aliases: head17.2, L17H2, regional late attention head. Related folded route:

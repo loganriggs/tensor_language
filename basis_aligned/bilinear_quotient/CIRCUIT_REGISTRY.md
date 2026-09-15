@@ -33,12 +33,14 @@ facts must be checked in the prior-result gate even when the exact experiment pr
 
 ## Recent circuit-to-path cross-links
 
-- **Subject-number L11H3 (`grammatical_subject_number.v32`):** the held four-scalar
+- **Subject-number L11H3 (`grammatical_subject_number.v33`):** the held four-scalar
   direction/cardinality law and top native output-weight axis are causal substitution
   results. Native singular-coordinate and E/A/U/W secant readouts are predictive
   nulls, while the frozen interaction between the native head coordinate and its
   response to an MLP6/7 number-source switch passes opened-authority prediction at
-  `.3769` relative L2. The donor-free prediction and fresh-authority handoff are indexed as
+  `.3769` relative L2. A two-vector donor-free response proxy transfers the response
+  scalar but fails after interaction composition (`.5159` relative L2). The next
+  vector-valued predictive-state and fresh-authority handoff are indexed as
   [`PATH-SUBJECT-001`](COMPUTATION_PATH_REGISTRY.md). Canonical event history remains
   in [`circuits/task_subject_verb_number_agreement.json`](circuits/task_subject_verb_number_agreement.json).
 
