@@ -50,6 +50,11 @@ output, and 57–61% after the recursive suffix. This is the first direct result
 showing how the circuit track and backward weight-folding track meet in one
 native attention product.
 
+A fifth intervention separates that head product from downstream nonlinear
+curvature. The explicit head cross predicts the recursive interaction at
+cosine `.9993/.9989` and relative error `.165/.097`. The interaction direction
+therefore comes from head9.8 itself; the suffix changes its magnitude modestly.
+
 ![Prediction errors for the response interaction and donor-free proxy](assets/research_update_2026-09-15_subject_response_interaction.png)
 
 *Figure 1. Lower is better. Left: only the exact multiplicative response model passes the `.40` coefficient-error ceiling. Right: the two-vector proxy passes its response-scalar gate but fails after composition into the coefficient program.*
@@ -333,9 +338,18 @@ remains nearly directionally aligned with the additive sum (cosine
 All 24 native pairs have the expected sign, and all five unrelated-reader ratios
 are below `.288`.
 
+The ordinary difference-of-differences could, by itself, mix the head product
+with nonlinear interactions created later in the network. A fifth arm installs
+$-Rv+P\Delta v$ at the head while deliberately omitting $-R\Delta v$. Subtracting
+this arm from the true joint isolates the explicit head cross. Its target RMS is
+`.281/.376` logits, compared with `.242/.347` for the full recursive factorial
+interaction; their cosines are `.9993/.9989` and relative errors `.165/.097`.
+Most of the interaction is therefore attributable to the bilinear head
+computation, with the suffix attenuating its magnitude.
+
 ![Fresh routing and value composition](assets/research_update_2026-09-15_routing_value_composition.png)
 
-*Figure 5. Both single branches are live. The interaction bar is the recursively measured difference-of-differences, not an independently removable module, and is large relative to the value-only branch.*
+*Figure 5. Both single branches are live. The factorial bar is the recursive difference-of-differences; the explicit-head bar comes from joint minus the additive-without-cross intervention. Their close sizes and directions localize most nonadditivity inside head9.8.*
 
 ## What is established
 
@@ -449,6 +463,11 @@ $1.11\times10^{-7}$. The first queue submission was rejected before model load
 because the static gate disallowed a local `__file__` path expression; replacing
 it with the already defined runner path changed no scientific input.
 
+The five-arm attribution reused the opened 48-row panel and required 30 physical
+batches, or 240 sequences. It changed no fitted quantity or component. Its added
+arm installs the two single head-vector deltas without their product, providing
+a direct causal control for suffix-generated nonlinearity.
+
 ### Code and primary receipts
 
 - [Response-coordinate preregistration](../../SUBJECT_NUMBER_NATIVE_HEAD_RESPONSE_COORDINATE_DISCOVERY_V1_PREREGISTRATION.md)
@@ -478,3 +497,6 @@ it with the already defined runner path changed no scientific input.
 - [Fresh composition preregistration](../../SETTING2_REGIONAL_QK1_VALUE_COMPOSITION_FRESH_V1_PREREGISTRATION.md)
 - [Fresh composition runner](../../../bilinear_quotient/ops/run_setting2_regional_qk1_value_composition_fresh_v1.py)
 - [Fresh composition result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_qk1_value_composition_fresh_v1_result.json)
+- [Head-cross attribution preregistration](../../SETTING2_REGIONAL_QK1_VALUE_INTERACTION_ATTRIBUTION_V1_PREREGISTRATION.md)
+- [Head-cross attribution runner](../../../bilinear_quotient/ops/run_setting2_regional_qk1_value_interaction_attribution_v1.py)
+- [Head-cross attribution result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_qk1_value_interaction_attribution_v1_result.json)

@@ -761,6 +761,17 @@ framing sources; the earlier O-only result identifies its origin but is a
 narrower projected subcomponent. [Preregistration](../../polynomial_causal/SETTING2_REGIONAL_QK1_VALUE_COMPOSITION_FRESH_V1_PREREGISTRATION.md),
 [result](fast_screens/setting2_regional_qk1_value_composition_fresh_v1_result.json).
 
+The five-arm attribution separates this explicit head product from nonlinear
+suffix curvature. Joint minus an additive-without-cross head intervention
+matches the ordinary recursive factorial interaction with cosine
+`.99930/.99891` and relative error `.16533/.09669`. The explicit head-cross
+effects have RMS `.28072/.37577` logits versus factorial interaction RMS
+`.24192/.34678`. Thus the head9.8 product determines the interaction direction
+and most of its magnitude; the native suffix attenuates it modestly. This panel
+was already opened by the four-arm result, so it strengthens mechanism
+attribution rather than adding fresh transfer evidence. [Preregistration](../../polynomial_causal/SETTING2_REGIONAL_QK1_VALUE_INTERACTION_ATTRIBUTION_V1_PREREGISTRATION.md),
+[result](fast_screens/setting2_regional_qk1_value_interaction_attribution_v1_result.json).
+
 The same edge transfers to a score-blind cached corpus panel. On FineWeb and
 Pile/reference, inherited-edge/full-city errors are19.48% and16.91%, effect
 cosines are.9963 and.9948, and all63 native-capable pairs move toward the donor

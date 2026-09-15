@@ -160,3 +160,10 @@ UK-minus-US effects are `−.7976/−.9231` logits, joint/additive cosines are
 manual-attention, midpoint-scaling, and joint-algebra audits are all at or below
 `1.11e-7`. This closes the review's missing circuit↔path composition record and
 hands the next weight-folding hour a causally confirmed QK1×current-value product.
+
+The immediate five-arm attribution completed at 06:21 UTC on the same now-opened
+panel. Joint minus the additive-without-cross head arm predicts the factorial
+interaction at `.99930/.99891` cosine and `.16533/.09669` relative error. All
+five gates pass. This assigns the interaction primarily to the explicit
+head9.8 product, with smaller downstream magnitude curvature, and does not count
+as another fresh-family transfer.
