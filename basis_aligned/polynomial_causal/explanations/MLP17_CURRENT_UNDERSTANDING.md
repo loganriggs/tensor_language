@@ -770,3 +770,13 @@ close below $3.20\times10^{-16}$ through the full MLP16/MLP17/unembedding fold.
 The leading remaining backward step is the QK1 carry × carry term; QK2's
 attention8 routing terms and the known head8.2 value route remain separate until
 an intervention connects them. [Primary QK receipt](../../bilinear_quotient/circuits/fast_screens/setting2_regional_head9_8_qk_source_fold_v3_result.json).
+
+The exact carry split reaches embedding and all attention/MLP writes through layer
+7. Its 289 ordered QK1 terms close at $1.32\times10^{-16}$ downstream and reproduce
+the parent `.858819` ratio within $3.19\times10^{-9}$. Ten terms are not enough:
+their replay error is `.66738`, and the largest individual pair is only `.04839`.
+The computation is interaction-heavy, with cross-source aggregate `.87347`.
+Attention5 and MLP5/6/7 form the clearest descriptive cluster, occupying nine of
+the top ten slots; attention- and MLP-containing aggregates are `.62900/.81750`.
+The next bounded fold groups those four sources against the remainder before any
+fresh selective routing edit. [Primary carry receipt](../../bilinear_quotient/circuits/fast_screens/setting2_regional_head9_8_qk1_carry_source_fold_v1_result.json).

@@ -133,6 +133,17 @@ $1.97\times10^{-7}$. This localizes routing computations along the folded path,
 while holding values and downstream context fixed. See the
 [QK source fold](fast_screens/setting2_regional_head9_8_qk_source_fold_v3_result.json).
 
+The dominant QK1 carry×carry term further expands into 289 ordered pairs among
+embedding and attention/MLP writes from layers 0–7. The exact score and downstream
+closures are $1.50\times10^{-16}$ and $1.32\times10^{-16}$, and the recomputed
+parent ratio is `.85881922`. Its top ten pairs leave `.66738` replay error, so the
+fine-grained path is distributed. Cross-source terms aggregate to `.87347` of the
+parent change; attention-containing and MLP-containing aggregates are `.62900`
+and `.81750`. Nine top-ten pairs lie among attention5, MLP5, MLP6, and MLP7,
+led by MLP6-query × attention5-key at `.04839`. See the
+[carry-source fold](fast_screens/setting2_regional_head9_8_qk1_carry_source_fold_v1_result.json).
+This licenses a frozen late-group block test, not an individual-pair causal claim.
+
 ## `module.attention.8`
 
 Aliases: attention block 8, attn8. Related route:
@@ -205,6 +216,17 @@ module account, not a new functional localization.
 
 Any future attention-5 experiment must cite this dossier and state which unknown it resolves.
 
+### 2026-09-15 regional QK1 path overlap
+
+An independently backward-folded UK/US reader path places attention5 inside the
+dominant head9.8 QK1 carry×carry branch. Attention5-query × attention5-key is
+`.03830` of that parent change; MLP6-query × attention5-key leads all 289 pairs
+at `.04839`, and attention5 participates in seven of the top seventeen. Summed
+aligned fractions are `.22039` on the query side and `.19886` on the key side.
+This is exact path attribution with fixed denominators and value, not evidence
+that the attention5 induction/copy function itself implements regional spelling.
+The next grouped test must preserve this distinction.
+
 ### 2026-09-14 — input-dependent mean deviation is not the gross-value head pair
 
 The disjoint-document [head split](../../polynomial_causal/ATTENTION5_MEAN_DEVIATION_HEAD_SPLIT_V2_RESULT.json)
@@ -253,6 +275,21 @@ have negative mean damage and reverse the comparison. All-head restoration and
 manual/model checks pass. The frozen terminal-copy endpoint therefore does not
 support a corpus-stable copy/content split of these mean deviations. Preserve
 this null; do not tune masks, groups, ranks, or denominators around it.
+
+## `module.mlp.5_to_7`
+
+Aliases: late pre-block-8 MLP carry group. Related folded route:
+[`PATH-SET2-001`](../COMPUTATION_PATH_REGISTRY.md).
+
+### 2026-09-15 interaction with attention5 in regional QK1
+
+MLP5/6/7 participate heavily in the 289-term expansion of head9.8 QK1's
+carry×carry path. Query-side aligned fractions are `.12010/.20707/.15755`; key-side
+fractions are `.12960/.16501/.14781`. The largest individual terms include
+MLP6×attention5 `.04839`, MLP7×attention5 `.03788`, attention5×MLP6 `.03734`,
+MLP6 self `.03252`, and MLP6×MLP7 `.03094`. Individual terms are small and the
+top-ten replay is poor, so these modules remain a candidate interaction group
+rather than three independent semantic components.
 
 ## Saved correlative interface: 26 heads across layers 3–16
 
