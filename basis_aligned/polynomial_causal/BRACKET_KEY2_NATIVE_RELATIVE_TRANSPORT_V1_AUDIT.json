@@ -1,0 +1,22 @@
+{
+  "absolute_key2_relative_l2": 0.4379169773335515,
+  "all_checks_pass": true,
+  "checks": {
+    "both_candidates_fail": true,
+    "exact_null_price": true,
+    "fit_instrument": true,
+    "key2_not_improved": true,
+    "literal_verdict": true,
+    "no_selection": true,
+    "runner_hash_bound": true,
+    "valid_terminal": true
+  },
+  "finding": "Adding the frozen donor-minus-recipient type displacement to native recipient keys does not recover donor key context. It worsens key2 vector error and both donor-free behavioral programs fail on FIT, leaving the eighth construction sealed.",
+  "key2_relative_l2_improvement": -0.01671817838583578,
+  "relative_both_behavior_relative_l2": 0.472798383497698,
+  "relative_key2_behavior_relative_l2": 0.4818738551360965,
+  "relative_key2_relative_l2": 0.4546351557193873,
+  "result_sha256": "58186fb854f4163d74f9f53c55014ce326a37b5f491f17e3addd31edb98351ca",
+  "runner_sha256": "d5b44bce6a18d7c75db8c17e8fdde0abde06fb912df3d88ab0e55f43c18bbc00",
+  "schema": "bracket_key2_native_relative_transport_v1_audit"
+}
