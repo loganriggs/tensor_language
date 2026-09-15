@@ -1,0 +1,25 @@
+{
+  "schema": "subject_number_native_head_response_coordinate_discovery_v1_binding",
+  "files": {
+    "preregistration": "d243d2d7642c215981b8f55fc18829547db755f13b44a7f910e2ee3bd008393b",
+    "law": "7375c8e513805808afea9785bc984511a2eabf5fc5e5f866f5dfc21e8b42d6f1",
+    "native_axis": "7ddc0595a066b78e4d8fde1be5d9e2bb0471af648e58c84059980d60115838ef",
+    "parent_null": "573f38d7bcbf2a0e82d4987c62100ce65b42e8564b818f8b1ed166d199711a53",
+    "authority": "b8ac252137b9844ee5c417c073497e18df337c1e4200d17513ef6e31a0915ab1"
+  },
+  "forms": [
+    "native_baseline",
+    "response_only",
+    "joint_additive",
+    "joint_interaction"
+  ],
+  "price": {
+    "physical_model_forwards": 1,
+    "role_sequences": 96,
+    "offline_head_function_evaluations": 1024,
+    "scalar_least_squares_fits": 12,
+    "backwards": 0,
+    "parameter_updates": 0
+  },
+  "scientific_scope": "Donor-dependent, outcome-blind opened-authority discovery only; no native-generator or prospective claim."
+}
