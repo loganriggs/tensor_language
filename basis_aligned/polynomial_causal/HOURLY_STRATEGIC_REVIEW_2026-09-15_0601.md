@@ -195,3 +195,10 @@ routing/additive/value work/jobs RMS is `.5260/.5304/.0327`; routing alone is
 within `.0735` of additive. Both singles are target-live (`.2908/.3647` RMS),
 and all recursive sums compose within `.1114`. Preserve value and cross; split
 the three selected QK1 routing blocks when the circuit track next resumes.
+
+The 06:47 UTC DD/DR/RD split is a valid singleton-localization null. No block
+replays full work/jobs within `.35` or improves selectivity by 30%. DD is largest
+for target/control (`.1646/.2304`); DR and RD have worse control/target ratios.
+Block sums replay full target/work-jobs within `.2065/.0811`. Close one-block
+pruning; preserve structured unions or reader-conditioned routing for a later
+circuit hour.

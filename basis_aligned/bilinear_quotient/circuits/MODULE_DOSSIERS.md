@@ -816,6 +816,16 @@ separate late-late, late-remainder, and remainder-late QK1 routing blocks for
 target versus work/jobs. [Preregistration](../../polynomial_causal/SETTING2_REGIONAL_ADDITIVE_BRANCH_COLLATERAL_V1_PREREGISTRATION.md),
 [result](fast_screens/setting2_regional_additive_branch_collateral_v1_result.json).
 
+The exact DD/DR/RD routing split rejects a singleton explanation of that
+collateral. In failed family 1, target/work-jobs RMS is `.16460/.23036` for DD,
+`.06502/.19958` for DR, and `.01019/.13165` for RD. No block reaches the frozen
+full-control replay or 30% selectivity-improvement gates; the ordered cross
+blocks are especially control-heavy. Separate effects still sum to full routing
+within `.20641` target and `.08101` work/jobs error. Keep the distributed
+three-block representation and close one-block pruning on this panel.
+[Preregistration](../../polynomial_causal/SETTING2_REGIONAL_QK1_BLOCK_COLLATERAL_V1_PREREGISTRATION.md),
+[result](fast_screens/setting2_regional_qk1_block_collateral_v1_result.json).
+
 The same edge transfers to a score-blind cached corpus panel. On FineWeb and
 Pile/reference, inherited-edge/full-city errors are19.48% and16.91%, effect
 cosines are.9963 and.9948, and all63 native-capable pairs move toward the donor

@@ -450,6 +450,18 @@ finer interaction split rather than removal of the value path.
 
 *Figure 9. QK1 routing nearly equals the failed work/jobs effect, while the value branch contributes little to that reader. Both branches contribute substantially to the regional target.*
 
+Splitting routing into the exact late-late, late-remainder, and remainder-late
+QK1 blocks does not isolate a clean singleton. In the failed template their
+target/work-jobs RMS values are `.165/.230`, `.065/.200`, and `.010/.132`.
+No block meets the registered localization or selectivity-improvement gate.
+Their separately propagated effects still sum to the complete routing effect
+within `.206` for the target and `.081` for work/jobs, so the negative result is
+distributed attribution rather than a broken partition.
+
+![QK1 ordered-block target and control effects](assets/research_update_2026-09-15_qk1_blocks.png)
+
+*Figure 10. DD is the largest useful block, while both ordered cross blocks are disproportionately control-heavy. No singleton supplies a selective replacement for the complete routing subtotal.*
+
 ## What is established
 
 The missing subject-number amplitude is partly organized by a specific interaction at the L11H3 interface. The evidence is cross-construction, outcome-blind, and uses a native weight axis. The exact response variable remains donor-dependent, so this does not yet explain how a normal forward pass computes the amplitude.
@@ -589,6 +601,10 @@ native, routing-only, value-only, and additive. The single effects sum to the
 additive target within `.0059/.0970` and to every target/control effect within
 `.1114`. It introduced no row, fit, gradient, or parameter update.
 
+The QK1 block split used the same opened panel and 30 batches for native, DD,
+DR, RD, and all-three removals. QK2 and values stayed native. The three separate
+recursive effects were summed only for evaluation; no coefficients were fit.
+
 ### Code and primary receipts
 
 - [Response-coordinate preregistration](../../SUBJECT_NUMBER_NATIVE_HEAD_RESPONSE_COORDINATE_DISCOVERY_V1_PREREGISTRATION.md)
@@ -635,3 +651,6 @@ additive target within `.0059/.0970` and to every target/control effect within
 - [Additive-branch preregistration](../../SETTING2_REGIONAL_ADDITIVE_BRANCH_COLLATERAL_V1_PREREGISTRATION.md)
 - [Additive-branch runner](../../../bilinear_quotient/ops/run_setting2_regional_additive_branch_collateral_v1.py)
 - [Additive-branch result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_additive_branch_collateral_v1_result.json)
+- [QK1-block preregistration](../../SETTING2_REGIONAL_QK1_BLOCK_COLLATERAL_V1_PREREGISTRATION.md)
+- [QK1-block runner](../../../bilinear_quotient/ops/run_setting2_regional_qk1_block_collateral_v1.py)
+- [QK1-block result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_qk1_block_collateral_v1_result.json)
