@@ -732,3 +732,16 @@ regional circuit ranking. This [task-matched screen](../../bilinear_quotient/cir
 uses no behavioral logits and does not yet establish selective causal use. Next
 decompose $e$ into propagated earlier module writes, then intervene on the leading
 folded term.
+
+Expanding $e$ with the model's learned residual coefficients into the propagated
+embedding plus every attention/MLP write through layer 16 identifies attention9 ×
+MLP16 as the leading individual contribution to `ep`. Its cue-change norm ratio is
+`.26094` globally and `.19032–.32205` across the four families. The next sources are
+MLP14 `.13549`, MLP13 `.09763`, MLP15 `.09541`, and MLP11 `.08366`.
+
+The source expansion reconstructs the block-17 raw input to $1.45\times10^{-7}$
+and its 34 folded cross terms close at $3.21\times10^{-16}$. The five largest terms
+still leave `.64073` relative error, so the interaction is distributed and the
+leader is not sufficient. Because independent setting1 regional work already
+implicates head9.8, splitting attention9 by head is now a direct overlap test rather
+than another whole-module screen. [Primary upstream fold](../../bilinear_quotient/circuits/fast_screens/setting2_regional_mlp16_upstream_source_fold_v1_result.json).

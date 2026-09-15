@@ -51,6 +51,41 @@ behavioral logits, and closed at relative error $6.61\times10^{-16}$. See the
 The leading overall term is earlier residual × MLP16 (`.6184`), so future head17.2
 work should remain a secondary branch until a selective intervention distinguishes it.
 
+## `module.attention.9`
+
+Aliases: attention block 9, attn9. Related route:
+[`PATH-SET2-001`](../COMPUTATION_PATH_REGISTRY.md).
+
+### 2026-09-15 propagated interaction with MLP16
+
+An exact learned-residual expansion of the task-matched regional `earlier residual
+× MLP16` MLP17 term ranks the propagated attention9 block write first among 34
+embedding/module sources. Its change-norm ratio is `.26094` globally and
+`.19032–.32205` across the four construction families. Exact source reconstruction
+error is $1.45\times10^{-7}$ and folded cross-term closure is
+$3.21\times10^{-16}$.
+
+The top five sources together still leave `.64073` relative error, so attention9
+is an organizing handle rather than a sufficient path. The existing regional
+setting1 work implicates head9.8, but this whole-block result does not yet assign
+the interaction to a head or prove causal reuse. See the
+[upstream fold](fast_screens/setting2_regional_mlp16_upstream_source_fold_v1_result.json).
+
+## `module.mlp.16`
+
+Aliases: MLP16, layer-16 MLP. Related route:
+[`PATH-SET2-001`](../COMPUTATION_PATH_REGISTRY.md).
+
+### 2026-09-15 downstream cross-term role
+
+On task-matched regional prefixes, the interaction between MLP16's propagated
+write and all earlier residual sources is the largest MLP17/unembedding term
+(`.6184` normalized cue-change norm ratio), with at least `.531` in every family.
+Within that interaction, attention9 is the largest individual upstream source
+(`.26094`), but many later MLP and attention sources remain material. This is
+exact path magnitude without selective intervention, so MLP16 is a path endpoint
+candidate rather than an identified semantic module.
+
 ## `module.attention.5`
 
 Aliases: attention block 5, `attn5`, L5 attention, induction gate, copy gate, content gatherer,
