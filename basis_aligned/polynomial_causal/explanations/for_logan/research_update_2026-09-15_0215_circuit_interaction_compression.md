@@ -22,17 +22,17 @@ read this state and add new vectors to it.
 **Attention source term.** For one attention head and one source position, the
 write reaching a query position has the form
 
-\[
+$$
 h = p\,u, \qquad p=s_1s_2.
-\]
+$$
 
-Here (u\) is the projected value or **payload**. The attention score (p\) is
+Here $u$ is the projected value or **payload**. The attention score $p$ is
 bilinear: it is the product of two query-key contractions,
 
-\[
+$$
 s_1=\langle q_1,k_1\rangle/d,\qquad
 s_2=\langle q_2,k_2\rangle/d.
-\]
+$$
 
 The bracket work calls these two key channels **key1** and **key2**.
 
@@ -50,27 +50,27 @@ suffix or background.
 caused by an intervention. We compare vectors of effects across examples using:
 
 - **cosine**, which tests whether variation points in the same direction;
-- **relative L2 error**, \(\|\widehat e-e\|_2/\|e\|_2\), which measures size and
+- **relative L2 error**, $\|\widehat e-e\|_2/\|e\|_2$, which measures size and
   shape error together;
 - **sign agreement**, which tests whether the edit moves the answer the right
   way; and
-- **norm ratio**, \(\|\widehat e\|_2/\|e\|_2\), which detects systematic
+- **norm ratio**, $\|\widehat e\|_2/\|e\|_2$, which detects systematic
   under- or over-scaling.
 
 **Interaction compression.** Replace a large state or operator with the few
 products that matter causally. For a bilinear MLP
 
-\[
+$$
 M(x)=D[(Lx)\odot(Rx)],
-\]
+$$
 
-and an intervention (d\), the exact finite response is
+and an intervention $d$, the exact finite response is
 
-\[
+$$
 M(x+d)-M(x)=D[(Ld)\odot(Rx)]
 +D[(Lx)\odot(Rd)]
 +D[(Ld)\odot(Rd)].
-\]
+$$
 
 The first two terms are the two oriented cross interactions; the third is the
 quadratic intervention term. We tested these exact terms causally instead of
@@ -94,12 +94,12 @@ with a fixed scalar. Its strongest direction is singular-to-plural. We installed
 that same rank-one write at two subject/verb sites in 16 fresh two-clause prompts.
 No coefficient was refitted.
 
-Let (E_1\) and (E_2\) be the behavioral effects of installing the write at
-each site separately, and (E_{12}\) the joint effect. The composition test was
+Let $E_1$ and $E_2$ be the behavioral effects of installing the write at
+each site separately, and $E_{12}$ the joint effect. The composition test was
 
-\[
+$$
 E_{12}\stackrel{?}{\approx}E_1+E_2.
-\]
+$$
 
 Both single-site interventions were live: effect RMS was `.11644` and `.08671`,
 and every row moved in the intended direction. Unrelated-number control
@@ -114,17 +114,17 @@ axis and scalar from native text state. The weak plural-to-singular direction
 was not rescued or retuned. [Result](../../SUBJECT_NUMBER_TWO_SITE_COMPOSITION_V2_RESULT.json)
 
 The ten stored scalars also turned out to follow a much smaller interaction
-law. Encode edit direction as \(d=+1\) for plural-to-singular and \(d=-1\) for
-singular-to-plural, and let \(c\in\{0,1,2,3,4\}\) count the active background
+law. Encode edit direction as $d=+1$ for plural-to-singular and $d=-1$ for
+singular-to-plural, and let $c\in\{0,1,2,3,4\}$ count the active background
 factors. Before reading any new causal outcome, we fitted
 
-\[
+$$
 \alpha(d,c)=\beta_0+\beta_d d+\beta_c c+\beta_{dc}dc.
-\]
+$$
 
 Ordinary least squares on the ten frozen, weights-only coefficients gave
 `beta = [26.84386, 31.83707, -9.61604, -2.91184]`. The cross term
-\(\beta_{dc}dc\) means that cardinality changes the write amplitude at a
+$\beta_{dc}dc$ means that cardinality changes the write amplitude at a
 different rate in the two edit directions. This four-scalar law matched the ten
 coefficients with cosine `.999740`, relative L2 `.02279`, and maximum absolute
 error `1.004`.
@@ -136,9 +136,33 @@ agreement `1.0`. Relative to the native exact effect, they retained cosine
 `.85527`, relative L2 `.54751`, and sign agreement `.97852`. All template and
 intermediate-cardinality bars passed with exactly zero decomposition closure
 error. The scalar table has therefore compressed from ten values to four. This
-is a held symbolic coefficient generator; deriving \(d\), \(c\), and the shared
-axis from hidden state remains open. [Result](../../../bilinear_quotient/circuits/fast_screens/subject_number_coefficient_bilinear_law_v1_result.json) ·
+is a held symbolic coefficient generator; deriving $d$ and $c$ from hidden
+state remains open. [Result](../../../bilinear_quotient/circuits/fast_screens/subject_number_coefficient_bilinear_law_v1_result.json) ·
 [preregistration](../../SUBJECT_NUMBER_COEFFICIENT_BILINEAR_LAW_V1_PREREGISTRATION.md)
+
+We also tested whether the shared axis itself is already supplied by native
+weights. Let $W_{O,11,3}\in\mathbb{R}^{1152\times128}$ be the slice of the
+attention output projection belonging to L11H3, and compute
+
+$$
+W_{O,11,3}=U\Sigma V^\top,
+\qquad
+a_{\mathrm{native}}=U_{:,1}.
+$$
+
+The fitted circuit axis has cosine `.94552` with this top left singular vector,
+so the native direction explains `.89402` of its squared norm. We froze
+$a_{\mathrm{native}}$ using checkpoint weights only and retained the same
+four-scalar coefficient law. Across the 512 fresh interventions, its causal
+effects matched the fitted-axis law with cosine `.999447`, relative L2 `.07955`,
+and sign agreement `1.0`. Against the native exact effects it achieved cosine
+`.85870`, relative L2 `.52180`, and sign agreement `.97852`, with all strata
+passing and zero closure error. Thus the model's top L11H3 output direction can
+replace the fitted 1,152-dimensional axis; only its sign convention refers to
+the earlier axis because singular vectors have arbitrary sign. The remaining
+native-generation problem is obtaining $d$ and $c$ from activations.
+[Result](../../../bilinear_quotient/circuits/fast_screens/subject_number_native_weight_axis_v1_result.json) ·
+[preregistration](../../SUBJECT_NUMBER_NATIVE_WEIGHT_AXIS_V1_PREREGISTRATION.md)
 
 ## Narrative tense: six sources collapse to one signed axis
 
@@ -183,7 +207,7 @@ operation is localized to the source write, with native background downstream.
 [Suffix result](../../BRACKET_SUFFIX_FINITE_BILINEAR_PROGRAM_V2_RESULT.json)
 
 The donor-free source narrowly failed one seventh-construction ordered-pair bar,
-so we ran the complete (2^3\) factorial over exact versus approximate key1,
+so we ran the complete $2^3$ factorial over exact versus approximate key1,
 key2, and payload. Every partial approximation passed. Only the fully donor-free
 corner failed. Exact payload plus both approximate keys was the maximally
 compressed passing diagnostic ceiling. Independent inclusion-exclusion
@@ -196,11 +220,11 @@ mostly the second query-key score, not a hidden three-way or suffix interaction.
 
 We then tested an architecture-motivated full-vector correction:
 
-\[
+$$
 \widehat k_{2,d}=k_{2,r}+(\mu_{2,d}-\mu_{2,r}),
-\]
+$$
 
-where (k_{2,r}\) is native recipient key2 and the two \(\mu\)'s are frozen
+where $k_{2,r}$ is native recipient key2 and the two $\mu$ vectors are frozen
 delimiter-type prototypes. This native-relative transport worsened donor-key2
 relative L2 from `.43792` to `.45464`. The relative-key2 and relative-both-key
 programs also failed behavior with relative L2 `.48187` and `.47280`. Because
@@ -210,19 +234,19 @@ query-conditioned scalar. [Transport result](../../BRACKET_KEY2_NATIVE_RELATIVE_
 
 The current candidate targets exactly that scalar interaction. Define
 
-\[
+$$
 b_{\rm abs}=\langle q_{2,r},\mu_{2,d}\rangle/d,
 \quad
 c=b_{\rm recipient}-\langle q_{2,r},\mu_{2,r}\rangle/d.
-\]
+$$
 
 Two outcome-blind activation laws are preregistered:
 
-\[
+$$
 \widehat b=b_{\rm abs}+\gamma c,
 \qquad
 \widehat b=\alpha b_{\rm abs}+\gamma c.
-\]
+$$
 
 The coefficients use exact factor2 activations from the first three
 constructions only. Selection uses factor2 activation fidelity on the seventh
@@ -282,7 +306,7 @@ accuracy. We stopped adding prefix panels or tuning the control threshold.
 
 | Circuit | Current evidence | Remaining boundary |
 |---|---|---|
-| Subject-number | Held rank-one write; near-exact two-site composition; ten coefficients compressed to a four-scalar bilinear law | Derive direction, cardinality, and axis from native state |
+| Subject-number | Held two-site write; ten coefficients compressed to four; fitted axis replaced by the native L11H3 top output direction | Derive direction and cardinality from native activations |
 | Narrative tense | Held one signed axis plus global magnitude | Native sign/amplitude generation and decoder |
 | Bracket opener | Held rank-two source interaction; suffix interaction excluded; key2 localized; affine vector and two scalar context corrections null | Independently derive a query-conditioned adapter or move to native subject-axis generation |
 | Numeric sequence | Exact downstream factorization, valid selective null | New suffix-state interaction quotient |
