@@ -1,0 +1,50 @@
+{
+  "bars": {
+    "capability_accuracy_min": 0.75,
+    "control_to_target_rms_max": 0.5,
+    "exact_positive_min": 0.9,
+    "program_cosine_min": 0.9,
+    "program_norm_max": 1.4,
+    "program_norm_min": 0.6,
+    "program_pair_cosine_min": 0.75,
+    "program_pair_relative_l2_max": 0.5,
+    "program_pair_sign_min": 0.85,
+    "program_relative_l2_max": 0.4,
+    "program_sign_min": 0.9,
+    "replay_max": 1e-05,
+    "scalar_cosine_min": 0.8,
+    "scalar_norm_max": 1.5,
+    "scalar_norm_min": 0.5,
+    "scalar_pair_cosine_min": 0.9,
+    "scalar_pair_relative_l2_max": 0.65,
+    "scalar_pair_sign_min": 0.9,
+    "scalar_relative_l2_max": 0.6,
+    "scalar_sign_min": 0.9
+  },
+  "files": {
+    "builder": "c9d360f25f49f239dfe2149ec46aa6aab4c02072fd609f3ae0a820410a0feb4b",
+    "preregistration": "4a111bc90a7cc4c6b09867e1b2f8cb01b335c701d0df541bf11fcb151fbfd333",
+    "program": "0e38e92a9fc06d1167294d8f1233d89e379657382d14b771973fc851f82ea4d7",
+    "rows": "9788eecd9e5d512440a9ca85addd8e1620a257f9938d2b7c43aefc4807554ff9",
+    "scalar": "b7401c1dd9709143cd0ad31ac893e09afa98e64604ddb18f866b6998a749f504"
+  },
+  "ordered_pair_scalars": {
+    "1->60": 7.242771128813425,
+    "1->8": 6.036070664723715,
+    "60->1": 6.9730123082796736,
+    "60->8": 7.207242786884308,
+    "8->1": 4.891719102859497,
+    "8->60": 7.028711815675099
+  },
+  "outcomes_opened": false,
+  "price": {
+    "backwards": 0,
+    "fits": 0,
+    "forwards": 4,
+    "sequences": 576,
+    "updates": 0
+  },
+  "program_rule": "reuse serialized fifth-construction donor-free rank-two source program and immutable historical six-scalar suffix law",
+  "row_manifest_sha256": "c03bebfd8a5bc4548573cb19012b193ec721a127047e2f9e0357aeaf76c0abdb",
+  "schema": "bracket_embedded_pending_compact_behavior_v1_binding"
+}
