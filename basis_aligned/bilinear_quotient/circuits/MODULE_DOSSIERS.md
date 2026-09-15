@@ -37,6 +37,19 @@ quadratic-context extension reaches only `.549892`. See the
 [upstream-coordinate null](fast_screens/subject_number_upstream_context_coordinate_discovery_v1_result.json).
 Future discovery should change coordinate family rather than widen either readout.
 
+The next frozen assay changes the coordinate family to the head's own response to
+an upstream MLP6/7 number-source switch. For background $b$, it measures
+$s_b=u^\top(H(x_{b,YZ})-H(x_b))$ along the same native output axis and compares
+cross-construction scalar programs. Response-only and additive forms miss the
+`.40` relative-L2 gate at `.44493` and `.45149`; the multiplicative form
+`[1,z,s,zs]` passes at `.37689`, versus `.60931` for `[1,z]`, with cosine
+`.92650`. The $z$ and $s$ collections have cosine `-.87042`, yet their product
+still supplies the necessary non-additive term. See the
+[head-response result](fast_screens/subject_number_native_head_response_coordinate_discovery_v2_result.json).
+This is donor-dependent discovery on opened rows. The next test must predict $s$
+from recipient-side upstream state and transfer to fresh rows before this becomes
+a native generation mechanism.
+
 ## `module.attention.17.head2`
 
 Aliases: head17.2, L17H2, regional late attention head. Related folded route:
