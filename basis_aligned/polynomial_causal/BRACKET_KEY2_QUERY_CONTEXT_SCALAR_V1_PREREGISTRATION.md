@@ -23,6 +23,7 @@ logit may enter either fit or selection. The eighth construction remains sealed.
 
 No key vector reconstruction, coefficient by delimiter/direction/construction,
 intercept, rank change, behavioral fit, gradient, update, gain, bar change,
-donor state at execution time, or quantization is allowed. Exact price is two
-forwards over 1,152 sequences (native replay reference plus factor capture),
-two scalar activation fits, zero backwards and updates.
+donor state at execution time, or quantization is allowed. The memory-safe
+execution price is five forwards over 720 sequences: one factor capture for
+each of four panels plus one native replay reference on FIT. There are two
+scalar activation fits, zero backwards and updates.
