@@ -1,0 +1,38 @@
+{
+  "bars": {
+    "capability_accuracy_min": 0.75,
+    "control_to_target_rms_max": 0.5,
+    "exact_positive_min": 0.9,
+    "pair_cosine_min": 0.75,
+    "pair_relative_l2_max": 0.5,
+    "pair_sign_min": 0.85,
+    "prediction_cosine_min": 0.9,
+    "prediction_norm_max": 1.4,
+    "prediction_norm_min": 0.6,
+    "prediction_relative_l2_max": 0.4,
+    "prediction_sign_min": 0.9,
+    "replay_max": 1e-05
+  },
+  "coefficients": [
+    0.0005561862682518956
+  ],
+  "files": {
+    "amplitude": "4c373e1063f4a7fb22d5dfc3ffe0dad38e8873a789fd74a9d75f0604093d4e37",
+    "builder": "3b464c006f44b97e1daf54f5aef1ba37ca4a4ab1e96f6634121fc7b8d3681487",
+    "preregistration": "bcbe8a4abe1d9ba4a45b0b330f4ca8a27d41a8f5bd3c2dca8e690d0f3e3283e8",
+    "program": "0e38e92a9fc06d1167294d8f1233d89e379657382d14b771973fc851f82ea4d7",
+    "rows": "ff35fd9aa27843c2c29252ffb558d45338d036e75b281e74a5b3b532b65e026d"
+  },
+  "law": "global_direct",
+  "outcomes_opened": false,
+  "price": {
+    "backwards": 0,
+    "fits": 0,
+    "forwards": 4,
+    "sequences": 576,
+    "updates": 0
+  },
+  "row_manifest_sha256": "45baa09cad61d4d2ce8745cb27c1bd3cde09f555accaae2bad1be5188a5cb305",
+  "schema": "bracket_cascade_pending_live_amplitude_confirmation_v1_binding",
+  "selection_result_committed_before_rows": true
+}
