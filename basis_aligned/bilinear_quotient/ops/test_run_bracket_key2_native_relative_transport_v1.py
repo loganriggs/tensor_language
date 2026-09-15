@@ -8,3 +8,5 @@ def test_native_relative_transport_preserves_context():
  recipient=np.array([2.,-1.,4.]);prototype_recipient=np.array([1.,3.,2.]);prototype_donor=np.array([-2.,5.,7.]);transported=recipient+(prototype_donor-prototype_recipient);np.testing.assert_allclose(transported-recipient,prototype_donor-prototype_recipient)
 def test_metric_identity():
  v=module.metrics([1.,-2.],[1.,-2.]);assert v['relative_l2_error']==0 and abs(v['cosine']-1)<1e-12
+def test_captured_key_names_match_transport_table_names():
+ source=RUNNER.read_text();assert "'key1':kn[" in source and "'key2':k2n[" in source
