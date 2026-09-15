@@ -1,0 +1,5193 @@
+{
+  "builder_sha256": "a09a3013e68b4308f1c940d5e409e8b688e68d7efe8338ca3a93c6f6b4d4d223",
+  "cell_counts": {
+    "next": {
+      "digit": {
+        "coherent": 3,
+        "early_swap_control": 3,
+        "late_swap_incoherent": 3
+      },
+      "month": {
+        "coherent": 5,
+        "early_swap_control": 5,
+        "late_swap_incoherent": 5
+      }
+    },
+    "order": {
+      "digit": {
+        "coherent": 3,
+        "early_swap_control": 3,
+        "late_swap_incoherent": 3
+      },
+      "month": {
+        "coherent": 5,
+        "early_swap_control": 5,
+        "late_swap_incoherent": 5
+      }
+    },
+    "progression": {
+      "digit": {
+        "coherent": 3,
+        "early_swap_control": 3,
+        "late_swap_incoherent": 3
+      },
+      "month": {
+        "coherent": 5,
+        "early_swap_control": 5,
+        "late_swap_incoherent": 5
+      }
+    },
+    "series": {
+      "digit": {
+        "coherent": 3,
+        "early_swap_control": 3,
+        "late_swap_incoherent": 3
+      },
+      "month": {
+        "coherent": 5,
+        "early_swap_control": 5,
+        "late_swap_incoherent": 5
+      }
+    }
+  },
+  "conditions": [
+    "coherent",
+    "early_swap_control",
+    "late_swap_incoherent"
+  ],
+  "directions": [
+    "forward",
+    "backward"
+  ],
+  "endpoint_count": 192,
+  "families": [
+    "month",
+    "digit"
+  ],
+  "model_loaded": false,
+  "outcomes_opened": false,
+  "prefixes": {
+    "next": "Next: ",
+    "order": "Order: ",
+    "progression": "Progression: ",
+    "series": "Series: "
+  },
+  "row_count": 96,
+  "row_manifest_sha256": "c8d86c7406f9b525a564a90acbca909723db675fb6b8381b0a2f387855bff8b3",
+  "rows": [
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "May",
+          "answer_id": 1737,
+          "element": "April",
+          "token_id": 3035
+        },
+        "forward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        }
+      },
+      "elements": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June"
+      ],
+      "family": "month",
+      "final_index": 5,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "July",
+      "recipient_answer_id": 2901,
+      "recipient_element": "June",
+      "recipient_token_id": 2795,
+      "row_id": "2da07272538812de2e491bf2580dc207783527fc757a2c4f1f887b0c413f9f3f",
+      "text": "Series: January, February, March, April, May, June,",
+      "token_ids": [
+        27996,
+        25,
+        3269,
+        11,
+        3945,
+        11,
+        2805,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "May",
+          "answer_id": 1737,
+          "element": "April",
+          "token_id": 3035
+        },
+        "forward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        }
+      },
+      "elements": [
+        "February",
+        "January",
+        "March",
+        "April",
+        "May",
+        "June"
+      ],
+      "family": "month",
+      "final_index": 5,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "July",
+      "recipient_answer_id": 2901,
+      "recipient_element": "June",
+      "recipient_token_id": 2795,
+      "row_id": "127044e09df5d98ef9e37a3acfe750791b07c4a73acf3cbc3d2e33ac4082e5f7",
+      "text": "Series: February, January, March, April, May, June,",
+      "token_ids": [
+        27996,
+        25,
+        3945,
+        11,
+        3269,
+        11,
+        2805,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "May",
+          "answer_id": 1737,
+          "element": "April",
+          "token_id": 3035
+        },
+        "forward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        }
+      },
+      "elements": [
+        "January",
+        "February",
+        "March",
+        "May",
+        "April",
+        "June"
+      ],
+      "family": "month",
+      "final_index": 5,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "July",
+      "recipient_answer_id": 2901,
+      "recipient_element": "June",
+      "recipient_token_id": 2795,
+      "row_id": "0f354faaf1d459bc957556937ec4927d18405ba5587ddba60ad6ab6ca609d4d0",
+      "text": "Series: January, February, March, May, April, June,",
+      "token_ids": [
+        27996,
+        25,
+        3269,
+        11,
+        3945,
+        11,
+        2805,
+        11,
+        1737,
+        11,
+        3035,
+        11,
+        2795,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "June",
+          "answer_id": 2795,
+          "element": "May",
+          "token_id": 1737
+        },
+        "forward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        }
+      },
+      "elements": [
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July"
+      ],
+      "family": "month",
+      "final_index": 6,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "August",
+      "recipient_answer_id": 2932,
+      "recipient_element": "July",
+      "recipient_token_id": 2901,
+      "row_id": "fcd95c7b26b17d67ea956ce3b176e2a07051717d9443eb16a47a3380e2724dbc",
+      "text": "Series: February, March, April, May, June, July,",
+      "token_ids": [
+        27996,
+        25,
+        3945,
+        11,
+        2805,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "June",
+          "answer_id": 2795,
+          "element": "May",
+          "token_id": 1737
+        },
+        "forward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        }
+      },
+      "elements": [
+        "March",
+        "February",
+        "April",
+        "May",
+        "June",
+        "July"
+      ],
+      "family": "month",
+      "final_index": 6,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "August",
+      "recipient_answer_id": 2932,
+      "recipient_element": "July",
+      "recipient_token_id": 2901,
+      "row_id": "90f06abf5cb191574748f9a098e38fe4cebc639c9b9d92fd90b8085294f8a993",
+      "text": "Series: March, February, April, May, June, July,",
+      "token_ids": [
+        27996,
+        25,
+        2805,
+        11,
+        3945,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "June",
+          "answer_id": 2795,
+          "element": "May",
+          "token_id": 1737
+        },
+        "forward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        }
+      },
+      "elements": [
+        "February",
+        "March",
+        "April",
+        "June",
+        "May",
+        "July"
+      ],
+      "family": "month",
+      "final_index": 6,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "August",
+      "recipient_answer_id": 2932,
+      "recipient_element": "July",
+      "recipient_token_id": 2901,
+      "row_id": "07ea30a7819df0667cde483faaceff3fc58f04ef80ba21ee7f9ad45d7ccdb3a8",
+      "text": "Series: February, March, April, June, May, July,",
+      "token_ids": [
+        27996,
+        25,
+        3945,
+        11,
+        2805,
+        11,
+        3035,
+        11,
+        2795,
+        11,
+        1737,
+        11,
+        2901,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "July",
+          "answer_id": 2901,
+          "element": "June",
+          "token_id": 2795
+        },
+        "forward": {
+          "answer": "October",
+          "answer_id": 3267,
+          "element": "September",
+          "token_id": 2693
+        }
+      },
+      "elements": [
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August"
+      ],
+      "family": "month",
+      "final_index": 7,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "September",
+      "recipient_answer_id": 2693,
+      "recipient_element": "August",
+      "recipient_token_id": 2932,
+      "row_id": "48ff29e15e234c65f423fa5d589fcc5495173a37c56aacdfdbd544b1f3afba8f",
+      "text": "Series: March, April, May, June, July, August,",
+      "token_ids": [
+        27996,
+        25,
+        2805,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2932,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "July",
+          "answer_id": 2901,
+          "element": "June",
+          "token_id": 2795
+        },
+        "forward": {
+          "answer": "October",
+          "answer_id": 3267,
+          "element": "September",
+          "token_id": 2693
+        }
+      },
+      "elements": [
+        "April",
+        "March",
+        "May",
+        "June",
+        "July",
+        "August"
+      ],
+      "family": "month",
+      "final_index": 7,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "September",
+      "recipient_answer_id": 2693,
+      "recipient_element": "August",
+      "recipient_token_id": 2932,
+      "row_id": "7bdb88d456a77c2229d454a54743a9fb1a77193c40c33aaa0ac07493e659979c",
+      "text": "Series: April, March, May, June, July, August,",
+      "token_ids": [
+        27996,
+        25,
+        3035,
+        11,
+        2805,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2932,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "July",
+          "answer_id": 2901,
+          "element": "June",
+          "token_id": 2795
+        },
+        "forward": {
+          "answer": "October",
+          "answer_id": 3267,
+          "element": "September",
+          "token_id": 2693
+        }
+      },
+      "elements": [
+        "March",
+        "April",
+        "May",
+        "July",
+        "June",
+        "August"
+      ],
+      "family": "month",
+      "final_index": 7,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "September",
+      "recipient_answer_id": 2693,
+      "recipient_element": "August",
+      "recipient_token_id": 2932,
+      "row_id": "9aefcd7d1d2dc8dc24012c7aebaa0a1364dac197ce21b490b9af46820379a115",
+      "text": "Series: March, April, May, July, June, August,",
+      "token_ids": [
+        27996,
+        25,
+        2805,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2901,
+        11,
+        2795,
+        11,
+        2932,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        },
+        "forward": {
+          "answer": "November",
+          "answer_id": 3389,
+          "element": "October",
+          "token_id": 3267
+        }
+      },
+      "elements": [
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September"
+      ],
+      "family": "month",
+      "final_index": 8,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "October",
+      "recipient_answer_id": 3267,
+      "recipient_element": "September",
+      "recipient_token_id": 2693,
+      "row_id": "3499d30ae190b122f63d6782dd4d9b079597c8ac7f624b7fd3b516573136f9c6",
+      "text": "Series: April, May, June, July, August, September,",
+      "token_ids": [
+        27996,
+        25,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2932,
+        11,
+        2693,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        },
+        "forward": {
+          "answer": "November",
+          "answer_id": 3389,
+          "element": "October",
+          "token_id": 3267
+        }
+      },
+      "elements": [
+        "May",
+        "April",
+        "June",
+        "July",
+        "August",
+        "September"
+      ],
+      "family": "month",
+      "final_index": 8,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "October",
+      "recipient_answer_id": 3267,
+      "recipient_element": "September",
+      "recipient_token_id": 2693,
+      "row_id": "0cf85cee99821d156502f3fe29497ea525c9b353f68dbd284d47b45a6e4a9c3d",
+      "text": "Series: May, April, June, July, August, September,",
+      "token_ids": [
+        27996,
+        25,
+        1737,
+        11,
+        3035,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2932,
+        11,
+        2693,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        },
+        "forward": {
+          "answer": "November",
+          "answer_id": 3389,
+          "element": "October",
+          "token_id": 3267
+        }
+      },
+      "elements": [
+        "April",
+        "May",
+        "June",
+        "August",
+        "July",
+        "September"
+      ],
+      "family": "month",
+      "final_index": 8,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "October",
+      "recipient_answer_id": 3267,
+      "recipient_element": "September",
+      "recipient_token_id": 2693,
+      "row_id": "be281413a31bf2714d3a53d806e306b1741877d36ea30ab9bf4d8f010ed4e976",
+      "text": "Series: April, May, June, August, July, September,",
+      "token_ids": [
+        27996,
+        25,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2932,
+        11,
+        2901,
+        11,
+        2693,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        },
+        "forward": {
+          "answer": "December",
+          "answer_id": 3426,
+          "element": "November",
+          "token_id": 3389
+        }
+      },
+      "elements": [
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "family": "month",
+      "final_index": 9,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "November",
+      "recipient_answer_id": 3389,
+      "recipient_element": "October",
+      "recipient_token_id": 3267,
+      "row_id": "20d26b87282e96533db075d55729fa8c3ecd0be923a60b6af9ca5472313df372",
+      "text": "Series: May, June, July, August, September, October,",
+      "token_ids": [
+        27996,
+        25,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2932,
+        11,
+        2693,
+        11,
+        3267,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        },
+        "forward": {
+          "answer": "December",
+          "answer_id": 3426,
+          "element": "November",
+          "token_id": 3389
+        }
+      },
+      "elements": [
+        "June",
+        "May",
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "family": "month",
+      "final_index": 9,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "November",
+      "recipient_answer_id": 3389,
+      "recipient_element": "October",
+      "recipient_token_id": 3267,
+      "row_id": "c11704192d09f4ec0523872d39a2c2fb9512287cbe41d187369e9aeaf4764f70",
+      "text": "Series: June, May, July, August, September, October,",
+      "token_ids": [
+        27996,
+        25,
+        2795,
+        11,
+        1737,
+        11,
+        2901,
+        11,
+        2932,
+        11,
+        2693,
+        11,
+        3267,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        },
+        "forward": {
+          "answer": "December",
+          "answer_id": 3426,
+          "element": "November",
+          "token_id": 3389
+        }
+      },
+      "elements": [
+        "May",
+        "June",
+        "July",
+        "September",
+        "August",
+        "October"
+      ],
+      "family": "month",
+      "final_index": 9,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "November",
+      "recipient_answer_id": 3389,
+      "recipient_element": "October",
+      "recipient_token_id": 3267,
+      "row_id": "0e7980b65602cff60db7004b31230e8b2a33daa7180faac770576c1e35c9fcf6",
+      "text": "Series: May, June, July, September, August, October,",
+      "token_ids": [
+        27996,
+        25,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2693,
+        11,
+        2932,
+        11,
+        3267,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "4",
+          "answer_id": 604,
+          "element": "3",
+          "token_id": 513
+        },
+        "forward": {
+          "answer": "7",
+          "answer_id": 767,
+          "element": "6",
+          "token_id": 718
+        }
+      },
+      "elements": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "family": "digit",
+      "final_index": 5,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "6",
+      "recipient_answer_id": 718,
+      "recipient_element": "5",
+      "recipient_token_id": 642,
+      "row_id": "bf5d1fa8de1848f252252432aad065c9872d19a0c72e78d7a6b4839b6634cbe2",
+      "text": "Series: 0, 1, 2, 3, 4, 5,",
+      "token_ids": [
+        27996,
+        25,
+        657,
+        11,
+        352,
+        11,
+        362,
+        11,
+        513,
+        11,
+        604,
+        11,
+        642,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "4",
+          "answer_id": 604,
+          "element": "3",
+          "token_id": 513
+        },
+        "forward": {
+          "answer": "7",
+          "answer_id": 767,
+          "element": "6",
+          "token_id": 718
+        }
+      },
+      "elements": [
+        "1",
+        "0",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "family": "digit",
+      "final_index": 5,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "6",
+      "recipient_answer_id": 718,
+      "recipient_element": "5",
+      "recipient_token_id": 642,
+      "row_id": "a601aee35d644fa64bb142b1130d02e356b5f8d737f9de39c10b921a18c1c307",
+      "text": "Series: 1, 0, 2, 3, 4, 5,",
+      "token_ids": [
+        27996,
+        25,
+        352,
+        11,
+        657,
+        11,
+        362,
+        11,
+        513,
+        11,
+        604,
+        11,
+        642,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "4",
+          "answer_id": 604,
+          "element": "3",
+          "token_id": 513
+        },
+        "forward": {
+          "answer": "7",
+          "answer_id": 767,
+          "element": "6",
+          "token_id": 718
+        }
+      },
+      "elements": [
+        "0",
+        "1",
+        "2",
+        "4",
+        "3",
+        "5"
+      ],
+      "family": "digit",
+      "final_index": 5,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "6",
+      "recipient_answer_id": 718,
+      "recipient_element": "5",
+      "recipient_token_id": 642,
+      "row_id": "b808a90fbe1ff6f888d62807b4d0b5a1df2877ffd83178c4c2b4c7407e9a036c",
+      "text": "Series: 0, 1, 2, 4, 3, 5,",
+      "token_ids": [
+        27996,
+        25,
+        657,
+        11,
+        352,
+        11,
+        362,
+        11,
+        604,
+        11,
+        513,
+        11,
+        642,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "5",
+          "answer_id": 642,
+          "element": "4",
+          "token_id": 604
+        },
+        "forward": {
+          "answer": "8",
+          "answer_id": 807,
+          "element": "7",
+          "token_id": 767
+        }
+      },
+      "elements": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "family": "digit",
+      "final_index": 6,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "7",
+      "recipient_answer_id": 767,
+      "recipient_element": "6",
+      "recipient_token_id": 718,
+      "row_id": "57351d914ec703e9b8b21f6fe6526dcf02cc74267a522cb94576361f9d9c4290",
+      "text": "Series: 1, 2, 3, 4, 5, 6,",
+      "token_ids": [
+        27996,
+        25,
+        352,
+        11,
+        362,
+        11,
+        513,
+        11,
+        604,
+        11,
+        642,
+        11,
+        718,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "5",
+          "answer_id": 642,
+          "element": "4",
+          "token_id": 604
+        },
+        "forward": {
+          "answer": "8",
+          "answer_id": 807,
+          "element": "7",
+          "token_id": 767
+        }
+      },
+      "elements": [
+        "2",
+        "1",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "family": "digit",
+      "final_index": 6,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "7",
+      "recipient_answer_id": 767,
+      "recipient_element": "6",
+      "recipient_token_id": 718,
+      "row_id": "67e7a14f5ed95c3f26f0afc31d56cc8744fe06831fb28b7df0af4ca23dea77b1",
+      "text": "Series: 2, 1, 3, 4, 5, 6,",
+      "token_ids": [
+        27996,
+        25,
+        362,
+        11,
+        352,
+        11,
+        513,
+        11,
+        604,
+        11,
+        642,
+        11,
+        718,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "5",
+          "answer_id": 642,
+          "element": "4",
+          "token_id": 604
+        },
+        "forward": {
+          "answer": "8",
+          "answer_id": 807,
+          "element": "7",
+          "token_id": 767
+        }
+      },
+      "elements": [
+        "1",
+        "2",
+        "3",
+        "5",
+        "4",
+        "6"
+      ],
+      "family": "digit",
+      "final_index": 6,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "7",
+      "recipient_answer_id": 767,
+      "recipient_element": "6",
+      "recipient_token_id": 718,
+      "row_id": "122b7ea9adadbc5967f97b68e54e314998dd06d043e3704a61429ce18bbed344",
+      "text": "Series: 1, 2, 3, 5, 4, 6,",
+      "token_ids": [
+        27996,
+        25,
+        352,
+        11,
+        362,
+        11,
+        513,
+        11,
+        642,
+        11,
+        604,
+        11,
+        718,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "6",
+          "answer_id": 718,
+          "element": "5",
+          "token_id": 642
+        },
+        "forward": {
+          "answer": "9",
+          "answer_id": 860,
+          "element": "8",
+          "token_id": 807
+        }
+      },
+      "elements": [
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "family": "digit",
+      "final_index": 7,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "8",
+      "recipient_answer_id": 807,
+      "recipient_element": "7",
+      "recipient_token_id": 767,
+      "row_id": "3c3eba3d4765691f5f014ad35801068b1d1133874673fb893d710666883e34ff",
+      "text": "Series: 2, 3, 4, 5, 6, 7,",
+      "token_ids": [
+        27996,
+        25,
+        362,
+        11,
+        513,
+        11,
+        604,
+        11,
+        642,
+        11,
+        718,
+        11,
+        767,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "6",
+          "answer_id": 718,
+          "element": "5",
+          "token_id": 642
+        },
+        "forward": {
+          "answer": "9",
+          "answer_id": 860,
+          "element": "8",
+          "token_id": 807
+        }
+      },
+      "elements": [
+        "3",
+        "2",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "family": "digit",
+      "final_index": 7,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "8",
+      "recipient_answer_id": 807,
+      "recipient_element": "7",
+      "recipient_token_id": 767,
+      "row_id": "cc25663d491ff47b07965b76a8834fa859aa2d5668b04a3919e92e98da339431",
+      "text": "Series: 3, 2, 4, 5, 6, 7,",
+      "token_ids": [
+        27996,
+        25,
+        513,
+        11,
+        362,
+        11,
+        604,
+        11,
+        642,
+        11,
+        718,
+        11,
+        767,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "6",
+          "answer_id": 718,
+          "element": "5",
+          "token_id": 642
+        },
+        "forward": {
+          "answer": "9",
+          "answer_id": 860,
+          "element": "8",
+          "token_id": 807
+        }
+      },
+      "elements": [
+        "2",
+        "3",
+        "4",
+        "6",
+        "5",
+        "7"
+      ],
+      "family": "digit",
+      "final_index": 7,
+      "last_position": 12,
+      "prefix": "Series: ",
+      "prefix_id": "series",
+      "query_position": 13,
+      "recipient_answer": "8",
+      "recipient_answer_id": 807,
+      "recipient_element": "7",
+      "recipient_token_id": 767,
+      "row_id": "388d14e56ab81ac41eba19a78b04ea40127a10992dc9d83ca2ba2eb0a530847d",
+      "text": "Series: 2, 3, 4, 6, 5, 7,",
+      "token_ids": [
+        27996,
+        25,
+        362,
+        11,
+        513,
+        11,
+        604,
+        11,
+        718,
+        11,
+        642,
+        11,
+        767,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "May",
+          "answer_id": 1737,
+          "element": "April",
+          "token_id": 3035
+        },
+        "forward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        }
+      },
+      "elements": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June"
+      ],
+      "family": "month",
+      "final_index": 5,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "July",
+      "recipient_answer_id": 2901,
+      "recipient_element": "June",
+      "recipient_token_id": 2795,
+      "row_id": "ec3ab0893e8da301167238d9cb70ecfd0a2417568814e68e3aede0fb64b02c6b",
+      "text": "Order: January, February, March, April, May, June,",
+      "token_ids": [
+        18743,
+        25,
+        3269,
+        11,
+        3945,
+        11,
+        2805,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "May",
+          "answer_id": 1737,
+          "element": "April",
+          "token_id": 3035
+        },
+        "forward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        }
+      },
+      "elements": [
+        "February",
+        "January",
+        "March",
+        "April",
+        "May",
+        "June"
+      ],
+      "family": "month",
+      "final_index": 5,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "July",
+      "recipient_answer_id": 2901,
+      "recipient_element": "June",
+      "recipient_token_id": 2795,
+      "row_id": "8c6c404ab4976c8482c8c490b2a5ccb3522e165860efc181b22ea2172c7940fe",
+      "text": "Order: February, January, March, April, May, June,",
+      "token_ids": [
+        18743,
+        25,
+        3945,
+        11,
+        3269,
+        11,
+        2805,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "May",
+          "answer_id": 1737,
+          "element": "April",
+          "token_id": 3035
+        },
+        "forward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        }
+      },
+      "elements": [
+        "January",
+        "February",
+        "March",
+        "May",
+        "April",
+        "June"
+      ],
+      "family": "month",
+      "final_index": 5,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "July",
+      "recipient_answer_id": 2901,
+      "recipient_element": "June",
+      "recipient_token_id": 2795,
+      "row_id": "2e19d36acf2c1edc3effbd84a198a4d6a16aee4908409d1130bcd6494d736a7a",
+      "text": "Order: January, February, March, May, April, June,",
+      "token_ids": [
+        18743,
+        25,
+        3269,
+        11,
+        3945,
+        11,
+        2805,
+        11,
+        1737,
+        11,
+        3035,
+        11,
+        2795,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "June",
+          "answer_id": 2795,
+          "element": "May",
+          "token_id": 1737
+        },
+        "forward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        }
+      },
+      "elements": [
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July"
+      ],
+      "family": "month",
+      "final_index": 6,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "August",
+      "recipient_answer_id": 2932,
+      "recipient_element": "July",
+      "recipient_token_id": 2901,
+      "row_id": "3fbcb57a93a7cbefb845a8b9998a947abc1661f1f41df210ab05152807f3dc22",
+      "text": "Order: February, March, April, May, June, July,",
+      "token_ids": [
+        18743,
+        25,
+        3945,
+        11,
+        2805,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "June",
+          "answer_id": 2795,
+          "element": "May",
+          "token_id": 1737
+        },
+        "forward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        }
+      },
+      "elements": [
+        "March",
+        "February",
+        "April",
+        "May",
+        "June",
+        "July"
+      ],
+      "family": "month",
+      "final_index": 6,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "August",
+      "recipient_answer_id": 2932,
+      "recipient_element": "July",
+      "recipient_token_id": 2901,
+      "row_id": "fbb5a8e9464f8aa3fd6c22c5a9182b7c7e6974441147a3c82f5bea2406f8fc76",
+      "text": "Order: March, February, April, May, June, July,",
+      "token_ids": [
+        18743,
+        25,
+        2805,
+        11,
+        3945,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "June",
+          "answer_id": 2795,
+          "element": "May",
+          "token_id": 1737
+        },
+        "forward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        }
+      },
+      "elements": [
+        "February",
+        "March",
+        "April",
+        "June",
+        "May",
+        "July"
+      ],
+      "family": "month",
+      "final_index": 6,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "August",
+      "recipient_answer_id": 2932,
+      "recipient_element": "July",
+      "recipient_token_id": 2901,
+      "row_id": "3592c220557079b6a9e4993a0e67aa57c5f56ee8cf43dc8206286badf94fbc71",
+      "text": "Order: February, March, April, June, May, July,",
+      "token_ids": [
+        18743,
+        25,
+        3945,
+        11,
+        2805,
+        11,
+        3035,
+        11,
+        2795,
+        11,
+        1737,
+        11,
+        2901,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "July",
+          "answer_id": 2901,
+          "element": "June",
+          "token_id": 2795
+        },
+        "forward": {
+          "answer": "October",
+          "answer_id": 3267,
+          "element": "September",
+          "token_id": 2693
+        }
+      },
+      "elements": [
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August"
+      ],
+      "family": "month",
+      "final_index": 7,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "September",
+      "recipient_answer_id": 2693,
+      "recipient_element": "August",
+      "recipient_token_id": 2932,
+      "row_id": "22008ba747c072304fbb8bd3a6c7ea2ec998ce452a71d7827ed710f971c222ae",
+      "text": "Order: March, April, May, June, July, August,",
+      "token_ids": [
+        18743,
+        25,
+        2805,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2932,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "July",
+          "answer_id": 2901,
+          "element": "June",
+          "token_id": 2795
+        },
+        "forward": {
+          "answer": "October",
+          "answer_id": 3267,
+          "element": "September",
+          "token_id": 2693
+        }
+      },
+      "elements": [
+        "April",
+        "March",
+        "May",
+        "June",
+        "July",
+        "August"
+      ],
+      "family": "month",
+      "final_index": 7,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "September",
+      "recipient_answer_id": 2693,
+      "recipient_element": "August",
+      "recipient_token_id": 2932,
+      "row_id": "aa33bb0dbbea97411c1ec6454cbc105a8956560f316c87d58248353588e4c2c1",
+      "text": "Order: April, March, May, June, July, August,",
+      "token_ids": [
+        18743,
+        25,
+        3035,
+        11,
+        2805,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2932,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "July",
+          "answer_id": 2901,
+          "element": "June",
+          "token_id": 2795
+        },
+        "forward": {
+          "answer": "October",
+          "answer_id": 3267,
+          "element": "September",
+          "token_id": 2693
+        }
+      },
+      "elements": [
+        "March",
+        "April",
+        "May",
+        "July",
+        "June",
+        "August"
+      ],
+      "family": "month",
+      "final_index": 7,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "September",
+      "recipient_answer_id": 2693,
+      "recipient_element": "August",
+      "recipient_token_id": 2932,
+      "row_id": "d42db437178af22e65d51b820f05bfd812687ecfb6251c23d2a48a0f07f2d219",
+      "text": "Order: March, April, May, July, June, August,",
+      "token_ids": [
+        18743,
+        25,
+        2805,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2901,
+        11,
+        2795,
+        11,
+        2932,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        },
+        "forward": {
+          "answer": "November",
+          "answer_id": 3389,
+          "element": "October",
+          "token_id": 3267
+        }
+      },
+      "elements": [
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September"
+      ],
+      "family": "month",
+      "final_index": 8,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "October",
+      "recipient_answer_id": 3267,
+      "recipient_element": "September",
+      "recipient_token_id": 2693,
+      "row_id": "e9307048b251b74215145420ae97efbefb304711d617e5309f8dbcef61b9d88b",
+      "text": "Order: April, May, June, July, August, September,",
+      "token_ids": [
+        18743,
+        25,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2932,
+        11,
+        2693,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        },
+        "forward": {
+          "answer": "November",
+          "answer_id": 3389,
+          "element": "October",
+          "token_id": 3267
+        }
+      },
+      "elements": [
+        "May",
+        "April",
+        "June",
+        "July",
+        "August",
+        "September"
+      ],
+      "family": "month",
+      "final_index": 8,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "October",
+      "recipient_answer_id": 3267,
+      "recipient_element": "September",
+      "recipient_token_id": 2693,
+      "row_id": "8f57ea42a20899f0c3b6e6fb8eef635cf5f9748346b944db67d1f3a59241aab1",
+      "text": "Order: May, April, June, July, August, September,",
+      "token_ids": [
+        18743,
+        25,
+        1737,
+        11,
+        3035,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2932,
+        11,
+        2693,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        },
+        "forward": {
+          "answer": "November",
+          "answer_id": 3389,
+          "element": "October",
+          "token_id": 3267
+        }
+      },
+      "elements": [
+        "April",
+        "May",
+        "June",
+        "August",
+        "July",
+        "September"
+      ],
+      "family": "month",
+      "final_index": 8,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "October",
+      "recipient_answer_id": 3267,
+      "recipient_element": "September",
+      "recipient_token_id": 2693,
+      "row_id": "62d35f512cc639aed7d78e06abe30361bbff33db99b2c5577618bace9dc40dc8",
+      "text": "Order: April, May, June, August, July, September,",
+      "token_ids": [
+        18743,
+        25,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2932,
+        11,
+        2901,
+        11,
+        2693,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        },
+        "forward": {
+          "answer": "December",
+          "answer_id": 3426,
+          "element": "November",
+          "token_id": 3389
+        }
+      },
+      "elements": [
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "family": "month",
+      "final_index": 9,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "November",
+      "recipient_answer_id": 3389,
+      "recipient_element": "October",
+      "recipient_token_id": 3267,
+      "row_id": "23e19b4fa484d4b11cf3729884fd9990148bd1b0e436223912f4919699ccb8ef",
+      "text": "Order: May, June, July, August, September, October,",
+      "token_ids": [
+        18743,
+        25,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2932,
+        11,
+        2693,
+        11,
+        3267,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        },
+        "forward": {
+          "answer": "December",
+          "answer_id": 3426,
+          "element": "November",
+          "token_id": 3389
+        }
+      },
+      "elements": [
+        "June",
+        "May",
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "family": "month",
+      "final_index": 9,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "November",
+      "recipient_answer_id": 3389,
+      "recipient_element": "October",
+      "recipient_token_id": 3267,
+      "row_id": "3b85a964416b4f8852fbe516069436e8756960c614dc4f85aca0c3481755a882",
+      "text": "Order: June, May, July, August, September, October,",
+      "token_ids": [
+        18743,
+        25,
+        2795,
+        11,
+        1737,
+        11,
+        2901,
+        11,
+        2932,
+        11,
+        2693,
+        11,
+        3267,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        },
+        "forward": {
+          "answer": "December",
+          "answer_id": 3426,
+          "element": "November",
+          "token_id": 3389
+        }
+      },
+      "elements": [
+        "May",
+        "June",
+        "July",
+        "September",
+        "August",
+        "October"
+      ],
+      "family": "month",
+      "final_index": 9,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "November",
+      "recipient_answer_id": 3389,
+      "recipient_element": "October",
+      "recipient_token_id": 3267,
+      "row_id": "6537d47b4b686f9c71df1ef9e96c46ed92a7f519bbd0b9d78ac4ca0fca912207",
+      "text": "Order: May, June, July, September, August, October,",
+      "token_ids": [
+        18743,
+        25,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2693,
+        11,
+        2932,
+        11,
+        3267,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "4",
+          "answer_id": 604,
+          "element": "3",
+          "token_id": 513
+        },
+        "forward": {
+          "answer": "7",
+          "answer_id": 767,
+          "element": "6",
+          "token_id": 718
+        }
+      },
+      "elements": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "family": "digit",
+      "final_index": 5,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "6",
+      "recipient_answer_id": 718,
+      "recipient_element": "5",
+      "recipient_token_id": 642,
+      "row_id": "64924d8a4531861928ab095532b6729795bd85dfa9ce02c6b2c5b40b2c41cc43",
+      "text": "Order: 0, 1, 2, 3, 4, 5,",
+      "token_ids": [
+        18743,
+        25,
+        657,
+        11,
+        352,
+        11,
+        362,
+        11,
+        513,
+        11,
+        604,
+        11,
+        642,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "4",
+          "answer_id": 604,
+          "element": "3",
+          "token_id": 513
+        },
+        "forward": {
+          "answer": "7",
+          "answer_id": 767,
+          "element": "6",
+          "token_id": 718
+        }
+      },
+      "elements": [
+        "1",
+        "0",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "family": "digit",
+      "final_index": 5,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "6",
+      "recipient_answer_id": 718,
+      "recipient_element": "5",
+      "recipient_token_id": 642,
+      "row_id": "d6448df1d1482670e13cc76af31783acff5ee33c3e2175f60a8072b4a3e6c046",
+      "text": "Order: 1, 0, 2, 3, 4, 5,",
+      "token_ids": [
+        18743,
+        25,
+        352,
+        11,
+        657,
+        11,
+        362,
+        11,
+        513,
+        11,
+        604,
+        11,
+        642,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "4",
+          "answer_id": 604,
+          "element": "3",
+          "token_id": 513
+        },
+        "forward": {
+          "answer": "7",
+          "answer_id": 767,
+          "element": "6",
+          "token_id": 718
+        }
+      },
+      "elements": [
+        "0",
+        "1",
+        "2",
+        "4",
+        "3",
+        "5"
+      ],
+      "family": "digit",
+      "final_index": 5,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "6",
+      "recipient_answer_id": 718,
+      "recipient_element": "5",
+      "recipient_token_id": 642,
+      "row_id": "d42620d8921e8655b50ac2a96b986cdebf4b9abf9a083a6a265478de04a8b195",
+      "text": "Order: 0, 1, 2, 4, 3, 5,",
+      "token_ids": [
+        18743,
+        25,
+        657,
+        11,
+        352,
+        11,
+        362,
+        11,
+        604,
+        11,
+        513,
+        11,
+        642,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "5",
+          "answer_id": 642,
+          "element": "4",
+          "token_id": 604
+        },
+        "forward": {
+          "answer": "8",
+          "answer_id": 807,
+          "element": "7",
+          "token_id": 767
+        }
+      },
+      "elements": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "family": "digit",
+      "final_index": 6,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "7",
+      "recipient_answer_id": 767,
+      "recipient_element": "6",
+      "recipient_token_id": 718,
+      "row_id": "6ac3283fbcd76592fda865794ee7ac7e312db3aebe0f5275e05786f30466155a",
+      "text": "Order: 1, 2, 3, 4, 5, 6,",
+      "token_ids": [
+        18743,
+        25,
+        352,
+        11,
+        362,
+        11,
+        513,
+        11,
+        604,
+        11,
+        642,
+        11,
+        718,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "5",
+          "answer_id": 642,
+          "element": "4",
+          "token_id": 604
+        },
+        "forward": {
+          "answer": "8",
+          "answer_id": 807,
+          "element": "7",
+          "token_id": 767
+        }
+      },
+      "elements": [
+        "2",
+        "1",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "family": "digit",
+      "final_index": 6,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "7",
+      "recipient_answer_id": 767,
+      "recipient_element": "6",
+      "recipient_token_id": 718,
+      "row_id": "d5cf9c0e3e564cb9fd75febda8812e1ab168439246e23f4b492925aaa2a38ea2",
+      "text": "Order: 2, 1, 3, 4, 5, 6,",
+      "token_ids": [
+        18743,
+        25,
+        362,
+        11,
+        352,
+        11,
+        513,
+        11,
+        604,
+        11,
+        642,
+        11,
+        718,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "5",
+          "answer_id": 642,
+          "element": "4",
+          "token_id": 604
+        },
+        "forward": {
+          "answer": "8",
+          "answer_id": 807,
+          "element": "7",
+          "token_id": 767
+        }
+      },
+      "elements": [
+        "1",
+        "2",
+        "3",
+        "5",
+        "4",
+        "6"
+      ],
+      "family": "digit",
+      "final_index": 6,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "7",
+      "recipient_answer_id": 767,
+      "recipient_element": "6",
+      "recipient_token_id": 718,
+      "row_id": "e9b689837492b37dfa0a3cc91dd7a247a1b998dd2304069332faebb8da48bfb6",
+      "text": "Order: 1, 2, 3, 5, 4, 6,",
+      "token_ids": [
+        18743,
+        25,
+        352,
+        11,
+        362,
+        11,
+        513,
+        11,
+        642,
+        11,
+        604,
+        11,
+        718,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "6",
+          "answer_id": 718,
+          "element": "5",
+          "token_id": 642
+        },
+        "forward": {
+          "answer": "9",
+          "answer_id": 860,
+          "element": "8",
+          "token_id": 807
+        }
+      },
+      "elements": [
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "family": "digit",
+      "final_index": 7,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "8",
+      "recipient_answer_id": 807,
+      "recipient_element": "7",
+      "recipient_token_id": 767,
+      "row_id": "0a8bc11f6295ba63d2a86215c070bcbe4302bd1011d5bf0e40e13a9d8e2b71ed",
+      "text": "Order: 2, 3, 4, 5, 6, 7,",
+      "token_ids": [
+        18743,
+        25,
+        362,
+        11,
+        513,
+        11,
+        604,
+        11,
+        642,
+        11,
+        718,
+        11,
+        767,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "6",
+          "answer_id": 718,
+          "element": "5",
+          "token_id": 642
+        },
+        "forward": {
+          "answer": "9",
+          "answer_id": 860,
+          "element": "8",
+          "token_id": 807
+        }
+      },
+      "elements": [
+        "3",
+        "2",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "family": "digit",
+      "final_index": 7,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "8",
+      "recipient_answer_id": 807,
+      "recipient_element": "7",
+      "recipient_token_id": 767,
+      "row_id": "75506de2a5e9ab2b5781f7a61c29121c2a0563d8ff9d783bdcda333e2ec8e440",
+      "text": "Order: 3, 2, 4, 5, 6, 7,",
+      "token_ids": [
+        18743,
+        25,
+        513,
+        11,
+        362,
+        11,
+        604,
+        11,
+        642,
+        11,
+        718,
+        11,
+        767,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "6",
+          "answer_id": 718,
+          "element": "5",
+          "token_id": 642
+        },
+        "forward": {
+          "answer": "9",
+          "answer_id": 860,
+          "element": "8",
+          "token_id": 807
+        }
+      },
+      "elements": [
+        "2",
+        "3",
+        "4",
+        "6",
+        "5",
+        "7"
+      ],
+      "family": "digit",
+      "final_index": 7,
+      "last_position": 12,
+      "prefix": "Order: ",
+      "prefix_id": "order",
+      "query_position": 13,
+      "recipient_answer": "8",
+      "recipient_answer_id": 807,
+      "recipient_element": "7",
+      "recipient_token_id": 767,
+      "row_id": "e58b49813b35ecdf5c0e8e6973fb6b6042a0581749195ef40c09ff1bd70a5c0e",
+      "text": "Order: 2, 3, 4, 6, 5, 7,",
+      "token_ids": [
+        18743,
+        25,
+        362,
+        11,
+        513,
+        11,
+        604,
+        11,
+        718,
+        11,
+        642,
+        11,
+        767,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "May",
+          "answer_id": 1737,
+          "element": "April",
+          "token_id": 3035
+        },
+        "forward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        }
+      },
+      "elements": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June"
+      ],
+      "family": "month",
+      "final_index": 5,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "July",
+      "recipient_answer_id": 2901,
+      "recipient_element": "June",
+      "recipient_token_id": 2795,
+      "row_id": "706968fea62eeed01e360d8bcdba3be89eeccb9bfd504df2889a845481c875b5",
+      "text": "Progression: January, February, March, April, May, June,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        3269,
+        11,
+        3945,
+        11,
+        2805,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "May",
+          "answer_id": 1737,
+          "element": "April",
+          "token_id": 3035
+        },
+        "forward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        }
+      },
+      "elements": [
+        "February",
+        "January",
+        "March",
+        "April",
+        "May",
+        "June"
+      ],
+      "family": "month",
+      "final_index": 5,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "July",
+      "recipient_answer_id": 2901,
+      "recipient_element": "June",
+      "recipient_token_id": 2795,
+      "row_id": "9f5f8d8a79a8fb7177692c5ae8e1d7a21e8feedf2fd882922533398ebd22f821",
+      "text": "Progression: February, January, March, April, May, June,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        3945,
+        11,
+        3269,
+        11,
+        2805,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "May",
+          "answer_id": 1737,
+          "element": "April",
+          "token_id": 3035
+        },
+        "forward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        }
+      },
+      "elements": [
+        "January",
+        "February",
+        "March",
+        "May",
+        "April",
+        "June"
+      ],
+      "family": "month",
+      "final_index": 5,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "July",
+      "recipient_answer_id": 2901,
+      "recipient_element": "June",
+      "recipient_token_id": 2795,
+      "row_id": "4af02810214dfd5883e7598a8ab2df8fcd53c6eb7d7a3ed5cb5a9f28e2d3f42a",
+      "text": "Progression: January, February, March, May, April, June,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        3269,
+        11,
+        3945,
+        11,
+        2805,
+        11,
+        1737,
+        11,
+        3035,
+        11,
+        2795,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "June",
+          "answer_id": 2795,
+          "element": "May",
+          "token_id": 1737
+        },
+        "forward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        }
+      },
+      "elements": [
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July"
+      ],
+      "family": "month",
+      "final_index": 6,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "August",
+      "recipient_answer_id": 2932,
+      "recipient_element": "July",
+      "recipient_token_id": 2901,
+      "row_id": "b5537857bb23a2824efd72f00e94b9ffd373f150c999bf9c07d35f96bb85a9ef",
+      "text": "Progression: February, March, April, May, June, July,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        3945,
+        11,
+        2805,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "June",
+          "answer_id": 2795,
+          "element": "May",
+          "token_id": 1737
+        },
+        "forward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        }
+      },
+      "elements": [
+        "March",
+        "February",
+        "April",
+        "May",
+        "June",
+        "July"
+      ],
+      "family": "month",
+      "final_index": 6,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "August",
+      "recipient_answer_id": 2932,
+      "recipient_element": "July",
+      "recipient_token_id": 2901,
+      "row_id": "ea48d8737683fc762c85c4056c9ea9a98cb8492bc4f875cc2eff19f0663eb612",
+      "text": "Progression: March, February, April, May, June, July,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        2805,
+        11,
+        3945,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "June",
+          "answer_id": 2795,
+          "element": "May",
+          "token_id": 1737
+        },
+        "forward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        }
+      },
+      "elements": [
+        "February",
+        "March",
+        "April",
+        "June",
+        "May",
+        "July"
+      ],
+      "family": "month",
+      "final_index": 6,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "August",
+      "recipient_answer_id": 2932,
+      "recipient_element": "July",
+      "recipient_token_id": 2901,
+      "row_id": "6cda41572384d2327813bd1d373c4cabbbc5f1798b3983895448f6e3685a7961",
+      "text": "Progression: February, March, April, June, May, July,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        3945,
+        11,
+        2805,
+        11,
+        3035,
+        11,
+        2795,
+        11,
+        1737,
+        11,
+        2901,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "July",
+          "answer_id": 2901,
+          "element": "June",
+          "token_id": 2795
+        },
+        "forward": {
+          "answer": "October",
+          "answer_id": 3267,
+          "element": "September",
+          "token_id": 2693
+        }
+      },
+      "elements": [
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August"
+      ],
+      "family": "month",
+      "final_index": 7,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "September",
+      "recipient_answer_id": 2693,
+      "recipient_element": "August",
+      "recipient_token_id": 2932,
+      "row_id": "791510a1fbf0d7d836650bfd916902196a15d555bdbdcabf241caa24a7337928",
+      "text": "Progression: March, April, May, June, July, August,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        2805,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2932,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "July",
+          "answer_id": 2901,
+          "element": "June",
+          "token_id": 2795
+        },
+        "forward": {
+          "answer": "October",
+          "answer_id": 3267,
+          "element": "September",
+          "token_id": 2693
+        }
+      },
+      "elements": [
+        "April",
+        "March",
+        "May",
+        "June",
+        "July",
+        "August"
+      ],
+      "family": "month",
+      "final_index": 7,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "September",
+      "recipient_answer_id": 2693,
+      "recipient_element": "August",
+      "recipient_token_id": 2932,
+      "row_id": "981b8d419f8cc17e1f2eafd0057388e7f3f3485fdda04847fc716b3760300e3a",
+      "text": "Progression: April, March, May, June, July, August,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        3035,
+        11,
+        2805,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2932,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "July",
+          "answer_id": 2901,
+          "element": "June",
+          "token_id": 2795
+        },
+        "forward": {
+          "answer": "October",
+          "answer_id": 3267,
+          "element": "September",
+          "token_id": 2693
+        }
+      },
+      "elements": [
+        "March",
+        "April",
+        "May",
+        "July",
+        "June",
+        "August"
+      ],
+      "family": "month",
+      "final_index": 7,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "September",
+      "recipient_answer_id": 2693,
+      "recipient_element": "August",
+      "recipient_token_id": 2932,
+      "row_id": "7531d05bae34a556809bfaba972fd15edc9f93beb08bc2b01782a938238890c4",
+      "text": "Progression: March, April, May, July, June, August,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        2805,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2901,
+        11,
+        2795,
+        11,
+        2932,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        },
+        "forward": {
+          "answer": "November",
+          "answer_id": 3389,
+          "element": "October",
+          "token_id": 3267
+        }
+      },
+      "elements": [
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September"
+      ],
+      "family": "month",
+      "final_index": 8,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "October",
+      "recipient_answer_id": 3267,
+      "recipient_element": "September",
+      "recipient_token_id": 2693,
+      "row_id": "b30eea057a787fa081e7dd5fe7ffbd2a7a6813ae84449f80a2497e12b6d66abc",
+      "text": "Progression: April, May, June, July, August, September,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2932,
+        11,
+        2693,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        },
+        "forward": {
+          "answer": "November",
+          "answer_id": 3389,
+          "element": "October",
+          "token_id": 3267
+        }
+      },
+      "elements": [
+        "May",
+        "April",
+        "June",
+        "July",
+        "August",
+        "September"
+      ],
+      "family": "month",
+      "final_index": 8,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "October",
+      "recipient_answer_id": 3267,
+      "recipient_element": "September",
+      "recipient_token_id": 2693,
+      "row_id": "f58b67c02ddc0a2c4dca98d7f2a5cf57e453ac7c2cc23c9b092146f45edeeb61",
+      "text": "Progression: May, April, June, July, August, September,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        1737,
+        11,
+        3035,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2932,
+        11,
+        2693,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        },
+        "forward": {
+          "answer": "November",
+          "answer_id": 3389,
+          "element": "October",
+          "token_id": 3267
+        }
+      },
+      "elements": [
+        "April",
+        "May",
+        "June",
+        "August",
+        "July",
+        "September"
+      ],
+      "family": "month",
+      "final_index": 8,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "October",
+      "recipient_answer_id": 3267,
+      "recipient_element": "September",
+      "recipient_token_id": 2693,
+      "row_id": "4b8a857ff0663ecabcaf486c010867a2952b520f545edc02bfeac66dcf14df9c",
+      "text": "Progression: April, May, June, August, July, September,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2932,
+        11,
+        2901,
+        11,
+        2693,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        },
+        "forward": {
+          "answer": "December",
+          "answer_id": 3426,
+          "element": "November",
+          "token_id": 3389
+        }
+      },
+      "elements": [
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "family": "month",
+      "final_index": 9,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "November",
+      "recipient_answer_id": 3389,
+      "recipient_element": "October",
+      "recipient_token_id": 3267,
+      "row_id": "c783f1d98121388cb12f4d5233701e158265b6b4fd613c0c7d72a889f6ea3032",
+      "text": "Progression: May, June, July, August, September, October,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2932,
+        11,
+        2693,
+        11,
+        3267,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        },
+        "forward": {
+          "answer": "December",
+          "answer_id": 3426,
+          "element": "November",
+          "token_id": 3389
+        }
+      },
+      "elements": [
+        "June",
+        "May",
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "family": "month",
+      "final_index": 9,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "November",
+      "recipient_answer_id": 3389,
+      "recipient_element": "October",
+      "recipient_token_id": 3267,
+      "row_id": "1065a1cc923c6d01d5d05753af22a4191b1dc9fa997fc9a1baad11a41b3c2bcb",
+      "text": "Progression: June, May, July, August, September, October,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        2795,
+        11,
+        1737,
+        11,
+        2901,
+        11,
+        2932,
+        11,
+        2693,
+        11,
+        3267,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        },
+        "forward": {
+          "answer": "December",
+          "answer_id": 3426,
+          "element": "November",
+          "token_id": 3389
+        }
+      },
+      "elements": [
+        "May",
+        "June",
+        "July",
+        "September",
+        "August",
+        "October"
+      ],
+      "family": "month",
+      "final_index": 9,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "November",
+      "recipient_answer_id": 3389,
+      "recipient_element": "October",
+      "recipient_token_id": 3267,
+      "row_id": "632866b4305bac0f2dfd11e8c5af1fdb9550a48e8014d403350147bbcda1af13",
+      "text": "Progression: May, June, July, September, August, October,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2693,
+        11,
+        2932,
+        11,
+        3267,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "4",
+          "answer_id": 604,
+          "element": "3",
+          "token_id": 513
+        },
+        "forward": {
+          "answer": "7",
+          "answer_id": 767,
+          "element": "6",
+          "token_id": 718
+        }
+      },
+      "elements": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "family": "digit",
+      "final_index": 5,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "6",
+      "recipient_answer_id": 718,
+      "recipient_element": "5",
+      "recipient_token_id": 642,
+      "row_id": "5e014c1678e30ea5d7e1947e3ee320ec0fc1f94ce49a1576aa6c3affd098c2d4",
+      "text": "Progression: 0, 1, 2, 3, 4, 5,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        657,
+        11,
+        352,
+        11,
+        362,
+        11,
+        513,
+        11,
+        604,
+        11,
+        642,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "4",
+          "answer_id": 604,
+          "element": "3",
+          "token_id": 513
+        },
+        "forward": {
+          "answer": "7",
+          "answer_id": 767,
+          "element": "6",
+          "token_id": 718
+        }
+      },
+      "elements": [
+        "1",
+        "0",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "family": "digit",
+      "final_index": 5,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "6",
+      "recipient_answer_id": 718,
+      "recipient_element": "5",
+      "recipient_token_id": 642,
+      "row_id": "b8376fea2375111c6a08f5318681480759f30277c996a3a3d2b868b1c5e7172d",
+      "text": "Progression: 1, 0, 2, 3, 4, 5,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        352,
+        11,
+        657,
+        11,
+        362,
+        11,
+        513,
+        11,
+        604,
+        11,
+        642,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "4",
+          "answer_id": 604,
+          "element": "3",
+          "token_id": 513
+        },
+        "forward": {
+          "answer": "7",
+          "answer_id": 767,
+          "element": "6",
+          "token_id": 718
+        }
+      },
+      "elements": [
+        "0",
+        "1",
+        "2",
+        "4",
+        "3",
+        "5"
+      ],
+      "family": "digit",
+      "final_index": 5,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "6",
+      "recipient_answer_id": 718,
+      "recipient_element": "5",
+      "recipient_token_id": 642,
+      "row_id": "eb97f0da457590d7ec5704cd0fbd42975905ba69e12740f47a207d3bd13290fc",
+      "text": "Progression: 0, 1, 2, 4, 3, 5,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        657,
+        11,
+        352,
+        11,
+        362,
+        11,
+        604,
+        11,
+        513,
+        11,
+        642,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "5",
+          "answer_id": 642,
+          "element": "4",
+          "token_id": 604
+        },
+        "forward": {
+          "answer": "8",
+          "answer_id": 807,
+          "element": "7",
+          "token_id": 767
+        }
+      },
+      "elements": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "family": "digit",
+      "final_index": 6,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "7",
+      "recipient_answer_id": 767,
+      "recipient_element": "6",
+      "recipient_token_id": 718,
+      "row_id": "f9b88d76bbd771ee413b858e63ba0c441c4bb29ceecc9605a21cc6d34f99c804",
+      "text": "Progression: 1, 2, 3, 4, 5, 6,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        352,
+        11,
+        362,
+        11,
+        513,
+        11,
+        604,
+        11,
+        642,
+        11,
+        718,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "5",
+          "answer_id": 642,
+          "element": "4",
+          "token_id": 604
+        },
+        "forward": {
+          "answer": "8",
+          "answer_id": 807,
+          "element": "7",
+          "token_id": 767
+        }
+      },
+      "elements": [
+        "2",
+        "1",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "family": "digit",
+      "final_index": 6,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "7",
+      "recipient_answer_id": 767,
+      "recipient_element": "6",
+      "recipient_token_id": 718,
+      "row_id": "e183cac36244b76fde5d2d82eb3b7bdf244b2935f2286d4fdefdd55c8d3c9b39",
+      "text": "Progression: 2, 1, 3, 4, 5, 6,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        362,
+        11,
+        352,
+        11,
+        513,
+        11,
+        604,
+        11,
+        642,
+        11,
+        718,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "5",
+          "answer_id": 642,
+          "element": "4",
+          "token_id": 604
+        },
+        "forward": {
+          "answer": "8",
+          "answer_id": 807,
+          "element": "7",
+          "token_id": 767
+        }
+      },
+      "elements": [
+        "1",
+        "2",
+        "3",
+        "5",
+        "4",
+        "6"
+      ],
+      "family": "digit",
+      "final_index": 6,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "7",
+      "recipient_answer_id": 767,
+      "recipient_element": "6",
+      "recipient_token_id": 718,
+      "row_id": "85018af891a7c9f02085604a99d6dafd3c404ac6f648edd7db728c476a3064bf",
+      "text": "Progression: 1, 2, 3, 5, 4, 6,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        352,
+        11,
+        362,
+        11,
+        513,
+        11,
+        642,
+        11,
+        604,
+        11,
+        718,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "6",
+          "answer_id": 718,
+          "element": "5",
+          "token_id": 642
+        },
+        "forward": {
+          "answer": "9",
+          "answer_id": 860,
+          "element": "8",
+          "token_id": 807
+        }
+      },
+      "elements": [
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "family": "digit",
+      "final_index": 7,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "8",
+      "recipient_answer_id": 807,
+      "recipient_element": "7",
+      "recipient_token_id": 767,
+      "row_id": "df6896bd2c2991324d3dea3245a3188f26d9950da901571cc8c73c9262be60ca",
+      "text": "Progression: 2, 3, 4, 5, 6, 7,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        362,
+        11,
+        513,
+        11,
+        604,
+        11,
+        642,
+        11,
+        718,
+        11,
+        767,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "6",
+          "answer_id": 718,
+          "element": "5",
+          "token_id": 642
+        },
+        "forward": {
+          "answer": "9",
+          "answer_id": 860,
+          "element": "8",
+          "token_id": 807
+        }
+      },
+      "elements": [
+        "3",
+        "2",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "family": "digit",
+      "final_index": 7,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "8",
+      "recipient_answer_id": 807,
+      "recipient_element": "7",
+      "recipient_token_id": 767,
+      "row_id": "35eb9a78ed9c7772b60740eaa110467add2d2f580cc90446d1b78f3c33f40da4",
+      "text": "Progression: 3, 2, 4, 5, 6, 7,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        513,
+        11,
+        362,
+        11,
+        604,
+        11,
+        642,
+        11,
+        718,
+        11,
+        767,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "6",
+          "answer_id": 718,
+          "element": "5",
+          "token_id": 642
+        },
+        "forward": {
+          "answer": "9",
+          "answer_id": 860,
+          "element": "8",
+          "token_id": 807
+        }
+      },
+      "elements": [
+        "2",
+        "3",
+        "4",
+        "6",
+        "5",
+        "7"
+      ],
+      "family": "digit",
+      "final_index": 7,
+      "last_position": 13,
+      "prefix": "Progression: ",
+      "prefix_id": "progression",
+      "query_position": 14,
+      "recipient_answer": "8",
+      "recipient_answer_id": 807,
+      "recipient_element": "7",
+      "recipient_token_id": 767,
+      "row_id": "f681e23c399b20bb8ac1a987459b10387102df49cedc86ca702175ea142c1ab1",
+      "text": "Progression: 2, 3, 4, 6, 5, 7,",
+      "token_ids": [
+        2964,
+        32383,
+        25,
+        362,
+        11,
+        513,
+        11,
+        604,
+        11,
+        718,
+        11,
+        642,
+        11,
+        767,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "May",
+          "answer_id": 1737,
+          "element": "April",
+          "token_id": 3035
+        },
+        "forward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        }
+      },
+      "elements": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June"
+      ],
+      "family": "month",
+      "final_index": 5,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "July",
+      "recipient_answer_id": 2901,
+      "recipient_element": "June",
+      "recipient_token_id": 2795,
+      "row_id": "f8caadaf1b5f0ef22762804b65564a502adae303e611fe626de94d2a346ec460",
+      "text": "Next: January, February, March, April, May, June,",
+      "token_ids": [
+        10019,
+        25,
+        3269,
+        11,
+        3945,
+        11,
+        2805,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "May",
+          "answer_id": 1737,
+          "element": "April",
+          "token_id": 3035
+        },
+        "forward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        }
+      },
+      "elements": [
+        "February",
+        "January",
+        "March",
+        "April",
+        "May",
+        "June"
+      ],
+      "family": "month",
+      "final_index": 5,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "July",
+      "recipient_answer_id": 2901,
+      "recipient_element": "June",
+      "recipient_token_id": 2795,
+      "row_id": "37f2595fc07b6faee3af4f7aeb1d58e37595b96297a276c0dbac3694ff71fada",
+      "text": "Next: February, January, March, April, May, June,",
+      "token_ids": [
+        10019,
+        25,
+        3945,
+        11,
+        3269,
+        11,
+        2805,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "May",
+          "answer_id": 1737,
+          "element": "April",
+          "token_id": 3035
+        },
+        "forward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        }
+      },
+      "elements": [
+        "January",
+        "February",
+        "March",
+        "May",
+        "April",
+        "June"
+      ],
+      "family": "month",
+      "final_index": 5,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "July",
+      "recipient_answer_id": 2901,
+      "recipient_element": "June",
+      "recipient_token_id": 2795,
+      "row_id": "612915e7fe210b344ce8047c9b32acb85631d6d3cd3f9710592a29aaec2ac782",
+      "text": "Next: January, February, March, May, April, June,",
+      "token_ids": [
+        10019,
+        25,
+        3269,
+        11,
+        3945,
+        11,
+        2805,
+        11,
+        1737,
+        11,
+        3035,
+        11,
+        2795,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "June",
+          "answer_id": 2795,
+          "element": "May",
+          "token_id": 1737
+        },
+        "forward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        }
+      },
+      "elements": [
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July"
+      ],
+      "family": "month",
+      "final_index": 6,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "August",
+      "recipient_answer_id": 2932,
+      "recipient_element": "July",
+      "recipient_token_id": 2901,
+      "row_id": "f0f429b1579ea49e2ea1fee6b8f250f4365773d34ae28946530f00ace47d0f5a",
+      "text": "Next: February, March, April, May, June, July,",
+      "token_ids": [
+        10019,
+        25,
+        3945,
+        11,
+        2805,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "June",
+          "answer_id": 2795,
+          "element": "May",
+          "token_id": 1737
+        },
+        "forward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        }
+      },
+      "elements": [
+        "March",
+        "February",
+        "April",
+        "May",
+        "June",
+        "July"
+      ],
+      "family": "month",
+      "final_index": 6,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "August",
+      "recipient_answer_id": 2932,
+      "recipient_element": "July",
+      "recipient_token_id": 2901,
+      "row_id": "9a69e9e7dea4f8146357b3c5b5336a434c99f9cb4b5b52eb85542f279ed7c1ec",
+      "text": "Next: March, February, April, May, June, July,",
+      "token_ids": [
+        10019,
+        25,
+        2805,
+        11,
+        3945,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "June",
+          "answer_id": 2795,
+          "element": "May",
+          "token_id": 1737
+        },
+        "forward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        }
+      },
+      "elements": [
+        "February",
+        "March",
+        "April",
+        "June",
+        "May",
+        "July"
+      ],
+      "family": "month",
+      "final_index": 6,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "August",
+      "recipient_answer_id": 2932,
+      "recipient_element": "July",
+      "recipient_token_id": 2901,
+      "row_id": "2510e23ade211cc5039b703cdf2476b314e23b8aa6e439ccbf06a1adada31537",
+      "text": "Next: February, March, April, June, May, July,",
+      "token_ids": [
+        10019,
+        25,
+        3945,
+        11,
+        2805,
+        11,
+        3035,
+        11,
+        2795,
+        11,
+        1737,
+        11,
+        2901,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "July",
+          "answer_id": 2901,
+          "element": "June",
+          "token_id": 2795
+        },
+        "forward": {
+          "answer": "October",
+          "answer_id": 3267,
+          "element": "September",
+          "token_id": 2693
+        }
+      },
+      "elements": [
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August"
+      ],
+      "family": "month",
+      "final_index": 7,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "September",
+      "recipient_answer_id": 2693,
+      "recipient_element": "August",
+      "recipient_token_id": 2932,
+      "row_id": "3314cc4ca60dc6837bcb774d98b0bcb35ea40ba43fd3c1d95b18f5cb25e8a260",
+      "text": "Next: March, April, May, June, July, August,",
+      "token_ids": [
+        10019,
+        25,
+        2805,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2932,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "July",
+          "answer_id": 2901,
+          "element": "June",
+          "token_id": 2795
+        },
+        "forward": {
+          "answer": "October",
+          "answer_id": 3267,
+          "element": "September",
+          "token_id": 2693
+        }
+      },
+      "elements": [
+        "April",
+        "March",
+        "May",
+        "June",
+        "July",
+        "August"
+      ],
+      "family": "month",
+      "final_index": 7,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "September",
+      "recipient_answer_id": 2693,
+      "recipient_element": "August",
+      "recipient_token_id": 2932,
+      "row_id": "17539fdb0f758d13bb4df9430602e455899fdf6f3149b0bb14d8b42758f2e5e8",
+      "text": "Next: April, March, May, June, July, August,",
+      "token_ids": [
+        10019,
+        25,
+        3035,
+        11,
+        2805,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2932,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "July",
+          "answer_id": 2901,
+          "element": "June",
+          "token_id": 2795
+        },
+        "forward": {
+          "answer": "October",
+          "answer_id": 3267,
+          "element": "September",
+          "token_id": 2693
+        }
+      },
+      "elements": [
+        "March",
+        "April",
+        "May",
+        "July",
+        "June",
+        "August"
+      ],
+      "family": "month",
+      "final_index": 7,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "September",
+      "recipient_answer_id": 2693,
+      "recipient_element": "August",
+      "recipient_token_id": 2932,
+      "row_id": "46a306f8c28b894f6ddd486d1fa233f6b91891b57b536620f3668ec49c783065",
+      "text": "Next: March, April, May, July, June, August,",
+      "token_ids": [
+        10019,
+        25,
+        2805,
+        11,
+        3035,
+        11,
+        1737,
+        11,
+        2901,
+        11,
+        2795,
+        11,
+        2932,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        },
+        "forward": {
+          "answer": "November",
+          "answer_id": 3389,
+          "element": "October",
+          "token_id": 3267
+        }
+      },
+      "elements": [
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September"
+      ],
+      "family": "month",
+      "final_index": 8,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "October",
+      "recipient_answer_id": 3267,
+      "recipient_element": "September",
+      "recipient_token_id": 2693,
+      "row_id": "5572ae041978d317393d927ae948ed92030c42b094aedc6a11c04e41550fb24e",
+      "text": "Next: April, May, June, July, August, September,",
+      "token_ids": [
+        10019,
+        25,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2932,
+        11,
+        2693,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        },
+        "forward": {
+          "answer": "November",
+          "answer_id": 3389,
+          "element": "October",
+          "token_id": 3267
+        }
+      },
+      "elements": [
+        "May",
+        "April",
+        "June",
+        "July",
+        "August",
+        "September"
+      ],
+      "family": "month",
+      "final_index": 8,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "October",
+      "recipient_answer_id": 3267,
+      "recipient_element": "September",
+      "recipient_token_id": 2693,
+      "row_id": "e73c5cdfc5ea715d1c665d861b3afdf2f2d44d79da37c169f3adc39ab474978b",
+      "text": "Next: May, April, June, July, August, September,",
+      "token_ids": [
+        10019,
+        25,
+        1737,
+        11,
+        3035,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2932,
+        11,
+        2693,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "August",
+          "answer_id": 2932,
+          "element": "July",
+          "token_id": 2901
+        },
+        "forward": {
+          "answer": "November",
+          "answer_id": 3389,
+          "element": "October",
+          "token_id": 3267
+        }
+      },
+      "elements": [
+        "April",
+        "May",
+        "June",
+        "August",
+        "July",
+        "September"
+      ],
+      "family": "month",
+      "final_index": 8,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "October",
+      "recipient_answer_id": 3267,
+      "recipient_element": "September",
+      "recipient_token_id": 2693,
+      "row_id": "d121de4395bb229a99cec35ddd92089121a361fe96b07f5b5f26d888e8fe8869",
+      "text": "Next: April, May, June, August, July, September,",
+      "token_ids": [
+        10019,
+        25,
+        3035,
+        11,
+        1737,
+        11,
+        2795,
+        11,
+        2932,
+        11,
+        2901,
+        11,
+        2693,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        },
+        "forward": {
+          "answer": "December",
+          "answer_id": 3426,
+          "element": "November",
+          "token_id": 3389
+        }
+      },
+      "elements": [
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "family": "month",
+      "final_index": 9,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "November",
+      "recipient_answer_id": 3389,
+      "recipient_element": "October",
+      "recipient_token_id": 3267,
+      "row_id": "d933bd35a0436b8a3086667f7db011c1de40cf1c99fe5b21756fabec004568ab",
+      "text": "Next: May, June, July, August, September, October,",
+      "token_ids": [
+        10019,
+        25,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2932,
+        11,
+        2693,
+        11,
+        3267,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        },
+        "forward": {
+          "answer": "December",
+          "answer_id": 3426,
+          "element": "November",
+          "token_id": 3389
+        }
+      },
+      "elements": [
+        "June",
+        "May",
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "family": "month",
+      "final_index": 9,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "November",
+      "recipient_answer_id": 3389,
+      "recipient_element": "October",
+      "recipient_token_id": 3267,
+      "row_id": "e8357dc3c98985dab32a1ed46669a95f398eea5c8c58eadd1fe92772682e1768",
+      "text": "Next: June, May, July, August, September, October,",
+      "token_ids": [
+        10019,
+        25,
+        2795,
+        11,
+        1737,
+        11,
+        2901,
+        11,
+        2932,
+        11,
+        2693,
+        11,
+        3267,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "September",
+          "answer_id": 2693,
+          "element": "August",
+          "token_id": 2932
+        },
+        "forward": {
+          "answer": "December",
+          "answer_id": 3426,
+          "element": "November",
+          "token_id": 3389
+        }
+      },
+      "elements": [
+        "May",
+        "June",
+        "July",
+        "September",
+        "August",
+        "October"
+      ],
+      "family": "month",
+      "final_index": 9,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "November",
+      "recipient_answer_id": 3389,
+      "recipient_element": "October",
+      "recipient_token_id": 3267,
+      "row_id": "f9285df85559b96f9e7095cba83dc027d70e3d58bedb464223cb865fe773c4a9",
+      "text": "Next: May, June, July, September, August, October,",
+      "token_ids": [
+        10019,
+        25,
+        1737,
+        11,
+        2795,
+        11,
+        2901,
+        11,
+        2693,
+        11,
+        2932,
+        11,
+        3267,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "4",
+          "answer_id": 604,
+          "element": "3",
+          "token_id": 513
+        },
+        "forward": {
+          "answer": "7",
+          "answer_id": 767,
+          "element": "6",
+          "token_id": 718
+        }
+      },
+      "elements": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "family": "digit",
+      "final_index": 5,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "6",
+      "recipient_answer_id": 718,
+      "recipient_element": "5",
+      "recipient_token_id": 642,
+      "row_id": "e770c3512beab32bd737d9d49f584abfcc8f57b38b4ff601aace719f1cab1239",
+      "text": "Next: 0, 1, 2, 3, 4, 5,",
+      "token_ids": [
+        10019,
+        25,
+        657,
+        11,
+        352,
+        11,
+        362,
+        11,
+        513,
+        11,
+        604,
+        11,
+        642,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "4",
+          "answer_id": 604,
+          "element": "3",
+          "token_id": 513
+        },
+        "forward": {
+          "answer": "7",
+          "answer_id": 767,
+          "element": "6",
+          "token_id": 718
+        }
+      },
+      "elements": [
+        "1",
+        "0",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "family": "digit",
+      "final_index": 5,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "6",
+      "recipient_answer_id": 718,
+      "recipient_element": "5",
+      "recipient_token_id": 642,
+      "row_id": "24ba68a3bf05b9645fb5372a77f15b8c7fc501092cb47847562d3de0a2562f80",
+      "text": "Next: 1, 0, 2, 3, 4, 5,",
+      "token_ids": [
+        10019,
+        25,
+        352,
+        11,
+        657,
+        11,
+        362,
+        11,
+        513,
+        11,
+        604,
+        11,
+        642,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "4",
+          "answer_id": 604,
+          "element": "3",
+          "token_id": 513
+        },
+        "forward": {
+          "answer": "7",
+          "answer_id": 767,
+          "element": "6",
+          "token_id": 718
+        }
+      },
+      "elements": [
+        "0",
+        "1",
+        "2",
+        "4",
+        "3",
+        "5"
+      ],
+      "family": "digit",
+      "final_index": 5,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "6",
+      "recipient_answer_id": 718,
+      "recipient_element": "5",
+      "recipient_token_id": 642,
+      "row_id": "ea6b837ec04cc0684a6281a894bfa2d38541ae2a26d09b7979e12255b28edc69",
+      "text": "Next: 0, 1, 2, 4, 3, 5,",
+      "token_ids": [
+        10019,
+        25,
+        657,
+        11,
+        352,
+        11,
+        362,
+        11,
+        604,
+        11,
+        513,
+        11,
+        642,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "5",
+          "answer_id": 642,
+          "element": "4",
+          "token_id": 604
+        },
+        "forward": {
+          "answer": "8",
+          "answer_id": 807,
+          "element": "7",
+          "token_id": 767
+        }
+      },
+      "elements": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "family": "digit",
+      "final_index": 6,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "7",
+      "recipient_answer_id": 767,
+      "recipient_element": "6",
+      "recipient_token_id": 718,
+      "row_id": "0ad55bc0b440b5df96ec2c59621858ca9635b5356b1835c3bea42006ac7532d8",
+      "text": "Next: 1, 2, 3, 4, 5, 6,",
+      "token_ids": [
+        10019,
+        25,
+        352,
+        11,
+        362,
+        11,
+        513,
+        11,
+        604,
+        11,
+        642,
+        11,
+        718,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "5",
+          "answer_id": 642,
+          "element": "4",
+          "token_id": 604
+        },
+        "forward": {
+          "answer": "8",
+          "answer_id": 807,
+          "element": "7",
+          "token_id": 767
+        }
+      },
+      "elements": [
+        "2",
+        "1",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "family": "digit",
+      "final_index": 6,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "7",
+      "recipient_answer_id": 767,
+      "recipient_element": "6",
+      "recipient_token_id": 718,
+      "row_id": "94e3670343921b1607a9bf52c52dfb73844aef0d32989cd1be0f2d22509e919f",
+      "text": "Next: 2, 1, 3, 4, 5, 6,",
+      "token_ids": [
+        10019,
+        25,
+        362,
+        11,
+        352,
+        11,
+        513,
+        11,
+        604,
+        11,
+        642,
+        11,
+        718,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "5",
+          "answer_id": 642,
+          "element": "4",
+          "token_id": 604
+        },
+        "forward": {
+          "answer": "8",
+          "answer_id": 807,
+          "element": "7",
+          "token_id": 767
+        }
+      },
+      "elements": [
+        "1",
+        "2",
+        "3",
+        "5",
+        "4",
+        "6"
+      ],
+      "family": "digit",
+      "final_index": 6,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "7",
+      "recipient_answer_id": 767,
+      "recipient_element": "6",
+      "recipient_token_id": 718,
+      "row_id": "60dd10e8313b3afc86c306b9ee32762817d05cb364eb5136957ab6e0bd7e26bb",
+      "text": "Next: 1, 2, 3, 5, 4, 6,",
+      "token_ids": [
+        10019,
+        25,
+        352,
+        11,
+        362,
+        11,
+        513,
+        11,
+        642,
+        11,
+        604,
+        11,
+        718,
+        11
+      ]
+    },
+    {
+      "condition": "coherent",
+      "donors": {
+        "backward": {
+          "answer": "6",
+          "answer_id": 718,
+          "element": "5",
+          "token_id": 642
+        },
+        "forward": {
+          "answer": "9",
+          "answer_id": 860,
+          "element": "8",
+          "token_id": 807
+        }
+      },
+      "elements": [
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "family": "digit",
+      "final_index": 7,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "8",
+      "recipient_answer_id": 807,
+      "recipient_element": "7",
+      "recipient_token_id": 767,
+      "row_id": "5fe566ff9c546b87ce18f9e5ad2c46bca4e757cc4a215392e31b6cf7aaf6a3e3",
+      "text": "Next: 2, 3, 4, 5, 6, 7,",
+      "token_ids": [
+        10019,
+        25,
+        362,
+        11,
+        513,
+        11,
+        604,
+        11,
+        642,
+        11,
+        718,
+        11,
+        767,
+        11
+      ]
+    },
+    {
+      "condition": "early_swap_control",
+      "donors": {
+        "backward": {
+          "answer": "6",
+          "answer_id": 718,
+          "element": "5",
+          "token_id": 642
+        },
+        "forward": {
+          "answer": "9",
+          "answer_id": 860,
+          "element": "8",
+          "token_id": 807
+        }
+      },
+      "elements": [
+        "3",
+        "2",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "family": "digit",
+      "final_index": 7,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "8",
+      "recipient_answer_id": 807,
+      "recipient_element": "7",
+      "recipient_token_id": 767,
+      "row_id": "9394f06bc497b3cc741abdefff761b8d8a04848d80bc1324a080ebae7d641af3",
+      "text": "Next: 3, 2, 4, 5, 6, 7,",
+      "token_ids": [
+        10019,
+        25,
+        513,
+        11,
+        362,
+        11,
+        604,
+        11,
+        642,
+        11,
+        718,
+        11,
+        767,
+        11
+      ]
+    },
+    {
+      "condition": "late_swap_incoherent",
+      "donors": {
+        "backward": {
+          "answer": "6",
+          "answer_id": 718,
+          "element": "5",
+          "token_id": 642
+        },
+        "forward": {
+          "answer": "9",
+          "answer_id": 860,
+          "element": "8",
+          "token_id": 807
+        }
+      },
+      "elements": [
+        "2",
+        "3",
+        "4",
+        "6",
+        "5",
+        "7"
+      ],
+      "family": "digit",
+      "final_index": 7,
+      "last_position": 12,
+      "prefix": "Next: ",
+      "prefix_id": "next",
+      "query_position": 13,
+      "recipient_answer": "8",
+      "recipient_answer_id": 807,
+      "recipient_element": "7",
+      "recipient_token_id": 767,
+      "row_id": "9630f516944bcca6e3359a551f1ecbfb74252792bcc0fa375e23d6773d5fbc14",
+      "text": "Next: 2, 3, 4, 6, 5, 7,",
+      "token_ids": [
+        10019,
+        25,
+        362,
+        11,
+        513,
+        11,
+        604,
+        11,
+        718,
+        11,
+        642,
+        11,
+        767,
+        11
+      ]
+    }
+  ],
+  "schema": "successor_pointer_prefixed_length6_v2_rows",
+  "selection_rule": "four second-authority label prefixes crossed with every previously defined length-six month/digit endpoint and the same two transpositions; no model outcomes"
+}
