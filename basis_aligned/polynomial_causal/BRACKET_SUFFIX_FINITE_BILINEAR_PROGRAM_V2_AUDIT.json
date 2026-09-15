@@ -1,0 +1,129 @@
+{
+  "all_checks_pass": true,
+  "checks": {
+    "candidate_liveness": true,
+    "exact_instrument": true,
+    "exact_parents_live": true,
+    "exact_price": true,
+    "fixed_first_selection": true,
+    "literal_verdict": true,
+    "runner_hash_bound": true,
+    "source_only_transfer": true,
+    "valid_terminal": true
+  },
+  "finding": "The exact L13H8 donor source retains the bracket effect across sixth and seventh constructions even when the full source-induced MLP13-17 finite response is removed online. The suffix interaction terms are active but unnecessary under the frozen selection and transfer bars.",
+  "maximum_closure_rse": 1.7751067948159451e-25,
+  "result_sha256": "b41eb60c2bc0bd5d7a64cab6273adb438088616cbe77232001df6eeec710d3ad",
+  "runner_sha256": "a470a0fc77878f25d83d8d10c69d8984ab08c3bf55e4f37cef80970c5e2641a7",
+  "schema": "bracket_suffix_finite_bilinear_program_v2_audit",
+  "seventh_source_only": {
+    "by_pair": {
+      "1->60": {
+        "cosine": 0.9997754820392875,
+        "count": 12,
+        "predicted_to_actual_norm_ratio": 1.1281050168646902,
+        "relative_l2_error": 0.13006711737258872,
+        "sign_agreement": 1.0
+      },
+      "1->8": {
+        "cosine": 0.9998303501316298,
+        "count": 12,
+        "predicted_to_actual_norm_ratio": 1.0000423014956101,
+        "relative_l2_error": 0.018420528739510063,
+        "sign_agreement": 1.0
+      },
+      "60->1": {
+        "cosine": 0.9998789738124864,
+        "count": 12,
+        "predicted_to_actual_norm_ratio": 1.008120182514931,
+        "relative_l2_error": 0.01760554596047083,
+        "sign_agreement": 1.0
+      },
+      "60->8": {
+        "cosine": 0.9998759381881497,
+        "count": 12,
+        "predicted_to_actual_norm_ratio": 0.8368373457234399,
+        "relative_l2_error": 0.16379771324790074,
+        "sign_agreement": 1.0
+      },
+      "8->1": {
+        "cosine": 0.999883546554133,
+        "count": 12,
+        "predicted_to_actual_norm_ratio": 0.9961469205014146,
+        "relative_l2_error": 0.015711642326203173,
+        "sign_agreement": 1.0
+      },
+      "8->60": {
+        "cosine": 0.9999363385490659,
+        "count": 12,
+        "predicted_to_actual_norm_ratio": 0.879226248964756,
+        "relative_l2_error": 0.12123631706934963,
+        "sign_agreement": 1.0
+      }
+    },
+    "control_to_exact_target_rms": 0.13240462804033348,
+    "overall": {
+      "cosine": 0.9953951287596697,
+      "count": 72,
+      "predicted_to_actual_norm_ratio": 0.9661537684392452,
+      "relative_l2_error": 0.1002177369276981,
+      "sign_agreement": 1.0
+    },
+    "passes": true
+  },
+  "sixth_source_only": {
+    "by_pair": {
+      "1->60": {
+        "cosine": 0.9998988413423302,
+        "count": 12,
+        "predicted_to_actual_norm_ratio": 1.0751667695129232,
+        "relative_l2_error": 0.0766000528286955,
+        "sign_agreement": 1.0
+      },
+      "1->8": {
+        "cosine": 0.9994418343734351,
+        "count": 12,
+        "predicted_to_actual_norm_ratio": 0.9684475841618148,
+        "relative_l2_error": 0.04557042078414356,
+        "sign_agreement": 1.0
+      },
+      "60->1": {
+        "cosine": 0.9998233409486201,
+        "count": 12,
+        "predicted_to_actual_norm_ratio": 0.9649835477883384,
+        "relative_l2_error": 0.03958658967113476,
+        "sign_agreement": 1.0
+      },
+      "60->8": {
+        "cosine": 0.9998608840683111,
+        "count": 12,
+        "predicted_to_actual_norm_ratio": 0.8635773061124765,
+        "relative_l2_error": 0.13730049574047237,
+        "sign_agreement": 1.0
+      },
+      "8->1": {
+        "cosine": 0.9993953171974951,
+        "count": 12,
+        "predicted_to_actual_norm_ratio": 0.9629225592573678,
+        "relative_l2_error": 0.050391090834366874,
+        "sign_agreement": 1.0
+      },
+      "8->60": {
+        "cosine": 0.9999113591166975,
+        "count": 12,
+        "predicted_to_actual_norm_ratio": 0.8786152296532626,
+        "relative_l2_error": 0.12202468984680746,
+        "sign_agreement": 1.0
+      }
+    },
+    "control_to_exact_target_rms": 0.10986851253221408,
+    "overall": {
+      "cosine": 0.9972384570862473,
+      "count": 72,
+      "predicted_to_actual_norm_ratio": 0.934990772230175,
+      "relative_l2_error": 0.09690321964817274,
+      "sign_agreement": 1.0
+    },
+    "passes": true
+  }
+}
