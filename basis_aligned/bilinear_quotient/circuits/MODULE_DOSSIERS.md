@@ -154,6 +154,17 @@ close at $1.51\times10^{-16}$ and $1.07\times10^{-16}$. This is selected-row
 attribution; causal use awaits the preregistered fresh routing edit. See the
 [late-group fold](fast_screens/setting2_regional_head9_8_qk1_late_group_fold_v1_result.json).
 
+On 48 rows unused to select the group, the three late-touching blocks retain
+`.13562/.14175` folded replay error across the two authored templates. Recursive
+removal is material: `.52843/.59816` of full-head9.8 removal and
+`6.99/5.76` times the $R\times R$ removal effect. But the frozen
+MLP16×MLP17 reader predicts the opposite signed change (cosine `−.92536`, zero
+sign agreement), and unrelated-reader ratio `.53452` misses the `.50` gate in
+one template. Thus the QK1 grouping is causally active inside head9.8, while the
+registered backward suffix is not its behavioral explanation. QK2 controls are
+`.695/.796` of the selected edit; late current-value controls are only
+`.0419/.1219`. See the [fresh routing receipt](fast_screens/setting2_regional_head9_8_qk1_late_group_fresh_routing_v3_result.json).
+
 ## `module.attention.8`
 
 Aliases: attention block 8, attn8. Related route:

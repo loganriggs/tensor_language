@@ -797,3 +797,16 @@ $1.51\times10^{-16}$ and downstream closure is $1.07\times10^{-16}$. This is a
 compact selected-row path description, not yet causal sufficiency; the next
 step is a fresh selective routing edit with matched QK2, value, and
 $R\times R$ controls. [Primary late-group receipt](../../bilinear_quotient/circuits/fast_screens/setting2_regional_head9_8_qk1_late_group_fold_v1_result.json).
+
+The fresh recursive edit prevents promoting that exact suffix path. The grouped
+fold transfers descriptively (`.13851` replay error), and removing the three
+late-touching QK1 blocks has `.52843/.59816` of the full-head effect across two
+fresh-relative templates. It is `6.99/5.76` times the omitted $R\times R$ edit.
+However, the negative folded MLP16×MLP17 change has cosine `−.92536` and zero
+sign agreement with the actual recursively propagated logit effect. One
+unrelated-reader ratio is `.53452`, narrowly above `.50`. QK2 controls remain
+large (`.695/.796` of the selected effect), while the corresponding current-value
+controls are small (`.0419/.1219`). The grouped QK1 route is live, but this
+MLP16×MLP17 term is not a valid causal account of its output effect. Next fold the
+intervention-induced block9 MLP and alternate suffix responses rather than
+retuning $D$. [Fresh routing receipt](../../bilinear_quotient/circuits/fast_screens/setting2_regional_head9_8_qk1_late_group_fresh_routing_v3_result.json).

@@ -34,7 +34,10 @@ Their self-interaction has change-norm ratio `.4548`; interactions crossing betw
 this group and the other 13 sources jointly reach `.4409`. Keeping the three blocks
 that touch the late group reproduces the complete carry×carry path with `.1119`
 relative error. This is a compact attribution of the selected path, and the next
-test is a fresh causal routing intervention.
+test was a fresh causal routing intervention. That intervention found that the
+grouped QK1 route is large, but the specific MLP16×MLP17 fold predicts the wrong
+sign of its final effect. The interaction group is real; the proposed downstream
+path is incomplete.
 
 ![Prediction errors for the response interaction and donor-free proxy](assets/research_update_2026-09-15_subject_response_interaction.png)
 
@@ -197,6 +200,41 @@ $1.51\times10^{-16}$ and $1.07\times10^{-16}$. These results show that the
 computation is compact at grouped interaction grain, despite being diffuse at
 individual module-pair grain. They do not yet show causal sufficiency.
 
+### Fresh recursive routing test
+
+The follow-up reused 48 regional rows that were not used to choose $D$. It
+subtracted the three $D$-touching QK1 terms from head 9.8's output at every causal
+query-key cell, then allowed block9 MLP and all later layers to recompute. The
+same run removed $R\times R$, the corresponding QK2 terms, the current-value
+projection of $D$, and the whole head as controls.
+
+The descriptive compression transfers: the three-block folded replay error is
+`.13851` overall and `.13562/.14175` in the two new templates. Its recursive
+causal effect is also substantial:
+
+| Family | Selected / full-head effect | Selected / $R\times R$ effect | Unrelated / target RMS |
+|---|---:|---:|---:|
+| Template 0 | `.52843` | `6.990` | `.53452` |
+| Template 1 | `.59816` | `5.763` | `.26075` |
+
+![Fresh recursive routing edit metrics](assets/research_update_2026-09-15_regional_routing_fresh.png)
+
+*Figure 3. The selected QK1 edit is material and much larger than the omitted block. The dashed lines show preregistered gates. One unrelated-reader ratio narrowly fails its selectivity gate.*
+
+The key falsifier fails strongly. If the exact MLP16×MLP17 term were the suffix
+that turns this routing component into the observed logit effect, removing the
+component should produce the negative of its folded prediction. Instead,
+
+$$
+\cos\!\left(-\Delta f_{\mathrm{folded}},
+\Delta f_{\mathrm{recursive\ edit}}\right)=-.92536,
+$$
+
+with zero of 24 paired signs agreeing. The QK2 controls are `.695/.796` as large
+as the selected QK1 edit, while the current-value controls are only
+`.0419/.1219`. This localizes the mismatch to the downstream response and possibly
+parallel QK routing, rather than showing that the selected QK1 component is inert.
+
 ## What is established
 
 The missing subject-number amplitude is partly organized by a specific interaction at the L11H3 interface. The evidence is cross-construction, outcome-blind, and uses a native weight axis. The exact response variable remains donor-dependent, so this does not yet explain how a normal forward pass computes the amplitude.
@@ -205,8 +243,9 @@ The two-vector proxy shows that much of the MLP6/7 response is shared across lex
 
 For the regional path, exact folding now connects the output reader backward
 through MLP17, MLP16, attention9 head 9.8, QK1, and the layer-0–7 carry sources.
-The late group is a compact interaction handle. A selective routing edit on fresh
-rows is required before treating those three late-touching blocks as a circuit.
+The late group is a compact and causally active interaction handle, but the tested
+MLP16×MLP17 suffix does not predict its final effect. The next weight fold should
+decompose the response induced in block9 MLP and alternate suffix terms.
 
 ## Appendix: experiment details
 
@@ -277,6 +316,14 @@ float64 for the offline contractions, zero fits, zero backward passes, zero
 parameter updates, and no hyperparameter or group search. The late group and all
 thresholds were frozen from the preceding 289-term census.
 
+The fresh routing assay used six arms and 36 length-bucketed executions. Its
+manual reconstruction of the full attention9 write was exact, and carry-source
+reconstruction error was $9.71\times10^{-8}$. V1 failed before its first edited
+forward because its rotary helper broadcast a full nine-head tensor incorrectly.
+V2 completed model execution but failed before reporting because it paired the
+arm axis instead of the row axis. V3 changed only those implementation errors;
+the registered science remained fixed.
+
 ### Code and primary receipts
 
 - [Response-coordinate preregistration](../../SUBJECT_NUMBER_NATIVE_HEAD_RESPONSE_COORDINATE_DISCOVERY_V1_PREREGISTRATION.md)
@@ -294,3 +341,6 @@ thresholds were frozen from the preceding 289-term census.
 - [Late-group preregistration](../../SETTING2_REGIONAL_HEAD9_8_QK1_LATE_GROUP_FOLD_V1_PREREGISTRATION.md)
 - [Late-group runner](../../../bilinear_quotient/ops/run_setting2_regional_head9_8_qk1_late_group_fold_v1.py)
 - [Late-group result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_head9_8_qk1_late_group_fold_v1_result.json)
+- [Fresh routing preregistration](../../SETTING2_REGIONAL_HEAD9_8_QK1_LATE_GROUP_FRESH_ROUTING_V1_PREREGISTRATION.md)
+- [Fresh routing V3 runner](../../../bilinear_quotient/ops/run_setting2_regional_head9_8_qk1_late_group_fresh_routing_v3.py)
+- [Fresh routing result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_head9_8_qk1_late_group_fresh_routing_v3_result.json)
