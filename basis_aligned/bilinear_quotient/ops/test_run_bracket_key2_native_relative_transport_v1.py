@@ -9,4 +9,4 @@ def test_native_relative_transport_preserves_context():
 def test_metric_identity():
  v=module.metrics([1.,-2.],[1.,-2.]);assert v['relative_l2_error']==0 and abs(v['cosine']-1)<1e-12
 def test_captured_key_names_match_transport_table_names():
- source=RUNNER.read_text();assert "'key1':kn[" in source and "'key2':k2n[" in source
+ source=RUNNER.read_text();assert "'key1':kn[" in source and "'key2':k2n[" in source;assert "captured['k1']" not in source and "captured['k2']" not in source

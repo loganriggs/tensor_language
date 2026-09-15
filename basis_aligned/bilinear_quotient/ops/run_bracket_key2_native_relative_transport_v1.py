@@ -55,7 +55,7 @@ def main():
    if row['program_role']=='target':
     direction='base_to_donor' if side=='base' else 'donor_to_base'
     for name in outputs:rec[name+'_effect']=float(exact.endpoint_change(replay[i,finals[i]],outputs[name][i,finals[i]],row,direction))
-    vec['actual'].extend(captured['k2'][donor[i]].double().cpu().tolist());vec['absolute'].extend(absolute['key2'][i].double().cpu().tolist());vec['relative'].extend(relative['key2'][i].double().cpu().tolist())
+    vec['actual'].extend(captured['key2'][donor[i]].double().cpu().tolist());vec['absolute'].extend(absolute['key2'][i].double().cpu().tolist());vec['relative'].extend(relative['key2'][i].double().cpu().tolist())
    else:
     base=float(exact.closer_margin(replay[i,finals[i]],answer));rec['control_changes']={name:float(exact.closer_margin(outputs[name][i,finals[i]],answer)-base) for name in outputs if name!='exact'}
    records.append(rec)
