@@ -6067,6 +6067,375 @@
    ],
    "translation_ids": [],
    "next_missing": "The nested L13H8 opener edit has a selective material score\u00d7payload interaction: (pd-pr)(ud-ur) is 37.34% of the exact source-delta norm and the downstream behavioral interaction is 37.06% of joint effect norm. Additive score+payload omits it and has .386 relative error. Next freeze an outcome-blind low-rank/ordered-pair representation of payload differences multiplied by the live score delta and confirm on a fourth construction; do not scale/refit the failed full displacement vectors or quantize."
+  },
+  {
+   "claim_id": "pending_opener_state.v33",
+   "revision": 33,
+   "status": "weights_translated",
+   "supersedes": "pending_opener_state.v32",
+   "causal_variable": {
+    "id": "pending_opener_exact_semantic_source_term",
+    "domain": "parenthesis, square-bracket, or quote pending state on the frozen R545 distribution",
+    "read": "the final causally relevant opener token at the exact L13H8 final-query source term",
+    "operation": "write closer-type evidence through the exact L13H8 source term; on frozen OOD rows an unchanged six-vector ordered-pair displacement program approximates exact donor-term interchange",
+    "write": "signed evidence among the three matching closer tokens",
+    "endpoint": "held-out donor-directed three-closer margin and full-vocabulary CE under exact term interchange"
+   },
+   "alternative_explanations": [
+    "single punctuation-token identity",
+    "position shift from opener deletion",
+    "template or lexical shortcut",
+    "off-manifold steering that exceeds natural full-state interchange",
+    "post-outcome exclusion of curly braces; requires entirely fresh confirmation rows"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "direct_three_value_type_substitution",
+     "role": "interchange",
+     "changes": [
+      "pending delimiter type and correct closer",
+      "one opener token among parenthesis, square, and quote"
+     ],
+     "holds_fixed": [
+      "ordinary words",
+      "sequence length",
+      "opener position",
+      "body order"
+     ],
+     "builder_artifact_id": "r545_three_value_rows_builder",
+     "control_ids": [
+      "wrong closer",
+      "three answer-preserving families",
+      "endpoint-gradient overlap"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "completed_then_reopened_three_value_order",
+     "role": "interchange",
+     "changes": [
+      "which of two delimiter types remains pending",
+      "correct closer"
+     ],
+     "holds_fixed": [
+      "ordinary-word multiset",
+      "sequence length",
+      "final lexical suffix",
+      "one completed span"
+     ],
+     "builder_artifact_id": "r545_three_value_rows_builder",
+     "control_ids": [
+      "direct construction",
+      "same-variable surface rewrite",
+      "wrong closer"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "pending_type_preserved_surface_rewrite",
+     "role": "invariance",
+     "changes": [
+      "surface wording",
+      "ordinary-word order"
+     ],
+     "holds_fixed": [
+      "pending delimiter type",
+      "correct closer",
+      "semantic group"
+     ],
+     "builder_artifact_id": "r545_three_value_rows_builder",
+     "control_ids": [
+      "complete-state effect",
+      "held-out lexical pool",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "pending_type_preserved_distance_extension",
+     "role": "invariance",
+     "changes": [
+      "opener-to-final distance",
+      "neutral intervening clause"
+     ],
+     "holds_fixed": [
+      "pending delimiter type",
+      "correct closer",
+      "core content words"
+     ],
+     "builder_artifact_id": "r545_three_value_rows_builder",
+     "control_ids": [
+      "complete-state effect",
+      "short versus long",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "pending_type_preserved_nonopener_punctuation",
+     "role": "invariance",
+     "changes": [
+      "one comma token to one colon token before the opener"
+     ],
+     "holds_fixed": [
+      "pending delimiter type",
+      "correct closer",
+      "length",
+      "all tokens after the edit"
+     ],
+     "builder_artifact_id": "r545_three_value_rows_builder",
+     "control_ids": [
+      "complete-state effect",
+      "wrong closer",
+      "random subspace"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "nested_two_pending_stack_top",
+     "role": "interchange",
+     "changes": [
+      "inner stack-top pending delimiter type",
+      "correct immediate closer"
+     ],
+     "holds_fixed": [
+      "outer third-type pending delimiter",
+      "words",
+      "length",
+      "positions"
+     ],
+     "builder_artifact_id": "nested_pending_rows_builder_v1",
+     "control_ids": [
+      "outer pending type change",
+      "zero dispatch",
+      "native factor replay"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "outer_pending_type_change_inner_fixed",
+     "role": "invariance",
+     "changes": [
+      "outer pending delimiter type"
+     ],
+     "holds_fixed": [
+      "inner stack-top delimiter",
+      "correct immediate closer",
+      "words",
+      "length"
+     ],
+     "builder_artifact_id": "nested_pending_rows_builder_v1",
+     "control_ids": [
+      "zero displacement dispatch",
+      "native closer capability"
+     ],
+     "split_plan_id": "pending_opener_three_value_fresh_split_r545_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "triple_pending_stack_top",
+     "role": "interchange",
+     "changes": [
+      "inner stack-top pending delimiter type",
+      "correct immediate closer"
+     ],
+     "holds_fixed": [
+      "outer brace opener",
+      "middle pending delimiter",
+      "fresh words",
+      "length and positions"
+     ],
+     "builder_artifact_id": "triple_pending_rows_builder_v1",
+     "control_ids": [
+      "middle pending type change",
+      "exact joint ceiling",
+      "score-only baseline"
+     ],
+     "split_plan_id": "pending_opener_fourth_triple_pending_v1",
+     "status": "validated"
+    },
+    {
+     "family_id": "middle_pending_type_change_inner_fixed",
+     "role": "invariance",
+     "changes": [
+      "middle pending delimiter type"
+     ],
+     "holds_fixed": [
+      "outer brace opener",
+      "inner stack-top delimiter",
+      "correct immediate closer",
+      "fresh words and length"
+     ],
+     "builder_artifact_id": "triple_pending_rows_builder_v1",
+     "control_ids": [
+      "rank-two zero type difference",
+      "native closer capability",
+      "exact joint ceiling"
+     ],
+     "split_plan_id": "pending_opener_fourth_triple_pending_v1",
+     "status": "validated"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "residual.block8.entry.final_position",
+     "tensor_path": "residual stream entering block 8 at the final prompt position",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "complete donor-state interchange; projector fitting not yet run",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention13.head8.output.final_position",
+     "tensor_path": "layer 13 head 8 pre-projection/output contribution at final position",
+     "shape": [
+      "batch",
+      "128 or 1152 after output projection"
+     ],
+     "intervention": "complete donor head state/output interchange",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "mlp8_to14.product.final_position",
+     "tensor_path": "bilinear product activations for MLP layers 8 through 14 at final position",
+     "shape": [
+      "batch",
+      "4608"
+     ],
+     "intervention": "complete donor product-state interchange before subspace optimization",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "attention13.head8.semantic_pending_opener_term.final_query",
+     "tensor_path": "exact p_k u_k post-output-projection contribution from the semantic pending-opener source to L13H8 at the final query",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "exact donor-term interchange or pair-mean replacement; no fitted projector",
+     "ceiling_event_ids": [
+      "pending_opener_three_value_confirmation.r546.l13h8_site.held.v1"
+     ]
+    },
+    {
+     "site_id": "attention13.head8.ordered_pair_displacement_program.final_query",
+     "tensor_path": "six fixed 1152-dimensional ordered-pair displacement vectors at the exact L13H8 pending-opener term",
+     "shape": [
+      6,
+      1152
+     ],
+     "intervention": "dispatch one immutable vector by recipient and donor closer type; zero-dispatch invariance controls",
+     "ceiling_event_ids": [
+      "pending_opener.ordered_pair_program.ood_validation.held.v1"
+     ]
+    },
+    {
+     "site_id": "pending_opener.ordered_pair_six_scalar_endpoint_law",
+     "tensor_path": "six ordered closer-pair scalar predictions of exact donor-term endpoint effect",
+     "shape": [
+      6
+     ],
+     "intervention": "prediction only; no internal vector or state is installed",
+     "ceiling_event_ids": [
+      "pending_opener.nested_pending_six_scalar_law.held.v1"
+     ]
+    },
+    {
+     "site_id": "attention13.head8.opener_score_payload_interaction",
+     "tensor_path": "(p_d-p_r) scalar times (u_d-u_r) 1152D projected opener-value difference at the active source",
+     "shape": [
+      "batch",
+      1,
+      1152
+     ],
+     "intervention": "install score-only, payload-only, additive, joint, or exact bilinear interaction source term before native suffix",
+     "ceiling_event_ids": [
+      "pending_opener.nested_score_payload_interaction.held.v2"
+     ]
+    },
+    {
+     "site_id": "attention13.head8.opener_type_payload_rank2_live_score",
+     "tensor_path": "p_d scalar times (u_r plus centered rank-two delimiter-type payload difference)",
+     "shape": [
+      "batch",
+      1,
+      1152
+     ],
+     "intervention": "install third-authority rank-two type payload difference at opener source and multiply by live donor score before native suffix",
+     "ceiling_event_ids": [
+      "pending_opener.triple_payload_rank2_live_score.held.v1"
+     ]
+    }
+   ],
+   "split_plan_ids": [
+    "pending_opener_three_value_fresh_split_r545_v1",
+    "pending_opener_fourth_triple_pending_v1"
+   ],
+   "evidence_event_ids": [
+    "pending_opener_capability.r537.complete.v1",
+    "pending_opener_common_site_ceiling.r538.invalid_unverified_checkpoint.v1",
+    "pending_opener_common_site_ceiling.r538.complete.v2",
+    "pending_opener_control_ceilings.r539.complete.v1",
+    "pending_opener_cross_family_das.r540.preregistered.v1",
+    "pending_opener_cross_family_das.r540.complete.v1",
+    "pending_opener_split_integrity.r542.invalid_statistical_unit.v1",
+    "pending_opener_rows.r543.v1.invalid_unbalanced_delimiter_pairs",
+    "pending_opener_four_closer_site_gate.r544.preregistered.v1",
+    "pending_opener_four_closer_site_gate.r544.native_curly_null.v1",
+    "pending_opener_three_value_confirmation.r546.preregistered.v1",
+    "legacy_bracket_match.r547.invalid_unsealed_rows.v1",
+    "legacy_bracket_pointer.r547.invalid_dense_decomposition.v1",
+    "legacy_quote_l13h8_parity.r547.invalid_unsealed_rows.v1",
+    "pending_opener_three_value_confirmation.r546.fresh_capability.held.v1",
+    "pending_opener_three_value_confirmation.r546.l13h8_site.held.v1",
+    "pending_opener_downstream_response_atlas.r549.preregistered.v1",
+    "pending_opener_downstream_readout_guard.r551.preregistered.v1",
+    "pending_opener_downstream_response_atlas.r549.complete.null.v1",
+    "pending_opener_downstream_readout_guard.r551.complete.null.v1",
+    "pending_opener_target_invariance_das.r556.preregistered.v1",
+    "pending_opener_target_invariance_das.r556.complete.null.v1",
+    "pending_opener_target_invariance_das_audit.r559.complete.held.v1",
+    "pending_opener_source_position_audit.r560.complete.held.v1",
+    "pending_opener_source_factor_interchange.r560.preregistered.v1",
+    "pending_opener_source_factor_interchange.r560.v1.invalid_implementation",
+    "pending_opener_source_factor_interchange.r560.v2.preregistered.v1",
+    "pending_opener_source_factor_audit.r561.preregistered.v1",
+    "pending_opener_source_factor_interchange.r560.v2.complete.null.v1",
+    "pending_opener_source_factor_audit.r561.complete.held.v1",
+    "pending_opener.semantic_chain.source_region_payload.v1",
+    "pending_opener.semantic_chain.source_region_select.v1",
+    "pending_opener.semantic_chain.open_post_confirm.v1",
+    "pending_opener.semantic_chain.open_zero_removal.v1",
+    "pending_opener.semantic_chain.shared_contrast.v1",
+    "pending_opener.semantic_chain.shared_contrast_interaction.v1",
+    "pending_opener.semantic_chain.mlp15_mediation.v1",
+    "pending_opener.semantic_chain.attention_mediation.v1",
+    "pending_opener.semantic_chain.attention_joint.v1",
+    "pending_opener.semantic_chain.downstream_module.v1",
+    "pending_opener.semantic_chain.residual_write.v1",
+    "pending_opener.semantic_chain.direct_fold_v1.v1",
+    "pending_opener.semantic_chain.direct_fold_v2.v1",
+    "pending_opener.semantic_chain.pair_centered_final_test.transfer.held.v1",
+    "pending_opener.semantic_chain.pair_centered_final_test.removal.null.v1",
+    "pending_opener.ordered_pair_program.ood_capability.held.v1",
+    "pending_opener.ordered_pair_program.ood_validation.held.v1",
+    "pending_opener.ordered_pair_scalar_feasibility.held.v1",
+    "pending_opener.nested_pending_ood_capability.held.v1",
+    "pending_opener.nested_pending_vector_program.null.v1",
+    "pending_opener.nested_pending_six_scalar_law.held.v1",
+    "pending_opener.nested_score_payload_interaction.held.v2",
+    "pending_opener.triple_payload_rank2_live_score.held.v1"
+   ],
+   "translation_ids": [],
+   "next_missing": "A centered rank-two delimiter-type opener-payload table derived without outcomes transfers from the third to a fresh fourth triple-pending construction when multiplied by the live donor score: payload-difference relative error .0375 and downstream effect relative error .0100, versus .9967 for score-only, with controls .1197 of target RMS. Next derive frozen delimiter-type key prototypes for the two bilinear score factors and combine them with this payload table on another construction, retaining the live query but removing donor-state access; do not increase payload rank, fit gains, reuse full-term vectors, or quantize."
   }
  ],
  "split_plans": [
@@ -6180,6 +6549,25 @@
    ],
    "sealed_before_outcomes": true,
    "sealed_at": "2026-09-03T15:38:00Z"
+  },
+  {
+   "split_plan_id": "pending_opener_fourth_triple_pending_v1",
+   "unit": "fresh lexical group and exact token sequence across third-authority training and fourth-construction test",
+   "partition_artifact_id": "triple_pending_rows_v1",
+   "builder_artifact_id": "triple_pending_rows_builder_v1",
+   "seed": null,
+   "groups": {
+    "THIRD_AUTHORITY_TRAIN": 72,
+    "FOURTH_CONSTRUCTION_TEST": 72
+   },
+   "leakage_group_keys": [
+    "exact token sequence",
+    "lexical group",
+    "construction template",
+    "row id"
+   ],
+   "sealed_before_outcomes": true,
+   "sealed_at": "2026-09-15T00:13:27Z"
   }
  ],
  "evidence_events": [
@@ -9169,6 +9557,83 @@
    "notes": "V1 causal arms were instrument-invalid only because closure was accumulated in FP32. V2 changed the independent closure audit to FP64; interventions and outcomes were unchanged. No fit, gain, rank sweep, or quantization.",
    "design_key": "529e7a269c9fb1ac7a96cbf19f4d28b818e10275a3b9644ab7697fb6ab0b1b6d",
    "execution_key": "93534ddb57e4b340405e9213c9c1d0e5ba80ee7886a08873bc4529163728f295"
+  },
+  {
+   "event_id": "pending_opener.triple_payload_rank2_live_score.held.v1",
+   "claim_id": "pending_opener_state.v33",
+   "test_type": "cross_family_transfer",
+   "stage": "complete",
+   "verdict": "held",
+   "failure_kind": null,
+   "family_ids": [
+    "triple_pending_stack_top",
+    "middle_pending_type_change_inner_fixed"
+   ],
+   "site_id": "attention13.head8.opener_type_payload_rank2_live_score",
+   "split_plan_id": "pending_opener_fourth_triple_pending_v1",
+   "evaluation_role": "fresh_construction_prospective_confirmation",
+   "metrics": [
+    {
+     "name": "payload_difference_cosine",
+     "estimate": 0.999334186394905,
+     "ci95": null,
+     "bar": ">=0.90"
+    },
+    {
+     "name": "payload_difference_relative_l2",
+     "estimate": 0.03750657833327175,
+     "ci95": null,
+     "bar": "<=0.50"
+    },
+    {
+     "name": "compressed_effect_cosine",
+     "estimate": 0.9999686161645934,
+     "ci95": null,
+     "bar": ">=0.95"
+    },
+    {
+     "name": "compressed_effect_relative_l2",
+     "estimate": 0.010016137326405541,
+     "ci95": null,
+     "bar": "<=0.30"
+    },
+    {
+     "name": "relative_l2_improvement_over_score_only",
+     "estimate": 0.9866751595835219,
+     "ci95": null,
+     "bar": ">=0.20"
+    },
+    {
+     "name": "control_to_target_rms",
+     "estimate": 0.11968915413139578,
+     "ci95": null,
+     "bar": "<=0.50"
+    }
+   ],
+   "prereg_artifact_id": "triple_payload_rank2_v2_prereg",
+   "result_artifact_id": "triple_payload_rank2_v2_result",
+   "input_artifact_ids": [
+    "triple_pending_rows_builder_v1",
+    "triple_pending_rows_test_v1",
+    "triple_pending_rows_v1",
+    "triple_payload_rank2_v1_prereg",
+    "triple_payload_rank2_v1_binding",
+    "triple_payload_rank2_v1_runner",
+    "triple_payload_rank2_v2_prereg",
+    "triple_payload_rank2_v2_binding",
+    "triple_payload_rank2_v2_runner",
+    "triple_payload_rank2_v2_result"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [
+    "basis_aligned/polynomial_causal/BRACKET_TRIPLE_PENDING_PAYLOAD_RANK2_INTERACTION_V2_PREREGISTRATION.md"
+   ],
+   "notes": "V1 was invalid due only to retaining full-vocabulary logits on GPU. V2 moved logits to CPU; the frozen program and scientific contract were unchanged. One outcome-blind SVD, no gradient, gain fit, update, full-term vector reuse, or quantization.",
+   "design_key": "702f718499f81fd8de8b5dc47739979c2acf57c02d1084f2373468964cf12f0f",
+   "execution_key": "6225342cc404fcbb78226b1e91fab6fb9d1f128cca8b2d81c0c9e2f1226aac52"
   }
  ],
  "translations": [],
@@ -10154,6 +10619,66 @@
   "nested_score_payload_v2_result": {
    "path": "basis_aligned/polynomial_causal/BRACKET_NESTED_PENDING_SCORE_PAYLOAD_INTERACTION_V2_RESULT.json",
    "sha256": "f6cc54ac01b26635b30ef82d40b2bfbc3ffb4c9fdab25777514772303b1d158e",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "triple_pending_rows_builder_v1": {
+   "path": "basis_aligned/polynomial_causal/build_bracket_triple_pending_ood_v1_rows.py",
+   "sha256": "ebe5469829c6d156c565b5f2426d55b1fd039cce61881e1bdade6d1ab5c88114",
+   "kind": "builder",
+   "status": "frozen"
+  },
+  "triple_pending_rows_test_v1": {
+   "path": "basis_aligned/polynomial_causal/test_build_bracket_triple_pending_ood_v1_rows.py",
+   "sha256": "c7f0e9553827af951f2e5313402e98990ab27a55765ebf2f545a4a530c46d7de",
+   "kind": "test",
+   "status": "frozen"
+  },
+  "triple_pending_rows_v1": {
+   "path": "basis_aligned/polynomial_causal/BRACKET_TRIPLE_PENDING_OOD_V1_ROWS.json",
+   "sha256": "9d19f8ebab08dc2f5476d20d87e99b59be6e17198158c6c8f51dc33ef2fcbb49",
+   "kind": "rows",
+   "status": "frozen"
+  },
+  "triple_payload_rank2_v1_prereg": {
+   "path": "basis_aligned/polynomial_causal/BRACKET_TRIPLE_PENDING_PAYLOAD_RANK2_INTERACTION_V1_PREREGISTRATION.md",
+   "sha256": "edd66748b1496b8ec8fb0b37c2dfaf54ac86bd379b212d7a342a2c8e40e0ffc9",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "triple_payload_rank2_v1_binding": {
+   "path": "basis_aligned/polynomial_causal/BRACKET_TRIPLE_PENDING_PAYLOAD_RANK2_INTERACTION_V1_BINDING.json",
+   "sha256": "55e68bf777ff26268ab0aec3890cfdb1c6ed807232c74103c2af14bc709f1eb6",
+   "kind": "binding",
+   "status": "frozen"
+  },
+  "triple_payload_rank2_v1_runner": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_bracket_triple_pending_payload_rank2_interaction_v1.py",
+   "sha256": "eb4b54327f08f26794f4fb547b9bb817761484f53e99c405162755d4848e0ef4",
+   "kind": "runner",
+   "status": "frozen"
+  },
+  "triple_payload_rank2_v2_prereg": {
+   "path": "basis_aligned/polynomial_causal/BRACKET_TRIPLE_PENDING_PAYLOAD_RANK2_INTERACTION_V2_PREREGISTRATION.md",
+   "sha256": "8e35ce407753fbd256e09d2a6af7e62776de61c7b15bb65d4beee50460bea390",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "triple_payload_rank2_v2_binding": {
+   "path": "basis_aligned/polynomial_causal/BRACKET_TRIPLE_PENDING_PAYLOAD_RANK2_INTERACTION_V2_BINDING.json",
+   "sha256": "2b8df4904bd3b44f12af0a25176ba321a7498ae50acb30fcc740c22241a2c9a3",
+   "kind": "binding",
+   "status": "frozen"
+  },
+  "triple_payload_rank2_v2_runner": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_bracket_triple_pending_payload_rank2_interaction_v2.py",
+   "sha256": "c4a67bcbbabc5d50cc7dbb9cbbffe3a6c3d80acfba2f3f7bacb28c326fa7f86d",
+   "kind": "runner",
+   "status": "frozen"
+  },
+  "triple_payload_rank2_v2_result": {
+   "path": "basis_aligned/polynomial_causal/BRACKET_TRIPLE_PENDING_PAYLOAD_RANK2_INTERACTION_V2_RESULT.json",
+   "sha256": "5800223fced4431d1cb18372ffc747edbc3c345ddb748cb5c2d6a6e106871011",
    "kind": "result",
    "status": "frozen"
   }
