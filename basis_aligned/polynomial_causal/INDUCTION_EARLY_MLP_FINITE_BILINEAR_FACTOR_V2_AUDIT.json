@@ -1,0 +1,25 @@
+{
+  "all_checks_pass": true,
+  "checks": {
+    "complete_panel": true,
+    "exact_instrument": true,
+    "exact_price": true,
+    "full_reference_fails": true,
+    "no_discovery_candidate": true,
+    "no_selection": true,
+    "runner_hash_bound": true,
+    "valid_terminal": true
+  },
+  "cross_removal_reduction_range": [
+    0.3519335612766056,
+    0.47675818481012366
+  ],
+  "finding": "The FP64 identity audit validates the unchanged finite FP32 interventions. No compact bilinear removal passes DISCOVERY, and even full online restoration fails answer preservation in both splits.",
+  "full_removal_positive_ce_damage_range": [
+    0.10301349130848954,
+    0.5208136197797524
+  ],
+  "result_sha256": "31685f606d2130aa859b38e687de827b947d4e6ffccd2b5139f0e9e10cb80729",
+  "runner_sha256": "45b7f645442253e9d7a53837d1d16332a49b2ea999870235903915f7f4abdaf3",
+  "schema": "induction_early_mlp_finite_bilinear_factor_v2_audit"
+}

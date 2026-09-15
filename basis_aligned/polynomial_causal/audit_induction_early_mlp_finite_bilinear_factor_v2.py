@@ -1,0 +1,11 @@
+#!/usr/bin/env python3
+"""CPU audit of the corrected induction finite-bilinear factor result."""
+import hashlib,json
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[2];RUNNER=ROOT/'basis_aligned/bilinear_quotient/ops/run_induction_early_mlp_finite_bilinear_factor_v2.py';RESULT=ROOT/'basis_aligned/polynomial_causal/INDUCTION_EARLY_MLP_FINITE_BILINEAR_FACTOR_V2_RESULT.json';OUT=ROOT/'basis_aligned/polynomial_causal/INDUCTION_EARLY_MLP_FINITE_BILINEAR_FACTOR_V2_AUDIT.json'
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def main():
+ r=json.loads(RESULT.read_text());candidates=('quadratic','left','right','cross');checks={'runner_hash_bound':r['runner_sha256']==sha(RUNNER),'valid_terminal':r['terminal']=='finite_bilinear_factor_null','exact_instrument':r['predictions']['pred_a_exact_finite_bilinear_instrument'] and r['instrument']['maximum_bilinear_closure_relative_squared_error']<=1e-10,'complete_panel':all(set(r['decisions'][s])==set((*candidates,'full')) for s in ('discovery','confirm')),'no_discovery_candidate':not any(r['decisions']['discovery'][a]['passed'] for a in candidates),'full_reference_fails':not r['decisions']['discovery']['full']['passed'] and not r['decisions']['confirm']['full']['passed'],'no_selection':r['selected'] is None,'exact_price':r['price']=={'forwards':24,'sequences':768,'backwards':0,'fits':0,'weight_updates':0}}
+ positives=[v['mean_ce_damage'] for s in ('discovery','confirm') for v in r['reports'][s]['full'].values() if v['mean_ce_damage']>0];reductions=[v for s in ('discovery','confirm') for v in r['decisions'][s]['cross']['reductions'].values()]
+ a={'schema':'induction_early_mlp_finite_bilinear_factor_v2_audit','result_sha256':sha(RESULT),'runner_sha256':sha(RUNNER),'checks':checks,'all_checks_pass':all(checks.values()),'cross_removal_reduction_range':[min(reductions),max(reductions)],'full_removal_positive_ce_damage_range':[min(positives),max(positives)],'finding':'The FP64 identity audit validates the unchanged finite FP32 interventions. No compact bilinear removal passes DISCOVERY, and even full online restoration fails answer preservation in both splits.'};OUT.write_text(json.dumps(a,indent=2,sort_keys=True)+'\n');print(json.dumps(a,indent=2,sort_keys=True))
+if __name__=='__main__':main()

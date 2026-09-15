@@ -3818,6 +3818,339 @@
    ],
    "translation_ids": [],
    "next_missing": "Both direct LM-head and exact local suffix-CE-VJP one-axis splits of the MLP8-12 response are null. The suffix-null remainder removes 26.8-49.2% vocabulary RMS in every opened cell but still incurs +.266 to +.705 CE damage in failing discovery cells and +.277 to +.478 in failing confirmation cells. Do not tune axes, groups, or bars. Reopen induction only with independently derived finite-amplitude nonlinear consumer coordinates; otherwise move circuits."
+  },
+  {
+   "claim_id": "induction_selector_and_payload.v16",
+   "revision": 16,
+   "status": "site_live",
+   "supersedes": "induction_selector_and_payload.v15",
+   "causal_variable": {
+    "id": "induction_selector_payload",
+    "domain": "valid earlier source positions and the token/value following each source",
+    "read": "token equality and source position",
+    "operation": "select a matching earlier source, then transport its following payload",
+    "write": "selector-dependent payload contribution to the target-token logits",
+    "endpoint": "signed donor-answer minus base-answer logit margin at the query continuation"
+   },
+   "alternative_explanations": [
+    "generic token identity",
+    "generic copy service",
+    "lag/corpus shortcut"
+   ],
+   "counterfactual_families": [
+    {
+     "family_id": "two_valid_sources_selector_swap",
+     "role": "interchange",
+     "changes": [
+      "the final query selects A rather than C or vice versa",
+      "the correct payload changes"
+     ],
+     "holds_fixed": [
+      "all three source-payload pairs",
+      "payload assignment",
+      "filler and pair positions"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "selector_payload_joint_answer_preserved",
+      "irrelevant_source_edit",
+      "copy_relation_preserved_nuisance_change"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "payload_swap_match_preserved",
+     "role": "interchange",
+     "changes": [
+      "the B and D payload assignments to A and C are exchanged",
+      "the correct payload changes"
+     ],
+     "holds_fixed": [
+      "query and selector",
+      "source identities and positions",
+      "neutral X-to-E pair"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "selector_payload_joint_answer_preserved",
+      "irrelevant_payload_edit",
+      "copy_relation_preserved_nuisance_change"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "selector_payload_joint_answer_preserved",
+     "role": "invariance",
+     "changes": [
+      "selector and target payload assignment change together"
+     ],
+     "holds_fixed": [
+      "correct answer",
+      "source and payload token sets",
+      "neutral pair and filler"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "two_valid_sources_selector_swap",
+      "payload_swap_match_preserved",
+      "match_break_payload_preserved"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "match_break_payload_preserved",
+     "role": "necessity",
+     "changes": [
+      "the selected earlier source is replaced, breaking its only query match"
+     ],
+     "holds_fixed": [
+      "query token",
+      "both target payload tokens",
+      "contrast and neutral pairs"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "irrelevant_source_edit",
+      "contrast_target_source_edit",
+      "irrelevant_payload_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "irrelevant_source_edit",
+     "role": "invariance",
+     "changes": [
+      "the endpoint-neutral X source is replaced by a decoy"
+     ],
+     "holds_fixed": [
+      "both target pairs",
+      "query and answers",
+      "neutral E payload"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_payload_edit",
+      "contrast_target_source_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "irrelevant_payload_edit",
+     "role": "invariance",
+     "changes": [
+      "the endpoint-neutral E payload is replaced by a decoy"
+     ],
+     "holds_fixed": [
+      "both target pairs",
+      "query and answers",
+      "neutral X source"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_source_edit",
+      "contrast_target_source_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "contrast_target_source_edit",
+     "role": "invariance",
+     "changes": [
+      "the unselected target source immediately before the competing payload is replaced"
+     ],
+     "holds_fixed": [
+      "selected target pair",
+      "query",
+      "both answer-token identities"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "match_break_payload_preserved",
+      "irrelevant_source_edit",
+      "irrelevant_payload_edit"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "copy_relation_preserved_nuisance_change",
+     "role": "invariance",
+     "changes": [
+      "filler identities or the source-to-query lag"
+     ],
+     "holds_fixed": [
+      "all three source-payload pairs",
+      "selector and payload assignment",
+      "correct answer"
+     ],
+     "builder_artifact_id": "r578_three_source_builder",
+     "control_ids": [
+      "irrelevant_source_edit",
+      "irrelevant_payload_edit",
+      "match_break_payload_preserved"
+     ],
+     "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+     "status": "frozen"
+    },
+    {
+     "family_id": "natural_pair_interchange",
+     "role": "interchange",
+     "changes": [
+      "naturally occurring selector/payload state",
+      "pair natural copy-positive positions matched on query class, lag, frequency, and base loss"
+     ],
+     "holds_fixed": [
+      "matching strata",
+      "corpus role",
+      "position band"
+     ],
+     "builder_artifact_id": null,
+     "control_ids": [
+      "within-stratum wrong donor",
+      "matched negative donor",
+      "random subspace"
+     ],
+     "split_plan_id": "joint_split_v1",
+     "status": "proposed"
+    }
+   ],
+   "candidate_sites": [
+    {
+     "site_id": "equality_qk_selector_sites",
+     "tensor_path": "equality/QK selector sites",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "ov_value_write",
+     "tensor_path": "OV/value write",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "later_mlp_products",
+     "tensor_path": "later MLP products",
+     "shape": [
+      "batch",
+      "position",
+      "site-specific feature dimension"
+     ],
+     "intervention": "replace the complete registered site state before fitting a subspace",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "native_three_source_final_token_logits",
+     "tensor_path": "unmodified final-query model logits for R578 prompts",
+     "shape": [
+      "batch",
+      "vocabulary"
+     ],
+     "intervention": "no intervention; measure native B-versus-D margins, factorial interaction, and controls",
+     "ceiling_event_ids": [
+      "induction_selector_payload_native_capability.r580.preregistered.v1"
+     ]
+    },
+    {
+     "site_id": "r594_fixed_equality_partial_output_write",
+     "tensor_path": "attention output at zero-index L5H5/L7H3/L8H3/L8H4, final query",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "centered score/payload/joint partial equality-source output deltas; later layers live; L8 additions aggregated",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "r595_downstream_complete_write_response",
+     "tensor_path": "complete final-query attention/MLP write from MLP8 through MLP17",
+     "shape": [
+      "batch",
+      1152
+     ],
+     "intervention": "while four-site live joint edit is installed, restore exactly one downstream sublayer complete write to its native recipient value",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "early_mlp8_12_answer_parallel_null_factor",
+     "tensor_path": "native-minus-edited MLP8-12 final-query writes split by per-row LM-head answer contrast",
+     "shape": [
+      "batch",
+      5,
+      1152
+     ],
+     "intervention": "restore either the exact scalar answer-parallel projection or its exact orthogonal remainder",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "early_mlp8_12_suffix_ce_vjp_factor",
+     "tensor_path": "native-minus-edited MLP8-12 writes split by local recipient-CE VJP through the native suffix",
+     "shape": [
+      "batch",
+      5,
+      1152
+     ],
+     "intervention": "restore scalar VJP projection or its exact orthogonal remainder",
+     "ceiling_event_ids": []
+    },
+    {
+     "site_id": "early_mlp8_12_finite_bilinear_response",
+     "tensor_path": "online exact MLP response from recipient native normalized input to joint-edited normalized input",
+     "shape": [
+      "batch",
+      5,
+      1152
+     ],
+     "intervention": "remove left-cross, right-cross, quadratic, their cross sum, or full finite response",
+     "ceiling_event_ids": []
+    }
+   ],
+   "split_plan_ids": [
+    "induction_selector_payload_three_source_split_r578_v1",
+    "joint_split_v1"
+   ],
+   "evidence_event_ids": [
+    "induction_terminal_collateral_failure.legacy.v1",
+    "induction_selector_payload_capability.r554.preregistered.v1",
+    "induction_selector_payload_capability_audit.r555.preregistered.v1",
+    "induction_factor_intervention_semantics.r557.held.v1",
+    "induction_selector_payload_capability.r554.complete.null.v1",
+    "induction_selector_payload_capability_audit.r555.complete.held.v1",
+    "induction_selector_payload_native_capability.r580.preregistered.v1",
+    "induction_selector_payload_native_capability.r580.preregistered.v2",
+    "induction_selector_payload_native_capability.r580.invalid_instrument.v1",
+    "induction_selector_payload_native_capability.r586.complete.held.v1",
+    "induction_selector_payload_native_capability_audit.r587.complete.held.v1",
+    "induction_selector_payload.r594.complete.failed.v1",
+    "induction_live_equality_clamp.v1.complete.failed",
+    "induction_contextual_consumer_response.v1.complete.failed",
+    "induction.typed_consumer_group.v1.invalid",
+    "induction.typed_consumer_group.v2.invalid",
+    "induction.typed_consumer_group.v3.invalid",
+    "induction.typed_consumer_group.v4.complete.null",
+    "induction.early_mlp_readout_null_factor.v2.complete.null",
+    "induction.early_mlp_suffix_vjp_null_factor.v3.complete.null",
+    "induction.early_mlp_finite_bilinear_factor.v2.complete.null"
+   ],
+   "translation_ids": [],
+   "next_missing": "Exact finite-amplitude MLP8-12 bilinear coordinates also fail to isolate an answer-preserving induction consumer: quadratic removal increases collateral, ordered cross removal reduces vocabulary RMS by 35-48%, but even full online response restoration leaves positive CE damage above .10. Direct axes, VJPs, typed groups, and exact early-MLP bilinear factors are now bounded. Do not tune components or bars. Reopen only with an independently derived later attention-MLP interaction interface; otherwise move circuits."
   }
  ],
  "split_plans": [
@@ -5126,6 +5459,84 @@
    "notes": "V1/V2 were runtime-invalid and serialized no result. V3 used exact local reverse-mode CE sensitivity; no fitting, gain, rank sweep, weight update, or quantization.",
    "design_key": "c25a8d43abe2f57c4913f9dc789bb6467461bedf77333939fabc2bd57d04717f",
    "execution_key": "bb2604b32fbf812b2c5a791be99b0513c2b49b28f4247bc310c904590deb4c5e"
+  },
+  {
+   "event_id": "induction.early_mlp_finite_bilinear_factor.v2.complete.null",
+   "claim_id": "induction_selector_and_payload.v16",
+   "test_type": "compiled_equivalence",
+   "stage": "complete",
+   "verdict": "null",
+   "failure_kind": "scientific_null",
+   "family_ids": [
+    "selector_payload_joint_answer_preserved"
+   ],
+   "site_id": "early_mlp8_12_finite_bilinear_response",
+   "split_plan_id": "induction_selector_payload_three_source_split_r578_v1",
+   "evaluation_role": "frozen discovery_confirm_finite_interaction_factorization",
+   "metrics": [
+    {
+     "name": "maximum_FP64_closure_relative_squared_error",
+     "estimate": 1.9453899343626986e-28,
+     "ci95": null,
+     "bar": "<=1e-10"
+    },
+    {
+     "name": "discovery_passing_compact_factors",
+     "estimate": 0,
+     "ci95": null,
+     "bar": ">=1"
+    },
+    {
+     "name": "cross_removal_vocab_RMS_reduction_range",
+     "estimate": [
+      0.3519335612766056,
+      0.47675818481012366
+     ],
+     "ci95": null,
+     "bar": ">=.25 each cell"
+    },
+    {
+     "name": "full_removal_positive_CE_damage_range",
+     "estimate": [
+      0.10301349130848954,
+      0.5208136197797524
+     ],
+     "ci95": null,
+     "bar": "<=.10 each cell"
+    },
+    {
+     "name": "forwards",
+     "estimate": 24,
+     "ci95": null,
+     "bar": "24"
+    },
+    {
+     "name": "sequences",
+     "estimate": 768,
+     "ci95": null,
+     "bar": "768"
+    }
+   ],
+   "prereg_artifact_id": "induction_finite_bilinear_v2_prereg",
+   "result_artifact_id": "induction_finite_bilinear_v2_result",
+   "input_artifact_ids": [
+    "induction_finite_bilinear_v1_prereg",
+    "induction_finite_bilinear_v1_runner",
+    "induction_finite_bilinear_v1_result",
+    "induction_finite_bilinear_v2_prereg",
+    "induction_finite_bilinear_v2_binding",
+    "induction_finite_bilinear_v2_runner",
+    "induction_finite_bilinear_v2_result",
+    "induction_finite_bilinear_v2_audit"
+   ],
+   "seed": null,
+   "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+   "supersedes_event_id": null,
+   "replicates_event_id": null,
+   "sections": [],
+   "notes": "V1 was instrument-invalid at the FP32 closure check. V2 changes only that check to FP64; causal tensors and all outcomes are unchanged. Zero fits, gradients, updates, gains, or quantization.",
+   "design_key": "f2a38e14d060e29a499fff765eb602734290ace38b4a5bb7effcd1a6947a375a",
+   "execution_key": "a1c594bf8d16e4193780cf8f766cb9cddbf086e43c28d1f179066f3d294ab085"
   }
  ],
  "translations": [],
@@ -5686,6 +6097,54 @@
    "path": "basis_aligned/polynomial_causal/INDUCTION_EARLY_MLP_SUFFIX_VJP_NULL_FACTOR_V3_RESULT.json",
    "sha256": "81d4b4a17586de1379405dc985b9b65765084b9a7433056cef2ba4d2d876d6da",
    "kind": "result",
+   "status": "frozen"
+  },
+  "induction_finite_bilinear_v1_prereg": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_EARLY_MLP_FINITE_BILINEAR_FACTOR_V1_PREREGISTRATION.md",
+   "sha256": "c200975c023d3ee392a24bc6dd1277662841cfa7548171df0208dd868c8863ac",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "induction_finite_bilinear_v1_runner": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_induction_early_mlp_finite_bilinear_factor_v1.py",
+   "sha256": "e3260e23da1576ea70fc04882652ce5048638c24b90927532448e5826a40f8d3",
+   "kind": "runner",
+   "status": "frozen"
+  },
+  "induction_finite_bilinear_v1_result": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_EARLY_MLP_FINITE_BILINEAR_FACTOR_V1_RESULT.json",
+   "sha256": "a823c83ea6fc4f107de0facbc8832399b867532c61ed5f33e1cf93267a9c0941",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "induction_finite_bilinear_v2_prereg": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_EARLY_MLP_FINITE_BILINEAR_FACTOR_V2_PREREGISTRATION.md",
+   "sha256": "ed3215692c06ef90579bb585640c11e0c2cd79319daf3d982d86756812ba2988",
+   "kind": "preregistration",
+   "status": "frozen"
+  },
+  "induction_finite_bilinear_v2_binding": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_EARLY_MLP_FINITE_BILINEAR_FACTOR_V2_BINDING.json",
+   "sha256": "10d4b121c66b101941590451dd6cf48e9ad2969c53a440a89fcc6e3044b9bcbe",
+   "kind": "binding",
+   "status": "frozen"
+  },
+  "induction_finite_bilinear_v2_runner": {
+   "path": "basis_aligned/bilinear_quotient/ops/run_induction_early_mlp_finite_bilinear_factor_v2.py",
+   "sha256": "45b7f645442253e9d7a53837d1d16332a49b2ea999870235903915f7f4abdaf3",
+   "kind": "runner",
+   "status": "frozen"
+  },
+  "induction_finite_bilinear_v2_result": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_EARLY_MLP_FINITE_BILINEAR_FACTOR_V2_RESULT.json",
+   "sha256": "31685f606d2130aa859b38e687de827b947d4e6ffccd2b5139f0e9e10cb80729",
+   "kind": "result",
+   "status": "frozen"
+  },
+  "induction_finite_bilinear_v2_audit": {
+   "path": "basis_aligned/polynomial_causal/INDUCTION_EARLY_MLP_FINITE_BILINEAR_FACTOR_V2_AUDIT.json",
+   "sha256": "254526cb2feedb3d3be420dce4dbab8b1a2e569b972dd29cb8f1bd5654fca499",
+   "kind": "audit",
    "status": "frozen"
   }
  },
