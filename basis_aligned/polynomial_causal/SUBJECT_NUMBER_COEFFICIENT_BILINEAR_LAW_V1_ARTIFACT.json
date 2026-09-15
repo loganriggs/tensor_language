@@ -1,0 +1,44 @@
+{
+  "beta": [
+    26.84385668506695,
+    31.837072823546038,
+    -9.616043740129719,
+    -2.911840176827905
+  ],
+  "causal_outcomes_read": false,
+  "coefficient_cosine": 0.9997403527360206,
+  "coefficient_max_absolute_error": 1.0039607494204503,
+  "coefficient_relative_l2_error": 0.022786555493475392,
+  "compressed_total_interface_scalars": 3460,
+  "direction_encoding": {
+    "plural_to_singular": 1.0,
+    "singular_to_plural": -1.0
+  },
+  "feature_order": [
+    "constant",
+    "direction",
+    "cardinality",
+    "direction_x_cardinality"
+  ],
+  "model_loaded": false,
+  "original_total_interface_scalars": 13824,
+  "parameter_updates": 0,
+  "predicted_coefficients": {
+    "plural_to_singular.cardinality_0": 58.68092950861299,
+    "plural_to_singular.cardinality_1": 46.15304559165536,
+    "plural_to_singular.cardinality_2": 33.625161674697736,
+    "plural_to_singular.cardinality_3": 21.097277757740116,
+    "plural_to_singular.cardinality_4": 8.569393840782492,
+    "singular_to_plural.cardinality_0": -4.993216138479088,
+    "singular_to_plural.cardinality_1": -11.697419701780902,
+    "singular_to_plural.cardinality_2": -18.401623265082716,
+    "singular_to_plural.cardinality_3": -25.10582682838453,
+    "singular_to_plural.cardinality_4": -31.810030391686343
+  },
+  "schema": "subject_number_coefficient_bilinear_law_v1_artifact",
+  "source_sha256": "f73126268794342809c2953b388ed83f6d1d0e2e245ce9ea78f2d665a0e87c1f",
+  "stored_coefficient_scalars_after": 4,
+  "stored_coefficient_scalars_before": 10,
+  "terminal": "bilinear_scalar_law_frozen_weights_only",
+  "total_interface_storage_fraction": 0.25028935185185186
+}
