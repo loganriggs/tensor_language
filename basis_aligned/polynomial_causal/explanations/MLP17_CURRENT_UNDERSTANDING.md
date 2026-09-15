@@ -671,3 +671,20 @@ A causal adjacent-boundary analysis identifies local block17 mixed generation un
 
 ### 13 September: duplicate output rows in the accurate grouped-fit subset
 The G64 shared/private fit reconstructs 243 token functions within 10% coefficient error, but they contain only seven distinct U rows (237 IDs have identical rows); 47 IDs are outside the GPT-2 tokenizer. This extends the earlier 196/50274 duplicate observation, rather than establishing a semantic discovery. All 243 belong to group 5, and one function captures 99.9919% of their coefficient energy. A separate energy bound proves that at least 93.97% of the overall fit gain is outside this subset, so duplication does not explain away all improvement. See [the frozen fit and counteraudit](../FULLU_SHARED_LOCAL_FIT_V1_MATH.md#accurate-token-subset-duplicate-audit-and-its-limit). Neither use frequency nor native behavior was measured.
+## 15 September 2026 — selected MLP16 × head17.2 term is exact but small
+
+The no-fit [`PATH-SET2-001` audit](../SETTING2_MLP16_HEAD17_CROSS_TERM_FOLD_V1_RESULT.json)
+folds the two ordered MLP16-output/head17.2 terms through native MLP17 and twelve
+fixed UK/US token readers. The factored expression matches the direct four-corner
+native numerator interaction to relative error $2.49\times10^{-14}$. Both ordered
+terms are live: their RMS ratio is `.4506`, with little cancellation (`.9517` sum
+norm divided by the sum of individual norms).
+
+The pair nevertheless contributes only `1.1715%` of the full selected-reader
+MLP17 numerator RMS and fails its preregistered 2% relevance gate. Its conditional
+materialized representation uses `1,234,944` scalars versus `1,769,472` for a direct
+$12\times1152\times128$ mixed tensor, but native factors, source generation,
+normalizers, bias, residual routes, final RMS, and softcap remain charged. Therefore
+this is an exact algebraic path null, not a causal circuit or full-model saving. Do
+not promote it to a fresh causal test; use circuit evidence or an exact census of
+other source pairs before choosing the next folded term.

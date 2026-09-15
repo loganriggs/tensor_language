@@ -1,0 +1,82 @@
+{
+  "pred_a_exact_instrument": true,
+  "pred_b_live_selected_interaction": false,
+  "pred_c_both_orderings_matter": true,
+  "pred_d_conditional_representation_smaller": true,
+  "metrics": {
+    "exact_relative_error": 2.494755653206605e-14,
+    "cross_term_to_full_reader_rms": 0.011715196109978376,
+    "ordered_p_attention_rms": 176319106.57211107,
+    "ordered_attention_p_rms": 79453966.47659642,
+    "ordered_smaller_to_larger_rms": 0.45062595892919466,
+    "sum_to_sum_of_norms": 0.9517455588266178,
+    "endpoint_count": 128,
+    "reader_count": 12
+  },
+  "price": {
+    "direct_mixed_tensor_scalars": 1769472,
+    "conditional_materialized_fold_scalars": 1234944,
+    "conditional_fraction": 0.6979166666666666,
+    "folded_down_scalars": 55296,
+    "two_head_projection_compositions_scalars": 1179648,
+    "native_left_right_down_output_and_reader_weights_still_charged": true,
+    "model_forwards": 0,
+    "fits": 0
+  },
+  "shapes": {
+    "producer": [
+      128,
+      1152
+    ],
+    "head_value": [
+      128,
+      128
+    ],
+    "attention_write": [
+      128,
+      1152
+    ],
+    "folded_down": [
+      12,
+      4608
+    ],
+    "selected_output": [
+      128,
+      12
+    ]
+  },
+  "token_pairs": [
+    [
+      11383,
+      1430
+    ],
+    [
+      14148,
+      6907
+    ],
+    [
+      31049,
+      14733
+    ],
+    [
+      34614,
+      18388
+    ],
+    [
+      39012,
+      16521
+    ],
+    [
+      46729,
+      16924
+    ]
+  ],
+  "hashes": {
+    "binding": "8c9d0af6833f66509ae91ba2c22670569a61ce5e5a9494cd66f017f29686647a",
+    "ports": "169eec26e5f755706bde606a75e2f9d98a32b951fc84dcecc737cea49d86a8c3",
+    "endpoints": "afbbb6226d48a342df1478f96ced3db47947229cca69fc9c43964283f75ff194",
+    "rows": "3eb2ac4f066d360df3a30570f8191e4427da792b36d59390619eecc23078813a",
+    "script": "838f10f87e0950b0a1ab04ec4c8c5aaffde7e6dcf0f7af068c938b752e909ba4"
+  },
+  "scope": "Exact cached native MLP16 x head17.2 numerator term through twelve token readers. Conditional price only; other paths, normalizers, bias, direct residual, final RMS/softcap, causal identification, fresh/OOD transfer, and full-model savings remain unclaimed."
+}
