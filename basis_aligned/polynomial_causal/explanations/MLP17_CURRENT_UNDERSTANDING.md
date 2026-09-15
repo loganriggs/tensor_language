@@ -688,3 +688,19 @@ normalizers, bias, residual routes, final RMS, and softcap remain charged. There
 this is an exact algebraic path null, not a causal circuit or full-model saving. Do
 not promote it to a fresh causal test; use circuit evidence or an exact census of
 other source pairs before choosing the next folded term.
+
+## 15 September 2026 — exact selected-reader source-term census
+
+The follow-up [six-term census](../SETTING2_SELECTED_READER_SIX_TERM_CENSUS_V1_RESULT.json)
+decomposes the MLP17 input as background $g$, scaled MLP16 output $p$, and head17.2
+write $a$. All self and mixed terms reconstruct the twelve-reader native numerator
+and its 64 donor/base changes to relative error $1.16\times10^{-15}$ and
+$2.99\times10^{-15}$ respectively.
+
+The change-norm ratios are `gg .9891`, `gp .2849`, `pp .09691`, `ga .01690`,
+`pa .00552`, and `aa .000188`. Their sum has cancellation ratio `.7176`, so these
+ratios are not additive shares. The evidence moves the path away from head17.2:
+the important selected-reader terms are the heterogeneous background's self
+interaction, its interaction with MLP16, and the MLP16 self term. The next exact
+fold should split $g$ into earlier incoming residual and the other attention17
+heads before any causal promotion.
