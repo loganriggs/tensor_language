@@ -1,0 +1,29 @@
+{
+  "all_checks_pass": true,
+  "checks": {
+    "all_partial_corners_pass": true,
+    "control_selectivity": true,
+    "exact_price": true,
+    "fixed_selection": true,
+    "full_corner_fails": true,
+    "interaction_small": true,
+    "literal_verdict": true,
+    "runner_hash_bound": true,
+    "valid_terminal": true
+  },
+  "finding": "All partial approximation corners pass and only the fully donor-free source fails. The key2 approximation supplies the dominant single-factor error; key1, payload, pairwise interactions, and the three-way interaction are smaller. Exact payload with both approximate keys is the maximally compressed passing diagnostic ceiling.",
+  "main_effect_rms_fraction_of_full_error": {
+    "key1": 0.13583664660702677,
+    "key2": 0.8308781243803702,
+    "payload": 0.04144400766223071
+  },
+  "pairwise_interaction_rms_fraction_of_full_error": {
+    "key1_key2": 0.08609902725277829,
+    "key1_payload": 0.003635299693336692,
+    "key2_payload": 0.018698787668970006
+  },
+  "result_sha256": "65589c677219e6715464e8e68cbefe1c11e40b73d8f702dbbece0100d8e3033e",
+  "runner_sha256": "e64a94401e5c18cfcee1e61bf780d91216de7445614c34213bdc129be8cfca5d",
+  "schema": "bracket_cascade_source_component_factorial_v1_audit",
+  "three_way_interaction_rms_fraction_of_full_error": 0.0017639932705152336
+}
