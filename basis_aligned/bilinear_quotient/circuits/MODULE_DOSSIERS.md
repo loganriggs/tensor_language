@@ -165,6 +165,17 @@ registered backward suffix is not its behavioral explanation. QK2 controls are
 `.695/.796` of the selected edit; late current-value controls are only
 `.0419/.1219`. See the [fresh routing receipt](fast_screens/setting2_regional_head9_8_qk1_late_group_fresh_routing_v3_result.json).
 
+The exact downstream response census explains the sign failure. The directly
+propagated edited attention9 write is the largest final pre-RMS numerator term,
+with change-norm ratio `.54223` and aligned fraction `.53301`. Attention17 is
+second (`.24952`, aligned `.24518`). MLP17 is third by norm (`.15921`) but
+anti-aligned (`−.13785`); MLP9 is only `.04892`, so immediate MLP compensation
+does not explain the mismatch. The top five terms replay at `.24342` error, and
+the complete numerator predicts the final logit edit at cosine `.99903` with all
+24 signs correct. The next fold should follow direct propagation and attention17,
+not deepen the rejected MLP16×MLP17 branch. See the
+[response census](fast_screens/setting2_regional_qk1_edit_downstream_response_census_v2_result.json).
+
 ## `module.attention.8`
 
 Aliases: attention block 8, attn8. Related route:

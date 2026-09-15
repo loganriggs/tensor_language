@@ -810,3 +810,16 @@ controls are small (`.0419/.1219`). The grouped QK1 route is live, but this
 MLP16×MLP17 term is not a valid causal account of its output effect. Next fold the
 intervention-induced block9 MLP and alternate suffix responses rather than
 retuning $D$. [Fresh routing receipt](../../bilinear_quotient/circuits/fast_screens/setting2_regional_head9_8_qk1_late_group_fresh_routing_v3_result.json).
+
+An exact 18-term downstream response census shows why. The directly propagated
+attention9 edit contributes `.54223` of the complete pre-RMS numerator-change
+norm, and induced attention17 contributes `.24952`. MLP17's complete response is
+third by norm at `.15921` but has aligned fraction `−.13785`; the earlier selected
+MLP16×MLP17 term therefore follows a real opposing branch. MLP9 is only `.04892`,
+rejecting the expected immediate compensation. The top five responses replay at
+`.24342` error. The complete pre-RMS numerator has cosine `.99903` and 24/24 sign
+agreement with the final logit edit, so final RMS/softcap does not cause the sign
+reversal. V1's FP32 18-term closure was $1.046\times10^{-6}$ against a
+$10^{-6}$ audit; V2 changed only that audit to $2\times10^{-6}$. The next useful
+suffix is direct residual propagation plus attention17, while MLP17 remains a
+measured opposing response. [Response census](../../bilinear_quotient/circuits/fast_screens/setting2_regional_qk1_edit_downstream_response_census_v2_result.json).

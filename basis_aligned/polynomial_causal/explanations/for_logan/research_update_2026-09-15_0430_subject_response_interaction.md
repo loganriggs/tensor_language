@@ -37,7 +37,10 @@ relative error. This is a compact attribution of the selected path, and the next
 test was a fresh causal routing intervention. That intervention found that the
 grouped QK1 route is large, but the specific MLP16×MLP17 fold predicts the wrong
 sign of its final effect. The interaction group is real; the proposed downstream
-path is incomplete.
+path is incomplete. An exact response census finds that direct residual propagation
+and attention17 dominate the edited output, while MLP17 is a smaller opposing
+response. The complete pre-RMS numerator predicts the final logit effect almost
+perfectly, so output normalization is not causing the disagreement.
 
 ![Prediction errors for the response interaction and donor-free proxy](assets/research_update_2026-09-15_subject_response_interaction.png)
 
@@ -235,6 +238,34 @@ as the selected QK1 edit, while the current-value controls are only
 `.0419/.1219`. This localizes the mismatch to the downstream response and possibly
 parallel QK routing, rather than showing that the selected QK1 component is inert.
 
+### Where the recursive effect goes
+
+To locate that mismatch, the next calculation decomposed the edited-minus-native
+final residual into the 18 propagated attention and MLP write changes from layers
+9–17:
+
+$$
+\Delta x_{18}=\sum_{\ell=9}^{17}\gamma_\ell
+\left(\Delta a_\ell+\Delta m_\ell\right).
+$$
+
+The direct attention9 edit is the largest term, with change-norm ratio `.54223`
+and aligned fraction `.53301`. Attention17 is second at `.24952` with aligned
+fraction `.24518`. MLP17 is third by magnitude at `.15921`, but it points against
+the complete response: its aligned fraction is `−.13785`. MLP9 is only `.04892`,
+so immediate MLP compensation is not the explanation.
+
+![Largest downstream responses to the QK1 routing edit](assets/research_update_2026-09-15_qk1_downstream_response.png)
+
+*Figure 4. Signed aligned fractions for the five largest response terms. MLP17 is a substantial opposing response, while direct propagation and attention17 dominate the final numerator direction.*
+
+The top five terms replay the full pre-RMS numerator response with `.24342`
+relative error. More decisively, the complete numerator response predicts the
+final softcapped logit effect with cosine `.99903` and 24/24 sign agreement. Final
+RMS and softcap therefore do not cause the sign reversal. The earlier
+MLP16×MLP17 fold selected a real but opposing suffix branch; it omitted the larger
+direct and attention17 routes.
+
 ## What is established
 
 The missing subject-number amplitude is partly organized by a specific interaction at the L11H3 interface. The evidence is cross-construction, outcome-blind, and uses a native weight axis. The exact response variable remains donor-dependent, so this does not yet explain how a normal forward pass computes the amplitude.
@@ -244,8 +275,9 @@ The two-vector proxy shows that much of the MLP6/7 response is shared across lex
 For the regional path, exact folding now connects the output reader backward
 through MLP17, MLP16, attention9 head 9.8, QK1, and the layer-0–7 carry sources.
 The late group is a compact and causally active interaction handle, but the tested
-MLP16×MLP17 suffix does not predict its final effect. The next weight fold should
-decompose the response induced in block9 MLP and alternate suffix terms.
+MLP16×MLP17 suffix does not predict its final effect. The downstream census points
+to direct residual propagation plus attention17 for the next weight fold; MLP17
+should be retained as an opposing response rather than treated as the main suffix.
 
 ## Appendix: experiment details
 
@@ -324,6 +356,13 @@ V2 completed model execution but failed before reporting because it paired the
 arm axis instead of the row axis. V3 changed only those implementation errors;
 the registered science remained fixed.
 
+The downstream census used the native and selected-QK1-removal arms only: 12
+length-bucketed executions, 48 rows, and 18 captured module-write responses. It
+made no fit. Its FP32 residual recomposition error was
+$1.046\times10^{-6}$, just above the original $10^{-6}$ audit. The V2 correction
+raised only that audit ceiling to $2\times10^{-6}$; all scientific gates and
+values were unchanged.
+
 ### Code and primary receipts
 
 - [Response-coordinate preregistration](../../SUBJECT_NUMBER_NATIVE_HEAD_RESPONSE_COORDINATE_DISCOVERY_V1_PREREGISTRATION.md)
@@ -344,3 +383,6 @@ the registered science remained fixed.
 - [Fresh routing preregistration](../../SETTING2_REGIONAL_HEAD9_8_QK1_LATE_GROUP_FRESH_ROUTING_V1_PREREGISTRATION.md)
 - [Fresh routing V3 runner](../../../bilinear_quotient/ops/run_setting2_regional_head9_8_qk1_late_group_fresh_routing_v3.py)
 - [Fresh routing result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_head9_8_qk1_late_group_fresh_routing_v3_result.json)
+- [Downstream-response preregistration](../../SETTING2_REGIONAL_QK1_EDIT_DOWNSTREAM_RESPONSE_CENSUS_V1_PREREGISTRATION.md)
+- [Downstream-response V2 correction](../../SETTING2_REGIONAL_QK1_EDIT_DOWNSTREAM_RESPONSE_CENSUS_V2_CORRECTION.md)
+- [Downstream-response result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_qk1_edit_downstream_response_census_v2_result.json)
