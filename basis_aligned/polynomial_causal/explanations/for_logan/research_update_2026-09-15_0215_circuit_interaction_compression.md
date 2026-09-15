@@ -1,5 +1,59 @@
 # September 15 research update: interaction compression across the circuits
 
+## High-level summary
+
+The goal is to replace large activation patches with small, executable causal
+programs. In standard mech-interp terms, we first locate a component with
+activation patching, factor its computation into interpretable inputs, and then
+replace the donor activation with a program that can run from frozen parameters
+and recipient-side state. A candidate counts as progress only when intervention
+effects transfer to held-out prompts. Probe accuracy or activation reconstruction
+alone does not establish a circuit.
+
+- **Subject-number agreement is the strongest complete result.** The relevant
+  intervention is an L11H3 projected write. Ten 1,152-dimensional write vectors
+  compressed to one direction and then to the top singular direction of L11H3's
+  own output matrix. Ten amplitudes compressed to four coefficients in a
+  direction-by-context bilinear law. The write composes almost exactly at two
+  subject sites. Relative to the preceding compressed program, each reduction
+  is very faithful. Relative to the full native intervention, the final program
+  reaches cosine `.8587`, relative L2 `.5218`, and sign agreement `.9785`. It
+  captures the dominant causal direction but does not reconstruct every detail
+  of the native effect. The remaining task is to read the direction and context
+  variables from native activations.
+
+- **Bracket completion has an explicit attention-source circuit.** L13H8 writes
+  a payload scaled by two query-key factors. Low-rank delimiter-type tables plus
+  the recipient query reproduce most of the causal effect without a live donor.
+  Exact finite-difference ablations show that later MLP13–17 interaction terms
+  are unnecessary. The remaining failure is concentrated in the second key
+  factor; simple affine and scalar context corrections both failed.
+
+- **Narrative tense has a compact causal representation but less native
+  generation.** Six L11H3 source contributions collapse to one signed residual
+  direction plus a magnitude. The intervention transfers, but the sign and
+  amplitude still come from the external program rather than a native selector.
+
+- **The null results are informative localization results.** Exact bilinear
+  decompositions of selected numeric/list and induction MLPs close algebraically
+  but do not preserve the task selectively. The successor scalar predicts its
+  local interaction, but prospective prefix controls fail. These results rule
+  out those hook points as sufficient standalone circuits and redirect the
+  search toward different interfaces.
+
+The overall picture is that interaction compression works when it is applied at
+the right causal interface: an attention source term or a low-dimensional write.
+It has not produced one universal compression rule across tasks. Each circuit
+still needs its own native input variables and held-out causal validation.
+
+![Subject-number compression fidelity and remaining native gap](assets/research_update_2026-09-15_subject_compression.png)
+
+*Figure 1. Left: fidelity at each compression/composition step relative to the
+immediately preceding program. Right: all three compressed subject programs
+relative to the full native intervention. Cosine is higher-is-better; relative
+L2 is lower-is-better, so the right-hand panels make the remaining native gap
+explicit.*
+
 This update covers the work since the requested September 14 status report.
 The main change is that the research moved from synthetic operator scoring back
 to native-text causal interventions across the task circuits. The strongest new

@@ -24,6 +24,17 @@
 
 This directory is for fuller updates explicitly requested by Logan. Routine automatic experiment notes remain in the dated explanation folders.
 
+## Format for future Logan updates
+
+Lead with a plain high-level summary for a mech-interp reader: state the hook
+point, intervention, compressed program, strongest causal evidence, main
+fidelity gap, and next unresolved variable. Distinguish activation patching,
+probes, sufficiency tests, and donor-free executable programs. Follow with term
+definitions and the detailed computation. Use `$...$` for inline LaTeX and
+`$$...$$` for display equations. Plot groups of consequential numbers when a
+graph makes comparisons clearer; label the reference and whether higher or
+lower is better. Keep exact values in the prose or linked result artifacts.
+
 - [12 September, 18:55 — Predicting composed circuit interactions](research_update_2026-09-12_1855_composed_circuit_interactions.md)
 - [12 September, 17:30 — Shared producers and interaction-path decomposition](research_update_2026-09-12_1730_shared_producer_interactions.md)
 - [12 September — Interaction-path decomposition and extraction update](research_update_2026-09-12_1536_interaction_decomposition.md)
