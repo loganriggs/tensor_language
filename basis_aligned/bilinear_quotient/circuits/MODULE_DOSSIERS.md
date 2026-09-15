@@ -747,6 +747,20 @@ claim remains conditional on native state generators and suffix; corpus OOD,
 whole-head removal, and favorable dedicated serialization remain untested or
 failed as stated above.
 
+A new score-blind 48-row panel directly composes that head8.2-induced
+current-value input with the independently folded late-touching head9.8 QK1
+route. Both singles are live in both templates. The exact head-space
+routing×value term is 59.13%/61.94% of the smaller single, and the recursive
+UK/US target difference-of-differences is 56.93%/61.03% of the smaller single.
+The joint signed effects are −.798/−.923 logits, joint/additive cosines exceed
+.9996, and five unrelated-reader ratios are all below .288. This establishes a
+material overlap at the bilinear head input while preserving the distinction
+between the within-head routing component and the cross-layer value producer.
+The tested value change is allowed through the full native head9.8 routing at
+framing sources; the earlier O-only result identifies its origin but is a
+narrower projected subcomponent. [Preregistration](../../polynomial_causal/SETTING2_REGIONAL_QK1_VALUE_COMPOSITION_FRESH_V1_PREREGISTRATION.md),
+[result](fast_screens/setting2_regional_qk1_value_composition_fresh_v1_result.json).
+
 The same edge transfers to a score-blind cached corpus panel. On FineWeb and
 Pile/reference, inherited-edge/full-city errors are19.48% and16.91%, effect
 cosines are.9963 and.9948, and all63 native-capable pairs move toward the donor
