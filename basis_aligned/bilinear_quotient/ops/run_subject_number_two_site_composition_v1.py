@@ -45,12 +45,13 @@ BARS = {
     "minimum_live_interaction_fraction": 0.20,
 }
 PRICE = {"forwards": 5, "sequences": 80, "fits": 0, "backwards": 0, "updates": 0}
-PRED_KEYS = (
-    "pred_a_exact_instrument_and_capability",
-    "pred_b_single_site_writes_live_and_selective",
-    "pred_c_two_site_additive_composition",
-    "pred_d_two_site_interaction_live",
-)
+PREDICTION_REGISTRY = {
+    "pred_a_exact_instrument_and_capability": None,
+    "pred_b_single_site_writes_live_and_selective": None,
+    "pred_c_two_site_additive_composition": None,
+    "pred_d_two_site_interaction_live": None,
+}
+PRED_KEYS = tuple(PREDICTION_REGISTRY)
 
 
 def digest(path):
