@@ -1,0 +1,42 @@
+{
+  "best_rank_one_relative_frobenius_error": 0.35682208977308993,
+  "coefficient_determinant": -1.0,
+  "coefficient_matrix": [
+    [
+      1.0,
+      1.0
+    ],
+    [
+      1.0,
+      0.0
+    ]
+  ],
+  "coefficient_rank": 2,
+  "coefficient_singular_values": [
+    1.618033988749895,
+    0.6180339887498948
+  ],
+  "created_utc": "2026-09-15T05:52:25.144399Z",
+  "direct_three_dot_scalar_multiplications": 384,
+  "head_width": 128,
+  "incremental_dot_products_when_native_parent_is_live": 1,
+  "parent_minus_rr_relative_error": 5.154808185989025e-16,
+  "parent_sha256": "41a0eb991c4846382784f040ed0531fd034097702663e38f0e26dc7e23f94530",
+  "predictions": {
+    "coefficient_is_rank_two": true,
+    "scalar_lower_bound_is_2h": true,
+    "two_product_identity_is_fp64_exact": true
+  },
+  "rank_two_relative_error": 5.154808185989025e-16,
+  "rank_two_scalar_multiplications": 256,
+  "scalar_bilinear_rank": 256,
+  "schema": "three_block_bilinear_rank_control_20260915_0549_result",
+  "scope": "Exact bilinear QK1 score subtotal DD+DR+RD with supplied native denominators. QK2, values, projections, residual propagation, suffix, and causal fidelity are not simplified or certified.",
+  "seed": 202609150549,
+  "standalone_multiplication_reduction_fraction": 0.3333333333333333,
+  "test_shape": [
+    7,
+    19,
+    128
+  ]
+}

@@ -203,6 +203,29 @@ $1.51\times10^{-16}$ and $1.07\times10^{-16}$. These results show that the
 computation is compact at grouped interaction grain, despite being diffuse at
 individual module-pair grain. They do not yet show causal sufficiency.
 
+There is also an exact execution simplification. The retained subtotal can be
+computed as
+
+$$
+S_D=B(D+R,D+R)-B(R,R).
+$$
+
+The corresponding group coefficient matrix
+
+$$
+C=\begin{bmatrix}1&1\\1&0\end{bmatrix}
+$$
+
+has rank two. A standalone exact executor therefore needs two width-128 dot
+products, or 256 scalar multiplications per query-key cell, compared with 384
+for evaluating the three terms separately. Bilinear-rank theory also proves that
+one product cannot be exact when grouped inputs vary independently. A deterministic
+float64 check closes the identity at $5.15\times10^{-16}$; the best rank-one
+coefficient approximation has relative Frobenius error `.35682`. If the native
+complete carry score is already available, only $B(R,R)$ and one subtraction are
+incremental. This simplifies the selected score calculation, while leaving QK2,
+values, source generators, and the causal suffix intact.
+
 ### Fresh recursive routing test
 
 The follow-up reused 48 regional rows that were not used to choose $D$. It
@@ -386,3 +409,5 @@ values were unchanged.
 - [Downstream-response preregistration](../../SETTING2_REGIONAL_QK1_EDIT_DOWNSTREAM_RESPONSE_CENSUS_V1_PREREGISTRATION.md)
 - [Downstream-response V2 correction](../../SETTING2_REGIONAL_QK1_EDIT_DOWNSTREAM_RESPONSE_CENSUS_V2_CORRECTION.md)
 - [Downstream-response result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_qk1_edit_downstream_response_census_v2_result.json)
+- [Three-block bilinear-rank control](../../THREE_BLOCK_BILINEAR_RANK_CONTROL_20260915_0549_RESULT.json)
+- [05:52 mathematical and organization review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-15_0552.md)

@@ -182,6 +182,20 @@ the complete numerator predicts the final logit edit at cosine `.99903` with all
 not deepen the rejected MLP16×MLP17 branch. See the
 [response census](fast_screens/setting2_regional_qk1_edit_downstream_response_census_v2_result.json).
 
+The retained three-block score also has a smaller exact executor:
+
+$$
+B(D,D)+B(D,R)+B(R,D)=B(D+R,D+R)-B(R,R).
+$$
+
+Its $2\times2$ group coefficient matrix has rank two, proving that 256 scalar
+multiplications per query-key cell are sufficient and necessary under independent
+group inputs, versus 384 for three separate width-128 dots. When the native parent
+score is already live, only the $R\times R$ dot is incremental. This is an exact
+score-level saving with supplied denominators; it does not simplify QK2, values,
+source generation, or the unresolved suffix. See the
+[rank control](../../polynomial_causal/THREE_BLOCK_BILINEAR_RANK_CONTROL_20260915_0549_RESULT.json).
+
 ## `module.attention.8`
 
 Aliases: attention block 8, attn8. Related route:
