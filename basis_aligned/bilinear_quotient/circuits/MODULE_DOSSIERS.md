@@ -795,6 +795,16 @@ target effect, above the frozen `.75` bar; the first template's maximum is
 selectivity null, not an adopted circuit. [Preregistration](../../polynomial_causal/SETTING2_REGIONAL_INSTRUCTION_CROSS_FRESH_V1_PREREGISTRATION.md),
 [result](fast_screens/setting2_regional_instruction_cross_fresh_v1_result.json).
 
+Subtraction against the additive-without-cross arm localizes that failure away
+from the interaction component. All instruction-cross-specific control ratios
+are below `.09658`, and all full-cross-specific ratios are below `.09212`. In
+the failed family, additive routing/value branches have `1.00364×` the
+full-joint work/jobs RMS, so they account for essentially all observed spillover.
+The full combined package remains failed, while the instruction-source cross is
+a fresh, causally transferring, cross-specifically selective component.
+[Attribution preregistration](../../polynomial_causal/SETTING2_REGIONAL_INSTRUCTION_CROSS_COLLATERAL_ATTRIBUTION_V1_PREREGISTRATION.md),
+[result](fast_screens/setting2_regional_instruction_cross_collateral_attribution_v1_result.json).
+
 The same edge transfers to a score-blind cached corpus panel. On FineWeb and
 Pile/reference, inherited-edge/full-city errors are19.48% and16.91%, effect
 cosines are.9963 and.9948, and all63 native-capable pairs move toward the donor

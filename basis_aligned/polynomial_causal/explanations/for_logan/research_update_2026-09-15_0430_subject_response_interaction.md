@@ -69,6 +69,12 @@ replay the complete recursive cross at `.247/.323` error with cosine above
 so this is a transferable interaction mechanism and not yet an adoptable
 selective circuit.
 
+A subtraction control then shows that the failed reader belongs to the additive
+routing/value branches rather than the cross term. Every instruction-cross
+control ratio is below `.097`; the failed template's additive work/jobs RMS is
+`1.004×` its full-joint RMS. The instruction-source interaction is therefore
+selective on this panel even though the larger combined intervention is not.
+
 ![Prediction errors for the response interaction and donor-free proxy](assets/research_update_2026-09-15_subject_response_interaction.png)
 
 *Figure 1. Lower is better. Left: only the exact multiplicative response model passes the `.40` coefficient-error ceiling. Right: the two-vector proxy passes its response-scalar gate but fails after composition into the coefficient program.*
@@ -417,6 +423,22 @@ families.
 
 *Figure 7. Lower is better. Both fidelity bars pass in both templates. The orange control bar crosses its registered `.75` gate, so the overall result is a valid selectivity null.*
 
+The control above measures the whole joint intervention relative to native. To
+attribute it, subtract the additive-without-cross arm from both cross-containing
+arms. All instruction-cross-specific control ratios are at most `.0966`, and all
+full-cross-specific ratios are at most `.0922`. In the failed template, the
+additive arm's work/jobs RMS is `1.0036` times the full-joint work/jobs RMS. The
+cross term slightly cancels rather than creates that collateral.
+
+![Cross-specific collateral attribution](assets/research_update_2026-09-15_cross_collateral.png)
+
+*Figure 8. The whole package fails the work/jobs gate in template 2, while both cross-specific effects remain far below it. The additive routing/value branches cause the package-level spillover.*
+
+This does not erase the registered full-package null. It changes the module-level
+conclusion: the instruction-source cross is a fresh, causally transferring,
+selective interaction component, while one or both additive single branches
+need a finer decomposition before the combined package can be adopted.
+
 ## What is established
 
 The missing subject-number amplitude is partly organized by a specific interaction at the L11H3 interface. The evidence is cross-construction, outcome-blind, and uses a native weight axis. The exact response variable remains donor-dependent, so this does not yet explain how a normal forward pass computes the amplitude.
@@ -546,6 +568,11 @@ length-bucketed batches, and 192 sequences. It made no fit or parameter update.
 The exact audits remain below $1.07\times10^{-7}$. All rows and controls remain
 in the result despite the failed selectivity gate.
 
+The collateral follow-up reran the same four arms and used exact arm subtraction;
+it added no rows, fits, or component choices. The full-package failure remains
+the parent result. Cross-specific target and control effects are reported for
+both pre-softcap numerators and final logits.
+
 ### Code and primary receipts
 
 - [Response-coordinate preregistration](../../SUBJECT_NUMBER_NATIVE_HEAD_RESPONSE_COORDINATE_DISCOVERY_V1_PREREGISTRATION.md)
@@ -586,3 +613,6 @@ in the result despite the failed selectivity gate.
 - [Fresh instruction-cross preregistration](../../SETTING2_REGIONAL_INSTRUCTION_CROSS_FRESH_V1_PREREGISTRATION.md)
 - [Fresh instruction-cross runner](../../../bilinear_quotient/ops/run_setting2_regional_instruction_cross_fresh_v1.py)
 - [Fresh instruction-cross result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_instruction_cross_fresh_v1_result.json)
+- [Collateral-attribution preregistration](../../SETTING2_REGIONAL_INSTRUCTION_CROSS_COLLATERAL_ATTRIBUTION_V1_PREREGISTRATION.md)
+- [Collateral-attribution runner](../../../bilinear_quotient/ops/run_setting2_regional_instruction_cross_collateral_attribution_v1.py)
+- [Collateral-attribution result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_instruction_cross_collateral_attribution_v1_result.json)

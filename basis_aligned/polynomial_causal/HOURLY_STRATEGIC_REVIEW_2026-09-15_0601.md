@@ -183,3 +183,9 @@ errors `.2467/.3226`, and cosines above `.9978`. The complete gate set is a vali
 null because family 1's work/jobs control reaches `1.1507×` target, over `.75`;
 family 0 remains below `.194`. Keep instruction-source compression as mechanism
 evidence but do not adopt it as a selective circuit package.
+
+The 06:38 UTC collateral attribution passes all four gates. Instruction- and
+full-cross-specific controls are below `.0966/.0922`; the failed family's
+additive work/jobs RMS is `1.0036×` its full-joint RMS. Thus the original
+combined-package failure remains, but it is assigned to the additive single
+branches. The instruction-source cross advances as a fresh selective component.

@@ -57,6 +57,7 @@ facts must be checked in the prior-result gate even when the exact experiment pr
   [explicit head-cross attribution](circuits/fast_screens/setting2_regional_qk1_value_interaction_attribution_v1_result.json),
   [source-token census](circuits/fast_screens/setting2_regional_head_cross_source_census_v2_result.json),
   [fresh instruction-cross null](circuits/fast_screens/setting2_regional_instruction_cross_fresh_v1_result.json),
+  [cross-specific collateral attribution](circuits/fast_screens/setting2_regional_instruction_cross_collateral_attribution_v1_result.json),
   [corpus transfer](../polynomial_causal/ODD_ATTENTION8H2_CORPUS_TRANSFER_V1_RESULT.json),
   and [corpus removal](../polynomial_causal/ODD_ATTENTION8H2_CORPUS_MIDPOINT_REMOVAL_V1_RESULT.json).
 
