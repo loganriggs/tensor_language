@@ -42,7 +42,7 @@ without treating either complete native module as the semantic unit.
 
 | ID | Direction and endpoint | Candidate native terms | Current evidence | Live handoff |
 |---|---|---|---|---|
-| PATH-SUBJECT-001 | MLP8 input/context forward to L11H3 subject-number write and its downstream readers | Native-axis coordinate, E/A/U/W background coordinate, and their bilinear interaction | Proposed and preregistered; prior native scalar-only readout is a recorded null | Run the frozen upstream-context discovery on its next `CIRCUIT` hour, then use any held interaction to define a narrower folded path |
+| PATH-SUBJECT-001 | MLP8 input/context forward to L11H3 subject-number write and its downstream readers | Native-axis coordinate, E/A/U/W background coordinate, and their bilinear interaction | Circuit record `grammatical_subject_number.v30`: four-scalar coefficient law and native weight axis held causally; native scalar-only readout is a recorded null; upstream interaction is proposed | Run the frozen upstream-context discovery on its next `CIRCUIT` hour, then use any held interaction to define a narrower folded path |
 | PATH-SET2-001 | Selected outputs backward through MLP17 to head17.2 and its retained three-contraction producer | Both QK factors, current/inherited values, shared raw-state corners, MLP17 mixed terms | Exact synthetic identities and regional approximate screens exist; native causal identification remains incomplete | On a `WEIGHT_FOLDING` hour, expand the selected MLP17 reader by named residual sources and test only the terms that reach the chosen output block |
 | PATH-SET1-001 | MLP9 forward through attention10 into MLP10 and its larger parent | QK/value producer terms and downstream bilinear self/cross terms | Approximate sparse parent screens exist; individual and sign exceptions remain | Use circuit-localized reader/writer evidence to select terms before another folded approximation |
 | PATH-UNEMBED-001 | Token or token-family unembedding rows backward through final RMS, MLP17, and earlier contributors | Shared unembedding components, token-specific remainder, MLP17 bilinear terms, selected earlier residual sources | Proposed path family with partial setting3 fits; no adopted full path | Choose one semantic logit contrast and derive its exact backward factors before fitting |
@@ -54,6 +54,10 @@ without treating either complete native module as the semantic unit.
 - [Setting2 sparse regional math](../polynomial_causal/INTERACTION_SPARSE_REGIONAL_V1_MATH.md)
 - [Head17 output-block fit math](../polynomial_causal/HEAD17_OUTPUT_BLOCK_FIT_V1_MATH.md)
 - [Subject upstream-context preregistration](../polynomial_causal/SUBJECT_NUMBER_UPSTREAM_CONTEXT_COORDINATE_DISCOVERY_V1_PREREGISTRATION.md)
+- [Subject coefficient-law result](circuits/fast_screens/subject_number_coefficient_bilinear_law_v1_result.json)
+- [Subject native-axis result](circuits/fast_screens/subject_number_native_weight_axis_v1_result.json)
+- [Subject native scalar-readout null](circuits/fast_screens/subject_number_native_scalar_feature_discovery_v1_result.json)
+- [Subject-number machine dossier](circuits/task_subject_verb_number_agreement.json)
 - [MLP dossier index](../polynomial_causal/explanations/MLP_MODULE_DOSSIER_INDEX.md)
 
 Update this index only when a path's evidence label, scope, live handoff, or primary

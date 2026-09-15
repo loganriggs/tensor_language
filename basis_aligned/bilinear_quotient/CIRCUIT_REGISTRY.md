@@ -31,6 +31,15 @@ criterion. They are allowed as controls or implementation prices, or when paired
 task-conditioned causal measurement and a matched-capacity null. The known exceptions and module
 facts must be checked in the prior-result gate even when the exact experiment protocol is new.
 
+## Recent circuit-to-path cross-links
+
+- **Subject-number L11H3 (`grammatical_subject_number.v30`):** the held four-scalar
+  direction/cardinality law and top native output-weight axis are causal substitution
+  results; the native singular-coordinate scalar readout is a predictive null. The
+  pending upstream E/A/U/W interaction and folded continuation are indexed as
+  [`PATH-SUBJECT-001`](COMPUTATION_PATH_REGISTRY.md). Canonical event history remains
+  in [`circuits/task_subject_verb_number_agreement.json`](circuits/task_subject_verb_number_agreement.json).
+
 ## The pipeline (stages a circuit moves through)
 
 CANDIDATE → SCREENED (concentration + both controls clean, §1302/1315 standard)

@@ -7,6 +7,30 @@ Folded cross-module and within-module routes are indexed in
 [`../COMPUTATION_PATH_REGISTRY.md`](../COMPUTATION_PATH_REGISTRY.md); path dossiers
 should link back to the relevant module sections here.
 
+## `module.attention.11.head3`
+
+Aliases: L11H3, layer-11 head 3, subject-number write head. Related path:
+[`PATH-SUBJECT-001`](../COMPUTATION_PATH_REGISTRY.md).
+
+### 2026-09-15 subject-number write factorization
+
+- A frozen four-scalar direction-by-cardinality coefficient law reproduces the prior
+  rank-one causal effects on 512 fresh interventions with cosine `.999816`, relative
+  L2 `.023954`, and sign agreement `1.0`.
+- Replacing the fitted 1,152-dimensional write axis with the top left singular vector
+  of this head's native output-projection slice preserves the held-law causal effects
+  with cosine `.999447`, relative L2 `.079550`, and sign agreement `1.0`.
+- An outcome-blind affine readout from the first two native output-weight singular
+  coordinates fails cross-construction amplitude prediction at relative L2 `.58757`;
+  widening through rank eight does not repair it.
+
+Primary receipts: [coefficient law](fast_screens/subject_number_coefficient_bilinear_law_v1_result.json),
+[native axis](fast_screens/subject_number_native_weight_axis_v1_result.json), and
+[native scalar-readout null](fast_screens/subject_number_native_scalar_feature_discovery_v1_result.json).
+These establish a reusable causal output axis and compact coefficient law. They do
+not identify how earlier state computes direction/cardinality, so the upstream
+interaction remains proposed rather than identified.
+
 ## `module.attention.5`
 
 Aliases: attention block 5, `attn5`, L5 attention, induction gate, copy gate, content gatherer,
