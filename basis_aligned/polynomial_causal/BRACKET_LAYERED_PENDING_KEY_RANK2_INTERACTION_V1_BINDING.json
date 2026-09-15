@@ -1,0 +1,41 @@
+{
+  "bars": {
+    "capability_accuracy_min": 0.75,
+    "control_to_target_rms_max": 0.5,
+    "effect_cosine_min": 0.9,
+    "effect_norm_ratio_max": 1.4,
+    "effect_norm_ratio_min": 0.6,
+    "effect_relative_l2_max": 0.4,
+    "effect_sign_min": 0.9,
+    "exact_positive_min": 0.9,
+    "factor_cosine_min": 0.8,
+    "factor_relative_l2_max": 0.6,
+    "factor_sign_min": 0.85,
+    "key_cosine_min": 0.9,
+    "key_relative_l2_max": 0.5,
+    "pair_cosine_min": 0.75,
+    "pair_relative_l2_max": 0.5,
+    "pair_sign_min": 0.85,
+    "recipient_score_improvement_min": 0.1,
+    "replay_max": 1e-05
+  },
+  "eval_row_manifest_sha256": "58e60aacb7933009873a6e124efef6d27f0fc02f552eeb8b13edaaa4e32585ca",
+  "files": {
+    "builder": "278e323e7d3f38fdbdd001fae0f84d3050fd7eafbd3bb367b70ef72149834652",
+    "eval_rows": "8075fe09266d06fb0b5ea9aa8661cd1086242514b3afced01dfe70506029ca62",
+    "preregistration": "63e5ec26294b79985cd4e07ae56182fd902c012002b00acb96c046976624e90a",
+    "prior_result": "5800223fced4431d1cb18372ffc747edbc3c345ddb748cb5c2d6a6e106871011",
+    "train_rows": "8f57d07b3983bcfffe4c801cb304c3e71012f95801a971ab50120b5d08e657d2"
+  },
+  "outcomes_opened": false,
+  "price": {
+    "backwards": 0,
+    "fits": 3,
+    "forwards": 8,
+    "sequences": 2304,
+    "updates": 0
+  },
+  "program_rule": "three outcome-blind centered rank-two type tables; live recipient query/payload; no donor state in both arm",
+  "schema": "bracket_layered_pending_key_rank2_interaction_v1_binding",
+  "train_row_manifest_sha256": "d1fc8e104bb07bbf49f56b6e8e8b8970946abafea4e59471603d213c36c22873"
+}
