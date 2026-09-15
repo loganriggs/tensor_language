@@ -77,6 +77,47 @@ with the setting1 head9.8 circuit, without yet showing that this specific folded
 term is causally sufficient. See the [upstream fold](fast_screens/setting2_regional_mlp16_upstream_source_fold_v1_result.json)
 and [head split](fast_screens/setting2_regional_attn9_head_mlp16_fold_v2_result.json).
 
+### 2026-09-15 head9.8 QK source interactions
+
+Holding native denominators and values fixed, both QK factors of head9.8 admit
+exact ordered query-source × key-source expansions over block-8 carry, attention,
+and MLP writes. QK1 is led by carry8 × carry8 at `.85882` of the complete
+head9.8 folded change norm, stable at `.78111–1.00441` across four families.
+MLP8-query × carry-key is `.20754`, and carry-query × MLP8-key is `.10556`;
+these top three replay with `.19641` relative error.
+
+QK2 is more distributed: carry8 × carry8 `.33203`, MLP8-query × carry-key
+`.23088`, carry-query × attention8-key `.16233`, carry-query × MLP8-key
+`.14406`, and attention8-query × carry-key `.14170`. Its top-three replay error
+is `.33529`. All attention8-containing interactions aggregate to `.20479` in
+QK1 and `.36420` in QK2. Exact score and downstream-fold closure are below
+$6.89\times10^{-16}$; the recomputed native head bridge is
+$1.97\times10^{-7}$. This localizes routing computations along the folded path,
+while holding values and downstream context fixed. See the
+[QK source fold](fast_screens/setting2_regional_head9_8_qk_source_fold_v3_result.json).
+
+## `module.attention.8`
+
+Aliases: attention block 8, attn8. Related route:
+[`PATH-SET2-001`](../COMPUTATION_PATH_REGISTRY.md).
+
+Attention8 enters the task-matched head9.8 route through QK source interactions
+as well as the separately established head8.2 value-transport circuit. Terms
+containing the full attention8 write aggregate to `.20479` of the QK1 folded
+change and `.36420` of QK2. In QK2, carry-query × attention8-key is `.16233`,
+while attention8-query × carry-key is `.14170`. These magnitudes do not identify
+the responsible attention8 head or equate its routing and value roles.
+
+## `module.mlp.8`
+
+Aliases: MLP8, layer-8 MLP. Related route:
+[`PATH-SET2-001`](../COMPUTATION_PATH_REGISTRY.md).
+
+MLP8-query × carry-key contributes `.20754` in QK1 and `.23088` in QK2.
+Carry-query × MLP8-key contributes `.10556` and `.14406`, respectively, while
+MLP8 self-interactions are only `.02357/.03635`. The task-matched path therefore
+uses MLP8 mainly in cross terms with the incoming carry.
+
 ## `module.mlp.16`
 
 Aliases: MLP16, layer-16 MLP. Related route:

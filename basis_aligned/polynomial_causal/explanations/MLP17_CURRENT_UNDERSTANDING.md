@@ -757,3 +757,16 @@ attention output is $1.43\times10^{-7}$. Thus the previously identified setting1
 regional head is also the dominant component of this backward-folded setting2
 path. This is path attribution, not yet a selective intervention or proof that
 the isolated term is sufficient. [Primary head-fold receipt](../../bilinear_quotient/circuits/fast_screens/setting2_regional_attn9_head_mlp16_fold_v2_result.json).
+
+Folding one level farther into head9.8 separates each QK score into exact ordered
+interactions among the block-8 carry, attention write, and MLP write, with native
+normalizers and values held fixed. QK1 is relatively simple: carry × carry is
+`.85882` of the paired path-change norm, followed by MLP8-query × carry-key
+`.20754` and carry-query × MLP8-key `.10556`; those three leave `.19641` replay
+error. QK2 is more mixed: its first five ratios are `.33203`, `.23088`, `.16233`,
+`.14406`, and `.14170`, and its top three leave `.33529` error. Attention8-containing
+terms aggregate to `.20479` for QK1 and `.36420` for QK2. Both nine-term sums
+close below $3.20\times10^{-16}$ through the full MLP16/MLP17/unembedding fold.
+The leading remaining backward step is the QK1 carry × carry term; QK2's
+attention8 routing terms and the known head8.2 value route remain separate until
+an intervention connects them. [Primary QK receipt](../../bilinear_quotient/circuits/fast_screens/setting2_regional_head9_8_qk_source_fold_v3_result.json).
