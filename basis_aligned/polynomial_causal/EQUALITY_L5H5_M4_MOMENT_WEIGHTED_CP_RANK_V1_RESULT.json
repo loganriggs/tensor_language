@@ -1,0 +1,216 @@
+{
+  "binding_sha256": "2b731bb9a202065dc000f48f598281db77f5fa9dfc3f7aec23c05692ea7ae61e",
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "created_utc": "2026-09-16T18:46:26.187675Z",
+  "instrument": {
+    "contracted_operator_reconstruction_relative_l2": 2.0559203760825418e-13
+  },
+  "isotropic_rank256_lower_bound": 0.7588316301712472,
+  "panels": {
+    "code": {
+      "cp_relative_error_lower_bound": {
+        "1024": 0.025905299206442012,
+        "1152": 3.942476676500724e-08,
+        "128": 0.2637654952185449,
+        "256": 0.18502760673071783,
+        "512": 0.10667869972270941,
+        "64": 0.33979230053994464
+      },
+      "empirical_same_state_energy": 11282271949.758045,
+      "gaussian_energy_relative_error": 0.050234054522938526,
+      "gaussian_same_state_energy": 10715517685.49128,
+      "gaussian_terms": {
+        "frobenius": 3921394585.0000014,
+        "trace_square": 4531066222.790347,
+        "transpose_contraction": 2263056877.700931
+      },
+      "input_mode_total_energy_relative_difference": 6.48685002697542e-09,
+      "left_input_unfolding": {
+        "curve": {
+          "1024": {
+            "cp_relative_error_lower_bound": 0.025866082056237066,
+            "energy_retained": 0.99933094579906
+          },
+          "1152": {
+            "cp_relative_error_lower_bound": 3.942476676500724e-08,
+            "energy_retained": 0.9999999999999984
+          },
+          "128": {
+            "cp_relative_error_lower_bound": 0.2637654952185449,
+            "energy_retained": 0.9304277635321158
+          },
+          "256": {
+            "cp_relative_error_lower_bound": 0.18502760673071783,
+            "energy_retained": 0.9657647847475028
+          },
+          "512": {
+            "cp_relative_error_lower_bound": 0.10667869972270941,
+            "energy_retained": 0.988619655025472
+          },
+          "64": {
+            "cp_relative_error_lower_bound": 0.33979230053994464,
+            "energy_retained": 0.8845411924937719
+          }
+        },
+        "effective_rank": 20.074259977261423,
+        "total_energy": 3921394585.0000014
+      },
+      "mean_state_square": 0.9999985655355829,
+      "moment_maximum_eigenvalue": 520.4863972337333,
+      "moment_minimum_eigenvalue": 0.015662922742121436,
+      "moment_negative_to_maximum_ratio": 0.0,
+      "right_input_unfolding": {
+        "curve": {
+          "1024": {
+            "cp_relative_error_lower_bound": 0.025905299206442012,
+            "energy_retained": 0.9993289154730247
+          },
+          "1152": {
+            "cp_relative_error_lower_bound": 0.0,
+            "energy_retained": 1.0000000000000009
+          },
+          "128": {
+            "cp_relative_error_lower_bound": 0.26279550239394783,
+            "energy_retained": 0.9309385239215126
+          },
+          "256": {
+            "cp_relative_error_lower_bound": 0.1846769971095175,
+            "energy_retained": 0.9658944067386113
+          },
+          "512": {
+            "cp_relative_error_lower_bound": 0.10651279936223076,
+            "energy_retained": 0.9886550235720212
+          },
+          "64": {
+            "cp_relative_error_lower_bound": 0.3378930243302559,
+            "energy_retained": 0.8858283041089531
+          }
+        },
+        "effective_rank": 19.439955779841956,
+        "total_energy": 3921394610.4375
+      },
+      "tokens": 49152
+    },
+    "natural": {
+      "cp_relative_error_lower_bound": {
+        "1024": 0.06579917970640288,
+        "1152": 0.0,
+        "128": 0.5613429294162999,
+        "256": 0.4233676210727503,
+        "512": 0.2577590958997262,
+        "64": 0.6663004034592198
+      },
+      "empirical_same_state_energy": 8642830810.33622,
+      "gaussian_energy_relative_error": 0.2214309928756688,
+      "gaussian_same_state_energy": 6729040202.747049,
+      "gaussian_terms": {
+        "frobenius": 2397479241.5,
+        "trace_square": 3717302083.9287133,
+        "transpose_contraction": 614258877.3183362
+      },
+      "input_mode_total_energy_relative_difference": 1.3868733418535903e-08,
+      "left_input_unfolding": {
+        "curve": {
+          "1024": {
+            "cp_relative_error_lower_bound": 0.06560295961266756,
+            "energy_retained": 0.9956962516900587
+          },
+          "1152": {
+            "cp_relative_error_lower_bound": 0.0,
+            "energy_retained": 1.0000000000000009
+          },
+          "128": {
+            "cp_relative_error_lower_bound": 0.5613429294162999,
+            "energy_retained": 0.6848941155943269
+          },
+          "256": {
+            "cp_relative_error_lower_bound": 0.42329245702802437,
+            "energy_retained": 0.8208234958231782
+          },
+          "512": {
+            "cp_relative_error_lower_bound": 0.2575528300093592,
+            "energy_retained": 0.9336665397541701
+          },
+          "64": {
+            "cp_relative_error_lower_bound": 0.6663004034592198,
+            "energy_retained": 0.5560437723500808
+          }
+        },
+        "effective_rank": 235.32687802904798,
+        "total_energy": 2397479241.5
+      },
+      "mean_state_square": 0.9999955610058974,
+      "moment_maximum_eigenvalue": 416.5514090478236,
+      "moment_minimum_eigenvalue": 0.04805675801203301,
+      "moment_negative_to_maximum_ratio": 0.0,
+      "right_input_unfolding": {
+        "curve": {
+          "1024": {
+            "cp_relative_error_lower_bound": 0.06579917970640288,
+            "energy_retained": 0.9956704679499645
+          },
+          "1152": {
+            "cp_relative_error_lower_bound": 0.0,
+            "energy_retained": 1.0000000000000004
+          },
+          "128": {
+            "cp_relative_error_lower_bound": 0.5610789427507928,
+            "energy_retained": 0.6851904200016525
+          },
+          "256": {
+            "cp_relative_error_lower_bound": 0.4233676210727503,
+            "energy_retained": 0.8207598574272001
+          },
+          "512": {
+            "cp_relative_error_lower_bound": 0.2577590958997262,
+            "energy_retained": 0.9335602484809558
+          },
+          "64": {
+            "cp_relative_error_lower_bound": 0.6653023352029603,
+            "energy_retained": 0.5573728027734878
+          }
+        },
+        "effective_rank": 234.7087071936184,
+        "total_energy": 2397479274.7500005
+      },
+      "tokens": 49152
+    }
+  },
+  "predictions": {
+    "pred_a_moment_and_spectral_instrument": true,
+    "pred_b_moment_metric_reduces_rank256_bound": true,
+    "pred_c_natural_rank256_compression_open": true,
+    "pred_d_code_metric_transfer": false,
+    "pred_e_gaussian_moment_fidelity": true
+  },
+  "price": {
+    "candidate_cp_ranks": [
+      64,
+      128,
+      256,
+      512,
+      1024,
+      1152
+    ],
+    "checkpoint_loads": 1,
+    "fits": 0,
+    "gpu_accessed": true,
+    "gradients": 0,
+    "input_width": 1152,
+    "model_loaded": true,
+    "native_product_width": 4608,
+    "natural_documents": 192,
+    "new_text": 0,
+    "ood_documents": 192,
+    "parameter_updates": 0,
+    "partial_prefix_executions": 384,
+    "queue_touched": true,
+    "schema": "equality_l5h5_m4_moment_weighted_cp_rank_v1_plan",
+    "selected_output_rank": 256
+  },
+  "runner_sha256": "978e6da5373c31363eab6b899c9ddf871560b2130d7d293d1d411e78898c617e",
+  "schema": "equality_l5h5_m4_moment_weighted_cp_rank_v1_result",
+  "scope": "Empirical-second-moment and matched zero-mean Gaussian metric audit for the exact rank-256 L5-reader-weighted MLP4 tensor on frozen natural/code panels. No fitted CP node or behavioral circuit claim.",
+  "seconds": 1.3291909489998943,
+  "terminal": "valid_equality_l5h5_m4_moment_weighted_cp_null"
+}

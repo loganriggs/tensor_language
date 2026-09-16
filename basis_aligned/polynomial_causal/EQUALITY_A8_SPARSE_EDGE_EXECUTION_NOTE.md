@@ -211,3 +211,10 @@ even rank 1,024 is bounded below by `.180`. The instrument closes to `1.67e-6`
 on direct contractions. Therefore do not fit another generic low-rank CP node.
 Move to activation-moment/context-gated metrics and require fresh exact-removal
 validation before promotion.
+
+Empirical MLP4-state moments expose the intended escape hatch. The rank-256
+lower bound drops to `.423` on natural text and `.185` on code, with effective
+ranks 235 and 20; Gaussian energy error is `.221/.050`. The frozen panel-
+similarity gate fails because code is much more compressible, so do not average
+the moments or fit one unconditional node. Derive an explicit context/family
+gate, freeze it, and validate its removal vector prospectively.

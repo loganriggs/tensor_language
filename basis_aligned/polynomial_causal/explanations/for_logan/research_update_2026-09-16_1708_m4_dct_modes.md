@@ -331,3 +331,28 @@ context distribution and uses the same state in both slots. The next useful
 test is empirical/Gaussian activation-moment weighting, kept per context or
 family rather than averaged. Only if that metric exposes a compact subspace
 should a candidate be frozen and tested against the exact removal vector.
+
+## Empirical moments open a context-dependent route
+
+The activation-moment follow-up changes the geometry substantially. Using
+second moments of the actual normalized MLP4 states, the rank-256 unfolding
+lower bound falls from isotropic `.7588` to `.4234` on natural text and `.1850`
+on code. Effective input-mode rank falls from about 970 to 235 natural and only
+20 code. Rank-64 remains obstructed (`.6663` natural, `.3398` code), while the
+code rank-512 bound is `.1067`.
+
+The Gaussian approximation is useful but not exact: matched-moment Isserlis
+energy differs from observed same-state quadratic energy by `.2214` natural and
+`.0502` code. Both are within the frozen 25% gate. Moment matrices are PSD,
+normalized-state mean squares are `.999996/.999999`, and paired unfolding
+energies agree below `1.4e-8`, so the panel difference is not an arithmetic
+failure.
+
+The preregistered cross-panel similarity gate fails because the rank-256 bounds
+differ by `.2383`; notably code is much more compressible. This is the positive
+version of a null: one global averaged metric is wrong, while context geometry
+is highly informative. Averaging natural and code moments would erase the
+distinction. The next representation should expose a derived context/family
+gate and fit or select factors conditionally, then freeze that rule before
+testing the exact interaction-removal vector. A single global CP node is not
+yet warranted.
