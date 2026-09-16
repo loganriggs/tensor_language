@@ -1,0 +1,141 @@
+{
+  "binding_sha256": "e8ecdec3dd3e681c0fd559f829438918096f24faadaebacbd49ced9919ed5c6d",
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "created_utc": "2026-09-16T17:21:54.300821Z",
+  "instrument": {
+    "contracted_operator_reconstruction_relative_l2": 2.0559203760825418e-13,
+    "omitted_joint_rounding_component": true,
+    "shared_projection_components": [
+      "baseline",
+      "child_delta",
+      "remainder_delta"
+    ]
+  },
+  "predictions": {
+    "pred_a_lawful_parent_and_bridge": true,
+    "pred_b_valid_shared_baseline": true,
+    "pred_c_shared_joint_fidelity": true,
+    "pred_d_shared_interaction_fidelity": false,
+    "pred_e_shared_kernel_composition_and_price": true
+  },
+  "price": {
+    "authority_qk_projections": 16,
+    "checkpoint_loads": 1,
+    "complete_behavior_forwards": 0,
+    "execution_count": 192,
+    "fits": 0,
+    "gpu_accessed": true,
+    "gradients": 0,
+    "learned_parameters": 0,
+    "model_loaded": true,
+    "natural_documents": 192,
+    "new_text": 0,
+    "ood_documents": 192,
+    "parameter_updates": 0,
+    "queue_touched": true,
+    "schema": "equality_l5h5_m4_shared_projection_kernel_v1_plan",
+    "shared_qk_projections": 12
+  },
+  "program_price": {
+    "authority_qk_projections": 16,
+    "learned_parameters": 0,
+    "reduction_fraction": 0.25,
+    "score_cells": 4,
+    "shared_qk_projections": 12
+  },
+  "reports": {
+    "code": {
+      "baseline": {
+        "cosine": 0.9999950655026661,
+        "relative_l2": 0.0031415369480027894,
+        "values": 373802
+      },
+      "closure": {
+        "cosine": 1.0,
+        "relative_l2": 0.0,
+        "values": 373802
+      },
+      "interaction": {
+        "cosine": 0.9949348331975006,
+        "relative_l2": 0.1006255574025254,
+        "values": 373802
+      },
+      "joint": {
+        "cosine": 0.9999929496331694,
+        "relative_l2": 0.003755380518972723,
+        "values": 373802
+      }
+    },
+    "half_0": {
+      "baseline": {
+        "cosine": 0.99999504390424,
+        "relative_l2": 0.003148362758739488,
+        "values": 203309
+      },
+      "closure": {
+        "cosine": 1.0,
+        "relative_l2": 0.0,
+        "values": 203309
+      },
+      "interaction": {
+        "cosine": 0.995017528434982,
+        "relative_l2": 0.09977367830347784,
+        "values": 203309
+      },
+      "joint": {
+        "cosine": 0.9999928109529719,
+        "relative_l2": 0.003792728982625693,
+        "values": 203309
+      }
+    },
+    "half_1": {
+      "baseline": {
+        "cosine": 0.9999950890128484,
+        "relative_l2": 0.0031342504887471737,
+        "values": 170493
+      },
+      "closure": {
+        "cosine": 1.0,
+        "relative_l2": 0.0,
+        "values": 170493
+      },
+      "interaction": {
+        "cosine": 0.9948439414848006,
+        "relative_l2": 0.10155989242267156,
+        "values": 170493
+      },
+      "joint": {
+        "cosine": 0.9999930961807656,
+        "relative_l2": 0.0037158700269033923,
+        "values": 170493
+      }
+    },
+    "natural": {
+      "baseline": {
+        "cosine": 0.9999950529686903,
+        "relative_l2": 0.0031459079069680014,
+        "values": 65556
+      },
+      "closure": {
+        "cosine": 0.9999999999999999,
+        "relative_l2": 1.5136228246132118e-08,
+        "values": 65556
+      },
+      "interaction": {
+        "cosine": 0.9975813331598806,
+        "relative_l2": 0.06953874689289384,
+        "values": 65556
+      },
+      "joint": {
+        "cosine": 0.9999925582580184,
+        "relative_l2": 0.0038579056257263557,
+        "values": 65556
+      }
+    }
+  },
+  "runner_sha256": "d4e0933e4979d18934756496c519dd7c0317944387186cc4927fd80d6d8bdbf9",
+  "schema": "equality_l5h5_m4_shared_projection_kernel_v1_result",
+  "scope": "Twelve-projection shared residual-to-Q/K kernel for the explicit M4 child/remainder interaction graph. Exact residual RMS denominators remain open context scalars.",
+  "seconds": 1.3267967339997995,
+  "terminal": "valid_equality_l5h5_m4_shared_projection_kernel_null"
+}

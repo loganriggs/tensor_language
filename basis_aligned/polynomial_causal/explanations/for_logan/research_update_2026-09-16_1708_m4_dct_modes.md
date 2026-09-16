@@ -89,3 +89,26 @@ The price caveat matters: the interaction currently consumes four score
 evaluations (`S0,Sc,Sr,Sj`).  The next compression problem is to fold that
 cross-difference into a direct kernel without losing its removal and transfer
 certificates, then reduce each dense mode's still-native product cost.
+
+## Direct-kernel compression: score success, behavioral null
+
+We tested that folding target rather than assuming that score fidelity implies
+intervention fidelity.  Sharing the projected baseline, child delta, and
+remainder delta reduces the four-corner executor from 16 to 12 Q/K projections.
+It preserves the joint score well (`.00376` relative code error), but the
+interaction error is `.10063`, just outside the frozen `.10` gate.  Reassigning
+which of the four corners is derived arithmetically does not rescue it
+(`.10069`).  Adding one selected K2 correction costs one projection, only
+`.00225` of the corrected child-port norm, and brings code interaction error to
+`.09956`; all preregistered score-space gates then pass with 13 projections.
+
+The behavioral red-team nevertheless rejects that 13-projection replacement.
+Its aggregate recovery (`.89071`) nearly matches the exact graph (`.89159`),
+interaction-removal magnitude remains `.306`, and noncopy change is only
+`.000320` nat.  But tokenwise composed replay error is `.258`, while the
+approximate and exact interaction-removal vectors have only `.294` cosine and
+`1.198` relative error.  This is a genuine behavioral mismatch hidden by good
+global score geometry and aggregate recovery, not evidence that the exact
+interaction is unnecessary.  The 16-projection graph remains authoritative;
+future folding must optimize and certify the downstream removal vector, not
+only global score L2.

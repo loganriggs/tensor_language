@@ -132,3 +132,14 @@ has only `.52158` behavioral-effect cosine to true removal.  Direct and composed
 recovery both equal `.89159`.  This is a zero-learned-parameter four-trait OOD
 graph at the declared boundary; its live efficiency handoff is replacing the
 current four-score cross-difference executor with a cheaper direct kernel.
+
+That cheaper-kernel attempt provides a sharp caution.  A 12-projection shared
+executor has only `.00376` joint-score error but `.10063` interaction error;
+changing the arithmetic gauge does not improve it (`.10069`).  One selected K2
+correction produces a 13-projection executor that passes the score gate at
+`.09956` and nearly preserves aggregate recovery (`.89071` versus `.89159`).
+It still fails behavioral equivalence: tokenwise replay error is `.258`, and
+its interaction-removal vector has `.294` cosine and `1.198` relative error to
+the exact graph.  Keep the exact 16-projection interaction node as the
+behavioral authority.  A future fold must target the removal vector directly;
+global score error and aggregate recovery are insufficient certificates.

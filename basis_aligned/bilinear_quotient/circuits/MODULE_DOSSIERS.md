@@ -657,6 +657,18 @@ to true removal.  Direct and composed recovery are both `.89159`.  The graph
 therefore has frozen OOD prediction, extraction, selective removal, and exact
 composition/reuse at this boundary.  Its four score evaluations remain an
 explicit execution-cost caveat and the next folding target.
+
+The first direct-kernel fold is a useful two-sided red-team null.  Sharing
+baseline/child/remainder Q/K projections cuts 16 projections to 12, but misses
+the code interaction gate at `.10063`; all four equivalent arithmetic gauges
+agree.  A natural-selected K2 correction gives a 13-projection score-space
+positive (`.09956`) and nearly unchanged aggregate recovery (`.89071` versus
+`.89159`).  Behavioral comparison overturns that apparent success: tokenwise
+composed replay error is `.258`, and the approximate interaction-removal vector
+has only `.294` cosine and `1.198` relative error to the exact removal.  This
+rules out both a coding-gauge explanation for the 12-projection null and a
+score-only acceptance of the corrected surrogate.  The exact 16-projection
+graph remains the reusable behavioral node.
 [three-edge factorial](../../polynomial_causal/EQUALITY_PRE_MLP9_THREE_EDGE_FACTORIAL_DISCOVERY_V1_RESULT.json),
 [code-OOD calibration null](../../polynomial_causal/EQUALITY_A8_EDGE_CODE_OOD_CONFIRMATION_V1_RESULT.json),
 [projected-payload extraction null](../../polynomial_causal/EQUALITY_L8H4_EXTRACTED_NODE_CODE_OOD_V1_RESULT.json),
@@ -679,6 +691,10 @@ explicit execution-cost caveat and the next folding target.
 [rank-256 mode-boundary export](../../polynomial_causal/EQUALITY_L5H5_M4_RANK256_MODE_GRAPH_EXPORT_V1_RESULT.json),
 [explicit M4 interaction graph](../../polynomial_causal/EQUALITY_L5H5_M4_EXPLICIT_INTERACTION_GRAPH_V1_RESULT.json),
 [explicit interaction-graph export](../../polynomial_causal/EQUALITY_L5H5_M4_EXPLICIT_INTERACTION_GRAPH_EXPORT_V1_RESULT.json),
+[shared-projection kernel null](../../polynomial_causal/EQUALITY_L5H5_M4_SHARED_PROJECTION_KERNEL_V1_RESULT.json),
+[arithmetic-gauge red-team null](../../polynomial_causal/EQUALITY_L5H5_M4_SHARED_PROJECTION_GAUGE_V1_RESULT.json),
+[one-map score-space correction](../../polynomial_causal/EQUALITY_L5H5_M4_SHARED_PROJECTION_CORRECTION_V1_RESULT.json),
+[corrected shared-kernel behavioral null](../../polynomial_causal/EQUALITY_L5H5_M4_SHARED_KERNEL_BEHAVIOR_V1_RESULT.json),
 [red-team note](../../polynomial_causal/EQUALITY_A8_SPARSE_EDGE_EXECUTION_NOTE.md).
 
 The retained three-block score also has a smaller exact executor:

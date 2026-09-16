@@ -1,0 +1,243 @@
+{
+  "binding_sha256": "ee092989eb745b7b33143c103f2b3fa6d2e140a1b81b486b12831e8df2f9417a",
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "code": {
+    "halves": [
+      {
+        "baseline": {
+          "cosine": 0.99999504390424,
+          "relative_l2": 0.003148362758739488,
+          "values": 203309
+        },
+        "closure": {
+          "cosine": 1.0,
+          "relative_l2": 0.0,
+          "values": 203309
+        },
+        "interaction": {
+          "cosine": 0.9951396979350996,
+          "relative_l2": 0.09854586208138352,
+          "values": 203309
+        },
+        "joint": {
+          "cosine": 0.9999953382509488,
+          "relative_l2": 0.0030538394256586104,
+          "values": 203309
+        }
+      },
+      {
+        "baseline": {
+          "cosine": 0.9999950890128484,
+          "relative_l2": 0.0031342504887471737,
+          "values": 170493
+        },
+        "closure": {
+          "cosine": 1.0,
+          "relative_l2": 0.0,
+          "values": 170493
+        },
+        "interaction": {
+          "cosine": 0.9949334286474704,
+          "relative_l2": 0.10067595119029395,
+          "values": 170493
+        },
+        "joint": {
+          "cosine": 0.9999952807491744,
+          "relative_l2": 0.00307221207753386,
+          "values": 170493
+        }
+      }
+    ],
+    "overall": {
+      "baseline": {
+        "cosine": 0.9999950655026661,
+        "relative_l2": 0.0031415369480027894,
+        "values": 373802
+      },
+      "closure": {
+        "cosine": 1.0,
+        "relative_l2": 0.0,
+        "values": 373802
+      },
+      "interaction": {
+        "cosine": 0.9950414966761943,
+        "relative_l2": 0.09956270929794031,
+        "values": 373802
+      },
+      "joint": {
+        "cosine": 0.9999953098193013,
+        "relative_l2": 0.003062828089920012,
+        "values": 373802
+      }
+    }
+  },
+  "created_utc": "2026-09-16T17:27:53.091525Z",
+  "diagnostics": {
+    "corrected_child_port_squared_norm": 3913009903503.3574,
+    "correction_residual_squared_norm": 2641793.5079152468,
+    "projected_correction_squared_norm": 19811481.252325762,
+    "projected_correction_to_child_port_norm_ratio": 0.002250106117332359
+  },
+  "instrument": {
+    "contracted_operator_reconstruction_relative_l2": 2.0559203760825418e-13,
+    "parent_code_interaction_error": 0.10069425241511082,
+    "parent_selected_gauge": "child"
+  },
+  "natural_correction_frontier": {
+    "K1": {
+      "baseline": {
+        "cosine": 0.9999950529686903,
+        "relative_l2": 0.0031459079069680014,
+        "values": 65556
+      },
+      "closure": {
+        "cosine": 1.0,
+        "relative_l2": 0.0,
+        "values": 65556
+      },
+      "interaction": {
+        "cosine": 0.9976816434624797,
+        "relative_l2": 0.0680900779703697,
+        "values": 65556
+      },
+      "joint": {
+        "cosine": 0.999995227826944,
+        "relative_l2": 0.0030894770567207104,
+        "values": 65556
+      }
+    },
+    "K2": {
+      "baseline": {
+        "cosine": 0.9999950529686903,
+        "relative_l2": 0.0031459079069680014,
+        "values": 65556
+      },
+      "closure": {
+        "cosine": 1.0,
+        "relative_l2": 0.0,
+        "values": 65556
+      },
+      "interaction": {
+        "cosine": 0.9977105900285644,
+        "relative_l2": 0.06766473593885236,
+        "values": 65556
+      },
+      "joint": {
+        "cosine": 0.999995227826944,
+        "relative_l2": 0.0030894770567207104,
+        "values": 65556
+      }
+    },
+    "Q1": {
+      "baseline": {
+        "cosine": 0.9999950529686903,
+        "relative_l2": 0.0031459079069680014,
+        "values": 65556
+      },
+      "closure": {
+        "cosine": 1.0,
+        "relative_l2": 0.0,
+        "values": 65556
+      },
+      "interaction": {
+        "cosine": 0.99769825368667,
+        "relative_l2": 0.06784970775813633,
+        "values": 65556
+      },
+      "joint": {
+        "cosine": 0.999995227826944,
+        "relative_l2": 0.0030894770567207104,
+        "values": 65556
+      }
+    },
+    "Q2": {
+      "baseline": {
+        "cosine": 0.9999950529686903,
+        "relative_l2": 0.0031459079069680014,
+        "values": 65556
+      },
+      "closure": {
+        "cosine": 1.0,
+        "relative_l2": 0.0,
+        "values": 65556
+      },
+      "interaction": {
+        "cosine": 0.9977073298488512,
+        "relative_l2": 0.06770518739721972,
+        "values": 65556
+      },
+      "joint": {
+        "cosine": 0.999995227826944,
+        "relative_l2": 0.0030894770567207104,
+        "values": 65556
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_lawful_parent_and_bridge": true,
+    "pred_b_natural_one_map_correction": true,
+    "pred_c_ood_corrected_interaction_fidelity": true,
+    "pred_d_baseline_and_joint_fidelity": true,
+    "pred_e_composition_and_projection_price": true
+  },
+  "price": {
+    "authority_qk_projections": 16,
+    "candidate_correction_maps": [
+      "Q1",
+      "K1",
+      "Q2",
+      "K2"
+    ],
+    "checkpoint_loads": 1,
+    "complete_behavior_forwards": 0,
+    "execution_count": 192,
+    "fits": 0,
+    "gpu_accessed": true,
+    "gradients": 0,
+    "learned_parameters": 0,
+    "model_loaded": true,
+    "natural_documents": 192,
+    "new_text": 0,
+    "ood_documents": 192,
+    "parameter_updates": 0,
+    "queue_touched": true,
+    "schema": "equality_l5h5_m4_shared_projection_correction_v1_plan",
+    "selected_qk_projections": 13
+  },
+  "program_price": {
+    "authority_qk_projections": 16,
+    "learned_parameters": 0,
+    "reduction_fraction": 0.1875,
+    "selected_qk_projections": 13
+  },
+  "runner_sha256": "eeb35d8566bf13e9aaf6f3ab0f9bd649829668c677646ceb4a06356bb3c2f600",
+  "schema": "equality_l5h5_m4_shared_projection_correction_v1_result",
+  "scope": "Natural-selected one-Q/K-map projection of the child-gauge BF16 residual mismatch for the explicit M4 interaction graph.",
+  "seconds": 1.6681453459968907,
+  "selection": {
+    "map": "K2",
+    "natural": {
+      "baseline": {
+        "cosine": 0.9999950529686903,
+        "relative_l2": 0.0031459079069680014,
+        "values": 65556
+      },
+      "closure": {
+        "cosine": 1.0,
+        "relative_l2": 0.0,
+        "values": 65556
+      },
+      "interaction": {
+        "cosine": 0.9977105900285644,
+        "relative_l2": 0.06766473593885236,
+        "values": 65556
+      },
+      "joint": {
+        "cosine": 0.999995227826944,
+        "relative_l2": 0.0030894770567207104,
+        "values": 65556
+      }
+    }
+  },
+  "terminal": "equality_l5h5_m4_shared_projection_one_map_correction"
+}
