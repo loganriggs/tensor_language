@@ -407,6 +407,24 @@ prompt-conditioned, and must still face causal extraction/removal tests.
 [corrected DCT result](../../polynomial_causal/MLP9_DCT_UNSUPERVISED_READER_V1_RESULT.json),
 [rank-stability audit](../../polynomial_causal/MLP9_DCT_UNSUPERVISED_READER_RANK_STABILITY_V1_AUDIT.json).
 
+The briefing's most-additive objective was then tested in the narrowest
+hierarchy-preserving family: move one frozen scalar fraction of the existing
+remainder into the child while keeping their sum and writer direction exact.
+Selection used only finite nonadditivity of the first consumer
+`z + MLP9(RMS(z))`, with both pieces required to remain substantial.  The
+selected `lambda=.525` is stable under leave-one-family-out (`.500--.525`),
+balances the two local effects at roughly `.47--.54` of the parent, and lowers
+worst-family interaction over the smaller single effect from `.13697` to
+`.07902` (`42.3%`).  This is not a circuit-specific decomposition: four
+equal-norm orthogonal writer controls optimize to much smaller
+`.03266--.03561` interactions.  The registered specificity prediction fails,
+so no new behavioral panel was opened.  Scalar rebalancing can manufacture a
+locally additive partition of any direction; the next most-additive attempt
+must split consumer-relevant vector/tensor modes across multiple readers, not
+relabel fractions of the same one-dimensional field.
+[Most-additive preregistration](../../polynomial_causal/CROSSFIRST_MOST_ADDITIVE_SPLIT_DISCOVERY_V1_PREREGISTRATION.md),
+[most-additive discovery null](../../polynomial_causal/CROSSFIRST_MOST_ADDITIVE_SPLIT_DISCOVERY_V1_RESULT.json).
+
 The retained three-block score also has a smaller exact executor:
 
 $$
