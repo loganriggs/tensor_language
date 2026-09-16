@@ -1,0 +1,255 @@
+{
+  "binding_sha256": "2da729daf1470bbb4ae0ce74c8b5e95684ab8071c968468d28ab09c6c7a81394",
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "created_utc": "2026-09-16T15:52:36.027640Z",
+  "manifest_sha256": "1a6ee586686f94306e69dc3e4dde7da3767ac0e0bfd2d22fda46fb9904297d82",
+  "maximum_errors": {
+    "composition": 2.868804642730538e-07,
+    "install_logits": 0.0,
+    "install_mlp9": 0.0,
+    "merge": 0.0,
+    "removal_logits": 0.0,
+    "removal_mlp9": 0.0,
+    "split": 0.0,
+    "term": 0.0
+  },
+  "package_source_sha256": "4d57309a51d8a643f962225df8954a461b8226029d90381a1de7e1d2bc6fb539",
+  "parent_v2_maximum_errors": {
+    "composition": 2.868804642730538e-07,
+    "install_logits": 0.01581615023314953,
+    "install_mlp9": 0.003399581415578723,
+    "removal_logits": 0.0,
+    "removal_mlp9": 0.0,
+    "term": 0.0
+  },
+  "predictions": {
+    "pred_a_exact_reversible_replay": true,
+    "pred_b_behavioral_identity": true,
+    "pred_c_removal": true,
+    "pred_d_ood_installation": true,
+    "pred_e_typed_zero_parameter_extraction": true,
+    "pred_f_bilinear_compositionality": true,
+    "pred_g_small_arithmetic_port": true
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "fits": 0,
+    "forward_calls": 240,
+    "gpu_accessed": true,
+    "gradients": 0,
+    "learned_parameters": 0,
+    "model_loaded": true,
+    "new_text": 0,
+    "ood_documents": 192,
+    "parameter_updates": 0,
+    "queue_touched": true,
+    "schema": "equality_l8h4_reversible_edge_code_ood_v3_plan",
+    "tokens_per_document": 256
+  },
+  "reports": {
+    "absent": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": -0.0018638133769854903,
+        "native_effect_sum_nat": -48.48896789550781,
+        "recovery": -0.0,
+        "tokens": 26016
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.16075487434864044,
+        "native_effect_sum_nat": 700.2482299804688,
+        "recovery": 0.0,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": 0.038248974829912186,
+        "native_effect_sum_nat": 319.3406982421875,
+        "recovery": 0.0,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": 0.016719620674848557,
+        "native_effect_sum_nat": 108.54377746582031,
+        "recovery": 0.0,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.19585885107517242,
+        "native_effect_sum_nat": 489.4512634277344,
+        "recovery": 0.0,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.07455678284168243,
+        "native_effect_sum_nat": 808.7919921875,
+        "recovery": 0.0,
+        "tokens": 10848
+      },
+      "halves": [
+        {
+          "native_effect_sum_nat": 380.5408020019531,
+          "recovery": 0.0
+        },
+        {
+          "native_effect_sum_nat": 428.2511901855469,
+          "recovery": 0.0
+        }
+      ]
+    },
+    "canonical100": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.006597051862627268,
+        "native_effect_sum_nat": -48.48896789550781,
+        "recovery": 4.539546090925941,
+        "tokens": 26016
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.0007496425532735884,
+        "native_effect_sum_nat": 700.2482299804688,
+        "recovery": 0.9953365623431353,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": -0.021609516814351082,
+        "native_effect_sum_nat": 319.3406982421875,
+        "recovery": 1.5649697882944407,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": -0.022623486816883087,
+        "native_effect_sum_nat": 108.54377746582031,
+        "recovery": 2.3531098857458153,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.014730541035532951,
+        "native_effect_sum_nat": 489.4512634277344,
+        "recovery": 0.9247899673401342,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": -0.013238037936389446,
+        "native_effect_sum_nat": 808.7919921875,
+        "recovery": 1.1775564837364751,
+        "tokens": 10848
+      },
+      "halves": [
+        {
+          "native_effect_sum_nat": 380.5408020019531,
+          "recovery": 1.1740471055877588
+        },
+        {
+          "native_effect_sum_nat": 428.2511901855469,
+          "recovery": 1.1806747483687483
+        }
+      ]
+    },
+    "canonical_removal": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": -0.0018638133769854903,
+        "native_effect_sum_nat": -48.48896789550781,
+        "recovery": -0.0,
+        "tokens": 26016
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.16075487434864044,
+        "native_effect_sum_nat": 700.2482299804688,
+        "recovery": 0.0,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": 0.038248974829912186,
+        "native_effect_sum_nat": 319.3406982421875,
+        "recovery": 0.0,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": 0.016719620674848557,
+        "native_effect_sum_nat": 108.54377746582031,
+        "recovery": 0.0,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.19585885107517242,
+        "native_effect_sum_nat": 489.4512634277344,
+        "recovery": 0.0,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.07455678284168243,
+        "native_effect_sum_nat": 808.7919921875,
+        "recovery": 0.0,
+        "tokens": 10848
+      },
+      "halves": [
+        {
+          "native_effect_sum_nat": 380.5408020019531,
+          "recovery": 0.0
+        },
+        {
+          "native_effect_sum_nat": 428.2511901855469,
+          "recovery": 0.0
+        }
+      ]
+    },
+    "oracle100": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.006597051862627268,
+        "native_effect_sum_nat": -48.48896789550781,
+        "recovery": 4.539546090925941,
+        "tokens": 26016
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.0007496425532735884,
+        "native_effect_sum_nat": 700.2482299804688,
+        "recovery": 0.9953365623431353,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": -0.021609516814351082,
+        "native_effect_sum_nat": 319.3406982421875,
+        "recovery": 1.5649697882944407,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": -0.022623486816883087,
+        "native_effect_sum_nat": 108.54377746582031,
+        "recovery": 2.3531098857458153,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.014730541035532951,
+        "native_effect_sum_nat": 489.4512634277344,
+        "recovery": 0.9247899673401342,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": -0.013238037936389446,
+        "native_effect_sum_nat": 808.7919921875,
+        "recovery": 1.1775564837364751,
+        "tokens": 10848
+      },
+      "halves": [
+        {
+          "native_effect_sum_nat": 380.5408020019531,
+          "recovery": 1.1740471055877588
+        },
+        {
+          "native_effect_sum_nat": 428.2511901855469,
+          "recovery": 1.1806747483687483
+        }
+      ]
+    }
+  },
+  "roundoff_correction": {
+    "elements": 56623104,
+    "nonzero_elements": 5337100,
+    "nonzero_fraction": 0.0942565776683666,
+    "relative_to_full": 0.0012148529411402133,
+    "relative_to_term": 0.0027120965138440556
+  },
+  "runner_sha256": "ff13bd2aca923fa36a4676d1be4ebf02f5b82de1c809542614ea415ee8b03082",
+  "schema": "equality_l8h4_reversible_edge_code_ood_v3_result",
+  "scope": "Exact reversible sparse-graph boundary for the extracted L8H4 equality edge on frozen code OOD, with semantic and BF16 roundoff ports separated; upstream score/payload producers and cross-corpus scalar calibration remain unresolved.",
+  "seconds": 5.514704485998664,
+  "terminal": "equality_l8h4_exact_reversible_ood_edge"
+}

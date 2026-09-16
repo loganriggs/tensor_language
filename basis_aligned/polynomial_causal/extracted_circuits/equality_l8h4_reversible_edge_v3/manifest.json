@@ -1,0 +1,10 @@
+{
+  "schema": "extracted_equality_reversible_edge_v3",
+  "name": "equality_l8h4_reversible_edge_v3",
+  "semantic_operation": "output_projection(bmm(score * equality_support, raw_head_payload))",
+  "arithmetic_operation": "BF16 split/merge with FP32 roundoff correction port",
+  "learned_parameters": 0,
+  "semantic_ports": ["score", "raw_head_payload", "equality_support", "output_weight", "term"],
+  "implementation_ports": ["roundoff_correction"],
+  "scope": "Exact reversible graph boundary for the isolated L8H4 equality edge; correction is implementation arithmetic, not semantic computation."
+}

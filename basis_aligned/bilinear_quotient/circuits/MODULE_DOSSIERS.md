@@ -572,10 +572,23 @@ an exact extracted remover and close behavioral installer, not a bit-exact
 bidirectional replacement.  The next graph-level task is to choose a canonical
 arithmetic boundary or explicit rounding/remainder port, then extract the
 native score and raw-payload producers rather than widening downstream bases.
+
+That arithmetic boundary is now implemented and verified.  A separately typed
+FP32 roundoff port makes semantic split/removal and merge/reinsertion exactly
+reversible: term, split, merge, MLP9, and logit replay errors are all zero on
+the complete code-OOD role, and canonical recovery exactly equals the oracle
+at `1.17756`.  The correction has only `.001215` of full-write norm and `.002712`
+of term norm, although it is nonzero in `9.43%` of elements.  It is compiler
+bookkeeping, not another semantic edge.  The resulting node has zero new
+learned parameters, exact removal and installation, cross-corpus causal use,
+and an explicit bilinear composition law.  The remaining scientific gaps are
+the failed natural-to-code scalar calibration and extraction of the native
+score/raw-payload producers feeding this node.
 [three-edge factorial](../../polynomial_causal/EQUALITY_PRE_MLP9_THREE_EDGE_FACTORIAL_DISCOVERY_V1_RESULT.json),
 [code-OOD calibration null](../../polynomial_causal/EQUALITY_A8_EDGE_CODE_OOD_CONFIRMATION_V1_RESULT.json),
 [projected-payload extraction null](../../polynomial_causal/EQUALITY_L8H4_EXTRACTED_NODE_CODE_OOD_V1_RESULT.json),
 [exact-order extraction result](../../polynomial_causal/EQUALITY_L8H4_EXACT_ORDER_NODE_CODE_OOD_V2_RESULT.json),
+[reversible-edge result](../../polynomial_causal/EQUALITY_L8H4_REVERSIBLE_EDGE_CODE_OOD_V3_RESULT.json),
 [red-team note](../../polynomial_causal/EQUALITY_A8_SPARSE_EDGE_EXECUTION_NOTE.md).
 
 The retained three-block score also has a smaller exact executor:

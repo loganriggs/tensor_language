@@ -144,6 +144,7 @@ without treating either complete native module as the semantic unit.
 - [Frozen A8 code-OOD calibration null](../polynomial_causal/EQUALITY_A8_EDGE_CODE_OOD_CONFIRMATION_V1_RESULT.json)
 - [Projected-payload extracted-node null](../polynomial_causal/EQUALITY_L8H4_EXTRACTED_NODE_CODE_OOD_V1_RESULT.json)
 - [Exact-order extracted-node result](../polynomial_causal/EQUALITY_L8H4_EXACT_ORDER_NODE_CODE_OOD_V2_RESULT.json)
+- [Exact reversible equality-edge result](../polynomial_causal/EQUALITY_L8H4_REVERSIBLE_EDGE_CODE_OOD_V3_RESULT.json)
 - [A8 sparse-edge red-team note](../polynomial_causal/EQUALITY_A8_SPARSE_EDGE_EXECUTION_NOTE.md)
 - [MLP17 causal-Hessian identity certificate](../polynomial_causal/MLP17_CAUSAL_HESSIAN_IDENTITY_V1_RESULT.json)
 - [Causal-Hessian identity preregistration](../polynomial_causal/MLP17_CAUSAL_HESSIAN_IDENTITY_V1_PREREGISTRATION.md)

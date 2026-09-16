@@ -40,3 +40,14 @@ reinstallation on the tested code-OOD contexts.  Exact reinsertion needs either 
 canonical graph arithmetic boundary or an explicit rounding/remainder port.
 OOD scalar calibration also remains unsolved.  Neither issue licenses changing
 the failed thresholds after seeing outcomes.
+
+V3 resolves the reinsertion issue without changing the semantic edge or either
+null.  Its graph boundary exposes a separately typed FP32 roundoff-correction
+port returned by `split(full, term)` and consumed by `merge`.  On all code-OOD
+documents, semantic term, split removal, merge, removal logits/MLP9, and
+installed logits/MLP9 all have exactly zero measured replay error.  Canonical
+recovery equals the oracle exactly at `1.1775565`.  The correction is nonzero in
+`9.43%` of elements but carries only `.001215` of full-write norm and `.002712`
+of semantic-term norm.  This is an exact reversible sparse-graph boundary with
+zero new learned parameters; the implementation port is not evidence for an
+additional semantic circuit edge.
