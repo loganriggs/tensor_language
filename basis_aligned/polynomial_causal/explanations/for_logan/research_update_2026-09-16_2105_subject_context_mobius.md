@@ -190,7 +190,7 @@ state. Direct context-token and attractor-token source writes are small. The
 next clean boundary is therefore the construction of that contextualized
 subject value before L11, not an unrestricted six-source attention donor.
 
-### Upstream value decomposition: two invalid instruments retained
+### Upstream value decomposition: false negatives separated from the result
 
 We attempted the next five-port Möbius split of the subject value into embedding
 recurrence, layer 0–3 writes, layer 4–7 writes, layer 8–10 writes, and the
@@ -209,13 +209,31 @@ subject-value replay `9.54e-5`, Möbius closure `3.05e-5`, relative closure
 `6.56e-8`—but the registered instrument is conjunctive, so V2 also remains
 `invalid`.
 
-The provisional V2 numbers (late writes dominant and four terms reaching about
-`0.013` relative error) must not be used as evidence yet. The appropriate next
-audit is an explicitly closed numerical gauge: define one residual component as
-the native raw-state remainder, separately measure the correction relative to
-the late component, and rerun unchanged scientific gates. This distinguishes
-floating-point association from a missing computational path without relaxing
-either failed result.
+V3 prospectively performed that audit without changing the panel, five ports,
+32 corners, readouts, greedy rule, scientific thresholds, or price. It formed
+the residual groups in float64 and defined the late group as the exact native
+remainder, while separately comparing that closed group with the independently
+propagated late group. Closed reconstruction error was exactly `0.0`; the
+required correction had maximum absolute size `0.0015831` but relative L2 only
+`2.79e-7`. Native value replay (`9.16e-5`), Möbius closure (`4.58e-5` absolute,
+`6.90e-8` relative), and the synthetic fixture (`4.44e-16`) also passed. Thus
+V2's apparent negative was float32 association, not a missing path. V1 and V2
+remain invalid; V3 is the licensed result.
+
+The five-port decomposition is compact for the frozen writer readout. Its
+target RMS is `122.03`. Four exact Möbius terms reduce relative L2 error to
+`0.01298`: late writes 8–10, middle writes 4–7, the middle×late interaction,
+and the early×late interaction. The late main effect alone has RMS `101.95`
+and aligned recovery `0.83290`. Middle writes contribute `0.14242` aligned
+recovery, the embedding recurrence `0.10413`, early writes `0.03389`, and the
+inherited first-value bus contributes `-0.14478`.
+
+The registered positive red-team also matters. The target's four-term error is
+below the random-readout median (`0.05546`), but its advantage is only
+`0.04248`, below the registered `0.10`. Therefore this is a valid, compact
+decomposition of the selected writer response, not yet evidence that these
+four terms are behavior-specific or reusable. The failed specificity null is
+not explained away by the numerical repair.
 
 ## What this changes in the sparse graph
 
@@ -223,9 +241,9 @@ The previous graph boundary was
 
 `causal embedding-number node -> unresolved lexical/context transform -> small rank-one L11H3 edge`.
 
-It is now narrower:
+It is now narrower in two stages:
 
-`causal embedding-number node -> large subject term + rank-1/2 subject×context correction -> small rank-one L11H3 edge`.
+`causal embedding-number node -> mostly late-layer subject-position writes + small cross-band corrections -> subject U atom -> small rank-one L11H3 edge`.
 
 This advances localization and compression, but extraction is incomplete. The
 factor scores are currently observational coordinates on the opened factorial
@@ -245,4 +263,5 @@ not satisfy reusability.
 - `SUBJECT_NUMBER_L11H3_SOURCE_FACTOR_MOBIUS_V1_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_SUBJECT_VALUE_UPSTREAM_MOBIUS_V1_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_SUBJECT_VALUE_UPSTREAM_MOBIUS_V2_RESULT.json`
+- `SUBJECT_NUMBER_L11H3_SUBJECT_VALUE_UPSTREAM_MOBIUS_V3_RESULT.json`
 - their preregistrations, bindings, frozen authority, and managed runners
