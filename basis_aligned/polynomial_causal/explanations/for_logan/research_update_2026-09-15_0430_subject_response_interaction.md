@@ -335,6 +335,40 @@ and native-context ports charged explicitly; rerunning composition with the same
 gate would not address the bottleneck. Native generation of the categorical
 direction and compression of the dense prototype vectors also remain open.
 
+Two opened-authority follow-ups tested whether that response slot admits a small
+topology adapter. The first response-prototype run is invalid despite attractive
+apparent metrics: it treated the complete opposite-minus-native MLP8 state as one
+interchangeable input while leaving the opposite MLP4--7 downstream slots behind.
+Native replay passed, but its alleged opposite endpoint missed by `61.74`. This is
+exactly the positive-red-team case where an apparent improvement (`.288` response
+error) was caused by a malformed intervention.
+
+The corrected run transported only the validated grouped MLP6/7 `YZ` source change.
+It is instrument-valid, but exact `YZ` response RMS itself is only `3.73` in the
+two-clause topology. A site-conditioned mean has `1.332` response error; response
+weighting improves that to `1.050` but remains worse than the old prototype at
+`.908` and worse than matched permutations. The resulting fixed-coefficient errors
+are `.946`, `.962`, and `.934`, respectively. Thus the failure is not merely the
+choice of one frozen `YZ` vector: this topology no longer routes enough number
+response through the same grouped source.
+
+A six-port `E/A/U/W/Y/Z` factorial then evaluated every one of 64 hybrids at both
+sites, selected on one template, and tested on the other. Exactness is clean over
+2,048 offline head evaluations. No reusable sparse subset emerges. Aggregate
+held-out fixed-coefficient error is `.785` with `.96875` sign agreement; two of
+four folds have no qualifying training subset, while the others select incompatible
+four- and five-port sets (`EAWY`, `EUWYZ`) and miss held-out error at `.666/.657`.
+`YZ` alone has `.945` error and the full six-port endpoint overshoots at `1.036`.
+
+The Boolean-cube Möbius allocation is predominantly low order but diffuse. Its
+largest coefficient terms are `YZ` (RMS `8.55`), `EY` (`7.02`), `WY` (`6.30`),
+`AY` (`5.62`), `EZ` (`5.23`), `Z` (`5.04`), `WZ` (`5.03`), and `Y` (`4.73`),
+with several other pair terms still material. This closes the small port-subset
+repair on the present boundary. The fixed L11H3 writer remains a valid sparse and
+composable node, but its native upstream generator must either move to an earlier
+topology-stable representation or explicitly retain a richer context graph; hiding
+that graph inside one response scalar would not be an honest extraction.
+
 ## Regional head9.8 interaction-path fold
 
 For the separate UK/US spelling path, let $c$ be the exact residual carry entering
@@ -792,6 +826,12 @@ recursive effects were summed only for evaluation; no coefficients were fit.
 - [Complete-generator two-site preregistration](../../SUBJECT_NUMBER_RESPONSE_WEIGHTED_TWO_SITE_COMPOSITION_V1_PREREGISTRATION.md)
 - [Complete-generator two-site result](../../SUBJECT_NUMBER_RESPONSE_WEIGHTED_TWO_SITE_COMPOSITION_V1_RESULT.json)
 - [Two-site open-slot post-hoc audit](../../SUBJECT_NUMBER_RESPONSE_WEIGHTED_TWO_SITE_COMPOSITION_V1_POSTHOC_AUDIT.json)
+- [Topology-prototype discovery preregistration](../../SUBJECT_NUMBER_TOPOLOGY_RESPONSE_PROTOTYPE_DISCOVERY_V1_PREREGISTRATION.md)
+- [Invalid full-state prototype receipt](../../../bilinear_quotient/circuits/fast_screens/subject_number_topology_response_prototype_discovery_v1_result.json)
+- [Grouped-source correction](../../SUBJECT_NUMBER_TOPOLOGY_RESPONSE_PROTOTYPE_DISCOVERY_V2_CORRECTION.md)
+- [Corrected topology-prototype null](../../../bilinear_quotient/circuits/fast_screens/subject_number_topology_response_prototype_discovery_v2_result.json)
+- [Topology port-factorial preregistration](../../SUBJECT_NUMBER_TOPOLOGY_PORT_FACTORIAL_DISCOVERY_V1_PREREGISTRATION.md)
+- [Topology port-factorial result](../../../bilinear_quotient/circuits/fast_screens/subject_number_topology_port_factorial_discovery_v1_result.json)
 - [Computation-path registry](../../../bilinear_quotient/COMPUTATION_PATH_REGISTRY.md)
 - [L11H3 module dossier](../../../bilinear_quotient/circuits/MODULE_DOSSIERS.md)
 - [Carry-source census result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_head9_8_qk1_carry_source_fold_v1_result.json)

@@ -130,6 +130,23 @@ state-to-coefficient gate is not topology-invariant. Per the DCT briefing, futur
 work should keep context/position slots open or normalize/derive them rather than
 average them away.
 
+Opened-authority red-teaming closes two simple upstream repairs. A first apparent
+site-conditioned improvement was invalid because whole MLP8-state interchange did
+not carry changed MLP4--7 downstream slots; the endpoint error was `61.74`. The
+corrected grouped-`YZ` intervention is exact but weak: exact response RMS is `3.73`,
+the response-weighted prototype has `1.050` leave-template-out response error, and
+its fixed-coefficient error is `.962`, worse than the old prototype and permutation
+controls.
+
+The complete `E/A/U/W/Y/Z` input factorial is also a valid null. Reciprocal
+template selection yields `.785` held-out coefficient error, two folds with no
+qualifying subset, and incompatible four-/five-port selections in the other two.
+Möbius mass is low-order but spread across `YZ`, `EY`, `WY`, `AY`, `EZ`, `Z`, `WZ`,
+`Y`, and further pair terms. Therefore retain L11H3's fixed rank-one writer as the
+sparse reusable node, but do not represent its two-clause native generator as a
+site prototype or small subset of these six MLP8-input ports. A future generator
+must move earlier or expose a richer context graph explicitly.
+
 ## `module.attention.17.head2`
 
 Aliases: head17.2, L17H2, regional late attention head. Related folded route:
