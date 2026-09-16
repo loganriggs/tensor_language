@@ -235,6 +235,41 @@ decomposition of the selected writer response, not yet evidence that these
 four terms are behavior-specific or reusable. The failed specificity null is
 not explained away by the numerical repair.
 
+### Late-writer graph: sparse terms transfer, specificity needs a harder audit
+
+The dominant late band was then opened into eight ports: the propagated layer
+0–7 state, the six individual attention/MLP writes in layers 8–10, and the
+first-value bus. The exact 256-corner / 255-dividend Möbius instrument passed:
+closed reconstruction was `0.0`, the MLP10 gauge correction was `1.07e-6`
+relative L2, native replay was `9.16e-5`, and closure was `3.81e-5` absolute /
+`9.47e-8` relative.
+
+Selection was restricted prospectively to 36 main or pair terms. Six unscaled
+terms were chosen on only the first eight noun pairs in `near`/`behind` and
+then frozen:
+
+1. `mlp_8`
+2. `upstream_0_7`
+3. `mlp_10`
+4. `attn_9`
+5. `attn_9×mlp_9`
+6. `mlp_9×mlp_10`
+
+The same sum achieved relative L2 `0.13469` on discovery, `0.12226` on held-out
+contexts, `0.15576` on held-out nouns, and `0.15276` on the joint holdout. No
+coefficients were fit. Aligned recovery remained positive on every panel
+(`0.8546`–`1.0116`). This is direct evidence that a sparse intermediate formula
+transfers across both lexical and context axes rather than merely compressing
+the pooled authority.
+
+The registered random-readout median gate also passed: random median joint-OOD
+error was `0.29530`, giving the target an advantage of `0.14254`. A post-hoc
+rank check, however, exposes fragility in that positive result: 8 of the 16
+random readouts had *lower* joint-OOD error than the target. The random errors
+are bimodal, so the median-advantage threshold overstates specificity. The
+registered pass is retained, but behavior-specific/reusable status should wait
+for a larger null panel with a rank/quantile gate and effect-magnitude audit.
+
 ## What this changes in the sparse graph
 
 The previous graph boundary was
@@ -264,4 +299,5 @@ not satisfy reusability.
 - `SUBJECT_NUMBER_L11H3_SUBJECT_VALUE_UPSTREAM_MOBIUS_V1_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_SUBJECT_VALUE_UPSTREAM_MOBIUS_V2_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_SUBJECT_VALUE_UPSTREAM_MOBIUS_V3_RESULT.json`
+- `SUBJECT_NUMBER_L11H3_LATE_WRITER_OOD_MOBIUS_V1_RESULT.json`
 - their preregistrations, bindings, frozen authority, and managed runners
