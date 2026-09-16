@@ -1,0 +1,56 @@
+{
+  "families": [
+    {
+      "corrected_error_relative_to_child": 0.03034459650728475,
+      "family": 0,
+      "finite_interaction_rms": 0.0012407056142991564,
+      "finite_interaction_sign_mismatches": 1,
+      "fractional_error_reduction": 0.4042096145894768,
+      "maximum_rowwise_corrected_error_over_absolute_child_effect": 0.048742067313703986,
+      "mismatch_absolute_finite_interactions": [
+        0.0001697540283203125
+      ],
+      "uncorrected_additive_error_relative_to_child": 0.05093166531443121
+    },
+    {
+      "corrected_error_relative_to_child": 0.017513763075091823,
+      "family": 1,
+      "finite_interaction_rms": 0.0005797405341461236,
+      "finite_interaction_sign_mismatches": 0,
+      "fractional_error_reduction": 0.41771137655801593,
+      "maximum_rowwise_corrected_error_over_absolute_child_effect": 0.06981645283555793,
+      "mismatch_absolute_finite_interactions": [],
+      "uncorrected_additive_error_relative_to_child": 0.030077460506725485
+    },
+    {
+      "corrected_error_relative_to_child": 0.03139621976695035,
+      "family": 2,
+      "finite_interaction_rms": 0.00032383989924238924,
+      "finite_interaction_sign_mismatches": 3,
+      "fractional_error_reduction": 0.2707375395534313,
+      "maximum_rowwise_corrected_error_over_absolute_child_effect": 2.0918417144239996,
+      "mismatch_absolute_finite_interactions": [
+        3.528594970703125e-05,
+        1.239776611328125e-05,
+        0.000179290771484375
+      ],
+      "uncorrected_additive_error_relative_to_child": 0.043052016893512755
+    },
+    {
+      "corrected_error_relative_to_child": 0.09437263997425599,
+      "family": 3,
+      "finite_interaction_rms": 0.002179816131718992,
+      "finite_interaction_sign_mismatches": 1,
+      "fractional_error_reduction": 0.5548884207419329,
+      "maximum_rowwise_corrected_error_over_absolute_child_effect": 0.2780108360143808,
+      "mismatch_absolute_finite_interactions": [
+        4.291534423828125e-05
+      ],
+      "uncorrected_additive_error_relative_to_child": 0.2120201863352123
+    }
+  ],
+  "interpretation": "The frozen two-stage term reduces aggregate child-relative composition error by 27.1--55.5% and leaves every family below 10%. Four of five finite-interaction sign misses are <=1.80e-4 absolute, but one family has a 2.09x rowwise corrected-error/child ratio because its child effect is tiny. Preserve the preregistered finite-vector fidelity null; the supported claim is aggregate composition correction, not per-row interaction reconstruction.",
+  "primary_artifact_sha256": "a14342977bb6091a01a03172b2217a719a2d90ddc731c82bd44b16119ac028ee",
+  "schema": "crossfirst_hessian_top2_fresh_v1_audit",
+  "scope": "Score-only audit of the fresh hash-bound artifact; no model execution, selection, threshold change, or verdict relabeling."
+}

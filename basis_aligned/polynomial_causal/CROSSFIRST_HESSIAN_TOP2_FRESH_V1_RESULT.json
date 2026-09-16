@@ -1,0 +1,145 @@
+{
+  "allocation_closure_relative_l2": [
+    1.0825182666633248e-07,
+    3.394850297285513e-07
+  ],
+  "artifact_relative": "basis_aligned/polynomial_causal/CROSSFIRST_HESSIAN_TOP2_FRESH_V1_ARTIFACT.pt",
+  "artifact_sha256": "a14342977bb6091a01a03172b2217a719a2d90ddc731c82bd44b16119ac028ee",
+  "baseline_graph_replay_relative_l2": 0.0,
+  "binding_sha256": "07e850dd32de36fea8180e8164418fb5c76f3c7ae988a605937bfe1949f250a8",
+  "candidate_minimax_child_relative_error": 0.09437263997425598,
+  "candidate_stages": [
+    "mlp10",
+    "attention17"
+  ],
+  "capability_minimum_paired_contrast": 0.645380973815918,
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "created_utc": "2026-09-16T13:28:07.269946Z",
+  "family_reports": [
+    {
+      "control_residual_relative_to_child_target": 0.016236123647694566,
+      "family": 0,
+      "target_finite_interaction_cosine": 0.945228834484487,
+      "target_finite_interaction_relative_l2": 0.5957903854105232,
+      "target_residual_relative_to_child": 0.03034459650728475,
+      "target_sign_agreement": 0.9166666666666666
+    },
+    {
+      "control_residual_relative_to_child_target": 0.012193386444692107,
+      "family": 1,
+      "target_finite_interaction_cosine": 0.8147946484318739,
+      "target_finite_interaction_relative_l2": 0.5822886234419841,
+      "target_residual_relative_to_child": 0.017513763075091823,
+      "target_sign_agreement": 1.0
+    },
+    {
+      "control_residual_relative_to_child_target": 0.019290989874985457,
+      "family": 2,
+      "target_finite_interaction_cosine": 0.8543785083072258,
+      "target_finite_interaction_relative_l2": 0.7292624604465686,
+      "target_residual_relative_to_child": 0.03139621976695035,
+      "target_sign_agreement": 0.75
+    },
+    {
+      "control_residual_relative_to_child_target": 0.04235516903969472,
+      "family": 3,
+      "target_finite_interaction_cosine": 0.9810593514652154,
+      "target_finite_interaction_relative_l2": 0.44511157925806694,
+      "target_residual_relative_to_child": 0.09437263997425598,
+      "target_sign_agreement": 0.9166666666666666
+    }
+  ],
+  "maximum_stage_state_replay_relative_l2": 0.0,
+  "null_median_minimax_child_relative_error": 0.19995813307212948,
+  "null_reports": [
+    {
+      "family_child_relative_errors": [
+        0.05210858484700611,
+        0.028319996050932775,
+        0.041761278148967976,
+        0.20903226742097764
+      ],
+      "indices": [
+        3,
+        8
+      ],
+      "minimax_child_relative_error": 0.20903226742097764,
+      "stages": [
+        "attention11",
+        "mlp13"
+      ]
+    },
+    {
+      "family_child_relative_errors": [
+        0.043474531210360344,
+        0.021611586901066522,
+        0.036190749677952015,
+        0.16318779095313657
+      ],
+      "indices": [
+        0,
+        6
+      ],
+      "minimax_child_relative_error": 0.16318779095313657,
+      "stages": [
+        "mlp9",
+        "mlp12"
+      ]
+    },
+    {
+      "family_child_relative_errors": [
+        0.051823823819073786,
+        0.028547931182613576,
+        0.040154557245889136,
+        0.2076684542331395
+      ],
+      "indices": [
+        12,
+        14
+      ],
+      "minimax_child_relative_error": 0.2076684542331395,
+      "stages": [
+        "mlp15",
+        "mlp16"
+      ]
+    },
+    {
+      "family_child_relative_errors": [
+        0.04196505355216711,
+        0.03277951273530256,
+        0.03590857962206765,
+        0.19995813307212948
+      ],
+      "indices": [
+        7,
+        17
+      ],
+      "minimax_child_relative_error": 0.19995813307212948,
+      "stages": [
+        "attention13",
+        "readout"
+      ]
+    }
+  ],
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_fresh_composition": true,
+    "pred_c_finite_interaction_fidelity": false,
+    "pred_d_stage_specificity": true,
+    "pred_e_context_control_audit": true
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "fits": 0,
+    "nested_jvp_stages_per_prefix": 17,
+    "parameter_updates": 0,
+    "physical_suffix_arms_per_prefix": 4,
+    "prefixes": 48,
+    "readout_hessian_stages_per_prefix": 1
+  },
+  "runner_sha256": "ddc349ebcbeb18c8e2137c33d0f14d31f82991c124d1a70ff0635973089c16e6",
+  "schema": "crossfirst_hessian_top2_fresh_v1_result",
+  "scope": "Fresh construction test of the frozen MLP10 plus attention17 Hessian correction; exact native child/remainder ports and full suffix remain live; no corpus-OOD, standalone extraction, or selective-removal claim.",
+  "seconds": 21.52629427499778,
+  "terminal": "valid_crossfirst_hessian_top2_fresh_null"
+}

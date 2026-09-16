@@ -1,0 +1,776 @@
+{
+  "frontier": [
+    {
+      "families": [
+        {
+          "family": 0,
+          "residual_relative_to_child": 0.03568737510207667,
+          "residual_relative_to_finite_interaction": 0.6743730513073919
+        },
+        {
+          "family": 1,
+          "residual_relative_to_child": 0.08592402820624191,
+          "residual_relative_to_finite_interaction": 0.7172564795087291
+        },
+        {
+          "family": 2,
+          "residual_relative_to_child": 0.0708416293041954,
+          "residual_relative_to_finite_interaction": 0.7434327642129737
+        },
+        {
+          "family": 3,
+          "residual_relative_to_child": 0.13439955483514554,
+          "residual_relative_to_finite_interaction": 0.664109075843956
+        }
+      ],
+      "maximum_residual_relative_to_child": 0.13439955483514554,
+      "stages": [
+        "attention17"
+      ],
+      "width": 1
+    },
+    {
+      "families": [
+        {
+          "family": 0,
+          "residual_relative_to_child": 0.0299426442663331,
+          "residual_relative_to_finite_interaction": 0.5658166878438706
+        },
+        {
+          "family": 1,
+          "residual_relative_to_child": 0.06262138256123582,
+          "residual_relative_to_finite_interaction": 0.5227361116035114
+        },
+        {
+          "family": 2,
+          "residual_relative_to_child": 0.04573947712859526,
+          "residual_relative_to_finite_interaction": 0.4800034421759673
+        },
+        {
+          "family": 3,
+          "residual_relative_to_child": 0.08856396602282966,
+          "residual_relative_to_finite_interaction": 0.43762149138544976
+        }
+      ],
+      "maximum_residual_relative_to_child": 0.08856396602282966,
+      "stages": [
+        "attention17",
+        "mlp10"
+      ],
+      "width": 2
+    },
+    {
+      "families": [
+        {
+          "family": 0,
+          "residual_relative_to_child": 0.021892376683228125,
+          "residual_relative_to_finite_interaction": 0.41369332493664535
+        },
+        {
+          "family": 1,
+          "residual_relative_to_child": 0.04205682979291425,
+          "residual_relative_to_finite_interaction": 0.3510721541610889
+        },
+        {
+          "family": 2,
+          "residual_relative_to_child": 0.028670611633809535,
+          "residual_relative_to_finite_interaction": 0.3008777786162149
+        },
+        {
+          "family": 3,
+          "residual_relative_to_child": 0.04809893126327823,
+          "residual_relative_to_finite_interaction": 0.23767144786691347
+        }
+      ],
+      "maximum_residual_relative_to_child": 0.04809893126327823,
+      "stages": [
+        "attention17",
+        "mlp10",
+        "mlp9"
+      ],
+      "width": 3
+    },
+    {
+      "families": [
+        {
+          "family": 0,
+          "residual_relative_to_child": 0.015570178929765865,
+          "residual_relative_to_finite_interaction": 0.29422475158889627
+        },
+        {
+          "family": 1,
+          "residual_relative_to_child": 0.029837695015100637,
+          "residual_relative_to_finite_interaction": 0.24907212254780617
+        },
+        {
+          "family": 2,
+          "residual_relative_to_child": 0.01849141130484529,
+          "residual_relative_to_finite_interaction": 0.19405427508633022
+        },
+        {
+          "family": 3,
+          "residual_relative_to_child": 0.027147865299137697,
+          "residual_relative_to_finite_interaction": 0.1341458590176216
+        }
+      ],
+      "maximum_residual_relative_to_child": 0.029837695015100637,
+      "stages": [
+        "attention17",
+        "mlp10",
+        "mlp9",
+        "mlp11"
+      ],
+      "width": 4
+    },
+    {
+      "families": [
+        {
+          "family": 0,
+          "residual_relative_to_child": 0.012883718676805211,
+          "residual_relative_to_finite_interaction": 0.2434595610187531
+        },
+        {
+          "family": 1,
+          "residual_relative_to_child": 0.026755566070169556,
+          "residual_relative_to_finite_interaction": 0.2233438483667241
+        },
+        {
+          "family": 2,
+          "residual_relative_to_child": 0.012853690020821672,
+          "residual_relative_to_finite_interaction": 0.1348903800826367
+        },
+        {
+          "family": 3,
+          "residual_relative_to_child": 0.021984555835178683,
+          "residual_relative_to_finite_interaction": 0.10863237662095607
+        }
+      ],
+      "maximum_residual_relative_to_child": 0.026755566070169556,
+      "stages": [
+        "attention17",
+        "mlp10",
+        "mlp9",
+        "mlp11",
+        "readout"
+      ],
+      "width": 5
+    },
+    {
+      "families": [
+        {
+          "family": 0,
+          "residual_relative_to_child": 0.023217420635822505,
+          "residual_relative_to_finite_interaction": 0.4387322618400066
+        },
+        {
+          "family": 1,
+          "residual_relative_to_child": 0.03512193330571055,
+          "residual_relative_to_finite_interaction": 0.29318264939729993
+        },
+        {
+          "family": 2,
+          "residual_relative_to_child": 0.01323206815648417,
+          "residual_relative_to_finite_interaction": 0.13886119083439707
+        },
+        {
+          "family": 3,
+          "residual_relative_to_child": 0.030745420162285517,
+          "residual_relative_to_finite_interaction": 0.15192247173329304
+        }
+      ],
+      "maximum_residual_relative_to_child": 0.03512193330571055,
+      "stages": [
+        "attention17",
+        "mlp10",
+        "mlp9",
+        "mlp11",
+        "readout",
+        "mlp17"
+      ],
+      "width": 6
+    },
+    {
+      "families": [
+        {
+          "family": 0,
+          "residual_relative_to_child": 0.02112059400498564,
+          "residual_relative_to_finite_interaction": 0.39910919152296964
+        },
+        {
+          "family": 1,
+          "residual_relative_to_child": 0.035666527414431576,
+          "residual_relative_to_finite_interaction": 0.297728684555764
+        },
+        {
+          "family": 2,
+          "residual_relative_to_child": 0.009549962320082516,
+          "residual_relative_to_finite_interaction": 0.10022009594474736
+        },
+        {
+          "family": 3,
+          "residual_relative_to_child": 0.0334065401274895,
+          "residual_relative_to_finite_interaction": 0.16507187481702537
+        }
+      ],
+      "maximum_residual_relative_to_child": 0.035666527414431576,
+      "stages": [
+        "attention17",
+        "mlp10",
+        "mlp9",
+        "mlp11",
+        "readout",
+        "mlp17",
+        "mlp12"
+      ],
+      "width": 7
+    },
+    {
+      "families": [
+        {
+          "family": 0,
+          "residual_relative_to_child": 0.018253418886323248,
+          "residual_relative_to_finite_interaction": 0.34492908923541094
+        },
+        {
+          "family": 1,
+          "residual_relative_to_child": 0.03211120595588143,
+          "residual_relative_to_finite_interaction": 0.2680504047297692
+        },
+        {
+          "family": 2,
+          "residual_relative_to_child": 0.007373142456650202,
+          "residual_relative_to_finite_interaction": 0.07737591203536694
+        },
+        {
+          "family": 3,
+          "residual_relative_to_child": 0.0313743574855667,
+          "residual_relative_to_finite_interaction": 0.15503024232851836
+        }
+      ],
+      "maximum_residual_relative_to_child": 0.03211120595588143,
+      "stages": [
+        "attention17",
+        "mlp10",
+        "mlp9",
+        "mlp11",
+        "readout",
+        "mlp17",
+        "mlp12",
+        "mlp13"
+      ],
+      "width": 8
+    },
+    {
+      "families": [
+        {
+          "family": 0,
+          "residual_relative_to_child": 0.019239855491153035,
+          "residual_relative_to_finite_interaction": 0.363569470076468
+        },
+        {
+          "family": 1,
+          "residual_relative_to_child": 0.03496599186109144,
+          "residual_relative_to_finite_interaction": 0.29188091792693016
+        },
+        {
+          "family": 2,
+          "residual_relative_to_child": 0.006355309520184112,
+          "residual_relative_to_finite_interaction": 0.0666944756977758
+        },
+        {
+          "family": 3,
+          "residual_relative_to_child": 0.035388091908062254,
+          "residual_relative_to_finite_interaction": 0.17486332482106212
+        }
+      ],
+      "maximum_residual_relative_to_child": 0.035388091908062254,
+      "stages": [
+        "attention17",
+        "mlp10",
+        "mlp9",
+        "mlp11",
+        "readout",
+        "mlp17",
+        "mlp12",
+        "mlp13",
+        "mlp16"
+      ],
+      "width": 9
+    },
+    {
+      "families": [
+        {
+          "family": 0,
+          "residual_relative_to_child": 0.01761011614673433,
+          "residual_relative_to_finite_interaction": 0.33277280062718156
+        },
+        {
+          "family": 1,
+          "residual_relative_to_child": 0.03448295270544117,
+          "residual_relative_to_finite_interaction": 0.28784871678972346
+        },
+        {
+          "family": 2,
+          "residual_relative_to_child": 0.006512518619604418,
+          "residual_relative_to_finite_interaction": 0.06834427393772888
+        },
+        {
+          "family": 3,
+          "residual_relative_to_child": 0.035187977006874836,
+          "residual_relative_to_finite_interaction": 0.173874496232655
+        }
+      ],
+      "maximum_residual_relative_to_child": 0.035187977006874836,
+      "stages": [
+        "attention17",
+        "mlp10",
+        "mlp9",
+        "mlp11",
+        "readout",
+        "mlp17",
+        "mlp12",
+        "mlp13",
+        "mlp16",
+        "mlp15"
+      ],
+      "width": 10
+    },
+    {
+      "families": [
+        {
+          "family": 0,
+          "residual_relative_to_child": 0.018492972854624114,
+          "residual_relative_to_finite_interaction": 0.34945586488348734
+        },
+        {
+          "family": 1,
+          "residual_relative_to_child": 0.03623949198797588,
+          "residual_relative_to_finite_interaction": 0.30251154403620156
+        },
+        {
+          "family": 2,
+          "residual_relative_to_child": 0.007053685704274705,
+          "residual_relative_to_finite_interaction": 0.07402343950194723
+        },
+        {
+          "family": 3,
+          "residual_relative_to_child": 0.03727404319848417,
+          "residual_relative_to_finite_interaction": 0.18418238372795434
+        }
+      ],
+      "maximum_residual_relative_to_child": 0.03727404319848417,
+      "stages": [
+        "attention17",
+        "mlp10",
+        "mlp9",
+        "mlp11",
+        "readout",
+        "mlp17",
+        "mlp12",
+        "mlp13",
+        "mlp16",
+        "mlp15",
+        "attention11"
+      ],
+      "width": 11
+    },
+    {
+      "families": [
+        {
+          "family": 0,
+          "residual_relative_to_child": 0.017688737056802743,
+          "residual_relative_to_finite_interaction": 0.3342584751232112
+        },
+        {
+          "family": 1,
+          "residual_relative_to_child": 0.035968839976319986,
+          "residual_relative_to_finite_interaction": 0.300252258559195
+        },
+        {
+          "family": 2,
+          "residual_relative_to_child": 0.0077314060222808964,
+          "residual_relative_to_finite_interaction": 0.08113563460992734
+        },
+        {
+          "family": 3,
+          "residual_relative_to_child": 0.037444570522455416,
+          "residual_relative_to_finite_interaction": 0.1850250110987637
+        }
+      ],
+      "maximum_residual_relative_to_child": 0.037444570522455416,
+      "stages": [
+        "attention17",
+        "mlp10",
+        "mlp9",
+        "mlp11",
+        "readout",
+        "mlp17",
+        "mlp12",
+        "mlp13",
+        "mlp16",
+        "mlp15",
+        "attention11",
+        "mlp14"
+      ],
+      "width": 12
+    },
+    {
+      "families": [
+        {
+          "family": 0,
+          "residual_relative_to_child": 0.017544668516495027,
+          "residual_relative_to_finite_interaction": 0.33153605743777426
+        },
+        {
+          "family": 1,
+          "residual_relative_to_child": 0.036413520552297955,
+          "residual_relative_to_finite_interaction": 0.3039642589284782
+        },
+        {
+          "family": 2,
+          "residual_relative_to_child": 0.008376293774167957,
+          "residual_relative_to_finite_interaction": 0.0879032751724249
+        },
+        {
+          "family": 3,
+          "residual_relative_to_child": 0.040250917175213084,
+          "residual_relative_to_finite_interaction": 0.1988920234139958
+        }
+      ],
+      "maximum_residual_relative_to_child": 0.040250917175213084,
+      "stages": [
+        "attention17",
+        "mlp10",
+        "mlp9",
+        "mlp11",
+        "readout",
+        "mlp17",
+        "mlp12",
+        "mlp13",
+        "mlp16",
+        "mlp15",
+        "attention11",
+        "mlp14",
+        "attention12"
+      ],
+      "width": 13
+    },
+    {
+      "families": [
+        {
+          "family": 0,
+          "residual_relative_to_child": 0.017279033050012067,
+          "residual_relative_to_finite_interaction": 0.326516427959417
+        },
+        {
+          "family": 1,
+          "residual_relative_to_child": 0.03649892774118102,
+          "residual_relative_to_finite_interaction": 0.30467720105772716
+        },
+        {
+          "family": 2,
+          "residual_relative_to_child": 0.008667528099320001,
+          "residual_relative_to_finite_interaction": 0.09095957330543045
+        },
+        {
+          "family": 3,
+          "residual_relative_to_child": 0.0405754882682216,
+          "residual_relative_to_finite_interaction": 0.2004958278974849
+        }
+      ],
+      "maximum_residual_relative_to_child": 0.0405754882682216,
+      "stages": [
+        "attention17",
+        "mlp10",
+        "mlp9",
+        "mlp11",
+        "readout",
+        "mlp17",
+        "mlp12",
+        "mlp13",
+        "mlp16",
+        "mlp15",
+        "attention11",
+        "mlp14",
+        "attention12",
+        "attention15"
+      ],
+      "width": 14
+    },
+    {
+      "families": [
+        {
+          "family": 0,
+          "residual_relative_to_child": 0.017493952206685013,
+          "residual_relative_to_finite_interaction": 0.33057768735592313
+        },
+        {
+          "family": 1,
+          "residual_relative_to_child": 0.03668134811110028,
+          "residual_relative_to_finite_interaction": 0.3061999670994322
+        },
+        {
+          "family": 2,
+          "residual_relative_to_child": 0.008582903618862114,
+          "residual_relative_to_finite_interaction": 0.09007149927262205
+        },
+        {
+          "family": 3,
+          "residual_relative_to_child": 0.04137102524766484,
+          "residual_relative_to_finite_interaction": 0.20442681806233912
+        }
+      ],
+      "maximum_residual_relative_to_child": 0.04137102524766484,
+      "stages": [
+        "attention17",
+        "mlp10",
+        "mlp9",
+        "mlp11",
+        "readout",
+        "mlp17",
+        "mlp12",
+        "mlp13",
+        "mlp16",
+        "mlp15",
+        "attention11",
+        "mlp14",
+        "attention12",
+        "attention15",
+        "attention10"
+      ],
+      "width": 15
+    },
+    {
+      "families": [
+        {
+          "family": 0,
+          "residual_relative_to_child": 0.01741173407597307,
+          "residual_relative_to_finite_interaction": 0.329024037317992
+        },
+        {
+          "family": 1,
+          "residual_relative_to_child": 0.036491375671369126,
+          "residual_relative_to_finite_interaction": 0.3046141596580237
+        },
+        {
+          "family": 2,
+          "residual_relative_to_child": 0.008650884664475122,
+          "residual_relative_to_finite_interaction": 0.0907849122354599
+        },
+        {
+          "family": 3,
+          "residual_relative_to_child": 0.04175475810053311,
+          "residual_relative_to_finite_interaction": 0.20632295879436688
+        }
+      ],
+      "maximum_residual_relative_to_child": 0.04175475810053311,
+      "stages": [
+        "attention17",
+        "mlp10",
+        "mlp9",
+        "mlp11",
+        "readout",
+        "mlp17",
+        "mlp12",
+        "mlp13",
+        "mlp16",
+        "mlp15",
+        "attention11",
+        "mlp14",
+        "attention12",
+        "attention15",
+        "attention10",
+        "attention14"
+      ],
+      "width": 16
+    },
+    {
+      "families": [
+        {
+          "family": 0,
+          "residual_relative_to_child": 0.017409643565485276,
+          "residual_relative_to_finite_interaction": 0.3289845336018344
+        },
+        {
+          "family": 1,
+          "residual_relative_to_child": 0.036459813215742244,
+          "residual_relative_to_finite_interaction": 0.3043506899827747
+        },
+        {
+          "family": 2,
+          "residual_relative_to_child": 0.008641241352821369,
+          "residual_relative_to_finite_interaction": 0.09068371250432254
+        },
+        {
+          "family": 3,
+          "residual_relative_to_child": 0.04191851752327823,
+          "residual_relative_to_finite_interaction": 0.2071321439068726
+        }
+      ],
+      "maximum_residual_relative_to_child": 0.04191851752327823,
+      "stages": [
+        "attention17",
+        "mlp10",
+        "mlp9",
+        "mlp11",
+        "readout",
+        "mlp17",
+        "mlp12",
+        "mlp13",
+        "mlp16",
+        "mlp15",
+        "attention11",
+        "mlp14",
+        "attention12",
+        "attention15",
+        "attention10",
+        "attention14",
+        "attention13"
+      ],
+      "width": 17
+    },
+    {
+      "families": [
+        {
+          "family": 0,
+          "residual_relative_to_child": 0.01733999709700864,
+          "residual_relative_to_finite_interaction": 0.3276684462929462
+        },
+        {
+          "family": 1,
+          "residual_relative_to_child": 0.03626493356612884,
+          "residual_relative_to_finite_interaction": 0.302723919283965
+        },
+        {
+          "family": 2,
+          "residual_relative_to_child": 0.008613173524353807,
+          "residual_relative_to_finite_interaction": 0.09038916050844038
+        },
+        {
+          "family": 3,
+          "residual_relative_to_child": 0.041844446326941974,
+          "residual_relative_to_finite_interaction": 0.2067661355982449
+        }
+      ],
+      "maximum_residual_relative_to_child": 0.041844446326941974,
+      "stages": [
+        "attention17",
+        "mlp10",
+        "mlp9",
+        "mlp11",
+        "readout",
+        "mlp17",
+        "mlp12",
+        "mlp13",
+        "mlp16",
+        "mlp15",
+        "attention11",
+        "mlp14",
+        "attention12",
+        "attention15",
+        "attention10",
+        "attention14",
+        "attention13",
+        "attention16"
+      ],
+      "width": 18
+    }
+  ],
+  "interpretation": "Exploratory opened-panel audit. The pooled two-stage correction is attention17 plus MLP10 and leaves <10% child-relative composition error in every family; the same pair is selected in every leave-one-family-out fold. This nominates, but does not freshly confirm, a reusable second-order correction.",
+  "leave_one_family_out_top_two": [
+    {
+      "held_family": 0,
+      "residual_relative_to_child": 0.0299426442663331,
+      "residual_relative_to_finite_interaction": 0.5658166878438706,
+      "selected_stages": [
+        "attention17",
+        "mlp10"
+      ]
+    },
+    {
+      "held_family": 1,
+      "residual_relative_to_child": 0.06262138256123582,
+      "residual_relative_to_finite_interaction": 0.5227361116035114,
+      "selected_stages": [
+        "attention17",
+        "mlp10"
+      ]
+    },
+    {
+      "held_family": 2,
+      "residual_relative_to_child": 0.04573947712859526,
+      "residual_relative_to_finite_interaction": 0.4800034421759673,
+      "selected_stages": [
+        "attention17",
+        "mlp10"
+      ]
+    },
+    {
+      "held_family": 3,
+      "residual_relative_to_child": 0.08856396602282966,
+      "residual_relative_to_finite_interaction": 0.43762149138544976,
+      "selected_stages": [
+        "attention17",
+        "mlp10"
+      ]
+    }
+  ],
+  "minimum_pooled_energy_order_width_for_ten_percent_child_error": 2,
+  "pooled_stage_order": [
+    "attention17",
+    "mlp10",
+    "mlp9",
+    "mlp11",
+    "readout",
+    "mlp17",
+    "mlp12",
+    "mlp13",
+    "mlp16",
+    "mlp15",
+    "attention11",
+    "mlp14",
+    "attention12",
+    "attention15",
+    "attention10",
+    "attention14",
+    "attention13",
+    "attention16"
+  ],
+  "primary_artifact_sha256": "c0ab22e3a64536a31bd8d0bac0ba5d1acbd20d2035053d50b3588742848a42f2",
+  "random_top_two": [
+    {
+      "energy_fraction": 0.42564183314803444,
+      "stages": [
+        "mlp9",
+        "mlp11"
+      ],
+      "writer": "random_202609161401"
+    },
+    {
+      "energy_fraction": 0.36271769446008184,
+      "stages": [
+        "mlp9",
+        "mlp11"
+      ],
+      "writer": "random_202609161402"
+    },
+    {
+      "energy_fraction": 0.5634363872170459,
+      "stages": [
+        "mlp9",
+        "mlp10"
+      ],
+      "writer": "random_202609161403"
+    },
+    {
+      "energy_fraction": 0.5426135879257232,
+      "stages": [
+        "mlp9",
+        "mlp10"
+      ],
+      "writer": "random_202609161404"
+    }
+  ],
+  "schema": "crossfirst_per_layer_causal_hessian_v1_audit",
+  "scope": "Score-only audit of the hash-bound per-prompt Hessian artifact; no model execution, fit, parameter update, fresh panel, or retroactive preregistered predicate."
+}

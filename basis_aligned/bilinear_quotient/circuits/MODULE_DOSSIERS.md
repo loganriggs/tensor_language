@@ -323,6 +323,34 @@ the complete numerator predicts the final logit edit at cosine `.99903` with all
 not deepen the rejected MLP16×MLP17 branch. See the
 [response census](fast_screens/setting2_regional_qk1_edit_downstream_response_census_v2_result.json).
 
+The interaction-decomposition briefing's per-layer causal-Hessian allocation
+has also been applied to the earlier CrossFirst child/remainder composition
+failure at this head9 boundary.  Nested JVPs split the complete suffix mixed
+derivative into MLP9, separate attention/MLP stages through block17, and the
+final readout while retaining every prompt.  The 18 terms sum to the complete
+mixed derivative within `3.10e-7` for the real writer and `7.69e-7` across four
+equal-norm random writers.  The full Hessian predicts the finite interaction at
+`.090--.328` relative error and leaves only `.009--.042` child-relative error.
+The preregistered three-stage energy-sparsity criterion fails in two families,
+but an opened-panel audit identifies the same two stages in every
+leave-one-family-out fold: MLP10 and attention17.
+
+Frozen on 48 zero-full-prefix-overlap rows, that two-stage correction reduces
+aggregate additive composition error by `27.1--55.5%` and leaves all four
+families at `.0175--.0944` of the child effect, beating four fixed two-stage
+nulls (`.1632--.2090` minimax).  Exact allocation closure remains below
+`3.40e-7`.  The stronger finite-interaction-vector gate fails: two family
+cosines are `.8148/.8544`, with five row-level sign misses, mostly on very small
+interactions.  Preserve both conclusions.  This is a fresh, compact correction
+to aggregate behavioral composition, but not a faithful per-row decomposition
+or standalone circuit: exact child/remainder fields, context derivatives, and
+the native suffix remain live ports.
+[Allocation preregistration](../../polynomial_causal/CROSSFIRST_PER_LAYER_CAUSAL_HESSIAN_V1_PREREGISTRATION.md),
+[allocation result](../../polynomial_causal/CROSSFIRST_PER_LAYER_CAUSAL_HESSIAN_V1_RESULT.json),
+[fresh preregistration](../../polynomial_causal/CROSSFIRST_HESSIAN_TOP2_FRESH_V1_PREREGISTRATION.md),
+[fresh result](../../polynomial_causal/CROSSFIRST_HESSIAN_TOP2_FRESH_V1_RESULT.json),
+[fresh scale/sign audit](../../polynomial_causal/CROSSFIRST_HESSIAN_TOP2_FRESH_V1_AUDIT.json).
+
 The retained three-block score also has a smaller exact executor:
 
 $$
