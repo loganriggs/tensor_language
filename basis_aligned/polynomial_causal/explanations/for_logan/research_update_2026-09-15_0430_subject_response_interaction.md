@@ -19,12 +19,24 @@ A follow-up tried to remove the row-specific opposite-number donor. It averaged 
 
 So the interaction is a positive localization result, while the simplest donor-free realization is a valid null. The next circuit step is a vector-valued recipient-side predictive state. We will not turn the two-vector proxy into a lexical or background lookup table. The next weight-folding step remains the independent regional path: split head9.8 QK1's dominant carry×carry interaction into embedding and layer-0–7 self/cross terms.
 
-A frozen rank-2 version of that recipient-state idea has now also returned a null.
-It predicts two grouped MLP6/7 displacement modes from two recipient-state PCs, but
+A frozen rank-2 version of that recipient-state idea also returned a null. It
+predicts two grouped MLP6/7 displacement modes from two recipient-state PCs, but
 improves response error only `.28804→.28722` and coefficient error only
 `.51585→.51072`. This closes ordinary activation/displacement PCA on these opened
-rows. A future circuit coordinate must be selected by the head-response operator,
-not by activation energy.
+rows.
+
+Selecting the correction in the head-response metric instead is a positive
+discovery result. A rank-16 displacement span was contracted with the exact
+gradient of the native-axis L11H3 response, producing one fixed donor-free vector
+per answer direction. Cross-construction response error falls to `.19194`, and
+the complete coefficient error falls to `.44250`, below its `.45` gate. Eight
+matched response-permutation fits have median error `.49038`; the real association
+wins by `.04788`. An initially weaker ridge produced apparently stronger numbers
+but violated the preregistered prototype-norm gate by reaching `2.44–5.43×` the
+mean-vector norm. That run remains invalid. The corrected vectors are only
+`.87–1.08×` the mean norm and pass every instrument and scientific gate. This is
+evidence for the DCT briefing's causal-metric selection principle, not yet OOD
+evidence: the authority was already open, and fresh causal substitution is next.
 
 The alternating weight-folding track has also produced a clean result. In the
 regional UK/US spelling path, the dominant QK1 input to attention head 9.8 can be
@@ -175,6 +187,45 @@ fell by only `.00083`, far below the preregistered `.05` improvement. The comple
 coefficient error remained `.51072`; its native-baseline improvement was `.09859`
 and its oracle degradation was `.13383`, missing the `.10` gates on both sides.
 The result argues against choosing the next basis by activation variance.
+
+## Response-weighted prototype test
+
+The next assay kept the same grouped source and exact head function but changed
+the selection metric. For each training construction and direction, it retained
+the rank-16 span of observed grouped-source displacements and evaluated
+
+$$
+g_i=\nabla_x\,u^T H_i(x)\big|_{x=x_i+p_0},
+\qquad A_i=g_i^TV,
+$$
+
+where $p_0$ is the donor-free mean prototype and $V$ is the displacement span.
+It ridge-fitted the response residual $s-s_0$ in $A$, then collapsed the result
+back to one executable vector $p=p_0+Vc$. Thus rank 16 is discovery complexity;
+execution still uses one fixed 1,152-vector per direction, the native recipient
+state, and the frozen head weights. It does not use a held-out donor, logits, or
+behavioral outcomes.
+
+| Program | Response relative $L_2$ | Coefficient relative $L_2$ | Coefficient cosine |
+|---|---:|---:|---:|
+| Mean prototype | `.28804` | `.51585` | `.87462` |
+| Activation-PCA rank 2 | `.28722` | `.51072` | `.87647` |
+| Response-weighted prototype | `.19194` | `.44250` | `.89769` |
+| Exact donor response | `0` | `.37689` | `.92650` |
+
+The response-weighted prototype improves the complete program by `.16681` over
+the native-coordinate baseline and is only `.06561` worse than the exact-response
+oracle. Its median advantage over eight equal-procedure permutation controls is
+`.04788`. Exact and mean-parent replays agree within `3.24e-9` and `0`, and all
+512 input-gradient rows are present.
+
+The V1 run is an important positive red-team example. Its response and coefficient
+errors were `.16829` and `.41334`, but the candidate norms were `2.44–5.43×` their
+mean prototypes, violating the registered `2×` trust region; it is invalid rather
+than positive evidence. V2 changed only the response ridge from `.01` to `1.0`.
+Its norm ratios are `.87–1.08`, and all three registered predictions pass. Because
+both constructions were already open, the result licenses freezing a candidate,
+not claiming OOD prediction, extraction, or behavioral removal.
 
 ## Regional head9.8 interaction-path fold
 
@@ -616,6 +667,11 @@ recursive effects were summed only for evaluation; no coefficients were fit.
 - [Donor-free proxy result](../../../bilinear_quotient/circuits/fast_screens/subject_number_donor_free_head_response_proxy_v2_result.json)
 - [Rank-2 recipient-state preregistration](../../SUBJECT_NUMBER_RANK2_RECIPIENT_STATE_RESPONSE_PROXY_V1_PREREGISTRATION.md)
 - [Rank-2 recipient-state result](../../../bilinear_quotient/circuits/fast_screens/subject_number_rank2_recipient_state_response_proxy_v2_result.json)
+- [Response-weighted preregistration](../../SUBJECT_NUMBER_RESPONSE_WEIGHTED_PROTOTYPE_V1_PREREGISTRATION.md)
+- [Invalid weak-ridge result](../../../bilinear_quotient/circuits/fast_screens/subject_number_response_weighted_prototype_v1_result.json)
+- [Trust-region correction](../../SUBJECT_NUMBER_RESPONSE_WEIGHTED_PROTOTYPE_V2_CORRECTION.md)
+- [Response-weighted V2 runner](../../../bilinear_quotient/ops/run_subject_number_response_weighted_prototype_v2.py)
+- [Response-weighted V2 result](../../../bilinear_quotient/circuits/fast_screens/subject_number_response_weighted_prototype_v2_result.json)
 - [Computation-path registry](../../../bilinear_quotient/COMPUTATION_PATH_REGISTRY.md)
 - [L11H3 module dossier](../../../bilinear_quotient/circuits/MODULE_DOSSIERS.md)
 - [Carry-source census result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_head9_8_qk1_carry_source_fold_v1_result.json)

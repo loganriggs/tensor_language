@@ -68,6 +68,20 @@ See the [rank-2 null](fast_screens/subject_number_rank2_recipient_state_response
 This rejects activation/displacement energy as the next basis-selection criterion;
 future coordinates should be oriented by the frozen head-response operator.
 
+The response-oriented assay does improve the executable proxy. It contracts the
+rank-16 training displacement span with the exact input gradient of the native-axis
+head response and collapses the fit back to one fixed vector per answer direction.
+On held-out constructions, response error is `.19194` and complete coefficient
+error is `.44250`, versus `.28804` and `.51585` for the mean prototype. Eight
+matched response-permutation controls have median coefficient error `.49038`.
+The valid V2 prototype norms are `.87–1.08×` their mean-vector norms. The weaker
+ridge V1 remains explicitly invalid because its vectors were `2.44–5.43×` the
+mean norm despite better apparent errors. See the
+[valid response-weighted result](fast_screens/subject_number_response_weighted_prototype_v2_result.json)
+and [invalid weak-ridge receipt](fast_screens/subject_number_response_weighted_prototype_v1_result.json).
+This supports causal-response weighting over activation PCA on opened authority;
+it does not yet establish fresh-text OOD prediction or downstream removal.
+
 ## `module.attention.17.head2`
 
 Aliases: head17.2, L17H2, regional late attention head. Related folded route:
