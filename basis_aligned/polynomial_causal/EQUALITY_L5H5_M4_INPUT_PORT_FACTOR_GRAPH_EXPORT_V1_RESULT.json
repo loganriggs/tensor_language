@@ -1,0 +1,59 @@
+{
+  "schema": "equality_l5h5_m4_input_port_factor_graph_export_v1_result",
+  "terminal": "exported_equality_l5h5_m4_input_port_factor_graph_ood",
+  "source_result": "EQUALITY_L5H5_M4_INPUT_PORT_FACTOR_GRAPH_V1_RESULT.json",
+  "source_result_sha256": "763c03709bae908986e9090268742697a556457d7e255a3be36696661ff1ff26",
+  "package": "extracted_circuits/equality_l5h5_m4_input_port_factor_graph_v1",
+  "nodes": [
+    "first_qk_correction_times_second_baseline",
+    "first_baseline_times_second_qk_correction",
+    "algebraic_qk_correction_cross_product",
+    "native_arithmetic_residual"
+  ],
+  "dynamic_input_ports": [
+    "mlp4_normalized_state",
+    "M2",
+    "A3",
+    "M3",
+    "A4",
+    "rotary_cos",
+    "rotary_sin"
+  ],
+  "native_product_inputs": 0,
+  "residual_corner_inputs": 0,
+  "raw_qk_activation_inputs": 0,
+  "oracle_score_inputs": 0,
+  "selected_mode_rank": 256,
+  "native_products_executed": 4608,
+  "native_qk_projections": 16,
+  "learned_parameters": 0,
+  "validation": {
+    "product_values": 4076863488,
+    "product_mismatched_values": 0,
+    "product_maximum_absolute_error": 0.0,
+    "corner_values": 4076863488,
+    "corner_mismatched_values": 0,
+    "corner_maximum_absolute_error": 0.0,
+    "natural_score_closure_relative_l2": 0.0,
+    "code_score_closure_relative_l2": 0.0,
+    "maximum_node_removal_magnitude_absolute_delta": 0.0,
+    "maximum_node_score_relative_norm_absolute_delta": 0.0,
+    "maximum_noncopy_mean_absolute_delta_nat": 0.0,
+    "arithmetic_roll_effect_cosine_absolute_delta": 0.0
+  },
+  "four_traits": {
+    "ood_prediction": true,
+    "extraction": true,
+    "selective_removal": true,
+    "composition_reuse": true
+  },
+  "price_caveat": "All 4608 native MLP4 products and all 16 Q/K projections are executed internally. This removes oracle state ports but does not yet compress product cost.",
+  "files": {
+    "README.md": "62597dcd2a26d8b2e96137e1288c7a3616011ebd937b0dc72311e2422a28e942",
+    "__init__.py": "62cdeb396e430269074bcedd45e1400efe2e0d93b69c54d8603f62a3fbf557b1",
+    "manifest.json": "c8bb34dfb478308aeaf44ded345ddc70b0ca4a93c9b01d30e5b5b85a61e76dd7",
+    "node.py": "a3113f21264a3e49faa36747fd0350a481b15f5b248d2eccacee4ee1cf9ab35b",
+    "test_node.py": "1c811328dd607c82118df0b9a405c3beeeb936dbdf2be0891bb2bd1441f41547"
+  },
+  "created_utc": "2026-09-16T18:33:26Z"
+}

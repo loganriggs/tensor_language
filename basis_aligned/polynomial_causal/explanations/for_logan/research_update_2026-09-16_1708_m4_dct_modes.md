@@ -250,3 +250,26 @@ is still structural rather than computational compression: all 4,608 native
 Left/Right products remain external. The next upstream target is to internalize
 the frozen MLP4 Left/Right maps from the normalized MLP4 input, after which
 factorizing or pruning their bilinear products can be tested honestly.
+
+## Normalized-input executor
+
+That final wiring step is also exact. The exported executor now accepts the
+normalized MLP4 state rather than its 4,608-wide product tensor, applies the
+frozen bias-free `Left` and `Right` maps internally, and continues through the
+four corners and precision factor graph. On both frozen panels,
+4,076,863,488 product values and 4,076,863,488 corner values each match their
+native authorities bitwise. Every downstream equivalence delta remains zero.
+
+This is the cleanest current state boundary: normalized MLP4 input,
+`M2,A3,M3,A4`, and rotary context. There are no product, corner, raw-Q/K, or
+score-oracle inputs and no learned parameters. It still executes all 4,608
+products and 16 Q/K projections. The next experiment must therefore seek real
+bilinear product compression, use causal-Hessian/reader information rather
+than raw product norm, and retain the exact removal vector as its authority.
+
+The briefing's first DCT bridge check is independently complete at MLP17: the
+weight-derived and autodiff Hessians agree to `2.90e-15` relative error, are
+background invariant, and yield identical rank-four factors. Its rank-four
+reconstruction error is `.8998`, so the identity is validated but low-rank
+sufficiency is not. This supports using the bridge as a selection metric while
+forbidding an automatic low-rank circuit claim.

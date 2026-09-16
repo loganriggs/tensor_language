@@ -196,3 +196,10 @@ The first run falsely failed because it used the 1,152-row stored SVD rank rathe
 than the frozen selected rank 256; the preserved invalid receipt and a
 storage-rank-greater-than-selected-rank regression test close that loophole.
 The remaining external cost is MLP4 Left/Right and all 4,608 products.
+
+The boundary now moves through those frozen maps as well. From normalized MLP4
+input, the executor reproduces 4,076,863,488 native Left×Right product values
+and the same number of residual-corner values bitwise exactly, with zero change
+to any downstream graph or behavioral statistic. This removes the product
+oracle but not its cost: all 4,608 products are still executed. Causal product
+compression, not further interface wrapping, is now the live problem.

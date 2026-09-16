@@ -1,0 +1,29 @@
+{
+  "schema": "extracted_equality_l5h5_m4_input_port_factor_graph_v1",
+  "name": "equality_l5h5_m4_input_port_factor_graph_v1",
+  "nodes": [
+    "first_qk_correction_times_second_baseline",
+    "first_baseline_times_second_qk_correction",
+    "algebraic_qk_correction_cross_product",
+    "native_arithmetic_residual"
+  ],
+  "dynamic_input_ports": [
+    "mlp4_normalized_state",
+    "M2",
+    "A3",
+    "M3",
+    "A4",
+    "rotary_cos",
+    "rotary_sin"
+  ],
+  "native_product_inputs": 0,
+  "residual_corner_inputs": 0,
+  "raw_qk_activation_inputs": 0,
+  "oracle_score_inputs": 0,
+  "selected_mode_rank": 256,
+  "native_products_executed": 4608,
+  "native_qk_projections": 16,
+  "learned_parameters": 0,
+  "native_weights_reused": ["MLP4_Left", "MLP4_Right", "MLP4_Down_bias", "L5H5_Q1", "L5H5_K1", "L5H5_Q2", "L5H5_K2"],
+  "scope": "Standalone construction of the native MLP4 product, four residual corners, and precision factor graph from normalized MLP4 input plus retained M2/A3/M3/A4 writes. All 4608 products are executed internally, not compressed."
+}

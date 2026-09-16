@@ -755,6 +755,8 @@ and the rank-256 M4 mode producer.
 [invalid product-port storage-rank receipt](../../polynomial_causal/EQUALITY_L5H5_M4_PRODUCT_PORT_FACTOR_GRAPH_V1_INVALID_STORAGE_RANK_RESULT.json),
 [product-port factor graph](../../polynomial_causal/EQUALITY_L5H5_M4_PRODUCT_PORT_FACTOR_GRAPH_V1_RESULT.json),
 [product-port factor graph export](../../polynomial_causal/EQUALITY_L5H5_M4_PRODUCT_PORT_FACTOR_GRAPH_EXPORT_V1_RESULT.json),
+[normalized-input factor graph](../../polynomial_causal/EQUALITY_L5H5_M4_INPUT_PORT_FACTOR_GRAPH_V1_RESULT.json),
+[normalized-input factor graph export](../../polynomial_causal/EQUALITY_L5H5_M4_INPUT_PORT_FACTOR_GRAPH_EXPORT_V1_RESULT.json),
 [red-team note](../../polynomial_causal/EQUALITY_A8_SPARSE_EDGE_EXECUTION_NOTE.md).
 
 The retained three-block score also has a smaller exact executor:
