@@ -81,6 +81,26 @@ boundaries.
 This is a retrospective standardization, not a prospective test of the new
 selection utility: the equality graph was discovered before the shared module.
 
+## Model-wide extracted-circuit registry
+
+The extracted-circuit directory had grown into a useful but non-comparable set
+of packages. I added a generated registry that now records, for every package,
+its declared inputs, external activation count, named nodes, explicit package
+dependencies, four-trait declarations, verifier outcome, scope, and next
+evidence gap. Missing metadata is represented as unknown rather than false.
+
+The current inventory contains 32 package directories, 27 manifests, and 16
+declared input boundaries. Exactly two packages currently have all four traits
+plus passing hash/evidence verifiers: subject number and equality M4. Thirty
+packages remain partial or unassessed. There are four explicit inter-package
+dependency edges and no cycles. This is important negative information: the
+large number of executors is not evidence that the model has already been
+decomposed into 32 four-trait circuits.
+
+The registry is rebuilt from the filesystem and invokes available export
+verifiers. Its audit checks complete directory coverage, exact regeneration,
+passing four-trait verification, acyclicity, and preservation of unknowns.
+
 ## Scope and next use
 
 This is infrastructure, not a new behavioral circuit. It removes repeated
@@ -104,3 +124,6 @@ than only its graph arithmetic and audit rubric, can be called reusable.
 - `SPARSE_INTERACTION_GRAPH_V1_RESULT.json`
 - `extracted_circuits/equality_l5h5_m4_input_port_factor_graph_v1/verify_export.py`
 - `EQUALITY_L5H5_M4_INPUT_PORT_FACTOR_GRAPH_EXPORT_V1_RESULT.json`
+- `CIRCUIT_GRAPH_REGISTRY_V1.json`
+- `CIRCUIT_GRAPH_REGISTRY_V1.md`
+- `CIRCUIT_GRAPH_REGISTRY_V1_RESULT.json`

@@ -1,0 +1,1310 @@
+{
+  "counts": {
+    "dependency_cycles": 0,
+    "explicit_dependency_edges": 4,
+    "four_trait_declared_unverified": 0,
+    "four_trait_verified": 2,
+    "packages": 32,
+    "partial_or_unassessed": 30,
+    "with_declared_inputs": 16,
+    "with_manifest": 27
+  },
+  "dependency_cycles": [],
+  "four_trait_order": [
+    "ood_prediction",
+    "extraction",
+    "selective_removal",
+    "composition_reuse"
+  ],
+  "interpretation": "Missing trait metadata is unknown, not false. Verified means all four traits are declared and the package's hash/evidence verifier passed during this build.",
+  "packages": [
+    {
+      "declared_input_count": 2,
+      "declared_input_field": "external_inputs",
+      "declared_inputs": [
+        "pristine z/h/bias-free u or their declared ports",
+        "intervention amplitude; native prefix and suffix not included"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "schema",
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/complete_response_ports_v2/manifest.json",
+      "manifest_sha256": "685416c2c6c80524bdfc40b4af02795024b46b0400f69181b002ee5073b40a83",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "complete_response_ports_v2",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/complete_response_ports_v2/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/complete_response_ports_v2",
+      "schema": null,
+      "scope": null,
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 1,
+      "declared_input_field": "inputs",
+      "declared_inputs": [
+        "two scalar strengths a,b; mixed strength is a*b"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "schema",
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/coupled_interaction_v1/manifest.json",
+      "manifest_sha256": "ab74b44051ffb918be9ba84ab9f000d107a7c6c4d3adc21becc29b58ab2af4f9",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "coupled_interaction_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/coupled_interaction_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/coupled_interaction_v1",
+      "schema": null,
+      "scope": null,
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 3,
+      "declared_input_field": "inputs",
+      "declared_inputs": [
+        "bank",
+        "context: source numerator/denominator/linear_basis, x0, first_values",
+        "two scalar strengths a,b; mixed strength a*b"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "schema",
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/coupled_shared_executor_v1/manifest.json",
+      "manifest_sha256": "e28591aea276a7f256508f23d585cbb6a0c75b68b7beeee693cb66516e616db5",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "coupled_shared_executor_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/coupled_shared_executor_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/coupled_shared_executor_v1",
+      "schema": null,
+      "scope": null,
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": null,
+      "declared_input_field": null,
+      "declared_inputs": [],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "manifest"
+      ],
+      "learned_parameters": null,
+      "manifest": null,
+      "manifest_sha256": null,
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "crossfirst_state_executor_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/crossfirst_state_executor_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/crossfirst_state_executor_v1",
+      "schema": null,
+      "scope": null,
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 5,
+      "declared_input_field": "ports",
+      "declared_inputs": [
+        "rotary_normalized_q1",
+        "rotary_normalized_k1",
+        "rotary_normalized_q2",
+        "rotary_normalized_k2",
+        "score"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": 0,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_bilinear_score_node_v1/manifest.json",
+      "manifest_sha256": "2ff2b50f5de28d62d72fef68e41a9051042fc031d38527286a9a99e45c9e5ae3",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "equality_l5h5_bilinear_score_node_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_bilinear_score_node_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_bilinear_score_node_v1",
+      "schema": "extracted_bilinear_attention_score_node_v1",
+      "scope": "Exact causally masked L5H5 score executor from post-projection, post-RMS, post-rotary Q/K ports; residual-to-Q/K projections remain native and external.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": null,
+      "declared_input_field": null,
+      "declared_inputs": [],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "declared_inputs",
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": 0,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_five_write_score_graph_v1/manifest.json",
+      "manifest_sha256": "d94f09adee480291bb8ee6eb528335cf1dd933dbfc68b9365d0e0ac75ee3b3f3",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "equality_l5h5_five_write_score_graph_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_five_write_score_graph_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_five_write_score_graph_v1",
+      "schema": "extracted_equality_l5h5_five_write_score_graph_v1",
+      "scope": "Qualified five-write refinement retained from a valid preregistered <=4-write sparsity null. All five native module-write producers remain external ports.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 5,
+      "declared_input_field": "activation_ports",
+      "declared_inputs": [
+        "native_layer2_write",
+        "native_layer3_write",
+        "native_layer4_write",
+        "rotary_cos",
+        "rotary_sin"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": 0,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_l234_score_graph_v1/manifest.json",
+      "manifest_sha256": "bd3bf4e31a2fc2291470b59f1e1b9dce883d1cacbf302ce69096416f1564404e",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "equality_l5h5_l234_score_graph_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_l234_score_graph_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_l234_score_graph_v1",
+      "schema": "extracted_equality_l5h5_l234_score_graph_v1",
+      "scope": "Frozen boundary graph. Layer-2/3/4 write producers, rotary geometry, and native L5H5 weight slices remain external ports.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": null,
+      "declared_input_field": null,
+      "declared_inputs": [],
+      "dependencies": [
+        "equality_l5h5_m4_rank256_mode_graph_v1"
+      ],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "declared_inputs",
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": 0,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_explicit_interaction_graph_v1/manifest.json",
+      "manifest_sha256": "c2b23c344269f330dc9b6b42bdd0c1866c9c91a2b0bb949b8b444c63d459dcc4",
+      "maturity": "partial_or_unassessed",
+      "node_count": 4,
+      "nodes": [
+        "bias_only_baseline",
+        "rank128_child_effect",
+        "rank128_remainder_effect",
+        "child_remainder_interaction"
+      ],
+      "package": "equality_l5h5_m4_explicit_interaction_graph_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_explicit_interaction_graph_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_explicit_interaction_graph_v1",
+      "schema": "extracted_equality_l5h5_m4_explicit_interaction_graph_v1",
+      "scope": "Validated reusable M\u00f6bius graph wrapper. Current extraction uses four upstream score evaluations; the interaction has not yet been folded into a cheaper closed-form kernel.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 7,
+      "declared_input_field": "dynamic_input_ports",
+      "declared_inputs": [
+        "mlp4_normalized_state",
+        "M2",
+        "A3",
+        "M3",
+        "A4",
+        "rotary_cos",
+        "rotary_sin"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": 2,
+      "external_activation_inputs": 5,
+      "four_traits": {
+        "composition_reuse": true,
+        "extraction": true,
+        "ood_prediction": true,
+        "selective_removal": true
+      },
+      "gaps": [],
+      "learned_parameters": 0,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_input_port_factor_graph_v1/manifest.json",
+      "manifest_sha256": "ebd804593d662586dc006a5e08835ecaca2299c49c6626cf3340d88e2bc3e687",
+      "maturity": "four_trait_verified",
+      "node_count": 4,
+      "nodes": [
+        "first_qk_correction_times_second_baseline",
+        "first_baseline_times_second_qk_correction",
+        "algebraic_qk_correction_cross_product",
+        "native_arithmetic_residual"
+      ],
+      "package": "equality_l5h5_m4_input_port_factor_graph_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_input_port_factor_graph_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_input_port_factor_graph_v1",
+      "schema": "extracted_equality_l5h5_m4_input_port_factor_graph_v1",
+      "scope": "Standalone construction of the native MLP4 product, four residual corners, and precision factor graph from five native activation ports plus deterministic rotary context. All 4608 products are executed internally, not compressed.",
+      "verification": {
+        "path": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_input_port_factor_graph_v1/verify_export.py",
+        "status": "passed",
+        "terminal": "equality_l5h5_m4_input_port_four_traits_verified"
+      }
+    },
+    {
+      "declared_input_count": 5,
+      "declared_input_field": "input_ports",
+      "declared_inputs": [
+        "first_qk_derived",
+        "first_qk_native",
+        "second_qk_derived",
+        "second_qk_native",
+        "native_child_score"
+      ],
+      "dependencies": [
+        "equality_l5h5_m4_explicit_interaction_graph_v1"
+      ],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": 0,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_precision_factor_graph_v1/manifest.json",
+      "manifest_sha256": "2f396723c62e288f71de3c110d60112d4cb6c9f99f49ebf994e4422a765bbec3",
+      "maturity": "partial_or_unassessed",
+      "node_count": 4,
+      "nodes": [
+        "first_qk_correction_times_second_baseline",
+        "first_baseline_times_second_qk_correction",
+        "algebraic_qk_correction_cross_product",
+        "native_arithmetic_residual"
+      ],
+      "package": "equality_l5h5_m4_precision_factor_graph_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_precision_factor_graph_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_precision_factor_graph_v1",
+      "schema": "extracted_equality_l5h5_m4_precision_factor_graph_v1",
+      "scope": "Exact reusable factor graph for the native-versus-derived M4 child score. Upstream Q/K factor ports, residual RMS context, and the rank-256 M4 mode boundary remain external.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 7,
+      "declared_input_field": "dynamic_input_ports",
+      "declared_inputs": [
+        "mlp4_product",
+        "M2",
+        "A3",
+        "M3",
+        "A4",
+        "rotary_cos",
+        "rotary_sin"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": 0,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_product_port_factor_graph_v1/manifest.json",
+      "manifest_sha256": "ef1f3c7eeef974fa4e498aeaab4c80146ea04fa2743c497bdc246d91a38af24b",
+      "maturity": "partial_or_unassessed",
+      "node_count": 4,
+      "nodes": [
+        "first_qk_correction_times_second_baseline",
+        "first_baseline_times_second_qk_correction",
+        "algebraic_qk_correction_cross_product",
+        "native_arithmetic_residual"
+      ],
+      "package": "equality_l5h5_m4_product_port_factor_graph_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_product_port_factor_graph_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_product_port_factor_graph_v1",
+      "schema": "extracted_equality_l5h5_m4_product_port_factor_graph_v1",
+      "scope": "Standalone construction of all four residual corners and the precision factor graph from the native M4 product tensor plus retained M2/A3/M3/A4 writes. M4 Left/Right product generation remains external.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": null,
+      "declared_input_field": null,
+      "declared_inputs": [],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "declared_inputs",
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": 0,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_rank256_mode_graph_v1/manifest.json",
+      "manifest_sha256": "e5940c782d1b15e36f7c5e8bff22698cbeed156bae62aff9c68348b51b0ea3a2",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "equality_l5h5_m4_rank256_mode_graph_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_rank256_mode_graph_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_rank256_mode_graph_v1",
+      "schema": "extracted_equality_l5h5_m4_rank256_mode_graph_v1",
+      "scope": "Useful executable boundary retained from valid compactness and two-component composition nulls. This is writer/mode compression, not native-product-cost compression or a four-trait circuit claim.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 10,
+      "declared_input_field": "input_ports",
+      "declared_inputs": [
+        "derived_q1_raw",
+        "derived_k1_raw",
+        "derived_q2_raw",
+        "derived_k2_raw",
+        "native_q1_raw",
+        "native_k1_raw",
+        "native_q2_raw",
+        "native_k2_raw",
+        "rotary_cos",
+        "rotary_sin"
+      ],
+      "dependencies": [
+        "equality_l5h5_m4_rank256_mode_graph_v1"
+      ],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": 0,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_raw_port_factor_graph_v1/manifest.json",
+      "manifest_sha256": "7e57d9989e85fcdeab12f6eeebda896c10e3e999b53efe9f5a14961152b1cc35",
+      "maturity": "partial_or_unassessed",
+      "node_count": 4,
+      "nodes": [
+        "first_qk_correction_times_second_baseline",
+        "first_baseline_times_second_qk_correction",
+        "algebraic_qk_correction_cross_product",
+        "native_arithmetic_residual"
+      ],
+      "package": "equality_l5h5_m4_raw_port_factor_graph_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_raw_port_factor_graph_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_raw_port_factor_graph_v1",
+      "schema": "extracted_equality_l5h5_m4_raw_port_factor_graph_v1",
+      "scope": "Standalone child-score factor graph from raw derived/native Q/K ports. Residual-to-port projection, RMS context used to derive the child ports, and the rank-256 M4 producer remain external.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 6,
+      "declared_input_field": "dynamic_input_ports",
+      "declared_inputs": [
+        "baseline_residual",
+        "child_residual",
+        "remainder_residual",
+        "joint_residual",
+        "rotary_cos",
+        "rotary_sin"
+      ],
+      "dependencies": [
+        "equality_l5h5_m4_rank256_mode_graph_v1"
+      ],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": 0,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_residual_port_factor_graph_v1/manifest.json",
+      "manifest_sha256": "d11a71f3d299027f411b3b4cceb34b4a03fc267c1f91d9e5e8ce187f558ffa2c",
+      "maturity": "partial_or_unassessed",
+      "node_count": 4,
+      "nodes": [
+        "first_qk_correction_times_second_baseline",
+        "first_baseline_times_second_qk_correction",
+        "algebraic_qk_correction_cross_product",
+        "native_arithmetic_residual"
+      ],
+      "package": "equality_l5h5_m4_residual_port_factor_graph_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_residual_port_factor_graph_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_m4_residual_port_factor_graph_v1",
+      "schema": "extracted_equality_l5h5_m4_residual_port_factor_graph_v1",
+      "scope": "Standalone factor graph from four residual corners, frozen Q/K weights, and rotary context. Construction of the four residual corners and the rank-256 M4 producer remain external.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 3,
+      "declared_input_field": "activation_ports",
+      "declared_inputs": [
+        "pre_l5_attention_residual",
+        "rotary_cos",
+        "rotary_sin"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": 0,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_residual_score_node_v1/manifest.json",
+      "manifest_sha256": "e6805702fe1525be82bf0f3860869aa24189ef5d348f81d99141f7c10a16eac2",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "equality_l5h5_residual_score_node_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_residual_score_node_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_residual_score_node_v1",
+      "schema": "extracted_l5h5_residual_score_node_v1",
+      "scope": "Exact L5H5 score producer from one residual activation plus deterministic position geometry and the four native 128x1152 head-weight slices.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": null,
+      "declared_input_field": null,
+      "declared_inputs": [],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "declared_inputs",
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": 0,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_to_l8h4_score_adapter_v1/manifest.json",
+      "manifest_sha256": "96d59f6e1eb0a30c4ea3ffab6ad1bfa5c63e8c2041c4bd1e1e510f35acf6dc58",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "equality_l5h5_to_l8h4_score_adapter_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_to_l8h4_score_adapter_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/equality_l5h5_to_l8h4_score_adapter_v1",
+      "schema": "extracted_equality_score_adapter_v1",
+      "scope": "Portable score adapter confirmed causally on code OOD; does not extract the L5H5 residual-to-QK producer.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": null,
+      "declared_input_field": null,
+      "declared_inputs": [],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "declared_inputs",
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": 0,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/equality_l8h4_reversible_edge_v3/manifest.json",
+      "manifest_sha256": "1a6ee586686f94306e69dc3e4dde7da3767ac0e0bfd2d22fda46fb9904297d82",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "equality_l8h4_reversible_edge_v3",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/equality_l8h4_reversible_edge_v3/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/equality_l8h4_reversible_edge_v3",
+      "schema": "extracted_equality_reversible_edge_v3",
+      "scope": "Exact reversible graph boundary for the isolated L8H4 equality edge; correction is implementation arithmetic, not semantic computation.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": null,
+      "declared_input_field": null,
+      "declared_inputs": [],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "declared_inputs",
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": 0,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/equality_l8h4_score_payload_node_v1/manifest.json",
+      "manifest_sha256": "878f8613051fe7cc2d73d690f069325438c1177c8f111fd31aa9719a448d92a4",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "equality_l8h4_score_payload_node_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/equality_l8h4_score_payload_node_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/equality_l8h4_score_payload_node_v1",
+      "schema": "extracted_equality_score_payload_node_v1",
+      "scope": "Exact executor for an isolated equality-supported attention term; not a standalone producer of its native score or payload ports.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": null,
+      "declared_input_field": null,
+      "declared_inputs": [],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "declared_inputs",
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": 0,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/equality_l8h4_score_rawpayload_node_v2/manifest.json",
+      "manifest_sha256": "b831094178deba7d2034a6a7407c8182d0d4a26810e91c22700dd7bafa5396b7",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "equality_l8h4_score_rawpayload_node_v2",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/equality_l8h4_score_rawpayload_node_v2/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/equality_l8h4_score_rawpayload_node_v2",
+      "schema": "extracted_equality_score_rawpayload_node_v2",
+      "scope": "Exact deployed-order executor for the isolated equality-supported L8H4 term; upstream native ports remain external.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": null,
+      "declared_input_field": null,
+      "declared_inputs": [],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "manifest"
+      ],
+      "learned_parameters": null,
+      "manifest": null,
+      "manifest_sha256": null,
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "first_token_value_path_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/first_token_value_path_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/first_token_value_path_v1",
+      "schema": null,
+      "scope": null,
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": null,
+      "declared_input_field": null,
+      "declared_inputs": [],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "manifest"
+      ],
+      "learned_parameters": null,
+      "manifest": null,
+      "manifest_sha256": null,
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "fixed_writer_self_mlp10_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/fixed_writer_self_mlp10_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/fixed_writer_self_mlp10_v1",
+      "schema": null,
+      "scope": null,
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": null,
+      "declared_input_field": null,
+      "declared_inputs": [],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "manifest"
+      ],
+      "learned_parameters": null,
+      "manifest": null,
+      "manifest_sha256": null,
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "mlp9_contextual_dct_node_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/mlp9_contextual_dct_node_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/mlp9_contextual_dct_node_v1",
+      "schema": null,
+      "scope": null,
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 9,
+      "declared_input_field": "ports",
+      "declared_inputs": [
+        "block8_current[B,T,1152]",
+        "city_index",
+        "recipient_embedding[B,1152]",
+        "donor_embedding[B,1152]",
+        "block9_residual[B,T,1152]",
+        "initial[B,T,1152]",
+        "first_values[B,T,1152]",
+        "reentry[2]",
+        "framing_mask[T]"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_o_composed_edge_v1/manifest.json",
+      "manifest_sha256": "a8c538caa04d0ebe744aea0dad4ae0c8ce8ccb925784702cc63551253781bc00",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "odd_attention8h2_o_composed_edge_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_o_composed_edge_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_o_composed_edge_v1",
+      "schema": "odd_attention8h2_o_composed_edge.package.v1",
+      "scope": null,
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 3,
+      "declared_input_field": "ports",
+      "declared_inputs": [
+        "routing[B,T]",
+        "recipient_embedding[B,1152]",
+        "donor_embedding[B,1152]"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_rankone_edge_v1/manifest.json",
+      "manifest_sha256": "e7309d9297e19df38c762ca72253097e68dbfdf1f79ce7e669825ba68738fa59",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "odd_attention8h2_rankone_edge_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_rankone_edge_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_rankone_edge_v1",
+      "schema": "odd_attention8h2_rankone_edge.package.v1",
+      "scope": null,
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 4,
+      "declared_input_field": "ports",
+      "declared_inputs": [
+        "current[B,T,1152]",
+        "city_index",
+        "recipient_embedding[B,1152]",
+        "donor_embedding[B,1152]"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_routing_closed_v1/manifest.json",
+      "manifest_sha256": "23e0cff927d1db074a9471f618899174e20aa7977728f29a20ed9ada2cb289e9",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "odd_attention8h2_routing_closed_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_routing_closed_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_routing_closed_v1",
+      "schema": "odd_attention8h2_routing_closed.package.v1",
+      "scope": null,
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": null,
+      "declared_input_field": null,
+      "declared_inputs": [],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "schema",
+        "declared_inputs",
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/regional_even_key_producers_8_2_9_8_v1/manifest.json",
+      "manifest_sha256": "0e18d9baf4892e48ca7f32b708cdbc73c35c13ec1a4342a0f0d0f3c3d8a9a66e",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "regional_even_key_producers_8_2_9_8_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/regional_even_key_producers_8_2_9_8_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/regional_even_key_producers_8_2_9_8_v1",
+      "schema": null,
+      "scope": "Pruned conditional reflection-even producer package. CPU random8/native9 equivalence, no new GPU confirmation of package; existing candidatefresh behavior remains separate. Native input generators and fullQK/basis constants charged.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": null,
+      "declared_input_field": null,
+      "declared_inputs": [],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "schema",
+        "declared_inputs",
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/regional_shared_head2_token_mixed_v1/manifest.json",
+      "manifest_sha256": "656a5b47b9169748a456401030bdf92f17767f300015ac48a1da7f9871355049",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "regional_shared_head2_token_mixed_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/regional_shared_head2_token_mixed_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/regional_shared_head2_token_mixed_v1",
+      "schema": null,
+      "scope": null,
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": null,
+      "declared_input_field": null,
+      "declared_inputs": [],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "schema",
+        "declared_inputs",
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/regional_shared_head2_v1/manifest.json",
+      "manifest_sha256": "5a43bf04467099f70dad753f215ac44a42e61dd90d1a43a1fd1f89885111ef5e",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "regional_shared_head2_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/regional_shared_head2_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/regional_shared_head2_v1",
+      "schema": null,
+      "scope": "Portable local component with external query/source/rotation inputs. Native upstream and final suffix not included.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 3,
+      "declared_input_field": "inputs",
+      "declared_inputs": [
+        "FP32 normalized native layer8 attention input [batch,sequence,1152]",
+        "FP32 normalized native layer9 attention input [batch,sequence,1152]",
+        "token IDs [batch,sequence]"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "schema",
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/regional_shared_producers_8_2_9_8_v1/manifest.json",
+      "manifest_sha256": "24f1188079b055956de59acd3dd2087d4e0d16b23cf6abd6dda907f32387773e",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "regional_shared_producers_8_2_9_8_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/regional_shared_producers_8_2_9_8_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/regional_shared_producers_8_2_9_8_v1",
+      "schema": null,
+      "scope": "Separate scalar source/QK branches with a shared four-output writer. Token lookup closes first-state value input only. No standalone model or wholehead removal claim.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": null,
+      "declared_input_field": null,
+      "declared_inputs": [],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "schema",
+        "declared_inputs",
+        "ood_prediction",
+        "extraction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/sparse_even_key_producers_8_2_9_8_v1/manifest.json",
+      "manifest_sha256": "52ac04a5d573d068f7635ae5af14c40ca451095d7f467a68b3ec9123def666a3",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "sparse_even_key_producers_8_2_9_8_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/sparse_even_key_producers_8_2_9_8_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/sparse_even_key_producers_8_2_9_8_v1",
+      "schema": null,
+      "scope": "CPU package-vs-frozen validated candidate. File difference includes mixed precision and archive overhead; commonprecision parentinterface price separate. Dense corrected basis reconstructed atload; nativecontexts/suffix external, no memory/runtime gain.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 4,
+      "declared_input_field": "public_data_inputs",
+      "declared_inputs": [
+        "token_ids",
+        "subject_positions",
+        "correct_answer_ids",
+        "foil_answer_ids"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": 0,
+      "four_traits": {
+        "composition_reuse": true,
+        "extraction": true,
+        "ood_prediction": true,
+        "selective_removal": true
+      },
+      "gaps": [],
+      "learned_parameters": 0,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/subject_number_l11h3_sparse_graph_v1/manifest.json",
+      "manifest_sha256": "faaffd20af2ec6693cd7184090f19c32c652fc7da7c2c0bb54250dcd4c5c7ba5",
+      "maturity": "four_trait_verified",
+      "node_count": 5,
+      "nodes": [
+        "embedding_recurrence",
+        "early_writes_0_3",
+        "middle_writes_4_7",
+        "mlp_8",
+        "mlp_10"
+      ],
+      "package": "subject_number_l11h3_sparse_graph_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/subject_number_l11h3_sparse_graph_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/subject_number_l11h3_sparse_graph_v1",
+      "schema": "extracted_subject_number_l11h3_sparse_graph_v1",
+      "scope": "Validated token-input sparse causal graph. Exact checkpoint layers still construct the internal ports and suffix corners; no computational compression is claimed.",
+      "verification": {
+        "path": "basis_aligned/polynomial_causal/extracted_circuits/subject_number_l11h3_sparse_graph_v1/verify_export.py",
+        "status": "passed",
+        "terminal": "subject_number_sparse_graph_export_verified"
+      }
+    },
+    {
+      "declared_input_count": null,
+      "declared_input_field": null,
+      "declared_inputs": [],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": null,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "manifest"
+      ],
+      "learned_parameters": null,
+      "manifest": null,
+      "manifest_sha256": null,
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "three_corner_head17_interaction_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/three_corner_head17_interaction_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/three_corner_head17_interaction_v1",
+      "schema": null,
+      "scope": null,
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    }
+  ],
+  "schema": "circuit_graph_registry_v1",
+  "verified_four_trait_packages": [
+    "equality_l5h5_m4_input_port_factor_graph_v1",
+    "subject_number_l11h3_sparse_graph_v1"
+  ]
+}
