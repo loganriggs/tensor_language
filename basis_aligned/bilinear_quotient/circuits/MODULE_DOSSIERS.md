@@ -188,6 +188,27 @@ ports. [Discovery](fast_screens/setting2_regional_attention17h2_head_source_beam
 [crossover null](fast_screens/setting2_regional_attention17h2_head_source_fresh_v1_result.json),
 [preregistration](../../polynomial_causal/SETTING2_REGIONAL_ATTENTION17H2_HEAD_SOURCE_FRESH_V1_PREREGISTRATION.md).
 
+The briefing's multi-reader response-coordinate proposal was then tested
+directly. Installation/removal VJPs for the target and five controls define a
+shared 1,152-dimensional Gram. Its rank-eight projector passes every discovery
+gate (`.2021` response, `.1964/.1962` causal, `.8869` minimax) while retaining
+only `20.00%` of source-write norm. It was exported as an explicit `1152×8`
+orthonormal artifact. On zero-overlap competing-cues rows, target prediction and
+causality improve (`.1525`, `.1635/.1606`), but preservation fails at `1.1881×`.
+The predeclared source-PCA rank-eight comparator instead passes that panel at
+`.97084×`, with `.11845` response and `.12512/.12328` causal errors while
+retaining `59.01%` of source norm. Because that was a comparator result, it was
+frozen on a second short-context panel with unseen spelling endpoints. It again
+predicts target and causal effects (`.19797`, `.18977/.19002`) but fails two
+family-0 controls at `1.11847×`. Thus neither a fixed first-order consumer basis
+nor a fixed source-variance basis supplies transferable preservation. The next
+coordinate must expose context as a computed gate or be identified across
+multiple environments; another fixed global rank/support sweep is closed.
+[frontier](fast_screens/setting2_regional_attention17h2_consumer_response_basis_v1_result.json),
+[artifact receipt](fast_screens/setting2_regional_attention17h2_response_basis_export_v1_result.json),
+[response fresh null](fast_screens/setting2_regional_attention17h2_response_basis_fresh_v1_result.json),
+[source-PCA second-panel null](fast_screens/setting2_regional_attention17h2_source_pca_fresh_v1_result.json).
+
 ## `module.attention.9`
 
 Aliases: attention block 9, attn9. Related route:
