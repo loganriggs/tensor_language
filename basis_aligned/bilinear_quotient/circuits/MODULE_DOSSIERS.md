@@ -128,6 +128,22 @@ a donor-free extraction. Split or predict those ports next.
 [precision correction](../../polynomial_causal/SETTING2_REGIONAL_ATTENTION17H2_FACTOR_CORNER_FRESH_V2_CORRECTION.md),
 [fresh result](fast_screens/setting2_regional_attention17h2_factor_corner_fresh_v2_result.json).
 
+The first port-closing attempt used the exact propagated attention/MLP write
+differences from layers 9–16 as candidate graph edges. Exhaustive unit-gain
+search over every support of at most three terms selected `attn9 + attn15 +
+mlp16`. This support does carry the target response (`.24991` relative L2,
+`.99566` cosine) and predicts installation/removal (`.19416/.20324`, perfect
+family signs), far ahead of equal-cardinality random supports (median `.94174`).
+It nevertheless fails unrelated-reader controls in both families, sometimes by
+roughly 3–4×, showing that omitted module changes provide important collateral
+cancellation. This is a valid selectivity null: do not fresh-test or promote the
+three modules. Whole writes are too coarse; the next split should use
+response-oriented within-module interaction directions. The receipt explicitly
+accounts for a non-selectable `4.83e-6` BF16 recurrence-rounding residual and
+otherwise replays V1 scientific fields exactly. [Result](fast_screens/setting2_regional_attention17h2_port_source_fold_v2_result.json),
+[preregistration](../../polynomial_causal/SETTING2_REGIONAL_ATTENTION17H2_PORT_SOURCE_FOLD_V1_PREREGISTRATION.md),
+[correction](../../polynomial_causal/SETTING2_REGIONAL_ATTENTION17H2_PORT_SOURCE_FOLD_V2_CORRECTION.md).
+
 ## `module.attention.9`
 
 Aliases: attention block 9, attn9. Related route:
