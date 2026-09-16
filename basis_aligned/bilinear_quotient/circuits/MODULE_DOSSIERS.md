@@ -624,6 +624,17 @@ correction-free sparse boundary graph with OOD prediction, causal removal/
 installation, extraction, and composition.  The layer-2/3/4 writes are still
 native frozen ports, so recursive producer extraction—not another score-basis
 search—is the live handoff.
+
+The prospective module-write refinement first exposed an arithmetic bug: a
+flattened sum changed BF16 association and missed exact parent replay by
+`.0004195`.  The corrected canonical-order V2 has zero all-six replay error and
+therefore makes its negative result interpretable.  Natural-only selection
+keeps `M2,A3,M3,A4,M4`, omitting only `A2`; the selected graph transfers to code
+at `.03875` parent-score error and `.99934` cosine, recovers `.88553`, causes
+`.00132` nat noncopy damage, and closes composition at `9.60e-9`.  Five writes
+exceed the preregistered ceiling of four, so module-level sparsity is a valid
+null.  The zero-parameter five-write executor is retained as the next exact
+boundary, with all five native producers still external.
 [three-edge factorial](../../polynomial_causal/EQUALITY_PRE_MLP9_THREE_EDGE_FACTORIAL_DISCOVERY_V1_RESULT.json),
 [code-OOD calibration null](../../polynomial_causal/EQUALITY_A8_EDGE_CODE_OOD_CONFIRMATION_V1_RESULT.json),
 [projected-payload extraction null](../../polynomial_causal/EQUALITY_L8H4_EXTRACTED_NODE_CODE_OOD_V1_RESULT.json),
@@ -636,6 +647,9 @@ search—is the live handoff.
 [sparse residual-source graph](../../polynomial_causal/EQUALITY_L5H5_RESIDUAL_SOURCE_GRAPH_V1_RESULT.json),
 [correction-port red-team](../../polynomial_causal/EQUALITY_L5H5_RESIDUAL_CORRECTION_REDTEAM_V1_RESULT.json),
 [L2+L3+L4 graph export](../../polynomial_causal/EQUALITY_L5H5_L234_SCORE_GRAPH_EXPORT_V1_RESULT.json),
+[invalid flattened-write refinement](../../polynomial_causal/EQUALITY_L5H5_L234_MODULE_WRITE_GRAPH_V1_RESULT.json),
+[canonical module-write sparsity null](../../polynomial_causal/EQUALITY_L5H5_L234_MODULE_WRITE_GRAPH_V2_RESULT.json),
+[five-write graph export](../../polynomial_causal/EQUALITY_L5H5_FIVE_WRITE_SCORE_GRAPH_EXPORT_V1_RESULT.json),
 [red-team note](../../polynomial_causal/EQUALITY_A8_SPARSE_EDGE_EXECUTION_NOTE.md).
 
 The retained three-block score also has a smaller exact executor:

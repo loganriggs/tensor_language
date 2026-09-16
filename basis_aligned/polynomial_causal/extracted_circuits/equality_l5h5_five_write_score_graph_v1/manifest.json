@@ -1,0 +1,13 @@
+{
+  "schema": "extracted_equality_l5h5_five_write_score_graph_v1",
+  "name": "equality_l5h5_five_write_score_graph_v1",
+  "module_write_ports": ["M2", "A3", "M3", "A4", "M4"],
+  "position_ports": ["rotary_cos", "rotary_sin"],
+  "static_weight_ports": ["l5h5_q1", "l5h5_k1", "l5h5_q2", "l5h5_k2"],
+  "output_ports": ["approximate_causal_l5h5_equality_score"],
+  "learned_parameters": 0,
+  "native_parameters_reused": 589824,
+  "omitted_parent_write": "A2",
+  "correction_port_required": false,
+  "scope": "Qualified five-write refinement retained from a valid preregistered <=4-write sparsity null. All five native module-write producers remain external ports."
+}

@@ -90,3 +90,18 @@ changed recovery by `.00287`.  Thus the three-source graph is not an artifact
 of the correction direction.  Its current ports remain the native frozen
 layer-2/3/4 writes: recursively extracting their producers is the next boundary,
 not another L5 score fit.
+
+The first recursive split distinguishes scientific sparsity from implementation
+failure.  V1 flattened the six writes and changed BF16 addition order; its
+all-six replay error was `.0004195`, so the exactness gate correctly marked it
+invalid.  V2 preserves `(A+M)` within each layer and then adds layers 2, 3, and
+4 in parent order, giving exactly zero all-six replay error.  Under that lawful
+arithmetic the frozen natural rule retains `M2+A3+M3+A4+M4`: natural
+parent-score error/cosine is `.05038/.99925`, code is `.03875/.99934`, recovery
+is `.88553`, noncopy damage is `.00132` nat, and the complete interaction graph
+closes at `9.60e-9`.  Because five writes survive, the preregistered claim of at
+most four is a valid null.  The five-write executor is retained as a useful
+boundary, not relabeled as a sparse positive.  `A2` is the only safely omitted
+module write at this resolution; recursive extraction should next split a
+retained producer using downstream score and fresh causal transfer rather than
+source norm alone.

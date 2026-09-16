@@ -1,0 +1,42 @@
+{
+  "schema": "equality_l5h5_five_write_score_graph_export_v1_result",
+  "terminal": "exported_five_write_score_graph_from_valid_sparsity_null",
+  "source_result": "EQUALITY_L5H5_L234_MODULE_WRITE_GRAPH_V2_RESULT.json",
+  "source_result_sha256": "96af903c62ff62d912d289edb25a2474dbcd79c828170625c6b921cf652b1557",
+  "package": "extracted_circuits/equality_l5h5_five_write_score_graph_v1",
+  "support": ["M2", "A3", "M3", "A4", "M4"],
+  "omitted_parent_write": "A2",
+  "learned_parameters": 0,
+  "native_parameters_reused": 589824,
+  "validation": {
+    "all_six_to_parent_maximum_score_error": 0.0,
+    "natural_parent_score_relative_l2": 0.05038148504862164,
+    "natural_parent_score_cosine": 0.999245838650434,
+    "code_parent_score_relative_l2": 0.038746395249078296,
+    "code_parent_score_cosine": 0.9993361553289655,
+    "code_native_score_relative_l2": 0.16374465308566416,
+    "code_native_score_cosine": 0.9917003295252171,
+    "downstream_recovery": 0.8855307817044855,
+    "parent_downstream_recovery": 0.9043828928414893,
+    "noncopy_mean_damage_nat": 0.001317463582381606,
+    "maximum_mobius_closure_relative_l2": 9.604474549007591e-9
+  },
+  "preregistered_interpretation": {
+    "lawful_exact_refinement": true,
+    "at_most_four_write_sparsity": false,
+    "status": "The <=4-write claim is a valid null. The five-write boundary is retained as an executable refinement and is not evidence that the module graph is very sparse."
+  },
+  "arithmetic_redteam": {
+    "v1_terminal": "invalid",
+    "v1_all_six_to_parent_score_error": 0.0004195178335066885,
+    "v2_correction": "Preserve (A+M) within each layer, then add L2, L3, and L4 in parent order."
+  },
+  "files": {
+    "README.md": "1b3a03a2333d371cc7c62b447645000d7db0a32fdbb4416011f4eedd4b8bda73",
+    "__init__.py": "2cd7724189dc4caa813e2ee5628794ab20226c359cf49eedce2a5c8e95f84cbd",
+    "manifest.json": "d94f09adee480291bb8ee6eb528335cf1dd933dbfc68b9365d0e0ac75ee3b3f3",
+    "node.py": "f86d59f23537f8be767a89a8922aa97999af23c7f1433fe746e220fb73b4f1bf",
+    "test_node.py": "bbd432becc1a285c6b5fb723c369f6d9c714c1180397c7a4fce076b14e721a2b"
+  },
+  "created_utc": "2026-09-16T16:42:01Z"
+}

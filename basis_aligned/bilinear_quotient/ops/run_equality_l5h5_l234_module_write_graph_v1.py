@@ -30,11 +30,12 @@ import run_equality_reusable_score_port_code_ood_v1 as score_parent
 from extracted_circuits.equality_l8h4_reversible_edge_v3 import node as edge_node
 from sparse_path_stability_atlas_v1 import digest
 
-STEM = "EQUALITY_L5H5_L234_MODULE_WRITE_GRAPH_V1"
+STEM = "EQUALITY_L5H5_L234_MODULE_WRITE_GRAPH_V2"
 BINDING = P / f"{STEM}_BINDING.json"
 OUT = P / f"{STEM}_RESULT.json"
 PARENT_RESULT = P / "EQUALITY_L5H5_RESIDUAL_CORRECTION_REDTEAM_V1_RESULT.json"
 SOURCE_PARENT = P / "EQUALITY_L5H5_RESIDUAL_SOURCE_GRAPH_V1_RESULT.json"
+V1_RESULT = P / "EQUALITY_L5H5_L234_MODULE_WRITE_GRAPH_V1_RESULT.json"
 DOCUMENTS = 192
 PAIR = action_parent.PAIRS[0]
 GROUPS = ("A2", "M2", "A3", "M3", "A4", "M4")
@@ -55,17 +56,20 @@ def load_bound():
         raise ValueError("runner changed")
     correction_parent = json.loads(PARENT_RESULT.read_text())
     source_parent = json.loads(SOURCE_PARENT.read_text())
+    v1 = json.loads(V1_RESULT.read_text())
     if correction_parent["terminal"] != "equality_l5h5_correction_free_sparse_source_graph" or not all(correction_parent["predictions"].values()) or correction_parent["selection"]["sources"] != ["L2", "L3", "L4"]:
         raise ValueError("correction-free parent changed")
     if source_parent["terminal"] != "equality_l5h5_sparse_residual_source_graph_ood" or not all(source_parent["predictions"].values()):
         raise ValueError("source-graph authority changed")
+    if v1["terminal"] != "invalid" or v1["predictions"]["pred_a_lawful_module_refinement"] or v1["maximum_all_six_to_parent_score_error"] <= 2e-6:
+        raise ValueError("V1 arithmetic-order failure authority changed")
     roles, scales, _, port_parent, manifest = parent.load_bound()
-    return roles, scales, correction_parent, source_parent, port_parent, manifest
+    return roles, scales, correction_parent, source_parent, port_parent, manifest, v1
 
 
 def plan():
-    roles, _, _, _, _, _ = load_bound()
-    return {"schema": "equality_l5h5_l234_module_write_graph_v1_plan", "natural_documents": len(roles["final_natural"]), "ood_documents": len(roles["ood_code"]), "execution_count": 288, "complete_code_forwards": 192, "prefix_executions": 96, "subset_node_calls_per_natural_batch": 63, "maximum_mobius_node_calls_per_code_batch": 64, "fits": 0, "new_text": 0, "learned_parameters": 0, "model_loaded": False, "gpu_accessed": False, "queue_touched": False}
+    roles, _, _, _, _, _, _ = load_bound()
+    return {"schema": "equality_l5h5_l234_module_write_graph_v2_plan", "natural_documents": len(roles["final_natural"]), "ood_documents": len(roles["ood_code"]), "execution_count": 288, "complete_code_forwards": 192, "prefix_executions": 96, "subset_node_calls_per_natural_batch": 63, "maximum_mobius_node_calls_per_code_batch": 64, "fits": 0, "new_text": 0, "learned_parameters": 0, "model_loaded": False, "gpu_accessed": False, "queue_touched": False}
 
 
 @torch.no_grad()
@@ -95,10 +99,20 @@ def fine_parts(model, tokens):
 
 
 def merge_fine(groups, mask, dtype):
-    chosen = [groups[name] for index, name in enumerate(GROUPS) if mask & (1 << index)]
-    if not chosen:
-        return torch.zeros_like(next(iter(groups.values())), dtype=dtype)
-    return sum((value.float() for value in chosen), start=torch.zeros_like(chosen[0].float())).to(dtype)
+    layers = []
+    for site, (attention_index, mlp_index) in enumerate(((0, 1), (2, 3), (4, 5)), start=2):
+        attention = groups[f"A{site}"] if mask & (1 << attention_index) else None
+        mlp = groups[f"M{site}"] if mask & (1 << mlp_index) else None
+        if attention is not None and mlp is not None:
+            layers.append(attention + mlp)
+        elif attention is not None:
+            layers.append(attention)
+        elif mlp is not None:
+            layers.append(mlp)
+    result = torch.zeros_like(next(iter(groups.values())))
+    for layer in layers:
+        result = result + layer
+    return result.to(dtype)
 
 
 def parent_residual(groups, dtype):
@@ -205,7 +219,7 @@ def main():
     signal.alarm(180)
     torch.set_num_threads(2)
     torch.backends.cuda.matmul.allow_tf32 = False
-    roles, scales, correction_parent, source_parent, port_parent, manifest = load_bound()
+    roles, scales, correction_parent, source_parent, port_parent, manifest, v1 = load_bound()
     model, checkpoint = facade.load_bilin18(device="cuda", dtype=torch.bfloat16, verify_weights_sha256=True)
     model.eval()
     started = time.perf_counter()
@@ -285,7 +299,7 @@ def main():
     pred_f = bool(composition_max <= 2e-6 and manifest["learned_parameters"] == 0)
     predictions = {"pred_a_lawful_module_refinement": pred_a, "pred_b_sparse_natural_module_support": pred_b, "pred_c_ood_parent_score_prediction": pred_c, "pred_d_ood_causal_use": pred_d, "pred_e_selectivity": pred_e, "pred_f_composition_reuse": pred_f}
     terminal = "equality_l5h5_sparse_module_write_graph_ood" if all(predictions.values()) else "valid_equality_l5h5_module_write_graph_null" if pred_a and pred_f else "invalid"
-    result = {"schema": "equality_l5h5_l234_module_write_graph_v1_result", "terminal": terminal, "predictions": predictions, "selection": {"qualified": qualified, "mask": selected_mask, "sources": selected_names, "source_count": len(selected_names), "natural": selected_natural}, "natural_subset_frontier": {str(mask): {"sources": names(mask), **report} for mask, report in sorted(natural_reports.items(), key=lambda item: (item[0].bit_count(), item[1]["relative_l2"], item[0]))}, "code_score": {"versus_parent_l234": code_parent, "versus_native": code_native, "parent_halves": code_halves}, "behavior": behavior, "comparisons": {"parent_recovery": parent_recovery, "fine_recovery": recovery, "fine_minus_parent": recovery - parent_recovery}, "maximum_all_six_to_parent_score_error": max(full_parent_error_max, forward_parent_error_max), "maximum_mobius_closure_relative_l2": composition_max, "minimum_term_rms": minimum_term_rms, "source_squared_norm": source_energy, "runner_sha256": digest(RUNNER), "binding_sha256": digest(BINDING), "checkpoint_weights_sha256": checkpoint.weights_sha256, "seconds": time.perf_counter() - started, "price": planned | {"checkpoint_loads": 1, "gradients": 0, "parameter_updates": 0, "model_loaded": True, "gpu_accessed": True, "queue_touched": True}, "created_utc": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"), "scope": "Frozen-write refinement of the L2+L3+L4 parent score graph into A2/M2/A3/M3/A4/M4 boundary ports. Selected module writes remain native external producers."}
+    result = {"schema": "equality_l5h5_l234_module_write_graph_v2_result", "terminal": terminal, "predictions": predictions, "selection": {"qualified": qualified, "mask": selected_mask, "sources": selected_names, "source_count": len(selected_names), "natural": selected_natural}, "natural_subset_frontier": {str(mask): {"sources": names(mask), **report} for mask, report in sorted(natural_reports.items(), key=lambda item: (item[0].bit_count(), item[1]["relative_l2"], item[0]))}, "code_score": {"versus_parent_l234": code_parent, "versus_native": code_native, "parent_halves": code_halves}, "behavior": behavior, "comparisons": {"parent_recovery": parent_recovery, "fine_recovery": recovery, "fine_minus_parent": recovery - parent_recovery}, "maximum_all_six_to_parent_score_error": max(full_parent_error_max, forward_parent_error_max), "maximum_mobius_closure_relative_l2": composition_max, "minimum_term_rms": minimum_term_rms, "v1_arithmetic_redteam": {"v1_terminal": v1["terminal"], "v1_all_six_error": v1["maximum_all_six_to_parent_score_error"], "correction": "V2 preserves (A+M) within each layer before adding L2, L3, and L4 in parent order."}, "source_squared_norm": source_energy, "runner_sha256": digest(RUNNER), "binding_sha256": digest(BINDING), "checkpoint_weights_sha256": checkpoint.weights_sha256, "seconds": time.perf_counter() - started, "price": planned | {"checkpoint_loads": 1, "gradients": 0, "parameter_updates": 0, "model_loaded": True, "gpu_accessed": True, "queue_touched": True}, "created_utc": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"), "scope": "Canonical-order frozen-write refinement of the L2+L3+L4 parent score graph into A2/M2/A3/M3/A4/M4 boundary ports. Selected module writes remain native external producers."}
     atomic_json(OUT, result)
     print(json.dumps({"terminal": terminal, "predictions": predictions, "selected_sources": selected_names, "natural": selected_natural, "code_parent": code_parent, "code_native": code_native, "recovery": recovery, "parent_recovery": parent_recovery, "all_six_error": result["maximum_all_six_to_parent_score_error"], "composition_error": composition_max, "seconds": result["seconds"]}, indent=2), flush=True)
 

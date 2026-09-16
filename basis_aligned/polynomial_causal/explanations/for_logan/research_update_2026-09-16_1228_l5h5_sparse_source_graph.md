@@ -59,3 +59,33 @@ writes.  L8H4's raw payload is also still native.  The next useful experiment is
 a prospective within-layer factorial for the three selected write groups,
 starting at L4 and requiring frozen code transfer and source-interaction closure;
 another local L5 score basis would not advance the graph.
+
+## Module-write refinement: a useful null
+
+We attempted that recursive split into `A2,M2,A3,M3,A4,M4`.  The first run is
+not scientific evidence: it flattened the writes, changed BF16 addition order,
+and missed the parent by `.0004195` even when all six were present.  This is the
+kind of apparent negative that should be treated as a likely implementation
+problem.  The exact-replay gate caught it before interpretation.
+
+The corrected run preserves `(A+M)` within a layer and then adds `L2`, `L3`, and
+`L4` in the parent's order.  All six writes now reproduce the parent with zero
+measured error.  The natural-only frozen rule selects five writes:
+
+`M2 + (A3+M3) + (A4+M4)`.
+
+It omits only `A2`.  Natural parent-score error/cosine is `.05038/.99925`; on
+frozen code it is `.03875/.99934`.  Downstream recovery is `.88553` versus the
+parent's `.90438`, noncopy mean damage is `.00132` nat, both code halves remain
+live, and the complete six-source Möbius expansion closes at `9.60e-9`.
+
+This is a clean negative result for the preregistered claim that at most four
+module writes suffice.  We retain the five-write expression as an executable,
+zero-new-parameter refinement, but do not call it a very sparse module graph.
+It advances the boundary by proving `A2` removable and locating the remaining
+burden in `M2`, both layer-3 writes, and both layer-4 writes.  The next split
+should recurse inside a retained producer—likely beginning with M4 because it
+is the largest candidate—while selection remains based on downstream equality
+score and fresh causal transfer, not activation norm.  The DCT-style product
+decomposition is useful there as a proposal mechanism, with exact replay,
+removal, OOD prediction, and compositional closure kept as the decision gates.
