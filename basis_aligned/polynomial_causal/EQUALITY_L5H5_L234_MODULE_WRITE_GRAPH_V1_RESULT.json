@@ -1,0 +1,827 @@
+{
+  "behavior": {
+    "factor_donor": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.002398641547188163,
+        "native_effect_sum_nat": -48.48896789550781,
+        "recovery": 2.2869536307344798,
+        "tokens": 26016
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.027829580008983612,
+        "native_effect_sum_nat": 700.2482299804688,
+        "recovery": 0.8268818073111106,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": -0.006068028975278139,
+        "native_effect_sum_nat": 319.3406982421875,
+        "recovery": 1.1586456662152207,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": -0.015292868949472904,
+        "native_effect_sum_nat": 108.54377746582031,
+        "recovery": 1.9146662168193687,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.029054151847958565,
+        "native_effect_sum_nat": 489.4512634277344,
+        "recovery": 0.851657643600126,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.0020228931680321693,
+        "native_effect_sum_nat": 808.7919921875,
+        "recovery": 0.9728677630967287,
+        "tokens": 10848
+      },
+      "halves": [
+        {
+          "native_effect_sum_nat": 380.5408020019531,
+          "recovery": 0.9988341209445946
+        },
+        {
+          "native_effect_sum_nat": 428.2511901855469,
+          "recovery": 0.949794180618666
+        }
+      ]
+    },
+    "fine_donor": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.00132394686806947,
+        "native_effect_sum_nat": -48.48896789550781,
+        "recovery": 1.7103430610053014,
+        "tokens": 26016
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.03860744461417198,
+        "native_effect_sum_nat": 700.2482299804688,
+        "recovery": 0.7598364035772401,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": -0.0018696646438911557,
+        "native_effect_sum_nat": 319.3406982421875,
+        "recovery": 1.0488814386941478,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": -0.011574259959161282,
+        "native_effect_sum_nat": 108.54377746582031,
+        "recovery": 1.6922562302093547,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.04347489774227142,
+        "native_effect_sum_nat": 489.4512634277344,
+        "recovery": 0.7780294455678983,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.008576137013733387,
+        "native_effect_sum_nat": 808.7919921875,
+        "recovery": 0.8849716645556706,
+        "tokens": 10848
+      },
+      "halves": [
+        {
+          "native_effect_sum_nat": 380.5408020019531,
+          "recovery": 0.9073895223737227
+        },
+        {
+          "native_effect_sum_nat": 428.2511901855469,
+          "recovery": 0.8650513951643045
+        }
+      ]
+    }
+  },
+  "binding_sha256": "76541740174f075c288069fea20548efbe9f5827cf599b42611b17ebc2752183",
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "code_score": {
+    "parent_halves": [
+      {
+        "cosine": 0.9993014048373334,
+        "edges": 203309,
+        "relative_l2": 0.039370531011583054
+      },
+      {
+        "cosine": 0.9993731488426837,
+        "edges": 170493,
+        "relative_l2": 0.03808386238189848
+      }
+    ],
+    "versus_native": {
+      "cosine": 0.9917003192549301,
+      "edges": 373802,
+      "relative_l2": 0.16374464916479783
+    },
+    "versus_parent_l234": {
+      "cosine": 0.9993361553880591,
+      "edges": 373802,
+      "relative_l2": 0.03874635734994184
+    }
+  },
+  "comparisons": {
+    "fine_minus_parent": -0.01941122828581876,
+    "fine_recovery": 0.8849716645556706,
+    "parent_recovery": 0.9043828928414893
+  },
+  "created_utc": "2026-09-16T16:36:41.705852Z",
+  "maximum_all_six_to_parent_score_error": 0.0004195178335066885,
+  "maximum_mobius_closure_relative_l2": 9.603952300096807e-09,
+  "minimum_term_rms": 15.789390563964844,
+  "natural_subset_frontier": {
+    "1": {
+      "cosine": 0.670315530698917,
+      "edges": 65556,
+      "relative_l2": 0.7991810668693372,
+      "sources": [
+        "A2"
+      ]
+    },
+    "10": {
+      "cosine": 0.41249450291811196,
+      "edges": 65556,
+      "relative_l2": 0.9357429422654178,
+      "sources": [
+        "M2",
+        "M3"
+      ]
+    },
+    "11": {
+      "cosine": 0.5368570135562424,
+      "edges": 65556,
+      "relative_l2": 0.8850174689049133,
+      "sources": [
+        "A2",
+        "M2",
+        "M3"
+      ]
+    },
+    "12": {
+      "cosine": 0.6805326260959667,
+      "edges": 65556,
+      "relative_l2": 0.8266677934484735,
+      "sources": [
+        "A3",
+        "M3"
+      ]
+    },
+    "13": {
+      "cosine": 0.7483970908319222,
+      "edges": 65556,
+      "relative_l2": 0.7576917600688311,
+      "sources": [
+        "A2",
+        "A3",
+        "M3"
+      ]
+    },
+    "14": {
+      "cosine": 0.6718088754904747,
+      "edges": 65556,
+      "relative_l2": 0.8116187042711961,
+      "sources": [
+        "M2",
+        "A3",
+        "M3"
+      ]
+    },
+    "15": {
+      "cosine": 0.7277287032429608,
+      "edges": 65556,
+      "relative_l2": 0.7517809388499997,
+      "sources": [
+        "A2",
+        "M2",
+        "A3",
+        "M3"
+      ]
+    },
+    "16": {
+      "cosine": 0.7501979341366873,
+      "edges": 65556,
+      "relative_l2": 0.6710575995792203,
+      "sources": [
+        "A4"
+      ]
+    },
+    "17": {
+      "cosine": 0.7843505805528571,
+      "edges": 65556,
+      "relative_l2": 0.6281869288606113,
+      "sources": [
+        "A2",
+        "A4"
+      ]
+    },
+    "18": {
+      "cosine": 0.8459456140019475,
+      "edges": 65556,
+      "relative_l2": 0.5351183652022512,
+      "sources": [
+        "M2",
+        "A4"
+      ]
+    },
+    "19": {
+      "cosine": 0.8611025877746055,
+      "edges": 65556,
+      "relative_l2": 0.5086131552826775,
+      "sources": [
+        "A2",
+        "M2",
+        "A4"
+      ]
+    },
+    "2": {
+      "cosine": 0.2785471110901126,
+      "edges": 65556,
+      "relative_l2": 0.9657149147320842,
+      "sources": [
+        "M2"
+      ]
+    },
+    "20": {
+      "cosine": 0.7855765399702644,
+      "edges": 65556,
+      "relative_l2": 0.6332474631001427,
+      "sources": [
+        "A3",
+        "A4"
+      ]
+    },
+    "21": {
+      "cosine": 0.8100443531950092,
+      "edges": 65556,
+      "relative_l2": 0.5983680541037519,
+      "sources": [
+        "A2",
+        "A3",
+        "A4"
+      ]
+    },
+    "22": {
+      "cosine": 0.8650514311236166,
+      "edges": 65556,
+      "relative_l2": 0.5035907804311249,
+      "sources": [
+        "M2",
+        "A3",
+        "A4"
+      ]
+    },
+    "23": {
+      "cosine": 0.8754705725283501,
+      "edges": 65556,
+      "relative_l2": 0.483715767709955,
+      "sources": [
+        "A2",
+        "M2",
+        "A3",
+        "A4"
+      ]
+    },
+    "24": {
+      "cosine": 0.9216303756308942,
+      "edges": 65556,
+      "relative_l2": 0.3880770315239086,
+      "sources": [
+        "M3",
+        "A4"
+      ]
+    },
+    "25": {
+      "cosine": 0.9267753951383637,
+      "edges": 65556,
+      "relative_l2": 0.3774270855509074,
+      "sources": [
+        "A2",
+        "M3",
+        "A4"
+      ]
+    },
+    "26": {
+      "cosine": 0.9288790464807619,
+      "edges": 65556,
+      "relative_l2": 0.3730935253595105,
+      "sources": [
+        "M2",
+        "M3",
+        "A4"
+      ]
+    },
+    "27": {
+      "cosine": 0.9325670737775418,
+      "edges": 65556,
+      "relative_l2": 0.3695787458344895,
+      "sources": [
+        "A2",
+        "M2",
+        "M3",
+        "A4"
+      ]
+    },
+    "28": {
+      "cosine": 0.9258731455114759,
+      "edges": 65556,
+      "relative_l2": 0.37797541109091715,
+      "sources": [
+        "A3",
+        "M3",
+        "A4"
+      ]
+    },
+    "29": {
+      "cosine": 0.9293202278135001,
+      "edges": 65556,
+      "relative_l2": 0.3710095895769319,
+      "sources": [
+        "A2",
+        "A3",
+        "M3",
+        "A4"
+      ]
+    },
+    "3": {
+      "cosine": 0.5572390011340539,
+      "edges": 65556,
+      "relative_l2": 0.8592481390754819,
+      "sources": [
+        "A2",
+        "M2"
+      ]
+    },
+    "30": {
+      "cosine": 0.9335888241924819,
+      "edges": 65556,
+      "relative_l2": 0.3650274807109269,
+      "sources": [
+        "M2",
+        "A3",
+        "M3",
+        "A4"
+      ]
+    },
+    "31": {
+      "cosine": 0.9358575425783998,
+      "edges": 65556,
+      "relative_l2": 0.3647785276399642,
+      "sources": [
+        "A2",
+        "M2",
+        "A3",
+        "M3",
+        "A4"
+      ]
+    },
+    "32": {
+      "cosine": 0.5343285143878653,
+      "edges": 65556,
+      "relative_l2": 0.9339474805751056,
+      "sources": [
+        "M4"
+      ]
+    },
+    "33": {
+      "cosine": 0.6319242326917385,
+      "edges": 65556,
+      "relative_l2": 0.9003784810108134,
+      "sources": [
+        "A2",
+        "M4"
+      ]
+    },
+    "34": {
+      "cosine": 0.6254301267784087,
+      "edges": 65556,
+      "relative_l2": 0.8929826358977643,
+      "sources": [
+        "M2",
+        "M4"
+      ]
+    },
+    "35": {
+      "cosine": 0.7001793045376232,
+      "edges": 65556,
+      "relative_l2": 0.8501263811145778,
+      "sources": [
+        "A2",
+        "M2",
+        "M4"
+      ]
+    },
+    "36": {
+      "cosine": 0.7033194654583137,
+      "edges": 65556,
+      "relative_l2": 0.8675550425958867,
+      "sources": [
+        "A3",
+        "M4"
+      ]
+    },
+    "37": {
+      "cosine": 0.7635382774540194,
+      "edges": 65556,
+      "relative_l2": 0.8239001809086929,
+      "sources": [
+        "A2",
+        "A3",
+        "M4"
+      ]
+    },
+    "38": {
+      "cosine": 0.7718709223416672,
+      "edges": 65556,
+      "relative_l2": 0.8007674355605748,
+      "sources": [
+        "M2",
+        "A3",
+        "M4"
+      ]
+    },
+    "39": {
+      "cosine": 0.8137559224884122,
+      "edges": 65556,
+      "relative_l2": 0.7499552728433502,
+      "sources": [
+        "A2",
+        "M2",
+        "A3",
+        "M4"
+      ]
+    },
+    "4": {
+      "cosine": 0.6373699783201227,
+      "edges": 65556,
+      "relative_l2": 0.8346529625445338,
+      "sources": [
+        "A3"
+      ]
+    },
+    "40": {
+      "cosine": 0.6727473347144365,
+      "edges": 65556,
+      "relative_l2": 0.8647138063150113,
+      "sources": [
+        "M3",
+        "M4"
+      ]
+    },
+    "41": {
+      "cosine": 0.7326461210439874,
+      "edges": 65556,
+      "relative_l2": 0.8226910677600476,
+      "sources": [
+        "A2",
+        "M3",
+        "M4"
+      ]
+    },
+    "42": {
+      "cosine": 0.6944384292159036,
+      "edges": 65556,
+      "relative_l2": 0.8380320750299093,
+      "sources": [
+        "M2",
+        "M3",
+        "M4"
+      ]
+    },
+    "43": {
+      "cosine": 0.7457104958399111,
+      "edges": 65556,
+      "relative_l2": 0.7949480919919094,
+      "sources": [
+        "A2",
+        "M2",
+        "M3",
+        "M4"
+      ]
+    },
+    "44": {
+      "cosine": 0.7931394012810667,
+      "edges": 65556,
+      "relative_l2": 0.7757494160433864,
+      "sources": [
+        "A3",
+        "M3",
+        "M4"
+      ]
+    },
+    "45": {
+      "cosine": 0.8286997379077402,
+      "edges": 65556,
+      "relative_l2": 0.7281260337830752,
+      "sources": [
+        "A2",
+        "A3",
+        "M3",
+        "M4"
+      ]
+    },
+    "46": {
+      "cosine": 0.8056042688701587,
+      "edges": 65556,
+      "relative_l2": 0.7408615163844785,
+      "sources": [
+        "M2",
+        "A3",
+        "M3",
+        "M4"
+      ]
+    },
+    "47": {
+      "cosine": 0.8357913488204375,
+      "edges": 65556,
+      "relative_l2": 0.693589461584862,
+      "sources": [
+        "A2",
+        "M2",
+        "A3",
+        "M3",
+        "M4"
+      ]
+    },
+    "48": {
+      "cosine": 0.9214066623529947,
+      "edges": 65556,
+      "relative_l2": 0.5068467951748026,
+      "sources": [
+        "A4",
+        "M4"
+      ]
+    },
+    "49": {
+      "cosine": 0.9357073544773348,
+      "edges": 65556,
+      "relative_l2": 0.4581099180628382,
+      "sources": [
+        "A2",
+        "A4",
+        "M4"
+      ]
+    },
+    "5": {
+      "cosine": 0.7327948245994959,
+      "edges": 65556,
+      "relative_l2": 0.7509367608467081,
+      "sources": [
+        "A2",
+        "A3"
+      ]
+    },
+    "50": {
+      "cosine": 0.9605046708495678,
+      "edges": 65556,
+      "relative_l2": 0.35836899211838963,
+      "sources": [
+        "M2",
+        "A4",
+        "M4"
+      ]
+    },
+    "51": {
+      "cosine": 0.9679207991571539,
+      "edges": 65556,
+      "relative_l2": 0.3121236459403516,
+      "sources": [
+        "A2",
+        "M2",
+        "A4",
+        "M4"
+      ]
+    },
+    "52": {
+      "cosine": 0.9381300602696911,
+      "edges": 65556,
+      "relative_l2": 0.4429688063468344,
+      "sources": [
+        "A3",
+        "A4",
+        "M4"
+      ]
+    },
+    "53": {
+      "cosine": 0.9481650360016984,
+      "edges": 65556,
+      "relative_l2": 0.401191931389001,
+      "sources": [
+        "A2",
+        "A3",
+        "A4",
+        "M4"
+      ]
+    },
+    "54": {
+      "cosine": 0.9718100417897906,
+      "edges": 65556,
+      "relative_l2": 0.2896015030079165,
+      "sources": [
+        "M2",
+        "A3",
+        "A4",
+        "M4"
+      ]
+    },
+    "55": {
+      "cosine": 0.9763745447860728,
+      "edges": 65556,
+      "relative_l2": 0.253735160019956,
+      "sources": [
+        "A2",
+        "M2",
+        "A3",
+        "A4",
+        "M4"
+      ]
+    },
+    "56": {
+      "cosine": 0.9904445960548166,
+      "edges": 65556,
+      "relative_l2": 0.20982486372700002,
+      "sources": [
+        "M3",
+        "A4",
+        "M4"
+      ]
+    },
+    "57": {
+      "cosine": 0.9936798913269749,
+      "edges": 65556,
+      "relative_l2": 0.1625446412082685,
+      "sources": [
+        "A2",
+        "M3",
+        "A4",
+        "M4"
+      ]
+    },
+    "58": {
+      "cosine": 0.9951201681624372,
+      "edges": 65556,
+      "relative_l2": 0.13228785745846025,
+      "sources": [
+        "M2",
+        "M3",
+        "A4",
+        "M4"
+      ]
+    },
+    "59": {
+      "cosine": 0.9970905886159315,
+      "edges": 65556,
+      "relative_l2": 0.09055875156960387,
+      "sources": [
+        "A2",
+        "M2",
+        "M3",
+        "A4",
+        "M4"
+      ]
+    },
+    "6": {
+      "cosine": 0.7247741845043203,
+      "edges": 65556,
+      "relative_l2": 0.7382018140266048,
+      "sources": [
+        "M2",
+        "A3"
+      ]
+    },
+    "60": {
+      "cosine": 0.99450948937109,
+      "edges": 65556,
+      "relative_l2": 0.14804122981730425,
+      "sources": [
+        "A3",
+        "M3",
+        "A4",
+        "M4"
+      ]
+    },
+    "61": {
+      "cosine": 0.9962600081288692,
+      "edges": 65556,
+      "relative_l2": 0.11181140187143884,
+      "sources": [
+        "A2",
+        "A3",
+        "M3",
+        "A4",
+        "M4"
+      ]
+    },
+    "62": {
+      "cosine": 0.9992458413647596,
+      "edges": 65556,
+      "relative_l2": 0.05038213256011882,
+      "sources": [
+        "M2",
+        "A3",
+        "M3",
+        "A4",
+        "M4"
+      ]
+    },
+    "63": {
+      "cosine": 0.9999999994307902,
+      "edges": 65556,
+      "relative_l2": 3.37404793193294e-05,
+      "sources": [
+        "A2",
+        "M2",
+        "A3",
+        "M3",
+        "A4",
+        "M4"
+      ]
+    },
+    "7": {
+      "cosine": 0.7738019860962038,
+      "edges": 65556,
+      "relative_l2": 0.6668996100480982,
+      "sources": [
+        "A2",
+        "M2",
+        "A3"
+      ]
+    },
+    "8": {
+      "cosine": 0.3681710253360637,
+      "edges": 65556,
+      "relative_l2": 0.9536926669883916,
+      "sources": [
+        "M3"
+      ]
+    },
+    "9": {
+      "cosine": 0.5386142099299609,
+      "edges": 65556,
+      "relative_l2": 0.8984322104021013,
+      "sources": [
+        "A2",
+        "M3"
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_lawful_module_refinement": false,
+    "pred_b_sparse_natural_module_support": false,
+    "pred_c_ood_parent_score_prediction": true,
+    "pred_d_ood_causal_use": true,
+    "pred_e_selectivity": true,
+    "pred_f_composition_reuse": true
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "complete_code_forwards": 192,
+    "execution_count": 288,
+    "fits": 0,
+    "gpu_accessed": true,
+    "gradients": 0,
+    "learned_parameters": 0,
+    "maximum_mobius_node_calls_per_code_batch": 64,
+    "model_loaded": true,
+    "natural_documents": 192,
+    "new_text": 0,
+    "ood_documents": 192,
+    "parameter_updates": 0,
+    "prefix_executions": 96,
+    "queue_touched": true,
+    "schema": "equality_l5h5_l234_module_write_graph_v1_plan",
+    "subset_node_calls_per_natural_batch": 63
+  },
+  "runner_sha256": "99c20ddde807f6d208d691766c6001eb08c74a7735ed01947993f168fea1dd8a",
+  "schema": "equality_l5h5_l234_module_write_graph_v1_result",
+  "scope": "Frozen-write refinement of the L2+L3+L4 parent score graph into A2/M2/A3/M3/A4/M4 boundary ports. Selected module writes remain native external producers.",
+  "seconds": 7.005561839003349,
+  "selection": {
+    "mask": 62,
+    "natural": {
+      "cosine": 0.9992458413647596,
+      "edges": 65556,
+      "relative_l2": 0.05038213256011882
+    },
+    "qualified": true,
+    "source_count": 5,
+    "sources": [
+      "M2",
+      "A3",
+      "M3",
+      "A4",
+      "M4"
+    ]
+  },
+  "source_squared_norm": {
+    "A2": 604224547.2918164,
+    "A3": 2107963717.2756574,
+    "A4": 21520255585.643173,
+    "M2": 3582276863.5639305,
+    "M3": 19287912507.513397,
+    "M4": 67074402162.90125
+  },
+  "terminal": "invalid"
+}
