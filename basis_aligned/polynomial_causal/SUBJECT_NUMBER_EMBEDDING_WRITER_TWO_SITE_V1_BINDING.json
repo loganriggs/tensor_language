@@ -1,0 +1,52 @@
+{
+  "arms": [
+    "base",
+    "zero",
+    "site1",
+    "site2",
+    "both"
+  ],
+  "bars": {
+    "maximum_anticausal_absolute_effect": 1e-05,
+    "maximum_composition_relative_l2": 0.25,
+    "maximum_composition_norm_ratio": 1.2,
+    "maximum_oracle_write_error": 1e-07,
+    "maximum_unrelated_control_fraction": 0.75,
+    "maximum_zero_replay_logit_error": 1e-05,
+    "minimum_composition_cosine": 0.95,
+    "minimum_composition_norm_ratio": 0.8,
+    "minimum_composition_sign": 0.9,
+    "minimum_native_accuracy": 0.75,
+    "minimum_single_site_effect_rms": 0.01,
+    "minimum_single_site_positive_fraction": 0.75
+  },
+  "coefficient_keys": [
+    "plural_to_singular.cardinality_4",
+    "singular_to_plural.cardinality_4"
+  ],
+  "coefficients": {
+    "plural_to_singular.cardinality_4": 7.605708871993355,
+    "singular_to_plural.cardinality_4": -31.14876154002341
+  },
+  "files": {
+    "decoder": "f2356b8a1c336d011e36059e571117a0d61c4104a3570521bd59838a29f40cc1",
+    "decoder_fresh_result": "d151c1b47eccbf29e3b5ebac7ade8c7090029f1f0ee56ee2a28b49e0bd3fba12",
+    "preregistration": "6f35ef9f035e424d1e9f17818280784f11d665a0094b3450b010cdf88838e59c",
+    "rank1": "f73126268794342809c2953b388ed83f6d1d0e2e245ce9ea78f2d665a0e87c1f",
+    "rows": "0dc3ce5d3dfedc8d9338eca6f0b13f259d75eb06a57a68cd35843c6830fb54ee"
+  },
+  "price": {
+    "backwards": 0,
+    "embedding_lookups": 32,
+    "fits": 0,
+    "forwards": 5,
+    "sequences": 80,
+    "updates": 0
+  },
+  "row_manifest_sha256": "016e2a28af3c9cb38ff31a4eefc2ce82c89e63f2a5897e7839e39a14e26972bc",
+  "sequence_length": 15,
+  "site_positions_by_row": [
+    5,
+    14
+  ]
+}

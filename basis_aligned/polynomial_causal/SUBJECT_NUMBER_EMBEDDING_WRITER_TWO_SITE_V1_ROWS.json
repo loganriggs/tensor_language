@@ -1,0 +1,823 @@
+{
+  "behavior_opened": false,
+  "builder_sha256": "d687e4017da8c514083e9eb9929949ed881b117ca532327d78350ac9e7a862dc",
+  "decoder_result_sha256": "d151c1b47eccbf29e3b5ebac7ade8c7090029f1f0ee56ee2a28b49e0bd3fba12",
+  "model_loaded": false,
+  "number_pair_counts": {
+    "plural|plural": 4,
+    "plural|singular": 4,
+    "singular|plural": 4,
+    "singular|singular": 4
+  },
+  "row_manifest_sha256": "016e2a28af3c9cb38ff31a4eefc2ce82c89e63f2a5897e7839e39a14e26972bc",
+  "rows": [
+    {
+      "control_token_ids": {
+        "can": 460,
+        "will": 481
+      },
+      "group": 0,
+      "number_pair": [
+        "singular",
+        "singular"
+      ],
+      "row_id": "7c7f73e9c8a261f38c29961779dcd8991eeeb0e0b4f8d3838892c56e0ceeb89c",
+      "schema": "subject_number_embedding_writer_two_site_v1_rows",
+      "sites": [
+        {
+          "direction": "singular_to_plural",
+          "native_answer_id": 318,
+          "native_number": "singular",
+          "opposite_answer_id": 389,
+          "position": 5,
+          "subject": "man"
+        },
+        {
+          "direction": "singular_to_plural",
+          "native_answer_id": 318,
+          "native_number": "singular",
+          "opposite_answer_id": 389,
+          "position": 14,
+          "subject": "woman"
+        }
+      ],
+      "template_id": "behind_before",
+      "text": "Behind the glasses, the man is calm; before the dancers, the woman",
+      "token_ids": [
+        34163,
+        262,
+        15232,
+        11,
+        262,
+        582,
+        318,
+        9480,
+        26,
+        878,
+        262,
+        35837,
+        11,
+        262,
+        2415
+      ]
+    },
+    {
+      "control_token_ids": {
+        "can": 460,
+        "will": 481
+      },
+      "group": 0,
+      "number_pair": [
+        "singular",
+        "singular"
+      ],
+      "row_id": "775a472290f3cb2776b65fa548542f3682be23e80264588fd420c9a772c92962",
+      "schema": "subject_number_embedding_writer_two_site_v1_rows",
+      "sites": [
+        {
+          "direction": "singular_to_plural",
+          "native_answer_id": 318,
+          "native_number": "singular",
+          "opposite_answer_id": 389,
+          "position": 5,
+          "subject": "man"
+        },
+        {
+          "direction": "singular_to_plural",
+          "native_answer_id": 318,
+          "native_number": "singular",
+          "opposite_answer_id": 389,
+          "position": 14,
+          "subject": "woman"
+        }
+      ],
+      "template_id": "along_beneath",
+      "text": "Along the glasses, the man is ready; beneath the dancers, the woman",
+      "token_ids": [
+        24035,
+        262,
+        15232,
+        11,
+        262,
+        582,
+        318,
+        3492,
+        26,
+        11061,
+        262,
+        35837,
+        11,
+        262,
+        2415
+      ]
+    },
+    {
+      "control_token_ids": {
+        "can": 460,
+        "will": 481
+      },
+      "group": 1,
+      "number_pair": [
+        "singular",
+        "plural"
+      ],
+      "row_id": "1df19d1bb078f436e9fa05da7058c580e954a26e97526674751c85dcb0d62bfc",
+      "schema": "subject_number_embedding_writer_two_site_v1_rows",
+      "sites": [
+        {
+          "direction": "singular_to_plural",
+          "native_answer_id": 318,
+          "native_number": "singular",
+          "opposite_answer_id": 389,
+          "position": 5,
+          "subject": "child"
+        },
+        {
+          "direction": "plural_to_singular",
+          "native_answer_id": 389,
+          "native_number": "plural",
+          "opposite_answer_id": 318,
+          "position": 14,
+          "subject": "people"
+        }
+      ],
+      "template_id": "behind_before",
+      "text": "Behind the teachers, the child is calm; before the driver, the people",
+      "token_ids": [
+        34163,
+        262,
+        7799,
+        11,
+        262,
+        1200,
+        318,
+        9480,
+        26,
+        878,
+        262,
+        4639,
+        11,
+        262,
+        661
+      ]
+    },
+    {
+      "control_token_ids": {
+        "can": 460,
+        "will": 481
+      },
+      "group": 1,
+      "number_pair": [
+        "singular",
+        "plural"
+      ],
+      "row_id": "be74ca2b28d5652b9d806bb2e78e9cd6e89a10c4f782436d813fc2cd598a3734",
+      "schema": "subject_number_embedding_writer_two_site_v1_rows",
+      "sites": [
+        {
+          "direction": "singular_to_plural",
+          "native_answer_id": 318,
+          "native_number": "singular",
+          "opposite_answer_id": 389,
+          "position": 5,
+          "subject": "child"
+        },
+        {
+          "direction": "plural_to_singular",
+          "native_answer_id": 389,
+          "native_number": "plural",
+          "opposite_answer_id": 318,
+          "position": 14,
+          "subject": "people"
+        }
+      ],
+      "template_id": "along_beneath",
+      "text": "Along the teachers, the child is ready; beneath the driver, the people",
+      "token_ids": [
+        24035,
+        262,
+        7799,
+        11,
+        262,
+        1200,
+        318,
+        3492,
+        26,
+        11061,
+        262,
+        4639,
+        11,
+        262,
+        661
+      ]
+    },
+    {
+      "control_token_ids": {
+        "can": 460,
+        "will": 481
+      },
+      "group": 2,
+      "number_pair": [
+        "plural",
+        "singular"
+      ],
+      "row_id": "36146d018a4e2343c6575325eed85d3b4dd80415ebaebb242852f2e6078629a9",
+      "schema": "subject_number_embedding_writer_two_site_v1_rows",
+      "sites": [
+        {
+          "direction": "plural_to_singular",
+          "native_answer_id": 389,
+          "native_number": "plural",
+          "opposite_answer_id": 318,
+          "position": 5,
+          "subject": "mice"
+        },
+        {
+          "direction": "singular_to_plural",
+          "native_answer_id": 318,
+          "native_number": "singular",
+          "opposite_answer_id": 389,
+          "position": 14,
+          "subject": "glass"
+        }
+      ],
+      "template_id": "behind_before",
+      "text": "Behind the lawyer, the mice are calm; before the captains, the glass",
+      "token_ids": [
+        34163,
+        262,
+        6853,
+        11,
+        262,
+        10693,
+        389,
+        9480,
+        26,
+        878,
+        262,
+        37551,
+        11,
+        262,
+        5405
+      ]
+    },
+    {
+      "control_token_ids": {
+        "can": 460,
+        "will": 481
+      },
+      "group": 2,
+      "number_pair": [
+        "plural",
+        "singular"
+      ],
+      "row_id": "e2bc1a9a68d6335a9ff2a981512fcdebce855cf5b8c4bbf18f14af41fab7e9fa",
+      "schema": "subject_number_embedding_writer_two_site_v1_rows",
+      "sites": [
+        {
+          "direction": "plural_to_singular",
+          "native_answer_id": 389,
+          "native_number": "plural",
+          "opposite_answer_id": 318,
+          "position": 5,
+          "subject": "mice"
+        },
+        {
+          "direction": "singular_to_plural",
+          "native_answer_id": 318,
+          "native_number": "singular",
+          "opposite_answer_id": 389,
+          "position": 14,
+          "subject": "glass"
+        }
+      ],
+      "template_id": "along_beneath",
+      "text": "Along the lawyer, the mice are ready; beneath the captains, the glass",
+      "token_ids": [
+        24035,
+        262,
+        6853,
+        11,
+        262,
+        10693,
+        389,
+        3492,
+        26,
+        11061,
+        262,
+        37551,
+        11,
+        262,
+        5405
+      ]
+    },
+    {
+      "control_token_ids": {
+        "can": 460,
+        "will": 481
+      },
+      "group": 3,
+      "number_pair": [
+        "plural",
+        "plural"
+      ],
+      "row_id": "cb7a03410fb4a513012043210db53a84df6aa978be0ce7906908febcd02dcc29",
+      "schema": "subject_number_embedding_writer_two_site_v1_rows",
+      "sites": [
+        {
+          "direction": "plural_to_singular",
+          "native_answer_id": 389,
+          "native_number": "plural",
+          "opposite_answer_id": 318,
+          "position": 5,
+          "subject": "doctors"
+        },
+        {
+          "direction": "plural_to_singular",
+          "native_answer_id": 389,
+          "native_number": "plural",
+          "opposite_answer_id": 318,
+          "position": 14,
+          "subject": "teachers"
+        }
+      ],
+      "template_id": "behind_before",
+      "text": "Behind the dancer, the doctors are calm; before the woman, the teachers",
+      "token_ids": [
+        34163,
+        262,
+        38619,
+        11,
+        262,
+        7519,
+        389,
+        9480,
+        26,
+        878,
+        262,
+        2415,
+        11,
+        262,
+        7799
+      ]
+    },
+    {
+      "control_token_ids": {
+        "can": 460,
+        "will": 481
+      },
+      "group": 3,
+      "number_pair": [
+        "plural",
+        "plural"
+      ],
+      "row_id": "1aec4a4eb2c232043592a43b95584547b9ceaca572441f9e2b40acbb2ccd8a68",
+      "schema": "subject_number_embedding_writer_two_site_v1_rows",
+      "sites": [
+        {
+          "direction": "plural_to_singular",
+          "native_answer_id": 389,
+          "native_number": "plural",
+          "opposite_answer_id": 318,
+          "position": 5,
+          "subject": "doctors"
+        },
+        {
+          "direction": "plural_to_singular",
+          "native_answer_id": 389,
+          "native_number": "plural",
+          "opposite_answer_id": 318,
+          "position": 14,
+          "subject": "teachers"
+        }
+      ],
+      "template_id": "along_beneath",
+      "text": "Along the dancer, the doctors are ready; beneath the woman, the teachers",
+      "token_ids": [
+        24035,
+        262,
+        38619,
+        11,
+        262,
+        7519,
+        389,
+        3492,
+        26,
+        11061,
+        262,
+        2415,
+        11,
+        262,
+        7799
+      ]
+    },
+    {
+      "control_token_ids": {
+        "can": 460,
+        "will": 481
+      },
+      "group": 4,
+      "number_pair": [
+        "singular",
+        "singular"
+      ],
+      "row_id": "113660cb369453e462f692e7cfb27b15b02f3a9c20c7541feee5373f1175446a",
+      "schema": "subject_number_embedding_writer_two_site_v1_rows",
+      "sites": [
+        {
+          "direction": "singular_to_plural",
+          "native_answer_id": 318,
+          "native_number": "singular",
+          "opposite_answer_id": 389,
+          "position": 5,
+          "subject": "farmer"
+        },
+        {
+          "direction": "singular_to_plural",
+          "native_answer_id": 318,
+          "native_number": "singular",
+          "opposite_answer_id": 389,
+          "position": 14,
+          "subject": "lawyer"
+        }
+      ],
+      "template_id": "behind_before",
+      "text": "Behind the drivers, the farmer is calm; before the people, the lawyer",
+      "token_ids": [
+        34163,
+        262,
+        6643,
+        11,
+        262,
+        18739,
+        318,
+        9480,
+        26,
+        878,
+        262,
+        661,
+        11,
+        262,
+        6853
+      ]
+    },
+    {
+      "control_token_ids": {
+        "can": 460,
+        "will": 481
+      },
+      "group": 4,
+      "number_pair": [
+        "singular",
+        "singular"
+      ],
+      "row_id": "5bb9ea25a6542fd13e89f6f15fee0b61e2845c821d9e2dc392f33e1da3fcfd53",
+      "schema": "subject_number_embedding_writer_two_site_v1_rows",
+      "sites": [
+        {
+          "direction": "singular_to_plural",
+          "native_answer_id": 318,
+          "native_number": "singular",
+          "opposite_answer_id": 389,
+          "position": 5,
+          "subject": "farmer"
+        },
+        {
+          "direction": "singular_to_plural",
+          "native_answer_id": 318,
+          "native_number": "singular",
+          "opposite_answer_id": 389,
+          "position": 14,
+          "subject": "lawyer"
+        }
+      ],
+      "template_id": "along_beneath",
+      "text": "Along the drivers, the farmer is ready; beneath the people, the lawyer",
+      "token_ids": [
+        24035,
+        262,
+        6643,
+        11,
+        262,
+        18739,
+        318,
+        3492,
+        26,
+        11061,
+        262,
+        661,
+        11,
+        262,
+        6853
+      ]
+    },
+    {
+      "control_token_ids": {
+        "can": 460,
+        "will": 481
+      },
+      "group": 5,
+      "number_pair": [
+        "singular",
+        "plural"
+      ],
+      "row_id": "002352bf0f237a0e3a23cc43ed1cbc1d969af9c3cd7218657e5586413e00b035",
+      "schema": "subject_number_embedding_writer_two_site_v1_rows",
+      "sites": [
+        {
+          "direction": "singular_to_plural",
+          "native_answer_id": 318,
+          "native_number": "singular",
+          "opposite_answer_id": 389,
+          "position": 5,
+          "subject": "poet"
+        },
+        {
+          "direction": "plural_to_singular",
+          "native_answer_id": 389,
+          "native_number": "plural",
+          "opposite_answer_id": 318,
+          "position": 14,
+          "subject": "dancers"
+        }
+      ],
+      "template_id": "behind_before",
+      "text": "Behind the captains, the poet is calm; before the glass, the dancers",
+      "token_ids": [
+        34163,
+        262,
+        37551,
+        11,
+        262,
+        21810,
+        318,
+        9480,
+        26,
+        878,
+        262,
+        5405,
+        11,
+        262,
+        35837
+      ]
+    },
+    {
+      "control_token_ids": {
+        "can": 460,
+        "will": 481
+      },
+      "group": 5,
+      "number_pair": [
+        "singular",
+        "plural"
+      ],
+      "row_id": "b324fde0b6890d6c831c5e5fd5f43aa739f3f77ebcb06d1cea23f87ddff3ffe5",
+      "schema": "subject_number_embedding_writer_two_site_v1_rows",
+      "sites": [
+        {
+          "direction": "singular_to_plural",
+          "native_answer_id": 318,
+          "native_number": "singular",
+          "opposite_answer_id": 389,
+          "position": 5,
+          "subject": "poet"
+        },
+        {
+          "direction": "plural_to_singular",
+          "native_answer_id": 389,
+          "native_number": "plural",
+          "opposite_answer_id": 318,
+          "position": 14,
+          "subject": "dancers"
+        }
+      ],
+      "template_id": "along_beneath",
+      "text": "Along the captains, the poet is ready; beneath the glass, the dancers",
+      "token_ids": [
+        24035,
+        262,
+        37551,
+        11,
+        262,
+        21810,
+        318,
+        3492,
+        26,
+        11061,
+        262,
+        5405,
+        11,
+        262,
+        35837
+      ]
+    },
+    {
+      "control_token_ids": {
+        "can": 460,
+        "will": 481
+      },
+      "group": 6,
+      "number_pair": [
+        "plural",
+        "singular"
+      ],
+      "row_id": "1e49b4771fee95de8cd04e9f0dc56b6c4688dcc99a538b87d6aaf2eff1779477",
+      "schema": "subject_number_embedding_writer_two_site_v1_rows",
+      "sites": [
+        {
+          "direction": "plural_to_singular",
+          "native_answer_id": 389,
+          "native_number": "plural",
+          "opposite_answer_id": 318,
+          "position": 5,
+          "subject": "singers"
+        },
+        {
+          "direction": "singular_to_plural",
+          "native_answer_id": 318,
+          "native_number": "singular",
+          "opposite_answer_id": 389,
+          "position": 14,
+          "subject": "driver"
+        }
+      ],
+      "template_id": "behind_before",
+      "text": "Behind the woman, the singers are calm; before the teachers, the driver",
+      "token_ids": [
+        34163,
+        262,
+        2415,
+        11,
+        262,
+        39113,
+        389,
+        9480,
+        26,
+        878,
+        262,
+        7799,
+        11,
+        262,
+        4639
+      ]
+    },
+    {
+      "control_token_ids": {
+        "can": 460,
+        "will": 481
+      },
+      "group": 6,
+      "number_pair": [
+        "plural",
+        "singular"
+      ],
+      "row_id": "b622c9c1d3ea007bee689ec845f5fc37c18530c5f121ecaa6e7676d924d91081",
+      "schema": "subject_number_embedding_writer_two_site_v1_rows",
+      "sites": [
+        {
+          "direction": "plural_to_singular",
+          "native_answer_id": 389,
+          "native_number": "plural",
+          "opposite_answer_id": 318,
+          "position": 5,
+          "subject": "singers"
+        },
+        {
+          "direction": "singular_to_plural",
+          "native_answer_id": 318,
+          "native_number": "singular",
+          "opposite_answer_id": 389,
+          "position": 14,
+          "subject": "driver"
+        }
+      ],
+      "template_id": "along_beneath",
+      "text": "Along the woman, the singers are ready; beneath the teachers, the driver",
+      "token_ids": [
+        24035,
+        262,
+        2415,
+        11,
+        262,
+        39113,
+        389,
+        3492,
+        26,
+        11061,
+        262,
+        7799,
+        11,
+        262,
+        4639
+      ]
+    },
+    {
+      "control_token_ids": {
+        "can": 460,
+        "will": 481
+      },
+      "group": 7,
+      "number_pair": [
+        "plural",
+        "plural"
+      ],
+      "row_id": "d2fbc84379b958d9c51fe670cac82040a5540e2b9af2c1d25cedb30271ab5e72",
+      "schema": "subject_number_embedding_writer_two_site_v1_rows",
+      "sites": [
+        {
+          "direction": "plural_to_singular",
+          "native_answer_id": 389,
+          "native_number": "plural",
+          "opposite_answer_id": 318,
+          "position": 5,
+          "subject": "guards"
+        },
+        {
+          "direction": "plural_to_singular",
+          "native_answer_id": 389,
+          "native_number": "plural",
+          "opposite_answer_id": 318,
+          "position": 14,
+          "subject": "captains"
+        }
+      ],
+      "template_id": "behind_before",
+      "text": "Behind the person, the guards are calm; before the lawyer, the captains",
+      "token_ids": [
+        34163,
+        262,
+        1048,
+        11,
+        262,
+        10942,
+        389,
+        9480,
+        26,
+        878,
+        262,
+        6853,
+        11,
+        262,
+        37551
+      ]
+    },
+    {
+      "control_token_ids": {
+        "can": 460,
+        "will": 481
+      },
+      "group": 7,
+      "number_pair": [
+        "plural",
+        "plural"
+      ],
+      "row_id": "be94f2799bb793cfec5f39c2b65cf0b1eb0757aa9abda6ce8900e4fbe3b118bb",
+      "schema": "subject_number_embedding_writer_two_site_v1_rows",
+      "sites": [
+        {
+          "direction": "plural_to_singular",
+          "native_answer_id": 389,
+          "native_number": "plural",
+          "opposite_answer_id": 318,
+          "position": 5,
+          "subject": "guards"
+        },
+        {
+          "direction": "plural_to_singular",
+          "native_answer_id": 389,
+          "native_number": "plural",
+          "opposite_answer_id": 318,
+          "position": 14,
+          "subject": "captains"
+        }
+      ],
+      "template_id": "along_beneath",
+      "text": "Along the person, the guards are ready; beneath the lawyer, the captains",
+      "token_ids": [
+        24035,
+        262,
+        1048,
+        11,
+        262,
+        10942,
+        389,
+        3492,
+        26,
+        11061,
+        262,
+        6853,
+        11,
+        262,
+        37551
+      ]
+    }
+  ],
+  "schema": "subject_number_embedding_writer_two_site_v1_rows",
+  "selection_rule": "all sixteen noun pairs from the prospectively frozen decoder authority, assigned before behavioral outcomes to eight groups crossing all four number pairs twice and two fixed two-clause templates",
+  "sequence_length": 15,
+  "sites": 32,
+  "templates": [
+    "behind_before",
+    "along_beneath"
+  ]
+}
