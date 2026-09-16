@@ -702,6 +702,14 @@ all are selective with at most `.000507` nat noncopy mean change.  The cross is
 only `.00122` of correction-score norm yet causally large.  The exported
 four-node graph is the current exact reusable boundary; its 16 native Q/K
 projections and upstream factor ports remain the next extraction cost.
+
+The preferred export now removes the native-child-score oracle from that
+interface.  It accepts eight derived/native raw Q/K ports plus rotary context
+and performs normalization, rotation, native BF16 multiplication, and arithmetic
+residual construction internally.  Natural/code closure is zero and every
+node-removal, selectivity, score-norm, and rolled-control statistic matches the
+validated parent exactly.  The remaining external boundary is residual-to-port
+projection plus the rank-256 M4 producer, not a behavior or score oracle.
 [three-edge factorial](../../polynomial_causal/EQUALITY_PRE_MLP9_THREE_EDGE_FACTORIAL_DISCOVERY_V1_RESULT.json),
 [code-OOD calibration null](../../polynomial_causal/EQUALITY_A8_EDGE_CODE_OOD_CONFIRMATION_V1_RESULT.json),
 [projected-payload extraction null](../../polynomial_causal/EQUALITY_L8H4_EXTRACTED_NODE_CODE_OOD_V1_RESULT.json),
@@ -733,6 +741,8 @@ projections and upstream factor ports remain the next extraction cost.
 [invalid three-node real-arithmetic factor graph](../../polynomial_causal/EQUALITY_L5H5_M4_TWO_FACTOR_CORRECTION_GRAPH_V1_RESULT.json),
 [precision-corrected four-node factor graph](../../polynomial_causal/EQUALITY_L5H5_M4_TWO_FACTOR_CORRECTION_GRAPH_V2_RESULT.json),
 [precision-factor graph export](../../polynomial_causal/EQUALITY_L5H5_M4_PRECISION_FACTOR_GRAPH_EXPORT_V1_RESULT.json),
+[raw-port factor graph](../../polynomial_causal/EQUALITY_L5H5_M4_RAW_PORT_FACTOR_GRAPH_V1_RESULT.json),
+[raw-port factor graph export](../../polynomial_causal/EQUALITY_L5H5_M4_RAW_PORT_FACTOR_GRAPH_EXPORT_V1_RESULT.json),
 [red-team note](../../polynomial_causal/EQUALITY_A8_SPARSE_EDGE_EXECUTION_NOTE.md).
 
 The retained three-block score also has a smaller exact executor:

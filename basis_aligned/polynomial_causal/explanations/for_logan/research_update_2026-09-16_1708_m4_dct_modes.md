@@ -190,3 +190,20 @@ finite-precision semantics.  It has OOD prediction, standalone extraction,
 selective node removal, and exact composition/reuse.  It is structural rather
 than computational compression: the 16 native Q/K projections and upstream
 derived/native factor ports remain part of the declared boundary.
+
+## No-oracle raw-port executor
+
+We then removed a circularity in the first factor-graph package: it accepted the
+native child score as an input in order to define the arithmetic residual.  The
+replacement executor accepts only derived/native raw `Q1,K1,Q2,K2` head ports
+and rotary cosine/sine.  It performs head RMS normalization, rotation, native
+BF16 factor multiplication, float32 explanatory factorization, and residual
+construction internally.
+
+The integration result is exact.  Natural/code score closure is zero, and the
+maximum discrepancy from the validated parent is zero for node-removal
+magnitude, node score norm, noncopy mean, and rolled-arithmetic effect cosine.
+Behavioral replay remains exact in every subtype and half.  The graph therefore
+has no oracle score input and retains all four traits at a more honest
+extraction boundary.  Eight raw activation ports, rotary context, 16 native
+residual-to-Q/K projections, and the rank-256 M4 producer remain external.

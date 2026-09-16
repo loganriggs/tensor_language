@@ -174,3 +174,11 @@ interaction removal, with at most `.000507` nat noncopy mean change.  The cross
 has only `.00122` relative score norm, so it is the clearest counterexample to
 norm pruning.  The extracted four-node package retains all 16 native Q/K
 projections and counts the factor ports and RMS context as external inputs.
+
+The exported successor removes the remaining oracle-score input.  From eight
+derived/native raw Q/K ports plus rotary context it internally reproduces the
+native BF16 child score and all four graph nodes.  Its natural/code score closure
+is zero, and every removal, selectivity, score-norm, and rolled-control statistic
+matches the validated parent exactly.  The live boundary is now genuinely at
+raw activation ports; residual-to-port projection and the rank-256 producer are
+still external.

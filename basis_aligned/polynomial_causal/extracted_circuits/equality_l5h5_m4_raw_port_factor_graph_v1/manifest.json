@@ -1,0 +1,27 @@
+{
+  "schema": "extracted_equality_l5h5_m4_raw_port_factor_graph_v1",
+  "name": "equality_l5h5_m4_raw_port_factor_graph_v1",
+  "nodes": [
+    "first_qk_correction_times_second_baseline",
+    "first_baseline_times_second_qk_correction",
+    "algebraic_qk_correction_cross_product",
+    "native_arithmetic_residual"
+  ],
+  "input_ports": [
+    "derived_q1_raw",
+    "derived_k1_raw",
+    "derived_q2_raw",
+    "derived_k2_raw",
+    "native_q1_raw",
+    "native_k1_raw",
+    "native_q2_raw",
+    "native_k2_raw",
+    "rotary_cos",
+    "rotary_sin"
+  ],
+  "oracle_score_inputs": 0,
+  "native_qk_projections": 16,
+  "learned_parameters": 0,
+  "dependency": "equality_l5h5_m4_rank256_mode_graph_v1",
+  "scope": "Standalone child-score factor graph from raw derived/native Q/K ports. Residual-to-port projection, RMS context used to derive the child ports, and the rank-256 M4 producer remain external."
+}

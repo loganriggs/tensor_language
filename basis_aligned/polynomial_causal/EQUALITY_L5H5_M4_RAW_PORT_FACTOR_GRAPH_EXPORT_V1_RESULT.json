@@ -1,0 +1,50 @@
+{
+  "schema": "equality_l5h5_m4_raw_port_factor_graph_export_v1_result",
+  "terminal": "exported_equality_l5h5_m4_raw_port_factor_graph_ood",
+  "source_result": "EQUALITY_L5H5_M4_RAW_PORT_FACTOR_GRAPH_V1_RESULT.json",
+  "source_result_sha256": "24194aca81bfb971c5483a8a55acd8c83a374f9b80658baf872baebb4093eae2",
+  "package": "extracted_circuits/equality_l5h5_m4_raw_port_factor_graph_v1",
+  "nodes": [
+    "first_qk_correction_times_second_baseline",
+    "first_baseline_times_second_qk_correction",
+    "algebraic_qk_correction_cross_product",
+    "native_arithmetic_residual"
+  ],
+  "input_ports": [
+    "derived_q1_raw",
+    "derived_k1_raw",
+    "derived_q2_raw",
+    "derived_k2_raw",
+    "native_q1_raw",
+    "native_k1_raw",
+    "native_q2_raw",
+    "native_k2_raw",
+    "rotary_cos",
+    "rotary_sin"
+  ],
+  "oracle_score_inputs": 0,
+  "learned_parameters": 0,
+  "validation": {
+    "natural_score_closure_relative_l2": 0.0,
+    "code_score_closure_relative_l2": 0.0,
+    "maximum_node_removal_magnitude_absolute_delta": 0.0,
+    "maximum_node_score_relative_norm_absolute_delta": 0.0,
+    "maximum_noncopy_mean_absolute_delta_nat": 0.0,
+    "arithmetic_roll_effect_cosine_absolute_delta": 0.0
+  },
+  "four_traits": {
+    "ood_prediction": true,
+    "extraction": true,
+    "selective_removal": true,
+    "composition_reuse": true
+  },
+  "price_caveat": "No oracle score is required, but eight raw Q/K activation ports, rotary context, 16 native projections, and the upstream rank-256 M4 boundary remain external.",
+  "files": {
+    "README.md": "01fc5add57f97ace4e6910ea04b06c9dec3ef025159141336a504a3e3bec7174",
+    "__init__.py": "820fdd6fcedb8d0168c3e2b6c9219f8990afe52d4e19035409d5921f835fd2c3",
+    "manifest.json": "7e57d9989e85fcdeab12f6eeebda896c10e3e999b53efe9f5a14961152b1cc35",
+    "node.py": "1f54b3066d4f7e45c4fbd5d0a4ae1899b45be67cb0dda71143338008b7c57603",
+    "test_node.py": "b0913d925a2ba0f09659c31284248ac6f87685b53cf773bb0a498738f4665943"
+  },
+  "created_utc": "2026-09-16T18:07:16Z"
+}
