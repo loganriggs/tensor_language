@@ -1,0 +1,102 @@
+{
+  "artifact_relative": "basis_aligned/polynomial_causal/MLP9_DCT_UNSUPERVISED_READER_V1_ARTIFACT.pt",
+  "artifact_sha256": "75afbbaeb8727c9eb15039d56f24b3825dc33de4fa32e3857236323a6c74316e",
+  "binding_sha256": "a3226dc011a4fe2b24df42ece9a37c844bb12fff056eec6843ddaa444f529909",
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "contraction_relative_errors": [
+    4.370084753553921e-16,
+    3.9145971970662885e-15,
+    8.899026439215836e-16,
+    1.869255629911372e-16,
+    7.949434848584218e-16,
+    0.0,
+    6.305594851983054e-16,
+    3.612606910346275e-16
+  ],
+  "created_utc": "2026-09-16T14:04:04.147891Z",
+  "family_reader_coverage": [
+    0.07023624370522266,
+    0.0689724946057275,
+    0.07189571815144856,
+    0.0733305459094358
+  ],
+  "input_orthogonality_maximum_absolute_error": [
+    2.220446049250313e-16,
+    2.220446049250313e-16
+  ],
+  "input_principal_cosines": [
+    0.9999997852620249,
+    0.9999997006663528,
+    0.9999996005596177,
+    0.999999136731956,
+    0.06158889139328684,
+    0.03106166717769171,
+    0.021493479525392312,
+    0.011645783024928488
+  ],
+  "maximum_contraction_relative_error": 3.9145971970662885e-15,
+  "maximum_state_replay_relative_l2": 0.0,
+  "output_principal_cosines": [
+    0.9999999976282476,
+    0.9999991935853044,
+    0.9999975560837915,
+    0.9999963018356431,
+    0.10992940429083674,
+    0.050450843482164914,
+    0.03479512811253928,
+    0.014460661162677212
+  ],
+  "pooled_reader_coverage": 0.07111504151604392,
+  "predictions": {
+    "pred_a_tensor_instrument": true,
+    "pred_b_solver_health": false,
+    "pred_c_identifiability": false,
+    "pred_d_reader_coverage": false,
+    "pred_e_random_subspace_specificity": false,
+    "pred_f_complete_audit": true
+  },
+  "price": {
+    "behavioral_fits": 0,
+    "checkpoint_loads": 1,
+    "downstream_gradients": 48,
+    "factor_restarts": 8,
+    "factor_sweeps": 40,
+    "nested_jvp_checks": 8,
+    "opened_prefixes": 48,
+    "parameter_updates": 0,
+    "physical_interventions": 0,
+    "random_rank8_controls": 16,
+    "tensor_probes": 64,
+    "weight_only_rank8_fits": 2
+  },
+  "probe_residual_relative_l2": [
+    0.9935181547921943,
+    0.9923384075483123
+  ],
+  "prompt_reader_coverage_median": 0.07595611363649368,
+  "prompt_reader_coverage_minimum": 0.05043075260135663,
+  "random_control_coverage": [
+    0.08118304087834158,
+    0.08154808062830896,
+    0.07941363450544502,
+    0.09424662654139825,
+    0.07735220849548087,
+    0.09049903812096059,
+    0.07365803835623988,
+    0.07366051510521486,
+    0.08600769411062467,
+    0.08649855465141684,
+    0.07077551105464375,
+    0.07712008428821573,
+    0.08597409280274858,
+    0.06697548200857364,
+    0.07933454086022437,
+    0.11163026046607263
+  ],
+  "random_control_median": 0.07941363450544502,
+  "runner_sha256": "db8e5da792d07e75153d16ed1fa050a5b5e3c99f251f28fdf8341f948d7b8bc5",
+  "schema": "mlp9_dct_unsupervised_reader_v1_result",
+  "scope": "Full-width weight-only raw-MLP9 symmetric-Hessian factor recovery followed by opened-panel CrossFirst reader-span diagnostic; no prompt enters factor recovery and no OOD, extraction, removal, or sufficiency claim.",
+  "seconds": 5.381306395000138,
+  "terminal": "valid_mlp9_dct_unsupervised_reader_null"
+}

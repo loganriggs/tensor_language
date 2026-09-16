@@ -385,6 +385,28 @@ downstream bilinear layer instead.
 [direct-cubic correction](../../polynomial_causal/CROSSFIRST_DIRECT_CUBIC_V1_CORRECTION.md),
 [direct-cubic result](../../polynomial_causal/CROSSFIRST_DIRECT_CUBIC_V1_RESULT.json).
 
+The briefing's full-width weight-only DCT reader proposal has now also been
+tested directly at raw MLP9.  An implicit symmetric orthogonalized ALS used only
+`Left`, `Right`, and `Down`; eight analytic tensor contractions replay nested
+JVPs to `3.92e-15` relative error.  A first execution serialized some symmetric
+factor signs incorrectly and is explicitly retained as invalid; the corrected
+run leaves the scientific outcome unchanged.  Rank eight removes only
+`.65--.77%` of fixed random-probe tensor norm, is not identifiable across two
+seeds (minimum input/output principal cosines `.0116/.0145`), and captures only
+`.0711` of the exact opened-panel suffix-reader norm, below the equal-rank
+random median `.0794`.  A positive post-hoc audit finds four individually
+reproducible factors after permutation (input cosines `.9992--.9998`, output
+cosines above `.99999`), but their reader coverage `.05757` is likewise
+indistinguishable from the rank-four random median `.05811`.  Thus real stable
+weight-tensor structure exists, but unconditioned raw-weight DCT does not supply
+the CrossFirst reader.  Do not enlarge this same energy-ranked raw tensor basis;
+the remaining DCT route must keep native context/RMS slots open or be
+prompt-conditioned, and must still face causal extraction/removal tests.
+[DCT preregistration](../../polynomial_causal/MLP9_DCT_UNSUPERVISED_READER_V1_PREREGISTRATION.md),
+[implementation correction](../../polynomial_causal/MLP9_DCT_UNSUPERVISED_READER_V1_CORRECTION.md),
+[corrected DCT result](../../polynomial_causal/MLP9_DCT_UNSUPERVISED_READER_V1_RESULT.json),
+[rank-stability audit](../../polynomial_causal/MLP9_DCT_UNSUPERVISED_READER_RANK_STABILITY_V1_AUDIT.json).
+
 The retained three-block score also has a smaller exact executor:
 
 $$

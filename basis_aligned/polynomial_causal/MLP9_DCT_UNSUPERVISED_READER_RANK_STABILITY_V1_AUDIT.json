@@ -1,0 +1,62 @@
+{
+  "artifact_sha256": "75afbbaeb8727c9eb15039d56f24b3825dc33de4fa32e3857236323a6c74316e",
+  "finding": "Four factors are individually stable across seeds after permutation, but their pooled CrossFirst reader coverage is indistinguishable from equal-rank random subspaces. The other four factors are unstable. This preserves real weight-tensor structure while confirming that raw weight-only MLP9 DCT factors are not useful CrossFirst readers.",
+  "random_rank_matched_coverage": [
+    0.0494325817853698,
+    0.054802281725205695,
+    0.06002808265526476,
+    0.08137110297946644,
+    0.05726483007190754,
+    0.05810822937201678,
+    0.06813759599855046,
+    0.06836736133328342,
+    0.052693538458014985,
+    0.044469680620599625,
+    0.058907748640696096,
+    0.05917669091906917,
+    0.048487799848700504,
+    0.0747915204171625,
+    0.04674691472700149,
+    0.06053591687714422
+  ],
+  "random_rank_matched_maximum": 0.08137110297946644,
+  "random_rank_matched_median": 0.05810822919011116,
+  "rank8_random_median": 0.07941363450544502,
+  "rank8_reader_coverage": 0.07111504151604392,
+  "result_sha256": "1e724d5793468b481a1bd97c9d3432e969652e0cdfccbd850641574b1a80aced",
+  "schema": "mlp9_dct_unsupervised_reader_rank_stability_v1_audit",
+  "stable_pair_input_absolute_cosines": [
+    0.9998278871546842,
+    0.9994210892089769,
+    0.9995864713777283,
+    0.9991559205208341
+  ],
+  "stable_pair_output_absolute_cosines": [
+    0.9999992222341654,
+    0.9999987380545192,
+    0.9999977002326181,
+    0.9999955928395907
+  ],
+  "stable_pair_threshold": 0.95,
+  "stable_pairs_first_to_second": [
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      7,
+      3
+    ]
+  ],
+  "stable_rank": 4,
+  "stable_rank_reader_coverage": 0.057573660781305484,
+  "status": "posthoc_audit_not_a_new_preregistered_test"
+}
