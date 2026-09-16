@@ -209,6 +209,32 @@ multiple environments; another fixed global rank/support sweep is closed.
 [response fresh null](fast_screens/setting2_regional_attention17h2_response_basis_fresh_v1_result.json),
 [source-PCA second-panel null](fast_screens/setting2_regional_attention17h2_source_pca_fresh_v1_result.json).
 
+The first explicit context-slot test used those two frozen rank-eight source
+bases as alternatives.  A one-bit, label-free gate selected whichever basis
+retained more source-addition energy for each sequence, then ran the same
+head17.2 corner and recursive suffix on a third zero-text-overlap panel.  It
+retains `63.54%` of source norm and still predicts response (`.24643`) and
+bidirectional causal effects (`.24076/.24153`, perfect family signs), while
+four matched random rank-eight bases lose essentially the whole response
+(`.9940--.9973` error).  But it fails preservation at `1.45896x` and does not
+beat either fixed basis; the gate chooses the competing-cues basis on 37/48
+rows.  The rank-16 union also fails (`1.44139x`).  Most decisively, the
+unprojected eight-edge source support fails the same fresh controls at
+`1.40077x`, so the null cannot be explained solely by a mistaken low-rank
+projection.  Energy is therefore not an adequate context gate, and this
+particular source support is not a reusable unit on the third environment.
+This is a cheap activation-energy proxy for the briefing's open-context idea,
+not a DCT factorization or a weight-derived polynomial gate.  Do not add gate
+complexity around these two bases.  The next attempt must
+jointly identify the source coordinate and its state/weight-derived gate across
+multiple environments, or change the source support, then freeze both on an
+untouched panel.  A post-run audit found one redundant deterministic removal
+suffix call; it changes the literal suffix price from 960 to 1,008 sequences
+but cannot change any metric or verdict.
+[Preregistration](../../polynomial_causal/SETTING2_REGIONAL_ATTENTION17H2_CONTEXT_GATED_SOURCE_BASIS_V1_PREREGISTRATION.md),
+[result](fast_screens/setting2_regional_attention17h2_context_gated_source_basis_v1_result.json),
+[execution note](../../polynomial_causal/SETTING2_REGIONAL_ATTENTION17H2_CONTEXT_GATED_SOURCE_BASIS_V1_EXECUTION_NOTE.md).
+
 ## `module.attention.9`
 
 Aliases: attention block 9, attn9. Related route:
