@@ -646,6 +646,17 @@ registered rank-64 compactness bar and retains all native product evaluations.
 Most-additive natural selection also remains noncompositional: `.13323` code
 score error and `.42108` behavioral error.  Retain the rank-256 executor and
 represent its child/remainder interaction explicitly in the next graph.
+
+That interaction is now a validated first-class node.  The baseline, rank-128
+child effect, rank-128 remainder effect, and their Möbius cross-difference close
+with zero measured natural/code score and downstream replay error.  Removing
+the interaction changes copy-token NLL by `.30096` of the joint-vs-baseline
+effect (`.26961–.32079` across every subtype and half) with only `-.000345` nat
+noncopy mean change.  Its one-query equal-norm roll has `.52158` effect cosine
+to true removal.  Direct and composed recovery are both `.89159`.  The graph
+therefore has frozen OOD prediction, extraction, selective removal, and exact
+composition/reuse at this boundary.  Its four score evaluations remain an
+explicit execution-cost caveat and the next folding target.
 [three-edge factorial](../../polynomial_causal/EQUALITY_PRE_MLP9_THREE_EDGE_FACTORIAL_DISCOVERY_V1_RESULT.json),
 [code-OOD calibration null](../../polynomial_causal/EQUALITY_A8_EDGE_CODE_OOD_CONFIRMATION_V1_RESULT.json),
 [projected-payload extraction null](../../polynomial_causal/EQUALITY_L8H4_EXTRACTED_NODE_CODE_OOD_V1_RESULT.json),
@@ -666,6 +677,8 @@ represent its child/remainder interaction explicitly in the next graph.
 [float64 contracted-mode compactness/composition null](../../polynomial_causal/EQUALITY_L5H5_M4_CONTRACTED_MODE_GRAPH_V2_RESULT.json),
 [most-additive mode-split null](../../polynomial_causal/EQUALITY_L5H5_M4_MOST_ADDITIVE_MODE_SPLIT_V1_RESULT.json),
 [rank-256 mode-boundary export](../../polynomial_causal/EQUALITY_L5H5_M4_RANK256_MODE_GRAPH_EXPORT_V1_RESULT.json),
+[explicit M4 interaction graph](../../polynomial_causal/EQUALITY_L5H5_M4_EXPLICIT_INTERACTION_GRAPH_V1_RESULT.json),
+[explicit interaction-graph export](../../polynomial_causal/EQUALITY_L5H5_M4_EXPLICIT_INTERACTION_GRAPH_EXPORT_V1_RESULT.json),
 [red-team note](../../polynomial_causal/EQUALITY_A8_SPARSE_EDGE_EXECUTION_NOTE.md).
 
 The retained three-block score also has a smaller exact executor:

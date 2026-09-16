@@ -1,0 +1,12 @@
+{
+  "schema": "extracted_equality_l5h5_m4_explicit_interaction_graph_v1",
+  "name": "equality_l5h5_m4_explicit_interaction_graph_v1",
+  "nodes": ["bias_only_baseline", "rank128_child_effect", "rank128_remainder_effect", "child_remainder_interaction"],
+  "input_score_ports": ["baseline_score", "child_score", "remainder_score", "joint_score"],
+  "score_evaluations": 4,
+  "child_rank": 128,
+  "remainder_rank": 128,
+  "learned_parameters": 0,
+  "dependency": "equality_l5h5_m4_rank256_mode_graph_v1",
+  "scope": "Validated reusable Möbius graph wrapper. Current extraction uses four upstream score evaluations; the interaction has not yet been folded into a cheaper closed-form kernel."
+}

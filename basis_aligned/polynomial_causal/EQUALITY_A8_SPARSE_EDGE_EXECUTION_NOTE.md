@@ -120,3 +120,15 @@ most-additive split improved score composition from `.49047` to `.13323` OOD,
 but direct behavioral composition remained `.42108`.  Preserve those nulls and
 make the child/remainder cross-difference an explicit graph node next; do not
 force an additive interpretation.
+
+The explicit interaction graph resolves that representational failure.  Above
+the bias-only baseline it stores the rank-128 child effect, rank-128 remainder
+effect, and their Möbius cross-difference.  Natural and code graph closure and
+downstream composed replay are exactly zero-error.  Removing only the
+interaction changes copy-token NLL by `.30096` of the joint-vs-baseline effect
+overall and `.26961–.32079` in every subtype/half, with `-.000345` nat noncopy
+mean change.  A one-query roll preserves interaction norm within `1.17e-7` but
+has only `.52158` behavioral-effect cosine to true removal.  Direct and composed
+recovery both equal `.89159`.  This is a zero-learned-parameter four-trait OOD
+graph at the declared boundary; its live efficiency handoff is replacing the
+current four-score cross-difference executor with a cheaper direct kernel.

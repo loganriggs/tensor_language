@@ -61,3 +61,31 @@ factorized to reduce the still-native 4,608 product evaluations.  This keeps
 the overall four-trait goal honest: the current boundary has OOD prediction,
 execution, and causal/selective use, but composition requires a named
 interaction edge rather than wishful additivity.
+
+## Explicit interaction node: the sparse graph now closes
+
+We implemented that handoff prospectively.  For bias-only baseline `S0`, the
+rank-128 child score `Sc`, complementary rank-128 remainder score `Sr`, and
+rank-256 joint `Sj`, the graph stores `Sc-S0`, `Sr-S0`, and the cross-difference
+`Sj-Sc-Sr+S0` as three typed effects above the baseline.
+
+All registered gates passed.  The graph closes at exactly zero measured error
+on both natural and code roles and reproduces direct-joint downstream NLL and
+recovery exactly.  Direct code parent-score error/cosine remains
+`.03818/.99927`, and direct/composed recovery is `.89159`.
+
+The interaction is causally necessary even though its aggregate recovery partly
+cancels across tokens.  Removing only it changes copy-token NLL by `.30096` of
+the joint-vs-baseline effect.  Every subtype and half lies between `.26961` and
+`.32079`; incremental noncopy mean change is only `-.000345` nat.  A one-query
+roll preserves full interaction norm within `1.17e-7` but its behavioral effect
+has only `.52158` cosine with true interaction removal.  This rejects the idea
+that any equal-norm score perturbation would produce the same result.
+
+At this boundary we now have all four desired traits: the frozen graph predicts
+code OOD, runs as an extracted zero-parameter package, supports selective
+interaction removal, and composes/replays exactly as a reusable Möbius graph.
+The price caveat matters: the interaction currently consumes four score
+evaluations (`S0,Sc,Sr,Sj`).  The next compression problem is to fold that
+cross-difference into a direct kernel without losing its removal and transfer
+certificates, then reduce each dense mode's still-native product cost.

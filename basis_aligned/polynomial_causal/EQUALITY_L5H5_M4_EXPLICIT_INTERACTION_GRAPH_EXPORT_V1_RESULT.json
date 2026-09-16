@@ -1,0 +1,38 @@
+{
+  "schema": "equality_l5h5_m4_explicit_interaction_graph_export_v1_result",
+  "terminal": "exported_explicit_m4_interaction_graph_ood",
+  "source_result": "EQUALITY_L5H5_M4_EXPLICIT_INTERACTION_GRAPH_V1_RESULT.json",
+  "source_result_sha256": "16ee729369d0983757cf8f11dee245f743154685e30aac0fc75379d39c752355",
+  "package": "extracted_circuits/equality_l5h5_m4_explicit_interaction_graph_v1",
+  "nodes": ["bias_only_baseline", "rank128_child_effect", "rank128_remainder_effect", "child_remainder_interaction"],
+  "learned_parameters": 0,
+  "validation": {
+    "natural_graph_closure_relative_l2": 0.0,
+    "code_graph_closure_relative_l2": 0.0,
+    "code_parent_score_relative_l2": 0.038184283825921685,
+    "code_parent_score_cosine": 0.9992726977286062,
+    "interaction_removal_copy_relative_l2": 0.30096271325315754,
+    "minimum_subtype_or_half_interaction_removal_relative_l2": 0.26960506149545266,
+    "interaction_removal_noncopy_mean_nat": -0.0003445974725764245,
+    "rolled_effect_cosine_to_removal": 0.521580998871287,
+    "maximum_equal_norm_relative_error": 1.169891120644806e-7,
+    "direct_recovery": 0.8915852904319763,
+    "composed_recovery": 0.8915852904319763,
+    "composed_behavioral_replay_relative_l2": 0.0
+  },
+  "four_traits": {
+    "ood_prediction": true,
+    "extraction": true,
+    "selective_removal": true,
+    "composition_reuse": true
+  },
+  "price_caveat": "The interaction is an extracted four-score Möbius node. Folding it into a cheaper direct kernel remains open.",
+  "files": {
+    "README.md": "bd791236b2455d5bbecb53f766d7b3a8d3192c1ab8170e97a8d3e0ac08c6dca9",
+    "__init__.py": "5bebe14b982bb0b6d8ac39889ec729231a004d48d4f8608d6a8b25a7ee0f5236",
+    "manifest.json": "c2b23c344269f330dc9b6b42bdd0c1866c9c91a2b0bb949b8b444c63d459dcc4",
+    "node.py": "e3c7eb1a459b05bb926883518c7e13ab339376d2991979ae51a964418f0bae59",
+    "test_node.py": "e46c5352ba629e315ac7cec176a8ba64a8eed0ae2aaa8d775ef89a3e95e213ca"
+  },
+  "created_utc": "2026-09-16T17:15:42Z"
+}

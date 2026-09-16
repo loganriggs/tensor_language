@@ -160,6 +160,8 @@ without treating either complete native module as the semantic unit.
 - [Float64 M4 contracted-mode compactness/composition null](../polynomial_causal/EQUALITY_L5H5_M4_CONTRACTED_MODE_GRAPH_V2_RESULT.json)
 - [M4 most-additive mode-split null](../polynomial_causal/EQUALITY_L5H5_M4_MOST_ADDITIVE_MODE_SPLIT_V1_RESULT.json)
 - [Exported M4 rank-256 mode boundary](../polynomial_causal/EQUALITY_L5H5_M4_RANK256_MODE_GRAPH_EXPORT_V1_RESULT.json)
+- [Explicit M4 child/remainder interaction graph](../polynomial_causal/EQUALITY_L5H5_M4_EXPLICIT_INTERACTION_GRAPH_V1_RESULT.json)
+- [Exported explicit M4 interaction graph](../polynomial_causal/EQUALITY_L5H5_M4_EXPLICIT_INTERACTION_GRAPH_EXPORT_V1_RESULT.json)
 - [A8 sparse-edge red-team note](../polynomial_causal/EQUALITY_A8_SPARSE_EDGE_EXECUTION_NOTE.md)
 - [MLP17 causal-Hessian identity certificate](../polynomial_causal/MLP17_CAUSAL_HESSIAN_IDENTITY_V1_RESULT.json)
 - [Causal-Hessian identity preregistration](../polynomial_causal/MLP17_CAUSAL_HESSIAN_IDENTITY_V1_PREREGISTRATION.md)

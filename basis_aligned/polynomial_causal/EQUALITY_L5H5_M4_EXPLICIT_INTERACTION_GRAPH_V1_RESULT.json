@@ -1,0 +1,183 @@
+{
+  "behavior": {
+    "interaction_removal_noncopy_mean_nat": -0.0003445974725764245,
+    "minimum_donor_term_rms": 15.446646690368652,
+    "recoveries": {
+      "additive": 0.8743650913238525,
+      "baseline": 0.6365306377410889,
+      "composed": 0.8915852904319763,
+      "direct": 0.8915852904319763,
+      "rolled": 0.8835143446922302
+    }
+  },
+  "behavioral_effects": {
+    "copy_far": {
+      "composed_replay_relative_l2": 0.0,
+      "interaction_removal_cosine_to_joint_effect": -0.08309094578539869,
+      "interaction_removal_relative_l2": 0.3207868268423744,
+      "rolled_effect_cosine_to_removal": 0.5591392311593039,
+      "tokens": 4356
+    },
+    "copy_multiple_predecessors": {
+      "composed_replay_relative_l2": 0.0,
+      "interaction_removal_cosine_to_joint_effect": 0.03227816186397603,
+      "interaction_removal_relative_l2": 0.31567184534770126,
+      "rolled_effect_cosine_to_removal": 0.5036064912393239,
+      "tokens": 8349
+    },
+    "copy_near": {
+      "composed_replay_relative_l2": 0.0,
+      "interaction_removal_cosine_to_joint_effect": 0.09495556145736538,
+      "interaction_removal_relative_l2": 0.2799622803283974,
+      "rolled_effect_cosine_to_removal": 0.47346604153312283,
+      "tokens": 6492
+    },
+    "copy_one_predecessor": {
+      "composed_replay_relative_l2": 0.0,
+      "interaction_removal_cosine_to_joint_effect": -0.07343217645840015,
+      "interaction_removal_relative_l2": 0.26960506149545266,
+      "rolled_effect_cosine_to_removal": 0.571110505138026,
+      "tokens": 2499
+    },
+    "copy_positive": {
+      "composed_replay_relative_l2": 0.0,
+      "interaction_removal_cosine_to_joint_effect": 0.0003371129706672422,
+      "interaction_removal_relative_l2": 0.30096271325315754,
+      "rolled_effect_cosine_to_removal": 0.521580998871287,
+      "tokens": 10848
+    },
+    "half_0": {
+      "composed_replay_relative_l2": 0.0,
+      "interaction_removal_cosine_to_joint_effect": 0.021577791654915704,
+      "interaction_removal_relative_l2": 0.29191341128500453,
+      "rolled_effect_cosine_to_removal": 0.5109362583415803,
+      "tokens": 5598
+    },
+    "half_1": {
+      "composed_replay_relative_l2": 0.0,
+      "interaction_removal_cosine_to_joint_effect": -0.02333410660113561,
+      "interaction_removal_relative_l2": 0.3113781850352886,
+      "rolled_effect_cosine_to_removal": 0.5329690316487676,
+      "tokens": 5250
+    }
+  },
+  "binding_sha256": "759c0664ad365196c8b16c082651919729837c039d7030d701a55325a88c57e1",
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "code_score": {
+    "halves": [
+      {
+        "closure": {
+          "cosine": 1.0,
+          "relative_l2": 0.0,
+          "values": 203309
+        },
+        "direct_versus_five_write_parent": {
+          "cosine": 0.9992449221249167,
+          "relative_l2": 0.038903935853195216,
+          "values": 203309
+        },
+        "interaction_to_joint_effect_norm_ratio": 0.13302209686321015,
+        "rolled_to_interaction_norm_ratio": 0.8632780882622093,
+        "values": 203309
+      },
+      {
+        "closure": {
+          "cosine": 1.0,
+          "relative_l2": 0.0,
+          "values": 170493
+        },
+        "direct_versus_five_write_parent": {
+          "cosine": 0.9993017855564237,
+          "relative_l2": 0.03741577748767702,
+          "values": 170493
+        },
+        "interaction_to_joint_effect_norm_ratio": 0.13345919563180508,
+        "rolled_to_interaction_norm_ratio": 0.8460615799686625,
+        "values": 170493
+      }
+    ],
+    "overall": {
+      "closure": {
+        "cosine": 1.0,
+        "relative_l2": 0.0,
+        "values": 373802
+      },
+      "direct_versus_five_write_parent": {
+        "cosine": 0.9992726977286062,
+        "relative_l2": 0.038184283825921685,
+        "values": 373802
+      },
+      "interaction_to_joint_effect_norm_ratio": 0.13322905380906003,
+      "rolled_to_interaction_norm_ratio": 0.8551485334200903,
+      "values": 373802
+    }
+  },
+  "created_utc": "2026-09-16T17:14:03.775335Z",
+  "graph": {
+    "child_rank": 128,
+    "learned_parameters": 0,
+    "nodes": [
+      "bias_only_baseline",
+      "rank128_child_effect",
+      "rank128_remainder_effect",
+      "child_remainder_interaction"
+    ],
+    "remainder_rank": 128,
+    "score_evaluations": 4
+  },
+  "instrument": {
+    "contracted_operator_reconstruction_relative_l2": 2.0559203760825418e-13,
+    "maximum_equal_norm_relative_error": 1.169891120644806e-07,
+    "maximum_forward_graph_score_relative_l2": 1.3345562155375745e-10
+  },
+  "natural_score": {
+    "closure": {
+      "cosine": 1.0,
+      "relative_l2": 0.0,
+      "values": 65556
+    },
+    "direct_versus_five_write_parent": {
+      "cosine": 0.9990632304588605,
+      "relative_l2": 0.04461684709858046,
+      "values": 65556
+    },
+    "interaction_to_joint_effect_norm_ratio": 0.2607828970043803,
+    "rolled_to_interaction_norm_ratio": 0.529085578146135,
+    "values": 65556
+  },
+  "predictions": {
+    "pred_a_lawful_explicit_interaction_graph": true,
+    "pred_b_ood_joint_prediction_and_replay": true,
+    "pred_c_selective_interaction_removal": true,
+    "pred_d_equal_norm_directional_null": true,
+    "pred_e_causal_composition_reuse": true
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "complete_code_arms": 7,
+    "execution_count": 432,
+    "fits": 0,
+    "gpu_accessed": true,
+    "gradients": 0,
+    "learned_parameters": 0,
+    "model_loaded": true,
+    "natural_documents": 192,
+    "new_text": 0,
+    "ood_documents": 192,
+    "parameter_updates": 0,
+    "queue_touched": true,
+    "schema": "equality_l5h5_m4_explicit_interaction_graph_v1_plan",
+    "score_variants": [
+      "baseline",
+      "additive",
+      "composed",
+      "direct",
+      "rolled"
+    ]
+  },
+  "runner_sha256": "ea0bfa8d90eeb6f6104a1956ce470e506d578104fd4093ce83b6244b76ab15f5",
+  "schema": "equality_l5h5_m4_explicit_interaction_graph_v1_result",
+  "scope": "Explicit four-node M\u00f6bius graph for the bias baseline, rank-128 child, rank-128 remainder, and their contextual interaction inside the rank-256 M4 equality-score boundary.",
+  "seconds": 9.626812440001231,
+  "terminal": "equality_l5h5_m4_explicit_interaction_graph_ood"
+}
