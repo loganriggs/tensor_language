@@ -337,6 +337,22 @@ and selective against matched nulls, and independent edges compose to about
 Möbius graph: determine whether a single pair interaction accounts for the
 remaining nonadditivity and transfers without reselection.
 
+That exact behavioral Möbius test passed and sharpened the graph. All eight
+corners closed with zero absolute and relative error. Starting from the three
+mandatory main edges, the first discovery-selected correction was
+`upstream_0_7×mlp_8`; alone it left `0.119–0.133` relative error and therefore
+failed the registered `<0.10` gate. The second selected correction was
+`mlp_8×mlp_10`. The resulting five-edge graph achieved relative L2 `0.05465`
+on discovery, `0.05412` on context OOD, `0.06933` on lexical OOD, and `0.06540`
+on joint OOD, with every cosine above `0.9995` and no fitted coefficient.
+
+The remaining `upstream_0_7×mlp_10` and triple terms are unnecessary at this
+precision; the triple term is small (RMS `0.0363`) and slightly anti-aligned.
+Thus the behavioral graph now has three native main edges and two explicit
+pair-interaction edges, selected on one panel and frozen across the three OOD
+panels. This meets the briefing's `<10%` component-relative composition target
+without disguising downstream nonadditivity as an additive main effect.
+
 ## What this changes in the sparse graph
 
 The previous graph boundary was
@@ -370,4 +386,5 @@ not satisfy reusability.
 - `SUBJECT_NUMBER_L11H3_LATE_WRITER_SPECIFICITY_AUDIT_V1_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_LATE_WRITER_SPECIFICITY_AUDIT_V2_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_THREE_PORT_BEHAVIOR_V1_RESULT.json`
+- `SUBJECT_NUMBER_L11H3_BEHAVIORAL_MOBIUS_V1_RESULT.json`
 - their preregistrations, bindings, frozen authority, and managed runners
