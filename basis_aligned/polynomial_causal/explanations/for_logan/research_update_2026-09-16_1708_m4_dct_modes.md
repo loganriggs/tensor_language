@@ -222,3 +222,31 @@ This is now the preferred extracted boundary: four residual state ports, no raw
 Q/K activation ports, no oracle score, and zero learned parameters.  The next
 recursive target is construction of those four residual corners—especially the
 rank-256 M4 child/joint producer—not another downstream score approximation.
+
+## Product-port executor and a caught false negative
+
+The recursive target is now implemented. From one native 4,608-wide MLP4
+product tensor plus the retained `M2,A3,M3,A4` writes, the package internally
+constructs the bias-only baseline, rank-128 child, complementary rank-128
+remainder, and rank-256 joint corners in native BF16 order. It then runs the
+residual-port factor graph. Across 4,076,863,488 corner values on the frozen
+natural/code panels, reconstruction is bitwise exact; score closure and every
+behavior, removal, selectivity, and rolled-control comparison are also exactly
+unchanged.
+
+The first run was invalid in precisely the way the interaction-decomposition
+briefing warns about. The stored SVD basis has 1,152 rows, but the circuit
+selects only the first 256. Inferring selected rank from storage rank admitted
+modes 256--1,151 into the remainder and joint corners. Baseline and child were
+correct, so about half of all corner values mismatched and downstream controls
+failed. After making selected rank explicit, the same preregistered panel went
+from a large failure to bitwise identity. A regression test now deliberately
+uses storage rank larger than selected rank. This was implementation failure,
+not a negative result about extraction.
+
+The preferred boundary is therefore now `M4 product + four retained writes +
+rotary context`, with no residual-corner, raw-Q/K, or score-oracle inputs. It
+is still structural rather than computational compression: all 4,608 native
+Left/Right products remain external. The next upstream target is to internalize
+the frozen MLP4 Left/Right maps from the normalized MLP4 input, after which
+factorizing or pruning their bilinear products can be tested honestly.

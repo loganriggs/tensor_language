@@ -1,0 +1,27 @@
+{
+  "schema": "extracted_equality_l5h5_m4_product_port_factor_graph_v1",
+  "name": "equality_l5h5_m4_product_port_factor_graph_v1",
+  "nodes": [
+    "first_qk_correction_times_second_baseline",
+    "first_baseline_times_second_qk_correction",
+    "algebraic_qk_correction_cross_product",
+    "native_arithmetic_residual"
+  ],
+  "dynamic_input_ports": [
+    "mlp4_product",
+    "M2",
+    "A3",
+    "M3",
+    "A4",
+    "rotary_cos",
+    "rotary_sin"
+  ],
+  "residual_corner_inputs": 0,
+  "raw_qk_activation_inputs": 0,
+  "oracle_score_inputs": 0,
+  "selected_mode_rank": 256,
+  "native_product_width": 4608,
+  "native_qk_projections": 16,
+  "learned_parameters": 0,
+  "scope": "Standalone construction of all four residual corners and the precision factor graph from the native M4 product tensor plus retained M2/A3/M3/A4 writes. M4 Left/Right product generation remains external."
+}

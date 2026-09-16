@@ -1,0 +1,58 @@
+{
+  "schema": "equality_l5h5_m4_product_port_factor_graph_export_v1_result",
+  "terminal": "exported_equality_l5h5_m4_product_port_factor_graph_ood",
+  "source_result": "EQUALITY_L5H5_M4_PRODUCT_PORT_FACTOR_GRAPH_V1_RESULT.json",
+  "source_result_sha256": "23d7fb004a2b99e90590e158bbae8f8bf3ccb0c8f12f9619a4c7bb86c4da462b",
+  "invalid_implementation_receipt": "EQUALITY_L5H5_M4_PRODUCT_PORT_FACTOR_GRAPH_V1_INVALID_STORAGE_RANK_RESULT.json",
+  "invalid_implementation_receipt_sha256": "2230d4a671bd818723b7ce994ac37f28417ab11246b8eaa967a0ee0f24f811e1",
+  "package": "extracted_circuits/equality_l5h5_m4_product_port_factor_graph_v1",
+  "nodes": [
+    "first_qk_correction_times_second_baseline",
+    "first_baseline_times_second_qk_correction",
+    "algebraic_qk_correction_cross_product",
+    "native_arithmetic_residual"
+  ],
+  "dynamic_input_ports": [
+    "mlp4_product",
+    "M2",
+    "A3",
+    "M3",
+    "A4",
+    "rotary_cos",
+    "rotary_sin"
+  ],
+  "residual_corner_inputs": 0,
+  "raw_qk_activation_inputs": 0,
+  "oracle_score_inputs": 0,
+  "selected_mode_rank": 256,
+  "native_product_width": 4608,
+  "native_qk_projections": 16,
+  "learned_parameters": 0,
+  "validation": {
+    "corner_values": 4076863488,
+    "corner_mismatched_values": 0,
+    "corner_maximum_absolute_error": 0.0,
+    "natural_score_closure_relative_l2": 0.0,
+    "code_score_closure_relative_l2": 0.0,
+    "maximum_node_removal_magnitude_absolute_delta": 0.0,
+    "maximum_node_score_relative_norm_absolute_delta": 0.0,
+    "maximum_noncopy_mean_absolute_delta_nat": 0.0,
+    "arithmetic_roll_effect_cosine_absolute_delta": 0.0
+  },
+  "four_traits": {
+    "ood_prediction": true,
+    "extraction": true,
+    "selective_removal": true,
+    "composition_reuse": true
+  },
+  "red_team": "The initial run was invalid because selected rank was inferred from the 1152-row stored basis rather than frozen at 256. The corrected executor makes selected rank explicit and its regression test uses storage rank larger than selected rank.",
+  "price_caveat": "MLP4 Left/Right projection and all 4608 native products remain external. The executor is a validated structural boundary, not yet product-cost compression.",
+  "files": {
+    "README.md": "83ffd425bd8fc3e93e63936c733367c3590f4a09d71aaf9b6796b4b1f94a2678",
+    "__init__.py": "3b10afa742ecb2105a3c36d22d0561a7f19da0fb9a7f4085eb47d9b0bbd80151",
+    "manifest.json": "ef1f3c7eeef974fa4e498aeaab4c80146ea04fa2743c497bdc246d91a38af24b",
+    "node.py": "ee3707d48d3921f63ff2b191e1793878046541cc114cbf858d917a86d115d6e7",
+    "test_node.py": "9cdc292ff0ef2ebcd2317d319c8a21a7890fa20f400bcb4a8e3f493f6f42afe3"
+  },
+  "created_utc": "2026-09-16T18:24:44Z"
+}

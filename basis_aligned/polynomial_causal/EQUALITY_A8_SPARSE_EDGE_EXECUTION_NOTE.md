@@ -188,3 +188,11 @@ Its four residual corners plus rotary context reproduce 1,811,939,328 native
 projected values with zero mismatches, and all graph/behavior statistics remain
 exact.  There are no raw activation or score-oracle inputs.  Recursive work
 should now move upstream into the corner constructor and rank-256 M4 producer.
+
+That move is complete at the native-product boundary. One MLP4 product tensor
+plus `M2,A3,M3,A4` now reconstructs 4,076,863,488 baseline/child/remainder/joint
+corner values bitwise exactly and preserves every downstream statistic exactly.
+The first run falsely failed because it used the 1,152-row stored SVD rank rather
+than the frozen selected rank 256; the preserved invalid receipt and a
+storage-rank-greater-than-selected-rank regression test close that loophole.
+The remaining external cost is MLP4 Left/Right and all 4,608 products.
