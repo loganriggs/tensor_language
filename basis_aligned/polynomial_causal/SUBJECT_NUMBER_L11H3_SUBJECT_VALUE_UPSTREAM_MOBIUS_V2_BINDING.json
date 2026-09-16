@@ -1,0 +1,36 @@
+{
+  "authority_sha256": "cf100fa31eb6131df23837b8da54328676a3e22e81c5922157059047f1b80886",
+  "bars": {
+    "maximum_absolute_closure_error": 0.0001,
+    "maximum_component_reconstruction_error": 1e-05,
+    "maximum_native_value_replay_error": 0.0001,
+    "maximum_relative_closure_error": 1e-05,
+    "maximum_synthetic_error": 1e-12,
+    "maximum_term4_relative_l2": 0.25,
+    "minimum_random_median_advantage": 0.1
+  },
+  "files": {
+    "authority": "2ca93353efc90fc842ade184d7d954f061ca23fac6532ab5d92fef25f1d96cdf",
+    "decoder": "f2356b8a1c336d011e36059e571117a0d61c4104a3570521bd59838a29f40cc1",
+    "failed_result": "bacde2223fb90e6e34e38b39f304daeb889fd4c9fcc2cc8bf271eddeb77a6f4e",
+    "failed_runner": "7ffce4c656c0ac2b460f49663d6264b7e0afe8e0b5c5a3e6ea6eb56b1a8b3f0e",
+    "parent_result": "63d8ee1471bc48eac267d1955672e802acaf8db368dbc31cf9f48cd8a4673600",
+    "preregistration": "9b389397e252889d4ce5d1081a144effbc9b87a96a20838ff39d00a2a4496204",
+    "rank1": "f73126268794342809c2953b388ed83f6d1d0e2e245ce9ea78f2d665a0e87c1f",
+    "source_primitive": "1c965deb1969cd317185f4d068006d7b9052837d1603898e0d5372076b48d0a8"
+  },
+  "null_seed": 20260926,
+  "nulls": 16,
+  "price": {
+    "backwards": 0,
+    "behavior_logits": 0,
+    "corners": 32,
+    "fits": 0,
+    "greedy_steps": 4,
+    "mobius_terms": 31,
+    "parameter_updates": 0,
+    "partial_forwards": 4,
+    "readouts": 17,
+    "sequences": 256
+  }
+}

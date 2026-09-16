@@ -190,6 +190,33 @@ state. Direct context-token and attractor-token source writes are small. The
 next clean boundary is therefore the construction of that contextualized
 subject value before L11, not an unrestricted six-source attention donor.
 
+### Upstream value decomposition: two invalid instruments retained
+
+We attempted the next five-port Möbius split of the subject value into embedding
+recurrence, layer 0–3 writes, layer 4–7 writes, layer 8–10 writes, and the
+inherited first-value bus. Neither attempted result is licensed.
+
+V1 failed because of a genuine implementation bug: string-prefix grouping made
+`attn_10`/`mlp_10` match both the layer-1 prefix and the explicit layer-10
+prefix, double-counting layer 10. Its component reconstruction error was
+`1542.23`; terminal `invalid` is preserved.
+
+V2 replaced all component keys with exact integer layers and removed the double
+count. It still failed the preregistered absolute component-reconstruction bar:
+independently propagated float32 components differed from the natively ordered
+residual sum by `0.0014648`, above `1e-5`. Other checks nearly closed—native
+subject-value replay `9.54e-5`, Möbius closure `3.05e-5`, relative closure
+`6.56e-8`—but the registered instrument is conjunctive, so V2 also remains
+`invalid`.
+
+The provisional V2 numbers (late writes dominant and four terms reaching about
+`0.013` relative error) must not be used as evidence yet. The appropriate next
+audit is an explicitly closed numerical gauge: define one residual component as
+the native raw-state remainder, separately measure the correction relative to
+the late component, and rerun unchanged scientific gates. This distinguishes
+floating-point association from a missing computational path without relaxing
+either failed result.
+
 ## What this changes in the sparse graph
 
 The previous graph boundary was
@@ -216,4 +243,6 @@ not satisfy reusability.
 - `SUBJECT_NUMBER_CONTEXT_INTERACTION_RANK_SPECIFICITY_V1_RESULT.json`
 - `SUBJECT_NUMBER_CORRECTED_REMOVAL_MEDIATION_V1_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_SOURCE_FACTOR_MOBIUS_V1_RESULT.json`
+- `SUBJECT_NUMBER_L11H3_SUBJECT_VALUE_UPSTREAM_MOBIUS_V1_RESULT.json`
+- `SUBJECT_NUMBER_L11H3_SUBJECT_VALUE_UPSTREAM_MOBIUS_V2_RESULT.json`
 - their preregistrations, bindings, frozen authority, and managed runners
