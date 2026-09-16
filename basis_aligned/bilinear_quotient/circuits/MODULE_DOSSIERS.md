@@ -425,6 +425,26 @@ relabel fractions of the same one-dimensional field.
 [Most-additive preregistration](../../polynomial_causal/CROSSFIRST_MOST_ADDITIVE_SPLIT_DISCOVERY_V1_PREREGISTRATION.md),
 [most-additive discovery null](../../polynomial_causal/CROSSFIRST_MOST_ADDITIVE_SPLIT_DISCOVERY_V1_RESULT.json).
 
+Keeping the native state and RMS denominator open rescues compression but not
+reader discovery.  A behavior-blind contextual Hessian range finder evaluates
+20 fixed input directions through the exact local map
+`z + MLP9(RMS(z))`, freezes an eight-dimensional output basis on one panel,
+and transfers it without refitting to the disjoint new-endpoint panel.  Mixed
+JVP symmetry closes at `1.58e-7`.  The basis retains `.9978553/.9978550` of
+contextual response norm on discovery/confirmation, and the four independently
+stable raw-DCT inputs carry `148.34x` the response energy of 16 random inputs;
+their own contextual response family is `99.998%` rank-eight by energy.  This is
+a real, cross-panel high-curvature MLP9 response core.  It is not the
+CrossFirst reader: coverage is only `.07187/.08819`, comparable to random
+output subspaces and to the raw-weight DCT basis, with confirmation-family
+coverage `.08366--.09158`.  Preserve the compressed response core as a generic
+model primitive, but do not promote it into this behavior's circuit.  The next
+useful step is to export its exact weight/state-derived RMS coefficient law as
+a standalone node and test response prediction on fresh contexts; behavioral
+removal should wait until a downstream circuit actually reads the node.
+[Contextual-range preregistration](../../polynomial_causal/MLP9_CONTEXTUAL_DCT_RANGE_V1_PREREGISTRATION.md),
+[contextual-range result](../../polynomial_causal/MLP9_CONTEXTUAL_DCT_RANGE_V1_RESULT.json).
+
 The retained three-block score also has a smaller exact executor:
 
 $$
