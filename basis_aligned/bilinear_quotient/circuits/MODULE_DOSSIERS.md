@@ -170,6 +170,24 @@ the implicated modules using consumer/Hessian geometry. [Discovery](fast_screens
 [fresh null](fast_screens/setting2_regional_attention17h2_port_preservation_fresh_v1_result.json),
 [fresh preregistration](../../polynomial_causal/SETTING2_REGIONAL_ATTENTION17H2_PORT_PRESERVATION_FRESH_V1_PREREGISTRATION.md).
 
+An exact native-head split tests the next finer obvious boundary. `attn10` and
+`attn11` close as nine projected head writes each (recorded closure corrections
+`1.38e-7/1.55e-7` relative), while the explicit layer-9 edit is already wholly
+inside head 9.8. A deterministic width-eight beam selects
+`attn9h8 + attn10h2 + attn10h5 + attn11h1 + attn11h6 + attn11h8 + mlp9 + attn15`.
+It passes every discovery gate (`.20725` response, `.19918/.19991` causal,
+`.83113` worst normalized control) against a same-width null median `3.7480`.
+Frozen cue-role crossover testing preserves and improves target fidelity
+(`.12782` response, `.12335/.12303` causal, perfect signs), but unrelated
+readers reach `1.31635` of their allowed effect and the sparse program is less
+selective than the complete-head expansion (`1.14505`). This is not a target
+prediction failure; it is evidence that native head identity does not preserve
+the context-dependent cancellation. Do not search more head subsets. Derive a
+multi-reader consumer-response/Hessian basis inside these heads and the two MLP
+ports. [Discovery](fast_screens/setting2_regional_attention17h2_head_source_beam_v1_result.json),
+[crossover null](fast_screens/setting2_regional_attention17h2_head_source_fresh_v1_result.json),
+[preregistration](../../polynomial_causal/SETTING2_REGIONAL_ATTENTION17H2_HEAD_SOURCE_FRESH_V1_PREREGISTRATION.md).
+
 ## `module.attention.9`
 
 Aliases: attention block 9, attn9. Related route:
