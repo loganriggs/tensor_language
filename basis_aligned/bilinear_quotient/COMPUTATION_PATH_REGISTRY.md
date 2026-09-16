@@ -101,6 +101,8 @@ without treating either complete native module as the semantic unit.
 - [Head17.2 port-source fold null](circuits/fast_screens/setting2_regional_attention17h2_port_source_fold_v2_result.json)
 - [Port-source preregistration](../polynomial_causal/SETTING2_REGIONAL_ATTENTION17H2_PORT_SOURCE_FOLD_V1_PREREGISTRATION.md)
 - [Port-source BF16 correction](../polynomial_causal/SETTING2_REGIONAL_ATTENTION17H2_PORT_SOURCE_FOLD_V2_CORRECTION.md)
+- [MLP17 causal-Hessian identity certificate](../polynomial_causal/MLP17_CAUSAL_HESSIAN_IDENTITY_V1_RESULT.json)
+- [Causal-Hessian identity preregistration](../polynomial_causal/MLP17_CAUSAL_HESSIAN_IDENTITY_V1_PREREGISTRATION.md)
 - [Three-block bilinear-rank control](../polynomial_causal/THREE_BLOCK_BILINEAR_RANK_CONTROL_20260915_0549_RESULT.json)
 - [05:52 mathematical, organization, and efficiency review](../polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-15_0552.md)
 - [Subject upstream-context preregistration](../polynomial_causal/SUBJECT_NUMBER_UPSTREAM_CONTEXT_COORDINATE_DISCOVERY_V1_PREREGISTRATION.md)

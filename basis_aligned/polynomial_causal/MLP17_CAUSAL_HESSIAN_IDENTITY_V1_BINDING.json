@@ -1,0 +1,18 @@
+{
+  "schema": "mlp17_causal_hessian_identity_v1_binding",
+  "files": {
+    "preregistration": "60c0827336e46a4710974a807aaf5b66755e06e1ba09763e5a78e6f024eb634f",
+    "fastload": "5803de7f127d1f556470107b559c06daecf7fbc2bccf4574aeb1c347b6225d90",
+    "model_source": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "language_model_forwards": 0,
+    "native_subspace_hessians": 2,
+    "finite_cross_differences": 8,
+    "factor_solver_calls": 3,
+    "factor_rank": 4,
+    "fits_to_model_outputs": 0,
+    "parameter_updates": 0
+  }
+}

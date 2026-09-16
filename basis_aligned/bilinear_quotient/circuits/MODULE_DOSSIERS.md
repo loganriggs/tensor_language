@@ -144,6 +144,17 @@ otherwise replays V1 scientific fields exactly. [Result](fast_screens/setting2_r
 [preregistration](../../polynomial_causal/SETTING2_REGIONAL_ATTENTION17H2_PORT_SOURCE_FOLD_V1_PREREGISTRATION.md),
 [correction](../../polynomial_causal/SETTING2_REGIONAL_ATTENTION17H2_PORT_SOURCE_FOLD_V2_CORRECTION.md).
 
+The proposed one-layer causal-Hessian bridge has now been checked on the actual
+raw bilinear MLP17 weights with the input normalizer explicitly outside the
+slice. Weight contraction and FP64 autodiff agree at `2.90e-15` relative error;
+background invariance, finite cross-differences, symmetry, analytic/autodiff
+factor agreement, and a planted solver control all pass. This licenses the
+identity and implementation for a response-oriented split. It does not license
+low-rank compression by itself: rank 4 leaves `.89983` relative error in the
+frozen random native subspace. Any next DCT use must choose and charge a causal
+metric/subspace, and compare its truncation against that null. [Certificate](../../polynomial_causal/MLP17_CAUSAL_HESSIAN_IDENTITY_V1_RESULT.json),
+[preregistration](../../polynomial_causal/MLP17_CAUSAL_HESSIAN_IDENTITY_V1_PREREGISTRATION.md).
+
 ## `module.attention.9`
 
 Aliases: attention block 9, attn9. Related route:
