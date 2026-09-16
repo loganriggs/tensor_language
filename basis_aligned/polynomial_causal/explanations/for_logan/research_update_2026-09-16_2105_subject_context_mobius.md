@@ -377,6 +377,27 @@ embedding recurrence, early writes, middle writes, MLP8, and MLP10—and require
 nine main/pair edges for the same `<10%` behavioral precision. No order-three
 term or fitted coefficient is needed.
 
+### Frozen graph on genuinely fresh prompts
+
+The nine-edge graph was then frozen and evaluated with no reselection on the
+independent rank-one confirmation authority: 16 noun pairs disjoint from all
+earlier authorities, two new two-attractor constructions, sequence length 9
+instead of 6, and subject position 8 instead of 5. All 32 corners were rebuilt
+at the new position, but the five ports and nine masks were unchanged.
+
+All registered gates passed. Overall component-relative error was `0.04949`;
+the four direction-by-template cells ranged from `0.04709` to `0.05352`, with
+cosine at least `0.99947` and aligned recovery `0.9473–0.9648`. The five-port
+removal damaged the native agreement margin on all 32 prompts, with RMS
+`2.3153`. Sixteen equal-L2 same-site controls had median RMS `0.1583` and
+maximum `0.3199`, giving a target/median ratio of `14.63`. `can`/`will`
+collateral was only `0.0351` of target damage.
+
+This is the strongest OOD result in the chain: the fixed sparse graph predicts
+behavioral intervention effects across new vocabulary, syntax, sequence length,
+and subject position. Extraction still consumes five native upstream port
+values; a token-only implementation remains open.
+
 ## What this changes in the sparse graph
 
 The previous graph boundary was
@@ -413,4 +434,5 @@ not satisfy reusability.
 - `SUBJECT_NUMBER_L11H3_BEHAVIORAL_MOBIUS_V1_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_EXPANDED_BEHAVIORAL_GRAPH_V1_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_EXPANDED_BEHAVIORAL_GRAPH_V2_RESULT.json`
+- `SUBJECT_NUMBER_L11H3_EXPANDED_GRAPH_FRESH_OOD_V1_RESULT.json`
 - their preregistrations, bindings, frozen authority, and managed runners

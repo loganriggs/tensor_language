@@ -1,0 +1,45 @@
+{
+  "authority_sha256": "f77914228dd2dabef7045fcd588ad172df1ed3bdd5006399f72d215553931830",
+  "bars": {
+    "maximum_absolute_closure_error": 1e-10,
+    "maximum_aggregation_error": 1e-10,
+    "maximum_composition_relative_l2": 0.15,
+    "maximum_control_fraction": 0.5,
+    "maximum_gauge_correction_relative_l2": 0.00001,
+    "maximum_native_replay_error": 0.00001,
+    "maximum_random_norm_error": 0.00001,
+    "maximum_relative_closure_error": 1e-10,
+    "minimum_aligned_recovery": 0.0,
+    "minimum_composition_cosine": 0.98,
+    "minimum_native_accuracy": 0.75,
+    "minimum_panel_damage_positive_fraction": 0.6,
+    "minimum_panel_damage_rms": 0.1,
+    "minimum_random_median_ratio": 2.0
+  },
+  "expected_masks": [8, 1, 4, 2, 24, 12, 16, 9, 20],
+  "files": {
+    "authority": "01d990ccdaa71d96d6e8fa7d496c6159a255f624ff036fb4605c91936cdbca61",
+    "decoder": "f2356b8a1c336d011e36059e571117a0d61c4104a3570521bd59838a29f40cc1",
+    "parent_result": "90fddf6a3054732573a906f6259fc6224c66246a1a655ce39ba0f53be6954dd3",
+    "parent_runner": "9012bbf7b7b846e5f1397023cc24aa4b2115749f1c527f446d9c8d8f74a8f724",
+    "preregistration": "06ac27e4293f3b1f1069d3fa7d8a9a34b2db1dabed309b84e93e501d894c010d"
+  },
+  "null_seed": 20260930,
+  "nulls": 16,
+  "ports": ["embedding_recurrence", "early_writes_0_3", "middle_writes_4_7", "mlp_8", "mlp_10"],
+  "price": {
+    "backwards": 0,
+    "corners": 32,
+    "fits": 0,
+    "frozen_terms": 9,
+    "mobius_terms": 31,
+    "native_forwards": 2,
+    "native_sequences": 32,
+    "parameter_updates": 0,
+    "partial_forwards": 4,
+    "partial_sequences": 64,
+    "random_controls": 16,
+    "suffix_forwards": 96,
+    "suffix_sequences": 1536
+  }
+}
