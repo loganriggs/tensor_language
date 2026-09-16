@@ -669,6 +669,17 @@ has only `.294` cosine and `1.198` relative error to the exact removal.  This
 rules out both a coding-gauge explanation for the 12-projection null and a
 score-only acceptance of the corrected surrogate.  The exact 16-projection
 graph remains the reusable behavioral node.
+
+Behavior-aware native-order selection then tested every proper subset of child
+`Q1,K1,Q2,K2` projections.  The full four-map implementation control reproduces
+the authority removal vector exactly on both panels, but no proper subset
+passes even on natural data.  Best diagnostic `Q1+Q2` has worst natural-cell
+removal error `.915`; frozen code error/cosine is `.846/.650`.  Its composed
+replay and aggregate recovery are exactly authoritative because the graph
+algebra closes to the native joint corner, demonstrating that those two checks
+are blind to an incorrect interaction-removal counterfactual.  All four child
+ports are jointly necessary in this representation; the next decomposition
+target is their exact Boolean/Möbius interaction lattice.
 [three-edge factorial](../../polynomial_causal/EQUALITY_PRE_MLP9_THREE_EDGE_FACTORIAL_DISCOVERY_V1_RESULT.json),
 [code-OOD calibration null](../../polynomial_causal/EQUALITY_A8_EDGE_CODE_OOD_CONFIRMATION_V1_RESULT.json),
 [projected-payload extraction null](../../polynomial_causal/EQUALITY_L8H4_EXTRACTED_NODE_CODE_OOD_V1_RESULT.json),
@@ -695,6 +706,7 @@ graph remains the reusable behavioral node.
 [arithmetic-gauge red-team null](../../polynomial_causal/EQUALITY_L5H5_M4_SHARED_PROJECTION_GAUGE_V1_RESULT.json),
 [one-map score-space correction](../../polynomial_causal/EQUALITY_L5H5_M4_SHARED_PROJECTION_CORRECTION_V1_RESULT.json),
 [corrected shared-kernel behavioral null](../../polynomial_causal/EQUALITY_L5H5_M4_SHARED_KERNEL_BEHAVIOR_V1_RESULT.json),
+[behavior-selected native-projection null](../../polynomial_causal/EQUALITY_L5H5_M4_BEHAVIORAL_PROJECTION_SELECTION_V1_RESULT.json),
 [red-team note](../../polynomial_causal/EQUALITY_A8_SPARSE_EDGE_EXECUTION_NOTE.md).
 
 The retained three-block score also has a smaller exact executor:

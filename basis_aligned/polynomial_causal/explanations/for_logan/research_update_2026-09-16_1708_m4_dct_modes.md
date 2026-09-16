@@ -112,3 +112,30 @@ global score geometry and aggregate recovery, not evidence that the exact
 interaction is unnecessary.  The 16-projection graph remains authoritative;
 future folding must optimize and certify the downstream removal vector, not
 only global score L2.
+
+## Behavior-selected native projections: all four ports are conjunctive
+
+We then changed both the numerical construction and the selection objective.
+The baseline, remainder, and joint corners use their native BF16 Q/K
+projections.  The child corner is derived with the exact RMS-scale identity,
+and any selected map is replaced by its native child projection.  All 15
+proper subsets of `Q1,K1,Q2,K2` were evaluated by removal-vector fidelity on
+natural data before freezing one for code.  The full four-map replacement was
+run through the same behavioral path as a positive control.
+
+The control is exact: its replay and removal-vector errors are zero in every
+natural/code subtype and half.  Nevertheless, no proper subset passes even on
+natural data.  The best diagnostic subset is `Q1+Q2` (14 projections); its
+worst natural-cell removal error is `.915` and minimum cosine `.576`.  Frozen
+on code, overall removal error/cosine is `.846/.650`, with half errors
+`.816/.876`.  Its removal remains large and selective, and its aggregate
+recovery equals authority exactly, but it is the wrong tokenwise intervention.
+
+There is an important algebraic warning here.  Composed replay is identically
+exact for every subset because baseline, remainder, and joint are native and
+the stored interaction closes back to the joint corner.  Thus exact replay and
+recovery say nothing about whether removing that interaction exposes the
+correct additive counterfactual.  At this numerical boundary all four child
+Q/K ports are conjunctively necessary.  The next useful decomposition is the
+exact Möbius expansion over these four port corrections, not another attempt
+to delete one raw projection.

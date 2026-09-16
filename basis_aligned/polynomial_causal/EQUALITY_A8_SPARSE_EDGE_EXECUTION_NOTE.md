@@ -143,3 +143,14 @@ its interaction-removal vector has `.294` cosine and `1.198` relative error to
 the exact graph.  Keep the exact 16-projection interaction node as the
 behavioral authority.  A future fold must target the removal vector directly;
 global score error and aggregate recovery are insufficient certificates.
+
+A behavior-selected native-order follow-up closes the miscoding loophole more
+strongly.  It tested all 15 proper subsets of native child `Q1,K1,Q2,K2`
+projections on natural data, with the full four-map path as a positive control.
+The control has zero replay and removal-vector error in every natural/code cell.
+No proper subset passes.  Best diagnostic `Q1+Q2` has `.846` code removal-vector
+error and `.650` cosine despite exactly matching authority recovery and composed
+replay.  Therefore the four child ports are conjunctive at this boundary;
+replay closure cannot certify the interaction-removal counterfactual.  Continue
+with a four-map Möbius decomposition rather than treating any raw map as
+independently removable.

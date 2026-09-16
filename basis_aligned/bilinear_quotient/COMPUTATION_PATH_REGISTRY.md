@@ -166,6 +166,7 @@ without treating either complete native module as the semantic unit.
 - [M4 shared-projection arithmetic-gauge null](../polynomial_causal/EQUALITY_L5H5_M4_SHARED_PROJECTION_GAUGE_V1_RESULT.json)
 - [M4 one-map score-space correction](../polynomial_causal/EQUALITY_L5H5_M4_SHARED_PROJECTION_CORRECTION_V1_RESULT.json)
 - [M4 corrected shared-kernel behavioral null](../polynomial_causal/EQUALITY_L5H5_M4_SHARED_KERNEL_BEHAVIOR_V1_RESULT.json)
+- [M4 behavior-selected native-projection null](../polynomial_causal/EQUALITY_L5H5_M4_BEHAVIORAL_PROJECTION_SELECTION_V1_RESULT.json)
 - [A8 sparse-edge red-team note](../polynomial_causal/EQUALITY_A8_SPARSE_EDGE_EXECUTION_NOTE.md)
 - [MLP17 causal-Hessian identity certificate](../polynomial_causal/MLP17_CAUSAL_HESSIAN_IDENTITY_V1_RESULT.json)
 - [Causal-Hessian identity preregistration](../polynomial_causal/MLP17_CAUSAL_HESSIAN_IDENTITY_V1_PREREGISTRATION.md)
