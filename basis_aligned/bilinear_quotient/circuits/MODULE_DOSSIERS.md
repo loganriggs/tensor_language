@@ -445,6 +445,37 @@ removal should wait until a downstream circuit actually reads the node.
 [Contextual-range preregistration](../../polynomial_causal/MLP9_CONTEXTUAL_DCT_RANGE_V1_PREREGISTRATION.md),
 [contextual-range result](../../polynomial_causal/MLP9_CONTEXTUAL_DCT_RANGE_V1_RESULT.json).
 
+That standalone export has now been tested prospectively.  V1 froze the four
+stable raw-DCT inputs and an energy-selected rank-eight contextual output
+subspace, with the exact RMS coefficient law implemented from weights and the
+live pre-MLP9 state.  Its aggregate fresh-context prediction looked strong
+(`.02629` relative L2, `.999654` cosine), but the preregistered result was a
+valid null: low-energy off-diagonal ordered pairs reached `.9092` relative
+error and a cancellation-sensitive mixture reached `.09957`.  This was not an
+implementation failure—the analytic formula replayed nested JVPs to about
+`7e-7`, and isolated package replay was exact.  The failure exposed a bad
+selection proxy: those off-diagonal pairs carried only `.00366` of total
+response energy but became important after diagonal cancellation.
+
+A prospective rank-16 correction, selected before opening a second disjoint
+64-prefix panel, resolves that failure.  It retains `.9999911` of discovery
+response norm and predicts the second panel at `.004928` relative L2 and
+`.999988` cosine; every family is below `.00520`, every ordered pair below
+`.01047`, and all eight frozen mixtures below `.00801`.  The matched random
+rank-16 median error is `.99281`.  The package reproduces its fixture within
+`7.3e-9` relative L2 in an independent isolated replay,
+uses only the native pre-MLP9 `z9` activation port, and stores `.6751` as many
+tensor parameters as the native MLP9 bilinear matrices.  This is the first
+extracted, cross-panel predictive, compositionally reusable generic MLP9
+response node from this DCT line.  It still has no behavioral reader,
+selective-removal, or complete-circuit evidence, and the native activation port
+means it is not an autonomous input-to-output circuit.
+[V1 node preregistration](../../polynomial_causal/MLP9_CONTEXTUAL_DCT_NODE_FRESH_V1_PREREGISTRATION.md),
+[V1 diagnostic null](../../polynomial_causal/MLP9_CONTEXTUAL_DCT_NODE_FRESH_V1_RESULT.json),
+[rank-16 correction preregistration](../../polynomial_causal/MLP9_CONTEXTUAL_DCT_NODE_RANK16_FRESH_V2_PREREGISTRATION.md),
+[rank-16 result](../../polynomial_causal/MLP9_CONTEXTUAL_DCT_NODE_RANK16_FRESH_V2_RESULT.json),
+[standalone package](../../polynomial_causal/extracted_circuits/mlp9_contextual_dct_node_v1/README_RANK16_V2.md).
+
 The retained three-block score also has a smaller exact executor:
 
 $$
