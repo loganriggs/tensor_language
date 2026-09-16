@@ -831,6 +831,19 @@ three-block representation and close one-block pruning on this panel.
 [Preregistration](../../polynomial_causal/SETTING2_REGIONAL_QK1_BLOCK_COLLATERAL_V1_PREREGISTRATION.md),
 [result](fast_screens/setting2_regional_qk1_block_collateral_v1_result.json).
 
+A prospective 48-row screen closes the three natural structured unions as
+selective reusable QK1 units. Native capability passed on all 24 cue pairs, the
+complete route remained live, and exact query-late/key-late route replay errors
+were below `2.38e-7`. In family 0, query-late, key-late, and cross-only retained
+`.8041`, `.6711`, and `.5210` of complete target RMS, but changed the
+work/jobs-to-target ratio by only `+3.7%`, `-6.9%`, and `-8.9%`, versus the
+required 30% improvement. In family 1, query-late improved that ratio by
+`49.7%`, but red/blue and cat/dog effects were `9.66x` and `6.16x` its target
+RMS. No union passed both families. Retain the complete distributed
+`DD+DR+RD` group; stop query-side, key-side, and cross-only pruning on this
+route. [Preregistration](../../polynomial_causal/SETTING2_REGIONAL_QK1_STRUCTURED_UNION_FRESH_V1_PREREGISTRATION.md),
+[result](fast_screens/setting2_regional_qk1_structured_union_fresh_v1_result.json).
+
 The same edge transfers to a score-blind cached corpus panel. On FineWeb and
 Pile/reference, inherited-edge/full-city errors are19.48% and16.91%, effect
 cosines are.9963 and.9948, and all63 native-capable pairs move toward the donor

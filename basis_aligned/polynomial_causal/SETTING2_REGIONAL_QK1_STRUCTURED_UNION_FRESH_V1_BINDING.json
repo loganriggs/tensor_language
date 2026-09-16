@@ -1,0 +1,26 @@
+{
+  "schema": "setting2_regional_qk1_structured_union_fresh_v1_binding",
+  "files": {
+    "preregistration": "98325fc5ab236b5ed2334f3c3ad1e1d49fe82d252cad8086c15e094c44176d3c",
+    "rows": "843c847db1117984d27ae2482dee26b55ab2f72d182b4c7121e893cdc88c05c1",
+    "row_check": "9d58e3dc5426f94f3bf2a142e5cb45dbadbfed2f743bee262221482bd3db76ef",
+    "intervention_helper": "23f00cba17892d83dbad46ab9b490ee2586ab5a19a20283855b90c1aa0e8844c",
+    "parent_result": "8510e5c039a0d7ff28f10ecc23a489656d712a38c17f136dd8418c6d593aaa22",
+    "block_null": "aaeddb02fedfe96015d30e0cbc31792b7ca4f2877f90abae5b1e7badb331760b",
+    "price_proof": "730c24290ce1b539a4ce52a6f5cb33635bfd424a7b8d3bac166fe252ff417f85"
+  },
+  "price": {
+    "physical_model_executions": 30,
+    "sequences_per_arm": 48,
+    "arms": 5,
+    "fits": 0,
+    "backwards": 0,
+    "parameter_updates": 0,
+    "qk1_scalar_multiplies": {
+      "complete": 256,
+      "query_late": 128,
+      "key_late": 128,
+      "cross_only": 256
+    }
+  }
+}
