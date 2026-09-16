@@ -143,6 +143,53 @@ removal and a reusable small rank-one edge, but the full-head/native-base value
 remains an explicit donor port and the corrected nouns are not a fresh lexical
 panel.
 
+## Exact one-layer source-factor decomposition
+
+We next opened L11H3 itself using the existing exact attention factor primitive,
+with no regression. For base versus coordinate-removed states, every source
+term was decomposed into the full 31-term Möbius expansion over native
+`Q`, `K`, `Q2`, `K2`, and output-projected effective `U`, then projected onto
+the frozen writer axis. The six causal source positions were kept open.
+
+The instrument passed strongly:
+
+- exact head source identity error: `0.0`;
+- maximum complete Möbius closure error: `3.43e-5`, relative `9.12e-7`;
+- independent corrected-scalar replay error: `6.10e-5`;
+- synthetic five-factor closure error: `4.44e-16`.
+
+This localizes the L11H3 edge sharply. The contextualized subject source alone
+reconstructs the scalar response to `0.03367` relative L2; adding the second
+determiner source reaches `0.02666`. The other four source positions each have
+RMS below `2.16`, versus subject-source RMS `118.91`. Their small terms partly
+cancel: subject aligned recovery is `1.0105`.
+
+At the factor level, `U` alone reaches `0.19816` relative L2. Greedy exact
+addition of `K`, `K×U`, and `Q×Q2×U` reaches `0.10759`. Eight unscaled
+source×factor atoms reach `0.09728`; the selected atoms are:
+
+1. `subject:U`
+2. `subject:K`
+3. `subject:K×U`
+4. `attractor:Q`
+5. `subject:Q×Q2×U`
+6. `subject:Q×K2`
+7. `subject:K×K2×U`
+8. `subject:K×K2`
+
+The registered matched-readout specificity gate is a valid null. The target
+writer was more compressible than all 16 orthogonal random readouts, whose
+median eight-atom error was `0.18238`, but the absolute advantage was `0.08510`
+rather than the preregistered `.10`. Therefore the exact decomposition and its
+source/factor compression are accepted, while the eight-atom set is not yet
+licensed as behavior-specific or OOD-stable.
+
+Mechanistically, this moves the unresolved transform upstream: L11H3 reads the
+effect almost entirely from the subject position's already-contextualized value
+state. Direct context-token and attractor-token source writes are small. The
+next clean boundary is therefore the construction of that contextualized
+subject value before L11, not an unrestricted six-source attention donor.
+
 ## What this changes in the sparse graph
 
 The previous graph boundary was
@@ -168,4 +215,5 @@ not satisfy reusability.
 - `SUBJECT_NUMBER_EMBEDDING_TO_L11H3_CONTEXT_MOBIUS_CORRECTED_V1_RESULT.json`
 - `SUBJECT_NUMBER_CONTEXT_INTERACTION_RANK_SPECIFICITY_V1_RESULT.json`
 - `SUBJECT_NUMBER_CORRECTED_REMOVAL_MEDIATION_V1_RESULT.json`
+- `SUBJECT_NUMBER_L11H3_SOURCE_FACTOR_MOBIUS_V1_RESULT.json`
 - their preregistrations, bindings, frozen authority, and managed runners

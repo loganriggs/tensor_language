@@ -1,0 +1,37 @@
+{
+  "authority_sha256": "cf100fa31eb6131df23837b8da54328676a3e22e81c5922157059047f1b80886",
+  "bars": {
+    "maximum_absolute_closure_error": 0.0001,
+    "maximum_atom8_relative_l2": 0.25,
+    "maximum_factor4_relative_l2": 0.35,
+    "maximum_head_identity_error": 0.0001,
+    "maximum_relative_closure_error": 1e-05,
+    "maximum_scalar_replay_error": 0.0001,
+    "maximum_source2_relative_l2": 0.35,
+    "maximum_synthetic_error": 1e-12,
+    "minimum_random_median_advantage": 0.1
+  },
+  "files": {
+    "authority": "2ca93353efc90fc842ade184d7d954f061ca23fac6532ab5d92fef25f1d96cdf",
+    "corrected_scalar": "b998b4df808df096a4926a39fd933d1b8db2447957ebb0db2bda3c3f70a3329f",
+    "decoder": "f2356b8a1c336d011e36059e571117a0d61c4104a3570521bd59838a29f40cc1",
+    "preregistration": "752d14924e2ac9059cd68b115a06f1bd855981cfcc39e81a568e254200dd03fa",
+    "rank1": "f73126268794342809c2953b388ed83f6d1d0e2e245ce9ea78f2d665a0e87c1f",
+    "source_primitive": "1c965deb1969cd317185f4d068006d7b9052837d1603898e0d5372076b48d0a8"
+  },
+  "null_seed": 20260925,
+  "nulls": 16,
+  "price": {
+    "backwards": 0,
+    "behavior_logits": 0,
+    "fits": 0,
+    "greedy_atom_steps": 8,
+    "greedy_factor_steps": 4,
+    "greedy_source_steps": 2,
+    "mobius_terms": 31,
+    "parameter_updates": 0,
+    "partial_forwards": 4,
+    "readouts": 17,
+    "sequences": 256
+  }
+}
