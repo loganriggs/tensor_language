@@ -607,6 +607,23 @@ bound correction passes all six gates.  This establishes prediction, causal
 installation, zero-parameter extraction, and algebraic reuse for the score
 node.  It does not yet extract the residual-to-Q/K linear projections or their
 source support, and it leaves L8H4 raw payload native.
+
+The residual-to-Q/K operation and a sparse source support are now explicit.
+The extracted zero-learned-parameter executor consumes one pre-L5 residual and
+the four frozen native L5H5 head-weight slices; full score and donor logits match
+factor capture exactly.  With RMS retained as a shared nonlinear context slot,
+an exhaustive natural-only source screen chose `L2+L3+L4` from the exact
+`E,L0,...,L4` provenance groups.  Natural score error/cosine is
+`.14462/.99197`; frozen code error/cosine is `.15268/.99233`; downstream
+recovery is `.90458` with `.00172` nat noncopy damage.  The complete three-port
+Möbius graph closes at `3.94e-9`.  A prospective red-team removes the explicit
+roundoff port and repeats selection: the same support survives, code error
+slightly improves to `.15255`, recovery changes by only `-.00020`, and an
+equal-norm position roll moves recovery by `.00287`.  This is therefore a
+correction-free sparse boundary graph with OOD prediction, causal removal/
+installation, extraction, and composition.  The layer-2/3/4 writes are still
+native frozen ports, so recursive producer extraction—not another score-basis
+search—is the live handoff.
 [three-edge factorial](../../polynomial_causal/EQUALITY_PRE_MLP9_THREE_EDGE_FACTORIAL_DISCOVERY_V1_RESULT.json),
 [code-OOD calibration null](../../polynomial_causal/EQUALITY_A8_EDGE_CODE_OOD_CONFIRMATION_V1_RESULT.json),
 [projected-payload extraction null](../../polynomial_causal/EQUALITY_L8H4_EXTRACTED_NODE_CODE_OOD_V1_RESULT.json),
@@ -616,6 +633,9 @@ source support, and it leaves L8H4 raw payload native.
 [score-adapter export](../../polynomial_causal/EQUALITY_L5H5_SCORE_ADAPTER_EXPORT_V1_RESULT.json),
 [bilinear score-node red-team null](../../polynomial_causal/EQUALITY_L5H5_BILINEAR_SCORE_NODE_CODE_OOD_V1_RESULT.json),
 [causal bilinear score-node result](../../polynomial_causal/EQUALITY_L5H5_BILINEAR_SCORE_NODE_CODE_OOD_V2_RESULT.json),
+[sparse residual-source graph](../../polynomial_causal/EQUALITY_L5H5_RESIDUAL_SOURCE_GRAPH_V1_RESULT.json),
+[correction-port red-team](../../polynomial_causal/EQUALITY_L5H5_RESIDUAL_CORRECTION_REDTEAM_V1_RESULT.json),
+[L2+L3+L4 graph export](../../polynomial_causal/EQUALITY_L5H5_L234_SCORE_GRAPH_EXPORT_V1_RESULT.json),
 [red-team note](../../polynomial_causal/EQUALITY_A8_SPARSE_EDGE_EXECUTION_NOTE.md).
 
 The retained three-block score also has a smaller exact executor:

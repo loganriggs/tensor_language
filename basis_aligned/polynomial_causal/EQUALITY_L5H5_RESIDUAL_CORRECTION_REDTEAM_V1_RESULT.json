@@ -1,0 +1,230 @@
+{
+  "behavior": {
+    "factor_donor": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.002398641547188163,
+        "native_effect_sum_nat": -48.48896789550781,
+        "recovery": 2.2869536307344798,
+        "tokens": 26016
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.027829580008983612,
+        "native_effect_sum_nat": 700.2482299804688,
+        "recovery": 0.8268818073111106,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": -0.006068028975278139,
+        "native_effect_sum_nat": 319.3406982421875,
+        "recovery": 1.1586456662152207,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": -0.015292868949472904,
+        "native_effect_sum_nat": 108.54377746582031,
+        "recovery": 1.9146662168193687,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.029054151847958565,
+        "native_effect_sum_nat": 489.4512634277344,
+        "recovery": 0.851657643600126,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.0020228931680321693,
+        "native_effect_sum_nat": 808.7919921875,
+        "recovery": 0.9728677630967287,
+        "tokens": 10848
+      },
+      "halves": [
+        {
+          "native_effect_sum_nat": 380.5408020019531,
+          "recovery": 0.9988341209445946
+        },
+        {
+          "native_effect_sum_nat": 428.2511901855469,
+          "recovery": 0.949794180618666
+        }
+      ]
+    },
+    "rolled_correction": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.0017446392448619008,
+        "native_effect_sum_nat": -48.48896789550781,
+        "recovery": 1.9360593094598009,
+        "tokens": 26016
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.03622632846236229,
+        "native_effect_sum_nat": 700.2482299804688,
+        "recovery": 0.7746485686620441,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": -0.0029979716055095196,
+        "native_effect_sum_nat": 319.3406982421875,
+        "recovery": 1.0783805210855038,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": -0.012752020731568336,
+        "native_effect_sum_nat": 108.54377746582031,
+        "recovery": 1.7626978185920483,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.04003434255719185,
+        "native_effect_sum_nat": 489.4512634277344,
+        "recovery": 0.7955959155121987,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.006915169768035412,
+        "native_effect_sum_nat": 808.7919921875,
+        "recovery": 0.9072494907649453,
+        "tokens": 10848
+      },
+      "halves": [
+        {
+          "native_effect_sum_nat": 380.5408020019531,
+          "recovery": 0.9327934640201047
+        },
+        {
+          "native_effect_sum_nat": 428.2511901855469,
+          "recovery": 0.8845514498570684
+        }
+      ]
+    },
+    "zero_correction": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.0015727656427770853,
+        "native_effect_sum_nat": -48.48896789550781,
+        "recovery": 1.843842842141336,
+        "tokens": 26016
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.036571867763996124,
+        "native_effect_sum_nat": 700.2482299804688,
+        "recovery": 0.7724991495151124,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": -0.0027013325598090887,
+        "native_effect_sum_nat": 319.3406982421875,
+        "recovery": 1.0706249983276244,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": -0.01262672059237957,
+        "native_effect_sum_nat": 108.54377746582031,
+        "recovery": 1.7552037843403938,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.039971109479665756,
+        "native_effect_sum_nat": 489.4512634277344,
+        "recovery": 0.7959188292503357,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.007128905970603228,
+        "native_effect_sum_nat": 808.7919921875,
+        "recovery": 0.9043828928414893,
+        "tokens": 10848
+      },
+      "halves": [
+        {
+          "native_effect_sum_nat": 380.5408020019531,
+          "recovery": 0.9297331317437719
+        },
+        {
+          "native_effect_sum_nat": 428.2511901855469,
+          "recovery": 0.8818567177856949
+        }
+      ]
+    }
+  },
+  "binding_sha256": "1ac8f92a5d8d7bc9585f19805923dd7ae893e88e5f1832c80b16e02eae186ffd",
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "code_score": {
+    "halves_zero": [
+      {
+        "cosine": 0.9922473430075606,
+        "edges": 203309,
+        "relative_l2": 0.1530344608741286
+      },
+      {
+        "cosine": 0.9924430465493008,
+        "edges": 170493,
+        "relative_l2": 0.15204166270503736
+      }
+    ],
+    "parent_error": 0.1526767543193168,
+    "rolled_correction": {
+      "cosine": 0.9923351299163786,
+      "edges": 373802,
+      "relative_l2": 0.1525933582278554
+    },
+    "zero_correction": {
+      "cosine": 0.992343095638702,
+      "edges": 373802,
+      "relative_l2": 0.15254937914097177
+    }
+  },
+  "comparisons": {
+    "parent_selected_recovery": 0.9045838550452002,
+    "rolled_minus_zero": 0.0028665979234560046,
+    "rolled_recovery": 0.9072494907649453,
+    "zero_minus_parent": -0.00020096220371090823,
+    "zero_recovery": 0.9043828928414893,
+    "zero_score_error_minus_parent": -0.00012737517834501833
+  },
+  "created_utc": "2026-09-16T16:28:05.482980Z",
+  "maximum_mobius_closure_relative_l2": 2.7298596716462953e-09,
+  "minimum_term_rms": 16.13077163696289,
+  "predictions": {
+    "pred_a_live_bound_instrument": true,
+    "pred_b_same_correction_free_support": true,
+    "pred_c_correction_free_ood_score": true,
+    "pred_d_correction_free_behavior": true,
+    "pred_e_correction_dispensable": true,
+    "pred_f_correction_free_composition": true
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "complete_code_forwards": 240,
+    "execution_count": 336,
+    "fits": 0,
+    "gpu_accessed": true,
+    "gradients": 0,
+    "learned_parameters": 0,
+    "model_loaded": true,
+    "natural_documents": 192,
+    "new_text": 0,
+    "ood_documents": 192,
+    "parameter_updates": 0,
+    "prefix_executions": 96,
+    "queue_touched": true,
+    "schema": "equality_l5h5_residual_correction_redteam_v1_plan"
+  },
+  "runner_sha256": "b0a99bdb1e451f0f914da3881b1b53f1961a413c180c9b0fefe01951c691f27f",
+  "schema": "equality_l5h5_residual_correction_redteam_v1_result",
+  "scope": "Red-team of the L5H5 residual provenance correction port. Zero and equal-norm position-rolled controls test whether three-source sparsity depends on roundoff direction after Q/K normalization.",
+  "seconds": 7.740911012006109,
+  "selection": {
+    "mask": 56,
+    "natural": {
+      "cosine": 0.991972461467764,
+      "edges": 65556,
+      "relative_l2": 0.144530914395772
+    },
+    "qualified": true,
+    "sources": [
+      "L2",
+      "L3",
+      "L4"
+    ]
+  },
+  "terminal": "equality_l5h5_correction_free_sparse_source_graph"
+}

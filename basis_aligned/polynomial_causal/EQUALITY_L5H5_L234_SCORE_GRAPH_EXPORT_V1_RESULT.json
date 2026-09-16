@@ -1,0 +1,36 @@
+{
+  "schema": "equality_l5h5_l234_score_graph_export_v1_result",
+  "terminal": "equality_l5h5_l234_score_graph_exported",
+  "package": "extracted_circuits/equality_l5h5_l234_score_graph_v1",
+  "source_support": [
+    "L2",
+    "L3",
+    "L4"
+  ],
+  "correction_port_required": false,
+  "learned_parameters": 0,
+  "native_parameters_reused": 589824,
+  "activation_ports": 5,
+  "static_weight_ports": 4,
+  "output_ports": 1,
+  "validation": {
+    "natural_score_relative_l2": 0.144530914395772,
+    "natural_score_cosine": 0.991972461467764,
+    "code_score_relative_l2": 0.15254937914097177,
+    "code_score_cosine": 0.992343095638702,
+    "code_behavioral_recovery": 0.9043828928414893,
+    "code_noncopy_mean_damage_nat": 0.0015727656427770853,
+    "mobius_closure_relative_l2": 2.7298596716462953e-09
+  },
+  "files": {
+    "node.py": "58e08fb706d82756f85b77720dcd1e07bdb0d876998b1c183e64f792d52e3880",
+    "__init__.py": "2cd7724189dc4caa813e2ee5628794ab20226c359cf49eedce2a5c8e95f84cbd",
+    "manifest.json": "bd3bf4e31a2fc2291470b59f1e1b9dce883d1cacbf302ce69096416f1564404e",
+    "README.md": "39898ef106435364c3a731e5e707b9614ff584e1bdd4c0d59585e70b3e6e035f"
+  },
+  "authority": {
+    "source_graph_result_sha256": "954ec2924e0120f4c53fe3b9c2c8df369d769f32143bd7a4fcce7de067b2e32d",
+    "correction_redteam_result_sha256": "1ea4e262579400b0ea4e53f49c3d5a5fc407a7d3ac3b2290a853f8377d7e5339"
+  },
+  "scope": "Executable correction-free boundary graph from three native frozen layer-write ports to the approximate L5H5 equality score. It does not recursively execute L2/L3/L4 write producers or compress the reused native Q/K weights."
+}

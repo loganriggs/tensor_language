@@ -1,0 +1,894 @@
+{
+  "behavior": {
+    "factor_donor": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.002398641547188163,
+        "native_effect_sum_nat": -48.48896789550781,
+        "recovery": 2.2869536307344798,
+        "tokens": 26016
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.027829580008983612,
+        "native_effect_sum_nat": 700.2482299804688,
+        "recovery": 0.8268818073111106,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": -0.006068028975278139,
+        "native_effect_sum_nat": 319.3406982421875,
+        "recovery": 1.1586456662152207,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": -0.015292868949472904,
+        "native_effect_sum_nat": 108.54377746582031,
+        "recovery": 1.9146662168193687,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.029054151847958565,
+        "native_effect_sum_nat": 489.4512634277344,
+        "recovery": 0.851657643600126,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.0020228931680321693,
+        "native_effect_sum_nat": 808.7919921875,
+        "recovery": 0.9728677630967287,
+        "tokens": 10848
+      },
+      "halves": [
+        {
+          "native_effect_sum_nat": 380.5408020019531,
+          "recovery": 0.9988341209445946
+        },
+        {
+          "native_effect_sum_nat": 428.2511901855469,
+          "recovery": 0.949794180618666
+        }
+      ]
+    },
+    "full_residual_donor": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.002398641547188163,
+        "native_effect_sum_nat": -48.48896789550781,
+        "recovery": 2.2869536307344798,
+        "tokens": 26016
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.027829580008983612,
+        "native_effect_sum_nat": 700.2482299804688,
+        "recovery": 0.8268818073111106,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": -0.006068028975278139,
+        "native_effect_sum_nat": 319.3406982421875,
+        "recovery": 1.1586456662152207,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": -0.015292868949472904,
+        "native_effect_sum_nat": 108.54377746582031,
+        "recovery": 1.9146662168193687,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.029054151847958565,
+        "native_effect_sum_nat": 489.4512634277344,
+        "recovery": 0.851657643600126,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.0020228931680321693,
+        "native_effect_sum_nat": 808.7919921875,
+        "recovery": 0.9728677630967287,
+        "tokens": 10848
+      },
+      "halves": [
+        {
+          "native_effect_sum_nat": 380.5408020019531,
+          "recovery": 0.9988341209445946
+        },
+        {
+          "native_effect_sum_nat": 428.2511901855469,
+          "recovery": 0.949794180618666
+        }
+      ]
+    },
+    "selected_donor": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.0017153071239590645,
+        "native_effect_sum_nat": -48.48896789550781,
+        "recovery": 1.9203214011825263,
+        "tokens": 26016
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.03650148957967758,
+        "native_effect_sum_nat": 700.2482299804688,
+        "recovery": 0.7729368779399256,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": -0.002766064368188381,
+        "native_effect_sum_nat": 319.3406982421875,
+        "recovery": 1.0723174425151918,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": -0.012604551389813423,
+        "native_effect_sum_nat": 108.54377746582031,
+        "recovery": 1.7538777188524677,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.040122292935848236,
+        "native_effect_sum_nat": 489.4512634277344,
+        "recovery": 0.7951468665177859,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.007113914471119642,
+        "native_effect_sum_nat": 808.7919921875,
+        "recovery": 0.9045838550452002,
+        "tokens": 10848
+      },
+      "halves": [
+        {
+          "native_effect_sum_nat": 380.5408020019531,
+          "recovery": 0.9267639815066465
+        },
+        {
+          "native_effect_sum_nat": 428.2511901855469,
+          "recovery": 0.8848749744796794
+        }
+      ]
+    }
+  },
+  "binding_sha256": "262e353b33278c4490e865519d281ce272f6a106a01eefd35b830c6ad009aad5",
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "code_score": {
+    "halves": [
+      {
+        "cosine": 0.9922297804974313,
+        "edges": 203309,
+        "relative_l2": 0.15319395338208408
+      },
+      {
+        "cosine": 0.9924331671102448,
+        "edges": 170493,
+        "relative_l2": 0.15213530661797922
+      }
+    ],
+    "pooled": {
+      "cosine": 0.9923292977172788,
+      "edges": 373802,
+      "relative_l2": 0.1526767543193168
+    }
+  },
+  "composition": {
+    "maximum_mobius_closure_relative_l2": 3.936388992542561e-09,
+    "term_squared_norm_by_order": {
+      "0": 928.1097563822598,
+      "1": 7949.9078868078095,
+      "2": 5523.637040840449,
+      "3": 1495.288180185189
+    }
+  },
+  "created_utc": "2026-09-16T16:23:50.401866Z",
+  "maximum_exactness_errors": {
+    "correction": 0.0036486880853772163,
+    "full_logits": 0.0,
+    "full_score": 0.0,
+    "residual": 0.0
+  },
+  "minimum_selected_term_rms": 16.133655548095703,
+  "natural_subset_frontier": {
+    "1": {
+      "cosine": 0.11942970217064303,
+      "edges": 65556,
+      "relative_l2": 0.9928528618718943,
+      "sources": [
+        "E"
+      ]
+    },
+    "10": {
+      "cosine": 0.5962561365016267,
+      "edges": 65556,
+      "relative_l2": 0.8481142060285005,
+      "sources": [
+        "L0",
+        "L2"
+      ]
+    },
+    "11": {
+      "cosine": 0.469908113818903,
+      "edges": 65556,
+      "relative_l2": 0.886952853964291,
+      "sources": [
+        "E",
+        "L0",
+        "L2"
+      ]
+    },
+    "12": {
+      "cosine": 0.6305066684084013,
+      "edges": 65556,
+      "relative_l2": 0.8147534894061994,
+      "sources": [
+        "L1",
+        "L2"
+      ]
+    },
+    "13": {
+      "cosine": 0.5167238720198745,
+      "edges": 65556,
+      "relative_l2": 0.8617459975803392,
+      "sources": [
+        "E",
+        "L1",
+        "L2"
+      ]
+    },
+    "14": {
+      "cosine": 0.6298122540924764,
+      "edges": 65556,
+      "relative_l2": 0.8138482373301251,
+      "sources": [
+        "L0",
+        "L1",
+        "L2"
+      ]
+    },
+    "15": {
+      "cosine": 0.5174053787719971,
+      "edges": 65556,
+      "relative_l2": 0.8613898592737866,
+      "sources": [
+        "E",
+        "L0",
+        "L1",
+        "L2"
+      ]
+    },
+    "16": {
+      "cosine": 0.7025254722029634,
+      "edges": 65556,
+      "relative_l2": 0.8306682039604243,
+      "sources": [
+        "L3"
+      ]
+    },
+    "17": {
+      "cosine": 0.6654838248725367,
+      "edges": 65556,
+      "relative_l2": 0.8208689615559511,
+      "sources": [
+        "E",
+        "L3"
+      ]
+    },
+    "18": {
+      "cosine": 0.7059147372815376,
+      "edges": 65556,
+      "relative_l2": 0.8276479084366586,
+      "sources": [
+        "L0",
+        "L3"
+      ]
+    },
+    "19": {
+      "cosine": 0.6656802481805417,
+      "edges": 65556,
+      "relative_l2": 0.8195130938678833,
+      "sources": [
+        "E",
+        "L0",
+        "L3"
+      ]
+    },
+    "2": {
+      "cosine": 0.23638600221629963,
+      "edges": 65556,
+      "relative_l2": 0.978451894015778,
+      "sources": [
+        "L0"
+      ]
+    },
+    "20": {
+      "cosine": 0.7351632161982126,
+      "edges": 65556,
+      "relative_l2": 0.7981336028177212,
+      "sources": [
+        "L1",
+        "L3"
+      ]
+    },
+    "21": {
+      "cosine": 0.6882708374133822,
+      "edges": 65556,
+      "relative_l2": 0.7978911614051141,
+      "sources": [
+        "E",
+        "L1",
+        "L3"
+      ]
+    },
+    "22": {
+      "cosine": 0.7359826051878465,
+      "edges": 65556,
+      "relative_l2": 0.7964483258453683,
+      "sources": [
+        "L0",
+        "L1",
+        "L3"
+      ]
+    },
+    "23": {
+      "cosine": 0.6875943634298736,
+      "edges": 65556,
+      "relative_l2": 0.7975620430460738,
+      "sources": [
+        "E",
+        "L0",
+        "L1",
+        "L3"
+      ]
+    },
+    "24": {
+      "cosine": 0.759925982741003,
+      "edges": 65556,
+      "relative_l2": 0.7495131761836741,
+      "sources": [
+        "L2",
+        "L3"
+      ]
+    },
+    "25": {
+      "cosine": 0.7146375217058927,
+      "edges": 65556,
+      "relative_l2": 0.7510535282879789,
+      "sources": [
+        "E",
+        "L2",
+        "L3"
+      ]
+    },
+    "26": {
+      "cosine": 0.7602890170897254,
+      "edges": 65556,
+      "relative_l2": 0.747851214520796,
+      "sources": [
+        "L0",
+        "L2",
+        "L3"
+      ]
+    },
+    "27": {
+      "cosine": 0.714007963031691,
+      "edges": 65556,
+      "relative_l2": 0.750873687726028,
+      "sources": [
+        "E",
+        "L0",
+        "L2",
+        "L3"
+      ]
+    },
+    "28": {
+      "cosine": 0.7683653943949231,
+      "edges": 65556,
+      "relative_l2": 0.7305684867145261,
+      "sources": [
+        "L1",
+        "L2",
+        "L3"
+      ]
+    },
+    "29": {
+      "cosine": 0.7221815934076996,
+      "edges": 65556,
+      "relative_l2": 0.7396975698150077,
+      "sources": [
+        "E",
+        "L1",
+        "L2",
+        "L3"
+      ]
+    },
+    "3": {
+      "cosine": 0.12398593610278962,
+      "edges": 65556,
+      "relative_l2": 0.9923231522151291,
+      "sources": [
+        "E",
+        "L0"
+      ]
+    },
+    "30": {
+      "cosine": 0.7678811352985474,
+      "edges": 65556,
+      "relative_l2": 0.7301253998728865,
+      "sources": [
+        "L0",
+        "L1",
+        "L2",
+        "L3"
+      ]
+    },
+    "31": {
+      "cosine": 0.7213474756004401,
+      "edges": 65556,
+      "relative_l2": 0.7401443126686162,
+      "sources": [
+        "E",
+        "L0",
+        "L1",
+        "L2",
+        "L3"
+      ]
+    },
+    "32": {
+      "cosine": 0.8967734547807822,
+      "edges": 65556,
+      "relative_l2": 0.5625892841126562,
+      "sources": [
+        "L4"
+      ]
+    },
+    "33": {
+      "cosine": 0.9383144014610384,
+      "edges": 65556,
+      "relative_l2": 0.4379456032425987,
+      "sources": [
+        "E",
+        "L4"
+      ]
+    },
+    "34": {
+      "cosine": 0.8996946487041354,
+      "edges": 65556,
+      "relative_l2": 0.5585589193229488,
+      "sources": [
+        "L0",
+        "L4"
+      ]
+    },
+    "35": {
+      "cosine": 0.9395173014990786,
+      "edges": 65556,
+      "relative_l2": 0.4356774601580772,
+      "sources": [
+        "E",
+        "L0",
+        "L4"
+      ]
+    },
+    "36": {
+      "cosine": 0.9231442274823798,
+      "edges": 65556,
+      "relative_l2": 0.5031230147544744,
+      "sources": [
+        "L1",
+        "L4"
+      ]
+    },
+    "37": {
+      "cosine": 0.9522729128064109,
+      "edges": 65556,
+      "relative_l2": 0.3902642021461761,
+      "sources": [
+        "E",
+        "L1",
+        "L4"
+      ]
+    },
+    "38": {
+      "cosine": 0.925214627689208,
+      "edges": 65556,
+      "relative_l2": 0.500084662850166,
+      "sources": [
+        "L0",
+        "L1",
+        "L4"
+      ]
+    },
+    "39": {
+      "cosine": 0.9529604743773391,
+      "edges": 65556,
+      "relative_l2": 0.38933288639984864,
+      "sources": [
+        "E",
+        "L0",
+        "L1",
+        "L4"
+      ]
+    },
+    "4": {
+      "cosine": 0.4663909941237196,
+      "edges": 65556,
+      "relative_l2": 0.9114179194646184,
+      "sources": [
+        "L1"
+      ]
+    },
+    "40": {
+      "cosine": 0.9514192656524376,
+      "edges": 65556,
+      "relative_l2": 0.38424619661458354,
+      "sources": [
+        "L2",
+        "L4"
+      ]
+    },
+    "41": {
+      "cosine": 0.9722168254885379,
+      "edges": 65556,
+      "relative_l2": 0.27361240439995405,
+      "sources": [
+        "E",
+        "L2",
+        "L4"
+      ]
+    },
+    "42": {
+      "cosine": 0.9530272341196997,
+      "edges": 65556,
+      "relative_l2": 0.38065534598326706,
+      "sources": [
+        "L0",
+        "L2",
+        "L4"
+      ]
+    },
+    "43": {
+      "cosine": 0.9728072007621003,
+      "edges": 65556,
+      "relative_l2": 0.27215312790270174,
+      "sources": [
+        "E",
+        "L0",
+        "L2",
+        "L4"
+      ]
+    },
+    "44": {
+      "cosine": 0.9637298945780673,
+      "edges": 65556,
+      "relative_l2": 0.3350753838686305,
+      "sources": [
+        "L1",
+        "L2",
+        "L4"
+      ]
+    },
+    "45": {
+      "cosine": 0.9779494298811399,
+      "edges": 65556,
+      "relative_l2": 0.24152361507661005,
+      "sources": [
+        "E",
+        "L1",
+        "L2",
+        "L4"
+      ]
+    },
+    "46": {
+      "cosine": 0.9648201258389452,
+      "edges": 65556,
+      "relative_l2": 0.33272030759900506,
+      "sources": [
+        "L0",
+        "L1",
+        "L2",
+        "L4"
+      ]
+    },
+    "47": {
+      "cosine": 0.9782344396326114,
+      "edges": 65556,
+      "relative_l2": 0.24139334115798017,
+      "sources": [
+        "E",
+        "L0",
+        "L1",
+        "L2",
+        "L4"
+      ]
+    },
+    "48": {
+      "cosine": 0.9808070213705563,
+      "edges": 65556,
+      "relative_l2": 0.2525744369836415,
+      "sources": [
+        "L3",
+        "L4"
+      ]
+    },
+    "49": {
+      "cosine": 0.9930290166550659,
+      "edges": 65556,
+      "relative_l2": 0.14570253347464088,
+      "sources": [
+        "E",
+        "L3",
+        "L4"
+      ]
+    },
+    "5": {
+      "cosine": 0.282980093232448,
+      "edges": 65556,
+      "relative_l2": 0.9616509942334841,
+      "sources": [
+        "E",
+        "L1"
+      ]
+    },
+    "50": {
+      "cosine": 0.9816978584442201,
+      "edges": 65556,
+      "relative_l2": 0.249432360720387,
+      "sources": [
+        "L0",
+        "L3",
+        "L4"
+      ]
+    },
+    "51": {
+      "cosine": 0.9933549530193796,
+      "edges": 65556,
+      "relative_l2": 0.1443601166127256,
+      "sources": [
+        "E",
+        "L0",
+        "L3",
+        "L4"
+      ]
+    },
+    "52": {
+      "cosine": 0.9874376891331964,
+      "edges": 65556,
+      "relative_l2": 0.20990833208137946,
+      "sources": [
+        "L1",
+        "L3",
+        "L4"
+      ]
+    },
+    "53": {
+      "cosine": 0.9961084325880513,
+      "edges": 65556,
+      "relative_l2": 0.11316469487344516,
+      "sources": [
+        "E",
+        "L1",
+        "L3",
+        "L4"
+      ]
+    },
+    "54": {
+      "cosine": 0.9880268744711427,
+      "edges": 65556,
+      "relative_l2": 0.20799310707484117,
+      "sources": [
+        "L0",
+        "L1",
+        "L3",
+        "L4"
+      ]
+    },
+    "55": {
+      "cosine": 0.9962380218744472,
+      "edges": 65556,
+      "relative_l2": 0.11340878857457941,
+      "sources": [
+        "E",
+        "L0",
+        "L1",
+        "L3",
+        "L4"
+      ]
+    },
+    "56": {
+      "cosine": 0.9919685419154347,
+      "edges": 65556,
+      "relative_l2": 0.14461792077961938,
+      "sources": [
+        "L2",
+        "L3",
+        "L4"
+      ]
+    },
+    "57": {
+      "cosine": 0.9990182755127452,
+      "edges": 65556,
+      "relative_l2": 0.044500143902693495,
+      "sources": [
+        "E",
+        "L2",
+        "L3",
+        "L4"
+      ]
+    },
+    "58": {
+      "cosine": 0.9925395824860523,
+      "edges": 65556,
+      "relative_l2": 0.14114562785099052,
+      "sources": [
+        "L0",
+        "L2",
+        "L3",
+        "L4"
+      ]
+    },
+    "59": {
+      "cosine": 0.9991817817434087,
+      "edges": 65556,
+      "relative_l2": 0.04091836601824847,
+      "sources": [
+        "E",
+        "L0",
+        "L2",
+        "L3",
+        "L4"
+      ]
+    },
+    "6": {
+      "cosine": 0.4740025087389293,
+      "edges": 65556,
+      "relative_l2": 0.908109373264332,
+      "sources": [
+        "L0",
+        "L1"
+      ]
+    },
+    "60": {
+      "cosine": 0.9952408367965103,
+      "edges": 65556,
+      "relative_l2": 0.1119680481892714,
+      "sources": [
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ]
+    },
+    "61": {
+      "cosine": 0.9999714872316936,
+      "edges": 65556,
+      "relative_l2": 0.007980121298110696,
+      "sources": [
+        "E",
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ]
+    },
+    "62": {
+      "cosine": 0.995599171078757,
+      "edges": 65556,
+      "relative_l2": 0.10957576924513117,
+      "sources": [
+        "L0",
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ]
+    },
+    "63": {
+      "cosine": 1.0,
+      "edges": 65556,
+      "relative_l2": 0.0,
+      "sources": [
+        "E",
+        "L0",
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ]
+    },
+    "7": {
+      "cosine": 0.2927073299752155,
+      "edges": 65556,
+      "relative_l2": 0.958919353512299,
+      "sources": [
+        "E",
+        "L0",
+        "L1"
+      ]
+    },
+    "8": {
+      "cosine": 0.5939116448130201,
+      "edges": 65556,
+      "relative_l2": 0.8535763097915265,
+      "sources": [
+        "L2"
+      ]
+    },
+    "9": {
+      "cosine": 0.467359803520469,
+      "edges": 65556,
+      "relative_l2": 0.8885324052512458,
+      "sources": [
+        "E",
+        "L2"
+      ]
+    }
+  },
+  "package": {
+    "learned_parameters": 0,
+    "manifest_sha256": "e6805702fe1525be82bf0f3860869aa24189ef5d348f81d99141f7c10a16eac2",
+    "native_parameters_reused": 589824,
+    "source_sha256": "7b7aa3917a812c7c615d10d07073f4414143a477f14df2943c4be8bde8b4c76d"
+  },
+  "predictions": {
+    "pred_a_exact_residual_boundary": true,
+    "pred_b_sparse_natural_support": true,
+    "pred_c_ood_score_prediction": true,
+    "pred_d_ood_installation_removal": true,
+    "pred_e_selectivity": true,
+    "pred_f_composition_reuse": true
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "complete_code_forwards": 240,
+    "execution_count": 336,
+    "fits": 0,
+    "gpu_accessed": true,
+    "gradients": 0,
+    "learned_parameters": 0,
+    "maximum_mobius_node_calls_per_code_batch": 64,
+    "model_loaded": true,
+    "natural_documents": 192,
+    "new_text": 0,
+    "ood_documents": 192,
+    "parameter_updates": 0,
+    "prefix_executions": 96,
+    "queue_touched": true,
+    "schema": "equality_l5h5_residual_source_graph_v1_plan",
+    "subset_node_calls_per_natural_batch": 63,
+    "tokens_per_document": 256
+  },
+  "provenance": {
+    "correction_is_typed_implementation_port": true,
+    "groups": [
+      "E",
+      "L0",
+      "L1",
+      "L2",
+      "L3",
+      "L4"
+    ],
+    "source_squared_norm_over_residual_squared": {
+      "E": 0.009084815295691792,
+      "L0": 9.484154910094883e-05,
+      "L1": 0.005492895626559239,
+      "L2": 0.019454667593846262,
+      "L3": 0.09860386470212291,
+      "L4": 0.44618902772702657
+    }
+  },
+  "runner_sha256": "bb2a890aa237433d9c6754a99558643a92d37a3577e6ce7e1bc204a4be1fddd5",
+  "schema": "equality_l5h5_residual_source_graph_v1_result",
+  "scope": "Exact one-residual-port L5H5 score executor plus frozen natural-to-code semantic-source support test. Source ablations are frozen-write boundary interventions with RMS recomputed; they are not recursive removals of upstream modules.",
+  "seconds": 7.967005237995181,
+  "selection": {
+    "mask": 56,
+    "natural": {
+      "cosine": 0.9919685419154347,
+      "edges": 65556,
+      "relative_l2": 0.14461792077961938
+    },
+    "rule_qualified": true,
+    "source_count": 3,
+    "sources": [
+      "L2",
+      "L3",
+      "L4"
+    ]
+  },
+  "terminal": "equality_l5h5_sparse_residual_source_graph_ood"
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "extracted_equality_l5h5_l234_score_graph_v1",
+  "name": "equality_l5h5_l234_score_graph_v1",
+  "activation_ports": ["native_layer2_write", "native_layer3_write", "native_layer4_write", "rotary_cos", "rotary_sin"],
+  "static_weight_ports": ["l5h5_q1", "l5h5_k1", "l5h5_q2", "l5h5_k2"],
+  "output_ports": ["approximate_causal_l5h5_equality_score"],
+  "learned_parameters": 0,
+  "native_parameters_reused": 589824,
+  "selection_role": "final_natural",
+  "validation_role": "ood_code",
+  "semantic_source_support": ["L2", "L3", "L4"],
+  "correction_port_required": false,
+  "scope": "Frozen boundary graph. Layer-2/3/4 write producers, rotary geometry, and native L5H5 weight slices remain external ports."
+}

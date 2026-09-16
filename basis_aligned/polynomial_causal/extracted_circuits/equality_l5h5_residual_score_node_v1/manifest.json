@@ -1,0 +1,11 @@
+{
+  "schema": "extracted_l5h5_residual_score_node_v1",
+  "name": "equality_l5h5_residual_score_node_v1",
+  "operation": "residual RMS -> four frozen head projections -> per-head RMS/rotary -> causal bilinear score",
+  "activation_ports": ["pre_l5_attention_residual", "rotary_cos", "rotary_sin"],
+  "static_weight_ports": ["q1", "k1", "q2", "k2"],
+  "output_ports": ["causal_score"],
+  "learned_parameters": 0,
+  "native_parameters_reused": 589824,
+  "scope": "Exact L5H5 score producer from one residual activation plus deterministic position geometry and the four native 128x1152 head-weight slices."
+}

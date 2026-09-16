@@ -74,3 +74,19 @@ therefore converts that apparent negative result into a verified extracted
 node.  The remaining upstream boundary is residual-to-Q/K projection followed
 by normalization/rotation; L8H4 raw-payload production is still a separate
 native port.
+
+That boundary is now moved one step farther upstream.  A zero-learned-parameter
+executor takes the single pre-L5-attention residual, applies the four frozen
+L5H5 `128x1152` Q/K weight slices, retains both RMS operations and rotation,
+and reproduces the native score and donor logits with exactly zero measured
+error.  A natural-only exhaustive screen over the exact additive provenance
+groups `E,L0,...,L4` selected `L2+L3+L4` (three of six): equality-edge score
+error/cosine was `.14462/.99197`.  Frozen on code, it reached `.15268/.99233`,
+recovered `.90458` of the removal stake, stayed at `.00172` nat noncopy damage,
+and had `3.94e-9` complete Möbius-graph closure.  Removing the `.00365`-norm
+roundoff port selected the same support, slightly improved score error to
+`.15255`, and changed recovery by only `-.00020`; an equal-norm position roll
+changed recovery by `.00287`.  Thus the three-source graph is not an artifact
+of the correction direction.  Its current ports remain the native frozen
+layer-2/3/4 writes: recursively extracting their producers is the next boundary,
+not another L5 score fit.
