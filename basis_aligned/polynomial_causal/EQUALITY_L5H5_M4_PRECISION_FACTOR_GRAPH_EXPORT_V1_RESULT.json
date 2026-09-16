@@ -1,0 +1,43 @@
+{
+  "schema": "equality_l5h5_m4_precision_factor_graph_export_v1_result",
+  "terminal": "exported_equality_l5h5_m4_precision_factor_graph_ood",
+  "source_result": "EQUALITY_L5H5_M4_TWO_FACTOR_CORRECTION_GRAPH_V2_RESULT.json",
+  "source_result_sha256": "5109a2836e364deb912d02eb0bef794d1b3525290d7458fa2ff86060fbdfec95",
+  "package": "extracted_circuits/equality_l5h5_m4_precision_factor_graph_v1",
+  "nodes": [
+    "first_qk_correction_times_second_baseline",
+    "first_baseline_times_second_qk_correction",
+    "algebraic_qk_correction_cross_product",
+    "native_arithmetic_residual"
+  ],
+  "learned_parameters": 0,
+  "validation": {
+    "natural_score_closure_relative_l2": 0.0,
+    "code_score_closure_relative_l2": 0.0,
+    "natural_behavioral_replay_relative_l2": 0.0,
+    "code_behavioral_replay_relative_l2": 0.0,
+    "code_first_node_removal_relative_to_interaction": 0.8338582698743633,
+    "code_second_node_removal_relative_to_interaction": 0.8589007303120738,
+    "code_cross_node_removal_relative_to_interaction": 0.6882577220760014,
+    "code_arithmetic_node_removal_relative_to_interaction": 0.8481891472521638,
+    "maximum_code_node_noncopy_mean_abs_nat": 0.0005070100887678564,
+    "arithmetic_roll_score_norm_ratio": 1.0,
+    "arithmetic_roll_effect_cosine_to_true_removal": 0.5111349238155612,
+    "code_cross_node_relative_score_norm": 0.0012181285105394035
+  },
+  "four_traits": {
+    "ood_prediction": true,
+    "extraction": true,
+    "selective_removal": true,
+    "composition_reuse": true
+  },
+  "price_caveat": "The exact factor graph retains 16 native Q/K projections and depends on external derived/native QK factor ports, RMS context, and the rank-256 M4 boundary.",
+  "files": {
+    "README.md": "67b43ebc60ab83e4cc4d8c74d0f698f88f90ee5f9b37d78ff47523264396c371",
+    "__init__.py": "f561124fc559fb417a3d06b92f1d4ba1a8f2f2c49c7936c6d9e3c6ecfddc7a94",
+    "manifest.json": "2f396723c62e288f71de3c110d60112d4cb6c9f99f49ebf994e4422a765bbec3",
+    "node.py": "c0bce46038eb599850e11a56a8f416fb133957a549f5a14df6daa0ce4476ff98",
+    "test_node.py": "c851fd00908f059cd9e92265f26243889d6c9386204f208f0b83e78b9cc79a77"
+  },
+  "created_utc": "2026-09-16T17:59:58Z"
+}

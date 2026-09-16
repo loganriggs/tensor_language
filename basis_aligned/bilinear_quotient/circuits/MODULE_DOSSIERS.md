@@ -690,6 +690,18 @@ order-four control is behaviorally exact.  Thus neither score norm nor
 polynomial order identifies removable edges.  The compact exact handoff is the
 algebraic two-factor form: first-QK correction, second-QK correction, and their
 cross-product as three macro-nodes.
+
+That handoff required a precision correction.  The first real-arithmetic
+three-node implementation is invalid (`.339/.353` natural/code closure error)
+because native BF16 dot/product association contributes at the scale of the
+small correction.  Making that arithmetic residual an explicit fourth node
+restores zero score and behavioral closure.  On code, first-factor,
+second-factor, algebraic-cross, and arithmetic-node removals have `.834`,
+`.859`, `.688`, and `.848` effect norm relative to exact interaction removal;
+all are selective with at most `.000507` nat noncopy mean change.  The cross is
+only `.00122` of correction-score norm yet causally large.  The exported
+four-node graph is the current exact reusable boundary; its 16 native Q/K
+projections and upstream factor ports remain the next extraction cost.
 [three-edge factorial](../../polynomial_causal/EQUALITY_PRE_MLP9_THREE_EDGE_FACTORIAL_DISCOVERY_V1_RESULT.json),
 [code-OOD calibration null](../../polynomial_causal/EQUALITY_A8_EDGE_CODE_OOD_CONFIRMATION_V1_RESULT.json),
 [projected-payload extraction null](../../polynomial_causal/EQUALITY_L8H4_EXTRACTED_NODE_CODE_OOD_V1_RESULT.json),
@@ -718,6 +730,9 @@ cross-product as three macro-nodes.
 [corrected shared-kernel behavioral null](../../polynomial_causal/EQUALITY_L5H5_M4_SHARED_KERNEL_BEHAVIOR_V1_RESULT.json),
 [behavior-selected native-projection null](../../polynomial_causal/EQUALITY_L5H5_M4_BEHAVIORAL_PROJECTION_SELECTION_V1_RESULT.json),
 [four-port Möbius low-order null](../../polynomial_causal/EQUALITY_L5H5_M4_PORT_MOBIUS_ORDER_V1_RESULT.json),
+[invalid three-node real-arithmetic factor graph](../../polynomial_causal/EQUALITY_L5H5_M4_TWO_FACTOR_CORRECTION_GRAPH_V1_RESULT.json),
+[precision-corrected four-node factor graph](../../polynomial_causal/EQUALITY_L5H5_M4_TWO_FACTOR_CORRECTION_GRAPH_V2_RESULT.json),
+[precision-factor graph export](../../polynomial_causal/EQUALITY_L5H5_M4_PRECISION_FACTOR_GRAPH_EXPORT_V1_RESULT.json),
 [red-team note](../../polynomial_causal/EQUALITY_A8_SPARSE_EDGE_EXECUTION_NOTE.md).
 
 The retained three-block score also has a smaller exact executor:

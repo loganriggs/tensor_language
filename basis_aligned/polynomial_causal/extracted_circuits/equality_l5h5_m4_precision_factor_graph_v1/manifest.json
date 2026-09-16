@@ -1,0 +1,21 @@
+{
+  "schema": "extracted_equality_l5h5_m4_precision_factor_graph_v1",
+  "name": "equality_l5h5_m4_precision_factor_graph_v1",
+  "nodes": [
+    "first_qk_correction_times_second_baseline",
+    "first_baseline_times_second_qk_correction",
+    "algebraic_qk_correction_cross_product",
+    "native_arithmetic_residual"
+  ],
+  "input_ports": [
+    "first_qk_derived",
+    "first_qk_native",
+    "second_qk_derived",
+    "second_qk_native",
+    "native_child_score"
+  ],
+  "native_qk_projections": 16,
+  "learned_parameters": 0,
+  "dependency": "equality_l5h5_m4_explicit_interaction_graph_v1",
+  "scope": "Exact reusable factor graph for the native-versus-derived M4 child score. Upstream Q/K factor ports, residual RMS context, and the rank-256 M4 mode boundary remain external."
+}

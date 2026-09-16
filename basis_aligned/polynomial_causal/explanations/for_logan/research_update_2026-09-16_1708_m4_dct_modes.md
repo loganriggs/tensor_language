@@ -163,3 +163,30 @@ terms.  Algebraically factor them into three exact macro-effects: first-factor
 correction times the second-factor baseline, second-factor correction times the
 first-factor baseline, and their cross-factor product.  That gives a small
 explicit graph while retaining the causally indispensable fourth-order path.
+
+## Precision-corrected two-factor graph: four exact reusable nodes
+
+The first implementation of that factorization was invalid, and the positive
+control caught it.  It applied the real-arithmetic three-term identity across
+native BF16 dot/product operations, leaving `.339/.353` natural/code closure
+error.  Its apparent node-removal effects are not evidence.  We preserved that
+receipt and added the missing native-arithmetic residual prospectively.
+
+The corrected graph has four nonconstant nodes: first-QK correction times the
+second-factor baseline, second-QK correction times the first-factor baseline,
+their algebraic cross-product, and the native BF16 arithmetic residual.  Score
+closure and behavioral replay are exactly zero-error on both panels.  On code,
+their score norms relative to the total correction are `.510`, `.442`,
+`.00122`, and `.721`; their removal-effect norms relative to the exact
+interaction removal are `.834`, `.859`, `.688`, and `.848`, respectively.
+Every node is therefore behaviorally active, including the algebraic cross
+whose global score norm is only one eighth of one percent.  Maximum absolute
+code noncopy mean change is `.000507` nat.  Rolling the arithmetic node preserves
+its full norm exactly but has only `.511` effect cosine to true removal.
+
+This is the useful sparse representation: 15 Boolean terms collapse to four
+typed, zero-parameter nodes without dropping the high-order path or hiding
+finite-precision semantics.  It has OOD prediction, standalone extraction,
+selective node removal, and exact composition/reuse.  It is structural rather
+than computational compression: the 16 native Q/K projections and upstream
+derived/native factor ports remain part of the declared boundary.

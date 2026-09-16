@@ -163,3 +163,14 @@ and near-zero global cosine, but is causally indispensable; the full control is
 again exact in every cell.  Raw norm and cumulative polynomial order are both
 unsafe pruning rules.  Preserve the joint two-QK-factor structure and factor
 the exact correction into its two factor effects plus their cross-product.
+
+The first three-node factor implementation failed its own control: real-number
+algebra across BF16 products left `.339/.353` natural/code closure error.  A
+prospective correction makes the native arithmetic residual an explicit fourth
+node.  The resulting graph closes and replays behavior at zero error on both
+panels.  Code node-removal magnitudes are `.834` (first factor), `.859` (second),
+`.688` (algebraic cross), and `.848` (arithmetic residual) relative to exact
+interaction removal, with at most `.000507` nat noncopy mean change.  The cross
+has only `.00122` relative score norm, so it is the clearest counterexample to
+norm pruning.  The extracted four-node package retains all 16 native Q/K
+projections and counts the factor ports and RMS context as external inputs.
