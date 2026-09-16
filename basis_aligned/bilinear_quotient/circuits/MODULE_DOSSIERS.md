@@ -351,6 +351,40 @@ the native suffix remain live ports.
 [fresh result](../../polynomial_causal/CROSSFIRST_HESSIAN_TOP2_FRESH_V1_RESULT.json),
 [fresh scale/sign audit](../../polynomial_causal/CROSSFIRST_HESSIAN_TOP2_FRESH_V1_AUDIT.json).
 
+A second, wholly new endpoint panel rejects the retrospectively selected
+four-stage Hessian support `MLP9 + MLP10 + attention17 + readout`.  Its four
+family child-relative errors are `.325/.098/.083/.151`; removing readout changes
+the minimax only `.325→.326`, so the support is neither sufficient nor
+stage-necessary.  The complete 18-stage Hessian also misses the live
+`licence/license` interaction at `.403` child-relative error, excluding stage
+selection as the explanation for that endpoint.  A frozen scale curve then
+shows the complete Hessian is locally valid (all quarter-scale relative errors
+at most `.106`) while its `licence/license` error grows monotonically with edit
+scale.  A quarter/half-scale cubic extrapolation reduces the native-scale error
+by `97.7%`, establishing real higher-order curvature rather than a dead reader
+or Hessian implementation bug.
+
+The exact direct third derivative sharpens that conclusion.  After an initial
+unscored PyTorch cache-lifetime failure was corrected by evaluating the same
+rotary formula statelessly, symmetry-equivalent triple-JVP orderings agree to
+`5.22e-7`.  `H+C3` improves the hard endpoint's finite-interaction relative L2
+from `.3741` to `.1209` at `.9982` cosine and passes the `.10` child-relative
+bar in every construction family (worst `.09979`) and five of six endpoint
+concepts.  It is nevertheless a valid null: `licence/license` remains `.13025`
+child-relative, the direct cubic differs from the frozen finite-estimated cubic
+by `.320` there and `.333--1.066` elsewhere, two already-easy concepts worsen,
+and one family's improvement is only `22.4%`.  Thus third order is a useful
+diagnostic but not a frozen correction, much less an extracted circuit.  Do not
+spend the next circuit test merely adding Taylor order to the live deep suffix;
+test the briefing's consumer-defined most-additive split at the first
+downstream bilinear layer instead.
+[Four-stage preregistration](../../polynomial_causal/CROSSFIRST_HESSIAN_FOUR_STAGE_FRESH_V1_PREREGISTRATION.md),
+[four-stage result](../../polynomial_causal/CROSSFIRST_HESSIAN_FOUR_STAGE_FRESH_V1_RESULT.json),
+[scale-curve result](../../polynomial_causal/CROSSFIRST_HESSIAN_SCALE_CURVE_V1_RESULT.json),
+[direct-cubic preregistration](../../polynomial_causal/CROSSFIRST_DIRECT_CUBIC_V1_PREREGISTRATION.md),
+[direct-cubic correction](../../polynomial_causal/CROSSFIRST_DIRECT_CUBIC_V1_CORRECTION.md),
+[direct-cubic result](../../polynomial_causal/CROSSFIRST_DIRECT_CUBIC_V1_RESULT.json).
+
 The retained three-block score also has a smaller exact executor:
 
 $$

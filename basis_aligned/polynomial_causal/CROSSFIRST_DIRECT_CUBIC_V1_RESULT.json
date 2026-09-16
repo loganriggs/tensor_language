@@ -1,0 +1,150 @@
+{
+  "artifact_relative": "basis_aligned/polynomial_causal/CROSSFIRST_DIRECT_CUBIC_V1_ARTIFACT.pt",
+  "artifact_sha256": "40c2d8d7d2e3c3adf8bb6f4b17172e22b464bb2248d8710295de3ae32fcfbac9",
+  "binding_sha256": "af96800301fa1ef328a7c222177e83747b9356fd9b365fb939411003d630a501",
+  "bound_finite_replay_relative_l2": 0.0,
+  "bound_hessian_replay_relative_l2": 0.0,
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "created_utc": "2026-09-16T13:51:25.708681Z",
+  "group_reports": {
+    "concepts": [
+      {
+        "concept": 0,
+        "direct_cubic_full_scale_cosine": 0.9997268720017476,
+        "direct_cubic_full_scale_relative_l2": 0.13035168496244923,
+        "direct_cubic_residual_relative_to_child": 0.08815034866345212,
+        "direct_vs_finite_estimated_cubic_relative_l2": 1.0662595991583743,
+        "fractional_improvement_over_hessian": -2.6148022986088435,
+        "hessian_full_scale_relative_l2": 0.036060529510179594,
+        "rows": 8
+      },
+      {
+        "concept": 1,
+        "direct_cubic_full_scale_cosine": 0.999820092378189,
+        "direct_cubic_full_scale_relative_l2": 0.14384474491440838,
+        "direct_cubic_residual_relative_to_child": 0.022469227731355693,
+        "direct_vs_finite_estimated_cubic_relative_l2": 0.5475440187631213,
+        "fractional_improvement_over_hessian": 0.42546210081844327,
+        "hessian_full_scale_relative_l2": 0.25036598128568843,
+        "rows": 8
+      },
+      {
+        "concept": 2,
+        "direct_cubic_full_scale_cosine": 0.9997726456174382,
+        "direct_cubic_full_scale_relative_l2": 0.0746794328998177,
+        "direct_cubic_residual_relative_to_child": 0.022294852286915523,
+        "direct_vs_finite_estimated_cubic_relative_l2": 0.49936517433054256,
+        "fractional_improvement_over_hessian": -0.205189286173328,
+        "hessian_full_scale_relative_l2": 0.06196489942002143,
+        "rows": 8
+      },
+      {
+        "concept": 3,
+        "direct_cubic_full_scale_cosine": 0.9981532016687226,
+        "direct_cubic_full_scale_relative_l2": 0.12088809891358758,
+        "direct_cubic_residual_relative_to_child": 0.13024535376149682,
+        "direct_vs_finite_estimated_cubic_relative_l2": 0.31989006896486344,
+        "fractional_improvement_over_hessian": 0.676816388751384,
+        "hessian_full_scale_relative_l2": 0.3740539269504968,
+        "rows": 8
+      },
+      {
+        "concept": 4,
+        "direct_cubic_full_scale_cosine": 0.9998648493665321,
+        "direct_cubic_full_scale_relative_l2": 0.1656095593453859,
+        "direct_cubic_residual_relative_to_child": 0.040704859115555256,
+        "direct_vs_finite_estimated_cubic_relative_l2": 0.536834889885137,
+        "fractional_improvement_over_hessian": 0.3923864340735824,
+        "hessian_full_scale_relative_l2": 0.27255737632006943,
+        "rows": 8
+      },
+      {
+        "concept": 5,
+        "direct_cubic_full_scale_cosine": 0.9997606563028736,
+        "direct_cubic_full_scale_relative_l2": 0.1629566633344282,
+        "direct_cubic_residual_relative_to_child": 0.028938657878194267,
+        "direct_vs_finite_estimated_cubic_relative_l2": 0.3686610825762189,
+        "fractional_improvement_over_hessian": 0.5398236552635101,
+        "hessian_full_scale_relative_l2": 0.3541178619855869,
+        "rows": 8
+      }
+    ],
+    "families": [
+      {
+        "direct_cubic_full_scale_cosine": 0.9932224924294618,
+        "direct_cubic_full_scale_relative_l2": 0.13375756003582923,
+        "direct_cubic_residual_relative_to_child": 0.09979199204137701,
+        "direct_vs_finite_estimated_cubic_relative_l2": 0.43222608596480533,
+        "family": 0,
+        "fractional_improvement_over_hessian": 0.4249468542185618,
+        "hessian_full_scale_relative_l2": 0.23260034488476095,
+        "rows": 12
+      },
+      {
+        "direct_cubic_full_scale_cosine": 0.9999471256604509,
+        "direct_cubic_full_scale_relative_l2": 0.04413933791006077,
+        "direct_cubic_residual_relative_to_child": 0.012095522732468885,
+        "direct_vs_finite_estimated_cubic_relative_l2": 0.4699750927869209,
+        "family": 1,
+        "fractional_improvement_over_hessian": 0.4525916006674079,
+        "hessian_full_scale_relative_l2": 0.08063328579516876,
+        "rows": 12
+      },
+      {
+        "direct_cubic_full_scale_cosine": 0.9999431249298808,
+        "direct_cubic_full_scale_relative_l2": 0.05314860180213857,
+        "direct_cubic_residual_relative_to_child": 0.011851341860726247,
+        "direct_vs_finite_estimated_cubic_relative_l2": 0.332763472539099,
+        "family": 2,
+        "fractional_improvement_over_hessian": 0.6269036596554161,
+        "hessian_full_scale_relative_l2": 0.14245275564228704,
+        "rows": 12
+      },
+      {
+        "direct_cubic_full_scale_cosine": 0.9997332183391202,
+        "direct_cubic_full_scale_relative_l2": 0.0817835481373026,
+        "direct_cubic_residual_relative_to_child": 0.03489948939221048,
+        "direct_vs_finite_estimated_cubic_relative_l2": 0.6285869094535689,
+        "family": 3,
+        "fractional_improvement_over_hessian": 0.22365382362287367,
+        "hessian_full_scale_relative_l2": 0.10534417586617253,
+        "rows": 12
+      }
+    ]
+  },
+  "licence_report": {
+    "concept": 3,
+    "direct_cubic_full_scale_cosine": 0.9981532016687226,
+    "direct_cubic_full_scale_relative_l2": 0.12088809891358758,
+    "direct_cubic_residual_relative_to_child": 0.13024535376149682,
+    "direct_vs_finite_estimated_cubic_relative_l2": 0.31989006896486344,
+    "fractional_improvement_over_hessian": 0.676816388751384,
+    "hessian_full_scale_relative_l2": 0.3740539269504968,
+    "rows": 8
+  },
+  "predictions": {
+    "pred_a_third_derivative_instrument": true,
+    "pred_b_finite_cubic_identification": false,
+    "pred_c_licence_repair": false,
+    "pred_d_broad_finite_correction": false,
+    "pred_e_familywise_improvement": false,
+    "pred_f_complete_audit": true
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "fits": 0,
+    "parameter_updates": 0,
+    "physical_suffix_arms": 0,
+    "prefixes": 48,
+    "triple_jvps_per_prefix": 4
+  },
+  "runner_sha256": "af5ca07c0e808a47c5022f9c31c77cac7cb27df8c5d9648798f5931de1fce0a3",
+  "schema": "crossfirst_direct_cubic_v1_result",
+  "scope": "Opened-panel direct third-derivative diagnostic for CrossFirst finite composition; exact native state/field generators and suffix remain live ports; no fresh OOD or standalone extraction claim.",
+  "seconds": 134.9059191560009,
+  "symmetry_errors": {
+    "aab_relative_l2": 5.214644763619686e-07,
+    "abb_relative_l2": 1.565941080931067e-07
+  },
+  "terminal": "valid_crossfirst_direct_cubic_null"
+}

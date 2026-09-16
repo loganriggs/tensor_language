@@ -1,0 +1,200 @@
+{
+  "ablation_reports": [
+    {
+      "family_child_relative_errors": [
+        0.41550942552449077,
+        0.13859084080918077,
+        0.1123094485539366,
+        0.2255243963296513
+      ],
+      "indices": [
+        2,
+        15,
+        17
+      ],
+      "minimax_child_relative_error": 0.41550942552449077,
+      "stages": [
+        "mlp10",
+        "attention17",
+        "readout"
+      ]
+    },
+    {
+      "family_child_relative_errors": [
+        0.4383225556740659,
+        0.1459266315578244,
+        0.11546675545003174,
+        0.23821514932845353
+      ],
+      "indices": [
+        0,
+        15,
+        17
+      ],
+      "minimax_child_relative_error": 0.4383225556740659,
+      "stages": [
+        "mlp9",
+        "attention17",
+        "readout"
+      ]
+    },
+    {
+      "family_child_relative_errors": [
+        0.5263421851742413,
+        0.18162518381639547,
+        0.15051209879401026,
+        0.2710140139278435
+      ],
+      "indices": [
+        0,
+        2,
+        17
+      ],
+      "minimax_child_relative_error": 0.5263421851742413,
+      "stages": [
+        "mlp9",
+        "mlp10",
+        "readout"
+      ]
+    },
+    {
+      "family_child_relative_errors": [
+        0.3255857943381828,
+        0.10112336678437749,
+        0.09066743218957322,
+        0.14281031977380973
+      ],
+      "indices": [
+        0,
+        2,
+        15
+      ],
+      "minimax_child_relative_error": 0.3255857943381828,
+      "stages": [
+        "mlp9",
+        "mlp10",
+        "attention17"
+      ]
+    }
+  ],
+  "allocation_closure_relative_l2": [
+    1.4763269877208625e-07,
+    1.6766355214824255e-06
+  ],
+  "artifact_relative": "basis_aligned/polynomial_causal/CROSSFIRST_HESSIAN_FOUR_STAGE_FRESH_V1_ARTIFACT.pt",
+  "artifact_sha256": "d21322d7f1c3e77131c54e018663543845edf8e052c3ccc92ae519061372837e",
+  "baseline_graph_replay_relative_l2": 0.0,
+  "best_ablation_minimax_child_relative_error": 0.3255857943381828,
+  "binding_sha256": "e2445654b861c10f45ba0779eec807aa2d54da3045c344da4cfc2e7b85801977",
+  "candidate_minimax_child_relative_error": 0.3246223277013254,
+  "candidate_stages": [
+    "mlp9",
+    "mlp10",
+    "attention17",
+    "readout"
+  ],
+  "capability_minimum_paired_contrast": 1.209162712097168,
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "concept_reports": [
+    {
+      "concept": 0,
+      "target_finite_interaction_cosine": 0.9998433413871004,
+      "target_residual_relative_to_child": 0.22721397623952475,
+      "uk_token": " centre",
+      "us_token": " center"
+    },
+    {
+      "concept": 1,
+      "target_finite_interaction_cosine": 0.9998065979672544,
+      "target_residual_relative_to_child": 0.010222765669164718,
+      "uk_token": " metre",
+      "us_token": " meter"
+    },
+    {
+      "concept": 2,
+      "target_finite_interaction_cosine": 0.9994441070364071,
+      "target_residual_relative_to_child": 0.08789557033799593,
+      "uk_token": " defence",
+      "us_token": " defense"
+    },
+    {
+      "concept": 3,
+      "target_finite_interaction_cosine": 0.9915771561924182,
+      "target_residual_relative_to_child": 0.6398458189975563,
+      "uk_token": " licence",
+      "us_token": " license"
+    },
+    {
+      "concept": 4,
+      "target_finite_interaction_cosine": 0.9996059878088884,
+      "target_residual_relative_to_child": 0.014956697679524948,
+      "uk_token": " travelling",
+      "us_token": " traveling"
+    },
+    {
+      "concept": 5,
+      "target_finite_interaction_cosine": 0.9992725509286139,
+      "target_residual_relative_to_child": 0.01704237383854553,
+      "uk_token": " cancelled",
+      "us_token": " canceled"
+    }
+  ],
+  "created_utc": "2026-09-16T13:38:33.325019Z",
+  "family_reports": [
+    {
+      "control_residual_relative_to_child_target": 0.08553982793943753,
+      "family": 0,
+      "target_finite_interaction_cosine": 0.9678560761517199,
+      "target_finite_interaction_relative_l2": 0.43511197239631244,
+      "target_residual_relative_to_child": 0.3246223277013254,
+      "target_sign_agreement": 1.0
+    },
+    {
+      "control_residual_relative_to_child_target": 0.033259364620850294,
+      "family": 1,
+      "target_finite_interaction_cosine": 0.9932272078508755,
+      "target_finite_interaction_relative_l2": 0.3578104122853397,
+      "target_residual_relative_to_child": 0.09805094912230032,
+      "target_sign_agreement": 0.9166666666666666
+    },
+    {
+      "control_residual_relative_to_child_target": 0.03084098785207495,
+      "family": 2,
+      "target_finite_interaction_cosine": 0.9827747113030955,
+      "target_finite_interaction_relative_l2": 0.37184084157852804,
+      "target_residual_relative_to_child": 0.08291493627119212,
+      "target_sign_agreement": 0.75
+    },
+    {
+      "control_residual_relative_to_child_target": 0.06036360863995026,
+      "family": 3,
+      "target_finite_interaction_cosine": 0.9927358978146943,
+      "target_finite_interaction_relative_l2": 0.35423380369516855,
+      "target_residual_relative_to_child": 0.15116217327312514,
+      "target_sign_agreement": 1.0
+    }
+  ],
+  "maximum_stage_state_replay_relative_l2": 0.0,
+  "predictions": {
+    "pred_a_instrument_capability": true,
+    "pred_b_familywise_composition": false,
+    "pred_c_finite_interaction_fidelity": false,
+    "pred_d_stage_necessity": false,
+    "pred_e_endpoint_transfer": false,
+    "pred_f_control_preservation": true
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "fits": 0,
+    "nested_jvp_stages_per_prefix": 17,
+    "parameter_updates": 0,
+    "physical_suffix_arms_per_prefix": 4,
+    "prefixes": 48,
+    "readout_hessian_stages_per_prefix": 1
+  },
+  "runner_sha256": "5b36c03589d6db83ef161dd6f309030df7dcd2beb4c6883db90a6fdfc5861637",
+  "schema": "crossfirst_hessian_four_stage_fresh_v1_result",
+  "scope": "Fresh construction-and-endpoint test of a frozen four-stage CrossFirst Hessian correction; native child/remainder generators and suffix remain live ports; no corpus-OOD, standalone extraction, or selective-removal claim.",
+  "seconds": 20.90115044399863,
+  "terminal": "valid_crossfirst_hessian_four_stage_fresh_null"
+}
