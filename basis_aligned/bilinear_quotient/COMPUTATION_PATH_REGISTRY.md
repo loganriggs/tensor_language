@@ -138,6 +138,8 @@ without treating either complete native module as the semantic unit.
 - [Contextual DCT to natural equality-response bridge null](../polynomial_causal/MLP9_CONTEXTUAL_DCT_EQUALITY_RESPONSE_DISCOVERY_V1_RESULT.json)
 - [Equality consumer-response basis transfer null](../polynomial_causal/MLP9_EQUALITY_CONSUMER_RESPONSE_BASIS_DISCOVERY_V1_RESULT.json)
 - [Equality projected-MLP9-write causal ceiling null](../polynomial_causal/MLP9_EQUALITY_PROJECTED_WRITE_CAUSAL_DISCOVERY_V1_RESULT.json)
+- [Equality post-MLP9 two-edge oracle boundary factor](../polynomial_causal/EQUALITY_POST_MLP9_STATE_FACTORIAL_DISCOVERY_V1_RESULT.json)
+- [Equality boundary-factor execution note](../polynomial_causal/EQUALITY_POST_MLP9_STATE_FACTORIAL_DISCOVERY_V1_EXECUTION_NOTE.md)
 - [MLP17 causal-Hessian identity certificate](../polynomial_causal/MLP17_CAUSAL_HESSIAN_IDENTITY_V1_RESULT.json)
 - [Causal-Hessian identity preregistration](../polynomial_causal/MLP17_CAUSAL_HESSIAN_IDENTITY_V1_PREREGISTRATION.md)
 - [Three-block bilinear-rank control](../polynomial_causal/THREE_BLOCK_BILINEAR_RANK_CONTROL_20260915_0549_RESULT.json)

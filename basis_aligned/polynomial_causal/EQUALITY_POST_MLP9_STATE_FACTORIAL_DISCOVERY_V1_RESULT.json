@@ -1,0 +1,227 @@
+{
+  "binding_sha256": "c1f654d14e414d4993eb6362ea08fb1e3fa33af661b30e61d78e163599a48c53",
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "component_geometry": {
+    "closure_relative_l2": 0.0,
+    "maximum_bf16_delta_nonadditivity_relative_l2": 0.22214248776435852,
+    "pre_over_post_norm": 0.9105920924662361,
+    "pre_write_cosine": 0.0677890143849457,
+    "write_over_post_norm": 0.3399265180309323
+  },
+  "copy_recovery_interaction": -0.03894850376990466,
+  "created_utc": "2026-09-16T15:25:07.770920Z",
+  "instrument_maxima": {
+    "absent_logits": 0.0,
+    "absent_write": 0.0,
+    "both_install": 0.0,
+    "component_closure": 0.0,
+    "native_logits": 0.0,
+    "native_write": 0.0,
+    "recompute_install": 0.0
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_boundary_sufficiency": true,
+    "pred_c_write_only_null_repeats": true,
+    "pred_d_upstream_residual_dominance": true,
+    "pred_e_near_additive_causal_graph": true,
+    "pred_f_cell_stability": true
+  },
+  "price": {
+    "arms": [
+      "native_custom",
+      "absent_custom",
+      "pre_fixed",
+      "write_only",
+      "both_fixed",
+      "pre_recompute"
+    ],
+    "checkpoint_loads": 1,
+    "fits": 0,
+    "forward_calls": 128,
+    "gpu_accessed": true,
+    "gradients": 0,
+    "model_loaded": true,
+    "new_text": 0,
+    "opened_documents": 64,
+    "parameter_updates": 0,
+    "queue_touched": true,
+    "schema": "equality_post_mlp9_state_factorial_discovery_v1_plan",
+    "tokens_per_document": 256
+  },
+  "reports": {
+    "both_fixed": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.0,
+        "recovery": 1.0,
+        "tokens": 11398
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.0,
+        "recovery": 1.0,
+        "tokens": 668
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": 0.0,
+        "recovery": 1.0,
+        "tokens": 496
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": 0.0,
+        "recovery": 1.0,
+        "tokens": 222
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.0,
+        "recovery": 1.0,
+        "tokens": 394
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.0,
+        "recovery": 1.0,
+        "tokens": 890
+      },
+      "halves": [
+        {
+          "recovery": 1.0,
+          "tokens": 495
+        },
+        {
+          "recovery": 1.0,
+          "tokens": 395
+        }
+      ]
+    },
+    "pre_fixed": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.0002568416530266404,
+        "recovery": 1.3157788293385455,
+        "tokens": 11398
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": -0.00021214452863205224,
+        "recovery": 1.0050515156416673,
+        "tokens": 668
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": -0.000731667794752866,
+        "recovery": 1.0285450818534638,
+        "tokens": 496
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": -0.0009340097894892097,
+        "recovery": 1.035875405061263,
+        "tokens": 222
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 3.5138338716933504e-05,
+        "recovery": 0.9993445083609503,
+        "tokens": 394
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": -0.0003922052856069058,
+        "recovery": 1.0103173313690508,
+        "tokens": 890
+      },
+      "halves": [
+        {
+          "recovery": 1.0072993709207045,
+          "tokens": 495
+        },
+        {
+          "recovery": 1.0149977932367056,
+          "tokens": 395
+        }
+      ]
+    },
+    "pre_recompute": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.0,
+        "recovery": 1.0,
+        "tokens": 11398
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.0,
+        "recovery": 1.0,
+        "tokens": 668
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": 0.0,
+        "recovery": 1.0,
+        "tokens": 496
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": 0.0,
+        "recovery": 1.0,
+        "tokens": 222
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.0,
+        "recovery": 1.0,
+        "tokens": 394
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.0,
+        "recovery": 1.0,
+        "tokens": 890
+      },
+      "halves": [
+        {
+          "recovery": 1.0,
+          "tokens": 495
+        },
+        {
+          "recovery": 1.0,
+          "tokens": 395
+        }
+      ]
+    },
+    "write_only": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": -0.001323701231740415,
+        "recovery": -0.6274500051435038,
+        "tokens": 11398
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.04106845706701279,
+        "recovery": 0.022075834113358277,
+        "tokens": 668
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": 0.024024613201618195,
+        "recovery": 0.06270844244603076,
+        "tokens": 496
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": 0.02446111850440502,
+        "recovery": 0.06044868511739042,
+        "tokens": 222
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.053167227655649185,
+        "recovery": 0.008117268220757446,
+        "tokens": 394
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.03692594915628433,
+        "recovery": 0.02863117240085389,
+        "tokens": 890
+      },
+      "halves": [
+        {
+          "recovery": 0.024499261253961825,
+          "tokens": 495
+        },
+        {
+          "recovery": 0.035039427468242096,
+          "tokens": 395
+        }
+      ]
+    }
+  },
+  "runner_sha256": "8115b569cd557011008653960b6fcc5933d7d025858aa21f8faec15d6998da75",
+  "schema": "equality_post_mlp9_state_factorial_discovery_v1_result",
+  "scope": "Opened-panel oracle-state factorial at the complete post-MLP9 boundary for the equality score action; no upstream state extraction, new rows, fresh OOD, or complete-circuit claim.",
+  "seconds": 3.007234172000608,
+  "terminal": "equality_post_mlp9_two_edge_state_factor"
+}
