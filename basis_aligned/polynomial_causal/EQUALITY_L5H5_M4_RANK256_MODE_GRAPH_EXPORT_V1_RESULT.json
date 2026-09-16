@@ -1,0 +1,40 @@
+{
+  "schema": "equality_l5h5_m4_rank256_mode_graph_export_v1_result",
+  "terminal": "exported_rank256_mode_boundary_from_valid_compactness_and_composition_nulls",
+  "source_result": "EQUALITY_L5H5_M4_CONTRACTED_MODE_GRAPH_V2_RESULT.json",
+  "source_result_sha256": "3877d513f75ddfebee25db86353d4c6323fab8012988337d2e81e7cce4a56a71",
+  "composition_redteam_result": "EQUALITY_L5H5_M4_MOST_ADDITIVE_MODE_SPLIT_V1_RESULT.json",
+  "composition_redteam_result_sha256": "c7453644b3466bf8a838f442c5480d2fe466d1f1e56e7c8b935e97120c081577",
+  "package": "extracted_circuits/equality_l5h5_m4_rank256_mode_graph_v1",
+  "selected_rank": 256,
+  "native_product_width": 4608,
+  "learned_parameters": 0,
+  "validation": {
+    "contracted_operator_reconstruction_relative_l2": 2.0559203760825418e-13,
+    "natural_parent_score_relative_l2": 0.04461684709858046,
+    "natural_parent_score_cosine": 0.9990632304588605,
+    "code_parent_score_relative_l2": 0.038184283825921685,
+    "code_parent_score_cosine": 0.9992726977286062,
+    "downstream_recovery": 0.8915853057764823,
+    "noncopy_mean_damage_nat": 0.0015476604457944632,
+    "rolled_equal_norm_recovery": 0.7109848823295738,
+    "most_additive_code_score_error": 0.13322905380905747,
+    "most_additive_behavior_error": 0.42107623916231923
+  },
+  "interpretation": {
+    "ood_prediction": true,
+    "executable_extraction": true,
+    "causal_selective_use": true,
+    "compact_rank_at_most_64": false,
+    "two_component_additive_composition": false,
+    "status": "Useful executable boundary only. It is not a four-trait circuit claim; the next graph requires an explicit child/remainder interaction node."
+  },
+  "files": {
+    "README.md": "166309cba01712e7ef1c78dcfe0402c9f09638590490d8969694f1a7ecd8f33e",
+    "__init__.py": "865248a0239763b5d652a60c50f35a5ddda5291a481539a08540aaa944b81933",
+    "manifest.json": "e5940c782d1b15e36f7c5e8bff22698cbeed156bae62aff9c68348b51b0ea3a2",
+    "node.py": "cd617280336b9b8fbac7c691f28ac0292b585f49607a057f7599764d11f56531",
+    "test_node.py": "67cbe4284d0e1892ef4d107d246adeb7243231cf4cd84dee45dc7923eac9b6f7"
+  },
+  "created_utc": "2026-09-16T17:07:54Z"
+}

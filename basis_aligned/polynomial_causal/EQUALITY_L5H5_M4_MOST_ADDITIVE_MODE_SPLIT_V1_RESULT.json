@@ -1,0 +1,165 @@
+{
+  "behavior": {
+    "joint_noncopy_mean_damage_nat": 0.0015476604457944632,
+    "minimum_donor_term_rms": 15.296958923339844,
+    "recoveries": {
+      "baseline": 0.6365306377410889,
+      "child": 0.863105058670044,
+      "joint": 0.8915852904319763,
+      "remainder": 0.6629406809806824
+    }
+  },
+  "behavioral_composition": {
+    "copy_far": {
+      "cosine": 0.9126914812115552,
+      "relative_l2": 0.4608891149982551,
+      "tokens": 4356
+    },
+    "copy_multiple_predecessors": {
+      "cosine": 0.9252322626402857,
+      "relative_l2": 0.4321892663385079,
+      "tokens": 8349
+    },
+    "copy_near": {
+      "cosine": 0.9414973482123694,
+      "relative_l2": 0.3775585410993601,
+      "tokens": 6492
+    },
+    "copy_one_predecessor": {
+      "cosine": 0.9312099015365987,
+      "relative_l2": 0.3982466908306339,
+      "tokens": 2499
+    },
+    "copy_positive": {
+      "cosine": 0.927058985641328,
+      "relative_l2": 0.42107623916231923,
+      "tokens": 10848
+    },
+    "half_0": {
+      "cosine": 0.9338522833130106,
+      "relative_l2": 0.400931334568872,
+      "tokens": 5598
+    },
+    "half_1": {
+      "cosine": 0.9190549096527983,
+      "relative_l2": 0.4438357175606944,
+      "tokens": 5250
+    }
+  },
+  "binding_sha256": "1bb0f0628c1cf7157b5c905ab6ce9af901dd9f9852b7708a7b5c6463ee66fadd",
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "code_score_composition": {
+    "halves": [
+      {
+        "cosine": 0.9932153302123743,
+        "relative_l2": 0.13302209686321131,
+        "values": 203309
+      },
+      {
+        "cosine": 0.9931520940189973,
+        "relative_l2": 0.13345919563180852,
+        "values": 170493
+      }
+    ],
+    "overall": {
+      "cosine": 0.9931854150920753,
+      "relative_l2": 0.13322905380905747,
+      "values": 373802
+    }
+  },
+  "created_utc": "2026-09-16T17:05:24.931226Z",
+  "instrument": {
+    "contracted_operator_reconstruction_relative_l2": 2.0559203760825418e-13,
+    "parent_alternating_score_composition_error": 0.4904730593789116
+  },
+  "natural_partition_frontier": {
+    "128": {
+      "child_effect_norm_ratio": 1.001299693580024,
+      "cosine": 0.9777181066300403,
+      "eligible": true,
+      "relative_l2": 0.2607828970043107,
+      "remainder_effect_norm_ratio": 0.39154571891177636,
+      "values": 65556
+    },
+    "16": {
+      "child_effect_norm_ratio": 1.0479564012082727,
+      "cosine": 0.9715685441249743,
+      "eligible": true,
+      "relative_l2": 0.334139868507692,
+      "remainder_effect_norm_ratio": 0.6780991575813834,
+      "values": 65556
+    },
+    "32": {
+      "child_effect_norm_ratio": 1.0334235004685413,
+      "cosine": 0.970381527265076,
+      "eligible": true,
+      "relative_l2": 0.33093351693643464,
+      "remainder_effect_norm_ratio": 0.6329775120151322,
+      "values": 65556
+    },
+    "64": {
+      "child_effect_norm_ratio": 1.0068492624462269,
+      "cosine": 0.9716985346016137,
+      "eligible": true,
+      "relative_l2": 0.31347830961503004,
+      "remainder_effect_norm_ratio": 0.5466849489238353,
+      "values": 65556
+    },
+    "8": {
+      "child_effect_norm_ratio": 1.055235285378395,
+      "cosine": 0.9712836176130251,
+      "eligible": true,
+      "relative_l2": 0.33347097294623357,
+      "remainder_effect_norm_ratio": 0.7146643155651784,
+      "values": 65556
+    }
+  },
+  "predictions": {
+    "pred_a_lawful_inherited_mode_bridge": true,
+    "pred_b_natural_most_additive_split": false,
+    "pred_c_ood_score_composition": false,
+    "pred_d_ood_behavioral_composition": false,
+    "pred_e_joint_causal_selective_use": true
+  },
+  "price": {
+    "candidate_cuts": [
+      8,
+      16,
+      32,
+      64,
+      128
+    ],
+    "checkpoint_loads": 1,
+    "complete_code_arms": 6,
+    "execution_count": 384,
+    "fits": 0,
+    "gpu_accessed": true,
+    "gradients": 0,
+    "learned_parameters": 0,
+    "model_loaded": true,
+    "natural_documents": 192,
+    "new_text": 0,
+    "ood_documents": 192,
+    "parameter_updates": 0,
+    "queue_touched": true,
+    "schema": "equality_l5h5_m4_most_additive_mode_split_v1_plan"
+  },
+  "runner_sha256": "608da441e91f956196af03eac131ed676397ebc921a7f7b3eb64af5d8c91b118",
+  "schema": "equality_l5h5_m4_most_additive_mode_split_v1_result",
+  "scope": "Natural-only most-additive nested partition of the float64-certified rank-256 M4 contracted-mode node, validated at score and behavioral NLL interfaces.",
+  "seconds": 8.305928995003342,
+  "selection": {
+    "child_rank": 128,
+    "natural": {
+      "child_effect_norm_ratio": 1.001299693580024,
+      "cosine": 0.9777181066300403,
+      "eligible": true,
+      "relative_l2": 0.2607828970043107,
+      "remainder_effect_norm_ratio": 0.39154571891177636,
+      "values": 65556
+    },
+    "qualified": true,
+    "remainder_rank": 128
+  },
+  "terminal": "valid_equality_l5h5_m4_most_additive_split_null"
+}

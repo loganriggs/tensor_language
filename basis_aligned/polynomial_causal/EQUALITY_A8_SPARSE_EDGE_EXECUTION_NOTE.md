@@ -105,3 +105,18 @@ boundary, not relabeled as a sparse positive.  `A2` is the only safely omitted
 module write at this resolution; recursive extraction should next split a
 retained producer using downstream score and fresh causal transfer rather than
 source norm alone.
+
+That recursive M4 test now separates basis sparsity from interaction sparsity.
+Exact native product atoms required 4,096/4,608 channels, despite `.02914` code
+parent-score error and `.89166` causal recovery.  A weight-only SVD of the M4
+Down map contracted with all four L5H5 Q/K readers reduced the selected boundary
+to rank 256.  After rejecting a float32 SVD receipt (`1.26e-4` bridge error), a
+float64 correction certified the operator at `2.06e-13`; the deployed node has
+`.03818/.99927` code error/cosine, `.89159` recovery, `.00155` nat noncopy
+damage, and a `.18060` recovery advantage over its equal-norm position roll.
+This is useful mode compression but fails the prospective rank-64 compactness
+bar and retains all 4,608 native product evaluations.  A natural-only
+most-additive split improved score composition from `.49047` to `.13323` OOD,
+but direct behavioral composition remained `.42108`.  Preserve those nulls and
+make the child/remainder cross-difference an explicit graph node next; do not
+force an additive interpretation.
