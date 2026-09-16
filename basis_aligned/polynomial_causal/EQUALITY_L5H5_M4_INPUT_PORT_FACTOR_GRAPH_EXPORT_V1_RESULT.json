@@ -23,6 +23,8 @@
   "residual_corner_inputs": 0,
   "raw_qk_activation_inputs": 0,
   "oracle_score_inputs": 0,
+  "external_native_activation_inputs": 5,
+  "deterministic_context_inputs": 2,
   "selected_mode_rank": 256,
   "native_products_executed": 4608,
   "native_qk_projections": 16,
@@ -49,11 +51,12 @@
   },
   "price_caveat": "All 4608 native MLP4 products and all 16 Q/K projections are executed internally. This removes oracle state ports but does not yet compress product cost.",
   "files": {
-    "README.md": "62597dcd2a26d8b2e96137e1288c7a3616011ebd937b0dc72311e2422a28e942",
+    "README.md": "873164214faa18dc2eaddca00f6c9bf2cde56080ea683023da1e925354ed7565",
     "__init__.py": "62cdeb396e430269074bcedd45e1400efe2e0d93b69c54d8603f62a3fbf557b1",
-    "manifest.json": "c8bb34dfb478308aeaf44ded345ddc70b0ca4a93c9b01d30e5b5b85a61e76dd7",
+    "manifest.json": "ebd804593d662586dc006a5e08835ecaca2299c49c6626cf3340d88e2bc3e687",
     "node.py": "a3113f21264a3e49faa36747fd0350a481b15f5b248d2eccacee4ee1cf9ab35b",
-    "test_node.py": "1c811328dd607c82118df0b9a405c3beeeb936dbdf2be0891bb2bd1441f41547"
+    "test_node.py": "1c811328dd607c82118df0b9a405c3beeeb936dbdf2be0891bb2bd1441f41547",
+    "verify_export.py": "b0773660011cfac753aa353369ed3773e362d0448625275d535cf0f37881d3b7"
   },
   "created_utc": "2026-09-16T18:33:26Z"
 }

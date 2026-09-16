@@ -60,6 +60,27 @@ metric, so its success does not rescue the stronger weight-only reader claim.
 This distinction matters for future decomposition: context must remain an open
 port when the weight-only tensor is not identifiable or behaviorally aligned.
 
+## A second four-trait family already exists
+
+Auditing the equality chain under the same rubric found that the normalized
+MLP4-input L5H5 factor graph already supplies an independent four-trait example.
+Its four precision-correction nodes compose exactly; the frozen graph replays
+behavior on repository-disjoint code documents; named-node removals and the
+rolled control are causally validated; and its standalone executor constructs
+the MLP4 product, residual corners, Q/K projections, and scores internally.
+
+I added a hash-bound verifier tying those claims to the source result and made
+the boundary explicit: five external native activation ports
+(`mlp4_normalized_state,M2,A3,M3,A4`) plus two deterministic rotary-context
+inputs. This is a weaker extraction form than the zero-activation-input
+subject-number component, and all 4,608 products plus 16 Q/K projections still
+run. It nevertheless shows that sparse, explicitly interacting four-trait
+graphs occur in two different behavioral families and at different model
+boundaries.
+
+This is a retrospective standardization, not a prospective test of the new
+selection utility: the equality graph was discovered before the shared module.
+
 ## Scope and next use
 
 This is infrastructure, not a new behavioral circuit. It removes repeated
@@ -67,12 +88,13 @@ implementation choices that can create false negative or false positive
 composition results, and it makes each candidate's port count, selected edges,
 required corners, and OOD split mechanically inspectable.
 
-The next model-facing experiment should use this unchanged module on a second
-behavioral family, freeze the graph on discovery, and require the same four
-tests: token/native-input prediction on genuinely unused prompts, executable
-extraction with counted ports, equal-norm selective-removal controls, and
-component-relative joint composition. A second pass is necessary before the
-workflow itself—not just the subject-number circuit—can be called reusable.
+The next model-facing experiment should use this unchanged module
+prospectively on another behavioral family, freeze the graph on discovery, and
+require the same four tests: token/native-input prediction on genuinely unused
+prompts, executable extraction with counted ports, equal-norm
+selective-removal controls, and component-relative joint composition. That
+prospective pass is still necessary before the *selection workflow*, rather
+than only its graph arithmetic and audit rubric, can be called reusable.
 
 ## Artifacts
 
@@ -80,3 +102,5 @@ workflow itself—not just the subject-number circuit—can be called reusable.
 - `test_sparse_interaction_graph.py`
 - `audit_sparse_interaction_graph_v1.py`
 - `SPARSE_INTERACTION_GRAPH_V1_RESULT.json`
+- `extracted_circuits/equality_l5h5_m4_input_port_factor_graph_v1/verify_export.py`
+- `EQUALITY_L5H5_M4_INPUT_PORT_FACTOR_GRAPH_EXPORT_V1_RESULT.json`

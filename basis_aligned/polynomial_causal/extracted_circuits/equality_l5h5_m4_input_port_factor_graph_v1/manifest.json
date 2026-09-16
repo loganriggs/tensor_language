@@ -20,10 +20,19 @@
   "residual_corner_inputs": 0,
   "raw_qk_activation_inputs": 0,
   "oracle_score_inputs": 0,
+  "external_native_activation_inputs": 5,
+  "deterministic_context_inputs": 2,
   "selected_mode_rank": 256,
   "native_products_executed": 4608,
   "native_qk_projections": 16,
   "learned_parameters": 0,
+  "four_traits": {
+    "ood_prediction": true,
+    "extraction": true,
+    "selective_removal": true,
+    "composition_reuse": true
+  },
+  "ood_prediction_form": "frozen native-port graph on repository-disjoint code documents",
   "native_weights_reused": ["MLP4_Left", "MLP4_Right", "MLP4_Down_bias", "L5H5_Q1", "L5H5_K1", "L5H5_Q2", "L5H5_K2"],
-  "scope": "Standalone construction of the native MLP4 product, four residual corners, and precision factor graph from normalized MLP4 input plus retained M2/A3/M3/A4 writes. All 4608 products are executed internally, not compressed."
+  "scope": "Standalone construction of the native MLP4 product, four residual corners, and precision factor graph from five native activation ports plus deterministic rotary context. All 4608 products are executed internally, not compressed."
 }
