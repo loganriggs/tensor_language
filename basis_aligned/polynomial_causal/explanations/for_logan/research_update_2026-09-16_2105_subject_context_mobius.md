@@ -398,6 +398,27 @@ behavioral intervention effects across new vocabulary, syntax, sequence length,
 and subject position. Extraction still consumes five native upstream port
 values; a token-only implementation remains open.
 
+### Token-input extraction
+
+The frozen graph is now packaged as a reusable component,
+`subject_number_sparse_graph_token_extraction_v1.py`. Its public data inputs are
+only token IDs, subject positions, and correct/foil answer IDs; checkpoint
+weights and the frozen embedding decoder are bound dependencies. It derives the
+five ports internally and evaluates the ten corners needed by the nine selected
+main/pair edges. It accepts no external activation, prompt lookup, fitted
+coefficient, or term selection.
+
+The extraction verifier passed on both authorities with zero native-replay and
+aggregation error. It exactly reproduced original-panel errors `0.06338–0.06794`
+and fresh-cell errors `0.04709–0.05352`. Thus OOD prediction is now exercised
+through a token-input component rather than oracle intermediate states.
+
+This closes the briefing's operational extraction requirement but not a compute
+compression claim. The component uses exact checkpoint layers to construct its
+five internal ports and ten native suffix corners; its simplicity is the sparse
+causal graph and declared interface, not lower FLOPs than two ordinary model
+forwards.
+
 ## What this changes in the sparse graph
 
 The previous graph boundary was
@@ -435,4 +456,5 @@ not satisfy reusability.
 - `SUBJECT_NUMBER_L11H3_EXPANDED_BEHAVIORAL_GRAPH_V1_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_EXPANDED_BEHAVIORAL_GRAPH_V2_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_EXPANDED_GRAPH_FRESH_OOD_V1_RESULT.json`
+- `SUBJECT_NUMBER_SPARSE_GRAPH_TOKEN_EXTRACTION_V1_RESULT.json`
 - their preregistrations, bindings, frozen authority, and managed runners
