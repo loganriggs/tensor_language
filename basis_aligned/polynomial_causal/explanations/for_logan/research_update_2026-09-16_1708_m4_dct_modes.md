@@ -273,3 +273,35 @@ background invariant, and yield identical rank-four factors. Its rank-four
 reconstruction error is `.8998`, so the identity is validated but low-rank
 sufficiency is not. This supports using the bridge as a selection metric while
 forbidding an automatic low-rank circuit claim.
+
+## DCT red-team audit: bridge positive, automatic reader discovery negative
+
+The rest of the existing DCT receipts sharpen that conclusion. Full-width,
+weight-only raw-MLP9 recovery is numerically lawful—the tensor contractions
+agree to `3.91e-15`—and four leading factors are stable across seeds. But the
+rank-eight span covers only `.07112` of the opened CrossFirst downstream reader,
+below the matched random rank-eight median `.07941`; the fitted tensor residual
+is about `.993`. This is a valid specificity null, not a solver bug: a planted
+control recovers exactly, state replay is exact, and the contraction instrument
+passes.
+
+Keeping native context and RMS open changes the answer. A contextual rank-16
+MLP9 node retains `.999991` of discovery response and predicts a second fresh
+panel at `.00493` relative error; every frozen mixture is below `.00801`, every
+ordered pair below `.01047`, and isolated replay is exact. A separate fresh
+causal test predicts local state at `.00567` error and suffix installation at
+`.00430`, with matched random target effect only `.124` of the selected effect.
+This is a real reusable synthetic primitive.
+
+It is not yet the semantic equality circuit. On the opened equality/copy bridge,
+the contextual basis covers only `.1764` of copy response and `.1880` of
+noncopy-equality response (random rank-16 controls are about `.118`), and the
+predeclared semantic coverage gates fail. Downstream reader discovery also
+fails its stability gate. The positive lesson is specifically that context must
+remain an explicit polynomial slot; the negative lesson is that a compressible
+local Hessian response does not by itself identify the behavior's reader or
+selective causal circuit.
+
+For M4 product compression, use the already verified L5H5 equality reader and
+exact removal vector as the metric. Do not substitute generic top DCT factors,
+prompt-averaged factors, or local reconstruction error for those authorities.
