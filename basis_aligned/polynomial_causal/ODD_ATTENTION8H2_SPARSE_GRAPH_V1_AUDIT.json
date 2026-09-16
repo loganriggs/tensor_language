@@ -1,0 +1,234 @@
+{
+  "created_utc": "2026-09-16T22:59:54.163644+00:00",
+  "terminal": "valid_odd_attention8h2_sparse_graph_selection_near_miss",
+  "checks": {
+    "generic_greedy_replay_exact": true,
+    "selection_curve_replay_max_abs": 0.0,
+    "reported_metric_replay_max_abs": 0.0,
+    "registered_is_global_discovery_optimum_among_three_atom_sets": true,
+    "registered_pred_c_correctly_false": true
+  },
+  "registered": {
+    "masks": [
+      2,
+      3,
+      4
+    ],
+    "discovery_relative_l2": 0.08616403933426835,
+    "ood_relative_l2": 0.24936873044827942,
+    "maximum_cue_relative_l2": 0.35317859332269486,
+    "cue_relative_l2": {
+      "british": 0.35317859332269486,
+      "american": 0.21458863292405797
+    },
+    "required_corners": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "registered_discovery_rank_of_35": 1,
+  "best_discovery_three_atom_graphs": [
+    {
+      "masks": [
+        2,
+        3,
+        4
+      ],
+      "discovery_relative_l2": 0.08616403933426835,
+      "ood_relative_l2": 0.24936873044827942,
+      "maximum_cue_relative_l2": 0.35317859332269486,
+      "cue_relative_l2": {
+        "british": 0.35317859332269486,
+        "american": 0.21458863292405797
+      },
+      "required_corners": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "masks": [
+        2,
+        4,
+        5
+      ],
+      "discovery_relative_l2": 0.11602160162813828,
+      "ood_relative_l2": 0.23391921513466957,
+      "maximum_cue_relative_l2": 0.40696505938148897,
+      "cue_relative_l2": {
+        "british": 0.40696505938148897,
+        "american": 0.1615799064553308
+      },
+      "required_corners": [
+        0,
+        1,
+        2,
+        4,
+        5
+      ]
+    },
+    {
+      "masks": [
+        2,
+        4,
+        7
+      ],
+      "discovery_relative_l2": 0.1618207357943845,
+      "ood_relative_l2": 0.3272157769941648,
+      "maximum_cue_relative_l2": 0.4575814283776023,
+      "cue_relative_l2": {
+        "british": 0.4575814283776023,
+        "american": 0.2840360871877035
+      },
+      "required_corners": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "masks": [
+        2,
+        4,
+        6
+      ],
+      "discovery_relative_l2": 0.16614195309506805,
+      "ood_relative_l2": 0.3253426423641569,
+      "maximum_cue_relative_l2": 0.4555545100431092,
+      "cue_relative_l2": {
+        "british": 0.4555545100431092,
+        "american": 0.2821636273763887
+      },
+      "required_corners": [
+        0,
+        2,
+        4,
+        6
+      ]
+    },
+    {
+      "masks": [
+        3,
+        4,
+        6
+      ],
+      "discovery_relative_l2": 0.20929180404060582,
+      "ood_relative_l2": 0.2319620263967232,
+      "maximum_cue_relative_l2": 0.26405530799882476,
+      "cue_relative_l2": {
+        "british": 0.26405530799882476,
+        "american": 0.2229343158886239
+      },
+      "required_corners": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6
+      ]
+    }
+  ],
+  "posthoc_ood_oracle_best": {
+    "masks": [
+      1,
+      4,
+      5
+    ],
+    "discovery_relative_l2": 0.2515628663335136,
+    "ood_relative_l2": 0.1638905029911391,
+    "maximum_cue_relative_l2": 0.16768865872508565,
+    "cue_relative_l2": {
+      "british": 0.1482507556790536,
+      "american": 0.16768865872508565
+    },
+    "required_corners": [
+      0,
+      1,
+      4,
+      5
+    ]
+  },
+  "posthoc_ood_minimax_best": {
+    "masks": [
+      1,
+      4,
+      5
+    ],
+    "discovery_relative_l2": 0.2515628663335136,
+    "ood_relative_l2": 0.1638905029911391,
+    "maximum_cue_relative_l2": 0.16768865872508565,
+    "cue_relative_l2": {
+      "british": 0.1482507556790536,
+      "american": 0.16768865872508565
+    },
+    "required_corners": [
+      0,
+      1,
+      4,
+      5
+    ]
+  },
+  "atom_diagnostics": {
+    "1": {
+      "discovery_rms": 0.02008794532119122,
+      "ood_rms": 0.018604166592714688,
+      "discovery_cosine_with_target": -0.2871802282060974,
+      "ood_cosine_with_target": 0.16796764458329047
+    },
+    "2": {
+      "discovery_rms": 0.0237991158811358,
+      "ood_rms": 0.01143953281693817,
+      "discovery_cosine_with_target": 0.9769315293949972,
+      "ood_cosine_with_target": 0.9551517665355884
+    },
+    "3": {
+      "discovery_rms": 0.008698500567982334,
+      "ood_rms": 0.0051718778536213135,
+      "discovery_cosine_with_target": 0.10532848671514194,
+      "ood_cosine_with_target": -0.3112036033319746
+    },
+    "4": {
+      "discovery_rms": 0.07939428351639262,
+      "ood_rms": 0.056915677877606055,
+      "discovery_cosine_with_target": 0.9880680424164427,
+      "ood_cosine_with_target": 0.9587904404934984
+    },
+    "5": {
+      "discovery_rms": 0.026370283966158262,
+      "ood_rms": 0.03063562420005071,
+      "discovery_cosine_with_target": 0.11640098513097255,
+      "ood_cosine_with_target": -0.24580061488777383
+    },
+    "6": {
+      "discovery_rms": 0.0003733950011597658,
+      "ood_rms": 0.00021891608432589698,
+      "discovery_cosine_with_target": 0.8754130974162653,
+      "ood_cosine_with_target": -0.7510036460007332
+    },
+    "7": {
+      "discovery_rms": 0.0002572141637418859,
+      "ood_rms": 0.00014009152063863232,
+      "discovery_cosine_with_target": 0.05421806196892291,
+      "ood_cosine_with_target": 0.7797247674703246
+    }
+  },
+  "interpretation": "No implementation rescue: the registered masks replay exactly and are the exhaustive discovery optimum. The 35.318% British-cell error is a genuine preregistered miss. OOD-oracle alternatives are diagnostic only and may not replace the frozen graph.",
+  "authority_sha256": {
+    "artifact": "32201126d79a7d6702047125765ccf21c9b3bc3d04201479cd4dac59ad8a6853",
+    "result": "1d38ee917f404c6a131e6c7b1595f73ae11543569ba9045e4dc156555ef4fe38",
+    "rows": "6355a9c90ad6fc0e98edb561b0fc650f423f2bad15b2caf06f968210e4e10bd0",
+    "sparse_interaction_graph": "66e47db54bc9cb384dfb4c03de4f588391fb1c9cd020af66b6b67aae520feade"
+  }
+}

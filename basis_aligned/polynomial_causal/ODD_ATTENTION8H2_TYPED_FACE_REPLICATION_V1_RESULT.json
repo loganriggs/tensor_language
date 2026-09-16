@@ -1,0 +1,184 @@
+{
+  "terminal": "valid_odd_attention8h2_typed_face_replication",
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "pred_d": true,
+  "pred_e": true,
+  "ports": [
+    "routing",
+    "current_value",
+    "inherited_value"
+  ],
+  "candidate_faces": [
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      1,
+      4,
+      5
+    ]
+  ],
+  "face_discovery_records": [
+    {
+      "masks": [
+        1,
+        2,
+        3
+      ],
+      "relative_l2": 0.8288750162484044
+    },
+    {
+      "masks": [
+        1,
+        4,
+        5
+      ],
+      "relative_l2": 0.2515628663335136
+    }
+  ],
+  "selected_masks": [
+    1,
+    4,
+    5
+  ],
+  "required_corners": [
+    0,
+    1,
+    4,
+    5
+  ],
+  "metrics": {
+    "discovery": {
+      "rows": 48,
+      "target_rms": 0.10025474770892832,
+      "prediction_rms": 0.0759813786177727,
+      "relative_l2": 0.2515628663335136,
+      "cosine": 0.9969234828504822,
+      "aligned_recovery": 0.7555514560101507
+    },
+    "replication_ood": {
+      "rows": 96,
+      "target_rms": 0.11414685828810918,
+      "prediction_rms": 0.09627382130496046,
+      "relative_l2": 0.15886227067834352,
+      "cosine": 0.999573084410766,
+      "aligned_recovery": 0.843060614659378
+    }
+  },
+  "composition_cells": {
+    "cue_british": {
+      "rows": 48,
+      "target_rms": 0.13943218290418619,
+      "prediction_rms": 0.1182059769918611,
+      "relative_l2": 0.15277767377828896,
+      "cosine": 0.9999020522861926,
+      "aligned_recovery": 0.8476837737516897
+    },
+    "cue_american": {
+      "rows": 48,
+      "target_rms": 0.0813491050022367,
+      "prediction_rms": 0.06756215168804584,
+      "relative_l2": 0.17552169466502984,
+      "cosine": 0.9987448950417872,
+      "aligned_recovery": 0.8294787520356783
+    },
+    "endpoint_0": {
+      "rows": 16,
+      "target_rms": 0.131097397692662,
+      "prediction_rms": 0.1107190125940891,
+      "relative_l2": 0.15754773765944854,
+      "cosine": 0.9996102920347878,
+      "aligned_recovery": 0.8442262505655799
+    },
+    "endpoint_1": {
+      "rows": 16,
+      "target_rms": 0.12113312369075006,
+      "prediction_rms": 0.1023561593113882,
+      "relative_l2": 0.15720105992778857,
+      "cosine": 0.9995953977608228,
+      "aligned_recovery": 0.8446471341839108
+    },
+    "endpoint_2": {
+      "rows": 16,
+      "target_rms": 0.08875766568841524,
+      "prediction_rms": 0.07454806809820987,
+      "relative_l2": 0.16234607288461492,
+      "cosine": 0.9995677740634892,
+      "aligned_recovery": 0.839542657095667
+    },
+    "endpoint_3": {
+      "rows": 16,
+      "target_rms": 0.11778030242688452,
+      "prediction_rms": 0.09935817658992818,
+      "relative_l2": 0.15881864781892754,
+      "cosine": 0.9995501447205104,
+      "aligned_recovery": 0.8432095838035432
+    },
+    "endpoint_4": {
+      "rows": 16,
+      "target_rms": 0.10936946111030539,
+      "prediction_rms": 0.09207789388724856,
+      "relative_l2": 0.16076163475743493,
+      "cosine": 0.9994964027183002,
+      "aligned_recovery": 0.8414736872239247
+    },
+    "endpoint_5": {
+      "rows": 16,
+      "target_rms": 0.11227407681038433,
+      "prediction_rms": 0.09470273838705143,
+      "relative_l2": 0.15860425849011975,
+      "cosine": 0.9996076928240917,
+      "aligned_recovery": 0.8431651233532861
+    }
+  },
+  "material_replication_sign_reversals": 0,
+  "selected_atom_replication_rms": {
+    "1": 0.014691835876000717,
+    "4": 0.09314349100571664,
+    "5": 0.025525905155795545
+  },
+  "target_replication_rms": 0.09627382130496046,
+  "control_ratios": {
+    "cat_dog": 0.1510300128174375,
+    "red_blue": 0.09018128782367324,
+    "monday_tuesday": 0.07559300048665518,
+    "apple_orange": 0.08517320140385094
+  },
+  "max_head_source_replay_error": 3.0505512427225767e-07,
+  "max_factorial_error": 7.709419236334725e-08,
+  "max_value_sum_error": 6.279855568891435e-08,
+  "max_full_corner_channel_error": 0.0,
+  "mobius_closure_error": 0.0,
+  "max_outside_hybrid_delta": 0.0,
+  "prior_source_overlap": 0,
+  "body_forwards": 1152,
+  "fit_parameters": 0,
+  "model_updates": 0,
+  "seconds": 15.534593403004692,
+  "artifact_sha256": "6de7abfbc39cbe5ad2e5f6a961b9d6bd78bc51e229f3a3fc28beb24965719417",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_odd_attention8h2_typed_face_replication_v1.py": "65f3f3dbf89f8874da463f1829755abbd183e3af446aa4ea880463cde20137f1",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/odd_attention8h2_sparse_lattice_runtime.py": "0f71cda415eecad4ea9117b71f30c6ea92284ade094e530df2db4bfcd413da62",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_TYPED_FACE_REPLICATION_V1_PREREGISTRATION.md": "c89c5ecb9bb901ca8113ef2da8b5b8ef01549cd33ceab8fae54e2ada71c26793",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_TYPED_FACE_REPLICATION_V1_ROWS.json": "5b580c25afbefd865c70b6dbfa7f2585a1945ef7fad8452b7409dcfeeb8f2493",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_TYPED_FACE_REPLICATION_V1_CPU_CONTROL.json": "f86f0559ff1d167303b21173d18316e121b9348688389361a3d865d1da851593",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_SPARSE_GRAPH_V1_ROWS.json": "6355a9c90ad6fc0e98edb561b0fc650f423f2bad15b2caf06f968210e4e10bd0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_CHAIN_FRESH_V1_ROWS.json": "0a5e3c49707b5c266d9f7fc52aa5b88d6d9fb111c1caea09f6d518f777b5b1b9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/sparse_interaction_graph.py": "c4688e86d1bca4a43b8c87704c00e42aa5b68d0ba745019262de9141aac3b97b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/attention8h2_city_key_value_v1.py": "34824446f999f3d2cd405aa7eb72bf9f8f03199e0cb16eb3fa72bb5bb7ebaace",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/attention8h2_city_value_source_v1.py": "294834c88cf0ab06509caa13b0f442ce05d5ef29f5aae0d26e3075f1e3167963",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_contextual_positions_v1.py": "cd509290cd7a6b9a724e8708a6af61d6eb197533704323d4f32413e1064498d4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_semantic_positions_v1.py": "e8476b5a72af7e7ae90d1dec6852d58d6a14e34c18ff41cadd24dd5d9c9a5463",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_source_positions_v1.py": "b67386c1a306fcbcbe300bf9e9114601b43635b20880d80d6167cc7d5ecbc1ac",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_source_swap_interaction_v1.py": "a156341eb90224a450e4abda512d2fefa9d487e567db44ec4a5a3493dc4424d9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/odd_value_source_split_v1.py": "4da1a2c9472b78c38bd4970681a9f71ba8d6cbdea4afeba07ebbc504bbf54d13",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_cue_row_check_v1.py": "9d58e3dc5426f94f3bf2a142e5cb45dbadbfed2f743bee262221482bd3db76ef",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_even_value_factorial_native_v1.py": "73001a8b68d9ae2cbeaffe12b63b84dadb00aa91911ffa6d52d28fcdadd93196",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_odd_attention8h2_city_key_value_v1.py": "93d71314e7981029e717459c275323c1d9cb57502e019cb8af7497766188220a"
+  },
+  "scope": "Typed routing-times-value face selected on authored discovery and frozen before a second source-disjoint skip39000 FineWeb panel. Conditional native-suffix intervention; package extraction and equal-norm removal are separate remaining gates."
+}

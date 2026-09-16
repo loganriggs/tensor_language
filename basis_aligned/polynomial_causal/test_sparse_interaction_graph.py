@@ -56,6 +56,26 @@ def test_frozen_greedy_selection_and_disjoint_ood_metrics():
                               {"discovery": [0, 1], "bad_ood": [1, 2]})
 
 
+def test_typed_faces_and_family_selection_keep_interactions_closed():
+    assert graph.face_masks((0, 2), 3) == (1, 4, 5)
+    atoms = {
+        1: np.array([1., 1., 1.]),
+        2: np.array([2., 0., 2.]),
+        3: np.array([0., 1., 0.]),
+        4: np.array([4., 4., 4.]),
+        5: np.array([1., 0., 1.]),
+    }
+    target = atoms[1] + atoms[4] + atoms[5]
+    families = (graph.face_masks((0, 1), 3), graph.face_masks((0, 2), 3))
+    selected, records = graph.select_graph_family(target, atoms, [0, 1, 2], families)
+    assert selected == (1, 4, 5)
+    assert records[1]["relative_l2"] == pytest.approx(0.)
+    with pytest.raises(ValueError, match="duplicate graph family"):
+        graph.select_graph_family(target, atoms, [0], (selected, selected))
+    with pytest.raises(ValueError, match="outside graph"):
+        graph.face_masks((3,), 3)
+
+
 def test_generic_arithmetic_matches_two_independent_exported_packages():
     torch.manual_seed(23)
     baseline = torch.randn(3, 4)
