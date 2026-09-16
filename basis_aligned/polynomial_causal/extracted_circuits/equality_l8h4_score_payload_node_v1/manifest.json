@@ -1,0 +1,17 @@
+{
+  "schema": "extracted_equality_score_payload_node_v1",
+  "name": "equality_l8h4_score_payload_node_v1",
+  "operation": "bmm(score * equality_support, projected_payload)",
+  "ports": {
+    "score": "batch,query,key float tensor",
+    "payload": "batch,key,residual float tensor",
+    "support": "batch,query,key input-derived equality mask",
+    "write": "batch,query,residual tensor"
+  },
+  "learned_parameters": 0,
+  "native_parameter_dependencies": [
+    "L8H4 QK score ports",
+    "L8H4 V/O projected payload port"
+  ],
+  "scope": "Exact executor for an isolated equality-supported attention term; not a standalone producer of its native score or payload ports."
+}

@@ -1,0 +1,427 @@
+{
+  "binding_sha256": "fd96cd26807f5d8cf03455505afc71dc197a957bb5b532f589a65ef0dab7c203",
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "created_utc": "2026-09-16T15:32:21.025357Z",
+  "edge_geometry": {
+    "cosines": {
+      "a8_a9": -0.013988976809266676,
+      "a8_m8": 0.10137015518950539,
+      "m8_a9": -0.010798369411329646
+    },
+    "delta_norms": {
+      "a8": 32919.29265330977,
+      "a9": 4775.459718865081,
+      "m8": 14018.566024624399
+    }
+  },
+  "eligible_supports": [
+    "100",
+    "110",
+    "101"
+  ],
+  "factorial": {
+    "copy_recovery": {
+      "000": 0.0,
+      "001": 0.02338735814867353,
+      "010": 0.1423780735652054,
+      "011": 0.1475791902115411,
+      "100": 0.926829650547967,
+      "101": 0.9309931709763507,
+      "110": 1.0426779306977054,
+      "111": 1.0
+    },
+    "pair_interactions": {
+      "a8_a9": -0.01922383772028978,
+      "a8_m8": -0.026529793415466935,
+      "m8_a9": -0.018186241502337844
+    },
+    "third_order_interaction": -0.02865520962375144
+  },
+  "instrument_maxima": {
+    "absent_logits": 0.0,
+    "absent_mlp9": 0.0,
+    "corner_absent_logits": 0.0,
+    "corner_absent_pre9": 0.0,
+    "corner_native_logits": 0.0,
+    "corner_native_pre9": 0.0,
+    "edge_install": 0.0,
+    "native_logits": 0.0,
+    "native_mlp9": 0.0
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_corner_sufficiency": true,
+    "pred_c_sparse_support": true,
+    "pred_d_single_edge_concentration": true,
+    "pred_e_low_order_graph": true,
+    "pred_f_selected_stability": true
+  },
+  "price": {
+    "arms": [
+      "000",
+      "001",
+      "010",
+      "011",
+      "100",
+      "101",
+      "110",
+      "111"
+    ],
+    "checkpoint_loads": 1,
+    "fits": 0,
+    "forward_calls": 192,
+    "gpu_accessed": true,
+    "gradients": 0,
+    "model_loaded": true,
+    "new_text": 0,
+    "opened_documents": 64,
+    "parameter_updates": 0,
+    "queue_touched": true,
+    "schema": "equality_pre_mlp9_three_edge_factorial_discovery_v1_plan",
+    "tokens_per_document": 256
+  },
+  "reports": {
+    "000": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": -0.0008133591618388891,
+        "recovery": -0.0,
+        "tokens": 11398
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.041995543986558914,
+        "recovery": 0.0,
+        "tokens": 668
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": 0.02563195489346981,
+        "recovery": 0.0,
+        "tokens": 496
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": 0.026034891605377197,
+        "recovery": 0.0,
+        "tokens": 222
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.05360233038663864,
+        "recovery": 0.0,
+        "tokens": 394
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.03801434487104416,
+        "recovery": 0.0,
+        "tokens": 890
+      },
+      "halves": [
+        {
+          "recovery": 0.0,
+          "tokens": 495
+        },
+        {
+          "recovery": 0.0,
+          "tokens": 395
+        }
+      ]
+    },
+    "001": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": -0.0008835838525556028,
+        "recovery": -0.08633914334944964,
+        "tokens": 11398
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.040826279670000076,
+        "recovery": 0.027842534806042183,
+        "tokens": 668
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": 0.024215182289481163,
+        "recovery": 0.05527361076250891,
+        "tokens": 496
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": 0.0259889867156744,
+        "recovery": 0.0017633342286626208,
+        "tokens": 222
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.053377605974674225,
+        "recovery": 0.004192400692971527,
+        "tokens": 394
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.03712529316544533,
+        "recovery": 0.02338735814867353,
+        "tokens": 890
+      },
+      "halves": [
+        {
+          "recovery": 0.007979321590142734,
+          "tokens": 495
+        },
+        {
+          "recovery": 0.04728393475602574,
+          "tokens": 395
+        }
+      ]
+    },
+    "010": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": -0.0011013559997081757,
+        "recovery": -0.3540830933031581,
+        "tokens": 11398
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.035192713141441345,
+        "recovery": 0.1619893046324949,
+        "tokens": 668
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": 0.021133603528141975,
+        "recovery": 0.175497756435405,
+        "tokens": 496
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": 0.024806272238492966,
+        "recovery": 0.04719134905139062,
+        "tokens": 222
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.047039225697517395,
+        "recovery": 0.12244062034182561,
+        "tokens": 394
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.03260193392634392,
+        "recovery": 0.1423780735652054,
+        "tokens": 890
+      },
+      "halves": [
+        {
+          "recovery": 0.16780932220166905,
+          "tokens": 495
+        },
+        {
+          "recovery": 0.10293630385196322,
+          "tokens": 395
+        }
+      ]
+    },
+    "011": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": -0.0013059672201052308,
+        "recovery": -0.6056463841168604,
+        "tokens": 11398
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.034492913633584976,
+        "recovery": 0.17865292530940763,
+        "tokens": 668
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": 0.020811259746551514,
+        "recovery": 0.18807355897351574,
+        "tokens": 496
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": 0.02611931785941124,
+        "recovery": -0.0032426892825562497,
+        "tokens": 222
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.04699839651584625,
+        "recovery": 0.1232022974720041,
+        "tokens": 394
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.03240422159433365,
+        "recovery": 0.1475791902115411,
+        "tokens": 890
+      },
+      "halves": [
+        {
+          "recovery": 0.11929113066161398,
+          "tokens": 495
+        },
+        {
+          "recovery": 0.19145160012269863,
+          "tokens": 395
+        }
+      ]
+    },
+    "100": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 8.330859418492764e-05,
+        "recovery": 1.1024252648904433,
+        "tokens": 11398
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.00429194513708353,
+        "recovery": 0.897799904717633,
+        "tokens": 668
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": 0.001307323924265802,
+        "recovery": 0.9489961681846053,
+        "tokens": 496
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": -0.0017633400857448578,
+        "recovery": 1.067729856746214,
+        "tokens": 222
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.004637373145669699,
+        "recovery": 0.9134855799516013,
+        "tokens": 394
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.0027815252542495728,
+        "recovery": 0.926829650547967,
+        "tokens": 890
+      },
+      "halves": [
+        {
+          "recovery": 0.9309556658724089,
+          "tokens": 495
+        },
+        {
+          "recovery": 0.9204304000950296,
+          "tokens": 395
+        }
+      ]
+    },
+    "101": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.00021688998094759881,
+        "recovery": 1.2666597057915852,
+        "tokens": 11398
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.004434878472238779,
+        "recovery": 0.8943963511218455,
+        "tokens": 668
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": 0.0011554997181519866,
+        "recovery": 0.9549195717836402,
+        "tokens": 496
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": -0.0028279488906264305,
+        "recovery": 1.1086213471060076,
+        "tokens": 222
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.0044709802605211735,
+        "recovery": 0.9165898178432266,
+        "tokens": 394
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.0026232516393065453,
+        "recovery": 0.9309931709763507,
+        "tokens": 890
+      },
+      "halves": [
+        {
+          "recovery": 0.9260301668386575,
+          "tokens": 495
+        },
+        {
+          "recovery": 0.9386902338536328,
+          "tokens": 395
+        }
+      ]
+    },
+    "110": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.00018007602193392813,
+        "recovery": 1.221397798580393,
+        "tokens": 11398
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": -0.0015534702688455582,
+        "recovery": 1.0369913018634997,
+        "tokens": 668
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": -0.0020689750090241432,
+        "recovery": 1.0807185167704372,
+        "tokens": 496
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": -0.00182970124296844,
+        "recovery": 1.0702788200913356,
+        "tokens": 222
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": -0.0010601531248539686,
+        "recovery": 1.019778182279599,
+        "tokens": 394
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": -0.0016223728889599442,
+        "recovery": 1.0426779306977054,
+        "tokens": 890
+      },
+      "halves": [
+        {
+          "recovery": 1.0361058301221633,
+          "tokens": 495
+        },
+        {
+          "recovery": 1.0528705683353843,
+          "tokens": 395
+        }
+      ]
+    },
+    "111": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.0,
+        "recovery": 1.0,
+        "tokens": 11398
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.0,
+        "recovery": 1.0,
+        "tokens": 668
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": 0.0,
+        "recovery": 1.0,
+        "tokens": 496
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": 0.0,
+        "recovery": 1.0,
+        "tokens": 222
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.0,
+        "recovery": 1.0,
+        "tokens": 394
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.0,
+        "recovery": 1.0,
+        "tokens": 890
+      },
+      "halves": [
+        {
+          "recovery": 1.0,
+          "tokens": 495
+        },
+        {
+          "recovery": 1.0,
+          "tokens": 395
+        }
+      ]
+    }
+  },
+  "runner_sha256": "7fb8e95606366fe0e4fc5f67f8ba1380630513a5c16d6a7a6cd03938a8d44b95",
+  "schema": "equality_pre_mlp9_three_edge_factorial_discovery_v1_result",
+  "scope": "Opened-panel oracle-write factorial across attention8, MLP8, and attention9 under the established equality score removal; no extracted upstream writer, new rows, fresh/OOD confirmation, or complete-circuit claim.",
+  "seconds": 4.406449442001758,
+  "selected_support": "100",
+  "terminal": "equality_pre_mlp9_sparse_oracle_edge_candidate"
+}

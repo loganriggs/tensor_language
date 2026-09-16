@@ -1,0 +1,15 @@
+{
+  "schema": "extracted_equality_score_rawpayload_node_v2",
+  "name": "equality_l8h4_score_rawpayload_node_v2",
+  "operation": "output_projection(bmm(score * equality_support, raw_head_payload))",
+  "ports": {
+    "score": "batch,query,key tensor",
+    "raw_head_payload": "batch,key,head_dim tensor",
+    "support": "batch,query,key input-derived equality mask",
+    "output_weight": "residual,head_dim native L8H4 projection slice",
+    "write": "batch,query,residual tensor"
+  },
+  "learned_parameters": 0,
+  "native_parameter_dependencies": ["L8H4 QK score ports", "L8H4 value port", "L8H4 output-projection slice"],
+  "scope": "Exact deployed-order executor for the isolated equality-supported L8H4 term; upstream native ports remain external."
+}

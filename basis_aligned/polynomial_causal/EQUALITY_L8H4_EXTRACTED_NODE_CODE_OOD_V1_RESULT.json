@@ -1,0 +1,238 @@
+{
+  "binding_sha256": "77bf318da126e016eeac9769437169487acfb42fce6d4e1f1b700f245e3fffff",
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "created_utc": "2026-09-16T15:40:49.381408Z",
+  "manifest_sha256": "878f8613051fe7cc2d73d690f069325438c1177c8f111fd31aa9719a448d92a4",
+  "maximum_errors": {
+    "composition": 1.680685102201096e-07,
+    "install_logits": 0.016214091330766678,
+    "install_mlp9": 0.004015488550066948,
+    "removal_logits": 0.01698766089975834,
+    "removal_mlp9": 0.006910271476954222,
+    "term": 0.0023677507415413857
+  },
+  "package_source_sha256": "fcd78383d9b68b96840adb0dab77fde4975e3baa72412d99feb3053a7fc1b368",
+  "parent_oracle_recovery": 1.1775564837364751,
+  "predictions": {
+    "pred_a_executor_replay": false,
+    "pred_b_behavioral_identity": false,
+    "pred_c_removal": false,
+    "pred_d_ood_installation": false,
+    "pred_e_zero_parameter_extraction": true,
+    "pred_f_bilinear_compositionality": true
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "fits": 0,
+    "forward_calls": 240,
+    "gpu_accessed": true,
+    "gradients": 0,
+    "learned_parameters": 0,
+    "model_loaded": true,
+    "new_text": 0,
+    "ood_documents": 192,
+    "parameter_updates": 0,
+    "queue_touched": true,
+    "schema": "equality_l8h4_extracted_node_code_ood_v1_plan",
+    "tokens_per_document": 256
+  },
+  "reports": {
+    "absent": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": -0.0018638133769854903,
+        "native_effect_sum_nat": -48.48896789550781,
+        "recovery": -0.0,
+        "tokens": 26016
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.16075487434864044,
+        "native_effect_sum_nat": 700.2482299804688,
+        "recovery": 0.0,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": 0.038248974829912186,
+        "native_effect_sum_nat": 319.3406982421875,
+        "recovery": 0.0,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": 0.016719620674848557,
+        "native_effect_sum_nat": 108.54377746582031,
+        "recovery": 0.0,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.19585885107517242,
+        "native_effect_sum_nat": 489.4512634277344,
+        "recovery": 0.0,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.07455678284168243,
+        "native_effect_sum_nat": 808.7919921875,
+        "recovery": 0.0,
+        "tokens": 10848
+      },
+      "halves": [
+        {
+          "native_effect_sum_nat": 380.5408020019531,
+          "recovery": 0.0
+        },
+        {
+          "native_effect_sum_nat": 428.2511901855469,
+          "recovery": 0.0
+        }
+      ]
+    },
+    "oracle100": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.006597051862627268,
+        "native_effect_sum_nat": -48.48896789550781,
+        "recovery": 4.539546090925941,
+        "tokens": 26016
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.0007496425532735884,
+        "native_effect_sum_nat": 700.2482299804688,
+        "recovery": 0.9953365623431353,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": -0.021609516814351082,
+        "native_effect_sum_nat": 319.3406982421875,
+        "recovery": 1.5649697882944407,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": -0.022623486816883087,
+        "native_effect_sum_nat": 108.54377746582031,
+        "recovery": 2.3531098857458153,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.014730541035532951,
+        "native_effect_sum_nat": 489.4512634277344,
+        "recovery": 0.9247899673401342,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": -0.013238037936389446,
+        "native_effect_sum_nat": 808.7919921875,
+        "recovery": 1.1775564837364751,
+        "tokens": 10848
+      },
+      "halves": [
+        {
+          "native_effect_sum_nat": 380.5408020019531,
+          "recovery": 1.1740471055877588
+        },
+        {
+          "native_effect_sum_nat": 428.2511901855469,
+          "recovery": 1.1806747483687483
+        }
+      ]
+    },
+    "package100": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.0065409461967647076,
+        "native_effect_sum_nat": -48.48896789550781,
+        "recovery": 4.509442304406262,
+        "tokens": 26016
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.0007900369237177074,
+        "native_effect_sum_nat": 700.2482299804688,
+        "recovery": 0.9950853609651362,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": -0.02144152857363224,
+        "native_effect_sum_nat": 319.3406982421875,
+        "recovery": 1.5605778430673243,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": -0.02253599278628826,
+        "native_effect_sum_nat": 108.54377746582031,
+        "recovery": 2.347877037052657,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.01446700468659401,
+        "native_effect_sum_nat": 489.4512634277344,
+        "recovery": 0.9261355555584653,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": -0.013169456273317337,
+        "native_effect_sum_nat": 808.7919921875,
+        "recovery": 1.1766366458464894,
+        "tokens": 10848
+      },
+      "halves": [
+        {
+          "native_effect_sum_nat": 380.5408020019531,
+          "recovery": 1.173001760045923
+        },
+        {
+          "native_effect_sum_nat": 428.2511901855469,
+          "recovery": 1.1798664356387314
+        }
+      ]
+    },
+    "package_removal": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": -0.0019200390670448542,
+        "native_effect_sum_nat": -48.48896789550781,
+        "recovery": -0.03016697935944449,
+        "tokens": 26016
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.16107718646526337,
+        "native_effect_sum_nat": 700.2482299804688,
+        "recovery": -0.002005037733811435,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": 0.038415513932704926,
+        "native_effect_sum_nat": 319.3406982421875,
+        "recovery": -0.004354033814337248,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": 0.016824914142489433,
+        "native_effect_sum_nat": 108.54377746582031,
+        "recovery": -0.006297596392084093,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.19613781571388245,
+        "native_effect_sum_nat": 489.4512634277344,
+        "recovery": -0.0014243881684069654,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.07474922388792038,
+        "native_effect_sum_nat": 808.7919921875,
+        "recovery": -0.0025811195056873134,
+        "tokens": 10848
+      },
+      "halves": [
+        {
+          "native_effect_sum_nat": 380.5408020019531,
+          "recovery": -0.006339810699831373
+        },
+        {
+          "native_effect_sum_nat": 428.2511901855469,
+          "recovery": 0.0007588255631973995
+        }
+      ]
+    }
+  },
+  "runner_sha256": "3ae77c719f7e44a688df7d80a6a7c94dbef033fdc6811cbf88da36a0d07c045d",
+  "schema": "equality_l8h4_extracted_node_code_ood_v1_result",
+  "scope": "Zero-parameter extracted equality-edge executor tested for removal, oracle-edge installation, and bilinear reuse on frozen code OOD; upstream native score/payload producers remain external ports, and the prior scalar calibration null is unchanged.",
+  "seconds": 5.485945664004248,
+  "terminal": "valid_equality_l8h4_extracted_node_null"
+}
