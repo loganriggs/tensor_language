@@ -99,6 +99,21 @@ on an opened panel, not a selective head-level causal intervention. See the
 [result](fast_screens/setting2_regional_attention17_head_response_fold_v1_result.json)
 and [preregistration](../../polynomial_causal/SETTING2_REGIONAL_ATTENTION17_HEAD_RESPONSE_FOLD_V1_PREREGISTRATION.md).
 
+An exact eight-corner `QK1 × QK2 × value` factorial then decomposes the induced
+head17.2 write into seven Möbius terms. Exhaustive unit-gain support selection
+on the opened panel chooses `QK2`, `value`, and `QK2×value`; equivalently, keep
+native QK1 while replacing QK2 and value with their upstream-edited states.
+This three-term program replays the paired head response at `.03528` relative
+L2 and `.99977` cosine. Causal installation into native layer-17 background and
+removal from the upstream-edited background pass at `.019–.045` familywise
+relative L2 with perfect signs; five unrelated readers do not worsen and eight
+equal-norm random writes in the same head output subspace have `.934–1.083`
+error. Exact audits are below `1.90e-7`. This is an opened-panel candidate with
+three native factor ports, not fresh transfer or donor-free extraction. Freeze
+the QK2/value corner for fresh testing before splitting its earlier sources.
+[Preregistration](../../polynomial_causal/SETTING2_REGIONAL_ATTENTION17H2_FACTOR_INTERACTION_FOLD_V1_PREREGISTRATION.md),
+[result](fast_screens/setting2_regional_attention17h2_factor_interaction_fold_v1_result.json).
+
 ## `module.attention.9`
 
 Aliases: attention block 9, attn9. Related route:
