@@ -207,3 +207,18 @@ Behavioral replay remains exact in every subtype and half.  The graph therefore
 has no oracle score input and retains all four traits at a more honest
 extraction boundary.  Eight raw activation ports, rotary context, 16 native
 residual-to-Q/K projections, and the rank-256 M4 producer remain external.
+
+## Residual-port executor
+
+The next export moves those eight raw activation ports inside as well.  Its
+dynamic state boundary is the baseline, child, remainder, and joint residual
+corners plus rotary context; it reuses the four frozen full Q/K weight matrices
+and performs all 16 projections internally.  Across 1,811,939,328 projected
+values on the natural/code panels, the package has zero mismatches and zero
+maximum error against the native modules.  Score closure and every behavioral
+equivalence statistic remain exactly unchanged.
+
+This is now the preferred extracted boundary: four residual state ports, no raw
+Q/K activation ports, no oracle score, and zero learned parameters.  The next
+recursive target is construction of those four residual corners—especially the
+rank-256 M4 child/joint producer—not another downstream score approximation.

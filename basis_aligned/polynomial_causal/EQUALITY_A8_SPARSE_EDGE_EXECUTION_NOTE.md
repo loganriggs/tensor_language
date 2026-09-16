@@ -182,3 +182,9 @@ is zero, and every removal, selectivity, score-norm, and rolled-control statisti
 matches the validated parent exactly.  The live boundary is now genuinely at
 raw activation ports; residual-to-port projection and the rank-256 producer are
 still external.
+
+The preferred executor now also internalizes the frozen residual-to-Q/K maps.
+Its four residual corners plus rotary context reproduce 1,811,939,328 native
+projected values with zero mismatches, and all graph/behavior statistics remain
+exact.  There are no raw activation or score-oracle inputs.  Recursive work
+should now move upstream into the corner constructor and rank-256 M4 producer.

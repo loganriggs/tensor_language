@@ -1,0 +1,51 @@
+{
+  "schema": "equality_l5h5_m4_residual_port_factor_graph_export_v1_result",
+  "terminal": "exported_equality_l5h5_m4_residual_port_factor_graph_ood",
+  "source_result": "EQUALITY_L5H5_M4_RESIDUAL_PORT_FACTOR_GRAPH_V1_RESULT.json",
+  "source_result_sha256": "31472b82199043e1e43fc7e3e070ccf42bf506b4a5a6d102c09ec8bd0c32818f",
+  "package": "extracted_circuits/equality_l5h5_m4_residual_port_factor_graph_v1",
+  "nodes": [
+    "first_qk_correction_times_second_baseline",
+    "first_baseline_times_second_qk_correction",
+    "algebraic_qk_correction_cross_product",
+    "native_arithmetic_residual"
+  ],
+  "dynamic_input_ports": [
+    "baseline_residual",
+    "child_residual",
+    "remainder_residual",
+    "joint_residual",
+    "rotary_cos",
+    "rotary_sin"
+  ],
+  "native_weights_reused": ["L5H5_Q1", "L5H5_K1", "L5H5_Q2", "L5H5_K2"],
+  "raw_qk_activation_inputs": 0,
+  "oracle_score_inputs": 0,
+  "learned_parameters": 0,
+  "validation": {
+    "projection_values": 1811939328,
+    "projection_mismatched_values": 0,
+    "projection_maximum_absolute_error": 0.0,
+    "natural_score_closure_relative_l2": 0.0,
+    "code_score_closure_relative_l2": 0.0,
+    "maximum_node_removal_magnitude_absolute_delta": 0.0,
+    "maximum_node_score_relative_norm_absolute_delta": 0.0,
+    "maximum_noncopy_mean_absolute_delta_nat": 0.0,
+    "arithmetic_roll_effect_cosine_absolute_delta": 0.0
+  },
+  "four_traits": {
+    "ood_prediction": true,
+    "extraction": true,
+    "selective_removal": true,
+    "composition_reuse": true
+  },
+  "price_caveat": "The dynamic state boundary is four residual corners plus rotary context. The upstream corner constructor, rank-256 M4 producer, and 16 native projection FLOPs remain external or reused.",
+  "files": {
+    "README.md": "920fc7e6ea13467a6bd981206da7871bf79d6e81ad2b33928e0dc20fbef3b7b0",
+    "__init__.py": "efbef3be72f764686e60dc0e413f348e665ac892c05d3a79b40e21cd7cb2d2d1",
+    "manifest.json": "d11a71f3d299027f411b3b4cceb34b4a03fc267c1f91d9e5e8ce187f558ffa2c",
+    "node.py": "eb8333d9a08a9e6945d369f0a54c0f21916560f22490b9d28199faa97b0e1160",
+    "test_node.py": "01daef99e9050583d946fee91f0fd055850fb1c4263b18c7d3924cf7fc312c9e"
+  },
+  "created_utc": "2026-09-16T18:13:37Z"
+}

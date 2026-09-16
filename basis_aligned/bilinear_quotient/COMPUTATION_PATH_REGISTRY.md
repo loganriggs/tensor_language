@@ -173,6 +173,8 @@ without treating either complete native module as the semantic unit.
 - [Exported M4 precision-factor graph](../polynomial_causal/EQUALITY_L5H5_M4_PRECISION_FACTOR_GRAPH_EXPORT_V1_RESULT.json)
 - [M4 no-oracle raw-port factor graph](../polynomial_causal/EQUALITY_L5H5_M4_RAW_PORT_FACTOR_GRAPH_V1_RESULT.json)
 - [Exported M4 raw-port factor graph](../polynomial_causal/EQUALITY_L5H5_M4_RAW_PORT_FACTOR_GRAPH_EXPORT_V1_RESULT.json)
+- [M4 residual-port factor graph](../polynomial_causal/EQUALITY_L5H5_M4_RESIDUAL_PORT_FACTOR_GRAPH_V1_RESULT.json)
+- [Exported M4 residual-port factor graph](../polynomial_causal/EQUALITY_L5H5_M4_RESIDUAL_PORT_FACTOR_GRAPH_EXPORT_V1_RESULT.json)
 - [A8 sparse-edge red-team note](../polynomial_causal/EQUALITY_A8_SPARSE_EDGE_EXECUTION_NOTE.md)
 - [MLP17 causal-Hessian identity certificate](../polynomial_causal/MLP17_CAUSAL_HESSIAN_IDENTITY_V1_RESULT.json)
 - [Causal-Hessian identity preregistration](../polynomial_causal/MLP17_CAUSAL_HESSIAN_IDENTITY_V1_PREREGISTRATION.md)

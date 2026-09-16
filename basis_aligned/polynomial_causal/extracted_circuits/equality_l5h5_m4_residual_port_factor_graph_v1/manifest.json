@@ -1,0 +1,25 @@
+{
+  "schema": "extracted_equality_l5h5_m4_residual_port_factor_graph_v1",
+  "name": "equality_l5h5_m4_residual_port_factor_graph_v1",
+  "nodes": [
+    "first_qk_correction_times_second_baseline",
+    "first_baseline_times_second_qk_correction",
+    "algebraic_qk_correction_cross_product",
+    "native_arithmetic_residual"
+  ],
+  "dynamic_input_ports": [
+    "baseline_residual",
+    "child_residual",
+    "remainder_residual",
+    "joint_residual",
+    "rotary_cos",
+    "rotary_sin"
+  ],
+  "native_weights_reused": ["L5H5_Q1", "L5H5_K1", "L5H5_Q2", "L5H5_K2"],
+  "raw_qk_activation_inputs": 0,
+  "oracle_score_inputs": 0,
+  "native_qk_projections": 16,
+  "learned_parameters": 0,
+  "dependency": "equality_l5h5_m4_rank256_mode_graph_v1",
+  "scope": "Standalone factor graph from four residual corners, frozen Q/K weights, and rotary context. Construction of the four residual corners and the rank-256 M4 producer remain external."
+}

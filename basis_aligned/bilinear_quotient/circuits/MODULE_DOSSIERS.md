@@ -710,6 +710,13 @@ residual construction internally.  Natural/code closure is zero and every
 node-removal, selectivity, score-norm, and rolled-control statistic matches the
 validated parent exactly.  The remaining external boundary is residual-to-port
 projection plus the rank-256 M4 producer, not a behavior or score oracle.
+
+The current preferred export internalizes those frozen projections too.  It
+accepts four residual corners plus rotary context and reuses the native Q/K
+weights.  Across 1,811,939,328 values, projected ports are bitwise identical;
+all score and behavioral statistics also match exactly.  The live upstream
+boundary is therefore construction of baseline/child/remainder/joint residuals
+and the rank-256 M4 mode producer.
 [three-edge factorial](../../polynomial_causal/EQUALITY_PRE_MLP9_THREE_EDGE_FACTORIAL_DISCOVERY_V1_RESULT.json),
 [code-OOD calibration null](../../polynomial_causal/EQUALITY_A8_EDGE_CODE_OOD_CONFIRMATION_V1_RESULT.json),
 [projected-payload extraction null](../../polynomial_causal/EQUALITY_L8H4_EXTRACTED_NODE_CODE_OOD_V1_RESULT.json),
@@ -743,6 +750,8 @@ projection plus the rank-256 M4 producer, not a behavior or score oracle.
 [precision-factor graph export](../../polynomial_causal/EQUALITY_L5H5_M4_PRECISION_FACTOR_GRAPH_EXPORT_V1_RESULT.json),
 [raw-port factor graph](../../polynomial_causal/EQUALITY_L5H5_M4_RAW_PORT_FACTOR_GRAPH_V1_RESULT.json),
 [raw-port factor graph export](../../polynomial_causal/EQUALITY_L5H5_M4_RAW_PORT_FACTOR_GRAPH_EXPORT_V1_RESULT.json),
+[residual-port factor graph](../../polynomial_causal/EQUALITY_L5H5_M4_RESIDUAL_PORT_FACTOR_GRAPH_V1_RESULT.json),
+[residual-port factor graph export](../../polynomial_causal/EQUALITY_L5H5_M4_RESIDUAL_PORT_FACTOR_GRAPH_EXPORT_V1_RESULT.json),
 [red-team note](../../polynomial_causal/EQUALITY_A8_SPARSE_EDGE_EXECUTION_NOTE.md).
 
 The retained three-block score also has a smaller exact executor:
