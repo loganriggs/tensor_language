@@ -279,6 +279,31 @@ and are not used here. The corrective audit must change only Möbius arithmetic
 to float64 while preserving the panels, 64 new nulls, masks, and scientific
 gates.
 
+That V2 correction passed without relaxing a threshold. Float64 corner and
+Möbius arithmetic reduced both absolute and relative closure error to `0.0`;
+all other instrument values and the six-mask selection reproduced.
+
+The graph prunes cleanly to its first three additive main effects:
+
+`mlp_8 + upstream_0_7 + mlp_10`.
+
+Their relative L2 errors are `0.13812` on discovery, `0.12623` on context OOD,
+`0.15037` on lexical OOD, and `0.14625` on joint OOD. The last three V1 terms
+improve discovery by only `0.00343` and context OOD by `0.00396`, while making
+lexical OOD worse by `0.00539` and joint OOD worse by `0.00651`. The registered
+three-term pruning gates therefore pass. This is a simpler and more reusable
+description than the original greedy six-term list: no interaction term is
+needed at this precision.
+
+The two stronger nulls distinguish structure from generic compressibility. The
+frozen six-mask structure beats all 64 new orthogonal random readouts
+(specificity percentile `1.0`). But when each random readout may select its own
+six terms, the target percentile is only `0.421875`, failing the registered
+`0.90` bar. Thus the exact edge pattern is writer-specific; the mere existence
+of a compact per-readout decomposition is not. Response magnitude independently
+separates the target writer: joint-OOD RMS is `176.31`, versus random median
+`1.35` and maximum `3.73` for equal-norm orthogonal axes.
+
 ## What this changes in the sparse graph
 
 The previous graph boundary was
@@ -310,4 +335,5 @@ not satisfy reusability.
 - `SUBJECT_NUMBER_L11H3_SUBJECT_VALUE_UPSTREAM_MOBIUS_V3_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_LATE_WRITER_OOD_MOBIUS_V1_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_LATE_WRITER_SPECIFICITY_AUDIT_V1_RESULT.json`
+- `SUBJECT_NUMBER_L11H3_LATE_WRITER_SPECIFICITY_AUDIT_V2_RESULT.json`
 - their preregistrations, bindings, frozen authority, and managed runners
