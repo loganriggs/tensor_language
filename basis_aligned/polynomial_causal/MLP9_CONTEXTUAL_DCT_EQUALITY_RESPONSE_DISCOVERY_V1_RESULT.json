@@ -1,0 +1,215 @@
+{
+  "binding_sha256": "a4c58e5a7205915c01b4bfd46b8ce9762fa0e61589d0b26a427977e1b1e9c964",
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "created_utc": "2026-09-16T15:04:25.521608Z",
+  "native_replay_logit_max_absolute": 0.0,
+  "native_replay_mlp9_write_max_absolute": 0.0,
+  "predictions": {
+    "pred_a_authority_and_instrument": true,
+    "pred_b_native_response_coverage": false,
+    "pred_c_restored_response_coverage": false,
+    "pred_d_semantic_selectivity": false,
+    "pred_e_task_bridge": true
+  },
+  "price": {
+    "cells": [
+      "copy_positive",
+      "noncopy_equality",
+      "all_noncopy"
+    ],
+    "checkpoint_loads": 1,
+    "fits": 0,
+    "forward_calls": 64,
+    "gpu_accessed": false,
+    "gradients": 0,
+    "model_loaded": false,
+    "new_text": 0,
+    "opened_documents": 64,
+    "parameter_updates": 0,
+    "queue_touched": false,
+    "random_rank16_controls": 16,
+    "rank": 16,
+    "schema": "mlp9_contextual_dct_equality_response_discovery_v1_plan",
+    "tokens_per_document": 256
+  },
+  "projected_native_restored_cosine": 0.8299670868000857,
+  "projected_restored_to_native_scale": 0.8059492409318206,
+  "reports": {
+    "native": {
+      "all_noncopy": {
+        "coverage": 0.18795129656791687,
+        "projected_norm": 1570.2701416015625,
+        "random_maximum": 0.12072298675775528,
+        "random_median": 0.11779507249593735,
+        "random_rank16_coverage": [
+          0.11841482669115067,
+          0.12026546895503998,
+          0.11779507249593735,
+          0.11611372232437134,
+          0.1157807931303978,
+          0.11581861972808838,
+          0.1162472665309906,
+          0.1198304072022438,
+          0.11859568953514099,
+          0.11900510638952255,
+          0.11627721786499023,
+          0.11952824890613556,
+          0.11744680255651474,
+          0.11991017311811447,
+          0.12072298675775528,
+          0.11773236095905304
+        ],
+        "response_norm": 8354.6650390625,
+        "tokens": 11380
+      },
+      "copy_positive": {
+        "coverage": 0.1763877272605896,
+        "projected_norm": 1352.8251953125,
+        "random_maximum": 0.12304650247097015,
+        "random_median": 0.11754532903432846,
+        "random_rank16_coverage": [
+          0.1191716194152832,
+          0.12055399268865585,
+          0.11754532903432846,
+          0.11438661068677902,
+          0.11541005223989487,
+          0.11695441603660583,
+          0.1209263801574707,
+          0.11550841480493546,
+          0.12304650247097015,
+          0.11473415046930313,
+          0.11602597683668137,
+          0.11812666803598404,
+          0.11650331318378448,
+          0.12016839534044266,
+          0.12039875984191895,
+          0.11997883021831512
+        ],
+        "response_norm": 7669.61083984375,
+        "tokens": 908
+      },
+      "noncopy_equality": {
+        "coverage": 0.18799807131290436,
+        "projected_norm": 1537.30517578125,
+        "random_maximum": 0.1208474412560463,
+        "random_median": 0.11781185120344162,
+        "random_rank16_coverage": [
+          0.11836433410644531,
+          0.12036056071519852,
+          0.11781185120344162,
+          0.11607948690652847,
+          0.11568760126829147,
+          0.1157647967338562,
+          0.11617626994848251,
+          0.11987137794494629,
+          0.11861292272806168,
+          0.11910447478294373,
+          0.11617545038461685,
+          0.11963291466236115,
+          0.11744123697280884,
+          0.11999195069074631,
+          0.1208474412560463,
+          0.11768215149641037
+        ],
+        "response_norm": 8177.23876953125,
+        "tokens": 4671
+      }
+    },
+    "restored": {
+      "all_noncopy": {
+        "coverage": 0.18466344475746155,
+        "projected_norm": 1796.8216552734375,
+        "random_maximum": 0.11950580030679703,
+        "random_median": 0.1178063154220581,
+        "random_rank16_coverage": [
+          0.1178063154220581,
+          0.11916614323854446,
+          0.11950580030679703,
+          0.11724363267421722,
+          0.11717440187931061,
+          0.11687946319580078,
+          0.1168297827243805,
+          0.11923466622829437,
+          0.11726012825965881,
+          0.11716383695602417,
+          0.11804801970720291,
+          0.11848049610853195,
+          0.11812492460012436,
+          0.11833445727825165,
+          0.11733689159154892,
+          0.11901453137397766
+        ],
+        "response_norm": 9730.2509765625,
+        "tokens": 11380
+      },
+      "copy_positive": {
+        "coverage": 0.18230105936527252,
+        "projected_norm": 1393.1402587890625,
+        "random_maximum": 0.12340103834867477,
+        "random_median": 0.11852402240037918,
+        "random_rank16_coverage": [
+          0.12192597985267639,
+          0.1175108477473259,
+          0.12082438915967941,
+          0.11722161620855331,
+          0.11628416925668716,
+          0.11833027005195618,
+          0.12159021198749542,
+          0.1161058321595192,
+          0.12340103834867477,
+          0.11330743134021759,
+          0.11852402240037918,
+          0.11990369856357574,
+          0.116476871073246,
+          0.11994414776563644,
+          0.12077726423740387,
+          0.12060537934303284
+        ],
+        "response_norm": 7641.9755859375,
+        "tokens": 908
+      },
+      "noncopy_equality": {
+        "coverage": 0.18464750051498413,
+        "projected_norm": 1761.38818359375,
+        "random_maximum": 0.11955684423446655,
+        "random_median": 0.11772120743989944,
+        "random_rank16_coverage": [
+          0.11772120743989944,
+          0.11921028047800064,
+          0.11955684423446655,
+          0.11723782122135162,
+          0.1171344742178917,
+          0.11689665913581848,
+          0.11679061502218246,
+          0.11927387863397598,
+          0.11723247170448303,
+          0.11715942621231079,
+          0.11805936694145203,
+          0.11853490769863129,
+          0.11812707781791687,
+          0.11834044754505157,
+          0.11728693544864655,
+          0.11901907622814178
+        ],
+        "response_norm": 9539.193359375,
+        "tokens": 4671
+      }
+    }
+  },
+  "runner_sha256": "b30129649f98354133fab1c0a3f15a9ba55bc8644d592f5347cdd0f943d875a7",
+  "schema": "mlp9_contextual_dct_equality_response_discovery_v1_result",
+  "scope": "Opened-panel bridge from the frozen generic contextual-DCT output basis to the previously established semantic equality/copy MLP9 response; no new rows, causal projection, extraction of the equality source, or fresh circuit claim.",
+  "seconds": 1.8666956129964092,
+  "support": {
+    "all_noncopy": 11380,
+    "copy_positive": 908,
+    "noncopy_equality": 4671
+  },
+  "task": {
+    "copy_tokens": 908,
+    "native_effect_sum_nat": 34.597373962402344,
+    "restored_effect_sum_nat": 38.779640197753906,
+    "score_restoration_recovery": 1.1208839214183284
+  },
+  "terminal": "valid_mlp9_contextual_dct_equality_response_null"
+}

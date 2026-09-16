@@ -507,6 +507,33 @@ sparse circuit.
 [fresh causal result](../../polynomial_causal/MLP9_CONTEXTUAL_DCT_CAUSAL_FRESH_V1_RESULT.json),
 [specificity audit](../../polynomial_causal/MLP9_CONTEXTUAL_DCT_CAUSAL_FRESH_V1_SPECIFICITY_AUDIT_RESULT.json).
 
+A natural-behavior bridge was tested against the established equality/copy
+reader and closes this local DCT route for that circuit.  The rung-500 score
+restoration remains healthy (`1.121/1.156` copy-token NLL recovery across the
+two opened splits), so these are not dead-behavior nulls.  The frozen generic
+DCT basis captures `.1764/.1823` of native/restored copy-positive MLP9 response
+norm, modestly above rank-16 random controls around `.12`, but it captures
+noncopy responses slightly better (`.1846--.1880`) and therefore fails semantic
+selectivity.  A copy-conditioned response PCA is not stable either: rank 64
+captures `.8099` on its discovery documents but only `.3649` on the next
+documents; rank 16 confirms at only `.2465/.2591` native/restored coverage.
+
+Most importantly, the exact causal ceiling fails.  Under the equality-score
+removal, replacing the complete MLP9 write with its exact native write recovers
+only `.03929` of the copy-token NLL effect.  DCT rank 16 recovers `.01988`, while
+copy-conditioned ranks 16 and 64 are slightly harmful (`−.00939/−.01246`).
+Every installed write matches its prescribed tensor exactly, both 32-document
+halves agree on the exact ceiling (`.0411/.0364`), and noncopy mean changes stay
+below `.0011` nat.  MLP9's equality response is therefore a reproducible reader
+or diagnostic of the upstream score action, not a sufficient causal site.  Do
+not search for a better fixed MLP9 output basis for this behavior.  A future
+equality decomposition must retain the altered upstream residual/action path
+and test multi-module state restoration; the local DCT node remains generic.
+[Natural DCT bridge null](../../polynomial_causal/MLP9_CONTEXTUAL_DCT_EQUALITY_RESPONSE_DISCOVERY_V1_RESULT.json),
+[consumer-response basis null](../../polynomial_causal/MLP9_EQUALITY_CONSUMER_RESPONSE_BASIS_DISCOVERY_V1_RESULT.json),
+[projected-write causal null](../../polynomial_causal/MLP9_EQUALITY_PROJECTED_WRITE_CAUSAL_DISCOVERY_V1_RESULT.json),
+[execution corrections](../../polynomial_causal/MLP9_EQUALITY_PROJECTED_WRITE_CAUSAL_DISCOVERY_V1_EXECUTION_NOTE.md).
+
 The retained three-block score also has a smaller exact executor:
 
 $$

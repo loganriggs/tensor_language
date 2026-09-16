@@ -1,0 +1,552 @@
+{
+  "binding_sha256": "4310947c6f2daca9cc2b6d2e1a595e1af320ff7fed80a3c4e23992d18d9de2b8",
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "created_utc": "2026-09-16T15:14:55.102263Z",
+  "maximum_install_relative_l2_by_arm": {
+    "dct16": 0.0,
+    "eq16": 0.0,
+    "eq64": 0.0,
+    "exact": 0.0,
+    "random0": 0.0,
+    "random1": 0.0,
+    "random2": 0.0,
+    "random3": 0.0
+  },
+  "maximum_native_replay_logit_absolute": 0.0,
+  "maximum_native_replay_write_absolute": 0.0,
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_exact_write_sufficiency": false,
+    "pred_c_rank16_consumer_sufficiency": false,
+    "pred_d_rank64_consumer_sufficiency": false,
+    "pred_e_behavior_conditioned_advantage": false,
+    "pred_f_sign_and_cell_stability": false
+  },
+  "price": {
+    "arms": [
+      "exact",
+      "dct16",
+      "eq16",
+      "eq64",
+      "random0",
+      "random1",
+      "random2",
+      "random3"
+    ],
+    "checkpoint_loads": 1,
+    "fits": 0,
+    "forward_calls": 176,
+    "gpu_accessed": false,
+    "gradients": 0,
+    "model_loaded": false,
+    "new_text": 0,
+    "opened_documents": 64,
+    "parameter_updates": 0,
+    "queue_touched": false,
+    "schema": "mlp9_equality_projected_write_causal_discovery_v1_plan",
+    "tokens_per_document": 256
+  },
+  "reports": {
+    "dct16": {
+      "all_noncopy": {
+        "arm_effect_sum_nat": -6.937618255615234,
+        "arm_minus_native_mean_nat": -0.0002046893205260858,
+        "arm_minus_native_rms_nat": 0.05684514343738556,
+        "native_effect_sum_nat": -9.270668029785156,
+        "recovery": 0.7483407056887151,
+        "tokens": 11398
+      },
+      "copy_far": {
+        "arm_effect_sum_nat": 0.5671119689941406,
+        "arm_minus_native_mean_nat": 0.041146568953990936,
+        "arm_minus_native_rms_nat": 0.13828085362911224,
+        "native_effect_sum_nat": 28.053022384643555,
+        "recovery": 0.0202157172663357,
+        "tokens": 668
+      },
+      "copy_multiple_predecessors": {
+        "arm_effect_sum_nat": 0.15154875814914703,
+        "arm_minus_native_mean_nat": 0.025326412171125412,
+        "arm_minus_native_rms_nat": 0.12196609377861023,
+        "native_effect_sum_nat": 12.713449478149414,
+        "recovery": 0.011920349265524958,
+        "tokens": 496
+      },
+      "copy_near": {
+        "arm_effect_sum_nat": 0.10540791600942612,
+        "arm_minus_native_mean_nat": 0.025560084730386734,
+        "arm_minus_native_rms_nat": 0.1287059187889099,
+        "native_effect_sum_nat": 5.779746055603027,
+        "recovery": 0.018237464932778683,
+        "tokens": 222
+      },
+      "copy_one_predecessor": {
+        "arm_effect_sum_nat": 0.5209711790084839,
+        "arm_minus_native_mean_nat": 0.05228006839752197,
+        "arm_minus_native_rms_nat": 0.1517440229654312,
+        "native_effect_sum_nat": 21.11931800842285,
+        "recovery": 0.02466799253653499,
+        "tokens": 394
+      },
+      "copy_positive": {
+        "arm_effect_sum_nat": 0.6725199818611145,
+        "arm_minus_native_mean_nat": 0.037258706986904144,
+        "arm_minus_native_rms_nat": 0.13595564663410187,
+        "native_effect_sum_nat": 33.832767486572266,
+        "recovery": 0.019877770333982518,
+        "tokens": 890
+      },
+      "halves": [
+        {
+          "documents": 32,
+          "recovery": 0.03311090725097735,
+          "tokens": 495
+        },
+        {
+          "documents": 32,
+          "recovery": -0.0006457290321894069,
+          "tokens": 395
+        }
+      ]
+    },
+    "eq16": {
+      "all_noncopy": {
+        "arm_effect_sum_nat": 2.438483715057373,
+        "arm_minus_native_mean_nat": -0.0010272988583892584,
+        "arm_minus_native_rms_nat": 0.05683921277523041,
+        "native_effect_sum_nat": -9.270668029785156,
+        "recovery": -0.2630321468984672,
+        "tokens": 11398
+      },
+      "copy_far": {
+        "arm_effect_sum_nat": -0.014470487833023071,
+        "arm_minus_native_mean_nat": 0.04201720282435417,
+        "arm_minus_native_rms_nat": 0.13946455717086792,
+        "native_effect_sum_nat": 28.053022384643555,
+        "recovery": -0.0005158263389453655,
+        "tokens": 668
+      },
+      "copy_multiple_predecessors": {
+        "arm_effect_sum_nat": 0.001584857702255249,
+        "arm_minus_native_mean_nat": 0.02562875859439373,
+        "arm_minus_native_rms_nat": 0.12270043045282364,
+        "native_effect_sum_nat": 12.713449478149414,
+        "recovery": 0.00012465992844657475,
+        "tokens": 496
+      },
+      "copy_near": {
+        "arm_effect_sum_nat": -0.30337733030319214,
+        "arm_minus_native_mean_nat": 0.027401456609368324,
+        "arm_minus_native_rms_nat": 0.13468600809574127,
+        "native_effect_sum_nat": 5.779746055603027,
+        "recovery": -0.0524897335254186,
+        "tokens": 222
+      },
+      "copy_one_predecessor": {
+        "arm_effect_sum_nat": -0.3194326162338257,
+        "arm_minus_native_mean_nat": 0.054413069039583206,
+        "arm_minus_native_rms_nat": 0.1557079702615738,
+        "native_effect_sum_nat": 21.11931800842285,
+        "recovery": -0.015125138799767535,
+        "tokens": 394
+      },
+      "copy_positive": {
+        "arm_effect_sum_nat": -0.3178478479385376,
+        "arm_minus_native_mean_nat": 0.03837147727608681,
+        "arm_minus_native_rms_nat": 0.13828806579113007,
+        "native_effect_sum_nat": 33.832767486572266,
+        "recovery": -0.009394674794625855,
+        "tokens": 890
+      },
+      "halves": [
+        {
+          "documents": 32,
+          "recovery": -0.006307367681979613,
+          "tokens": 495
+        },
+        {
+          "documents": 32,
+          "recovery": -0.014182826887508857,
+          "tokens": 395
+        }
+      ]
+    },
+    "eq64": {
+      "all_noncopy": {
+        "arm_effect_sum_nat": -0.004754364490509033,
+        "arm_minus_native_mean_nat": -0.0008129421039484441,
+        "arm_minus_native_rms_nat": 0.0568012073636055,
+        "native_effect_sum_nat": -9.270668029785156,
+        "recovery": 0.0005128394712478141,
+        "tokens": 11398
+      },
+      "copy_far": {
+        "arm_effect_sum_nat": 0.040128737688064575,
+        "arm_minus_native_mean_nat": 0.04193546995520592,
+        "arm_minus_native_rms_nat": 0.1400391310453415,
+        "native_effect_sum_nat": 28.053022384643555,
+        "recovery": 0.0014304604023711671,
+        "tokens": 668
+      },
+      "copy_multiple_predecessors": {
+        "arm_effect_sum_nat": -0.46448951959609985,
+        "arm_minus_native_mean_nat": 0.026568423956632614,
+        "arm_minus_native_rms_nat": 0.12365636229515076,
+        "native_effect_sum_nat": 12.713449478149414,
+        "recovery": -0.03653528654000767,
+        "tokens": 496
+      },
+      "copy_near": {
+        "arm_effect_sum_nat": -0.46175071597099304,
+        "arm_minus_native_mean_nat": 0.02811485156416893,
+        "arm_minus_native_rms_nat": 0.1381141096353531,
+        "native_effect_sum_nat": 5.779746055603027,
+        "recovery": -0.07989117714321732,
+        "tokens": 222
+      },
+      "copy_one_predecessor": {
+        "arm_effect_sum_nat": 0.042867571115493774,
+        "arm_minus_native_mean_nat": 0.05349352955818176,
+        "arm_minus_native_rms_nat": 0.15731404721736908,
+        "native_effect_sum_nat": 21.11931800842285,
+        "recovery": 0.00202978008562574,
+        "tokens": 394
+      },
+      "copy_positive": {
+        "arm_effect_sum_nat": -0.4216219186782837,
+        "arm_minus_native_mean_nat": 0.03848807513713837,
+        "arm_minus_native_rms_nat": 0.13956144452095032,
+        "native_effect_sum_nat": 33.832767486572266,
+        "recovery": -0.012461940006699698,
+        "tokens": 890
+      },
+      "halves": [
+        {
+          "documents": 32,
+          "recovery": -0.008872549449714408,
+          "tokens": 495
+        },
+        {
+          "documents": 32,
+          "recovery": -0.018028791879427457,
+          "tokens": 395
+        }
+      ]
+    },
+    "exact": {
+      "all_noncopy": {
+        "arm_effect_sum_nat": -2.1305272579193115,
+        "arm_minus_native_mean_nat": -0.0006264381227083504,
+        "arm_minus_native_rms_nat": 0.05345616489648819,
+        "native_effect_sum_nat": -9.270668029785156,
+        "recovery": 0.229813779446559,
+        "tokens": 11398
+      },
+      "copy_far": {
+        "arm_effect_sum_nat": 1.4070959091186523,
+        "arm_minus_native_mean_nat": 0.03988910838961601,
+        "arm_minus_native_rms_nat": 0.13311436772346497,
+        "native_effect_sum_nat": 28.053022384643555,
+        "recovery": 0.05015844246033567,
+        "tokens": 668
+      },
+      "copy_multiple_predecessors": {
+        "arm_effect_sum_nat": 0.7702800631523132,
+        "arm_minus_native_mean_nat": 0.0240789707750082,
+        "arm_minus_native_rms_nat": 0.11743747442960739,
+        "native_effect_sum_nat": 12.713449478149414,
+        "recovery": 0.06058781013573007,
+        "tokens": 496
+      },
+      "copy_near": {
+        "arm_effect_sum_nat": -0.07795798778533936,
+        "arm_minus_native_mean_nat": 0.02638605609536171,
+        "arm_minus_native_rms_nat": 0.13200882077217102,
+        "native_effect_sum_nat": 5.779746055603027,
+        "recovery": -0.01348813374071426,
+        "tokens": 222
+      },
+      "copy_one_predecessor": {
+        "arm_effect_sum_nat": 0.5588576793670654,
+        "arm_minus_native_mean_nat": 0.052183911204338074,
+        "arm_minus_native_rms_nat": 0.14999674260616302,
+        "native_effect_sum_nat": 21.11931800842285,
+        "recovery": 0.0264619188528806,
+        "tokens": 394
+      },
+      "copy_positive": {
+        "arm_effect_sum_nat": 1.3291378021240234,
+        "arm_minus_native_mean_nat": 0.03652093559503555,
+        "arm_minus_native_rms_nat": 0.13283947110176086,
+        "native_effect_sum_nat": 33.832767486572266,
+        "recovery": 0.03928551817853916,
+        "tokens": 890
+      },
+      "halves": [
+        {
+          "documents": 32,
+          "recovery": 0.041115541521616554,
+          "tokens": 495
+        },
+        {
+          "documents": 32,
+          "recovery": 0.03644730865478327,
+          "tokens": 395
+        }
+      ]
+    },
+    "random0": {
+      "all_noncopy": {
+        "arm_effect_sum_nat": 0.7408022284507751,
+        "arm_minus_native_mean_nat": -0.0008783531375229359,
+        "arm_minus_native_rms_nat": 0.056795381009578705,
+        "native_effect_sum_nat": -9.270668029785156,
+        "recovery": -0.07990818202859788,
+        "tokens": 11398
+      },
+      "copy_far": {
+        "arm_effect_sum_nat": 0.5812700986862183,
+        "arm_minus_native_mean_nat": 0.041125375777482986,
+        "arm_minus_native_rms_nat": 0.13868653774261475,
+        "native_effect_sum_nat": 28.053022384643555,
+        "recovery": 0.020720409042428528,
+        "tokens": 668
+      },
+      "copy_multiple_predecessors": {
+        "arm_effect_sum_nat": 0.6046977043151855,
+        "arm_minus_native_mean_nat": 0.02441280707716942,
+        "arm_minus_native_rms_nat": 0.12155274301767349,
+        "native_effect_sum_nat": 12.713449478149414,
+        "recovery": 0.04756362192294692,
+        "tokens": 496
+      },
+      "copy_near": {
+        "arm_effect_sum_nat": -0.03427955135703087,
+        "arm_minus_native_mean_nat": 0.026189301162958145,
+        "arm_minus_native_rms_nat": 0.1307721883058548,
+        "native_effect_sum_nat": 5.779746055603027,
+        "recovery": -0.005930978805513337,
+        "tokens": 222
+      },
+      "copy_one_predecessor": {
+        "arm_effect_sum_nat": -0.05770719051361084,
+        "arm_minus_native_mean_nat": 0.05374879390001297,
+        "arm_minus_native_rms_nat": 0.15377116203308105,
+        "native_effect_sum_nat": 21.11931800842285,
+        "recovery": -0.0027324362695138136,
+        "tokens": 394
+      },
+      "copy_positive": {
+        "arm_effect_sum_nat": 0.5469905734062195,
+        "arm_minus_native_mean_nat": 0.03739975020289421,
+        "arm_minus_native_rms_nat": 0.13675528764724731,
+        "native_effect_sum_nat": 33.832767486572266,
+        "recovery": 0.016167479459766692,
+        "tokens": 890
+      },
+      "halves": [
+        {
+          "documents": 32,
+          "recovery": 0.017949589600473496,
+          "tokens": 495
+        },
+        {
+          "documents": 32,
+          "recovery": 0.013403574834298609,
+          "tokens": 395
+        }
+      ]
+    },
+    "random1": {
+      "all_noncopy": {
+        "arm_effect_sum_nat": 1.8690998554229736,
+        "arm_minus_native_mean_nat": -0.0009773439960554242,
+        "arm_minus_native_rms_nat": 0.05689852312207222,
+        "native_effect_sum_nat": -9.270668029785156,
+        "recovery": -0.20161436580598704,
+        "tokens": 11398
+      },
+      "copy_far": {
+        "arm_effect_sum_nat": -0.09468406438827515,
+        "arm_minus_native_mean_nat": 0.04213728383183479,
+        "arm_minus_native_rms_nat": 0.13911575078964233,
+        "native_effect_sum_nat": 28.053022384643555,
+        "recovery": -0.0033751822919481913,
+        "tokens": 668
+      },
+      "copy_multiple_predecessors": {
+        "arm_effect_sum_nat": 0.16940201818943024,
+        "arm_minus_native_mean_nat": 0.025290418416261673,
+        "arm_minus_native_rms_nat": 0.12084599584341049,
+        "native_effect_sum_nat": 12.713449478149414,
+        "recovery": 0.013324630618981986,
+        "tokens": 496
+      },
+      "copy_near": {
+        "arm_effect_sum_nat": 0.17454078793525696,
+        "arm_minus_native_mean_nat": 0.025248676538467407,
+        "arm_minus_native_rms_nat": 0.12896771728992462,
+        "native_effect_sum_nat": 5.779746055603027,
+        "recovery": 0.03019869493505737,
+        "tokens": 222
+      },
+      "copy_one_predecessor": {
+        "arm_effect_sum_nat": -0.0895453616976738,
+        "arm_minus_native_mean_nat": 0.05382959917187691,
+        "arm_minus_native_rms_nat": 0.15427018702030182,
+        "native_effect_sum_nat": 21.11931800842285,
+        "recovery": -0.004239974115734283,
+        "tokens": 394
+      },
+      "copy_positive": {
+        "arm_effect_sum_nat": 0.07985667884349823,
+        "arm_minus_native_mean_nat": 0.037924617528915405,
+        "arm_minus_native_rms_nat": 0.13665500283241272,
+        "native_effect_sum_nat": 33.832767486572266,
+        "recovery": 0.002360335401920407,
+        "tokens": 890
+      },
+      "halves": [
+        {
+          "documents": 32,
+          "recovery": -7.928486147375894e-05,
+          "tokens": 495
+        },
+        {
+          "documents": 32,
+          "recovery": 0.006143989165791703,
+          "tokens": 395
+        }
+      ]
+    },
+    "random2": {
+      "all_noncopy": {
+        "arm_effect_sum_nat": 0.22619342803955078,
+        "arm_minus_native_mean_nat": -0.0008332041907124221,
+        "arm_minus_native_rms_nat": 0.05660300701856613,
+        "native_effect_sum_nat": -9.270668029785156,
+        "recovery": -0.024398827281143915,
+        "tokens": 11398
+      },
+      "copy_far": {
+        "arm_effect_sum_nat": -0.455429345369339,
+        "arm_minus_native_mean_nat": 0.042677320539951324,
+        "arm_minus_native_rms_nat": 0.13997380435466766,
+        "native_effect_sum_nat": 28.053022384643555,
+        "recovery": -0.01623459102284268,
+        "tokens": 668
+      },
+      "copy_multiple_predecessors": {
+        "arm_effect_sum_nat": -0.08384812623262405,
+        "arm_minus_native_mean_nat": 0.025801004841923714,
+        "arm_minus_native_rms_nat": 0.12328923493623734,
+        "native_effect_sum_nat": 12.713449478149414,
+        "recovery": -0.006595230222665666,
+        "tokens": 496
+      },
+      "copy_near": {
+        "arm_effect_sum_nat": -0.006621815264225006,
+        "arm_minus_native_mean_nat": 0.026064720004796982,
+        "arm_minus_native_rms_nat": 0.13110119104385376,
+        "native_effect_sum_nat": 5.779746055603027,
+        "recovery": -0.0011456931153239261,
+        "tokens": 222
+      },
+      "copy_one_predecessor": {
+        "arm_effect_sum_nat": -0.37820303440093994,
+        "arm_minus_native_mean_nat": 0.05456223338842392,
+        "arm_minus_native_rms_nat": 0.1541656106710434,
+        "native_effect_sum_nat": 21.11931800842285,
+        "recovery": -0.0179079189133903,
+        "tokens": 394
+      },
+      "copy_positive": {
+        "arm_effect_sum_nat": -0.4620510935783386,
+        "arm_minus_native_mean_nat": 0.03853350505232811,
+        "arm_minus_native_rms_nat": 0.13781411945819855,
+        "native_effect_sum_nat": 33.832767486572266,
+        "recovery": -0.013656910974300876,
+        "tokens": 890
+      },
+      "halves": [
+        {
+          "documents": 32,
+          "recovery": 0.0007014637675065054,
+          "tokens": 495
+        },
+        {
+          "documents": 32,
+          "recovery": -0.035925557259862954,
+          "tokens": 395
+        }
+      ]
+    },
+    "random3": {
+      "all_noncopy": {
+        "arm_effect_sum_nat": -2.4857277870178223,
+        "arm_minus_native_mean_nat": -0.0005952746141701937,
+        "arm_minus_native_rms_nat": 0.05646390840411186,
+        "native_effect_sum_nat": -9.270668029785156,
+        "recovery": 0.2681282275486061,
+        "tokens": 11398
+      },
+      "copy_far": {
+        "arm_effect_sum_nat": 0.5754306316375732,
+        "arm_minus_native_mean_nat": 0.04113411903381348,
+        "arm_minus_native_rms_nat": 0.139543816447258,
+        "native_effect_sum_nat": 28.053022384643555,
+        "recovery": 0.02051225082800948,
+        "tokens": 668
+      },
+      "copy_multiple_predecessors": {
+        "arm_effect_sum_nat": 0.8075366020202637,
+        "arm_minus_native_mean_nat": 0.024003855884075165,
+        "arm_minus_native_rms_nat": 0.12190012633800507,
+        "native_effect_sum_nat": 12.713449478149414,
+        "recovery": 0.0635182924514842,
+        "tokens": 496
+      },
+      "copy_near": {
+        "arm_effect_sum_nat": 0.20143327116966248,
+        "arm_minus_native_mean_nat": 0.025127537548542023,
+        "arm_minus_native_rms_nat": 0.1300593912601471,
+        "native_effect_sum_nat": 5.779746055603027,
+        "recovery": 0.03485157811983593,
+        "tokens": 222
+      },
+      "copy_one_predecessor": {
+        "arm_effect_sum_nat": -0.03067270666360855,
+        "arm_minus_native_mean_nat": 0.0536801815032959,
+        "arm_minus_native_rms_nat": 0.15439797937870026,
+        "native_effect_sum_nat": 21.11931800842285,
+        "recovery": -0.0014523530850463825,
+        "tokens": 394
+      },
+      "copy_positive": {
+        "arm_effect_sum_nat": 0.7768639326095581,
+        "arm_minus_native_mean_nat": 0.03714146465063095,
+        "arm_minus_native_rms_nat": 0.13723941147327423,
+        "native_effect_sum_nat": 33.832767486572266,
+        "recovery": 0.022961879571864293,
+        "tokens": 890
+      },
+      "halves": [
+        {
+          "documents": 32,
+          "recovery": 0.009018863436623944,
+          "tokens": 495
+        },
+        {
+          "documents": 32,
+          "recovery": 0.04458633920044271,
+          "tokens": 395
+        }
+      ]
+    }
+  },
+  "runner_sha256": "e47c8aa60e2f7e44eb8fc7c7b4b3f8b8f49adffe6142265d8d485f2e5b4c9279",
+  "schema": "mlp9_equality_projected_write_causal_discovery_v1_result",
+  "scope": "Opened-panel causal sufficiency test of exact and projected MLP9 write restoration under the established equality-score removal; no new rows, fresh OOD, upstream-source extraction, or complete-circuit claim.",
+  "seconds": 4.56421543200122,
+  "terminal": "valid_mlp9_equality_projected_write_causal_null"
+}
