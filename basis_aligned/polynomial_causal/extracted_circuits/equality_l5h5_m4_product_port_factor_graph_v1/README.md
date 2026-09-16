@@ -17,7 +17,7 @@ error. Score closure, behavioral replay, every node-removal magnitude, noncopy
 selectivity, and the rolled-arithmetic control match the residual-port parent
 exactly.
 
-An initial invalid run inferred the selected rank from the 1,152-row stored SVD
+An initial invalid run inferred the selected rank from the 4,608-row stored SVD
 basis and accidentally admitted modes 256--1,151 into the remainder and joint
 corners. Baseline and child were correct, producing a diagnostic near-50%
 corner mismatch rate. The executor now requires an explicit selected rank (256

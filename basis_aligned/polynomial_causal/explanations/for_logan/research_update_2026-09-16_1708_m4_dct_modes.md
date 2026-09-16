@@ -235,7 +235,8 @@ behavior, removal, selectivity, and rolled-control comparison are also exactly
 unchanged.
 
 The first run was invalid in precisely the way the interaction-decomposition
-briefing warns about. The stored SVD basis has 1,152 rows, but the circuit
+briefing warns about. The stored SVD basis has 4,608 rows (with numerical rank
+at most 1,152), but the circuit
 selects only the first 256. Inferring selected rank from storage rank admitted
 modes 256--1,151 into the remainder and joint corners. Baseline and child were
 correct, so about half of all corner values mismatched and downstream controls

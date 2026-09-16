@@ -45,10 +45,10 @@
     "selective_removal": true,
     "composition_reuse": true
   },
-  "red_team": "The initial run was invalid because selected rank was inferred from the 1152-row stored basis rather than frozen at 256. The corrected executor makes selected rank explicit and its regression test uses storage rank larger than selected rank.",
+  "red_team": "The initial run was invalid because selected rank was inferred from the 4608-row stored basis rather than frozen at 256. The corrected executor makes selected rank explicit and its regression test uses storage rank larger than selected rank.",
   "price_caveat": "MLP4 Left/Right projection and all 4608 native products remain external. The executor is a validated structural boundary, not yet product-cost compression.",
   "files": {
-    "README.md": "83ffd425bd8fc3e93e63936c733367c3590f4a09d71aaf9b6796b4b1f94a2678",
+    "README.md": "ee128003b6ea33ed089024ee66ff3c9cd5971c0104849119b8bc6d5b89c346d3",
     "__init__.py": "3b10afa742ecb2105a3c36d22d0561a7f19da0fb9a7f4085eb47d9b0bbd80151",
     "manifest.json": "ef1f3c7eeef974fa4e498aeaab4c80146ea04fa2743c497bdc246d91a38af24b",
     "node.py": "ee3707d48d3921f63ff2b191e1793878046541cc114cbf858d917a86d115d6e7",
