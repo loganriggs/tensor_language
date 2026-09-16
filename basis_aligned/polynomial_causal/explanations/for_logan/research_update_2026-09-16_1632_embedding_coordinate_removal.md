@@ -10,7 +10,8 @@ below remain measurements of the actual frozen prompts, but the panels did not
 test the claimed opposite-number noun attractor. The corrected 128-row scalar
 replication is reported in
 `research_update_2026-09-16_2105_subject_context_mobius.md`; behavioral removal
-and mediation under corrected attractors remain to be replicated.
+and mediation under corrected attractors were subsequently replicated in
+`SUBJECT_NUMBER_CORRECTED_REMOVAL_MEDIATION_V1_RESULT.json`.
 
 The frozen grammatical-number coordinate in the checkpoint token embeddings is
 not merely decodable. Removing that coordinate at a fresh subject token

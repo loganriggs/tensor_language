@@ -112,9 +112,36 @@ rank-one energy by `0.02898`, so the qualitative interaction result survives
 the fix. The corrected terminal is
 `corrected_context_rank1_interaction_candidate`.
 
-This correction does not retroactively validate behavioral removal/mediation
-claims under a proper opposite-number attractor. Those should be replicated on
-the corrected authority before using attractor-number robustness as evidence.
+### Corrected behavioral removal and mediation
+
+We then froze and ran that missing replication before opening any behavior
+logits from the corrected panel. It combined the target coordinate removal, 16
+same-token/same-norm/same-distance embedding controls, full and rank-one L11H3
+restoration, and 16 matched output-axis controls over all 128 rows. Every
+registered gate passed:
+
+- native agreement and the frozen embedding decoder were correct on all 128
+  rows and in every number, context, and regularity cell;
+- coordinate-removal damage was positive on all 128 rows, RMS `3.27177`, or
+  `0.62030` of native-margin RMS;
+- equal-distance embedding controls had median RMS `0.08076` and maximum
+  `0.12683`; target/median ratio was `40.51`;
+- unrelated `can`/`will` collateral was `0.05586` of target damage;
+- full L11H3 restoration recovered `0.09945` of damage with cosine `0.88363`
+  and positive effect on `0.82031` of rows;
+- the frozen rank-one restoration recovered `0.09480` of damage;
+- rank one reproduced the full-head rescue with cosine `0.99919`, relative L2
+  `0.05800`, and norm ratio `0.95743`;
+- matched random output axes had median effect RMS `0.00699`, versus `0.35256`
+  for rank one, and their best relative error was still `0.97941`;
+- repeated removed-head capture error was `0.0`, and maximum intervention
+  geometry error was `5.77e-14`.
+
+The terminal is `corrected_removal_and_rank1_mediation_held`. This repairs the
+behavioral evidence under genuine opposite-number nouns. It confirms selective
+removal and a reusable small rank-one edge, but the full-head/native-base value
+remains an explicit donor port and the corrected nouns are not a fresh lexical
+panel.
 
 ## What this changes in the sparse graph
 
@@ -140,4 +167,5 @@ not satisfy reusability.
 - `SUBJECT_NUMBER_EMBEDDING_TO_L11H3_CONTEXT_MOBIUS_PRECISION_AUDIT_V1_RESULT.json`
 - `SUBJECT_NUMBER_EMBEDDING_TO_L11H3_CONTEXT_MOBIUS_CORRECTED_V1_RESULT.json`
 - `SUBJECT_NUMBER_CONTEXT_INTERACTION_RANK_SPECIFICITY_V1_RESULT.json`
+- `SUBJECT_NUMBER_CORRECTED_REMOVAL_MEDIATION_V1_RESULT.json`
 - their preregistrations, bindings, frozen authority, and managed runners
