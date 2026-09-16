@@ -145,6 +145,8 @@ without treating either complete native module as the semantic unit.
 - [Projected-payload extracted-node null](../polynomial_causal/EQUALITY_L8H4_EXTRACTED_NODE_CODE_OOD_V1_RESULT.json)
 - [Exact-order extracted-node result](../polynomial_causal/EQUALITY_L8H4_EXACT_ORDER_NODE_CODE_OOD_V2_RESULT.json)
 - [Exact reversible equality-edge result](../polynomial_causal/EQUALITY_L8H4_REVERSIBLE_EDGE_CODE_OOD_V3_RESULT.json)
+- [Reusable L5H5 score-port result](../polynomial_causal/EQUALITY_REUSABLE_SCORE_PORT_CODE_OOD_V1_RESULT.json)
+- [L5H5-to-L8H4 score-adapter export](../polynomial_causal/EQUALITY_L5H5_SCORE_ADAPTER_EXPORT_V1_RESULT.json)
 - [A8 sparse-edge red-team note](../polynomial_causal/EQUALITY_A8_SPARSE_EDGE_EXECUTION_NOTE.md)
 - [MLP17 causal-Hessian identity certificate](../polynomial_causal/MLP17_CAUSAL_HESSIAN_IDENTITY_V1_RESULT.json)
 - [Causal-Hessian identity preregistration](../polynomial_causal/MLP17_CAUSAL_HESSIAN_IDENTITY_V1_PREREGISTRATION.md)

@@ -51,3 +51,12 @@ recovery equals the oracle exactly at `1.1775565`.  The correction is nonzero in
 of semantic-term norm.  This is an exact reversible sparse-graph boundary with
 zero new learned parameters; the implementation port is not evidence for an
 additional semantic circuit edge.
+
+The next upstream port also transfers.  Replacing the L8H4 score by the frozen
+natural-scale L5H5 score inside the exact-order node recovers `.97287` on code
+OOD, compared with `.96873` for the older projected-payload arithmetic.  The
+preregistered L7H3 wrong-score donor is strongly harmful (`-1.84448` recovery),
+the target is stable across halves (`.99883/.94979`), and noncopy mean damage is
+`.00240` nat.  The target score cosine on equality edges is `.82849`.  This is
+exported as a one-scalar, zero-new-parameter adapter.  The adapter is a reusable
+graph edge; production of the L5H5 score from residual/QK inputs remains native.

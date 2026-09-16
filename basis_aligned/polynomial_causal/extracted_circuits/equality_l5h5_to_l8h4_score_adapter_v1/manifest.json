@@ -1,0 +1,11 @@
+{
+  "schema": "extracted_equality_score_adapter_v1",
+  "name": "equality_l5h5_to_l8h4_score_adapter_v1",
+  "operation": "l8h4_score_proxy = 0.5371214943951729 * l5h5_score",
+  "source_port": "L5H5 equality-supported score",
+  "target_port": "L8H4 equality-node score",
+  "learned_parameters": 0,
+  "stored_calibration_scalars": 1,
+  "calibration_role": "frozen natural-text fit inherited from rung459",
+  "scope": "Portable score adapter confirmed causally on code OOD; does not extract the L5H5 residual-to-QK producer."
+}

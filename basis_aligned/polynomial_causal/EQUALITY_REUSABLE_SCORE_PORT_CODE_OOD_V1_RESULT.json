@@ -1,0 +1,224 @@
+{
+  "binding_sha256": "46a6b3d7bc1306bfac5c0c6d0961d4a3df1c3dc559dbd404a5b7d23d7b835b2b",
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "created_utc": "2026-09-16T15:57:48.294337Z",
+  "frozen_scales": {
+    "control": {
+      "direct_payload_cosine": -0.07836882502235588,
+      "direct_score_cosine": -0.8939167582052691,
+      "early_p2": 89.95105361938477,
+      "early_payload_rms": 22.481172924797097,
+      "early_score_rms": 0.14524277213110645,
+      "early_u2": 2482604896.0,
+      "edge_count": 4264.0,
+      "late_p2": 30.05491104722023,
+      "late_payload_rms": 116.81471777354793,
+      "late_score_rms": 0.08395549478671896,
+      "late_u2": 67029318400.0,
+      "p_cross": -46.479123532772064,
+      "payload_entry_count": 4912128.0,
+      "payload_ratio": 5.196113128274522,
+      "score_ratio": 0.5780356127527968,
+      "u_cross": -1010949684.0
+    },
+    "target": {
+      "direct_payload_cosine": 0.04836320420998923,
+      "direct_score_cosine": 0.8135799068621057,
+      "early_p2": 94.95936119556427,
+      "early_payload_rms": 37.53069551857498,
+      "early_score_rms": 0.14923142779626447,
+      "early_u2": 6918993152.0,
+      "edge_count": 4264.0,
+      "late_p2": 27.395728200674057,
+      "late_payload_rms": 116.76635549278632,
+      "late_score_rms": 0.08015540750865491,
+      "late_u2": 66973828480.0,
+      "p_cross": 41.496410459280014,
+      "payload_entry_count": 4912128.0,
+      "payload_ratio": 3.1112227972166253,
+      "score_ratio": 0.5371214943951729,
+      "u_cross": 1041091929.0
+    }
+  },
+  "live_diagnostics": {
+    "control_min_term_rms": 17.826629638671875,
+    "native_effect_halves": [],
+    "target_min_term_rms": 17.893943786621094
+  },
+  "predictions": {
+    "pred_a_live_instrument": true,
+    "pred_b_exact_node_score_reuse": true,
+    "pred_c_arithmetic_agreement": true,
+    "pred_d_donor_specificity": true,
+    "pred_e_preservation": true,
+    "pred_f_reusable_zero_parameter_port": true
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "fits": 0,
+    "forward_calls": 240,
+    "gpu_accessed": true,
+    "gradients": 0,
+    "learned_parameters": 0,
+    "model_loaded": true,
+    "new_text": 0,
+    "ood_documents": 192,
+    "parameter_updates": 0,
+    "queue_touched": true,
+    "schema": "equality_reusable_score_port_code_ood_v1_plan",
+    "tokens_per_document": 256
+  },
+  "prior_projected_target_recovery": 0.9191778236004662,
+  "reports": {
+    "exact_control": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.008527442812919617,
+        "native_effect_sum_nat": -48.48896789550781,
+        "recovery": 5.575266704072317,
+        "tokens": 26016
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.39243224263191223,
+        "native_effect_sum_nat": 700.2482299804688,
+        "recovery": -1.4411841434229125,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": 0.13900433480739594,
+        "native_effect_sum_nat": 319.3406982421875,
+        "recovery": -2.634197731761644,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": 0.09105880558490753,
+        "native_effect_sum_nat": 108.54377746582031,
+        "recovery": -4.446224902562372,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.4561989903450012,
+        "native_effect_sum_nat": 489.4512634277344,
+        "recovery": -1.3292233067277104,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.2120749056339264,
+        "native_effect_sum_nat": 808.7919921875,
+        "recovery": -1.8444750260503766,
+        "tokens": 10848
+      },
+      "halves": [
+        {
+          "native_effect_sum_nat": 380.5408020019531,
+          "recovery": -1.9053995565681903
+        },
+        {
+          "native_effect_sum_nat": 428.2511901855469,
+          "recovery": -1.7903376592280944
+        }
+      ]
+    },
+    "exact_target": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.002398641547188163,
+        "native_effect_sum_nat": -48.48896789550781,
+        "recovery": 2.2869536307344798,
+        "tokens": 26016
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.027829580008983612,
+        "native_effect_sum_nat": 700.2482299804688,
+        "recovery": 0.8268818073111106,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": -0.006068028975278139,
+        "native_effect_sum_nat": 319.3406982421875,
+        "recovery": 1.1586456662152207,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": -0.015292868949472904,
+        "native_effect_sum_nat": 108.54377746582031,
+        "recovery": 1.9146662168193687,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.029054151847958565,
+        "native_effect_sum_nat": 489.4512634277344,
+        "recovery": 0.851657643600126,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.0020228931680321693,
+        "native_effect_sum_nat": 808.7919921875,
+        "recovery": 0.9728677630967287,
+        "tokens": 10848
+      },
+      "halves": [
+        {
+          "native_effect_sum_nat": 380.5408020019531,
+          "recovery": 0.9988341209445946
+        },
+        {
+          "native_effect_sum_nat": 428.2511901855469,
+          "recovery": 0.949794180618666
+        }
+      ]
+    },
+    "projected_target": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.00225143413990736,
+        "native_effect_sum_nat": -48.48896789550781,
+        "recovery": 2.207971903594121,
+        "tokens": 26016
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.028169430792331696,
+        "native_effect_sum_nat": 700.2482299804688,
+        "recovery": 0.8247677760057708,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": -0.005538159981369972,
+        "native_effect_sum_nat": 319.3406982421875,
+        "recovery": 1.1447924706015469,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": -0.01500551588833332,
+        "native_effect_sum_nat": 108.54377746582031,
+        "recovery": 1.897479238492871,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.028622783720493317,
+        "native_effect_sum_nat": 489.4512634277344,
+        "recovery": 0.8538602407643335,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.0023313267156481743,
+        "native_effect_sum_nat": 808.7919921875,
+        "recovery": 0.9687308697263836,
+        "tokens": 10848
+      },
+      "halves": [
+        {
+          "native_effect_sum_nat": 380.5408020019531,
+          "recovery": 0.9889960039491367
+        },
+        {
+          "native_effect_sum_nat": 428.2511901855469,
+          "recovery": 0.9507234231470466
+        }
+      ]
+    }
+  },
+  "runner_sha256": "528029e748ff44305f933b7b7a9c2374e2764a1ed193b44eb2f4c981251e6711",
+  "schema": "equality_reusable_score_port_code_ood_v1_result",
+  "scope": "Frozen natural-scale L5H5 score port reused inside the exact-order L8H4 edge on code OOD, with L7H3 wrong-score control; residual-to-score producers and cross-corpus behavioral amplitude calibration remain unextracted.",
+  "seconds": 5.748945459999959,
+  "target_score_cosine_on_equality_edges": 0.8284865090643219,
+  "terminal": "equality_l5h5_score_reusable_ood_port"
+}
