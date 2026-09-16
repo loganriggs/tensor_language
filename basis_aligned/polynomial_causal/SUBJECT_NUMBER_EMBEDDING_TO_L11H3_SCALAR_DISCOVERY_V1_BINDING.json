@@ -1,0 +1,34 @@
+{
+  "bars": {
+    "maximum_cross_validation_relative_l2": 0.25,
+    "maximum_instrument_error": 0.0001,
+    "minimum_cross_validation_cosine": 0.95,
+    "minimum_cross_validation_sign": 0.9,
+    "minimum_permutation_advantage": 0.2,
+    "selection_simplicity_slack": 0.01
+  },
+  "candidate_forms": [
+    "score",
+    "score_abs",
+    "score_signed_quadratic",
+    "score_distance"
+  ],
+  "files": {
+    "authority": "5e3e8b2fa730bfe1af5dc336a29ab89b4bee9014c231cbab2f50d2dd7a5abc6b",
+    "decoder": "f2356b8a1c336d011e36059e571117a0d61c4104a3570521bd59838a29f40cc1",
+    "mediation_discovery": "df3b79ea78292d4d063fc965e68cb4a858708a377ddd4213e9c6239fd6ec1b81",
+    "mediation_fresh": "e90eba0464b4358fc0b90b39691aaeddcf66012dac5f0aa60cd943bce8d9135d",
+    "preregistration": "6013e8d23a4742148e71bef43d657b73e08afcdd2ae6e8d680327d2fced401a7",
+    "rank1": "f73126268794342809c2953b388ed83f6d1d0e2e245ce9ea78f2d665a0e87c1f"
+  },
+  "null_seed": 20260920,
+  "nulls": 64,
+  "price": {
+    "backwards": 0,
+    "behavior_logits": 0,
+    "fits": 1100,
+    "parameter_updates": 0,
+    "partial_forwards": 2,
+    "sequences": 128
+  }
+}
