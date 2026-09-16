@@ -1,0 +1,416 @@
+{
+  "binding_sha256": "f8cda4ca9e9cd02b9ecf139fe55b39bfb191b7f719d1febab28d3b55262266d6",
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "created_utc": "2026-09-16T18:56:48.318258Z",
+  "gate": {
+    "collapsed_frozen_arm": false,
+    "discovery_positions": 49152,
+    "domain_labels": 0,
+    "equality_support_inputs": 0,
+    "formula": "||P64 x||^2 - natural_mean",
+    "natural_arm_fraction": {
+      "high": 0.51849365234375,
+      "low": 0.48150634765625
+    },
+    "rank": 64,
+    "task_labels": 0,
+    "threshold": 736.2720956094628
+  },
+  "instrument": {
+    "balance_pass": true,
+    "contracted_operator_reconstruction_relative_l2": 2.0559203760825418e-13,
+    "numeric_pass": true,
+    "population_pass": true
+  },
+  "panels": {
+    "code": {
+      "high": {
+        "cp_relative_error_lower_bound": {
+          "1024": 0.01511421291159637,
+          "1152": 0.0,
+          "128": 0.17160445638018432,
+          "256": 0.11736166727473421,
+          "512": 0.06539533835318137,
+          "64": 0.22418165444307733
+        },
+        "empirical_same_state_energy": 15204351676.048954,
+        "gaussian_energy_relative_error": 0.1275780511946642,
+        "gaussian_same_state_energy": 17144093232.557606,
+        "gaussian_terms": {
+          "frobenius": 5828796560.9375,
+          "trace_square": 6904681928.280049,
+          "transpose_contraction": 4410614743.340057
+        },
+        "input_mode_total_energy_relative_difference": 1.087274147074678e-08,
+        "left_input_unfolding": {
+          "curve": {
+            "1024": {
+              "cp_relative_error_lower_bound": 0.015092540503183127,
+              "energy_retained": 0.9997722152211598
+            },
+            "1152": {
+              "cp_relative_error_lower_bound": 0.0,
+              "energy_retained": 1.0000000000000002
+            },
+            "128": {
+              "cp_relative_error_lower_bound": 0.17160445638018432,
+              "energy_retained": 0.9705519105504614
+            },
+            "256": {
+              "cp_relative_error_lower_bound": 0.11736166727473421,
+              "energy_retained": 0.9862262390544946
+            },
+            "512": {
+              "cp_relative_error_lower_bound": 0.06539533835318137,
+              "energy_retained": 0.9957234497216729
+            },
+            "64": {
+              "cp_relative_error_lower_bound": 0.22418165444307733,
+              "energy_retained": 0.9497425858111647
+            }
+          },
+          "effective_rank": 6.355563573466938,
+          "total_energy": 5828796560.9375
+        },
+        "mean_gate_score": 780.6042908913203,
+        "mean_state_square": 0.9999992407498126,
+        "moment_maximum_eigenvalue": 590.91218071078,
+        "moment_minimum_eigenvalue": 0.009043432192735758,
+        "moment_negative_to_maximum_ratio": 0.0,
+        "right_input_unfolding": {
+          "curve": {
+            "1024": {
+              "cp_relative_error_lower_bound": 0.01511421291159637,
+              "energy_retained": 0.9997715605680629
+            },
+            "1152": {
+              "cp_relative_error_lower_bound": 0.0,
+              "energy_retained": 1.0000000000000009
+            },
+            "128": {
+              "cp_relative_error_lower_bound": 0.1709943874680404,
+              "energy_retained": 0.9707609194544297
+            },
+            "256": {
+              "cp_relative_error_lower_bound": 0.11724567620065066,
+              "energy_retained": 0.9862534514122522
+            },
+            "512": {
+              "cp_relative_error_lower_bound": 0.06534979750802337,
+              "energy_retained": 0.9957294039656603
+            },
+            "64": {
+              "cp_relative_error_lower_bound": 0.2231779220277067,
+              "energy_retained": 0.9501916151193949
+            }
+          },
+          "effective_rank": 6.208423917176042,
+          "total_energy": 5828796497.562502
+        },
+        "tokens": 19558
+      },
+      "low": {
+        "cp_relative_error_lower_bound": {
+          "1024": 0.031534393725553354,
+          "1152": 0.0,
+          "128": 0.32116143495825367,
+          "256": 0.2258482068771136,
+          "512": 0.13028231390909162,
+          "64": 0.4127905423148142
+        },
+        "empirical_same_state_energy": 8690258793.853275,
+        "gaussian_energy_relative_error": 0.0927975689810637,
+        "gaussian_same_state_energy": 7883823903.967381,
+        "gaussian_terms": {
+          "frobenius": 3171242088.7499995,
+          "trace_square": 3343743888.57235,
+          "transpose_contraction": 1368837926.6450312
+        },
+        "input_mode_total_energy_relative_difference": 3.8667814090313624e-08,
+        "left_input_unfolding": {
+          "curve": {
+            "1024": {
+              "cp_relative_error_lower_bound": 0.03148222986937024,
+              "energy_retained": 0.9990088692024521
+            },
+            "1152": {
+              "cp_relative_error_lower_bound": 0.0,
+              "energy_retained": 1.0000000000000027
+            },
+            "128": {
+              "cp_relative_error_lower_bound": 0.32116143495825367,
+              "energy_retained": 0.8968553326955554
+            },
+            "256": {
+              "cp_relative_error_lower_bound": 0.2258482068771136,
+              "energy_retained": 0.9489925874503925
+            },
+            "512": {
+              "cp_relative_error_lower_bound": 0.13028231390909162,
+              "energy_retained": 0.9830265186824929
+            },
+            "64": {
+              "cp_relative_error_lower_bound": 0.4127905423148142,
+              "energy_retained": 0.8296039681754416
+            }
+          },
+          "effective_rank": 45.05451891509849,
+          "total_energy": 3171242088.7499995
+        },
+        "mean_gate_score": 664.5906146637868,
+        "mean_state_square": 0.9999981193018905,
+        "moment_maximum_eigenvalue": 488.17018607497357,
+        "moment_minimum_eigenvalue": 0.01699454459969208,
+        "moment_negative_to_maximum_ratio": 0.0,
+        "right_input_unfolding": {
+          "curve": {
+            "1024": {
+              "cp_relative_error_lower_bound": 0.031534393725553354,
+              "energy_retained": 0.9990055820123618
+            },
+            "1152": {
+              "cp_relative_error_lower_bound": 0.0,
+              "energy_retained": 1.0000000000000013
+            },
+            "128": {
+              "cp_relative_error_lower_bound": 0.31995163978644237,
+              "energy_retained": 0.8976309481979666
+            },
+            "256": {
+              "cp_relative_error_lower_bound": 0.2253682138307126,
+              "energy_retained": 0.9492091681947542
+            },
+            "512": {
+              "cp_relative_error_lower_bound": 0.13004994338335543,
+              "energy_retained": 0.983087012225986
+            },
+            "64": {
+              "cp_relative_error_lower_bound": 0.41031960108443044,
+              "energy_retained": 0.8316378249659139
+            }
+          },
+          "effective_rank": 43.763981019064445,
+          "total_energy": 3171241966.125
+        },
+        "tokens": 29594
+      }
+    },
+    "natural": {
+      "high": {
+        "cp_relative_error_lower_bound": {
+          "1024": 0.055674887989108024,
+          "1152": 3.161013638317052e-08,
+          "128": 0.5002718520246314,
+          "256": 0.37175284349494003,
+          "512": 0.22257671768569634,
+          "64": 0.603281668648803
+        },
+        "empirical_same_state_energy": 7877556142.82164,
+        "gaussian_energy_relative_error": 0.2627630995265306,
+        "gaussian_same_state_energy": 5807625074.039565,
+        "gaussian_terms": {
+          "frobenius": 2013150796.125,
+          "trace_square": 3167042608.038758,
+          "transpose_contraction": 627431669.8758079
+        },
+        "input_mode_total_energy_relative_difference": 1.1207555858919897e-08,
+        "left_input_unfolding": {
+          "curve": {
+            "1024": {
+              "cp_relative_error_lower_bound": 0.055519385227289594,
+              "energy_retained": 0.9969175978639838
+            },
+            "1152": {
+              "cp_relative_error_lower_bound": 0.0,
+              "energy_retained": 1.0000000000000009
+            },
+            "128": {
+              "cp_relative_error_lower_bound": 0.5002718520246314,
+              "energy_retained": 0.7497280740718453
+            },
+            "256": {
+              "cp_relative_error_lower_bound": 0.37167104888619656,
+              "energy_retained": 0.8618606314198345
+            },
+            "512": {
+              "cp_relative_error_lower_bound": 0.22223824688241917,
+              "energy_retained": 0.9506101616226289
+            },
+            "64": {
+              "cp_relative_error_lower_bound": 0.603281668648803,
+              "energy_retained": 0.6360512282723159
+            }
+          },
+          "effective_rank": 165.84312134438503,
+          "total_energy": 2013150796.125
+        },
+        "mean_gate_score": 816.1031623970557,
+        "mean_state_square": 0.9999951844842028,
+        "moment_maximum_eigenvalue": 487.9851085113767,
+        "moment_minimum_eigenvalue": 0.032622306402272955,
+        "moment_negative_to_maximum_ratio": 0.0,
+        "right_input_unfolding": {
+          "curve": {
+            "1024": {
+              "cp_relative_error_lower_bound": 0.055674887989108024,
+              "energy_retained": 0.9969003068474003
+            },
+            "1152": {
+              "cp_relative_error_lower_bound": 3.161013638317052e-08,
+              "energy_retained": 0.999999999999999
+            },
+            "128": {
+              "cp_relative_error_lower_bound": 0.49957555813479854,
+              "energy_retained": 0.7504242617143045
+            },
+            "256": {
+              "cp_relative_error_lower_bound": 0.37175284349494003,
+              "energy_retained": 0.8617998233534266
+            },
+            "512": {
+              "cp_relative_error_lower_bound": 0.22257671768569634,
+              "energy_retained": 0.9504596047442618
+            },
+            "64": {
+              "cp_relative_error_lower_bound": 0.6015406501371666,
+              "energy_retained": 0.6381488462325549
+            }
+          },
+          "effective_rank": 165.27719707407726,
+          "total_energy": 2013150773.5625
+        },
+        "tokens": 25485
+      },
+      "low": {
+        "cp_relative_error_lower_bound": {
+          "1024": 0.06790472604055764,
+          "1152": 4.9421560620597e-08,
+          "128": 0.5856536797365947,
+          "256": 0.4415512020053045,
+          "512": 0.2677504737358654,
+          "64": 0.6940898042997297
+        },
+        "empirical_same_state_energy": 9466890721.176188,
+        "gaussian_energy_relative_error": 0.1587694147461939,
+        "gaussian_same_state_energy": 7963838021.908871,
+        "gaussian_terms": {
+          "frobenius": 2903890005.375,
+          "trace_square": 4419819514.659156,
+          "transpose_contraction": 640128501.8747153
+        },
+        "input_mode_total_energy_relative_difference": 3.6631897310139403e-08,
+        "left_input_unfolding": {
+          "curve": {
+            "1024": {
+              "cp_relative_error_lower_bound": 0.06768473621217719,
+              "energy_retained": 0.995418776483888
+            },
+            "1152": {
+              "cp_relative_error_lower_bound": 4.9421560620597e-08,
+              "energy_retained": 0.9999999999999976
+            },
+            "128": {
+              "cp_relative_error_lower_bound": 0.5856346198552643,
+              "energy_retained": 0.65703209202698
+            },
+            "256": {
+              "cp_relative_error_lower_bound": 0.4413854137555008,
+              "energy_retained": 0.8051789165238854
+            },
+            "512": {
+              "cp_relative_error_lower_bound": 0.2676198261851502,
+              "energy_retained": 0.92837962863263
+            },
+            "64": {
+              "cp_relative_error_lower_bound": 0.6940898042997297,
+              "energy_retained": 0.518239343567163
+            }
+          },
+          "effective_rank": 273.0306969323727,
+          "total_energy": 2903890005.375
+        },
+        "mean_gate_score": 650.3087645076288,
+        "mean_state_square": 0.9999959664504146,
+        "moment_maximum_eigenvalue": 349.4487385558039,
+        "moment_minimum_eigenvalue": 0.05448022387979972,
+        "moment_negative_to_maximum_ratio": 0.0,
+        "right_input_unfolding": {
+          "curve": {
+            "1024": {
+              "cp_relative_error_lower_bound": 0.06790472604055764,
+              "energy_retained": 0.9953889481813568
+            },
+            "1152": {
+              "cp_relative_error_lower_bound": 0.0,
+              "energy_retained": 1.0000000000000018
+            },
+            "128": {
+              "cp_relative_error_lower_bound": 0.5856536797365947,
+              "energy_retained": 0.6570097674109862
+            },
+            "256": {
+              "cp_relative_error_lower_bound": 0.4415512020053045,
+              "energy_retained": 0.8050325360076708
+            },
+            "512": {
+              "cp_relative_error_lower_bound": 0.2677504737358654,
+              "energy_retained": 0.9283096838142196
+            },
+            "64": {
+              "cp_relative_error_lower_bound": 0.6938035404736537,
+              "energy_retained": 0.5186366472262232
+            }
+          },
+          "effective_rank": 272.79490039327993,
+          "total_energy": 2903889898.9999995
+        },
+        "tokens": 23667
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_frozen_gate_instrument_and_population": true,
+    "pred_b_natural_conditional_compression_open": false,
+    "pred_c_frozen_code_gate_transfer": false,
+    "pred_d_conditional_improves_all_position_metric": false,
+    "pred_e_conditional_gaussian_fidelity": false
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "code_partial_prefix_passes": 1,
+    "domain_labels": 0,
+    "equality_support_inputs": 0,
+    "fits": 0,
+    "gate_inputs": [
+      "normalized_mlp4_state"
+    ],
+    "gate_rank": 64,
+    "gpu_accessed": true,
+    "gradients": 0,
+    "model_loaded": true,
+    "natural_documents": 192,
+    "natural_partial_prefix_passes": 2,
+    "new_text": 0,
+    "ood_documents": 192,
+    "parameter_updates": 0,
+    "queue_touched": true,
+    "schema": "equality_l5h5_m4_quadratic_context_gate_v1_plan",
+    "spectral_reports": 4,
+    "task_labels": 0
+  },
+  "rank256_summary": {
+    "code": {
+      "high": 0.11736166727473421,
+      "low": 0.2258482068771136
+    },
+    "natural": {
+      "high": 0.37175284349494003,
+      "low": 0.4415512020053045
+    }
+  },
+  "runner_sha256": "e0ac464ccd5725b6932cff69d2fc2461ecf77260c74bfddf4448587c71518970",
+  "schema": "equality_l5h5_m4_quadratic_context_gate_v1_result",
+  "scope": "Frozen natural-moment-derived quadratic gate over normalized MLP4 state, tested unchanged on code. No task/domain/support gate input and no CP fit or behavioral claim.",
+  "seconds": 2.118102150998311,
+  "terminal": "valid_equality_l5h5_m4_quadratic_context_gate_null"
+}

@@ -760,6 +760,8 @@ and the rank-256 M4 mode producer.
 [reader-weighted CP-rank obstruction](../../polynomial_causal/EQUALITY_L5H5_M4_READER_WEIGHTED_CP_RANK_V1_RESULT.json),
 [moment-weighted CP-rank context null](../../polynomial_causal/EQUALITY_L5H5_M4_MOMENT_WEIGHTED_CP_RANK_V1_RESULT.json),
 [typed query/key moment null](../../polynomial_causal/EQUALITY_L5H5_M4_TYPED_MOMENT_CP_RANK_V1_RESULT.json),
+[invalid quadratic-gate capture receipt](../../polynomial_causal/EQUALITY_L5H5_M4_QUADRATIC_CONTEXT_GATE_V1_INVALID_CAPTURE_RESULT.json),
+[label-free quadratic context-gate null](../../polynomial_causal/EQUALITY_L5H5_M4_QUADRATIC_CONTEXT_GATE_V1_RESULT.json),
 [red-team note](../../polynomial_causal/EQUALITY_A8_SPARSE_EDGE_EXECUTION_NOTE.md).
 
 The retained three-block score also has a smaller exact executor:

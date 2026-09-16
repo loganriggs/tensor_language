@@ -1,0 +1,11 @@
+{
+  "schema": "equality_l5h5_m4_quadratic_context_gate_v1_invalid_capture_result",
+  "terminal": "invalid_implementation_capture_namespace_mismatch",
+  "failed_runner_sha256": "7e79641d73f09eeabd532bb99ee40aaf6da11c175577f9a0deccf5fa0174d419",
+  "error": "RuntimeError: MLP4 normalized input was not captured",
+  "cause": "The forward hook wrote the state to this runner's CAPTURE dictionary while the reused moment collector read its own module-local CAPTURE dictionary.",
+  "scientific_evidence": false,
+  "fix": "The hook now updates both capture namespaces. The corrected frozen runner produced EQUALITY_L5H5_M4_QUADRATIC_CONTEXT_GATE_V1_RESULT.json.",
+  "corrected_runner_sha256": "e0ac464ccd5725b6932cff69d2fc2461ecf77260c74bfddf4448587c71518970",
+  "created_utc": "2026-09-16T18:55:14Z"
+}

@@ -224,3 +224,10 @@ The obvious query/key gate is closed. Natural rank-256 bounds remain
 is `.120/.137`; the role does not transfer and barely localizes the natural
 metric. Do not promote a domain- or support-gated compressor. The exact
 normalized-input graph remains the reusable boundary.
+
+A label-free quadratic state gate is also a valid null. Its balanced natural
+arms have rank-256 bounds `.442/.372`, while frozen code gives `.226/.117`;
+conditional transfer and compactness fail with all instruments live. The first
+attempt crashed before measurement because hook and collector used different
+capture namespaces; that implementation-invalid receipt is preserved separately.
+Stop generic CP gating here and retain the exact executor.

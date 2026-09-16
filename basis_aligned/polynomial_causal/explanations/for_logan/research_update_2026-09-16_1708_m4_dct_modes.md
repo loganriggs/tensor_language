@@ -378,3 +378,30 @@ executor authoritative. Any further conditional decomposition must derive a
 finer weight/state polynomial gate and freeze it across genuinely independent
 environments; do not use domain identity, prompt family, or equality support as
 an oracle gate.
+
+## A label-free quadratic gate also fails to transfer
+
+We next removed task and support labels entirely. From natural MLP4 states only,
+we froze the top-64 moment projector and the quadratic gate
+`g(x)=||P64 x||^2-E_natural||P64 x||^2`, then applied it unchanged to code. The
+natural split is balanced (`.482/.518`) and both code arms remain well populated,
+so this is not gate collapse.
+
+The low/high natural rank-256 bounds are `.4416/.3718`: the low arm worsens and
+the high arm improves only about 12%, missing both compactness gates. Frozen
+code bounds are `.2258/.1174`, again far from their corresponding natural arms.
+Gaussian error is acceptable in three cells but the natural high arm is `.2628`,
+just outside the frozen `.25` gate. Numeric, population, and balance instruments
+all pass.
+
+The first execution produced no scientific evidence because a reused collector
+read a different module-local capture dictionary than the hook wrote. We fixed
+that namespace mismatch and preserved a separate invalid receipt before the
+successful rerun. The corrected null closes this specific one-bit quadratic
+gate; it does not justify declaring all state-polynomial gates impossible.
+
+At this point the honest handoff is to keep the exact normalized-input executor
+and stop spending behavior runs on generic CP compression. A future conditional
+factorization needs a gate derived jointly with multiple independent
+environments and the downstream removal vector, not from a single panel's
+activation covariance.
