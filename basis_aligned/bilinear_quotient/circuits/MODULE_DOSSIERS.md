@@ -108,11 +108,25 @@ L2 and `.99977` cosine. Causal installation into native layer-17 background and
 removal from the upstream-edited background pass at `.019–.045` familywise
 relative L2 with perfect signs; five unrelated readers do not worsen and eight
 equal-norm random writes in the same head output subspace have `.934–1.083`
-error. Exact audits are below `1.90e-7`. This is an opened-panel candidate with
-three native factor ports, not fresh transfer or donor-free extraction. Freeze
-the QK2/value corner for fresh testing before splitting its earlier sources.
+error. Exact audits are below `1.90e-7`. This was an opened-panel candidate with
+three native factor ports, not donor-free extraction. Its frozen corner was then
+tested without reselection on 48 wholly fresh rows spanning two new templates,
+two new city pairs, and six endpoint pairs. Response replay is `.02136` relative
+L2 at `.999976` cosine; causal installation/removal errors are `.02098/.02090`,
+both families have perfect signs, unrelated controls pass, and eight equal-norm
+same-head random writes have `.898–1.045` error. The first fresh receipt narrowly
+failed only the frozen exact-expansion audit (`2.285e-6` against `2e-6`) because
+separate BF16 corner sums accumulated differently. A pre-documented correction
+promoted only offline corner contractions to FP64, reducing that error to
+`2.97e-9`; a result-switching guard confirmed every substantive metric moved by
+less than `4.1e-6`. Thus the corner is a fresh-confirmed response module, while
+native QK1 and upstream-edited QK2/value remain explicit live ports rather than
+a donor-free extraction. Split or predict those ports next.
 [Preregistration](../../polynomial_causal/SETTING2_REGIONAL_ATTENTION17H2_FACTOR_INTERACTION_FOLD_V1_PREREGISTRATION.md),
-[result](fast_screens/setting2_regional_attention17h2_factor_interaction_fold_v1_result.json).
+[discovery result](fast_screens/setting2_regional_attention17h2_factor_interaction_fold_v1_result.json),
+[fresh preregistration](../../polynomial_causal/SETTING2_REGIONAL_ATTENTION17H2_FACTOR_CORNER_FRESH_V1_PREREGISTRATION.md),
+[precision correction](../../polynomial_causal/SETTING2_REGIONAL_ATTENTION17H2_FACTOR_CORNER_FRESH_V2_CORRECTION.md),
+[fresh result](fast_screens/setting2_regional_attention17h2_factor_corner_fresh_v2_result.json).
 
 ## `module.attention.9`
 
