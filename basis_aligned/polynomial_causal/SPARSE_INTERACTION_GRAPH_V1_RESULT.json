@@ -1,0 +1,68 @@
+{
+  "created_utc": "2026-09-16T22:32:01.435969Z",
+  "implementation_sha256": "66e47db54bc9cb384dfb4c03de4f588391fb1c9cd020af66b6b67aae520feade",
+  "instrument": {
+    "closure_max_abs_error": 1.7763568394002505e-15,
+    "equality_package_max_abs_error": 2.220446049250313e-16,
+    "overlapping_ood_rejected": true,
+    "subject_corner_reduction_fraction": 0.6875,
+    "subject_full_lattice_corners": 32,
+    "subject_package_max_abs_error": 4.440892098500626e-16,
+    "subject_required_corners": [
+      0,
+      1,
+      2,
+      4,
+      8,
+      9,
+      12,
+      16,
+      20,
+      24
+    ],
+    "transform_max_abs_error": 2.71657696337968e-15
+  },
+  "predictions": {
+    "pred_a_exact_vector_mobius_and_closure": true,
+    "pred_b_minimal_corner_subject_replay": true,
+    "pred_c_independent_equality_package_replay": true,
+    "pred_d_frozen_selection_and_ood_audit": true
+  },
+  "replayed_packages": [
+    "subject_number_l11h3_sparse_graph_v1",
+    "equality_l5h5_m4_explicit_interaction_graph_v1"
+  ],
+  "runner_sha256": "8a3210058c02c35d8052ba8265bce27a33fe1f5b4e28aa433b5f6e2bfb70dffe",
+  "schema": "sparse_interaction_graph_v1_result",
+  "scope": "CPU verification of reusable exact decomposition, minimal-corner extraction, frozen discovery selection, disjoint OOD evaluation, and parity with two independently exported circuit graphs. No new model-behavior claim.",
+  "selection_fixture": {
+    "discovery_curve": [
+      0.7071067811865476,
+      0.0
+    ],
+    "panels": {
+      "discovery": {
+        "aligned_recovery": 1.0,
+        "cosine": 1.0000000000000002,
+        "prediction_rms": 2.5495097567963922,
+        "relative_l2": 0.0,
+        "rows": 4,
+        "target_rms": 2.5495097567963922
+      },
+      "fresh_ood": {
+        "aligned_recovery": 1.0,
+        "cosine": 0.9999999999999998,
+        "prediction_rms": 4.0,
+        "relative_l2": 0.0,
+        "rows": 2,
+        "target_rms": 4.0
+      }
+    },
+    "selected_masks": [
+      1,
+      2
+    ]
+  },
+  "terminal": "reusable_sparse_interaction_graph_verified",
+  "test_sha256": "c500570e5f4305349ecf6e237fdd130da47877d2a77d054a7de9bad66efeeb26"
+}
