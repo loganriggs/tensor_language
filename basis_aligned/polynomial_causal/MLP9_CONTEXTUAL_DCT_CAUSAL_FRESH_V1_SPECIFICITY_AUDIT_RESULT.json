@@ -1,0 +1,168 @@
+{
+  "alternate_dct_pairs": [
+    {
+      "all_logit_effect_cosine": 0.005553504612163611,
+      "all_logit_effect_ratio": 0.7428309485377838,
+      "target_effect_cosine": -0.8120868370517794,
+      "target_effect_ratio": 0.2517325935223378
+    },
+    {
+      "all_logit_effect_cosine": -0.0862526591254621,
+      "all_logit_effect_ratio": 0.41761309555296655,
+      "target_effect_cosine": 0.5097830485642054,
+      "target_effect_ratio": 0.10960859913992878
+    },
+    {
+      "all_logit_effect_cosine": -0.12318030694694468,
+      "all_logit_effect_ratio": 0.9642589246428448,
+      "target_effect_cosine": -0.8634095702836103,
+      "target_effect_ratio": 0.31923031631043475
+    }
+  ],
+  "alternate_pair_order": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      3,
+      3
+    ]
+  ],
+  "binding_sha256": "bc33a87411bfa3e415c8cfcf51d2b21b515eb8862c4b292f1bc5fc2024531910",
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "created_utc": "2026-09-16T14:57:14.693949Z",
+  "maximum_state_replay_relative_l2": 0.0,
+  "maximum_suffix_replay_relative_l2": 1.3853405107511207e-06,
+  "position_matched_isotropic": [
+    {
+      "all_logit_effect_cosine": 0.02302599204533065,
+      "all_logit_effect_ratio": 0.4496309322297713,
+      "target_effect_cosine": 0.005982854394039212,
+      "target_effect_ratio": 0.1262068179045704
+    },
+    {
+      "all_logit_effect_cosine": -0.029740597838905963,
+      "all_logit_effect_ratio": 0.4486719967519247,
+      "target_effect_cosine": 0.016602173496256867,
+      "target_effect_ratio": 0.12903234531212782
+    },
+    {
+      "all_logit_effect_cosine": 0.016748413723057846,
+      "all_logit_effect_ratio": 0.4464725553018587,
+      "target_effect_cosine": 0.051897295047441706,
+      "target_effect_ratio": 0.11647935341347548
+    },
+    {
+      "all_logit_effect_cosine": 0.01087190324455721,
+      "all_logit_effect_ratio": 0.4566861429658679,
+      "target_effect_cosine": -0.08901868421413198,
+      "target_effect_ratio": 0.1486050548639556
+    },
+    {
+      "all_logit_effect_cosine": 0.008719258392195676,
+      "all_logit_effect_ratio": 0.4471847637195681,
+      "target_effect_cosine": 0.08434717032287425,
+      "target_effect_ratio": 0.14230865045091237
+    },
+    {
+      "all_logit_effect_cosine": -0.010207506471960013,
+      "all_logit_effect_ratio": 0.4413276502294594,
+      "target_effect_cosine": -0.23007358256214286,
+      "target_effect_ratio": 0.14479812415114923
+    },
+    {
+      "all_logit_effect_cosine": -0.014081295794261785,
+      "all_logit_effect_ratio": 0.4369874237383106,
+      "target_effect_cosine": 0.13208624132110464,
+      "target_effect_ratio": 0.12989209042979102
+    },
+    {
+      "all_logit_effect_cosine": -0.004339393374863141,
+      "all_logit_effect_ratio": 0.4469724877583174,
+      "target_effect_cosine": -0.10178358508314105,
+      "target_effect_ratio": 0.10256044878705758
+    }
+  ],
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_position_matched_isotropic_specificity": true,
+    "pred_c_same_subspace_specificity": true,
+    "pred_d_alternate_dct_pair_specificity": true
+  },
+  "price": {
+    "alternate_pair_controls": 3,
+    "checkpoint_loads": 1,
+    "fits": 0,
+    "gpu_accessed": false,
+    "isotropic_controls": 8,
+    "model_loaded": false,
+    "new_prefixes": 0,
+    "opened_prefixes": 64,
+    "parameter_updates": 0,
+    "queue_touched": false,
+    "rank": 16,
+    "schema": "mlp9_contextual_dct_causal_fresh_v1_specificity_audit_plan",
+    "subspace_controls": 8,
+    "suffix_states_per_prefix": 21
+  },
+  "runner_sha256": "6ebc0eb23e9737950d5ad57223e3b705e709a0130ab5c7bf94b9a4460b66be40",
+  "same_subspace": [
+    {
+      "all_logit_effect_cosine": 0.00602033913942089,
+      "all_logit_effect_ratio": 0.5334077422885524,
+      "target_effect_cosine": 0.024321759074502607,
+      "target_effect_ratio": 0.21721106807776094
+    },
+    {
+      "all_logit_effect_cosine": 0.04784185685316057,
+      "all_logit_effect_ratio": 0.5405913554612888,
+      "target_effect_cosine": 0.08565325455203458,
+      "target_effect_ratio": 0.2099197257194025
+    },
+    {
+      "all_logit_effect_cosine": 0.05007645863252627,
+      "all_logit_effect_ratio": 0.5189547054834458,
+      "target_effect_cosine": 0.013464848252897232,
+      "target_effect_ratio": 0.20804088683240418
+    },
+    {
+      "all_logit_effect_cosine": 0.03345354923644993,
+      "all_logit_effect_ratio": 0.5655479574567898,
+      "target_effect_cosine": 0.008791950684215745,
+      "target_effect_ratio": 0.19666625305148083
+    },
+    {
+      "all_logit_effect_cosine": -0.0077781480320455645,
+      "all_logit_effect_ratio": 0.507861729259183,
+      "target_effect_cosine": -0.02790828425346029,
+      "target_effect_ratio": 0.19450276229508462
+    },
+    {
+      "all_logit_effect_cosine": 0.040622419385845446,
+      "all_logit_effect_ratio": 0.5566691740111878,
+      "target_effect_cosine": 0.18073554501856542,
+      "target_effect_ratio": 0.23568275087587262
+    },
+    {
+      "all_logit_effect_cosine": -0.013414795663102698,
+      "all_logit_effect_ratio": 0.5297343459187239,
+      "target_effect_cosine": -0.14532367344097993,
+      "target_effect_ratio": 0.19896335450865724
+    },
+    {
+      "all_logit_effect_cosine": -0.010786252182415575,
+      "all_logit_effect_ratio": 0.5417244715995408,
+      "target_effect_cosine": -0.02184719003553266,
+      "target_effect_ratio": 0.23082315462038955
+    }
+  ],
+  "schema": "mlp9_contextual_dct_causal_fresh_v1_specificity_audit_result",
+  "scope": "Post-outcome adversarial specificity audit on the opened causal panel; it can narrow specificity but cannot add fresh OOD evidence.",
+  "seconds": 2.717235611002252,
+  "terminal": "mlp9_contextual_dct_specificity_survives_audit"
+}

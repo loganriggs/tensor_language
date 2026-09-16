@@ -1,0 +1,199 @@
+{
+  "binding_sha256": "5fd6089288a2fa2da44ec030dab796529824067c39def8b54ccdd7a1ad1619ab",
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "created_utc": "2026-09-16T14:50:02.995125Z",
+  "maximum_state_replay_relative_l2": 0.0,
+  "maximum_suffix_replay_relative_l2": 0.0,
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_finite_scale_exists": true,
+    "pred_c_registered_selection_rule": true
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "gpu_accessed": false,
+    "model_loaded": false,
+    "new_text": 0,
+    "opened_prefixes": 64,
+    "queue_touched": false,
+    "scales": [
+      4.0,
+      8.0,
+      12.0,
+      16.0,
+      24.0,
+      32.0
+    ],
+    "schema": "mlp9_contextual_dct_finite_scale_discovery_v1_plan",
+    "suffix_states": 2688
+  },
+  "runner_sha256": "29ad63a2573104813505038278b71dce217ba445686dd22ba2c367e7423887f7",
+  "scale_reports": [
+    {
+      "eligible": true,
+      "exact_local_over_native_mixed_norm": 0.9673042297363281,
+      "native_mixed_mean_absolute": 5.925074219703674e-05,
+      "native_mixed_sign_agreement": 1.0,
+      "random_removal_over_exact_local_norm": 0.15300221741199493,
+      "reader_install_prediction": {
+        "cosine": 0.999630642136282,
+        "expected_mean_absolute": 5.7386234402656555e-05,
+        "predicted_mean_absolute": 5.731172859668732e-05,
+        "relative_l2": 0.027185366281338313,
+        "sign_agreement": 1.0
+      },
+      "remaining_after_packaged_removal_over_native_mixed_norm": 0.06401348859071732,
+      "scale": 4.0,
+      "state_prediction": {
+        "cosine": 0.9967578449180717,
+        "expected_mean_absolute": 0.0010924214609434268,
+        "predicted_mean_absolute": 0.0010889247222686412,
+        "relative_l2": 0.08046002133616448,
+        "sign_agreement": 0.9689212908368274
+      }
+    },
+    {
+      "eligible": true,
+      "exact_local_over_native_mixed_norm": 0.9767410755157471,
+      "native_mixed_mean_absolute": 0.00023508071899414062,
+      "native_mixed_sign_agreement": 1.0,
+      "random_removal_over_exact_local_norm": 0.12677447497844696,
+      "reader_install_prediction": {
+        "cosine": 0.9999783068094386,
+        "expected_mean_absolute": 0.00022972002625465393,
+        "predicted_mean_absolute": 0.0002300497144460678,
+        "relative_l2": 0.006742805886976418,
+        "sign_agreement": 1.0
+      },
+      "remaining_after_packaged_removal_over_native_mixed_norm": 0.03180692344903946,
+      "scale": 8.0,
+      "state_prediction": {
+        "cosine": 0.9997837542365091,
+        "expected_mean_absolute": 0.004356433466437405,
+        "predicted_mean_absolute": 0.004355698889074565,
+        "relative_l2": 0.020796572961399074,
+        "sign_agreement": 0.9904063482704403
+      }
+    },
+    {
+      "eligible": true,
+      "exact_local_over_native_mixed_norm": 0.9784120917320251,
+      "native_mixed_mean_absolute": 0.0005283448845148087,
+      "native_mixed_sign_agreement": 1.0,
+      "random_removal_over_exact_local_norm": 0.1348467320203781,
+      "reader_install_prediction": {
+        "cosine": 0.9999945072837706,
+        "expected_mean_absolute": 0.0005172602832317352,
+        "predicted_mean_absolute": 0.0005172938108444214,
+        "relative_l2": 0.0033148783342819817,
+        "sign_agreement": 1.0
+      },
+      "remaining_after_packaged_removal_over_native_mixed_norm": 0.02919778972864151,
+      "scale": 12.0,
+      "state_prediction": {
+        "cosine": 0.9999453550023117,
+        "expected_mean_absolute": 0.009799294554934968,
+        "predicted_mean_absolute": 0.009800322500550655,
+        "relative_l2": 0.010455713050980756,
+        "sign_agreement": 0.9945534973357791
+      }
+    },
+    {
+      "eligible": true,
+      "exact_local_over_native_mixed_norm": 0.9788157939910889,
+      "native_mixed_mean_absolute": 0.0009383074939250946,
+      "native_mixed_sign_agreement": 1.0,
+      "random_removal_over_exact_local_norm": 0.1479274332523346,
+      "reader_install_prediction": {
+        "cosine": 0.9999981803419388,
+        "expected_mean_absolute": 0.0009187795221805573,
+        "predicted_mean_absolute": 0.0009189918637275696,
+        "relative_l2": 0.0019172776190443184,
+        "sign_agreement": 1.0
+      },
+      "remaining_after_packaged_removal_over_native_mixed_norm": 0.027385786175727844,
+      "scale": 16.0,
+      "state_prediction": {
+        "cosine": 0.9999717505292277,
+        "expected_mean_absolute": 0.017420241971559444,
+        "predicted_mean_absolute": 0.01742279555629826,
+        "relative_l2": 0.00751912273702787,
+        "sign_agreement": 0.9960678175227113
+      }
+    },
+    {
+      "eligible": true,
+      "exact_local_over_native_mixed_norm": 0.9803432822227478,
+      "native_mixed_mean_absolute": 0.0021062474697828293,
+      "native_mixed_sign_agreement": 1.0,
+      "random_removal_over_exact_local_norm": 0.13268490135669708,
+      "reader_install_prediction": {
+        "cosine": 0.9999991951450818,
+        "expected_mean_absolute": 0.002065509557723999,
+        "predicted_mean_absolute": 0.0020652934908866882,
+        "relative_l2": 0.0012724562697102762,
+        "sign_agreement": 1.0
+      },
+      "remaining_after_packaged_removal_over_native_mixed_norm": 0.02667301334440708,
+      "scale": 24.0,
+      "state_prediction": {
+        "cosine": 0.9999820489784285,
+        "expected_mean_absolute": 0.03919454621969332,
+        "predicted_mean_absolute": 0.03920129000220262,
+        "relative_l2": 0.005995709855944653,
+        "sign_agreement": 0.9968451094077568
+      }
+    },
+    {
+      "eligible": true,
+      "exact_local_over_native_mixed_norm": 0.9809111952781677,
+      "native_mixed_mean_absolute": 0.003737088292837143,
+      "native_mixed_sign_agreement": 1.0,
+      "random_removal_over_exact_local_norm": 0.14119690656661987,
+      "reader_install_prediction": {
+        "cosine": 0.9999993279717199,
+        "expected_mean_absolute": 0.003666825592517853,
+        "predicted_mean_absolute": 0.003667052835226059,
+        "relative_l2": 0.0011608430782934559,
+        "sign_agreement": 1.0
+      },
+      "remaining_after_packaged_removal_over_native_mixed_norm": 0.02584890089929104,
+      "scale": 32.0,
+      "state_prediction": {
+        "cosine": 0.9999837364576135,
+        "expected_mean_absolute": 0.06967385422510705,
+        "predicted_mean_absolute": 0.06969118222519304,
+        "relative_l2": 0.005711231400868134,
+        "sign_agreement": 0.9970457448899371
+      }
+    }
+  ],
+  "schema": "mlp9_contextual_dct_finite_scale_discovery_v1_result",
+  "scope": "Finite-scale calibration on the opened reader-discovery panel; no fresh-context, semantic behavior, selective collateral, or complete-circuit claim.",
+  "seconds": 4.705626160997781,
+  "selected_report": {
+    "eligible": true,
+    "exact_local_over_native_mixed_norm": 0.9809111952781677,
+    "native_mixed_mean_absolute": 0.003737088292837143,
+    "native_mixed_sign_agreement": 1.0,
+    "random_removal_over_exact_local_norm": 0.14119690656661987,
+    "reader_install_prediction": {
+      "cosine": 0.9999993279717199,
+      "expected_mean_absolute": 0.003666825592517853,
+      "predicted_mean_absolute": 0.003667052835226059,
+      "relative_l2": 0.0011608430782934559,
+      "sign_agreement": 1.0
+    },
+    "remaining_after_packaged_removal_over_native_mixed_norm": 0.02584890089929104,
+    "scale": 32.0,
+    "state_prediction": {
+      "cosine": 0.9999837364576135,
+      "expected_mean_absolute": 0.06967385422510705,
+      "predicted_mean_absolute": 0.06969118222519304,
+      "relative_l2": 0.005711231400868134,
+      "sign_agreement": 0.9970457448899371
+    }
+  },
+  "selected_scale": 32.0,
+  "terminal": "mlp9_contextual_dct_finite_scale_candidate"
+}

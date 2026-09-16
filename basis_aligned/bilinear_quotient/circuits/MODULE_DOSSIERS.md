@@ -476,6 +476,37 @@ means it is not an autonomous input-to-output circuit.
 [rank-16 result](../../polynomial_causal/MLP9_CONTEXTUAL_DCT_NODE_RANK16_FRESH_V2_RESULT.json),
 [standalone package](../../polynomial_causal/extracted_circuits/mlp9_contextual_dct_node_v1/README_RANK16_V2.md).
 
+The node now also has a bounded causal use, with an important scope limit.  An
+opened-panel suffix-reader search predicts exact local-Hessian logit responses
+at `.00521` relative L2, but its absolute-effect gate fails because unit-norm
+DCT directions induce only a `3.60e-6` logit contrast; retain that receipt as a
+valid discovery null rather than silently changing its bar.  A subsequent
+opened-panel scale curve freezes direction 2, its diagonal interaction, scale
+32, and reader `token 21215 - token 6165`.  On 64 new score-blind contexts the
+packaged node predicts the finite local state interaction at `.00567` relative
+L2 and the exact-suffix all-logit installation effect at `.00430`.  Removing
+the packaged response leaves `.03696` of the native all-logit mixed effect and
+`.01397` of the frozen-reader mixed effect; worst family ratios are `.04039`
+and `.01770`.  Eight matched random removals reach only `.120--.137` of the
+target removal, and three frozen collateral contrasts are `.152/.158/.459`.
+
+A post-outcome adversarial audit strengthens but also bounds specificity.
+Matching response norm separately at every token gives target-effect ratios
+`.103--.149` for isotropic controls, `.195--.236` for controls inside the same
+rank-16 output subspace, and `.110--.319` for the other three diagonal DCT
+responses.  However, alternate diagonal responses still cause
+`.418--.964` as much total all-logit change.  Therefore this is a four-trait
+*synthetic local-interaction primitive*: it has cross-context prediction,
+standalone execution, reader-selective install/removal, and bilinear reuse.
+It is not a semantically identified behavior, naturally occurring feature
+removal, globally unique residual direction, suffix extraction, or complete
+sparse circuit.
+[Reader-discovery null](../../polynomial_causal/MLP9_CONTEXTUAL_DCT_DOWNSTREAM_READER_DISCOVERY_V1_RESULT.json),
+[finite-scale discovery](../../polynomial_causal/MLP9_CONTEXTUAL_DCT_FINITE_SCALE_DISCOVERY_V1_RESULT.json),
+[fresh causal preregistration](../../polynomial_causal/MLP9_CONTEXTUAL_DCT_CAUSAL_FRESH_V1_PREREGISTRATION.md),
+[fresh causal result](../../polynomial_causal/MLP9_CONTEXTUAL_DCT_CAUSAL_FRESH_V1_RESULT.json),
+[specificity audit](../../polynomial_causal/MLP9_CONTEXTUAL_DCT_CAUSAL_FRESH_V1_SPECIFICITY_AUDIT_RESULT.json).
+
 The retained three-block score also has a smaller exact executor:
 
 $$

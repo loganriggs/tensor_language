@@ -1,0 +1,171 @@
+{
+  "all_logit_remaining_mixed_family_ratios": [
+    0.037264645058937014,
+    0.032875298879740056,
+    0.035790374676739393,
+    0.04038762619251994
+  ],
+  "all_logit_remaining_mixed_ratio": 0.03695719833384092,
+  "binding_sha256": "66cc6c866f96cd4509ea8f38b76bb2d79a851a88b49cb6c855fd2472cc1fc91b",
+  "causal_installation_families": [
+    {
+      "cosine": 0.9999890542653698,
+      "expected_mean_absolute": 0.0005098668042427263,
+      "predicted_mean_absolute": 0.0005099057188912134,
+      "relative_l2": 0.0046790611589167105,
+      "sign_agreement": 0.9982303460214498
+    },
+    {
+      "cosine": 0.9999882746038244,
+      "expected_mean_absolute": 0.0005425195200955547,
+      "predicted_mean_absolute": 0.0005423522982687434,
+      "relative_l2": 0.004846985453480212,
+      "sign_agreement": 0.9982875519828084
+    },
+    {
+      "cosine": 0.9999905770556061,
+      "expected_mean_absolute": 0.0005109583509433457,
+      "predicted_mean_absolute": 0.0005111113173937063,
+      "relative_l2": 0.004352162414394236,
+      "sign_agreement": 0.998416887199793
+    },
+    {
+      "cosine": 0.9999943186547569,
+      "expected_mean_absolute": 0.0006032424058229215,
+      "predicted_mean_absolute": 0.0006034393392283937,
+      "relative_l2": 0.00338417761205917,
+      "sign_agreement": 0.9987302763794098
+    }
+  ],
+  "causal_installation_overall": {
+    "cosine": 0.9999907796672975,
+    "expected_mean_absolute": 0.000541646770276137,
+    "predicted_mean_absolute": 0.0005417021684455142,
+    "relative_l2": 0.004295947145124617,
+    "sign_agreement": 0.9984162653958653
+  },
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "collateral_over_target_removal_ratios": [
+    0.15234388008837912,
+    0.158134229618515,
+    0.4591527348100182
+  ],
+  "created_utc": "2026-09-16T14:53:48.124709Z",
+  "frozen": {
+    "controls": [
+      [
+        23482,
+        23095
+      ],
+      [
+        44178,
+        36538
+      ],
+      [
+        30724,
+        30175
+      ]
+    ],
+    "direction": 2,
+    "random_seed": 2026091644,
+    "scale": 32.0,
+    "target": [
+      21215,
+      6165
+    ]
+  },
+  "matched_random_target_effect_median_ratio": 0.124363474547863,
+  "matched_random_target_effect_ratios": [
+    0.12909665412160337,
+    0.12436347452138077,
+    0.12022116913815195,
+    0.12084504876282963,
+    0.1257498204846005,
+    0.13509468894107657,
+    0.1213973270880908,
+    0.13746857598372056
+  ],
+  "maximum_state_replay_relative_l2": 0.0,
+  "maximum_suffix_replay_relative_l2": 1.444610802536772e-06,
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_ood_local_prediction": true,
+    "pred_c_ood_causal_installation": true,
+    "pred_d_removal": true,
+    "pred_e_specificity_and_collateral": true,
+    "pred_f_extraction_and_reuse_bound": true
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "direction": 2,
+    "families": 4,
+    "fits": 0,
+    "fresh_prefixes": 64,
+    "gpu_accessed": false,
+    "gradients": 0,
+    "model_loaded": false,
+    "parameter_updates": 0,
+    "prior_predictions_bound": true,
+    "queue_touched": false,
+    "random_controls": 8,
+    "rank": 16,
+    "scale": 32.0,
+    "schema": "mlp9_contextual_dct_causal_fresh_v1_plan",
+    "suffix_states": 896
+  },
+  "runner_sha256": "421adce49d2ae645f355cfadc1ca0dfaf65d15fbc6eac9101f527edba19c1049",
+  "schema": "mlp9_contextual_dct_causal_fresh_v1_result",
+  "scope": "Prospective fresh-context install/remove test of an induced MLP9 local interaction. This is a synthetic causal primitive with the exact native suffix live, not a natural-language behavior, naturally occurring feature removal, or complete sparse circuit.",
+  "seconds": 2.3271324200031813,
+  "state_prediction_families": [
+    {
+      "cosine": 0.9999854443041126,
+      "expected_mean_absolute": 0.07233735979199277,
+      "predicted_mean_absolute": 0.07235863336771575,
+      "relative_l2": 0.005402742862741839,
+      "sign_agreement": 0.9975194807816538
+    },
+    {
+      "cosine": 0.9999827730858668,
+      "expected_mean_absolute": 0.0664358575494937,
+      "predicted_mean_absolute": 0.06645526061315433,
+      "relative_l2": 0.00587990368965796,
+      "sign_agreement": 0.9973789544753087
+    },
+    {
+      "cosine": 0.999985316281439,
+      "expected_mean_absolute": 0.07346420927398332,
+      "predicted_mean_absolute": 0.07348836533861751,
+      "relative_l2": 0.005429894823918336,
+      "sign_agreement": 0.997193482545045
+    },
+    {
+      "cosine": 0.9999823811491628,
+      "expected_mean_absolute": 0.06939634157264336,
+      "predicted_mean_absolute": 0.0694111958372231,
+      "relative_l2": 0.005942844159433697,
+      "sign_agreement": 0.9967932734929078
+    }
+  ],
+  "state_prediction_overall": {
+    "cosine": 0.9999839747556121,
+    "expected_mean_absolute": 0.07023211545252632,
+    "predicted_mean_absolute": 0.07025176560629103,
+    "relative_l2": 0.005669807999251489,
+    "sign_agreement": 0.9972141472868217
+  },
+  "target_family_aggregate_signs": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "target_remaining_mixed_family_ratios": [
+    0.014035931347284984,
+    0.008697766447098377,
+    0.01178600528615771,
+    0.01770049809794922
+  ],
+  "target_remaining_mixed_ratio": 0.013969154485580308,
+  "terminal": "mlp9_contextual_dct_four_trait_synthetic_primitive"
+}
