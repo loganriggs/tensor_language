@@ -1,0 +1,41 @@
+{
+  "authority_sha256": "cf100fa31eb6131df23837b8da54328676a3e22e81c5922157059047f1b80886",
+  "bars": {
+    "maximum_closed_reconstruction_error": 1e-10,
+    "maximum_composition_relative_l2": 0.25,
+    "maximum_control_fraction": 0.5,
+    "maximum_gauge_correction_relative_l2": 0.00001,
+    "maximum_native_suffix_replay_error": 0.00001,
+    "maximum_random_norm_error": 0.00001,
+    "minimum_aligned_recovery": 0.0,
+    "minimum_composition_cosine": 0.9,
+    "minimum_native_accuracy": 0.75,
+    "minimum_panel_damage_positive_fraction": 0.6,
+    "minimum_panel_damage_rms": 0.1,
+    "minimum_random_median_ratio": 2.0,
+    "minimum_rescue_cosine": 0.5
+  },
+  "files": {
+    "authority": "2ca93353efc90fc842ade184d7d954f061ca23fac6532ab5d92fef25f1d96cdf",
+    "decoder": "f2356b8a1c336d011e36059e571117a0d61c4104a3570521bd59838a29f40cc1",
+    "parent_result": "38660e49856c2e8e8af83670afbd0ac5436765b97eeca7348fcaaa8b7940b2f0",
+    "parent_runner": "846363a40ff29963ba6ace535009b713aa22cb77fc8b041b07ecadf29c5e571b",
+    "preregistration": "d103719c45c17c7a011d8381ab2191f63691b2d76a6c08980872f3e0b8bebda2"
+  },
+  "group_indices": [0, 2, 6],
+  "null_seed": 20260929,
+  "nulls": 16,
+  "ports": ["upstream_0_7", "mlp_8", "mlp_10"],
+  "price": {
+    "backwards": 0,
+    "fits": 0,
+    "native_forwards": 4,
+    "native_sequences": 256,
+    "parameter_updates": 0,
+    "partial_forwards": 4,
+    "partial_sequences": 256,
+    "random_controls": 16,
+    "suffix_forwards": 46,
+    "suffix_sequences": 2944
+  }
+}

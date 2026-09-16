@@ -304,6 +304,39 @@ of a compact per-readout decomposition is not. Response magnitude independently
 separates the target writer: joint-OOD RMS is `176.31`, versus random median
 `1.35` and maximum `3.73` for equal-norm orthogonal axes.
 
+### Three-port behavioral graph
+
+The frozen additive graph was then intervened on at the pre-L11 subject state.
+Starting from the native run, only `upstream_0_7`, `mlp_8`, and `mlp_10` were
+swapped to their embedding-number-removed values; the receiver's other ports,
+first-value bus, and recurrence anchor stayed native. The inverse rescue restored
+the same three ports in the fully removed run. This is an extraction with three
+declared native-state ports and no fitted coefficients; it is not yet a
+token-only standalone formula.
+
+All registered behavioral gates passed. The three-port removal damaged the
+correct-versus-wrong agreement margin on every row. Damage RMS was `1.003` on
+discovery, `1.035` on context OOD, `2.869` on lexical OOD, and `2.807` on joint
+OOD. Overall RMS was `2.132`. Sixteen equal-L2 edits at the same L11 subject
+site had median RMS `0.1532` and maximum `0.3209`, so the target/median ratio was
+`13.92`. `can`-versus-`will` collateral RMS was `0.1475`, only `0.0692` of the
+target damage.
+
+Separately measured port damages predicted their joint behavioral damage with
+no fitted scale. Relative L2 was `0.1918` on discovery, `0.1812` on context OOD,
+`0.1943` on lexical OOD, and `0.1851` on joint OOD; every cosine exceeded
+`0.989`. Thus the graph is compositionally useful at component-relative
+precision, although it does not yet reach the briefing's aspirational `<10%`
+bar. Restoring the three ports in the fully removed run recovered `0.7398` of
+the full damage with cosine `0.9962` and relative error `0.2681`.
+
+This closes the basic four-trait test at an intermediate native-state boundary:
+selection transfers OOD, extraction uses three counted ports, removal is large
+and selective against matched nulls, and independent edges compose to about
+`18–19%` error. The natural refinement is the exact eight-corner behavioral
+Möbius graph: determine whether a single pair interaction accounts for the
+remaining nonadditivity and transfers without reselection.
+
 ## What this changes in the sparse graph
 
 The previous graph boundary was
@@ -336,4 +369,5 @@ not satisfy reusability.
 - `SUBJECT_NUMBER_L11H3_LATE_WRITER_OOD_MOBIUS_V1_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_LATE_WRITER_SPECIFICITY_AUDIT_V1_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_LATE_WRITER_SPECIFICITY_AUDIT_V2_RESULT.json`
+- `SUBJECT_NUMBER_L11H3_THREE_PORT_BEHAVIOR_V1_RESULT.json`
 - their preregistrations, bindings, frozen authority, and managed runners
