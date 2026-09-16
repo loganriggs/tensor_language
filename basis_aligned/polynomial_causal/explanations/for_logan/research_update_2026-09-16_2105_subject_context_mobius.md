@@ -270,6 +270,15 @@ are bimodal, so the median-advantage threshold overstates specificity. The
 registered pass is retained, but behavior-specific/reusable status should wait
 for a larger null panel with a rank/quantile gate and effect-magnitude audit.
 
+The first 64-direction specificity/pruning audit is retained as `invalid`.
+It exactly reproduced the six selected masks, had closed component error `0.0`,
+and had relative Möbius closure `2.00e-7`, but its float32 Möbius subtraction
+reached absolute closure error `1.53e-4`, above the registered `1e-4` bar when
+maximized over 65 readouts. Its pruning and specificity outputs are provisional
+and are not used here. The corrective audit must change only Möbius arithmetic
+to float64 while preserving the panels, 64 new nulls, masks, and scientific
+gates.
+
 ## What this changes in the sparse graph
 
 The previous graph boundary was
@@ -300,4 +309,5 @@ not satisfy reusability.
 - `SUBJECT_NUMBER_L11H3_SUBJECT_VALUE_UPSTREAM_MOBIUS_V2_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_SUBJECT_VALUE_UPSTREAM_MOBIUS_V3_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_LATE_WRITER_OOD_MOBIUS_V1_RESULT.json`
+- `SUBJECT_NUMBER_L11H3_LATE_WRITER_SPECIFICITY_AUDIT_V1_RESULT.json`
 - their preregistrations, bindings, frozen authority, and managed runners

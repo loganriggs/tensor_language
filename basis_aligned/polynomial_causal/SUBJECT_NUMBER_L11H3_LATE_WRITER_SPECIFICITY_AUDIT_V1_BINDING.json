@@ -1,0 +1,40 @@
+{
+  "authority_sha256": "cf100fa31eb6131df23837b8da54328676a3e22e81c5922157059047f1b80886",
+  "bars": {
+    "maximum_absolute_closure_error": 0.0001,
+    "maximum_closed_reconstruction_error": 1e-10,
+    "maximum_gauge_correction_relative_l2": 0.00001,
+    "maximum_native_value_replay_error": 0.0001,
+    "maximum_relative_closure_error": 0.00001,
+    "maximum_synthetic_error": 1e-12,
+    "maximum_three_term_error_increase": 0.02,
+    "maximum_three_term_panel_relative_l2": 0.25,
+    "minimum_aligned_recovery": 0.0,
+    "minimum_specificity_percentile": 0.9
+  },
+  "expected_masks": [4, 1, 64, 8, 24, 80],
+  "files": {
+    "authority": "2ca93353efc90fc842ade184d7d954f061ca23fac6532ab5d92fef25f1d96cdf",
+    "decoder": "f2356b8a1c336d011e36059e571117a0d61c4104a3570521bd59838a29f40cc1",
+    "parent_result": "71e3ec6470a906f5cdbbb0fce3c4aa57252ee3b2670e5e996bf453631c714e5d",
+    "parent_runner": "ee5a4e8157a72b46bfd904d82ba4008a616ac53db19431526f9996ef0eec26cc",
+    "preregistration": "a2b023952e0d1ab90658cd1469870ab3a57bdd24981beb46b07622ad74f245a5",
+    "rank1": "f73126268794342809c2953b388ed83f6d1d0e2e245ce9ea78f2d665a0e87c1f",
+    "source_primitive": "1c965deb1969cd317185f4d068006d7b9052837d1603898e0d5372076b48d0a8"
+  },
+  "null_seed": 20260928,
+  "nulls": 64,
+  "price": {
+    "backwards": 0,
+    "behavior_logits": 0,
+    "candidate_terms": 36,
+    "corners": 256,
+    "fits": 0,
+    "greedy_steps": 6,
+    "mobius_terms": 255,
+    "parameter_updates": 0,
+    "partial_forwards": 4,
+    "readouts": 65,
+    "sequences": 256
+  }
+}
