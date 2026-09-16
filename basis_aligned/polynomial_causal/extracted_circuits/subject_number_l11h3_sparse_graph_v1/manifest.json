@@ -1,0 +1,39 @@
+{
+  "schema": "extracted_subject_number_l11h3_sparse_graph_v1",
+  "name": "subject_number_l11h3_sparse_graph_v1",
+  "task": "subject_verb.number_agreement",
+  "boundary": "pre_L11_attention_subject_position_to_agreement_margin",
+  "public_data_inputs": ["token_ids", "subject_positions", "correct_answer_ids", "foil_answer_ids"],
+  "external_activation_inputs": 0,
+  "internal_native_ports": ["embedding_recurrence", "early_writes_0_3", "middle_writes_4_7", "mlp_8", "mlp_10"],
+  "edges": [
+    {"mask": 8, "term": "mlp_8", "order": 1},
+    {"mask": 1, "term": "embedding_recurrence", "order": 1},
+    {"mask": 4, "term": "middle_writes_4_7", "order": 1},
+    {"mask": 2, "term": "early_writes_0_3", "order": 1},
+    {"mask": 24, "term": "mlp_8*mlp_10", "order": 2},
+    {"mask": 12, "term": "middle_writes_4_7*mlp_8", "order": 2},
+    {"mask": 16, "term": "mlp_10", "order": 1},
+    {"mask": 9, "term": "embedding_recurrence*mlp_8", "order": 2},
+    {"mask": 20, "term": "middle_writes_4_7*mlp_10", "order": 2}
+  ],
+  "required_corner_masks": [0, 1, 2, 4, 8, 9, 12, 16, 20, 24],
+  "learned_parameters": 0,
+  "four_traits": {
+    "ood_prediction": true,
+    "extraction": true,
+    "selective_removal": true,
+    "composition_reuse": true
+  },
+  "validation": {
+    "original_max_relative_l2": 0.0679419280031094,
+    "fresh_max_relative_l2": 0.05352471797305052,
+    "fresh_minimum_cosine": 0.9994743864826517,
+    "fresh_removal_positive_fraction": 1.0,
+    "fresh_target_to_random_median_ratio": 14.627109343924149,
+    "fresh_collateral_fraction": 0.035126515936788685,
+    "external_activation_inputs": 0
+  },
+  "token_executor": "basis_aligned/bilinear_quotient/ops/subject_number_sparse_graph_token_extraction_v1.py",
+  "scope": "Validated token-input sparse causal graph. Exact checkpoint layers still construct the internal ports and suffix corners; no computational compression is claimed."
+}

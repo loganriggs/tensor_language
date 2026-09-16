@@ -1,0 +1,60 @@
+{
+  "schema": "subject_number_sparse_graph_export_v1_result",
+  "terminal": "exported_subject_number_sparse_graph_four_traits",
+  "package": "extracted_circuits/subject_number_l11h3_sparse_graph_v1",
+  "component": "basis_aligned/bilinear_quotient/ops/subject_number_sparse_graph_token_extraction_v1.py",
+  "nodes": [
+    "embedding_recurrence",
+    "early_writes_0_3",
+    "middle_writes_4_7",
+    "mlp_8",
+    "mlp_10"
+  ],
+  "edge_count": 9,
+  "learned_parameters": 0,
+  "public_data_inputs": ["token_ids", "subject_positions", "correct_answer_ids", "foil_answer_ids"],
+  "external_activation_inputs": 0,
+  "four_traits": {
+    "ood_prediction": true,
+    "extraction": true,
+    "selective_removal": true,
+    "composition_reuse": true
+  },
+  "validation": {
+    "original_max_relative_l2": 0.0679419280031094,
+    "fresh_max_relative_l2": 0.05352471797305052,
+    "fresh_minimum_cosine": 0.9994743864826517,
+    "fresh_removal_positive_fraction": 1.0,
+    "fresh_target_to_random_median_ratio": 14.627109343924149,
+    "fresh_collateral_fraction": 0.035126515936788685,
+    "synthetic_package_tests": 3,
+    "synthetic_package_tests_passed": 3
+  },
+  "evidence": {
+    "token_extraction": {
+      "file": "SUBJECT_NUMBER_SPARSE_GRAPH_TOKEN_EXTRACTION_V1_RESULT.json",
+      "sha256": "e00dce65c07a3f7d4ed1c1c591e83bca8e22a98a24ed68115b877f97e397c83d",
+      "terminal": "token_input_sparse_graph_extracted"
+    },
+    "behavioral_removal_rescue": {
+      "file": "SUBJECT_NUMBER_L11H3_THREE_PORT_BEHAVIOR_V1_RESULT.json",
+      "sha256": "929b85e17aed6a486ad5571dab23fbb664d0a37e92daa1ad3b916923b67e48f3",
+      "terminal": "three_port_behavioral_graph"
+    },
+    "fresh_ood_removal": {
+      "file": "SUBJECT_NUMBER_L11H3_EXPANDED_GRAPH_FRESH_OOD_V1_RESULT.json",
+      "sha256": "351e7cdc019cd467bfe2149f9b2802ec00bbbdde9c09e299e744e129fe6a3e41",
+      "terminal": "expanded_graph_fresh_ood_held"
+    }
+  },
+  "files": {
+    "README.md": "4a9bae9a10d7a08082b5d22f2c376717ecea151b0676940d5704a6460444f652",
+    "__init__.py": "26b331ee194701c2d4461717f096ced4aa7692c80a133ef9c5a1aead29cd4797",
+    "manifest.json": "faaffd20af2ec6693cd7184090f19c32c652fc7da7c2c0bb54250dcd4c5c7ba5",
+    "node.py": "bb9aab7458f138914faada773ee59b9bc99ca6959ee1ad4af66efd518677af47",
+    "test_node.py": "b5eca9b0191d5199d58e0eee843618a073b6ee53ea7507deacb237c35e57c866",
+    "verify_export.py": "2e83dc35160b8ea2fb51d40285d1252c18f4130c485a3956d8780e55cd45bb52"
+  },
+  "price_caveat": "The graph is causally sparse and token-input extracted, but exact checkpoint layers still construct five internal ports and ten suffix corners; no FLOP compression is claimed.",
+  "created_utc": "2026-09-16T22:20:29Z"
+}

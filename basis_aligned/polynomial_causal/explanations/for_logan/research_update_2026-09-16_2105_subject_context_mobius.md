@@ -395,8 +395,9 @@ collateral was only `0.0351` of target damage.
 
 This is the strongest OOD result in the chain: the fixed sparse graph predicts
 behavioral intervention effects across new vocabulary, syntax, sequence length,
-and subject position. Extraction still consumes five native upstream port
-values; a token-only implementation remains open.
+and subject position. At this stage of the sequence, extraction still consumed
+five native upstream port values; the next experiment below removes that
+external-activation requirement.
 
 ### Token-input extraction
 
@@ -419,6 +420,23 @@ five internal ports and ten native suffix corners; its simplicity is the sparse
 causal graph and declared interface, not lower FLOPs than two ordinary model
 forwards.
 
+### Exported four-trait circuit package
+
+The accepted nine-edge graph is also exported under
+`extracted_circuits/subject_number_l11h3_sparse_graph_v1/`. The package fixes
+the five ports, nine signed main/pair edges, and ten required corners in a small
+callable decomposition API. It includes a machine-readable manifest, usage and
+scope documentation, three synthetic arithmetic/API tests, and a verifier that
+hash-binds the package to the behavioral, fresh-OOD, and token-input evidence.
+
+The verifier reports all four requested traits: OOD prediction, extraction,
+selective removal, and compositional reuse. The tests check exact recovery of
+the selected Möbius edges, exact removal of one named edge, and rejection of
+missing or shape-incompatible corners. This export does not strengthen the
+scientific claim beyond the bound evidence: in particular, it retains the
+compute-compression caveat above and the specificity result that arbitrary
+directions can often be compressed after direction-specific term reselection.
+
 ## What this changes in the sparse graph
 
 The previous graph boundary was
@@ -429,13 +447,13 @@ It is now narrower in two stages:
 
 `causal embedding-number node -> mostly late-layer subject-position writes + small cross-band corrections -> subject U atom -> small rank-one L11H3 edge`.
 
-This advances localization and compression, but extraction is incomplete. The
-factor scores are currently observational coordinates on the opened factorial
-panel. The next experiment should attempt to predict the subject and context
-factor scores from native checkpoint states, with leave-noun-pair-out and
-leave-context-out tests. Only a frozen native factorization should proceed to a
-new-vocabulary/new-context causal test. A token or template lookup table would
-not satisfy reusability.
+This advances localization and behavioral extraction, but the finer latent
+factor extraction is incomplete. The factor scores are currently observational
+coordinates on the opened factorial panel. A next experiment could predict the
+subject and context factor scores from native checkpoint states, with
+leave-noun-pair-out and leave-context-out tests. Only a frozen native
+factorization should proceed to a new-vocabulary/new-context causal test. A
+token or template lookup table would not satisfy reusability.
 
 ## Artifacts
 
@@ -457,4 +475,6 @@ not satisfy reusability.
 - `SUBJECT_NUMBER_L11H3_EXPANDED_BEHAVIORAL_GRAPH_V2_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_EXPANDED_GRAPH_FRESH_OOD_V1_RESULT.json`
 - `SUBJECT_NUMBER_SPARSE_GRAPH_TOKEN_EXTRACTION_V1_RESULT.json`
+- `SUBJECT_NUMBER_SPARSE_GRAPH_EXPORT_V1_RESULT.json`
+- `extracted_circuits/subject_number_l11h3_sparse_graph_v1/`
 - their preregistrations, bindings, frozen authority, and managed runners
