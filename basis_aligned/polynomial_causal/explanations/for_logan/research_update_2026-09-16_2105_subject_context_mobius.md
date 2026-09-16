@@ -363,6 +363,20 @@ were clearly insufficient (`0.139–0.287`). Therefore the eight-term expanded
 graph is not accepted; the result remains a valid decomposition and motivates
 a prospective nine/ten-term extension rather than post-hoc rounding.
 
+The prospective V2 extension reproduced all first eight masks and passed with
+one additional edge, `middle_writes_4_7×mlp_10`. The nine-edge graph reached
+relative L2 `0.06794` on discovery, `0.06338` on context OOD, `0.06384` on
+lexical OOD, and `0.06403` on joint OOD. A tenth edge,
+`embedding_recurrence×mlp_10`, improved these to `0.05138`, `0.04589`,
+`0.04501`, and `0.04622`, respectively. Both registered prefixes pass; the
+nine-edge version is the sparsest licensed expanded graph.
+
+This exposes a useful resolution tradeoff. Treating `upstream_0_7` as one
+native port gives a five-edge graph. Opening it yields five explicit ports—
+embedding recurrence, early writes, middle writes, MLP8, and MLP10—and requires
+nine main/pair edges for the same `<10%` behavioral precision. No order-three
+term or fitted coefficient is needed.
+
 ## What this changes in the sparse graph
 
 The previous graph boundary was
@@ -398,4 +412,5 @@ not satisfy reusability.
 - `SUBJECT_NUMBER_L11H3_THREE_PORT_BEHAVIOR_V1_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_BEHAVIORAL_MOBIUS_V1_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_EXPANDED_BEHAVIORAL_GRAPH_V1_RESULT.json`
+- `SUBJECT_NUMBER_L11H3_EXPANDED_BEHAVIORAL_GRAPH_V2_RESULT.json`
 - their preregistrations, bindings, frozen authority, and managed runners
