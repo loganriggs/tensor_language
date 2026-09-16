@@ -96,6 +96,21 @@ as a preregistered positive component result. The program's ports are native MLP
 state, frozen head weights, and a categorical edit-direction selector. See the
 [fresh causal result](fast_screens/subject_number_response_weighted_fresh_causal_v1_result.json).
 
+The matching removal assay subtracts the predicted rank-one write from the exact
+opposite-number head. Residual-effect ratio is `.32420`; the removed amount matches
+the native effect at cosine `.95968` and sign agreement `.98633`. Symbolic-law
+removal leaves `.52788`, while four equal-norm same-site random directions leave
+median ratio `1.00956`. V1's `.250333` work/jobs collateral remains a valid null,
+but that contrast encodes grammatical number. The prospectively corrected set of
+five non-number readers passes with maximum ratio `.18679`. See the
+[V1 control-design null](fast_screens/subject_number_response_weighted_removal_v1_result.json)
+and [V2 selective-removal result](fast_screens/subject_number_response_weighted_removal_v2_result.json).
+
+Operational graph: `(native MLP8 state, requested direction) -> fixed prototype
+response through H -> [1,z,s,zs] beta -> alpha times native L11H3 axis`. This is a
+standalone one-writer graph at its declared boundary. The direction selector and
+dense prototype storage remain external ports/costs rather than hidden claims.
+
 ## `module.attention.17.head2`
 
 Aliases: head17.2, L17H2, regional late attention head. Related folded route:

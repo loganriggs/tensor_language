@@ -261,6 +261,39 @@ remains a failure and is not relabeled, while the separately preregistered nativ
 OOD prediction is a positive component result. Selective removal is the next
 independent trait test.
 
+That removal test is now complete. Starting from the exact opposite-number head,
+subtracting the extracted $\hat\alpha u$ leaves residual-effect RMS ratio `.32420`.
+Equivalently, the removed amount predicts the complete native effect at cosine
+`.95968`, relative $L_2$ `.32420`, and sign agreement `.98633`. Subtracting the
+older symbolic-law write leaves `.52788`; four signed equal-norm directions at the
+same L11H3 site leave median residual ratio `1.00956`. The extracted removal thus
+improves by `.20368` over the law and `.68536` over the matched null.
+
+V1 retained a valid selectivity null: its maximum collateral ratio was `.250333`
+against a `.25` gate. The failing `work/jobs` contrast was incorrectly called
+unrelated even though it contrasts a singular-form verb with a plural-form noun.
+The receipt remains null. A correction registered before rerunning replaced only
+that number-confounded contrast with unseen green/black, preserving every causal
+arm, seed, vector, threshold, and the other four readers. V2 passes: green/black
+is `.04098`, and the maximum genuinely unrelated-reader ratio is cat/dog at
+`.18679`; the remaining ratios are `.07397`, `.03136`, and `.01851`.
+
+The resulting extracted graph is small and explicit:
+
+$$
+(x_b,d)\longrightarrow
+\left[z=u^TH(x_b),\;s=u^T(H(x_b+p_d)-H(x_b))\right]
+\longrightarrow \alpha=[1,z,s,zs]\beta
+\longrightarrow \alpha u\;@\;\mathrm{L11H3}.
+$$
+
+It has one native-state port, one categorical edit-direction port, two fixed
+prototype vectors, one native weight axis, four scalar coefficients, and one
+writer. It now has prospective OOD native-effect prediction, standalone execution
+at the declared boundary, selective removal, and the previously established
+two-site composition of its rank-one write. Native generation of the categorical
+direction and compression of the dense prototype vectors remain open.
+
 ## Regional head9.8 interaction-path fold
 
 For the separate UK/US spelling path, let $c$ be the exact residual carry entering
@@ -711,6 +744,10 @@ recursive effects were summed only for evaluation; no coefficients were fit.
 - [Native capability result](../../../bilinear_quotient/circuits/fast_screens/subject_number_response_weighted_fresh_capability_v1_result.json)
 - [Fresh causal preregistration](../../SUBJECT_NUMBER_RESPONSE_WEIGHTED_FRESH_CAUSAL_V1_PREREGISTRATION.md)
 - [Fresh causal result](../../../bilinear_quotient/circuits/fast_screens/subject_number_response_weighted_fresh_causal_v1_result.json)
+- [Removal preregistration](../../SUBJECT_NUMBER_RESPONSE_WEIGHTED_REMOVAL_V1_PREREGISTRATION.md)
+- [V1 removal null](../../../bilinear_quotient/circuits/fast_screens/subject_number_response_weighted_removal_v1_result.json)
+- [Removal control correction](../../SUBJECT_NUMBER_RESPONSE_WEIGHTED_REMOVAL_V2_CORRECTION.md)
+- [Selective-removal result](../../../bilinear_quotient/circuits/fast_screens/subject_number_response_weighted_removal_v2_result.json)
 - [Computation-path registry](../../../bilinear_quotient/COMPUTATION_PATH_REGISTRY.md)
 - [L11H3 module dossier](../../../bilinear_quotient/circuits/MODULE_DOSSIERS.md)
 - [Carry-source census result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_head9_8_qk1_carry_source_fold_v1_result.json)
