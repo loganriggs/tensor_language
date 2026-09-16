@@ -155,6 +155,21 @@ frozen random native subspace. Any next DCT use must choose and charge a causal
 metric/subspace, and compare its truncation against that null. [Certificate](../../polynomial_causal/MLP17_CAUSAL_HESSIAN_IDENTITY_V1_RESULT.json),
 [preregistration](../../polynomial_causal/MLP17_CAUSAL_HESSIAN_IDENTITY_V1_PREREGISTRATION.md).
 
+A preservation-aware exhaustive search then tested whether the earlier
+three-edge failure was merely target-only selection. Searching every one of
+6,885 unit-gain supports through width five found
+`attn9 + mlp9 + attn10 + attn11 + mlp15`: on discovery it reaches `.20763`
+response error, `.19764/.19854` installation/removal, perfect signs, and a worst
+control ratio `.83426`. Frozen fresh testing rejects promotion. Causal errors
+remain good (`.23774/.23903`, perfect signs), but aggregate response is `.25068`
+against `.25` and fresh apple/orange and work/jobs controls reach a worst ratio
+`1.14877`. Preselected width-five nulls are much worse (median `3.42496`), so the
+program is structured but panel-specific. This closes unit-gain whole-module
+supports through five edges; do not widen the graph as a rescue. Split inside
+the implicated modules using consumer/Hessian geometry. [Discovery](fast_screens/setting2_regional_attention17h2_port_preservation_search_v3_result.json),
+[fresh null](fast_screens/setting2_regional_attention17h2_port_preservation_fresh_v1_result.json),
+[fresh preregistration](../../polynomial_causal/SETTING2_REGIONAL_ATTENTION17H2_PORT_PRESERVATION_FRESH_V1_PREREGISTRATION.md).
+
 ## `module.attention.9`
 
 Aliases: attention block 9, attn9. Related route:
