@@ -82,6 +82,20 @@ and [invalid weak-ridge receipt](fast_screens/subject_number_response_weighted_p
 This supports causal-response weighting over activation PCA on opened authority;
 it does not yet establish fresh-text OOD prediction or downstream removal.
 
+The two all-row vectors were then frozen before a fourth corpus existed. On 512
+novel background cells, their scalar coefficients transfer at cosine `.94757`,
+relative L2 `.47024`, and sign agreement `.99609`, beating matched equal-norm
+input prototypes by `.22118` error. The resulting rank-one writes predict native
+causal effects at cosine `.95639`, relative L2 `.33462`, and sign agreement
+`.98633`, with both new templates below `.361` error. The overall registered test
+is mixed-null because replay of the older symbolic-law effect misses its `.50`
+ceiling at `.56658`. Post-result diagnosis finds that the law itself is weaker
+against fresh native effects (`.53796` error) than the extracted response program
+(`.33462`); preserve the law-replay failure while treating native effect prediction
+as a preregistered positive component result. The program's ports are native MLP8
+state, frozen head weights, and a categorical edit-direction selector. See the
+[fresh causal result](fast_screens/subject_number_response_weighted_fresh_causal_v1_result.json).
+
 ## `module.attention.17.head2`
 
 Aliases: head17.2, L17H2, regional late attention head. Related folded route:

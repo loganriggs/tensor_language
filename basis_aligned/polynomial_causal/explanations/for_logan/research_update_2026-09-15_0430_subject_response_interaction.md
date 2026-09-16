@@ -227,6 +227,40 @@ Its norm ratios are `.87–1.08`, and all three registered predictions pass. Bec
 both constructions were already open, the result licenses freezing a candidate,
 not claiming OOD prediction, extraction, or behavioral removal.
 
+## Fourth-corpus causal test
+
+The all-opened-row fit was frozen into exactly two 1,152-vectors before a fourth
+corpus was authored. That corpus introduced two new templates, 16 new noun pairs,
+and 96 novel prompt endpoints. A candidate-blind native capability stage passed
+all 12 direction/template/role cells at `100%` and issued a candidate-scoped
+license. The causal runner then evaluated 512 background cells without refitting.
+
+The scalar generator transfers. Its predicted coefficients have cosine `.94757`,
+relative $L_2$ `.47024`, and sign agreement `.99609` against the frozen symbolic
+coefficient law. Four equal-norm random input prototypes per direction have median
+coefficient error `.69142`; the causal-metric prototype wins by `.22118`.
+
+More importantly, the extracted program predicts the actual native causal effect
+at cosine `.95639`, relative $L_2$ `.33462`, and sign agreement `.98633`. Both
+templates separately stay below `.361` error and above `.955` cosine, and all
+intermediate cardinalities jointly reach `.32830` error and `.95735` cosine. The
+candidate used no fresh opposite-number activation. Its declared execution ports
+are the native MLP8 state, frozen head weights, and a categorical requested-edit
+direction.
+
+The preregistered overall verdict is nevertheless a valid mixed null because one
+of four gates fails: candidate effects replay the older symbolic-law effects at
+`.56658` relative error, just above the `.50` ceiling. This is not a generic
+transfer failure. A post-result audit shows that the symbolic law itself predicts
+the fresh native effect at only `.53796` error and `.90071` cosine, whereas the
+response-weighted candidate reaches `.33462` and `.95639`. The law is systematically
+smaller (`.05183` versus `.08884` native effect RMS); the candidate is `.07047`.
+Thus the response mechanism extrapolates toward the native intervention better
+than its nominal compressed training target. The registered law-replay failure
+remains a failure and is not relabeled, while the separately preregistered native
+OOD prediction is a positive component result. Selective removal is the next
+independent trait test.
+
 ## Regional head9.8 interaction-path fold
 
 For the separate UK/US spelling path, let $c$ be the exact residual carry entering
@@ -672,6 +706,11 @@ recursive effects were summed only for evaluation; no coefficients were fit.
 - [Trust-region correction](../../SUBJECT_NUMBER_RESPONSE_WEIGHTED_PROTOTYPE_V2_CORRECTION.md)
 - [Response-weighted V2 runner](../../../bilinear_quotient/ops/run_subject_number_response_weighted_prototype_v2.py)
 - [Response-weighted V2 result](../../../bilinear_quotient/circuits/fast_screens/subject_number_response_weighted_prototype_v2_result.json)
+- [Frozen all-row prototype artifact](../../SUBJECT_NUMBER_RESPONSE_WEIGHTED_PROTOTYPE_FROZEN_V1_ARTIFACT.json)
+- [Fourth-corpus authority](../../../bilinear_quotient/ops/circuit_fast_screen_candidate_subject_number_response_weighted_fresh.py)
+- [Native capability result](../../../bilinear_quotient/circuits/fast_screens/subject_number_response_weighted_fresh_capability_v1_result.json)
+- [Fresh causal preregistration](../../SUBJECT_NUMBER_RESPONSE_WEIGHTED_FRESH_CAUSAL_V1_PREREGISTRATION.md)
+- [Fresh causal result](../../../bilinear_quotient/circuits/fast_screens/subject_number_response_weighted_fresh_causal_v1_result.json)
 - [Computation-path registry](../../../bilinear_quotient/COMPUTATION_PATH_REGISTRY.md)
 - [L11H3 module dossier](../../../bilinear_quotient/circuits/MODULE_DOSSIERS.md)
 - [Carry-source census result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_head9_8_qk1_carry_source_fold_v1_result.json)
