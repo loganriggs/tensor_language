@@ -101,6 +101,33 @@ The registry is rebuilt from the filesystem and invokes available export
 verifiers. Its audit checks complete directory coverage, exact regeneration,
 passing four-trait verification, acyclicity, and preservation of unknowns.
 
+## L8H4 equal-norm removal red-team
+
+The registry identified the reversible equality L8H4 edge as the closest
+uncertified boundary: OOD installation, exact removal, extraction, and bilinear
+composition already passed, but its removal evidence lacked the briefing's
+equal-norm same-site directional null. I preregistered and ran 16 isotropic
+controls on the frozen 192-document code panel, matching the deployed target
+term norm independently at every document and query position.
+
+The instrument passed with maximum per-position norm error `0.000394`. Target
+removal produced `808.79` nat summed copy-positive damage versus a random
+median `163.86`: a `4.94×` advantage, and the target exceeded all 16 controls.
+All four copy subcells and both frozen halves had positive target damage.
+
+The registered overall result remains a near-miss. Target all-noncopy mean
+absolute collateral was `0.001864` nat, below the absolute `.01` tolerance but
+`1.13×` the random median `0.001648`; therefore the stricter registered
+collateral comparison failed. The package is not promoted to four-trait status.
+
+The first result also contained exactly the miscoding failure the positive
+red-team policy anticipates: `pred_b` iterated the inherited `CELLS` tuple,
+which includes `all_noncopy`, despite the preregistration requiring positivity
+only on the four copy subcells. A hash-bound audit corrects `pred_b` to true but
+leaves the genuine `pred_d` failure and terminal near-miss intact. A post-hoc
+effect-normalized selectivity ratio is reported only as a diagnostic, not as a
+replacement gate or new evidence.
+
 ## Scope and next use
 
 This is infrastructure, not a new behavioral circuit. It removes repeated
@@ -127,3 +154,5 @@ than only its graph arithmetic and audit rubric, can be called reusable.
 - `CIRCUIT_GRAPH_REGISTRY_V1.json`
 - `CIRCUIT_GRAPH_REGISTRY_V1.md`
 - `CIRCUIT_GRAPH_REGISTRY_V1_RESULT.json`
+- `EQUALITY_L8H4_EQUAL_NORM_REMOVAL_NULL_V1_RESULT.json`
+- `EQUALITY_L8H4_EQUAL_NORM_REMOVAL_NULL_V1_AUDIT.json`

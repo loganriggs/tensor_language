@@ -1,0 +1,111 @@
+{
+  "created_utc": "2026-09-16T22:47:09.750121Z",
+  "equal_norm_controls": {
+    "all_noncopy_mean_absolute_nat": [
+      0.0016481007914990187,
+      0.0024244897067546844,
+      0.0015137901064008474,
+      0.0019688389729708433,
+      0.0013951875735074282,
+      0.002076575765386224,
+      0.001390884630382061,
+      0.001745979767292738,
+      0.0024598287418484688,
+      0.0017293250421062112,
+      0.0008889544988051057,
+      0.0005902608972974122,
+      0.0020097175147384405,
+      0.0009909749496728182,
+      0.0018168542301282287,
+      0.0011582059087231755
+    ],
+    "all_noncopy_median_absolute_nat": 0.0016481007914990187,
+    "copy_positive_absolute_damage_median_nat": 163.8607635498047,
+    "copy_positive_damage_sum_nat": [
+      184.5438232421875,
+      159.06924438476562,
+      182.3278350830078,
+      184.52151489257812,
+      163.1031494140625,
+      163.8607635498047,
+      182.0940399169922,
+      172.97496032714844,
+      164.83160400390625,
+      170.90939331054688,
+      157.53402709960938,
+      167.17123413085938,
+      158.38880920410156,
+      156.6776123046875,
+      158.73080444335938,
+      157.01690673828125
+    ],
+    "maximum_per_position_norm_relative_error": 0.00039407433359883726,
+    "seeds": [
+      2026091700,
+      2026091701,
+      2026091702,
+      2026091703,
+      2026091704,
+      2026091705,
+      2026091706,
+      2026091707,
+      2026091708,
+      2026091709,
+      2026091710,
+      2026091711,
+      2026091712,
+      2026091713,
+      2026091714,
+      2026091715
+    ],
+    "target_percentile": 1.0,
+    "target_to_random_median_ratio": 4.935849038331081
+  },
+  "instrument": {
+    "binding_sha256": "11e55e05d21f34922b112b5cfe5c2d686c73d3b521528bdc23c263f06d982b40",
+    "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "finite": true,
+    "forward_calls": 864,
+    "runner_sha256": "d7560bc3cdf8c0b0c5ef4d61807efe75b7d997c9785f9f4ac25b204594644a57"
+  },
+  "parent_result_sha256": "874c23bc014c6d412433c59a7ca754898ae607e2df12670941dffea84e937e9f",
+  "predictions": {
+    "pred_a_instrument_and_equal_norm": true,
+    "pred_b_target_removal_is_behaviorally_material": false,
+    "pred_c_target_beats_equal_norm_directions": true,
+    "pred_d_target_is_selective": false,
+    "pred_e_fixed_zero_fit_control_bank": true
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "fits": 0,
+    "forward_calls": 864,
+    "gpu_accessed": true,
+    "gradients": 0,
+    "matched_directions": 16,
+    "model_loaded": true,
+    "ood_documents": 192,
+    "parameter_updates": 0,
+    "queue_touched": true
+  },
+  "schema": "equality_l8h4_equal_norm_removal_null_v1_result",
+  "scope": "Post-hoc equal-norm same-site directional null on the frozen code-OOD panel; can certify selective removal but adds no fresh OOD evidence.",
+  "seconds": 18.705297527005314,
+  "target": {
+    "all_noncopy_mean_absolute_nat": 0.0018638133769854903,
+    "copy_cell_damage_sum_nat": {
+      "all_noncopy": -48.48896789550781,
+      "copy_far": 700.2482299804688,
+      "copy_multiple_predecessors": 319.3406982421875,
+      "copy_near": 108.54377746582031,
+      "copy_one_predecessor": 489.4512634277344,
+      "copy_positive": 808.7919921875
+    },
+    "copy_positive_damage_sum_nat": 808.7919921875,
+    "half_damage_sum_nat": [
+      380.5408020019531,
+      428.2511901855469
+    ]
+  },
+  "terminal": "valid_equality_l8h4_equal_norm_removal_null"
+}
