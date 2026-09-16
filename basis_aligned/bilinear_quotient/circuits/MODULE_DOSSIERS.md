@@ -594,6 +594,19 @@ exported adapter charges one stored calibration scalar and zero new learned
 parameters.  This identifies a sparse `L5H5 score -> L8H4 equality node` edge;
 the next extraction boundary is residual-to-Q/K score production within L5H5,
 while L8H4's raw payload remains a separate native port.
+
+That L5H5 score-production boundary is now partially extracted.  A
+zero-parameter four-port node independently replays the exact causally masked
+bilinear score from post-projection, post-RMS, post-rotary `q1/k1/q2/k2`.  Across
+the complete 192-document code-OOD role, score and downstream donor-logit errors
+are exactly zero, recovery remains `.9728678`, and the explicit `2x2`
+half-coordinate product expansion has `1.07e-7` relative error.  A first receipt
+reported `1.0932` score error because its diagnostic node omitted the triangular
+causal mask; its simultaneous zero logit error exposed the miscoding, and the
+bound correction passes all six gates.  This establishes prediction, causal
+installation, zero-parameter extraction, and algebraic reuse for the score
+node.  It does not yet extract the residual-to-Q/K linear projections or their
+source support, and it leaves L8H4 raw payload native.
 [three-edge factorial](../../polynomial_causal/EQUALITY_PRE_MLP9_THREE_EDGE_FACTORIAL_DISCOVERY_V1_RESULT.json),
 [code-OOD calibration null](../../polynomial_causal/EQUALITY_A8_EDGE_CODE_OOD_CONFIRMATION_V1_RESULT.json),
 [projected-payload extraction null](../../polynomial_causal/EQUALITY_L8H4_EXTRACTED_NODE_CODE_OOD_V1_RESULT.json),
@@ -601,6 +614,8 @@ while L8H4's raw payload remains a separate native port.
 [reversible-edge result](../../polynomial_causal/EQUALITY_L8H4_REVERSIBLE_EDGE_CODE_OOD_V3_RESULT.json),
 [reusable score-port result](../../polynomial_causal/EQUALITY_REUSABLE_SCORE_PORT_CODE_OOD_V1_RESULT.json),
 [score-adapter export](../../polynomial_causal/EQUALITY_L5H5_SCORE_ADAPTER_EXPORT_V1_RESULT.json),
+[bilinear score-node red-team null](../../polynomial_causal/EQUALITY_L5H5_BILINEAR_SCORE_NODE_CODE_OOD_V1_RESULT.json),
+[causal bilinear score-node result](../../polynomial_causal/EQUALITY_L5H5_BILINEAR_SCORE_NODE_CODE_OOD_V2_RESULT.json),
 [red-team note](../../polynomial_causal/EQUALITY_A8_SPARSE_EDGE_EXECUTION_NOTE.md).
 
 The retained three-block score also has a smaller exact executor:

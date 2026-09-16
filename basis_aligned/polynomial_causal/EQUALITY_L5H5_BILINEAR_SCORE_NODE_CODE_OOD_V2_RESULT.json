@@ -1,0 +1,146 @@
+{
+  "binding_sha256": "e9f19d105a80eac758457ab1729ac6201bdd333415ad273e030d3f563d11965e",
+  "causal_mask_redteam": {
+    "diagnosis": "V1 omitted the causal triangular mask from its score node; unsupported future-key entries inflated score error while leaving the masked intervention exactly unchanged.",
+    "v1_logit_error": 0.0,
+    "v1_terminal": "valid_equality_l5h5_bilinear_score_node_null",
+    "v1_unmasked_score_error": 1.0931984186172485
+  },
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "created_utc": "2026-09-16T16:10:53.593475Z",
+  "manifest_sha256": "2ff2b50f5de28d62d72fef68e41a9051042fc031d38527286a9a99e45c9e5ae3",
+  "maximum_errors": {
+    "composition": 1.0740156852762084e-07,
+    "logits": 0.0,
+    "score": 0.0
+  },
+  "minimum_extracted_term_rms": 17.893943786621094,
+  "package_source_sha256": "0bf56faae66d43990b6e894aa38acb9745f005a25db1bf0424bf874f0391ce01",
+  "parent_wrong_donor_recovery": -1.8444750260503766,
+  "predictions": {
+    "pred_a_exact_score_execution": true,
+    "pred_b_behavioral_identity": true,
+    "pred_c_ood_causal_use": true,
+    "pred_d_compositionality": true,
+    "pred_e_zero_parameter_extraction": true,
+    "pred_f_inherited_specificity": true
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "fits": 0,
+    "forward_calls": 192,
+    "gpu_accessed": true,
+    "gradients": 0,
+    "learned_parameters": 0,
+    "model_loaded": true,
+    "new_text": 0,
+    "ood_documents": 192,
+    "parameter_updates": 0,
+    "queue_touched": true,
+    "schema": "equality_l5h5_bilinear_score_node_code_ood_v2_plan",
+    "tokens_per_document": 256
+  },
+  "reports": {
+    "extracted_donor": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.002398641547188163,
+        "native_effect_sum_nat": -48.48896789550781,
+        "recovery": 2.2869536307344798,
+        "tokens": 26016
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.027829580008983612,
+        "native_effect_sum_nat": 700.2482299804688,
+        "recovery": 0.8268818073111106,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": -0.006068028975278139,
+        "native_effect_sum_nat": 319.3406982421875,
+        "recovery": 1.1586456662152207,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": -0.015292868949472904,
+        "native_effect_sum_nat": 108.54377746582031,
+        "recovery": 1.9146662168193687,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.029054151847958565,
+        "native_effect_sum_nat": 489.4512634277344,
+        "recovery": 0.851657643600126,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.0020228931680321693,
+        "native_effect_sum_nat": 808.7919921875,
+        "recovery": 0.9728677630967287,
+        "tokens": 10848
+      },
+      "halves": [
+        {
+          "native_effect_sum_nat": 380.5408020019531,
+          "recovery": 0.9988341209445946
+        },
+        {
+          "native_effect_sum_nat": 428.2511901855469,
+          "recovery": 0.949794180618666
+        }
+      ]
+    },
+    "factor_donor": {
+      "all_noncopy": {
+        "arm_minus_native_mean_nat": 0.002398641547188163,
+        "native_effect_sum_nat": -48.48896789550781,
+        "recovery": 2.2869536307344798,
+        "tokens": 26016
+      },
+      "copy_far": {
+        "arm_minus_native_mean_nat": 0.027829580008983612,
+        "native_effect_sum_nat": 700.2482299804688,
+        "recovery": 0.8268818073111106,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "arm_minus_native_mean_nat": -0.006068028975278139,
+        "native_effect_sum_nat": 319.3406982421875,
+        "recovery": 1.1586456662152207,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "arm_minus_native_mean_nat": -0.015292868949472904,
+        "native_effect_sum_nat": 108.54377746582031,
+        "recovery": 1.9146662168193687,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "arm_minus_native_mean_nat": 0.029054151847958565,
+        "native_effect_sum_nat": 489.4512634277344,
+        "recovery": 0.851657643600126,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "arm_minus_native_mean_nat": 0.0020228931680321693,
+        "native_effect_sum_nat": 808.7919921875,
+        "recovery": 0.9728677630967287,
+        "tokens": 10848
+      },
+      "halves": [
+        {
+          "native_effect_sum_nat": 380.5408020019531,
+          "recovery": 0.9988341209445946
+        },
+        {
+          "native_effect_sum_nat": 428.2511901855469,
+          "recovery": 0.949794180618666
+        }
+      ]
+    }
+  },
+  "runner_sha256": "0b11a251f556cbe406cb388d6ba27e5a7f6239862128ff4ad4e71896d7fc648c",
+  "schema": "equality_l5h5_bilinear_score_node_code_ood_v2_result",
+  "scope": "Zero-parameter extraction of L5H5's causally masked multiplicative score from four post-projection normalized/rotary QK ports, causally reused through the frozen adapter and exact L8H4 node on code OOD; residual-to-QK production remains native.",
+  "seconds": 4.686422405997291,
+  "terminal": "equality_l5h5_bilinear_score_node_extracted_ood"
+}

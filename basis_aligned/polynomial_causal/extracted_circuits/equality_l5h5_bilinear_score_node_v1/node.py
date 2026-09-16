@@ -1,4 +1,4 @@
-"""Parameter-free multiplicative Q/K score node used by bilinear attention."""
+"""Parameter-free causal multiplicative Q/K score node."""
 import torch
 
 
@@ -11,11 +11,15 @@ def dot_score(query: torch.Tensor, key: torch.Tensor) -> torch.Tensor:
 def execute(query1: torch.Tensor, key1: torch.Tensor, query2: torch.Tensor, key2: torch.Tensor) -> torch.Tensor:
     if query2.shape != query1.shape or key2.shape != key1.shape:
         raise ValueError("both Q/K branches must share port shapes")
-    return dot_score(query1, key1) * dot_score(query2, key2)
+    score = dot_score(query1, key1) * dot_score(query2, key2)
+    causal = torch.ones(score.shape[-2:], dtype=torch.bool, device=score.device).tril()
+    return score.masked_fill(~causal, 0)
 
 
 def compose_scores(score1_parts, score2_parts):
     """Expand a product of additive branch scores into pair interactions."""
     if not score1_parts or not score2_parts:
         raise ValueError("composition requires nonempty score-part lists")
-    return sum(left * right for left in score1_parts for right in score2_parts)
+    score = sum(left * right for left in score1_parts for right in score2_parts)
+    causal = torch.ones(score.shape[-2:], dtype=torch.bool, device=score.device).tril()
+    return score.masked_fill(~causal, 0)

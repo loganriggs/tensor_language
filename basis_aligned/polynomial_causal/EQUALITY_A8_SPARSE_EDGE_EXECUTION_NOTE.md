@@ -60,3 +60,17 @@ the target is stable across halves (`.99883/.94979`), and noncopy mean damage is
 `.00240` nat.  The target score cosine on equality edges is `.82849`.  This is
 exported as a one-scalar, zero-new-parameter adapter.  The adapter is a reusable
 graph edge; production of the L5H5 score from residual/QK inputs remains native.
+
+The opaque L5H5 score port is now split into its actual zero-parameter
+multiplicative node: four post-projection, post-RMS, post-rotary ports compute
+`causal_mask(dot(q1,k1)/128 * dot(q2,k2)/128)`.  On all 192 code-OOD documents
+this reconstruction has exactly zero score and donor-logit error relative to
+factor capture, preserves `.9728678` recovery, and expands into the registered
+`2x2` half-coordinate product grid at `1.07e-7` relative error.  The initial V1
+receipt is deliberately retained as a red-team null: it omitted the causal mask,
+reported `1.0932` score error, yet had zero logit error because the erroneous
+future-key entries were later excluded by induction support.  The corrected V2
+therefore converts that apparent negative result into a verified extracted
+node.  The remaining upstream boundary is residual-to-Q/K projection followed
+by normalization/rotation; L8H4 raw-payload production is still a separate
+native port.

@@ -30,10 +30,11 @@ from extracted_circuits.equality_l5h5_bilinear_score_node_v1 import node as scor
 from extracted_circuits.equality_l8h4_reversible_edge_v3 import node as edge_node
 from sparse_path_stability_atlas_v1 import digest
 
-STEM = "EQUALITY_L5H5_BILINEAR_SCORE_NODE_CODE_OOD_V1"
+STEM = "EQUALITY_L5H5_BILINEAR_SCORE_NODE_CODE_OOD_V2"
 BINDING = P / f"{STEM}_BINDING.json"
 OUT = P / f"{STEM}_RESULT.json"
 PARENT = P / "EQUALITY_REUSABLE_SCORE_PORT_CODE_OOD_V1_RESULT.json"
+MASK_AUDIT = P / "EQUALITY_L5H5_BILINEAR_SCORE_NODE_CODE_OOD_V1_RESULT.json"
 ROWS = BQ / ".rowcache_induction_equality_tensor_final_ood_v2/ood_code.pt"
 MANIFEST = PACKAGE / "manifest.json"
 DOCUMENTS = 192
@@ -54,8 +55,11 @@ def load_bound():
     if digest(RUNNER) != binding["runner_sha256"]:
         raise ValueError("runner changed")
     parent = json.loads(PARENT.read_text())
+    audit = json.loads(MASK_AUDIT.read_text())
     if parent["terminal"] != "equality_l5h5_score_reusable_ood_port" or not all(parent["predictions"].values()):
         raise ValueError("reusable-score authority changed")
+    if audit["terminal"] != "valid_equality_l5h5_bilinear_score_node_null" or audit["maximum_errors"]["score"] < 1 or audit["maximum_errors"]["logits"] != 0 or not audit["predictions"]["pred_d_compositionality"]:
+        raise ValueError("causal-mask audit authority changed")
     manifest = json.loads(MANIFEST.read_text())
     if manifest.get("learned_parameters") != 0 or len(manifest.get("ports", [])) != 5:
         raise ValueError("score-node manifest changed")
@@ -63,12 +67,12 @@ def load_bound():
     if payload.get("role") != "ood_code" or list(payload["rows"].shape) != [DOCUMENTS, 257]:
         raise ValueError("code-OOD row authority changed")
     _, _, _, _, scales, _ = action_parent.validate_inputs()
-    return payload["rows"], scales, parent, manifest
+    return payload["rows"], scales, parent, manifest, audit
 
 
 def plan():
-    rows, _, _, _ = load_bound()
-    return {"schema": "equality_l5h5_bilinear_score_node_code_ood_v1_plan", "ood_documents": len(rows), "tokens_per_document": int(rows.shape[1] - 1), "forward_calls": math.ceil(len(rows) / action_parent.BATCH) * 4, "fits": 0, "new_text": 0, "learned_parameters": 0, "model_loaded": False, "gpu_accessed": False, "queue_touched": False}
+    rows, _, _, _, _ = load_bound()
+    return {"schema": "equality_l5h5_bilinear_score_node_code_ood_v2_plan", "ood_documents": len(rows), "tokens_per_document": int(rows.shape[1] - 1), "forward_calls": math.ceil(len(rows) / action_parent.BATCH) * 4, "fits": 0, "new_text": 0, "learned_parameters": 0, "model_loaded": False, "gpu_accessed": False, "queue_touched": False}
 
 
 def qk_ports(state, attention, head):
@@ -156,7 +160,7 @@ def main():
     signal.alarm(180)
     torch.set_num_threads(2)
     torch.backends.cuda.matmul.allow_tf32 = False
-    rows, scales, parent, manifest = load_bound()
+    rows, scales, parent, manifest, audit = load_bound()
     masks = diagnosis.build_masks(rows)
     valid = torch.zeros_like(masks["copy_positive"]); valid[:, 64:] = True
     masks["all_noncopy"] = valid & ~masks["copy_positive"]
@@ -195,7 +199,7 @@ def main():
     pred_f = bool(parent["predictions"]["pred_d_donor_specificity"] and parent["predictions"]["pred_f_reusable_zero_parameter_port"])
     predictions = {"pred_a_exact_score_execution": pred_a, "pred_b_behavioral_identity": pred_b, "pred_c_ood_causal_use": pred_c, "pred_d_compositionality": pred_d, "pred_e_zero_parameter_extraction": pred_e, "pred_f_inherited_specificity": pred_f}
     terminal = "equality_l5h5_bilinear_score_node_extracted_ood" if all(predictions.values()) else "valid_equality_l5h5_bilinear_score_node_null" if pred_d else "invalid"
-    result = {"schema": "equality_l5h5_bilinear_score_node_code_ood_v1_result", "terminal": terminal, "predictions": predictions, "reports": reports, "maximum_errors": maxima, "minimum_extracted_term_rms": minimum_term_rms, "parent_wrong_donor_recovery": parent["reports"]["exact_control"]["copy_positive"]["recovery"], "manifest_sha256": digest(MANIFEST), "package_source_sha256": digest(PACKAGE / "node.py"), "runner_sha256": digest(RUNNER), "binding_sha256": digest(BINDING), "checkpoint_weights_sha256": checkpoint.weights_sha256, "seconds": time.perf_counter() - started, "price": planned | {"checkpoint_loads": 1, "fits": 0, "gradients": 0, "parameter_updates": 0, "model_loaded": True, "gpu_accessed": True, "queue_touched": True}, "created_utc": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"), "scope": "Zero-parameter extraction of L5H5's multiplicative score from four post-projection normalized/rotary QK ports, causally reused through the frozen adapter and exact L8H4 node on code OOD; residual-to-QK production remains native."}
+    result = {"schema": "equality_l5h5_bilinear_score_node_code_ood_v2_result", "terminal": terminal, "predictions": predictions, "reports": reports, "maximum_errors": maxima, "minimum_extracted_term_rms": minimum_term_rms, "causal_mask_redteam": {"v1_terminal": audit["terminal"], "v1_unmasked_score_error": audit["maximum_errors"]["score"], "v1_logit_error": audit["maximum_errors"]["logits"], "diagnosis": "V1 omitted the causal triangular mask from its score node; unsupported future-key entries inflated score error while leaving the masked intervention exactly unchanged."}, "parent_wrong_donor_recovery": parent["reports"]["exact_control"]["copy_positive"]["recovery"], "manifest_sha256": digest(MANIFEST), "package_source_sha256": digest(PACKAGE / "node.py"), "runner_sha256": digest(RUNNER), "binding_sha256": digest(BINDING), "checkpoint_weights_sha256": checkpoint.weights_sha256, "seconds": time.perf_counter() - started, "price": planned | {"checkpoint_loads": 1, "fits": 0, "gradients": 0, "parameter_updates": 0, "model_loaded": True, "gpu_accessed": True, "queue_touched": True}, "created_utc": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"), "scope": "Zero-parameter extraction of L5H5's causally masked multiplicative score from four post-projection normalized/rotary QK ports, causally reused through the frozen adapter and exact L8H4 node on code OOD; residual-to-QK production remains native."}
     atomic_json(OUT, result)
     print(json.dumps({"terminal": terminal, "predictions": predictions, "factor_recovery": factor_recovery, "extracted_recovery": extracted_recovery, "maximum_errors": maxima, "seconds": result["seconds"]}, indent=2), flush=True)
 

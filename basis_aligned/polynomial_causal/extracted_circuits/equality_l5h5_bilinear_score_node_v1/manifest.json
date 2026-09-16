@@ -1,8 +1,8 @@
 {
   "schema": "extracted_bilinear_attention_score_node_v1",
   "name": "equality_l5h5_bilinear_score_node_v1",
-  "operation": "dot(q1,k1)/d * dot(q2,k2)/d",
+  "operation": "causal_mask(dot(q1,k1)/d * dot(q2,k2)/d)",
   "ports": ["rotary_normalized_q1", "rotary_normalized_k1", "rotary_normalized_q2", "rotary_normalized_k2", "score"],
   "learned_parameters": 0,
-  "scope": "Exact L5H5 score executor from post-projection, post-RMS, post-rotary Q/K ports; residual-to-Q/K projections remain native and external."
+  "scope": "Exact causally masked L5H5 score executor from post-projection, post-RMS, post-rotary Q/K ports; residual-to-Q/K projections remain native and external."
 }
