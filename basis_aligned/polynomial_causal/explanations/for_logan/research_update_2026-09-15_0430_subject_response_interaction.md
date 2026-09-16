@@ -290,9 +290,50 @@ $$
 It has one native-state port, one categorical edit-direction port, two fixed
 prototype vectors, one native weight axis, four scalar coefficients, and one
 writer. It now has prospective OOD native-effect prediction, standalone execution
-at the declared boundary, selective removal, and the previously established
-two-site composition of its rank-one write. Native generation of the categorical
-direction and compression of the dense prototype vectors remain open.
+at the declared boundary, and selective removal. The fixed rank-one write had
+previously composed at two sites; the next assay tested whether the complete
+state-dependent generator also transfers and composes there.
+
+## Complete-generator two-site assay
+
+The complete frozen graph was executed independently at subject positions 5 and
+14 on the already-open two-clause composition panel. Each site used its own native
+MLP8 state and independently reconstructed L11H3 response coordinates; no donor
+state, coefficient fit, gradient, or update was used. Head reconstruction is valid
+at both positions (`1.34e-5` maximum error), state closure and zero-write replay
+are exact, all four native capability cells are `100%`, and the registered count
+is exactly seven forwards over 112 sequences.
+
+Conditional on the generated writes, downstream composition is nearly exact.
+The sum of separate effects predicts the joint effect with cosine `.99999991`,
+relative $L_2$ error `.000431`, sign agreement `1.0`, and norm ratio `.999920`.
+Site-relative errors are `0` and `.000469`; the later edit's effect on the earlier
+answer is exactly zero. This is much stronger than the registered `.25` error bar
+and rules out a downstream two-writer interaction as the limiting issue on this
+panel.
+
+The registered overall result nevertheless remains a valid null. The complete
+generator's single-site effects move toward the requested opposite-number answer
+on only `.625` and `.6875` of rows, below `.75`; site 1 effect RMS is `.00958`,
+just below `.01`. The scalar coefficients are the failure: against the independently
+effective fixed coefficient `-31.15`, their relative errors are `.960` and `.908`,
+and positive coefficients produce the wrong-direction effect as expected from the
+writer's local slope.
+
+A separately labeled post-hoc audit red-teamed this null for implementation error.
+It reproduces every coefficient exactly and again replays the native head within
+`1.34e-5`. Instead, it finds a sharp open-slot distribution shift. On the fresh
+single-clause cardinality-four reference, the response coordinate $s$ ranges from
+`-61.65` to `-11.06` with mean `-38.63`. At the two-clause sites its means are
+`.65` and `-.31`, and all 32 values lie outside that reference range. Consequently
+`93.75%` and `87.5%` of generated coefficients lie outside the fresh reference
+range and collapse toward zero. This is the DCT briefing's context-slot caveat in
+concrete form: the writer is reusable and additive, but the frozen polynomial gate
+does not transport across this topology. The next useful compression step is to
+derive or normalize the response slot across positions/topologies, with position
+and native-context ports charged explicitly; rerunning composition with the same
+gate would not address the bottleneck. Native generation of the categorical
+direction and compression of the dense prototype vectors also remain open.
 
 ## Regional head9.8 interaction-path fold
 
@@ -748,6 +789,9 @@ recursive effects were summed only for evaluation; no coefficients were fit.
 - [V1 removal null](../../../bilinear_quotient/circuits/fast_screens/subject_number_response_weighted_removal_v1_result.json)
 - [Removal control correction](../../SUBJECT_NUMBER_RESPONSE_WEIGHTED_REMOVAL_V2_CORRECTION.md)
 - [Selective-removal result](../../../bilinear_quotient/circuits/fast_screens/subject_number_response_weighted_removal_v2_result.json)
+- [Complete-generator two-site preregistration](../../SUBJECT_NUMBER_RESPONSE_WEIGHTED_TWO_SITE_COMPOSITION_V1_PREREGISTRATION.md)
+- [Complete-generator two-site result](../../SUBJECT_NUMBER_RESPONSE_WEIGHTED_TWO_SITE_COMPOSITION_V1_RESULT.json)
+- [Two-site open-slot post-hoc audit](../../SUBJECT_NUMBER_RESPONSE_WEIGHTED_TWO_SITE_COMPOSITION_V1_POSTHOC_AUDIT.json)
 - [Computation-path registry](../../../bilinear_quotient/COMPUTATION_PATH_REGISTRY.md)
 - [L11H3 module dossier](../../../bilinear_quotient/circuits/MODULE_DOSSIERS.md)
 - [Carry-source census result](../../../bilinear_quotient/circuits/fast_screens/setting2_regional_head9_8_qk1_carry_source_fold_v1_result.json)

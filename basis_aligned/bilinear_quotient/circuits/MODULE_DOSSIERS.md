@@ -111,6 +111,25 @@ response through H -> [1,z,s,zs] beta -> alpha times native L11H3 axis`. This is
 standalone one-writer graph at its declared boundary. The direction selector and
 dense prototype storage remain external ports/costs rather than hidden claims.
 
+The complete generator has now been tested at both subject sites of the opened
+two-clause composition panel. Instrumentation is valid (`1.34e-5` maximum native
+head replay error, exact zero-write replay, seven forwards/112 sequences). Given
+the two independently generated writes, behavioral composition is essentially
+exact: overall cosine `.99999991`, relative error `.000431`, sign agreement `1.0`,
+and norm ratio `.999920`; the later site has zero effect on the earlier answer.
+
+Do not promote this to complete-generator OOD composition. The registered result
+is a null because the generated single-site writes move in the requested direction
+on only `.625/.6875` of rows and site 1 RMS is `.00958` against a `.01` floor. A
+post-hoc implementation audit exactly reproduces the coefficients and localizes
+the failure to the response open slot: all 32 two-clause $s$ values lie outside
+the fresh single-clause cardinality-four range `[-61.65,-11.06]`, clustering near
+zero instead. The scalar gate therefore emits coefficients about `.91-.96` relative
+error from the effective fixed coefficient. The writer node composes; its current
+state-to-coefficient gate is not topology-invariant. Per the DCT briefing, future
+work should keep context/position slots open or normalize/derive them rather than
+average them away.
+
 ## `module.attention.17.head2`
 
 Aliases: head17.2, L17H2, regional late attention head. Related folded route:
