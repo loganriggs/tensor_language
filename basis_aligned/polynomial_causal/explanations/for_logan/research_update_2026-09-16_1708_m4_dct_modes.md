@@ -356,3 +356,25 @@ distinction. The next representation should expose a derived context/family
 gate and fit or select factors conditionally, then freeze that rule before
 testing the exact interaction-removal vector. A single global CP node is not
 yet warranted.
+
+## Query/key typing does not explain the context effect
+
+We tested the most natural reusable gate before fitting anything: whether the
+MLP4 state is incident to the frozen equality support as a query or key. On
+natural text, rank-256 lower bounds are `.3928` for queries and `.4081` for
+keys, versus `.4131` off support and `.4234` over all positions. This is far
+short of the frozen 20% improvement gate and provides almost no specificity.
+
+The corresponding code bounds are `.1202/.1374`, so natural/code gaps remain
+`.2726/.2708`; typed transfer fails badly. Counts are large (19,797 natural and
+29,224 code positions for each role), all moment/spectral instruments pass,
+and natural Gaussian errors are `.177/.167`. The null is not caused by an empty
+or numerically invalid cell.
+
+Therefore the code panel's low effective rank is domain/distribution-specific,
+not explained by the reusable equality query/key role. A code-friendly gated
+compressor would not establish OOD prediction. Keep the exact normalized-input
+executor authoritative. Any further conditional decomposition must derive a
+finer weight/state polynomial gate and freeze it across genuinely independent
+environments; do not use domain identity, prompt family, or equality support as
+an oracle gate.

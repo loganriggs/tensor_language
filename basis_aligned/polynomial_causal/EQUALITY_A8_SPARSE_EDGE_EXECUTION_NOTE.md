@@ -218,3 +218,9 @@ ranks 235 and 20; Gaussian energy error is `.221/.050`. The frozen panel-
 similarity gate fails because code is much more compressible, so do not average
 the moments or fit one unconditional node. Derive an explicit context/family
 gate, freeze it, and validate its removal vector prospectively.
+
+The obvious query/key gate is closed. Natural rank-256 bounds remain
+`.393/.408` at equality query/key positions and `.413` off support, while code
+is `.120/.137`; the role does not transfer and barely localizes the natural
+metric. Do not promote a domain- or support-gated compressor. The exact
+normalized-input graph remains the reusable boundary.
