@@ -2,14 +2,25 @@
 
 ## Result
 
+**Correction (2026-09-16 21:05):** a later authority audit found that the
+attractor expression indexed `(singular, plural, stratum)` as
+`2-number_index`. Singular-subject rows therefore used the token `regular` or
+`irregular`, and plural-subject rows used a plural noun. The causal effects
+below remain measurements of the actual frozen prompts, but the panels did not
+test the claimed opposite-number noun attractor. The corrected 128-row scalar
+replication is reported in
+`research_update_2026-09-16_2105_subject_context_mobius.md`; behavioral removal
+and mediation under corrected attractors remain to be replicated.
+
 The frozen grammatical-number coordinate in the checkpoint token embeddings is
 not merely decodable. Removing that coordinate at a fresh subject token
 selectively damages the model's number-agreement margin.
 
 The new authority contains 16 noun pairs absent from both decoder panels: eight
 irregular and eight regular. Both forms occur in two new prepositional templates
-with an opposite-number attractor, for 64 fixed prompts. Native agreement and
-the frozen decoder were correct on all 64 rows.
+with a fixed nominal attractor slot, for 64 prompts. Because of the indexing bug
+described above, that slot was not an opposite-number noun. Native agreement and
+the frozen decoder were nevertheless correct on all 64 actual rows.
 
 For normalized embedding `x`, unit decoder direction `a`, and centered threshold
 `t`, the intervention replaces `x` with the same-norm point in the plane of `a`
