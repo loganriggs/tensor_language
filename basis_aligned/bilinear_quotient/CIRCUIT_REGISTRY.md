@@ -60,6 +60,7 @@ facts must be checked in the prior-result gate even when the exact experiment pr
   [cross-specific collateral attribution](circuits/fast_screens/setting2_regional_instruction_cross_collateral_attribution_v1_result.json),
   [additive routing/value collateral split](circuits/fast_screens/setting2_regional_additive_branch_collateral_v1_result.json),
   [QK1 ordered-block collateral null](circuits/fast_screens/setting2_regional_qk1_block_collateral_v1_result.json),
+  [attention17 head-response fold](circuits/fast_screens/setting2_regional_attention17_head_response_fold_v1_result.json),
   [corpus transfer](../polynomial_causal/ODD_ATTENTION8H2_CORPUS_TRANSFER_V1_RESULT.json),
   and [corpus removal](../polynomial_causal/ODD_ATTENTION8H2_CORPUS_MIDPOINT_REMOVAL_V1_RESULT.json).
 

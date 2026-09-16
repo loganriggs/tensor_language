@@ -89,10 +89,15 @@ The leading overall term is earlier residual × MLP16 (`.6184`), so future head1
 work should remain a secondary branch until a selective intervention distinguishes it.
 
 The later QK1 routing-removal census finds a full attention17 induced response of
-`.24952` of the final pre-RMS numerator-change norm, aligned at `.24518`. That
-receipt does not split attention17 by head, so it cannot assign this response to
-head17.2 despite the older regional association. The next weight-folding assay
-must compare all nine heads and preserve this as an open attribution.
+`.24952` of the final pre-RMS numerator-change norm, aligned at `.24518`. The
+frozen nine-head fold now localizes almost all of that induced response to
+head17.2: response-norm ratio `1.05565`, cosine `.99901`, and family ratios
+`1.07240/1.03835`. The best three heads plus the explicit BF16 projection
+residual replay attention17 within `.02198`; exact response partition error is
+$9.42\times10^{-10}$. All preregistered gates pass. This is response attribution
+on an opened panel, not a selective head-level causal intervention. See the
+[result](fast_screens/setting2_regional_attention17_head_response_fold_v1_result.json)
+and [preregistration](../../polynomial_causal/SETTING2_REGIONAL_ATTENTION17_HEAD_RESPONSE_FOLD_V1_PREREGISTRATION.md).
 
 ## `module.attention.9`
 
