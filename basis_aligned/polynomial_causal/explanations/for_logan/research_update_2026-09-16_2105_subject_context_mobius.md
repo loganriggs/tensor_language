@@ -353,6 +353,16 @@ pair-interaction edges, selected on one panel and frozen across the three OOD
 panels. This meets the briefing's `<10%` component-relative composition target
 without disguising downstream nonadditivity as an additive main effect.
 
+Opening `upstream_0_7` into embedding recurrence, layer 0–3 writes, and layer
+4–7 writes produced a valid exact five-port decomposition but a registered
+sparsity near-miss. The instrument had zero aggregation, native-replay, and
+Möbius-closure error. Eight discovery-selected main/pair terms reached relative
+L2 `0.08638` on discovery, `0.08213` on context OOD, and `0.095995` on joint
+OOD, but lexical OOD was `0.10153`, just above the frozen `0.10` bar. Six terms
+were clearly insufficient (`0.139–0.287`). Therefore the eight-term expanded
+graph is not accepted; the result remains a valid decomposition and motivates
+a prospective nine/ten-term extension rather than post-hoc rounding.
+
 ## What this changes in the sparse graph
 
 The previous graph boundary was
@@ -387,4 +397,5 @@ not satisfy reusability.
 - `SUBJECT_NUMBER_L11H3_LATE_WRITER_SPECIFICITY_AUDIT_V2_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_THREE_PORT_BEHAVIOR_V1_RESULT.json`
 - `SUBJECT_NUMBER_L11H3_BEHAVIORAL_MOBIUS_V1_RESULT.json`
+- `SUBJECT_NUMBER_L11H3_EXPANDED_BEHAVIORAL_GRAPH_V1_RESULT.json`
 - their preregistrations, bindings, frozen authority, and managed runners
