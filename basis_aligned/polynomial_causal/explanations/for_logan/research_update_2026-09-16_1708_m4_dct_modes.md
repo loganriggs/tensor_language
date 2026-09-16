@@ -306,3 +306,28 @@ selective causal circuit.
 For M4 product compression, use the already verified L5H5 equality reader and
 exact removal vector as the metric. Do not substitute generic top DCT factors,
 prompt-averaged factors, or local reconstruction error for those authorities.
+
+## Reader-weighted CP-rank obstruction
+
+We tested the obvious next compression before fitting it. The exact retained
+MLP4 tensor was weighted by the established L5 Q/K reader singular values, then
+both 1,152-dimensional input-mode unfolding spectra were computed implicitly.
+This gives a rigorous lower bound: every CP-rank-`r` bilinear executor has at
+least the best rank-`r` unfolding error in this reader-weighted Frobenius metric.
+
+The tensor is broad. Relative-error lower bounds are `.9271` at rank 64,
+`.7588` at rank 256, `.5621` at rank 512, and `.1804` even at rank 1,024. The
+two effective unfolding ranks are about 970. The result is not a numerical
+artifact: eight direct-versus-Gram random contraction errors are
+`1.60e-6--1.67e-6`, the two total energies agree to `1.27e-8`, both Grams are
+numerically PSD, and normalized output-reader coordinates are orthogonal to
+`2.38e-7` maximum off-diagonal error.
+
+This closes a fixed generic rank-64/256 CP replacement under the stated metric;
+attempting to optimize one and then behavior-test it would be wasted search.
+It does not close the briefing's stronger idea. The Frobenius metric corresponds
+to isotropic independent input slots, while the live model occupies a structured
+context distribution and uses the same state in both slots. The next useful
+test is empirical/Gaussian activation-moment weighting, kept per context or
+family rather than averaged. Only if that metric exposes a compact subspace
+should a candidate be frozen and tested against the exact removal vector.

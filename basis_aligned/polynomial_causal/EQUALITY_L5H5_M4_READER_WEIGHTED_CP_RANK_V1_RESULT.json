@@ -1,0 +1,156 @@
+{
+  "binding_sha256": "3f58a00ed6f79232797cd4eb15e874b867711b002210d4d7c7cea4fa489c769d",
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "cp_relative_error_lower_bound": {
+    "1024": 0.1803921422089395,
+    "1152": 0.0,
+    "128": 0.8675317922890468,
+    "16": 0.977112469636799,
+    "256": 0.7588316301712472,
+    "32": 0.9594599782317765,
+    "512": 0.5620532171761448,
+    "64": 0.9270625012132043
+  },
+  "created_utc": "2026-09-16T18:41:52.419241Z",
+  "instrument": {
+    "left_random_contraction_relative_errors": [
+      1.6476482485367421e-06,
+      1.6043622307715662e-06,
+      1.6334276737525818e-06,
+      1.6656074103945968e-06
+    ],
+    "right_random_contraction_relative_errors": [
+      1.6282538974598655e-06,
+      1.6390339667099712e-06,
+      1.6429141997481485e-06,
+      1.6184574360284745e-06
+    ],
+    "total_energy_relative_difference": 1.2708153476155847e-08
+  },
+  "left_input_unfolding": {
+    "curve": {
+      "1024": {
+        "cp_relative_error_lower_bound": 0.1800677906235842,
+        "energy_retained": 0.967575590779941
+      },
+      "1152": {
+        "cp_relative_error_lower_bound": 0.0,
+        "energy_retained": 1.000000000000001
+      },
+      "128": {
+        "cp_relative_error_lower_bound": 0.8673463408347756,
+        "energy_retained": 0.24771032504052531
+      },
+      "16": {
+        "cp_relative_error_lower_bound": 0.977112469636799,
+        "energy_retained": 0.04525122168027548
+      },
+      "256": {
+        "cp_relative_error_lower_bound": 0.7586892282598745,
+        "energy_retained": 0.42439065492243616
+      },
+      "32": {
+        "cp_relative_error_lower_bound": 0.9594525003741261,
+        "energy_retained": 0.07945089952583757
+      },
+      "512": {
+        "cp_relative_error_lower_bound": 0.5618788340123337,
+        "energy_retained": 0.6842921758889403
+      },
+      "64": {
+        "cp_relative_error_lower_bound": 0.9270075290167064,
+        "energy_retained": 0.1406570411463404
+      }
+    },
+    "effective_rank": 969.9526296056885,
+    "maximum_eigenvalue": 21056507.38795387,
+    "minimum_eigenvalue": 54670.29058138912,
+    "negative_to_maximum_ratio": 0.0,
+    "total_energy": 4170550715.249999
+  },
+  "predictions": {
+    "pred_a_implicit_gram_instrument": true,
+    "pred_b_rank64_cp_obstruction": true,
+    "pred_c_rank256_cp_obstruction": true,
+    "pred_d_rank512_cp_obstruction": true,
+    "pred_e_reader_coordinate_orthogonality": true
+  },
+  "price": {
+    "candidate_cp_ranks": [
+      16,
+      32,
+      64,
+      128,
+      256,
+      512,
+      1024,
+      1152
+    ],
+    "checkpoint_loads": 1,
+    "fits": 0,
+    "gpu_accessed": true,
+    "gradients": 0,
+    "input_width": 1152,
+    "model_forwards": 0,
+    "model_loaded": true,
+    "native_product_width": 4608,
+    "parameter_updates": 0,
+    "prompts": 0,
+    "queue_touched": true,
+    "schema": "equality_l5h5_m4_reader_weighted_cp_rank_v1_plan",
+    "selected_output_rank": 256
+  },
+  "reader": {
+    "contracted_operator_reconstruction_relative_l2": 2.0559203760825418e-13,
+    "maximum_normalized_response_off_diagonal": 2.384185791015625e-07,
+    "maximum_response_norm": 272.8418884277344,
+    "minimum_response_norm": 35.982879638671875,
+    "selected_output_rank": 256
+  },
+  "right_input_unfolding": {
+    "curve": {
+      "1024": {
+        "cp_relative_error_lower_bound": 0.1803921422089395,
+        "energy_retained": 0.9674586750292697
+      },
+      "1152": {
+        "cp_relative_error_lower_bound": 0.0,
+        "energy_retained": 1.0000000000000002
+      },
+      "128": {
+        "cp_relative_error_lower_bound": 0.8675317922890468,
+        "energy_retained": 0.24738858936775435
+      },
+      "16": {
+        "cp_relative_error_lower_bound": 0.977072485125031,
+        "energy_retained": 0.045329358811596165
+      },
+      "256": {
+        "cp_relative_error_lower_bound": 0.7588316301712472,
+        "energy_retained": 0.42417455705164747
+      },
+      "32": {
+        "cp_relative_error_lower_bound": 0.9594599782317765,
+        "energy_retained": 0.07943655017147895
+      },
+      "512": {
+        "cp_relative_error_lower_bound": 0.5620532171761448,
+        "energy_retained": 0.6840961810619455
+      },
+      "64": {
+        "cp_relative_error_lower_bound": 0.9270625012132043,
+        "energy_retained": 0.14055511884431757
+      }
+    },
+    "effective_rank": 970.2924579762878,
+    "maximum_eigenvalue": 21260938.470590867,
+    "minimum_eigenvalue": 58342.58929396685,
+    "negative_to_maximum_ratio": 0.0,
+    "total_energy": 4170550662.2500005
+  },
+  "runner_sha256": "232ac3993a84d86ee8edd58c7b6b367b04a7ffb35ed4229285df9c9930652a22",
+  "schema": "equality_l5h5_m4_reader_weighted_cp_rank_v1_result",
+  "scope": "Weight-only CP-rank lower bound for the retained rank-256 MLP4 tensor in the established L5 Q/K reader-weighted Frobenius metric. This is not an activation-moment, context-gated, or behavioral impossibility theorem.",
+  "seconds": 0.581133036997926,
+  "terminal": "equality_l5h5_m4_reader_weighted_cp_rank_obstruction"
+}

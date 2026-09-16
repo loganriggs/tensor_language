@@ -203,3 +203,11 @@ and the same number of residual-corner values bitwise exactly, with zero change
 to any downstream graph or behavioral statistic. This removes the product
 oracle but not its cost: all 4,608 products are still executed. Causal product
 compression, not further interface wrapping, is now the live problem.
+
+A weight-only reader-conditioned obstruction rules out the simplest such
+compression. Any fixed CP-rank-64/256/512 executor has at least
+`.927/.759/.562` relative error in the established L5-reader Frobenius metric;
+even rank 1,024 is bounded below by `.180`. The instrument closes to `1.67e-6`
+on direct contractions. Therefore do not fit another generic low-rank CP node.
+Move to activation-moment/context-gated metrics and require fresh exact-removal
+validation before promotion.
