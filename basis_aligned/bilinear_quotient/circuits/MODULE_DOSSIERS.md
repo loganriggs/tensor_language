@@ -680,6 +680,16 @@ algebra closes to the native joint corner, demonstrating that those two checks
 are blind to an incorrect interaction-removal counterfactual.  All four child
 ports are jointly necessary in this representation; the next decomposition
 target is their exact Boolean/Möbius interaction lattice.
+
+That lattice is now exact and behaviorally audited.  All 15 nonconstant terms
+reconstruct the native child score at zero measured error.  Cumulative order
+three has only `.144/.132` natural/code score error, but still incurs `.863`
+overall natural removal-vector error and `.937` in its worst cell.  The omitted
+four-way term has small norm and near-zero global cosine, while the full
+order-four control is behaviorally exact.  Thus neither score norm nor
+polynomial order identifies removable edges.  The compact exact handoff is the
+algebraic two-factor form: first-QK correction, second-QK correction, and their
+cross-product as three macro-nodes.
 [three-edge factorial](../../polynomial_causal/EQUALITY_PRE_MLP9_THREE_EDGE_FACTORIAL_DISCOVERY_V1_RESULT.json),
 [code-OOD calibration null](../../polynomial_causal/EQUALITY_A8_EDGE_CODE_OOD_CONFIRMATION_V1_RESULT.json),
 [projected-payload extraction null](../../polynomial_causal/EQUALITY_L8H4_EXTRACTED_NODE_CODE_OOD_V1_RESULT.json),
@@ -707,6 +717,7 @@ target is their exact Boolean/Möbius interaction lattice.
 [one-map score-space correction](../../polynomial_causal/EQUALITY_L5H5_M4_SHARED_PROJECTION_CORRECTION_V1_RESULT.json),
 [corrected shared-kernel behavioral null](../../polynomial_causal/EQUALITY_L5H5_M4_SHARED_KERNEL_BEHAVIOR_V1_RESULT.json),
 [behavior-selected native-projection null](../../polynomial_causal/EQUALITY_L5H5_M4_BEHAVIORAL_PROJECTION_SELECTION_V1_RESULT.json),
+[four-port Möbius low-order null](../../polynomial_causal/EQUALITY_L5H5_M4_PORT_MOBIUS_ORDER_V1_RESULT.json),
 [red-team note](../../polynomial_causal/EQUALITY_A8_SPARSE_EDGE_EXECUTION_NOTE.md).
 
 The retained three-block score also has a smaller exact executor:

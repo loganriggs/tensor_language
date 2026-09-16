@@ -1,0 +1,594 @@
+{
+  "binding_sha256": "5f2bf3c5b657a97921e4f0128a8daf03369acc45a7308431c9d96f5f4ced3770",
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "code": {
+    "interaction_removal_noncopy_mean_nat": -2.0743460481753573e-05,
+    "report": {
+      "copy_far": {
+        "removal_cosine": 0.5940471369620801,
+        "removal_relative_l2": 0.8996068621778418,
+        "removal_relative_to_joint": 0.3197502086574383,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "removal_cosine": 0.6562947325727881,
+        "removal_relative_l2": 0.8329892476083418,
+        "removal_relative_to_joint": 0.31859916219637496,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "removal_cosine": 0.7096908195011691,
+        "removal_relative_l2": 0.7657553519105628,
+        "removal_relative_to_joint": 0.2826950877963712,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "removal_cosine": 0.6126603251971504,
+        "removal_relative_l2": 0.8731171705865809,
+        "removal_relative_to_joint": 0.2652162490726969,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "removal_cosine": 0.6446932052222876,
+        "removal_relative_l2": 0.8440101262516507,
+        "removal_relative_to_joint": 0.30169691627105183,
+        "tokens": 10848
+      },
+      "half_0": {
+        "removal_cosine": 0.656700743397908,
+        "removal_relative_l2": 0.8250970646839848,
+        "removal_relative_to_joint": 0.28941056101163476,
+        "tokens": 5598
+      },
+      "half_1": {
+        "removal_cosine": 0.6325063193677652,
+        "removal_relative_l2": 0.8633276527368752,
+        "removal_relative_to_joint": 0.3156809240317397,
+        "tokens": 5250
+      }
+    }
+  },
+  "created_utc": "2026-09-16T17:48:51.400813Z",
+  "instrument": {
+    "contracted_operator_reconstruction_relative_l2": 2.0559203760825418e-13,
+    "minimum_donor_term_rms": 4.699911594390869,
+    "parent_best_proper_subset": [
+      "Q1",
+      "Q2"
+    ]
+  },
+  "natural_frontier": {
+    "0": {
+      "copy_far": {
+        "removal_cosine": 0.5857760396326288,
+        "removal_relative_l2": 0.903869120248196,
+        "removal_relative_to_joint": 0.5975356838024094,
+        "tokens": 2365
+      },
+      "copy_multiple_predecessors": {
+        "removal_cosine": 0.5963478973559755,
+        "removal_relative_l2": 0.921390149512214,
+        "removal_relative_to_joint": 0.7087738300517404,
+        "tokens": 1718
+      },
+      "copy_near": {
+        "removal_cosine": 0.6006902792353134,
+        "removal_relative_l2": 0.8906150039788476,
+        "removal_relative_to_joint": 0.6155846040560634,
+        "tokens": 719
+      },
+      "copy_one_predecessor": {
+        "removal_cosine": 0.5827543880099118,
+        "removal_relative_l2": 0.8767693484467717,
+        "removal_relative_to_joint": 0.5034385262247295,
+        "tokens": 1366
+      },
+      "copy_positive": {
+        "removal_cosine": 0.5890960233296868,
+        "removal_relative_l2": 0.9009498189025029,
+        "removal_relative_to_joint": 0.6014414959056572,
+        "tokens": 3084
+      },
+      "half_0": {
+        "removal_cosine": 0.5725817714995977,
+        "removal_relative_l2": 0.9315202745319501,
+        "removal_relative_to_joint": 0.6409604037645287,
+        "tokens": 1527
+      },
+      "half_1": {
+        "removal_cosine": 0.6100305490871305,
+        "removal_relative_l2": 0.8641816147418091,
+        "removal_relative_to_joint": 0.5592990656066249,
+        "tokens": 1557
+      }
+    },
+    "1": {
+      "copy_far": {
+        "removal_cosine": 0.6131891659965039,
+        "removal_relative_l2": 0.8606321719900517,
+        "removal_relative_to_joint": 0.5786682244362537,
+        "tokens": 2365
+      },
+      "copy_multiple_predecessors": {
+        "removal_cosine": 0.5738255086150776,
+        "removal_relative_l2": 0.9192567697667341,
+        "removal_relative_to_joint": 0.6700211981799137,
+        "tokens": 1718
+      },
+      "copy_near": {
+        "removal_cosine": 0.576400845857083,
+        "removal_relative_l2": 0.9380837871442597,
+        "removal_relative_to_joint": 0.642823674967567,
+        "tokens": 719
+      },
+      "copy_one_predecessor": {
+        "removal_cosine": 0.6407769704132789,
+        "removal_relative_l2": 0.8287024520279507,
+        "removal_relative_to_joint": 0.5260132191362,
+        "tokens": 1366
+      },
+      "copy_positive": {
+        "removal_cosine": 0.6041303500622125,
+        "removal_relative_l2": 0.8783786814490153,
+        "removal_relative_to_joint": 0.5929735086269512,
+        "tokens": 3084
+      },
+      "half_0": {
+        "removal_cosine": 0.5827673683011975,
+        "removal_relative_l2": 0.9084692469145683,
+        "removal_relative_to_joint": 0.6245782565776425,
+        "tokens": 1527
+      },
+      "half_1": {
+        "removal_cosine": 0.6299344566431274,
+        "removal_relative_l2": 0.842174349393044,
+        "removal_relative_to_joint": 0.5597139962425247,
+        "tokens": 1557
+      }
+    },
+    "2": {
+      "copy_far": {
+        "removal_cosine": 0.6250566953845509,
+        "removal_relative_l2": 0.8510178708966551,
+        "removal_relative_to_joint": 0.5842922856235797,
+        "tokens": 2365
+      },
+      "copy_multiple_predecessors": {
+        "removal_cosine": 0.5839328386348894,
+        "removal_relative_l2": 0.9248213836104588,
+        "removal_relative_to_joint": 0.6941032150368215,
+        "tokens": 1718
+      },
+      "copy_near": {
+        "removal_cosine": 0.5552813986349943,
+        "removal_relative_l2": 0.9500402570683981,
+        "removal_relative_to_joint": 0.6288403060727198,
+        "tokens": 719
+      },
+      "copy_one_predecessor": {
+        "removal_cosine": 0.6435869160683463,
+        "removal_relative_l2": 0.8112232974654044,
+        "removal_relative_to_joint": 0.5037502794829065,
+        "tokens": 1366
+      },
+      "copy_positive": {
+        "removal_cosine": 0.60883646615475,
+        "removal_relative_l2": 0.8739217680725299,
+        "removal_relative_to_joint": 0.5941010337203748,
+        "tokens": 3084
+      },
+      "half_0": {
+        "removal_cosine": 0.5943532194232133,
+        "removal_relative_l2": 0.9052254217785176,
+        "removal_relative_to_joint": 0.6378565576385541,
+        "tokens": 1527
+      },
+      "half_1": {
+        "removal_cosine": 0.6280141978129841,
+        "removal_relative_l2": 0.8361912510300397,
+        "removal_relative_to_joint": 0.5470382414303813,
+        "tokens": 1557
+      }
+    },
+    "3": {
+      "copy_far": {
+        "removal_cosine": 0.6421607766075196,
+        "removal_relative_l2": 0.844748821941173,
+        "removal_relative_to_joint": 0.6043040121963623,
+        "tokens": 2365
+      },
+      "copy_multiple_predecessors": {
+        "removal_cosine": 0.5801198978561788,
+        "removal_relative_l2": 0.9369241223827552,
+        "removal_relative_to_joint": 0.7050238409110564,
+        "tokens": 1718
+      },
+      "copy_near": {
+        "removal_cosine": 0.613876931657966,
+        "removal_relative_l2": 0.9222816523828543,
+        "removal_relative_to_joint": 0.6761069542543506,
+        "tokens": 719
+      },
+      "copy_one_predecessor": {
+        "removal_cosine": 0.7022078555225335,
+        "removal_relative_l2": 0.7677595084579654,
+        "removal_relative_to_joint": 0.5463016765900058,
+        "tokens": 1366
+      },
+      "copy_positive": {
+        "removal_cosine": 0.6349822476415478,
+        "removal_relative_l2": 0.8625254162696276,
+        "removal_relative_to_joint": 0.6203601755714955,
+        "tokens": 3084
+      },
+      "half_0": {
+        "removal_cosine": 0.5989149823406658,
+        "removal_relative_l2": 0.9048309916389904,
+        "removal_relative_to_joint": 0.6443075695566391,
+        "tokens": 1527
+      },
+      "half_1": {
+        "removal_cosine": 0.6769059957339257,
+        "removal_relative_l2": 0.8107572117073966,
+        "removal_relative_to_joint": 0.5955446885438891,
+        "tokens": 1557
+      }
+    }
+  },
+  "positive_control": {
+    "code": {
+      "copy_far": {
+        "removal_cosine": 1.000000000000002,
+        "removal_relative_l2": 0.0,
+        "removal_relative_to_joint": 0.3207868268423744,
+        "tokens": 4356
+      },
+      "copy_multiple_predecessors": {
+        "removal_cosine": 1.000000000000005,
+        "removal_relative_l2": 0.0,
+        "removal_relative_to_joint": 0.31567184534770126,
+        "tokens": 8349
+      },
+      "copy_near": {
+        "removal_cosine": 1.0000000000000033,
+        "removal_relative_l2": 0.0,
+        "removal_relative_to_joint": 0.2799622803283974,
+        "tokens": 6492
+      },
+      "copy_one_predecessor": {
+        "removal_cosine": 1.0000000000000004,
+        "removal_relative_l2": 0.0,
+        "removal_relative_to_joint": 0.26960506149545266,
+        "tokens": 2499
+      },
+      "copy_positive": {
+        "removal_cosine": 1.000000000000004,
+        "removal_relative_l2": 0.0,
+        "removal_relative_to_joint": 0.30096271325315754,
+        "tokens": 10848
+      },
+      "half_0": {
+        "removal_cosine": 1.0000000000000024,
+        "removal_relative_l2": 0.0,
+        "removal_relative_to_joint": 0.29191341128500453,
+        "tokens": 5598
+      },
+      "half_1": {
+        "removal_cosine": 1.0000000000000022,
+        "removal_relative_l2": 0.0,
+        "removal_relative_to_joint": 0.3113781850352886,
+        "tokens": 5250
+      }
+    },
+    "natural": {
+      "copy_far": {
+        "removal_cosine": 0.9999999999999998,
+        "removal_relative_l2": 0.0,
+        "removal_relative_to_joint": 0.606070853168361,
+        "tokens": 2365
+      },
+      "copy_multiple_predecessors": {
+        "removal_cosine": 1.0000000000000002,
+        "removal_relative_l2": 0.0,
+        "removal_relative_to_joint": 0.6758821300768729,
+        "tokens": 1718
+      },
+      "copy_near": {
+        "removal_cosine": 1.0000000000000002,
+        "removal_relative_l2": 0.0,
+        "removal_relative_to_joint": 0.6198310274341079,
+        "tokens": 719
+      },
+      "copy_one_predecessor": {
+        "removal_cosine": 1.0000000000000004,
+        "removal_relative_l2": 0.0,
+        "removal_relative_to_joint": 0.5520853531988323,
+        "tokens": 1366
+      },
+      "copy_positive": {
+        "removal_cosine": 1.0000000000000002,
+        "removal_relative_l2": 0.0,
+        "removal_relative_to_joint": 0.6090399948339819,
+        "tokens": 3084
+      },
+      "half_0": {
+        "removal_cosine": 0.9999999999999999,
+        "removal_relative_l2": 0.0,
+        "removal_relative_to_joint": 0.6315963918797223,
+        "tokens": 1527
+      },
+      "half_1": {
+        "removal_cosine": 1.0000000000000004,
+        "removal_relative_l2": 0.0,
+        "removal_relative_to_joint": 0.5857039580110316,
+        "tokens": 1557
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_exact_mobius_and_behavior_control": true,
+    "pred_b_natural_low_order_graph": false,
+    "pred_c_ood_removal_fidelity": false,
+    "pred_d_selective_removal": true,
+    "pred_e_sparse_term_price": true
+  },
+  "price": {
+    "checkpoint_loads": 1,
+    "execution_count": 420,
+    "fits": 0,
+    "gpu_accessed": true,
+    "gradients": 0,
+    "learned_parameters": 0,
+    "mobius_terms": 15,
+    "model_loaded": true,
+    "natural_documents": 192,
+    "new_text": 0,
+    "ood_documents": 192,
+    "parameter_updates": 0,
+    "positive_controls": 1,
+    "proper_orders": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "queue_touched": true,
+    "schema": "equality_l5h5_m4_port_mobius_order_v1_plan"
+  },
+  "program_price": {
+    "full_nonconstant_mobius_terms": 15,
+    "learned_parameters": 0,
+    "native_qk_projections": 16,
+    "selected_nonconstant_mobius_terms": 0
+  },
+  "runner_sha256": "9aece390679e2d137977c593b9f96c3971e94d3134ca3be80fd8ef107783a81a",
+  "schema": "equality_l5h5_m4_port_mobius_order_v1_result",
+  "scope": "Exact Boolean M\u00f6bius decomposition of four native child Q/K port corrections, with natural-selected cumulative interaction order frozen for code OOD behavioral removal.",
+  "score_census": {
+    "code": {
+      "cumulative_relative_l2": {
+        "0": 1.0,
+        "1": 0.8702687973566161,
+        "2": 0.24635962709080947,
+        "3": 0.13173734504582946,
+        "4": 0.0
+      },
+      "reconstruction_relative_l2": 0.0,
+      "terms": {
+        "K1": {
+          "cosine_to_total": 0.41697745234358397,
+          "order": 1,
+          "relative_norm": 0.5744671265877722
+        },
+        "K1*K2": {
+          "cosine_to_total": -0.0325502451585362,
+          "order": 2,
+          "relative_norm": 0.10394452557948809
+        },
+        "K1*Q2": {
+          "cosine_to_total": -0.028739851559309294,
+          "order": 2,
+          "relative_norm": 0.10783223238659642
+        },
+        "K1*Q2*K2": {
+          "cosine_to_total": 0.024349493217780106,
+          "order": 3,
+          "relative_norm": 0.1189480913361594
+        },
+        "K2": {
+          "cosine_to_total": 0.41241899725137715,
+          "order": 1,
+          "relative_norm": 0.5587546109277621
+        },
+        "Q1": {
+          "cosine_to_total": 0.4788445341385273,
+          "order": 1,
+          "relative_norm": 0.6199449958892914
+        },
+        "Q1*K1": {
+          "cosine_to_total": -0.005467683995087932,
+          "order": 2,
+          "relative_norm": 0.6129131614751394
+        },
+        "Q1*K1*K2": {
+          "cosine_to_total": 0.035214843028136655,
+          "order": 3,
+          "relative_norm": 0.12146693122274332
+        },
+        "Q1*K1*Q2": {
+          "cosine_to_total": 0.019708589846398412,
+          "order": 3,
+          "relative_norm": 0.12359015227088992
+        },
+        "Q1*K1*Q2*K2": {
+          "cosine_to_total": -0.0021893127999998404,
+          "order": 4,
+          "relative_norm": 0.13173734504582946
+        },
+        "Q1*K2": {
+          "cosine_to_total": -0.04104458753194175,
+          "order": 2,
+          "relative_norm": 0.11450679820511968
+        },
+        "Q1*Q2": {
+          "cosine_to_total": -0.029844407157032255,
+          "order": 2,
+          "relative_norm": 0.1190706873282375
+        },
+        "Q1*Q2*K2": {
+          "cosine_to_total": 0.024532953144079047,
+          "order": 3,
+          "relative_norm": 0.12338132847688024
+        },
+        "Q2": {
+          "cosine_to_total": 0.4219095717099263,
+          "order": 1,
+          "relative_norm": 0.568387288684118
+        },
+        "Q2*K2": {
+          "cosine_to_total": -0.0015272387894741696,
+          "order": 2,
+          "relative_norm": 0.5938926576115383
+        }
+      }
+    },
+    "natural": {
+      "cumulative_relative_l2": {
+        "0": 1.0,
+        "1": 0.8809153879051486,
+        "2": 0.27143747042240335,
+        "3": 0.1435620529604257,
+        "4": 0.0
+      },
+      "reconstruction_relative_l2": 0.0,
+      "terms": {
+        "K1": {
+          "cosine_to_total": 0.42562779722853383,
+          "order": 1,
+          "relative_norm": 0.5706267600173878
+        },
+        "K1*K2": {
+          "cosine_to_total": -0.037452503750076326,
+          "order": 2,
+          "relative_norm": 0.11978109262034597
+        },
+        "K1*Q2": {
+          "cosine_to_total": -0.013383215018483847,
+          "order": 2,
+          "relative_norm": 0.11570527019345153
+        },
+        "K1*Q2*K2": {
+          "cosine_to_total": 0.02645774890354635,
+          "order": 3,
+          "relative_norm": 0.1273604171704725
+        },
+        "K2": {
+          "cosine_to_total": 0.4322766536610444,
+          "order": 1,
+          "relative_norm": 0.5813691279936735
+        },
+        "Q1": {
+          "cosine_to_total": 0.42908192928019767,
+          "order": 1,
+          "relative_norm": 0.5768777226147217
+        },
+        "Q1*K1": {
+          "cosine_to_total": 0.0033120462088085966,
+          "order": 2,
+          "relative_norm": 0.6083583912603331
+        },
+        "Q1*K1*K2": {
+          "cosine_to_total": 0.010184158555804644,
+          "order": 3,
+          "relative_norm": 0.13250062580899216
+        },
+        "Q1*K1*Q2": {
+          "cosine_to_total": -0.018528754683810333,
+          "order": 3,
+          "relative_norm": 0.12803257416601535
+        },
+        "Q1*K1*Q2*K2": {
+          "cosine_to_total": -0.005369277921499015,
+          "order": 4,
+          "relative_norm": 0.1435620529604257
+        },
+        "Q1*K2": {
+          "cosine_to_total": -0.012465141843889693,
+          "order": 2,
+          "relative_norm": 0.11948382350065717
+        },
+        "Q1*Q2": {
+          "cosine_to_total": 0.006588173062341708,
+          "order": 2,
+          "relative_norm": 0.11278097168824898
+        },
+        "Q1*Q2*K2": {
+          "cosine_to_total": -0.0015695265492624802,
+          "order": 3,
+          "relative_norm": 0.12383797279225539
+        },
+        "Q2": {
+          "cosine_to_total": 0.4240822742233154,
+          "order": 1,
+          "relative_norm": 0.5882960828870518
+        },
+        "Q2*K2": {
+          "cosine_to_total": 0.019740048182216897,
+          "order": 2,
+          "relative_norm": 0.6172123151021899
+        }
+      }
+    }
+  },
+  "seconds": 18.606382527999813,
+  "selection": {
+    "maximum_order": 0,
+    "natural_pass_count": 0,
+    "natural_report": {
+      "copy_far": {
+        "removal_cosine": 0.5857760396326288,
+        "removal_relative_l2": 0.903869120248196,
+        "removal_relative_to_joint": 0.5975356838024094,
+        "tokens": 2365
+      },
+      "copy_multiple_predecessors": {
+        "removal_cosine": 0.5963478973559755,
+        "removal_relative_l2": 0.921390149512214,
+        "removal_relative_to_joint": 0.7087738300517404,
+        "tokens": 1718
+      },
+      "copy_near": {
+        "removal_cosine": 0.6006902792353134,
+        "removal_relative_l2": 0.8906150039788476,
+        "removal_relative_to_joint": 0.6155846040560634,
+        "tokens": 719
+      },
+      "copy_one_predecessor": {
+        "removal_cosine": 0.5827543880099118,
+        "removal_relative_l2": 0.8767693484467717,
+        "removal_relative_to_joint": 0.5034385262247295,
+        "tokens": 1366
+      },
+      "copy_positive": {
+        "removal_cosine": 0.5890960233296868,
+        "removal_relative_l2": 0.9009498189025029,
+        "removal_relative_to_joint": 0.6014414959056572,
+        "tokens": 3084
+      },
+      "half_0": {
+        "removal_cosine": 0.5725817714995977,
+        "removal_relative_l2": 0.9315202745319501,
+        "removal_relative_to_joint": 0.6409604037645287,
+        "tokens": 1527
+      },
+      "half_1": {
+        "removal_cosine": 0.6100305490871305,
+        "removal_relative_l2": 0.8641816147418091,
+        "removal_relative_to_joint": 0.5592990656066249,
+        "tokens": 1557
+      }
+    },
+    "nonconstant_terms": 0
+  },
+  "terminal": "valid_equality_l5h5_m4_port_mobius_low_order_null"
+}

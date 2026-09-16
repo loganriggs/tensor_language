@@ -154,3 +154,12 @@ replay.  Therefore the four child ports are conjunctive at this boundary;
 replay closure cannot certify the interaction-removal counterfactual.  Continue
 with a four-map Möbius decomposition rather than treating any raw map as
 independently removable.
+
+The exact four-port Möbius census confirms why.  Its 15 terms close with zero
+score error.  Dropping only the fourth-order term leaves merely `.144/.132`
+natural/code score error, yet order three still has `.863` overall natural
+removal-vector error (`.937` worst cell).  The fourth-order term has small norm
+and near-zero global cosine, but is causally indispensable; the full control is
+again exact in every cell.  Raw norm and cumulative polynomial order are both
+unsafe pruning rules.  Preserve the joint two-QK-factor structure and factor
+the exact correction into its two factor effects plus their cross-product.

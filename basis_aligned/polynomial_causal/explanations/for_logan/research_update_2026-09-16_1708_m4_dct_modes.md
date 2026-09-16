@@ -139,3 +139,27 @@ correct additive counterfactual.  At this numerical boundary all four child
 Q/K ports are conjunctively necessary.  The next useful decomposition is the
 exact Möbius expansion over these four port corrections, not another attempt
 to delete one raw projection.
+
+## Exact port Möbius graph: a small-norm fourth-order causal term
+
+We carried out that expansion over all 16 `Q1,K1,Q2,K2` replacement corners.
+The 15 nonconstant terms reconstruct the native child score with exactly zero
+measured error on natural and code.  Cumulative score error falls from
+`.881/.870` at order one to `.271/.246` at order two and `.144/.132` at order
+three (natural/code).  The sole fourth-order term itself has only `.144/.132`
+relative norm and approximately zero cosine with the total score correction.
+
+That small global norm is misleading.  No proper cumulative order passes the
+natural removal-vector gates.  Order three—everything except the fourth-order
+term—has `.863` overall natural removal error and `.937` in its worst cell.
+The full order-four control again has zero removal error in every natural/code
+cell.  Lower score error is not even monotone with behavioral fidelity here;
+the order-zero diagnostic is marginally less bad by the frozen worst-cell
+criterion and transfers to code at `.844/.645` removal error/cosine.
+
+This is direct evidence for the briefing's warning that both QK factors must be
+treated jointly.  The useful next representation is not 15 independent Boolean
+terms.  Algebraically factor them into three exact macro-effects: first-factor
+correction times the second-factor baseline, second-factor correction times the
+first-factor baseline, and their cross-factor product.  That gives a small
+explicit graph while retaining the causally indispensable fourth-order path.
