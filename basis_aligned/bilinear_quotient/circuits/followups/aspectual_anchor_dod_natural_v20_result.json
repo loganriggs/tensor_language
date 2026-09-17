@@ -1,0 +1,74 @@
+{
+  "candidate_id": "aspectual_anchor.has_vs_had.dod_natural_v20",
+  "finished_utc": "2026-09-17T22:49:38.937280+00:00",
+  "forwards": 8,
+  "instrument_max_abs_error": 0.0,
+  "plan": {
+    "bars": {
+      "direction_min": 0.6,
+      "gate_ratio": 0.25,
+      "instrument_tol": 0.0001,
+      "shift_min": 0.15,
+      "weak_min": 0.05
+    },
+    "candidate_id": "aspectual_anchor.has_vs_had.dod_natural_v20",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 12,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 64,
+    "rows_sha256": "9bfe35135ab0120b88c25258f34cbf177c4995690820ffaa01447077ed2d2c52"
+  },
+  "pooled_abs_shift": 0.07694180309772491,
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_since_rows_shift_toward_had": true,
+    "pred_c_by_rows_shift_toward_has": false,
+    "pred_d_head_8_1_alone_shifts_the_same_way": false,
+    "pred_e_unrelated_readers_within_gate": false
+  },
+  "schema": "aspectual_anchor_dod_natural_result_v20",
+  "serial_seconds": 1.764493309892714,
+  "shifts": {
+    "head_8_1": {
+      "by": {
+        "fraction_negative": 0.4375,
+        "fraction_positive": 0.5625,
+        "mean": 0.0175778865814209,
+        "n": 32,
+        "native_accuracy": 0.9375
+      },
+      "since": {
+        "fraction_negative": 0.875,
+        "fraction_positive": 0.125,
+        "mean": -0.14673298597335815,
+        "n": 32,
+        "native_accuracy": 0.84375
+      }
+    },
+    "triple": {
+      "by": {
+        "fraction_negative": 0.46875,
+        "fraction_positive": 0.53125,
+        "mean": 0.09230457246303558,
+        "n": 32,
+        "native_accuracy": 0.9375
+      },
+      "since": {
+        "fraction_negative": 0.6875,
+        "fraction_positive": 0.3125,
+        "mean": -0.2461881786584854,
+        "n": 32,
+        "native_accuracy": 0.84375
+      }
+    }
+  },
+  "unrelated_abs_move_mean": {
+    "animacy_who_which": 0.03610245743766427,
+    "canonical_night_day": 0.03725290251895785,
+    "number_was_were": 0.05906840227544308
+  }
+}
