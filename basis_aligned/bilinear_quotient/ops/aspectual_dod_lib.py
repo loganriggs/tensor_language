@@ -594,7 +594,7 @@ def head_source_terms(fw: "ManualForward", rows: Sequence[Row], component: Compo
 
 
 def source_restricted_slices(fw: "ManualForward", rows: Sequence[Row], component: Component,
-                             keep_source, branches=("current", "inherited")):
+                             keep_source, branches=("current", "inherited"), pattern_override=None):
     """Recompute head slices z_h(final) keeping only sources s with keep_source(row, s) True and only
     the named value branches. Returns {(row_id, component.name, final, head): 128-d tensor}."""
     torch, F, model = fw.torch, fw.F, fw.model
@@ -633,6 +633,12 @@ def source_restricted_slices(fw: "ManualForward", rows: Sequence[Row], component
                 s1 = (q[i, t, head].float() @ k[i, :t + 1, head].float().T) / D
                 s2 = (q2[i, t, head].float() @ k2[i, :t + 1, head].float().T) / D
                 p = s1 * s2
+                if pattern_override is not None:
+                    p = p.clone()
+                    for s in range(t + 1):
+                        value = pattern_override(row, s)
+                        if value is not None:
+                            p[s] = float(value)
                 mask = torch.tensor([1.0 if keep_source(row, s) else 0.0 for s in range(t + 1)], device=p.device)
                 value = torch.zeros(t + 1, D, device=p.device)
                 if "current" in branches:
