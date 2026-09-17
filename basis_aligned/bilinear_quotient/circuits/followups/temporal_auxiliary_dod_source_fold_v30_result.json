@@ -1,0 +1,72 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.dod_source_fold_v30",
+  "closure_max_relative_error": 3.922207716590684e-07,
+  "finished_utc": "2026-09-17T23:12:46.550949+00:00",
+  "forwards": 8,
+  "heads": {
+    "11.3": {
+      "inherited_share": 0.029376121995976,
+      "largest_source": "the1",
+      "mean_contrast": 106.13979077339172,
+      "shares": {
+        "agent": 0.3077292691264963,
+        "cue": 0.14994701586021897,
+        "place": -0.039511494734430455,
+        "prefix": -0.003174249238963264,
+        "prep": 0.09424728610038126,
+        "the1": 0.468568887709253,
+        "the2": 0.022193286393013816
+      }
+    },
+    "15.5": {
+      "inherited_share": 0.24707936424981788,
+      "largest_source": "cue",
+      "mean_contrast": 25.916117936372757,
+      "shares": {
+        "agent": 0.1508360097389002,
+        "cue": 0.45815983555989126,
+        "place": 0.1411631009026505,
+        "prefix": -0.002182574114796195,
+        "prep": 0.08193986259704904,
+        "the1": 0.1325581855350587,
+        "the2": 0.03752557148339095
+      }
+    },
+    "9.1": {
+      "inherited_share": -0.055346823032396686,
+      "largest_source": "the1",
+      "mean_contrast": 77.47813706845045,
+      "shares": {
+        "agent": 0.13358588685167666,
+        "cue": 0.2751024701795056,
+        "place": -0.007389699770748199,
+        "prefix": -0.0009601452401355657,
+        "prep": 0.05988606404891227,
+        "the1": 0.5282245271850017,
+        "the2": 0.011550891414351163
+      }
+    },
+    "9.4": {
+      "inherited_share": 0.12342918412646106,
+      "largest_source": "cue",
+      "mean_contrast": 24.96129036322236,
+      "shares": {
+        "agent": -0.002995446467581884,
+        "cue": 0.5303208285159053,
+        "place": -0.009983410385587152,
+        "prefix": 0.002083471845445348,
+        "prep": -0.00032968625783530897,
+        "the1": 0.4789566757175798,
+        "the2": 0.0019475666358847845
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_fold_closure": true,
+    "pred_b_contrast_positive_for_every_head": true,
+    "pred_c_cue_is_the_largest_source_for_11_3": false,
+    "pred_d_block9_heads_read_context_not_cue": false
+  },
+  "schema": "temporal_auxiliary_dod_source_fold_result_v30",
+  "serial_seconds": 1.7735537400003523
+}
