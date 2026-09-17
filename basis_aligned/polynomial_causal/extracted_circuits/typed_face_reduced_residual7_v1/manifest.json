@@ -1,0 +1,42 @@
+{
+  "schema": "regional.typed_face_reduced_residual7.v1",
+  "ports": [
+    "residual7[B,T,1152]",
+    "donor_city7[B,1152]",
+    "token_ids[B,T]",
+    "recipient_token:int",
+    "donor_token:int",
+    "city:int",
+    "destination[T]:bool",
+    "strength:float=.5"
+  ],
+  "external_native_activation_inputs": 2,
+  "native_vector_state_arrays": 2,
+  "native_scalar_state_arrays": 0,
+  "native_state_scalars_T32": 38016,
+  "static_float_scalars": 24153091,
+  "integer_token_indices": 248,
+  "output": "full block9 input delta[B,T,1152]",
+  "serialized_program_bytes": 96623109,
+  "four_traits": {
+    "ood_prediction": null,
+    "extraction": null,
+    "selective_removal": null,
+    "composition_reuse": false
+  },
+  "certified_complete_circuit": false,
+  "scope": "Reduced cross counterfactual; union token table weight-derived without fitting. Native and isolated certification pending. Two native residual7 arrays and external suffix remain.",
+  "files": {
+    "attention8.py": "7e4a6e3ab322095b62d33eed787159a02dda9c9e361e6b49d3c9f1790bd1b107",
+    "head8.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "coupled.py": "d6c2806b2361f3ec00b864f8a93f7dc0e9198a03982c81478807864692bceed8",
+    "local_program.pt": "68257bbd68360cd73b12005133a7fec2af3849a3820dc316ac9e41670bee7bf3",
+    "execute.py": "d228c9ef3948efcb7681612baf62f074cb9d8db42e591a946eca5f7158d83026",
+    "attention8_context_channels_v1.py": "1353d59f9ac7c716e915e933e22943dd496ac8a9d79761b5b36165263d140ac6",
+    "head2_mlp8_cross_edit_v1.py": "6f18ce39e8ee763e6c6f844e13d1d04dbddd257937968e96cbc92b218f9a57a8",
+    "context_program.pt": "9ec0d762497e9f5b2217d75e7162ce884f4e9be12384916d7277a981cefcc72a",
+    "reentry_program.pt": "950ca1f9781816b30d8d32f9b9a89c2f5f2b6a5783134450f607649eb0f2e9e9"
+  },
+  "receipts": [],
+  "supported_sequence_tokens": 114
+}
