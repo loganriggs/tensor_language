@@ -693,3 +693,54 @@ def reader_directions(model, component: Component, direction_by_head: Mapping):
         block = attn.c_v.weight.detach().float()[head * HEAD_DIM:(head + 1) * HEAD_DIM, :]   # (128, 1152)
         out[head] = block.T @ v.to(block.device)
     return out
+
+
+def head_source_terms_at(fw: "ManualForward", rows: Sequence[Row], layer: int, query_fn, direction_by_head: Mapping[int, object]):
+    """Generalized fold: for block `layer`, at query position query_fn(row), for every head in
+    `direction_by_head` (head -> 128-d direction), return per-source terms of d_h . z_h(query):
+    term_current[s], term_inherited[s], pattern[s]. One forward per call."""
+    torch, F, model = fw.torch, fw.F, fw.model
+    import jacclust.tt_model as TT
+    tokens = fw._tokens(rows)
+    attn = model.transformer.h[layer].attn
+    captured = {}
+
+    def pre_hook(_module, args):
+        captured["x"] = args[0].detach().clone()
+        captured["v1"] = None if len(args) < 2 or args[1] is None else args[1].detach().clone()
+        return None
+
+    handle = attn.register_forward_pre_hook(pre_hook)
+    try:
+        fw.forward(rows)
+    finally:
+        handle.remove()
+    x, v1 = captured["x"], captured["v1"]
+    B, T, C = x.shape
+    H, D = attn.n_head, attn.head_dim
+    with torch.no_grad():
+        q = attn.c_q(x).view(B, T, H, D); k = attn.c_k(x).view(B, T, H, D)
+        q2 = attn.c_q2(x).view(B, T, H, D); k2 = attn.c_k2(x).view(B, T, H, D)
+        v_cur = attn.c_v(x).view(B, T, H, D)
+        v1v = v_cur if v1 is None else v1.view_as(v_cur)
+        lamb = float(attn.lamb)
+        cos, sin = attn.rotary(q)
+        q, k = F.rms_norm(q, (D,)), F.rms_norm(k, (D,))
+        q, k = TT.apply_rotary_emb(q, cos, sin), TT.apply_rotary_emb(k, cos, sin)
+        q2, k2 = F.rms_norm(q2, (D,)), F.rms_norm(k2, (D,))
+        q2, k2 = TT.apply_rotary_emb(q2, cos, sin), TT.apply_rotary_emb(k2, cos, sin)
+        out = []
+        for i, row in enumerate(rows):
+            t = query_fn(row)
+            entry = {}
+            for head, d in direction_by_head.items():
+                dh = d.to(device=x.device, dtype=torch.float32)
+                s1 = (q[i, t, head].float() @ k[i, :t + 1, head].float().T) / D
+                s2 = (q2[i, t, head].float() @ k2[i, :t + 1, head].float().T) / D
+                p = s1 * s2
+                cur = (1 - lamb) * (v_cur[i, :t + 1, head].float() @ dh)
+                inh = lamb * (v1v[i, :t + 1, head].float() @ dh)
+                entry[head] = {"pattern": p.tolist(), "term_current": (p * cur).tolist(),
+                               "term_inherited": (p * inh).tolist(), "total": float((p * cur).sum() + (p * inh).sum())}
+            out.append(entry)
+    return out, lamb

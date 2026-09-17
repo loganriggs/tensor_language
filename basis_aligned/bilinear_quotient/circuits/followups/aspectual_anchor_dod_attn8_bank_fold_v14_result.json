@@ -1,0 +1,95 @@
+{
+  "candidate_id": "aspectual_anchor.has_vs_had.dod_attn8_bank_fold_v14",
+  "closure_max_relative_error": 1.7172707314384354e-05,
+  "finished_utc": "2026-09-17T22:36:15.956982+00:00",
+  "forwards": 14,
+  "lambda_block8_value_mix": 4.0,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "inherited_min": 0.3,
+      "top2_min": 0.7
+    },
+    "candidate_id": "aspectual_anchor.has_vs_had.dod_attn8_bank_fold_v14",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 16,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "reader_heads": [
+      "9.1",
+      "9.4"
+    ],
+    "rows": 64,
+    "rows_sha256": "5ec7d32f3f7b6bbc9ebc31de3411074b24a998430f7f929bd11d0813e40dfcd2"
+  },
+  "pooled_inherited_share": 0.8251353328853015,
+  "predictions": {
+    "pred_a_attn8_fold_closure": true,
+    "pred_b_cue_is_the_dominant_source": true,
+    "pred_c_inherited_share_at_least_030": true,
+    "pred_d_two_block8_heads_carry_070": true
+  },
+  "readers": {
+    "9.1": {
+      "contrast": 187111.77243786305,
+      "head_shares": {
+        "8.0": -0.0009684855582972674,
+        "8.1": 1.0258068926778001,
+        "8.2": -0.00707173513976006,
+        "8.3": -0.0008500986523874007,
+        "8.4": -0.004425589213035601,
+        "8.5": 0.015361178690026707,
+        "8.6": -0.007951431572541003,
+        "8.7": 0.0087740882952218,
+        "8.8": -0.028674819527027186
+      },
+      "inherited_share": 0.8182516563635535,
+      "largest_source": "cue",
+      "source_shares": {
+        "cue": 0.8744867842837412,
+        "last": 0.11218263634688884,
+        "period": 0.012448678227909689,
+        "prefix": -0.004058909565541842,
+        "the": 0.004940812720968411
+      },
+      "top2_head_share": 0.9971320731507729,
+      "top2_heads": [
+        "8.1",
+        "8.8"
+      ]
+    },
+    "9.4": {
+      "contrast": 163156.48142190278,
+      "head_shares": {
+        "8.0": -0.0006329575181238406,
+        "8.1": 0.9936010258754461,
+        "8.2": 0.01142847278656976,
+        "8.3": 0.017167818042047082,
+        "8.4": -0.013565536665698333,
+        "8.5": 0.023638116943692063,
+        "8.6": 0.009993071881683763,
+        "8.7": -0.0301706368472563,
+        "8.8": -0.011459374498360302
+      },
+      "inherited_share": 0.8330296984884827,
+      "largest_source": "cue",
+      "source_shares": {
+        "cue": 0.8317878516304158,
+        "last": 0.13967309123421776,
+        "period": 0.02290483873682422,
+        "prefix": -0.00048518609354951896,
+        "the": 0.006119396948796358
+      },
+      "top2_head_share": 0.9634303890281898,
+      "top2_heads": [
+        "8.1",
+        "8.7"
+      ]
+    }
+  },
+  "schema": "aspectual_anchor_dod_attn8_bank_fold_result_v14",
+  "serial_seconds": 2.3386168479919434
+}
