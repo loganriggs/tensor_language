@@ -1,5 +1,7 @@
 # Latest requested update for Logan
 
+**Latest: [17 September, 22:40 — Native application changes the regional effect](research_update_2026-09-17_2240_native_regional_write.md).** Native8 attenuation22–26% passes the opened selectivity screen; the restricted route predicts it with89–94%error and fails. Fresh, extraction, composition, and simplicity gaps remain.
+
 **Latest: [17 September, 22:15 — Distributed regional response](research_update_2026-09-17_2215_regional_response.md).** Direct and fixed early-response explanations fail; family allocation is stable. The combined head8/head9 write now passes native and isolated replay at three native-state inputs; suffix and causal-composition gaps remain.
 
 **Previous: [17 September, 22:00 — Regional prediction transfers; removal strength varies](research_update_2026-09-17_2200_regional_structure.md).** Prospective prediction beats both frozen baselines; line-break removal fails the 2% minimum-effect gate. Two native inputs and composition/simplicity gaps remain.

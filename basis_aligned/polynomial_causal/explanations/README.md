@@ -9,7 +9,7 @@ House style: define every specialized term on first use, give its computational 
 abbreviations, and distinguish a diagnostic attribution from an executable compression. Numerical headlines should
 state what was actually measured and what unit is being used.
 
-**Latest update: [17 September — Distributed regional response](for_logan/research_update_2026-09-17_2215_regional_response.md).**
+**Latest update: [17 September — Native regional write](for_logan/research_update_2026-09-17_2240_native_regional_write.md).**
 
 ## [Read the latest requested full report → for_logan](for_logan/LATEST.md)
 
