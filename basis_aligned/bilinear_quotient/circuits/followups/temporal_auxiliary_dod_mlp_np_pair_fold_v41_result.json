@@ -1,0 +1,97 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.dod_mlp_np_pair_fold_v41",
+  "closure_max_relative_error": 0.00011325687954645474,
+  "contrast": -983559.7308038602,
+  "finished_utc": "2026-09-17T23:27:35.659176+00:00",
+  "forwards": 2,
+  "pairs_with_8_1_share": 0.12723311426183048,
+  "predictions": {
+    "pred_a_bilinear_closure": true,
+    "pred_b_top_pair_involves_head_8_1": false,
+    "pred_c_pairs_with_8_1_carry_half": false
+  },
+  "schema": "temporal_auxiliary_dod_mlp_np_pair_fold_result_v41",
+  "serial_seconds": 2.319789680885151,
+  "top20": [
+    [
+      "attn:07 x attn:08",
+      0.02843864401614664
+    ],
+    [
+      "attn:07 x attnhead:08:1",
+      0.02500565571882879
+    ],
+    [
+      "attn:08 x mlp:08",
+      0.022887760512605458
+    ],
+    [
+      "mlp:06 x mlp:07",
+      0.021888586509763927
+    ],
+    [
+      "attnhead:08:1 x attnhead:08:1",
+      0.02025434952941899
+    ],
+    [
+      "attn:07 x mlp:08",
+      0.018909139847785767
+    ],
+    [
+      "mlp:06 x attnhead:08:1",
+      0.018524928752178257
+    ],
+    [
+      "mlp:06 x attn:08",
+      0.01804835074725741
+    ],
+    [
+      "mlp:08 x attn:09",
+      0.017170178458915605
+    ],
+    [
+      "attn:05 x attn:08",
+      0.016715328510112752
+    ],
+    [
+      "attn:07 x attn:09",
+      0.01559111936433582
+    ],
+    [
+      "mlp:07 x attnhead:08:1",
+      0.015585408137775229
+    ],
+    [
+      "mlp:07 x mlp:07",
+      0.015170107016599895
+    ],
+    [
+      "mlp:06 x attn:07",
+      0.015096595388604502
+    ],
+    [
+      "attn:07 x mlp:09",
+      0.01495438630975213
+    ],
+    [
+      "attn:07 x attn:07",
+      0.014501748427147057
+    ],
+    [
+      "attnhead:09:1 x attnhead:09:1",
+      0.014412868076109742
+    ],
+    [
+      "mlp:05 x mlp:08",
+      0.014328578726763467
+    ],
+    [
+      "mlp:05 x attn:08",
+      0.013973516393888781
+    ],
+    [
+      "mlp:04 x attnhead:08:1",
+      0.01381101251309831
+    ]
+  ]
+}

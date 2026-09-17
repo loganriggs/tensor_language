@@ -249,3 +249,11 @@ simplicity comparison and random-split specificity remain missing. [Current Loga
   and a new construction; natural FineWeb rows transfer when the cue is temporal. Claim table and receipts:
   [`basis_aligned/claude_hourly_review/ASPECTUAL_DOD_SCORECARD.md`](../claude_hourly_review/ASPECTUAL_DOD_SCORECARD.md);
   report: [`for_logan/research_update_2026-09-17_aspectual_readout_component.md`](../polynomial_causal/explanations/for_logan/research_update_2026-09-17_aspectual_readout_component.md).
+
+- **Temporal will/had readout set (Claude lane, 2026-09-17):** heads {11.3, 9.1, 15.5, 9.4} on `O_h^T(u_will − u_had)`;
+  81% of the margin on fresh rows, selective, keep-only sufficient, frozen 0.80 ± 0.15 held on a fourth lexicon and
+  a new construction, natural FineWeb/Pile rows pass; 11.3 reads a subject-NP state written by blocks 8–10 whose
+  attention part is head 8.1 reading the adverb token-only (the same shared temporal-cue reader as on the aspectual
+  line); two declared open ports (MLP8–10 NP part; block-9 reads). Scorecard:
+  [`basis_aligned/claude_hourly_review/TEMPORAL_DOD_SCORECARD.md`](../claude_hourly_review/TEMPORAL_DOD_SCORECARD.md);
+  report: [`for_logan/research_update_2026-09-17_temporal_readout_set.md`](../polynomial_causal/explanations/for_logan/research_update_2026-09-17_temporal_readout_set.md).
