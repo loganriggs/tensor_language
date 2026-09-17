@@ -647,3 +647,49 @@ def source_restricted_slices(fw: "ManualForward", rows: Sequence[Row], component
                     value = value + lamb * v1v[i, :t + 1, head].float()
                 out[(row.row_id, component.name, t, head)] = ((p * mask) @ value).detach()
     return out
+
+
+def forward_trace_positions(fw: "ManualForward", rows: Sequence[Row], positions_fn, *, upto_layer: int):
+    """Module outputs (attn/mlp) and the block-0 normalized embedding at declared positions for
+    blocks < upto_layer, plus lambdas, plus the residual entering block `upto_layer` (after its
+    lambda mix, i.e. the state the block reads before its own RMS norm). No edits."""
+    torch, F, model = fw.torch, fw.F, fw.model
+    tokens = fw._tokens(rows)
+    trace = [dict() for _ in rows]
+    with torch.no_grad():
+        x = F.rms_norm(model.transformer.wte(tokens), (model.config.n_embd,))
+        x0, v1 = x, None
+        for i, row in enumerate(rows):
+            for pos in positions_fn(row):
+                trace[i][("embed", pos)] = x[i, pos].detach().float().clone()
+        for layer, block in enumerate(model.transformer.h):
+            live = block.lambdas[0] * x + block.lambdas[1] * x0
+            if layer == upto_layer:
+                for i, row in enumerate(rows):
+                    for pos in positions_fn(row):
+                        trace[i][("live", pos)] = live[i, pos].detach().float().clone()
+                break
+            attention, v1 = block.attn(F.rms_norm(live, (model.config.n_embd,)), v1)
+            x = live + attention
+            mlp = block.mlp(F.rms_norm(x, (model.config.n_embd,)))
+            x = x + mlp
+            for i, row in enumerate(rows):
+                trace[i][f"lambda0:{layer:02d}"] = float(block.lambdas[0])
+                trace[i][f"lambda1:{layer:02d}"] = float(block.lambdas[1])
+                for pos in positions_fn(row):
+                    trace[i][(f"attn:{layer:02d}", pos)] = attention[i, pos].detach().float().clone()
+                    trace[i][(f"mlp:{layer:02d}", pos)] = mlp[i, pos].detach().float().clone()
+    return trace
+
+
+def reader_directions(model, component: Component, direction_by_head: Mapping):
+    """Weight-only reader directions r_h = V_h^T v_hat_h in residual space (1152-d) for each head:
+    the direction of a source state that the head's current-block value branch maps onto its
+    readout direction. Uses c_v rows for head h."""
+    attn = model.transformer.h[component.layer].attn
+    out = {}
+    for head in component.heads:
+        v = direction_by_head[(component.name, head)].float(); v = v / v.norm()
+        block = attn.c_v.weight.detach().float()[head * HEAD_DIM:(head + 1) * HEAD_DIM, :]   # (128, 1152)
+        out[head] = block.T @ v.to(block.device)
+    return out

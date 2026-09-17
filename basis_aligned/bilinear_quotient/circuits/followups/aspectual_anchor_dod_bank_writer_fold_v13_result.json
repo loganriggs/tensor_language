@@ -1,0 +1,122 @@
+{
+  "candidate_id": "aspectual_anchor.has_vs_had.dod_bank_writer_fold_v13",
+  "closure_max_relative_error": 1.212397222616346e-07,
+  "finished_utc": "2026-09-17T22:34:12.834778+00:00",
+  "forwards": 4,
+  "heads": {
+    "9.1": {
+      "contrast_total": 841.6776800854576,
+      "largest": "attn:08",
+      "shares": {
+        "attn:00": -2.0354466749668565e-06,
+        "attn:01": -0.0004220692820872074,
+        "attn:02": 0.00027837758113385177,
+        "attn:03": 0.002521157975662378,
+        "attn:04": 0.008991047823867764,
+        "attn:05": 0.039509455322852445,
+        "attn:06": 0.040360489248154954,
+        "attn:07": 0.02482934814882252,
+        "attn:08": 0.28771167940845094,
+        "embed": 0.02381093946411794,
+        "mlp:00": -0.0002652867771259691,
+        "mlp:01": -0.0006069642405847636,
+        "mlp:02": 0.0006516313829457397,
+        "mlp:03": 0.005368963048727281,
+        "mlp:04": 0.041929827001699074,
+        "mlp:05": 0.051572065597357976,
+        "mlp:06": 0.09775823079191909,
+        "mlp:07": 0.0999293293809052,
+        "mlp:08": 0.2760738135698557
+      },
+      "top3": [
+        "attn:08",
+        "mlp:08",
+        "mlp:07"
+      ],
+      "top3_share": 0.6637148223592119
+    },
+    "9.4": {
+      "contrast_total": 742.22361220339,
+      "largest": "mlp:08",
+      "shares": {
+        "attn:00": 1.6621602015269626e-06,
+        "attn:01": -0.000539485952314972,
+        "attn:02": 0.0015662854823319488,
+        "attn:03": 0.002527487294737804,
+        "attn:04": 0.017677098359860016,
+        "attn:05": 0.027635369224620114,
+        "attn:06": 0.0338809273758864,
+        "attn:07": 0.012301996323238867,
+        "attn:08": 0.16965263947979364,
+        "embed": 0.018144369539904826,
+        "mlp:00": -5.495394033411171e-05,
+        "mlp:01": 0.001248574680847337,
+        "mlp:02": 0.011656663994960712,
+        "mlp:03": 0.023799640036710968,
+        "mlp:04": 0.08954110771790323,
+        "mlp:05": 0.024184123513366875,
+        "mlp:06": 0.1177355376715649,
+        "mlp:07": 0.16494760369515268,
+        "mlp:08": 0.28409335334156716
+      },
+      "top3": [
+        "mlp:08",
+        "attn:08",
+        "mlp:07"
+      ],
+      "top3_share": 0.6186935965165135
+    }
+  },
+  "lambda_block9_value_mix": -0.65625,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "embed_min": 0.15,
+      "top3_min": 0.6
+    },
+    "candidate_id": "aspectual_anchor.has_vs_had.dod_bank_writer_fold_v13",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 10,
+    "gpu_accessed": false,
+    "heads": [
+      "9.1",
+      "9.4"
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 64,
+    "rows_sha256": "5ec7d32f3f7b6bbc9ebc31de3411074b24a998430f7f929bd11d0813e40dfcd2",
+    "writers": [
+      "embed",
+      "attn:00",
+      "mlp:00",
+      "attn:01",
+      "mlp:01",
+      "attn:02",
+      "mlp:02",
+      "attn:03",
+      "mlp:03",
+      "attn:04",
+      "mlp:04",
+      "attn:05",
+      "mlp:05",
+      "attn:06",
+      "mlp:06",
+      "attn:07",
+      "mlp:07",
+      "attn:08",
+      "mlp:08"
+    ]
+  },
+  "pooled_embedding_share": 0.021155558084969762,
+  "predictions": {
+    "pred_a_writer_closure": true,
+    "pred_b_mlp4_is_the_largest_bank_writer": false,
+    "pred_c_embedding_share_at_least_015": false,
+    "pred_d_top_three_writers_carry_060": true
+  },
+  "schema": "aspectual_anchor_dod_bank_writer_fold_result_v13",
+  "serial_seconds": 1.9537649240810424
+}
