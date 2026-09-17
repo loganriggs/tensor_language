@@ -4,10 +4,10 @@
     "explicit_dependency_edges": 4,
     "four_trait_declared_unverified": 0,
     "four_trait_verified": 2,
-    "packages": 34,
-    "partial_or_unassessed": 32,
-    "with_declared_inputs": 18,
-    "with_manifest": 29
+    "packages": 35,
+    "partial_or_unassessed": 33,
+    "with_declared_inputs": 19,
+    "with_manifest": 30
   },
   "dependency_cycles": [],
   "four_trait_order": [
@@ -1110,6 +1110,46 @@
       "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_typed_face_v1",
       "schema": "regional.typed_face.partial.v1",
       "scope": "Conditional head8.2 write at two native-state inputs. Paired midpoint via native head9 odd descendant; four-context screen. Extraction true only at write boundary, not full-readout strict replay or token-only model.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 4,
+      "declared_input_field": "ports",
+      "declared_inputs": [
+        "raw_mixed9[B,T,1152]",
+        "delta8[B,T,1152]",
+        "lambda90:scalar",
+        "destination[T]:bool"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": 1,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": true,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "ood_prediction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/odd_value_delta_raw_v1/manifest.json",
+      "manifest_sha256": "76b51633433473698dcb9e3e127f2bd643dee30138da5719b70a412cf0a3b951",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "odd_value_delta_raw_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/odd_value_delta_raw_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/odd_value_delta_raw_v1",
+      "schema": "regional.odd_value_delta_raw.v1",
+      "scope": "Isolated conditional head9 delta from raw state and upstream write; no inherited-first or initial-state input. Precision replay on opened fixtures is not fresh prediction/selectivity/composition evidence.",
       "verification": {
         "path": null,
         "status": "not_available",

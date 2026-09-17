@@ -24462,3 +24462,6 @@ Hold the prospective panel midpoint intervention fixed.80forwards capture attent
 
 ### 2026-09-17T22:16:34.326994+00:00 — Codex: CLAIM ODD_VALUE_DELTA_RAW_V1 native replay
 Compare original versus raw-mixed head9 interface under the identical midpoint intervention on40opened prospective sequences.120forwards; writeerror<=1e-4, margins<=1e-5abs/1e-6relative, each effect<=1e-3. Captured fixtures permit isolated CPU replay later. Shared runtime gains an optional final odd-write callback in a new immutable version; old runtimes/bindings unchanged. No fresh scientific or whole-suffix extraction claim.
+
+### 2026-09-17T22:19:51.614766+00:00 — Codex: reduced odd-value interface PASS; CLAIM explicit composition CPU check
+Native120forwards2.56s; maxwrite1.63e-6; readouts4.29e-6abs; effecterrors<=3.69e-4 pass frozen gates. Isolated40fixtures max2.14e-6 pass. Head9 export901,121floats, first-value/initial inputs removed. Next CPU composition check wires frozen head8 city/token program into this exported head9 delta from three supplied native-state arrays; counts both weight sets and verifies against the legacy conditional calculation. End-to-end native fixtures remain necessary for wider-boundary adoption.

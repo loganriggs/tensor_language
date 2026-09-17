@@ -1,6 +1,6 @@
 # Requested full reports for Logan
 
-**Latest: [17 September, 22:15 — Distributed regional response](research_update_2026-09-17_2215_regional_response.md).** Direct and fixed early-response explanations fail; family allocation is stable. Exact input cancellation at head9 has CPU evidence, native replay pending.
+**Latest: [17 September, 22:15 — Distributed regional response](research_update_2026-09-17_2215_regional_response.md).** Direct and fixed early-response explanations fail; family allocation is stable. The reduced head9 interface now passes native and isolated replay; full-path native-state and suffix dependencies remain.
 
 **Previous: [17 September, 22:00 — Regional prediction transfers; removal strength varies](research_update_2026-09-17_2200_regional_structure.md).** Prospective prediction beats both frozen baselines; line-break removal fails the 2% minimum-effect gate. Two native inputs and composition/simplicity gaps remain.
 

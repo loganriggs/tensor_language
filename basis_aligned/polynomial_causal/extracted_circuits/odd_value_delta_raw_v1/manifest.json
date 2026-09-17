@@ -1,0 +1,30 @@
+{
+  "schema": "regional.odd_value_delta_raw.v1",
+  "ports": [
+    "raw_mixed9[B,T,1152]",
+    "delta8[B,T,1152]",
+    "lambda90:scalar",
+    "destination[T]:bool"
+  ],
+  "external_native_activation_inputs": 1,
+  "upstream_write_inputs": 1,
+  "output": "head9 odd-value delta[B,T,1152]",
+  "static_float_scalars": 901121,
+  "serialized_program_bytes": 3673871,
+  "files": {
+    "program.pt": "f9eccb3e22cc7ee333d27abd1fec76413291259b36ff9a411bd5ac4549365b72",
+    "execute.py": "2c4d9ab4ed886545a5a67e520dd5ef3e3bdb401425308ec736171677967dd5b1"
+  },
+  "four_traits": {
+    "ood_prediction": null,
+    "extraction": true,
+    "selective_removal": null,
+    "composition_reuse": null
+  },
+  "certified_complete_circuit": false,
+  "scope": "Isolated conditional head9 delta from raw state and upstream write; no inherited-first or initial-state input. Precision replay on opened fixtures is not fresh prediction/selectivity/composition evidence.",
+  "receipts": [
+    "ODD_VALUE_DELTA_RAW_V1_RESULT.json",
+    "ODD_VALUE_DELTA_RAW_V1_STANDALONE_RESULT.json"
+  ]
+}
