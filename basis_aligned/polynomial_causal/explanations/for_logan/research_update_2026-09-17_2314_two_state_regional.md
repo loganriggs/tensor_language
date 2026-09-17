@@ -1,6 +1,6 @@
 # Two native states now drive the local regional executor
 
-The regional city-conditioned head8.2 write and its coupled MLP8 response now run standalone from two supplied residual7 states. The executor generates block8 normalization, full attention8, and the MLP8 context internally; native and isolated replay pass. It still needs the later model to produce spelling effects. Fresh native selectivity transfers. A new opened causal screen retains spelling effects after omitting other-head cross terms, despite the local-vector failure; fresh confirmation is pending. Composition remains failed and the native prediction-baseline comparison is pending.
+The regional city-conditioned head8.2 write and its coupled MLP8 response now run standalone from two supplied residual7 states. The executor generates block8 normalization, full attention8, and the MLP8 context internally; native and isolated replay pass. It still needs the later model to produce spelling effects. Fresh native selectivity transfers. The reduced cross-term variant now passes fresh prediction and same-site selectivity tests:5.0–12%effect error beats both frozen baselines. Its own standalone certification remains pending; composition remains failed.
 
 ```mermaid
 flowchart LR
@@ -19,9 +19,9 @@ Residual7 means the output of block7, before block8's initial-state mixing. The 
 
 | Required property | Evidence and current limit |
 |---|---|
-| Predicts OOD | Native retained formula predicts fuller city intervention with15–27%error on fresh constructions and held-out city pairs. Same endpoints; native constant/fitted predictor comparison remains pending. |
-| Extracted | Two-state local executor passes native and isolated replay on40opened examples. Later suffix and two upstream native states remain external. |
-| Selective | Fresh native midpoint edit attenuates18–29%, beats16/16matched random directions per family, collateral at most0.17target. Paired intervention, not donor-free removal. |
+| Predicts OOD | Reduced cross variant predicts the complete native half-write with5.0–12%error on fresh constructions/city pairs, beating both frozen baselines. Same endpoints; native states and suffix remain required. The older fuller-city-parent comparison has a different target. |
+| Extracted | Complete-response two-state executor passes native and isolated replay. Reduced variant passes CPU formula equivalence only; native and isolated reduced-package checks remain. Later suffix and two states stay external. |
+| Selective | Fresh reduced block9 edit attenuates16–26%, beats16/16same-site residual-direction nulls per family, collateral at most0.18target. Paired intervention, not donor-free removal. |
 | Composes | Direct-write/MLP8 additivity and earlier partition tests failed. Keeping their exact coupled computation does not satisfy the small-interaction criterion. |
 | Simple, separately priced | About24million floats and38thousand native-state scalars at length32. Exact weight sharing removes duplicate storage; no matched-effect circuit simplicity advantage established. |
 
@@ -55,3 +55,15 @@ The two derived adapters contain1,179,648floats; the existing down-map has5,308,
 The causal screen used120forwards in2.564056746seconds. [Causal receipt](../../HEAD2_MLP8_CROSS_EDIT_V1_RESULT.json), [protocol](../../HEAD2_MLP8_CROSS_EDIT_V1_PREREGISTRATION.md), [kernel receipt](../../HEAD2_MLP8_BILINEAR_V1_RESULT.json), [kernel code](../../head2_mlp8_bilinear_kernel_v1.py). Earlier random-split composition failures remain.
 
 A [fresh confirmation panel](../../HEAD2_MLP8_CROSS_FRESH_V1_ROWS.json) is now frozen:ten new constructions,Oxford/Seattle andManchester/Austin,20cells/40sequences/240endpoint rows, same six endpoints. [Overlap audit](../../HEAD2_MLP8_CROSS_FRESH_V1_CPU_CONTROL.json) finds no match among1,953earlier token prefixes. No model effects have been measured on this panel. Because the reduced write is applied at block9, its confirmation needs block9matched-direction controls; old attention8-site null results cannot substitute.
+
+## Fresh reduced-cross prediction and selectivity now pass
+
+On the frozen20cell/40sequence panel, all six registered gates pass (**edit**, fresh). Reduced-cross target-effect errors are5.0–12%; cue constants give33–64% and the fixed text-feature fit gives24–65% (**fit**, frozen on earlier opened data). The reduced formula beats each baseline by the registered margin in every family. Unlike the older full-city-parent comparison, all three predictions here target the complete native half-write effect.
+
+Attenuation is16–26%, positive on all120capable endpoint pairs. The target beats all16block9random directions in every family,35–51times their median magnitude; the largest unrelated-reader ratio is0.18. These are per-position norm-matched Gaussian writes in the full residual space at block9. They are different controls from the earlier head8 output-subspace directions, so their ratios should not be interpreted as directly comparable measures of selectivity.
+
+The native-state formula uses more information and computation than the token/text baselines. These results do not establish token-only prediction, new spelling endpoints, corpus transfer, donor-free removal, or composition. The47%local multiline approximation failure remains; different quantities were measured. Full normalizers and all other background terms remain in the reduced expression.
+
+Primary evidence: [fresh result](../../HEAD2_MLP8_CROSS_FRESH_V1_RESULT.json), [frozen protocol](../../HEAD2_MLP8_CROSS_FRESH_V1_PREREGISTRATION.md), [baseline training artifact](../../HEAD2_MLP8_CROSS_FRESH_V1_BASELINES.json).800forwards took9.330373195seconds. Native-versus-compiled full-response anchors and null norms pass all instrument gates.
+
+The next [two-state reduced implementation](../../typed_face_reduced_residual7_v1.py) already passes [CPU formula equivalence](../../REDUCED_RESIDUAL7_V1_CPU_RESULT.json) on40opened native fixtures. This does not transfer the complete-response package's extraction certificate automatically. The reduced package still needs its token table extended algebraically to the fresh panel vocabulary, native effect replay, and isolated execution.
