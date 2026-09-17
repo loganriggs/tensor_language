@@ -1,0 +1,64 @@
+{
+  "status": "posthoc diagnostic; not prospective evidence",
+  "training": "base only: four context/city cells, eight sequences; endpoint rows correlated",
+  "features": [
+    "intercept",
+    "cue_sign",
+    "length/32",
+    "city_position/32",
+    "pair_index",
+    "endpoint_1",
+    "endpoint_2",
+    "endpoint_3",
+    "endpoint_4",
+    "endpoint_5"
+  ],
+  "coefficients": [
+    -0.02791602271659411,
+    -0.14083182315031695,
+    0.09084832646513925,
+    -0.3379731576374342,
+    0.013074720899263953,
+    0.006214857101440464,
+    0.014260739088058569,
+    0.0030772387981415177,
+    0.0034162998199462544,
+    0.014901101589202867
+  ],
+  "design_rank": 9,
+  "design_columns": 10,
+  "cue_constants": {
+    "British": -0.13604284822940826,
+    "American": 0.1456207980712255
+  },
+  "errors": {
+    "base": {
+      "frozen_face": 0.17681655395099005,
+      "cue_constant": 0.3587690386133904,
+      "text_ols": 0.3351920097366683
+    },
+    "no_colon": {
+      "frozen_face": 0.18030426146923723,
+      "cue_constant": 0.34237722621426786,
+      "text_ols": 0.3214136729593189
+    },
+    "no_quote": {
+      "frozen_face": 0.17528502484438674,
+      "cue_constant": 0.4049991163059437,
+      "text_ols": 0.37786861979157144
+    },
+    "neither": {
+      "frozen_face": 0.17092840883420626,
+      "cue_constant": 0.8630493190257279,
+      "text_ols": 0.8755982528946665
+    },
+    "short_frame": {
+      "frozen_face": 0.19510430504421603,
+      "cue_constant": 0.8112263160614644,
+      "text_ols": 0.9082721598798656
+    }
+  },
+  "scope": "OLS and constants do not use test targets for fitting; feature choice was written after structural outcomes, so evaluation is opened and cannot supply the missing preregistered prediction-null gate. Rank deficiency reported, no tuning. Freeze this recipe for the next independent panel.",
+  "row_sha256": "c71451cfc2b0860bc5a70807a769aba207449ffb3d3f1e4ce271e0d2c9b9d8fb",
+  "artifact_sha256": "b5c085253878e1b698e89567c9ae6f491aa6d3f9f0f4c9edacbae8465d35b07e"
+}

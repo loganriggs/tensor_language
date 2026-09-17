@@ -35,7 +35,7 @@ recover 80% of that module's loss benefit on the old held-out evaluation (§713)
 | 4 | 64 | not yet consolidated | adopted p768 shared-input replacement; check §§2416–2422 and §§2464–2475 |
 | 5 | 256 | not yet consolidated | check §713 and bias/linearization records |
 | 6 | 512 | not yet consolidated | individually small old Down-map benefit; do not infer joint irrelevance |
-| 7 | 512 | not yet consolidated | p768 input replacement/composition already screened |
+| 7 | 512 | [regional-path addendum](MLP7_REGIONAL_PATH_ADDENDUM_2026-09-17.md); historical coverage not yet consolidated | p768 input replacement/composition already screened; regional exact donor fold, native replay and failed source omissions linked |
 | 8 | 512 | [MLP8_MLP9_MLP12_CURRENT_UNDERSTANDING.md](MLP8_MLP9_MLP12_CURRENT_UNDERSTANDING.md) | generic ladders, native-term truncation, and task-shaped equality role consolidated; next question is downstream-effect grouping, not rank |
 | 9 | 512 | [MLP8_MLP9_MLP12_CURRENT_UNDERSTANDING.md](MLP8_MLP9_MLP12_CURRENT_UNDERSTANDING.md) | generic clustering/whole-layer approximations and task-shaped equality role consolidated; do not repeat activation-only grouping |
 | 10 | 512 | [MLP10_CURRENT_UNDERSTANDING.md](MLP10_CURRENT_UNDERSTANDING.md) | question-form writer, generic approximation screens, exact253-term split, family/dictionary failures, and live downstream-equivalence test consolidated; do not repeat rank/gradient/family/latent-basis searches |
