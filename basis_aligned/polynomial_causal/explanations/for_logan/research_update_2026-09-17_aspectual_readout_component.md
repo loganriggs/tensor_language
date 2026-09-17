@@ -31,12 +31,13 @@ damage(zero). *Fresh* = rows unused at any prior stage; *opened* = used by an ea
 | Head 8.1 = per-cue constant × λ × block-0 value of the cue token (token IDs in) | edit | cross-construction, new templates | retention 0.83 / 0.93 | passes |
 | Frozen prediction 0.54 ± 0.15 on a third lexicon and a new construction | edit | fresh | 0.43 / 0.53 / 0.54 | passes |
 | The bank 9.1/9.4 relay: ¼ is 8.1's cue write (edit-confirmed), the rest a diffuse MLP5–8 polynomial | fold + edit | opened | mediated 0.27; top MLP8 pair 10–14% | open port |
-| Natural FineWeb rows: shift scales with 8.1's attention on the cue | fold + edit | fresh corpus | r −0.89 (since), +0.63 (by); temporal-by panel +0.36 | passes; any-sense `by` fails |
+| Natural FineWeb rows (in-distribution text; FineWeb is the training corpus): shift scales with 8.1's attention on the cue | fold + edit | natural, in-distribution | r −0.89 (since), +0.63 (by); temporal-by panel +0.36 | passes; any-sense `by` fails |
 
 ## Five properties
 
-Simple: 3 heads + the has/had contrast + 2 constants (8.1). Predicts OOD: held on new lexicon, new
-templates, and natural corpus when the cue is temporal. Extracted: held at the head boundary; 8.1 closed;
+Simple: 3 heads + the has/had contrast + 2 constants (8.1). Predicts OOD: held on new lexicon and new
+templates; natural FineWeb text (in-distribution) transfers when the cue is temporal; a Pile (OOD) panel is
+not yet run. Extracted: held at the head boundary; 8.1 closed;
 two declared open ports (MLP5–8 bank polynomial, block-9 patterns). Selective: held (random null, three
 readers). Composes: held at head grain; one serial pair (mlp4→attn5, from the older path) above gate.
 
