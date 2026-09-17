@@ -1,0 +1,170 @@
+{
+  "candidate_id": "aspectual_anchor.has_vs_had.dod_source_fold_v10",
+  "closure_max_relative_error": 4.789447438631683e-05,
+  "finished_utc": "2026-09-17T21:49:01.907732+00:00",
+  "forwards": 6,
+  "heads": {
+    "attn8_h1_final:1": {
+      "by_category_branch": {
+        "agent": {
+          "current": -5.616072571370751,
+          "inherited": -2.40549154067412
+        },
+        "cue": {
+          "current": 132.9010098874569,
+          "inherited": 1078.4502226114273
+        },
+        "last": {
+          "current": 98.07652366918046,
+          "inherited": 67.2931680670008
+        },
+        "period": {
+          "current": 30.29539244901389,
+          "inherited": 0.30033545376500115
+        },
+        "prefix": {
+          "current": 0.9546388619346544,
+          "inherited": -1.6320546483621001
+        },
+        "the": {
+          "current": 65.99132126290351,
+          "inherited": -0.07505996443796903
+        }
+      },
+      "current_share": 0.22027677190485917,
+      "inherited_share": 0.7797232280951408,
+      "largest_source": "cue",
+      "mean_contrast": 45.76668516919017,
+      "pairs": 32,
+      "shares": {
+        "agent": -0.005477212902239077,
+        "cue": 0.8271240505107345,
+        "last": 0.11291625879504587,
+        "period": 0.020891102194254864,
+        "prefix": -0.0004625470087597402,
+        "the": 0.04500835395795167
+      },
+      "top2_share": 0.9400403093057803
+    },
+    "attn9_h1_h4_final:1": {
+      "by_category_branch": {
+        "agent": {
+          "current": 31.199973348528147,
+          "inherited": 1.9651955598965287
+        },
+        "cue": {
+          "current": 165.54701560735703,
+          "inherited": -8.96571044495795
+        },
+        "last": {
+          "current": 226.84905011951923,
+          "inherited": -12.282464243471622
+        },
+        "period": {
+          "current": 186.55646727979183,
+          "inherited": -6.234997319057584
+        },
+        "prefix": {
+          "current": 3.5522007807157934,
+          "inherited": 0.7960193566250382
+        },
+        "the": {
+          "current": 428.2721843123436,
+          "inherited": -5.845138102769852
+        }
+      },
+      "current_share": 1.030222265518487,
+      "inherited_share": -0.030222265518486904,
+      "largest_source": "the",
+      "mean_contrast": 31.60655590891838,
+      "pairs": 32,
+      "shares": {
+        "agent": 0.03279103017028907,
+        "cue": 0.15481489980831076,
+        "last": 0.21214604425578962,
+        "period": 0.17828725004115084,
+        "prefix": 0.004299167542438857,
+        "the": 0.41766161527027734
+      },
+      "top2_share": 0.629807659526067
+    },
+    "attn9_h1_h4_final:4": {
+      "by_category_branch": {
+        "agent": {
+          "current": -74.675826638937,
+          "inherited": 0.7704772897996008
+        },
+        "cue": {
+          "current": 11.756576576968655,
+          "inherited": 0.13069817167706788
+        },
+        "last": {
+          "current": 265.1991534847766,
+          "inherited": -6.675768840126693
+        },
+        "period": {
+          "current": 186.27199102193117,
+          "inherited": 6.712634883821011
+        },
+        "prefix": {
+          "current": 1.261138572881464,
+          "inherited": 0.10968275851337239
+        },
+        "the": {
+          "current": 290.75245517492294,
+          "inherited": 0.04969368875026703
+        }
+      },
+      "current_share": 0.9983900870292034,
+      "inherited_share": 0.001609912970796567,
+      "largest_source": "the",
+      "mean_contrast": 21.301965780556202,
+      "pairs": 32,
+      "shares": {
+        "agent": -0.10841920369943626,
+        "cue": 0.01743864109641244,
+        "last": 0.3792540018780543,
+        "period": 0.283108592966545,
+        "prefix": 0.0020109959356516306,
+        "the": 0.42660697353502686
+      },
+      "top2_share": 0.8058609754130812
+    }
+  },
+  "lambda_by_block": {
+    "attn8_h1_final": 4.0,
+    "attn9_h1_h4_final": -0.65625
+  },
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "inherited_min": 0.3,
+      "top2_min": 0.7
+    },
+    "candidate_id": "aspectual_anchor.has_vs_had.dod_source_fold_v10",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 12,
+    "gpu_accessed": false,
+    "heads": [
+      "8.1",
+      "9.1",
+      "9.4"
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 64,
+    "rows_sha256": "5ec7d32f3f7b6bbc9ebc31de3411074b24a998430f7f929bd11d0813e40dfcd2"
+  },
+  "pooled_inherited_share": 0.3523116007786876,
+  "predictions": {
+    "pred_a_fold_closure": true,
+    "pred_b_contrast_is_positive_for_every_head": true,
+    "pred_c_cue_token_is_the_largest_source": false,
+    "pred_d_inherited_branch_share_at_least_030": true,
+    "pred_e_top_two_sources_carry_070": false
+  },
+  "schema": "aspectual_anchor_dod_source_fold_result_v10",
+  "serial_seconds": 1.697120901895687
+}
