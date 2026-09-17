@@ -1,0 +1,39 @@
+{
+  "schema": "regional.typed_face_reduced_fused.v1",
+  "ports": [
+    "residual7[B,T,1152]",
+    "donor_city7[B,1152]",
+    "token_ids[B,T]",
+    "recipient_token:int",
+    "donor_token:int",
+    "city:int",
+    "destination[T]:bool",
+    "strength:float=.5"
+  ],
+  "external_native_activation_inputs": 2,
+  "native_vector_state_arrays": 2,
+  "native_scalar_state_arrays": 0,
+  "native_state_scalars_T32": 38016,
+  "static_float_scalars": 24153091,
+  "integer_token_indices": 248,
+  "output": "full block9 input delta[B,T,1152]",
+  "serialized_program_bytes": 96623109,
+  "four_traits": {
+    "ood_prediction": null,
+    "extraction": null,
+    "selective_removal": null,
+    "composition_reuse": false
+  },
+  "certified_complete_circuit": false,
+  "scope": "Exact fused reduced operator. Native and isolated certification pending. Same2state/114token interface and weights; no scientific gate changes.",
+  "files": {
+    "head8.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "attention8_context_channels_v1.py": "1353d59f9ac7c716e915e933e22943dd496ac8a9d79761b5b36165263d140ac6",
+    "local_program.pt": "68257bbd68360cd73b12005133a7fec2af3849a3820dc316ac9e41670bee7bf3",
+    "context_program.pt": "9ec0d762497e9f5b2217d75e7162ce884f4e9be12384916d7277a981cefcc72a",
+    "reentry_program.pt": "950ca1f9781816b30d8d32f9b9a89c2f5f2b6a5783134450f607649eb0f2e9e9",
+    "execute.py": "37f5b77f5fb1daa8c2613428216c506cf1c950bc4e6fd698eddd46b39420698a"
+  },
+  "receipts": [],
+  "supported_sequence_tokens": 114
+}

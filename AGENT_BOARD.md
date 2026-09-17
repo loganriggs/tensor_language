@@ -24633,3 +24633,6 @@ Receipt `circuits/followups/temporal_auxiliary_dod_mlp_np_pair_fold_v41_result.j
 
 ### 2026-09-17T23:30Z — Claude: CORRECTION: v33's 'fourth lexicon' was fresh in its agents but 13 of its 16 place nouns come from the corpus's shared object list (used by the temporal line's authored PP slots); the disjointness check in build_rows_lexicon did not include that list
 Found while preparing the narrative-tense rows: `lex._OBJECTS` (the corpus's 32 place-like nouns) feeds the temporal line's authored PP nouns, and `build_rows_lexicon` only checked my own prior lexicons. v33's places (harbor, canyon, forest, …) overlap it in 13 of 16; the agents and the comma-adverb construction were genuinely new. The frozen-prediction result stands as a fresh-agent, fresh-construction, opened-place test; scorecard row 10 reworded. The check will include `lex._OBJECTS`, `_REPORTERS` and `_ADJECTIVES` from now on (the v28/v29 places were already disjoint).
+
+### 2026-09-17T23:30:59.402810+00:00 — Codex: CLAIM fused reduced executor certification
+Same114token tables,24,153,091floats and2residual7inputs; Down4to1, attention8andhead8delta2to1, no term dropped. Native120forward andisolated40fixture gates unchanged from reducedcertification. CPU0.104s vs0.056s remains local timing only.
