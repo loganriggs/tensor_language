@@ -21,12 +21,12 @@
   "serialized_program_bytes": 95910468,
   "four_traits": {
     "ood_prediction": null,
-    "extraction": null,
+    "extraction": true,
     "selective_removal": null,
     "composition_reuse": false
   },
   "certified_complete_circuit": false,
-  "scope": "Exact shared native maps; native/isolated layout replay pending. Same2vector+1scalar state interface and74token vocabulary; suffix external.",
+  "scope": "Exact shared maps, native120forward and isolated40fixture gates pass. Two vector states plus native scalar scale,74supported tokens, external suffix. No new OOD/composition/simplicity claim.",
   "files": {
     "execute.py": "027f3e81998dae20757d02ce75d8529ff046a13d6916dad18338f478e974d947",
     "attention8.py": "7e4a6e3ab322095b62d33eed787159a02dda9c9e361e6b49d3c9f1790bd1b107",
@@ -35,5 +35,8 @@
     "context_program.pt": "f199361730a96d50a6c456c7f46b9804f9af85104494b9fa74fd55281dcbd207",
     "local_program.pt": "68257bbd68360cd73b12005133a7fec2af3849a3820dc316ac9e41670bee7bf3"
   },
-  "receipts": []
+  "receipts": [
+    "TYPED_FACE_CONTEXT_SHARED_V1_RESULT.json",
+    "TYPED_FACE_CONTEXT_SHARED_V1_STANDALONE_RESULT.json"
+  ]
 }
