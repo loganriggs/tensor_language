@@ -20,6 +20,7 @@ the blind sweep on fresh rows returns exactly the temporal will/had set, with 15
 | 7 | Source fold (oriented past−present): 15.5 reads rest1 0.31, verb 0.25; 11.3 reads tail 0.90, subject_np 0.10; 9.4 rest1 0.35, verb 0.29; 9.1 tail 1.39, season -0.21; inherited branches ≈ 0 | fold | v44 | closure 7e-6 | established; registered guess (tensed verb or adverb leads for 15.5/11.3) FAILED — the readout heads read the tense from the second sentence's contextual state, not from the tense-bearing tokens |
 | 8 | Matched-count null: 16 random four-head sets on their own was/is readout directions | edit | v45 | set 1.46 vs random max 0.059, median 0.005; none live | passes |
 | 9 | Set removal transfers to three new tense frames (years ago / these days; once / still; back then / right now) | edit | fresh templates (v46) | fractions back_then_now 0.69 / once_still 0.75 / years_ago 0.75; positive every row; null max ≤ 0.03; selective everywhere; all six capability cells 1.00 | passes |
+| 10 | Pairwise Möbius terms all below 25% of the smaller piece (largest attn15_h5+attn11_h3 +0.025 vs bar 0.138); head split normalized gap 0.042 vs random-split median 0.050; four-way gap 0.061 vs bar 0.021 | edit | v47 | 156 forwards | 3/4: pairwise and null held; strict four-way bar fails (same pattern as the temporal set) |
 
 ## Five-property status
 | property | status | next |
@@ -28,9 +29,10 @@ the blind sweep on fresh rows returns exactly the temporal will/had set, with 15
 | Predicts OOD | held on a fresh-to-path panel with a frozen number (row 4) and on three new tense frames (row 9) | natural rows (tense cue is spread; miner not built) |
 | Extracted | held at the head boundary (row 5); the ports are contextual states of the current sentence (row 7) — tense has already been propagated across the sentence boundary by earlier layers | writer fold of the tail state (kill criterion applies) |
 | Selective | held on the selecting rows, the fresh panel and three templates (rows 2, 4, 9) | — |
-| Composes | strict four-way bar fails by 4% (row 6); pairwise terms not yet; reuse across lines is the headline (same set as temporal) | pairwise terms; cross-line comparison |
+| Composes | held pairwise and against the random-split null (row 10); the strict four-way bar fails by 4% (rows 6, 10); reuse across lines is the headline (same set as temporal) | — |
 
 ## Receipts
+- v47 composition: `.../narrative_tense_dod_composition_v47_result.json`
 - v45 random-set null: `.../narrative_tense_dod_random_set_null_v45_result.json`
 - v46 templates: `.../narrative_tense_dod_templates_v46_result.json`
 - v44 source fold: `.../narrative_tense_dod_source_fold_v44_result.json`
