@@ -1,0 +1,71 @@
+{
+  "candidate_id": "narrative_tense.past_vs_present.dod_source_fold_v44",
+  "closure_max_relative_error": 7.315920467165417e-06,
+  "finished_utc": "2026-09-17T23:55:43.530158+00:00",
+  "forwards": 8,
+  "heads": {
+    "11.3": {
+      "inherited_share": -0.0036771391634796207,
+      "largest_source": "tail",
+      "mean_contrast": 53.929503828287125,
+      "shares": {
+        "adverb": 0.0003684195147752588,
+        "final": 0.035507308098487296,
+        "rest1": -0.035503594098100714,
+        "season": 0.0023670333610255542,
+        "subject_np": 0.09553926675168545,
+        "tail": 0.9027196005704028,
+        "verb": -0.0009980382213510607
+      }
+    },
+    "15.5": {
+      "inherited_share": 0.28418506489444484,
+      "largest_source": "rest1",
+      "mean_contrast": 48.2494652941823,
+      "shares": {
+        "adverb": 0.06316216033970423,
+        "final": 0.029121697102558748,
+        "rest1": 0.3107386244516213,
+        "season": 0.09612339937034552,
+        "subject_np": 0.03546447792415106,
+        "tail": 0.21082634552129847,
+        "verb": 0.25456330330640364
+      }
+    },
+    "9.1": {
+      "inherited_share": -0.00155269507788959,
+      "largest_source": "tail",
+      "mean_contrast": 9.266525965183973,
+      "shares": {
+        "adverb": -0.044751835350904996,
+        "final": -0.03274622315692453,
+        "rest1": -0.16690179897275118,
+        "season": -0.2060936102496248,
+        "subject_np": 0.02299281658529316,
+        "tail": 1.3922711984292033,
+        "verb": 0.03522944523380575
+      }
+    },
+    "9.4": {
+      "inherited_share": 0.1048434165928287,
+      "largest_source": "rest1",
+      "mean_contrast": 16.71846342459321,
+      "shares": {
+        "adverb": 0.004256576036007265,
+        "final": -0.012299956240208893,
+        "rest1": 0.34559061996889845,
+        "season": 0.17730496960670183,
+        "subject_np": 0.008353404014963175,
+        "tail": 0.18902799291105682,
+        "verb": 0.28776638753830475
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_fold_closure": true,
+    "pred_b_contrast_positive_for_every_head": true,
+    "pred_c_verb_or_adverb_is_the_largest_source": false
+  },
+  "schema": "narrative_tense_dod_source_fold_result_v44",
+  "serial_seconds": 1.7646275970619172
+}
