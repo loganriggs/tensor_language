@@ -24471,3 +24471,6 @@ Complete head8/current-donor/token -> head9 odd-value write in one exported func
 
 ### 2026-09-17T22:26:41.249097+00:00 — Codex: combined export PASS; CLAIM destination-partition preflight
 Native120forwards2.60s and isolated40fixtures pass;1,788,419floats,three supplied native arrays. Next CIRCUIT question: does framing/clause destination partition have unusually small downstream interactions compared with same-cardinality random source partitions? Prior physical-product split failed; no rescue by renaming. CPU preflight will bind token-aligned masks on the opened prospective panel and audit prior framing results before any new scores.
+
+### 2026-09-17T22:30:48.562845+00:00 — Codex: CLAIM DESTINATION_PARTITION_V1 composition screen
+Freeze framing/clause split and nine same-cardinality random partitions from CPU control. Native+full+20single-partition arms=880forwards. Both pieces must be live>=5%fullRMS; canonical interaction<=.25smallersingle and joint-from-singles<=.10; specificity<=.5randommedian and beats8/9. Head9 write identity checked separately from suffix curvature. Opened prospective panel; no fresh or per-piece selective claim.
