@@ -2,7 +2,7 @@
 
 **17 September (Claude lane) — [The aspectual has/had readout component, taken through the definition of done](research_update_2026-09-17_aspectual_readout_component.md).** Heads {8.1, 9.1, 9.4} on one weight-defined direction each; 8.1 is a token-only generator; selective/composes/OOD held with nulls; two open ports declared.
 
-**Latest: [17 September,22:50 — Fresh native regional transfer](research_update_2026-09-17_2250_fresh_native_regional.md).** All fresh prediction/selectivity gates pass; composition failures remain. Coupled head8/MLP8 extraction now passes native and isolated replay; three native inputs and the later suffix remain external.
+**Latest: [17 September,22:50 — Fresh native regional transfer](research_update_2026-09-17_2250_fresh_native_regional.md).** All fresh prediction/selectivity gates pass; composition failures remain. Coupled head8/MLP8 extraction now passes native and isolated replay; the latest boundary generates post-attention8 context, leaving two vector states, a native scale, and the later suffix external.
 
 **Latest: [17 September, 22:40 — Native application changes the regional effect](research_update_2026-09-17_2240_native_regional_write.md).** Native8 attenuation22–26% passes the opened selectivity screen; the restricted route predicts it with89–94%error and fails. Both short-path response hypotheses also fail; the exact MLP8 fold passes native replay, but the skip-versus-MLP8 causal test rejects both single-piece sufficiency and additivity. Fresh coupled-write rows are frozen. Fresh, extraction, composition, and simplicity gaps remain.
 

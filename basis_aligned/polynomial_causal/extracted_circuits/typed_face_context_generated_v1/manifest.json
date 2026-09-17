@@ -21,12 +21,12 @@
   "serialized_program_bytes": 99450664,
   "four_traits": {
     "ood_prediction": null,
-    "extraction": null,
+    "extraction": true,
     "selective_removal": null,
     "composition_reuse": false
   },
   "certified_complete_circuit": false,
-  "scope": "Pending widened-boundary native and isolated replay. One full vector-state port replaced by explicit native scale and complete attention8/token-value generator. Only74sequence tokens supported. Later suffix external.",
+  "scope": "Native120forward and isolated40fixture gates pass. Two native vector states plus scalar rho8 replace three vector states. Seventy-four token IDs supported; later suffix external. Added weight cost is charged, composition/simplicity not established.",
   "files": {
     "coupled.py": "d6c2806b2361f3ec00b864f8a93f7dc0e9198a03982c81478807864692bceed8",
     "head8.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
@@ -34,5 +34,9 @@
     "attention8.py": "7e4a6e3ab322095b62d33eed787159a02dda9c9e361e6b49d3c9f1790bd1b107",
     "context_program.pt": "f199361730a96d50a6c456c7f46b9804f9af85104494b9fa74fd55281dcbd207",
     "execute.py": "90c729f1a0e9f83af07d008287f86cfcac1a34e6612a7c46ccef41e074013e95"
-  }
+  },
+  "receipts": [
+    "TYPED_FACE_CONTEXT_GENERATED_V1_RESULT.json",
+    "TYPED_FACE_CONTEXT_GENERATED_V1_STANDALONE_RESULT.json"
+  ]
 }

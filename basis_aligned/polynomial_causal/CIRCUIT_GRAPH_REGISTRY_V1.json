@@ -4,10 +4,10 @@
     "explicit_dependency_edges": 4,
     "four_trait_declared_unverified": 0,
     "four_trait_verified": 2,
-    "packages": 37,
-    "partial_or_unassessed": 35,
-    "with_declared_inputs": 21,
-    "with_manifest": 32
+    "packages": 38,
+    "partial_or_unassessed": 36,
+    "with_declared_inputs": 22,
+    "with_manifest": 33
   },
   "dependency_cycles": [],
   "four_trait_order": [
@@ -1462,6 +1462,51 @@
       "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_composed_raw_v1",
       "schema": "regional.typed_face_composed_raw.v1",
       "scope": "Isolated complete two-stage conditional write at three native-state inputs. Native suffix external; prior path-level prediction/selectivity tests have separate scopes and failed gates. Software composition does not certify small causal interactions.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 9,
+      "declared_input_field": "ports",
+      "declared_inputs": [
+        "current8[B,T,1152]",
+        "donor_city8[B,1152]",
+        "rho8[B,T,1]",
+        "token_ids[B,T]",
+        "recipient_token:int",
+        "donor_token:int",
+        "city:int",
+        "destination[T]:bool",
+        "strength:float=.5"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": 3,
+      "four_traits": {
+        "composition_reuse": false,
+        "extraction": true,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "ood_prediction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_context_generated_v1/manifest.json",
+      "manifest_sha256": "b8a8a9625a1cdf9098d5ef060bb187237b7bd434cf926780ffc1d74e0b673f1a",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "typed_face_context_generated_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_context_generated_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_context_generated_v1",
+      "schema": "regional.typed_face_context_generated.v1",
+      "scope": "Native120forward and isolated40fixture gates pass. Two native vector states plus scalar rho8 replace three vector states. Seventy-four token IDs supported; later suffix external. Added weight cost is charged, composition/simplicity not established.",
       "verification": {
         "path": null,
         "status": "not_available",

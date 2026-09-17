@@ -1,0 +1,49 @@
+{
+  "counts": {
+    "dependency_cycles": 0,
+    "explicit_dependency_edges": 4,
+    "four_trait_declared_unverified": 0,
+    "four_trait_verified": 2,
+    "packages": 38,
+    "partial_or_unassessed": 36,
+    "with_declared_inputs": 22,
+    "with_manifest": 33
+  },
+  "created_utc": "2026-09-17T23:05:31.243503Z",
+  "files": {
+    "builder": {
+      "path": "basis_aligned/polynomial_causal/build_circuit_graph_registry_v1.py",
+      "sha256": "d746b0af7aa99d9c1680d7f757d2bad6b9a8b8c5050dae254515daf7db7126ad"
+    },
+    "registry_json": {
+      "path": "basis_aligned/polynomial_causal/CIRCUIT_GRAPH_REGISTRY_V1.json",
+      "sha256": "18c6a5f0559e88011b4dbd042d0ad63c2c5e0a2a75075ed3959d0db063f8700a"
+    },
+    "registry_markdown": {
+      "path": "basis_aligned/polynomial_causal/CIRCUIT_GRAPH_REGISTRY_V1.md",
+      "sha256": "bc366c364539237584240d933a1a2d420867873740ebc349b1676bd09e414c19"
+    },
+    "runner": {
+      "path": "basis_aligned/polynomial_causal/audit_circuit_graph_registry_v1.py",
+      "sha256": "a56e2206fbe843e859dac566beafc1222c600ee1e820c37717f03e41d291c109"
+    },
+    "tests": {
+      "path": "basis_aligned/polynomial_causal/test_build_circuit_graph_registry_v1.py",
+      "sha256": "b1fca0dc5b605bcfee894b9309515c2959e2bc3113723318029ab4cf2824c2e6"
+    }
+  },
+  "predictions": {
+    "pred_a_complete_directory_inventory": true,
+    "pred_b_generated_artifacts_reproduce": true,
+    "pred_c_two_four_trait_verifiers_pass": true,
+    "pred_d_dependency_graph_is_acyclic": true,
+    "pred_e_missing_evidence_remains_unknown": true
+  },
+  "schema": "circuit_graph_registry_v1_result",
+  "scope": "Filesystem-complete inventory and live verifier audit of extracted-circuit packages. Missing metadata is unknown; only packages with all four declared traits and a passing hash/evidence verifier are certified.",
+  "terminal": "audited_circuit_graph_registry",
+  "verified_four_trait_packages": [
+    "equality_l5h5_m4_input_port_factor_graph_v1",
+    "subject_number_l11h3_sparse_graph_v1"
+  ]
+}

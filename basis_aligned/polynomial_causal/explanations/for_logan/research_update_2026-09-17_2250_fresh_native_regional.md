@@ -1,20 +1,25 @@
 # The coupled regional write transfers to fresh constructions
 
-The city-conditioned head8.2 write, followed by its full MLP8 response and all later native computation, selectively changes UK/US spelling on fresh constructions and held-out city pairs. The new screen passes every registered gate: **18–29% attenuation**, **15–27% prediction error** against the fuller city intervention, and all sixteen matched random controls beaten in every family (**edit**, fresh). This remains a path with native-state inputs and an external suffix: simple baseline comparisons for this native application, full-suffix extraction, and the requested composition property are still incomplete or failed. The coupled local executor now passes native and isolated replay.
+The city-conditioned head8.2 write, followed by its full MLP8 response and all later native computation, selectively changes UK/US spelling on fresh constructions and held-out city pairs. The new screen passes every registered gate: **18–29% attenuation**, **15–27% prediction error** against the fuller city intervention, and all sixteen matched random controls beaten in every family (**edit**, fresh). This remains a path with native-state inputs and an external suffix: simple baseline comparisons for this native application, full-suffix extraction, and the requested composition property are still incomplete or failed. The coupled local executor now passes native and isolated replay with its post-attention8 context generated internally: two supplied vector states and a per-position scale remain.
 
 ```mermaid
 flowchart LR
- C[Supplied current8 and donor-city8 states] -->|fold: two state inputs| W[Head8.2 retained city write]
- G[Supplied raw post-attention8 state] -->|fold: one context input| M[Exact MLP8 response]
+ C[Supplied current8 and donor-city8 states] -->|fold| W[Head8.2 retained city write]
+ C -->|fold: current8 only| A[Full native attention8]
+ T[Token IDs and 74-entry inherited-value table] -->|fold| A
+ S[Supplied per-position RMS scale] -->|fold| G[Generated post-attention8 context]
+ C -->|fold: current8 only| G
+ A -->|fold| G
+ G -->|fold| M[Exact MLP8 response]
  W -->|fold: full normalization and cross terms| M
  W --> J[Coupled direct write and MLP8 response]
  M --> J
  J -->|edit: 18–29% attenuation, fresh| N[All later native computations]
- N --> S[UK/US spelling]
+ N --> O[UK/US spelling]
  classDef native fill:#eeeeee
- class C,G,N native
- linkStyle 0,1,2,3,4 stroke:#2471a3
- linkStyle 5,6 stroke:#238b45
+ class C,S,N native
+ linkStyle 0,1,2,3,4,5,6,7,8,9 stroke:#2471a3
+ linkStyle 10,11 stroke:#238b45
 ```
 
 The native-state boxes mark unresolved inputs. The diagram does not claim that the downstream computations are extracted or independently identified.
@@ -38,7 +43,7 @@ The fuller parent intervention donates both city-key factors, inherited value, a
 | Required property | Current state |
 |---|---|
 | Predicts OOD | Fresh native-application transfer now passes on new constructions and held-out city pairs. Same endpoints, native states and suffix; constant/fitted baseline comparison remains missing here. |
-| Extracted | Earlier conditional head8/head9 package is standalone at three native inputs. The broader coupled head8/MLP8 package now passes native and isolated replay with three inputs and about17million floats. The later suffix remains external. |
+| Extracted | Earlier conditional head8/head9 package is standalone at three native inputs. The generated-context package passes native and isolated replay with two vector inputs, one scalar-per-position input, and about25million floats. The later suffix remains external. |
 | Selective | Fresh paired midpoint screen passes four unrelated controls and sixteen same-site random directions. Donor-free removal remains a different, untested claim. |
 | Composes | Multiple partitions and the direct/MLP8 split failed. Keeping their coupled expression is necessary but does not satisfy the small-interaction criterion. |
 | Simple, separately priced | Explicit algebra and literal parameter/state counts are available; no matched-effect simplicity advantage or full-model reduction is established. |
@@ -72,3 +77,13 @@ Relative to the complete local block9-input change, the direct skip has norm rat
 Splitting one supplied context into three supplied source arrays would increase the interface, so that expansion alone does not close a port. A subsequent CPU check establishes a more useful possible boundary: `post_attention8 = rho8 * current8 + attention8(current8, token_values)`, with an explicit native RMS scale per position. Once the full attention8 output and inherited token values are generated, this could reduce supplied state scalars from about75thousand to38thousand at length32. It would add roughly8.0million attention-map coefficients before sharing and token tables; this is a state-interface tradeoff, not a storage saving. The attention generator is not yet implemented or certified.
 
 Receipts: [source expansion](../../MLP8_CONTEXT_SOURCES_V1_RESULT.json), [registered gates](../../MLP8_CONTEXT_SOURCES_V1_PREREGISTRATION.md), [scale feasibility](../../MLP8_CONTEXT_SCALE_V1_CPU_RESULT.json). The source capture used40native forwards; the17term expansion was then scored on CPU. The initial enqueue was rejected before execution because its deferred CPU predicates were invisible to the static gate; all predicates were moved into the same runner, with no threshold changes.
+
+## Generated context: verified state reduction, added weights
+
+The full attention8 generator now passes native downstream replay and isolated replay on40opened examples. The [new standalone package](../../extracted_circuits/typed_face_context_generated_v1/README.md) computes the former post-attention8 input from current8, token-derived first values, and an explicit native RMS scale. All nine heads and both QK products are retained. The74-token table is computed from weights, not fitted; unsupported tokens are rejected.
+
+This replaces a1152-wide state per position with one scalar. At sequence length32, supplied native state falls from74,880 to38,048scalars. There are still three supplied arrays: two vector states and one scalar state. The added full attention module increases static parameters from16,812,545 to24,860,418floats. This is an explicit interface tradeoff; it does not establish smaller overall computation or the matched-effect simplicity property.
+
+All native and isolated precision gates pass. [Native receipt](../../TYPED_FACE_CONTEXT_GENERATED_V1_RESULT.json):120forwards,2.350380301seconds. [Isolated receipt](../../TYPED_FACE_CONTEXT_GENERATED_V1_STANDALONE_RESULT.json), [frozen protocol](../../TYPED_FACE_CONTEXT_GENERATED_V1_PREREGISTRATION.md), and [CPU generator check](../../ATTENTION8_CONTEXT_GENERATOR_V1_CPU_RESULT.json). The earlier three-vector package remains preserved at its original boundary.
+
+An executed [exact sharing audit](../../GENERATED_CONTEXT_SHARING_V1_RESULT.json) finds884,737duplicated floats: the head8.2 maps already occur as slices of the full attention8 maps. A future shared implementation could store23,975,681floats with identical mathematical weights. That implementation and its layout-sensitive replay are pending; the current manifest still charges the full24,860,418. No baseline-prediction or composition gap is upgraded by this engineering result.
