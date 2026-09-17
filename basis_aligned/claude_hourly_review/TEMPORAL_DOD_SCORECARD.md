@@ -12,7 +12,7 @@ line's authored rows (v27) and is scored here on fresh rows only. **Delta:** fir
 
 | # | claim | tag | rows | key numbers | status |
 |---|---|---|---|---|---|
-| 1 | Removing S along its weight-only readout directions damages will/had | edit | fresh lexicon + places, 2 constructions (v28) | 3.45 logits = 81% of the margin; positive 64/64; null max 0.05 | passes |
+| 1 | Removing S along its weight-only readout directions damages will/had | edit | fresh places, 2 constructions; agents fresh except 3 of 16 (broker, tenant, author) from the corpus reporter-alternate list — CORRECTION 23:32 (v28) | 3.45 logits = 81% of the margin; positive 64/64; null max 0.05 | passes |
 | 2 | S is selective on was−were, who−which, night−day | edit | fresh (v28) | all three within null + 0.25×damage (11.3 is the subject-number head, yet was−were stays within gate) | passes |
 | 3 | S is additive | edit | fresh (v28) | joint 3.45 vs Σ singles 3.34: gap 0.11 vs bar 0.09 (25% of the smallest single, 9.4 = 0.36) | fails as registered (superadditive by 3% of the joint) |
 | 4 | 11.3 leads on fresh rows | edit | fresh (v28) | singles 11.3 1.39, 9.1 1.18, 15.5 0.41, 9.4 0.36 | passes |
