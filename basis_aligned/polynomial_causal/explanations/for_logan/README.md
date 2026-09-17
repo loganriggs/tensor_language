@@ -1,5 +1,7 @@
 # Requested full reports for Logan
 
+- [17 September,22:50 — Fresh native regional transfer](research_update_2026-09-17_2250_fresh_native_regional.md).
+
 - [17 September,22:40 — Native regional write](research_update_2026-09-17_2240_native_regional_write.md): broader native application passes opened selectivity; conditional sufficiency fails.
 
 **Latest: [17 September, 22:15 — Distributed regional response](research_update_2026-09-17_2215_regional_response.md).** Direct and fixed early-response explanations fail; family allocation is stable. The combined head8/head9 write now passes native and isolated replay at three native-state inputs; suffix and causal-composition gaps remain.
