@@ -2,7 +2,7 @@
 
 This is a generated inventory of extracted circuit boundaries. Missing evidence is recorded as unknown, not as a failed scientific claim.
 
-Packages: **35**; manifests: **30**; declared input boundaries: **19**; verified four-trait circuits: **2**.
+Packages: **36**; manifests: **31**; declared input boundaries: **20**; verified four-trait circuits: **2**.
 
 | package | maturity | inputs | external activations | nodes | next gap |
 |---|---:|---:|---:|---:|---|
@@ -41,5 +41,6 @@ Packages: **35**; manifests: **30**; declared input boundaries: **19**; verified
 | sparse_even_key_producers_8_2_9_8_v1 | partial_or_unassessed | ? | ? | ? | schema, declared_inputs, ood_prediction… |
 | subject_number_l11h3_sparse_graph_v1 | four_trait_verified | 4 | 0 | 5 | none |
 | three_corner_head17_interaction_v1 | partial_or_unassessed | ? | ? | ? | manifest |
+| typed_face_composed_raw_v1 | partial_or_unassessed | 8 | 3 | ? | ood_prediction, selective_removal, composition_reuse |
 
 Explicit dependency cycles: **0**.

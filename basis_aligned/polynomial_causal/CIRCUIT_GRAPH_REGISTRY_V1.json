@@ -4,10 +4,10 @@
     "explicit_dependency_edges": 4,
     "four_trait_declared_unverified": 0,
     "four_trait_verified": 2,
-    "packages": 35,
-    "partial_or_unassessed": 33,
-    "with_declared_inputs": 19,
-    "with_manifest": 30
+    "packages": 36,
+    "partial_or_unassessed": 34,
+    "with_declared_inputs": 20,
+    "with_manifest": 31
   },
   "dependency_cycles": [],
   "four_trait_order": [
@@ -1418,6 +1418,50 @@
       "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/three_corner_head17_interaction_v1",
       "schema": null,
       "scope": null,
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 8,
+      "declared_input_field": "ports",
+      "declared_inputs": [
+        "current8[B,T,1152]",
+        "donor_city8[B,1152]",
+        "raw_mixed9[B,T,1152]",
+        "recipient_token:int",
+        "donor_token:int",
+        "city:int",
+        "destination[T]:bool",
+        "strength:float=.5"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": 3,
+      "four_traits": {
+        "composition_reuse": false,
+        "extraction": true,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "ood_prediction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_composed_raw_v1/manifest.json",
+      "manifest_sha256": "7c769107877bfaed3362eb20774dac262c2937e3bb5d3283fd8a6e04ead18425",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "typed_face_composed_raw_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_composed_raw_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_composed_raw_v1",
+      "schema": "regional.typed_face_composed_raw.v1",
+      "scope": "Isolated complete two-stage conditional write at three native-state inputs. Native suffix external; prior path-level prediction/selectivity tests have separate scopes and failed gates. Software composition does not certify small causal interactions.",
       "verification": {
         "path": null,
         "status": "not_available",

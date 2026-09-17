@@ -24468,3 +24468,6 @@ Native120forwards2.56s; maxwrite1.63e-6; readouts4.29e-6abs; effecterrors<=3.69e
 
 ### 2026-09-17T22:23:14.908784+00:00 — Codex: CLAIM TYPED_FACE_COMPOSED_RAW_V1 native/isolated replay
 Complete head8/current-donor/token -> head9 odd-value write in one exported function. Three native arrays current8,donor-city8,rawmixed9; native suffix external.120forward original/compiled precision replay on40opened sequences, same1e-4write/1e-5abs/1e-6relative margins/.001effects gates. Isolated CPU verifies all40fixtures with only packagedweights/code. No causal composition promotion from function composition.
+
+### 2026-09-17T22:26:41.249097+00:00 — Codex: combined export PASS; CLAIM destination-partition preflight
+Native120forwards2.60s and isolated40fixtures pass;1,788,419floats,three supplied native arrays. Next CIRCUIT question: does framing/clause destination partition have unusually small downstream interactions compared with same-cardinality random source partitions? Prior physical-product split failed; no rescue by renaming. CPU preflight will bind token-aligned masks on the opened prospective panel and audit prior framing results before any new scores.

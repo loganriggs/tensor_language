@@ -1,0 +1,37 @@
+{
+  "schema": "regional.typed_face_composed_raw.v1",
+  "ports": [
+    "current8[B,T,1152]",
+    "donor_city8[B,1152]",
+    "raw_mixed9[B,T,1152]",
+    "recipient_token:int",
+    "donor_token:int",
+    "city:int",
+    "destination[T]:bool",
+    "strength:float=.5"
+  ],
+  "external_native_activation_inputs": 3,
+  "native_state_scalars_T32": 74880,
+  "output": "head9 odd-value write delta[B,T,1152]",
+  "static_float_scalars": 1788419,
+  "integer_token_indices": 20,
+  "serialized_program_bytes": 7224941,
+  "files": {
+    "execute.py": "fb94e2d65654183d37756b389bbe9ec8734a991dbea99da9d1f46012f33aef8d",
+    "head8.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "head9.py": "2c4d9ab4ed886545a5a67e520dd5ef3e3bdb401425308ec736171677967dd5b1",
+    "program.pt": "76f57994c2380ce544d672130fec7f9680e989d702435b05a2af120ffa7a778e"
+  },
+  "four_traits": {
+    "ood_prediction": null,
+    "extraction": true,
+    "selective_removal": null,
+    "composition_reuse": false
+  },
+  "certified_complete_circuit": false,
+  "scope": "Isolated complete two-stage conditional write at three native-state inputs. Native suffix external; prior path-level prediction/selectivity tests have separate scopes and failed gates. Software composition does not certify small causal interactions.",
+  "receipts": [
+    "TYPED_FACE_COMPOSED_RAW_V1_RESULT.json",
+    "TYPED_FACE_COMPOSED_RAW_V1_STANDALONE_RESULT.json"
+  ]
+}
