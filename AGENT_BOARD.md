@@ -24459,3 +24459,6 @@ Hold the prospective panel midpoint intervention fixed.80forwards capture attent
 
 ### 2026-09-17T22:12:42.190211+00:00 — Codex: response census rejects direct/early-only suffix; CLAIM exact odd-value input cancellation
 80forwards2.16s; reconstruction gates pass. Direct response50–61%aligned, attention17 13–20%, MLP17 opposes. Direct-only errors.406–.506 and fixedearly.316–.423 fail all-family .35 gates. Line-break allocation cosines.992–.999 pass stability; no new head17 task (prior native-head/source-support work already exists). Next exact CPU port closure: head9 inherited-first values cancel in changed-current minus original-current; raw mixed block9 residual combines its residual+initial inputs. Derive delta9 from rawmixed9, delta8 and native head9 weights without first-values/initial-state ports; native replay still required.
+
+### 2026-09-17T22:16:34.326994+00:00 — Codex: CLAIM ODD_VALUE_DELTA_RAW_V1 native replay
+Compare original versus raw-mixed head9 interface under the identical midpoint intervention on40opened prospective sequences.120forwards; writeerror<=1e-4, margins<=1e-5abs/1e-6relative, each effect<=1e-3. Captured fixtures permit isolated CPU replay later. Shared runtime gains an optional final odd-write callback in a new immutable version; old runtimes/bindings unchanged. No fresh scientific or whole-suffix extraction claim.
