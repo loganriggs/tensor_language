@@ -45,7 +45,9 @@ readers). Composes: held at head grain; one serial pair (mlp4→attn5, from the 
 - Every removal direction is a weight object, but the *sites* were chosen by a sweep on the discovery rows
   (opened); the numbers on fresh panels are the evidence.
 - The natural-corpus `by` result depends on the cue being temporal; the block-0 value is sense-blind and the
-  attention pattern carries the sense, which is not yet folded to its sources.
+  attention pattern carries the sense. That pattern's key is built by mid-block writers (MLP5–7, attention
+  5–7; diffuse, panel-dependent), so "token-only" is exact for 8.1's value branch and a template fact for
+  its pattern; the cue key is a declared open port.
 - The older MLP4 → attention5 route explains ~5% and is not part of this component.
 
 Receipts: `bilinear_quotient/circuits/followups/aspectual_anchor_dod_*`. Board entries 20:56–22:52 UTC.
