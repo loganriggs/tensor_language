@@ -1,0 +1,224 @@
+"""Shared native measurement runtime for the inherited-city three-port lattice."""
+from __future__ import annotations
+
+import torch
+import torch.nn.functional as F
+
+from attention8h2_city_key_value_v1 import factorial_channels
+from attention8h2_city_value_source_v1 import value_arms
+from odd_contextual_positions_v1 import contextual_masks
+from odd_semantic_positions_v1 import semantic_masks
+from odd_source_positions_v1 import select_sources
+from odd_source_swap_interaction_v1 import source_factors
+from odd_value_source_split_v1 import value_parts
+from run_odd_attention8h2_city_key_value_v1 import head_factor_parts
+
+
+READOUTS = [
+    ("target", None), ("cat_dog", (3797, 3290)),
+    ("red_blue", (2266, 4171)), ("monday_tuesday", (3321, 3431)),
+    ("apple_orange", (17180, 10912)),
+]
+
+
+@torch.no_grad()
+def measure_lattice(model, graph, discovery, natural, compiled, program):
+    """Measure all eight routing/current/inherited behavioral corners."""
+    rows = list(discovery) + list(natural)
+    discovery_semantic = semantic_masks(discovery)
+    discovery_context = contextual_masks(discovery)
+    state = {"corner": 0}
+    attention_inputs, preprojection = [], []
+    source_replays, factorial_errors, value_errors = [], [], []
+    compiled_errors, table_errors = [], []
+    null_norm_errors = []
+    representatives = []
+    full_channel_errors, outside = [], []
+    write_norms = {corner: [] for corner in range(1, 8)}
+    attention8 = model.transformer.h[8].attn
+    output_weight = attention8.c_proj.weight[:, 2 * 128:3 * 128]
+
+    def masks(index, device):
+        if index < len(discovery):
+            city = discovery_context[index]["city"].to(device)
+            destination = discovery_semantic[index]["framing"].to(device)
+        else:
+            row = rows[index]
+            city = torch.zeros(len(row["ids"]), dtype=torch.bool, device=device)
+            city[row["city_position"]] = True
+            destination = torch.zeros_like(city)
+            destination[row["destination_positions"]] = True
+        return city, destination
+
+    def attention8_pre(module, args):
+        if state["corner"] == 0:
+            attention_inputs.append((args[0].detach().cpu(), args[1].detach().cpu()))
+
+    def projection_pre(module, args):
+        if state["corner"] == 0:
+            preprojection.append(args[0].detach().cpu())
+
+    def block9_pre(module, args):
+        x, _, x0 = args
+        raw_corner = state["corner"]
+        corner = 5 if raw_corner else 0
+        if corner == 0:
+            return None
+        index, donor = state["index"], state["index"] ^ 1
+        city, destination = masks(index, x.device)
+        recipient_current, recipient_first = [value.to(x.device) for value in attention_inputs[index]]
+        donor_current, donor_first = [value.to(x.device) for value in attention_inputs[donor]]
+        donor_key = recipient_current.clone()
+        donor_key[:, city] = donor_current[:, city]
+        routing_recipient, _ = head_factor_parts(
+            attention8, recipient_current, recipient_current, recipient_current, recipient_first
+        )
+        routing_donor, _ = head_factor_parts(
+            attention8, recipient_current, donor_key, recipient_current, recipient_first
+        )
+        batch, tokens, _ = recipient_current.shape
+        current_recipient = attention8.c_v(recipient_current).view(
+            batch, tokens, attention8.n_head, attention8.head_dim
+        )[:, :, 2]
+        current_donor = attention8.c_v(donor_current).view(
+            batch, tokens, attention8.n_head, attention8.head_dim
+        )[:, :, 2]
+        first_recipient = recipient_first.view(
+            batch, tokens, attention8.n_head, attention8.head_dim
+        )[:, :, 2]
+        first_donor = donor_first.view(
+            batch, tokens, attention8.n_head, attention8.head_dim
+        )[:, :, 2]
+        value_corners = value_arms(
+            attention8.lamb, current_recipient, current_donor, first_recipient, first_donor
+        )
+        factors = factorial_channels(
+            routing_recipient, routing_donor,
+            value_corners["recipient"][:, None], value_corners["donor"][:, None],
+        )
+        original = factors["recipient"]
+        source_replays.append(float(
+            (original.sum(-2) - preprojection[index].to(x.device)[..., 2 * 128:3 * 128]).norm()
+            / original.sum(-2).norm().clamp_min(1e-8)
+        ))
+        factorial_errors.append(float(
+            (factors["additive"] + factors["mixed"] - factors["donor"]).norm()
+            / factors["donor"].norm().clamp_min(1e-8)
+        ))
+        value_errors.append(float(
+            ((value_corners["current"] - value_corners["recipient"])
+             + (value_corners["first"] - value_corners["recipient"])
+             - (value_corners["donor"] - value_corners["recipient"])).norm()
+            / (value_corners["donor"] - value_corners["recipient"]).norm().clamp_min(1e-8)
+        ))
+        routing = routing_donor if corner & 1 else routing_recipient
+        current = current_donor if corner & 2 else current_recipient
+        first = first_donor if corner & 4 else first_recipient
+        value = (1 - attention8.lamb) * current + attention8.lamb * first
+        channels = routing[..., None] * value[:, None]
+        if corner == 7:
+            full_channel_errors.append(float(
+                (channels - factors["donor"]).norm() / factors["donor"].norm().clamp_min(1e-8)
+            ))
+        write_delta = F.linear(select_sources(channels - original, city[None]), output_weight)
+        if raw_corner >= 6:
+            city_index = int(torch.nonzero(city)[0])
+            recipient_token = rows[index]["ids"][city_index]
+            donor_token = rows[donor]["ids"][city_index]
+            candidate = compiled.execute(program, recipient_current,
+                donor_current[:, city_index], recipient_token, donor_token,
+                city_index, destination)
+            reference = write_delta * destination[None,:,None]
+            compiled_errors.append(float((candidate-reference).norm()/reference.norm().clamp_min(1e-8)))
+            expected_first = first_recipient[:,city_index]
+            table_errors.append(float((compiled.inherited(program, recipient_token)-expected_first).norm()/expected_first.norm().clamp_min(1e-8)))
+            if raw_corner >= 7:
+                candidate = .5 * candidate
+            if raw_corner >= 8:
+                generator = torch.Generator(device=x.device)
+                generator.manual_seed(17092100 + 1000*(raw_corner-8) + rows[index]["context_id"])
+                random_channels = torch.randn((*candidate.shape[:2], 128), generator=generator, device=x.device, dtype=candidate.dtype)
+                direction = F.linear(random_channels, output_weight)
+                target_norm = candidate.norm(dim=-1, keepdim=True)
+                direction = direction * (target_norm/direction.norm(dim=-1,keepdim=True).clamp_min(1e-30))
+                direction = direction * (1 if rows[index]["cue"] == "British" else -1)
+                null_norm_errors.append(float(((direction.norm(dim=-1,keepdim=True)-target_norm).abs()/target_norm.clamp_min(1e-8)).max()))
+                candidate = direction
+            write_delta = candidate
+        if raw_corner == 5:
+            city_index = int(torch.nonzero(city)[0])
+            representatives.append({"current": recipient_current.cpu(),
+                "donor_city_state": donor_current[:,city_index].cpu(),
+                "recipient_token": rows[index]["ids"][city_index],
+                "donor_token": rows[donor]["ids"][city_index],
+                "city": city_index, "destination": destination.cpu(),
+                "expected_write": (write_delta*destination[None,:,None]).cpu()})
+        write_norms[corner].append(float(write_delta[:, destination].norm()))
+        hybrid = x.clone()
+        hybrid[:, destination] += write_delta[:, destination]
+        outside.append(float((hybrid[:, ~destination] - x[:, ~destination]).abs().max()))
+        mixed = module.lambdas[0] * hybrid + module.lambdas[1] * x0
+        state["hybrid_current"] = F.rms_norm(mixed, (mixed.size(-1),))
+        return None
+
+    handles = [
+        attention8.register_forward_pre_hook(attention8_pre),
+        attention8.c_proj.register_forward_pre_hook(projection_pre),
+        model.transformer.h[9].register_forward_pre_hook(block9_pre),
+    ]
+
+    def attention9_out(module, args, result):
+        if state["corner"] == 0:
+            return result
+        current, first = args
+        _, destination = masks(state["index"], current.device)
+        routing, _ = source_factors(graph, current, current, current, first)
+        original, _ = value_parts(graph, current, first)
+        changed, _ = value_parts(graph, state["hybrid_current"], first)
+        delta = select_sources(
+            routing * (changed - original), destination[None]
+        ) @ graph.p["output"].double().T
+        return result[0] + delta.to(result[0].dtype), result[1]
+
+    handles.append(model.transformer.h[9].attn.register_forward_hook(attention9_out))
+    readout_count = len(rows[0].get("endpoint_pairs", [(0,0)])) + len(READOUTS)-1
+    values = torch.zeros(24, len(rows), readout_count, dtype=torch.float64)
+    count = 0
+
+    def forward(index, corner):
+        nonlocal count
+        row = rows[index]
+        ids = torch.tensor([row["ids"]], device="cuda")
+        x = F.rms_norm(model.transformer.wte(ids), (1152,))
+        x0, first = x, None
+        for block in model.transformer.h:
+            x, first = block(x, first, x0)
+        scores = (30 * torch.tanh(model.lm_head(F.rms_norm(x[:, -1], (1152,))) / 30))[0]
+        pairs = row.get("endpoint_pairs", [(row["uk_id"], row["us_id"])]) + [pair for _, pair in READOUTS[1:]]
+        for readout, (left, right) in enumerate(pairs):
+            values[corner, index, readout] = (scores[left] - scores[right]).cpu()
+        count += 1
+
+    try:
+        for index in range(len(rows)):
+            forward(index, 0)
+        assert len(attention_inputs) == len(preprojection) == len(rows)
+        for corner in (5, 6, 7, *range(8,24)):
+            state["corner"] = corner
+            for index in range(len(rows)):
+                state["index"] = index
+                forward(index, corner)
+    finally:
+        for handle in handles:
+            handle.remove()
+    return {
+        "values": values, "representatives": representatives,
+        "null_norm_errors": null_norm_errors, "compiled_errors": compiled_errors, "table_errors": table_errors,
+        "source_replays": source_replays,
+        "factorial_errors": factorial_errors,
+        "value_errors": value_errors,
+        "full_channel_errors": full_channel_errors,
+        "outside": outside,
+        "write_norms": write_norms,
+        "body_forwards": count,
+    }
