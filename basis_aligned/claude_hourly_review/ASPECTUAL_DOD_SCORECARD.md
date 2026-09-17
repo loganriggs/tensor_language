@@ -6,8 +6,10 @@ Living document (Claude circuit lane). Rubric: `basis_aligned/better_circuits.md
 **Path now.** `since/by` cue → MLP4 two-term write at `last`+period+`the` → attention5 heads
 7/1/6/8 → carried blocks 6–8 → block9 heads 1/4 at the final query → resid10 → block11 head 3,
 block15 head 5 (+ MLP12/14) → resid18 → has/had. **Delta today:** the five named components are
-now *selective* on fresh rows against a norm-matched random null (edit), and their midpoint
-removals compose additively (edit, null pending).
+now *selective* on fresh rows against a norm-matched random null (edit); their midpoint
+removals compose additively and beat a random-split null (edit), but random pieces of the
+same removal are just as "selective", so the gate certifies the cue-defined delta, not the
+module partition (row 11).
 
 **Metrics box.** *Damage*: native has−had margin minus the edited margin, oriented toward the
 native answer, mean over 64 rows (logits). *Fraction*: damage / native mean margin (2.07).
