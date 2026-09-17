@@ -1,0 +1,78 @@
+{
+  "additivity": {
+    "bar": 0.02091997116804123,
+    "gap": 0.060720160603523254
+  },
+  "candidate_id": "narrative_tense.past_vs_present.dod_confirm_v43",
+  "capability": {
+    "direct/past": 1.0,
+    "direct/present": 1.0,
+    "relative/past": 1.0,
+    "relative/present": 1.0
+  },
+  "finished_utc": "2026-09-17T23:54:21.124365+00:00",
+  "forwards": 82,
+  "fractions": {
+    "direct": 0.7229255012934084,
+    "relative": 0.7363465277179955
+  },
+  "gates": {
+    "animacy_who_which": true,
+    "canonical_night_day": true,
+    "number_was_were": true
+  },
+  "instrument_max_abs_error": 0.0,
+  "joint": {
+    "animacy_who_which_abs_move_mean": 0.02706749364733696,
+    "animacy_who_which_native_abs_mean": 4.586122166365385,
+    "canonical_night_day_abs_move_mean": 0.042101407423615456,
+    "canonical_night_day_native_abs_mean": 1.5287061743438244,
+    "flip_fraction": 0.328125,
+    "number_was_were_abs_move_mean": 0.05851146578788757,
+    "number_was_were_native_abs_mean": 5.670951463282108,
+    "target_damage_fraction": 0.7291279886273017,
+    "target_damage_mean": 1.4555793553590775,
+    "target_damage_positive_fraction": 1.0,
+    "target_native_mean_margin": 1.9963290095329285
+  },
+  "keep_only": {
+    "random_retention": [
+      0.015000727711961481,
+      0.008809953274435345,
+      0.010128104602603605,
+      0.01086942496411325,
+      0.01800229150951571,
+      0.009383309113033755,
+      0.011554448251047122,
+      0.009044650328937975,
+      0.017181174149475287,
+      0.0005620843362813543,
+      0.013784170997171441,
+      0.003337895756775011,
+      0.02170242655702126,
+      0.01924276113449408,
+      0.0013903332634714882,
+      0.0061643433185983865
+    ],
+    "retention": 1.2089403420938223,
+    "zero_damage": 1.4793413430452347
+  },
+  "null_damage_max": 0.023577988147735596,
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_native_capability": true,
+    "pred_c_set_fraction_within_015_of_frozen": true,
+    "pred_d_set_positive_selective_and_beats_null": true,
+    "pred_e_keep_only_retains_most": true,
+    "pred_f_set_is_additive": false
+  },
+  "rows_sha256": "be5ef2873dcba8c959c704f72579022ebcaf56d01baf943f787cd8727011734b",
+  "schema": "narrative_tense_dod_confirm_result_v43",
+  "serial_seconds": 4.291819566162303,
+  "singles": {
+    "attn11_h3_final": 0.5739510506391525,
+    "attn15_h5_final": 0.550496444106102,
+    "attn9_h1_final": 0.08367988467216492,
+    "attn9_h4_final": 0.18673181533813477
+  }
+}
