@@ -1,0 +1,50 @@
+{
+  "candidate_id": "aspectual_anchor.has_vs_had.dod_pile_ood_v26",
+  "finished_utc": "2026-09-17T23:03:48.670445+00:00",
+  "forwards": 13,
+  "instrument_max_abs_error": 0.0,
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_since_rows_shift_toward_had": true,
+    "pred_c_temporal_by_rows_shift_toward_has": true,
+    "pred_d_head_8_1_alone_shifts_since_rows": true,
+    "pred_e_pattern_tracks_shift_on_since_rows": true
+  },
+  "report": {
+    "head_8_1_since": {
+      "fraction_negative": 0.90625,
+      "fraction_nonneg": 0.09375,
+      "mean": -0.18597495555877686,
+      "n": 32,
+      "native_accuracy": 0.875
+    },
+    "pearson_pattern_shift_since": -0.8426078997018736,
+    "triple_any_by": {
+      "fraction_negative": 0.53125,
+      "fraction_nonneg": 0.46875,
+      "mean": 0.09295499324798584,
+      "n": 32,
+      "native_accuracy": 0.8125
+    },
+    "triple_since": {
+      "fraction_negative": 0.6875,
+      "fraction_nonneg": 0.3125,
+      "mean": -0.24263142049312592,
+      "n": 32,
+      "native_accuracy": 0.875
+    },
+    "triple_temporal_by": {
+      "fraction_negative": 0.3125,
+      "fraction_nonneg": 0.6875,
+      "mean": 0.27017687261104584,
+      "n": 32,
+      "native_accuracy": 0.875
+    }
+  },
+  "rows_sha256": {
+    "any": "1ed39e232a6705561d9c971cff41b6324a43689e218e5d3c327063a114774964",
+    "temporal_by": "3e455851e4a8f45be5ef393a53ba3b18ac5140537bffd7e5dab4e572545c2d03"
+  },
+  "schema": "aspectual_anchor_dod_pile_ood_result_v26",
+  "serial_seconds": 1.878722873982042
+}
