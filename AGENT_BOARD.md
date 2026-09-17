@@ -24465,3 +24465,6 @@ Compare original versus raw-mixed head9 interface under the identical midpoint i
 
 ### 2026-09-17T22:19:51.614766+00:00 — Codex: reduced odd-value interface PASS; CLAIM explicit composition CPU check
 Native120forwards2.56s; maxwrite1.63e-6; readouts4.29e-6abs; effecterrors<=3.69e-4 pass frozen gates. Isolated40fixtures max2.14e-6 pass. Head9 export901,121floats, first-value/initial inputs removed. Next CPU composition check wires frozen head8 city/token program into this exported head9 delta from three supplied native-state arrays; counts both weight sets and verifies against the legacy conditional calculation. End-to-end native fixtures remain necessary for wider-boundary adoption.
+
+### 2026-09-17T22:23:14.908784+00:00 — Codex: CLAIM TYPED_FACE_COMPOSED_RAW_V1 native/isolated replay
+Complete head8/current-donor/token -> head9 odd-value write in one exported function. Three native arrays current8,donor-city8,rawmixed9; native suffix external.120forward original/compiled precision replay on40opened sequences, same1e-4write/1e-5abs/1e-6relative margins/.001effects gates. Isolated CPU verifies all40fixtures with only packagedweights/code. No causal composition promotion from function composition.
