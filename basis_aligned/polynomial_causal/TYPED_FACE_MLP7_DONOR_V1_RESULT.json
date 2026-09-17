@@ -1,0 +1,79 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "state_errors": [
+    1.2360585799342516e-07,
+    1.3131668197274848e-07,
+    9.98932563334165e-08,
+    9.453354010702242e-08,
+    1.4063959952181904e-07,
+    1.3736976711697935e-07,
+    1.0091320490346334e-07,
+    1.057135108339935e-07,
+    9.394255329198131e-08,
+    1.020635806980863e-07,
+    1.1318051207354074e-07,
+    1.5509938577906723e-07,
+    1.1315960790625468e-07,
+    1.4416403359973629e-07,
+    1.0407737249806814e-07,
+    1.0025608077057768e-07
+  ],
+  "write_errors": [
+    5.056796226199367e-07,
+    4.187791660115181e-07,
+    2.2930962018108403e-07,
+    2.4605859039183997e-07,
+    2.3276660954252293e-07,
+    2.4114723373713787e-07,
+    2.0218485019540822e-07,
+    1.8414112901155022e-07,
+    1.8897463860412245e-07,
+    1.79806349365208e-07,
+    1.678763084100865e-07,
+    4.6076218040980166e-07,
+    3.318422727716097e-07,
+    1.6376819189645175e-07,
+    2.2429235002618952e-07,
+    3.3646665542619303e-07
+  ],
+  "readout_max_abs": 2.86102294921875e-06,
+  "readout_relative": 5.5694832715706e-07,
+  "effect_errors": [
+    1.6412549323907693e-05,
+    8.120102115640043e-05,
+    9.324885155315789e-05,
+    0.0003335652141354253,
+    0.00039855871986392663
+  ],
+  "effect_norms": [
+    0.6139423242586475,
+    0.08282604580611072,
+    0.08758203239794013,
+    0.022250626198583232,
+    0.023881295309036654
+  ],
+  "float_scalars": {
+    "head": 887297,
+    "donor": 15949442
+  },
+  "program_bytes": 67352243,
+  "program_sha256": "302b6aed2227a102ee38c4b500bd32982eca7377b30a69c888a910818a31a334",
+  "native_state_ports": 2,
+  "input_float_scalars_T32": 38016,
+  "body_forwards": 48,
+  "seconds": 1.7919509501662105,
+  "panel_status": "opened 16-sequence fresh-transfer panel",
+  "scope": "Exact earlier donor boundary; same two native-state ports, added explicit MLP7 weights. No new OOD, selective or compositional certification. Isolated CPU replay pending.",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_typed_face_mlp7_donor_v1.py": "9c19ce07f6e92de20d46cf57656f3daeb6ebbbd0640cd3a537758a1aadca4684",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/regional_paired_write_runtime_v2.py": "2f2d92cdee57a91e73acceed61e66d52f478ace29e5e5076756deb73b7a635ec",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_MLP7_DONOR_V1_PREREGISTRATION.md": "616ab57de1c1b00c2411b6cd615a0b03b96ba347c189d52020faa29b57e18a72",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_KEY_SOURCE_FRESH_V1_ROWS.json": "08aea2d2d0bc1fcdd78d307dabf2b067339ed2090d061463325c157afb708cd1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_KEY_SOURCE_FRESH_V1_PROGRAM.pt": "12960f51539d0189017a39a359da18444eb0c48b64295ecd9206557b6bdbc6f4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_mlp7_donor_v1/donor.py": "daadc6adbc04a981f5d97004a398ada9b976494c5898e51acae7d2b3202fecdf",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_mlp7_donor_v1/native.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_mlp7_donor_v1/execute.py": "d76d74d73fb4767e2073790cc57ab3309a9adaf31a2d1d138467b6c7d3b3f0a0"
+  }
+}

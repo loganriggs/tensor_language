@@ -4,10 +4,10 @@
     "explicit_dependency_edges": 4,
     "four_trait_declared_unverified": 0,
     "four_trait_verified": 2,
-    "packages": 33,
-    "partial_or_unassessed": 31,
-    "with_declared_inputs": 17,
-    "with_manifest": 28
+    "packages": 34,
+    "partial_or_unassessed": 32,
+    "with_declared_inputs": 18,
+    "with_manifest": 29
   },
   "dependency_cycles": [],
   "four_trait_order": [
@@ -900,6 +900,48 @@
       "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/mlp9_contextual_dct_node_v1",
       "schema": null,
       "scope": null,
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 6,
+      "declared_input_field": "ports",
+      "declared_inputs": [
+        "current[B,T,1152]",
+        "donor_g7[B,1152]",
+        "recipient_token:int",
+        "donor_token:int",
+        "city:int",
+        "destination[T]:bool"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": 2,
+      "four_traits": {
+        "composition_reuse": false,
+        "extraction": true,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "ood_prediction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_mlp7_donor_v1/manifest.json",
+      "manifest_sha256": "c92177de51dcb67ba15748ca0a933f919a1d39927f0f9269ad3bb56bc78fd27d",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "odd_attention8h2_mlp7_donor_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_mlp7_donor_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_mlp7_donor_v1",
+      "schema": "regional.typed_face.mlp7_donor.partial.v1",
+      "scope": "Exact earlier donor-state boundary on opened rows. Inherits the intended conditional intervention, but no independent fresh selective screen for this package. Both native-state inputs remain. No compression claim.",
       "verification": {
         "path": null,
         "status": "not_available",

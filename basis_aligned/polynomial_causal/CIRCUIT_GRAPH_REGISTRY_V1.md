@@ -2,7 +2,7 @@
 
 This is a generated inventory of extracted circuit boundaries. Missing evidence is recorded as unknown, not as a failed scientific claim.
 
-Packages: **33**; manifests: **28**; declared input boundaries: **17**; verified four-trait circuits: **2**.
+Packages: **34**; manifests: **29**; declared input boundaries: **18**; verified four-trait circuits: **2**.
 
 | package | maturity | inputs | external activations | nodes | next gap |
 |---|---:|---:|---:|---:|---|
@@ -28,6 +28,7 @@ Packages: **33**; manifests: **28**; declared input boundaries: **17**; verified
 | first_token_value_path_v1 | partial_or_unassessed | ? | ? | ? | manifest |
 | fixed_writer_self_mlp10_v1 | partial_or_unassessed | ? | ? | ? | manifest |
 | mlp9_contextual_dct_node_v1 | partial_or_unassessed | ? | ? | ? | manifest |
+| odd_attention8h2_mlp7_donor_v1 | partial_or_unassessed | 6 | 2 | ? | ood_prediction, selective_removal, composition_reuse |
 | odd_attention8h2_o_composed_edge_v1 | partial_or_unassessed | 9 | ? | ? | ood_prediction, extraction, selective_removal… |
 | odd_attention8h2_rankone_edge_v1 | partial_or_unassessed | 3 | ? | ? | ood_prediction, extraction, selective_removal… |
 | odd_attention8h2_routing_closed_v1 | partial_or_unassessed | 4 | ? | ? | ood_prediction, extraction, selective_removal… |

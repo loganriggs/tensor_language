@@ -1,6 +1,6 @@
 # Latest requested update for Logan
 
-**Latest: [17 September, 21:40 — Fresh transfer requires MLP7](research_update_2026-09-17_2140_regional_source_transfer.md).** Carry-only fails; carry plus MLP7 passes the frozen transfer gate. Extraction remains conditional and the physical-write composition partition fails its random-split comparison.
+**Latest: [17 September, 21:40 — Fresh transfer requires MLP7](research_update_2026-09-17_2140_regional_source_transfer.md).** Carry-only fails; carry plus MLP7 passes the frozen transfer gate. The donor MLP7 boundary now passes native and isolated replay, with two native inputs and 17 million floats. The physical-write composition partition fails its random-split comparison.
 
 **Previous: [17 September, 21:10 — Conditional native write and fresh matched-null screen](research_update_2026-09-17_2110_regional_native_face.md).** Two-state standalone write passes; fresh paired removal beats all16directional nulls. Independent composition and strict all-readout replay remain failed.
 

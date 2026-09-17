@@ -1,6 +1,6 @@
 # Regional spelling: fresh transfer requires the MLP7 branch
 
-The current path maps a city-dependent head8.2 routing/inherited-value write through head9.8's odd-value branch and the remaining native model to UK-versus-US spelling margins. A frozen source approximation now transfers to eight unused contexts only when it retains both the earlier residual state and MLP7. The simpler carry-only rule fails. Extraction still requires two native-state inputs; composition lacks specificity against random splits, so this remains a conditional path rather than a completed circuit.
+The current path maps a city-dependent head8.2 routing/inherited-value write through head9.8's odd-value branch and the remaining native model to UK-versus-US spelling margins. A frozen source approximation now transfers to eight unused contexts only when it retains both the earlier residual state and MLP7. The simpler carry-only rule fails. The donor boundary now runs through native MLP7 in isolation, at a cost of 17 million stored floats and still two native-state inputs; composition lacks specificity against random splits, so this remains a conditional path rather than a completed circuit.
 
 ```mermaid
 flowchart LR
@@ -33,7 +33,7 @@ A separate normalizer test now has fresh evidence. Holding both donor key-head R
 | Carry plus MLP7 predicts the full key-source increment | edit | same fresh panel | 10–18% cue errors; gate 20% | passes |
 | Both frozen key-head denominators preserve behavioral effect | edit | same fresh panel | 3.9–9.8% cue errors; gate 10% | passes |
 | Exact MLP7-to-key algebra | fold | four opened contexts | two 128-by-4608 folded maps; all algebraic closures pass | exact |
-| Standalone head8.2 write | fold | eight opened inputs | two native-state ports | passes |
+| Standalone head8.2 write with donor boundary before MLP7 | fold | 16 opened inputs | two native-state ports; 17 million stored floats | passes |
 | Strict recursive all-readout replay | edit | earlier opened replication | worst relative error 0.00020; gate 0.00010 | fails |
 | Paired midpoint removal exceeds equal-norm null | edit | earlier four fresh contexts | 12 times median of 16 nulls; 2.6% mean attenuation | passes |
 | Four unrelated readers stay within registered removal limit | edit | same removal panel | 4.5–9.7% of target RMS; gate 50% | passes |
@@ -46,7 +46,7 @@ The two composition rows test different objects. The first splits the *input cha
 
 The four behavioral properties remain separate: conditional prediction has new shifted-context evidence; extraction is limited to the head8 write; selective paired removal has a small fresh matched-null screen; meaningful composition remains unestablished. This transfer test keeps the same six endpoints and does not supply the constant/fitted prediction nulls required for the full OOD definition. Only four newly tested city token IDs occur in the panel, despite compiling a 20-token table. Simplicity still lacks its matched-effect comparator.
 
-The next exact fold must keep MLP7. If g is the state entering its RMS normalization, e is the normalized token embedding, and L, R, D, b are its native weights, then
+The newly executed exact fold keeps MLP7. If g is the state entering its RMS normalization, e is the normalized token embedding, and L, R, D, b are its native weights, then
 
 $$h=(L\operatorname{RMS}(g))\odot(R\operatorname{RMS}(g)),\qquad
 r_8=\lambda_{8,0}(g+Dh+b)+\lambda_{8,1}e.$$
@@ -56,7 +56,7 @@ For each of the two key readers K, the numerator is exactly
 $$Kr_8=\lambda_{8,0}Kg+\lambda_{8,0}(KD)h+
 \lambda_{8,0}Kb+\lambda_{8,1}Ke.$$
 
-The native residual and key-head denominators, both routing factors, and all self/cross terms stay explicit. This moves the donor input boundary backward only if the executable actually computes these quantities from g and the token. Merely replacing a state with its measured source attribution would not close a port. Keeping the full denominator generator also means that a folded numerator alone does not establish storage savings.
+The native residual and key-head denominators, both routing factors, and all self/cross terms stay explicit. The new executable computes these quantities from g and the token, moving the donor boundary before MLP7. Native and isolated CPU replay pass on the now-opened transfer panel. The number of supplied arrays remains two. Keeping the full denominator generator raises stored weights from 0.89 million to 17 million floats; this establishes explicit extraction, not a storage improvement.
 
 ## Reproducibility appendix
 
@@ -79,3 +79,7 @@ Primary evidence:
 - [Two-input additive lower bound](../../FACE_ADDITIVITY_BOUND_20260917_2055_RESULT.json).
 
 Next-action receipt: [donor generator CPU check](../../TYPED_FACE_MLP7_DONOR_V1_CPU_RESULT.json) verifies the proposed earlier boundary algebra and the full ordered source Gram. Omitting cross terms changes native normalization scale by 4.7–8.8% on the now-opened 16 sequences (fold diagnostic). This is not a behavioral gate or a native-weight replay.
+
+Native donor-boundary replay: 48 forwards, 1.791951s; max state error 1.550994e-7, max write error 5.056796e-7; margin max absolute 2.861023e-6, relative 5.569483e-7. Per-readout effect errors range 1.641255e-5 to 3.985587e-4, below this run's preregistered .001 gate. This does not reverse the earlier .0001 gate failure. Isolated CPU replay: max state error 2.095382e-7, max write error 9.404043e-7, all 16 fixtures; unknown donor token rejected. [Package](../../extracted_circuits/odd_attention8h2_mlp7_donor_v1/README.md), [native result](../../TYPED_FACE_MLP7_DONOR_V1_RESULT.json), [CPU result](../../TYPED_FACE_MLP7_DONOR_V1_STANDALONE_RESULT.json). Exact package count: 16,836,739 floats, 40 token indices, 67,352,243 bytes.
+
+The next [CPU denominator analysis](../../MLP7_KEY_DENOMINATOR_V1_RESULT.json) verifies the exact nested-RMS identity including epsilon. Replacing Down7 by a dense hidden-state Gram would require 21,233,664 scalars (10,619,136 with symmetric packing), versus 5,308,416 for Down7 itself, before the required cross terms. It therefore gives no exact storage win. Ignoring the residual-scale epsilon term has very small key-vector error on these opened examples, but no behavioral or fresh adoption test; the executable retains it.

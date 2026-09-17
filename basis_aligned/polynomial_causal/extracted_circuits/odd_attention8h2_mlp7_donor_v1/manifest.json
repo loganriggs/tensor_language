@@ -1,0 +1,34 @@
+{
+  "schema": "regional.typed_face.mlp7_donor.partial.v1",
+  "ports": [
+    "current[B,T,1152]",
+    "donor_g7[B,1152]",
+    "recipient_token:int",
+    "donor_token:int",
+    "city:int",
+    "destination[T]:bool"
+  ],
+  "external_native_activation_inputs": 2,
+  "output": "head8.2 destination write delta[B,T,1152]",
+  "static_float_scalars": 16836739,
+  "serialized_program_bytes": 67352243,
+  "native_state_scalars_at_T32": 38016,
+  "files": {
+    "program.pt": "302b6aed2227a102ee38c4b500bd32982eca7377b30a69c888a910818a31a334",
+    "execute.py": "d76d74d73fb4767e2073790cc57ab3309a9adaf31a2d1d138467b6c7d3b3f0a0",
+    "donor.py": "daadc6adbc04a981f5d97004a398ada9b976494c5898e51acae7d2b3202fecdf",
+    "native.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034"
+  },
+  "four_traits": {
+    "ood_prediction": null,
+    "extraction": true,
+    "selective_removal": null,
+    "composition_reuse": false
+  },
+  "scope": "Exact earlier donor-state boundary on opened rows. Inherits the intended conditional intervention, but no independent fresh selective screen for this package. Both native-state inputs remain. No compression claim.",
+  "certified_complete_circuit": false,
+  "receipts": [
+    "TYPED_FACE_MLP7_DONOR_V1_RESULT.json",
+    "TYPED_FACE_MLP7_DONOR_V1_STANDALONE_RESULT.json"
+  ]
+}

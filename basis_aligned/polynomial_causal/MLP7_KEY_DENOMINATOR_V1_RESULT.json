@@ -1,0 +1,22 @@
+{
+  "pred_a": true,
+  "keys": {
+    "k1": {
+      "exact_identity_relative_error": 1.2723576327510386e-16,
+      "omitted_residual_scale_relative_error": 3.754980044875486e-09,
+      "max_abs_relative_denominator_squared_change": 1.0430966452649002e-08
+    },
+    "k2": {
+      "exact_identity_relative_error": 1.0586555232648325e-16,
+      "omitted_residual_scale_relative_error": 5.266541180884915e-09,
+      "max_abs_relative_denominator_squared_change": 1.4164473809988746e-08
+    }
+  },
+  "identity": "RMS_eps(K RMS_eps(r)) = Kr / sqrt(mean((Kr)^2) + eps*(mean(r^2)+eps))",
+  "retained_D_scalars": 5308416,
+  "dense_DtD_scalars": 21233664,
+  "symmetric_DtD_scalars": 10619136,
+  "folded_two_key_D_scalars": 1179648,
+  "scope": "Exact FP64 algebra with native FP32 epsilon on opened states. Small epsilon diagnostic is not behavioral omission certification. Dense Gram is larger than D, and cross terms with g/token remain required; no exact storage win shown.",
+  "program_sha256": "302b6aed2227a102ee38c4b500bd32982eca7377b30a69c888a910818a31a334"
+}
