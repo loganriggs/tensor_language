@@ -1,0 +1,93 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "native_key_errors": [
+    4.0229876266898663e-07,
+    3.7635076575963506e-07,
+    3.963655558169441e-07,
+    3.535934108527684e-07,
+    3.626574267768976e-07,
+    4.154234989502822e-07,
+    3.5115900111015484e-07,
+    3.2407672419087845e-07
+  ],
+  "exact_fold_errors": [
+    6.870386064500609e-16,
+    6.517253856714896e-16,
+    6.487095992364649e-16,
+    6.669222154960858e-16,
+    6.655388893621212e-16,
+    6.014795037951116e-16,
+    7.829555268861394e-16,
+    6.553997445107925e-16
+  ],
+  "native_mlp_projected_errors": [
+    7.850419450083462e-07,
+    7.023005577824808e-07,
+    7.240763231727605e-07,
+    6.583963558988574e-07,
+    8.280199152447713e-07,
+    7.912534667102043e-07,
+    6.839895585398006e-07,
+    6.432026678664944e-07
+  ],
+  "gram_errors": [
+    1.2848039725098064e-16,
+    0.0,
+    9.661891401964962e-17,
+    0.0,
+    1.610702468241358e-16,
+    8.032753362939548e-17,
+    2.2971412546180606e-16,
+    1.4924764058083744e-16
+  ],
+  "paired_source_changes": {
+    "K1": {
+      "carry": {
+        "paired_change_norm_ratio": 0.730043744261133,
+        "aligned_fraction": 0.6649850639405295,
+        "cosine": 0.9108838602727176
+      },
+      "MLP7": {
+        "paired_change_norm_ratio": 0.40938968550876886,
+        "aligned_fraction": 0.2340737309249281,
+        "cosine": 0.5717626486706255
+      },
+      "initial": {
+        "paired_change_norm_ratio": 0.15154859536349458,
+        "aligned_fraction": 0.10094120513454248,
+        "cosine": 0.6660649337754104
+      }
+    },
+    "K2": {
+      "carry": {
+        "paired_change_norm_ratio": 0.7776684658175719,
+        "aligned_fraction": 0.7378180322867627,
+        "cosine": 0.9487565263573932
+      },
+      "MLP7": {
+        "paired_change_norm_ratio": 0.3010128188539134,
+        "aligned_fraction": 0.1425556551539427,
+        "cosine": 0.4735866588563038
+      },
+      "initial": {
+        "paired_change_norm_ratio": 0.14764485451711373,
+        "aligned_fraction": 0.11962631255929465,
+        "cosine": 0.8102301495744205
+      }
+    }
+  },
+  "folded_reader_shape": [
+    2,
+    128,
+    4608
+  ],
+  "folded_scalars": 1179906,
+  "external_input_weight_scalars": 10616832,
+  "retained_norm_generator_D_scalars": 5308416,
+  "body_forwards": 8,
+  "seconds": 1.0363507808651775,
+  "panel_status": "opened four-context native fold",
+  "scope": "Exact native key numerator/source Gram fold; not causal dominance, closed state generation, omitted normalization, fresh prediction or storage adoption."
+}
