@@ -1,5 +1,7 @@
 # Requested full reports for Logan
 
+- [17 September,23:14 — Two-state regional executor](research_update_2026-09-17_2314_two_state_regional.md).
+
 - [17 September,22:50 — Fresh native regional transfer](research_update_2026-09-17_2250_fresh_native_regional.md).
 
 - [17 September,22:40 — Native regional write](research_update_2026-09-17_2240_native_regional_write.md): broader native application passes opened selectivity; conditional sufficiency fails.

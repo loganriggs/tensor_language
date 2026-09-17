@@ -4,10 +4,10 @@
     "explicit_dependency_edges": 4,
     "four_trait_declared_unverified": 0,
     "four_trait_verified": 2,
-    "packages": 39,
-    "partial_or_unassessed": 37,
-    "with_declared_inputs": 23,
-    "with_manifest": 34
+    "packages": 40,
+    "partial_or_unassessed": 38,
+    "with_declared_inputs": 24,
+    "with_manifest": 35
   },
   "dependency_cycles": [],
   "four_trait_order": [
@@ -1596,6 +1596,50 @@
       "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_mlp8_coupled_v1",
       "schema": "regional.typed_face_mlp8_coupled.v1",
       "scope": "Native and isolated local executor replay passes. Three native state arrays and the entire later suffix remain external. No compression or causal-composition promotion.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 8,
+      "declared_input_field": "ports",
+      "declared_inputs": [
+        "residual7[B,T,1152]",
+        "donor_city7[B,1152]",
+        "token_ids[B,T]",
+        "recipient_token:int",
+        "donor_token:int",
+        "city:int",
+        "destination[T]:bool",
+        "strength:float=.5"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": 2,
+      "four_traits": {
+        "composition_reuse": false,
+        "extraction": true,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "ood_prediction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_residual7_v1/manifest.json",
+      "manifest_sha256": "2a6c0228be372c3971eec1e0942bd9999bc3fe764972fccc62101c85e55f8636",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "typed_face_residual7_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_residual7_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_residual7_v1",
+      "schema": "regional.typed_face_residual7.v1",
+      "scope": "Two directly captured residual7 inputs. Native120forward and isolated40fixture precision gates pass. No separate scale or context input;74supported tokens and external later suffix. Composition and overall simplicity remain unestablished.",
       "verification": {
         "path": null,
         "status": "not_available",

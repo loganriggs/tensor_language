@@ -20,12 +20,12 @@
   "serialized_program_bytes": 96254407,
   "four_traits": {
     "ood_prediction": null,
-    "extraction": null,
+    "extraction": true,
     "selective_removal": null,
     "composition_reuse": false
   },
   "certified_complete_circuit": false,
-  "scope": "Direct native residual7 input boundary. Two supplied native vector states, no external rho8 or postattn8. Native/isolated certification pending.74supported sequence tokens; suffix external.",
+  "scope": "Two directly captured residual7 inputs. Native120forward and isolated40fixture precision gates pass. No separate scale or context input;74supported tokens and external later suffix. Composition and overall simplicity remain unestablished.",
   "files": {
     "attention8.py": "7e4a6e3ab322095b62d33eed787159a02dda9c9e361e6b49d3c9f1790bd1b107",
     "head8.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
@@ -35,5 +35,8 @@
     "reentry_program.pt": "be92657fbb09df49451ac8adb6cdb9f088ca1219ad45a79fa74f47d54b5f4a5d",
     "execute.py": "0d3bd663235566a6e7b81a4ec787448504a0fa67a5a258aaa029199a3c9be90c"
   },
-  "receipts": []
+  "receipts": [
+    "TYPED_FACE_RESIDUAL7_V1_RESULT.json",
+    "TYPED_FACE_RESIDUAL7_V1_STANDALONE_RESULT.json"
+  ]
 }

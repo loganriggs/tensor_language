@@ -1,0 +1,124 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "max_head_sum_error": 6.371012496928399e-07,
+  "max_cross_sum_error": 8.106019119999995e-07,
+  "head2_only_cross_errors": {
+    "museum_label": 0.22262675975834897,
+    "editorial_request": 0.1780745214203206,
+    "plain_memo": 0.22877678071720806,
+    "multiline_record": 0.4728865846301613,
+    "reported_note": 0.18595890229721604
+  },
+  "terms": {
+    "0:delta*head": {
+      "norm_ratio": 0.0038593630442023508,
+      "aligned_fraction": -0.0002332533545456753
+    },
+    "0:head*delta": {
+      "norm_ratio": 0.004993924670393681,
+      "aligned_fraction": 0.00016455559439641123
+    },
+    "0:sum": {
+      "norm_ratio": 0.006369324135932065,
+      "aligned_fraction": -6.869776014926413e-05
+    },
+    "1:delta*head": {
+      "norm_ratio": 0.12400248642154564,
+      "aligned_fraction": 0.020711503434621855
+    },
+    "1:head*delta": {
+      "norm_ratio": 0.1329713360372305,
+      "aligned_fraction": 0.032990087827086734
+    },
+    "1:sum": {
+      "norm_ratio": 0.19087828313511948,
+      "aligned_fraction": 0.0537015912617086
+    },
+    "2:delta*head": {
+      "norm_ratio": 0.4924812769160821,
+      "aligned_fraction": 0.46648128671575967
+    },
+    "2:head*delta": {
+      "norm_ratio": 0.47649941518596434,
+      "aligned_fraction": 0.45097523079852725
+    },
+    "2:sum": {
+      "norm_ratio": 0.9463729297964873,
+      "aligned_fraction": 0.9174565175142869
+    },
+    "3:delta*head": {
+      "norm_ratio": 0.0393652865106742,
+      "aligned_fraction": 0.0067509951641691775
+    },
+    "3:head*delta": {
+      "norm_ratio": 0.04521230563069999,
+      "aligned_fraction": -0.0005455416903166899
+    },
+    "3:sum": {
+      "norm_ratio": 0.05953430114097122,
+      "aligned_fraction": 0.006205453473852487
+    },
+    "4:delta*head": {
+      "norm_ratio": 0.03297104961047639,
+      "aligned_fraction": 0.003184427318589296
+    },
+    "4:head*delta": {
+      "norm_ratio": 0.035192963546171234,
+      "aligned_fraction": 0.0017983314353113814
+    },
+    "4:sum": {
+      "norm_ratio": 0.05241898533539006,
+      "aligned_fraction": 0.004982758753900676
+    },
+    "5:delta*head": {
+      "norm_ratio": 0.020317938328409463,
+      "aligned_fraction": 0.0005973473743353038
+    },
+    "5:head*delta": {
+      "norm_ratio": 0.0239374798110983,
+      "aligned_fraction": 0.0010786765308324184
+    },
+    "5:sum": {
+      "norm_ratio": 0.03520413483679595,
+      "aligned_fraction": 0.0016760239051677218
+    },
+    "6:delta*head": {
+      "norm_ratio": 0.07173662285270141,
+      "aligned_fraction": 0.005336130168562658
+    },
+    "6:head*delta": {
+      "norm_ratio": 0.07785650716482398,
+      "aligned_fraction": 0.00954315770682128
+    },
+    "6:sum": {
+      "norm_ratio": 0.10840310906413413,
+      "aligned_fraction": 0.01487928787538394
+    },
+    "7:delta*head": {
+      "norm_ratio": 0.019814206284908067,
+      "aligned_fraction": -6.333612410378876e-05
+    },
+    "7:head*delta": {
+      "norm_ratio": 0.0242498915495692,
+      "aligned_fraction": -0.0002528613623933839
+    },
+    "7:sum": {
+      "norm_ratio": 0.03271734757966317,
+      "aligned_fraction": -0.00031619748649717257
+    },
+    "8:delta*head": {
+      "norm_ratio": 0.04126979495403415,
+      "aligned_fraction": 0.0020608269445819864
+    },
+    "8:head*delta": {
+      "norm_ratio": 0.048792954092536554,
+      "aligned_fraction": -0.0005774037471925453
+    },
+    "8:sum": {
+      "norm_ratio": 0.06434661328096113,
+      "aligned_fraction": 0.0014834231973894412
+    }
+  },
+  "scope": "Exact ordered cross attribution on40opened states. Reference is attention8/background cross contribution to local MLP8 response, not full response or spelling effect. All normalization terms and other sources remain; no causal source omission or circuit promotion."
+}

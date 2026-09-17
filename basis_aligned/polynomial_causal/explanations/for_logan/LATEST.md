@@ -1,5 +1,7 @@
 # Latest requested update for Logan
 
+**Latest: [17 September,23:14 — Two-state regional executor](research_update_2026-09-17_2314_two_state_regional.md).** Native and isolated replay pass without an external scale/context input. A dominant head8.2 cross fold fails on multiline rows; a separate causal screen is registered.
+
 **17 September (Claude lane) — [The aspectual has/had readout component, taken through the definition of done](research_update_2026-09-17_aspectual_readout_component.md).** Heads {8.1, 9.1, 9.4} on one weight-defined direction each; 8.1 is a token-only generator; selective/composes/OOD held with nulls; two open ports declared.
 
 **Latest: [17 September,22:50 — Fresh native regional transfer](research_update_2026-09-17_2250_fresh_native_regional.md).** All fresh prediction/selectivity gates pass; composition failures remain. Coupled head8/MLP8 extraction now passes native and isolated replay; the latest boundary generates post-attention8 context and shares exact weights, leaving two vector states, a native scale, and the later suffix external. Earlier residual7 reentry passes CPU preflight only.

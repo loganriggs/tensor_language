@@ -2,7 +2,7 @@
 
 This is a generated inventory of extracted circuit boundaries. Missing evidence is recorded as unknown, not as a failed scientific claim.
 
-Packages: **39**; manifests: **34**; declared input boundaries: **23**; verified four-trait circuits: **2**.
+Packages: **40**; manifests: **35**; declared input boundaries: **24**; verified four-trait circuits: **2**.
 
 | package | maturity | inputs | external activations | nodes | next gap |
 |---|---:|---:|---:|---:|---|
@@ -45,5 +45,6 @@ Packages: **39**; manifests: **34**; declared input boundaries: **23**; verified
 | typed_face_context_generated_v1 | partial_or_unassessed | 9 | 3 | ? | ood_prediction, selective_removal, composition_reuse |
 | typed_face_context_shared_v1 | partial_or_unassessed | 9 | 3 | ? | ood_prediction, selective_removal, composition_reuse |
 | typed_face_mlp8_coupled_v1 | partial_or_unassessed | 8 | 3 | ? | ood_prediction, selective_removal, composition_reuse |
+| typed_face_residual7_v1 | partial_or_unassessed | 8 | 2 | ? | ood_prediction, selective_removal, composition_reuse |
 
 Explicit dependency cycles: **0**.
