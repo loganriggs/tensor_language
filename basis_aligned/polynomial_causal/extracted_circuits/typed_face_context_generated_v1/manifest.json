@@ -1,0 +1,38 @@
+{
+  "schema": "regional.typed_face_context_generated.v1",
+  "ports": [
+    "current8[B,T,1152]",
+    "donor_city8[B,1152]",
+    "rho8[B,T,1]",
+    "token_ids[B,T]",
+    "recipient_token:int",
+    "donor_token:int",
+    "city:int",
+    "destination[T]:bool",
+    "strength:float=.5"
+  ],
+  "external_native_activation_inputs": 3,
+  "native_vector_state_arrays": 2,
+  "native_scalar_state_arrays": 1,
+  "native_state_scalars_T32": 38048,
+  "static_float_scalars": 24860418,
+  "integer_token_indices": 94,
+  "output": "full block9 input delta[B,T,1152]",
+  "serialized_program_bytes": 99450664,
+  "four_traits": {
+    "ood_prediction": null,
+    "extraction": null,
+    "selective_removal": null,
+    "composition_reuse": false
+  },
+  "certified_complete_circuit": false,
+  "scope": "Pending widened-boundary native and isolated replay. One full vector-state port replaced by explicit native scale and complete attention8/token-value generator. Only74sequence tokens supported. Later suffix external.",
+  "files": {
+    "coupled.py": "d6c2806b2361f3ec00b864f8a93f7dc0e9198a03982c81478807864692bceed8",
+    "head8.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "local_program.pt": "858fbcc2413e29cc70121a14e02e736917e103978cac4462b4fd57fda4bd704e",
+    "attention8.py": "7e4a6e3ab322095b62d33eed787159a02dda9c9e361e6b49d3c9f1790bd1b107",
+    "context_program.pt": "f199361730a96d50a6c456c7f46b9804f9af85104494b9fa74fd55281dcbd207",
+    "execute.py": "90c729f1a0e9f83af07d008287f86cfcac1a34e6612a7c46ccef41e074013e95"
+  }
+}
