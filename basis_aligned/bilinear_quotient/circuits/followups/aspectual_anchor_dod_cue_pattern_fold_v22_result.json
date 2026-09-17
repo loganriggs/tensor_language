@@ -1,0 +1,35 @@
+{
+  "candidate_id": "aspectual_anchor.has_vs_had.dod_cue_pattern_fold_v22",
+  "finished_utc": "2026-09-17T22:55:07.968250+00:00",
+  "forwards": 14,
+  "pattern_replay_max_abs": 0.0,
+  "per_cue": {
+    "by": {
+      "mean_native": 0.02574022409362442,
+      "mean_token_key": -0.006779334861221287,
+      "median_native": 0.010456528514623642,
+      "median_token_key": -0.0017540037515573204,
+      "n": 32,
+      "r_native": 0.6345532581088974,
+      "r_token_key": -0.3132363300124843
+    },
+    "since": {
+      "mean_native": 0.07883511885302141,
+      "mean_token_key": 0.010180791195125494,
+      "median_native": 0.05849168635904789,
+      "median_token_key": 0.005267284228466451,
+      "n": 32,
+      "r_native": -0.8883645625874917,
+      "r_token_key": -0.13830190171334186
+    }
+  },
+  "predictions": {
+    "pred_a_pattern_replay": true,
+    "pred_b_native_pattern_tracks_shift": true,
+    "pred_c_token_only_cue_state_loses_the_sense": false,
+    "pred_d_context_suppresses_attention_on_agentive_by": false
+  },
+  "rows_sha256": "9bfe35135ab0120b88c25258f34cbf177c4995690820ffaa01447077ed2d2c52",
+  "schema": "aspectual_anchor_dod_cue_pattern_fold_result_v22",
+  "serial_seconds": 1.9132003590930253
+}
