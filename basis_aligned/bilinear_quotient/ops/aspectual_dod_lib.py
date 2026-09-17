@@ -655,7 +655,8 @@ def source_restricted_slices(fw: "ManualForward", rows: Sequence[Row], component
     return out
 
 
-def forward_trace_positions(fw: "ManualForward", rows: Sequence[Row], positions_fn, *, upto_layer: int):
+def forward_trace_positions(fw: "ManualForward", rows: Sequence[Row], positions_fn, *, upto_layer: int,
+                            head_write_layers: Sequence[int] = ()):
     """Module outputs (attn/mlp) and the block-0 normalized embedding at declared positions for
     blocks < upto_layer, plus lambdas, plus the residual entering block `upto_layer` (after its
     lambda mix, i.e. the state the block reads before its own RMS norm). No edits."""
@@ -675,7 +676,25 @@ def forward_trace_positions(fw: "ManualForward", rows: Sequence[Row], positions_
                     for pos in positions_fn(row):
                         trace[i][("live", pos)] = live[i, pos].detach().float().clone()
                 break
-            attention, v1 = block.attn(F.rms_norm(live, (model.config.n_embd,)), v1)
+            pre = {}
+            handle = None
+            if layer in head_write_layers:
+                def c_proj_pre(_module, arguments):
+                    pre["value"] = arguments[0].detach().clone()
+                    return None
+                handle = block.attn.c_proj.register_forward_pre_hook(c_proj_pre)
+            try:
+                attention, v1 = block.attn(F.rms_norm(live, (model.config.n_embd,)), v1)
+            finally:
+                if handle is not None:
+                    handle.remove()
+            if layer in head_write_layers:
+                weight = block.attn.c_proj.weight.detach().float()
+                for i, row in enumerate(rows):
+                    for pos in positions_fn(row):
+                        for head in range(model.config.n_head):
+                            sl = pre["value"][i, pos, head * HEAD_DIM:(head + 1) * HEAD_DIM].float()
+                            trace[i][(f"attnhead:{layer:02d}:{head}", pos)] = (weight[:, head * HEAD_DIM:(head + 1) * HEAD_DIM] @ sl).detach()
             x = live + attention
             mlp = block.mlp(F.rms_norm(x, (model.config.n_embd,)))
             x = x + mlp
