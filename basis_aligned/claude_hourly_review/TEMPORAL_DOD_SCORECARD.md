@@ -26,6 +26,8 @@ line's authored rows (v27) and is scored here on fresh rows only. **Delta:** fir
 | 11 | Natural rows (outcome-blind; tomorrow/earlier within 10 tokens of a will/had target): removing S lowers will−had on tomorrow rows by −1.34 (FineWeb, 90% of rows) / −1.57 (Pile, 86%) and raises it on earlier rows by +0.54 (72%) / +0.59 (70%); unrelated readers 0.06–0.09 vs mean |shift| 1.2–1.5 | edit, frozen bars | natural in-distribution (FineWeb) + OOD (Pile) (v34) | 11.3 alone carries the tomorrow shift (−0.37 / −0.33) but not the earlier one (+0.03 / −0.01): registered pred_d failed | 4/5 |
 | 12 | The subject-NP state 11.3 reads (on `V_h^T v̂_h` at `the`/agent) is written by few mid-block writers (mlp:09 0.21, attn:09 0.17, mlp:10 0.16, mlp:08 0.16, attn:08 0.12; top-4 0.70); embedding 0.00 | fold | opened (v35) | closure 1e-7 | passes 3/3 |
 | 13 | Relay edit: zeroing the five nominated NP writers (mlp8, attn8, mlp9, attn9, mlp10) at `the`/agent removes 56% of 11.3's readout effect (1.39 → 0.62 logits) and is itself live (1.51, 35%, 64/64) | edit | opened (v36) | fold (row 12) nominated 70%; identity replacement replays native | passes 4/4: the NP relay blocks 8–10 → 11.3 is causal |
+| 14 | Attention8/9's NP-state writes on 11.3's reader direction are carried by two heads per block (8.1 1.00, 8.2 0.00; cue source 0.98 — attn8; 9.1 0.48, 9.4 0.45; cue source 0.49 — attn9) and sourced from the cue token | fold | opened (v37) | closure 4e-6 | passes 3/3: the adverb reaches 11.3 by cue → 8.1/9.1 at the NP → 11.3 |
+| 15 | Cue-only terms at the readout heads: 15.5 keeps 0.48 of its service (inherited-only 0.27); 9.1+9.4 keep 0.36 (inherited-only -0.02) | edit | opened (v38) | full recomputation replays native | 2/4: no token-only adverb reader at the readout heads (unlike aspectual 8.1); the inherited branch is the weaker one, as registered |
 
 ## Five-property status
 
@@ -33,7 +35,7 @@ line's authored rows (v27) and is scored here on fresh rows only. **Delta:** fir
 |---|---|---|
 | Simple | held at head grain: 4 heads + the will/had contrast; blind sweep (v27) and random-quadruple null (row 8) | — |
 | Predicts OOD | **held**: authored panels (rows 6, 10) and natural rows on FineWeb and the Pile OOD corpus with frozen bars (row 11) | — |
-| Extracted | held at the head boundary with four scalar ports (row 5); 11.3's port is the subject-NP state written by blocks 8–10, causal at 56% (rows 12, 13); open ports: that write's own inputs, the cue reads of 15.5 and the block-9 heads | head-grain split of the NP writers; cue-term (token-only) test for 15.5 and the block-9 heads |
+| Extracted | held at the head boundary with four scalar ports (row 5); 11.3's port is the NP state written by blocks 8–10 (56% causal), whose attention part is heads 8.1/9.1 reading the cue token (rows 12–14); no readout head is a token-only adverb reader (row 15) | token-only test for the NP-position heads (the aspectual v11b recipe at the NP); if that fails too, declare the ports |
 | Selective | held on fresh rows and three templates (rows 2, 6) | — |
 | Composes | held pairwise and against the random-split null (row 9); the four-way sum overshoots the strict bar by 0.02 (3% of the joint), recorded as a failure (rows 3, 9) | — |
 
@@ -42,6 +44,8 @@ line's authored rows (v27) and is scored here on fresh rows only. **Delta:** fir
 - v28: `.../temporal_auxiliary_dod_removal_v28_result.json`; code `ops/run_temporal_dod_removal_v28.py`
 - v29: `.../temporal_auxiliary_dod_keep_and_templates_v29_result.json`; code `ops/run_temporal_dod_keep_and_templates_v29.py`
 - v30 source fold: `.../temporal_auxiliary_dod_source_fold_v30_result.json`
+- v37 NP head fold: `.../temporal_auxiliary_dod_np_head_fold_v37_result.json`
+- v38 cue-term test: `.../temporal_auxiliary_dod_cue_term_v38_result.json`
 - v36 NP mediation: `.../temporal_auxiliary_dod_np_mediation_v36_result.json`
 - v34 natural rows + result: `.../temporal_auxiliary_dod_natural_rows_v34.json`, `.../temporal_auxiliary_dod_natural_v34_result.json`
 - v35 NP writer fold: `.../temporal_auxiliary_dod_np_writer_fold_v35_result.json`

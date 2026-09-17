@@ -1,0 +1,26 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.dod_cue_term_v38",
+  "finished_utc": "2026-09-17T23:23:02.970425+00:00",
+  "forwards": 32,
+  "instrument_max_abs_error": 5.7220458984375e-06,
+  "predictions": {
+    "pred_a_full_recompute_replays_native": true,
+    "pred_b_15_5_cue_term_retains_half": false,
+    "pred_c_block9_cue_terms_retain_half": false,
+    "pred_d_cue_inherited_only_is_weaker_than_both_branches": true
+  },
+  "schema": "temporal_auxiliary_dod_cue_term_result_v38",
+  "serial_seconds": 2.4745060859713703,
+  "sets": {
+    "15.5": {
+      "cue_both_retention": 0.4799847181172825,
+      "cue_inherited_retention": 0.2738548149888087,
+      "zero_damage": 0.3638828694820404
+    },
+    "9.1+9.4": {
+      "cue_both_retention": 0.3589056677114386,
+      "cue_inherited_retention": -0.02354496904432324,
+      "zero_damage": 1.3628957271575928
+    }
+  }
+}
