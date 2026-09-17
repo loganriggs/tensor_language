@@ -20,12 +20,12 @@
   "serialized_program_bytes": 96623109,
   "four_traits": {
     "ood_prediction": null,
-    "extraction": null,
+    "extraction": true,
     "selective_removal": null,
     "composition_reuse": false
   },
   "certified_complete_circuit": false,
-  "scope": "Exact fused reduced operator. Native and isolated certification pending. Same2state/114token interface and weights; no scientific gate changes.",
+  "scope": "Fused reduced operator passes native120forward and isolated40fixture replay. Same2native residual7 arrays,114tokens,24,153,091floats and external suffix. Fewer repeated computations; composition and matched-effect simplicity unestablished.",
   "files": {
     "head8.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
     "attention8_context_channels_v1.py": "1353d59f9ac7c716e915e933e22943dd496ac8a9d79761b5b36165263d140ac6",
@@ -34,6 +34,9 @@
     "reentry_program.pt": "950ca1f9781816b30d8d32f9b9a89c2f5f2b6a5783134450f607649eb0f2e9e9",
     "execute.py": "37f5b77f5fb1daa8c2613428216c506cf1c950bc4e6fd698eddd46b39420698a"
   },
-  "receipts": [],
+  "receipts": [
+    "TYPED_FACE_REDUCED_FUSED_V1_RESULT.json",
+    "TYPED_FACE_REDUCED_FUSED_V1_STANDALONE_RESULT.json"
+  ],
   "supported_sequence_tokens": 114
 }

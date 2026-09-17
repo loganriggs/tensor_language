@@ -4,10 +4,10 @@
     "explicit_dependency_edges": 4,
     "four_trait_declared_unverified": 0,
     "four_trait_verified": 2,
-    "packages": 41,
-    "partial_or_unassessed": 39,
-    "with_declared_inputs": 25,
-    "with_manifest": 36
+    "packages": 42,
+    "partial_or_unassessed": 40,
+    "with_declared_inputs": 26,
+    "with_manifest": 37
   },
   "dependency_cycles": [],
   "four_trait_order": [
@@ -1596,6 +1596,50 @@
       "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_mlp8_coupled_v1",
       "schema": "regional.typed_face_mlp8_coupled.v1",
       "scope": "Native and isolated local executor replay passes. Three native state arrays and the entire later suffix remain external. No compression or causal-composition promotion.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 8,
+      "declared_input_field": "ports",
+      "declared_inputs": [
+        "residual7[B,T,1152]",
+        "donor_city7[B,1152]",
+        "token_ids[B,T]",
+        "recipient_token:int",
+        "donor_token:int",
+        "city:int",
+        "destination[T]:bool",
+        "strength:float=.5"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": 2,
+      "four_traits": {
+        "composition_reuse": false,
+        "extraction": true,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "ood_prediction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_reduced_fused_v1/manifest.json",
+      "manifest_sha256": "bd94ac8fe23f7374d1539042617ed294a844176c82b94ac736fcd1b57b215b95",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "typed_face_reduced_fused_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_reduced_fused_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_reduced_fused_v1",
+      "schema": "regional.typed_face_reduced_fused.v1",
+      "scope": "Fused reduced operator passes native120forward and isolated40fixture replay. Same2native residual7 arrays,114tokens,24,153,091floats and external suffix. Fewer repeated computations; composition and matched-effect simplicity unestablished.",
       "verification": {
         "path": null,
         "status": "not_available",

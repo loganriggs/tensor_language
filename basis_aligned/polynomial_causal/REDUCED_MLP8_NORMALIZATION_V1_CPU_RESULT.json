@@ -1,0 +1,72 @@
+{
+  "instrument_pass": true,
+  "exact_max_error": 3.791645323009057e-15,
+  "zero_strength": {
+    "exact": 0.0,
+    "omit_correction": 0.0,
+    "freeze_denominator": 0.0
+  },
+  "families": {
+    "catalog_entry": {
+      "omit_correction": {
+        "relative_vector_error": 0.022741543311064708,
+        "norm_ratio": 0.9986800361349036,
+        "aligned_fraction": 0.9984223183911217
+      },
+      "freeze_denominator": {
+        "relative_vector_error": 0.022461516433971977,
+        "norm_ratio": 0.9995021027248464,
+        "aligned_fraction": 0.999249966815438
+      }
+    },
+    "copy_request": {
+      "omit_correction": {
+        "relative_vector_error": 0.017736776767780228,
+        "norm_ratio": 0.9994990332073378,
+        "aligned_fraction": 0.9993418620661465
+      },
+      "freeze_denominator": {
+        "relative_vector_error": 0.01759542105414525,
+        "norm_ratio": 0.9999955094978596,
+        "aligned_fraction": 0.9998407100869056
+      }
+    },
+    "plain_record": {
+      "omit_correction": {
+        "relative_vector_error": 0.015140860180516889,
+        "norm_ratio": 0.9992840810041208,
+        "aligned_fraction": 0.999169714450622
+      },
+      "freeze_denominator": {
+        "relative_vector_error": 0.015083082315095248,
+        "norm_ratio": 0.9997967655745741,
+        "aligned_fraction": 0.999683036540628
+      }
+    },
+    "line_separated": {
+      "omit_correction": {
+        "relative_vector_error": 0.018804796532724127,
+        "norm_ratio": 0.9987700481541496,
+        "aligned_fraction": 0.9985939943586026
+      },
+      "freeze_denominator": {
+        "relative_vector_error": 0.01863122467586162,
+        "norm_ratio": 0.9996866272347122,
+        "aligned_fraction": 0.999513115069496
+      }
+    },
+    "indirect_account": {
+      "omit_correction": {
+        "relative_vector_error": 0.02392892287463467,
+        "norm_ratio": 0.9990007384487563,
+        "aligned_fraction": 0.99871494103561
+      },
+      "freeze_denominator": {
+        "relative_vector_error": 0.023780780263865913,
+        "norm_ratio": 0.9996844730107242,
+        "aligned_fraction": 0.9994017600343857
+      }
+    }
+  },
+  "scope": "CPUlocalvector diagnostics on40opened states only. Full native suffix causal screen pending; no source or denominator omission adopted."
+}
