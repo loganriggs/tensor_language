@@ -37,6 +37,7 @@ earlier removal run.
 | 15 | Head 11.3's readout direction is aspect-private | edit | opened (v4) | damage 0.12; was−were moves 0.22 vs null 0.03 | falsified: shared with subject number |
 | 16 | The attention9 H1/H4 weight-only removal transfers to three template-varying constructions (cue moved, no `last`, agent-first with comma-final, began/ended cue) | edit | fresh templates (v5) | damage 0.72 / 0.98 / 0.80 logits = 34% / 36% / 46% of each native margin; positive 32/32 in each; null max ≤ 0.018; selective in all three; all six capability cells 1.00 | passes |
 | 17 | Block11 H3's has/had readout contribution depends on the template | edit | fresh templates (v5) | 0.21 (7%) in the began/ended frame, ≈0 in the two `last`-free frames; was−were excess +0.12 to +0.32 everywhere | established: 11.3 is not part of the template-independent component |
+| 18 | The attention9 removal acts 57% directly and 43% through downstream responses; attention modules 10–17 are inert responders; MLPs 9–15 amplify (mlp11 largest, −0.11), mlp17 opposes (+0.07, the calibrator sign) | response | opened (v6, 160 rows, 4 constructions) | exact −0.78 logits pooled; recurrence closure ≤ 2e-5; linear remainder 1e-4; downstream net same sign as direct in all 4 constructions | established; registered guess of the largest responder (mlp12/14/17) was wrong — it is mlp11 |
 | 8 | Joint removal is selective | edit | opened (v2) | unrelated moves 0.15/0.12/0.11 vs joint damage 1.79 | passes |
 | 9 | Head 11.3 (subject-number head) serves has/had separably from was−were at this position | edit | fresh (v1→v2) | v1 whole-write moved was−were 0.34 (null 0.27); v2 midpoint 0.05 (null 0.08) | established |
 
@@ -67,5 +68,6 @@ earlier removal run.
 - v3 composition null: `.../aspectual_anchor_dod_composition_v3_result.json`
 - v4 weight-only readout removal: `.../aspectual_anchor_dod_readout_removal_v4_result.json`
 - v5 template transfer: `.../aspectual_anchor_dod_template_transfer_v5_result.json`
+- v6 response census: `.../aspectual_anchor_dod_response_census_v6_result.json`
 - Code: `bilinear_quotient/ops/aspectual_dod_lib.py`, `run_aspectual_dod_removal_v{1,2}.py`,
-  `run_aspectual_dod_composition_v3.py`, `run_aspectual_dod_readout_removal_v4.py`, `run_aspectual_dod_template_transfer_v5.py`
+  `run_aspectual_dod_composition_v3.py`, `run_aspectual_dod_readout_removal_v4.py`, `run_aspectual_dod_template_transfer_v5.py`, `run_aspectual_dod_response_census_v6.py`

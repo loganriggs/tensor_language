@@ -474,3 +474,54 @@ def build_template_rows(constructions: Mapping[str, tuple] = TEMPLATE_VARYING) -
                 rows.append(Row(row_id, construction, group, present, text, tuple(ids), answer,
                                 foil, a_id, f_id, len(ids) - 1, (), reader_ids))
     return rows
+
+
+def forward_trace(fw: "ManualForward", rows: Sequence[Row], *, components: Sequence[Component] = (),
+                  mode: str = "project", seed: int = 0, from_layer: int = 0):
+    """Same forward as `ManualForward.forward`, additionally returning per-row module outputs
+    at the final position for every block >= from_layer, the final residual, and the block
+    lambdas, so an edit's effect can be decomposed exactly through the residual recurrence
+    x_{l+1} = lambda0_l x_l + lambda1_l x_0 + attn_l + mlp_l."""
+    torch, F, model = fw.torch, fw.F, fw.model
+    tokens = fw._tokens(rows)
+    trace = [dict() for _ in rows]
+    with torch.no_grad():
+        x = F.rms_norm(model.transformer.wte(tokens), (model.config.n_embd,))
+        x0, v1 = x, None
+        for layer, block in enumerate(model.transformer.h):
+            live = block.lambdas[0] * x + block.lambdas[1] * x0
+            attn_here = [c for c in components if c.kind == "attn" and c.layer == layer]
+            mlp_here = [c for c in components if c.kind == "mlp" and c.layer == layer]
+            handle = None
+            if attn_here:
+                def c_proj_pre(_module, arguments, edits=attn_here):
+                    value = arguments[0]
+                    for k, c in enumerate(edits):
+                        value = fw._edit(value, rows, c, mode, seed + 1000 * k, "attn")
+                    return (value,) + tuple(arguments[1:])
+                handle = block.attn.c_proj.register_forward_pre_hook(c_proj_pre)
+            try:
+                attention, v1 = block.attn(F.rms_norm(live, (model.config.n_embd,)), v1)
+            finally:
+                if handle is not None:
+                    handle.remove()
+            x = live + attention
+            mlp = block.mlp(F.rms_norm(x, (model.config.n_embd,)))
+            for k, c in enumerate(mlp_here):
+                mlp = fw._edit(mlp, rows, c, mode, seed + 1000 * k, "mlp")
+            x = x + mlp
+            if layer >= from_layer:
+                for i, row in enumerate(rows):
+                    trace[i][f"attn:{layer:02d}"] = attention[i, row.final].detach().float().clone()
+                    trace[i][f"mlp:{layer:02d}"] = mlp[i, row.final].detach().float().clone()
+                    trace[i][f"lambda0:{layer:02d}"] = float(block.lambdas[0])
+        for i, row in enumerate(rows):
+            trace[i]["resid18"] = x[i, row.final].detach().float().clone()
+    return trace
+
+
+def final_margin(model, F, x, answer_id: int, foil_id: int) -> float:
+    """The scored has/had contrast at one final-residual vector, exactly as the producer does."""
+    normed = F.rms_norm(x, (x.shape[-1],))
+    l = 30.0 * (model.lm_head(normed) / 30.0).tanh()
+    return float(l[answer_id] - l[foil_id])
