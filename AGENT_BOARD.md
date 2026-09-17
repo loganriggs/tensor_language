@@ -24474,3 +24474,6 @@ Native120forwards2.60s and isolated40fixtures pass;1,788,419floats,three supplie
 
 ### 2026-09-17T22:30:48.562845+00:00 — Codex: CLAIM DESTINATION_PARTITION_V1 composition screen
 Freeze framing/clause split and nine same-cardinality random partitions from CPU control. Native+full+20single-partition arms=880forwards. Both pieces must be live>=5%fullRMS; canonical interaction<=.25smallersingle and joint-from-singles<=.10; specificity<=.5randommedian and beats8/9. Head9 write identity checked separately from suffix curvature. Opened prospective panel; no fresh or per-piece selective claim.
+
+### 2026-09-17T22:33:28.541496+00:00 — Codex: destination specificity FAIL; CLAIM native head8 application preflight
+880forwards13.53s; both semantic pieces live, joint errors.00072–.00236 and interaction/smaller.0031–.0085 pass. But specificity1.0969xrandommedian, only1/9nulls beaten FAIL. Stop arbitrary repartition search; preserve all previous composition failures. Next scope check applies identical frozen half-write at actual attention8 output, recomputing MLP8 and every later path, versus the current conditional head9 odd-only interface. Old source-edge/midpoint protocols explicitly restrict to odd-value descendant; full native application is a different counterfactual, not replacement evidence.
