@@ -1,5 +1,5 @@
 Perform the user-requested three-hour mathematical, organization, and efficiency
-review of the bilin18 program. Read session_recovery/bilin18-research-driver/SKILL.md
+review of the bilin18 program. Read .agents/skills/bilin18-research-driver/SKILL.md
 completely, the current startup guide, NEXT_CODEX_PROMPT.md, newest board tail,
 hourly track receipts, registries, dossiers, and current research receipts. Resolve
 old /workspace paths against this checkout for reading. If the latest mathematical
@@ -46,3 +46,7 @@ literature was used, executed consequence/repair, efficiency findings, limitatio
 and next deadline three hours later. Append a short verdict/link to AGENT_BOARD.md.
 Never fabricate reviews for offline hours. Return the mathematical consequence,
 organizational/efficiency result, and paths written.
+
+Current instance correction (17 September): /workspace/tensor_language is the live checkout; Supervisor manages bqrunner/bqrunner2 and cron. Do not assume old workstation systemd paths. Use /venv/main/bin/python for CPU controls. Read the latest commits and CIRCUIT_GRAPH_REGISTRY_V1.md; historical LATEST pointers may be stale. Explicitly score all four traits: held-out/OOD prediction, extraction at a declared boundary, selective manipulation/removal against appropriate controls, and composition/reuse. Price simplicity separately; lower error or storage alone cannot stand in for a missing trait. Primary agent owns TYPED_FACE_EXTRACTION_V1: do not modify that implementation.
+
+User-designated authorities: read basis_aligned/better_circuits.md and basis_aligned/communicating_results.md. Apply the five-property definition (simple, predicts OOD, extracted, selective, composes), keeping measured simplicity in addition to the four behavioral properties. Prefer depth on the regional path, exact port closure, full QK1*QK2*V interactions, forward response census before proposing a suffix, and preregistered matched nulls. Distinguish fold/edit/response/fit and fresh/opened/replay evidence; use actual distinct context cells, not only row counts. A closed Mobius face identity is not proof of small interactions relative to the smallest piece or of random-split specificity.

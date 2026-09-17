@@ -4,15 +4,15 @@ set -euo pipefail
 kind="${1:?hourly or mathematical}"
 case "$kind" in hourly|mathematical) ;; *) exit 2;; esac
 repo=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
-state=/home/loganriggs/.local/share/bilin18
-export PATH=/home/loganriggs/.nvm/versions/node/v22.20.0/bin:/usr/local/bin:/usr/bin:/bin
+state="${BILIN18_REVIEW_STATE:-${XDG_STATE_HOME:-$HOME/.local/state}/bilin18}"
+export PATH="/opt/nvm/versions/node/v24.20.0/bin:${PATH:-/usr/local/bin:/usr/bin:/bin}"
 export CUDA_VISIBLE_DEVICES=''
 export OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2
 mkdir -p "$state/logs"
 exec 9>"$state/review.lock"
 flock -w 3300 9
 stamp=$(date -u +%Y%m%dT%H%M%SZ)
-codex exec -C "$repo" -s danger-full-access \
+timeout --signal=TERM --kill-after=30s 2400 codex exec -C "$repo" -s danger-full-access \
   -c 'approval_policy="never"' \
   -c 'web_search="live"' \
   -o "$state/logs/${kind}-${stamp}-last.md" \
@@ -20,7 +20,7 @@ codex exec -C "$repo" -s danger-full-access \
   > "$state/logs/${kind}-${stamp}.log" 2>&1
 # A textual refusal may still exit zero. Require a fresh substantive receipt
 # before systemd reports this scheduled review as successful.
-"$state/venv/bin/python" - "$repo" "$kind" <<'PY'
+python3 - "$repo" "$kind" <<'PY'
 import datetime as dt
 from pathlib import Path
 import re
@@ -53,7 +53,7 @@ if kind == 'hourly':
                 ('CIRCUIT' if prior_tracks[-1] == 'WEIGHT_FOLDING' else 'WEIGHT_FOLDING'))
     if track != expected:
         raise SystemExit(f'Scheduled review failed: ACTIVE_TRACK {track}, expected {expected}')
-    required = ['TRACK_ALTERNATION', 'TRACK_PROGRESS', 'CEREMONY_BUDGET', 'NOVELTY_LESSON_GATE']
+    required = ['TRACK_ALTERNATION', 'TRACK_PROGRESS', 'CEREMONY_BUDGET', 'NOVELTY_LESSON_GATE', 'PAST_HOUR_TIMING', 'PROCESS_IMPROVEMENT']
     missing = [key for key in required if key not in body]
     if missing:
         raise SystemExit(f'Scheduled review failed: missing verdicts {missing}')

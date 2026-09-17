@@ -1,5 +1,8 @@
 # Latest requested update for Logan
 
+**17 September — [Regional composition audit](research_update_2026-09-17_regional_composition_audit.md).** The retained face still predicts its original fresh panel, but the stronger small-interaction criterion fails on opened-row reanalysis; extraction and null-controlled removal remain open.
+
+
 **Newest requested update: [16 September — The late response localizes to attention head 17.2](research_update_2026-09-16_attention17_head_fold.md).** Splits the attention-17 response to the fixed head9.8 QK1 edit into all nine native heads. Head17.2 carries `1.0557×` the response norm at cosine `.9990`; the report defines the exact squared-attention computation, shows the headwise graph, states the causal limits, and includes dataset examples, code, hyperparameters, and frozen gates.
 
 **Previous requested update: [15 September, updated through 06:47 UTC — Subject response and a compact regional interaction path](research_update_2026-09-15_0430_subject_response_interaction.md).** Covers the multiplicative L11H3 response result and donor-free nulls, then follows a regional reader through head9.8's QK1 source interactions, a fresh causal removal, the downstream response census, the successful QK1-routing × current-value composition, source-token compression, and the distributed QK1-block collateral null. Includes display equations, ten graphs, limits, and a reproducibility appendix.

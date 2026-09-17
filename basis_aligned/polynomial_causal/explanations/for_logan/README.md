@@ -1,5 +1,8 @@
 # Requested full reports for Logan
 
+**17 September — [Regional composition audit](research_update_2026-09-17_regional_composition_audit.md).** The retained face still predicts its original fresh panel, but the stronger small-interaction criterion fails on opened-row reanalysis; extraction and null-controlled removal remain open.
+
+
 **Latest requested update: [16 September — The late response localizes to attention head 17.2](research_update_2026-09-16_attention17_head_fold.md).** An exact nine-head fold shows that head17.2 carries nearly the complete attention17 response to the upstream head9.8 QK1 edit. Includes displayed equations, a headwise graph, limits, representative rows, execution details, and primary artifacts.
 
 **Previous requested update: [15 September, updated through 06:47 UTC — Subject response and a compact regional interaction path](research_update_2026-09-15_0430_subject_response_interaction.md).** The native L11H3 coordinate requires an interaction with its MLP6/7 response; the regional path now has an exact late-group QK1 fold, fresh causal removal, downstream response census, successful QK1-routing × current-value composition, source-token compression, and a distributed QK1-block collateral null. Includes definitions, display equations, ten graphs, limits, and a reproducibility appendix.

@@ -1,6 +1,6 @@
 Perform the user-requested hourly strategic review of the bilin18 research program.
 This is an active scheduled Codex review, not a reminder or fabricated report.
-Read session_recovery/bilin18-research-driver/SKILL.md completely, then the current
+Read .agents/skills/bilin18-research-driver/SKILL.md completely, then the current
 CODEX_RESEARCH_SESSION_STARTUP.md, latest board tail, relevant receipts and dossiers,
 Git status, and session_recovery/LOCAL_START_2026-09-14.md. Resolve old /workspace
 paths against this checkout for reading. If the newest hourly review is less than
@@ -49,3 +49,19 @@ offline hours. Research services run under systemd --user bilin18-runners.servic
 Supervisor config is /home/loganriggs/.local/share/bilin18/supervisord.conf. If
 needed use /home/loganriggs/.local/share/bilin18/venv/bin/python with
 CUDA_VISIBLE_DEVICES=''. Return a concise evidence-backed outcome and paths written.
+
+Current instance correction (17 September): /workspace/tensor_language is the live checkout; Supervisor manages bqrunner/bqrunner2 and cron. Do not assume old workstation systemd paths. Use /venv/main/bin/python for CPU controls. Read the latest commits and CIRCUIT_GRAPH_REGISTRY_V1.md; historical LATEST pointers may be stale. Explicitly score all four traits: held-out/OOD prediction, extraction at a declared boundary, selective manipulation/removal against appropriate controls, and composition/reuse. Price simplicity separately; lower error or storage alone cannot stand in for a missing trait. Primary agent owns TYPED_FACE_EXTRACTION_V1: do not modify that implementation.
+
+User-designated authorities: read basis_aligned/better_circuits.md and basis_aligned/communicating_results.md. Apply the five-property definition (simple, predicts OOD, extracted, selective, composes), keeping measured simplicity in addition to the four behavioral properties. Prefer depth on the regional path, exact port closure, full QK1*QK2*V interactions, forward response census before proposing a suffix, and preregistered matched nulls. Distinguish fold/edit/response/fit and fresh/opened/replay evidence; use actual distinct context cells, not only row counts. A closed Mobius face identity is not proof of small interactions relative to the smallest piece or of random-split specificity.
+
+User refinement (17 September): audit how long work actually took during the
+preceding hour. Use authoritative process start/end times, runlogs, receipt
+runtimes, and Git timestamps. Report serial candidate latency and separate design,
+implementation, validation, model execution, interpretation, documentation/review,
+and idle/blocked time where measured. Label unknown categories unknown; do not
+infer active work duration from commit gaps or sum parallel durations as wall time.
+Identify systematic organization, shared-helper, runner, data-building, indexing,
+or refactoring improvements. Rank the best improvement by time likely saved and
+cost; execute one bounded nonconflicting CPU repair if clearly worthwhile, otherwise
+record why no change is justified. Keep this audit smaller than scientific work.
+Include explicit `PAST_HOUR_TIMING` and `PROCESS_IMPROVEMENT` sections in the receipt.

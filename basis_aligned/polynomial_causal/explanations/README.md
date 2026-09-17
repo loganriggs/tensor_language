@@ -9,6 +9,8 @@ House style: define every specialized term on first use, give its computational 
 abbreviations, and distinguish a diagnostic attribution from an executable compression. Numerical headlines should
 state what was actually measured and what unit is being used.
 
+**Latest update: [17 September — Regional composition audit](for_logan/research_update_2026-09-17_regional_composition_audit.md).**
+
 ## [Read the latest requested full report → for_logan](for_logan/LATEST.md)
 
 **Newest proposal: [11 September — Composed interaction-path decomposition](for_logan/interaction_path_decomposition_proposal_2026-09-11.md).**
