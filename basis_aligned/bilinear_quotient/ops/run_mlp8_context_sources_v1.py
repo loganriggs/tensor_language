@@ -27,5 +27,10 @@ def main():
  v=expand(m['values'],mapping,6);old=torch.load(P/'TYPED_FACE_NATIVE8_FRESH_V1_ARTIFACT.pt',weights_only=True)['values'][0];anchor=float((v[0]-old).abs().max())
  fixtures=torch.load(P/'TYPED_FACE_MLP8_COUPLED_V1_ARTIFACT.pt',weights_only=True)['fixtures'];errors=[float((s.double().sum(0)-f['inputs']['post_attention8'].double()).norm()/f['inputs']['post_attention8'].norm()) for s,f in zip(sources,fixtures)]
  result={'pred_a':len(sources)==40 and max(errors)<=1e-6 and anchor<=1e-5 and bool(torch.isfinite(v).all()) and m['body_forwards']==40,'anchor_max_abs':anchor,'source_sum_max_relative':max(errors),'body_forwards':m['body_forwards'],'seconds':time.perf_counter()-start,'source_shas':binding,'scope':'Opened native context capture, no intervention. Ordered-product CPU checks separate.'}
+ from mlp8_context_expansion_v1 import analyze
+ from typed_face_write_atoms_v1 import native
+ program=torch.load(P/'extracted_circuits/typed_face_mlp8_coupled_v1/program.pt',weights_only=True,map_location='cpu')
+ expanded=analyze(sources,fixtures,program,native)
+ result.update({'pred_b':expanded['pred_b'],'pred_c':expanded['pred_c'],'expanded':expanded})
  torch.save({'sources':sources,'values':v},P/(STEM+'_ARTIFACT.pt'));out.write_text(json.dumps(result,indent=2)+'\n');print(json.dumps({k:v for k,v in result.items() if k!='source_shas'}));signal.alarm(0)
 if __name__=='__main__':main()
