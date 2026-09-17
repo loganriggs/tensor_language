@@ -1,0 +1,73 @@
+{
+  "scope": "Local write diagnostics on 40 opened sequences / 20 cells. No model suffix evaluated; no fresh or selectivity claim. Single-head norm is an approximation, not exact elimination of context.",
+  "head_channel_max_relative_error": 2.3301870655245693e-08,
+  "zero_strength_max": 0.0,
+  "instrument_pass": true,
+  "families": {
+    "catalog_entry": {
+      "exact": {
+        "relative_vector_error": 0.04514745716064471,
+        "norm_ratio": 1.0248408683515504,
+        "aligned_fraction": 1.0241302562777437
+      },
+      "full_context_frozen": {
+        "relative_vector_error": 0.03872725053508335,
+        "norm_ratio": 1.0253513880137173,
+        "aligned_fraction": 1.0249228344838248
+      }
+    },
+    "copy_request": {
+      "exact": {
+        "relative_vector_error": 0.04060439147517224,
+        "norm_ratio": 1.0217096899018494,
+        "aligned_fraction": 1.0211209869161322
+      },
+      "full_context_frozen": {
+        "relative_vector_error": 0.03626821544123322,
+        "norm_ratio": 1.0217142779120012,
+        "aligned_fraction": 1.0212923411189754
+      }
+    },
+    "plain_record": {
+      "exact": {
+        "relative_vector_error": 0.02141804877589872,
+        "norm_ratio": 1.0085446093986332,
+        "aligned_fraction": 1.0083517481668374
+      },
+      "full_context_frozen": {
+        "relative_vector_error": 0.015149375368396906,
+        "norm_ratio": 1.0087496220484689,
+        "aligned_fraction": 1.0086731482044382
+      }
+    },
+    "line_separated": {
+      "exact": {
+        "relative_vector_error": 0.06391523532940627,
+        "norm_ratio": 1.046023632336058,
+        "aligned_fraction": 1.0450401410491537
+      },
+      "full_context_frozen": {
+        "relative_vector_error": 0.061311329956088345,
+        "norm_ratio": 1.0463515304086048,
+        "aligned_fraction": 1.045546223003723
+      }
+    },
+    "indirect_account": {
+      "exact": {
+        "relative_vector_error": 0.02680801549188027,
+        "norm_ratio": 1.0065817618952064,
+        "aligned_fraction": 1.0062440868427227
+      },
+      "full_context_frozen": {
+        "relative_vector_error": 0.012132152597692746,
+        "norm_ratio": 1.0068994658521702,
+        "aligned_fraction": 1.006849672603366
+      }
+    }
+  },
+  "source_sha256": {
+    "typed_face_single_head_norm_v1.py": "5781e1a91e00f13557c9db9c572e231dc482f035aba00df0d8d82b90c63e8994",
+    "attention8_single_head_channels_v1.py": "5dc466b1232c50e6c8ff15549eb6c8890921b166be3bcde64dcb739e6411d9c0",
+    "check_single_head_norm_v1_cpu.py": "0f7a28e13965cdd5518c50ccdc683863c17876512d1100b645858dd27ee9d73a"
+  }
+}

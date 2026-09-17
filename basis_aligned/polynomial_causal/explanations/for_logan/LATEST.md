@@ -1,5 +1,7 @@
 # Latest requested update for Logan
 
+**Latest regional update: [17 September, 23:41 — Normalization screen and single-head candidate](research_update_2026-09-17_2341_normalization.md).** Both normalization variants pass opened causal gates; the single-head denominator has CPU diagnostics only. Fresh confirmation and composition remain open.
+
 **17 September, 23:21 UTC (Claude lane) — [The temporal will/had readout set, through the same battery](research_update_2026-09-17_temporal_readout_set.md).** Set {11.3, 9.1, 15.5, 9.4}; 81% of the margin; selective; frozen prediction and natural FineWeb/Pile rows pass; NP relay causal.
 
 **Latest: [17 September,23:14 — Two-state regional executor](research_update_2026-09-17_2314_two_state_regional.md).** Native and isolated replay pass without an external scale/context input. A dominant head8.2 cross fold fails locally on multiline rows, but its separate opened causal screen passes. The retained term has an exact bilinear kernel and now passes fresh prediction against both baselines and same-site selectivity. Its reduced two-state executor now passes native and isolated replay. The exact fused version now also passes native and isolated replay. Normalization simplifications have only CPU local diagnostics; their causal test is registered.

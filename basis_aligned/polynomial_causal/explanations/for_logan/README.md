@@ -1,5 +1,7 @@
 # Requested full reports for Logan
 
+**Latest regional update: [17 September, 23:41 — Normalization screen and single-head candidate](research_update_2026-09-17_2341_normalization.md).** Both normalization variants pass opened causal gates; the single-head denominator has CPU diagnostics only. Fresh confirmation and composition remain open.
+
 - [17 September,23:14 — Two-state regional executor](research_update_2026-09-17_2314_two_state_regional.md).
 
 - [17 September,22:50 — Fresh native regional transfer](research_update_2026-09-17_2250_fresh_native_regional.md).
