@@ -65,3 +65,11 @@ or refactoring improvements. Rank the best improvement by time likely saved and
 cost; execute one bounded nonconflicting CPU repair if clearly worthwhile, otherwise
 record why no change is justified. Keep this audit smaller than scientific work.
 Include explicit `PAST_HOUR_TIMING` and `PROCESS_IMPROVEMENT` sections in the receipt.
+
+Phase-log lookup: inspect the newest matching
+`basis_aligned/polynomial_causal/RESEARCH_PHASES_YYYY-MM-DD.jsonl` for the actual
+UTC work date before declaring phase instrumentation absent or stale. Older
+rotation ledgers are not the current phase log. These are sparse boundary marks:
+report their coverage and gaps; do not treat each interval as uninterrupted active
+labor or infer unmarked categories. The append helper is
+`basis_aligned/polynomial_causal/research_phase_clock_v1.py`.
