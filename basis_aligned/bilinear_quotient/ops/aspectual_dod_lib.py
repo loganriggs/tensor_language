@@ -189,12 +189,18 @@ class ManualForward:
         return self.torch.tensor(padded, dtype=self.torch.long, device=self.device)
 
     def _edit(self, value, rows, component: Component, mode: str, seed: int, layer_kind: str):
-        """Apply the removal / null to `value` in place-of-copy and return it."""
+        """Apply the removal / null to `value` in place-of-copy and return it.
+
+        Modes: "zero" removes the whole write; "random" subtracts an equal-norm random vector;
+        "midpoint" subtracts half the exact paired (row minus partner) delta of the write, i.e.
+        moves the write to the since/by midpoint (needs `self.deltas`); "midpoint_random"
+        subtracts a random vector whose norm equals that half-delta's norm.
+        """
         if component.kind != layer_kind:
             return value
         changed = value.clone()
         gen = None
-        if mode == "random":
+        if mode in ("random", "midpoint_random"):
             gen = self.torch.Generator(device="cpu").manual_seed(seed)
         for index, row in enumerate(rows):
             for position in positions_of(row, component.where):
@@ -202,20 +208,75 @@ class ManualForward:
                     for head in component.heads:
                         s, e = head * HEAD_DIM, (head + 1) * HEAD_DIM
                         w = changed[index, position, s:e]
-                        changed[index, position, s:e] = self._replacement(w, mode, gen)
+                        d = self._delta(row, component, position, head)
+                        changed[index, position, s:e] = self._replacement(w, mode, gen, d)
                 else:
                     w = changed[index, position]
-                    changed[index, position] = self._replacement(w, mode, gen)
+                    d = self._delta(row, component, position, None)
+                    changed[index, position] = self._replacement(w, mode, gen, d)
         return changed
 
-    def _replacement(self, w, mode: str, gen):
+    def _delta(self, row, component, position, head):
+        if not hasattr(self, "deltas"):
+            return None
+        return self.deltas.get((row.row_id, component.name, position, head))
+
+    def _replacement(self, w, mode: str, gen, d=None):
         if mode == "zero":
             return self.torch.zeros_like(w)
         if mode == "random":
             r = self.torch.randn(w.shape, generator=gen, dtype=self.torch.float32)
             r = r / r.norm() * float(w.float().norm())
             return w - r.to(device=w.device, dtype=w.dtype)
+        if mode in ("midpoint", "midpoint_random"):
+            if d is None:
+                raise ValueError("midpoint modes need captured paired deltas")
+            half = 0.5 * d.to(device=w.device, dtype=w.dtype)
+            if mode == "midpoint":
+                return w - half
+            r = self.torch.randn(w.shape, generator=gen, dtype=self.torch.float32)
+            r = r / r.norm() * float(half.float().norm())
+            return w - r.to(device=w.device, dtype=w.dtype)
         raise ValueError(f"unknown mode {mode!r}")
+
+    def capture(self, rows: Sequence[Row], components: Sequence[Component]):
+        """Return native writes {(row_id, component, position, head|None): tensor} (no edits)."""
+        torch, F, model = self.torch, self.F, self.model
+        tokens = self._tokens(rows)
+        store = {}
+        with torch.no_grad():
+            x = F.rms_norm(model.transformer.wte(tokens), (model.config.n_embd,))
+            x0, v1 = x, None
+            for layer, block in enumerate(model.transformer.h):
+                live = block.lambdas[0] * x + block.lambdas[1] * x0
+                attn_here = [c for c in components if c.kind == "attn" and c.layer == layer]
+                mlp_here = [c for c in components if c.kind == "mlp" and c.layer == layer]
+                handle = None
+                if attn_here:
+                    def c_proj_pre(_module, arguments, comps=attn_here):
+                        value = arguments[0]
+                        for c in comps:
+                            for index, row in enumerate(rows):
+                                for position in positions_of(row, c.where):
+                                    for head in c.heads:
+                                        s, e = head * HEAD_DIM, (head + 1) * HEAD_DIM
+                                        store[(row.row_id, c.name, position, head)] = \
+                                            value[index, position, s:e].detach().clone()
+                        return None
+                    handle = block.attn.c_proj.register_forward_pre_hook(c_proj_pre)
+                try:
+                    attention, v1 = block.attn(F.rms_norm(live, (model.config.n_embd,)), v1)
+                finally:
+                    if handle is not None:
+                        handle.remove()
+                x = live + attention
+                mlp = block.mlp(F.rms_norm(x, (model.config.n_embd,)))
+                for c in mlp_here:
+                    for index, row in enumerate(rows):
+                        for position in positions_of(row, c.where):
+                            store[(row.row_id, c.name, position, None)] = mlp[index, position].detach().clone()
+                x = x + mlp
+        return store
 
     def forward(self, rows: Sequence[Row], *, components: Sequence[Component] = (),
                 mode: str = "zero", seed: int = 0):
@@ -282,3 +343,22 @@ def summarize(rows: Sequence[Row], native: Sequence[Mapping[str, float]],
         out[f"{name}_abs_move_mean"] = sum(moves) / len(rows)
         out[f"{name}_native_abs_mean"] = sum(abs(n[name]) for n in native) / len(rows)
     return out
+
+
+def partner_of(rows: Sequence[Row]) -> dict[str, Row]:
+    """Map each row to the row with the same construction/group and the opposite cue."""
+    by_key = {(r.construction, r.group, r.present): r for r in rows}
+    return {r.row_id: by_key[(r.construction, r.group, not r.present)] for r in rows}
+
+
+def paired_deltas(store, rows: Sequence[Row], components: Sequence[Component]):
+    """Exact per-row deltas: write(row) - write(partner) at every captured slice."""
+    partner = partner_of(rows)
+    deltas = {}
+    for (row_id, name, position, head), w in store.items():
+        row = next(r for r in rows if r.row_id == row_id)
+        other = partner[row_id]
+        # positions are construction-aligned, so the partner's slice sits at the same offset
+        w2 = store[(other.row_id, name, position, head)]
+        deltas[(row_id, name, position, head)] = w - w2
+    return deltas

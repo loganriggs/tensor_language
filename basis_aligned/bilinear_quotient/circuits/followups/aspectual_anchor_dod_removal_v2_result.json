@@ -1,0 +1,352 @@
+{
+  "additivity": {
+    "bar": 0.1336829513311386,
+    "gap": 0.059383951127529144,
+    "joint": 1.790024772286415,
+    "singles": {
+      "attn11_h3_final": 0.18710952997207642,
+      "attn15_h5_final": 0.19338498264551163,
+      "attn5_h7_h1_h6_h8_final": 0.09161128848791122,
+      "attn9_h1_h4_final": 0.7238032147288322,
+      "mlp4_source_bank": 0.5347318053245544
+    },
+    "sum_singles": 1.730640821158886
+  },
+  "candidate_id": "aspectual_anchor.has_vs_had.dod_removal_v2",
+  "capability": {
+    "fronted/by": 1.0,
+    "fronted/since": 1.0,
+    "report/by": 1.0,
+    "report/since": 1.0
+  },
+  "components": {
+    "attn11_h3_final": {
+      "beats_null": true,
+      "gates": {
+        "animacy_who_which": true,
+        "canonical_night_day": true,
+        "number_was_were": true
+      },
+      "live": false,
+      "mean_half_delta_norm": 19.57513052225113,
+      "mean_write_norm": 69.59424501657486,
+      "midpoint": {
+        "animacy_who_which_abs_move_mean": 0.015689842402935028,
+        "animacy_who_which_native_abs_mean": 3.3815705440938473,
+        "canonical_night_day_abs_move_mean": 0.023196971451397985,
+        "canonical_night_day_native_abs_mean": 0.9019972459063865,
+        "flip_fraction": 0.0,
+        "number_was_were_abs_move_mean": 0.05252567678689957,
+        "number_was_were_native_abs_mean": 5.466973781585693,
+        "target_damage_fraction": 0.09050607373702088,
+        "target_damage_mean": 0.18710952997207642,
+        "target_damage_positive_fraction": 1.0,
+        "target_native_mean_margin": 2.067369870841503
+      },
+      "null_damage_max": 0.016585178673267365,
+      "null_damage_means": [
+        -0.001130223274230957,
+        0.0037522464990615845,
+        -0.0023582056164741516,
+        0.0024500638246536255,
+        -0.0003806650638580322,
+        -0.0012251511216163635,
+        -0.005023635923862457,
+        -0.00430617481470108,
+        0.009063176810741425,
+        -0.0009641721844673157,
+        0.003931380808353424,
+        -0.009310029447078705,
+        -0.004274748265743256,
+        0.016585178673267365,
+        -0.00888783484697342,
+        0.006868340075016022
+      ],
+      "null_damage_median": -0.0009641721844673157,
+      "null_unrelated_abs_move_mean": {
+        "animacy_who_which": 0.019686473300680518,
+        "canonical_night_day": 0.012365174408841995,
+        "number_was_were": 0.08117779856547713
+      },
+      "selective": true
+    },
+    "attn15_h5_final": {
+      "beats_null": true,
+      "gates": {
+        "animacy_who_which": true,
+        "canonical_night_day": true,
+        "number_was_were": true
+      },
+      "live": false,
+      "mean_half_delta_norm": 15.029161363840103,
+      "mean_write_norm": 48.77264565229416,
+      "midpoint": {
+        "animacy_who_which_abs_move_mean": 0.008773468434810638,
+        "animacy_who_which_native_abs_mean": 3.3815705440938473,
+        "canonical_night_day_abs_move_mean": 0.008714381081517786,
+        "canonical_night_day_native_abs_mean": 0.9019972459063865,
+        "flip_fraction": 0.0,
+        "number_was_were_abs_move_mean": 0.007226146757602692,
+        "number_was_were_native_abs_mean": 5.466973781585693,
+        "target_damage_fraction": 0.09354155024364175,
+        "target_damage_mean": 0.19338498264551163,
+        "target_damage_positive_fraction": 1.0,
+        "target_native_mean_margin": 2.067369870841503
+      },
+      "null_damage_max": 0.01545976847410202,
+      "null_damage_means": [
+        0.01545976847410202,
+        0.0049291253089904785,
+        -0.0008564889430999756,
+        0.0025510787963867188,
+        -0.001606568694114685,
+        0.00012639909982681274,
+        0.000924527645111084,
+        -0.010186538100242615,
+        -0.011610560119152069,
+        -0.001412995159626007,
+        -0.00632099062204361,
+        -0.007407329976558685,
+        0.0008933916687965393,
+        -0.0011830925941467285,
+        -0.011743858456611633,
+        -0.0021635890007019043
+      ],
+      "null_damage_median": -0.0011830925941467285,
+      "null_unrelated_abs_move_mean": {
+        "animacy_who_which": 0.007643542950972915,
+        "canonical_night_day": 0.007901721310190624,
+        "number_was_were": 0.016444482374936342
+      },
+      "selective": true
+    },
+    "attn5_h7_h1_h6_h8_final": {
+      "beats_null": true,
+      "gates": {
+        "animacy_who_which": true,
+        "canonical_night_day": true,
+        "number_was_were": true
+      },
+      "live": false,
+      "mean_half_delta_norm": 14.91265251673758,
+      "mean_write_norm": 233.43714049458504,
+      "midpoint": {
+        "animacy_who_which_abs_move_mean": 0.0432722270488739,
+        "animacy_who_which_native_abs_mean": 3.3815705440938473,
+        "canonical_night_day_abs_move_mean": 0.04130477720173076,
+        "canonical_night_day_native_abs_mean": 0.9019972459063865,
+        "flip_fraction": 0.0,
+        "number_was_were_abs_move_mean": 0.0766584649682045,
+        "number_was_were_native_abs_mean": 5.466973781585693,
+        "target_damage_fraction": 0.04431296488355116,
+        "target_damage_mean": 0.09161128848791122,
+        "target_damage_positive_fraction": 0.984375,
+        "target_native_mean_margin": 2.067369870841503
+      },
+      "null_damage_max": 0.016705714166164398,
+      "null_damage_means": [
+        -0.004941999912261963,
+        0.008371718227863312,
+        0.0031775832176208496,
+        0.012656450271606445,
+        0.016705714166164398,
+        -0.02000347524881363,
+        0.0083150714635849,
+        -0.00176190584897995,
+        -0.0006276443600654602,
+        -0.003275468945503235,
+        -0.012583762407302856,
+        0.0032723695039749146,
+        0.00782226026058197,
+        -0.0008797347545623779,
+        0.005804441869258881,
+        -0.0036392509937286377
+      ],
+      "null_damage_median": 0.0031775832176208496,
+      "null_unrelated_abs_move_mean": {
+        "animacy_who_which": 0.03937896806746721,
+        "canonical_night_day": 0.03429351401064196,
+        "number_was_were": 0.06048572063446045
+      },
+      "selective": true
+    },
+    "attn9_h1_h4_final": {
+      "beats_null": true,
+      "gates": {
+        "animacy_who_which": true,
+        "canonical_night_day": true,
+        "number_was_were": true
+      },
+      "live": true,
+      "mean_half_delta_norm": 27.647222764790058,
+      "mean_write_norm": 69.381841391325,
+      "midpoint": {
+        "animacy_who_which_abs_move_mean": 0.035755932331085205,
+        "animacy_who_which_native_abs_mean": 3.3815705440938473,
+        "canonical_night_day_abs_move_mean": 0.05840431124670431,
+        "canonical_night_day_native_abs_mean": 0.9019972459063865,
+        "flip_fraction": 0.046875,
+        "number_was_were_abs_move_mean": 0.11168567836284637,
+        "number_was_were_native_abs_mean": 5.466973781585693,
+        "target_damage_fraction": 0.3501082341082078,
+        "target_damage_mean": 0.7238032147288322,
+        "target_damage_positive_fraction": 1.0,
+        "target_native_mean_margin": 2.067369870841503
+      },
+      "null_damage_max": 0.030200950801372528,
+      "null_damage_means": [
+        0.030200950801372528,
+        0.0008769035339355469,
+        -0.021649233996868134,
+        -0.010093100368976593,
+        -0.010320469737052917,
+        0.022655241191387177,
+        0.0034381747245788574,
+        -0.0051216259598731995,
+        -0.01125691831111908,
+        0.014666326344013214,
+        -0.00790577381849289,
+        -0.002543337643146515,
+        -0.006378456950187683,
+        -0.0032104775309562683,
+        -0.005026757717132568,
+        0.00019675493240356445
+      ],
+      "null_damage_median": -0.0032104775309562683,
+      "null_unrelated_abs_move_mean": {
+        "animacy_who_which": 0.04453270579688251,
+        "canonical_night_day": 0.04169255488795898,
+        "number_was_were": 0.06875355867668986
+      },
+      "selective": true
+    },
+    "mlp4_source_bank": {
+      "beats_null": true,
+      "gates": {
+        "animacy_who_which": true,
+        "canonical_night_day": true,
+        "number_was_were": true
+      },
+      "live": true,
+      "mean_half_delta_norm": 6857.956883748372,
+      "mean_write_norm": 18066.500920613606,
+      "midpoint": {
+        "animacy_who_which_abs_move_mean": 0.10000224784016609,
+        "animacy_who_which_native_abs_mean": 3.3815705440938473,
+        "canonical_night_day_abs_move_mean": 0.09336565929697827,
+        "canonical_night_day_native_abs_mean": 0.9019972459063865,
+        "flip_fraction": 0.0,
+        "number_was_were_abs_move_mean": 0.11727665364742279,
+        "number_was_were_native_abs_mean": 5.466973781585693,
+        "target_damage_fraction": 0.25865318676957255,
+        "target_damage_mean": 0.5347318053245544,
+        "target_damage_positive_fraction": 1.0,
+        "target_native_mean_margin": 2.067369870841503
+      },
+      "null_damage_max": 0.05154242366552353,
+      "null_damage_means": [
+        0.03375997394323349,
+        0.013051435351371765,
+        0.009387515485286713,
+        0.024204380810260773,
+        0.01909375935792923,
+        0.04651027172803879,
+        0.027736172080039978,
+        0.018875300884246826,
+        0.016381748020648956,
+        0.05154242366552353,
+        0.006111346185207367,
+        0.025048770010471344,
+        0.036223262548446655,
+        0.023506641387939453,
+        0.024510756134986877,
+        0.017342887818813324
+      ],
+      "null_damage_median": 0.024204380810260773,
+      "null_unrelated_abs_move_mean": {
+        "animacy_who_which": 0.04434255696833134,
+        "canonical_night_day": 0.03553672778116379,
+        "number_was_were": 0.061756917741149664
+      },
+      "selective": true
+    }
+  },
+  "finished_utc": "2026-09-17T21:02:40.777568+00:00",
+  "forwards": 178,
+  "instrument_max_abs_error": 0.0,
+  "joint_all_five": {
+    "animacy_who_which_abs_move_mean": 0.14830021560192108,
+    "animacy_who_which_native_abs_mean": 3.3815705440938473,
+    "canonical_night_day_abs_move_mean": 0.1539254987728782,
+    "canonical_night_day_native_abs_mean": 0.9019972459063865,
+    "flip_fraction": 0.34375,
+    "number_was_were_abs_move_mean": 0.15141203254461288,
+    "number_was_were_native_abs_mean": 5.466973781585693,
+    "target_damage_fraction": 0.8658464058769525,
+    "target_damage_mean": 1.790024772286415,
+    "target_damage_positive_fraction": 1.0,
+    "target_native_mean_margin": 2.067369870841503
+  },
+  "live_components": [
+    "mlp4_source_bank",
+    "attn9_h1_h4_final"
+  ],
+  "native_mean_margin": 2.067369870841503,
+  "plan": {
+    "bars": {
+      "add_ratio": 0.25,
+      "capability_min": 0.85,
+      "gate_ratio_over_null": 0.25,
+      "instrument_tol": 0.0001,
+      "live_fraction": 0.1,
+      "live_positive": 0.75
+    },
+    "candidate_id": "aspectual_anchor.has_vs_had.dod_removal_v2",
+    "components": [
+      "mlp4_source_bank",
+      "attn5_h7_h1_h6_h8_final",
+      "attn9_h1_h4_final",
+      "attn11_h3_final",
+      "attn15_h5_final"
+    ],
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 200,
+    "gpu_accessed": false,
+    "mode": "midpoint",
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "null_seeds": [
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116
+    ],
+    "rows": 64,
+    "rows_sha256": "5ec7d32f3f7b6bbc9ebc31de3411074b24a998430f7f929bd11d0813e40dfcd2"
+  },
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_native_capability": true,
+    "pred_c_attn9_midpoint_is_live_and_beats_null": true,
+    "pred_d_attn9_midpoint_is_selective_over_null": true,
+    "pred_e_attn5_midpoint_beats_null": true,
+    "pred_f_mlp4_midpoint_beats_null_and_is_selective": true,
+    "pred_g_singles_compose_additively": true
+  },
+  "schema": "aspectual_anchor_dod_removal_result_v2",
+  "serial_seconds": 5.722988490015268
+}
