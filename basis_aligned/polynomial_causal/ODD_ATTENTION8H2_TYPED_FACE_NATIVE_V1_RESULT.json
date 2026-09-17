@@ -1,0 +1,43 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "terminal": "native_closure_failed_gate",
+  "max_write_relative_error": 2.1438208364088496e-07,
+  "max_token_table_relative_error": 2.3319533681842586e-07,
+  "recursive_effect_errors_by_readout": [
+    1.0146974936674453e-05,
+    6.16580645294492e-05,
+    0.00020254865646588186,
+    0.00012176761234341634,
+    0.0001368732296347135
+  ],
+  "parent_max_abs_margin_error": 6.258487701416016e-06,
+  "body_forwards": 288,
+  "seconds": 5.260505903977901,
+  "static_scalars": 885769,
+  "program_bytes": 3546313,
+  "program_sha256": "b8faca4a604472ca857799ab77a522b6e956e8b938d01e44493e037847a143a0",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_odd_attention8h2_typed_face_native_v1.py": "86f5aa89e149159a92e2ce5f375b1ccdb8b9a1bfc94833266be64f8127e7c1e8",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/odd_attention8h2_typed_face_native_runtime_v1.py": "615e8ab863f0181eefb6f80af8f8cbda73deb8c08a6b7a2d775a78a8b673af83",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_typed_face_v1/native.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_TYPED_FACE_NATIVE_V1_PREREGISTRATION.md": "ef1ba0938244c5f54fc9929a42df61c23e31320193396297480df85929384477",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_TYPED_FACE_REPLICATION_V1_ROWS.json": "5b580c25afbefd865c70b6dbfa7f2585a1945ef7fad8452b7409dcfeeb8f2493",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_TYPED_FACE_REPLICATION_V1_ARTIFACT.pt": "6de7abfbc39cbe5ad2e5f6a961b9d6bd78bc51e229f3a3fc28beb24965719417",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_TYPED_FACE_V1_CPU_CONTROL.json": "434dfca6a566e197a36a69ef6a205d07b339e67f18ef20ad863de205658ababf"
+  },
+  "declared_native_state_inputs": 2,
+  "city_token_vocabulary": [
+    3576,
+    4842,
+    6182,
+    7312,
+    9502,
+    10656,
+    11761,
+    13643
+  ],
+  "panel_status": "opened replay",
+  "scope": "Head8.2 write only; head9 odd-value graph, reentry and full suffix external. No new OOD, removal or composition claim."
+}
