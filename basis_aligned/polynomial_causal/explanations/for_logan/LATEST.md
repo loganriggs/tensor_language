@@ -1,6 +1,6 @@
 # Latest requested update for Logan
 
-**Latest: [17 September, 22:00 — Regional path survives structural controls](research_update_2026-09-17_2200_regional_structure.md).** All structural prediction and matched-null removal gates pass; two native inputs, composition failure and missing simplicity comparison remain.
+**Latest: [17 September, 22:00 — Regional prediction transfers; removal strength varies](research_update_2026-09-17_2200_regional_structure.md).** Prospective prediction beats both frozen baselines; line-break removal fails the 2% minimum-effect gate. Two native inputs and composition/simplicity gaps remain.
 
 **Previous: [17 September, 21:40 — Fresh transfer requires MLP7](research_update_2026-09-17_2140_regional_source_transfer.md).** Carry-only fails; carry plus MLP7 passes the frozen transfer gate. The donor MLP7 boundary now passes native and isolated replay, with two native inputs and 17 million floats. The physical-write composition partition fails its random-split comparison.
 

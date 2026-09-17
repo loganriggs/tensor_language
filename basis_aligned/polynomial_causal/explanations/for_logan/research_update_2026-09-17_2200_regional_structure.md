@@ -1,6 +1,6 @@
-# Regional spelling: the retained path survives punctuation changes
+# Regional spelling: predictions transfer, removal strength varies
 
-The city-dependent head8.2 routing/inherited-value write still predicts the broader city substitution through head9.8's odd-value branch after removing punctuation or shortening the frame. All registered structural prediction and paired-removal gates pass. This strengthens conditional prediction and bounded selectivity, but two native-state inputs and the downstream model remain required; composition specificity still fails and whole-path simplicity remains unestablished.
+The city-dependent head8.2 routing/inherited-value write still predicts the broader city substitution through head9.8's odd-value branch after removing punctuation or shortening the frame. The first punctuation screen passes all its gates. A second prospective screen beats frozen constant and fitted baselines, but fails its 2% minimum-attenuation gate in line-break constructions. Two native-state inputs and the downstream model remain required; composition specificity still fails and whole-path simplicity remains unestablished.
 
 ```mermaid
 flowchart LR
@@ -17,6 +17,22 @@ flowchart LR
 ```
 
 **Metrics.** The parent effect is edited-minus-native UK-versus-US logit margin when both city key factors, current value and inherited value are donated. The frozen retained face donates both keys and inherited value while keeping recipient current value. Prediction error is their L2 effect discrepancy divided by parent effect norm. The midpoint uses half the retained write. Attenuation is its reduction in the native paired-city margin difference, divided by that difference. Null ratio compares target RMS (root mean square over rows) to the median of 16 same-head, equal-norm random directions. Collateral is unrelated-reader RMS divided by target RMS. A port is a supplied input; native-state ports require model computation outside the package.
+
+The later prospective test uses ten new constructions across five families, with constant and text-feature predictors frozen before scoring. The retained face predicts the broader city edit more accurately in every family (**edit**, fresh constructions). The table separates predictive success from the manipulation-size failure:
+
+| Fresh construction family | Face error | Frozen constant error | Frozen text-fit error | Mean attenuation |
+|---|---:|---:|---:|---:|
+| Archive card | 20% | 84% | 92% | 2.4% |
+| Instruction first | 18% | 84% | 1.2e+02% | 2.6% |
+| Unquoted prose | 20% | 76% | 82% | 2.6% |
+| Line breaks | 17% | 88% | 95% | 1.9% |
+| Indirect report | 16% | 1.3e+02% | 1.3e+02% | 4.3% |
+
+All families satisfy the prospective requirement of at least 20% lower error than both fixed baselines. The line-break mean attenuation is 1.9%, below the registered 2.0% minimum: that gate fails. Every family still has positive attenuation on all capable pairs, exceeds all 16 matched directions, and stays below the 50% collateral limit. The largest observed collateral ratio is 18%. This establishes neither a large share of regional behavior nor uniformly passing removal strength.
+
+The opened magnitude audit shows similar absolute mean paired damage for line breaks and three other families—about .063–.066 logits—but a larger native regional gap for line breaks (3.4 logits versus 2.6–2.8). That helps explain the smaller fraction; it does not change its failed gate or localize downstream causes. The indirect-report family has a smaller absolute effect and a larger mean fractional effect. Mean of ratios and ratio of means must not be interchanged.
+
+The earlier punctuation screen is retained separately below (**edit**; base opened, modifications fresh at freeze):
 
 | Structural condition | Prediction error | Mean attenuation | Target / median null | Largest collateral ratio |
 |---|---:|---:|---:|---:|
@@ -36,6 +52,8 @@ The punctuation controls remove exactly the colon, quote or both from the same p
 | Paired midpoint weakens the regional contrast | edit | same panel | 2.1–3.9% mean attenuation; positive in all capable cells | passes |
 | Targeted removal exceeds matched directions | edit | same panel | 8.4–20 times median; beats 16/16 in every condition | passes |
 | Four unrelated readers stay below registered limit | edit | same panel | maximum 22% of target RMS; gate 50% | passes |
+| Prospective prediction beats frozen constant and text fit | edit | ten fresh constructions | 16–20% versus 76–129% / 82–128%; at least 20% improvement | passes |
+| Minimum removal strength transfers to every new family | edit | same fresh panel | line-break mean 1.9%; minimum 2.0% | fails |
 | Exact donor computation through MLP7 | fold | earlier opened fixtures | two native-state inputs; 17 million stored floats | exact at declared boundary |
 | Carry-only fresh source approximation | edit | earlier fresh contexts | 41–76% error; gate 35% | fails |
 | Omitting initial7 after retaining residual6+attention7 | edit | earlier opened contexts | 22–70% error; gate 20% | fails |
@@ -43,9 +61,9 @@ The punctuation controls remove exactly the colon, quote or both from the same p
 | Three-write partition has special composition | edit | earlier opened contexts | 1.9 times random interaction median; gate .50 | fails |
 | Whole-path simplicity beats a matched-effect comparator | fold/program pricing | partial package | two open arrays and native suffix remain | not yet tested |
 
-The four behavioral properties remain separate: **prediction** gains structural evidence; **extraction** is at a conditional boundary; **selective manipulation** passes paired, norm-matched controls; **composition/reuse** remains incomplete. The newly folded individual sources do not inherit the whole path's selectivity verdict. Simplicity is priced separately and is not established by the large exact MLP7 package.
+The four behavioral properties remain separate: **prediction** gains prospective structural evidence against fixed baselines; **extraction** is at a conditional boundary; **selective manipulation** passes directional/collateral controls but fails one fresh minimum-effect gate; **composition/reuse** remains incomplete. The newly folded individual sources do not inherit the whole path's selectivity verdict. Simplicity is priced separately and is not established by the large exact MLP7 package.
 
-A subsequent prediction-null audit trains cue-specific constants and one fixed text-feature linear model on base rows only. Both are less accurate on the modified variants than the frozen face. However, this baseline design was chosen after structural outcomes were opened, and the linear training design is rank deficient. This is diagnostic evidence and a recipe to freeze for a later prospective test, not completion of the preregistered OOD-null requirement. No fitted predictor replaces a native state port.
+A subsequent prediction-null audit trains cue-specific constants and one fixed text-feature linear model on base rows only. Both are less accurate on the modified variants than the frozen face. However, this baseline design was chosen after structural outcomes were opened, and the linear training design is rank deficient. That audit remains diagnostic. Its exact coefficients and feature recipe were subsequently frozen for the independent prospective panel reported above. That panel supplies a narrow new-construction prediction-null comparison; the native-state formula and token-feature baselines have different information access, and no new-city, new-endpoint or token-only claim follows. No fitted predictor replaces a native state port.
 
 ## Reproducibility appendix
 
@@ -62,3 +80,7 @@ Runtime: 800 batched body forwards, 12.254503s. The scheduled [hourly review](..
 [Posthoc null audit](../../STRUCTURE_PREDICTION_NULLS_V1_RESULT.json): base-only training rank 9 of 10 columns; features are intercept, cue sign, length/32, city-position/32, pair index and endpoint indicators. Modified-condition cue-constant errors .3424–.8630; text-OLS .3214–.9083; frozen face .1709–.1951. No feature tuning or test-target fit occurred, but feature choice was not preregistered. Coefficients and hashes are preserved for prospective reuse.
 
 Earlier failures, exact algebra and extraction price: [source-transfer report](research_update_2026-09-17_2140_regional_source_transfer.md). The earlier strict all-readout replay failure remains; later looser implementation gates do not retract it. No new composition or standalone whole-model test was performed here.
+
+Prospective evidence: [registration](../../TYPED_FACE_PROSPECTIVE_V1_PREREGISTRATION.md), [rows](../../TYPED_FACE_PROSPECTIVE_V1_ROWS.json), [frozen binding](../../TYPED_FACE_PROSPECTIVE_V1_BINDING.json), [result](../../TYPED_FACE_PROSPECTIVE_V1_RESULT.json), [magnitude audit](../../PROSPECTIVE_ATTENUATION_V1_AUDIT.json). Ten authored constructions crossed with the same two city pairs and six endpoints give 20 context/city cells, 40 unique sequences and 240 rows; zero prefix overlap with 1,873 earlier prefixes. All five families contain 24 capable endpoint pairs. The reused 800-forward executor keeps all six original gates; new pred_g requires face error at most .8 of each frozen baseline in every family. Gates A/B/C/E/F/G pass; D fails at line-break .0191104963 versus .02. The fit was not updated. This is not new-vocabulary or corpus transfer.
+
+Pre-execution correction: the first enqueue was refused because the wrapper's inherited prediction keys were invisible to the static gate. The wrapper now explicitly checks the inherited boolean contract; scientific gates and rows stayed unchanged, and no model run preceded the fix. Runner completed the one executed job at 22:05:03 UTC. The phase clock records design/implementation together from 22:02:54 to validation start 22:03:59; enqueue repair, queueing, execution and other concurrent work are not silently counted as one active category.

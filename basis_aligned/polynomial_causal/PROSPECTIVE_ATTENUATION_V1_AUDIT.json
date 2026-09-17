@@ -1,0 +1,151 @@
+{
+  "families": {
+    "archive_card": {
+      "native_gap_mean_logits": 2.791357934474945,
+      "paired_damage_mean_logits": 0.06362093302110831,
+      "paired_damage_rms_logits": 0.06723616009364274,
+      "mean_fraction": 0.023955583743235562,
+      "ratio_of_means": 0.02279210854163546,
+      "cell_means": [
+        {
+          "context_id": 0,
+          "gap": 2.0799362659454346,
+          "damage": 0.04318054517110189
+        },
+        {
+          "context_id": 1,
+          "gap": 4.055085738499959,
+          "damage": 0.07941218217213948
+        },
+        {
+          "context_id": 2,
+          "gap": 1.7223782340685527,
+          "damage": 0.04964838673671087
+        },
+        {
+          "context_id": 3,
+          "gap": 3.3080314993858337,
+          "damage": 0.082242618004481
+        }
+      ]
+    },
+    "instruction_first": {
+      "native_gap_mean_logits": 2.596859335899353,
+      "paired_damage_mean_logits": 0.06483226766188939,
+      "paired_damage_rms_logits": 0.06761650634265079,
+      "mean_fraction": 0.02638374439407536,
+      "ratio_of_means": 0.024965644756201808,
+      "cell_means": [
+        {
+          "context_id": 4,
+          "gap": 1.9721217155456543,
+          "damage": 0.049777090549468994
+        },
+        {
+          "context_id": 5,
+          "gap": 3.7204530437787375,
+          "damage": 0.075266698996226
+        },
+        {
+          "context_id": 6,
+          "gap": 1.568308174610138,
+          "damage": 0.05232606331507365
+        },
+        {
+          "context_id": 7,
+          "gap": 3.1265544096628823,
+          "damage": 0.08195921778678894
+        }
+      ]
+    },
+    "unquoted_prose": {
+      "native_gap_mean_logits": 2.594270837803682,
+      "paired_damage_mean_logits": 0.06586557626724243,
+      "paired_damage_rms_logits": 0.06839161859634943,
+      "mean_fraction": 0.026491986475178874,
+      "ratio_of_means": 0.025388858906884387,
+      "cell_means": [
+        {
+          "context_id": 8,
+          "gap": 2.0828760266304016,
+          "damage": 0.07067689299583435
+        },
+        {
+          "context_id": 9,
+          "gap": 3.618395288785299,
+          "damage": 0.0811511476834615
+        },
+        {
+          "context_id": 10,
+          "gap": 1.6927721798419952,
+          "damage": 0.04443847139676412
+        },
+        {
+          "context_id": 11,
+          "gap": 2.9830398559570312,
+          "damage": 0.06719579299290974
+        }
+      ]
+    },
+    "line_break": {
+      "native_gap_mean_logits": 3.4006182650725045,
+      "paired_damage_mean_logits": 0.06293170154094696,
+      "paired_damage_rms_logits": 0.06447545336877224,
+      "mean_fraction": 0.019110496272235655,
+      "ratio_of_means": 0.018505958809700504,
+      "cell_means": [
+        {
+          "context_id": 12,
+          "gap": 2.6794167955716452,
+          "damage": 0.06138402223587036
+        },
+        {
+          "context_id": 13,
+          "gap": 4.357243160406749,
+          "damage": 0.07530705134073894
+        },
+        {
+          "context_id": 14,
+          "gap": 2.7016915480295816,
+          "damage": 0.053634703159332275
+        },
+        {
+          "context_id": 15,
+          "gap": 3.8641215562820435,
+          "damage": 0.061401029427846275
+        }
+      ]
+    },
+    "indirect_report": {
+      "native_gap_mean_logits": 1.8111625884970028,
+      "paired_damage_mean_logits": 0.050820780297120415,
+      "paired_damage_rms_logits": 0.057100346967961506,
+      "mean_fraction": 0.04305139314470103,
+      "ratio_of_means": 0.028059755993134854,
+      "cell_means": [
+        {
+          "context_id": 16,
+          "gap": 1.639175961414973,
+          "damage": 0.026921143134435017
+        },
+        {
+          "context_id": 17,
+          "gap": 2.913278500239054,
+          "damage": 0.03238147497177124
+        },
+        {
+          "context_id": 18,
+          "gap": 0.5551124811172485,
+          "damage": 0.05612496534983317
+        },
+        {
+          "context_id": 19,
+          "gap": 2.137083411216736,
+          "damage": 0.08785553773244222
+        }
+      ]
+    }
+  },
+  "source_sha256": "4365fc9e632335dbcd19e273c8aa6f333b83f8d425d9737f56a704eb6799f285",
+  "scope": "Opened damage-versus-native-gap diagnostic. Mean ratio is the original gate; ratio of means is descriptive only and cannot rescue it. Does not localize downstream response or identify causal modules."
+}

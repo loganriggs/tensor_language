@@ -9,7 +9,7 @@ House style: define every specialized term on first use, give its computational 
 abbreviations, and distinguish a diagnostic attribution from an executable compression. Numerical headlines should
 state what was actually measured and what unit is being used.
 
-**Latest update: [17 September — Regional path survives structural controls](for_logan/research_update_2026-09-17_2200_regional_structure.md).**
+**Latest update: [17 September — Regional prediction transfers; removal strength varies](for_logan/research_update_2026-09-17_2200_regional_structure.md).**
 
 ## [Read the latest requested full report → for_logan](for_logan/LATEST.md)
 
