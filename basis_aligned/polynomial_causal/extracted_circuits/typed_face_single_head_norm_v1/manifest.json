@@ -1,0 +1,45 @@
+{
+  "name": "typed_face_single_head_norm_v1",
+  "entrypoint": "execute.execute",
+  "float_scalars": 16899587,
+  "supported_sequence_tokens": 70,
+  "native_inputs": [
+    "residual7[B,T,1152]",
+    "donor_city7[B,1152]"
+  ],
+  "other_inputs": [
+    "token_ids",
+    "recipient_token",
+    "donor_token",
+    "city",
+    "destination",
+    "strength=.5"
+  ],
+  "external_suffix": "native blocks9\u201317 and readout",
+  "counterfactual": "approximate retained head8.2 donor half-write coupled to MLP8 with head8.2-only frozen normalization",
+  "validation": {
+    "pred_a": true,
+    "pred_b": true,
+    "fixtures": 40,
+    "max_relative_write_error": 1.2504413033671495e-06,
+    "max_zero_strength": 0.0,
+    "float_scalars": 16899587,
+    "native_state_arrays": 2,
+    "native_state_scalars_T32": 38016,
+    "supported_sequence_tokens": 70,
+    "scope": "Pruned program CPU replay against saved fresh-run candidate writes, now opened. Native readout and isolated import replay of this package pending. Fresh scientific evidence belongs to unchanged formula; no composition or token-only claim."
+  },
+  "four_traits": {
+    "prediction": "fresh formula test passed; same endpoints",
+    "extraction": "CPU replay passes; independent native/layout certificate pending",
+    "selectivity": "fresh formula same-site null/four-reader test passed",
+    "composition": false
+  },
+  "complete_circuit": false,
+  "sha256": {
+    "program.pt": "ed33bdbad3e25af41b726517051ca47aa70dea7534cc4394abafdd8685d174f4",
+    "head8.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "attention.py": "df635f9160749cd6afd3c640c0719d875d28da535839beba4d2f8b10ee6b500d",
+    "execute.py": "bffdf3860833d98c649a79ca8ff2c26808402ae06a69c9a9941a788956798aeb"
+  }
+}

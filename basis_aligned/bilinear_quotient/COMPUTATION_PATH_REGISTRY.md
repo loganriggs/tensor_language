@@ -232,3 +232,7 @@ simplicity comparison and random-split specificity remain missing. [Current Loga
 ### 17 September 23:41 — Regional MLP8 normalization screen
 
 Both registered full-context normalization approximations pass opened causal gates (200 forwards, 3.45s). Frozen norm effect error .00031–.00072; no fresh/null upgrade. [Receipt](../polynomial_causal/REDUCED_MLP8_NORMALIZATION_V1_RESULT.json). Next one-head normalization candidate has 2.1–6.4% CPU local error, not a causal result: [diagnostic](../polynomial_causal/SINGLE_HEAD_NORMALIZATION_V1_CPU_RESULT.json), [registered screen](../polynomial_causal/SINGLE_HEAD_NORMALIZATION_V1_PREREGISTRATION.md). Exact package and composition failures preserved.
+
+### 17 September23:48 — Single-head normalization fresh confirmation
+
+[Fresh result](../polynomial_causal/SINGLE_HEAD_FRESH_V1_RESULT.json) passes all6gates:1.1–15%prediction error,16–22%attenuation,16/16nulls,collateral<=.163. Same endpoints and2native inputs; composition unchanged. [Pruned package CPU check](../polynomial_causal/SINGLE_HEAD_PRUNED_V1_CPU_RESULT.json):16,899,587floats,70tokens,40fixture replay pass; native/layout certification pending. This is a normalization approximation, not exact source elimination.
