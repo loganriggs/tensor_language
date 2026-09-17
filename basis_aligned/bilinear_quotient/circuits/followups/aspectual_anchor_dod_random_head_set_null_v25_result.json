@@ -1,0 +1,451 @@
+{
+  "candidate_id": "aspectual_anchor.has_vs_had.dod_random_head_set_null_v25",
+  "component": {
+    "animacy_who_which_abs_move_mean": 0.029285017400979996,
+    "animacy_who_which_native_abs_mean": 3.3815705440938473,
+    "canonical_night_day_abs_move_mean": 0.09386655531125143,
+    "canonical_night_day_native_abs_mean": 0.9019972459063865,
+    "flip_fraction": 0.0625,
+    "number_was_were_abs_move_mean": 0.25962426513433456,
+    "number_was_were_native_abs_mean": 5.466973781585693,
+    "target_damage_fraction": 0.5246280325235665,
+    "target_damage_mean": 1.0846001878380775,
+    "target_damage_positive_fraction": 1.0,
+    "target_native_mean_margin": 2.067369870841503
+  },
+  "finished_utc": "2026-09-17T23:01:02.354044+00:00",
+  "forwards": 38,
+  "instrument_max_abs_error": 0.0,
+  "plan": {
+    "bars": {
+      "instrument_tol": 0.0001,
+      "live_fraction": 0.1,
+      "live_positive": 0.75,
+      "tenfold": 10.0
+    },
+    "candidate_id": "aspectual_anchor.has_vs_had.dod_random_head_set_null_v25",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 44,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "random_sets": [
+      [
+        [
+          3,
+          6
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          17,
+          7
+        ]
+      ],
+      [
+        [
+          4,
+          3
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          17,
+          8
+        ]
+      ],
+      [
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          10,
+          2
+        ]
+      ],
+      [
+        [
+          3,
+          5
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          17,
+          0
+        ]
+      ],
+      [
+        [
+          1,
+          0
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      [
+        [
+          2,
+          8
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          14,
+          6
+        ]
+      ],
+      [
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          10,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          3
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          15,
+          7
+        ]
+      ],
+      [
+        [
+          3,
+          6
+        ],
+        [
+          9,
+          6
+        ],
+        [
+          14,
+          7
+        ]
+      ],
+      [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      [
+        [
+          6,
+          7
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          14,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          8
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          15,
+          8
+        ]
+      ],
+      [
+        [
+          8,
+          3
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          15,
+          0
+        ]
+      ],
+      [
+        [
+          6,
+          2
+        ],
+        [
+          11,
+          7
+        ],
+        [
+          13,
+          4
+        ]
+      ],
+      [
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          8,
+          6
+        ]
+      ],
+      [
+        [
+          1,
+          4
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          12,
+          1
+        ]
+      ]
+    ],
+    "rows": 64,
+    "rows_sha256": "5ec7d32f3f7b6bbc9ebc31de3411074b24a998430f7f929bd11d0813e40dfcd2"
+  },
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_component_beats_every_random_triple": true,
+    "pred_c_random_triples_are_not_live": true,
+    "pred_d_component_damage_exceeds_random_median_tenfold": true
+  },
+  "random": [
+    {
+      "damage": -0.0041966065764427185,
+      "fraction": -0.0020299253827930318,
+      "live": false,
+      "positive": 0.3125,
+      "set": [
+        "3.6",
+        "8.8",
+        "17.7"
+      ]
+    },
+    {
+      "damage": -0.0003719404339790344,
+      "fraction": -0.00017990996155305274,
+      "live": false,
+      "positive": 0.5,
+      "set": [
+        "4.3",
+        "8.7",
+        "17.8"
+      ]
+    },
+    {
+      "damage": 0.023700028657913208,
+      "fraction": 0.01146385510990655,
+      "live": false,
+      "positive": 0.6875,
+      "set": [
+        "2.7",
+        "3.8",
+        "10.2"
+      ]
+    },
+    {
+      "damage": 0.0016985759139060974,
+      "fraction": 0.0008216120094730355,
+      "live": false,
+      "positive": 0.5,
+      "set": [
+        "3.5",
+        "7.8",
+        "17.0"
+      ]
+    },
+    {
+      "damage": 0.00294668972492218,
+      "fraction": 0.0014253326250337384,
+      "live": false,
+      "positive": 0.546875,
+      "set": [
+        "1.0",
+        "5.3",
+        "6.7"
+      ]
+    },
+    {
+      "damage": 0.016511760652065277,
+      "fraction": 0.007986844001622372,
+      "live": false,
+      "positive": 0.5,
+      "set": [
+        "2.8",
+        "10.5",
+        "14.6"
+      ]
+    },
+    {
+      "damage": 0.004671104252338409,
+      "fraction": 0.00225944293675765,
+      "live": false,
+      "positive": 0.578125,
+      "set": [
+        "7.0",
+        "8.3",
+        "10.1"
+      ]
+    },
+    {
+      "damage": 0.0023600012063980103,
+      "fraction": 0.0011415476445138452,
+      "live": false,
+      "positive": 0.703125,
+      "set": [
+        "0.3",
+        "4.1",
+        "15.7"
+      ]
+    },
+    {
+      "damage": 0.0009135007858276367,
+      "fraction": 0.0004418661598545039,
+      "live": false,
+      "positive": 0.546875,
+      "set": [
+        "3.6",
+        "9.6",
+        "14.7"
+      ]
+    },
+    {
+      "damage": 0.0013257414102554321,
+      "fraction": 0.0006412695807140701,
+      "live": false,
+      "positive": 0.640625,
+      "set": [
+        "0.4",
+        "1.2",
+        "2.0"
+      ]
+    },
+    {
+      "damage": -0.0003348439931869507,
+      "fraction": -0.0001619661764010596,
+      "live": false,
+      "positive": 0.5,
+      "set": [
+        "6.7",
+        "9.0",
+        "14.1"
+      ]
+    },
+    {
+      "damage": -0.005300432443618774,
+      "fraction": -0.0025638529991061946,
+      "live": false,
+      "positive": 0.5,
+      "set": [
+        "0.8",
+        "7.8",
+        "15.8"
+      ]
+    },
+    {
+      "damage": 0.004323422908782959,
+      "fraction": 0.002091267252058361,
+      "live": false,
+      "positive": 0.53125,
+      "set": [
+        "8.3",
+        "11.1",
+        "15.0"
+      ]
+    },
+    {
+      "damage": 0.0077014341950416565,
+      "fraction": 0.0037252328689045184,
+      "live": false,
+      "positive": 0.640625,
+      "set": [
+        "6.2",
+        "11.7",
+        "13.4"
+      ]
+    },
+    {
+      "damage": 0.0028761625289916992,
+      "fraction": 0.001391218170273994,
+      "live": false,
+      "positive": 0.71875,
+      "set": [
+        "4.3",
+        "4.7",
+        "8.6"
+      ]
+    },
+    {
+      "damage": 0.0014548823237419128,
+      "fraction": 0.0007037358647147726,
+      "live": false,
+      "positive": 0.546875,
+      "set": [
+        "1.4",
+        "8.7",
+        "12.1"
+      ]
+    }
+  ],
+  "random_damage_max": 0.023700028657913208,
+  "random_damage_median_abs": 0.00294668972492218,
+  "schema": "aspectual_anchor_dod_random_head_set_null_result_v25",
+  "serial_seconds": 2.5062263179570436
+}
