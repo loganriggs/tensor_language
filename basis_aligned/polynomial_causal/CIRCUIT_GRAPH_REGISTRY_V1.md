@@ -2,7 +2,7 @@
 
 This is a generated inventory of extracted circuit boundaries. Missing evidence is recorded as unknown, not as a failed scientific claim.
 
-Packages: **32**; manifests: **27**; declared input boundaries: **16**; verified four-trait circuits: **2**.
+Packages: **33**; manifests: **28**; declared input boundaries: **17**; verified four-trait circuits: **2**.
 
 | package | maturity | inputs | external activations | nodes | next gap |
 |---|---:|---:|---:|---:|---|
@@ -31,6 +31,7 @@ Packages: **32**; manifests: **27**; declared input boundaries: **16**; verified
 | odd_attention8h2_o_composed_edge_v1 | partial_or_unassessed | 9 | ? | ? | ood_prediction, extraction, selective_removal… |
 | odd_attention8h2_rankone_edge_v1 | partial_or_unassessed | 3 | ? | ? | ood_prediction, extraction, selective_removal… |
 | odd_attention8h2_routing_closed_v1 | partial_or_unassessed | 4 | ? | ? | ood_prediction, extraction, selective_removal… |
+| odd_attention8h2_typed_face_v1 | partial_or_unassessed | 6 | 2 | ? | ood_prediction, composition_reuse |
 | regional_even_key_producers_8_2_9_8_v1 | partial_or_unassessed | ? | ? | ? | schema, declared_inputs, ood_prediction… |
 | regional_shared_head2_token_mixed_v1 | partial_or_unassessed | ? | ? | ? | schema, declared_inputs, ood_prediction… |
 | regional_shared_head2_v1 | partial_or_unassessed | ? | ? | ? | schema, declared_inputs, ood_prediction… |

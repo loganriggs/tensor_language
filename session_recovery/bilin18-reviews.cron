@@ -2,5 +2,5 @@ SHELL=/bin/bash
 PATH=/opt/nvm/versions/node/v24.20.0/bin:/usr/local/bin:/usr/bin:/bin
 HOME=/root
 # UTC; bounded Codex reviews share a lock; full output in /root/.local/state/bilin18/logs.
-48 * * * * root /bin/bash /workspace/tensor_language/session_recovery/scheduled_review.sh hourly >> /var/log/bilin18-reviews.log 2>&1
-50 */3 * * * root /bin/bash /workspace/tensor_language/session_recovery/scheduled_review.sh mathematical >> /var/log/bilin18-reviews.log 2>&1
+52 * * * * root /bin/bash /workspace/tensor_language/session_recovery/scheduled_review.sh hourly >> /var/log/bilin18-reviews.log 2>&1
+58 2-23/3 * * * root /bin/bash /workspace/tensor_language/session_recovery/scheduled_review.sh mathematical >> /var/log/bilin18-reviews.log 2>&1

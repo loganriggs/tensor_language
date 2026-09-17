@@ -211,3 +211,16 @@ bilin12 template port; commons transfer.
 - HEAD-GRAIN LAW REPLICATES on pronouns (S1598): every attention writer of a certified eigen slice resolves at head grain to a certified circuit head of that class — attn9→9.6 (6.8:1), attn12→12.4 (9.1:1) at pronouns; 10.5/9.7 at question. Pronoun writers otherwise DIFFUSE (48% top-6: mlp14-16 + embedding — gender state distributed per S1591). mlp17 |λ|-ordered slices are suppression-dominated: use pos-eigenpart references (S1587) there.
 - SLICE VARIABLE IS AN OUTPUT CHANNEL (S1599, discovery): individual reader-input cuts of span(v1,v2) are tiny (mlp11 +.08) or NEGATIVE (mlp17 −.39, suppressive read); the JOINT all-reader cut HELPS (−.205) while the source cut costs +.812 — the damage rides the direct residual→unembed path, not any computational reader. Writers {9.7,10.5,mlp9,mlp10} mostly write the ANSWER into the stream; mlp11 amplifies, mlp17 gates. slice_direct in flight to certify (logit-lens of ±v1/±v2 + final-residual cut + completeness).
 - '?' OUTPUT CHANNEL CERTIFIED (S1600, held-out replicated): span(v1,v2) of the mlp11 question form IS the '?' unembedding channel — logit-lens rank 1 ('?' itself; top-10 all question variants; negative directions junk). Final-residual cut +2.02 class at +.001 global (2.5× the 4-writer source cut — later layers keep writing the channel). Full certified statement: {9.7, 10.5, mlp9, mlp10} → span(v1,v2) = '?' channel → mlp11 form amplifies (reads & writes same channel) − mlp17 gates → readout.
+
+### 17 September: regional typed face, masks (1,4,5)
+
+Cross-link: regional inherited-city edge / PATH-SET2-001 / head8.2 and head9.8-O.
+[Package](../polynomial_causal/extracted_circuits/odd_attention8h2_typed_face_v1/README.md)
+closes routing/current maps and the eight-token inherited-value table, leaving two
+native-state inputs. Isolated write replay passes; strict all-readout recursive
+replay fails and is preserved. [Fresh paired midpoint](../polynomial_causal/ODD_ATTENTION8H2_TYPED_FACE_REMOVAL_V1_RESULT.json)
+passes on four unused contexts: target12.09xmedian of16equal-norm same-head nulls,
+18/21capable cells attenuated by mean2.583%, controls .0449–.0971of target RMS.
+This is a limited selective component, not a complete five-property circuit:
+independent composition fails (interaction/minimum-single1.737), matched-effect
+simplicity comparison and random-split specificity remain missing. [Current Logan report](../polynomial_causal/explanations/for_logan/research_update_2026-09-17_2110_regional_native_face.md).

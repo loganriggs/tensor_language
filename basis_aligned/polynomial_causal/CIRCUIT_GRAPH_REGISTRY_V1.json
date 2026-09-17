@@ -4,10 +4,10 @@
     "explicit_dependency_edges": 4,
     "four_trait_declared_unverified": 0,
     "four_trait_verified": 2,
-    "packages": 32,
-    "partial_or_unassessed": 30,
-    "with_declared_inputs": 16,
-    "with_manifest": 27
+    "packages": 33,
+    "partial_or_unassessed": 31,
+    "with_declared_inputs": 17,
+    "with_manifest": 28
   },
   "dependency_cycles": [],
   "four_trait_order": [
@@ -1027,6 +1027,47 @@
       "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_routing_closed_v1",
       "schema": "odd_attention8h2_routing_closed.package.v1",
       "scope": null,
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 6,
+      "declared_input_field": "ports",
+      "declared_inputs": [
+        "current[B,T,1152]",
+        "donor_city_state[B,1152]",
+        "recipient_token:int",
+        "donor_token:int",
+        "city:int",
+        "destination[T]:bool"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": 2,
+      "four_traits": {
+        "composition_reuse": false,
+        "extraction": true,
+        "ood_prediction": null,
+        "selective_removal": true
+      },
+      "gaps": [
+        "ood_prediction",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_typed_face_v1/manifest.json",
+      "manifest_sha256": "31a56251c94740d1cb554fe4793285779847d755e447674e4abe4fe206bd6589",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "odd_attention8h2_typed_face_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_typed_face_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_typed_face_v1",
+      "schema": "regional.typed_face.partial.v1",
+      "scope": "Conditional head8.2 write at two native-state inputs. Paired midpoint via native head9 odd descendant; four-context screen. Extraction true only at write boundary, not full-readout strict replay or token-only model.",
       "verification": {
         "path": null,
         "status": "not_available",

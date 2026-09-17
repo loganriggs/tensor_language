@@ -1,0 +1,59 @@
+{
+  "schema": "regional.typed_face.partial.v1",
+  "ports": [
+    "current[B,T,1152]",
+    "donor_city_state[B,1152]",
+    "recipient_token:int",
+    "donor_token:int",
+    "city:int",
+    "destination[T]:bool"
+  ],
+  "external_activation_ports": 2,
+  "output": "head8.2 destination write delta[B,T,1152]",
+  "city_token_vocabulary": [
+    3576,
+    4842,
+    6182,
+    7312,
+    9502,
+    10656,
+    11761,
+    13643
+  ],
+  "files": {
+    "native.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "program.pt": "b8faca4a604472ca857799ab77a522b6e956e8b938d01e44493e037847a143a0"
+  },
+  "static_float_scalars": 885761,
+  "token_index_scalars": 8,
+  "serialized_program_bytes": 3546313,
+  "native_state_scalars_at_T32": 38016,
+  "external": [
+    "native block8 state generators",
+    "block9 reentry",
+    "head9 odd-value path",
+    "entire native downstream suffix"
+  ],
+  "property_status": {
+    "simple": "priced; matched-effect random-component comparison missing",
+    "ood_prediction": "conditional retained-face result plus four fresh-context midpoint screen; no new-city/template guarantee",
+    "extracted": "head8 write isolated CPU replay passes at two-state interface; strict full-readout replay gate failed",
+    "selective": "fresh paired midpoint passes four readout limits and16same-head equal-norm target nulls; four contexts only",
+    "composes": "independent-pieces diagnostic fails; random-split specificity missing"
+  },
+  "receipts": [
+    "TYPED_FACE_STANDALONE_V1_RESULT.json",
+    "ODD_ATTENTION8H2_TYPED_FACE_NATIVE_V1_RESULT.json",
+    "ODD_ATTENTION8H2_TYPED_FACE_REMOVAL_V1_RESULT.json",
+    "REGIONAL_ENDPOINT_BATCHING_V1_RESULT.json"
+  ],
+  "certified_complete_circuit": false,
+  "external_native_activation_inputs": 2,
+  "four_traits": {
+    "ood_prediction": null,
+    "extraction": true,
+    "selective_removal": true,
+    "composition_reuse": false
+  },
+  "scope": "Conditional head8.2 write at two native-state inputs. Paired midpoint via native head9 odd descendant; four-context screen. Extraction true only at write boundary, not full-readout strict replay or token-only model."
+}

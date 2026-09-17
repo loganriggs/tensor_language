@@ -1,5 +1,7 @@
 # Requested full reports for Logan
 
+**Latest: [17 September, 21:10 — Conditional native write and fresh matched-null screen](research_update_2026-09-17_2110_regional_native_face.md).** Two-state standalone write passes; fresh paired removal beats all16directional nulls. Independent composition and strict all-readout replay remain failed.
+
 **17 September — [Regional composition audit](research_update_2026-09-17_regional_composition_audit.md).** The retained face still predicts its original fresh panel, but the stronger small-interaction criterion fails on opened-row reanalysis; extraction and null-controlled removal remain open.
 
 

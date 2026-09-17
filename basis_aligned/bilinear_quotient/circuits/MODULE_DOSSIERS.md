@@ -1536,3 +1536,13 @@ edge within1.29%, with all unrelated-control ratios below.179. Thus the invarian
 is a shared causal response direction scaled by destination-specific gains, not
 a description/instruction label. Native state generators and suffix remain
 conditional dependencies, and the response direction has no semantic name.
+
+### head8.2 → head9.8-O typed face — 17 September
+
+The fixed complete routing/inherited face now has an isolated two-state-input
+head8.2 write executor and a four-context fresh midpoint screen against16same-head
+equal-norm nulls. Target/median null12.09; all16beaten; collateral limits pass.
+Independent-piece composition remains failed; full-readout strict replay remains
+failed. Native upstream state and downstream odd-value/suffix remain external.
+See [path registry](../COMPUTATION_PATH_REGISTRY.md#17-september-regional-typed-face-masks-145)
+and [scoped report](../../polynomial_causal/explanations/for_logan/research_update_2026-09-17_2110_regional_native_face.md).

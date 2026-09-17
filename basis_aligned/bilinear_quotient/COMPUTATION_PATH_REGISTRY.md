@@ -195,3 +195,16 @@ without treating either complete native module as the semantic unit.
 
 Update this index only when a path's evidence label, scope, live handoff, or primary
 dossier link changes. Put experiment detail in the path dossier or primary receipt.
+
+### 17 September: regional typed face, masks (1,4,5)
+
+Cross-link: regional inherited-city edge / PATH-SET2-001 / head8.2 and head9.8-O.
+[Package](../polynomial_causal/extracted_circuits/odd_attention8h2_typed_face_v1/README.md)
+closes routing/current maps and the eight-token inherited-value table, leaving two
+native-state inputs. Isolated write replay passes; strict all-readout recursive
+replay fails and is preserved. [Fresh paired midpoint](../polynomial_causal/ODD_ATTENTION8H2_TYPED_FACE_REMOVAL_V1_RESULT.json)
+passes on four unused contexts: target12.09xmedian of16equal-norm same-head nulls,
+18/21capable cells attenuated by mean2.583%, controls .0449–.0971of target RMS.
+This is a limited selective component, not a complete five-property circuit:
+independent composition fails (interaction/minimum-single1.737), matched-effect
+simplicity comparison and random-split specificity remain missing. [Current Logan report](../polynomial_causal/explanations/for_logan/research_update_2026-09-17_2110_regional_native_face.md).

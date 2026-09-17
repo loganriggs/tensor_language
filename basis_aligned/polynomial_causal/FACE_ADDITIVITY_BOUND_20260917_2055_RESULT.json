@@ -1,0 +1,169 @@
+{
+  "utc": "2026-09-17T20:56:02.405830+00:00",
+  "panel_status": "opened",
+  "evidence": "edit-artifact reanalysis and synthetic algebra; no new edits",
+  "artifact_sha256": "6de7abfbc39cbe5ad2e5f6a961b9d6bd78bc51e229f3a3fc28beb24965719417",
+  "manifest_sha256": "5b580c25afbefd865c70b6dbfa7f2585a1945ef7fad8452b7409dcfeeb8f2493",
+  "control_sha256": "fade1b5d7a463eed5f59c35d09c85f07957b0726cbc0ee51126994fde2713ef4",
+  "rows": 96,
+  "distinct_contexts": 8,
+  "distinct_token_sequences": 16,
+  "additive_closure_maxabs": 0.0,
+  "residual_orthogonality_maxabs": 0.0,
+  "groups": {
+    "all": {
+      "rows": 96,
+      "distinct_contexts": 8,
+      "distinct_source_cells": 8,
+      "smallest_single_l2_logits": 0.14395000512367065,
+      "sharp_worst_corner_l2_lower_bound_logits": 0.06252544285437742,
+      "bound_over_smallest_single": 0.4343552666126022,
+      "min_four_corner_frobenius_error_logits": 0.12505088570875483,
+      "attained_max_corner_l2_logits": 0.06252544285437742,
+      "necessary_condition_for_all_four_errors_le_035_single": false
+    },
+    "British": {
+      "rows": 48,
+      "distinct_contexts": 8,
+      "distinct_source_cells": 8,
+      "smallest_single_l2_logits": 0.10993783799814445,
+      "sharp_worst_corner_l2_lower_bound_logits": 0.05251085190065201,
+      "bound_over_smallest_single": 0.4776413003641048,
+      "min_four_corner_frobenius_error_logits": 0.10502170380130402,
+      "attained_max_corner_l2_logits": 0.05251085190065201,
+      "necessary_condition_for_all_four_errors_le_035_single": false
+    },
+    "American": {
+      "rows": 48,
+      "distinct_contexts": 8,
+      "distinct_source_cells": 8,
+      "smallest_single_l2_logits": 0.09292618442289854,
+      "sharp_worst_corner_l2_lower_bound_logits": 0.033941735913235314,
+      "bound_over_smallest_single": 0.3652548108374878,
+      "min_four_corner_frobenius_error_logits": 0.06788347182647063,
+      "attained_max_corner_l2_logits": 0.033941735913235314,
+      "necessary_condition_for_all_four_errors_le_035_single": false
+    },
+    "context_0": {
+      "rows": 12,
+      "distinct_contexts": 1,
+      "distinct_source_cells": 1,
+      "smallest_single_l2_logits": 0.028041380646524845,
+      "sharp_worst_corner_l2_lower_bound_logits": 0.013766386453328557,
+      "bound_over_smallest_single": 0.49093112164698705,
+      "min_four_corner_frobenius_error_logits": 0.027532772906657114,
+      "attained_max_corner_l2_logits": 0.013766386453328557,
+      "necessary_condition_for_all_four_errors_le_035_single": false
+    },
+    "context_1": {
+      "rows": 12,
+      "distinct_contexts": 1,
+      "distinct_source_cells": 1,
+      "smallest_single_l2_logits": 0.07881113671653493,
+      "sharp_worst_corner_l2_lower_bound_logits": 0.04040322257423383,
+      "bound_over_smallest_single": 0.5126587974432432,
+      "min_four_corner_frobenius_error_logits": 0.08080644514846766,
+      "attained_max_corner_l2_logits": 0.04040322257423383,
+      "necessary_condition_for_all_four_errors_le_035_single": false
+    },
+    "context_2": {
+      "rows": 12,
+      "distinct_contexts": 1,
+      "distinct_source_cells": 1,
+      "smallest_single_l2_logits": 0.07317231509941914,
+      "sharp_worst_corner_l2_lower_bound_logits": 0.027365793405206326,
+      "bound_over_smallest_single": 0.37399108348593935,
+      "min_four_corner_frobenius_error_logits": 0.05473158681041265,
+      "attained_max_corner_l2_logits": 0.027365793405206326,
+      "necessary_condition_for_all_four_errors_le_035_single": false
+    },
+    "context_3": {
+      "rows": 12,
+      "distinct_contexts": 1,
+      "distinct_source_cells": 1,
+      "smallest_single_l2_logits": 0.019963167373794343,
+      "sharp_worst_corner_l2_lower_bound_logits": 0.007318482344620093,
+      "bound_over_smallest_single": 0.3665992579026847,
+      "min_four_corner_frobenius_error_logits": 0.014636964689240186,
+      "attained_max_corner_l2_logits": 0.007318482344620093,
+      "necessary_condition_for_all_four_errors_le_035_single": false
+    },
+    "context_4": {
+      "rows": 12,
+      "distinct_contexts": 1,
+      "distinct_source_cells": 1,
+      "smallest_single_l2_logits": 0.015766337643202778,
+      "sharp_worst_corner_l2_lower_bound_logits": 0.0066211515528403,
+      "bound_over_smallest_single": 0.4199549510278836,
+      "min_four_corner_frobenius_error_logits": 0.0132423031056806,
+      "attained_max_corner_l2_logits": 0.0066211515528403,
+      "necessary_condition_for_all_four_errors_le_035_single": false
+    },
+    "context_5": {
+      "rows": 12,
+      "distinct_contexts": 1,
+      "distinct_source_cells": 1,
+      "smallest_single_l2_logits": 0.025338583651652986,
+      "sharp_worst_corner_l2_lower_bound_logits": 0.011930454848143144,
+      "bound_over_smallest_single": 0.4708414255571404,
+      "min_four_corner_frobenius_error_logits": 0.02386090969628629,
+      "attained_max_corner_l2_logits": 0.011930454848143144,
+      "necessary_condition_for_all_four_errors_le_035_single": false
+    },
+    "context_6": {
+      "rows": 12,
+      "distinct_contexts": 1,
+      "distinct_source_cells": 1,
+      "smallest_single_l2_logits": 0.022831018401263187,
+      "sharp_worst_corner_l2_lower_bound_logits": 0.015851867809441308,
+      "bound_over_smallest_single": 0.6943127779426721,
+      "min_four_corner_frobenius_error_logits": 0.031703735618882616,
+      "attained_max_corner_l2_logits": 0.015851867809441308,
+      "necessary_condition_for_all_four_errors_le_035_single": false
+    },
+    "context_7": {
+      "rows": 12,
+      "distinct_contexts": 1,
+      "distinct_source_cells": 1,
+      "smallest_single_l2_logits": 0.07135125062965932,
+      "sharp_worst_corner_l2_lower_bound_logits": 0.029113455092591417,
+      "bound_over_smallest_single": 0.4080300602396102,
+      "min_four_corner_frobenius_error_logits": 0.058226910185182834,
+      "attained_max_corner_l2_logits": 0.029113455092591417,
+      "necessary_condition_for_all_four_errors_le_035_single": false
+    }
+  },
+  "anchor_sensitivity": {
+    "0": {
+      "interaction_l2_logits": 0.25010177141750967,
+      "interaction_over_smallest_single": 1.7374210664504088
+    },
+    "1": {
+      "interaction_l2_logits": 0.25010177141750967,
+      "interaction_over_smallest_single": 1.7374210664504088
+    },
+    "2": {
+      "interaction_l2_logits": 0.25010177141750967,
+      "interaction_over_smallest_single": 2.2501526072432703
+    },
+    "3": {
+      "interaction_l2_logits": 0.25010177141750967,
+      "interaction_over_smallest_single": 2.2501526072432703
+    }
+  },
+  "identifiability_toy": {
+    "function_agreement_maxabs": 0.0,
+    "same_four_corners": [
+      0.0,
+      1.0,
+      1.0,
+      4.0
+    ],
+    "producer_interaction_model_additive_write_score": 2.0,
+    "suffix_interaction_model_additive_write_score": 4.0,
+    "scope": "Polynomial counterexample, not fitted to native weights or native evidence."
+  },
+  "validation_pass": true,
+  "seconds": 0.009563730098307133,
+  "scope": "Sharp additive approximation obstruction on four existing output corners. Does not identify interaction source, native causal fidelity, or matched-null specificity. Original gates unchanged."
+}

@@ -24378,3 +24378,9 @@ Receipt `circuits/followups/aspectual_anchor_dod_composition_v3_result.json` (19
 
 ### 2026-09-17T21:07Z — Claude: timestamp CORRECTION for my three entries above
 The entries I labelled 21:24Z, 21:40Z and 21:58Z were written at approximately 20:58, 21:01 and 21:05 UTC (box clock at the last one: 21:06:07). I typed the stamps by hand instead of reading `date -u`; the ops README already records this exact failure (`stamp.sh`). Receipt `finished_utc` fields carry the true times. Entries are left as written per the append-only rule.
+
+### 2026-09-17T21:15:09.346297+00:00 — Codex: CLAIM TYPED_FACE_KEY_NORM_V1; continuation and timing receipt
+Batched960->160forward replay is bit-identical and16.29->3.58s; isolatedCPU head8write maxrelative8.25e-7 passes two-state boundary. Both scheduled reviews completed and verified. Continue weight-folding track by testing donor-city K1/K2 RMS denominator dependence while preserving the full QK1*QK2*V product. CPU prereg freezes <=.10 both-frozen write discrepancy on eight opened native examples; native baseline <=1e-5. Then bound40-forward recursive response test; no deletion/adoption based on state attribution alone.
+
+### 2026-09-17T21:15:59.756497+00:00 — Codex: key-normalizer CPU diagnostic FAIL; concrete continuation receipt
+Carried native write replay passes on8examples. Freezing both key-head RMS denominators changes write .00793--.28166relative, sixofeight above .10; K2 often larger thanK1. Preserve both in executable; no behavioral omission claim. Exact same full-product compiler with frozen-denominator flags is implemented in typed_face_key_norm_v1.py; registered next action is40batched recursive forwards, keeping prior causal screen and all failures intact. Report, package, module/path/circuit links and33-package registry audit updated. Hourly and math reviews both verified; calls now aligned to first-review clocks at:52hourly and02:58/05:58/.../23:58UTC.
