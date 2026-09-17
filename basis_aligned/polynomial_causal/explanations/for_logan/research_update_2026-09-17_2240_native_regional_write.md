@@ -1,6 +1,6 @@
 # The regional write has a larger effect at its native application point
 
-The city-conditioned head8.2 write changes UK/US spelling through the model's downstream computations. Applying the frozen write at attention8, before MLP8, reduces the regional difference by **22–26%** on five opened construction families (**edit**); the restricted head9.8 odd-value route predicts this effect with **89–94% error**. The write passes the registered selectivity screen. Its response is distributed across later attention and MLP operations; both registered short-path explanations fail. Fresh confirmation, a standalone downstream program, and distinctive composition remain missing.
+The city-conditioned head8.2 write changes UK/US spelling through the model's downstream computations. Applying the frozen write at attention8, before MLP8, reduces the regional difference by **22–26%** on five opened construction families (**edit**); the restricted head9.8 odd-value route predicts this effect with **89–94% error**. The write passes the registered selectivity screen. Its response is distributed across later attention and MLP operations; both registered short-path explanations fail. The new causal split also rejects dropping either the direct write or its MLP8 response, and rejects their additive combination. Fresh confirmation, a standalone downstream program, and distinctive composition remain missing.
 
 ```mermaid
 flowchart LR
@@ -51,7 +51,21 @@ The full response remains distributed (**response**, same opened panel). Attenti
 
 All algebraic closures pass; see the numerical receipt below. This census measures later effects at the final token. It does not isolate MLP8's mediation at the edited earlier positions. That distinction motivates the next test: separate the head8 write that passes through the residual skip from the MLP8 response it induces, then recompute the full suffix for each piece and their joint effect.
 
-The preparatory MLP8 fold retains the complete 128-channel head8.2 writer, not a fitted direction (**fold**, learned weights, synthetic-state check). With raw MLP input `g`, head8 write `Wc`, and `s(g)=mean(g²)+epsilon`, it computes the changed block8 output as the sum of the direct write, a normalization correction, both background/write cross terms, and the quadratic write term. Context remains an explicit input. The two derived reader adapters contain about1.2million floats; the original MLP readers/writer are still required, so this is neither a storage saving nor a closed native-state input. Native replay and causal use remain untested.
+The preparatory MLP8 fold retains the complete 128-channel head8.2 writer, not a fitted direction (**fold**, learned weights, synthetic-state check). With raw MLP input `g`, head8 write `Wc`, and `s(g)=mean(g²)+epsilon`, it computes the changed block8 output as the sum of the direct write, a normalization correction, both background/write cross terms, and the quadratic write term. Context remains an explicit input. The two derived reader adapters contain about1.2million floats; the original MLP readers/writer are still required, so this is neither a storage saving nor a closed native-state input. Native replay now passes. The causal factorial below tests the complete folded local response, not omissions of its internal cross or normalization terms.
+
+## The direct write and MLP8 response must stay coupled
+
+The exact MLP8 response was checked against the native model and then installed on its own at block9. A second arm installed only the original head8 write there. The true joint arm applied the write at attention8 and recomputed MLP8 and every later operation. All instrument gates pass.
+
+| Claim | Evidence | Evaluation | Key numbers | Status |
+|---|---|---|---|---|
+| Direct residual write alone predicts the joint | edit | opened | 33–65% error; gate35% in every family | fails |
+| MLP8 response alone predicts the joint | edit | opened | 79–90% error; gate35% | fails |
+| Singles add to predict the joint | edit | opened | 1.6–14% error; gate10%; interaction/smaller0.050–0.46, gate0.25 | fails |
+
+Both singles are live in every family. Only the indirect-report family passes the direct-write and additive gates; this does not rescue the all-family claims. Large direct-write magnitude is not sufficient prediction, and the norm ratios must not be read as additive fractions.
+
+We therefore retain the coupled expression `delta8 + deltaMLP8(g,delta8)` before the later native operations. Its local algebra is exact; its downstream effect is nonlinear. This is a useful computational specification, but it does not establish the requested small-interaction composition property. The next confirmation panel is frozen: ten new constructions and Edinburgh/Denver plus Bristol/Atlanta, held out from the native8 scope screen. The same six spelling endpoints are retained; these cities are not claimed to be unseen across the whole research program.
 
 ## Reproducibility appendix
 
@@ -66,3 +80,5 @@ All instrument gates pass; native/conditional replay is exact at stored readout 
 - [Previous report and preserved failures](research_update_2026-09-17_2215_regional_response.md)
 
 Response census:80forwards,1.970558136seconds; see [full response receipt](../../TYPED_FACE_NATIVE8_RESPONSE_V1_RESULT.json) and [frozen protocol](../../TYPED_FACE_NATIVE8_RESPONSE_V1_PREREGISTRATION.md). The exact local fold's checks, dimensions, full formula, and provenance are in [MLP8 writer-response receipt](../../MLP8_WRITER_RESPONSE_FOLD_V1_RESULT.json) and [CPU implementation](../../mlp8_writer_response_fold_v1.py). Synthetic magnitudes are not interpreted as native effects.
+
+Native MLP8 factorial:160forwards,2.775270828seconds, no extra local MLP evaluations. [Full receipt](../../TYPED_FACE_MLP8_MEDIATION_V1_RESULT.json), [protocol](../../TYPED_FACE_MLP8_MEDIATION_V1_PREREGISTRATION.md). Fresh confirmation [row manifest](../../TYPED_FACE_NATIVE8_FRESH_V1_ROWS.json) and [CPU control](../../TYPED_FACE_NATIVE8_FRESH_V1_CPU_CONTROL.json):20cells,40sequences,240endpoint rows, no overlap with1,913previous token prefixes. No new model scores have been collected for that panel.
