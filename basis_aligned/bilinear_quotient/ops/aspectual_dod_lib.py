@@ -202,6 +202,7 @@ class ManualForward:
         gen = None
         if mode in ("random", "midpoint_random"):
             gen = self.torch.Generator(device="cpu").manual_seed(seed)
+        self.use_subtract = mode == "subtract"
         for index, row in enumerate(rows):
             for position in positions_of(row, component.where):
                 if component.kind == "attn":
@@ -217,9 +218,11 @@ class ManualForward:
         return changed
 
     def _delta(self, row, component, position, head):
-        if not hasattr(self, "deltas"):
+        """Paired delta for midpoint modes, or the explicit vector for `subtract` mode."""
+        table = getattr(self, "subtract", None) if getattr(self, "use_subtract", False) else getattr(self, "deltas", None)
+        if table is None:
             return None
-        return self.deltas.get((row.row_id, component.name, position, head))
+        return table.get((row.row_id, component.name, position, head))
 
     def _replacement(self, w, mode: str, gen, d=None):
         if mode == "zero":
@@ -228,6 +231,10 @@ class ManualForward:
             r = self.torch.randn(w.shape, generator=gen, dtype=self.torch.float32)
             r = r / r.norm() * float(w.float().norm())
             return w - r.to(device=w.device, dtype=w.dtype)
+        if mode == "subtract":
+            if d is None:
+                raise ValueError("subtract mode needs an explicit vector per slice")
+            return w - d.to(device=w.device, dtype=w.dtype)
         if mode in ("midpoint", "midpoint_random"):
             if d is None:
                 raise ValueError("midpoint modes need captured paired deltas")
@@ -362,3 +369,21 @@ def paired_deltas(store, rows: Sequence[Row], components: Sequence[Component]):
         w2 = store[(other.row_id, name, position, head)]
         deltas[(row_id, name, position, head)] = w - w2
     return deltas
+
+
+def random_coordinate_split(deltas, seed: int, pieces: int = 5):
+    """Split every half-delta into `pieces` disjoint coordinate masks; the pieces sum to d/2.
+
+    This is the composition null of better_circuits §1: the same total removal, cut into random
+    parts that respect no module boundary. Deterministic in `seed`; keys visited in sorted order.
+    """
+    import torch
+    gen = torch.Generator(device="cpu").manual_seed(seed)
+    out = [dict() for _ in range(pieces)]
+    for key in sorted(deltas, key=lambda k: (k[0], k[1], k[2], -1 if k[3] is None else k[3])):
+        half = 0.5 * deltas[key]
+        assignment = torch.randint(0, pieces, (half.numel(),), generator=gen)
+        for k in range(pieces):
+            mask = (assignment == k).to(device=half.device, dtype=half.dtype)
+            out[k][key] = half * mask
+    return out
