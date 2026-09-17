@@ -1,0 +1,95 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "families": {
+    "museum_label": {
+      "target_error": 0.021704458582019595,
+      "retained_target_rms": 0.44417643780429045,
+      "control_over_target": [
+        0.16138802400632804,
+        0.10838995686831406,
+        0.02525792179507065,
+        0.15677330061126846
+      ]
+    },
+    "editorial_request": {
+      "target_error": 0.09197775796218406,
+      "retained_target_rms": 0.4077354279267826,
+      "control_over_target": [
+        0.12274778548615732,
+        0.0952135176460371,
+        0.06127347657137284,
+        0.1335006644042404
+      ]
+    },
+    "plain_memo": {
+      "target_error": 0.030084583724143604,
+      "retained_target_rms": 0.3511388628275961,
+      "control_over_target": [
+        0.1015070138173724,
+        0.05550914234591014,
+        0.06120095617478239,
+        0.07637422278919626
+      ]
+    },
+    "multiline_record": {
+      "target_error": 0.04945829026790733,
+      "retained_target_rms": 0.5428854435713328,
+      "control_over_target": [
+        0.12448869472076793,
+        0.04818492255292925,
+        0.06573384675798137,
+        0.12022315978054433
+      ]
+    },
+    "reported_note": {
+      "target_error": 0.03255999074994019,
+      "retained_target_rms": 0.3873286897155529,
+      "control_over_target": [
+        0.08709622280410591,
+        0.0456621061080621,
+        0.029361358032506384,
+        0.12203597389839385
+      ]
+    }
+  },
+  "anchor_max_abs": 0.0,
+  "max_full_joint_input_error": 1.7151321618430827e-05,
+  "max_outside": 0.0,
+  "body_forwards": 120,
+  "seconds": 2.564056745963171,
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_typed_face_structure_v1.py": "e6c1fff57e6ef5ae14cdcceb49899a9e46c2abf961b0f3d7f862ff22965b978b",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/regional_paired_write_runtime_v2.py": "2f2d92cdee57a91e73acceed61e66d52f478ace29e5e5076756deb73b7a635ec",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_KEY_SOURCE_FRESH_V1_PROGRAM.pt": "12960f51539d0189017a39a359da18444eb0c48b64295ecd9206557b6bdbc6f4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_endpoint_batching_v1.py": "fb29a695095198f0eccbcc97b9ae16cfbc6d9e1415379d430556376621cb68ec",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/typed_face_write_atoms_v1.py": "846d492492e1da5f57877881b76ba93a9433fb248b96d6466e44e3443423211a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_typed_face_v1/native.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_typed_face_prospective_v1.py": "d7aad9453c7fe62f401004c26faeb5ee481e8282fcc9f6134c559d57eaf74567",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_PROSPECTIVE_V1_PREREGISTRATION.md": "801cd12549c0639bd2a6dd88efd581a0cde203c43c1d784430e4cd2abbfd12ed",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_PROSPECTIVE_V1_ROWS.json": "09adb326a13808bc0c1a569d9795e922e85385f6fd8fd743d7ff1f5c0d1dcc16",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_PROSPECTIVE_V1_CPU_CONTROL.json": "9a1312c931e3654f7500ab1f69778249355fe95d4f45e3917cf217ef1f889719",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURE_PREDICTION_NULLS_V1_RESULT.json": "668f972935632d5c3a56f7a5317604597db24446b80e5d76866e349973c361f8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/build_typed_face_prospective_v1_rows.py": "d366dd529e118b7832564de83fe92ce57f40411ba78b9ca753c4310fd6c51fe5",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_typed_face_native8_scope_v1.py": "0de8f04cc34ac392f036d76e2018a9cf5adfc1dc0dad1b999db0d9eee10dad5d",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/regional_paired_write_runtime_v4.py": "85439f8b140851f3bd752c236c5c76e2328eaadc4e841db1dbec41929861f35a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_NATIVE8_SCOPE_V1_PREREGISTRATION.md": "3ca4df995b24256e1a22ac4f52a609ecbd30ae3f3a3d98bda3392cdf0be15cff",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_NATIVE8_SCOPE_V1_CPU_PREFLIGHT.json": "9aa5f7a0b24b2944112153b8dd524f496b43467e2d9b165ba2601eaf8d71e30f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_PROSPECTIVE_V1_ARTIFACT.pt": "4365fc9e632335dbcd19e273c8aa6f333b83f8d425d9737f56a704eb6799f285",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_typed_face_native8_fresh_v1.py": "ff7a1da7b1473499a3ff3a4f1684873a0313f4889acc6f99add2430cb52d23d8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_NATIVE8_FRESH_V1_PREREGISTRATION.md": "978b65af2bed1157ed18ff1ab9096f24844c9a2112a2daf52d064f3216c663bc",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_NATIVE8_FRESH_V1_ROWS.json": "02874a5410db80b2d2ec1a05ae3762d6c6ddfec8a4d3e87e079ec5f230244ba2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_NATIVE8_FRESH_V1_CPU_CONTROL.json": "7900b1803c8f9c01f590aedb637254a547d7c4983a28e88e9f7520833e8ca5ad",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_typed_face_mlp8_coupled_v1.py": "6de8a8035d64dd82f01a6dff197da6c44126793f721c27670deb3ac18492ea62",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_MLP8_COUPLED_V1_PREREGISTRATION.md": "66986c872e4b02064e404498be34e696451d3752add7df123124b046cf38b115",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_NATIVE8_FRESH_V1_ARTIFACT.pt": "0e4bac665f6c4a453e5cf3cf381f7aad58168ba7e52c8b612271159aad8430d5",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_mlp8_coupled_v1/execute.py": "d6c2806b2361f3ec00b864f8a93f7dc0e9198a03982c81478807864692bceed8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_mlp8_coupled_v1/head8.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_mlp8_coupled_v1/program.pt": "858fbcc2413e29cc70121a14e02e736917e103978cac4462b4fd57fda4bd704e",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_head2_mlp8_cross_edit_v1.py": "39aa820fc7f8d53d0cf51dda660452570c2760668cfd37c1c69e7bf98a41859a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/HEAD2_MLP8_CROSS_EDIT_V1_PREREGISTRATION.md": "0f3ce76bb91086f2ada5bddeba7d41d1872feb7ef6e9dfb6b090fcccf945b25b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/head2_mlp8_cross_edit_v1.py": "6f18ce39e8ee763e6c6f844e13d1d04dbddd257937968e96cbc92b218f9a57a8"
+  },
+  "scope": "Opened causal screen: only other-head attention/write cross terms omitted. Full normalization/background terms retained; all later native operations recomputed. Not a context port closure or random-null selectivity confirmation."
+}

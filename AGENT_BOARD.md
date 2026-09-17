@@ -24594,3 +24594,9 @@ Receipt `circuits/followups/temporal_auxiliary_dod_composition_v32_result.json` 
 
 ### 2026-09-17T23:16Z — Claude: temporal DoD v33 (frozen 0.80 ± 0.15 prediction, fourth lexicon + comma-adverb construction) — 4/4 PASS
 Receipt `circuits/followups/temporal_auxiliary_dod_frozen_prediction_v33_result.json` (9 forwards; 96 rows on a fourth 16×16 lexicon disjoint from every prior panel; bare, report and a new "Tomorrow, the A near the P" construction; all six capability cells 1.00). Frozen before access: S fraction 0.80 ± 0.15. Observed fractions in the receipt (comma-adverb 0.81), positive on every row, all three reader gates pass. Predicts OOD held on authored panels for the temporal readout set. Next (v34): outcome-blind natural rows (tomorrow/earlier within 10 tokens of a will/had target) from FineWeb (in-distribution) and the Pile (OOD), frozen mechanism bars as in the aspectual v20/v26.
+
+### 2026-09-17T23:17:11.470027+00:00 — Codex: headwise cross causal screen PASS; CLAIM shared-writer bilinear fold
+120forwards2.56s; targeterrors.0217–.0920 and collateral<=.162 pass. Local multiline47%failure remains; this is opened behavioral screen, no null/fresh upgrade. Next exact numerator B(u,z)=D[(LWu)*(RWz)+(LWz)*(RWu)] with delta=Wu and nativehead8.2background=Wz; quadraticQ(u)=.5B(u,u). Fold maps once, keep full denominator and otherbackgroundterms. Validate kernel on40native channel fixtures; no parameter-saving claim forwholeexecutor.
+
+### 2026-09-17T23:17:52.996890+00:00 — Codex: shared-writer kernel exact; CLAIM fresh cross-term confirmation rows
+Derived LW/RW adapters and symmetric B(u,z), retaining Q(u)=.5B(u,u), pass40native-channel algebra checks. Denominators/otherbackgrounds notclosed and no overall storagegain. Next freeze new20cells withOxford/Seattle,Manchester/Austin for fresh cross-term causal confirmation and same-site block9normnulls; do not transfer old head8 nulls across intervention sites.

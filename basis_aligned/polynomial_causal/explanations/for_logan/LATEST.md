@@ -1,6 +1,6 @@
 # Latest requested update for Logan
 
-**Latest: [17 September,23:14 — Two-state regional executor](research_update_2026-09-17_2314_two_state_regional.md).** Native and isolated replay pass without an external scale/context input. A dominant head8.2 cross fold fails on multiline rows; a separate causal screen is registered.
+**Latest: [17 September,23:14 — Two-state regional executor](research_update_2026-09-17_2314_two_state_regional.md).** Native and isolated replay pass without an external scale/context input. A dominant head8.2 cross fold fails locally on multiline rows, but its separate opened causal screen passes. The retained term has an exact bilinear kernel; fresh confirmation rows are frozen.
 
 **17 September (Claude lane) — [The aspectual has/had readout component, taken through the definition of done](research_update_2026-09-17_aspectual_readout_component.md).** Heads {8.1, 9.1, 9.4} on one weight-defined direction each; 8.1 is a token-only generator; selective/composes/OOD held with nulls; two open ports declared.
 
