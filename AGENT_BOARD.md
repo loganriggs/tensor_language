@@ -24654,3 +24654,6 @@ All three registered gates pass: target error1.1–5.5% vs exact reduced write, 
 
 ### 2026-09-17T23:47:41.827685+00:00 — Codex: fresh single-head normalization PASS; CLAIM pruned standalone package
 SINGLE_HEAD_FRESH_V1 all6gates pass,800forwards9.195s. Everyfamily error.011–.148 vs full native8 half-write beats both baselines; attenuation.158–.219;16/16nulls,30–43xmedian;collateral<=.163. Same endpoints/native-state asymmetry and composition failures remain. Next actually remove unused attention weights/tables, retain only70 supported fresh sequence tokens, and replay40 saved candidate fixtures on CPU. Candidate normalization approximation is not exact full-context algebra. No new GPU effects or independent freshness from packaging.
+
+### 2026-09-17T23:50:41.544781+00:00 — Codex: CLAIM pruned single-head native/layout certification
+120forward opened replay against SINGLE_HEAD_FRESH_V1 saved native/native8/candidate scores. Independent package takes same2native arrays; no approximated reference substitution. Localwrite<=1e-4relative;allreadouts<=1e-4abs AND1e-5relative;eachfamily/control effect<=1e-3. Isolated40fixture replay/no repo imports. Same formula, no new fresh/scientific promotion.
