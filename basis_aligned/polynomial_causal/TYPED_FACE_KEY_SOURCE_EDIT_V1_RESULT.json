@@ -1,0 +1,172 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "pred_d": true,
+  "cell_prediction_errors": {
+    "British": {
+      "1": 0.19444063654347687,
+      "2": 0.940116613125453,
+      "3": 0.1435002773898314,
+      "4": 0.8450529197979816,
+      "5": 0.07669078297658645,
+      "6": 0.8084658974868162
+    },
+    "American": {
+      "1": 0.2041068382354575,
+      "2": 0.9557739620571492,
+      "3": 0.12726967626568172,
+      "4": 0.8598423462813244,
+      "5": 0.14182626312488794,
+      "6": 0.8199959661284905
+    },
+    "endpoint_0": {
+      "1": 0.20156116491703785,
+      "2": 0.9497033119915268,
+      "3": 0.13339646725503587,
+      "4": 0.853900263267652,
+      "5": 0.12333771199210578,
+      "6": 0.8151853517927081
+    },
+    "endpoint_1": {
+      "1": 0.20209566540610713,
+      "2": 0.9557190841777673,
+      "3": 0.13241504365131257,
+      "4": 0.8573503394582263,
+      "5": 0.12874234257500497,
+      "6": 0.8239383629168822
+    },
+    "endpoint_2": {
+      "1": 0.20744785663861803,
+      "2": 0.9533230105474643,
+      "3": 0.13539517427561,
+      "4": 0.8532453178326039,
+      "5": 0.13096729630061726,
+      "6": 0.8194056694964975
+    },
+    "endpoint_3": {
+      "1": 0.20655296238511003,
+      "2": 0.950975704017178,
+      "3": 0.13435294200284595,
+      "4": 0.8536882803737329,
+      "5": 0.13053714691948998,
+      "6": 0.8162602460705582
+    },
+    "endpoint_4": {
+      "1": 0.19250963445212113,
+      "2": 0.9423345202083238,
+      "3": 0.1334149730682724,
+      "4": 0.8519158858403217,
+      "5": 0.10501017729521464,
+      "6": 0.8059250718844998
+    },
+    "endpoint_5": {
+      "1": 0.1959065379976427,
+      "2": 0.9491411788418176,
+      "3": 0.13345472796056757,
+      "4": 0.8553692425082366,
+      "5": 0.11302837031413085,
+      "6": 0.8151329637469706
+    }
+  },
+  "term_stats": {
+    "1": {
+      "target_rms_logits": 0.009822877032204325,
+      "aligned_fraction": 0.8472900915132716,
+      "readout_rms_logits": [
+        0.009822877032204325,
+        0.0011295713418496328,
+        0.0005576018978730808,
+        0.0004937658216822217,
+        0.0009417485379595176
+      ]
+    },
+    "2": {
+      "target_rms_logits": 0.0016161819638914362,
+      "aligned_fraction": 0.05874922131254844,
+      "readout_rms_logits": [
+        0.0016161819638914362,
+        0.0001595783309828414,
+        9.964246825789739e-05,
+        0.00013911911790312115,
+        0.0001389827334416317
+      ]
+    },
+    "3": {
+      "target_rms_logits": 0.0008783599001963558,
+      "aligned_fraction": -0.03426386368237637,
+      "readout_rms_logits": [
+        0.0008783599001963558,
+        0.00010190582659571639,
+        6.499346058444037e-05,
+        4.548467114632769e-05,
+        9.632577167791793e-05
+      ]
+    },
+    "4": {
+      "target_rms_logits": 0.0017711818429314895,
+      "aligned_fraction": 0.14699933786802852,
+      "readout_rms_logits": [
+        0.0017711818429314895,
+        0.00020042462443536124,
+        0.00011477252388237902,
+        0.00010244336667908892,
+        0.00015525904206973456
+      ]
+    },
+    "5": {
+      "target_rms_logits": 0.0005565189205454551,
+      "aligned_fraction": -0.01187455947482691,
+      "readout_rms_logits": [
+        0.0005565189205454551,
+        5.696262447716962e-05,
+        3.4113493596252653e-05,
+        2.9572374626202998e-05,
+        6.269751358395122e-05
+      ]
+    },
+    "6": {
+      "target_rms_logits": 0.00017207086300242925,
+      "aligned_fraction": -0.005538370624434357,
+      "readout_rms_logits": [
+        0.00017207086300242925,
+        1.7723408331104233e-05,
+        1.457604746755673e-05,
+        1.1585937911233545e-05,
+        1.7404811429413503e-05
+      ]
+    },
+    "7": {
+      "target_rms_logits": 0.00013811872625584676,
+      "aligned_fraction": -0.0013618569122109067,
+      "readout_rms_logits": [
+        0.00013811872625584676,
+        1.7613654732154715e-05,
+        8.420936113571815e-06,
+        8.074504633505848e-06,
+        1.3553472377072183e-05
+      ]
+    }
+  },
+  "full_key_increment_rms_logits": 0.011459212349456275,
+  "anchor_max_abs": 3.5762786865234375e-06,
+  "anchor_relative": 4.6232230083416737e-07,
+  "max_source_current_error": 1.2115150127556262e-07,
+  "mobius_closure": 0.0,
+  "body_forwards": 72,
+  "seconds": 1.9319932328071445,
+  "panel_status": "opened four-context causal source screen",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_typed_face_key_source_edit_v1.py": "c0513b78c6296fe8f6c2db8215aded3eb52305920ef4ffaad171d6f3fcb2f0f6",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/regional_paired_write_runtime_v2.py": "2f2d92cdee57a91e73acceed61e66d52f478ace29e5e5076756deb73b7a635ec",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_KEY_SOURCE_EDIT_V1_PREREGISTRATION.md": "2588c5893b8cd04670c22d03b4461cacc301a4a94d292d83ab6abfbd68cfa189",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_endpoint_batching_v1.py": "fb29a695095198f0eccbcc97b9ae16cfbc6d9e1415379d430556376621cb68ec",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_MLP7_KEY_FOLD_V1_RESULT.json": "225166ddbf7493e0e29340d5249c08ecfadbf9e255b1fc80eabe95d4b3a86897",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_WRITE_COMPOSITION_V1_ARTIFACT.pt": "e45df41315e11ded49cc1f57933be4bc45bc5de0c76637f968ede3285526bcdc",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_ENDPOINT_BATCHING_V1_ARTIFACT.pt": "b9b2dc77cb87b4192ec45f63dd7a02f959ece8b2f4973912ef7cf6d8899a31e3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_TYPED_FACE_REMOVAL_V1_ROWS.json": "63e493dde526d3db86d5cf7e89039b604a107b8c848f33b84cacda5d1688cb91",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_typed_face_v1/native.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_typed_face_v1/program.pt": "b8faca4a604472ca857799ab77a522b6e956e8b938d01e44493e037847a143a0"
+  },
+  "scope": "All source corners recompute residual/head-key normalizers and both QK factors. Inherited value held donor. No fresh source identification, selective source claim or omission adoption."
+}
