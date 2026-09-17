@@ -1,0 +1,217 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "pred_d": true,
+  "pred_e": true,
+  "native_capable_cells": 48,
+  "native_pair_cells": 48,
+  "normalizer_cell_errors": {
+    "British": 0.09765386497372136,
+    "American": 0.03858381080742242,
+    "endpoint_0": 0.08734637607054575,
+    "endpoint_1": 0.08922675708606478,
+    "endpoint_2": 0.08594287441199676,
+    "endpoint_3": 0.08754031939055655,
+    "endpoint_4": 0.09243223606517668,
+    "endpoint_5": 0.0876419054373977
+  },
+  "old_table_relative_errors": [
+    1.7747949243585026e-07,
+    2.186803413906091e-07,
+    2.0303005499044957e-07,
+    2.1067791067252983e-07,
+    2.1897139390603115e-07,
+    2.3319532260757114e-07,
+    1.976259085267884e-07,
+    1.8389322065104352e-07
+  ],
+  "newly_tested_city_tokens": [
+    6995,
+    8533,
+    14457,
+    23995
+  ],
+  "expanded_program_sha256": "12960f51539d0189017a39a359da18444eb0c48b64295ecd9206557b6bdbc6f4",
+  "cell_prediction_errors": {
+    "British": {
+      "1": 0.7628476470168712,
+      "2": 1.0845065368229436,
+      "3": 0.18326024970223168,
+      "4": 0.9259735983974082,
+      "5": 0.5970520740237129,
+      "6": 1.0369119382885974
+    },
+    "American": {
+      "1": 0.41141266875825755,
+      "2": 0.7993483769567307,
+      "3": 0.10375178392088058,
+      "4": 0.9608092077238553,
+      "5": 0.35104798891487665,
+      "6": 0.75350474144024
+    },
+    "endpoint_0": {
+      "1": 0.6032836187855443,
+      "2": 0.9506938668929964,
+      "3": 0.1495639872827164,
+      "4": 0.9426191511952562,
+      "5": 0.4812285710999911,
+      "6": 0.9030985306057354
+    },
+    "endpoint_1": {
+      "1": 0.6175315424974116,
+      "2": 0.9541408838989425,
+      "3": 0.14725790335161212,
+      "4": 0.9451308954287388,
+      "5": 0.494878276311989,
+      "6": 0.9093540011989439
+    },
+    "endpoint_2": {
+      "1": 0.5634960488603663,
+      "2": 0.9014468821942047,
+      "3": 0.13295081033346381,
+      "4": 0.9520044730941564,
+      "5": 0.45496385377343707,
+      "6": 0.8600764458117577
+    },
+    "endpoint_3": {
+      "1": 0.5906766090948843,
+      "2": 0.9311958995038995,
+      "3": 0.14363666368496805,
+      "4": 0.9461960405092151,
+      "5": 0.4736468928492054,
+      "6": 0.8860862758431344
+    },
+    "endpoint_4": {
+      "1": 0.6690208946536004,
+      "2": 1.0060054363483741,
+      "3": 0.16405320777794166,
+      "4": 0.9350440357315825,
+      "5": 0.5308143000301174,
+      "6": 0.9545614964666438
+    },
+    "endpoint_5": {
+      "1": 0.6094951945120596,
+      "2": 0.9513047329165663,
+      "3": 0.14902129197706543,
+      "4": 0.9428296308605428,
+      "5": 0.4869968401649008,
+      "6": 0.9045762912754752
+    }
+  },
+  "term_stats": {
+    "1": {
+      "target_rms_logits": 0.007305125556659003,
+      "aligned_fraction": 0.884540929504152,
+      "readout_rms_logits": [
+        0.007305125556659003,
+        0.0010905277823259568,
+        0.0009431041634195272,
+        0.00043337652540372223,
+        0.0007240993489011125
+      ]
+    },
+    "2": {
+      "target_rms_logits": 0.0028529430624174533,
+      "aligned_fraction": 0.13607948417707053,
+      "readout_rms_logits": [
+        0.0028529430624174533,
+        0.00032581588904030895,
+        0.0004625703828342402,
+        0.00022049792780925716,
+        0.00033861586469108404
+      ]
+    },
+    "3": {
+      "target_rms_logits": 0.0009046622328694701,
+      "aligned_fraction": -0.029386551503660093,
+      "readout_rms_logits": [
+        0.0009046622328694701,
+        0.00012746755694721285,
+        0.00011482010639645644,
+        4.074916519575254e-05,
+        0.00011574132575667618
+      ]
+    },
+    "4": {
+      "target_rms_logits": 0.000747159708181823,
+      "aligned_fraction": 0.06046326845950113,
+      "readout_rms_logits": [
+        0.000747159708181823,
+        0.00014409047797941919,
+        9.676223430077482e-05,
+        4.233204056236905e-05,
+        6.296930645027405e-05
+      ]
+    },
+    "5": {
+      "target_rms_logits": 0.001139717203968468,
+      "aligned_fraction": -0.04596451089761179,
+      "readout_rms_logits": [
+        0.001139717203968468,
+        0.00015664042598677227,
+        0.00018647724877981798,
+        3.070929133139971e-05,
+        6.29182258417217e-05
+      ]
+    },
+    "6": {
+      "target_rms_logits": 0.00019168434138751498,
+      "aligned_fraction": -0.005139812096994053,
+      "readout_rms_logits": [
+        0.00019168434138751498,
+        2.803892152356769e-05,
+        2.8187404550709592e-05,
+        5.5088365599565465e-06,
+        1.9388363457264575e-05
+      ]
+    },
+    "7": {
+      "target_rms_logits": 0.00017481637189487888,
+      "aligned_fraction": -0.0005928076424576747,
+      "readout_rms_logits": [
+        0.00017481637189487888,
+        2.0894180594711352e-05,
+        2.8889155255298927e-05,
+        8.67082424020871e-06,
+        1.3509075842514519e-05
+      ]
+    }
+  },
+  "all_readout_key_increment_rms_logits": [
+    0.006841219354749712,
+    0.0009409711129169634,
+    0.000803607021892055,
+    0.0006181546145905619,
+    0.0012026295109813148
+  ],
+  "all_readout_full_face_rms_logits": [
+    0.06266022608050087,
+    0.008453397901556577,
+    0.008938803750452431,
+    0.0022709450268305117,
+    0.0024373744959942214
+  ],
+  "full_key_increment_rms_logits": 0.006841219354749712,
+  "anchor_max_abs": 3.5762786865234375e-06,
+  "anchor_relative": 6.282875621281841e-07,
+  "max_source_current_error": 1.1752454298630255e-07,
+  "mobius_closure": 0.0,
+  "body_forwards": 192,
+  "seconds": 3.6222181781195104,
+  "panel_status": "fresh eight-source-context screen with city shifted to offset8; cached corpus not pretraining-disjoint",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_typed_face_key_source_fresh_v1.py": "30d9367cd1e9d464e80acbb12611cc66c1a95d735feb918fc6986f5999013de4",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/regional_paired_write_runtime_v2.py": "2f2d92cdee57a91e73acceed61e66d52f478ace29e5e5076756deb73b7a635ec",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_KEY_SOURCE_FRESH_V1_PREREGISTRATION.md": "f97a56ba697d7df5e2b727d50c9e2a88ab41aefe096203a4892b8323347c205e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_KEY_SOURCE_FRESH_V1_ROWS.json": "08aea2d2d0bc1fcdd78d307dabf2b067339ed2090d061463325c157afb708cd1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_KEY_SOURCE_FRESH_V1_CPU_CONTROL.json": "bf6d09c36e4deb1755c04c6b798e629bd1273c4175ea9c649a187abbbebf1e9e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/build_typed_face_key_source_fresh_v1_rows.py": "c5073e51467176245801ebd909c27e173f182ecc7c9acdfe8957de30b0a837c5",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/typed_face_key_norm_v1.py": "def90a24413beb8dff9ea4df5cf29f987d33a1ddb5cbe5445cf7cfd12b934295",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_endpoint_batching_v1.py": "fb29a695095198f0eccbcc97b9ae16cfbc6d9e1415379d430556376621cb68ec",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_MLP7_KEY_FOLD_V1_RESULT.json": "225166ddbf7493e0e29340d5249c08ecfadbf9e255b1fc80eabe95d4b3a86897",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_typed_face_v1/native.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_typed_face_v1/program.pt": "b8faca4a604472ca857799ab77a522b6e956e8b938d01e44493e037847a143a0"
+  },
+  "scope": "Prospective transfer of frozen source/norm rules to8unused regional sources with shifted city offset and20native token generators. Both QK factors retained. No source-selectivity, simplicity or complete-circuit certification."
+}

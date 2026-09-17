@@ -1,0 +1,33 @@
+{
+  "synthetic_generator_relative_error": 2.406413940869372e-16,
+  "native_source_gram_relative_error": 4.870196917584536e-16,
+  "pred_a": true,
+  "pred_b": true,
+  "diagonal_only_normalizer_relative_scale_errors": [
+    0.07038982181955822,
+    0.06904544976333082,
+    0.04727465260773123,
+    0.05715147579067681,
+    0.06674512574779645,
+    0.08779166096796431,
+    0.06331003057746942,
+    0.06039550243808667,
+    0.06460809455825967,
+    0.0642577898877057,
+    0.06965400823796175,
+    0.0805992712394552,
+    0.05472461243460924,
+    0.058129534089139234,
+    0.07450592711090187,
+    0.06253021163810102
+  ],
+  "native_source_shape": [
+    16,
+    3,
+    1,
+    1152
+  ],
+  "panel_status": "opened fresh-transfer artifacts; algebra only",
+  "scope": "Exact proposed MLP7 donor generator, no native weight replay yet. Cross-term diagnostic is a state normalization discrepancy, not a behavioral effect. Recipient native state and earlier donor g7 remain two ports; full native MLP weights must be charged.",
+  "source_sha256": "4c2278594fe79be0695c2ea7748bf405e73d114d1650a7f0dc7a318ce8c8d7f9"
+}

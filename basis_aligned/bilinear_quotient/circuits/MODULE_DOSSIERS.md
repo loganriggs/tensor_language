@@ -1546,3 +1546,7 @@ Independent-piece composition remains failed; full-readout strict replay remains
 failed. Native upstream state and downstream odd-value/suffix remain external.
 See [path registry](../COMPUTATION_PATH_REGISTRY.md#17-september-regional-typed-face-masks-145)
 and [scoped report](../../polynomial_causal/explanations/for_logan/research_update_2026-09-17_2110_regional_native_face.md).
+
+### 17 September, 21:40: regional source transfer and composition specificity
+
+[Fresh source transfer](../../polynomial_causal/TYPED_FACE_KEY_SOURCE_FRESH_V1_RESULT.json) rejects carry-only (cue errors .411–.763, gate .35); carry plus MLP7 passes (.104–.183, gate .20) on eight unused contexts with shifted city position. Four new city token IDs occur; endpoints unchanged. Both frozen head-key norms pass the .10 behavioral gate. No source-selectivity claim or port-count reduction. [Physical-write composition](../../polynomial_causal/TYPED_FACE_WRITE_COMPOSITION_V1_RESULT.json) is nearly additive but fails specificity: worst interaction is 1.91 times random-split median versus gate .50. This resolves the previously missing random-split comparison with a failure. The earlier two-input additive failure remains. [Current Logan report](../../polynomial_causal/explanations/for_logan/research_update_2026-09-17_2140_regional_source_transfer.md) tracks all four properties and simplicity. Next donor MLP7 generator has [CPU algebra evidence](../../polynomial_causal/TYPED_FACE_MLP7_DONOR_V1_CPU_RESULT.json), but native replay and full weight pricing remain required.
