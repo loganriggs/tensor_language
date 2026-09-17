@@ -18,15 +18,19 @@
   "serialized_program_bytes": 67254335,
   "four_traits": {
     "ood_prediction": null,
-    "extraction": null,
+    "extraction": true,
     "selective_removal": null,
     "composition_reuse": false
   },
   "certified_complete_circuit": false,
-  "scope": "Pending native and isolated replay. Earlier native-path transfer does not certify this package. Three native states and downstream suffix remain external.",
+  "scope": "Native and isolated local executor replay passes. Three native state arrays and the entire later suffix remain external. No compression or causal-composition promotion.",
   "files": {
     "execute.py": "d6c2806b2361f3ec00b864f8a93f7dc0e9198a03982c81478807864692bceed8",
     "head8.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
     "program.pt": "858fbcc2413e29cc70121a14e02e736917e103978cac4462b4fd57fda4bd704e"
-  }
+  },
+  "receipts": [
+    "TYPED_FACE_MLP8_COUPLED_V1_RESULT.json",
+    "TYPED_FACE_MLP8_COUPLED_V1_STANDALONE_RESULT.json"
+  ]
 }

@@ -1,0 +1,52 @@
+{
+  "status": "Frozen training artifact, no held-out result",
+  "training_cells": 20,
+  "training_sequences": 40,
+  "training_rows": 240,
+  "target": "full-city native attention8 parent effect, target spelling margin",
+  "features": [
+    "intercept",
+    "cue_sign",
+    "length/32",
+    "city_position/32",
+    "endpoint_1",
+    "endpoint_2",
+    "endpoint_3",
+    "endpoint_4",
+    "endpoint_5",
+    "cue_sign*endpoint_1",
+    "cue_sign*endpoint_2",
+    "cue_sign*endpoint_3",
+    "cue_sign*endpoint_4",
+    "cue_sign*endpoint_5"
+  ],
+  "coefficients": [
+    -1.576748036089023,
+    -1.0768827676773063,
+    3.0317122282032134,
+    0.41678620868240773,
+    0.025186230242251473,
+    0.043591225147246615,
+    0.006989602744578771,
+    0.0011560598388308807,
+    0.13019685149192795,
+    0.15407162159681256,
+    -0.11132098436355646,
+    0.11900191754102653,
+    -0.0840335493907338,
+    0.4443893253803247
+  ],
+  "cue_constants": {
+    "British": -1.0932253052170078,
+    "American": 0.886504119882981
+  },
+  "design_rank": 14,
+  "design_columns": 14,
+  "future_gate": "On each fresh family, retained-face relativeL2 parent-effect error <=.8 times EACH cue-constant and fixed-OLS error, alongside unchanged native capability/selectivity gates. Same six endpoints; no pair-index feature. No fitting on future rows.",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_NATIVE8_FRESH_V1_ROWS.json": "02874a5410db80b2d2ec1a05ae3762d6c6ddfec8a4d3e87e079ec5f230244ba2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_NATIVE8_FRESH_V1_ARTIFACT.pt": "0e4bac665f6c4a453e5cf3cf381f7aad58168ba7e52c8b612271159aad8430d5",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/freeze_native8_prediction_nulls_v1.py": "189ecf7b99056dae832adea670aed21f1b446e62685fa09201f238613bbd1ede"
+  },
+  "scope": "Opened training only. Fixed unregularized least squares with no feature/hyperparameter search. Does not retroactively fill the missing null gate on earlier fresh results."
+}
