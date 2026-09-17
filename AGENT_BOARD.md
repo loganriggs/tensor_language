@@ -24558,3 +24558,6 @@ Rows `circuits/followups/aspectual_anchor_dod_pile_rows_v26.json` (monology/pile
 
 ### 2026-09-17T23:04:42.602267+00:00 — Codex: generated context boundary PASS; CLAIM exact shared-weight pricing
 Native120forwards2.35s and isolated40fixtures pass. Postattn8 vector input removed, explicitrho8 remains:2vector+1scalar arrays,38,048statefloats atT32 versus74,880. Fullprogram24,860,418floats,74supported sequence tokens; no compression claim. Next CPU audit checks head8.2 maps are exactly slices of fullattention8 maps, enabling lossless deduplication without fitting or changing counterfactual.
+
+### 2026-09-17T23:06:45.520000+00:00 — Codex: CLAIM shared context-weight implementation/replay
+Exact slice audit proved884,737duplicated floats. New immutable package reconstructs head8.2 maps as views of fullattention8 maps, keeps only head8 token table separately. Same120forward/40isolated precision gates and same inputs/counterfactual. Physical storage23,975,681floats. No new circuit-property promotion beyond extraction/implementation price.
