@@ -1,0 +1,100 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "pred_d": false,
+  "canonical": {
+    "split": 0,
+    "cells": {
+      "British": {
+        "joint_from_singles_error": 0.0018648379219685552,
+        "pair_interaction_ratios": {
+          "1+2": 0.004560119719632983,
+          "1+4": 0.0026661965320353624,
+          "2+4": 0.0053100150358504315
+        },
+        "third_order_over_joint": 0.00016879871273245197
+      },
+      "American": {
+        "joint_from_singles_error": 0.0013722077478576548,
+        "pair_interaction_ratios": {
+          "1+2": 0.004886463477607251,
+          "1+4": 0.006650292228993223,
+          "2+4": 0.004081636873091201
+        },
+        "third_order_over_joint": 0.00013375825406077246
+      },
+      "endpoint_0": {
+        "joint_from_singles_error": 0.0015737618507239322,
+        "pair_interaction_ratios": {
+          "1+2": 0.004591896372549333,
+          "1+4": 0.005453486894661302,
+          "2+4": 0.004443650208191425
+        },
+        "third_order_over_joint": 0.00014944398718855074
+      },
+      "endpoint_1": {
+        "joint_from_singles_error": 0.0015462039220525085,
+        "pair_interaction_ratios": {
+          "1+2": 0.004956260833574702,
+          "1+4": 0.005797821950795527,
+          "2+4": 0.004780085842013282
+        },
+        "third_order_over_joint": 0.00015868950840784954
+      },
+      "endpoint_2": {
+        "joint_from_singles_error": 0.0018787383630635855,
+        "pair_interaction_ratios": {
+          "1+2": 0.005124410759070738,
+          "1+4": 0.006210830977306919,
+          "2+4": 0.005192935964991229
+        },
+        "third_order_over_joint": 0.00017044292799214513
+      },
+      "endpoint_3": {
+        "joint_from_singles_error": 0.001582572301665501,
+        "pair_interaction_ratios": {
+          "1+2": 0.00480036395100469,
+          "1+4": 0.005464124204712591,
+          "2+4": 0.004531003751378668
+        },
+        "third_order_over_joint": 0.00013037617818620304
+      },
+      "endpoint_4": {
+        "joint_from_singles_error": 0.0016547569761954839,
+        "pair_interaction_ratios": {
+          "1+2": 0.004622817524278065,
+          "1+4": 0.005232936940314299,
+          "2+4": 0.004323989911567299
+        },
+        "third_order_over_joint": 0.00015254541983746305
+      },
+      "endpoint_5": {
+        "joint_from_singles_error": 0.001611216235144207,
+        "pair_interaction_ratios": {
+          "1+2": 0.004746553334100878,
+          "1+4": 0.0054722596604165445,
+          "2+4": 0.004403331807235714
+        },
+        "third_order_over_joint": 0.00015197402304420072
+      }
+    },
+    "worst_pair_ratio": 0.006650292228993223,
+    "singleton_target_rms": [
+      0.013959053260163421,
+      0.051288163673068626,
+      0.02512747084584058
+    ]
+  },
+  "canonical_over_random_median": 1.910192699587187,
+  "random_worst_pair_median": 0.003481477146483924,
+  "anchor_max_abs": 2.86102294921875e-06,
+  "anchor_relative": 3.8029908540972863e-07,
+  "max_native_write_error": 1.3914327391929995e-07,
+  "max_split_write_closure": 1.141200226165778e-15,
+  "cpu_random_split_closure": 1.079112848695709e-15,
+  "body_forwards": 832,
+  "seconds": 11.578517799964175,
+  "panel_status": "opened four-context physical-write screen",
+  "scope": "Three physical writes including cross term; tests a different explicit object from the preserved failed two-input-port additive hypothesis. No fresh promotion or whole-model extraction."
+}

@@ -1,0 +1,1441 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "pred_d": false,
+  "canonical": {
+    "split": 0,
+    "cells": {
+      "British": {
+        "joint_from_singles_error": 0.0018648379219685552,
+        "pair_interaction_ratios": {
+          "1+2": 0.004560119719632983,
+          "1+4": 0.0026661965320353624,
+          "2+4": 0.0053100150358504315
+        },
+        "third_order_over_joint": 0.00016879871273245197
+      },
+      "American": {
+        "joint_from_singles_error": 0.0013722077478576548,
+        "pair_interaction_ratios": {
+          "1+2": 0.004886463477607251,
+          "1+4": 0.006650292228993223,
+          "2+4": 0.004081636873091201
+        },
+        "third_order_over_joint": 0.00013375825406077246
+      },
+      "endpoint_0": {
+        "joint_from_singles_error": 0.0015737618507239322,
+        "pair_interaction_ratios": {
+          "1+2": 0.004591896372549333,
+          "1+4": 0.005453486894661302,
+          "2+4": 0.004443650208191425
+        },
+        "third_order_over_joint": 0.00014944398718855074
+      },
+      "endpoint_1": {
+        "joint_from_singles_error": 0.0015462039220525085,
+        "pair_interaction_ratios": {
+          "1+2": 0.004956260833574702,
+          "1+4": 0.005797821950795527,
+          "2+4": 0.004780085842013282
+        },
+        "third_order_over_joint": 0.00015868950840784954
+      },
+      "endpoint_2": {
+        "joint_from_singles_error": 0.0018787383630635855,
+        "pair_interaction_ratios": {
+          "1+2": 0.005124410759070738,
+          "1+4": 0.006210830977306919,
+          "2+4": 0.005192935964991229
+        },
+        "third_order_over_joint": 0.00017044292799214513
+      },
+      "endpoint_3": {
+        "joint_from_singles_error": 0.001582572301665501,
+        "pair_interaction_ratios": {
+          "1+2": 0.00480036395100469,
+          "1+4": 0.005464124204712591,
+          "2+4": 0.004531003751378668
+        },
+        "third_order_over_joint": 0.00013037617818620304
+      },
+      "endpoint_4": {
+        "joint_from_singles_error": 0.0016547569761954839,
+        "pair_interaction_ratios": {
+          "1+2": 0.004622817524278065,
+          "1+4": 0.005232936940314299,
+          "2+4": 0.004323989911567299
+        },
+        "third_order_over_joint": 0.00015254541983746305
+      },
+      "endpoint_5": {
+        "joint_from_singles_error": 0.001611216235144207,
+        "pair_interaction_ratios": {
+          "1+2": 0.004746553334100878,
+          "1+4": 0.0054722596604165445,
+          "2+4": 0.004403331807235714
+        },
+        "third_order_over_joint": 0.00015197402304420072
+      }
+    },
+    "worst_pair_ratio": 0.006650292228993223,
+    "singleton_target_rms": [
+      0.013959053260163421,
+      0.051288163673068626,
+      0.02512747084584058
+    ]
+  },
+  "random_splits": [
+    {
+      "split": 1,
+      "cells": {
+        "British": {
+          "joint_from_singles_error": 0.0015465769101213546,
+          "pair_interaction_ratios": {
+            "1+2": 0.0035474065403727204,
+            "1+4": 0.001103008142380388,
+            "2+4": 0.0019313207506244123
+          },
+          "third_order_over_joint": 5.802595807092691e-05
+        },
+        "American": {
+          "joint_from_singles_error": 0.0024485826122229875,
+          "pair_interaction_ratios": {
+            "1+2": 0.003774628617653993,
+            "1+4": 0.0042532479149927855,
+            "2+4": 0.003953959843444105
+          },
+          "third_order_over_joint": 9.235306044315209e-05
+        },
+        "endpoint_0": {
+          "joint_from_singles_error": 0.0020730629426503324,
+          "pair_interaction_ratios": {
+            "1+2": 0.003649709153627191,
+            "1+4": 0.002952236438195725,
+            "2+4": 0.0029148458389104967
+          },
+          "third_order_over_joint": 5.559030010778598e-05
+        },
+        "endpoint_1": {
+          "joint_from_singles_error": 0.002236208052962953,
+          "pair_interaction_ratios": {
+            "1+2": 0.003830719356995156,
+            "1+4": 0.003175866076844138,
+            "2+4": 0.0031675253204309782
+          },
+          "third_order_over_joint": 6.274893269511105e-05
+        },
+        "endpoint_2": {
+          "joint_from_singles_error": 0.002342981085943096,
+          "pair_interaction_ratios": {
+            "1+2": 0.004156938185095747,
+            "1+4": 0.003368391475363896,
+            "2+4": 0.0035407732094119393
+          },
+          "third_order_over_joint": 0.00010719219200161701
+        },
+        "endpoint_3": {
+          "joint_from_singles_error": 0.0020884297296921853,
+          "pair_interaction_ratios": {
+            "1+2": 0.0036544457171900566,
+            "1+4": 0.003026406355413845,
+            "2+4": 0.003053567285833216
+          },
+          "third_order_over_joint": 9.455746047733315e-05
+        },
+        "endpoint_4": {
+          "joint_from_singles_error": 0.00184175853482797,
+          "pair_interaction_ratios": {
+            "1+2": 0.0033755049898403044,
+            "1+4": 0.0025677678265420157,
+            "2+4": 0.0027899582897311257
+          },
+          "third_order_over_joint": 8.809253133390901e-05
+        },
+        "endpoint_5": {
+          "joint_from_singles_error": 0.0019414340962584059,
+          "pair_interaction_ratios": {
+            "1+2": 0.003568670728412946,
+            "1+4": 0.002639414188586289,
+            "2+4": 0.0027196041348158412
+          },
+          "third_order_over_joint": 7.340745651283763e-05
+        }
+      },
+      "worst_pair_ratio": 0.0042532479149927855,
+      "singleton_target_rms": [
+        0.014915025136700035,
+        0.02665579793106687,
+        0.009739325176591816
+      ]
+    },
+    {
+      "split": 2,
+      "cells": {
+        "British": {
+          "joint_from_singles_error": 0.001770809987621698,
+          "pair_interaction_ratios": {
+            "1+2": 0.002404830911458662,
+            "1+4": 0.0021024934407466345,
+            "2+4": 0.0023702010969869234
+          },
+          "third_order_over_joint": 5.085510123442871e-05
+        },
+        "American": {
+          "joint_from_singles_error": 0.002199613715611828,
+          "pair_interaction_ratios": {
+            "1+2": 0.002666092660695153,
+            "1+4": 0.0022039524965915117,
+            "2+4": 0.0035078474805509117
+          },
+          "third_order_over_joint": 8.120444674859178e-05
+        },
+        "endpoint_0": {
+          "joint_from_singles_error": 0.001995825127887293,
+          "pair_interaction_ratios": {
+            "1+2": 0.002521916440492862,
+            "1+4": 0.0021276329297136983,
+            "2+4": 0.0030152645238623434
+          },
+          "third_order_over_joint": 5.299150660510394e-05
+        },
+        "endpoint_1": {
+          "joint_from_singles_error": 0.002120390623872843,
+          "pair_interaction_ratios": {
+            "1+2": 0.0026066633777072903,
+            "1+4": 0.002219385808935849,
+            "2+4": 0.0032671588795883714
+          },
+          "third_order_over_joint": 6.927044781408695e-05
+        },
+        "endpoint_2": {
+          "joint_from_singles_error": 0.0022588043417368104,
+          "pair_interaction_ratios": {
+            "1+2": 0.002836298221633698,
+            "1+4": 0.002430208790657814,
+            "2+4": 0.003486786087609803
+          },
+          "third_order_over_joint": 0.00011554812397826865
+        },
+        "endpoint_3": {
+          "joint_from_singles_error": 0.0019951639366722444,
+          "pair_interaction_ratios": {
+            "1+2": 0.0025180257856949346,
+            "1+4": 0.0020970203260204383,
+            "2+4": 0.00302930648272732
+          },
+          "third_order_over_joint": 5.49510226631347e-05
+        },
+        "endpoint_4": {
+          "joint_from_singles_error": 0.0018756382832901628,
+          "pair_interaction_ratios": {
+            "1+2": 0.0024643316972093082,
+            "1+4": 0.0021264626123367798,
+            "2+4": 0.0026666260692570607
+          },
+          "third_order_over_joint": 7.95855869778047e-05
+        },
+        "endpoint_5": {
+          "joint_from_singles_error": 0.0019013778396288709,
+          "pair_interaction_ratios": {
+            "1+2": 0.0024167532537982756,
+            "1+4": 0.0020450204137291788,
+            "2+4": 0.0028053357710373893
+          },
+          "third_order_over_joint": 5.447767073657673e-05
+        }
+      },
+      "worst_pair_ratio": 0.0035078474805509117,
+      "singleton_target_rms": [
+        0.011995853437072827,
+        0.022157985008016308,
+        0.0170420962836627
+      ]
+    },
+    {
+      "split": 3,
+      "cells": {
+        "British": {
+          "joint_from_singles_error": 0.0017519646405141575,
+          "pair_interaction_ratios": {
+            "1+2": 0.0016270748118228779,
+            "1+4": 0.0031592427611383624,
+            "2+4": 0.002003075235563472
+          },
+          "third_order_over_joint": 6.713945763508993e-05
+        },
+        "American": {
+          "joint_from_singles_error": 0.0023572079143812865,
+          "pair_interaction_ratios": {
+            "1+2": 0.003288426285573882,
+            "1+4": 0.0014225770392932758,
+            "2+4": 0.004832192033739183
+          },
+          "third_order_over_joint": 0.00012013637601648791
+        },
+        "endpoint_0": {
+          "joint_from_singles_error": 0.002109110128490213,
+          "pair_interaction_ratios": {
+            "1+2": 0.0027398177308993734,
+            "1+4": 0.0022650964150379314,
+            "2+4": 0.0038047613081606635
+          },
+          "third_order_over_joint": 7.491515437056745e-05
+        },
+        "endpoint_1": {
+          "joint_from_singles_error": 0.002231091214457511,
+          "pair_interaction_ratios": {
+            "1+2": 0.002833691780889056,
+            "1+4": 0.0022329401779402564,
+            "2+4": 0.004128000870633839
+          },
+          "third_order_over_joint": 0.00010795708574864321
+        },
+        "endpoint_2": {
+          "joint_from_singles_error": 0.0023564281983643894,
+          "pair_interaction_ratios": {
+            "1+2": 0.0029962959360634867,
+            "1+4": 0.0023519162632441907,
+            "2+4": 0.004488791182181016
+          },
+          "third_order_over_joint": 0.00011996095884507945
+        },
+        "endpoint_3": {
+          "joint_from_singles_error": 0.0020724660715258766,
+          "pair_interaction_ratios": {
+            "1+2": 0.0026916113496344746,
+            "1+4": 0.002376691384354266,
+            "2+4": 0.0038073078511153607
+          },
+          "third_order_over_joint": 0.00011076389740133274
+        },
+        "endpoint_4": {
+          "joint_from_singles_error": 0.001913397252971026,
+          "pair_interaction_ratios": {
+            "1+2": 0.0023534406700881643,
+            "1+4": 0.002699749335056231,
+            "2+4": 0.0033549259423895366
+          },
+          "third_order_over_joint": 8.976750182610359e-05
+        },
+        "endpoint_5": {
+          "joint_from_singles_error": 0.001963210801561869,
+          "pair_interaction_ratios": {
+            "1+2": 0.002490718281182863,
+            "1+4": 0.0023436951931987845,
+            "2+4": 0.003617211001174006
+          },
+          "third_order_over_joint": 0.00010053519807745995
+        }
+      },
+      "worst_pair_ratio": 0.004832192033739183,
+      "singleton_target_rms": [
+        0.015423222920686505,
+        0.014064872905997578,
+        0.021670121890601243
+      ]
+    },
+    {
+      "split": 4,
+      "cells": {
+        "British": {
+          "joint_from_singles_error": 0.001768322540060364,
+          "pair_interaction_ratios": {
+            "1+2": 0.002357751966175825,
+            "1+4": 0.0023986489922973257,
+            "2+4": 0.002191777626140842
+          },
+          "third_order_over_joint": 7.296445541947247e-05
+        },
+        "American": {
+          "joint_from_singles_error": 0.002388355260260217,
+          "pair_interaction_ratios": {
+            "1+2": 0.0019945740175801477,
+            "1+4": 0.0031587271172302347,
+            "2+4": 0.004809087598744209
+          },
+          "third_order_over_joint": 0.0001104390793594157
+        },
+        "endpoint_0": {
+          "joint_from_singles_error": 0.0021165035692651954,
+          "pair_interaction_ratios": {
+            "1+2": 0.0021093023000435594,
+            "1+4": 0.002915711077836124,
+            "2+4": 0.004085406323916631
+          },
+          "third_order_over_joint": 8.684746123938884e-05
+        },
+        "endpoint_1": {
+          "joint_from_singles_error": 0.0022495524660470063,
+          "pair_interaction_ratios": {
+            "1+2": 0.0021289553697137016,
+            "1+4": 0.0030596947223885773,
+            "2+4": 0.004304014291297192
+          },
+          "third_order_over_joint": 8.498157964023442e-05
+        },
+        "endpoint_2": {
+          "joint_from_singles_error": 0.002380129679774598,
+          "pair_interaction_ratios": {
+            "1+2": 0.0021926766082485567,
+            "1+4": 0.003280379081660306,
+            "2+4": 0.004618797165724217
+          },
+          "third_order_over_joint": 0.0001095061002557727
+        },
+        "endpoint_3": {
+          "joint_from_singles_error": 0.002098544194204696,
+          "pair_interaction_ratios": {
+            "1+2": 0.0021479394898993734,
+            "1+4": 0.0028413795896634823,
+            "2+4": 0.0040449080728873505
+          },
+          "third_order_over_joint": 9.057414226933214e-05
+        },
+        "endpoint_4": {
+          "joint_from_singles_error": 0.0019511674251916611,
+          "pair_interaction_ratios": {
+            "1+2": 0.002426947998354553,
+            "1+4": 0.00255788581721865,
+            "2+4": 0.0033912178621324047
+          },
+          "third_order_over_joint": 8.152074739136979e-05
+        },
+        "endpoint_5": {
+          "joint_from_singles_error": 0.0020109466943659775,
+          "pair_interaction_ratios": {
+            "1+2": 0.0021822947750067215,
+            "1+4": 0.002790559920116808,
+            "2+4": 0.0037628194546855463
+          },
+          "third_order_over_joint": 0.00011850518084234752
+        }
+      },
+      "worst_pair_ratio": 0.004809087598744209,
+      "singleton_target_rms": [
+        0.018656942757363203,
+        0.020838126763310604,
+        0.011809223645322187
+      ]
+    },
+    {
+      "split": 5,
+      "cells": {
+        "British": {
+          "joint_from_singles_error": 0.0017806048763404053,
+          "pair_interaction_ratios": {
+            "1+2": 0.0022229647350422506,
+            "1+4": 0.0019381657278767007,
+            "2+4": 0.0019039935050797912
+          },
+          "third_order_over_joint": 6.473351047389049e-05
+        },
+        "American": {
+          "joint_from_singles_error": 0.0023140304254853786,
+          "pair_interaction_ratios": {
+            "1+2": 0.002615311822847113,
+            "1+4": 0.002413312953401389,
+            "2+4": 0.0028295796909253448
+          },
+          "third_order_over_joint": 0.00011644937258035364
+        },
+        "endpoint_0": {
+          "joint_from_singles_error": 0.0020939085309538957,
+          "pair_interaction_ratios": {
+            "1+2": 0.0024828836394716375,
+            "1+4": 0.0021661395316637843,
+            "2+4": 0.0025403123503399015
+          },
+          "third_order_over_joint": 0.00010912588784136175
+        },
+        "endpoint_1": {
+          "joint_from_singles_error": 0.0021993152884800193,
+          "pair_interaction_ratios": {
+            "1+2": 0.0024938904015375848,
+            "1+4": 0.0023044266645147935,
+            "2+4": 0.002663593171521452
+          },
+          "third_order_over_joint": 9.973032148833425e-05
+        },
+        "endpoint_2": {
+          "joint_from_singles_error": 0.0023065623237860586,
+          "pair_interaction_ratios": {
+            "1+2": 0.00264124383792511,
+            "1+4": 0.0024123715204253295,
+            "2+4": 0.002721214927359792
+          },
+          "third_order_over_joint": 0.00010451404257214596
+        },
+        "endpoint_3": {
+          "joint_from_singles_error": 0.0020792307146804993,
+          "pair_interaction_ratios": {
+            "1+2": 0.0024435181608878755,
+            "1+4": 0.002154306905884488,
+            "2+4": 0.00244389292718711
+          },
+          "third_order_over_joint": 8.874883795615601e-05
+        },
+        "endpoint_4": {
+          "joint_from_singles_error": 0.0019101810352210758,
+          "pair_interaction_ratios": {
+            "1+2": 0.0023291762210947533,
+            "1+4": 0.0020599186950440236,
+            "2+4": 0.0021087812620622206
+          },
+          "third_order_over_joint": 6.96729606172047e-05
+        },
+        "endpoint_5": {
+          "joint_from_singles_error": 0.001959847886497186,
+          "pair_interaction_ratios": {
+            "1+2": 0.0023374263631295083,
+            "1+4": 0.002078463034879425,
+            "2+4": 0.0022496239779060782
+          },
+          "third_order_over_joint": 9.470415979459397e-05
+        }
+      },
+      "worst_pair_ratio": 0.0028295796909253448,
+      "singleton_target_rms": [
+        0.018659152617319485,
+        0.014659512071898164,
+        0.017873677637037066
+      ]
+    },
+    {
+      "split": 6,
+      "cells": {
+        "British": {
+          "joint_from_singles_error": 0.0017743740822775429,
+          "pair_interaction_ratios": {
+            "1+2": 0.002434263959750794,
+            "1+4": 0.002323852173760002,
+            "2+4": 0.0018758212826288213
+          },
+          "third_order_over_joint": 6.263662934753116e-05
+        },
+        "American": {
+          "joint_from_singles_error": 0.002279028387239693,
+          "pair_interaction_ratios": {
+            "1+2": 0.0028377140316228713,
+            "1+4": 0.002962734331157851,
+            "2+4": 0.0028171468753377966
+          },
+          "third_order_over_joint": 8.64363571130202e-05
+        },
+        "endpoint_0": {
+          "joint_from_singles_error": 0.002052459161035761,
+          "pair_interaction_ratios": {
+            "1+2": 0.002628919092165118,
+            "1+4": 0.0026747269528570572,
+            "2+4": 0.002353935327963195
+          },
+          "third_order_over_joint": 6.175250647887285e-05
+        },
+        "endpoint_1": {
+          "joint_from_singles_error": 0.002185716536526773,
+          "pair_interaction_ratios": {
+            "1+2": 0.0028721225493516097,
+            "1+4": 0.002855976610594265,
+            "2+4": 0.0026044679116477417
+          },
+          "third_order_over_joint": 7.642653728389071e-05
+        },
+        "endpoint_2": {
+          "joint_from_singles_error": 0.002321857236301885,
+          "pair_interaction_ratios": {
+            "1+2": 0.0030533913360541475,
+            "1+4": 0.002942793254616775,
+            "2+4": 0.0027588246465784718
+          },
+          "third_order_over_joint": 7.943321572575812e-05
+        },
+        "endpoint_3": {
+          "joint_from_singles_error": 0.0020633466846066858,
+          "pair_interaction_ratios": {
+            "1+2": 0.0026598043750952877,
+            "1+4": 0.0027899952054663106,
+            "2+4": 0.002429703093496419
+          },
+          "third_order_over_joint": 9.123947045351401e-05
+        },
+        "endpoint_4": {
+          "joint_from_singles_error": 0.0018619921384560381,
+          "pair_interaction_ratios": {
+            "1+2": 0.0023428081552235567,
+            "1+4": 0.0023936821071881154,
+            "2+4": 0.0021372850912276843
+          },
+          "third_order_over_joint": 7.57905231057256e-05
+        },
+        "endpoint_5": {
+          "joint_from_singles_error": 0.0019386085796501034,
+          "pair_interaction_ratios": {
+            "1+2": 0.002533121890048651,
+            "1+4": 0.002571907711520539,
+            "2+4": 0.0022295957338747045
+          },
+          "third_order_over_joint": 7.596548240663152e-05
+        }
+      },
+      "worst_pair_ratio": 0.0030533913360541475,
+      "singleton_target_rms": [
+        0.012530474372707545,
+        0.020637450804636432,
+        0.018016840775554332
+      ]
+    },
+    {
+      "split": 7,
+      "cells": {
+        "British": {
+          "joint_from_singles_error": 0.0017543412421416593,
+          "pair_interaction_ratios": {
+            "1+2": 0.002086537890467522,
+            "1+4": 0.0019493698516736759,
+            "2+4": 0.002582297752090907
+          },
+          "third_order_over_joint": 5.814342813737043e-05
+        },
+        "American": {
+          "joint_from_singles_error": 0.0022967322794183375,
+          "pair_interaction_ratios": {
+            "1+2": 0.003961533965605734,
+            "1+4": 0.002838701415504685,
+            "2+4": 0.002008671248822017
+          },
+          "third_order_over_joint": 0.00012455424654411526
+        },
+        "endpoint_0": {
+          "joint_from_singles_error": 0.002052776592437259,
+          "pair_interaction_ratios": {
+            "1+2": 0.0032783834565063515,
+            "1+4": 0.002521037132447022,
+            "2+4": 0.0022439646436585737
+          },
+          "third_order_over_joint": 9.033135656516827e-05
+        },
+        "endpoint_1": {
+          "joint_from_singles_error": 0.002190628113794487,
+          "pair_interaction_ratios": {
+            "1+2": 0.0034923385560925646,
+            "1+4": 0.002609862807691722,
+            "2+4": 0.0022732780370975855
+          },
+          "third_order_over_joint": 0.00010506899888806709
+        },
+        "endpoint_2": {
+          "joint_from_singles_error": 0.0023044427338235894,
+          "pair_interaction_ratios": {
+            "1+2": 0.0036654262886813183,
+            "1+4": 0.00281845130420827,
+            "2+4": 0.0023269205432478735
+          },
+          "third_order_over_joint": 7.882716852748099e-05
+        },
+        "endpoint_3": {
+          "joint_from_singles_error": 0.00205488594288815,
+          "pair_interaction_ratios": {
+            "1+2": 0.0032526897579814207,
+            "1+4": 0.002474249808813132,
+            "2+4": 0.0023295593671190796
+          },
+          "third_order_over_joint": 0.00010585145605843571
+        },
+        "endpoint_4": {
+          "joint_from_singles_error": 0.0018925140287333222,
+          "pair_interaction_ratios": {
+            "1+2": 0.002936144612029259,
+            "1+4": 0.002231305229189223,
+            "2+4": 0.002374389182571434
+          },
+          "third_order_over_joint": 0.00010529280259248498
+        },
+        "endpoint_5": {
+          "joint_from_singles_error": 0.0019433143693851436,
+          "pair_interaction_ratios": {
+            "1+2": 0.003119113596675905,
+            "1+4": 0.0023471611460160785,
+            "2+4": 0.0022407042658714126
+          },
+          "third_order_over_joint": 0.00010287683071685382
+        }
+      },
+      "worst_pair_ratio": 0.003961533965605734,
+      "singleton_target_rms": [
+        0.013419265782470696,
+        0.021556331648546284,
+        0.0163476933574284
+      ]
+    },
+    {
+      "split": 8,
+      "cells": {
+        "British": {
+          "joint_from_singles_error": 0.0017873584947837103,
+          "pair_interaction_ratios": {
+            "1+2": 0.0020136269281292645,
+            "1+4": 0.001697322226499523,
+            "2+4": 0.0023710572124333367
+          },
+          "third_order_over_joint": 6.80533295268731e-05
+        },
+        "American": {
+          "joint_from_singles_error": 0.0023078894816873754,
+          "pair_interaction_ratios": {
+            "1+2": 0.0032399237042183655,
+            "1+4": 0.0023857193257289704,
+            "2+4": 0.002708912744584547
+          },
+          "third_order_over_joint": 0.00010060166823294476
+        },
+        "endpoint_0": {
+          "joint_from_singles_error": 0.002074892169824974,
+          "pair_interaction_ratios": {
+            "1+2": 0.0026736416299825193,
+            "1+4": 0.002054872855993502,
+            "2+4": 0.002573838576961884
+          },
+          "third_order_over_joint": 8.06588849293735e-05
+        },
+        "endpoint_1": {
+          "joint_from_singles_error": 0.0022060828323669673,
+          "pair_interaction_ratios": {
+            "1+2": 0.0029984465487117445,
+            "1+4": 0.0021415801302660954,
+            "2+4": 0.0027169868074266444
+          },
+          "third_order_over_joint": 0.00010173132693805049
+        },
+        "endpoint_2": {
+          "joint_from_singles_error": 0.002319105167659106,
+          "pair_interaction_ratios": {
+            "1+2": 0.0031093120381286885,
+            "1+4": 0.0023210653348767394,
+            "2+4": 0.00282822836611812
+          },
+          "third_order_over_joint": 0.00010295155438091087
+        },
+        "endpoint_3": {
+          "joint_from_singles_error": 0.0020598859468305814,
+          "pair_interaction_ratios": {
+            "1+2": 0.002664004143633377,
+            "1+4": 0.002094911915952126,
+            "2+4": 0.002523410825116444
+          },
+          "third_order_over_joint": 7.898806439437398e-05
+        },
+        "endpoint_4": {
+          "joint_from_singles_error": 0.0019313696805856172,
+          "pair_interaction_ratios": {
+            "1+2": 0.002442691350008207,
+            "1+4": 0.0019994814606227656,
+            "2+4": 0.0023776195503619046
+          },
+          "third_order_over_joint": 0.00010100154004153133
+        },
+        "endpoint_5": {
+          "joint_from_singles_error": 0.0019679634872043637,
+          "pair_interaction_ratios": {
+            "1+2": 0.002510580484206648,
+            "1+4": 0.0019750899793510397,
+            "2+4": 0.0023723590538781195
+          },
+          "third_order_over_joint": 5.9747424394660056e-05
+        }
+      },
+      "worst_pair_ratio": 0.0032399237042183655,
+      "singleton_target_rms": [
+        0.01467514550247698,
+        0.021059222536312656,
+        0.015492666355174774
+      ]
+    },
+    {
+      "split": 9,
+      "cells": {
+        "British": {
+          "joint_from_singles_error": 0.0017670444750267397,
+          "pair_interaction_ratios": {
+            "1+2": 0.001684775609539928,
+            "1+4": 0.0024752182786869324,
+            "2+4": 0.0023750091400039576
+          },
+          "third_order_over_joint": 6.760785079817486e-05
+        },
+        "American": {
+          "joint_from_singles_error": 0.0022242932958985427,
+          "pair_interaction_ratios": {
+            "1+2": 0.0026920429370032965,
+            "1+4": 0.0018255276201852373,
+            "2+4": 0.0027652698230573505
+          },
+          "third_order_over_joint": 9.311336343338805e-05
+        },
+        "endpoint_0": {
+          "joint_from_singles_error": 0.0020265675981895044,
+          "pair_interaction_ratios": {
+            "1+2": 0.002392155939628556,
+            "1+4": 0.00210589232862927,
+            "2+4": 0.0026385163351829877
+          },
+          "third_order_over_joint": 7.398073467169869e-05
+        },
+        "endpoint_1": {
+          "joint_from_singles_error": 0.0021573955819158075,
+          "pair_interaction_ratios": {
+            "1+2": 0.0026149267519344267,
+            "1+4": 0.002175065040201639,
+            "2+4": 0.002769243823711461
+          },
+          "third_order_over_joint": 0.00011510694392002488
+        },
+        "endpoint_2": {
+          "joint_from_singles_error": 0.002247846765036644,
+          "pair_interaction_ratios": {
+            "1+2": 0.0025792654596706963,
+            "1+4": 0.0021420428319004056,
+            "2+4": 0.002972712908428883
+          },
+          "third_order_over_joint": 8.909395624142327e-05
+        },
+        "endpoint_3": {
+          "joint_from_singles_error": 0.002006146065127866,
+          "pair_interaction_ratios": {
+            "1+2": 0.002293592023479094,
+            "1+4": 0.0020986369244068276,
+            "2+4": 0.0026190619542357093
+          },
+          "third_order_over_joint": 7.813171065705428e-05
+        },
+        "endpoint_4": {
+          "joint_from_singles_error": 0.0018628171519561871,
+          "pair_interaction_ratios": {
+            "1+2": 0.0019530609279917897,
+            "1+4": 0.002230794960544119,
+            "2+4": 0.0022938544367590154
+          },
+          "third_order_over_joint": 5.226116512739071e-05
+        },
+        "endpoint_5": {
+          "joint_from_singles_error": 0.0018999044837726539,
+          "pair_interaction_ratios": {
+            "1+2": 0.002130597726463318,
+            "1+4": 0.0020861694417709745,
+            "2+4": 0.0023749523372985156
+          },
+          "third_order_over_joint": 7.18944810424242e-05
+        }
+      },
+      "worst_pair_ratio": 0.002972712908428883,
+      "singleton_target_rms": [
+        0.019483136032729283,
+        0.017276841270360138,
+        0.014963559254947346
+      ]
+    },
+    {
+      "split": 10,
+      "cells": {
+        "British": {
+          "joint_from_singles_error": 0.001756944814313872,
+          "pair_interaction_ratios": {
+            "1+2": 0.0016351480999647061,
+            "1+4": 0.001655460964543352,
+            "2+4": 0.00265704231032377
+          },
+          "third_order_over_joint": 6.833206203681901e-05
+        },
+        "American": {
+          "joint_from_singles_error": 0.0022595820187854077,
+          "pair_interaction_ratios": {
+            "1+2": 0.0023819799063189316,
+            "1+4": 0.003455106812416937,
+            "2+4": 0.0022068975856793897
+          },
+          "third_order_over_joint": 9.23025463609808e-05
+        },
+        "endpoint_0": {
+          "joint_from_singles_error": 0.0020361049343933122,
+          "pair_interaction_ratios": {
+            "1+2": 0.0020313842705637288,
+            "1+4": 0.002713021843655203,
+            "2+4": 0.002420488888424852
+          },
+          "third_order_over_joint": 7.348907458949085e-05
+        },
+        "endpoint_1": {
+          "joint_from_singles_error": 0.0021656802972181313,
+          "pair_interaction_ratios": {
+            "1+2": 0.002101829555990782,
+            "1+4": 0.002928503107231168,
+            "2+4": 0.002513295318206402
+          },
+          "third_order_over_joint": 7.035638202919618e-05
+        },
+        "endpoint_2": {
+          "joint_from_singles_error": 0.0022718163913699346,
+          "pair_interaction_ratios": {
+            "1+2": 0.0022463545871641553,
+            "1+4": 0.0031406798347892386,
+            "2+4": 0.0026988582071322113
+          },
+          "third_order_over_joint": 0.00011269700830272223
+        },
+        "endpoint_3": {
+          "joint_from_singles_error": 0.0020382039381699594,
+          "pair_interaction_ratios": {
+            "1+2": 0.002082736593595467,
+            "1+4": 0.002776365285503503,
+            "2+4": 0.002452950414649353
+          },
+          "third_order_over_joint": 9.477612233423483e-05
+        },
+        "endpoint_4": {
+          "joint_from_singles_error": 0.0018668048004984558,
+          "pair_interaction_ratios": {
+            "1+2": 0.0019237368707888582,
+            "1+4": 0.0023128776691105804,
+            "2+4": 0.0022796426262627774
+          },
+          "third_order_over_joint": 7.290698246733356e-05
+        },
+        "endpoint_5": {
+          "joint_from_singles_error": 0.0019269262520951302,
+          "pair_interaction_ratios": {
+            "1+2": 0.0019488350626283852,
+            "1+4": 0.002513266272864244,
+            "2+4": 0.002273548889867403
+          },
+          "third_order_over_joint": 7.805549661342924e-05
+        }
+      },
+      "worst_pair_ratio": 0.003455106812416937,
+      "singleton_target_rms": [
+        0.015178890306451115,
+        0.01562547109232977,
+        0.020548928755918648
+      ]
+    },
+    {
+      "split": 11,
+      "cells": {
+        "British": {
+          "joint_from_singles_error": 0.0017954271457035508,
+          "pair_interaction_ratios": {
+            "1+2": 0.0020754974308876285,
+            "1+4": 0.0018258577627348388,
+            "2+4": 0.002068790114298879
+          },
+          "third_order_over_joint": 6.359031611786446e-05
+        },
+        "American": {
+          "joint_from_singles_error": 0.0022916870896934234,
+          "pair_interaction_ratios": {
+            "1+2": 0.0030574964375755576,
+            "1+4": 0.0027466732597351833,
+            "2+4": 0.002049810065213781
+          },
+          "third_order_over_joint": 9.57916362766096e-05
+        },
+        "endpoint_0": {
+          "joint_from_singles_error": 0.0020546090974249303,
+          "pair_interaction_ratios": {
+            "1+2": 0.002609886818416496,
+            "1+4": 0.002349411420007018,
+            "2+4": 0.0020180481188793215
+          },
+          "third_order_over_joint": 5.914285456417985e-05
+        },
+        "endpoint_1": {
+          "joint_from_singles_error": 0.0022099041159376713,
+          "pair_interaction_ratios": {
+            "1+2": 0.0027513107746342125,
+            "1+4": 0.002634658999318378,
+            "2+4": 0.0021922348319850507
+          },
+          "third_order_over_joint": 9.844570001096832e-05
+        },
+        "endpoint_2": {
+          "joint_from_singles_error": 0.002323020129220639,
+          "pair_interaction_ratios": {
+            "1+2": 0.002859370392171851,
+            "1+4": 0.002728245077292045,
+            "2+4": 0.0022183525816136056
+          },
+          "third_order_over_joint": 9.076130092431511e-05
+        },
+        "endpoint_3": {
+          "joint_from_singles_error": 0.0020694854429235293,
+          "pair_interaction_ratios": {
+            "1+2": 0.0027073808816604726,
+            "1+4": 0.0023485635714381482,
+            "2+4": 0.002094313355787309
+          },
+          "third_order_over_joint": 9.230383184555328e-05
+        },
+        "endpoint_4": {
+          "joint_from_singles_error": 0.0019098985145876662,
+          "pair_interaction_ratios": {
+            "1+2": 0.002302789131794836,
+            "1+4": 0.002100734365197711,
+            "2+4": 0.0019903629584712337
+          },
+          "third_order_over_joint": 8.274852447671023e-05
+        },
+        "endpoint_5": {
+          "joint_from_singles_error": 0.0019580329458689975,
+          "pair_interaction_ratios": {
+            "1+2": 0.0024884907309936396,
+            "1+4": 0.0022300569864792986,
+            "2+4": 0.0019024390649706538
+          },
+          "third_order_over_joint": 7.474995626198294e-05
+        }
+      },
+      "worst_pair_ratio": 0.0030574964375755576,
+      "singleton_target_rms": [
+        0.018716874837984128,
+        0.014462284716291835,
+        0.01794889111122508
+      ]
+    },
+    {
+      "split": 12,
+      "cells": {
+        "British": {
+          "joint_from_singles_error": 0.0017597520548818747,
+          "pair_interaction_ratios": {
+            "1+2": 0.0019677355694089705,
+            "1+4": 0.0024385194740389614,
+            "2+4": 0.001863501619860935
+          },
+          "third_order_over_joint": 8.855130476905094e-05
+        },
+        "American": {
+          "joint_from_singles_error": 0.0023920303673072066,
+          "pair_interaction_ratios": {
+            "1+2": 0.003267073259791011,
+            "1+4": 0.0017202117843151251,
+            "2+4": 0.004134130690485272
+          },
+          "third_order_over_joint": 0.00010940880482402582
+        },
+        "endpoint_0": {
+          "joint_from_singles_error": 0.0021203225545700158,
+          "pair_interaction_ratios": {
+            "1+2": 0.0027097727480261923,
+            "1+4": 0.0019822031789864347,
+            "2+4": 0.003272644109993171
+          },
+          "third_order_over_joint": 8.784580517732867e-05
+        },
+        "endpoint_1": {
+          "joint_from_singles_error": 0.0022533188192689537,
+          "pair_interaction_ratios": {
+            "1+2": 0.002842378023387419,
+            "1+4": 0.0020706203699057545,
+            "2+4": 0.0034614943357260093
+          },
+          "third_order_over_joint": 0.00010060863551980092
+        },
+        "endpoint_2": {
+          "joint_from_singles_error": 0.002367818069106495,
+          "pair_interaction_ratios": {
+            "1+2": 0.003139446866811193,
+            "1+4": 0.002164594151170416,
+            "2+4": 0.0037880323614557982
+          },
+          "third_order_over_joint": 0.00013466585001158834
+        },
+        "endpoint_3": {
+          "joint_from_singles_error": 0.002114546992190548,
+          "pair_interaction_ratios": {
+            "1+2": 0.0027125366737293702,
+            "1+4": 0.0019962245788904725,
+            "2+4": 0.003357388949015958
+          },
+          "third_order_over_joint": 8.066147719560382e-05
+        },
+        "endpoint_4": {
+          "joint_from_singles_error": 0.0019567994974806625,
+          "pair_interaction_ratios": {
+            "1+2": 0.0026182655720130873,
+            "1+4": 0.002190373573676238,
+            "2+4": 0.0029133273773937697
+          },
+          "third_order_over_joint": 0.00011585059218356654
+        },
+        "endpoint_5": {
+          "joint_from_singles_error": 0.0019805007331357032,
+          "pair_interaction_ratios": {
+            "1+2": 0.002573060737996699,
+            "1+4": 0.0019781828590028708,
+            "2+4": 0.0030042547223549138
+          },
+          "third_order_over_joint": 9.733438484318217e-05
+        }
+      },
+      "worst_pair_ratio": 0.004134130690485272,
+      "singleton_target_rms": [
+        0.020346858222178524,
+        0.013797217624404107,
+        0.017086032437447034
+      ]
+    },
+    {
+      "split": 13,
+      "cells": {
+        "British": {
+          "joint_from_singles_error": 0.0016601712446569926,
+          "pair_interaction_ratios": {
+            "1+2": 0.003143006232712734,
+            "1+4": 0.0033549640548474207,
+            "2+4": 0.0012363475894467872
+          },
+          "third_order_over_joint": 6.816245679301374e-05
+        },
+        "American": {
+          "joint_from_singles_error": 0.0022950531183725635,
+          "pair_interaction_ratios": {
+            "1+2": 0.00368521926764492,
+            "1+4": 0.0023427027525953575,
+            "2+4": 0.0028028342869838006
+          },
+          "third_order_over_joint": 0.00010472928995581352
+        },
+        "endpoint_0": {
+          "joint_from_singles_error": 0.0020237459997323975,
+          "pair_interaction_ratios": {
+            "1+2": 0.0034347525919599543,
+            "1+4": 0.0028741939110347946,
+            "2+4": 0.002214200485620709
+          },
+          "third_order_over_joint": 0.0001018148223824621
+        },
+        "endpoint_1": {
+          "joint_from_singles_error": 0.002146494324270854,
+          "pair_interaction_ratios": {
+            "1+2": 0.0038134776574126504,
+            "1+4": 0.0027311079251577295,
+            "2+4": 0.0022525091313163525
+          },
+          "third_order_over_joint": 6.335630432043233e-05
+        },
+        "endpoint_2": {
+          "joint_from_singles_error": 0.002256725974421725,
+          "pair_interaction_ratios": {
+            "1+2": 0.0038873136738639784,
+            "1+4": 0.003043583944379897,
+            "2+4": 0.0024216848046064742
+          },
+          "third_order_over_joint": 0.00011000940122945414
+        },
+        "endpoint_3": {
+          "joint_from_singles_error": 0.0020106277460687876,
+          "pair_interaction_ratios": {
+            "1+2": 0.0033896550653893277,
+            "1+4": 0.0029233557513109005,
+            "2+4": 0.0021854836995136035
+          },
+          "third_order_over_joint": 9.246487791016118e-05
+        },
+        "endpoint_4": {
+          "joint_from_singles_error": 0.001874508680413421,
+          "pair_interaction_ratios": {
+            "1+2": 0.0030919298865924854,
+            "1+4": 0.003120660469873926,
+            "2+4": 0.0019101687247076846
+          },
+          "third_order_over_joint": 9.541674136614192e-05
+        },
+        "endpoint_5": {
+          "joint_from_singles_error": 0.0018986684624174687,
+          "pair_interaction_ratios": {
+            "1+2": 0.0032805291986786264,
+            "1+4": 0.0028400594858942847,
+            "2+4": 0.0019486132666015434
+          },
+          "third_order_over_joint": 7.422292297037822e-05
+        }
+      },
+      "worst_pair_ratio": 0.0038873136738639784,
+      "singleton_target_rms": [
+        0.023508727254342936,
+        0.015384530518706944,
+        0.012699682810660695
+      ]
+    },
+    {
+      "split": 14,
+      "cells": {
+        "British": {
+          "joint_from_singles_error": 0.0017749559499177737,
+          "pair_interaction_ratios": {
+            "1+2": 0.0023506469223859806,
+            "1+4": 0.0018274083748456727,
+            "2+4": 0.0030675864201503015
+          },
+          "third_order_over_joint": 5.717773741504097e-05
+        },
+        "American": {
+          "joint_from_singles_error": 0.0022391681496262013,
+          "pair_interaction_ratios": {
+            "1+2": 0.0027694561919758814,
+            "1+4": 0.004225595784321734,
+            "2+4": 0.002263068607711518
+          },
+          "third_order_over_joint": 8.535881757474412e-05
+        },
+        "endpoint_0": {
+          "joint_from_singles_error": 0.0020291960051588708,
+          "pair_interaction_ratios": {
+            "1+2": 0.0025497146701527196,
+            "1+4": 0.0032757200804488695,
+            "2+4": 0.002742702559048833
+          },
+          "third_order_over_joint": 8.634963427549665e-05
+        },
+        "endpoint_1": {
+          "joint_from_singles_error": 0.002142258873389286,
+          "pair_interaction_ratios": {
+            "1+2": 0.0027641776417123795,
+            "1+4": 0.003538568894062325,
+            "2+4": 0.002622282295663325
+          },
+          "third_order_over_joint": 5.8932803274248534e-05
+        },
+        "endpoint_2": {
+          "joint_from_singles_error": 0.002258991919068382,
+          "pair_interaction_ratios": {
+            "1+2": 0.0028992016188551083,
+            "1+4": 0.0037619873427210456,
+            "2+4": 0.002808617946623379
+          },
+          "third_order_over_joint": 7.349486374467317e-05
+        },
+        "endpoint_3": {
+          "joint_from_singles_error": 0.0020231742830508054,
+          "pair_interaction_ratios": {
+            "1+2": 0.0025486715764900187,
+            "1+4": 0.0033329140048965204,
+            "2+4": 0.002628106782241044
+          },
+          "third_order_over_joint": 7.842095061948222e-05
+        },
+        "endpoint_4": {
+          "joint_from_singles_error": 0.0018931580194981275,
+          "pair_interaction_ratios": {
+            "1+2": 0.0023751927181040605,
+            "1+4": 0.002756523461187916,
+            "2+4": 0.0026796967882920177
+          },
+          "third_order_over_joint": 7.035464381652053e-05
+        },
+        "endpoint_5": {
+          "joint_from_singles_error": 0.0019368379205823563,
+          "pair_interaction_ratios": {
+            "1+2": 0.0024432802446556364,
+            "1+4": 0.002995598741342118,
+            "2+4": 0.00271068372065955
+          },
+          "third_order_over_joint": 6.650516197103569e-05
+        }
+      },
+      "worst_pair_ratio": 0.004225595784321734,
+      "singleton_target_rms": [
+        0.022150009971398196,
+        0.017759215257020088,
+        0.011344781342374894
+      ]
+    },
+    {
+      "split": 15,
+      "cells": {
+        "British": {
+          "joint_from_singles_error": 0.0018382874258158943,
+          "pair_interaction_ratios": {
+            "1+2": 0.0024337318466088006,
+            "1+4": 0.0022786395710339925,
+            "2+4": 0.001970632665630988
+          },
+          "third_order_over_joint": 9.003725792895436e-05
+        },
+        "American": {
+          "joint_from_singles_error": 0.002294632649550273,
+          "pair_interaction_ratios": {
+            "1+2": 0.0015274813515267706,
+            "1+4": 0.003098095969949389,
+            "2+4": 0.0031313277437218802
+          },
+          "third_order_over_joint": 0.00010561199926692392
+        },
+        "endpoint_0": {
+          "joint_from_singles_error": 0.002080746474108588,
+          "pair_interaction_ratios": {
+            "1+2": 0.0018263527284686745,
+            "1+4": 0.0027727298969798535,
+            "2+4": 0.0027011913846482047
+          },
+          "third_order_over_joint": 9.819963068373926e-05
+        },
+        "endpoint_1": {
+          "joint_from_singles_error": 0.002216030672959367,
+          "pair_interaction_ratios": {
+            "1+2": 0.0019428057183379398,
+            "1+4": 0.002936986173800328,
+            "2+4": 0.0028362729840793973
+          },
+          "third_order_over_joint": 8.732300224621098e-05
+        },
+        "endpoint_2": {
+          "joint_from_singles_error": 0.0023168930368340124,
+          "pair_interaction_ratios": {
+            "1+2": 0.0020789005598189224,
+            "1+4": 0.0030610593503352687,
+            "2+4": 0.002907640240625065
+          },
+          "third_order_over_joint": 0.00011312711007883497
+        },
+        "endpoint_3": {
+          "joint_from_singles_error": 0.0020931317486151076,
+          "pair_interaction_ratios": {
+            "1+2": 0.001957517659532417,
+            "1+4": 0.0028326266277516813,
+            "2+4": 0.002641572482667287
+          },
+          "third_order_over_joint": 0.00011383981735201362
+        },
+        "endpoint_4": {
+          "joint_from_singles_error": 0.0019524856963688364,
+          "pair_interaction_ratios": {
+            "1+2": 0.0021446589814603603,
+            "1+4": 0.0025666771737336974,
+            "2+4": 0.0024039494989736227
+          },
+          "third_order_over_joint": 0.0001126125552616824
+        },
+        "endpoint_5": {
+          "joint_from_singles_error": 0.0019741051858297226,
+          "pair_interaction_ratios": {
+            "1+2": 0.0019324141975177094,
+            "1+4": 0.0025800261782842645,
+            "2+4": 0.0025227690764848838
+          },
+          "third_order_over_joint": 6.84062464058592e-05
+        }
+      },
+      "worst_pair_ratio": 0.0031313277437218802,
+      "singleton_target_rms": [
+        0.015274350828456093,
+        0.019226785092602814,
+        0.01668253640040068
+      ]
+    },
+    {
+      "split": 16,
+      "cells": {
+        "British": {
+          "joint_from_singles_error": 0.001754490905526546,
+          "pair_interaction_ratios": {
+            "1+2": 0.0023049358929349674,
+            "1+4": 0.0022765932698586024,
+            "2+4": 0.001933880932956795
+          },
+          "third_order_over_joint": 7.50520207465662e-05
+        },
+        "American": {
+          "joint_from_singles_error": 0.00218171661168698,
+          "pair_interaction_ratios": {
+            "1+2": 0.0031874549775667655,
+            "1+4": 0.0032372040274945475,
+            "2+4": 0.0015129076356494766
+          },
+          "third_order_over_joint": 0.00012176716973625049
+        },
+        "endpoint_0": {
+          "joint_from_singles_error": 0.0019791722559621403,
+          "pair_interaction_ratios": {
+            "1+2": 0.002841712762364899,
+            "1+4": 0.0028314597031566507,
+            "2+4": 0.0016649263224655202
+          },
+          "third_order_over_joint": 9.959653796658961e-05
+        },
+        "endpoint_1": {
+          "joint_from_singles_error": 0.002129321243920877,
+          "pair_interaction_ratios": {
+            "1+2": 0.003088186805389932,
+            "1+4": 0.0029380494345230468,
+            "2+4": 0.0017801495075301654
+          },
+          "third_order_over_joint": 0.00010586713544689714
+        },
+        "endpoint_2": {
+          "joint_from_singles_error": 0.0022263252758796316,
+          "pair_interaction_ratios": {
+            "1+2": 0.0032327742797045585,
+            "1+4": 0.0030885311041908762,
+            "2+4": 0.0019027031568420523
+          },
+          "third_order_over_joint": 0.0001022830883447923
+        },
+        "endpoint_3": {
+          "joint_from_singles_error": 0.0019842846813855545,
+          "pair_interaction_ratios": {
+            "1+2": 0.002809707298123386,
+            "1+4": 0.0028508302448145657,
+            "2+4": 0.0017046991355584424
+          },
+          "third_order_over_joint": 0.000107217651206579
+        },
+        "endpoint_4": {
+          "joint_from_singles_error": 0.0018575646742472552,
+          "pair_interaction_ratios": {
+            "1+2": 0.0025845094370745463,
+            "1+4": 0.0025792944851053,
+            "2+4": 0.001762548629445811
+          },
+          "third_order_over_joint": 0.00011595022005823495
+        },
+        "endpoint_5": {
+          "joint_from_singles_error": 0.0018563366551603289,
+          "pair_interaction_ratios": {
+            "1+2": 0.002583195109822713,
+            "1+4": 0.00258458223574577,
+            "2+4": 0.001501556865069321
+          },
+          "third_order_over_joint": 8.595426723232829e-05
+        }
+      },
+      "worst_pair_ratio": 0.0032372040274945475,
+      "singleton_target_rms": [
+        0.020862845044831747,
+        0.013607082547967643,
+        0.016811261636256358
+      ]
+    }
+  ],
+  "canonical_over_random_median": 1.910192699587187,
+  "random_worst_pair_median": 0.003481477146483924,
+  "anchor_max_abs": 2.86102294921875e-06,
+  "anchor_relative": 3.8029908540972863e-07,
+  "max_native_write_error": 1.3914327391929995e-07,
+  "max_split_write_closure": 1.141200226165778e-15,
+  "cpu_random_split_closure": 1.079112848695709e-15,
+  "body_forwards": 832,
+  "seconds": 11.578517799964175,
+  "panel_status": "opened four-context physical-write screen",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_typed_face_write_composition_v1.py": "0188541c790dbeea403db10ca45b56176cf623a614aa18f85019bc77f4c345ec",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/regional_paired_write_runtime_v2.py": "2f2d92cdee57a91e73acceed61e66d52f478ace29e5e5076756deb73b7a635ec",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/typed_face_write_atoms_v1.py": "846d492492e1da5f57877881b76ba93a9433fb248b96d6466e44e3443423211a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_WRITE_COMPOSITION_V1_PREREGISTRATION.md": "d2536df937e8cf6fd00a954a8f490b5a86a94aedd879ed54ba820429d89b1e64",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_endpoint_batching_v1.py": "fb29a695095198f0eccbcc97b9ae16cfbc6d9e1415379d430556376621cb68ec",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/ODD_ATTENTION8H2_TYPED_FACE_REMOVAL_V1_ROWS.json": "63e493dde526d3db86d5cf7e89039b604a107b8c848f33b84cacda5d1688cb91",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REGIONAL_ENDPOINT_BATCHING_V1_ARTIFACT.pt": "b9b2dc77cb87b4192ec45f63dd7a02f959ece8b2f4973912ef7cf6d8899a31e3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_typed_face_v1/native.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_typed_face_v1/program.pt": "b8faca4a604472ca857799ab77a522b6e956e8b938d01e44493e037847a143a0"
+  },
+  "scope": "Three physical writes including cross term; tests a different explicit object from the preserved failed two-input-port additive hypothesis. No fresh promotion or whole-model extraction."
+}
