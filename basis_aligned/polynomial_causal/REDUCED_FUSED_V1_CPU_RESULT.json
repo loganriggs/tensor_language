@@ -1,0 +1,43 @@
+{
+  "pred_a": true,
+  "max_formula_error": 3.791645323009057e-15,
+  "fixture_count": 40,
+  "operation_counts": {
+    "full_attention8": {
+      "before": 2,
+      "after": 1
+    },
+    "head8_delta": {
+      "before": 2,
+      "after": 1
+    },
+    "mlp8_down": {
+      "before": 4,
+      "after": 1
+    }
+  },
+  "cpu_seconds": {
+    "original": [
+      0.1025034817866981,
+      0.10349742998369038,
+      0.10401459690183401,
+      0.10435762512497604,
+      0.11269157496280968,
+      0.11294313007965684
+    ],
+    "fused": [
+      0.05677584512159228,
+      0.05568719794973731,
+      0.05553975887596607,
+      0.055528077064082026,
+      0.062202060129493475,
+      0.06036173086613417
+    ]
+  },
+  "cpu_median_seconds": {
+    "original": 0.10418611101340503,
+    "fused": 0.0562315215356648
+  },
+  "static_float_scalars": 24153091,
+  "scope": "FP64-algebra equivalence on40opened native-state fixtures; unchanged weights and counterfactual. CPU timing uses2threads,sixinterleavedexamples afterwarmup; not a GPU or end-to-end speedup claim. Native and isolated fused-package validation pending."
+}

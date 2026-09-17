@@ -1,6 +1,6 @@
 # Two native states now drive the local regional executor
 
-The regional city-conditioned head8.2 write and its coupled MLP8 response now run standalone from two supplied residual7 states. The executor generates block8 normalization, full attention8, and the MLP8 context internally; native and isolated replay pass. It still needs the later model to produce spelling effects. Fresh native selectivity transfers. The reduced cross-term variant now passes fresh prediction and same-site selectivity tests:5.0–12%effect error beats both frozen baselines. Its own standalone certification remains pending; composition remains failed.
+The regional city-conditioned head8.2 write and its coupled MLP8 response now run standalone from two supplied residual7 states. The executor generates block8 normalization, full attention8, and the MLP8 context internally; native and isolated replay pass. It still needs the later model to produce spelling effects. Fresh native selectivity transfers. The reduced cross-term variant now passes fresh prediction and same-site selectivity tests:5.0–12%effect error beats both frozen baselines. Its own two-state standalone package now passes native and isolated replay; composition remains failed.
 
 ```mermaid
 flowchart LR
@@ -20,7 +20,7 @@ Residual7 means the output of block7, before block8's initial-state mixing. The 
 | Required property | Evidence and current limit |
 |---|---|
 | Predicts OOD | Reduced cross variant predicts the complete native half-write with5.0–12%error on fresh constructions/city pairs, beating both frozen baselines. Same endpoints; native states and suffix remain required. The older fuller-city-parent comparison has a different target. |
-| Extracted | Complete-response two-state executor passes native and isolated replay. Reduced variant passes CPU formula equivalence only; native and isolated reduced-package checks remain. Later suffix and two states stay external. |
+| Extracted | Complete-response two-state executor passes native and isolated replay. Reduced variant now also passes native and isolated replay on40opened confirmation examples. Later suffix and two states stay external. |
 | Selective | Fresh reduced block9 edit attenuates16–26%, beats16/16same-site residual-direction nulls per family, collateral at most0.18target. Paired intervention, not donor-free removal. |
 | Composes | Direct-write/MLP8 additivity and earlier partition tests failed. Keeping their exact coupled computation does not satisfy the small-interaction criterion. |
 | Simple, separately priced | About24million floats and38thousand native-state scalars at length32. Exact weight sharing removes duplicate storage; no matched-effect circuit simplicity advantage established. |
@@ -67,3 +67,11 @@ The native-state formula uses more information and computation than the token/te
 Primary evidence: [fresh result](../../HEAD2_MLP8_CROSS_FRESH_V1_RESULT.json), [frozen protocol](../../HEAD2_MLP8_CROSS_FRESH_V1_PREREGISTRATION.md), [baseline training artifact](../../HEAD2_MLP8_CROSS_FRESH_V1_BASELINES.json).800forwards took9.330373195seconds. Native-versus-compiled full-response anchors and null norms pass all instrument gates.
 
 The next [two-state reduced implementation](../../typed_face_reduced_residual7_v1.py) already passes [CPU formula equivalence](../../REDUCED_RESIDUAL7_V1_CPU_RESULT.json) on40opened native fixtures. This does not transfer the complete-response package's extraction certificate automatically. The reduced package still needs its token table extended algebraically to the fresh panel vocabulary, native effect replay, and isolated execution.
+
+## Reduced package certified; exact computation fusion under validation
+
+The [reduced two-state package](../../extracted_circuits/typed_face_reduced_residual7_v1/README.md) now passes native and isolated replay of the reduced intervention itself. Its114-token initial/value tables are computed from model weights. It stores24,153,091floats; two supplied residual7 arrays and the later model remain external. This is the implementation of the fresh prediction/selectivity result, not an automatic transfer of the earlier complete-response certificate. [Native receipt](../../TYPED_FACE_REDUCED_RESIDUAL7_V1_RESULT.json), [isolated receipt](../../TYPED_FACE_REDUCED_RESIDUAL7_V1_STANDALONE_RESULT.json), [protocol](../../TYPED_FACE_REDUCED_RESIDUAL7_V1_PREREGISTRATION.md). Native replay:120forwards,2.557967581seconds.
+
+A subsequent exact fusion combines retained MLP8 terms before their shared down-projection: four applications of that matrix become one. It also reuses one full attention8 evaluation and one head8 edit computation where the reference code used two of each. The weights, denominator, and counterfactual are unchanged. CPU equivalence passes on40opened fixtures (**fold**, implementation).
+
+In six interleaved two-thread CPU examples after warmup, median local execution was0.10seconds for the reference and0.056seconds for the fused version. This bounded timing is not an end-to-end or GPU speedup claim. Native and isolated certification of the fused version is pending. [CPU identity/timing receipt](../../REDUCED_FUSED_V1_CPU_RESULT.json), [fused code](../../typed_face_reduced_fused_v1.py). Fewer repeated operations do not settle the matched-effect simplicity or causal-composition properties.

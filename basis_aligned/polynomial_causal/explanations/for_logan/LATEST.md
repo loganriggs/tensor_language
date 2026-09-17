@@ -2,7 +2,7 @@
 
 **17 September, 23:21 UTC (Claude lane) — [The temporal will/had readout set, through the same battery](research_update_2026-09-17_temporal_readout_set.md).** Set {11.3, 9.1, 15.5, 9.4}; 81% of the margin; selective; frozen prediction and natural FineWeb/Pile rows pass; NP relay causal.
 
-**Latest: [17 September,23:14 — Two-state regional executor](research_update_2026-09-17_2314_two_state_regional.md).** Native and isolated replay pass without an external scale/context input. A dominant head8.2 cross fold fails locally on multiline rows, but its separate opened causal screen passes. The retained term has an exact bilinear kernel and now passes fresh prediction against both baselines and same-site selectivity. Its reduced two-state executor passes CPU equivalence; standalone certification remains pending.
+**Latest: [17 September,23:14 — Two-state regional executor](research_update_2026-09-17_2314_two_state_regional.md).** Native and isolated replay pass without an external scale/context input. A dominant head8.2 cross fold fails locally on multiline rows, but its separate opened causal screen passes. The retained term has an exact bilinear kernel and now passes fresh prediction against both baselines and same-site selectivity. Its reduced two-state executor now passes native and isolated replay. An exact fused version passes CPU equivalence and a bounded local timing check; its certification remains pending.
 
 **17 September (Claude lane) — [The aspectual has/had readout component, taken through the definition of done](research_update_2026-09-17_aspectual_readout_component.md).** Heads {8.1, 9.1, 9.4} on one weight-defined direction each; 8.1 is a token-only generator; selective/composes/OOD held with nulls; two open ports declared.
 

@@ -4,10 +4,10 @@
     "explicit_dependency_edges": 4,
     "four_trait_declared_unverified": 0,
     "four_trait_verified": 2,
-    "packages": 40,
-    "partial_or_unassessed": 38,
-    "with_declared_inputs": 24,
-    "with_manifest": 35
+    "packages": 41,
+    "partial_or_unassessed": 39,
+    "with_declared_inputs": 25,
+    "with_manifest": 36
   },
   "dependency_cycles": [],
   "four_trait_order": [
@@ -1596,6 +1596,50 @@
       "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_mlp8_coupled_v1",
       "schema": "regional.typed_face_mlp8_coupled.v1",
       "scope": "Native and isolated local executor replay passes. Three native state arrays and the entire later suffix remain external. No compression or causal-composition promotion.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 8,
+      "declared_input_field": "ports",
+      "declared_inputs": [
+        "residual7[B,T,1152]",
+        "donor_city7[B,1152]",
+        "token_ids[B,T]",
+        "recipient_token:int",
+        "donor_token:int",
+        "city:int",
+        "destination[T]:bool",
+        "strength:float=.5"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": 2,
+      "four_traits": {
+        "composition_reuse": false,
+        "extraction": true,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "ood_prediction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_reduced_residual7_v1/manifest.json",
+      "manifest_sha256": "57ed5341c2dadbfe48e02ea66de8385c4b2e0e142fe9ade54dba16b67e734c3d",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "typed_face_reduced_residual7_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_reduced_residual7_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_reduced_residual7_v1",
+      "schema": "regional.typed_face_reduced_residual7.v1",
+      "scope": "Reduced-cross operator native120forward and isolated40fixture replay pass. Two residual7 state arrays,114supported sequence tokens,external suffix. Fresh reduced-cross prediction/selectivity evidence separate; composition not established.",
       "verification": {
         "path": null,
         "status": "not_available",
