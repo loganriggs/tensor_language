@@ -1,0 +1,27 @@
+{
+  "target": "native attention8 inherited-city half-removal effect",
+  "training": "20opened cells/40sequences/240rows; six old endpoints",
+  "features": [
+    "intercept",
+    "cue_sign",
+    "length/32",
+    "city_position/32"
+  ],
+  "coefficients": [
+    -0.07011269081298656,
+    -0.1667254439244667,
+    -0.22967711629454945,
+    0.5836356844914166
+  ],
+  "design_rank": 4,
+  "cue_constants": {
+    "British": -0.2709451176226139,
+    "American": 0.06250577022631963
+  },
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SINGLE_HEAD_FRESH_V1_ROWS.json": "95aae0bf9b6e579fbf2dfcb0c88f44892aca5766a4acca52823766257ca19e09",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_INHERITED_REMOVAL_V1_ARTIFACT.pt": "d7c9369ae95c2035925f5c877caeb838ecbd5424581f8985389da88ef1513ac4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/freeze_city_removal_endpoint_baselines_v1.py": "e54a3692f3c816cd152ff01b87ccea98f91bd5a386a399a0d8299afc56709308"
+  },
+  "scope": "No endpoint indicators; fixed four text features allow unseen endpoint application without assigning new words to old endpoint categories. No model outcomes on the new panel."
+}
