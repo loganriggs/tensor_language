@@ -24,7 +24,10 @@ def main():
  for family in doc['variants']:
   idx=[i for i,r in enumerate(rows) if r['variant']==family];den=target[idx].norm().clamp_min(1e-8)
   metrics[family]={name:float((pred[idx]-target[idx]).norm()/den) for name,pred in [('face',face),('cue_constant',constant),('text_ols',fitted)]}
- result_path=P/(STEM+'_RESULT.json');result=json.loads(result_path.read_text());result['pred_g']=all(x['face']<=.8*x['cue_constant'] and x['face']<=.8*x['text_ols'] for x in metrics.values())
+ result_path=P/(STEM+'_RESULT.json');result=json.loads(result_path.read_text())
+ inherited_gates={'pred_a':result['pred_a'],'pred_b':result['pred_b'],'pred_c':result['pred_c'],'pred_d':result['pred_d'],'pred_e':result['pred_e'],'pred_f':result['pred_f']}
+ assert all(isinstance(value,bool) for value in inherited_gates.values())
+ result['pred_g']=all(x['face']<=.8*x['cue_constant'] and x['face']<=.8*x['text_ols'] for x in metrics.values())
  result['frozen_baseline_errors']=metrics;result['panel_status']='All ten constructions fresh at freeze; same cities and endpoints as baseline training'
  result['scope']='Prospective frozen constant/text-feature baselines and all matched-direction screen gates. Conditional native-state formula has more information than token-only baselines. Rank-deficient base fit acknowledged. No new-city, new-endpoint, standalone token-only, composition or simplicity certification.'
  result_path.write_text(json.dumps(result,indent=2)+'\n');print(json.dumps({'pred_g':result['pred_g'],'frozen_baseline_errors':metrics},indent=2))
