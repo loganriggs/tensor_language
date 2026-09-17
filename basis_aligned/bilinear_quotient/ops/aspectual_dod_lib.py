@@ -202,7 +202,7 @@ class ManualForward:
         gen = None
         if mode in ("random", "midpoint_random", "project_random", "keep_only_random"):
             gen = self.torch.Generator(device="cpu").manual_seed(seed)
-        self.use_subtract = mode == "subtract"
+        self.use_subtract = mode in ("subtract", "replace")
         self.use_project = mode in ("project", "project_random", "keep_only", "keep_only_random")
         for index, row in enumerate(rows):
             for position in positions_of(row, component.where):
@@ -256,6 +256,10 @@ class ManualForward:
             if d is None:
                 raise ValueError("subtract mode needs an explicit vector per slice")
             return w - d.to(device=w.device, dtype=w.dtype)
+        if mode == "replace":
+            if d is None:
+                raise ValueError("replace mode needs an explicit vector per slice")
+            return d.to(device=w.device, dtype=w.dtype)
         if mode in ("midpoint", "midpoint_random"):
             if d is None:
                 raise ValueError("midpoint modes need captured paired deltas")
@@ -587,3 +591,53 @@ def head_source_terms(fw: "ManualForward", rows: Sequence[Row], component: Compo
                                "term_inherited": term_inh.tolist(), "coefficient": total}
             out.append(entry)
     return out, lamb
+
+
+def source_restricted_slices(fw: "ManualForward", rows: Sequence[Row], component: Component,
+                             keep_source, branches=("current", "inherited")):
+    """Recompute head slices z_h(final) keeping only sources s with keep_source(row, s) True and only
+    the named value branches. Returns {(row_id, component.name, final, head): 128-d tensor}."""
+    torch, F, model = fw.torch, fw.F, fw.model
+    import jacclust.tt_model as TT
+    attn = model.transformer.h[component.layer].attn
+    captured = {}
+
+    def pre_hook(_module, args):
+        captured["x"] = args[0].detach().clone()
+        captured["v1"] = None if len(args) < 2 or args[1] is None else args[1].detach().clone()
+        return None
+
+    handle = attn.register_forward_pre_hook(pre_hook)
+    try:
+        fw.forward(rows)
+    finally:
+        handle.remove()
+    x, v1 = captured["x"], captured["v1"]
+    B, T, C = x.shape
+    H, D = attn.n_head, attn.head_dim
+    out = {}
+    with torch.no_grad():
+        q = attn.c_q(x).view(B, T, H, D); k = attn.c_k(x).view(B, T, H, D)
+        q2 = attn.c_q2(x).view(B, T, H, D); k2 = attn.c_k2(x).view(B, T, H, D)
+        v_cur = attn.c_v(x).view(B, T, H, D)
+        v1v = v_cur if v1 is None else v1.view_as(v_cur)
+        lamb = float(attn.lamb)
+        cos, sin = attn.rotary(q)
+        q, k = F.rms_norm(q, (D,)), F.rms_norm(k, (D,))
+        q, k = TT.apply_rotary_emb(q, cos, sin), TT.apply_rotary_emb(k, cos, sin)
+        q2, k2 = F.rms_norm(q2, (D,)), F.rms_norm(k2, (D,))
+        q2, k2 = TT.apply_rotary_emb(q2, cos, sin), TT.apply_rotary_emb(k2, cos, sin)
+        for i, row in enumerate(rows):
+            t = row.final
+            for head in component.heads:
+                s1 = (q[i, t, head].float() @ k[i, :t + 1, head].float().T) / D
+                s2 = (q2[i, t, head].float() @ k2[i, :t + 1, head].float().T) / D
+                p = s1 * s2
+                mask = torch.tensor([1.0 if keep_source(row, s) else 0.0 for s in range(t + 1)], device=p.device)
+                value = torch.zeros(t + 1, D, device=p.device)
+                if "current" in branches:
+                    value = value + (1 - lamb) * v_cur[i, :t + 1, head].float()
+                if "inherited" in branches:
+                    value = value + lamb * v1v[i, :t + 1, head].float()
+                out[(row.row_id, component.name, t, head)] = ((p * mask) @ value).detach()
+    return out

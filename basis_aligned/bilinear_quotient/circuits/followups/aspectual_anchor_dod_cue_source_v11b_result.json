@@ -1,0 +1,91 @@
+{
+  "arms": {
+    "agent_both": {
+      "arm_damage": 0.45677780359983444,
+      "retention": 0.012345615567581847,
+      "zero_damage": 0.46248749643564224
+    },
+    "cue_both": {
+      "arm_damage": 0.0780780166387558,
+      "retention": 0.8311781026719697,
+      "zero_damage": 0.46248749643564224
+    },
+    "cue_inherited": {
+      "arm_damage": 0.11169367283582687,
+      "retention": 0.7584936377812548,
+      "zero_damage": 0.46248749643564224
+    },
+    "full_recompute": {
+      "arm_damage": -8.940696716308594e-07,
+      "retention": 1.0000019331758772,
+      "zero_damage": 0.46248749643564224
+    },
+    "last_both": {
+      "arm_damage": 0.398021824657917,
+      "retention": 0.13938900462078974,
+      "zero_damage": 0.46248749643564224
+    },
+    "period_both": {
+      "arm_damage": 0.45529306679964066,
+      "retention": 0.015555944088107343,
+      "zero_damage": 0.46248749643564224
+    },
+    "prefix_both": {
+      "arm_damage": 0.428633376955986,
+      "retention": -0.01766632949767777,
+      "zero_damage": 0.4211924523115158
+    },
+    "the_both": {
+      "arm_damage": 0.4514068588614464,
+      "retention": 0.023958783014878304,
+      "zero_damage": 0.46248749643564224
+    }
+  },
+  "candidate_id": "aspectual_anchor.has_vs_had.dod_cue_source_v11b",
+  "finished_utc": "2026-09-17T22:01:27.040749+00:00",
+  "forwards": 38,
+  "instrument_max_abs_error": 4.76837158203125e-06,
+  "plan": {
+    "bars": {
+      "instrument_tol": 0.001,
+      "live_fraction": 0.1,
+      "live_positive": 0.75,
+      "other_max": 0.3,
+      "retain_c": 0.7,
+      "retain_d": 0.8
+    },
+    "candidate_id": "aspectual_anchor.has_vs_had.dod_cue_source_v11b",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 44,
+    "gpu_accessed": false,
+    "head": "8.1",
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 64,
+    "rows_sha256": "5ec7d32f3f7b6bbc9ebc31de3411074b24a998430f7f929bd11d0813e40dfcd2"
+  },
+  "predictions": {
+    "pred_a_recomputed_head_replays_native": true,
+    "pred_b_zeroing_8_1_is_live": true,
+    "pred_c_cue_inherited_term_retains_most": true,
+    "pred_d_cue_both_branches_retains_more": true,
+    "pred_e_every_other_single_source_retains_little": true
+  },
+  "schema": "aspectual_anchor_dod_cue_source_result_v11b",
+  "serial_seconds": 2.3833053279668093,
+  "zero": {
+    "animacy_who_which_abs_move_mean": 0.06357702240347862,
+    "animacy_who_which_native_abs_mean": 3.3815705440938473,
+    "canonical_night_day_abs_move_mean": 0.11281378153944388,
+    "canonical_night_day_native_abs_mean": 0.9019972459063865,
+    "flip_fraction": 0.015625,
+    "number_was_were_abs_move_mean": 0.12266414612531662,
+    "number_was_were_native_abs_mean": 5.466973781585693,
+    "target_damage_fraction": 0.22370815351361928,
+    "target_damage_mean": 0.46248749643564224,
+    "target_damage_positive_fraction": 1.0,
+    "target_native_mean_margin": 2.067369870841503
+  }
+}
