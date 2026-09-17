@@ -31,6 +31,10 @@ earlier removal run.
 | 7 | Joint midpoint removal of the five reproduces the sum of singles | edit | opened (v2, v3) | gap 0.06 ≤ bar 0.13; normalized gap 0.033 vs random-split median 0.063 (min 0.062, max 0.064) | passes, and beats the random-split null 2× — but random splits are also near-additive, so the regime is close to linear |
 | 10 | Pairwise Möbius terms are below 25% of the smaller piece | edit | opened (v3) | 9/10 pass; mlp4+attn5 = +0.025 vs bar 0.023 (serial upstream→transport interaction) | fails as registered; the one failure is the mechanistically expected pair |
 | 11 | Per-piece selectivity distinguishes the module split from random pieces | edit | opened (v3) | 80/80 random coordinate pieces are live and pass the v2 gate | falsified: selectivity here is a property of the cue-defined delta, not of the module partition |
+| 12 | Weight-only readout direction `O_h^T(u_has−u_had)` at attention9 H1/H4, removed at the final query (no partner row, no fit) | edit | opened (v4) | 0.70 (34%), 97% of the midpoint damage; null max 0.012; positive 64/64; unrelated excess +0.10/−0.01/+0.03 | passes: first donor-free selective removal |
+| 13 | The readout direction lies along the cue-carrying write | fold | opened (v4) | cosine 0.46 (H1), 0.63 (H4); 0.39 (11.3), 0.51 (15.5); attn5 heads 0.10–0.31 | established |
+| 14 | Attention5 heads write the answer directly | edit | opened (v4) | readout removal 0.04 vs null max 0.04 | falsified (transport heads, as the path says) |
+| 15 | Head 11.3's readout direction is aspect-private | edit | opened (v4) | damage 0.12; was−were moves 0.22 vs null 0.03 | falsified: shared with subject number |
 | 8 | Joint removal is selective | edit | opened (v2) | unrelated moves 0.15/0.12/0.11 vs joint damage 1.79 | passes |
 | 9 | Head 11.3 (subject-number head) serves has/had separably from was−were at this position | edit | fresh (v1→v2) | v1 whole-write moved was−were 0.34 (null 0.27); v2 midpoint 0.05 (null 0.08) | established |
 
@@ -41,7 +45,7 @@ earlier removal run.
 | Simple | not yet counted | count readers/products/writers of the released program vs a random component of matched effect |
 | Predicts OOD | partial (fit-free path transfers to a third lexicon and two new prefixes, prior receipts; strong form from token IDs not licensed) | token-only generator for the MLP4 source write; template-varying constructions |
 | Extracted | partial (program v12 runs with ports resid10/resid18/basis/lm_head; paired states required) | close ports by folding, not fitting |
-| Selective | held for the *delta at these slices* (rows 1–5, 8); row 11 shows the module partition is not what the gate certifies | a removal that does not use the cue contrast to define the direction (e.g. remove the component's weight-derived aspect subspace), on a template-varying panel |
+| Selective | **held for attention9 H1/H4** with a weight-only direction, random null and 3 readers (row 12); held for the cue-defined delta at the other slices (rows 1–5); 11.3 fails (row 15) | template-varying panel for row 12 |
 | Composes | held at five-way grain with a random-split null (row 7); one serial pairwise term above gate (row 10) | model the mlp4→attn5 term explicitly (five-arm design, better_circuits §3.6) |
 
 ## Limitations that change the reading
@@ -59,5 +63,6 @@ earlier removal run.
 - v1 whole-write removal: `bilinear_quotient/circuits/followups/aspectual_anchor_dod_removal_v1_result.json`
 - v2 midpoint removal: `.../aspectual_anchor_dod_removal_v2_result.json`
 - v3 composition null: `.../aspectual_anchor_dod_composition_v3_result.json`
+- v4 weight-only readout removal: `.../aspectual_anchor_dod_readout_removal_v4_result.json`
 - Code: `bilinear_quotient/ops/aspectual_dod_lib.py`, `run_aspectual_dod_removal_v{1,2}.py`,
-  `run_aspectual_dod_composition_v3.py`
+  `run_aspectual_dod_composition_v3.py`, `run_aspectual_dod_readout_removal_v4.py`

@@ -200,9 +200,10 @@ class ManualForward:
             return value
         changed = value.clone()
         gen = None
-        if mode in ("random", "midpoint_random"):
+        if mode in ("random", "midpoint_random", "project_random"):
             gen = self.torch.Generator(device="cpu").manual_seed(seed)
         self.use_subtract = mode == "subtract"
+        self.use_project = mode in ("project", "project_random")
         for index, row in enumerate(rows):
             for position in positions_of(row, component.where):
                 if component.kind == "attn":
@@ -219,6 +220,8 @@ class ManualForward:
 
     def _delta(self, row, component, position, head):
         """Paired delta for midpoint modes, or the explicit vector for `subtract` mode."""
+        if getattr(self, "use_project", False):
+            return getattr(self, "directions", {}).get((component.name, head))
         table = getattr(self, "subtract", None) if getattr(self, "use_subtract", False) else getattr(self, "deltas", None)
         if table is None:
             return None
@@ -230,6 +233,18 @@ class ManualForward:
         if mode == "random":
             r = self.torch.randn(w.shape, generator=gen, dtype=self.torch.float32)
             r = r / r.norm() * float(w.float().norm())
+            return w - r.to(device=w.device, dtype=w.dtype)
+        if mode in ("project", "project_random"):
+            # d here is the fixed weight-derived unit direction for this slice (see `directions`)
+            if d is None:
+                raise ValueError("project modes need a direction per slice")
+            v = d.to(device=w.device, dtype=self.torch.float32)
+            v = v / v.norm()
+            coefficient = float((w.float() * v).sum())
+            if mode == "project":
+                return w - (coefficient * v).to(dtype=w.dtype)
+            r = self.torch.randn(w.shape, generator=gen, dtype=self.torch.float32)
+            r = r / r.norm() * abs(coefficient)
             return w - r.to(device=w.device, dtype=w.dtype)
         if mode == "subtract":
             if d is None:
@@ -387,3 +402,35 @@ def random_coordinate_split(deltas, seed: int, pieces: int = 5):
             mask = (assignment == k).to(device=half.device, dtype=half.dtype)
             out[k][key] = half * mask
     return out
+
+
+def readout_directions(model, components: Sequence[Component], token_a: int, token_b: int):
+    """Weight-only per-head directions `O_h^T (u_a - u_b)` in the 128-d pre-c_proj slice.
+
+    `u` is the unembedding contrast; `O_h` is head h's block of `attn.c_proj.weight` (shape
+    [n_embd, n_embd], columns h*128:(h+1)*128). No activation enters; this is a fold object.
+    """
+    u = (model.lm_head.weight[token_a] - model.lm_head.weight[token_b]).detach().float()
+    out = {}
+    for c in components:
+        if c.kind != "attn":
+            continue
+        weight = model.transformer.h[c.layer].attn.c_proj.weight.detach().float()
+        for head in c.heads:
+            block = weight[:, head * HEAD_DIM:(head + 1) * HEAD_DIM]
+            out[(c.name, head)] = block.T @ u
+    return out
+
+
+def mean_oriented_delta(deltas, rows: Sequence[Row], component: Component, head):
+    """Mean over rows of (since-write minus by-write) at the final query for one head slice."""
+    import torch
+    acc, n = None, 0
+    for row in rows:
+        d = deltas.get((row.row_id, component.name, row.final, head))
+        if d is None:
+            continue
+        d = d.float() if row.present else -d.float()
+        acc = d.clone() if acc is None else acc + d
+        n += 1
+    return acc / n if n else None
