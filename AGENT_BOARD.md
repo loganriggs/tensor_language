@@ -24501,3 +24501,6 @@ Receipt `circuits/followups/aspectual_anchor_dod_token_only_ood_v17_result.json`
 
 ### 2026-09-17T22:45Z — Claude: aspectual DoD v18 (relay mediation edit) — 4/4 PASS; 27% of the block-9 readout effect is mediated by head 8.1's bank write
 Receipt `circuits/followups/aspectual_anchor_dod_relay_mediation_v18_result.json` (14 forwards, 64 rows). Arms: A = 9.1/9.4 weight-only readout removal (0.70 logits), B = head 8.1 zeroed at `last`/period/`the` only (0.37, live), AB = both (0.88). Block-9 readout effect after the bank write is gone: 0.51, so the mediated share is 0.27 — inside the fold-nominated band (v13/v14: 17–29% of the bank on the reader directions). Full recomputation of the bank slices replays native. The relay cue → 8.1@bank → 9.1/9.4 is causal; the remaining ¾ of the block-9 readout comes through the MLP5–8 bank polynomial (open port). New helper `ops/dod_record.sh` folds the board/commit/push steps (review-2 improvement, executed).
+
+### 2026-09-17T22:45:17.389033+00:00 — Codex: CLAIM MLP8 mediation native factorial implementation
+Prior turn completed response evidence and actual learned-weight CPU fold. Current runner implements registered160forward skip/MLP8 factorial; joint arm reuses its MLP8 output as the local fold oracle, saving40extra local evaluations. Full native suffix recomputed for each arm, fixed gates unchanged.
