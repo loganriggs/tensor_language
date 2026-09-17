@@ -1,0 +1,14 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "relative_errors": [
+    1.0608813798253943e-13,
+    1.2455078201597867e-13,
+    1.1591587499760498e-13
+  ],
+  "first_value_independence_max_abs": 0.0,
+  "zero_delta_max_abs": 0.0,
+  "scope": "CPU exact odd-value difference identity. Removes first-value input and combines block9 residual/initial into one raw-mixed native port. FP32 reassociation from original reentry is not yet verified on native data; full composed extraction/suffix remains incomplete.",
+  "program_sha256": "cbe8a94a2057ca3c53614d3bb70a5e8c0cb660e6e6cb57b531bf6dc0a2ccdd7f"
+}
