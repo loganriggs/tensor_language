@@ -328,3 +328,14 @@ predictions registered in the docstring (the gate reads them), one enqueue, no p
 Every number above is a held-out interchange effect on task margins. Reconstruction error, rank
 reduction and compression objectives stay out of scope; a subspace evaluated only by
 reconstruction is rejected on the same grounds as any other reconstruction claim.
+
+## Claude circuit lane (2026-09-17): definition-of-done battery tools
+
+| file | what it does |
+|---|---|
+| `aspectual_dod_lib.py` | fresh/template/lexicon row builders, `ManualForward` (exact producer-equivalent forward with donor-free slice edits: zero / random / midpoint / project / keep_only / subtract / replace), `attention_factors` (one recompute of a block's q,k,q2,k2,v,v1), source folds, writer folds via the λ-recurrence, readout/reader directions. Every DoD runner imports it. |
+| `run_aspectual_dod_*_v{1..24}.py` | the preregistered runs; receipts in `circuits/followups/aspectual_anchor_dod_*`; scorecard in `basis_aligned/claude_hourly_review/ASPECTUAL_DOD_SCORECARD.md`. |
+| `aspectual_dod_natural_rows.py`, `..._v21.py` | outcome-blind FineWeb row miners (CPU). |
+| `board_append.sh` | board entry stamped from the box clock. `dod_record.sh`: board entry + add + commit + push + remote re-read in one command. |
+
+Lessons recorded in the scorecard: whole-write zeroing conflates norm with direction (run the equal-norm random null); random coordinate pieces of a cue-defined delta are individually "selective"; a price bar must count capture forwards (v11).

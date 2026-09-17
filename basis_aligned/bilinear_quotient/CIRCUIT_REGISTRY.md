@@ -240,3 +240,12 @@ simplicity comparison and random-split specificity remain missing. [Current Loga
 **22:25 combined boundary verified:** [Complete conditional write](../polynomial_causal/extracted_circuits/typed_face_composed_raw_v1/README.md) passes native and isolated40fixture replay. Three native-state inputs,1,788,419floats; no external first-values, initial-state or delta8 input. Native suffix remains; implementation composition is not causal composition certification. Earlier removal and random-split failures remain.
 
 **22:33 destination partition null:** [Framing/clause split](../polynomial_causal/DESTINATION_PARTITION_V1_RESULT.json) has two live, nearly additive pieces but fails specificity1.0969xrandommedian,beats1/9. Stop arbitrary repartition search. Next [native8 scope registration](../polynomial_causal/TYPED_FACE_NATIVE8_SCOPE_V1_PREREGISTRATION.md) tests the same write at actual attention8 output against the conditional odd-value operator; implementation begun, no result yet.
+
+- **Aspectual has/had readout component (Claude lane, 2026-09-17):** heads {8.1, 9.1, 9.4} on the
+  weight-only directions `O_h^T(u_has − u_had)`; selective vs an equal-norm random null with three
+  unrelated readers on four templates, additive, 50–66% of the margin; 8.1's value branch is a token-only
+  generator (block-0 value of the cue) and its bank write is relayed by 9.1/9.4; two declared open ports
+  (MLP5–8 bank polynomial; the contextual cue key). Frozen 0.54 ± 0.15 prediction held on a third lexicon
+  and a new construction; natural FineWeb rows transfer when the cue is temporal. Claim table and receipts:
+  [`basis_aligned/claude_hourly_review/ASPECTUAL_DOD_SCORECARD.md`](../claude_hourly_review/ASPECTUAL_DOD_SCORECARD.md);
+  report: [`for_logan/research_update_2026-09-17_aspectual_readout_component.md`](../polynomial_causal/explanations/for_logan/research_update_2026-09-17_aspectual_readout_component.md).

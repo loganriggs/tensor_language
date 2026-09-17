@@ -543,16 +543,13 @@ def final_margin(model, F, x, answer_id: int, foil_id: int) -> float:
     return float(l[answer_id] - l[foil_id])
 
 
-def head_source_terms(fw: "ManualForward", rows: Sequence[Row], component: Component, direction_by_head: Mapping):
-    """FOLD: per row and head, the coefficient c_h = v_hat . z_h(final) split by source position and by
-    the value branch: z_h(t) = sum_s p_h(t,s) [(1-lamb) V_h x_s + lamb v1_h(s)], where v1 is the
-    block-0 value (a pure function of the source token). Returns, per row, per head, the exact
-    reconstruction check and arrays term_current[s], term_inherited[s]. No intervention."""
+def attention_factors(fw: "ManualForward", rows: Sequence[Row], layer: int):
+    """One forward; the exact per-head attention factors of block `layer` for these rows: q, k, q2, k2
+    (normed + rotary; B,T,H,D), v_cur (raw c_v), v1 (block-0 value view), lamb, D, H, cos, sin and the
+    captured normalized input x. Every fold/recompute in this module builds on this (refactor 2026-09-17)."""
     torch, F, model = fw.torch, fw.F, fw.model
     import jacclust.tt_model as TT
-    tokens = fw._tokens(rows)
-    block = model.transformer.h[component.layer]
-    attn = block.attn
+    attn = model.transformer.h[layer].attn
     captured = {}
 
     def pre_hook(_module, args):
@@ -573,84 +570,72 @@ def head_source_terms(fw: "ManualForward", rows: Sequence[Row], component: Compo
         q2 = attn.c_q2(x).view(B, T, H, D); k2 = attn.c_k2(x).view(B, T, H, D)
         v_cur = attn.c_v(x).view(B, T, H, D)
         v1v = v_cur if v1 is None else v1.view_as(v_cur)
-        lamb = float(attn.lamb)
         cos, sin = attn.rotary(q)
         q, k = F.rms_norm(q, (D,)), F.rms_norm(k, (D,))
         q, k = TT.apply_rotary_emb(q, cos, sin), TT.apply_rotary_emb(k, cos, sin)
         q2, k2 = F.rms_norm(q2, (D,)), F.rms_norm(k2, (D,))
         q2, k2 = TT.apply_rotary_emb(q2, cos, sin), TT.apply_rotary_emb(k2, cos, sin)
-        out = []
-        for i, row in enumerate(rows):
-            t = row.final
-            entry = {}
-            for head in component.heads:
-                vh = direction_by_head[(component.name, head)].to(device=x.device, dtype=torch.float32)
-                vh = vh / vh.norm()
-                s1 = (q[i, t, head].float() @ k[i, :t + 1, head].float().T) / D
-                s2 = (q2[i, t, head].float() @ k2[i, :t + 1, head].float().T) / D
-                p = s1 * s2                                   # (t+1,)
-                cur = (1 - lamb) * (v_cur[i, :t + 1, head].float() @ vh)   # (t+1,)
-                inh = lamb * (v1v[i, :t + 1, head].float() @ vh)
-                term_cur, term_inh = p * cur, p * inh
-                total = float(term_cur.sum() + term_inh.sum())
-                entry[head] = {"pattern": p.tolist(), "term_current": term_cur.tolist(),
-                               "term_inherited": term_inh.tolist(), "coefficient": total}
-            out.append(entry)
-    return out, lamb
+    return {"x": x, "q": q, "k": k, "q2": q2, "k2": k2, "v_cur": v_cur, "v1": v1v, "lamb": float(attn.lamb),
+            "D": D, "H": H, "cos": cos, "sin": sin}
+
+
+def pattern_row(f, i: int, t: int, head: int):
+    """Head `head`'s bilinear pattern from query t to every source <= t for batch row i: (t+1,) float."""
+    D = f["D"]
+    s1 = (f["q"][i, t, head].float() @ f["k"][i, :t + 1, head].float().T) / D
+    s2 = (f["q2"][i, t, head].float() @ f["k2"][i, :t + 1, head].float().T) / D
+    return s1 * s2
+
+
+def _source_terms(f, i, t, head, direction, torch):
+    dh = direction.to(device=f["x"].device, dtype=torch.float32)
+    p = pattern_row(f, i, t, head)
+    cur = (1 - f["lamb"]) * (f["v_cur"][i, :t + 1, head].float() @ dh)
+    inh = f["lamb"] * (f["v1"][i, :t + 1, head].float() @ dh)
+    return p, p * cur, p * inh
+
+
+def head_source_terms(fw: "ManualForward", rows: Sequence[Row], component: Component, direction_by_head: Mapping):
+    """FOLD: per row and head, c_h = v_hat . z_h(final) split by source position and value branch (current vs
+    token-only block-0 value). Exact; no intervention."""
+    f = attention_factors(fw, rows, component.layer)
+    out = []
+    for i, row in enumerate(rows):
+        t, entry = row.final, {}
+        for head in component.heads:
+            vh = direction_by_head[(component.name, head)].float(); vh = vh / vh.norm()
+            p, tc, ti = _source_terms(f, i, t, head, vh, fw.torch)
+            entry[head] = {"pattern": p.tolist(), "term_current": tc.tolist(), "term_inherited": ti.tolist(),
+                           "coefficient": float(tc.sum() + ti.sum())}
+        out.append(entry)
+    return out, f["lamb"]
 
 
 def source_restricted_slices(fw: "ManualForward", rows: Sequence[Row], component: Component,
                              keep_source, branches=("current", "inherited"), pattern_override=None):
-    """Recompute head slices z_h(final) keeping only sources s with keep_source(row, s) True and only
-    the named value branches. Returns {(row_id, component.name, final, head): 128-d tensor}."""
-    torch, F, model = fw.torch, fw.F, fw.model
-    import jacclust.tt_model as TT
-    attn = model.transformer.h[component.layer].attn
-    captured = {}
-
-    def pre_hook(_module, args):
-        captured["x"] = args[0].detach().clone()
-        captured["v1"] = None if len(args) < 2 or args[1] is None else args[1].detach().clone()
-        return None
-
-    handle = attn.register_forward_pre_hook(pre_hook)
-    try:
-        fw.forward(rows)
-    finally:
-        handle.remove()
-    x, v1 = captured["x"], captured["v1"]
-    B, T, C = x.shape
-    H, D = attn.n_head, attn.head_dim
+    """Recompute head slices z_h(query) at every query position of the component, keeping only sources with
+    keep_source(row, s) True, only the named value branches, and an optional pattern override
+    (row, s[, query]) -> scalar|None. Returns {(row_id, component.name, query, head): 128-d tensor}."""
+    torch = fw.torch
+    f = attention_factors(fw, rows, component.layer)
+    D, lamb = f["D"], f["lamb"]
     out = {}
-    with torch.no_grad():
-        q = attn.c_q(x).view(B, T, H, D); k = attn.c_k(x).view(B, T, H, D)
-        q2 = attn.c_q2(x).view(B, T, H, D); k2 = attn.c_k2(x).view(B, T, H, D)
-        v_cur = attn.c_v(x).view(B, T, H, D)
-        v1v = v_cur if v1 is None else v1.view_as(v_cur)
-        lamb = float(attn.lamb)
-        cos, sin = attn.rotary(q)
-        q, k = F.rms_norm(q, (D,)), F.rms_norm(k, (D,))
-        q, k = TT.apply_rotary_emb(q, cos, sin), TT.apply_rotary_emb(k, cos, sin)
-        q2, k2 = F.rms_norm(q2, (D,)), F.rms_norm(k2, (D,))
-        q2, k2 = TT.apply_rotary_emb(q2, cos, sin), TT.apply_rotary_emb(k2, cos, sin)
-        for i, row in enumerate(rows):
-          for t in positions_of(row, component.where):
+    for i, row in enumerate(rows):
+        for t in positions_of(row, component.where):
             for head in component.heads:
-                s1 = (q[i, t, head].float() @ k[i, :t + 1, head].float().T) / D
-                s2 = (q2[i, t, head].float() @ k2[i, :t + 1, head].float().T) / D
-                p = s1 * s2
+                p = pattern_row(f, i, t, head)
                 if pattern_override is not None:
                     p = p.clone()
-                    for s in range(t + 1):
-                        value = pattern_override(row, s, t) if pattern_override.__code__.co_argcount >= 3 else pattern_override(row, s)
+                    for s_ in range(t + 1):
+                        value = pattern_override(row, s_, t) if pattern_override.__code__.co_argcount >= 3 else pattern_override(row, s_)
                         if value is not None:
-                            p[s] = float(value)
-                mask = torch.tensor([1.0 if keep_source(row, s) else 0.0 for s in range(t + 1)], device=p.device)
+                            p[s_] = float(value)
+                mask = torch.tensor([1.0 if keep_source(row, s_) else 0.0 for s_ in range(t + 1)], device=p.device)
                 value = torch.zeros(t + 1, D, device=p.device)
                 if "current" in branches:
-                    value = value + (1 - lamb) * v_cur[i, :t + 1, head].float()
+                    value = value + (1 - lamb) * f["v_cur"][i, :t + 1, head].float()
                 if "inherited" in branches:
-                    value = value + lamb * v1v[i, :t + 1, head].float()
+                    value = value + lamb * f["v1"][i, :t + 1, head].float()
                 out[(row.row_id, component.name, t, head)] = ((p * mask) @ value).detach()
     return out
 
@@ -721,54 +706,18 @@ def reader_directions(model, component: Component, direction_by_head: Mapping):
 
 
 def head_source_terms_at(fw: "ManualForward", rows: Sequence[Row], layer: int, query_fn, direction_by_head: Mapping[int, object]):
-    """Generalized fold: for block `layer`, at query position query_fn(row), for every head in
-    `direction_by_head` (head -> 128-d direction), return per-source terms of d_h . z_h(query):
-    term_current[s], term_inherited[s], pattern[s]. One forward per call."""
-    torch, F, model = fw.torch, fw.F, fw.model
-    import jacclust.tt_model as TT
-    tokens = fw._tokens(rows)
-    attn = model.transformer.h[layer].attn
-    captured = {}
-
-    def pre_hook(_module, args):
-        captured["x"] = args[0].detach().clone()
-        captured["v1"] = None if len(args) < 2 or args[1] is None else args[1].detach().clone()
-        return None
-
-    handle = attn.register_forward_pre_hook(pre_hook)
-    try:
-        fw.forward(rows)
-    finally:
-        handle.remove()
-    x, v1 = captured["x"], captured["v1"]
-    B, T, C = x.shape
-    H, D = attn.n_head, attn.head_dim
-    with torch.no_grad():
-        q = attn.c_q(x).view(B, T, H, D); k = attn.c_k(x).view(B, T, H, D)
-        q2 = attn.c_q2(x).view(B, T, H, D); k2 = attn.c_k2(x).view(B, T, H, D)
-        v_cur = attn.c_v(x).view(B, T, H, D)
-        v1v = v_cur if v1 is None else v1.view_as(v_cur)
-        lamb = float(attn.lamb)
-        cos, sin = attn.rotary(q)
-        q, k = F.rms_norm(q, (D,)), F.rms_norm(k, (D,))
-        q, k = TT.apply_rotary_emb(q, cos, sin), TT.apply_rotary_emb(k, cos, sin)
-        q2, k2 = F.rms_norm(q2, (D,)), F.rms_norm(k2, (D,))
-        q2, k2 = TT.apply_rotary_emb(q2, cos, sin), TT.apply_rotary_emb(k2, cos, sin)
-        out = []
-        for i, row in enumerate(rows):
-            t = query_fn(row)
-            entry = {}
-            for head, d in direction_by_head.items():
-                dh = d.to(device=x.device, dtype=torch.float32)
-                s1 = (q[i, t, head].float() @ k[i, :t + 1, head].float().T) / D
-                s2 = (q2[i, t, head].float() @ k2[i, :t + 1, head].float().T) / D
-                p = s1 * s2
-                cur = (1 - lamb) * (v_cur[i, :t + 1, head].float() @ dh)
-                inh = lamb * (v1v[i, :t + 1, head].float() @ dh)
-                entry[head] = {"pattern": p.tolist(), "term_current": (p * cur).tolist(),
-                               "term_inherited": (p * inh).tolist(), "total": float((p * cur).sum() + (p * inh).sum())}
-            out.append(entry)
-    return out, lamb
+    """Generalized fold at query_fn(row) for block `layer`: per head (head -> 128-d direction) the per-source
+    terms of d_h . z_h(query): pattern, term_current, term_inherited, total. One forward per call."""
+    f = attention_factors(fw, rows, layer)
+    out = []
+    for i, row in enumerate(rows):
+        t, entry = query_fn(row), {}
+        for head, d in direction_by_head.items():
+            p, tc, ti = _source_terms(f, i, t, head, d, fw.torch)
+            entry[head] = {"pattern": p.tolist(), "term_current": tc.tolist(), "term_inherited": ti.tolist(),
+                           "total": float(tc.sum() + ti.sum())}
+        out.append(entry)
+    return out, f["lamb"]
 
 
 def build_rows_lexicon(agents: Sequence[str], periods: Sequence[str], constructions: Mapping[str, tuple], tag: str,
