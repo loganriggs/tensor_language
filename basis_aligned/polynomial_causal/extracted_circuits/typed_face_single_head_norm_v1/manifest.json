@@ -30,13 +30,44 @@
     "scope": "Pruned program CPU replay against saved fresh-run candidate writes, now opened. Native readout and isolated import replay of this package pending. Fresh scientific evidence belongs to unchanged formula; no composition or token-only claim."
   },
   "four_traits": {
-    "prediction": "fresh formula test passed; same endpoints",
-    "extraction": "CPU replay passes; independent native/layout certificate pending",
-    "selectivity": "fresh formula same-site null/four-reader test passed",
-    "composition": false
+    "ood_prediction": null,
+    "extraction": true,
+    "selective_removal": null,
+    "composition_reuse": false
   },
   "complete_circuit": false,
   "sha256": {
+    "program.pt": "ed33bdbad3e25af41b726517051ca47aa70dea7534cc4394abafdd8685d174f4",
+    "head8.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "attention.py": "df635f9160749cd6afd3c640c0719d875d28da535839beba4d2f8b10ee6b500d",
+    "execute.py": "bffdf3860833d98c649a79ca8ff2c26808402ae06a69c9a9941a788956798aeb"
+  },
+  "schema": "regional.typed_face_single_head_norm.v1",
+  "ports": [
+    "residual7[B,T,1152]",
+    "donor_city7[B,1152]",
+    "token_ids",
+    "recipient_token",
+    "donor_token",
+    "city",
+    "destination",
+    "strength=.5"
+  ],
+  "external_native_activation_inputs": 2,
+  "native_vector_state_arrays": 2,
+  "native_scalar_state_arrays": 0,
+  "native_state_scalars_T32": 38016,
+  "static_float_scalars": 16899587,
+  "output": "approximate block9 input delta[B,T,1152]",
+  "serialized_program_bytes": 67603449,
+  "certified_complete_circuit": false,
+  "receipts": [
+    "SINGLE_HEAD_FRESH_V1_RESULT.json",
+    "SINGLE_HEAD_PRUNED_V1_RESULT.json",
+    "SINGLE_HEAD_PRUNED_V1_STANDALONE_RESULT.json"
+  ],
+  "scope": "Pruned package passes120forward native and40fixture isolated replay. Fresh formula prediction and paired manipulation pass at declared native-state boundary; not general OOD or donor-free removal. Composition failed; two native inputs and suffix remain.",
+  "files": {
     "program.pt": "ed33bdbad3e25af41b726517051ca47aa70dea7534cc4394abafdd8685d174f4",
     "head8.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
     "attention.py": "df635f9160749cd6afd3c640c0719d875d28da535839beba4d2f8b10ee6b500d",

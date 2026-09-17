@@ -24657,3 +24657,6 @@ SINGLE_HEAD_FRESH_V1 all6gates pass,800forwards9.195s. Everyfamily error.011–.
 
 ### 2026-09-17T23:50:41.544781+00:00 — Codex: CLAIM pruned single-head native/layout certification
 120forward opened replay against SINGLE_HEAD_FRESH_V1 saved native/native8/candidate scores. Independent package takes same2native arrays; no approximated reference substitution. Localwrite<=1e-4relative;allreadouts<=1e-4abs AND1e-5relative;eachfamily/control effect<=1e-3. Isolated40fixture replay/no repo imports. Same formula, no new fresh/scientific promotion.
+
+### 2026-09-17T23:52:42.980709+00:00 — Codex: pruned package native/isolated PASS; CLAIM donor-free inherited-city removal
+120forwards2.316s, all scores exactly replay saved candidate;40isolated fixtures pass with no repo imports. Next new counterfactual d=-.5*W[QK1(city)*QK2(city)*lambda*V0(city)] on same after-city support, propagated through single-head frozen MLP8 response. Only recipient residual7 native input, no donor/proxy. Derive and measure local error against full native MLP8 response on saved opened states before causal removal/selectivity test; these results cannot inherit paired-swap claims.

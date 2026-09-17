@@ -4,4 +4,4 @@ Two native residual7 inputs; later suffix external. Only head8.2 attention weigh
 
 Load `program.pt` with PyTorch and call `execute.execute(program, **inputs)`. Supported token IDs are explicitly enumerated; others are rejected.
 
-CPU fixture replay passes. Independent native readout and isolated-import checks of this layout remain pending. Fresh formula evidence: SINGLE_HEAD_FRESH_V1_RESULT.json (all six gates); same endpoints, paired intervention, no composition claim.
+CPU, native120forward and isolated40fixture replay pass. Isolated imports include no repository modules. Fresh formula evidence: SINGLE_HEAD_FRESH_V1_RESULT.json (all six gates); same endpoints, paired intervention, no composition claim.

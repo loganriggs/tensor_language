@@ -4,10 +4,10 @@
     "explicit_dependency_edges": 4,
     "four_trait_declared_unverified": 0,
     "four_trait_verified": 2,
-    "packages": 42,
-    "partial_or_unassessed": 40,
-    "with_declared_inputs": 26,
-    "with_manifest": 37
+    "packages": 43,
+    "partial_or_unassessed": 41,
+    "with_declared_inputs": 27,
+    "with_manifest": 38
   },
   "dependency_cycles": [],
   "four_trait_order": [
@@ -1728,6 +1728,50 @@
       "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_residual7_v1",
       "schema": "regional.typed_face_residual7.v1",
       "scope": "Two directly captured residual7 inputs. Native120forward and isolated40fixture precision gates pass. No separate scale or context input;74supported tokens and external later suffix. Composition and overall simplicity remain unestablished.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 8,
+      "declared_input_field": "ports",
+      "declared_inputs": [
+        "residual7[B,T,1152]",
+        "donor_city7[B,1152]",
+        "token_ids",
+        "recipient_token",
+        "donor_token",
+        "city",
+        "destination",
+        "strength=.5"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": 2,
+      "four_traits": {
+        "composition_reuse": false,
+        "extraction": true,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "ood_prediction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_single_head_norm_v1/manifest.json",
+      "manifest_sha256": "f5c8197c5d873597216b2df18478d8b05ce6b9298fcdc708971376e8ba653e0a",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "typed_face_single_head_norm_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_single_head_norm_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/typed_face_single_head_norm_v1",
+      "schema": "regional.typed_face_single_head_norm.v1",
+      "scope": "Pruned package passes120forward native and40fixture isolated replay. Fresh formula prediction and paired manipulation pass at declared native-state boundary; not general OOD or donor-free removal. Composition failed; two native inputs and suffix remain.",
       "verification": {
         "path": null,
         "status": "not_available",

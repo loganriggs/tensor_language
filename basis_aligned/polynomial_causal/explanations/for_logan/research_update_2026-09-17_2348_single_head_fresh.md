@@ -1,6 +1,6 @@
 # One attention head now suffices for the tested local regional response
 
-The city-conditioned head8.2 write and its approximate MLP8 response now predict the full native edit on fresh constructions using only head8.2 in the local normalization background. All six registered prediction/selectivity gates pass: effect error is **1.1–15%** across families (**edit, fresh**). A pruned executable stores about **17 million floats** and passes CPU write replay; its native readout and isolated-layout checks remain pending. Two native residual7 inputs, the later model, new-endpoint/corpus evidence and composition remain unresolved.
+The city-conditioned head8.2 write and its approximate MLP8 response now predict the full native edit on fresh constructions using only head8.2 in the local normalization background. All six registered prediction/selectivity gates pass: effect error is **1.1–15%** across families (**edit, fresh**). A pruned executable stores about **17 million floats** and passes CPU, native readout and isolated-layout replay. Two native residual7 inputs, the later model, new-endpoint/corpus evidence and composition remain unresolved.
 
 ```mermaid
 flowchart LR
@@ -24,7 +24,7 @@ Residual7 is the block7 output. Its two supplied arrays are open upstream depend
 | Attenuate the intended cue contrast | edit | fresh | 16–22% mean; all120 capable pairs attenuate | passes |
 | Same-site equal-norm null comparison | edit | fresh | beats16/16 nulls per family;30–43×median effect | passes |
 | Preserve four unrelated readers | edit | fresh | largest collateral0.16; gate0.50 | passes |
-| Pruned package reproduces candidate writes | response algebra/replay | opened implementation |40 saved fixtures, all CPU controls pass | passes CPU; native/layout pending |
+| Pruned package reproduces candidate writes | response algebra/replay | opened implementation |40 saved fixtures, all CPU controls pass | passes native and isolated replay |
 | Independent component composition | edit | earlier opened tests | earlier partition/additivity gates failed | fails; unchanged |
 
 The candidate sees native residual states and executes nonlinear computations; the frozen baselines see simple text features. Beating them is useful evidence at the declared boundary, not a token-only prediction result. The nulls match each position's candidate-write norm at the block9 input, with paired signs. This tests selective paired manipulation; donor-free removal is a different untested counterfactual.
@@ -34,7 +34,7 @@ The candidate sees native residual states and executes nonlinear computations; t
 | Property | Current scope |
 |---|---|
 | Predicts OOD | Fresh constructions/city-pair confirmation passes against both baselines. New endpoints and corpus remain open. |
-| Extracted | Candidate runs from two declared native-state arrays and token IDs. Pruned CPU replay passes; independent native readout and isolated import validation are next. Later suffix remains external. |
+| Extracted | Candidate runs from two declared native-state arrays and token IDs. Pruned CPU replay passes; independent native readout and isolated import validation pass. Later suffix remains external. |
 | Selective | Fresh four-reader and16same-site norm-matched null tests pass. |
 | Composes | Not established; previous failures remain. Coupling terms in one executor does not prove independent composition. |
 | Simple, separately priced | Pruned bundle stores17million floats and evaluates one attention head. It retains full MLP8 readers/writer. No matched-effect random-component simplicity advantage is established. |
@@ -46,3 +46,9 @@ The candidate sees native residual states and executes nonlinear computations; t
 - [Pruned package](../../extracted_circuits/typed_face_single_head_norm_v1/README.md), [manifest](../../extracted_circuits/typed_face_single_head_norm_v1/manifest.json), [CPU receipt](../../SINGLE_HEAD_PRUNED_V1_CPU_RESULT.json).
 - Literal package count16,899,587floating scalars;70supported sequence tokens;38,016native-state scalars atT32. Candidate-write maximum relative CPU error1.2504413033671495e-06; zero-strength writes zero. The panel is now opened for implementation checks.
 - [Prior report and preserved failures](research_update_2026-09-17_2341_normalization.md). The full-context exact package remains available; this package implements a tested approximation.
+
+Package certification: [native receipt](../../SINGLE_HEAD_PRUNED_V1_RESULT.json) passes120forwards in2.316182211972773seconds; all candidate readout and effect errors are zero against the saved fresh implementation. [Isolated receipt](../../SINGLE_HEAD_PRUNED_V1_STANDALONE_RESULT.json) passes40fixtures with no imported repository modules. This is opened implementation evidence, not additional fresh data.
+
+## Next counterfactual: remove a city source without a donor
+
+The next operator removes half of head8.2's native city-token inherited-value contribution, retaining the current-value branch and both routing factors. It takes one recipient residual7 array. This changes the intervention; it does not close the donor input of the original swap. Its one-head MLP8 approximation has7.2–13%local response error on40opened states (**response algebra**, not a spelling-effect result). [CPU diagnostic](../../CITY_INHERITED_REMOVAL_V1_CPU_RESULT.json), [registered causal screen](../../CITY_INHERITED_REMOVAL_V1_PREREGISTRATION.md). Prediction, selective removal and composition for this operator are untested.

@@ -1574,3 +1574,5 @@ Both registered full-context normalization approximations pass opened causal gat
 ### 17 September23:48 — Single-head normalization fresh confirmation
 
 [Fresh result](../../polynomial_causal/SINGLE_HEAD_FRESH_V1_RESULT.json) passes all6gates:1.1–15%prediction error,16–22%attenuation,16/16nulls,collateral<=.163. Same endpoints and2native inputs; composition unchanged. [Pruned package CPU check](../../polynomial_causal/SINGLE_HEAD_PRUNED_V1_CPU_RESULT.json):16,899,587floats,70tokens,40fixture replay pass; native/layout certification pending. This is a normalization approximation, not exact source elimination.
+
+**23:54 certification and next source:** Pruned single-head package passes [native](../../polynomial_causal/SINGLE_HEAD_PRUNED_V1_RESULT.json) and [isolated](../../polynomial_causal/SINGLE_HEAD_PRUNED_V1_STANDALONE_RESULT.json) replay. Next [donor-free inherited-city removal protocol](../../polynomial_causal/CITY_INHERITED_REMOVAL_V1_PREREGISTRATION.md) changes the counterfactual; one native input and7.2–13%local CPU response error, causal effect untested. No transferred swap/selectivity claims.
