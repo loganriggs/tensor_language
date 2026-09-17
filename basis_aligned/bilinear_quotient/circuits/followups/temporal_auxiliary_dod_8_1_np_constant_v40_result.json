@@ -1,0 +1,30 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.dod_8_1_np_constant_v40",
+  "constants": {
+    "bare_frame/earlier/0": 0.2511815130710602,
+    "bare_frame/earlier/1": 0.18681273609399796,
+    "bare_frame/tomorrow/0": 0.20773863792419434,
+    "bare_frame/tomorrow/1": 0.1916111782193184,
+    "report_frame/earlier/0": 0.17224647104740143,
+    "report_frame/earlier/1": 0.14316577464342117,
+    "report_frame/tomorrow/0": 0.12347754091024399,
+    "report_frame/tomorrow/1": 0.11029597744345665
+  },
+  "finished_utc": "2026-09-17T23:25:48.577186+00:00",
+  "forwards": 22,
+  "predictions": {
+    "pred_a_native_cue_term_replays_v39": true,
+    "pred_b_constant_patterns_transfer_to_report_rows": true,
+    "pred_c_constant_patterns_transfer_to_bare_rows": true,
+    "pred_d_token_only_table_retains_half_pooled": true
+  },
+  "schema": "temporal_auxiliary_dod_8_1_np_constant_result_v40",
+  "scored": {
+    "bare_medians_on_report": 1.1876724767201754,
+    "cross_pooled": 0.7716368679355092,
+    "native_all": 0.8255375329577838,
+    "report_medians_on_bare": 0.566874690614428
+  },
+  "serial_seconds": 2.0174261471256614,
+  "v39_reference": 0.8255375329577838
+}

@@ -29,6 +29,7 @@ line's authored rows (v27) and is scored here on fresh rows only. **Delta:** fir
 | 14 | Attention8/9's NP-state writes on 11.3's reader direction are carried by two heads per block (8.1 1.00, 8.2 0.00; cue source 0.98 — attn8; 9.1 0.48, 9.4 0.45; cue source 0.49 — attn9) and sourced from the cue token | fold | opened (v37) | closure 4e-6 | passes 3/3: the adverb reaches 11.3 by cue → 8.1/9.1 at the NP → 11.3 |
 | 15 | Cue-only terms at the readout heads: 15.5 keeps 0.48 of its service (inherited-only 0.27); 9.1+9.4 keep 0.36 (inherited-only -0.02) | edit | opened (v38) | full recomputation replays native | 2/4: no token-only adverb reader at the readout heads (unlike aspectual 8.1); the inherited branch is the weaker one, as registered |
 | 16 | Head 8.1 at the NP positions is a token-only adverb reader: replacing its two slices by the cue-only inherited term (native pattern × λ × block-0 value of tomorrow/earlier) keeps 0.83 of its service (1.01 with both branches); `the`/agent/prefix single sources keep 0.00 / 0.00 / -0.04 | edit | opened (v39) | zero two slices 0.78 logits (18%, positive 100%); full recomputation replays native | passes 5/5 — the same head 8.1 as on the aspectual line, same mechanism, different cue token |
+| 17 | Head 8.1's NP-position service is an 8-constant token table (per cue × NP position, constants from the other construction): retention 1.19 (bare constants on report rows), 0.57 (report constants on bare rows), pooled 0.77; native-pattern term 0.83 | edit | cross-construction (v40) | 22 forwards | passes 4/4 — 8.1's port is closed on this line as on the aspectual line |
 
 ## Five-property status
 
@@ -36,7 +37,7 @@ line's authored rows (v27) and is scored here on fresh rows only. **Delta:** fir
 |---|---|---|
 | Simple | held at head grain: 4 heads + the will/had contrast; blind sweep (v27) and random-quadruple null (row 8) | — |
 | Predicts OOD | **held**: authored panels (rows 6, 10) and natural rows on FineWeb and the Pile OOD corpus with frozen bars (row 11) | — |
-| Extracted | held at the head boundary with four scalar ports (row 5); 11.3's port is the NP state written by blocks 8–10 (56% causal), whose attention part is heads 8.1/9.1 reading the cue token (rows 12–14); no readout head is a token-only adverb reader (row 15), but the NP-position writer 8.1 is (row 16): the adverb enters the chain as a token-only value | constant-pattern (2 cues × 2 positions) cross-construction test to close 8.1's port on this line |
+| Extracted | held at the head boundary with four scalar ports (row 5); 11.3's port is the NP state written by blocks 8–10 (56% causal), whose attention part is heads 8.1/9.1 reading the cue token (rows 12–14); no readout head is a token-only adverb reader (row 15), but the NP-position writer 8.1 is (rows 16, 17): the adverb enters the chain as a token-only value with 8 stored constants; remaining ports: the MLP part of the NP state (mlp8–10) and the block-9 pair's own reads | fold the MLP8–10 NP part by writer pairs (kill criterion applies) |
 | Selective | held on fresh rows and three templates (rows 2, 6) | — |
 | Composes | held pairwise and against the random-split null (row 9); the four-way sum overshoots the strict bar by 0.02 (3% of the joint), recorded as a failure (rows 3, 9) | — |
 
@@ -45,6 +46,7 @@ line's authored rows (v27) and is scored here on fresh rows only. **Delta:** fir
 - v28: `.../temporal_auxiliary_dod_removal_v28_result.json`; code `ops/run_temporal_dod_removal_v28.py`
 - v29: `.../temporal_auxiliary_dod_keep_and_templates_v29_result.json`; code `ops/run_temporal_dod_keep_and_templates_v29.py`
 - v30 source fold: `.../temporal_auxiliary_dod_source_fold_v30_result.json`
+- v40 8.1 constant patterns at NP: `.../temporal_auxiliary_dod_8_1_np_constant_v40_result.json`
 - v39 8.1 token-only at NP: `.../temporal_auxiliary_dod_8_1_np_token_only_v39_result.json`
 - v37 NP head fold: `.../temporal_auxiliary_dod_np_head_fold_v37_result.json`
 - v38 cue-term test: `.../temporal_auxiliary_dod_cue_term_v38_result.json`
