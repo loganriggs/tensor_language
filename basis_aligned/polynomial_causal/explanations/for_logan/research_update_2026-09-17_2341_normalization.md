@@ -1,6 +1,6 @@
 # Regional normalization can be simplified on the opened panel
 
-The regional path maps two native residual7 states through the city-conditioned head8.2 write and MLP8 response into a block9 input change; the later model produces the spelling effect. Freezing MLP8 normalization now passes a registered causal screen, with **0.031–0.072% effect error** against the exact reduced path (**edit, opened**). This is a candidate simplification: fresh confirmation, a token-only executor, and successful composition remain missing.
+The regional path maps two native residual7 states through the city-conditioned head8.2 write and MLP8 response into a block9 input change; the later model produces the spelling effect. Freezing MLP8 normalization now passes a registered causal screen, with **0.031–0.072% effect error** against the exact reduced path (**edit, opened**). A subsequent single-head normalization screen also passes, with **1.1–5.5% effect error** against the exact reduced path (**edit, opened**). These are candidate simplifications: fresh confirmation, a token-only executor, and successful composition remain missing.
 
 ```mermaid
 flowchart LR
@@ -22,7 +22,7 @@ The external residual states are unresolved upstream dependencies; no token-to-s
 | Omit only the normalization correction | edit | opened | 0.13–0.26% error; gate 35% every family | passes screen |
 | Also freeze the denominator | edit | opened | 0.031–0.072% error; gate 35% every family | passes screen |
 | Four-reader preservation for both | edit | opened | largest collateral 0.18; gate 0.50 | passes screen; no new random null |
-| Generate the candidate norm using only head8.2 | fold/local response algebra | opened | 2.1–6.4% local vector error against exact reduced write | candidate; causal effect untested |
+| Generate the candidate norm using only head8.2 | edit | opened | 1.1–5.5% effect error; gate 35% every family | passes screen; fresh confirmation pending |
 | Direct skip and MLP8 are independent pieces | edit | earlier opened factorial | prior all-family interaction gate failed | fails; unchanged |
 
 ## What the simplification removes
@@ -52,3 +52,5 @@ The next CPU implementation evaluates only head8.2 and uses `g2=mixed_residual8+
 - All four registered gates pass. Anchor maximum absolute error 3.814697265625e-06, relative error 3.336481707490376e-07; outside-mask writes zero.
 - [Single-head CPU diagnostic](../../SINGLE_HEAD_NORMALIZATION_V1_CPU_RESULT.json), [candidate executor](../../typed_face_single_head_norm_v1.py), [single-head attention](../../attention8_single_head_channels_v1.py). Head-channel maximum relative discrepancy 2.3301870655245693e-08; zero-strength writes zero on all 40 fixtures. Per-family unsigned norm ratios and signed aligned fractions are in the diagnostic.
 - [Previous complete regional report](research_update_2026-09-17_2314_two_state_regional.md) preserves the original local multiline failure, fresh selectivity, extraction costs and composition failures.
+
+The [single-head causal screen](../../SINGLE_HEAD_NORMALIZATION_V1_RESULT.json) passed all three registered gates in160forwards/2.9160428119357675seconds. This upgrades the candidate from local algebra to an opened causal screen; it does not establish fresh selectivity. The [fresh protocol](../../SINGLE_HEAD_FRESH_V1_PREREGISTRATION.md) freezes20new construction/city-pair cells and16same-site nulls before execution.

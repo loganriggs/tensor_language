@@ -1,6 +1,6 @@
 # Latest requested update for Logan
 
-**Latest regional update: [17 September, 23:41 — Normalization screen and single-head candidate](research_update_2026-09-17_2341_normalization.md).** Both normalization variants pass opened causal gates; the single-head denominator has CPU diagnostics only. Fresh confirmation and composition remain open.
+**Latest regional update: [17 September, 23:41 — Normalization screen and single-head candidate](research_update_2026-09-17_2341_normalization.md).** Both normalization variants pass opened causal gates; the single-head denominator also passes an opened causal screen. Fresh confirmation and composition remain open.
 
 **17 September, 23:21 UTC (Claude lane) — [The temporal will/had readout set, through the same battery](research_update_2026-09-17_temporal_readout_set.md).** Set {11.3, 9.1, 15.5, 9.4}; 81% of the margin; selective; frozen prediction and natural FineWeb/Pile rows pass; NP relay causal.
 
