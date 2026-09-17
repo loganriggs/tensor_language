@@ -1,0 +1,160 @@
+{
+  "pred_a": true,
+  "source_masks": {
+    "1": "residual6",
+    "2": "attention7",
+    "4": "initial7"
+  },
+  "responses": {
+    "1": {
+      "relative_closure": 1.108164879873664e-14,
+      "raw_residual_response_terms": {
+        "normalization": {
+          "norm_ratio": 0.04951921153316151,
+          "aligned_fraction": -0.012564882263404617
+        },
+        "cross": {
+          "norm_ratio": 0.5141226186825171,
+          "aligned_fraction": 0.27763868484962434
+        },
+        "quadratic": {
+          "norm_ratio": 0.19866073492970032,
+          "aligned_fraction": -0.01717351845375542
+        },
+        "residual_skip": {
+          "norm_ratio": 0.8281166713331417,
+          "aligned_fraction": 0.7520997158675358
+        }
+      }
+    },
+    "2": {
+      "relative_closure": 4.032120220263802e-14,
+      "raw_residual_response_terms": {
+        "normalization": {
+          "norm_ratio": 0.1784877326781488,
+          "aligned_fraction": -0.04262018293837854
+        },
+        "cross": {
+          "norm_ratio": 0.4332758163508766,
+          "aligned_fraction": 0.1829325464256303
+        },
+        "quadratic": {
+          "norm_ratio": 0.04852042369576894,
+          "aligned_fraction": -0.006621083854574144
+        },
+        "residual_skip": {
+          "norm_ratio": 0.9495772309668113,
+          "aligned_fraction": 0.8663087203673223
+        }
+      }
+    },
+    "3": {
+      "relative_closure": 1.167673774695059e-14,
+      "raw_residual_response_terms": {
+        "normalization": {
+          "norm_ratio": 0.0836801551242405,
+          "aligned_fraction": -0.02331928486902257
+        },
+        "cross": {
+          "norm_ratio": 0.5264342218974202,
+          "aligned_fraction": 0.2588479597910655
+        },
+        "quadratic": {
+          "norm_ratio": 0.2516617074049456,
+          "aligned_fraction": -0.01658850806896064
+        },
+        "residual_skip": {
+          "norm_ratio": 0.8541757176395078,
+          "aligned_fraction": 0.7810598331469176
+        }
+      }
+    },
+    "4": {
+      "relative_closure": 2.94988495632686e-14,
+      "raw_residual_response_terms": {
+        "normalization": {
+          "norm_ratio": 0.00573457997121814,
+          "aligned_fraction": -0.0005011036894331281
+        },
+        "cross": {
+          "norm_ratio": 0.49385135018445825,
+          "aligned_fraction": 0.22582438289167145
+        },
+        "quadratic": {
+          "norm_ratio": 0.08264357583764856,
+          "aligned_fraction": -0.014454933591488365
+        },
+        "residual_skip": {
+          "norm_ratio": 0.8864309520701896,
+          "aligned_fraction": 0.7891316543892501
+        }
+      }
+    },
+    "5": {
+      "relative_closure": 1.0747498479679778e-14,
+      "raw_residual_response_terms": {
+        "normalization": {
+          "norm_ratio": 0.04048519579611147,
+          "aligned_fraction": -0.008095817731998944
+        },
+        "cross": {
+          "norm_ratio": 0.5285035482138566,
+          "aligned_fraction": 0.2453706809318017
+        },
+        "quadratic": {
+          "norm_ratio": 0.2813814098658563,
+          "aligned_fraction": -0.00900395894431574
+        },
+        "residual_skip": {
+          "norm_ratio": 0.8481983244670621,
+          "aligned_fraction": 0.7717290957445129
+        }
+      }
+    },
+    "6": {
+      "relative_closure": 2.266660733177594e-14,
+      "raw_residual_response_terms": {
+        "normalization": {
+          "norm_ratio": 0.1090133266884663,
+          "aligned_fraction": -0.01585972719984029
+        },
+        "cross": {
+          "norm_ratio": 0.5193420491365982,
+          "aligned_fraction": 0.22677706258618227
+        },
+        "quadratic": {
+          "norm_ratio": 0.13097936981744862,
+          "aligned_fraction": -0.024015202956921545
+        },
+        "residual_skip": {
+          "norm_ratio": 0.9102702891337067,
+          "aligned_fraction": 0.8130978675705792
+        }
+      }
+    },
+    "7": {
+      "relative_closure": 1.0500207428968727e-14,
+      "raw_residual_response_terms": {
+        "normalization": {
+          "norm_ratio": 0.07008249464754478,
+          "aligned_fraction": -0.015963225352764256
+        },
+        "cross": {
+          "norm_ratio": 0.5426333487893977,
+          "aligned_fraction": 0.22756377753585147
+        },
+        "quadratic": {
+          "norm_ratio": 0.339146366626185,
+          "aligned_fraction": -0.000784110364773748
+        },
+        "residual_skip": {
+          "norm_ratio": 0.8641266954766192,
+          "aligned_fraction": 0.7891835581816863
+        }
+      }
+    }
+  },
+  "identity": "delta M = (rho0^2/rho1^2-1)*(M0-b) + D[(Ldg)*(Rg)+(Lg)*(Rdg)]/rho1^2 + D[(Ldg)*(Rdg)]/rho1^2",
+  "scope": "Exact local MLP7 response algebra on opened source states, with FP32 epsilon in FP64 evaluation. Bias cancels, residual skip retained. No downstream selective edit or OOD claim; terms nominate tests only.",
+  "source_sha256": "2561d53ecc23466fc6257ee6ba2edce0b80d674d62d133d5c71cbc55fb5edc65"
+}

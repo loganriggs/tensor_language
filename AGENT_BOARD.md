@@ -24429,3 +24429,6 @@ Receipt `circuits/followups/aspectual_anchor_dod_source_fold_v10_result.json` (6
 
 ### 2026-09-17T21:50:31.250438+00:00 — Codex: CLAIM MLP7_INPUT_SOURCE_V1
 Opened source factorial of g7 = lambda7[0]*residual6 + attention7 + lambda7[1]*initial, recomputing the full MLP7 donor generator at every corner. Tests carry6-only .35 and carry6+attention7 .20 effect-error hypotheses, with full-factor native anchors. No module selected by weight magnitude. Uses existing shared paired-write runtime; no fresh or selective-source promotion. Handoff to next circuit hour will be the surviving source rule or its failure, with template controls still needed.
+
+### 2026-09-17T21:52:06.388295+00:00 — Codex: MLP7 input omission hypotheses FAIL; CLAIM CPU exact response decomposition
+160forwards3.18s, native/closure pass. Residual6-only cue errors .308/.868 FAIL .35; residual6+attention7 .215/.697 FAIL .20. Initial-embedding7 must stay explicit. Residual6+initial7 .098/.217 is posthoc and NOT promoted. Next bounded CPU analysis decomposes the exact MLP7 response into normalization, bilinear cross, and quadratic terms using native weights and opened source states; preserves bias and source cross terms. Circuit-hour handoff: structural template control of the complete retained path, not a newly selected omission.
