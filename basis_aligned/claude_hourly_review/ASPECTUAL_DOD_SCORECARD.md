@@ -35,6 +35,8 @@ earlier removal run.
 | 13 | The readout direction lies along the cue-carrying write | fold | opened (v4) | cosine 0.46 (H1), 0.63 (H4); 0.39 (11.3), 0.51 (15.5); attn5 heads 0.10–0.31 | established |
 | 14 | Attention5 heads write the answer directly | edit | opened (v4) | readout removal 0.04 vs null max 0.04 | falsified (transport heads, as the path says) |
 | 15 | Head 11.3's readout direction is aspect-private | edit | opened (v4) | damage 0.12; was−were moves 0.22 vs null 0.03 | falsified: shared with subject number |
+| 16 | The attention9 H1/H4 weight-only removal transfers to three template-varying constructions (cue moved, no `last`, agent-first with comma-final, began/ended cue) | edit | fresh templates (v5) | damage 0.72 / 0.98 / 0.80 logits = 34% / 36% / 46% of each native margin; positive 32/32 in each; null max ≤ 0.018; selective in all three; all six capability cells 1.00 | passes |
+| 17 | Block11 H3's has/had readout contribution depends on the template | edit | fresh templates (v5) | 0.21 (7%) in the began/ended frame, ≈0 in the two `last`-free frames; was−were excess +0.12 to +0.32 everywhere | established: 11.3 is not part of the template-independent component |
 | 8 | Joint removal is selective | edit | opened (v2) | unrelated moves 0.15/0.12/0.11 vs joint damage 1.79 | passes |
 | 9 | Head 11.3 (subject-number head) serves has/had separably from was−were at this position | edit | fresh (v1→v2) | v1 whole-write moved was−were 0.34 (null 0.27); v2 midpoint 0.05 (null 0.08) | established |
 
@@ -43,17 +45,17 @@ earlier removal run.
 | property | status | what would close it |
 |---|---|---|
 | Simple | not yet counted | count readers/products/writers of the released program vs a random component of matched effect |
-| Predicts OOD | partial (fit-free path transfers to a third lexicon and two new prefixes, prior receipts; strong form from token IDs not licensed) | token-only generator for the MLP4 source write; template-varying constructions |
+| Predicts OOD | partial: the attention9 removal effect is predicted (sign, positivity, 34–46% band) on new lexicon and new templates (row 16); strong form from token IDs not licensed | token-only generator for the source write; a frozen numeric prediction of the removal effect before running it |
 | Extracted | partial (program v12 runs with ports resid10/resid18/basis/lm_head; paired states required) | close ports by folding, not fitting |
-| Selective | **held for attention9 H1/H4** with a weight-only direction, random null and 3 readers (row 12); held for the cue-defined delta at the other slices (rows 1–5); 11.3 fails (row 15) | template-varying panel for row 12 |
+| Selective | **held for attention9 H1/H4** with a weight-only direction, random null and 3 readers, on the discovery shape and three new templates (rows 12, 16); held for the cue-defined delta at the other slices (rows 1–5); 11.3 fails (rows 15, 17) | — |
 | Composes | held at five-way grain with a random-split null (row 7); one serial pairwise term above gate (row 10) | model the mlp4→attn5 term explicitly (five-arm design, better_circuits §3.6) |
 
 ## Limitations that change the reading
 
 - Midpoint removal uses the partner row's native write, so every edit here is paired-causal; it
   is not a donor-free removal of a stored component.
-- All rows share one template shape per construction (cue, `last`, period noun, `the`, agent);
-  positional claims are confounded with it until a template-varying control runs.
+- The MLP4 / attention5 results (rows 2, 4, 6, 14) still rest on one template shape; only the
+  attention9 removal has been template-varied (row 16).
 - The five components account for 87% of the fresh-row margin jointly, but the released path's
   own recovery from MLP4 was ~27–33%; the difference is the carried/parallel routes the
   midpoint edit also removes at those slices.
@@ -64,5 +66,6 @@ earlier removal run.
 - v2 midpoint removal: `.../aspectual_anchor_dod_removal_v2_result.json`
 - v3 composition null: `.../aspectual_anchor_dod_composition_v3_result.json`
 - v4 weight-only readout removal: `.../aspectual_anchor_dod_readout_removal_v4_result.json`
+- v5 template transfer: `.../aspectual_anchor_dod_template_transfer_v5_result.json`
 - Code: `bilinear_quotient/ops/aspectual_dod_lib.py`, `run_aspectual_dod_removal_v{1,2}.py`,
-  `run_aspectual_dod_composition_v3.py`, `run_aspectual_dod_readout_removal_v4.py`
+  `run_aspectual_dod_composition_v3.py`, `run_aspectual_dod_readout_removal_v4.py`, `run_aspectual_dod_template_transfer_v5.py`

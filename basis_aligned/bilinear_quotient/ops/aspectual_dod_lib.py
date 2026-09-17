@@ -434,3 +434,43 @@ def mean_oriented_delta(deltas, rows: Sequence[Row], component: Component, head)
         acc = d.clone() if acc is None else acc + d
         n += 1
     return acc / n if n else None
+
+
+TEMPLATE_VARYING = {
+    # cue at the start, no `last`, an article before the period noun
+    "ever_since_by_end": (lambda period, agent: f"Ever since the {period} the {agent}",
+                          lambda period, agent: f"By the end of the {period} the {agent}"),
+    # agent first, cue in a parenthetical, final input token is a comma
+    "agent_first_comma": (lambda period, agent: f"The {agent}, ever since the {period},",
+                          lambda period, agent: f"The {agent}, by the end of the {period},"),
+    # long report frame with an extra lexical tense cue (began / ended)
+    "clear_that_began_ended": (lambda period, agent: f"It is clear that since the {period} began the {agent}",
+                               lambda period, agent: f"It is clear that by the time the {period} ended the {agent}"),
+}
+
+
+def build_template_rows(constructions: Mapping[str, tuple] = TEMPLATE_VARYING) -> list[Row]:
+    """Rows for template-varying constructions: (present_builder, past_builder) per name.
+
+    Same fresh lexicon as `build_rows`; the final input token is whatever the construction
+    ends on, and `source_positions` is empty (no MLP4 source bank is declared here).
+    """
+    check_lexicon()
+    rows: list[Row] = []
+    reader_ids = {name: (_single(a), _single(b)) for name, (a, b) in READERS.items()}
+    for construction, (present_make, past_make) in constructions.items():
+        for group in range(16):
+            agent, period = AGENTS[group], PERIODS[group]
+            for present in (True, False):
+                text = (present_make if present else past_make)(period, agent)
+                ids = ENCODING.encode(text)
+                answer, foil = (" has", " had") if present else (" had", " has")
+                a_id, f_id = _single(answer), _single(foil)
+                if ENCODING.encode(text + answer) != ids + [a_id] or \
+                        ENCODING.encode(text + foil) != ids + [f_id]:
+                    raise RowError(f"joint tokenization changed for {text!r}")
+                row_id = hashlib.sha256(json.dumps(
+                    ["template", construction, group, present, text]).encode()).hexdigest()[:24]
+                rows.append(Row(row_id, construction, group, present, text, tuple(ids), answer,
+                                foil, a_id, f_id, len(ids) - 1, (), reader_ids))
+    return rows
