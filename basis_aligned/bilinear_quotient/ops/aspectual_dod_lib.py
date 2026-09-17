@@ -769,3 +769,33 @@ def head_source_terms_at(fw: "ManualForward", rows: Sequence[Row], layer: int, q
                                "term_inherited": (p * inh).tolist(), "total": float((p * cur).sum() + (p * inh).sum())}
             out.append(entry)
     return out, lamb
+
+
+def build_rows_lexicon(agents: Sequence[str], periods: Sequence[str], constructions: Mapping[str, tuple], tag: str,
+                       prior: Sequence[str] = ()) -> list[Row]:
+    """Rows for arbitrary (present_builder, past_builder) constructions on a declared lexicon, which must be
+    single-token, 16 x 16, and disjoint from every prior lexicon named in `prior` plus the module's own.
+    `source_positions` = (last-or-equivalent, period noun, `the`) is not declared here (empty)."""
+    if len(set(agents)) != 16 or len(set(periods)) != 16:
+        raise RowError("lexicon tables must hold 16 distinct items each")
+    used = set(AGENTS) | set(PERIODS) | _PRIOR_AGENTS | _PRIOR_PERIODS | set(prior)
+    if (set(agents) | set(periods)) & used:
+        raise RowError(f"lexicon overlaps a prior panel: {(set(agents) | set(periods)) & used}")
+    for word in tuple(agents) + tuple(periods):
+        _single(" " + word)
+    rows: list[Row] = []
+    reader_ids = {name: (_single(a), _single(b)) for name, (a, b) in READERS.items()}
+    for construction, (present_make, past_make) in constructions.items():
+        for group in range(16):
+            agent, period = agents[group], periods[group]
+            for present in (True, False):
+                text = (present_make if present else past_make)(period, agent)
+                ids = ENCODING.encode(text)
+                answer, foil = (" has", " had") if present else (" had", " has")
+                a_id, f_id = _single(answer), _single(foil)
+                if ENCODING.encode(text + answer) != ids + [a_id] or ENCODING.encode(text + foil) != ids + [f_id]:
+                    raise RowError(f"joint tokenization changed for {text!r}")
+                row_id = hashlib.sha256(json.dumps([tag, construction, group, present, text]).encode()).hexdigest()[:24]
+                rows.append(Row(row_id, construction, group, present, text, tuple(ids), answer, foil, a_id, f_id,
+                                len(ids) - 1, (), reader_ids))
+    return rows

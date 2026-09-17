@@ -1,0 +1,127 @@
+{
+  "candidate_id": "aspectual_anchor.has_vs_had.dod_frozen_prediction_v19",
+  "capability": {
+    "clause_comma/by": 1.0,
+    "clause_comma/since": 1.0,
+    "fronted/by": 1.0,
+    "fronted/since": 1.0,
+    "report/by": 1.0,
+    "report/since": 0.9375
+  },
+  "constructions": {
+    "clause_comma": {
+      "gates": {
+        "animacy_who_which": true,
+        "canonical_night_day": true,
+        "number_was_were": true
+      },
+      "positive_ok": true,
+      "table_damage": -0.06445471942424774,
+      "table_retention": 1.2408295392301196,
+      "triple": {
+        "animacy_who_which_abs_move_mean": 0.05488414317369461,
+        "animacy_who_which_native_abs_mean": 4.678409144282341,
+        "canonical_night_day_abs_move_mean": 0.07947378605604172,
+        "canonical_night_day_native_abs_mean": 0.8617834504693747,
+        "flip_fraction": 0.09375,
+        "number_was_were_abs_move_mean": 0.36437100172042847,
+        "number_was_were_native_abs_mean": 6.559813350439072,
+        "target_damage_fraction": 0.4293031034077004,
+        "target_damage_mean": 1.5294075310230255,
+        "target_damage_positive_fraction": 1.0,
+        "target_native_mean_margin": 3.5625354647636414
+      },
+      "within_band": true,
+      "zero_8_1_damage": 0.2676362693309784
+    },
+    "fronted": {
+      "gates": {
+        "animacy_who_which": true,
+        "canonical_night_day": true,
+        "number_was_were": true
+      },
+      "positive_ok": true,
+      "table_damage": 0.04454261064529419,
+      "table_retention": 0.9016112955558561,
+      "triple": {
+        "animacy_who_which_abs_move_mean": 0.04706893116235733,
+        "animacy_who_which_native_abs_mean": 3.12262661755085,
+        "canonical_night_day_abs_move_mean": 0.07189205009490252,
+        "canonical_night_day_native_abs_mean": 1.027336448431015,
+        "flip_fraction": 0.15625,
+        "number_was_were_abs_move_mean": 0.20463275909423828,
+        "number_was_were_native_abs_mean": 5.474506974220276,
+        "target_damage_fraction": 0.5250058625659797,
+        "target_damage_mean": 1.1001392900943756,
+        "target_damage_positive_fraction": 1.0,
+        "target_native_mean_margin": 2.0954800099134445
+      },
+      "within_band": true,
+      "zero_8_1_damage": 0.4527207762002945
+    },
+    "report": {
+      "gates": {
+        "animacy_who_which": true,
+        "canonical_night_day": true,
+        "number_was_were": true
+      },
+      "positive_ok": true,
+      "table_damage": 0.09861424565315247,
+      "table_retention": 0.750166794183886,
+      "triple": {
+        "animacy_who_which_abs_move_mean": 0.03984478861093521,
+        "animacy_who_which_native_abs_mean": 3.4669041857123375,
+        "canonical_night_day_abs_move_mean": 0.08749305037781596,
+        "canonical_night_day_native_abs_mean": 0.817558640614152,
+        "flip_fraction": 0.125,
+        "number_was_were_abs_move_mean": 0.2508094608783722,
+        "number_was_were_native_abs_mean": 6.496062837541103,
+        "target_damage_fraction": 0.5420578058541756,
+        "target_damage_mean": 1.0073806792497635,
+        "target_damage_positive_fraction": 1.0,
+        "target_native_mean_margin": 1.8584377318620682
+      },
+      "within_band": true,
+      "zero_8_1_damage": 0.39472033083438873
+    }
+  },
+  "finished_utc": "2026-09-17T22:46:07.821828+00:00",
+  "forwards": 18,
+  "instrument_max_abs_error": 0.0,
+  "plan": {
+    "bars": {
+      "capability_min": 0.85,
+      "gate_ratio": 0.25,
+      "instrument_tol": 0.0001,
+      "live_positive": 0.75,
+      "retain_min": 0.5
+    },
+    "candidate_id": "aspectual_anchor.has_vs_had.dod_frozen_prediction_v19",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 26,
+    "frozen": {
+      "band": 0.15,
+      "fraction": 0.54,
+      "table": {
+        "by": 0.18158479034900665,
+        "since": 0.22014020383358002
+      }
+    },
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "77777593701c015ec2bd5742767a8d57bbee88d406ca5dfa2cef297f1d84f16c"
+  },
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_all_cells_capable": true,
+    "pred_c_triple_fraction_within_015_of_frozen_constant": true,
+    "pred_d_triple_positive_and_selective_everywhere": true,
+    "pred_e_token_table_retains_half_everywhere": true
+  },
+  "schema": "aspectual_anchor_dod_frozen_prediction_result_v19",
+  "serial_seconds": 1.888728927122429
+}
