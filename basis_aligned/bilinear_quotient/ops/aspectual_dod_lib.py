@@ -200,10 +200,10 @@ class ManualForward:
             return value
         changed = value.clone()
         gen = None
-        if mode in ("random", "midpoint_random", "project_random"):
+        if mode in ("random", "midpoint_random", "project_random", "keep_only_random"):
             gen = self.torch.Generator(device="cpu").manual_seed(seed)
         self.use_subtract = mode == "subtract"
-        self.use_project = mode in ("project", "project_random")
+        self.use_project = mode in ("project", "project_random", "keep_only", "keep_only_random")
         for index, row in enumerate(rows):
             for position in positions_of(row, component.where):
                 if component.kind == "attn":
@@ -234,7 +234,7 @@ class ManualForward:
             r = self.torch.randn(w.shape, generator=gen, dtype=self.torch.float32)
             r = r / r.norm() * float(w.float().norm())
             return w - r.to(device=w.device, dtype=w.dtype)
-        if mode in ("project", "project_random"):
+        if mode in ("project", "project_random", "keep_only", "keep_only_random"):
             # d here is the fixed weight-derived unit direction for this slice (see `directions`)
             if d is None:
                 raise ValueError("project modes need a direction per slice")
@@ -243,6 +243,12 @@ class ManualForward:
             coefficient = float((w.float() * v).sum())
             if mode == "project":
                 return w - (coefficient * v).to(dtype=w.dtype)
+            if mode == "keep_only":
+                return (coefficient * v).to(dtype=w.dtype)
+            if mode == "keep_only_random":
+                r = self.torch.randn(w.shape, generator=gen, dtype=self.torch.float32)
+                r = (r / r.norm()).to(device=w.device)
+                return (float((w.float() * r).sum()) * r).to(dtype=w.dtype)
             r = self.torch.randn(w.shape, generator=gen, dtype=self.torch.float32)
             r = r / r.norm() * abs(coefficient)
             return w - r.to(device=w.device, dtype=w.dtype)

@@ -43,6 +43,7 @@ earlier removal run.
 | 19 | Blind sweep of the same weight-only readout removal over all 162 heads: only three are live — 9.1 (0.36), **8.1 (0.34, not named by the released path)**, 9.4 (0.33); then 15.5 (0.18), 11.3 (0.12); every other head < 0.04 | edit | opened (v7) | 5 of 162 heads exceed 0.05; pair 9.1+9.4 additive (joint 0.70 vs sum 0.69) | established; registered prediction that nothing outside blocks 9–15 reaches half of 9.4 is FALSIFIED by 8.1 |
 | 20 | Head 8.1's weight-only readout removal is live, null-beating and selective in all four constructions | edit | opened (v8) | 0.32–0.37 logits (14–18%); positive ≥ 31/32 everywhere; was−were excess ≤ +0.09 | passes |
 | 21 | The three-head readout component {8.1, 9.1, 9.4} is live, null-beating, selective and additive with the block-9 pair in all four constructions | edit | opened (v8) | 1.04 / 1.41 / 1.08 / 1.14 logits = 50 / 52 / 52 / 66% of each margin (pooled 54%); positive 160/160; additivity gap ≤ 0.06 vs bars ≥ 0.08 | passes |
+| 22 | Keeping ONLY the readout projection at the three heads (discarding everything else they write at the final query) retains the heads' whole has/had contribution | edit | opened (v9, 160 rows) | zeroing the three slices: 1.25 logits; keep-only readout: 1.01 retention pooled (0.94 / 1.05 / 1.02 / 1.03 per construction); keep-only a random direction: ≤ 0.015 retention over 16 seeds | passes: the component's declared input is three scalars `c_h = w_h·v̂_h` |
 | 8 | Joint removal is selective | edit | opened (v2) | unrelated moves 0.15/0.12/0.11 vs joint damage 1.79 | passes |
 | 9 | Head 11.3 (subject-number head) serves has/had separably from was−were at this position | edit | fresh (v1→v2) | v1 whole-write moved was−were 0.34 (null 0.27); v2 midpoint 0.05 (null 0.08) | established |
 
@@ -52,7 +53,7 @@ earlier removal run.
 |---|---|---|
 | Simple | the readout component is three (layer, head) indices plus the has/had contrast over native weights; the blind sweep (row 19) shows only 3 of 162 heads carry it, so a random component of matched effect size does not exist at head grain | count the MLP-cascade readers (v6) the same way |
 | Predicts OOD | partial: the attention9 removal effect is predicted (sign, positivity, 34–46% band) on new lexicon and new templates (row 16); strong form from token IDs not licensed | token-only generator for the source write; a frozen numeric prediction of the removal effect before running it |
-| Extracted | partial (program v12 runs with ports resid10/resid18/basis/lm_head; paired states required) | close ports by folding, not fitting |
+| Extracted | held at the head boundary: the component is three weight-only directions and three scalar ports (the native coefficients `c_h` at the final query), sufficient for 100% of the heads' has/had service (row 22); the coefficients themselves are not yet generated from tokens | fold `c_h = Σ_s a_{h,s} (V_h^T v̂_h)·x_s` over source positions; look for a token-only generator |
 | Selective | **held for the three-head readout component {8.1, 9.1, 9.4}** with weight-only directions, random null and 3 readers, on the discovery shape and three new templates (rows 12, 16, 20, 21); 11.3 fails (rows 15, 17) | — |
 | Composes | held: the three heads are additive in all four constructions (row 21); five-way midpoint grain also holds with a random-split null (row 7); one serial pair (mlp4→attn5) above gate (row 10) | five-arm design for the mlp4→attn5 term |
 
@@ -76,5 +77,6 @@ earlier removal run.
 - v6 response census: `.../aspectual_anchor_dod_response_census_v6_result.json`
 - v7 all-head sweep: `.../aspectual_anchor_dod_head_sweep_v7_result.json`
 - v8 three-head promotion: `.../aspectual_anchor_dod_triple_v8_result.json`
+- v9 keep-only sufficiency: `.../aspectual_anchor_dod_keep_only_v9_result.json`
 - Code: `bilinear_quotient/ops/aspectual_dod_lib.py`, `run_aspectual_dod_removal_v{1,2}.py`,
-  `run_aspectual_dod_composition_v3.py`, `run_aspectual_dod_readout_removal_v4.py`, `run_aspectual_dod_template_transfer_v5.py`, `run_aspectual_dod_response_census_v6.py`, `run_aspectual_dod_head_sweep_v7.py`, `run_aspectual_dod_triple_v8.py`
+  `run_aspectual_dod_composition_v3.py`, `run_aspectual_dod_readout_removal_v4.py`, `run_aspectual_dod_template_transfer_v5.py`, `run_aspectual_dod_response_census_v6.py`, `run_aspectual_dod_head_sweep_v7.py`, `run_aspectual_dod_triple_v8.py`, `run_aspectual_dod_keep_only_v9.py`
