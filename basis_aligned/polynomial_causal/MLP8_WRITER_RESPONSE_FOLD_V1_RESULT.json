@@ -1,0 +1,92 @@
+{
+  "pred_a": true,
+  "checks": [
+    {
+      "channel_scale": 0.001,
+      "relative_closure": 1.2724096811077258e-12,
+      "terms": {
+        "normalization": {
+          "norm_ratio": 0.03801267913712097,
+          "aligned_fraction": -0.0006175683954214727
+        },
+        "cross": {
+          "norm_ratio": 1.001348666232436,
+          "aligned_fraction": 1.0006176029521705
+        },
+        "quadratic": {
+          "norm_ratio": 0.002720908688973147,
+          "aligned_fraction": -2.662456757709019e-05
+        },
+        "skip": {
+          "norm_ratio": 0.001356379842444981,
+          "aligned_fraction": 2.6590010846958668e-05
+        }
+      }
+    },
+    {
+      "channel_scale": 0.1,
+      "relative_closure": 1.2902439332715371e-14,
+      "terms": {
+        "normalization": {
+          "norm_ratio": 0.1394827339829503,
+          "aligned_fraction": 0.01889946857749893
+        },
+        "cross": {
+          "norm_ratio": 0.9595519421585345,
+          "aligned_fraction": 0.9191408929185941
+        },
+        "quadratic": {
+          "norm_ratio": 0.2609690131362564,
+          "aligned_fraction": 0.061924544912286036
+        },
+        "skip": {
+          "norm_ratio": 0.0013543024932981638,
+          "aligned_fraction": 3.509359162104957e-05
+        }
+      }
+    },
+    {
+      "channel_scale": 1.0,
+      "relative_closure": 3.5126161199600077e-15,
+      "terms": {
+        "normalization": {
+          "norm_ratio": 0.4805243298076529,
+          "aligned_fraction": 0.20496810708443663
+        },
+        "cross": {
+          "norm_ratio": 0.31228883205795693,
+          "aligned_fraction": 0.10351798074142465
+        },
+        "quadratic": {
+          "norm_ratio": 0.8482605879074449,
+          "aligned_fraction": 0.6914325299300664
+        },
+        "skip": {
+          "norm_ratio": 0.002339909006541022,
+          "aligned_fraction": 8.138224407266694e-05
+        }
+      }
+    }
+  ],
+  "shapes": {
+    "W": [
+      1152,
+      128
+    ],
+    "LW": [
+      4608,
+      128
+    ],
+    "RW": [
+      4608,
+      128
+    ]
+  },
+  "derived_LW_RW_scalars": 1179648,
+  "native_L_R_D_scalars": 15925248,
+  "seconds": 0.1796760510187596,
+  "head8_program_sha256": "12960f51539d0189017a39a359da18444eb0c48b64295ecd9206557b6bdbc6f4",
+  "checkpoint_sha256_from_binding": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "identity": "delta block8 = Wc + (s0/s1-1)*M0_biasfree + D[(LWc)*(Rg)+(Lg)*(RWc)]/s1 + D[(LWc)*(RWc)]/s1; s=mean(g^2)+eps",
+  "scope": "FP64 learned-weight identity on synthetic states, FP32 epsilon. Bias cancels. Context g remains explicit. Derived adapters do not remove native L,R,D or prove storage savings. Requires native fixture and downstream factorial verification."
+}
