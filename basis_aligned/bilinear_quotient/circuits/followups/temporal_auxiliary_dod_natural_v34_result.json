@@ -1,0 +1,93 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.dod_natural_v34",
+  "finished_utc": "2026-09-17T23:19:04.389989+00:00",
+  "forwards": 16,
+  "instrument_max_abs_error": 0.0,
+  "panels": {
+    "fineweb": {
+      "head_11_3/earlier": {
+        "fraction_negative": 0.4375,
+        "fraction_nonneg": 0.5625,
+        "mean": 0.02513764053583145,
+        "n": 32,
+        "native_accuracy": 0.8125
+      },
+      "head_11_3/tomorrow": {
+        "fraction_negative": 0.8,
+        "fraction_nonneg": 0.2,
+        "mean": -0.3727219343185425,
+        "n": 20,
+        "native_accuracy": 0.95
+      },
+      "mean_abs_shift": 1.247784775037032,
+      "set/earlier": {
+        "fraction_negative": 0.28125,
+        "fraction_nonneg": 0.71875,
+        "mean": 0.5404632315039635,
+        "n": 32,
+        "native_accuracy": 0.8125
+      },
+      "set/tomorrow": {
+        "fraction_negative": 0.9,
+        "fraction_nonneg": 0.1,
+        "mean": -1.3409703731536866,
+        "n": 20,
+        "native_accuracy": 0.95
+      },
+      "unrelated": {
+        "animacy_who_which": 0.06837689991180713,
+        "canonical_night_day": 0.05835347909193773,
+        "number_was_were": 0.07490995297065148
+      }
+    },
+    "pile": {
+      "head_11_3/earlier": {
+        "fraction_negative": 0.37037037037037035,
+        "fraction_nonneg": 0.6296296296296297,
+        "mean": -0.012287219365437826,
+        "n": 27,
+        "native_accuracy": 0.9259259259259259
+      },
+      "head_11_3/tomorrow": {
+        "fraction_negative": 0.7142857142857143,
+        "fraction_nonneg": 0.2857142857142857,
+        "mean": -0.32848099299839567,
+        "n": 14,
+        "native_accuracy": 0.8571428571428571
+      },
+      "mean_abs_shift": 1.5312887982624332,
+      "set/earlier": {
+        "fraction_negative": 0.2962962962962963,
+        "fraction_nonneg": 0.7037037037037037,
+        "mean": 0.5868337595904315,
+        "n": 27,
+        "native_accuracy": 0.9259259259259259
+      },
+      "set/tomorrow": {
+        "fraction_negative": 0.8571428571428571,
+        "fraction_nonneg": 0.14285714285714285,
+        "mean": -1.5648901462554932,
+        "n": 14,
+        "native_accuracy": 0.8571428571428571
+      },
+      "unrelated": {
+        "animacy_who_which": 0.07118448106254019,
+        "canonical_night_day": 0.0676309437286563,
+        "number_was_were": 0.08716262259134432
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_tomorrow_rows_shift_toward_had_on_both_corpora": true,
+    "pred_c_earlier_rows_shift_toward_will_on_both_corpora": true,
+    "pred_d_head_11_3_alone_shifts_the_same_way": false,
+    "pred_e_unrelated_readers_within_gate": true
+  },
+  "rows_sha256": {
+    "fineweb": "a900a5944d44fe79a48543bd0381040d59bdd82aa8a8a923ca65143718060e29",
+    "pile": "26d215c380ad75253c119b74eb1b8dba4e7892632562aaf3a3bdc96f3f3d21a6"
+  },
+  "schema": "temporal_auxiliary_dod_natural_result_v34",
+  "serial_seconds": 1.904086641035974
+}

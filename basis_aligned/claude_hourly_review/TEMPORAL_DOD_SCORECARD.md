@@ -23,14 +23,16 @@ line's authored rows (v27) and is scored here on fresh rows only. **Delta:** fir
 | 8 | Matched-count null: 16 random four-head sets along their own will/had readout directions | edit | opened (v31) | S 3.45 vs random max 0.075, median 0.038; none live | passes |
 | 9 | Pairwise Möbius terms among the four heads are below 25% of the smaller piece; the head split is more additive than random coordinate splits of the same removal | edit | opened (v32) | largest pair 11.3×9.1 +0.08 (bar 0.29); four-way gap 0.11 vs bar 0.09 (replays row 3's failure); normalized gap 0.032 vs random-split median 0.038 | 3/4: pairwise and null held; the strict four-way bar fails by 0.02 |
 | 10 | Frozen numeric prediction 0.80 ± 0.15 for the S removal on a fourth lexicon and a new comma-adverb construction | edit, frozen before access | fresh lexicon + fresh template (v33, 96 rows) | fractions bare_frame 0.79 / comma_adverb 0.81 / report_frame 0.83; positive on every row; all reader gates pass; all six capability cells 1.00 | passes |
+| 11 | Natural rows (outcome-blind; tomorrow/earlier within 10 tokens of a will/had target): removing S lowers will−had on tomorrow rows by −1.34 (FineWeb, 90% of rows) / −1.57 (Pile, 86%) and raises it on earlier rows by +0.54 (72%) / +0.59 (70%); unrelated readers 0.06–0.09 vs mean |shift| 1.2–1.5 | edit, frozen bars | natural in-distribution (FineWeb) + OOD (Pile) (v34) | 11.3 alone carries the tomorrow shift (−0.37 / −0.33) but not the earlier one (+0.03 / −0.01): registered pred_d failed | 4/5 |
+| 12 | The subject-NP state 11.3 reads (on `V_h^T v̂_h` at `the`/agent) is written by few mid-block writers (mlp:09 0.21, attn:09 0.17, mlp:10 0.16, mlp:08 0.16, attn:08 0.12; top-4 0.70); embedding 0.00 | fold | opened (v35) | closure 1e-7 | passes 3/3 |
 
 ## Five-property status
 
 | property | status | next |
 |---|---|---|
 | Simple | held at head grain: 4 heads + the will/had contrast; blind sweep (v27) and random-quadruple null (row 8) | — |
-| Predicts OOD | held on authored panels: three templates (row 6) and a frozen numeric prediction on a fourth lexicon + new construction (row 10) | natural rows (FineWeb in-distribution; Pile OOD) |
-| Extracted | held at the head boundary with four scalar ports (row 5); the ports are contextual reads of the subject NP (11.3) and of the cue (15.5, block-9 heads per row 7) | fold the NP state 11.3 reads by writer; cue-term edit for 15.5 |
+| Predicts OOD | **held**: authored panels (rows 6, 10) and natural rows on FineWeb and the Pile OOD corpus with frozen bars (row 11) | — |
+| Extracted | held at the head boundary with four scalar ports (row 5); 11.3's port is a contextual NP state written by a few named mid-block writers (row 12), not token-only | edit: remove those writers at the NP positions and measure 11.3's readout damage drop (relay mediation) |
 | Selective | held on fresh rows and three templates (rows 2, 6) | — |
 | Composes | held pairwise and against the random-split null (row 9); the four-way sum overshoots the strict bar by 0.02 (3% of the joint), recorded as a failure (rows 3, 9) | — |
 
@@ -39,6 +41,8 @@ line's authored rows (v27) and is scored here on fresh rows only. **Delta:** fir
 - v28: `.../temporal_auxiliary_dod_removal_v28_result.json`; code `ops/run_temporal_dod_removal_v28.py`
 - v29: `.../temporal_auxiliary_dod_keep_and_templates_v29_result.json`; code `ops/run_temporal_dod_keep_and_templates_v29.py`
 - v30 source fold: `.../temporal_auxiliary_dod_source_fold_v30_result.json`
+- v34 natural rows + result: `.../temporal_auxiliary_dod_natural_rows_v34.json`, `.../temporal_auxiliary_dod_natural_v34_result.json`
+- v35 NP writer fold: `.../temporal_auxiliary_dod_np_writer_fold_v35_result.json`
 - v33 frozen prediction: `.../temporal_auxiliary_dod_frozen_prediction_v33_result.json`
 - v32 composition: `.../temporal_auxiliary_dod_composition_v32_result.json`
 - v31 random-set null: `.../temporal_auxiliary_dod_random_set_null_v31_result.json`
