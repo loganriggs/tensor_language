@@ -1,0 +1,84 @@
+{
+  "candidate_id": "aspectual_anchor.has_vs_had.dod_token_only_8_1_v15",
+  "constants": {
+    "fronted/by/final": 0.19365784525871277,
+    "fronted/by/last": 0.047570403665304184,
+    "fronted/by/period": 0.08178132772445679,
+    "fronted/by/the": 0.08118729665875435,
+    "fronted/since/final": 0.22514472156763077,
+    "fronted/since/last": 0.07610075175762177,
+    "fronted/since/period": 0.11092563718557358,
+    "fronted/since/the": 0.20875680446624756,
+    "report/by/final": 0.16880809515714645,
+    "report/by/last": 0.042155563831329346,
+    "report/by/period": 0.07647871226072311,
+    "report/by/the": 0.060939835384488106,
+    "report/since/final": 0.22014020383358002,
+    "report/since/last": 0.04783182591199875,
+    "report/since/period": 0.10430749133229256,
+    "report/since/the": 0.14352182298898697
+  },
+  "finished_utc": "2026-09-17T22:38:18.938139+00:00",
+  "forwards": 26,
+  "instrument_max_abs_error": 6.67572021484375e-06,
+  "plan": {
+    "bars": {
+      "instrument_tol": 0.001,
+      "live_fraction": 0.1,
+      "live_positive": 0.75,
+      "retain_c": 0.6,
+      "retain_d": 0.5
+    },
+    "candidate_id": "aspectual_anchor.has_vs_had.dod_token_only_8_1_v15",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 32,
+    "gpu_accessed": false,
+    "head": "8.1",
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "positions": [
+      "last",
+      "period",
+      "the",
+      "final"
+    ],
+    "rows": 64,
+    "rows_sha256": "5ec7d32f3f7b6bbc9ebc31de3411074b24a998430f7f929bd11d0813e40dfcd2",
+    "stored_constants": 8
+  },
+  "predictions": {
+    "pred_a_full_recompute_replays_native": true,
+    "pred_b_zeroing_8_1_at_four_positions_is_live": true,
+    "pred_c_native_cue_term_retains_most": true,
+    "pred_d_token_only_table_retains_half": true
+  },
+  "schema": "aspectual_anchor_dod_token_only_8_1_result_v15",
+  "scored": {
+    "native_cue_term": {
+      "arm_damage": 0.202703557908535,
+      "retention": 0.7686898966597807,
+      "zero_damage": 0.8763281628489494
+    },
+    "token_only_table": {
+      "arm_damage": 0.1807299628853798,
+      "retention": 0.7937645159116816,
+      "zero_damage": 0.8763281628489494
+    }
+  },
+  "serial_seconds": 2.1920449070166796,
+  "zero": {
+    "animacy_who_which_abs_move_mean": 0.07723933458328247,
+    "animacy_who_which_native_abs_mean": 3.3815705440938473,
+    "canonical_night_day_abs_move_mean": 0.14630220137769356,
+    "canonical_night_day_native_abs_mean": 0.9019972459063865,
+    "flip_fraction": 0.09375,
+    "number_was_were_abs_move_mean": 0.1781367063522339,
+    "number_was_were_native_abs_mean": 5.466973781585693,
+    "target_damage_fraction": 0.4238855248926736,
+    "target_damage_mean": 0.8763281628489494,
+    "target_damage_positive_fraction": 1.0,
+    "target_native_mean_margin": 2.067369870841503
+  }
+}

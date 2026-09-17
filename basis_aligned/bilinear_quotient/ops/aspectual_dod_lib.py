@@ -168,7 +168,13 @@ COMPONENTS = (
 
 
 def positions_of(row: Row, where: str) -> tuple[int, ...]:
-    return (row.final,) if where == "final" else row.source_positions
+    if where == "final":
+        return (row.final,)
+    if where == "source":
+        return row.source_positions
+    if where == "source_and_final":
+        return tuple(row.source_positions) + (row.final,)
+    raise ValueError(f"unknown where {where!r}")
 
 
 # ----------------------------------------------------------------------------- forward
@@ -628,7 +634,7 @@ def source_restricted_slices(fw: "ManualForward", rows: Sequence[Row], component
         q2, k2 = F.rms_norm(q2, (D,)), F.rms_norm(k2, (D,))
         q2, k2 = TT.apply_rotary_emb(q2, cos, sin), TT.apply_rotary_emb(k2, cos, sin)
         for i, row in enumerate(rows):
-            t = row.final
+          for t in positions_of(row, component.where):
             for head in component.heads:
                 s1 = (q[i, t, head].float() @ k[i, :t + 1, head].float().T) / D
                 s2 = (q2[i, t, head].float() @ k2[i, :t + 1, head].float().T) / D
@@ -636,7 +642,7 @@ def source_restricted_slices(fw: "ManualForward", rows: Sequence[Row], component
                 if pattern_override is not None:
                     p = p.clone()
                     for s in range(t + 1):
-                        value = pattern_override(row, s)
+                        value = pattern_override(row, s, t) if pattern_override.__code__.co_argcount >= 3 else pattern_override(row, s)
                         if value is not None:
                             p[s] = float(value)
                 mask = torch.tensor([1.0 if keep_source(row, s) else 0.0 for s in range(t + 1)], device=p.device)
