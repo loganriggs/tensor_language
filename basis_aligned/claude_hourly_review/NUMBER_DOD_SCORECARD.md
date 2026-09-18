@@ -30,6 +30,7 @@ scorecards. Readers for this family: has−had (tense), who−which, night−day
 | 18 | Natural FineWeb rows (a list noun in singular / plural form within 12 tokens, next token were / was; pronouns and be-forms excluded): congruent removal 0.96 of 5.38 (18%), positive 29/32, null max 0.22 | edit | natural (v138) | **selectivity failed**: the tense reader has−had moves 0.59 vs null 0.26 (gate bar 0.50); who−which and night−day pass; on fresh rows (v55) the same gate passed | 4/6 |
 | 18f | **Failed:** incongruent rows hurt as much (+1.00, positive 27/32): number sets carry the resolved subject number (5th falsification of the counter-case reading on number lines) | edit | natural (v138) | | falsified as registered |
 | 19 | Pile rows: congruent 1.94 of 5.79 (33%), positive 31/32, null 0.17; has−had moves 0.94 vs null 0.28 (bar 0.76) — selectivity failed again; counter-cases +1.01 | edit | natural OOD (v139) | | 4/6 |
+| 20 | Which head leaks tense on the natural rows (v138 congruent, 32): full set damage 0.96 with has−had move 0.59; 11.3 alone 0.55 / 0.36; the set without 11.3 0.42 / 0.30 (null move 0.25, gate bar 0.35: passes) but not live (fraction 0.08, positive 24/32) | edit | natural (v140) | registered "11.3 carries ≥ 0.70 of the tense move" false (0.61); "set without 11.3 still live" false | 2/4 — on natural text the number effect is mostly 11.3's, and 11.3's removal moves tense (the weight-level entanglement of v69 / v116 as an edit effect); the selective three-head remainder is below the LIVE bar |
 
 ## Five-property status
 | property | status | next |
@@ -41,6 +42,7 @@ scorecards. Readers for this family: has−had (tense), who−which, night−day
 | Composes | additive (row 3) | pairwise + random-split null |
 
 ## Receipts
+- v140: `.../lexical_number_dod_tense_leak_v140_result.json`; code `ops/run_lexical_number_dod_tense_leak_v140.py`
 - v138 / v139: `.../lexical_number_dod_natural_v138_result.json`, `.../lexical_number_dod_pile_v139_result.json`; rows `lexical_number_dod_{natural,pile}_rows_v13{8,9}.json`; miner config `ops/lexical_number_dod_natural_rows.py`
 - v65 adjacent-frame block-5 heads: `.../number_family_dod_adjacent_block5_v65_result.json`
 - v64 adjacent-frame module census: `.../number_family_dod_adjacent_modules_v64_result.json`
