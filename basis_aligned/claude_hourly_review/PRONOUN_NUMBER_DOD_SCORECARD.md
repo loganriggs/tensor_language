@@ -16,16 +16,22 @@ the singular side — the shared core is the claim under test.
 | 3 | Selective (was−were, who−which, night−day) | edit | fresh (v76) | all three within null + 0.25×1.55 | passes |
 | 4 | Additive | edit | fresh (v76) | singles 9.6 0.66 / 12.4 0.51 / 15.1 0.21 / 10.5 0.18; gap 0.015 ≤ bar 0.046 | passes |
 | 5 | Keep-only readout at the four heads keeps their service | edit | fresh (v76) | zero 1.39; retention 1.53 (keep-only raises the margin above native); random keep ≤ 0.02 | passes |
+| 6 | Matched-count random four-head-set null (16 quadruples from the other 158 heads, each along its own they−he direction) | edit | v76 rows (v79) | set 1.55 (fraction 0.76, replay of v76) vs random max 0.08 (fraction 0.04); none live | passes 4/4 |
+| 7 | Natural FineWeb rows (outcome-blind miner, agent noun singular/plural within 12 tokens, next token they/he, 16 per cell): congruent rows (plural/they, singular/he; capability 0.94 / 0.88) removal 2.27 of 3.49 (65%), positive 30/32, null max 0.07, selective by the registered gate | edit | natural (v77) | was−were moved 0.23 vs null 0.04 (gate bar 0.60): a number readout touches the number reader far above null, passes only because the gate scales with damage | passes 5/6 |
+| 7f | **Failed:** incongruent rows (singular noun then 'they', plural noun then 'he'; capability 0.69 / 0.75) were predicted to shift toward the text's pronoun under removal; they shift away (+0.77, positive 18/32) | edit | natural (v77) | the set carries the number the model itself resolved (usually the text's), not the surface noun's number — unlike the gender set, whose incongruent rows moved toward the text | falsified as registered |
+| 8 | Pile rows (out-of-corpus, same miner and bars): congruent 2.04 of 3.61 (56%), positive 30/32, null max 0.02, selective by the gate (was−were 0.20 vs null 0.03); incongruent again shift away (+0.99, positive 24/32; capability 0.81 / 0.94) | edit | natural OOD (v78) | | passes 5/6, pred_f falsified again |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
-| Simple | head grain; random-set null not run for this line (the gender line's v72 covers the core, not this set) | random four-head-set null |
-| Predicts OOD | held on a fresh panel with a frozen number (row 2) | natural FineWeb/Pile rows via `dod_natural_line` |
+| Simple | held at head grain (row 6) | — |
+| Predicts OOD | held on fresh, natural FineWeb and Pile rows for the congruent readout (rows 2, 7, 8); the registered counter-case prediction was wrong twice (row 7f): the set reads a resolved number, not the noun's | source fold: where the set reads number from |
 | Extracted | held at the head boundary (row 5) | response census |
 | Selective | held (rows 1, 3) | — |
 | Composes | additive (row 4) | — |
 
 ## Receipts
 - atlas v68: `bilinear_quotient/circuits/followups/atlas_pronoun_number_v68_result.json`
+- v79: `.../pronoun_number_dod_random_set_null_v79_result.json` (scored key `pred_d_set_fraction_within_band_of_v71` is v72's literal name reused; the band is v76's 0.76 ± 0.05)
+- v77 / v78: `.../pronoun_number_dod_natural_v77_result.json`, `.../pronoun_number_dod_pile_v78_result.json`; rows `..._natural_rows_v77.json`, `..._pile_rows_v78.json`; miner `ops/pronoun_number_dod_natural_rows.py`; body `ops/dod_natural_line.py`
 - v76: `.../pronoun_number_dod_battery_v76_result.json`; code `ops/run_pronoun_number_dod_battery_v76.py` (via `ops/dod_battery.py`)

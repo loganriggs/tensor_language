@@ -41,6 +41,14 @@ additive (gap 0.015 vs bar 0.046), keep-only retention 1.53. Seven of seven. The
 different pronoun decisions on fresh rows with the same recipe, so the pronoun family is a component family and not one
 line's co-occurrence. Scorecard: `PRONOUN_NUMBER_DOD_SCORECARD.md`.
 
+**Number on natural rows (v77 FineWeb, v78 Pile; v79 random-set null 4/4).** Congruent rows: 65% and 56% of the margin,
+positive 30/32 on both, null-beating, selective by the registered gate — but the was−were reader moves 6× its null on
+both panels (0.23 / 0.20 vs 0.04 / 0.03), passing only because the gate scales with damage; a number readout touching the
+number reader is expected and is reported, not hidden. **Two falsified predictions:** incongruent rows (singular noun then
+"they") were predicted to shift toward the text's pronoun; on both corpora they shift away (+0.77, +0.99), while the
+gender set's incongruent rows shifted toward the text. Reading: the number set carries the number the model resolved for
+the referent (which on natural text is usually the text's), not the surface noun's; the gender set tracks the noun.
+
 **What is different from the auxiliary families.** Removal along one weight-only direction per head takes the *entire*
 margin (the auxiliary sets take 45–60%), keep-only raises the margin above native, and additivity sits exactly at the
 bar with 12.4 the largest single. The response census (v74, exact λ-recurrence split, closure 7e-5) confirms it: the four heads' own writes carry 94% of
