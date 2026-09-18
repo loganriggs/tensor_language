@@ -5,7 +5,8 @@ among live non-auxiliary lines, recurring head triples, and a markdown table (fa
 selective | family overlap). Usage: python atlas_summary.py [--md out.md]"""
 from __future__ import annotations
 import collections
-FAMILIES = {"temporal": {"attn9_h1", "attn9_h4", "attn15_h5"}, "number": {"attn5_h7", "attn7_h8", "attn9_h7"}, "pronoun": {"attn9_h6", "attn12_h4", "attn15_h1"}}
+FAMILIES = {"temporal": {"attn9_h1", "attn9_h4", "attn15_h5"}, "number": {"attn5_h7", "attn7_h8", "attn9_h7"}, "pronoun": {"attn9_h6", "attn12_h4", "attn15_h1"},
+            "selection": {"attn13_h8", "attn7_h8", "attn8_h8"}, "person": {"attn8_h1", "attn13_h1", "attn10_h5", "attn15_h1"}}
 
 
 def family_of(top4):
@@ -46,7 +47,7 @@ def main():
     other_triples = collections.Counter(t for r in other for t in itertools.combinations(sorted(r["top4"]), 3)); print("recurring triples among 'other':", [(list(t), c) for t, c in other_triples.most_common(6) if c >= 2])
     if "--md" in sys.argv:
         out = Path(sys.argv[sys.argv.index("--md") + 1])
-        lines = [f"Lines {len(rows)}, capable {len(cap)}, live {len(live)}, selective {len(sel)}. Family = >= 2 core heads in the top-4 (temporal 9.1/9.4/15.5, number 5.7/7.8/9.7, pronoun 9.6/12.4/15.1): " + ", ".join(f"{k} {v}" for k, v in assigned.most_common()) + ".", "",
+        lines = [f"Lines {len(rows)}, capable {len(cap)}, live {len(live)}, selective {len(sel)}. Family = >= 2 core heads in the top-4, largest overlap wins (temporal 9.1/9.4/15.5, number 5.7/7.8/9.7, pronoun 9.6/12.4/15.1, selection 13.8/7.8/8.8, person 8.1/13.1/10.5/15.1): " + ", ".join(f"{k} {v}" for k, v in assigned.most_common()) + ".", "",
                  "| line | top-4 heads (logits) | set fraction | live | selective | family | aux overlap |", "|---|---|---|---|---|---|---|"]
         for r in sorted(rows, key=lambda r: -r["fraction"]):
             hs = ", ".join(f"{h.replace('attn','').replace('_h','.')} {d:.2f}" for h, d in zip(r["top4"], r["top4_damages"]))
