@@ -36,9 +36,7 @@ PREDICTIONS = {"pred_a_instrument_replays_native": "<= 1e-4", "pred_b_native_cap
                "pred_c_set_live_and_beats_null": "fraction >= 0.10, positive >= 0.75, > null max", "pred_d_set_selective": "three reader gates",
                "pred_e_set_is_additive": "gap <= 0.25 x min single", "pred_f_keep_only_retains_most": "retention >= 0.70, random <= 0.30",
                "pred_g_set_fraction_within_band_of_frozen": "0.71 +/- 0.15 per construction"}
-AGENT_CANDIDATES = ("pilot", "farmer", "soldier", "teacher", "doctor", "nurse", "driver", "student", "worker", "lawyer", "judge", "sailor", "miner",
-                    "baker", "guard", "clerk", "artist", "singer", "dancer", "poet", "painter", "writer", "builder", "chef", "coach", "banker", "butcher",
-                    "gardener", "mechanic", "plumber", "scout", "ranger", "trader", "editor", "critic", "monarch", "scholar", "senator")
+AGENT_CANDIDATES = ('trader', 'critic', 'senator', 'diver', 'wrestler', 'cyclist', 'physicist', 'biologist', 'economist', 'philosopher', 'programmer', 'developer', 'consultant', 'investor', 'marine', 'commander', 'major', 'recruit', 'veteran', 'cleric', 'elder', 'apostle', 'comedian', 'musician', 'patient', 'customer', 'client', 'tourist', 'passenger', 'commuter', 'pedestrian', 'citizen', 'resident', 'voter', 'taxpayer', 'immigrant', 'pioneer', 'robot', 'alien', 'zombie')
 OBJECT_CANDIDATES = ("coin", "rope", "torch", "bell", "jar", "drum", "crown", "sword", "shield", "purse", "wallet", "ticket", "spoon", "knife", "bowl",
                      "pillow", "blanket", "wagon", "barrel", "cradle", "scroll", "brush", "needle", "lamp", "box", "bag", "cart", "flag", "map", "key")
 CONSTRUCTIONS = {"lost": lambda noun, obj: f"The {noun} lost the {obj} and so",
