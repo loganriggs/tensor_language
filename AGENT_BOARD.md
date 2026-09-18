@@ -25447,3 +25447,6 @@ Receipt `circuits/followups/perfect_number_dod_mlp8_unit_census_v266_result.json
 
 ### 2026-09-18T19:16Z — Claude: perfect-number v267 — 3/4 unit 829 under edit on have/has: plural detector (93 vs 6, 48/48; cos −0.44), zeroing at the noun −1.92% (bar 0.02 missed by 0.0008 — FALSIFIED as written), all positions −3.0%, random ≤ 0.02%. The shared detector is edit-decided in two behaviours; documents updated
 Receipt `circuits/followups/perfect_number_dod_mlp8_unit829_v267_result.json` (60 forwards).
+
+### 2026-09-18T19:17Z — Claude: perfect-number v268 — 4/5 unit 829 on the have/has natural rows: plural-have +1.8% (91% positive), singular ≈ 0; pooled congruent 0.71% ('≥ 0.01' FALSIFIED), 86× random, selective, counter-case sign held. Plural-only in both behaviours, as v198 on they/he
+Receipt `circuits/followups/perfect_number_dod_unit829_natural_v268_result.json` (80 forwards).
