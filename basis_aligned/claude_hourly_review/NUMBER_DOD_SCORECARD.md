@@ -23,17 +23,19 @@ scorecards. Readers for this family: has−had (tense), who−which, night−day
 | 11 | Matched-count random four-head-set null | edit | v60 | set 2.67 vs random max 0.11, median 0.010; none live | passes 4/4 |
 | 12 | Head 5.7's readout coefficient (oriented plural−singular) is sourced from prep 0.69, subject 0.34, the2 0.08; inherited branch 0.01 | fold | v61 | closure ok | 0/2 registered guesses (subject token leads; token-only branch dominates) FAILED — 5.7 is not a token-only number-cue reader |
 | 13 | Keeping only the readout projection at the one-directional pair {11.3, 7.8} (5.7 and 9.7 native) retains 0.99 of zeroing those two slices (2.19 logits) | edit | v61 | | passes |
+| 14 | Frozen 0.70 ± 0.15 on three new templates: relative clause 0.71 and 'Yesterday the S by the P' 0.66 pass (orthogonalized removal selective, pair keep 0.98 / 0.93); 'Near the P the S' (subject adjacent to the auxiliary) only 0.14, not selective, pair keep 0.46 | edit, frozen | fresh templates, declared subject reuse (v62) | all six capability cells 1.00 | 2/5 as registered: the set transfers to two frames and NOT to the subject-adjacent frame — a construction limit of this component |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
 | Simple | held at head grain: 4 heads + contrast; sweeps on 4 lines and the random-quadruple null (row 11) | — |
-| Predicts OOD | first fresh panel only | frozen prediction on new templates |
+| Predicts OOD | partial: frozen band held on two of three new frames; the subject-adjacent frame is outside the component's scope (row 14) | sweep on the subject-adjacent frame (which heads read number there?) |
 | Extracted | held at the head boundary for the readout pair {11.3, 7.8} (rows 10, 13); 5.7 is an upstream contributor whose service is not a readout projection and whose sources are not token-only (row 12) — declared open port | — |
 | Selective | held with the orthogonalized (weight-only) number direction (row 7); the raw were−was direction is entangled with tense at the number heads (rows 2, 6) | — |
 | Composes | additive (row 3) | pairwise + random-split null |
 
 ## Receipts
+- v62 frozen templates: `.../number_family_dod_frozen_templates_v62_result.json`
 - v61 5.7 fold + pair keep: `.../number_family_dod_head57_fold_v61_result.json`
 - v59 per-head keep: `.../number_family_dod_per_head_keep_v59_result.json`
 - v60 random-set null: `.../number_family_dod_random_set_null_v60_result.json`
