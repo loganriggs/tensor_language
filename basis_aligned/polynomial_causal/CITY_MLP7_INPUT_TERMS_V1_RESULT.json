@@ -1,0 +1,62 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "pred_d": true,
+  "max_closure_relative": 4.8198629377664094e-15,
+  "max_full_write_relative": 1.056984260833506e-06,
+  "helper_v2_replay_relative": 0.0,
+  "self_only_paired_reader_errors": {
+    "k1": 0.4762269566053453,
+    "k2": 0.4693597743096562,
+    "current_value": 0.4702712574444421
+  },
+  "self_only_aggregate_write_error": 0.10899987250398213,
+  "self_only_max_sequence_write_error": 0.22489534321706217,
+  "paired_terms": {
+    "residual6*residual6": {
+      "norm_ratio": 0.60783137560321,
+      "aligned_fraction": 0.5553160917644845
+    },
+    "residual6*initial7": {
+      "norm_ratio": 0.1573891055248884,
+      "aligned_fraction": 0.09515545296187287
+    },
+    "residual6*attention7": {
+      "norm_ratio": 0.16576716311614523,
+      "aligned_fraction": 0.08906347180933355
+    },
+    "initial7*residual6": {
+      "norm_ratio": 0.14611313753046304,
+      "aligned_fraction": 0.08611217451550575
+    },
+    "initial7*initial7": {
+      "norm_ratio": 0.04344273271936139,
+      "aligned_fraction": 0.009494046993431034
+    },
+    "initial7*attention7": {
+      "norm_ratio": 0.05743998570206449,
+      "aligned_fraction": 0.018881969706325896
+    },
+    "attention7*residual6": {
+      "norm_ratio": 0.18878916551373381,
+      "aligned_fraction": 0.10613247850036993
+    },
+    "attention7*initial7": {
+      "norm_ratio": 0.05513233485995129,
+      "aligned_fraction": 0.020226030714199317
+    },
+    "attention7*attention7": {
+      "norm_ratio": 0.05954764620742742,
+      "aligned_fraction": 0.019618283034477095
+    }
+  },
+  "effective_document_pairs": 20,
+  "scope": "Opened conditional input-source fold. Native query/key RMS/mixed8 RMS supplied. Residual6 source recovered by subtraction, not independently captured. No causal omission or independent-composition claim.",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_MLP7_INPUT_TERMS_V1_PREREGISTRATION.md": "94ca17dd6a98acad7773544ac793b39bdac8baf92125685a6fed0048a51299bc",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/city_mlp7_input_terms_v1.py": "be9564fa9519d0579335f709c563d46917fb0f9c6e89623db70894816542723e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/city_mlp7_integrated_v2.py": "4b04adf04fa0cbcbc5dcbfbbf2f7ae74df64a5ebb9b4f81e1e1b4289b26fa5ca",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_MLP7_READERS_V1_PROGRAM.pt": "04126e0b0982a3137179477bc1e5a95cae01df44bafd6621daaa8544bef21883"
+  }
+}
