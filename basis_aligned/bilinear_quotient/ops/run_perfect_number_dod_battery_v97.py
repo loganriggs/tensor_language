@@ -48,8 +48,9 @@ CONSTRUCTIONS = {"since": lambda noun, obj: f"Since dawn the {noun} by the {obj}
 
 
 def build():
-    agents = dod_lexicon.fresh(AGENT_CANDIDATES, 16, plural=True)
-    objects = dod_lexicon.fresh(OBJECT_CANDIDATES, 16)
+    own = ("perfect_number_v97_agents", "perfect_number_v97_objects")   # registered after the run; excluded so replay is stable
+    agents = dod_lexicon.fresh(AGENT_CANDIDATES, 16, plural=True, exclude=own)
+    objects = dod_lexicon.fresh(OBJECT_CANDIDATES, 16, exclude=own)
     have, has = L._single(" have"), L._single(" has")
     reader_ids = {name: (L._single(a), L._single(b)) for name, (a, b) in L.READERS.items()}
     rows = []
