@@ -25219,3 +25219,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp8_single_units_natural_v198_re
 
 ### 2026-09-18T15:27Z — Claude: pronoun number v199 — 5/5 the MLP-6 trio {2483, 2826, 4131} on the 128 natural rows: congruent damage 0.8% at the cue (72% positive), random 3-unit sets ≤ 0.0007, selective, incongruent rows shift toward the label; plural-specific. All-positions edit flips sign (declared limit)
 Receipt `circuits/followups/pronoun_number_dod_mlp6_units_natural_v199_result.json` (80 forwards).
+
+### 2026-09-18T15:28Z — Claude: pronoun number v200 — 4/5 the MLP-5 five on the 128 natural rows: congruent damage 0.498% at the cue (LIVE ≥ 0.005 FALSIFIED as written), positive 61%, random 5-unit sets ≤ 0.0003 (59×), selective, incongruent −0.11%; plural-they +0.8% (81% positive). Out-of-panel ladder: MLP 8 3.3% → MLP 6 0.8% → MLP 5 0.5%
+Receipt `circuits/followups/pronoun_number_dod_mlp5_units_natural_v200_result.json` (80 forwards).

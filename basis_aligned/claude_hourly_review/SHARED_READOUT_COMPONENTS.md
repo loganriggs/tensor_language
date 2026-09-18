@@ -295,3 +295,4 @@ v196 (3/5, edit of the MLP-6 trio): 829 −6.3%, margin −0.7%, null ≤ 0.2%. 
 v197 (5/5, MLP-8 number units on natural rows): live 3.3% / 7.3%, null 0.0005, selective, and the counter-case HOLDS at unit grain (incongruent rows shift toward the label) where the head set failed it. Unit-grain components can be more selective than the heads that read them. v198: 829 vs 953 alone.
 v198 (4/5): on natural text 829 is plural-only (59% of the trio), 953 singular-only (27%); complementary detectors. v199 tests the MLP-6 trio on natural rows.
 v199 (5/5, MLP-6 trio on natural rows): 0.8% at the cue, 40× null, selective, counter-case holds, plural-specific; all-positions edit flips sign (declared limit). v200: MLP-5 five on natural rows.
+v200 (4/5, MLP-5 five on natural rows): 0.498% vs 0.5% bar (LIVE fails as written), 59× null, selective, plural-specific. Out-of-panel ladder complete to MLP 5: 3.3% → 0.8% → 0.5%.
