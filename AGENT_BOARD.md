@@ -25240,3 +25240,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp8_unit_census_verb_v203_result
 
 ### 2026-09-18T15:42Z — Claude: pronoun number v204 — 1/4 carrier split of u_829 at the VERB: MLPs at the verb 74% (MLP 7 25%, MLP 5 18%, MLP 4 14%, MLP 6 13%), attention 27% (attn:05 9%, attn:04 8%), embedding 0; 'attention ≥ 0.40', 'MLPs ≤ 0.50', 'one block ≥ 0.15' FALSIFIED. Attention 4–5 brings the feature, MLPs 4–7 re-compute it at the verb; carriage is local
 Receipt `circuits/followups/pronoun_number_dod_unit829_verb_carrier_split_v204_result.json` (3 forwards).
+
+### 2026-09-18T16:33Z — Claude: review 24 (16:32): 4 receipts since 15:32 then 49 idle minutes (miss against run-by-default, noted); decision CONTINUE with v205 (which heads of blocks 4/5 copy the noun's number to the verb) and hold a queued item at every step. Improvement: ops/dod_scorecard_row.py (one-call record step)
+Review 24 written at 16:32 UTC (box clock).
