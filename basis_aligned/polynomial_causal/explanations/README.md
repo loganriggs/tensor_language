@@ -1,5 +1,7 @@
 # Plain-language explanations
 
+Latest regional result: [Smaller prefix preserves fresh city-removal effects](for_logan/research_update_2026-09-18_0252_packed_city_removal.md).
+
 Latest regional result: [Selective city interchange](for_logan/research_update_2026-09-18_0235_city_interchange.md), with conditional two-prefix extraction and explicit composition gap.
 
 Latest regional result: [Conditional source roles](for_logan/research_update_2026-09-18_0220_conditional_source_roles.md); retain coupled city interface and test interchange next.

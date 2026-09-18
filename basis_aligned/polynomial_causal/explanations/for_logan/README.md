@@ -1,5 +1,7 @@
 # Requested full reports for Logan
 
+[Smaller prefix preserves fresh city-removal effects](research_update_2026-09-18_0252_packed_city_removal.md).
+
 **Latest regional update: [18 September — Selective city interchange](research_update_2026-09-18_0235_city_interchange.md).** Fresh prediction/selective swapping pass; standalone two-prefix export cuts native state31%. Independent composition remains unresolved.
 
 **Latest regional update: [18 September — Conditional source roles](research_update_2026-09-18_0220_conditional_source_roles.md).** Reversals persist at small strength; key/value split fails clean-role predictions. Complete-city interchange is registered with fresh rows and a passing local preflight.

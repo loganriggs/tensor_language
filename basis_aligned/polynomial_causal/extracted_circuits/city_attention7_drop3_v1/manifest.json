@@ -1,0 +1,38 @@
+{
+  "schema": "regional.city_attention7_drop3.v1",
+  "name": "city_attention7_drop3_v1",
+  "certified_complete": false,
+  "counterfactual": "Approximate complete head8.2 city removal; attention7 head3 omitted in generated prefix, full native suffix retained. This does not ablate native attention7 head3.",
+  "ports": [
+    "residual6[1,T,1152]",
+    "token_ids[1,T]",
+    "city:int",
+    "destination[T]:bool"
+  ],
+  "external_native_activation_inputs": 1,
+  "native_state_scalars_T32": 36864,
+  "static_float_scalars": 22418566,
+  "weight_bytes": 89674264,
+  "supported_sequence_tokens": 386,
+  "external_computation": "Native blocks0\u20136 and native MLP8 plus remaining suffix.",
+  "four_traits": {
+    "ood_prediction": true,
+    "extraction": true,
+    "selective_removal": true,
+    "composition_reuse": null
+  },
+  "property_scope": "Fresh same-corpus documents with fixed regional probes; not pretraining-disjoint or cross-corpus OOD. Independent composition untested for this subset and failed for related full-city partitions. No matched-effect simplicity-null claim.",
+  "evidence": {
+    "fresh_cpu": "../../CITY_ATTENTION7_DROP3_FRESH_V1_RESULT.json",
+    "packing_replay": "../../CITY_ATTENTION7_DROP3_PACK_V1_RESULT.json",
+    "isolated_cpu": "../../CITY_ATTENTION7_DROP3_FRESH_V1_ISOLATED_RESULT.json"
+  },
+  "files": {
+    "attention7.pt": "089521814195cce76f512d6213da4c945107e7167bd1a3e73b2a0b86e797ead1",
+    "attention7.py": "1271b09761dd511ebb5b23ab69371727a44ee48e18aad43f005476e474fa0ac7",
+    "execute.py": "699b0ae23508c3013322b1d5447574001dbc9f3a9c1392c8849c65c33fbca600",
+    "head8.pt": "ec4f06f93a9081789ace4ea5a8fd480deb1490df11fc6efd27124152889f3367",
+    "readers.pt": "26c49293a1a844feebaae4536d9d60887eec8b6b5b95f7cacc501b41bd4ff0a7",
+    "readers.py": "17140223bfa4935afd5a56e5ad93981ee57381c2d152163cad8a2dfeeda955b8"
+  }
+}

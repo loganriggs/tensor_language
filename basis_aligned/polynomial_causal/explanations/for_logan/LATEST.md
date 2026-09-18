@@ -1,5 +1,7 @@
 # Latest requested update for Logan
 
+**Latest regional update: [Smaller prefix preserves fresh city-removal effects](research_update_2026-09-18_0252_packed_city_removal.md).** Fresh prediction/selectivity and standalone execution pass;884,736 fewer stored FP32 values; native input and composition gaps remain.
+
 **Latest regional update: [18 September — City interchange requires a coupled operation](research_update_2026-09-18_0245_city_composition.md).** Opened five-arm composition fails at both head-cross omission and downstream interaction. Fresh full-swap and boundary-extraction evidence remain; independent components are not supported.
 
 **Claude circuit-lane index: [18 September — The readout collection so far: four families, nine lines](research_update_2026-09-18_readout_collection_index.md).**
