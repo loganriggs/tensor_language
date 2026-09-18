@@ -1,6 +1,8 @@
 # Requested full reports for Logan
 
-**Latest regional update: [18 September — MLP7 reader fold](research_update_2026-09-18_0058_mlp7_readers.md).** Smaller exact reader computation; integrated CPU check passes, native verification pending.
+**Latest regional update: [18 September — Earlier residual6 boundary](research_update_2026-09-18_0126_residual6_boundary.md).** Standalone and full-model CPU replay pass; native query/RMS dependencies and failed composition remain.
+
+**Previous regional update: [18 September — MLP7 reader fold](research_update_2026-09-18_0058_mlp7_readers.md).** Smaller exact reader computation; integrated CPU check passes, native verification pending.
 
 **Previous regional update: [18 September — Filtered Pile transfer](research_update_2026-09-18_0033_pile_transfer.md).** Scoped corpus prediction, unchanged-output precision repair, and document-level reversals.
 

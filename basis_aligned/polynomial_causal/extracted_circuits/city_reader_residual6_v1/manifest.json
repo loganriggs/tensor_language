@@ -1,0 +1,71 @@
+{
+  "name": "city_reader_residual6_v1",
+  "counterfactual": "Full head8.2 city-token value removal at the declared destination positions; output is attention8 delta",
+  "floating_scalars": 21851526,
+  "weight_bytes": 87406104,
+  "token_vocabulary_size": 396,
+  "native_input_scalar_count_at_32_tokens_city12": 23169,
+  "native_inputs": [
+    "residual6 prefix through city: [B,city+1,1152]",
+    "rotated head8 query factors: [B,T,2,128]",
+    "mixed8 city RMS: [B,1]"
+  ],
+  "other_inputs": [
+    "token IDs",
+    "city position",
+    "destination mask"
+  ],
+  "batch_contract": "Certified B=1; same city position within batch",
+  "external_computation": "native blocks0\u20136, head8 query generation, mixed8 RMS generation, native MLP8 and suffix",
+  "evidence": {
+    "full_model_cpu": "../../CITY_EARLIER_BOUNDARY_CPU_V1_RESULT.json",
+    "isolated_cpu": "../../CITY_READER_RESIDUAL6_V1_ISOLATED_RESULT.json",
+    "gpu": "pending older-boundary certificates; not claimed for this package"
+  },
+  "properties": {
+    "extraction": "CPU full-model and isolated40fixture replay pass at declared boundary",
+    "ood_prediction": "no fresh package confirmation; previous operator evidence is scoped separately",
+    "selectivity": "implementation replays full native removal; no new package null confirmation",
+    "composition": "source partition specificity fails; no independent composition claim"
+  },
+  "certified_complete": false,
+  "files": {
+    "attention7.pt": "9e693687389e2045ac2eee717c9736b355365a259aa35af8ea2dd3b536b1d105",
+    "readers.pt": "04126e0b0982a3137179477bc1e5a95cae01df44bafd6621daaa8544bef21883",
+    "head8.pt": "48acae2a261e5b1f94fb4c2b6d186b3dd1489b96efa5f6e77e54d114da8f39ec",
+    "attention7.py": "c63f9e89aff17294528d2100101e13d6870033d9ee853f58e06b65f22f5ea9d5",
+    "readers.py": "17140223bfa4935afd5a56e5ad93981ee57381c2d152163cad8a2dfeeda955b8",
+    "citywrite.py": "70e37386937567bf8a7d079ceb3526cbb6ee6194e112f8f27fab9bfed9bdece3",
+    "execute.py": "28637e75ab7ae0dc27f5a1d44792a89d54a6fc0037382de7d02ea371a4f64ae1"
+  },
+  "schema": "regional.city_reader_residual6.v1",
+  "ports": [
+    "residual6[1,city+1,1152]",
+    "token_ids[1,city+1]",
+    "rotated_queries[1,T,2,128]",
+    "input_rms[1,1]",
+    "city:int",
+    "destination[T]:bool"
+  ],
+  "external_native_activation_inputs": 3,
+  "native_vector_state_arrays": 2,
+  "native_scalar_state_arrays": 1,
+  "native_state_scalars_T32": 23169,
+  "static_float_scalars": 21851526,
+  "supported_sequence_tokens": 396,
+  "output": "complete city-removal attention8 delta[1,T,1152]",
+  "serialized_program_bytes": 87419323,
+  "four_traits": {
+    "ood_prediction": null,
+    "extraction": true,
+    "selective_removal": null,
+    "composition_reuse": false
+  },
+  "certified_complete_circuit": false,
+  "scope": "Earlier residual6-prefix boundary passes isolated and full-model CPU replay. Native queries and mixed8 RMS remain supplied; native MLP8/suffix external. More complete upstream generation, not lower total state/storage or new fresh/composition confirmation.",
+  "receipts": [
+    "CITY_ATTENTION7_GENERATOR_V1_RESULT.json",
+    "CITY_EARLIER_BOUNDARY_CPU_V1_RESULT.json",
+    "CITY_READER_RESIDUAL6_V1_ISOLATED_RESULT.json"
+  ]
+}

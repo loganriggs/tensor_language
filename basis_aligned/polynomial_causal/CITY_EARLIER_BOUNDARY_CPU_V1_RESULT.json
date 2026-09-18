@@ -1,0 +1,36 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "score_max_abs_by_arm": [
+    6.67572021484375e-06,
+    1.0251998901367188e-05
+  ],
+  "score_relative_by_arm": [
+    9.97540557100075e-07,
+    1.0687219003512022e-06
+  ],
+  "effect_errors_by_reader": [
+    5.368017667051934e-06,
+    5.685944954359499e-05,
+    7.326665526860756e-05,
+    4.8666625528771885e-05,
+    6.511936211801438e-05
+  ],
+  "local_write_error": 3.498860736079034e-06,
+  "floating_scalars": 21851526,
+  "fp32_bytes": 87406104,
+  "native_state_scalar_range": [
+    23169,
+    23169
+  ],
+  "sequence_equivalent_forwards": 80,
+  "batched_block_calls": 36,
+  "seconds": 21.02747695799917,
+  "scope": "Opened full-model CPU certificate at earlier residual6 boundary, native query fields and mixed8 RMS still external. Not a GPU certificate, fresh transfer, source composition or total compression claim.",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_EARLIER_BOUNDARY_CPU_V1_PREREGISTRATION.md": "71e34e28b4ffebcf0f7c937152aa066e97c7c9a6eb643e3400a9ea7a100e1eea",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/check_city_earlier_boundary_cpu_v1.py": "7a1fbc1828805cc22451c08ade27e724002b9870fb4dcff538191915f3fc1166",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/city_earlier_boundary_v1.py": "e6cdd1c11f4a7ed77f1a8df88196c5a55e82184b14864ff10359deae18761d3f"
+  }
+}

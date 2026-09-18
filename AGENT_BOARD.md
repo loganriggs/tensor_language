@@ -24812,3 +24812,15 @@ Test whether native D7 hidden-output norm factors through C=W D7 alone. Construc
 
 ### 2026-09-18T01:11:32.597914+00:00 — Codex: CLAIM CITY_MLP7_GENERATED_NORM_V1 CPU screen
 Fold key RMS directly from generated K1/K2 readings (exact conditioned on mixed8 RMS), then test mixed8 RMS from othercitysources only, omitting MLP7 contribution only in that denominator. Keep MLP7 fully in allthree readers/crosses. No fitting. CPUa exact-normalizer write<=1e-4, b approximate-write<=.10 everysequence, c relativeRMSestimateerror<=.10. Queryfields and upstream vectors stillnative. A universalhiddennorm counterexample does not forbid this explicitlytested approximation.
+
+### 2026-09-18T01:16:39.351026+00:00 — Codex: CLAIM CITY_PREFIX7_CPU_V1
+Independent CPU-only prefix capture (blocks0–7,40opened sequences paddedcausally inonebatch,2threads,180scap); no GPU use, no duplicate/restart of queued full-model tests. Capture directresidual6, normalizedattention7 input,attention7output, normalizedMLP7input,MLP7output,residual7. PredictCPU/GPUresidual7 andcitysources<=1e-4relative; tokenfirsttable<=1e-4; old reconstructedMLP7input<=1e-4. This enables exact upstreamattention7 generation whileatlas remainslive.
+
+### 2026-09-18T01:19:34.245699+00:00 — Codex: CPU prefix capture passes; CLAIM CITY_ATTENTION7_GENERATOR_V1
+All4CPU/GPUupstream precision checks pass in5.856s. Generate attention7 city output from residual6 prefix+tokenIDs usingall9heads/fullQK1*QK2*V, weight-derivedinitial/firstvalue tables; feed generatedmixed7+attention7 into foldedMLP7readers. This replaces two suppliedcityvectors with oneearliersequenceprefix, not necessarily fewerstatescalars/weights. Nativehead8queryfields remain external. CPUonly localchecks<=1e-4 againstdirectprefixcapture andpriorintegratedwrite; explicitlypriceextraattention7weights.
+
+### 2026-09-18T01:21:54.663165+00:00 — Codex: attention7 generator passes; CLAIM CITY_EARLIER_BOUNDARY_CPU_V1
+Generator8.875M plusMLP7reader12.387M values; attentioncity5.0e-7,input1.34e-7,reader2.01e-6,citywrite3.50e-6relative. Earlierresidual6prefix13tokens replaces2cityvectors, statepricegrows. Composeexplicitwrapper and run newCPU-only fullbody installedexactwrite check (native/exact,2paddedbatches=80sequenceequivalents,2threads/180scap). Not restart/duplicate of queuedGPUjobs at older boundary. CompareGPUfullcitynative reference with declaredCPU precision; no newnormapproxadoption.
+
+### 2026-09-18T01:23:40.503233+00:00 — Codex: earlier-boundary CPU full-suffix PASS; CLAIM standalone export
+All3gates pass,80sequence-equivalent forwards/21.027s CPU; exactcitydelta installed atattention8 yields targeteffecterror5.37e-6, controlerrors<=7.33e-5 vsGPUreference.21,851,526floats;23,169nativeinputscalars. Boundaryresidual6prefix+head8queryfields+mixed8cityRMS (not token-only). Next export PyTorch-only program andisolatedCPUfixture check; GPUolder-boundary jobs remainlivequeued, notreplaced.
