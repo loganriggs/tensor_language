@@ -49,8 +49,9 @@ CONSTRUCTIONS = {"remained": lambda agent, obj, verb: f"The {agent} near the {ob
 
 
 def build():
-    agents = dod_lexicon.fresh(AGENT_CANDIDATES, 16)
-    objects = dod_lexicon.fresh(OBJECT_CANDIDATES, 16)
+    own = ("selection_particle_v86_agents", "selection_particle_v86_objects")   # registered after the run; excluded so replay is stable
+    agents = dod_lexicon.fresh(AGENT_CANDIDATES, 16, exclude=own)
+    objects = dod_lexicon.fresh(OBJECT_CANDIDATES, 16, exclude=own)
     pos, neg = L._single(" up"), L._single(" down")
     reader_ids = {name: (L._single(a), L._single(b)) for name, (a, b) in L.READERS.items()}
     rows = []

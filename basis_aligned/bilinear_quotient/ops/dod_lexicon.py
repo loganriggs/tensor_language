@@ -29,6 +29,8 @@ PANELS = {
     "pronoun_number_v76_objects": ("coin", "rope", "torch", "bell", "jar", "drum", "crown", "sword", "shield", "purse", "wallet", "ticket", "spoon", "knife", "bowl", "pillow"),
     "selection_v85_agents": ("major", "recruit", "veteran", "cleric", "elder", "apostle", "comedian", "musician", "patient", "customer", "client", "tourist", "passenger", "commuter", "pedestrian", "citizen"),
     "selection_v85_objects": ("blanket", "wagon", "barrel", "cradle", "scroll", "brush", "needle", "lamp", "box", "bag", "cart", "flag", "map", "key", "tent", "boat"),
+    "selection_particle_v86_agents": ("resident", "voter", "taxpayer", "immigrant", "pioneer", "robot", "alien", "zombie", "vampire", "ghost", "giant", "dwarf", "goblin", "dragon", "villain", "toddler"),
+    "selection_particle_v86_objects": ("cane", "cloak", "bench", "stove", "cage", "chest", "clock", "trunk", "hat", "coat", "boot", "glove", "belt", "scarf", "shirt", "sock"),
     "number_v62_places": ("canal", "lodge", "inn", "mine", "farm", "arena", "bakery", "brewery", "cellar", "clinic", "depot", "gallery", "hangar", "plaza", "reef", "shrine"),
 }
 
