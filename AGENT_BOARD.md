@@ -25300,3 +25300,6 @@ Receipt `circuits/followups/pronoun_gender_dod_head81_verb_edit_v221_result.json
 
 ### 2026-09-18T17:16Z — Claude: pronoun gender v222 — 5/5 the 8.1-at-verb edit: 9.6 loses 86% of the reader-coefficient drop (−15% of its coefficient), selective (three gates hold), margin −3.5% verb / −12.9% all positions. Scorecard row 36 wording corrected: the gender panel is 60 rows / 30 pairs (v220's docstring says 48)
 Receipt `circuits/followups/pronoun_gender_dod_head81_readers_v222_result.json` (28 forwards).
+
+### 2026-09-18T17:26Z — Claude: pronoun number v223 — 5/5 block-8 heads zeroed at the verb on number: 8.1 inert (they−he −0.16%, 829 +1.5%), no head ≥ 0.2% on the margin, 8.8 largest on 829 (−2.7%). The 2×2 closes: 4.5 = number's verb route (7.7% / gender −0.5%), 8.1 = gender's (3.5% / number −0.2%). Number document carries the table
+Receipt `circuits/followups/pronoun_number_dod_block8_heads_verb_edit_v223_result.json` (30 forwards). The first dry-run failed on a leftover plan key and my wait loop idled nine minutes before the fix — no GPU spent.

@@ -1,0 +1,77 @@
+{
+  "candidate_id": "pronoun_number.they_vs_he.dod_block8_heads_verb_edit_v223",
+  "finished_utc": "2026-09-18T17:25:49.331711+00:00",
+  "forwards": 30,
+  "plan": {
+    "bars": {
+      "any_max": 0.02,
+      "inert_829": 0.05,
+      "inert_margin": 0.01
+    },
+    "block": 8,
+    "candidate_id": "pronoun_number.they_vs_he.dod_block8_heads_verb_edit_v223",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 33,
+    "gpu_accessed": false,
+    "head": 1,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117"
+  },
+  "predictions": {
+    "pred_a_native_margin_positive": true,
+    "pred_b_8_1_inert_for_829": true,
+    "pred_c_8_1_inert_for_the_margin": true,
+    "pred_d_no_block8_head_moves_margin_002": true,
+    "pred_e_8_8_largest_on_829": true
+  },
+  "report": {
+    "baseline": {
+      "margin": 196.62155771255493,
+      "u829": 3611.7680378705263
+    },
+    "fractional_change_by_head": {
+      "0": {
+        "margin": 0.00011206869772610694,
+        "u829": 0.0010960392172506043
+      },
+      "1": {
+        "margin": -0.0015851302563553212,
+        "u829": 0.015272398326938375
+      },
+      "2": {
+        "margin": -0.00015983206579249105,
+        "u829": -0.0014396922659933057
+      },
+      "3": {
+        "margin": 0.0004688061274898559,
+        "u829": 0.019547153466295823
+      },
+      "4": {
+        "margin": -0.0009225908636721118,
+        "u829": 0.0029565291979850947
+      },
+      "5": {
+        "margin": -0.0005314502280495294,
+        "u829": -0.011370153534301717
+      },
+      "6": {
+        "margin": -0.00021988367889529904,
+        "u829": 0.004378027646762717
+      },
+      "7": {
+        "margin": 0.00013413273035712815,
+        "u829": -0.002410748936118845
+      },
+      "8": {
+        "margin": 0.0004529359329924496,
+        "u829": -0.026477012222652658
+      }
+    }
+  },
+  "schema": "pronoun_number_dod_head45_verb_edit_result_v223",
+  "serial_seconds": 2.0220327868591994
+}
