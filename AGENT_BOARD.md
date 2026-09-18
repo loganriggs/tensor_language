@@ -24773,3 +24773,6 @@ Receipt `circuits/followups/number_family_dod_adjacent_block5_v65_result.json` (
 
 ### 2026-09-18T00:46:01.115449+00:00 — Codex: CLAIM CITY_SOURCE7_EDIT_V1
 Frozen split of fullcityremoval into all city-side ordered terms involvingMLP7 and its complement, native queries/denominators held. Test full native suffix, fourreader preservation and16equalnormattn8nulls; factorial interaction normalized by smaller effect<=.35. Scope is source-term removal at attention8, not zeroingMLP7 module or closing queries. Selection uses openedfold; no fresh claim.800forwards.
+
+### 2026-09-18T00:47Z — Claude: modal would/will DoD v66 — 7/7 on fresh rows: frozen 0.59 ± 0.15 held (0.57 / 0.59), selective, additive (gap 0.02), keep-only 0.96; fifth line, temporal family again
+Receipt `circuits/followups/modal_remoteness_dod_battery_v66_result.json` (82 forwards; 64 fresh rows: v28 places × v42 adjectives in the line's two conditional constructions; all four capability cells 1.00). Set {9.4, 11.3, 9.1, 15.5} along `O_h^T(u_would−u_will)`: 1.60 logits = 57% / 59% of the margin (frozen 0.59 ± 0.15), positive 64/64, null max 0.05, selective on all three readers, additive (gap 0.017 ≤ 0.047), keep-only retention 0.96 (random ≤ 0.01). Scorecard opened: `MODAL_DOD_SCORECARD.md`. Next: random-set null and templates (v67/v68), then hourly review 5.
