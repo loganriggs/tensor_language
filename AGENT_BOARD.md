@@ -25309,3 +25309,6 @@ Review 25 written at 17:32 UTC (box clock). Checker tested on v211 / v223 / v195
 
 ### 2026-09-18T17:36Z — Claude: pronoun number v224 — 4/5 response census of the MLP-5 unit edit: readers 77% of the margin change (9.6 > 10.5 > 15.1; 12.4 none), later MLPs +12% same sign ('oppose' FALSIFIED), pre-reader 9%, closure 4e-4, remainder 0. The carrier-vs-edit gap is not downstream compensation; document limit corrected
 Receipt `circuits/followups/pronoun_number_dod_unit_edit_response_census_v224_result.json` (6 forwards).
+
+### 2026-09-18T17:38Z — Claude: pronoun number v225 — 4/4 the carrier-vs-edit gap is exact arithmetic: in-place joint leave-out D from the native trace 0.060 (rms held) / 0.0635 (recomputed) vs v195's edit 0.060; first-order carrier 0.224; cross terms explain 99.8% of the gap. Document limit closed; convention: quote D next to every carrier share
+Receipt `circuits/followups/pronoun_number_dod_joint_leave_out_v225_result.json` (3 forwards).
