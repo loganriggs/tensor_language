@@ -37,6 +37,8 @@ PANELS = {
     "person_v104_v105_objects": ("nail", "screw", "bolt", "rug", "sofa", "desk", "shelf", "stool", "crate", "shoe", "pipe", "tube", "wire", "cord", "string", "ribbon"),
     "correlative_v119_v120_agents": ('preacher', 'magician', 'drummer', 'guitarist', 'composer', 'conductor', 'accountant', 'astronaut', 'athlete', 'broadcaster', 'columnist', 'commentator', 'contractor', 'coroner', 'counselor', 'curator'),
     "correlative_v119_v120_objects": ('badge', 'basin', 'blade', 'blender', 'brace', 'bracelet', 'broom', 'buckle', 'bumper', 'calculator', 'camera', 'cannon', 'canoe', 'clipboard', 'cushion', 'dagger'),
+    "cross_family_v143_objects": ('envelope', 'flashlight', 'flask', 'funnel', 'gauge', 'harness', 'headphone', 'hinge', 'joystick', 'keyboard', 'lever', 'magnet', 'manuscript', 'mattress', 'microscope', 'mortar'),
+    "cross_family_v144_objects": ('necklace', 'notebook', 'paddle', 'pedal', 'pitcher', 'plaque', 'poker', 'radiator', 'raft', 'reel', 'rifle', 'scissors', 'skillet', 'sponge', 'suitcase', 'telescope'),
     "number_v62_places": ("canal", "lodge", "inn", "mine", "farm", "arena", "bakery", "brewery", "cellar", "clinic", "depot", "gallery", "hangar", "plaza", "reef", "shrine"),
 }
 

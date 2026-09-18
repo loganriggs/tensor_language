@@ -38,7 +38,8 @@ L.UNRELATED = ("tense_will_would", "animacy_who_which", "canonical_night_day")
 
 
 def build():
-    objects = dod_lexicon.fresh(dod_lexicon.OBJECT_POOL, 32)[16:]   # the 16 after v143's
+    OWN = ("cross_family_v143_objects", "cross_family_v144_objects")   # both panels registered after the runs; excluded so replay is stable
+    objects = dod_lexicon.fresh(dod_lexicon.OBJECT_POOL, 32, exclude=OWN)[16:]   # the 16 after v143's
     reader_ids = {name: (L._single(a), L._single(b)) for name, (a, b) in L.READERS.items()}
     A, B = [], []
     for g in range(16):
