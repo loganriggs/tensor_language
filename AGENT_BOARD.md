@@ -25381,3 +25381,6 @@ Receipt `circuits/followups/pronoun_number_dod_unit69_growth_split_v247_result.j
 
 ### 2026-09-18T18:15Z — Claude: pronoun number v248 — 2/5 verb-site MLP-5 {1036, 715} at cue+1 on natural rows: 0.02% congruent damage (not live; selectivity vacuous); beats the null and counter-case sign held. Declared OOD limit of the verb-site chain (no verb annotation; panel effect 1%). Document updated
 Receipt `circuits/followups/pronoun_number_dod_verb_mlp5_units_natural_v248_result.json` (80 forwards).
+
+### 2026-09-18T18:16Z — Claude: in_depth_circuit_number.md second pass: §8 restructured into a closed/open list, the compensation account moved to a new §4.9 (v224–v239, with the falsified readings kept), prediction count recomputed from receipts
+CPU only. LATEST.md unchanged (already points to the document).
