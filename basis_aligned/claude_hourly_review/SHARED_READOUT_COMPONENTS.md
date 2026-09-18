@@ -333,3 +333,4 @@ v233 (2/5): mean-preserving edit — MLP 7 still responds +0.10 (renormalisation
 v234 (5/5): under the mean-preserving edit, unit 1779 is 65% of MLP 7's push-back (top-10 99%) — a number-restoring unit. v235: factor split of 1779's change.
 v235 (3/5): 1779's own contrast shrinks 16% under the edit (Left factor), yet it restores 829 — the response must be radial (through block-8 RMS normalisation), not through 829's factors. v236 splits it.
 v236 (2/5): radial part exactly 0 — the detector is scale-invariant (rms_norm); my hypothesis was ill-posed. METHOD: fixed-rms carrier shares can mis-sign residual-aligned writers (1779?). v237: true-gradient unit census of MLP 7 into 829.
+v237 (1/5): the true-gradient census reproduces v229 — the carrier identity stands; 1779 is a real +relay. The shrink-yet-restore puzzle must be row-dependent gradients (v238).

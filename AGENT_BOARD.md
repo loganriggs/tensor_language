@@ -25345,3 +25345,6 @@ Receipt `circuits/followups/pronoun_number_dod_unit1779_factor_split_v235_result
 
 ### 2026-09-18T17:57Z — Claude: pronoun number v236 — 2/5 radial / tangential split of MLP 7's response on 829: radial exactly 0 (rms_norm makes the detector scale-invariant — hypothesis ill-posed), tangential +0.097. Method consequence: fixed-rms carrier shares may mis-sign residual-aligned writers; v237 recomputes MLP-7 unit carriers with the true gradient
 Receipt `circuits/followups/pronoun_number_dod_mlp7_response_radial_split_v236_result.json` (6 forwards).
+
+### 2026-09-18T17:59Z — Claude: pronoun number v237 — 1/5 true-gradient unit census of MLP 7 into 829 reproduces v229 (1779 +431 vs +424; same top-10; |cos| with x̂_8 0.18): the fixed-rms carrier identity is VINDICATED. The shrink-yet-restore puzzle of 1779 is not a sign artefact; v238 splits its response by row class. (First run lost its receipt to a tensor in JSON; re-run, 3 forwards)
+Receipt `circuits/followups/pronoun_number_dod_mlp7_units_true_gradient_v237_result.json` (3 forwards + 3 lost).
