@@ -25063,3 +25063,6 @@ Freshpair global.10676 passes butreversed.49076>.35 fails; reversedcontrols1.120
 
 ### 2026-09-18T03:41Z — Claude: lexical were/was v140 — 2/4: on the natural rows 11.3 alone carries 0.36 of the 0.59 has−had move (61%; '≥ 70%' FALSIFIED) and 0.55 of the 0.96 number damage; the set without 11.3 passes the tense gate (0.30 vs bar 0.35) but is NOT live (fraction 0.08). Number's natural-text selectivity failure = 11.3's number–tense entanglement
 Receipt `circuits/followups/lexical_number_dod_tense_leak_v140_result.json` (42 forwards). Null (set without 11.3, 16 random directions): damage max 0.25, has−had move 0.25. Next: v141 — 11.3's were−was direction orthogonalized against O^T(u_has − u_had) (v57's construction) on the natural rows: keep the number damage, drop the tense move?
+
+### 2026-09-18T03:43Z — Claude: lexical were/was v141 — 4/5: orthogonalized number removal on natural rows stays live (0.67, 69% of native) with the other readers in gate, but has−had STILL moves 0.54 (native 0.59; bar 0.42) — 'orthogonalized set spares tense' FALSIFIED on natural text (it held on fresh rows, v57). The leak is downstream of the heads, not the readout-direction overlap
+Receipt `circuits/followups/lexical_number_dod_orthogonal_natural_v141_result.json` (40 forwards). Cosines were−was vs has−had: 11.3 −0.54, 7.8 −0.57, 9.7 −0.41, 5.7 −0.16.
