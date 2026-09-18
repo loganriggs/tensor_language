@@ -198,3 +198,16 @@ of the he/she margin at "then" (64/64); each family's set removes nothing at the
 equals the sum (gaps 0.001 / 0.002). 4/4 — components of different families compose in a sentence: separate positions, no interference, additive.
 v144 (composition with a SHARED head, 4/4): "I/You praised either/not the obj [and then blamed]" — the correlative set (with 8.1) removes 45% of or/but at the object, the person set (with 8.1) 41% of myself/yourself at the end; each inert at the other's position (≤ 0.001 of own), joint additive (gaps 0.008 / 0.003). Head 8.1 carries both families' lookups in one sentence without interference.
 v145 (4/4): 8.1's write at the verb on the gender line is a token-only copy of the gendered noun (99% noun position, 96% block-0 value) on 9.6's reader direction — the same lookup mechanism (v12, v113, v131, v133) at an intermediate position, feeding a contextual reader. 8.1 = a general token copier; families use its copies at the final query (temporal, person, correlative) or via a later reader (gender's 9.6).
+
+## Head 8.1's lookup table over the vocabulary (v146, weights + single-token block-0 values, 03:54 UTC)
+
+`head_8_1_vocabulary_table_v146_result.json`, 1/3 (20547 alphabetic tokens ranked along six contrasts). Signs match for every registered cue pair (held).
+Ranks of the registered cues among the vocabulary: I / you 1st / 1st on myself−yourself (top ten: I, me, my, My, i, myself, mine, Me … / you, You, your, …);
+either 1st on or−but (either, Whether, Either, whether, But, Unless …) but 'not' 50th; neither 1st on and−nor (neither, Neither, not, cannot, nor, nothing, no …)
+but 'both' 7537th — the and-side of that direction is not cue-shaped (roughly, potentially, widespread …); since 2nd on has−had (Since, since, currently, has,
+now, lately …) but 'by' 5389th (an any-sense preposition); earlier 2nd on will−had (Earlier, earlier, hadn, had, previous …) with 'tomorrow' 82nd behind
+will / predicts / expects / upcoming; he−she: the top tokens are the pronoun class itself (He, his, he, guy, husband, male / she, her, woman, female …) with
+king 164th and queen 35th. Failed and kept: "registered cues in the top 20" (by, both, tomorrow, king, not) and "≥ 5 of the top-10 positive tokens are
+family cue words" (and−nor 0, will−had 0, has−had 4). Reading: 8.1 is one copier whose table, read along each contrast, is dominated by the most
+frequent markers of that decision (I/you, either/neither, since/now, he/she); the families' rarer cues (both, by, king) ride the same table with smaller
+scores and the right sign.

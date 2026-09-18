@@ -25078,3 +25078,6 @@ Receipt `circuits/followups/cross_family_composition_shared_head_v144_result.jso
 
 ### 2026-09-18T03:52Z — Claude: pronoun gender v145 — 4/4: 8.1's write at the verb position, folded on 9.6's reader direction, is 99% from the gendered noun and 96% token-only (block-0 value). 8.1 is a general token copier: the same lookup at the final query (temporal, person, correlative) and at intermediate positions feeding contextual readers (gender's 9.6)
 Receipt `circuits/followups/pronoun_gender_dod_8_1_at_verb_v145_result.json` (4 forwards; mean contrast 3965 in reader-projected units, closure 2e-7). Queue empty at 03:53; next review ~04:15.
+
+### 2026-09-18T03:54Z — Claude: head 8.1 vocabulary table v146 (CPU) — 1/3: signs match for all six contrasts (held); registered cues' ranks: I/you 1/1, either 1, neither 1, since 2, earlier 2, queen 35 — but not 50, tomorrow 82, king 164, by 5389, both 7537. FAILED 'cues in top 20' and '≥ 5 cue-class words in top 10' (and−nor 0, will−had 0). 8.1's table is shaped by each decision's most frequent markers; rarer cues ride it with smaller scores
+Receipt `circuits/followups/head_8_1_vocabulary_table_v146_result.json` (0 row forwards; block-0 attention over the first 32000 vocabulary ids on CPU; top-20 lists per contrast and side in the receipt). Queue empty; next review ~04:15.

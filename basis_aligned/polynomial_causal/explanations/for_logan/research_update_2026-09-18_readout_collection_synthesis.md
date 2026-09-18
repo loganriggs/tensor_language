@@ -48,7 +48,9 @@ removals at the two positions are inert for each other and additive (v144).
 natural text; the leak survives dropping 11.3 and orthogonalizing the readout direction and is produced downstream by MLPs 5–17
 (v138–v142) — a structural number → tense dependency, declared. Head 8.1 is one token copier serving four families, with cross-talk
 between the temporal and correlative lookups (v133); it also copies the gendered noun's token value to the verb position, where
-the gender set's contextual reader 9.6 picks it up (v145: 99% noun position, 96% token-only). Twenty-eight of the atlas's 100 live lines stay outside the six cores; the
+the gender set's contextual reader 9.6 picks it up (v145: 99% noun position, 96% token-only). Ranked over the whole vocabulary along each family's contrast, its table
+puts I/you, either, neither, since and the he/she pronoun class at the very top, while both, by and king sit far down with the
+right sign (v146: signs held, top-20 and cue-class readings failed and kept). Twenty-eight of the atlas's 100 live lines stay outside the six cores; the
 largest residues are the determiner-number variants of one task and a heterogeneous 11.3 + 7.8 + 17.4 agreement / mood cluster
 that geometry assigns to the number family.
 
