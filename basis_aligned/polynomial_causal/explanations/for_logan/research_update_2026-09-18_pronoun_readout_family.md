@@ -25,12 +25,19 @@ and the lane's used words), 10 fresh objects, three frames the module never uses
 the set removes more than the whole margin there. Six of seven registered predictions held; the band is a miss, not a
 pass. A re-frozen band from v71 will be tested on a further fresh panel before the OOD property is called.
 
+**Natural rows (v73, edit, FineWeb = training corpus, out-of-panel).** 64 rows mined outcome-blind: a gendered noun
+within 12 tokens, next token he/she, 16 per (noun gender × pronoun) cell; the noun filter is any-sense ("female dorms",
+"groom a successor" pass). Congruent rows (noun gender = pronoun, native capability 1.00): the set removes 3.22 of the
+4.16-logit margin (77%), positive on 31/32, null max 0.05, selective; bars frozen from the aspectual natural line held.
+Incongruent rows (noun gender ≠ pronoun, capability 0.44 / 0.38): removal moves the model toward the pronoun the text
+actually uses (−0.25 logits), as a cue-reading set should. Random four-head-set null (v72): best random quadruple 0.12 vs
+the set's 1.75, none live.
+
 **What is different from the auxiliary families.** Removal along one weight-only direction per head takes the *entire*
 margin (the auxiliary sets take 45–60%), keep-only raises the margin above native, and additivity sits exactly at the
 bar with 12.4 the largest single. The pronoun decision looks like a nearly pure readout at these four heads, with no
 MLP relay share to declare yet (no response census run).
 
-**Scope.** One behaviour, one fresh panel, head grain. Not yet: matched-count random-set null, natural rows, response
-census, source folds. Scorecard: `basis_aligned/claude_hourly_review/PRONOUN_GENDER_DOD_SCORECARD.md`; atlas table:
+**Scope.** One behaviour, one fresh panel, one natural panel, head grain. Not yet: Pile rows, response census, source folds. Scorecard: `basis_aligned/claude_hourly_review/PRONOUN_GENDER_DOD_SCORECARD.md`; atlas table:
 `basis_aligned/claude_hourly_review/READOUT_ATLAS_TABLE.md`; receipts `pronoun_gender_dod_battery_v71_result.json`,
 `readout_atlas_v68_result.json` under `basis_aligned/bilinear_quotient/circuits/followups/`.
