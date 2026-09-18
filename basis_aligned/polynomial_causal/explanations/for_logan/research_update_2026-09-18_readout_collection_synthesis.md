@@ -3,7 +3,7 @@
 Fourteen decisions in six families, each read out at the final query by a small set of late heads writing along a weight-only
 direction `O_h^T(u_a − u_b)`, each taken through the same battery: fresh rows with a frozen number, a norm-matched random-direction
 null, three unrelated readers, a matched-count random head-set null, keep-only sufficiency, additivity, an exact response census,
-and natural rows from the training corpus and from the Pile. Numbers below are read from the receipts (`READOUT_COLLECTION.json`);
+and natural rows from the training corpus and from the Pile (every line has both). Numbers below are read from the receipts (`READOUT_COLLECTION.json`);
 scorecards keep every failed prediction.
 
 | family | line | heads | fresh fraction | direct share | natural FineWeb / Pile (congruent fraction, or predictions held) |
@@ -22,7 +22,7 @@ scorecards keep every failed prediction.
 | correlative | correlative both/neither | 8.1, 7.8, 16.8, 14.8 | 0.46 | 1.06 | 43% / 42% |
 | correlative | correlative either/neither | 14.8, 8.1, 16.8, 5.7 | 0.54 | — | 43% / 48% |
 | person | reflexive person I/you | 8.1, 13.1, 10.5, 15.1 | 0.42 | 0.85 | 37% / 33% |
-| person | object control me/you | 13.1, 8.1, 10.5, 15.1 | 0.46 | 0.90 | — / — |
+| person | object control me/you | 13.1, 8.1, 10.5, 15.1 | 0.46 | 0.90 | 39% / 39% |
 
 **Three kinds of readout set.** (1) *Token readers*: the person set (8.1, 13.1, 15.1) and both correlative sets (8.1, 16.8, 14.8,
 7.8) take 80–100% of their contrast from the cue token itself and close to a two-entry lookup with constant attention weights

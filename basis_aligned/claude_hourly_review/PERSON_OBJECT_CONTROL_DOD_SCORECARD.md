@@ -21,16 +21,20 @@ will−would, who−which, night−day.
 | 8 | Source fold (exact, closure 6e-7): the four coefficients come from the me / you token — 8.1 1.01 (95% token-only), 13.1 0.98 (95%), 15.1 0.76 (64%), 10.5 0.52 (28%; 0.22 final, 0.26 other); pooled 0.88 from the pronoun, 0.80 token-only | fold | fresh (v115) | all five registered readings held, including "pooled token-only ≥ 0.50" registered the way v112 came out | 5/5 — the same token-reader structure as the subject-antecedent line: the person family reads the pronoun token, whichever slot it sits in |
 | 9 | Token-only generator for {8.1, 13.1, 15.1}: p × λ × v1(me / you) with the native pattern retains 94% of the three heads' zeroed service; a constant pattern per (head, cue) from the other two constructions 94% pooled (warned 0.82, reminded 1.29, urged 0.81); pattern CV ≤ 0.15 | edit | fresh (v117) | | passes 5/5 — three heads close to a two-entry lookup on the pronoun token; 10.5 open |
 
+| 10 | Natural FineWeb rows (two-token cue: me / you followed by 'to' within the window, next token myself / yourself; other person pronouns excluded; the corpus yields 8 me/myself and 16 you/yourself rows in 20000 documents and no counter-cases): congruent removal 2.06 of 5.27 (39%), positive 24/24, null max 0.02, selective (will−would moves 0.17 vs null 0.04, inside the gate) | edit | natural (v155) | v20 bars held; the counter-case prediction unscorable (no rows); me-cell short, recorded not padded | passes 5/5 scorable |
+| 11 | Pile rows (1 me/myself + 16 you/yourself): congruent 2.17 of 5.55 (39%), positive 17/17, null 0.06, selective | edit | natural OOD (v156) | | passes 5/5 scorable |
+
 ## Five-property status
 | property | status | next |
 |---|---|---|
 | Simple | held at head grain (row 6) | — |
-| Predicts OOD | held on a fresh panel with a frozen number (row 2) | natural rows |
+| Predicts OOD | held on fresh and natural FineWeb / Pile rows (rows 2, 10, 11); the natural me-cell is short | — |
 | Extracted | held at the head boundary (row 5); direct (row 7); 8.1 / 13.1 / 15.1 close to a token-only generator with constant patterns (rows 8–9); 10.5 contextual, open | 10.5's source |
 | Selective | held (row 3) | — |
 | Composes | additive (row 4) | — |
 
 ## Receipts
+- v155 / v156: `.../person_object_control_dod_natural_v155_result.json`, `.../person_object_control_dod_pile_v156_result.json`; rows `person_object_control_dod_{natural,pile}_rows_v15{5,6}.json`; miner config `ops/person_object_control_dod_natural_rows.py`
 - v117: `.../person_object_control_dod_token_only_generator_v117_result.json`; code `ops/run_person_object_control_dod_token_only_generator_v117.py` (v113's body)
 - v115: `.../person_object_control_dod_source_fold_v115_result.json`; code `ops/run_person_object_control_dod_source_fold_v115.py`
 - v108: `.../person_object_control_dod_random_set_null_v108_result.json`; v109: `.../person_object_control_dod_response_census_v109_result.json`
