@@ -25279,3 +25279,6 @@ Receipt `circuits/followups/pronoun_number_dod_reader_source_verb_v214_result.js
 
 ### 2026-09-18T17:04Z — Claude: pronoun number v215 — 5/5 MLP-8 detectors zeroed by site: verb only −5.9%, noun + verb −11.7% = all positions −11.8%; random 3-unit sets ≤ 0.16%; selective. Two sites, fully accounted; dod_units.forward_margins accepts a list of positions
 Receipt `circuits/followups/pronoun_number_dod_mlp8_units_verb_edit_v215_result.json` (60 forwards).
+
+### 2026-09-18T17:06Z — Claude: pronoun gender v216 — 3/5 reader source fold with the verb category: 9.6 verb 48% / noun 50% (a two-site reader in both families), 12.4 verb 23%, 15.1 verb 11% and 50% token-only, 10.1 noun 98%; pooled verb 18.7% ('≥ 0.20' FALSIFIED), 15.1 token-only 0.50 ('≤ 0.20' FALSIFIED)
+Receipt `circuits/followups/pronoun_gender_dod_reader_source_verb_v216_result.json` (10 forwards).

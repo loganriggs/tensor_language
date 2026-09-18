@@ -1,0 +1,207 @@
+{
+  "candidate_id": "pronoun_gender.he_vs_she.dod_reader_source_verb_v216",
+  "finished_utc": "2026-09-18T17:05:49.608124+00:00",
+  "forwards": 10,
+  "line": {
+    "closure_max": 2.843924545869003e-06,
+    "heads": {
+      "10.1": {
+        "by_category_branch": {
+          "final": {
+            "current": -3.4308632207103074,
+            "inherited": 0.16503354848828167
+          },
+          "noun": {
+            "current": 171.91074289381504,
+            "inherited": 455.8559710383415
+          },
+          "object": {
+            "current": 0.0,
+            "inherited": 0.0
+          },
+          "other": {
+            "current": -4.223669091064949,
+            "inherited": 1.4845111792819807
+          },
+          "verb": {
+            "current": 16.199307694565505,
+            "inherited": 0.46213041714099745
+          }
+        },
+        "inherited_share": 0.7173418453532276,
+        "largest_source": "noun",
+        "mean_contrast": 21.28077192902565,
+        "pairs": 30,
+        "shares": {
+          "final": -0.005115462420119634,
+          "noun": 0.9833081807775369,
+          "object": 0.0,
+          "other": -0.004290505251906028,
+          "verb": 0.02609779721536845
+        }
+      },
+      "12.4": {
+        "by_category_branch": {
+          "final": {
+            "current": 60.17829341068864,
+            "inherited": -0.06397800939157605
+          },
+          "noun": {
+            "current": 187.1326745301485,
+            "inherited": 90.45477866381407
+          },
+          "object": {
+            "current": 0.0,
+            "inherited": 0.0
+          },
+          "other": {
+            "current": 200.9957919800654,
+            "inherited": -1.487346836249344
+          },
+          "verb": {
+            "current": 161.85015631467104,
+            "inherited": -0.6242921578814276
+          }
+        },
+        "inherited_share": 0.12639547866696046,
+        "largest_source": "noun",
+        "mean_contrast": 23.281202405691147,
+        "pairs": 30,
+        "shares": {
+          "final": 0.08606988928057824,
+          "noun": 0.39744146136556596,
+          "object": 0.0,
+          "other": 0.2856502593340364,
+          "verb": 0.2308383982168916
+        }
+      },
+      "15.1": {
+        "by_category_branch": {
+          "final": {
+            "current": 147.7681273072958,
+            "inherited": 0.6402156502008438
+          },
+          "noun": {
+            "current": 86.49683721363544,
+            "inherited": 541.7708233594894
+          },
+          "object": {
+            "current": 0.0,
+            "inherited": 0.0
+          },
+          "other": {
+            "current": 182.33533550193533,
+            "inherited": -1.0289396150037646
+          },
+          "verb": {
+            "current": 118.03311729431152,
+            "inherited": -0.33517593145370483
+          }
+        },
+        "inherited_share": 0.5029811414384073,
+        "largest_source": "noun",
+        "mean_contrast": 35.85601121584575,
+        "pairs": 30,
+        "shares": {
+          "final": 0.1379669572131241,
+          "noun": 0.5840653949590061,
+          "object": 0.0,
+          "other": 0.16855044174276637,
+          "verb": 0.10941721008725766
+        }
+      },
+      "9.6": {
+        "by_category_branch": {
+          "final": {
+            "current": -2.9344898185663624,
+            "inherited": -0.011237782729040191
+          },
+          "noun": {
+            "current": 237.36110749840736,
+            "inherited": 30.073067999677733
+          },
+          "object": {
+            "current": 0.0,
+            "inherited": 0.0
+          },
+          "other": {
+            "current": 17.2518714441685,
+            "inherited": -0.739928137336392
+          },
+          "verb": {
+            "current": 255.52188850939274,
+            "inherited": 0.4348846727516502
+          }
+        },
+        "inherited_share": 0.055417431215695236,
+        "largest_source": "noun",
+        "mean_contrast": 17.898572163780532,
+        "pairs": 30,
+        "shares": {
+          "final": -0.005485963860395456,
+          "noun": 0.4980549529331799,
+          "object": 0.0,
+          "other": 0.0307509507010576,
+          "verb": 0.4766800592434916
+        }
+      }
+    },
+    "pooled_inherited_share": 0.3787258030007895,
+    "pooled_noun_share": 0.6106316321713459
+  },
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "inh_max": 0.2,
+      "noun_101_min": 0.8,
+      "pooled_min": 0.2,
+      "ratio_96": 0.8,
+      "verb_101_max": 0.1
+    },
+    "candidate_id": "pronoun_gender.he_vs_she.dod_reader_source_verb_v216",
+    "categories": [
+      "noun",
+      "verb",
+      "object",
+      "final",
+      "other"
+    ],
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 18,
+    "gpu_accessed": false,
+    "heads": [
+      [
+        10,
+        1
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        12,
+        4
+      ],
+      [
+        15,
+        1
+      ]
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 60,
+    "rows_sha256": "a2c57cae32fb75bc7a0194c61a6f001c069cc9ab2fc941462144733d45a8508d"
+  },
+  "pooled_verb_share": 0.1869952968369761,
+  "predictions": {
+    "pred_a_fold_closure": true,
+    "pred_b_pooled_verb_share_020": false,
+    "pred_c_9_6_verb_at_least_noun": true,
+    "pred_d_10_1_is_a_noun_reader": true,
+    "pred_e_token_only_small": false
+  },
+  "schema": "pronoun_number_dod_reader_source_verb_result_v216",
+  "serial_seconds": 1.8220650039147586
+}

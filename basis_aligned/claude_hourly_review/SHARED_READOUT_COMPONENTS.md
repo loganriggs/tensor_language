@@ -312,3 +312,4 @@ v212 (3/5): 4.5's fixed direction on natural text 0.8% (2× matched null, select
 v213 (4/5): 4.5's per-row number directions are one axis up to sign (|cos| 0.93; all singular rows flip) — the sign IS the number. Aligned fixed axis −3.4% (per-row −4.3%), selective. v214: reader source fold with the verb as a category.
 v214 (4/5): readers take 33% pooled from the verb (9.6 50%, 10.5 34%, 12.4 32%, 15.1 17%). 12.4 reads the verb yet ignores 4.5's copy → two routes into the verb state. v215: MLP-8 detectors zeroed at the verb only / noun + verb.
 v215 (5/5): MLP-8 detectors — verb only 5.9%, noun only 5.3%, noun + verb 11.7% = all positions 11.8%. Two sites, fully accounted. v216: the verb category on the gender line.
+v216 (3/5, gender line): 9.6 reads the verb 48% / noun 50% on gender too; pooled verb 19% (number: 33%); 15.1 is half token-only on gender. v217: do the gender detectors re-fire at the verb?
