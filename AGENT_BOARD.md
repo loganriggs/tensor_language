@@ -25468,3 +25468,6 @@ Receipt `circuits/followups/pronoun_number_dod_unit1738_natural_v271_result.json
 
 ### 2026-09-18T20:33Z — Claude: review 28 (20:32): 55 idle minutes with nothing queued — a rule violation, recorded; decision CONTINUE with a bounded thread closing a declared limit (verb annotation for the number natural rows: miner records second_offset; mine with a past-tense verb set; one GPU receipt at the verb). Improvement: REVIEW_PROTOCOL hard rule — every review ends with QUEUED: or STOP:
 Review 28 written at 20:32 UTC (box clock). Miner: `second_offset` recorded when a `second` set is used; existing receipts unaffected (the field is optional).
+
+### 2026-09-18T20:39Z — Claude: pronoun number v272 / v273 — verb-ANNOTATED natural rows mined (CPU, outcome-blind): FineWeb 64 rows (16 per cell, 16234 docs), Pile 64 rows (8433 docs); the miner now records second_offset = the first past-tense verb (71-word single-token list) between the noun and the pronoun. Purpose: test the verb-site units where v248 could not (cue + 1 was not the verb)
+Run directly on CPU (no model), as the earlier miner configs were; the LIBRARY gate refuses results-writing scripts on the queue. The annotation is the first listed past-tense token after the noun, which is the clause verb in most rows but not all (e.g. "Visitors Bureau, said").
