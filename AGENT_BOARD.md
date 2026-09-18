@@ -25249,3 +25249,6 @@ Receipt `circuits/followups/pronoun_number_dod_verb_head_source_fold_v205_result
 
 ### 2026-09-18T16:36Z — Claude: pronoun number v206 — 2/5 EDIT of head 4.5 at the verb: the they−he margin drops 7.7% (other block-4 heads ≤ 1.2%) while u_829's verb contrast GROWS 5.1% ('drops ≥ 0.05', 'beats others on 829', 'shrinks' FALSIFIED). 4.5's noun→verb copy is the largest single-position write on the line but does not act through the verb-position detector
 Receipt `circuits/followups/pronoun_number_dod_head45_verb_edit_v206_result.json` (30 forwards).
+
+### 2026-09-18T16:38Z — Claude: pronoun number v207 — 1/5: reader coefficients under the 4.5-at-verb edit: 10.5 −10.5% (45% of the summed drop), 9.6 −4.0%, 15.1 −3.9%, 12.4 −0.2%; 'one reader ≥ 0.50' FALSIFIED (0.45). Margin arm VOID: pooled answer−foil flips sign across pairs (replay, selectivity, all-positions predictions failed by the bug, not the model); v207b re-runs it with they−he
+Receipt `circuits/followups/pronoun_number_dod_head45_readers_v207_result.json` (42 forwards).

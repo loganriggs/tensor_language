@@ -1,0 +1,112 @@
+{
+  "candidate_id": "pronoun_number.they_vs_he.dod_head45_readers_v207",
+  "finished_utc": "2026-09-18T16:37:52.218648+00:00",
+  "forwards": 42,
+  "plan": {
+    "bars": {
+      "gate_ratio": 0.25,
+      "half": 0.5,
+      "more": 1.5
+    },
+    "block": 4,
+    "candidate_id": "pronoun_number.they_vs_he.dod_head45_readers_v207",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 42,
+    "gpu_accessed": false,
+    "head": 5,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "reader_heads": [
+      [
+        9,
+        6
+      ],
+      [
+        12,
+        4
+      ],
+      [
+        15,
+        1
+      ],
+      [
+        10,
+        5
+      ]
+    ],
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117"
+  },
+  "predictions": {
+    "pred_a_baseline_replays_v206": false,
+    "pred_b_one_reader_loses_half": false,
+    "pred_c_loser_is_a_contextual_reader": true,
+    "pred_d_edit_selective": false,
+    "pred_e_all_positions_removes_more": false
+  },
+  "report": {
+    "coefficients_pooled": {
+      "10.5": {
+        "all": 767.9607391357422,
+        "native": 869.9915084838867,
+        "verb": 778.6491639614105
+      },
+      "12.4": {
+        "all": 1130.0003850460052,
+        "native": 1197.2151408195496,
+        "verb": 1195.2256917953491
+      },
+      "15.1": {
+        "all": 1277.9872643947601,
+        "native": 1368.1498098373413,
+        "verb": 1315.2806358337402
+      },
+      "9.6": {
+        "all": 1260.6398519575596,
+        "native": 1410.3498890399933,
+        "verb": 1353.8864315152168
+      }
+    },
+    "damage_all_pooled": -7.5553812980651855,
+    "damage_verb_pooled": 0.2534518241882324,
+    "drops_verb_edit": {
+      "10.5": 91.3423445224762,
+      "12.4": 1.9894490242004395,
+      "15.1": 52.869174003601074,
+      "9.6": 56.46345752477646
+    },
+    "gates": {
+      "animacy_who_which": false,
+      "canonical_night_day": false,
+      "tense_will_would": false
+    },
+    "loser": "10.5",
+    "loser_share": 0.4507073428829393,
+    "margin_native_pooled": 48.564210414886475,
+    "null_margin_damage": {
+      "0": 0.6619448661804199,
+      "1": 0.013888359069824219,
+      "2": 0.014600753784179688,
+      "3": -0.49994611740112305,
+      "4": -0.6484875679016113,
+      "6": 1.8030920028686523,
+      "7": -1.2513079643249512,
+      "8": -0.18268585205078125
+    },
+    "null_reader_moves": {
+      "animacy_who_which": 0.02382079962020119,
+      "canonical_night_day": 0.010277502393970886,
+      "tense_will_would": 0.02312690089456737
+    },
+    "reader_moves": {
+      "animacy_who_which": 0.12098464742302895,
+      "canonical_night_day": 0.06004565736899773,
+      "tense_will_would": 0.1296394703288873
+    },
+    "total_drop": 202.66442507505417
+  },
+  "schema": "pronoun_number_dod_head45_readers_result_v207",
+  "serial_seconds": 2.3179234750568867
+}
