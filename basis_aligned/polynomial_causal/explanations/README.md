@@ -1,5 +1,7 @@
 # Plain-language explanations
 
+**Latest regional update: [18 September — Filtered Pile transfer](for_logan/research_update_2026-09-18_0033_pile_transfer.md).** Scoped corpus prediction, unchanged-output precision repair, and document-level reversals.
+
 This directory collects the user-facing explanations of the bilin18 reverse-engineering
 project. Experimental protocols, numerical receipts, preregistrations, and strategic
 review logs remain one directory above so that an explanation cannot be mistaken for

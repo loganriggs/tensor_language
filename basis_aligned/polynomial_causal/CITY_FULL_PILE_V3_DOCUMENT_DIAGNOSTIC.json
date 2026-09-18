@@ -1,0 +1,479 @@
+{
+  "scope": "Opened descriptive diagnostic, no prospective pass/fail claim",
+  "artifact_sha256": "99a368eab31b266ff7b3445b70990ac96a2c3e5648eb9939c106e406d80197d7",
+  "strata": {
+    "untouched": {
+      "rows": 120,
+      "relative_effect_error": 0.06595845950766953,
+      "native_target_rms": 0.056837711595391825
+    },
+    "substituted": {
+      "rows": 120,
+      "relative_effect_error": 0.021136406174278585,
+      "native_target_rms": 0.3302642584410229
+    }
+  },
+  "documents": [
+    {
+      "context_id": 0,
+      "capable_endpoints": 6,
+      "native_reversed_endpoints": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "candidate_reversed_endpoints": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "sign_disagreements": [],
+      "native_attenuations": [
+        -0.02082360461466619,
+        -0.011760133608752466,
+        -0.033676472486478815,
+        -0.03784091010670155,
+        -0.0096143351073463,
+        -0.01140734357312439
+      ],
+      "candidate_attenuations": [
+        -0.01755188437306223,
+        -0.009768911158035165,
+        -0.03042686940919828,
+        -0.03177879615862507,
+        -0.008029367600395658,
+        -0.009679788492027889
+      ]
+    },
+    {
+      "context_id": 1,
+      "capable_endpoints": 6,
+      "native_reversed_endpoints": [],
+      "candidate_reversed_endpoints": [],
+      "sign_disagreements": [],
+      "native_attenuations": [
+        0.13451464604539434,
+        0.13839494872373284,
+        0.13286402957912322,
+        0.14776527777151335,
+        0.11569124554782984,
+        0.1262872852146506
+      ],
+      "candidate_attenuations": [
+        0.1306946713865584,
+        0.1332922660466085,
+        0.12882599868257896,
+        0.14281767706609055,
+        0.11198900820221275,
+        0.12218452435687266
+      ]
+    },
+    {
+      "context_id": 2,
+      "capable_endpoints": 6,
+      "native_reversed_endpoints": [],
+      "candidate_reversed_endpoints": [],
+      "sign_disagreements": [],
+      "native_attenuations": [
+        0.14787481707149489,
+        0.15190996244258964,
+        0.1396714624746891,
+        0.1504422858975285,
+        0.15258247410223352,
+        0.15196167293199614
+      ],
+      "candidate_attenuations": [
+        0.1452433999714587,
+        0.14974691060851322,
+        0.1377362022547488,
+        0.147871605953042,
+        0.14977566418426838,
+        0.14945581832351093
+      ]
+    },
+    {
+      "context_id": 3,
+      "capable_endpoints": 5,
+      "native_reversed_endpoints": [],
+      "candidate_reversed_endpoints": [],
+      "sign_disagreements": [],
+      "native_attenuations": [
+        0.2347024487576427,
+        0.25954228166773313,
+        0.08537452515141203,
+        0.2039961731048057,
+        0.20057704272971158
+      ],
+      "candidate_attenuations": [
+        0.1556862843341109,
+        0.1411314398853273,
+        0.05905138186818507,
+        0.13680706020695446,
+        0.12734118136271458
+      ]
+    },
+    {
+      "context_id": 4,
+      "capable_endpoints": 6,
+      "native_reversed_endpoints": [],
+      "candidate_reversed_endpoints": [],
+      "sign_disagreements": [],
+      "native_attenuations": [
+        0.1043929189639672,
+        0.09016834494745296,
+        0.08482983613426523,
+        0.11261232004009612,
+        0.1152342324006022,
+        0.11500193138968086
+      ],
+      "candidate_attenuations": [
+        0.10092380294254216,
+        0.08689259234401554,
+        0.08199503409451112,
+        0.10834448064233744,
+        0.1113277418139087,
+        0.11107440448818173
+      ]
+    },
+    {
+      "context_id": 5,
+      "capable_endpoints": 6,
+      "native_reversed_endpoints": [],
+      "candidate_reversed_endpoints": [],
+      "sign_disagreements": [],
+      "native_attenuations": [
+        0.24560714326029778,
+        0.2617550625750239,
+        0.2374206174347432,
+        0.25688496951017215,
+        0.24360985968677212,
+        0.2504424755246985
+      ],
+      "candidate_attenuations": [
+        0.2540189305428562,
+        0.2695417500497526,
+        0.24569025475712053,
+        0.26512798532096205,
+        0.25165508294295125,
+        0.25839186158291566
+      ]
+    },
+    {
+      "context_id": 6,
+      "capable_endpoints": 6,
+      "native_reversed_endpoints": [],
+      "candidate_reversed_endpoints": [],
+      "sign_disagreements": [],
+      "native_attenuations": [
+        0.11689169220919618,
+        0.1424296827558287,
+        0.1226694048274792,
+        0.1279511234082996,
+        0.12880061170951104,
+        0.1257508926640543
+      ],
+      "candidate_attenuations": [
+        0.11982487229645686,
+        0.14498520968662018,
+        0.12625718858323345,
+        0.13003901007447075,
+        0.13141252056696287,
+        0.12861474084057678
+      ]
+    },
+    {
+      "context_id": 7,
+      "capable_endpoints": 6,
+      "native_reversed_endpoints": [],
+      "candidate_reversed_endpoints": [],
+      "sign_disagreements": [],
+      "native_attenuations": [
+        0.1417206721462634,
+        0.1431004866481703,
+        0.1592904599784282,
+        0.1407493227839807,
+        0.13271237597067623,
+        0.14444358378546762
+      ],
+      "candidate_attenuations": [
+        0.1430302973341931,
+        0.14473053355068408,
+        0.16185507756801112,
+        0.14298121093518032,
+        0.13468751024898054,
+        0.14647303997536482
+      ]
+    },
+    {
+      "context_id": 8,
+      "capable_endpoints": 4,
+      "native_reversed_endpoints": [],
+      "candidate_reversed_endpoints": [],
+      "sign_disagreements": [],
+      "native_attenuations": [
+        0.47465730254669336,
+        0.3542803805625047,
+        0.28544382644295113,
+        0.3436181417453888
+      ],
+      "candidate_attenuations": [
+        0.4657852288682037,
+        0.34721969524675916,
+        0.27992812452241245,
+        0.3369224242739466
+      ]
+    },
+    {
+      "context_id": 9,
+      "capable_endpoints": 6,
+      "native_reversed_endpoints": [],
+      "candidate_reversed_endpoints": [],
+      "sign_disagreements": [],
+      "native_attenuations": [
+        0.12839502270715147,
+        0.13814821782952502,
+        0.11339351778543495,
+        0.1431933627543544,
+        0.13233573150339273,
+        0.13221516749829265
+      ],
+      "candidate_attenuations": [
+        0.1308131408590622,
+        0.14062180176647326,
+        0.11579241188884172,
+        0.14612749014196427,
+        0.1348636490429399,
+        0.13450706516545033
+      ]
+    },
+    {
+      "context_id": 10,
+      "capable_endpoints": 6,
+      "native_reversed_endpoints": [],
+      "candidate_reversed_endpoints": [],
+      "sign_disagreements": [],
+      "native_attenuations": [
+        0.12311247908206624,
+        0.1285154776925035,
+        0.1210841703079074,
+        0.12539584337327414,
+        0.12066428174290199,
+        0.1263026862162566
+      ],
+      "candidate_attenuations": [
+        0.12532010312751302,
+        0.13098477892088653,
+        0.1232294132470138,
+        0.127794160741621,
+        0.12283841806710506,
+        0.12866577841147478
+      ]
+    },
+    {
+      "context_id": 11,
+      "capable_endpoints": 6,
+      "native_reversed_endpoints": [],
+      "candidate_reversed_endpoints": [
+        1,
+        3
+      ],
+      "sign_disagreements": [
+        1,
+        3
+      ],
+      "native_attenuations": [
+        0.01579373012351329,
+        0.0025163157958025153,
+        0.010761447877680578,
+        0.0009425329487424273,
+        0.008556396987563119,
+        0.012972170210505904
+      ],
+      "candidate_attenuations": [
+        0.012231826649707869,
+        -2.61408248057606e-06,
+        0.008473005233962879,
+        -0.0017362785146549187,
+        0.0048444018358833165,
+        0.00933805856366159
+      ]
+    },
+    {
+      "context_id": 12,
+      "capable_endpoints": 6,
+      "native_reversed_endpoints": [],
+      "candidate_reversed_endpoints": [],
+      "sign_disagreements": [],
+      "native_attenuations": [
+        0.23157680898175723,
+        0.22663566126647783,
+        0.22204125841714517,
+        0.2170111172073545,
+        0.2181671156112221,
+        0.2276854603373332
+      ],
+      "candidate_attenuations": [
+        0.225421341532913,
+        0.22082612275698574,
+        0.21609188277137545,
+        0.21153814688434777,
+        0.21284990687379354,
+        0.22193699842942557
+      ]
+    },
+    {
+      "context_id": 13,
+      "capable_endpoints": 6,
+      "native_reversed_endpoints": [],
+      "candidate_reversed_endpoints": [],
+      "sign_disagreements": [],
+      "native_attenuations": [
+        0.2601784244852782,
+        0.2959083985495421,
+        0.28044784201849526,
+        0.25756040758590576,
+        0.250102702326856,
+        0.26477881017380933
+      ],
+      "candidate_attenuations": [
+        0.2603877259488214,
+        0.29605879129982776,
+        0.28051247093081594,
+        0.25776957556130414,
+        0.25032094988404574,
+        0.2650332821245802
+      ]
+    },
+    {
+      "context_id": 14,
+      "capable_endpoints": 6,
+      "native_reversed_endpoints": [],
+      "candidate_reversed_endpoints": [],
+      "sign_disagreements": [],
+      "native_attenuations": [
+        0.12376499915755028,
+        0.08971327939714582,
+        0.09236925845578257,
+        0.09580914851696043,
+        0.08571637245842502,
+        0.0929046965228573
+      ],
+      "candidate_attenuations": [
+        0.12103194339279201,
+        0.08745797482398758,
+        0.0901233690890578,
+        0.0937030725810746,
+        0.08405432611546682,
+        0.09113059835609207
+      ]
+    },
+    {
+      "context_id": 15,
+      "capable_endpoints": 0,
+      "native_reversed_endpoints": [],
+      "candidate_reversed_endpoints": [],
+      "sign_disagreements": [],
+      "native_attenuations": [],
+      "candidate_attenuations": []
+    },
+    {
+      "context_id": 16,
+      "capable_endpoints": 6,
+      "native_reversed_endpoints": [],
+      "candidate_reversed_endpoints": [],
+      "sign_disagreements": [],
+      "native_attenuations": [
+        0.2097888428252826,
+        0.19417606761869058,
+        0.1836244039129047,
+        0.2090945275637166,
+        0.19303937015676714,
+        0.22190493102809808
+      ],
+      "candidate_attenuations": [
+        0.20638690267791887,
+        0.1910418867795917,
+        0.18230430247536583,
+        0.20726274059313488,
+        0.19065326251395578,
+        0.2191055571823792
+      ]
+    },
+    {
+      "context_id": 17,
+      "capable_endpoints": 6,
+      "native_reversed_endpoints": [],
+      "candidate_reversed_endpoints": [],
+      "sign_disagreements": [],
+      "native_attenuations": [
+        0.12085020457876293,
+        0.12245105608080079,
+        0.1149053173324638,
+        0.10169554945264676,
+        0.11523225089704316,
+        0.11547542755665367
+      ],
+      "candidate_attenuations": [
+        0.1192421519220618,
+        0.12085782444112013,
+        0.11349259648815091,
+        0.10015941449577004,
+        0.11360587588811807,
+        0.11372185240540257
+      ]
+    },
+    {
+      "context_id": 18,
+      "capable_endpoints": 6,
+      "native_reversed_endpoints": [],
+      "candidate_reversed_endpoints": [],
+      "sign_disagreements": [],
+      "native_attenuations": [
+        0.2298187105146486,
+        0.23379555546228334,
+        0.23298359964342882,
+        0.21247554036628583,
+        0.2568984510904735,
+        0.2438328066179193
+      ],
+      "candidate_attenuations": [
+        0.22168315465240251,
+        0.2259501961339832,
+        0.22433655717120207,
+        0.2042324559426014,
+        0.24810195144868238,
+        0.2350794493394125
+      ]
+    },
+    {
+      "context_id": 19,
+      "capable_endpoints": 6,
+      "native_reversed_endpoints": [],
+      "candidate_reversed_endpoints": [],
+      "sign_disagreements": [],
+      "native_attenuations": [
+        0.2072077034593983,
+        0.19075477976485633,
+        0.21116711737736898,
+        0.21092329540343574,
+        0.20896285804217815,
+        0.21087711261404754
+      ],
+      "candidate_attenuations": [
+        0.20809522268630556,
+        0.1916315703808568,
+        0.2121938480735138,
+        0.21198019668855272,
+        0.20948090441716505,
+        0.21174969591316622
+      ]
+    }
+  ],
+  "sign_disagreement_count": 2
+}
