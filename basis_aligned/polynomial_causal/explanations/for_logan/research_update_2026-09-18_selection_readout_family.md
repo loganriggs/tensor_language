@@ -22,11 +22,19 @@ writes, closure 1e-5), but the in/of set is not — its heads carry 38% and the 
 the rest, with MLPs 16/17 pushing back. Two registered predictions failed there and are kept. The early members 6.3 / 7.8 /
 8.8 remove 0.4–0.8 logits each when edited but show up as small direct terms, so their effect runs through the MLPs.
 
+**Natural rows (v91–v94, FineWeb and Pile).** On natural text the two function words follow their selectors almost
+adjacently and the native margins are large (7–9 logits). The sets remove 12% (in/of) and 18–19% (up/down) of those margins
+on the congruent cells, positive on 26/32, 30/32, 28/28 and 21/21 rows, above every null and selective, so the frozen bars
+from the aspectual natural line held on both corpora; the fractions are stated against the panels' 57% / 43% because most
+of a natural "interested in" margin is not this readout. The afraid/of cell is weak (5% and 2%). The in/of miner's
+incongruent cells (a far cue with the other preposition) were predicted to shift toward the text's word and shifted away
+on both corpora: failed and kept; they are cases of the set reading a distant cue, not counter-cases of the selection.
+
 **What is different.** Head 7.8 is the most recurrent head of the whole atlas (65 live lines) and belongs to the number
 family's core as well; here it is the smallest single in both sets (0.41, 0.33). Head 13.8 leads the particle set (0.70) and
 8.8 the preposition set (0.82). Selectivity holds against the three standing readers, but the canonical night−day reader
 moved four times its null on the in/of line while staying inside the damage-scaled gate; that is reported, not hidden.
 
-**Scope.** Two behaviours, one fresh panel each, head grain. Not yet: natural rows, source folds; the in/of MLP response part is open. Scorecards: `basis_aligned/claude_hourly_review/SELECTION_DOD_SCORECARD.md`,
+**Scope.** Two behaviours, one fresh panel each, head grain. Not yet: source folds; the in/of MLP response part is open (declared port unless a fold closes it). Scorecards: `basis_aligned/claude_hourly_review/SELECTION_DOD_SCORECARD.md`,
 `SELECTION_PARTICLE_DOD_SCORECARD.md`; receipts `selection_dod_battery_v85_result.json`,
 `selection_particle_dod_battery_v86_result.json` under `basis_aligned/bilinear_quotient/circuits/followups/`.
