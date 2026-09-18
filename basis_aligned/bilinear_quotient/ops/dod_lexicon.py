@@ -41,6 +41,9 @@ PANELS = {
     "cross_family_v144_objects": ('necklace', 'notebook', 'paddle', 'pedal', 'pitcher', 'plaque', 'poker', 'radiator', 'raft', 'reel', 'rifle', 'scissors', 'skillet', 'sponge', 'suitcase', 'telescope'),
     "correlative_v147_agents": ('diplomat', 'dispatcher', 'explorer', 'firefighter', 'founder', 'goalkeeper', 'governor', 'guardian', 'instructor', 'interpreter', 'inventor', 'journalist', 'linebacker', 'magistrate', 'mathematician', 'medic'),
     "correlative_v147_objects": ('tractor', 'tripod', 'trumpet', 'umbrella', 'vacuum', 'valve', 'violin', 'wardrobe', 'whistle', 'wrench', 'zipper', 'pear', 'plum', 'peach', 'grape', 'cherry'),
+    "noun_number_v157_agents": ('messenger', 'missionary', 'moderator', 'monarch', 'negotiator', 'novelist', 'photographer', 'physician', 'policeman', 'politician', 'president', 'prisoner', 'prosecutor', 'psychiatrist', 'publisher', 'quarterback'),
+    "noun_number_v157_objects": ('carrot', 'onion', 'pepper', 'potato', 'tomato', 'bean', 'corn', 'rice', 'bread', 'cake', 'pie', 'soup', 'stew', 'salad', 'cheese', 'butter'),
+    "noun_number_v157_adjectives": ('shiny', 'dusty', 'tiny', 'faded', 'glossy', 'rough', 'blunt', 'pale', 'cheap', 'fancy', 'fragile', 'sticky', 'damp', 'spare', 'loose', 'tight'),
     "number_v62_places": ("canal", "lodge", "inn", "mine", "farm", "arena", "bakery", "brewery", "cellar", "clinic", "depot", "gallery", "hangar", "plaza", "reef", "shrine"),
 }
 

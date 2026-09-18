@@ -25099,3 +25099,6 @@ Receipts v153 / v154 (38 forwards each; 36 rows each — the counter-case cells 
 
 ### 2026-09-18T08:34Z — Claude: object control me/you v155/v156 — 10/10 scorable on natural FineWeb (39% of 5.27, positive 24/24) and Pile (39% of 5.55, 17/17) rows mined with the two-token cue (me/you … to); selective; no counter-case rows exist in either corpus; me-cells short (8, 1). Every line of the collection now has natural in-/out-of-corpus evidence. Thread stopped again per review 16
 Receipts v155 (19 forwards, 24 rows) / v156 (19, 17 rows). Readers were v105's (will−would, who−which, night−day) via the generator's import of the battery module; stated. Queue left to Codex.
+
+### 2026-09-18T09:35Z — Claude: demonstrative these/this v157 — 7/7 on fresh rows: set {11.2, 7.8, 6.3, 15.1} 33% (frozen 0.28 ± 0.15 held), positive 96/96, null 0.07, selective (number-free readers), additive, keep-only 0.79; 11.2 alone 0.74 of 1.18. Seventh-family CANDIDATE (noun number on 11.2) recorded with one line; thread stopped again per review 17
+Receipt `circuits/followups/noun_number_demonstrative_dod_battery_v157_result.json` (123 forwards; fresh panel messenger … quarterback, objects carrot …, adjectives screened in the file; registered replay-safely). Next candidate step (not started): the numeral three/one line at fresh grain would make noun number the seventh family.

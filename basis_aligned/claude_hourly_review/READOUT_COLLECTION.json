@@ -2,6 +2,7 @@
  "built_from": "circuits/followups receipts",
  "families": [
   "correlative",
+  "noun-number (candidate)",
   "number",
   "person",
   "pronoun",
@@ -1138,6 +1139,54 @@
     "receipt": null
    },
    "scorecard": "claude_hourly_review/CORRELATIVE_EITHER_NEITHER_DOD_SCORECARD.md"
+  },
+  {
+   "contrast": [
+    "ones",
+    "one"
+   ],
+   "family": "noun-number (candidate)",
+   "fresh_battery": {
+    "additivity": {
+     "bar": 0.03255235674441792,
+     "gap": 0.011421611998230219
+    },
+    "forwards": 123,
+    "fraction": 0.3285215000911313,
+    "keep_only_retention": 0.789046098875595,
+    "null_max": 0.0684244860118876,
+    "positive": 1.0,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_native_capability": true,
+     "pred_c_set_live_and_beats_null": true,
+     "pred_d_set_selective": true,
+     "pred_e_set_is_additive": true,
+     "pred_f_keep_only_retains_most": true,
+     "pred_g_set_fraction_within_band_of_frozen": true
+    },
+    "receipt": "noun_number_demonstrative_dod_battery_v157_result.json"
+   },
+   "heads": [
+    "11.2",
+    "7.8",
+    "6.3",
+    "15.1"
+   ],
+   "line": "demonstrative these/this",
+   "natural_fineweb": {
+    "receipt": null
+   },
+   "natural_pile": {
+    "receipt": null
+   },
+   "random_set_null": {
+    "receipt": null
+   },
+   "response_census": {
+    "receipt": null
+   },
+   "scorecard": "claude_hourly_review/NOUN_NUMBER_DEMONSTRATIVE_DOD_SCORECARD.md"
   },
   {
    "contrast": [

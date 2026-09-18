@@ -21,6 +21,7 @@ scorecards keep every failed prediction.
 | correlative | correlative either/not | 16.8, 14.8, 7.8, 8.1 | 0.44 | 1.17 | 21% / 25% |
 | correlative | correlative both/neither | 8.1, 7.8, 16.8, 14.8 | 0.46 | 1.06 | 43% / 42% |
 | correlative | correlative either/neither | 14.8, 8.1, 16.8, 5.7 | 0.54 | — | 43% / 48% |
+| noun-number (candidate) | demonstrative these/this | 11.2, 7.8, 6.3, 15.1 | 0.33 | — | — / — |
 | person | reflexive person I/you | 8.1, 13.1, 10.5, 15.1 | 0.42 | 0.85 | 37% / 33% |
 | person | object control me/you | 13.1, 8.1, 10.5, 15.1 | 0.46 | 0.90 | 39% / 39% |
 
@@ -52,7 +53,9 @@ between the temporal and correlative lookups (v133); it also copies the gendered
 the gender set's contextual reader 9.6 picks it up (v145: 99% noun position, 96% token-only). Ranked over the whole vocabulary along each family's contrast, its table
 puts I/you, either, neither, since and the he/she pronoun class at the very top, while both, by and king sit far down with the
 right sign (v146: signs held, top-20 and cue-class readings failed and kept). A third correlative line (either/neither → or/nor, v147) passes the battery but not keep-only sufficiency (53% retained
-along the readout directions), an open question left on its scorecard. Twenty-eight of the atlas's 100 live lines stay outside the six cores; the
+along the readout directions), an open question left on its scorecard. The residue's last structured cluster, noun number on head 11.2 (determiner / numeral / demonstrative → plural vs
+singular noun), passed the fresh-row battery on its strongest line (demonstrative these/this, v157, 7/7 at 33%) and is recorded as a
+seventh-family candidate awaiting a second line. Twenty-eight of the atlas's 100 live lines stay outside the six cores; the
 largest residues are the determiner-number variants of one task and a heterogeneous 11.3 + 7.8 + 17.4 agreement / mood cluster
 that geometry assigns to the number family.
 

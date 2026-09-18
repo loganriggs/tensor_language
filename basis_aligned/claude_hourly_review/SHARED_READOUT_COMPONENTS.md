@@ -218,3 +218,10 @@ v149/v150 (either/neither natural rows, 12/12): 43% / 48% of the natural margin,
 v151/v152 (narrative was/is natural rows via a single-adverb analogue of the panel cue, 5/6 each): 38% / 32% of the natural margin, positive 29/32 and 25/32, null-beating, selective; the counter-case reading failed asymmetrically (the set carries the 'was' side whatever the adverb). Every temporal line except modal now has natural evidence. Thread stopped again per review 14 (06:35 UTC).
 v153/v154 (modal would/will natural rows, two-token cue, 12/12): 31% / 28% of the natural margin, positive 31/32 and 31/31, null-beating, selective; counter-cases toward the text. Every temporal line now has natural in-/out-of-corpus evidence. Thread stopped again per review 15 (07:43 UTC).
 v155/v156 (object-control me/you natural rows, two-token cue, 10/10 scorable): 39% / 39% of the natural margin, positive 24/24 and 17/17, selective; no counter-case rows in either corpus; me-cells short (8, 1). Every line of the collection now has natural in-/out-of-corpus evidence (08:34 UTC). Thread stopped again per review 16.
+
+## Seventh-family candidate: noun number on head 11.2 (v157, 09:35 UTC)
+
+Demonstrative these/this → ones/one at {11.2, 7.8, 6.3, 15.1}: 7/7 on fresh rows (33% vs frozen 0.28 ± 0.15, positive 96/96, null 0.07, selective,
+additive, keep-only 0.79; 11.2 alone 0.74 of the 1.18). The atlas residue's determiner (several/each → crates/crate) and numeral (three/one) lines share
+11.2 with 7.8 / 15.1 / 5.7. A second line at fresh grain would make it the seventh family; recorded as a candidate. Scorecard
+`NOUN_NUMBER_DEMONSTRATIVE_DOD_SCORECARD.md`.
