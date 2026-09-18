@@ -34,6 +34,13 @@ actually uses (−0.25 logits), as a cue-reading set should. Pile rows (v75, out
 selective; incongruent rows shift toward the text's pronoun (−0.68). Random four-head-set null (v72): best random quadruple 0.12 vs
 the set's 1.75, none live.
 
+**The family test (v76, edit, fresh rows).** Pronoun number they/he, atlas set {9.6, 12.4, 15.1, 10.5} (three heads shared
+with the gender set), on 96 fresh rows (16 fresh agent nouns with single-token plurals, 16 fresh objects, the same three
+unused frames): fractions 0.75 / 0.75 / 0.77 against the frozen 0.71 ± 0.15, positive 96/96, null max 0.03, selective,
+additive (gap 0.015 vs bar 0.046), keep-only retention 1.53. Seven of seven. The core {9.6, 12.4, 15.1} carries two
+different pronoun decisions on fresh rows with the same recipe, so the pronoun family is a component family and not one
+line's co-occurrence. Scorecard: `PRONOUN_NUMBER_DOD_SCORECARD.md`.
+
 **What is different from the auxiliary families.** Removal along one weight-only direction per head takes the *entire*
 margin (the auxiliary sets take 45–60%), keep-only raises the margin above native, and additivity sits exactly at the
 bar with 12.4 the largest single. The response census (v74, exact λ-recurrence split, closure 7e-5) confirms it: the four heads' own writes carry 94% of

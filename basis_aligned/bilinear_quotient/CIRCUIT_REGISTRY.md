@@ -256,6 +256,9 @@ simplicity comparison and random-split specificity remain missing. [Current Loga
   0.02, selective, additive at the bar, keep-only retention 1.37; frozen band 0.89 ± 0.15 failed upward on one frame.
   Scorecard: `claude_hourly_review/PRONOUN_GENDER_DOD_SCORECARD.md`; atlas: `claude_hourly_review/READOUT_ATLAS_TABLE.md`;
   report: [`for_logan/research_update_2026-09-18_pronoun_readout_family.md`](../polynomial_causal/explanations/for_logan/research_update_2026-09-18_pronoun_readout_family.md).
+- **Pronoun number they/he readout set (Claude lane, 2026-09-18):** heads {9.6, 12.4, 15.1, 10.5} on `O_h^T(u_they − u_he)`;
+  fresh rows v76 7/7 (76% of the margin, frozen 0.71 ± 0.15 held, selective, additive, keep-only 1.53). Shares the core
+  {9.6, 12.4, 15.1} with the pronoun-gender set: the pronoun family test. Scorecard `claude_hourly_review/PRONOUN_NUMBER_DOD_SCORECARD.md`.
 - **Temporal will/had readout set (Claude lane, 2026-09-17):** heads {11.3, 9.1, 15.5, 9.4} on `O_h^T(u_will − u_had)`;
   81% of the margin on fresh rows, selective, keep-only sufficient, frozen 0.80 ± 0.15 held on a fourth lexicon and
   a new construction, natural FineWeb/Pile rows pass; 11.3 reads a subject-NP state written by blocks 8–10 whose
