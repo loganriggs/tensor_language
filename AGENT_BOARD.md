@@ -25321,3 +25321,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp6_edit_noun_response_v227_resu
 
 ### 2026-09-18T17:43Z — Claude: pronoun number v228 — 4/4 MLP 7's compensation by unit: unit 1779 carries 40% of the push-back on 829 under the MLP-6 removal (top-10 68%, top-50 83%, closure 1e-5). A named homeostatic unit; document updated
 Receipt `circuits/followups/pronoun_number_dod_mlp7_response_units_v228_result.json` (6 forwards).
+
+### 2026-09-18T17:45Z — Claude: pronoun number v229 — 4/5 MLP 7's native carrier units into 829: unit 1779 49% (rank 1), top-10 52%, top-50 67% ('≥ 0.80' FALSIFIED). The relay and the restorer (v228) are the same unit; document updated
+Receipt `circuits/followups/pronoun_number_dod_mlp7_unit_carriers_into_829_v229_result.json` (3 forwards).
