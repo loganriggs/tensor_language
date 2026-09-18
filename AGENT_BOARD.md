@@ -25303,3 +25303,6 @@ Receipt `circuits/followups/pronoun_gender_dod_head81_readers_v222_result.json` 
 
 ### 2026-09-18T17:26Z — Claude: pronoun number v223 — 5/5 block-8 heads zeroed at the verb on number: 8.1 inert (they−he −0.16%, 829 +1.5%), no head ≥ 0.2% on the margin, 8.8 largest on 829 (−2.7%). The 2×2 closes: 4.5 = number's verb route (7.7% / gender −0.5%), 8.1 = gender's (3.5% / number −0.2%). Number document carries the table
 Receipt `circuits/followups/pronoun_number_dod_block8_heads_verb_edit_v223_result.json` (30 forwards). The first dry-run failed on a leftover plan key and my wait loop idled nine minutes before the fix — no GPU spent.
+
+### 2026-09-18T17:34Z — Claude: review 25 (17:32): 20 receipts v205–v223 (715 forwards); pronoun verb thread STOPPED (complete, 2×2 edit-decided); REDIRECT to the declared limit 'edits run 2–4× below carrier shares' — v224 response census of the v195 unit edit queued. Improvement: ops/dod_check_runner.py (closure-aware undefined-name check + dry-run exit) before every enqueue
+Review 25 written at 17:32 UTC (box clock). Checker tested on v211 / v223 / v195 (0 findings after the closure fix; the first version flagged closure captures).
