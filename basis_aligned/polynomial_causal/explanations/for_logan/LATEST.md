@@ -1,6 +1,8 @@
 # Latest requested update for Logan
 
-**Fresh norm-closed confirmation: [18 September — Fresh confirmation of the norm-closed MLP8 value mediator](research_update_2026-09-18_fresh_norm_closed.md).** New 20-document FineWeb panel; generated RMS and value errors below 4e-8; fresh mediator screen passes with native ports and composition limits retained.
+**Fresh V2 reuse: [18 September — Fresh V2 reuse of the coupled value path](research_update_2026-09-18_fresh_v2_reuse.md).** The frozen coupled operator passes globally on a second fresh FineWeb panel; no reversed subgroup appeared, so independent composition remains unestablished rather than promoted.
+
+**Fresh norm-closed confirmation: [18 September — Fresh confirmation of the norm-closed MLP8 value mediator](research_update_2026-09-18_fresh_norm_closed.md).** New 20-document FineWeb panel; generated RMS/value errors below 4e-8; fresh same-boundary null beats all 16 random corrections; composition limits retained.
 
 **Requested 18 September: [One circuit, input to logit — the reflexive-person component](in_depth_circuit.md).** Diagram, equations, worked example, code, receipts; what is closed (three heads → a token lookup with constant attention) and what is not (head 10.5, the other 58%).
 

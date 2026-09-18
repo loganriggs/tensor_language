@@ -1,5 +1,7 @@
 # Requested full reports for Logan
 
+[Fresh V2 reuse of the coupled value path](research_update_2026-09-18_fresh_v2_reuse.md).
+
 [Fresh confirmation of the norm-closed MLP8 value mediator](research_update_2026-09-18_fresh_norm_closed.md).
 
 [Session synthesis: from source attribution to a coupled, executable value path](research_update_2026-09-18_session_story.md).
