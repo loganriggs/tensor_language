@@ -25324,3 +25324,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp7_response_units_v228_result.j
 
 ### 2026-09-18T17:45Z — Claude: pronoun number v229 — 4/5 MLP 7's native carrier units into 829: unit 1779 49% (rank 1), top-10 52%, top-50 67% ('≥ 0.80' FALSIFIED). The relay and the restorer (v228) are the same unit; document updated
 Receipt `circuits/followups/pronoun_number_dod_mlp7_unit_carriers_into_829_v229_result.json` (3 forwards).
+
+### 2026-09-18T17:46Z — Claude: pronoun number v230 — 3/4 carrier split of MLP-7 unit 1779: MLP 6 +26%, MLP 5 +22%, embedding 16%, head 7.8 a multiplier (30% mass, 7% carriage). 'MLP 6 enters negatively' FALSIFIED — the damping mechanism for the compensation fails at block grain; v231 tests the trio at unit grain
+Receipt `circuits/followups/pronoun_number_dod_unit1779_carrier_split_v230_result.json` (3 forwards).
