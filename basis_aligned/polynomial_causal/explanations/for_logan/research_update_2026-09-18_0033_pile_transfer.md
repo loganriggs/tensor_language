@@ -44,7 +44,7 @@ On the twenty opened UK–US paired write contrasts, terms involving MLP7 have *
 
 The full native write has corresponding MLP7 shares0.32/0.34 and attention7 shares0.15/0.17. Agreement with paired-contrast accounting reduces the concern that the source choice reflects only total magnitude. All source reconstruction and algebraic closures pass; exact values are in the receipts.
 
-The MLP7-dependent group and its complement have normalized interaction **0.346 against a 0.35 gate** (edit, opened). This passes the absolute composition screen. Random partitions of the same write are now being tested; composition specificity and fresh transfer remain unestablished. The earlier inherited/current branch-composition failure remains.
+The MLP7-dependent group and its complement have normalized interaction **0.346 against a 0.35 gate** (edit, opened). This passes the absolute composition screen. The random-split comparison fails: its interaction exceeds the random median0.245 and beats none of sixteen partitions. Composition specificity is not established; fresh source-group transfer remains untested. The earlier inherited/current branch-composition failure remains.
 
 ## Reproducibility appendix
 
@@ -61,3 +61,5 @@ Full-strength [protocol](../../CITY_FULL_STRENGTH_V1_PREREGISTRATION.md), [recei
 Upstream [capture protocol](../../CITY_SOURCE7_V1_PREREGISTRATION.md), [native receipt](../../CITY_SOURCE7_V1_RESULT.json), [full-write CPU fold](../../CITY_SOURCE7_V1_CPU_RESULT.json), [paired-contrast CPU fold](../../CITY_SOURCE7_CONTRAST_V1_CPU_RESULT.json). Capture40forwards/1.1550169859547168seconds, source-sum error5.9078814408220775e-08. Ordered expansion maximum relative native-write error1.0268040275245452e-06; algebraic closure7.251356452816009e-16. No source removal was executed in this fold.
 
 Source-group causal [protocol](../../CITY_SOURCE7_EDIT_V1_PREREGISTRATION.md), [receipt](../../CITY_SOURCE7_EDIT_V1_RESULT.json):800forwards/8.8649985359516seconds, all5gatespass. Group/full target RMS0.30458367727025587,positive fraction0.8828828828828829,meanattenuation0.07513645954325922;interaction/smaller0.34571131394446597. [Random-split protocol](../../CITY_SOURCE7_SPLIT_NULL_V1_PREREGISTRATION.md) registered before execution.
+
+[Random-split receipt](../../CITY_SOURCE7_SPLIT_NULL_V1_RESULT.json):a/bpass,cFAIL;1440forwards/15.053495805012062seconds,realinteraction0.34571131394446597,randommedian0.24475824079352693,0/16beaten. The next [MLP7 reader fold](../../CITY_MLP7_READERS_V1_PREREGISTRATION.md) retains the coupled model and maps K1/K2/currentV through MLP7 Down exactly; [CPU receipt](../../CITY_MLP7_READERS_V1_CPU_RESULT.json) prices12,386,688FP32scalars versus16,368,768unfused. This is a reader-boundary implementation, not closure of the normalized MLP7 input or a complete regional extractor. Native verification is pending.
