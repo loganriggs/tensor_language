@@ -382,3 +382,5 @@ v270 (3/4): zeroing 1738 at the noun RAISES they−he by 0.5% (beyond random) wh
 v271 (4/5): 1738 on pronoun natural rows — the margin rises 0.18% when it is removed (sign as registered, beyond random, selective), rows split 48/52. Shared-detector story closed. Unit-grain synthesis for Logan written (for_logan/research_update_2026-09-18_unit_grain_synthesis.md).
 v274 (4/5): MLP-8 detectors at the annotated natural VERB — 2.7% congruent, 9.9% all positions, selective; the verb site is shown OOD (counter-case fails there). v275 (2/5): wrong units for the verb (noun trio) — design error recorded; v277 runs {69, 2483}. v276 (2/5): verb-site MLP-5 pair weak OOD (0.2%) — declared.
 v277 (3/5): verb-site MLP-6 pair {69, 2483} at the natural verb 0.35% (all positions 1.8%); weak — declared. Verb-annotation thread closed: the verb site generalises at MLP-8 grain (v274), not below.
+v278 (4/4, temporal): MLP 7 at the bank is CONCENTRATED — unit 1250 23%, 3364 13%, 1884 13%, top-10 73%, stable. The temporal family's detectors live in MLP 7, one block below the MLP-8 port. v279 (3/4): MLP 6 intermediate (top-10 38%, 4454 16%). Table row to be updated after v280.
+

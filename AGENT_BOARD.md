@@ -25480,3 +25480,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp6_verb_units_natural_v277_resu
 
 ### 2026-09-18T21:33Z — Claude: review 29 (21:32): STOP-idle hour recorded (allowed by rule); decision CONTINUE with the temporal family one block down — v278 (MLP 7) / v279 (MLP 6) unit censuses at the bank. Improvement: dod_scorecard_row.py --json mode (row + shared line + document replacement in one call, no shell quoting)
 Review 29 written at 21:32 UTC (box clock).
+
+### 2026-09-18T21:35Z — Claude: aspectual v278 — 4/4 MLP 7 at the bank is CONCENTRATED: unit 1250 23%, 3364 13%, 1884 13%, top-10 73%, stable (Jaccard 0.49) — the temporal family's units live in MLP 7, below the MLP-8 port. v279 — 3/4 MLP 6 intermediate (top-10 38%, unit 4454 16%). v280 (unit 1250 exam + edit at the bank) next
+Receipts v278 / v279 (2 forwards each). First record step through `dod_scorecard_row.py --json`.
