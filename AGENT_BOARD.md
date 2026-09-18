@@ -25393,3 +25393,6 @@ Receipt `circuits/followups/pronoun_gender_dod_mlp8_unit_census_12_4_v249_result
 
 ### 2026-09-18T18:20Z — Claude: pronoun number v250 — 4/4 MLP-8 census on 12.4's reader direction: 829 35%, 953 22%, top-10 79%, Jaccard with 9.6 held. 12.4 reads the same detectors as 9.6 in both families (v249 / v250)
 Receipt `circuits/followups/pronoun_number_dod_mlp8_unit_census_12_4_v250_result.json` (3 forwards).
+
+### 2026-09-18T18:33Z — Claude: review 26 (18:32): 27 receipts v224–v250 (256 forwards); pronoun lines STOPPED at unit grain (complete); REDIRECT to the temporal (has/had) family at unit grain — v251 MLP-8 census on 9.1's reader direction at the cue. Improvement: ops/dod_show.py (schema-agnostic receipt printer)
+Review 26 written at 18:32 UTC (box clock).
