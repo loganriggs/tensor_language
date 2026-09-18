@@ -1,0 +1,136 @@
+{
+  "candidate_id": "pronoun_gender.he_vs_she.dod_unit3230_edit_v177",
+  "edit": {
+    "act_drop": -0.7076426064968429,
+    "margin_drop": -0.02338275909423828
+  },
+  "finished_utc": "2026-09-18T14:46:53.441865+00:00",
+  "forwards": 38,
+  "instrument_max_abs_error": 0.0,
+  "native_3152_contrast": -31.784983350833258,
+  "nulls": [
+    {
+      "act_drop": -0.0005208140385879905,
+      "margin_drop": 6.993611653645833e-05,
+      "unit": 3457
+    },
+    {
+      "act_drop": -0.00023833247395093263,
+      "margin_drop": -0.00020534197489420573,
+      "unit": 2081
+    },
+    {
+      "act_drop": -0.0008763463827834532,
+      "margin_drop": 0.000136868158976237,
+      "unit": 206
+    },
+    {
+      "act_drop": 0.0012083859647711963,
+      "margin_drop": 0.0005808035532633463,
+      "unit": 731
+    },
+    {
+      "act_drop": 0.00013872621884011027,
+      "margin_drop": -4.2891502380371095e-05,
+      "unit": 592
+    },
+    {
+      "act_drop": -0.00041819685816044697,
+      "margin_drop": 2.2443135579427085e-05,
+      "unit": 539
+    },
+    {
+      "act_drop": 0.010827103070996194,
+      "margin_drop": 0.0002692222595214844,
+      "unit": 658
+    },
+    {
+      "act_drop": -0.00023833247395093263,
+      "margin_drop": -0.00020534197489420573,
+      "unit": 2081
+    },
+    {
+      "act_drop": 0.00019952664508536387,
+      "margin_drop": -5.502700805664063e-05,
+      "unit": 2409
+    },
+    {
+      "act_drop": -0.0030528625554075554,
+      "margin_drop": 4.772345225016276e-05,
+      "unit": 3082
+    },
+    {
+      "act_drop": -0.0005188884428180174,
+      "margin_drop": -6.329218546549479e-05,
+      "unit": 2967
+    },
+    {
+      "act_drop": -0.0004922740845591385,
+      "margin_drop": -2.826849619547526e-05,
+      "unit": 4527
+    },
+    {
+      "act_drop": 0.0023005054002024766,
+      "margin_drop": 0.00034375985463460285,
+      "unit": 4172
+    },
+    {
+      "act_drop": -0.0018469242547340355,
+      "margin_drop": -4.235108693440755e-05,
+      "unit": 2686
+    },
+    {
+      "act_drop": -0.0014894728468736562,
+      "margin_drop": -0.00015111764272054037,
+      "unit": 2462
+    },
+    {
+      "act_drop": -0.0012288267337872076,
+      "margin_drop": 0.0006386359532674153,
+      "unit": 2709
+    }
+  ],
+  "plan": {
+    "bars": {
+      "drop_min": 0.15
+    },
+    "candidate_id": "pronoun_gender.he_vs_she.dod_unit3230_edit_v177",
+    "edit": "zero MLP6 unit 3230 at the noun",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 40,
+    "gpu_accessed": false,
+    "measure": "MLP8 unit 3152 activation at the noun + he/she margin",
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "null_seeds": [
+      7701,
+      7702,
+      7703,
+      7704,
+      7705,
+      7706,
+      7707,
+      7708,
+      7709,
+      7710,
+      7711,
+      7712,
+      7713,
+      7714,
+      7715,
+      7716
+    ],
+    "rows": 60,
+    "rows_sha256": "a2c57cae32fb75bc7a0194c61a6f001c069cc9ab2fc941462144733d45a8508d"
+  },
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_zeroing_3230_shrinks_the_male_detector": false,
+    "pred_c_zeroing_3230_beats_random_mlp6_units": false,
+    "pred_d_margin_drop_beats_random_units": false
+  },
+  "schema": "pronoun_gender_dod_unit3230_edit_result_v177",
+  "serial_seconds": 2.1413423048797995
+}

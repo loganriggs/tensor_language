@@ -272,3 +272,4 @@ MLP 8's write on 9.6's reader direction (v164 / v166); 9.6 reads it and writes a
 self-copy of it except ≈ 0.2 of 3152's factors from the other block-6 heads. Causal size in the behaviour: 3% (noun) / 8% (all positions) for
 the MLP-8 units (v165), as the chain of shares predicts. Depth beyond any earlier line; the female detector 3943 and the number units are the
 same construction, not yet traced.
+v177 (0/3 + instrument): zeroing MLP-6 unit 3230 at the noun ENLARGES the male detector's contrast by 71% and raises the margin (+0.023) — the 3230 → 3152 link is inhibitory at the product level; factor-level folds of a bilinear unit name writers but not the sign of their effect on (Lx)(Rx). Correction to the chain: 3230 is a damper of the male detector, not a feeder. Lesson recorded; product-level pair fold (v178) next.
