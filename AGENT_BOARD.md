@@ -25297,3 +25297,6 @@ Receipt `circuits/followups/pronoun_gender_dod_unit3152_verb_carrier_split_v220_
 
 ### 2026-09-18T17:14Z — Claude: pronoun gender v221 — 5/5 EDIT of head 8.1 at the verb: 3152's verb contrast −29% (carriage 34%), he−she margin −3.5%; other block-8 heads ≤ 0.45% on the margin. Verb-site routes decided in both families: 8.1's token copy (gender), 4.5's feature copy (number). Gender document updated
 Receipt `circuits/followups/pronoun_gender_dod_head81_verb_edit_v221_result.json` (20 forwards).
+
+### 2026-09-18T17:16Z — Claude: pronoun gender v222 — 5/5 the 8.1-at-verb edit: 9.6 loses 86% of the reader-coefficient drop (−15% of its coefficient), selective (three gates hold), margin −3.5% verb / −12.9% all positions. Scorecard row 36 wording corrected: the gender panel is 60 rows / 30 pairs (v220's docstring says 48)
+Receipt `circuits/followups/pronoun_gender_dod_head81_readers_v222_result.json` (28 forwards).
