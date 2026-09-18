@@ -1,0 +1,64 @@
+{
+  "candidate_id": "pronoun_number.they_vs_he.dod_head63_three_way_split_v187",
+  "closure_max": 9.81177483625129e-08,
+  "finished_utc": "2026-09-18T15:06:55.630240+00:00",
+  "forwards": 6,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "reader_min": 0.8,
+      "self_value_min": 0.3,
+      "value_max": 0.02
+    },
+    "candidate_id": "pronoun_number.they_vs_he.dod_head63_three_way_split_v187",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 8,
+    "gpu_accessed": false,
+    "head": "6.3",
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117",
+    "unit": 2483
+  },
+  "predictions": {
+    "pred_a_split_closure": true,
+    "pred_b_earlier_values_do_not_change": true,
+    "pred_c_earlier_sources_are_reader_borne": true,
+    "pred_d_self_source_value_and_reader": false
+  },
+  "report": {
+    "corr_abs_share": 6.479870450487755e-09,
+    "earlier_reader_fraction": 0.9861252577178051,
+    "earlier_share": 0.6701813671067812,
+    "earlier_value_abs_share": 0.0,
+    "pairs": 48,
+    "pooled": {
+      "earlier_corr": -1.7881393432617188e-07,
+      "earlier_pattern": -3.2502339892089367,
+      "earlier_reader": -231.00522816181183,
+      "earlier_value": 0.0,
+      "self_corr": -2.086162567138672e-06,
+      "self_pattern": -2.9555847365481895,
+      "self_reader": -80.73573806881905,
+      "self_value": -31.59361158311367
+    },
+    "self_reader_fraction": 0.7003147205322579,
+    "self_share": 0.3298186328932188,
+    "self_value_fraction": 0.2740480460780978,
+    "shares": {
+      "earlier_corr": 5.115687197753491e-10,
+      "earlier_pattern": 0.009298593239366918,
+      "earlier_reader": 0.6608827733558456,
+      "earlier_value": -0.0,
+      "self_corr": 5.968301730712407e-09,
+      "self_pattern": 0.008455631299435148,
+      "self_reader": 0.23097684372094587,
+      "self_value": 0.09038615190453604
+    }
+  },
+  "schema": "pronoun_number_dod_head63_three_way_split_result_v187",
+  "serial_seconds": 1.7733970459084958
+}

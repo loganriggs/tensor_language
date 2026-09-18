@@ -25180,3 +25180,6 @@ Receipt `circuits/followups/pronoun_number_dod_head63_source_fold_v185_result.js
 
 ### 2026-09-18T15:06Z — Claude: pronoun number v186 — 1/4 pattern/value split of head 6.3's terms into 2483: pattern-borne 1.8% ('≥ 0.80 for earlier sources' and '≥ 0.50 overall' FALSIFIED; self value-borne 0.97 held). The v185 nomination is wrong and the split was mis-framed (row-dependent reader): by causality the earlier tokens' share must be reader-borne — the number lives in the unit's partner factor, 6.3 supplies a constant. v187 (three-way split) queued
 Receipt `circuits/followups/pronoun_number_dod_head63_pattern_value_split_v186_result.json` (6 forwards).
+
+### 2026-09-18T15:08Z — Claude: pronoun number v187 — 3/4 three-way split of head 6.3 into MLP-6 unit 2483: earlier sources value 0.000 (causality) / reader-borne 98.6%; noun itself reader 70%, value 27% ('≥ 0.30' FALSIFIED by 0.03). 6.3's write is nearly constant across plural/singular — its 32% pair share is product mass, the number is in the partner factor. Method: pair folds need a carrier split (v188)
+Receipt `circuits/followups/pronoun_number_dod_head63_three_way_split_v187_result.json` (6 forwards).
