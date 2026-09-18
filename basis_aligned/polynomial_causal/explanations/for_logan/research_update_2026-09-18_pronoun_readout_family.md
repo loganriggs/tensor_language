@@ -35,9 +35,10 @@ the set's 1.75, none live.
 
 **What is different from the auxiliary families.** Removal along one weight-only direction per head takes the *entire*
 margin (the auxiliary sets take 45–60%), keep-only raises the margin above native, and additivity sits exactly at the
-bar with 12.4 the largest single. The pronoun decision looks like a nearly pure readout at these four heads, with no
-MLP relay share to declare yet (no response census run).
+bar with 12.4 the largest single. The response census (v74, exact λ-recurrence split, closure 7e-5) confirms it: the four heads' own writes carry 94% of
+the linear attribution, the downstream MLPs net −6% (MLPs 12/13 amplify, the calibrator MLP 17 pushes back), and the
+nonlinear remainder is 0.8%. Unlike the auxiliary families, there is no MLP relay port to declare.
 
-**Scope.** One behaviour, one fresh panel, one natural panel, head grain. Not yet: Pile rows, response census, source folds. Scorecard: `basis_aligned/claude_hourly_review/PRONOUN_GENDER_DOD_SCORECARD.md`; atlas table:
+**Scope.** One behaviour, one fresh panel, one natural panel, head grain. Not yet: Pile rows, source folds. Scorecard: `basis_aligned/claude_hourly_review/PRONOUN_GENDER_DOD_SCORECARD.md`; atlas table:
 `basis_aligned/claude_hourly_review/READOUT_ATLAS_TABLE.md`; receipts `pronoun_gender_dod_battery_v71_result.json`,
 `readout_atlas_v68_result.json` under `basis_aligned/bilinear_quotient/circuits/followups/`.
