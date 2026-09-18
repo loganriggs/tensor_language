@@ -25378,3 +25378,6 @@ Receipt `circuits/followups/pronoun_number_dod_verb_mlp5_units_edit_v246_result.
 
 ### 2026-09-18T18:14Z — Claude: pronoun number v247 — 5/5 unit 69's growth in place: +122% (reproduces v246), plural rows +10.1 / singular −5.3, Right factor 0.94. Class-dependent-shift law on a second unit; document reference fixed
 Receipt `circuits/followups/pronoun_number_dod_unit69_growth_split_v247_result.json` (6 forwards).
+
+### 2026-09-18T18:15Z — Claude: pronoun number v248 — 2/5 verb-site MLP-5 {1036, 715} at cue+1 on natural rows: 0.02% congruent damage (not live; selectivity vacuous); beats the null and counter-case sign held. Declared OOD limit of the verb-site chain (no verb annotation; panel effect 1%). Document updated
+Receipt `circuits/followups/pronoun_number_dod_verb_mlp5_units_natural_v248_result.json` (80 forwards).
