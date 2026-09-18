@@ -4,7 +4,15 @@
 among live non-auxiliary lines, recurring head triples, and a markdown table (family | contrast | top-4 | fraction | live |
 selective | family overlap). Usage: python atlas_summary.py [--md out.md]"""
 from __future__ import annotations
-import collections, glob, itertools, json, sys
+import collections
+FAMILIES = {"temporal": {"attn9_h1", "attn9_h4", "attn15_h5"}, "number": {"attn5_h7", "attn7_h8", "attn9_h7"}, "pronoun": {"attn9_h6", "attn12_h4", "attn15_h1"}}
+
+
+def family_of(top4):
+    """A live line belongs to a family when >= 2 of the family core heads are in its top-4; ties -> the larger overlap, then name order."""
+    best = max(FAMILIES, key=lambda f: (len(FAMILIES[f] & set(top4)), -list(FAMILIES).index(f)))
+    return best if len(FAMILIES[best] & set(top4)) >= 2 else "other"
+, glob, itertools, json, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -29,12 +37,16 @@ def main():
     print(f"lines {len(rows)}  capable {len(cap)}  live {len(live)}  selective {len(sel)}  instrument max {max((r['instrument'] for r in rows), default=0):.1e}")
     heads = collections.Counter(h for r in live for h in r["top4"]); print("recurring heads (live lines):", heads.most_common(15))
     triples = collections.Counter(t for r in live for t in itertools.combinations(sorted(r["top4"]), 3)); print("recurring triples:", [(list(t), c) for t, c in triples.most_common(8) if c >= 2])
+    assigned = collections.Counter(family_of(r["top4"]) for r in live); print("family assignment (live lines, >= 2 core heads in top-4):", dict(assigned))
+    other = [r for r in live if family_of(r["top4"]) == "other"]
+    other_triples = collections.Counter(t for r in other for t in itertools.combinations(sorted(r["top4"]), 3)); print("recurring triples among 'other':", [(list(t), c) for t, c in other_triples.most_common(6) if c >= 2])
     if "--md" in sys.argv:
         out = Path(sys.argv[sys.argv.index("--md") + 1])
-        lines = ["| family | top-4 heads (logits) | set fraction | live | selective | family overlap |", "|---|---|---|---|---|---|"]
+        lines = [f"Lines {len(rows)}, capable {len(cap)}, live {len(live)}, selective {len(sel)}. Family = >= 2 core heads in the top-4 (temporal 9.1/9.4/15.5, number 5.7/7.8/9.7, pronoun 9.6/12.4/15.1): " + ", ".join(f"{k} {v}" for k, v in assigned.most_common()) + ".", "",
+                 "| line | top-4 heads (logits) | set fraction | live | selective | family | aux overlap |", "|---|---|---|---|---|---|---|"]
         for r in sorted(rows, key=lambda r: -r["fraction"]):
             hs = ", ".join(f"{h.replace('attn','').replace('_h','.')} {d:.2f}" for h, d in zip(r["top4"], r["top4_damages"]))
-            lines.append(f"| {r['family']}{'' if r['capable'] else ' (incapable)'} | {hs} | {r['fraction']:.2f} | {'yes' if r['live'] else 'no'} | {'yes' if r['selective'] else 'no'} | {', '.join(h.replace('attn','').replace('_h','.') for h in r['overlap']) or '—'} |")
+            lines.append(f"| {r['family']}{'' if r['capable'] else ' (incapable)'} | {hs} | {r['fraction']:.2f} | {'yes' if r['live'] else 'no'} | {'yes' if r['selective'] else 'no'} | {family_of(r['top4']) if r['live'] else '—'} | {', '.join(h.replace('attn','').replace('_h','.') for h in r['overlap']) or '—'} |")
         out.write_text("\n".join(lines) + "\n"); print("wrote", out)
 
 
