@@ -20,7 +20,9 @@ PRICE (registered maximum): 2 batches x (native + producer + set + 16 nulls) = 3
 from __future__ import annotations
 import run_pronoun_gender_dod_natural_v73 as v73
 
-PREDICTIONS = dict(v73.PREDICTIONS)
+PREDICTIONS = {"pred_a_instrument_replays_native": "<= 1e-4", "pred_b_congruent_native_capability": ">= 0.75 per congruent cell",
+               "pred_c_congruent_removal_shifts_away_from_label": "mean >= 0.15, >= 60% positive", "pred_d_congruent_removal_beats_null": "> null max",
+               "pred_e_congruent_removal_selective": "three gates", "pred_f_incongruent_removal_shifts_toward_label": "mean <= 0"}
 v73.ROWS = v73.ROOT / "circuits/followups/pronoun_gender_dod_pile_rows_v75.json"
 v73.OUT = v73.ROOT / "circuits/followups/pronoun_gender_dod_pile_v75_result.json"
 v73.CANDIDATE_ID = "pronoun_gender.he_vs_she.dod_pile_v75"
