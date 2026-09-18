@@ -25357,3 +25357,6 @@ Receipt `circuits/followups/pronoun_number_dod_unit1779_response_by_class_zeroin
 
 ### 2026-09-18T18:04Z — Claude: pronoun number v240 — 5/5 unit 1030 alone on natural rows: 11% of the trio's effect, plural-leaning; the three singles add to 97% of the trio. Document open item closed
 Receipt `circuits/followups/pronoun_number_dod_mlp8_unit1030_natural_v240_result.json` (12 forwards).
+
+### 2026-09-18T18:05Z — Claude: pronoun number v241 — 4/5 MLP-6 unit carriers into 829 at the verb: unit 69 38% (a damper at the noun), 2483 31%, trio share 30%; '≥ 2 of the trio in top-5' FALSIFIED. The MLP-6 stage is position-dependent at unit grain; document §4.8 updated
+Receipt `circuits/followups/pronoun_number_dod_mlp6_unit_carriers_into_829_verb_v241_result.json` (3 forwards).

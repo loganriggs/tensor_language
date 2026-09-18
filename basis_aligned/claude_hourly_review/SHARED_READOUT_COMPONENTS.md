@@ -337,3 +337,4 @@ v237 (1/5): the true-gradient census reproduces v229 — the carrier identity st
 v238 (3/5): RESOLVED — 1779 drops on both classes (common mode) and 829's gradient along it is opposite-signed across classes (−1.6 / +0.6), so the drop widens 829's contrast on both sides. The compensation is a product-gradient effect, not a damping input. v239 checks it under zeroing.
 v239 (3/5): under zeroing 1779 shifts differentially (−3.2 plural, +2.4 singular); the response is plural-row-borne (+0.054 vs −0.015) because |G_plural| ≫ |G_singular|. Compensation thread closed: response = Σ_class G_class × dh_class.
 v240 (5/5): unit 1030 alone 11% of the trio on natural text, plural-leaning; singles add to 97% of the trio. Number-line open items: MLP-1/2 units (port), 4.5 axis OOD, MLP-6 trio off-noun (v241 at the verb).
+v241 (4/5): at the verb 829's MLP-6 inputs are unit 69 (38%, a damper at the noun) and 2483 (31%); 2826 / 4131 drop out. v242: what feeds unit 69 at the verb.

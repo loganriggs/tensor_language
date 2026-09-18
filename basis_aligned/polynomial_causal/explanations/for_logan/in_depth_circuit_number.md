@@ -146,7 +146,7 @@ native trace with no edit, gives the edit's number in advance when nothing but a
 ### 4.8 The verb copy [v203–v214]
 
 At the verb the same MLP-8 detectors re-fire (829 carries 33% and 953 25% of MLP 8's write on 9.6's direction there [v203]); the carriers of
-829's product at the verb are again the MLPs at that position (74%) with attention blocks 4 and 5 leading the attention share [v204]. The copy
+829's product at the verb are again the MLPs at that position (74%) with attention blocks 4 and 5 leading the attention share [v204]; by unit, MLP 6's part at the verb is unit 69 (38%), a unit that *damps* the detector at the noun, plus 2483 from the noun circuit (31%), while 2826 and 4131 drop out [v241]. The copy
 head is **4.5**: 94% of block 4's contrast at the verb, 97% of it from the noun position, 26% token-only [v205]. Zeroing 4.5's whole slice at the
 verb removes 7.7% of the margin but is *not* selective — animacy and tense readers move five times their null [v206, v207b]: 4.5 is a shared
 subject-feature copier — on the gender line it is the copy head too (77% of block 4 into the male detector at the verb, all from the noun [v218]), yet there zeroing it at the verb leaves the he − she margin unchanged (−0.5% [v219]): both features ride the copy, only the number readers use it — on gender the token copiers 8.1 and 6.x bring the gendered token itself to the verb (34% and 24% of the male detector's carriage there [v220]), so the feature copy is redundant; number has no token to copy (8.1 carries −1% of it, §4.4) and depends on 4.5. The four edits, one head at one position each, all against the other heads of the same block:
