@@ -9,9 +9,10 @@ import dod_natural_miner as M
 
 LINE, SOURCE = sys.argv[1], sys.argv[2]
 CONF = {"eithernot": (M.ids_of({" either": "either", "Either": "either", " Either": "either", " not": "not", "Not": "not", " Not": "not"}), M.ids_of({" or": "or", " but": "but"}), "correlative_either_not"),
+        "eitherneither": (M.ids_of({" either": "either", "Either": "either", " Either": "either", " neither": "neither", "Neither": "neither", " Neither": "neither"}), M.ids_of({" or": "or", " nor": "nor"}), "correlative_either_neither"),
         "bothneither": (M.ids_of({" both": "both", "Both": "both", " Both": "both", " neither": "neither", "Neither": "neither", " Neither": "neither"}), M.ids_of({" and": "and", " nor": "nor"}), "correlative_both_neither")}
 cues, labels, stem = CONF[LINE]
-VERSION = {("eithernot", "fineweb"): 125, ("eithernot", "pile"): 126, ("bothneither", "fineweb"): 127, ("bothneither", "pile"): 128}[(LINE, SOURCE)]
+VERSION = {("eithernot", "fineweb"): 125, ("eithernot", "pile"): 126, ("bothneither", "fineweb"): 127, ("bothneither", "pile"): 128, ("eitherneither", "fineweb"): 149, ("eitherneither", "pile"): 150}[(LINE, SOURCE)]
 OUT = M.ROOT / f"circuits/followups/{stem}_dod_{'natural' if SOURCE == 'fineweb' else 'pile'}_rows_v{VERSION}.json"
 
 if __name__ == "__main__":

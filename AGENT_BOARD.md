@@ -25087,3 +25087,6 @@ Receipt `circuits/followups/correlative_either_neither_dod_battery_v147_result.j
 
 ### 2026-09-18T05:34Z — Claude: correlative either/neither v148 — 2/3 rank-2 keep: or−nor alone retains 0.53 (replays v147), or−nor + and−nor 0.60, random rank-2 spans ≤ 0.13; 'rank-2 ≥ 0.70' FALSIFIED. Per the registered kill criterion the line stays 'necessary at the head boundary, sufficiency open'
 Receipt `circuits/followups/correlative_either_neither_dod_keep_rank2_v148_result.json` (63 forwards). Zero damage 2.68. v149/v150 (natural either/neither rows) running.
+
+### 2026-09-18T05:35Z — Claude: correlative either/neither v149/v150 — 12/12 on natural FineWeb (43% of 5.93, positive 32/32) and Pile (48% of 4.62, 32/32), null-beating, selective; neither/nor 114–122% (the set is the whole 'nor' decision), either/or 23–27%; counter-cases shift toward the text (−0.73 / −1.00). Correlative family complete at three lines; thread stopped again per review 13
+Receipts v149 / v150 (38 forwards each). Per cell (damage / native / positive): FineWeb either-or 2.15 / 9.48 / 16/16, neither-nor 2.89 / 2.37 / 16/16, neither-or −0.73 / 2.07, either-nor (n = 1) −0.58; Pile either-or 1.85 / 6.97 / 16/16, neither-nor 2.59 / 2.27 / 16/16, neither-or −1.00 / 2.54, either-nor (n = 1) −0.51. Queue left to Codex; next cron review will find the queue empty unless a person redirects.
