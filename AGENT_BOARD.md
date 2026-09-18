@@ -25450,3 +25450,6 @@ Receipt `circuits/followups/perfect_number_dod_mlp8_unit829_v267_result.json` (6
 
 ### 2026-09-18T19:17Z — Claude: perfect-number v268 — 4/5 unit 829 on the have/has natural rows: plural-have +1.8% (91% positive), singular ≈ 0; pooled congruent 0.71% ('≥ 0.01' FALSIFIED), 86× random, selective, counter-case sign held. Plural-only in both behaviours, as v198 on they/he
 Receipt `circuits/followups/perfect_number_dod_unit829_natural_v268_result.json` (80 forwards).
+
+### 2026-09-18T19:19Z — Claude: perfect-number v269 — 4/4 unit 1738: a second plural detector on have/has (53 vs 0, 48/48; cos −0.53), edit −1.3% noun / −2.8% all, random ≤ 0.02%. Read oppositely by the pronoun set (v168); v270 tests by edit
+Receipt `circuits/followups/perfect_number_dod_mlp8_unit1738_v269_result.json` (60 forwards).
