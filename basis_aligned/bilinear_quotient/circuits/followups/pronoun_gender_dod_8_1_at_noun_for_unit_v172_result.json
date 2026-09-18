@@ -1,0 +1,68 @@
+{
+  "candidate_id": "pronoun_gender.he_vs_she.dod_8_1_at_noun_for_unit_v172",
+  "closure_max": 3.547608911593586e-06,
+  "factors": {
+    "L": {
+      "by_category_branch": {
+        "other": {
+          "current": 15.060670882463455,
+          "inherited": 41.111233711242676
+        },
+        "self": {
+          "current": 499.6527728289366,
+          "inherited": 13864.257289409637
+        }
+      },
+      "contrast": 14420.081820011139,
+      "inherited_share": 0.9643057991407527,
+      "shares": {
+        "other": 0.0038953943046117017,
+        "self": 0.9961046158771018
+      }
+    },
+    "R": {
+      "by_category_branch": {
+        "other": {
+          "current": 65.99592981860042,
+          "inherited": -16.718953475356102
+        },
+        "self": {
+          "current": -1258.6405656337738,
+          "inherited": -37687.10511016846
+        }
+      },
+      "contrast": -38896.468269348145,
+      "inherited_share": 0.9693379821158679,
+      "shares": {
+        "other": -0.0012668753369075513,
+        "self": 1.0012668863947454
+      }
+    }
+  },
+  "finished_utc": "2026-09-18T14:39:43.319144+00:00",
+  "forwards": 4,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "inh_min": 0.5,
+      "self_min": 0.8
+    },
+    "candidate_id": "pronoun_gender.he_vs_she.dod_8_1_at_noun_for_unit_v172",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 6,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 60,
+    "rows_sha256": "a2c57cae32fb75bc7a0194c61a6f001c069cc9ab2fc941462144733d45a8508d"
+  },
+  "predictions": {
+    "pred_a_fold_closure": true,
+    "pred_b_self_position_carries_8_1_write": true,
+    "pred_c_8_1_write_is_token_only": true
+  },
+  "schema": "pronoun_gender_dod_8_1_at_noun_for_unit_result_v172",
+  "serial_seconds": 1.7194316410459578
+}

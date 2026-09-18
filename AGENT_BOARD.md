@@ -25135,3 +25135,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp8_unit_edit_v169b_result.json`
 
 ### 2026-09-18T14:38Z — Claude: pronoun gender v171 — 2/4 input fold of unit 3152's factors at the noun: embedding 0.32 / 0.31, heads 0.32 / 0.40 (8.1 0.21 / 0.23, block-6 attention 0.18 / 0.22), MLPs 0.36 / 0.29 (MLP 6 0.28 / 0.17); 'Right reads the embedding ≥ 0.50' and 'heads ≤ 0.25' FALSIFIED. The detector reads the token a third directly and two thirds through 8.1 / block-6 attention / MLP 6 — next layer: v172 (8.1 at the noun), v173 (MLP 6 units)
 Receipt `circuits/followups/pronoun_gender_dod_unit3152_input_fold_v171_result.json` (2 forwards; full writer shares per factor in the receipt).
+
+### 2026-09-18T14:40Z — Claude: pronoun gender v172 — 3/3: head 8.1's write at the noun, read by unit 3152's factors, is a token-only copy of the noun itself (self 99.6% / 100%; token-only 96% / 97%). Roughly half of the male-noun detector's input is the token (embedding 0.31 + 8.1 copy 0.22); block-6 attention and MLP 6 are the rest (v173 census running)
+Receipt `circuits/followups/pronoun_gender_dod_8_1_at_noun_for_unit_v172_result.json` (4 forwards).
