@@ -247,3 +247,11 @@ was diffuse because the two units' inputs are spread over many writers; by unit 
 v165 (edit of units 3152 + 3943, 3/5): 0.045 logits at the noun (2.6%; positive 43/60; random pairs 0.00; selective), 0.13 at all positions — LIVE failed as registered. Consistent with the chain 0.27 (MLP 8's share of 9.6's noun read) × 0.30 (9.6's single) × 0.76 = 0.06: the fold nominated correctly and the edit sized it. Lesson for the port: a component behind a port inherits the port's share of the behaviour; unit-grain closure here is 3% of the margin.
 v166 (unit census at the verb): unit 3152 again — 78% of MLP 8's gender write on 9.6's direction at the verb (3943 10%); a single MLP-8 unit is the gender feature 9.6 reads at both positions. The edit of both units at all positions (v165: 0.13) is exactly what 0.30 × 0.51 × 0.88 predicts. Folds nominate, edits size.
 v168 (number line, MLP 8 unit census on 9.6's they−he direction at the noun, 4/4): units 829 (39%), 953 (17%), 1030 (9%) — a different unit set from the gender unit 3152 (rank 5, 4.6%). MLP 8 holds separate gender and number units feeding the same reader head along different directions; frame-stable (Jaccard ≥ 0.70). Edit test v169.
+
+## Inside the port (v164–v167, 14:31 UTC): MLP 8's gender feature is two one-sided detectors
+
+Unit 3152 = male-noun detector (bilinear value −700 to −980 on king / husband / father / brother …, ≈ 0 on the female counterparts; 23/25), Down
+column along −r_{9.6}; unit 3943 = female-noun detector (mother −856, queen −462 …, ≈ 0 on male; 24/25), Down column along +r_{9.6}. Together
+76% (noun) / 88% (verb) of MLP 8's write on 9.6's gender direction; their edit is 3% (noun) / 8% (all positions) of the behaviour, exactly the
+chain's product. The number line has its own MLP-8 units (829, 953, 1030; v168). This is the first time one of the collection's MLP ports has
+been opened to named units with a stated function.

@@ -8,7 +8,7 @@ u_j(x) = (L_j . x)(R_j . x), written back as Down[:, j] u_j(x). Weights only: (a
 contrast); (b) one of L_j, R_j should read a gender axis of the residual -- here tested against the block-0 embedding gender axis
 g = mean over the 26 gender pairs of rms(E[male]) - rms(E[female]) (the noun position's residual at block 8 contains the embedding directly,
 v82: 33%); (c) over the vocabulary, u_j(rms(E[token])) should separate male from female kin/title nouns: for the 26 pairs, sign(u_j(male) -
-u_j(female)) consistent for >= 22 of 26 for at least one of the two units.
+u_j(female)) consistent for >= 85% of the single-token pairs for at least one of the two units.
 PREDICTIONS (scored as written; failures preserved; priors unsure): pred_a |cos(Down[:, j], r)| >= 0.30 for both units; pred_b max(|cos(L_j, g)|,
 |cos(R_j, g)|) >= 0.20 for both units; pred_c the sign test above.
 PRICE: 0 forwards.
@@ -25,7 +25,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "circuits/followups/mlp8_gender_units_weights_v167_result.json"
 CANDIDATE_ID = "pronoun_gender.he_vs_she.mlp8_gender_units_weights_v167"
 UNITS = (3152, 3943)
-PREDICTIONS = {"pred_a_down_columns_align_with_reader": ">= 0.30", "pred_b_one_factor_reads_the_embedding_gender_axis": ">= 0.20", "pred_c_units_are_gender_specific_on_the_vocabulary": ">= 22/26"}
+PREDICTIONS = {"pred_a_down_columns_align_with_reader": ">= 0.30", "pred_b_one_factor_reads_the_embedding_gender_axis": ">= 0.20", "pred_c_units_are_gender_specific_on_the_vocabulary": ">= 85% of pairs"}
 
 
 def main():
@@ -40,7 +40,10 @@ def main():
     attn9 = m.transformer.h[9].attn; O = attn9.c_proj.weight.detach().float()[:, 6 * 128:7 * 128]; V = attn9.c_v.weight.detach().float()[6 * 128:7 * 128, :]
     v_hat = O.T @ (W[L._single(" he")] - W[L._single(" she")]); v_hat = v_hat / v_hat.norm(); r = V.T @ v_hat
     cos = lambda a, b: float((a @ b) / (a.norm() * b.norm()))
-    pairs = list(pg.GENDER) + list(g71.PAIRS)
+    def single(w):
+        try: L._single(" " + w); return True
+        except L.RowError: return False
+    pairs = [(a, b) for a, b in list(pg.GENDER) + list(g71.PAIRS) if single(a) and single(b)]   # the module's duke/duchess etc. are not single tokens
     emb = lambda w: F.rms_norm(E[L._single(" " + w)], (E.shape[1],))
     gdir = torch.stack([emb(a) - emb(b) for a, b in pairs]).mean(0)
     report = {}
@@ -53,7 +56,7 @@ def main():
         print(j, {k: (round(v, 3) if isinstance(v, float) else v) for k, v in report[str(j)].items() if k != "unit_values_examples"}, report[str(j)]["unit_values_examples"])
     predictions = {"pred_a_down_columns_align_with_reader": all(abs(report[str(j)]["cos_down_r"]) >= 0.30 for j in UNITS),
                    "pred_b_one_factor_reads_the_embedding_gender_axis": all(max(abs(report[str(j)]["cos_L_g"]), abs(report[str(j)]["cos_R_g"])) >= 0.20 for j in UNITS),
-                   "pred_c_units_are_gender_specific_on_the_vocabulary": any(max(report[str(j)]["male_minus_female_positive"], report[str(j)]["male_minus_female_negative"]) >= 22 for j in UNITS)}
+                   "pred_c_units_are_gender_specific_on_the_vocabulary": any(max(report[str(j)]["male_minus_female_positive"], report[str(j)]["male_minus_female_negative"]) >= 0.85 * len(pairs) for j in UNITS)}
     OUT.write_text(json.dumps({"schema": "mlp8_gender_units_weights_result_v167", "candidate_id": CANDIDATE_ID, "units": report, "predictions": predictions, "forwards": 0, "finished_utc": datetime.now(timezone.utc).isoformat()}, indent=2, sort_keys=True) + "\n")
     print(json.dumps(predictions, indent=2))
 

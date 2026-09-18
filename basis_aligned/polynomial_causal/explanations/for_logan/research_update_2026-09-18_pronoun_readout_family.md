@@ -77,6 +77,12 @@ the linear attribution, the downstream MLPs net −6% (MLPs 12/13 amplify, the c
 nonlinear remainder is 0.8%. Unlike the auxiliary families, there is no MLP relay port downstream of the heads. The number set is the same shape (v84:
 103% direct, downstream net +2%, remainder 0.4%).
 
+**Through the port (v164–v168, 18 Sep afternoon).** MLP 8's gender write on 9.6's reader direction splits exactly by hidden unit: two units
+carry 76% at the noun and 88% at the verb. Read from weights, unit 3152 is a male-noun detector (strongly negative on 23 of 25 male
+nouns, ≈ 0 on female) writing along −r, and unit 3943 a female-noun detector (24 of 25) writing along +r. Zeroing both removes 2.6% of the
+he/she margin at the noun and 7.8% at all positions — small, because MLP 8 is a quarter of 9.6's input and 9.6 a third of the set, and
+exactly what the chain predicts. The number line's MLP-8 units are different ones (829, 953, 1030). Folds nominated, edits sized.
+
 **Scope.** One behaviour, one fresh panel, two natural panels (FineWeb, Pile), head grain. All five properties have head-grain
 evidence; not yet: source folds (what the four heads read), the other 18 pronoun lines on fresh rows. Scorecard: `basis_aligned/claude_hourly_review/PRONOUN_GENDER_DOD_SCORECARD.md`; atlas table:
 `basis_aligned/claude_hourly_review/READOUT_ATLAS_TABLE.md`; receipts `pronoun_gender_dod_battery_v71_result.json`,

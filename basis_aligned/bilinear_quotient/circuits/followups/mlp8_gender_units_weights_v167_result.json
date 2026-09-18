@@ -1,0 +1,83 @@
+{
+  "candidate_id": "pronoun_gender.he_vs_she.mlp8_gender_units_weights_v167",
+  "finished_utc": "2026-09-18T14:31:23.438591+00:00",
+  "forwards": 0,
+  "predictions": {
+    "pred_a_down_columns_align_with_reader": true,
+    "pred_b_one_factor_reads_the_embedding_gender_axis": true,
+    "pred_c_units_are_gender_specific_on_the_vocabulary": true
+  },
+  "schema": "mlp8_gender_units_weights_result_v167",
+  "units": {
+    "3152": {
+      "cos_L_R": -0.4875923991203308,
+      "cos_L_g": 0.16921108961105347,
+      "cos_R_g": -0.38020649552345276,
+      "cos_down_r": -0.8413744568824768,
+      "male_minus_female_negative": 23,
+      "male_minus_female_positive": 2,
+      "n_pairs": 25,
+      "unit_values_examples": {
+        "brother/sister": [
+          -738.815,
+          -245.114
+        ],
+        "father/mother": [
+          -759.677,
+          -146.385
+        ],
+        "husband/wife": [
+          -856.334,
+          -204.969
+        ],
+        "king/queen": [
+          -975.583,
+          17.829
+        ],
+        "son/daughter": [
+          -691.385,
+          -235.234
+        ],
+        "uncle/aunt": [
+          -780.44,
+          127.118
+        ]
+      }
+    },
+    "3943": {
+      "cos_L_R": -0.1648218333721161,
+      "cos_L_g": 0.15970158576965332,
+      "cos_R_g": -0.22216473519802094,
+      "cos_down_r": 0.3526037335395813,
+      "male_minus_female_negative": 1,
+      "male_minus_female_positive": 24,
+      "n_pairs": 25,
+      "unit_values_examples": {
+        "brother/sister": [
+          33.255,
+          -395.27
+        ],
+        "father/mother": [
+          -11.608,
+          -856.437
+        ],
+        "husband/wife": [
+          6.345,
+          -414.672
+        ],
+        "king/queen": [
+          12.832,
+          -462.363
+        ],
+        "son/daughter": [
+          14.341,
+          -407.161
+        ],
+        "uncle/aunt": [
+          44.086,
+          -277.19
+        ]
+      }
+    }
+  }
+}

@@ -25126,3 +25126,6 @@ Receipt `circuits/followups/pronoun_gender_dod_mlp8_unit_census_verb_v166_result
 
 ### 2026-09-18T14:30Z — Claude: pronoun number v168 — 4/4 MLP 8 unit census (9.6's they−he reader, noun): units 829 (39%), 953 (17%), 1030 (9%), 1484 (5%); the gender unit 3152 is 5th at 4.6%; top-10 78%, top-50 89%; frame Jaccard ≥ 0.70. MLP 8 holds separate gender and number units for the same reader head. v169 edits the three number units
 Receipt `circuits/followups/pronoun_number_dod_mlp8_unit_census_v168_result.json` (2 forwards; pooled contrasts 829 287492, 953 124182, 1030 68989, 1484 36249, 3152 33465, 1738 −28854 of 734439).
+
+### 2026-09-18T14:32Z — Claude: MLP-8 gender units v167 (weights, CPU) — 3/3: unit 3152 is a MALE-noun detector (bilinear value −700…−980 on 23/25 male nouns, ≈ 0 on female; Right factor reads the embedding gender axis cos −0.38; Down column cos −0.84 with 9.6's reader), unit 3943 a FEMALE-noun detector (24/25; Down cos +0.35). MLP 8's gender feature for 9.6 = two one-sided token detectors; the number line uses different units (v168)
+Receipt `circuits/followups/mlp8_gender_units_weights_v167_result.json` (0 forwards; 25 single-token gender pairs). Per-pair unit values in the receipt. First run failed on multi-token nouns (duke/duchess) in the module list; filtered, re-run.
