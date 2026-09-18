@@ -25192,3 +25192,6 @@ Receipt `circuits/followups/pronoun_gender_dod_unit3152_carrier_split_v189_resul
 
 ### 2026-09-18T15:11Z — Claude: pronoun gender v190 — 4/4 carrier split of the female detector 3943: embedding 34%, head 8.1 20%, block-6 attention 15% (token side 69%), MLP 6 +10%, MLP 7 9%. Both gender detectors are token-carried; the number detector (v188) is MLP-carried. in_depth_circuit.md carries the carrier table
 Receipt `circuits/followups/pronoun_gender_dod_unit3943_carrier_split_v190_result.json` (2 forwards).
+
+### 2026-09-18T15:13Z — Claude: pronoun number v191 — 3/4 carrier split of MLP-6 units 2483 / 2826: the MLP stack 1–5 carries 88% / 78% (MLP 5 35% into 2483 with negative mass; MLP 3 20%), embedding 14% / 20%, head 6.3 3.5% (17% mass). 'embedding ≥ 0.15' FALSIFIED for 2483 by 0.01. The number chain is MLP-carried at every named stage
+Receipt `circuits/followups/pronoun_number_dod_mlp6_unit_carrier_split_v191_result.json` (3 forwards).

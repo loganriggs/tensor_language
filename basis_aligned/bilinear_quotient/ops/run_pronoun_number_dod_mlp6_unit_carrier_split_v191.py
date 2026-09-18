@@ -1,0 +1,94 @@
+#!/usr/bin/env python3
+# BQGATE: EXPERIMENT pred_a_carrier_closure pred_b_mlp_stack_carries_060 pred_c_head_6_3_carries_little pred_d_embedding_carries_015
+"""Pronoun number they/he DoD (v191): CARRIER split (v188's exact identity) of MLP-6 units 2483 and 2826 -- the plural detector's largest inputs -- at the
+block-6 input, where v183 gave mass shares only (2483: MLP 4 52%, MLP 3 33%, head 6.3 32%; 2826: MLPs 3-5 ~33% each, embedding 29%) and v187 showed
+head 6.3's write is constant across the number contrast (89% reader-borne). Carrier share of writer w = [sum_b da_w mb_b + sum_a ma_a db_w] / contrast
+over aligned plural - singular pairs, with a_w = (L . C_w)/rms, b_w = (R . C_w)/rms; sums to 1. Writers: embedding, attn / mlp totals of blocks 0-5,
+the nine heads of block 6.
+PREDICTIONS (scored as written; failures preserved; priors from v187 / v188)
+    pred_a_carrier_closure          carrier shares sum to 1 within 1e-3 and the per-pair identity holds within relative 1e-3, both units
+    pred_b_mlp_stack_carries_060    mlp:01..mlp:05 together carry >= 0.60 of the contrast, both units
+    pred_c_head_6_3_carries_little  attnhead:06:3 carries <= 0.10, both units (v187: a constant multiplier into 2483)
+    pred_d_embedding_carries_015    the embedding carries >= 0.15, both units. Prior: unsure.
+PRICE (registered maximum): 3 batches x 1 positional trace = 3 forwards; 0 backwards; 0 fits. Bar <= 5.
+"""
+from __future__ import annotations
+from datetime import datetime, timezone
+import json, os, time
+import aspectual_dod_lib as L
+import circuit_fast_screen_producer as producer
+import run_pronoun_number_dod_battery_v76 as g
+import dod_battery
+
+ROOT = dod_battery.ROOT
+OUT = ROOT / "circuits/followups/pronoun_number_dod_mlp6_unit_carrier_split_v191_result.json"
+CANDIDATE_ID = "pronoun_number.they_vs_he.dod_mlp6_unit_carrier_split_v191"
+UNITS, LAYER, CLOSURE_TOL, STACK_MIN, HEAD_MAX, EMBED_MIN, BATCH = (2483, 2826), 6, 1e-3, 0.60, 0.10, 0.15, 32
+FORWARDS_MAX = 5
+WRITERS = ["embed"] + [f"{k}:{l:02d}" for l in range(LAYER) for k in ("attn", "mlp")] + [f"attnhead:{LAYER:02d}:{h}" for h in range(9)]
+PREDICTIONS = {"pred_a_carrier_closure": "<= 1e-3", "pred_b_mlp_stack_carries_060": ">= 0.60 x 2", "pred_c_head_6_3_carries_little": "<= 0.10 x 2", "pred_d_embedding_carries_015": ">= 0.15 x 2"}
+
+
+def writers_at_block_input(tr, pos, layer):
+    """Exact writer decomposition of x_layer[pos] = live_layer + attn_layer (attn_layer split by head); v16's function for any block."""
+    x0 = tr[("embed", pos)]; C = {"embed": x0.clone()}
+    for l in range(layer):
+        l0, l1 = tr[f"lambda0:{l:02d}"], tr[f"lambda1:{l:02d}"]
+        for k in C: C[k] = l0 * C[k]
+        C["embed"] = C["embed"] + l1 * x0
+        C[f"attn:{l:02d}"] = tr[(f"attn:{l:02d}", pos)].clone(); C[f"mlp:{l:02d}"] = tr[(f"mlp:{l:02d}", pos)].clone()
+    l0, l1 = tr[f"lambda0:{layer:02d}"], tr[f"lambda1:{layer:02d}"]
+    for k in C: C[k] = l0 * C[k]
+    C["embed"] = C["embed"] + l1 * x0
+    for h in range(9): C[f"attnhead:{layer:02d}:{h}"] = tr[(f"attnhead:{layer:02d}:{h}", pos)].clone()
+    return C
+
+
+def main() -> None:
+    rows, he, she, agents, objects = g.build()
+    nouns = {L._single(" " + a) for a in agents} | {L._single(" " + a + "s") for a in agents}
+    noun_of = lambda row: next(i for i, t in enumerate(row.ids) if t in nouns)
+    plan = {"candidate_id": CANDIDATE_ID, "rows": len(rows), "rows_sha256": L.rows_sha256(rows), "units": UNITS, "layer": LAYER, "writers": WRITERS, "forwards_max": FORWARDS_MAX, "model_backwards": 0, "model_updates": 0,
+            "fit_parameters": 0, "gpu_accessed": False, "model_loaded": False, "execution_policy": "managed_queue_only", "bars": {"closure_tol": CLOSURE_TOL, "stack_min": STACK_MIN, "head_max": HEAD_MAX, "embed_min": EMBED_MIN}}
+    if os.environ.get("BQLIB_DRYRUN") or os.environ.get("BQLIB_NO_MODEL"):
+        print(json.dumps(plan, indent=2, sort_keys=True)); return
+    t0 = time.perf_counter()
+    backend = producer.Bilin18TorchBackend.load("cuda"); torch, F, model = backend.torch, backend.F, backend.model
+    fw = L.ManualForward(backend); mlp = model.transformer.h[LAYER].mlp
+    forwards, traces = 0, []
+    for start in range(0, len(rows), BATCH):
+        chunk = rows[start:start + BATCH]
+        traces.extend(L.forward_trace_positions(fw, chunk, lambda rw: [noun_of(rw)], upto_layer=LAYER + 1, head_write_layers=(LAYER,))); forwards += 1
+    partner = {(row.construction, row.group, row.present): i for i, row in enumerate(rows)}
+    n = len(WRITERS); closure, report = 0.0, {}
+    predictions = {"pred_a_carrier_closure": True, "pred_b_mlp_stack_carries_060": True, "pred_c_head_6_3_carries_little": True, "pred_d_embedding_carries_015": True}
+    Cs = [writers_at_block_input(tr, noun_of(row), LAYER) for row, tr in zip(rows, traces)]
+    for unit in UNITS:
+        Lrow, Rrow = mlp.Left.weight.detach().float()[unit], mlp.Right.weight.detach().float()[unit]; factors = []
+        for C in Cs:
+            x = sum(C.values()); rms = float(x.pow(2).mean().sqrt()); M = torch.stack([C[w] for w in WRITERS]).to(Lrow.device)
+            factors.append(((M @ Lrow) / rms, (M @ Rrow) / rms))
+        carrier, mass, contrast = torch.zeros(n), torch.zeros(n), 0.0
+        for i, row in enumerate(rows):
+            if not row.present: continue
+            aP, bP = factors[i]; aS, bS = factors[partner[(row.construction, row.group, False)]]
+            ref = float(aP.sum() * bP.sum() - aS.sum() * bS.sum()); da, db, ma, mb = aP - aS, bP - bS, (aP + aS) / 2, (bP + bS) / 2
+            left, right = da * float(mb.sum()), db * float(ma.sum())
+            closure = max(closure, abs(float(left.sum() + right.sum()) - ref) / max(abs(ref), 1e-6)); carrier += (left + right).cpu(); contrast += ref
+            Tm = torch.outer(aP, bP) - torch.outer(aS, bS); mass += ((Tm + Tm.T) / 2).sum(1).cpu()
+        cs = {w: float(carrier[k]) / contrast for k, w in enumerate(WRITERS)}; ms = {w: float(mass[k]) / contrast for k, w in enumerate(WRITERS)}
+        stack = sum(cs[f"mlp:{l:02d}"] for l in range(1, LAYER)); ranked = sorted(cs, key=lambda w: -abs(cs[w]))
+        report[str(unit)] = {"contrast": contrast, "carrier_share": cs, "mass_share": ms, "carrier_sum": sum(cs.values()), "mlp_stack": stack, "ranked": ranked}
+        print(unit, "contrast", round(contrast, 2), "sum", round(sum(cs.values()), 4), "mlp stack", round(stack, 3), [(w, round(cs[w], 3), "mass", round(ms[w], 3)) for w in ranked[:9]])
+        predictions["pred_a_carrier_closure"] &= abs(sum(cs.values()) - 1) <= CLOSURE_TOL; predictions["pred_b_mlp_stack_carries_060"] &= stack >= STACK_MIN
+        predictions["pred_c_head_6_3_carries_little"] &= abs(cs["attnhead:06:3"]) <= HEAD_MAX; predictions["pred_d_embedding_carries_015"] &= cs["embed"] >= EMBED_MIN
+    predictions["pred_a_carrier_closure"] &= closure <= CLOSURE_TOL
+    if forwards > FORWARDS_MAX:
+        raise SystemExit(f"price exceeded: {forwards} > {FORWARDS_MAX}")
+    OUT.write_text(json.dumps({"schema": "pronoun_number_dod_mlp6_unit_carrier_split_result_v191", "candidate_id": CANDIDATE_ID, "plan": plan, "closure_max": closure, "units": report, "predictions": predictions, "forwards": forwards,
+                               "serial_seconds": time.perf_counter() - t0, "finished_utc": datetime.now(timezone.utc).isoformat()}, indent=2, sort_keys=True) + "\n")
+    print(json.dumps({"predictions": predictions, "forwards": forwards}, indent=2))
+
+
+if __name__ == "__main__":
+    main()
