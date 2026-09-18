@@ -22,6 +22,10 @@ the blind sweep on fresh rows returns exactly the temporal will/had set, with 15
 | 9 | Set removal transfers to three new tense frames (years ago / these days; once / still; back then / right now) | edit | fresh templates (v46) | fractions back_then_now 0.69 / once_still 0.75 / years_ago 0.75; positive every row; null max ≤ 0.03; selective everywhere; all six capability cells 1.00 | passes |
 | 10 | Pairwise Möbius terms all below 25% of the smaller piece (largest attn15_h5+attn11_h3 +0.025 vs bar 0.138); head split normalized gap 0.042 vs random-split median 0.050; four-way gap 0.061 vs bar 0.021 | edit | v47 | 156 forwards | 3/4: pairwise and null held; strict four-way bar fails (same pattern as the temporal set) |
 
+| 11 | Natural FineWeb rows (a natural ANALOGUE of the panel cue: one temporal adverb — yesterday / ago / formerly / previously / earlier vs today / now / currently / nowadays / presently — within 12 tokens of was / is; be-forms excluded): congruent removal 1.08 of 2.88 (38%), positive 29/32, null max 0.03, selective (who−which, night−day, they−he); past/was 1.53 of 2.82 (16/16), present/is 0.64 of 2.93 (13/16) | edit | natural (v151) | v20 bars held | passes 5/6 |
+| 11f | **Failed:** counter-case rows were predicted to shift toward the text; pooled they are hurt (+0.21 FineWeb, +0.28 Pile) — asymmetrically: past-adverb + is rows move toward the text (−0.16 / −0.20) while present-adverb + was rows are hurt (+0.58 / +0.77): the set carries the 'was' side of the decision whatever the adverb, and the present side only with a present cue | edit | natural (v151, v152) | | falsified as registered |
+| 12 | Pile rows: congruent 0.75 of 2.37 (32%), positive 25/32, null 0.03, selective; capability 0.81 / 0.88 | edit | natural OOD (v152) | | passes 5/6 |
+
 ## Five-property status
 | property | status | next |
 |---|---|---|
@@ -32,6 +36,7 @@ the blind sweep on fresh rows returns exactly the temporal will/had set, with 15
 | Composes | held pairwise and against the random-split null (row 10); the strict four-way bar fails by 4% (rows 6, 10); reuse across lines is the headline (same set as temporal) | — |
 
 ## Receipts
+- v151 / v152: `.../narrative_dod_natural_v151_result.json`, `.../narrative_dod_pile_v152_result.json`; rows `narrative_dod_{natural,pile}_rows_v15{1,2}.json`; miner config `ops/narrative_dod_natural_rows.py`
 - v47 composition: `.../narrative_tense_dod_composition_v47_result.json`
 - v45 random-set null: `.../narrative_tense_dod_random_set_null_v45_result.json`
 - v46 templates: `.../narrative_tense_dod_templates_v46_result.json`

@@ -10,7 +10,7 @@ scorecards keep every failed prediction.
 |---|---|---|---|---|---|
 | temporal | aspectual has/had | 8.1, 9.1, 9.4 | 0.54 | 0.57 | 2/5 preds / 5/5 preds |
 | temporal | temporal will/had | 11.3, 9.1, 15.5, 9.4 | 0.81 | 1/3 preds | 4/5 preds / 4/5 preds |
-| temporal | narrative was/is | 15.5, 11.3, 9.4, 9.1 | 0.73 | — | — / — |
+| temporal | narrative was/is | 15.5, 11.3, 9.4, 9.1 | 0.73 | — | 38% / 32% |
 | temporal | modal would/will | 9.4, 11.3, 9.1, 15.5 | 0.58 | — | — / — |
 | number | lexical were/was | 11.3, 5.7, 7.8, 9.7 | 0.70 | — | 18% / 33% |
 | number | perfect have/has | 11.3, 7.8, 5.3, 9.7 | 0.66 | 0.60 | 11% / 25% |
