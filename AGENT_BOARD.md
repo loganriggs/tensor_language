@@ -25336,3 +25336,6 @@ Receipt `circuits/followups/pronoun_number_dod_unit1779_in_place_change_v232_res
 
 ### 2026-09-18T17:51Z — Claude: pronoun number v233 — 2/5 mean-preserving edit of the trio: 829 −2.25%, MLP 7 response +0.100 (unchanged), margin −2.0% (3× zeroing). v232's renormalisation mechanism FALSIFIED as the cause of the push-back; the compensation is feature-level (mechanism open). Check-field bug noted (pre-edit read). Document corrected
 Receipt `circuits/followups/pronoun_number_dod_mean_preserving_edit_v233_result.json` (6 forwards).
+
+### 2026-09-18T17:52Z — Claude: pronoun number v234 — 5/5 MLP 7's response by unit under the mean-preserving edit: unit 1779 65% (top-5 93%, top-10 99%), restoring sign. 1779 is a number-restoring unit fed by the very trio whose difference was removed; v235 splits its change by factor
+Receipt `circuits/followups/pronoun_number_dod_mean_preserving_response_units_v234_result.json` (6 forwards).
