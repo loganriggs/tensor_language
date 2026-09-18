@@ -1,0 +1,935 @@
+{
+ "built_from": "circuits/followups receipts",
+ "families": [
+  "number",
+  "person",
+  "pronoun",
+  "selection",
+  "temporal"
+ ],
+ "lines": [
+  {
+   "contrast": [
+    "has",
+    "had"
+   ],
+   "family": "temporal",
+   "fresh_battery": {
+    "forwards": 180,
+    "fraction": 0.5392028680690338,
+    "null_max": null,
+    "positive": 1.0,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_head_8_1_live_and_beats_null_everywhere": true,
+     "pred_c_head_8_1_selective_everywhere": true,
+     "pred_d_triple_live_null_selective_everywhere": true,
+     "pred_e_triple_is_additive_with_block9_pair": true,
+     "pred_f_triple_fraction_at_least_045_pooled": true
+    },
+    "receipt": "aspectual_anchor_dod_triple_v8_result.json"
+   },
+   "heads": [
+    "8.1",
+    "9.1",
+    "9.4"
+   ],
+   "line": "aspectual has/had",
+   "natural_fineweb": {
+    "keys": [
+     "candidate_id",
+     "finished_utc",
+     "forwards",
+     "instrument_max_abs_error",
+     "plan",
+     "pooled_abs_shift",
+     "predictions",
+     "schema",
+     "serial_seconds",
+     "shifts",
+     "unrelated_abs_move_mean"
+    ],
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_since_rows_shift_toward_had": true,
+     "pred_c_by_rows_shift_toward_has": false,
+     "pred_d_head_8_1_alone_shifts_the_same_way": false,
+     "pred_e_unrelated_readers_within_gate": false
+    },
+    "receipt": "aspectual_anchor_dod_natural_v20_result.json"
+   },
+   "natural_pile": {
+    "keys": [
+     "candidate_id",
+     "finished_utc",
+     "forwards",
+     "instrument_max_abs_error",
+     "predictions",
+     "report",
+     "rows_sha256",
+     "schema",
+     "serial_seconds"
+    ],
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_since_rows_shift_toward_had": true,
+     "pred_c_temporal_by_rows_shift_toward_has": true,
+     "pred_d_head_8_1_alone_shifts_since_rows": true,
+     "pred_e_pattern_tracks_shift_on_since_rows": true
+    },
+    "receipt": "aspectual_anchor_dod_pile_ood_v26_result.json"
+   },
+   "random_set_null": {
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_component_beats_every_random_triple": true,
+     "pred_c_random_triples_are_not_live": true,
+     "pred_d_component_damage_exceeds_random_median_tenfold": true
+    },
+    "receipt": "aspectual_anchor_dod_random_head_set_null_v25_result.json"
+   },
+   "response_census": {
+    "direct_share": null,
+    "downstream_net": null,
+    "predictions": {
+     "pred_a_recurrence_closure": true,
+     "pred_b_linearization_remainder_small": true,
+     "pred_c_direct_term_share_in_band": true,
+     "pred_d_downstream_amplifies_in_every_construction": true,
+     "pred_e_largest_responder_is_a_named_mlp": false
+    },
+    "receipt": "aspectual_anchor_dod_response_census_v6_result.json",
+    "remainder": null
+   },
+   "scorecard": "claude_hourly_review/ASPECTUAL_DOD_SCORECARD.md"
+  },
+  {
+   "contrast": [
+    "will",
+    "had"
+   ],
+   "family": "temporal",
+   "fresh_battery": {
+    "additivity": {
+     "bar": 0.08987216465175152,
+     "gap": 0.10960329324007034
+    },
+    "forwards": 46,
+    "fraction": 0.8067167301788333,
+    "null_max": 0.04810529947280884,
+    "positive": 1.0,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_native_capability": true,
+     "pred_c_set_removal_live_and_beats_null": true,
+     "pred_d_set_removal_selective": true,
+     "pred_e_set_is_additive": false,
+     "pred_f_head_11_3_leads_on_fresh_rows": true
+    },
+    "receipt": "temporal_auxiliary_dod_removal_v28_result.json"
+   },
+   "heads": [
+    "11.3",
+    "9.1",
+    "15.5",
+    "9.4"
+   ],
+   "line": "temporal will/had",
+   "natural_fineweb": {
+    "keys": [
+     "candidate_id",
+     "finished_utc",
+     "forwards",
+     "instrument_max_abs_error",
+     "panels",
+     "predictions",
+     "rows_sha256",
+     "schema",
+     "serial_seconds"
+    ],
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_tomorrow_rows_shift_toward_had_on_both_corpora": true,
+     "pred_c_earlier_rows_shift_toward_will_on_both_corpora": true,
+     "pred_d_head_11_3_alone_shifts_the_same_way": false,
+     "pred_e_unrelated_readers_within_gate": true
+    },
+    "receipt": "temporal_auxiliary_dod_natural_v34_result.json"
+   },
+   "natural_pile": {
+    "receipt": null
+   },
+   "random_set_null": {
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_set_beats_every_random_quadruple": true,
+     "pred_c_random_quadruples_are_not_live": true,
+     "pred_d_set_exceeds_random_median_tenfold": true
+    },
+    "random_live": 0,
+    "random_max": 0.07473789900541306,
+    "receipt": "temporal_auxiliary_dod_random_set_null_v31_result.json",
+    "set_damage": 3.4497823640704155
+   },
+   "response_census": {
+    "receipt": null
+   },
+   "scorecard": "claude_hourly_review/TEMPORAL_DOD_SCORECARD.md"
+  },
+  {
+   "contrast": [
+    "was",
+    "is"
+   ],
+   "family": "temporal",
+   "fresh_battery": {
+    "receipt": "narrative_dod_confirm_v43_result.json"
+   },
+   "heads": null,
+   "line": "narrative was/is",
+   "natural_fineweb": {
+    "receipt": null
+   },
+   "natural_pile": {
+    "receipt": null
+   },
+   "random_set_null": {
+    "receipt": "narrative_dod_random_set_null_v45_result.json"
+   },
+   "response_census": {
+    "receipt": null
+   },
+   "scorecard": "claude_hourly_review/NARRATIVE_DOD_SCORECARD.md"
+  },
+  {
+   "contrast": [
+    "would",
+    "will"
+   ],
+   "family": "temporal",
+   "fresh_battery": {
+    "additivity": {
+     "bar": 0.04736368916928768,
+     "gap": 0.016731590032577515
+    },
+    "forwards": 82,
+    "fraction": 0.5796259806454246,
+    "keep_only_retention": 0.9570306468122237,
+    "null_max": 0.05037398636341095,
+    "positive": 1.0,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_native_capability": true,
+     "pred_c_set_live_and_beats_null": true,
+     "pred_d_set_selective": true,
+     "pred_e_set_is_additive": true,
+     "pred_f_keep_only_retains_most": true,
+     "pred_g_set_fraction_within_015_of_frozen": true
+    },
+    "receipt": "modal_remoteness_dod_battery_v66_result.json"
+   },
+   "heads": [
+    "9.4",
+    "11.3",
+    "9.1",
+    "15.5"
+   ],
+   "line": "modal would/will",
+   "natural_fineweb": {
+    "receipt": null
+   },
+   "natural_pile": {
+    "receipt": null
+   },
+   "random_set_null": {
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_set_beats_every_random_quadruple": true,
+     "pred_c_random_quadruples_are_not_live": true,
+     "pred_d_two_of_three_templates_capable": true,
+     "pred_e_set_removal_transfers_to_every_capable_template": true,
+     "pred_f_set_removal_selective_on_every_capable_template": true
+    },
+    "random_live": 0,
+    "random_max": 0.11661597341299057,
+    "receipt": "modal_remoteness_dod_null_and_templates_v67_result.json",
+    "set_damage": 1.6021393537521362
+   },
+   "response_census": {
+    "receipt": null
+   },
+   "scorecard": "claude_hourly_review/MODAL_DOD_SCORECARD.md"
+  },
+  {
+   "contrast": [
+    "were",
+    "was"
+   ],
+   "family": "number",
+   "fresh_battery": {
+    "additivity": {
+     "bar": 0.06874620728194714,
+     "gap": 0.055481359362602234
+    },
+    "forwards": 82,
+    "fraction": 0.6997486307042302,
+    "keep_only_retention": 0.4689279164571173,
+    "null_max": 0.18457628786563873,
+    "positive": 1.0,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_native_capability": true,
+     "pred_c_set_live_and_beats_null": true,
+     "pred_d_set_selective_with_number_readers": false,
+     "pred_e_set_is_additive": true,
+     "pred_f_keep_only_retains_most": false,
+     "pred_g_head_11_3_leads": true
+    },
+    "receipt": "number_family_dod_battery_v55_result.json"
+   },
+   "heads": [
+    "11.3",
+    "5.7",
+    "7.8",
+    "9.7"
+   ],
+   "line": "lexical were/was",
+   "natural_fineweb": {
+    "receipt": null
+   },
+   "natural_pile": {
+    "receipt": null
+   },
+   "random_set_null": {
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_set_beats_every_random_quadruple": true,
+     "pred_c_random_quadruples_are_not_live": true,
+     "pred_d_set_exceeds_random_median_tenfold": true
+    },
+    "random_live": 0,
+    "random_max": 0.113800548017025,
+    "receipt": "number_family_dod_random_set_null_v60_result.json",
+    "set_damage": 2.6707067862153053
+   },
+   "response_census": {
+    "receipt": null
+   },
+   "scorecard": "claude_hourly_review/NUMBER_DOD_SCORECARD.md"
+  },
+  {
+   "contrast": [
+    "have",
+    "has"
+   ],
+   "family": "number",
+   "fresh_battery": {
+    "additivity": {
+     "bar": 0.02141536834339301,
+     "gap": 0.2555942510565119
+    },
+    "forwards": 123,
+    "fraction": 0.6615380436837145,
+    "keep_only_retention": 1.0266465546700494,
+    "null_max": 0.04033959905306498,
+    "positive": 1.0,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_native_capability": true,
+     "pred_c_set_live_and_beats_null": true,
+     "pred_d_set_selective": true,
+     "pred_e_set_is_additive": false,
+     "pred_f_keep_only_retains_most": true,
+     "pred_g_set_fraction_within_band_of_frozen": true
+    },
+    "receipt": "perfect_number_dod_battery_v97_result.json"
+   },
+   "heads": [
+    "11.3",
+    "7.8",
+    "5.3",
+    "9.7"
+   ],
+   "line": "perfect have/has",
+   "natural_fineweb": {
+    "congruent_damage": 0.7938701286911964,
+    "congruent_native": 7.022069372236729,
+    "null_max": 0.023320719599723816,
+    "positive": 1.0,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_congruent_native_capability": true,
+     "pred_c_congruent_removal_shifts_away_from_label": true,
+     "pred_d_congruent_removal_beats_null": true,
+     "pred_e_congruent_removal_selective": true,
+     "pred_f_incongruent_removal_shifts_toward_label": false
+    },
+    "receipt": "perfect_number_dod_natural_v100_result.json"
+   },
+   "natural_pile": {
+    "congruent_damage": 1.2976952381432056,
+    "congruent_native": 5.114426344633102,
+    "null_max": 0.022562749683856964,
+    "positive": 0.9375,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_congruent_native_capability": true,
+     "pred_c_congruent_removal_shifts_away_from_label": true,
+     "pred_d_congruent_removal_beats_null": true,
+     "pred_e_congruent_removal_selective": true,
+     "pred_f_incongruent_removal_shifts_toward_label": false
+    },
+    "receipt": "perfect_number_dod_pile_v101_result.json"
+   },
+   "random_set_null": {
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_set_beats_every_random_quadruple": true,
+     "pred_c_random_quadruples_are_not_live": true,
+     "pred_d_set_fraction_within_band_of_v71": true
+    },
+    "random_live": 0,
+    "random_max": 0.08241000026464462,
+    "receipt": "perfect_number_dod_random_set_null_v98_result.json",
+    "set_damage": 2.1142533222834268
+   },
+   "response_census": {
+    "direct_share": 0.6007920452162621,
+    "downstream_net": -0.8525000950503547,
+    "predictions": {
+     "pred_a_recurrence_closure": true,
+     "pred_b_linearization_remainder_small": true,
+     "pred_c_direct_terms_carry_most": false,
+     "pred_d_downstream_net_is_small": false,
+     "pred_e_largest_responder_is_an_mlp": true
+    },
+    "receipt": "perfect_number_dod_response_census_v99_result.json",
+    "remainder": 0.021225613233895047
+   },
+   "scorecard": "claude_hourly_review/PERFECT_NUMBER_DOD_SCORECARD.md"
+  },
+  {
+   "contrast": [
+    "he",
+    "she"
+   ],
+   "family": "pronoun",
+   "fresh_battery": {
+    "additivity": {
+     "bar": 0.06398092905680339,
+     "gap": 0.06263446013132756
+    },
+    "forwards": 82,
+    "fraction": 1.0155606795719039,
+    "keep_only_retention": 1.3684031028877879,
+    "null_max": 0.017589680353800454,
+    "positive": 1.0,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_native_capability": true,
+     "pred_c_set_live_and_beats_null": true,
+     "pred_d_set_selective": true,
+     "pred_e_set_is_additive": true,
+     "pred_f_keep_only_retains_most": true,
+     "pred_g_set_fraction_within_band_of_frozen": false
+    },
+    "receipt": "pronoun_gender_dod_battery_v71_result.json"
+   },
+   "heads": [
+    "10.1",
+    "9.6",
+    "12.4",
+    "15.1"
+   ],
+   "line": "pronoun gender he/she",
+   "natural_fineweb": {
+    "congruent_damage": 3.2227909564971924,
+    "congruent_native": 4.160686150193214,
+    "null_max": 0.04796043038368225,
+    "positive": 0.96875,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_congruent_native_capability": true,
+     "pred_c_congruent_removal_shifts_away_from_label": true,
+     "pred_d_congruent_removal_beats_null": true,
+     "pred_e_congruent_removal_selective": true,
+     "pred_f_incongruent_removal_shifts_toward_label": true
+    },
+    "receipt": "pronoun_gender_dod_natural_v73_result.json"
+   },
+   "natural_pile": {
+    "congruent_damage": 2.7612037286162376,
+    "congruent_native": 3.345062978565693,
+    "null_max": 0.06573542207479477,
+    "positive": 0.9375,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_congruent_native_capability": true,
+     "pred_c_congruent_removal_shifts_away_from_label": true,
+     "pred_d_congruent_removal_beats_null": true,
+     "pred_e_congruent_removal_selective": true,
+     "pred_f_incongruent_removal_shifts_toward_label": true
+    },
+    "receipt": "pronoun_gender_dod_pile_v75_result.json"
+   },
+   "random_set_null": {
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_set_beats_every_random_quadruple": true,
+     "pred_c_random_quadruples_are_not_live": true,
+     "pred_d_set_fraction_within_band_of_v71": true
+    },
+    "random_live": 0,
+    "random_max": 0.11582577228546143,
+    "receipt": "pronoun_gender_dod_random_set_null_v72_result.json",
+    "set_damage": 1.751147190729777
+   },
+   "response_census": {
+    "direct_share": 0.9443678682747975,
+    "downstream_net": -0.09818938959767065,
+    "predictions": {
+     "pred_a_recurrence_closure": true,
+     "pred_b_linearization_remainder_small": true,
+     "pred_c_direct_terms_carry_most": true,
+     "pred_d_downstream_net_is_small": true,
+     "pred_e_largest_responder_is_an_mlp": true
+    },
+    "receipt": "pronoun_gender_dod_response_census_v74_result.json",
+    "remainder": 0.013828648425684653
+   },
+   "scorecard": "claude_hourly_review/PRONOUN_GENDER_DOD_SCORECARD.md"
+  },
+  {
+   "contrast": [
+    "they",
+    "he"
+   ],
+   "family": "pronoun",
+   "fresh_battery": {
+    "additivity": {
+     "bar": 0.04575947547952334,
+     "gap": 0.014958317081133599
+    },
+    "forwards": 123,
+    "fraction": 0.7582697858030357,
+    "keep_only_retention": 1.5296936421202574,
+    "null_max": 0.03319644431273142,
+    "positive": 1.0,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_native_capability": true,
+     "pred_c_set_live_and_beats_null": true,
+     "pred_d_set_selective": true,
+     "pred_e_set_is_additive": true,
+     "pred_f_keep_only_retains_most": true,
+     "pred_g_set_fraction_within_band_of_frozen": true
+    },
+    "receipt": "pronoun_number_dod_battery_v76_result.json"
+   },
+   "heads": [
+    "9.6",
+    "12.4",
+    "15.1",
+    "10.5"
+   ],
+   "line": "pronoun number they/he",
+   "natural_fineweb": {
+    "congruent_damage": 2.2645487934350967,
+    "congruent_native": 3.490221932530403,
+    "null_max": 0.0677570104598999,
+    "positive": 0.9375,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_congruent_native_capability": true,
+     "pred_c_congruent_removal_shifts_away_from_label": true,
+     "pred_d_congruent_removal_beats_null": true,
+     "pred_e_congruent_removal_selective": true,
+     "pred_f_incongruent_removal_shifts_toward_label": false
+    },
+    "receipt": "pronoun_number_dod_natural_v77_result.json"
+   },
+   "natural_pile": {
+    "congruent_damage": 2.0379887521266937,
+    "congruent_native": 3.613016366958618,
+    "null_max": 0.021065786480903625,
+    "positive": 0.9375,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_congruent_native_capability": true,
+     "pred_c_congruent_removal_shifts_away_from_label": true,
+     "pred_d_congruent_removal_beats_null": true,
+     "pred_e_congruent_removal_selective": true,
+     "pred_f_incongruent_removal_shifts_toward_label": false
+    },
+    "receipt": "pronoun_number_dod_pile_v78_result.json"
+   },
+   "random_set_null": {
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_set_beats_every_random_quadruple": true,
+     "pred_c_random_quadruples_are_not_live": true,
+     "pred_d_set_fraction_within_band_of_v71": true
+    },
+    "random_live": 0,
+    "random_max": 0.08098287880420685,
+    "receipt": "pronoun_number_dod_random_set_null_v79_result.json",
+    "set_damage": 1.5530436088641484
+   },
+   "response_census": {
+    "direct_share": 1.0252278159163748,
+    "downstream_net": 0.039354042713739545,
+    "predictions": {
+     "pred_a_recurrence_closure": true,
+     "pred_b_linearization_remainder_small": true,
+     "pred_c_direct_terms_carry_most": true,
+     "pred_d_downstream_net_is_small": true,
+     "pred_e_largest_responder_is_an_mlp": true
+    },
+    "receipt": "pronoun_number_dod_response_census_v84_result.json",
+    "remainder": 0.0069034751976839726
+   },
+   "scorecard": "claude_hourly_review/PRONOUN_NUMBER_DOD_SCORECARD.md"
+  },
+  {
+   "contrast": [
+    "in",
+    "of"
+   ],
+   "family": "selection",
+   "fresh_battery": {
+    "additivity": {
+     "bar": 0.10306799908479054,
+     "gap": 0.05560125410556793
+    },
+    "forwards": 123,
+    "fraction": 0.5727673094540482,
+    "keep_only_retention": 1.077421235233726,
+    "null_max": 0.055574645598729454,
+    "positive": 1.0,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_native_capability": true,
+     "pred_c_set_live_and_beats_null": true,
+     "pred_d_set_selective": true,
+     "pred_e_set_is_additive": true,
+     "pred_f_keep_only_retains_most": true,
+     "pred_g_set_fraction_within_band_of_frozen": true
+    },
+    "receipt": "selection_dod_battery_v85_result.json"
+   },
+   "heads": [
+    "8.8",
+    "6.3",
+    "13.8",
+    "7.8"
+   ],
+   "line": "adjective preposition in/of",
+   "natural_fineweb": {
+    "congruent_damage": 0.8218739032745361,
+    "congruent_native": 6.898805767297745,
+    "null_max": 0.03898300230503082,
+    "positive": 0.8125,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_congruent_native_capability": true,
+     "pred_c_congruent_removal_shifts_away_from_label": true,
+     "pred_d_congruent_removal_beats_null": true,
+     "pred_e_congruent_removal_selective": true,
+     "pred_f_incongruent_removal_shifts_toward_label": false
+    },
+    "receipt": "selection_inof_dod_natural_v91_result.json"
+   },
+   "natural_pile": {
+    "congruent_damage": 0.8675920441746712,
+    "congruent_native": 7.5215253829956055,
+    "null_max": 0.046457044780254364,
+    "positive": 0.9375,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_congruent_native_capability": true,
+     "pred_c_congruent_removal_shifts_away_from_label": true,
+     "pred_d_congruent_removal_beats_null": true,
+     "pred_e_congruent_removal_selective": true,
+     "pred_f_incongruent_removal_shifts_toward_label": false
+    },
+    "receipt": "selection_inof_dod_pile_v92_result.json"
+   },
+   "random_set_null": {
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_set_beats_every_random_quadruple": true,
+     "pred_c_random_quadruples_are_not_live": true,
+     "pred_d_set_fraction_within_band_of_v71": true
+    },
+    "random_live": 0,
+    "random_max": 0.18868176639080048,
+    "receipt": "selection_dod_random_set_null_v87_result.json",
+    "set_damage": 2.1379144191741943
+   },
+   "response_census": {
+    "direct_share": 0.3752610611334234,
+    "downstream_net": -1.3414476191602487,
+    "predictions": {
+     "pred_a_recurrence_closure": true,
+     "pred_b_linearization_remainder_small": true,
+     "pred_c_direct_terms_carry_most": false,
+     "pred_d_downstream_net_is_small": false,
+     "pred_e_largest_responder_is_an_mlp": true
+    },
+    "receipt": "selection_dod_response_census_v88_result.json",
+    "remainder": 0.00929825039107346
+   },
+   "scorecard": "claude_hourly_review/SELECTION_DOD_SCORECARD.md"
+  },
+  {
+   "contrast": [
+    "up",
+    "down"
+   ],
+   "family": "selection",
+   "fresh_battery": {
+    "additivity": {
+     "bar": 0.0735047987351815,
+     "gap": 0.03580893079439784
+    },
+    "forwards": 123,
+    "fraction": 0.43302651770059475,
+    "keep_only_retention": 0.9729324896442605,
+    "null_max": 0.08504681289196014,
+    "positive": 1.0,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_native_capability": true,
+     "pred_c_set_live_and_beats_null": true,
+     "pred_d_set_selective": true,
+     "pred_e_set_is_additive": true,
+     "pred_f_keep_only_retains_most": true,
+     "pred_g_set_fraction_within_band_of_frozen": true
+    },
+    "receipt": "selection_particle_dod_battery_v86_result.json"
+   },
+   "heads": [
+    "13.8",
+    "14.8",
+    "7.8",
+    "8.8"
+   ],
+   "line": "verb particle up/down",
+   "natural_fineweb": {
+    "congruent_damage": 1.4795893260410853,
+    "congruent_native": 8.081071904727391,
+    "null_max": 0.07836030210767474,
+    "positive": 1.0,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_congruent_native_capability": true,
+     "pred_c_congruent_removal_shifts_away_from_label": true,
+     "pred_d_congruent_removal_beats_null": true,
+     "pred_e_congruent_removal_selective": true,
+     "pred_f_incongruent_removal_shifts_toward_label": null
+    },
+    "receipt": "selection_updown_dod_natural_v93_result.json"
+   },
+   "natural_pile": {
+    "congruent_damage": 1.5718899908519925,
+    "congruent_native": 8.360409350622268,
+    "null_max": 0.07999691509065174,
+    "positive": 1.0,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_congruent_native_capability": true,
+     "pred_c_congruent_removal_shifts_away_from_label": true,
+     "pred_d_congruent_removal_beats_null": true,
+     "pred_e_congruent_removal_selective": true,
+     "pred_f_incongruent_removal_shifts_toward_label": false
+    },
+    "receipt": "selection_updown_dod_pile_v94_result.json"
+   },
+   "random_set_null": {
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_set_beats_every_random_quadruple": true,
+     "pred_c_random_quadruples_are_not_live": true,
+     "pred_d_set_fraction_within_band_of_v71": true
+    },
+    "random_live": 0,
+    "random_max": 0.08502691239118576,
+    "receipt": "selection_particle_dod_random_set_null_v89_result.json",
+    "set_damage": 1.7616446241736412
+   },
+   "response_census": {
+    "direct_share": 0.8566939672856416,
+    "downstream_net": -0.25107878156836705,
+    "predictions": {
+     "pred_a_recurrence_closure": true,
+     "pred_b_linearization_remainder_small": true,
+     "pred_c_direct_terms_carry_most": true,
+     "pred_d_downstream_net_is_small": true,
+     "pred_e_largest_responder_is_an_mlp": true
+    },
+    "receipt": "selection_particle_dod_response_census_v90_result.json",
+    "remainder": -0.00959782525425612
+   },
+   "scorecard": "claude_hourly_review/SELECTION_PARTICLE_DOD_SCORECARD.md"
+  },
+  {
+   "contrast": [
+    "myself",
+    "yourself"
+   ],
+   "family": "person",
+   "fresh_battery": {
+    "additivity": {
+     "bar": 0.09243047509031992,
+     "gap": 0.05544091900810599
+    },
+    "forwards": 123,
+    "fraction": 0.41961685638602436,
+    "keep_only_retention": 1.2051746669136632,
+    "null_max": 0.01772951955596606,
+    "positive": 1.0,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_native_capability": true,
+     "pred_c_set_live_and_beats_null": true,
+     "pred_d_set_selective": true,
+     "pred_e_set_is_additive": true,
+     "pred_f_keep_only_retains_most": true,
+     "pred_g_set_fraction_within_band_of_frozen": true
+    },
+    "receipt": "person_reflexive_dod_battery_v104_result.json"
+   },
+   "heads": [
+    "8.1",
+    "13.1",
+    "10.5",
+    "15.1"
+   ],
+   "line": "reflexive person I/you",
+   "natural_fineweb": {
+    "congruent_damage": 2.178428679704666,
+    "congruent_native": 5.930777199566364,
+    "null_max": 0.02490943670272827,
+    "positive": 1.0,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_congruent_native_capability": true,
+     "pred_c_congruent_removal_shifts_away_from_label": true,
+     "pred_d_congruent_removal_beats_null": true,
+     "pred_e_congruent_removal_selective": true,
+     "pred_f_incongruent_removal_shifts_toward_label": true
+    },
+    "receipt": "person_reflexive_dod_natural_v110_result.json"
+   },
+   "natural_pile": {
+    "congruent_damage": 2.0692454865202308,
+    "congruent_native": 6.28540791478008,
+    "null_max": 0.02531523909419775,
+    "positive": 1.0,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_congruent_native_capability": true,
+     "pred_c_congruent_removal_shifts_away_from_label": true,
+     "pred_d_congruent_removal_beats_null": true,
+     "pred_e_congruent_removal_selective": true,
+     "pred_f_incongruent_removal_shifts_toward_label": true
+    },
+    "receipt": "person_reflexive_dod_pile_v111_result.json"
+   },
+   "random_set_null": {
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_set_beats_every_random_quadruple": true,
+     "pred_c_random_quadruples_are_not_live": true,
+     "pred_d_set_fraction_within_band_of_v71": true
+    },
+    "random_live": 0,
+    "random_max": 0.09903138782829046,
+    "receipt": "person_reflexive_dod_random_set_null_v106_result.json",
+    "set_damage": 2.2645541094243526
+   },
+   "response_census": {
+    "direct_share": 0.8530402294035838,
+    "downstream_net": -0.32946948460782255,
+    "predictions": {
+     "pred_a_recurrence_closure": true,
+     "pred_b_linearization_remainder_small": true,
+     "pred_c_direct_terms_carry_most": true,
+     "pred_d_downstream_net_is_small": true,
+     "pred_e_largest_responder_is_an_mlp": true
+    },
+    "receipt": "person_reflexive_dod_response_census_v107_result.json",
+    "remainder": -0.02265106286995433
+   },
+   "scorecard": "claude_hourly_review/PERSON_REFLEXIVE_DOD_SCORECARD.md"
+  },
+  {
+   "contrast": [
+    "myself",
+    "yourself"
+   ],
+   "family": "person",
+   "fresh_battery": {
+    "additivity": {
+     "bar": 0.12064552058776219,
+     "gap": 0.015656980375448715
+    },
+    "forwards": 123,
+    "fraction": 0.4569753026051184,
+    "keep_only_retention": 1.2929844318187755,
+    "null_max": 0.014254982272783915,
+    "positive": 1.0,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_native_capability": true,
+     "pred_c_set_live_and_beats_null": true,
+     "pred_d_set_selective": true,
+     "pred_e_set_is_additive": true,
+     "pred_f_keep_only_retains_most": true,
+     "pred_g_set_fraction_within_band_of_frozen": true
+    },
+    "receipt": "person_object_control_dod_battery_v105_result.json"
+   },
+   "heads": [
+    "13.1",
+    "8.1",
+    "10.5",
+    "15.1"
+   ],
+   "line": "object control me/you",
+   "natural_fineweb": {
+    "receipt": null
+   },
+   "natural_pile": {
+    "receipt": null
+   },
+   "random_set_null": {
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_set_beats_every_random_quadruple": true,
+     "pred_c_random_quadruples_are_not_live": true,
+     "pred_d_set_fraction_within_band_of_v71": true
+    },
+    "random_live": 0,
+    "random_max": 0.14976438383261362,
+    "receipt": "person_object_control_dod_random_set_null_v108_result.json",
+    "set_damage": 2.230211970706781
+   },
+   "response_census": {
+    "direct_share": 0.8967965077718311,
+    "downstream_net": -0.23023323522951022,
+    "predictions": {
+     "pred_a_recurrence_closure": true,
+     "pred_b_linearization_remainder_small": true,
+     "pred_c_direct_terms_carry_most": true,
+     "pred_d_downstream_net_is_small": true,
+     "pred_e_largest_responder_is_an_mlp": true
+    },
+    "receipt": "person_object_control_dod_response_census_v109_result.json",
+    "remainder": 0.0006546132335643051
+   },
+   "scorecard": "claude_hourly_review/PERSON_OBJECT_CONTROL_DOD_SCORECARD.md"
+  }
+ ],
+ "schema": "readout_collection_v1"
+}
