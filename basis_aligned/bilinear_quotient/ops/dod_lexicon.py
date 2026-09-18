@@ -27,6 +27,8 @@ PANELS = {
     "pronoun_gender_v71_objects": ("compass", "ladder", "hammer", "mirror", "candle", "saddle", "helmet", "anchor", "bucket", "shovel"),
     "pronoun_number_v76_agents": ("trader", "critic", "senator", "diver", "wrestler", "cyclist", "physicist", "biologist", "economist", "philosopher", "programmer", "developer", "consultant", "investor", "marine", "commander"),
     "pronoun_number_v76_objects": ("coin", "rope", "torch", "bell", "jar", "drum", "crown", "sword", "shield", "purse", "wallet", "ticket", "spoon", "knife", "bowl", "pillow"),
+    "selection_v85_agents": ("major", "recruit", "veteran", "cleric", "elder", "apostle", "comedian", "musician", "patient", "customer", "client", "tourist", "passenger", "commuter", "pedestrian", "citizen"),
+    "selection_v85_objects": ("blanket", "wagon", "barrel", "cradle", "scroll", "brush", "needle", "lamp", "box", "bag", "cart", "flag", "map", "key", "tent", "boat"),
     "number_v62_places": ("canal", "lodge", "inn", "mine", "farm", "arena", "bakery", "brewery", "cellar", "clinic", "depot", "gallery", "hangar", "plaza", "reef", "shrine"),
 }
 
