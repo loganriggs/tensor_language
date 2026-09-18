@@ -2,13 +2,14 @@
 
 This is a generated inventory of extracted circuit boundaries. Missing evidence is recorded as unknown, not as a failed scientific claim.
 
-Packages: **48**; manifests: **43**; declared input boundaries: **32**; verified four-trait circuits: **2**.
+Packages: **49**; manifests: **44**; declared input boundaries: **33**; verified four-trait circuits: **2**.
 
 | package | maturity | inputs | external activations | nodes | next gap |
 |---|---:|---:|---:|---:|---|
 | city_attention7_drop3_v1 | partial_or_unassessed | 4 | 1 | ? | composition_reuse |
 | city_full_removal_v1 | partial_or_unassessed | 5 | 1 | ? | ood_prediction, selective_removal, composition_reuse |
 | city_interchange_prefix_v1 | partial_or_unassessed | 6 | 2 | ? | selective_removal, composition_reuse |
+| city_mlp8_value_mediator_v1 | partial_or_unassessed | 3 | ? | ? | selective_removal, composition_reuse |
 | city_reader_residual6_v1 | partial_or_unassessed | 6 | 3 | ? | ood_prediction, selective_removal, composition_reuse |
 | city_residual6_single_input_v1 | partial_or_unassessed | 4 | 1 | ? | composition_reuse |
 | complete_response_ports_v2 | partial_or_unassessed | 2 | ? | ? | schema, ood_prediction, extraction… |

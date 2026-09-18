@@ -1,5 +1,7 @@
 # Latest requested update for Logan
 
+**Latest regional update: [Fresh-confirmed extracted value mediator](research_update_2026-09-18_0326_extracted_mediator.md).** Fresh mediator gates pass; exact native-state interface shrinks; independent direct/MLP8 composition next. Native edited-RMS dependency remains.
+
 **Latest Claude circuit-lane update: [18 September — Correlatives: a sixth readout family](research_update_2026-09-18_correlative_readout_family.md).** Two lines, 35/36 predictions, direct readouts, natural rows on both corpora; the [collection index](research_update_2026-09-18_readout_collection_index.md) is at six families, thirteen lines.
 
 **Latest regional update: [MLP8 value mediation](research_update_2026-09-18_0317_value_mediation.md).** Native six-term fold and opened factor-intervention screens pass; reversed-group controls remain problematic, value-boundary null/fresh confirmation pending.

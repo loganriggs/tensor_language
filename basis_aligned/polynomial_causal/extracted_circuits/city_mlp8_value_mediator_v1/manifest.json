@@ -1,0 +1,38 @@
+{
+  "schema": "regional.city_mlp8_value_mediator.v1",
+  "name": "city_mlp8_value_mediator_v1",
+  "certified_complete": false,
+  "counterfactual": "Return MLP8-induced head9.8 current-value correction, to be subtracted while retaining the exact native upstream head8.2 city swap. This is not whole-MLP8 ablation.",
+  "ports": [
+    "z8[1,T,1152] native unnormalized MLP8 input",
+    "delta[1,T,1152] upstream attention8 intervention",
+    "edited_rho9[1,T,1] native edited mixed9 RMS"
+  ],
+  "native_vector_state_arrays": 1,
+  "native_scalar_state_arrays": 1,
+  "intervention_vector_arrays": 1,
+  "native_state_scalars_T32": 36896,
+  "intervention_scalars_T32": 36864,
+  "static_float_scalars": 11206658,
+  "weight_bytes": 44826632,
+  "external_computation": "Native z8 and edited RMS9 construction, upstream native cityswap and fullsuffix. No token-only or independent composition claim.",
+  "four_traits": {
+    "ood_prediction": true,
+    "extraction": true,
+    "selective_removal": null,
+    "selective_manipulation": true,
+    "composition_reuse": null
+  },
+  "property_scope": "Fresh same-corpus FineWeb mediator test after opened FineWeb selection; fixed probes. Conditional native-context formula predicts native correction. Prior original removal/swap direction failures and opened subgroup leakage retained; no structural/domain-universal guarantee.",
+  "evidence": {
+    "fresh": "../../CITY_VALUE_MEDIATION_FRESH_V1_RESULT.json",
+    "opened_specificity": "../../CITY_FINEWEB_VALUE_NULL_V1_RESULT.json",
+    "reduced_inputs": "../../CITY_MLP8_VALUE_EXTRACTED_V1_CPU_RESULT.json",
+    "installed": "../../CITY_MLP8_VALUE_EXTRACTED_INSTALLED_V1_RESULT.json",
+    "isolated": "../../CITY_MLP8_VALUE_EXTRACTED_V1_ISOLATED_RESULT.json"
+  },
+  "files": {
+    "execute.py": "8bfc2fcd2394cb98f472513afe81f7d7d63f6573bebb0fdd6e93ff0e0e662f52",
+    "program.pt": "24b51bfea72d15f3d06284c89a5f728175f4354d06bfc2b7054b6683002a2639"
+  }
+}

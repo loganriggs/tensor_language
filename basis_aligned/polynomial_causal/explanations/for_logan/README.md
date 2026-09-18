@@ -1,5 +1,7 @@
 # Requested full reports for Logan
 
+[Fresh-confirmed extracted value mediator](research_update_2026-09-18_0326_extracted_mediator.md).
+
 [MLP8 value mediation](research_update_2026-09-18_0317_value_mediation.md).
 
 [FineWeb reversals and value-response fold](research_update_2026-09-18_0304_fineweb_reversals.md).

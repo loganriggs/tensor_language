@@ -4,10 +4,10 @@
     "explicit_dependency_edges": 4,
     "four_trait_declared_unverified": 0,
     "four_trait_verified": 2,
-    "packages": 48,
-    "partial_or_unassessed": 46,
-    "with_declared_inputs": 32,
-    "with_manifest": 43
+    "packages": 49,
+    "partial_or_unassessed": 47,
+    "with_declared_inputs": 33,
+    "with_manifest": 44
   },
   "dependency_cycles": [],
   "four_trait_order": [
@@ -131,6 +131,44 @@
       "readme": "basis_aligned/polynomial_causal/extracted_circuits/city_interchange_prefix_v1/README.md",
       "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/city_interchange_prefix_v1",
       "schema": "regional.city_interchange_prefix.v1",
+      "scope": null,
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 3,
+      "declared_input_field": "ports",
+      "declared_inputs": [
+        "z8[1,T,1152] native unnormalized MLP8 input",
+        "delta[1,T,1152] upstream attention8 intervention",
+        "edited_rho9[1,T,1] native edited mixed9 RMS"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": null,
+      "four_traits": {
+        "composition_reuse": null,
+        "extraction": true,
+        "ood_prediction": true,
+        "selective_removal": null
+      },
+      "gaps": [
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/city_mlp8_value_mediator_v1/manifest.json",
+      "manifest_sha256": "045abaf4a1ef090c29a97261ebf7e8debe4e7a73d3775e8a32a8c4e79149271c",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "city_mlp8_value_mediator_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/city_mlp8_value_mediator_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/city_mlp8_value_mediator_v1",
+      "schema": "regional.city_mlp8_value_mediator.v1",
       "scope": null,
       "verification": {
         "path": null,

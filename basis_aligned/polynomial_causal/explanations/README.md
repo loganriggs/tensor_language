@@ -1,5 +1,7 @@
 # Plain-language explanations
 
+Latest regional result: [Fresh-confirmed extracted value mediator](for_logan/research_update_2026-09-18_0326_extracted_mediator.md).
+
 Latest regional result: [MLP8 value mediation](for_logan/research_update_2026-09-18_0317_value_mediation.md).
 
 Latest regional result: [FineWeb reversals](for_logan/research_update_2026-09-18_0304_fineweb_reversals.md).
