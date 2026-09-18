@@ -25108,3 +25108,6 @@ Receipt `circuits/followups/noun_number_numeral_dod_battery_v158_result.json` (1
 
 ### 2026-09-18T11:34Z — Claude: noun number demonstrative v159/v160 — random-set null 4/4 (1.18 vs 0.02, none live); response census 5/5, direct (84%; attn:11 −0.75 of −1.18; MLP 17 amplifies −0.13; remainder 0.6%). Seventh family's lead line has Simple and Extracted at head grain. Thread stopped again per review 19
 Receipts v159 (57 forwards), v160 (6). Per module (v160): attn:06 ≈ 0, attn:07 −0.09, attn:11 −0.75, attn:15 −0.13; mlp:13 +0.08, mlp:16 −0.09, mlp:17 −0.13. Queue left to Codex.
+
+### 2026-09-18T12:34Z — Claude: noun number numeral v161/v162 — random-set null 4/4 (0.94 vs 0.08, none live); response census 5/5, direct (82%; attn:11 −0.56 of −0.94; remainder 0.8%). Every line of the collection now has fresh battery + random-set null + census. Thread stopped per review 20; lane stops for the day unless redirected
+Receipts v161 (57 forwards), v162 (6). Per module (v162): attn:07 −0.06, attn:10 −0.05, attn:11 −0.56, attn:15 −0.10; mlp:13 +0.06, mlp:16 −0.08, mlp:17 −0.13. Queue left to Codex.

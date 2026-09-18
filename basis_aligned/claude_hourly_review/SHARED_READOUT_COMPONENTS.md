@@ -236,3 +236,4 @@ rows: the seventh family, with 11.2 as its lead (0.55–0.74 of each joint) and 
 |---|---|---|---|
 | noun number | 11.2, 7.8, 15.1 (+6.3, +10.5, +5.7) | demonstrative, numeral, determiner (×4 variants) | demonstrative these/this (v157 7/7), numeral three/one (v158 6/7) |
 v159/v160 (noun number, demonstrative line): random-set null 4/4 (1.18 vs 0.02), census 5/5 — direct (84%; here MLP 17 amplifies rather than counters). Seventh family has Simple and Extracted at head grain on its lead line. Thread stopped again per review 19 (11:34 UTC).
+v161/v162 (noun number, numeral line): random-set null 4/4 (0.94 vs 0.08), census 5/5 direct (82%). Every line of the collection now has its fresh battery, random-set null and response census; sufficiency gaps remain on the numeral and third-correlative lines. Thread stopped per review 20 (12:34 UTC).
