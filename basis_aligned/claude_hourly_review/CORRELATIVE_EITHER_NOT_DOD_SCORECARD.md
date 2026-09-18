@@ -20,17 +20,19 @@ runner's docstring said was−were and was corrected after the run).
 | 7 | Response census (exact λ-recurrence split from block 7): the set's own writes carry 117% of the linear attribution (attn:14 −0.87, attn:16 −0.69, attn:08 −0.43, attn:07 −0.32 of −1.96); downstream net +0.34 (MLPs 8–10 amplify −0.41, MLPs 15–17 push back +1.03); remainder 1% | response | fresh (v122) | | passes 5/5 — a direct readout with a strong late-MLP counter-response |
 | 8 | Natural FineWeb rows (either / not within 12 tokens, next token or / but; any-sense cue): congruent cells removal 1.14 of 5.55 (21%), positive 29/32, null max 0.04, selective; per cell either/or 2.08 of 7.22 (29%, 16/16) but not/but only 0.21 of 3.87 (5%, 13/16) — the any-sense 'not' is a weak cue; counter-case cells shift toward the text (−0.17), as registered | edit | natural (v125) | v20 bars held | passes 6/6 |
 | 9 | Pile rows: congruent 1.45 of 5.69 (25%), positive 30/32, null 0.06, selective; either/or 2.47 of 8.46, not/but 0.42 of 2.91; counter-cases −0.06 | edit | natural OOD (v126) | | passes 6/6 |
+| 10 | Source fold (exact, closure ≤ 3e-5): every head reads the cue token — 16.8 1.01 (99% token-only), 14.8 0.98 (90%), 8.1 0.97 (76%), 7.8 0.84 (56%); pooled 0.98 from the cue, 0.88 token-only | fold | fresh (v129) | all five registered readings held (8.1 token-only; cue largest for every head; pooled token-only ≥ 0.50) | 5/5 — the purest token-reader family so far: all four heads copy the correlative's first element; the open port is their attention pattern |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
 | Simple | held at head grain (row 6) | — |
 | Predicts OOD | held on fresh, natural FineWeb and Pile rows (rows 2, 8, 9), the either/or half strongly and the not/but half weakly; the set follows the cue token | — |
-| Extracted | held at the head boundary (row 5); direct (row 7) | source fold |
+| Extracted | held at the head boundary (row 5); direct (row 7); all four heads are token readers of the cue (row 10) | token-only generator with constant patterns (v131) |
 | Selective | held (row 3) | — |
 | Composes | additive (row 4) | — |
 
 ## Receipts
+- v129: `.../correlative_either_not_dod_source_fold_v129_result.json`; code `ops/run_correlative_either_not_dod_source_fold_v129.py`
 - v125 / v126: `.../correlative_either_not_dod_natural_v125_result.json`, `.../correlative_either_not_dod_pile_v126_result.json`; rows `correlative_either_not_dod_{natural,pile}_rows_v12{5,6}.json`; miner config `ops/correlative_dod_natural_rows.py`
 - v121: `.../correlative_either_not_dod_random_set_null_v121_result.json`; v122: `.../correlative_either_not_dod_response_census_v122_result.json` (runners emitted by `ops/dod_line.py`)
 - atlas v68: `bilinear_quotient/circuits/followups/atlas_correlative_disjoint_either_not_v68_result.json`

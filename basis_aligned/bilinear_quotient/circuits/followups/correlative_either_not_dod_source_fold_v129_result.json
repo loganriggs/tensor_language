@@ -1,0 +1,177 @@
+{
+  "candidate_id": "correlative_disjoint_either_not.either_vs_not.dod_source_fold_v129",
+  "finished_utc": "2026-09-18T03:29:43.713070+00:00",
+  "forwards": 15,
+  "line": {
+    "closure_max": 2.758042451789418e-06,
+    "heads": {
+      "14.8": {
+        "by_category_branch": {
+          "final": {
+            "current": -1.5327153739053756,
+            "inherited": 22.224754099617712
+          },
+          "noun": {
+            "current": 358.07636909745634,
+            "inherited": 3966.036995410919
+          },
+          "object": {
+            "current": 0.0,
+            "inherited": 0.0
+          },
+          "other": {
+            "current": 100.1303169670864,
+            "inherited": -35.56524189806805
+          }
+        },
+        "inherited_share": 0.8964310349163633,
+        "largest_source": "noun",
+        "mean_contrast": 91.86188418418169,
+        "pairs": 48,
+        "shares": {
+          "final": 0.004692742196041721,
+          "noun": 0.9806645693583209,
+          "object": 0.0,
+          "other": 0.01464269694172212
+        }
+      },
+      "16.8": {
+        "by_category_branch": {
+          "final": {
+            "current": -2.3015981428325176,
+            "inherited": -15.291127234697342
+          },
+          "noun": {
+            "current": 20.177370008081198,
+            "inherited": 3869.027219772339
+          },
+          "object": {
+            "current": 0.0,
+            "inherited": 0.0
+          },
+          "other": {
+            "current": 10.428846141883696,
+            "inherited": -34.62825740624703
+          }
+        },
+        "inherited_share": 0.9926432039002181,
+        "largest_source": "noun",
+        "mean_contrast": 80.15442633628845,
+        "pairs": 48,
+        "shares": {
+          "final": -0.004572612253428842,
+          "noun": 1.0108623980475397,
+          "object": 0.0,
+          "other": -0.006289788654037888
+        }
+      },
+      "7.8": {
+        "by_category_branch": {
+          "final": {
+            "current": 5.317369238473475,
+            "inherited": -1.8757966152625158
+          },
+          "noun": {
+            "current": 208.93556635081768,
+            "inherited": 420.11682851985097
+          },
+          "object": {
+            "current": 0.0,
+            "inherited": 0.0
+          },
+          "other": {
+            "current": 118.7416857285425,
+            "inherited": 1.8333137886381792
+          }
+        },
+        "inherited_share": 0.5578165667550792,
+        "largest_source": "noun",
+        "mean_contrast": 15.688936812182268,
+        "pairs": 48,
+        "shares": {
+          "final": 0.0045700630009902635,
+          "noun": 0.8353184402078916,
+          "object": 0.0,
+          "other": 0.16011149682605708
+        }
+      },
+      "8.1": {
+        "by_category_branch": {
+          "final": {
+            "current": -17.412299762363546,
+            "inherited": -0.67071816441603
+          },
+          "noun": {
+            "current": 423.00229972600937,
+            "inherited": 1552.8507940769196
+          },
+          "object": {
+            "current": 0.0,
+            "inherited": 0.0
+          },
+          "other": {
+            "current": 81.52588737443148,
+            "inherited": -5.8278099040617235
+          }
+        },
+        "inherited_share": 0.7604506885207701,
+        "largest_source": "noun",
+        "mean_contrast": 42.36392010003328,
+        "pairs": 48,
+        "shares": {
+          "final": -0.008892697825217198,
+          "noun": 0.9716665979846849,
+          "object": 0.0,
+          "other": 0.037226094207260675
+        }
+      }
+    },
+    "pooled_inherited_share": 0.8818209489557428,
+    "pooled_noun_share": 0.9796169455329503
+  },
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "inh_min": 0.5,
+      "pooled_min": 0.5,
+      "token_min": 0.8
+    },
+    "candidate_id": "correlative_disjoint_either_not.either_vs_not.dod_source_fold_v129",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 18,
+    "gpu_accessed": false,
+    "heads": [
+      [
+        16,
+        8
+      ],
+      [
+        14,
+        8
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        8,
+        1
+      ]
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "657e0e63e51e2aa0a8d414b4808e3d7327d7b0fa78bf4313d3052a9756f24b77"
+  },
+  "predictions": {
+    "pred_a_fold_closure": true,
+    "pred_b_head_8_1_is_a_token_only_cue_reader": true,
+    "pred_c_cue_position_is_largest_source_for_every_head": true,
+    "pred_d_pooled_inherited_share_at_least_050": true,
+    "pred_e_contrast_positive_for_every_head": true
+  },
+  "schema": "correlative_either_not_dod_source_fold_result_v129",
+  "serial_seconds": 2.1019178188871592
+}

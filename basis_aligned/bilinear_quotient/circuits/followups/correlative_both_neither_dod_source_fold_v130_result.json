@@ -1,0 +1,177 @@
+{
+  "candidate_id": "correlative_pair.both_vs_neither.dod_source_fold_v130",
+  "finished_utc": "2026-09-18T03:29:45.969515+00:00",
+  "forwards": 15,
+  "line": {
+    "closure_max": 2.764951475101612e-05,
+    "heads": {
+      "14.8": {
+        "by_category_branch": {
+          "final": {
+            "current": 4.653558551042806,
+            "inherited": -4.0995950296055526
+          },
+          "noun": {
+            "current": 248.93954688543454,
+            "inherited": 6618.693302154541
+          },
+          "object": {
+            "current": 0.0,
+            "inherited": 0.0
+          },
+          "other": {
+            "current": 45.9285252546797,
+            "inherited": 24.318211888123187
+          }
+        },
+        "inherited_share": 0.9568315247965301,
+        "largest_source": "noun",
+        "mean_contrast": 144.55069821079573,
+        "pairs": 48,
+        "shares": {
+          "final": 7.983985438644892e-05,
+          "noun": 0.9897958718010117,
+          "object": 0.0,
+          "other": 0.01012429347342828
+        }
+      },
+      "16.8": {
+        "by_category_branch": {
+          "final": {
+            "current": 34.76138413883746,
+            "inherited": -16.876236468553543
+          },
+          "noun": {
+            "current": 36.15223769610748,
+            "inherited": 3564.192802429199
+          },
+          "object": {
+            "current": 0.0,
+            "inherited": 0.0
+          },
+          "other": {
+            "current": 17.012844230324845,
+            "inherited": -16.877844998613
+          }
+        },
+        "inherited_share": 0.9756999704238938,
+        "largest_source": "noun",
+        "mean_contrast": 75.38260624806087,
+        "pairs": 48,
+        "shares": {
+          "final": 0.00494288088030254,
+          "noun": 0.9950198337414656,
+          "object": 0.0,
+          "other": 3.7309455509428175e-05
+        }
+      },
+      "7.8": {
+        "by_category_branch": {
+          "final": {
+            "current": -4.21192285977304,
+            "inherited": 0.2280511383432895
+          },
+          "noun": {
+            "current": 377.32528495788574,
+            "inherited": 631.8251045905054
+          },
+          "object": {
+            "current": 0.0,
+            "inherited": 0.0
+          },
+          "other": {
+            "current": 80.41303844487993,
+            "inherited": 7.966354879728897
+          }
+        },
+        "inherited_share": 0.5852699086625955,
+        "largest_source": "noun",
+        "mean_contrast": 22.782206306854885,
+        "pairs": 48,
+        "shares": {
+          "final": -0.003643076812310913,
+          "noun": 0.9228239866565936,
+          "object": 0.0,
+          "other": 0.08081909785775862
+        }
+      },
+      "8.1": {
+        "by_category_branch": {
+          "final": {
+            "current": 0.5472214742912911,
+            "inherited": 1.8266429163559224
+          },
+          "noun": {
+            "current": 705.710758946836,
+            "inherited": 4141.457877337933
+          },
+          "object": {
+            "current": 0.0,
+            "inherited": 0.0
+          },
+          "other": {
+            "current": 20.874728943264927,
+            "inherited": 6.07618394025485
+          }
+        },
+        "inherited_share": 0.85089024535127,
+        "largest_source": "noun",
+        "mean_contrast": 101.59361344544838,
+        "pairs": 48,
+        "shares": {
+          "final": 0.0004867974123692254,
+          "noun": 0.9939864967675642,
+          "object": 0.0,
+          "other": 0.005526699294355602
+        }
+      }
+    },
+    "pooled_inherited_share": 0.9051175360374367,
+    "pooled_noun_share": 0.987744718765848
+  },
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "inh_min": 0.5,
+      "pooled_min": 0.5,
+      "token_min": 0.8
+    },
+    "candidate_id": "correlative_pair.both_vs_neither.dod_source_fold_v130",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 18,
+    "gpu_accessed": false,
+    "heads": [
+      [
+        8,
+        1
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        16,
+        8
+      ],
+      [
+        14,
+        8
+      ]
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "adf9d5d0e61ad23f9dc4f4879fca4d96b1e542ad5744038891bf931af31d7331"
+  },
+  "predictions": {
+    "pred_a_fold_closure": true,
+    "pred_b_head_8_1_is_a_token_only_cue_reader": true,
+    "pred_c_cue_position_is_largest_source_for_every_head": true,
+    "pred_d_pooled_inherited_share_at_least_050": true,
+    "pred_e_contrast_positive_for_every_head": true
+  },
+  "schema": "correlative_both_neither_dod_source_fold_result_v130",
+  "serial_seconds": 1.7821053469087929
+}

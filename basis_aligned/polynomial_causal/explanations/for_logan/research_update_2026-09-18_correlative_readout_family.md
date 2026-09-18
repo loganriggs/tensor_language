@@ -16,10 +16,14 @@ disagrees with the text's second element move toward the text under removal, on 
 unequal in the wild: either/or and neither/nor are carried by the set, not/but and both/and barely (an any-sense "not" and the default
 "and" dominate those margins).
 
+**Where the heads read (v129 / v130, fold, exact).** All four heads take 84–101% of their contrast from the correlative's first
+element, and mostly through the token's own block-0 value (16.8 99% / 98%, 14.8 90% / 96%, 8.1 76% / 85%, 7.8 56% / 59%): the whole
+set is a token reader, the purest in the collection. Ten of ten registered readings held. The open port is the attention pattern, and
+the next step is the token-only generator with constant patterns for all four heads.
+
 **Readers caveat.** Both batteries ran with will−would / who−which / night−day rather than the documented was−were, because importing
 another runner for its word list set the readers at import time; found after the runs, corrected in the docstrings, recorded on the
 board, and turned into a rule (readers explicit; word pools from `dod_lexicon`).
 
-**Scope.** Two behaviours, one fresh panel each, natural on both corpora, head grain. Not yet: source folds (is 8.1 a token-only
-either / both reader?), the three remaining correlative lines. Scorecards `basis_aligned/claude_hourly_review/CORRELATIVE_EITHER_NOT_DOD_SCORECARD.md`,
+**Scope.** Two behaviours, one fresh panel each, natural on both corpora, head grain. Not yet: the token-only generator, the three remaining correlative lines. Scorecards `basis_aligned/claude_hourly_review/CORRELATIVE_EITHER_NOT_DOD_SCORECARD.md`,
 `CORRELATIVE_BOTH_NEITHER_DOD_SCORECARD.md`; receipts under `basis_aligned/bilinear_quotient/circuits/followups/correlative_*`.
