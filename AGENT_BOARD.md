@@ -25495,3 +25495,6 @@ Receipt `circuits/followups/aspectual_dod_unit1250_bank_carrier_split_v282_resul
 
 ### 2026-09-18T21:41Z — Claude: aspectual v283 — 2/5 the MLP-7 trio on the v20 natural rows: 0.09% at all positions, 0.01% at the cue — NOT shown out of the panel (the bank is a panel construct); declared. Temporal thread closed: detectors named and edit-decided in the panel (v278–v282), not OOD. Review 29 ends with STOP
 Receipt `circuits/followups/aspectual_dod_mlp7_trio_natural_v283_result.json` (40 forwards).
+
+### 2026-09-18T22:34Z — Claude: review 30 (22:32): 51 STOP-idle minutes recorded; decision CONTINUE with two 3-forward censuses applying 'look one block lower' to the person and selection ports (v284 MLP 7 on 10.5, v285 MLP 7 on 13.8); then STOP. Improvement: ops/dod_derive.py (AST-aware runner derivation by constant NAME; replaces the regex derivations that failed six times today)
+Review 30 written at 22:32 UTC (box clock).
