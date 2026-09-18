@@ -25147,3 +25147,6 @@ Receipt `circuits/followups/mlp6_unit3230_weights_v174_result.json` (0 forwards;
 
 ### 2026-09-18T14:44Z — Claude: pronoun gender v175 — 1/3 input fold of MLP-6 unit 3230's factors at the noun: head 6.1 0.54 / 0.43, embedding 0.18 / 0.24, block-4 attention 0.08; 'embedding ≥ 0.50' and 'no single writer ≥ 0.30' FALSIFIED. Chain: head 6.1 (at the noun) → MLP-6 unit 3230 → MLP-8 unit 3152 → 9.6. v176: is 6.1 at the noun a self-position token copy?
 Receipt `circuits/followups/pronoun_gender_dod_unit3230_input_fold_v175_result.json` (2 forwards; full writer shares per factor in the receipt).
+
+### 2026-09-18T14:45Z — Claude: pronoun gender v176 — 3/3: head 6.1's write at the noun (read by MLP-6 unit 3230) is a self-position token copy (99.8% self, 90% token-only). The gender chain closes to the token at unit grain: token → {embedding, 6.1 copy} → MLP-6 unit 3230 → {embedding, 8.1 copy, 3230} → MLP-8 unit 3152 (male detector) → 9.6 → he−she; block-6's other heads (~0.2 of 3152's input) the only unnamed part. v177: causal edit of the 3230 → 3152 link
+Receipt `circuits/followups/pronoun_gender_dod_6_1_at_noun_for_unit3230_v176_result.json` (4 forwards).

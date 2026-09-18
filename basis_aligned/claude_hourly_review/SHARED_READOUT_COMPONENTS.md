@@ -262,3 +262,13 @@ v172 (3/3): 8.1's write at the noun position is a token-only copy of the noun it
 v173 (3/3): MLP 6's input to the male-noun detector 3152 is one unit, 3230 (83% / 81% of the two factors' contrast). Chain so far on the gender line: token → {embedding, 8.1's self-copy} + MLP-6 unit 3230 → MLP-8 unit 3152 → 9.6 → logits. v174 / v175 ask what 3230 computes and reads.
 v174 (2/3): MLP-6 unit 3230 feeds the male detector 3152 (Down cos +0.47 / −0.62 on its two factors) and its factors read the embedding gender axis (0.36 / −0.25), but it is not a one-sided token detector on raw embeddings (18/25; failed as registered) — its output is context-dependent. v175 folds its inputs.
 v175 (1/3): MLP-6 unit 3230 reads head 6.1's write at the noun (0.54 / 0.43) and the embedding (0.18 / 0.24); 'embedding ≥ 0.50' and 'no single writer ≥ 0.30' failed. Chain: … → head 6.1 (at the noun) → MLP-6 unit 3230 → MLP-8 unit 3152 → 9.6 → logits. v176 folds 6.1 at the noun.
+
+## A token-to-logit chain through two MLP units (v164–v176, 14:45 UTC)
+
+Gender line, head 9.6's input: the noun token's embedding and head 6.1's self-position copy of it (v176: 99.8% self, 90% token-only) feed MLP-6 unit
+3230, a contextual gender-axis reader (v174 / v175: 6.1 0.54 / 0.43 + embedding 0.18 / 0.24); 3230's output (v173: 82% of MLP 6's contribution),
+the embedding and head 8.1's self-copy (v172: 100% self, 97% token-only) feed MLP-8 unit 3152, a male-noun detector (v167), whose output is 56–78% of
+MLP 8's write on 9.6's reader direction (v164 / v166); 9.6 reads it and writes along O^T(u_he − u_she). Every named input is the token or a
+self-copy of it except ≈ 0.2 of 3152's factors from the other block-6 heads. Causal size in the behaviour: 3% (noun) / 8% (all positions) for
+the MLP-8 units (v165), as the chain of shares predicts. Depth beyond any earlier line; the female detector 3943 and the number units are the
+same construction, not yet traced.

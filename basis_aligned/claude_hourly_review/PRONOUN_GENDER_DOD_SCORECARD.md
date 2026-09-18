@@ -35,13 +35,14 @@ opens the PRONOUN readout family alongside the temporal and number families at t
 | 22 | MLP 6 at unit grain as an input of unit 3152 (exact per-unit split of MLP 6's write at the noun projected on 3152's Left and Right rows, closure 4e-5): unit 3230 carries 83% (Left) and 81% (Right) of the male−female contrast; 3183 and 1401 next at 5–17%; top-10 116% / 94%, top-50 113% / 99% (over 100% where later units oppose) | fold | fresh (v173) | all three registered readings held | 3/3 — a named chain: MLP-6 unit 3230 → MLP-8 unit 3152 (male detector) → head 9.6's reader direction → he−she |
 | 23 | What MLP-6 unit 3230 computes (weights + raw embeddings): its Down column projects onto 3152's rows (cos +0.47 Left, −0.62 Right: it feeds the detector with opposite signs on the two factors), its factors read the embedding gender axis (Right +0.36, Left −0.25, cos(L,R) −0.42) — but on raw noun embeddings its bilinear value is large and negative for many nouns of both genders (brother −1961 / sister −273; father −203 / mother −739; king +8 / queen −1189): 18 of 25 pairs one way | fold (weights) | — (v174) | registered "one-sided gender detector on raw embeddings" false (18/25 < 85%) | 2/3 — 3230 is a gender-axis reader whose output is context-dependent, not a token detector; its inputs at the noun are folded in v175 |
 | 24 | What MLP-6 unit 3230's factors read at the noun (exact writer fold of rms(x_6[noun]) on its Left / Right rows, closure 4e-6): head 6.1's write 0.54 / 0.43, the embedding 0.18 / 0.24, block-4 attention 0.08, MLPs 1–5 ≤ 0.05 each, head 6.4 0.03 / 0.06 | fold | fresh (v175) | registered "embedding ≥ 0.50" false; "no single writer ≥ 0.30" false (6.1) | 1/3 — the contextual gender reader 3230 is mostly head 6.1's write at the noun; v176 asks whether 6.1 there is a self-position token copy |
+| 25 | Head 6.1's write at the noun position, as read by MLP-6 unit 3230's factors (exact, closure 2e-6): 99.8% / 99.5% from the noun itself, 90% through the token-only block-0 value branch | fold | fresh (v176) | all three registered readings held | 3/3 — 6.1 at the noun is a self-position token copy; the chain token → {embedding, 6.1 copy} → MLP-6 unit 3230 → {embedding, 8.1 copy, 3230} → MLP-8 unit 3152 → 9.6 → he−she is closed to the token at unit grain, with block-6 attention's other heads (≈ 0.2 of 3152's factors) the remaining unnamed input |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
 | Simple | held at head grain (row 6) | — |
 | Predicts OOD | held on natural FineWeb and out-of-corpus Pile rows with frozen bars (rows 7, 9); fresh synthetic panel live everywhere but the frozen band failed upward on one frame (row 2) | — |
-| Extracted | held at the head boundary (row 5); direct readout (row 8); sources folded to token readers (10.1, 15.1) and, for 9.6, to MLP 8 (rows 10–13), whose write on 9.6's direction is two units (row 16) | the two units edit to 3% of the margin (row 17): closed, small; the larger inputs to 9.6 / 12.4 are the noun embedding, head 8.1's copy and the verb-position state (v166) |
+| Extracted | held at the head boundary (row 5); direct (row 8); token readers 10.1 / 15.1 (rows 10–14); 9.6's MLP-8 input opened to named units and traced to the token through MLP-6 unit 3230 and the self-copies of heads 6.1 / 8.1 (rows 16–25) | causal sizing of the 3230 → 3152 link (v177); then 12.4's inputs |
 | Selective | held (rows 1, 3) | — |
 | Composes | additive, gap at the bar (row 4) | pairwise + random-split null |
 
@@ -49,6 +50,7 @@ opens the PRONOUN readout family alongside the temporal and number families at t
 - v145: `.../pronoun_gender_dod_8_1_at_verb_v145_result.json`; code `ops/run_pronoun_gender_dod_8_1_at_verb_v145.py`
 - v137: `.../pronoun_gender_dod_token_only_generator_v137_result.json`; code `ops/run_pronoun_gender_dod_token_only_generator_v137.py` (v113's body)
 - atlas v68: `bilinear_quotient/circuits/followups/atlas_pronoun_gender_v68_result.json` (724 forwards, rows sha e0c60bf6a3c4…)
+- v176 (6.1 at the noun for unit 3230): `.../pronoun_gender_dod_6_1_at_noun_for_unit3230_v176_result.json`
 - v175 (unit 3230's inputs): `.../pronoun_gender_dod_unit3230_input_fold_v175_result.json`; code `ops/run_pronoun_gender_dod_unit3230_input_fold_v175.py`
 - v174 (unit 3230's weights): `.../mlp6_unit3230_weights_v174_result.json`; code `ops/run_mlp6_unit3230_weights_v174.py`
 - v173 (MLP 6 units feeding 3152): `.../pronoun_gender_dod_mlp6_unit_census_for_unit_v173_result.json`; code `ops/run_pronoun_gender_dod_mlp6_unit_census_for_unit_v173.py` (via `ops/dod_units.py`)
