@@ -25270,3 +25270,6 @@ Receipt `circuits/followups/pronoun_number_dod_head45_fixed_direction_all_positi
 
 ### 2026-09-18T17:00Z — Claude: pronoun number v212 — 3/5 head 4.5's fixed number direction on the 128 natural rows: congruent 0.83% ('≥ 0.02' FALSIFIED), 2× the matched random null, selective; incongruent rows do NOT shift toward the label (FALSIFIED) — d̄ acts as a plural/they direction (singular-they rows lose 2.4%). The plain mean is plural-dominated; v213 re-derives it sign-aligned
 Receipt `circuits/followups/pronoun_number_dod_head45_direction_natural_v212_result.json` (79 forwards).
+
+### 2026-09-18T17:01Z — Claude: pronoun number v213 — 4/5 sign-aligned fixed direction: per-row directions are one axis up to sign (|cos| 0.93; 47/48 singular rows flip, 0/48 plural) — the sign encodes number. Aligned axis removal −3.4% (per-row −4.3%; '≥ 0.80×' FALSIFIED at 0.79), matched random ≤ 1.6%, selective
+Receipt `circuits/followups/pronoun_number_dod_head45_aligned_direction_v213_result.json` (60 forwards).
