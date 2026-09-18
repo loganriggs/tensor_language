@@ -1,0 +1,109 @@
+{
+  "arms": {
+    "own_they_he": {
+      "animacy_who_which_abs_move_mean": 0.044118511180082955,
+      "animacy_who_which_native_abs_mean": 0.9407333011428515,
+      "canonical_night_day_abs_move_mean": 0.05309489408197502,
+      "canonical_night_day_native_abs_mean": 0.5180626416113228,
+      "flip_fraction": 0.0,
+      "target_damage_fraction": 0.41961685638602436,
+      "target_damage_mean": 2.2645541094243526,
+      "target_damage_positive_fraction": 1.0,
+      "target_native_mean_margin": 5.396718637396892,
+      "tense_will_would_abs_move_mean": 0.09985935284445684,
+      "tense_will_would_native_abs_mean": 0.36532975050310296
+    },
+    "person_myself_yourself": {
+      "animacy_who_which_abs_move_mean": 0.009592512001593908,
+      "animacy_who_which_native_abs_mean": 0.9407333011428515,
+      "canonical_night_day_abs_move_mean": 0.006233935399601857,
+      "canonical_night_day_native_abs_mean": 0.5180626416113228,
+      "flip_fraction": 0.0,
+      "target_damage_fraction": -0.00016480969080460766,
+      "target_damage_mean": -0.0008894315299888452,
+      "target_damage_positive_fraction": 0.6041666666666666,
+      "target_native_mean_margin": 5.396718637396892,
+      "tense_will_would_abs_move_mean": 0.006547845123956601,
+      "tense_will_would_native_abs_mean": 0.36532975050310296
+    }
+  },
+  "candidate_id": "reflexive_person.i_vs_you.dod_cross_family_direction_v135",
+  "finished_utc": "2026-09-18T03:35:40.552203+00:00",
+  "forwards": 60,
+  "instrument_max_abs_error": 0.0,
+  "null_damage_max": 0.0049523141545554,
+  "plan": {
+    "arms": {
+      "own_they_he": [
+        " myself",
+        " yourself"
+      ],
+      "person_myself_yourself": [
+        " they",
+        " he"
+      ]
+    },
+    "bars": {
+      "band": 0.05,
+      "little": 0.25,
+      "live_fraction": 0.1,
+      "live_positive": 0.75,
+      "v76_fraction": 0.42
+    },
+    "candidate_id": "reflexive_person.i_vs_you.dod_cross_family_direction_v135",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 63,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "null_seeds": [
+      13501,
+      13502,
+      13503,
+      13504,
+      13505,
+      13506,
+      13507,
+      13508,
+      13509,
+      13510,
+      13511,
+      13512,
+      13513,
+      13514,
+      13515,
+      13516
+    ],
+    "rows": 96,
+    "rows_sha256": "ed04d6e687f036f9d1f6b3eca6db541671f11572e64c5faa9839157673d357fd",
+    "set": [
+      [
+        8,
+        1
+      ],
+      [
+        13,
+        1
+      ],
+      [
+        10,
+        5
+      ],
+      [
+        15,
+        1
+      ]
+    ]
+  },
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_own_direction_replays_v76": true,
+    "pred_c_person_direction_removes_little": true,
+    "pred_d_person_direction_not_live": true,
+    "pred_e_own_beats_null": true
+  },
+  "schema": "pronoun_number_dod_cross_family_direction_result_v134",
+  "serial_seconds": 3.37958082719706
+}

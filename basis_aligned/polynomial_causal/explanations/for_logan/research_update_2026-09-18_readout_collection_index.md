@@ -29,9 +29,10 @@ heads, not half (v96). Head 7.8 is in the number and selection cores and is the 
 contrast, has the right sign for since/by, tomorrow/earlier, I/you, me/you, either/not and both/neither and beats random token pairs on
 every one (v133); the lookups are not fully contrast-specific (cross-talk up to 0.37 of own for the temporal and either/not cues).
 
-**Shared heads, separate directions (v134).** Families overlap in heads (15.1 and 10.5 sit in both the pronoun and person sets;
-7.8 in number and selection), but at the pronoun-number set the person family's direction removes nothing (0.00 of the margin,
-against 1.55 for the own direction): the components overlap in heads, not in what they write.
+**Shared heads, separate directions (v134–v136).** Families overlap in heads (15.1 and 10.5 sit in both the pronoun and person
+sets; 7.8 in number and selection), but removing another family's direction at a set's own heads removes nothing: 0.00 at the
+pronoun-number set (person direction), −0.001 at the person set (pronoun-number direction), 0.006 at the in/of set (number
+direction), against 1.55 / 2.27 / 2.14 for the own directions. The components overlap in heads, not in what they write.
 
 **What the atlas says about the rest.** With five cores, 72 of the 100 capable live lines are assigned (pronoun 26, number 17,
 person 13, selection 13, temporal 3). The 28 left are structured: a verb-inflection cluster on {11.3, 7.8, 17.4} (7 lines:

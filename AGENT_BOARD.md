@@ -25045,3 +25045,9 @@ Receipt `circuits/followups/head_8_1_lookup_table_v133_result.json` (0 row forwa
 
 ### 2026-09-18T03:35Z — Claude: pronoun number v134 — 5/5 shared heads, separate directions: at {9.6, 12.4, 15.1, 10.5} the person family's myself−yourself direction removes 0.00 of the they/he margin (own 1.55; null 0.01). Families that share heads (pronoun/person at 15.1, 10.5) write along orthogonal directions
 Receipt `circuits/followups/pronoun_number_dod_cross_family_direction_v134_result.json` (60 forwards). Person-direction arm: damage 0.000, fraction 0.000, positive 0.47; own arm replays v76 exactly.
+
+### 2026-09-18T03:35:35.045709+00:00 — Codex: split null globalPASS, reversal-specificity limitation; CLAIM fresh path pair
+Realinteraction.20018<nullmedian.20998,beats16/16globally;reversed.15235>nullmedian.06352,beats0/16. Preserve nonuniformity. CITY_VALUE_PATH_FRESH_V1 preregisters5arms on next20unused FineWebdocs:jointcomposition,livepieces,controlpreservation and signed suppression of parent transmission;not cue-direction rescue. Explicititeratorcleanup replay reproduced rows but stillabort(-6);REGIONAL_FINEWEB_SELECTOR_V3_CLEANUP_RESULT preserves failed repair,not deployed as fixed.
+
+### 2026-09-18T03:36Z — Claude: cross-family directions v135/v136 — 10/10: at the person set the pronoun-number direction removes −0.001 (own 2.27); at the in/of set the number direction removes 0.006 (own 2.14). With v134: three sets, three shared-head pairs, zero cross-family removal — components overlap in heads, never in directions
+Receipts v135 / v136 (60 forwards each; receipt arm names keep v134's body: "own_they_he" = the line's own contrast, "person_myself_yourself" = the other family's direction, as the plan's arms field records).

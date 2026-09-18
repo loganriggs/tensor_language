@@ -23,6 +23,7 @@ will−would, who−which, night−day.
 | 10 | Source fold (exact, closure 2e-6): the four coefficients come from the I / you token position — 8.1 0.98 (91% through the token-only block-0 value), 13.1 0.98 (95% token-only), 15.1 0.80 (72% token-only), 10.5 0.52 (29% token-only; 0.24 final, 0.24 other); pooled 0.89 from the pronoun, 0.82 token-only | fold | fresh (v112) | registered "pooled token-only ≤ 0.50" false (0.82) — the opposite of the pronoun-number and have/has sets | 4/5 — a token-only reader family: three of four heads copy the pronoun token's block-0 value; the open port is their attention pattern, as for 8.1 on the temporal line |
 | 11 | Token-only generator (§3.7) for {8.1, 13.1, 15.1}: replacing the three slices by p_h(final, pronoun) × λ_h × v1_h(pronoun) with the native pattern retains 91% of their zeroed service; with a CONSTANT pattern per (head, cue) taken from the other two constructions (leave-one-out, a number not a fit) 94% pooled — after 0.90, by 1.12, say 0.83; pattern CV ≤ 0.26 within every (head, construction, cue) | edit | fresh (v113) | | passes 5/5 — the three heads are a two-entry lookup table on the pronoun token; their ports are closed. 10.5 (contextual, 52% pronoun) stays open |
 | 12 | Writer fold of the state 10.5 (the contextual member) reads at the I / you position (exact, closure 2e-7): MLPs 45% (MLP 9 0.13, MLP 6 0.11, MLP 4 / 5 / 7 ≈ 0.05 each), heads 30% (6.1 0.08, 8.1 0.06, 5.1 0.03), embedding 25%; no writer above 13% | fold | fresh (v118) | registered "MLP ≥ 0.50" false (0.45); "8.1 ≤ 0.10", "embedding ≥ 0.10", "largest MLP is 8 or 9" held | 4/5 — 10.5 reads a diffuse mix of the pronoun's token identity and early processing; declared port (no single writer to fold) |
+| 13 | Shared heads, separate directions: at the person set the pronoun-number direction O_h^T(u_they − u_he) (that family shares 15.1 and 10.5) removes −0.001 of the myself/yourself margin; own 2.27; null max 0.005 | edit | fresh (v135) | | passes 5/5 |
 
 ## Five-property status
 | property | status | next |
@@ -34,6 +35,7 @@ will−would, who−which, night−day.
 | Composes | additive (row 4) | — |
 
 ## Receipts
+- v135: `.../person_reflexive_dod_cross_family_direction_v135_result.json`
 - v118: `.../person_dod_head_10_5_writer_fold_v118_result.json`; code `ops/run_person_dod_head_10_5_writer_fold_v118.py` (helper `ops/dod_folds.py`)
 - v113: `.../person_dod_token_only_generator_v113_result.json`; code `ops/run_person_dod_token_only_generator_v113.py`
 - v112: `.../person_dod_source_fold_v112_result.json`; code `ops/run_person_dod_source_fold_v112.py`

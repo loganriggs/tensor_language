@@ -21,6 +21,7 @@ complement / particle / preposition selections (`READOUT_ATLAS_TABLE.md`, family
 | 8 | Natural FineWeb rows (generic miner: interested / afraid within 12 tokens, next token in / of, 16 per cell; adjacent uses dominate): congruent cells (interested/in, afraid/of; capability 1.00 / 0.94) removal 0.82 of a 6.90-logit margin (12%), positive 26/32, null max 0.04, selective; per cell interested/in 1.42 of 8.87 (16%, 15/16), afraid/of 0.23 of 4.93 (5%, 11/16) | edit | natural (v91) | frozen v20 bars (≥ 0.15, ≥ 60%) held; the fraction is far below the panel's 57% because the natural margin is bigram-sized | passes 5/6 |
 | 8f | **Failed:** incongruent rows (a far cue and the other preposition) were predicted to shift toward the text's word; they shift away (+0.22 FineWeb, +0.14 Pile) | edit | natural (v91, v92) | the set reads the cue wherever it is; these cells are not counter-cases of the selection but of the miner's window | falsified as registered, twice |
 | 9 | Pile rows (out-of-corpus): congruent 0.87 of 7.52 (12%), positive 30/32, null max 0.05, selective; interested/in 1.62 of 8.90 (18%), afraid/of 0.11 of 6.14 (2%, 14/16) | edit | natural OOD (v92) | | passes 5/6 |
+| 10 | Shared heads, separate directions: at the in/of set the number family's direction O_h^T(u_were − u_was) (7.8 is in both cores) removes 0.006 of the in/of margin; own 2.14; null max 0.04 | edit | fresh (v136) | | passes 5/5 |
 
 ## Five-property status
 | property | status | next |
@@ -32,6 +33,7 @@ complement / particle / preposition selections (`READOUT_ATLAS_TABLE.md`, family
 | Composes | additive (row 4) | — |
 
 ## Receipts
+- v136: `.../selection_dod_cross_family_direction_v136_result.json`
 - atlas v68: `bilinear_quotient/circuits/followups/atlas_adjective_preposition_in_of_v68_result.json`; v54: `.../preposition_selection_dod_reuse_census_v54_result.json`
 - v91 / v92: `.../selection_inof_dod_natural_v91_result.json`, `.../selection_inof_dod_pile_v92_result.json`; rows `selection_inof_dod_{natural,pile}_rows_v9{1,2}.json`; miner `ops/dod_natural_miner.py` + `ops/selection_dod_natural_rows.py`
 - v87: `.../selection_dod_random_set_null_v87_result.json`; v88: `.../selection_dod_response_census_v88_result.json`
