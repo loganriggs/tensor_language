@@ -329,3 +329,4 @@ v229 (4/5): MLP-7 unit 1779 = 49% of MLP 7's native relay into 829 AND the compe
 v230 (3/4): MLP 6 carries 1779 positively (+26%) — the 'damping' mechanism of the compensation is falsified at block grain. v231: unit-grain MLP-6 census into 1779 (does the trio itself damp it?).
 v231 (3/4): the MLP-6 trio feeds 1779 (57% of MLP 6's carriage, same sign) — damping falsified at unit grain. The compensation must be mean-driven (finite product terms); v232 computes 1779's in-place change under the removal.
 v232 (3/4): the push-back of 1779 is mean-driven + RMS renormalisation (first-order +0.15, exact −0.36); not a damping input. v233 tests it with a mean-preserving edit of the trio.
+v233 (2/5): mean-preserving edit — MLP 7 still responds +0.10 (renormalisation mechanism FALSIFIED); 829 −2.3%, margin −2.0% (3× the zeroing). The compensation is feature-level; mechanism open. v234: is 1779 still the responder?

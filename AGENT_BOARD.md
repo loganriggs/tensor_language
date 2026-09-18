@@ -25333,3 +25333,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp6_unit_carriers_into_1779_v231
 
 ### 2026-09-18T17:49Z — Claude: pronoun number v232 — 3/4 in-place change of 1779 under the trio's removal: carrier +0.151, exact −0.085 (rms held) / −0.364 (recomputed); 'rms effect ≤ 0.25' FALSIFIED (3.3×). Mechanism: mean-driven terms + RMS renormalisation — homeostasis by normalisation. Document updated
 Receipt `circuits/followups/pronoun_number_dod_unit1779_in_place_change_v232_result.json` (3 forwards).
+
+### 2026-09-18T17:51Z — Claude: pronoun number v233 — 2/5 mean-preserving edit of the trio: 829 −2.25%, MLP 7 response +0.100 (unchanged), margin −2.0% (3× zeroing). v232's renormalisation mechanism FALSIFIED as the cause of the push-back; the compensation is feature-level (mechanism open). Check-field bug noted (pre-edit read). Document corrected
+Receipt `circuits/followups/pronoun_number_dod_mean_preserving_edit_v233_result.json` (6 forwards).
