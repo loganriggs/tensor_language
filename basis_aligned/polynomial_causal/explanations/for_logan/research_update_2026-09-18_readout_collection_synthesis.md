@@ -6,20 +6,20 @@ null, three unrelated readers, a matched-count random head-set null, keep-only s
 and natural rows from the training corpus and from the Pile. Numbers below are read from the receipts (`READOUT_COLLECTION.json`);
 scorecards keep every failed prediction.
 
-| family | line | heads | fresh fraction | direct share | natural FineWeb / Pile |
+| family | line | heads | fresh fraction | direct share | natural FineWeb / Pile (congruent fraction, or predictions held) |
 |---|---|---|---|---|---|
-| temporal | aspectual has/had | 8.1, 9.1, 9.4 | 0.54 | — | — / — |
-| temporal | temporal will/had | 11.3, 9.1, 15.5, 9.4 | 0.81 | — | — / — |
-| temporal | narrative was/is |  | 0.73 | — | — / — |
+| temporal | aspectual has/had | 8.1, 9.1, 9.4 | 0.54 | 0.57 | 2/5 preds / 5/5 preds |
+| temporal | temporal will/had | 11.3, 9.1, 15.5, 9.4 | 0.81 | 1/3 preds | 4/5 preds / 4/5 preds |
+| temporal | narrative was/is | 15.5, 11.3, 9.4, 9.1 | 0.73 | — | — / — |
 | temporal | modal would/will | 9.4, 11.3, 9.1, 15.5 | 0.58 | — | — / — |
-| number | lexical were/was | 11.3, 5.7, 7.8, 9.7 | 0.70 | — | — / — |
+| number | lexical were/was | 11.3, 5.7, 7.8, 9.7 | 0.70 | — | 18% / 33% |
 | number | perfect have/has | 11.3, 7.8, 5.3, 9.7 | 0.66 | 0.60 | 11% / 25% |
 | pronoun | pronoun gender he/she | 10.1, 9.6, 12.4, 15.1 | 1.02 | 0.94 | 77% / 83% |
 | pronoun | pronoun number they/he | 9.6, 12.4, 15.1, 10.5 | 0.76 | 1.03 | 65% / 56% |
 | selection | adjective preposition in/of | 8.8, 6.3, 13.8, 7.8 | 0.57 | 0.38 | 12% / 12% |
 | selection | verb particle up/down | 13.8, 14.8, 7.8, 8.8 | 0.43 | 0.86 | 18% / 19% |
-| correlative | correlative either/not | 16.8, 14.8, 7.8, 8.1 | 0.44 | 1.17 | — / — |
-| correlative | correlative both/neither | 8.1, 7.8, 16.8, 14.8 | 0.46 | 1.06 | — / — |
+| correlative | correlative either/not | 16.8, 14.8, 7.8, 8.1 | 0.44 | 1.17 | 21% / 25% |
+| correlative | correlative both/neither | 8.1, 7.8, 16.8, 14.8 | 0.46 | 1.06 | 43% / 42% |
 | person | reflexive person I/you | 8.1, 13.1, 10.5, 15.1 | 0.42 | 0.85 | 37% / 33% |
 | person | object control me/you | 13.1, 8.1, 10.5, 15.1 | 0.46 | 0.90 | — / — |
 
