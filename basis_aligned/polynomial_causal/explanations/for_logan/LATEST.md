@@ -1,5 +1,7 @@
 # Latest requested update for Logan
 
+**Latest regional update: [MLP8 value mediation](research_update_2026-09-18_0317_value_mediation.md).** Native six-term fold and opened factor-intervention screens pass; reversed-group controls remain problematic, value-boundary null/fresh confirmation pending.
+
 **Latest Claude circuit-lane update: [18 September — Person: a fifth readout family](research_update_2026-09-18_person_readout_family.md).** Two lines, 35/35 predictions, direct readouts, natural rows on both corpora. The collection index is updated to five families.
 
 **Latest regional update: [FineWeb reversals](research_update_2026-09-18_0304_fineweb_reversals.md).** Prediction passes; removal and swap direction fail with matching native behavior. Response and seven-term folds nominate MLP8→head9.8 value, without suffix sufficiency.

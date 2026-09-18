@@ -1,5 +1,7 @@
 # Requested full reports for Logan
 
+[MLP8 value mediation](research_update_2026-09-18_0317_value_mediation.md).
+
 [FineWeb reversals and value-response fold](research_update_2026-09-18_0304_fineweb_reversals.md).
 
 [Smaller prefix preserves fresh city-removal effects](research_update_2026-09-18_0252_packed_city_removal.md).

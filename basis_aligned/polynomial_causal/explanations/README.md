@@ -1,5 +1,7 @@
 # Plain-language explanations
 
+Latest regional result: [MLP8 value mediation](for_logan/research_update_2026-09-18_0317_value_mediation.md).
+
 Latest regional result: [FineWeb reversals](for_logan/research_update_2026-09-18_0304_fineweb_reversals.md).
 
 Latest regional result: [Smaller prefix preserves fresh city-removal effects](for_logan/research_update_2026-09-18_0252_packed_city_removal.md).

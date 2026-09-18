@@ -9,6 +9,8 @@ export PATH="/opt/nvm/versions/node/v24.20.0/bin:${PATH:-/usr/local/bin:/usr/bin
 export CUDA_VISIBLE_DEVICES=''
 export OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2
 mkdir -p "$state/logs"
+# Wait before acquiring the shared lock, so an early cron slot cannot skip a due review.
+python3 "$repo/session_recovery/review_due.py" "$repo" "$kind"
 exec 9>"$state/review.lock"
 flock -w 3300 9
 stamp=$(date -u +%Y%m%dT%H%M%SZ)

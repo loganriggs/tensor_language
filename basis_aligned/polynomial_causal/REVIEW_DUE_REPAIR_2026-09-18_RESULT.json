@@ -1,0 +1,15 @@
+{
+  "passes": true,
+  "checks": [
+    "math00:05receipt at02:58 waits480seconds",
+    "math00:05receipt at03:06 starts immediately",
+    "hourly02:57receipt at03:52 waits360seconds",
+    "missing receipt starts immediately",
+    "bash -n scheduled_review.sh"
+  ],
+  "source_shas": {
+    "session_recovery/review_due.py": "50ab0b96816b1ffc11206f309da547e730d910bd395482b10dcec0e1abc7e1c5",
+    "session_recovery/scheduled_review.sh": "d81922a26ca83fc95844864b10188cbe57f4579708b5c8846aebacc6a2e92be9"
+  },
+  "scope": "Deterministic due-time boundary and shell syntax checks; no real multi-minute wait or Codex invocation required."
+}

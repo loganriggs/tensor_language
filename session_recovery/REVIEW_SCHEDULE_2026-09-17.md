@@ -18,3 +18,10 @@ Logs: `/root/.local/state/bilin18/logs`; cron wrapper output:
 running. They produce review files/board entries, not ChatGPT notifications.
 
 Official implementation reference: [Codex non-interactive mode](https://learn.chatgpt.com/docs/non-interactive-mode).
+
+18 September repair: early cron slots now wait through `review_due.py` until the
+previous receipt's full interval has elapsed (plus up to one minute for filename
+rounding), before acquiring the shared lock. This prevents the mathematical prompt
+from skipping at173minutes and leaving the next review three hours away. Cron
+entry times are unchanged; actual review starts may be later. Wait guard55minutes,
+poll interval≤30seconds. The03:14primary review handles the already skipped interval.
