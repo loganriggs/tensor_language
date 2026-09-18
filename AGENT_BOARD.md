@@ -25162,3 +25162,6 @@ Receipt `circuits/followups/pronoun_gender_dod_mlp7_unit_census_for_unit_v179_re
 
 ### 2026-09-18T14:52Z — Claude: pronoun gender v180 — 2/4 product pair fold of the female detector 3943: embedding pairs 44%, MLP-6 pairs +26% (SUPPORTS it — opposite to its damping of the male unit; 'MLP 6 net negative' FALSIFIED), MLP-7 +25%, 8.1 23% ('≥ 0.30' FALSIFIED), no pair above 8%. The two gender units differ in construction
 Receipt `circuits/followups/pronoun_gender_dod_unit3943_pair_fold_v180_result.json` (2 forwards). v181 (plural detector 829, number line) running.
+
+### 2026-09-18T14:55Z — Claude: pronoun number v181 — 1/4 product pair fold of the plural detector 829: MLP-6 pairs 45%, embedding 26%, block-6 attention 11%, MLP 7 4.5%, head 8.1 −1%; top pair mlp:05 × mlp:06 0.084. 'Top pair involves the embedding', 'MLP-6 pairs net negative', '8.1 ≥ 0.30' all FALSIFIED: the number detector is a contextual MLP-6-built product, not a token product
+Receipt `circuits/followups/pronoun_number_dod_unit829_pair_fold_v181_result.json` (3 forwards). Next bounded item: MLP-6 unit census into 829 (v179 pattern).
