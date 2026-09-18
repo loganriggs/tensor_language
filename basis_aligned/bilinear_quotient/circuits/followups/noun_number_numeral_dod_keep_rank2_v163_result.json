@@ -1,0 +1,71 @@
+{
+  "candidate_id": "numeral_number.three_vs_one.dod_keep_rank2_v163",
+  "finished_utc": "2026-09-18T13:33:39.577338+00:00",
+  "forwards": 63,
+  "plan": {
+    "bars": {
+      "random_max": 0.3,
+      "replay_tol": 0.03,
+      "retain_min": 0.7
+    },
+    "candidate_id": "numeral_number.three_vs_one.dod_keep_rank2_v163",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 66,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "dbd34d63e003c27205bb418731e9daa23941870490267b2b82a267a267c03925",
+    "set": [
+      [
+        11,
+        2
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        15,
+        1
+      ],
+      [
+        10,
+        5
+      ]
+    ]
+  },
+  "predictions": {
+    "pred_a_rank1_span_replays_v158": true,
+    "pred_b_rank2_keep_retains_most": false,
+    "pred_c_random_rank2_keep_retains_little": true
+  },
+  "retention": {
+    "random_rank2": [
+      0.01775259111631544,
+      -0.004135041953024388,
+      0.021071475296169484,
+      -0.04503107465630252,
+      0.047338531006149376,
+      0.01590507186418466,
+      0.07648495431005464,
+      0.030959093372475932,
+      0.017468719084654083,
+      -0.02688643134435975,
+      0.0614662843478585,
+      0.02717435913114752,
+      0.002328821826746097,
+      0.014752697502044554,
+      0.007730122023669517,
+      0.02304811291407094
+    ],
+    "rank1": 0.6172248266634561,
+    "rank2_ones_one_were_was": 0.6234110561801713
+  },
+  "schema": "noun_number_numeral_dod_keep_rank2_result_v163",
+  "serial_seconds": 3.13198887812905,
+  "v158_rank1_retention": 0.6172249813160295,
+  "zero_damage": 1.802594580532362
+}

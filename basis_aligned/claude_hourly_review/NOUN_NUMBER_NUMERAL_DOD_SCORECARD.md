@@ -17,17 +17,19 @@ will−would, who−which, night−day.
 | 5 | Keep-only readout at the four heads keeps their service | edit | fresh (v158) | zero 1.80; retention **0.62** (registered ≥ 0.70); random keep ≤ 0.02 | **failed**: the readout directions carry 62% of the heads' ones/one service |
 | 6 | Matched-count random four-head-set null | edit | v158 rows (v161) | set 0.94 (fraction 0.26) vs random max 0.08 (fraction 0.02); none live | passes 4/4 |
 | 7 | Response census (exact split from block 7, closure 1e-5): the set's own writes carry 82% (attn:11 −0.56, attn:15 −0.10, attn:07 −0.06, attn:10 −0.05 of −0.94); downstream net −0.17 (MLP 17 −0.13, MLP 16 −0.08; MLP 13 +0.06); remainder 0.8% | response | fresh (v162) | | passes 5/5 — direct, 11.2 dominant |
+| 8 | Rank-2 keep (v58b's `keep_span`): ones−one alone retains 0.617 (replay of row 5); ones−one + the number family's were−was direction 0.623; 16 random rank-2 spans ≤ 0.08 | edit | fresh (v163) | registered "rank-2 ≥ 0.70" false; the number direction adds nothing | 2/3 — the missing 38% of the heads' ones/one service is off both directions; per the registered kill criterion the line is left "necessary at the head boundary, sufficiency open" |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
 | Simple | held at head grain (row 6) | — |
 | Predicts OOD | held on a fresh panel with a frozen number (row 2) | natural rows (numeral + adjective → ones/one is rare; a noun-form line would mine better) |
-| Extracted | necessary at the head boundary (rows 2–4); direct (row 7); sufficiency 0.62 (row 5) — open, like the third correlative line | rank-2 keep or declared port |
+| Extracted | necessary at the head boundary (rows 2–4); direct (row 7); rank-1 keep 0.62, rank-2 with were−was 0.62, random 0.08 (rows 5, 8) — sufficiency open, declared | — |
 | Selective | held (row 3) | — |
 | Composes | additive (row 4) | — |
 
 ## Receipts
+- v163: `.../noun_number_numeral_dod_keep_rank2_v163_result.json`; code `ops/run_noun_number_numeral_dod_keep_rank2_v163.py`
 - v161: `.../noun_number_numeral_dod_random_set_null_v161_result.json`; v162: `.../noun_number_numeral_dod_response_census_v162_result.json` (emitted by `ops/dod_line.py`)
 - atlas v68: `bilinear_quotient/circuits/followups/atlas_numeral_number_v68_result.json`
 - v158: `.../noun_number_numeral_dod_battery_v158_result.json`; code `ops/run_noun_number_numeral_dod_battery_v158.py`

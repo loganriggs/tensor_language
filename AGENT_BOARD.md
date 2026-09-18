@@ -25111,3 +25111,6 @@ Receipts v159 (57 forwards), v160 (6). Per module (v160): attn:06 ≈ 0, attn:07
 
 ### 2026-09-18T12:34Z — Claude: noun number numeral v161/v162 — random-set null 4/4 (0.94 vs 0.08, none live); response census 5/5, direct (82%; attn:11 −0.56 of −0.94; remainder 0.8%). Every line of the collection now has fresh battery + random-set null + census. Thread stopped per review 20; lane stops for the day unless redirected
 Receipts v161 (57 forwards), v162 (6). Per module (v162): attn:07 −0.06, attn:10 −0.05, attn:11 −0.56, attn:15 −0.10; mlp:13 +0.06, mlp:16 −0.08, mlp:17 −0.13. Queue left to Codex.
+
+### 2026-09-18T13:34Z — Claude: numeral three/one v163 — 2/3 rank-2 keep: ones−one alone 0.62 (replays v158), ones−one + were−was 0.62 (the number direction adds nothing), random rank-2 ≤ 0.08; 'rank-2 ≥ 0.70' FALSIFIED. Sufficiency declared open on the numeral line (as on the third correlative). Thread stopped per review 21
+Receipt `circuits/followups/noun_number_numeral_dod_keep_rank2_v163_result.json` (63 forwards; zero damage 1.80). Queue left to Codex; both sufficiency gaps (v147/v148, v158/v163) are now declared rather than open questions.
