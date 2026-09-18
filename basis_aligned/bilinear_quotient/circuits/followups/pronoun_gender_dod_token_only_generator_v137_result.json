@@ -1,0 +1,146 @@
+{
+  "candidate_id": "pronoun_gender.he_vs_she.dod_token_only_generator_v137",
+  "constants": {
+    "set_attn10_1/because/I": -0.2721318155527115,
+    "set_attn10_1/because/you": -0.268716037273407,
+    "set_attn10_1/later/I": -0.35142944753170013,
+    "set_attn10_1/later/you": -0.37533247470855713,
+    "set_attn10_1/lost/I": -0.33127205073833466,
+    "set_attn10_1/lost/you": -0.3582884520292282,
+    "set_attn15_1/because/I": -0.33377307653427124,
+    "set_attn15_1/because/you": -0.34435348212718964,
+    "set_attn15_1/later/I": -0.3963165134191513,
+    "set_attn15_1/later/you": -0.40816807746887207,
+    "set_attn15_1/lost/I": -0.35111865401268005,
+    "set_attn15_1/lost/you": -0.3540535271167755
+  },
+  "finished_utc": "2026-09-18T03:37:07.421029+00:00",
+  "forwards": 22,
+  "instrument_max_abs_error": 0.0,
+  "pattern_stats": {
+    "set_attn10_1/because/I": {
+      "cv": 0.23329621147438942,
+      "mean": -0.4847119003534317,
+      "median": -0.5219574868679047
+    },
+    "set_attn10_1/because/you": {
+      "cv": 0.1329612856643931,
+      "mean": -0.4826103001832962,
+      "median": -0.4872671067714691
+    },
+    "set_attn10_1/later/I": {
+      "cv": 0.3211734618698731,
+      "mean": -0.24133599996566774,
+      "median": -0.2704189121723175
+    },
+    "set_attn10_1/later/you": {
+      "cv": 0.30612033279895734,
+      "mean": -0.23350147604942323,
+      "median": -0.26244406402111053
+    },
+    "set_attn10_1/lost/I": {
+      "cv": 0.3219589723773816,
+      "mean": -0.26140469014644624,
+      "median": -0.2871626317501068
+    },
+    "set_attn10_1/lost/you": {
+      "cv": 0.27511475246541867,
+      "mean": -0.27675981670618055,
+      "median": -0.2996116131544113
+    },
+    "set_attn15_1/because/I": {
+      "cv": 0.13740183565648464,
+      "mean": -0.405285507440567,
+      "median": -0.40709927678108215
+    },
+    "set_attn15_1/because/you": {
+      "cv": 0.13923154825519507,
+      "mean": -0.4010413080453873,
+      "median": -0.41418516635894775
+    },
+    "set_attn15_1/later/I": {
+      "cv": 0.2205014644807308,
+      "mean": -0.29201907068490984,
+      "median": -0.30510663986206055
+    },
+    "set_attn15_1/later/you": {
+      "cv": 0.19787406505889168,
+      "mean": -0.2980928525328636,
+      "median": -0.3094671964645386
+    },
+    "set_attn15_1/lost/I": {
+      "cv": 0.18247608556532408,
+      "mean": -0.3692336976528168,
+      "median": -0.3751022517681122
+    },
+    "set_attn15_1/lost/you": {
+      "cv": 0.17899649852301602,
+      "mean": -0.3857489421963692,
+      "median": -0.3917108625173569
+    }
+  },
+  "plan": {
+    "bars": {
+      "cv_max": 0.35,
+      "native_min": 0.8,
+      "per_min": 0.5,
+      "pooled_min": 0.6
+    },
+    "candidate_id": "pronoun_gender.he_vs_she.dod_token_only_generator_v137",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 48,
+    "gpu_accessed": false,
+    "heads": [
+      [
+        10,
+        1
+      ],
+      [
+        15,
+        1
+      ]
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 60,
+    "rows_sha256": "a2c57cae32fb75bc7a0194c61a6f001c069cc9ab2fc941462144733d45a8508d"
+  },
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_token_only_term_carries_the_three_heads": false,
+    "pred_c_pattern_is_stable_within_cue": true,
+    "pred_d_constant_pattern_transfers_pooled": true,
+    "pred_e_constant_pattern_transfers_in_every_construction": false
+  },
+  "schema": "person_dod_token_only_generator_result_v113",
+  "scored": {
+    "constant_pattern_because": {
+      "arm_damage": 0.30505144596099854,
+      "retention": 0.48913424787359283,
+      "zero_damage": 0.5971264362335205
+    },
+    "constant_pattern_later": {
+      "arm_damage": 0.0009763240814208984,
+      "retention": 0.9981323177398664,
+      "zero_damage": 0.5227463483810425
+    },
+    "constant_pattern_lost": {
+      "arm_damage": 0.038086223602294925,
+      "retention": 0.9267266002221707,
+      "zero_damage": 0.5197824001312256
+    },
+    "constant_pattern_pooled": {
+      "arm_damage": 0.11470466454823812,
+      "retention": 0.7901302683356162,
+      "zero_damage": 0.5465517282485962
+    },
+    "native_pattern_pooled": {
+      "arm_damage": 0.12190648714701334,
+      "retention": 0.7769534321341222,
+      "zero_damage": 0.5465517282485962
+    }
+  },
+  "serial_seconds": 2.4140888459514827
+}

@@ -24,6 +24,7 @@ opens the PRONOUN readout family alongside the temporal and number families at t
 | 11 | Position-grain fold (v81): 9.6 reads the noun (0.50) and the verb (0.48) almost equally, 12.4 noun 0.40 / verb 0.23 / det-before-object 0.15 / conj 0.10; the verb is the largest non-noun source for both; 10.1's noun term is 73% token-only (replay of row 10) | fold | fresh (v81) | 12.4's noun term is only 67% current-branch (registered ≥ 0.85 for both contextual heads: false) | 3/5 — the gender at the verb position is a relay state written by earlier blocks (v82) |
 | 12 | Writer fold of what 9.6 reads (exact λ-recurrence into embedding, 81 heads, biases, MLPs 0–8; closure 2e-7): at the verb the state is MLP-written (73%: MLP 8 0.51, MLP 6 0.15) with heads 27% (8.1 0.20, 6.1 0.09, 7.1 −0.08); at the noun MLP 46% (MLP 8 0.27), embedding 33%, heads 21% (8.1 0.14, 6.1 0.09) | fold | fresh (v82) | registered "verb mostly attention-written" false; "top-3 heads ≥ 0.70 of the head part" held (0.78); "largest verb head shared across lines" false (number's head part is 6%); "noun mostly embedding + early MLP" false (0.35) | 2/5 — MLP 8 at the noun and the verb is the declared port |
 | 13 | Pair-term fold of MLP 8's write at the noun and verb along 9.6's reader direction (exact bilinear expansion over 26 writers, closure 3e-5): diffuse — no pair above 15%; verb: pairs with 8.1 0.33, with MLP 6/7 0.43, top pairs mlp6×mlp6 −0.12, mlp6×attn7 +0.12; noun: embed×mlp7 0.15, embed×mlp5 0.11 | fold | fresh (v83) | registered "top verb pair involves 8.1" false, "8.1 pairs ≥ 0.50" false, "embed² ≥ 0.20 at the noun" false | 1/5 — MLP 8's part does not close by folding; **declared port** (as on the auxiliary lines) |
+| 14 | Token-only generator for the two token readers {10.1, 15.1} (9.6 / 12.4 left native): p × λ × v1(noun) with the native pattern retains 78% of their zeroed service (registered ≥ 0.80: failed); a constant pattern per (head, gender side) from the other constructions 79% pooled — lost 0.93, later 1.00, because 0.49 (registered ≥ 0.50 per construction: failed on the comma frame); pattern CV ≤ 0.32 | edit | fresh (v137) | | 3/5 — the two heads are mostly a token lookup; the comma frame ('Because the hero wanted the compass,') keeps a fifth of their service off the token term |
 
 ## Five-property status
 | property | status | next |
@@ -35,6 +36,7 @@ opens the PRONOUN readout family alongside the temporal and number families at t
 | Composes | additive, gap at the bar (row 4) | pairwise + random-split null |
 
 ## Receipts
+- v137: `.../pronoun_gender_dod_token_only_generator_v137_result.json`; code `ops/run_pronoun_gender_dod_token_only_generator_v137.py` (v113's body)
 - atlas v68: `bilinear_quotient/circuits/followups/atlas_pronoun_gender_v68_result.json` (724 forwards, rows sha e0c60bf6a3c4…)
 - v83 (both lines, MLP 8 pair fold): `.../pronoun_dod_mlp8_pair_fold_v83_result.json`; code `ops/run_pronoun_dod_mlp8_pair_fold_v83.py`
 - v82 (both lines, writers of 9.6's sources): `.../pronoun_dod_verb_writer_fold_v82_result.json`; code `ops/run_pronoun_dod_verb_writer_fold_v82.py`

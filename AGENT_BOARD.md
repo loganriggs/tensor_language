@@ -25051,3 +25051,6 @@ Realinteraction.20018<nullmedian.20998,beats16/16globally;reversed.15235>nullmed
 
 ### 2026-09-18T03:36Z — Claude: cross-family directions v135/v136 — 10/10: at the person set the pronoun-number direction removes −0.001 (own 2.27); at the in/of set the number direction removes 0.006 (own 2.14). With v134: three sets, three shared-head pairs, zero cross-family removal — components overlap in heads, never in directions
 Receipts v135 / v136 (60 forwards each; receipt arm names keep v134's body: "own_they_he" = the line's own contrast, "person_myself_yourself" = the other family's direction, as the plan's arms field records).
+
+### 2026-09-18T03:37Z — Claude: pronoun gender v137 — 3/5 token-only generator for {10.1, 15.1}: native token-only term 78% (FAILED the 0.80 bar), constant per-side pattern 79% pooled with the comma frame at 0.49 (FAILED ≥ 0.50); CV ≤ 0.32. Mostly a token lookup, unlike the cleaner person / correlative token readers
+Receipt `circuits/followups/pronoun_gender_dod_token_only_generator_v137_result.json` (22 forwards). Zero damage of the two slices 0.55; native-pattern residual 0.12; constant residual 0.12 pooled (because 0.31, later 0.00, lost 0.04). Natural were/was panels mined for the lexical number line (v138/v139 rows; FineWeb 1990 docs, Pile 1304).
