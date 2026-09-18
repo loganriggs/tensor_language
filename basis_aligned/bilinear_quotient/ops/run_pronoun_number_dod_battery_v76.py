@@ -45,8 +45,9 @@ CONSTRUCTIONS = {"lost": lambda noun, obj: f"The {noun} lost the {obj} and so",
 
 
 def build():
-    agents = dod_lexicon.fresh(AGENT_CANDIDATES, 16, plural=True)
-    objects = dod_lexicon.fresh(OBJECT_CANDIDATES, 16)
+    own = ("pronoun_number_v76_agents", "pronoun_number_v76_objects")   # registered after the run; excluded so replay is stable
+    agents = dod_lexicon.fresh(AGENT_CANDIDATES, 16, plural=True, exclude=own)
+    objects = dod_lexicon.fresh(OBJECT_CANDIDATES, 16, exclude=own)
     they, he = L._single(" they"), L._single(" he")
     reader_ids = {name: (L._single(a), L._single(b)) for name, (a, b) in L.READERS.items()}
     rows = []

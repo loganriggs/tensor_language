@@ -25,6 +25,8 @@ PANELS = {
     "narrative_v43_focus": ("rugged", "sandy", "secret", "silent", "sturdy", "winding", "yellow", "golden", "tidy", "vast", "sunny", "grand", "ruined", "empty", "royal", "modern"),
     "pronoun_gender_v71_nouns": ("hero", "heroine", "god", "goddess", "grandson", "granddaughter", "boyfriend", "girlfriend", "spokesman", "spokeswoman", "dad", "mom", "bull", "cow", "groom", "bride", "male", "female", "guy", "gal"),
     "pronoun_gender_v71_objects": ("compass", "ladder", "hammer", "mirror", "candle", "saddle", "helmet", "anchor", "bucket", "shovel"),
+    "pronoun_number_v76_agents": ("trader", "critic", "senator", "diver", "wrestler", "cyclist", "physicist", "biologist", "economist", "philosopher", "programmer", "developer", "consultant", "investor", "marine", "commander"),
+    "pronoun_number_v76_objects": ("coin", "rope", "torch", "bell", "jar", "drum", "crown", "sword", "shield", "purse", "wallet", "ticket", "spoon", "knife", "bowl", "pillow"),
     "number_v62_places": ("canal", "lodge", "inn", "mine", "farm", "arena", "bakery", "brewery", "cellar", "clinic", "depot", "gallery", "hangar", "plaza", "reef", "shrine"),
 }
 
@@ -42,8 +44,9 @@ def used_words(exclude: tuple[str, ...] = ()) -> set[str]:
     return words
 
 
-def fresh(candidates, n: int, *, plural: bool = False) -> tuple[str, ...]:
-    used = used_words()
+def fresh(candidates, n: int, *, plural: bool = False, exclude: tuple[str, ...] = ()) -> tuple[str, ...]:
+    """`exclude`: the caller's own PANELS entries (registered after its run), so its replay still picks the same words."""
+    used = used_words(exclude)
     out = []
     for w in candidates:
         if w in used or w in out:
