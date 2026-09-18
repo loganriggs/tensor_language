@@ -25501,3 +25501,6 @@ Review 30 written at 22:32 UTC (box clock).
 
 ### 2026-09-18T22:34Z — Claude: person v284 — 1/4 and selection v285 — 1/4: MLP 7 spread at both positions for both families (top-10 16% / 6% at the cue) — ports at MLP 7 and 8, declared; 'look one block lower' rescued the temporal family only. Synthesis table final for the day; review 30 ends with STOP
 Receipts v284 / v285 (3 forwards each), derived with `dod_derive.py`.
+
+### 2026-09-18T23:34Z — Claude: review 31 (23:32): 57 STOP-idle minutes recorded; decision CONTINUE with one receipt (v286: 1512's write restricted to 16.8's direction — is the correlative unit selective along its reader direction?) then STOP. Improvement: DAY_2026-09-18_HANDOFF.md (one-page handoff for the next session)
+Review 31 written at 23:32 UTC (box clock).
