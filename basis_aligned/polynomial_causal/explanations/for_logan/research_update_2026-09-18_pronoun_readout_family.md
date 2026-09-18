@@ -30,7 +30,8 @@ within 12 tokens, next token he/she, 16 per (noun gender × pronoun) cell; the n
 "groom a successor" pass). Congruent rows (noun gender = pronoun, native capability 1.00): the set removes 3.22 of the
 4.16-logit margin (77%), positive on 31/32, null max 0.05, selective; bars frozen from the aspectual natural line held.
 Incongruent rows (noun gender ≠ pronoun, capability 0.44 / 0.38): removal moves the model toward the pronoun the text
-actually uses (−0.25 logits), as a cue-reading set should. Random four-head-set null (v72): best random quadruple 0.12 vs
+actually uses (−0.25 logits), as a cue-reading set should. Pile rows (v75, out-of-corpus, same miner and bars): 83% of the congruent margin (2.76 of 3.35), positive 30/32, null max 0.07,
+selective; incongruent rows shift toward the text's pronoun (−0.68). Random four-head-set null (v72): best random quadruple 0.12 vs
 the set's 1.75, none live.
 
 **What is different from the auxiliary families.** Removal along one weight-only direction per head takes the *entire*
@@ -39,6 +40,7 @@ bar with 12.4 the largest single. The response census (v74, exact λ-recurrence 
 the linear attribution, the downstream MLPs net −6% (MLPs 12/13 amplify, the calibrator MLP 17 pushes back), and the
 nonlinear remainder is 0.8%. Unlike the auxiliary families, there is no MLP relay port to declare.
 
-**Scope.** One behaviour, one fresh panel, one natural panel, head grain. Not yet: Pile rows, source folds. Scorecard: `basis_aligned/claude_hourly_review/PRONOUN_GENDER_DOD_SCORECARD.md`; atlas table:
+**Scope.** One behaviour, one fresh panel, two natural panels (FineWeb, Pile), head grain. All five properties have head-grain
+evidence; not yet: source folds (what the four heads read), the other 18 pronoun lines on fresh rows. Scorecard: `basis_aligned/claude_hourly_review/PRONOUN_GENDER_DOD_SCORECARD.md`; atlas table:
 `basis_aligned/claude_hourly_review/READOUT_ATLAS_TABLE.md`; receipts `pronoun_gender_dod_battery_v71_result.json`,
 `readout_atlas_v68_result.json` under `basis_aligned/bilinear_quotient/circuits/followups/`.

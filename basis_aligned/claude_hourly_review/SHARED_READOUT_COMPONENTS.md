@@ -81,4 +81,4 @@ the bar), keep-only retention 1.37; the frozen band 0.89 ± 0.15 failed upward o
 |---|---|---|---|
 | temporal | 9.1, 9.4, 15.5 (+11.3, +8.1 cue reader) | aspectual, temporal, narrative, modal | all four |
 | number | 5.7, 7.8, 9.7 (+11.3) | perfect, lexical, quantifier, coordination + atlas variants | number-within-scope |
-| pronoun | 9.6, 12.4, 15.1 (+10.1 on gender) | 19 pronoun gender/number/person lines | pronoun gender (v71 fresh, v72 random-set null, v73 natural FineWeb: 77% of the margin on congruent rows) |
+| pronoun | 9.6, 12.4, 15.1 (+10.1 on gender) | 19 pronoun gender/number/person lines | pronoun gender (v71 fresh, v72 random-set null, v73 natural FineWeb 77%, v74 response census 94% direct, v75 Pile 83%) |
