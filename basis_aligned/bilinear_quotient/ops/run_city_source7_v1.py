@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # BQGATE:40bodyforwards;40prefixes;120seconds;no fitting.
-"""pred_a native replay abs/rel<=1e-5, source sum rel<=1e-6;
+"""pred_a native replay abs/rel<=1e-5; pred_b source sum rel<=1e-6;
+pred_c finite readouts and40bodyforwards;
 40bodyforwards, four native city sources; no causal claim or random null.
 """
 import hashlib,json,os,signal,sys,time
@@ -47,6 +48,6 @@ def main():
  v=expand(values,mapping,6);old=torch.load(P/'CITY_FULL_PILE_V3_ARTIFACT.pt',weights_only=True)['values'][0]
  diff=v[0]-old;absolute=float(diff.abs().max());relative=float(diff.norm()/old.norm())
  errors=[float((f['sources'].double().sum(0)-f['mixed8_city'].double()).norm()/f['mixed8_city'].double().norm()) for f in fixtures]
- r={'pred_a':absolute<=1e-5 and relative<=1e-5 and max(errors)<=1e-6 and count==40 and bool(torch.isfinite(v).all()),'source_sum_max_relative':max(errors),'replay_max_abs':absolute,'replay_relative':relative,'body_forwards':count,'seconds':time.perf_counter()-start,'scope':'Opened native source capture; no source-causal or port-closure claim','source_shas':binding}
+ r={'pred_a':absolute<=1e-5 and relative<=1e-5,'pred_b':max(errors)<=1e-6,'pred_c':count==40 and len(fixtures)==40 and bool(torch.isfinite(v).all()),'source_sum_max_relative':max(errors),'replay_max_abs':absolute,'replay_relative':relative,'body_forwards':count,'seconds':time.perf_counter()-start,'scope':'Opened native source capture; no source-causal or port-closure claim','source_shas':binding}
  torch.save({'fixtures':fixtures,'values':v,'source_labels':['mixed7','attention7','mlp7','initial8']},P/(STEM+'_ARTIFACT.pt'));out.write_text(json.dumps(r,indent=2)+'\n');print(json.dumps({k:v for k,v in r.items() if k!='source_shas'}));signal.alarm(0)
 if __name__=='__main__':main()

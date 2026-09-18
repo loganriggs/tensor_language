@@ -14,9 +14,14 @@ city state <=1e-6 relative. Finite outputs and exact40forwards. Price40body forw
 120seconds; weights reuse the existing head8.2 package. Save native current8,
 mixed8 at city, four source vectors, source labels and all readout values.
 
-CPU fold prediction b (separate receipt): source-expanded complete city write
+CPU fold prediction d (separate receipt): source-expanded complete city write
 replays saved native city removal <=1e-4 relative, with both summed-identity error
 and native floating-point error reported separately. This is an opened fold,
 not a removal, source sufficiency, native-port closure or composition test.
 No claim that a large source is causally indispensable. Use the census to select
 one subsequent preregistered causal test and retain omitted terms explicitly.
+
+Before execution, managed enqueue required three separately named predictions.
+Split the original conjunction without changing thresholds: a=readout replay,
+b=source sum, c=finite readouts/exact40captures and forwards. CPU gate is d.
+No model run occurred before this naming correction.
