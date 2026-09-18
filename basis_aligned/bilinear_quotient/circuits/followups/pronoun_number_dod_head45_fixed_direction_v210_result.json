@@ -1,0 +1,182 @@
+{
+  "candidate_id": "pronoun_number.they_vs_he.dod_head45_fixed_direction_v210",
+  "finished_utc": "2026-09-18T16:44:25.760401+00:00",
+  "forwards": 60,
+  "plan": {
+    "bars": {
+      "drop_min": 0.02,
+      "gate_ratio": 0.25,
+      "half": 0.8,
+      "n_null": 16,
+      "seed": 210
+    },
+    "block": 4,
+    "candidate_id": "pronoun_number.they_vs_he.dod_head45_fixed_direction_v210",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 63,
+    "gpu_accessed": false,
+    "head": 5,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117"
+  },
+  "predictions": {
+    "pred_a_baseline_replays_v206": true,
+    "pred_b_directions_are_aligned_across_rows": false,
+    "pred_c_fixed_direction_damages_like_per_row": true,
+    "pred_d_fixed_direction_beats_matched_random": true,
+    "pred_e_fixed_direction_selective": true
+  },
+  "report": {
+    "damage": {
+      "fixed": 0.035620653974580474,
+      "number": 0.042626144394959785,
+      "rand0": -0.00459680038108256,
+      "rand1": 0.006621550060958256,
+      "rand10": 0.003817710609831067,
+      "rand11": 0.0056146972920580905,
+      "rand12": 0.005960165040613184,
+      "rand13": 0.0032192898101058233,
+      "rand14": 0.01228788853908416,
+      "rand15": -0.007098735088507485,
+      "rand2": 0.0012841058428184847,
+      "rand3": -0.01355022864296404,
+      "rand4": -0.0026131376258974296,
+      "rand5": -0.007856735738220249,
+      "rand6": 0.000541259967771719,
+      "rand7": 0.00998287859684626,
+      "rand8": 0.0026822011037240094,
+      "rand9": 0.0007856886097642444
+    },
+    "gates": {
+      "animacy_who_which": true,
+      "canonical_night_day": true,
+      "tense_will_would": true
+    },
+    "mean_pairwise_cosine": 0.027640165761113167,
+    "moves": {
+      "fixed": {
+        "animacy_who_which": 0.013909385850032171,
+        "canonical_night_day": 0.0071817184798419476,
+        "tense_will_would": 0.01297337810198466
+      },
+      "number": {
+        "animacy_who_which": 0.011817524830500284,
+        "canonical_night_day": 0.008481058912972609,
+        "tense_will_would": 0.01488753284017245
+      },
+      "rand0": {
+        "animacy_who_which": 0.013771483053763708,
+        "canonical_night_day": 0.005949953105300665,
+        "tense_will_would": 0.009939640760421753
+      },
+      "rand1": {
+        "animacy_who_which": 0.013560580710570017,
+        "canonical_night_day": 0.0076280985958874226,
+        "tense_will_would": 0.017435912663737934
+      },
+      "rand10": {
+        "animacy_who_which": 0.010935006042321524,
+        "canonical_night_day": 0.011148399828622738,
+        "tense_will_would": 0.01360765223701795
+      },
+      "rand11": {
+        "animacy_who_which": 0.021784432232379913,
+        "canonical_night_day": 0.007004712553073962,
+        "tense_will_would": 0.011877390866478285
+      },
+      "rand12": {
+        "animacy_who_which": 0.008109033107757568,
+        "canonical_night_day": 0.008158059945950905,
+        "tense_will_would": 0.014790354917446772
+      },
+      "rand13": {
+        "animacy_who_which": 0.011559870094060898,
+        "canonical_night_day": 0.012106866110116243,
+        "tense_will_would": 0.010766045500834783
+      },
+      "rand14": {
+        "animacy_who_which": 0.009537832190593084,
+        "canonical_night_day": 0.009435698700447878,
+        "tense_will_would": 0.010528416062394777
+      },
+      "rand15": {
+        "animacy_who_which": 0.010312847793102264,
+        "canonical_night_day": 0.008553923728565374,
+        "tense_will_would": 0.013451091945171356
+      },
+      "rand2": {
+        "animacy_who_which": 0.013245519250631332,
+        "canonical_night_day": 0.006748431362211704,
+        "tense_will_would": 0.016098363945881527
+      },
+      "rand3": {
+        "animacy_who_which": 0.019257844736178715,
+        "canonical_night_day": 0.0056277447535345955,
+        "tense_will_would": 0.010040239741404852
+      },
+      "rand4": {
+        "animacy_who_which": 0.013337336480617523,
+        "canonical_night_day": 0.007185833528637886,
+        "tense_will_would": 0.013811881964405378
+      },
+      "rand5": {
+        "animacy_who_which": 0.011776109536488851,
+        "canonical_night_day": 0.00882959202863276,
+        "tense_will_would": 0.01868949333826701
+      },
+      "rand6": {
+        "animacy_who_which": 0.01788295308748881,
+        "canonical_night_day": 0.011956556544949612,
+        "tense_will_would": 0.008437116940816244
+      },
+      "rand7": {
+        "animacy_who_which": 0.010806615153948465,
+        "canonical_night_day": 0.007198728465785583,
+        "tense_will_would": 0.011635423948367437
+      },
+      "rand8": {
+        "animacy_who_which": 0.0072852497299512224,
+        "canonical_night_day": 0.005321534350514412,
+        "tense_will_would": 0.017289237429698307
+      },
+      "rand9": {
+        "animacy_who_which": 0.008341179539759954,
+        "canonical_night_day": 0.008823500635723272,
+        "tense_will_would": 0.013376496732234955
+      }
+    },
+    "native_pooled": 196.62155771255493,
+    "null_damage_max": 0.01228788853908416,
+    "null_moves": {
+      "animacy_who_which": 0.012593993296225866,
+      "canonical_night_day": 0.008229852139872188,
+      "tense_will_would": 0.013235922437161207
+    },
+    "removed_norm_ratio_vs_number": {
+      "fixed": 0.8581217779626427,
+      "number": 1.0,
+      "rand0": 0.9999999698538794,
+      "rand1": 1.0000000009698484,
+      "rand10": 1.0000000190736849,
+      "rand11": 1.0,
+      "rand12": 1.0000000317625346,
+      "rand13": 0.9999999954740408,
+      "rand14": 0.9999999579732367,
+      "rand15": 0.9999999776934871,
+      "rand2": 0.9999999990301516,
+      "rand3": 0.999999950133629,
+      "rand4": 1.0000000068697594,
+      "rand5": 0.9999999679950033,
+      "rand6": 0.999999993857627,
+      "rand7": 1.0000000104258702,
+      "rand8": 0.9999999909480818,
+      "rand9": 1.0000000556854614
+    }
+  },
+  "schema": "pronoun_number_dod_head45_fixed_direction_result_v210",
+  "serial_seconds": 2.8108258228749037
+}
