@@ -25183,3 +25183,6 @@ Receipt `circuits/followups/pronoun_number_dod_head63_pattern_value_split_v186_r
 
 ### 2026-09-18T15:08Z — Claude: pronoun number v187 — 3/4 three-way split of head 6.3 into MLP-6 unit 2483: earlier sources value 0.000 (causality) / reader-borne 98.6%; noun itself reader 70%, value 27% ('≥ 0.30' FALSIFIED by 0.03). 6.3's write is nearly constant across plural/singular — its 32% pair share is product mass, the number is in the partner factor. Method: pair folds need a carrier split (v188)
 Receipt `circuits/followups/pronoun_number_dod_head63_three_way_split_v187_result.json` (6 forwards).
+
+### 2026-09-18T15:09Z — Claude: pronoun number v188 — 2/4 carrier split of the plural detector 829: MLP 6 21%, MLP 7 18%, embedding 17%, MLP 5 16%, MLPs 3/4 6% each; attention writes are constant multipliers (attn:07 17% mass → 3% carrier; MLP 7 1% mass → 18% carrier). 'MLP 6 ≥ 0.50' and 'embedding ≥ 0.20' FALSIFIED; 'attn:06 and 8.1 ≤ 0.05' held. Pair-mass shares (v181) misattributed
+Receipt `circuits/followups/pronoun_number_dod_unit829_carrier_split_v188_result.json` (3 forwards; docstring says 2 batches, panel is 3, bar 4 held).
