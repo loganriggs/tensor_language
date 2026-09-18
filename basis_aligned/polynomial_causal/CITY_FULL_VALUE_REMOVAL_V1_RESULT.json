@@ -1,0 +1,777 @@
+{
+  "native_factorial_anchor": 2.5033950805664062e-06,
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "pred_d": true,
+  "pred_e": true,
+  "families": {
+    "word_index": {
+      "target_error": 0.07701334323777995,
+      "retained_target_rms": 0.1304036216328404,
+      "control_over_target": [
+        0.06804453434903793,
+        0.049754688802225035,
+        0.04968255557903035,
+        0.09817227936761713
+      ],
+      "capable_pairs": 24,
+      "attenuation_positive_fraction": 1.0,
+      "attenuation_mean": 0.09623033311349223,
+      "target_over_null_median": 29.52330594434669,
+      "nulls_beaten": 16,
+      "null_readout_rms": [
+        [
+          0.0039467233378606675,
+          0.006088487870269615,
+          0.003923600578920879,
+          0.0010875834611890783,
+          0.004420549212696378
+        ],
+        [
+          0.0037552887452846117,
+          0.0036908851649649225,
+          0.0027587237850940846,
+          0.00183129506463209,
+          0.0030732029157847685
+        ],
+        [
+          0.005946383436139242,
+          0.004255776906993201,
+          0.0028977376127342414,
+          0.00176826915926145,
+          0.005139150609349995
+        ],
+        [
+          0.006061656468923671,
+          0.002256827168687771,
+          0.003911375051409546,
+          0.0018557478136529163,
+          0.007545707527699746
+        ],
+        [
+          0.003933611122063631,
+          0.0029881419920885248,
+          0.0017709471609416035,
+          0.002908117303948821,
+          0.0065048295466650224
+        ],
+        [
+          0.003718345320039482,
+          0.005538387388249284,
+          0.00386210259564592,
+          0.0024901429245095005,
+          0.006332291554894666
+        ],
+        [
+          0.004587074614311627,
+          0.0030622328493424005,
+          0.003544190017427205,
+          0.0017727392163567996,
+          0.005043477524101402
+        ],
+        [
+          0.004246869787352571,
+          0.005776860675681863,
+          0.003496008389436069,
+          0.00146556087368406,
+          0.004594942290406878
+        ],
+        [
+          0.005544541353171145,
+          0.004600120108219781,
+          0.0021537599194619444,
+          0.0023148660454387843,
+          0.0019400679660007871
+        ],
+        [
+          0.003927597390123588,
+          0.003013913579112743,
+          0.004749413592697973,
+          0.0026534707822756364,
+          0.00492308818052035
+        ],
+        [
+          0.006183164910291501,
+          0.004199891489607709,
+          0.0029104698427704265,
+          0.0010228171894676396,
+          0.005121019779372504
+        ],
+        [
+          0.004933513679817967,
+          0.003229004617603004,
+          0.002905718544802596,
+          0.0021220871683753357,
+          0.004557040497250569
+        ],
+        [
+          0.0032517169919507065,
+          0.005919647941886189,
+          0.004542404857386325,
+          0.0023142104594325442,
+          0.0029318302030931524
+        ],
+        [
+          0.0037477072757490675,
+          0.0010261517967996249,
+          0.003610520456199958,
+          0.0022413147376578162,
+          0.005320451554792253
+        ],
+        [
+          0.00634370053983884,
+          0.003219640277768894,
+          0.0025234575319653964,
+          0.0019138340899604743,
+          0.0071172863230503335
+        ],
+        [
+          0.010727444287086555,
+          0.002144087736545438,
+          0.00242775615234001,
+          0.00239736488361926,
+          0.00135333038564493
+        ]
+      ]
+    },
+    "exact_copy": {
+      "target_error": 0.10646771341972454,
+      "retained_target_rms": 0.17783853248547576,
+      "control_over_target": [
+        0.08788223901234965,
+        0.036326124406092467,
+        0.04457088594154276,
+        0.0632239686010388
+      ],
+      "capable_pairs": 24,
+      "attenuation_positive_fraction": 1.0,
+      "attenuation_mean": 0.0963176670527555,
+      "target_over_null_median": 25.38716008129704,
+      "nulls_beaten": 16,
+      "null_readout_rms": [
+        [
+          0.01054056656225201,
+          0.004950666624040156,
+          0.00491852572928459,
+          0.00237084903663066,
+          0.006100152112772983
+        ],
+        [
+          0.00524570576968,
+          0.002281302832539244,
+          0.004522942789712654,
+          0.002770384931921433,
+          0.009240818458863265
+        ],
+        [
+          0.011635778863089634,
+          0.003386722998429645,
+          0.0049150255638338945,
+          0.0017429961704057847,
+          0.004772693953202853
+        ],
+        [
+          0.005128440373171703,
+          0.006115187555638236,
+          0.0031011630519127164,
+          0.0020784364030245616,
+          0.005873897775166022
+        ],
+        [
+          0.006904903431352802,
+          0.0052274304726942535,
+          0.003281267575636175,
+          0.0028350110502588263,
+          0.0061670184807192845
+        ],
+        [
+          0.006463322406785256,
+          0.003781749070631155,
+          0.0032668439926694377,
+          0.002067285529951234,
+          0.0037555514003605028
+        ],
+        [
+          0.008313514247865087,
+          0.0033434150323260942,
+          0.0035044143208624707,
+          0.0019201746862699482,
+          0.002277950236379185
+        ],
+        [
+          0.006251917020486399,
+          0.003179240599805413,
+          0.005487189973017284,
+          0.0018129744667851107,
+          0.0023961117865686572
+        ],
+        [
+          0.0072397999426671205,
+          0.0030461284399523588,
+          0.002209243785126829,
+          0.001058129929170907,
+          0.005090927158213281
+        ],
+        [
+          0.005954333060500698,
+          0.004170420984895011,
+          0.00491947948849457,
+          0.0013084459832497079,
+          0.004516795851769276
+        ],
+        [
+          0.006729782900647557,
+          0.003171671264577785,
+          0.0021759434532388202,
+          0.0009399813491760696,
+          0.003397169942365645
+        ],
+        [
+          0.008388563109500934,
+          0.0035905655145248732,
+          0.003081540397919442,
+          0.0016713499873940373,
+          0.009173648300529465
+        ],
+        [
+          0.008720931910233966,
+          0.0039799491157154875,
+          0.0024982270636580385,
+          0.0028674228106277937,
+          0.004734952950752198
+        ],
+        [
+          0.0056650307212190425,
+          0.007419983246680319,
+          0.002125179342857007,
+          0.0011966937712898525,
+          0.003450388463242664
+        ],
+        [
+          0.008111060744025672,
+          0.0042155510375004885,
+          0.0024199444811591345,
+          0.001996243063671268,
+          0.004707563207896086
+        ],
+        [
+          0.007105212857037491,
+          0.0028226766694846098,
+          0.003625603278638431,
+          0.0008590423666757557,
+          0.00421562533786238
+        ]
+      ]
+    },
+    "plain_word_note": {
+      "target_error": 0.056507169467212036,
+      "retained_target_rms": 0.11144266383318946,
+      "control_over_target": [
+        0.09405139210017363,
+        0.047174740887933,
+        0.03960703458357938,
+        0.0819236979700339
+      ],
+      "capable_pairs": 24,
+      "attenuation_positive_fraction": 1.0,
+      "attenuation_mean": 0.07654269022140725,
+      "target_over_null_median": 26.861890183038593,
+      "nulls_beaten": 16,
+      "null_readout_rms": [
+        [
+          0.004243530645026047,
+          0.003999052630873913,
+          0.002373403912291749,
+          0.0017027966075735506,
+          0.0030940878930172198
+        ],
+        [
+          0.004794559113139322,
+          0.002135530475335675,
+          0.0008428569263911336,
+          0.0011212040390646532,
+          0.002595938519843645
+        ],
+        [
+          0.005322872962067325,
+          0.0033890432386086424,
+          0.002305470426741058,
+          0.0009695955309117233,
+          0.003599965969692506
+        ],
+        [
+          0.0035417566176498784,
+          0.0021069758933144915,
+          0.004293610239037976,
+          0.002310993338418543,
+          0.003261415735339563
+        ],
+        [
+          0.0027982036552486687,
+          0.0031417383064347173,
+          0.0020908170921091177,
+          0.002286978481121855,
+          0.004869327468579651
+        ],
+        [
+          0.004225851791341987,
+          0.0027971844598252233,
+          0.004012087028351408,
+          0.00265363375424074,
+          0.0017710970656329467
+        ],
+        [
+          0.002840499965476665,
+          0.00392937658584179,
+          0.004680251259155053,
+          0.0027156129472963066,
+          0.006799963582079283
+        ],
+        [
+          0.004546497065636302,
+          0.002121941587312859,
+          0.0024145049892832873,
+          0.0014476239514007625,
+          0.002870332246045277
+        ],
+        [
+          0.004044212780596966,
+          0.0029907437881548106,
+          0.0027434561065902696,
+          0.0012562319703520444,
+          0.004913413009784219
+        ],
+        [
+          0.005987126886704335,
+          0.003871828612873686,
+          0.002503137181045392,
+          0.001515077323321343,
+          0.001590924652635786
+        ],
+        [
+          0.0055262803923838985,
+          0.0009642402511952025,
+          0.0007763338579144447,
+          0.002949638654932087,
+          0.0034705055217176587
+        ],
+        [
+          0.0033494818418608116,
+          0.0020270583780836737,
+          0.003672116764640175,
+          0.001599154393056342,
+          0.0070242312364083926
+        ],
+        [
+          0.0038801005644260433,
+          0.002480871687570193,
+          0.0027027023261255597,
+          0.002215353228377762,
+          0.0021962847848511196
+        ],
+        [
+          0.002720618923207341,
+          0.002271832542149646,
+          0.0038037569787328033,
+          0.003232457416965203,
+          0.006233373382421958
+        ],
+        [
+          0.004778166893678398,
+          0.0025898162283208848,
+          0.003136710414653205,
+          0.001137969851172126,
+          0.0036496056200644965
+        ],
+        [
+          0.004071603307596487,
+          0.0020067515089910544,
+          0.002308799352732335,
+          0.0023858662008232625,
+          0.003271302221238594
+        ]
+      ]
+    },
+    "line_word_note": {
+      "target_error": 0.09443132332414365,
+      "retained_target_rms": 0.19402722410032947,
+      "control_over_target": [
+        0.1700361006629046,
+        0.05409502672203509,
+        0.03300676486568048,
+        0.07470640420285657
+      ],
+      "capable_pairs": 24,
+      "attenuation_positive_fraction": 1.0,
+      "attenuation_mean": 0.13460297399596963,
+      "target_over_null_median": 31.523364181424924,
+      "nulls_beaten": 16,
+      "null_readout_rms": [
+        [
+          0.005633547338381737,
+          0.0025896024138845637,
+          0.00454619472775626,
+          0.0019090011502562283,
+          0.003478261865549338
+        ],
+        [
+          0.005366836643284517,
+          0.002928537085900468,
+          0.004308613243272414,
+          0.0011824316282409305,
+          0.0024583005222055857
+        ],
+        [
+          0.007588766413380209,
+          0.0033311276281883626,
+          0.0032895642548843402,
+          0.0017765977071197189,
+          0.003426649381857761
+        ],
+        [
+          0.006024735338723732,
+          0.006043787153291621,
+          0.0019947253094125973,
+          0.0030419507545432754,
+          0.004504051621465317
+        ],
+        [
+          0.013661913125218285,
+          0.006357177603977709,
+          0.0024805885598353453,
+          0.004156759838518919,
+          0.0054217503377368935
+        ],
+        [
+          0.005993684419844207,
+          0.002019844913421522,
+          0.0035591596826217604,
+          0.0009282719244840359,
+          0.0026540098251249577
+        ],
+        [
+          0.006119700798697423,
+          0.0009157744931032251,
+          0.0016160519358592053,
+          0.0014660112468143991,
+          0.0029765076528352613
+        ],
+        [
+          0.006603095211806998,
+          0.0014867783071054466,
+          0.0029943327207173753,
+          0.0017856465471900163,
+          0.004905110522353309
+        ],
+        [
+          0.006190357416133568,
+          0.005844019079553675,
+          0.006359785105383914,
+          0.003488972372885259,
+          0.0016109060785617383
+        ],
+        [
+          0.0049480181385681225,
+          0.0043566361746339875,
+          0.0014178669322627718,
+          0.0025029746558542726,
+          0.0032641286015751706
+        ],
+        [
+          0.008067034436801932,
+          0.005124512982043496,
+          0.0063825967549823006,
+          0.002485715719215802,
+          0.004734141852137869
+        ],
+        [
+          0.005029216326503955,
+          0.003550324167275344,
+          0.005124131879579686,
+          0.0006103979195944436,
+          0.0030975211778465355
+        ],
+        [
+          0.007826748121467601,
+          0.0029921780330620785,
+          0.007222252213377752,
+          0.0014570717530168133,
+          0.0013391207898428947
+        ],
+        [
+          0.006466774974962403,
+          0.003316892505489357,
+          0.004292074634945105,
+          0.0028256506482372892,
+          0.007858896355362851
+        ],
+        [
+          0.005185505830204941,
+          0.004037172893828659,
+          0.004909666906947212,
+          0.002817893089786406,
+          0.008416207080738682
+        ],
+        [
+          0.006346600421034648,
+          0.0034105693377230024,
+          0.004215336700527981,
+          0.0017200540229194376,
+          0.002243324909509781
+        ]
+      ]
+    },
+    "reported_word_note": {
+      "target_error": 0.037128691879460794,
+      "retained_target_rms": 0.11190439905942831,
+      "control_over_target": [
+        0.12897194005538612,
+        0.031189724434941755,
+        0.030895010595987656,
+        0.05909828996627698
+      ],
+      "capable_pairs": 24,
+      "attenuation_positive_fraction": 1.0,
+      "attenuation_mean": 0.11144438644297294,
+      "target_over_null_median": 37.68005896744342,
+      "nulls_beaten": 16,
+      "null_readout_rms": [
+        [
+          0.005931934794082461,
+          0.003817165378072731,
+          0.001933479674683758,
+          0.0008914778226058549,
+          0.003114447374133746
+        ],
+        [
+          0.0020211597034097474,
+          0.004593796243086108,
+          0.0031522979990682345,
+          0.0017724183588146228,
+          0.004685133958458279
+        ],
+        [
+          0.0022276363669871476,
+          0.0016587650785101953,
+          0.002978084921912799,
+          0.0016165666256489743,
+          0.003884708452672484
+        ],
+        [
+          0.002844804299053591,
+          0.0025918789165185253,
+          0.002422152371872118,
+          0.0010004720447487684,
+          0.0025054741858985693
+        ],
+        [
+          0.002609637140339137,
+          0.003754257323892815,
+          0.002625329667814531,
+          0.0010011174877833208,
+          0.004895254669228561
+        ],
+        [
+          0.0026610597530668783,
+          0.003037390394631887,
+          0.0020490564800893867,
+          0.0012511892035108236,
+          0.0025489622064049982
+        ],
+        [
+          0.0037126965523442993,
+          0.003216258595011658,
+          0.001190417884702354,
+          0.0013640980498575057,
+          0.002010798955521865
+        ],
+        [
+          0.0027727116658499257,
+          0.0030395580847890373,
+          0.002367468329667431,
+          0.0009329975912972231,
+          0.002782311385289403
+        ],
+        [
+          0.004045281766816313,
+          0.00335588951627658,
+          0.0021476963232781605,
+          0.0005187226617685702,
+          0.003882299414333139
+        ],
+        [
+          0.00493003121185467,
+          0.0019035926427250658,
+          0.0021910464939444256,
+          0.0010675729639254361,
+          0.0015057627657286765
+        ],
+        [
+          0.005026137177775139,
+          0.005738645682700123,
+          0.002102535796121797,
+          0.00045021818881454544,
+          0.003386576482122101
+        ],
+        [
+          0.003390782653633846,
+          0.002735599676952501,
+          0.001869551169948153,
+          0.0005815972399418107,
+          0.0013867039682981786
+        ],
+        [
+          0.0017285405591287819,
+          0.0018742556725515084,
+          0.002015105904391869,
+          0.002131190146779355,
+          0.002495908615246667
+        ],
+        [
+          0.0028372654718125763,
+          0.0033492544243377575,
+          0.0010267797207356465,
+          0.0015577022874565351,
+          0.003441109953251106
+        ],
+        [
+          0.004052752607836988,
+          0.002341885673129348,
+          0.0018275623476637505,
+          0.0009274153375972821,
+          0.0029344522372803336
+        ],
+        [
+          0.003094910347153131,
+          0.0018234229584503782,
+          0.0027889835838933582,
+          0.0009001735779593587,
+          0.003244456112092165
+        ]
+      ]
+    }
+  },
+  "full_reentry_max_abs": 2.7418136596679688e-06,
+  "full_reentry_relative": 7.913546423162564e-07,
+  "max_full_joint_input_error": 2.725802226043592e-05,
+  "max_null_norm_error": 4.9528963208940535e-09,
+  "max_outside": 0.0,
+  "body_forwards": 800,
+  "seconds": 9.223310756031424,
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_typed_face_structure_v1.py": "e6c1fff57e6ef5ae14cdcceb49899a9e46c2abf961b0f3d7f862ff22965b978b",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/regional_paired_write_runtime_v2.py": "2f2d92cdee57a91e73acceed61e66d52f478ace29e5e5076756deb73b7a635ec",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_KEY_SOURCE_FRESH_V1_PROGRAM.pt": "12960f51539d0189017a39a359da18444eb0c48b64295ecd9206557b6bdbc6f4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_endpoint_batching_v1.py": "fb29a695095198f0eccbcc97b9ae16cfbc6d9e1415379d430556376621cb68ec",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/typed_face_write_atoms_v1.py": "846d492492e1da5f57877881b76ba93a9433fb248b96d6466e44e3443423211a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/odd_attention8h2_typed_face_v1/native.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_typed_face_prospective_v1.py": "d7aad9453c7fe62f401004c26faeb5ee481e8282fcc9f6134c559d57eaf74567",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_PROSPECTIVE_V1_PREREGISTRATION.md": "801cd12549c0639bd2a6dd88efd581a0cde203c43c1d784430e4cd2abbfd12ed",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_PROSPECTIVE_V1_ROWS.json": "09adb326a13808bc0c1a569d9795e922e85385f6fd8fd743d7ff1f5c0d1dcc16",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_PROSPECTIVE_V1_CPU_CONTROL.json": "9a1312c931e3654f7500ab1f69778249355fe95d4f45e3917cf217ef1f889719",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/STRUCTURE_PREDICTION_NULLS_V1_RESULT.json": "668f972935632d5c3a56f7a5317604597db24446b80e5d76866e349973c361f8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/build_typed_face_prospective_v1_rows.py": "d366dd529e118b7832564de83fe92ce57f40411ba78b9ca753c4310fd6c51fe5",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_typed_face_native8_scope_v1.py": "0de8f04cc34ac392f036d76e2018a9cf5adfc1dc0dad1b999db0d9eee10dad5d",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/regional_paired_write_runtime_v4.py": "85439f8b140851f3bd752c236c5c76e2328eaadc4e841db1dbec41929861f35a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_NATIVE8_SCOPE_V1_PREREGISTRATION.md": "3ca4df995b24256e1a22ac4f52a609ecbd30ae3f3a3d98bda3392cdf0be15cff",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_NATIVE8_SCOPE_V1_CPU_PREFLIGHT.json": "9aa5f7a0b24b2944112153b8dd524f496b43467e2d9b165ba2601eaf8d71e30f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_PROSPECTIVE_V1_ARTIFACT.pt": "4365fc9e632335dbcd19e273c8aa6f333b83f8d425d9737f56a704eb6799f285",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_typed_face_native8_fresh_v1.py": "ff7a1da7b1473499a3ff3a4f1684873a0313f4889acc6f99add2430cb52d23d8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_NATIVE8_FRESH_V1_PREREGISTRATION.md": "978b65af2bed1157ed18ff1ab9096f24844c9a2112a2daf52d064f3216c663bc",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_NATIVE8_FRESH_V1_ROWS.json": "02874a5410db80b2d2ec1a05ae3762d6c6ddfec8a4d3e87e079ec5f230244ba2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_NATIVE8_FRESH_V1_CPU_CONTROL.json": "7900b1803c8f9c01f590aedb637254a547d7c4983a28e88e9f7520833e8ca5ad",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_typed_face_mlp8_coupled_v1.py": "6de8a8035d64dd82f01a6dff197da6c44126793f721c27670deb3ac18492ea62",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_MLP8_COUPLED_V1_PREREGISTRATION.md": "66986c872e4b02064e404498be34e696451d3752add7df123124b046cf38b115",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_NATIVE8_FRESH_V1_ARTIFACT.pt": "0e4bac665f6c4a453e5cf3cf381f7aad58168ba7e52c8b612271159aad8430d5",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_mlp8_coupled_v1/execute.py": "d6c2806b2361f3ec00b864f8a93f7dc0e9198a03982c81478807864692bceed8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_mlp8_coupled_v1/head8.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_mlp8_coupled_v1/program.pt": "858fbcc2413e29cc70121a14e02e736917e103978cac4462b4fd57fda4bd704e",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_typed_face_context_generated_v1.py": "8d4807c4bfb77dbd53e6924d80740754299733a473beaf5719d389e9962289a6",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_CONTEXT_GENERATED_V1_PREREGISTRATION.md": "5593672087e382b7cde301c959d67dba614f947f7d41b83b6561d50b790d4096",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_context_generated_v1/coupled.py": "d6c2806b2361f3ec00b864f8a93f7dc0e9198a03982c81478807864692bceed8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_context_generated_v1/head8.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_context_generated_v1/local_program.pt": "858fbcc2413e29cc70121a14e02e736917e103978cac4462b4fd57fda4bd704e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_context_generated_v1/attention8.py": "7e4a6e3ab322095b62d33eed787159a02dda9c9e361e6b49d3c9f1790bd1b107",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_context_generated_v1/context_program.pt": "f199361730a96d50a6c456c7f46b9804f9af85104494b9fa74fd55281dcbd207",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_context_generated_v1/execute.py": "90c729f1a0e9f83af07d008287f86cfcac1a34e6612a7c46ccef41e074013e95",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_typed_face_context_shared_v1.py": "2cb07d07f2a51c816563eab140382683d35c48062c26a9f97a0dc512875c25fe",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_CONTEXT_SHARED_V1_PREREGISTRATION.md": "c8a75d41b316d619b0b9b5cc91da0acc81186f0a85abc23e32b469475a2522c5",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_context_shared_v1/execute.py": "027f3e81998dae20757d02ce75d8529ff046a13d6916dad18338f478e974d947",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_context_shared_v1/attention8.py": "7e4a6e3ab322095b62d33eed787159a02dda9c9e361e6b49d3c9f1790bd1b107",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_context_shared_v1/head8.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_context_shared_v1/coupled.py": "d6c2806b2361f3ec00b864f8a93f7dc0e9198a03982c81478807864692bceed8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_context_shared_v1/context_program.pt": "f199361730a96d50a6c456c7f46b9804f9af85104494b9fa74fd55281dcbd207",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_context_shared_v1/local_program.pt": "68257bbd68360cd73b12005133a7fec2af3849a3820dc316ac9e41670bee7bf3",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_typed_face_residual7_v1.py": "194ccb276ef3ad96e360748140ba66c79a3247d361e7b7812391663ac9049329",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_RESIDUAL7_V1_PREREGISTRATION.md": "cf868d3df49d2a0488f986fcd502646127be1793995ded4ad926d16f0a226de8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_residual7_v1/attention8.py": "7e4a6e3ab322095b62d33eed787159a02dda9c9e361e6b49d3c9f1790bd1b107",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_residual7_v1/head8.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_residual7_v1/coupled.py": "d6c2806b2361f3ec00b864f8a93f7dc0e9198a03982c81478807864692bceed8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_residual7_v1/local_program.pt": "68257bbd68360cd73b12005133a7fec2af3849a3820dc316ac9e41670bee7bf3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_residual7_v1/context_program.pt": "f199361730a96d50a6c456c7f46b9804f9af85104494b9fa74fd55281dcbd207",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_residual7_v1/reentry_program.pt": "be92657fbb09df49451ac8adb6cdb9f088ca1219ad45a79fa74f47d54b5f4a5d",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_residual7_v1/execute.py": "0d3bd663235566a6e7b81a4ec787448504a0fa67a5a258aaa029199a3c9be90c",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_typed_face_reduced_residual7_v1.py": "a990b03c671656c774497280170a2aaba393b08891cf609b14637b07a2620a88",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_REDUCED_RESIDUAL7_V1_PREREGISTRATION.md": "3f7b280f2ae411890d863be3ee2d50222138b16bef821ed5d10f3152e9d1370d",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/HEAD2_MLP8_CROSS_FRESH_V1_ROWS.json": "cdae36b08d4ef22e1ac1b18e7d50ae8df721629dc88fa9a3df7a9a990b74f3b9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/HEAD2_MLP8_CROSS_FRESH_V1_ARTIFACT.pt": "aacddc3e15fc7917920c2a5f273d861308bab16f60e7460518beef23e3c1f68f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_reduced_residual7_v1/attention8.py": "7e4a6e3ab322095b62d33eed787159a02dda9c9e361e6b49d3c9f1790bd1b107",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_reduced_residual7_v1/head8.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_reduced_residual7_v1/coupled.py": "d6c2806b2361f3ec00b864f8a93f7dc0e9198a03982c81478807864692bceed8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_reduced_residual7_v1/local_program.pt": "68257bbd68360cd73b12005133a7fec2af3849a3820dc316ac9e41670bee7bf3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_reduced_residual7_v1/execute.py": "d228c9ef3948efcb7681612baf62f074cb9d8db42e591a946eca5f7158d83026",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_reduced_residual7_v1/attention8_context_channels_v1.py": "1353d59f9ac7c716e915e933e22943dd496ac8a9d79761b5b36165263d140ac6",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_reduced_residual7_v1/head2_mlp8_cross_edit_v1.py": "6f18ce39e8ee763e6c6f844e13d1d04dbddd257937968e96cbc92b218f9a57a8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_reduced_residual7_v1/context_program.pt": "9ec0d762497e9f5b2217d75e7162ce884f4e9be12384916d7277a981cefcc72a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_reduced_residual7_v1/reentry_program.pt": "950ca1f9781816b30d8d32f9b9a89c2f5f2b6a5783134450f607649eb0f2e9e9",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_typed_face_reduced_fused_v1.py": "d4049b4654badb588aec8c58af39f6eb8a7f2331c77792e1d1c82b54d35dfe62",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/TYPED_FACE_REDUCED_FUSED_V1_PREREGISTRATION.md": "43bab89101cbe753889ded345238943120eb0d22dd0037ae7448c4659bed976f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_reduced_fused_v1/head8.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_reduced_fused_v1/attention8_context_channels_v1.py": "1353d59f9ac7c716e915e933e22943dd496ac8a9d79761b5b36165263d140ac6",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_reduced_fused_v1/local_program.pt": "68257bbd68360cd73b12005133a7fec2af3849a3820dc316ac9e41670bee7bf3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_reduced_fused_v1/context_program.pt": "9ec0d762497e9f5b2217d75e7162ce884f4e9be12384916d7277a981cefcc72a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_reduced_fused_v1/reentry_program.pt": "950ca1f9781816b30d8d32f9b9a89c2f5f2b6a5783134450f607649eb0f2e9e9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_reduced_fused_v1/execute.py": "37f5b77f5fb1daa8c2613428216c506cf1c950bc4e6fd698eddd46b39420698a",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_reduced_mlp8_normalization_v1.py": "50c21fbb2a270a0fa914d0207388bd936fccbf67e78499ca6b3bf8c9926210df",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/REDUCED_MLP8_NORMALIZATION_V1_PREREGISTRATION.md": "e403c096566ac2d593479c73b66d145b49c19f3c03ef5f6dc8ea2216774791e5",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/typed_face_reduced_norm_variants_v1.py": "d62a5e687e64618ef1a7295049162b507b3bad4ed7816161e6b6503b23f51634",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_single_head_normalization_v1.py": "a7b8f9bd2ecf4dd230e0ef9ab98aebc94377a94949cc2cd9851de0b5c14d350c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SINGLE_HEAD_NORMALIZATION_V1_PREREGISTRATION.md": "932c6da00e367f57f296cb53a7dc1c24d27dbf0780afc6fd5d56f71e5f6244ee",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/typed_face_single_head_norm_v1.py": "5781e1a91e00f13557c9db9c572e231dc482f035aba00df0d8d82b90c63e8994",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/attention8_single_head_channels_v1.py": "5dc466b1232c50e6c8ff15549eb6c8890921b166be3bcde64dcb739e6411d9c0",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_single_head_fresh_v1.py": "bccd000ca12ec7f1b49e00c3cf53debfac138e996abe28c5e27fb1cc938ea903",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SINGLE_HEAD_FRESH_V1_ROWS.json": "95aae0bf9b6e579fbf2dfcb0c88f44892aca5766a4acca52823766257ca19e09",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SINGLE_HEAD_FRESH_V1_TABLES.pt": "32b71be839f4bed71bd605e5dea5536af43048734907b6047f9a1b4493b869d5",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SINGLE_HEAD_FRESH_V1_PREREGISTRATION.md": "21ee8fe16e2ea5ba43f6ede10caa7adf10af406dc2b95d59a8979de2405a199f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/HEAD2_MLP8_CROSS_FRESH_V1_BASELINES.json": "6d7f9442c8be218d8a2cfb452cc826cb32a2ba85c113c2e372cf28eed79f1f53",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/build_single_head_fresh_v1_rows.py": "4901f8db615a1fb34b0fb288f34830054bbbd7d13a28cf053345104c246d69a1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/build_single_head_fresh_v1_tables.py": "15d84274931db650a644a9fbef51165597c3ecfc73869613cceac8298ddec190",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_single_head_pruned_v1.py": "bd692513e065fc5c1446baa93697e1aa874ec9c8489d36678730a3a0cca8ca21",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SINGLE_HEAD_PRUNED_V1_PREREGISTRATION.md": "b9e74cf57ed5b9c084f13c7d08c3cd57c94b497de49b1c017fe5689d37603652",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/SINGLE_HEAD_FRESH_V1_ARTIFACT.pt": "ebf32c729a6dec5f643bcbab22b2087041190b59ffa70f4c5b0a761a34d031b4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_single_head_norm_v1/head8.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_single_head_norm_v1/attention.py": "df635f9160749cd6afd3c640c0719d875d28da535839beba4d2f8b10ee6b500d",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_single_head_norm_v1/execute.py": "bffdf3860833d98c649a79ca8ff2c26808402ae06a69c9a9941a788956798aeb",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/extracted_circuits/typed_face_single_head_norm_v1/program.pt": "ed33bdbad3e25af41b726517051ca47aa70dea7534cc4394abafdd8685d174f4",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_city_inherited_removal_v1.py": "98dc15432829630ead9eb6c7c6e082f5fdc4032429bae6cbb1c3aa00cd84a576",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_INHERITED_REMOVAL_V1_PREREGISTRATION.md": "688981ab68a06469839f8e890c115d5bf6e30a9e86f14b902316f1ef60ea6edb",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/city_inherited_removal_v1.py": "dc007ff04f0d0f5a79a0ddaa8a335b9eb8dcbafc857b8d64cc2b72aaf30b28cd",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_city_removal_endpoint_fresh_v1.py": "c4ff0ffde096be45500a9ef59e8a8b9974ab8cca57c0c94148248a5ae3bcb750",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_REMOVAL_ENDPOINT_FRESH_V1_ROWS.json": "15b1ec68d00fa2d0b51db18613d0f0d80cdbd07b46496c233343ada0034ba7cf",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_REMOVAL_ENDPOINT_FRESH_V1_TABLES.pt": "97b77af62aee09e9636609f9b8438e1d1f87ced04d8a134fda0accf02acdf617",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_REMOVAL_ENDPOINT_FRESH_V1_PREREGISTRATION.md": "e3cddcfd5ca760edd61c9eba24aa9ee30294840f7bb56f366dd1c93c07babb03",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_REMOVAL_ENDPOINT_FRESH_V1_BASELINES.json": "6ee5e67e0e279efb3d69b0df9fc719f31a76fcdd1d2e2d54c6a7167d396a79e6",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/freeze_city_removal_endpoint_baselines_v1.py": "e54a3692f3c816cd152ff01b87ccea98f91bd5a386a399a0d8299afc56709308",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/build_city_removal_endpoint_fresh_v1_rows.py": "c5383267d100c5a3f17bc158618ec43771b8363f2ef10f8491e07b3b16b6c92e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/build_city_removal_endpoint_fresh_v1_tables.py": "6a1cad4b4a57935d6429d4872c2867b0c5c42c50a255878b7b2734c2cee2b520",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_city_value_branch_factorial_v1.py": "c5a1f4f2e11a38d8b954af64e6c4e450ef4610c211f8312bc704c2604db3a07d",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_VALUE_BRANCH_FACTORIAL_V1_PREREGISTRATION.md": "9ff40bec67175e4c215f7b4e5b72c0838e1f28fe88a33d97da876134c45be86d",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_REMOVAL_ENDPOINT_FRESH_V1_ARTIFACT.pt": "a5daecd328e77ea61d96a9931fdda253bcf6074ffacdc3677ab9ee5f190b31f7",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_city_full_value_removal_v1.py": "e50ab05df66b0d5a744a32efd96ef39d8821efb8b8127aec3cc0284e35ab0942",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_FULL_VALUE_REMOVAL_V1_PREREGISTRATION.md": "372e2089deae620d0355a80b1239cdbe95a23be16b6ddb9c2dee1be39ef01e63",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/city_full_value_removal_v1.py": "6a4837dc37e28814d317fadc49c091dbabf6a53e7342914ff04548b2ba76ddb3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_VALUE_BRANCH_FACTORIAL_V1_ARTIFACT.pt": "f9366b8f4b6b67c6383a861961ecb5e77000010a9fbf75f669de4dd19e7f159d"
+  },
+  "scope": "Opened donor-free full city-value removal. One recipient residual7 input. Same-site matched nulls/four readers; no fresh/OOD/paired-swap/composition claim."
+}

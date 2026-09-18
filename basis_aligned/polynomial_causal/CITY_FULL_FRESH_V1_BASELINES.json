@@ -1,0 +1,27 @@
+{
+  "target": "native attention8 full city-value half-removal effect",
+  "training": "20opened cells/40sequences/240rows; six old endpoints",
+  "features": [
+    "intercept",
+    "cue_sign",
+    "length/32",
+    "city_position/32"
+  ],
+  "coefficients": [
+    0.1069949023130491,
+    -0.10183178797985115,
+    -0.37764738235527906,
+    0.2975906693600645
+  ],
+  "design_rank": 4,
+  "cue_constants": {
+    "British": -0.1121287480617563,
+    "American": 0.09153482789794604
+  },
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_REMOVAL_ENDPOINT_FRESH_V1_ROWS.json": "15b1ec68d00fa2d0b51db18613d0f0d80cdbd07b46496c233343ada0034ba7cf",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_FULL_VALUE_REMOVAL_V1_ARTIFACT.pt": "e6afd598c6c877e63b234d2c3ffa5ab256f29060997a1e22beacf83e487dd76f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/freeze_city_full_fresh_v1_baselines.py": "857fc2256d65d24a6728956d2950f91ab84594c8d3500b305ede1d5afc2c16ab"
+  },
+  "scope": "No endpoint indicators; fixed four text features allow unseen endpoint application without assigning new words to old endpoint categories. No model outcomes on the new panel."
+}
