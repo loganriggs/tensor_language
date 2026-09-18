@@ -87,3 +87,11 @@ v80 source fold (both pronoun lines, fresh rows): head 10.1 is a token-only gend
 
 v82 writer fold (9.6's sources, both pronoun lines): the noun and verb states are MLP-written, MLP 8 first (0.27–0.54), MLP 6 second; head 8.1 writes 20% of the gender feature at the verb. MLP 8 is the shared open port across the pronoun lines and the auxiliary families' relay parts.
 v83 pair fold of MLP 8 (both pronoun lines): diffuse (largest pair 15% / 7%); MLP 8 declared port. Both pronoun lines closed at head grain (02:23 UTC).
+
+## Atlas family assignment (02:26 UTC, `atlas_summary.py` FAMILIES, ≥ 2 core heads in the top-4)
+
+100 capable live lines: pronoun 28, number 17, temporal 3, other 52. Among the 52 "other": 16 lines carry 11.3 + 7.8 (with 17.4 or 6.3) — auxiliary
+agreement lines the number core {5.7, 7.8, 9.7} under-counts because they use 11.3 instead of 5.7/9.7 (adjective_finiteness, adjective_subjunctive, agreement_do_does, agreement_lifts_lift, comparative_complement_inferior, dative_alternation, finiteness_selection, for_complementizer_waited …);
+9 carry 13.8 + 7.8 (adjective_preposition_in_of, benefactive_preposition_give, comparative_complement_from_than, comparative_complement_inferior, dative_alternation, for_complementizer_waited, identical_distinct_preposition, verb_particle_up_down, verb_preposition); 5 carry 10.5 + 15.1 + 8.1 (possessive_disjoint_my_your, reflexive_object_control_plural, reflexive_object_control, reflexive_person_plural, reflexive_person). The temporal family's low count (3) is
+because its own four lines are not atlas lines (the atlas ran the corpus candidates, not the lane's authored panels) and most
+tense/mood atlas cells were incapable or not live. The table with the family column: `READOUT_ATLAS_TABLE.md`.
