@@ -1,5 +1,7 @@
 # Plain-language explanations
 
+Latest regional result: [Conditional source roles](for_logan/research_update_2026-09-18_0220_conditional_source_roles.md); retain coupled city interface and test interchange next.
+
 Latest regional result: [Source-group direction failure](for_logan/research_update_2026-09-18_0208_source_direction_failure.md); native and generated reversals agree.
 
 Latest regional result: [Fresh residual6 confirmation](for_logan/research_update_2026-09-18_0152_fresh_residual6.md). Prediction/selectivity pass; composition still failed.

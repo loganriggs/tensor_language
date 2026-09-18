@@ -1610,3 +1610,6 @@ Report: ../../polynomial_causal/explanations/for_logan/research_update_2026-09-1
 
 ### 2026-09-18 — MLP7 city-source direction failure
 Fresh native and generated MLP7-present terms agree on fourreversingdocuments; directiongatefails80%vs90%. Mixedproducts reproducesigns, butselfterms65%positive alsofail. Do not infer MLP7 ownership or a stable sourcecomponent from exactfolds. Canonical failure and receipts: ../CIRCUIT_REGISTRY.md and ../../polynomial_causal/explanations/for_logan/research_update_2026-09-18_0208_source_direction_failure.md. Independentcomposition remainsfailed; nextstrengthdiagnosticusesopenedrows.
+
+### 2026-09-18 — MLP7 source-role hypotheses rejected
+Smallstrength signs persist. Key/value factorial fails cleanrole predictions:context11valuecounteractsrouting, valuepositive55.83%. Preserve module/source conditionality; no new identified component. Canonical record: ../CIRCUIT_REGISTRY.md; report ../../polynomial_causal/explanations/for_logan/research_update_2026-09-18_0220_conditional_source_roles.md. Completecityinterface interchange preflightpasses, freshbehaviorpending; two residual6contexts explicitlypriced.
