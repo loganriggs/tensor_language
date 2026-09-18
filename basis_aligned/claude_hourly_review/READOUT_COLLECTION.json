@@ -1,6 +1,7 @@
 {
  "built_from": "circuits/followups receipts",
  "families": [
+  "correlative",
   "number",
   "person",
   "pronoun",
@@ -797,6 +798,102 @@
     "remainder": -0.00959782525425612
    },
    "scorecard": "claude_hourly_review/SELECTION_PARTICLE_DOD_SCORECARD.md"
+  },
+  {
+   "contrast": [
+    "or",
+    "but"
+   ],
+   "family": "correlative",
+   "fresh_battery": {
+    "additivity": {
+     "bar": 0.1043235535422961,
+     "gap": 0.07562138140201569
+    },
+    "forwards": 123,
+    "fraction": 0.43714243080810694,
+    "keep_only_retention": 1.1345645315938209,
+    "null_max": 0.05930343270301819,
+    "positive": 1.0,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_native_capability": true,
+     "pred_c_set_live_and_beats_null": true,
+     "pred_d_set_selective": true,
+     "pred_e_set_is_additive": true,
+     "pred_f_keep_only_retains_most": true,
+     "pred_g_set_fraction_within_band_of_frozen": true
+    },
+    "receipt": "correlative_either_not_dod_battery_v119_result.json"
+   },
+   "heads": [
+    "16.8",
+    "14.8",
+    "7.8",
+    "8.1"
+   ],
+   "line": "correlative either/not",
+   "natural_fineweb": {
+    "receipt": null
+   },
+   "natural_pile": {
+    "receipt": null
+   },
+   "random_set_null": {
+    "receipt": "correlative_either_not_dod_random_set_null_v121_result.json"
+   },
+   "response_census": {
+    "receipt": "correlative_either_not_dod_response_census_v122_result.json"
+   },
+   "scorecard": "claude_hourly_review/CORRELATIVE_EITHER_NOT_DOD_SCORECARD.md"
+  },
+  {
+   "contrast": [
+    "and",
+    "nor"
+   ],
+   "family": "correlative",
+   "fresh_battery": {
+    "additivity": {
+     "bar": 0.13065290513137975,
+     "gap": 0.2612475762143731
+    },
+    "forwards": 123,
+    "fraction": 0.4644357373745014,
+    "keep_only_retention": 0.955287590433173,
+    "null_max": 0.08675065884987514,
+    "positive": 1.0,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_native_capability": true,
+     "pred_c_set_live_and_beats_null": true,
+     "pred_d_set_selective": true,
+     "pred_e_set_is_additive": false,
+     "pred_f_keep_only_retains_most": true,
+     "pred_g_set_fraction_within_band_of_frozen": true
+    },
+    "receipt": "correlative_both_neither_dod_battery_v120_result.json"
+   },
+   "heads": [
+    "8.1",
+    "7.8",
+    "16.8",
+    "14.8"
+   ],
+   "line": "correlative both/neither",
+   "natural_fineweb": {
+    "receipt": null
+   },
+   "natural_pile": {
+    "receipt": null
+   },
+   "random_set_null": {
+    "receipt": "correlative_both_neither_dod_random_set_null_v123_result.json"
+   },
+   "response_census": {
+    "receipt": "correlative_both_neither_dod_response_census_v124_result.json"
+   },
+   "scorecard": "claude_hourly_review/CORRELATIVE_BOTH_NEITHER_DOD_SCORECARD.md"
   },
   {
    "contrast": [

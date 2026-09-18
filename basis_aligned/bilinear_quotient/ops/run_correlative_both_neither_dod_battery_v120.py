@@ -4,7 +4,7 @@
 
 Lane: Claude circuit lane. Parents: readout atlas v68 (five live correlative lines share {8.1, 16.8, 14.8, 7.8} or three of it: either/neither ->
 or/nor 0.55, both/either -> and/or 0.47, either/not -> or/but 0.43, both/neither -> and/nor 0.45; 8.1 leads, again on a token cue). Frozen before
-access: F* = 0.47 +/- 0.15 (pred_g). Readers: was-were, who-which, night-day (none correlative-marked).
+access: F* = 0.47 +/- 0.15 (pred_g). Readers AS RUN: will-would, who-which, night-day -- importing v104 sets L.READERS at module level (import side effect, found after the run and recorded on the board); the docstring originally said was-were.
 
 ROWS (fresh; `dod_lexicon.fresh`): 16 fresh agents x 16 fresh objects, three frames the module does not use, {both -> " and", neither -> " nor"}:
     chose    "Yesterday the {agent} chose {cue} the {obj}"
@@ -35,16 +35,17 @@ PREDICTIONS = {"pred_a_instrument_replays_native": "<= 1e-4", "pred_b_native_cap
                "pred_c_set_live_and_beats_null": "fraction >= 0.10, positive >= 0.75, > null max", "pred_d_set_selective": "three reader gates",
                "pred_e_set_is_additive": "gap <= 0.25 x min single", "pred_f_keep_only_retains_most": "retention >= 0.70, random <= 0.30",
                "pred_g_set_fraction_within_band_of_frozen": "0.47 +/- 0.15 per construction"}
-AGENT_CANDIDATES = v86.AGENT_CANDIDATES + v76.AGENT_CANDIDATES + v104.AGENT_CANDIDATES
-OBJECT_CANDIDATES = v104.OBJECT_CANDIDATES
+AGENT_CANDIDATES = dod_lexicon.AGENT_POOL
+OBJECT_CANDIDATES = dod_lexicon.OBJECT_POOL
 CONSTRUCTIONS = {"chose": lambda agent, obj, cue: f"Yesterday the {agent} chose {cue} the {obj}",
                  "accept": lambda agent, obj, cue: f"The {agent} would accept {cue} the {obj}",
                  "bought": lambda agent, obj, cue: f"At dawn the {agent} bought {cue} the {obj}"}
 
 
 def build():
-    agents = dod_lexicon.fresh(AGENT_CANDIDATES, 16)
-    objects = dod_lexicon.fresh(OBJECT_CANDIDATES, 16)
+    own = ("correlative_v119_v120_agents", "correlative_v119_v120_objects")   # shared fresh panel, registered after the runs
+    agents = dod_lexicon.fresh(AGENT_CANDIDATES, 16, exclude=own)
+    objects = dod_lexicon.fresh(OBJECT_CANDIDATES, 16, exclude=own)
     pos, neg = L._single(" and"), L._single(" nor")
     reader_ids = {name: (L._single(a), L._single(b)) for name, (a, b) in L.READERS.items()}
     rows = []

@@ -35,6 +35,8 @@ PANELS = {
     "perfect_number_v97_objects": ("plate", "cup", "mug", "pot", "pan", "tray", "jug", "bottle", "can", "brick", "stone", "log", "stick", "wheel", "chain", "hook"),
     "person_v104_v105_agents": ("lecturer", "dean", "freshman", "bartender", "grocer", "usher", "caller", "sender", "player", "gamer", "fan", "chemist", "fisher", "logger", "lieutenant", "rabbi"),
     "person_v104_v105_objects": ("nail", "screw", "bolt", "rug", "sofa", "desk", "shelf", "stool", "crate", "shoe", "pipe", "tube", "wire", "cord", "string", "ribbon"),
+    "correlative_v119_v120_agents": ('preacher', 'magician', 'drummer', 'guitarist', 'composer', 'conductor', 'accountant', 'astronaut', 'athlete', 'broadcaster', 'columnist', 'commentator', 'contractor', 'coroner', 'counselor', 'curator'),
+    "correlative_v119_v120_objects": ('badge', 'basin', 'blade', 'blender', 'brace', 'bracelet', 'broom', 'buckle', 'bumper', 'calculator', 'camera', 'cannon', 'canoe', 'clipboard', 'cushion', 'dagger'),
     "number_v62_places": ("canal", "lodge", "inn", "mine", "farm", "arena", "bakery", "brewery", "cellar", "clinic", "depot", "gallery", "hangar", "plaza", "reef", "shrine"),
 }
 
@@ -67,3 +69,9 @@ def fresh(candidates, n: int, *, plural: bool = False, exclude: tuple[str, ...] 
         if len(out) == n:
             return tuple(out)
     raise L.RowError(f"only {len(out)} fresh single-token candidates of {n} requested: {out}")
+
+
+# Screened pools (2026-09-18 03:22 UTC): single-token, not in used_words() at screening time. Runners pass these to fresh(); registering a
+# runner's own panel afterwards keeps replay stable through fresh(exclude=...).
+AGENT_POOL = ('preacher', 'magician', 'drummer', 'guitarist', 'composer', 'conductor', 'accountant', 'astronaut', 'athlete', 'broadcaster', 'columnist', 'commentator', 'contractor', 'coroner', 'counselor', 'curator', 'diplomat', 'dispatcher', 'explorer', 'firefighter', 'founder', 'goalkeeper', 'governor', 'guardian', 'instructor', 'interpreter', 'inventor', 'journalist', 'linebacker', 'magistrate', 'mathematician', 'medic', 'messenger', 'missionary', 'moderator', 'monarch', 'negotiator', 'novelist', 'photographer', 'physician', 'policeman', 'politician', 'president', 'prisoner', 'prosecutor', 'psychiatrist', 'publisher', 'quarterback', 'researcher', 'retailer', 'reviewer', 'secretary', 'servant', 'sniper', 'sorcerer', 'supervisor', 'technician', 'therapist', 'translator', 'treasurer', 'veterinarian', 'waitress', 'baby', 'child', 'man', 'woman', 'girl', 'boy', 'lady', 'gentleman', 'stranger', 'enemy', 'rival', 'partner', 'colleague', 'uncle', 'aunt', 'nephew', 'niece', 'grandfather', 'grandmother', 'page', 'king', 'queen', 'prince', 'lord', 'cooper')
+OBJECT_POOL = ('badge', 'basin', 'blade', 'blender', 'brace', 'bracelet', 'broom', 'buckle', 'bumper', 'calculator', 'camera', 'cannon', 'canoe', 'clipboard', 'cushion', 'dagger', 'envelope', 'flashlight', 'flask', 'funnel', 'gauge', 'harness', 'headphone', 'hinge', 'joystick', 'keyboard', 'lever', 'magnet', 'manuscript', 'mattress', 'microscope', 'mortar', 'necklace', 'notebook', 'paddle', 'pedal', 'pitcher', 'plaque', 'poker', 'radiator', 'raft', 'reel', 'rifle', 'scissors', 'skillet', 'sponge', 'suitcase', 'telescope', 'tractor', 'tripod', 'trumpet', 'umbrella', 'vacuum', 'valve', 'violin', 'wardrobe', 'whistle', 'wrench', 'zipper', 'pear', 'plum', 'peach', 'grape', 'cherry', 'carrot', 'onion', 'pepper', 'potato', 'tomato', 'bean', 'corn', 'rice', 'bread', 'cake', 'pie', 'soup', 'stew', 'salad', 'cheese', 'butter', 'honey', 'jam', 'candy', 'cookie', 'pasta', 'pizza')

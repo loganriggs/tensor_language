@@ -272,6 +272,9 @@ simplicity comparison and random-split specificity remain missing. [Current Loga
 - **Person readout sets (Claude lane, 2026-09-18):** reflexive person I/you and object-control me/you both at {8.1, 13.1, 10.5, 15.1}
   on `O_h^T(u_myself − u_yourself)`; fresh rows v104 / v105 7/7 each (42% / 46%, frozen bands held, selective, additive, keep-only
   1.21 / 1.29). A fifth family. Scorecards `claude_hourly_review/PERSON_REFLEXIVE_DOD_SCORECARD.md`, `PERSON_OBJECT_CONTROL_DOD_SCORECARD.md`.
+- **Correlative readout sets (Claude lane, 2026-09-18):** either/not → or/but and both/neither → and/nor at {8.1, 16.8, 14.8, 7.8}; fresh rows
+  v119 7/7 (44%) and v120 6/7 (46%, over-additive). A sixth family. Scorecards `claude_hourly_review/CORRELATIVE_EITHER_NOT_DOD_SCORECARD.md`,
+  `CORRELATIVE_BOTH_NEITHER_DOD_SCORECARD.md`.
 - **Temporal will/had readout set (Claude lane, 2026-09-17):** heads {11.3, 9.1, 15.5, 9.4} on `O_h^T(u_will − u_had)`;
   81% of the margin on fresh rows, selective, keep-only sufficient, frozen 0.80 ± 0.15 held on a fourth lexicon and
   a new construction, natural FineWeb/Pile rows pass; 11.3 reads a subject-NP state written by blocks 8–10 whose

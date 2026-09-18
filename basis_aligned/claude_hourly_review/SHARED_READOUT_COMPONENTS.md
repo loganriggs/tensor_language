@@ -157,3 +157,14 @@ assignment is now {11.3, 5.7, 7.8, 9.7} (the union of the two batteried sets), w
 Assignment after widening the number core (03:15): number 35, pronoun 26, other 15, person 13, selection 8, temporal 3 (85 of 100 assigned). Caveat: five selection lines whose top-4 holds 11.3 + 7.8 as well as 13.8 + 8.8 now tie at two core heads each and go to number by the tie rule (family order); the selection family's own count is 13 by the earlier rule. The residue of 15 is the determiner-number crates variants {11.2, 5.7, 16.8, 15.1} and the correlative lines {16.8, 14.8, 8.1}.
 v117: the object-control line's token readers are also a token-only generator (native 94%, constant patterns 94% pooled, CV ≤ 0.15). Person family closed at head grain on both lines with three of four heads closed to tokens + constant patterns (03:16 UTC).
 v118: 10.5's source at the pronoun (person line) is diffuse — embedding 25%, MLPs 45% (largest 13%), heads 30% — declared port; the reflexive-person line is closed at head grain with three heads closed to tokens. Correlative cluster {8.1, 16.8, 14.8, 7.8} (5 atlas lines, 8.1 leading on a token cue) under test as a sixth family (v119 either/not → or/but, v120 both/neither → and/nor).
+
+## Sixth family: correlatives (v119 / v120, 03:24 UTC)
+
+either/not → or/but (v119, 7/7: 44% vs frozen 0.43, positive 96/96, null 0.06, selective, additive, keep-only 1.14) and both/neither → and/nor (v120, 6/7:
+46% vs frozen 0.47, positive 96/96, null 0.09, selective, keep-only 0.96; additivity failed, over-additive with 8.1 at 1.22) at {8.1, 16.8, 14.8, 7.8}.
+Readers as run were will−would / who−which / night−day (an import side effect: the runners import v104, which sets L.READERS at module level;
+corrected in the docstrings and recorded here). Scorecards `CORRELATIVE_EITHER_NOT_DOD_SCORECARD.md`, `CORRELATIVE_BOTH_NEITHER_DOD_SCORECARD.md`.
+
+| family | core heads | lines (atlas, live) | fresh-row battery |
+|---|---|---|---|
+| correlative | 8.1, 16.8, 14.8, 7.8 | 5 correlative lines | either/not (v119 7/7), both/neither (v120 6/7) |
