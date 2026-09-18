@@ -25165,3 +25165,6 @@ Receipt `circuits/followups/pronoun_gender_dod_unit3943_pair_fold_v180_result.js
 
 ### 2026-09-18T14:55Z — Claude: pronoun number v181 — 1/4 product pair fold of the plural detector 829: MLP-6 pairs 45%, embedding 26%, block-6 attention 11%, MLP 7 4.5%, head 8.1 −1%; top pair mlp:05 × mlp:06 0.084. 'Top pair involves the embedding', 'MLP-6 pairs net negative', '8.1 ≥ 0.30' all FALSIFIED: the number detector is a contextual MLP-6-built product, not a token product
 Receipt `circuits/followups/pronoun_number_dod_unit829_pair_fold_v181_result.json` (3 forwards). Next bounded item: MLP-6 unit census into 829 (v179 pattern).
+
+### 2026-09-18T14:58Z — Claude: pronoun number v182 — 3/4 MLP 6 at unit grain into the plural detector 829 (exact leave-one-unit-out product change at the noun): units 2483 (22%), 2826 (21%), 4131 (14%) support, 852 / 69 / 1868 damp; top-10 55%, top-50 79% ('≥ 0.80' FALSIFIED by 0.01). The port opens to three named MLP-6 units
+Receipt `circuits/followups/pronoun_number_dod_mlp6_units_into_829_v182_result.json` (3 forwards). Product-level census (sign-carrying), per the v177 lesson.
