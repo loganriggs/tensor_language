@@ -25417,3 +25417,6 @@ Receipt `circuits/followups/noun_number_demonstrative_dod_unit3892_carrier_split
 
 ### 2026-09-18T18:46Z — Claude: noun-number numeral v257 — 2/4 MLP-8 census on 11.2's direction: cue spread (top-10 35%; leader 2428 13%; 3892 opposes −6%), Jaccard with the demonstrative cue 0.13 (FALSIFIED); at the final 3892 leads on both lines (+20%). 3892 is a these-detector; the lines share a plural re-detection at the final only
 Receipt `circuits/followups/noun_number_numeral_dod_mlp8_unit_census_v257_result.json` (3 forwards).
+
+### 2026-09-18T18:48Z — Claude: noun-number numeral v258 — 4/5 units 2428 (cue) and 3892 (final) under edit: 2428 a three-detector (48/48, cos −0.23) whose zeroing RAISES the margin 0.3% ('removes > 0' FALSIFIED); 3892 at the final +0.1% (beats random). The numeral line's MLP-8 stage is near-inert; family thread stopped
+Receipt `circuits/followups/noun_number_numeral_dod_mlp8_units_2428_3892_v258_result.json` (108 forwards).

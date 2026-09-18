@@ -1,0 +1,51 @@
+{
+  "candidate_id": "noun_number_numeral.three_vs_one.dod_mlp8_units_2428_3892_v258",
+  "closure_max": 8.981003648011389e-05,
+  "finished_utc": "2026-09-18T18:46:58.383113+00:00",
+  "forwards": 108,
+  "plan": {
+    "bars": {
+      "agree_min": 0.9,
+      "cos_min": 0.2,
+      "n_null": 16,
+      "seed": 258
+    },
+    "candidate_id": "noun_number_numeral.three_vs_one.dod_mlp8_units_2428_3892_v258",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 108,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "dbd34d63e003c27205bb418731e9daa23941870490267b2b82a267a267c03925",
+    "unit": 2428
+  },
+  "predictions": {
+    "pred_a_2428_separates_three_one": true,
+    "pred_b_2428_down_aligns_with_reader": true,
+    "pred_c_2428_cue_edit_beats_random": false,
+    "pred_d_3892_final_edit_beats_random": true,
+    "pred_e_3892_final_larger_than_2428_cue": true
+  },
+  "report": {
+    "cos_down2428_reader": -0.22735859582513152,
+    "margin_change_2428_cue": -0.003117827025809374,
+    "margin_change_3892_final": 0.000956364494330477,
+    "margin_native_pooled": 343.27741384506226,
+    "null_cue_max": 0.0006149680197696664,
+    "null_final_max": 0.00026658312230025546,
+    "pairs": 48,
+    "r_dot_down2428": -14.038597106933594,
+    "sign_agreement_cue": 1.0,
+    "u2428_cue_means": {
+      "one": -13.971742944686254,
+      "three": -38.90176775265973
+    },
+    "u2428_three_minus_one_pooled_cue": -1196.6411907827269,
+    "u2428_three_minus_one_pooled_final": -1329.9180295616231
+  },
+  "schema": "aspectual_dod_mlp8_units_2428_3892_result_v258",
+  "serial_seconds": 3.374408976873383
+}

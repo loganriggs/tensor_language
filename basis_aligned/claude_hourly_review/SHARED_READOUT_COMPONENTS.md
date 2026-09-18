@@ -363,3 +363,4 @@ v254 (3/4, noun-number demonstrative): MLP 8 on 11.2's direction = one unit, 389
 v255 (3/4): 3892 is a plural-determiner detector (48/48; cos −0.32 with 11.2's reader); edit −0.66% at the cue, −1.3% all positions, random units 0.00%. Small on the path, like the other MLP-8 detectors. v256: is 3892 token-carried (determiner embedding) or computed?
 v256 (3/5): 3892 is half token-carried (embedding 38%) and half computed (MLPs 46%, MLP 7 22%) — between gender and number. Four families in the MLP-8 table now.
 v257 (2/4, numeral line): at the cue 3892 opposes (−6%) and unit 2428 leads (13%, spread); at the final 3892 leads on both lines (+20%). 3892 = these-detector; shared re-detection at the final only. v258: edits of 2428 (cue) and 3892 (final) on the numeral line.
+v258 (4/5, numeral): 2428 = three-detector (48/48) that OPPOSES the margin (−0.3%); 3892 at the final +0.1%. Noun-number MLP-8 stage near-inert; thread stopped. 108 forwards spent for a small result.
