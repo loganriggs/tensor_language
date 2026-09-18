@@ -358,3 +358,4 @@ v253 (2/4, temporal): MLP 8 at the bank is spread (top-10 19%, leader 9%) — po
 | number they/he ({9.6, 12.4, 15.1, 10.5}) | noun and verb | concentrated: top-10 78–89% | 829 plural, 953 singular, 1030 weak | MLP stack 3–7 (computed) | 5.3% noun, 5.9% verb, 11.8% both [v169b, v215] |
 | gender he/she ({10.1, 9.6, 12.4, 15.1}) | noun and verb | concentrated: top-10 ~90% | 3152 male, 3943 female | the noun token via 8.1 / 6.x copies | 2.6% noun, 7.8% all [v165] |
 | temporal has/had ({8.1, 9.1, 9.4}) | bank (last / period / the) | spread, mixed sign: top-10 19% | none on the path (13 is a since-detector, inert) | 8.1's cue copy + diffuse MLPs 6–8 | — (port) [v251–v253] |
+v254 (3/4, noun-number demonstrative): MLP 8 on 11.2's direction = one unit, 3892 (93% at the cue), not 829/953 (Jaccard 0.06; 829 rank 4 at ~2%). Determiner number and noun number have separate MLP-8 detectors; readers are shared, detectors are not. v255: what 3892 is (weights, activation, edit).

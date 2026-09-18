@@ -25405,3 +25405,6 @@ Receipt `circuits/followups/aspectual_dod_mlp8_unit13_v252_result.json` (6 forwa
 
 ### 2026-09-18T18:38Z — Claude: aspectual v253 — 2/4 MLP-8 census at the bank: spread and mixed-sign (top-10 19%, leader unit 13 at 9%), stable across constructions; 'top-10 ≥ 0.50' and 'one unit ≥ 0.15' FALSIFIED. Temporal MLP-8 port DECLARED. Three-family MLP-8 comparison table added to SHARED_READOUT_COMPONENTS.md
 Receipt `circuits/followups/aspectual_dod_mlp8_unit_census_bank_v253_result.json` (2 forwards).
+
+### 2026-09-18T18:41Z — Claude: noun-number demonstrative v254 — 3/4 MLP-8 census on 11.2's ones−one direction: ONE unit, 3892, carries 93% at the cue (684 opposes −26%); 829 rank 4 (~2%), 953 absent; Jaccard with the pronoun-number top-50 0.06 (FALSIFIED). Determiner number and noun number have separate MLP-8 detectors; readers shared, detectors not
+Receipt `circuits/followups/noun_number_demonstrative_dod_mlp8_unit_census_v254_result.json` (3 forwards).
