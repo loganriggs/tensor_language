@@ -33,6 +33,8 @@ PANELS = {
     "selection_particle_v86_objects": ("cane", "cloak", "bench", "stove", "cage", "chest", "clock", "trunk", "hat", "coat", "boot", "glove", "belt", "scarf", "shirt", "sock"),
     "perfect_number_v97_agents": ("infant", "teenager", "adult", "sibling", "twin", "attorney", "detective", "trooper", "professor", "mentor", "pupil", "intern", "apprentice", "graduate", "listener", "viewer"),
     "perfect_number_v97_objects": ("plate", "cup", "mug", "pot", "pan", "tray", "jug", "bottle", "can", "brick", "stone", "log", "stick", "wheel", "chain", "hook"),
+    "person_v104_v105_agents": ("lecturer", "dean", "freshman", "bartender", "grocer", "usher", "caller", "sender", "player", "gamer", "fan", "chemist", "fisher", "logger", "lieutenant", "rabbi"),
+    "person_v104_v105_objects": ("nail", "screw", "bolt", "rug", "sofa", "desk", "shelf", "stool", "crate", "shoe", "pipe", "tube", "wire", "cord", "string", "ribbon"),
     "number_v62_places": ("canal", "lodge", "inn", "mine", "farm", "arena", "bakery", "brewery", "cellar", "clinic", "depot", "gallery", "hangar", "plaza", "reef", "shrine"),
 }
 

@@ -44,8 +44,9 @@ CONSTRUCTIONS = {"after": lambda agent, obj, cue: f"After the {obj} fell, {cue} 
 
 
 def build():
-    agents = dod_lexicon.fresh(AGENT_CANDIDATES, 16)
-    objects = dod_lexicon.fresh(OBJECT_CANDIDATES, 16)
+    own = ("person_v104_v105_agents", "person_v104_v105_objects")   # the two person lines share one fresh panel, registered after the runs
+    agents = dod_lexicon.fresh(AGENT_CANDIDATES, 16, exclude=own)
+    objects = dod_lexicon.fresh(OBJECT_CANDIDATES, 16, exclude=own)
     pos, neg = L._single(" myself"), L._single(" yourself")
     reader_ids = {name: (L._single(a), L._single(b)) for name, (a, b) in L.READERS.items()}
     rows = []

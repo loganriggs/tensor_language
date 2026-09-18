@@ -121,3 +121,13 @@ v97 (02:43 UTC): the number family's second line at fresh grain — perfect have
 v98–v101 (perfect have/has): random-set null 4/4; census 60% direct with an MLP 9–17 relay; natural FineWeb 11% / Pile 25% of the margin, positive 32/32 and 30/32; the counter-case prediction (far noun of the other number) failed for the third and fourth time on a number line: number readout sets carry the RESOLVED subject number (v77, v78, v100, v101), the gender set tracks the noun (v73, v75).
 v102 (have/has pairwise): the additivity failure is a serial relay — pair terms with 11.3 carry 82% of the interaction, largest 11.3 × 7.8; higher-order terms negligible. Same shape as the temporal family's 9.1 → 11.3 relay (review 6).
 v103 (have/has folds): 11.3 reads the head noun (0.60) and the preposition (0.39); the noun state on its reader direction is 85% MLP-written (MLPs 8/9/10), heads 4% — the v102 pair synergy is not a head-to-head relay but a downstream MLP one. Perfect have/has closed at head grain with MLPs 8–10 / 9–17 as ports (02:51 UTC). Every family now has two lines closed at head grain.
+
+## Fifth family: person (v104 / v105, 03:05 UTC)
+
+Reflexive person I/you (subject antecedent) and object-control me/you (object antecedent) both read out at {8.1, 13.1, 10.5, 15.1} along
+`O_h^T(u_myself − u_yourself)`: 42% and 46% on fresh rows (frozen 0.46 / 0.54 ± 0.15 held), positive 96/96 each, null ≤ 0.02, selective,
+additive, keep-only 1.21 / 1.29 — 14/14. Scorecards `PERSON_REFLEXIVE_DOD_SCORECARD.md`, `PERSON_OBJECT_CONTROL_DOD_SCORECARD.md`.
+
+| family | core heads | lines (atlas, live) | fresh-row battery |
+|---|---|---|---|
+| person | 8.1, 13.1, 10.5, 15.1 | 5 reflexive / possessive person lines | reflexive I/you (v104 7/7), object control me/you (v105 7/7) |
