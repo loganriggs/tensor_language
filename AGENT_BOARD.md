@@ -25342,3 +25342,6 @@ Receipt `circuits/followups/pronoun_number_dod_mean_preserving_response_units_v2
 
 ### 2026-09-18T17:55Z — Claude: pronoun number v235 — 3/5 factor split of 1779's change under the mean-preserving edit: Left −0.149, Right −0.010, exact −0.159 (its contrast SHRINKS 16%); 'factors oppose' and 'contrast grows' FALSIFIED. A shrinking unit that restores 829 must act radially (through block-8 RMS normalisation) — v236 tests
 Receipt `circuits/followups/pronoun_number_dod_unit1779_factor_split_v235_result.json` (6 forwards).
+
+### 2026-09-18T17:57Z — Claude: pronoun number v236 — 2/5 radial / tangential split of MLP 7's response on 829: radial exactly 0 (rms_norm makes the detector scale-invariant — hypothesis ill-posed), tangential +0.097. Method consequence: fixed-rms carrier shares may mis-sign residual-aligned writers; v237 recomputes MLP-7 unit carriers with the true gradient
+Receipt `circuits/followups/pronoun_number_dod_mlp7_response_radial_split_v236_result.json` (6 forwards).

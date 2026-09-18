@@ -1,0 +1,46 @@
+{
+  "candidate_id": "pronoun_number.they_vs_he.dod_mlp7_response_radial_split_v236",
+  "finished_utc": "2026-09-18T17:55:19.315391+00:00",
+  "forwards": 6,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "half": 0.5
+    },
+    "candidate_id": "pronoun_number.they_vs_he.dod_mlp7_response_radial_split_v236",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 8,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117",
+    "units": [
+      2483,
+      2826,
+      4131
+    ]
+  },
+  "predictions": {
+    "pred_a_baseline_replays_v206": true,
+    "pred_b_split_closure": true,
+    "pred_c_radial_part_dominates": false,
+    "pred_d_tangential_part_has_feed_sign": false,
+    "pred_e_1779_radial_share": false
+  },
+  "report": {
+    "margin_native_pooled": 196.62155771255493,
+    "max_closure": 0.0,
+    "mlp7_exact": 0.0973303157905539,
+    "mlp7_radial": 4.935603663015386e-05,
+    "mlp7_tangential": 0.09728095975392374,
+    "u1779_exact": 0.06407632799822749,
+    "u1779_radial": -1.551845589932015e-05,
+    "u1779_tangential": 0.06409184645412681,
+    "u829_contrast": 4823.689593277872
+  },
+  "schema": "pronoun_number_dod_mlp7_response_radial_split_result_v236",
+  "serial_seconds": 1.809169450076297
+}
