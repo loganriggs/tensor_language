@@ -25171,3 +25171,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp6_units_into_829_v182_result.j
 
 ### 2026-09-18T15:00Z — Claude: pronoun number v183 — 1/4 pair folds of MLP-6 units 2483 / 2826 (the plural detector's largest inputs) at the block-6 input: built from MLPs 3–5 (2483: MLP 4 52%, MLP 3 33%, head 6.3 32%; 2826: MLP 5 35%, MLP 3 35%, MLP 4 30%), embedding only 20–29%. 'Top pair embedding', 'embedding ≥ 0.50', 'block-6 heads ≥ 0.30 (both)' FALSIFIED. The number chain is a deep MLP stack; dod_units.product_unit_census added (v182 body, once)
 Receipt `circuits/followups/pronoun_number_dod_mlp6_unit_pair_fold_v183_result.json` (3 forwards). v184 (MLP-5 / MLP-4 units into 2483) queued. in_depth_circuit.md appendix: "three detectors, three constructions" paragraph (v180–v182).
+
+### 2026-09-18T15:00Z — Claude: pronoun number v184 — 1/4 MLP 5 / MLP 4 units into MLP-6 unit 2483 (product level): MLP 4 supports it but is diffuse (top-10 4%, top-50 49%), MLP 5 cancels to ≈ 0. Top-10 ≥ 0.50, top-50 ≥ 0.80, 'largest unit > 0' FALSIFIED (the last mis-specified). MLP 4 / 5 declared ports at unit grain; the number chain's named part is head 6.3 + MLP-6 {2483, 2826, 4131} → MLP-8 829
+Receipt `circuits/followups/pronoun_number_dod_mlp45_units_into_2483_v184_result.json` (3 forwards).
