@@ -49,6 +49,15 @@ number reader is expected and is reported, not hidden. **Two falsified predictio
 gender set's incongruent rows shifted toward the text. Reading: the number set carries the number the model resolved for
 the referent (which on natural text is usually the text's), not the surface noun's; the gender set tracks the noun.
 
+**Where the coefficients come from (v80, fold, exact).** Gender set: head 10.1 reads the gendered noun token itself
+(98% of its contrast from the noun position, 72% through the token-only block-0 value), the same shape as the temporal
+family's cue reader 8.1; 15.1 is half noun / half token-only; 9.6 and 12.4 read a contextual state, 40–50% at the noun and
+the rest spread over the other positions, with a negligible token-only share. Number set: every head is contextual (token-only
+2–11%), noun share 0.34 pooled against the gender line's 0.61. Two registered predictions failed and are kept: "noun is the
+largest category for every gender head" (false for 9.6, 12.4) and "token-only share ≤ 0.30 on both lines" (false for gender,
+because of 10.1 and 15.1). This is the mechanism behind the counter-cases: the gender set has token readers of the noun and
+follows it; the number set reads what earlier blocks resolved.
+
 **What is different from the auxiliary families.** Removal along one weight-only direction per head takes the *entire*
 margin (the auxiliary sets take 45–60%), keep-only raises the margin above native, and additivity sits exactly at the
 bar with 12.4 the largest single. The response census (v74, exact λ-recurrence split, closure 7e-5) confirms it: the four heads' own writes carry 94% of
