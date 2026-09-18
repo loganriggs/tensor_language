@@ -25114,3 +25114,6 @@ Receipts v161 (57 forwards), v162 (6). Per module (v162): attn:07 −0.06, attn:
 
 ### 2026-09-18T13:34Z — Claude: numeral three/one v163 — 2/3 rank-2 keep: ones−one alone 0.62 (replays v158), ones−one + were−was 0.62 (the number direction adds nothing), random rank-2 ≤ 0.08; 'rank-2 ≥ 0.70' FALSIFIED. Sufficiency declared open on the numeral line (as on the third correlative). Thread stopped per review 21
 Receipt `circuits/followups/noun_number_numeral_dod_keep_rank2_v163_result.json` (63 forwards; zero damage 1.80). Queue left to Codex; both sufficiency gaps (v147/v148, v158/v163) are now declared rather than open questions.
+
+### 2026-09-18T14:24Z — Claude: pronoun gender v164 — 4/4 MLP 8 unit census: the gender write on 9.6's reader direction at the noun is two units — 3152 (56%) and 3943 (20%); top-10 80%, top-50 88%, top-500 96% of 4608; frame-wise top-50 Jaccard ≥ 0.52; closure 3e-6. The declared port (diffuse by writer pair, v83) is concentrated by unit. v165 edits the two units
+Receipt `circuits/followups/pronoun_gender_dod_mlp8_unit_census_v164_result.json` (2 forwards). Top units and pooled contrasts: 3152 73216, 3943 26176, 4582 1221, 3692 1197, 1959 1154, 4051 873, 3958 832, 953 −691 (units in reader-projected units; total 131192). Lane now runs by default (protocol updated 13:50): a bounded item stays queued at every review.

@@ -26,13 +26,14 @@ opens the PRONOUN readout family alongside the temporal and number families at t
 | 13 | Pair-term fold of MLP 8's write at the noun and verb along 9.6's reader direction (exact bilinear expansion over 26 writers, closure 3e-5): diffuse — no pair above 15%; verb: pairs with 8.1 0.33, with MLP 6/7 0.43, top pairs mlp6×mlp6 −0.12, mlp6×attn7 +0.12; noun: embed×mlp7 0.15, embed×mlp5 0.11 | fold | fresh (v83) | registered "top verb pair involves 8.1" false, "8.1 pairs ≥ 0.50" false, "embed² ≥ 0.20 at the noun" false | 1/5 — MLP 8's part does not close by folding; **declared port** (as on the auxiliary lines) |
 | 14 | Token-only generator for the two token readers {10.1, 15.1} (9.6 / 12.4 left native): p × λ × v1(noun) with the native pattern retains 78% of their zeroed service (registered ≥ 0.80: failed); a constant pattern per (head, gender side) from the other constructions 79% pooled — lost 0.93, later 1.00, because 0.49 (registered ≥ 0.50 per construction: failed on the comma frame); pattern CV ≤ 0.32 | edit | fresh (v137) | | 3/5 — the two heads are mostly a token lookup; the comma frame ('Because the hero wanted the compass,') keeps a fifth of their service off the token term |
 | 15 | Head 8.1's write at the VERB position (20% of the gender state 9.6 reads there, v82), folded on 9.6's reader direction (exact, closure 2e-7): 99% from the gendered-noun position, 96% through the token-only block-0 value branch, positive | fold | fresh (v145) | | 4/4 — 8.1 is the same token copier at the verb as at the final query: it carries the noun's block-0 value to wherever its pattern lands (v12 / v113 / v133 mechanism), and 9.6 reads that copy |
+| 16 | MLP 8 at UNIT grain (exact per-unit split of r·mlp8(noun) on 9.6's reader direction, closure 3e-6): unit 3152 carries 56% of the male−female contrast, unit 3943 20%; top-10 units 80%, top-50 88%, top-200 92%, top-500 96% of 4608; the per-frame top-50 sets overlap (min Jaccard 0.52) | fold | fresh (v164) | all four registered readings held | 4/4 — the declared MLP 8 port (v83: diffuse by writer pair) is two units when split by unit; edit test v165 |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
 | Simple | held at head grain (row 6) | — |
 | Predicts OOD | held on natural FineWeb and out-of-corpus Pile rows with frozen bars (rows 7, 9); fresh synthetic panel live everywhere but the frozen band failed upward on one frame (row 2) | — |
-| Extracted | held at the head boundary (row 5); direct readout (row 8); sources folded to token readers (10.1, 15.1) and, for 9.6, to MLP 8 / MLP 6 / head 8.1 at the noun and verb (rows 10–12) | MLP 8 declared as the open port (row 13); the component is closed at head grain with token readers 10.1/15.1 and contextual readers 9.6/12.4 whose MLP-borne inputs are the port |
+| Extracted | held at the head boundary (row 5); direct readout (row 8); sources folded to token readers (10.1, 15.1) and, for 9.6, to MLP 8 (rows 10–13), whose write on 9.6's direction is two units (row 16) | edit the two units (v165): live, null-beating, selective? |
 | Selective | held (rows 1, 3) | — |
 | Composes | additive, gap at the bar (row 4) | pairwise + random-split null |
 
@@ -40,6 +41,7 @@ opens the PRONOUN readout family alongside the temporal and number families at t
 - v145: `.../pronoun_gender_dod_8_1_at_verb_v145_result.json`; code `ops/run_pronoun_gender_dod_8_1_at_verb_v145.py`
 - v137: `.../pronoun_gender_dod_token_only_generator_v137_result.json`; code `ops/run_pronoun_gender_dod_token_only_generator_v137.py` (v113's body)
 - atlas v68: `bilinear_quotient/circuits/followups/atlas_pronoun_gender_v68_result.json` (724 forwards, rows sha e0c60bf6a3c4…)
+- v164 (MLP 8 unit census): `.../pronoun_gender_dod_mlp8_unit_census_v164_result.json`; code `ops/run_pronoun_gender_dod_mlp8_unit_census_v164.py`
 - v83 (both lines, MLP 8 pair fold): `.../pronoun_dod_mlp8_pair_fold_v83_result.json`; code `ops/run_pronoun_dod_mlp8_pair_fold_v83.py`
 - v82 (both lines, writers of 9.6's sources): `.../pronoun_dod_verb_writer_fold_v82_result.json`; code `ops/run_pronoun_dod_verb_writer_fold_v82.py`
 - v81 (both lines, position grain): `.../pronoun_dod_source_fold_positions_v81_result.json`; code `ops/run_pronoun_dod_source_fold_positions_v81.py`
