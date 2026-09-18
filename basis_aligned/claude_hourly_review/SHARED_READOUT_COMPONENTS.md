@@ -95,3 +95,13 @@ agreement lines the number core {5.7, 7.8, 9.7} under-counts because they use 11
 9 carry 13.8 + 7.8 (adjective_preposition_in_of, benefactive_preposition_give, comparative_complement_from_than, comparative_complement_inferior, dative_alternation, for_complementizer_waited, identical_distinct_preposition, verb_particle_up_down, verb_preposition); 5 carry 10.5 + 15.1 + 8.1 (possessive_disjoint_my_your, reflexive_object_control_plural, reflexive_object_control, reflexive_person_plural, reflexive_person). The temporal family's low count (3) is
 because its own four lines are not atlas lines (the atlas ran the corpus candidates, not the lane's authored panels) and most
 tense/mood atlas cells were incapable or not live. The table with the family column: `READOUT_ATLAS_TABLE.md`.
+
+## Fourth family candidate: complement selection (v85, 02:29 UTC)
+
+Adjective preposition in/of on fresh rows: set {8.8, 6.3, 13.8, 7.8} 57% (frozen 0.54 ± 0.15 held in all three frames), positive 96/96,
+null max 0.06, selective by the gate (night−day 4× null, stated), additive, keep-only 1.08 — 7/7. The same four heads were v54's
+on/of set. Scorecard `SELECTION_DOD_SCORECARD.md`. Family test next: verb particle up/down on the shared core {13.8, 7.8, 8.8}.
+
+| family | core heads | lines (atlas, live) | fresh-row battery |
+|---|---|---|---|
+| selection | 13.8, 7.8 (+8.8, 6.3, 14.8) | 9 complement / particle / preposition lines + v54 | adjective preposition in/of (v85 7/7) |
