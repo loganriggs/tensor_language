@@ -25330,3 +25330,6 @@ Receipt `circuits/followups/pronoun_number_dod_unit1779_carrier_split_v230_resul
 
 ### 2026-09-18T17:47Z — Claude: pronoun number v231 — 3/4 MLP-6 unit carriers into 1779: the trio carries 57% of MLP 6's total with the SAME sign (2826 −60, 2483 −47 of −189); 'trio carries against' FALSIFIED. Damping falsified at unit grain; the compensation must be mean-driven — v232 computes 1779's in-place change
 Receipt `circuits/followups/pronoun_number_dod_mlp6_unit_carriers_into_1779_v231_result.json` (3 forwards).
+
+### 2026-09-18T17:49Z — Claude: pronoun number v232 — 3/4 in-place change of 1779 under the trio's removal: carrier +0.151, exact −0.085 (rms held) / −0.364 (recomputed); 'rms effect ≤ 0.25' FALSIFIED (3.3×). Mechanism: mean-driven terms + RMS renormalisation — homeostasis by normalisation. Document updated
+Receipt `circuits/followups/pronoun_number_dod_unit1779_in_place_change_v232_result.json` (3 forwards).
