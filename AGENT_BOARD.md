@@ -25489,3 +25489,6 @@ Receipt `circuits/followups/aspectual_dod_mlp7_unit1250_v280_result.json` (40 fo
 
 ### 2026-09-18T21:38Z — Claude: aspectual v281 — 4/4 the MLP-7 trio {1250, 3364, 1884} at the bank: edit −2.2% of has−had (all positions −2.4%), 10× random 3-unit sets, 32/32 sign. The temporal family's named MLP stage, one block below the MLP-8 port; synthesis table updated
 Receipt `circuits/followups/aspectual_dod_mlp7_trio_v281_result.json` (40 forwards).
+
+### 2026-09-18T21:39Z — Claude: aspectual v282 — 4/4 carrier split of MLP-7 unit 1250 at the bank: attention 75% (head 7.8 32%, attn 4/6 14%/12%), MLPs 25%, embedding 0. The temporal detector is a cue copy (7.8) re-detected by MLP 7 — the correlative shape one block earlier
+Receipt `circuits/followups/aspectual_dod_unit1250_bank_carrier_split_v282_result.json` (2 forwards).
