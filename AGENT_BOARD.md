@@ -25159,3 +25159,6 @@ Receipt `circuits/followups/pronoun_gender_dod_unit3152_pair_fold_v178_result.js
 
 ### 2026-09-18T14:51Z — Claude: pronoun gender v179 — 1/3 MLP 7 at unit grain feeding the male detector: diffuse (Left top-10 −41%, top-50 45%; Right top-10 7%, top-50 31%; cancelling signs); 'top-10 ≥ 0.50' and 'top-50 ≥ 0.80' FALSIFIED. MLP 7 declared a port at unit grain. Gender chain: token (embedding + 6.1 / 8.1 self-copies) × distributed MLP-7 write → MLP-8 unit 3152, damped by MLP-6 unit 3230 → 9.6 → he−she. Appendix added to for_logan/in_depth_circuit.md
 Receipt `circuits/followups/pronoun_gender_dod_mlp7_unit_census_for_unit_v179_result.json` (4 forwards). Next: v180, the product-level pair fold of the female detector 3943 (is it the same embedding × MLP-7 structure?).
+
+### 2026-09-18T14:52Z — Claude: pronoun gender v180 — 2/4 product pair fold of the female detector 3943: embedding pairs 44%, MLP-6 pairs +26% (SUPPORTS it — opposite to its damping of the male unit; 'MLP 6 net negative' FALSIFIED), MLP-7 +25%, 8.1 23% ('≥ 0.30' FALSIFIED), no pair above 8%. The two gender units differ in construction
+Receipt `circuits/followups/pronoun_gender_dod_unit3943_pair_fold_v180_result.json` (2 forwards). v181 (plural detector 829, number line) running.
