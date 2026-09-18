@@ -1,0 +1,73 @@
+{
+  "candidate_id": "pronoun_number.they_vs_he.dod_head57_unit69_three_way_split_v244",
+  "closure_max": 2.2983251828593482e-08,
+  "finished_utc": "2026-09-18T18:09:18.744825+00:00",
+  "forwards": 6,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "noun_max": 0.3,
+      "reader_min": 0.8,
+      "value_max": 0.02
+    },
+    "candidate_id": "pronoun_number.they_vs_he.dod_head57_unit69_three_way_split_v244",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 8,
+    "gpu_accessed": false,
+    "head": "5.7",
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "position": "verb",
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117",
+    "unit": 69
+  },
+  "predictions": {
+    "pred_a_split_closure": true,
+    "pred_b_start_values_do_not_change": true,
+    "pred_c_start_sources_are_reader_borne": true,
+    "pred_d_noun_share_small": true
+  },
+  "report": {
+    "corr_abs_share": 3.900560893511518e-08,
+    "noun_share": 0.13371541525615402,
+    "noun_value_fraction": 0.06896500481318993,
+    "pairs": 48,
+    "pooled": {
+      "noun_corr": 1.341104507446289e-06,
+      "noun_pattern": -0.23522468510782346,
+      "noun_reader": 36.07157501578331,
+      "noun_value": 2.6545233834476676,
+      "self_corr": -5.885958671569824e-07,
+      "self_pattern": 0.7339810471166857,
+      "self_reader": 10.413528300821781,
+      "self_value": 3.0362796154804528,
+      "start_corr": 9.298324584960938e-06,
+      "start_pattern": 0.3013453153835144,
+      "start_reader": 234.8806586265564,
+      "start_value": 0.0
+    },
+    "self_share": 0.04927378631230385,
+    "shares": {
+      "noun_corr": 4.658931392382702e-09,
+      "noun_pattern": -0.0008171590384100361,
+      "noun_reader": 0.12531088537889432,
+      "noun_value": 0.009221684256738352,
+      "self_corr": -2.0447532222124086e-09,
+      "self_pattern": 0.0025498142186825864,
+      "self_reader": 0.036176087424049874,
+      "self_value": 0.010547886714324611,
+      "start_corr": 3.230192432052007e-08,
+      "start_pattern": 0.0010468588704254647,
+      "start_reader": 0.8159639072591923,
+      "start_value": 0.0
+    },
+    "start_reader_fraction": 0.9987186323921794,
+    "start_share": 0.8170107984315421,
+    "start_value_abs_share": 0.0
+  },
+  "schema": "pronoun_number_dod_head63_head57_unit69_three_way_split_result_v244",
+  "serial_seconds": 1.7577119511552155
+}

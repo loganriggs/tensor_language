@@ -25366,3 +25366,6 @@ Receipt `circuits/followups/pronoun_number_dod_unit69_verb_carrier_split_v242_re
 
 ### 2026-09-18T18:08Z — Claude: pronoun number v243 — 3/4 block-4/5 heads into MLP-6 unit 69 at the verb: block 4 nets to zero (4.5 +97 vs 4.0 −60), block 5 = head 5.7 (199%, opposed by 5.3) reading the sentence start 82%; 'leading heads read the noun' FALSIFIED. The v187 shape again; v244 splits 5.7 three ways
 Receipt `circuits/followups/pronoun_number_dod_unit69_verb_head_source_fold_v243_result.json` (9 forwards).
+
+### 2026-09-18T18:10Z — Claude: pronoun number v244 — 4/4 three-way split of head 5.7 into MLP-6 unit 69 at the verb: 82% from the sentence start, 99.9% reader-borne; noun 13%, verb 5%. 5.7 is a multiplier at the verb as 6.3 is at the noun. Document updated
+Receipt `circuits/followups/pronoun_number_dod_head57_unit69_three_way_split_v244_result.json` (6 forwards).
