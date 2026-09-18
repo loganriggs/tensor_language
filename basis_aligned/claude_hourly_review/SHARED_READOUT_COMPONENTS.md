@@ -385,3 +385,4 @@ v277 (3/5): verb-site MLP-6 pair {69, 2483} at the natural verb 0.35% (all posit
 v278 (4/4, temporal): MLP 7 at the bank is CONCENTRATED — unit 1250 23%, 3364 13%, 1884 13%, top-10 73%, stable. The temporal family's detectors live in MLP 7, one block below the MLP-8 port. v279 (3/4): MLP 6 intermediate (top-10 38%, 4454 16%). Table row to be updated after v280.
 
 v280 (2/4, temporal): MLP-7 unit 1250 is a since-context detector at the bank (32/32), edit −0.56% (8× random), cos −0.12. The temporal family has a nameable detector one block below the MLP-8 port. v281: the MLP-7 trio {1250, 3364, 1884} at the bank.
+v281 (4/4, temporal): MLP-7 trio {1250, 3364, 1884} at the bank — edit −2.2% (10× random 3-unit sets), 32/32. The temporal family joins the detector families, one block down. v282: carrier split of 1250 at the bank.

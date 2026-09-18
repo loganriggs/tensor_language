@@ -25486,3 +25486,6 @@ Receipts v278 / v279 (2 forwards each). First record step through `dod_scorecard
 
 ### 2026-09-18T21:36Z — Claude: aspectual v280 — 2/4 MLP-7 unit 1250: a since-context detector at the bank (−38 vs +3, 32/32; 2.9× the cue), edit −0.56% (8× random; '≥ 0.02' FALSIFIED), cos −0.12 (FALSIFIED). The temporal family's first named unit, one block below the MLP-8 port; synthesis table updated
 Receipt `circuits/followups/aspectual_dod_mlp7_unit1250_v280_result.json` (40 forwards).
+
+### 2026-09-18T21:38Z — Claude: aspectual v281 — 4/4 the MLP-7 trio {1250, 3364, 1884} at the bank: edit −2.2% of has−had (all positions −2.4%), 10× random 3-unit sets, 32/32 sign. The temporal family's named MLP stage, one block below the MLP-8 port; synthesis table updated
+Receipt `circuits/followups/aspectual_dod_mlp7_trio_v281_result.json` (40 forwards).

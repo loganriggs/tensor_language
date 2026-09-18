@@ -1,0 +1,133 @@
+{
+  "candidate_id": "aspectual_anchor.has_vs_had.dod_mlp7_trio_v281",
+  "closure_max": 2.778869321126139e-05,
+  "finished_utc": "2026-09-18T21:36:54.743174+00:00",
+  "forwards": 40,
+  "plan": {
+    "bars": {
+      "agree_min": 26,
+      "cos_min": 0.2,
+      "edit_min": 0.02,
+      "n_null": 16,
+      "ratio_min": 1.5,
+      "seed": 281
+    },
+    "candidate_id": "aspectual_anchor.has_vs_had.dod_mlp7_trio_v281",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 40,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 64,
+    "rows_sha256": "5ec7d32f3f7b6bbc9ebc31de3411074b24a998430f7f929bd11d0813e40dfcd2",
+    "unit": 1250
+  },
+  "predictions": {
+    "pred_a_trio_separates_since_by": true,
+    "pred_b_trio_edit_beats_random_sets": true,
+    "pred_c_trio_edit_at_least_002": true,
+    "pred_d_trio_exceeds_1250_alone": true
+  },
+  "report": {
+    "cos_down_reader": -0.12342804508975905,
+    "margin_change_all": 0.02397106618522447,
+    "margin_change_bank": 0.02180996268719798,
+    "margin_native_pooled": 132.3116717338562,
+    "null_max": 0.0021536218153642025,
+    "null_units": [
+      [
+        162,
+        2070,
+        2512
+      ],
+      [
+        959,
+        3639,
+        3653
+      ],
+      [
+        284,
+        2039,
+        4156
+      ],
+      [
+        2290,
+        4328,
+        4595
+      ],
+      [
+        609,
+        1305,
+        3445
+      ],
+      [
+        226,
+        1092,
+        1154
+      ],
+      [
+        787,
+        2173,
+        3343
+      ],
+      [
+        457,
+        3504,
+        3836
+      ],
+      [
+        1113,
+        4237,
+        4373
+      ],
+      [
+        87,
+        1002,
+        1613
+      ],
+      [
+        2059,
+        3736,
+        4259
+      ],
+      [
+        389,
+        2881,
+        4042
+      ],
+      [
+        1159,
+        2441,
+        4392
+      ],
+      [
+        1317,
+        2026,
+        3472
+      ],
+      [
+        1103,
+        3618,
+        4001
+      ],
+      [
+        2587,
+        3724,
+        4504
+      ]
+    ],
+    "pairs": 32,
+    "r_dot_down": -5.983059883117676,
+    "sign_agreement_bank": 32,
+    "u_bank_means": {
+      "by": 32.079447909247904,
+      "since": -49.218332155750744
+    },
+    "u_since_minus_by_pooled_bank": -2601.5289620799567,
+    "u_since_minus_by_pooled_cue": -766.5845371558523
+  },
+  "schema": "aspectual_dod_mlp8_mlp7_trio_result_v281",
+  "serial_seconds": 2.3370800660923123
+}
