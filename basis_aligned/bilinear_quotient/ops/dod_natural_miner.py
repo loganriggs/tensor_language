@@ -29,7 +29,9 @@ def ids_of(forms):
     return out
 
 
-def mine(cues, labels, source, out, schema, exclude=(), cue_window=12, context=24, per_cell=16, doc_budget=20000, show=8):
+def mine(cues, labels, source, out, schema, exclude=(), cue_window=12, context=24, per_cell=16, doc_budget=20000, show=8, second=None):
+    """`second`: {cue name: set of token ids} -- when given, a row also needs one of those tokens BETWEEN the cue and the target (two-token cues such
+    as the modal line's "If ... had" / "When ... has"); the second token must not be a label token."""
     from datasets import load_dataset
     ds = load_dataset("HuggingFaceFW/fineweb", name="sample-10BT", split="train", streaming=True) if source == "fineweb" else load_dataset("NeelNanda/pile-10k", split="train")
     cells = {(c, l): [] for c in sorted(set(cues.values())) for l in sorted(set(labels.values()))}
@@ -47,6 +49,10 @@ def mine(cues, labels, source, out, schema, exclude=(), cue_window=12, context=2
             if len(found) != 1 or found[0][0] < context - cue_window:
                 continue
             offset, cue = found[0]; label = labels[nxt]
+            if second is not None:
+                between = ctx[offset + 1:]
+                if not any(tid in second.get(cue, ()) for tid in between):
+                    continue
             if len(cells[(cue, label)]) >= per_cell:
                 continue
             cells[(cue, label)].append({"doc_index": doc_index, "position": t, "cue": cue, "label": label, "cue_offset": offset, "ids": ctx, "text": ENC.decode(ctx)})

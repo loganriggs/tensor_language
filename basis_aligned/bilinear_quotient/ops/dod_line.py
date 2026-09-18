@@ -84,6 +84,7 @@ CANDIDATE_ID = line.CANDIDATE_ID.rsplit(".", 1)[0] + ".dod_{kind}_v{v}"
 ROWS = N.ROOT / "circuits/followups/{rowsf}"
 OUT = "{stem}_dod_{kind}_v{v}_result.json"
 CONGRUENT = {cong}
+HEADS = {heads}
 PREDICTIONS = {{"pred_a_instrument_replays_native": "<= 1e-4", "pred_b_congruent_native_capability": ">= 0.75 per congruent cell",
                "pred_c_congruent_removal_shifts_away_from_label": "mean >= 0.15, >= 60% positive", "pred_d_congruent_removal_beats_null": "> null max",
                "pred_e_congruent_removal_selective": "three gates", "pred_f_incongruent_removal_shifts_toward_label": "mean <= 0"}}
@@ -91,7 +92,7 @@ PREDICTIONS = {{"pred_a_instrument_replays_native": "<= 1e-4", "pred_b_congruent
 
 def main() -> None:
     rows, sha, pos, neg = N.rows_from_receipt(ROWS, "{poslab}", "{postok}", "{negtok}", lambda r: f"natural_{{r['cue']}}_{{r['label']}}")
-    N.run(CANDIDATE_ID, OUT, rows, sha, pos, neg, line.HEADS, CONGRUENT)
+    N.run(CANDIDATE_ID, OUT, rows, sha, pos, neg, HEADS, CONGRUENT)
 
 
 if __name__ == "__main__":
@@ -102,10 +103,13 @@ if __name__ == "__main__":
 def main():
     mod, stem, v0 = sys.argv[1], sys.argv[2], int(sys.argv[3])
     line = __import__(mod)
+    heads = "line.HEADS"
+    if "--heads" in sys.argv:
+        i = sys.argv.index("--heads"); heads = "(" + ", ".join(f"({a})" for a in sys.argv[i + 1].split(";")) + ")"; del sys.argv[i:i + 2]
     frac = None
     for f in (ROOT / "circuits/followups").glob(f"{stem}_dod_battery_v*_result.json"):
         frac = round(json.loads(f.read_text())["joint"]["target_damage_fraction"], 2)
-    if frac is None:
+    if frac is None and not (len(sys.argv) > 4 and sys.argv[4] == "--only-natural"):
         raise SystemExit("battery receipt not found; run the battery first (the null replays its fraction)")
     written = []
     args = sys.argv[4:]
@@ -123,7 +127,7 @@ def main():
             kind = "pile" if "pile" in rowsf else "natural"
             desc = "Pile rows (out-of-corpus)" if kind == "pile" else "natural FineWeb rows (training corpus, out-of-panel)"
             p = OPS / f"run_{stem}_dod_{kind}_v{v}.py"
-            p.write_text(NATURAL.format(stem=stem, v=v, mod=mod, desc=desc, rowsf=rowsf, cong=repr(cong), kind=kind, poslab=postok.strip(), postok=postok, negtok=negtok)); written.append(p); v += 1
+            p.write_text(NATURAL.format(stem=stem, v=v, mod=mod, desc=desc, rowsf=rowsf, cong=repr(cong), kind=kind, poslab=postok.strip(), postok=postok, negtok=negtok, heads=heads)); written.append(p); v += 1
     for p in written:
         p.chmod(0o755); print("wrote", p.name)
 
