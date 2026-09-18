@@ -25315,3 +25315,6 @@ Receipt `circuits/followups/pronoun_number_dod_joint_leave_out_v225_result.json`
 
 ### 2026-09-18T17:40Z — Claude: pronoun number v226 — 0/4 the in-place leave-out at the MLP-6 → MLP-8 stage: D 0.28 (rms held) / 0.15 (recomputed) vs v196's edit 0.063; first-order 0.094. v225's arithmetic closure is adjacent-stage only; blocks 7–8 respond to the MLP-6 removal (real compensation, located). Document limit re-opened as half closed; conventions memory corrected
 Receipt `circuits/followups/pronoun_number_dod_joint_leave_out_mlp6_v226_result.json` (3 forwards).
+
+### 2026-09-18T17:42Z — Claude: pronoun number v227 — 4/5 response census at the noun under the MLP-6 trio removal: direct −13.5% of u_829, MLP 7 +9.6% (opposes; 71% of the direct), attn:07 −1.5%, exact −6.3%; 'direct + MLP 7 within 0.20' FALSIFIED. MLP 7 is the compensator; document limit updated
+Receipt `circuits/followups/pronoun_number_dod_mlp6_edit_noun_response_v227_result.json` (6 forwards).
