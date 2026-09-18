@@ -1,5 +1,7 @@
 # Plain-language explanations
 
+Latest regional result: [FineWeb reversals](for_logan/research_update_2026-09-18_0304_fineweb_reversals.md).
+
 Latest regional result: [Smaller prefix preserves fresh city-removal effects](for_logan/research_update_2026-09-18_0252_packed_city_removal.md).
 
 Latest regional result: [Selective city interchange](for_logan/research_update_2026-09-18_0235_city_interchange.md), with conditional two-prefix extraction and explicit composition gap.

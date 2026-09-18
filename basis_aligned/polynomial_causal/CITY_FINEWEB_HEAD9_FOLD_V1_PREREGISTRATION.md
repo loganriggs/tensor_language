@@ -1,0 +1,9 @@
+# Fold the first receiving head's finite-change response
+
+WEIGHT_FOLDING, opened FineWeb swap panel. Native response census identifies attention9.head8 as a large transported contributor, especially in reversed documents, but attention9/early sufficiency both fail. Do not omit later layers or promote this attribution as a downstream intervention.
+
+Pull each final RMS/softcap secant reader through residual lambdas and head9.8 output projection into128value dimensions. The final query state is unchanged by the attention8 edit, whose destinations exclude the final query token. Let a=Q1K1/128,b=Q2K2/128,v=complete current+inherited value at each source. For the native→edited pair expand Δ(abv) into seven nonempty delta subsets: da*b*v,a*db*v,a*b*dv,da*db*v,da*b*dv,a*db*dv,da*db*dv. Preserve all source positions and terms; no fit or subset selection. Changes in key/value normalizers are included in da,db,dv.
+
+80sequence-equivalent CPU forwards/36block calls;2threads;180second cap. Reuse the exact frozen native swap and prior final reader states. pred_a:native/swap score replay<=1e-4abs and1e-5relative;fixed final query replay<=1e-6relative;seven-term contribution sum matches prior head9.8 contribution<=1e-4abs and1e-4relative;finite/counts/CPU. pred_b:sum of six terms containing a routing change predicts full head contribution<=.35relative in BOTH previously frozen reversed and other document groups. pred_c:triple-change term norm<=.10full head contribution norm in BOTH groups.
+
+Report each term's signed aligned fraction and norm ratio, source-position distribution and four control contributions. Preserve failures. These gates test a smaller folded response specification only; any causal use requires separate intervention and fresh confirmation. No native state port or downstream contribution may be silently removed.

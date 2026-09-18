@@ -1,5 +1,7 @@
 # Latest requested update for Logan
 
+**Latest regional update: [FineWeb reversals](research_update_2026-09-18_0304_fineweb_reversals.md).** Prediction passes; removal and swap direction fail with matching native behavior. Response and seven-term folds nominate MLP8→head9.8 value, without suffix sufficiency.
+
 **Latest regional update: [Smaller prefix preserves fresh city-removal effects](research_update_2026-09-18_0252_packed_city_removal.md).** Fresh prediction/selectivity and standalone execution pass;884,736 fewer stored FP32 values; native input and composition gaps remain.
 
 **Latest regional update: [18 September — City interchange requires a coupled operation](research_update_2026-09-18_0245_city_composition.md).** Opened five-arm composition fails at both head-cross omission and downstream interaction. Fresh full-swap and boundary-extraction evidence remain; independent components are not supported.

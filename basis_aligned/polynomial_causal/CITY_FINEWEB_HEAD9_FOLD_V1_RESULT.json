@@ -1,0 +1,95 @@
+{
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "groups": {
+    "reversed": {
+      "routing_only_error": 0.8122109472433282,
+      "triple_over_head": 0.009604647571584243,
+      "terms": {
+        "deltaK1": {
+          "norm_ratio": 0.24877080127190923,
+          "aligned_fraction": 0.13895867640910392
+        },
+        "deltaK2": {
+          "norm_ratio": 0.3389650059905313,
+          "aligned_fraction": 0.18822642303260823
+        },
+        "deltaV": {
+          "norm_ratio": 0.812210626191812,
+          "aligned_fraction": 0.7588169270666139
+        },
+        "deltaK1_deltaK2": {
+          "norm_ratio": 0.01025388866769425,
+          "aligned_fraction": 0.0014133810056476482
+        },
+        "deltaK1_deltaV": {
+          "norm_ratio": 0.20490986795953928,
+          "aligned_fraction": -0.08363823961590346
+        },
+        "deltaK2_deltaV": {
+          "norm_ratio": 0.14117934106914778,
+          "aligned_fraction": -0.002805198245683065
+        },
+        "deltaK1_deltaK2_deltaV": {
+          "norm_ratio": 0.009604647571584243,
+          "aligned_fraction": -0.0009723593256681618
+        }
+      }
+    },
+    "other": {
+      "routing_only_error": 1.134318518201776,
+      "triple_over_head": 0.03110332852114557,
+      "terms": {
+        "deltaK1": {
+          "norm_ratio": 0.2501665946628479,
+          "aligned_fraction": -0.14014110423837414
+        },
+        "deltaK2": {
+          "norm_ratio": 0.1410188927226276,
+          "aligned_fraction": 0.004101645232627363
+        },
+        "deltaV": {
+          "norm_ratio": 1.1343186000625884,
+          "aligned_fraction": 1.107475990974993
+        },
+        "deltaK1_deltaK2": {
+          "norm_ratio": 0.024271258459768616,
+          "aligned_fraction": 0.0036554174585162057
+        },
+        "deltaK1_deltaV": {
+          "norm_ratio": 0.1910053765559322,
+          "aligned_fraction": 0.029621224190112736
+        },
+        "deltaK2_deltaV": {
+          "norm_ratio": 0.22101976450081495,
+          "aligned_fraction": 0.001129393073697568
+        },
+        "deltaK1_deltaK2_deltaV": {
+          "norm_ratio": 0.03110332852114557,
+          "aligned_fraction": -0.005842512251867357
+        }
+      }
+    }
+  },
+  "anchor_max_abs": 0.0,
+  "anchor_relative": 0.0,
+  "query_relative_change": 0.0,
+  "closure_max_abs": 1.9864535467928324e-07,
+  "closure_relative": 4.671854519440745e-07,
+  "body_forwards": 80,
+  "batched_block_calls": 36,
+  "seconds": 3.0109355919994414,
+  "scope": "Opened exact fold of head9.8 finite-change response. Native fields and final response-conditioned reader supplied; not an independent causal component or extracted token-only model.",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_FINEWEB_HEAD9_FOLD_V1_PREREGISTRATION.md": "e94334da381dc2b2cd863c9b82dcad8acda6b2f6876bf29cb7b0030a58cab000",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/check_city_fineweb_head9_fold_v1.py": "f9853b4ddafe4f64cd13e73164f05e77934fecd8a477b97ad2b8b4bb2ed8d230",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_DROP3_FINEWEB_INTERCHANGE_V1_ARTIFACT.pt": "3731e9b73640d6dbbca9dca4a3f36541a80343587215a88702b14d8a7a4abda3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_FINEWEB_RESPONSE_V1_ARTIFACT.pt": "697767d1f9b5af87b528e85eb66c6d558eb3729d2e8994fc06df2c7a8dd062f0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_FINEWEB_RESPONSE_V1_RESULT.json": "cc6f36c2645f1f6cca56e7e5cfbb64a4b8b2db7d0ebbfa89eb25fcb6e59e030e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_ATTENTION7_DROP3_FINEWEB_V1_ROWS.json": "7db2588fec84842e090be85a66d89c0536970c213cea4dbd6fa2f5d340906590",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_endpoint_batching_v1.py": "fb29a695095198f0eccbcc97b9ae16cfbc6d9e1415379d430556376621cb68ec",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/fastload.py": "5803de7f127d1f556470107b559c06daecf7fbc2bccf4574aeb1c347b6225d90",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/regional_paired_write_runtime_v4.py": "85439f8b140851f3bd752c236c5c76e2328eaadc4e841db1dbec41929861f35a"
+  }
+}

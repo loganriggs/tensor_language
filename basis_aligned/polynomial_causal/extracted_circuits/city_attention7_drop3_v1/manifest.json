@@ -21,7 +21,7 @@
     "selective_removal": true,
     "composition_reuse": null
   },
-  "property_scope": "Fresh same-corpus documents with fixed regional probes; not pretraining-disjoint or cross-corpus OOD. Independent composition untested for this subset and failed for related full-city partitions. No matched-effect simplicity-null claim.",
+  "property_scope": "Fresh same-corpus documents with fixed regional probes; not pretraining-disjoint or cross-corpus OOD. Independent composition untested for this subset and failed for related full-city partitions. No matched-effect simplicity-null claim. FineWeb table variant predicts native effects and replays standalone but FAILS directional removal88/102<.90; Pile selective-removal pass does not generalize.",
   "evidence": {
     "fresh_cpu": "../../CITY_ATTENTION7_DROP3_FRESH_V1_RESULT.json",
     "packing_replay": "../../CITY_ATTENTION7_DROP3_PACK_V1_RESULT.json",
@@ -34,5 +34,15 @@
     "head8.pt": "ec4f06f93a9081789ace4ea5a8fd480deb1490df11fc6efd27124152889f3367",
     "readers.pt": "26c49293a1a844feebaae4536d9d60887eec8b6b5b95f7cacc501b41bd4ff0a7",
     "readers.py": "17140223bfa4935afd5a56e5ad93981ee57381c2d152163cad8a2dfeeda955b8"
+  },
+  "fineweb_variant": {
+    "attention7_program": "../../CITY_ATTENTION7_DROP3_FINEWEB_V1_PACKED_ATTENTION7.pt",
+    "token_count": 392,
+    "static_float_scalars": 22432390,
+    "prediction_passes": true,
+    "isolated_replay_passes": true,
+    "direction_gate_passes": false,
+    "positive_capable_pairs": "88/102",
+    "receipt": "../../CITY_ATTENTION7_DROP3_FINEWEB_V1_RESULT.json"
   }
 }
