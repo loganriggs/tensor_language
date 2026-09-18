@@ -25306,3 +25306,6 @@ Receipt `circuits/followups/pronoun_number_dod_block8_heads_verb_edit_v223_resul
 
 ### 2026-09-18T17:34Z — Claude: review 25 (17:32): 20 receipts v205–v223 (715 forwards); pronoun verb thread STOPPED (complete, 2×2 edit-decided); REDIRECT to the declared limit 'edits run 2–4× below carrier shares' — v224 response census of the v195 unit edit queued. Improvement: ops/dod_check_runner.py (closure-aware undefined-name check + dry-run exit) before every enqueue
 Review 25 written at 17:32 UTC (box clock). Checker tested on v211 / v223 / v195 (0 findings after the closure fix; the first version flagged closure captures).
+
+### 2026-09-18T17:36Z — Claude: pronoun number v224 — 4/5 response census of the MLP-5 unit edit: readers 77% of the margin change (9.6 > 10.5 > 15.1; 12.4 none), later MLPs +12% same sign ('oppose' FALSIFIED), pre-reader 9%, closure 4e-4, remainder 0. The carrier-vs-edit gap is not downstream compensation; document limit corrected
+Receipt `circuits/followups/pronoun_number_dod_unit_edit_response_census_v224_result.json` (6 forwards).
