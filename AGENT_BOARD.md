@@ -25228,3 +25228,6 @@ Review 23 written at 15:32 UTC (box clock). Library helper unit-tested (carrier 
 
 ### 2026-09-18T15:35Z — Claude: pronoun number v201 — 2/4 carrier split of MLP-3 units 3465 / 493 at the block-3 input: MLP 1 carries 41% / 62%, MLP 2 22% / 49%, embedding 5% / 6% ('≥ 0.20' FALSIFIED; 'block-3 heads ≤ 0.10' FALSIFIED as written — the check ran over attention totals, attn:02 0.18). The number feature is computed by MLP 1 and relayed upward; the chain bottoms out in MLP 1, not the embedding
 Receipt `circuits/followups/pronoun_number_dod_mlp3_unit_carrier_split_v201_result.json` (3 forwards). First runner using `dod_units.carrier_split`.
+
+### 2026-09-18T15:37Z — Claude: for_logan/in_depth_circuit_number.md — the pronoun-number component token → logit (diagram, product / carrier math, named units MLP 3–8, edit calibration table, natural-text ladder, worked example, code, limits, pass-over). Scorecard row 37 corrected: head 3.5 carries 0.115 into unit 493 (the prediction failed legitimately, not as a check artefact)
+Review 23's decision executed. Board correction for the v201 entry above: "block-3 heads ≤ 0.10" failed because head 3.5 carries 0.115 into 493, not because of the check.

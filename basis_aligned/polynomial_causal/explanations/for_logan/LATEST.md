@@ -1,6 +1,6 @@
 # Latest requested update for Logan
 
-**Upstream exact preflight: [18 September — Exact-RMS upstream closure preflight fails at the residual composition](research_update_2026-09-18_upstream_exact_preflight.md).** Naive full-MLP7 residual closure gives 1.34 write error; the port remains open and the failure is retained as a boundary diagnostic.
+**Upstream exact preflight: [18 September — Exact-RMS upstream closure corrected at the residual composition](research_update_2026-09-18_upstream_exact_preflight.md).** Removing a numerator double count reduces write error from 1.34 to 2e-6; the corrected operator also passes a new fresh residual6-to-attention8 panel at 1.61e-6 with zero off-support write. Full-suffix confirmation remains required.
 
 **Upstream port gap: [18 September — The remaining upstream port is explicit](research_update_2026-09-18_upstream_port_gap.md).** The approximate attention7/head8 route is retained as falsified on FineWeb; exact residual6-to-attention8 closure is registered with all four gates.
 
@@ -97,3 +97,4 @@
 **Previous full compression report: [13 September — Final instance update: compression of composed circuit interactions](research_update_2026-09-13_final_compression.md).** All three settings, the successful composed sparse parent, costs and behavioral limits. No new compression fit has superseded these results.
 
 [Restart guide](../../../../CODEX_RESEARCH_SESSION_STARTUP.md) · [Copyable next-session prompt](../../../../NEXT_CODEX_PROMPT.md) · [Three-setting plan](interaction_compression_settings_2026-09-13.md) · [All reports](README.md).
+- `in_depth_circuit_number.md` (18 Sep, 15:40 UTC) — the pronoun-number component token → logit: a number feature computed by MLP 1, relayed by named units at MLPs 3–6 to two MLP-8 detectors (829 plural, 953 singular), read by four heads; edits and natural-text tests at each stage; mass vs carriage.
