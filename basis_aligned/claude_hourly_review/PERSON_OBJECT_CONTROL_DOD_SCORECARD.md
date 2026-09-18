@@ -18,17 +18,19 @@ will−would, who−which, night−day.
 | 5 | Keep-only readout at the four heads keeps their service | edit | fresh (v105) | zero 1.89; retention 1.29; random keep ≤ 0.02 | passes |
 | 6 | Matched-count random four-head-set null | edit | fresh rows (v108) | set 2.23 (fraction 0.46) vs random max 0.15 (fraction 0.03); none live | passes 4/4 |
 | 7 | Response census (exact λ-recurrence split from block 8): the set's own writes carry 90% (attn:13 −0.58, attn:15 −0.56, attn:10 −0.48, attn:08 −0.39 of −2.23); downstream net −0.23 (MLP 10 −0.14, MLP 11 −0.12; MLP 17 +0.26); remainder 0.03% | response | fresh (v109) | | passes 5/5 — a direct readout |
+| 8 | Source fold (exact, closure 6e-7): the four coefficients come from the me / you token — 8.1 1.01 (95% token-only), 13.1 0.98 (95%), 15.1 0.76 (64%), 10.5 0.52 (28%; 0.22 final, 0.26 other); pooled 0.88 from the pronoun, 0.80 token-only | fold | fresh (v115) | all five registered readings held, including "pooled token-only ≥ 0.50" registered the way v112 came out | 5/5 — the same token-reader structure as the subject-antecedent line: the person family reads the pronoun token, whichever slot it sits in |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
 | Simple | held at head grain (row 6) | — |
 | Predicts OOD | held on a fresh panel with a frozen number (row 2) | natural rows |
-| Extracted | held at the head boundary (row 5); direct readout (row 7) | source fold |
+| Extracted | held at the head boundary (row 5); direct (row 7); 8.1 / 13.1 / 15.1 token readers of me / you (row 8) | token-only generator (v117) |
 | Selective | held (row 3) | — |
 | Composes | additive (row 4) | — |
 
 ## Receipts
+- v115: `.../person_object_control_dod_source_fold_v115_result.json`; code `ops/run_person_object_control_dod_source_fold_v115.py`
 - v108: `.../person_object_control_dod_random_set_null_v108_result.json`; v109: `.../person_object_control_dod_response_census_v109_result.json`
 - atlas v68: `bilinear_quotient/circuits/followups/atlas_reflexive_object_control_v68_result.json`
 - v105: `.../person_object_control_dod_battery_v105_result.json`; code `ops/run_person_object_control_dod_battery_v105.py` (via `ops/dod_battery.py`)

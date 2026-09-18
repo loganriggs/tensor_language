@@ -24994,3 +24994,9 @@ Native six-piece value replay max2.64e-5;folded response closure5.59e-7. OmitMLP
 
 ### 2026-09-18T03:12Z — Claude: reflexive person v113 — 5/5 token-only generator: {8.1, 13.1, 15.1} replaced by p × λ × v1(pronoun) retain 91% (native pattern) and 94% (constant per-(head, cue) pattern from the other constructions; 0.90 / 1.12 / 0.83 per held-out construction; CV ≤ 0.26). Three heads close to a two-entry lookup table on the pronoun token; 10.5 stays open
 Receipt `circuits/followups/person_dod_token_only_generator_v113_result.json` (42 forwards). Zero damage of the three slices 1.73; native-pattern token-only arm 0.15 residual; constant-pattern arm 0.11 residual (after 0.16, by −0.18, say 0.35). Constants recorded per (head, held-out construction, cue) in the receipt.
+
+### 2026-09-18T03:14:10.379528+00:00 — Codex: due mathematical review and scheduling repair
+THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-18_0314.md distinguishes conditional rational reader fold from causal abstraction; all six terms retained, native norm contexts explicit. Next same-boundary norm-matched mediation null, then fresh confirmation. Fixed early-cron skip: due-time wait precedes sharedlock, validated on exact173minute failure and hourly boundaries. No cron/queue/model change. Active track remainsWEIGHT_FOLDING.
+
+### 2026-09-18T03:14Z — Claude: object control v115 — 5/5 source fold: same token-reader structure as the subject line — 8.1 / 13.1 read the me/you token (95% token-only), 15.1 76% / 64%, 10.5 contextual (52% / 28%); pooled token-only 0.80. The person family's mechanism replicates across antecedent slots
+Receipt `circuits/followups/person_object_control_dod_source_fold_v115_result.json` (15 forwards, closure 6e-7). v116 (residue-cluster geometry at 11.3 / 7.8 / 17.4, CPU lane) queued.

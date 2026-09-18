@@ -1,0 +1,177 @@
+{
+  "candidate_id": "reflexive_object_control.me_vs_you.dod_source_fold_v115",
+  "finished_utc": "2026-09-18T03:14:01.087798+00:00",
+  "forwards": 15,
+  "line": {
+    "closure_max": 5.676168275035976e-07,
+    "heads": {
+      "10.5": {
+        "by_category_branch": {
+          "final": {
+            "current": 355.6642259284854,
+            "inherited": 0.5459486693143845
+          },
+          "noun": {
+            "current": 379.76544404029846,
+            "inherited": 451.3270046710968
+          },
+          "object": {
+            "current": 0.3954657791182399,
+            "inherited": -0.14719168073497713
+          },
+          "other": {
+            "current": 421.22734542470425,
+            "inherited": 3.5462075588293374
+          }
+        },
+        "inherited_share": 0.28236994540709554,
+        "largest_source": "noun",
+        "mean_contrast": 33.590092877546944,
+        "pairs": 48,
+        "shares": {
+          "final": 0.22092958573155277,
+          "noun": 0.5154622846069722,
+          "object": 0.0001539851964240547,
+          "other": 0.26345413967002257
+        }
+      },
+      "13.1": {
+        "by_category_branch": {
+          "final": {
+            "current": -0.03134452359518036,
+            "inherited": -14.215415689628571
+          },
+          "noun": {
+            "current": 185.3093591928482,
+            "inherited": 5800.555646896362
+          },
+          "object": {
+            "current": -1.1298757963522803,
+            "inherited": 0.699206177436281
+          },
+          "other": {
+            "current": 117.34453553739877,
+            "inherited": 8.824521953283693
+          }
+        },
+        "inherited_share": 0.9505535514190575,
+        "largest_source": "noun",
+        "mean_contrast": 127.02826225757599,
+        "pairs": 48,
+        "shares": {
+          "final": -0.002336546994875228,
+          "noun": 0.9817147675949919,
+          "object": -7.063218505834156e-05,
+          "other": 0.020692419028184566
+        }
+      },
+      "15.1": {
+        "by_category_branch": {
+          "final": {
+            "current": 368.95100861787796,
+            "inherited": 0.7078979164361954
+          },
+          "noun": {
+            "current": 360.5180093050003,
+            "inherited": 1928.2009983062744
+          },
+          "object": {
+            "current": 0.43047321715857834,
+            "inherited": -0.8098101429641247
+          },
+          "other": {
+            "current": 355.0164730641991,
+            "inherited": 0.2697554810438305
+          }
+        },
+        "inherited_share": 0.6399557221994372,
+        "largest_source": "noun",
+        "mean_contrast": 62.77676637967428,
+        "pairs": 48,
+        "shares": {
+          "final": 0.12267639229596197,
+          "noun": 0.7595428809365978,
+          "object": -0.0001258881760992973,
+          "other": 0.11790662142837659
+        }
+      },
+      "8.1": {
+        "by_category_branch": {
+          "final": {
+            "current": 5.382593732327223,
+            "inherited": -3.602367219515145
+          },
+          "noun": {
+            "current": 116.2899031387642,
+            "inherited": 2398.1421089172363
+          },
+          "object": {
+            "current": 0.5561904300266178,
+            "inherited": 1.001538445299957
+          },
+          "other": {
+            "current": -3.8243151439819485,
+            "inherited": -20.47147584323102
+          }
+        },
+        "inherited_share": 0.9525142992881765,
+        "largest_source": "noun",
+        "mean_contrast": 51.94737859567007,
+        "pairs": 48,
+        "shares": {
+          "final": 0.0007139542620412996,
+          "noun": 1.0084050758151828,
+          "object": 0.000624722282046817,
+          "other": -0.009743750809319824
+        }
+      }
+    },
+    "pooled_inherited_share": 0.7985943696019542,
+    "pooled_noun_share": 0.8792162238701119
+  },
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "inh_min": 0.5,
+      "pooled_min": 0.5,
+      "token_min": 0.8
+    },
+    "candidate_id": "reflexive_object_control.me_vs_you.dod_source_fold_v115",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 18,
+    "gpu_accessed": false,
+    "heads": [
+      [
+        13,
+        1
+      ],
+      [
+        8,
+        1
+      ],
+      [
+        10,
+        5
+      ],
+      [
+        15,
+        1
+      ]
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "c9ff382e85aa9eb49aa6e5099ab43d194c291c8a151739109456f9a0a74f3c6a"
+  },
+  "predictions": {
+    "pred_a_fold_closure": true,
+    "pred_b_pronoun_position_is_largest_source_for_every_head": true,
+    "pred_c_token_readers_are_token_only": true,
+    "pred_d_pooled_inherited_share_at_least_050": true,
+    "pred_e_contrast_positive_for_every_head": true
+  },
+  "schema": "person_object_control_dod_source_fold_result_v115",
+  "serial_seconds": 1.9633745308965445
+}

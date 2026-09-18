@@ -143,3 +143,4 @@ Of 100 capable live lines: pronoun 26, number 17, person 13, selection 13, tempo
 finiteness selection 0.33, lifts/lift 0.29, modal perfect 0.15) — a sixth-family candidate on 11.3 + 7.8 with 17.4 as the new head;
 {11.2, 5.7, 16.8, 15.1} on the four determiner-number crates variants (one task); {16.8, 14.8, 8.1, 7.8} on the correlative lines (0.43–0.55).
 Table with the family column regenerated: `READOUT_ATLAS_TABLE.md`.
+v115 (object-control source fold): identical token-reader structure on the family's second line (8.1 / 13.1 95% token-only from me / you, 15.1 64%, 10.5 contextual) — the person family's mechanism replicates across subject and object antecedents.
