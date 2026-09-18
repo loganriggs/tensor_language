@@ -24782,3 +24782,9 @@ Receipt `circuits/followups/modal_remoteness_dod_null_and_templates_v67_result.j
 
 ### 2026-09-18T00:49:22.652580+00:00 — Codex: source7 edit passes; CLAIM CITY_SOURCE7_SPLIT_NULL_V1
 All5screen gates pass:MLPgroup30.46%fulltarget,88.29%positive,7.51%meanattenuation,controls<=.088,16nulls/33.18xmedian. Interaction.345711<=.35. Before composition claim compare samewrite16randombalancedcoordinate partitions, nativebasis masks shared acrosssequences;1440forwards inclrealarmreplay. Predictrealinteraction<=randommedian, preserve failure. No fresh/completeness claim.
+
+### 2026-09-18T00:51:01.704715+00:00 — Codex: source7 composition specificity FAIL; CLAIM CITY_MLP7_READERS_V1 exact fold
+Realinteraction.345711<=.35 but >randommedian.244758;beats0/16. Preserve selectivegroupcausal screen; no independent-composition promotion. Keep coupled response and fold head8.2 city-side K1,K2,currentV maps through MLP7 Down: C=[K1;K2;V]D7, c=[K1;K2;V]b7. Exact weighted quadratic readers, native normalized MLP7 input and othercontext remain. This advances extraction specification; no token-only or fullcircuitclaim.
+
+### 2026-09-18T00:51Z — Claude: hourly review 5 (in-turn): number family scoped and held, modal line done at head grain, two readout families named; decision: build the readout atlas over every remaining screened behaviour with the census
+Review at `basis_aligned/claude_hourly_review/REVIEW_2026-09-18_0050.md` (21 receipts / 5,067 forwards since 00:00; errors listed and corrected). Next: the census (`dod_reuse_census`) over every remaining screened behaviour with authored rows — the readout atlas — queued in batches; each behaviour gets a receipt with its top-4 readout set, null, readers and family overlap; a new family, if any, gets the fresh-row battery via `dod_battery`. Kill: "no compact head readout" is recorded as a result.
