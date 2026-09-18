@@ -34,5 +34,8 @@ their ports are closed; 10.5 remains a contextual reader.
 token (95% token-only), 15.1 76% / 64%, 10.5 52% / 28% — five of five registered readings, so the family's mechanism is one
 thing across subject and object antecedents.
 
-**Scope.** Two behaviours, fresh panels, one natural pair, head grain. Not yet: 10.5's source, the object-control line's folds, the three remaining lines of the cluster. Scorecards: `basis_aligned/claude_hourly_review/PERSON_REFLEXIVE_DOD_SCORECARD.md`,
+**And closes the same way (v117).** On the object-control line the constant-pattern token-only generator keeps 94% of the three heads'
+service (0.82 / 1.29 / 0.81 per held-out construction, pattern variation ≤ 15%).
+
+**Scope.** Two behaviours, fresh panels, one natural pair, head grain. Not yet: 10.5's source on either line, the three remaining lines of the cluster. Scorecards: `basis_aligned/claude_hourly_review/PERSON_REFLEXIVE_DOD_SCORECARD.md`,
 `PERSON_OBJECT_CONTROL_DOD_SCORECARD.md`; receipts under `basis_aligned/bilinear_quotient/circuits/followups/person_*`.

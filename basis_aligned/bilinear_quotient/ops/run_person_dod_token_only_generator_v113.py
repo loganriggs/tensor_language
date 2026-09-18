@@ -33,13 +33,14 @@ CANDIDATE_ID = "reflexive_person.i_vs_you.dod_token_only_generator_v113"
 HEADS = ((8, 1), (13, 1), (15, 1))
 NATIVE_MIN, CV_MAX, POOLED_MIN, PER_MIN, INSTRUMENT_TOL = 0.80, 0.35, 0.60, 0.50, 1e-4
 FORWARDS_MAX = 48
+PRONOUN_TOKENS = (" I", "I", " you", "you")   # the cue tokens whose block-0 value is the generator input (v117 overrides for me / you)
 PREDICTIONS = {"pred_a_instrument_replays_native": "<= 1e-4", "pred_b_token_only_term_carries_the_three_heads": ">= 0.80", "pred_c_pattern_is_stable_within_cue": "cv <= 0.35",
                "pred_d_constant_pattern_transfers_pooled": ">= 0.60", "pred_e_constant_pattern_transfers_in_every_construction": ">= 0.50 x 3"}
 
 
 def main() -> None:
     rows, pos, neg, agents, objects = line.build()
-    pronouns = {L._single(" I"), L._single("I"), L._single(" you"), L._single("you")}
+    pronouns = {L._single(t) for t in PRONOUN_TOKENS}
     cue_pos = {row.row_id: next(i for i, t in enumerate(row.ids) if t in pronouns) for row in rows}
     is_cue = lambda r, s: s == cue_pos[r.row_id]
     plan = {"candidate_id": CANDIDATE_ID, "rows": len(rows), "rows_sha256": L.rows_sha256(rows), "heads": list(HEADS), "forwards_max": FORWARDS_MAX, "model_backwards": 0, "model_updates": 0,

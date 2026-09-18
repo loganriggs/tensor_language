@@ -19,17 +19,19 @@ will−would, who−which, night−day.
 | 6 | Matched-count random four-head-set null | edit | fresh rows (v108) | set 2.23 (fraction 0.46) vs random max 0.15 (fraction 0.03); none live | passes 4/4 |
 | 7 | Response census (exact λ-recurrence split from block 8): the set's own writes carry 90% (attn:13 −0.58, attn:15 −0.56, attn:10 −0.48, attn:08 −0.39 of −2.23); downstream net −0.23 (MLP 10 −0.14, MLP 11 −0.12; MLP 17 +0.26); remainder 0.03% | response | fresh (v109) | | passes 5/5 — a direct readout |
 | 8 | Source fold (exact, closure 6e-7): the four coefficients come from the me / you token — 8.1 1.01 (95% token-only), 13.1 0.98 (95%), 15.1 0.76 (64%), 10.5 0.52 (28%; 0.22 final, 0.26 other); pooled 0.88 from the pronoun, 0.80 token-only | fold | fresh (v115) | all five registered readings held, including "pooled token-only ≥ 0.50" registered the way v112 came out | 5/5 — the same token-reader structure as the subject-antecedent line: the person family reads the pronoun token, whichever slot it sits in |
+| 9 | Token-only generator for {8.1, 13.1, 15.1}: p × λ × v1(me / you) with the native pattern retains 94% of the three heads' zeroed service; a constant pattern per (head, cue) from the other two constructions 94% pooled (warned 0.82, reminded 1.29, urged 0.81); pattern CV ≤ 0.15 | edit | fresh (v117) | | passes 5/5 — three heads close to a two-entry lookup on the pronoun token; 10.5 open |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
 | Simple | held at head grain (row 6) | — |
 | Predicts OOD | held on a fresh panel with a frozen number (row 2) | natural rows |
-| Extracted | held at the head boundary (row 5); direct (row 7); 8.1 / 13.1 / 15.1 token readers of me / you (row 8) | token-only generator (v117) |
+| Extracted | held at the head boundary (row 5); direct (row 7); 8.1 / 13.1 / 15.1 close to a token-only generator with constant patterns (rows 8–9); 10.5 contextual, open | 10.5's source |
 | Selective | held (row 3) | — |
 | Composes | additive (row 4) | — |
 
 ## Receipts
+- v117: `.../person_object_control_dod_token_only_generator_v117_result.json`; code `ops/run_person_object_control_dod_token_only_generator_v117.py` (v113's body)
 - v115: `.../person_object_control_dod_source_fold_v115_result.json`; code `ops/run_person_object_control_dod_source_fold_v115.py`
 - v108: `.../person_object_control_dod_random_set_null_v108_result.json`; v109: `.../person_object_control_dod_response_census_v109_result.json`
 - atlas v68: `bilinear_quotient/circuits/followups/atlas_reflexive_object_control_v68_result.json`
