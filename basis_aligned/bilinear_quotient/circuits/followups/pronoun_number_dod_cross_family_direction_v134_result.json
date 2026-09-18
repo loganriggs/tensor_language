@@ -1,0 +1,109 @@
+{
+  "arms": {
+    "own_they_he": {
+      "animacy_who_which_abs_move_mean": 0.03071661914388339,
+      "animacy_who_which_native_abs_mean": 1.6580233511825402,
+      "canonical_night_day_abs_move_mean": 0.022929314523935318,
+      "canonical_night_day_native_abs_mean": 0.5902756322175264,
+      "flip_fraction": 0.13541666666666666,
+      "number_was_were_abs_move_mean": 0.24250764213502407,
+      "number_was_were_native_abs_mean": 1.4636153026173513,
+      "target_damage_fraction": 0.7582697858030357,
+      "target_damage_mean": 1.5530436088641484,
+      "target_damage_positive_fraction": 1.0,
+      "target_native_mean_margin": 2.048141226172447
+    },
+    "person_myself_yourself": {
+      "animacy_who_which_abs_move_mean": 0.00966517006357511,
+      "animacy_who_which_native_abs_mean": 1.6580233511825402,
+      "canonical_night_day_abs_move_mean": 0.009264016213516394,
+      "canonical_night_day_native_abs_mean": 0.5902756322175264,
+      "flip_fraction": 0.0,
+      "number_was_were_abs_move_mean": 0.031362746531764664,
+      "number_was_were_native_abs_mean": 1.4636153026173513,
+      "target_damage_fraction": 0.00020967621424988596,
+      "target_damage_mean": 0.0004294464985529582,
+      "target_damage_positive_fraction": 0.46875,
+      "target_native_mean_margin": 2.048141226172447
+    }
+  },
+  "candidate_id": "pronoun_number.they_vs_he.dod_cross_family_direction_v134",
+  "finished_utc": "2026-09-18T03:34:36.579817+00:00",
+  "forwards": 60,
+  "instrument_max_abs_error": 0.0,
+  "null_damage_max": 0.01082812249660492,
+  "plan": {
+    "arms": {
+      "own_they_he": [
+        " they",
+        " he"
+      ],
+      "person_myself_yourself": [
+        " myself",
+        " yourself"
+      ]
+    },
+    "bars": {
+      "band": 0.05,
+      "little": 0.25,
+      "live_fraction": 0.1,
+      "live_positive": 0.75,
+      "v76_fraction": 0.76
+    },
+    "candidate_id": "pronoun_number.they_vs_he.dod_cross_family_direction_v134",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 63,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "null_seeds": [
+      3401,
+      3402,
+      3403,
+      3404,
+      3405,
+      3406,
+      3407,
+      3408,
+      3409,
+      3410,
+      3411,
+      3412,
+      3413,
+      3414,
+      3415,
+      3416
+    ],
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117",
+    "set": [
+      [
+        9,
+        6
+      ],
+      [
+        12,
+        4
+      ],
+      [
+        15,
+        1
+      ],
+      [
+        10,
+        5
+      ]
+    ]
+  },
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_own_direction_replays_v76": true,
+    "pred_c_person_direction_removes_little": true,
+    "pred_d_person_direction_not_live": true,
+    "pred_e_own_beats_null": true
+  },
+  "schema": "pronoun_number_dod_cross_family_direction_result_v134",
+  "serial_seconds": 3.06665564305149
+}

@@ -182,3 +182,4 @@ he−she 1648 vs random max 546 — 8.1 also serves the gender readout it was fi
 either/not lookup pushes and−nor by 0.35 of its own score, since/by pushes the person and correlative contrasts by 0.37, tomorrow/earlier pushes
 or−but by 0.27; the person and both/neither lookups are specific (≤ 0.10). Reading: 8.1 copies each cue token's block-0 value to the final query
 once; the families read that one write along their own directions, which are not orthogonal for the temporal and correlative cues.
+v134 (shared heads, separate directions, 5/5): at the pronoun-number set the person family's myself−yourself direction removes 0.00 (own 1.55; null 0.01). Heads shared between families (15.1, 10.5 here; 7.8 between number and selection, v95) carry each family along its own direction — the collection's components overlap in heads, not in what they write.
