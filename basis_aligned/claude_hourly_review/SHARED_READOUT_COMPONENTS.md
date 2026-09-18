@@ -107,3 +107,12 @@ on/of set. Scorecard `SELECTION_DOD_SCORECARD.md`. Family test next: verb partic
 | selection | 13.8, 7.8, 8.8 (+6.3, 14.8) | 9 complement / particle / preposition lines + v54 | adjective preposition in/of (v85 7/7), verb particle up/down (v86 7/7) — a component family |
 v87–v90: both selection sets beat random quadruples; up/down is direct (86%), in/of is MLP-relayed (38% direct; MLPs 8–15 amplify) — the same relay shape as the temporal family, in a family that starts at block 6.
 v91–v94 natural rows (FineWeb, Pile) for both selection lines: bars held, fractions 12% (in/of) and 18–19% (up/down) of bigram-sized natural margins; in/of far-cue counter-cells falsified twice (kept). Selection family now has fresh, natural in- and out-of-corpus, random-set null and response census on both lines (02:36 UTC).
+
+## Cross-family geometry at the shared heads (v95, weights only, 02:38 UTC)
+
+`family_geometry_v95_result.json`, 3/5. Held: the two pronoun contrasts share an axis at the pronoun core (|cos(he−she, they−he)| 0.43 / 0.55 / 0.38
+at 9.6 / 12.4 / 15.1; −0.41 already at the unembedding); number and selection are orthogonal at 7.8 (|cos| ≤ 0.25); pronoun and temporal
+are orthogonal at 15.1. Failed and kept: the two selection contrasts (in−of, up−down) do NOT share an axis at 13.8 / 8.8 (|cos| < 0.2) — the
+selection family shares heads, not a direction; and the cross-family unembedding bound (0.25) was exceeded by were−was | has−had (−0.26, the
+number/aspect entanglement known from v56/v57). Observed, not registered: they−he aligns with were−was at 9.6 (0.38), 15.1 (0.40), 8.8 (0.47),
+11.3 (0.40) — a candidate shared NUMBER axis between pronoun number and verb agreement, to be tested by removal (v96).
