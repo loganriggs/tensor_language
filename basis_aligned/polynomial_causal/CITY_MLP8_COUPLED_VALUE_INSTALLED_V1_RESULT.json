@@ -1,0 +1,28 @@
+{
+  "pred_a": true,
+  "panels": [
+    {
+      "panel": "CITY_MLP8_NORM_CLOSED_FRESH_V1_SCREEN",
+      "sequences": 40,
+      "max_abs_error": 5.7220458984375e-06,
+      "relative_error": 8.050927188279462e-07,
+      "outside": 0.0,
+      "passes": true
+    },
+    {
+      "panel": "CITY_VALUE_PATH_FRESH_V2",
+      "sequences": 40,
+      "max_abs_error": 5.9604644775390625e-06,
+      "relative_error": 8.688464333710764e-07,
+      "outside": 0.0,
+      "passes": true
+    }
+  ],
+  "body_forwards": 160,
+  "batched_block_calls": 72,
+  "seconds": 6.923892963910475,
+  "scope": "Installed coupled operator under native attention8 edit and full suffix; V1/V2 screen arm4 is the fixed behavioral reference. Native z8/upstream delta/token IDs remain external.",
+  "source_shas": {
+    "check_city_mlp8_coupled_value_installed_v1.py": "58b8fcec42f1b6faf24d016d05dec1eb2f6b835a23b505a98666d35468106cc0"
+  }
+}
