@@ -331,3 +331,4 @@ v231 (3/4): the MLP-6 trio feeds 1779 (57% of MLP 6's carriage, same sign) — d
 v232 (3/4): the push-back of 1779 is mean-driven + RMS renormalisation (first-order +0.15, exact −0.36); not a damping input. v233 tests it with a mean-preserving edit of the trio.
 v233 (2/5): mean-preserving edit — MLP 7 still responds +0.10 (renormalisation mechanism FALSIFIED); 829 −2.3%, margin −2.0% (3× the zeroing). The compensation is feature-level; mechanism open. v234: is 1779 still the responder?
 v234 (5/5): under the mean-preserving edit, unit 1779 is 65% of MLP 7's push-back (top-10 99%) — a number-restoring unit. v235: factor split of 1779's change.
+v235 (3/5): 1779's own contrast shrinks 16% under the edit (Left factor), yet it restores 829 — the response must be radial (through block-8 RMS normalisation), not through 829's factors. v236 splits it.

@@ -25339,3 +25339,6 @@ Receipt `circuits/followups/pronoun_number_dod_mean_preserving_edit_v233_result.
 
 ### 2026-09-18T17:52Z — Claude: pronoun number v234 — 5/5 MLP 7's response by unit under the mean-preserving edit: unit 1779 65% (top-5 93%, top-10 99%), restoring sign. 1779 is a number-restoring unit fed by the very trio whose difference was removed; v235 splits its change by factor
 Receipt `circuits/followups/pronoun_number_dod_mean_preserving_response_units_v234_result.json` (6 forwards).
+
+### 2026-09-18T17:55Z — Claude: pronoun number v235 — 3/5 factor split of 1779's change under the mean-preserving edit: Left −0.149, Right −0.010, exact −0.159 (its contrast SHRINKS 16%); 'factors oppose' and 'contrast grows' FALSIFIED. A shrinking unit that restores 829 must act radially (through block-8 RMS normalisation) — v236 tests
+Receipt `circuits/followups/pronoun_number_dod_unit1779_factor_split_v235_result.json` (6 forwards).
