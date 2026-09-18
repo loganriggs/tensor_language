@@ -1,0 +1,145 @@
+{
+  "candidate_id": "pronoun_number.they_vs_he.dod_mlp8_units_verb_edit_v215",
+  "finished_utc": "2026-09-18T17:04:07.048218+00:00",
+  "forwards": 60,
+  "plan": {
+    "bars": {
+      "gate_ratio": 0.25,
+      "match": 0.8,
+      "verb_min": 0.04
+    },
+    "candidate_id": "pronoun_number.they_vs_he.dod_mlp8_units_verb_edit_v215",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 63,
+    "gpu_accessed": false,
+    "layer": 8,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "n_null": 16,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117",
+    "seed": 215,
+    "units": [
+      829,
+      953,
+      1030
+    ]
+  },
+  "predictions": {
+    "pred_a_baseline_replays_v206": true,
+    "pred_b_verb_only_removes_004": true,
+    "pred_c_noun_plus_verb_matches_all_positions": true,
+    "pred_d_verb_edit_beats_random_sets": true,
+    "pred_e_verb_edit_selective": true
+  },
+  "report": {
+    "damage": {
+      "all": 0.11761309713798528,
+      "noun_verb": 0.11657009262865528,
+      "verb": 0.058636393843836114
+    },
+    "gates": {
+      "animacy_who_which": true,
+      "canonical_night_day": true,
+      "tense_will_would": true
+    },
+    "moves_verb": {
+      "animacy_who_which": 0.005806868275006612,
+      "canonical_night_day": 0.005444710763792197,
+      "tense_will_would": 0.005517275383075078
+    },
+    "native_pooled": 196.62155771255493,
+    "null_damage_max": 0.0015974063756318906,
+    "null_moves": {
+      "animacy_who_which": 0.00043814807819823426,
+      "canonical_night_day": 0.00034919549943879247,
+      "tense_will_would": 0.0008342271903529763
+    },
+    "null_sets": [
+      [
+        360,
+        814,
+        2702
+      ],
+      [
+        699,
+        1948,
+        2350
+      ],
+      [
+        326,
+        3083,
+        4456
+      ],
+      [
+        255,
+        940,
+        2429
+      ],
+      [
+        983,
+        1485,
+        2116
+      ],
+      [
+        3553,
+        3718,
+        4107
+      ],
+      [
+        1256,
+        3620,
+        4272
+      ],
+      [
+        1828,
+        3363,
+        3365
+      ],
+      [
+        1084,
+        2214,
+        3920
+      ],
+      [
+        480,
+        2037,
+        2676
+      ],
+      [
+        1273,
+        1776,
+        4245
+      ],
+      [
+        423,
+        1800,
+        2589
+      ],
+      [
+        391,
+        1898,
+        3424
+      ],
+      [
+        173,
+        2038,
+        2105
+      ],
+      [
+        1380,
+        2976,
+        3576
+      ],
+      [
+        104,
+        1774,
+        3073
+      ]
+    ]
+  },
+  "schema": "pronoun_number_dod_mlp8_units_verb_edit_result_v215",
+  "serial_seconds": 2.5818872081581503
+}

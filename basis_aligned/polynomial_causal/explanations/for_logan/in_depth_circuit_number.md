@@ -153,7 +153,7 @@ plural detector's factors $L, R$, whose *sign* encodes the number (mean |cosine|
 row [v213]); removing only that axis takes 3.4–4.3% of the margin, selectively, four times a norm-matched random direction [v208–v210, v213],
 and the verb is its site (all positions add half a point [v211]). Out of the panel the axis is weak: 0.8% at twice the matched null [v212].
 Readers take the verb state by two routes: 10.5, 9.6 and 15.1 lose coefficient when 4.5 is zeroed at the verb, 12.4 does not, although 12.4
-reads the verb position for 32% of its coefficient [v207, v214] — it reads the MLP-re-detected state, not the copy.
+reads the verb position for 32% of its coefficient [v207, v214] — it reads the MLP-re-detected state, not the copy. Zeroing the MLP-8 detectors by site closes the account: the verb alone costs 5.9% of the margin, the noun alone 5.3%, the two together 11.7%, all positions 11.8% [v215].
 
 ## 5. Out of the panel: natural text [v77, v78, v197–v200]
 

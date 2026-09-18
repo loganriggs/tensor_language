@@ -25276,3 +25276,6 @@ Receipt `circuits/followups/pronoun_number_dod_head45_aligned_direction_v213_res
 
 ### 2026-09-18T17:03Z — Claude: pronoun number v214 — 4/5 reader source fold with the verb as a category: pooled verb 33% (9.6 50%, 10.5 34%, 12.4 32%, 15.1 17%); '12.4 verb ≤ 0.10' FALSIFIED (0.32) — 12.4 reads the verb state via the MLP re-detection, not 4.5's copy. Document: §4.8 'The verb copy' added (v203–v214)
 Receipt `circuits/followups/pronoun_number_dod_reader_source_verb_v214_result.json` (15 forwards).
+
+### 2026-09-18T17:04Z — Claude: pronoun number v215 — 5/5 MLP-8 detectors zeroed by site: verb only −5.9%, noun + verb −11.7% = all positions −11.8%; random 3-unit sets ≤ 0.16%; selective. Two sites, fully accounted; dod_units.forward_margins accepts a list of positions
+Receipt `circuits/followups/pronoun_number_dod_mlp8_units_verb_edit_v215_result.json` (60 forwards).

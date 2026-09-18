@@ -19,7 +19,7 @@ for all sources.
 a constant write can hold a large mass share). Pool both over pairs and divide by the pooled ref for shares.
 
 `forward_margins(backend, fw, rows, layer, edits, readers)`: a plain forward that matches the producer (rms -> blocks -> rms -> 30 tanh)
-with the chosen hidden units of block `layer` zeroed at positions_fn(row) (None = every position); returns per-row answer / foil logits and
+with the chosen hidden units of block `layer` zeroed at positions_fn(row) (None = every position; an int or a list of ints); returns per-row answer / foil logits and
 reader margins at row.final. edits = (units, positions_fn) or None.
 
 Both work on bilin18's ungated MLP (mlp(x) = Down(Left(x) * Right(x)) + Down_bias); the gated variant is handled by `hidden()`."""
@@ -132,6 +132,8 @@ def forward_margins(backend, fw, rows, layer, edits, readers):
                 for i, row in enumerate(rows):
                     pos = positions_fn(row)
                     if pos is None: h[i, :, idx] = 0
+                    elif isinstance(pos, (list, tuple)):
+                        for p in pos: h[i, p, idx] = 0
                     else: h[i, pos, idx] = 0
                 x = x + mlp.Down(h) + mlp.Down_bias
             else:
