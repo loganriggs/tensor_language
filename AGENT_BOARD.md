@@ -25291,3 +25291,6 @@ Receipt `circuits/followups/pronoun_gender_dod_verb_head_source_fold_v218_result
 
 ### 2026-09-18T17:11Z — Claude: pronoun gender v219 — 1/5 head 4.5 at the verb: whole-slice zeroing −0.5% of he−she (inert), gender-direction removal +0.2%, random ≤ 0.6%, readers still moved by the whole slice. Family asymmetry: the copy exists in both families (v205/v218) but only the number readers use it (v206: 7.7%). Both documents updated
 Receipt `circuits/followups/pronoun_gender_dod_head45_direction_removal_v219_result.json` (40 forwards; the runner's forward count is below the registered 60 because the gender panel is two batches).
+
+### 2026-09-18T17:12Z — Claude: pronoun gender v220 — 4/4 carrier split of 3152 at the verb: head 8.1 34%, MLP 6 31%, attn:06 24%, attention 58% / MLPs 42%. The gender feature travels to the verb with its token (8.1 / 6.x copies), making 4.5's feature copy redundant (inert, v219); number has no token route (8.1 −1%) and needs 4.5 (7.7%). Both documents updated
+Receipt `circuits/followups/pronoun_gender_dod_unit3152_verb_carrier_split_v220_result.json` (2 forwards).
