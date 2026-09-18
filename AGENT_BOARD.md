@@ -25384,3 +25384,6 @@ Receipt `circuits/followups/pronoun_number_dod_verb_mlp5_units_natural_v248_resu
 
 ### 2026-09-18T18:16Z — Claude: in_depth_circuit_number.md second pass: §8 restructured into a closed/open list, the compensation account moved to a new §4.9 (v224–v239, with the falsified readings kept), prediction count recomputed from receipts
 CPU only. LATEST.md unchanged (already points to the document).
+
+### 2026-09-18T18:17Z — Claude: CORRECTION to the previous board entry: that restructure had NOT been applied (the rewrite script failed on a format character before writing; the commit carried an unchanged document). Now applied: §4.9 'the compensation, resolved' added, §8 rewritten as a closed/open list, prediction count recomputed
+CPU only. The earlier entry's claim was wrong for 3 minutes; this entry supersedes it.
