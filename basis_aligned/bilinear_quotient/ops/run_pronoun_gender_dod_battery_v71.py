@@ -45,8 +45,10 @@ OUT = "pronoun_gender_dod_battery_v71_result.json"
 HEADS = ((10, 1), (9, 6), (12, 4), (15, 1))
 FROZEN, BAND = 0.89, 0.15
 # scored by dod_battery.run, listed here so the queue gate sees the literal keys
-PREDICTION_KEYS = ("pred_a_instrument_replays_native", "pred_b_native_capability", "pred_c_set_live_and_beats_null", "pred_d_set_selective",
-                   "pred_e_set_is_additive", "pred_f_keep_only_retains_most", "pred_g_set_fraction_within_band_of_frozen")
+PREDICTIONS = {"pred_a_instrument_replays_native": "<= 1e-4", "pred_b_native_capability": ">= 0.85 per cell",
+               "pred_c_set_live_and_beats_null": "fraction >= 0.10, positive >= 0.75, > null max", "pred_d_set_selective": "three reader gates",
+               "pred_e_set_is_additive": "gap <= 0.25 x min single", "pred_f_keep_only_retains_most": "retention >= 0.70, random <= 0.30",
+               "pred_g_set_fraction_within_band_of_frozen": "0.89 +/- 0.15 per construction"}
 PAIRS = (("hero", "heroine"), ("god", "goddess"), ("grandson", "granddaughter"), ("boyfriend", "girlfriend"), ("spokesman", "spokeswoman"),
          ("dad", "mom"), ("bull", "cow"), ("groom", "bride"), ("male", "female"), ("guy", "gal"))
 OBJECTS = ("compass", "ladder", "hammer", "mirror", "candle", "saddle", "helmet", "anchor", "bucket", "shovel", "pillow",
