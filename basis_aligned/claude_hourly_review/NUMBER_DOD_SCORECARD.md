@@ -27,6 +27,9 @@ scorecards. Readers for this family: has−had (tense), who−which, night−day
 | 15 | Blind sweep on the subject-adjacent frame: flat — 5.7 0.28, 11.3 0.21, 6.1 0.14, 9.7 0.11, 7.8 0.10; the top-4 set removes only 13% (null max 0.22) | edit | opened (v63, 32 rows) | | 4/5: no head-grain readout set carries number when the subject noun is the final token; that decision is token-local (not this component) |
 | 16 | Module-grain census on the adjacent frame (whole outputs zeroed at the final query, no null): leading MLP mlp16 0.40; attention5 0.59, attention1 0.34; other attention blocks ≤ 0.13 | edit (unnulled, opened) | v64 | | 2/4: an MLP carries ≥ 0.30 but not in blocks 0–4, and attention5/1 exceed 0.15 — whole-block zeroing is norm-heavy (v1 lesson), so this is a nomination only |
 | 17 | Block-5 heads on the adjacent frame: 5.7 leads (1.77 of the block's 2.76) but does NOT beat its 16 equal-norm random-direction nulls (max 2.04); MLP16 (0.40) and MLP0 (0.22) are the largest whole-block carriers, MLP17 opposes (−0.44) | edit | opened (v65) | | 3/4: no nulled head carries adjacent-subject number — that decision is MLP-borne (late MLP16 + early MLP0), outside the head-readout component; branch closed |
+| 18 | Natural FineWeb rows (a list noun in singular / plural form within 12 tokens, next token were / was; pronouns and be-forms excluded): congruent removal 0.96 of 5.38 (18%), positive 29/32, null max 0.22 | edit | natural (v138) | **selectivity failed**: the tense reader has−had moves 0.59 vs null 0.26 (gate bar 0.50); who−which and night−day pass; on fresh rows (v55) the same gate passed | 4/6 |
+| 18f | **Failed:** incongruent rows hurt as much (+1.00, positive 27/32): number sets carry the resolved subject number (5th falsification of the counter-case reading on number lines) | edit | natural (v138) | | falsified as registered |
+| 19 | Pile rows: congruent 1.94 of 5.79 (33%), positive 31/32, null 0.17; has−had moves 0.94 vs null 0.28 (bar 0.76) — selectivity failed again; counter-cases +1.01 | edit | natural OOD (v139) | | 4/6 |
 
 ## Five-property status
 | property | status | next |
@@ -38,6 +41,7 @@ scorecards. Readers for this family: has−had (tense), who−which, night−day
 | Composes | additive (row 3) | pairwise + random-split null |
 
 ## Receipts
+- v138 / v139: `.../lexical_number_dod_natural_v138_result.json`, `.../lexical_number_dod_pile_v139_result.json`; rows `lexical_number_dod_{natural,pile}_rows_v13{8,9}.json`; miner config `ops/lexical_number_dod_natural_rows.py`
 - v65 adjacent-frame block-5 heads: `.../number_family_dod_adjacent_block5_v65_result.json`
 - v64 adjacent-frame module census: `.../number_family_dod_adjacent_modules_v64_result.json`
 - v63 adjacent-frame sweep: `.../number_family_dod_adjacent_sweep_v63_result.json`
