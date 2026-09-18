@@ -25075,3 +25075,6 @@ Receipt `circuits/followups/cross_family_composition_v143_result.json` (20 forwa
 
 ### 2026-09-18T03:50Z — Claude: cross-family composition with a shared head v144 — 4/4: 'I/You praised either/not the obj [and then blamed]': correlative set (with 8.1) removes 45% of or/but at the object, person set (with 8.1) 41% of myself/yourself at the end; each inert at the other's position (≤ 0.001 of own); joint additive (gaps 0.008 / 0.003). Head 8.1 serves both families in one sentence without interference
 Receipt `circuits/followups/cross_family_composition_shared_head_v144_result.json` (20 forwards; 64 + 64 rows; objects = the 16 fresh pool objects after v143's). The two block-8 components are named apart so head 8.1's slice is projected along both directions in the joint arm.
+
+### 2026-09-18T03:52Z — Claude: pronoun gender v145 — 4/4: 8.1's write at the verb position, folded on 9.6's reader direction, is 99% from the gendered noun and 96% token-only (block-0 value). 8.1 is a general token copier: the same lookup at the final query (temporal, person, correlative) and at intermediate positions feeding contextual readers (gender's 9.6)
+Receipt `circuits/followups/pronoun_gender_dod_8_1_at_verb_v145_result.json` (4 forwards; mean contrast 3965 in reader-projected units, closure 2e-7). Queue empty at 03:53; next review ~04:15.

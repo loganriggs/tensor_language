@@ -1,0 +1,52 @@
+{
+  "by_category_branch": {
+    "noun": {
+      "current": 3475.629766136408,
+      "inherited": 114659.85836791992
+    },
+    "other": {
+      "current": -2.2762404531240463,
+      "inherited": -0.029536183923482895
+    },
+    "verb": {
+      "current": 850.0362757444382,
+      "inherited": -28.285395443439484
+    }
+  },
+  "candidate_id": "pronoun_gender.he_vs_she.dod_8_1_at_verb_v145",
+  "closure_max": 1.9322310534842522e-07,
+  "finished_utc": "2026-09-18T03:52:09.771502+00:00",
+  "forwards": 4,
+  "inherited_share": 0.9636552281475343,
+  "mean_contrast": 3965.164444986979,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "inh_min": 0.5,
+      "noun_min": 0.8
+    },
+    "candidate_id": "pronoun_gender.he_vs_she.dod_8_1_at_verb_v145",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 6,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 60,
+    "rows_sha256": "a2c57cae32fb75bc7a0194c61a6f001c069cc9ab2fc941462144733d45a8508d"
+  },
+  "predictions": {
+    "pred_a_fold_closure": true,
+    "pred_b_noun_position_carries_8_1_write_at_verb": true,
+    "pred_c_8_1_write_at_verb_is_token_only": true,
+    "pred_d_contrast_positive": true
+  },
+  "schema": "pronoun_gender_dod_8_1_at_verb_result_v145",
+  "serial_seconds": 1.7124097989872098,
+  "shares": {
+    "noun": 0.9931112969216276,
+    "other": -1.9383615055887054e-05,
+    "verb": 0.006908085752827645
+  }
+}
