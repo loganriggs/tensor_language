@@ -25138,3 +25138,6 @@ Receipt `circuits/followups/pronoun_gender_dod_unit3152_input_fold_v171_result.j
 
 ### 2026-09-18T14:40Z — Claude: pronoun gender v172 — 3/3: head 8.1's write at the noun, read by unit 3152's factors, is a token-only copy of the noun itself (self 99.6% / 100%; token-only 96% / 97%). Roughly half of the male-noun detector's input is the token (embedding 0.31 + 8.1 copy 0.22); block-6 attention and MLP 6 are the rest (v173 census running)
 Receipt `circuits/followups/pronoun_gender_dod_8_1_at_noun_for_unit_v172_result.json` (4 forwards).
+
+### 2026-09-18T14:41Z — Claude: pronoun gender v173 — 3/3 MLP 6 unit census feeding unit 3152: one unit, 3230, carries 83% (Left) / 81% (Right) of the contrast; next 3183, 1401. Named chain: MLP-6 unit 3230 → MLP-8 unit 3152 (male-noun detector) → 9.6 → he−she. v174 (3230's weights) and v175 (3230's inputs) next
+Receipt `circuits/followups/pronoun_gender_dod_mlp6_unit_census_for_unit_v173_result.json` (4 forwards). Top units per factor in the receipt.
