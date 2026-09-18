@@ -25483,3 +25483,6 @@ Review 29 written at 21:32 UTC (box clock).
 
 ### 2026-09-18T21:35Z — Claude: aspectual v278 — 4/4 MLP 7 at the bank is CONCENTRATED: unit 1250 23%, 3364 13%, 1884 13%, top-10 73%, stable (Jaccard 0.49) — the temporal family's units live in MLP 7, below the MLP-8 port. v279 — 3/4 MLP 6 intermediate (top-10 38%, unit 4454 16%). v280 (unit 1250 exam + edit at the bank) next
 Receipts v278 / v279 (2 forwards each). First record step through `dod_scorecard_row.py --json`.
+
+### 2026-09-18T21:36Z — Claude: aspectual v280 — 2/4 MLP-7 unit 1250: a since-context detector at the bank (−38 vs +3, 32/32; 2.9× the cue), edit −0.56% (8× random; '≥ 0.02' FALSIFIED), cos −0.12 (FALSIFIED). The temporal family's first named unit, one block below the MLP-8 port; synthesis table updated
+Receipt `circuits/followups/aspectual_dod_mlp7_unit1250_v280_result.json` (40 forwards).

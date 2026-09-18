@@ -38,12 +38,11 @@ bilinear unit's contrast into its writers' own changes — and every nomination 
 | noun-number (these/this) | one unit 93% | 3892 a *these*-detector | half token, half MLPs 4–7 | 0.7% cue, 1.3% all |
 | perfect-number (have/has) | concentrated (88%) | **829 shared**, 1738, 3858 | as 829 | 1.9% / 3.0%; natural plural-only |
 | correlative (both/neither) | spread at the cue; **final** one unit 59% | 1512 negative-polarity | 8.1's cue copy at the final | 1.8% / 2.5%; natural 1.9%, not selective |
-| temporal (has/had) | spread, mixed sign (19%) | none on the path (13 is a *since*-detector, inert) | 8.1's cue copy + diffuse MLPs | port |
+| temporal (has/had) | MLP 8 spread (19%); **MLP 7 concentrated** at the bank (top-10 73%) | MLP-7 unit 1250, a *since*-detector (32/32); 3364, 1884 | 8.1's cue copy + MLP 7 | 0.6% for 1250 [v278, v280]; MLP-8 unit 13 inert |
 | person (I/you) | spread, frame-specific (26%) | none | token copies | port |
 | selection (particle) | spread at both positions (29% / 8%) | none | — | port |
 
-Content-word features have detectors; function-word cues mostly do not (the adjective cue of the selection line is the exception to the
-simplest form of that rule). Every detector is small under edit (0.7–5% of a margin) unless two sites add.
+Content-word features have detectors at MLP 8; function-word cues mostly do not there — but the temporal family's detector turned up one block down, in MLP 7 (unit 1250, a *since*-context detector at the bank the readers read [v278, v280]), so "port at MLP 8" means "look one block lower", not "no unit". The adjective cue of the selection line is the exception to the simplest form of the content/function rule. Every detector is small under edit (0.7–5% of a margin) unless two sites add.
 
 ## 4. The deepest component
 
