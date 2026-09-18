@@ -25216,3 +25216,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp8_units_natural_v197_result.js
 
 ### 2026-09-18T15:26Z — Claude: pronoun number v198 — 4/5 single MLP-8 units on the natural rows: 829 alone 59% of the trio's congruent damage ('≥ 0.70' FALSIFIED), plural-only (plural-they +0.154, 97% positive; singular ≈ 0); 953 alone 27%, singular-only (singular-he +0.049, singular-they −0.049 toward label). Two complementary number detectors
 Receipt `circuits/followups/pronoun_number_dod_mlp8_single_units_natural_v198_result.json` (16 forwards).
+
+### 2026-09-18T15:27Z — Claude: pronoun number v199 — 5/5 the MLP-6 trio {2483, 2826, 4131} on the 128 natural rows: congruent damage 0.8% at the cue (72% positive), random 3-unit sets ≤ 0.0007, selective, incongruent rows shift toward the label; plural-specific. All-positions edit flips sign (declared limit)
+Receipt `circuits/followups/pronoun_number_dod_mlp6_units_natural_v199_result.json` (80 forwards).
