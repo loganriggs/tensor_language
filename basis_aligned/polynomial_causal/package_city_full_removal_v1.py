@@ -1,0 +1,20 @@
+"""Export the frozen, freshly confirmed one-input removal approximation."""
+from pathlib import Path
+import torch,json,hashlib,sys
+P=Path(__file__).resolve().parent
+@torch.no_grad()
+def main():
+ torch.set_num_threads(2);folder=P/'extracted_circuits/city_full_removal_v1';folder.mkdir(exist_ok=False)
+ src=P/'extracted_circuits/typed_face_single_head_norm_v1';p=torch.load(src/'program.pt',weights_only=True);t=torch.load(P/'CITY_FULL_FRESH_V1_TABLES.pt',weights_only=True)
+ p['entry']={k:t[k] for k in ['token_ids','initial_table','lambdas8']};p['head8']['token_ids']=t['token_ids'];p['head8']['first_table']=t['first_table'][:,256:384].clone();torch.save(p,folder/'program.pt')
+ for name in ['head8.py','attention.py']:(folder/name).write_text((src/name).read_text())
+ code=(P/'city_full_value_removal_v1.py').read_text();line=" idx=torch.tensor([[lookup[int(t)] for t in row] for row in token_ids.tolist()],device=residual7.device)";assert line in code;code=code.replace(line,' try:\n '+line+"\n except KeyError as e:raise ValueError('Token outside frozen initial-state table') from e")
+ (folder/'execute.py').write_text(code);sys.path.insert(0,str(folder));import execute
+ fs=torch.load(P/'CITY_FULL_FRESH_V1_ARTIFACT.pt',weights_only=True)['fixtures'];errors=[];zeros=[]
+ for f in fs:
+  x=f['candidate_inputs'];got=execute.execute(p,**x);ref=f['expected_candidate_delta'];errors.append(float((got-ref).norm()/ref.norm()));zeros.append(float(execute.execute(p,**x,strength=0).abs().max()))
+ count=sum(v.numel() for branch in p.values() for v in branch.values() if v.is_floating_point())
+ result={'pred_a':len(fs)==40 and max(errors)<=1e-4,'pred_b':max(zeros)==0,'max_write_relative_error':max(errors),'zero_strength_max':max(zeros),'float_scalars':count,'native_vector_arrays':1,'native_state_scalars_T32':36864,'supported_tokens':len(t['token_ids']),'scope':'CPU replay of exported approximate full-city removal. Native/isolated certificate pending; no fresh evidence from packaging.'};assert result['pred_a'] and result['pred_b'];(P/'CITY_FULL_EXTRACTED_V1_CPU_RESULT.json').write_text(json.dumps(result,indent=2)+'\n')
+ manifest={'schema':'regional.city_full_removal.v1','ports':['residual7[B,T,1152]','token_ids[B,T]','city:int','destination[T]:bool','strength:float=.5'],'external_native_activation_inputs':1,'native_vector_state_arrays':1,'native_scalar_state_arrays':0,'native_state_scalars_T32':36864,'static_float_scalars':count,'supported_sequence_tokens':len(t['token_ids']),'output':'approximate block9 input delta[B,T,1152]','serialized_program_bytes':(folder/'program.pt').stat().st_size,'four_traits':{'ood_prediction':None,'extraction':None,'selective_removal':None,'composition_reuse':False},'certified_complete_circuit':False,'scope':'Fresh formula prediction/removal confirmed at one native-state boundary. Export CPU replay passes; native/isolated package certificate pending. Native prefix/suffix, corpus generalization, composition and matched-effect simplicity remain open.','files':{f.name:hashlib.sha256(f.read_bytes()).hexdigest() for f in folder.iterdir() if f.suffix in ('.py','.pt')},'receipts':['CITY_FULL_FRESH_V1_RESULT.json','CITY_FULL_EXTRACTED_V1_CPU_RESULT.json']}
+ (folder/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n');(folder/'README.md').write_text('# One-input full city removal\n\nLoad program.pt with PyTorch and call execute.execute(program, residual7, token_ids, city, destination, strength=.5). Only recipient residual7 is a native-state input. Output is a block9 input delta; the native suffix remains external.\n\nBoth inherited and current city values are removed together. MLP8 response uses the tested single-head frozen-normalization approximation. This is a different counterfactual from paired swaps.\n\n53 sequence tokens are supported; others are rejected. CPU replay passes; native and isolated checks pending. Fresh formula evidence is CITY_FULL_FRESH_V1_RESULT.json. Composition and corpus/token-only claims remain open.\n');print(json.dumps(result))
+if __name__=='__main__':main()
