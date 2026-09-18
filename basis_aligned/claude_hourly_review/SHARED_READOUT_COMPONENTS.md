@@ -307,3 +307,4 @@ v207b (2/5): zeroing 4.5 at the verb is NOT selective (animacy / tense readers m
 v208 (5/5): the number direction of 4.5's verb copy (O^T of 829's gradient) removes 4.3% of the margin selectively, 16 random directions ≤ 0.6% (null not norm-matched — v209). A direction of a shared head is a component; the head is not.
 v209 (5/5): v208 confirmed with a norm-matched null (random ≤ 0.9%, readers at null level). v210 asks whether the direction is one fixed vector.
 v210 (4/5): a single fixed direction of head 4.5 (mean over rows) removes 3.6% selectively (per-row 4.3%; matched random ≤ 1.2%). Cosine prediction failed algebraically (2-D span, row-dependent signs). v211: the fixed direction at all positions.
+v211 (5/5): 4.5's number direction at all positions −4.1% vs −3.6% at the verb; matched random at all positions up to 2.65%. The verb is the site. v212: the fixed direction on natural rows.

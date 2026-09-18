@@ -25264,3 +25264,6 @@ Receipt `circuits/followups/pronoun_number_dod_head45_direction_removal_matched_
 
 ### 2026-09-18T16:45Z — Claude: pronoun number v210 — 4/5 one FIXED vector (mean per-row number direction) removed from 4.5's verb slice: margin −3.6% (per-row −4.3%), 16 norm-matched random ≤ 1.2%, selective. 'Pairwise cosine ≥ 0.80' FALSIFIED (0.03) for an algebraic reason: the per-row directions lie in a 2-D span with row-dependent signs. Simple holds in substance
 Receipt `circuits/followups/pronoun_number_dod_head45_fixed_direction_v210_result.json` (60 forwards).
+
+### 2026-09-18T16:58Z — Claude: pronoun number v211 — 5/5 fixed number direction of 4.5 at all positions: −4.1% (verb only −3.6%), matched random at all positions ≤ 2.65%, selective. The verb is the main site. (First run crashed on a leftover key after its 60 forwards; re-run — 60 forwards wasted)
+Receipt `circuits/followups/pronoun_number_dod_head45_fixed_direction_all_positions_v211_result.json` (60 forwards; 60 more lost to the crashed first run).
