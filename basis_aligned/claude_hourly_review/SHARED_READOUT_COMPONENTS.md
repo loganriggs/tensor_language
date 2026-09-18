@@ -189,3 +189,10 @@ v138/v139 (lexical were/was natural rows, 4/6 each): 18% / 33% of the natural ma
 v140 (tense leak, 2/4): 11.3 alone carries 61% of the has−had move on natural were/was rows (registered ≥ 70% failed); the set without 11.3 passes the tense gate but is not live (fraction 0.08). The number component's natural-text selectivity failure is 11.3's number–tense entanglement; v141 tests the orthogonalized direction (v57's construction) on natural rows.
 v141 (orthogonalized number removal on natural rows, 4/5): live at 69% of the native-direction damage, other readers fine, but has−had still moves 0.54 (0.59 native) — the natural-text tense leak is not the directions' weight-level overlap (which v57 removed on fresh rows); removing the number feature changes tense downstream. v142 asks where (census on the has−had reader).
 v142 (tense census under number removal, natural rows): direct share −4%, downstream +0.54 spread over MLPs 5–17 — the number family's natural-text selectivity failure is a structural number → tense dependency in the suffix. Declared limit; thread closed (03:45 UTC).
+
+## Composes across families, in one sentence (v143, 03:49 UTC)
+
+"The {king|queen} praised {either|not} the {obj}" scored at the object for or/but, and continued "… and then" scored for he/she (64 rows each; module
+gender nouns, fresh objects, new frames). The correlative set removes 42% of the or/but margin at the object (positive 64/64) and the gender set 107%
+of the he/she margin at "then" (64/64); each family's set removes nothing at the other's position (−0.001 / +0.002 of own) and the joint removal
+equals the sum (gaps 0.001 / 0.002). 4/4 — components of different families compose in a sentence: separate positions, no interference, additive.

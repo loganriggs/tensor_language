@@ -38,6 +38,10 @@ correlatives). Neither the two selection contrasts (in/of, up/down) nor the two 
 yet the temporal family does (v70): "same heads" and "same direction" are different claims, and shared heads carry different
 families along orthogonal directions (cross-family removal 0.00 at three sets).
 
+**They compose in a sentence (v143).** With a correlative decision at the object and a gender decision after it in one
+sentence, the correlative set removes 42% of or/but at the object and the gender set 107% of he/she at the end; each removes
+nothing at the other's position and the joint removal is the sum of the two (gaps ≤ 0.002 logits).
+
 **Where the collection is honest about limits.** The number family is selective on synthetic panels but moves the tense reader on
 natural text; the leak survives dropping 11.3 and orthogonalizing the readout direction and is produced downstream by MLPs 5–17
 (v138–v142) — a structural number → tense dependency, declared. Head 8.1 is one token copier serving four families, with cross-talk
