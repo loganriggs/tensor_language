@@ -345,3 +345,4 @@ v245 (4/5): at the verb MLP 5 → unit 69 is 1036 (52%, the noun's carrier) + 71
 v246 (3/5): zeroing MLP-5 {1036, 715} at the verb costs 829's verb contrast 29% (51× null) and the margin 1.05%, while unit 69 GROWS 2.2× — second growth paradox; v247 splits by class and factor.
 v247 (5/5): unit 69's 2.2× growth is class-differential (+10.1 plural / −5.3 singular, Right factor) — the v238 law on a second unit. v248: verb-site MLP-5 units on natural rows (cue + 1).
 v248 (2/5): verb-site MLP-5 units at cue+1 on natural rows — no detectable effect (0.02%); declared OOD limit of the verb-site chain (needs a verb annotation).
+v249 (4/4, gender): 12.4 reads the same MLP-8 detectors as 9.6 (3152 53%, 3943 20%). v250: 12.4 on the number line.

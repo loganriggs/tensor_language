@@ -25387,3 +25387,6 @@ CPU only. LATEST.md unchanged (already points to the document).
 
 ### 2026-09-18T18:17Z — Claude: CORRECTION to the previous board entry: that restructure had NOT been applied (the rewrite script failed on a format character before writing; the commit carried an unchanged document). Now applied: §4.9 'the compensation, resolved' added, §8 rewritten as a closed/open list, prediction count recomputed
 CPU only. The earlier entry's claim was wrong for 3 minutes; this entry supersedes it.
+
+### 2026-09-18T18:19Z — Claude: pronoun gender v249 — 4/4 MLP-8 census on 12.4's reader direction: 3152 53%, 3943 20%, top-10 78%, Jaccard with 9.6's top-50 held. 12.4 reads the same detectors as 9.6; morning's open item closed. Gender document updated
+Receipt `circuits/followups/pronoun_gender_dod_mlp8_unit_census_12_4_v249_result.json` (2 forwards).
