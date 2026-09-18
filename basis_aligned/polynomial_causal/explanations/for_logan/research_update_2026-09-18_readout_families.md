@@ -1,5 +1,8 @@
 # 18 September — Two readout families at the auxiliary slot (nine decisions, one recipe)
 
+**Later the same day:** a third family (pronoun gender / number / person, core heads {9.6, 12.4, 15.1}) was found by the
+readout atlas and taken through the same battery: [`research_update_2026-09-18_pronoun_readout_family.md`](research_update_2026-09-18_pronoun_readout_family.md).
+
 **Path now.** Every auxiliary decision in the corpus is read out by a small set of late heads writing along
 `O_h^T(u_a − u_b)` at the final query. Across nine behaviours the same recipe (blind weight-only readout sweep of all
 162 heads, then the top-4 set with a norm-matched random null and three unrelated readers) finds two families:
