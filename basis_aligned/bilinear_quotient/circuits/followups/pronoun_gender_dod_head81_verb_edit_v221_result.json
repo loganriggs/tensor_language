@@ -1,0 +1,75 @@
+{
+  "candidate_id": "pronoun_gender.he_vs_she.dod_head81_verb_edit_v221",
+  "finished_utc": "2026-09-18T17:13:02.621993+00:00",
+  "forwards": 20,
+  "plan": {
+    "bars": {
+      "drop_min": 0.15
+    },
+    "block": 8,
+    "candidate_id": "pronoun_gender.he_vs_she.dod_head81_verb_edit_v221",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 22,
+    "gpu_accessed": false,
+    "head": 1,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 60,
+    "rows_sha256": "a2c57cae32fb75bc7a0194c61a6f001c069cc9ab2fc941462144733d45a8508d"
+  },
+  "predictions": {
+    "pred_a_native_margin_positive": true,
+    "pred_b_3152_verb_contrast_drops_015": true,
+    "pred_c_beats_every_other_block8_head": true,
+    "pred_d_margin_drops_and_beats_others": true,
+    "pred_e_shrinks_not_grows": true
+  },
+  "report": {
+    "baseline": {
+      "margin": 103.45894002914429,
+      "u829": -2528.29478263855
+    },
+    "fractional_change_by_head": {
+      "0": {
+        "margin": 4.7642723798998807e-05,
+        "u829": 0.0012112874636251785
+      },
+      "1": {
+        "margin": -0.034585971940348396,
+        "u829": -0.294330566445578
+      },
+      "2": {
+        "margin": 0.0008811622472198498,
+        "u829": 0.017927375157605258
+      },
+      "3": {
+        "margin": 0.0009549838112218391,
+        "u829": -0.00033756554232961574
+      },
+      "4": {
+        "margin": -0.0006849730410718395,
+        "u829": -0.005039283358762249
+      },
+      "5": {
+        "margin": 0.00023900174957152773,
+        "u829": -0.02526849893318051
+      },
+      "6": {
+        "margin": -0.00028519265388743815,
+        "u829": 0.0022573072177791784
+      },
+      "7": {
+        "margin": 0.0005739341998446479,
+        "u829": 0.0007277856012745277
+      },
+      "8": {
+        "margin": 0.004549615108136839,
+        "u829": -0.04277116200715728
+      }
+    }
+  },
+  "schema": "pronoun_number_dod_head45_verb_edit_result_v221",
+  "serial_seconds": 1.8735969979315996
+}

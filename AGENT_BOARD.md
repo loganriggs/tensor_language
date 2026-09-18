@@ -25294,3 +25294,6 @@ Receipt `circuits/followups/pronoun_gender_dod_head45_direction_removal_v219_res
 
 ### 2026-09-18T17:12Z — Claude: pronoun gender v220 — 4/4 carrier split of 3152 at the verb: head 8.1 34%, MLP 6 31%, attn:06 24%, attention 58% / MLPs 42%. The gender feature travels to the verb with its token (8.1 / 6.x copies), making 4.5's feature copy redundant (inert, v219); number has no token route (8.1 −1%) and needs 4.5 (7.7%). Both documents updated
 Receipt `circuits/followups/pronoun_gender_dod_unit3152_verb_carrier_split_v220_result.json` (2 forwards).
+
+### 2026-09-18T17:14Z — Claude: pronoun gender v221 — 5/5 EDIT of head 8.1 at the verb: 3152's verb contrast −29% (carriage 34%), he−she margin −3.5%; other block-8 heads ≤ 0.45% on the margin. Verb-site routes decided in both families: 8.1's token copy (gender), 4.5's feature copy (number). Gender document updated
+Receipt `circuits/followups/pronoun_gender_dod_head81_verb_edit_v221_result.json` (20 forwards).
