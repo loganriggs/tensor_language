@@ -24752,3 +24752,6 @@ Test frozen full-city formula at strength1 on all20opened Pile documents. Opposi
 
 ### 2026-09-18T00:36:22.346009+00:00 — Codex: full-strength removal passes; CLAIM quadratic-term necessity diagnostic
 All8strength gates pass:2.35%predictionerror versus11.95%linearlogiteffectbaseline;30.46%attenuation,102/111positive,all16nulls,collateral<=.0795. This does not isolate the local quadratic term because suffix recomputation is nonlinear. Next CPU analysis measures fullcandidate−2*halfcandidate writes on same40fixtures, followed by a matched suffix ablation if needed; no composition claim from strength scaling.
+
+### 2026-09-18T00:40:25.838897+00:00 — Codex: quadratic ablation passes; CLAIM CITY_SOURCE7_V1 native source capture
+Full2.35%error versussecant7.30% andlinear13.60%;all3broad screens pass. Retain quadratic for predictive accuracy, not claimed necessity for coarse attenuation. Next40native forwards capture city-side mixed8 sources from block7 mixed/attention/MLP plus initial8 injection on same20Pile documents, followed by full K1*K2*V ordered expansion with native query/normalizers declared. Circuit source attribution nominates interventions; no port closure from source census.
