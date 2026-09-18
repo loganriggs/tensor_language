@@ -25204,3 +25204,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp5_unit_carrier_split_v193_resu
 
 ### 2026-09-18T15:18Z — Claude: pronoun number v194 — 2/4 carrier-level unit census of MLP 3 / MLP 4 into MLP-5 unit 1036: MLP-3 units 3465 (16%), 493 (13%); MLP-4 units 2434 (23%), 2633 (21%); top-10 47% / 56% ('≥ 0.50' FALSIFIED for MLP 3), top-50 76% / 61% (FALSIFIED). Number chain now named at every MLP from block 3 up (folds); v195 edit next
 Receipt `circuits/followups/pronoun_number_dod_mlp34_unit_carriers_into_1036_v194_result.json` (3 forwards).
+
+### 2026-09-18T15:20Z — Claude: pronoun number v195 — 3/5 EDIT of the five MLP-5 carrier units at the noun: u_2483 −6.0% ('≥ 0.15' FALSIFIED; carriage predicted 0.22), u_829 −3.9% ('≥ 0.05' FALSIFIED), they−he margin −1.3%; 16 random 5-unit sets ≤ 0.9% / 0.6% / 0.07%; replay, beats-null, shrink held. Real, selective, smaller than carriage — the named MLP-5 units reach the logit
+Receipt `circuits/followups/pronoun_number_dod_mlp5_carrier_edit_v195_result.json` (54 forwards).
