@@ -1,0 +1,180 @@
+{
+  "candidate_id": "pronoun_gender.he_vs_she.dod_head45_direction_removal_v219",
+  "finished_utc": "2026-09-18T17:09:57.646063+00:00",
+  "forwards": 40,
+  "plan": {
+    "bars": {
+      "drop_min": 0.01,
+      "gate_ratio": 0.25,
+      "half": 0.5,
+      "n_null": 16,
+      "seed": 219
+    },
+    "block": 4,
+    "candidate_id": "pronoun_gender.he_vs_she.dod_head45_direction_removal_v219",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 63,
+    "gpu_accessed": false,
+    "head": 5,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 60,
+    "rows_sha256": "a2c57cae32fb75bc7a0194c61a6f001c069cc9ab2fc941462144733d45a8508d"
+  },
+  "predictions": {
+    "pred_a_whole_slice_damages": false,
+    "pred_b_direction_removal_damages": false,
+    "pred_c_direction_beats_random_directions": false,
+    "pred_d_direction_removal_selective": false,
+    "pred_e_direction_carries_half_of_full_zeroing": true
+  },
+  "report": {
+    "damage": {
+      "number": 0.0019404327868348347,
+      "rand0": -0.0020048889629332186,
+      "rand1": -0.0012759741855065709,
+      "rand10": 0.0023380423582207133,
+      "rand11": -0.0008627955785210968,
+      "rand12": -0.0022206846455290323,
+      "rand13": 0.003398681756205467,
+      "rand14": 0.001319058657023746,
+      "rand15": -0.004952220782124837,
+      "rand2": 0.001835016865510398,
+      "rand3": -0.0004344581325518839,
+      "rand4": 0.002024016108504066,
+      "rand5": 0.000642294157219781,
+      "rand6": 0.0009059676201023313,
+      "rand7": 0.00032045573599889603,
+      "rand8": 0.006069453486245598,
+      "rand9": -0.005523933467712823,
+      "zero": -0.005485103057728633
+    },
+    "gates": {
+      "animacy_who_which": false,
+      "canonical_night_day": false,
+      "tense_will_would": false
+    },
+    "moves": {
+      "number": {
+        "animacy_who_which": 0.03659294644991557,
+        "canonical_night_day": 0.014866413672765096,
+        "tense_will_would": 0.01612920860449473
+      },
+      "rand0": {
+        "animacy_who_which": 0.009445865948994955,
+        "canonical_night_day": 0.004979133233428001,
+        "tense_will_would": 0.0120047261317571
+      },
+      "rand1": {
+        "animacy_who_which": 0.010649530092875163,
+        "canonical_night_day": 0.008587697024146716,
+        "tense_will_would": 0.013564992944399517
+      },
+      "rand10": {
+        "animacy_who_which": 0.013855669895807903,
+        "canonical_night_day": 0.0062714816381533945,
+        "tense_will_would": 0.007924137512842815
+      },
+      "rand11": {
+        "animacy_who_which": 0.01547059416770935,
+        "canonical_night_day": 0.009980455289284389,
+        "tense_will_would": 0.02188145915667216
+      },
+      "rand12": {
+        "animacy_who_which": 0.010213565826416016,
+        "canonical_night_day": 0.007927665611108144,
+        "tense_will_would": 0.010758318503697713
+      },
+      "rand13": {
+        "animacy_who_which": 0.01050901214281718,
+        "canonical_night_day": 0.0055867783725261685,
+        "tense_will_would": 0.01688981552918752
+      },
+      "rand14": {
+        "animacy_who_which": 0.011154880126317343,
+        "canonical_night_day": 0.004433004309733709,
+        "tense_will_would": 0.01347389022509257
+      },
+      "rand15": {
+        "animacy_who_which": 0.007720257838567098,
+        "canonical_night_day": 0.004191452513138453,
+        "tense_will_would": 0.016156124075253804
+      },
+      "rand2": {
+        "animacy_who_which": 0.014253483215967814,
+        "canonical_night_day": 0.007987035810947419,
+        "tense_will_would": 0.014307488997777304
+      },
+      "rand3": {
+        "animacy_who_which": 0.023348480463027954,
+        "canonical_night_day": 0.005565125991900762,
+        "tense_will_would": 0.010022908449172974
+      },
+      "rand4": {
+        "animacy_who_which": 0.006968430678049723,
+        "canonical_night_day": 0.006684444348017375,
+        "tense_will_would": 0.007781777779261271
+      },
+      "rand5": {
+        "animacy_who_which": 0.011388901869455974,
+        "canonical_night_day": 0.010113598903020223,
+        "tense_will_would": 0.01228076418240865
+      },
+      "rand6": {
+        "animacy_who_which": 0.024355038007100423,
+        "canonical_night_day": 0.008542138338088989,
+        "tense_will_would": 0.01046988566716512
+      },
+      "rand7": {
+        "animacy_who_which": 0.010083333651224772,
+        "canonical_night_day": 0.004503484318653743,
+        "tense_will_would": 0.01143783728281657
+      },
+      "rand8": {
+        "animacy_who_which": 0.0137184739112854,
+        "canonical_night_day": 0.005463948597510656,
+        "tense_will_would": 0.010329005122184754
+      },
+      "rand9": {
+        "animacy_who_which": 0.009292600552241008,
+        "canonical_night_day": 0.005483215550581614,
+        "tense_will_would": 0.01266444722811381
+      },
+      "zero": {
+        "animacy_who_which": 0.0913899819056193,
+        "canonical_night_day": 0.09693165048956871,
+        "tense_will_would": 0.12604455649852753
+      }
+    },
+    "native_pooled": 103.45894002914429,
+    "null_damage_max": 0.006069453486245598,
+    "null_moves": {
+      "animacy_who_which": 0.01265175739924113,
+      "canonical_night_day": 0.006643791240639985,
+      "tense_will_would": 0.012621723674237728
+    },
+    "removed_norm_ratio_vs_number": {
+      "number": 1.0,
+      "rand0": 0.9999999987885073,
+      "rand1": 1.0000000072689563,
+      "rand10": 1.0000000024229854,
+      "rand11": 0.9999999372295338,
+      "rand12": 1.0000000039373513,
+      "rand13": 1.0000000464153145,
+      "rand14": 1.0000000327860215,
+      "rand15": 1.0000000024229854,
+      "rand2": 0.9999999884908193,
+      "rand3": 0.999999983039102,
+      "rand4": 1.000000030060163,
+      "rand5": 0.9999999975770145,
+      "rand6": 0.9999999924281705,
+      "rand7": 0.9999999963655218,
+      "rand8": 0.9999999950783108,
+      "rand9": 1.000000059135988
+    }
+  },
+  "schema": "pronoun_number_dod_head45_direction_removal_result_v219",
+  "serial_seconds": 2.3810312510468066
+}

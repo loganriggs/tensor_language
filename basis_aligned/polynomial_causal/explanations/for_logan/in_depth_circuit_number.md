@@ -148,7 +148,7 @@ At the verb the same MLP-8 detectors re-fire (829 carries 33% and 953 25% of MLP
 829's product at the verb are again the MLPs at that position (74%) with attention blocks 4 and 5 leading the attention share [v204]. The copy
 head is **4.5**: 94% of block 4's contrast at the verb, 97% of it from the noun position, 26% token-only [v205]. Zeroing 4.5's whole slice at the
 verb removes 7.7% of the margin but is *not* selective — animacy and tense readers move five times their null [v206, v207b]: 4.5 is a shared
-subject-feature copier — on the gender line it is the copy head too (77% of block 4 into the male detector at the verb, all from the noun [v218]). The number part of its copy is one 128-d axis, $d = O_{4.5}^{\!\top}\big((R\cdot\hat x)L + (L\cdot\hat x)R\big)$ for the
+subject-feature copier — on the gender line it is the copy head too (77% of block 4 into the male detector at the verb, all from the noun [v218]), yet there zeroing it at the verb leaves the he − she margin unchanged (−0.5% [v219]): both features ride the copy, only the number readers use it. The number part of its copy is one 128-d axis, $d = O_{4.5}^{\!\top}\big((R\cdot\hat x)L + (L\cdot\hat x)R\big)$ for the
 plural detector's factors $L, R$, whose *sign* encodes the number (mean |cosine| across rows 0.93; every singular row opposite to every plural
 row [v213]); removing only that axis takes 3.4–4.3% of the margin, selectively, four times a norm-matched random direction [v208–v210, v213],
 and the verb is its site (all positions add half a point [v211]). Out of the panel the axis is weak: 0.8% at twice the matched null [v212].

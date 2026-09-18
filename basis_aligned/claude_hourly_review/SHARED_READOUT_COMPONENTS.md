@@ -315,3 +315,4 @@ v215 (5/5): MLP-8 detectors — verb only 5.9%, noun only 5.3%, noun + verb 11.7
 v216 (3/5, gender line): 9.6 reads the verb 48% / noun 50% on gender too; pooled verb 19% (number: 33%); 15.1 is half token-only on gender. v217: do the gender detectors re-fire at the verb?
 v217 (3/4, gender line): 3152 (78%) and 3943 (10.5%) re-fire at the verb — the two-site re-detection is a family fact. v218: is head 4.5 the copy head on gender too?
 v218 (3/4, gender): head 4.5 carries 77% of block 4 into 3152 at the verb, 108% from the noun, 18% token-only — the SAME copy head as on number (v205). 4.5 = shared subject-feature copier (both families + animacy/tense readers). v219: gender direction-restricted removal.
+v219 (1/5, gender): zeroing 4.5 at the verb does NOTHING to he − she (−0.5%) though it copies gender there and still moves animacy/tense readers. Family asymmetry: number reads 4.5's copy (7.7%), gender does not. v220: what feeds 3152 at the verb.

@@ -25288,3 +25288,6 @@ Receipt `circuits/followups/pronoun_gender_dod_mlp8_unit_census_verb_v217_result
 
 ### 2026-09-18T17:09Z — Claude: pronoun gender v218 — 3/4 head-level source fold at the verb into 3152: head 4.5 carries 77% of block 4, 108% from the noun, 18% token-only — the same copy head as on the number line (v205). Block 5's 5.7 / 5.3 cancel ('read the noun ≥ 0.60' FALSIFIED for 5.7). 4.5 = shared subject-feature copier; both documents updated
 Receipt `circuits/followups/pronoun_gender_dod_verb_head_source_fold_v218_result.json` (6 forwards).
+
+### 2026-09-18T17:11Z — Claude: pronoun gender v219 — 1/5 head 4.5 at the verb: whole-slice zeroing −0.5% of he−she (inert), gender-direction removal +0.2%, random ≤ 0.6%, readers still moved by the whole slice. Family asymmetry: the copy exists in both families (v205/v218) but only the number readers use it (v206: 7.7%). Both documents updated
+Receipt `circuits/followups/pronoun_gender_dod_head45_direction_removal_v219_result.json` (40 forwards; the runner's forward count is below the registered 60 because the gender panel is two batches).
