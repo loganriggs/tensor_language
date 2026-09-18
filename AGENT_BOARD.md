@@ -25423,3 +25423,6 @@ Receipt `circuits/followups/noun_number_numeral_dod_mlp8_units_2428_3892_v258_re
 
 ### 2026-09-18T18:49Z — Claude: person v259 — 1/4 MLP-8 census on 10.5's myself−yourself direction: spread at the pronoun (top-10 26%, frame Jaccard 0.09), 41% at the final but frame-unstable; port declared. Function-word cues (person, temporal) have no MLP-8 detector; content-word features do. Table and in_depth_circuit.md §4.7 updated
 Receipt `circuits/followups/person_reflexive_dod_mlp8_unit_census_10_5_v259_result.json` (3 forwards).
+
+### 2026-09-18T18:57Z — Claude: correlative both/neither v260 — 2/4 MLP-8 census on 16.8's direction: spread at the cue (top-10 41%, Jaccard 0.12), but at the FINAL one unit, 1512, carries 59% (top-10 93%, stable). A candidate context detector at the query position; v262 next. (v261 selection census crashed — pairs share the verb; cue mis-chosen, 3 forwards lost)
+Receipt `circuits/followups/correlative_both_neither_dod_mlp8_unit_census_v260_result.json` (3 forwards). v261 has no receipt (ZeroDivisionError at a zero contrast).
