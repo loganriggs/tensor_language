@@ -25351,3 +25351,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp7_units_true_gradient_v237_res
 
 ### 2026-09-18T18:01Z — Claude: pronoun number v238 — 3/5 1779's response by row class: plural half +0.037, singular half +0.029; G −1.61 (plural) vs +0.58 (singular); dh −2.2 / −4.6. RESOLVED: common-mode drop of 1779 × class-dependent bilinear gradient of 829 = the compensation. 'singular ≥ 0.50' (0.44) and 'plural loses' FALSIFIED. Document updated
 Receipt `circuits/followups/pronoun_number_dod_unit1779_response_by_class_v238_result.json` (6 forwards).
+
+### 2026-09-18T18:02Z — Claude: pronoun number v239 — 3/5 1779's response by class under zeroing: plural +0.054, singular −0.015 (dh −3.2 / +2.4, differential); 'both halves restore' and 'common-mode' FALSIFIED. General law: response = Σ_class G_class × dh_class; |G_plural| 2.8× |G_singular|. Compensation thread closed; document updated
+Receipt `circuits/followups/pronoun_number_dod_unit1779_response_by_class_zeroing_v239_result.json` (6 forwards).
