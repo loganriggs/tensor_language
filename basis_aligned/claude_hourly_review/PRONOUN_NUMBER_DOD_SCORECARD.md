@@ -27,6 +27,7 @@ the singular side — the shared core is the claim under test.
 | 13 | Response census of the set removal (λ-recurrence exact split, blocks 9–17, closure 2e-5): the set's own attention writes carry 103% of the linear attribution (attn:09 −0.60, attn:12 −0.56, attn:15 −0.24, attn:10 −0.20 of −1.56); downstream net +0.04 (MLP 17 +0.17 counteracts, MLP 9 −0.09 amplifies); remainder 0.4% | response | fresh (v84) | | passes 5/5 — a direct readout, like the gender set |
 | 14 | Shared number axis? Removal at the same four heads along the verb-agreement direction `O_h^T(u_were − u_was)` (weight-level |cos| 0.4 with they−he at 9.6 / 15.1, v95) on the v76 fresh rows: 0.28 logits (14% of the margin; 18% of the own-direction 1.55), positive 91/96, above the null (0.02), live; the gender direction he−she removes 0.09 | edit | fresh (v96) | registered "were−was carries ≥ 50% of own" false; live/null-beating and gender < number held; own replay 0.76 exact | 4/5 — a small shared number component, not one axis |
 | 15 | Shared heads, separate directions: at the same four heads the PERSON family's direction O_h^T(u_myself − u_yourself) (the person set shares 15.1 and 10.5) removes 0.00 of the they/he margin on the v76 rows (positive 45/96 — noise), own direction 1.55 (replay of v76), null max 0.01 | edit | fresh (v134) | | passes 5/5 — the two families use the same heads along orthogonal readout directions |
+| 16 | MLP 8 at unit grain on 9.6's they−he reader direction at the noun (exact, closure 8e-5): unit 829 carries 39% of the plural−singular contrast, 953 17%, 1030 9%, 1484 5%, 3152 (the gender unit) 4.6%, 1738 −4%; top-10 78%, top-50 89%, top-500 97%; frame-wise top-50 Jaccard ≥ 0.70 | fold | fresh (v168) | all four registered readings held | 4/4 — the number feature 9.6 reads has its own MLP-8 units (829, 953, 1030), distinct from the gender unit 3152 (rank 5 here, 4.6%); edit test v169 |
 
 ## Five-property status
 | property | status | next |
@@ -39,6 +40,7 @@ the singular side — the shared core is the claim under test.
 
 ## Receipts
 - atlas v68: `bilinear_quotient/circuits/followups/atlas_pronoun_number_v68_result.json`
+- v168 (MLP 8 unit census): `.../pronoun_number_dod_mlp8_unit_census_v168_result.json`; code `ops/run_pronoun_number_dod_mlp8_unit_census_v168.py`
 - v134: `.../pronoun_number_dod_cross_family_direction_v134_result.json`; code `ops/run_pronoun_number_dod_cross_family_direction_v134.py`
 - v96: `.../pronoun_number_dod_shared_number_axis_v96_result.json`; code `ops/run_pronoun_number_dod_shared_number_axis_v96.py`
 - v84: `.../pronoun_number_dod_response_census_v84_result.json`; code `ops/run_pronoun_number_dod_response_census_v84.py`

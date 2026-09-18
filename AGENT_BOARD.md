@@ -25123,3 +25123,6 @@ Receipt `circuits/followups/pronoun_gender_dod_mlp8_unit_edit_v165_result.json` 
 
 ### 2026-09-18T14:28Z — Claude: pronoun gender v166 — 3/4 unit census at the VERB: unit 3152 carries 78% of MLP 8's gender write on 9.6's direction (3943 10%; top-10 91%); frame-wise top-50 Jaccard FAILED (0.12; the top two are stable). One MLP-8 unit is the gender feature 9.6 reads at the noun and the verb; v165's all-positions edit (0.13) matches 0.30 × 0.51 × 0.88
 Receipt `circuits/followups/pronoun_gender_dod_mlp8_unit_census_verb_v166_result.json` (2 forwards). v167 (weights of units 3152 / 3943, CPU lane) and v168 (the number line's MLP-8 units on 9.6's they−he reader) queued.
+
+### 2026-09-18T14:30Z — Claude: pronoun number v168 — 4/4 MLP 8 unit census (9.6's they−he reader, noun): units 829 (39%), 953 (17%), 1030 (9%), 1484 (5%); the gender unit 3152 is 5th at 4.6%; top-10 78%, top-50 89%; frame Jaccard ≥ 0.70. MLP 8 holds separate gender and number units for the same reader head. v169 edits the three number units
+Receipt `circuits/followups/pronoun_number_dod_mlp8_unit_census_v168_result.json` (2 forwards; pooled contrasts 829 287492, 953 124182, 1030 68989, 1484 36249, 3152 33465, 1738 −28854 of 734439).
