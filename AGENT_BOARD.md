@@ -25408,3 +25408,6 @@ Receipt `circuits/followups/aspectual_dod_mlp8_unit_census_bank_v253_result.json
 
 ### 2026-09-18T18:41Z — Claude: noun-number demonstrative v254 — 3/4 MLP-8 census on 11.2's ones−one direction: ONE unit, 3892, carries 93% at the cue (684 opposes −26%); 829 rank 4 (~2%), 953 absent; Jaccard with the pronoun-number top-50 0.06 (FALSIFIED). Determiner number and noun number have separate MLP-8 detectors; readers shared, detectors not
 Receipt `circuits/followups/noun_number_demonstrative_dod_mlp8_unit_census_v254_result.json` (3 forwards).
+
+### 2026-09-18T18:43Z — Claude: noun-number demonstrative v255 — 3/4 unit 3892: plural-determiner detector (−135 these vs +7 this, 48/48; cos −0.32 with 11.2's reader; cue 2.2× final); zeroing it at the cue −0.66% of the margin (all positions −1.3%), 16 random units 0.00%; '≥ 0.05' FALSIFIED. Real, on the path, small
+Receipt `circuits/followups/noun_number_demonstrative_dod_mlp8_unit3892_v255_result.json` (60 forwards).
