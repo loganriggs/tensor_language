@@ -337,5 +337,7 @@ reconstruction is rejected on the same grounds as any other reconstruction claim
 | `run_aspectual_dod_*_v{1..24}.py` | the preregistered runs; receipts in `circuits/followups/aspectual_anchor_dod_*`; scorecard in `basis_aligned/claude_hourly_review/ASPECTUAL_DOD_SCORECARD.md`. |
 | `aspectual_dod_natural_rows.py`, `..._v21.py` | outcome-blind FineWeb row miners (CPU). |
 | `board_append.sh` | board entry stamped from the box clock. `dod_record.sh`: board entry + add + commit + push + remote re-read in one command. |
+| `dod_reuse_census.py` | one line spec → blind 162-head readout sweep + top-4 set with nulls/readers + family overlap (price per 32-row batch). Thin runners: `run_*_dod_reuse_census_v49b..v54`, `v63`. |
+| `dod_battery.py` | one `LineSpec` → the fresh-row set battery (instrument, capability, set + 16 nulls + 3 readers, singles/additivity, zero/keep-only/16 random keeps, optional frozen band). Written 00:49 UTC 18 Sep after four near-identical runners. |
 
-Lessons recorded in the scorecard: whole-write zeroing conflates norm with direction (run the equal-norm random null); random coordinate pieces of a cue-defined delta are individually "selective"; a price bar must count capture forwards (v11).
+Lessons recorded in the scorecards (five so far: `basis_aligned/claude_hourly_review/*_DOD_SCORECARD.md`): whole-write zeroing conflates norm with direction (run the equal-norm random null); random coordinate pieces of a cue-defined delta are individually "selective"; a price bar must count capture forwards (v11).
