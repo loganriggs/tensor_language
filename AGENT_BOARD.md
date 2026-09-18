@@ -25414,3 +25414,6 @@ Receipt `circuits/followups/noun_number_demonstrative_dod_mlp8_unit3892_v255_res
 
 ### 2026-09-18T18:44Z — Claude: noun-number demonstrative v256 — 3/5 carrier split of unit 3892: embedding 38% (top carrier), MLPs 46% (MLP 7 22%), attention 17%; 'embedding ≥ 0.40' and 'MLPs ≤ 0.40' FALSIFIED. Half token, half computed — between gender and number. Four-family MLP-8 table in SHARED; aspectual U3 row restored after a shell-backtick truncation
 Receipt `circuits/followups/noun_number_demonstrative_dod_unit3892_carrier_split_v256_result.json` (3 forwards).
+
+### 2026-09-18T18:46Z — Claude: noun-number numeral v257 — 2/4 MLP-8 census on 11.2's direction: cue spread (top-10 35%; leader 2428 13%; 3892 opposes −6%), Jaccard with the demonstrative cue 0.13 (FALSIFIED); at the final 3892 leads on both lines (+20%). 3892 is a these-detector; the lines share a plural re-detection at the final only
+Receipt `circuits/followups/noun_number_numeral_dod_mlp8_unit_census_v257_result.json` (3 forwards).
