@@ -266,6 +266,9 @@ simplicity comparison and random-split specificity remain missing. [Current Loga
   rows v86 7/7 (43%, frozen 0.52 ± 0.15 held, selective, additive, keep-only 0.97); shares {13.8, 7.8, 8.8} with the in/of set —
   the selection family test. Scorecard `claude_hourly_review/SELECTION_PARTICLE_DOD_SCORECARD.md`; report
   [`for_logan/research_update_2026-09-18_selection_readout_family.md`](../polynomial_causal/explanations/for_logan/research_update_2026-09-18_selection_readout_family.md).
+- **Perfect have/has readout set (Claude lane, 2026-09-18):** heads {11.3, 7.8, 5.3, 9.7} on `O_h^T(u_have − u_has)`; fresh rows
+  v97 6/7 (66%, frozen 0.66 ± 0.15 held, selective on non-number readers, keep-only 1.03; additivity failed: over-additive,
+  11.3 carries two thirds). The number family's second line. Scorecard `claude_hourly_review/PERFECT_NUMBER_DOD_SCORECARD.md`.
 - **Temporal will/had readout set (Claude lane, 2026-09-17):** heads {11.3, 9.1, 15.5, 9.4} on `O_h^T(u_will − u_had)`;
   81% of the margin on fresh rows, selective, keep-only sufficient, frozen 0.80 ± 0.15 held on a fourth lexicon and
   a new construction, natural FineWeb/Pile rows pass; 11.3 reads a subject-NP state written by blocks 8–10 whose

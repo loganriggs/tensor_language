@@ -116,3 +116,5 @@ are orthogonal at 15.1. Failed and kept: the two selection contrasts (in−of, u
 selection family shares heads, not a direction; and the cross-family unembedding bound (0.25) was exceeded by were−was | has−had (−0.26, the
 number/aspect entanglement known from v56/v57). Observed, not registered: they−he aligns with were−was at 9.6 (0.38), 15.1 (0.40), 8.8 (0.47),
 11.3 (0.40) — a candidate shared NUMBER axis between pronoun number and verb agreement; tested by removal (v96): the were−was direction at the pronoun-number heads removes 18% of what the own direction removes (live, null-beating, gender direction below it) — the registered half failed; a small shared component, not one axis (unlike the temporal family's v70).
+
+v97 (02:43 UTC): the number family's second line at fresh grain — perfect have/has, set {11.3, 7.8, 5.3, 9.7}: 66% (frozen 0.66 ± 0.15, landed at 0.66), positive 96/96, null 0.04, selective on non-number readers, keep-only 1.03; additivity FAILED (joint 2.11 vs singles 1.86, bar 0.02 because 5.3 is 0.09). Scorecard `PERFECT_NUMBER_DOD_SCORECARD.md`.

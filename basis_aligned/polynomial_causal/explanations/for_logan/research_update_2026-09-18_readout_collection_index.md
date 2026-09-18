@@ -9,7 +9,7 @@ scorecards. Tags: fresh = rows unused by any selection step; natural = mined out
 | family | core heads | lines at head grain | fresh | natural in / out of corpus | direct readout? | open port |
 |---|---|---|---|---|---|---|
 | temporal (tense / mood / aspect) | 9.1, 9.4, 15.5 + 11.3; cue reader 8.1 | aspectual has/had, temporal will/had, narrative was/is, modal would/will | yes ×4 | yes / yes (aspectual, temporal) | no: 40–60% MLP relay | MLP relay parts (diffuse folds) |
-| number (agreement) | 5.7, 7.8, 9.7 + 11.3 | number within scope (+ atlas variants) | yes ×1 | — | — | adjacent-subject case MLP-borne |
+| number (agreement) | 5.7, 7.8, 9.7 + 11.3 | lexical were/was (within scope), perfect have/has | yes ×2 | — | — | adjacent-subject case MLP-borne; have/has over-additive (11.3 dominant) |
 | pronoun (gender / number / person) | 9.6, 12.4, 15.1 (+10.1 gender, +10.5 number) | gender he/she, number they/he | yes ×2 | yes / yes ×2 | yes: 94% / 103% | MLP 8 (writes the noun and verb states) |
 | selection (complement choice) | 13.8, 7.8, 8.8 (+6.3, +14.8) | adjective preposition in/of, verb particle up/down | yes ×2 | yes / yes ×2 | up/down yes 86%; in/of no 38% | in/of MLP suffix |
 
