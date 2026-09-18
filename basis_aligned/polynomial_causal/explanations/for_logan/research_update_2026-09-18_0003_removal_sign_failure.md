@@ -1,6 +1,6 @@
 # New endpoints expose a context-dependent removal sign
 
-The one-input regional operator predicts the effect of removing head8.2's city inherited-value contribution on new spelling endpoints, but it fails the registered consistency requirement for selective removal. In plain-note constructions, only **75%** of capable pairs attenuate, below the **90%** gate (**edit, fresh**). The exact native removal has the same reversed signs, so improving the approximate MLP8 response cannot resolve this failure. Extraction of the earlier paired operator remains certified; composition remains unresolved.
+The one-input regional operator predicts the effect of removing head8.2's city inherited-value contribution on new spelling endpoints, but it fails the registered consistency requirement for selective removal. In plain-note constructions, only **75%** of capable pairs attenuate, below the **90%** gate (**edit, fresh**). The exact native removal has the same reversed signs, so improving the approximate MLP8 response cannot resolve this failure. An opened native factorial now shows that including the current-value branch restores positive attenuation on all120pairs, while its interaction gate fails. Extraction of the earlier paired operator remains certified; composition remains unresolved.
 
 ```mermaid
 flowchart LR
@@ -39,7 +39,7 @@ The result therefore supports a predictive description of a context-dependent co
 | Predicts OOD | New constructions/cities/endpoints prediction passes, including the reversed effects. Corpus and token-only prediction remain open; candidate has native-state access unlike text baselines. |
 | Extracted | Earlier two-input paired package passes native and isolated replay. One-input removal is implemented and compared to native effects; its own isolated package remains to certify. |
 | Selective | Fresh preservation/null gates pass, but directional removal consistency fails. The full selective-removal claim is not established. |
-| Composes | Earlier failures remain; native value-branch factorial is registered, not yet scored. |
+| Composes | Earlier failures remain; native value-branch interaction also fails:0.37 versus0.35 in the copy family. |
 | Simple | Uses one local attention head and full MLP8 factors. One-input removal has a different counterfactual from the certified17million-float paired package; no matched-effect simplicity verdict. |
 
 ## Reproducibility appendix
@@ -49,3 +49,11 @@ The result therefore supports a predictive description of a context-dependent co
 - [Per-cell sign diagnostic](../../CITY_REMOVAL_ENDPOINT_V1_SIGN_DIAGNOSTIC.json): opened post-result analysis; preserves original gates and every cell. Cells8and16 contain reversed signs for both exact and approximate removal.
 - [Next native branch factorial](../../CITY_VALUE_BRANCH_FACTORIAL_V1_PREREGISTRATION.md):160forwards, all20now-opened cells, four unrelated controls.
 - [Earlier paired fresh evidence and extraction](research_update_2026-09-17_2348_single_head_fresh.md). Its passed gates are not transferred to this new removal claim.
+
+## Native current value supplies the missing direction
+
+The [native branch factorial](../../CITY_VALUE_BRANCH_FACTORIAL_V1_RESULT.json) now passes replay, full-city attenuation and current-branch control gates (**edit, opened**). Removing inherited plus current city values attenuates all120pairs, with family means8.4–14%. In the previously reversed plain-note cell, inherited-only mean attenuation is−0.59%, current-only4.0%, and both3.8%. This supports retaining the full native city contribution; it does not erase the inherited-only fresh failure.
+
+The interaction is0.37times the smaller single effect in the copy family, above the0.35gate; other families range0.22–0.29. The pieces cannot be called independently composable under this test. The next [full-city approximation screen](../../CITY_FULL_VALUE_REMOVAL_V1_PREREGISTRATION.md) retains their coupled response. Its [CPU diagnostic](../../CITY_FULL_VALUE_REMOVAL_V1_CPU_RESULT.json) has10–18%local write error, not a downstream effect result. New full-city fresh/null claims remain untested.
+
+Factorial body:160forwards,2.386489897966385seconds. Predicates a/b/c pass,d fails. The new mathematical [review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-18_0005.md) gives exact local rational strength dependence and shows why decreasing strength need not remove missing-context error. Its evidence cutoff precedes the sign/factorial results above; its pending-outcome language is historical. No strength adjustment rescues the failed gate here.

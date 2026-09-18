@@ -257,3 +257,7 @@ simplicity comparison and random-split specificity remain missing. [Current Loga
   line); two declared open ports (MLP8–10 NP part; block-9 reads). Scorecard:
   [`basis_aligned/claude_hourly_review/TEMPORAL_DOD_SCORECARD.md`](../claude_hourly_review/TEMPORAL_DOD_SCORECARD.md);
   report: [`for_logan/research_update_2026-09-17_temporal_readout_set.md`](../polynomial_causal/explanations/for_logan/research_update_2026-09-17_temporal_readout_set.md).
+
+### 18 September00:07 — Regional removal scope correction
+
+[New-endpoint inherited-only removal](../polynomial_causal/CITY_REMOVAL_ENDPOINT_FRESH_V1_RESULT.json) predicts effects and passes collateral/null gates, but fails directional consistency75%<90% on plain notes. Exact native signs agree. [Native value factorial](../polynomial_causal/CITY_VALUE_BRANCH_FACTORIAL_V1_RESULT.json) restores positive fullcityremoval on120/120pairs while interaction.369>.35fails. Full city write remains coupled; neither independentcomposition nor freshfullcityselectivity established. See [Logan report](../polynomial_causal/explanations/for_logan/research_update_2026-09-18_0003_removal_sign_failure.md).

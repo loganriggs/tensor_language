@@ -1,0 +1,2450 @@
+{
+  "utc": "2026-09-18T00:00:41.205231+00:00",
+  "seconds": 4.371539670042694,
+  "gates_pass": true,
+  "maxima": {
+    "identity_relative": 4.045524590402766e-13,
+    "interpolation_relative": 5.307721995784635e-13,
+    "zero": 0.0,
+    "outside": 0.0
+  },
+  "fixtures": 40,
+  "endpoint_rows": 240,
+  "group_row_keys": [
+    "row_id",
+    "context_id",
+    "variant",
+    "template",
+    "pair",
+    "cue",
+    "city",
+    "text",
+    "ids",
+    "city_position",
+    "destination_positions",
+    "endpoint",
+    "uk_id",
+    "us_id",
+    "endpoint_pairs"
+  ],
+  "observed_variant_context_id_keys": [
+    [
+      "broken_line_heading",
+      "12"
+    ],
+    [
+      "broken_line_heading",
+      "13"
+    ],
+    [
+      "broken_line_heading",
+      "14"
+    ],
+    [
+      "broken_line_heading",
+      "15"
+    ],
+    [
+      "newsletter_header",
+      "0"
+    ],
+    [
+      "newsletter_header",
+      "1"
+    ],
+    [
+      "newsletter_header",
+      "2"
+    ],
+    [
+      "newsletter_header",
+      "3"
+    ],
+    [
+      "reported_opening",
+      "16"
+    ],
+    [
+      "reported_opening",
+      "17"
+    ],
+    [
+      "reported_opening",
+      "18"
+    ],
+    [
+      "reported_opening",
+      "19"
+    ],
+    [
+      "transcription_note",
+      "4"
+    ],
+    [
+      "transcription_note",
+      "5"
+    ],
+    [
+      "transcription_note",
+      "6"
+    ],
+    [
+      "transcription_note",
+      "7"
+    ],
+    [
+      "unquoted_bulletin",
+      "10"
+    ],
+    [
+      "unquoted_bulletin",
+      "11"
+    ],
+    [
+      "unquoted_bulletin",
+      "8"
+    ],
+    [
+      "unquoted_bulletin",
+      "9"
+    ]
+  ],
+  "families": {
+    "newsletter_header": {
+      "-0.5": {
+        "relative_error": 0.09357461746496264,
+        "norm_ratio": 0.97950165417511,
+        "aligned_fraction": 0.9753336407490315,
+        "normalization_error_ratio": 0.03378395476548938,
+        "background_error_ratio": 0.09032321715671661,
+        "error_term_inner_product_over_reference_squared": -0.0002717150617109622
+      },
+      "0.125": {
+        "relative_error": 0.10103799140850786,
+        "norm_ratio": 0.9693443041999193,
+        "aligned_fraction": 0.96470985218848,
+        "normalization_error_ratio": 0.03277169408387753,
+        "background_error_ratio": 0.09754916649624636,
+        "error_term_inner_product_over_reference_squared": -0.00019057405468696974
+      },
+      "0.25": {
+        "relative_error": 0.10269514554249387,
+        "norm_ratio": 0.9674395483468904,
+        "aligned_fraction": 0.9626964933938207,
+        "normalization_error_ratio": 0.032677778137921054,
+        "background_error_ratio": 0.09911015929086466,
+        "error_term_inner_product_over_reference_squared": -0.0001721839703488793
+      },
+      "0.5": {
+        "relative_error": 0.10614230243341584,
+        "norm_ratio": 0.9637717690455877,
+        "aligned_fraction": 0.9587949172216975,
+        "normalization_error_ratio": 0.03256415887536246,
+        "background_error_ratio": 0.10234593990816183,
+        "error_term_inner_product_over_reference_squared": -0.00013446374653910587
+      },
+      "0.75": {
+        "relative_error": 0.10974036475531186,
+        "norm_ratio": 0.9603093847041545,
+        "aligned_fraction": 0.9550755833471214,
+        "normalization_error_ratio": 0.03252355402457386,
+        "background_error_ratio": 0.10572868636475236,
+        "error_term_inner_product_over_reference_squared": -9.669451508832485e-05
+      },
+      "1.0": {
+        "relative_error": 0.11345722900883845,
+        "norm_ratio": 0.9570759278559802,
+        "aligned_fraction": 0.9515608944335108,
+        "normalization_error_ratio": 0.03252832095461753,
+        "background_error_ratio": 0.10924933990058655,
+        "error_term_inner_product_over_reference_squared": -6.048355923824297e-05
+      },
+      "1.5": {
+        "relative_error": 0.12111065622772499,
+        "norm_ratio": 0.9514140515254694,
+        "aligned_fraction": 0.9452604531940995,
+        "normalization_error_ratio": 0.032586747540646735,
+        "background_error_ratio": 0.11664462311911254,
+        "error_term_inner_product_over_reference_squared": -3.658298373440945e-08
+      }
+    },
+    "transcription_note": {
+      "-0.5": {
+        "relative_error": 0.09648657700528722,
+        "norm_ratio": 1.0177960089801847,
+        "aligned_fraction": 1.0132995281768975,
+        "normalization_error_ratio": 0.03519677166839551,
+        "background_error_ratio": 0.08871185057039507,
+        "error_term_inner_product_over_reference_squared": 0.00010052718734797314
+      },
+      "0.125": {
+        "relative_error": 0.10073772664363323,
+        "norm_ratio": 1.0066197092061928,
+        "aligned_fraction": 1.0015675746965165,
+        "normalization_error_ratio": 0.034463605939026774,
+        "background_error_ratio": 0.09450269753373249,
+        "error_term_inner_product_over_reference_squared": 1.4794796927361303e-05
+      },
+      "0.25": {
+        "relative_error": 0.10190524689132979,
+        "norm_ratio": 1.0044964870172728,
+        "aligned_fraction": 0.9993142565430296,
+        "normalization_error_ratio": 0.034428710018347276,
+        "background_error_ratio": 0.09582591861374386,
+        "error_term_inner_product_over_reference_squared": 8.368296143784261e-06
+      },
+      "0.5": {
+        "relative_error": 0.10452185564094116,
+        "norm_ratio": 1.0003712173801897,
+        "aligned_fraction": 0.9949088771280488,
+        "normalization_error_ratio": 0.034427133912907054,
+        "background_error_ratio": 0.09864267769196873,
+        "error_term_inner_product_over_reference_squared": 4.606447463442867e-06
+      },
+      "0.75": {
+        "relative_error": 0.10747918081425979,
+        "norm_ratio": 0.9964204321929162,
+        "aligned_fraction": 0.9906509516915066,
+        "normalization_error_ratio": 0.03448506643131184,
+        "background_error_ratio": 0.1016865674814604,
+        "error_term_inner_product_over_reference_squared": 1.1198247785377749e-05
+      },
+      "1.0": {
+        "relative_error": 0.11073090981367528,
+        "norm_ratio": 0.9926655535538135,
+        "aligned_fraction": 0.9865617834120674,
+        "normalization_error_ratio": 0.03457019056751723,
+        "background_error_ratio": 0.1049523910915389,
+        "error_term_inner_product_over_reference_squared": 2.5615958229249798e-05
+      },
+      "1.5": {
+        "relative_error": 0.11790034316787408,
+        "norm_ratio": 0.985871215813989,
+        "aligned_fraction": 0.9790207816257253,
+        "normalization_error_ratio": 0.034726660343420555,
+        "background_error_ratio": 0.11208899840313737,
+        "error_term_inner_product_over_reference_squared": 6.530320873831923e-05
+      }
+    },
+    "unquoted_bulletin": {
+      "-0.5": {
+        "relative_error": 0.07741170796149476,
+        "norm_ratio": 1.0009106445270983,
+        "aligned_fraction": 0.9979147728990678,
+        "normalization_error_ratio": 0.03061647579862376,
+        "background_error_ratio": 0.07240920099972593,
+        "error_term_inner_product_over_reference_squared": -9.394422511533743e-05
+      },
+      "0.125": {
+        "relative_error": 0.083692767625038,
+        "norm_ratio": 0.9925428137766991,
+        "aligned_fraction": 0.9890683789135144,
+        "normalization_error_ratio": 0.029630248412730036,
+        "background_error_ratio": 0.07921143114376203,
+        "error_term_inner_product_over_reference_squared": -7.396154605221849e-05
+      },
+      "0.25": {
+        "relative_error": 0.08517968231211616,
+        "norm_ratio": 0.9910688914080856,
+        "aligned_fraction": 0.9874809846190293,
+        "normalization_error_ratio": 0.029599039424597778,
+        "background_error_ratio": 0.08071485002480475,
+        "error_term_inner_product_over_reference_squared": -6.770593529629048e-05
+      },
+      "0.5": {
+        "relative_error": 0.08833985491003188,
+        "norm_ratio": 0.988333801493186,
+        "aligned_fraction": 0.9844998866042234,
+        "normalization_error_ratio": 0.02964574050413532,
+        "background_error_ratio": 0.08386603886231714,
+        "error_term_inner_product_over_reference_squared": -5.422621948436769e-05
+      },
+      "0.75": {
+        "relative_error": 0.09171251310643823,
+        "norm_ratio": 0.9858957034807819,
+        "aligned_fraction": 0.9817895765407837,
+        "normalization_error_ratio": 0.029795790363958075,
+        "background_error_ratio": 0.08720641712084673,
+        "error_term_inner_product_over_reference_squared": -4.078162508472248e-05
+      },
+      "1.0": {
+        "relative_error": 0.09525401957172532,
+        "norm_ratio": 0.9837727163962827,
+        "aligned_fraction": 0.979367714640575,
+        "normalization_error_ratio": 0.030006059283663393,
+        "background_error_ratio": 0.09072678364350964,
+        "error_term_inner_product_over_reference_squared": -2.9192309730150352e-05
+      },
+      "1.5": {
+        "relative_error": 0.10265628007444949,
+        "norm_ratio": 0.9805559089349927,
+        "aligned_fraction": 0.9754757893543029,
+        "normalization_error_ratio": 0.03048381471861913,
+        "background_error_ratio": 0.09823073314456511,
+        "error_term_inner_product_over_reference_squared": -2.0114027597023626e-05
+      }
+    },
+    "broken_line_heading": {
+      "-0.5": {
+        "relative_error": 0.12355811002710859,
+        "norm_ratio": 1.0235870705250298,
+        "aligned_fraction": 1.0162319421962707,
+        "normalization_error_ratio": 0.03540311794824974,
+        "background_error_ratio": 0.1183605466859015,
+        "error_term_inner_product_over_reference_squared": 2.0033906139595743e-06
+      },
+      "0.125": {
+        "relative_error": 0.12452283683239747,
+        "norm_ratio": 1.0143616510810523,
+        "aligned_fraction": 1.006711811145545,
+        "normalization_error_ratio": 0.03438738689606912,
+        "background_error_ratio": 0.12046820777025133,
+        "error_term_inner_product_over_reference_squared": -9.457228406425305e-05
+      },
+      "0.25": {
+        "relative_error": 0.12487282688309219,
+        "norm_ratio": 1.0125967513217176,
+        "aligned_fraction": 1.0048794789467606,
+        "normalization_error_ratio": 0.03422648229962604,
+        "background_error_ratio": 0.12097591311637725,
+        "error_term_inner_product_over_reference_squared": -0.00010670037558657835
+      },
+      "0.5": {
+        "relative_error": 0.12572196978063307,
+        "norm_ratio": 1.009156923054806,
+        "aligned_fraction": 1.0012958408319608,
+        "normalization_error_ratio": 0.03393544756494539,
+        "background_error_ratio": 0.12208152377773025,
+        "error_term_inner_product_over_reference_squared": -0.00012474968190162897
+      },
+      "0.75": {
+        "relative_error": 0.12676210804408666,
+        "norm_ratio": 1.0058467878192154,
+        "aligned_fraction": 0.9978295642652266,
+        "normalization_error_ratio": 0.03367668173860647,
+        "background_error_ratio": 0.12331004729023819,
+        "error_term_inner_product_over_reference_squared": -0.00013542730993173357
+      },
+      "1.0": {
+        "relative_error": 0.1279826987702726,
+        "norm_ratio": 1.0026794392476333,
+        "aligned_fraction": 0.9944932433527129,
+        "normalization_error_ratio": 0.03344051971769779,
+        "background_error_ratio": 0.12466387726746432,
+        "error_term_inner_product_over_reference_squared": -0.0001398897349124031
+      },
+      "1.5": {
+        "relative_error": 0.13091715465671594,
+        "norm_ratio": 0.9968338097503041,
+        "aligned_fraction": 0.9882691714389473,
+        "normalization_error_ratio": 0.03300285250324666,
+        "background_error_ratio": 0.12775152122894556,
+        "error_term_inner_product_over_reference_squared": -0.00013516903312514976
+      }
+    },
+    "reported_opening": {
+      "-0.5": {
+        "relative_error": 0.06866568399185481,
+        "norm_ratio": 1.018442370798489,
+        "aligned_fraction": 1.016254943239789,
+        "normalization_error_ratio": 0.029124910692866435,
+        "background_error_ratio": 0.06106145378915786,
+        "error_term_inner_product_over_reference_squared": 6.910729817818108e-05
+      },
+      "0.125": {
+        "relative_error": 0.07058789749444162,
+        "norm_ratio": 1.0145177568363843,
+        "aligned_fraction": 1.0121318138318216,
+        "normalization_error_ratio": 0.028750145042579896,
+        "background_error_ratio": 0.06380265833703752,
+        "error_term_inner_product_over_reference_squared": 4.2650610921837336e-05
+      },
+      "0.25": {
+        "relative_error": 0.07106358349167037,
+        "norm_ratio": 1.013818109398707,
+        "aligned_fraction": 1.0113885630230455,
+        "normalization_error_ratio": 0.0287224441759312,
+        "background_error_ratio": 0.06438305187317205,
+        "error_term_inner_product_over_reference_squared": 3.993836536727994e-05
+      },
+      "0.5": {
+        "relative_error": 0.07209132867688262,
+        "norm_ratio": 1.0125005566505043,
+        "aligned_fraction": 1.0099801087735913,
+        "normalization_error_ratio": 0.028697258560354287,
+        "background_error_ratio": 0.06557430762047795,
+        "error_term_inner_product_over_reference_squared": 3.681860080670946e-05
+      },
+      "0.75": {
+        "relative_error": 0.07320854491305752,
+        "norm_ratio": 1.0112884800137003,
+        "aligned_fraction": 1.0086724493800665,
+        "normalization_error_ratio": 0.028700474721866306,
+        "background_error_ratio": 0.06680399302078692,
+        "error_term_inner_product_over_reference_squared": 3.650015775266344e-05
+      },
+      "1.0": {
+        "relative_error": 0.07440038486905175,
+        "norm_ratio": 1.01017716949561,
+        "aligned_fraction": 1.00746124825075,
+        "normalization_error_ratio": 0.028719987871777108,
+        "background_error_ratio": 0.06806867797055349,
+        "error_term_inner_product_over_reference_squared": 3.861732232454304e-05
+      },
+      "1.5": {
+        "relative_error": 0.07694788450822483,
+        "norm_ratio": 1.0082352418858518,
+        "aligned_fraction": 1.0053086630251657,
+        "normalization_error_ratio": 0.02877197071225086,
+        "background_error_ratio": 0.07068406464454344,
+        "error_term_inner_product_over_reference_squared": 4.845681847524585e-05
+      }
+    }
+  },
+  "per_sequence": [
+    {
+      "variant": "newsletter_header",
+      "token_ids": [
+        [
+          20012,
+          13129,
+          11,
+          11761,
+          13,
+          25522,
+          7322,
+          25,
+          366,
+          1135,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.06391573614430004,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.07361451822771878,
+          "min_denominator_ratio": 0.9980780488224706
+        },
+        "0.25": {
+          "relative_error": 0.07583290351092055,
+          "min_denominator_ratio": 0.9962080743181854
+        },
+        "0.5": {
+          "relative_error": 0.08052228509180977,
+          "min_denominator_ratio": 0.9926240553293466
+        },
+        "0.75": {
+          "relative_error": 0.085536838090064,
+          "min_denominator_ratio": 0.9892479430334838
+        },
+        "1.0": {
+          "relative_error": 0.09087006465127682,
+          "min_denominator_ratio": 0.9860797374305966
+        },
+        "1.5": {
+          "relative_error": 0.10250291075596082,
+          "min_denominator_ratio": 0.9803670463037502
+        }
+      }
+    },
+    {
+      "variant": "newsletter_header",
+      "token_ids": [
+        [
+          20012,
+          13129,
+          11,
+          6182,
+          13,
+          25522,
+          7322,
+          25,
+          366,
+          1135,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.20845176880864782,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.20022137506854254,
+          "min_denominator_ratio": 0.9986537894134996
+        },
+        "0.25": {
+          "relative_error": 0.19844321761693948,
+          "min_denominator_ratio": 0.9973443816749822
+        },
+        "0.5": {
+          "relative_error": 0.19476510635777117,
+          "min_denominator_ratio": 0.9948359747418979
+        },
+        "0.75": {
+          "relative_error": 0.1909378172893683,
+          "min_denominator_ratio": 0.9924747792007469
+        },
+        "1.0": {
+          "relative_error": 0.186980249609401,
+          "min_denominator_ratio": 0.9902607950515295
+        },
+        "1.5": {
+          "relative_error": 0.17876188266621792,
+          "min_denominator_ratio": 0.9862744609288957
+        }
+      }
+    },
+    {
+      "variant": "newsletter_header",
+      "token_ids": [
+        [
+          20012,
+          13129,
+          11,
+          23995,
+          13,
+          25522,
+          7322,
+          25,
+          366,
+          1135,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.1100919172691192,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.11879632715982849,
+          "min_denominator_ratio": 0.9985939975958111
+        },
+        "0.25": {
+          "relative_error": 0.12062570033504207,
+          "min_denominator_ratio": 0.9972516993651764
+        },
+        "0.5": {
+          "relative_error": 0.12435916172047264,
+          "min_denominator_ratio": 0.9947582154245709
+        },
+        "0.75": {
+          "relative_error": 0.12818204095683242,
+          "min_denominator_ratio": 0.9925195481781828
+        },
+        "1.0": {
+          "relative_error": 0.13208277055482767,
+          "min_denominator_ratio": 0.9905356976260121
+        },
+        "1.5": {
+          "relative_error": 0.14007328979412872,
+          "min_denominator_ratio": 0.9873324466043238
+        }
+      }
+    },
+    {
+      "variant": "newsletter_header",
+      "token_ids": [
+        [
+          20012,
+          13129,
+          11,
+          8533,
+          13,
+          25522,
+          7322,
+          25,
+          366,
+          1135,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.1949827013111708,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.19068418392944791,
+          "min_denominator_ratio": 0.9984382317215006
+        },
+        "0.25": {
+          "relative_error": 0.18981834262189914,
+          "min_denominator_ratio": 0.9969048259031557
+        },
+        "0.5": {
+          "relative_error": 0.1880751779956979,
+          "min_denominator_ratio": 0.9939231016469294
+        },
+        "0.75": {
+          "relative_error": 0.18631310428983133,
+          "min_denominator_ratio": 0.991054827231321
+        },
+        "1.0": {
+          "relative_error": 0.18452853504242578,
+          "min_denominator_ratio": 0.9883000026563311
+        },
+        "1.5": {
+          "relative_error": 0.18088170508656598,
+          "min_denominator_ratio": 0.9831307030282052
+        }
+      }
+    },
+    {
+      "variant": "newsletter_header",
+      "token_ids": [
+        [
+          464,
+          11761,
+          13129,
+          6140,
+          351,
+          777,
+          2456,
+          25,
+          366,
+          1135,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.05830744416239464,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.06728037283139963,
+          "min_denominator_ratio": 0.9978683445168198
+        },
+        "0.25": {
+          "relative_error": 0.06940227772868739,
+          "min_denominator_ratio": 0.9958046057112716
+        },
+        "0.5": {
+          "relative_error": 0.07393526256659341,
+          "min_denominator_ratio": 0.9918808781330702
+        },
+        "0.75": {
+          "relative_error": 0.0788331601305947,
+          "min_denominator_ratio": 0.9882288172653958
+        },
+        "1.0": {
+          "relative_error": 0.08407840832391178,
+          "min_denominator_ratio": 0.9848484231082487
+        },
+        "1.5": {
+          "relative_error": 0.09556410600713126,
+          "min_denominator_ratio": 0.9789026349255358
+        }
+      }
+    },
+    {
+      "variant": "newsletter_header",
+      "token_ids": [
+        [
+          464,
+          6182,
+          13129,
+          6140,
+          351,
+          777,
+          2456,
+          25,
+          366,
+          1135,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.13633255390809818,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.1331959985539004,
+          "min_denominator_ratio": 0.9987203791388963
+        },
+        "0.25": {
+          "relative_error": 0.13255332385052673,
+          "min_denominator_ratio": 0.9974712322875944
+        },
+        "0.5": {
+          "relative_error": 0.1312385759165551,
+          "min_denominator_ratio": 0.9950643606143953
+        },
+        "0.75": {
+          "relative_error": 0.12987462266813649,
+          "min_denominator_ratio": 0.9927793849804024
+        },
+        "1.0": {
+          "relative_error": 0.12845119267985125,
+          "min_denominator_ratio": 0.9906163053856158
+        },
+        "1.5": {
+          "relative_error": 0.12539589025327433,
+          "min_denominator_ratio": 0.986655834313661
+        }
+      }
+    },
+    {
+      "variant": "newsletter_header",
+      "token_ids": [
+        [
+          464,
+          23995,
+          13129,
+          6140,
+          351,
+          777,
+          2456,
+          25,
+          366,
+          1135,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.08878969113991733,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.09529676469476668,
+          "min_denominator_ratio": 0.9987818792974268
+        },
+        "0.25": {
+          "relative_error": 0.09665524149000995,
+          "min_denominator_ratio": 0.9976275013168822
+        },
+        "0.5": {
+          "relative_error": 0.09941324459118185,
+          "min_denominator_ratio": 0.9955099735218785
+        },
+        "0.75": {
+          "relative_error": 0.10221372147574233,
+          "min_denominator_ratio": 0.993647416614989
+        },
+        "1.0": {
+          "relative_error": 0.10504254161707428,
+          "min_denominator_ratio": 0.9920398305962136
+        },
+        "1.5": {
+          "relative_error": 0.11073051261384977,
+          "min_denominator_ratio": 0.989589571223006
+        }
+      }
+    },
+    {
+      "variant": "newsletter_header",
+      "token_ids": [
+        [
+          464,
+          8533,
+          13129,
+          6140,
+          351,
+          777,
+          2456,
+          25,
+          366,
+          1135,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.1439125406116218,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.14083597810794724,
+          "min_denominator_ratio": 0.9985732193777486
+        },
+        "0.25": {
+          "relative_error": 0.14024442778704688,
+          "min_denominator_ratio": 0.9971691353507761
+        },
+        "0.5": {
+          "relative_error": 0.13907877804339483,
+          "min_denominator_ratio": 0.9944290570826676
+        },
+        "0.75": {
+          "relative_error": 0.137931455071356,
+          "min_denominator_ratio": 0.991779765195675
+        },
+        "1.0": {
+          "relative_error": 0.1367968550987501,
+          "min_denominator_ratio": 0.9892212596897982
+        },
+        "1.5": {
+          "relative_error": 0.13454551921707647,
+          "min_denominator_ratio": 0.9843766078213908
+        }
+      }
+    },
+    {
+      "variant": "transcription_note",
+      "token_ids": [
+        [
+          8291,
+          66,
+          4892,
+          262,
+          17023,
+          4481,
+          287,
+          11761,
+          25,
+          366,
+          1135,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.07186231076403252,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.07422850849110509,
+          "min_denominator_ratio": 0.997967956691252
+        },
+        "0.25": {
+          "relative_error": 0.07518383674331175,
+          "min_denominator_ratio": 0.9959993125106137
+        },
+        "0.5": {
+          "relative_error": 0.07756950812687036,
+          "min_denominator_ratio": 0.9922522215336675
+        },
+        "0.75": {
+          "relative_error": 0.08057829507947858,
+          "min_denominator_ratio": 0.9887587270691612
+        },
+        "1.0": {
+          "relative_error": 0.08419475815359678,
+          "min_denominator_ratio": 0.9855188291170953
+        },
+        "1.5": {
+          "relative_error": 0.09316055028355812,
+          "min_denominator_ratio": 0.9797998227502838
+        }
+      }
+    },
+    {
+      "variant": "transcription_note",
+      "token_ids": [
+        [
+          8291,
+          66,
+          4892,
+          262,
+          17023,
+          4481,
+          287,
+          6182,
+          25,
+          366,
+          1135,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.13393265913468766,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.13524423010895692,
+          "min_denominator_ratio": 0.999053143413196
+        },
+        "0.25": {
+          "relative_error": 0.13543973001528883,
+          "min_denominator_ratio": 0.998125745337037
+        },
+        "0.5": {
+          "relative_error": 0.13574388387816322,
+          "min_denominator_ratio": 0.9963293247166544
+        },
+        "0.75": {
+          "relative_error": 0.13591824339758118,
+          "min_denominator_ratio": 0.994610738138852
+        },
+        "1.0": {
+          "relative_error": 0.13594865374250176,
+          "min_denominator_ratio": 0.9929699856036297
+        },
+        "1.5": {
+          "relative_error": 0.13553741422002183,
+          "min_denominator_ratio": 0.989921982660926
+        }
+      }
+    },
+    {
+      "variant": "transcription_note",
+      "token_ids": [
+        [
+          8291,
+          66,
+          4892,
+          262,
+          17023,
+          4481,
+          287,
+          23995,
+          25,
+          366,
+          1135,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.10183442841727978,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.10618709832042661,
+          "min_denominator_ratio": 0.998466745297097
+        },
+        "0.25": {
+          "relative_error": 0.10721634373689187,
+          "min_denominator_ratio": 0.9970113440991126
+        },
+        "0.5": {
+          "relative_error": 0.10939428453609795,
+          "min_denominator_ratio": 0.9943341022179003
+        },
+        "0.75": {
+          "relative_error": 0.11169703944524034,
+          "min_denominator_ratio": 0.9919682743563619
+        },
+        "1.0": {
+          "relative_error": 0.11408167427298588,
+          "min_denominator_ratio": 0.9899138605144987
+        },
+        "1.5": {
+          "relative_error": 0.11891557397348153,
+          "min_denominator_ratio": 0.9867392748897963
+        }
+      }
+    },
+    {
+      "variant": "transcription_note",
+      "token_ids": [
+        [
+          8291,
+          66,
+          4892,
+          262,
+          17023,
+          4481,
+          287,
+          8533,
+          25,
+          366,
+          1135,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.14531240225985653,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.1447418680046344,
+          "min_denominator_ratio": 0.998842308168101
+        },
+        "0.25": {
+          "relative_error": 0.14461239242838875,
+          "min_denominator_ratio": 0.9977013351512475
+        },
+        "0.5": {
+          "relative_error": 0.14433021127824136,
+          "min_denominator_ratio": 0.995469545562677
+        },
+        "0.75": {
+          "relative_error": 0.14401125408598545,
+          "min_denominator_ratio": 0.9933046312342886
+        },
+        "1.0": {
+          "relative_error": 0.14364924132266116,
+          "min_denominator_ratio": 0.9912065921660828
+        },
+        "1.5": {
+          "relative_error": 0.14277503189346588,
+          "min_denominator_ratio": 0.9872111398102171
+        }
+      }
+    },
+    {
+      "variant": "transcription_note",
+      "token_ids": [
+        [
+          464,
+          3465,
+          1908,
+          422,
+          11761,
+          1276,
+          307,
+          18984,
+          3326,
+          8664,
+          320,
+          25,
+          366,
+          1135,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.07971267559783415,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.08177381422195226,
+          "min_denominator_ratio": 0.9979365467441725
+        },
+        "0.25": {
+          "relative_error": 0.08271367475362335,
+          "min_denominator_ratio": 0.99594204187135
+        },
+        "0.5": {
+          "relative_error": 0.08511560383806598,
+          "min_denominator_ratio": 0.9921598772747195
+        },
+        "0.75": {
+          "relative_error": 0.08820337844576795,
+          "min_denominator_ratio": 0.9886535062101088
+        },
+        "1.0": {
+          "relative_error": 0.09196107070207298,
+          "min_denominator_ratio": 0.985422928677518
+        },
+        "1.5": {
+          "relative_error": 0.10140390907665796,
+          "min_denominator_ratio": 0.9797891542083949
+        }
+      }
+    },
+    {
+      "variant": "transcription_note",
+      "token_ids": [
+        [
+          464,
+          3465,
+          1908,
+          422,
+          6182,
+          1276,
+          307,
+          18984,
+          3326,
+          8664,
+          320,
+          25,
+          366,
+          1135,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.1507410026932064,
+          "min_denominator_ratio": 0.9996599575770326
+        },
+        "0.125": {
+          "relative_error": 0.14763986849161817,
+          "min_denominator_ratio": 0.9988719967889144
+        },
+        "0.25": {
+          "relative_error": 0.14703369762402035,
+          "min_denominator_ratio": 0.9977696536776164
+        },
+        "0.5": {
+          "relative_error": 0.14582098604515709,
+          "min_denominator_ratio": 0.9956419477543846
+        },
+        "0.75": {
+          "relative_error": 0.14459677221504644,
+          "min_denominator_ratio": 0.9936168822303043
+        },
+        "1.0": {
+          "relative_error": 0.1433490222893534,
+          "min_denominator_ratio": 0.9916944571053758
+        },
+        "1.5": {
+          "relative_error": 0.14074288809310914,
+          "min_denominator_ratio": 0.9881575280529741
+        }
+      }
+    },
+    {
+      "variant": "transcription_note",
+      "token_ids": [
+        [
+          464,
+          3465,
+          1908,
+          422,
+          23995,
+          1276,
+          307,
+          18984,
+          3326,
+          8664,
+          320,
+          25,
+          366,
+          1135,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.11594944740943379,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.1214839165535892,
+          "min_denominator_ratio": 0.9987927561521319
+        },
+        "0.25": {
+          "relative_error": 0.12270569500753103,
+          "min_denominator_ratio": 0.9976552016174749
+        },
+        "0.5": {
+          "relative_error": 0.12523805908701047,
+          "min_denominator_ratio": 0.9955891604877948
+        },
+        "0.75": {
+          "relative_error": 0.12786696107180623,
+          "min_denominator_ratio": 0.99380187661096
+        },
+        "1.0": {
+          "relative_error": 0.13056602126409816,
+          "min_denominator_ratio": 0.9922933499869704
+        },
+        "1.5": {
+          "relative_error": 0.1360686156040744,
+          "min_denominator_ratio": 0.9901125684975265
+        }
+      }
+    },
+    {
+      "variant": "transcription_note",
+      "token_ids": [
+        [
+          464,
+          3465,
+          1908,
+          422,
+          8533,
+          1276,
+          307,
+          18984,
+          3326,
+          8664,
+          320,
+          25,
+          366,
+          1135,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.16804831684373805,
+          "min_denominator_ratio": 0.9998466276564466
+        },
+        "0.125": {
+          "relative_error": 0.16469131189600783,
+          "min_denominator_ratio": 0.9987280902994435
+        },
+        "0.25": {
+          "relative_error": 0.1640460783875321,
+          "min_denominator_ratio": 0.9974759305932412
+        },
+        "0.5": {
+          "relative_error": 0.1627754672169003,
+          "min_denominator_ratio": 0.9950308611638997
+        },
+        "0.75": {
+          "relative_error": 0.16152636964014108,
+          "min_denominator_ratio": 0.9926647917119751
+        },
+        "1.0": {
+          "relative_error": 0.16029313756367045,
+          "min_denominator_ratio": 0.9903777222374675
+        },
+        "1.5": {
+          "relative_error": 0.15785365362231774,
+          "min_denominator_ratio": 0.9860405832207032
+        }
+      }
+    },
+    {
+      "variant": "unquoted_bulletin",
+      "token_ids": [
+        [
+          818,
+          11761,
+          11,
+          262,
+          40813,
+          6140,
+          355,
+          5679,
+          13,
+          775,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.04464041834723691,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.049156474863804075,
+          "min_denominator_ratio": 0.9976870648072417
+        },
+        "0.25": {
+          "relative_error": 0.05042034045382539,
+          "min_denominator_ratio": 0.9954464886028045
+        },
+        "0.5": {
+          "relative_error": 0.05323722631562863,
+          "min_denominator_ratio": 0.9911824131588948
+        },
+        "0.75": {
+          "relative_error": 0.056393706546249485,
+          "min_denominator_ratio": 0.9872077736682715
+        },
+        "1.0": {
+          "relative_error": 0.059846929602669977,
+          "min_denominator_ratio": 0.9835225701309338
+        },
+        "1.5": {
+          "relative_error": 0.06752960030411287,
+          "min_denominator_ratio": 0.9770204709161164
+        }
+      }
+    },
+    {
+      "variant": "unquoted_bulletin",
+      "token_ids": [
+        [
+          818,
+          6182,
+          11,
+          262,
+          40813,
+          6140,
+          355,
+          5679,
+          13,
+          775,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.09789633510974403,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.09642448764070886,
+          "min_denominator_ratio": 0.9982463810846011
+        },
+        "0.25": {
+          "relative_error": 0.09620290513563236,
+          "min_denominator_ratio": 0.9965382383329927
+        },
+        "0.5": {
+          "relative_error": 0.09577983396752404,
+          "min_denominator_ratio": 0.993258381321147
+        },
+        "0.75": {
+          "relative_error": 0.09534195132948793,
+          "min_denominator_ratio": 0.9901604289644628
+        },
+        "1.0": {
+          "relative_error": 0.09484363424831117,
+          "min_denominator_ratio": 0.98724438126294
+        },
+        "1.5": {
+          "relative_error": 0.09351819338528763,
+          "min_denominator_ratio": 0.9819579998253792
+        }
+      }
+    },
+    {
+      "variant": "unquoted_bulletin",
+      "token_ids": [
+        [
+          818,
+          23995,
+          11,
+          262,
+          40813,
+          6140,
+          355,
+          5679,
+          13,
+          775,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.06848470231211785,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.07521791458527426,
+          "min_denominator_ratio": 0.9981440491855496
+        },
+        "0.25": {
+          "relative_error": 0.07669055351348837,
+          "min_denominator_ratio": 0.9963906845543387
+        },
+        "0.5": {
+          "relative_error": 0.07971988640108511,
+          "min_denominator_ratio": 0.9931917138416345
+        },
+        "0.75": {
+          "relative_error": 0.08283301970456637,
+          "min_denominator_ratio": 0.9904030878618876
+        },
+        "1.0": {
+          "relative_error": 0.08599986614810079,
+          "min_denominator_ratio": 0.9880248066150983
+        },
+        "1.5": {
+          "relative_error": 0.09238734290989493,
+          "min_denominator_ratio": 0.9844185931811363
+        }
+      }
+    },
+    {
+      "variant": "unquoted_bulletin",
+      "token_ids": [
+        [
+          818,
+          8533,
+          11,
+          262,
+          40813,
+          6140,
+          355,
+          5679,
+          13,
+          775,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.13737989750552176,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.13395922945635585,
+          "min_denominator_ratio": 0.998386898827524
+        },
+        "0.25": {
+          "relative_error": 0.13331701635524956,
+          "min_denominator_ratio": 0.9967981065906886
+        },
+        "0.5": {
+          "relative_error": 0.13206398618836693,
+          "min_denominator_ratio": 0.9936934489239385
+        },
+        "0.75": {
+          "relative_error": 0.1308446089703166,
+          "min_denominator_ratio": 0.9906860269997496
+        },
+        "1.0": {
+          "relative_error": 0.1296496458530285,
+          "min_denominator_ratio": 0.9877758408181225
+        },
+        "1.5": {
+          "relative_error": 0.1273000776765239,
+          "min_denominator_ratio": 0.9822471756825515
+        }
+      }
+    },
+    {
+      "variant": "unquoted_bulletin",
+      "token_ids": [
+        [
+          2025,
+          17023,
+          26772,
+          1088,
+          11761,
+          3407,
+          428,
+          6827,
+          13,
+          775,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.08153745554788425,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.0908327005528352,
+          "min_denominator_ratio": 0.9981387431588589
+        },
+        "0.25": {
+          "relative_error": 0.0931107882108368,
+          "min_denominator_ratio": 0.9963280891711198
+        },
+        "0.5": {
+          "relative_error": 0.09806798197307211,
+          "min_denominator_ratio": 0.9928585897558467
+        },
+        "0.75": {
+          "relative_error": 0.10354516554410745,
+          "min_denominator_ratio": 0.989591501754182
+        },
+        "1.0": {
+          "relative_error": 0.10952274720941452,
+          "min_denominator_ratio": 0.9865268251661251
+        },
+        "1.5": {
+          "relative_error": 0.12286602356052667,
+          "min_denominator_ratio": 0.9810047062308357
+        }
+      }
+    },
+    {
+      "variant": "unquoted_bulletin",
+      "token_ids": [
+        [
+          2025,
+          17023,
+          26772,
+          1088,
+          6182,
+          3407,
+          428,
+          6827,
+          13,
+          775,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.1658164234493346,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.16347859719050786,
+          "min_denominator_ratio": 0.9991443576790345
+        },
+        "0.25": {
+          "relative_error": 0.16297360490769827,
+          "min_denominator_ratio": 0.9983043262688105
+        },
+        "0.5": {
+          "relative_error": 0.16191914167864518,
+          "min_denominator_ratio": 0.9966710961805875
+        },
+        "0.75": {
+          "relative_error": 0.16080035616646116,
+          "min_denominator_ratio": 0.995100309735331
+        },
+        "1.0": {
+          "relative_error": 0.15961207218039475,
+          "min_denominator_ratio": 0.9935919669330407
+        },
+        "1.5": {
+          "relative_error": 0.1570116218055542,
+          "min_denominator_ratio": 0.9907626122573598
+        }
+      }
+    },
+    {
+      "variant": "unquoted_bulletin",
+      "token_ids": [
+        [
+          2025,
+          17023,
+          26772,
+          1088,
+          23995,
+          3407,
+          428,
+          6827,
+          13,
+          775,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.11677353145566459,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.12325029118751722,
+          "min_denominator_ratio": 0.9987218416360353
+        },
+        "0.25": {
+          "relative_error": 0.12458828719320045,
+          "min_denominator_ratio": 0.997493872530612
+        },
+        "0.5": {
+          "relative_error": 0.1272807548789419,
+          "min_denominator_ratio": 0.9951885020953909
+        },
+        "0.75": {
+          "relative_error": 0.12997247664977057,
+          "min_denominator_ratio": 0.9930838886943368
+        },
+        "1.0": {
+          "relative_error": 0.13263546902153073,
+          "min_denominator_ratio": 0.9911800323274498
+        },
+        "1.5": {
+          "relative_error": 0.13776021902716998,
+          "min_denominator_ratio": 0.9879745906961759
+        }
+      }
+    },
+    {
+      "variant": "unquoted_bulletin",
+      "token_ids": [
+        [
+          2025,
+          17023,
+          26772,
+          1088,
+          8533,
+          3407,
+          428,
+          6827,
+          13,
+          775,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.1709081149375252,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.16815360905612242,
+          "min_denominator_ratio": 0.9987989150667259
+        },
+        "0.25": {
+          "relative_error": 0.16760894916299218,
+          "min_denominator_ratio": 0.9976153575417068
+        },
+        "0.5": {
+          "relative_error": 0.1665205405279374,
+          "min_denominator_ratio": 0.9953008247164344
+        },
+        "0.75": {
+          "relative_error": 0.16542920797574184,
+          "min_denominator_ratio": 0.9930564015241826
+        },
+        "1.0": {
+          "relative_error": 0.16433028712107844,
+          "min_denominator_ratio": 0.9908820879649516
+        },
+        "1.5": {
+          "relative_error": 0.16209295899745177,
+          "min_denominator_ratio": 0.9867437897455513
+        }
+      }
+    },
+    {
+      "variant": "broken_line_heading",
+      "token_ids": [
+        [
+          33031,
+          198,
+          39688,
+          25,
+          11761,
+          198,
+          8206,
+          25,
+          775,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.14367945086790185,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.14395917934717892,
+          "min_denominator_ratio": 0.9987705174179454
+        },
+        "0.25": {
+          "relative_error": 0.14427978351489562,
+          "min_denominator_ratio": 0.9975675039232733
+        },
+        "0.5": {
+          "relative_error": 0.14520713580332706,
+          "min_denominator_ratio": 0.9952408841960763
+        },
+        "0.75": {
+          "relative_error": 0.1465339271928005,
+          "min_denominator_ratio": 0.993020140818409
+        },
+        "1.0": {
+          "relative_error": 0.14828111107793268,
+          "min_denominator_ratio": 0.9909052737902714
+        },
+        "1.5": {
+          "relative_error": 0.15311331708908463,
+          "min_denominator_ratio": 0.9869931687825848
+        }
+      }
+    },
+    {
+      "variant": "broken_line_heading",
+      "token_ids": [
+        [
+          33031,
+          198,
+          39688,
+          25,
+          6182,
+          198,
+          8206,
+          25,
+          775,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.2050205321649674,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.20001498678221696,
+          "min_denominator_ratio": 0.9990620080125249
+        },
+        "0.25": {
+          "relative_error": 0.19904785279163398,
+          "min_denominator_ratio": 0.9981416856748062
+        },
+        "0.5": {
+          "relative_error": 0.19714438416061872,
+          "min_denominator_ratio": 0.996354049948637
+        },
+        "0.75": {
+          "relative_error": 0.1952796979982661,
+          "min_denominator_ratio": 0.9946370928214928
+        },
+        "1.0": {
+          "relative_error": 0.1934514040060069,
+          "min_denominator_ratio": 0.9929908142933738
+        },
+        "1.5": {
+          "relative_error": 0.18989657478988997,
+          "min_denominator_ratio": 0.9899102930342101
+        }
+      }
+    },
+    {
+      "variant": "broken_line_heading",
+      "token_ids": [
+        [
+          33031,
+          198,
+          39688,
+          25,
+          23995,
+          198,
+          8206,
+          25,
+          775,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.17766765764838877,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.17947505844664044,
+          "min_denominator_ratio": 0.9988500694132983
+        },
+        "0.25": {
+          "relative_error": 0.18004427891270072,
+          "min_denominator_ratio": 0.9977491110323418
+        },
+        "0.5": {
+          "relative_error": 0.18138200395273002,
+          "min_denominator_ratio": 0.9956941108876646
+        },
+        "0.75": {
+          "relative_error": 0.18297723737407892,
+          "min_denominator_ratio": 0.9938349995659689
+        },
+        "1.0": {
+          "relative_error": 0.18481921280705987,
+          "min_denominator_ratio": 0.9921717770672543
+        },
+        "1.5": {
+          "relative_error": 0.18919538882079048,
+          "min_denominator_ratio": 0.989432998538769
+        }
+      }
+    },
+    {
+      "variant": "broken_line_heading",
+      "token_ids": [
+        [
+          33031,
+          198,
+          39688,
+          25,
+          8533,
+          198,
+          8206,
+          25,
+          775,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.19364790602165535,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.19069958544574786,
+          "min_denominator_ratio": 0.9988711576468653
+        },
+        "0.25": {
+          "relative_error": 0.1901406991990241,
+          "min_denominator_ratio": 0.9977575457265765
+        },
+        "0.5": {
+          "relative_error": 0.18904903658334565,
+          "min_denominator_ratio": 0.9955760131845378
+        },
+        "0.75": {
+          "relative_error": 0.18798850208769496,
+          "min_denominator_ratio": 0.9934554023738837
+        },
+        "1.0": {
+          "relative_error": 0.18695487672239716,
+          "min_denominator_ratio": 0.9913957132946147
+        },
+        "1.5": {
+          "relative_error": 0.18495276994850382,
+          "min_denominator_ratio": 0.9874591003302303
+        }
+      }
+    },
+    {
+      "variant": "broken_line_heading",
+      "token_ids": [
+        [
+          19904,
+          3780,
+          198,
+          27271,
+          25,
+          11761,
+          198,
+          464,
+          4756,
+          9743,
+          198,
+          1135,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.06344251933110659,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.06362258812422382,
+          "min_denominator_ratio": 0.9986781698608368
+        },
+        "0.25": {
+          "relative_error": 0.06387870273901336,
+          "min_denominator_ratio": 0.9973832309412242
+        },
+        "0.5": {
+          "relative_error": 0.06461198325950958,
+          "min_denominator_ratio": 0.9948740267606491
+        },
+        "0.75": {
+          "relative_error": 0.06563881113218112,
+          "min_denominator_ratio": 0.9924723874582749
+        },
+        "1.0": {
+          "relative_error": 0.06695645728619504,
+          "min_denominator_ratio": 0.9901783130341018
+        },
+        "1.5": {
+          "relative_error": 0.07044827526089102,
+          "min_denominator_ratio": 0.9859128588203591
+        }
+      }
+    },
+    {
+      "variant": "broken_line_heading",
+      "token_ids": [
+        [
+          19904,
+          3780,
+          198,
+          27271,
+          25,
+          6182,
+          198,
+          464,
+          4756,
+          9743,
+          198,
+          1135,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.12548676860725622,
+          "min_denominator_ratio": 0.9999532298218657
+        },
+        "0.125": {
+          "relative_error": 0.12016321589778349,
+          "min_denominator_ratio": 0.9990685000782545
+        },
+        "0.25": {
+          "relative_error": 0.11912016074920359,
+          "min_denominator_ratio": 0.9981562660261131
+        },
+        "0.5": {
+          "relative_error": 0.11705532924082566,
+          "min_denominator_ratio": 0.9963895955306409
+        },
+        "0.75": {
+          "relative_error": 0.11501884179926768,
+          "min_denominator_ratio": 0.9946999885135828
+        },
+        "1.0": {
+          "relative_error": 0.11301087178214134,
+          "min_denominator_ratio": 0.9930874449749392
+        },
+        "1.5": {
+          "relative_error": 0.10908216372369248,
+          "min_denominator_ratio": 0.9900935483328955
+        }
+      }
+    },
+    {
+      "variant": "broken_line_heading",
+      "token_ids": [
+        [
+          19904,
+          3780,
+          198,
+          27271,
+          25,
+          23995,
+          198,
+          464,
+          4756,
+          9743,
+          198,
+          1135,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.08714003456550791,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.0899713295933149,
+          "min_denominator_ratio": 0.9988536087559825
+        },
+        "0.25": {
+          "relative_error": 0.090672765469335,
+          "min_denominator_ratio": 0.9977503072331987
+        },
+        "0.5": {
+          "relative_error": 0.09219744927269607,
+          "min_denominator_ratio": 0.9956729733513319
+        },
+        "0.75": {
+          "relative_error": 0.09387385443447545,
+          "min_denominator_ratio": 0.9937679983543999
+        },
+        "1.0": {
+          "relative_error": 0.09568966101970829,
+          "min_denominator_ratio": 0.9920353822424025
+        },
+        "1.5": {
+          "relative_error": 0.0996935218555326,
+          "min_denominator_ratio": 0.9890872266732116
+        }
+      }
+    },
+    {
+      "variant": "broken_line_heading",
+      "token_ids": [
+        [
+          19904,
+          3780,
+          198,
+          27271,
+          25,
+          8533,
+          198,
+          464,
+          4756,
+          9743,
+          198,
+          1135,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.12472583561005837,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.12132614435715333,
+          "min_denominator_ratio": 0.9989929875390228
+        },
+        "0.25": {
+          "relative_error": 0.1206660525503285,
+          "min_denominator_ratio": 0.9979989509538562
+        },
+        "0.5": {
+          "relative_error": 0.11936387953887498,
+          "min_denominator_ratio": 0.9960498054109547
+        },
+        "0.75": {
+          "relative_error": 0.11808433029715527,
+          "min_denominator_ratio": 0.9941525633712954
+        },
+        "1.0": {
+          "relative_error": 0.11682585343077706,
+          "min_denominator_ratio": 0.992307224834879
+        },
+        "1.5": {
+          "relative_error": 0.11436656872945723,
+          "min_denominator_ratio": 0.9887722582717725
+        }
+      }
+    },
+    {
+      "variant": "reported_opening",
+      "token_ids": [
+        [
+          464,
+          3934,
+          30944,
+          287,
+          11761,
+          4893,
+          326,
+          262,
+          3850,
+          2540,
+          416,
+          2282,
+          356,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.06295145788331911,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.06582201549777143,
+          "min_denominator_ratio": 0.9984000994869512
+        },
+        "0.25": {
+          "relative_error": 0.06661430533785531,
+          "min_denominator_ratio": 0.9968473837841538
+        },
+        "0.5": {
+          "relative_error": 0.06840410186682729,
+          "min_denominator_ratio": 0.9938835068093145
+        },
+        "0.75": {
+          "relative_error": 0.07045670008972604,
+          "min_denominator_ratio": 0.9911083690754817
+        },
+        "1.0": {
+          "relative_error": 0.07275892379327796,
+          "min_denominator_ratio": 0.9885219705826555
+        },
+        "1.5": {
+          "relative_error": 0.07805434665506629,
+          "min_denominator_ratio": 0.9839153913200234
+        }
+      }
+    },
+    {
+      "variant": "reported_opening",
+      "token_ids": [
+        [
+          464,
+          3934,
+          30944,
+          287,
+          6182,
+          4893,
+          326,
+          262,
+          3850,
+          2540,
+          416,
+          2282,
+          356,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.10483350233863567,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.10460517653094087,
+          "min_denominator_ratio": 0.999281184532622
+        },
+        "0.25": {
+          "relative_error": 0.10452484867909005,
+          "min_denominator_ratio": 0.9985728598847959
+        },
+        "0.5": {
+          "relative_error": 0.10432622422667577,
+          "min_denominator_ratio": 0.9971876830477981
+        },
+        "0.75": {
+          "relative_error": 0.10407496507968028,
+          "min_denominator_ratio": 0.9958444694890074
+        },
+        "1.0": {
+          "relative_error": 0.10376927584240475,
+          "min_denominator_ratio": 0.9945432192084229
+        },
+        "1.5": {
+          "relative_error": 0.10299082086434012,
+          "min_denominator_ratio": 0.9920666084818737
+        }
+      }
+    },
+    {
+      "variant": "reported_opening",
+      "token_ids": [
+        [
+          464,
+          3934,
+          30944,
+          287,
+          23995,
+          4893,
+          326,
+          262,
+          3850,
+          2540,
+          416,
+          2282,
+          356,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.07481502012718172,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.07671092032580999,
+          "min_denominator_ratio": 0.9989337436885422
+        },
+        "0.25": {
+          "relative_error": 0.07715139692395521,
+          "min_denominator_ratio": 0.9979195018911686
+        },
+        "0.5": {
+          "relative_error": 0.07808057053243916,
+          "min_denominator_ratio": 0.9960470618386745
+        },
+        "0.75": {
+          "relative_error": 0.07906332963270864,
+          "min_denominator_ratio": 0.9943826798425174
+        },
+        "1.0": {
+          "relative_error": 0.0800869238342725,
+          "min_denominator_ratio": 0.9929263559026975
+        },
+        "1.5": {
+          "relative_error": 0.08220583630997987,
+          "min_denominator_ratio": 0.9906378821920689
+        }
+      }
+    },
+    {
+      "variant": "reported_opening",
+      "token_ids": [
+        [
+          464,
+          3934,
+          30944,
+          287,
+          8533,
+          4893,
+          326,
+          262,
+          3850,
+          2540,
+          416,
+          2282,
+          356,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.10186954078342059,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.10143306741750913,
+          "min_denominator_ratio": 0.9991153051914121
+        },
+        "0.25": {
+          "relative_error": 0.10133766317718387,
+          "min_denominator_ratio": 0.9982408442937142
+        },
+        "0.5": {
+          "relative_error": 0.1011361616282607,
+          "min_denominator_ratio": 0.9965226242309876
+        },
+        "0.75": {
+          "relative_error": 0.10091853826254814,
+          "min_denominator_ratio": 0.99484533981182
+        },
+        "1.0": {
+          "relative_error": 0.10068279601111042,
+          "min_denominator_ratio": 0.9932089910362116
+        },
+        "1.5": {
+          "relative_error": 0.10015031252424866,
+          "min_denominator_ratio": 0.9900591004156724
+        }
+      }
+    },
+    {
+      "variant": "reported_opening",
+      "token_ids": [
+        [
+          32,
+          6623,
+          286,
+          11761,
+          3417,
+          262,
+          3465,
+          355,
+          2282,
+          356,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.055518416134497865,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.05662397259961945,
+          "min_denominator_ratio": 0.9989811114211088
+        },
+        "0.25": {
+          "relative_error": 0.05692097629948828,
+          "min_denominator_ratio": 0.9979804604379632
+        },
+        "0.5": {
+          "relative_error": 0.057586987447330575,
+          "min_denominator_ratio": 0.9960338712589091
+        },
+        "0.75": {
+          "relative_error": 0.05834591943498519,
+          "min_denominator_ratio": 0.9941602324628372
+        },
+        "1.0": {
+          "relative_error": 0.05919427019656698,
+          "min_denominator_ratio": 0.9923595440497482
+        },
+        "1.5": {
+          "relative_error": 0.06114659580504698,
+          "min_denominator_ratio": 0.9889770183725175
+        }
+      }
+    },
+    {
+      "variant": "reported_opening",
+      "token_ids": [
+        [
+          32,
+          6623,
+          286,
+          6182,
+          3417,
+          262,
+          3465,
+          355,
+          2282,
+          356,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.0904445988369125,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.08795202594132452,
+          "min_denominator_ratio": 0.9993871429364831
+        },
+        "0.25": {
+          "relative_error": 0.08744512703653569,
+          "min_denominator_ratio": 0.9987835011443494
+        },
+        "0.5": {
+          "relative_error": 0.08642447534425356,
+          "min_denominator_ratio": 0.997603863374232
+        },
+        "0.75": {
+          "relative_error": 0.08539603363960414,
+          "min_denominator_ratio": 0.9964610866896475
+        },
+        "1.0": {
+          "relative_error": 0.08436145599498375,
+          "min_denominator_ratio": 0.9953551710905956
+        },
+        "1.5": {
+          "relative_error": 0.0822805923333242,
+          "min_denominator_ratio": 0.9932539231490902
+        }
+      }
+    },
+    {
+      "variant": "reported_opening",
+      "token_ids": [
+        [
+          32,
+          6623,
+          286,
+          23995,
+          3417,
+          262,
+          3465,
+          355,
+          2282,
+          356,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.07025437959283366,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.07048108225642925,
+          "min_denominator_ratio": 0.999315451622893
+        },
+        "0.25": {
+          "relative_error": 0.07056488590872158,
+          "min_denominator_ratio": 0.9986552610637193
+        },
+        "0.5": {
+          "relative_error": 0.07076779793849641,
+          "min_denominator_ratio": 0.9974076621146793
+        },
+        "0.75": {
+          "relative_error": 0.07101519600221393,
+          "min_denominator_ratio": 0.9962364902106087
+        },
+        "1.0": {
+          "relative_error": 0.07130401463610753,
+          "min_denominator_ratio": 0.9951486496655977
+        },
+        "1.5": {
+          "relative_error": 0.0719938562959847,
+          "min_denominator_ratio": 0.9932229626527554
+        }
+      }
+    },
+    {
+      "variant": "reported_opening",
+      "token_ids": [
+        [
+          32,
+          6623,
+          286,
+          8533,
+          3417,
+          262,
+          3465,
+          355,
+          2282,
+          356,
+          9392,
+          674,
+          649
+        ]
+      ],
+      "strengths": {
+        "-0.5": {
+          "relative_error": 0.09567961749265136,
+          "min_denominator_ratio": 1.0
+        },
+        "0.125": {
+          "relative_error": 0.09415968455520704,
+          "min_denominator_ratio": 0.9993857098920612
+        },
+        "0.25": {
+          "relative_error": 0.0938527216283797,
+          "min_denominator_ratio": 0.9987765923905672
+        },
+        "0.5": {
+          "relative_error": 0.09323600045138893,
+          "min_denominator_ratio": 0.9975738752069143
+        },
+        "0.75": {
+          "relative_error": 0.09261572920140819,
+          "min_denominator_ratio": 0.9963918484490415
+        },
+        "1.0": {
+          "relative_error": 0.09199213985034868,
+          "min_denominator_ratio": 0.9952305121169495
+        },
+        "1.5": {
+          "relative_error": 0.09073603376709902,
+          "min_denominator_ratio": 0.9929699107301057
+        }
+      }
+    }
+  ],
+  "input_hashes": {
+    "SINGLE_HEAD_FRESH_V1_ROWS.json": "95aae0bf9b6e579fbf2dfcb0c88f44892aca5766a4acca52823766257ca19e09",
+    "SINGLE_HEAD_FRESH_V1_ARTIFACT.pt": "ebf32c729a6dec5f643bcbab22b2087041190b59ffa70f4c5b0a761a34d031b4",
+    "extracted_circuits/typed_face_single_head_norm_v1/program.pt": "ed33bdbad3e25af41b726517051ca47aa70dea7534cc4394abafdd8685d174f4",
+    "city_inherited_removal_v1.py": "dc007ff04f0d0f5a79a0ddaa8a335b9eb8dcbafc857b8d64cc2b72aaf30b28cd",
+    "review_rational_strength_20260918_0007.py": "19741c4eca3b2b210b9869211c0c9a59f16409f4d804e3774de798f34834a4d6"
+  },
+  "scope": "Opened native-state FP64 local response only. No native suffix execution; strength interpolation is algebraic replay, not OOD or composition evidence."
+}

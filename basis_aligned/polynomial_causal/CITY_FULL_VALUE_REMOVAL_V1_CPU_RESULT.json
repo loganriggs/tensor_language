@@ -1,0 +1,35 @@
+{
+  "instrument_pass": true,
+  "zero_strength_max": 0.0,
+  "outside_max": 0.0,
+  "native_state_arrays": 1,
+  "families": {
+    "word_index": {
+      "relative_vector_error": 0.14752014279901512,
+      "norm_ratio": 0.9951269178078426,
+      "aligned_fraction": 0.9842576950071473
+    },
+    "exact_copy": {
+      "relative_vector_error": 0.13318167734832706,
+      "norm_ratio": 0.9950198747371761,
+      "aligned_fraction": 0.9861635959703358
+    },
+    "plain_word_note": {
+      "relative_vector_error": 0.1154883577190688,
+      "norm_ratio": 0.9974895079814423,
+      "aligned_fraction": 0.990823878882206
+    },
+    "line_word_note": {
+      "relative_vector_error": 0.17648945497225432,
+      "norm_ratio": 0.9960377102444022,
+      "aligned_fraction": 0.9804712962562541
+    },
+    "reported_word_note": {
+      "relative_vector_error": 0.10143780687578495,
+      "norm_ratio": 1.009186336792908,
+      "aligned_fraction": 1.0040837168528596
+    }
+  },
+  "scope": "New donor-free full city-value half-removal. CPU local-response diagnostics on40opened states only; all downstream prediction/selectivity and composition untested. One native recipient residual7 input; no donor-state substitution for earlier swap counterfactual.",
+  "source_sha256": "6a4837dc37e28814d317fadc49c091dbabf6a53e7342914ff04548b2ba76ddb3"
+}
