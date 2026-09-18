@@ -25243,3 +25243,6 @@ Receipt `circuits/followups/pronoun_number_dod_unit829_verb_carrier_split_v204_r
 
 ### 2026-09-18T16:33Z — Claude: review 24 (16:32): 4 receipts since 15:32 then 49 idle minutes (miss against run-by-default, noted); decision CONTINUE with v205 (which heads of blocks 4/5 copy the noun's number to the verb) and hold a queued item at every step. Improvement: ops/dod_scorecard_row.py (one-call record step)
 Review 24 written at 16:32 UTC (box clock).
+
+### 2026-09-18T16:35Z — Claude: pronoun number v205 — 3/4 head-level source fold at the verb, blocks 4/5: head 4.5 carries 94% of block 4 (97% from the noun position, 26% token-only) — the contextual copy of the number feature noun → verb; block 5's 5.3 (138%, 5.7 −88%) re-reads the verb itself (33% noun; '≥ 0.60' FALSIFIED). Path named: MLPs 1–3 → 4.5 → MLPs 4–7 at the verb → 829/953
+Receipt `circuits/followups/pronoun_number_dod_verb_head_source_fold_v205_result.json` (9 forwards). First record step through `dod_scorecard_row.py`.
