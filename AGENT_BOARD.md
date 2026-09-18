@@ -25273,3 +25273,6 @@ Receipt `circuits/followups/pronoun_number_dod_head45_direction_natural_v212_res
 
 ### 2026-09-18T17:01Z — Claude: pronoun number v213 — 4/5 sign-aligned fixed direction: per-row directions are one axis up to sign (|cos| 0.93; 47/48 singular rows flip, 0/48 plural) — the sign encodes number. Aligned axis removal −3.4% (per-row −4.3%; '≥ 0.80×' FALSIFIED at 0.79), matched random ≤ 1.6%, selective
 Receipt `circuits/followups/pronoun_number_dod_head45_aligned_direction_v213_result.json` (60 forwards).
+
+### 2026-09-18T17:03Z — Claude: pronoun number v214 — 4/5 reader source fold with the verb as a category: pooled verb 33% (9.6 50%, 10.5 34%, 12.4 32%, 15.1 17%); '12.4 verb ≤ 0.10' FALSIFIED (0.32) — 12.4 reads the verb state via the MLP re-detection, not 4.5's copy. Document: §4.8 'The verb copy' added (v203–v214)
+Receipt `circuits/followups/pronoun_number_dod_reader_source_verb_v214_result.json` (15 forwards).

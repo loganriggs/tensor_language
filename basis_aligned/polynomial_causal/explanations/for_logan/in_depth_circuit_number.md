@@ -93,7 +93,7 @@ an *orthogonal* direction: projecting them onto the ` myself`−` yourself` dire
 The exact source fold of each coefficient $c_h=\hat v_h\cdot z_h(\text{final})$ splits it by source position and by value branch. Pooled
 over the four heads, the noun position carries 34% and the token-only (block-0 value) branch **5%**; the largest share is "other" positions
 (verb, object, connective: 40–57% per head), and the final token itself 12–20% for 12.4, 15.1 and 10.5. Compare the person heads: 61% pronoun
-position, 38% token-only. These heads are contextual readers of a number state that has been written at the noun and copied along the sentence.
+position, 38% token-only. These heads are contextual readers of a number state that has been written at the noun and copied along the sentence. Splitting "other" further, the verb position alone carries 33% pooled — 9.6 reads the verb (50%) as much as the noun (48%), 10.5 34% vs 32%, 12.4 32% vs 24%, 15.1 17% vs 31% [v214] — so the state the readers use lives at two positions, the noun and the verb (§4.8).
 
 ### 4.3 Where the state comes from: MLP 8 at unit grain [v168, v170, v169b]
 
@@ -141,6 +141,19 @@ stage is the raw token direction the carrier: the number feature is computed by 
 
 Every edit is real (6–29× its null) and shrinks rather than grows the signal; every one is 2–4× smaller than its first-order carrier share
 (MLP 5's five were 22% of 2483 by carriage). Shares rank; edits size.
+
+### 4.8 The verb copy [v203–v214]
+
+At the verb the same MLP-8 detectors re-fire (829 carries 33% and 953 25% of MLP 8's write on 9.6's direction there [v203]); the carriers of
+829's product at the verb are again the MLPs at that position (74%) with attention blocks 4 and 5 leading the attention share [v204]. The copy
+head is **4.5**: 94% of block 4's contrast at the verb, 97% of it from the noun position, 26% token-only [v205]. Zeroing 4.5's whole slice at the
+verb removes 7.7% of the margin but is *not* selective — animacy and tense readers move five times their null [v206, v207b]: 4.5 is a shared
+subject-feature copier. The number part of its copy is one 128-d axis, $d = O_{4.5}^{\!\top}\big((R\cdot\hat x)L + (L\cdot\hat x)R\big)$ for the
+plural detector's factors $L, R$, whose *sign* encodes the number (mean |cosine| across rows 0.93; every singular row opposite to every plural
+row [v213]); removing only that axis takes 3.4–4.3% of the margin, selectively, four times a norm-matched random direction [v208–v210, v213],
+and the verb is its site (all positions add half a point [v211]). Out of the panel the axis is weak: 0.8% at twice the matched null [v212].
+Readers take the verb state by two routes: 10.5, 9.6 and 15.1 lose coefficient when 4.5 is zeroed at the verb, 12.4 does not, although 12.4
+reads the verb position for 32% of its coefficient [v207, v214] — it reads the MLP-re-detected state, not the copy.
 
 ## 5. Out of the panel: natural text [v77, v78, v197–v200]
 

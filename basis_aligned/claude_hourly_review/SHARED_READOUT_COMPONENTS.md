@@ -310,3 +310,4 @@ v210 (4/5): a single fixed direction of head 4.5 (mean over rows) removes 3.6% s
 v211 (5/5): 4.5's number direction at all positions −4.1% vs −3.6% at the verb; matched random at all positions up to 2.65%. The verb is the site. v212: the fixed direction on natural rows.
 v212 (3/5): 4.5's fixed direction on natural text 0.8% (2× matched null, selective) but not number-contrastive — a plural/they direction. v213: sign-aligned mean.
 v213 (4/5): 4.5's per-row number directions are one axis up to sign (|cos| 0.93; all singular rows flip) — the sign IS the number. Aligned fixed axis −3.4% (per-row −4.3%), selective. v214: reader source fold with the verb as a category.
+v214 (4/5): readers take 33% pooled from the verb (9.6 50%, 10.5 34%, 12.4 32%, 15.1 17%). 12.4 reads the verb yet ignores 4.5's copy → two routes into the verb state. v215: MLP-8 detectors zeroed at the verb only / noun + verb.
