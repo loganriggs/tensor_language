@@ -210,6 +210,7 @@ class ManualForward:
             gen = self.torch.Generator(device="cpu").manual_seed(seed)
         self.use_subtract = mode in ("subtract", "replace")
         self.use_project = mode in ("project", "project_random", "keep_only", "keep_only_random")
+        self.use_span = mode == "keep_span"
         for index, row in enumerate(rows):
             for position in positions_of(row, component.where):
                 if component.kind == "attn":
@@ -226,6 +227,8 @@ class ManualForward:
 
     def _delta(self, row, component, position, head):
         """Paired delta for midpoint modes, or the explicit vector for `subtract` mode."""
+        if getattr(self, "use_span", False):
+            return getattr(self, "spans", {}).get((component.name, head))
         if getattr(self, "use_project", False):
             return getattr(self, "directions", {}).get((component.name, head))
         table = getattr(self, "subtract", None) if getattr(self, "use_subtract", False) else getattr(self, "deltas", None)
@@ -258,6 +261,12 @@ class ManualForward:
             r = self.torch.randn(w.shape, generator=gen, dtype=self.torch.float32)
             r = r / r.norm() * abs(coefficient)
             return w - r.to(device=w.device, dtype=w.dtype)
+        if mode == "keep_span":
+            # d is an orthonormal basis (128, r) for this slice: keep only the projection onto its span, in-forward
+            if d is None:
+                raise ValueError("keep_span mode needs a basis per slice")
+            Q = d.to(device=w.device, dtype=self.torch.float32)
+            return (Q @ (Q.T @ w.float())).to(dtype=w.dtype)
         if mode == "subtract":
             if d is None:
                 raise ValueError("subtract mode needs an explicit vector per slice")
