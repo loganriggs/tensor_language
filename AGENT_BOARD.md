@@ -25246,3 +25246,6 @@ Review 24 written at 16:32 UTC (box clock).
 
 ### 2026-09-18T16:35Z — Claude: pronoun number v205 — 3/4 head-level source fold at the verb, blocks 4/5: head 4.5 carries 94% of block 4 (97% from the noun position, 26% token-only) — the contextual copy of the number feature noun → verb; block 5's 5.3 (138%, 5.7 −88%) re-reads the verb itself (33% noun; '≥ 0.60' FALSIFIED). Path named: MLPs 1–3 → 4.5 → MLPs 4–7 at the verb → 829/953
 Receipt `circuits/followups/pronoun_number_dod_verb_head_source_fold_v205_result.json` (9 forwards). First record step through `dod_scorecard_row.py`.
+
+### 2026-09-18T16:36Z — Claude: pronoun number v206 — 2/5 EDIT of head 4.5 at the verb: the they−he margin drops 7.7% (other block-4 heads ≤ 1.2%) while u_829's verb contrast GROWS 5.1% ('drops ≥ 0.05', 'beats others on 829', 'shrinks' FALSIFIED). 4.5's noun→verb copy is the largest single-position write on the line but does not act through the verb-position detector
+Receipt `circuits/followups/pronoun_number_dod_head45_verb_edit_v206_result.json` (30 forwards).

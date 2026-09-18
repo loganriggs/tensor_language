@@ -1,0 +1,75 @@
+{
+  "candidate_id": "pronoun_number.they_vs_he.dod_head45_verb_edit_v206",
+  "finished_utc": "2026-09-18T16:35:29.112919+00:00",
+  "forwards": 30,
+  "plan": {
+    "bars": {
+      "drop_min": 0.05
+    },
+    "block": 4,
+    "candidate_id": "pronoun_number.they_vs_he.dod_head45_verb_edit_v206",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 33,
+    "gpu_accessed": false,
+    "head": 5,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117"
+  },
+  "predictions": {
+    "pred_a_baseline_replays_v204": true,
+    "pred_b_829_verb_contrast_drops_005": false,
+    "pred_c_beats_every_other_block4_head": false,
+    "pred_d_margin_drops_and_beats_others": true,
+    "pred_e_shrinks_not_grows": false
+  },
+  "report": {
+    "baseline": {
+      "margin": 196.62155771255493,
+      "u829": 3611.7680378705263
+    },
+    "fractional_change_by_head": {
+      "0": {
+        "margin": -0.008115666788998608,
+        "u829": -0.05255423369803212
+      },
+      "1": {
+        "margin": 0.0001604965574325108,
+        "u829": 0.003973529928067586
+      },
+      "2": {
+        "margin": -0.0013072005650371277,
+        "u829": -0.0001855586375460576
+      },
+      "3": {
+        "margin": 0.004700732693946381,
+        "u829": -0.01308470834861678
+      },
+      "4": {
+        "margin": 0.011562821453135879,
+        "u829": -0.0291780763661505
+      },
+      "5": {
+        "margin": -0.0767620912311469,
+        "u829": 0.0506414631339295
+      },
+      "6": {
+        "margin": 0.002039543106898034,
+        "u829": 0.037122604817784274
+      },
+      "7": {
+        "margin": 0.003366763301454735,
+        "u829": 0.028228018546387134
+      },
+      "8": {
+        "margin": -0.0055490629791183285,
+        "u829": -0.013915324416111895
+      }
+    }
+  },
+  "schema": "pronoun_number_dod_head45_verb_edit_result_v206",
+  "serial_seconds": 2.0095752051565796
+}
