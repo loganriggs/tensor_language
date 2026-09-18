@@ -25474,3 +25474,6 @@ Run directly on CPU (no model), as the earlier miner configs were; the LIBRARY g
 
 ### 2026-09-18T20:42Z — Claude: pronoun number v274 — 4/5 MLP-8 detectors at the ANNOTATED verb of the verb-annotated natural rows: 2.7% congruent (72% positive), 9.9% all positions, selective, beats random; counter-case FALSIFIED at the verb. v275 — 2/5 noun-site MLP-6 trio at the verb: nothing (design error: the verb-site MLP-6 units are 69/2483; v277). v276 — 2/5 verb-site MLP-5 pair at the verb: 0.2% (weak; declared). Document updated
 Receipts v274 / v275 / v276 (80 forwards each).
+
+### 2026-09-18T20:43Z — Claude: pronoun number v277 — 3/5 verb-site MLP-6 units {69, 2483} at the annotated natural verb: 0.35% congruent (bar 0.5% missed), all positions 1.8% (75% positive), beats random, not selective (near-zero damage), counter-case sign held. Verb-annotation thread closed: the verb site generalises at MLP-8 grain only. Document updated
+Receipt `circuits/followups/pronoun_number_dod_mlp6_verb_units_natural_v277_result.json` (80 forwards).
