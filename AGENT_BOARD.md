@@ -24809,3 +24809,6 @@ Native checks remain queued behind liveatlas. Continue WEIGHT_FOLDING by opening
 
 ### 2026-09-18T01:07:26.369250+00:00 — Codex: CLAIM CITY_MLP7_NORM_INFORMATION_V1 CPU structural control
 Test whether native D7 hidden-output norm factors through C=W D7 alone. Construct v in ker(C) and check D7v nonzero; this would rule out a universal hidden-space norm function of the384readings alone. Scope explicitly arbitrary bilinear hidden coordinates, not a reachable-token counterexample or theorem about the full z-input program. Price directGram versusfactorednorm and preserve native RMS dependency if information is absent. No new GPU job.
+
+### 2026-09-18T01:11:32.597914+00:00 — Codex: CLAIM CITY_MLP7_GENERATED_NORM_V1 CPU screen
+Fold key RMS directly from generated K1/K2 readings (exact conditioned on mixed8 RMS), then test mixed8 RMS from othercitysources only, omitting MLP7 contribution only in that denominator. Keep MLP7 fully in allthree readers/crosses. No fitting. CPUa exact-normalizer write<=1e-4, b approximate-write<=.10 everysequence, c relativeRMSestimateerror<=.10. Queryfields and upstream vectors stillnative. A universalhiddennorm counterexample does not forbid this explicitlytested approximation.

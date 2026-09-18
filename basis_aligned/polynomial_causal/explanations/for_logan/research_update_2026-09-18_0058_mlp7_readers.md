@@ -49,6 +49,12 @@ A weight-level control finds hidden-vector directions that leave all384city read
 
 Computing the exact norm by retaining the full Down factor alongside the folded readers would use about **18million local values**, exceeding the **16million** unfused calculation. Storing an explicit hidden-space Gram matrix is larger still. These are priced alternatives, not a lower bound on every possible algorithm. The24%reader-only saving must therefore remain a local claim; the full extraction still owes its normalization and shared-factor costs.
 
+## A tested local alternative to supplied city normalizers
+
+The two key RMS scalars can be computed directly from their generated128-coordinate readings. That closes those scalar inputs up to floating-point replay. For the remaining mixed8 city RMS, an unfitted approximation uses only the other-source background norm; MLP7 is still fully included in all key/value numerators.
+
+On forty opened sequences, this approximation has at most **3.5% local city-write error**, with estimated RMS between **0.92 and0.96** times native (fold, CPU approximation screen). All three preregistered local gates pass. The full-suffix prediction, preservation and matched-null test is registered and queued; no behavioral adoption follows from this local result. Query fields and upstream vectors remain external. The universal hidden-space norm restriction above is preserved: this is an approximation, not an exact recovery from the three readings.
+
 ## Reproducibility appendix
 
 - [Previous full evidence report](research_update_2026-09-18_0033_pile_transfer.md), [source composition failure](../../CITY_SOURCE7_SPLIT_NULL_V1_RESULT.json).
@@ -60,3 +66,5 @@ Computing the exact norm by retaining the full Down factor alongside the folded 
 Input-source [protocol](../../CITY_MLP7_INPUT_TERMS_V1_PREREGISTRATION.md), [CPU receipt](../../CITY_MLP7_INPUT_TERMS_V1_RESULT.json), [code](../../city_mlp7_input_terms_v1.py). All four registered predictions pass. Full reader identity relative error4.8198629377664094e-15; maximum expanded native-write error1.056984260833506e-06. Omitting crosses gives paired K1/K2/currentV errors0.4762269566053453 /0.4693597743096562 /0.4702712574444421 and aggregate write error0.10899987250398213. Shared reader-value helper reproduces the prior integrated CPU writes exactly; historical hash-bound implementation is unchanged.
 
 Normalization information [derivation and limits](../../CITY_MLP7_NORM_INFORMATION_V1_MATH.md), [CPU receipt](../../CITY_MLP7_NORM_INFORMATION_V1_RESULT.json). Reader-null residual3.6596006713669906e-17; positive norm coefficient7.841298497554737. Full Down5,308,416values versus explicit hidden Gram21,233,664; folded-readers-plus-Down-and-bias17,696,256. This is an arbitrary-hidden-space control, not a native token counterexample.
+
+Generated-normalizer [CPU protocol](../../CITY_MLP7_GENERATED_NORM_V1_PREREGISTRATION.md), [receipt](../../CITY_MLP7_GENERATED_NORM_V1_CPU_RESULT.json), [behavioral protocol](../../CITY_MLP7_GENERATED_NORM_EDIT_V1_PREREGISTRATION.md). Exact key-normalizer mode maxwriteerror1.2517398128019052e-06; approximatedmixed8norm maxwriteerror0.03531605621237261; RMSratio0.9217705718950566–0.960700122682348. The behavioral test installs the city write at attention8 and keeps MLP8 fully native; it is not a certificate for the earlier approximate MLP8 response program.
