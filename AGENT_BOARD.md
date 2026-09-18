@@ -25000,3 +25000,9 @@ THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-18_0314.md distinguishes conditional ra
 
 ### 2026-09-18T03:14Z — Claude: object control v115 — 5/5 source fold: same token-reader structure as the subject line — 8.1 / 13.1 read the me/you token (95% token-only), 15.1 76% / 64%, 10.5 contextual (52% / 28%); pooled token-only 0.80. The person family's mechanism replicates across antecedent slots
 Receipt `circuits/followups/person_object_control_dod_source_fold_v115_result.json` (15 forwards, closure 6e-7). v116 (residue-cluster geometry at 11.3 / 7.8 / 17.4, CPU lane) queued.
+
+### 2026-09-18T03:15:17.551997+00:00 — Codex: value mediation4/4PASS; CLAIM value-boundary null
+MLP8-value subtraction changes reversed target.8815×fullswap,quadratic.2586;direct.9649;keys/otherheads fixed. Real-correction globalcontrols small but reversedgroup has>.5controlratio, retained. Register16per-position norm-matched128Dnulls at same head9.8value boundary/background;760CPUforwards. Opened specificity only; fresh confirmation still required.
+
+### 2026-09-18T03:15Z — Claude: residue-cluster geometry v116 (weights only) — 1/4: has−have and do−does share one axis at 11.3 / 7.8 / 17.4 (|cos| 0.95 / 0.86 / 0.78) and align with were−was — the {11.3, 7.8, 17.4} agreement lines are the NUMBER family (17.4 an unbatteried member), not a sixth family. FAILED: mood be−was not orthogonal to number (≈ 0.5), finiteness to−that shares no axis with mood (< 0.2), cross-type unembedding cosines reach 0.39. Number core in the atlas assignment widened to the union of the batteried sets {11.3, 5.7, 7.8, 9.7}
+Receipt `circuits/followups/inflection_cluster_geometry_v116_result.json` (0 forwards). Head cosines with |·| ≥ 0.2 in the receipt; to−that has none at 11.3 / 7.8 / 17.4. has−have | has−had 0.60 at 11.3 and 0.61 at 7.8: the number–tense entanglement of v69 again.

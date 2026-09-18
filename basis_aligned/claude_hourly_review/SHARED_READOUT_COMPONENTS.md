@@ -144,3 +144,13 @@ finiteness selection 0.33, lifts/lift 0.29, modal perfect 0.15) — a sixth-fami
 {11.2, 5.7, 16.8, 15.1} on the four determiner-number crates variants (one task); {16.8, 14.8, 8.1, 7.8} on the correlative lines (0.43–0.55).
 Table with the family column regenerated: `READOUT_ATLAS_TABLE.md`.
 v115 (object-control source fold): identical token-reader structure on the family's second line (8.1 / 13.1 95% token-only from me / you, 15.1 64%, 10.5 contextual) — the person family's mechanism replicates across subject and object antecedents.
+
+## The residue cluster {11.3, 7.8, 17.4} is the number family, not a sixth family (v116, weights only, 03:14 UTC)
+
+`inflection_cluster_geometry_v116_result.json`, 1/4. The two number contrasts of the cluster (has−have, do−does) share one axis at 11.3 / 7.8 / 17.4
+(|cos| 0.95 / 0.86 / 0.78) and align with were−was (0.78 / 0.58 at 11.3 / 7.8): the agreement lines are number-family lines with 17.4 as a
+member the batteried sets did not include. Failed and kept: the mood contrast be−was is not orthogonal to number at those heads (|cos| ≈ 0.5),
+finiteness (to−that) and mood do not share an axis (to−that is orthogonal to everything, < 0.2), and the cross-type unembedding cosines reach
+0.39 (has−have | be−was −0.37; has−have | do−does −0.65 within type) — part of the head-level alignment is inherited from the vocabulary. Reading:
+the mood lines ride the number / tense axes at the shared heads; the finiteness lines are a separate, weak decision. The number core in the atlas
+assignment is now {11.3, 5.7, 7.8, 9.7} (the union of the two batteried sets), which absorbs the agreement lines.
