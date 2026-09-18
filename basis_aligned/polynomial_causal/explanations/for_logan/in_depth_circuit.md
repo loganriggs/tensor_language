@@ -257,6 +257,8 @@ partner's mean (the *carrier* share; it sums to one) gives a different picture f
 | MLP 7 | 33% | 6% |
 | MLP 5 | 26% | 4% |
 
+(The female detector 3943 gives the same shape: embedding 34%, head 8.1 20%, block-6 attention 15%, MLP 6 +10%, MLP 7 9%.)
+
 So the male detector is **token-carried**: the noun embedding and its two self-copies carry 72% of the male − female contrast, and MLP 7 and
 MLP 5 act as roughly constant multipliers (gain) rather than carriers. MLP 6's row explains the v177 surprise without contradiction: its own
 gender change *supports* the detector (+14%), but its mean write is a negative multiplier on the partner factor, and zeroing unit 3230
