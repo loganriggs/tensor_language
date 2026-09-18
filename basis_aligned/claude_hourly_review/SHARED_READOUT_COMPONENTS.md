@@ -115,4 +115,4 @@ at 9.6 / 12.4 / 15.1; −0.41 already at the unembedding); number and selection 
 are orthogonal at 15.1. Failed and kept: the two selection contrasts (in−of, up−down) do NOT share an axis at 13.8 / 8.8 (|cos| < 0.2) — the
 selection family shares heads, not a direction; and the cross-family unembedding bound (0.25) was exceeded by were−was | has−had (−0.26, the
 number/aspect entanglement known from v56/v57). Observed, not registered: they−he aligns with were−was at 9.6 (0.38), 15.1 (0.40), 8.8 (0.47),
-11.3 (0.40) — a candidate shared NUMBER axis between pronoun number and verb agreement, to be tested by removal (v96).
+11.3 (0.40) — a candidate shared NUMBER axis between pronoun number and verb agreement; tested by removal (v96): the were−was direction at the pronoun-number heads removes 18% of what the own direction removes (live, null-beating, gender direction below it) — the registered half failed; a small shared component, not one axis (unlike the temporal family's v70).

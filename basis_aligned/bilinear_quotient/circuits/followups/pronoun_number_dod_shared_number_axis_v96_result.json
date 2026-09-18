@@ -1,0 +1,145 @@
+{
+  "arms": {
+    "gender_he_she": {
+      "animacy_who_which_abs_move_mean": 0.008822169154882431,
+      "animacy_who_which_native_abs_mean": 1.6580233511825402,
+      "canonical_night_day_abs_move_mean": 0.009312957990914583,
+      "canonical_night_day_native_abs_mean": 0.5902756322175264,
+      "flip_fraction": 0.010416666666666666,
+      "number_was_were_abs_move_mean": 0.007972844565908114,
+      "number_was_were_native_abs_mean": 1.4636153026173513,
+      "target_damage_fraction": 0.04156381142442191,
+      "target_damage_mean": 0.08512855569521587,
+      "target_damage_positive_fraction": 0.5833333333333334,
+      "target_native_mean_margin": 2.048141226172447
+    },
+    "number_were_was": {
+      "animacy_who_which_abs_move_mean": 0.019696888824303944,
+      "animacy_who_which_native_abs_mean": 1.6580233511825402,
+      "canonical_night_day_abs_move_mean": 0.012560695875436068,
+      "canonical_night_day_native_abs_mean": 0.5902756322175264,
+      "flip_fraction": 0.010416666666666666,
+      "number_was_were_abs_move_mean": 0.22583367489278316,
+      "number_was_were_native_abs_mean": 1.4636153026173513,
+      "target_damage_fraction": 0.13693428774025074,
+      "target_damage_mean": 0.28046075999736786,
+      "target_damage_positive_fraction": 0.9479166666666666,
+      "target_native_mean_margin": 2.048141226172447
+    },
+    "own_they_he": {
+      "animacy_who_which_abs_move_mean": 0.03071661914388339,
+      "animacy_who_which_native_abs_mean": 1.6580233511825402,
+      "canonical_night_day_abs_move_mean": 0.022929314523935318,
+      "canonical_night_day_native_abs_mean": 0.5902756322175264,
+      "flip_fraction": 0.13541666666666666,
+      "number_was_were_abs_move_mean": 0.24250764213502407,
+      "number_was_were_native_abs_mean": 1.4636153026173513,
+      "target_damage_fraction": 0.7582697858030357,
+      "target_damage_mean": 1.5530436088641484,
+      "target_damage_positive_fraction": 1.0,
+      "target_native_mean_margin": 2.048141226172447
+    }
+  },
+  "candidate_id": "pronoun_number.they_vs_he.dod_shared_number_axis_v96",
+  "finished_utc": "2026-09-18T02:39:56.401443+00:00",
+  "forwards": 63,
+  "instrument_max_abs_error": 0.0,
+  "null_damage_max": 0.01646501322587331,
+  "null_damages": [
+    -0.004093875487645467,
+    0.0023361394802729287,
+    -0.011820500095685324,
+    0.008109708627065023,
+    0.007694353659947713,
+    0.01646501322587331,
+    -0.003915518522262573,
+    -0.014028837283452352,
+    -0.0075711508591969805,
+    -0.006101454297701518,
+    -0.0037625531355539956,
+    -0.012953822811444601,
+    -0.02140711744626363,
+    -0.002540081739425659,
+    -0.0006992568572362264,
+    -0.006497373183568318
+  ],
+  "plan": {
+    "arms": {
+      "gender_he_she": [
+        " he",
+        " she"
+      ],
+      "number_were_was": [
+        " were",
+        " was"
+      ],
+      "own_they_he": [
+        " they",
+        " he"
+      ]
+    },
+    "bars": {
+      "band": 0.05,
+      "half": 0.5,
+      "instrument_tol": 0.0001,
+      "live_fraction": 0.1,
+      "live_positive": 0.75,
+      "v76_fraction": 0.76
+    },
+    "candidate_id": "pronoun_number.they_vs_he.dod_shared_number_axis_v96",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 66,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "null_seeds": [
+      3201,
+      3202,
+      3203,
+      3204,
+      3205,
+      3206,
+      3207,
+      3208,
+      3209,
+      3210,
+      3211,
+      3212,
+      3213,
+      3214,
+      3215,
+      3216
+    ],
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117",
+    "set": [
+      [
+        9,
+        6
+      ],
+      [
+        12,
+        4
+      ],
+      [
+        15,
+        1
+      ],
+      [
+        10,
+        5
+      ]
+    ]
+  },
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_own_direction_replays_v76": true,
+    "pred_c_were_was_direction_carries_half_of_own": false,
+    "pred_d_were_was_removal_live_and_beats_null": true,
+    "pred_e_gender_direction_removes_less_than_number": true
+  },
+  "schema": "pronoun_number_dod_shared_number_axis_result_v96",
+  "serial_seconds": 3.1643084019888192
+}

@@ -25,6 +25,7 @@ the singular side — the shared core is the claim under test.
 | 11 | Writer fold of what 9.6 reads (v82, closure 2e-7): the number feature at the verb is 94% MLP-written (MLP 8 0.54, MLP 6 0.11, MLP 4 0.10, MLP 5 0.08), heads 6%; at the noun MLP 87% (MLP 8 0.50), embedding 10%, heads 3% — no attention copier; the plural morphology is resolved by the MLP stack at the noun and again at the verb | fold | fresh (v82) | | MLP 8 is the declared port on this line too |
 | 12 | Pair-term fold of MLP 8's write (v83, closure 4e-4): diffuse products of MLPs 4–7 (largest pair 7%; pairs with MLP 6/7 0.41 at the verb, 0.58 at the noun); registered "MLP 6/7 pairs ≥ 0.50 at the verb" false | fold | fresh (v83) | | 1/5 — **declared port**: MLP 8 (fed by MLPs 4–7) |
 | 13 | Response census of the set removal (λ-recurrence exact split, blocks 9–17, closure 2e-5): the set's own attention writes carry 103% of the linear attribution (attn:09 −0.60, attn:12 −0.56, attn:15 −0.24, attn:10 −0.20 of −1.56); downstream net +0.04 (MLP 17 +0.17 counteracts, MLP 9 −0.09 amplifies); remainder 0.4% | response | fresh (v84) | | passes 5/5 — a direct readout, like the gender set |
+| 14 | Shared number axis? Removal at the same four heads along the verb-agreement direction `O_h^T(u_were − u_was)` (weight-level |cos| 0.4 with they−he at 9.6 / 15.1, v95) on the v76 fresh rows: 0.28 logits (14% of the margin; 18% of the own-direction 1.55), positive 91/96, above the null (0.02), live; the gender direction he−she removes 0.09 | edit | fresh (v96) | registered "were−was carries ≥ 50% of own" false; live/null-beating and gender < number held; own replay 0.76 exact | 4/5 — a small shared number component, not one axis |
 
 ## Five-property status
 | property | status | next |
@@ -37,6 +38,7 @@ the singular side — the shared core is the claim under test.
 
 ## Receipts
 - atlas v68: `bilinear_quotient/circuits/followups/atlas_pronoun_number_v68_result.json`
+- v96: `.../pronoun_number_dod_shared_number_axis_v96_result.json`; code `ops/run_pronoun_number_dod_shared_number_axis_v96.py`
 - v84: `.../pronoun_number_dod_response_census_v84_result.json`; code `ops/run_pronoun_number_dod_response_census_v84.py`
 - v83: `.../pronoun_dod_mlp8_pair_fold_v83_result.json`
 - v82: `.../pronoun_dod_verb_writer_fold_v82_result.json`
