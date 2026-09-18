@@ -25207,3 +25207,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp34_unit_carriers_into_1036_v19
 
 ### 2026-09-18T15:20Z — Claude: pronoun number v195 — 3/5 EDIT of the five MLP-5 carrier units at the noun: u_2483 −6.0% ('≥ 0.15' FALSIFIED; carriage predicted 0.22), u_829 −3.9% ('≥ 0.05' FALSIFIED), they−he margin −1.3%; 16 random 5-unit sets ≤ 0.9% / 0.6% / 0.07%; replay, beats-null, shrink held. Real, selective, smaller than carriage — the named MLP-5 units reach the logit
 Receipt `circuits/followups/pronoun_number_dod_mlp5_carrier_edit_v195_result.json` (54 forwards).
+
+### 2026-09-18T15:22Z — Claude: pronoun number v196 — 3/5 EDIT of the MLP-6 trio {2483, 2826, 4131} at the noun: u_829 −6.3% ('≥ 0.10' FALSIFIED; first-order 0.11), they−he margin −0.67% ('≥ 0.02' FALSIFIED); random 3-unit sets ≤ 0.22% / 0.02%; replay, beats-null (29×), shrink held. Third edit calibrating the unit-grain number chain
+Receipt `circuits/followups/pronoun_number_dod_mlp6_trio_edit_v196_result.json` (54 forwards).
