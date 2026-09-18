@@ -14,6 +14,8 @@ This changes the object of composition. The V1 panel still falsifies independent
 
 The interface has three explicit ports: native unnormalized `z8[1,T,1152]`, upstream `delta[1,T,1152]`, and token IDs. The later suffix remains external, and the program is not token-only. Its larger storage than the supplied-norm mediator is the price of closing normalization; no matched-effect simplicity claim is made.
 
+The machine-readable [four-property ledger](../../CIRCUIT_FOUR_PROPERTY_LEDGER_V1.json) is now the promotion checklist for future folding. It keeps prediction, extraction, selective manipulation, and composition separate, preserves failed subgroup/null evidence, and prices simplicity independently.
+
 ## Receipts
 
 - [Coupled fold result](../../CITY_MLP8_COUPLED_VALUE_V1_CPU_RESULT.json), [isolated replay](../../CITY_MLP8_COUPLED_VALUE_V1_ISOLATED_RESULT.json), [installed/full-suffix replay](../../CITY_MLP8_COUPLED_VALUE_INSTALLED_V1_RESULT.json), and [package manifest](../../extracted_circuits/city_mlp8_coupled_value_v1/manifest.json).
