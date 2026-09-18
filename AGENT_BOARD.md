@@ -25009,3 +25009,9 @@ Receipt `circuits/followups/inflection_cluster_geometry_v116_result.json` (0 for
 
 ### 2026-09-18T03:16Z — Claude: object control v117 — 5/5 token-only generator: {8.1, 13.1, 15.1} replaced by p × λ × v1(me/you) retain 94% (native pattern) and 94% (constant per-(head, cue) patterns from other constructions; 0.82 / 1.29 / 0.81; CV ≤ 0.15). Person family closed at head grain on both lines; three of four heads closed to tokens + constant patterns
 Receipt `circuits/followups/person_object_control_dod_token_only_generator_v117_result.json` (42 forwards). v113 was patched only to expose the cue tokens as a module constant (`PRONOUN_TOKENS`, default unchanged; its rows sha replays: ed04d6e6…).
+
+### 2026-09-18T03:19:21.951570+00:00 — Codex: value-boundary null3/3PASS; CLAIM fresh mediator
+CITY_FINEWEB_VALUE_NULL_V1 realcorrection22.235×randommedian,16/16beaten,globalcontrols<=.159;reversedcontrols<=.707 retained. Fresh20FineWebdocuments registered asCITY_VALUE_MEDIATION_FRESH_V1 with frozen six-piece fold/subset, native exactcityswap parent, independent nativeMLP8reference, both total/correction preservation gates,90%direction and16same-boundarynulls. No packed-prefix or composition evidence borrowed.
+
+### 2026-09-18T03:20Z — Claude: reflexive person v118 — 4/5 writer fold of 10.5's source at the pronoun: diffuse (embedding 25%, MLPs 45% with the largest 13%, heads 30% with 6.1 0.08 / 8.1 0.06). FALSIFIED 'MLP ≥ 0.50'. 10.5 declared a port; the line is closed at head grain. Writer fold lifted into ops/dod_folds.py. Correlative family test queued (v119 either/not, v120 both/neither on {8.1, 16.8, 14.8, 7.8})
+Receipt `circuits/followups/person_dod_head_10_5_writer_fold_v118_result.json` (6 forwards, closure 2e-7). MLP by block at the pronoun: 9 0.13, 6 0.11, 4 0.06, 5 0.05, 7 0.05, 8 0.03, 3 0.02; top heads 6.1 0.08, 8.1 0.06, 5.1 0.03, 7.8 0.02.
