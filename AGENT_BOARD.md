@@ -25453,3 +25453,6 @@ Receipt `circuits/followups/perfect_number_dod_unit829_natural_v268_result.json`
 
 ### 2026-09-18T19:19Z — Claude: perfect-number v269 — 4/4 unit 1738: a second plural detector on have/has (53 vs 0, 48/48; cos −0.53), edit −1.3% noun / −2.8% all, random ≤ 0.02%. Read oppositely by the pronoun set (v168); v270 tests by edit
 Receipt `circuits/followups/perfect_number_dod_mlp8_unit1738_v269_result.json` (60 forwards).
+
+### 2026-09-18T19:20Z — Claude: pronoun number v270 — 3/4 unit 1738 on the pronoun line: same plural detector (39 vs 5, 48/48); zeroing it at the noun RAISES they−he by 0.50% (at the bar; beyond random 0.08%); 'cosines opposite' FALSIFIED (mis-specified sign conventions). One plural unit with opposite roles in two behaviours
+Receipt `circuits/followups/pronoun_number_dod_mlp8_unit1738_v270_result.json` (60 forwards).
