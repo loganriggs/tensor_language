@@ -183,7 +183,24 @@
    ],
    "family": "temporal",
    "fresh_battery": {
-    "receipt": "narrative_dod_confirm_v43_result.json"
+    "additivity": {
+     "bar": 0.02091997116804123,
+     "gap": 0.060720160603523254
+    },
+    "forwards": 82,
+    "fraction": 0.7291279886273017,
+    "keep_only_retention": 1.2089403420938223,
+    "null_max": 0.023577988147735596,
+    "positive": 1.0,
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_native_capability": true,
+     "pred_c_set_fraction_within_015_of_frozen": true,
+     "pred_d_set_positive_selective_and_beats_null": true,
+     "pred_e_keep_only_retains_most": true,
+     "pred_f_set_is_additive": false
+    },
+    "receipt": "narrative_tense_dod_confirm_v43_result.json"
    },
    "heads": null,
    "line": "narrative was/is",
@@ -194,7 +211,16 @@
     "receipt": null
    },
    "random_set_null": {
-    "receipt": "narrative_dod_random_set_null_v45_result.json"
+    "predictions": {
+     "pred_a_instrument_replays_native": true,
+     "pred_b_set_beats_every_random_quadruple": true,
+     "pred_c_random_quadruples_are_not_live": true,
+     "pred_d_set_exceeds_random_median_tenfold": true
+    },
+    "random_live": 0,
+    "random_max": 0.058866485953330994,
+    "receipt": "narrative_tense_dod_random_set_null_v45_result.json",
+    "set_damage": 1.4555793553590775
    },
    "response_census": {
     "receipt": null
