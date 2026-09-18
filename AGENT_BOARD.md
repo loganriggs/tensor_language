@@ -25498,3 +25498,6 @@ Receipt `circuits/followups/aspectual_dod_mlp7_trio_natural_v283_result.json` (4
 
 ### 2026-09-18T22:34Z — Claude: review 30 (22:32): 51 STOP-idle minutes recorded; decision CONTINUE with two 3-forward censuses applying 'look one block lower' to the person and selection ports (v284 MLP 7 on 10.5, v285 MLP 7 on 13.8); then STOP. Improvement: ops/dod_derive.py (AST-aware runner derivation by constant NAME; replaces the regex derivations that failed six times today)
 Review 30 written at 22:32 UTC (box clock).
+
+### 2026-09-18T22:34Z — Claude: person v284 — 1/4 and selection v285 — 1/4: MLP 7 spread at both positions for both families (top-10 16% / 6% at the cue) — ports at MLP 7 and 8, declared; 'look one block lower' rescued the temporal family only. Synthesis table final for the day; review 30 ends with STOP
+Receipts v284 / v285 (3 forwards each), derived with `dod_derive.py`.

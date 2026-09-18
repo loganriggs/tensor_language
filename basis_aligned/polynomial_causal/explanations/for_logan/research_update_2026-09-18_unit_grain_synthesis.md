@@ -39,8 +39,8 @@ bilinear unit's contrast into its writers' own changes — and every nomination 
 | perfect-number (have/has) | concentrated (88%) | **829 shared**, 1738, 3858 | as 829 | 1.9% / 3.0%; natural plural-only |
 | correlative (both/neither) | spread at the cue; **final** one unit 59% | 1512 negative-polarity | 8.1's cue copy at the final | 1.8% / 2.5%; natural 1.9%, not selective |
 | temporal (has/had) | MLP 8 spread (19%); **MLP 7 concentrated** at the bank (top-10 73%) | MLP-7 unit 1250, a *since*-detector (32/32); 3364, 1884 | 8.1's cue copy + MLP 7 | 0.6% for 1250, **2.2% for the trio** at the bank [v278, v280, v281]; natural text: not shown (0.09% [v283]); MLP-8 unit 13 inert |
-| person (I/you) | spread, frame-specific (26%) | none | token copies | port |
-| selection (particle) | spread at both positions (29% / 8%) | none | — | port |
+| person (I/you) | spread at MLP 8 (26%) and MLP 7 (16%) | none | token copies (8.1 / 13.1 / 15.1) | port at both blocks [v259, v284] |
+| selection (particle) | spread at MLP 8 (29% / 8%) and MLP 7 (6%) | none | — | port at both blocks [v261b, v285] |
 
 Content-word features have detectors at MLP 8; function-word cues mostly do not there — but the temporal family's detector turned up one block down, in MLP 7 (unit 1250, a *since*-context detector at the bank the readers read [v278, v280]), so "port at MLP 8" means "look one block lower", not "no unit". The adjective cue of the selection line is the exception to the simplest form of the content/function rule. Every detector is small under edit (0.7–5% of a margin) unless two sites add.
 
