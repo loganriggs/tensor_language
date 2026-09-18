@@ -54,3 +54,16 @@ Head 11.3 carries both: temporal mean 0.56 and number-vs-temporal 0.54 (with has
 9.7 also mix the two (0.57, 0.41); 5.7 does not (0.16). So the two families are two weight-level axes in the late heads'
 output projections: a "temporal" axis shared by four decisions and a "number" axis, entangled only at 11.3 / 7.8 / 9.7.
 Receipt: `bilinear_quotient/circuits/followups/readout_geometry_v69_result.json`.
+
+## One weight-only temporal axis for four decisions (v70, edit, fresh rows, 01:47 UTC)
+
+At heads {9.1, 9.4, 15.5, 11.3} the first left singular vector of the four mapped contrasts (has−had, will−had, is−was,
+will−would; weights only, no data) was removed on each line's fresh rows:
+- aspectual: own 0.98, shared-axis 0.63 (31%, positive 50%, null max 0.02, selective True)
+- temporal: own 3.45, shared-axis 2.47 (58%, positive 100%, null max 0.05, selective True)
+- narrative: own 1.46, shared-axis 1.16 (58%, positive 100%, null max 0.02, selective True)
+- modal: own 1.60, shared-axis 1.45 (52%, positive 100%, null max 0.04, selective True)
+
+The shared axis carries ≥ 50% of each line's own-contrast removal on all four lines (registered pred_c held); it is live
+and selective on temporal, narrative and modal; on the aspectual line the registered LIVE/null bar failed (that line's own
+set includes 8.1, excluded here). Receipt: `bilinear_quotient/circuits/followups/temporal_axis_v70_result.json`.
