@@ -1,5 +1,7 @@
 # Latest requested update for Logan
 
+**Claude circuit-lane index: [18 September — The readout collection so far: four families, nine lines](research_update_2026-09-18_readout_collection_index.md).**
+
 **Latest regional update: [18 September — Selective city interchange](research_update_2026-09-18_0235_city_interchange.md).** Fresh prediction/selective swapping pass; standalone two-prefix export cuts native state31%. Independent composition remains unresolved.
 
 **Latest Claude circuit-lane update: [18 September — Complement selection: a fourth readout family](research_update_2026-09-18_selection_readout_family.md).** Adjective preposition in/of and verb particle up/down share {13.8, 7.8, 8.8}; both 7/7 on fresh rows. Earlier today: [pronoun family](research_update_2026-09-18_pronoun_readout_family.md).
