@@ -213,6 +213,39 @@ from weights; the downstream accounting. Open: head 10.5's contextual input (a d
 that these four heads do not carry at all (other heads and the MLP suffix, visible in the census but not attributed to components);
 and why the attention weights are the constants they are (the pattern side of squared attention was measured, not derived).
 
+## Appendix: a second path, through an MLP port (added 18 Sep afternoon)
+
+The person component above never touches an MLP; the pronoun-gender component does, and its MLP-8 port was opened to unit grain the same
+afternoon (receipts v164–v179, scorecard `PRONOUN_GENDER_DOD_SCORECARD.md` rows 16–28). Head 9.6 reads a gender state at the noun; exactly
+by unit, MLP 8's write on 9.6's reader direction is two units: 3152, a **male-noun detector** (its bilinear value is −700 to −980 on 23 of 25
+male nouns and ≈ 0 on their female counterparts; output column along $-r$), and 3943, a **female-noun detector** (24 of 25; along $+r$).
+
+```mermaid
+flowchart LR
+  T["noun token (king / queen)"] --> E["embedding at the noun"]
+  T -->|"self-position copy, 97% token-only"| H8["head 8.1 write at the noun"]
+  T -->|"self-position copy, 90% token-only"| H6["head 6.1 write at the noun"]
+  H6 --> U6["MLP-6 unit 3230<br/>(gender-axis reader)"]
+  E --> P["MLP-7 write (distributed over units: port)"]
+  E --> U8
+  P --> U8["MLP-8 unit 3152 = (L·x)(R·x)<br/>male-noun detector"]
+  U6 -.->|"damps (−21% of the product)"| U8
+  U8 -->|"Down[:,3152], along −r"| N["gender state at the noun"]
+  N --> H96["head 9.6 (contextual reader)"] --> R["residual at the final query"] --> L["he − she"]
+```
+
+What the numbers say. Zeroing the two MLP-8 units removes 2.6% of the he/she margin at the noun and 7.8% at every position; that is
+small, and it is exactly what the chain of shares predicts (MLP 8 is 27% of 9.6's noun read, 9.6 is 30% of the four-head set, the two units
+are 76% of MLP 8's part), so the folds nominated correctly and the edits sized correctly. Going one layer further gave a lesson worth keeping:
+a *factor-level* fold said MLP-6 unit 3230 carries 82% of MLP 6's input to both factors of the detector, but zeroing 3230 made the detector
+**stronger** by 71% — for a bilinear unit $(L\cdot x)(R\cdot x)$ the sign of a writer's effect lives in the pair terms, not in either factor.
+The product-level pair fold then showed the detector is an embedding × MLP-7 interaction (63% of pair mass involves MLP 7, 57% the
+embedding) damped by MLP 6, with head 8.1's copy at 5% despite being 22% of each factor. MLP 7's part does not fold to a few units (top 50
+units carry 31–45%, with cancelling signs) and is declared a port. The number line has its own MLP-8 units (829 plural, 953 singular).
+
+So this path is deeper than the person component (two named MLP units and two named copy heads below the readout) but not closed: the
+token side is named, the MLP-7 side is not. It is the honest depth limit of the day, and the place to continue.
+
 ---
 
 ### Pass over the draft (what I changed after rereading)
