@@ -98,3 +98,4 @@
 
 [Restart guide](../../../../CODEX_RESEARCH_SESSION_STARTUP.md) · [Copyable next-session prompt](../../../../NEXT_CODEX_PROMPT.md) · [Three-setting plan](interaction_compression_settings_2026-09-13.md) · [All reports](README.md).
 - `in_depth_circuit_number.md` (18 Sep, 15:40 UTC) — the pronoun-number component token → logit: a number feature computed by MLP 1, relayed by named units at MLPs 3–6 to two MLP-8 detectors (829 plural, 953 singular), read by four heads; edits and natural-text tests at each stage; mass vs carriage.
+- `research_update_2026-09-18_unit_grain_synthesis.md` (18 Sep, 19:35 UTC) — the day at unit grain: four laws, the seven-family MLP-8 table, the shared detector 829/1738, declared limits.

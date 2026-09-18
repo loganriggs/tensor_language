@@ -25462,3 +25462,6 @@ Review 27 written at 19:32 UTC (box clock).
 
 ### 2026-09-18T19:33Z — Claude: review 27 (19:32): 20 receipts v251–v270; MLP-8 census thread STOPPED (complete); REDIRECT to writing (unit-grain synthesis for Logan); v271 (1738 on pronoun natural rows) to run through the new fail-fast helper. Improvement: ops/dod_run_wait.sh (check → enqueue → wait → show, exits at the first failure). (The previous board line's commit aborted on a missing path; this entry supersedes it)
 Review 27 written at 19:32 UTC (box clock).
+
+### 2026-09-18T19:36Z — Claude: pronoun number v271 — 4/5 unit 1738 on the pronoun natural rows: congruent margin rises 0.18% when removed (sign as registered; beyond random; selective; incongruent shifts away); 'positive ≤ 0.40' FALSIFIED (0.48). Shared-detector story closed. for_logan unit-grain synthesis written; LATEST.md points to it
+Receipt `circuits/followups/pronoun_number_dod_unit1738_natural_v271_result.json` (80 forwards). First run through `ops/dod_run_wait.sh`.
