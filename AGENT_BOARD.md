@@ -25375,3 +25375,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp5_unit_carriers_into_69_verb_v
 
 ### 2026-09-18T18:13Z — Claude: pronoun number v246 — 3/5 edit of verb-site MLP-5 {1036, 715} at the verb: 829 verb contrast −29% (51× null), margin −1.05%, unit 69 GROWS +122% ('69 drops', 'both shrink' FALSIFIED). Verb-site chain real; second growth paradox → v247 class/factor split
 Receipt `circuits/followups/pronoun_number_dod_verb_mlp5_units_edit_v246_result.json` (54 forwards). The document's "§4.9" reference is to the compensation paragraph in §8; renumbering is deferred to the next pass over the document.
+
+### 2026-09-18T18:14Z — Claude: pronoun number v247 — 5/5 unit 69's growth in place: +122% (reproduces v246), plural rows +10.1 / singular −5.3, Right factor 0.94. Class-dependent-shift law on a second unit; document reference fixed
+Receipt `circuits/followups/pronoun_number_dod_unit69_growth_split_v247_result.json` (6 forwards).
