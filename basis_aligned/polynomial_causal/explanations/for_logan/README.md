@@ -1,5 +1,7 @@
 # Requested full reports for Logan
 
+**Latest regional update: [18 September — Selective city interchange](research_update_2026-09-18_0235_city_interchange.md).** Fresh prediction/selective swapping pass; standalone two-prefix export cuts native state31%. Independent composition remains unresolved.
+
 **Latest regional update: [18 September — Conditional source roles](research_update_2026-09-18_0220_conditional_source_roles.md).** Reversals persist at small strength; key/value split fails clean-role predictions. Complete-city interchange is registered with fresh rows and a passing local preflight.
 
 **Latest regional update: [18 September — Source-group direction failure](research_update_2026-09-18_0208_source_direction_failure.md).** Fresh effect prediction and controls pass;80%positive fails90%gate. Self/mixed diagnostic does not recover a consistently attenuating component.

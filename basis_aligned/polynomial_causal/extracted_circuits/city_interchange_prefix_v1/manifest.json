@@ -1,0 +1,50 @@
+{
+  "schema": "regional.city_interchange_prefix.v1",
+  "name": "city_interchange_prefix_v1",
+  "certified_complete": false,
+  "counterfactual": "Swap both normalized city key fields and complete current/inherited value from paired donor, retain recipient queries/background; emit attention8 delta.",
+  "ports": [
+    "recipient_residual6[1,last_destination+1,1152]",
+    "recipient_tokens[1,last_destination+1]",
+    "donor_residual6[1,city+1,1152]",
+    "donor_tokens[1,city+1]",
+    "city:int",
+    "destination[T]:bool"
+  ],
+  "external_native_activation_inputs": 2,
+  "native_vector_state_arrays": 2,
+  "native_scalar_state_arrays": 0,
+  "logical_native_contexts": 2,
+  "native_state_scalars_T32": 50688,
+  "static_float_scalars": 23300998,
+  "weight_bytes": 93203992,
+  "supported_sequence_tokens": 385,
+  "external_computation": "Native blocks0\u20136 for both contexts; native MLP8 and full later model for recipient. Both queries and all normalization factors generated internally, mixed8 RMS approximate.",
+  "four_traits": {
+    "ood_prediction": true,
+    "extraction": true,
+    "selective_removal": null,
+    "composition_reuse": false
+  },
+  "selective_interchange": true,
+  "property_scope": "Fresh same-corpus conditional interchange, not whole-head swap, token replacement or independent composition. Prefix replay is opened implementation evidence. Removal evidence belongs to separate operator.",
+  "evidence": {
+    "fresh_interchange": "../../CITY_FULL_INTERCHANGE_V1_RESULT.json",
+    "prefix_local": "../../CITY_INTERCHANGE_PREFIX_V1_CPU_RESULT.json",
+    "prefix_installed": "../../CITY_INTERCHANGE_PREFIX_INSTALLED_V1_RESULT.json",
+    "scope_correction": "../../CITY_INTERCHANGE_PREFIX_INSTALLED_V1_SCOPE_CORRECTION.json",
+    "isolated": "../../CITY_INTERCHANGE_PREFIX_V1_ISOLATED_RESULT.json"
+  },
+  "files": {
+    "attention7.pt": "86d8bf4b54b7717fc068bab5810c7be3735aa53b218fc6dda26c07d6198de4c2",
+    "attention7.py": "35e7d899955ad1a29da2151a31b2c2529b0f0451c55feab98ea79817fe953fa9",
+    "execute.py": "b974946a6b5eaccb49dc254c6a1195023c3a2cdd78fc4ee4a111c3e580ea3de5",
+    "fields.py": "284aa9f9b872273e438258dc0aa23937c961445d7487465062e1a772111e345f",
+    "head8.pt": "ec4f06f93a9081789ace4ea5a8fd480deb1490df11fc6efd27124152889f3367",
+    "readers.pt": "26c49293a1a844feebaae4536d9d60887eec8b6b5b95f7cacc501b41bd4ff0a7",
+    "readers.py": "17140223bfa4935afd5a56e5ad93981ee57381c2d152163cad8a2dfeeda955b8"
+  },
+  "serialized_program_bytes": 93217328,
+  "selective_manipulation": true,
+  "isolated_execution_passes": true
+}

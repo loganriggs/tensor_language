@@ -1,5 +1,7 @@
 # Plain-language explanations
 
+Latest regional result: [Selective city interchange](for_logan/research_update_2026-09-18_0235_city_interchange.md), with conditional two-prefix extraction and explicit composition gap.
+
 Latest regional result: [Conditional source roles](for_logan/research_update_2026-09-18_0220_conditional_source_roles.md); retain coupled city interface and test interchange next.
 
 Latest regional result: [Source-group direction failure](for_logan/research_update_2026-09-18_0208_source_direction_failure.md); native and generated reversals agree.

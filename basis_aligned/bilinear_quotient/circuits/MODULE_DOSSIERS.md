@@ -1613,3 +1613,6 @@ Fresh native and generated MLP7-present terms agree on fourreversingdocuments; d
 
 ### 2026-09-18 — MLP7 source-role hypotheses rejected
 Smallstrength signs persist. Key/value factorial fails cleanrole predictions:context11valuecounteractsrouting, valuepositive55.83%. Preserve module/source conditionality; no new identified component. Canonical record: ../CIRCUIT_REGISTRY.md; report ../../polynomial_causal/explanations/for_logan/research_update_2026-09-18_0220_conditional_source_roles.md. Completecityinterface interchange preflightpasses, freshbehaviorpending; two residual6contexts explicitlypriced.
+
+### 2026-09-18 — Head8.2 coupled city interchange
+Freshkeys/fullvalueinterchangepasses whileMLP7source-directionfailuresremain. Prefixexporttwo-native-context boundary validated; notindependentcomposition. Canonical evidence ../CIRCUIT_REGISTRY.md and ../../polynomial_causal/explanations/for_logan/research_update_2026-09-18_0235_city_interchange.md. NativeRMS/querysuppliedclaim in installedreceipt is a copiedscopeerror; use linkedexplicitcorrection. Currentcompositionpreflight shows nontrivialheadcross, no behavioral verdict.

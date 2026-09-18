@@ -4,10 +4,10 @@
     "explicit_dependency_edges": 4,
     "four_trait_declared_unverified": 0,
     "four_trait_verified": 2,
-    "packages": 46,
-    "partial_or_unassessed": 44,
-    "with_declared_inputs": 30,
-    "with_manifest": 41
+    "packages": 47,
+    "partial_or_unassessed": 45,
+    "with_declared_inputs": 31,
+    "with_manifest": 42
   },
   "dependency_cycles": [],
   "four_trait_order": [
@@ -53,6 +53,47 @@
       "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/city_full_removal_v1",
       "schema": "regional.city_full_removal.v1",
       "scope": "One-native-input export passes CPU, isolated40fixture and native120forward readout replay. Fresh formula prediction/selective half-removal pass on authored shifted construction/city/endpoint panel. Native prefix/suffix, corpus generalization, composition and matched-effect simplicity remain open.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 6,
+      "declared_input_field": "ports",
+      "declared_inputs": [
+        "recipient_residual6[1,last_destination+1,1152]",
+        "recipient_tokens[1,last_destination+1]",
+        "donor_residual6[1,city+1,1152]",
+        "donor_tokens[1,city+1]",
+        "city:int",
+        "destination[T]:bool"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": 2,
+      "four_traits": {
+        "composition_reuse": false,
+        "extraction": true,
+        "ood_prediction": true,
+        "selective_removal": null
+      },
+      "gaps": [
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/city_interchange_prefix_v1/manifest.json",
+      "manifest_sha256": "d72d1a572126ed3d3fedb8405df90885b57bafcdf60ec9c83b3142019ca966c0",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "city_interchange_prefix_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/city_interchange_prefix_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/city_interchange_prefix_v1",
+      "schema": "regional.city_interchange_prefix.v1",
+      "scope": null,
       "verification": {
         "path": null,
         "status": "not_available",
