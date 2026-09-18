@@ -186,10 +186,9 @@ Row: "After the nail fell, I clearly blamed". Native logits at the last position
 the mean). The pronoun ` I` at position 5 has block-0 values $v^{(1)}_{8.1}(I), v^{(1)}_{13.1}(I), v^{(1)}_{15.1}(I)$. At position 7,
 head 8.1's pattern on position 5 is about +0.09 (median over frames), so its slice is roughly $4.0\times0.09\times v^{(1)}_{8.1}(I)$
 plus a small contextual part; its projection on $\hat v_{8.1}$ is positive. Head 13.1's pattern is about −0.30 with $\lambda=4.19$;
-head 15.1's about −0.70 with $\lambda=0.56$; both projections are positive too (the sign of $\hat v_h\cdot v^{(1)}_h(I)$ is opposite
-for those heads, so negative pattern × negative value gives a positive coefficient). Projecting the three slices out removes
-1.73 logits of the 5.4 on average (zeroing them: 2.03); replacing them with the constant-pattern table instead of the native
-slices leaves 5.4 − 0.11 ≈ 5.3. For the ` you` row the same three vectors point the other way along $\hat v_h$ and the margin
+head 15.1's about −0.70 with $\lambda=0.56$; both contributions are positive too — which, with negative patterns, means $\hat v_h\cdot v^{(1)}_h(I)$ is negative for those
+heads (inferred from v112's positive per-head contrasts and v113's negative constants; the product is what the fold measures). Zeroing the three slices costs 1.73 logits of the 5.4 on average (zeroing all four: 2.03); replacing the three with the
+constant-pattern table instead of their native slices leaves 5.4 − 0.11 ≈ 5.3. For the ` you` row the same three vectors point the other way along $\hat v_h$ and the margin
 toward ` yourself` is carried the same way.
 
 ## 7. Reproducing it

@@ -45,3 +45,10 @@ consequence is allowed only if it states why nothing should change.
 - Never backfill hours I was not working. Never fabricate timings.
 - Prefer citing a result JSON path over restating its numbers.
 - Preserve nulls, failures and retractions; do not soften them in the summary.
+
+## Run by default (Logan, 2026-09-18 ~13:50 UTC)
+
+Depth is preferred, and the lane runs by default: a review's decision is "continue" with a queued bounded item unless a person
+says stop. "Stop the current thread" means redirect to the next depth item, not idle. The runner (`ops/bqrunner`, lane 1) is
+always on; when the queue is empty at a review, the review must leave at least one item queued. Depth over breadth: prefer
+taking one component further toward the input (through its declared port) over opening another behaviour.
