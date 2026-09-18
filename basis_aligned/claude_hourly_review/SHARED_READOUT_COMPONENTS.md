@@ -23,3 +23,24 @@ Update 00:03 UTC (v48): on the temporal line, removing 8.1's NP write removes ab
 part of the state 11.3 reads (the MLPs reinforce 8.1's write on that direction); the rest of the MLP part is not
 attributable to any few writers at this grain. Per the review-4 kill criterion (≥ 40% required) the MLP relay ports
 stay declared on both lines; no further folding of them at head/MLP grain.
+
+## Readout families across nine decisions (reuse census, 00:15–00:20 UTC; opened authored rows, weight-only sweeps)
+
+| decision | contrast | top-4 heads (logits) | set fraction | was−were gate |
+|---|---|---|---|---|
+| aspectual has/had | has−had | 9.1, 8.1, 9.4, then 15.5, 11.3 | 50–66% (fresh) | passes |
+| temporal will/had | will−had | 11.3, 9.1, 15.5, 9.4 | 74–83% (fresh) | passes |
+| narrative was/is | was−is | 15.5, 11.3, 9.4, 9.1 | 72–75% (fresh) | passes |
+| modal would/will | would−will | 9.4, 11.3, 9.1, 15.5 | 59% | passes |
+| perfect have/has | have−has | 11.3 1.54, 7.8, 5.3, 9.7 | 67% | fails (related reader) |
+| lexical number were/was | were−was | 11.3 1.67, 5.7 0.60, 7.8 0.32, 9.7 0.24 | 75% | fails (related reader) |
+| quantifier number was/were | was−were | 11.3 0.72, 7.8 0.57, 5.7 0.12, 13.1 0.09 | 50% | fails (related reader) |
+| coordination were/was | were−was | 5.7 0.47, 11.3 0.42, 7.8 0.33, 9.7 0.09 | 49% | fails (related reader) |
+| preposition on/of (non-auxiliary) | on−of | 6.3 0.49, 13.8 0.36, 7.8 0.34, 8.8 0.27 | 28% | passes |
+
+Two readout families at the auxiliary slot: a **temporal family** {9.1, 9.4, 15.5} + 11.3 (tense, mood, aspect;
+8.1 as the token-only cue reader where a single cue token exists) and a **number family** {5.7, 7.8, 9.7} + 11.3
+(agreement decisions). Head 11.3 belongs to both: the general auxiliary-slot readout. The non-auxiliary contrast
+(on/of) uses neither family ({6.3, 13.8, 7.8, 8.8}; 7.8 recurs as a generic helper). For number lines the
+was−were reader is related, so the gate that fails there is not a selectivity failure; a number-appropriate
+unrelated reader (e.g. has−had) is needed for a proper battery on that family.
