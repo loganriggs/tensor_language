@@ -58,6 +58,11 @@ largest category for every gender head" (false for 9.6, 12.4) and "token-only sh
 because of 10.1 and 15.1). This is the mechanism behind the counter-cases: the gender set has token readers of the noun and
 follows it; the number set reads what earlier blocks resolved.
 
+At position grain (v81): head 9.6 reads the noun and the verb almost equally on both lines (0.50 / 0.48 gender, 0.48 / 0.50
+number); the verb is the largest non-noun source for 9.6 and 12.4 (registered, held); the later heads 12.4 and 15.1 spread
+over the determiner before the object, the conjunction and the final token, so "noun + verb ≥ 0.60" failed for them on the
+number line (kept). The feature at the verb position is a relay state written by earlier blocks; that writer census is next.
+
 **What is different from the auxiliary families.** Removal along one weight-only direction per head takes the *entire*
 margin (the auxiliary sets take 45–60%), keep-only raises the margin above native, and additivity sits exactly at the
 bar with 12.4 the largest single. The response census (v74, exact λ-recurrence split, closure 7e-5) confirms it: the four heads' own writes carry 94% of
