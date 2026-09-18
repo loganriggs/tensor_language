@@ -16,16 +16,19 @@ Readers avoid number: will−would, who−which, night−day.
 | 3 | Selective (will−would, who−which, night−day) | edit | fresh (v97) | moves 0.07 / 0.13 / 0.07 vs null 0.05 / 0.06 / 0.03 (gate bar 0.58) | passes |
 | 4 | **Additive** | edit | fresh (v97) | singles 11.3 1.38 / 7.8 0.26 / 9.7 0.14 / 5.3 0.09 = 1.86 vs joint 2.11; gap 0.26 vs bar 0.021 (0.25 × the smallest single) | **failed**: over-additive by 12% of the joint; 11.3 carries two thirds alone; the bar is strict because 5.3 is tiny |
 | 5 | Keep-only readout at the four heads keeps their service | edit | fresh (v97) | zero 2.41; retention 1.03; random keep ≤ 0.02 | passes |
+| 6 | Matched-count random four-head-set null | edit | v97 rows (v98) | set 2.11 (fraction 0.66) vs random max 0.08 (fraction 0.03); none live | passes 4/4 |
+| 7 | Response census (exact split from block 5, closure 2e-5): the set's own writes carry 60% (attn:11 −1.01, attn:07 −0.14, attn:09 −0.09, attn:05 −0.05 of −2.14); the MLP suffix amplifies −0.85 (mlp:12 −0.17, mlp:16 −0.14, mlp:17 −0.10, mlp:15 −0.08, mlp:13 −0.07, mlp:09 −0.07, mlp:11 −0.06); remainder 1% | response | fresh (v99) | registered "direct ≥ 0.80" and "downstream ≤ 0.25 × direct" false, as the docstring anticipated | 3/5 — a relay through MLPs 9–17, the temporal-family shape |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
-| Simple | head grain | random four-head-set null (v98) |
+| Simple | held at head grain (row 6) | — |
 | Predicts OOD | held on a fresh panel with a frozen number that landed exactly (row 2) | natural rows (v100/v101) |
-| Extracted | held at the head boundary (row 5) | response census (v99) |
+| Extracted | held at the head boundary (row 5); downstream MLP relay (row 7) | MLP response part declared unless a fold closes it |
 | Selective | held (row 3) | — |
 | Composes | **failed** the strict additivity bar (row 4) | pairwise Möbius terms / a 3-head set without 5.3 |
 
 ## Receipts
 - v50b: `bilinear_quotient/circuits/followups/perfect_number_dod_reuse_census_v50b_result.json`
+- v98: `.../perfect_number_dod_random_set_null_v98_result.json`; v99: `.../perfect_number_dod_response_census_v99_result.json`
 - v97: `.../perfect_number_dod_battery_v97_result.json`; code `ops/run_perfect_number_dod_battery_v97.py` (via `ops/dod_battery.py`)
