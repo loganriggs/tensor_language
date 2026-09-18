@@ -25348,3 +25348,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp7_response_radial_split_v236_r
 
 ### 2026-09-18T17:59Z — Claude: pronoun number v237 — 1/5 true-gradient unit census of MLP 7 into 829 reproduces v229 (1779 +431 vs +424; same top-10; |cos| with x̂_8 0.18): the fixed-rms carrier identity is VINDICATED. The shrink-yet-restore puzzle of 1779 is not a sign artefact; v238 splits its response by row class. (First run lost its receipt to a tensor in JSON; re-run, 3 forwards)
 Receipt `circuits/followups/pronoun_number_dod_mlp7_units_true_gradient_v237_result.json` (3 forwards + 3 lost).
+
+### 2026-09-18T18:01Z — Claude: pronoun number v238 — 3/5 1779's response by row class: plural half +0.037, singular half +0.029; G −1.61 (plural) vs +0.58 (singular); dh −2.2 / −4.6. RESOLVED: common-mode drop of 1779 × class-dependent bilinear gradient of 829 = the compensation. 'singular ≥ 0.50' (0.44) and 'plural loses' FALSIFIED. Document updated
+Receipt `circuits/followups/pronoun_number_dod_unit1779_response_by_class_v238_result.json` (6 forwards).

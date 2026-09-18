@@ -1,0 +1,48 @@
+{
+  "candidate_id": "pronoun_number.they_vs_he.dod_unit1779_response_by_class_v238",
+  "finished_utc": "2026-09-18T18:00:06.389637+00:00",
+  "forwards": 6,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "diff_min": 0.5,
+      "half": 0.5
+    },
+    "candidate_id": "pronoun_number.they_vs_he.dod_unit1779_response_by_class_v238",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 8,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117",
+    "units": [
+      2483,
+      2826,
+      4131
+    ]
+  },
+  "predictions": {
+    "pred_a_baseline_replays_v206": true,
+    "pred_b_row_split_closure": true,
+    "pred_c_gradients_differ_by_class": true,
+    "pred_d_singular_rows_carry_the_restoring_response": false,
+    "pred_e_plural_rows_lose": false
+  },
+  "report": {
+    "G_plural_mean": -1.6060847425251268,
+    "G_singular_mean": 0.5764924763934687,
+    "dh_plural_mean": -2.2190159608920417,
+    "dh_singular_mean": -4.5906897609432535,
+    "margin_native_pooled": 196.62155771255493,
+    "plural_half": 0.036813011562381245,
+    "singular_half": 0.028625326749413343,
+    "split_closure": 0.0,
+    "u1779_response_total": 0.06543833831179459,
+    "u829_contrast": 4823.689593277872
+  },
+  "schema": "pronoun_number_dod_unit1779_response_by_class_result_v238",
+  "serial_seconds": 1.725944974925369
+}
