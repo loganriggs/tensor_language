@@ -25411,3 +25411,6 @@ Receipt `circuits/followups/noun_number_demonstrative_dod_mlp8_unit_census_v254_
 
 ### 2026-09-18T18:43Z — Claude: noun-number demonstrative v255 — 3/4 unit 3892: plural-determiner detector (−135 these vs +7 this, 48/48; cos −0.32 with 11.2's reader; cue 2.2× final); zeroing it at the cue −0.66% of the margin (all positions −1.3%), 16 random units 0.00%; '≥ 0.05' FALSIFIED. Real, on the path, small
 Receipt `circuits/followups/noun_number_demonstrative_dod_mlp8_unit3892_v255_result.json` (60 forwards).
+
+### 2026-09-18T18:44Z — Claude: noun-number demonstrative v256 — 3/5 carrier split of unit 3892: embedding 38% (top carrier), MLPs 46% (MLP 7 22%), attention 17%; 'embedding ≥ 0.40' and 'MLPs ≤ 0.40' FALSIFIED. Half token, half computed — between gender and number. Four-family MLP-8 table in SHARED; aspectual U3 row restored after a shell-backtick truncation
+Receipt `circuits/followups/noun_number_demonstrative_dod_unit3892_carrier_split_v256_result.json` (3 forwards).
