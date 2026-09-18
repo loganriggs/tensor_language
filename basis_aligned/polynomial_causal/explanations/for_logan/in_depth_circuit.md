@@ -276,6 +276,8 @@ The plural detector 829 on the number line is not a token product at all: 45% of
 (−1%), and the exact leave-one-unit-out change of the product names the MLP-6 units — 2483, 2826 and 4131 carry 57% of MLP 6's part, with
 852, 69 and 1868 damping. So the diagram above should not be read as *the* shape of an MLP-8 detector; it is the shape of one of them.
 
+**The verb site (v216–v218, evening).** The gender state is re-detected at the verb by the same two units (3152 carries 78% and 3943 10.5% of MLP 8's write on 9.6's direction there), head 9.6 reads the verb (48%) as much as the noun (50%), and the feature reaches the verb through head 4.5 (77% of block 4's contrast, all from the noun position) — the same copy head the number line uses, which is why zeroing it moves animacy and tense readers as well. The full account of that head, including the single 128-d axis that carries number selectively, is §4.8 of `in_depth_circuit_number.md`.
+
 ---
 
 ### Pass over the draft (what I changed after rereading)
