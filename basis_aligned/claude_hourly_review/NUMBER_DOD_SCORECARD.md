@@ -25,6 +25,7 @@ scorecards. Readers for this family: has−had (tense), who−which, night−day
 | 13 | Keeping only the readout projection at the one-directional pair {11.3, 7.8} (5.7 and 9.7 native) retains 0.99 of zeroing those two slices (2.19 logits) | edit | v61 | | passes |
 | 14 | Frozen 0.70 ± 0.15 on three new templates: relative clause 0.71 and 'Yesterday the S by the P' 0.66 pass (orthogonalized removal selective, pair keep 0.98 / 0.93); 'Near the P the S' (subject adjacent to the auxiliary) only 0.14, not selective, pair keep 0.46 | edit, frozen | fresh templates, declared subject reuse (v62) | all six capability cells 1.00 | 2/5 as registered: the set transfers to two frames and NOT to the subject-adjacent frame — a construction limit of this component |
 | 15 | Blind sweep on the subject-adjacent frame: flat — 5.7 0.28, 11.3 0.21, 6.1 0.14, 9.7 0.11, 7.8 0.10; the top-4 set removes only 13% (null max 0.22) | edit | opened (v63, 32 rows) | | 4/5: no head-grain readout set carries number when the subject noun is the final token; that decision is token-local (not this component) |
+| 16 | Module-grain census on the adjacent frame (whole outputs zeroed at the final query, no null): leading MLP mlp16 0.40; attention5 0.59, attention1 0.34; other attention blocks ≤ 0.13 | edit (unnulled, opened) | v64 | | 2/4: an MLP carries ≥ 0.30 but not in blocks 0–4, and attention5/1 exceed 0.15 — whole-block zeroing is norm-heavy (v1 lesson), so this is a nomination only |
 
 ## Five-property status
 | property | status | next |
@@ -36,6 +37,7 @@ scorecards. Readers for this family: has−had (tense), who−which, night−day
 | Composes | additive (row 3) | pairwise + random-split null |
 
 ## Receipts
+- v64 adjacent-frame module census: `.../number_family_dod_adjacent_modules_v64_result.json`
 - v63 adjacent-frame sweep: `.../number_family_dod_adjacent_sweep_v63_result.json`
 - v62 frozen templates: `.../number_family_dod_frozen_templates_v62_result.json`
 - v61 5.7 fold + pair keep: `.../number_family_dod_head57_fold_v61_result.json`
