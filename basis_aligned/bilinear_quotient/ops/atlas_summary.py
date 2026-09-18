@@ -26,6 +26,8 @@ def load():
     rows = []
     for f in sorted(glob.glob(str(ROOT / "circuits/followups/atlas_*_v68_result.json"))):
         r = json.load(open(f))
+        if r.get("status") == "no_rows":
+            continue
         cap = all(v is not None and v >= 0.85 for v in r["capability"].values())
         live = r["joint"]["target_damage_fraction"] >= 0.10 and r["joint"]["target_damage_positive_fraction"] >= 0.75 and r["joint"]["target_damage_mean"] > r["null_damage_max"]
         rows.append({"family": r["candidate_id"].split(".")[0], "task": r["candidate_id"].rsplit(".atlas", 1)[0], "capable": cap, "live": live, "fraction": r["joint"]["target_damage_fraction"],
