@@ -25435,3 +25435,6 @@ Receipt `circuits/followups/correlative_both_neither_dod_unit1512_final_carrier_
 
 ### 2026-09-18T19:09Z — Claude: correlative both/neither v264 — receipt WITHHELD by the price guard (80 forwards vs 64 registered: the Pile natural file has 64 rows, not 48). Re-registered as v264b (bar 84) and re-run; v264's printed numbers are not cited
 Lesson (also in memory): count the rows of every natural file before registering a price; the two sources need not match.
+
+### 2026-09-18T19:10Z — Claude: correlative both/neither v264b — 4/5 unit 1512 on the 98 natural rows: congruent 1.9% (all positions 2.5%), 156× the random-unit null, counter-case holds (neither-and toward label 88%), but NOT selective (unrelated readers 40× null). A shared negative-context unit the correlative readout uses; v265 tests 'not'
+Receipt `circuits/followups/correlative_both_neither_dod_unit1512_natural_v264b_result.json` (80 forwards; 80 more spent on the withheld v264).
