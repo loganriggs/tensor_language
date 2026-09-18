@@ -16,16 +16,19 @@ will−would, who−which, night−day.
 | 3 | Selective (will−would, who−which, night−day) | edit | fresh (v104) | moves 0.10 / 0.04 / 0.05 vs null 0.05 / 0.06 / 0.04 (gate bar 0.62) | passes |
 | 4 | Additive | edit | fresh (v104) | singles 13.1 0.73 / 8.1 0.63 / 10.5 0.48 / 15.1 0.37; gap 0.055 ≤ bar 0.092 | passes |
 | 5 | Keep-only readout at the four heads keeps their service | edit | fresh (v104) | zero 2.03; retention 1.21; random keep ≤ 0.02 | passes |
+| 6 | Matched-count random four-head-set null | edit | fresh rows (v106) | set 2.27 (fraction 0.42) vs random max 0.10 (fraction 0.02); none live | passes 4/4 |
+| 7 | Response census (exact λ-recurrence split from block 8): the set's own writes carry 85% (attn:13 −0.61, attn:15 −0.44, attn:08 −0.43, attn:10 −0.43 of −2.24); downstream net −0.33 (MLP 10 −0.23, MLP 11 −0.11; MLP 17 +0.30 counteracts); remainder 1% | response | fresh (v107) | | passes 5/5 — a direct readout |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
-| Simple | head grain | random four-head-set null |
+| Simple | held at head grain (row 6) | — |
 | Predicts OOD | held on a fresh panel with a frozen number (row 2) | natural rows |
-| Extracted | held at the head boundary (row 5) | response census |
+| Extracted | held at the head boundary (row 5); direct readout (row 7) | source fold |
 | Selective | held (row 3) | — |
 | Composes | additive (row 4) | — |
 
 ## Receipts
+- v106: `.../person_reflexive_dod_random_set_null_v106_result.json`; v107: `.../person_reflexive_dod_response_census_v107_result.json`
 - atlas v68: `bilinear_quotient/circuits/followups/atlas_reflexive_person_v68_result.json`
 - v104: `.../person_reflexive_dod_battery_v104_result.json`; code `ops/run_person_reflexive_dod_battery_v104.py` (via `ops/dod_battery.py`)

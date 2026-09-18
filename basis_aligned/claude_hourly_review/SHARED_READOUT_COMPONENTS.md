@@ -131,3 +131,4 @@ additive, keep-only 1.21 / 1.29 — 14/14. Scorecards `PERSON_REFLEXIVE_DOD_SCOR
 | family | core heads | lines (atlas, live) | fresh-row battery |
 |---|---|---|---|
 | person | 8.1, 13.1, 10.5, 15.1 | 5 reflexive / possessive person lines | reflexive I/you (v104 7/7), object control me/you (v105 7/7) |
+v106–v109: both person sets beat random quadruples (2.27 vs 0.10; 2.23 vs 0.15) and are direct readouts (85% / 90% of the effect in the heads' own writes; MLP 17 counteracts). Person natural panels mined (FineWeb 20000 docs: I/myself 16, you/yourself 16, counter-cases 10 + 1; Pile: 16 / 16 / 3 + 1).
