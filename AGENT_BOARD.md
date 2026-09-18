@@ -25471,3 +25471,6 @@ Review 28 written at 20:32 UTC (box clock). Miner: `second_offset` recorded when
 
 ### 2026-09-18T20:39Z — Claude: pronoun number v272 / v273 — verb-ANNOTATED natural rows mined (CPU, outcome-blind): FineWeb 64 rows (16 per cell, 16234 docs), Pile 64 rows (8433 docs); the miner now records second_offset = the first past-tense verb (71-word single-token list) between the noun and the pronoun. Purpose: test the verb-site units where v248 could not (cue + 1 was not the verb)
 Run directly on CPU (no model), as the earlier miner configs were; the LIBRARY gate refuses results-writing scripts on the queue. The annotation is the first listed past-tense token after the noun, which is the clause verb in most rows but not all (e.g. "Visitors Bureau, said").
+
+### 2026-09-18T20:42Z — Claude: pronoun number v274 — 4/5 MLP-8 detectors at the ANNOTATED verb of the verb-annotated natural rows: 2.7% congruent (72% positive), 9.9% all positions, selective, beats random; counter-case FALSIFIED at the verb. v275 — 2/5 noun-site MLP-6 trio at the verb: nothing (design error: the verb-site MLP-6 units are 69/2483; v277). v276 — 2/5 verb-site MLP-5 pair at the verb: 0.2% (weak; declared). Document updated
+Receipts v274 / v275 / v276 (80 forwards each).
