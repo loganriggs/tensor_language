@@ -22,18 +22,20 @@ Readers avoid number: will−would, who−which, night−day.
 | 8f | **Failed:** incongruent rows (a far noun of the other number; capability 0.94 / 1.00 — the model follows the real subject) were predicted to shift toward the text's auxiliary; removal hurts them just as much (+0.77 FineWeb, +1.29 Pile, positive 31/32 and 30/32) | edit | natural (v100, v101) | the set carries the number the model resolved for the actual subject, not the cue noun's — the third and fourth falsification of this reading on number lines (v77, v78) | falsified as registered |
 | 9 | Pile rows (out-of-corpus): congruent 1.30 of 5.11 (25%), positive 30/32, null max 0.02, selective | edit | natural OOD (v101) | | passes 5/6 |
 | 10 | Pairwise Möbius terms (all six pairs, same removal): the six pair terms sum to 0.27 against the joint−singles gap 0.26 (higher-order terms negligible); pairs with 11.3 carry 82% of the interaction; the largest is 11.3 × 7.8 (+0.12), then 11.3 × 9.7 (+0.06), 11.3 × 5.3 (+0.05); all positive (synergy) | edit | fresh (v102) | registered "pairs without 5.3 pass the pair bar" false: 11.3 × 7.8 (0.12 vs 0.06) and 11.3 × 9.7 (0.06 vs 0.03) exceed it | 4/5 — the over-additivity is a serial relay: 11.3 reads what 7.8 / 9.7 / 5.3 write (the temporal family's 9.1 → 11.3 shape) |
+| 11 | Source fold (exact, closure 4e-6): 11.3 reads the head noun (0.60) and the preposition (0.39); 5.3 reads the preposition (0.86); 7.8 / 9.7 read noun 0.38 / 0.34 and preposition 0.49 / 0.44; token-only branch ≈ 0 for all four. Writer fold at the noun for 11.3's reader direction (closure 2e-7): MLP-written 85% (MLP 8 0.23, MLP 10 0.23, MLP 9 0.19, MLP 6 0.08), embedding 11%, heads 4% — 7.8 + 9.7 + 5.3 write 2% | fold | fresh (v103) | registered "relay heads 7.8/9.7/5.3 write ≥ 0.20 of 11.3's source" false | 4/5 — the v102 synergy is not "7.8 writes what 11.3 reads at the noun"; the number state 11.3 reads is MLP-resolved (MLPs 8–10), and the pair synergy sits downstream in the MLP suffix (v99). MLPs 8–10 at the noun / preposition are the declared port |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
 | Simple | held at head grain (row 6) | — |
 | Predicts OOD | held on fresh, natural FineWeb and Pile rows (rows 2, 8, 9); the counter-case reading failed again: number sets read a resolved subject number (row 8f) | — |
-| Extracted | held at the head boundary (row 5); downstream MLP relay (row 7) | MLP response part declared unless a fold closes it |
+| Extracted | held at the head boundary (row 5); upstream, 11.3 reads an MLP-resolved number state at the noun and preposition (row 11); downstream, the MLP suffix amplifies (row 7) | MLPs 8–10 (upstream) and 9–17 (downstream) declared ports — closed at head grain |
 | Selective | held (row 3) | — |
-| Composes | failed the strict bar (row 4); the interaction is pairwise and concentrated on 11.3's pairs (row 10): a serial relay, not an unexplained residue | source / writer fold of 11.3 (v103) |
+| Composes | failed the strict bar (row 4); the interaction is pairwise, on 11.3's pairs (row 10), and not carried by the heads' writes at the noun (row 11): a downstream MLP synergy | — |
 
 ## Receipts
 - v50b: `bilinear_quotient/circuits/followups/perfect_number_dod_reuse_census_v50b_result.json`
+- v103: `.../perfect_number_dod_relay_fold_v103_result.json`; code `ops/run_perfect_number_dod_relay_fold_v103.py`
 - v102: `.../perfect_number_dod_pairwise_v102_result.json`; code `ops/run_perfect_number_dod_pairwise_v102.py`
 - v100 / v101: `.../perfect_number_dod_natural_v100_result.json`, `.../perfect_number_dod_pile_v101_result.json`; rows `perfect_number_dod_{natural,pile}_rows_v10{0,1}.json`
 - v98: `.../perfect_number_dod_random_set_null_v98_result.json`; v99: `.../perfect_number_dod_response_census_v99_result.json`
