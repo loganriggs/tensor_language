@@ -1,0 +1,278 @@
+{
+  "candidate_id": "pronoun.gender_and_number.dod_mlp8_pair_fold_v83",
+  "finished_utc": "2026-09-18T02:22:33.661927+00:00",
+  "forwards": 5,
+  "lines": {
+    "gender": {
+      "closure_max": 2.5418363149843563e-05,
+      "positions": {
+        "noun": {
+          "contrast": 131191.6875,
+          "embed_self_share": 0.08405892355984826,
+          "linear_in_embed_share": 0.5245330084343656,
+          "pairs_with_8_1_share": 0.10606271633783247,
+          "pairs_with_mlp6_or_mlp7_share": 0.39533504893221316,
+          "top10": [
+            [
+              "embed x mlp:07",
+              0.14796210649779165
+            ],
+            [
+              "embed x mlp:05",
+              0.1066008135995659
+            ],
+            [
+              "mlp:06 x attnhead:08:1",
+              -0.09487354977235124
+            ],
+            [
+              "mlp:07 x attnhead:08:1",
+              0.08647733433473062
+            ],
+            [
+              "mlp:06 x mlp:06",
+              -0.08553309041588478
+            ],
+            [
+              "embed x embed",
+              0.08405892355984826
+            ],
+            [
+              "attn:06 x mlp:07",
+              0.07740365272999862
+            ],
+            [
+              "mlp:06 x mlp:07",
+              0.07548900743759013
+            ],
+            [
+              "attn:06 x mlp:06",
+              -0.07209997197564441
+            ],
+            [
+              "mlp:05 x mlp:06",
+              0.07135339772384588
+            ]
+          ],
+          "top_pair": "embed x mlp:07"
+        },
+        "verb": {
+          "contrast": 250104.140625,
+          "embed_self_share": 6.776098840115976e-05,
+          "linear_in_embed_share": 0.0762149948141692,
+          "pairs_with_8_1_share": 0.32916445927951116,
+          "pairs_with_mlp6_or_mlp7_share": 0.43013028664158914,
+          "top10": [
+            [
+              "mlp:06 x mlp:06",
+              -0.11944405658517873
+            ],
+            [
+              "mlp:06 x attn:07",
+              0.11710740494662691
+            ],
+            [
+              "mlp:05 x mlp:06",
+              0.0873173690459568
+            ],
+            [
+              "mlp:05 x attnhead:08:1",
+              0.08217221544900202
+            ],
+            [
+              "mlp:07 x attnhead:08:1",
+              0.07791051415144878
+            ],
+            [
+              "mlp:06 x attnhead:08:1",
+              -0.07182929735831918
+            ],
+            [
+              "attn:07 x attnhead:08:1",
+              0.06564624017557687
+            ],
+            [
+              "mlp:05 x attn:06",
+              0.055647748922089645
+            ],
+            [
+              "mlp:06 x mlp:07",
+              0.052362593956954806
+            ],
+            [
+              "attn:06 x mlp:06",
+              -0.051919231770015804
+            ]
+          ],
+          "top_pair": "mlp:06 x mlp:06"
+        }
+      }
+    },
+    "number": {
+      "closure_max": 0.00041767059144428784,
+      "positions": {
+        "noun": {
+          "contrast": 734439.4375,
+          "embed_self_share": 0.019481440873145513,
+          "linear_in_embed_share": 0.26244254665095335,
+          "pairs_with_8_1_share": -0.0007448861080042941,
+          "pairs_with_mlp6_or_mlp7_share": 0.5746742978020961,
+          "top10": [
+            [
+              "mlp:05 x mlp:06",
+              0.06762634806256575
+            ],
+            [
+              "embed x mlp:06",
+              0.06219151642949457
+            ],
+            [
+              "mlp:06 x mlp:07",
+              0.059960972786132556
+            ],
+            [
+              "mlp:06 x mlp:06",
+              0.04915871849882789
+            ],
+            [
+              "embed x mlp:05",
+              0.04630143197647934
+            ],
+            [
+              "mlp:05 x mlp:07",
+              0.04243752101411357
+            ],
+            [
+              "mlp:06 x attn:07",
+              0.03439610426523426
+            ],
+            [
+              "embed x mlp:07",
+              0.032387511891509776
+            ],
+            [
+              "embed x attn:07",
+              0.02725910815825437
+            ],
+            [
+              "attn:07 x mlp:07",
+              0.02716019662444938
+            ]
+          ],
+          "top_pair": "mlp:05 x mlp:06"
+        },
+        "verb": {
+          "contrast": 654555.125,
+          "embed_self_share": 9.182990459386561e-05,
+          "linear_in_embed_share": 0.09476336806675864,
+          "pairs_with_8_1_share": 0.020451117927373287,
+          "pairs_with_mlp6_or_mlp7_share": 0.4140762511999289,
+          "top10": [
+            [
+              "mlp:05 x mlp:07",
+              0.05448063388855141
+            ],
+            [
+              "mlp:04 x mlp:05",
+              0.04788310657944967
+            ],
+            [
+              "mlp:04 x mlp:07",
+              0.04373620007367599
+            ],
+            [
+              "mlp:05 x attn:07",
+              0.031999727964088585
+            ],
+            [
+              "attn:07 x mlp:07",
+              0.03180646693049726
+            ],
+            [
+              "attn:05 x mlp:05",
+              0.03166517344509372
+            ],
+            [
+              "mlp:04 x attn:05",
+              0.02805358102478382
+            ],
+            [
+              "mlp:05 x mlp:05",
+              0.027219328213571013
+            ],
+            [
+              "mlp:04 x attn:07",
+              0.026838010062559665
+            ],
+            [
+              "attn:04 x mlp:05",
+              0.026829171759979727
+            ]
+          ],
+          "top_pair": "mlp:05 x mlp:07"
+        }
+      }
+    }
+  },
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "half": 0.5,
+      "self_min": 0.2
+    },
+    "candidate_id": "pronoun.gender_and_number.dod_mlp8_pair_fold_v83",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 8,
+    "gpu_accessed": false,
+    "head": "9.6",
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": {
+      "gender": 60,
+      "number": 96
+    },
+    "rows_sha256": {
+      "gender": "a2c57cae32fb75bc7a0194c61a6f001c069cc9ab2fc941462144733d45a8508d",
+      "number": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117"
+    },
+    "writers": [
+      "embed",
+      "attn:00",
+      "mlp:00",
+      "attn:01",
+      "mlp:01",
+      "attn:02",
+      "mlp:02",
+      "attn:03",
+      "mlp:03",
+      "attn:04",
+      "mlp:04",
+      "attn:05",
+      "mlp:05",
+      "attn:06",
+      "mlp:06",
+      "attn:07",
+      "mlp:07",
+      "attnhead:08:0",
+      "attnhead:08:1",
+      "attnhead:08:2",
+      "attnhead:08:3",
+      "attnhead:08:4",
+      "attnhead:08:5",
+      "attnhead:08:6",
+      "attnhead:08:7",
+      "attnhead:08:8"
+    ]
+  },
+  "predictions": {
+    "pred_a_bilinear_closure": true,
+    "pred_b_gender_verb_top_pair_involves_head_8_1": false,
+    "pred_c_gender_verb_pairs_with_8_1_carry_half": false,
+    "pred_d_number_verb_pairs_with_mlp6_or_mlp7_carry_half": false,
+    "pred_e_noun_embedding_self_term_at_least_020": false
+  },
+  "schema": "pronoun_dod_mlp8_pair_fold_result_v83",
+  "serial_seconds": 2.0596558989491314
+}

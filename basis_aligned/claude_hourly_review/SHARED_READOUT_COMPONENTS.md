@@ -86,3 +86,4 @@ the bar), keep-only retention 1.37; the frozen band 0.89 ± 0.15 failed upward o
 v80 source fold (both pronoun lines, fresh rows): head 10.1 is a token-only gendered-noun reader (98% noun, 72% block-0 value) — the pronoun family's analogue of the temporal family's 8.1; 15.1 half token-only; 9.6 / 12.4 contextual. The number set is contextual throughout (token-only ≤ 11%). Registered predictions c and e failed (kept).
 
 v82 writer fold (9.6's sources, both pronoun lines): the noun and verb states are MLP-written, MLP 8 first (0.27–0.54), MLP 6 second; head 8.1 writes 20% of the gender feature at the verb. MLP 8 is the shared open port across the pronoun lines and the auxiliary families' relay parts.
+v83 pair fold of MLP 8 (both pronoun lines): diffuse (largest pair 15% / 7%); MLP 8 declared port. Both pronoun lines closed at head grain (02:23 UTC).

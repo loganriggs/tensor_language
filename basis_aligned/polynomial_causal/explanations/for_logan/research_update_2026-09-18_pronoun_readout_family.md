@@ -65,8 +65,10 @@ number line (kept). The writer fold (v82, exact, closure 2e-7) says what put it 
 MLP-written (gender 73%: MLP 8 0.51, MLP 6 0.15; number 94%: MLP 8 0.54, MLP 6 0.11, MLP 4 0.10), and on the gender line head
 8.1 adds 20% (the same head that is the temporal family's token-only cue reader); at the noun MLP 8 again leads (0.27 / 0.50).
 Three of four registered readings failed and are kept: the verb state is not attention-copied, the largest head writer is not
-shared across lines, and the noun state is not embedding-dominated. MLP 8 is the declared open port of both pronoun lines,
-the same block that carries the relay parts of the auxiliary families.
+shared across lines, and the noun state is not embedding-dominated. Expanding MLP 8's write into its exact writer-pair terms (v83) did not close it: no pair carries more than 15% on the gender
+line or 7% on the number line; the mass is spread over products of MLPs 4–7 with each other, the embedding and head 8.1
+(one of five registered readings held, the closure). MLP 8 is therefore the declared open port of both pronoun lines, the
+same block that carries the relay parts of the auxiliary families, and both lines stop at head grain here.
 
 **What is different from the auxiliary families.** Removal along one weight-only direction per head takes the *entire*
 margin (the auxiliary sets take 45–60%), keep-only raises the margin above native, and additivity sits exactly at the

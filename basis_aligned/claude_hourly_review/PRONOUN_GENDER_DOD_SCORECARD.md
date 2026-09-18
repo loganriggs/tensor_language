@@ -23,18 +23,20 @@ opens the PRONOUN readout family alongside the temporal and number families at t
 | 10 | Source fold of the four readout coefficients on the v71 fresh rows (exact, closure 3e-6): 10.1 reads the noun token itself (98% noun, 72% through the token-only block-0 value branch); 15.1 58% noun / 50% inherited; 9.6 and 12.4 read the noun at ~40–50% through the contextual branch (inherited 6% / 13%) and the rest from the other positions (51% / 48%) | fold | fresh (v80) | pooled noun share 0.61, inherited 0.38 | 3/5: registered "noun largest for every head" false (9.6, 12.4 pool more from the other positions), "inherited ≤ 0.30" false (10.1, 15.1 are token-only readers) |
 | 11 | Position-grain fold (v81): 9.6 reads the noun (0.50) and the verb (0.48) almost equally, 12.4 noun 0.40 / verb 0.23 / det-before-object 0.15 / conj 0.10; the verb is the largest non-noun source for both; 10.1's noun term is 73% token-only (replay of row 10) | fold | fresh (v81) | 12.4's noun term is only 67% current-branch (registered ≥ 0.85 for both contextual heads: false) | 3/5 — the gender at the verb position is a relay state written by earlier blocks (v82) |
 | 12 | Writer fold of what 9.6 reads (exact λ-recurrence into embedding, 81 heads, biases, MLPs 0–8; closure 2e-7): at the verb the state is MLP-written (73%: MLP 8 0.51, MLP 6 0.15) with heads 27% (8.1 0.20, 6.1 0.09, 7.1 −0.08); at the noun MLP 46% (MLP 8 0.27), embedding 33%, heads 21% (8.1 0.14, 6.1 0.09) | fold | fresh (v82) | registered "verb mostly attention-written" false; "top-3 heads ≥ 0.70 of the head part" held (0.78); "largest verb head shared across lines" false (number's head part is 6%); "noun mostly embedding + early MLP" false (0.35) | 2/5 — MLP 8 at the noun and the verb is the declared port |
+| 13 | Pair-term fold of MLP 8's write at the noun and verb along 9.6's reader direction (exact bilinear expansion over 26 writers, closure 3e-5): diffuse — no pair above 15%; verb: pairs with 8.1 0.33, with MLP 6/7 0.43, top pairs mlp6×mlp6 −0.12, mlp6×attn7 +0.12; noun: embed×mlp7 0.15, embed×mlp5 0.11 | fold | fresh (v83) | registered "top verb pair involves 8.1" false, "8.1 pairs ≥ 0.50" false, "embed² ≥ 0.20 at the noun" false | 1/5 — MLP 8's part does not close by folding; **declared port** (as on the auxiliary lines) |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
 | Simple | held at head grain (row 6) | — |
 | Predicts OOD | held on natural FineWeb and out-of-corpus Pile rows with frozen bars (rows 7, 9); fresh synthetic panel live everywhere but the frozen band failed upward on one frame (row 2) | — |
-| Extracted | held at the head boundary (row 5); direct readout (row 8); sources folded to token readers (10.1, 15.1) and, for 9.6, to MLP 8 / MLP 6 / head 8.1 at the noun and verb (rows 10–12) | pair-term fold of MLP 8 along 9.6's reader direction (the open port) |
+| Extracted | held at the head boundary (row 5); direct readout (row 8); sources folded to token readers (10.1, 15.1) and, for 9.6, to MLP 8 / MLP 6 / head 8.1 at the noun and verb (rows 10–12) | MLP 8 declared as the open port (row 13); the component is closed at head grain with token readers 10.1/15.1 and contextual readers 9.6/12.4 whose MLP-borne inputs are the port |
 | Selective | held (rows 1, 3) | — |
 | Composes | additive, gap at the bar (row 4) | pairwise + random-split null |
 
 ## Receipts
 - atlas v68: `bilinear_quotient/circuits/followups/atlas_pronoun_gender_v68_result.json` (724 forwards, rows sha e0c60bf6a3c4…)
+- v83 (both lines, MLP 8 pair fold): `.../pronoun_dod_mlp8_pair_fold_v83_result.json`; code `ops/run_pronoun_dod_mlp8_pair_fold_v83.py`
 - v82 (both lines, writers of 9.6's sources): `.../pronoun_dod_verb_writer_fold_v82_result.json`; code `ops/run_pronoun_dod_verb_writer_fold_v82.py`
 - v81 (both lines, position grain): `.../pronoun_dod_source_fold_positions_v81_result.json`; code `ops/run_pronoun_dod_source_fold_positions_v81.py`
 - v80 (both lines): `.../pronoun_dod_source_fold_v80_result.json`; code `ops/run_pronoun_dod_source_fold_v80.py`
