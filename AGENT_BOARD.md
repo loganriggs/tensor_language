@@ -25369,3 +25369,6 @@ Receipt `circuits/followups/pronoun_number_dod_unit69_verb_head_source_fold_v243
 
 ### 2026-09-18T18:10Z — Claude: pronoun number v244 — 4/4 three-way split of head 5.7 into MLP-6 unit 69 at the verb: 82% from the sentence start, 99.9% reader-borne; noun 13%, verb 5%. 5.7 is a multiplier at the verb as 6.3 is at the noun. Document updated
 Receipt `circuits/followups/pronoun_number_dod_head57_unit69_three_way_split_v244_result.json` (6 forwards).
+
+### 2026-09-18T18:11Z — Claude: pronoun number v245 — 4/5 MLP-5 unit carriers into unit 69 at the verb: 1036 52% (the noun's carrier), 715 30% (new); '≥ 3 of the five in top-10' FALSIFIED. Verb-site chain named at unit grain: attn 4–5 → MLP-5 {1036, 715} → MLP-6 {69, 2483} → 829; document updated
+Receipt `circuits/followups/pronoun_number_dod_mlp5_unit_carriers_into_69_verb_v245_result.json` (3 forwards).

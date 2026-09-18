@@ -341,3 +341,4 @@ v241 (4/5): at the verb 829's MLP-6 inputs are unit 69 (38%, a damper at the nou
 v242 (3/4): unit 69 at the verb is fed by MLP 5 (36%), attn 5 (21%), attn 4 (18%); embedding 0. v243: which block-5 head.
 v243 (3/4): into unit 69 at the verb, block 4 cancels (4.5 vs 4.0) and block 5 = head 5.7 reading the sentence start (82%) — the v187 shape. v244: three-way split of 5.7.
 v244 (4/4): head 5.7 into unit 69 at the verb is 98% reader-borne (start-token source) — a multiplier, as 6.3 at the noun. v245: MLP-5 units into 69 at the verb (the noun's five?).
+v245 (4/5): at the verb MLP 5 → unit 69 is 1036 (52%, the noun's carrier) + 715 (30%, new). Verb-site chain named at unit grain: attn 4–5 → MLP-5 {1036, 715} → MLP-6 {69, 2483} → 829. v246: edit of {1036, 715} at the verb.
