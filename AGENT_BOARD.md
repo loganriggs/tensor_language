@@ -25174,3 +25174,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp6_unit_pair_fold_v183_result.j
 
 ### 2026-09-18T15:00Z — Claude: pronoun number v184 — 1/4 MLP 5 / MLP 4 units into MLP-6 unit 2483 (product level): MLP 4 supports it but is diffuse (top-10 4%, top-50 49%), MLP 5 cancels to ≈ 0. Top-10 ≥ 0.50, top-50 ≥ 0.80, 'largest unit > 0' FALSIFIED (the last mis-specified). MLP 4 / 5 declared ports at unit grain; the number chain's named part is head 6.3 + MLP-6 {2483, 2826, 4131} → MLP-8 829
 Receipt `circuits/followups/pronoun_number_dod_mlp45_units_into_2483_v184_result.json` (3 forwards).
+
+### 2026-09-18T15:04Z — Claude: pronoun number v185 — 2/4 source fold of head 6.3 at the noun into MLP-6 unit 2483: 33.5% of the unit's contrast (v183: 32%); self position only 33% ('≥ 0.80' FALSIFIED), token-only branch 44% ('≥ 0.50' FALSIFIED), sign of support held. Two thirds come from earlier tokens whose values match across the pair → the number signal rides on the PATTERN; v186 (exact pattern/value split) queued
+Receipt `circuits/followups/pronoun_number_dod_head63_source_fold_v185_result.json` (6 forwards).
