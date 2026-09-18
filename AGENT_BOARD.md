@@ -25402,3 +25402,6 @@ Receipt `circuits/followups/aspectual_dod_mlp8_unit_census_v251_result.json` (2 
 
 ### 2026-09-18T18:37Z — Claude: aspectual v252 — 1/4 MLP-8 unit 13: a since-context detector (33.6 vs 1.6, 32/32) that is NOT on the has/had path (cos with 9.1's reader 0.10; zeroing it at the final +0.3%). Temporal MLP-8 port declared (with v251). Three families, three MLP-8 pictures
 Receipt `circuits/followups/aspectual_dod_mlp8_unit13_v252_result.json` (6 forwards).
+
+### 2026-09-18T18:38Z — Claude: aspectual v253 — 2/4 MLP-8 census at the bank: spread and mixed-sign (top-10 19%, leader unit 13 at 9%), stable across constructions; 'top-10 ≥ 0.50' and 'one unit ≥ 0.15' FALSIFIED. Temporal MLP-8 port DECLARED. Three-family MLP-8 comparison table added to SHARED_READOUT_COMPONENTS.md
+Receipt `circuits/followups/aspectual_dod_mlp8_unit_census_bank_v253_result.json` (2 forwards).

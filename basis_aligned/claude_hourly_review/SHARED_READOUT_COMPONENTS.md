@@ -349,3 +349,12 @@ v249 (4/4, gender): 12.4 reads the same MLP-8 detectors as 9.6 (3152 53%, 3943 2
 v250 (4/4, number): 12.4 reads 829 / 953 like 9.6. Both contextual readers read one MLP-8 state in both families; they differ only by position and route. Number and gender lines: no open unit-grain item left at the MLP-8 stage.
 v251 (1/4, temporal): no MLP-8 detector at the cue (top-10 16%, Jaccard 0.12 — port); at the final unit 13 leads (16%, stable). Third family kind: a function-word cue, token-carried by 8.1, MLP 8 diffuse. v252 checks unit 13.
 v252 (1/4, temporal): MLP-8 unit 13 = a since-context detector (32/32), but off the has/had path (cos 0.10 with 9.1's reader; edit inert). Temporal MLP-8 port declared. Three families, three MLP-8 pictures: number computed (829/953), gender read-from-token (3152/3943), temporal none.
+v253 (2/4, temporal): MLP 8 at the bank is spread (top-10 19%, leader 9%) — port declared. Comparison table added below.
+
+### Three families at the MLP-8 stage (18 Sep, 18:40 UTC)
+
+| family (readers) | position read | MLP-8 write on the reader direction | named units | carried by | edit on behaviour |
+|---|---|---|---|---|---|
+| number they/he ({9.6, 12.4, 15.1, 10.5}) | noun and verb | concentrated: top-10 78–89% | 829 plural, 953 singular, 1030 weak | MLP stack 3–7 (computed) | 5.3% noun, 5.9% verb, 11.8% both [v169b, v215] |
+| gender he/she ({10.1, 9.6, 12.4, 15.1}) | noun and verb | concentrated: top-10 ~90% | 3152 male, 3943 female | the noun token via 8.1 / 6.x copies | 2.6% noun, 7.8% all [v165] |
+| temporal has/had ({8.1, 9.1, 9.4}) | bank (last / period / the) | spread, mixed sign: top-10 19% | none on the path (13 is a since-detector, inert) | 8.1's cue copy + diffuse MLPs 6–8 | — (port) [v251–v253] |
