@@ -1,0 +1,106 @@
+{
+  "candidate_id": "corpus.head_8_1_lookup_table_v133",
+  "exploratory": [
+    "gender king/queen"
+  ],
+  "finished_utc": "2026-09-18T03:32:54.674043+00:00",
+  "forwards": 0,
+  "pairs": {
+    "aspectual since/by": {
+      "cross": {
+        "correlative both/neither": -179.13882446289062,
+        "correlative either/not": 192.391357421875,
+        "person I/you": 206.97042846679688,
+        "person me/you": 206.97042846679688,
+        "temporal tomorrow/earlier": -81.05633544921875
+      },
+      "cross_max_ratio": 0.3705363582006572,
+      "random_abs_max": 420.23321533203125,
+      "random_abs_median": 122.05014038085938,
+      "score": 558.56982421875
+    },
+    "correlative both/neither": {
+      "cross": {
+        "aspectual since/by": 65.63646697998047,
+        "correlative either/not": -189.86178588867188,
+        "person I/you": -142.51866149902344,
+        "person me/you": -142.51866149902344,
+        "temporal tomorrow/earlier": -82.90312194824219
+      },
+      "cross_max_ratio": 0.07387578827553659,
+      "random_abs_max": 1004.2391357421875,
+      "random_abs_median": 218.22344970703125,
+      "score": 2570.013671875
+    },
+    "correlative either/not": {
+      "cross": {
+        "aspectual since/by": 36.27650833129883,
+        "correlative both/neither": 579.0789184570312,
+        "person I/you": 121.63261413574219,
+        "person me/you": 121.63261413574219,
+        "temporal tomorrow/earlier": 122.91061401367188
+      },
+      "cross_max_ratio": 0.35070672312003975,
+      "random_abs_max": 313.6055908203125,
+      "random_abs_median": 99.09163665771484,
+      "score": 1651.1771240234375
+    },
+    "gender king/queen": {
+      "cross": {
+        "aspectual since/by": -111.40232849121094,
+        "correlative both/neither": -297.80999755859375,
+        "correlative either/not": -49.45899963378906,
+        "person I/you": 97.6187744140625,
+        "person me/you": 97.6187744140625,
+        "temporal tomorrow/earlier": -122.81378173828125
+      },
+      "cross_max_ratio": 0.18069470516544206,
+      "random_abs_max": 546.2631225585938,
+      "random_abs_median": 94.06175231933594,
+      "score": 1648.1390380859375
+    },
+    "person I/you": {
+      "cross": {
+        "aspectual since/by": -348.3431396484375,
+        "correlative both/neither": -284.7724609375,
+        "correlative either/not": -123.83495330810547,
+        "temporal tomorrow/earlier": -238.09413146972656
+      },
+      "cross_max_ratio": 0.09149332389766593,
+      "random_abs_max": 357.77325439453125,
+      "random_abs_median": 229.76409912109375,
+      "score": 3807.306640625
+    },
+    "person me/you": {
+      "cross": {
+        "aspectual since/by": -315.60247802734375,
+        "correlative both/neither": -366.9764099121094,
+        "correlative either/not": -134.48455810546875,
+        "temporal tomorrow/earlier": -261.6507873535156
+      },
+      "cross_max_ratio": 0.0967034912091705,
+      "random_abs_max": 440.97021484375,
+      "random_abs_median": 97.82003784179688,
+      "score": 3794.862060546875
+    },
+    "temporal tomorrow/earlier": {
+      "cross": {
+        "aspectual since/by": 237.55783081054688,
+        "correlative both/neither": -251.29351806640625,
+        "correlative either/not": 380.2554016113281,
+        "person I/you": 108.63780212402344,
+        "person me/you": 108.63780212402344
+      },
+      "cross_max_ratio": 0.2682798195122884,
+      "random_abs_max": 392.7843017578125,
+      "random_abs_median": 147.55577087402344,
+      "score": 1417.383544921875
+    }
+  },
+  "predictions": {
+    "pred_a_lookup_sign_matches_every_registered_decision": true,
+    "pred_b_registered_pairs_beat_random_token_pairs": true,
+    "pred_c_lookup_is_contrast_specific": false
+  },
+  "schema": "head_8_1_lookup_table_result_v133"
+}

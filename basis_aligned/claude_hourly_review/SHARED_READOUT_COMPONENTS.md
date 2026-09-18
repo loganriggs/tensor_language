@@ -172,3 +172,13 @@ v121–v124 (correlatives): both sets beat random quadruples (1.99 vs 0.20; 3.37
 v125–v128 (correlative natural rows, 24/24 predictions): either/or 29–34% and neither/nor 116–130% of their natural margins (the set carries the whole 'nor' decision), not/but 5–14% and both/and 5–6% (weak or default-dominated halves); counter-cases move toward the text on all four panels — a token-tracking family like person and gender. Six families with natural in-/out-of-corpus evidence on ≥ 1 line each (03:28 UTC).
 v129/v130 (correlative source folds, 10/10): all four heads {8.1, 16.8, 14.8, 7.8} read the correlative's first element from its token (98–101% of each contrast at the cue position; token-only branch 76–99% for 8.1 / 14.8 / 16.8, 56–59% for 7.8). Families by source type now: token readers (correlative, person, gender's 10.1 / 15.1, temporal's 8.1), contextual (number, pronoun number, selection in/of), mixed (gender 9.6 / 12.4, selection up/down).
 v131/v132: both correlative sets close to token-only generators with constant patterns (native 84% / 96%, constant 88% / 104% pooled, ≥ 0.70 per held-out construction); the pattern-stability bar (CV ≤ 0.35) failed on both (0.48 / 0.36) and is kept. Correlative family closed at head grain, 03:31 UTC. Six families, thirteen lines, all closed at head grain.
+
+## Head 8.1 as one token lookup across families (v133, weights + single-token block-0 values, 03:33 UTC)
+
+`head_8_1_lookup_table_v133_result.json`, 2/3. For every registered cue pair the sign of (u_pos − u_neg) · O_{8.1} (v1(a) − v1(b)) matches the
+decision (since/by → has−had 559; tomorrow/earlier → will−had 1417; I/you and me/you → myself−yourself 3807 / 3795; either/not → or−but 1651;
+both/neither → and−nor 2570), and each beats the largest of 16 random token pairs on its contrast (random max 314–1004). Exploratory: king/queen →
+he−she 1648 vs random max 546 — 8.1 also serves the gender readout it was fifth for in the sweep. Failed and kept: contrast specificity — the
+either/not lookup pushes and−nor by 0.35 of its own score, since/by pushes the person and correlative contrasts by 0.37, tomorrow/earlier pushes
+or−but by 0.27; the person and both/neither lookups are specific (≤ 0.10). Reading: 8.1 copies each cue token's block-0 value to the final query
+once; the families read that one write along their own directions, which are not orthogonal for the temporal and correlative cues.

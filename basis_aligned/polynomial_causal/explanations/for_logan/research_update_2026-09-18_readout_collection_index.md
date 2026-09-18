@@ -25,8 +25,9 @@ The number and temporal directions are entangled at the shared head 11.3 and ort
 two pronoun contrasts share an axis at the pronoun core; the two selection contrasts do not share one at the selection
 heads, they share the heads (v95). The verb-number direction carries 18% of the pronoun-number readout at the pronoun
 heads, not half (v96). Head 7.8 is in the number and selection cores and is the most recurrent head of the atlas (65 of
-100 live lines); heads 8.1 (temporal cue reader) and 10.1 (pronoun gender noun reader) are token-only readers of the same
-shape.
+100 live lines). Head 8.1 is one token lookup serving four families: its block-0 copy of the cue token, read along each family's
+contrast, has the right sign for since/by, tomorrow/earlier, I/you, me/you, either/not and both/neither and beats random token pairs on
+every one (v133); the lookups are not fully contrast-specific (cross-talk up to 0.37 of own for the temporal and either/not cues).
 
 **What the atlas says about the rest.** With five cores, 72 of the 100 capable live lines are assigned (pronoun 26, number 17,
 person 13, selection 13, temporal 3). The 28 left are structured: a verb-inflection cluster on {11.3, 7.8, 17.4} (7 lines:
