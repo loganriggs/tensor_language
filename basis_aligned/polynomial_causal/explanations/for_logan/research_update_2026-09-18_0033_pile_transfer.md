@@ -8,10 +8,12 @@ flowchart LR
  T[Token IDs and weight tables] -->|fold: exact lookup| H
  H -->|edit: half-removal, 20 documents| M[Skip plus approximate MLP8 response]
  M -->|edit: 2.4% aggregate error, opened repair| S[External native suffix and spelling probes]
+ U[Block7 mixed state, attention and MLP outputs] -->|fold: 80 city-side terms, opened| H
  B[Independent inherited/current branches] -.->|edit: previous interaction gate fails| F[Independent composition rejected]
  linkStyle 0,1 stroke:#2471a3
  linkStyle 2,3 stroke:#238b45
- linkStyle 4 stroke:#c0392b
+ linkStyle 4 stroke:#2471a3
+ linkStyle 5 stroke:#c0392b
 ```
 
 The most instructive limitation is directional: six endpoint reversals in one document occur in both native and approximate removal. Two additional reversals in another document occur only in the approximation, where native attenuation is small. Passing the aggregate directional gate does not establish monotonic removal in every context.
@@ -34,6 +36,14 @@ Complete city-value removal now also passes its prospective strength test on the
 
 The four-property assessment is therefore: **OOD prediction** gains a scoped natural-context result; **extraction** still requires native residual7 and later model execution; **selective manipulation** passes half- and full-city-value removal batteries but has documented reversals; **composition/reuse** is unresolved, with the independent-branch gate failed. Simplicity remains separately priced: no matched-effect random-component description-length advantage has been established. The text baselines do not receive the candidate's native-state information.
 
+## One step backward: what supplies the city-side computation?
+
+The block8 city input is now expressed as four native sources: block7 mixed state, attention7 output, MLP7 output and block8 initial-state injection. Expanding both key factors and the current value gives **80 ordered terms**, including inherited-value terms. Query factors and all normalization denominators remain native; this fold has not closed an input dependency.
+
+On the twenty opened UK–US paired write contrasts, terms involving MLP7 have **0.31 aligned fraction / 0.32 norm ratio**; terms involving attention7 have **0.14 / 0.16** (fold, opened). Aligned fraction is the dot product with the full paired write divided by its squared norm; norm ratio compares their L2 norms and is unsigned. These presence groups overlap, so their shares must not be added as a partition. This nominates the MLP7-dependent group for a source-specific causal test; it does not establish that removing MLP7 itself has the attributed effect.
+
+The full native write has corresponding MLP7 shares0.32/0.34 and attention7 shares0.15/0.17. Agreement with paired-contrast accounting reduces the concern that the source choice reflects only total magnitude. All source reconstruction and algebraic closures pass; exact values are in the receipts.
+
 ## Reproducibility appendix
 
 [V2 failure](../../CITY_FULL_PILE_V2_RESULT.json), [V3 protocol](../../CITY_FULL_PILE_V3_PREREGISTRATION.md), [V3 receipt](../../CITY_FULL_PILE_V3_RESULT.json), [document diagnostic](../../CITY_FULL_PILE_V3_DOCUMENT_DIAGNOSTIC.json), [diagnostic code](../../analyze_city_full_pile_v3_documents.py), [previous extraction and fresh authored-panel report](research_update_2026-09-18_0014_one_input_removal.md).
@@ -45,3 +55,5 @@ Untouched/substituted native effect RMS is 0.056837711595391825 / 0.330264258441
 Full-strength [protocol](../../CITY_FULL_STRENGTH_V1_PREREGISTRATION.md), [receipt](../../CITY_FULL_STRENGTH_V1_RESULT.json):800forwards,9.240873200120404seconds. Relative error0.02349668550341026 versus native-half-effect scaling0.11954361695994505; attenuation0.3045918512464074,positive fraction0.918918918918919. Local [quadratic diagnostic](../../CITY_FULL_QUADRATIC_V1_CPU_RESULT.json) finds full−2*half write norm ratios0.014884404169692498–0.1441771979302874; this difference is half of the full-strength quadratic term. [Suffix ablation protocol](../../CITY_FULL_QUADRATIC_V1_PREREGISTRATION.md) compares full, secant and strictly linear local writes.
 
 [Matched-suffix quadratic ablation receipt](../../CITY_FULL_QUADRATIC_V1_RESULT.json):120forwards,1.9632088700309396seconds; full candidate replays exactly. All three registered gates pass. Source-side block7 capture is the next fold; query states and normalizers remain native dependencies.
+
+Upstream [capture protocol](../../CITY_SOURCE7_V1_PREREGISTRATION.md), [native receipt](../../CITY_SOURCE7_V1_RESULT.json), [full-write CPU fold](../../CITY_SOURCE7_V1_CPU_RESULT.json), [paired-contrast CPU fold](../../CITY_SOURCE7_CONTRAST_V1_CPU_RESULT.json). Capture40forwards/1.1550169859547168seconds, source-sum error5.9078814408220775e-08. Ordered expansion maximum relative native-write error1.0268040275245452e-06; algebraic closure7.251356452816009e-16. No source removal was executed in this fold.
