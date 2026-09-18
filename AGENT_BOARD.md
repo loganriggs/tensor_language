@@ -25363,3 +25363,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp6_unit_carriers_into_829_verb_
 
 ### 2026-09-18T18:06Z — Claude: pronoun number v242 — 3/4 carrier split of MLP-6 unit 69 at the verb: MLP 5 36%, attn:05 21%, attn:04 18%, embedding 0; 'attn:04 leads' FALSIFIED (attn:05 leads). The verb site rebuilds the feature from attention 4–5 through MLPs 4–6; document updated
 Receipt `circuits/followups/pronoun_number_dod_unit69_verb_carrier_split_v242_result.json` (3 forwards).
+
+### 2026-09-18T18:08Z — Claude: pronoun number v243 — 3/4 block-4/5 heads into MLP-6 unit 69 at the verb: block 4 nets to zero (4.5 +97 vs 4.0 −60), block 5 = head 5.7 (199%, opposed by 5.3) reading the sentence start 82%; 'leading heads read the noun' FALSIFIED. The v187 shape again; v244 splits 5.7 three ways
+Receipt `circuits/followups/pronoun_number_dod_unit69_verb_head_source_fold_v243_result.json` (9 forwards).

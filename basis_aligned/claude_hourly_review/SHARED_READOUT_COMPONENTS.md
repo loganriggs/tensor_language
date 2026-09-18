@@ -339,3 +339,4 @@ v239 (3/5): under zeroing 1779 shifts differentially (−3.2 plural, +2.4 singul
 v240 (5/5): unit 1030 alone 11% of the trio on natural text, plural-leaning; singles add to 97% of the trio. Number-line open items: MLP-1/2 units (port), 4.5 axis OOD, MLP-6 trio off-noun (v241 at the verb).
 v241 (4/5): at the verb 829's MLP-6 inputs are unit 69 (38%, a damper at the noun) and 2483 (31%); 2826 / 4131 drop out. v242: what feeds unit 69 at the verb.
 v242 (3/4): unit 69 at the verb is fed by MLP 5 (36%), attn 5 (21%), attn 4 (18%); embedding 0. v243: which block-5 head.
+v243 (3/4): into unit 69 at the verb, block 4 cancels (4.5 vs 4.0) and block 5 = head 5.7 reading the sentence start (82%) — the v187 shape. v244: three-way split of 5.7.
