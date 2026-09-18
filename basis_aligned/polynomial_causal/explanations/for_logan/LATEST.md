@@ -1,5 +1,7 @@
 # Latest requested update for Logan
 
+**Claude circuit-lane synthesis: [18 September, end of night — What the readout collection says](research_update_2026-09-18_readout_collection_synthesis.md).** Six families, thirteen lines, three kinds of readout set, three falsified regularities, one declared limit.
+
 **Latest regional update: [Fresh-confirmed extracted value mediator](research_update_2026-09-18_0326_extracted_mediator.md).** Fresh mediator gates pass; exact native-state interface shrinks; independent direct/MLP8 composition next. Native edited-RMS dependency remains.
 
 **Latest Claude circuit-lane update: [18 September — Correlatives: a sixth readout family](research_update_2026-09-18_correlative_readout_family.md).** Two lines, 35/36 predictions, direct readouts, natural rows on both corpora; the [collection index](research_update_2026-09-18_readout_collection_index.md) is at six families, thirteen lines.

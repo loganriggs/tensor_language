@@ -32,6 +32,7 @@ scorecards. Readers for this family: has−had (tense), who−which, night−day
 | 19 | Pile rows: congruent 1.94 of 5.79 (33%), positive 31/32, null 0.17; has−had moves 0.94 vs null 0.28 (bar 0.76) — selectivity failed again; counter-cases +1.01 | edit | natural OOD (v139) | | 4/6 |
 | 20 | Which head leaks tense on the natural rows (v138 congruent, 32): full set damage 0.96 with has−had move 0.59; 11.3 alone 0.55 / 0.36; the set without 11.3 0.42 / 0.30 (null move 0.25, gate bar 0.35: passes) but not live (fraction 0.08, positive 24/32) | edit | natural (v140) | registered "11.3 carries ≥ 0.70 of the tense move" false (0.61); "set without 11.3 still live" false | 2/4 — on natural text the number effect is mostly 11.3's, and 11.3's removal moves tense (the weight-level entanglement of v69 / v116 as an edit effect); the selective three-head remainder is below the LIVE bar |
 | 21 | Orthogonalized removal on the natural rows (each head's were−was direction made orthogonal to its has−had direction, cosines −0.54 / −0.16 / −0.57 / −0.41 at 11.3 / 5.7 / 7.8 / 9.7): damage 0.67 (69% of the native-direction 0.96), live (fraction 0.12, positive 28/32, null 0.19), who−which and night−day within gate — but has−had still moves 0.54 (native direction 0.59; gate bar 0.42) | edit | natural (v141) | registered "orthogonalized set spares tense" false (on fresh rows, v57, it held) | 4/5 — the natural-text tense leak is not the weight-level overlap of the two readout directions; it is produced downstream when the number feature is removed |
+| 22 | Census of the tense-reader (had−has) change under the number removal on the natural congruent rows (exact split from block 5, closure 3e-6): the set's own writes contribute −0.02 of the +0.52 change (direct share −4%); the change is downstream and diffuse — MLPs 5–17 in small positive steps (largest MLP 17 0.09, MLP 16 0.08, MLP 12 0.07), attn:11 +0.11 vs attn:05 −0.09 | response | natural (v142) | registered as expected: "direct ≥ 0.80" false, "downstream small" false, "largest responder is an MLP" true | the natural-text tense leak is a number → tense dependency in the MLP suffix, not a readout-direction artifact; **declared limit**: the number component is selective on synthetic panels and not on natural text |
 
 ## Five-property status
 | property | status | next |
@@ -39,10 +40,11 @@ scorecards. Readers for this family: has−had (tense), who−which, night−day
 | Simple | held at head grain: 4 heads + contrast; sweeps on 4 lines and the random-quadruple null (row 11) | — |
 | Predicts OOD | held on the non-adjacent frames (rows 1, 14); the subject-adjacent frame is outside the component's scope — number there is MLP-borne, no nulled head carries it (rows 15–17) | — (scope declared) |
 | Extracted | held at the head boundary for the readout pair {11.3, 7.8} (rows 10, 13); 5.7 is an upstream contributor whose service is not a readout projection and whose sources are not token-only (row 12) — declared open port | — |
-| Selective | held with the orthogonalized (weight-only) number direction (row 7); the raw were−was direction is entangled with tense at the number heads (rows 2, 6) | — |
+| Selective (natural text: FAILED — the number removal moves the tense reader through the MLP suffix, v138–v142) | held with the orthogonalized (weight-only) number direction (row 7); the raw were−was direction is entangled with tense at the number heads (rows 2, 6) | — |
 | Composes | additive (row 3) | pairwise + random-split null |
 
 ## Receipts
+- v142: `.../lexical_number_dod_tense_census_v142_result.json`; code `ops/run_lexical_number_dod_tense_census_v142.py`
 - v141: `.../lexical_number_dod_orthogonal_natural_v141_result.json`; code `ops/run_lexical_number_dod_orthogonal_natural_v141.py`
 - v140: `.../lexical_number_dod_tense_leak_v140_result.json`; code `ops/run_lexical_number_dod_tense_leak_v140.py`
 - v138 / v139: `.../lexical_number_dod_natural_v138_result.json`, `.../lexical_number_dod_pile_v139_result.json`; rows `lexical_number_dod_{natural,pile}_rows_v13{8,9}.json`; miner config `ops/lexical_number_dod_natural_rows.py`
