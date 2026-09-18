@@ -239,9 +239,30 @@ small, and it is exactly what the chain of shares predicts (MLP 8 is 27% of 9.6'
 are 76% of MLP 8's part), so the folds nominated correctly and the edits sized correctly. Going one layer further gave a lesson worth keeping:
 a *factor-level* fold said MLP-6 unit 3230 carries 82% of MLP 6's input to both factors of the detector, but zeroing 3230 made the detector
 **stronger** by 71% — for a bilinear unit $(L\cdot x)(R\cdot x)$ the sign of a writer's effect lives in the pair terms, not in either factor.
-The product-level pair fold then showed the detector is an embedding × MLP-7 interaction (63% of pair mass involves MLP 7, 57% the
-embedding) damped by MLP 6, with head 8.1's copy at 5% despite being 22% of each factor. MLP 7's part does not fold to a few units (top 50
-units carry 31–45%, with cancelling signs) and is declared a port. The number line has its own MLP-8 units (829 plural, 953 singular).
+The product-level pair fold then showed the detector's *mass* is an embedding × MLP-7 interaction (63% of pair mass involves MLP 7, 57%
+the embedding) damped by MLP 6, with head 8.1's copy at 5% despite being 22% of each factor. MLP 7's part does not fold to a few units (top
+50 units carry 31–45%, with cancelling signs) and is declared a port. The number line has its own MLP-8 units (829 plural, 953 singular).
+
+**Correction (v187–v189, later the same afternoon): mass is not carriage.** For a product $(L\cdot x)(R\cdot x)$ with $x=\sum_w C_w$, a
+writer can hold a large share of the pair terms while its own write is *the same* in the male and female member of every pair — then the
+contrast in "its" pairs comes entirely from the partner factor. The exact split of the contrast into each writer's own change times the
+partner's mean (the *carrier* share; it sums to one) gives a different picture from the mass shares above:
+
+| writer | mass share | carrier share |
+|---|---|---|
+| noun embedding | 34% | **34%** |
+| block-6 attention (6.1's self-copy) | 2% | **24%** |
+| head 8.1 (self-copy) | 0% | **15%** |
+| MLP 6 (unit 3230) | −19% | **+14%** |
+| MLP 7 | 33% | 6% |
+| MLP 5 | 26% | 4% |
+
+So the male detector is **token-carried**: the noun embedding and its two self-copies carry 72% of the male − female contrast, and MLP 7 and
+MLP 5 act as roughly constant multipliers (gain) rather than carriers. MLP 6's row explains the v177 surprise without contradiction: its own
+gender change *supports* the detector (+14%), but its mean write is a negative multiplier on the partner factor, and zeroing unit 3230
+removes the mean (hence the detector grew). The diagram's "damps" edge should be read as "negative gain", not "opposes the signal". On the
+number line the same split says the opposite: the plural detector 829 is carried by the MLP stack (MLPs 3–7, 66%) with the noun embedding at
+17% and attention writes as multipliers — the same token-reader / contextual-reader distinction the head-level folds drew, now one layer down.
 
 So this path is deeper than the person component (two named MLP units and two named copy heads below the readout) but not closed: the
 token side is named, the MLP-7 side is not. It is the honest depth limit of the day, and the place to continue.

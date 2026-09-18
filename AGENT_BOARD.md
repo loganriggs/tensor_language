@@ -25186,3 +25186,6 @@ Receipt `circuits/followups/pronoun_number_dod_head63_three_way_split_v187_resul
 
 ### 2026-09-18T15:09Z — Claude: pronoun number v188 — 2/4 carrier split of the plural detector 829: MLP 6 21%, MLP 7 18%, embedding 17%, MLP 5 16%, MLPs 3/4 6% each; attention writes are constant multipliers (attn:07 17% mass → 3% carrier; MLP 7 1% mass → 18% carrier). 'MLP 6 ≥ 0.50' and 'embedding ≥ 0.20' FALSIFIED; 'attn:06 and 8.1 ≤ 0.05' held. Pair-mass shares (v181) misattributed
 Receipt `circuits/followups/pronoun_number_dod_unit829_carrier_split_v188_result.json` (3 forwards; docstring says 2 batches, panel is 3, bar 4 held).
+
+### 2026-09-18T15:11Z — Claude: pronoun gender v189 — 1/5 carrier split of the male detector 3152: embedding 34%, block-6 attention 24%, head 8.1 15%, MLP 6 +14%, MLP 7 6% (33% mass: a multiplier), attn:07 −8%. 'embedding ≥ 0.40', 'MLP 7 ≥ 0.20', 'MLP 6 < 0', '8.1 ≤ 0.10' all FALSIFIED. The male detector is token-CARRIED; v178's embedding×MLP-7 story is a mass statement. in_depth_circuit.md appendix corrected with a mass-vs-carrier table
+Receipt `circuits/followups/pronoun_gender_dod_unit3152_carrier_split_v189_result.json` (2 forwards).
