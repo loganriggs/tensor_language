@@ -256,3 +256,4 @@ column along −r_{9.6}; unit 3943 = female-noun detector (mother −856, queen 
 chain's product. The number line has its own MLP-8 units (829, 953, 1030; v168). This is the first time one of the collection's MLP ports has
 been opened to named units with a stated function.
 v170 (number units' weights, 2/3): 829 = plural-noun detector (36/40, Down along +r), 953 = singular-noun detector (37/40, Down along −r), 1030 fires on both; the embedding-axis alignment bar failed for two of three (their factors read something other than the raw embedding number axis). Same one-sided-detector structure as the gender units.
+v169b (edit of number units 829/953/1030, 4/5): 5.3% at the noun, 11.8% at all positions, positive 84/96, random triples 0.001, selective; LIVE at the noun failed as registered. Both pronoun lines now have their MLP-8 port opened to named one-sided detectors whose causal size matches the chain of shares.
