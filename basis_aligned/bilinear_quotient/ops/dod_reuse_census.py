@@ -52,6 +52,10 @@ def rows_from_candidate(module, positive_token: str, negative_token: str, tag: s
 
 def run(candidate_id: str, out_name: str, rows, pos_id: int, neg_id: int) -> None:
     out = ROOT / f"circuits/followups/{out_name}"
+    if len(rows) < 8:
+        out.write_text(json.dumps({"schema": "dod_reuse_census_result_v1", "candidate_id": candidate_id, "status": "no_rows", "rows": len(rows), "forwards": 0,
+                                   "finished_utc": datetime.now(timezone.utc).isoformat()}, indent=2, sort_keys=True) + "\n")
+        print(candidate_id, "no usable rows"); return
     sha = L.rows_sha256(rows)
     batches = (len(rows) + v1.BATCH - 1) // v1.BATCH
     forwards_max = batches * FORWARDS_PER_BATCH

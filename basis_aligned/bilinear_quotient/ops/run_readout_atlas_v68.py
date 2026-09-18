@@ -67,7 +67,9 @@ def main() -> None:
         if not (ROOT / "circuits/followups" / out_name).exists():
             R.run(f"{e['task']}.atlas_v68", out_name, rows, pid, nid)
         r = json.loads((ROOT / "circuits/followups" / out_name).read_text())
-        forwards += r["forwards"]
+        forwards += r.get("forwards", 0)
+        if r.get("status") == "no_rows":
+            summary.append({"task": e["task"], "status": "no_rows"}); continue
         capable = all(v >= 0.85 for v in r["capability"].values())
         summary.append({"task": e["task"], "vocabulary": e["vocabulary"], "status": "ok", "capable": capable, "instrument": r["instrument_max_abs_error"], "top4": r["set"],
                         "top4_damages": [d for _, d in r["sweep_top20"][:4]], "fraction": r["joint"]["target_damage_fraction"], "positive": r["joint"]["target_damage_positive_fraction"],
