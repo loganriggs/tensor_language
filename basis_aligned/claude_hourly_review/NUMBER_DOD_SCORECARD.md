@@ -21,17 +21,20 @@ scorecards. Readers for this family: has−had (tense), who−which, night−day
 | 9 | In-forward rank-2 keep (span of were−was and has−had per head): rank-1 0.47 (replays v55's 0.47 — instrument), rank-2 0.19, random rank-2 ≤ 0.093 | edit | v58b | 42 forwards | 2/3: the declared two-contrast span does not capture the number heads' service either; Extracted stays unheld |
 | 10 | Per-head keep-only: 11.3 retention 0.97 and 7.8 1.05 (one-directional); 5.7 -0.30 (keeping its readout projection makes things WORSE than zeroing: its readout-direction component opposes its was/were service); 9.7 zero damage -0.08 (inert alone) | edit | v59 | 20 forwards | 2/3: my registered guess that 11.3 is not one-directional FAILED — the non-one-directional member is 5.7 |
 | 11 | Matched-count random four-head-set null | edit | v60 | set 2.67 vs random max 0.11, median 0.010; none live | passes 4/4 |
+| 12 | Head 5.7's readout coefficient (oriented plural−singular) is sourced from prep 0.69, subject 0.34, the2 0.08; inherited branch 0.01 | fold | v61 | closure ok | 0/2 registered guesses (subject token leads; token-only branch dominates) FAILED — 5.7 is not a token-only number-cue reader |
+| 13 | Keeping only the readout projection at the one-directional pair {11.3, 7.8} (5.7 and 9.7 native) retains 0.99 of zeroing those two slices (2.19 logits) | edit | v61 | | passes |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
 | Simple | held at head grain: 4 heads + contrast; sweeps on 4 lines and the random-quadruple null (row 11) | — |
 | Predicts OOD | first fresh panel only | frozen prediction on new templates |
-| Extracted | held for 11.3 and 7.8 (one direction each, row 10); NOT for 5.7 (its service is not its readout projection) and 9.7 is inert alone | source fold of 5.7 (what does it read? token-only?) and keep-only of {11.3, 7.8} with 5.7/9.7 native |
+| Extracted | held at the head boundary for the readout pair {11.3, 7.8} (rows 10, 13); 5.7 is an upstream contributor whose service is not a readout projection and whose sources are not token-only (row 12) — declared open port | — |
 | Selective | held with the orthogonalized (weight-only) number direction (row 7); the raw were−was direction is entangled with tense at the number heads (rows 2, 6) | — |
 | Composes | additive (row 3) | pairwise + random-split null |
 
 ## Receipts
+- v61 5.7 fold + pair keep: `.../number_family_dod_head57_fold_v61_result.json`
 - v59 per-head keep: `.../number_family_dod_per_head_keep_v59_result.json`
 - v60 random-set null: `.../number_family_dod_random_set_null_v60_result.json`
 - v58b in-forward rank-2 keep: `.../number_family_dod_keep_rank2_v58b_result.json`
