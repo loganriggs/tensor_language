@@ -9,7 +9,11 @@ run_narrative_dod_confirm_v43 / run_number_dod_battery_v55 / run_modal_dod_batte
 A LineSpec declares: rows (list[L.Row]), positive/negative token ids, the head set as (layer, head) pairs, reader names
 (must exist in L.READERS at row-build time), an optional frozen fraction, and bars. PRICE is registered per 32-row batch:
 41 forwards (native, producer, set, 16 nulls, 4 singles [or |set|], zero, keep, 16 random keeps); the runner refuses to
-write above batches x (2 + 1 + 16 + n_singles + 2 + 16)."""
+write above batches x (2 + 1 + 16 + n_singles + 2 + 16).
+
+GATE NOTE: `ops/gate.py` discovers prediction keys from literal dict keys in the RUNNER file, so a LineSpec runner must
+carry a literal `PREDICTIONS = {"pred_a_instrument_replays_native": ..., ...}` dict mirroring the keys scored here
+(see run_pronoun_gender_dod_battery_v71.py); the header line lists the same keys."""
 from __future__ import annotations
 
 from dataclasses import dataclass, field
