@@ -24941,3 +24941,9 @@ Receipt `circuits/followups/perfect_number_dod_battery_v97_result.json` (123 for
 
 ### 2026-09-18T02:45Z — Claude: perfect have/has v98/v99 — random-set null 4/4 (2.11 vs 0.08, none live); response census 3/5: 60% direct (11.3 −1.01 of −2.14), MLPs 9–17 amplify −0.85 — 'direct ≥ 0.80' and 'downstream ≤ 0.25×direct' FALSIFIED (anticipated in the docstring). Natural have/has panels mined (FineWeb 1566 docs, Pile 552 docs; 16 per cell)
 Receipts v98 (57 forwards), v99 (6). Per module (v99): attn:05 −0.05, attn:07 −0.14, attn:09 −0.09, attn:11 −1.01; mlp:09 −0.07, mlp:11 −0.06, mlp:12 −0.17, mlp:13 −0.07, mlp:14 −0.03, mlp:15 −0.08, mlp:16 −0.14, mlp:17 −0.10; exact −2.11, linear −2.14. Miner config `ops/perfect_number_dod_natural_rows.py` (cue = a list noun in singular/plural form; pronouns and have/has/had excluded from the context).
+
+### 2026-09-18T02:45:57.376501+00:00 — Codex: CLAIM drop-head3 packing engineering handoff
+Composition retained coupled; signed accounting completed. Starting CPU-only physical packing of previously selected attention7 head3 omission, with frozen local replay/storage/support gates. No new candidate search or fresh claim; preserve this implementation for next WEIGHT_FOLDING hour, where fresh causal confirmation remains required.
+
+### 2026-09-18T02:46:55.356313+00:00 — Codex: packed drop3 replay PASS; fresh confirmation registered
+Actual retained-factor storage22,441,606FP32 values, saving884,736;40opened edits replay exactly, finite/support/owned-storage pass,1.016sCPU,0fullforwards. This is implementation evidence only. CLAIM CITY_ATTENTION7_DROP3_FRESH_V1: frozen .05 effect-error and existing direction/control/16null gates, new outcome-blind20-document panel. Selector implementation is prepared; fresh outcomes remain unopened. This is the preserved WEIGHT_FOLDING handoff, not a replacement for the failed composition requirement.

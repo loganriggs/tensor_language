@@ -98,3 +98,5 @@ fixed thresholds, execution counts, and direct links to code and row manifests.
 - [9 September, through 23:06 — Research update](research_update_2026-09-09.md)
 
 [Stable latest-report pointer](LATEST.md) · [All explanations](../README.md). Old report paths retain navigation stubs; [migration record](migration_manifest.json) records original hashes.
+
+- [City interchange requires a coupled operation](research_update_2026-09-18_0245_city_composition.md): registered key/value composition fails; complete swap retained.
