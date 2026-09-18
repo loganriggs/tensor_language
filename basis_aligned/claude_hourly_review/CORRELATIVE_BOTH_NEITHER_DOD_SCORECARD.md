@@ -18,17 +18,20 @@ runner's docstring said was−were and was corrected after the run).
 | 5 | Keep-only readout at the four heads keeps their service | edit | fresh (v120) | zero 3.84; retention 0.96; random keep ≤ 0.01 | passes |
 | 6 | Matched-count random four-head-set null | edit | fresh rows (v123) | set 3.37 (fraction 0.46) vs random max 0.10 (fraction 0.01); none live | passes 4/4 |
 | 7 | Response census (exact λ-recurrence split from block 7): the set's own writes carry 106% (attn:14 −1.17, attn:08 −0.92, attn:16 −0.72, attn:07 −0.50 of −3.11); downstream net +0.20 (MLPs 8–12 amplify −1.07, MLPs 15–17 push back +1.43); remainder 8% (−0.26, inside the 10% bar) | response | fresh (v124) | | passes 5/5 — a direct readout with a strong late-MLP counter-response |
+| 8 | Natural FineWeb rows (both / neither within 12 tokens, next token and / nor; no both/nor rows exist in 20000 docs): congruent removal 3.43 of 7.95 (43%), positive 31/32, null 0.11, selective; per cell neither/nor 6.23 of 4.80 (130% — removal flips the decision), both/and 0.63 of 11.10 (6% — 'and' is the default continuation); the 16 neither/and counter-cases shift toward the text (−1.14) | edit | natural (v127) | v20 bars held | passes 6/6 |
+| 9 | Pile rows: congruent 3.04 of 7.18 (42%), positive 30/32, null 0.07, selective; neither/nor 5.59 of 4.24, both/and 0.48 of 10.12; counter-cases −0.58 (n = 18) | edit | natural OOD (v128) | | passes 6/6 |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
 | Simple | held at head grain (row 6) | — |
-| Predicts OOD | held on a fresh panel with a frozen number (row 2) | natural rows |
+| Predicts OOD | held on fresh, natural FineWeb and Pile rows (rows 2, 8, 9): the neither/nor half carries the whole natural decision, both/and little | — |
 | Extracted | held at the head boundary (row 5); direct (row 7) | source fold |
 | Selective | held (row 3) | — |
 | Composes | failed the strict bar (row 4) | pairwise terms |
 
 ## Receipts
+- v127 / v128: `.../correlative_both_neither_dod_natural_v127_result.json`, `.../correlative_both_neither_dod_pile_v128_result.json`; rows `correlative_both_neither_dod_{natural,pile}_rows_v12{7,8}.json`
 - v123: `.../correlative_either_not_dod_random_set_null_v123_result.json`; v124: `.../correlative_either_not_dod_response_census_v124_result.json` (runners emitted by `ops/dod_line.py`)
 - atlas v68: `bilinear_quotient/circuits/followups/atlas_correlative_pair_v68_result.json`
 - v120: `.../correlative_both_neither_dod_battery_v120_result.json`; code `ops/run_correlative_both_neither_dod_battery_v120.py`

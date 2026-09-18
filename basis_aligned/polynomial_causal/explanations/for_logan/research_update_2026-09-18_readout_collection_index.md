@@ -12,7 +12,7 @@ scorecards. Tags: fresh = rows unused by any selection step; natural = mined out
 | number (agreement) | 5.7, 7.8, 9.7 + 11.3 | lexical were/was (within scope), perfect have/has | yes ×2 | yes / yes (have/has) | have/has no: 60%, MLP 9–17 relay | adjacent-subject case MLP-borne; have/has over-additive (11.3 dominant) |
 | pronoun (gender / number / person) | 9.6, 12.4, 15.1 (+10.1 gender, +10.5 number) | gender he/she, number they/he | yes ×2 | yes / yes ×2 | yes: 94% / 103% | MLP 8 (writes the noun and verb states) |
 | person (I / you antecedents) | 8.1, 13.1, 10.5, 15.1 | reflexive I/you, object control me/you | yes ×2 | yes / yes (reflexive) | yes: 85% / 90% | — |
-| correlative (either/both/neither/not → or/and/nor/but) | 8.1, 16.8, 14.8, 7.8 | either/not, both/neither | yes ×2 | — | — | — |
+| correlative (either/both/neither/not → or/and/nor/but) | 8.1, 16.8, 14.8, 7.8 | either/not, both/neither | yes ×2 | yes / yes ×2 | yes: 117% / 106% (late MLPs push back) | — |
 | selection (complement choice) | 13.8, 7.8, 8.8 (+6.3, +14.8) | adjective preposition in/of, verb particle up/down | yes ×2 | yes / yes ×2 | up/down yes 86%; in/of no 38% | in/of MLP suffix |
 
 **A regularity across number lines.** On natural text, removing a number readout set hurts rows whose far cue noun has the
