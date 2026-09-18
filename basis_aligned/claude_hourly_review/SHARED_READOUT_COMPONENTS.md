@@ -211,3 +211,5 @@ king 164th and queen 35th. Failed and kept: "registered cues in the top 20" (by,
 family cue words" (and−nor 0, will−had 0, has−had 4). Reading: 8.1 is one copier whose table, read along each contrast, is dominated by the most
 frequent markers of that decision (I/you, either/neither, since/now, he/she); the families' rarer cues (both, by, king) ride the same table with smaller
 scores and the right sign.
+
+v147 (04:34 UTC): third correlative line, either/neither → or/nor at {14.8, 8.1, 16.8, 5.7}: 6/7 — 54% vs frozen 0.55, positive 96/96, selective by the gate, additive; KEEP-ONLY FAILED (retention 0.53 < 0.70): on this line the readout directions are necessary but not sufficient. The correlative family is three lines deep; the third has an open sufficiency question.

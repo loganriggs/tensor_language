@@ -39,6 +39,8 @@ PANELS = {
     "correlative_v119_v120_objects": ('badge', 'basin', 'blade', 'blender', 'brace', 'bracelet', 'broom', 'buckle', 'bumper', 'calculator', 'camera', 'cannon', 'canoe', 'clipboard', 'cushion', 'dagger'),
     "cross_family_v143_objects": ('envelope', 'flashlight', 'flask', 'funnel', 'gauge', 'harness', 'headphone', 'hinge', 'joystick', 'keyboard', 'lever', 'magnet', 'manuscript', 'mattress', 'microscope', 'mortar'),
     "cross_family_v144_objects": ('necklace', 'notebook', 'paddle', 'pedal', 'pitcher', 'plaque', 'poker', 'radiator', 'raft', 'reel', 'rifle', 'scissors', 'skillet', 'sponge', 'suitcase', 'telescope'),
+    "correlative_v147_agents": ('diplomat', 'dispatcher', 'explorer', 'firefighter', 'founder', 'goalkeeper', 'governor', 'guardian', 'instructor', 'interpreter', 'inventor', 'journalist', 'linebacker', 'magistrate', 'mathematician', 'medic'),
+    "correlative_v147_objects": ('tractor', 'tripod', 'trumpet', 'umbrella', 'vacuum', 'valve', 'violin', 'wardrobe', 'whistle', 'wrench', 'zipper', 'pear', 'plum', 'peach', 'grape', 'cherry'),
     "number_v62_places": ("canal", "lodge", "inn", "mine", "farm", "arena", "bakery", "brewery", "cellar", "clinic", "depot", "gallery", "hangar", "plaza", "reef", "shrine"),
 }
 
