@@ -25267,3 +25267,6 @@ Receipt `circuits/followups/pronoun_number_dod_head45_fixed_direction_v210_resul
 
 ### 2026-09-18T16:58Z — Claude: pronoun number v211 — 5/5 fixed number direction of 4.5 at all positions: −4.1% (verb only −3.6%), matched random at all positions ≤ 2.65%, selective. The verb is the main site. (First run crashed on a leftover key after its 60 forwards; re-run — 60 forwards wasted)
 Receipt `circuits/followups/pronoun_number_dod_head45_fixed_direction_all_positions_v211_result.json` (60 forwards; 60 more lost to the crashed first run).
+
+### 2026-09-18T17:00Z — Claude: pronoun number v212 — 3/5 head 4.5's fixed number direction on the 128 natural rows: congruent 0.83% ('≥ 0.02' FALSIFIED), 2× the matched random null, selective; incongruent rows do NOT shift toward the label (FALSIFIED) — d̄ acts as a plural/they direction (singular-they rows lose 2.4%). The plain mean is plural-dominated; v213 re-derives it sign-aligned
+Receipt `circuits/followups/pronoun_number_dod_head45_direction_natural_v212_result.json` (79 forwards).
