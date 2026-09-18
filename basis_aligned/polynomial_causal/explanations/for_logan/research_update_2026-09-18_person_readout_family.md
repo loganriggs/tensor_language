@@ -17,6 +17,13 @@ token — the behaviour of the gender set (token readers 10.1, 15.1) and not of 
 direct readouts (MLP 17 pushes back by +0.3 logits), selective against tense (will−would), animacy and the canonical reader,
 additive, and sufficient at their own boundary (keep-only retention 1.21 / 1.29).
 
+**Where the heads read (v112, fold, exact).** Three of the four heads are token readers of the I / you token: 8.1 and 13.1 take
+98% of their contrast from that position, 91% and 95% of it through the block-0 value branch (the token's own value, no
+context); 15.1 80% / 72%; 10.5 is the contextual member (52% from the pronoun, 29% token-only, the rest from the final and
+other positions). The registered "token-only share ≤ 0.50" failed (0.82) and is kept. This is why the set follows the cue on
+natural text: it copies the pronoun token. The open port is the heads' attention pattern (which position they copy), the
+same port the temporal line's 8.1 had, and the next step is the token-only generator with a constant pattern.
+
 **Scope.** Two behaviours, fresh panels, one natural pair, head grain. Not yet: source folds (is 8.1 a token-only I/you reader?),
 the three remaining lines of the cluster. Scorecards: `basis_aligned/claude_hourly_review/PERSON_REFLEXIVE_DOD_SCORECARD.md`,
 `PERSON_OBJECT_CONTROL_DOD_SCORECARD.md`; receipts under `basis_aligned/bilinear_quotient/circuits/followups/person_*`.
