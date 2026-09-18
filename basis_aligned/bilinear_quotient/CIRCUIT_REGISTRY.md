@@ -262,6 +262,10 @@ simplicity comparison and random-split specificity remain missing. [Current Loga
 - **Adjective preposition in/of readout set (Claude lane, 2026-09-18):** heads {8.8, 6.3, 13.8, 7.8} on `O_h^T(u_in − u_of)`;
   fresh rows v85 7/7 (57%, frozen 0.54 ± 0.15 held, selective, additive, keep-only 1.08); the same set as the on/of census v54 —
   a fourth family (complement selection). Scorecard `claude_hourly_review/SELECTION_DOD_SCORECARD.md`.
+- **Verb particle up/down readout set (Claude lane, 2026-09-18):** heads {13.8, 14.8, 7.8, 8.8} on `O_h^T(u_up − u_down)`; fresh
+  rows v86 7/7 (43%, frozen 0.52 ± 0.15 held, selective, additive, keep-only 0.97); shares {13.8, 7.8, 8.8} with the in/of set —
+  the selection family test. Scorecard `claude_hourly_review/SELECTION_PARTICLE_DOD_SCORECARD.md`; report
+  [`for_logan/research_update_2026-09-18_selection_readout_family.md`](../polynomial_causal/explanations/for_logan/research_update_2026-09-18_selection_readout_family.md).
 - **Temporal will/had readout set (Claude lane, 2026-09-17):** heads {11.3, 9.1, 15.5, 9.4} on `O_h^T(u_will − u_had)`;
   81% of the margin on fresh rows, selective, keep-only sufficient, frozen 0.80 ± 0.15 held on a fourth lexicon and
   a new construction, natural FineWeb/Pile rows pass; 11.3 reads a subject-NP state written by blocks 8–10 whose

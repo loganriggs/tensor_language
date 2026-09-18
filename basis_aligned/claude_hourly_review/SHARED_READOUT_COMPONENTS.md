@@ -104,4 +104,4 @@ on/of set. Scorecard `SELECTION_DOD_SCORECARD.md`. Family test next: verb partic
 
 | family | core heads | lines (atlas, live) | fresh-row battery |
 |---|---|---|---|
-| selection | 13.8, 7.8 (+8.8, 6.3, 14.8) | 9 complement / particle / preposition lines + v54 | adjective preposition in/of (v85 7/7) |
+| selection | 13.8, 7.8, 8.8 (+6.3, 14.8) | 9 complement / particle / preposition lines + v54 | adjective preposition in/of (v85 7/7), verb particle up/down (v86 7/7) — a component family |
