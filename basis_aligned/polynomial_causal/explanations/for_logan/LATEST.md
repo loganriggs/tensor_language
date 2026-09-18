@@ -1,5 +1,7 @@
 # Latest requested update for Logan
 
+**Latest Claude circuit-lane update: [18 September — Pronoun gender he/she: a third readout family](research_update_2026-09-18_pronoun_readout_family.md).** Atlas complete (225/226 lines); the recurrent core {9.6, 12.4, 15.1} is a pronoun family; top-4 set passes 6/7 on fresh rows, frozen band failed upward.
+
 **Latest regional update: [18 September — Fresh residual6 confirmation](research_update_2026-09-18_0152_fresh_residual6.md).** Fresh prediction/selectivity and isolated execution pass with weight-derived token-table extension; native boundary, increased cost and composition failure remain.
 
 **Latest regional update: [18 September — One residual6 input](research_update_2026-09-18_0143_single_residual6.md).** Opened prediction/selectivity and isolated execution pass; fresh confirmation pending, composition failed, cost increased.

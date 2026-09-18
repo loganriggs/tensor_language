@@ -250,6 +250,12 @@ simplicity comparison and random-split specificity remain missing. [Current Loga
   [`basis_aligned/claude_hourly_review/ASPECTUAL_DOD_SCORECARD.md`](../claude_hourly_review/ASPECTUAL_DOD_SCORECARD.md);
   report: [`for_logan/research_update_2026-09-17_aspectual_readout_component.md`](../polynomial_causal/explanations/for_logan/research_update_2026-09-17_aspectual_readout_component.md).
 
+- **Pronoun gender he/she readout set (Claude lane, 2026-09-18):** heads {10.1, 9.6, 12.4, 15.1} on `O_h^T(u_he − u_she)`
+  at the final query; the core {9.6, 12.4, 15.1} recurs in 19 live pronoun lines of the readout atlas and in no auxiliary
+  line (a third family beside temporal and number). Fresh rows v71: removal 0.96–1.11 of the margin, positive 60/60, null max
+  0.02, selective, additive at the bar, keep-only retention 1.37; frozen band 0.89 ± 0.15 failed upward on one frame.
+  Scorecard: `claude_hourly_review/PRONOUN_GENDER_DOD_SCORECARD.md`; atlas: `claude_hourly_review/READOUT_ATLAS_TABLE.md`;
+  report: [`for_logan/research_update_2026-09-18_pronoun_readout_family.md`](../polynomial_causal/explanations/for_logan/research_update_2026-09-18_pronoun_readout_family.md).
 - **Temporal will/had readout set (Claude lane, 2026-09-17):** heads {11.3, 9.1, 15.5, 9.4} on `O_h^T(u_will − u_had)`;
   81% of the margin on fresh rows, selective, keep-only sufficient, frozen 0.80 ± 0.15 held on a fourth lexicon and
   a new construction, natural FineWeb/Pile rows pass; 11.3 reads a subject-NP state written by blocks 8–10 whose

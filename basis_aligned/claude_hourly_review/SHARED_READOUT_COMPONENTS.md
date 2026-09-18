@@ -67,3 +67,18 @@ will−would; weights only, no data) was removed on each line's fresh rows:
 The shared axis carries ≥ 50% of each line's own-contrast removal on all four lines (registered pred_c held); it is live
 and selective on temporal, narrative and modal; on the aspectual line the registered LIVE/null bar failed (that line's own
 set includes 8.1, excluded here). Receipt: `bilinear_quotient/circuits/followups/temporal_axis_v70_result.json`.
+
+## Third family: pronoun features (atlas v68 complete, v71 fresh rows, 01:57 UTC)
+
+The atlas finished at 225/226 scored lines (118 capable, 100 capable-and-live; `readout_atlas_v68_result.json`). Among live
+lines the most recurrent top-4 core is {9.6, 12.4, 15.1} (19 lines), all pronoun gender / number / person decisions; next
+{11.3, 6.3, 7.8} (12) and {11.3, 17.4, 7.8} (11), both number-family variants. Pronoun gender he/she on fresh rows (v71):
+set {10.1, 9.6, 12.4, 15.1} removes 0.96–1.11 of the margin, positive 60/60, null max 0.02, selective, additive (gap at
+the bar), keep-only retention 1.37; the frozen band 0.89 ± 0.15 failed upward on one frame. Scorecard
+`PRONOUN_GENDER_DOD_SCORECARD.md`.
+
+| family | core heads | lines (atlas, live) | fresh-row battery |
+|---|---|---|---|
+| temporal | 9.1, 9.4, 15.5 (+11.3, +8.1 cue reader) | aspectual, temporal, narrative, modal | all four |
+| number | 5.7, 7.8, 9.7 (+11.3) | perfect, lexical, quantifier, coordination + atlas variants | number-within-scope |
+| pronoun | 9.6, 12.4, 15.1 (+10.1 on gender) | 19 pronoun gender/number/person lines | pronoun gender (v71) |
