@@ -16,16 +16,19 @@ complement / particle / preposition selections (`READOUT_ATLAS_TABLE.md`, family
 | 3 | Selective (was−were, who−which, night−day) | edit | fresh (v85) | moves 0.05 / 0.08 / 0.20 vs null 0.05 / 0.07 / 0.05 — night−day moves 4× its null, inside the damage-scaled gate (0.59); stated | passes by the registered gate |
 | 4 | Additive | edit | fresh (v85) | singles 8.8 0.82 / 6.3 0.52 / 13.8 0.44 / 7.8 0.41; gap 0.056 ≤ bar 0.103 | passes |
 | 5 | Keep-only readout at the four heads keeps their service | edit | fresh (v85) | zero 2.42; retention 1.08; random keep ≤ 0.04 | passes |
+| 6 | Matched-count random four-head-set null (16 quadruples from the other 158 heads, each along its own in−of direction) | edit | v85 rows (v87) | set 2.14 (fraction 0.57) vs random max 0.19 (fraction 0.05); none live | passes 4/4 |
+| 7 | Response census of the set removal (exact λ-recurrence split from block 6, closure 9e-6): the set's own attention writes carry only 38% of the linear attribution (attn:13 −0.44, attn:08 −0.25, attn:06 / attn:07 −0.06 each of −2.15); the MLP suffix amplifies (mlp:09 −0.37, mlp:10 −0.28, mlp:15 −0.23, mlp:11 −0.20, mlp:12 −0.17, mlp:08 −0.22; MLP 16/17 counteract +0.15 / +0.18); remainder 0.4% | response | fresh (v88) | registered "direct ≥ 0.80" and "downstream ≤ 0.25 × direct" false | 3/5 — the early heads 6.3 / 7.8 / 8.8 act mostly through MLPs 8–15: a relay, unlike the pronoun sets and unlike the up/down set |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
-| Simple | head grain, weight-only directions | random four-head-set null |
+| Simple | held at head grain (row 6) | — |
 | Predicts OOD | held on a fresh panel with a frozen number (row 2) | natural rows (`dod_natural_line`); a second selection line on the core (verb particle up/down) |
-| Extracted | held at the head boundary (row 5) | response census; source fold |
+| Extracted | held at the head boundary (row 5); downstream of the heads the effect is MLP-relayed (row 7) | MLP response part is a declared port unless a fold closes it; source fold |
 | Selective | held by the gate (row 3), with the night−day move noted | — |
 | Composes | additive (row 4) | — |
 
 ## Receipts
 - atlas v68: `bilinear_quotient/circuits/followups/atlas_adjective_preposition_in_of_v68_result.json`; v54: `.../preposition_selection_dod_reuse_census_v54_result.json`
+- v87: `.../selection_dod_random_set_null_v87_result.json`; v88: `.../selection_dod_response_census_v88_result.json`
 - v85: `.../selection_dod_battery_v85_result.json`; code `ops/run_selection_dod_battery_v85.py` (via `ops/dod_battery.py`)
