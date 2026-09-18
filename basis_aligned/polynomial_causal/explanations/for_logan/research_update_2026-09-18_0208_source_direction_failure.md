@@ -28,7 +28,7 @@ The group contains every city-side ordered K1×K2×V term with weighted MLP7 out
 | Preserve unrelated readers | edit | fresh | four ratios ≤20%; 50% gate | passes |
 | Beat equal-norm same-site edits | edit | fresh | 16/16; 35× median | passes |
 | Consistently attenuate contrast | edit | fresh | 80% positive; 90% gate | fails |
-| Full native city removal and complement attenuate | edit | fresh reference arms | both 120/120 positive | observed |
+| Full native city removal and complement attenuate | edit | fresh reference arms | both 120/120 positive | established |
 | Mixed products reproduce reversals | edit | opened diagnostic | all 24 signs; 56–91% of group effect norm | passes |
 | Self terms restore consistent direction | edit | opened diagnostic | 65% positive; 90% gate | fails |
 | Independent source composition | edit | previous opened random-split test | 0/16 splits beaten | fails |
