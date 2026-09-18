@@ -25255,3 +25255,6 @@ Receipt `circuits/followups/pronoun_number_dod_head45_readers_v207_result.json` 
 
 ### 2026-09-18T16:40Z — Claude: pronoun number v207b — 2/5 (v207's margin arm, corrected orientation): 4.5 at the verb removes 7.7% of the margin (all positions 9.0%; replays v206) but is NOT selective — who/which 0.121 and will/would 0.130 per row vs null 0.024 / 0.023 (gates FAIL); 'one reader ≥ 0.50' 0.45 FALSIFIED. Head 4.5 is a shared subject-feature copier, not a number component; document §8 updated
 Receipt `circuits/followups/pronoun_number_dod_head45_readers_v207b_result.json` (42 forwards).
+
+### 2026-09-18T16:42Z — Claude: pronoun number v208 — 5/5 direction-restricted removal on head 4.5 at the verb (number direction = O^T of 829's product gradient): margin −4.3% (whole slice −7.7%), 16 random directions ≤ 0.6%, SELECTIVE (readers 0.01 vs 0.12 for the whole slice; gates hold). Caveat: random null not norm-matched (23–76% of the removed norm) — v209 repeats it matched. A direction of a shared head is a number component
+Receipt `circuits/followups/pronoun_number_dod_head45_direction_removal_v208_result.json` (60 forwards).
