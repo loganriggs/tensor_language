@@ -1,6 +1,8 @@
 # Requested full reports for Logan
 
-**Latest regional update: [18 September — Filtered Pile transfer](research_update_2026-09-18_0033_pile_transfer.md).** Scoped corpus prediction, unchanged-output precision repair, and document-level reversals.
+**Latest regional update: [18 September — MLP7 reader fold](research_update_2026-09-18_0058_mlp7_readers.md).** Smaller exact reader computation; integrated CPU check passes, native verification pending.
+
+**Previous regional update: [18 September — Filtered Pile transfer](research_update_2026-09-18_0033_pile_transfer.md).** Scoped corpus prediction, unchanged-output precision repair, and document-level reversals.
 
 **Latest regional update: [18 September,00:14 — Fresh one-input full-city removal](research_update_2026-09-18_0014_one_input_removal.md).** All six fresh gates pass. One-input export passes native and isolated replay. Composition remains failed.
 

@@ -1,6 +1,8 @@
 # Latest requested update for Logan
 
-**Latest regional update: [18 September — Filtered Pile transfer](research_update_2026-09-18_0033_pile_transfer.md).** Scoped corpus prediction, unchanged-output precision repair, and document-level reversals.
+**Latest regional update: [18 September — MLP7 reader fold](research_update_2026-09-18_0058_mlp7_readers.md).** Smaller exact reader computation; integrated CPU check passes, native verification pending.
+
+**Previous regional update: [18 September — Filtered Pile transfer](research_update_2026-09-18_0033_pile_transfer.md).** Scoped corpus prediction, unchanged-output precision repair, and document-level reversals.
 
 **18 September, 00:21 UTC (Claude lane) — [Two readout families at the auxiliary slot](research_update_2026-09-18_readout_families.md).** Nine decisions, one recipe: temporal family {9.1, 9.4, 15.5}+11.3, number family {5.7, 7.8, 9.7}+11.3, 8.1 as the token-only cue reader; status by line and limitations.
 
