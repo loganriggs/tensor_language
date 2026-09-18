@@ -25372,3 +25372,6 @@ Receipt `circuits/followups/pronoun_number_dod_head57_unit69_three_way_split_v24
 
 ### 2026-09-18T18:11Z — Claude: pronoun number v245 — 4/5 MLP-5 unit carriers into unit 69 at the verb: 1036 52% (the noun's carrier), 715 30% (new); '≥ 3 of the five in top-10' FALSIFIED. Verb-site chain named at unit grain: attn 4–5 → MLP-5 {1036, 715} → MLP-6 {69, 2483} → 829; document updated
 Receipt `circuits/followups/pronoun_number_dod_mlp5_unit_carriers_into_69_verb_v245_result.json` (3 forwards).
+
+### 2026-09-18T18:13Z — Claude: pronoun number v246 — 3/5 edit of verb-site MLP-5 {1036, 715} at the verb: 829 verb contrast −29% (51× null), margin −1.05%, unit 69 GROWS +122% ('69 drops', 'both shrink' FALSIFIED). Verb-site chain real; second growth paradox → v247 class/factor split
+Receipt `circuits/followups/pronoun_number_dod_verb_mlp5_units_edit_v246_result.json` (54 forwards). The document's "§4.9" reference is to the compensation paragraph in §8; renumbering is deferred to the next pass over the document.
