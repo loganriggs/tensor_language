@@ -16,16 +16,19 @@ runner's docstring said was−were and was corrected after the run).
 | 3 | Selective (will−would, who−which, night−day) | edit | fresh (v119) | moves 0.07 / 0.22 / 0.09 (who−which moves 3× its null, inside the gate 0.56; stated) vs null 0.05 / 0.07 / 0.06 | passes |
 | 4 | Additive | edit | fresh (v119) | singles 14.8 0.51 / 16.8 0.50 / 7.8 0.49 / 8.1 0.42; gap 0.076 vs bar 0.104 | passes |
 | 5 | Keep-only readout at the four heads keeps their service | edit | fresh (v119) | zero 2.02; retention 1.14; random keep ≤ 0.05 | passes |
+| 6 | Matched-count random four-head-set null | edit | fresh rows (v121) | set 1.99 (fraction 0.44) vs random max 0.20 (fraction 0.05); none live | passes 4/4 |
+| 7 | Response census (exact λ-recurrence split from block 7): the set's own writes carry 117% of the linear attribution (attn:14 −0.87, attn:16 −0.69, attn:08 −0.43, attn:07 −0.32 of −1.96); downstream net +0.34 (MLPs 8–10 amplify −0.41, MLPs 15–17 push back +1.03); remainder 1% | response | fresh (v122) | | passes 5/5 — a direct readout with a strong late-MLP counter-response |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
-| Simple | head grain | random four-head-set null |
+| Simple | held at head grain (row 6) | — |
 | Predicts OOD | held on a fresh panel with a frozen number (row 2) | natural rows |
-| Extracted | held at the head boundary (row 5) | response census; source fold |
+| Extracted | held at the head boundary (row 5); direct (row 7) | source fold |
 | Selective | held (row 3) | — |
 | Composes | additive (row 4) | — |
 
 ## Receipts
+- v121: `.../correlative_either_not_dod_random_set_null_v121_result.json`; v122: `.../correlative_either_not_dod_response_census_v122_result.json` (runners emitted by `ops/dod_line.py`)
 - atlas v68: `bilinear_quotient/circuits/followups/atlas_correlative_disjoint_either_not_v68_result.json`
 - v119: `.../correlative_either_not_dod_battery_v119_result.json`; code `ops/run_correlative_either_not_dod_battery_v119.py`

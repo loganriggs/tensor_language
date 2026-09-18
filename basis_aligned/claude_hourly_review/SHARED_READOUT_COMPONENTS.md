@@ -168,3 +168,4 @@ corrected in the docstrings and recorded here). Scorecards `CORRELATIVE_EITHER_N
 | family | core heads | lines (atlas, live) | fresh-row battery |
 |---|---|---|---|
 | correlative | 8.1, 16.8, 14.8, 7.8 | 5 correlative lines | either/not (v119 7/7), both/neither (v120 6/7) |
+v121–v124 (correlatives): both sets beat random quadruples (1.99 vs 0.20; 3.37 vs 0.10) and are direct readouts (117% / 106% — the late MLPs 15–17 push back by +1.0 / +1.4 logits, the strongest counter-response in the collection). First runners emitted by `dod_line.py`. Natural correlative panels mined (either/not full 4 × 16 on both corpora; both/neither lacks both/nor rows: 0 FineWeb, 2 Pile).
