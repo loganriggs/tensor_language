@@ -1,0 +1,202 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "pred_d": true,
+  "pred_e": true,
+  "arms": {
+    "full": {
+      "target_rms": 0.47847581096479713,
+      "target_over_full": 1.0,
+      "control_over_target": [
+        0.07655113464286534,
+        0.06832794514573715,
+        0.0794995153698704,
+        0.07398676315714288
+      ],
+      "positive_fraction": 0.918918918918919,
+      "mean_attenuation": 0.3137395305496239
+    },
+    "one_input": {
+      "target_rms": 0.4836202187123236,
+      "target_over_full": 1.010751656885545,
+      "control_over_target": [
+        0.07694456401399401,
+        0.06817581418904,
+        0.07972905212561711,
+        0.07366762526847666
+      ],
+      "positive_fraction": 0.918918918918919,
+      "mean_attenuation": 0.3167466150163675
+    }
+  },
+  "target_error": 0.012429997885840758,
+  "prediction_error_strata": {
+    "untouched": 0.015347289594874454,
+    "substituted": 0.012281168262913974
+  },
+  "capable_pairs": 111,
+  "target_over_null_median": 38.42263037929657,
+  "nulls_beaten": 16,
+  "null_readout_rms": [
+    [
+      0.01421816455683445,
+      0.007204095922833876,
+      0.006289015638962046,
+      0.00428805228778723,
+      0.007359641597646216
+    ],
+    [
+      0.01092200686142273,
+      0.006528581069966726,
+      0.01204334646311758,
+      0.0029499962927271445,
+      0.011257683244914283
+    ],
+    [
+      0.012950301106785009,
+      0.007679815684725884,
+      0.011440320423126413,
+      0.0033008011436778148,
+      0.010880131857572169
+    ],
+    [
+      0.011007737311159123,
+      0.0063746681975031996,
+      0.007843856883117678,
+      0.003825488273095785,
+      0.009718642724009916
+    ],
+    [
+      0.013138702611037325,
+      0.004647043157422414,
+      0.009104121974203577,
+      0.003532523071223505,
+      0.011705544600131665
+    ],
+    [
+      0.011983486686251444,
+      0.005469568982155264,
+      0.007615962828292531,
+      0.004099907954312414,
+      0.006502954585680028
+    ],
+    [
+      0.010223458287176775,
+      0.008756435501584444,
+      0.007282646951561487,
+      0.0037356334232924986,
+      0.007981631985901303
+    ],
+    [
+      0.01454794269994135,
+      0.00476317114970743,
+      0.009145373446830885,
+      0.002906415859266895,
+      0.008453159881316655
+    ],
+    [
+      0.012611965854526137,
+      0.006640291640753718,
+      0.007976646001824116,
+      0.0034476689014207636,
+      0.007662816140580049
+    ],
+    [
+      0.0110041149730965,
+      0.00542058748519789,
+      0.005757290600033107,
+      0.004450805220740892,
+      0.009698083700449956
+    ],
+    [
+      0.012561751506215245,
+      0.007633503598217613,
+      0.00599674268460858,
+      0.0024522143073939747,
+      0.011003225907414494
+    ],
+    [
+      0.015612369991916914,
+      0.00930659924474717,
+      0.00676199457161392,
+      0.002449602049254943,
+      0.00825874080701146
+    ],
+    [
+      0.009917486608584549,
+      0.0055896260763763864,
+      0.007567211304657615,
+      0.0034935148365649767,
+      0.010109998737103595
+    ],
+    [
+      0.015155652557612358,
+      0.0070001907841595375,
+      0.007023197485153001,
+      0.0029751251077015633,
+      0.009003291287753557
+    ],
+    [
+      0.01198417771408251,
+      0.008964288861854628,
+      0.005646888042613057,
+      0.002845359855046598,
+      0.011867831200271548
+    ],
+    [
+      0.013879069152872457,
+      0.006117109457067734,
+      0.004400080931176136,
+      0.0021152551934465985,
+      0.005862933044713449
+    ]
+  ],
+  "replay_max_abs": 8.58306884765625e-06,
+  "replay_relative": 1.0304009169202105e-06,
+  "max_outside": 0.0,
+  "max_null_norm_error": 5.554611853038923e-09,
+  "body_forwards": 760,
+  "batched_block_calls": 342,
+  "arm_seconds": [
+    10.484731887932867,
+    9.356227665906772,
+    9.731869288953021,
+    8.99595270305872,
+    13.265951914014295,
+    9.746711319778115,
+    10.03219941793941,
+    11.648981081089005,
+    10.065953745041043,
+    11.348957509966567,
+    10.001943720970303,
+    12.634980294853449,
+    11.27112725097686,
+    11.558824900072068,
+    9.724541151197627,
+    11.32839652406983,
+    9.1449090980459,
+    10.3919768598862,
+    8.982999921077862
+  ],
+  "floating_scalars": 23326342,
+  "native_input_arrays": 1,
+  "native_input_scalars_T32": 36864,
+  "seconds": 201.06274353992194,
+  "scope": "Opened CPU single-residual6 generator screen; approximate mixed8 RMS. Full native MLP8/suffix external. No supplied query or RMS. No fresh transfer, standalone certification, independent composition or total compression claim.",
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_RESIDUAL6_SINGLE_INPUT_V1_PREREGISTRATION.md": "1a69684c739c36e06478715558ea10a8bb632b1d533f3efcc84ecf600474bc05",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_RESIDUAL6_SINGLE_INPUT_V1_CPU_RESULT.json": "9601feeec84700483f9693d628ae896ef31fd060e3a57d80fb5da7462fdb481a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_RESIDUAL6_SINGLE_INPUT_V1_WRITES.pt": "3289aa4494372ae27b1a52955365c9f013afab795091820924bf0eaf0cc29743",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_RESIDUAL6_SINGLE_INPUT_V1_READERS.pt": "26c49293a1a844feebaae4536d9d60887eec8b6b5b95f7cacc501b41bd4ff0a7",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_RESIDUAL6_SINGLE_INPUT_V1_HEAD8.pt": "ec4f06f93a9081789ace4ea5a8fd480deb1490df11fc6efd27124152889f3367",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_ATTENTION7_GENERATOR_V1_PROGRAM.pt": "9e693687389e2045ac2eee717c9736b355365a259aa35af8ea2dd3b536b1d105",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_FULL_PILE_V2_ROWS.json": "4eef7d1e5beb55e051f8ee7c61a4af6811b9b9ce3e665c0d049f24cbad76c539",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_FULL_STRENGTH_V1_ARTIFACT.pt": "d1e8c2ef772c3b3456c21e2deb34a32a7e2a2ff32c1fd3b6c2468bd905e910fe",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/check_city_residual6_single_input_cpu_v1.py": "2239b7545d366636b190365c72214b0d5164e12e7dd09c6c72ef2fbe4706bb96",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/city_residual6_single_input_v1.py": "92ca78f1109c4214d9707b2a622c6938aa47229c0bb92f9d078573bad3935561",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/city_attention7_full_v1.py": "35e7d899955ad1a29da2151a31b2c2529b0f0451c55feab98ea79817fe953fa9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/regional_endpoint_batching_v1.py": "fb29a695095198f0eccbcc97b9ae16cfbc6d9e1415379d430556376621cb68ec",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/regional_paired_write_runtime_v4.py": "85439f8b140851f3bd752c236c5c76e2328eaadc4e841db1dbec41929861f35a"
+  }
+}

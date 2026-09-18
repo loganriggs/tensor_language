@@ -1,5 +1,8 @@
 # Requested full reports for Logan
 
+**Latest regional update: [18 September — One residual6 input](research_update_2026-09-18_0143_single_residual6.md).** Opened prediction/selectivity and isolated execution pass; fresh confirmation pending, composition failed, cost increased.
+
+
 **Latest regional update: [18 September — Earlier residual6 boundary](research_update_2026-09-18_0126_residual6_boundary.md).** Standalone and full-model CPU replay pass; native query/RMS dependencies and failed composition remain.
 
 **Previous regional update: [18 September — MLP7 reader fold](research_update_2026-09-18_0058_mlp7_readers.md).** Smaller exact reader computation; integrated CPU check passes, native verification pending.

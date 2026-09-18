@@ -4,10 +4,10 @@
     "explicit_dependency_edges": 4,
     "four_trait_declared_unverified": 0,
     "four_trait_verified": 2,
-    "packages": 45,
-    "partial_or_unassessed": 43,
-    "with_declared_inputs": 29,
-    "with_manifest": 40
+    "packages": 46,
+    "partial_or_unassessed": 44,
+    "with_declared_inputs": 30,
+    "with_manifest": 41
   },
   "dependency_cycles": [],
   "four_trait_order": [
@@ -95,6 +95,46 @@
       "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/city_reader_residual6_v1",
       "schema": "regional.city_reader_residual6.v1",
       "scope": "Earlier residual6-prefix boundary passes isolated and full-model CPU replay. Native queries and mixed8 RMS remain supplied; native MLP8/suffix external. More complete upstream generation, not lower total state/storage or new fresh/composition confirmation.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
+    {
+      "declared_input_count": 4,
+      "declared_input_field": "ports",
+      "declared_inputs": [
+        "residual6[1,T,1152]",
+        "token_ids[1,T]",
+        "city:int",
+        "destination[T]:bool"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": 1,
+      "four_traits": {
+        "composition_reuse": false,
+        "extraction": true,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "ood_prediction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/city_residual6_single_input_v1/manifest.json",
+      "manifest_sha256": "d55b5e3c4e0df6703aa81b7973def3721c3c8df1818c33755791bd628c294d8e",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "city_residual6_single_input_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/city_residual6_single_input_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/city_residual6_single_input_v1",
+      "schema": "regional.city_residual6_single_input.v1",
+      "scope": null,
       "verification": {
         "path": null,
         "status": "not_available",

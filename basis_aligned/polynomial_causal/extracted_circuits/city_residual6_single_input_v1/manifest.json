@@ -1,0 +1,43 @@
+{
+  "schema": "regional.city_residual6_single_input.v1",
+  "name": "city_residual6_single_input_v1",
+  "certified_complete": false,
+  "counterfactual": "Complete head8.2 city-value removal at attention8 destination positions, approximating mixed8 RMS with other-source norm.",
+  "ports": [
+    "residual6[1,T,1152]",
+    "token_ids[1,T]",
+    "city:int",
+    "destination[T]:bool"
+  ],
+  "external_native_activation_inputs": 1,
+  "native_vector_state_arrays": 1,
+  "native_scalar_state_arrays": 0,
+  "native_state_scalars_T32": 36864,
+  "static_float_scalars": 23326342,
+  "weight_bytes": 93305368,
+  "supported_sequence_tokens": 396,
+  "batch_contract": "B=1; CPU float32 inputs; output float64",
+  "external_computation": "Native blocks0\u20136 and full native MLP8/suffix; this program only generates the attention8 edit.",
+  "four_traits": {
+    "ood_prediction": null,
+    "extraction": true,
+    "selective_removal": null,
+    "composition_reuse": false
+  },
+  "evidence": {
+    "local": "../../CITY_RESIDUAL6_SINGLE_INPUT_V1_CPU_RESULT.json",
+    "installed_cpu": "../../CITY_RESIDUAL6_SINGLE_INPUT_CPU_V1_RESULT.json",
+    "isolated_cpu": "../../CITY_RESIDUAL6_SINGLE_INPUT_V1_ISOLATED_RESULT.json"
+  },
+  "files": {
+    "attention7.pt": "9e693687389e2045ac2eee717c9736b355365a259aa35af8ea2dd3b536b1d105",
+    "attention7.py": "35e7d899955ad1a29da2151a31b2c2529b0f0451c55feab98ea79817fe953fa9",
+    "execute.py": "6cc0b5f40113cbc26f66b3d1c3fd5b6dad19d17e4fc4099f70259ee3aac6f7fc",
+    "head8.pt": "ec4f06f93a9081789ace4ea5a8fd480deb1490df11fc6efd27124152889f3367",
+    "readers.pt": "26c49293a1a844feebaae4536d9d60887eec8b6b5b95f7cacc501b41bd4ff0a7",
+    "readers.py": "17140223bfa4935afd5a56e5ad93981ee57381c2d152163cad8a2dfeeda955b8"
+  },
+  "property_scope": "Extraction and selective removal pass on opened CPU data; fresh prediction pending; composition failed. Null trait values do not borrow evidence from older operators.",
+  "opened_selective_removal": true,
+  "serialized_program_bytes": 93318786
+}
