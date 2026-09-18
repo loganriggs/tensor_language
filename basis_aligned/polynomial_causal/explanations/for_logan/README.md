@@ -1,5 +1,7 @@
 # Requested full reports for Logan
 
+[The remaining upstream port is explicit](research_update_2026-09-18_upstream_port_gap.md).
+
 [Folding the trusted coupled value path into one operator](research_update_2026-09-18_coupled_operator.md).
 
 [Fresh V2 reuse of the coupled value path](research_update_2026-09-18_fresh_v2_reuse.md).

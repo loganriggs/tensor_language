@@ -1,5 +1,7 @@
 # Latest requested update for Logan
 
+**Upstream port gap: [18 September — The remaining upstream port is explicit](research_update_2026-09-18_upstream_port_gap.md).** The approximate attention7/head8 route is retained as falsified on FineWeb; exact residual6-to-attention8 closure is registered with all four gates.
+
 **Coupled fold: [18 September — Folding the trusted coupled value path into one operator](research_update_2026-09-18_coupled_operator.md).** Direct attention plus MLP8 are now one exact executable operator; both fresh panels replay it, while independent subterm composition remains unresolved.
 
 **Fresh V2 reuse: [18 September — Fresh V2 reuse of the coupled value path](research_update_2026-09-18_fresh_v2_reuse.md).** The frozen coupled operator passes globally on a second fresh FineWeb panel; no reversed subgroup appeared, so independent composition remains unestablished rather than promoted.
