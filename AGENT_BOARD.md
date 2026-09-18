@@ -25234,3 +25234,6 @@ Review 23's decision executed. Board correction for the v201 entry above: "block
 
 ### 2026-09-18T15:39Z — Claude: pronoun number v202 — 1/4 carrier-level unit census of MLP 1 / MLP 2 into MLP-3 unit 3465: MLP 1 spread (top-10 38%, units 3431 / 602 / 3153 / 904 at 6–9%), MLP-2 unit 2907 OPPOSES at 95% of the block's magnitude; 'top-10 ≥ 0.50', 'top-50 ≥ 0.80', 'largest unit supports' FALSIFIED. MLP 1 declared a port at unit grain; the named chain starts at MLP 3. in_depth_circuit_number.md §8 updated
 Receipt `circuits/followups/pronoun_number_dod_mlp12_unit_carriers_into_3465_v202_result.json` (3 forwards). Number-line depth closed for numbers; the document carries the limit.
+
+### 2026-09-18T15:41Z — Claude: pronoun number v203 — 3/4 MLP-8 unit census at the VERB: the same detectors re-fire — 829 33%, 953 25%, gender unit 3152 12%, top-10 89%; 'Jaccard with the noun top-50 ≥ 1/3' FALSIFIED (tail differs). The verb copy is a re-detection; the noun→verb attention carrier is open. Document §8 updated
+Receipt `circuits/followups/pronoun_number_dod_mlp8_unit_census_verb_v203_result.json` (3 forwards).

@@ -194,7 +194,7 @@ Closed: the readers and their direction (weights only); the MLP-8 detectors as u
 3–6; the computation bottoming out in MLP 1; OOD behaviour of the top three stages, including the counter-case. Open, and declared: the
 MLP-1 computation itself — its unit census is spread (top-10 units carry 38%, none above 9%) and MLP 2 holds one large opposing unit, 2907,
 against many small carriers [v202], so MLP 1 is a port at unit grain and the named chain starts at MLP 3; why edits run 2–4× below carrier shares (the later blocks' nonlinear compensation is the
-candidate, not shown); the verb-position copy of the state (11.8% vs 5.3%) is measured but its carrier is not named; unit 1030's role; and
+candidate, not shown); the verb-position copy of the state (11.8% vs 5.3%) is the same two detectors re-firing at the verb (829 33%, 953 25% of MLP 8's write there [v203]), but the attention writes that carry the plural feature from the noun to the verb are not named; unit 1030's role; and
 the MLP-6 trio's off-noun behaviour. Failed predictions on the way are on the scorecard: 35 of 129 registered readings on this line's receipts were false.
 
 ### Pass over the draft (what I changed after rereading)
