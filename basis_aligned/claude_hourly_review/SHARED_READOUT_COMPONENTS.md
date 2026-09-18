@@ -18,3 +18,8 @@ Common failure pattern: the strict four-way additivity bar (25% of the smallest 
 sets by 3–4% of the joint while all pairwise terms are below gate; the largest pair term is a serial relay term
 (9.1 also writes the state 11.3 reads). Common open ports: the MLP-generated parts of the relay states (diffuse
 writer-pair folds, kill criterion tripped on both lines where tested).
+
+Update 00:03 UTC (v48): on the temporal line, removing 8.1's NP write removes about 32% of the MLP8–10
+part of the state 11.3 reads (the MLPs reinforce 8.1's write on that direction); the rest of the MLP part is not
+attributable to any few writers at this grain. Per the review-4 kill criterion (≥ 40% required) the MLP relay ports
+stay declared on both lines; no further folding of them at head/MLP grain.

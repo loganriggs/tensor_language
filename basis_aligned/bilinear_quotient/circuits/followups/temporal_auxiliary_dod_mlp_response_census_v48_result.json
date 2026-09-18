@@ -1,0 +1,26 @@
+{
+  "candidate_id": "temporal_auxiliary.will_vs_had.dod_mlp_response_census_v48",
+  "closure_max_relative_error": 2.2111996377170512e-07,
+  "direct_8_1_contrast": -254541.353515625,
+  "finished_utc": "2026-09-18T00:02:00.886984+00:00",
+  "forwards": 4,
+  "mlp_response_to_edit": {
+    "8": 122474.99096679688,
+    "9": 107119.390625,
+    "10": 83761.12158203125
+  },
+  "native_mlp_contrast": {
+    "8": -287109.97509765625,
+    "9": -412170.24951171875,
+    "10": -284279.4548339844
+  },
+  "predictions": {
+    "pred_a_direct_term_closure": true,
+    "pred_b_mlp_response_explains_40pct_of_mlp_part": false,
+    "pred_c_mlp_response_opposes_the_direct_term": false
+  },
+  "response_share_of_mlp_part": -0.3185932788045664,
+  "schema": "temporal_auxiliary_dod_mlp_response_census_result_v48",
+  "serial_seconds": 1.6290223589166999,
+  "sign_note": "pred_c passes when the MLP change under the edit has the SAME sign as 8.1's native write contrast, i.e. the MLPs were cancelling part of that write"
+}

@@ -31,6 +31,7 @@ line's authored rows (v27) and is scored here on fresh rows only. **Delta:** fir
 | 16 | Head 8.1 at the NP positions is a token-only adverb reader: replacing its two slices by the cue-only inherited term (native pattern × λ × block-0 value of tomorrow/earlier) keeps 0.83 of its service (1.01 with both branches); `the`/agent/prefix single sources keep 0.00 / 0.00 / -0.04 | edit | opened (v39) | zero two slices 0.78 logits (18%, positive 100%); full recomputation replays native | passes 5/5 — the same head 8.1 as on the aspectual line, same mechanism, different cue token |
 | 17 | Head 8.1's NP-position service is an 8-constant token table (per cue × NP position, constants from the other construction): retention 1.19 (bare constants on report rows), 0.57 (report constants on bare rows), pooled 0.77; native-pattern term 0.83 | edit | cross-construction (v40) | 22 forwards | passes 4/4 — 8.1's port is closed on this line as on the aspectual line |
 | 18 | MLP8/9/10's NP-state writes on 11.3's reader direction expand exactly into writer-pair terms; they are diffuse: top pairs attn:07 x attn:08 0.03, attn:07 x attnhead:08:1 0.03, attn:08 x mlp:08 0.02, mlp:06 x mlp:07 0.02; pairs with head 8.1 as a factor carry 0.13 | fold | opened (v41) | closure 1e-4; the pooled MLP contrast is NEGATIVE on this direction (the MLP part opposes the attention part) | 1/3: kill criterion tripped — the MLP part of the NP state is a declared open port |
+| 19 | Response census of the 8.1 NP edit: on 11.3's reader direction the native MLP8/9/10 contrast has the SAME sign as 8.1's write (they reinforce it, correcting my reading of v41), and removing 8.1's write removes 32% of that MLP part (mlp8 43%, mlp9 26%, mlp10 29%) | response | opened (v48) | direct-term closure 2e-7 | 1/3: below the 40% bar; the sign prediction was mis-specified in code before the run (docstring and code disagreed) and is void — recorded as a design error |
 
 ## Five-property status
 
@@ -38,7 +39,7 @@ line's authored rows (v27) and is scored here on fresh rows only. **Delta:** fir
 |---|---|---|
 | Simple | held at head grain: 4 heads + the will/had contrast; blind sweep (v27) and random-quadruple null (row 8) | — |
 | Predicts OOD | **held**: authored panels (rows 6, 10) and natural rows on FineWeb and the Pile OOD corpus with frozen bars (row 11) | — |
-| Extracted | held at the head boundary with four scalar ports (row 5); 11.3's port is the NP state written by blocks 8–10 (56% causal), whose attention part is heads 8.1/9.1 reading the cue token (rows 12–14); no readout head is a token-only adverb reader (row 15), but the NP-position writer 8.1 is (rows 16, 17): the adverb enters the chain as a token-only value with 8 stored constants; **two declared open ports**: the MLP8–10 part of the NP state (diffuse, row 18) and the block-9 pair's own reads | — (folding stops at this grain) |
+| Extracted | held at the head boundary with four scalar ports (row 5); 11.3's port is the NP state written by blocks 8–10 (56% causal), whose attention part is heads 8.1/9.1 reading the cue token (rows 12–14); no readout head is a token-only adverb reader (row 15), but the NP-position writer 8.1 is (rows 16, 17): the adverb enters the chain as a token-only value with 8 stored constants; **two declared open ports**: the MLP8–10 part of the NP state (diffuse under attribution, row 18; about one third of it is the MLPs' response to 8.1's write, row 19) and the block-9 pair's own reads | — (stopped per the review-4 kill criterion) |
 | Selective | held on fresh rows and three templates (rows 2, 6) | — |
 | Composes | held pairwise and against the random-split null (row 9); the four-way sum overshoots the strict bar by 0.02 (3% of the joint), recorded as a failure (rows 3, 9). Interpretation from rows 14–16: the largest pair term (11.3×9.1, +0.08) is a serial relay term — 9.1 also writes the NP state 11.3 reads — the same kind of term as the aspectual mlp4→attn5 pair | — |
 
@@ -47,6 +48,7 @@ line's authored rows (v27) and is scored here on fresh rows only. **Delta:** fir
 - v28: `.../temporal_auxiliary_dod_removal_v28_result.json`; code `ops/run_temporal_dod_removal_v28.py`
 - v29: `.../temporal_auxiliary_dod_keep_and_templates_v29_result.json`; code `ops/run_temporal_dod_keep_and_templates_v29.py`
 - v30 source fold: `.../temporal_auxiliary_dod_source_fold_v30_result.json`
+- v48 MLP response census: `.../temporal_auxiliary_dod_mlp_response_census_v48_result.json`
 - v41 MLP NP pair fold: `.../temporal_auxiliary_dod_mlp_np_pair_fold_v41_result.json`
 - v40 8.1 constant patterns at NP: `.../temporal_auxiliary_dod_8_1_np_constant_v40_result.json`
 - v39 8.1 token-only at NP: `.../temporal_auxiliary_dod_8_1_np_token_only_v39_result.json`
