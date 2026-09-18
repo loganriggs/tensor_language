@@ -213,3 +213,4 @@ frequent markers of that decision (I/you, either/neither, since/now, he/she); th
 scores and the right sign.
 
 v147 (04:34 UTC): third correlative line, either/neither → or/nor at {14.8, 8.1, 16.8, 5.7}: 6/7 — 54% vs frozen 0.55, positive 96/96, selective by the gate, additive; KEEP-ONLY FAILED (retention 0.53 < 0.70): on this line the readout directions are necessary but not sufficient. The correlative family is three lines deep; the third has an open sufficiency question.
+v148 (either/neither rank-2 keep, 2/3): or−nor alone 0.53 (replay), or−nor + and−nor 0.60, random rank-2 ≤ 0.13; the 0.70 bar failed — the third correlative line is left 'necessary, sufficiency open' (05:35 UTC).

@@ -15,16 +15,18 @@ Readers set explicitly: was−were, who−which, night−day.
 | 3 | Selective (was−were, who−which, night−day) | edit | fresh (v147) | moves 0.42 / 0.61 / 0.26 vs null 0.30 / 0.37 / 0.28 — inside the damage-scaled gates (bar 0.90–0.97) but who−which moves 1.6× its null; stated | passes by the registered gate |
 | 4 | Additive | edit | fresh (v147) | singles 14.8 0.81 / 8.1 0.63 / 16.8 0.49 / 5.7 0.48; gap 0.023 ≤ bar 0.121 | passes |
 | 5 | Keep-only readout at the four heads keeps their service | edit | fresh (v147) | zero 2.68; retention **0.53** (registered ≥ 0.70); random keep ≤ 0.04 | **failed**: the four readout directions carry about half of the heads' or/nor service; the rest of what these heads write matters for or/nor off those directions |
+| 6 | Rank-2 keep (v58b's in-forward `keep_span`): the or−nor readout direction alone retains 0.525 (replay of row 5 within 0.001); or−nor + and−nor per head 0.60; 16 random rank-2 spans ≤ 0.13 | edit | fresh (v148) | registered "rank-2 ≥ 0.70" false | 2/3 — the two correlative directions carry 60% of the heads' or/nor service; the rest is off both; per the registered kill criterion the line is left as "necessary at the head boundary, sufficiency open" |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
 | Simple | head grain | random four-head-set null |
 | Predicts OOD | held on a fresh panel with a frozen number that landed on it (row 2) | natural rows (the miner's either/neither → or/nor panel) |
-| Extracted | necessary at the head boundary (rows 2–4) but not sufficient along the readout directions (row 5) | a rank-2 keep (v58's construction) or a declared port |
+| Extracted | necessary at the head boundary (rows 2–4); rank-1 keep 0.53, rank-2 (with and−nor) 0.60, random rank-2 0.13 (rows 5–6) — sufficiency open, declared | — |
 | Selective | held by the gate with a large who−which move noted (row 3) | — |
 | Composes | additive (row 4) | — |
 
 ## Receipts
+- v148: `.../correlative_either_neither_dod_keep_rank2_v148_result.json`; code `ops/run_correlative_either_neither_dod_keep_rank2_v148.py`
 - atlas v68: `bilinear_quotient/circuits/followups/atlas_correlative_state_v68_result.json`
 - v147: `.../correlative_either_neither_dod_battery_v147_result.json`; code `ops/run_correlative_either_neither_dod_battery_v147.py`

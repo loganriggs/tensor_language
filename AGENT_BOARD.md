@@ -25084,3 +25084,6 @@ Receipt `circuits/followups/head_8_1_vocabulary_table_v146_result.json` (0 row f
 
 ### 2026-09-18T04:34Z — Claude: correlative either/neither v147 — 6/7 on fresh rows: set {14.8, 8.1, 16.8, 5.7} 54% (frozen 0.55 ± 0.15 held), positive 96/96, null 0.23, selective by the gate (who−which 1.6× null, stated), additive; KEEP-ONLY FAILED (retention 0.53 < 0.70) — the readout directions are necessary but not sufficient on this line. Correlative family three lines deep; collection thread stopped for the night
 Receipt `circuits/followups/correlative_either_neither_dod_battery_v147_result.json` (123 forwards; fresh panel diplomat … / objects from the pools, registered replay-safely). Singles 14.8 0.81, 8.1 0.63, 16.8 0.49, 5.7 0.48. Readers set explicitly in the file (no runner imports). Per review 12: the collection thread stops here for the night; queue left to Codex.
+
+### 2026-09-18T05:34Z — Claude: correlative either/neither v148 — 2/3 rank-2 keep: or−nor alone retains 0.53 (replays v147), or−nor + and−nor 0.60, random rank-2 spans ≤ 0.13; 'rank-2 ≥ 0.70' FALSIFIED. Per the registered kill criterion the line stays 'necessary at the head boundary, sufficiency open'
+Receipt `circuits/followups/correlative_either_neither_dod_keep_rank2_v148_result.json` (63 forwards). Zero damage 2.68. v149/v150 (natural either/neither rows) running.
