@@ -1,0 +1,47 @@
+{
+  "candidate_id": "aspectual_anchor.has_vs_had.dod_mlp8_unit13_v252",
+  "closure_max": 2.4679722967497265e-05,
+  "finished_utc": "2026-09-18T18:36:21.380785+00:00",
+  "forwards": 6,
+  "plan": {
+    "bars": {
+      "agree_min": 26,
+      "cos_min": 0.3,
+      "edit_max": 0.03,
+      "ratio_min": 3.0
+    },
+    "candidate_id": "aspectual_anchor.has_vs_had.dod_mlp8_unit13_v252",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 6,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 64,
+    "rows_sha256": "5ec7d32f3f7b6bbc9ebc31de3411074b24a998430f7f929bd11d0813e40dfcd2",
+    "unit": 13
+  },
+  "predictions": {
+    "pred_a_unit13_separates_since_by": true,
+    "pred_b_down_aligns_with_reader": false,
+    "pred_c_unit13_fires_at_final_not_cue": false,
+    "pred_d_edit_of_unit13_small": false
+  },
+  "report": {
+    "cos_down13_reader": 0.09638681379955841,
+    "margin_change_fraction_unit13_zeroed_at_final": -0.003347519615153776,
+    "margin_native_pooled": 132.3116717338562,
+    "pairs": 32,
+    "r_dot_down13": 4.431243896484375,
+    "sign_agreement_final": 32,
+    "u13_final_means": {
+      "by": 1.620110303952699,
+      "since": 33.62228792607914
+    },
+    "u13_since_minus_by_pooled_cue": 382.86025340385527,
+    "u13_since_minus_by_pooled_final": 1024.069683908046
+  },
+  "schema": "aspectual_dod_mlp8_unit13_result_v252",
+  "serial_seconds": 1.7462281459011137
+}

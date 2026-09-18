@@ -348,3 +348,4 @@ v248 (2/5): verb-site MLP-5 units at cue+1 on natural rows — no detectable eff
 v249 (4/4, gender): 12.4 reads the same MLP-8 detectors as 9.6 (3152 53%, 3943 20%). v250: 12.4 on the number line.
 v250 (4/4, number): 12.4 reads 829 / 953 like 9.6. Both contextual readers read one MLP-8 state in both families; they differ only by position and route. Number and gender lines: no open unit-grain item left at the MLP-8 stage.
 v251 (1/4, temporal): no MLP-8 detector at the cue (top-10 16%, Jaccard 0.12 — port); at the final unit 13 leads (16%, stable). Third family kind: a function-word cue, token-carried by 8.1, MLP 8 diffuse. v252 checks unit 13.
+v252 (1/4, temporal): MLP-8 unit 13 = a since-context detector (32/32), but off the has/had path (cos 0.10 with 9.1's reader; edit inert). Temporal MLP-8 port declared. Three families, three MLP-8 pictures: number computed (829/953), gender read-from-token (3152/3943), temporal none.

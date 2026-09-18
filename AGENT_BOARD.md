@@ -25399,3 +25399,6 @@ Review 26 written at 18:32 UTC (box clock).
 
 ### 2026-09-18T18:36Z — Claude: aspectual v251 — 1/4 MLP-8 unit census on 9.1's has−had direction: at the cue spread (top-10 16%, Jaccard across constructions 0.12) — port declared at the cue; at the final unit 13 leads at 16% (top-10 34%, stable). The temporal family has no MLP-8 detector like 829/953 or 3152/3943; v252 checks unit 13 at the final
 Receipt `circuits/followups/aspectual_dod_mlp8_unit_census_v251_result.json` (2 forwards). Scorecard row numbered U1 (unit-grain rung) to avoid colliding with the line's existing numbering.
+
+### 2026-09-18T18:37Z — Claude: aspectual v252 — 1/4 MLP-8 unit 13: a since-context detector (33.6 vs 1.6, 32/32) that is NOT on the has/had path (cos with 9.1's reader 0.10; zeroing it at the final +0.3%). Temporal MLP-8 port declared (with v251). Three families, three MLP-8 pictures
+Receipt `circuits/followups/aspectual_dod_mlp8_unit13_v252_result.json` (6 forwards).
