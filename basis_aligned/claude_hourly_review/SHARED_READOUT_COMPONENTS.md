@@ -44,3 +44,13 @@ Two readout families at the auxiliary slot: a **temporal family** {9.1, 9.4, 15.
 (on/of) uses neither family ({6.3, 13.8, 7.8, 8.8}; 7.8 recurs as a generic helper). For number lines the
 was−were reader is related, so the gate that fails there is not a selectivity failure; a number-appropriate
 unrelated reader (e.g. has−had) is needed for a proper battery on that family.
+
+## Readout-direction geometry at the shared heads (v69, weights only, 00:53 UTC)
+
+Per head, cosines between `O_h^T(u_a − u_b)` for the contrasts has−had, will−had, is−was, will−would (temporal) and
+were−was (number). At the temporal family heads the four temporal contrasts share one axis (mean |cos| 9.1 0.48, 9.4 0.65,
+15.5 0.64; has−had vs is−was 0.72 / 0.84 / 0.84) and the number contrast is orthogonal to it (max |cos| ≤ 0.21).
+Head 11.3 carries both: temporal mean 0.56 and number-vs-temporal 0.54 (with has−had, −0.54). The number heads 7.8 and
+9.7 also mix the two (0.57, 0.41); 5.7 does not (0.16). So the two families are two weight-level axes in the late heads'
+output projections: a "temporal" axis shared by four decisions and a "number" axis, entangled only at 11.3 / 7.8 / 9.7.
+Receipt: `bilinear_quotient/circuits/followups/readout_geometry_v69_result.json`.

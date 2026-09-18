@@ -22,6 +22,11 @@ third of that part is the MLPs' response to 8.1's write).
 **Metrics.** As in the aspectual report (damage, fraction of the native margin, norm-matched null max, retention);
 fresh = rows unused by any selection step of that line; opened = the line's authored rows the sweep selected on.
 
+**Weight-level geometry (v69, fold, 0 forwards).** At the temporal family heads the four temporal contrasts
+(has−had, will−had, is−was, will−would) share one output axis (mean |cos| 0.48–0.65; has−had vs is−was up to
+0.84) and the number contrast were−was is orthogonal to it (|cos| ≤ 0.21); head 11.3 carries both axes (0.56 / 0.54).
+The two families are two axes in the late heads' output projections, entangled only at 11.3, 7.8 and 9.7.
+
 ## Status by line (five properties, head grain)
 
 | line | Simple | Predicts OOD | Extracted | Selective | Composes |
@@ -29,8 +34,8 @@ fresh = rows unused by any selection step of that line; opened = the line's auth
 | aspectual has/had | held | held (authored, FineWeb, Pile) | head boundary; 8.1 closed; 2 ports | held | held (5-way + random-split null) |
 | temporal will/had | held | held (authored, FineWeb, Pile) | head boundary; 8.1 closed at the NP; 2 ports | held | pairwise held; strict 4-way fails 3% |
 | narrative was/is | held | held (authored) | head boundary; ports open | held | pairwise held; strict 4-way fails 4% |
-| modal would/will | sweep only | — | — | held on opened rows | — |
-| number lines (4) | sweep only | — | — | gate needs a number-appropriate reader | — |
+| modal would/will | held | held (fresh panel, frozen number, 2 new frames) | head boundary | held | additive |
+| number family (lexical rows) | held | held within scope (non-adjacent subject); adjacent-subject number is MLP-borne | held for the pair {11.3, 7.8}; 5.7 an open port | held with the orthogonalized weight-only direction | additive |
 
 ## Limitations
 - Family membership for the modal and number lines rests on the line's authored rows (opened); the temporal and
