@@ -16,13 +16,14 @@
   "four_properties": {
     "ood_prediction": "fresh mediator screen passes at declared boundary",
     "extraction": true,
-    "selective_manipulation": "fresh direction passes; fresh same-boundary null pending",
+    "selective_manipulation": "fresh direction and same-boundary null pass; one native directional reversal remains",
     "composition_reuse": false
   },
   "evidence": {
     "fold": "../../CITY_MLP8_NORM_CLOSED_FRESH_V1_CPU_RESULT.json",
     "isolated": "../../CITY_MLP8_NORM_CLOSED_FRESH_V1_ISOLATED_RESULT.json",
-    "fresh_screen": "../../CITY_MLP8_NORM_CLOSED_FRESH_V1_RESULT.json"
+    "fresh_screen": "../../CITY_MLP8_NORM_CLOSED_FRESH_V1_RESULT.json",
+    "fresh_null": "../../CITY_MLP8_NORM_CLOSED_FRESH_V1_NULL_RESULT.json"
   },
   "files": {
     "execute.py": "74351c056d16c9229198482d85c8a502dd97d65fc2fc9dc16e6ce439bd212241",
