@@ -21,9 +21,14 @@ element, and mostly through the token's own block-0 value (16.8 99% / 98%, 14.8 
 set is a token reader, the purest in the collection. Ten of ten registered readings held. The open port is the attention pattern, and
 the next step is the token-only generator with constant patterns for all four heads.
 
+**Closed to tokens (v131 / v132, edit).** Replacing all four heads' writes by the token-only term keeps 84% / 96% of their service
+with the native pattern and 88% / 104% with a constant pattern per head and cue taken from the other constructions (0.70–1.17 per
+held-out construction). The registered pattern-stability bar (variation ≤ 35% within a cue) failed on both lines (48%, 36%) and is
+kept; the lookup transfers anyway. Both lines are closed at head grain.
+
 **Readers caveat.** Both batteries ran with will−would / who−which / night−day rather than the documented was−were, because importing
 another runner for its word list set the readers at import time; found after the runs, corrected in the docstrings, recorded on the
 board, and turned into a rule (readers explicit; word pools from `dod_lexicon`).
 
-**Scope.** Two behaviours, one fresh panel each, natural on both corpora, head grain. Not yet: the token-only generator, the three remaining correlative lines. Scorecards `basis_aligned/claude_hourly_review/CORRELATIVE_EITHER_NOT_DOD_SCORECARD.md`,
+**Scope.** Two behaviours, one fresh panel each, natural on both corpora, head grain. Not yet: the three remaining correlative lines. Scorecards `basis_aligned/claude_hourly_review/CORRELATIVE_EITHER_NOT_DOD_SCORECARD.md`,
 `CORRELATIVE_BOTH_NEITHER_DOD_SCORECARD.md`; receipts under `basis_aligned/bilinear_quotient/circuits/followups/correlative_*`.

@@ -21,17 +21,19 @@ runner's docstring said was−were and was corrected after the run).
 | 8 | Natural FineWeb rows (both / neither within 12 tokens, next token and / nor; no both/nor rows exist in 20000 docs): congruent removal 3.43 of 7.95 (43%), positive 31/32, null 0.11, selective; per cell neither/nor 6.23 of 4.80 (130% — removal flips the decision), both/and 0.63 of 11.10 (6% — 'and' is the default continuation); the 16 neither/and counter-cases shift toward the text (−1.14) | edit | natural (v127) | v20 bars held | passes 6/6 |
 | 9 | Pile rows: congruent 3.04 of 7.18 (42%), positive 30/32, null 0.07, selective; neither/nor 5.59 of 4.24, both/and 0.48 of 10.12; counter-cases −0.58 (n = 18) | edit | natural OOD (v128) | | passes 6/6 |
 | 10 | Source fold (exact, closure ≤ 3e-5): every head reads the cue token — 14.8 0.99 (96% token-only), 16.8 1.00 (98%), 8.1 0.99 (85%), 7.8 0.92 (59%); pooled 0.99 from the cue, 0.91 token-only | fold | fresh (v130) | all five registered readings held (8.1 token-only; cue largest for every head; pooled token-only ≥ 0.50) | 5/5 — the purest token-reader family so far: all four heads copy the correlative's first element; the open port is their attention pattern |
+| 11 | Token-only generator for all four heads: p × λ × v1(cue) with the native pattern retains 96% of the zeroed service; a constant pattern per (head, cue) from the other two constructions 104% pooled (accept 1.05 / bought 0.90 / chose 1.17) | edit | fresh (v132) | registered "pattern CV ≤ 0.35 in every (head, construction, cue)" false (max 0.36) — the constants still transfer at ≥ 0.70 in every held-out construction | 4/5 — the set closes to a two-entry lookup on the cue token with constant attention weights; the patterns vary more than on the person line but the lookup holds |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
 | Simple | held at head grain (row 6) | — |
 | Predicts OOD | held on fresh, natural FineWeb and Pile rows (rows 2, 8, 9): the neither/nor half carries the whole natural decision, both/and little | — |
-| Extracted | held at the head boundary (row 5); direct (row 7); all four heads are token readers of the cue (row 10) | token-only generator with constant patterns (v131) |
+| Extracted | held at the head boundary (row 5); direct (row 7); all four heads close to a token-only generator with constant patterns (rows 10–11) | — closed at head grain |
 | Selective | held (row 3) | — |
 | Composes | failed the strict bar (row 4) | pairwise terms |
 
 ## Receipts
+- v132: `.../correlative_either_not_dod_token_only_generator_v132_result.json`; code `ops/run_correlative_either_not_dod_token_only_generator_v132.py` (v113's body)
 - v130: `.../correlative_either_not_dod_source_fold_v130_result.json`; code `ops/run_correlative_either_not_dod_source_fold_v130.py`
 - v127 / v128: `.../correlative_both_neither_dod_natural_v127_result.json`, `.../correlative_both_neither_dod_pile_v128_result.json`; rows `correlative_both_neither_dod_{natural,pile}_rows_v12{7,8}.json`
 - v123: `.../correlative_either_not_dod_random_set_null_v123_result.json`; v124: `.../correlative_either_not_dod_response_census_v124_result.json` (runners emitted by `ops/dod_line.py`)
