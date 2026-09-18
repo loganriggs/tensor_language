@@ -340,4 +340,14 @@ reconstruction is rejected on the same grounds as any other reconstruction claim
 | `dod_reuse_census.py` | one line spec → blind 162-head readout sweep + top-4 set with nulls/readers + family overlap (price per 32-row batch). Thin runners: `run_*_dod_reuse_census_v49b..v54`, `v63`. |
 | `dod_battery.py` | one `LineSpec` → the fresh-row set battery (instrument, capability, set + 16 nulls + 3 readers, singles/additivity, zero/keep-only/16 random keeps, optional frozen band). Written 00:49 UTC 18 Sep after four near-identical runners. |
 
+| `dod_natural_line.py` | one set + a mined rows receipt → the natural-row removal panel (congruent / counter-case cells, 16 nulls, readers; v20 bars). |
+| `dod_natural_miner.py` | generic outcome-blind miner: cue-token map + label-token map + source (FineWeb / Pile) → rows receipt; line configs `pronoun_gender_dod_natural_rows.py`, `pronoun_number_…`, `perfect_number_…`, `lexical_number_…`, `selection_…`, `person_…`, `correlative_…`. |
+| `dod_folds.py` | exact writer fold (λ-recurrence into embedding / heads / biases / MLPs at a position, projected on a reader direction) — the v82 / v103 / v118 body. |
+| `dod_line.py` | emits the standard follow-up runners for a line from its battery module: random-set null, response census, natural FineWeb / Pile (`--only-natural`). |
+| `dod_lexicon.py` | freshness registry: `used_words(exclude=)`, `fresh(candidates, n, plural=, exclude=)`, every panel this lane used, and the screened `AGENT_POOL` / `OBJECT_POOL`. Runners register their own panel after the run and pass it as `exclude` so replay is stable. |
+| `atlas_summary.py`, `collection_registry.py` | atlas table with the family column (`READOUT_ATLAS_TABLE.md`); machine-readable collection from receipts (`READOUT_COLLECTION.json`, `--md` table). |
+| `run_readout_atlas_v68.py` | the 226-line blind readout atlas (per-line receipts `atlas_*_v68_result.json`; `ATLAS_START` / `ATLAS_END` batching). |
+
+Runner conventions learned the hard way (18 Sep): the queue gate reads prediction keys from a literal `PREDICTIONS = {...}` dict in the runner file; module-level `L.READERS` overrides leak through imports (set readers explicitly, take word pools from `dod_lexicon`, never import another runner for its lists); a battery runner's own fresh panel is registered in `dod_lexicon.PANELS` after the run with `exclude=` so its replay keeps the same words.
+
 Lessons recorded in the scorecards (five so far: `basis_aligned/claude_hourly_review/*_DOD_SCORECARD.md`): whole-write zeroing conflates norm with direction (run the equal-norm random null); random coordinate pieces of a cue-defined delta are individually "selective"; a price bar must count capture forwards (v11).
