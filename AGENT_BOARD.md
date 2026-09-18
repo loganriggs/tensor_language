@@ -25312,3 +25312,6 @@ Receipt `circuits/followups/pronoun_number_dod_unit_edit_response_census_v224_re
 
 ### 2026-09-18T17:38Z — Claude: pronoun number v225 — 4/4 the carrier-vs-edit gap is exact arithmetic: in-place joint leave-out D from the native trace 0.060 (rms held) / 0.0635 (recomputed) vs v195's edit 0.060; first-order carrier 0.224; cross terms explain 99.8% of the gap. Document limit closed; convention: quote D next to every carrier share
 Receipt `circuits/followups/pronoun_number_dod_joint_leave_out_v225_result.json` (3 forwards).
+
+### 2026-09-18T17:40Z — Claude: pronoun number v226 — 0/4 the in-place leave-out at the MLP-6 → MLP-8 stage: D 0.28 (rms held) / 0.15 (recomputed) vs v196's edit 0.063; first-order 0.094. v225's arithmetic closure is adjacent-stage only; blocks 7–8 respond to the MLP-6 removal (real compensation, located). Document limit re-opened as half closed; conventions memory corrected
+Receipt `circuits/followups/pronoun_number_dod_joint_leave_out_mlp6_v226_result.json` (3 forwards).
