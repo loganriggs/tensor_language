@@ -1,5 +1,7 @@
 # Requested full reports for Logan
 
+[Fresh confirmation of the norm-closed MLP8 value mediator](research_update_2026-09-18_fresh_norm_closed.md).
+
 [Session synthesis: from source attribution to a coupled, executable value path](research_update_2026-09-18_session_story.md).
 
 [Fresh-confirmed extracted value mediator](research_update_2026-09-18_0326_extracted_mediator.md).

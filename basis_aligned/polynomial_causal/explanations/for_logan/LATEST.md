@@ -1,5 +1,7 @@
 # Latest requested update for Logan
 
+**Fresh norm-closed confirmation: [18 September — Fresh confirmation of the norm-closed MLP8 value mediator](research_update_2026-09-18_fresh_norm_closed.md).** New 20-document FineWeb panel; generated RMS and value errors below 4e-8; fresh mediator screen passes with native ports and composition limits retained.
+
 **Requested 18 September: [One circuit, input to logit — the reflexive-person component](in_depth_circuit.md).** Diagram, equations, worked example, code, receipts; what is closed (three heads → a token lookup with constant attention) and what is not (head 10.5, the other 58%).
 
 **Session synthesis: [18 September — From source attribution to a coupled, executable value path](research_update_2026-09-18_session_story.md).** Full connected account since session start, with the communication-guide pass, path diagram, evidence tags, fresh/opened/replay scope, four-property accounting, failures, and next work.

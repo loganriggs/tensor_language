@@ -1,0 +1,31 @@
+{
+  "schema": "regional.city_mlp8_norm_closed.fresh.v1",
+  "name": "city_mlp8_norm_closed_fresh_v1",
+  "certified_complete": false,
+  "ports": [
+    "z8[1,T,1152] native unnormalized MLP8 input",
+    "delta[1,T,1152] upstream intervention",
+    "token_ids[1,T]"
+  ],
+  "static_float_scalars": 16518531,
+  "weight_bytes": 66074124,
+  "token_id_bytes": 3088,
+  "supported_sequence_tokens": 386,
+  "derived_cache_bytes": 4718592,
+  "external_computation": "Native z8 and upstream delta generation, full later suffix; not token-only.",
+  "four_properties": {
+    "ood_prediction": "fresh mediator screen passes at declared boundary",
+    "extraction": true,
+    "selective_manipulation": "fresh direction passes; fresh same-boundary null pending",
+    "composition_reuse": false
+  },
+  "evidence": {
+    "fold": "../../CITY_MLP8_NORM_CLOSED_FRESH_V1_CPU_RESULT.json",
+    "isolated": "../../CITY_MLP8_NORM_CLOSED_FRESH_V1_ISOLATED_RESULT.json",
+    "fresh_screen": "../../CITY_MLP8_NORM_CLOSED_FRESH_V1_RESULT.json"
+  },
+  "files": {
+    "execute.py": "74351c056d16c9229198482d85c8a502dd97d65fc2fc9dc16e6ce439bd212241",
+    "program.pt": "bf354f889a49c63be42efcbe56986c1f39f56dc88767091257a8377f8f74c3e1"
+  }
+}
