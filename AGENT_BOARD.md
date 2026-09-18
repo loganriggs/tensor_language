@@ -25429,3 +25429,6 @@ Receipt `circuits/followups/correlative_both_neither_dod_mlp8_unit_census_v260_r
 
 ### 2026-09-18T18:59Z — Claude: selection v261b — 1/4 MLP-8 census on 13.8's direction (adjective cue): spread at both positions (top-10 29% / 8%, unstable) — PORT; the content-word pattern does not extend to adjectives. correlative v262 — 3/4 unit 1512 = neither-context detector at the final (48/48; 17× the cue), edit −1.8% at the final / −2.5% all (random ≤ 0.01%), cos with 16.8 0.11 (FALSIFIED ≥ 0.30). Seven families in the MLP-8 table
 Receipts `selection_dod_mlp8_unit_census_v261b_result.json` (3 forwards) and `correlative_both_neither_dod_mlp8_unit1512_v262_result.json` (60 forwards).
+
+### 2026-09-18T19:00Z — Claude: correlative both/neither v263 — carrier split of unit 1512 at the final: head 8.1 63%, attn:07 29%, MLPs −13%, embedding 0 (the three registered-to-fail readings failed as expected). The neither-context detector is token-carried at the query position via 8.1's cue copy. Seven-family MLP-8 table updated
+Receipt `circuits/followups/correlative_both_neither_dod_unit1512_final_carrier_split_v263_result.json` (3 forwards).
