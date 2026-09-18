@@ -25420,3 +25420,6 @@ Receipt `circuits/followups/noun_number_numeral_dod_mlp8_unit_census_v257_result
 
 ### 2026-09-18T18:48Z — Claude: noun-number numeral v258 — 4/5 units 2428 (cue) and 3892 (final) under edit: 2428 a three-detector (48/48, cos −0.23) whose zeroing RAISES the margin 0.3% ('removes > 0' FALSIFIED); 3892 at the final +0.1% (beats random). The numeral line's MLP-8 stage is near-inert; family thread stopped
 Receipt `circuits/followups/noun_number_numeral_dod_mlp8_units_2428_3892_v258_result.json` (108 forwards).
+
+### 2026-09-18T18:49Z — Claude: person v259 — 1/4 MLP-8 census on 10.5's myself−yourself direction: spread at the pronoun (top-10 26%, frame Jaccard 0.09), 41% at the final but frame-unstable; port declared. Function-word cues (person, temporal) have no MLP-8 detector; content-word features do. Table and in_depth_circuit.md §4.7 updated
+Receipt `circuits/followups/person_reflexive_dod_mlp8_unit_census_10_5_v259_result.json` (3 forwards).

@@ -158,11 +158,13 @@ YOU, ye, YOUR, yours`: head 8.1's block-0 copy, read along this contrast, *is* a
 (The same head serves since/by, tomorrow/earlier, either/not, both/neither and king/queen along other directions; that is where its
 lookups are not fully contrast-specific, v133.)
 
-### 4.7 The open member: head 10.5 [v118]
+### 4.7 The open member: head 10.5 [v118, v259]
 
 10.5 takes half its contrast from the pronoun position but only 29% through the token branch; the state it reads *at the pronoun*
 decomposes exactly (closure $2\times10^{-7}$) into MLPs 45% (largest MLP 9 at 13%, MLP 6 at 11%), heads 30% (6.1 at 8%, 8.1 at 6%),
 embedding 25%. No single writer to fold further; declared a port. It is 21% of the joint effect (0.48 of 2.27).
+
+At MLP-8 unit grain 10.5's input is a port: MLP 8's write on its reader direction at the pronoun is spread over hundreds of units, mixed in sign and frame-specific (top-10 units 26%, frame overlap 0.09 [v259]) — unlike the pronoun-gender and number lines, where the same census names two units. Function-word cues are carried by token copies, not by MLP-8 detectors.
 
 ### 4.8 Downstream: what happens to the write [v107]
 
