@@ -163,8 +163,8 @@ MLP-6 trio's all-positions edit flips sign (−0.16%): those units do other work
 "The **traders** lost the coin and so": at position 1, unit 829 of MLP 8 is around $+600$ on plural agent nouns and near zero on their
 singulars (the vocabulary pairs above), so MLP 8 writes $\approx 600\,\text{Down}_{:,829}$, whose cosine with 9.6's reader direction is
 $+0.63$; on "The **trader**" 829 is silent and 953 fires instead, writing along $-r$. Head 9.6 at the final token reads a mixture of that
-state at the noun (48% of its coefficient), its copy at the verb and connective (51%), and 1% from the token-only branch; its slice
-projected on $\hat v_{9.6}$ contributes 0.66 of the 2.05-logit margin, and the four heads together 1.55. Zero the two detectors at the noun
+state at the noun (48% of its coefficient) and its copy at the verb and connective (51%), with 5.5% of the total from the token-only branch; its slice
+projected on $\hat v_{9.6}$ contributes 0.66 of the 2.05-logit margin, and the four heads together 1.55. Zero the three MLP-8 units at the noun
 and the margin loses 0.11 logits; zero them everywhere and it loses 0.24; zero sixteen random triples and it moves by a thousandth.
 
 ## 7. Reproducing it
@@ -192,9 +192,10 @@ every one is enqueued through `ops/enqueue.sh` and writes the receipt named in b
 
 Closed: the readers and their direction (weights only); the MLP-8 detectors as units with a vocabulary-level meaning; named carriers at MLPs
 3–6; the computation bottoming out in MLP 1; OOD behaviour of the top three stages, including the counter-case. Open, and declared: the
-MLP-1 and MLP-2 units themselves (not censused); why edits run 2–4× below carrier shares (the later blocks' nonlinear compensation is the
+MLP-1 computation itself — its unit census is spread (top-10 units carry 38%, none above 9%) and MLP 2 holds one large opposing unit, 2907,
+against many small carriers [v202], so MLP 1 is a port at unit grain and the named chain starts at MLP 3; why edits run 2–4× below carrier shares (the later blocks' nonlinear compensation is the
 candidate, not shown); the verb-position copy of the state (11.8% vs 5.3%) is measured but its carrier is not named; unit 1030's role; and
-the MLP-6 trio's off-noun behaviour. Failed predictions on the way are on the scorecard: 38 of 107 registered readings on this line were false.
+the MLP-6 trio's off-noun behaviour. Failed predictions on the way are on the scorecard: 35 of 129 registered readings on this line's receipts were false.
 
 ### Pass over the draft (what I changed after rereading)
 

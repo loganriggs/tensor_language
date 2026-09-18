@@ -25231,3 +25231,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp3_unit_carrier_split_v201_resu
 
 ### 2026-09-18T15:37Z — Claude: for_logan/in_depth_circuit_number.md — the pronoun-number component token → logit (diagram, product / carrier math, named units MLP 3–8, edit calibration table, natural-text ladder, worked example, code, limits, pass-over). Scorecard row 37 corrected: head 3.5 carries 0.115 into unit 493 (the prediction failed legitimately, not as a check artefact)
 Review 23's decision executed. Board correction for the v201 entry above: "block-3 heads ≤ 0.10" failed because head 3.5 carries 0.115 into 493, not because of the check.
+
+### 2026-09-18T15:39Z — Claude: pronoun number v202 — 1/4 carrier-level unit census of MLP 1 / MLP 2 into MLP-3 unit 3465: MLP 1 spread (top-10 38%, units 3431 / 602 / 3153 / 904 at 6–9%), MLP-2 unit 2907 OPPOSES at 95% of the block's magnitude; 'top-10 ≥ 0.50', 'top-50 ≥ 0.80', 'largest unit supports' FALSIFIED. MLP 1 declared a port at unit grain; the named chain starts at MLP 3. in_depth_circuit_number.md §8 updated
+Receipt `circuits/followups/pronoun_number_dod_mlp12_unit_carriers_into_3465_v202_result.json` (3 forwards). Number-line depth closed for numbers; the document carries the limit.

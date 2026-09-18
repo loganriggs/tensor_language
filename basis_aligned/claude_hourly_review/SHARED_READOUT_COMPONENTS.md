@@ -297,3 +297,4 @@ v198 (4/5): on natural text 829 is plural-only (59% of the trio), 953 singular-o
 v199 (5/5, MLP-6 trio on natural rows): 0.8% at the cue, 40× null, selective, counter-case holds, plural-specific; all-positions edit flips sign (declared limit). v200: MLP-5 five on natural rows.
 v200 (4/5, MLP-5 five on natural rows): 0.498% vs 0.5% bar (LIVE fails as written), 59× null, selective, plural-specific. Out-of-panel ladder complete to MLP 5: 3.3% → 0.8% → 0.5%.
 v201 (2/4, carrier split of MLP-3 units 3465 / 493): MLP 1 carries 41–62%, embedding 5–6%. The number chain bottoms out in MLP 1 — the plural feature is computed by the first MLP and relayed by MLPs 2–8. Number-line depth is complete for numbers; write-up next.
+v202 (1/4, MLP 1/2 unit carriers into 3465): MLP 1 diffuse (top-10 38%), MLP-2 unit 2907 opposes at 95% of the block's magnitude. MLP 1 = port at unit grain; number chain named from MLP 3 up. Number-line depth closed for numbers.
