@@ -1,5 +1,7 @@
 # Latest requested update for Logan
 
+**Requested 18 September: [One circuit, input to logit — the reflexive-person component](in_depth_circuit.md).** Diagram, equations, worked example, code, receipts; what is closed (three heads → a token lookup with constant attention) and what is not (head 10.5, the other 58%).
+
 **Session synthesis: [18 September — From source attribution to a coupled, executable value path](research_update_2026-09-18_session_story.md).** Full connected account since session start, with the communication-guide pass, path diagram, evidence tags, fresh/opened/replay scope, four-property accounting, failures, and next work.
 
 **Claude circuit-lane synthesis: [18 September, end of night — What the readout collection says](research_update_2026-09-18_readout_collection_synthesis.md).** Six families, thirteen lines, three kinds of readout set, three falsified regularities, one declared limit.
