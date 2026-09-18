@@ -116,17 +116,15 @@
       "four_traits": {
         "composition_reuse": false,
         "extraction": true,
-        "ood_prediction": null,
-        "selective_removal": null
+        "ood_prediction": true,
+        "selective_removal": true
       },
       "gaps": [
-        "ood_prediction",
-        "selective_removal",
         "composition_reuse"
       ],
       "learned_parameters": null,
       "manifest": "basis_aligned/polynomial_causal/extracted_circuits/city_residual6_single_input_v1/manifest.json",
-      "manifest_sha256": "d55b5e3c4e0df6703aa81b7973def3721c3c8df1818c33755791bd628c294d8e",
+      "manifest_sha256": "eda0e2b8b996441016801c107f3085b342e740a847ac3c2773e993e5d8fcf02d",
       "maturity": "partial_or_unassessed",
       "node_count": null,
       "nodes": [],

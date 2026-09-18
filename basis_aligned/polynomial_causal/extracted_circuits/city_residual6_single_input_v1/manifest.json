@@ -19,15 +19,17 @@
   "batch_contract": "B=1; CPU float32 inputs; output float64",
   "external_computation": "Native blocks0\u20136 and full native MLP8/suffix; this program only generates the attention8 edit.",
   "four_traits": {
-    "ood_prediction": null,
+    "ood_prediction": true,
     "extraction": true,
-    "selective_removal": null,
+    "selective_removal": true,
     "composition_reuse": false
   },
   "evidence": {
     "local": "../../CITY_RESIDUAL6_SINGLE_INPUT_V1_CPU_RESULT.json",
     "installed_cpu": "../../CITY_RESIDUAL6_SINGLE_INPUT_CPU_V1_RESULT.json",
-    "isolated_cpu": "../../CITY_RESIDUAL6_SINGLE_INPUT_V1_ISOLATED_RESULT.json"
+    "isolated_cpu": "../../CITY_RESIDUAL6_SINGLE_INPUT_V1_ISOLATED_RESULT.json",
+    "fresh_cpu": "../../CITY_RESIDUAL6_SINGLE_INPUT_FRESH_V1_RESULT.json",
+    "fresh_isolated_cpu": "../../CITY_RESIDUAL6_SINGLE_INPUT_FRESH_V1_ISOLATED_RESULT.json"
   },
   "files": {
     "attention7.pt": "9e693687389e2045ac2eee717c9736b355365a259aa35af8ea2dd3b536b1d105",
@@ -37,7 +39,13 @@
     "readers.pt": "26c49293a1a844feebaae4536d9d60887eec8b6b5b95f7cacc501b41bd4ff0a7",
     "readers.py": "17140223bfa4935afd5a56e5ad93981ee57381c2d152163cad8a2dfeeda955b8"
   },
-  "property_scope": "Extraction and selective removal pass on opened CPU data; fresh prediction pending; composition failed. Null trait values do not borrow evidence from older operators.",
+  "property_scope": "Fresh same-corpus document prediction and selective removal pass with declared weight-derived token-table extension; native residual6 and full suffix external. Not token-only or domain-general OOD. Independent composition failed.",
   "opened_selective_removal": true,
-  "serialized_program_bytes": 93318786
+  "serialized_program_bytes": 93318786,
+  "fresh_table_variant": {
+    "attention7_program": "../../CITY_RESIDUAL6_SINGLE_INPUT_FRESH_V1_ATTENTION7.pt",
+    "token_count": 386,
+    "float_scalars": 23303302,
+    "change": "Only checkpoint-derived token tables/IDs; non-table weights and executable unchanged."
+  }
 }

@@ -27,6 +27,16 @@ def main():
     manifest['property_scope']='Extraction and selective removal pass on opened CPU data; fresh prediction pending; composition failed. Null trait values do not borrow evidence from older operators.'
     manifest['opened_selective_removal']=all(installed['pred_'+k] for k in 'abcde')
     manifest['serialized_program_bytes']=sum(f.stat().st_size for f in target.glob('*.pt'))
+    fresh_path=P/'CITY_RESIDUAL6_SINGLE_INPUT_FRESH_V1_RESULT.json'
+    if fresh_path.exists():
+        fresh=json.loads(fresh_path.read_text())
+        isolated_fresh=json.loads((P/'CITY_RESIDUAL6_SINGLE_INPUT_FRESH_V1_ISOLATED_RESULT.json').read_text())
+        manifest['four_traits']['ood_prediction']=fresh['pred_a'] and fresh['pred_b']
+        manifest['four_traits']['selective_removal']=all(fresh['pred_'+k] for k in 'acde')
+        manifest['evidence']['fresh_cpu']='../../CITY_RESIDUAL6_SINGLE_INPUT_FRESH_V1_RESULT.json'
+        manifest['evidence']['fresh_isolated_cpu']='../../CITY_RESIDUAL6_SINGLE_INPUT_FRESH_V1_ISOLATED_RESULT.json'
+        manifest['fresh_table_variant']={'attention7_program':'../../CITY_RESIDUAL6_SINGLE_INPUT_FRESH_V1_ATTENTION7.pt','token_count':386,'float_scalars':fresh['floating_scalars'],'isolated_passes':isolated_fresh['passes'],'change':'Only checkpoint-derived token tables/IDs; non-table weights and executable unchanged.'}
+        manifest['property_scope']='Fresh same-corpus document prediction and selective removal pass with declared weight-derived token-table extension; native residual6 and full suffix external. Not token-only or domain-general OOD. Independent composition failed.'
     (target/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
     (target/'README.md').write_text('''# One residual6 input: complete city-removal write
 
@@ -50,4 +60,6 @@ This is not token-only extraction or a compression win. Fresh prediction remains
 untested for this version; independent source composition previously failed.
 Consult manifest evidence links for local, installed and isolated test receipts.
 ''')
+    if fresh_path.exists():
+        with (target/'README.md').open('a') as handle:handle.write('\nFresh confirmation supersedes the pending status above: load CITY_RESIDUAL6_SINGLE_INPUT_FRESH_V1_ATTENTION7.pt as program[\"attention7\"] for the separately frozen386-token variant. Readers/head8/executable unchanged. Fresh prediction/selectivity and isolated execution pass; native boundary and failed composition remain. See manifest evidence.\n')
 if __name__=='__main__':main()

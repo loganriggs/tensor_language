@@ -19,3 +19,5 @@ at T32. Both weight and state counts increase over the earlier three-input expor
 This is not token-only extraction or a compression win. Fresh prediction remains
 untested for this version; independent source composition previously failed.
 Consult manifest evidence links for local, installed and isolated test receipts.
+
+Fresh20document confirmation and isolated execution now pass with the [fresh attention7 program](../../CITY_RESIDUAL6_SINGLE_INPUT_FRESH_V1_ATTENTION7.pt) loaded as `program["attention7"]`. This changes only checkpoint-derived token tables/IDs (386tokens); keep readers.pt, head8.pt and execute.py unchanged. The original396-token file does not support unknown tokens. See [fresh report](../../explanations/for_logan/research_update_2026-09-18_0152_fresh_residual6.md) for limitations and composition failure.

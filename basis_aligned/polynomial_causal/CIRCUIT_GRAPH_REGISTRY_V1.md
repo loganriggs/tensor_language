@@ -8,7 +8,7 @@ Packages: **46**; manifests: **41**; declared input boundaries: **30**; verified
 |---|---:|---:|---:|---:|---|
 | city_full_removal_v1 | partial_or_unassessed | 5 | 1 | ? | ood_prediction, selective_removal, composition_reuse |
 | city_reader_residual6_v1 | partial_or_unassessed | 6 | 3 | ? | ood_prediction, selective_removal, composition_reuse |
-| city_residual6_single_input_v1 | partial_or_unassessed | 4 | 1 | ? | ood_prediction, selective_removal, composition_reuse |
+| city_residual6_single_input_v1 | partial_or_unassessed | 4 | 1 | ? | composition_reuse |
 | complete_response_ports_v2 | partial_or_unassessed | 2 | ? | ? | schema, ood_prediction, extraction… |
 | coupled_interaction_v1 | partial_or_unassessed | 1 | ? | ? | schema, ood_prediction, extraction… |
 | coupled_shared_executor_v1 | partial_or_unassessed | 3 | ? | ? | schema, ood_prediction, extraction… |

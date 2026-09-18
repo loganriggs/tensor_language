@@ -1,5 +1,7 @@
 # Plain-language explanations
 
+Latest regional result: [Fresh residual6 confirmation](for_logan/research_update_2026-09-18_0152_fresh_residual6.md). Prediction/selectivity pass; composition still failed.
+
 Latest regional result: [One residual6 input](for_logan/research_update_2026-09-18_0143_single_residual6.md): opened CPU prediction/selectivity pass; fresh and composition gaps remain.
 
 **Latest regional update: [18 September — Earlier residual6 boundary](for_logan/research_update_2026-09-18_0126_residual6_boundary.md).** Standalone and full-model CPU replay pass; native query/RMS dependencies and failed composition remain.

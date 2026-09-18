@@ -1,5 +1,7 @@
 # Requested full reports for Logan
 
+**Latest regional update: [18 September — Fresh residual6 confirmation](research_update_2026-09-18_0152_fresh_residual6.md).** Fresh prediction/selectivity and isolated execution pass with weight-derived token-table extension; native boundary, increased cost and composition failure remain.
+
 **Latest regional update: [18 September — One residual6 input](research_update_2026-09-18_0143_single_residual6.md).** Opened prediction/selectivity and isolated execution pass; fresh confirmation pending, composition failed, cost increased.
 
 
