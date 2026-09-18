@@ -25492,3 +25492,6 @@ Receipt `circuits/followups/aspectual_dod_mlp7_trio_v281_result.json` (40 forwar
 
 ### 2026-09-18T21:39Z — Claude: aspectual v282 — 4/4 carrier split of MLP-7 unit 1250 at the bank: attention 75% (head 7.8 32%, attn 4/6 14%/12%), MLPs 25%, embedding 0. The temporal detector is a cue copy (7.8) re-detected by MLP 7 — the correlative shape one block earlier
 Receipt `circuits/followups/aspectual_dod_unit1250_bank_carrier_split_v282_result.json` (2 forwards).
+
+### 2026-09-18T21:41Z — Claude: aspectual v283 — 2/5 the MLP-7 trio on the v20 natural rows: 0.09% at all positions, 0.01% at the cue — NOT shown out of the panel (the bank is a panel construct); declared. Temporal thread closed: detectors named and edit-decided in the panel (v278–v282), not OOD. Review 29 ends with STOP
+Receipt `circuits/followups/aspectual_dod_mlp7_trio_natural_v283_result.json` (40 forwards).
