@@ -12,7 +12,9 @@ def family_of(top4):
     """A live line belongs to a family when >= 2 of the family core heads are in its top-4; ties -> the larger overlap, then name order."""
     best = max(FAMILIES, key=lambda f: (len(FAMILIES[f] & set(top4)), -list(FAMILIES).index(f)))
     return best if len(FAMILIES[best] & set(top4)) >= 2 else "other"
-, glob, itertools, json, sys
+
+
+import glob, itertools, json, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
