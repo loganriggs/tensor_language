@@ -28,6 +28,7 @@ the singular side — the shared core is the claim under test.
 | 14 | Shared number axis? Removal at the same four heads along the verb-agreement direction `O_h^T(u_were − u_was)` (weight-level |cos| 0.4 with they−he at 9.6 / 15.1, v95) on the v76 fresh rows: 0.28 logits (14% of the margin; 18% of the own-direction 1.55), positive 91/96, above the null (0.02), live; the gender direction he−she removes 0.09 | edit | fresh (v96) | registered "were−was carries ≥ 50% of own" false; live/null-beating and gender < number held; own replay 0.76 exact | 4/5 — a small shared number component, not one axis |
 | 15 | Shared heads, separate directions: at the same four heads the PERSON family's direction O_h^T(u_myself − u_yourself) (the person set shares 15.1 and 10.5) removes 0.00 of the they/he margin on the v76 rows (positive 45/96 — noise), own direction 1.55 (replay of v76), null max 0.01 | edit | fresh (v134) | | passes 5/5 — the two families use the same heads along orthogonal readout directions |
 | 16 | MLP 8 at unit grain on 9.6's they−he reader direction at the noun (exact, closure 8e-5): unit 829 carries 39% of the plural−singular contrast, 953 17%, 1030 9%, 1484 5%, 3152 (the gender unit) 4.6%, 1738 −4%; top-10 78%, top-50 89%, top-500 97%; frame-wise top-50 Jaccard ≥ 0.70 | fold | fresh (v168) | all four registered readings held | 4/4 — the number feature 9.6 reads has its own MLP-8 units (829, 953, 1030), distinct from the gender unit 3152 (rank 5 here, 4.6%); edit test v169 |
+| 17 | What the three MLP-8 units compute (weights + token embeddings, 40 plural/singular agent pairs): unit 829 is a PLURAL-noun detector (bilinear value 300–870 on plurals, ≈ 50 on singulars; 36/40; Down column cos +0.63 with 9.6's they−he reader direction), unit 953 a SINGULAR-noun detector (37/40; Down cos −0.53), unit 1030 fires on both but more on plurals (36/40; Down +0.35) | fold (weights) | — (v170) | registered "one factor reads the embedding number axis with |cos| ≥ 0.20" false for 953 (0.16) and 1030 (0.08); 829 0.27 | 2/3 — the same shape as the gender units: one-sided detectors of each value, writing along ±r |
 
 ## Five-property status
 | property | status | next |
@@ -40,6 +41,7 @@ the singular side — the shared core is the claim under test.
 
 ## Receipts
 - atlas v68: `bilinear_quotient/circuits/followups/atlas_pronoun_number_v68_result.json`
+- v170 (the three units' weights): `.../mlp8_number_units_weights_v170_result.json`; code `ops/run_mlp8_number_units_weights_v170.py`
 - v168 (MLP 8 unit census): `.../pronoun_number_dod_mlp8_unit_census_v168_result.json`; code `ops/run_pronoun_number_dod_mlp8_unit_census_v168.py`
 - v134: `.../pronoun_number_dod_cross_family_direction_v134_result.json`; code `ops/run_pronoun_number_dod_cross_family_direction_v134.py`
 - v96: `.../pronoun_number_dod_shared_number_axis_v96_result.json`; code `ops/run_pronoun_number_dod_shared_number_axis_v96.py`

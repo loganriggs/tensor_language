@@ -1,0 +1,118 @@
+{
+  "candidate_id": "pronoun_gender.he_vs_she.mlp8_number_units_weights_v170",
+  "finished_utc": "2026-09-18T14:33:24.689068+00:00",
+  "forwards": 0,
+  "predictions": {
+    "pred_a_down_columns_align_with_reader": true,
+    "pred_b_one_factor_reads_the_embedding_gender_axis": false,
+    "pred_c_units_are_gender_specific_on_the_vocabulary": true
+  },
+  "schema": "mlp8_number_units_weights_result_v170",
+  "units": {
+    "1030": {
+      "cos_L_R": 0.23053207993507385,
+      "cos_L_g": -0.08308248221874237,
+      "cos_R_g": -0.07503583282232285,
+      "cos_down_r": 0.34540870785713196,
+      "male_minus_female_negative": 4,
+      "male_minus_female_positive": 36,
+      "n_pairs": 40,
+      "unit_values_examples": {
+        "astronauts/astronaut": [
+          215.491,
+          103.533
+        ],
+        "athletes/athlete": [
+          498.333,
+          352.712
+        ],
+        "broadcasters/broadcaster": [
+          878.67,
+          524.411
+        ],
+        "commentators/commentator": [
+          440.612,
+          420.157
+        ],
+        "contractors/contractor": [
+          -90.746,
+          -113.067
+        ],
+        "counselors/counselor": [
+          160.383,
+          25.489
+        ]
+      }
+    },
+    "829": {
+      "cos_L_R": 0.4713330566883087,
+      "cos_L_g": -0.24537067115306854,
+      "cos_R_g": -0.2726791203022003,
+      "cos_down_r": 0.6307167410850525,
+      "male_minus_female_negative": 4,
+      "male_minus_female_positive": 36,
+      "n_pairs": 40,
+      "unit_values_examples": {
+        "astronauts/astronaut": [
+          763.903,
+          43.835
+        ],
+        "athletes/athlete": [
+          454.057,
+          67.853
+        ],
+        "broadcasters/broadcaster": [
+          342.296,
+          58.053
+        ],
+        "commentators/commentator": [
+          302.967,
+          217.41
+        ],
+        "contractors/contractor": [
+          594.15,
+          81.253
+        ],
+        "counselors/counselor": [
+          869.397,
+          -16.391
+        ]
+      }
+    },
+    "953": {
+      "cos_L_R": 0.3590973913669586,
+      "cos_L_g": 0.04438457265496254,
+      "cos_R_g": 0.15916018187999725,
+      "cos_down_r": -0.5294580459594727,
+      "male_minus_female_negative": 37,
+      "male_minus_female_positive": 3,
+      "n_pairs": 40,
+      "unit_values_examples": {
+        "astronauts/astronaut": [
+          -19.166,
+          579.489
+        ],
+        "athletes/athlete": [
+          187.332,
+          812.3
+        ],
+        "broadcasters/broadcaster": [
+          150.63,
+          23.574
+        ],
+        "commentators/commentator": [
+          104.307,
+          357.485
+        ],
+        "contractors/contractor": [
+          -27.054,
+          98.844
+        ],
+        "counselors/counselor": [
+          -122.634,
+          19.142
+        ]
+      }
+    }
+  }
+}
