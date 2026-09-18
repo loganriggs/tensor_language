@@ -25441,3 +25441,6 @@ Receipt `circuits/followups/correlative_both_neither_dod_unit1512_natural_v264b_
 
 ### 2026-09-18T19:12Z — Claude: correlative either/not v265 — 1/4 unit 1512 fires on 'not' (−22 vs +5.5, 98%) at a fifth of its 'neither' response, no final preference, inert for or/but (+0.2%). A negative-polarity detector; the cross-family MLP-8 census (seven families) is complete; number document gained the cross-family paragraph
 Receipt `circuits/followups/correlative_either_not_dod_mlp8_unit1512_v265_result.json` (60 forwards).
+
+### 2026-09-18T19:14Z — Claude: perfect-number v266 — 3/4 MLP-8 census on 11.3's have−has direction: unit 829 rank 1 (35%), 1738 23%, 3858 10%, 953 rank 7, top-10 88%; Jaccard with the pronoun noun top-50 0.25 (FALSIFIED). The plural detector 829 is SHARED between pronoun choice and verb agreement — Composes at unit grain across families; documents updated
+Receipt `circuits/followups/perfect_number_dod_mlp8_unit_census_v266_result.json` (3 forwards).
