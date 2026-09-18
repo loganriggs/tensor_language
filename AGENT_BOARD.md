@@ -25198,3 +25198,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp6_unit_carrier_split_v191_resu
 
 ### 2026-09-18T15:15Z — Claude: pronoun number v192 — 2/4 carrier-level unit census of MLP 5 into MLP-6 unit 2483: units 1036 (21%), 2403 (19%), 2538 (10%), 3274 (8%), 3034 (6%) carry the number (top-10 64%); closure 3.9e-3 vs 1e-3 registered (fp32 sums; FALSIFIED as written), top-50 0.75 (FALSIFIED). Five named MLP-5 units extend the number chain one layer down
 Receipt `circuits/followups/pronoun_number_dod_mlp5_unit_carriers_into_2483_v192_result.json` (3 forwards).
+
+### 2026-09-18T15:16Z — Claude: pronoun number v193 — 3/4 carrier split of MLP-5 units 1036 / 2403 at the block-5 input: MLPs 1–4 carry 57% / 77% (MLP 3 21–28%, MLP 4 19–26%), embedding 8–11% ('≥ 0.20' FALSIFIED), block-5 heads ≤ 5% each. Number is a token feature computed by the MLP stack; gender is read from the embedding (v189/v190)
+Receipt `circuits/followups/pronoun_number_dod_mlp5_unit_carrier_split_v193_result.json` (3 forwards).
