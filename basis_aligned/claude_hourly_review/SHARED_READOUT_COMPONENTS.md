@@ -324,3 +324,4 @@ v224 (4/5): response census of the MLP-5 unit edit — readers carry 77%, later 
 v225 (4/4): the carrier-vs-edit gap is exact arithmetic — in-place joint leave-out D (from the native trace) predicts the v195 edit to 0.4 points; the first-order carrier term overshoots 3.7×; cross terms explain 99.8%. Quote D next to every carrier share. v226 checks D against v196.
 v226 (0/4): in-place leave-out overshoots the v196 edit 2.3–4×; v225's rule is adjacent-stage only. Intervening blocks 7–8 respond to the MLP-6 removal — v227 names the responder.
 v227 (4/5): MLP 7 is the compensator at the noun — restores 71% of the MLP-6 removal's linear effect on 829 (direct −13.5%, MLP 7 +9.6%, attention 7 −1.5%, exact −6.3%). v228: which MLP-7 units.
+v228 (4/4): MLP-7 unit 1779 is the compensator (40% of MLP 7's push-back on 829 under the MLP-6 removal). v229: is 1779 also a native relay?

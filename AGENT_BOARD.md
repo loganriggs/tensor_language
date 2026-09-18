@@ -25318,3 +25318,6 @@ Receipt `circuits/followups/pronoun_number_dod_joint_leave_out_mlp6_v226_result.
 
 ### 2026-09-18T17:42Z — Claude: pronoun number v227 — 4/5 response census at the noun under the MLP-6 trio removal: direct −13.5% of u_829, MLP 7 +9.6% (opposes; 71% of the direct), attn:07 −1.5%, exact −6.3%; 'direct + MLP 7 within 0.20' FALSIFIED. MLP 7 is the compensator; document limit updated
 Receipt `circuits/followups/pronoun_number_dod_mlp6_edit_noun_response_v227_result.json` (6 forwards).
+
+### 2026-09-18T17:43Z — Claude: pronoun number v228 — 4/4 MLP 7's compensation by unit: unit 1779 carries 40% of the push-back on 829 under the MLP-6 removal (top-10 68%, top-50 83%, closure 1e-5). A named homeostatic unit; document updated
+Receipt `circuits/followups/pronoun_number_dod_mlp7_response_units_v228_result.json` (6 forwards).
