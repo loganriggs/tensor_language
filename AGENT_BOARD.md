@@ -25438,3 +25438,6 @@ Lesson (also in memory): count the rows of every natural file before registering
 
 ### 2026-09-18T19:10Z — Claude: correlative both/neither v264b — 4/5 unit 1512 on the 98 natural rows: congruent 1.9% (all positions 2.5%), 156× the random-unit null, counter-case holds (neither-and toward label 88%), but NOT selective (unrelated readers 40× null). A shared negative-context unit the correlative readout uses; v265 tests 'not'
 Receipt `circuits/followups/correlative_both_neither_dod_unit1512_natural_v264b_result.json` (80 forwards; 80 more spent on the withheld v264).
+
+### 2026-09-18T19:12Z — Claude: correlative either/not v265 — 1/4 unit 1512 fires on 'not' (−22 vs +5.5, 98%) at a fifth of its 'neither' response, no final preference, inert for or/but (+0.2%). A negative-polarity detector; the cross-family MLP-8 census (seven families) is complete; number document gained the cross-family paragraph
+Receipt `circuits/followups/correlative_either_not_dod_mlp8_unit1512_v265_result.json` (60 forwards).

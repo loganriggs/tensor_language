@@ -106,6 +106,13 @@ the mirror (astronaut 579 vs astronauts −19; 37/40 pairs), output cosine −0.
 0.06%; the three unrelated readers move by less than the null [v169b]. Small and exactly sized: MLP 8 is about half of 9.6's noun read, 9.6
 is 0.66 of the 1.55 set, and the three units are two thirds of MLP 8's part.
 
+**The same census across the collection [v164, v168, v251–v265].** MLP 8 has a nameable detector for the content-word features — number (829 / 953), gender
+(3152 / 3943), determiner number (3892, a *these*-detector) — and for one function-word cue at the query position (1512, a negative-polarity detector fed by
+head 8.1's copy of *neither*, which the both/neither readout uses). For the temporal, person and selection families MLP 8's write on the reader direction is
+spread over hundreds of units with cancelling signs: a port at unit grain. The detectors differ in what carries them (number computed by MLPs 3–7; gender
+read from the token; determiner number half and half), and all of them are small under edit (0.7–5% of a margin) except where two sites add (11.8%).
+The table is in `claude_hourly_review/SHARED_READOUT_COMPONENTS.md`.
+
 ### 4.4 Inside the plural detector: mass, then carriage [v181, v188]
 
 The pair fold of $u_{829}$ at the noun (26 writers: embedding, attention and MLP totals of blocks 0–7, the nine heads of block 8; closure
