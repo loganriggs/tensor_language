@@ -27,9 +27,10 @@ heads, not half (v96). Head 7.8 is in the number and selection cores and is the 
 100 live lines); heads 8.1 (temporal cue reader) and 10.1 (pronoun gender noun reader) are token-only readers of the same
 shape.
 
-**What the atlas says about the rest.** Of 100 capable live lines, 52 fall outside the four cores at ≥ 2 shared heads;
-the largest unassigned clusters are 11.3 + 7.8 (16 heterogeneous agreement / finiteness / subjunctive lines), 13.8 + 7.8
-(the selection family, now claimed) and 10.5 + 15.1 + 8.1 (5 reflexive-person lines). Table:
+**What the atlas says about the rest.** With five cores, 72 of the 100 capable live lines are assigned (pronoun 26, number 17,
+person 13, selection 13, temporal 3). The 28 left are structured: a verb-inflection cluster on {11.3, 7.8, 17.4} (7 lines:
+agreement, finiteness, subjunctive, modal perfect), the four determiner-number variants of one task on {11.2, 5.7, 16.8,
+15.1}, and the correlative lines on {16.8, 14.8, 8.1, 7.8}. Table:
 `basis_aligned/claude_hourly_review/READOUT_ATLAS_TABLE.md`.
 
 **Reports.** Aspectual: `research_update_2026-09-17_aspectual_readout_component.md`; temporal set:

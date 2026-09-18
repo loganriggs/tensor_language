@@ -135,3 +135,11 @@ v106–v109: both person sets beat random quadruples (2.27 vs 0.10; 2.23 vs 0.15
 v110/v111 (reflexive person natural rows): 37% / 33% of the natural margin, positive 32/32 on both corpora, selective; counter-cases shift toward the text — the person set tracks the cue token (token-reader family: 8.1 / 10.1 shape), unlike the number sets. Person family: fresh, natural ×2, null, census on both lines by 03:07 UTC.
 v112 (reflexive person source fold): the person set is a TOKEN-ONLY reader family — 8.1 / 13.1 / 15.1 take 80–98% of their contrast from the I / you position, 72–95% through the block-0 value branch (10.5 is the contextual member). Three families by source type: token readers (person; gender's 10.1 / 15.1; temporal's 8.1), contextual readers of MLP-resolved state (number, pronoun number, selection in/of via MLPs), and mixed (gender's 9.6 / 12.4).
 v113: the three person token readers are a token-only generator — constant per-(head, cue) patterns from other constructions retain 94% of their service (0.83–1.12 per construction), native pattern 91%. Ports closed for 8.1 / 13.1 / 15.1 on this line; 10.5 open. The temporal line's 8.1 (v12) and the person line's 8.1 / 13.1 / 15.1 are the same mechanism on different cue tokens.
+
+## Atlas coverage with five cores (03:13 UTC)
+
+Of 100 capable live lines: pronoun 26, number 17, person 13, selection 13, temporal 3 — 72 assigned; 28 residue. The residue is structured:
+{11.3, 7.8, 17.4} on 7 verb-inflection lines (partitive agreement 0.55, do/does 0.44, adjective finiteness 0.44, subjunctives 0.32–0.39,
+finiteness selection 0.33, lifts/lift 0.29, modal perfect 0.15) — a sixth-family candidate on 11.3 + 7.8 with 17.4 as the new head;
+{11.2, 5.7, 16.8, 15.1} on the four determiner-number crates variants (one task); {16.8, 14.8, 8.1, 7.8} on the correlative lines (0.43–0.55).
+Table with the family column regenerated: `READOUT_ATLAS_TABLE.md`.
