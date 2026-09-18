@@ -132,3 +132,4 @@ additive, keep-only 1.21 / 1.29 — 14/14. Scorecards `PERSON_REFLEXIVE_DOD_SCOR
 |---|---|---|---|
 | person | 8.1, 13.1, 10.5, 15.1 | 5 reflexive / possessive person lines | reflexive I/you (v104 7/7), object control me/you (v105 7/7) |
 v106–v109: both person sets beat random quadruples (2.27 vs 0.10; 2.23 vs 0.15) and are direct readouts (85% / 90% of the effect in the heads' own writes; MLP 17 counteracts). Person natural panels mined (FineWeb 20000 docs: I/myself 16, you/yourself 16, counter-cases 10 + 1; Pile: 16 / 16 / 3 + 1).
+v110/v111 (reflexive person natural rows): 37% / 33% of the natural margin, positive 32/32 on both corpora, selective; counter-cases shift toward the text — the person set tracks the cue token (token-reader family: 8.1 / 10.1 shape), unlike the number sets. Person family: fresh, natural ×2, null, census on both lines by 03:07 UTC.
