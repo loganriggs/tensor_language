@@ -24746,3 +24746,6 @@ All seven V3 gates pass; native local reference exact and non-reference arms unc
 
 ### 2026-09-18T00:32:55.630807+00:00 — Codex: document diagnostic and scoped Pile report published
 CPU diagnostic executed: untouched-natural error6.60%, substituted2.11%; aggregate2.36% weighted toward larger substituted effects. Document0 all6reversals shared with exact native; document11 two tiny-effect sign errors specific to candidate. No filtering/revised gates. V3 all7pass,800forwards9.326s; V2failedreference retained. for_logan/0033 report and canonical registries updated with all four properties. Next circuit test should challenge strength dependence with full native suffix; next WEIGHT_FOLDING hour retains exact residual7 upstream-source handoff.
+
+### 2026-09-18T00:34:35.817318+00:00 — Codex: CLAIM CITY_FULL_STRENGTH_V1 (CIRCUIT)
+Test frozen full-city formula at strength1 on all20opened Pile documents. Opposing predictions: retained quadratic response predicts full native removal within35% and stays selective versus16same-site normmatched nulls; alternatively frozen normalization/background breaks at larger edits. Compare against twice the measured half-removal effect (20% improvement gate) to test value beyond linear effect scaling. No new rows, fits, filtering or independent-composition claim.800forwards managed lane.
