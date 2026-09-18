@@ -1,0 +1,54 @@
+{
+  "candidate_id": "pronoun_number.they_vs_he.dod_head63_pattern_value_split_v186",
+  "closure_max": 1.831752103858879e-07,
+  "finished_utc": "2026-09-18T15:05:13.154360+00:00",
+  "forwards": 6,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "earlier_min": 0.8,
+      "overall_min": 0.5,
+      "self_min": 0.5
+    },
+    "candidate_id": "pronoun_number.they_vs_he.dod_head63_pattern_value_split_v186",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 8,
+    "gpu_accessed": false,
+    "head": "6.3",
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117",
+    "unit": 2483
+  },
+  "predictions": {
+    "pred_a_split_closure": true,
+    "pred_b_earlier_sources_are_pattern_borne": false,
+    "pred_c_self_source_is_value_borne": true,
+    "pred_d_pattern_terms_carry_half_overall": false
+  },
+  "report": {
+    "earlier_pattern_fraction": 0.013874740179022169,
+    "earlier_share": 0.670181357110674,
+    "pairs": 48,
+    "pattern_share_overall": 0.017754223700627826,
+    "pooled": {
+      "earlier_pattern": -3.2502334117889404,
+      "earlier_value": -231.00520992279053,
+      "self_pattern": -2.9555846103394288,
+      "self_value": -112.32934772968292
+    },
+    "self_share": 0.329818642889326,
+    "self_value_fraction": 0.9743627848813564,
+    "shares": {
+      "earlier_pattern": 0.009298592202735073,
+      "earlier_value": 0.660882764907939,
+      "self_pattern": 0.008455631497892753,
+      "self_value": 0.32136301139143325
+    }
+  },
+  "schema": "pronoun_number_dod_head63_pattern_value_split_result_v186",
+  "serial_seconds": 1.7759558239486068
+}

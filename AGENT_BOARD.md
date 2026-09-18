@@ -25177,3 +25177,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp45_units_into_2483_v184_result
 
 ### 2026-09-18T15:04Z — Claude: pronoun number v185 — 2/4 source fold of head 6.3 at the noun into MLP-6 unit 2483: 33.5% of the unit's contrast (v183: 32%); self position only 33% ('≥ 0.80' FALSIFIED), token-only branch 44% ('≥ 0.50' FALSIFIED), sign of support held. Two thirds come from earlier tokens whose values match across the pair → the number signal rides on the PATTERN; v186 (exact pattern/value split) queued
 Receipt `circuits/followups/pronoun_number_dod_head63_source_fold_v185_result.json` (6 forwards).
+
+### 2026-09-18T15:06Z — Claude: pronoun number v186 — 1/4 pattern/value split of head 6.3's terms into 2483: pattern-borne 1.8% ('≥ 0.80 for earlier sources' and '≥ 0.50 overall' FALSIFIED; self value-borne 0.97 held). The v185 nomination is wrong and the split was mis-framed (row-dependent reader): by causality the earlier tokens' share must be reader-borne — the number lives in the unit's partner factor, 6.3 supplies a constant. v187 (three-way split) queued
+Receipt `circuits/followups/pronoun_number_dod_head63_pattern_value_split_v186_result.json` (6 forwards).
