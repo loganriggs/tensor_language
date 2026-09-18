@@ -25282,3 +25282,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp8_units_verb_edit_v215_result.
 
 ### 2026-09-18T17:06Z — Claude: pronoun gender v216 — 3/5 reader source fold with the verb category: 9.6 verb 48% / noun 50% (a two-site reader in both families), 12.4 verb 23%, 15.1 verb 11% and 50% token-only, 10.1 noun 98%; pooled verb 18.7% ('≥ 0.20' FALSIFIED), 15.1 token-only 0.50 ('≤ 0.20' FALSIFIED)
 Receipt `circuits/followups/pronoun_gender_dod_reader_source_verb_v216_result.json` (10 forwards).
+
+### 2026-09-18T17:07Z — Claude: pronoun gender v217 — 3/4 MLP-8 census at the verb: 3152 78%, 3943 10.5%, top-10 91% (Jaccard with the noun top-50 FALSIFIED — tail differs). Two-site re-detection by the same units holds in both families (agrees with v166)
+Receipt `circuits/followups/pronoun_gender_dod_mlp8_unit_census_verb_v217_result.json` (2 forwards).
