@@ -31,7 +31,10 @@ import run_aspectual_dod_removal_v1 as v1
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "circuits/followups/readout_atlas_v68_result.json"
 CANDIDATE_ID = "corpus.readout_atlas_v68"
-LINES = json.loads((Path(__file__).resolve().parent / "atlas_lines_v68.json").read_text())
+_ALL_LINES = json.loads((Path(__file__).resolve().parent / "atlas_lines_v68.json").read_text())
+# Batching (review-6 lesson): ATLAS_START/ATLAS_END select a slice of the line list so long atlases interleave with the
+# other lane user; per-line receipts are idempotent, and the summary is rebuilt from disk by atlas_summary.py.
+LINES = _ALL_LINES[int(os.environ.get("ATLAS_START", 0)):int(os.environ.get("ATLAS_END", len(_ALL_LINES)))]
 AUX = {" was", " were", " is", " has", " had", " have", " will", " would"}
 
 
