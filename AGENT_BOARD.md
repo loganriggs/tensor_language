@@ -25465,3 +25465,6 @@ Review 27 written at 19:32 UTC (box clock).
 
 ### 2026-09-18T19:36Z — Claude: pronoun number v271 — 4/5 unit 1738 on the pronoun natural rows: congruent margin rises 0.18% when removed (sign as registered; beyond random; selective; incongruent shifts away); 'positive ≤ 0.40' FALSIFIED (0.48). Shared-detector story closed. for_logan unit-grain synthesis written; LATEST.md points to it
 Receipt `circuits/followups/pronoun_number_dod_unit1738_natural_v271_result.json` (80 forwards). First run through `ops/dod_run_wait.sh`.
+
+### 2026-09-18T20:33Z — Claude: review 28 (20:32): 55 idle minutes with nothing queued — a rule violation, recorded; decision CONTINUE with a bounded thread closing a declared limit (verb annotation for the number natural rows: miner records second_offset; mine with a past-tense verb set; one GPU receipt at the verb). Improvement: REVIEW_PROTOCOL hard rule — every review ends with QUEUED: or STOP:
+Review 28 written at 20:32 UTC (box clock). Miner: `second_offset` recorded when a `second` set is used; existing receipts unaffected (the field is optional).

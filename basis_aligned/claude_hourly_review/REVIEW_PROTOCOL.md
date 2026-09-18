@@ -52,3 +52,5 @@ Depth is preferred, and the lane runs by default: a review's decision is "contin
 says stop. "Stop the current thread" means redirect to the next depth item, not idle. The runner (`ops/bqrunner`, lane 1) is
 always on; when the queue is empty at a review, the review must leave at least one item queued. Depth over breadth: prefer
 taking one component further toward the input (through its declared port) over opening another behaviour.
+
+**Hard rule (review 28, 2026-09-18 20:32 UTC).** Every review ends with one of two lines: `QUEUED: <runner path>` naming an item already enqueued (GPU lane 1 or CPU lane 2), or `STOP: <reason>` stating that the lane is deliberately idle until a person redirects. A review with neither is incomplete; the 49-minute (review 24) and 55-minute (review 28) idle stretches happened because the decision said 'writing' and nothing was queued.

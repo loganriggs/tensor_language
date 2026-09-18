@@ -5,7 +5,7 @@
 and whose CONTEXT tokens contain exactly one cue token from `cues` (token id -> cue name) within `cue_window` tokens before the
 target, and none of `exclude` (token ids). Cells = (cue name, label); rows taken in stream order until `per_cell` each or the budget
 ends (partial cells are recorded, not padded). No model score enters selection; the cue filter is any-sense (stated by callers).
-Receipt: {"schema", "source", "docs_scanned", "per_cell", "rows": [{doc_index, position, cue, label, cue_offset, ids, text}], "rows_sha256"}.
+Receipt: {"schema", "source", "docs_scanned", "per_cell", "rows": [{doc_index, position, cue, label, cue_offset, ids, text[, second_offset]}], "rows_sha256"}.
 `dod_natural_line.rows_from_receipt` reads it (label field = "label", construction from cue + label)."""
 from __future__ import annotations
 
@@ -49,13 +49,18 @@ def mine(cues, labels, source, out, schema, exclude=(), cue_window=12, context=2
             if len(found) != 1 or found[0][0] < context - cue_window:
                 continue
             offset, cue = found[0]; label = labels[nxt]
+            second_offset = None
             if second is not None:
                 between = ctx[offset + 1:]
-                if not any(tid in second.get(cue, ()) for tid in between):
+                hits = [offset + 1 + k for k, tid in enumerate(between) if tid in second.get(cue, ())]
+                if not hits:
                     continue
+                second_offset = hits[0]          # recorded (review 28): the first second-token position after the cue, e.g. the verb
             if len(cells[(cue, label)]) >= per_cell:
                 continue
-            cells[(cue, label)].append({"doc_index": doc_index, "position": t, "cue": cue, "label": label, "cue_offset": offset, "ids": ctx, "text": ENC.decode(ctx)})
+            record = {"doc_index": doc_index, "position": t, "cue": cue, "label": label, "cue_offset": offset, "ids": ctx, "text": ENC.decode(ctx)}
+            if second_offset is not None: record["second_offset"] = second_offset
+            cells[(cue, label)].append(record)
         if all(len(v) >= per_cell for v in cells.values()):
             break
     rows = [r for key in sorted(cells) for r in cells[key]]
