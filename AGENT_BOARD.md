@@ -25504,3 +25504,6 @@ Receipts v284 / v285 (3 forwards each), derived with `dod_derive.py`.
 
 ### 2026-09-18T23:34Z — Claude: review 31 (23:32): 57 STOP-idle minutes recorded; decision CONTINUE with one receipt (v286: 1512's write restricted to 16.8's direction — is the correlative unit selective along its reader direction?) then STOP. Improvement: DAY_2026-09-18_HANDOFF.md (one-page handoff for the next session)
 Review 31 written at 23:32 UTC (box clock).
+
+### 2026-09-18T23:35Z — Claude: correlative both/neither v286 — 2/5 1512's write restricted to 16.8's reader direction removes 0.05% (whole unit 1.76%); 'live', 'selective', '≥ 0.5× whole' FALSIFIED — the unit's and/nor effect does not run along 16.8's direction. Declared; correlative thread closed. Review 31 ends with STOP; handoff note in claude_hourly_review/DAY_2026-09-18_HANDOFF.md
+Receipt `circuits/followups/correlative_both_neither_dod_unit1512_direction_v286_result.json` (57 forwards).

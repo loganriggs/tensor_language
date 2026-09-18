@@ -1,0 +1,79 @@
+{
+  "candidate_id": "correlative_both_neither.and_vs_nor.dod_unit1512_direction_v286",
+  "finished_utc": "2026-09-18T23:34:16.169368+00:00",
+  "forwards": 57,
+  "plan": {
+    "bars": {
+      "gate_ratio": 0.25,
+      "half": 0.5,
+      "live_min": 0.005,
+      "n_null": 16,
+      "seed": 286
+    },
+    "candidate_id": "correlative_both_neither.and_vs_nor.dod_unit1512_direction_v286",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 60,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "reader_head": "16.8",
+    "rows": 96,
+    "rows_sha256": "adf9d5d0e61ad23f9dc4f4879fca4d96b1e542ad5744038891bf931af31d7331",
+    "unit": 1512
+  },
+  "predictions": {
+    "pred_a_baseline_replays_v262": true,
+    "pred_b_direction_removal_live": false,
+    "pred_c_beats_random_units": true,
+    "pred_d_direction_removal_selective": false,
+    "pred_e_direction_carries_half_of_whole_unit": false
+  },
+  "report": {
+    "damage_direction": 0.000505988868484472,
+    "damage_whole_unit": 0.017558623786258398,
+    "gates": {
+      "animacy_who_which": false,
+      "canonical_night_day": false,
+      "tense_will_would": false
+    },
+    "moves_direction": {
+      "animacy_who_which": 0.002407905956109365,
+      "canonical_night_day": 0.0024478908938666186,
+      "tense_will_would": 0.0019901028523842492
+    },
+    "moves_whole_unit": {
+      "animacy_who_which": 0.039732602735360466,
+      "canonical_night_day": 0.04387039924040437,
+      "tense_will_would": 0.04112681560218334
+    },
+    "native_pooled": 696.6103320121765,
+    "null_direction_max": 1.1512099315977384e-05,
+    "null_moves": {
+      "animacy_who_which": 2.4668251474698387e-05,
+      "canonical_night_day": 1.92254859333237e-05,
+      "tense_will_would": 1.6530781673888367e-05
+    },
+    "null_units": [
+      4029,
+      593,
+      2595,
+      574,
+      646,
+      3364,
+      3342,
+      3557,
+      1190,
+      4365,
+      3061,
+      1055,
+      2681,
+      3169,
+      917,
+      1277
+    ]
+  },
+  "schema": "correlative_both_neither_dod_unit1512_direction_result_v286",
+  "serial_seconds": 2.5718806930817664
+}
