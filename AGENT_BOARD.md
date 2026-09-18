@@ -25327,3 +25327,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp7_unit_carriers_into_829_v229_
 
 ### 2026-09-18T17:46Z — Claude: pronoun number v230 — 3/4 carrier split of MLP-7 unit 1779: MLP 6 +26%, MLP 5 +22%, embedding 16%, head 7.8 a multiplier (30% mass, 7% carriage). 'MLP 6 enters negatively' FALSIFIED — the damping mechanism for the compensation fails at block grain; v231 tests the trio at unit grain
 Receipt `circuits/followups/pronoun_number_dod_unit1779_carrier_split_v230_result.json` (3 forwards).
+
+### 2026-09-18T17:47Z — Claude: pronoun number v231 — 3/4 MLP-6 unit carriers into 1779: the trio carries 57% of MLP 6's total with the SAME sign (2826 −60, 2483 −47 of −189); 'trio carries against' FALSIFIED. Damping falsified at unit grain; the compensation must be mean-driven — v232 computes 1779's in-place change
+Receipt `circuits/followups/pronoun_number_dod_mlp6_unit_carriers_into_1779_v231_result.json` (3 forwards).

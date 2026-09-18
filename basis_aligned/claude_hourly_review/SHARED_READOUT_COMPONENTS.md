@@ -327,3 +327,4 @@ v227 (4/5): MLP 7 is the compensator at the noun — restores 71% of the MLP-6 r
 v228 (4/4): MLP-7 unit 1779 is the compensator (40% of MLP 7's push-back on 829 under the MLP-6 removal). v229: is 1779 also a native relay?
 v229 (4/5): MLP-7 unit 1779 = 49% of MLP 7's native relay into 829 AND the compensator (v228). v230: 1779's own inputs — does the MLP-6 trio enter it negatively?
 v230 (3/4): MLP 6 carries 1779 positively (+26%) — the 'damping' mechanism of the compensation is falsified at block grain. v231: unit-grain MLP-6 census into 1779 (does the trio itself damp it?).
+v231 (3/4): the MLP-6 trio feeds 1779 (57% of MLP 6's carriage, same sign) — damping falsified at unit grain. The compensation must be mean-driven (finite product terms); v232 computes 1779's in-place change under the removal.
