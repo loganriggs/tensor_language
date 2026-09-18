@@ -25210,3 +25210,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp5_carrier_edit_v195_result.jso
 
 ### 2026-09-18T15:22Z — Claude: pronoun number v196 — 3/5 EDIT of the MLP-6 trio {2483, 2826, 4131} at the noun: u_829 −6.3% ('≥ 0.10' FALSIFIED; first-order 0.11), they−he margin −0.67% ('≥ 0.02' FALSIFIED); random 3-unit sets ≤ 0.22% / 0.02%; replay, beats-null (29×), shrink held. Third edit calibrating the unit-grain number chain
 Receipt `circuits/followups/pronoun_number_dod_mlp6_trio_edit_v196_result.json` (54 forwards).
+
+### 2026-09-18T15:25Z — Claude: pronoun number v197 — 5/5 the MLP-8 number units {829, 953, 1030} on the 128 natural rows: congruent damage 3.3% at the cue (77% positive), 7.3% at all positions; random 3-unit sets ≤ 0.0005; selective; incongruent rows shift toward the label (−1.7%) — the counter-case the head set failed holds at unit grain. Plural cells carry it (5.1% vs 0.7%)
+Receipt `circuits/followups/pronoun_number_dod_mlp8_units_natural_v197_result.json` (80 forwards).
