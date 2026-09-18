@@ -196,3 +196,4 @@ v142 (tense census under number removal, natural rows): direct share −4%, down
 gender nouns, fresh objects, new frames). The correlative set removes 42% of the or/but margin at the object (positive 64/64) and the gender set 107%
 of the he/she margin at "then" (64/64); each family's set removes nothing at the other's position (−0.001 / +0.002 of own) and the joint removal
 equals the sum (gaps 0.001 / 0.002). 4/4 — components of different families compose in a sentence: separate positions, no interference, additive.
+v144 (composition with a SHARED head, 4/4): "I/You praised either/not the obj [and then blamed]" — the correlative set (with 8.1) removes 45% of or/but at the object, the person set (with 8.1) 41% of myself/yourself at the end; each inert at the other's position (≤ 0.001 of own), joint additive (gaps 0.008 / 0.003). Head 8.1 carries both families' lookups in one sentence without interference.

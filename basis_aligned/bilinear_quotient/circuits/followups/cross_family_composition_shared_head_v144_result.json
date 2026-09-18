@@ -1,0 +1,170 @@
+{
+  "candidate_id": "corpus.cross_family_composition_shared_head_v144",
+  "finished_utc": "2026-09-18T03:50:27.361860+00:00",
+  "forwards": 20,
+  "instrument_max_abs_error": 0.0,
+  "plan": {
+    "bars": {
+      "add": 0.25,
+      "inert": 0.1,
+      "live_fraction": 0.1,
+      "live_positive": 0.75
+    },
+    "candidate_id": "corpus.cross_family_composition_shared_head_v144",
+    "correlative_heads": [
+      [
+        16,
+        8
+      ],
+      [
+        14,
+        8
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        8,
+        1
+      ]
+    ],
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 24,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "person_heads": [
+      [
+        8,
+        1
+      ],
+      [
+        13,
+        1
+      ],
+      [
+        10,
+        5
+      ],
+      [
+        15,
+        1
+      ]
+    ],
+    "rows": {
+      "A_correlative": 64,
+      "B_person": 64
+    },
+    "rows_sha256": {
+      "A": "a6c0ed5af3fa420e5f95be777b70ff43bcd261566d06d187a42d0706a119ddc8",
+      "B": "0ad5efe3b9add6102dbf4dfa47f4f9ac4db07fa16dd853f81f9f4b0c3878780f"
+    }
+  },
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_own_sets_live_at_their_positions": true,
+    "pred_c_other_family_removal_is_inert": true,
+    "pred_d_joint_removal_is_additive_per_position": true
+  },
+  "report": {
+    "A_correlative": {
+      "additivity_bar": 0.475648008286953,
+      "additivity_gap": 0.008193828165531158,
+      "arms": {
+        "both": {
+          "animacy_who_which_abs_move_mean": 0.16806329786777496,
+          "animacy_who_which_native_abs_mean": 2.3487785644829273,
+          "canonical_night_day_abs_move_mean": 0.0695191421546042,
+          "canonical_night_day_native_abs_mean": 1.0008503617718816,
+          "flip_fraction": 0.0,
+          "target_damage_fraction": 0.4456299340258749,
+          "target_damage_mean": 1.8968092277646065,
+          "target_damage_positive_fraction": 1.0,
+          "target_native_mean_margin": 4.256467267870903,
+          "tense_will_would_abs_move_mean": 0.08033680031076074,
+          "tense_will_would_native_abs_mean": 0.4256007052026689
+        },
+        "other": {
+          "animacy_who_which_abs_move_mean": 0.007209658622741699,
+          "animacy_who_which_native_abs_mean": 2.3487785644829273,
+          "canonical_night_day_abs_move_mean": 0.007176951272413135,
+          "canonical_night_day_native_abs_mean": 1.0008503617718816,
+          "flip_fraction": 0.0,
+          "target_damage_fraction": 0.000566437524499453,
+          "target_damage_mean": 0.0024110227823257446,
+          "target_damage_positive_fraction": 0.5,
+          "target_native_mean_margin": 4.256467267870903,
+          "tense_will_would_abs_move_mean": 0.056346429511904716,
+          "tense_will_would_native_abs_mean": 0.4256007052026689
+        },
+        "own": {
+          "animacy_who_which_abs_move_mean": 0.1644049473106861,
+          "animacy_who_which_native_abs_mean": 2.3487785644829273,
+          "canonical_night_day_abs_move_mean": 0.07066299475263804,
+          "canonical_night_day_native_abs_mean": 1.0008503617718816,
+          "flip_fraction": 0.0,
+          "target_damage_fraction": 0.44698852673181577,
+          "target_damage_mean": 1.902592033147812,
+          "target_damage_positive_fraction": 1.0,
+          "target_native_mean_margin": 4.256467267870903,
+          "tense_will_would_abs_move_mean": 0.06052801804617047,
+          "tense_will_would_native_abs_mean": 0.4256007052026689
+        }
+      },
+      "other_ratio": 0.0012672305677306663,
+      "own_live": true
+    },
+    "B_person": {
+      "additivity_bar": 0.30663754418492317,
+      "additivity_gap": 0.0026349201798439026,
+      "arms": {
+        "both": {
+          "animacy_who_which_abs_move_mean": 0.02543143555521965,
+          "animacy_who_which_native_abs_mean": 1.0791115816682577,
+          "canonical_night_day_abs_move_mean": 0.0380760389380157,
+          "canonical_night_day_native_abs_mean": 0.4152911389246583,
+          "flip_fraction": 0.0,
+          "target_damage_fraction": 0.4105620353345643,
+          "target_damage_mean": 1.2221191450953484,
+          "target_damage_positive_fraction": 1.0,
+          "target_native_mean_margin": 2.9766978919506073,
+          "tense_will_would_abs_move_mean": 0.06390150007791817,
+          "tense_will_would_native_abs_mean": 0.7008346188813448
+        },
+        "other": {
+          "animacy_who_which_abs_move_mean": 0.019185854122042656,
+          "animacy_who_which_native_abs_mean": 1.0791115816682577,
+          "canonical_night_day_abs_move_mean": 0.005389620084315538,
+          "canonical_night_day_native_abs_mean": 0.4152911389246583,
+          "flip_fraction": 0.0,
+          "target_damage_fraction": -0.0006033905789893408,
+          "target_damage_mean": -0.0017961114645004272,
+          "target_damage_positive_fraction": 0.5,
+          "target_native_mean_margin": 2.9766978919506073,
+          "tense_will_would_abs_move_mean": 0.004359591170214117,
+          "tense_will_would_native_abs_mean": 0.7008346188813448
+        },
+        "own": {
+          "animacy_who_which_abs_move_mean": 0.011420834809541702,
+          "animacy_who_which_native_abs_mean": 1.0791115816682577,
+          "canonical_night_day_abs_move_mean": 0.03773766849189997,
+          "canonical_night_day_native_abs_mean": 0.4152911389246583,
+          "flip_fraction": 0.0,
+          "target_damage_fraction": 0.41205060817775624,
+          "target_damage_mean": 1.2265501767396927,
+          "target_damage_positive_fraction": 1.0,
+          "target_native_mean_margin": 2.9766978919506073,
+          "tense_will_would_abs_move_mean": 0.06411669007502496,
+          "tense_will_would_native_abs_mean": 0.7008346188813448
+        }
+      },
+      "other_ratio": -0.001464360364999247,
+      "own_live": true
+    }
+  },
+  "schema": "cross_family_composition_result_v143",
+  "serial_seconds": 2.0077028339728713
+}
