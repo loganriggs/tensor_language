@@ -244,3 +244,4 @@ v163 (numeral rank-2 keep, 2/3): ones−one alone 0.62, with were−was 0.62, ra
 The gender write of MLP 8 on 9.6's reader direction at the noun splits exactly by hidden unit (T_j = (r·Down[:,j])(Lx)_j(Rx)_j, no cross terms):
 unit 3152 carries 56%, unit 3943 20%; top-10 80%, top-50 88%; the top-50 sets agree across frames (Jaccard ≥ 0.52). The pair-by-writer fold (v83)
 was diffuse because the two units' inputs are spread over many writers; by unit the port is two numbers. v165 edits them.
+v165 (edit of units 3152 + 3943, 3/5): 0.045 logits at the noun (2.6%; positive 43/60; random pairs 0.00; selective), 0.13 at all positions — LIVE failed as registered. Consistent with the chain 0.27 (MLP 8's share of 9.6's noun read) × 0.30 (9.6's single) × 0.76 = 0.06: the fold nominated correctly and the edit sized it. Lesson for the port: a component behind a port inherits the port's share of the behaviour; unit-grain closure here is 3% of the margin.

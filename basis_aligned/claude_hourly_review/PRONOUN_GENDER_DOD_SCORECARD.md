@@ -27,13 +27,14 @@ opens the PRONOUN readout family alongside the temporal and number families at t
 | 14 | Token-only generator for the two token readers {10.1, 15.1} (9.6 / 12.4 left native): p × λ × v1(noun) with the native pattern retains 78% of their zeroed service (registered ≥ 0.80: failed); a constant pattern per (head, gender side) from the other constructions 79% pooled — lost 0.93, later 1.00, because 0.49 (registered ≥ 0.50 per construction: failed on the comma frame); pattern CV ≤ 0.32 | edit | fresh (v137) | | 3/5 — the two heads are mostly a token lookup; the comma frame ('Because the hero wanted the compass,') keeps a fifth of their service off the token term |
 | 15 | Head 8.1's write at the VERB position (20% of the gender state 9.6 reads there, v82), folded on 9.6's reader direction (exact, closure 2e-7): 99% from the gendered-noun position, 96% through the token-only block-0 value branch, positive | fold | fresh (v145) | | 4/4 — 8.1 is the same token copier at the verb as at the final query: it carries the noun's block-0 value to wherever its pattern lands (v12 / v113 / v133 mechanism), and 9.6 reads that copy |
 | 16 | MLP 8 at UNIT grain (exact per-unit split of r·mlp8(noun) on 9.6's reader direction, closure 3e-6): unit 3152 carries 56% of the male−female contrast, unit 3943 20%; top-10 units 80%, top-50 88%, top-200 92%, top-500 96% of 4608; the per-frame top-50 sets overlap (min Jaccard 0.52) | fold | fresh (v164) | all four registered readings held | 4/4 — the declared MLP 8 port (v83: diffuse by writer pair) is two units when split by unit; edit test v165 |
+| 17 | EDIT of the two nominated units (zero (Lx·Rx)_3152,3943 in MLP 8; hooked forward replays the producer exactly): at the noun position the he/she margin drops 0.045 logits (2.6%), positive 43/60; at all positions 0.13 (7.8%); the v164 top-10 at the noun 0.018; 16 random 2-unit zeroings 0.000; readers unmoved | edit | fresh (v165) | registered LIVE false (fraction 0.03 < 0.10); beats the null, selective, all-positions ≥ 1.5× held | 3/5 — the units are real (above any random pair) but small in the behaviour: they are 76% of MLP 8's write on 9.6's direction, MLP 8 is 27% of 9.6's noun read (v82), and 9.6 is 0.30 of the 1.75 joint — 0.27 × 0.30 × 0.76 ≈ 0.06, the measured 0.045. The port is closed at unit grain for this input; the input is a small piece |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
 | Simple | held at head grain (row 6) | — |
 | Predicts OOD | held on natural FineWeb and out-of-corpus Pile rows with frozen bars (rows 7, 9); fresh synthetic panel live everywhere but the frozen band failed upward on one frame (row 2) | — |
-| Extracted | held at the head boundary (row 5); direct readout (row 8); sources folded to token readers (10.1, 15.1) and, for 9.6, to MLP 8 (rows 10–13), whose write on 9.6's direction is two units (row 16) | edit the two units (v165): live, null-beating, selective? |
+| Extracted | held at the head boundary (row 5); direct readout (row 8); sources folded to token readers (10.1, 15.1) and, for 9.6, to MLP 8 (rows 10–13), whose write on 9.6's direction is two units (row 16) | the two units edit to 3% of the margin (row 17): closed, small; the larger inputs to 9.6 / 12.4 are the noun embedding, head 8.1's copy and the verb-position state (v166) |
 | Selective | held (rows 1, 3) | — |
 | Composes | additive, gap at the bar (row 4) | pairwise + random-split null |
 
@@ -41,6 +42,7 @@ opens the PRONOUN readout family alongside the temporal and number families at t
 - v145: `.../pronoun_gender_dod_8_1_at_verb_v145_result.json`; code `ops/run_pronoun_gender_dod_8_1_at_verb_v145.py`
 - v137: `.../pronoun_gender_dod_token_only_generator_v137_result.json`; code `ops/run_pronoun_gender_dod_token_only_generator_v137.py` (v113's body)
 - atlas v68: `bilinear_quotient/circuits/followups/atlas_pronoun_gender_v68_result.json` (724 forwards, rows sha e0c60bf6a3c4…)
+- v165 (two-unit edit): `.../pronoun_gender_dod_mlp8_unit_edit_v165_result.json`; code `ops/run_pronoun_gender_dod_mlp8_unit_edit_v165.py`
 - v164 (MLP 8 unit census): `.../pronoun_gender_dod_mlp8_unit_census_v164_result.json`; code `ops/run_pronoun_gender_dod_mlp8_unit_census_v164.py`
 - v83 (both lines, MLP 8 pair fold): `.../pronoun_dod_mlp8_pair_fold_v83_result.json`; code `ops/run_pronoun_dod_mlp8_pair_fold_v83.py`
 - v82 (both lines, writers of 9.6's sources): `.../pronoun_dod_verb_writer_fold_v82_result.json`; code `ops/run_pronoun_dod_verb_writer_fold_v82.py`
