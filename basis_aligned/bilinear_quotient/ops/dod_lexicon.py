@@ -23,6 +23,8 @@ PANELS = {
     "narrative_v43_subjects": ("clown", "spy", "shepherd", "brewer", "fisherman"),
     "narrative_v43_places": ("palace", "castle", "temple", "prison", "hospital", "library", "museum", "station", "factory", "school", "church", "cottage", "quarry", "pier", "fountain", "tunnel"),
     "narrative_v43_focus": ("rugged", "sandy", "secret", "silent", "sturdy", "winding", "yellow", "golden", "tidy", "vast", "sunny", "grand", "ruined", "empty", "royal", "modern"),
+    "pronoun_gender_v71_nouns": ("hero", "heroine", "god", "goddess", "grandson", "granddaughter", "boyfriend", "girlfriend", "spokesman", "spokeswoman", "dad", "mom", "bull", "cow", "groom", "bride", "male", "female", "guy", "gal"),
+    "pronoun_gender_v71_objects": ("compass", "ladder", "hammer", "mirror", "candle", "saddle", "helmet", "anchor", "bucket", "shovel"),
     "number_v62_places": ("canal", "lodge", "inn", "mine", "farm", "arena", "bakery", "brewery", "cellar", "clinic", "depot", "gallery", "hangar", "plaza", "reef", "shrine"),
 }
 
