@@ -25225,3 +25225,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp5_units_natural_v200_result.js
 
 ### 2026-09-18T15:33Z — Claude: review 23 (15:32): 21 receipts v180–v200 this hour; decision CONTINUE, effort redirected to writing the number chain up (in_depth_circuit_number.md); v201 queued. Improvement: dod_units.carrier_split library (the identity written five times)
 Review 23 written at 15:32 UTC (box clock). Library helper unit-tested (carrier and mass both close on random factors).
+
+### 2026-09-18T15:35Z — Claude: pronoun number v201 — 2/4 carrier split of MLP-3 units 3465 / 493 at the block-3 input: MLP 1 carries 41% / 62%, MLP 2 22% / 49%, embedding 5% / 6% ('≥ 0.20' FALSIFIED; 'block-3 heads ≤ 0.10' FALSIFIED as written — the check ran over attention totals, attn:02 0.18). The number feature is computed by MLP 1 and relayed upward; the chain bottoms out in MLP 1, not the embedding
+Receipt `circuits/followups/pronoun_number_dod_mlp3_unit_carrier_split_v201_result.json` (3 forwards). First runner using `dod_units.carrier_split`.
