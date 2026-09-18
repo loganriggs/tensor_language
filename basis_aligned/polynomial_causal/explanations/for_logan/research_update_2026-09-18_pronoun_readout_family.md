@@ -74,7 +74,8 @@ same block that carries the relay parts of the auxiliary families, and both line
 margin (the auxiliary sets take 45–60%), keep-only raises the margin above native, and additivity sits exactly at the
 bar with 12.4 the largest single. The response census (v74, exact λ-recurrence split, closure 7e-5) confirms it: the four heads' own writes carry 94% of
 the linear attribution, the downstream MLPs net −6% (MLPs 12/13 amplify, the calibrator MLP 17 pushes back), and the
-nonlinear remainder is 0.8%. Unlike the auxiliary families, there is no MLP relay port to declare.
+nonlinear remainder is 0.8%. Unlike the auxiliary families, there is no MLP relay port downstream of the heads. The number set is the same shape (v84:
+103% direct, downstream net +2%, remainder 0.4%).
 
 **Scope.** One behaviour, one fresh panel, two natural panels (FineWeb, Pile), head grain. All five properties have head-grain
 evidence; not yet: source folds (what the four heads read), the other 18 pronoun lines on fresh rows. Scorecard: `basis_aligned/claude_hourly_review/PRONOUN_GENDER_DOD_SCORECARD.md`; atlas table:
