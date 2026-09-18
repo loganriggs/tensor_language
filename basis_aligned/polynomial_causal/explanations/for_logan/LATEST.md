@@ -1,5 +1,7 @@
 # Latest requested update for Logan
 
+**Session synthesis: [18 September — From source attribution to a coupled, executable value path](research_update_2026-09-18_session_story.md).** Full connected account since session start, with the communication-guide pass, path diagram, evidence tags, fresh/opened/replay scope, four-property accounting, failures, and next work.
+
 **Claude circuit-lane synthesis: [18 September, end of night — What the readout collection says](research_update_2026-09-18_readout_collection_synthesis.md).** Six families, thirteen lines, three kinds of readout set, three falsified regularities, one declared limit.
 
 **Latest regional update: [Fresh-confirmed extracted value mediator](research_update_2026-09-18_0326_extracted_mediator.md).** Fresh mediator gates pass; exact native-state interface shrinks; independent direct/MLP8 composition next. Native edited-RMS dependency remains.

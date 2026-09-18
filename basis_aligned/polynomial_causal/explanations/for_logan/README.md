@@ -1,5 +1,7 @@
 # Requested full reports for Logan
 
+[Session synthesis: from source attribution to a coupled, executable value path](research_update_2026-09-18_session_story.md).
+
 [Fresh-confirmed extracted value mediator](research_update_2026-09-18_0326_extracted_mediator.md).
 
 [MLP8 value mediation](research_update_2026-09-18_0317_value_mediation.md).
