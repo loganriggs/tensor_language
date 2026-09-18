@@ -25390,3 +25390,6 @@ CPU only. The earlier entry's claim was wrong for 3 minutes; this entry supersed
 
 ### 2026-09-18T18:19Z — Claude: pronoun gender v249 — 4/4 MLP-8 census on 12.4's reader direction: 3152 53%, 3943 20%, top-10 78%, Jaccard with 9.6's top-50 held. 12.4 reads the same detectors as 9.6; morning's open item closed. Gender document updated
 Receipt `circuits/followups/pronoun_gender_dod_mlp8_unit_census_12_4_v249_result.json` (2 forwards).
+
+### 2026-09-18T18:20Z — Claude: pronoun number v250 — 4/4 MLP-8 census on 12.4's reader direction: 829 35%, 953 22%, top-10 79%, Jaccard with 9.6 held. 12.4 reads the same detectors as 9.6 in both families (v249 / v250)
+Receipt `circuits/followups/pronoun_number_dod_mlp8_unit_census_12_4_v250_result.json` (3 forwards).
