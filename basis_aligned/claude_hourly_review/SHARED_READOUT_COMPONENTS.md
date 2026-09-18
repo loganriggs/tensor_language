@@ -225,3 +225,13 @@ Demonstrative these/this → ones/one at {11.2, 7.8, 6.3, 15.1}: 7/7 on fresh ro
 additive, keep-only 0.79; 11.2 alone 0.74 of the 1.18). The atlas residue's determiner (several/each → crates/crate) and numeral (three/one) lines share
 11.2 with 7.8 / 15.1 / 5.7. A second line at fresh grain would make it the seventh family; recorded as a candidate. Scorecard
 `NOUN_NUMBER_DEMONSTRATIVE_DOD_SCORECARD.md`.
+
+## Seventh family: noun number on head 11.2 (v158, 10:44 UTC)
+
+Numeral three/one → ones/one at {11.2, 7.8, 15.1, 10.5}: 6/7 on fresh rows (26% vs frozen 0.22 ± 0.15, positive 96/96, null 0.05, selective, additive;
+keep-only 0.62 failed the 0.70 bar). With the demonstrative line (v157, 7/7) the core {11.2, 7.8, 15.1} carries two noun-number decisions on fresh
+rows: the seventh family, with 11.2 as its lead (0.55–0.74 of each joint) and a sufficiency gap on the numeral line.
+
+| family | core heads | lines (atlas, live) | fresh-row battery |
+|---|---|---|---|
+| noun number | 11.2, 7.8, 15.1 (+6.3, +10.5, +5.7) | demonstrative, numeral, determiner (×4 variants) | demonstrative these/this (v157 7/7), numeral three/one (v158 6/7) |

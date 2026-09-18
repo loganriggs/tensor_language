@@ -1,4 +1,4 @@
-# 18 September — The readout collection so far: six families, thirteen lines (index)
+# 18 September — The readout collection so far: seven families, sixteen lines (index)
 
 One page across the per-behaviour reports. Every set is weight-only: heads writing along `O_h^T(u_a − u_b)` at the final
 query, removed by projection, judged against a norm-matched random-direction null (16 seeds), three unrelated readers
@@ -13,6 +13,7 @@ scorecards. Tags: fresh = rows unused by any selection step; natural = mined out
 | pronoun (gender / number / person) | 9.6, 12.4, 15.1 (+10.1 gender, +10.5 number) | gender he/she, number they/he | yes ×2 | yes / yes ×2 | yes: 94% / 103% | MLP 8 (writes the noun and verb states) |
 | person (I / you antecedents) | 8.1, 13.1, 10.5, 15.1 | reflexive I/you, object control me/you | yes ×2 | yes / yes (reflexive) | yes: 85% / 90% | 10.5's diffuse source; 8.1 / 13.1 / 15.1 close to a token lookup |
 | correlative (either/both/neither/not → or/and/nor/but) | 8.1, 16.8, 14.8, 7.8 | either/not, both/neither | yes ×2 | yes / yes ×2 | yes: 117% / 106% (late MLPs push back) | none: all four heads close to a token lookup with constant patterns |
+| noun number (determiner / numeral / demonstrative → plural vs singular noun) | 11.2, 7.8, 15.1 | demonstrative these/this, numeral three/one | yes ×2 | — | — | numeral keep-only 0.62 (sufficiency open) |
 | selection (complement choice) | 13.8, 7.8, 8.8 (+6.3, +14.8) | adjective preposition in/of, verb particle up/down | yes ×2 | yes / yes ×2 | up/down yes 86%; in/of no 38% | in/of MLP suffix |
 
 **A regularity across number lines.** On natural text, removing a number readout set hurts rows whose far cue noun has the

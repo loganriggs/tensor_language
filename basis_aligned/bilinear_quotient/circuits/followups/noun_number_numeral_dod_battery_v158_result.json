@@ -1,0 +1,128 @@
+{
+  "additivity": {
+    "bar": 0.018619299167767167,
+    "gap": 0.011932715812387529
+  },
+  "candidate_id": "numeral_number.three_vs_one.dod_battery_v158",
+  "capability": {
+    "counted/negative": 1.0,
+    "counted/positive": 1.0,
+    "kept/negative": 1.0,
+    "kept/positive": 0.9375,
+    "wanted/negative": 1.0,
+    "wanted/positive": 0.9375
+  },
+  "finished_utc": "2026-09-18T10:43:56.966667+00:00",
+  "forwards": 123,
+  "fractions": {
+    "counted": 0.2580709494443114,
+    "kept": 0.26355314230519883,
+    "wanted": 0.2696704498304619
+  },
+  "gates": {
+    "animacy_who_which": true,
+    "canonical_night_day": true,
+    "tense_will_would": true
+  },
+  "instrument_max_abs_error": 0.0,
+  "joint": {
+    "animacy_who_which_abs_move_mean": 0.08502133687337239,
+    "animacy_who_which_native_abs_mean": 1.1273866121967633,
+    "canonical_night_day_abs_move_mean": 0.07050010375678539,
+    "canonical_night_day_native_abs_mean": 1.1218505495538313,
+    "flip_fraction": 0.0,
+    "target_damage_fraction": 0.26361864944921914,
+    "target_damage_mean": 0.942649252867947,
+    "target_damage_positive_fraction": 1.0,
+    "target_native_mean_margin": 3.575806396237264,
+    "tense_will_would_abs_move_mean": 0.0469459326316913,
+    "tense_will_would_native_abs_mean": 0.6826049834489822
+  },
+  "keep_only": {
+    "random_retention": [
+      0.016017558533997223,
+      0.0045604646607246835,
+      0.009080107241953295,
+      0.012832731269128539,
+      0.006521229551366026,
+      0.022137505817719116,
+      0.005409443051015983,
+      0.003226678007862138,
+      0.008353854107377323,
+      0.005839808613403608,
+      0.013926185928526347,
+      0.012812490553874012,
+      0.004870683428787381,
+      0.009943944679051575,
+      0.01650851449468882,
+      0.017601382404289767
+    ],
+    "retention": 0.6172249813160295,
+    "zero_damage": 1.802594580532362
+  },
+  "null_damage_max": 0.050815783945533134,
+  "null_unrelated_abs_move_mean": {
+    "animacy_who_which": 0.0650878604889537,
+    "canonical_night_day": 0.05558067470944176,
+    "tense_will_would": 0.041513877687975764
+  },
+  "plan": {
+    "band": 0.15,
+    "bars": {
+      "add_ratio": 0.25,
+      "capability_min": 0.85,
+      "gate_ratio_over_null": 0.25,
+      "instrument_tol": 0.0001,
+      "live_fraction": 0.1,
+      "live_positive": 0.75,
+      "random_max": 0.3,
+      "retain_min": 0.7
+    },
+    "candidate_id": "numeral_number.three_vs_one.dod_battery_v158",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 123,
+    "frozen_fraction": 0.22,
+    "gpu_accessed": false,
+    "heads": [
+      [
+        11,
+        2
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        15,
+        1
+      ],
+      [
+        10,
+        5
+      ]
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "dbd34d63e003c27205bb418731e9daa23941870490267b2b82a267a267c03925"
+  },
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_native_capability": true,
+    "pred_c_set_live_and_beats_null": true,
+    "pred_d_set_selective": true,
+    "pred_e_set_is_additive": true,
+    "pred_f_keep_only_retains_most": false,
+    "pred_g_set_fraction_within_band_of_frozen": true
+  },
+  "schema": "dod_battery_result_v1",
+  "serial_seconds": 5.132526689209044,
+  "singles": {
+    "attn10_h5_final": 0.07447719667106867,
+    "attn11_h2_final": 0.547546640659372,
+    "attn15_h1_final": 0.11151376269602527,
+    "attn7_h8_final": 0.1971789370290935
+  }
+}
