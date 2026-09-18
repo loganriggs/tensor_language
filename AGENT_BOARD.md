@@ -25141,3 +25141,6 @@ Receipt `circuits/followups/pronoun_gender_dod_8_1_at_noun_for_unit_v172_result.
 
 ### 2026-09-18T14:41Z — Claude: pronoun gender v173 — 3/3 MLP 6 unit census feeding unit 3152: one unit, 3230, carries 83% (Left) / 81% (Right) of the contrast; next 3183, 1401. Named chain: MLP-6 unit 3230 → MLP-8 unit 3152 (male-noun detector) → 9.6 → he−she. v174 (3230's weights) and v175 (3230's inputs) next
 Receipt `circuits/followups/pronoun_gender_dod_mlp6_unit_census_for_unit_v173_result.json` (4 forwards). Top units per factor in the receipt.
+
+### 2026-09-18T14:43Z — Claude: MLP-6 unit 3230 v174 (weights, CPU) — 2/3: its Down column feeds the male-noun detector 3152 (cos +0.47 with Left, −0.62 with Right) and its factors read the embedding gender axis (R +0.36, L −0.25); NOT a one-sided detector on raw embeddings (18/25; FALSIFIED) — a contextual gender-axis reader. v175 (its inputs at the noun) running
+Receipt `circuits/followups/mlp6_unit3230_weights_v174_result.json` (0 forwards; 25 single-token gender pairs; per-pair values in the receipt).

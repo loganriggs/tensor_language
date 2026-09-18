@@ -1,0 +1,55 @@
+{
+  "candidate_id": "pronoun_gender.he_vs_she.mlp6_unit3230_weights_v174",
+  "finished_utc": "2026-09-18T14:42:25.959140+00:00",
+  "forwards": 0,
+  "predictions": {
+    "pred_a_down_column_feeds_unit_3152": true,
+    "pred_b_unit_is_a_one_sided_gender_detector": false,
+    "pred_c_one_factor_reads_the_embedding_gender_axis": true
+  },
+  "schema": "mlp6_unit3230_weights_result_v174",
+  "unit": {
+    "cos_L_R": -0.42219871282577515,
+    "cos_L_g": -0.25402820110321045,
+    "cos_R_g": 0.3561328649520874,
+    "cos_down_L3152": 0.4686734676361084,
+    "cos_down_R3152": -0.6207514405250549,
+    "male_minus_female_negative": 7,
+    "male_minus_female_positive": 18,
+    "n_pairs": 25,
+    "unit_values_examples": {
+      "boy/girl": [
+        -408.899,
+        -710.958
+      ],
+      "brother/sister": [
+        -1960.908,
+        -273.178
+      ],
+      "father/mother": [
+        -202.544,
+        -738.586
+      ],
+      "husband/wife": [
+        -1272.876,
+        -1195.642
+      ],
+      "king/queen": [
+        7.808,
+        -1189.313
+      ],
+      "man/woman": [
+        -108.888,
+        -525.395
+      ],
+      "son/daughter": [
+        -1354.348,
+        -506.142
+      ],
+      "uncle/aunt": [
+        -1458.104,
+        -420.881
+      ]
+    }
+  }
+}
