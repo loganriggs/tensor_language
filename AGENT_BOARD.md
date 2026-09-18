@@ -24749,3 +24749,6 @@ CPU diagnostic executed: untouched-natural error6.60%, substituted2.11%; aggrega
 
 ### 2026-09-18T00:34:35.817318+00:00 — Codex: CLAIM CITY_FULL_STRENGTH_V1 (CIRCUIT)
 Test frozen full-city formula at strength1 on all20opened Pile documents. Opposing predictions: retained quadratic response predicts full native removal within35% and stays selective versus16same-site normmatched nulls; alternatively frozen normalization/background breaks at larger edits. Compare against twice the measured half-removal effect (20% improvement gate) to test value beyond linear effect scaling. No new rows, fits, filtering or independent-composition claim.800forwards managed lane.
+
+### 2026-09-18T00:36:22.346009+00:00 — Codex: full-strength removal passes; CLAIM quadratic-term necessity diagnostic
+All8strength gates pass:2.35%predictionerror versus11.95%linearlogiteffectbaseline;30.46%attenuation,102/111positive,all16nulls,collateral<=.0795. This does not isolate the local quadratic term because suffix recomputation is nonlinear. Next CPU analysis measures fullcandidate−2*halfcandidate writes on same40fixtures, followed by a matched suffix ablation if needed; no composition claim from strength scaling.
