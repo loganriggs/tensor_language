@@ -154,3 +154,4 @@ finiteness (to−that) and mood do not share an axis (to−that is orthogonal to
 0.39 (has−have | be−was −0.37; has−have | do−does −0.65 within type) — part of the head-level alignment is inherited from the vocabulary. Reading:
 the mood lines ride the number / tense axes at the shared heads; the finiteness lines are a separate, weak decision. The number core in the atlas
 assignment is now {11.3, 5.7, 7.8, 9.7} (the union of the two batteried sets), which absorbs the agreement lines.
+Assignment after widening the number core (03:15): number 35, pronoun 26, other 15, person 13, selection 8, temporal 3 (85 of 100 assigned). Caveat: five selection lines whose top-4 holds 11.3 + 7.8 as well as 13.8 + 8.8 now tie at two core heads each and go to number by the tie rule (family order); the selection family's own count is 13 by the earlier rule. The residue of 15 is the determiner-number crates variants {11.2, 5.7, 16.8, 15.1} and the correlative lines {16.8, 14.8, 8.1}.
