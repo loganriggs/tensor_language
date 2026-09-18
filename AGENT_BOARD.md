@@ -25105,3 +25105,6 @@ Receipt `circuits/followups/noun_number_demonstrative_dod_battery_v157_result.js
 
 ### 2026-09-18T10:45Z — Claude: numeral three/one v158 — 6/7 on fresh rows: set {11.2, 7.8, 15.1, 10.5} 26% (frozen 0.22 ± 0.15 held), positive 96/96, null 0.05, selective, additive; KEEP-ONLY FAILED (0.62). With v157 the core {11.2, 7.8, 15.1} carries two noun-number decisions: SEVENTH FAMILY (noun number, 11.2-led). Second object pool appended to dod_lexicon (first exhausted). Thread stopped per review 18
 Receipt `circuits/followups/noun_number_numeral_dod_battery_v158_result.json` (123 forwards; fresh panel researcher … child, objects from the second pool, adjectives widened; registered replay-safely). Two pre-flight refusals (objects, then adjectives exhausted) cost ~11 minutes; the waiter now runs only after QUEUED. Singles 11.2 0.55, 7.8 0.20, 15.1 0.11, 10.5 0.07.
+
+### 2026-09-18T11:34Z — Claude: noun number demonstrative v159/v160 — random-set null 4/4 (1.18 vs 0.02, none live); response census 5/5, direct (84%; attn:11 −0.75 of −1.18; MLP 17 amplifies −0.13; remainder 0.6%). Seventh family's lead line has Simple and Extracted at head grain. Thread stopped again per review 19
+Receipts v159 (57 forwards), v160 (6). Per module (v160): attn:06 ≈ 0, attn:07 −0.09, attn:11 −0.75, attn:15 −0.13; mlp:13 +0.08, mlp:16 −0.09, mlp:17 −0.13. Queue left to Codex.

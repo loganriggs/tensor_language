@@ -21,7 +21,7 @@ scorecards keep every failed prediction.
 | correlative | correlative either/not | 16.8, 14.8, 7.8, 8.1 | 0.44 | 1.17 | 21% / 25% |
 | correlative | correlative both/neither | 8.1, 7.8, 16.8, 14.8 | 0.46 | 1.06 | 43% / 42% |
 | correlative | correlative either/neither | 14.8, 8.1, 16.8, 5.7 | 0.54 | — | 43% / 48% |
-| noun-number | demonstrative these/this | 11.2, 7.8, 6.3, 15.1 | 0.33 | — | — / — |
+| noun-number | demonstrative these/this | 11.2, 7.8, 6.3, 15.1 | 0.33 | 0.84 | — / — |
 | noun-number | numeral three/one | 11.2, 7.8, 15.1, 10.5 | 0.26 | — | — / — |
 | person | reflexive person I/you | 8.1, 13.1, 10.5, 15.1 | 0.42 | 0.85 | 37% / 33% |
 | person | object control me/you | 13.1, 8.1, 10.5, 15.1 | 0.46 | 0.90 | 39% / 39% |

@@ -15,16 +15,19 @@ this line (0.28) all lead with head 11.2 (0.40–0.66 alone). Readers set explic
 | 3 | Selective (will−would, who−which, night−day) | edit | fresh (v157) | moves 0.09 / 0.09 / 0.10 vs null 0.06 / 0.09 / 0.08 | passes |
 | 4 | Additive | edit | fresh (v157) | singles 11.2 0.74 / 7.8 0.17 / 6.3 0.13 / 15.1 0.13; gap 0.011 ≤ bar 0.033 | passes |
 | 5 | Keep-only readout at the four heads keeps their service | edit | fresh (v157) | zero 1.92; retention 0.79; random keep ≤ 0.02 | passes |
+| 6 | Matched-count random four-head-set null | edit | v157 rows (v159) | set 1.18 (fraction 0.33) vs random max 0.02 (fraction 0.005); none live | passes 4/4 |
+| 7 | Response census (exact λ-recurrence split from block 6, closure 6e-6): the set's own writes carry 84% (attn:11 −0.75, attn:15 −0.13, attn:07 −0.09 of −1.18); downstream net −0.19 (MLP 17 −0.13, MLP 16 −0.09 amplify; MLP 13 +0.08); remainder 0.6% | response | fresh (v160) | | passes 5/5 — a direct readout, 11.2's write dominant |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
-| Simple | head grain | random four-head-set null |
+| Simple | held at head grain (row 6) | — |
 | Predicts OOD | held on a fresh panel with a frozen number (row 2) | natural rows (these / this + adjective → ones / one is rare in text; a numeral or determiner line may mine better) |
-| Extracted | held at the head boundary (row 5) | response census; source fold (11.2 dominant) |
+| Extracted | held at the head boundary (row 5); direct readout (row 7) | source fold of 11.2 |
 | Selective | held (row 3) | — |
 | Composes | additive (row 4) | — |
 
 ## Receipts
+- v159: `.../noun_number_demonstrative_dod_random_set_null_v159_result.json`; v160: `.../noun_number_demonstrative_dod_response_census_v160_result.json` (both emitted by `ops/dod_line.py`)
 - atlas v68: `bilinear_quotient/circuits/followups/atlas_demonstrative_number_v68_result.json`
 - v157: `.../noun_number_demonstrative_dod_battery_v157_result.json`; code `ops/run_noun_number_demonstrative_dod_battery_v157.py`
