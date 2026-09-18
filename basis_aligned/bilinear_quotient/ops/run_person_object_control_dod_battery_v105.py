@@ -37,7 +37,7 @@ PREDICTIONS = {"pred_a_instrument_replays_native": "<= 1e-4", "pred_b_native_cap
                "pred_e_set_is_additive": "gap <= 0.25 x min single", "pred_f_keep_only_retains_most": "retention >= 0.70, random <= 0.30",
                "pred_g_set_fraction_within_band_of_frozen": "0.54 +/- 0.15 per construction"}
 AGENT_CANDIDATES = v86.AGENT_CANDIDATES + v76.AGENT_CANDIDATES + ("nurse", "pilot", "farmer", "soldier", "teacher", "doctor", "driver", "student", "worker", "lawyer", "judge", "sailor", "miner", "baker", "guard", "clerk")
-OBJECT_CANDIDATES = v97.OBJECT_CANDIDATES + v86.OBJECT_CANDIDATES + ("nail", "screw", "bolt", "rug", "sofa", "desk", "shelf", "stool", "crate", "basket", "bench", "lantern", "candle", "mirror")
+OBJECT_CANDIDATES = ('nail', 'screw', 'bolt', 'rug', 'sofa', 'desk', 'shelf', 'stool', 'crate', 'shoe', 'pipe', 'tube', 'wire', 'cord', 'string', 'ribbon', 'towel', 'sponge', 'soap', 'comb', 'razor', 'pencil', 'pen', 'ruler', 'folder', 'tape', 'glue', 'paint', 'ink', 'chalk', 'marker', 'canvas', 'frame', 'poster', 'banner', 'sign', 'badge', 'medal', 'trophy', 'stamp')
 CONSTRUCTIONS = {"warned": lambda agent, obj, cue: f"The {agent} by the {obj} warned {cue} to protect",
                  "reminded": lambda agent, obj, cue: f"Yesterday the {agent} reminded {cue} to trust",
                  "urged": lambda agent, obj, cue: f"Once again the {agent} near the {obj} urged {cue} to forgive"}
