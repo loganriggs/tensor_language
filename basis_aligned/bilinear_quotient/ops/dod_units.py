@@ -12,6 +12,12 @@ the exact leave-one-unit-out change D_j = u(x) - u(x - c_j) with c_j = (prod of 
 it reaches x (rms held). Returns {src: per_row}, closure (linear parts + bias terms vs (L . m)(R . x) + (L . x)(R . m)), forwards. One forward per batch
 for all sources.
 
+`carrier_split(aP, bP, aS, bS)`: the exact per-pair CARRIER identity for a bilinear unit u = (sum_w a_w)(sum_w b_w) over an aligned pair
+(P, S), a_w = (L . C_w)/rms, b_w = (R . C_w)/rms per writer: u_P - u_S = sum_w [ da_w mB + mA db_w ] with d = P - S, m = pair mean. Returns
+(ref, carrier, mass): ref the scalar contrast, carrier the per-writer terms (sum to ref), mass the symmetrised pair-term contrast per writer
+(half of each off-diagonal pair to each member; also sums to ref). Mass is what v178/v181/v183 reported; carriage is who changed (v187 lesson:
+a constant write can hold a large mass share). Pool both over pairs and divide by the pooled ref for shares.
+
 `forward_margins(backend, fw, rows, layer, edits, readers)`: a plain forward that matches the producer (rms -> blocks -> rms -> 30 tanh)
 with the chosen hidden units of block `layer` zeroed at positions_fn(row) (None = every position); returns per-row answer / foil logits and
 reader margins at row.final. edits = (units, positions_fn) or None.
@@ -90,6 +96,15 @@ def product_unit_census(backend, fw, rows, src_layers, dst_layer, unit, position
                         closure = max(closure, abs(recon - true) / max(abs(true), 1e-6)); entry[label] = D.cpu()
                     per_row[s].append(entry)
     return per_row, closure, forwards
+
+
+def carrier_split(aP, bP, aS, bS):
+    import torch
+    ref = float(aP.sum() * bP.sum() - aS.sum() * bS.sum())
+    da, db, ma, mb = aP - aS, bP - bS, (aP + aS) / 2, (bP + bS) / 2
+    carrier = da * float(mb.sum()) + float(ma.sum()) * db
+    Tm = torch.outer(aP, bP) - torch.outer(aS, bS); mass = ((Tm + Tm.T) / 2).sum(1)
+    return ref, carrier, mass
 
 
 def pooled_contrast(rows, per_row, partner, label):

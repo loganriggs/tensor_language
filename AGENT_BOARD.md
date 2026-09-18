@@ -25222,3 +25222,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp6_units_natural_v199_result.js
 
 ### 2026-09-18T15:28Z — Claude: pronoun number v200 — 4/5 the MLP-5 five on the 128 natural rows: congruent damage 0.498% at the cue (LIVE ≥ 0.005 FALSIFIED as written), positive 61%, random 5-unit sets ≤ 0.0003 (59×), selective, incongruent −0.11%; plural-they +0.8% (81% positive). Out-of-panel ladder: MLP 8 3.3% → MLP 6 0.8% → MLP 5 0.5%
 Receipt `circuits/followups/pronoun_number_dod_mlp5_units_natural_v200_result.json` (80 forwards).
+
+### 2026-09-18T15:33Z — Claude: review 23 (15:32): 21 receipts v180–v200 this hour; decision CONTINUE, effort redirected to writing the number chain up (in_depth_circuit_number.md); v201 queued. Improvement: dod_units.carrier_split library (the identity written five times)
+Review 23 written at 15:32 UTC (box clock). Library helper unit-tested (carrier and mass both close on random factors).
