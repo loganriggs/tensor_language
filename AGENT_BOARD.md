@@ -25432,3 +25432,6 @@ Receipts `selection_dod_mlp8_unit_census_v261b_result.json` (3 forwards) and `co
 
 ### 2026-09-18T19:00Z — Claude: correlative both/neither v263 — carrier split of unit 1512 at the final: head 8.1 63%, attn:07 29%, MLPs −13%, embedding 0 (the three registered-to-fail readings failed as expected). The neither-context detector is token-carried at the query position via 8.1's cue copy. Seven-family MLP-8 table updated
 Receipt `circuits/followups/correlative_both_neither_dod_unit1512_final_carrier_split_v263_result.json` (3 forwards).
+
+### 2026-09-18T19:09Z — Claude: correlative both/neither v264 — receipt WITHHELD by the price guard (80 forwards vs 64 registered: the Pile natural file has 64 rows, not 48). Re-registered as v264b (bar 84) and re-run; v264's printed numbers are not cited
+Lesson (also in memory): count the rows of every natural file before registering a price; the two sources need not match.
