@@ -32,12 +32,14 @@ for m, f in PAIRS:
                 NOUNS[ids[0]] = (w, g)
 PRONOUNS = {ENC.encode(t)[0] for t in (" he", " she", " his", " her", " him", " hers", " himself", " herself", "He", "She", " He", " She")
             if len(ENC.encode(t)) == 1}
-OUT = Path(__file__).resolve().parent.parent / "circuits/followups/pronoun_gender_dod_natural_rows_v73.json"
+import sys
+SOURCE = sys.argv[1] if len(sys.argv) > 1 else "fineweb"   # "fineweb" (training corpus, v73) or "pile" (NeelNanda/pile-10k, OOD, v75)
+OUT = Path(__file__).resolve().parent.parent / ("circuits/followups/pronoun_gender_dod_natural_rows_v73.json" if SOURCE == "fineweb" else "circuits/followups/pronoun_gender_dod_pile_rows_v75.json")
 
 
 def mine():
     from datasets import load_dataset
-    ds = load_dataset("HuggingFaceFW/fineweb", name="sample-10BT", split="train", streaming=True)
+    ds = load_dataset("HuggingFaceFW/fineweb", name="sample-10BT", split="train", streaming=True) if SOURCE == "fineweb" else load_dataset("NeelNanda/pile-10k", split="train")
     cells = {(g, l): [] for g in ("male", "female") for l in ("he", "she")}
     seen = 0
     for doc_index, doc in enumerate(itertools.islice(ds, DOC_BUDGET)):
@@ -68,7 +70,7 @@ def mine():
 def main():
     cells, seen = mine()
     rows = [r for key in sorted(cells) for r in cells[key]]
-    payload = {"schema": "pronoun_gender_dod_natural_rows_v73", "source": "HuggingFaceFW/fineweb sample-10BT streaming", "docs_scanned": seen,
+    payload = {"schema": "pronoun_gender_dod_natural_rows_v73" if SOURCE == "fineweb" else "pronoun_gender_dod_pile_rows_v75", "source": "HuggingFaceFW/fineweb sample-10BT streaming" if SOURCE == "fineweb" else "NeelNanda/pile-10k (stream order)", "docs_scanned": seen,
                "per_cell": {f"{g}/{l}": len(v) for (g, l), v in cells.items()}, "rows": rows}
     payload["rows_sha256"] = hashlib.sha256(json.dumps(rows, sort_keys=True).encode()).hexdigest()
     OUT.write_text(json.dumps(payload, indent=1) + "\n")
