@@ -24,6 +24,11 @@ other positions). The registered "token-only share ≤ 0.50" failed (0.82) and i
 natural text: it copies the pronoun token. The open port is the heads' attention pattern (which position they copy), the
 same port the temporal line's 8.1 had, and the next step is the token-only generator with a constant pattern.
 
-**Scope.** Two behaviours, fresh panels, one natural pair, head grain. Not yet: source folds (is 8.1 a token-only I/you reader?),
-the three remaining lines of the cluster. Scorecards: `basis_aligned/claude_hourly_review/PERSON_REFLEXIVE_DOD_SCORECARD.md`,
+**Closed to tokens (v113, edit).** Replacing the three token readers' writes by the token-only term p × λ × v1(pronoun) keeps 91% of
+their service with the native pattern and 94% with a constant pattern per head and cue taken from the other constructions
+(0.90 / 1.12 / 0.83 per held-out construction; pattern variation ≤ 26%). Three of the four heads are therefore a two-entry
+lookup table on the pronoun token with a constant attention weight — the temporal line's 8.1 mechanism (v12) again — and
+their ports are closed; 10.5 remains a contextual reader.
+
+**Scope.** Two behaviours, fresh panels, one natural pair, head grain. Not yet: 10.5's source, the object-control line's folds, the three remaining lines of the cluster. Scorecards: `basis_aligned/claude_hourly_review/PERSON_REFLEXIVE_DOD_SCORECARD.md`,
 `PERSON_OBJECT_CONTROL_DOD_SCORECARD.md`; receipts under `basis_aligned/bilinear_quotient/circuits/followups/person_*`.

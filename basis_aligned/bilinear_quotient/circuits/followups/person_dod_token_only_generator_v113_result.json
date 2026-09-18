@@ -1,0 +1,186 @@
+{
+  "candidate_id": "reflexive_person.i_vs_you.dod_token_only_generator_v113",
+  "constants": {
+    "set_attn13_1/after/I": -0.28570136427879333,
+    "set_attn13_1/after/you": -0.25094369798898697,
+    "set_attn13_1/by/I": -0.36650998890399933,
+    "set_attn13_1/by/you": -0.28590127825737,
+    "set_attn13_1/say/I": -0.3502002954483032,
+    "set_attn13_1/say/you": -0.2602319121360779,
+    "set_attn15_1/after/I": -0.6316974461078644,
+    "set_attn15_1/after/you": -0.6789921820163727,
+    "set_attn15_1/by/I": -0.7025192677974701,
+    "set_attn15_1/by/you": -0.689689964056015,
+    "set_attn15_1/say/I": -0.6288209855556488,
+    "set_attn15_1/say/you": -0.6653937101364136,
+    "set_attn8_1/after/I": 0.13792957365512848,
+    "set_attn8_1/after/you": 0.11314365267753601,
+    "set_attn8_1/by/I": 0.10905071720480919,
+    "set_attn8_1/by/you": 0.11663892865180969,
+    "set_attn8_1/say/I": 0.08500196412205696,
+    "set_attn8_1/say/you": 0.11726503819227219
+  },
+  "finished_utc": "2026-09-18T03:10:58.213193+00:00",
+  "forwards": 42,
+  "instrument_max_abs_error": 0.0,
+  "pattern_stats": {
+    "set_attn13_1/after/I": {
+      "cv": 0.036863463640393335,
+      "mean": -0.39331622794270515,
+      "median": -0.396540105342865
+    },
+    "set_attn13_1/after/you": {
+      "cv": 0.05360439099944928,
+      "mean": -0.28698959201574326,
+      "median": -0.28777793049812317
+    },
+    "set_attn13_1/by/I": {
+      "cv": 0.15184040182493197,
+      "mean": -0.25058296136558056,
+      "median": -0.23568988591432571
+    },
+    "set_attn13_1/by/you": {
+      "cv": 0.2638893619024132,
+      "mean": -0.18780210241675377,
+      "median": -0.18378479778766632
+    },
+    "set_attn13_1/say/I": {
+      "cv": 0.10719576446253663,
+      "mean": -0.3093524780124426,
+      "median": -0.30689388513565063
+    },
+    "set_attn13_1/say/you": {
+      "cv": 0.08233298098268854,
+      "mean": -0.28459951281547546,
+      "median": -0.28221218287944794
+    },
+    "set_attn15_1/after/I": {
+      "cv": 0.01604697374381711,
+      "mean": -0.6997652798891068,
+      "median": -0.7001544535160065
+    },
+    "set_attn15_1/after/you": {
+      "cv": 0.018910185481228636,
+      "mean": -0.6761968918144703,
+      "median": -0.6789357662200928
+    },
+    "set_attn15_1/by/I": {
+      "cv": 0.03718790260690881,
+      "mean": -0.559974804520607,
+      "median": -0.563463568687439
+    },
+    "set_attn15_1/by/you": {
+      "cv": 0.03743047604070284,
+      "mean": -0.6521563977003098,
+      "median": -0.657639354467392
+    },
+    "set_attn15_1/say/I": {
+      "cv": 0.02136467601351009,
+      "mean": -0.7085398696362972,
+      "median": -0.7123313546180725
+    },
+    "set_attn15_1/say/you": {
+      "cv": 0.036174291367270475,
+      "mean": -0.7166513130068779,
+      "median": -0.7204239368438721
+    },
+    "set_attn8_1/after/I": {
+      "cv": 0.09042376810083573,
+      "mean": 0.07271203049458563,
+      "median": 0.0733138956129551
+    },
+    "set_attn8_1/after/you": {
+      "cv": 0.06451707722429931,
+      "mean": 0.1211255737580359,
+      "median": 0.11834455654025078
+    },
+    "set_attn8_1/by/I": {
+      "cv": 0.11147170319341453,
+      "mean": 0.1171472892165184,
+      "median": 0.11819937080144882
+    },
+    "set_attn8_1/by/you": {
+      "cv": 0.17067705575822378,
+      "mean": 0.11259241309016943,
+      "median": 0.11337362602353096
+    },
+    "set_attn8_1/say/I": {
+      "cv": 0.07131880846671408,
+      "mean": 0.15028847847133875,
+      "median": 0.14755499362945557
+    },
+    "set_attn8_1/say/you": {
+      "cv": 0.10404757288572858,
+      "mean": 0.11566931614652276,
+      "median": 0.11314365267753601
+    }
+  },
+  "plan": {
+    "bars": {
+      "cv_max": 0.35,
+      "native_min": 0.8,
+      "per_min": 0.5,
+      "pooled_min": 0.6
+    },
+    "candidate_id": "reflexive_person.i_vs_you.dod_token_only_generator_v113",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 48,
+    "gpu_accessed": false,
+    "heads": [
+      [
+        8,
+        1
+      ],
+      [
+        13,
+        1
+      ],
+      [
+        15,
+        1
+      ]
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "ed04d6e687f036f9d1f6b3eca6db541671f11572e64c5faa9839157673d357fd"
+  },
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_token_only_term_carries_the_three_heads": true,
+    "pred_c_pattern_is_stable_within_cue": true,
+    "pred_d_constant_pattern_transfers_pooled": true,
+    "pred_e_constant_pattern_transfers_in_every_construction": true
+  },
+  "schema": "person_dod_token_only_generator_result_v113",
+  "scored": {
+    "constant_pattern_after": {
+      "arm_damage": 0.1644207090139389,
+      "retention": 0.9036816071095577,
+      "zero_damage": 1.707054115831852
+    },
+    "constant_pattern_by": {
+      "arm_damage": -0.1761780846863985,
+      "retention": 1.1156846878108388,
+      "zero_damage": 1.5229161959141493
+    },
+    "constant_pattern_pooled": {
+      "arm_damage": 0.11108525842428207,
+      "retention": 0.9359016559520568,
+      "zero_damage": 1.7330441226561863
+    },
+    "constant_pattern_say": {
+      "arm_damage": 0.3450131509453058,
+      "retention": 0.8247918956923513,
+      "zero_damage": 1.969162056222558
+    },
+    "native_pattern_pooled": {
+      "arm_damage": 0.15166137220027545,
+      "retention": 0.9124884529957445,
+      "zero_damage": 1.7330441226561863
+    }
+  },
+  "serial_seconds": 2.525967853842303
+}

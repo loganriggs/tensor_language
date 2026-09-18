@@ -21,17 +21,19 @@ will−would, who−which, night−day.
 | 8 | Natural FineWeb rows (an I / you token within 12 tokens, next token myself / yourself; other person pronouns excluded): congruent cells (I/myself, you/yourself; capability 1.00) removal 2.18 of 5.93 (37%), positive 32/32, null max 0.03, selective (will−would moves 0.14 vs null 0.04, inside the gate); the 11 counter-case rows (a quoted speaker) shift toward the text's reflexive (−0.23) as registered | edit | natural (v110) | frozen v20 bars held | passes 6/6 |
 | 9 | Pile rows (out-of-corpus): congruent 2.07 of 6.29 (33%), positive 32/32, null max 0.03, selective; 4 counter-case rows −0.05 | edit | natural OOD (v111) | | passes 6/6 |
 | 10 | Source fold (exact, closure 2e-6): the four coefficients come from the I / you token position — 8.1 0.98 (91% through the token-only block-0 value), 13.1 0.98 (95% token-only), 15.1 0.80 (72% token-only), 10.5 0.52 (29% token-only; 0.24 final, 0.24 other); pooled 0.89 from the pronoun, 0.82 token-only | fold | fresh (v112) | registered "pooled token-only ≤ 0.50" false (0.82) — the opposite of the pronoun-number and have/has sets | 4/5 — a token-only reader family: three of four heads copy the pronoun token's block-0 value; the open port is their attention pattern, as for 8.1 on the temporal line |
+| 11 | Token-only generator (§3.7) for {8.1, 13.1, 15.1}: replacing the three slices by p_h(final, pronoun) × λ_h × v1_h(pronoun) with the native pattern retains 91% of their zeroed service; with a CONSTANT pattern per (head, cue) taken from the other two constructions (leave-one-out, a number not a fit) 94% pooled — after 0.90, by 1.12, say 0.83; pattern CV ≤ 0.26 within every (head, construction, cue) | edit | fresh (v113) | | passes 5/5 — the three heads are a two-entry lookup table on the pronoun token; their ports are closed. 10.5 (contextual, 52% pronoun) stays open |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
 | Simple | held at head grain (row 6) | — |
 | Predicts OOD | held on fresh, natural FineWeb and Pile rows (rows 2, 8, 9); the set follows the cue token (counter-cases move toward the text, as the gender set did and the number sets did not) | — |
-| Extracted | held at the head boundary (row 5); direct readout (row 7); sources fold to the pronoun TOKEN (token-only value branch) for 8.1 / 13.1 / 15.1 (row 10) | token-only generator with a constant pattern (v113) |
+| Extracted | held at the head boundary (row 5); direct (row 7); 8.1 / 13.1 / 15.1 close to a token-only generator with constant patterns (rows 10–11); 10.5 contextual, open | 10.5's source (fold) |
 | Selective | held (row 3) | — |
 | Composes | additive (row 4) | — |
 
 ## Receipts
+- v113: `.../person_dod_token_only_generator_v113_result.json`; code `ops/run_person_dod_token_only_generator_v113.py`
 - v112: `.../person_dod_source_fold_v112_result.json`; code `ops/run_person_dod_source_fold_v112.py`
 - v110 / v111: `.../person_reflexive_dod_natural_v110_result.json`, `.../person_reflexive_dod_pile_v111_result.json`; rows `person_reflexive_dod_{natural,pile}_rows_v11{0,1}.json`; miner config `ops/person_dod_natural_rows.py`
 - v106: `.../person_reflexive_dod_random_set_null_v106_result.json`; v107: `.../person_reflexive_dod_response_census_v107_result.json`
