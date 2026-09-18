@@ -61,7 +61,12 @@ follows it; the number set reads what earlier blocks resolved.
 At position grain (v81): head 9.6 reads the noun and the verb almost equally on both lines (0.50 / 0.48 gender, 0.48 / 0.50
 number); the verb is the largest non-noun source for 9.6 and 12.4 (registered, held); the later heads 12.4 and 15.1 spread
 over the determiner before the object, the conjunction and the final token, so "noun + verb ≥ 0.60" failed for them on the
-number line (kept). The feature at the verb position is a relay state written by earlier blocks; that writer census is next.
+number line (kept). The writer fold (v82, exact, closure 2e-7) says what put it there: on both lines the verb-position state that 9.6 reads is
+MLP-written (gender 73%: MLP 8 0.51, MLP 6 0.15; number 94%: MLP 8 0.54, MLP 6 0.11, MLP 4 0.10), and on the gender line head
+8.1 adds 20% (the same head that is the temporal family's token-only cue reader); at the noun MLP 8 again leads (0.27 / 0.50).
+Three of four registered readings failed and are kept: the verb state is not attention-copied, the largest head writer is not
+shared across lines, and the noun state is not embedding-dominated. MLP 8 is the declared open port of both pronoun lines,
+the same block that carries the relay parts of the auxiliary families.
 
 **What is different from the auxiliary families.** Removal along one weight-only direction per head takes the *entire*
 margin (the auxiliary sets take 45–60%), keep-only raises the margin above native, and additivity sits exactly at the

@@ -22,18 +22,20 @@ the singular side — the shared core is the claim under test.
 | 8 | Pile rows (out-of-corpus, same miner and bars): congruent 2.04 of 3.61 (56%), positive 30/32, null max 0.02, selective by the gate (was−were 0.20 vs null 0.03); incongruent again shift away (+0.99, positive 24/32; capability 0.81 / 0.94) | edit | natural OOD (v78) | | passes 5/6, pred_f falsified again |
 | 9 | Source fold on the v76 fresh rows (closure 3e-5): every head reads the number-marked noun at 24–48% and the other positions at 40–57%, almost entirely through the contextual branch (inherited 2–11%); no token-only reader in this set | fold | fresh (v80) | pooled noun share 0.34 (gender line 0.61), inherited 0.05 | registered "number noun share below gender" held; consistent with the falsified counter-case (row 7f): the set reads a resolved, contextual number |
 | 10 | Position-grain fold (v81): 9.6 noun 0.48 / verb 0.50; 10.5 noun 0.31 / verb 0.34; 12.4 noun 0.24 / verb 0.32 / det-before-object 0.15 / final 0.12; 15.1 noun 0.31 / verb 0.17 / final 0.20 / conj 0.15 | fold | fresh (v81) | registered "noun + verb ≥ 0.60 for every head" false (12.4 0.56, 15.1 0.48): number is spread over the clause for the later heads | 3/5 (shared receipt with the gender line) |
+| 11 | Writer fold of what 9.6 reads (v82, closure 2e-7): the number feature at the verb is 94% MLP-written (MLP 8 0.54, MLP 6 0.11, MLP 4 0.10, MLP 5 0.08), heads 6%; at the noun MLP 87% (MLP 8 0.50), embedding 10%, heads 3% — no attention copier; the plural morphology is resolved by the MLP stack at the noun and again at the verb | fold | fresh (v82) | | MLP 8 is the declared port on this line too |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
 | Simple | held at head grain (row 6) | — |
 | Predicts OOD | held on fresh, natural FineWeb and Pile rows for the congruent readout (rows 2, 7, 8); the registered counter-case prediction was wrong twice (row 7f): the set reads a resolved number, not the noun's (row 9 agrees) | — |
-| Extracted | held at the head boundary (row 5); sources folded, contextual (row 9) | response census; finer position split (v81) |
+| Extracted | held at the head boundary (row 5); sources folded to MLP 8 / 6 / 4 at the noun and verb (rows 9–11) | response census; pair-term fold of MLP 8 |
 | Selective | held (rows 1, 3) | — |
 | Composes | additive (row 4) | — |
 
 ## Receipts
 - atlas v68: `bilinear_quotient/circuits/followups/atlas_pronoun_number_v68_result.json`
+- v82: `.../pronoun_dod_verb_writer_fold_v82_result.json`
 - v81: `.../pronoun_dod_source_fold_positions_v81_result.json`
 - v80 (both lines): `.../pronoun_dod_source_fold_v80_result.json`
 - v79: `.../pronoun_number_dod_random_set_null_v79_result.json` (scored key `pred_d_set_fraction_within_band_of_v71` is v72's literal name reused; the band is v76's 0.76 ± 0.05)
