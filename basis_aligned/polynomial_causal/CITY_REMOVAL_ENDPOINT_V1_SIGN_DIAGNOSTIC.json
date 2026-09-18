@@ -1,0 +1,897 @@
+{
+  "scope": "Post-result opened diagnostic. Registered fresh pred_d fails; no changed gates or removed cells. Native removal sign is distinct from approximation fidelity.",
+  "cells": [
+    {
+      "context_id": 0,
+      "variant": "word_index",
+      "template": 0,
+      "pair": 0,
+      "template_text": "Word index prepared in {city}: \"The document includes the word",
+      "panel_status": "fresh at freeze",
+      "cities": [
+        "York",
+        "Portland"
+      ],
+      "native_pair_margins": [
+        1.622030258178711,
+        1.6764472723007202,
+        1.451215922832489,
+        1.3550149202346802,
+        0.9619795083999634,
+        0.8063827753067017
+      ],
+      "native_removal": {
+        "attenuations": [
+          0.03227145462605728,
+          0.025994273365417864,
+          0.03065843311244836,
+          0.03335034503011387,
+          0.0296806473722776,
+          0.02527633891936777
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.029538582070947127
+      },
+      "candidate": {
+        "attenuations": [
+          0.028354378059550028,
+          0.022579155786802856,
+          0.026794298010835917,
+          0.028989268554809586,
+          0.025122343927613387,
+          0.02232664427403998
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.025694348102275295
+      }
+    },
+    {
+      "context_id": 1,
+      "variant": "word_index",
+      "template": 0,
+      "pair": 1,
+      "template_text": "Word index prepared in {city}: \"The document includes the word",
+      "panel_status": "fresh at freeze",
+      "cities": [
+        "Oxford",
+        "Seattle"
+      ],
+      "native_pair_margins": [
+        2.6639363765716553,
+        2.4216028451919556,
+        2.2666558027267456,
+        2.6508333683013916,
+        1.634591817855835,
+        1.2290370464324951
+      ],
+      "native_removal": {
+        "attenuations": [
+          0.14672409612901546,
+          0.1482221242158747,
+          0.14342552971383796,
+          0.13590861671565901,
+          0.15652996109233186,
+          0.15888305523520574
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.14828223051698744
+      },
+      "candidate": {
+        "attenuations": [
+          0.13570458086954873,
+          0.13745630634664174,
+          0.13257658650662532,
+          0.1254754842895125,
+          0.14460496136581594,
+          0.1463223248311576
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.13702337403488363
+      }
+    },
+    {
+      "context_id": 2,
+      "variant": "word_index",
+      "template": 1,
+      "pair": 0,
+      "template_text": "The {city} word index contains this line: \"The document includes the word",
+      "panel_status": "fresh at freeze",
+      "cities": [
+        "York",
+        "Portland"
+      ],
+      "native_pair_margins": [
+        0.9967691898345947,
+        1.2685375809669495,
+        1.1983776092529297,
+        0.49002909660339355,
+        0.7591618299484253,
+        0.834984540939331
+      ],
+      "native_removal": {
+        "attenuations": [
+          0.03718995118821897,
+          0.025300376661063165,
+          0.025168909509068194,
+          0.0651953383664237,
+          0.02985689612206439,
+          0.02016858647145106
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.03381334305304825
+      },
+      "candidate": {
+        "attenuations": [
+          0.031739138858478365,
+          0.02120020604694113,
+          0.020969299851184554,
+          0.054454975865201274,
+          0.02449582000627796,
+          0.017698410047002167
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.028426308445847575
+      }
+    },
+    {
+      "context_id": 3,
+      "variant": "word_index",
+      "template": 1,
+      "pair": 1,
+      "template_text": "The {city} word index contains this line: \"The document includes the word",
+      "panel_status": "fresh at freeze",
+      "cities": [
+        "Oxford",
+        "Seattle"
+      ],
+      "native_pair_margins": [
+        3.0128414630889893,
+        2.8854916095733643,
+        2.689997971057892,
+        3.1245079040527344,
+        1.8211344480514526,
+        1.7435349225997925
+      ],
+      "native_removal": {
+        "attenuations": [
+          0.09643304505034632,
+          0.09363102016925413,
+          0.09170766483294722,
+          0.08837226107382633,
+          0.10711613826026069,
+          0.08526373646735012
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.0937539776423308
+      },
+      "candidate": {
+        "attenuations": [
+          0.08951984814477557,
+          0.08727909448434716,
+          0.08517453660178863,
+          0.08195294577637348,
+          0.09929741097978546,
+          0.07874499575442927
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.08699480529024994
+      }
+    },
+    {
+      "context_id": 4,
+      "variant": "exact_copy",
+      "template": 0,
+      "pair": 0,
+      "template_text": "Copy the line printed in {city}: \"The document includes the word",
+      "panel_status": "fresh at freeze",
+      "cities": [
+        "York",
+        "Portland"
+      ],
+      "native_pair_margins": [
+        1.7894930839538574,
+        1.6839244365692139,
+        1.7035735845565796,
+        1.3775980472564697,
+        1.1205700635910034,
+        0.9368747472763062
+      ],
+      "native_removal": {
+        "attenuations": [
+          0.02079445720959519,
+          0.01803133801725101,
+          0.01936217072873931,
+          0.024902800505013357,
+          0.01915601695868191,
+          0.017909232320597525
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.020026002623313048
+      },
+      "candidate": {
+        "attenuations": [
+          0.01915636402201107,
+          0.016478954935025898,
+          0.017558976309690326,
+          0.022591646165281976,
+          0.0173035746827428,
+          0.016276470195283797
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.018227664385005976
+      }
+    },
+    {
+      "context_id": 5,
+      "variant": "exact_copy",
+      "template": 0,
+      "pair": 1,
+      "template_text": "Copy the line printed in {city}: \"The document includes the word",
+      "panel_status": "fresh at freeze",
+      "cities": [
+        "Oxford",
+        "Seattle"
+      ],
+      "native_pair_margins": [
+        3.6732590198516846,
+        3.2720189094543457,
+        3.39967679977417,
+        3.815086841583252,
+        2.2399299144744873,
+        1.8337748646736145
+      ],
+      "native_removal": {
+        "attenuations": [
+          0.11368629300180798,
+          0.11882991657875397,
+          0.10375151883566615,
+          0.10929746299659147,
+          0.1341092717180842,
+          0.12428427859302897
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.1173264569539888
+      },
+      "candidate": {
+        "attenuations": [
+          0.11391953469790705,
+          0.11921036762154505,
+          0.10419172345191671,
+          0.10953743848909431,
+          0.1345310942147944,
+          0.12435572193743298
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.1176243134021151
+      }
+    },
+    {
+      "context_id": 6,
+      "variant": "exact_copy",
+      "template": 1,
+      "pair": 0,
+      "template_text": "Reproduce the wording used by the editor in {city}: \"The document includes the word",
+      "panel_status": "fresh at freeze",
+      "cities": [
+        "York",
+        "Portland"
+      ],
+      "native_pair_margins": [
+        1.5094877481460571,
+        1.3895982503890991,
+        1.379382163286209,
+        1.0864102840423584,
+        0.9247010946273804,
+        0.6389855146408081
+      ],
+      "native_removal": {
+        "attenuations": [
+          0.026533462860141136,
+          0.02468926385854774,
+          0.026097354431737614,
+          0.03183617217152193,
+          0.024705957427882463,
+          0.020419018025263615
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.025713538129182412
+      },
+      "candidate": {
+        "attenuations": [
+          0.02081429253194136,
+          0.019510010041353564,
+          0.020834002655539228,
+          0.024289869830042783,
+          0.019029374284110195,
+          0.01529737981742842
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.01996248819340259
+      }
+    },
+    {
+      "context_id": 7,
+      "variant": "exact_copy",
+      "template": 1,
+      "pair": 1,
+      "template_text": "Reproduce the wording used by the editor in {city}: \"The document includes the word",
+      "panel_status": "fresh at freeze",
+      "cities": [
+        "Oxford",
+        "Seattle"
+      ],
+      "native_pair_margins": [
+        3.1030921936035156,
+        2.7333590984344482,
+        2.7794424295425415,
+        3.094926357269287,
+        1.842133641242981,
+        1.3662434816360474
+      ],
+      "native_removal": {
+        "attenuations": [
+          0.1490573564429343,
+          0.1534157413568919,
+          0.1362540435817946,
+          0.14335281273596875,
+          0.17142605318328807,
+          0.17359983058893988
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.15451763964830292
+      },
+      "candidate": {
+        "attenuations": [
+          0.12447534872771394,
+          0.1289161299900502,
+          0.11400497768602064,
+          0.1198115185028775,
+          0.1443190378631583,
+          0.14645575676075862
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.1296637949217632
+      }
+    },
+    {
+      "context_id": 8,
+      "variant": "plain_word_note",
+      "template": 0,
+      "pair": 0,
+      "template_text": "A publication from {city} discusses local vocabulary. The document includes the word",
+      "panel_status": "fresh at freeze",
+      "cities": [
+        "York",
+        "Portland"
+      ],
+      "native_pair_margins": [
+        0.9141781330108643,
+        0.9656944274902344,
+        0.9060871601104736,
+        0.7445085048675537,
+        0.6325583457946777,
+        0.5605833530426025
+      ],
+      "native_removal": {
+        "attenuations": [
+          -0.0037376696543160873,
+          -0.0043844879143278125,
+          -0.004738968609924468,
+          -0.007116128856644661,
+          -0.008038959090768606,
+          -0.007164678297608471
+        ],
+        "positive_endpoints": 0,
+        "mean_attenuation": -0.00586348207059835
+      },
+      "candidate": {
+        "attenuations": [
+          -0.0051261742239409585,
+          -0.005501657113738441,
+          -0.005996860860881932,
+          -0.008530452061440518,
+          -0.00947574611536058,
+          -0.007824750760975937
+        ],
+        "positive_endpoints": 0,
+        "mean_attenuation": -0.007075940189389729
+      }
+    },
+    {
+      "context_id": 9,
+      "variant": "plain_word_note",
+      "template": 0,
+      "pair": 1,
+      "template_text": "A publication from {city} discusses local vocabulary. The document includes the word",
+      "panel_status": "fresh at freeze",
+      "cities": [
+        "Oxford",
+        "Seattle"
+      ],
+      "native_pair_margins": [
+        2.62784481048584,
+        2.4740044474601746,
+        2.3401331901550293,
+        2.7218594551086426,
+        1.6747443079948425,
+        1.2164554595947266
+      ],
+      "native_removal": {
+        "attenuations": [
+          0.12142518857773285,
+          0.11602909848233212,
+          0.11626831464978406,
+          0.10982390013021726,
+          0.12128448437153606,
+          0.1274364076246564
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.11871123230604312
+      },
+      "candidate": {
+        "attenuations": [
+          0.11414573425101479,
+          0.1092044030165871,
+          0.10923470463758873,
+          0.1032348160604665,
+          0.11409825206449517,
+          0.11968247323107124
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.11160006387687059
+      }
+    },
+    {
+      "context_id": 10,
+      "variant": "plain_word_note",
+      "template": 1,
+      "pair": 0,
+      "template_text": "An editor working in {city} describes a manuscript. The document includes the word",
+      "panel_status": "fresh at freeze",
+      "cities": [
+        "York",
+        "Portland"
+      ],
+      "native_pair_margins": [
+        0.9660341739654541,
+        0.8469357490539551,
+        0.9639127254486084,
+        0.8870248794555664,
+        0.550335168838501,
+        0.5639631748199463
+      ],
+      "native_removal": {
+        "attenuations": [
+          0.014825606434211016,
+          0.00922640110395895,
+          0.012927958667732886,
+          0.01170113201299197,
+          0.007081917953378998,
+          0.00671209034455848
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.010412517752805384
+      },
+      "candidate": {
+        "attenuations": [
+          0.013646636183404039,
+          0.008036610584786334,
+          0.012044443861810568,
+          0.010232358863922986,
+          0.005540072599731488,
+          0.006105436087177274
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.009267593030138781
+      }
+    },
+    {
+      "context_id": 11,
+      "variant": "plain_word_note",
+      "template": 1,
+      "pair": 1,
+      "template_text": "An editor working in {city} describes a manuscript. The document includes the word",
+      "panel_status": "fresh at freeze",
+      "cities": [
+        "Oxford",
+        "Seattle"
+      ],
+      "native_pair_margins": [
+        2.2681186199188232,
+        1.8863084316253662,
+        1.9892163276672363,
+        2.3854009211063385,
+        1.321012020111084,
+        0.9215800762176514
+      ],
+      "native_removal": {
+        "attenuations": [
+          0.1055273952061661,
+          0.11193580915274001,
+          0.10338492394806996,
+          0.09774409599967257,
+          0.11543613598651152,
+          0.11187702550870068
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.10765089763364348
+      },
+      "candidate": {
+        "attenuations": [
+          0.09747446148127771,
+          0.10356547494985623,
+          0.095689389837066,
+          0.09045506094749985,
+          0.10627452070360455,
+          0.1044534479988679
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.09965205931969538
+      }
+    },
+    {
+      "context_id": 12,
+      "variant": "line_word_note",
+      "template": 0,
+      "pair": 0,
+      "template_text": "Vocabulary record\nPlace: {city}\nThe document includes the word",
+      "panel_status": "fresh at freeze",
+      "cities": [
+        "York",
+        "Portland"
+      ],
+      "native_pair_margins": [
+        1.734865665435791,
+        1.7595077753067017,
+        1.6148777902126312,
+        1.4490236043930054,
+        1.2135876417160034,
+        0.9659714698791504
+      ],
+      "native_removal": {
+        "attenuations": [
+          0.08311276189251121,
+          0.07239430613691047,
+          0.0755820285002999,
+          0.09003865065838407,
+          0.07635346307200241,
+          0.07215164066938858
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.07827214182158276
+      },
+      "candidate": {
+        "attenuations": [
+          0.07448876212558857,
+          0.06446622896036476,
+          0.06752375650918599,
+          0.08004300349535029,
+          0.06803063285591177,
+          0.0650346605692893
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.06993117408594846
+      }
+    },
+    {
+      "context_id": 13,
+      "variant": "line_word_note",
+      "template": 0,
+      "pair": 1,
+      "template_text": "Vocabulary record\nPlace: {city}\nThe document includes the word",
+      "panel_status": "fresh at freeze",
+      "cities": [
+        "Oxford",
+        "Seattle"
+      ],
+      "native_pair_margins": [
+        3.424177408218384,
+        3.327354669570923,
+        3.0255107283592224,
+        3.486277937889099,
+        2.37213397026062,
+        1.6524176597595215
+      ],
+      "native_removal": {
+        "attenuations": [
+          0.12492931888998228,
+          0.11786811591367889,
+          0.11741531614670213,
+          0.11498491418316398,
+          0.1236237054687741,
+          0.1289004842482955
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.1212869758084328
+      },
+      "candidate": {
+        "attenuations": [
+          0.11286035181211361,
+          0.10632435500389548,
+          0.10546099739424902,
+          0.10339422244861594,
+          0.11187878607573423,
+          0.11717576559623774
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.10951574638847435
+      }
+    },
+    {
+      "context_id": 14,
+      "variant": "line_word_note",
+      "template": 1,
+      "pair": 0,
+      "template_text": "Editorial notes\nFiled in {city}\nText\nThe document includes the word",
+      "panel_status": "fresh at freeze",
+      "cities": [
+        "York",
+        "Portland"
+      ],
+      "native_pair_margins": [
+        1.4566197395324707,
+        1.297311544418335,
+        1.3189020156860352,
+        1.1316900253295898,
+        0.8287222385406494,
+        0.6421473026275635
+      ],
+      "native_removal": {
+        "attenuations": [
+          0.03230842231761455,
+          0.0276614227175433,
+          0.030557490804204578,
+          0.03467760012741612,
+          0.03116433006234621,
+          0.023583173588687147
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.029992073269635322
+      },
+      "candidate": {
+        "attenuations": [
+          0.030724497201574073,
+          0.02644303706509396,
+          0.02923782094898729,
+          0.033073627474691634,
+          0.029439747197355055,
+          0.023095307313056066
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.028669006200126346
+      }
+    },
+    {
+      "context_id": 15,
+      "variant": "line_word_note",
+      "template": 1,
+      "pair": 1,
+      "template_text": "Editorial notes\nFiled in {city}\nText\nThe document includes the word",
+      "panel_status": "fresh at freeze",
+      "cities": [
+        "Oxford",
+        "Seattle"
+      ],
+      "native_pair_margins": [
+        3.1277856826782227,
+        2.8172807693481445,
+        2.9490697383880615,
+        3.1079083681106567,
+        1.9887263774871826,
+        1.4264276027679443
+      ],
+      "native_removal": {
+        "attenuations": [
+          0.1645000443635297,
+          0.16600966341055057,
+          0.14934885132903694,
+          0.15877296730757612,
+          0.18311543624434637,
+          0.17555100218607422
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.166216327473519
+      },
+      "candidate": {
+        "attenuations": [
+          0.17008119745551528,
+          0.17221535472505808,
+          0.15426542094759646,
+          0.16463729370057373,
+          0.18987779276740632,
+          0.18319047828375373
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.17237792297998392
+      }
+    },
+    {
+      "context_id": 16,
+      "variant": "reported_word_note",
+      "template": 0,
+      "pair": 0,
+      "template_text": "The reviewer in {city} said that the document includes the word",
+      "panel_status": "fresh at freeze",
+      "cities": [
+        "York",
+        "Portland"
+      ],
+      "native_pair_margins": [
+        1.3599934577941895,
+        1.2607824802398682,
+        1.1522261500358582,
+        1.2296172976493835,
+        0.9428526163101196,
+        0.5918532609939575
+      ],
+      "native_removal": {
+        "attenuations": [
+          0.005666149973721238,
+          0.003680116743143338,
+          0.008400950031573397,
+          0.0048065506017943675,
+          0.0013872415500843888,
+          -0.010970779433313359
+        ],
+        "positive_endpoints": 5,
+        "mean_attenuation": 0.0021617049111672284
+      },
+      "candidate": {
+        "attenuations": [
+          0.004999275975390877,
+          0.0028970503138647965,
+          0.00786921748616365,
+          0.004055831548474991,
+          0.0007271259710659242,
+          -0.011858021178994224
+        ],
+        "positive_endpoints": 5,
+        "mean_attenuation": 0.0014484133526610026
+      }
+    },
+    {
+      "context_id": 17,
+      "variant": "reported_word_note",
+      "template": 0,
+      "pair": 1,
+      "template_text": "The reviewer in {city} said that the document includes the word",
+      "panel_status": "fresh at freeze",
+      "cities": [
+        "Oxford",
+        "Seattle"
+      ],
+      "native_pair_margins": [
+        2.2789446115493774,
+        2.0047574043273926,
+        2.057139575481415,
+        2.339322030544281,
+        1.4815154075622559,
+        0.8429090976715088
+      ],
+      "native_removal": {
+        "attenuations": [
+          0.12619888934415147,
+          0.12635879357255142,
+          0.11814363107315126,
+          0.11931314224304437,
+          0.12934415376044067,
+          0.16036071558178286
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.129953220929187
+      },
+      "candidate": {
+        "attenuations": [
+          0.13093897303748833,
+          0.1312822572991672,
+          0.12252260918506971,
+          0.12374646507629529,
+          0.1343788130080725,
+          0.1667890944689127
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.1349430353458343
+      }
+    },
+    {
+      "context_id": 18,
+      "variant": "reported_word_note",
+      "template": 1,
+      "pair": 0,
+      "template_text": "A proofreader based in {city} noted that the document includes the word",
+      "panel_status": "fresh at freeze",
+      "cities": [
+        "York",
+        "Portland"
+      ],
+      "native_pair_margins": [
+        1.0021575689315796,
+        0.9331253170967102,
+        0.8751274943351746,
+        0.8827160596847534,
+        0.6553878784179688,
+        0.45316100120544434
+      ],
+      "native_removal": {
+        "attenuations": [
+          0.015102346257577432,
+          0.011784101749924706,
+          0.016176046605540055,
+          0.014264340000802187,
+          0.011955890655739614,
+          0.013004190572395886
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.013714485973663313
+      },
+      "candidate": {
+        "attenuations": [
+          0.013734152980471426,
+          0.010196007791637882,
+          0.014974319589505744,
+          0.012745586993445702,
+          0.010445284215917955,
+          0.011252199853211589
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.012224591904031716
+      }
+    },
+    {
+      "context_id": 19,
+      "variant": "reported_word_note",
+      "template": 1,
+      "pair": 1,
+      "template_text": "A proofreader based in {city} noted that the document includes the word",
+      "panel_status": "fresh at freeze",
+      "cities": [
+        "Oxford",
+        "Seattle"
+      ],
+      "native_pair_margins": [
+        1.9467463493347168,
+        1.6710927486419678,
+        1.7550970911979675,
+        1.9220435619354248,
+        1.2347664833068848,
+        0.6700968742370605
+      ],
+      "native_removal": {
+        "attenuations": [
+          0.1328940365054525,
+          0.13658707409298607,
+          0.12722304960363745,
+          0.12903412273068676,
+          0.13857625797791306,
+          0.17867102636812912
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.1404975945464675
+      },
+      "candidate": {
+        "attenuations": [
+          0.1331119723765824,
+          0.13687841084788555,
+          0.12765924316884505,
+          0.12939763459893683,
+          0.1388783441391809,
+          0.1789247097584493
+        ],
+        "positive_endpoints": 6,
+        "mean_attenuation": 0.14080838581497998
+      }
+    }
+  ],
+  "native_negative_cells": [
+    8,
+    16
+  ],
+  "candidate_negative_cells": [
+    8,
+    16
+  ],
+  "source_shas": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_REMOVAL_ENDPOINT_FRESH_V1_ROWS.json": "15b1ec68d00fa2d0b51db18613d0f0d80cdbd07b46496c233343ada0034ba7cf",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/CITY_REMOVAL_ENDPOINT_FRESH_V1_ARTIFACT.pt": "a5daecd328e77ea61d96a9931fdda253bcf6074ffacdc3677ab9ee5f190b31f7"
+  }
+}

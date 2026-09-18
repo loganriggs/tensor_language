@@ -9,7 +9,9 @@ House style: define every specialized term on first use, give its computational 
 abbreviations, and distinguish a diagnostic attribution from an executable compression. Numerical headlines should
 state what was actually measured and what unit is being used.
 
-**Latest regional update: [17 September — Fresh single-head response](for_logan/research_update_2026-09-17_2348_single_head_fresh.md).**
+**Latest regional update: [18 September — Removal sign failure](for_logan/research_update_2026-09-18_0003_removal_sign_failure.md).**
+
+**Previous regional update: [17 September — Fresh single-head response](for_logan/research_update_2026-09-17_2348_single_head_fresh.md).**
 
 **Previous regional update: [17 September — Normalization screen](for_logan/research_update_2026-09-17_2341_normalization.md).**
 
