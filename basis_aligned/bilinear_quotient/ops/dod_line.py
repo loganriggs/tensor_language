@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # BQGATE: LIBRARY -- emits the standard follow-up runner files for one readout line (review-9 efficiency item).
-"""`python dod_line.py <battery_runner_module> <stem> <first_version> [--natural rows_v<N>.json:congruent1,congruent2 ...]`
+"""`python dod_line.py <battery_runner_module> <stem> <first_version> [--natural|--only-natural postok,negtok rows_v<N>.json:congruent1,congruent2 ...]`
 
 Given an existing fresh-row battery runner module (one that defines CANDIDATE_ID, HEADS and build() -> rows, pos, neg, ...), writes:
   run_<stem>_dod_random_set_null_v<N>.py     (v72's body; matched-count random four-head-set null on the battery rows)
@@ -108,10 +108,14 @@ def main():
     if frac is None:
         raise SystemExit("battery receipt not found; run the battery first (the null replays its fraction)")
     written = []
-    p = OPS / f"run_{stem}_dod_random_set_null_v{v0}.py"; p.write_text(NULL.format(stem=stem, v=v0, mod=mod, frac=frac)); written.append(p)
-    p = OPS / f"run_{stem}_dod_response_census_v{v0 + 1}.py"; p.write_text(CENSUS.format(stem=stem, v=v0 + 1, mod=mod)); written.append(p)
-    v = v0 + 2
     args = sys.argv[4:]
+    only_natural = args and args[0] == "--only-natural"
+    if only_natural:
+        args = ["--natural"] + args[1:]; v = v0
+    else:
+        p = OPS / f"run_{stem}_dod_random_set_null_v{v0}.py"; p.write_text(NULL.format(stem=stem, v=v0, mod=mod, frac=frac)); written.append(p)
+        p = OPS / f"run_{stem}_dod_response_census_v{v0 + 1}.py"; p.write_text(CENSUS.format(stem=stem, v=v0 + 1, mod=mod)); written.append(p)
+        v = v0 + 2
     if args and args[0] == "--natural":
         postok, negtok = args[1].split(",")
         for spec in args[2:]:
