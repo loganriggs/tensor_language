@@ -303,3 +303,4 @@ v204 (1/4, carrier split of 829 at the verb): MLPs at the verb 74%, attention 27
 v205 (3/4): head 4.5 copies the number feature noun → verb (94% of block 4, 97% from the noun, 26% token-only); 5.3 re-reads the verb. v206 edits 4.5 at the verb against the other block-4 heads.
 v206 (2/5): zeroing head 4.5 at the verb drops the margin 7.7% (10× any other block-4 head) while 829's verb contrast grows 5% — the copy is behaviourally large and does not route through the verb-position detector. Next: which reader coefficient loses it (v207).
 v207 (1/5, margin arm void by an orientation bug — recorded): 4.5's verb copy is read by 10.5 (45% of the coefficient drop), 9.6, 15.1; not by 12.4. v207b fixes the margin arm.
+v207b (2/5): zeroing 4.5 at the verb is NOT selective (animacy / tense readers move 5× null) — 4.5 is a shared subject-feature copier, not a number component. v208: direction-restricted removal along the number direction.

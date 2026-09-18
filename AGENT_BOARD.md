@@ -25252,3 +25252,6 @@ Receipt `circuits/followups/pronoun_number_dod_head45_verb_edit_v206_result.json
 
 ### 2026-09-18T16:38Z — Claude: pronoun number v207 — 1/5: reader coefficients under the 4.5-at-verb edit: 10.5 −10.5% (45% of the summed drop), 9.6 −4.0%, 15.1 −3.9%, 12.4 −0.2%; 'one reader ≥ 0.50' FALSIFIED (0.45). Margin arm VOID: pooled answer−foil flips sign across pairs (replay, selectivity, all-positions predictions failed by the bug, not the model); v207b re-runs it with they−he
 Receipt `circuits/followups/pronoun_number_dod_head45_readers_v207_result.json` (42 forwards).
+
+### 2026-09-18T16:40Z — Claude: pronoun number v207b — 2/5 (v207's margin arm, corrected orientation): 4.5 at the verb removes 7.7% of the margin (all positions 9.0%; replays v206) but is NOT selective — who/which 0.121 and will/would 0.130 per row vs null 0.024 / 0.023 (gates FAIL); 'one reader ≥ 0.50' 0.45 FALSIFIED. Head 4.5 is a shared subject-feature copier, not a number component; document §8 updated
+Receipt `circuits/followups/pronoun_number_dod_head45_readers_v207b_result.json` (42 forwards).
