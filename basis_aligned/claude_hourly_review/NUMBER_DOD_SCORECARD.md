@@ -26,17 +26,19 @@ scorecards. Readers for this family: has−had (tense), who−which, night−day
 | 14 | Frozen 0.70 ± 0.15 on three new templates: relative clause 0.71 and 'Yesterday the S by the P' 0.66 pass (orthogonalized removal selective, pair keep 0.98 / 0.93); 'Near the P the S' (subject adjacent to the auxiliary) only 0.14, not selective, pair keep 0.46 | edit, frozen | fresh templates, declared subject reuse (v62) | all six capability cells 1.00 | 2/5 as registered: the set transfers to two frames and NOT to the subject-adjacent frame — a construction limit of this component |
 | 15 | Blind sweep on the subject-adjacent frame: flat — 5.7 0.28, 11.3 0.21, 6.1 0.14, 9.7 0.11, 7.8 0.10; the top-4 set removes only 13% (null max 0.22) | edit | opened (v63, 32 rows) | | 4/5: no head-grain readout set carries number when the subject noun is the final token; that decision is token-local (not this component) |
 | 16 | Module-grain census on the adjacent frame (whole outputs zeroed at the final query, no null): leading MLP mlp16 0.40; attention5 0.59, attention1 0.34; other attention blocks ≤ 0.13 | edit (unnulled, opened) | v64 | | 2/4: an MLP carries ≥ 0.30 but not in blocks 0–4, and attention5/1 exceed 0.15 — whole-block zeroing is norm-heavy (v1 lesson), so this is a nomination only |
+| 17 | Block-5 heads on the adjacent frame: 5.7 leads (1.77 of the block's 2.76) but does NOT beat its 16 equal-norm random-direction nulls (max 2.04); MLP16 (0.40) and MLP0 (0.22) are the largest whole-block carriers, MLP17 opposes (−0.44) | edit | opened (v65) | | 3/4: no nulled head carries adjacent-subject number — that decision is MLP-borne (late MLP16 + early MLP0), outside the head-readout component; branch closed |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
 | Simple | held at head grain: 4 heads + contrast; sweeps on 4 lines and the random-quadruple null (row 11) | — |
-| Predicts OOD | held on the non-adjacent frames (rows 1, 14); the subject-adjacent frame is outside the component's scope — no head readout carries it (rows 14, 15) | module-grain census on the adjacent frame (which MLP carries it?) |
+| Predicts OOD | held on the non-adjacent frames (rows 1, 14); the subject-adjacent frame is outside the component's scope — number there is MLP-borne, no nulled head carries it (rows 15–17) | — (scope declared) |
 | Extracted | held at the head boundary for the readout pair {11.3, 7.8} (rows 10, 13); 5.7 is an upstream contributor whose service is not a readout projection and whose sources are not token-only (row 12) — declared open port | — |
 | Selective | held with the orthogonalized (weight-only) number direction (row 7); the raw were−was direction is entangled with tense at the number heads (rows 2, 6) | — |
 | Composes | additive (row 3) | pairwise + random-split null |
 
 ## Receipts
+- v65 adjacent-frame block-5 heads: `.../number_family_dod_adjacent_block5_v65_result.json`
 - v64 adjacent-frame module census: `.../number_family_dod_adjacent_modules_v64_result.json`
 - v63 adjacent-frame sweep: `.../number_family_dod_adjacent_sweep_v63_result.json`
 - v62 frozen templates: `.../number_family_dod_frozen_templates_v62_result.json`
