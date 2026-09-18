@@ -246,6 +246,13 @@ units carry 31–45%, with cancelling signs) and is declared a port. The number 
 So this path is deeper than the person component (two named MLP units and two named copy heads below the readout) but not closed: the
 token side is named, the MLP-7 side is not. It is the honest depth limit of the day, and the place to continue.
 
+**Three detectors, three constructions (v180–v182, added later the same afternoon).** The same product-level fold on the other two named
+MLP-8 units gives a different picture for each. The female detector 3943 is an embedding-centred product (44% of pair mass involves the
+embedding, no single pair above 8%) that MLP 6 and MLP 7 both *support* (+26%, +25%): the damping by MLP 6 is specific to the male unit.
+The plural detector 829 on the number line is not a token product at all: 45% of its pair mass involves MLP 6, head 8.1 carries none of it
+(−1%), and the exact leave-one-unit-out change of the product names the MLP-6 units — 2483, 2826 and 4131 carry 57% of MLP 6's part, with
+852, 69 and 1868 damping. So the diagram above should not be read as *the* shape of an MLP-8 detector; it is the shape of one of them.
+
 ---
 
 ### Pass over the draft (what I changed after rereading)
