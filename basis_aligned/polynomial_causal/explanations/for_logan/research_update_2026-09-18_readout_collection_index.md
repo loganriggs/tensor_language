@@ -9,9 +9,14 @@ scorecards. Tags: fresh = rows unused by any selection step; natural = mined out
 | family | core heads | lines at head grain | fresh | natural in / out of corpus | direct readout? | open port |
 |---|---|---|---|---|---|---|
 | temporal (tense / mood / aspect) | 9.1, 9.4, 15.5 + 11.3; cue reader 8.1 | aspectual has/had, temporal will/had, narrative was/is, modal would/will | yes ×4 | yes / yes (aspectual, temporal) | no: 40–60% MLP relay | MLP relay parts (diffuse folds) |
-| number (agreement) | 5.7, 7.8, 9.7 + 11.3 | lexical were/was (within scope), perfect have/has | yes ×2 | — | — | adjacent-subject case MLP-borne; have/has over-additive (11.3 dominant) |
+| number (agreement) | 5.7, 7.8, 9.7 + 11.3 | lexical were/was (within scope), perfect have/has | yes ×2 | yes / yes (have/has) | have/has no: 60%, MLP 9–17 relay | adjacent-subject case MLP-borne; have/has over-additive (11.3 dominant) |
 | pronoun (gender / number / person) | 9.6, 12.4, 15.1 (+10.1 gender, +10.5 number) | gender he/she, number they/he | yes ×2 | yes / yes ×2 | yes: 94% / 103% | MLP 8 (writes the noun and verb states) |
 | selection (complement choice) | 13.8, 7.8, 8.8 (+6.3, +14.8) | adjective preposition in/of, verb particle up/down | yes ×2 | yes / yes ×2 | up/down yes 86%; in/of no 38% | in/of MLP suffix |
+
+**A regularity across number lines.** On natural text, removing a number readout set hurts rows whose far cue noun has the
+*other* number just as much as congruent rows (pronoun number v77/v78, perfect have/has v100/v101): number sets carry the
+number the model resolved for the real subject; the gender set instead tracks the noun (v73/v75). Registered the opposite
+way each time and falsified each time; kept.
 
 **Cross-family facts (weights and edits).** One temporal axis carries ≥ 50% of each temporal line's own removal (v70).
 The number and temporal directions are entangled at the shared head 11.3 and orthogonal at the temporal heads (v69). The

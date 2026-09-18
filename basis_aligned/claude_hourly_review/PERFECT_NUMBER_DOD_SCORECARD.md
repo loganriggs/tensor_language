@@ -18,17 +18,21 @@ Readers avoid number: will−would, who−which, night−day.
 | 5 | Keep-only readout at the four heads keeps their service | edit | fresh (v97) | zero 2.41; retention 1.03; random keep ≤ 0.02 | passes |
 | 6 | Matched-count random four-head-set null | edit | v97 rows (v98) | set 2.11 (fraction 0.66) vs random max 0.08 (fraction 0.03); none live | passes 4/4 |
 | 7 | Response census (exact split from block 5, closure 2e-5): the set's own writes carry 60% (attn:11 −1.01, attn:07 −0.14, attn:09 −0.09, attn:05 −0.05 of −2.14); the MLP suffix amplifies −0.85 (mlp:12 −0.17, mlp:16 −0.14, mlp:17 −0.10, mlp:15 −0.08, mlp:13 −0.07, mlp:09 −0.07, mlp:11 −0.06); remainder 1% | response | fresh (v99) | registered "direct ≥ 0.80" and "downstream ≤ 0.25 × direct" false, as the docstring anticipated | 3/5 — a relay through MLPs 9–17, the temporal-family shape |
+| 8 | Natural FineWeb rows (a list noun in singular / plural form within 12 tokens, next token have / has; pronouns and auxiliaries excluded from the context): congruent cells (plural/have, singular/has; capability 1.00) removal 0.79 of 7.02 (11%), positive 32/32, null max 0.02, selective | edit | natural (v100) | frozen v20 bars held | passes 5/6 |
+| 8f | **Failed:** incongruent rows (a far noun of the other number; capability 0.94 / 1.00 — the model follows the real subject) were predicted to shift toward the text's auxiliary; removal hurts them just as much (+0.77 FineWeb, +1.29 Pile, positive 31/32 and 30/32) | edit | natural (v100, v101) | the set carries the number the model resolved for the actual subject, not the cue noun's — the third and fourth falsification of this reading on number lines (v77, v78) | falsified as registered |
+| 9 | Pile rows (out-of-corpus): congruent 1.30 of 5.11 (25%), positive 30/32, null max 0.02, selective | edit | natural OOD (v101) | | passes 5/6 |
 
 ## Five-property status
 | property | status | next |
 |---|---|---|
 | Simple | held at head grain (row 6) | — |
-| Predicts OOD | held on a fresh panel with a frozen number that landed exactly (row 2) | natural rows (v100/v101) |
+| Predicts OOD | held on fresh, natural FineWeb and Pile rows (rows 2, 8, 9); the counter-case reading failed again: number sets read a resolved subject number (row 8f) | — |
 | Extracted | held at the head boundary (row 5); downstream MLP relay (row 7) | MLP response part declared unless a fold closes it |
 | Selective | held (row 3) | — |
 | Composes | **failed** the strict additivity bar (row 4) | pairwise Möbius terms / a 3-head set without 5.3 |
 
 ## Receipts
 - v50b: `bilinear_quotient/circuits/followups/perfect_number_dod_reuse_census_v50b_result.json`
+- v100 / v101: `.../perfect_number_dod_natural_v100_result.json`, `.../perfect_number_dod_pile_v101_result.json`; rows `perfect_number_dod_{natural,pile}_rows_v10{0,1}.json`
 - v98: `.../perfect_number_dod_random_set_null_v98_result.json`; v99: `.../perfect_number_dod_response_census_v99_result.json`
 - v97: `.../perfect_number_dod_battery_v97_result.json`; code `ops/run_perfect_number_dod_battery_v97.py` (via `ops/dod_battery.py`)
