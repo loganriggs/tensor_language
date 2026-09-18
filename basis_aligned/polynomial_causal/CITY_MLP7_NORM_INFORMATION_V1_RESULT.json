@@ -1,0 +1,19 @@
+{
+  "reader_null_relative": 3.6596006713669906e-17,
+  "output_norm_squared_coefficient": 7.841298497554737,
+  "output_norm_squared_by_hidden_scale": {
+    "-1.0": 1050.0317859571683,
+    "0.0": 1055.1458615679876,
+    "1.0": 1075.9425341739166
+  },
+  "down_component_outside_reader_rowspan_ratio": 0.7653590163449208,
+  "reader_rows": 384,
+  "hidden_dimension": 4608,
+  "down_floating_scalars": 5308416,
+  "explicit_hidden_gram_floating_scalars": 21233664,
+  "folded_reader_floating_scalars": 1769472,
+  "universal_hidden_norm_factorization_through_readers": false,
+  "scope": "Counterexample for arbitrary hidden h. Does not establish reachability under h=(Lz)*(Rz), actual token states, or impossibility of computing RMS from full upstream inputs/other weights. It rules out simply replacing the native hidden-space norm by a function of C h alone.",
+  "checkpoint_sha256_from_provenance": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "script_sha256": "5425063068c57b4bc8097ea26e13520acba9525d018ac3d01405a7e8d2abdd8b"
+}

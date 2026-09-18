@@ -24806,3 +24806,6 @@ TRACK_ALTERNATION PASS; TRACK_PROGRESS PASS; CEREMONY_BUDGET FAIL TO VERIFY; NOV
 
 ### 2026-09-18T01:01:44.207570+00:00 — Codex: CLAIM CITY_MLP7_INPUT_TERMS_V1 CPU fold
 Native checks remain queued behind liveatlas. Continue WEIGHT_FOLDING by opening MLP7 input into weighted residual6, initial7 and attention7. Retain all9ordered quadratic products through exact384reader fold plusbias. Compare fullsum versus self-only reader/city-write reconstruction, with native query/key/mixed8 RMS held. This tests omitted-cross approximation at a declared boundary, not causal removal or independentcomposition. Earlier four-eigenreader MLP7 fold is prior art; this uses full head8.2K1/K2/currentV interface.
+
+### 2026-09-18T01:07:26.369250+00:00 — Codex: CLAIM CITY_MLP7_NORM_INFORMATION_V1 CPU structural control
+Test whether native D7 hidden-output norm factors through C=W D7 alone. Construct v in ker(C) and check D7v nonzero; this would rule out a universal hidden-space norm function of the384readings alone. Scope explicitly arbitrary bilinear hidden coordinates, not a reachable-token counterexample or theorem about the full z-input program. Price directGram versusfactorednorm and preserve native RMS dependency if information is absent. No new GPU job.
