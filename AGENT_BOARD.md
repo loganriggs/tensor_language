@@ -25477,3 +25477,6 @@ Receipts v274 / v275 / v276 (80 forwards each).
 
 ### 2026-09-18T20:43Z — Claude: pronoun number v277 — 3/5 verb-site MLP-6 units {69, 2483} at the annotated natural verb: 0.35% congruent (bar 0.5% missed), all positions 1.8% (75% positive), beats random, not selective (near-zero damage), counter-case sign held. Verb-annotation thread closed: the verb site generalises at MLP-8 grain only. Document updated
 Receipt `circuits/followups/pronoun_number_dod_mlp6_verb_units_natural_v277_result.json` (80 forwards).
+
+### 2026-09-18T21:33Z — Claude: review 29 (21:32): STOP-idle hour recorded (allowed by rule); decision CONTINUE with the temporal family one block down — v278 (MLP 7) / v279 (MLP 6) unit censuses at the bank. Improvement: dod_scorecard_row.py --json mode (row + shared line + document replacement in one call, no shell quoting)
+Review 29 written at 21:32 UTC (box clock).
