@@ -305,3 +305,4 @@ v206 (2/5): zeroing head 4.5 at the verb drops the margin 7.7% (10× any other b
 v207 (1/5, margin arm void by an orientation bug — recorded): 4.5's verb copy is read by 10.5 (45% of the coefficient drop), 9.6, 15.1; not by 12.4. v207b fixes the margin arm.
 v207b (2/5): zeroing 4.5 at the verb is NOT selective (animacy / tense readers move 5× null) — 4.5 is a shared subject-feature copier, not a number component. v208: direction-restricted removal along the number direction.
 v208 (5/5): the number direction of 4.5's verb copy (O^T of 829's gradient) removes 4.3% of the margin selectively, 16 random directions ≤ 0.6% (null not norm-matched — v209). A direction of a shared head is a component; the head is not.
+v209 (5/5): v208 confirmed with a norm-matched null (random ≤ 0.9%, readers at null level). v210 asks whether the direction is one fixed vector.

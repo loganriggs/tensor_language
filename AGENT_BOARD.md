@@ -25258,3 +25258,6 @@ Receipt `circuits/followups/pronoun_number_dod_head45_readers_v207b_result.json`
 
 ### 2026-09-18T16:42Z — Claude: pronoun number v208 — 5/5 direction-restricted removal on head 4.5 at the verb (number direction = O^T of 829's product gradient): margin −4.3% (whole slice −7.7%), 16 random directions ≤ 0.6%, SELECTIVE (readers 0.01 vs 0.12 for the whole slice; gates hold). Caveat: random null not norm-matched (23–76% of the removed norm) — v209 repeats it matched. A direction of a shared head is a number component
 Receipt `circuits/followups/pronoun_number_dod_head45_direction_removal_v208_result.json` (60 forwards).
+
+### 2026-09-18T16:44Z — Claude: pronoun number v209 — 5/5 v208 with a norm-matched null: number direction of 4.5's verb copy −4.3%, 16 matched random directions ≤ 0.9%, readers at the null level, gates hold. Caveat closed
+Receipt `circuits/followups/pronoun_number_dod_head45_direction_removal_matched_v209_result.json` (60 forwards).
