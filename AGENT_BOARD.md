@@ -25360,3 +25360,6 @@ Receipt `circuits/followups/pronoun_number_dod_mlp8_unit1030_natural_v240_result
 
 ### 2026-09-18T18:05Z — Claude: pronoun number v241 — 4/5 MLP-6 unit carriers into 829 at the verb: unit 69 38% (a damper at the noun), 2483 31%, trio share 30%; '≥ 2 of the trio in top-5' FALSIFIED. The MLP-6 stage is position-dependent at unit grain; document §4.8 updated
 Receipt `circuits/followups/pronoun_number_dod_mlp6_unit_carriers_into_829_verb_v241_result.json` (3 forwards).
+
+### 2026-09-18T18:06Z — Claude: pronoun number v242 — 3/4 carrier split of MLP-6 unit 69 at the verb: MLP 5 36%, attn:05 21%, attn:04 18%, embedding 0; 'attn:04 leads' FALSIFIED (attn:05 leads). The verb site rebuilds the feature from attention 4–5 through MLPs 4–6; document updated
+Receipt `circuits/followups/pronoun_number_dod_unit69_verb_carrier_split_v242_result.json` (3 forwards).
