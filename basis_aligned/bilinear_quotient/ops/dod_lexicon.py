@@ -29,13 +29,16 @@ PANELS = {
 }
 
 
-def used_words() -> set[str]:
+def used_words(exclude: tuple[str, ...] = ()) -> set[str]:
+    """`exclude` names PANELS entries to leave out: a runner checking its OWN registered panel passes its panel names,
+    so registering a panel after the fact does not break that runner's replay."""
     words = set(lex._OBJECTS) | {p[0] for p in lex._REPORTERS} | {p[1] for p in lex._REPORTERS} | set(lex._ADJECTIVES)
     for attr in ("_PLACES", "_TASKS", "_SUBJECTS", "_ALTERNATES"):
         words |= set(getattr(canon, attr, ()) or ())
     words |= L._PRIOR_AGENTS | L._PRIOR_PERIODS
-    for v in PANELS.values():
-        words |= set(v)
+    for k, v in PANELS.items():
+        if k not in exclude:
+            words |= set(v)
     return words
 
 

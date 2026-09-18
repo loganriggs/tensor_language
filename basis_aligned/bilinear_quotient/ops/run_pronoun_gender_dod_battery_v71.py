@@ -59,7 +59,8 @@ CONSTRUCTIONS = {"lost": lambda noun, obj: f"The {noun} lost the {obj} and so",
 
 
 def build():
-    used = dod_lexicon.used_words() | {w for p in pg.GENDER for w in p}
+    # own panel registered in dod_lexicon.PANELS after the run; exclude it so replay keeps working
+    used = dod_lexicon.used_words(exclude=("pronoun_gender_v71_nouns", "pronoun_gender_v71_objects")) | {w for p in pg.GENDER for w in p}
     words = [w for p in PAIRS for w in p] + list(OBJECTS)
     if set(words) & used:
         raise L.RowError(f"not fresh: {sorted(set(words) & used)}")
