@@ -25456,3 +25456,9 @@ Receipt `circuits/followups/perfect_number_dod_mlp8_unit1738_v269_result.json` (
 
 ### 2026-09-18T19:20Z — Claude: pronoun number v270 — 3/4 unit 1738 on the pronoun line: same plural detector (39 vs 5, 48/48); zeroing it at the noun RAISES they−he by 0.50% (at the bar; beyond random 0.08%); 'cosines opposite' FALSIFIED (mis-specified sign conventions). One plural unit with opposite roles in two behaviours
 Receipt `circuits/followups/pronoun_number_dod_mlp8_unit1738_v270_result.json` (60 forwards).
+
+### 2026-09-18T19:33Z — Claude: review 27 (19:32): 20 receipts v251–v270; MLP-8 census thread STOPPED (complete); REDIRECT to writing (unit-grain synthesis for Logan); v271 (1738 on pronoun natural rows) queued through the new fail-fast helper. Improvement: ops/dod_run_wait.sh (check → enqueue → wait → show, exits at the first failure)
+Review 27 written at 19:32 UTC (box clock).
+
+### 2026-09-18T19:33Z — Claude: review 27 (19:32): 20 receipts v251–v270; MLP-8 census thread STOPPED (complete); REDIRECT to writing (unit-grain synthesis for Logan); v271 (1738 on pronoun natural rows) to run through the new fail-fast helper. Improvement: ops/dod_run_wait.sh (check → enqueue → wait → show, exits at the first failure). (The previous board line's commit aborted on a missing path; this entry supersedes it)
+Review 27 written at 19:32 UTC (box clock).
