@@ -261,3 +261,7 @@ simplicity comparison and random-split specificity remain missing. [Current Loga
 ### 18 September00:07 — Regional removal scope correction
 
 [New-endpoint inherited-only removal](../polynomial_causal/CITY_REMOVAL_ENDPOINT_FRESH_V1_RESULT.json) predicts effects and passes collateral/null gates, but fails directional consistency75%<90% on plain notes. Exact native signs agree. [Native value factorial](../polynomial_causal/CITY_VALUE_BRANCH_FACTORIAL_V1_RESULT.json) restores positive fullcityremoval on120/120pairs while interaction.369>.35fails. Full city write remains coupled; neither independentcomposition nor freshfullcityselectivity established. See [Logan report](../polynomial_causal/explanations/for_logan/research_update_2026-09-18_0003_removal_sign_failure.md).
+
+### 18 September00:18 — One-input full-city removal extraction
+
+[Fresh full-city result](../polynomial_causal/CITY_FULL_FRESH_V1_RESULT.json) passes all6gates:2.2–13%predictionerror,10–13%attenuation,120/120positive,16/16nulls,collateral<=.167. [Native export](../polynomial_causal/CITY_FULL_EXTRACTED_V1_RESULT.json) and [isolated export](../polynomial_causal/CITY_FULL_EXTRACTED_V1_STANDALONE_RESULT.json) pass;16,877,827floats,53tokens,1native residual7 array. Inherited-onlyfreshsignfailure andbranchinteraction.369>.35remain. Naturalcorpusconfirmation next; no corpus/token-only/composition completeness claim.

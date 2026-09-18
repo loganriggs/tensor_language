@@ -17,12 +17,12 @@
   "serialized_program_bytes": 67516281,
   "four_traits": {
     "ood_prediction": null,
-    "extraction": null,
+    "extraction": true,
     "selective_removal": null,
     "composition_reuse": false
   },
   "certified_complete_circuit": false,
-  "scope": "Fresh formula prediction/removal confirmed at one native-state boundary. Export CPU and isolated replay pass; native package certificate pending. Native prefix/suffix, corpus generalization, composition and matched-effect simplicity remain open.",
+  "scope": "One-native-input export passes CPU, isolated40fixture and native120forward readout replay. Fresh formula prediction/selective half-removal pass on authored shifted construction/city/endpoint panel. Native prefix/suffix, corpus generalization, composition and matched-effect simplicity remain open.",
   "files": {
     "program.pt": "fd806d2b8aa2e879230f5cb137a644d86e018f73b54ac6e9be23d6f79cbc7e26",
     "head8.py": "a850f9119a9044d86166d4322064585af89468c87f14a545ade2859d54f3d034",
@@ -32,6 +32,7 @@
   "receipts": [
     "CITY_FULL_FRESH_V1_RESULT.json",
     "CITY_FULL_EXTRACTED_V1_CPU_RESULT.json",
-    "CITY_FULL_EXTRACTED_V1_STANDALONE_RESULT.json"
+    "CITY_FULL_EXTRACTED_V1_STANDALONE_RESULT.json",
+    "CITY_FULL_EXTRACTED_V1_RESULT.json"
   ]
 }

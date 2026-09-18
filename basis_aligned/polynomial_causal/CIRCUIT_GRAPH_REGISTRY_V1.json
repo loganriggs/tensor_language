@@ -4,10 +4,10 @@
     "explicit_dependency_edges": 4,
     "four_trait_declared_unverified": 0,
     "four_trait_verified": 2,
-    "packages": 43,
-    "partial_or_unassessed": 41,
-    "with_declared_inputs": 27,
-    "with_manifest": 38
+    "packages": 44,
+    "partial_or_unassessed": 42,
+    "with_declared_inputs": 28,
+    "with_manifest": 39
   },
   "dependency_cycles": [],
   "four_trait_order": [
@@ -18,6 +18,47 @@
   ],
   "interpretation": "Missing trait metadata is unknown, not false. Verified means all four traits are declared and the package's hash/evidence verifier passed during this build.",
   "packages": [
+    {
+      "declared_input_count": 5,
+      "declared_input_field": "ports",
+      "declared_inputs": [
+        "residual7[B,T,1152]",
+        "token_ids[B,T]",
+        "city:int",
+        "destination[T]:bool",
+        "strength:float=.5"
+      ],
+      "dependencies": [],
+      "deterministic_context_inputs": null,
+      "external_activation_inputs": 1,
+      "four_traits": {
+        "composition_reuse": false,
+        "extraction": true,
+        "ood_prediction": null,
+        "selective_removal": null
+      },
+      "gaps": [
+        "ood_prediction",
+        "selective_removal",
+        "composition_reuse"
+      ],
+      "learned_parameters": null,
+      "manifest": "basis_aligned/polynomial_causal/extracted_circuits/city_full_removal_v1/manifest.json",
+      "manifest_sha256": "0c37727e1965952a76e4d30e706c245ae79e516717fbd2083a17d88a321303e8",
+      "maturity": "partial_or_unassessed",
+      "node_count": null,
+      "nodes": [],
+      "package": "city_full_removal_v1",
+      "readme": "basis_aligned/polynomial_causal/extracted_circuits/city_full_removal_v1/README.md",
+      "relative_directory": "basis_aligned/polynomial_causal/extracted_circuits/city_full_removal_v1",
+      "schema": "regional.city_full_removal.v1",
+      "scope": "One-native-input export passes CPU, isolated40fixture and native120forward readout replay. Fresh formula prediction/selective half-removal pass on authored shifted construction/city/endpoint panel. Native prefix/suffix, corpus generalization, composition and matched-effect simplicity remain open.",
+      "verification": {
+        "path": null,
+        "status": "not_available",
+        "terminal": null
+      }
+    },
     {
       "declared_input_count": 2,
       "declared_input_field": "external_inputs",

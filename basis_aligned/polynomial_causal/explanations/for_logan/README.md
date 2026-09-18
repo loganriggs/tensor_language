@@ -1,6 +1,6 @@
 # Requested full reports for Logan
 
-**Latest regional update: [18 September,00:14 — Fresh one-input full-city removal](research_update_2026-09-18_0014_one_input_removal.md).** All six fresh gates pass. One-input export passes CPU/isolated replay; native layout certification pending. Composition remains failed.
+**Latest regional update: [18 September,00:14 — Fresh one-input full-city removal](research_update_2026-09-18_0014_one_input_removal.md).** All six fresh gates pass. One-input export passes native and isolated replay. Composition remains failed.
 
 **Latest regional update: [18 September,00:03 — New-endpoint removal sign failure](research_update_2026-09-18_0003_removal_sign_failure.md).** Prediction and control/null gates pass; consistent attenuation fails75%vs90%. Exact native signs agree. Full-city removal restores signs on opened rows; branch interaction still fails.
 

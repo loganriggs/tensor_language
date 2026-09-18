@@ -2,10 +2,11 @@
 
 This is a generated inventory of extracted circuit boundaries. Missing evidence is recorded as unknown, not as a failed scientific claim.
 
-Packages: **43**; manifests: **38**; declared input boundaries: **27**; verified four-trait circuits: **2**.
+Packages: **44**; manifests: **39**; declared input boundaries: **28**; verified four-trait circuits: **2**.
 
 | package | maturity | inputs | external activations | nodes | next gap |
 |---|---:|---:|---:|---:|---|
+| city_full_removal_v1 | partial_or_unassessed | 5 | 1 | ? | ood_prediction, selective_removal, composition_reuse |
 | complete_response_ports_v2 | partial_or_unassessed | 2 | ? | ? | schema, ood_prediction, extraction… |
 | coupled_interaction_v1 | partial_or_unassessed | 1 | ? | ? | schema, ood_prediction, extraction… |
 | coupled_shared_executor_v1 | partial_or_unassessed | 3 | ? | ? | schema, ood_prediction, extraction… |
