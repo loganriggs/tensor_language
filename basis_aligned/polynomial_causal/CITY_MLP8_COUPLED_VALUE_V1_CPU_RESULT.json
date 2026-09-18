@@ -1,0 +1,37 @@
+{
+  "pred_a": true,
+  "checks": [
+    {
+      "stem": "CITY_MLP8_NORM_CLOSED_FRESH_V1_SCREEN",
+      "fixtures": 40,
+      "max_joint_relative_error": 8.176333185291481e-06,
+      "max_rho_relative_error": 0.0005024075686585684,
+      "passes": true
+    },
+    {
+      "stem": "CITY_VALUE_PATH_FRESH_V2",
+      "fixtures": 40,
+      "max_joint_relative_error": 2.1609939209614835e-05,
+      "max_rho_relative_error": 0.0005645004157748065,
+      "passes": true
+    }
+  ],
+  "tokens": 702,
+  "stored_float_scalars": 16882563,
+  "stored_float_bytes": 67530252,
+  "stored_integer_bytes": 5616,
+  "derived_folded_down_scalars": 589824,
+  "derived_folded_down_bytes": 4718592,
+  "native_input_scalars_T32": 36864,
+  "intervention_scalars_T32": 36864,
+  "native_scalar_norm_inputs": 0,
+  "full_model_forwards": 0,
+  "seconds": 1.5528112780302763,
+  "scope": "Exact coupled direct attention8 plus MLP8-mediated head9.8 value correction; native z8/upstream delta/token IDs inputs and later suffix external. Independent subterms are not promoted.",
+  "source_shas": {
+    "mlp8_coupled_value_v1.py": "1679890ad571561730f1fbe8851b1ec3da8cf90aa788f124f07bedb977fe047e",
+    "build_city_mlp8_coupled_value_v1.py": "5d5ff1bec09fd8f6a60e8ffc4baa3231f33a142af8c1460dc89491c22f7030ec",
+    "CITY_MLP8_NORM_CLOSED_FRESH_V1_ROWS.json": "cba130547c2f8e997e93c48c531bd878c597c807527176f94225a5d3fc8bcef0",
+    "CITY_VALUE_PATH_FRESH_V2_ROWS.json": "ddb63dd1a0d7f273a834b7fa9f107cd4ee43ab90810c7ab6b065292bdf10a657"
+  }
+}

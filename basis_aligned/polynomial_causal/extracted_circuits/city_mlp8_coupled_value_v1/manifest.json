@@ -1,0 +1,36 @@
+{
+  "schema": "regional.city_mlp8_coupled_value.v1",
+  "name": "city_mlp8_coupled_value_v1",
+  "certified_complete": false,
+  "ports": [
+    "z8[1,T,1152] native unnormalized MLP8 input",
+    "delta[1,T,1152] upstream city intervention",
+    "token_ids[1,T]"
+  ],
+  "native_state_scalars_T32": 36864,
+  "intervention_scalars_T32": 36864,
+  "static_float_scalars": 16882563,
+  "weight_bytes": 67530252,
+  "token_id_bytes": 5616,
+  "supported_sequence_tokens": 702,
+  "derived_cache_bytes": 4718592,
+  "external_computation": "Native z8/upstream delta generation and later suffix; not token-only.",
+  "four_properties": {
+    "ood_prediction": "fresh V1 and V2 coupled screens pass globally",
+    "extraction": true,
+    "selective_manipulation": "fresh same-boundary norm-matched null passes for MLP8 mediator; coupled operator inherits fresh full-suffix controls",
+    "composition_reuse": "candidate coupled operator; independent subterm composition unresolved"
+  },
+  "simplicity": "No matched-effect simplicity claim; 16,882,563 stored FP32 values plus native ports.",
+  "evidence": {
+    "local": "../../CITY_MLP8_COUPLED_VALUE_V1_CPU_RESULT.json",
+    "fresh_v1": "../../CITY_VALUE_PATH_FRESH_V1_RESULT.json",
+    "fresh_v2": "../../CITY_VALUE_PATH_FRESH_V2_RESULT.json",
+    "fresh_null": "../../CITY_MLP8_NORM_CLOSED_FRESH_V1_NULL_RESULT.json"
+  },
+  "files": {
+    "execute.py": "1679890ad571561730f1fbe8851b1ec3da8cf90aa788f124f07bedb977fe047e",
+    "mlp8_value_norm_closed_v1.py": "74351c056d16c9229198482d85c8a502dd97d65fc2fc9dc16e6ce439bd212241",
+    "program.pt": "8367fd511aa30261430e380f138c41e98d39605f9b8eac05027a7f1a19f467e9"
+  }
+}

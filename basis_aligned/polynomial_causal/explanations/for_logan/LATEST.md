@@ -1,5 +1,7 @@
 # Latest requested update for Logan
 
+**Coupled fold: [18 September — Folding the trusted coupled value path into one operator](research_update_2026-09-18_coupled_operator.md).** Direct attention plus MLP8 are now one exact executable operator; both fresh panels replay it, while independent subterm composition remains unresolved.
+
 **Fresh V2 reuse: [18 September — Fresh V2 reuse of the coupled value path](research_update_2026-09-18_fresh_v2_reuse.md).** The frozen coupled operator passes globally on a second fresh FineWeb panel; no reversed subgroup appeared, so independent composition remains unestablished rather than promoted.
 
 **Fresh norm-closed confirmation: [18 September — Fresh confirmation of the norm-closed MLP8 value mediator](research_update_2026-09-18_fresh_norm_closed.md).** New 20-document FineWeb panel; generated RMS/value errors below 4e-8; fresh same-boundary null beats all 16 random corrections; composition limits retained.
