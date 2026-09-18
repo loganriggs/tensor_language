@@ -25144,3 +25144,6 @@ Receipt `circuits/followups/pronoun_gender_dod_mlp6_unit_census_for_unit_v173_re
 
 ### 2026-09-18T14:43Z — Claude: MLP-6 unit 3230 v174 (weights, CPU) — 2/3: its Down column feeds the male-noun detector 3152 (cos +0.47 with Left, −0.62 with Right) and its factors read the embedding gender axis (R +0.36, L −0.25); NOT a one-sided detector on raw embeddings (18/25; FALSIFIED) — a contextual gender-axis reader. v175 (its inputs at the noun) running
 Receipt `circuits/followups/mlp6_unit3230_weights_v174_result.json` (0 forwards; 25 single-token gender pairs; per-pair values in the receipt).
+
+### 2026-09-18T14:44Z — Claude: pronoun gender v175 — 1/3 input fold of MLP-6 unit 3230's factors at the noun: head 6.1 0.54 / 0.43, embedding 0.18 / 0.24, block-4 attention 0.08; 'embedding ≥ 0.50' and 'no single writer ≥ 0.30' FALSIFIED. Chain: head 6.1 (at the noun) → MLP-6 unit 3230 → MLP-8 unit 3152 → 9.6. v176: is 6.1 at the noun a self-position token copy?
+Receipt `circuits/followups/pronoun_gender_dod_unit3230_input_fold_v175_result.json` (2 forwards; full writer shares per factor in the receipt).
