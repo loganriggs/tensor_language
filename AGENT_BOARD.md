@@ -25426,3 +25426,6 @@ Receipt `circuits/followups/person_reflexive_dod_mlp8_unit_census_10_5_v259_resu
 
 ### 2026-09-18T18:57Z — Claude: correlative both/neither v260 — 2/4 MLP-8 census on 16.8's direction: spread at the cue (top-10 41%, Jaccard 0.12), but at the FINAL one unit, 1512, carries 59% (top-10 93%, stable). A candidate context detector at the query position; v262 next. (v261 selection census crashed — pairs share the verb; cue mis-chosen, 3 forwards lost)
 Receipt `circuits/followups/correlative_both_neither_dod_mlp8_unit_census_v260_result.json` (3 forwards). v261 has no receipt (ZeroDivisionError at a zero contrast).
+
+### 2026-09-18T18:59Z — Claude: selection v261b — 1/4 MLP-8 census on 13.8's direction (adjective cue): spread at both positions (top-10 29% / 8%, unstable) — PORT; the content-word pattern does not extend to adjectives. correlative v262 — 3/4 unit 1512 = neither-context detector at the final (48/48; 17× the cue), edit −1.8% at the final / −2.5% all (random ≤ 0.01%), cos with 16.8 0.11 (FALSIFIED ≥ 0.30). Seven families in the MLP-8 table
+Receipts `selection_dod_mlp8_unit_census_v261b_result.json` (3 forwards) and `correlative_both_neither_dod_mlp8_unit1512_v262_result.json` (60 forwards).
