@@ -26207,3 +26207,6 @@ Receipt `circuits/followups/detector_verb_vector_adjacent_v498_result.json` (6 f
 
 ### 2026-09-19T09:17Z — Claude: v499 / v500 aborted on the price bar (15 forwards > the 11 registered): the derived runners kept a 2-batch price from v450 while the row set needs 3 token batches; GPU work spent (30 forwards), no result written. v500 re-registered at 15 (bar 16) and re-enqueued; v499 (distant rows by a derive leftover) not re-run
 Runlogs `runlogs/run_self_reads_adjacent_v499.log`, `runlogs/run_self_reads_adjacent_fixed_v500.log` end in `price exceeded: 15 > 11`.
+
+### 2026-09-19T09:19Z — Claude: Chain v500 — 5/5: self-reads at the noun for an adjacent verb — 11.3's own-position value closes 0.055 of the agreement margin, the five verb heads 0.107, the five pronoun heads 0.031, all values 0.26 (replay). A self-read route worth a third of attention's contribution when the noun predicts its own verb
+Receipt `circuits/followups/self_reads_adjacent_fixed_v500_result.json` (10 forwards).
