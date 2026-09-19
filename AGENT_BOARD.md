@@ -25543,3 +25543,6 @@ Receipt `circuits/followups/mlp1_cross_remainder_v293_result.json` (3 forwards).
 
 ### 2026-09-19T02:26Z — Claude: Review 34 (02:26 UTC): MLP-1 thread — write = self-share × table + R; R = shared direction + class-structured cross part; 37 forwards, 5 decision-changing numbers; helper attention_self_share added; QUEUED v294
 Review file `claude_hourly_review/REVIEW_2026-09-19_0226.md`.
+
+### 2026-09-19T02:27Z — Claude: MLP1 v294 — 1/5 the shared remainder direction is context-specific (cos across phrases 0.40, across lengths 0.26–0.62), not the corpus PC1 (≤ 0.16; PC1 = mean write, 16.5% energy) and not orthogonal to the table (0.10–0.23). Register-direction reading falsified; candidate identity = context-only bilinear term (v295)
+Receipt `circuits/followups/mlp1_shared_direction_v294_result.json` (12 forwards). Four predictions failed; preserved.
