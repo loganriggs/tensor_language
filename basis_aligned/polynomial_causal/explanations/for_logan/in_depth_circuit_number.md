@@ -595,3 +595,43 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 - Third pass (19 Sep 02:45 UTC): §4.10 added for the MLP-1 resolution (v287–v301), with the two readings that failed on the way (input-identity loss; the re-injection floor) kept as failures. Second pass (18:20 UTC): §8 had grown into one run-on paragraph by inline edits over the afternoon; the compensation account now has its own
   §4.9, §8 is a closed/open list again, and the prediction count is recomputed from the receipts. Two of my readings in the compensation story
   (renormalisation, radial write) were wrong and are kept as such in §4.9 rather than smoothed away.
+
+### 4.11 How number leaves the noun: the value route, by exact expansion and by replacement [v401–v437]
+
+**Claim.** The noun's number reaches the answer through attention VALUES and nothing else. Every head that carries it is a copier: its squared-attention
+pattern selects the source and is number-blind; the value branch of the current state carries the plural − singular difference. Five late heads read
+the noun (and the token after it) straight into the answer; one early head plants the noun's state at the token after it, where MLPs 4–8 rebuild number.
+
+**The fold that found it (v401–v410).** For a squared-attention head the noun-source term of its final write on u = W_U[they] − W_U[he] is a product of
+three factors of the noun state, s1 = (q·k)/d, s2 = (q2·k2)/d and w = (uO)·v. Its plural − singular contrast expands EXACTLY into seven factor-change
+terms plus a query-change term (closure 1e-14; the QK norm and rotary sit inside the factors, so no polynomial assumption). Value-only term: 9.6 0.92
+(panel) / 0.975 (text), 15.1 0.985 / 0.96, the copier 4.5 0.91 / 0.90; every pattern-involving term ≤ 0.10. 12.4 alone cancels on the panel (value 1.7,
+pattern × value −1.1) — its negative second factor halves on plural sites — and not on text (its pattern's number correlation is −0.10 there). The
+pattern factors move ≤ 6% between plural and singular; the value factor 160–370%; the copy is the current-state branch (0.94–1.0), not the token-only one.
+
+**The edits (v416–v436; replace-edits on 122 natural aligned pairs made by swapping the cue noun's number in place, guests ↔ guest).** Fraction of the
+they − he margin gap closed by swapping, within the pair, only the named quantity: the three readers' values at the noun 0.37 (keys 0.01); at both sites
+0.50 (keys 0.00); the copier 4.5's value at the noun 0.19 (keys 0.00); every head's KEYS at the noun, all 18 blocks, 0.0002; every head's VALUES at the
+noun 0.98. The exits of the noun, all values, add: five late readers 9.6 / 10.1 / 10.5 / 12.4 / 15.1 0.48 (block 9 0.28, block 10 0.13 = 10.1 + 10.5,
+block 12 0.09, block 15 0.02), the copier 4.5 0.19 (block 4 0.22), small low exits 0.31 (block 2 0.07 = 2.6 + 2.5 + 2.8; blocks 5, 6, 8 ≤ 0.03 each);
+readers + copier 0.675 (parts 0.670), readers + all of blocks 0–8 0.96 (parts 0.99). The reader set is therefore FIVE heads, not the three of §4.6;
+block 10's two heads were missed by both readout-atlas families.
+
+**What the readers read (v406–v408, v420–v422).** The value factor's change splits exactly by writer of the noun residual: MLP 8 half, MLPs 5–7 a
+quarter, embedding a tenth, attention nothing; at unit grain 829 / 953 / 1030 first on text (top-50 0.87), the gender unit 3152 fifth. 9.6's read
+direction M_9.6ᵀu lies 0.79 in the span of those three units' Down columns. The sign-aware rank-one template s_h·u dᵀ ranks 9.6, 12.4 and 15.1 first in
+their blocks by weights alone (0.11 / 0.09 / 0.02 vs ≤ 0.006 for the other 24 heads); number is ≤ 1.3% of each head's map. Replacing the three units'
+activations at the noun closes 0.12 (three random units 0.00); 30 units 0.17; the whole MLP 8 0.22.
+
+**The gain (v411–v415).** The pattern weight p = s1·s2 is number-blind but not constant: on text its CV is 1.1 for 9.6 and it flips sign on a sixth of
+rows. It falls with distance, co-varies across the two source sites, and is set by neither the answer token nor the noun token (a fifth of its variance
+each). An exact cross-matrix split puts it on the noun side for 12.4 (0.57) and 15.1 (0.76, of which most is rotary recency), and for 9.6 half on the noun
+side and half in a content match of the two ends (0.32 with rotary removed).
+
+**Two cautions the edits taught (v425, v435).** Per-writer fold shares over a serial chain double count (MLP 8 alone edited = 0.93 of MLPs 5–8 edited).
+Joint swap edits of NESTED routes cancel, because a pair-swap is an involution: swapping downstream values to the partner's originals undoes an upstream
+swap (0.68 → 0.645 → 0.57 as more was swapped). A census by edits must take every source at one position; at the noun it closes at 0.98 and adds.
+
+**Kept failures.** v401 c (the readers are copies, not products), v403 b (sign wording), v406 e, v407 a/e, v411 b/c/e, v413 b/e, v414 b/c/e, v415 c,
+v417 b, v420 b/c/d, v421 d, v422 b/c, v423 e, v424 b/c/e, v425 c/e, v430 c, v431 b/c, v432 b/c, v434 c/d/e, v435 b–e, v437 c. Receipts
+`circuits/followups/*_v401_*` … `*_v437_*`; scorecard rows T115–T151.

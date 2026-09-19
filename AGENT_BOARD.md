@@ -26016,3 +26016,6 @@ Receipt `circuits/followups/route_census_noun_v436_result.json` (28 forwards).
 
 ### 2026-09-19T07:38Z — Claude: Both-ends v437 — 4/5 (c FAILED; kept): block 2's noun exit is heads 2.6 (0.036), 2.5 (0.017), 2.8 (0.012); the small low exits are a handful of heads worth 1–4% each
 Receipt `circuits/followups/block2_heads_v437_result.json` (40 forwards).
+
+### 2026-09-19T07:39Z — Claude: Review 41 (07:36 UTC): route census closed (v419–v437, 605 forwards, 21 falsifications incl. two of method); §4.11 value-route synthesis written into in_depth_circuit_number.md; READER SET line (five heads) in SHARED_READOUT_COMPONENTS; redirect to output selectivity; QUEUED v438
+Review file `claude_hourly_review/REVIEW_2026-09-19_0736.md`; synthesis `for_logan/in_depth_circuit_number.md` §4.11.
