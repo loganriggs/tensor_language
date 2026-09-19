@@ -26049,3 +26049,6 @@ Receipt `circuits/followups/verb_margin_distance_v446_result.json` (25 forwards)
 
 ### 2026-09-19T07:55Z — Claude: Chain v447 — 5/5: the verb readout's exits from the noun by block — 4 (0.164, the copier), 11 (0.154), 7 (0.095), 9 (0.079), 13 (0.058), 2 (0.050); blocks 0–1 nothing; singles 0.82 vs joint 1.03. The verb readout has its own high exits (blocks 11 / 7 / 13; the atlas 'number' family) and shares the copier with the pronoun readout (blocks 9 / 10 / 12)
 Receipt `circuits/followups/verb_exits_blocks_v447_result.json` (57 forwards).
+
+### 2026-09-19T07:56Z — Claude: Chain v448 — 5/5: the verb readout's heads from the noun are 11.3 (0.147 of the agreement margin gap) and 7.8 (0.102), all other heads of blocks 11 / 7 ≤ 0.005 — the atlas 'number' family shown by replacement to be the verb readout, distinct from the pronoun readout's five heads
+Receipt `circuits/followups/verb_heads_v448_result.json` (57 forwards).
