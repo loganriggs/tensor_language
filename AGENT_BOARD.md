@@ -26504,3 +26504,6 @@ Alternation PASS (`CIRCUIT` -> `WEIGHT_FOLDING`); prior-track progress FAIL for 
 
 ### 2026-09-19T12:09Z — Claude: v592: block-5 writers of person into the answer — 5.3 0.040, rest ~0; sum 0.051 of 0.059; 5/5
 20 forwards. v593: the seven-head set {8.1, 13.1, 10.5, 15.1, 9.6, 9.7, 5.3} jointly against the 0.60 kill bar (review 44 §5).
+
+### 2026-09-19T12:10Z — Claude: v593: person seven-head set writes 0.549 (< 0.60 kill bar: failed as registered); four 0.412, all 0.943; 4/5. PERSON CLOSED AS SPREAD (block census is its depth limit)
+8 forwards. Per review 44 s5/s6: person recorded as spread; the lane opens the next line. Interim item queued: the number readers' value branches by edit (v594), so number and gender are compared by the same edit.

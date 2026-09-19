@@ -700,3 +700,4 @@ v538 (5/5): write-side verb census complete — 11.3 0.238, 5.3 0.113, 7.8 0.108
 - PERSON WRITES ON PILE (v590): four readers 0.375, 9.6 + 9.7 0.115, all 0.917 — OOD held for the write side.
 - PERSON COMPOSITION (v591): early copies 0.154 + readers' cue values 0.361 → 0.563 jointly. The channel is not closed by two sources; block 5 and 9.6 / 9.7 next.
 - PERSON BLOCK-5 WRITER (v592): 5.3 0.040 (the verb line's relay); the candidate named set is now {8.1, 13.1, 10.5, 15.1, 9.6, 9.7, 5.3}.
+- PERSON VERDICT (v593): seven named heads 0.549 of the write side (< 0.60): spread readout; closed at block grain. Named: 8.1, 13.1, 10.5, 15.1, 9.6, 9.7, 5.3; early copies from block 4.

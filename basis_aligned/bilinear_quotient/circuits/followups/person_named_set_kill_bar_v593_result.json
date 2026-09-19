@@ -1,0 +1,79 @@
+{
+  "candidate_id": "person.named_set_kill_bar_v593",
+  "finished_utc": "2026-09-19T12:09:42.317794+00:00",
+  "forwards": 8,
+  "plan": {
+    "bars": {
+      "add": 0.08,
+      "band": 0.03,
+      "four_v586": 0.412,
+      "kill_bar": 0.6,
+      "replay_tol": 0.001,
+      "seven_sum": 0.545,
+      "unit": 701
+    },
+    "candidate_id": "person.named_set_kill_bar_v593",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 9,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 43
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_seven_heads_reach_the_bar": false,
+    "pred_c_seven_heads_add": true,
+    "pred_d_four_replay": true,
+    "pred_e_seven_below_all": true
+  },
+  "report": {
+    "panel": {
+      "rows": 43,
+      "skipped": "pronoun slot, natural pairs"
+    },
+    "replay_max_abs": 1.239776611328125e-05,
+    "text": {
+      "contrast_mean": 18.781227111816406,
+      "margin_closed": {
+        "ALL": 0.9425185918807983,
+        "FOUR": 0.4115847945213318,
+        "SEVEN": 0.549324095249176
+      },
+      "moved": {
+        "ALL": 0.7575244903564453,
+        "FOUR": 0.4355475902557373,
+        "SEVEN": 0.6109960079193115
+      },
+      "pairs": 43,
+      "sign_constancy": 0.6976743936538696,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": 18.781227111816406,
+      "margin_closed": {
+        "ALL": 0.9425185918807983,
+        "FOUR": 0.4115847945213318,
+        "SEVEN": 0.549324095249176
+      },
+      "moved": {
+        "ALL": 0.7575244903564453,
+        "FOUR": 0.4355475902557373,
+        "SEVEN": 0.6109960079193115
+      },
+      "pairs": 43,
+      "sign_constancy": 0.6976743936538696,
+      "unit": 701
+    }
+  },
+  "schema": "person_named_set_kill_bar_result_v593",
+  "serial_seconds": 1.8711180358659476
+}
