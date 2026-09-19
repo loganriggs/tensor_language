@@ -25528,3 +25528,6 @@ Receipt `circuits/followups/mlp1_context_vs_table_v288_result.json` (4 forwards)
 
 ### 2026-09-19T02:13Z — Claude: MLP1 v289 — 4/4 exact bilinear decomposition of the context change: cross (token×context) terms 76%, context-only 24%; the change is a scalar gain α≈0.54 on the table entry, uniform across nouns (CV 0.09), residual 23%. MLP 1 at the noun = table direction × context gain
 Receipt `circuits/followups/mlp1_context_gain_decomposition_v289_result.json` (4 forwards).
+
+### 2026-09-19T02:16Z — Claude: MLP1 v290 — 3/5 context gain across 6 contexts × 7 classes × sizes 4/16/64: α≈½ in all 42 cells (0.41–0.65), uniform across targets (CV ≤ 0.20, stable with size), NOT set by the context token (spread across contexts 0.92× within); scalar reading holds for content words only (residual up to 0.63 for function words). Gain looks positional → v291 context length
+Receipt `circuits/followups/mlp1_context_gain_scaling_v290_result.json` (12 forwards). Failures preserved: pred_c (residual ≤ 0.30 every class) and pred_e (gain set by context ≥ 2×).
