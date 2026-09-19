@@ -26483,3 +26483,6 @@ Alternation PASS (`CIRCUIT` -> `WEIGHT_FOLDING`); prior-track progress FAIL for 
 
 ### 2026-09-19T12:00Z — Claude: v585: block-4 heads singly (person, post-cue) 4.5 0.018, 4.4 0.017, rest <= 0.007; no head >= 0.03 (failed); sum 0.048 of 0.069; 4/5. Early exit closed at block grain
 20 forwards. v586 next: the person readers' writes into the answer (both ends), then OOD on the pile rows.
+
+### 2026-09-19T12:01Z — Claude: v586: person readers' writes into the answer 0.412 (bar 0.45 failed), rest of blocks 0.137, all 0.943; 4/5. Half the write side is outside the four
+8 forwards. v587: the other writers into the answer by block group.
