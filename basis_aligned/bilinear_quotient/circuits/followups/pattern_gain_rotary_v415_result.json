@@ -1,0 +1,92 @@
+{
+  "candidate_id": "both_ends.pattern_gain_rotary_v415",
+  "finished_utc": "2026-09-19T07:01:26.106606+00:00",
+  "forwards": 4,
+  "plan": {
+    "bars": {
+      "cross_tol": 0.001,
+      "half": 0.5,
+      "instr_tol": 0.02,
+      "track_min": 0.7
+    },
+    "candidate_id": "both_ends.pattern_gain_rotary_v415",
+    "dropped_records": 6,
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 5,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "natural_records": 128,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "rows": 244
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_cross_closure": true,
+    "pred_c_interaction_is_rotary": false,
+    "pred_d_key_side_leads_without_rotary": true,
+    "pred_e_unrotated_gain_tracks_rotated": true
+  },
+  "report": {
+    "cross_closure_max": 2.8978067348361947e-05,
+    "instrument_max_rel": 0.00010930395364994183,
+    "readers": {
+      "12.4": {
+        "diag_corr_unrotated_vs_rotated": 0.928149402141571,
+        "diag_mean_rotated": 0.14462387561798096,
+        "diag_mean_unrotated": 0.18787159025669098,
+        "n": 244,
+        "rotated": {
+          "interaction": 0.24746976970972948,
+          "key_main": 0.5713687917308784,
+          "query_main": 0.18116148680646318
+        },
+        "unrotated": {
+          "interaction": 0.27798495557433556,
+          "key_main": 0.5063798694596814,
+          "query_main": 0.21563510987655635
+        }
+      },
+      "15.1": {
+        "diag_corr_unrotated_vs_rotated": 0.5302916765213013,
+        "diag_mean_rotated": -0.235550194978714,
+        "diag_mean_unrotated": -0.5750740170478821,
+        "n": 244,
+        "rotated": {
+          "interaction": 0.04546760540032008,
+          "key_main": 0.7631668828152608,
+          "query_main": 0.19136560559101695
+        },
+        "unrotated": {
+          "interaction": 0.11137202180956349,
+          "key_main": 0.3020542533213122,
+          "query_main": 0.5865736966081271
+        }
+      },
+      "9.6": {
+        "diag_corr_unrotated_vs_rotated": 0.8551212549209595,
+        "diag_mean_rotated": 0.09714911133050919,
+        "diag_mean_unrotated": 0.1425606906414032,
+        "n": 244,
+        "rotated": {
+          "interaction": 0.3759820695502541,
+          "key_main": 0.3724902021110851,
+          "query_main": 0.2515277249847509
+        },
+        "unrotated": {
+          "interaction": 0.3224047011430707,
+          "key_main": 0.41618387224040804,
+          "query_main": 0.2614114192660457
+        }
+      }
+    }
+  },
+  "schema": "pattern_gain_rotary_result_v415",
+  "serial_seconds": 1.84558624192141
+}
