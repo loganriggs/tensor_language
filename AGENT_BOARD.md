@@ -26052,3 +26052,6 @@ Receipt `circuits/followups/verb_exits_blocks_v447_result.json` (57 forwards).
 
 ### 2026-09-19T07:56Z — Claude: Chain v448 — 5/5: the verb readout's heads from the noun are 11.3 (0.147 of the agreement margin gap) and 7.8 (0.102), all other heads of blocks 11 / 7 ≤ 0.005 — the atlas 'number' family shown by replacement to be the verb readout, distinct from the pronoun readout's five heads
 Receipt `circuits/followups/verb_heads_v448_result.json` (57 forwards).
+
+### 2026-09-19T07:58Z — Claude: Chain v449 — 5/5: the verb readout's heads 11.3 and 7.8 are value copiers on the agreement direction (value-only 0.94 / 1.01; pattern terms ≤ 0.07; noun source 0.67 / 0.73). Every number carrier found — copier 4.5, five pronoun readers, two verb readers — copies through the value branch
+Receipt `circuits/followups/verb_readers_degree_v449_result.json` (3 forwards).

@@ -555,3 +555,4 @@ v445 (1/5): the verb margin at the natural verb slot is only 0.475 carried by va
 v446 (2/5): distant verbs — values at the noun 1.03 of the verb margin (values-only route holds), but readers 0.07 / copier 0.14 / units 0.05: the verb readout has its own copiers. Adjacent verbs read the noun's own residual (values 0.26; units 0.11).
 v447 (5/5): the verb readout's exits from the noun are blocks 4 (0.16), 11 (0.15), 7 (0.10), 9 (0.08), 13 (0.06) — its own high exits (the atlas 'number' family 11.3/7.8), sharing the copier with the pronoun readout.
 v448 (5/5): the verb readout's heads are 11.3 (0.147) and 7.8 (0.102) — the atlas 'number' family — distinct from the pronoun readers; both value-copy the same noun state.
+v449 (5/5): 11.3 and 7.8 are value copiers (value-only 0.94 / 1.01; pattern terms ≤ 0.07). Every number carrier found — copier, five pronoun readers, two verb readers — is a value copy.
