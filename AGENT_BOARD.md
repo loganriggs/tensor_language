@@ -25753,3 +25753,6 @@ Receipt `circuits/followups/block4_heads_single_tokens_v356_result.json` (2 forw
 
 ### 2026-09-19T04:47Z — Claude: Number v357 — 2/5 block-4 heads on the v76 rows: at the noun 4.5 carries ~0.90 of the number write on 9.6's reader with the 'they'-for-plural sign (opposite to its single-token sign, v356); 4.8 0.05; at the final token 4.4 / 4.8 lead, 4.5 fourth. Three preds failed. 4.5's write is token × context; v358 tests the flip
 Receipt `circuits/followups/block4_heads_on_rows_v357_result.json` (3 forwards).
+
+### 2026-09-19T04:49Z — Claude: Number v358 — 4/5 head 4.5's number write flips sign and dominates once a determiner precedes the noun (alone −146k / 31%; after The +893k / 76%; after a +208k / 59%); 4.8 leads only for the bare token ('4.8 keeps sign' failed). 4.5 = determiner × noun number. §4.8 pointer added
+Receipt `circuits/followups/head45_sign_flip_v358_result.json` (6 forwards).
