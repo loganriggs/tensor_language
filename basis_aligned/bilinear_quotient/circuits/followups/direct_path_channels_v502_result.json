@@ -1,0 +1,195 @@
+{
+  "candidate_id": "chain.direct_path_channels_v502",
+  "finished_utc": "2026-09-19T09:21:46.312118+00:00",
+  "forwards": 8,
+  "plan": {
+    "bars": {
+      "attn": [
+        0.15,
+        0.4
+      ],
+      "band": 0.03,
+      "joint_min": 0.6,
+      "mlps_v501": 0.452,
+      "replay_tol": 0.001
+    },
+    "candidate_id": "chain.direct_path_channels_v502",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 9,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "sets": {
+      "ATTN": [],
+      "BOTH": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          11,
+          0
+        ],
+        [
+          12,
+          0
+        ],
+        [
+          13,
+          0
+        ],
+        [
+          14,
+          0
+        ],
+        [
+          15,
+          0
+        ],
+        [
+          16,
+          0
+        ],
+        [
+          17,
+          0
+        ]
+      ],
+      "MLPS": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          11,
+          0
+        ],
+        [
+          12,
+          0
+        ],
+        [
+          13,
+          0
+        ],
+        [
+          14,
+          0
+        ],
+        [
+          15,
+          0
+        ],
+        [
+          16,
+          0
+        ],
+        [
+          17,
+          0
+        ]
+      ]
+    },
+    "text_pairs": 43
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_attention_into_the_noun_bounded": true,
+    "pred_c_mlps_and_attention_close_most": false,
+    "pred_d_joint_at_most_one": true,
+    "pred_e_mlps_replay": true
+  },
+  "report": {
+    "panel": {
+      "rows": 43,
+      "skipped": "adjacent natural rows only"
+    },
+    "replay_max_abs": 2.002716064453125e-05,
+    "text": {
+      "closed": {
+        "ATTN": 0.31311556696891785,
+        "BOTH": 0.4814508259296417,
+        "MLPS": 0.45182403922080994
+      },
+      "gap_mean": 14.924256324768066,
+      "pairs": 43
+    }
+  },
+  "schema": "direct_path_channels_result_v502",
+  "serial_seconds": 1.8662235708907247
+}
