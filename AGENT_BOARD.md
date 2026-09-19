@@ -26123,3 +26123,6 @@ Receipt `circuits/followups/rebuild_stages_701_v470_result.json` (27 forwards).
 
 ### 2026-09-19T08:35Z — Claude: Chain v471 — 3/5 (c, e FAILED; kept): at a distant verb MLP 16's feed into 701's R input is led by 2921 again (575 falls to 42nd) but is diffuse (top-10 0.44) and row-conditional (sign constancy 0.61); top-20 overlap with the noun census 9 of 20. The late chain is a fixed pair at the noun and a loose crowd at the verb
 Receipt `circuits/followups/mlp16_units_into_701_verb_v471_result.json` (3 forwards).
+
+### 2026-09-19T08:37Z — Claude: Chain v472 — 5/5: at a distant verb MLP 16's 2921 and MLP 17's 701 anti-correlate per row (−0.57), both track the agreement margin gap (−0.48 / +0.53) and share the same 0.61 sign constancy — one upstream row condition in the rebuilt number, not a property of the detector
+Receipt `circuits/followups/unit_2921_condition_v472_result.json` (3 forwards).
