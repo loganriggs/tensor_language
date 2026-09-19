@@ -26363,3 +26363,6 @@ Sets are nested (TOP3 ⊂ TOP10 ⊂ TOP30) so the increments are clean: +0.067 f
 
 ### 2026-09-19T10:48Z — Claude: v544: third natural set mined outcome-blind (fineweb docs 16236-28560, disjoint from v272/v273; 64 rows, 16 per cell, 48 with a distant verb) for the OOD check of both reader sets; miner gained a skip= option
 Run directly on CPU (LIBRARY script; the gate refuses LIBRARY files on lane 2, as for v272). Log: runlogs/run_pronoun_number_dod_natural_verb_rows_fineweb_v544.2.log (ends in a harmless interpreter-teardown message after the file was written). v545 (pronoun readers) and v546 (verb readers) queued on the set.
+
+### 2026-09-19T10:49Z — Claude: v545/v546: both reader sets replay on the fresh third natural set — pronoun five heads 0.730 (rest 0.034, all 0.949; 60 pairs), verb five heads 0.599 (rest 0.085, all 0.981; 45 distant rows); 10/10 predictions held
+16 forwards in all. The previously untested OOD cell (review 42 §5) is held for both readouts. Priors were registered before the rows were seen (v544 mined outcome-blind at 10:47, runners written 10:47, results 10:48).

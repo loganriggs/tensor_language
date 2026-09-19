@@ -1,0 +1,79 @@
+{
+  "candidate_id": "chain.third_set_pronoun_writes_v545",
+  "finished_utc": "2026-09-19T10:48:39.100895+00:00",
+  "forwards": 8,
+  "plan": {
+    "bars": {
+      "all_attn": 0.973,
+      "band": 0.15,
+      "five_sum": 0.803,
+      "replay_tol": 0.001,
+      "rest_max": 0.1,
+      "share_min": 0.8,
+      "unit": 701
+    },
+    "candidate_id": "chain.third_set_pronoun_writes_v545",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 9,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 60
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_five_writes_replay_on_fresh_rows": true,
+    "pred_c_rest_of_their_blocks_small": true,
+    "pred_d_all_attention_is_the_channel": true,
+    "pred_e_five_below_all": true
+  },
+  "report": {
+    "panel": {
+      "rows": 60,
+      "skipped": "pronoun slot, natural pairs"
+    },
+    "replay_max_abs": 2.193450927734375e-05,
+    "text": {
+      "contrast_mean": 3.213216543197632,
+      "margin_closed": {
+        "ALL": 0.9494969248771667,
+        "FIVE_W": 0.7297309637069702,
+        "REST_W": 0.03436972200870514
+      },
+      "moved": {
+        "ALL": 2.074362277984619,
+        "FIVE_W": 0.4615674614906311,
+        "REST_W": 0.03136778250336647
+      },
+      "pairs": 60,
+      "sign_constancy": 0.5666666626930237,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": 3.213216543197632,
+      "margin_closed": {
+        "ALL": 0.9494969248771667,
+        "FIVE_W": 0.7297309637069702,
+        "REST_W": 0.03436972200870514
+      },
+      "moved": {
+        "ALL": 2.074362277984619,
+        "FIVE_W": 0.4615674614906311,
+        "REST_W": 0.03136778250336647
+      },
+      "pairs": 60,
+      "sign_constancy": 0.5666666626930237,
+      "unit": 701
+    }
+  },
+  "schema": "third_set_pronoun_writes_result_v545",
+  "serial_seconds": 1.9157065940089524
+}
