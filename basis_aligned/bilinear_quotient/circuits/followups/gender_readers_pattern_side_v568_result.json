@@ -1,0 +1,46 @@
+{
+  "candidate_id": "gender.readers_pattern_side_v568",
+  "finished_utc": "2026-09-19T11:36:18.723380+00:00",
+  "forwards": 6,
+  "plan": {
+    "bars": {
+      "add": 0.1,
+      "allpos_v567": 0.732,
+      "band": 0.03,
+      "pattern_min": 0.08,
+      "replay_tol": 0.001,
+      "write_v563": 0.878
+    },
+    "candidate_id": "gender.readers_pattern_side_v568",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 7,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": "pronoun_gender_dod_natural_rows_v73.json",
+    "text_pairs": 61
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_pattern_carries": false,
+    "pred_c_pattern_and_values_make_the_write": false,
+    "pred_d_pattern_below_values": true,
+    "pred_e_all_positions_replay": true
+  },
+  "report": {
+    "replay_max_abs": 1.430511474609375e-05,
+    "text": {
+      "closed": {
+        "ALL_POS": 0.7319962978363037,
+        "PATTERN": -0.07241163402795792
+      },
+      "gap_mean": 4.360080718994141,
+      "pairs": 61,
+      "sign_constancy": 0.8852459192276001
+    }
+  },
+  "schema": "gender_readers_pattern_side_result_v568",
+  "serial_seconds": 1.8162820821162313
+}
