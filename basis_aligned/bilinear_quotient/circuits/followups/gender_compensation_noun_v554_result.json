@@ -1,0 +1,270 @@
+{
+  "candidate_id": "gender.compensation_noun_v554",
+  "finished_utc": "2026-09-19T11:04:02.568211+00:00",
+  "forwards": 10,
+  "plan": {
+    "bars": {
+      "band": 0.03,
+      "low_min": 0.6,
+      "over": 0.05,
+      "parts": 0.145,
+      "replay_tol": 0.001,
+      "self_v550": 0.31
+    },
+    "candidate_id": "gender.compensation_noun_v554",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 13,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "sets": {
+      "LOW_EVERYTHING": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      "MLPS_1_8": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      "MLPS_SELF": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      "SELF": []
+    },
+    "text_pairs": 61,
+    "values": {
+      "LOW_EVERYTHING": {
+        "0": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "1": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "2": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "3": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "4": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "5": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "6": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "7": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "8": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "MLPS_SELF": {
+        "6": [
+          1
+        ],
+        "8": [
+          1
+        ]
+      },
+      "SELF": {
+        "6": [
+          1
+        ],
+        "8": [
+          1
+        ]
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_mlps_1_8_jointly_above_parts": false,
+    "pred_c_mlps_and_self_copies_super_additive": false,
+    "pred_d_low_everything_reaches_readers": false,
+    "pred_e_self_copies_replay": true
+  },
+  "report": {
+    "replay_max_abs": 1.430511474609375e-05,
+    "text": {
+      "closed": {
+        "LOW_EVERYTHING": 0.4478175640106201,
+        "MLPS_1_8": 0.10926033556461334,
+        "MLPS_SELF": 0.38918495178222656,
+        "SELF": 0.31032195687294006
+      },
+      "gap_mean": 4.360080718994141,
+      "pairs": 61
+    }
+  },
+  "schema": "gender_compensation_noun_result_v554",
+  "serial_seconds": 1.9527798930648714
+}

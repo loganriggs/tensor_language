@@ -26387,3 +26387,6 @@ Reason: better_circuits §7 allows a new behaviour once the current target meets
 
 ### 2026-09-19T11:03Z — Claude: v553: gender readers' value at the noun by writer — 10.1 embedding 0.34 / attention 0.15 / MLPs 0.51 (closure 1e-6); attention >= 0.25 and MLPs <= 0.50 failed; 3/5. Fold-vs-edit gap (MLPs 0.51 by fold, ~0.17 by edit) -> compensation test v554
 2 forwards. Hypothesis registered for v554: on a token-carried line the downstream writers re-derive the swapped upstream write from the unchanged embedding, so single-stage edits under-count and joint edits are SUPER-additive (the opposite of the number line's nesting).
+
+### 2026-09-19T11:05Z — Claude: v554: compensation refuted — MLPs 1-8 jointly 0.109 (parts 0.145), MLPs+self-copies 0.389 (parts 0.419), all low writes 0.448; self-copies 0.310 replay; 2/5
+10 forwards. Three of five failed and kept; the registered explanation (downstream re-derivation) is wrong. Next: v555 instruments the MLP-8 swap — the readers' value factors at the noun inside the edited forward against the fold's shares, and the margin against the readers' singles.
