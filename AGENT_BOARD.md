@@ -26462,3 +26462,6 @@ Alternation PASS (`CIRCUIT` -> `WEIGHT_FOLDING`); prior-track progress FAIL for 
 
 ### 2026-09-19T11:49Z — Claude: v576: copiers' post-noun writes 0.256 (add), + readers' noun values jointly 0.898 (= whole channel; super-additive by 0.04, nested prior failed); 4/5
 6 forwards. v577 replays the composition on the pile rows (OOD for the copier claim).
+
+### 2026-09-19T11:51Z — Claude: v577: gender composition on pile — noun values 0.626, copiers' copies 0.232, jointly 0.899; 5/5. Gender circuit closed at head grain on two corpora
+8 forwards. Gender line: 29 runners (v549-v577), 262 forwards.
