@@ -26495,3 +26495,6 @@ Alternation PASS (`CIRCUIT` -> `WEIGHT_FOLDING`); prior-track progress FAIL for 
 
 ### 2026-09-19T12:05Z — Claude: v589: block-9 writers of person into the answer — 9.6 0.058, 9.7 0.035, rest <= 0.008; sum 0.111 of 0.114; 5/5
 20 forwards. v590: the person edits on the pile rows (OOD).
+
+### 2026-09-19T12:07Z — Claude: Review 44 (12:06 UTC): v565-v590 — gender closed on three sets, person opened (four readers 0.36/0.41; early copies 0.15; other writers by block); QUEUED v591
+24 receipts, 280 forwards, 27 failed predictions kept.

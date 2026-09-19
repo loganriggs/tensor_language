@@ -740,4 +740,48 @@ Gender: token-carried (token-only branch half; self-copies 0.31; MLP stack ~0.17
 constructions.
 
 **Kept failures.** v549 d, v551 b, v552 c/d, v553 c/d, v554 b/c/d, v555 e, v556 b/e, v557 b/c, v558 d/e, v559 d, v560 e, v561 b/c, v562 b/c, v564 b.
-Open: out-of-sample (pile rows, v565 queued), selectivity (does the gender swap move number?), and the relay positions after the noun.
+**Out of sample, selective, and where the readers look (v565–v573).** On the second natural gender set (64 pile-10k pairs) the five readers' writes into
+the answer close 0.893 (fineweb 0.878; rest of their blocks 0.001). The same edit moves the number component of the pronoun logits, 2·they − he − she, by
+0.063 of the gender gap (all attention 0.107): selective. By position, the readers' values carry 0.600 at the noun, 0.132 at the token after it, 0.231 from
+the rest of the sentence, 0.732 from all positions together (nested: readers at different blocks feed one another); the pattern × value product term is
+0.085; their writes at the answer alone are 0.878 and at every position 0.745 — writes into the intermediate positions help alone (+0.125) and cancel in
+part when the answer write is also swapped. I stopped the position decomposition there: the clean numbers are 0.60 (values at the noun) and 0.88 (write at
+the answer). The gender at the token after the noun is planted by 8.1 (0.056 of block 8's 0.058; blocks 0–4 0.018, 5–6 0.028) — not by number's copier
+4.5 (0.011). So 8.1 is the gender line's copier twice over: at the noun it writes the noun's own token (the 18 Sep self-copy), at noun + 1 it writes the
+previous token's gender.
+
+**The two 'self-copies' are copiers (v574–v575).** Splitting 8.1's and 6.1's writes by target position: into the noun itself 0.023 / 0.014, into the token
+after it 0.056 / 0.022, into the rest of the sentence 0.069 / 0.075, all positions 0.156 / 0.114 (equal to their value singles, and the parts add). The
+18 Sep folds saw both heads write the noun's own token back into the noun (97% / 90% token-only) — that write is real and nearly inert for the readout.
+What carries gender is that the same heads copy the noun into every following position, where the readers pick it up (0.36 of the readers' read comes
+from positions after the noun). Two local copiers for gender, one (4.5) for number, at different depths.
+
+**The channel from two named sources (v576).** Swapping the two copiers' writes into every position after the noun closes 0.256 (their parts add); swapping
+those and the five readers' values at the noun together closes 0.898 — the whole channel (all values at the noun 0.901; the readers' writes into the answer
+0.878). The gender readout is: the noun's own value, read by five heads (0.60), plus the noun's gender copied into the following context by 8.1 and 6.1
+and read there by the same heads (0.26); the two together slightly exceed their sum (the readers' pattern × value term, 0.085).
+
+**What is and is not closed (gender, 19 Sep noon).** Closed by edit on two natural corpora (61 fineweb pairs, 64 pile pairs): the five readers (writes into
+the answer 0.88 / 0.89; values at the noun 0.60 / 0.63), the two copiers 8.1 / 6.1 (post-noun copies 0.26 / 0.23), the composition (0.90 / 0.90 of the
+channel), selectivity (0.06 on the number axis), the token-only half of the readers' read and its sign structure. Named but small: MLP-8 detectors 3152 /
+3943 (0.06). A third set (63 fresh fineweb pairs) replays the composition: 0.635 + 0.215 → 0.891 (v582). Not done: the weights-only magnitude of the token term (instrument refuted); why 10.1 and 15.1 attend to the noun
+with negative weight.
+
+### 4.13 The person line by the same method [v579–]
+
+**Rows.** 43 natural aligned pairs from the 18 Sep fineweb rows for the reflexive (I ... myself / you ... yourself): the pronoun swapped in place (' I' ↔ ' you');
+myself − yourself margin, gap 7.5 logits, sign constancy 0.98; replay 1e-5.
+
+**Census (v579–v583).** Every head's value at the cue carries 0.992 of the gap. The four readers the 18 Sep account named on the panel {8.1, 13.1, 10.5, 15.1}
+carry 0.361 (singly 0.148 / 0.102 / 0.048 / 0.060; they add). Blocks 0–8 carry 0.637, blocks 9–17 0.431 (they add to the whole). The low blocks split as 0–4
+0.216, 5–6 0.080, 7–8 0.242 (8.1 0.148 of it). Blocks 0–4 singly sum to 0.089 against 0.216 jointly, and by target their writes go nowhere into the cue itself
+(−0.009) and 0.154 into the following context: the early exit is a copier route — I / you copied into the sentence, read later — nested across blocks because
+later copiers copy the earlier copies. The 18 Sep '58% unattributed' is this route plus the other heads of blocks 7–8.
+
+**The early copiers and the write side (v584–v589).** By block the early copies are block 4 0.069, blocks 1–3 ~0.02 each, block 0 none; inside block 4 no head
+reaches 0.02 (4.5 0.018, 4.4 0.017) — a population, so the early exit stops at block grain. At the answer end the four readers write 0.412 of the gap
+(v586); every head 0.943. The other half by block group: blocks 0–7 0.216, block 8 without 8.1 0.032, blocks 9–12 without 10.5 0.220, blocks 13–17 without
+13.1 / 15.1 0.082; by block, block 9 0.114 (9.6 0.058, 9.7 0.035 — the number readers write person too), block 5 0.059, block 10 0.047, block 12 0.038, blocks
+6 / 7 0.03. Person is the least concentrated of the three lines: no set of four heads carries more than 0.41 of its write side.
+
+**Kept failures (continued).** v565 none; v566 e; v567 b/e; v568 b/c; v569 b/c; v570 d/e; v571 c/d; v572 c; v573 e; v574 b/d; v575 none.

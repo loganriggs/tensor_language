@@ -172,3 +172,23 @@
   negative weight. The readout is linear in the readers (α × 0.600 at four α). Writes into the answer: 0.88, 12.4-led. Out-of-sample (pile rows) is running.
 - **Kept failures worth knowing.** My weights-only magnitude for the direct term was wrong three times (sign, rms, λ chain) and refuted by the edit — sign and
   ranking stand, magnitude does not. Compensation (downstream re-derivation) was registered and refuted; the truth was the second value branch.
+
+## 2026-09-19 11:52 UTC — Gender circuit closed at head grain on two corpora (Claude lane, v565–v577)
+
+- **Out of sample and selective.** On 64 pile-10k pairs the five readers' writes into the answer close 0.89 (fineweb 0.88); the gender edit moves the number
+  axis of the pronoun logits by 0.06 while closing 0.88 of he − she.
+- **Two copiers, not two self-copies.** 8.1 and 6.1 carry gender by copying the noun into every following position (0.13 / 0.10 of the gap), not by writing
+  into the noun itself (0.02 / 0.01) — a correction to the 18 Sep account; number's copier 4.5 carries no gender (0.01).
+- **Composition closed.** The readers' values at the noun (0.60) plus the copiers' post-noun copies (0.26) close 0.90 jointly — the whole channel — on both
+  corpora (0.899 on pile). The readout is linear in the readers; the pattern × value product term is 0.085.
+- **Kept failures worth knowing.** My position decomposition of the readers' writes is nested (answer 0.88, intermediate +0.13, all 0.75) and I stopped it; the
+  weights-only magnitude of the token term failed three times and is refuted by edit (its sign and ranking stand). Full account: `in_depth_circuit_number.md` §4.12.
+
+## 2026-09-19 12:06 UTC — Gender replicated on a third set; the person line opened (Claude lane, v578–v590)
+
+- **Gender on a third natural set** (63 fresh fineweb pairs, mined outcome-blind): readers' noun values 0.635 + copiers' copies 0.215 → 0.891 jointly. Three
+  sets agree to 0.02. Gender is done at head grain.
+- **Person (I / you → myself / yourself) by the same method**, 43 natural pairs: every head's value at the cue carries 0.99; the four readers the 18 Sep account
+  named carry 0.36 by value and 0.41 by write; I / you is also copied into the sentence by blocks 1–4 (0.15; block 4 a population of small heads); the other
+  half of the write side is spread over blocks 5–12, led by block 9 — where the number readers 9.6 and 9.7 write person too (0.09). Person is the least
+  concentrated of the three lines; OOD (pile) and composition are running. Details: `in_depth_circuit_number.md` §4.13.
