@@ -667,3 +667,11 @@ pronoun slot) that fires where the model's agreement margin is large (corr 0.53)
 directly after the noun the answer position is the noun itself: its own residual carries the agreement (values 0.26 only), written across depth (embedding
 0.13, MLP 17 0.10, MLP 8 0.10), with 701 / 2059 at MLP 17 (0.08 by replacement) and 829 / 953 / 1030 at MLP 8 (0.11) as nearly independent parts. The
 atlas's 5.7 carries 0.006; VP0 is dead here too (0.003 of the direct change).
+
+**Both readouts from the answer side (v481–v488).** Every block's attention write into the answer position closes 0.97 of the pronoun margin and 0.94
+of the verb margin. Into the pronoun slot: 9.6 0.36, 12.4 0.24, 10.5 0.08, 15.1 0.07, 10.1 0.06 — jointly 0.80, each the whole of its block's write,
+the other 32 heads of their blocks 0.03, an early relay from blocks 4–6 of 0.11. Into a distant verb: 11.3 0.24, 5.3 0.11, 7.8 0.10, block 9 0.12
+(9.7 with 9.6 / 9.1), 13.1 0.07 — the five verb heads jointly 0.56, the rest of their blocks 0.11, a longer tail. Across slots: the verb heads write
+0.04 into the pronoun slot, the pronoun heads 0.10 into the verb, and the two sets add on both. The readers' writes into the answer (0.82) exceed their
+values swapped at the noun (0.48) because they also read the post-noun token and later positions. The number readout is two nearly disjoint sets of
+value copiers reading one noun state, each into its own kind of answer, closed at both ends by replacement on natural text.

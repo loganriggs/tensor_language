@@ -1,0 +1,79 @@
+{
+  "candidate_id": "chain.pronoun_heads_into_verb_v488",
+  "finished_utc": "2026-09-19T08:58:24.512497+00:00",
+  "forwards": 12,
+  "plan": {
+    "bars": {
+      "add_tol": 0.04,
+      "band": 0.03,
+      "five_v486": 0.557,
+      "pron_max": 0.12,
+      "ratio_max": 0.25,
+      "replay_tol": 0.001,
+      "unit": 701
+    },
+    "candidate_id": "chain.pronoun_heads_into_verb_v488",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 13,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_pronoun_heads_write_little_into_the_verb": true,
+    "pred_c_verb_heads_replay": true,
+    "pred_d_union_adds": true,
+    "pred_e_pronoun_heads_a_small_fraction": true
+  },
+  "report": {
+    "panel": {
+      "distant_rows": 79,
+      "skipped": "distant rows only"
+    },
+    "replay_max_abs": 2.384185791015625e-05,
+    "text": {
+      "contrast_mean": 37.7872428894043,
+      "margin_closed": {
+        "FIVE_V": 0.5568386912345886,
+        "FIVE_W": 0.09608563035726547,
+        "UNION": 0.6530736088752747
+      },
+      "moved": {
+        "FIVE_V": 0.636074960231781,
+        "FIVE_W": 0.0866401270031929,
+        "UNION": 0.7276617884635925
+      },
+      "pairs": 79,
+      "sign_constancy": 0.607594907283783,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": 37.7872428894043,
+      "margin_closed": {
+        "FIVE_V": 0.5568386912345886,
+        "FIVE_W": 0.09608563035726547,
+        "UNION": 0.6530736088752747
+      },
+      "moved": {
+        "FIVE_V": 0.636074960231781,
+        "FIVE_W": 0.0866401270031929,
+        "UNION": 0.7276617884635925
+      },
+      "pairs": 79,
+      "sign_constancy": 0.607594907283783,
+      "unit": 701
+    }
+  },
+  "schema": "pronoun_heads_into_verb_result_v488",
+  "serial_seconds": 1.9981109139043838
+}

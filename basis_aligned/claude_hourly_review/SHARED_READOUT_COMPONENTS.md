@@ -597,3 +597,4 @@ v484 (5/5): 15.1 0.073 = block 15's write; the five readers' writes into the ans
 v485 (5/5): five readers' writes into the pronoun slot jointly 0.803 (singles 0.823); other 32 heads of their blocks 0.026. Pronoun channel closed: five heads = 0.80 of 0.97.
 v486 (5/5): five verb heads' writes into the verb jointly 0.557; other 40 heads of their blocks 0.107; all attention 0.943. Verb channel = five heads + a longer tail.
 v487 (5/5): verb heads' writes into the pronoun slot 0.041 vs pronoun heads 0.803; union 0.816 (additive). Cross-selectivity confirmed from the answer side.
+v488 (5/5): pronoun heads write 0.096 into the verb (verb heads 0.557; union 0.653, additive). Two nearly disjoint copier sets; both readouts closed at both ends.
