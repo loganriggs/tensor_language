@@ -1,0 +1,113 @@
+{
+  "candidate_id": "pronoun_number.restorer_null_v378",
+  "finished_utc": "2026-09-19T05:29:18.154423+00:00",
+  "forwards": 45,
+  "plan": {
+    "bars": {
+      "intact": 0.03,
+      "m_tol": 0.001,
+      "native_m": 2.0481,
+      "null_factor": 3.0,
+      "rise_tol": 0.03,
+      "v377_rise": 0.171
+    },
+    "candidate_id": "pronoun_number.restorer_null_v378",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 48,
+    "gpu_accessed": false,
+    "k": 10,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "n_null": 12,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117",
+    "seed": 372,
+    "targets": {
+      "3": [
+        5,
+        1036
+      ],
+      "5": [
+        8,
+        829
+      ],
+      "6": [
+        8,
+        829
+      ],
+      "7": [
+        8,
+        829
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_named_rise_replays": true,
+    "pred_c_rise_beats_random_tens": true,
+    "pred_d_random_tens_leave_829_intact": true,
+    "pred_e_829_protection_specific": true
+  },
+  "report": {
+    "named_cut_829": 0.08823032810482445,
+    "named_rise_1779": 0.170932496834032,
+    "native_margin": 2.048141226172447,
+    "null_1779_max_abs": 0.016943923158742824,
+    "null_829_max_abs": 0.0059566252005787135,
+    "nulls": [
+      {
+        "rel_1779": 0.004768363425317279,
+        "rel_829": -0.0038669222412661686
+      },
+      {
+        "rel_1779": 0.00118020941037833,
+        "rel_829": -0.002474765449974492
+      },
+      {
+        "rel_1779": -0.0020736429511583054,
+        "rel_829": -0.0010520385030098334
+      },
+      {
+        "rel_1779": -0.0016296139046279023,
+        "rel_829": 0.002485292920802351
+      },
+      {
+        "rel_1779": -0.016943923158742824,
+        "rel_829": -0.0028443404114378845
+      },
+      {
+        "rel_1779": -0.00501264766056253,
+        "rel_829": -0.0007571680941512726
+      },
+      {
+        "rel_1779": -0.008324776701342018,
+        "rel_829": 0.0015325568108890408
+      },
+      {
+        "rel_1779": 0.008124861240923043,
+        "rel_829": 0.0059566252005787135
+      },
+      {
+        "rel_1779": -0.004605222853263813,
+        "rel_829": 0.0039801937783456864
+      },
+      {
+        "rel_1779": -0.004156244981848856,
+        "rel_829": -0.00380507335015301
+      },
+      {
+        "rel_1779": 0.004864524212296439,
+        "rel_829": 0.004441276755465795
+      },
+      {
+        "rel_1779": -0.00024112722626723482,
+        "rel_829": -0.0008337959346956803
+      }
+    ],
+    "replay_gap": 4.1226172447395015e-05
+  },
+  "schema": "restorer_null_result_v378",
+  "serial_seconds": 2.4288806249387562
+}

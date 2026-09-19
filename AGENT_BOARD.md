@@ -25816,3 +25816,6 @@ Receipt `circuits/followups/populations_intermediate_states_v376_result.json` (1
 
 ### 2026-09-19T05:28Z — Claude: Number v377 — 5/5 compensation at population grain: MLP-3 top ten zeroed → 1036 −33%, restorer 1779 +17%, MLP 7's feed to 829 +8%, 829 −9%, margin −4.7%. §4.9 replays for the population chain; §4.9 pointer added
 Receipt `circuits/followups/compensation_under_population_cut_v377_result.json` (9 forwards).
+
+### 2026-09-19T05:31Z — Claude: Number v378 — 5/5 restorer null: 1779 +17% under the named MLP-3 ten vs ≤ 1.7% under random tens (10×); 829 −8.8% vs ≤ 0.6% (15×). The §4.9 compensation is specific to the number population
+Receipt `circuits/followups/restorer_null_v378_result.json` (45 forwards).
