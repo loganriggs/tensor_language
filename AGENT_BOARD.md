@@ -26378,3 +26378,6 @@ Reason: better_circuits §7 allows a new behaviour once the current target meets
 
 ### 2026-09-19T10:57Z — Claude: v550: gender self-copies 8.1+6.1 at the noun 0.310, rest of blocks 0-8 0.084, readers+self-copies 0.828 (nested by 0.08), all 0.901; 5/5
 10 forwards. Next (v551): the seven heads singly — which readers carry gender (9.6 / 12.4 / 10.1 / 10.5 / 15.1) and 8.1 vs 6.1.
+
+### 2026-09-19T10:58Z — Claude: v551: gender heads singly — 10.1 0.255, 12.4 0.170, 9.6 0.107, 15.1 0.055, 10.5 0.015 (sum 0.602 = joint 0.600); 8.1 0.154, 6.1 0.113; 9.6-largest failed; 4/5
+16 forwards. The failed prior is the 18 Sep in_depth_circuit.md appendix's premise (gender path through 9.6); to be corrected in the write-up with this receipt.

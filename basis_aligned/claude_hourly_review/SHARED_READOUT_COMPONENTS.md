@@ -659,3 +659,4 @@ v538 (5/5): write-side verb census complete — 11.3 0.238, 5.3 0.113, 7.8 0.108
 - UNIT COMPONENTS on the third set, pronoun slot (v548): hub three at the noun 0.164, at the answer 0.047; detector −0.005; random 0.000. Number circuit: five properties held on three natural sets, at head and unit grain.
 - GENDER LINE opened by the number method (v549): values at the noun 0.901, five pronoun readers 0.600, blocks 0–8 0.451, blocks 9–17 0.625 (sub-additive by 0.17; nested via the self-copies).
 - GENDER HEAD SET by edit (v550): self-copies 8.1 + 6.1 at the noun 0.310, rest of blocks 0–8 0.084, five readers + self-copies 0.828 of 0.901.
+- GENDER READERS by single edit (v551): 10.1 0.255, 12.4 0.170, 9.6 0.107, 15.1 0.055, 10.5 0.015; self-copies 8.1 0.154, 6.1 0.113. Same five heads as number, different leaders.

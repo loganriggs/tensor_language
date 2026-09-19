@@ -1,0 +1,51 @@
+{
+  "candidate_id": "gender.heads_singly_noun_v551",
+  "finished_utc": "2026-09-19T10:58:14.699523+00:00",
+  "forwards": 16,
+  "plan": {
+    "bars": {
+      "band": 0.1,
+      "f101_min": 0.05,
+      "five_v549": 0.6,
+      "h105_max": 0.05,
+      "m124_min": 0.08,
+      "replay_tol": 0.001
+    },
+    "candidate_id": "gender.heads_singly_noun_v551",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 17,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": "pronoun_gender_dod_natural_rows_v73.json",
+    "text_pairs": 61
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_9_6_is_the_largest_reader": false,
+    "pred_c_gender_tilted_readers_carry": true,
+    "pred_d_10_5_small": true,
+    "pred_e_reader_singles_add": true
+  },
+  "report": {
+    "replay_max_abs": 1.430511474609375e-05,
+    "text": {
+      "closed": {
+        "10.1": 0.254768043756485,
+        "10.5": 0.015307134948670864,
+        "12.4": 0.17007587850093842,
+        "15.1": 0.05489909276366234,
+        "6.1": 0.11274496465921402,
+        "8.1": 0.15364839136600494,
+        "9.6": 0.10661466419696808
+      },
+      "gap_mean": 4.360080718994141,
+      "pairs": 61,
+      "sign_constancy": 0.8852459192276001
+    }
+  },
+  "schema": "gender_heads_singly_noun_result_v551",
+  "serial_seconds": 2.164925525896251
+}
