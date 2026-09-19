@@ -25840,3 +25840,6 @@ Receipt `circuits/followups/next_token_number_writers_v383_result.json` (3 forwa
 
 ### 2026-09-19T05:41Z — Claude: Number v384 — 2/5 829's factors at the post-noun position: MLPs 4–7 0.72–0.76 (MLP 7 0.22/0.31, MLP 4 0.13/0.16), attention 0.24–0.28 (blocks 4, 5, 7 at 7–11% each). Attention seeds the copy, MLPs rebuild it; three attention-first preds failed. v385 censuses MLP 4's units there
 Receipt `circuits/followups/factor_writers_829_next_token_v384_result.json` (3 forwards).
+
+### 2026-09-19T05:42Z — Claude: Number v385 — 5/5 post-noun site units into 829: relays 1036 / 2483 / 1779 again in their layers' top two, plus site-specific 3661 (MLP 4), 715 (MLP 5), 69 (MLP 6, the v240s verb-site unit), 834 (MLP 7). v386 edits the site-specific four
+Receipt `circuits/followups/mlp4567_units_into_829_next_token_v385_result.json` (3 forwards).
