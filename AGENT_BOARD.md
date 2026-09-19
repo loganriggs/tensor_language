@@ -25609,3 +25609,6 @@ Receipt `circuits/followups/mlp1_whole_layer_price_v312_result.json` (14 forward
 
 ### 2026-09-19T03:10Z — Claude: MLP1 v313 — 5/5 head vs tail on text: restoring the top-200 costs +0.16 nats, the 4,408-unit tail +0.47, all +0.70 (superadditive); 0.34 vs 0.88 nats per unit share. The tail's context-conditioned write is the valuable part; the head is a switch-off. §4.10 updated
 Receipt `circuits/followups/mlp1_census_tail_v313_result.json` (18 forwards).
+
+### 2026-09-19T03:12Z — Claude: MLP1 v314 — 5/5 attention 0/1 all-self-only on 2,944 natural positions: MLP 1's write = table entry (α 0.9998), loss +0.81 nats (block 0 alone +0.19, block 1 alone +0.31); table-everywhere was +0.70, so attention's own context writes add ≈ 0.11. Attention 0/1's context read exists mainly to let MLP 1 convert its lookup. §4.10 updated
+Receipt `circuits/followups/mlp1_self_only_attention_loss_v314_result.json` (16 forwards).
