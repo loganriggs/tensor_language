@@ -25648,3 +25648,6 @@ Receipt `circuits/followups/mlp1_unconditioning_routes_v324_result.json` (60 for
 
 ### 2026-09-19T03:38Z — Claude: MLP1 v325 — 3/5 attention vs MLP consumers in blocks 2–4 (v76 rows): MLP 3 alone takes 0.65 of the un-conditioning harm, MLP 2 alone 0.44, attentions 0.02–0.06; with attention seeing the delta too the blocks net 0.12 / 0.23 (additivity failed) — attention 3 / 2 compensate their MLPs. 'MLP 2 largest' failed (MLP 3 is). §4.10 updated
 Receipt `circuits/followups/mlp1_routes_parts_v325_result.json` (36 forwards).
+
+### 2026-09-19T03:40Z — Claude: MLP1 v326 — 3/5 MLP 3's consumption at unit grain: response norm spread (top-50 6%) but the top-10 responding units (664, 872, 1612, 615, 919, …) carry 71% of the margin effect; 3465 / 493 rank 113 / 72 (pred failed). A second MLP-3 port reading MLP 1's conditioned remainder. §4.10 updated; v327 edits
+Receipt `circuits/followups/mlp3_consumer_units_v326_result.json` (24 forwards).
