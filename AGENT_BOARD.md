@@ -25597,3 +25597,6 @@ Receipt `circuits/followups/mlp1_net_census_natural_v309_result.json` (8 forward
 
 ### 2026-09-19T03:02Z — Claude: MLP1 v310 — 5/5 restoring the gain head's context-free activations on 2,944 natural positions raises next-token loss +0.059 nats (300× null), growing with position (0.024 → 0.081); zeroing is free (−0.0004). The cancellation is functional. §4.10 updated
 Receipt `circuits/followups/mlp1_gain_head_loss_v310_result.json` (38 forwards). One failed run before it (non-contiguous view in the model's own loss); fixed in the script.
+
+### 2026-09-19T03:06Z — Claude: MLP1 v311 — 4/5 loss dose–response: restoring top-2/10/50/200 net units costs +0.059/0.106/0.125/0.156 nats (nulls ≤ 0.03); ≈ 0.34 nats per unit share of the cancellation at every k → whole cancellation ≈ 0.34 nats (8% of loss). 'top-200 ≥ 0.20' failed (0.156). §4.10 updated
+Receipt `circuits/followups/mlp1_loss_dose_response_v311_result.json` (52 forwards).

@@ -337,7 +337,10 @@ And the cancellation is doing work for the model (v310): on the same text, putti
 next-token loss by 0.059 nats (twelve random pairs: ≤ 0.0002), more the longer the context (0.024 nats at positions 1–6, 0.081 at 12–23),
 while zeroing them is free (−0.0004). The head is a no-context signal — "a token stands alone" — that MLP 1 emits at full strength for a
 single token and must switch off once anything precedes it; the rest of the layer does the same in proportion, unit by unit.
-Open: what the class-structured remainder encodes downstream; the loss dose–response for the top-10/50/200 (v311, queued).
+The price is linear (v311): restoring the top 2 / 10 / 50 / 200 units costs 0.059 / 0.106 / 0.125 / 0.156 nats (random sets ≤ 0.03), and
+divided by each set's share of the cancellation that is 0.27 / 0.34 / 0.34 / 0.34 nats per unit share — the same price down the list, which
+extrapolates to about 0.34 nats (8% of the 4.22 loss) for undoing all of MLP 1's context cancellation. So it is one coherent function of the
+layer, not a set of unit quirks. Open: what the class-structured remainder encodes downstream; the whole-layer restore and zero (v312, queued).
 
 | receipt | question | result |
 |---|---|---|
@@ -365,6 +368,7 @@ Open: what the class-structured remainder encodes downstream; the loss dose–re
 | v308 | restore top-2/10/50/200 | +0.15/0.21/0.24/0.32 vs random ≤ 0.02; cos → 0.89 (5/5; rise = census by linearity) |
 | v309 | net census on text | same head, 22.4%; 98.9% of units lose, r −0.998 (5/5) |
 | v310 | restore the head on text: loss | +0.059 nats (300× null), growing with position; zeroing free (5/5) |
+| v311 | loss for top-2/10/50/200 | 0.059/0.106/0.125/0.156 nats; 0.34 nats per unit share, stable (4/5) |
 
 ### Pass over the draft (what I changed after rereading)
 
