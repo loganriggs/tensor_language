@@ -26273,3 +26273,6 @@ Receipt `circuits/followups/panel_opposing_units_verb_v518_result.json` (9 forwa
 
 ### 2026-09-19T09:46Z — Claude: Chain v519 — 3/5 (b, e FAILED; kept): the four MLP-17 units that seemed to oppose number at the panel answer write 'he' — they − he −0.078, they − she −0.022, he − she moved 0.83× the number margin. A panel-specific masculine push by four late units, absent on natural text and from the agreement margin; not part of the number circuit
 Receipt `circuits/followups/panel_opposing_units_axes_v519_result.json` (9 forwards).
+
+### 2026-09-19T09:47Z — Claude: Chain v520 — 3/5 (b, c FAILED; kept): the four panel MLP-17 units' Down columns — 3547 +0.51 on he − she / −0.44 on they − he, 3093 the reverse on both, 1747 like 3547 but weaker, 4448 number-only (0.00 / −0.16); pairwise agreement 0.16–0.28 once signed. A mixed late population sharing an anti-'they' component, with the gender part in 3547 / 1747
+Receipt `circuits/followups/panel_units_columns_v520_result.json` (2 forwards).
