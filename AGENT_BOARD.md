@@ -25917,3 +25917,6 @@ Receipt `circuits/followups/both_ends_degree_text_v405_result.json` (4 forwards)
 
 ### 2026-09-19T06:41Z — Claude: Both-ends v406 — 4/5, pred_e FAILED (kept): writers of the number the readers copy — 9.6: MLP 8 0.48 (text) / 0.50 (panel), MLPs 5–7 ~0.25, embedding 0.14 / 0.10, attention 0.03; top-3 set differs between text (embedding 3rd) and panel (MLP 6 3rd). 12.4 / 15.1 add MLPs 9–11 and attention 9–10
 Receipt `circuits/followups/value_copy_writers_v406_result.json` (7 forwards). pred_e asked for the same top-3 set on panel and text; embedding (0.143) and MLP 6 (0.099) swap places with MLP 7 between the frames.
+
+### 2026-09-19T06:42Z — Claude: Both-ends v407 — 3/5: MLP 8 unit census on the 122 natural pairs — 829 / 953 / 1030 rank 1–3 (top-10 0.75, top-50 0.87); gender unit 3152 5th (pred_e FAILED; it is 5th on the panel too — a gender–number unit); closure FAILED on an instrument fault (Down bias double-counted in the reconstruction; ranks unaffected). v408 corrects the closure
+Receipt `circuits/followups/value_copy_mlp8_units_text_v407_result.json` (4 forwards). Fault: `per_row_mlp` added `m . Down_bias` to `mlp(xin) . m`, which already contains the bias.

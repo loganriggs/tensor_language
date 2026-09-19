@@ -512,3 +512,4 @@ v403 (4/5; pred_b failed on sign): readers' patterns number-blind (≤ 6%), valu
 v404 (5/5): on VC1 the readers' noun-source writes are 44–63% of their u writes and split identically (value-only 0.91 / 0.995 / 1.67; 12.4 cancellation replays). One value copy, two output axes.
 v405 (5/5): degree expansion replays on 122 natural pairs (in-place noun-number swap): 9.6 noun source 0.66, value-only 0.975; 15.1 0.96; 12.4 1.35 with −0.50 cancellation. Natural aligned pairs now available via the tokenizer swap.
 v406 (4/5; pred_e failed: top-3 set panel≠text, embedding vs MLP 6): the copied number at the noun is written by MLP 8 (0.48 text / 0.50 panel), MLPs 5–7 (~0.25), embedding 0.10–0.14, attention 0.03 for 9.6.
+v407 (3/5): MLP 8 unit census on natural pairs — 829 / 953 / 1030 rank 1–3 (top-50 0.87); gender unit 3152 5th (pred_e failed); closure bar failed on a bias double count (instrument; v408 corrects).
