@@ -26237,3 +26237,6 @@ Alternation PASS (`CIRCUIT`→`WEIGHT_FOLDING`); prior-hour progress PASS with s
 
 ### 2026-09-19T09:29Z — Claude: Chain v507 — 4/5 (d FAILED; kept): MLP 9's they − he write at the pronoun answer is one unit, 3428 (top-10 0.70; Down column cosine 0.50 with they − he; per-row sign 0.69) — nominated by the fold as MLP 12's unit 22 was; the replace-edit decides (v508)
 Receipt `circuits/followups/mlp9_units_pronoun_answer_v507_result.json` (4 forwards).
+
+### 2026-09-19T09:30Z — Claude: Chain v508 — 4/5 (b FAILED; kept): unit 3428 of MLP 9 swapped at the pronoun answer closes 0.013 of the margin (MLP 9 whole 0.089; random 0.000) — the second fold-nominated answer-side unit refuted by edit. At the answer the re-expression is a population effect that pooled per-unit projections misattribute; the noun-side hub is the exception
+Receipt `circuits/followups/unit_3428_edit_v508_result.json` (12 forwards).
