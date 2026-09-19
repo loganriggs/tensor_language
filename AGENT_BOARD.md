@@ -25804,3 +25804,6 @@ Receipt `circuits/followups/top10_per_layer_edit_v372_result.json` (45 forwards)
 
 ### 2026-09-19T05:20Z — Claude: Number v373 — 4/5 dose–response per layer: top-1 −13%, top-5 −31%, top-10 −34%, top-20 −32% (nulls ≤ 0.04; 'monotone' failed at 20). MLP populations saturate near a third of the margin. §4.8 pointer updated; v374 repeats top-10 on natural rows
 Receipt `circuits/followups/per_layer_dose_response_v373_result.json` (54 forwards).
+
+### 2026-09-19T05:22Z — Claude: Number v374 — 5/5 the 50 panel-named units zeroed on 128 natural rows: labelled-pronoun margin −18.8% (57× null; six leaders −8.8%; panel −34%). Populations transfer at half strength. §4.8 pointer and for_logan/LATEST.md updated
+Receipt `circuits/followups/top10_per_layer_edit_natural_v374_result.json` (31 forwards).

@@ -112,3 +112,8 @@
   " 1" flips 3465; 493 the complement); they are bilinear products whose two inputs both carry number, 58–88% fed by MLP 1's context-free entry, with
   MLP 2 adding context-conditioned number; they detect at the noun and are silent at the answer; the verb's own number is read by 1036 (7.8 std), 1030
   and 953, not by 3465 / 493. Falsified and kept: frame factor labels (v339), linear whole-layer price (v312), block patch-back as a localiser (v315).
+- **The unit chain, named and edited (v356–v374; T70–T88):** head 4.5 copies a determiner × noun-number state written by MLP 3 (0.52; 3465 first), MLP 2,
+  MLP 1 and the embedding path (v357–v366, panel and text); MLP 8's detector 829 is fed by 1036 (MLP 5), 2483 (MLP 6), 1779 (MLP 7) (v367–v368). The chain
+  3465 / 493 → 1036 → 2483 → 1779 → 829 is live on text with the panel signs (v369); zeroing the six costs 14% of the margin on the panel and 8.8% on
+  text (56× / 60× null; v370–v371); the top ten per layer cost 34% / 19% and saturate near a third (v372–v374). Agreement at MLP 3: noun-gated verb units
+  (3040, 114, 565) and verb-gated noun units (3465, 493) flag noun–verb mismatches and are used (0.094 / 0.039 nats; v347–v355).

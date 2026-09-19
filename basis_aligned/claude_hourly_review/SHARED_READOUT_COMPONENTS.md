@@ -479,3 +479,4 @@ v370 (5/5, edit): zeroing the six named chain units {3465, 493, 1036, 2483, 1779
 v371 (5/5, natural rows): zeroing the six named chain units costs the labelled-pronoun margin 8.8% on 128 real sentences (60× null; upper four 7.8%; panel 14%). The unit chain is causal OOD.
 v372 (5/5): zeroing the top ten units per MLP (3, 5, 6, 7, 8; 50 units) costs the margin 34% (30× null) vs 14% for the six leaders — a population per layer with a nameable head. v373: dose–response 1 / 5 / 10 / 20 per layer.
 v373 (4/5): per-layer populations saturate — top-1 per layer −13%, top-5 −31%, top-10 −34%, top-20 −32% (nulls ≤ 0.04). The MLP stack's causal share of the margin is bounded near a third at unit grain. v374: the top-10 edit on natural rows.
+v374 (5/5, natural rows): the 50 panel-named units (top ten per MLP 3 / 5 / 6 / 7 / 8) cost the labelled-pronoun margin 18.8% on real text (57× null; six leaders 8.8%; panel 34%). Populations transfer at half strength.

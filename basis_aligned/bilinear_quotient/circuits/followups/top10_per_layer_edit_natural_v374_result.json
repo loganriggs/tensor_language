@@ -1,0 +1,125 @@
+{
+  "candidate_id": "pronoun_number.top10_per_layer_edit_natural_v374",
+  "finished_utc": "2026-09-19T05:20:45.811932+00:00",
+  "forwards": 31,
+  "plan": {
+    "bars": {
+      "move_min": 0.1,
+      "null_factor": 3.0,
+      "panel_rel": -0.3423,
+      "six_text": 0.2103
+    },
+    "candidate_id": "pronoun_number.top10_per_layer_edit_natural_v374",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 34,
+    "gpu_accessed": false,
+    "k": 10,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "n_null": 12,
+    "natural": [
+      "pronoun_number_dod_natural_verb_rows_v272.json",
+      "pronoun_number_dod_natural_verb_rows_v273.json"
+    ],
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117",
+    "seed": 372,
+    "targets": {
+      "3": [
+        5,
+        1036
+      ],
+      "5": [
+        8,
+        829
+      ],
+      "6": [
+        8,
+        829
+      ],
+      "7": [
+        8,
+        829
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_native_margin_positive": true,
+    "pred_b_top50_lowers_margin_on_text": true,
+    "pred_c_beats_random_sets_on_text": true,
+    "pred_d_exceeds_six_on_text": true,
+    "pred_e_within_2x_of_panel": true
+  },
+  "report": {
+    "change_rel": -0.18796455533871928,
+    "change_top50": -0.4502972746267915,
+    "native_margin": 2.3956499341875315,
+    "null_max_abs": 0.00786614790558815,
+    "top10_per_layer": {
+      "3": [
+        3465,
+        114,
+        493,
+        1638,
+        2033,
+        1450,
+        4040,
+        1987,
+        4425,
+        2617
+      ],
+      "5": [
+        1036,
+        2403,
+        4038,
+        2538,
+        1601,
+        3274,
+        3034,
+        3940,
+        3218,
+        3846
+      ],
+      "6": [
+        2483,
+        2826,
+        1868,
+        852,
+        3671,
+        738,
+        4179,
+        1018,
+        355,
+        69
+      ],
+      "7": [
+        1779,
+        4361,
+        1845,
+        3603,
+        4415,
+        46,
+        3153,
+        3550,
+        834,
+        490
+      ],
+      "8": [
+        829,
+        953,
+        1030,
+        1484,
+        3152,
+        1738,
+        684,
+        3205,
+        2092,
+        1959
+      ]
+    }
+  },
+  "schema": "top10_per_layer_edit_natural_result_v374",
+  "serial_seconds": 2.8147098179906607
+}
