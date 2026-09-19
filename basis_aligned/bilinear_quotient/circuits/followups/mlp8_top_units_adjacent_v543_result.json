@@ -1,0 +1,99 @@
+{
+  "candidate_id": "chain.mlp8_top_units_adjacent_v543",
+  "finished_utc": "2026-09-19T10:43:38.791837+00:00",
+  "forwards": 10,
+  "plan": {
+    "bars": {
+      "band": 0.02,
+      "block_v542": 0.295,
+      "hub_v460": 0.114,
+      "over": 0.03,
+      "replay_tol": 0.001,
+      "top10_min": 0.2,
+      "top30_min": 0.25
+    },
+    "candidate_id": "chain.mlp8_top_units_adjacent_v543",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 11,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_hub_three_replay": true,
+    "pred_c_top_10_carry_two_thirds": true,
+    "pred_d_top_30_carry_most": false,
+    "pred_e_nested_sets_monotone": true
+  },
+  "report": {
+    "panel": {
+      "skipped": "verb slot only (price)",
+      "verb_slot_rows": 43
+    },
+    "replay_max_abs": 2.002716064453125e-05,
+    "text": {
+      "closed": {
+        "HUB3": {
+          "are_is": 0.10840210318565369,
+          "verb": 0.1138540580868721
+        },
+        "TOP10": {
+          "are_is": 0.2085554301738739,
+          "verb": 0.2158433049917221
+        },
+        "TOP3": {
+          "are_is": 0.14363719522953033,
+          "verb": 0.1489202231168747
+        },
+        "TOP30": {
+          "are_is": 0.223516583442688,
+          "verb": 0.23238204419612885
+        }
+      },
+      "gap_mean": {
+        "are_is": 7.83402681350708,
+        "verb": 14.92425537109375,
+        "were_was": 7.0902299880981445
+      },
+      "pairs": 43
+    },
+    "verb_slot": {
+      "closed": {
+        "HUB3": {
+          "are_is": 0.10840210318565369,
+          "verb": 0.1138540580868721
+        },
+        "TOP10": {
+          "are_is": 0.2085554301738739,
+          "verb": 0.2158433049917221
+        },
+        "TOP3": {
+          "are_is": 0.14363719522953033,
+          "verb": 0.1489202231168747
+        },
+        "TOP30": {
+          "are_is": 0.223516583442688,
+          "verb": 0.23238204419612885
+        }
+      },
+      "gap_mean": {
+        "are_is": 7.83402681350708,
+        "verb": 14.92425537109375,
+        "were_was": 7.0902299880981445
+      },
+      "pairs": 43
+    }
+  },
+  "schema": "mlp8_top_units_adjacent_result_v543",
+  "serial_seconds": 1.8558427980169654
+}

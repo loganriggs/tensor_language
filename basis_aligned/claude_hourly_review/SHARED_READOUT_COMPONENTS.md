@@ -652,3 +652,4 @@ v538 (5/5): write-side verb census complete — 11.3 0.238, 5.3 0.113, 7.8 0.108
 - VERB READOUT at the noun's own position, other blocks (v540): early 0.013, mid 0.053, late 0.032. The copier blocks do not write agreement into the noun itself; the mid blocks 6/8/10/12 do (v541 splits them).
 - VERB READOUT at the noun's own position, mid blocks singly (v541): 8 0.024, 10 0.021, 6 0.007, 12 −0.003. Attention map at the noun position closed (T252–T254).
 - MLP-8 HUB at the noun's own position (adjacent rows, v542): the block alone closes 0.295 of the agreement gap (three named units 0.11); MLP 17 alone 0.052; MLPs 9–16 0.436; 1–7 0.268.
+- MLP-8 HUB units on the agreement axis at the noun (v543): 829/1738/3858 0.149, top-10 0.216, top-30 0.232 of the block's 0.295. 1738 and 3858 join 829 as agreement units (not in the pronoun census's top 20).
