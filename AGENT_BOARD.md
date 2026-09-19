@@ -25792,3 +25792,6 @@ Receipt `circuits/followups/mlp567_units_into_829_v368_result.json` (3 forwards)
 
 ### 2026-09-19T05:10Z — Claude: Number v369 — 4/5 the unit chain 3465/493 → 1036 → 2483 → 1779 → 829 on 128 natural sentences: all six separate cue nouns with the panel's sign (0.7–2.2 std; 1779 0.72 misses the 0.8 bar), none at the final. OOD-consistent end to end. §4.8 pointer updated; v370 is the joint edit
 Receipt `circuits/followups/unit_chain_natural_v369_result.json` (5 forwards).
+
+### 2026-09-19T05:12Z — Claude: Number v370 — 5/5 joint zero-edit of the six named chain units on native v76 rows: they−he margin −14.0% (56× layer-matched null); upper four −11.0%; stages roughly additive with the MLP-3 trio (−3.6%). Named, edited unit chain from MLP 1's entry to MLP 8. §4.8 pointer updated; v371 repeats on natural rows
+Receipt `circuits/followups/unit_chain_edit_v370_result.json` (45 forwards).
