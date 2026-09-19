@@ -26076,3 +26076,6 @@ Receipt `circuits/followups/direct_path_writers_v455_result.json` (2 forwards).
 
 ### 2026-09-19T08:14Z — Claude: Chain v456 — 2/5 (b, c, d FAILED; kept): the panel-only class axis VP0 is not the direct path's late-MLP write either (cos 0.016; 0.003 of the change's energy) — dead everywhere. The late MLPs' direct agreement write is a direction of their own, weakly aligned with u_v (0.07) where the early part aligns at 0.25
 Receipt `circuits/followups/direct_path_vp0_v456_result.json` (2 forwards).
+
+### 2026-09-19T08:16Z — Claude: Chain v457 — 4/5 (e FAILED at 0.22; kept): MLP 17's direct agreement write at the noun (adjacent verbs) is unit 701 (half) and 2059 (a fifth); top-10 0.71, top-50 0.93 — a late counterpart of MLP 8's 829 / 953 on the direct path
+Receipt `circuits/followups/mlp17_units_direct_verb_v457_result.json` (2 forwards).
