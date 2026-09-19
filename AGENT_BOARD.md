@@ -25579,3 +25579,6 @@ Receipt `circuits/followups/mlp1_head_units_v304_result.json` (15 forwards).
 
 ### 2026-09-19T02:51Z — Claude: MLP1 v305 — 2/5 EDIT falsifies the head-unit reading: zeroing 3289 + 624 lowers α 0.335 → 0.321 (nulls ±0.0003) instead of raising it; direction kept; they−he margin +3.4% (28× null). Cross and context² terms cancel inside a unit — only the net per-unit write is causal. §4.10 corrected; gain-unit label withdrawn as a causal claim
 Receipt `circuits/followups/mlp1_gain_units_edit_v305_result.json` (57 forwards). Failures preserved; the document's §4.10 carries the correction rather than a rewrite.
+
+### 2026-09-19T02:54Z — Claude: MLP1 v306 — 4/5 NET per-unit census: 3289 and 624 are the top-2 net cancellers at every length (alone +867/+664 along the entry, in context ≈ +60; 22% of the net change), 1715 third; 92–96% of units lose ∝ their lookup (r −0.97…−1.00). Corrects the v305 reading: zeroing was the wrong counterfactual (predicted −0.014, observed −0.013). §4.10 corrected; v307 replace-edit
+Receipt `circuits/followups/mlp1_net_unit_census_v306_result.json` (4 forwards). The v305 board entry's reading ("gain-unit label withdrawn") is superseded by this one; both stay on the board.
