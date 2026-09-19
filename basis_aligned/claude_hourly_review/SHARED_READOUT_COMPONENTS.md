@@ -583,3 +583,4 @@ v472 (5/5): 2921 and 701 anti-correlate (−0.57), both track the margin gap (�
 v473 (4/5; b failed): 2921 alone moves 0.03 of 701 and 0.004 of the margin (MLP 16 whole 0.137 / 0.091; random 0): the verb-position rebuild is diffuse at unit grain.
 v474 (4/5; d failed): at a distant verb every MLP 9–16 carries 0.05–0.10 of the agreement margin (sum 0.67; MLP 11 +0.10 though it opposes 701). Even accumulation, no hub.
 v475 (5/5): all attention writes into the verb position close 0.94 of the agreement margin; MLPs 9–16 there jointly 0.39. Values out of the noun (0.98) and attention into the verb (0.94): one channel, two ends.
+v476 (5/5): attention into the verb by block — 11 0.25, 5 0.16, 9 0.12, 7 0.10, 13 0.07, 4 0.07; additive (sum 1.00 vs joint 0.94). Block 5 (5.7?) reads the post-noun rebuild, not the noun.

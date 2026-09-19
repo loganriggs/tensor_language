@@ -26135,3 +26135,6 @@ Receipt `circuits/followups/rebuild_stages_margin_v474_result.json` (27 forwards
 
 ### 2026-09-19T08:41Z — Claude: Chain v475 — 5/5: every block's attention write into a distant verb position closes 0.943 of the agreement margin (moves 1.11 of 701); MLPs 9–16 there jointly 0.39 (singles 0.67; nesting). Values out of the noun (0.98, v428) and attention into the verb (0.94): one channel, two ends
 Receipt `circuits/followups/verb_position_channels_v475_result.json` (9 forwards).
+
+### 2026-09-19T08:43Z — Claude: Chain v476 — 5/5: the attention channel into a distant verb by block — 11 (0.250), 5 (0.160), 9 (0.116), 7 (0.095), 13 (0.073), 4 (0.066); early blocks ≤ 0.08; singles add (1.00 vs 0.94). Block 5 is a fifth verb exit that reads the post-noun rebuild rather than the noun (its noun-exit was 0.03, v447)
+Receipt `circuits/followups/attn_into_verb_blocks_v476_result.json` (57 forwards).
