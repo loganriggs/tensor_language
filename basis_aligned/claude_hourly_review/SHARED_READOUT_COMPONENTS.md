@@ -535,3 +535,4 @@ v426 (5/5, EDIT): MLP chain swapped whole — noun 0.396, post-noun 0.120, both 
 v427 (5/5, EDIT): readers 0.368 vs all 27 heads of blocks 9/12/15 0.381 vs the other 24 heads 0.016 — the readers are 0.97 of their blocks' value copy.
 v428 (5/5, EDIT): all heads' values at the noun alone close 0.98 of the margin gap — the noun's number leaves through values only; rest of sequence 0.28.
 v429 (5/5, EDIT): all keys at the noun 0.0002; values blocks 0–8 0.51, blocks 9–17 0.50, additive (1.02 vs 0.98). Two parallel value routes out of the noun.
+v430 (4/5; c failed): low route by block — block 4 0.217 (copier), block 2 0.066, others ≤ 0.03, blocks 0–1 nothing; singles sum 0.38 vs joint 0.51.

@@ -25992,3 +25992,6 @@ Receipt `circuits/followups/value_swap_positions_v428_result.json` (28 forwards)
 
 ### 2026-09-19T07:24Z — Claude: Both-ends v429 — 5/5 EDIT the noun's exits: every head's keys at the noun (all blocks) 0.0002 of the margin gap; values for blocks 0–8 0.511, blocks 9–17 0.505, additive (1.02 vs 0.98 for all). Keys carry nothing; two parallel value routes (low blocks → rebuild sites; high blocks → the answer)
 Receipt `circuits/followups/noun_exits_v429_result.json` (28 forwards).
+
+### 2026-09-19T07:26Z — Claude: Both-ends v430 — 4/5 (c FAILED; kept): the low route out of the noun by block — block 4 0.217 (the copier), block 2 0.066, blocks 5 / 6 / 8 ≤ 0.03, blocks 0–1 nothing (the attention 0/1 context read carries number into the noun, not out); singles sum 0.38 vs the joint 0.51
+Receipt `circuits/followups/low_route_blocks_v430_result.json` (40 forwards).
