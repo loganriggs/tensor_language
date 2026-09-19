@@ -416,7 +416,12 @@ units turn out to be agreement-violation detectors: 3465 fires about −300 for 
 other cells; 493 fires +46 only for the mirror violation "plural noun + is"; 829 and 1036 read the verb's form (are above is), 829 more when the
 noun disagrees. With v337 (3465 sharpest after plural-licensing words and sign-flipping after " 1"), the picture is one bilinear computation:
 (what the preceding word leads one to expect) × (what the current token is), lighting up when they disagree — 3465 for singular-then-plural,
-493 for plural-then-singular.
+493 for plural-then-singular. Across four more verb pairs (v348: was / were, has / have, does / do, goes / go) 3465's reading holds every time —
+the "singular noun + plural verb" cell sits 2.1–5.1 pooled std below the grammatical cell (−256, −210, −128, −133 against −22 … +14), and for do
+and go the unit also flags the mirror violation; 493's mirror reading is verb-dependent (+1.9 for was / were, negative for do / go) and is not a
+general detector; 829 and 1036 read the verb's form whatever the noun. Named at this grain: unit 3465 of MLP 3 is a bilinear product of the
+preceding word's expectation and the current token's number that fires when a singular subject is followed by a plural verb form — both of its
+inputs drawn from MLP 1's lookup entries.
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -522,6 +527,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v345 | cue / verb / final on natural sentences | cue 0.98–2.2 std; final ≤ 0.12; verb: only 953 −0.97 (4/5) |
 | v346 | verb tokens alone | 1036 +7.8, 1030 +2.8, 953 +1.7 read verb number; 3465 reads the -s ending backwards (−1.35) (3/5) |
 | v347 | [noun, is / are] at the verb | 3465 ≈ −300 only for singular + are; 493 +46 only for plural + is: violation detectors (2/5) |
+| v348 | four more verb pairs | 3465's violation reading holds ×4 (2–5 std); 493's is verb-dependent; 829 / 1036 read verb form (2/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

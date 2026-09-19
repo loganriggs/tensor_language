@@ -25720,3 +25720,6 @@ Receipt `circuits/followups/verb_tokens_up_the_chain_v346_result.json` (1 forwar
 
 ### 2026-09-19T04:25Z — Claude: Number v347 — 2/5 [noun, is/are] read at the verb: 3465 fires ≈ −300 only for the ungrammatical 'singular noun + are' (other cells ≈ 0–15), 493 +46 only for 'plural noun + is'; 829 / 1036 read verb form (are > is). Agreement-VIOLATION detectors: 3465 singular→plural, 493 plural→singular. Three preds failed. §4.10 updated; v348 tests more verbs
 Receipt `circuits/followups/noun_verb_agreement_frames_v347_result.json` (4 forwards).
+
+### 2026-09-19T04:28Z — Claude: Number v348 — 2/5 violation reading across was/were, has/have, does/do, goes/go: 3465's 'singular noun + plural verb' cell 2.1–5.1 std below grammatical for all four (do/go also flag the mirror); 493's mirror verb-dependent (pred failed); 829/1036 read verb form. Named: 3465 = singular-then-plural-verb violation detector fed by MLP 1's entries. §4.10 updated
+Receipt `circuits/followups/agreement_violation_verbs_v348_result.json` (16 forwards).
