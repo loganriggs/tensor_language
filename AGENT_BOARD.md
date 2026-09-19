@@ -26070,3 +26070,6 @@ Receipt `circuits/followups/verb_readers_pronoun_slot_v453_result.json` (21 forw
 
 ### 2026-09-19T08:04Z — Claude: Chain v454 — 3/5 (c, e FAILED; kept): on the direct path to an adjacent verb, MLP 8's unit 829 is first again (top-10 0.83), with 1738 and 3858 behind it where the pronoun census had 953 and 1030 (5th / 8th here); top-20 overlap 11 of 20. The MLP-8 number population is shared at its head and readout-specific in its tail
 Receipt `circuits/followups/mlp8_units_direct_verb_v454_result.json` (2 forwards).
+
+### 2026-09-19T08:13Z — Claude: Chain v455 — 5/5: the direct path to an adjacent verb (the noun's own final residual) is written across depth — embedding 0.13, MLP 17 0.10, MLP 8 0.10, MLP 12 0.08, MLP 10 0.08; MLPs 12–17 together 0.34; attention 0.17. The late-MLP axis that was panel-only for the pronoun readout (v390–v396) is real on the direct path. Two crashes fixed before the run (padding; swallowed assignments)
+Receipt `circuits/followups/direct_path_writers_v455_result.json` (2 forwards).

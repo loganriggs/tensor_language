@@ -562,3 +562,4 @@ v451 (4/5; d failed at 0.51): verb readout heads = 11.3, 7.8, 13.1, 9.7 (+9.6, 9
 v452 (5/5): verb full named set — V4 0.334 (additive), + copier 0.495, + pronoun readers 0.566; all values 1.029. Verb readout named to 0.57.
 v453 (5/5): verb readers at the pronoun slot 0.026 (pronoun readers 0.483) — the two readouts are selective both ways.
 v454 (3/5): on the direct path to an adjacent verb, 829 is first again; 1738 second, 3858 third; 953 8th, 1030 5th; top-20 overlap with the pronoun census 11/20 — shared head, readout-specific tail.
+v455 (5/5): the direct path (adjacent verb) is written across depth — embedding 0.13, MLP 17 0.10, MLP 8 0.10, MLP 12 0.08; late MLPs 12–17 0.34 — the panel-only late-MLP axis (v390–v396) lives on the direct path.
