@@ -25837,3 +25837,6 @@ Receipt `circuits/followups/reader_key_positions_v382_result.json` (6 forwards).
 
 ### 2026-09-19T05:39Z — Claude: Number v383 — 3/5 number at the noun+1 key as 9.6 reads it: MLP 8 0.51, MLPs 4–7 0.40, attention 4 0.03 ('attention 4 leads' failed). The post-noun number is re-derived by the MLPs at that position, not read from the copier's residual write. v384 folds MLP 8's unit there by writer
 Receipt `circuits/followups/next_token_number_writers_v383_result.json` (3 forwards).
+
+### 2026-09-19T05:41Z — Claude: Number v384 — 2/5 829's factors at the post-noun position: MLPs 4–7 0.72–0.76 (MLP 7 0.22/0.31, MLP 4 0.13/0.16), attention 0.24–0.28 (blocks 4, 5, 7 at 7–11% each). Attention seeds the copy, MLPs rebuild it; three attention-first preds failed. v385 censuses MLP 4's units there
+Receipt `circuits/followups/factor_writers_829_next_token_v384_result.json` (3 forwards).
