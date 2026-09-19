@@ -399,7 +399,9 @@ remainder rather than its own entry (α₂ ≈ 0.44) — the dense re-read of ML
 number from MLP 1 and context-conditioned number from MLP 2, and its R input is lookup-fed by both; the bottom of the chain is accounted for
 writer by writer and part by part. The same holds for the other three lexical units (v343): MLP 1's contribution to both factors of 493 is 76% its entry, of 1036 88% / 71%,
 of 829 67% / 70% — the -s plural in MLP 1's table row is the number signal every agreement detector in the chain multiplies, on both sides,
-five blocks up as much as two.
+five blocks up as much as two. On the 128 natural sentences (v344) the same split gives 58–82% table for every unit and factor, and the four
+units separate plural from singular cue nouns in running text at 1.0–2.2 pooled std with the panel signs (3465 strongest at −2.2) — two bars set from
+the panel were missed by 0.02 (829's L factor 0.58; 1036's separation 0.98 std).
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -501,6 +503,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v341 | MLP 1's part per factor: table vs remainder | table 0.81 (L) / 0.85 (R); remainder 0.19 / 0.15 (4/5) |
 | v342 | MLP 2's part per factor | table 0.34 (L) / 0.63 (R); remainder 0.66 / 0.37 (5/5) |
 | v343 | MLP 1's part per factor for 493 / 1036 / 829 | table 0.76 / 0.76; 0.88 / 0.71; 0.67 / 0.70 (5/5) |
+| v344 | the same on 128 natural sentences | table 0.58–0.82 for all; units separate cue nouns at 1.0–2.2 std (3/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

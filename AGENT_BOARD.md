@@ -25705,3 +25705,6 @@ Receipt `circuits/followups/mlp2_table_vs_remainder_per_factor_v342_result.json`
 
 ### 2026-09-19T04:16Z — Claude: Number v343 — 5/5 MLP 1's part of the factors of 493 / 1036 / 829: table 0.76 / 0.76, 0.88 / 0.71, 0.67 / 0.70 (remainder the rest; signs agree). The lookup entry is the number signal on both sides of every agreement unit in the chain. §4.10 updated
 Receipt `circuits/followups/mlp1_table_vs_remainder_other_units_v343_result.json` (4 forwards).
+
+### 2026-09-19T04:18Z — Claude: Number v344 — 3/5 on 128 natural rows: MLP 1's context-free entry is 58–82% of its contribution to each factor of 3465 / 493 / 1036 / 829 at real cue nouns; units separate plural/singular cues at 1.0–2.2 std with the panel signs. Two bars missed by 0.02 (829 L 0.58; 1036 0.98). §4.10 updated
+Receipt `circuits/followups/mlp1_table_into_units_natural_v344_result.json` (3 forwards).
