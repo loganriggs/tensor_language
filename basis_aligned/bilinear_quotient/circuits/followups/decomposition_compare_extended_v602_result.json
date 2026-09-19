@@ -1,0 +1,89 @@
+{
+  "candidate_id": "decomposition.compare_extended_v602",
+  "finished_utc": "2026-09-19T22:28:48.151932+00:00",
+  "forwards": 0,
+  "plan": {
+    "Ks_common": [
+      128,
+      256,
+      512,
+      1024
+    ],
+    "candidate_id": "decomposition.compare_extended_v602",
+    "dict_k": 256,
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 0,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_error_keeps_dropping": true,
+    "pred_b_no_knee_by_1024": false,
+    "pred_c_svd_still_optimal_vs_dict_at_256": true,
+    "pred_d_M0_M1_still_close": true,
+    "pred_e_ambient_rank_bound_respected": true
+  },
+  "results": {
+    "M0": {
+      "ambient_rank": 1152,
+      "sparse_dict": {
+        "256": {
+          "converged": false,
+          "nnz_codes": 10735822,
+          "outer_iterations": 200,
+          "relative_error": 0.7651883363723755
+        }
+      },
+      "svd": {
+        "128": {
+          "relative_error": 0.8446080088615417
+        },
+        "256": {
+          "relative_error": 0.759437084197998
+        },
+        "512": {
+          "relative_error": 0.6018496155738831
+        },
+        "1024": {
+          "relative_error": 0.2324824035167694
+        },
+        "1152": {
+          "relative_error": 0.00032530099269934
+        }
+      }
+    },
+    "M1": {
+      "ambient_rank": 4608,
+      "sparse_dict": {
+        "256": {
+          "converged": true,
+          "nnz_codes": 12673092,
+          "outer_iterations": 63,
+          "relative_error": 0.7171141505241394
+        }
+      },
+      "svd": {
+        "128": {
+          "relative_error": 0.8253217339515686
+        },
+        "256": {
+          "relative_error": 0.7168302536010742
+        },
+        "512": {
+          "relative_error": 0.5232719779014587
+        },
+        "1024": {
+          "relative_error": 0.15925753116607666
+        },
+        "4608": {
+          "relative_error": 0.0007045044330880046
+        }
+      }
+    }
+  },
+  "schema": "decomposition_compare_extended_result_v602",
+  "serial_seconds": 40.98970122705214
+}
