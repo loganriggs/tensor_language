@@ -706,3 +706,5 @@ v538 (5/5): write-side verb census complete — 11.3 0.238, 5.3 0.113, 7.8 0.108
 - VERB READERS' BRANCHES (v595): current-state 0.347, token-only 0.027, full 0.368. Number and agreement computed; gender half token-read.
 - TEMPORAL will/had opened (v597): aligned pairs (sign 0.935); values at the cue 0.789, four readers 0.254, blocks 0–8 0.664, blocks 9–17 0.302.
 - TEMPORAL BY HEAD (v598): 9.4 0.123, 9.1 0.059, 15.5 0.042, 11.3 0.032; blocks 0–4 0.199, 5–6 0.111, 7–8 0.295. Spread readout, low blocks lead.
+- MIXED PARTIALS INSTRUMENT LESSON (v603): a pure rescaling perturbation e*(1+alpha) is exactly canceled by the immediately-following RMSNorm (kernel of d/dc RMSNorm(cv)=0). Use an additive perturbation in a non-parallel direction instead.
+- FIXED-POSITION SLOT ROLE INSTRUMENT LESSON (v604): a cross-sentence, per-position-index average embedding is not a clean 'neutral' reference (it carries its own large margin); use a position-independent global mean instead, and guard fraction division by near-zero native margins.
