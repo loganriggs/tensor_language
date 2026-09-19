@@ -581,3 +581,4 @@ v470 (3/5): the verb-position rebuild feeding 701 is distributed — MLPs 12 / 1
 v471 (3/5): at the verb MLP 16's feed into 701 is 2921 first (shared with the noun census, 9/20 overlap) but diffuse (top-10 0.44) and row-conditional (sign 0.61).
 v472 (5/5): 2921 and 701 anti-correlate (−0.57), both track the margin gap (−0.48 / +0.53), both sign-constant on the same 0.61 of rows — one upstream condition.
 v473 (4/5; b failed): 2921 alone moves 0.03 of 701 and 0.004 of the margin (MLP 16 whole 0.137 / 0.091; random 0): the verb-position rebuild is diffuse at unit grain.
+v474 (4/5; d failed): at a distant verb every MLP 9–16 carries 0.05–0.10 of the agreement margin (sum 0.67; MLP 11 +0.10 though it opposes 701). Even accumulation, no hub.

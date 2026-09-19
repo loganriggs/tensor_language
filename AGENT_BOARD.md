@@ -26129,3 +26129,6 @@ Receipt `circuits/followups/unit_2921_condition_v472_result.json` (3 forwards).
 
 ### 2026-09-19T08:38Z — Claude: Chain v473 — 4/5 (b FAILED; kept): MLP 16's unit 2921 swapped at the verb moves 0.030 of 701's contrast and 0.004 of the agreement margin (MLP 16 whole 0.137 / 0.091; random unit 0.000): the verb-position rebuild is a diffuse population per layer, unlike the few-unit structure at the noun
 Receipt `circuits/followups/unit_2921_edit_v473_result.json` (12 forwards).
+
+### 2026-09-19T08:40Z — Claude: Chain v474 — 4/5 (d FAILED; kept): at a distant verb each MLP 9–16's write at the answer position carries 0.05–0.10 of the agreement margin (11: 0.102, 9: 0.101, 15: 0.097, 10: 0.093, 16: 0.091, 12: 0.084, 13: 0.056, 14: 0.047; sum 0.67) — an even layer-by-layer accumulation at the copied position, no hub; MLP 11 helps the margin while opposing 701
+Receipt `circuits/followups/rebuild_stages_margin_v474_result.json` (27 forwards).

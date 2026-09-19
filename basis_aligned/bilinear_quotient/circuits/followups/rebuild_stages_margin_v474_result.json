@@ -1,0 +1,102 @@
+{
+  "candidate_id": "chain.rebuild_stages_margin_v474",
+  "finished_utc": "2026-09-19T08:38:58.962586+00:00",
+  "forwards": 27,
+  "plan": {
+    "bars": {
+      "band": 0.02,
+      "m11_max": 0.02,
+      "m12_min": 0.05,
+      "m16_v473": 0.091,
+      "replay_tol": 0.001,
+      "sum": [
+        0.3,
+        1.2
+      ],
+      "unit": 701
+    },
+    "candidate_id": "chain.rebuild_stages_margin_v474",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 28,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_mlp16_margin_replays": true,
+    "pred_c_mlp12_carries_a_share": true,
+    "pred_d_mlp11_opposes_or_nothing": false,
+    "pred_e_singles_sum_bounded": true
+  },
+  "report": {
+    "panel": {
+      "distant_rows": 79,
+      "skipped": "distant rows only"
+    },
+    "replay_max_abs": 2.384185791015625e-05,
+    "text": {
+      "contrast_mean": 37.7872428894043,
+      "margin_closed": {
+        "m10": 0.09288370609283447,
+        "m11": 0.10174115747213364,
+        "m12": 0.08408812433481216,
+        "m13": 0.05642920359969139,
+        "m14": 0.04676097258925438,
+        "m15": 0.09693141281604767,
+        "m16": 0.09117152541875839,
+        "m9": 0.10132955014705658
+      },
+      "moved": {
+        "m10": 0.01969071477651596,
+        "m11": -0.0674271285533905,
+        "m12": 0.14514729380607605,
+        "m13": 0.09570961445569992,
+        "m14": 0.1277269572019577,
+        "m15": 0.11949822306632996,
+        "m16": 0.13688164949417114,
+        "m9": 0.1246967539191246
+      },
+      "pairs": 79,
+      "sign_constancy": 0.607594907283783,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": 37.7872428894043,
+      "margin_closed": {
+        "m10": 0.09288370609283447,
+        "m11": 0.10174115747213364,
+        "m12": 0.08408812433481216,
+        "m13": 0.05642920359969139,
+        "m14": 0.04676097258925438,
+        "m15": 0.09693141281604767,
+        "m16": 0.09117152541875839,
+        "m9": 0.10132955014705658
+      },
+      "moved": {
+        "m10": 0.01969071477651596,
+        "m11": -0.0674271285533905,
+        "m12": 0.14514729380607605,
+        "m13": 0.09570961445569992,
+        "m14": 0.1277269572019577,
+        "m15": 0.11949822306632996,
+        "m16": 0.13688164949417114,
+        "m9": 0.1246967539191246
+      },
+      "pairs": 79,
+      "sign_constancy": 0.607594907283783,
+      "unit": 701
+    }
+  },
+  "schema": "rebuild_stages_margin_result_v474",
+  "serial_seconds": 2.448821767931804
+}
