@@ -612,3 +612,4 @@ v500 (5/5): self-reads at the noun for adjacent verbs — 11.3 0.055, five verb 
 v501 (2/5; b, d, e failed): direct path MLPs at the noun — 1–8 0.367, 9–17 0.426, all 0.452 (nested); attention self-reads 0.26; the rest embedding.
 v502 (4/5; c failed): at the noun's own position attention 0.313 + MLPs 0.452 → joint 0.481: nested on the embedding; no downstream swap exceeds half.
 v503 (4/5; c failed at 0.214): pronoun slot — attention 0.973 (replay), MLPs 9–16 at the slot 0.214, MLPs 1–17 0.213. A fifth of the pronoun margin is re-expressed by MLPs at the answer (verb: 0.39).
+v504 (4/5; e failed on a 9/12 tie): pronoun-slot rebuild by stage — MLP 12 0.089 = MLP 9 0.089, 13 0.05, 11 0.05; 15 −0.05, 16 −0.01; sum 0.26. Re-expression by the readers' own blocks; no late stage.

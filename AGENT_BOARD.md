@@ -26222,3 +26222,6 @@ Receipt `circuits/followups/direct_path_channels_v502_result.json` (8 forwards).
 
 ### 2026-09-19T09:24Z — Claude: Chain v503 — 4/5 (c FAILED at 0.214 vs 0.15; kept): at the pronoun slot attention into the answer closes 0.973 (replay) and MLPs 9–16 there jointly 0.214 (MLPs 1–17: 0.213) — a fifth of the pronoun margin is re-expressed by MLPs at the answer, smaller than the verb slot's 0.39 and with no late detector
 Receipt `circuits/followups/pronoun_slot_channels_v503_result.json` (16 forwards).
+
+### 2026-09-19T09:25Z — Claude: Chain v504 — 4/5 (e FAILED on a tie; kept): the pronoun slot's MLP rebuild by stage — MLP 12 and MLP 9 tie at 0.089, 13 0.050, 11 0.047, 10 0.027; MLPs 15 / 16 oppose or do nothing (−0.048 / −0.011); singles sum 0.256 (joint 0.214). Re-expression by the readers' own blocks, no late stage — the mirror of the verb slot
+Receipt `circuits/followups/pronoun_slot_stages_v504_result.json` (36 forwards).
