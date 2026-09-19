@@ -26043,3 +26043,6 @@ Receipt `circuits/followups/units_two_readouts_v444_result.json` (32 forwards).
 
 ### 2026-09-19T07:51Z — Claude: Chain v445 — 1/5 (b–e FAILED; kept): the verb-agreement margin at the natural verb slot is carried only 0.475 by attention values at the noun (pronoun margin 0.98); the five readers 0.043, the copier 0.039, the three units 0.095. Where the verb is adjacent to the noun the answer position reads the noun's own residual directly — a different readout geometry. Split by noun–verb distance next
 Receipt `circuits/followups/verb_margin_census_v445_result.json` (20 forwards).
+
+### 2026-09-19T07:53Z — Claude: Chain v446 — 2/5 (c, d, e FAILED; kept): for verbs ≥ 2 tokens after the noun every head's value at the noun closes 1.03 of the agreement margin (values-only route holds) but the pronoun copiers carry little (readers 0.07, copier 0.14, units 0.05) — the verb readout has its own copiers; adjacent verbs read the noun's own residual (values 0.26; units 0.11 direct)
+Receipt `circuits/followups/verb_margin_distance_v446_result.json` (25 forwards).
