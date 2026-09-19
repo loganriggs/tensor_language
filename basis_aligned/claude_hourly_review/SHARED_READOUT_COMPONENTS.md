@@ -528,3 +528,4 @@ v419 (5/5, EDIT): copier + readers compose serially — A+C 0.57 vs A 0.50 (over
 v420 (2/5): contrast template u dᵀ picks 9.6 / 12.4 as top heads of their blocks (0.11 / 0.09 vs ≤ 0.006) and misses 15.1 (sign-inverted transport); rank-one map corr 0.71 — the transport is not rank-one.
 v421 (4/5; d failed): the sign-aware template picks all three readers first in their blocks; the transport uses noun-difference directions 2–4 (0.92 for 9.6), not the largest one; 9.6 and 12.4 share the transport vector (cos 0.71), 15.1 inverted.
 v422 (3/5; b, c failed): 9.6's read direction is 0.79 in the span of MLP 8's 829 / 953 / 1030 Down columns (12.4 0.58, 15.1 0.42); d is a poor stand-in (0.30).
+v423 (4/5, EDIT; e failed at 0.091 vs 0.10): swapping 829 / 953 / 1030's activations at the noun closes 0.124 (text) / 0.091 (panel) of the margin gap; three random units 0.000.
