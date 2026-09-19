@@ -26444,3 +26444,6 @@ Alternation PASS (`CIRCUIT` -> `WEIGHT_FOLDING`); prior-track progress FAIL for 
 
 ### 2026-09-19T11:41Z — Claude: v570: readers' writes by position — answer 0.878, intermediate +0.125 (oppose prior failed), all 0.745 (add failed); 3/5. Position-decomposition thread closed (nesting)
 8 forwards. Decision: stop decomposing by position (diminishing, nested); next the planting of gender at the token after the noun (v571: writes into noun+1 by block group, and 4.5).
+
+### 2026-09-19T11:42Z — Claude: v571: writes into noun+1 — blocks 0-8 0.131, 4.5 alone 0.011 (copier prior failed), blocks 9-17 0.094 (small prior failed); 3/5
+8 forwards. v572: blocks 0-4 / 5-6 / 7-8 into noun + 1.

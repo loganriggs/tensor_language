@@ -679,3 +679,4 @@ v538 (5/5): write-side verb census complete — 11.3 0.238, 5.3 0.113, 7.8 0.108
 - GENDER READERS' PATTERN SIDE (v568): pattern swap −0.072, values 0.732, write 0.878 — an interaction term Δp·Δv of ~0.22 (number: ≤ 0.10).
 - GENDER INTERACTION CLOSED (v569): Δp·Δv 0.085; readers' outputs everywhere 0.745 vs write at the answer 0.878 — intermediate-position writes oppose (−0.13).
 - GENDER WRITES BY POSITION (v570): answer 0.878, intermediate +0.125, all 0.745 (nested). Position decomposition thread closed.
+- GENDER AT NOUN + 1 (v571): planted by blocks 0–8 (0.131), not by 4.5 (0.011); blocks 9–17 into noun + 1 0.094.
