@@ -625,3 +625,4 @@ v513 (2/5; mis-targeted to text): 701/2059 at the natural pronoun answer −0.00
 v514 (3/5; b, d failed): 701/2059 at the panel answer −0.001 (MLP 17 whole −0.115) — the opposing write is a population, not the detector.
 v515 (4/5; e failed): MLP 17's opposing write at the panel answer = units 3547 / 1747 / 3093 / 4448 (top-10 0.77; detector ranks 18 / 336). Edit next.
 v516 (5/5, EDIT): units 3547 / 1747 / 3093 / 4448 at the panel answer close −0.078 (MLP 17 whole −0.115; random 0.000) — a late opposing population that survives the edit.
+v517 (5/5): the four opposing MLP-17 units do nothing at the natural pronoun answer (−0.003 vs −0.078 on the panel) — a panel-specific late opposition.

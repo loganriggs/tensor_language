@@ -26264,3 +26264,6 @@ Receipt `circuits/followups/mlp17_units_panel_answer_v515_result.json` (2 forwar
 
 ### 2026-09-19T09:41Z — Claude: Chain v516 — 5/5 EDIT: MLP 17's units 3547 / 1747 / 3093 / 4448 swapped at the panel answer close −0.078 of the pronoun margin (MLP 17 whole −0.115; random four 0.000; hub 0.091 replay) — the first answer-side unit set to survive an edit; a late opposing population the panel frame elicits
 Receipt `circuits/followups/panel_opposing_units_v516_result.json` (12 forwards).
+
+### 2026-09-19T09:43Z — Claude: Chain v517 — 5/5: the four MLP-17 units that oppose the pronoun number at the panel answer (−0.078) do nothing at the natural pronoun answer (−0.003; random 0.000; hub 0.124 replay) — a panel-specific late opposition isolated to four units of the last block
+Receipt `circuits/followups/text_opposing_units_v517_result.json` (16 forwards).
