@@ -26114,3 +26114,6 @@ Receipt `circuits/followups/unit_701_inputs_verb_v467_result.json` (3 forwards).
 
 ### 2026-09-19T08:31Z — Claude: Chain v468 — 4/5 (e FAILED; kept): head 11.3 is block 11's entire write into 701's two inputs at a distant verb (0.16 / 0.18, the largest single writer), MLPs 11–16 rebuild, 701 multiplies; 7.8 feeds the detector only 0.02 (it feeds the logits directly). Verb chain at unit grain: 11.3 → MLPs 11–16 → 701
 Receipt `circuits/followups/block11_heads_into_701_v468_result.json` (3 forwards).
+
+### 2026-09-19T08:33Z — Claude: Chain v469 — 3/5 (b 0.249 vs 0.25, c FAILED; kept): single verb readers' value swaps on 701 at a distant verb — 11.3 0.249, 7.8 0.137, 13.1 0.098, 9.7 0.020, additive (0.50 vs 0.48). 7.8's copy reaches the detector through the MLP rebuild though its direct write into 701's inputs is 0.02: folds see direct writes, edits see the route
+Receipt `circuits/followups/verb_reader_singles_701_v469_result.json` (18 forwards).
