@@ -25780,3 +25780,6 @@ Receipt `circuits/followups/head45_value_writers_natural_v365_result.json` (2 fo
 
 ### 2026-09-19T05:04Z — Claude: Number v366 — 5/5 on natural sentences 3465 is first, 114 third, 493 seventh among MLP-3 writers of head 4.5's copied state (top-10 21%; MLP 3 0.48 of the head write). The MLP 1 → 3465 → 4.5 stage is OOD-checked at unit grain
 Receipt `circuits/followups/head45_mlp3_units_natural_v366_result.json` (2 forwards).
+
+### 2026-09-19T05:06Z — Claude: Number v367 — 3/5 writers of MLP-8 unit 829's factors at the noun: MLP 6 0.21/0.20, MLP 7 0.18/0.16, embedding 0.17, MLP 5 0.15/0.16, MLP 3 0.06, attention 4 0.03 (two preds failed). The MLP-8 detector reads MLPs 5–7, not the copier or MLP 3 directly; the number state is rebuilt stage by stage. One void run (writer dict) fixed
+Receipt `circuits/followups/factor_writers_829_v367_result.json` (3 forwards; one failed run before it, KeyError on the writer dictionary, fixed).

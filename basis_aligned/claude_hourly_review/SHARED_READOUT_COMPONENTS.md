@@ -472,3 +472,4 @@ v363 (3/5, v76 rows): MLP 3's term is 0.52 of head 4.5's noun write on the reade
 v364 (4/5, natural rows): head 4.5 leads block 4's number write at real cue nouns (0.63; positive; 1.66 std) and weakly at the final token (0.20 std). The copier is OOD-live at the noun.
 v365 (5/5, natural rows): head 4.5's copied number value at real nouns is written by MLP 3 (0.53), embedding (0.20), MLP 2 (0.19), MLP 1 (0.08), attention 0.03 — within 0.03 of the panel frames. Writer grain closed OOD.
 v366 (5/5, natural rows): 3465 first, 114 third, 493 seventh among MLP-3 writers of head 4.5's copied state at real nouns; top-10 21%; MLP 3 0.48 of the head's write. Unit grain of the copier stage closed OOD.
+v367 (3/5, v76 rows): MLP-8 unit 829's factors are written by MLPs 6 / 7 / 5 (0.15–0.21 each) and the embedding path (0.17); MLP 3 0.06, attention 4 0.02–0.03. The number state is rebuilt stage by stage through the MLP stack. v368: units of MLPs 5–7 feeding 829.
