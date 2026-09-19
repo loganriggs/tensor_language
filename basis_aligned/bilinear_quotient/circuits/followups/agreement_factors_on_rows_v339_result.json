@@ -1,0 +1,88 @@
+{
+  "candidate_id": "pronoun_number.agreement_factors_on_rows_v339",
+  "finished_utc": "2026-09-19T04:06:48.904560+00:00",
+  "forwards": 3,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "factor_tol": 0.001,
+      "lic_max": 0.25,
+      "native_m": 2.0481,
+      "noun_3465": 0.8,
+      "noun_829": 0.7
+    },
+    "candidate_id": "pronoun_number.agreement_factors_on_rows_v339",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 5,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117",
+    "units": {
+      "3": [
+        3465,
+        493
+      ],
+      "5": [
+        1036
+      ],
+      "8": [
+        829
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_factor_closure": true,
+    "pred_c_3465_contrast_is_on_the_noun_factor": false,
+    "pred_d_829_contrast_is_on_the_noun_factor": false,
+    "pred_e_licensing_factor_is_constant_across_pairs": false
+  },
+  "report": {
+    "closure_margin_gap": 4.1226172447395015e-05,
+    "factor_closure_max": 4.831198111787671e-06,
+    "per_unit": {
+      "1036": {
+        "L_mean": -1.259365439414978,
+        "L_pair_rel_spread_median": 4.842525005340576,
+        "R_mean": -3.356297254562378,
+        "R_pair_rel_spread_median": 3.237431764602661,
+        "pooled_contrast": 1722.9959716796875,
+        "share_L_contrast_term": 0.6177378709966707,
+        "share_R_contrast_term": 0.3822620581556231
+      },
+      "3465": {
+        "L_mean": -13.876688957214355,
+        "L_pair_rel_spread_median": 2.627523183822632,
+        "R_mean": 3.6650478839874268,
+        "R_pair_rel_spread_median": 6.449442386627197,
+        "pooled_contrast": -20317.8203125,
+        "share_L_contrast_term": 0.3014548881619853,
+        "share_R_contrast_term": 0.6985451118380147
+      },
+      "493": {
+        "L_mean": 7.7028584480285645,
+        "L_pair_rel_spread_median": 2.0289502143859863,
+        "R_mean": 5.7760443687438965,
+        "R_pair_rel_spread_median": 5.443409442901611,
+        "pooled_contrast": 15940.638671875,
+        "share_L_contrast_term": 0.2828158106608172,
+        "share_R_contrast_term": 0.7171841280767378
+      },
+      "829": {
+        "L_mean": -2.7321155071258545,
+        "L_pair_rel_spread_median": 5.358319282531738,
+        "R_mean": -4.259037971496582,
+        "R_pair_rel_spread_median": 3.618711471557617,
+        "pooled_contrast": 4823.689453125,
+        "share_L_contrast_term": 0.5717888987010316,
+        "share_R_contrast_term": 0.428211151911809
+      }
+    }
+  },
+  "schema": "agreement_factors_on_rows_result_v339",
+  "serial_seconds": 1.6444944681134075
+}

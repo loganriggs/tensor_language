@@ -43,3 +43,13 @@ margin through the MLPs of blocks 2–3 with their attentions cancelling most of
 distinct from the named number units 3465/493, which read the entry's direction (v296) and are flat under un-conditioning (v322/v323).
 Falsified on the way and kept: register direction (v294), context² identity (v295), re-injection floor (v299), input-identity loss (v300),
 zeroing as the counterfactual (v305→v306), linear whole-layer price (v312), block patch-back as a localiser (v315), numbers-lowest (v321).
+
+## Added 2026-09-19 04:08 UTC — the chain's units from single tokens (v329–v339)
+Folded alone through blocks 0–8, the named units 3465 / 493 (MLP 3), 1036 (MLP 5), 829 (MLP 8) separate plural from singular nouns from the
+token's own lookup (lexicon: 2–5 std, 100% of plurals; 400 vocabulary s-pairs: 2–3 std at 256, 82–98%); 953 / 1030 do not (lexicon-specific).
+3465 reads lexical plural-NOUN sense: irregular plurals yes (0.85), -s verbs only when they have a noun reading (1.13 vs 0.09), mass / collective
+nouns no, numerals no, plural pronouns no. One preceding word sharpens or suppresses them (these −4.2, two −3.5, The −3.8 vs a −1.6, and −0.5,
+" 1" flips sign; 493 the complement; 829 flips after a) — agreement readers of noun number × context expectation. The 2 × 2 factor split
+(v338) gave 3465 L = noun (0.81), R = licensing (0.51) but the labels did not transfer to full sentences (v339: both factors carry number; 70%
+of 3465's contrast on the 'determiner' factor) — retired as wiring, kept as bilinear products. On the native rows all six separate at the noun
+(2.8–7.3 std) and none at the answer position (attention carries the number, earlier chapters). Scorecard rows T43–T53; §4.10 tail.

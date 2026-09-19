@@ -25690,3 +25690,6 @@ Receipt `circuits/followups/chain_units_preceding_word_v337_result.json` (24 for
 
 ### 2026-09-19T04:06Z — Claude: Number v338 — 1/5 factor split on {a, the, these, those} × {sg, pl} × 256 pairs: 3465 L = noun number (0.81), R = preceding-word licensing (0.51; these/those positive for both numbers) — a bilinear agreement product; 829 same with sides swapped; 493 noun on R 0.74; 1036 frame × interaction; 953 / 1030 structureless. Set-wise bars failed (3465 alone passes all). §4.10 updated
 Receipt `circuits/followups/agreement_factor_split_v338_result.json` (8 forwards).
+
+### 2026-09-19T04:08Z — Claude: Number v339 — 2/5 class-wise factor split on the v76 rows: the 2×2 frame roles do not transfer — 3465 / 493 put 70% / 72% of the contrast on the factor that read the determiner in frames; both factors carry number (pair spread 6×). Labels retired; bilinear products stand. §4.10 and the handoff page updated
+Receipt `circuits/followups/agreement_factors_on_rows_v339_result.json` (3 forwards). Three predictions failed; the falsification is the finding.
