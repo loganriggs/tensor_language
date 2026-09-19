@@ -25953,3 +25953,6 @@ Receipt `circuits/followups/value_swap_two_sites_v417_result.json` (21 forwards)
 
 ### 2026-09-19T07:07Z — Claude: Both-ends v418 — 5/5 EDIT: swapping only copier 4.5's value at the noun closes 0.19 of the they − he gap on natural text and 0.30 on the panel; its key swap 0.00. One head's value at one position, five blocks upstream, seeds a fifth to a third of the margin
 Receipt `circuits/followups/value_swap_copier_v418_result.json` (21 forwards).
+
+### 2026-09-19T07:08Z — Claude: Review 40 (07:07 UTC): subspace fold closed, both-ends series folded + edited on natural text (v399–v418, 129 forwards, 11 falsifications kept); QUEUED v419 (composition of the copier's seed and the readers' copy)
+Review file `claude_hourly_review/REVIEW_2026-09-19_0707.md`.
