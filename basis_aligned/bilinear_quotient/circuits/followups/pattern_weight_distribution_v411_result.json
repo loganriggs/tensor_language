@@ -1,0 +1,140 @@
+{
+  "candidate_id": "both_ends.pattern_weight_distribution_v411",
+  "finished_utc": "2026-09-19T06:55:16.067471+00:00",
+  "forwards": 7,
+  "plan": {
+    "bars": {
+      "corr_max": 0.2,
+      "corr_min": 0.2,
+      "cv_max": 0.5,
+      "instr_tol": 0.02,
+      "sign_min": 0.95
+    },
+    "candidate_id": "both_ends.pattern_weight_distribution_v411",
+    "dropped_records": 6,
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 8,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "natural_records": 128,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "rows": 340
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_9_6_pattern_sign_constant": false,
+    "pred_c_9_6_pattern_weight_narrow": false,
+    "pred_d_9_6_15_1_pattern_uncorrelated_with_number": true,
+    "pred_e_12_4_pattern_correlated_with_number": false
+  },
+  "report": {
+    "instrument_max_rel": 0.00010930395364994183,
+    "readers": {
+      "12.4": {
+        "panel": {
+          "corr_with_plural": -0.7490662062157494,
+          "cv": 0.5067599337828893,
+          "mean": 0.14699602761793026,
+          "n": 96,
+          "quantiles": [
+            0.034375285325229044,
+            0.08429340605010793,
+            0.14621633990593352,
+            0.1945260715627306,
+            0.2603259061552876
+          ],
+          "sign_constancy": 0.9895833333333334,
+          "std": 0.07449169722201011
+        },
+        "text": {
+          "corr_with_plural": -0.105185311143212,
+          "cv": 1.0112618376076468,
+          "mean": 0.14462388684201646,
+          "n": 244,
+          "quantiles": [
+            -0.06385756775949858,
+            0.026474187564888396,
+            0.1421260621288667,
+            0.2621965045595971,
+            0.39051790009735754
+          ],
+          "sign_constancy": 0.8278688524590164,
+          "std": 0.14625261756981794
+        }
+      },
+      "15.1": {
+        "panel": {
+          "corr_with_plural": -0.13813203055402276,
+          "cv": 0.18864753753884103,
+          "mean": -0.39523251267293497,
+          "n": 96,
+          "quantiles": [
+            -0.4941186925756256,
+            -0.4531709600943685,
+            -0.4095858001738506,
+            -0.3408160560862825,
+            -0.26870715966601466
+          ],
+          "sign_constancy": 1.0,
+          "std": 0.07455964027103797
+        },
+        "text": {
+          "corr_with_plural": -0.052568545302426745,
+          "cv": 0.7630065261307692,
+          "mean": -0.23555017682561907,
+          "n": 244,
+          "quantiles": [
+            -0.6150347993302496,
+            -0.3456484662148185,
+            -0.19944989086770448,
+            -0.09469955918554795,
+            -0.008036275069809085
+          ],
+          "sign_constancy": 0.9631147540983607,
+          "std": 0.17972632214920403
+        }
+      },
+      "9.6": {
+        "panel": {
+          "corr_with_plural": -0.009299402575998426,
+          "cv": 0.6408281705143032,
+          "mean": 0.12959898401719194,
+          "n": 96,
+          "quantiles": [
+            0.036132488296614085,
+            0.0709279829429974,
+            0.10018625441389162,
+            0.18572306398047544,
+            0.28272034100813137
+          ],
+          "sign_constancy": 0.9791666666666666,
+          "std": 0.08305067982824953
+        },
+        "text": {
+          "corr_with_plural": 0.0070079628303461585,
+          "cv": 1.1155055061899606,
+          "mean": 0.09714911757014805,
+          "n": 244,
+          "quantiles": [
+            -0.03535829103085053,
+            0.010709905663071062,
+            0.0776116988821336,
+            0.15949889406606133,
+            0.2732010334405217
+          ],
+          "sign_constancy": 0.8401639344262295,
+          "std": 0.10837037557099599
+        }
+      }
+    }
+  },
+  "schema": "pattern_weight_distribution_result_v411",
+  "serial_seconds": 1.9053139730822295
+}

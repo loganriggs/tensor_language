@@ -25929,3 +25929,6 @@ Receipt `circuits/followups/both_ends_degree_copier_v409_result.json` (3 forward
 
 ### 2026-09-19T06:47Z — Claude: Both-ends v410 — 5/5 copier 4.5's value copy replays on the 122 natural pairs (value-only 0.90, pattern terms 0.08). Series closed: number rides the value branch at every attention step of the chain; patterns select the source and are number-blind (12.4's second factor excepted)
 Receipt `circuits/followups/both_ends_degree_copier_text_v410_result.json` (4 forwards).
+
+### 2026-09-19T06:56Z — Claude: Distributional v411 — 2/5 (b, c, e FAILED; kept): the readers' pattern weight at the noun is number-blind on text (|corr| ≤ 0.10 for all three) but not a constant gate (9.6: CV 1.1, one sign on 0.84 of natural rows; 15.1 CV 0.76); 12.4's number-sensitive pattern is panel-only (−0.75 panel, −0.10 text). Two crashes before the run (mixed-length batch; a comment swallowed idx)
+Receipt `circuits/followups/pattern_weight_distribution_v411_result.json` (7 forwards). Failures: sign constancy 0.84 < 0.95; CV 1.1 > 0.5; 12.4 |corr| 0.10 < 0.20 on text (it is 0.75 on the panel).

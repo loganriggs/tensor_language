@@ -516,3 +516,4 @@ v407 (3/5): MLP 8 unit census on natural pairs — 829 / 953 / 1030 rank 1–3 (
 v408 (4/5): corrected closure 8e-5; text unit census unchanged (829 / 953 / 1030; 3152 5th).
 v409 (5/5): copier 4.5 at the post-noun token is a value copy too (value-only 0.91; pattern terms 0.07; noun source 1.02 of its write). Number rides the value branch at every attention step of the chain.
 v410 (5/5): copier 4.5 value copy replays on text (0.90). Both-ends series closed: number rides the value branch at every attention step; patterns select, they do not carry number (12.4 excepted).
+v411 (2/5; b, c, e failed): the readers' pattern weight at the noun is number-blind (|corr| ≤ 0.10 on text) but not constant (9.6 CV 1.1, sign 0.84 on text); 12.4's −0.75 number correlation is panel-only (text −0.10).
