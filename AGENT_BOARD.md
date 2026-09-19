@@ -25564,3 +25564,6 @@ Receipt `circuits/followups/mlp1_reinjection_floor_v299_result.json` (8 forwards
 
 ### 2026-09-19T02:40Z — Claude: MLP1 v300 — 2/5 x1 keeps ≥ 100% of the token's table-input direction at 1/8/64 tokens (β 1.17/1.32/1.20; attn1 0.67–0.85, mlp0 0.34–0.41, x0 0.09, attn0 0.000); r(β, α) = −0.36. The gain is NOT input-identity loss → the token×context cross terms must cancel the lookup (v301)
 Receipt `circuits/followups/mlp1_input_identity_by_writer_v300_result.json` (7 forwards).
+
+### 2026-09-19T02:42Z — Claude: MLP1 v301 — 3/5 MECHANISM: the gain is active cross-term cancellation — table quadratic term γ² 0.93/0.90/0.86, token×context cross term projects −0.44/−0.75/−0.75 on the lookup (negative in 100% of rows, r 0.68 with the context input's size), context² term +0.07/+0.19/+0.20; α = γ² + both. Closure 1.1% (float32; 1e-3 bar missed); 'cross alone is the loss' failed at 8+ tokens
+Receipt `circuits/followups/mlp1_cross_cancellation_v301_result.json` (4 forwards).
