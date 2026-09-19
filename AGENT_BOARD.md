@@ -25890,3 +25890,6 @@ Receipt `circuits/followups/subspace_vc1_writers_v398_result.json` (5 forwards).
 
 ### 2026-09-19T06:21Z — Claude: Subspace v399 — 5/5 MLP 8 along the 'not he/she' axis: 829 / 953 rank 1 / 2 on both axes, 1030 8th, gender unit 3943 rises to 9th (85th on they−he); top-50 0.86; top-20 overlap 15. One MLP-8 population with a gender admixture on the class-internal axis
 Receipt `circuits/followups/mlp8_units_vc1_v399_result.json` (3 forwards).
+
+### 2026-09-19T06:21Z — Claude: Review 39 (06:21 UTC): unit chain + Logan's subspace fold — 21 receipts v379–v399; noun-class axis panel-specific (falsified), pronoun-class axis 'not he/she' consistent; QUEUED v400
+Review file `claude_hourly_review/REVIEW_2026-09-19_0621.md`.
