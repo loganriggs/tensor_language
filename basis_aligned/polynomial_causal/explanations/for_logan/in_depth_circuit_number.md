@@ -347,7 +347,9 @@ off with no MLP 1 than with MLP 1's single-token entries. And the tail of the ce
 unit share against the head's 0.34, so the tail units are not merely switched off — their in-context activations carry the context-conditioned
 write the model actually uses, which is the class-structured remainder of Fact 5. In one line: MLP 1 stores a per-token lookup that is only
 usable after blocks 0–1 attention has let it condition the entry on context, and that conditioning is worth 0.7 nats of next-token loss.
-Open: what the class-structured remainder encodes downstream; the tail-only restore and its additivity with the head (v313, queued).
+Measured directly (v313): the head (top 200) costs 0.16 nats to restore, the tail 0.47, both together 0.70 (superadditive by 0.07) — 0.34
+versus 0.88 nats per unit share. The head is a switch-off; the tail is the write the model uses. Open: what that context-conditioned tail
+write encodes for later blocks, and whether attention 0/1 alone accounts for the conversion (v314, queued).
 
 | receipt | question | result |
 |---|---|---|
@@ -377,6 +379,7 @@ Open: what the class-structured remainder encodes downstream; the tail-only rest
 | v310 | restore the head on text: loss | +0.059 nats (300× null), growing with position; zeroing free (5/5) |
 | v311 | loss for top-2/10/50/200 | 0.059/0.106/0.125/0.156 nats; 0.34 nats per unit share, stable (4/5) |
 | v312 | whole layer: table everywhere / no MLP 1 | +0.70 / +0.41 nats; the raw lookup is worse than nothing (2/5) |
+| v313 | head (top 200) vs tail | +0.16 vs +0.47 nats; 0.34 vs 0.88 per unit share; superadditive (5/5) |
 
 ### Pass over the draft (what I changed after rereading)
 
