@@ -25747,3 +25747,6 @@ Receipt `circuits/followups/mirror_violation_population_v354_result.json` (14 fo
 
 ### 2026-09-19T04:43Z — Claude: Number v355 — 5/5 mismatch leaders 3040 / 114 are 58× / 30× quieter at grammatical natural verbs than on the violation cells and carry no number there (−0.13 / −0.07 std). The MLP-3 mismatch populations are selective, used and named. §4.10 updated
 Receipt `circuits/followups/mismatch_population_specificity_v355_result.json` (4 forwards).
+
+### 2026-09-19T04:45Z — Claude: Number v356 — 2/5 block-4 heads from single tokens on 9.6's reader: 4.8 carries 43% (−1.7 std), 4.5 31% (−0.85), 4.1 16%; the rest silent. 4.5 not the largest (pred failed); 'positive' was a sign-convention error (plural is negative on this reader, as at MLP 3). 4.8 unnamed in §4.8 → v357 folds 4.8 / 4.5 in context
+Receipt `circuits/followups/block4_heads_single_tokens_v356_result.json` (2 forwards).
