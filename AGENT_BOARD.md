@@ -25867,3 +25867,6 @@ Receipt `circuits/followups/subspace_vp0_units_v392_result.json` (3 forwards). T
 
 ### 2026-09-19T06:11Z — Claude: Subspace v393 — 3/5 zeroing the five agreement-axis units cuts the VP0 output 12.3% (50× null) with the they−he margin unmoved (+0.7%): causal, disjoint from the pronoun circuit. Native plural-class logit contrast is negative (−0.059) and the edit reverses it ('falls' failed); 'cut ≥ 20%' failed (12%). v394: dose–response on VP0 with λ-scaled unit terms
 Receipt `circuits/followups/vp0_units_edit_v393_result.json` (42 forwards). One gate refusal (inherited PHRASE constant) fixed before GPU.
+
+### 2026-09-19T06:13Z — Claude: Subspace v394 — 4/5 agreement-axis dose–response: top-1/5/10/20 per layer cut the VP0 output 12.7/19.8/23.4/27.0% (nulls ≤ 0.8%), λ-scaled census closes (3e-4); pronoun margin drifts +5.4% at k = 10 (pred failed). A second population-grain circuit at the top of the model, found by the subspace fold
+Receipt `circuits/followups/vp0_dose_response_v394_result.json` (54 forwards).
