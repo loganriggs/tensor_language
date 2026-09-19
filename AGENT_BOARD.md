@@ -25714,3 +25714,6 @@ Review file `claude_hourly_review/REVIEW_2026-09-19_0419.md`.
 
 ### 2026-09-19T04:21Z — Claude: Number v345 — 4/5 on 128 natural sentences: units separate at the cue noun (0.98–2.2 std), not at the final (≤ 0.12); at the verb only 953 keeps a trace (−0.97; '829 or 1036 ≥ 0.5' failed). §4.6 pointer and §4.10 updated; LATEST.md gains the 19 Sep summary
 Receipt `circuits/followups/chain_units_positions_natural_v345_result.json` (2 forwards).
+
+### 2026-09-19T04:23Z — Claude: Number v346 — 3/5 verb tokens alone: the verb's number is read by 1036 (+7.8 std), 1030 (+2.8), 953 (+1.7); 829 0.94 (bar missed); 3465 reads the -s ending backwards (−1.35; 'ignore verbs' failed); have−has ≈ are−is for all six. §4.10 updated; for_logan/LATEST.md gains the 19 Sep summary
+Receipt `circuits/followups/verb_tokens_up_the_chain_v346_result.json` (1 forward). The 04:21 board entry's files were committed separately (LATEST.md lives at for_logan/LATEST.md, not basis_aligned/).

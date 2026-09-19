@@ -408,7 +408,10 @@ units separate plural from singular cue nouns in running text at 1.0–2.2 poole
 the panel were missed by 0.02 (829's L factor 0.58; 1036's separation 0.98 std). Position by position on those sentences (v345): the separation lives at the cue noun (0.98–2.2 std), is gone at the final
 token (≤ 0.12 std for all six), and at the verb between them only 953 keeps a trace (−0.97 std) — the unit that treated numerals and pronouns as
 plural from the token alone and lost the lexical separation on vocabulary pairs. 953 is a carrier of a generalised number state toward the
-agreement site; 3465 and 493 are strictly noun-position detectors.
+agreement site; 3465 and 493 are strictly noun-position detectors. From verb tokens alone (v346: are / were / have / do … vs is / was / has / does …) the verb's own
+number is read by 1036 at 7.8 pooled std, 1030 at 2.8 and 953 at 1.7 — the chain's verb-number readers — barely by 829 (0.9), and 3465 reads
+the -s ending the other way (is / was / has on its plural side, −1.35), the mirror of its plural-noun -s reading; have − has and are − is agree in
+sign for all six. The noun's number and the verb's number live in different units of the same chain.
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -512,6 +515,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v343 | MLP 1's part per factor for 493 / 1036 / 829 | table 0.76 / 0.76; 0.88 / 0.71; 0.67 / 0.70 (5/5) |
 | v344 | the same on 128 natural sentences | table 0.58–0.82 for all; units separate cue nouns at 1.0–2.2 std (3/5) |
 | v345 | cue / verb / final on natural sentences | cue 0.98–2.2 std; final ≤ 0.12; verb: only 953 −0.97 (4/5) |
+| v346 | verb tokens alone | 1036 +7.8, 1030 +2.8, 953 +1.7 read verb number; 3465 reads the -s ending backwards (−1.35) (3/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

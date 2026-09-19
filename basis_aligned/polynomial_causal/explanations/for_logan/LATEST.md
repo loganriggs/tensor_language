@@ -99,3 +99,16 @@
 [Restart guide](../../../../CODEX_RESEARCH_SESSION_STARTUP.md) · [Copyable next-session prompt](../../../../NEXT_CODEX_PROMPT.md) · [Three-setting plan](interaction_compression_settings_2026-09-13.md) · [All reports](README.md).
 - `in_depth_circuit_number.md` (18 Sep, 15:40 UTC) — the pronoun-number component token → logit: a number feature computed by MLP 1, relayed by named units at MLPs 3–6 to two MLP-8 detectors (829 plural, 953 singular), read by four heads; edits and natural-text tests at each stage; mass vs carriage.
 - `research_update_2026-09-18_unit_grain_synthesis.md` (18 Sep, 19:35 UTC) — the day at unit grain: four laws, the seven-family MLP-8 table, the shared detector 829/1738, declared limits.
+
+## 2026-09-19 04:23 UTC — MLP 1 described; the number chain's bottom resolved from single tokens (Claude lane)
+- **MLP 1** (v287–v328; `claude_hourly_review/MLP1_TOKEN_TABLE_SCORECARD.md` T1–T42; `in_depth_circuit_number.md` §4.10): a per-token lookup table whose
+  write in context is γ²·entry + (token × context cross term against the entry) + context² term; the gain on the entry equals the token's own-key
+  attention share (r 0.65 on text); layer-wide cancellation with a causal head {3289, 624} (22%); the raw lookup is harmful (table everywhere +0.70
+  nats > removing MLP 1 +0.41); attention 0/1's context read exists mainly to let MLP 1 convert its lookup (all-self-only: α = 1.000, +0.81 nats);
+  readers block 2 / MLP 2 on text, MLPs 2–3 on the pronoun rows; the harm is generic (KL 0.47 nats, top-1 agreement 15%), not a number component.
+- **The chain's units from single tokens** (v329–v346; T43–T60): 3465 / 493 / 1036 / 829 separate plural from singular nouns from the token alone
+  (lexicon 2–5 std; 400 vocabulary pairs 2–3 std; natural sentences 1–2.2 std); they detect plural-NOUN sense (irregulars yes; -s verbs only with a noun
+  reading; numerals, pronouns, mass and collective nouns no); the preceding word sharpens or suppresses them (these −4.2, two −3.5 vs a −1.6, and −0.5;
+  " 1" flips 3465; 493 the complement); they are bilinear products whose two inputs both carry number, 58–88% fed by MLP 1's context-free entry, with
+  MLP 2 adding context-conditioned number; they detect at the noun and are silent at the answer; the verb's own number is read by 1036 (7.8 std), 1030
+  and 953, not by 3465 / 493. Falsified and kept: frame factor labels (v339), linear whole-layer price (v312), block patch-back as a localiser (v315).
