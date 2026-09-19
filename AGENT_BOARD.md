@@ -25807,3 +25807,6 @@ Receipt `circuits/followups/per_layer_dose_response_v373_result.json` (54 forwar
 
 ### 2026-09-19T05:22Z — Claude: Number v374 — 5/5 the 50 panel-named units zeroed on 128 natural rows: labelled-pronoun margin −18.8% (57× null; six leaders −8.8%; panel −34%). Populations transfer at half strength. §4.8 pointer and for_logan/LATEST.md updated
 Receipt `circuits/followups/top10_per_layer_edit_natural_v374_result.json` (31 forwards).
+
+### 2026-09-19T05:24Z — Claude: Number v375 — 5/5 per-layer dose–response on 128 natural rows: top-1 −8.5%, top-5 −17.7%, top-10 −18.8%, top-20 −16.6% (nulls ≤ 0.008). Saturation replays on text: a handful of units per layer carries the MLP stack's share
+Receipt `circuits/followups/per_layer_dose_response_natural_v375_result.json` (37 forwards).
