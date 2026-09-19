@@ -26276,3 +26276,6 @@ Receipt `circuits/followups/panel_opposing_units_axes_v519_result.json` (9 forwa
 
 ### 2026-09-19T09:47Z — Claude: Chain v520 — 3/5 (b, c FAILED; kept): the four panel MLP-17 units' Down columns — 3547 +0.51 on he − she / −0.44 on they − he, 3093 the reverse on both, 1747 like 3547 but weaker, 4448 number-only (0.00 / −0.16); pairwise agreement 0.16–0.28 once signed. A mixed late population sharing an anti-'they' component, with the gender part in 3547 / 1747
 Receipt `circuits/followups/panel_units_columns_v520_result.json` (2 forwards).
+
+### 2026-09-19T09:49Z — Claude: Chain v521 — 5/5 (re-run after a double-counted activation buffer): the four panel MLP-17 units — 3547 / 1747 write 'he' (column cosines 0.53 / 0.26), 4448 both singulars, 3093 anti-'he' but firing less on plural rows — each contributes a negative term against 'they' (−44 to −61). A coherent late population pulling the panel's answer toward singular pronouns; absent on natural text. Frame artefact closed at unit grain
+Receipt `circuits/followups/panel_units_tokens_v521_result.json` (2 forwards; 4 spent with the re-run).
