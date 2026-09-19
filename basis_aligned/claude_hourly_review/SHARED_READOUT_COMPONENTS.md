@@ -655,3 +655,5 @@ v538 (5/5): write-side verb census complete — 11.3 0.238, 5.3 0.113, 7.8 0.108
 - MLP-8 HUB units on the agreement axis at the noun (v543): 829/1738/3858 0.149, top-10 0.216, top-30 0.232 of the block's 0.295. 1738 and 3858 join 829 as agreement units (not in the pronoun census's top 20).
 - READER SET on the third natural set (v545): five heads' writes 0.730, rest of blocks 0.034, all attention 0.949 (60 fresh pairs). OOD cell held.
 - VERB READOUT SET on the third natural set (v546): five heads' writes 0.599, rest of blocks 0.085, all attention 0.981 (45 fresh distant rows). OOD cell held for both readouts.
+- UNIT COMPONENTS on the third set, verb slot (v547): detector 0.079 at the verb / 0 at the noun; hub three 0.056 at the noun / 0.031 at the verb.
+- UNIT COMPONENTS on the third set, pronoun slot (v548): hub three at the noun 0.164, at the answer 0.047; detector −0.005; random 0.000. Number circuit: five properties held on three natural sets, at head and unit grain.

@@ -26366,3 +26366,6 @@ Run directly on CPU (LIBRARY script; the gate refuses LIBRARY files on lane 2, a
 
 ### 2026-09-19T10:49Z — Claude: v545/v546: both reader sets replay on the fresh third natural set — pronoun five heads 0.730 (rest 0.034, all 0.949; 60 pairs), verb five heads 0.599 (rest 0.085, all 0.981; 45 distant rows); 10/10 predictions held
 16 forwards in all. The previously untested OOD cell (review 42 §5) is held for both readouts. Priors were registered before the rows were seen (v544 mined outcome-blind at 10:47, runners written 10:47, results 10:48).
+
+### 2026-09-19T10:52Z — Claude: v547/v548: hub and detector units replay on the third set — verb slot: detector 0.079 at the verb, 0 at the noun; hub 0.056/0.031; pronoun slot: hub at the noun 0.164, detector -0.005, random 0; 10/10
+20 forwards. v548's docstring says 60 pairs; the v463 lineage filters to distant rows (45 here) — noted on the scorecard, receipt kept.
