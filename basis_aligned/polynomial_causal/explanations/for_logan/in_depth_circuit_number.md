@@ -360,8 +360,9 @@ is MLP 1 → block 2, and within it MLP 2 (v317): of block 2's 45 points, 35 ent
 MLP 2's unit-level response is spread (no unit above 1%, the top 200 hold 7%). The link is a dense bilinear map, not a unit wire — the same
 grain at which MLP 1 writes. MLP 2 obeys the same law from a weaker start (v318): on text its own-lookup gain is 0.20 (MLP 1's 0.26), its lookup quadratic term
 $\gamma^2=0.40$ (MLP 1's 0.85), the cross term −0.43 on its entry (negative at 99% of positions), context² +0.23, and its gain tracks
-MLP 1's position by position ($r=0.72$); but its context-free entry explains only a third of its write's direction (cosine 0.35). The
-structure is a property of the bilinear MLP stack at the bottom of the model, strongest at MLP 1 and fading by MLP 2.
+MLP 1's position by position ($r=0.72$); but its context-free entry explains only a third of its write's direction (cosine 0.35). Under controlled context lengths (v319) MLP 2's lookup term itself shrinks with context ($\gamma^2$ 0.69 → 0.39 for 1 → 64 tokens,
+where MLP 1's stayed at 0.86–0.93) and its gain is not monotone in length — its input direction has already been moved off the token's by
+MLP 1. The clean lookup × self-share law is an MLP-1 property; MLP 2 is a reader of conditioned content with a residual lookup.
 
 | receipt | question | result |
 |---|---|---|
@@ -397,6 +398,7 @@ structure is a property of the bilinear MLP stack at the bottom of the model, st
 | v316 | path-restricted injection | block 2 reads 45% first-order, block 3 6%, direct path 0 (5/5) |
 | v317 | attention 2 vs MLP 2 | MLP 2 0.35, attention 2 0.08, additive; MLP 2's reading spread (5/5) |
 | v318 | MLP 2 under the same instruments | α₂ 0.20, γ² 0.40, cross −0.43, r(α₂, α₁) 0.72; cos 0.35 (4/5) |
+| v319 | MLP 2 vs context length | γ² 0.69 → 0.39; cross 100% negative; α₂ non-monotone (4/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

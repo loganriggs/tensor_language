@@ -25624,3 +25624,6 @@ Receipt `circuits/followups/mlp1_block2_split_v317_result.json` (22 forwards).
 
 ### 2026-09-19T03:23Z — Claude: MLP1 v318 — 4/5 MLP 2 under the same instruments on text: α₂ 0.20, γ² 0.40, cross −0.43 (99% negative), context² +0.23, r(α₂, α₁) 0.72; direction cos 0.35 (≥ 0.40 failed). Same law, weaker lookup; strongest at MLP 1, fading by MLP 2. §4.10 updated
 Receipt `circuits/followups/mlp2_lookup_law_natural_v318_result.json` (8 forwards).
+
+### 2026-09-19T03:25Z — Claude: MLP1 v319 — 4/5 MLP 2 vs context length: γ² 0.69/0.50/0.39 (MLP 1's stayed ≥ 0.86), cross −0.43/−0.52/−0.27 (100% negative), α₂ 0.41/0.26/0.28 (non-monotone; pred failed). The clean lookup × self-share law is MLP 1's; MLP 2 reads conditioned content. §4.10 updated
+Receipt `circuits/followups/mlp2_context_length_v319_result.json` (4 forwards).

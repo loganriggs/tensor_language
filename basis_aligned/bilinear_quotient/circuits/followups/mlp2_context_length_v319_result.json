@@ -1,0 +1,83 @@
+{
+  "candidate_id": "mlp2.token_table.context_length_v319",
+  "finished_utc": "2026-09-19T03:23:19.930918+00:00",
+  "forwards": 4,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.02,
+      "floor_min": 0.1,
+      "gamma_max": 0.7,
+      "neg_min": 0.9
+    },
+    "candidate_id": "mlp2.token_table.context_length_v319",
+    "class_sizes": {
+      "adjectives": 32,
+      "function_words": 32,
+      "nouns": 32,
+      "numbers": 32,
+      "punctuation": 32,
+      "verbs": 32,
+      "vocab_nouns": 32
+    },
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 6,
+    "gpu_accessed": false,
+    "lengths": [
+      1,
+      8,
+      64
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "phrase": [
+      ",",
+      " and",
+      " of",
+      " the",
+      " very"
+    ]
+  },
+  "predictions": {
+    "pred_a_pair_closure": true,
+    "pred_b_mlp2_gain_falls_with_length": false,
+    "pred_c_mlp2_cross_negative": true,
+    "pred_d_mlp2_lookup_term_weaker_than_mlp1": true,
+    "pred_e_mlp2_gain_floors": true
+  },
+  "report": {
+    "closure_max": 0.0037480646278709173,
+    "per_k": {
+      "1": {
+        "alpha2_median": 0.4075063467025757,
+        "c_norm_median": 19.034963607788086,
+        "cos_median": 0.6538398265838623,
+        "cross_negative_fraction": 1.0,
+        "cross_proj_median": -0.42614972591400146,
+        "gamma2_median": 0.6851521134376526,
+        "only_proj_median": 0.13658888638019562
+      },
+      "64": {
+        "alpha2_median": 0.282321572303772,
+        "c_norm_median": 26.41015625,
+        "cos_median": 0.4008813798427582,
+        "cross_negative_fraction": 1.0,
+        "cross_proj_median": -0.27404382824897766,
+        "gamma2_median": 0.39434680342674255,
+        "only_proj_median": 0.1627582162618637
+      },
+      "8": {
+        "alpha2_median": 0.255936861038208,
+        "c_norm_median": 24.125577926635742,
+        "cos_median": 0.44135549664497375,
+        "cross_negative_fraction": 1.0,
+        "cross_proj_median": -0.5200114250183105,
+        "gamma2_median": 0.49455690383911133,
+        "only_proj_median": 0.25081413984298706
+      }
+    }
+  },
+  "schema": "mlp1_context_length_result_v319",
+  "serial_seconds": 1.7731911521404982
+}
