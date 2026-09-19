@@ -26022,3 +26022,6 @@ Review file `claude_hourly_review/REVIEW_2026-09-19_0736.md`; synthesis `for_log
 
 ### 2026-09-19T07:40Z — Claude: Both-ends v438 — 4/5 (c FAILED at 0.161 vs 0.15; kept): the five-head value swap closes they − he 0.483 and they − she 0.475 alike, moves the he − she gender margin 0.16× as much, and moves the whole distribution by KL 0.042 vs 0.177 between the pair rows (ratio 0.24 text / 0.11 panel). Number is most of what the readers carry, not all
 Receipt `circuits/followups/five_readers_output_selectivity_v438_result.json` (14 forwards).
+
+### 2026-09-19T07:42Z — Claude: Both-ends v439 — 3/5 (c, d FAILED as written; kept): the five-head swap's 15 most-moved tokens are all pronoun forms (They / their / themselves up, he / his / himself / him down); the 11-token class moves 6.9× the vocabulary mean but was too narrow (no capitals / possessives / reflexives) for the share bars. The readers write the pronoun family, not a they − he pair
+Receipt `circuits/followups/five_readers_logit_changes_v439_result.json` (14 forwards).
