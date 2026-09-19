@@ -566,3 +566,4 @@ v455 (5/5): the direct path (adjacent verb) is written across depth — embeddin
 v456 (2/5): VP0 (the panel-only class axis) is not the direct path's late write either (cos 0.02, energy 0.003). Dead everywhere. The late MLPs' direct write is its own direction, weakly aligned with u_v.
 v457 (4/5): MLP 17's direct agreement write = unit 701 (half) + 2059 (a fifth); top-10 0.71. A late counterpart of 829.
 v458 (4/5; c failed): unit 701 (MLP 17) is a bilinear number detector (dL·dR 0.65; both inputs flip), fed by MLPs 16 / 15 / 10 / 12; 829's column into its L input cos 0.16. The direct path's chain: 829 → MLPs 10–16 → 701.
+v459 (4/5): MLP-16 units 575 / 2921 feed 701's R input (top-10 0.72). Direct-path late chain: 829 → … → 575 / 2921 (MLP 16) → 701 (MLP 17).

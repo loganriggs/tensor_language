@@ -26082,3 +26082,6 @@ Receipt `circuits/followups/mlp17_units_direct_verb_v457_result.json` (2 forward
 
 ### 2026-09-19T08:17Z — Claude: Chain v458 — 4/5 (c FAILED; kept): MLP 17's unit 701 is a bilinear number detector at the noun (both inputs flip, dL·dR 0.65 of its change), fed by late MLPs 16 / 15 / 10 / 12 (MLPs 0.77 / 0.84 of its two inputs; MLP 8 5th); 829's Down column reaches its L input at cos 0.16. The direct path's chain runs 829 → MLPs 10–16 → 701 → logits
 Receipt `circuits/followups/unit_701_inputs_v458_result.json` (2 forwards).
+
+### 2026-09-19T08:18Z — Claude: Chain v459 — 4/5 (e FAILED at 0.86; kept): MLP 16's units 575 and 2921 feed 701's R input (top-10 0.72, top-50 0.87). The direct path's late chain is 829 → … → 575 / 2921 (MLP 16) → 701 (MLP 17) → logits
+Receipt `circuits/followups/mlp16_units_into_701_v459_result.json` (2 forwards).
