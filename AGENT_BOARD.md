@@ -25558,3 +25558,6 @@ Receipt `circuits/followups/mlp1_self_share_law_natural_v297_result.json` (8 for
 
 ### 2026-09-19T02:36Z — Claude: MLP1 v298 — 1/5 no single head sets the gain: per-head self-only pattern edits move α ≤ 0.15 (1.1 +0.15, 0.3 −0.08), non-additive (sum ≈ 0 vs joint 0.66); ALL heads self-only gives α = 1.00 exactly (write = table entry). Run 1 void (hook returned [B,T,H,D]; preserved as VOID file); run 2 is the receipt
 Receipts `circuits/followups/mlp1_self_share_heads_v298_result.json` (23 forwards) and the void run 1 (23 forwards wasted on an instrument bug).
+
+### 2026-09-19T02:38Z — Claude: MLP1 v299 — 2/5 the gain floor is NOT the λ1·x0 re-injection (zeroing it in blocks 0–1: α at 64 tokens 0.29→0.27, but direction collapses cos 0.61→0.25 and α at one token 0.92; re-injection share of x1 flat 0.25–0.29). Falsified; floor writer open (v300). Correction to the v298 entry: heads 1.1 AND 1.8 each +0.15, 1.5 +0.04; head 1.4 already reads 78% itself
+Receipt `circuits/followups/mlp1_reinjection_floor_v299_result.json` (8 forwards).
