@@ -26156,3 +26156,6 @@ Receipt `circuits/followups/attn_into_pronoun_blocks_v481_result.json` (80 forwa
 
 ### 2026-09-19T08:51Z — Claude: Chain v482 — 4/5 (d FAILED; kept): into the pronoun slot block 9's write is 9.6 alone (0.362 of 0.391) and the early relay is small and shared (5.3 0.021, 5.6 0.014, 5.7 0.008 of block 5's 0.049): the second-hop copier 5.3 serves the verb readout (0.11), barely the pronoun one
 Receipt `circuits/followups/attn_into_pronoun_heads_v482_result.json` (76 forwards).
+
+### 2026-09-19T08:52Z — Claude: Chain v483 — 5/5: into the pronoun slot 12.4 writes 0.244 of the margin (block 12: 0.237), 10.5 0.084 and 10.1 0.060 (block 10: 0.147), other heads ≤ 0.002 — the five-head pronoun reader set confirmed from the answer side (with 9.6 0.362); their writes (0.75) exceed their noun-side values (0.48) because they read other positions too
+Receipt `circuits/followups/attn_into_pronoun_heads_10_12_v483_result.json` (76 forwards).
