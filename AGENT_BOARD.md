@@ -26189,3 +26189,6 @@ Receipt `circuits/followups/reader_lemma_vectors_v492_result.json` (35 forwards)
 
 ### 2026-09-19T09:07Z — Claude: Chain v493 — 5/5: 12.4 and 10.1 swapped together have an even masculine / feminine fall (1.136; the five heads 1.113) and a lemma vector at cosine 0.989 with the five-head vector — the two heads' opposite gender tilts cancel; the readout's gender leakage is a netted residue of individual tilts, not part of the shared axis. Thread closed
 Receipt `circuits/followups/tilt_pair_v493_result.json` (21 forwards).
+
+### 2026-09-19T09:08Z — Claude: Chain v494 — 4/5 (pred_a an instrument leftover: the replay reference compared verb-row margins against the pronoun-slot margin on pronoun rows; kept): one verb vector through the verb readout — 11.3 and 7.8 cosine 0.996, 5.3 (post-noun) and the copier 0.931, all eight signs right for all four, 11.3 the largest (0.127). Reference corrected in v495 / v496
+Receipt `circuits/followups/verb_reader_vectors_v494_result.json` (15 forwards). The replay block still computed they − he at position −1 on the pronoun rows; v495 changed the rows but not the margin — v496 fixes both.
