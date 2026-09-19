@@ -708,3 +708,5 @@ v538 (5/5): write-side verb census complete — 11.3 0.238, 5.3 0.113, 7.8 0.108
 - TEMPORAL BY HEAD (v598): 9.4 0.123, 9.1 0.059, 15.5 0.042, 11.3 0.032; blocks 0–4 0.199, 5–6 0.111, 7–8 0.295. Spread readout, low blocks lead.
 - MIXED PARTIALS INSTRUMENT LESSON (v603): a pure rescaling perturbation e*(1+alpha) is exactly canceled by the immediately-following RMSNorm (kernel of d/dc RMSNorm(cv)=0). Use an additive perturbation in a non-parallel direction instead.
 - FIXED-POSITION SLOT ROLE INSTRUMENT LESSON (v604): a cross-sentence, per-position-index average embedding is not a clean 'neutral' reference (it carries its own large margin); use a position-independent global mean instead, and guard fraction division by near-zero native margins.
+- DISTRIBUTIONAL FOLDING (v605): text CV≈2.0 on the five-reader fraction; pooled figures are population means, not per-row constants.
+- MIXED PARTIALS FIXED (v606): real, sentence-specific position-pair curvature exists; not always centered on the noun.

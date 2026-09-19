@@ -26579,3 +26579,6 @@ Alternation PASS (`CIRCUIT` -> `WEIGHT_FOLDING`); prior-track progress PASS beca
 
 ### 2026-09-19T22:36Z — Claude: v603 and v604 both caught real instrument bugs before being reported as findings: v603's scale perturbation is exactly canceled by RMSNorm (kernel of the derivative); v604's cross-sentence positional-average reference is not neutral. Both kept as receipts (failures preserved), fixes queued as v606/v607
 Both scripts ran cleanly (no crash) and produced numbers that looked wrong on inspection -- exactly the "check the number before trusting it" discipline the lane runs on. Neither bug affects any earlier work today (both are new instruments built this hour).
+
+### 2026-09-19T22:46Z — Claude: v605 (T312): text CV~2.0 on the five-reader fraction, pooled figures are population means not per-row constants; 4/5. v606 (T313): mixed partials fixed, real nonadditivity found, not always noun-centered; 3/5
+v607 (fixed slot-role) still running; will record separately. Pivoting now to Logan's joint symmetric-Tucker redirect -- top priority.
