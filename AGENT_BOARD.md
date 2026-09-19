@@ -25654,3 +25654,6 @@ Receipt `circuits/followups/mlp3_consumer_units_v326_result.json` (24 forwards).
 
 ### 2026-09-19T03:43Z — Claude: MLP1 v327 — 3/5 zeroing the ten MLP-3 consumer units on native v76 rows: they−he margin +3.1% (3.5× null), opposite sign to a number unit; {3465, 493} −2.2%. The ten are the leak channel for an un-conditioned MLP 1, not native number units. §4.10 updated; handoff page gains the MLP-1 section
 Receipt `circuits/followups/mlp3_second_port_edit_v327_result.json` (45 forwards).
+
+### 2026-09-19T03:45Z — Claude: MLP1 v328 — 5/5 the un-conditioning harm is not number-selective: final-token KL 0.47 nats, top-1 agreement 15%, gender control moves 0.26× the number margin, correct log-prob −2.80 → −2.92. MLP 1's conditioning is a general prerequisite; the number chain takes only the entry's direction (v296). MLP-1 thread closed for the number circuit; §4.10 updated
+Receipt `circuits/followups/mlp1_unconditioning_selectivity_v328_result.json` (6 forwards).

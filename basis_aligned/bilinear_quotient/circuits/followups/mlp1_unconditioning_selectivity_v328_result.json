@@ -1,0 +1,52 @@
+{
+  "candidate_id": "mlp1.token_table.unconditioning_selectivity_v328",
+  "finished_utc": "2026-09-19T03:43:42.254808+00:00",
+  "forwards": 6,
+  "plan": {
+    "bars": {
+      "control_ratio": 0.25,
+      "dm_tol": 0.03,
+      "kl_min": 0.05,
+      "m_tol": 0.001,
+      "native_m": 2.0481,
+      "v323_dm": -0.6554
+    },
+    "candidate_id": "mlp1.token_table.unconditioning_selectivity_v328",
+    "dst": 3,
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 8,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117",
+    "src": 1,
+    "units": [
+      3465,
+      493
+    ]
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_margin_drop_replays_v323": true,
+    "pred_c_harm_is_not_number_selective": true,
+    "pred_d_final_token_distribution_moves": true,
+    "pred_e_correct_answer_logprob_falls": true
+  },
+  "report": {
+    "control_he_she_change": 0.16999199241399765,
+    "control_he_she_native": -0.25994572043418884,
+    "control_ratio": 0.2593910238278396,
+    "correct_logprob_edited": -2.915207862854004,
+    "correct_logprob_native": -2.8032853603363037,
+    "kl_median": 0.33015674352645874,
+    "kl_native_edited_mean": 0.4724245071411133,
+    "margin_change": -0.6553503274917603,
+    "native_margin": 2.0481412410736084,
+    "top1_agreement": 0.1458333283662796
+  },
+  "schema": "mlp1_unconditioning_selectivity_result_v328",
+  "serial_seconds": 1.7440135690849274
+}
