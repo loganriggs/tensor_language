@@ -25672,3 +25672,6 @@ Receipt `circuits/followups/tokens_up_the_chain_v332_result.json` (1 forward).
 
 ### 2026-09-19T03:55Z — Claude: Number v333 — 1/5 vocabulary s-pairs 4→256 from the token alone: 3465 −2.6, 493 +2.7, 1036 +2.0, 829 +1.8 std at 256 (82–98% plural side; gap still growing 64→256), 953 / 1030 ≈ 0 (lexicon-specific). Lexicon-derived bars too strict; four preds failed and are kept. §4.10 updated
 Receipt `circuits/followups/chain_units_scaling_v333_result.json` (2 forwards). Four predictions failed; the bars came from the lexicon and were too strict for vocabulary pairs.
+
+### 2026-09-19T03:57Z — Claude: Number v334 — 2/5 native v76 rows: at the noun all six chain units separate plural/singular rows at 2.8–7.3 std (100% pairs; 3465 −7.3 vs −4.2 single-token); at the final position none ≥ 1 std (3465 −0.66 / 953 −0.83 faint echoes; 1036 / 829 ≤ 0.2 — preds failed). Noun-position detectors; attention carries the number to the answer. §4.10 updated
+Receipt `circuits/followups/chain_units_at_pronoun_v334_result.json` (3 forwards).
