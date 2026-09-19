@@ -1,0 +1,46 @@
+{
+  "candidate_id": "gender.route_census_noun_v549",
+  "finished_utc": "2026-09-19T10:55:09.181825+00:00",
+  "forwards": 10,
+  "plan": {
+    "bars": {
+      "add": 0.08,
+      "all_min": 0.8,
+      "five_min": 0.3,
+      "replay_tol": 0.001
+    },
+    "candidate_id": "gender.route_census_noun_v549",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 11,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": "pronoun_gender_dod_natural_rows_v73.json",
+    "text_pairs": 61
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_all_values_at_the_noun_carry_gender": true,
+    "pred_c_five_readers_carry_a_third": true,
+    "pred_d_low_and_high_add": false,
+    "pred_e_high_at_least_low": true
+  },
+  "report": {
+    "replay_max_abs": 1.430511474609375e-05,
+    "text": {
+      "closed": {
+        "ALL_N": 0.9005147218704224,
+        "FIVE_N": 0.6001140475273132,
+        "HIGH_N": 0.6250491142272949,
+        "LOW_N": 0.45073452591896057
+      },
+      "gap_mean": 4.360080718994141,
+      "pairs": 61,
+      "sign_constancy": 0.8852459192276001
+    }
+  },
+  "schema": "gender_route_census_noun_result_v549",
+  "serial_seconds": 1.9095775180030614
+}

@@ -657,3 +657,4 @@ v538 (5/5): write-side verb census complete — 11.3 0.238, 5.3 0.113, 7.8 0.108
 - VERB READOUT SET on the third natural set (v546): five heads' writes 0.599, rest of blocks 0.085, all attention 0.981 (45 fresh distant rows). OOD cell held for both readouts.
 - UNIT COMPONENTS on the third set, verb slot (v547): detector 0.079 at the verb / 0 at the noun; hub three 0.056 at the noun / 0.031 at the verb.
 - UNIT COMPONENTS on the third set, pronoun slot (v548): hub three at the noun 0.164, at the answer 0.047; detector −0.005; random 0.000. Number circuit: five properties held on three natural sets, at head and unit grain.
+- GENDER LINE opened by the number method (v549): values at the noun 0.901, five pronoun readers 0.600, blocks 0–8 0.451, blocks 9–17 0.625 (sub-additive by 0.17; nested via the self-copies).

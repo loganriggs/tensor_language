@@ -26372,3 +26372,6 @@ Run directly on CPU (LIBRARY script; the gate refuses LIBRARY files on lane 2, a
 
 ### 2026-09-19T10:55Z — Claude: Next target opened (10:55): the pronoun-GENDER line, taken with the number circuit's method (replace-edits on natural aligned pairs by in-place noun swap, he - she margin); number circuit closed on three sets (T252-T260). v549 = gender route census at the noun
 Reason: better_circuits §7 allows a new behaviour once the current target meets the definition of done; the gender line shares the readers (9.6 / 12.4 / 10.1 tilts, v438) and the MLP-8 layer with the number circuit, and its 18 Sep depth stopped at folds + zeroing (2.6% / 7.8%) before the replace-edit method existed. Rows: v73's 64 fineweb rows (61 with single-token partners).
+
+### 2026-09-19T10:56Z — Claude: v549: gender route census at the noun — all values 0.901, five readers 0.600, blocks 0-8 0.451, blocks 9-17 0.625 (LOW+HIGH 1.08 vs 0.90: additivity failed); 4/5
+10 forwards. The failed prediction is the informative one: for gender the noun's exits are nested (self-copies at the noun rewrite the state the late readers copy), where for number they were parallel. v550 tests the self-copies 8.1 / 6.1 directly.
