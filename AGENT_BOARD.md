@@ -26168,3 +26168,6 @@ Receipt `circuits/followups/five_writes_joint_v485_result.json` (12 forwards).
 
 ### 2026-09-19T08:57Z — Claude: Chain v486 — 5/5: the five verb heads' writes into a distant verb swapped jointly close 0.557 of the agreement margin; the other 40 heads of their blocks 0.107; all attention 0.943. The verb channel is five heads plus a longer tail; both readouts bounded at both ends by intervention
 Receipt `circuits/followups/five_verb_writes_joint_v486_result.json` (9 forwards).
+
+### 2026-09-19T08:58Z — Claude: Chain v487 — 5/5: the five verb heads write 0.041 of the they − he margin into the pronoun slot against 0.803 for the five pronoun heads; the union closes 0.816 (additive). Cross-selectivity of the two readouts confirmed from the answer side
+Receipt `circuits/followups/verb_heads_into_pronoun_v487_result.json` (16 forwards).
