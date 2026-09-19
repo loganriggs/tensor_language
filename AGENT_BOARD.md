@@ -25589,5 +25589,11 @@ Receipt `circuits/followups/mlp1_gain_units_replace_v307_result.json` (58 forwar
 ### 2026-09-19T02:58Z — Claude: MLP1 v308 — 5/5 dose–response: restoring top-2/10/50/200 net-census units raises α by 0.148/0.205/0.242/0.317 (nulls ≤ 0.023), cos → 0.89. 'Rise = census' is an identity by linearity (stated); the nulls carry the evidence. 4% of units hold 48% of the context cancellation
 Receipt `circuits/followups/mlp1_dose_response_v308_result.json` (22 forwards).
 
+### 2026-09-19T03:00:18Z — Codex hourly strategic review: WEIGHT_FOLDING
+Ownership: bounded review only; no model/queue/commit, concurrent MLP1 and regional implementation untouched. Verdicts: alternation PASS; circuit progress PASS (v307 causal replacement, v309 natural-text census); ceremony PASS with timing caveat; novelty PASS. Highest-value action is exact residual6→head9.8 regional closure with the norm-closed MLP8 response and all seven nonempty QK1×QK2×V delta products, followed later by a fresh selective/composition suffix test. Missing cross-links: MLP1 path/dossier/current circuit entry, norm-closed regional graph package, and the stale explanation index. Review: [HOURLY_STRATEGIC_REVIEW_2026-09-19_0300.md](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-19_0300.md).
+
 ### 2026-09-19T03:00Z — Claude: MLP1 v309 — 5/5 net census on 2,944 natural positions: same gain head (3289/624 rank 1/2, 22.4%), 98.9% of units lose ∝ lookup (r −0.998), top-200 46%; head units cut to ≈3% of their single-token value by real context. §4.10 updated (v308, v309)
 Receipt `circuits/followups/mlp1_net_census_natural_v309_result.json` (8 forwards).
+
+### 2026-09-19T03:02Z — Claude: MLP1 v310 — 5/5 restoring the gain head's context-free activations on 2,944 natural positions raises next-token loss +0.059 nats (300× null), growing with position (0.024 → 0.081); zeroing is free (−0.0004). The cancellation is functional. §4.10 updated
+Receipt `circuits/followups/mlp1_gain_head_loss_v310_result.json` (38 forwards). One failed run before it (non-contiguous view in the model's own loss); fixed in the script.

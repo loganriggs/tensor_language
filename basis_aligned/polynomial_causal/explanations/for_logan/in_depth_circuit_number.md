@@ -333,7 +333,11 @@ is not yet named. The census order is causal down the list (v308): restoring the
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
 On 2,944 positions of natural text the same census returns the same head (v309): 3289 and 624 rank 1 and 2 with 22.4%, 98.9% of units
 lose in proportion to their lookup ($r=-0.998$), and the head units are cut to ≈ 3% of their single-token value by any real context.
-Open: what the class-structured remainder encodes downstream; what restoring the head does to the model's next-token loss (v310, queued).
+And the cancellation is doing work for the model (v310): on the same text, putting back the two head units' context-free activations raises
+next-token loss by 0.059 nats (twelve random pairs: ≤ 0.0002), more the longer the context (0.024 nats at positions 1–6, 0.081 at 12–23),
+while zeroing them is free (−0.0004). The head is a no-context signal — "a token stands alone" — that MLP 1 emits at full strength for a
+single token and must switch off once anything precedes it; the rest of the layer does the same in proportion, unit by unit.
+Open: what the class-structured remainder encodes downstream; the loss dose–response for the top-10/50/200 (v311, queued).
 
 | receipt | question | result |
 |---|---|---|
@@ -360,6 +364,7 @@ Open: what the class-structured remainder encodes downstream; what restoring the
 | v307 | restore 3289 + 624's single-token activations | α +0.152 (census +0.169), 380× null; margin −0.7% (5/5) |
 | v308 | restore top-2/10/50/200 | +0.15/0.21/0.24/0.32 vs random ≤ 0.02; cos → 0.89 (5/5; rise = census by linearity) |
 | v309 | net census on text | same head, 22.4%; 98.9% of units lose, r −0.998 (5/5) |
+| v310 | restore the head on text: loss | +0.059 nats (300× null), growing with position; zeroing free (5/5) |
 
 ### Pass over the draft (what I changed after rereading)
 
