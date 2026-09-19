@@ -25645,3 +25645,6 @@ Receipt `circuits/followups/mlp1_only_unconditioned_number_chain_v323_result.jso
 
 ### 2026-09-19T03:36Z — Claude: MLP1 v324 — 5/5 routes of MLP 1's un-conditioning to the they−he margin (v76 rows, path-restricted): block 2 0.23, block 4 0.15, block 3 0.12, block 5 0.05, direct 0.001; first-order sum 0.59. MLP 1 → blocks 2–4 → the named chain. §4.10 updated
 Receipt `circuits/followups/mlp1_unconditioning_routes_v324_result.json` (60 forwards).
+
+### 2026-09-19T03:38Z — Claude: MLP1 v325 — 3/5 attention vs MLP consumers in blocks 2–4 (v76 rows): MLP 3 alone takes 0.65 of the un-conditioning harm, MLP 2 alone 0.44, attentions 0.02–0.06; with attention seeing the delta too the blocks net 0.12 / 0.23 (additivity failed) — attention 3 / 2 compensate their MLPs. 'MLP 2 largest' failed (MLP 3 is). §4.10 updated
+Receipt `circuits/followups/mlp1_routes_parts_v325_result.json` (36 forwards).

@@ -335,7 +335,10 @@ break the behaviour — through consumers other than the two named MLP-3 units. 
 entry) is true and incomplete: the circuit also uses MLP 1's context-conditioned write, by early-block routes (v324, path-restricted injection on the pronoun rows with the margin as readout): block 2 takes 23% of the
 harm at first order, block 4 15%, block 3 12%, block 5 5%, nothing past block 7 and 0.1% by the direct path to the logits (first-order sum
 59%; the rest is propagation). So the number circuit's use of MLP 1 runs MLP 1 → blocks 2–4 → the named chain from MLP 3 on, with units
-3465 / 493 reading the entry's direction and the conditioned remainder entering through blocks 2–4 (attention or MLP: v325, queued).
+3465 / 493 reading the entry's direction and the conditioned remainder entering through the MLPs of blocks 2 and 3 (v325): fed to MLP 3 alone the un-conditioned write costs 65%
+of the margin change, to MLP 2 alone 44%, while the attentions take 2–6% — yet when a block's attention sees the same delta the block nets only
+12% (block 3) or 23% (block 2). Attention 3 and attention 2 cancel most of what their MLPs do with MLP 1's conditioned write: a compensation
+of the same kind as §4.9's, one block lower. Unit grain of MLP 3's consumption: v326, queued.
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -418,6 +421,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v322 | number chain at α = 1 (attention 0/1 self-only, v76 rows) | write = table; carriage into 3465 / 493 flat (0.92× / 1.01×); margin −37% (whole-attention edit) (3/5) |
 | v323 | only MLP 1 un-conditioned, v76 rows | carriage flat (0.93× / 1.01×); margin −32%: the behaviour uses MLP 1's conditioned write elsewhere (3/5) |
 | v324 | routes on the pronoun rows | block 2 0.23, block 4 0.15, block 3 0.12, block 5 0.05; direct 0.001 (5/5) |
+| v325 | attention vs MLP in blocks 2–4 | MLP 3 alone 0.65, MLP 2 alone 0.44; attentions cancel most (blocks net 0.12 / 0.23) (3/5) |
 
 ### Pass over the draft (what I changed after rereading)
 
