@@ -411,7 +411,12 @@ plural from the token alone and lost the lexical separation on vocabulary pairs.
 agreement site; 3465 and 493 are strictly noun-position detectors. From verb tokens alone (v346: are / were / have / do … vs is / was / has / does …) the verb's own
 number is read by 1036 at 7.8 pooled std, 1030 at 2.8 and 953 at 1.7 — the chain's verb-number readers — barely by 829 (0.9), and 3465 reads
 the -s ending the other way (is / was / has on its plural side, −1.35), the mirror of its plural-noun -s reading; have − has and are − is agree in
-sign for all six. The noun's number and the verb's number live in different units of the same chain.
+sign for all six. The noun's number and the verb's number live in different units of the same chain. Put the two together — a noun then a verb (v347: the 256 pairs followed by is or are, read at the verb) — and the
+units turn out to be agreement-violation detectors: 3465 fires about −300 for the ungrammatical "singular noun + are" and within ±15 for the three
+other cells; 493 fires +46 only for the mirror violation "plural noun + is"; 829 and 1036 read the verb's form (are above is), 829 more when the
+noun disagrees. With v337 (3465 sharpest after plural-licensing words and sign-flipping after " 1"), the picture is one bilinear computation:
+(what the preceding word leads one to expect) × (what the current token is), lighting up when they disagree — 3465 for singular-then-plural,
+493 for plural-then-singular.
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -516,6 +521,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v344 | the same on 128 natural sentences | table 0.58–0.82 for all; units separate cue nouns at 1.0–2.2 std (3/5) |
 | v345 | cue / verb / final on natural sentences | cue 0.98–2.2 std; final ≤ 0.12; verb: only 953 −0.97 (4/5) |
 | v346 | verb tokens alone | 1036 +7.8, 1030 +2.8, 953 +1.7 read verb number; 3465 reads the -s ending backwards (−1.35) (3/5) |
+| v347 | [noun, is / are] at the verb | 3465 ≈ −300 only for singular + are; 493 +46 only for plural + is: violation detectors (2/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

@@ -25717,3 +25717,6 @@ Receipt `circuits/followups/chain_units_positions_natural_v345_result.json` (2 f
 
 ### 2026-09-19T04:23Z — Claude: Number v346 — 3/5 verb tokens alone: the verb's number is read by 1036 (+7.8 std), 1030 (+2.8), 953 (+1.7); 829 0.94 (bar missed); 3465 reads the -s ending backwards (−1.35; 'ignore verbs' failed); have−has ≈ are−is for all six. §4.10 updated; for_logan/LATEST.md gains the 19 Sep summary
 Receipt `circuits/followups/verb_tokens_up_the_chain_v346_result.json` (1 forward). The 04:21 board entry's files were committed separately (LATEST.md lives at for_logan/LATEST.md, not basis_aligned/).
+
+### 2026-09-19T04:25Z — Claude: Number v347 — 2/5 [noun, is/are] read at the verb: 3465 fires ≈ −300 only for the ungrammatical 'singular noun + are' (other cells ≈ 0–15), 493 +46 only for 'plural noun + is'; 829 / 1036 read verb form (are > is). Agreement-VIOLATION detectors: 3465 singular→plural, 493 plural→singular. Three preds failed. §4.10 updated; v348 tests more verbs
+Receipt `circuits/followups/noun_verb_agreement_frames_v347_result.json` (4 forwards).
