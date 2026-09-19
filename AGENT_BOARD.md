@@ -25974,3 +25974,6 @@ Receipt `circuits/followups/unit_swap_edit_v423_result.json` (21 forwards).
 
 ### 2026-09-19T07:17Z — Claude: Chain v424 — 2/5 (b 0.152 vs 0.16, c 0.172 vs 0.18, e FAILED; kept): top-3 / 10 / 30 MLP-8 units swapped at the noun close 0.124 / 0.152 / 0.172 of the natural-text margin gap (panel 0.091 / 0.112 / 0.125); 30 random units 0.000. Three units plus a thin tail; the whole-layer and MLP 5–7 edits follow
 Receipt `circuits/followups/unit_swap_count_v424_result.json` (35 forwards).
+
+### 2026-09-19T07:18Z — Claude: Chain v425 — 3/5 (c, e FAILED; kept): whole-MLP replace-edits at the noun close 0.219 (MLP 8), 0.235 (MLPs 5–8), 0.266 (MLPs 1–3) of the natural-text margin gap. MLP 8 is 0.93 of the MLPs 5–8 effect: the fold's additive writer shares double count the chain (MLPs 5–7 → MLP 8). Edits arbitrate; folds nominate
+Receipt `circuits/followups/layer_swap_edit_v425_result.json` (28 forwards).
