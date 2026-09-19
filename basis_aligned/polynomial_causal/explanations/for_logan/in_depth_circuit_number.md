@@ -133,6 +133,10 @@ stack 1–5 is 88% (2826: 78%) [v191]. Hence §2's rule: report mass and carriag
 
 ### 4.6 Down the stack: named units to MLP 3, computed from MLP 1 [v192–v194, v201]
 
+*Added 19 Sep:* the units named here are now known from single tokens (§4.10, v329–v345): 3465 / 493 / 1036 / 829 are bilinear agreement
+detectors of the noun's plural-noun sense, both factors fed 58–88% by MLP 1's context-free lookup entry, sharpened or suppressed by the word before
+the noun, detecting at the noun and silent at the answer; 953 / 1030 are not lexical detectors (953 carries a generalised number trace to the verb).
+
 Carrier-level unit censuses name the carriers at each block: MLP-5 units **1036, 2403, 2538, 3274, 3034** carry 64% of MLP 5's part of 2483
 (top-10) [v192]; into unit 1036, MLP-3 units **3465, 493** (16%, 13%) and MLP-4 units **2434, 2633** (23%, 21%) [v194]; and the MLP-3 units are
 themselves carried by **MLP 1** (41% and 62%) and MLP 2 (22%, 49%), with the embedding at 5–6% and head 3.5 at 11.5% for 493 [v201]. At no
@@ -401,7 +405,10 @@ writer by writer and part by part. The same holds for the other three lexical un
 of 829 67% / 70% — the -s plural in MLP 1's table row is the number signal every agreement detector in the chain multiplies, on both sides,
 five blocks up as much as two. On the 128 natural sentences (v344) the same split gives 58–82% table for every unit and factor, and the four
 units separate plural from singular cue nouns in running text at 1.0–2.2 pooled std with the panel signs (3465 strongest at −2.2) — two bars set from
-the panel were missed by 0.02 (829's L factor 0.58; 1036's separation 0.98 std).
+the panel were missed by 0.02 (829's L factor 0.58; 1036's separation 0.98 std). Position by position on those sentences (v345): the separation lives at the cue noun (0.98–2.2 std), is gone at the final
+token (≤ 0.12 std for all six), and at the verb between them only 953 keeps a trace (−0.97 std) — the unit that treated numerals and pronouns as
+plural from the token alone and lost the lexical separation on vocabulary pairs. 953 is a carrier of a generalised number state toward the
+agreement site; 3465 and 493 are strictly noun-position detectors.
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -504,6 +511,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v342 | MLP 2's part per factor | table 0.34 (L) / 0.63 (R); remainder 0.66 / 0.37 (5/5) |
 | v343 | MLP 1's part per factor for 493 / 1036 / 829 | table 0.76 / 0.76; 0.88 / 0.71; 0.67 / 0.70 (5/5) |
 | v344 | the same on 128 natural sentences | table 0.58–0.82 for all; units separate cue nouns at 1.0–2.2 std (3/5) |
+| v345 | cue / verb / final on natural sentences | cue 0.98–2.2 std; final ≤ 0.12; verb: only 953 −0.97 (4/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

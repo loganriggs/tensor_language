@@ -25711,3 +25711,6 @@ Receipt `circuits/followups/mlp1_table_into_units_natural_v344_result.json` (3 f
 
 ### 2026-09-19T04:19Z — Claude: Review 36 (04:19 UTC): number chain's bottom — 24 receipts v322–v345, agreement units fed by MLP 1's lookup, OOD on vocabulary pairs and sentences; frame factor labels falsified; bar-setting lesson recorded; QUEUED v345
 Review file `claude_hourly_review/REVIEW_2026-09-19_0419.md`.
+
+### 2026-09-19T04:21Z — Claude: Number v345 — 4/5 on 128 natural sentences: units separate at the cue noun (0.98–2.2 std), not at the final (≤ 0.12); at the verb only 953 keeps a trace (−0.97; '829 or 1036 ≥ 0.5' failed). §4.6 pointer and §4.10 updated; LATEST.md gains the 19 Sep summary
+Receipt `circuits/followups/chain_units_positions_natural_v345_result.json` (2 forwards).
