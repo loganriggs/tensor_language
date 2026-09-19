@@ -26085,3 +26085,6 @@ Receipt `circuits/followups/unit_701_inputs_v458_result.json` (2 forwards).
 
 ### 2026-09-19T08:18Z — Claude: Chain v459 — 4/5 (e FAILED at 0.86; kept): MLP 16's units 575 and 2921 feed 701's R input (top-10 0.72, top-50 0.87). The direct path's late chain is 829 → … → 575 / 2921 (MLP 16) → 701 (MLP 17) → logits
 Receipt `circuits/followups/mlp16_units_into_701_v459_result.json` (2 forwards).
+
+### 2026-09-19T08:20Z — Claude: Chain v460 — 5/5 EDIT: MLP 17's units 701 + 2059 swapped at the noun close 0.079 of the adjacent-verb agreement margin (two random units 0.000; 829 / 953 / 1030 0.114; all values at the noun 0.26). The direct path's late chain is causal by replacement at both ends
+Receipt `circuits/followups/late_units_edit_v460_result.json` (10 forwards).

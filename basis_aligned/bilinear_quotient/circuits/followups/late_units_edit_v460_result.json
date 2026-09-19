@@ -1,0 +1,98 @@
+{
+  "candidate_id": "chain.late_units_edit_v460",
+  "finished_utc": "2026-09-19T08:19:21.941064+00:00",
+  "forwards": 10,
+  "plan": {
+    "bars": {
+      "all_v446": 0.26,
+      "band": 0.05,
+      "late_min": 0.04,
+      "random_max": 0.01,
+      "ratio_min": 0.5,
+      "replay_tol": 0.001
+    },
+    "candidate_id": "chain.late_units_edit_v460",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 11,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_701_and_2059_move_the_adjacent_verb": true,
+    "pred_c_random_two_units_do_not": true,
+    "pred_d_late_units_beat_mlp8_units_here": true,
+    "pred_e_values_at_noun_replay": true
+  },
+  "report": {
+    "panel": {
+      "skipped": "verb slot only (price)",
+      "verb_slot_rows": 43
+    },
+    "replay_max_abs": 2.002716064453125e-05,
+    "text": {
+      "closed": {
+        "ALL_NOUN": {
+          "are_is": 0.25507500767707825,
+          "verb": 0.2604181468486786
+        },
+        "LATE": {
+          "are_is": 0.09311268478631973,
+          "verb": 0.07868505269289017
+        },
+        "RANDOM": {
+          "are_is": -7.607191218994558e-05,
+          "verb": -4.2393461626488715e-05
+        },
+        "UNITS8": {
+          "are_is": 0.10840210318565369,
+          "verb": 0.1138540580868721
+        }
+      },
+      "gap_mean": {
+        "are_is": 7.83402681350708,
+        "verb": 14.92425537109375,
+        "were_was": 7.0902299880981445
+      },
+      "pairs": 43
+    },
+    "verb_slot": {
+      "closed": {
+        "ALL_NOUN": {
+          "are_is": 0.25507500767707825,
+          "verb": 0.2604181468486786
+        },
+        "LATE": {
+          "are_is": 0.09311268478631973,
+          "verb": 0.07868505269289017
+        },
+        "RANDOM": {
+          "are_is": -7.607191218994558e-05,
+          "verb": -4.2393461626488715e-05
+        },
+        "UNITS8": {
+          "are_is": 0.10840210318565369,
+          "verb": 0.1138540580868721
+        }
+      },
+      "gap_mean": {
+        "are_is": 7.83402681350708,
+        "verb": 14.92425537109375,
+        "were_was": 7.0902299880981445
+      },
+      "pairs": 43
+    }
+  },
+  "schema": "late_units_edit_result_v460",
+  "serial_seconds": 1.9149321261793375
+}
