@@ -25540,3 +25540,6 @@ Receipt `circuits/followups/mlp1_two_term_context_v292_result.json` (9 forwards)
 
 ### 2026-09-19T02:24Z — Claude: MLP1 v293 — 3/5 the cross remainder at length 1/8: high-rank (r90 54/72 vs table 76), class-structured (own-class cos 0.78 vs other 0.49), but 37–40% of its energy is ONE shared context-set direction orthogonal to both table entries (pred_c failed); cross share 0.65 (pred_e failed). Write = self-share × table + shared direction + class-structured cross term; v294 tests the shared direction
 Receipt `circuits/followups/mlp1_cross_remainder_v293_result.json` (3 forwards). Also: `dod_units.attention_self_share` helper (from v291) and its README line.
+
+### 2026-09-19T02:26Z — Claude: Review 34 (02:26 UTC): MLP-1 thread — write = self-share × table + R; R = shared direction + class-structured cross part; 37 forwards, 5 decision-changing numbers; helper attention_self_share added; QUEUED v294
+Review file `claude_hourly_review/REVIEW_2026-09-19_0226.md`.
