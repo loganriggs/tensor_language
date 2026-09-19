@@ -26001,3 +26001,6 @@ Receipt `circuits/followups/high_route_blocks_v431_result.json` (40 forwards).
 
 ### 2026-09-19T07:29Z — Claude: Both-ends v432 — 3/5 (b, c FAILED; kept): block 10's noun exit is two heads, 10.1 (0.071) and 10.5 (0.054), additive to the block's 0.128. The number readout's reader set becomes five heads: 9.6, 10.1, 10.5, 12.4, 15.1 (weak at the noun)
 Receipt `circuits/followups/block10_heads_v432_result.json` (40 forwards).
+
+### 2026-09-19T07:31Z — Claude: Both-ends v433 — 5/5 EDIT: the five-head reader set {9.6, 10.1, 10.5, 12.4, 15.1} closes 0.483 of the natural-text margin gap at the noun (0.96 of the high route) and 0.623 at both sites (three heads 0.498, replayed exactly). Number leaves the noun only through values, into five late readers and one early copier
+Receipt `circuits/followups/five_readers_edit_v433_result.json` (28 forwards).

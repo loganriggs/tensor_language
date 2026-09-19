@@ -538,3 +538,4 @@ v429 (5/5, EDIT): all keys at the noun 0.0002; values blocks 0–8 0.51, blocks 
 v430 (4/5; c failed): low route by block — block 4 0.217 (copier), block 2 0.066, others ≤ 0.03, blocks 0–1 nothing; singles sum 0.38 vs joint 0.51.
 v431 (3/5; b, c failed): high route by block — 9 0.276, 10 0.128, 12 0.089, 15 0.024, 16–17 nothing; additive (0.52 vs 0.51). Block 10 is an unlisted fourth exit.
 v432 (3/5; b, c failed): block 10's noun exit is 10.1 (0.071) + 10.5 (0.054), additive. READER SET for the number readout is five heads: 9.6, 10.1, 10.5, 12.4, 15.1 (weak).
+v433 (5/5, EDIT): five readers {9.6, 10.1, 10.5, 12.4, 15.1} at the noun = 0.483 (0.96 of the high route); at both sites 0.623 (three heads 0.498). Use the five-head set as the number readout from now on.
