@@ -25959,3 +25959,6 @@ Review file `claude_hourly_review/REVIEW_2026-09-19_0707.md`.
 
 ### 2026-09-19T07:09Z — Claude: Both-ends v419 — 5/5 EDIT composition: the copier's value effect routes through the readers' post-noun read (A+C 0.57 vs A 0.50 on text; two thirds of C overlaps) and adds fully to the readers' noun-site read (N+C = 1.00 of the separate sum). Serial route 4.5 → MLPs 4–8 → readers; the value copies account for 0.57 of the natural-text margin
 Receipt `circuits/followups/value_swap_compose_v419_result.json` (35 forwards).
+
+### 2026-09-19T07:11Z — Claude: Template v420 — 2/5 (b, c, d FAILED; kept): the contrast template u dᵀ picks 9.6 (cos_F 0.11) and 12.4 (0.09) as top heads of their blocks by 20–40× and misses 15.1 (negative transport, not sign-aware); identity 0.03–0.08; number is ≤ 1.3% of each map's energy; rank-one prediction of the per-pair transport corr 0.71
+Receipt `circuits/followups/template_contrast_v420_result.json` (4 forwards).
