@@ -26225,3 +26225,6 @@ Receipt `circuits/followups/pronoun_slot_channels_v503_result.json` (16 forwards
 
 ### 2026-09-19T09:25Z — Claude: Chain v504 — 4/5 (e FAILED on a tie; kept): the pronoun slot's MLP rebuild by stage — MLP 12 and MLP 9 tie at 0.089, 13 0.050, 11 0.047, 10 0.027; MLPs 15 / 16 oppose or do nothing (−0.048 / −0.011); singles sum 0.256 (joint 0.214). Re-expression by the readers' own blocks, no late stage — the mirror of the verb slot
 Receipt `circuits/followups/pronoun_slot_stages_v504_result.json` (36 forwards).
+
+### 2026-09-19T09:27Z — Claude: Chain v505 — 3/5 (c, d FAILED; kept): MLP 12's re-expression of number at the pronoun answer is one unit, 22 (top-10 0.64; its Down column has cosine 0.455 with they − he; per-row sign constant on 0.62) — the pronoun slot's answer-side unit, as 701 is the verb slot's
+Receipt `circuits/followups/mlp12_units_pronoun_answer_v505_result.json` (4 forwards).
