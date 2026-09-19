@@ -26228,3 +26228,6 @@ Receipt `circuits/followups/pronoun_slot_stages_v504_result.json` (36 forwards).
 
 ### 2026-09-19T09:27Z — Claude: Chain v505 — 3/5 (c, d FAILED; kept): MLP 12's re-expression of number at the pronoun answer is one unit, 22 (top-10 0.64; its Down column has cosine 0.455 with they − he; per-row sign constant on 0.62) — the pronoun slot's answer-side unit, as 701 is the verb slot's
 Receipt `circuits/followups/mlp12_units_pronoun_answer_v505_result.json` (4 forwards).
+
+### 2026-09-19T09:28Z — Claude: Chain v506 — 4/5 (b FAILED, the edit refutes the fold; kept): unit 22 of MLP 12 swapped at the pronoun answer closes −0.017 of the margin (MLP 12 whole 0.089; random unit 0.000; hub at the noun 0.133 replayed). MLP 12's answer-side re-expression is a spread no single unit carries — no pronoun counterpart to the verb detector 701
+Receipt `circuits/followups/unit_22_edit_v506_result.json` (12 forwards).

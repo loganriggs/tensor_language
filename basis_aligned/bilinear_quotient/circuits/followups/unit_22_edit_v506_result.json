@@ -1,0 +1,90 @@
+{
+  "candidate_id": "chain.unit_22_edit_v506",
+  "finished_utc": "2026-09-19T09:27:37.921899+00:00",
+  "forwards": 12,
+  "plan": {
+    "bars": {
+      "band": 0.02,
+      "hub_v463": 0.133,
+      "m12_v504": 0.089,
+      "random_max": 0.01,
+      "replay_tol": 0.001,
+      "u22_min": 0.04
+    },
+    "candidate_id": "chain.unit_22_edit_v506",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 17,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_unit_22_moves_the_pronoun_margin": false,
+    "pred_c_random_unit_does_not": true,
+    "pred_d_unit_22_within_mlp12": true,
+    "pred_e_hub_units_at_the_noun_replay": true
+  },
+  "report": {
+    "panel": {
+      "skipped": "verb slot only (price)",
+      "verb_slot_rows": 79
+    },
+    "replay_max_abs": 9.059906005859375e-06,
+    "text": {
+      "closed": {
+        "HUB_N": {
+          "are_is": 0.1366250067949295,
+          "verb": 0.13258418440818787
+        },
+        "RANDOM_A": {
+          "are_is": -0.00018179345352109522,
+          "verb": -0.0001107416974264197
+        },
+        "U22_A": {
+          "are_is": -0.01623297855257988,
+          "verb": -0.01737792044878006
+        }
+      },
+      "gap_mean": {
+        "are_is": 0.8259225487709045,
+        "verb": 0.9060161113739014,
+        "were_was": -0.08009359240531921
+      },
+      "pairs": 79
+    },
+    "verb_slot": {
+      "closed": {
+        "HUB_N": {
+          "are_is": 0.1366250067949295,
+          "verb": 0.13258418440818787
+        },
+        "RANDOM_A": {
+          "are_is": -0.00018179345352109522,
+          "verb": -0.0001107416974264197
+        },
+        "U22_A": {
+          "are_is": -0.01623297855257988,
+          "verb": -0.01737792044878006
+        }
+      },
+      "gap_mean": {
+        "are_is": 0.8259225487709045,
+        "verb": 0.9060161113739014,
+        "were_was": -0.08009359240531921
+      },
+      "pairs": 79
+    }
+  },
+  "schema": "unit_22_edit_result_v506",
+  "serial_seconds": 2.011318485951051
+}

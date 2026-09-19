@@ -614,3 +614,4 @@ v502 (4/5; c failed): at the noun's own position attention 0.313 + MLPs 0.452 �
 v503 (4/5; c failed at 0.214): pronoun slot — attention 0.973 (replay), MLPs 9–16 at the slot 0.214, MLPs 1–17 0.213. A fifth of the pronoun margin is re-expressed by MLPs at the answer (verb: 0.39).
 v504 (4/5; e failed on a 9/12 tie): pronoun-slot rebuild by stage — MLP 12 0.089 = MLP 9 0.089, 13 0.05, 11 0.05; 15 −0.05, 16 −0.01; sum 0.26. Re-expression by the readers' own blocks; no late stage.
 v505 (3/5; c, d failed): MLP 12's write at the pronoun answer is unit 22 (top-10 0.64; column cos 0.46 with they−he; row-conditional 0.62). The pronoun slot's answer-side unit.
+v506 (4/5; b failed — edit refutes the fold): unit 22 swapped at the pronoun answer closes −0.017 (MLP 12 whole 0.089). No single answer-side unit for pronouns.
