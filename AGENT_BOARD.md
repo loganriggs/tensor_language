@@ -25855,3 +25855,6 @@ Receipt `circuits/followups/reader_key_split_ten_v388_result.json` (6 forwards).
 
 ### 2026-09-19T06:02Z — Claude: Templates v389 — 3/5 identity-template scores for 162 heads (weights only): OV identity max 0.018 (11.6, 10.4, 13.0; copiers 12.4 7th, 4.5 10th, 9.6 31st, 15.1 137th — pred failed), QK identity max −0.034 (anti-identity; ≥ 0.10 pred failed); 10.1 / 10.4 / 11.6 on both. Logan's template direction saved; his instruction: do the subspace fold next (v390)
 Receipt `circuits/followups/head_identity_templates_v389_result.json` (0 forwards; weights only).
+
+### 2026-09-19T06:05Z — Claude: Subspace v390 — 1/5 W_U restricted to plural / singular noun classes: the class-mean contrast carries almost none of the final-state number contrast (10k of 37M; cos with they−he 0.06), but the plural class's top idiosyncratic direction VP0 (plural nouns vs is/has/goes; cos 0.04 with they−he) carries 5.0M vs 4.8M along they−he — a second output axis. Four preds failed as registered; the subspace method found what the direction fold misses
+Receipt `circuits/followups/subspace_fold_number_v390_result.json` (3 forwards). The VP0 / VP1 token lists come from a weights-only CPU check in-session (recorded in the scorecard row).

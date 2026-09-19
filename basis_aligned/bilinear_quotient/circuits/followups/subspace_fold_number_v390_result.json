@@ -1,0 +1,91 @@
+{
+  "candidate_id": "subspace.number_class_v390",
+  "finished_utc": "2026-09-19T06:03:48.941218+00:00",
+  "forwards": 3,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.0001,
+      "cos_min": 0.3,
+      "ratio_min": 3.0,
+      "reader_min": 0.5
+    },
+    "candidate_id": "subspace.number_class_v390",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 5,
+    "gpu_accessed": false,
+    "k": 8,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "pairs": 256,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117"
+  },
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_class_mean_dominates_the_unembedding_class": false,
+    "pred_c_pronoun_direction_aligns_with_class_contrast": false,
+    "pred_d_final_state_contrast_is_shared_not_idiosyncratic": false,
+    "pred_e_readers_write_the_shared_direction": false
+  },
+  "report": {
+    "class_unembedding": {
+      "mean_energy": 349.73431396484375,
+      "residual_topk_energy": 389.71826171875,
+      "residual_total_energy": 3406.401611328125,
+      "singular_values_top8": [
+        9.17354679107666,
+        7.816196918487549,
+        6.717141151428223,
+        6.659887790679932,
+        6.407290458679199,
+        6.328170299530029,
+        6.098773956298828,
+        6.058310508728027
+      ],
+      "topk_share_of_residual": 0.1144076084342863
+    },
+    "closure_max": 2.2052279291528976e-07,
+    "cos_class_contrast_vs_pronoun_direction": 0.05821513384580612,
+    "final_state_difference": {
+      "energy_on_c": 10063.546875,
+      "energy_on_idiosyncratic_dirs": [
+        5014012.0,
+        225253.90625,
+        18746.61328125,
+        2164.09033203125,
+        37758.79296875,
+        60145.03125,
+        73629.46875,
+        17.427223205566406
+      ],
+      "energy_on_u": 4824342.0,
+      "ratio_c_over_mean_idio": 0.01482187343140829,
+      "total_energy": 37245544.0
+    },
+    "reader_share_on_c": 0.1324886962886504,
+    "writers_on_c_top8": {
+      "10.5": 41.71861267089844,
+      "11.3": -157.1301727294922,
+      "15.1": 73.93045043945312,
+      "9.6": 35.74745178222656,
+      "mlp11": -54.283363342285156,
+      "mlp12": -50.9044189453125,
+      "mlp16": 35.46546173095703,
+      "mlp17": -67.44586181640625
+    },
+    "writers_on_u_top8": {
+      "10.5": 218.81820678710938,
+      "12.4": 593.9306030273438,
+      "15.1": 256.31121826171875,
+      "9.6": 654.3671875,
+      "attn5": 144.96478271484375,
+      "mlp15": -115.04328918457031,
+      "mlp17": -267.1632080078125,
+      "mlp9": 164.00738525390625
+    }
+  },
+  "schema": "subspace_fold_number_result_v390",
+  "serial_seconds": 1.8180976149160415
+}
