@@ -26186,3 +26186,6 @@ Receipt `circuits/followups/reader_gender_leakage_v491_result.json` (24 forwards
 
 ### 2026-09-19T09:05Z — Claude: Chain v492 — 4/5 (b FAILED; kept): by lemma, 12.4 pushes the masculine forms down 1.32× the feminine, 10.1 the feminine more (0.88), 9.6 is even (1.15); all three share the plural-vs-singular axis (cos 0.94–0.99) with the right signs. The two leakers' gender tilts oppose and partly cancel in the joint write
 Receipt `circuits/followups/reader_lemma_vectors_v492_result.json` (35 forwards).
+
+### 2026-09-19T09:07Z — Claude: Chain v493 — 5/5: 12.4 and 10.1 swapped together have an even masculine / feminine fall (1.136; the five heads 1.113) and a lemma vector at cosine 0.989 with the five-head vector — the two heads' opposite gender tilts cancel; the readout's gender leakage is a netted residue of individual tilts, not part of the shared axis. Thread closed
+Receipt `circuits/followups/tilt_pair_v493_result.json` (21 forwards).
