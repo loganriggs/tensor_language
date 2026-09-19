@@ -1,0 +1,242 @@
+{
+  "candidate_id": "pronoun_number.violation_factor_split_v353",
+  "finished_utc": "2026-09-19T04:37:46.539853+00:00",
+  "forwards": 4,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.0001,
+      "frame_min": 0.3,
+      "frame_noun_max": 0.3,
+      "noun_frame_max": 0.2,
+      "noun_min": 0.5
+    },
+    "candidate_id": "pronoun_number.violation_factor_split_v353",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 10,
+    "frame": "The X verb",
+    "frames": [
+      " is",
+      " are"
+    ],
+    "gpu_accessed": false,
+    "groups": {
+      "plural": 256,
+      "singular": 256
+    },
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "tokens": 512,
+    "units": {
+      "3": [
+        3040,
+        114,
+        565,
+        3465
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_one_factor_reads_the_verb": false,
+    "pred_c_other_factor_reads_the_noun": false,
+    "pred_d_product_reproduces_the_table": true,
+    "pred_e_3040_and_114_split_the_same_way": true
+  },
+  "report": {
+    "closure_max": 0.0,
+    "per_unit": {
+      "mlp3.114": {
+        "L_medians": {
+          " are": {
+            "p": -25.135204315185547,
+            "s": -22.10693359375
+          },
+          " is": {
+            "p": -40.42708206176758,
+            "s": -17.448347091674805
+          }
+        },
+        "L_variance": {
+          "frame": 0.07233788818120956,
+          "interaction": 0.27381110191345215,
+          "noun": 0.450627863407135,
+          "residual": 0.20322316884994507
+        },
+        "R_medians": {
+          " are": {
+            "p": 7.429125785827637,
+            "s": 36.074989318847656
+          },
+          " is": {
+            "p": -26.758277893066406,
+            "s": 0.6035466194152832
+          }
+        },
+        "R_variance": {
+          "frame": 0.5774715542793274,
+          "interaction": 0.00039811269380152225,
+          "noun": 0.3467552363872528,
+          "residual": 0.07537508010864258
+        },
+        "h_medians": {
+          " are": {
+            "p": -183.63612365722656,
+            "s": -793.1029052734375
+          },
+          " is": {
+            "p": 1098.3385009765625,
+            "s": -12.996024131774902
+          }
+        },
+        "noun_reading_factor": "L",
+        "product_sign_matches": true,
+        "verb_reading_factor": "R"
+      },
+      "mlp3.3040": {
+        "L_medians": {
+          " are": {
+            "p": 21.797698974609375,
+            "s": 39.67924499511719
+          },
+          " is": {
+            "p": 18.709444046020508,
+            "s": 16.823253631591797
+          }
+        },
+        "L_variance": {
+          "frame": 0.42842909693717957,
+          "interaction": 0.23485197126865387,
+          "noun": 0.16246077418327332,
+          "residual": 0.17425823211669922
+        },
+        "R_medians": {
+          " are": {
+            "p": -3.053102493286133,
+            "s": -34.61663818359375
+          },
+          " is": {
+            "p": 13.204240798950195,
+            "s": 0.15191268920898438
+          }
+        },
+        "R_variance": {
+          "frame": 0.5081957578659058,
+          "interaction": 0.061361365020275116,
+          "noun": 0.3518528938293457,
+          "residual": 0.07858997583389282
+        },
+        "h_medians": {
+          " are": {
+            "p": -60.4788932800293,
+            "s": -1390.21484375
+          },
+          " is": {
+            "p": 241.0697784423828,
+            "s": 2.2074668407440186
+          }
+        },
+        "noun_reading_factor": "R",
+        "product_sign_matches": true,
+        "verb_reading_factor": "R"
+      },
+      "mlp3.3465": {
+        "L_medians": {
+          " are": {
+            "p": -8.931469917297363,
+            "s": 9.431812286376953
+          },
+          " is": {
+            "p": -10.87602710723877,
+            "s": -1.266465663909912
+          }
+        },
+        "L_variance": {
+          "frame": 0.15228262543678284,
+          "interaction": 0.062210485339164734,
+          "noun": 0.6444212794303894,
+          "residual": 0.14108556509017944
+        },
+        "R_medians": {
+          " are": {
+            "p": 4.8784661293029785,
+            "s": -17.740589141845703
+          },
+          " is": {
+            "p": 8.116998672485352,
+            "s": 5.709687232971191
+          }
+        },
+        "R_variance": {
+          "frame": 0.35945644974708557,
+          "interaction": 0.20150013267993927,
+          "noun": 0.2838621437549591,
+          "residual": 0.15518128871917725
+        },
+        "h_medians": {
+          " are": {
+            "p": -48.95232009887695,
+            "s": -164.63609313964844
+          },
+          " is": {
+            "p": -87.77975463867188,
+            "s": -3.9971518516540527
+          }
+        },
+        "noun_reading_factor": "L",
+        "product_sign_matches": true,
+        "verb_reading_factor": "R"
+      },
+      "mlp3.565": {
+        "L_medians": {
+          " are": {
+            "p": -7.717415809631348,
+            "s": -13.888330459594727
+          },
+          " is": {
+            "p": 3.8765931129455566,
+            "s": -9.306077003479004
+          }
+        },
+        "L_variance": {
+          "frame": 0.27175453305244446,
+          "interaction": 0.06046716123819351,
+          "noun": 0.39826875925064087,
+          "residual": 0.26950961351394653
+        },
+        "R_medians": {
+          " are": {
+            "p": -6.61655330657959,
+            "s": -40.48849868774414
+          },
+          " is": {
+            "p": 6.93889045715332,
+            "s": 3.1727514266967773
+          }
+        },
+        "R_variance": {
+          "frame": 0.5623170733451843,
+          "interaction": 0.14143326878547668,
+          "noun": 0.22119811177253723,
+          "residual": 0.07505148649215698
+        },
+        "h_medians": {
+          " are": {
+            "p": 42.70063400268555,
+            "s": 561.8672485351562
+          },
+          " is": {
+            "p": 18.94890594482422,
+            "s": -21.537845611572266
+          }
+        },
+        "noun_reading_factor": "L",
+        "product_sign_matches": true,
+        "verb_reading_factor": "R"
+      }
+    }
+  },
+  "schema": "violation_factor_split_result_v353",
+  "serial_seconds": 1.6341324609238654
+}

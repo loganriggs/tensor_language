@@ -25735,3 +25735,6 @@ Receipt `circuits/followups/violation_population_v351_result.json` (14 forwards)
 
 ### 2026-09-19T04:37Z — Claude: Number v352 — 2/5 the violation leaders: 3040 / 114 read verb form from the token alone (are − is −11.5 / −9.4 std; nouns ≈ 0) and fire at the mismatch (3040 −1390 for singular + are; 114 +1098 for plural + is), 565 amplifies are after a singular noun; 3465 is the noun reader gated by the verb. Agreement at MLP 3 = noun-gated verb units + verb-gated noun units. Three preds failed. §4.10 updated
 Receipt `circuits/followups/violation_leaders_v352_result.json` (7 forwards).
+
+### 2026-09-19T04:39Z — Claude: Number v353 — 3/5 violation leaders' factors are mixed (R verb 0.5–0.6 / noun 0.2–0.35; L noun or interaction); product reproduces every 2×2 sign pattern; no clean verb × noun wiring (two preds failed). Sub-thread closed at this grain; handoff page gains the agreement section
+Receipt `circuits/followups/violation_factor_split_v353_result.json` (4 forwards). One gate refusal before the run (stale predictions block after a derive), fixed.

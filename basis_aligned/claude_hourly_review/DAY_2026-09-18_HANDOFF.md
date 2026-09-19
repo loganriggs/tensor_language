@@ -53,3 +53,9 @@ nouns no, numerals no, plural pronouns no. One preceding word sharpens or suppre
 (v338) gave 3465 L = noun (0.81), R = licensing (0.51) but the labels did not transfer to full sentences (v339: both factors carry number; 70%
 of 3465's contrast on the 'determiner' factor) — retired as wiring, kept as bilinear products. On the native rows all six separate at the noun
 (2.8–7.3 std) and none at the answer position (attention carries the number, earlier chapters). Scorecard rows T43–T53; §4.10 tail.
+
+## Added 2026-09-19 04:39 UTC — agreement at MLP 3 (v346–v353)
+At a verb after a noun the chain's MLP-3 units are agreement detectors: 3465 (noun reader gated by the verb) fires −165 for "The X are" with X
+singular and 493 for plural X + is; but the causal population is led by 3040 / 114 / 565 (verb-form readers gated by the noun; 3040 −1390 for
+singular + are, 114 +1098 for plural + is). Zeroing 3465 alone at the verb is near-inert (KL 0.0008); zeroing the top-10 population costs 0.094
+nats and 0.73 log-odds of plural continuation (nulls 0.00002). Factors are mixed in both kinds of unit (v339, v353). Rows T60–T67.

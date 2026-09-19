@@ -435,7 +435,9 @@ follow the recent plural verb over the singular noun. So the causal component at
 (are − is at −11.5 and −9.4 pooled std; nouns alone 0.1 and −0.3) and fire at the mismatch — 3040 about −1400 for a plural verb after a singular
 noun, 114 about +1100 for a singular verb after a plural noun — and 565 amplifies are after a singular noun; 3465 is the noun reader (nouns alone
 −2.6 std, verbs −0.5) gated by the verb. Agreement at MLP 3 is thus noun-gated verb units plus verb-gated noun units: (previous token's number) ×
-(current token's number), both numbers read off MLP 1's lookup entries.
+(current token's number), both numbers read off MLP 1's lookup entries. Their bilinear factors are mixed rather than cleanly wired (v353): in each of 3040, 114 and 565 one factor leans on the verb's
+form (50–60% of its variance, with 20–35% noun) and the other on the noun's number or the interaction, and the product of the factor tables
+reproduces every unit's 2 × 2 sign pattern. As with 3465 in sentences (v339), the mismatch is computed as a product of two mixed readers.
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -546,6 +548,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v350 | zero 3465 / 493 at the verb | KL 0.0008 nats on the violation cell, nulls 0.0000: detects but near-inert for the next token (5/5 on paper) |
 | v351 | MLP-3 population census + edit | 3465 ranks 11th; top-10 (3040, 114, 565 …) zeroed: KL 0.094, log-odds −0.73 (nulls 0.00002) (3/5) |
 | v352 | leaders 3040 / 114 / 565 | verb-form readers gated by the noun (3040 −1390 for singular + are; 114 +1098 for plural + is); 3465 the noun reader gated by the verb (2/5) |
+| v353 | factor split of the leaders | mixed factors (R verb 0.5–0.6 / noun 0.2–0.35); product reproduces the tables (3/5) |
 
 ### Pass over the draft (what I changed after rereading)
 
