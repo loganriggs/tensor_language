@@ -695,3 +695,4 @@ v538 (5/5): write-side verb census complete — 11.3 0.238, 5.3 0.113, 7.8 0.108
 - PERSON BLOCK-4 COPIERS (v585): 4.5 0.018, 4.4 0.017, rest ≤ 0.007 — a population; head grain closed for the early exit.
 - PERSON WRITES INTO THE ANSWER (v586): four readers 0.412, rest of their blocks 0.137, all 0.943 — half of the write side is outside the named set.
 - PERSON OTHER WRITERS (v587): blocks 0–7 0.216, 8-rest 0.032, 9–12-rest 0.220, 13–17-rest 0.082 (sum 0.55 of the 0.53 remainder).
+- PERSON OTHER WRITERS BY BLOCK (v588): block 9 0.114, block 5 0.059, block 10-rest 0.047, block 12 0.038, blocks 6 / 7 0.03, block 4 0.027.

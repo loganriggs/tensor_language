@@ -26489,3 +26489,6 @@ Alternation PASS (`CIRCUIT` -> `WEIGHT_FOLDING`); prior-track progress FAIL for 
 
 ### 2026-09-19T12:03Z — Claude: v587: person other writers into the answer — blocks 0-7 0.216 (small prior failed), 8-rest 0.032, 9-12-rest 0.220, 13-17-rest 0.082 (late prior failed); sum 0.55; 3/5
 12 forwards. v588: blocks 0-7 and 9-12 singly (writes into the answer).
+
+### 2026-09-19T12:04Z — Claude: v588: person other writers by block — B9 0.114, B5 0.059, B10-rest 0.047, B12 0.038, B6 0.034, B7 0.033, B4 0.027 (bar 0.04 failed); early 0.171, mid 0.223; 4/5
+26 forwards. v589: block 9's heads singly (writes into the answer).
