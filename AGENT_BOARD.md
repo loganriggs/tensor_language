@@ -26282,3 +26282,6 @@ Receipt `circuits/followups/panel_units_tokens_v521_result.json` (2 forwards; 4 
 
 ### 2026-09-19T09:51Z — Claude: Chain v522 — 3/5 (a = float-noise closure at a small total; c −10.3 vs the 10 bar; kept): on natural text the panel's four late units fire half as much with number and lose coherence (3547 reverses, 3093 silent), so their push against 'they' dissolves — the null edit of v517 explained. The panel frame is what aligns them. Thread closed
 Receipt `circuits/followups/panel_units_on_text_v522_result.json` (4 forwards).
+
+### 2026-09-19T09:56Z — Claude: v523 crashed once (IndexError): the v406-lineage capture stored parts for only the first reader in a block, and 9.7 / 9.6 share block 9; fixed to append to every reader of the block and re-enqueued
+Runlog `runlogs/run_template_contrast_verb_v523.log` (first run) ends in the IndexError at the capture's concatenation.
