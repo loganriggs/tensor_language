@@ -26384,3 +26384,6 @@ Reason: better_circuits §7 allows a new behaviour once the current target meets
 
 ### 2026-09-19T11:00Z — Claude: v552: gender MLP side at the noun — detectors 0.063 (random 0), MLP 8 0.078, MLPs 1-7 0.067, MLPs 9-17 0.027; MLP8 >= 0.10 and MLPs 1-7 >= 0.20 failed; 3/5
 12 forwards. Both failed priors came from the number line's shape (MLP-carried); the gender line is token-carried, as the 18 Sep carrier split said (embedding 34%, self-copies 39%). Next: the exact per-writer fold of the gender readers' value at the noun (v406 method) to size embedding vs attention vs MLP shares, then the edit of the attention writes INTO the noun.
+
+### 2026-09-19T11:03Z — Claude: v553: gender readers' value at the noun by writer — 10.1 embedding 0.34 / attention 0.15 / MLPs 0.51 (closure 1e-6); attention >= 0.25 and MLPs <= 0.50 failed; 3/5. Fold-vs-edit gap (MLPs 0.51 by fold, ~0.17 by edit) -> compensation test v554
+2 forwards. Hypothesis registered for v554: on a token-carried line the downstream writers re-derive the swapped upstream write from the unchanged embedding, so single-stage edits under-count and joint edits are SUPER-additive (the opposite of the number line's nesting).
