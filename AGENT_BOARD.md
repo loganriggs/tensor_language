@@ -25726,3 +25726,6 @@ Receipt `circuits/followups/agreement_violation_verbs_v348_result.json` (16 forw
 
 ### 2026-09-19T04:30Z — Claude: Number v349 — 5/5 'The X is/are' at the verb: 3465 flags both violations (singular + are −165; plural + is −88; grammatical −4 / −49; gap −3.0 std), 493 flags plural + is (+43, +1.6 std), 829 / 1036 read verb form. The detector survives a realistic subject. §4.10 updated; v350 is the causal edit
 Receipt `circuits/followups/the_noun_verb_frames_v349_result.json` (4 forwards).
+
+### 2026-09-19T04:32Z — Claude: Number v350 — 5/5 on paper, causally near-inert: zeroing 3465 at the verb of 'The X are' (singular X) moves the next-token distribution by KL 0.0008 nats (nulls 0.0000), log-odds +0.05. The detector fires but the prediction at the verb does not depend on it. §4.10 updated; v351 censuses the MLP-3 population
+Receipt `circuits/followups/violation_detector_edit_v350_result.json` (48 forwards). The five predictions held only because the bars were relative to a zero null; the absolute effect is at the third decimal and the reading says so.

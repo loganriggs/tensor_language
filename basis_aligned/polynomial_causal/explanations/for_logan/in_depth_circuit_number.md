@@ -423,7 +423,10 @@ general detector; 829 and 1036 read the verb's form whatever the noun. Named at 
 preceding word's expectation and the current token's number that fires when a singular subject is followed by a plural verb form — both of its
 inputs drawn from MLP 1's lookup entries. With a determiner in front (v349, "The X is / are") the reading survives and broadens: 3465 fires −165 for a singular
 subject followed by are and −88 for a plural subject followed by is, against −4 and −49 in the grammatical cells; 493 flags plural-then-is (+43);
-829 and 1036 keep reading the verb's form. Whether the detector matters to the model's next prediction is the edit queued as v350.
+829 and 1036 keep reading the verb's form. Whether the detector matters to the model's next prediction: barely (v350). Zeroing 3465 at the verb of "The X are" with X singular moves the
+next-token distribution by 0.0008 nats (KL; eight random units 0.0000) and the plural-versus-singular continuation log-odds by +0.05. The unit
+detects the violation; the prediction at that position does not lean on it — either the flag is read later (the pronoun chain reads MLP 3's
+state at the noun through attention, not at the verb) or a population of MLP-3 units carries it redundantly (v351, queued).
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -531,6 +534,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v347 | [noun, is / are] at the verb | 3465 ≈ −300 only for singular + are; 493 +46 only for plural + is: violation detectors (2/5) |
 | v348 | four more verb pairs | 3465's violation reading holds ×4 (2–5 std); 493's is verb-dependent; 829 / 1036 read verb form (2/5) |
 | v349 | "The X is / are" | 3465 flags both violations (−165 / −88 vs −4 / −49); 493 plural + is (+43) (5/5) |
+| v350 | zero 3465 / 493 at the verb | KL 0.0008 nats on the violation cell, nulls 0.0000: detects but near-inert for the next token (5/5 on paper) |
 
 ### Pass over the draft (what I changed after rereading)
 
