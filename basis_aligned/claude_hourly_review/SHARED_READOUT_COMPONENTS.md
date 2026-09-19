@@ -580,3 +580,4 @@ v469 (3/5): single verb readers on 701 — 11.3 0.249, 7.8 0.137, 13.1 0.098, 9.
 v470 (3/5): the verb-position rebuild feeding 701 is distributed — MLPs 12 / 16 / 14 / 9 / 15 each 0.12–0.15, 13 0.10, 11 −0.07; sum 0.70. No single stage, unlike MLP 8 at the noun.
 v471 (3/5): at the verb MLP 16's feed into 701 is 2921 first (shared with the noun census, 9/20 overlap) but diffuse (top-10 0.44) and row-conditional (sign 0.61).
 v472 (5/5): 2921 and 701 anti-correlate (−0.57), both track the margin gap (−0.48 / +0.53), both sign-constant on the same 0.61 of rows — one upstream condition.
+v473 (4/5; b failed): 2921 alone moves 0.03 of 701 and 0.004 of the margin (MLP 16 whole 0.137 / 0.091; random 0): the verb-position rebuild is diffuse at unit grain.

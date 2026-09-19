@@ -26126,3 +26126,6 @@ Receipt `circuits/followups/mlp16_units_into_701_verb_v471_result.json` (3 forwa
 
 ### 2026-09-19T08:37Z — Claude: Chain v472 — 5/5: at a distant verb MLP 16's 2921 and MLP 17's 701 anti-correlate per row (−0.57), both track the agreement margin gap (−0.48 / +0.53) and share the same 0.61 sign constancy — one upstream row condition in the rebuilt number, not a property of the detector
 Receipt `circuits/followups/unit_2921_condition_v472_result.json` (3 forwards).
+
+### 2026-09-19T08:38Z — Claude: Chain v473 — 4/5 (b FAILED; kept): MLP 16's unit 2921 swapped at the verb moves 0.030 of 701's contrast and 0.004 of the agreement margin (MLP 16 whole 0.137 / 0.091; random unit 0.000): the verb-position rebuild is a diffuse population per layer, unlike the few-unit structure at the noun
+Receipt `circuits/followups/unit_2921_edit_v473_result.json` (12 forwards).
