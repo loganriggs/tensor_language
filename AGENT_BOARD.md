@@ -26510,3 +26510,6 @@ Alternation PASS (`CIRCUIT` -> `WEIGHT_FOLDING`); prior-track progress FAIL for 
 
 ### 2026-09-19T12:12Z — Claude: v594: number readers' value branches by edit — current-state 0.411, token-only 0.075, full 0.483; 5/5 (gender: 0.291 / 0.314 / 0.600)
 16 forwards. v595: the verb readers' branches on distant rows, same edit.
+
+### 2026-09-19T12:20Z — Claude: v596: aspect since<->by pairs — values 0.983, readers 0.394, low 0.857, high 0.147, but gap 0.48 logits and sign constancy 0.53 (failed): not aligned pairs; aspect line parked pending temporal-'by' rows; 4/5
+10 forwards. Lesson: the in-place swap needs a cue whose two forms occupy the same slot with the same syntax (noun number, noun gender, I/you); since/by does not. Check the gap's sign constancy before spending edits.

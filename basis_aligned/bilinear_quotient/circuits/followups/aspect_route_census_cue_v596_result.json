@@ -1,0 +1,47 @@
+{
+  "candidate_id": "aspect.route_census_cue_v596",
+  "finished_utc": "2026-09-19T12:19:08.583797+00:00",
+  "forwards": 10,
+  "plan": {
+    "bars": {
+      "add": 0.1,
+      "all_min": 0.8,
+      "replay_tol": 0.001,
+      "sign_min": 0.75,
+      "three_min": 0.3
+    },
+    "candidate_id": "aspect.route_census_cue_v596",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 11,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": "aspectual_anchor_dod_natural_rows_v20.json",
+    "text_pairs": 64
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_all_values_at_the_cue_carry_aspect": true,
+    "pred_c_three_readers_carry": true,
+    "pred_d_low_and_high_add": true,
+    "pred_e_pairs_are_sign_constant": false
+  },
+  "report": {
+    "replay_max_abs": 2.384185791015625e-05,
+    "text": {
+      "closed": {
+        "ALL_N": 0.9826534986495972,
+        "FIVE_N": 0.3935820460319519,
+        "HIGH_N": 0.14665323495864868,
+        "LOW_N": 0.8572593331336975
+      },
+      "gap_mean": 0.4802556037902832,
+      "pairs": 64,
+      "sign_constancy": 0.53125
+    }
+  },
+  "schema": "aspect_route_census_cue_result_v596",
+  "serial_seconds": 1.9564602221362293
+}
