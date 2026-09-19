@@ -26159,3 +26159,6 @@ Receipt `circuits/followups/attn_into_pronoun_heads_v482_result.json` (76 forwar
 
 ### 2026-09-19T08:52Z — Claude: Chain v483 — 5/5: into the pronoun slot 12.4 writes 0.244 of the margin (block 12: 0.237), 10.5 0.084 and 10.1 0.060 (block 10: 0.147), other heads ≤ 0.002 — the five-head pronoun reader set confirmed from the answer side (with 9.6 0.362); their writes (0.75) exceed their noun-side values (0.48) because they read other positions too
 Receipt `circuits/followups/attn_into_pronoun_heads_10_12_v483_result.json` (76 forwards).
+
+### 2026-09-19T08:54Z — Claude: Chain v484 — 5/5: 15.1 is block 15's write into the pronoun slot (0.073); the five readers' writes into the answer sum to 0.823 against 0.483 for their noun-side values — they read 0.34 from the post-noun and later positions. Pronoun reader set closed from both ends; answer-side line added to SHARED_READOUT_COMPONENTS
+Receipt `circuits/followups/attn_into_pronoun_heads_15_v484_result.json` (40 forwards).
