@@ -26007,3 +26007,6 @@ Receipt `circuits/followups/five_readers_edit_v433_result.json` (28 forwards).
 
 ### 2026-09-19T07:33Z — Claude: Both-ends v434 — 2/5 (c, d, e FAILED; kept): five readers at two sites 0.623 + the rest of the sequence 0.276 close 0.710 together (sum of parts 0.90): not additive, 0.29 unaccounted — the other heads' values at the two sites (the copier route) are missing from the edit and flow into the rest
 Receipt `circuits/followups/route_census_close_v434_result.json` (28 forwards).
+
+### 2026-09-19T07:34Z — Claude: Both-ends v435 — 1/5 (b–e FAILED; kept): joint replace-edits of NESTED routes cancel — five readers (two sites) + copier 0.678, + rest 0.645, + all low blocks 0.572. A swap is an involution: downstream values swapped to the partner's originals undo an upstream swap. Census must use sources at one position (the noun); v436
+Receipt `circuits/followups/route_census_copier_v435_result.json` (28 forwards). Methodological failure kept: v428's two-site (0.67) < noun-only (0.98) was the same artefact.

@@ -1,0 +1,60 @@
+{
+  "candidate_id": "both_ends.route_census_copier_v435",
+  "finished_utc": "2026-09-19T07:33:30.050241+00:00",
+  "forwards": 28,
+  "plan": {
+    "bars": {
+      "all_low_min": 0.93,
+      "copier_gain": 0.08,
+      "named_min": 0.85,
+      "panel_min": 0.9,
+      "replay_tol": 0.001,
+      "v434_joint": 0.71
+    },
+    "candidate_id": "both_ends.route_census_copier_v435",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 29,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_copier_adds_to_the_census": false,
+    "pred_c_named_route_plus_rest_closes_most": false,
+    "pred_d_low_exits_close_the_gap": false,
+    "pred_e_holds_on_panel": false
+  },
+  "report": {
+    "panel": {
+      "closed": {
+        "ALL_LOW": 0.5123561024665833,
+        "NAMED": 0.6175219416618347,
+        "NAMED_NOREST": 0.6497993469238281
+      },
+      "gap_mean": 4.0962815284729,
+      "pairs": 48
+    },
+    "replay_max_abs": 1.33514404296875e-05,
+    "text": {
+      "closed": {
+        "ALL_LOW": 0.5717798471450806,
+        "NAMED": 0.6450081467628479,
+        "NAMED_NOREST": 0.678333044052124
+      },
+      "gap_mean": 1.8995414972305298,
+      "pairs": 122
+    }
+  },
+  "schema": "route_census_copier_result_v435",
+  "serial_seconds": 2.400655888952315
+}
