@@ -1,0 +1,75 @@
+{
+  "candidate_id": "mlp2.token_table.lookup_law_natural_v318",
+  "finished_utc": "2026-09-19T03:21:17.375216+00:00",
+  "forwards": 8,
+  "plan": {
+    "bars": {
+      "alpha_max": 0.6,
+      "closure_tol": 0.0001,
+      "cos_min": 0.4,
+      "neg_min": 0.8,
+      "r_min": 0.4
+    },
+    "candidate_id": "mlp2.token_table.lookup_law_natural_v318",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 16,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "natural": [
+      "pronoun_number_dod_natural_verb_rows_v272.json",
+      "pronoun_number_dod_natural_verb_rows_v273.json"
+    ],
+    "rows": 128
+  },
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_mlp2_direction_kept": false,
+    "pred_c_mlp2_gain_below_one": true,
+    "pred_d_mlp2_cross_negative": true,
+    "pred_e_mlp2_gain_tracks_mlp1_gain": true
+  },
+  "report": {
+    "alpha1_median": 0.26184162497520447,
+    "alpha2_median": 0.20289134979248047,
+    "by_position_alpha2": [
+      0.3435726463794708,
+      0.2590819001197815,
+      0.22968260943889618,
+      0.23244328796863556,
+      0.1933472901582718,
+      0.21752779185771942,
+      0.1879451721906662,
+      0.18913687765598297,
+      0.1786726862192154,
+      0.18901076912879944,
+      0.17782807350158691,
+      0.1743805855512619,
+      0.19662317633628845,
+      0.2064642608165741,
+      0.19096782803535461,
+      0.1880439966917038,
+      0.1958523839712143,
+      0.1866445094347,
+      0.194596529006958,
+      0.18241575360298157,
+      0.1762961745262146,
+      0.19628675282001495,
+      0.21569181978702545
+    ],
+    "closure_max": 9.036278925123042e-07,
+    "cos2_median": 0.3493526875972748,
+    "cross_negative_fraction": 0.9942255616188049,
+    "cross_proj_median": -0.42990559339523315,
+    "decomposition_max_rel_err": 0.004142402671277523,
+    "gamma2_median": 0.39780160784721375,
+    "only_proj_median": 0.23376426100730896,
+    "pearson_alpha2_alpha1": 0.7189808487892151,
+    "positions": 2944,
+    "write2_over_table2_norm_median": 0.5848360061645508
+  },
+  "schema": "mlp1_lookup_law_natural_result_v318",
+  "serial_seconds": 1.9853201059158891
+}

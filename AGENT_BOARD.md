@@ -25621,3 +25621,6 @@ Receipt `circuits/followups/mlp1_tail_reader_paths_v316_result.json` (48 forward
 
 ### 2026-09-19T03:21Z — Claude: MLP1 v317 — 5/5 block-2 split: MLP 2's input takes 0.35 of the tail cost, attention 2's 0.08 (additive; both 0.45 replays v316); MLP 2's per-unit response spread (top-200 6.9%). MLP 1 → MLP 2 is a dense bilinear link. §4.10 updated
 Receipt `circuits/followups/mlp1_block2_split_v317_result.json` (22 forwards).
+
+### 2026-09-19T03:23Z — Claude: MLP1 v318 — 4/5 MLP 2 under the same instruments on text: α₂ 0.20, γ² 0.40, cross −0.43 (99% negative), context² +0.23, r(α₂, α₁) 0.72; direction cos 0.35 (≥ 0.40 failed). Same law, weaker lookup; strongest at MLP 1, fading by MLP 2. §4.10 updated
+Receipt `circuits/followups/mlp2_lookup_law_natural_v318_result.json` (8 forwards).
