@@ -26117,3 +26117,6 @@ Receipt `circuits/followups/block11_heads_into_701_v468_result.json` (3 forwards
 
 ### 2026-09-19T08:33Z — Claude: Chain v469 — 3/5 (b 0.249 vs 0.25, c FAILED; kept): single verb readers' value swaps on 701 at a distant verb — 11.3 0.249, 7.8 0.137, 13.1 0.098, 9.7 0.020, additive (0.50 vs 0.48). 7.8's copy reaches the detector through the MLP rebuild though its direct write into 701's inputs is 0.02: folds see direct writes, edits see the route
 Receipt `circuits/followups/verb_reader_singles_701_v469_result.json` (18 forwards).
+
+### 2026-09-19T08:34Z — Claude: Chain v470 — 3/5 (b, d FAILED; kept): the rebuild at the verb that feeds 701 is distributed — MLPs 12 (0.145), 16 (0.137), 14 (0.128), 9 (0.125), 15 (0.119), 13 (0.096) each a tenth to a seventh of the detector's contrast, MLP 11 opposing (−0.067); sum 0.70. No single stage leads, unlike MLP 8 at the noun
+Receipt `circuits/followups/rebuild_stages_701_v470_result.json` (27 forwards).

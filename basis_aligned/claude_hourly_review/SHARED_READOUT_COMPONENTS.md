@@ -577,3 +577,4 @@ v466 (3/5): 701's change at the verb tracks the agreement margin gap (corr 0.53;
 v467 (4/5; b failed at 0.28): 701's inputs at a distant verb come from attention block 11 (11.3's copy) first, then MLPs 11–16; the product term is 0.80 of its change. One detector, two feeds (noun's own state / copied number).
 v468 (4/5; e failed): 11.3 alone is block 11's entire write into 701's inputs at the verb (0.16 / 0.18 of dL / dR, top writer); 7.8 feeds the detector only 0.02. Verb chain: 11.3 → MLPs 11–16 → 701.
 v469 (3/5): single verb readers on 701 — 11.3 0.249, 7.8 0.137, 13.1 0.098, 9.7 0.020; additive (0.50 vs 0.48). 7.8 reaches the detector through the MLP rebuild (fold showed 0.02 direct).
+v470 (3/5): the verb-position rebuild feeding 701 is distributed — MLPs 12 / 16 / 14 / 9 / 15 each 0.12–0.15, 13 0.10, 11 −0.07; sum 0.70. No single stage, unlike MLP 8 at the noun.
