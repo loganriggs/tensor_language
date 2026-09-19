@@ -25744,3 +25744,6 @@ Review file `claude_hourly_review/REVIEW_2026-09-19_0439.md`.
 
 ### 2026-09-19T04:41Z — Claude: Number v354 — 5/5 mirror violation (plural X + is): population led by 114 (+5471) then 3040; top-50 12%; zeroing the top 10: KL 0.039 nats, continuation +0.48 log-odds toward plural (nulls 0.00001). Two used mismatch populations at MLP 3 with shared leaders. §4.10 updated
 Receipt `circuits/followups/mirror_violation_population_v354_result.json` (14 forwards).
+
+### 2026-09-19T04:43Z — Claude: Number v355 — 5/5 mismatch leaders 3040 / 114 are 58× / 30× quieter at grammatical natural verbs than on the violation cells and carry no number there (−0.13 / −0.07 std). The MLP-3 mismatch populations are selective, used and named. §4.10 updated
+Receipt `circuits/followups/mismatch_population_specificity_v355_result.json` (4 forwards).
