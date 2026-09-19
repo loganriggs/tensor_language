@@ -1,0 +1,68 @@
+{
+  "candidate_id": "chain.readers_feed_701_v465",
+  "finished_utc": "2026-09-19T08:26:55.262956+00:00",
+  "forwards": 12,
+  "plan": {
+    "bars": {
+      "all_min": 0.85,
+      "copier_gain": 0.1,
+      "readers_min": 0.25,
+      "replay_tol": 0.001,
+      "sign_min": 0.85,
+      "unit": 701
+    },
+    "candidate_id": "chain.readers_feed_701_v465",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 13,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_701_has_a_number_contrast_at_the_verb": false,
+    "pred_c_verb_readers_feed_701": true,
+    "pred_d_copier_adds_to_701": true,
+    "pred_e_all_values_at_noun_carry_701": true
+  },
+  "report": {
+    "panel": {
+      "distant_rows": 79,
+      "skipped": "distant rows only"
+    },
+    "replay_max_abs": 2.384185791015625e-05,
+    "text": {
+      "contrast_mean": 37.7872428894043,
+      "moved": {
+        "ALL_NOUN": 1.0305685997009277,
+        "V4": 0.48255184292793274,
+        "V4_C": 0.6174232959747314
+      },
+      "pairs": 79,
+      "sign_constancy": 0.607594907283783,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": 37.7872428894043,
+      "moved": {
+        "ALL_NOUN": 1.0305685997009277,
+        "V4": 0.48255184292793274,
+        "V4_C": 0.6174232959747314
+      },
+      "pairs": 79,
+      "sign_constancy": 0.607594907283783,
+      "unit": 701
+    }
+  },
+  "schema": "readers_feed_701_result_v465",
+  "serial_seconds": 1.9884393180254847
+}

@@ -26102,3 +26102,6 @@ Alternation PASS (`WEIGHT_FOLDING`→`CIRCUIT`); prior-hour progress PASS with s
 
 ### 2026-09-19T08:26Z — Claude: Chain v464 — 2/5 (a float-noisy at 1.7e-3, b and e FAILED; kept): MLP 17 has no pronoun final detector at the answer position (top unit's sign constancy 0.52, top-10 0.41, overlap with the verb detector census 1 of 20). The pronoun readout ends at the readers' value copy; the verb readout adds 701 / 2059
 Receipt `circuits/followups/mlp17_units_pronoun_answer_v464_result.json` (4 forwards).
+
+### 2026-09-19T08:28Z — Claude: Chain v465 — 4/5 (b FAILED; kept): unit 701 at a distant verb reads the copied number — the four verb readers' values move 0.48 of its pooled contrast, + the copier 0.62, all values at the noun 1.03 — but its per-row sign is constant on only 0.61 of rows: a conditional detector. Two gate refusals (undefined names) fixed before the run
+Receipt `circuits/followups/readers_feed_701_v465_result.json` (12 forwards).
