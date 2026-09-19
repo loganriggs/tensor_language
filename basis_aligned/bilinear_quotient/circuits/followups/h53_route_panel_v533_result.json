@@ -1,0 +1,62 @@
+{
+  "candidate_id": "both_ends.h53_route_panel_v533",
+  "finished_utc": "2026-09-19T10:14:19.144984+00:00",
+  "forwards": 15,
+  "plan": {
+    "bars": {
+      "band": 0.02,
+      "band2": 0.03,
+      "five2_panel": 0.639,
+      "fiven_panel": 0.34,
+      "h53_v532": 0.093,
+      "replay_tol": 0.001
+    },
+    "candidate_id": "both_ends.h53_route_panel_v533",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 16,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_5_3_routes_through_the_readers_post_noun_read": false,
+    "pred_c_5_3_adds_to_the_readers_noun_read": true,
+    "pred_d_5_3_replays": true,
+    "pred_e_five_two_sites_replays": true
+  },
+  "report": {
+    "panel": {
+      "closed": {
+        "FIVE2_53": 0.7305514216423035,
+        "FIVEN_53": 0.4485519230365753,
+        "FIVE_2": 0.6385578513145447,
+        "H53_N1": 0.0933808982372284
+      },
+      "gap_mean": 4.0962815284729,
+      "pairs": 48
+    },
+    "replay_max_abs": 1.239776611328125e-05,
+    "text": {
+      "closed": {
+        "FIVE2_53": 0.7305514216423035,
+        "FIVEN_53": 0.4485519230365753,
+        "FIVE_2": 0.6385578513145447,
+        "H53_N1": 0.0933808982372284
+      },
+      "gap_mean": 4.0962815284729,
+      "pairs": 48
+    }
+  },
+  "schema": "h53_route_panel_result_v533",
+  "serial_seconds": 1.853973421966657
+}

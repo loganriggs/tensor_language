@@ -26315,3 +26315,6 @@ Receipt `circuits/followups/five_readers_panel_two_sites_v531_result.json` (12 f
 
 ### 2026-09-19T10:13Z — Claude: Both-ends v532 — 3/5 (b, e FAILED; kept): on the panel the second-hop copier 5.3 at the post-noun token closes 0.093 of the pronoun margin (natural text 0.021), a third of the copier's 0.298 — the two-hop route feeds the pronoun readout on the constructed frame, matching the panel readers' larger post-noun share (0.34 noun-only vs 0.64 two-site)
 Receipt `circuits/followups/h53_panel_pronoun_v532_result.json` (12 forwards).
+
+### 2026-09-19T10:15Z — Claude: Both-ends v533 — 4/5 (b FAILED; kept): on the panel 5.3's post-noun value effect (0.093) adds in full to the readers' two-site swap (0.639 → 0.731) and to their noun-only swap (0.340 → 0.449) — a parallel route into the answer position, not the readers' post-noun read; a sixth channel into the panel's pronoun slot that natural text barely uses
+Receipt `circuits/followups/h53_route_panel_v533_result.json` (15 forwards).
