@@ -627,3 +627,4 @@ v515 (4/5; e failed): MLP 17's opposing write at the panel answer = units 3547 /
 v516 (5/5, EDIT): units 3547 / 1747 / 3093 / 4448 at the panel answer close −0.078 (MLP 17 whole −0.115; random 0.000) — a late opposing population that survives the edit.
 v517 (5/5): the four opposing MLP-17 units do nothing at the natural pronoun answer (−0.003 vs −0.078 on the panel) — a panel-specific late opposition.
 v518 (4/5; b failed): the four opposing MLP-17 units move the panel's pronoun margin (−0.078) but not its agreement margin (0.002) — pronoun-specific, not agreement units.
+v519 (3/5; b, e failed): the four MLP-17 units write 'he' at the panel answer (they−he −0.078, they−she −0.022, gender ratio 0.83) — a panel-specific masculine push, not a number opposer.

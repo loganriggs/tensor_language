@@ -26270,3 +26270,6 @@ Receipt `circuits/followups/text_opposing_units_v517_result.json` (16 forwards).
 
 ### 2026-09-19T09:44Z — Claude: Chain v518 — 4/5 (b FAILED; kept): the four MLP-17 units that oppose the panel's pronoun margin (−0.078, replayed) move the panel's agreement margin by 0.002 — not verb-agreement units; a pronoun-specific late correction the constructed frame elicits
 Receipt `circuits/followups/panel_opposing_units_verb_v518_result.json` (9 forwards).
+
+### 2026-09-19T09:46Z — Claude: Chain v519 — 3/5 (b, e FAILED; kept): the four MLP-17 units that seemed to oppose number at the panel answer write 'he' — they − he −0.078, they − she −0.022, he − she moved 0.83× the number margin. A panel-specific masculine push by four late units, absent on natural text and from the agreement margin; not part of the number circuit
+Receipt `circuits/followups/panel_opposing_units_axes_v519_result.json` (9 forwards).
