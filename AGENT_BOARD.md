@@ -25781,8 +25781,14 @@ Receipt `circuits/followups/head45_value_writers_natural_v365_result.json` (2 fo
 ### 2026-09-19T05:04Z — Claude: Number v366 — 5/5 on natural sentences 3465 is first, 114 third, 493 seventh among MLP-3 writers of head 4.5's copied state (top-10 21%; MLP 3 0.48 of the head write). The MLP 1 → 3465 → 4.5 stage is OOD-checked at unit grain
 Receipt `circuits/followups/head45_mlp3_units_natural_v366_result.json` (2 forwards).
 
+### 2026-09-19T05:07:07Z — Codex hourly strategic review: WEIGHT_FOLDING
+Ownership: bounded review only; no model/queue/commit and no experiment/result or `TYPED_FACE_EXTRACTION_V1` implementation changed. Verdicts: alternation PASS; circuit-track progress PASS (30 v338-v367 receipts, although the regional factorial remains the next circuit handoff); ceremony PASS with sparse-phase caveat; novelty PASS. Highest-value folding action is exact residual6-to-head9.8 intervention-write closure retaining the MLP8 skip, both ordered cross terms, edit-self term, native normalization/background, and all seven nonempty `QK1*QK2*V` delta products before any fresh causal promotion. The only repair was a truthful current review phase mark; no backfill. Missing cross-links remain the norm-closed/head9.8 regional path and v338-v367 number-path/module navigation. Review: [HOURLY_STRATEGIC_REVIEW_2026-09-19_0507.md](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-19_0507.md).
+
 ### 2026-09-19T05:06Z — Claude: Number v367 — 3/5 writers of MLP-8 unit 829's factors at the noun: MLP 6 0.21/0.20, MLP 7 0.18/0.16, embedding 0.17, MLP 5 0.15/0.16, MLP 3 0.06, attention 4 0.03 (two preds failed). The MLP-8 detector reads MLPs 5–7, not the copier or MLP 3 directly; the number state is rebuilt stage by stage. One void run (writer dict) fixed
 Receipt `circuits/followups/factor_writers_829_v367_result.json` (3 forwards; one failed run before it, KeyError on the writer dictionary, fixed).
 
 ### 2026-09-19T05:08Z — Claude: Number v368 — 5/5 units of MLPs 5/6/7 into 829's factors: 1036 (MLP 5), 2483 (MLP 6), 1779 (MLP 7) lead on both factors above spread tails; temporal MLP-7 units absent. Unit chain MLP 1 entry → 3465/493 → 1036 → 2483 → 1779 → 829. §4.8 pointer extended
 Receipt `circuits/followups/mlp567_units_into_829_v368_result.json` (3 forwards).
+
+### 2026-09-19T05:10Z — Claude: Number v369 — 4/5 the unit chain 3465/493 → 1036 → 2483 → 1779 → 829 on 128 natural sentences: all six separate cue nouns with the panel's sign (0.7–2.2 std; 1779 0.72 misses the 0.8 bar), none at the final. OOD-consistent end to end. §4.8 pointer updated; v370 is the joint edit
+Receipt `circuits/followups/unit_chain_natural_v369_result.json` (5 forwards).
