@@ -25828,3 +25828,6 @@ Receipt `circuits/followups/restorer_factor_split_v379_result.json` (9 forwards)
 
 ### 2026-09-19T05:35Z — Claude: Number v380 — 4/5 reader heads at the final token: 12.4 +2099, 9.6 +2051, 15.1 +1086 carry 73% of the head contrast; under the six-unit chain cut they lose 12% (9.6 −19%, 15.1 −13%, 12.4 −5%) vs the margin's −14%. pred_e's absolute comparison was ill-posed (units). The readers draw on more than the named chain
 Receipt `circuits/followups/reader_heads_under_chain_cut_v380_result.json` (6 forwards).
+
+### 2026-09-19T05:36Z — Claude: Number v381 — 3/5 key split of the readers' final write: 9.6 noun 0.48 / other 0.52 (cut removes 21% from the noun term and half its loss elsewhere); 12.4 noun 0.24 / other 0.76, loss 5%. Two bars failed (9.6 noun ≥ 0.60; ≥ 0.70 of loss on noun). Readers draw on copied number at other positions
+Receipt `circuits/followups/reader_key_split_v381_result.json` (6 forwards).

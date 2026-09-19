@@ -1,0 +1,96 @@
+{
+  "candidate_id": "pronoun_number.reader_key_split_v381",
+  "finished_utc": "2026-09-19T05:35:45.847906+00:00",
+  "forwards": 6,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.0001,
+      "loss_on_noun": 0.7,
+      "noun_124": 0.5,
+      "noun_96": 0.6,
+      "noun_loss": 0.2
+    },
+    "candidate_id": "pronoun_number.reader_key_split_v381",
+    "chain": {
+      "3": [
+        3465,
+        493
+      ],
+      "5": [
+        1036
+      ],
+      "6": [
+        2483
+      ],
+      "7": [
+        1779
+      ],
+      "8": [
+        829
+      ]
+    },
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 8,
+    "gpu_accessed": false,
+    "heads": [
+      [
+        9,
+        6
+      ],
+      [
+        12,
+        4
+      ]
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117"
+  },
+  "predictions": {
+    "pred_a_key_split_closure": true,
+    "pred_b_9_6_reads_the_noun": false,
+    "pred_c_12_4_reads_elsewhere": true,
+    "pred_d_cut_falls_on_the_noun_key": false,
+    "pred_e_noun_key_share_of_9_6_loss": true
+  },
+  "report": {
+    "12.4": {
+      "cut": {
+        "noun": 23386.814453125,
+        "other": 72557.453125,
+        "total": 95944.265625
+      },
+      "loss_on_noun_share": 0.10713860413825504,
+      "loss_total": -4789.15625,
+      "native": {
+        "noun": 23899.91796875,
+        "noun_share": 0.2372590697693898,
+        "other": 76833.515625,
+        "total": 100733.421875
+      },
+      "noun_rel_loss": 0.021468840030995136
+    },
+    "9.6": {
+      "cut": {
+        "noun": 37122.30859375,
+        "other": 42440.65625,
+        "total": 79562.96875
+      },
+      "loss_on_noun_share": 0.5111265974606063,
+      "loss_total": -18889.84375,
+      "native": {
+        "noun": 46777.41015625,
+        "noun_share": 0.4751251789404188,
+        "other": 51675.40625,
+        "total": 98452.8125
+      },
+      "noun_rel_loss": 0.206405218464408
+    },
+    "closure_max": 3.183818009233619e-08
+  },
+  "schema": "reader_key_split_result_v381",
+  "serial_seconds": 1798326.69260694
+}
