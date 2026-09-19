@@ -25708,3 +25708,6 @@ Receipt `circuits/followups/mlp1_table_vs_remainder_other_units_v343_result.json
 
 ### 2026-09-19T04:18Z — Claude: Number v344 — 3/5 on 128 natural rows: MLP 1's context-free entry is 58–82% of its contribution to each factor of 3465 / 493 / 1036 / 829 at real cue nouns; units separate plural/singular cues at 1.0–2.2 std with the panel signs. Two bars missed by 0.02 (829 L 0.58; 1036 0.98). §4.10 updated
 Receipt `circuits/followups/mlp1_table_into_units_natural_v344_result.json` (3 forwards).
+
+### 2026-09-19T04:19Z — Claude: Review 36 (04:19 UTC): number chain's bottom — 24 receipts v322–v345, agreement units fed by MLP 1's lookup, OOD on vocabulary pairs and sentences; frame factor labels falsified; bar-setting lesson recorded; QUEUED v345
+Review file `claude_hourly_review/REVIEW_2026-09-19_0419.md`.
