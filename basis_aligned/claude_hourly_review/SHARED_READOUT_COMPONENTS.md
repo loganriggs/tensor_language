@@ -518,3 +518,4 @@ v409 (5/5): copier 4.5 at the post-noun token is a value copy too (value-only 0.
 v410 (5/5): copier 4.5 value copy replays on text (0.90). Both-ends series closed: number rides the value branch at every attention step; patterns select, they do not carry number (12.4 excepted).
 v411 (2/5; b, c, e failed): the readers' pattern weight at the noun is number-blind (|corr| ≤ 0.10 on text) but not constant (9.6 CV 1.1, sign 0.84 on text); 12.4's −0.75 number correlation is panel-only (text −0.10).
 v412 (3/5; d, e failed): the readers' pattern weights at the noun and post-noun co-vary (0.64 for 9.6) and fall with distance; the two-site sum is no steadier (CV 1.03) — the gain is row-level.
+v413 (3/5; b, e failed): the readers' row-level gain is set by neither the answer token (0.15 of variance) nor the noun token (0.23) — context at the two ends.

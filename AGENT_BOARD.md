@@ -25935,3 +25935,6 @@ Receipt `circuits/followups/pattern_weight_distribution_v411_result.json` (7 for
 
 ### 2026-09-19T06:57Z — Claude: Distributional v412 — 3/5 (d, e FAILED; kept): the readers' pattern weights at the noun and the post-noun site co-vary (9.6 corr 0.64; 15.1 0.90) and fall with distance (9.6 −0.24); the two-site sum is no steadier a gate (CV 1.03 vs 1.12; sign 0.85). The gain is row-level, set on the answer side or by context
 Receipt `circuits/followups/pattern_weight_sites_v412_result.json` (4 forwards).
+
+### 2026-09-19T06:59Z — Claude: Distributional v413 — 3/5 (b, e FAILED; kept): the readers' row-level gain is set by neither the answer token (0.15 of p's variance for 9.6) nor the noun token (0.23); minority-sign rows share no answer token; query-norm null held. Context at the two ends sets it
+Receipt `circuits/followups/pattern_gain_source_v413_result.json` (4 forwards).
