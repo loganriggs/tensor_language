@@ -25923,3 +25923,6 @@ Receipt `circuits/followups/value_copy_mlp8_units_text_v407_result.json` (4 forw
 
 ### 2026-09-19T06:44Z — Claude: Both-ends v408 — 4/5 corrected closure (8e-5) for the text unit census; ranks unchanged (829 / 953 / 1030; 3152 5th, pred_e failed as registered); LATEST.md section for Logan (subspace + both-ends, v390–v408) appended
 Receipt `circuits/followups/value_copy_mlp8_units_text_v408_result.json` (4 forwards).
+
+### 2026-09-19T06:46Z — Claude: Both-ends v409 — 5/5 the copier 4.5 at the post-noun token is a value copy too (value-only 0.91, pattern terms 0.07, degree 3 0.003; noun source 1.02 of its write on 9.6's value direction). Number rides the value branch at every attention step of the chain
+Receipt `circuits/followups/both_ends_degree_copier_v409_result.json` (3 forwards).

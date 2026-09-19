@@ -1,0 +1,70 @@
+{
+  "candidate_id": "both_ends.degree_expansion_copier_v409",
+  "finished_utc": "2026-09-19T06:45:05.677765+00:00",
+  "forwards": 3,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.0001,
+      "instr_tol": 0.02,
+      "noun_min": 0.35,
+      "third_max": 0.25,
+      "value_min": 0.6
+    },
+    "candidate_id": "both_ends.degree_expansion_copier_v409",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 4,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "readers": [
+      "4.5"
+    ],
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117"
+  },
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_noun_source_carries_a_third": true,
+    "pred_c_copier_is_a_value_copy_too": true,
+    "pred_d_third_order_small": true,
+    "pred_e_leading_term_replays_across_frames": true
+  },
+  "report": {
+    "closure_max": 2.212299624745058e-16,
+    "instrument_max_rel": 7.197863851615693e-07,
+    "readers": {
+      "4.5": {
+        "degree_shares": {
+          "degree1": 0.8741916840740653,
+          "degree2": 0.06537800530428829,
+          "degree3": 0.0026283610564862654,
+          "query": 0.057801949565159945
+        },
+        "leading_term_by_frame": {
+          "because": "value_only",
+          "later": "value_only",
+          "lost": "value_only"
+        },
+        "noun_source_contrast": 122258324.48020466,
+        "noun_source_share": 1.0169519450558486,
+        "pairs": 48,
+        "skipped": 0,
+        "term_shares": {
+          "query_change": 0.057801949565159945,
+          "s1_only": -0.017962797232776193,
+          "s1_s2": -0.0012605598540168024,
+          "s1_s2_value": 0.0026283610564862654,
+          "s1_value": 0.03831523457911065,
+          "s2_only": -0.014931575701778037,
+          "s2_value": 0.02832333057919444,
+          "value_only": 0.9070860570086196
+        },
+        "total_contrast": 120220355.6171875
+      }
+    }
+  },
+  "schema": "both_ends_degree_copier_result_v409",
+  "serial_seconds": 1.6144114071503282
+}
