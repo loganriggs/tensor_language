@@ -26300,3 +26300,6 @@ Receipt `circuits/followups/templates_difference_v526_result.json` (4 forwards).
 
 ### 2026-09-19T10:06Z — Claude: Template v527 — 5/5: the weight template's four extra top-10 heads (3.4, 1.2, 0.3, 5.6) carry ≤ 0.01 of the pronoun margin by value swap (copier 0.187 replays) — full recall on the five readers, four inert false positives. Template library closed; §4.11 gets 'the template library' (v420–v527)
 Receipt `circuits/followups/template_false_positives_v527_result.json` (24 forwards).
+
+### 2026-09-19T10:08Z — Claude: Template v528 — 5/5 (re-run after an unpadded-rows crash): with the panel frame's noun difference the pronoun template's top 10 holds all five pronoun readers (1–7) and the agreement template's top 10 all five verb readers (11.3, 7.8, 13.1, 5.3, 9.7 at 1, 2, 3, 5, 10); 9 of 10 heads shared with the natural-frame lists. Weight ranking frame-invariant
+Receipt `circuits/followups/templates_all_heads_panel_v528_result.json` (3 forwards; 6 spent with the re-run).
