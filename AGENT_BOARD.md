@@ -26420,3 +26420,6 @@ Reason: better_circuits §7 allows a new behaviour once the current target meets
 
 ### 2026-09-19T11:25Z — Claude: v564: gender writes into the answer singly — 12.4 0.311, 10.1 0.187, 9.6 0.183, 15.1 0.101, 10.5 0.024 (sum 0.806); 10.1-first failed; 4/5
 12 forwards.
+
+### 2026-09-19T11:25Z — Claude: Review 43 (11:24 UTC): v542-v564 — adjacent-row map closed, third set OOD 20/20, gender line opened and closed at both ends (token-only half); §4.12 + LATEST 11:25 + appendix correction written; QUEUED v565
+22 receipts, 182 forwards, 27 failed predictions kept.

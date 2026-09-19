@@ -692,4 +692,52 @@ noun's own position is closed by replace-edits: the five verb heads' writes 0.16
 values, 0.107), the other 40 heads of their blocks 0.022, blocks 8 / 10 0.024 / 0.021, blocks 14–17 0.032, blocks 0–4 0.013, block 12 −0.003; every
 block's attention 0.313 (0.287 accounted, 0.026 sub-additive). Two priors failed and are kept: the copiers' blocks do not write agreement into the
 noun itself (their seed is for the token after it), and the pronoun reader 12.4's block writes nothing here. The MLP side at that position (0.45 whole,
-v501) is being split into the hub, the detector and the layers between (v542).
+v501) splits by stage (v542–v543): MLP 8 alone 0.295 — the largest single block, against 0.052 for MLP 17 alone, 0.268 for MLPs 1–7 and 0.436 for MLPs 9–16 (stages over-count the nested 0.452); of MLP 8's 0.295, its exact-fold top three units 829 / 1738 / 3858 carry 0.149, the top ten 0.216, the top thirty 0.232 (the three hub units alone 0.114). Both of my directional priors for the stages failed and are kept: the hub was expected small and the detector large.
+
+**A third natural set (v544–v546).** Every number above comes from two sets of natural rows (fineweb documents 0–16233 and pile-10k). A third set was mined
+outcome-blind from fineweb documents 16236–28560 with the same filters (64 rows, 48 with a distant verb), and both reader sets were edited on it with the
+priors registered first: the five pronoun readers' joint write swap closes 0.730 of the they − he gap on 60 fresh pairs (prior 0.803 ± 0.15; the rest of
+their blocks 0.034; all attention 0.949), and the five verb readers' joint write swap closes 0.599 of the agreement gap on 45 fresh distant rows (prior
+≥ 0.40; sets 1 + 2 gave 0.557; the rest of their blocks 0.085; all attention 0.981). Ten of ten predictions held. This is the out-of-sample cell that had
+been untested for both readouts.
+
+### 4.12 The gender line by the same method [v549–v564]
+
+**Claim.** After a gendered noun (king / queen, actor / actress, ...) the he − she choice runs through the same five pronoun readers as number, but they
+carry a token-carried signal: half of what they read at the noun is block 0's value of the noun token itself, the other half a state written back into
+the noun by two self-copy heads (8.1, 6.1) and, a little, by MLPs 6–8; and they write most of the gender into the answer from positions after the noun.
+
+**Rows.** 61 natural aligned pairs from the 18 Sep fineweb rows, the gendered noun swapped in place for its partner (same surface form); he − she margin,
+gap 4.4 logits, sign constancy 0.89; every edit replays the model to 1e-5.
+
+**The census (v549–v551).** Every head's value at the noun swapped closes 0.90 of the gap. The five pronoun readers 0.60 — singly 10.1 0.255, 12.4 0.170,
+9.6 0.107, 15.1 0.055, 10.5 0.015 (they add: 0.602). Blocks 0–8 0.45, of which the two self-copies 8.1 + 6.1 are 0.31 (8.1 0.154, 6.1 0.113) and the other
+79 heads 0.084; readers + self-copies jointly 0.83 (nested by 0.08: the self-copies feed what the readers copy). Two priors failed and are kept: low and
+high exits are not parallel here (they were for number), and 9.6 is the third gender reader, not the first — the 18 Sep account that ran the gender
+path through 9.6 named the right layer and the wrong leader.
+
+**The MLP side is small (v552–v554).** MLP 8's whole write swapped at the noun 0.078; its two named detectors 3152 / 3943 0.063 (0.81 of the block's
+part, as the 18 Sep fold said; two random units 0.000); MLPs 1–7 0.067; MLPs 9–17 0.027; MLPs 1–8 jointly 0.109. Everything blocks 0–8 write into the
+noun, attention and MLP together, closes 0.45. The exact writer fold of the readers' value factor (v553) nevertheless gives the MLPs half of 10.1's
+read (embedding 0.34, attention 0.15, MLPs 0.51), and the readers' values do move by exactly those shares inside the MLP-8 edit (v555: 9.6 0.341 = fold
+0.341). The readout is linear in the readers (v556: swapping a fraction α of their values closes α × 0.600 at four α). So the gap between fold and edit
+had to be at the noun, and it was the value's second branch.
+
+**The token-only branch (v558–v559).** Each value is (1 − λ)·W_v n(live) + λ·v₀, with v₀ block 0's value of the same token. Swapping only the readers'
+current-state branch closes 0.291, only their token-only branch 0.314, both 0.600. Half of the gender read never passes through any write at the noun —
+it is the token, read directly. By reader the token-only branch is 10.1 0.175, 12.4 0.060, 15.1 0.048, 9.6 0.013, 10.5 0.009. The weights alone —
+λ_l (u O_h) W_v0 (n(e_male) − n(e_female)) — pick the same top two and bottom two, and get the sign right once the reader's signed pattern weight on the
+noun is included: 10.1 and 15.1 attend to the noun with NEGATIVE weight (−0.24, −0.23; bilin18's squared attention is signed) and transport the token's
+gender by pointing away from it. My attempt to predict the magnitude from weights (pattern × token term × λ chain / final rms) came out at 2% of the
+edit three times (v560–v562) and is refuted by the edit below; the sign and ranking stand as fold findings only.
+
+**Writes into the answer (v563–v564).** The five readers' writes into the answer position close 0.878 (the other 32 heads of their blocks 0.001; all
+attention 1.04); singly 12.4 0.311, 10.1 0.187, 9.6 0.183, 15.1 0.101, 10.5 0.024 (sum 0.81). 12.4 and 9.6 write nearly twice what they read at the noun:
+they also read the gender the noun copies into the positions after it. Number's readers wrote 0.80 of their channel the same way.
+
+**Number against gender, same heads.** Number: MLP-carried (MLP 8 alone 0.30 on adjacent rows; readers' copy 0.94–1.0 current-state; 9.6-led; exits add).
+Gender: token-carried (token-only branch half; self-copies 0.31; MLP stack ~0.17; 10.1 / 12.4-led; exits nested). One reader set, two signals, two
+constructions.
+
+**Kept failures.** v549 d, v551 b, v552 c/d, v553 c/d, v554 b/c/d, v555 e, v556 b/e, v557 b/c, v558 d/e, v559 d, v560 e, v561 b/c, v562 b/c, v564 b.
+Open: out-of-sample (pile rows, v565 queued), selectivity (does the gender swap move number?), and the relay positions after the noun.

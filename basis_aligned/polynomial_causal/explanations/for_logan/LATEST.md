@@ -141,3 +141,34 @@
   Every both-ends fold now has a text version; the value-copy account replays on text with the noun source larger (0.66 vs 0.48).
 - **Not done:** the template-contraction library (identity / shift / contrast) beyond the identity check (v389: small for every head); degree expansion for
   the copier head 4.5 and the agreement verb site; the UK / US line (Codex's regional path — left alone).
+
+## 2026-09-19 10:50 UTC — Both readouts closed at both ends and replayed on a fresh third set (Claude lane, v438–v546)
+
+- **Output axis (v438–v440).** The five pronoun readers write "third-person plural vs singular of either gender": they − he and they − she move alike (0.48 /
+  0.48), he − she is untouched; 12.4's masculine and 10.1's feminine tilts cancel.
+- **Two readouts, one hub (v441–v488).** The same noun-number state (MLP-8 units 829 / 953 / 1030) feeds a pronoun readout {9.6, 10.1, 10.5, 12.4, 15.1}
+  and a verb readout {11.3, 7.8, 13.1, 9.7, 5.3}; 5.3 is a second-hop copier relaying the copier 4.5's seed. Each set is censused at both ends: values out
+  of the noun and writes into the answer (pronoun 0.80 / 0.80; verb 0.56 into a distant verb, attention 0.94). Cross-selectivity 0.04 / 0.10. MLP 17's
+  701 / 2059 are a verb-specific final detector fed first by 11.3; the pronoun slot has no detector (its answer-side re-expression is a population: unit 22
+  and unit 3428 refuted by edit).
+- **Templates (your second direction; v420–v527).** A sign-aware rank-one template `s_h·u dᵀ` on each head's OV map, from weights alone, ranks every
+  edit-named reader first in its block; the difference template separates the two reader sets completely; its four false positives are inert under edit.
+- **The noun as its own answer (v539–v543).** For a verb right after the noun: attention into the noun position 0.31 (five verb heads 0.17, blocks 8 / 10
+  0.045, late 0.03; the copiers' blocks inert), MLPs 0.45 with MLP 8 alone 0.295 (ten fold-named units 0.22) and MLP 17 alone 0.05.
+- **Fresh third set (v544–v546).** Mined outcome-blind from fineweb documents neither earlier set used: pronoun five heads 0.730 (rest of blocks 0.034, all
+  attention 0.949; 60 pairs), verb five heads 0.599 (rest 0.085, all 0.981; 45 distant rows). Ten of ten registered predictions held.
+- **Kept failures worth knowing.** Nested swap edits cancel (census at one position); serial-chain fold shares double count; both of my MLP-stage priors at the
+  noun failed (hub large, detector small). Details and receipts: `in_depth_circuit_number.md` §4.11; scorecard rows T152–T258.
+
+## 2026-09-19 11:25 UTC — Number circuit done on three natural sets; the gender line opened with the same method (Claude lane, v539–v564)
+
+- **Number, finished.** A third natural set (fresh fineweb documents, mined outcome-blind) replays both reader sets and the unit components: pronoun five
+  heads 0.73, verb five heads 0.60, hub and detector units within their bands — 20 of 20 registered predictions. The noun-as-answer position (verb right
+  after the noun) is mapped: attention 0.31 (five verb heads 0.17), MLP 8 alone 0.30 (ten fold-named units 0.22), MLP 17 alone 0.05.
+- **Gender, by the number method (§4.12 of the in-depth doc).** Same five readers, different signal: values at the noun 0.90; readers 0.60 led by 10.1 and
+  12.4 (9.6 third — a correction to the 18 Sep account); two self-copy heads 8.1 + 6.1 plant 0.31 back into the noun; the MLP stack is only ~0.17 (the two
+  detectors 0.063 by replacement, 0.81 of MLP 8's part). Half of the readers' gender read is block 0's token-only value of the noun (0.31 of 0.60) — the
+  weights (block-0 value map × readers' OV maps × signed pattern) name the same top two readers and get the sign right: 10.1 and 15.1 attend to the noun with
+  negative weight. The readout is linear in the readers (α × 0.600 at four α). Writes into the answer: 0.88, 12.4-led. Out-of-sample (pile rows) is running.
+- **Kept failures worth knowing.** My weights-only magnitude for the direct term was wrong three times (sign, rms, λ chain) and refuted by the edit — sign and
+  ranking stand, magnitude does not. Compensation (downstream re-derivation) was registered and refuted; the truth was the second value branch.

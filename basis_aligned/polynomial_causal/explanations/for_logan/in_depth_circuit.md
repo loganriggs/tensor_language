@@ -217,6 +217,8 @@ and why the attention weights are the constants they are (the pattern side of sq
 
 ## Appendix: a second path, through an MLP port (added 18 Sep afternoon)
 
+> **Correction (19 Sep, v549–v564; see `in_depth_circuit_number.md` §4.12).** By replace-edits on 61 natural gender pairs the gender readout is led by 10.1 (0.255 of the he − she gap by its value at the noun) and 12.4 (0.170), with 9.6 third (0.107); the MLP-8 detectors below carry 0.063 by replacement (0.81 of MLP 8's 0.078), and half of the readers' gender read is block 0's token-only value branch. The head-level story below keeps its layers and its detectors; its leader was wrong.
+
 The person component above never touches an MLP; the pronoun-gender component does, and its MLP-8 port was opened to unit grain the same
 afternoon (receipts v164–v179, scorecard `PRONOUN_GENDER_DOD_SCORECARD.md` rows 16–28). Head 9.6 reads a gender state at the noun; exactly
 by unit, MLP 8's write on 9.6's reader direction is two units: 3152, a **male-noun detector** (its bilinear value is −700 to −980 on 23 of 25
