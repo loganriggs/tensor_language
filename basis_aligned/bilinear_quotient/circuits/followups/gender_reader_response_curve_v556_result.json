@@ -1,0 +1,46 @@
+{
+  "candidate_id": "gender.reader_response_curve_v556",
+  "finished_utc": "2026-09-19T11:07:47.752056+00:00",
+  "forwards": 10,
+  "plan": {
+    "bars": {
+      "band": 0.03,
+      "five_v549": 0.6,
+      "replay_tol": 0.001,
+      "sub": 0.05
+    },
+    "candidate_id": "gender.reader_response_curve_v556",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 11,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": "pronoun_gender_dod_natural_rows_v73.json",
+    "text_pairs": 61
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_half_swap_is_sub_linear": false,
+    "pred_c_full_swap_replays": true,
+    "pred_d_response_is_monotone": true,
+    "pred_e_response_accelerates": false
+  },
+  "report": {
+    "replay_max_abs": 1.430511474609375e-05,
+    "text": {
+      "closed": {
+        "A025": 0.1480501890182495,
+        "A050": 0.3004179000854492,
+        "A075": 0.4511692225933075,
+        "A100": 0.6001140475273132
+      },
+      "gap_mean": 4.360080718994141,
+      "pairs": 61,
+      "sign_constancy": 0.8852459192276001
+    }
+  },
+  "schema": "gender_reader_response_curve_result_v556",
+  "serial_seconds": 1.9547508631367236
+}

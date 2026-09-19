@@ -26393,3 +26393,6 @@ Reason: better_circuits §7 allows a new behaviour once the current target meets
 
 ### 2026-09-19T11:07Z — Claude: v555: MLP-8 swap instrumented — readers' w moved 9.6 0.341 (=fold), 10.1 0.298, 12.4 0.226; margin 0.078 vs 0.151 linear expectation: readout sub-linear after the readers; 4/5
 4 forwards. The expected-linear figure (0.151) is in the runlog line 'w moved under MLP8 ...' (the runner set it on the text dict after the report was built — not in the JSON; receipt kept as written).
+
+### 2026-09-19T11:09Z — Claude: v556: response curve — readers' fractional value swaps close 0.148/0.300/0.451/0.600 at alpha 0.25/0.5/0.75/1: exactly linear; sub-linear and convex priors failed; 3/5
+10 forwards. A clean negative for my registered explanation and a clean positive for the circuit: the readout stage is linear in the readers. v557 next.
