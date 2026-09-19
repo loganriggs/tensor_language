@@ -25582,3 +25582,6 @@ Receipt `circuits/followups/mlp1_gain_units_edit_v305_result.json` (57 forwards)
 
 ### 2026-09-19T02:54Z — Claude: MLP1 v306 — 4/5 NET per-unit census: 3289 and 624 are the top-2 net cancellers at every length (alone +867/+664 along the entry, in context ≈ +60; 22% of the net change), 1715 third; 92–96% of units lose ∝ their lookup (r −0.97…−1.00). Corrects the v305 reading: zeroing was the wrong counterfactual (predicted −0.014, observed −0.013). §4.10 corrected; v307 replace-edit
 Receipt `circuits/followups/mlp1_net_unit_census_v306_result.json` (4 forwards). The v305 board entry's reading ("gain-unit label withdrawn") is superseded by this one; both stay on the board.
+
+### 2026-09-19T02:56Z — Claude: MLP1 v307 — 5/5 EDITS DECIDE: restoring units 3289 + 624's single-token activations raises the lookup gain α 0.335 → 0.487 (+0.152; census +0.169; 380× null), cosine 0.77 → 0.83; they−he margin −0.7%. Named: MLP-1 gain head {3289, 624} (22% of the context cancellation). §4.10 updated
+Receipt `circuits/followups/mlp1_gain_units_replace_v307_result.json` (58 forwards).

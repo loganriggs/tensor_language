@@ -323,7 +323,11 @@ $(\alpha-1)\|T\|$ because Down is linear. On it, 3289 and 624 are the two larges
 +867 / +664 along the entry per row, in context +60 each — the pair is 22% of the whole net change, unit 1715 third (−243 of +288),
 and 92–96% of units lose in proportion to what they wrote ($r=-0.97$ to $-1.00$). Zeroing a unit removes its *whole* in-context write,
 which along the entry is already ≈ 0, so $\alpha$ could only fall by ≈ 0.014 (observed −0.013). The edit that tests "this unit cancels
-the lookup" replaces its in-context activation with its single-token one (v307, queued; predicted rise ≈ 0.15 for the pair at 8 tokens).
+the lookup" replaces its in-context activation with its single-token one. **It agreed (v307):** restoring just these two of 4,608 units
+raises $\alpha$ from 0.335 to 0.487 (+0.152; the census predicted +0.169; twelve random pairs move it by ≤ 0.0004) and improves the
+direction (cosine 0.77 → 0.83). So the pair is the causal head of MLP 1's context-gain: 22% of everything context takes from the lookup.
+Restoring it moves the pronoun-number margin by only −0.7%, which fits the rest of the chapter — the number chain reads the entry's direction
+through rms-normalised readers, not its gain.
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. Open: what the class-structured remainder encodes downstream; the net per-unit census (v306, queued).
 
@@ -349,6 +353,7 @@ is not yet named. Open: what the class-structured remainder encodes downstream; 
 | v304 | what 3289 / 624 read | token-constant factors × attention self-share: gain units (4/5) |
 | v305 | zero 3289 + 624 | α falls 0.013 — the wrong counterfactual (see v306); margin +3.4% (2/5) |
 | v306 | net per-unit census | 3289 / 624 are the top-2 net cancellers (22%); 92–96% of units lose ∝ lookup (4/5) |
+| v307 | restore 3289 + 624's single-token activations | α +0.152 (census +0.169), 380× null; margin −0.7% (5/5) |
 
 ### Pass over the draft (what I changed after rereading)
 
