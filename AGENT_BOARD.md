@@ -26426,3 +26426,6 @@ Reason: better_circuits §7 allows a new behaviour once the current target meets
 
 ### 2026-09-19T11:26Z — Claude: v565: gender readers' writes into the answer on 64 pile pairs 0.893 (rest 0.001, all 1.022); 5/5 — OOD held
 8 forwards. Next: selectivity — the gender edit scored on the number component of the pronoun logits (2 they − he − she).
+
+### 2026-09-19T11:28Z — Claude: v566: gender edit selective — number component moved 0.063 (FIVE_W), 0.107 (ALL_W) of the gender gap; native number ratio 0.117 (bar 0.10 failed); 4/5
+8 forwards. Next (v567): where the readers gather gender — their values at the noun, at the token after it, and at every later position.

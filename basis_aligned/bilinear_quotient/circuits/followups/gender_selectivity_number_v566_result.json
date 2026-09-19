@@ -1,0 +1,93 @@
+{
+  "candidate_id": "gender.selectivity_number_v566",
+  "finished_utc": "2026-09-19T11:27:32.795636+00:00",
+  "forwards": 8,
+  "plan": {
+    "bars": {
+      "all_num_max": 0.15,
+      "band": 0.05,
+      "five_num_max": 0.1,
+      "five_v563": 0.878,
+      "native_max": 0.1,
+      "replay_tol": 0.001,
+      "unit": 701
+    },
+    "candidate_id": "gender.selectivity_number_v566",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 9,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 61
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_five_writes_leave_number_alone": true,
+    "pred_c_all_writes_leave_number_alone": true,
+    "pred_d_gender_effect_replays": true,
+    "pred_e_rows_do_not_differ_in_number": false
+  },
+  "report": {
+    "panel": {
+      "rows": 61,
+      "skipped": "pronoun slot, natural pairs"
+    },
+    "replay_max_abs": 1.430511474609375e-05,
+    "text": {
+      "contrast_mean": -0.29676592350006104,
+      "gender_gap_mean": 4.360080718994141,
+      "margin_closed": {
+        "ALL_W": 1.0417639017105103,
+        "FIVE_W": 0.8780553936958313,
+        "REST_W": 0.0014291609404608607
+      },
+      "moved": {
+        "ALL_W": -2.6803781986236572,
+        "FIVE_W": 4.426050662994385,
+        "REST_W": -2.739957332611084
+      },
+      "native_number_ratio": 0.11725759506225586,
+      "number_moved": {
+        "ALL_W": 0.10676567256450653,
+        "FIVE_W": 0.06326202303171158,
+        "REST_W": 0.0008737054886296391
+      },
+      "pairs": 61,
+      "sign_constancy": 0.5901639461517334,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": -0.29676592350006104,
+      "gender_gap_mean": 4.360080718994141,
+      "margin_closed": {
+        "ALL_W": 1.0417639017105103,
+        "FIVE_W": 0.8780553936958313,
+        "REST_W": 0.0014291609404608607
+      },
+      "moved": {
+        "ALL_W": -2.6803781986236572,
+        "FIVE_W": 4.426050662994385,
+        "REST_W": -2.739957332611084
+      },
+      "native_number_ratio": 0.11725759506225586,
+      "number_moved": {
+        "ALL_W": 0.10676567256450653,
+        "FIVE_W": 0.06326202303171158,
+        "REST_W": 0.0008737054886296391
+      },
+      "pairs": 61,
+      "sign_constancy": 0.5901639461517334,
+      "unit": 701
+    }
+  },
+  "schema": "gender_selectivity_number_result_v566",
+  "serial_seconds": 1.9039926989935338
+}

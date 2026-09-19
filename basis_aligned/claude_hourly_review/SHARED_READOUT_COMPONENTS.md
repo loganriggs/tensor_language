@@ -674,3 +674,4 @@ v538 (5/5): write-side verb census complete — 11.3 0.238, 5.3 0.113, 7.8 0.108
 - GENDER READERS' WRITES INTO THE ANSWER (v563): five heads 0.878, rest of blocks 0.001, all attention 1.042. Both ends of the gender readout closed by edit (values at the noun 0.60; writes into the answer 0.88).
 - GENDER WRITES INTO THE ANSWER SINGLY (v564): 12.4 0.311, 10.1 0.187, 9.6 0.183, 15.1 0.101, 10.5 0.024 (sum 0.806 of joint 0.878).
 - GENDER WRITES ON PILE (v565): five readers 0.893, rest 0.001, all 1.022 — OOD cell held for the gender readout.
+- GENDER SELECTIVITY (v566): five readers' write swap moves the number component 0.063 of the gender gap (all attention 0.107) while closing 0.878 of he − she.
