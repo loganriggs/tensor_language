@@ -1,0 +1,116 @@
+{
+  "candidate_id": "mlp1.token_table.dose_response_v308",
+  "finished_utc": "2026-09-19T02:56:43.440567+00:00",
+  "forwards": 22,
+  "plan": {
+    "bars": {
+      "census_tol": 0.05,
+      "half_min": 0.3,
+      "null_factor": 3.0,
+      "replay_alpha": 0.335,
+      "replay_tol": 0.01
+    },
+    "candidate_id": "mlp1.token_table.dose_response_v308",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 24,
+    "gpu_accessed": false,
+    "ks": [
+      2,
+      10,
+      50,
+      200
+    ],
+    "layer": 1,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "n_null": 4,
+    "seed": 308,
+    "targets": 223
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_rise_matches_census_at_every_k": true,
+    "pred_c_rise_beats_random_sets_at_every_k": true,
+    "pred_d_top200_restores_half": true,
+    "pred_e_direction_improves_monotonically": true
+  },
+  "report": {
+    "alpha_baseline_median": 0.334722101688385,
+    "cos_baseline_median": 0.7728161215782166,
+    "per_k": {
+      "10": {
+        "census": 0.2053658664226532,
+        "cos_median": 0.8382499814033508,
+        "null_max_abs": 0.0013517439365386963,
+        "rise": 0.20536580681800842,
+        "top_units": [
+          3289,
+          624,
+          1715,
+          3804,
+          1782,
+          778,
+          2976,
+          3887,
+          4331,
+          640
+        ]
+      },
+      "2": {
+        "census": 0.1484474092721939,
+        "cos_median": 0.832313597202301,
+        "null_max_abs": 0.0001214444637298584,
+        "rise": 0.14844739437103271,
+        "top_units": [
+          3289,
+          624
+        ]
+      },
+      "200": {
+        "census": 0.31692856550216675,
+        "cos_median": 0.892508864402771,
+        "null_max_abs": 0.022923022508621216,
+        "rise": 0.31692856550216675,
+        "top_units": [
+          3289,
+          624,
+          1715,
+          3804,
+          1782,
+          778,
+          2976,
+          3887,
+          4331,
+          640,
+          2894,
+          2126
+        ]
+      },
+      "50": {
+        "census": 0.24150380492210388,
+        "cos_median": 0.8617752194404602,
+        "null_max_abs": 0.005140155553817749,
+        "rise": 0.24150371551513672,
+        "top_units": [
+          3289,
+          624,
+          1715,
+          3804,
+          1782,
+          778,
+          2976,
+          3887,
+          4331,
+          640,
+          2894,
+          2126
+        ]
+      }
+    },
+    "replay_gap": 0.0002778983116150102
+  },
+  "schema": "mlp1_dose_response_result_v308",
+  "serial_seconds": 1.7871537888422608
+}

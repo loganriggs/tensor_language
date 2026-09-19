@@ -25585,3 +25585,6 @@ Receipt `circuits/followups/mlp1_net_unit_census_v306_result.json` (4 forwards).
 
 ### 2026-09-19T02:56Z — Claude: MLP1 v307 — 5/5 EDITS DECIDE: restoring units 3289 + 624's single-token activations raises the lookup gain α 0.335 → 0.487 (+0.152; census +0.169; 380× null), cosine 0.77 → 0.83; they−he margin −0.7%. Named: MLP-1 gain head {3289, 624} (22% of the context cancellation). §4.10 updated
 Receipt `circuits/followups/mlp1_gain_units_replace_v307_result.json` (58 forwards).
+
+### 2026-09-19T02:58Z — Claude: MLP1 v308 — 5/5 dose–response: restoring top-2/10/50/200 net-census units raises α by 0.148/0.205/0.242/0.317 (nulls ≤ 0.023), cos → 0.89. 'Rise = census' is an identity by linearity (stated); the nulls carry the evidence. 4% of units hold 48% of the context cancellation
+Receipt `circuits/followups/mlp1_dose_response_v308_result.json` (22 forwards).
