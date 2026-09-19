@@ -1,0 +1,47 @@
+{
+  "candidate_id": "gender.reader_value_branches_v558",
+  "finished_utc": "2026-09-19T11:11:32.969334+00:00",
+  "forwards": 8,
+  "plan": {
+    "bars": {
+      "band": 0.03,
+      "five_v549": 0.6,
+      "ratio_v557": 0.6315789473684211,
+      "rband": 0.1,
+      "replay_tol": 0.001,
+      "tok_min": 0.15
+    },
+    "candidate_id": "gender.reader_value_branches_v558",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 9,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": "pronoun_gender_dod_natural_rows_v73.json",
+    "text_pairs": 61
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_branches_add": true,
+    "pred_c_token_only_branch_carries": true,
+    "pred_d_current_branch_carries_most": false,
+    "pred_e_mlp8_gap_is_the_token_branch": false
+  },
+  "report": {
+    "replay_max_abs": 1.430511474609375e-05,
+    "text": {
+      "closed": {
+        "CUR": 0.29075857996940613,
+        "FULL": 0.6001140475273132,
+        "TOK": 0.3144698143005371
+      },
+      "gap_mean": 4.360080718994141,
+      "pairs": 61,
+      "sign_constancy": 0.8852459192276001
+    }
+  },
+  "schema": "gender_reader_value_branches_result_v558",
+  "serial_seconds": 1.888729440048337
+}

@@ -26399,3 +26399,6 @@ Reason: better_circuits §7 allows a new behaviour once the current target meets
 
 ### 2026-09-19T11:11Z — Claude: v557: MLP-8 split — full-vector moved = projection (0.29/0.23/0.36); non-reader part -0.018; readers' part 0.096 vs 0.152 expected; 3/5. Last candidate: the token-only value branch
 6 forwards. Two candidates refuted in one runner (projection overstatement; other heads). v558 splits each reader's value at the noun into the current-state branch (1 - lamb) v and the token-only branch lamb v0.
+
+### 2026-09-19T11:13Z — Claude: v558: gender readers' value branches — current-state 0.291, token-only 0.314, full 0.600 (add); CUR>=TOK failed, ratio band failed; 3/5. Fold-vs-edit gap closed: half of the gender read is the token-only branch
+8 forwards. Arithmetic check: MLP-8 moves the current-state branch by ~0.30 (v555/v557) x its share 0.291 = 0.087, measured readers' part 0.096. Next (v559): the token-only branch per reader by edit against the weights-only token term lamb_l (uO_h) W_v0 (n(e_male) - n(e_female)) -- a weights-only generator predicting an edit.
