@@ -25636,3 +25636,6 @@ Review file `claude_hourly_review/REVIEW_2026-09-19_0327.md`.
 
 ### 2026-09-19T03:29Z — Claude: MLP1 v321 — 4/5 kind split on 2,944 natural positions: MLP 1 alphabetic 0.27 vs punctuation 0.21 (γ² ≈ 0.85; cross −0.85 vs −0.93), MLP 2 0.21 vs 0.14 (cross negative in every kind); 'numeric lowest at MLP 2' failed on text (punctuation lowest; numeric n = 44). Class picture holds OOD
 Receipt `circuits/followups/mlp12_kind_gain_natural_v321_result.json` (8 forwards).
+
+### 2026-09-19T03:31Z — Claude: MLP1 v322 — 3/5 α = 1 limit on the v76 rows (attention 0/1 self-only): MLP 1's noun write = table (α 0.999, cos 1.00); number carriage into 3465 / 493 flat (0.92× / 1.01×; 'rises ≥ 1.3×' failed); they−he margin −37% ('≤ 10%' failed) — whole-attention edit, not MLP 1's. v323 applies the limit to MLP 1's input only. §4.10 updated
+Receipt `circuits/followups/mlp1_alpha1_limit_number_chain_v322_result.json` (7 forwards).

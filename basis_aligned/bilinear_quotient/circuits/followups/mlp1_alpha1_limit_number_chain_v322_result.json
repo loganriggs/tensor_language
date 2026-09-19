@@ -1,0 +1,67 @@
+{
+  "candidate_id": "mlp1.token_table.alpha1_limit_number_chain_v322",
+  "finished_utc": "2026-09-19T03:30:08.123618+00:00",
+  "forwards": 7,
+  "plan": {
+    "bars": {
+      "alpha_min": 0.97,
+      "margin_max": 0.1,
+      "replay_alpha": 0.54,
+      "replay_share": 0.736,
+      "replay_tol": 0.01,
+      "rise_min": 1.3,
+      "share_tol": 0.02,
+      "sign_min": 0.9
+    },
+    "candidate_id": "mlp1.token_table.alpha1_limit_number_chain_v322",
+    "dst": 3,
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 9,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117",
+    "src": 1,
+    "units": [
+      3465,
+      493
+    ]
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_mlp1_write_becomes_table": true,
+    "pred_c_number_carriage_into_3465_rises": false,
+    "pred_d_margin_moves_little": false,
+    "pred_e_carriage_sign_kept": true
+  },
+  "report": {
+    "carriage_rise_3465": 0.9175218404751587,
+    "carriage_rise_493": 1.0105920614534312,
+    "edit": {
+      "alpha_median": 0.9992951154708862,
+      "carriage_3465": -12005.715034484863,
+      "carriage_493": 14622.135818481445,
+      "cos_median": 0.9999998807907104,
+      "margin_oriented": 1.2824762463569641,
+      "table_share_3465": 0.9997145346556763,
+      "table_share_493": 0.9998991924346813
+    },
+    "margin_change": -0.7656649798154831,
+    "margin_change_rel": -0.37383407454101825,
+    "native": {
+      "alpha_median": 0.5400515198707581,
+      "carriage_3465": -13084.936515808105,
+      "carriage_493": 14468.880546569824,
+      "cos_median": 0.873516857624054,
+      "margin_oriented": 2.048141226172447,
+      "table_share_3465": 0.7360820549799997,
+      "table_share_493": 0.7484771419029812
+    },
+    "sign_agreement_min": 1.0
+  },
+  "schema": "mlp1_alpha1_limit_number_chain_result_v322",
+  "serial_seconds": 1.6838914121035486
+}

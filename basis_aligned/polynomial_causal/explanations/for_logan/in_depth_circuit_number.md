@@ -327,7 +327,9 @@ the lookup" replaces its in-context activation with its single-token one. **It a
 raises $\alpha$ from 0.335 to 0.487 (+0.152; the census predicted +0.169; twelve random pairs move it by ≤ 0.0004) and improves the
 direction (cosine 0.77 → 0.83). So the pair is the causal head of MLP 1's context-gain: 22% of everything context takes from the lookup.
 Restoring it moves the pronoun-number margin by only −0.7%, which fits the rest of the chapter — the number chain reads the entry's direction
-through rms-normalised readers, not its gain.
+through rms-normalised readers, not its gain. Pushing the gain all the way to 1 (v322: attention 0/1 self-only on the pronoun rows) leaves MLP 1's exact number
+carriage into units 3465 / 493 flat (0.92× / 1.01×) while the margin falls 37% — but that edit removes every context read of blocks 0/1 attention for
+every downstream consumer, so the margin loss is not MLP 1's (v323, queued, applies the limit to MLP 1's input alone).
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -366,7 +368,9 @@ MLP 1. The clean lookup × self-share law is an MLP-1 property; MLP 2 is a reade
 By token class (v320, eight tokens of context): MLP 1 keeps 0.43 of a noun's lookup, 0.36 of an adjective's, 0.33 of a number's, 0.32 of a
 verb's, 0.28 of a punctuation mark's and 0.26 of a function word's — with $\gamma^2$ at 0.84–0.92 for every class, so the classes differ
 only in how much context input their token admits and how hard the cross term cancels; MLP 2 keeps 0.33 for nouns down to 0.14 for numbers,
-in the same order (Spearman 0.64). Numbers lose their lookup fastest by MLP 2, which is why the number chain reads MLP 1's entry (v296).
+in the same order (Spearman 0.64). On text (v321) the content-vs-punctuation gap replays at both layers (MLP 1: 0.27 vs 0.21; MLP 2: 0.21 vs 0.14) but the numbers claim does
+not (44 numeric positions; punctuation is lowest at MLP 2), so it stays a filler-context observation. That the number chain reads MLP 1's
+entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 
 | receipt | question | result |
 |---|---|---|
@@ -404,6 +408,8 @@ in the same order (Spearman 0.64). Numbers lose their lookup fastest by MLP 2, w
 | v318 | MLP 2 under the same instruments | α₂ 0.20, γ² 0.40, cross −0.43, r(α₂, α₁) 0.72; cos 0.35 (4/5) |
 | v319 | MLP 2 vs context length | γ² 0.69 → 0.39; cross 100% negative; α₂ non-monotone (4/5) |
 | v320 | lookup gain by token class | MLP 1 nouns 0.43 … function words 0.26; MLP 2 numbers lowest 0.14; order shared (4/5) |
+| v321 | kind split on text | alphabetic > punctuation at both layers; numbers claim did not replay (4/5) |
+| v322 | number chain at α = 1 (attention 0/1 self-only, v76 rows) | write = table; carriage into 3465 / 493 flat (0.92× / 1.01×); margin −37% (whole-attention edit) (3/5) |
 
 ### Pass over the draft (what I changed after rereading)
 
