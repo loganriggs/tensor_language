@@ -1,0 +1,80 @@
+{
+  "candidate_id": "gender.composition_third_set_v582",
+  "finished_utc": "2026-09-19T11:55:32.343350+00:00",
+  "forwards": 8,
+  "plan": {
+    "bars": {
+      "cband": 0.08,
+      "copiers_v576": 0.256,
+      "jband": 0.1,
+      "joint_v576": 0.898,
+      "nest": 0.05,
+      "noun_min": 0.45,
+      "replay_tol": 0.001,
+      "unit": 701
+    },
+    "candidate_id": "gender.composition_third_set_v582",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 9,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 63
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_composition_replays_on_third-set": true,
+    "pred_c_copiers_post_noun_replay": true,
+    "pred_d_noun_values_carry": true,
+    "pred_e_joint_at_least_the_sum": true
+  },
+  "report": {
+    "panel": {
+      "rows": 63,
+      "skipped": "pronoun slot, natural pairs"
+    },
+    "replay_max_abs": 1.52587890625e-05,
+    "text": {
+      "contrast_mean": -2.3575332164764404,
+      "margin_closed": {
+        "COPIERS_POST": 0.21545611321926117,
+        "COPIERS_POST_AND_NOUN": 0.8912470936775208,
+        "NOUN": 0.6349071264266968
+      },
+      "moved": {
+        "COPIERS_POST": 0.22805500030517578,
+        "COPIERS_POST_AND_NOUN": 0.9163171052932739,
+        "NOUN": 0.6937880516052246
+      },
+      "pairs": 63,
+      "sign_constancy": 0.5555555820465088,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": -2.3575332164764404,
+      "margin_closed": {
+        "COPIERS_POST": 0.21545611321926117,
+        "COPIERS_POST_AND_NOUN": 0.8912470936775208,
+        "NOUN": 0.6349071264266968
+      },
+      "moved": {
+        "COPIERS_POST": 0.22805500030517578,
+        "COPIERS_POST_AND_NOUN": 0.9163171052932739,
+        "NOUN": 0.6937880516052246
+      },
+      "pairs": 63,
+      "sign_constancy": 0.5555555820465088,
+      "unit": 701
+    }
+  },
+  "schema": "gender_composition_third_set_result_v582",
+  "serial_seconds": 1.7941185170784593
+}

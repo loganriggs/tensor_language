@@ -35,6 +35,7 @@ PRONOUNS = {ENC.encode(t)[0] for t in (" he", " she", " his", " her", " him", " 
 import sys
 SOURCE = sys.argv[1] if len(sys.argv) > 1 else "fineweb"   # "fineweb" (training corpus, v73) or "pile" (NeelNanda/pile-10k, OOD, v75)
 OUT = Path(__file__).resolve().parent.parent / ("circuits/followups/pronoun_gender_dod_natural_rows_v73.json" if SOURCE == "fineweb" else "circuits/followups/pronoun_gender_dod_pile_rows_v75.json")
+if __import__('os').environ.get('GENDER_OUT'): OUT = Path(__import__('os').environ['GENDER_OUT'])   # v578: third-set output
 
 
 def mine():
@@ -42,7 +43,8 @@ def mine():
     ds = load_dataset("HuggingFaceFW/fineweb", name="sample-10BT", split="train", streaming=True) if SOURCE == "fineweb" else load_dataset("NeelNanda/pile-10k", split="train")
     cells = {(g, l): [] for g in ("male", "female") for l in ("he", "she")}
     seen = 0
-    for doc_index, doc in enumerate(itertools.islice(ds, DOC_BUDGET)):
+    SKIP = int(__import__('os').environ.get('GENDER_SKIP', '0'))   # v578: start after the docs an earlier set scanned (third set)
+    for doc_index, doc in enumerate(itertools.islice(ds, SKIP, SKIP + DOC_BUDGET), start=SKIP):
         ids = ENC.encode(doc["text"])
         seen += 1
         for t in range(CONTEXT, len(ids) - 1):
