@@ -25870,3 +25870,6 @@ Receipt `circuits/followups/vp0_units_edit_v393_result.json` (42 forwards). One 
 
 ### 2026-09-19T06:13Z — Claude: Subspace v394 — 4/5 agreement-axis dose–response: top-1/5/10/20 per layer cut the VP0 output 12.7/19.8/23.4/27.0% (nulls ≤ 0.8%), λ-scaled census closes (3e-4); pronoun margin drifts +5.4% at k = 10 (pred failed). A second population-grain circuit at the top of the model, found by the subspace fold
 Receipt `circuits/followups/vp0_dose_response_v394_result.json` (54 forwards).
+
+### 2026-09-19T06:14Z — Claude: Subspace v395 — 1/5 the panel's agreement axis VP0 carries 0.2% of the labelled number contrast on 128 natural rows (u 9.8M, VP1 594k, VP0 24k). Panel-frame-specific; v391–v394 stand as panel results only. Four preds failed. v396 examines VP1 on text
+Receipt `circuits/followups/subspace_vp0_natural_v395_result.json` (2 forwards). The falsification is the finding; the panel receipts v391–v394 stay as they are, marked panel-only in this row.
