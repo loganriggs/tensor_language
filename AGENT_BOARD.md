@@ -26258,3 +26258,6 @@ Receipt `circuits/followups/panel_detector_units_v513_result.json` (12 forwards)
 
 ### 2026-09-19T09:39Z — Claude: Chain v514 — 3/5 (b, d FAILED; kept; first run had natural rows in the replay block, re-run): 701 / 2059 swapped at the panel answer close −0.001 of the pronoun margin while MLP 17 whole closes −0.115 — the opposing late write on the panel is a population, not the verb detector; hub at the noun 0.091 replays
 Receipt `circuits/followups/panel_detector_units_fixed_v514_result.json` (12 forwards; 24 spent with the re-run).
+
+### 2026-09-19T09:40Z — Claude: Chain v515 — 4/5 (e FAILED; kept): MLP 17's opposing they − he write at the panel answer (pooled −25.3) is carried by units 3547 / 1747 / 3093 / 4448 (top-10 0.77), not the detector (ranks 18 / 336); 3547's row sign only 0.58 constant. Nominated for the edit (v516)
+Receipt `circuits/followups/mlp17_units_panel_answer_v515_result.json` (2 forwards).
