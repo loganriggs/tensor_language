@@ -1,0 +1,92 @@
+{
+  "candidate_id": "mlp1.token_table.whole_layer_price_v312",
+  "finished_utc": "2026-09-19T03:06:39.584758+00:00",
+  "forwards": 14,
+  "plan": {
+    "bars": {
+      "price": 0.34,
+      "price_factor": 2.0,
+      "replay_tol": 0.0001
+    },
+    "candidate_id": "mlp1.token_table.whole_layer_price_v312",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 24,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 128
+  },
+  "predictions": {
+    "pred_a_baseline_loss_replays_native": true,
+    "pred_b_full_restore_matches_linear_price": false,
+    "pred_c_zeroing_mlp1_costs_more_than_restoring": false,
+    "pred_d_restore_cost_grows_with_position": true,
+    "pred_e_table_alone_beats_nothing_at_every_position": false
+  },
+  "report": {
+    "by_position": {
+      "restore": [
+        -1.9837170839309692e-07,
+        0.24308913946151733,
+        0.3690969944000244,
+        0.32496780157089233,
+        0.3105248510837555,
+        0.640044093132019,
+        0.32429084181785583,
+        0.5671080350875854,
+        0.6122070550918579,
+        0.6744678616523743,
+        0.603416383266449,
+        0.7414562702178955,
+        0.7201948761940002,
+        0.8125156760215759,
+        0.7798107266426086,
+        0.7718890309333801,
+        1.096022367477417,
+        1.0439636707305908,
+        1.265331745147705,
+        0.8221164345741272,
+        0.9930503368377686,
+        1.1464897394180298,
+        1.259371280670166
+      ],
+      "zero": [
+        -1.9837170839309692e-07,
+        0.13170377910137177,
+        0.21457809209823608,
+        0.17083010077476501,
+        0.20453514158725739,
+        0.4449758231639862,
+        0.2707276940345764,
+        0.326694130897522,
+        0.4282884895801544,
+        0.4588373303413391,
+        0.42612895369529724,
+        0.5190746188163757,
+        0.5563340783119202,
+        0.49872779846191406,
+        0.567351222038269,
+        0.4223938584327698,
+        0.5805476903915405,
+        0.5689585208892822,
+        0.6175039410591125,
+        0.4122241735458374,
+        0.5479723811149597,
+        0.5589947700500488,
+        0.6114506721496582
+      ]
+    },
+    "cost_restore": 0.7009315490722656,
+    "cost_zero": 0.41473188996315,
+    "manual_loss": 4.220860958099365,
+    "native_loss": 4.220860958099365,
+    "replay_gap": 0.0,
+    "restore_early_1_6": 0.3146204468794167,
+    "restore_late_12_23": 0.9543510129054388,
+    "zero_beats_restore_positions": 0
+  },
+  "schema": "mlp1_whole_layer_price_result_v312",
+  "serial_seconds": 1.9882235580589622
+}

@@ -340,7 +340,14 @@ single token and must switch off once anything precedes it; the rest of the laye
 The price is linear (v311): restoring the top 2 / 10 / 50 / 200 units costs 0.059 / 0.106 / 0.125 / 0.156 nats (random sets ≤ 0.03), and
 divided by each set's share of the cancellation that is 0.27 / 0.34 / 0.34 / 0.34 nats per unit share — the same price down the list, which
 extrapolates to about 0.34 nats (8% of the 4.22 loss) for undoing all of MLP 1's context cancellation. So it is one coherent function of the
-layer, not a set of unit quirks. Open: what the class-structured remainder encodes downstream; the whole-layer restore and zero (v312, queued).
+layer, not a set of unit quirks. The whole-layer number broke the linear price (v312): replacing MLP 1's write everywhere by the context-free table entry costs 0.70 nats,
+not 0.34 — and that is *more* than removing MLP 1's write altogether (0.41 nats), at every one of the 22 positions, with the gap widening down
+the text (0.31 nats at positions 1–6, 0.95 at 12–23). Two things follow. The raw lookup is actively harmful in context: the model is better
+off with no MLP 1 than with MLP 1's single-token entries. And the tail of the census (the 54% beyond the top 200) is worth about 1.0 nats per
+unit share against the head's 0.34, so the tail units are not merely switched off — their in-context activations carry the context-conditioned
+write the model actually uses, which is the class-structured remainder of Fact 5. In one line: MLP 1 stores a per-token lookup that is only
+usable after blocks 0–1 attention has let it condition the entry on context, and that conditioning is worth 0.7 nats of next-token loss.
+Open: what the class-structured remainder encodes downstream; the tail-only restore and its additivity with the head (v313, queued).
 
 | receipt | question | result |
 |---|---|---|
@@ -369,6 +376,7 @@ layer, not a set of unit quirks. Open: what the class-structured remainder encod
 | v309 | net census on text | same head, 22.4%; 98.9% of units lose, r −0.998 (5/5) |
 | v310 | restore the head on text: loss | +0.059 nats (300× null), growing with position; zeroing free (5/5) |
 | v311 | loss for top-2/10/50/200 | 0.059/0.106/0.125/0.156 nats; 0.34 nats per unit share, stable (4/5) |
+| v312 | whole layer: table everywhere / no MLP 1 | +0.70 / +0.41 nats; the raw lookup is worse than nothing (2/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

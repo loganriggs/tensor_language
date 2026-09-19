@@ -25600,3 +25600,6 @@ Receipt `circuits/followups/mlp1_gain_head_loss_v310_result.json` (38 forwards).
 
 ### 2026-09-19T03:06Z — Claude: MLP1 v311 — 4/5 loss dose–response: restoring top-2/10/50/200 net units costs +0.059/0.106/0.125/0.156 nats (nulls ≤ 0.03); ≈ 0.34 nats per unit share of the cancellation at every k → whole cancellation ≈ 0.34 nats (8% of loss). 'top-200 ≥ 0.20' failed (0.156). §4.10 updated
 Receipt `circuits/followups/mlp1_loss_dose_response_v311_result.json` (52 forwards).
+
+### 2026-09-19T03:08Z — Claude: MLP1 v312 — 2/5 whole-layer price on text: MLP 1's context-free table everywhere costs +0.70 nats, MORE than removing MLP 1 (+0.41), worse than nothing at all 22 positions, growing 0.31 → 0.95 with position. Linear-price extrapolation (0.34) failed: the census tail is worth ≈1.0 nats per unit share — its in-context activations carry the context-conditioned write. §4.10 updated
+Receipt `circuits/followups/mlp1_whole_layer_price_v312_result.json` (14 forwards). Three predictions failed; preserved.
