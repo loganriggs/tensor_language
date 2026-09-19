@@ -26477,3 +26477,6 @@ Alternation PASS (`CIRCUIT` -> `WEIGHT_FOLDING`); prior-track progress FAIL for 
 
 ### 2026-09-19T11:58Z — Claude: v583: person blocks 0-4 writes — into the cue -0.009 (prior failed), into the following context 0.154, all 0.179 (~ value swap 0.216); 4/5
 8 forwards. v584: the early copiers by block (0-4 singly, writes into the following context) and 4.5 alone.
+
+### 2026-09-19T11:59Z — Claude: v584: person early copiers by block (post-cue writes): B4 0.069, B3 0.024, B2 0.018, B1 0.016, B0 0; 4.5 alone 0.018 (bar 0.03 failed); sum 0.127 of 0.154; 4/5
+14 forwards. v585: block 4's nine heads singly (post-cue writes).

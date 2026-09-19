@@ -1,0 +1,91 @@
+{
+  "candidate_id": "person.early_copiers_by_block_v584",
+  "finished_utc": "2026-09-19T11:58:37.769431+00:00",
+  "forwards": 14,
+  "plan": {
+    "bars": {
+      "add": 0.08,
+      "b4_min": 0.05,
+      "h45_min": 0.03,
+      "post_v583": 0.154,
+      "replay_tol": 0.001,
+      "single_max": 0.12,
+      "unit": 701
+    },
+    "candidate_id": "person.early_copiers_by_block_v584",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 15,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 43
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_block_4_copies_most": true,
+    "pred_c_4_5_copies": false,
+    "pred_d_block_singles_near_the_group": true,
+    "pred_e_no_block_above_0_12": true
+  },
+  "report": {
+    "panel": {
+      "rows": 43,
+      "skipped": "pronoun slot, natural pairs"
+    },
+    "replay_max_abs": 1.239776611328125e-05,
+    "text": {
+      "contrast_mean": 18.781227111816406,
+      "margin_closed": {
+        "4.5": 0.017883481457829475,
+        "B0": 0.00027416643570177257,
+        "B1": 0.01639876328408718,
+        "B2": 0.017675546929240227,
+        "B3": 0.02387187071144581,
+        "B4": 0.06903916597366333
+      },
+      "moved": {
+        "4.5": 0.030402112752199173,
+        "B0": 0.04478338733315468,
+        "B1": 0.06763669103384018,
+        "B2": 0.0641997829079628,
+        "B3": 0.03814467042684555,
+        "B4": 0.13417112827301025
+      },
+      "pairs": 43,
+      "sign_constancy": 0.6976743936538696,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": 18.781227111816406,
+      "margin_closed": {
+        "4.5": 0.017883481457829475,
+        "B0": 0.00027416643570177257,
+        "B1": 0.01639876328408718,
+        "B2": 0.017675546929240227,
+        "B3": 0.02387187071144581,
+        "B4": 0.06903916597366333
+      },
+      "moved": {
+        "4.5": 0.030402112752199173,
+        "B0": 0.04478338733315468,
+        "B1": 0.06763669103384018,
+        "B2": 0.0641997829079628,
+        "B3": 0.03814467042684555,
+        "B4": 0.13417112827301025
+      },
+      "pairs": 43,
+      "sign_constancy": 0.6976743936538696,
+      "unit": 701
+    }
+  },
+  "schema": "person_early_copiers_by_block_result_v584",
+  "serial_seconds": 2.0692620251793414
+}
