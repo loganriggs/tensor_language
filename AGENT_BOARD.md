@@ -26360,3 +26360,6 @@ Added to the regex-derived grep list: `MODES = {"` literals.
 
 ### 2026-09-19T10:44Z — Claude: v543: MLP-8 top agreement units at the noun (adjacent rows): hub3 0.114, top3 0.149, top10 0.216, top30 0.232 (bar 0.25 failed) of block 0.295; 4/5
 Sets are nested (TOP3 ⊂ TOP10 ⊂ TOP30) so the increments are clean: +0.067 for units 4-10, +0.016 for units 11-30. 10 forwards.
+
+### 2026-09-19T10:48Z — Claude: v544: third natural set mined outcome-blind (fineweb docs 16236-28560, disjoint from v272/v273; 64 rows, 16 per cell, 48 with a distant verb) for the OOD check of both reader sets; miner gained a skip= option
+Run directly on CPU (LIBRARY script; the gate refuses LIBRARY files on lane 2, as for v272). Log: runlogs/run_pronoun_number_dod_natural_verb_rows_fineweb_v544.2.log (ends in a harmless interpreter-teardown message after the file was written). v545 (pronoun readers) and v546 (verb readers) queued on the set.

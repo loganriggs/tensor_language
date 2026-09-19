@@ -29,14 +29,14 @@ def ids_of(forms):
     return out
 
 
-def mine(cues, labels, source, out, schema, exclude=(), cue_window=12, context=24, per_cell=16, doc_budget=20000, show=8, second=None):
-    """`second`: {cue name: set of token ids} -- when given, a row also needs one of those tokens BETWEEN the cue and the target (two-token cues such
+def mine(cues, labels, source, out, schema, exclude=(), cue_window=12, context=24, per_cell=16, doc_budget=20000, show=8, second=None, skip=0):
+    """`skip`: number of leading docs to pass over (a third set starts where an earlier one stopped). `second`: {cue name: set of token ids} -- when given, a row also needs one of those tokens BETWEEN the cue and the target (two-token cues such
     as the modal line's "If ... had" / "When ... has"); the second token must not be a label token."""
     from datasets import load_dataset
     ds = load_dataset("HuggingFaceFW/fineweb", name="sample-10BT", split="train", streaming=True) if source == "fineweb" else load_dataset("NeelNanda/pile-10k", split="train")
     cells = {(c, l): [] for c in sorted(set(cues.values())) for l in sorted(set(labels.values()))}
     seen = 0
-    for doc_index, doc in enumerate(itertools.islice(ds, doc_budget)):
+    for doc_index, doc in enumerate(itertools.islice(ds, skip, skip + doc_budget), start=skip):   # `skip` (v544): start after the docs an earlier set scanned, so the rows are fresh
         ids = ENC.encode(doc["text"]); seen += 1
         for t in range(context, len(ids) - 1):
             nxt = ids[t + 1]
