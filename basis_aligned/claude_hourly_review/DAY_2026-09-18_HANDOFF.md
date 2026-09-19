@@ -59,3 +59,11 @@ At a verb after a noun the chain's MLP-3 units are agreement detectors: 3465 (no
 singular and 493 for plural X + is; but the causal population is led by 3040 / 114 / 565 (verb-form readers gated by the noun; 3040 −1390 for
 singular + are, 114 +1098 for plural + is). Zeroing 3465 alone at the verb is near-inert (KL 0.0008); zeroing the top-10 population costs 0.094
 nats and 0.73 log-odds of plural continuation (nulls 0.00002). Factors are mixed in both kinds of unit (v339, v353). Rows T60–T67.
+
+## Added 2026-09-19 05:14 UTC — the unit chain, named and edited (v356–v371)
+Head 4.5 (the §4.8 copier) carries block 4's number write to the pronoun reader once a determiner precedes the noun (alone, 4.8 leads and the sign
+is reversed; v356–v358); the flip is in the noun's own value (99%), not copied from "The" (v359); that value is written by MLP 3 (0.52), MLP 2 (0.18),
+the embedding path (0.16), MLP 1 (0.11) — within 0.03 on text (v360, v365) — and within MLP 3 by 3465 first, 114, 493 (v361, v363, v366). MLP 8's
+detector 829 is fed by MLPs 5–7 through 1036 (MLP 5), 2483 (MLP 6), 1779 (MLP 7) (v367, v368). The chain 3465 / 493 → 1036 → 2483 → 1779 → 829 is
+live on text with the panel signs (v369); zeroing the six costs 14% of the margin on the panel (56× null) and 8.8% on text (60× null) (v370, v371).
+Rows T70–T85; §4.8 pointer paragraphs.

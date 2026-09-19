@@ -25795,3 +25795,6 @@ Receipt `circuits/followups/unit_chain_natural_v369_result.json` (5 forwards).
 
 ### 2026-09-19T05:12Z — Claude: Number v370 — 5/5 joint zero-edit of the six named chain units on native v76 rows: they−he margin −14.0% (56× layer-matched null); upper four −11.0%; stages roughly additive with the MLP-3 trio (−3.6%). Named, edited unit chain from MLP 1's entry to MLP 8. §4.8 pointer updated; v371 repeats on natural rows
 Receipt `circuits/followups/unit_chain_edit_v370_result.json` (45 forwards).
+
+### 2026-09-19T05:14Z — Claude: Number v371 — 5/5 the six-unit chain edit on 128 natural rows: labelled-pronoun margin −8.8% (60× null); upper four −7.8%; panel was −14%. The unit chain is causal OOD. §4.8 pointer and handoff updated
+Receipt `circuits/followups/unit_chain_edit_natural_v371_result.json` (30 forwards).
