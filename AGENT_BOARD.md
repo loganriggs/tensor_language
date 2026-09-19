@@ -25977,3 +25977,6 @@ Receipt `circuits/followups/unit_swap_count_v424_result.json` (35 forwards).
 
 ### 2026-09-19T07:18Z — Claude: Chain v425 — 3/5 (c, e FAILED; kept): whole-MLP replace-edits at the noun close 0.219 (MLP 8), 0.235 (MLPs 5–8), 0.266 (MLPs 1–3) of the natural-text margin gap. MLP 8 is 0.93 of the MLPs 5–8 effect: the fold's additive writer shares double count the chain (MLPs 5–7 → MLP 8). Edits arbitrate; folds nominate
 Receipt `circuits/followups/layer_swap_edit_v425_result.json` (28 forwards).
+
+### 2026-09-19T07:20Z — Claude: Chain v426 — 5/5 EDIT: the MLP chain swapped whole at the noun (MLPs 1–8) closes 0.396, at the post-noun token (MLPs 4–8) 0.120, both 0.431 of the natural-text margin gap — matching the readers' value swaps site by site (0.37 / 0.13 / 0.50). The number the readers copy is the MLP chain's write; the readout is a closed loop of edits
+Receipt `circuits/followups/layer_swap_sites_v426_result.json` (28 forwards).

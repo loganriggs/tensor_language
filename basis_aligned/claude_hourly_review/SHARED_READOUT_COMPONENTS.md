@@ -531,3 +531,4 @@ v422 (3/5; b, c failed): 9.6's read direction is 0.79 in the span of MLP 8's 829
 v423 (4/5, EDIT; e failed at 0.091 vs 0.10): swapping 829 / 953 / 1030's activations at the noun closes 0.124 (text) / 0.091 (panel) of the margin gap; three random units 0.000.
 v424 (2/5; b, c, e failed): top-3 / 10 / 30 MLP-8 units swapped at the noun close 0.124 / 0.152 / 0.172 of the text margin gap; 30 random 0.000. Three units plus a thin tail.
 v425 (3/5; c, e failed): whole-MLP swaps at the noun — MLP 8 0.219, MLPs 5–8 0.235 (MLP 8 is 0.93 of it: the fold's additive shares double count the chain), MLPs 1–3 0.266.
+v426 (5/5, EDIT): MLP chain swapped whole — noun 0.396, post-noun 0.120, both 0.431 — matches the readers' value swaps site by site (0.37 / 0.13 / 0.50).

@@ -1,0 +1,166 @@
+{
+  "candidate_id": "chain.layer_swap_sites_v426",
+  "finished_utc": "2026-09-19T07:19:00.426301+00:00",
+  "forwards": 28,
+  "plan": {
+    "bars": {
+      "add_max": 0.40080000000000005,
+      "both_min": 0.4,
+      "noun_min": 0.3,
+      "post_min": 0.08,
+      "replay_tol": 0.001
+    },
+    "candidate_id": "chain.layer_swap_sites_v426",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 29,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "sets": {
+      "both": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          8,
+          1
+        ]
+      ],
+      "noun_1_8": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      "post_4_8": [
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          8,
+          1
+        ]
+      ]
+    },
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_all_mlps_at_noun_reach_the_noun_read": true,
+    "pred_c_chain_is_not_additive": true,
+    "pred_d_postnoun_rebuild_carries_the_other_site": true,
+    "pred_e_both_sites_reach_the_two_site_read": true
+  },
+  "report": {
+    "panel": {
+      "closed": {
+        "both": 0.4668465256690979,
+        "noun_1_8": 0.38809147477149963,
+        "post_4_8": 0.26272737979888916
+      },
+      "gap_mean": 4.0962815284729,
+      "pairs": 48
+    },
+    "replay_max_abs": 1.33514404296875e-05,
+    "text": {
+      "closed": {
+        "both": 0.431271493434906,
+        "noun_1_8": 0.3957259953022003,
+        "post_4_8": 0.11950495839118958
+      },
+      "gap_mean": 1.8995414972305298,
+      "pairs": 122
+    }
+  },
+  "schema": "layer_swap_sites_result_v426",
+  "serial_seconds": 2.3146590020041913
+}
