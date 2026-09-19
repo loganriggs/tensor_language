@@ -1,0 +1,73 @@
+{
+  "candidate_id": "pronoun_number.factor_writers_3465_v340",
+  "finished_utc": "2026-09-19T04:09:53.447979+00:00",
+  "forwards": 3,
+  "plan": {
+    "bars": {
+      "attn3_max": 0.1,
+      "closure_tol": 0.001,
+      "emb_min": 0.2,
+      "mlp12_min": 0.5,
+      "native_m": 2.0481,
+      "writer_tol": 0.001
+    },
+    "candidate_id": "pronoun_number.factor_writers_3465_v340",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 5,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117",
+    "unit": 3465
+  },
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_writer_closure": true,
+    "pred_c_mlp1_mlp2_carry_half_of_each_factor": true,
+    "pred_d_embedding_carries_a_fifth": false,
+    "pred_e_attention_3_carries_little": false
+  },
+  "report": {
+    "closure_margin_gap": 4.1226172447395015e-05,
+    "per_factor": {
+      "L": {
+        "attn3": 0.06593330743385467,
+        "embedding": 0.04034521683204717,
+        "mlp1_plus_mlp2": 0.7728287474791824,
+        "pooled_contrast": -1762.1212158203125,
+        "writer_shares": {
+          "attn0": 8.72512217236913e-06,
+          "attn1": 0.0030318560253730837,
+          "attn2": 0.09979786872414194,
+          "attn3": 0.06593330743385467,
+          "embedding": 0.04034521683204717,
+          "mlp0": 0.018054181271781246,
+          "mlp1": 0.4001022978605844,
+          "mlp2": 0.3727264496185981
+        }
+      },
+      "R": {
+        "attn3": 0.1236240290236211,
+        "embedding": 0.049931484015981985,
+        "mlp1_plus_mlp2": 0.5824092019126138,
+        "pooled_contrast": 1020.619384765625,
+        "writer_shares": {
+          "attn0": 2.1736228982972137e-05,
+          "attn1": 0.011955071912592331,
+          "attn2": 0.20595348487019483,
+          "attn3": 0.1236240290236211,
+          "embedding": 0.049931484015981985,
+          "mlp0": 0.026104950965887223,
+          "mlp1": 0.41325930394691296,
+          "mlp2": 0.16914989796570087
+        }
+      }
+    },
+    "writer_closure": 9.711144710600195e-08
+  },
+  "schema": "factor_writers_3465_result_v340",
+  "serial_seconds": 1.6306510858703405
+}

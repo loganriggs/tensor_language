@@ -25693,3 +25693,6 @@ Receipt `circuits/followups/agreement_factor_split_v338_result.json` (8 forwards
 
 ### 2026-09-19T04:08Z — Claude: Number v339 — 2/5 class-wise factor split on the v76 rows: the 2×2 frame roles do not transfer — 3465 / 493 put 70% / 72% of the contrast on the factor that read the determiner in frames; both factors carry number (pair spread 6×). Labels retired; bilinear products stand. §4.10 and the handoff page updated
 Receipt `circuits/followups/agreement_factors_on_rows_v339_result.json` (3 forwards). Three predictions failed; the falsification is the finding.
+
+### 2026-09-19T04:11Z — Claude: Number v340 — 3/5 per-writer split of unit 3465's factor contrasts at the noun: MLPs 1 + 2 carry 0.77 (L) / 0.58 (R), embedding 0.04 / 0.05 ('≥ 0.20' failed), attention 3 0.07 / 0.12 ('≤ 0.10' failed for R). Both agreement inputs are MLP-written. One void run (writer tracking past block 3) fixed before the receipt. §4.10 updated
+Receipt `circuits/followups/factor_writers_3465_v340_result.json` (3 forwards; one failed run before it, KeyError on attention tracking past block 3, fixed).
