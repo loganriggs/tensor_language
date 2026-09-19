@@ -1,0 +1,247 @@
+{
+  "candidate_id": "both_ends.factor_means_v403",
+  "finished_utc": "2026-09-19T06:34:03.591573+00:00",
+  "forwards": 3,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.0001,
+      "cur_min": 0.8,
+      "flat_max": 0.1,
+      "instr_tol": 0.02
+    },
+    "candidate_id": "both_ends.factor_means_v403",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 4,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117"
+  },
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_12_4_second_factor_falls_on_plural": false,
+    "pred_c_9_6_factors_flat": true,
+    "pred_d_value_copy_is_current_state_not_token": true,
+    "pred_e_12_4_net_positive": true
+  },
+  "report": {
+    "closure_max": 2.566629707198883e-06,
+    "instrument_max_rel": 3.6432859360502334e-06,
+    "readers": {
+      "12.4": {
+        "noun": {
+          "current_share_of_value_only": 0.9429607853800455,
+          "factor_means": {
+            "s1": {
+              "plural": -0.6864903556803862,
+              "singular": -0.7365068085491657
+            },
+            "s2": {
+              "plural": -0.13310296825754145,
+              "singular": -0.27418160780022544
+            },
+            "w": {
+              "plural": 1214.7648124694824,
+              "singular": -1984.211705525716
+            },
+            "wc": {
+              "plural": 1124.9174124399822,
+              "singular": -1899.3667147954304
+            },
+            "wt": {
+              "plural": 89.8474006652832,
+              "singular": -84.84498310089111
+            }
+          },
+          "noun_source_contrast": 23899.91862332136,
+          "rel_change": {
+            "s1": 0.06791037406335215,
+            "s2": 0.5145445045514391,
+            "w": 1.6122153241443713
+          },
+          "value_only_current_state": 29263.94856765202,
+          "value_only_token_only": 1770.1612504541993
+        },
+        "postnoun": {
+          "current_share_of_value_only": 1.0,
+          "factor_means": {
+            "s1": {
+              "plural": -0.7764776634673277,
+              "singular": -0.819907500098149
+            },
+            "s2": {
+              "plural": -0.15574177874562642,
+              "singular": -0.2279005729360506
+            },
+            "w": {
+              "plural": 1656.6825841267903,
+              "singular": -2814.6729888916016
+            },
+            "wc": {
+              "plural": 1767.4387537638347,
+              "singular": -2703.9167989095054
+            },
+            "wt": {
+              "plural": -110.7561632792155,
+              "singular": -110.7561632792155
+            }
+          },
+          "noun_source_contrast": 32317.113667858655,
+          "rel_change": {
+            "s1": 0.05296919058018418,
+            "s2": 0.3166240139759196,
+            "w": 1.5885879427788092
+          },
+          "value_only_current_state": 39463.38070775598,
+          "value_only_token_only": 0.0
+        }
+      },
+      "15.1": {
+        "noun": {
+          "current_share_of_value_only": 0.6203960320632477,
+          "factor_means": {
+            "s1": {
+              "plural": -0.5138963554054499,
+              "singular": -0.5000894150386254
+            },
+            "s2": {
+              "plural": 0.7849569382766882,
+              "singular": 0.7639677648742994
+            },
+            "w": {
+              "plural": -483.2949333190918,
+              "singular": 352.339528242747
+            },
+            "wc": {
+              "plural": -320.9985891977946,
+              "singular": 197.3516968091329
+            },
+            "wt": {
+              "plural": -162.29635000228882,
+              "singular": 154.98784017562866
+            }
+          },
+          "noun_source_contrast": 16018.02080567832,
+          "rel_change": {
+            "s1": -0.027608943424163656,
+            "s2": 0.027473899249979877,
+            "w": -2.371673895714937
+          },
+          "value_only_current_state": 9714.649365256337,
+          "value_only_token_only": 5944.137704912989
+        },
+        "postnoun": {
+          "current_share_of_value_only": 1.0,
+          "factor_means": {
+            "s1": {
+              "plural": -0.48351359739899635,
+              "singular": -0.5148808602243662
+            },
+            "s2": {
+              "plural": 0.7798496397833029,
+              "singular": 0.771116241812706
+            },
+            "w": {
+              "plural": -244.2505397796631,
+              "singular": 246.59314695994058
+            },
+            "wc": {
+              "plural": -214.3671751022339,
+              "singular": 276.4765151341756
+            },
+            "wt": {
+              "plural": -29.883371988932293,
+              "singular": -29.883371988932293
+            }
+          },
+          "noun_source_contrast": 9068.629368275479,
+          "rel_change": {
+            "s1": 0.06092139997532853,
+            "s2": 0.011325656881596511,
+            "w": -1.990500112395021
+          },
+          "value_only_current_state": 9262.54856600291,
+          "value_only_token_only": 0.0
+        }
+      },
+      "9.6": {
+        "noun": {
+          "current_share_of_value_only": 0.960048997774872,
+          "factor_means": {
+            "s1": {
+              "plural": -0.20844241503315666,
+              "singular": -0.202924882605051
+            },
+            "s2": {
+              "plural": -0.579152495910724,
+              "singular": -0.5948184505105019
+            },
+            "w": {
+              "plural": 5525.403889973958,
+              "singular": -2062.518444379171
+            },
+            "wc": {
+              "plural": 5193.336357116699,
+              "singular": -2087.8830238978067
+            },
+            "wt": {
+              "plural": 332.0676283836365,
+              "singular": 25.36460256576538
+            }
+          },
+          "noun_source_contrast": 46777.407267699986,
+          "rel_change": {
+            "s1": -0.027190023999394526,
+            "s2": 0.02633737165740663,
+            "w": 3.678959747017988
+          },
+          "value_only_current_state": 45643.03185043744,
+          "value_only_token_only": 1899.366460716844
+        },
+        "postnoun": {
+          "current_share_of_value_only": 1.0,
+          "factor_means": {
+            "s1": {
+              "plural": -0.192126082489267,
+              "singular": -0.19630856035898128
+            },
+            "s2": {
+              "plural": -0.6855075011650721,
+              "singular": -0.7015300591786703
+            },
+            "w": {
+              "plural": 4261.006881713867,
+              "singular": -3086.842825571696
+            },
+            "wc": {
+              "plural": 4147.457534790039,
+              "singular": -3200.3921343485513
+            },
+            "wt": {
+              "plural": 113.54932022094727,
+              "singular": 113.54932022094727
+            }
+          },
+          "noun_source_contrast": 48738.621175436776,
+          "rel_change": {
+            "s1": 0.021305631614158688,
+            "s2": 0.022839446156244416,
+            "w": 2.380377013826323
+          },
+          "value_only_current_state": 49745.09311712269,
+          "value_only_token_only": 0.0
+        }
+      }
+    }
+  },
+  "schema": "both_ends_factor_means_result_v403",
+  "serial_seconds": 1.7269999901764095
+}
