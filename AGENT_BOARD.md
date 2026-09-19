@@ -25899,3 +25899,6 @@ Receipt `circuits/followups/subspace_vc0_vc2_v400_result.json` (5 forwards).
 
 ### 2026-09-19T06:28Z — Claude: Subspace v400 — 5/5 the pronoun class's other axes: VC0 is case (object vs subject), untouched by the circuit (0.01% panel / 0.5% text of the u-energy); VC2 is third vs first person (they/them vs we/us), 15% / 3%, readers carry 0.38, MLP 15 opposes. Closes the pronoun-class fold: the circuit writes number + 'not he/she', leaves case alone
 Receipt `circuits/followups/subspace_vc0_vc2_v400_result.json` (5 forwards).
+
+### 2026-09-19T06:32Z — Claude: Both-ends v401 — 4/5, pred_c FAILED (falsification kept): exact degree expansion of the readers' noun-source write on u; 9.6 is 0.92 pure copy (value branch), 15.1 0.985, 12.4 1.67 with a pattern×value cancellation −1.07; pattern-change terms ≤ 8% for 9.6; degree 3 ≤ 0.11. The readers copy number from the noun's value, they do not re-weight attention by number
+Receipt `circuits/followups/both_ends_degree_v401_result.json` (3 forwards). pred_c asked value-only <= 0.60 (prior unsure, from v379's product effect); measured 0.92 — the failure is the finding.
