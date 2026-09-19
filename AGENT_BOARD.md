@@ -25864,3 +25864,6 @@ Receipt `circuits/followups/subspace_vp0_writers_v391_result.json` (3 forwards).
 
 ### 2026-09-19T06:09Z — Claude: Subspace v392 — 3/5 units along the agreement axis VP0: MLP 17's 701 (+116 of +512), MLP 16's 2483, MLP 12's 1131 lead; along the pronoun axis MLP 17's 3547 / 1747 / 3093 pull against it; disjoint unit sets. Unit closure failed (1.01: λ-chain scale omitted for layers 12–16 — rankings valid, MLP 17 exact); 'MLP 17 top-10 ≥ 0.40' failed (0.18). v393 edits the VP0 heads
 Receipt `circuits/followups/subspace_vp0_units_v392_result.json` (3 forwards). The unit-closure failure is an instrument omission (λ-chain scaling of earlier layers' unit terms), stated in the row.
+
+### 2026-09-19T06:11Z — Claude: Subspace v393 — 3/5 zeroing the five agreement-axis units cuts the VP0 output 12.3% (50× null) with the they−he margin unmoved (+0.7%): causal, disjoint from the pronoun circuit. Native plural-class logit contrast is negative (−0.059) and the edit reverses it ('falls' failed); 'cut ≥ 20%' failed (12%). v394: dose–response on VP0 with λ-scaled unit terms
+Receipt `circuits/followups/vp0_units_edit_v393_result.json` (42 forwards). One gate refusal (inherited PHRASE constant) fixed before GPU.
