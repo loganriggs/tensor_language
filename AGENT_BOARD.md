@@ -26291,3 +26291,6 @@ Receipt `circuits/followups/template_contrast_verb_v523_result.json` (4 forwards
 
 ### 2026-09-19T10:02Z — Claude: Template v524 — 5/5 (after an int-key fix): in block 9 the pronoun template ranks 9.6 first (0.112) and 9.7 last (−0.006); the agreement template ranks 9.7 first (0.0066) and 9.6 last (−0.015); their transport vectors cos −0.11. Weight-only templates separate the two readouts inside one block as the edits did
 Receipt `circuits/followups/block9_two_templates_v524_result.json` (4 forwards; 8 spent with the re-run).
+
+### 2026-09-19T10:04Z — Claude: Template v525 — 4/5 (d FAILED; kept): over all 162 heads the pronoun template's top 10 holds all five pronoun readers (ranks 1–7) and the agreement template's top 10 holds 11.3, 7.8, 13.1, 5.3 (9.7 at 12); the lists share six heads — the copier 4.5, early exits 2.6 / 3.4, and cross-scoring readers. Weights alone recover the edit census for both readouts
+Receipt `circuits/followups/templates_all_heads_v525_result.json` (4 forwards).

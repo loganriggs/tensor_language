@@ -633,3 +633,4 @@ v521 (5/5): the four panel units — 3547 / 1747 write 'he', 4448 both singulars
 v522 (3/5; a float-noise, c at −10.3 vs 10): on text the four panel units fire half as much with number and lose coherence (3547 reversed, 3093 silent). Artefact thread closed.
 v523 (5/5): the sign-aware template on u_v ranks 11.3 / 7.8 / 13.1 / 9.7 first in their blocks (as 9.6 on u); verb and pronoun readers read different noun directions (11.3·9.6 −0.25; 9.7·9.6 −0.11).
 v524 (5/5): in block 9, 9.6 is first on the pronoun template and last on the verb template; 9.7 the reverse. Weight templates separate the two readouts head by head.
+v525 (4/5; d failed at 6 shared): pronoun template top-10 holds all five pronoun readers (ranks 1–7); agreement template top-10 holds 11.3, 7.8, 13.1, 5.3 (9.7 12th); shared heads = the copier 4.5, 2.6, 3.4 and cross-scoring readers.
