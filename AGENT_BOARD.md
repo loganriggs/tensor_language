@@ -25750,3 +25750,6 @@ Receipt `circuits/followups/mismatch_population_specificity_v355_result.json` (4
 
 ### 2026-09-19T04:45Z — Claude: Number v356 — 2/5 block-4 heads from single tokens on 9.6's reader: 4.8 carries 43% (−1.7 std), 4.5 31% (−0.85), 4.1 16%; the rest silent. 4.5 not the largest (pred failed); 'positive' was a sign-convention error (plural is negative on this reader, as at MLP 3). 4.8 unnamed in §4.8 → v357 folds 4.8 / 4.5 in context
 Receipt `circuits/followups/block4_heads_single_tokens_v356_result.json` (2 forwards).
+
+### 2026-09-19T04:47Z — Claude: Number v357 — 2/5 block-4 heads on the v76 rows: at the noun 4.5 carries ~0.90 of the number write on 9.6's reader with the 'they'-for-plural sign (opposite to its single-token sign, v356); 4.8 0.05; at the final token 4.4 / 4.8 lead, 4.5 fourth. Three preds failed. 4.5's write is token × context; v358 tests the flip
+Receipt `circuits/followups/block4_heads_on_rows_v357_result.json` (3 forwards).
