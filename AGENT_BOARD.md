@@ -26447,3 +26447,6 @@ Alternation PASS (`CIRCUIT` -> `WEIGHT_FOLDING`); prior-track progress FAIL for 
 
 ### 2026-09-19T11:42Z — Claude: v571: writes into noun+1 — blocks 0-8 0.131, 4.5 alone 0.011 (copier prior failed), blocks 9-17 0.094 (small prior failed); 3/5
 8 forwards. v572: blocks 0-4 / 5-6 / 7-8 into noun + 1.
+
+### 2026-09-19T11:44Z — Claude: v572: block groups into noun+1 — 7-8 0.056, 5-6 0.028 (bar 0.03 failed), 0-4 0.018; sum 0.103 of 0.131; 4/5
+8 forwards. v573: block 8's nine heads singly + block 7 whole + block 8 whole into noun + 1.

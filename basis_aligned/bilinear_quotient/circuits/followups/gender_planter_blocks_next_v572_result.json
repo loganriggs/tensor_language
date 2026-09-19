@@ -1,0 +1,79 @@
+{
+  "candidate_id": "gender.planter_blocks_next_v572",
+  "finished_utc": "2026-09-19T11:43:09.296195+00:00",
+  "forwards": 8,
+  "plan": {
+    "bars": {
+      "add": 0.05,
+      "b04_max": 0.05,
+      "b56_min": 0.03,
+      "b78_min": 0.05,
+      "low_v571": 0.131,
+      "replay_tol": 0.001,
+      "unit": 701
+    },
+    "candidate_id": "gender.planter_blocks_next_v572",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 9,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 61
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_blocks_7_8_carry": true,
+    "pred_c_blocks_5_6_carry": false,
+    "pred_d_blocks_0_4_small": true,
+    "pred_e_groups_add": true
+  },
+  "report": {
+    "panel": {
+      "rows": 61,
+      "skipped": "pronoun slot, natural pairs"
+    },
+    "replay_max_abs": 1.430511474609375e-05,
+    "text": {
+      "contrast_mean": -0.29676592350006104,
+      "margin_closed": {
+        "B04": 0.018376821652054787,
+        "B56": 0.02811042033135891,
+        "B78": 0.056442517787218094
+      },
+      "moved": {
+        "B04": -2.3630926609039307,
+        "B56": -0.9488899111747742,
+        "B78": 1.7205778360366821
+      },
+      "pairs": 61,
+      "sign_constancy": 0.5901639461517334,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": -0.29676592350006104,
+      "margin_closed": {
+        "B04": 0.018376821652054787,
+        "B56": 0.02811042033135891,
+        "B78": 0.056442517787218094
+      },
+      "moved": {
+        "B04": -2.3630926609039307,
+        "B56": -0.9488899111747742,
+        "B78": 1.7205778360366821
+      },
+      "pairs": 61,
+      "sign_constancy": 0.5901639461517334,
+      "unit": 701
+    }
+  },
+  "schema": "gender_planter_blocks_next_result_v572",
+  "serial_seconds": 1.94250797200948
+}
