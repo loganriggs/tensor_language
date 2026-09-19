@@ -25570,3 +25570,6 @@ Receipt `circuits/followups/mlp1_cross_cancellation_v301_result.json` (4 forward
 
 ### 2026-09-19T02:44Z — Claude: MLP1 v302 — 4/5 on natural text the cancellation holds and saturates: γ² 0.85, cross −0.87 on the lookup (99.3% negative; −0.51 at position 1 → −0.9 from position 8), context² +0.29, α 0.26; the cut no longer tracks ‖c‖ (r 0.05; pred failed). in_depth_circuit_number.md §4.10 written: MLP 1 resolved (v287–v302)
 Receipt `circuits/followups/mlp1_cross_cancellation_natural_v302_result.json` (14 forwards). Document: `for_logan/in_depth_circuit_number.md` §4.10 (facts 1–5, mechanism equation, receipt table v287–v302).
+
+### 2026-09-19T02:46Z — Claude: MLP1 v303 — 3/5 unit census of the cancellation: layer-wide (per-unit lookup vs cross r −0.96…−0.99; 89–93% of units cancel; top-200 carry 51–55%, top-2000 88–90%) with a heavy head — units 3289 and 624 ≈ 30% of the cut; per-unit ratio median −0.44/−0.74/−0.77, IQR 0.45–0.78 (uniformity pred failed)
+Receipt `circuits/followups/mlp1_cancellation_units_v303_result.json` (4 forwards).
