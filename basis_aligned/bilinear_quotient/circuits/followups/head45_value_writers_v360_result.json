@@ -1,0 +1,74 @@
+{
+  "candidate_id": "pronoun_number.head45_value_writers_v360",
+  "finished_utc": "2026-09-19T04:51:21.548964+00:00",
+  "forwards": 2,
+  "plan": {
+    "bars": {
+      "attn_max": 0.25,
+      "closure_tol": 0.001,
+      "emb_tol": 0.1,
+      "mlp_min": 0.6
+    },
+    "candidate_id": "pronoun_number.head45_value_writers_v360",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 4,
+    "frame": "The X",
+    "gpu_accessed": false,
+    "head": 5,
+    "layer": 4,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "pairs": 256
+  },
+  "predictions": {
+    "pred_a_writer_closure": true,
+    "pred_b_mlps_1_to_3_carry_the_flip": true,
+    "pred_c_embedding_keeps_the_alone_sign": false,
+    "pred_d_mlp3_is_the_largest_writer": true,
+    "pred_e_attention_writers_small": true
+  },
+  "report": {
+    "attn_abs_share": 0.022786435574788762,
+    "closure_max": 3.9777037841304264e-07,
+    "largest_positive_writer": "mlp3",
+    "mlp123_share": 0.8095313533655037,
+    "own_key_contrast": 881750.4375,
+    "writer_abs_share": {
+      "attn0": 3.113084994770359e-06,
+      "attn1": 0.0010392011501624604,
+      "attn2": 0.01759056193586472,
+      "attn3": 0.00415355940376681,
+      "embedding": 0.1632835193348807,
+      "mlp0": 0.006086359708359422,
+      "mlp1": 0.10875044510229519,
+      "mlp2": 0.18066485241696026,
+      "mlp3": 0.5184283878627156
+    },
+    "writer_contrast": {
+      "attn0": -2.7506985664367676,
+      "attn1": -918.2303466796875,
+      "attn2": 15542.888671875,
+      "attn3": 3670.053955078125,
+      "embedding": 144276.09375,
+      "mlp0": 5377.86181640625,
+      "mlp1": 96091.078125,
+      "mlp2": 159634.109375,
+      "mlp3": 458079.4375
+    },
+    "writer_share_of_own": {
+      "attn0": -3.1195885473396973e-06,
+      "attn1": -0.0010413721475240976,
+      "attn2": 0.017627310416701663,
+      "attn3": 0.004162236613665559,
+      "embedding": 0.16362463528689772,
+      "mlp0": 0.0060990747355384786,
+      "mlp1": 0.10897763589144803,
+      "mlp2": 0.18104227974936501,
+      "mlp3": 0.5195114377246907
+    }
+  },
+  "schema": "head45_value_writers_result_v360",
+  "serial_seconds": 1.756651049014181
+}

@@ -25759,3 +25759,6 @@ Receipt `circuits/followups/head45_sign_flip_v358_result.json` (6 forwards).
 
 ### 2026-09-19T04:51Z — Claude: Number v359 — 1/5 head 4.5's flip after 'The' is value-borne: own-key term +882k (99%), 'The'-key term 1%, pattern on 'The' number-blind (0.12 std). Copy-from-determiner reading falsified; 4.5 copies a noun state that already carries determiner × noun from MLPs 1–3. §4.8 pointer updated; v360 folds by writer
 Receipt `circuits/followups/head45_key_split_v359_result.json` (2 forwards). Four predictions failed; the falsification is the finding.
+
+### 2026-09-19T04:52Z — Claude: Number v360 — 4/5 writer fold of head 4.5's flipped value after 'The': MLP 3 0.52, MLP 2 0.18, embedding 0.16 (sign pred failed), MLP 1 0.11, attention 0.02. The copier carries the MLP 1–3 agreement computation. §4.8 pointer updated; v361 censuses MLP 3's units
+Receipt `circuits/followups/head45_value_writers_v360_result.json` (2 forwards).
