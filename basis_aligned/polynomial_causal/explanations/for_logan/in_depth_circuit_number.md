@@ -421,7 +421,9 @@ the "singular noun + plural verb" cell sits 2.1–5.1 pooled std below the gramm
 and go the unit also flags the mirror violation; 493's mirror reading is verb-dependent (+1.9 for was / were, negative for do / go) and is not a
 general detector; 829 and 1036 read the verb's form whatever the noun. Named at this grain: unit 3465 of MLP 3 is a bilinear product of the
 preceding word's expectation and the current token's number that fires when a singular subject is followed by a plural verb form — both of its
-inputs drawn from MLP 1's lookup entries.
+inputs drawn from MLP 1's lookup entries. With a determiner in front (v349, "The X is / are") the reading survives and broadens: 3465 fires −165 for a singular
+subject followed by are and −88 for a plural subject followed by is, against −4 and −49 in the grammatical cells; 493 flags plural-then-is (+43);
+829 and 1036 keep reading the verb's form. Whether the detector matters to the model's next prediction is the edit queued as v350.
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -528,6 +530,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v346 | verb tokens alone | 1036 +7.8, 1030 +2.8, 953 +1.7 read verb number; 3465 reads the -s ending backwards (−1.35) (3/5) |
 | v347 | [noun, is / are] at the verb | 3465 ≈ −300 only for singular + are; 493 +46 only for plural + is: violation detectors (2/5) |
 | v348 | four more verb pairs | 3465's violation reading holds ×4 (2–5 std); 493's is verb-dependent; 829 / 1036 read verb form (2/5) |
+| v349 | "The X is / are" | 3465 flags both violations (−165 / −88 vs −4 / −49); 493 plural + is (+43) (5/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

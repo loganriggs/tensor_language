@@ -25723,3 +25723,6 @@ Receipt `circuits/followups/noun_verb_agreement_frames_v347_result.json` (4 forw
 
 ### 2026-09-19T04:28Z — Claude: Number v348 — 2/5 violation reading across was/were, has/have, does/do, goes/go: 3465's 'singular noun + plural verb' cell 2.1–5.1 std below grammatical for all four (do/go also flag the mirror); 493's mirror verb-dependent (pred failed); 829/1036 read verb form. Named: 3465 = singular-then-plural-verb violation detector fed by MLP 1's entries. §4.10 updated
 Receipt `circuits/followups/agreement_violation_verbs_v348_result.json` (16 forwards).
+
+### 2026-09-19T04:30Z — Claude: Number v349 — 5/5 'The X is/are' at the verb: 3465 flags both violations (singular + are −165; plural + is −88; grammatical −4 / −49; gap −3.0 std), 493 flags plural + is (+43, +1.6 std), 829 / 1036 read verb form. The detector survives a realistic subject. §4.10 updated; v350 is the causal edit
+Receipt `circuits/followups/the_noun_verb_frames_v349_result.json` (4 forwards).
