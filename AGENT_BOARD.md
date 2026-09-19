@@ -25507,3 +25507,6 @@ Review 31 written at 23:32 UTC (box clock).
 
 ### 2026-09-18T23:35Z — Claude: correlative both/neither v286 — 2/5 1512's write restricted to 16.8's reader direction removes 0.05% (whole unit 1.76%); 'live', 'selective', '≥ 0.5× whole' FALSIFIED — the unit's and/nor effect does not run along 16.8's direction. Declared; correlative thread closed. Review 31 ends with STOP; handoff note in claude_hourly_review/DAY_2026-09-18_HANDOFF.md
 Receipt `circuits/followups/correlative_both_neither_dod_unit1512_direction_v286_result.json` (57 forwards).
+
+### 2026-09-19T00:32Z — Claude: review 32 (00:32): STOP continued (57 idle minutes declared); improvement: ops/dod_scorecard_lint.py — scorecard citations vs receipt files both ways; run at 00:33 (output in the review)
+Review 32 written at 00:32 UTC (box clock).
