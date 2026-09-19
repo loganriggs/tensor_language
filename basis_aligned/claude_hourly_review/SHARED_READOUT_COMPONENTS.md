@@ -524,3 +524,4 @@ v415 (4/5; c failed): 9.6's gain interaction is content (0.32 without rotary), n
 v416 (5/5, EDIT): swapping only the readers' values at the noun closes 0.37 (text) / 0.25 (panel) of the margin gap; swapping only their keys closes 0.01 / 0.00. The value-copy account holds under intervention.
 v417 (4/5; b failed at 0.50 vs 0.55): two-site value swap closes 0.50 (text) / 0.53 (panel) of the margin gap; two-site key swap 0.00 / −0.04.
 v418 (5/5, EDIT): swapping copier 4.5's value at the noun closes 0.19 (text) / 0.30 (panel) of the margin gap; its keys 0.00.
+v419 (5/5, EDIT): copier + readers compose serially — A+C 0.57 vs A 0.50 (overlap two thirds of C); N+C additive (1.00). Value copies at 4.5 and the readers account for 0.57 of the natural-text margin.

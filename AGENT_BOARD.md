@@ -25956,3 +25956,6 @@ Receipt `circuits/followups/value_swap_copier_v418_result.json` (21 forwards).
 
 ### 2026-09-19T07:08Z — Claude: Review 40 (07:07 UTC): subspace fold closed, both-ends series folded + edited on natural text (v399–v418, 129 forwards, 11 falsifications kept); QUEUED v419 (composition of the copier's seed and the readers' copy)
 Review file `claude_hourly_review/REVIEW_2026-09-19_0707.md`.
+
+### 2026-09-19T07:09Z — Claude: Both-ends v419 — 5/5 EDIT composition: the copier's value effect routes through the readers' post-noun read (A+C 0.57 vs A 0.50 on text; two thirds of C overlaps) and adds fully to the readers' noun-site read (N+C = 1.00 of the separate sum). Serial route 4.5 → MLPs 4–8 → readers; the value copies account for 0.57 of the natural-text margin
+Receipt `circuits/followups/value_swap_compose_v419_result.json` (35 forwards).
