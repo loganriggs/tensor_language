@@ -25822,3 +25822,6 @@ Receipt `circuits/followups/restorer_null_v378_result.json` (45 forwards).
 
 ### 2026-09-19T05:32Z — Claude: Review 38 (05:31 UTC): the unit-grain chain — 25 receipts v354–v378, 393 forwards; chain named, edited, OOD; populations saturate near a third; compensation at population grain with null; QUEUED v379
 Review file `claude_hourly_review/REVIEW_2026-09-19_0531.md`.
+
+### 2026-09-19T05:33Z — Claude: Number v379 — 4/5 the restorer's +17% is a product effect: 1779's factors' own contrasts shrink 13% / 19% while the R-borne term carries 0.75 of the product's gain ('other factor stable' failed). §4.9's class-wise law at population grain; compensation sub-thread closed
+Receipt `circuits/followups/restorer_factor_split_v379_result.json` (9 forwards).
