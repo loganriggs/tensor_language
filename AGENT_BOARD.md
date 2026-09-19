@@ -25660,3 +25660,6 @@ Receipt `circuits/followups/mlp1_unconditioning_selectivity_v328_result.json` (6
 
 ### 2026-09-19T03:47Z — Claude: Number v329 — 4/5 single tokens folded through blocks 0–3 into MLP-3 unit 3465: plural nouns −432 vs singular −37 (4.2 std; 100% of plurals on the plural side; stable over set sizes 16/64), numerals ≈ 0 (0% plural side; 'numerals read as plural' failed), 'one' singular side. 3465 = -s plural detector of the token's own lookup, not quantity. §4.10 updated
 Receipt `circuits/followups/number_tokens_into_3465_v329_result.json` (1 forward).
+
+### 2026-09-19T03:49Z — Claude: Number v330 — 4/5 more single-token classes into unit 3465: irregular plurals 0.85 of the singular→plural axis, -s verbs 0.41, are/were 0.19 vs is/was −0.07, plural pronouns −0.06 (pred failed), -s adverbs −0.08. 3465 detects noun plurality, not the -s ending or pronoun number. §4.10 updated; v331 tests unambiguous -s verbs
+Receipt `circuits/followups/more_tokens_into_3465_v330_result.json` (1 forward). A first dry-run failed on a two-token entry (" geese"); the class helper now drops multi-token entries.
