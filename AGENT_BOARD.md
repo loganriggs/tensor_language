@@ -26004,3 +26004,6 @@ Receipt `circuits/followups/block10_heads_v432_result.json` (40 forwards).
 
 ### 2026-09-19T07:31Z — Claude: Both-ends v433 — 5/5 EDIT: the five-head reader set {9.6, 10.1, 10.5, 12.4, 15.1} closes 0.483 of the natural-text margin gap at the noun (0.96 of the high route) and 0.623 at both sites (three heads 0.498, replayed exactly). Number leaves the noun only through values, into five late readers and one early copier
 Receipt `circuits/followups/five_readers_edit_v433_result.json` (28 forwards).
+
+### 2026-09-19T07:33Z — Claude: Both-ends v434 — 2/5 (c, d, e FAILED; kept): five readers at two sites 0.623 + the rest of the sequence 0.276 close 0.710 together (sum of parts 0.90): not additive, 0.29 unaccounted — the other heads' values at the two sites (the copier route) are missing from the edit and flow into the rest
+Receipt `circuits/followups/route_census_close_v434_result.json` (28 forwards).
