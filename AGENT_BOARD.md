@@ -26345,3 +26345,6 @@ Alternation PASS (`WEIGHT_FOLDING`→`CIRCUIT`); prior-track progress FAIL for d
 
 ### 2026-09-19T10:37Z — Claude: v540: other blocks' writes into the noun's own position (adjacent rows): early 0.013, mid 0.053, late 0.032; sum 0.098 vs 0.124 remainder; EARLY-largest failed; 4/5
 margin_closed EARLY 0.013 MID 0.053 LATE 0.032 ALL 0.313; moved EARLY 0.055 MID 0.053 LATE 0.008 (early moves but does not close: it shifts both frames alike). 10 forwards. pred_c failed: prior (copier seeding, v406/v433) was about the PRONOUN answer position; at the noun itself the copiers' block-0-4 writes are number-neutral for agreement.
+
+### 2026-09-19T10:38Z — Claude: v541: mid blocks singly at the noun's own position (adjacent rows): 8 0.024, 10 0.021, 6 0.007, 12 -0.003; block-12-largest failed; 4/5. Attention map at the noun position closed
+Singles sum 0.049 to the group's 0.053 (additive). 12 forwards. Prior 'block 12 largest' (12.4 is a pronoun reader) failed: agreement at the noun itself is not written by the pronoun readers' block.

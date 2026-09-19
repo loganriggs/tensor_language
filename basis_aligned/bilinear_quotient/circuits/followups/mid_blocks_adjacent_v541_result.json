@@ -1,0 +1,87 @@
+{
+  "candidate_id": "chain.mid_blocks_adjacent_v541",
+  "finished_utc": "2026-09-19T10:37:30.945311+00:00",
+  "forwards": 12,
+  "plan": {
+    "bars": {
+      "all_v502": 0.313,
+      "band": 0.05,
+      "mid_band": 0.03,
+      "mid_v540": 0.053,
+      "replay_tol": 0.001,
+      "single_max": 0.05,
+      "unit": 701
+    },
+    "candidate_id": "chain.mid_blocks_adjacent_v541",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 13,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_singles_sum_to_mid": true,
+    "pred_c_each_block_small": true,
+    "pred_d_block_5_rest_matches": false,
+    "pred_e_all_replays": true
+  },
+  "report": {
+    "panel": {
+      "distant_rows": 43,
+      "skipped": "distant rows only"
+    },
+    "replay_max_abs": 2.002716064453125e-05,
+    "text": {
+      "contrast_mean": 344.6632995605469,
+      "margin_closed": {
+        "ALL": 0.31311556696891785,
+        "B10": 0.02069750800728798,
+        "B12": -0.002507466822862625,
+        "B6": 0.006980962119996548,
+        "B8": 0.024419382214546204
+      },
+      "moved": {
+        "ALL": 0.35743018984794617,
+        "B10": 0.00844914186745882,
+        "B12": -0.0015514441765844822,
+        "B6": 0.010581482201814651,
+        "B8": 0.03298512101173401
+      },
+      "pairs": 43,
+      "sign_constancy": 0.9069767594337463,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": 344.6632995605469,
+      "margin_closed": {
+        "ALL": 0.31311556696891785,
+        "B10": 0.02069750800728798,
+        "B12": -0.002507466822862625,
+        "B6": 0.006980962119996548,
+        "B8": 0.024419382214546204
+      },
+      "moved": {
+        "ALL": 0.35743018984794617,
+        "B10": 0.00844914186745882,
+        "B12": -0.0015514441765844822,
+        "B6": 0.010581482201814651,
+        "B8": 0.03298512101173401
+      },
+      "pairs": 43,
+      "sign_constancy": 0.9069767594337463,
+      "unit": 701
+    }
+  },
+  "schema": "mid_blocks_adjacent_result_v541",
+  "serial_seconds": 1.961118385894224
+}
