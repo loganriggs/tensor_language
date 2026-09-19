@@ -25920,3 +25920,6 @@ Receipt `circuits/followups/value_copy_writers_v406_result.json` (7 forwards). p
 
 ### 2026-09-19T06:42Z — Claude: Both-ends v407 — 3/5: MLP 8 unit census on the 122 natural pairs — 829 / 953 / 1030 rank 1–3 (top-10 0.75, top-50 0.87); gender unit 3152 5th (pred_e FAILED; it is 5th on the panel too — a gender–number unit); closure FAILED on an instrument fault (Down bias double-counted in the reconstruction; ranks unaffected). v408 corrects the closure
 Receipt `circuits/followups/value_copy_mlp8_units_text_v407_result.json` (4 forwards). Fault: `per_row_mlp` added `m . Down_bias` to `mlp(xin) . m`, which already contains the bias.
+
+### 2026-09-19T06:44Z — Claude: Both-ends v408 — 4/5 corrected closure (8e-5) for the text unit census; ranks unchanged (829 / 953 / 1030; 3152 5th, pred_e failed as registered); LATEST.md section for Logan (subspace + both-ends, v390–v408) appended
+Receipt `circuits/followups/value_copy_mlp8_units_text_v408_result.json` (4 forwards).

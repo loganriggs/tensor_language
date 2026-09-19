@@ -117,3 +117,27 @@
   3465 / 493 → 1036 → 2483 → 1779 → 829 is live on text with the panel signs (v369); zeroing the six costs 14% of the margin on the panel and 8.8% on
   text (56× / 60× null; v370–v371); the top ten per layer cost 34% / 19% and saturate near a third (v372–v374). Agreement at MLP 3: noun-gated verb units
   (3040, 114, 565) and verb-gated noun units (3465, 493) flag noun–verb mismatches and are used (0.094 / 0.039 nats; v347–v355).
+
+## 2026-09-19 06:50 UTC — Logan's subspace fold done; both-ends contrast + exact degree expansion (Claude lane, v390–v408)
+
+- **Subspace fold (your "do the subspace idea"; v390–v400; T104–T114).** W_U restricted to a token class, split into the class mean and the class's
+  residual axes. *Plural-noun class:* the class mean carries none of the number circuit's output (≤ 4.5%); the class's top residual axis (plural nouns vs
+  is / has / goes) carries half of the output on the panel and is written by MLPs 12–17 — but 0.2% on natural text: panel-frame-specific, falsified as a
+  circuit (v395–v396). *Pronoun class:* VC0 is case (him / them / us / her vs I / we / they / she / he) and the circuit leaves it alone (0.01% / 0.5% of
+  its u-energy); VC1 separates she / her / he / him from every other pronoun (cos 0.45 with they − he) and is the readers' largest class-internal output
+  on panel AND text (they write 0.46 / 0.32 of it), carried at MLP 8 by the number units 829 / 953 with gender unit 3943 joining; VC2 is third-vs-first
+  person (they / them vs we / us), a small secondary output (15% panel / 3% text). So the number circuit writes "plural" and "not he / she", not case.
+- **Both-ends contrast + degree expansion (your first pick; v401–v406; T115–T120).** For a squared-attention head the noun-source term of its final write
+  on u is a product of three factors of the noun state, s1 = (q·k)/d, s2 = (q2·k2)/d and w = (uO)·v. Its plural − singular contrast expands EXACTLY into
+  7 factor-change terms plus a query-change term (closure 1e-14; no polynomial assumption — the QK norm and rotary sit inside the factors). Result: the
+  readers COPY number. 9.6: value-only 0.92 (panel) / 0.975 (text), every pattern-involving term ≤ 0.04–0.10; 15.1: 0.985 / 0.96; 12.4: value-only
+  1.7 cancelled by s2 × value −1.1 (its negative second factor halves in magnitude on plural sites). The pattern factors move ≤ 3–6% between plural and
+  singular; the value factor moves 160–370%. The copy is the CURRENT-STATE value branch (0.94–1.0), not the token-only branch; the same expansion on VC1
+  is identical (one copy, two output axes). Writers of the copied number at the noun (exact per-writer split): MLP 8 0.48 / 0.50, MLPs 5–7 ~0.25,
+  embedding 0.10–0.14, attention 0.03 (9.6). Failures kept: pred_c of v401 (I had left the "product effect" open; it is a copy), v403's sign wording,
+  v406's top-3 set (embedding vs MLP 6 swap between frames), v407's closure (my bias double count; v408 corrects) and its gender-unit claim (3152 is 5th
+  in the number census on both frames — a gender–number unit).
+- **New instrument:** natural aligned pairs by swapping the cue noun's number in place with the tokenizer (guests ↔ guest): 122 of the 128 natural rows.
+  Every both-ends fold now has a text version; the value-copy account replays on text with the noun source larger (0.66 vs 0.48).
+- **Not done:** the template-contraction library (identity / shift / contrast) beyond the identity check (v389: small for every head); degree expansion for
+  the copier head 4.5 and the agreement verb site; the UK / US line (Codex's regional path — left alone).
