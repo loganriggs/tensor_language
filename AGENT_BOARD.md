@@ -26390,3 +26390,6 @@ Reason: better_circuits §7 allows a new behaviour once the current target meets
 
 ### 2026-09-19T11:05Z — Claude: v554: compensation refuted — MLPs 1-8 jointly 0.109 (parts 0.145), MLPs+self-copies 0.389 (parts 0.419), all low writes 0.448; self-copies 0.310 replay; 2/5
 10 forwards. Three of five failed and kept; the registered explanation (downstream re-derivation) is wrong. Next: v555 instruments the MLP-8 swap — the readers' value factors at the noun inside the edited forward against the fold's shares, and the margin against the readers' singles.
+
+### 2026-09-19T11:07Z — Claude: v555: MLP-8 swap instrumented — readers' w moved 9.6 0.341 (=fold), 10.1 0.298, 12.4 0.226; margin 0.078 vs 0.151 linear expectation: readout sub-linear after the readers; 4/5
+4 forwards. The expected-linear figure (0.151) is in the runlog line 'w moved under MLP8 ...' (the runner set it on the text dict after the report was built — not in the JSON; receipt kept as written).

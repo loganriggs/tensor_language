@@ -1,0 +1,64 @@
+{
+  "candidate_id": "gender.mlp8_instrumented_v555",
+  "finished_utc": "2026-09-19T11:06:05.062766+00:00",
+  "forwards": 4,
+  "plan": {
+    "bars": {
+      "band101": 0.08,
+      "band96": 0.03,
+      "bandm": 0.02,
+      "lin": 0.03,
+      "mlp8_v552": 0.078,
+      "replay_tol": 0.001
+    },
+    "candidate_id": "gender.mlp8_instrumented_v555",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 13,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "sets": {
+      "MLP8": [
+        [
+          8,
+          0
+        ]
+      ]
+    },
+    "text_pairs": 61,
+    "values": {}
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_9_6_value_moves_by_its_fold_share": true,
+    "pred_c_10_1_value_moves_by_its_fold_share": true,
+    "pred_d_mlp8_margin_replays": true,
+    "pred_e_readout_is_linear_in_the_readers": false
+  },
+  "report": {
+    "replay_max_abs": 1.430511474609375e-05,
+    "text": {
+      "closed": {
+        "MLP8": 0.07800419628620148
+      },
+      "gap_mean": 4.360080718994141,
+      "pairs": 61,
+      "w_moved": {
+        "MLP8": {
+          "10.1": 0.2979447543621063,
+          "12.4": 0.2261658012866974,
+          "9.6": 0.3412144184112549
+        }
+      },
+      "w_native_gap_mean": {
+        "10.1": -1223.5535888671875,
+        "12.4": 6130.02783203125,
+        "9.6": 4472.3564453125
+      }
+    }
+  },
+  "schema": "gender_mlp8_instrumented_result_v555",
+  "serial_seconds": 1.7549548789393157
+}
