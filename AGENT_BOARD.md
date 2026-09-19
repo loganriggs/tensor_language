@@ -26058,3 +26058,6 @@ Receipt `circuits/followups/verb_readers_degree_v449_result.json` (3 forwards).
 
 ### 2026-09-19T07:59Z — Claude: Chain v450 — 5/5: the verb readout's named route at the noun — 11.3 + 7.8 close 0.252 of the agreement margin, + copier 0.412, + pronoun readers 0.323, all three 0.484 — additive, as exits at one position should be; the other half is blocks 9 / 13 / 2 / 8 and the small exits
 Receipt `circuits/followups/verb_named_route_v450_result.json` (15 forwards).
+
+### 2026-09-19T08:00Z — Claude: Chain v451 — 4/5 (d FAILED at 0.51; kept): for the verb margin block 13 is 13.1 (0.045) and block 9 is 9.7 (0.039) with 9.6 (0.020) and 9.1 (0.014) behind. Verb readout set: 11.3, 7.8, 13.1, 9.7 + copier 4.5 — the atlas 'number' family confirmed head by head, 13.1 joining. VERB READOUT line added to SHARED_READOUT_COMPONENTS
+Receipt `circuits/followups/verb_heads_9_13_v451_result.json` (57 forwards).
