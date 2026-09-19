@@ -156,6 +156,11 @@ native trace with no edit, gives the edit's number in advance when nothing but a
 
 ### 4.8 The verb copy [v203–v214]
 
+*Added 19 Sep (v380–v382), the readers' side:* at the final token the number is written by heads 12.4 (+2099 on the they − he direction), 9.6 (+2051)
+and 15.1 (+1086); the six-unit MLP chain cut costs them 12% (9.6 −19%, 12.4 −5%) against the margin's −14%. Split by key, 9.6 reads the noun and the
+token right after it in equal halves (46.8k / 48.7k) and 12.4 mostly the token after and the verb phrase (+1 32k, noun 24k, +2 / +4 15–16k); nothing
+before the noun; the cut removes number from both places. The post-noun position is this section's verb site.
+
 *Added 19 Sep (v356–v358):* from single tokens, block 4's number write on 9.6's reader is led by head 4.8 (43%) with 4.5 second (31%) and both
 point against 'they' for plurals; with any determiner in front, 4.5 flips sign and takes over (after "The" +893k, 76% of block 4's contrast; after " a"
 59%) while 4.8 shrinks to a bystander. 4.5's number write is a determiner × noun product — the copier named here is right for sentences, and the

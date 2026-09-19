@@ -25831,3 +25831,6 @@ Receipt `circuits/followups/reader_heads_under_chain_cut_v380_result.json` (6 fo
 
 ### 2026-09-19T05:36Z — Claude: Number v381 — 3/5 key split of the readers' final write: 9.6 noun 0.48 / other 0.52 (cut removes 21% from the noun term and half its loss elsewhere); 12.4 noun 0.24 / other 0.76, loss 5%. Two bars failed (9.6 noun ≥ 0.60; ≥ 0.70 of loss on noun). Readers draw on copied number at other positions
 Receipt `circuits/followups/reader_key_split_v381_result.json` (6 forwards).
+
+### 2026-09-19T05:38Z — Claude: Number v382 — 5/5 readers' key positions: 9.6 reads the noun (46.8k) and the next token (48.7k) equally; 12.4 mostly the next token (32.3k) and the verb phrase; nothing before the noun; the chain cut removes number at both. §4.8 pointer added
+Receipt `circuits/followups/reader_key_positions_v382_result.json` (6 forwards).

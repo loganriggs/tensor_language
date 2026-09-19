@@ -1,0 +1,123 @@
+{
+  "candidate_id": "pronoun_number.reader_key_positions_v382",
+  "finished_utc": "2026-09-19T05:37:08.267256+00:00",
+  "forwards": 6,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.0001,
+      "top3_min": 0.6
+    },
+    "candidate_id": "pronoun_number.reader_key_positions_v382",
+    "chain": {
+      "3": [
+        3465,
+        493
+      ],
+      "5": [
+        1036
+      ],
+      "6": [
+        2483
+      ],
+      "7": [
+        1779
+      ],
+      "8": [
+        829
+      ]
+    },
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 8,
+    "gpu_accessed": false,
+    "heads": [
+      [
+        9,
+        6
+      ],
+      [
+        12,
+        4
+      ]
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117"
+  },
+  "predictions": {
+    "pred_a_key_split_closure": true,
+    "pred_b_few_positions_carry_the_rest": true,
+    "pred_c_12_4_top_key_is_not_the_noun": true,
+    "pred_d_top_non_noun_key_is_after_the_noun": true,
+    "pred_e_cut_hits_non_noun_keys_too": true
+  },
+  "report": {
+    "12.4": {
+      "by_offset_cut": {
+        "-1": -125.40191927552223,
+        "-2": 25.139565467834473,
+        "0": 23386.815175771713,
+        "1": 32005.30079972744,
+        "2": 14148.01422405243,
+        "3": 6058.9252071380615,
+        "4": 14663.954921066761,
+        "5": 5781.519902229309
+      },
+      "by_offset_native": {
+        "-1": -114.25506919622421,
+        "-2": 23.87735366821289,
+        "0": 23899.91933441162,
+        "1": 32317.113694667816,
+        "2": 15356.215766906738,
+        "3": 6915.327842950821,
+        "4": 16120.580726206303,
+        "5": 6214.6458859443665
+      },
+      "largest_offset": 1,
+      "non_noun_sum_cut": 72557.45270040631,
+      "non_noun_sum_native": 76833.50620114803,
+      "top3_non_noun": [
+        1,
+        4,
+        2
+      ],
+      "top3_share_of_non_noun": 0.8278256035593534
+    },
+    "9.6": {
+      "by_offset_cut": {
+        "-1": -13.563158710952848,
+        "-2": 20.131633758544922,
+        "0": 37122.31075143814,
+        "1": 40679.99368941784,
+        "2": 1688.1744320392609,
+        "3": -663.5163879022002,
+        "4": 1664.9081007037312,
+        "5": -935.4740165472031
+      },
+      "by_offset_native": {
+        "-1": -7.430533815175295,
+        "-2": 0.3073921203613281,
+        "0": 46777.4070482254,
+        "1": 48738.621026575565,
+        "2": 1935.829736739397,
+        "3": -308.12471929192543,
+        "4": 2554.145015962422,
+        "5": -1237.9458110779524
+      },
+      "largest_offset": 1,
+      "non_noun_sum_cut": 42440.65429275902,
+      "non_noun_sum_native": 51675.40210721269,
+      "top3_non_noun": [
+        1,
+        4,
+        2
+      ],
+      "top3_share_of_non_noun": 0.9716367239082185
+    },
+    "closure_max": 3.1878707886789925e-06
+  },
+  "schema": "reader_key_positions_result_v382",
+  "serial_seconds": 1.7590120050590485
+}
