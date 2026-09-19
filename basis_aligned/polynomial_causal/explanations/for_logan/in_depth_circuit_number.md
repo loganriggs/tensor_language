@@ -635,3 +635,35 @@ swap (0.68 → 0.645 → 0.57 as more was swapped). A census by edits must take 
 **Kept failures.** v401 c (the readers are copies, not products), v403 b (sign wording), v406 e, v407 a/e, v411 b/c/e, v413 b/e, v414 b/c/e, v415 c,
 v417 b, v420 b/c/d, v421 d, v422 b/c, v423 e, v424 b/c/e, v425 c/e, v430 c, v431 b/c, v432 b/c, v434 c/d/e, v435 b–e, v437 c. Receipts
 `circuits/followups/*_v401_*` … `*_v437_*`; scorecard rows T115–T151.
+
+**What the readers write, by token (v438–v440).** The five-head value swap moves the they − he and they − she gaps alike (0.48 / 0.48), the gender
+margin a sixth as much, and the whole distribution by a quarter of what the noun change does (KL 0.042 vs 0.177 nats). The ten most-moved logits per
+row are pronoun forms in 91% of slots: the third-person plural family rises (they / their / them / themselves, +0.4 to +0.5 logits when the singular
+row gets the plural row's values) and the third-person singular family of BOTH genders falls alike (he / his / him / himself and she / her / herself,
+−0.2 to −0.34), across subject, object, possessive and reflexive forms; first and second person and "it" do not move. The circuit's output is
+third-person plural vs third-person singular — which is why the pronoun-class fold (v397–v400) found "gendered singular vs the rest" as the
+class-internal axis: it is the third-person contrast, and case plays no part.
+
+**Two readouts, one hub (v441–v444).** The copier 4.5's swap writes the same pronoun lemma vector as the readers (cos 0.97) and, at the natural rows'
+own verb slot, moves the agreement verbs with every sign right (are / were / have / do up, is / was / has / does down). MLP 8's three units at the noun do
+both as well — pronoun vector cos 0.99 with the readers, verb vector cos 0.996 with the copier, and a larger verb effect than the copier. The five
+"readers" also move the verbs at the verb slot (0.63× the copier): they are copiers of the noun's number to whatever the answer slot is, pronoun or verb.
+So the number circuit is one hub (the MLP-8 units, fed by the chain of §4.6 and the copier's post-noun rebuild) with value copiers into two readouts.
+
+**The verb readout, by the same edits (v445–v448).** Scoring the agreement margin (are − is) + (were − was) at the natural rows' own verb slot: for a
+verb two or more tokens after the noun, every head's value at the noun closes 1.03 of the gap (values only, as for the pronoun), but the pronoun copiers
+carry little of it (readers 0.07, copier 0.14). The verb readout's exits from the noun are block 4 (the copier, 0.16), 11 (0.15), 7 (0.10), 9 (0.08) and
+13 (0.06), and by head 11.3 (0.147) and 7.8 (0.102), every other head of those blocks ≤ 0.005 — the readout atlas's "number" family, which is therefore
+the verb readout, while its "pronoun" family plus block 10 is the pronoun readout. For a verb directly after the noun the answer position is the noun
+itself and its own residual carries the agreement (values at the noun 0.26; the three MLP-8 units 0.11 directly). One noun state, two value-copy readouts.
+
+**The verb readout by edit, both ends (v445–v480).** For a verb two or more tokens after the noun, every attention write INTO the verb position closes
+0.94 of the agreement margin (values OUT of the noun: 1.03) — one channel, two ends. By head into the verb: 11.3 (0.24), 5.3 (0.11), block 9 (0.12:
+9.7 / 9.6 / 9.1), 7.8 (0.10), 13.1 (0.07). 5.3 is a second-hop copier: it reads the post-noun token, where MLPs 4–5 have rebuilt the copier 4.5's seed,
+and relays it (85% of its effect is the copier's seed; joint 0.149 against parts 0.214). The late readers read the noun directly; early and late routes
+add (0.434 against parts 0.410); the five readers plus the copier close 0.52. At the verb position MLPs 9–16 rebuild the copied number evenly (0.05–0.10
+each, sum 0.67; jointly 0.39) and MLP 17's units 701 / 2059 multiply the rebuilt inputs into the logit — a verb-specific final detector (nothing at a
+pronoun slot) that fires where the model's agreement margin is large (corr 0.53) and is fed first by 11.3's copy (0.16 / 0.18 of its two inputs). For a verb
+directly after the noun the answer position is the noun itself: its own residual carries the agreement (values 0.26 only), written across depth (embedding
+0.13, MLP 17 0.10, MLP 8 0.10), with 701 / 2059 at MLP 17 (0.08 by replacement) and 829 / 953 / 1030 at MLP 8 (0.11) as nearly independent parts. The
+atlas's 5.7 carries 0.006; VP0 is dead here too (0.003 of the direct change).

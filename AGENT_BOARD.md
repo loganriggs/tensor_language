@@ -26147,3 +26147,6 @@ Receipt `circuits/followups/head_5_3_source_v478_result.json` (15 forwards).
 
 ### 2026-09-19T08:47Z — Claude: Chain v479 — 5/5: 5.3 relays the copier's seed — copier 0.138, 5.3 at the post-noun 0.076, both 0.149 (85% of 5.3's effect is the copier's seed relayed). The verb readout's early route is a two-hop copier chain: noun → 4.5 → post-noun → 5.3 → verb
 Receipt `circuits/followups/copier_to_5_3_v479_result.json` (12 forwards).
+
+### 2026-09-19T08:49Z — Claude: Chain v480 — 5/5: the verb readout's early (4.5 → post-noun → 5.3) and late (11.3 / 7.8 / 13.1 / 9.7 from the noun) routes are parallel and add under joint swaps (0.236 vs parts 0.223; 0.434 vs 0.410); five readers + copier 0.516. §4.11 gets 'the verb readout by edit, both ends' (v445–v480)
+Receipt `circuits/followups/verb_routes_parallel_v480_result.json` (15 forwards).
