@@ -26243,3 +26243,6 @@ Receipt `circuits/followups/unit_3428_edit_v508_result.json` (12 forwards).
 
 ### 2026-09-19T09:31Z — Claude: Chain v509 — 4/5 (b FAILED: nesting cost 0.011; kept): MLPs 9 + 12 at the pronoun answer swapped jointly close 0.167 (singles sum 0.178), MLPs 9–16 0.214 (replay) — two nearly independent population writes are most of the slot's re-expression; the pronoun-slot thread is closed
 Receipt `circuits/followups/pronoun_slot_two_stages_v509_result.json` (12 forwards).
+
+### 2026-09-19T09:33Z — Claude: Chain v510 — 4/5 (c FAILED; kept): on the panel the attention channel into the pronoun slot replays (0.965) but the answer-side MLP re-expression is a tenth (MLPs 9–16 0.092 vs 0.214 on text; MLPs 1–17 0.035, the early MLPs opposing). The copy is frame-invariant, the answer-side MLP polish is not
+Receipt `circuits/followups/pronoun_slot_channels_panel_v510_result.json` (12 forwards).

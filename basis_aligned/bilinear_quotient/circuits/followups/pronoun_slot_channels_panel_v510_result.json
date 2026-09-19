@@ -1,0 +1,82 @@
+{
+  "candidate_id": "chain.pronoun_slot_channels_panel_v510",
+  "finished_utc": "2026-09-19T09:32:28.160962+00:00",
+  "forwards": 12,
+  "plan": {
+    "bars": {
+      "attn_v489": 0.965,
+      "band": 0.03,
+      "m916": [
+        0.12,
+        0.35
+      ],
+      "mall_max": 0.4,
+      "ratio_min": 2.5,
+      "replay_tol": 0.001,
+      "unit": 701
+    },
+    "candidate_id": "chain.pronoun_slot_channels_panel_v510",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 13,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_attention_into_the_panel_slot_replays": true,
+    "pred_c_mlps_at_the_panel_slot_in_band": false,
+    "pred_d_all_mlps_at_the_panel_slot_bounded": true,
+    "pred_e_attention_dominates_on_the_panel": true
+  },
+  "report": {
+    "panel": {
+      "frame": "v76 panel pairs",
+      "rows": 48
+    },
+    "replay_max_abs": 1.239776611328125e-05,
+    "text": {
+      "contrast_mean": 63.06951904296875,
+      "margin_closed": {
+        "attn_all": 0.9654682874679565,
+        "mlps1_17": 0.034790150821208954,
+        "mlps9_16": 0.09187459200620651
+      },
+      "moved": {
+        "attn_all": 0.9357974529266357,
+        "mlps1_17": 0.3623502850532532,
+        "mlps9_16": 0.29737603664398193
+      },
+      "pairs": 48,
+      "sign_constancy": 0.7708333134651184,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": 63.06951904296875,
+      "margin_closed": {
+        "attn_all": 0.9654682874679565,
+        "mlps1_17": 0.034790150821208954,
+        "mlps9_16": 0.09187459200620651
+      },
+      "moved": {
+        "attn_all": 0.9357974529266357,
+        "mlps1_17": 0.3623502850532532,
+        "mlps9_16": 0.29737603664398193
+      },
+      "pairs": 48,
+      "sign_constancy": 0.7708333134651184,
+      "unit": 701
+    }
+  },
+  "schema": "pronoun_slot_channels_panel_result_v510",
+  "serial_seconds": 1.8093593590892851
+}
