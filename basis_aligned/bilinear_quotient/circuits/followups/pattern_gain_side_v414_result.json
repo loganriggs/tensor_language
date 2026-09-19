@@ -1,0 +1,97 @@
+{
+  "candidate_id": "both_ends.pattern_gain_side_v414",
+  "finished_utc": "2026-09-19T07:00:03.598792+00:00",
+  "forwards": 4,
+  "plan": {
+    "bars": {
+      "cross_tol": 1e-06,
+      "instr_tol": 0.02,
+      "side_max": 0.3
+    },
+    "candidate_id": "both_ends.pattern_gain_side_v414",
+    "dropped_records": 6,
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 5,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "natural_records": 128,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "rows": 244
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_cross_closure": false,
+    "pred_c_key_side_leads": false,
+    "pred_d_query_side_small": true,
+    "pred_e_interaction_small": false
+  },
+  "report": {
+    "cross_closure_max": 2.8978067348361947e-05,
+    "instrument_max_rel": 0.00010930395364994183,
+    "readers": {
+      "12.4": {
+        "diag_mean": 0.14462387561798096,
+        "grand_mean": 0.12480410188436508,
+        "key_gain_range": [
+          -0.11151757836341858,
+          0.310214102268219
+        ],
+        "n": 244,
+        "query_gain_range": [
+          -0.0025217668153345585,
+          0.26923868060112
+        ],
+        "shares": {
+          "interaction": 0.24746976970972948,
+          "key_main": 0.5713687917308784,
+          "query_main": 0.18116148680646318
+        }
+      },
+      "15.1": {
+        "diag_mean": -0.235550194978714,
+        "grand_mean": -0.22433020174503326,
+        "key_gain_range": [
+          -0.6195164322853088,
+          -0.004538051784038544
+        ],
+        "n": 244,
+        "query_gain_range": [
+          -0.4874896705150604,
+          -0.06836474686861038
+        ],
+        "shares": {
+          "interaction": 0.04546760540032008,
+          "key_main": 0.7631668828152608,
+          "query_main": 0.19136560559101695
+        }
+      },
+      "9.6": {
+        "diag_mean": 0.09714911133050919,
+        "grand_mean": 0.06266043335199356,
+        "key_gain_range": [
+          -0.03514644876122475,
+          0.22392025589942932
+        ],
+        "n": 244,
+        "query_gain_range": [
+          -0.017822476103901863,
+          0.17716984450817108
+        ],
+        "shares": {
+          "interaction": 0.3759820695502541,
+          "key_main": 0.3724902021110851,
+          "query_main": 0.2515277249847509
+        }
+      }
+    }
+  },
+  "schema": "pattern_gain_side_result_v414",
+  "serial_seconds": 1.8520821859128773
+}

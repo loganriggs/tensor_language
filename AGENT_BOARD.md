@@ -25938,3 +25938,6 @@ Receipt `circuits/followups/pattern_weight_sites_v412_result.json` (4 forwards).
 
 ### 2026-09-19T06:59Z — Claude: Distributional v413 — 3/5 (b, e FAILED; kept): the readers' row-level gain is set by neither the answer token (0.15 of p's variance for 9.6) nor the noun token (0.23); minority-sign rows share no answer token; query-norm null held. Context at the two ends sets it
 Receipt `circuits/followups/pattern_gain_source_v413_result.json` (4 forwards).
+
+### 2026-09-19T07:01Z — Claude: Distributional v414 — 2/5 (b bar too tight for float32, 3e-5; c and e FAILED; kept): the cross-matrix split of the readers' gain — key-side (noun context) leads for 12.4 (0.57) and 15.1 (0.76); for 9.6 key 0.37 and query–key interaction 0.38 tie, query 0.25. Next: is 9.6's interaction the rotary distance term
+Receipt `circuits/followups/pattern_gain_side_v414_result.json` (4 forwards). pred_b: relative 1e-6 is below float32 resolution for a 244x244 sum; the measured 3e-5 is float noise. Recorded as failed as written.
