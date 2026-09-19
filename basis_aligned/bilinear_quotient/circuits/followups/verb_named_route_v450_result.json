@@ -1,0 +1,98 @@
+{
+  "candidate_id": "chain.verb_named_route_v450",
+  "finished_utc": "2026-09-19T07:58:35.193097+00:00",
+  "forwards": 15,
+  "plan": {
+    "bars": {
+      "add_tol": 0.05,
+      "all_max": 0.6,
+      "copier_v446": 0.138,
+      "readers_v446": 0.072,
+      "replay_tol": 0.001,
+      "v2_min": 0.22
+    },
+    "candidate_id": "chain.verb_named_route_v450",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 16,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_two_verb_readers_carry_a_quarter": true,
+    "pred_c_verb_readers_and_copier_add": true,
+    "pred_d_verb_readers_and_pronoun_readers_add": true,
+    "pred_e_named_verb_route_bounded": true
+  },
+  "report": {
+    "panel": {
+      "distant_rows": 79,
+      "skipped": "distant rows only"
+    },
+    "replay_max_abs": 2.384185791015625e-05,
+    "text": {
+      "closed": {
+        "V2": {
+          "are_is": 0.2540440559387207,
+          "verb": 0.25185561180114746
+        },
+        "V2_C": {
+          "are_is": 0.41269686818122864,
+          "verb": 0.41155657172203064
+        },
+        "V2_C_P": {
+          "are_is": 0.48213905096054077,
+          "verb": 0.4841521084308624
+        },
+        "V2_P": {
+          "are_is": 0.32182738184928894,
+          "verb": 0.3226817548274994
+        }
+      },
+      "gap_mean": {
+        "are_is": 1.641675353050232,
+        "verb": 3.139129638671875,
+        "were_was": 1.497454285621643
+      },
+      "pairs": 79
+    },
+    "verb_slot": {
+      "closed": {
+        "V2": {
+          "are_is": 0.2540440559387207,
+          "verb": 0.25185561180114746
+        },
+        "V2_C": {
+          "are_is": 0.41269686818122864,
+          "verb": 0.41155657172203064
+        },
+        "V2_C_P": {
+          "are_is": 0.48213905096054077,
+          "verb": 0.4841521084308624
+        },
+        "V2_P": {
+          "are_is": 0.32182738184928894,
+          "verb": 0.3226817548274994
+        }
+      },
+      "gap_mean": {
+        "are_is": 1.641675353050232,
+        "verb": 3.139129638671875,
+        "were_was": 1.497454285621643
+      },
+      "pairs": 79
+    }
+  },
+  "schema": "verb_named_route_result_v450",
+  "serial_seconds": 2.112418915843591
+}

@@ -556,3 +556,4 @@ v446 (2/5): distant verbs — values at the noun 1.03 of the verb margin (values
 v447 (5/5): the verb readout's exits from the noun are blocks 4 (0.16), 11 (0.15), 7 (0.10), 9 (0.08), 13 (0.06) — its own high exits (the atlas 'number' family 11.3/7.8), sharing the copier with the pronoun readout.
 v448 (5/5): the verb readout's heads are 11.3 (0.147) and 7.8 (0.102) — the atlas 'number' family — distinct from the pronoun readers; both value-copy the same noun state.
 v449 (5/5): 11.3 and 7.8 are value copiers (value-only 0.94 / 1.01; pattern terms ≤ 0.07). Every number carrier found — copier, five pronoun readers, two verb readers — is a value copy.
+v450 (5/5): verb named route — 11.3 + 7.8 0.25, + copier 0.41, + pronoun readers 0.32, all 0.48, additive at the noun.

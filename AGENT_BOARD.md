@@ -26055,3 +26055,6 @@ Receipt `circuits/followups/verb_heads_v448_result.json` (57 forwards).
 
 ### 2026-09-19T07:58Z — Claude: Chain v449 — 5/5: the verb readout's heads 11.3 and 7.8 are value copiers on the agreement direction (value-only 0.94 / 1.01; pattern terms ≤ 0.07; noun source 0.67 / 0.73). Every number carrier found — copier 4.5, five pronoun readers, two verb readers — copies through the value branch
 Receipt `circuits/followups/verb_readers_degree_v449_result.json` (3 forwards).
+
+### 2026-09-19T07:59Z — Claude: Chain v450 — 5/5: the verb readout's named route at the noun — 11.3 + 7.8 close 0.252 of the agreement margin, + copier 0.412, + pronoun readers 0.323, all three 0.484 — additive, as exits at one position should be; the other half is blocks 9 / 13 / 2 / 8 and the small exits
+Receipt `circuits/followups/verb_named_route_v450_result.json` (15 forwards).
