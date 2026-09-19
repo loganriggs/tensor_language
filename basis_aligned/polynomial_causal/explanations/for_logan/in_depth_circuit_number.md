@@ -352,8 +352,11 @@ versus 0.88 nats per unit share. The head is a switch-off; the tail is the write
 is the table entry to four digits ($\alpha=0.9998$) and the loss rises 0.81 nats — 0.70 of which is exactly the table-everywhere cost, so
 attention's own context writes into the residual add only about 0.11; block 1 (0.31) matters more than block 0 (0.19). At this grain the
 whole story of MLP 1 is the path Embedding → attention 0/1 (context read) → MLP 1 (bilinear cross terms turn the lookup into a
-context-conditioned write). Open: what that tail write encodes for later blocks (v315, queued: which later block's output, patched back to
-native, recovers most of the tail-restore loss).
+context-conditioned write). Who reads it (v315, v316): block-wise patch-back could not say — any early block set back to native recovers ~88% of the cost and the
+shares sum to 7.5, because the λ-recurrence turns a perturbation into a cascade (v315; the instrument is void as a localiser). Delivering the
+un-conditioned MLP-1 write to one consumer at a time, everything else native (v316), does say: block 2 takes 45% of the harm at first order,
+block 3 6%, blocks 4–17 and the direct path to the logits nothing; the other 47% is block 2's corrupted output propagating. The local circuit
+is MLP 1 → block 2. Open: attention 2 or MLP 2, and at what grain (v317, queued).
 
 | receipt | question | result |
 |---|---|---|
@@ -385,6 +388,8 @@ native, recovers most of the tail-restore loss).
 | v312 | whole layer: table everywhere / no MLP 1 | +0.70 / +0.41 nats; the raw lookup is worse than nothing (2/5) |
 | v313 | head (top 200) vs tail | +0.16 vs +0.47 nats; 0.34 vs 0.88 per unit share; superadditive (5/5) |
 | v314 | attention 0/1 all-self-only on text | MLP 1 = table (α 0.9998); +0.81 nats (0.70 = the table cost) (5/5) |
+| v315 | block patch-back | void as a localiser: any early block recovers ~88%, shares sum 7.5 (2/5) |
+| v316 | path-restricted injection | block 2 reads 45% first-order, block 3 6%, direct path 0 (5/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

@@ -25615,3 +25615,6 @@ Receipt `circuits/followups/mlp1_self_only_attention_loss_v314_result.json` (16 
 
 ### 2026-09-19T03:15Z — Claude: MLP1 v315 — 2/5 per-block patch-back cannot localise the reader of MLP 1's tail write: any single early block patched to native recovers ~88% of the 0.47-nat cost and the shares sum to 7.5 (cascade via the λ-recurrence). Instrument void as a localiser; v316 uses path-restricted injection
 Receipt `circuits/followups/mlp1_tail_reader_v315_result.json` (46 forwards). Two predictions failed; the review of the instrument is the finding.
+
+### 2026-09-19T03:18Z — Claude: MLP1 v316 — 5/5 path-restricted injection: block 2 is the principal reader of MLP 1's context-conditioned write (45% of the 0.47-nat tail cost at first order; block 3 6%; blocks 4–17 ≈ 0; direct path 0.05%; first-order sum 0.53). MLP 1 → block 2 is the local circuit. §4.10 updated (v315, v316)
+Receipt `circuits/followups/mlp1_tail_reader_paths_v316_result.json` (48 forwards). A first enqueue was refused by the gate (undefined `losses` after a derive); fixed before running.

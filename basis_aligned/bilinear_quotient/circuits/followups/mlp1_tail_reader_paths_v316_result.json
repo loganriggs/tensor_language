@@ -1,0 +1,64 @@
+{
+  "candidate_id": "mlp1.token_table.tail_reader_paths_v316",
+  "finished_utc": "2026-09-19T03:16:11.226195+00:00",
+  "forwards": 48,
+  "plan": {
+    "bars": {
+      "direct_max": 0.25,
+      "replay_tol": 0.0001,
+      "single_min": 0.25,
+      "sum_hi": 2.0,
+      "sum_lo": 0.5
+    },
+    "candidate_id": "mlp1.token_table.tail_reader_paths_v316",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 58,
+    "gpu_accessed": false,
+    "head_k": 200,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 128
+  },
+  "predictions": {
+    "pred_a_baseline_loss_replays_native": true,
+    "pred_b_injections_sum_near_total": true,
+    "pred_c_direct_path_to_unembedding_small": true,
+    "pred_d_reader_is_early": true,
+    "pred_e_largest_single_reader_named": true
+  },
+  "report": {
+    "direct_share": 0.000496735072036313,
+    "early_2_5": 0.5279551457574228,
+    "largest_block": 2,
+    "largest_share": 0.45187006559531706,
+    "late_6_17": -0.0021236345208026784,
+    "manual_loss": 4.220860958099365,
+    "native_loss": 4.220860958099365,
+    "replay_gap": 0.0,
+    "sum_of_shares": 0.5263282463086564,
+    "tail_cost": 0.4728594124317169,
+    "take_share_by_consumer": {
+      "10": -0.0002825763196912034,
+      "11": -0.00020974614922866872,
+      "12": -0.00016629892208446315,
+      "13": -0.0001982852015327754,
+      "14": -3.7600353370795135e-05,
+      "15": -2.3765059153400257e-05,
+      "16": 1.90044276071857e-05,
+      "17": -0.0003766462625604031,
+      "2": 0.45187006559531706,
+      "3": 0.06178759229570626,
+      "4": 0.012614882955812201,
+      "5": 0.0016826049105872494,
+      "6": -0.00037523409169429875,
+      "7": -0.0005689348618324147,
+      "8": 0.0005436764896129771,
+      "9": -0.00044722821687441847,
+      "direct": 0.000496735072036313
+    }
+  },
+  "schema": "mlp1_tail_reader_paths_result_v316",
+  "serial_seconds": 3.4332403079606593
+}
