@@ -26064,3 +26064,6 @@ Receipt `circuits/followups/verb_heads_9_13_v451_result.json` (57 forwards).
 
 ### 2026-09-19T08:01Z — Claude: Chain v452 — 5/5: the verb readout's full named set at the noun — four verb readers 0.334 (additive to their singles), + copier 0.495, + pronoun readers 0.566; all values 1.029. The verb readout is named to 0.57 of its margin, the rest small exits
 Receipt `circuits/followups/verb_full_named_set_v452_result.json` (15 forwards).
+
+### 2026-09-19T08:03Z — Claude: Chain v453 — 5/5: the four verb readers carry 0.026 of the pronoun margin at the pronoun slot (pronoun readers 0.483, replayed) — the two readouts are selective in both directions
+Receipt `circuits/followups/verb_readers_pronoun_slot_v453_result.json` (21 forwards).

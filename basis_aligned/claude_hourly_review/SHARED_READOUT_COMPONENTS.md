@@ -560,3 +560,4 @@ v450 (5/5): verb named route — 11.3 + 7.8 0.25, + copier 0.41, + pronoun reade
 v451 (4/5; d failed at 0.51): verb readout heads = 11.3, 7.8, 13.1, 9.7 (+9.6, 9.1 small). VERB READOUT LINE: 11.3 (0.147), 7.8 (0.102), 13.1 (0.045), 9.7 (0.039), copier 4.5 (0.138); pronoun readers add 0.07.
 **VERB READOUT SET (19 Sep, v445–v451):** the agreement readout from the noun (distant verbs, natural rows) is 11.3 (0.147 of the margin gap by value swap), 7.8 (0.102), 13.1 (0.045), 9.7 (0.039), with the shared copier 4.5 (0.138); the pronoun readers add 0.07. All value copiers (v449). Adjacent verbs read the noun's own residual instead (v446).
 v452 (5/5): verb full named set — V4 0.334 (additive), + copier 0.495, + pronoun readers 0.566; all values 1.029. Verb readout named to 0.57.
+v453 (5/5): verb readers at the pronoun slot 0.026 (pronoun readers 0.483) — the two readouts are selective both ways.

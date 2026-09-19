@@ -1,0 +1,57 @@
+{
+  "candidate_id": "chain.verb_readers_pronoun_slot_v453",
+  "finished_utc": "2026-09-19T08:02:04.774055+00:00",
+  "forwards": 21,
+  "plan": {
+    "bars": {
+      "five_v433": 0.483,
+      "ratio_max": 0.2,
+      "replay_band": 0.03,
+      "replay_tol": 0.001,
+      "v4_max": 0.1
+    },
+    "candidate_id": "chain.verb_readers_pronoun_slot_v453",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 22,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_verb_readers_carry_little_pronoun_margin": true,
+    "pred_c_pronoun_readers_replay": true,
+    "pred_d_verb_readers_below_a_fifth_of_pronoun_readers": true,
+    "pred_e_holds_on_panel": true
+  },
+  "report": {
+    "panel": {
+      "closed": {
+        "FIVE_N": 0.33970513939857483,
+        "V4_N": -0.006767447106540203
+      },
+      "gap_mean": 4.0962815284729,
+      "pairs": 48
+    },
+    "replay_max_abs": 1.33514404296875e-05,
+    "text": {
+      "closed": {
+        "FIVE_N": 0.4826049506664276,
+        "V4_N": 0.02628093957901001
+      },
+      "gap_mean": 1.8995414972305298,
+      "pairs": 122
+    }
+  },
+  "schema": "verb_readers_pronoun_slot_result_v453",
+  "serial_seconds": 2.191348782973364
+}
