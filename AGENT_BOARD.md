@@ -26073,3 +26073,6 @@ Receipt `circuits/followups/mlp8_units_direct_verb_v454_result.json` (2 forwards
 
 ### 2026-09-19T08:13Z — Claude: Chain v455 — 5/5: the direct path to an adjacent verb (the noun's own final residual) is written across depth — embedding 0.13, MLP 17 0.10, MLP 8 0.10, MLP 12 0.08, MLP 10 0.08; MLPs 12–17 together 0.34; attention 0.17. The late-MLP axis that was panel-only for the pronoun readout (v390–v396) is real on the direct path. Two crashes fixed before the run (padding; swallowed assignments)
 Receipt `circuits/followups/direct_path_writers_v455_result.json` (2 forwards).
+
+### 2026-09-19T08:14Z — Claude: Chain v456 — 2/5 (b, c, d FAILED; kept): the panel-only class axis VP0 is not the direct path's late-MLP write either (cos 0.016; 0.003 of the change's energy) — dead everywhere. The late MLPs' direct agreement write is a direction of their own, weakly aligned with u_v (0.07) where the early part aligns at 0.25
+Receipt `circuits/followups/direct_path_vp0_v456_result.json` (2 forwards).
