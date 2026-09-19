@@ -1,0 +1,95 @@
+{
+  "candidate_id": "pronoun_number.head45_mlp3_units_v361",
+  "finished_utc": "2026-09-19T04:53:24.112082+00:00",
+  "forwards": 2,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "top10_min": 0.5
+    },
+    "candidate_id": "pronoun_number.head45_mlp3_units_v361",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 4,
+    "frame": "The X",
+    "gpu_accessed": false,
+    "head": 5,
+    "layer": 4,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "pairs": 256
+  },
+  "predictions": {
+    "pred_a_unit_closure": true,
+    "pred_b_agreement_units_in_top10": true,
+    "pred_c_top10_carry_half": false,
+    "pred_d_3465_sign_positive_on_r": true,
+    "pred_e_mismatch_leaders_not_in_top10": false
+  },
+  "report": {
+    "closure_max": 8.544498268747702e-05,
+    "contrast_3465": 171978.71875,
+    "contrast_493": 32070.65234375,
+    "ranks": {
+      "114": 2,
+      "3040": 2552,
+      "3465": 1,
+      "493": 3,
+      "565": 688
+    },
+    "top10_share": 0.20559751987457275,
+    "top12": [
+      [
+        3465,
+        171978.71875
+      ],
+      [
+        114,
+        74077.1953125
+      ],
+      [
+        493,
+        32070.65234375
+      ],
+      [
+        1638,
+        14844.83203125
+      ],
+      [
+        1555,
+        12014.7109375
+      ],
+      [
+        4008,
+        10496.056640625
+      ],
+      [
+        96,
+        10321.728515625
+      ],
+      [
+        189,
+        -7385.4453125
+      ],
+      [
+        1450,
+        6517.197265625
+      ],
+      [
+        1306,
+        -6233.3369140625
+      ],
+      [
+        4458,
+        6229.615234375
+      ],
+      [
+        872,
+        5897.81982421875
+      ]
+    ]
+  },
+  "schema": "head45_mlp3_units_result_v361",
+  "serial_seconds": 1.7716181541327387
+}

@@ -25762,3 +25762,6 @@ Receipt `circuits/followups/head45_key_split_v359_result.json` (2 forwards). Fou
 
 ### 2026-09-19T04:52Z — Claude: Number v360 — 4/5 writer fold of head 4.5's flipped value after 'The': MLP 3 0.52, MLP 2 0.18, embedding 0.16 (sign pred failed), MLP 1 0.11, attention 0.02. The copier carries the MLP 1–3 agreement computation. §4.8 pointer updated; v361 censuses MLP 3's units
 Receipt `circuits/followups/head45_value_writers_v360_result.json` (2 forwards).
+
+### 2026-09-19T04:54Z — Claude: Number v361 — 3/5 MLP-3 units writing the state head 4.5 copies: 3465 +172k (1st), 114 +74k (2nd), 493 +32k (3rd), long tail (top-10 21%; 'top-10 ≥ 0.5' failed; 114 in top-10 failed 'leaders outside'). The MLP-1-fed plural-noun detector writes what the copier carries to the pronoun reader. §4.8 pointer updated; v362 edits
+Receipt `circuits/followups/head45_mlp3_units_v361_result.json` (2 forwards).
