@@ -515,3 +515,4 @@ v406 (4/5; pred_e failed: top-3 set panel≠text, embedding vs MLP 6): the copie
 v407 (3/5): MLP 8 unit census on natural pairs — 829 / 953 / 1030 rank 1–3 (top-50 0.87); gender unit 3152 5th (pred_e failed); closure bar failed on a bias double count (instrument; v408 corrects).
 v408 (4/5): corrected closure 8e-5; text unit census unchanged (829 / 953 / 1030; 3152 5th).
 v409 (5/5): copier 4.5 at the post-noun token is a value copy too (value-only 0.91; pattern terms 0.07; noun source 1.02 of its write). Number rides the value branch at every attention step of the chain.
+v410 (5/5): copier 4.5 value copy replays on text (0.90). Both-ends series closed: number rides the value branch at every attention step; patterns select, they do not carry number (12.4 excepted).

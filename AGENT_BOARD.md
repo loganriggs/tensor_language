@@ -25926,3 +25926,6 @@ Receipt `circuits/followups/value_copy_mlp8_units_text_v408_result.json` (4 forw
 
 ### 2026-09-19T06:46Z — Claude: Both-ends v409 — 5/5 the copier 4.5 at the post-noun token is a value copy too (value-only 0.91, pattern terms 0.07, degree 3 0.003; noun source 1.02 of its write on 9.6's value direction). Number rides the value branch at every attention step of the chain
 Receipt `circuits/followups/both_ends_degree_copier_v409_result.json` (3 forwards).
+
+### 2026-09-19T06:47Z — Claude: Both-ends v410 — 5/5 copier 4.5's value copy replays on the 122 natural pairs (value-only 0.90, pattern terms 0.08). Series closed: number rides the value branch at every attention step of the chain; patterns select the source and are number-blind (12.4's second factor excepted)
+Receipt `circuits/followups/both_ends_degree_copier_text_v410_result.json` (4 forwards).
