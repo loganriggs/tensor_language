@@ -26327,3 +26327,6 @@ Receipt `circuits/followups/attn_into_pronoun_blocks_panel_v535_result.json` (60
 
 ### 2026-09-19T10:20Z — Claude: Chain v536 — 4/5 (d FAILED; kept): on the panel block 5's write into the pronoun slot is 5.3 (0.040) + 5.6 (0.028) + small others (0.055 beyond 5.3); block 11's is 11.1 (0.032), not the verb reader 11.3. The panel's extra channel is a spread of 3–4% relays, no new reader; 11.3 does not leak into the pronoun slot
 Receipt `circuits/followups/attn_into_pronoun_heads_panel_5_11_v536_result.json` (57 forwards).
+
+### 2026-09-19T10:21Z — Claude: Chain v537 — 5/5: the panel's small relays on natural text — 5.3 0.021, 5.6 0.014, 11.1 0.012 (0.047 together vs 0.100 on the panel): permanent but halved. The pronoun channel's panel-vs-text picture is closed: five frame-invariant readers plus frame-dependent relays and answer-side MLP polish
+Receipt `circuits/followups/panel_relays_on_text_v537_result.json` (16 forwards).

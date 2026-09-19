@@ -1,0 +1,79 @@
+{
+  "candidate_id": "chain.panel_relays_on_text_v537",
+  "finished_utc": "2026-09-19T10:20:54.422828+00:00",
+  "forwards": 16,
+  "plan": {
+    "bars": {
+      "band": 0.01,
+      "h53_v482": 0.021,
+      "replay_tol": 0.001,
+      "small_max": 0.03,
+      "together_max": 0.07,
+      "unit": 701
+    },
+    "candidate_id": "chain.panel_relays_on_text_v537",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 17,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_5_6_small_on_text": true,
+    "pred_c_11_1_small_on_text": true,
+    "pred_d_relays_together_small_on_text": true,
+    "pred_e_5_3_replays_on_text": true
+  },
+  "report": {
+    "panel": {
+      "rows": 122,
+      "skipped": "pronoun slot, natural pairs"
+    },
+    "relays_sum": 0.047270143404603004,
+    "replay_max_abs": 1.33514404296875e-05,
+    "text": {
+      "contrast_mean": 9.754912376403809,
+      "margin_closed": {
+        "11.1": 0.012329097837209702,
+        "5.3": 0.020865442231297493,
+        "5.6": 0.01407560333609581
+      },
+      "moved": {
+        "11.1": -0.004075477831065655,
+        "5.3": 0.0891096293926239,
+        "5.6": 0.006747131235897541
+      },
+      "pairs": 122,
+      "sign_constancy": 0.6475409865379333,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": 9.754912376403809,
+      "margin_closed": {
+        "11.1": 0.012329097837209702,
+        "5.3": 0.020865442231297493,
+        "5.6": 0.01407560333609581
+      },
+      "moved": {
+        "11.1": -0.004075477831065655,
+        "5.3": 0.0891096293926239,
+        "5.6": 0.006747131235897541
+      },
+      "pairs": 122,
+      "sign_constancy": 0.6475409865379333,
+      "unit": 701
+    }
+  },
+  "schema": "panel_relays_on_text_result_v537",
+  "serial_seconds": 2.1824861229397357
+}

@@ -645,3 +645,4 @@ v533 (4/5; b failed): on the panel 5.3's 0.093 adds fully to the readers' two-si
 v534 (2/5): 5.3's write into the panel answer 0.040 (its post-noun value effect 0.093; text write 0.021); 9.6's write 0.321. Part of the relayed number reaches the panel answer through unnamed heads reading the post-noun token.
 v535 (5/5): panel channel by block — 9 0.36, 12 0.26, 10 0.14, 15 0.11, 5 0.10, 11 0.04; singles add (1.03 vs 0.965). Block 5 as a whole (not only 5.3) and block 11 are the panel's extra channels.
 v536 (4/5; d failed): panel extra channel by head — 5.3 0.040, 5.6 0.028, 11.1 0.032 (not 11.3), 5.1 0.011; small relays, no new reader.
+v537 (5/5): the panel relays on text — 5.3 0.021, 5.6 0.014, 11.1 0.012 (sum 0.047 vs panel 0.100). Channel picture closed on both frames.
