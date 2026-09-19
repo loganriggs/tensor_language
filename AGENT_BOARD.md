@@ -26120,3 +26120,6 @@ Receipt `circuits/followups/verb_reader_singles_701_v469_result.json` (18 forwar
 
 ### 2026-09-19T08:34Z — Claude: Chain v470 — 3/5 (b, d FAILED; kept): the rebuild at the verb that feeds 701 is distributed — MLPs 12 (0.145), 16 (0.137), 14 (0.128), 9 (0.125), 15 (0.119), 13 (0.096) each a tenth to a seventh of the detector's contrast, MLP 11 opposing (−0.067); sum 0.70. No single stage leads, unlike MLP 8 at the noun
 Receipt `circuits/followups/rebuild_stages_701_v470_result.json` (27 forwards).
+
+### 2026-09-19T08:35Z — Claude: Chain v471 — 3/5 (c, e FAILED; kept): at a distant verb MLP 16's feed into 701's R input is led by 2921 again (575 falls to 42nd) but is diffuse (top-10 0.44) and row-conditional (sign constancy 0.61); top-20 overlap with the noun census 9 of 20. The late chain is a fixed pair at the noun and a loose crowd at the verb
+Receipt `circuits/followups/mlp16_units_into_701_verb_v471_result.json` (3 forwards).
