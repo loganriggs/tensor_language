@@ -1,0 +1,128 @@
+{
+  "candidate_id": "both_ends.degree_expansion_vc1_v404",
+  "finished_utc": "2026-09-19T06:35:25.875011+00:00",
+  "forwards": 3,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.0001,
+      "instr_tol": 0.02,
+      "noun_min": 0.35,
+      "third_max": 0.25,
+      "value_min": 0.6
+    },
+    "candidate_id": "both_ends.degree_expansion_vc1_v404",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 4,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117"
+  },
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_noun_source_carries_a_third": true,
+    "pred_c_value_only_term_leads_on_vc1": true,
+    "pred_d_third_order_small": true,
+    "pred_e_12_4_cancellation_replays_on_vc1": true
+  },
+  "report": {
+    "closure_max": 2.7496722964333855e-16,
+    "instrument_max_rel": 3.5964453672931995e-06,
+    "readers": {
+      "12.4": {
+        "degree_shares": {
+          "degree1": 2.437058679843829,
+          "degree2": -1.3054541582136339,
+          "degree3": 0.1084734422825078,
+          "query": -0.24007796391270306
+        },
+        "leading_term_by_frame": {
+          "because": "value_only",
+          "later": "value_only",
+          "lost": "value_only"
+        },
+        "noun_source_contrast": -16052.537856432904,
+        "noun_source_share": 0.24308273993608773,
+        "pairs": 48,
+        "skipped": 0,
+        "term_shares": {
+          "query_change": -0.24007796391270306,
+          "s1_only": 0.10474944743412813,
+          "s1_s2": -0.07034675813350777,
+          "s1_s2_value": 0.1084734422825078,
+          "s1_value": -0.15988210666924194,
+          "s2_only": 0.6578399328240763,
+          "s2_value": -1.0752252934108841,
+          "value_only": 1.6744692995856247
+        },
+        "total_contrast": -66037.34127998352
+      },
+      "15.1": {
+        "degree_shares": {
+          "degree1": 0.9674826870443268,
+          "degree2": 0.03606929400266559,
+          "degree3": 0.0033159514211941275,
+          "query": -0.006867932468187047
+        },
+        "leading_term_by_frame": {
+          "because": "value_only",
+          "later": "value_only",
+          "lost": "value_only"
+        },
+        "noun_source_contrast": -7498.26762532349,
+        "noun_source_share": 0.2394057218449282,
+        "pairs": 48,
+        "skipped": 0,
+        "term_shares": {
+          "query_change": -0.006867932468187047,
+          "s1_only": -0.012645411107008366,
+          "s1_s2": -0.0007147879378914344,
+          "s1_s2_value": 0.0033159514211941275,
+          "s1_value": 0.016852483330692655,
+          "s2_only": -0.014443135339597632,
+          "s2_value": 0.019931598609864366,
+          "value_only": 0.9945712334909328
+        },
+        "total_contrast": -31320.335903167725
+      },
+      "9.6": {
+        "degree_shares": {
+          "degree1": 0.8816938021750718,
+          "degree2": 0.05702640867839599,
+          "degree3": 0.004235015878122609,
+          "query": 0.05704477326840984
+        },
+        "leading_term_by_frame": {
+          "because": "value_only",
+          "later": "value_only",
+          "lost": "value_only"
+        },
+        "noun_source_contrast": -26951.698638095022,
+        "noun_source_share": 0.4448395647818333,
+        "pairs": 48,
+        "skipped": 0,
+        "term_shares": {
+          "query_change": 0.05704477326840984,
+          "s1_only": -0.04943576417062092,
+          "s1_s2": -0.00044579090828805257,
+          "s1_s2_value": 0.004235015878122609,
+          "s1_value": 0.08867789132361784,
+          "s2_only": 0.017100307031522002,
+          "s2_value": -0.031205691736933782,
+          "value_only": 0.9140292593141707
+        },
+        "total_contrast": -60587.4584274292
+      }
+    }
+  },
+  "schema": "both_ends_degree_vc1_result_v404",
+  "serial_seconds": 1.6357994489371777
+}

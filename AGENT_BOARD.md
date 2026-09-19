@@ -25908,3 +25908,6 @@ Receipt `circuits/followups/both_ends_degree_postnoun_v402_result.json` (3 forwa
 
 ### 2026-09-19T06:35Z — Claude: Both-ends v403 — 4/5, pred_b FAILED as written (sign; kept): the readers' pattern factors are number-blind (≤ 6% change for 9.6 / 15.1) while the value factor moves 160–370%; the copy is the current-state value branch (0.94–1.0); 12.4's negative second factor halves in magnitude on plural sites (−0.13 vs −0.27), which is the cancellation of v401/v402
 Receipt `circuits/followups/both_ends_factor_means_v403_result.json` (3 forwards). pred_b was written as s2_P < s2_S; s2 is negative for 12.4 and its magnitude fell (−0.27 → −0.13), so the signed value rose. The failure is a wording error kept as recorded.
+
+### 2026-09-19T06:35Z — Claude: Both-ends v404 — 5/5 output end on VC1: the readers' noun-source writes on the 'not he/she' axis are 44–63% of their u writes and expand identically (9.6 value-only 0.91, 15.1 0.995, 12.4 1.67 with the s2×value cancellation −1.08). One value copy from the noun, two output axes
+Receipt `circuits/followups/both_ends_degree_vc1_v404_result.json` (3 forwards).
