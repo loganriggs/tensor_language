@@ -26414,3 +26414,6 @@ Reason: better_circuits §7 allows a new behaviour once the current target meets
 
 ### 2026-09-19T11:20Z — Claude: v562: direct token term with lambda chain still ~2% of singles (failed x3); signs/top-2 hold; 3/5. v563 tests the readers' writes into the answer by edit
 2 forwards. Three failed magnitude predictions kept (v560-v562). The sign and ranking results stand on their own.
+
+### 2026-09-19T11:22Z — Claude: v563: gender readers' writes into the answer 0.878, rest of blocks 0.001, all attention 1.042; 5/5. Refutes the v560-v562 direct-term magnitude
+8 forwards. The 'contrast_mean -0.3' in the receipt is unit 701's activation gap (irrelevant here; lineage field). Next: v564 writes into the answer singly.

@@ -1,0 +1,77 @@
+{
+  "candidate_id": "gender.five_writes_into_answer_v563",
+  "finished_utc": "2026-09-19T11:21:24.615994+00:00",
+  "forwards": 8,
+  "plan": {
+    "bars": {
+      "all_min": 0.8,
+      "five_min": 0.45,
+      "replay_tol": 0.001,
+      "rest_max": 0.1,
+      "unit": 701
+    },
+    "candidate_id": "gender.five_writes_into_answer_v563",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 9,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 61
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_five_writes_into_the_answer_carry": true,
+    "pred_c_rest_of_their_blocks_small": true,
+    "pred_d_all_writes_into_the_answer": true,
+    "pred_e_five_below_all": true
+  },
+  "report": {
+    "panel": {
+      "rows": 61,
+      "skipped": "pronoun slot, natural pairs"
+    },
+    "replay_max_abs": 1.430511474609375e-05,
+    "text": {
+      "contrast_mean": -0.29676592350006104,
+      "margin_closed": {
+        "ALL_W": 1.0417639017105103,
+        "FIVE_W": 0.8780553936958313,
+        "REST_W": 0.0014291609404608607
+      },
+      "moved": {
+        "ALL_W": -2.6803781986236572,
+        "FIVE_W": 4.426050662994385,
+        "REST_W": -2.739957332611084
+      },
+      "pairs": 61,
+      "sign_constancy": 0.5901639461517334,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": -0.29676592350006104,
+      "margin_closed": {
+        "ALL_W": 1.0417639017105103,
+        "FIVE_W": 0.8780553936958313,
+        "REST_W": 0.0014291609404608607
+      },
+      "moved": {
+        "ALL_W": -2.6803781986236572,
+        "FIVE_W": 4.426050662994385,
+        "REST_W": -2.739957332611084
+      },
+      "pairs": 61,
+      "sign_constancy": 0.5901639461517334,
+      "unit": 701
+    }
+  },
+  "schema": "gender_five_writes_into_answer_result_v563",
+  "serial_seconds": 1.9059517041314393
+}
