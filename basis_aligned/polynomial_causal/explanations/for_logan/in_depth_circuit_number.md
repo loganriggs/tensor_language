@@ -392,7 +392,9 @@ whose pair-to-pair spread is six times its mean. The roles found in v338 were a 
 that these units are bilinear products whose two inputs both carry number once the context is rich, and that their contrast splits exactly
 into the two class-wise terms. By writer (v340), both of 3465's inputs are MLP-written: MLPs 1 and 2 carry 0.77 of the L
 contrast and 0.58 of the R contrast, the embedding's direct terms only 0.04 / 0.05, attention 3 0.07 / 0.12 — the token's
-identity reaches the agreement unit only after MLP 1 has looked it up (§4.10) and MLP 2 has re-read it.
+identity reaches the agreement unit only after MLP 1 has looked it up (§4.10) and MLP 2 has re-read it. And MLP 1's part of both factors is its
+context-free entry (v341): 81% of its L contribution and 85% of its R contribution come from α·T, the conditioned remainder supplying the rest
+— so on both sides of the product the number is the -s plural stored in MLP 1's table row for the noun, written at gain α ≈ 0.54.
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -491,6 +493,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v338 | factor split, 2 × 2 design | 3465: L noun 0.81 × R licensing 0.51; 829 swapped; 493 noun on R 0.74; 953 / 1030 structureless (1/5) |
 | v339 | class-wise factor split on the rows | roles do not transfer: 3465 / 493 contrast 70% on the 'determiner' factor; both factors carry number (2/5) |
 | v340 | writers of 3465's two factors | MLPs 1 + 2 0.77 / 0.58; embedding 0.04 / 0.05; attention 3 0.07 / 0.12 (3/5) |
+| v341 | MLP 1's part per factor: table vs remainder | table 0.81 (L) / 0.85 (R); remainder 0.19 / 0.15 (4/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

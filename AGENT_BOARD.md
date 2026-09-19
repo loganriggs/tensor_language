@@ -25696,3 +25696,6 @@ Receipt `circuits/followups/agreement_factors_on_rows_v339_result.json` (3 forwa
 
 ### 2026-09-19T04:11Z — Claude: Number v340 — 3/5 per-writer split of unit 3465's factor contrasts at the noun: MLPs 1 + 2 carry 0.77 (L) / 0.58 (R), embedding 0.04 / 0.05 ('≥ 0.20' failed), attention 3 0.07 / 0.12 ('≤ 0.10' failed for R). Both agreement inputs are MLP-written. One void run (writer tracking past block 3) fixed before the receipt. §4.10 updated
 Receipt `circuits/followups/factor_writers_3465_v340_result.json` (3 forwards; one failed run before it, KeyError on attention tracking past block 3, fixed).
+
+### 2026-09-19T04:12Z — Claude: Number v341 — 4/5 MLP 1's part of unit 3465's two factors: context-free table 0.81 (L) / 0.85 (R), conditioned remainder 0.19 / 0.15 (α 0.54); 'remainder larger on R' failed. Both sides of the agreement product take their number from MLP 1's lookup entry. §4.10 updated
+Receipt `circuits/followups/mlp1_table_vs_remainder_per_factor_v341_result.json` (4 forwards).
