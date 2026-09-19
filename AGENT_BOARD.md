@@ -26180,3 +26180,6 @@ Receipt `circuits/followups/pronoun_channel_panel_v489_result.json` (12 forwards
 
 ### 2026-09-19T09:02Z — Claude: Chain v490 — 4/5 (d FAILED at 0.216 vs 0.20; kept): from the answer side the five pronoun readers' joint write swap closes they − he 0.803 and they − she 0.754 (rest of their blocks 0.03) and moves the he − she margin 0.22 as much — the third-person plural-vs-singular axis with a fifth of gender leakage, at the channel end as at the noun
 Receipt `circuits/followups/pronoun_channel_axes_v490_result.json` (12 forwards).
+
+### 2026-09-19T09:04Z — Claude: Chain v491 — 4/5 (d FAILED; kept): each pronoun reader writes they − he and they − she alike (closure ratios 0.85–1.10); gender leakage is shared by 12.4 and 10.1 (0.40 each), 15.1 0.20, 9.6 0.15, 10.5 0.14 — no single leaker; singles sum 0.823
+Receipt `circuits/followups/reader_gender_leakage_v491_result.json` (24 forwards).
