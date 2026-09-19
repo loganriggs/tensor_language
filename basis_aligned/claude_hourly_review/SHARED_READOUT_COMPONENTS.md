@@ -632,3 +632,4 @@ v520 (3/5; b, c failed): the four panel units' columns — 3547 writes 'he' (+0.
 v521 (5/5): the four panel units — 3547 / 1747 write 'he', 4448 both singulars, 3093 anti-'he' with a negative firing contrast — all four terms against 'they' (−44 to −61). Panel late-write artefact closed.
 v522 (3/5; a float-noise, c at −10.3 vs 10): on text the four panel units fire half as much with number and lose coherence (3547 reversed, 3093 silent). Artefact thread closed.
 v523 (5/5): the sign-aware template on u_v ranks 11.3 / 7.8 / 13.1 / 9.7 first in their blocks (as 9.6 on u); verb and pronoun readers read different noun directions (11.3·9.6 −0.25; 9.7·9.6 −0.11).
+v524 (5/5): in block 9, 9.6 is first on the pronoun template and last on the verb template; 9.7 the reverse. Weight templates separate the two readouts head by head.

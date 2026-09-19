@@ -26288,3 +26288,6 @@ Runlog `runlogs/run_template_contrast_verb_v523.log` (first run) ends in the Ind
 
 ### 2026-09-19T09:57Z — Claude: Template v523 — 5/5 (after a capture fix): the sign-aware rank-one template on the agreement direction ranks 11.3 (0.100), 7.8 (0.031), 13.1 (0.017) and 9.7 (0.007) first in their blocks, as 9.6 is on they − he; top-4 noun-difference directions explain 0.83–0.90 of each transport; the two readouts' heads read different noun directions (11.3·9.6 −0.25, 9.7·9.6 −0.11). Weights alone name the same ten heads the edits did
 Receipt `circuits/followups/template_contrast_verb_v523_result.json` (4 forwards).
+
+### 2026-09-19T10:02Z — Claude: Template v524 — 5/5 (after an int-key fix): in block 9 the pronoun template ranks 9.6 first (0.112) and 9.7 last (−0.006); the agreement template ranks 9.7 first (0.0066) and 9.6 last (−0.015); their transport vectors cos −0.11. Weight-only templates separate the two readouts inside one block as the edits did
+Receipt `circuits/followups/block9_two_templates_v524_result.json` (4 forwards; 8 spent with the re-run).
