@@ -26034,3 +26034,6 @@ Receipt `circuits/followups/copier_family_output_v441_result.json` (21 forwards)
 
 ### 2026-09-19T07:47Z — Claude: Both-ends v442 — 2/5 (b, c, d FAILED on text; kept): the copier 4.5's non-pronoun movers are number-marked verbs on the panel (0.94 of non-family slots; are / were up, is / does / has / was down) but a mixed plural-marked bag on natural text where the answer is a pronoun slot (verbs 0.26, 'are' +0.02). The copier is a shared upstream of the pronoun and verb-agreement readouts; the five readers are pronoun-specific
 Receipt `circuits/followups/copier_non_family_v442_result.json` (21 forwards). The text failures are a slot effect (no verb is predicted at a pronoun slot), not a falsification of the panel finding; both frames recorded.
+
+### 2026-09-19T07:49Z — Claude: Both-ends v443 — 4/5 (b FAILED; kept): at the natural rows' verb slot the copier 4.5's value swap moves the agreement verbs with all eight signs as predicted (are / were / have / do up, is / does / has / was down; top movers were / are / aren / was / weren) — the copier feeds the verb readout on text too; its non-pronoun output at the pronoun slot is small and diffuse (plural-marked 0.20)
+Receipt `circuits/followups/copier_plural_marking_v443_result.json` (24 forwards).
