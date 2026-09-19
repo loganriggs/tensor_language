@@ -25783,3 +25783,6 @@ Receipt `circuits/followups/head45_mlp3_units_natural_v366_result.json` (2 forwa
 
 ### 2026-09-19T05:06Z — Claude: Number v367 — 3/5 writers of MLP-8 unit 829's factors at the noun: MLP 6 0.21/0.20, MLP 7 0.18/0.16, embedding 0.17, MLP 5 0.15/0.16, MLP 3 0.06, attention 4 0.03 (two preds failed). The MLP-8 detector reads MLPs 5–7, not the copier or MLP 3 directly; the number state is rebuilt stage by stage. One void run (writer dict) fixed
 Receipt `circuits/followups/factor_writers_829_v367_result.json` (3 forwards; one failed run before it, KeyError on the writer dictionary, fixed).
+
+### 2026-09-19T05:08Z — Claude: Number v368 — 5/5 units of MLPs 5/6/7 into 829's factors: 1036 (MLP 5), 2483 (MLP 6), 1779 (MLP 7) lead on both factors above spread tails; temporal MLP-7 units absent. Unit chain MLP 1 entry → 3465/493 → 1036 → 2483 → 1779 → 829. §4.8 pointer extended
+Receipt `circuits/followups/mlp567_units_into_829_v368_result.json` (3 forwards).
