@@ -26025,3 +26025,6 @@ Receipt `circuits/followups/five_readers_output_selectivity_v438_result.json` (1
 
 ### 2026-09-19T07:42Z — Claude: Both-ends v439 — 3/5 (c, d FAILED as written; kept): the five-head swap's 15 most-moved tokens are all pronoun forms (They / their / themselves up, he / his / himself / him down); the 11-token class moves 6.9× the vocabulary mean but was too narrow (no capitals / possessives / reflexives) for the share bars. The readers write the pronoun family, not a they − he pair
 Receipt `circuits/followups/five_readers_logit_changes_v439_result.json` (14 forwards).
+
+### 2026-09-19T07:44Z — Claude: Both-ends v440 — 3/5 (b 4.86 vs 5, d FAILED — 'we' does not rise; kept): the five readers' output is third-person PLURAL (they / their / them / themselves +0.4 to +0.5) vs third-person SINGULAR of both genders (he / his / him / himself and she / her / herself −0.2 to −0.34), all cases; first / second person and 'it' untouched; the family fills 0.91 of the top-10 moved logits
+Receipt `circuits/followups/pronoun_family_output_v440_result.json` (14 forwards).

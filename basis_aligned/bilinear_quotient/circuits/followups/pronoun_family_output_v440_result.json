@@ -1,0 +1,109 @@
+{
+  "candidate_id": "both_ends.pronoun_family_output_v440",
+  "finished_utc": "2026-09-19T07:43:25.530621+00:00",
+  "forwards": 14,
+  "plan": {
+    "bars": {
+      "lead_min": 5.0,
+      "replay_tol": 0.001,
+      "top_min": 0.6
+    },
+    "candidate_id": "both_ends.pronoun_family_output_v440",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 15,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_family_leads_the_logit_changes": false,
+    "pred_c_family_fills_the_top_ten": true,
+    "pred_d_plural_up_masculine_down": false,
+    "pred_e_holds_on_panel": true
+  },
+  "report": {
+    "panel": {
+      "family_lead": 4.984771251678467,
+      "family_size": 80,
+      "pairs": 48,
+      "signed_change_by_lemma_singular_rows": {
+        "I": -0.05446534976363182,
+        "he": -0.26501287147402763,
+        "her": -0.1959045622497797,
+        "hers": 0.0007288927833239237,
+        "herself": -0.2628203332424164,
+        "him": -0.2328411415219307,
+        "himself": -0.17998209036886692,
+        "his": -0.2610781770199537,
+        "it": -0.05308000341756269,
+        "its": -0.005170964897843078,
+        "itself": 0.07636307924985886,
+        "me": 0.006330670868919697,
+        "my": -0.006285895826295018,
+        "myself": 0.05154285952448845,
+        "our": 0.00995217019226402,
+        "ourselves": 0.21127289533615112,
+        "she": -0.2328080702573061,
+        "their": 1.0236310809850693,
+        "them": 0.8086524605751038,
+        "themselves": 1.0962063074111938,
+        "they": 1.0428529232740402,
+        "us": 0.02575029036961496,
+        "we": -0.007843990111723542,
+        "you": -0.046912814723327756,
+        "your": -0.02142374124377966,
+        "yourself": 0.041958436369895935
+      },
+      "signs_ok": false,
+      "top10_family_share": 0.981249988079071
+    },
+    "replay_max_abs": 1.33514404296875e-05,
+    "text": {
+      "family_lead": 4.861564636230469,
+      "family_size": 80,
+      "pairs": 122,
+      "signed_change_by_lemma_singular_rows": {
+        "I": -0.016532090958207846,
+        "he": -0.3184078671038151,
+        "her": -0.21673204749822617,
+        "hers": -0.06133567353026592,
+        "herself": -0.3113233149051666,
+        "him": -0.26339609424273175,
+        "himself": -0.27510181069374084,
+        "his": -0.3403828777372837,
+        "it": -0.017700501950457692,
+        "its": -0.02139986213296652,
+        "itself": -0.03798844292759895,
+        "me": 0.0022971988655626774,
+        "my": -0.01012640273620491,
+        "myself": -0.008780593052506447,
+        "our": 3.46645392710343e-05,
+        "ourselves": 0.048076167702674866,
+        "she": -0.2788589149713516,
+        "their": 0.4954993277788162,
+        "them": 0.3868544598420461,
+        "themselves": 0.4888056814670563,
+        "they": 0.5089802891016006,
+        "us": 0.003715987753821537,
+        "we": -0.009494793062913232,
+        "you": -0.02345089169102721,
+        "your": -0.02962131891399622,
+        "yourself": -0.020701331086456776
+      },
+      "signs_ok": false,
+      "top10_family_share": 0.9127049446105957
+    }
+  },
+  "schema": "pronoun_family_output_result_v440",
+  "serial_seconds": 2.0809722871053964
+}
