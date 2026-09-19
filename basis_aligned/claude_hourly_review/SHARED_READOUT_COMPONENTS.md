@@ -390,3 +390,6 @@ v282 (4/4, temporal): unit 1250 at the bank is carried by attention (75%: head 7
 v283 (2/5, temporal): the MLP-7 trio does nothing on natural rows (0.09% all positions) — the bank is a panel construct. Declared: temporal detectors are panel-named, not shown OOD. Temporal thread closed.
 v284 (1/4, person) and v285 (1/4, selection): MLP 7 is spread too (top-10 16% / 6% at the cue) — both families are ports at MLP 7 and 8. 'Look one block lower' rescued the temporal family only. Table final for the day.
 v286 (2/5): 1512 restricted to 16.8's direction removes 0.05% (whole unit 1.8%) — not separable along that direction; its and/nor effect runs through the other readers. Limit declared. Correlative thread closed.
+
+### MLP 1 as a token table (19 Sep, Logan's direction)
+v287 (3/6): single-token MLP-1 table, 7 classes × sizes 4–256: near full rank per class (r90 ≈ 0.7n), union 271/1110; between-class 0.29 at 64; plural−singular top-1 0.42 (not rank-1 context-free), mean cos 0.72 with the embedding's plural direction, amplified 170×; radial 21%; write 7× the residual. MLP 1 = token-specific expansion + modest shared class subspace. Scorecard: MLP1_TOKEN_TABLE_SCORECARD.md. v288: in-context vs context-free write at the noun.
