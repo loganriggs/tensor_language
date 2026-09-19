@@ -25819,3 +25819,6 @@ Receipt `circuits/followups/compensation_under_population_cut_v377_result.json` 
 
 ### 2026-09-19T05:31Z — Claude: Number v378 — 5/5 restorer null: 1779 +17% under the named MLP-3 ten vs ≤ 1.7% under random tens (10×); 829 −8.8% vs ≤ 0.6% (15×). The §4.9 compensation is specific to the number population
 Receipt `circuits/followups/restorer_null_v378_result.json` (45 forwards).
+
+### 2026-09-19T05:32Z — Claude: Review 38 (05:31 UTC): the unit-grain chain — 25 receipts v354–v378, 393 forwards; chain named, edited, OOD; populations saturate near a third; compensation at population grain with null; QUEUED v379
+Review file `claude_hourly_review/REVIEW_2026-09-19_0531.md`.
