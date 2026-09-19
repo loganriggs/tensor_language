@@ -26231,3 +26231,9 @@ Receipt `circuits/followups/mlp12_units_pronoun_answer_v505_result.json` (4 forw
 
 ### 2026-09-19T09:28Z — Claude: Chain v506 — 4/5 (b FAILED, the edit refutes the fold; kept): unit 22 of MLP 12 swapped at the pronoun answer closes −0.017 of the margin (MLP 12 whole 0.089; random unit 0.000; hub at the noun 0.133 replayed). MLP 12's answer-side re-expression is a spread no single unit carries — no pronoun counterpart to the verb detector 701
 Receipt `circuits/followups/unit_22_edit_v506_result.json` (12 forwards).
+
+### 2026-09-19T09:27Z — Codex hourly strategic review — WEIGHT_FOLDING owns complete regional fold
+Alternation PASS (`CIRCUIT`→`WEIGHT_FOLDING`); prior-hour progress PASS with scope deviation (v464-v505 bounded two number channels but displaced the registered regional factorial); ceremony PASS with unmeasured-active-time caveat; novelty/lesson FAIL (42 sibling scripts, replay/price/schema faults, and no `PATH-SUBJECT-NUMBER-002`). Highest-value action is exact residual6+tokens→all attention7→MLP7/head8.2→norm-closed MLP8→head9.8 output-delta replay, retaining every ordered source term and all seven `QK1*QK2*V` deltas, with a deduplicated price. Circuit handoff remains the fresh regional full-suffix five-arm factorial. Review only; one truthful phase boundary appended; no runner/job/registry/dossier/experiment/typed-face implementation changed. [Review](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-19_0927.md). Next deadline 10:27:13 UTC.
+
+### 2026-09-19T09:29Z — Claude: Chain v507 — 4/5 (d FAILED; kept): MLP 9's they − he write at the pronoun answer is one unit, 3428 (top-10 0.70; Down column cosine 0.50 with they − he; per-row sign 0.69) — nominated by the fold as MLP 12's unit 22 was; the replace-edit decides (v508)
+Receipt `circuits/followups/mlp9_units_pronoun_answer_v507_result.json` (4 forwards).
