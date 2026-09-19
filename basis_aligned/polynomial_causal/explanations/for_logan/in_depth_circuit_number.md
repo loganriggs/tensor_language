@@ -247,6 +247,91 @@ panel (undetectable at the token after the cue; no verb annotation [v248]); the 
 sign on natural text [v199]); and why the trio's *mean* write is harmful to the behaviour elsewhere (a mean-preserving edit costs the margin
 three times what zeroing costs [v233]). Failed predictions are on the scorecard: 92 of 321 registered readings on this line's receipts were false.
 
+### 4.10 The bottom of the chain: what MLP 1 is doing [v287–v301]
+
+The chain's lowest named stage was MLP 1 (§4.6: units 3465 / 493 of MLP 3 are computed from it). The dossier called MLP 1 a
+"79% context-free token lookup table" and its corpus output "diffuse". Logan's question (19 Sep) was whether following the
+specific paths Embedding → Attn 0 → (MLP 0) → MLP 1 from single tokens, with the weights folded, would say what MLP 1 does and
+why it looks diffuse. It did. Everything below is an exact fold (closure 0.0 unless stated); no fits.
+
+**Setup.** For a token $t$ alone, MLP 1's write is its table entry $T_t$ (v287: 224 tokens across seven classes, each class
+nearly full-rank — $r_{90}\approx 0.7n$ — so the table is not low-rank; the classes are separable at 0.29 of the variance).
+For the same token after a context (one token, or $k$ filler tokens, or its real left context on text), the write is $W$.
+Project $W$ on the table entry:
+
+$$\alpha \;=\; \frac{W\cdot T_t}{\|T_t\|^2},\qquad W=\alpha\,T_t+R,\quad R\perp T_t .$$
+
+**Fact 1 — the gain is positional, not lexical.** $\alpha\approx 0.54$ after "The" on the pronoun rows (v288/v289), and
+0.41–0.65 in all 42 (context token × class) cells with six different context tokens (v290). Within a cell $\alpha$ is uniform
+across targets (coefficient of variation ≤ 0.20, stable from 4 to 64 targets). The spread across context tokens is 0.9× the
+spread within a cell: which word precedes does not matter, only that something does.
+
+**Fact 2 — the gain is the attention self-share.** With $k$ filler tokens, $\alpha$ falls 0.555 / 0.440 / 0.365 / 0.335 for
+$k=1,2,4,8$; the token's own-key share of the bilinear attention pattern (blocks 0+1, mean over 18 heads; the pattern is
+$(q\!\cdot\!k)(q_2\!\cdot\!k_2)/D^2$, causal, unnormalised and signed, so shares are of absolute weight) falls 0.525 / 0.399 /
+0.279 / 0.210 (v291). On 2,944 positions of natural text the two correlate at $r=0.65$ (0.72 on word tokens) with median gap
+0.09 (v297). At 16–64 tokens $\alpha$ floors near 0.29 while the share keeps falling.
+
+**Fact 3 — what the gain is not.** Not a loss of identity in the input: MLP 1's input keeps ≥ 100% of the token's single-token
+input direction at every context length (v300; attention 1 carries most of it, MLP 0 a third, attention 0 nothing along it).
+Not the $\lambda_1 x_0$ re-injection (v299: removing it leaves $\alpha$ at 64 tokens unchanged, 0.29 → 0.27, while destroying
+the direction). Not a single head (v298: per-head self-only pattern edits move $\alpha$ by ≤ 0.15 and do not add; with **all**
+18 heads reading only themselves $\alpha = 1.00$ exactly — the write becomes the table entry).
+
+**Fact 4 — the mechanism.** MLP 1 is bilinear, $\mathrm{mlp}(n)=D\,[(Ln)\odot(Rn)]$ on the normalised input $n$. Split
+$n=\gamma\,\hat t+c$, with $\hat t$ the token's single-token normalised input and $c$ the rest (what attention 0/1 and MLP 0 mixed in):
+
+$$W=\underbrace{\gamma^{2}\,T_t}_{\text{lookup}}\;+\;\underbrace{D[(L\gamma\hat t)\odot(Rc)+(Lc)\odot(R\gamma\hat t)]}_{\text{token}\times\text{context}}
+\;+\;\underbrace{D[(Lc)\odot(Rc)]}_{\text{context}^2},$$
+
+$$\alpha=\gamma^{2}+\pi_T(\text{cross})+\pi_T(\text{context}^2).$$
+
+Measured (v301, filler contexts of 1 / 8 / 64 tokens): $\gamma^2 = 0.93/0.90/0.86$ — the lookup term stays near full;
+$\pi_T(\text{cross}) = -0.44/-0.75/-0.75$, **negative for 100% of rows** and tracking $-\|c\|$ at $r=0.68$;
+$\pi_T(\text{context}^2)=+0.07/+0.19/+0.20$. So the gain is not attenuation of the lookup; it is the lookup written at
+near-full strength and then **cancelled by the token × context cross term** in proportion to how much context the token's
+attention mixed in. The attention self-share sets $\|c\|$; that is why Fact 2 holds. The identity closes to 1.1% in float32
+over the 4,608 units (the 1e-3 bar was missed; kept as stated).
+
+**Fact 5 — the remainder.** $R$ (25–40% of the write's energy at 1–8 tokens; a third on text) is neither the token's nor the
+context's table entry (v292, cos ≈ 0 at every length), not the dossier's register direction nor the corpus PC1 (v294, cos ≤ 0.16),
+and not the context² term alone (v295 — the cross and context² terms are individually large and cancel). It is ~40% one
+context-specific direction shared across tokens and ~60% high-rank token-specific parts that keep the class structure
+(own-class cosine 0.78 vs 0.49; content words cluster at 0.73–0.92; numbers, punctuation and function words apart; v293).
+
+**What the number chain reads.** Splitting the noun write on the pronoun rows into $\alpha T$ and $R$ and folding each into
+units 3465 and 493 of MLP 3 (v296): the table part carries 0.74 / 0.75 of MLP 1's number contrast with the total's sign in
+every pair; the remainder 0.38 / 0.49 (not number-neutral); the mixed quadratic term −0.12 / −0.24.
+
+**In one sentence.** MLP 1 is a token lookup table (§4.6's amplified plural direction is one row of it) that writes its entry
+at near-full strength and subtracts a token × context interaction proportional to the context share of the token's own
+attention; the subtraction is along the entry, the interaction's off-entry part is the "diffuse" remainder, and the pronoun-
+number chain reads the entry. On natural text (v302, 2,944 positions) the same expansion closes to 1.8%: $\gamma^2=0.85$, cross $=-0.87$ (negative at
+99.3% of positions, deepening from −0.51 at position 1 to about −0.9 from position 8 on), context² $=+0.29$, $\alpha=0.26$. So in
+running text the lookup is almost fully cancelled and what MLP 1 still writes along the token's entry comes from the context² term.
+One filler-context reading did not survive text: the depth of the cut no longer tracks the context input's size ($r=0.05$ vs 0.68);
+with real context the cancellation is saturated rather than proportional. Open: what the class-structured remainder encodes
+downstream, and whether the cancellation is carried by a few MLP-1 units or by all 4,608 (v303, queued).
+
+| receipt | question | result |
+|---|---|---|
+| v287 | is the table low-rank / class-separable | no / 0.29 (3/6) |
+| v288 | does the in-context write equal the table entry | direction yes (0.87), magnitude no (0.62×) (1/4) |
+| v289 | what changes it | cross terms 76%, scalar gain 0.54, uniform over nouns (4/4) |
+| v290 | does the gain depend on the context token / class | no: ½ in all 42 cells (3/5) |
+| v291 | does it track the attention self-share | yes, 1–8 tokens (4/5) |
+| v292 | is the remainder the context's table write | no (2/5) |
+| v293 | what is the remainder | 40% shared + 60% class-structured (3/5) |
+| v294 | is the shared part a fixed register direction | no, context-specific (1/5) |
+| v295 | is it the context² term | no; terms cancel (1/5) |
+| v296 | which part the number chain reads | the table part, 0.74 (3/5) |
+| v297 | does the law hold on text | yes, r 0.65 (5/5) |
+| v298 | is there a self head | no; all-self-only gives α = 1.00 (1/5; run 1 void) |
+| v299 | is the floor the re-injection | no (2/5) |
+| v300 | is the gain input-identity loss | no; input keeps ≥ 100% (2/5) |
+| v301 | is it cross-term cancellation | yes: −0.44 to −0.75, 100% negative (3/5) |
+| v302 | does the cancellation hold on text | yes: −0.87, 99.3% negative, saturating from position 8 (4/5) |
+
 ### Pass over the draft (what I changed after rereading)
 
 - The first draft called head 6.3 "part of the chain"; it is a gain. The diagram now draws it dashed and §4.5 tells the falsified nomination.
@@ -254,6 +339,6 @@ three times what zeroing costs [v233]). Failed predictions are on the scorecard:
 - The edit table in §4.7 originally listed shares next to edits without saying which is which; the last sentence now says "shares rank, edits size".
 - The worked example quoted the vocabulary-level unit values as if they were the row's; the sentence now says "around" and cites the pairs.
 - The natural-text table gained the MLP-5 row with its bar failure stated as a number, not as "narrowly missed".
-- Second pass (18:20 UTC): §8 had grown into one run-on paragraph by inline edits over the afternoon; the compensation account now has its own
+- Third pass (19 Sep 02:45 UTC): §4.10 added for the MLP-1 resolution (v287–v301), with the two readings that failed on the way (input-identity loss; the re-injection floor) kept as failures. Second pass (18:20 UTC): §8 had grown into one run-on paragraph by inline edits over the afternoon; the compensation account now has its own
   §4.9, §8 is a closed/open list again, and the prediction count is recomputed from the receipts. Two of my readings in the compensation story
   (renormalisation, radial write) were wrong and are kept as such in §4.9 rather than smoothed away.

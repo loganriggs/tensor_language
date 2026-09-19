@@ -25567,3 +25567,6 @@ Receipt `circuits/followups/mlp1_input_identity_by_writer_v300_result.json` (7 f
 
 ### 2026-09-19T02:42Z — Claude: MLP1 v301 — 3/5 MECHANISM: the gain is active cross-term cancellation — table quadratic term γ² 0.93/0.90/0.86, token×context cross term projects −0.44/−0.75/−0.75 on the lookup (negative in 100% of rows, r 0.68 with the context input's size), context² term +0.07/+0.19/+0.20; α = γ² + both. Closure 1.1% (float32; 1e-3 bar missed); 'cross alone is the loss' failed at 8+ tokens
 Receipt `circuits/followups/mlp1_cross_cancellation_v301_result.json` (4 forwards).
+
+### 2026-09-19T02:44Z — Claude: MLP1 v302 — 4/5 on natural text the cancellation holds and saturates: γ² 0.85, cross −0.87 on the lookup (99.3% negative; −0.51 at position 1 → −0.9 from position 8), context² +0.29, α 0.26; the cut no longer tracks ‖c‖ (r 0.05; pred failed). in_depth_circuit_number.md §4.10 written: MLP 1 resolved (v287–v302)
+Receipt `circuits/followups/mlp1_cross_cancellation_natural_v302_result.json` (14 forwards). Document: `for_logan/in_depth_circuit_number.md` §4.10 (facts 1–5, mechanism equation, receipt table v287–v302).
