@@ -26153,3 +26153,6 @@ Receipt `circuits/followups/verb_routes_parallel_v480_result.json` (15 forwards)
 
 ### 2026-09-19T08:50Z — Claude: Chain v481 — 4/5 (c FAILED; kept): attention into the pronoun slot by block — all 0.973; 9 (0.391), 12 (0.237), 10 (0.146), 15 (0.074), then an early relay from blocks 4–6 (0.107 together: 5 0.053, 4 0.037); singles add (1.035). Both readouts are attention-into-the-answer channels fed by the noun's values; channel census closed at both ends for both
 Receipt `circuits/followups/attn_into_pronoun_blocks_v481_result.json` (80 forwards).
+
+### 2026-09-19T08:51Z — Claude: Chain v482 — 4/5 (d FAILED; kept): into the pronoun slot block 9's write is 9.6 alone (0.362 of 0.391) and the early relay is small and shared (5.3 0.021, 5.6 0.014, 5.7 0.008 of block 5's 0.049): the second-hop copier 5.3 serves the verb readout (0.11), barely the pronoun one
+Receipt `circuits/followups/attn_into_pronoun_heads_v482_result.json` (76 forwards).

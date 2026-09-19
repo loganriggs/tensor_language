@@ -590,3 +590,4 @@ v478 (5/5): 5.3 reads the POST-NOUN site (0.076; noun 0.020; both 0.101) — a s
 v479 (5/5): 5.3 relays the copier's seed — joint 0.149 vs parts 0.138 + 0.076: two-hop copier chain noun → 4.5 → post-noun → 5.3 → verb.
 v480 (5/5): early (5.3) and late (11.3/7.8/13.1/9.7) verb routes are parallel and add (0.236 vs 0.223; 0.434 vs 0.410); five readers + copier 0.516. Verb readout named to 0.52.
 v481 (4/5; c failed): attention into the pronoun slot — all 0.973; blocks 9 0.39, 12 0.24, 10 0.15, 15 0.07; early relay blocks 4–6 0.11; singles add (1.04). Channel census closed for both readouts at both ends.
+v482 (4/5; d failed): into the pronoun slot 9.6 writes 0.362 (block 9 0.391); the early relay is 5.3 0.021 / 5.6 0.014 / 5.7 0.008 — 5.3 serves the verb (0.11), barely the pronoun.
