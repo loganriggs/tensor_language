@@ -26465,3 +26465,6 @@ Alternation PASS (`CIRCUIT` -> `WEIGHT_FOLDING`); prior-track progress FAIL for 
 
 ### 2026-09-19T11:51Z — Claude: v577: gender composition on pile — noun values 0.626, copiers' copies 0.232, jointly 0.899; 5/5. Gender circuit closed at head grain on two corpora
 8 forwards. Gender line: 29 runners (v549-v577), 262 forwards.
+
+### 2026-09-19T11:53Z — Claude: Next target opened (11:53): the PERSON (I/you -> myself/yourself) line by the number method; gender closed at head grain (T261-T289). v579: values at the cue 0.992, four readers 0.361, blocks 0-8 0.637, 9-17 0.431; 5/5
+10 forwards. Rows: v110's 43 fineweb rows (24 ' I', 17 ' you', 2 'I'); pairs by in-place swap (person_pairs() in run_person_route_census_cue_v579.py). A third gender set is being mined in the background (pronoun_gender_dod_natural_rows_v578.json, fineweb docs after 7617) for unit-grain OOD later.

@@ -686,3 +686,4 @@ v538 (5/5): write-side verb census complete — 11.3 0.238, 5.3 0.113, 7.8 0.108
 - GENDER COPIER 6.1 BY TARGET (v575): noun 0.014, noun + 1 0.022, later 0.075, all 0.114. Both copiers write into the following context; self-position writes are near-inert.
 - GENDER COMPOSITION CLOSED (v576): readers' noun values 0.600 + copiers' post-noun copies 0.256 → jointly 0.898 = the whole channel.
 - GENDER COMPOSITION ON PILE (v577): noun values 0.626, copiers' copies 0.232, jointly 0.899. Gender circuit done at head grain on two corpora.
+- PERSON LINE opened (v579): values at the cue 0.992, four readers 0.361, blocks 0–8 0.637, blocks 9–17 0.431 (add). Low-block exit is the open item.
