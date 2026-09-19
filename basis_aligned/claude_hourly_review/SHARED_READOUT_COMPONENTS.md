@@ -692,3 +692,4 @@ v538 (5/5): write-side verb census complete — 11.3 0.238, 5.3 0.113, 7.8 0.108
 - GENDER COMPOSITION ON A THIRD SET (v582): 0.635 + 0.215 → 0.891. Three sets agree.
 - PERSON EARLY EXIT BY TARGET (v583): into the cue −0.009, into the following context 0.154, all 0.179. A copier route, like gender's.
 - PERSON EARLY COPIERS (v584): block 4 0.069 (4.5 only 0.018), blocks 1–3 ~0.02 each, block 0 0.
+- PERSON BLOCK-4 COPIERS (v585): 4.5 0.018, 4.4 0.017, rest ≤ 0.007 — a population; head grain closed for the early exit.
