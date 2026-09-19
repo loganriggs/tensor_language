@@ -25887,3 +25887,6 @@ Alternation PASS (`WEIGHT_FOLDING`→`CIRCUIT`); prior-hour progress FAIL for pr
 
 ### 2026-09-19T06:19Z — Claude: Subspace v398 — 3/5 the pronoun-internal axis VC1 = gendered singular (she/her/he/him) vs every other pronoun (cos 0.45 with they−he), written by the readers 9.6 / 12.4 / 15.1 / 10.5 (panel 0.46, text 0.32; MLPs 9–13 join on text); the readers also carry its u-orthogonal part (0.38). The pronoun circuit writes 'not he/she' more than 'they'. Two preds failed (15.1 eighth on text; VC1 is not number)
 Receipt `circuits/followups/subspace_vc1_writers_v398_result.json` (5 forwards).
+
+### 2026-09-19T06:21Z — Claude: Subspace v399 — 5/5 MLP 8 along the 'not he/she' axis: 829 / 953 rank 1 / 2 on both axes, 1030 8th, gender unit 3943 rises to 9th (85th on they−he); top-50 0.86; top-20 overlap 15. One MLP-8 population with a gender admixture on the class-internal axis
+Receipt `circuits/followups/mlp8_units_vc1_v399_result.json` (3 forwards).
