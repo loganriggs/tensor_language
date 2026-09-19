@@ -25681,3 +25681,6 @@ Receipt `circuits/followups/chain_units_in_frame_v335_result.json` (2 forwards).
 
 ### 2026-09-19T04:01Z — Claude: Number v336 — 2/5 context length 0/1/2/4/8 before X (256 vocabulary pairs): not a length effect — after ' and' 1036 vanishes (−0.04) and 3465 weakens (−1.8); after ' the' / ' of' 3465 −3.7 (100%), 829 +2.1 (99%); 493 steady; 953 / 1030 silent. Three length-based preds failed. §4.10 updated; v337 tests single preceding tokens
 Receipt `circuits/followups/chain_units_context_length_v336_result.json` (10 forwards).
+
+### 2026-09-19T04:04Z — Claude: Number v337 — 2/5 twelve preceding words × 256 vocabulary pairs: the chain's lexical detectors are agreement readers — 3465 sharpest after plural-licensing words (these −4.2, those −3.9, two −3.5), weak after a / and, flips after ' 1'; 493 the complement (a +3.9; those 0.06, two −0.4); 829 flips after a; 1036 determiner/preposition-fed; 953 / 1030 silent. Three preds failed. §4.10 updated; v338 splits the bilinear factors
+Receipt `circuits/followups/chain_units_preceding_word_v337_result.json` (24 forwards).
