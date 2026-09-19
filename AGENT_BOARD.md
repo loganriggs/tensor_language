@@ -25642,3 +25642,6 @@ Receipt `circuits/followups/mlp1_alpha1_limit_number_chain_v322_result.json` (7 
 
 ### 2026-09-19T03:33Z — Claude: MLP1 v323 — 3/5 only MLP 1 un-conditioned on the v76 rows: write = table (α 0.999), carriage into 3465/493 flat (0.93×/1.01×), they−he margin −32% (v322 whole-attention −37%). Un-conditioning MLP 1 alone breaks a third of the behaviour, not through the named MLP-3 units. §4.10 updated; v324 localises the route
 Receipt `circuits/followups/mlp1_only_unconditioned_number_chain_v323_result.json` (7 forwards).
+
+### 2026-09-19T03:36Z — Claude: MLP1 v324 — 5/5 routes of MLP 1's un-conditioning to the they−he margin (v76 rows, path-restricted): block 2 0.23, block 4 0.15, block 3 0.12, block 5 0.05, direct 0.001; first-order sum 0.59. MLP 1 → blocks 2–4 → the named chain. §4.10 updated
+Receipt `circuits/followups/mlp1_unconditioning_routes_v324_result.json` (60 forwards).

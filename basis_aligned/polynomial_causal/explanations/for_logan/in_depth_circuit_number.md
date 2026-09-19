@@ -332,8 +332,10 @@ carriage into units 3465 / 493 flat (0.92× / 1.01×) while the margin falls 37%
 every downstream consumer, so v323 applied the limit to MLP 1's input alone (a parallel self-only stream read only by MLP 1; the residual keeps native attention):
 the margin still falls 32% (2.05 → 1.39) while MLP 1's carriage into 3465 / 493 stays flat (0.93× / 1.01×). So un-conditioning MLP 1 does
 break the behaviour — through consumers other than the two named MLP-3 units. The number chain's §4.6 account (3465 / 493 read MLP 1's
-entry) is true and incomplete: the circuit also uses MLP 1's context-conditioned write, by a route not yet named (v324, queued: path-restricted
-injection on the pronoun rows with the margin as the readout).
+entry) is true and incomplete: the circuit also uses MLP 1's context-conditioned write, by early-block routes (v324, path-restricted injection on the pronoun rows with the margin as readout): block 2 takes 23% of the
+harm at first order, block 4 15%, block 3 12%, block 5 5%, nothing past block 7 and 0.1% by the direct path to the logits (first-order sum
+59%; the rest is propagation). So the number circuit's use of MLP 1 runs MLP 1 → blocks 2–4 → the named chain from MLP 3 on, with units
+3465 / 493 reading the entry's direction and the conditioned remainder entering through blocks 2–4 (attention or MLP: v325, queued).
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -415,6 +417,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v321 | kind split on text | alphabetic > punctuation at both layers; numbers claim did not replay (4/5) |
 | v322 | number chain at α = 1 (attention 0/1 self-only, v76 rows) | write = table; carriage into 3465 / 493 flat (0.92× / 1.01×); margin −37% (whole-attention edit) (3/5) |
 | v323 | only MLP 1 un-conditioned, v76 rows | carriage flat (0.93× / 1.01×); margin −32%: the behaviour uses MLP 1's conditioned write elsewhere (3/5) |
+| v324 | routes on the pronoun rows | block 2 0.23, block 4 0.15, block 3 0.12, block 5 0.05; direct 0.001 (5/5) |
 
 ### Pass over the draft (what I changed after rereading)
 
