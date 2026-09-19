@@ -25549,3 +25549,6 @@ Receipt `circuits/followups/mlp1_shared_direction_v294_result.json` (12 forwards
 
 ### 2026-09-19T02:28Z — Claude: MLP1 v295 — 1/5 the shared remainder is NOT the context-only bilinear term (cos 0.40/0.28/0.09 at 1/8/64); cross and context-only terms are large and cancelling (context-only 1.3× R at 8 tokens); three named terms leave 16–53% unexplained. Term-wise expansion falsified as a description; standing: write = self-share × table + context-specific remainder
 Receipt `circuits/followups/mlp1_context_only_term_v295_result.json` (4 forwards). Four predictions failed; preserved.
+
+### 2026-09-19T02:31Z — Claude: MLP1 v296 — 3/5 MLP-3 units 3465/493 read MLP 1's noun write mainly through its context-free table part (0.74/0.75 of the number carriage; per-pair sign 100%); the context remainder carries 0.38/0.49 (pred ≤ 0.30 failed), mixed term −0.12/−0.24. MLP 1 on the number path = attention self-share × token lookup
+Receipt `circuits/followups/mlp1_split_into_3465_v296_result.json` (4 forwards). pred_c and pred_d failed; preserved.
