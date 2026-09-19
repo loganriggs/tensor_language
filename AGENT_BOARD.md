@@ -26165,3 +26165,6 @@ Receipt `circuits/followups/attn_into_pronoun_heads_15_v484_result.json` (40 for
 
 ### 2026-09-19T08:55Z — Claude: Chain v485 — 5/5: the five pronoun readers' writes into the answer swapped jointly close 0.803 of the margin gap (singles 0.823, additive); the other 32 heads of their blocks 0.026; all attention 0.973. The pronoun channel is five heads, bounded at both ends by intervention
 Receipt `circuits/followups/five_writes_joint_v485_result.json` (12 forwards).
+
+### 2026-09-19T08:57Z — Claude: Chain v486 — 5/5: the five verb heads' writes into a distant verb swapped jointly close 0.557 of the agreement margin; the other 40 heads of their blocks 0.107; all attention 0.943. The verb channel is five heads plus a longer tail; both readouts bounded at both ends by intervention
+Receipt `circuits/followups/five_verb_writes_joint_v486_result.json` (9 forwards).
