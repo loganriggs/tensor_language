@@ -310,8 +310,16 @@ number chain reads the entry. On natural text (v302, 2,944 positions) the same e
 99.3% of positions, deepening from −0.51 at position 1 to about −0.9 from position 8 on), context² $=+0.29$, $\alpha=0.26$. So in
 running text the lookup is almost fully cancelled and what MLP 1 still writes along the token's entry comes from the context² term.
 One filler-context reading did not survive text: the depth of the cut no longer tracks the context input's size ($r=0.05$ vs 0.68);
-with real context the cancellation is saturated rather than proportional. Open: what the class-structured remainder encodes
-downstream, and whether the cancellation is carried by a few MLP-1 units or by all 4,608 (v303, queued).
+with real context the cancellation is saturated rather than proportional. **Which units cancel (v303, v304).** The cancellation splits exactly by unit. It is layer-wide — across the 4,608 units the pooled lookup
+and pooled cross terms correlate at $r=-0.96$ to $-0.99$, nine in ten units cancel, and the top 200 carry only 51–55% — but it has a
+head: units **3289** and **624** carry about 30% of it, each about 9% of the lookup and 15% of the cut. Those two are genuine *gain units*:
+over 224 single tokens both of their factors are nearly constant (coefficient of variation 0.17–0.23; means about ∓20 with opposite
+signs), across contexts both factors track the attention self-share ($|r|$ 0.62–0.79), their write direction points against the
+common component of the lookup table (cos −0.60 / −0.49), and on text their activation tracks $\alpha$ ($r=-0.49/-0.55$). They read
+"a token is here, diluted by this much context", not which token. So the "gain function" hypothesis is right for this head of the
+distribution and wrong as the whole: the other 70% of the cancellation is every lookup unit cancelling its own contribution by a
+token- and context-dependent ratio (median −0.4 to −0.8, interquartile range 0.45–0.78). Open: what the class-structured remainder
+encodes downstream; whether zeroing 3289 + 624 raises $\alpha$ and moves the number margin against random-unit nulls (v305, queued).
 
 | receipt | question | result |
 |---|---|---|
@@ -331,6 +339,8 @@ downstream, and whether the cancellation is carried by a few MLP-1 units or by a
 | v300 | is the gain input-identity loss | no; input keeps ≥ 100% (2/5) |
 | v301 | is it cross-term cancellation | yes: −0.44 to −0.75, 100% negative (3/5) |
 | v302 | does the cancellation hold on text | yes: −0.87, 99.3% negative, saturating from position 8 (4/5) |
+| v303 | few units or all | layer-wide (r −0.96 to −0.99) with a head: 3289 + 624 ≈ 30% (3/5) |
+| v304 | what 3289 / 624 read | token-constant factors × attention self-share: gain units (4/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

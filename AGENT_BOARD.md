@@ -25573,3 +25573,6 @@ Receipt `circuits/followups/mlp1_cross_cancellation_natural_v302_result.json` (1
 
 ### 2026-09-19T02:46Z — Claude: MLP1 v303 — 3/5 unit census of the cancellation: layer-wide (per-unit lookup vs cross r −0.96…−0.99; 89–93% of units cancel; top-200 carry 51–55%, top-2000 88–90%) with a heavy head — units 3289 and 624 ≈ 30% of the cut; per-unit ratio median −0.44/−0.74/−0.77, IQR 0.45–0.78 (uniformity pred failed)
 Receipt `circuits/followups/mlp1_cancellation_units_v303_result.json` (4 forwards).
+
+### 2026-09-19T02:48Z — Claude: MLP1 v304 — 4/5 NAMED: units 3289 and 624 of MLP 1 are context-gain units (both factors token-constant, CV ≤ 0.23; both track the attention self-share |r| 0.62–0.79; write against the common lookup direction cos −0.60/−0.49 — 624 misses the 0.50 bar; activation tracks α on text r −0.49/−0.55). ≈30% of the self-cancellation; §4.10 updated
+Receipt `circuits/followups/mlp1_head_units_v304_result.json` (15 forwards).
