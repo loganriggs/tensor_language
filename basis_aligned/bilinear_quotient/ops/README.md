@@ -356,7 +356,7 @@ Lessons recorded in the scorecards (five so far: `basis_aligned/claude_hourly_re
 
 | tool | what it does | introduced |
 |---|---|---|
-| `dod_units.py` — `unit_census`, `pooled_contrast`, `forward_margins` | exact per-unit census of an MLP's write on a reader direction; plain-forward unit edits (`positions_fn` may return an int, a list of ints, or None = all positions) | v164 / v165; list positions v215 |
+| `dod_units.py` (`attention_self_share`: own-key share of the signed, unnormalised bilinear pattern; v291) | — `unit_census`, `pooled_contrast`, `forward_margins` | exact per-unit census of an MLP's write on a reader direction; plain-forward unit edits (`positions_fn` may return an int, a list of ints, or None = all positions) | v164 / v165; list positions v215 |
 | `dod_units.py` — `product_unit_census` | exact leave-one-unit-out change of a bilinear unit's product for every unit of a source block (sign-carrying) | v182 |
 | `dod_units.py` — `carrier_split` | the exact per-pair identity splitting a bilinear unit's contrast into writers' own changes (carriage) and symmetrised pair mass | v188 (review 23) |
 | `dod_check_runner.py <runner>` | closure-aware undefined-module-name check + dry-run exit code; run before every enqueue | review 25 |

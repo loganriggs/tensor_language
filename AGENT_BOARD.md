@@ -25537,3 +25537,6 @@ Receipt `circuits/followups/mlp1_context_length_gain_v291_result.json` (5 forwar
 
 ### 2026-09-19T02:22Z — Claude: MLP1 v292 — 2/5 two-term test over context length 1–64: the non-table remainder is NOT the context's own MLP-1 write (cos ≈ 0, β ≈ 0 at every length; span explains 0.38–0.68); α floors at ≈0.29 from 16 tokens; cos(write, table) falls 0.86→0.61. Remainder = token × context cross term (v289); v293 characterises it
 Receipt `circuits/followups/mlp1_two_term_context_v292_result.json` (9 forwards). Failures preserved (pred_b, pred_c, pred_e); explained energy at length 1 is NaN (degenerate Gram row) and counts as a failure for pred_c.
+
+### 2026-09-19T02:24Z — Claude: MLP1 v293 — 3/5 the cross remainder at length 1/8: high-rank (r90 54/72 vs table 76), class-structured (own-class cos 0.78 vs other 0.49), but 37–40% of its energy is ONE shared context-set direction orthogonal to both table entries (pred_c failed); cross share 0.65 (pred_e failed). Write = self-share × table + shared direction + class-structured cross term; v294 tests the shared direction
+Receipt `circuits/followups/mlp1_cross_remainder_v293_result.json` (3 forwards). Also: `dod_units.attention_self_share` helper (from v291) and its README line.

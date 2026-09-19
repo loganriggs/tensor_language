@@ -144,3 +144,27 @@ def forward_margins(backend, fw, rows, layer, edits, readers):
         lg = logits[i, row.final].float()
         out.append({"answer": float(lg[row.answer_id]), "foil": float(lg[row.foil_id]), **{name: float(lg[a] - lg[b]) for name, (a, b) in readers.items()}})
     return out
+
+
+def attention_self_share(backend, tokens, pos, layers=(0, 1)):
+    """Own-key share of the bilinear attention pattern at `pos` (per row), mean over heads and `layers`: |p_kk| / sum_j |p_kj|.
+    The pattern is (q.k)(q2.k2)/D^2, causal, UNNORMALISED and SIGNED (jacclust.tt_model.CausalBilinearSelfAttention.squared_attention):
+    average absolute weights, never signed ones (a signed mean over heads is ~0). Returns the share tensor and the block-1 state dict from
+    the same forward. Introduced by v291 (two runs failed on the hook name and on signed averaging)."""
+    torch, F, model = backend.torch, backend.F, backend.model; blocks = model.transformer.h; idx = torch.arange(tokens.shape[0]); store = {}
+    def wrap(l):
+        orig = blocks[l].attn.squared_attention
+        def f(q, k, v, q2, k2):
+            B, T, H, D = q.shape; pat = (torch.einsum("bqhd,bkhd->bhqk", q, k) / D) * (torch.einsum("bqhd,bkhd->bhqk", q2, k2) / D)
+            pat = pat.masked_fill(torch.tril(torch.ones(T, T, device=pat.device, dtype=torch.bool)).logical_not(), 0.0)
+            own = pat[idx, :, pos, pos].float().abs(); store[l] = (own / pat[idx, :, pos, :].float().abs().sum(-1).clamp_min(1e-9)).mean(1).cpu(); return orig(q, k, v, q2, k2)
+        return f
+    with torch.no_grad():
+        x = F.rms_norm(model.transformer.wte(tokens), (model.config.n_embd,)); x0, v1_ = x, None
+        for l in range(max(layers) + 1):
+            block = blocks[l]; live = block.lambdas[0] * x + block.lambdas[1] * x0; orig = block.attn.squared_attention
+            if l in layers: block.attn.squared_attention = wrap(l)
+            try: attention, v1_ = block.attn(F.rms_norm(live, (model.config.n_embd,)), v1_)
+            finally: block.attn.squared_attention = orig
+            x = live + attention; x = x + block.mlp(F.rms_norm(x, (model.config.n_embd,)))
+    return sum(store[l] for l in layers) / len(layers)
