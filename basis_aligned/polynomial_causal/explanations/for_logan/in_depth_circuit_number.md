@@ -356,7 +356,9 @@ context-conditioned write). Who reads it (v315, v316): block-wise patch-back cou
 shares sum to 7.5, because the λ-recurrence turns a perturbation into a cascade (v315; the instrument is void as a localiser). Delivering the
 un-conditioned MLP-1 write to one consumer at a time, everything else native (v316), does say: block 2 takes 45% of the harm at first order,
 block 3 6%, blocks 4–17 and the direct path to the logits nothing; the other 47% is block 2's corrupted output propagating. The local circuit
-is MLP 1 → block 2. Open: attention 2 or MLP 2, and at what grain (v317, queued).
+is MLP 1 → block 2, and within it MLP 2 (v317): of block 2's 45 points, 35 enter through MLP 2's input and 8 through attention 2's, additively;
+MLP 2's unit-level response is spread (no unit above 1%, the top 200 hold 7%). The link is a dense bilinear map, not a unit wire — the same
+grain at which MLP 1 writes. Open: whether MLP 2 itself obeys the lookup × self-share law (v318, queued).
 
 | receipt | question | result |
 |---|---|---|
@@ -390,6 +392,7 @@ is MLP 1 → block 2. Open: attention 2 or MLP 2, and at what grain (v317, queue
 | v314 | attention 0/1 all-self-only on text | MLP 1 = table (α 0.9998); +0.81 nats (0.70 = the table cost) (5/5) |
 | v315 | block patch-back | void as a localiser: any early block recovers ~88%, shares sum 7.5 (2/5) |
 | v316 | path-restricted injection | block 2 reads 45% first-order, block 3 6%, direct path 0 (5/5) |
+| v317 | attention 2 vs MLP 2 | MLP 2 0.35, attention 2 0.08, additive; MLP 2's reading spread (5/5) |
 
 ### Pass over the draft (what I changed after rereading)
 
