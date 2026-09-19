@@ -686,3 +686,10 @@ ranked 1–6, 11.3 / 7.8 / 5.3 at 162–160), with the shared upstream splitting
 template's four extra top-10 heads (3.4, 1.2, 0.3, 5.6) are inert under the value swap (≤ 0.01 each; v527). The identity template is small for every
 head (v389), and number is ≤ 1.3% of any reader's map (v420): the readers are general copiers with a rank-one number component that the template reads.
 Weights nominate a shortlist of ten; the edits pick the ten that matter — the same ten.
+
+**The noun as its own answer position, by write (v539–v541).** For the 43 natural rows whose verb follows the noun directly, the attention map INTO the
+noun's own position is closed by replace-edits: the five verb heads' writes 0.167 (my bar of 0.15 failed — the write side is larger than their self-read
+values, 0.107), the other 40 heads of their blocks 0.022, blocks 8 / 10 0.024 / 0.021, blocks 14–17 0.032, blocks 0–4 0.013, block 12 −0.003; every
+block's attention 0.313 (0.287 accounted, 0.026 sub-additive). Two priors failed and are kept: the copiers' blocks do not write agreement into the
+noun itself (their seed is for the token after it), and the pronoun reader 12.4's block writes nothing here. The MLP side at that position (0.45 whole,
+v501) is being split into the hub, the detector and the layers between (v542).

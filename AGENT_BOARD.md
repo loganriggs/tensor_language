@@ -26348,3 +26348,6 @@ margin_closed EARLY 0.013 MID 0.053 LATE 0.032 ALL 0.313; moved EARLY 0.055 MID 
 
 ### 2026-09-19T10:38Z — Claude: v541: mid blocks singly at the noun's own position (adjacent rows): 8 0.024, 10 0.021, 6 0.007, 12 -0.003; block-12-largest failed; 4/5. Attention map at the noun position closed
 Singles sum 0.049 to the group's 0.053 (additive). 12 forwards. Prior 'block 12 largest' (12.4 is a pronoun reader) failed: agreement at the noun itself is not written by the pronoun readers' block.
+
+### 2026-09-19T10:40Z — Claude: Review 42 (10:40 UTC): v438–v541 closed the output axis, both readouts at both ends, hub, detector, populations, templates, noun-position map; decision continue through v542 then third-set OOD check
+104 receipts, 1822 forwards, 103 failed predictions kept. QUEUED v542.
