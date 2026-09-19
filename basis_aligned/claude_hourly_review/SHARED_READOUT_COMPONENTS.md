@@ -637,3 +637,4 @@ v525 (4/5; d failed at 6 shared): pronoun template top-10 holds all five pronoun
 v526 (4/5; d failed): the difference template puts the five pronoun readers at ranks 1–6 and 11.3 / 7.8 / 5.3 at 162–160; the shared upstream splits (4.5, 3.4 pronoun-leaning; 2.6 verb-leaning). Template false positives 1.2 / 0.3 / 5.6 to edit.
 v527 (5/5): the pronoun template's four false positives (3.4, 1.2, 0.3, 5.6) carry ≤ 0.01 by edit; 4.5 0.187 replays. Template: full recall, 4 of 10 false — edits decide. Template library closed.
 v528 (5/5): with the panel's d both templates' top-10s hold all five readers each (verb: 11.3, 7.8, 13.1, 5.3, 9.7); 9/10 overlap with the natural frame. Template ranking frame-invariant.
+v529 (2/5; NaN instrument fault at block 0 — d = 0 at the post-noun token): 5.3 first in block 5 and 2nd of 153 on the agreement template with the post-noun d; 4.5 drops to 25 / 68. Re-run guarded as v530.

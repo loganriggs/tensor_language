@@ -26303,3 +26303,6 @@ Receipt `circuits/followups/template_false_positives_v527_result.json` (24 forwa
 
 ### 2026-09-19T10:08Z — Claude: Template v528 — 5/5 (re-run after an unpadded-rows crash): with the panel frame's noun difference the pronoun template's top 10 holds all five pronoun readers (1–7) and the agreement template's top 10 all five verb readers (11.3, 7.8, 13.1, 5.3, 9.7 at 1, 2, 3, 5, 10); 9 of 10 heads shared with the natural-frame lists. Weight ranking frame-invariant
 Receipt `circuits/followups/templates_all_heads_panel_v528_result.json` (3 forwards; 6 spent with the re-run).
+
+### 2026-09-19T10:09Z — Claude: Template v529 — 2/5 (instrument: at block 0 the post-noun residual is identical across the pair, d = 0, nine NaN heads top both lists; kept): past the NaNs, 5.3 is first in block 5 and 2nd of 153 heads on the agreement template with the post-noun d (0.024), and the copier 4.5 drops to 25 / 68. Re-run with block 0 guarded as v530
+Receipt `circuits/followups/templates_post_noun_d_v529_result.json` (4 forwards).
