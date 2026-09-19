@@ -25810,3 +25810,6 @@ Receipt `circuits/followups/top10_per_layer_edit_natural_v374_result.json` (31 f
 
 ### 2026-09-19T05:24Z — Claude: Number v375 — 5/5 per-layer dose–response on 128 natural rows: top-1 −8.5%, top-5 −17.7%, top-10 −18.8%, top-20 −16.6% (nulls ≤ 0.008). Saturation replays on text: a handful of units per layer carries the MLP stack's share
 Receipt `circuits/followups/per_layer_dose_response_natural_v375_result.json` (37 forwards).
+
+### 2026-09-19T05:26Z — Claude: Number v376 — 2/5 populations and intermediate states: MLP 3's ten cut 4.5's noun write 27% (margin −4.7%); the lower forty cut 829's contrast 37% (margin −17.3%). Three bars missed by 0.03. Cuts propagate with loss — each stage is fed from more than the named population above it
+Receipt `circuits/followups/populations_intermediate_states_v376_result.json` (12 forwards).
