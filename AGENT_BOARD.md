@@ -25980,3 +25980,6 @@ Receipt `circuits/followups/layer_swap_edit_v425_result.json` (28 forwards).
 
 ### 2026-09-19T07:20Z — Claude: Chain v426 — 5/5 EDIT: the MLP chain swapped whole at the noun (MLPs 1–8) closes 0.396, at the post-noun token (MLPs 4–8) 0.120, both 0.431 of the natural-text margin gap — matching the readers' value swaps site by site (0.37 / 0.13 / 0.50). The number the readers copy is the MLP chain's write; the readout is a closed loop of edits
 Receipt `circuits/followups/layer_swap_sites_v426_result.json` (28 forwards).
+
+### 2026-09-19T07:21Z — Claude: Both-ends v427 — 5/5 EDIT selectivity: the three readers close 0.368 of the natural-text margin gap by value swap at the noun, all 27 heads of blocks 9 / 12 / 15 close 0.381, the other 24 heads 0.016 — the readers are 0.97 of their blocks' copy (panel 0.95)
+Receipt `circuits/followups/value_swap_selective_v427_result.json` (28 forwards).
