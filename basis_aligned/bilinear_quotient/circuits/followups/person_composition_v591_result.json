@@ -1,0 +1,79 @@
+{
+  "candidate_id": "person.composition_v591",
+  "finished_utc": "2026-09-19T12:07:16.887489+00:00",
+  "forwards": 8,
+  "plan": {
+    "bars": {
+      "band": 0.05,
+      "copies_v583": 0.154,
+      "cue_v579": 0.361,
+      "half": 0.5,
+      "near": 0.1,
+      "replay_tol": 0.001,
+      "unit": 701
+    },
+    "candidate_id": "person.composition_v591",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 9,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 43
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_early_copies_replay": true,
+    "pred_c_readers_cue_values_replay": true,
+    "pred_d_two_sources_reach_half": true,
+    "pred_e_two_sources_near_their_sum": true
+  },
+  "report": {
+    "panel": {
+      "rows": 43,
+      "skipped": "pronoun slot, natural pairs"
+    },
+    "replay_max_abs": 1.239776611328125e-05,
+    "text": {
+      "contrast_mean": 18.781227111816406,
+      "margin_closed": {
+        "COPIES": 0.1537904590368271,
+        "COPIES_AND_CUE": 0.5627719759941101,
+        "CUE": 0.36125099658966064
+      },
+      "moved": {
+        "COPIES": 0.315021812915802,
+        "COPIES_AND_CUE": 0.7826380729675293,
+        "CUE": 0.3900924324989319
+      },
+      "pairs": 43,
+      "sign_constancy": 0.6976743936538696,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": 18.781227111816406,
+      "margin_closed": {
+        "COPIES": 0.1537904590368271,
+        "COPIES_AND_CUE": 0.5627719759941101,
+        "CUE": 0.36125099658966064
+      },
+      "moved": {
+        "COPIES": 0.315021812915802,
+        "COPIES_AND_CUE": 0.7826380729675293,
+        "CUE": 0.3900924324989319
+      },
+      "pairs": 43,
+      "sign_constancy": 0.6976743936538696,
+      "unit": 701
+    }
+  },
+  "schema": "person_composition_result_v591",
+  "serial_seconds": 1.913205126998946
+}
