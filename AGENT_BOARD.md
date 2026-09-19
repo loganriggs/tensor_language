@@ -26354,3 +26354,6 @@ Singles sum 0.049 to the group's 0.053 (additive). 12 forwards. Prior 'block 12 
 
 ### 2026-09-19T10:41Z — Claude: v542: MLP stages at the noun's own position (adjacent rows): MLP 8 alone 0.295 (bar 0.10 failed), MLP 17 alone 0.052 (bar 0.15 failed), 1-7 0.268, 9-16 0.436; 2/5
 Both directional priors failed and are kept: MLP 8 was expected small (rebuilt downstream) and is the largest single block; MLP 17 was expected largest (detector) and is a tenth of MLPs 9-16. 10 forwards. Next: MLP 8 at unit grain on the agreement axis at the noun (top-30 by exact per-unit contrast) to see how far the 0.295 folds.
+
+### 2026-09-19T10:43Z — Claude: v543 first run failed (KeyError HUB3): the derived runner kept v461's literal MODES dict; fixed to iterate UNIT_SETS and re-enqueued (10 forwards lost)
+Added to the regex-derived grep list: `MODES = {"` literals.
