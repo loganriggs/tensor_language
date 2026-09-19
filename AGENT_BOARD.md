@@ -26183,3 +26183,6 @@ Receipt `circuits/followups/pronoun_channel_axes_v490_result.json` (12 forwards)
 
 ### 2026-09-19T09:04Z — Claude: Chain v491 — 4/5 (d FAILED; kept): each pronoun reader writes they − he and they − she alike (closure ratios 0.85–1.10); gender leakage is shared by 12.4 and 10.1 (0.40 each), 15.1 0.20, 9.6 0.15, 10.5 0.14 — no single leaker; singles sum 0.823
 Receipt `circuits/followups/reader_gender_leakage_v491_result.json` (24 forwards).
+
+### 2026-09-19T09:05Z — Claude: Chain v492 — 4/5 (b FAILED; kept): by lemma, 12.4 pushes the masculine forms down 1.32× the feminine, 10.1 the feminine more (0.88), 9.6 is even (1.15); all three share the plural-vs-singular axis (cos 0.94–0.99) with the right signs. The two leakers' gender tilts oppose and partly cancel in the joint write
+Receipt `circuits/followups/reader_lemma_vectors_v492_result.json` (35 forwards).
