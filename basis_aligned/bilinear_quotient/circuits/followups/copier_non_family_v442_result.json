@@ -1,0 +1,369 @@
+{
+  "candidate_id": "both_ends.copier_non_family_v442",
+  "finished_utc": "2026-09-19T07:46:08.662583+00:00",
+  "forwards": 21,
+  "plan": {
+    "bars": {
+      "reader_ratio_max": 0.5,
+      "replay_tol": 0.001,
+      "verb_share_min": 0.3
+    },
+    "candidate_id": "both_ends.copier_non_family_v442",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 22,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_non_family_movers_are_agreement_verbs": false,
+    "pred_c_verbs_split_by_number": false,
+    "pred_d_readers_move_verbs_less": false,
+    "pred_e_holds_on_panel": true
+  },
+  "report": {
+    "panel": {
+      "COPIER": {
+        "marked_verb_share_of_non_family": 0.9352818371607515,
+        "most_moved_non_family": [
+          [
+            " meets",
+            25
+          ],
+          [
+            " receives",
+            23
+          ],
+          [
+            " asks",
+            18
+          ],
+          [
+            " speaks",
+            15
+          ],
+          [
+            " theirs",
+            11
+          ],
+          [
+            " goes",
+            11
+          ],
+          [
+            " reads",
+            10
+          ],
+          [
+            " doesn",
+            9
+          ],
+          [
+            " were",
+            9
+          ],
+          [
+            " owns",
+            8
+          ],
+          [
+            " chooses",
+            8
+          ],
+          [
+            " loves",
+            7
+          ],
+          [
+            " are",
+            7
+          ],
+          [
+            " requires",
+            6
+          ],
+          [
+            " gets",
+            6
+          ],
+          [
+            " deserves",
+            6
+          ],
+          [
+            " enters",
+            6
+          ],
+          [
+            " grabs",
+            6
+          ],
+          [
+            " admits",
+            6
+          ],
+          [
+            " needs",
+            5
+          ]
+        ],
+        "non_family_share_of_top10": 0.49895833333333334,
+        "verb_mean_abs_change": 0.40161871910095215,
+        "verb_signed_change": {
+          "are": 0.49389562010765076,
+          "do": 0.0444081574678421,
+          "does": -0.5248010754585266,
+          "has": -0.4268703758716583,
+          "have": 0.27385708689689636,
+          "is": -0.4301529824733734,
+          "was": -0.3587922751903534,
+          "were": 0.5630728006362915
+        },
+        "verb_signs_ok": true
+      },
+      "FIVE_N": {
+        "marked_verb_share_of_non_family": 0.8333333333333334,
+        "most_moved_non_family": [
+          [
+            " theirs",
+            15
+          ],
+          [
+            " THEIR",
+            3
+          ]
+        ],
+        "non_family_share_of_top10": 0.01875,
+        "verb_mean_abs_change": 0.13189716637134552,
+        "verb_signed_change": {
+          "are": 0.24071039259433746,
+          "do": 0.06430106610059738,
+          "does": -0.11893140524625778,
+          "has": -0.1106119155883789,
+          "have": 0.13218863308429718,
+          "is": -0.09856325387954712,
+          "was": -0.10939080268144608,
+          "were": 0.2722240388393402
+        },
+        "verb_signs_ok": true
+      },
+      "family_size": 80,
+      "pairs": 48,
+      "reader_over_copier_verb_change": 0.32841389133107474
+    },
+    "replay_max_abs": 1.33514404296875e-05,
+    "text": {
+      "COPIER": {
+        "marked_verb_share_of_non_family": 0.2574679943100996,
+        "most_moved_non_family": [
+          [
+            " theirs",
+            21
+          ],
+          [
+            " i",
+            7
+          ],
+          [
+            " respectively",
+            7
+          ],
+          [
+            " were",
+            7
+          ],
+          [
+            " are",
+            6
+          ],
+          [
+            " was",
+            5
+          ],
+          [
+            " conservatives",
+            4
+          ],
+          [
+            " english",
+            4
+          ],
+          [
+            " lol",
+            4
+          ],
+          [
+            " governments",
+            4
+          ],
+          [
+            " THEIR",
+            4
+          ],
+          [
+            " knows",
+            4
+          ],
+          [
+            " doesn",
+            4
+          ],
+          [
+            " each",
+            3
+          ],
+          [
+            "to",
+            3
+          ],
+          [
+            " weeks",
+            3
+          ],
+          [
+            " Republicans",
+            3
+          ],
+          [
+            " google",
+            3
+          ],
+          [
+            "(",
+            3
+          ],
+          [
+            " \ufffd",
+            3
+          ]
+        ],
+        "non_family_share_of_top10": 0.5762295081967214,
+        "verb_mean_abs_change": 0.09880241751670837,
+        "verb_signed_change": {
+          "are": 0.019513912498950958,
+          "do": -0.02502512000501156,
+          "does": -0.1052507609128952,
+          "has": -0.10511081665754318,
+          "have": -0.026991693302989006,
+          "is": -0.09314697980880737,
+          "was": -0.09428363293409348,
+          "were": 0.03890213370323181
+        },
+        "verb_signs_ok": false
+      },
+      "FIVE_N": {
+        "marked_verb_share_of_non_family": 0.4694835680751174,
+        "most_moved_non_family": [
+          [
+            " theirs",
+            77
+          ],
+          [
+            " THEY",
+            14
+          ],
+          [
+            " THEIR",
+            13
+          ],
+          [
+            " THEM",
+            11
+          ],
+          [
+            " ones",
+            4
+          ],
+          [
+            " HIS",
+            3
+          ],
+          [
+            "?\"",
+            3
+          ],
+          [
+            " SHE",
+            2
+          ],
+          [
+            "imsy",
+            2
+          ],
+          [
+            ")?",
+            2
+          ],
+          [
+            "?",
+            2
+          ],
+          [
+            "?)",
+            2
+          ],
+          [
+            "?),",
+            2
+          ],
+          [
+            "\"?",
+            2
+          ],
+          [
+            "\"),",
+            2
+          ],
+          [
+            " years",
+            2
+          ],
+          [
+            " Wednesday",
+            2
+          ],
+          [
+            "selves",
+            2
+          ],
+          [
+            "pun",
+            2
+          ],
+          [
+            " eighteen",
+            2
+          ]
+        ],
+        "non_family_share_of_top10": 0.08729508196721311,
+        "verb_mean_abs_change": 0.06311880797147751,
+        "verb_signed_change": {
+          "are": 0.09976260364055634,
+          "do": 0.030757581815123558,
+          "does": -0.047677431255578995,
+          "has": -0.04011102765798569,
+          "have": 0.04580799490213394,
+          "is": -0.018661295995116234,
+          "was": -0.03230765834450722,
+          "were": 0.10564982891082764
+        },
+        "verb_signs_ok": true
+      },
+      "family_size": 80,
+      "pairs": 122,
+      "reader_over_copier_verb_change": 0.6388387000834626
+    }
+  },
+  "schema": "copier_non_family_result_v442",
+  "serial_seconds": 2.3263295039068907
+}

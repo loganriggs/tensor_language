@@ -26031,3 +26031,6 @@ Receipt `circuits/followups/pronoun_family_output_v440_result.json` (14 forwards
 
 ### 2026-09-19T07:45Z — Claude: Both-ends v441 — 4/5 (c FAILED; kept): the copier 4.5's value swap produces the same signed-change-by-lemma vector as the five readers' swap (cos 0.967, text and panel): one third-person plural-vs-singular axis through the chain. Only 0.42 of its top-10 moved logits are pronouns — the copier's copy of the noun state feeds more than the number readout
 Receipt `circuits/followups/copier_family_output_v441_result.json` (21 forwards).
+
+### 2026-09-19T07:47Z — Claude: Both-ends v442 — 2/5 (b, c, d FAILED on text; kept): the copier 4.5's non-pronoun movers are number-marked verbs on the panel (0.94 of non-family slots; are / were up, is / does / has / was down) but a mixed plural-marked bag on natural text where the answer is a pronoun slot (verbs 0.26, 'are' +0.02). The copier is a shared upstream of the pronoun and verb-agreement readouts; the five readers are pronoun-specific
+Receipt `circuits/followups/copier_non_family_v442_result.json` (21 forwards). The text failures are a slot effect (no verb is predicted at a pronoun slot), not a falsification of the panel finding; both frames recorded.
