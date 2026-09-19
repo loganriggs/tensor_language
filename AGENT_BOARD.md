@@ -26405,3 +26405,6 @@ Reason: better_circuits §7 allows a new behaviour once the current target meets
 
 ### 2026-09-19T11:14Z — Claude: v559: token-only singles 10.1 0.175, 12.4 0.060, 15.1 0.048, 9.6 0.013, 10.5 0.009 (sum 0.304); weights-only term ranks top-2 and bottom-2; signs failed for 10.1/15.1 (transport sign missing); 4/5
 12 forwards. The weights-only term omitted the head's transport sign s_h (bilin18's squared attention is signed): v560 (CPU) adds s_h from the template library and re-scores the signs.
+
+### 2026-09-19T11:17Z — Claude: v560: pattern weights answer->noun: 10.1 -0.243, 15.1 -0.229, 12.4 +0.113, 9.6 +0.109, 10.5 +0.183; sign-aware token term signs and top-2 correct; magnitude off by the final rms (failed); 4/5
+2 forwards. The direct term D_h omitted the final rms normalisation before lm_head (logit = W_U x / rms(x)); v561 divides by the captured final rms per row.
