@@ -574,3 +574,4 @@ v463 (4/5; b failed): 701/2059 do nothing at the pronoun slot (−0.002) — a v
 v464 (2/5): no pronoun final detector in MLP 17 at the answer position (top unit sign constancy 0.52; top-10 0.41). Pronoun readout ends at the value copy; verb readout has 701/2059.
 v465 (4/5; b failed): 701 at the verb reads the copied number (verb readers' values move 0.48 of its contrast, all values 1.03) but its per-row sign is only 0.61 constant — a conditional detector.
 v466 (3/5): 701's change at the verb tracks the agreement margin gap (corr 0.53; positive rows 3.8 vs 2.0 logits); verb expectation adds little (0.23); 2059 agrees in sign on 0.40 of rows — not a twin.
+v467 (4/5; b failed at 0.28): 701's inputs at a distant verb come from attention block 11 (11.3's copy) first, then MLPs 11–16; the product term is 0.80 of its change. One detector, two feeds (noun's own state / copied number).

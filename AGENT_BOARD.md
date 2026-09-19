@@ -26108,3 +26108,6 @@ Receipt `circuits/followups/readers_feed_701_v465_result.json` (12 forwards).
 
 ### 2026-09-19T08:29Z — Claude: Chain v466 — 3/5 (d 0.23 vs 0.30, e FAILED; kept): 701's change at a distant verb tracks the agreement margin gap across rows (corr 0.53; positive rows 3.8 vs negative rows 2.0 logits), verb expectation adds little (0.23), and 2059's sign agrees with 701's on only 0.40 of rows — a confidence-weighted detector, not a slot detector, and not a twin pair
 Receipt `circuits/followups/detector_condition_v466_result.json` (3 forwards).
+
+### 2026-09-19T08:30Z — Claude: Chain v467 — 4/5 (b FAILED at 0.28; kept): at a distant verb unit 701's two inputs are written first by attention block 11 (head 11.3's copy: 0.15 / 0.18) and rebuilt by MLPs 11–16; the product term is 0.80 of its change. The same detector reads the noun's own state at an adjacent verb and the copied number at a distant one
+Receipt `circuits/followups/unit_701_inputs_verb_v467_result.json` (3 forwards).
