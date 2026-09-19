@@ -26240,3 +26240,6 @@ Receipt `circuits/followups/mlp9_units_pronoun_answer_v507_result.json` (4 forwa
 
 ### 2026-09-19T09:30Z — Claude: Chain v508 — 4/5 (b FAILED; kept): unit 3428 of MLP 9 swapped at the pronoun answer closes 0.013 of the margin (MLP 9 whole 0.089; random 0.000) — the second fold-nominated answer-side unit refuted by edit. At the answer the re-expression is a population effect that pooled per-unit projections misattribute; the noun-side hub is the exception
 Receipt `circuits/followups/unit_3428_edit_v508_result.json` (12 forwards).
+
+### 2026-09-19T09:31Z — Claude: Chain v509 — 4/5 (b FAILED: nesting cost 0.011; kept): MLPs 9 + 12 at the pronoun answer swapped jointly close 0.167 (singles sum 0.178), MLPs 9–16 0.214 (replay) — two nearly independent population writes are most of the slot's re-expression; the pronoun-slot thread is closed
+Receipt `circuits/followups/pronoun_slot_two_stages_v509_result.json` (12 forwards).

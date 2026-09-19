@@ -1,0 +1,76 @@
+{
+  "candidate_id": "chain.pronoun_slot_two_stages_v509",
+  "finished_utc": "2026-09-19T09:31:05.690590+00:00",
+  "forwards": 12,
+  "plan": {
+    "bars": {
+      "all_v503": 0.214,
+      "band": 0.03,
+      "larger": 0.089,
+      "nest": 0.02,
+      "replay_tol": 0.001,
+      "share_min": 0.6,
+      "sum_two": 0.178,
+      "unit": 701
+    },
+    "candidate_id": "chain.pronoun_slot_two_stages_v509",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 13,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_two_stages_jointly_below_the_sum": false,
+    "pred_c_two_stages_jointly_above_the_larger": true,
+    "pred_d_all_stages_replay": true,
+    "pred_e_two_stages_are_most_of_all": true
+  },
+  "report": {
+    "panel": {
+      "rows": 122,
+      "skipped": "pronoun slot, natural pairs"
+    },
+    "replay_max_abs": 1.33514404296875e-05,
+    "text": {
+      "contrast_mean": 9.754912376403809,
+      "margin_closed": {
+        "m9_12": 0.16732154786586761,
+        "m9_16": 0.21380877494812012
+      },
+      "moved": {
+        "m9_12": 0.17829963564872742,
+        "m9_16": -0.06275597959756851
+      },
+      "pairs": 122,
+      "sign_constancy": 0.6475409865379333,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": 9.754912376403809,
+      "margin_closed": {
+        "m9_12": 0.16732154786586761,
+        "m9_16": 0.21380877494812012
+      },
+      "moved": {
+        "m9_12": 0.17829963564872742,
+        "m9_16": -0.06275597959756851
+      },
+      "pairs": 122,
+      "sign_constancy": 0.6475409865379333,
+      "unit": 701
+    }
+  },
+  "schema": "pronoun_slot_two_stages_result_v509",
+  "serial_seconds": 2.0313292772043496
+}

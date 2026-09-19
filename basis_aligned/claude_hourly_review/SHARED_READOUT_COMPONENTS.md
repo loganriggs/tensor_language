@@ -617,3 +617,4 @@ v505 (3/5; c, d failed): MLP 12's write at the pronoun answer is unit 22 (top-10
 v506 (4/5; b failed — edit refutes the fold): unit 22 swapped at the pronoun answer closes −0.017 (MLP 12 whole 0.089). No single answer-side unit for pronouns.
 v507 (4/5; d failed): MLP 9's write at the pronoun answer is unit 3428 (top-10 0.70; column cos 0.50 with they−he; row sign 0.69). Edit next.
 v508 (4/5; b failed): unit 3428 swapped at the pronoun answer closes 0.013 (MLP 9 whole 0.089) — second fold-nominated answer-side unit refuted by edit. Answer-side re-expression is a population effect.
+v509 (4/5; b failed, nesting only 0.011): MLPs 9 + 12 at the pronoun answer jointly 0.167 (sum 0.178); 9–16 0.214. Pronoun-slot re-expression: two parallel population writes. Thread closed.
