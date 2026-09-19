@@ -1,0 +1,78 @@
+{
+  "candidate_id": "person.early_blocks_by_target_v583",
+  "finished_utc": "2026-09-19T11:57:14.991602+00:00",
+  "forwards": 8,
+  "plan": {
+    "bars": {
+      "add": 0.08,
+      "early_v580": 0.216,
+      "post_min": 0.1,
+      "replay_tol": 0.001,
+      "self_min": 0.05,
+      "unit": 701
+    },
+    "candidate_id": "person.early_blocks_by_target_v583",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 9,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 43
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_early_copies_into_the_context_carry": true,
+    "pred_c_early_writes_into_the_cue_carry": false,
+    "pred_d_targets_add": true,
+    "pred_e_all_targets_match_the_value_swap": true
+  },
+  "report": {
+    "panel": {
+      "rows": 43,
+      "skipped": "pronoun slot, natural pairs"
+    },
+    "replay_max_abs": 1.239776611328125e-05,
+    "text": {
+      "contrast_mean": 18.781227111816406,
+      "margin_closed": {
+        "ALL": 0.17937543988227844,
+        "POST": 0.1537904590368271,
+        "SELF": -0.008501606993377209
+      },
+      "moved": {
+        "ALL": 0.34544333815574646,
+        "POST": 0.315021812915802,
+        "SELF": -0.02006685733795166
+      },
+      "pairs": 43,
+      "sign_constancy": 0.6976743936538696,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": 18.781227111816406,
+      "margin_closed": {
+        "ALL": 0.17937543988227844,
+        "POST": 0.1537904590368271,
+        "SELF": -0.008501606993377209
+      },
+      "moved": {
+        "ALL": 0.34544333815574646,
+        "POST": 0.315021812915802,
+        "SELF": -0.02006685733795166
+      },
+      "pairs": 43,
+      "sign_constancy": 0.6976743936538696,
+      "unit": 701
+    }
+  },
+  "schema": "person_early_blocks_by_target_result_v583",
+  "serial_seconds": 1.9307556860148907
+}

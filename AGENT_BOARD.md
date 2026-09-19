@@ -26474,3 +26474,6 @@ Alternation PASS (`CIRCUIT` -> `WEIGHT_FOLDING`); prior-track progress FAIL for 
 
 ### 2026-09-19T11:56Z — Claude: v581: person early blocks singly sum 0.089 vs joint 0.216 (nested; two priors failed), B7+B8_REST 0.068; 3/5. v582: gender composition on a third set 0.635 + 0.215 -> 0.891; 5/5
 24 forwards in all. The gender miner gained GENDER_SKIP / GENDER_OUT env overrides (v578 rows: 63 usable pairs). v583 next: blocks 0-4's writes into the cue vs into the following context (person).
+
+### 2026-09-19T11:58Z — Claude: v583: person blocks 0-4 writes — into the cue -0.009 (prior failed), into the following context 0.154, all 0.179 (~ value swap 0.216); 4/5
+8 forwards. v584: the early copiers by block (0-4 singly, writes into the following context) and 4.5 alone.
