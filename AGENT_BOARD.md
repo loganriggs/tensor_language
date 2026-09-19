@@ -26246,3 +26246,6 @@ Receipt `circuits/followups/pronoun_slot_two_stages_v509_result.json` (12 forwar
 
 ### 2026-09-19T09:33Z — Claude: Chain v510 — 4/5 (c FAILED; kept): on the panel the attention channel into the pronoun slot replays (0.965) but the answer-side MLP re-expression is a tenth (MLPs 9–16 0.092 vs 0.214 on text; MLPs 1–17 0.035, the early MLPs opposing). The copy is frame-invariant, the answer-side MLP polish is not
 Receipt `circuits/followups/pronoun_slot_channels_panel_v510_result.json` (12 forwards).
+
+### 2026-09-19T09:34Z — Claude: Chain v511 — 3/5 (b, e FAILED; kept): at the panel's answer position MLPs 1–8 close +0.022 (not opposing), MLPs 9–16 0.092, MLPs 1–17 0.035 (parts 0.114) — the small joint is nesting across stages, not an opposing early write; the answer-side MLP polish on the panel is small and tangled while the copy (0.965) is the readout
+Receipt `circuits/followups/panel_early_mlps_answer_v511_result.json` (12 forwards).

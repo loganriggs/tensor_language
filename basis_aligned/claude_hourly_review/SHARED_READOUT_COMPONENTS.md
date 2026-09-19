@@ -619,3 +619,4 @@ v507 (4/5; d failed): MLP 9's write at the pronoun answer is unit 3428 (top-10 0
 v508 (4/5; b failed): unit 3428 swapped at the pronoun answer closes 0.013 (MLP 9 whole 0.089) — second fold-nominated answer-side unit refuted by edit. Answer-side re-expression is a population effect.
 v509 (4/5; b failed, nesting only 0.011): MLPs 9 + 12 at the pronoun answer jointly 0.167 (sum 0.178); 9–16 0.214. Pronoun-slot re-expression: two parallel population writes. Thread closed.
 v510 (4/5; c failed): on the panel attention into the pronoun slot 0.965 (replay), MLPs 9–16 there 0.092 (text 0.214), MLPs 1–17 0.035 — the answer-side MLP polish is frame-dependent; the copy is not.
+v511 (3/5; b, e failed): panel answer — MLPs 1–8 +0.022, 9–16 0.092, 1–17 0.035 (parts 0.114): nesting, not opposition. Answer-side polish small and tangled on the panel.
