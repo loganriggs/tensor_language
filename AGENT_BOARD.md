@@ -26429,3 +26429,6 @@ Reason: better_circuits §7 allows a new behaviour once the current target meets
 
 ### 2026-09-19T11:28Z — Claude: v566: gender edit selective — number component moved 0.063 (FIVE_W), 0.107 (ALL_W) of the gender gap; native number ratio 0.117 (bar 0.10 failed); 4/5
 8 forwards. Next (v567): where the readers gather gender — their values at the noun, at the token after it, and at every later position.
+
+### 2026-09-19T11:30Z — Claude: v567: readers' values by position — noun 0.600, next 0.132, later 0.231, all positions 0.732 (< 0.80 failed; parts 0.963 sub-additive, failed); 3/5
+10 forwards. Next (v568): the readers' PATTERN swapped (partner row's queries and keys, own values) against their values at all positions; the two should sum to the write swap (0.878).

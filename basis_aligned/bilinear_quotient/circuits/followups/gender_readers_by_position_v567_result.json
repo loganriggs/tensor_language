@@ -1,0 +1,48 @@
+{
+  "candidate_id": "gender.readers_by_position_v567",
+  "finished_utc": "2026-09-19T11:28:55.424094+00:00",
+  "forwards": 10,
+  "plan": {
+    "bars": {
+      "add": 0.1,
+      "allpos_min": 0.8,
+      "band": 0.03,
+      "next_min": 0.1,
+      "noun_v549": 0.6,
+      "replay_tol": 0.001
+    },
+    "candidate_id": "gender.readers_by_position_v567",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 11,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": "pronoun_gender_dod_natural_rows_v73.json",
+    "text_pairs": 61
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_all_positions_reach_the_writes": false,
+    "pred_c_noun_replays": true,
+    "pred_d_token_after_the_noun_carries": true,
+    "pred_e_positions_add": false
+  },
+  "report": {
+    "replay_max_abs": 1.430511474609375e-05,
+    "text": {
+      "closed": {
+        "ALL_POS": 0.7319962978363037,
+        "LATER": 0.23124127089977264,
+        "NEXT": 0.13194803893566132,
+        "NOUN": 0.6001140475273132
+      },
+      "gap_mean": 4.360080718994141,
+      "pairs": 61,
+      "sign_constancy": 0.8852459192276001
+    }
+  },
+  "schema": "gender_readers_by_position_result_v567",
+  "serial_seconds": 1.9658187360037118
+}

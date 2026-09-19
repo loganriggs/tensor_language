@@ -675,3 +675,4 @@ v538 (5/5): write-side verb census complete — 11.3 0.238, 5.3 0.113, 7.8 0.108
 - GENDER WRITES INTO THE ANSWER SINGLY (v564): 12.4 0.311, 10.1 0.187, 9.6 0.183, 15.1 0.101, 10.5 0.024 (sum 0.806 of joint 0.878).
 - GENDER WRITES ON PILE (v565): five readers 0.893, rest 0.001, all 1.022 — OOD cell held for the gender readout.
 - GENDER SELECTIVITY (v566): five readers' write swap moves the number component 0.063 of the gender gap (all attention 0.107) while closing 0.878 of he − she.
+- GENDER READERS BY POSITION (v567): noun 0.600, next 0.132, later 0.231, all from the noun 0.732 (writes 0.878; the rest is pattern).
