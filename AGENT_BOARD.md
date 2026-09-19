@@ -25962,3 +25962,6 @@ Receipt `circuits/followups/value_swap_compose_v419_result.json` (35 forwards).
 
 ### 2026-09-19T07:11Z — Claude: Template v420 — 2/5 (b, c, d FAILED; kept): the contrast template u dᵀ picks 9.6 (cos_F 0.11) and 12.4 (0.09) as top heads of their blocks by 20–40× and misses 15.1 (negative transport, not sign-aware); identity 0.03–0.08; number is ≤ 1.3% of each map's energy; rank-one prediction of the per-pair transport corr 0.71
 Receipt `circuits/followups/template_contrast_v420_result.json` (4 forwards).
+
+### 2026-09-19T07:13Z — Claude: Template v421 — 4/5 (d FAILED; kept): the sign-aware contrast template ranks all three readers first in their blocks (0.11 / 0.09 / 0.02 vs ≤ 0.006); the transport ignores the noun differences' largest direction and uses directions 2–4 (0.92 for 9.6); 9.6 and 12.4 share the transport vector (0.71), 15.1 inverted
+Receipt `circuits/followups/template_contrast_v421_result.json` (4 forwards).
