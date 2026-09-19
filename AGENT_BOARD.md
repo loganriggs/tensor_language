@@ -26204,3 +26204,6 @@ Receipt `circuits/followups/detector_verb_vector_v497_result.json` (9 forwards).
 
 ### 2026-09-19T09:13Z — Claude: Chain v498 — 3/5 (b, e FAILED; kept): on adjacent rows (answer = noun) the detector 701 / 2059 is a singular suppressor (has −0.75, does −0.67, is −0.66; plurals +0.12 to +0.27; cosine 0.63 with its distant-row vector) and 11.3's value at the noun changes the verbs (0.196) — the head reads its own position when the noun must predict the verb
 Receipt `circuits/followups/detector_verb_vector_adjacent_v498_result.json` (6 forwards).
+
+### 2026-09-19T09:17Z — Claude: v499 / v500 aborted on the price bar (15 forwards > the 11 registered): the derived runners kept a 2-batch price from v450 while the row set needs 3 token batches; GPU work spent (30 forwards), no result written. v500 re-registered at 15 (bar 16) and re-enqueued; v499 (distant rows by a derive leftover) not re-run
+Runlogs `runlogs/run_self_reads_adjacent_v499.log`, `runlogs/run_self_reads_adjacent_fixed_v500.log` end in `price exceeded: 15 > 11`.
