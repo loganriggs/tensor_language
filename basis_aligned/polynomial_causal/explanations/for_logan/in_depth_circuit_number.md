@@ -675,3 +675,14 @@ the other 32 heads of their blocks 0.03, an early relay from blocks 4–6 of 0.1
 0.04 into the pronoun slot, the pronoun heads 0.10 into the verb, and the two sets add on both. The readers' writes into the answer (0.82) exceed their
 values swapped at the noun (0.48) because they also read the post-noun token and later positions. The number readout is two nearly disjoint sets of
 value copiers reading one noun state, each into its own kind of answer, closed at both ends by replacement on natural text.
+
+**The template library (your second direction; v420–v527).** For each head the OV map M_h = O_h V_h is contracted with a rank-one "copy number" template
+s_h · u dᵀ, where u is the output direction (they − he, or are − is + were − was), d is the mean plural − singular noun residual entering the head's block
+over the 122 natural pairs, and s_h is the sign of the head's own transport. With the sign, the template ranks every edit-named reader first within its
+block — 9.6, 12.4, 15.1 on the pronoun axis (v421), 11.3, 7.8, 13.1, 9.7 on the agreement axis (v523) — and inside block 9 it sorts 9.6 and 9.7 by readout
+(each first on its own axis, last on the other; v524). Over all 162 heads the pronoun template's top 10 holds all five pronoun readers (ranks 1–7) and
+the agreement template's top 10 holds 11.3, 7.8, 13.1 and 5.3 (9.7 at 12); their difference separates the two reader sets completely (pronoun readers
+ranked 1–6, 11.3 / 7.8 / 5.3 at 162–160), with the shared upstream splitting by axis (4.5 and 3.4 pronoun-leaning, 2.6 verb-leaning; v525–v526). The
+template's four extra top-10 heads (3.4, 1.2, 0.3, 5.6) are inert under the value swap (≤ 0.01 each; v527). The identity template is small for every
+head (v389), and number is ≤ 1.3% of any reader's map (v420): the readers are general copiers with a rank-one number component that the template reads.
+Weights nominate a shortlist of ten; the edits pick the ten that matter — the same ten.

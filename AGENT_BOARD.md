@@ -26297,3 +26297,6 @@ Receipt `circuits/followups/templates_all_heads_v525_result.json` (4 forwards).
 
 ### 2026-09-19T10:05Z — Claude: Template v526 — 4/5 (d FAILED; kept): the pronoun-minus-agreement template score ranks the five pronoun readers 1–6 and 11.3 / 7.8 / 5.3 at 162 / 161 / 160 of 162, separating the two sets completely; the shared upstream splits by axis (4.5, 3.4 pronoun-leaning; 2.6 verb-leaning). 1.2 / 0.3 / 5.6 are template false positives to edit
 Receipt `circuits/followups/templates_difference_v526_result.json` (4 forwards).
+
+### 2026-09-19T10:06Z — Claude: Template v527 — 5/5: the weight template's four extra top-10 heads (3.4, 1.2, 0.3, 5.6) carry ≤ 0.01 of the pronoun margin by value swap (copier 0.187 replays) — full recall on the five readers, four inert false positives. Template library closed; §4.11 gets 'the template library' (v420–v527)
+Receipt `circuits/followups/template_false_positives_v527_result.json` (24 forwards).

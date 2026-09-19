@@ -635,3 +635,4 @@ v523 (5/5): the sign-aware template on u_v ranks 11.3 / 7.8 / 13.1 / 9.7 first i
 v524 (5/5): in block 9, 9.6 is first on the pronoun template and last on the verb template; 9.7 the reverse. Weight templates separate the two readouts head by head.
 v525 (4/5; d failed at 6 shared): pronoun template top-10 holds all five pronoun readers (ranks 1–7); agreement template top-10 holds 11.3, 7.8, 13.1, 5.3 (9.7 12th); shared heads = the copier 4.5, 2.6, 3.4 and cross-scoring readers.
 v526 (4/5; d failed): the difference template puts the five pronoun readers at ranks 1–6 and 11.3 / 7.8 / 5.3 at 162–160; the shared upstream splits (4.5, 3.4 pronoun-leaning; 2.6 verb-leaning). Template false positives 1.2 / 0.3 / 5.6 to edit.
+v527 (5/5): the pronoun template's four false positives (3.4, 1.2, 0.3, 5.6) carry ≤ 0.01 by edit; 4.5 0.187 replays. Template: full recall, 4 of 10 false — edits decide. Template library closed.
