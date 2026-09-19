@@ -26369,3 +26369,6 @@ Run directly on CPU (LIBRARY script; the gate refuses LIBRARY files on lane 2, a
 
 ### 2026-09-19T10:52Z — Claude: v547/v548: hub and detector units replay on the third set — verb slot: detector 0.079 at the verb, 0 at the noun; hub 0.056/0.031; pronoun slot: hub at the noun 0.164, detector -0.005, random 0; 10/10
 20 forwards. v548's docstring says 60 pairs; the v463 lineage filters to distant rows (45 here) — noted on the scorecard, receipt kept.
+
+### 2026-09-19T10:55Z — Claude: Next target opened (10:55): the pronoun-GENDER line, taken with the number circuit's method (replace-edits on natural aligned pairs by in-place noun swap, he - she margin); number circuit closed on three sets (T252-T260). v549 = gender route census at the noun
+Reason: better_circuits §7 allows a new behaviour once the current target meets the definition of done; the gender line shares the readers (9.6 / 12.4 / 10.1 tilts, v438) and the MLP-8 layer with the number circuit, and its 18 Sep depth stopped at folds + zeroing (2.6% / 7.8%) before the replace-edit method existed. Rows: v73's 64 fineweb rows (61 with single-token partners).
