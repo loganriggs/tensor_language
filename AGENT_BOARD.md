@@ -25879,3 +25879,6 @@ Receipt `circuits/followups/subspace_vp0_natural_v395_result.json` (2 forwards).
 
 ### 2026-09-19T06:16Z — Claude: Subspace v396 — 2/5 VP1 is a small side axis (6% of u on text, 14% of the class-residual top-32; opposite signs panel vs text; written by mlp16/17). Subspace-fold verdict for the number target: the class mean of W_U carries nothing, the panel's top residual axis was frame-specific, the output stays on the pronoun direction. Negative, kept; v397 applies the fold to the pronoun class itself
 Receipt `circuits/followups/subspace_vp1_v396_result.json` (5 forwards).
+
+### 2026-09-19T06:18Z — Claude: Subspace v397 — 3/5 pronoun-class fold: class mean carries ≤ 4.5% of the number output (cos 0.05); the class's second residual axis VC1 (cos 0.45 with they−he) carries the most class-internal energy on panel (43%) and text (same index). Consistent pronoun-internal axis; bars missed by 0.05–0.07. v398 names it and folds its writers
+Receipt `circuits/followups/subspace_pronoun_class_v397_result.json` (5 forwards).

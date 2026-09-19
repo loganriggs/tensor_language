@@ -1,0 +1,91 @@
+{
+  "candidate_id": "subspace.pronoun_class_v397",
+  "finished_utc": "2026-09-19T06:17:07.615244+00:00",
+  "forwards": 5,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.0001,
+      "conc_min": 0.5,
+      "cos_min": 0.5,
+      "mean_max": 0.1
+    },
+    "candidate_id": "subspace.pronoun_class_v397",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 7,
+    "gpu_accessed": false,
+    "k": 32,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "natural_rows": 128,
+    "pairs": 256,
+    "pronouns": [
+      " they",
+      " we",
+      " them",
+      " us",
+      " he",
+      " she",
+      " it",
+      " him",
+      " her",
+      " I",
+      " you"
+    ]
+  },
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_pronoun_class_mean_carries_little": true,
+    "pred_c_pronoun_residual_top_direction_is_number": false,
+    "pred_d_number_direction_carries_most": false,
+    "pred_e_same_on_text": true
+  },
+  "report": {
+    "closure_max": 2.2052279291528976e-07,
+    "cos_VC_u": [
+      -0.13307826220989227,
+      0.44985783100128174,
+      0.3228401839733124,
+      -0.7139197587966919,
+      0.14375394582748413,
+      -0.04361559450626373,
+      -0.08878546208143234,
+      0.14736232161521912
+    ],
+    "cos_mean_u": 0.04914836212992668,
+    "panel": {
+      "VC": [
+        702.7765502929688,
+        2026312.25,
+        704843.5625,
+        1316238.875,
+        370584.8125,
+        131858.234375,
+        24079.125,
+        183599.203125
+      ],
+      "mean": 218295.75,
+      "u": 4824342.0
+    },
+    "panel_top_share": 0.4258552030794022,
+    "panel_top_vc": 1,
+    "text": {
+      "VC": [
+        47719.52734375,
+        5222264.0,
+        266799.9375,
+        3558246.75,
+        533261.25,
+        238589.25,
+        496284.65625,
+        123730.3203125
+      ],
+      "mean": 23843.119140625,
+      "u": 9755258.0
+    },
+    "text_top_vc": 1
+  },
+  "schema": "subspace_pronoun_class_result_v397",
+  "serial_seconds": 1.9446225289721042
+}
