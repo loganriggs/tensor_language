@@ -26150,3 +26150,6 @@ Receipt `circuits/followups/copier_to_5_3_v479_result.json` (12 forwards).
 
 ### 2026-09-19T08:49Z — Claude: Chain v480 — 5/5: the verb readout's early (4.5 → post-noun → 5.3) and late (11.3 / 7.8 / 13.1 / 9.7 from the noun) routes are parallel and add under joint swaps (0.236 vs parts 0.223; 0.434 vs 0.410); five readers + copier 0.516. §4.11 gets 'the verb readout by edit, both ends' (v445–v480)
 Receipt `circuits/followups/verb_routes_parallel_v480_result.json` (15 forwards).
+
+### 2026-09-19T08:50Z — Claude: Chain v481 — 4/5 (c FAILED; kept): attention into the pronoun slot by block — all 0.973; 9 (0.391), 12 (0.237), 10 (0.146), 15 (0.074), then an early relay from blocks 4–6 (0.107 together: 5 0.053, 4 0.037); singles add (1.035). Both readouts are attention-into-the-answer channels fed by the noun's values; channel census closed at both ends for both
+Receipt `circuits/followups/attn_into_pronoun_blocks_v481_result.json` (80 forwards).
