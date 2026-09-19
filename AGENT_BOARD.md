@@ -25633,3 +25633,6 @@ Receipt `circuits/followups/mlp12_class_gain_v320_result.json` (2 forwards).
 
 ### 2026-09-19T03:27Z — Claude: Review 35 (03:27 UTC): MLP-1 hour — 28 receipts v294–v321, 514 forwards; description complete (equation, gain head, prices, reader block 2 / MLP 2, MLP 2's weaker law, class order); two conventions to memory; QUEUED v321
 Review file `claude_hourly_review/REVIEW_2026-09-19_0327.md`.
+
+### 2026-09-19T03:29Z — Claude: MLP1 v321 — 4/5 kind split on 2,944 natural positions: MLP 1 alphabetic 0.27 vs punctuation 0.21 (γ² ≈ 0.85; cross −0.85 vs −0.93), MLP 2 0.21 vs 0.14 (cross negative in every kind); 'numeric lowest at MLP 2' failed on text (punctuation lowest; numeric n = 44). Class picture holds OOD
+Receipt `circuits/followups/mlp12_kind_gain_natural_v321_result.json` (8 forwards).
