@@ -25546,3 +25546,6 @@ Review file `claude_hourly_review/REVIEW_2026-09-19_0226.md`.
 
 ### 2026-09-19T02:27Z — Claude: MLP1 v294 — 1/5 the shared remainder direction is context-specific (cos across phrases 0.40, across lengths 0.26–0.62), not the corpus PC1 (≤ 0.16; PC1 = mean write, 16.5% energy) and not orthogonal to the table (0.10–0.23). Register-direction reading falsified; candidate identity = context-only bilinear term (v295)
 Receipt `circuits/followups/mlp1_shared_direction_v294_result.json` (12 forwards). Four predictions failed; preserved.
+
+### 2026-09-19T02:28Z — Claude: MLP1 v295 — 1/5 the shared remainder is NOT the context-only bilinear term (cos 0.40/0.28/0.09 at 1/8/64); cross and context-only terms are large and cancelling (context-only 1.3× R at 8 tokens); three named terms leave 16–53% unexplained. Term-wise expansion falsified as a description; standing: write = self-share × table + context-specific remainder
+Receipt `circuits/followups/mlp1_context_only_term_v295_result.json` (4 forwards). Four predictions failed; preserved.
