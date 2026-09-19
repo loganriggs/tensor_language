@@ -26013,3 +26013,6 @@ Receipt `circuits/followups/route_census_copier_v435_result.json` (28 forwards).
 
 ### 2026-09-19T07:35Z — Claude: Both-ends v436 — 5/5 EDIT: the route census at the noun closes and is additive — five readers + copier 0.675 (parts 0.670), five readers + blocks 0–8 0.961 (parts 0.994), all exits 0.982. The noun's number leaves through values only: 0.48 to five late readers, 0.19 to the copier 4.5, 0.31 to small low exits
 Receipt `circuits/followups/route_census_noun_v436_result.json` (28 forwards).
+
+### 2026-09-19T07:38Z — Claude: Both-ends v437 — 4/5 (c FAILED; kept): block 2's noun exit is heads 2.6 (0.036), 2.5 (0.017), 2.8 (0.012); the small low exits are a handful of heads worth 1–4% each
+Receipt `circuits/followups/block2_heads_v437_result.json` (40 forwards).
