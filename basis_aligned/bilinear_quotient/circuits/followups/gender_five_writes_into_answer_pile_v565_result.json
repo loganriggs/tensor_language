@@ -1,0 +1,78 @@
+{
+  "candidate_id": "gender.five_writes_into_answer_pile_v565",
+  "finished_utc": "2026-09-19T11:23:49.882340+00:00",
+  "forwards": 8,
+  "plan": {
+    "bars": {
+      "all_min": 0.8,
+      "band": 0.15,
+      "five_v563": 0.878,
+      "replay_tol": 0.001,
+      "rest_max": 0.1,
+      "unit": 701
+    },
+    "candidate_id": "gender.five_writes_into_answer_pile_v565",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 9,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 64
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_five_writes_replay_on_pile": true,
+    "pred_c_rest_of_their_blocks_small": true,
+    "pred_d_all_writes_into_the_answer": true,
+    "pred_e_five_below_all": true
+  },
+  "report": {
+    "panel": {
+      "rows": 64,
+      "skipped": "pronoun slot, natural pairs"
+    },
+    "replay_max_abs": 1.6689300537109375e-05,
+    "text": {
+      "contrast_mean": -1.239933967590332,
+      "margin_closed": {
+        "ALL_W": 1.0220674276351929,
+        "FIVE_W": 0.8925960659980774,
+        "REST_W": 0.0008549828780815005
+      },
+      "moved": {
+        "ALL_W": 5.961836814880371,
+        "FIVE_W": 2.1331684589385986,
+        "REST_W": -0.7245262861251831
+      },
+      "pairs": 64,
+      "sign_constancy": 0.703125,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": -1.239933967590332,
+      "margin_closed": {
+        "ALL_W": 1.0220674276351929,
+        "FIVE_W": 0.8925960659980774,
+        "REST_W": 0.0008549828780815005
+      },
+      "moved": {
+        "ALL_W": 5.961836814880371,
+        "FIVE_W": 2.1331684589385986,
+        "REST_W": -0.7245262861251831
+      },
+      "pairs": 64,
+      "sign_constancy": 0.703125,
+      "unit": 701
+    }
+  },
+  "schema": "gender_five_writes_into_answer_pile_result_v565",
+  "serial_seconds": 1.9122728379443288
+}

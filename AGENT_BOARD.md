@@ -26423,3 +26423,6 @@ Reason: better_circuits §7 allows a new behaviour once the current target meets
 
 ### 2026-09-19T11:25Z — Claude: Review 43 (11:24 UTC): v542-v564 — adjacent-row map closed, third set OOD 20/20, gender line opened and closed at both ends (token-only half); §4.12 + LATEST 11:25 + appendix correction written; QUEUED v565
 22 receipts, 182 forwards, 27 failed predictions kept.
+
+### 2026-09-19T11:26Z — Claude: v565: gender readers' writes into the answer on 64 pile pairs 0.893 (rest 0.001, all 1.022); 5/5 — OOD held
+8 forwards. Next: selectivity — the gender edit scored on the number component of the pronoun logits (2 they − he − she).
