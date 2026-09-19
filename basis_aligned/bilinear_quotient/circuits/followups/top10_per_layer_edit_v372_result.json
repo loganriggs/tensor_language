@@ -1,0 +1,144 @@
+{
+  "candidate_id": "pronoun_number.top10_per_layer_edit_v372",
+  "finished_utc": "2026-09-19T05:16:18.916628+00:00",
+  "forwards": 45,
+  "plan": {
+    "bars": {
+      "m_tol": 0.001,
+      "native_m": 2.0481,
+      "null_factor": 3.0,
+      "six": 0.286
+    },
+    "candidate_id": "pronoun_number.top10_per_layer_edit_v372",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 48,
+    "gpu_accessed": false,
+    "k": 10,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "n_null": 12,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117",
+    "seed": 372,
+    "targets": {
+      "3": [
+        5,
+        1036
+      ],
+      "5": [
+        8,
+        829
+      ],
+      "6": [
+        8,
+        829
+      ],
+      "7": [
+        8,
+        829
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_top10_per_layer_exceeds_the_six": true,
+    "pred_c_beats_random_sets": true,
+    "pred_d_top10_at_least_double": true,
+    "pred_e_top10_below_half_of_margin": true
+  },
+  "report": {
+    "change_rel": -0.34234270985118287,
+    "change_top50": -0.7011662175258,
+    "named_six_present": {
+      "1036": true,
+      "1779": true,
+      "2483": true,
+      "3465": true,
+      "493": true,
+      "829": true
+    },
+    "native_margin": 2.048141226172447,
+    "null_changes": [
+      -0.010365858674049377,
+      -0.012793997923532974,
+      7.77641932168116e-05,
+      0.004543855786323547,
+      -0.004693478345870972,
+      -0.00528768201669072,
+      0.010260408123334397,
+      -0.0007557719945907593,
+      0.0049385478099188695,
+      0.006353954474131118,
+      0.023079638679822434,
+      0.00578320523103093
+    ],
+    "null_max_abs": 0.023079638679822434,
+    "replay_gap": 4.1226172447395015e-05,
+    "top10_per_layer": {
+      "3": [
+        3465,
+        114,
+        493,
+        1638,
+        2033,
+        1450,
+        4040,
+        1987,
+        4425,
+        2617
+      ],
+      "5": [
+        1036,
+        2403,
+        4038,
+        2538,
+        1601,
+        3274,
+        3034,
+        3940,
+        3218,
+        3846
+      ],
+      "6": [
+        2483,
+        2826,
+        1868,
+        852,
+        3671,
+        738,
+        4179,
+        1018,
+        355,
+        69
+      ],
+      "7": [
+        1779,
+        4361,
+        1845,
+        3603,
+        4415,
+        46,
+        3153,
+        3550,
+        834,
+        490
+      ],
+      "8": [
+        829,
+        953,
+        1030,
+        1484,
+        3152,
+        1738,
+        684,
+        3205,
+        2092,
+        1959
+      ]
+    }
+  },
+  "schema": "top10_per_layer_edit_result_v372",
+  "serial_seconds": 2.362514433916658
+}

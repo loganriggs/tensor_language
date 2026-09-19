@@ -25798,3 +25798,6 @@ Receipt `circuits/followups/unit_chain_edit_v370_result.json` (45 forwards).
 
 ### 2026-09-19T05:14Z — Claude: Number v371 — 5/5 the six-unit chain edit on 128 natural rows: labelled-pronoun margin −8.8% (60× null); upper four −7.8%; panel was −14%. The unit chain is causal OOD. §4.8 pointer and handoff updated
 Receipt `circuits/followups/unit_chain_edit_natural_v371_result.json` (30 forwards).
+
+### 2026-09-19T05:17Z — Claude: Number v372 — 5/5 top-10 units per MLP (3, 5, 6, 7, 8; 50 units) zeroed on v76 rows: margin −34% (30× null) vs six leaders −14%. A population per layer with a nameable head. Two gate refusals (duplicate constants) fixed before GPU
+Receipt `circuits/followups/top10_per_layer_edit_v372_result.json` (45 forwards).
