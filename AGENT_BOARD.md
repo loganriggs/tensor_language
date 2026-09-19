@@ -25998,3 +25998,6 @@ Receipt `circuits/followups/low_route_blocks_v430_result.json` (40 forwards).
 
 ### 2026-09-19T07:27Z — Claude: Both-ends v431 — 3/5 (b, c FAILED; kept): the high route out of the noun by block — 9 0.276, 10 0.128, 12 0.089, 15 0.024, 11 0.013, 13–17 nothing; additive (0.52 vs the joint 0.51). Block 10 is a fourth exit worth a quarter of the route that the reader set did not include; block 15's noun exit is small
 Receipt `circuits/followups/high_route_blocks_v431_result.json` (40 forwards).
+
+### 2026-09-19T07:29Z — Claude: Both-ends v432 — 3/5 (b, c FAILED; kept): block 10's noun exit is two heads, 10.1 (0.071) and 10.5 (0.054), additive to the block's 0.128. The number readout's reader set becomes five heads: 9.6, 10.1, 10.5, 12.4, 15.1 (weak at the noun)
+Receipt `circuits/followups/block10_heads_v432_result.json` (40 forwards).
