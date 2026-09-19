@@ -25965,3 +25965,6 @@ Receipt `circuits/followups/template_contrast_v420_result.json` (4 forwards).
 
 ### 2026-09-19T07:13Z — Claude: Template v421 — 4/5 (d FAILED; kept): the sign-aware contrast template ranks all three readers first in their blocks (0.11 / 0.09 / 0.02 vs ≤ 0.006); the transport ignores the noun differences' largest direction and uses directions 2–4 (0.92 for 9.6); 9.6 and 12.4 share the transport vector (0.71), 15.1 inverted
 Receipt `circuits/followups/template_contrast_v421_result.json` (4 forwards).
+
+### 2026-09-19T07:14Z — Claude: Template v422 — 3/5 (b, c FAILED; kept): 9.6's transport vector lies 0.79 in the span of MLP 8's Down columns for units 829 / 953 / 1030 (12.4 0.58, 15.1 0.42); the mean noun difference d is a poor stand-in (0.30); the nuisance direction is partly noun identity (0.42). Weight template and unit census meet
+Receipt `circuits/followups/template_directions_v422_result.json` (4 forwards).
