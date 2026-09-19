@@ -26138,3 +26138,6 @@ Receipt `circuits/followups/verb_position_channels_v475_result.json` (9 forwards
 
 ### 2026-09-19T08:43Z — Claude: Chain v476 — 5/5: the attention channel into a distant verb by block — 11 (0.250), 5 (0.160), 9 (0.116), 7 (0.095), 13 (0.073), 4 (0.066); early blocks ≤ 0.08; singles add (1.00 vs 0.94). Block 5 is a fifth verb exit that reads the post-noun rebuild rather than the noun (its noun-exit was 0.03, v447)
 Receipt `circuits/followups/attn_into_verb_blocks_v476_result.json` (57 forwards).
+
+### 2026-09-19T08:44Z — Claude: Chain v477 — 4/5 (b FAILED; kept): by write into a distant verb, head 11.3 carries 0.238 of the agreement margin and head 5.3 0.113 — the atlas's 5.7 carries 0.006. The verb reader set gains 5.3, an early head that must read an earlier number state than MLP 8's hub
+Receipt `circuits/followups/attn_into_verb_heads_v477_result.json` (57 forwards).
