@@ -26456,3 +26456,6 @@ Alternation PASS (`CIRCUIT` -> `WEIGHT_FOLDING`); prior-track progress FAIL for 
 
 ### 2026-09-19T11:46Z — Claude: v574: 8.1 writes by target — noun 0.023 (self-copy prior failed), noun+1 0.056, later 0.069 (small prior failed), all 0.156 (= value single); parts add; 3/5
 10 forwards. v575: the same split for 6.1 (value single 0.113).
+
+### 2026-09-19T11:48Z — Claude: v575: 6.1 by target — noun 0.014, noun+1 0.022, later 0.075, all 0.114 (= value single); 5/5. Both 'self-copies' are copiers into the following context
+10 forwards. v576: composition — the two copiers' writes into the positions after the noun (joint) against the readers' values there, and jointly with the readers' values at the noun.
