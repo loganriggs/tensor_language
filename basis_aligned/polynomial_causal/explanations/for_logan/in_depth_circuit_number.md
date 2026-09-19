@@ -341,7 +341,9 @@ of the margin change, to MLP 2 alone 44%, while the attentions take 2–6% — y
 of the same kind as §4.9's, one block lower. At unit grain (v326) MLP 3's consumption is concentrated in its effect, not its response: the response energy to the un-conditioned write is
 spread over hundreds of units (top 50: 6%), but delivering it to only the ten most responsive — 664, 872, 1612, 615, 919, 2570, 1090, 190,
 1250, 1335 — reproduces 71% of MLP 3's margin effect. These are not 3465 / 493 (ranks 113 and 72): they are a second MLP-3 port, reading MLP 1's
-context-conditioned remainder rather than the entry's direction. Named as candidates; the zero-edit against random ten-sets is v327 (queued).
+context-conditioned remainder rather than the entry's direction. On native rows (v327) zeroing the ten moves the margin by +3.1% (3.5× the random-ten-set null; zeroing 3465 / 493: −2.2%) — real but small
+and of the opposite sign: natively they weakly oppose the correct pronoun. They are not number units; they are the channel through which
+MLP 1's raw lookup would leak into the number margin if attention 0/1 did not condition it. Named as that.
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -426,6 +428,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v324 | routes on the pronoun rows | block 2 0.23, block 4 0.15, block 3 0.12, block 5 0.05; direct 0.001 (5/5) |
 | v325 | attention vs MLP in blocks 2–4 | MLP 3 alone 0.65, MLP 2 alone 0.44; attentions cancel most (blocks net 0.12 / 0.23) (3/5) |
 | v326 | MLP 3 at unit grain | ten units carry 71% of the effect; response spread; 3465 / 493 rank 113 / 72 (3/5) |
+| v327 | zero the ten on native rows | +3.1% (3.5× null), opposite sign; {3465, 493} −2.2%: a leak channel, not number units (3/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

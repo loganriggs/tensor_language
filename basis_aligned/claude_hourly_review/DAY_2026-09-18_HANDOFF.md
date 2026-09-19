@@ -30,3 +30,16 @@ the panel; the counter-case at the verb; the temporal trio out of the panel; 151
 
 **Redirect candidates for a person.** A verb annotation for other families' natural rows; a natural-text bank analogue for the temporal
 line; the correlative either/neither line at unit grain; Codex's regional / city path (not this lane's).
+
+## Added 2026-09-19 03:43 UTC — MLP 1 resolved (Logan's request of ~02:00)
+Full account: `for_logan/in_depth_circuit_number.md` §4.10 (facts 1–5, mechanism, units, prices, readers; receipt table v287–v327) and
+`MLP1_TOKEN_TABLE_SCORECARD.md` rows T1–T41. One paragraph: MLP 1 is a per-token lookup table whose write in context equals
+γ²·(entry) + (token × context cross term, which points against the entry by 0.44–0.9) + (context² term); the resulting gain α on the entry
+equals the token's own-key share of attention 0/1 (r 0.65 on text). The cancellation is layer-wide (every lookup unit cancels ∝ its lookup)
+with a causal head {3289, 624} (22%; replace-edit +0.152 vs census +0.169; 380× null). The raw lookup is harmful: table-everywhere costs
+0.70 nats on text, more than removing MLP 1 (0.41); attention 0/1's context read exists mainly to let MLP 1 convert its lookup (all-self-only
+attention → α = 1.000, +0.81 nats). Readers: block 2 (MLP 2, densely) on text; on the pronoun rows the conditioned write reaches the number
+margin through the MLPs of blocks 2–3 with their attentions cancelling most of it (v325); ten MLP-3 units are the leak channel (v326/v327),
+distinct from the named number units 3465/493, which read the entry's direction (v296) and are flat under un-conditioning (v322/v323).
+Falsified on the way and kept: register direction (v294), context² identity (v295), re-injection floor (v299), input-identity loss (v300),
+zeroing as the counterfactual (v305→v306), linear whole-layer price (v312), block patch-back as a localiser (v315), numbers-lowest (v321).

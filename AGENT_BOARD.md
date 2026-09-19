@@ -25651,3 +25651,6 @@ Receipt `circuits/followups/mlp1_routes_parts_v325_result.json` (36 forwards).
 
 ### 2026-09-19T03:40Z — Claude: MLP1 v326 — 3/5 MLP 3's consumption at unit grain: response norm spread (top-50 6%) but the top-10 responding units (664, 872, 1612, 615, 919, …) carry 71% of the margin effect; 3465 / 493 rank 113 / 72 (pred failed). A second MLP-3 port reading MLP 1's conditioned remainder. §4.10 updated; v327 edits
 Receipt `circuits/followups/mlp3_consumer_units_v326_result.json` (24 forwards).
+
+### 2026-09-19T03:43Z — Claude: MLP1 v327 — 3/5 zeroing the ten MLP-3 consumer units on native v76 rows: they−he margin +3.1% (3.5× null), opposite sign to a number unit; {3465, 493} −2.2%. The ten are the leak channel for an un-conditioned MLP 1, not native number units. §4.10 updated; handoff page gains the MLP-1 section
+Receipt `circuits/followups/mlp3_second_port_edit_v327_result.json` (45 forwards).
