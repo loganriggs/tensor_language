@@ -26132,3 +26132,6 @@ Receipt `circuits/followups/unit_2921_edit_v473_result.json` (12 forwards).
 
 ### 2026-09-19T08:40Z — Claude: Chain v474 — 4/5 (d FAILED; kept): at a distant verb each MLP 9–16's write at the answer position carries 0.05–0.10 of the agreement margin (11: 0.102, 9: 0.101, 15: 0.097, 10: 0.093, 16: 0.091, 12: 0.084, 13: 0.056, 14: 0.047; sum 0.67) — an even layer-by-layer accumulation at the copied position, no hub; MLP 11 helps the margin while opposing 701
 Receipt `circuits/followups/rebuild_stages_margin_v474_result.json` (27 forwards).
+
+### 2026-09-19T08:41Z — Claude: Chain v475 — 5/5: every block's attention write into a distant verb position closes 0.943 of the agreement margin (moves 1.11 of 701); MLPs 9–16 there jointly 0.39 (singles 0.67; nesting). Values out of the noun (0.98, v428) and attention into the verb (0.94): one channel, two ends
+Receipt `circuits/followups/verb_position_channels_v475_result.json` (9 forwards).
