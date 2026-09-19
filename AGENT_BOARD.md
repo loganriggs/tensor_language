@@ -26141,3 +26141,6 @@ Receipt `circuits/followups/attn_into_verb_blocks_v476_result.json` (57 forwards
 
 ### 2026-09-19T08:44Z — Claude: Chain v477 — 4/5 (b FAILED; kept): by write into a distant verb, head 11.3 carries 0.238 of the agreement margin and head 5.3 0.113 — the atlas's 5.7 carries 0.006. The verb reader set gains 5.3, an early head that must read an earlier number state than MLP 8's hub
 Receipt `circuits/followups/attn_into_verb_heads_v477_result.json` (57 forwards).
+
+### 2026-09-19T08:46Z — Claude: Chain v478 — 5/5: head 5.3 reads the post-noun rebuild (0.076 of the verb margin from its value at the post-noun token; 0.020 at the noun; both 0.101) — a second-hop copier after 4.5; 11.3 at the noun replays 0.147. Verb reader set corrected in SHARED_READOUT_COMPONENTS (5.3 in, 5.7 out)
+Receipt `circuits/followups/head_5_3_source_v478_result.json` (15 forwards).

@@ -1,0 +1,98 @@
+{
+  "candidate_id": "chain.head_5_3_source_v478",
+  "finished_utc": "2026-09-19T08:45:09.714288+00:00",
+  "forwards": 15,
+  "plan": {
+    "bars": {
+      "band": 0.03,
+      "h113_v448": 0.147,
+      "noun_max": 0.04,
+      "post_min": 0.05,
+      "replay_tol": 0.001,
+      "slack": 0.01
+    },
+    "candidate_id": "chain.head_5_3_source_v478",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 16,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_5_3_reads_the_post_noun_site": true,
+    "pred_c_5_3_reads_the_noun_little": true,
+    "pred_d_5_3_two_sites_at_least_the_post_noun": true,
+    "pred_e_11_3_at_the_noun_replays": true
+  },
+  "report": {
+    "panel": {
+      "distant_rows": 79,
+      "skipped": "distant rows only"
+    },
+    "replay_max_abs": 2.384185791015625e-05,
+    "text": {
+      "closed": {
+        "both": {
+          "are_is": 0.09813858568668365,
+          "verb": 0.10076496005058289
+        },
+        "h113_n": {
+          "are_is": 0.14968296885490417,
+          "verb": 0.14725004136562347
+        },
+        "n": {
+          "are_is": 0.01930025964975357,
+          "verb": 0.019836172461509705
+        },
+        "n1": {
+          "are_is": 0.07411320507526398,
+          "verb": 0.07622270286083221
+        }
+      },
+      "gap_mean": {
+        "are_is": 1.641675353050232,
+        "verb": 3.139129638671875,
+        "were_was": 1.497454285621643
+      },
+      "pairs": 79
+    },
+    "verb_slot": {
+      "closed": {
+        "both": {
+          "are_is": 0.09813858568668365,
+          "verb": 0.10076496005058289
+        },
+        "h113_n": {
+          "are_is": 0.14968296885490417,
+          "verb": 0.14725004136562347
+        },
+        "n": {
+          "are_is": 0.01930025964975357,
+          "verb": 0.019836172461509705
+        },
+        "n1": {
+          "are_is": 0.07411320507526398,
+          "verb": 0.07622270286083221
+        }
+      },
+      "gap_mean": {
+        "are_is": 1.641675353050232,
+        "verb": 3.139129638671875,
+        "were_was": 1.497454285621643
+      },
+      "pairs": 79
+    }
+  },
+  "schema": "head_5_3_source_result_v478",
+  "serial_seconds": 2.1032687299884856
+}
