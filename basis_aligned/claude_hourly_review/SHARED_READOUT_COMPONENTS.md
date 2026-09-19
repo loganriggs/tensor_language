@@ -547,3 +547,4 @@ v437 (4/5): block 2's noun exit = 2.6 (0.036) + 2.5 (0.017) + 2.8 (0.012).
 v438 (4/5; c failed at 0.161 vs 0.15): five-head swap closes they−he 0.48 and they−she 0.48; gender margin moves 0.16×; KL ratio 0.24 (text) / 0.11 (panel).
 v439 (3/5; c, d failed on a too-narrow class): the swap's 15 most-moved tokens are all pronoun forms (They/their/themselves vs he/his/himself/him); registered 11-token class moves 6.9× the vocab mean.
 v440 (3/5; b 4.86 vs 5, d 'we' flat): the readers' output is third-person PLURAL vs third-person SINGULAR (he = she), all cases and reflexives; first/second person and 'it' untouched; family fills 0.91 of the top-10 moved logits.
+v441 (4/5; c failed): the copier's swap writes the SAME lemma vector as the readers' (cos 0.967 text and panel) — one output axis through the chain; but only 0.42 of its top-10 moved logits are pronouns (the copier feeds more than number).

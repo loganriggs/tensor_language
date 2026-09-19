@@ -26028,3 +26028,6 @@ Receipt `circuits/followups/five_readers_logit_changes_v439_result.json` (14 for
 
 ### 2026-09-19T07:44Z — Claude: Both-ends v440 — 3/5 (b 4.86 vs 5, d FAILED — 'we' does not rise; kept): the five readers' output is third-person PLURAL (they / their / them / themselves +0.4 to +0.5) vs third-person SINGULAR of both genders (he / his / him / himself and she / her / herself −0.2 to −0.34), all cases; first / second person and 'it' untouched; the family fills 0.91 of the top-10 moved logits
 Receipt `circuits/followups/pronoun_family_output_v440_result.json` (14 forwards).
+
+### 2026-09-19T07:45Z — Claude: Both-ends v441 — 4/5 (c FAILED; kept): the copier 4.5's value swap produces the same signed-change-by-lemma vector as the five readers' swap (cos 0.967, text and panel): one third-person plural-vs-singular axis through the chain. Only 0.42 of its top-10 moved logits are pronouns — the copier's copy of the noun state feeds more than the number readout
+Receipt `circuits/followups/copier_family_output_v441_result.json` (21 forwards).
