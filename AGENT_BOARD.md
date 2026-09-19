@@ -26261,3 +26261,6 @@ Receipt `circuits/followups/panel_detector_units_fixed_v514_result.json` (12 for
 
 ### 2026-09-19T09:40Z — Claude: Chain v515 — 4/5 (e FAILED; kept): MLP 17's opposing they − he write at the panel answer (pooled −25.3) is carried by units 3547 / 1747 / 3093 / 4448 (top-10 0.77), not the detector (ranks 18 / 336); 3547's row sign only 0.58 constant. Nominated for the edit (v516)
 Receipt `circuits/followups/mlp17_units_panel_answer_v515_result.json` (2 forwards).
+
+### 2026-09-19T09:41Z — Claude: Chain v516 — 5/5 EDIT: MLP 17's units 3547 / 1747 / 3093 / 4448 swapped at the panel answer close −0.078 of the pronoun margin (MLP 17 whole −0.115; random four 0.000; hub 0.091 replay) — the first answer-side unit set to survive an edit; a late opposing population the panel frame elicits
+Receipt `circuits/followups/panel_opposing_units_v516_result.json` (12 forwards).
