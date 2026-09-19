@@ -25852,3 +25852,6 @@ Receipt `circuits/followups/ten_units_edit_natural_v387_result.json` (28 forward
 
 ### 2026-09-19T06:00Z — Claude: Number v388 — 5/5 readers' key split under the ten-unit cut: 9.6 −25.1k (0.40 noun key / 0.60 other; the site units' extra loss lands on other keys), 12.4 −9.1k (0.91 other). The two sites map onto the readers' two keys. Logan's template-contraction direction saved to memory; v389 starts it
 Receipt `circuits/followups/reader_key_split_ten_v388_result.json` (6 forwards).
+
+### 2026-09-19T06:02Z — Claude: Templates v389 — 3/5 identity-template scores for 162 heads (weights only): OV identity max 0.018 (11.6, 10.4, 13.0; copiers 12.4 7th, 4.5 10th, 9.6 31st, 15.1 137th — pred failed), QK identity max −0.034 (anti-identity; ≥ 0.10 pred failed); 10.1 / 10.4 / 11.6 on both. Logan's template direction saved; his instruction: do the subspace fold next (v390)
+Receipt `circuits/followups/head_identity_templates_v389_result.json` (0 forwards; weights only).
