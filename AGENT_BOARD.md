@@ -25777,3 +25777,6 @@ Receipt `circuits/followups/block4_heads_natural_v364_result.json` (2 forwards).
 
 ### 2026-09-19T05:02Z — Claude: Number v365 — 5/5 writers of head 4.5's number value at natural cue nouns: MLP 3 0.53, embedding 0.20, MLP 2 0.19, MLP 1 0.08, attention 0.03 — within 0.03 of the panel frames. Verb-copy stage closed at writer grain OOD. §4.8 pointer updated
 Receipt `circuits/followups/head45_value_writers_natural_v365_result.json` (2 forwards). One gate refusal (stale plan key) fixed before GPU.
+
+### 2026-09-19T05:04Z — Claude: Number v366 — 5/5 on natural sentences 3465 is first, 114 third, 493 seventh among MLP-3 writers of head 4.5's copied state (top-10 21%; MLP 3 0.48 of the head write). The MLP 1 → 3465 → 4.5 stage is OOD-checked at unit grain
+Receipt `circuits/followups/head45_mlp3_units_natural_v366_result.json` (2 forwards).

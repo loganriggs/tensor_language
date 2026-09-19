@@ -1,0 +1,96 @@
+{
+  "candidate_id": "pronoun_number.head45_mlp3_units_natural_v366",
+  "finished_utc": "2026-09-19T05:02:57.106292+00:00",
+  "forwards": 2,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "hi": 0.7,
+      "lo": 0.3,
+      "top10_max": 0.4
+    },
+    "candidate_id": "pronoun_number.head45_mlp3_units_natural_v366",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 4,
+    "frame": "The X",
+    "gpu_accessed": false,
+    "head": 5,
+    "layer": 4,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "natural_rows": 128
+  },
+  "predictions": {
+    "pred_a_unit_closure": true,
+    "pred_b_3465_in_top3_on_text": true,
+    "pred_c_top10_share_on_text": true,
+    "pred_d_mlp3_share_of_head_on_text": true,
+    "pred_e_114_in_top10_on_text": true
+  },
+  "report": {
+    "closure_max": 7.587227173644351e-06,
+    "head_write_contrast": 7222.0654296875,
+    "mlp3_share_of_head": 0.48450163919574274,
+    "mlp3_term_contrast": 3499.1025390625,
+    "ranks": {
+      "114": 3,
+      "3465": 1,
+      "493": 7
+    },
+    "top10_share": 0.2057088315486908,
+    "top12": [
+      [
+        3465,
+        684.7877807617188
+      ],
+      [
+        2033,
+        406.49884033203125
+      ],
+      [
+        114,
+        309.83050537109375
+      ],
+      [
+        96,
+        163.47718811035156
+      ],
+      [
+        1473,
+        136.86062622070312
+      ],
+      [
+        1621,
+        72.76496124267578
+      ],
+      [
+        493,
+        61.60906982421875
+      ],
+      [
+        1638,
+        58.47593307495117
+      ],
+      [
+        1219,
+        44.001834869384766
+      ],
+      [
+        4458,
+        36.68596649169922
+      ],
+      [
+        1450,
+        34.4388427734375
+      ],
+      [
+        88,
+        31.516313552856445
+      ]
+    ]
+  },
+  "schema": "head45_mlp3_units_natural_result_v366",
+  "serial_seconds": 1.7477087199222296
+}
