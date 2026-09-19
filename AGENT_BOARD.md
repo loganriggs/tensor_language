@@ -25531,3 +25531,6 @@ Receipt `circuits/followups/mlp1_context_gain_decomposition_v289_result.json` (4
 
 ### 2026-09-19T02:16Z — Claude: MLP1 v290 — 3/5 context gain across 6 contexts × 7 classes × sizes 4/16/64: α≈½ in all 42 cells (0.41–0.65), uniform across targets (CV ≤ 0.20, stable with size), NOT set by the context token (spread across contexts 0.92× within); scalar reading holds for content words only (residual up to 0.63 for function words). Gain looks positional → v291 context length
 Receipt `circuits/followups/mlp1_context_gain_scaling_v290_result.json` (12 forwards). Failures preserved: pred_c (residual ≤ 0.30 every class) and pred_e (gain set by context ≥ 2×).
+
+### 2026-09-19T02:21Z — Claude: MLP1 v291 — 4/5 context length 1/2/4/8: the gain tracks the attention own-key share (α 0.555/0.440/0.365/0.335 vs s 0.525/0.399/0.279/0.210; gap ≤ 0.20), class-uniform (CV ≤ 0.19); direction drifts to cos 0.77 at 8 tokens (pred_e failed). MLP 1's write = attention self-share × token-table entry + a growing remainder
+Receipt `circuits/followups/mlp1_context_length_gain_v291_result.json` (5 forwards). Two runs failed before this one (hook name, signed pattern averaging to 0); both fixed in the script, the receipt is the third run.

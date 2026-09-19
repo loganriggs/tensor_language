@@ -1,0 +1,162 @@
+{
+  "candidate_id": "mlp1.token_table.context_length_gain_v291",
+  "finished_utc": "2026-09-19T02:19:38.172910+00:00",
+  "forwards": 5,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "cos_min": 0.8,
+      "cv_max": 0.25,
+      "track_tol": 0.25
+    },
+    "candidate_id": "mlp1.token_table.context_length_gain_v291",
+    "class_sizes": {
+      "adjectives": 32,
+      "function_words": 32,
+      "nouns": 32,
+      "numbers": 32,
+      "punctuation": 32,
+      "verbs": 32,
+      "vocab_nouns": 32
+    },
+    "execution_policy": "managed_queue_only",
+    "filler": [
+      ",",
+      " and",
+      " of",
+      " the",
+      " very",
+      ",",
+      " and",
+      " of"
+    ],
+    "fit_parameters": 0,
+    "forwards_max": 8,
+    "gpu_accessed": false,
+    "lengths": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_pair_closure": true,
+    "pred_b_gain_falls_with_context_length": true,
+    "pred_c_gain_tracks_self_share": true,
+    "pred_d_gain_uniform_across_classes_at_every_length": true,
+    "pred_e_direction_kept_at_every_length": false
+  },
+  "report": {
+    "alpha_by_length": {
+      "1": 0.5549944639205933,
+      "2": 0.44010189175605774,
+      "4": 0.36492204666137695,
+      "8": 0.334722101688385
+    },
+    "class_cv_by_length": {
+      "1": 0.12053418904542923,
+      "2": 0.1571025550365448,
+      "4": 0.1928752213716507,
+      "8": 0.18267913162708282
+    },
+    "closure_max": 1.5926318610581802e-06,
+    "cos_by_length": {
+      "1": 0.8623723983764648,
+      "2": 0.8257455825805664,
+      "4": 0.7826349139213562,
+      "8": 0.7728161215782166
+    },
+    "per_k": {
+      "1": {
+        "alpha_by_class": {
+          "adjectives": 0.5603227019309998,
+          "function_words": 0.5460177659988403,
+          "nouns": 0.579035222530365,
+          "numbers": 0.5052168369293213,
+          "punctuation": 0.40508073568344116,
+          "verbs": 0.5768105983734131,
+          "vocab_nouns": 0.5898554921150208
+        },
+        "alpha_class_cv": 0.12053418904542923,
+        "alpha_median": 0.5549944639205933,
+        "cos_median": 0.8623723983764648,
+        "cross_share_median": 0.75361168384552,
+        "resid_median": 0.25631386041641235,
+        "self_share_median": 0.5247279405593872,
+        "write_over_table_norm": 0.634326696395874
+      },
+      "2": {
+        "alpha_by_class": {
+          "adjectives": 0.4562186300754547,
+          "function_words": 0.400325745344162,
+          "nouns": 0.505590558052063,
+          "numbers": 0.3883763253688812,
+          "punctuation": 0.327472448348999,
+          "verbs": 0.49369728565216064,
+          "vocab_nouns": 0.5053058862686157
+        },
+        "alpha_class_cv": 0.1571025550365448,
+        "alpha_median": 0.44010189175605774,
+        "cos_median": 0.8257455825805664,
+        "cross_share_median": 0.7637642621994019,
+        "resid_median": 0.3181442618370056,
+        "self_share_median": 0.3988194465637207,
+        "write_over_table_norm": 0.5476526021957397
+      },
+      "4": {
+        "alpha_by_class": {
+          "adjectives": 0.398377388715744,
+          "function_words": 0.2540556788444519,
+          "nouns": 0.44365525245666504,
+          "numbers": 0.3708648979663849,
+          "punctuation": 0.30108675360679626,
+          "verbs": 0.3201979696750641,
+          "vocab_nouns": 0.42204874753952026
+        },
+        "alpha_class_cv": 0.1928752213716507,
+        "alpha_median": 0.36492204666137695,
+        "cos_median": 0.7826349139213562,
+        "cross_share_median": 0.7576693892478943,
+        "resid_median": 0.38748258352279663,
+        "self_share_median": 0.2791878879070282,
+        "write_over_table_norm": 0.47101131081581116
+      },
+      "8": {
+        "alpha_by_class": {
+          "adjectives": 0.35732170939445496,
+          "function_words": 0.25921496748924255,
+          "nouns": 0.43054360151290894,
+          "numbers": 0.33210262656211853,
+          "punctuation": 0.28160279989242554,
+          "verbs": 0.3153189420700073,
+          "vocab_nouns": 0.40350469946861267
+        },
+        "alpha_class_cv": 0.18267913162708282,
+        "alpha_median": 0.334722101688385,
+        "cos_median": 0.7728161215782166,
+        "cross_share_median": 0.7545462846755981,
+        "resid_median": 0.4027552604675293,
+        "self_share_median": 0.21033993363380432,
+        "write_over_table_norm": 0.447895348072052
+      }
+    },
+    "self_share_by_length": {
+      "1": 0.5247279405593872,
+      "2": 0.3988194465637207,
+      "4": 0.2791878879070282,
+      "8": 0.21033993363380432
+    },
+    "self_share_single_token": 1.0,
+    "track_gap": {
+      "2": 0.03293433848842253,
+      "4": 0.1254615876628964,
+      "8": 0.20225368268580346
+    }
+  },
+  "schema": "mlp1_context_length_gain_result_v291",
+  "serial_seconds": 1.7021297349128872
+}
