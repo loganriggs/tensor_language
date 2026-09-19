@@ -26040,3 +26040,6 @@ Receipt `circuits/followups/copier_plural_marking_v443_result.json` (24 forwards
 
 ### 2026-09-19T07:50Z — Claude: Chain v444 — 4/5 (d FAILED; kept): MLP 8's units 829 / 953 / 1030 at the noun feed both readouts — their swap writes the readers' pronoun lemma vector (cos 0.991) and the copier's verb vector (cos 0.996), with a larger verb effect than the copier (0.153 vs 0.116); the five readers move the agreement verbs at the verb slot too (0.63× the copier): they copy number to the answer slot, whatever it is
 Receipt `circuits/followups/units_two_readouts_v444_result.json` (32 forwards).
+
+### 2026-09-19T07:51Z — Claude: Chain v445 — 1/5 (b–e FAILED; kept): the verb-agreement margin at the natural verb slot is carried only 0.475 by attention values at the noun (pronoun margin 0.98); the five readers 0.043, the copier 0.039, the three units 0.095. Where the verb is adjacent to the noun the answer position reads the noun's own residual directly — a different readout geometry. Split by noun–verb distance next
+Receipt `circuits/followups/verb_margin_census_v445_result.json` (20 forwards).
