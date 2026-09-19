@@ -363,6 +363,10 @@ $\gamma^2=0.40$ (MLP 1's 0.85), the cross term −0.43 on its entry (negative at
 MLP 1's position by position ($r=0.72$); but its context-free entry explains only a third of its write's direction (cosine 0.35). Under controlled context lengths (v319) MLP 2's lookup term itself shrinks with context ($\gamma^2$ 0.69 → 0.39 for 1 → 64 tokens,
 where MLP 1's stayed at 0.86–0.93) and its gain is not monotone in length — its input direction has already been moved off the token's by
 MLP 1. The clean lookup × self-share law is an MLP-1 property; MLP 2 is a reader of conditioned content with a residual lookup.
+By token class (v320, eight tokens of context): MLP 1 keeps 0.43 of a noun's lookup, 0.36 of an adjective's, 0.33 of a number's, 0.32 of a
+verb's, 0.28 of a punctuation mark's and 0.26 of a function word's — with $\gamma^2$ at 0.84–0.92 for every class, so the classes differ
+only in how much context input their token admits and how hard the cross term cancels; MLP 2 keeps 0.33 for nouns down to 0.14 for numbers,
+in the same order (Spearman 0.64). Numbers lose their lookup fastest by MLP 2, which is why the number chain reads MLP 1's entry (v296).
 
 | receipt | question | result |
 |---|---|---|
@@ -399,6 +403,7 @@ MLP 1. The clean lookup × self-share law is an MLP-1 property; MLP 2 is a reade
 | v317 | attention 2 vs MLP 2 | MLP 2 0.35, attention 2 0.08, additive; MLP 2's reading spread (5/5) |
 | v318 | MLP 2 under the same instruments | α₂ 0.20, γ² 0.40, cross −0.43, r(α₂, α₁) 0.72; cos 0.35 (4/5) |
 | v319 | MLP 2 vs context length | γ² 0.69 → 0.39; cross 100% negative; α₂ non-monotone (4/5) |
+| v320 | lookup gain by token class | MLP 1 nouns 0.43 … function words 0.26; MLP 2 numbers lowest 0.14; order shared (4/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

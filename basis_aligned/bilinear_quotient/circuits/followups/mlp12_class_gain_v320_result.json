@@ -1,0 +1,201 @@
+{
+  "candidate_id": "mlp1.token_table.class_gain_v320",
+  "finished_utc": "2026-09-19T03:25:22.434609+00:00",
+  "forwards": 2,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.02,
+      "rank_min": 0.6,
+      "spread_min": 0.1
+    },
+    "candidate_id": "mlp1.token_table.class_gain_v320",
+    "class_sizes": {
+      "adjectives": 32,
+      "function_words": 32,
+      "nouns": 32,
+      "numbers": 32,
+      "punctuation": 32,
+      "verbs": 32,
+      "vocab_nouns": 32
+    },
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 4,
+    "gpu_accessed": false,
+    "length": 8,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "phrase": [
+      ",",
+      " and",
+      " of",
+      " the",
+      " very"
+    ]
+  },
+  "predictions": {
+    "pred_a_pair_closure": true,
+    "pred_b_classes_differ_in_gain": true,
+    "pred_c_function_words_and_punctuation_cancel_most": true,
+    "pred_d_numbers_keep_lookup_most": false,
+    "pred_e_class_order_shared_by_mlp1_and_mlp2": true
+  },
+  "report": {
+    "alpha1_by_class": {
+      "adjectives": 0.35732170939445496,
+      "function_words": 0.25921496748924255,
+      "nouns": 0.43054360151290894,
+      "numbers": 0.33210262656211853,
+      "punctuation": 0.28160279989242554,
+      "verbs": 0.3153189420700073,
+      "vocab_nouns": 0.40350469946861267
+    },
+    "alpha1_spread": 0.17132863402366638,
+    "alpha2_by_class": {
+      "adjectives": 0.25404152274131775,
+      "function_words": 0.18093585968017578,
+      "nouns": 0.3253324627876282,
+      "numbers": 0.14230139553546906,
+      "punctuation": 0.2778833210468292,
+      "verbs": 0.24851810932159424,
+      "vocab_nouns": 0.28554365038871765
+    },
+    "closure_max": 0.010984995402395725,
+    "order_mlp1_low_to_high": [
+      "function_words",
+      "punctuation",
+      "verbs",
+      "numbers",
+      "adjectives",
+      "vocab_nouns",
+      "nouns"
+    ],
+    "order_mlp2_low_to_high": [
+      "numbers",
+      "function_words",
+      "verbs",
+      "adjectives",
+      "punctuation",
+      "vocab_nouns",
+      "nouns"
+    ],
+    "per": {
+      "mlp1|adjectives": {
+        "alpha": 0.35732170939445496,
+        "c_norm": 10.469199180603027,
+        "cos": 0.8110092282295227,
+        "cross": -0.7054349780082703,
+        "gamma2": 0.9034876227378845,
+        "only": 0.16718901693820953
+      },
+      "mlp1|function_words": {
+        "alpha": 0.25921496748924255,
+        "c_norm": 13.229784965515137,
+        "cos": 0.586722731590271,
+        "cross": -0.8044963479042053,
+        "gamma2": 0.8438606858253479,
+        "only": 0.23184698820114136
+      },
+      "mlp1|nouns": {
+        "alpha": 0.43054360151290894,
+        "c_norm": 9.467321395874023,
+        "cos": 0.8327479958534241,
+        "cross": -0.6188055872917175,
+        "gamma2": 0.9188763499259949,
+        "only": 0.13031071424484253
+      },
+      "mlp1|numbers": {
+        "alpha": 0.33210262656211853,
+        "c_norm": 10.389381408691406,
+        "cos": 0.7886499762535095,
+        "cross": -0.7693891525268555,
+        "gamma2": 0.9048629403114319,
+        "only": 0.19322654604911804
+      },
+      "mlp1|punctuation": {
+        "alpha": 0.28160279989242554,
+        "c_norm": 12.3374605178833,
+        "cos": 0.6640710830688477,
+        "cross": -0.7898244857788086,
+        "gamma2": 0.8668312430381775,
+        "only": 0.2052178829908371
+      },
+      "mlp1|verbs": {
+        "alpha": 0.3153189420700073,
+        "c_norm": 11.198960304260254,
+        "cos": 0.7336572408676147,
+        "cross": -0.7652195692062378,
+        "gamma2": 0.8882642388343811,
+        "only": 0.195149227976799
+      },
+      "mlp1|vocab_nouns": {
+        "alpha": 0.40350469946861267,
+        "c_norm": 10.11266040802002,
+        "cos": 0.80393385887146,
+        "cross": -0.658592700958252,
+        "gamma2": 0.9090089797973633,
+        "only": 0.1455690860748291
+      },
+      "mlp2|adjectives": {
+        "alpha": 0.25404152274131775,
+        "c_norm": 22.084850311279297,
+        "cos": 0.4855048954486847,
+        "cross": -0.6313708424568176,
+        "gamma2": 0.5749568343162537,
+        "only": 0.29855555295944214
+      },
+      "mlp2|function_words": {
+        "alpha": 0.18093585968017578,
+        "c_norm": 26.85658836364746,
+        "cos": 0.30833467841148376,
+        "cross": -0.37786370515823364,
+        "gamma2": 0.3693934977054596,
+        "only": 0.21060200035572052
+      },
+      "mlp2|nouns": {
+        "alpha": 0.3253324627876282,
+        "c_norm": 20.84026527404785,
+        "cos": 0.571986198425293,
+        "cross": -0.5415838956832886,
+        "gamma2": 0.6204050183296204,
+        "only": 0.24319426715373993
+      },
+      "mlp2|numbers": {
+        "alpha": 0.14230139553546906,
+        "c_norm": 25.234987258911133,
+        "cos": 0.325710654258728,
+        "cross": -0.6119856238365173,
+        "gamma2": 0.44601964950561523,
+        "only": 0.3044479191303253
+      },
+      "mlp2|punctuation": {
+        "alpha": 0.2778833210468292,
+        "c_norm": 25.134992599487305,
+        "cos": 0.4266084134578705,
+        "cross": -0.3489886224269867,
+        "gamma2": 0.44721129536628723,
+        "only": 0.2013757824897766
+      },
+      "mlp2|verbs": {
+        "alpha": 0.24851810932159424,
+        "c_norm": 24.351667404174805,
+        "cos": 0.44073209166526794,
+        "cross": -0.49749326705932617,
+        "gamma2": 0.48358383774757385,
+        "only": 0.24510003626346588
+      },
+      "mlp2|vocab_nouns": {
+        "alpha": 0.28554365038871765,
+        "c_norm": 22.28201675415039,
+        "cos": 0.535841703414917,
+        "cross": -0.5200114250183105,
+        "gamma2": 0.5600743293762207,
+        "only": 0.24961988627910614
+      }
+    },
+    "spearman_alpha1_alpha2": 0.6428571428571428
+  },
+  "schema": "mlp1_class_gain_result_v320",
+  "serial_seconds": 1.717890395084396
+}

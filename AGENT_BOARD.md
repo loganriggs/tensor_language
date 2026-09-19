@@ -25627,3 +25627,6 @@ Receipt `circuits/followups/mlp2_lookup_law_natural_v318_result.json` (8 forward
 
 ### 2026-09-19T03:25Z — Claude: MLP1 v319 — 4/5 MLP 2 vs context length: γ² 0.69/0.50/0.39 (MLP 1's stayed ≥ 0.86), cross −0.43/−0.52/−0.27 (100% negative), α₂ 0.41/0.26/0.28 (non-monotone; pred failed). The clean lookup × self-share law is MLP 1's; MLP 2 reads conditioned content. §4.10 updated
 Receipt `circuits/followups/mlp2_context_length_v319_result.json` (4 forwards).
+
+### 2026-09-19T03:26Z — Claude: MLP1 v320 — 4/5 lookup gain by class at 8 tokens: MLP 1 nouns 0.43 … function words 0.26 (γ² 0.84–0.92 for all classes; differences sit in the cross term and context input size); MLP 2 nouns 0.33 … numbers 0.14 (numbers-highest pred failed); class order shared (Spearman 0.64). §4.10 updated
+Receipt `circuits/followups/mlp12_class_gain_v320_result.json` (2 forwards).
