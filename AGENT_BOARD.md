@@ -26321,3 +26321,6 @@ Receipt `circuits/followups/h53_route_panel_v533_result.json` (15 forwards).
 
 ### 2026-09-19T10:17Z — Claude: Both-ends v534 — 2/5 (b, c, e FAILED; kept): on the panel 5.3's own write into the answer closes 0.040 of the margin against 0.093 for its post-noun value swap — half of the relayed number reaches the panel answer through other, unnamed heads reading the post-noun token; 9.6's write 0.321 replays the channel
 Receipt `circuits/followups/h53_write_panel_v534_result.json` (9 forwards).
+
+### 2026-09-19T10:18Z — Claude: Chain v535 — 5/5: attention into the panel's pronoun slot by block — 9 (0.360), 12 (0.261), 10 (0.138), 15 (0.109), 5 (0.097), 11 (0.044), 7 (0.029), 6 (0.021); blocks 0–3 ≤ 0.01; singles add (1.032 vs 0.965). The readers' blocks carry 0.87; the panel's extra channel is block 5 as a whole (5.3's own write 0.040 of 0.097) and block 11
+Receipt `circuits/followups/attn_into_pronoun_blocks_panel_v535_result.json` (60 forwards).

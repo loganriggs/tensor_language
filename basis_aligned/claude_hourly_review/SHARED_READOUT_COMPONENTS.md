@@ -643,3 +643,4 @@ v531 (5/5): five readers at two sites on the panel 0.639 (text 0.623); three hea
 v532 (3/5; b, e failed): on the panel 5.3 at the post-noun closes 0.093 of the pronoun margin (text 0.021) — the two-hop copier route feeds the pronoun readout on the panel frame; copier 0.298 / five 0.340 replay.
 v533 (4/5; b failed): on the panel 5.3's 0.093 adds fully to the readers' two-site swap (0.639 → 0.731) — a parallel route into the answer, not the readers' post-noun read.
 v534 (2/5): 5.3's write into the panel answer 0.040 (its post-noun value effect 0.093; text write 0.021); 9.6's write 0.321. Part of the relayed number reaches the panel answer through unnamed heads reading the post-noun token.
+v535 (5/5): panel channel by block — 9 0.36, 12 0.26, 10 0.14, 15 0.11, 5 0.10, 11 0.04; singles add (1.03 vs 0.965). Block 5 as a whole (not only 5.3) and block 11 are the panel's extra channels.
