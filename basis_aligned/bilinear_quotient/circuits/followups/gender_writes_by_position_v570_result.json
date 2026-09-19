@@ -1,0 +1,79 @@
+{
+  "candidate_id": "gender.writes_by_position_v570",
+  "finished_utc": "2026-09-19T11:40:03.996875+00:00",
+  "forwards": 8,
+  "plan": {
+    "bars": {
+      "add": 0.08,
+      "answer_v563": 0.878,
+      "band": 0.03,
+      "inter_max": -0.05,
+      "joint_v569": 0.745,
+      "replay_tol": 0.001,
+      "unit": 701
+    },
+    "candidate_id": "gender.writes_by_position_v570",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 9,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 61
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_answer_write_replays": true,
+    "pred_c_all_position_writes_match_the_joint": true,
+    "pred_d_intermediate_writes_oppose": false,
+    "pred_e_positions_add": false
+  },
+  "report": {
+    "panel": {
+      "rows": 61,
+      "skipped": "pronoun slot, natural pairs"
+    },
+    "replay_max_abs": 1.430511474609375e-05,
+    "text": {
+      "contrast_mean": -0.29676592350006104,
+      "margin_closed": {
+        "W_ALLPOS": 0.7448449730873108,
+        "W_ANSWER": 0.8780553936958313,
+        "W_INTER": 0.12476114928722382
+      },
+      "moved": {
+        "W_ALLPOS": 4.122045993804932,
+        "W_ANSWER": 4.426050662994385,
+        "W_INTER": 0.49587559700012207
+      },
+      "pairs": 61,
+      "sign_constancy": 0.5901639461517334,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": -0.29676592350006104,
+      "margin_closed": {
+        "W_ALLPOS": 0.7448449730873108,
+        "W_ANSWER": 0.8780553936958313,
+        "W_INTER": 0.12476114928722382
+      },
+      "moved": {
+        "W_ALLPOS": 4.122045993804932,
+        "W_ANSWER": 4.426050662994385,
+        "W_INTER": 0.49587559700012207
+      },
+      "pairs": 61,
+      "sign_constancy": 0.5901639461517334,
+      "unit": 701
+    }
+  },
+  "schema": "gender_writes_by_position_result_v570",
+  "serial_seconds": 1.8947418031748384
+}

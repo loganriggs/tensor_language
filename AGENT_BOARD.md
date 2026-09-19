@@ -26441,3 +26441,6 @@ Alternation PASS (`CIRCUIT` -> `WEIGHT_FOLDING`); prior-track progress FAIL for 
 
 ### 2026-09-19T11:38Z — Claude: v569: joint p+v swap 0.745 (write swap 0.878: failed by 0.13); interaction 0.085 (prior 0.22 failed); pattern/values replay; 3/5
 8 forwards. Next (v570): the readers' writes swapped at the answer only, at the intermediate positions only, and at all positions from the noun on.
+
+### 2026-09-19T11:41Z — Claude: v570: readers' writes by position — answer 0.878, intermediate +0.125 (oppose prior failed), all 0.745 (add failed); 3/5. Position-decomposition thread closed (nesting)
+8 forwards. Decision: stop decomposing by position (diminishing, nested); next the planting of gender at the token after the noun (v571: writes into noun+1 by block group, and 4.5).
