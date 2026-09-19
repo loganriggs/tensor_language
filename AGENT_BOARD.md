@@ -26067,3 +26067,6 @@ Receipt `circuits/followups/verb_full_named_set_v452_result.json` (15 forwards).
 
 ### 2026-09-19T08:03Z — Claude: Chain v453 — 5/5: the four verb readers carry 0.026 of the pronoun margin at the pronoun slot (pronoun readers 0.483, replayed) — the two readouts are selective in both directions
 Receipt `circuits/followups/verb_readers_pronoun_slot_v453_result.json` (21 forwards).
+
+### 2026-09-19T08:04Z — Claude: Chain v454 — 3/5 (c, e FAILED; kept): on the direct path to an adjacent verb, MLP 8's unit 829 is first again (top-10 0.83), with 1738 and 3858 behind it where the pronoun census had 953 and 1030 (5th / 8th here); top-20 overlap 11 of 20. The MLP-8 number population is shared at its head and readout-specific in its tail
+Receipt `circuits/followups/mlp8_units_direct_verb_v454_result.json` (2 forwards).

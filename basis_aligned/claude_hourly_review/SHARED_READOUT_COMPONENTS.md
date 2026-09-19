@@ -561,3 +561,4 @@ v451 (4/5; d failed at 0.51): verb readout heads = 11.3, 7.8, 13.1, 9.7 (+9.6, 9
 **VERB READOUT SET (19 Sep, v445–v451):** the agreement readout from the noun (distant verbs, natural rows) is 11.3 (0.147 of the margin gap by value swap), 7.8 (0.102), 13.1 (0.045), 9.7 (0.039), with the shared copier 4.5 (0.138); the pronoun readers add 0.07. All value copiers (v449). Adjacent verbs read the noun's own residual instead (v446).
 v452 (5/5): verb full named set — V4 0.334 (additive), + copier 0.495, + pronoun readers 0.566; all values 1.029. Verb readout named to 0.57.
 v453 (5/5): verb readers at the pronoun slot 0.026 (pronoun readers 0.483) — the two readouts are selective both ways.
+v454 (3/5): on the direct path to an adjacent verb, 829 is first again; 1738 second, 3858 third; 953 8th, 1030 5th; top-20 overlap with the pronoun census 11/20 — shared head, readout-specific tail.
