@@ -1,0 +1,49 @@
+{
+  "candidate_id": "gender.self_copies_noun_v550",
+  "finished_utc": "2026-09-19T10:56:51.876782+00:00",
+  "forwards": 10,
+  "plan": {
+    "bars": {
+      "all_v549": 0.901,
+      "band": 0.03,
+      "five_v549": 0.6,
+      "nest": 0.05,
+      "replay_tol": 0.001,
+      "rest_max": 0.3,
+      "self_min": 0.15
+    },
+    "candidate_id": "gender.self_copies_noun_v550",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 11,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": "pronoun_gender_dod_natural_rows_v73.json",
+    "text_pairs": 61
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_self_copies_carry_a_share": true,
+    "pred_c_rest_of_low_blocks_small": true,
+    "pred_d_readers_and_self_copies_nested": true,
+    "pred_e_all_replays": true
+  },
+  "report": {
+    "replay_max_abs": 1.430511474609375e-05,
+    "text": {
+      "closed": {
+        "ALL": 0.9005147218704224,
+        "FIVE_SELF": 0.828291654586792,
+        "LOW_REST": 0.08406148850917816,
+        "SELF": 0.31032195687294006
+      },
+      "gap_mean": 4.360080718994141,
+      "pairs": 61,
+      "sign_constancy": 0.8852459192276001
+    }
+  },
+  "schema": "gender_self_copies_noun_result_v550",
+  "serial_seconds": 1.9532795548439026
+}

@@ -26375,3 +26375,6 @@ Reason: better_circuits §7 allows a new behaviour once the current target meets
 
 ### 2026-09-19T10:56Z — Claude: v549: gender route census at the noun — all values 0.901, five readers 0.600, blocks 0-8 0.451, blocks 9-17 0.625 (LOW+HIGH 1.08 vs 0.90: additivity failed); 4/5
 10 forwards. The failed prediction is the informative one: for gender the noun's exits are nested (self-copies at the noun rewrite the state the late readers copy), where for number they were parallel. v550 tests the self-copies 8.1 / 6.1 directly.
+
+### 2026-09-19T10:57Z — Claude: v550: gender self-copies 8.1+6.1 at the noun 0.310, rest of blocks 0-8 0.084, readers+self-copies 0.828 (nested by 0.08), all 0.901; 5/5
+10 forwards. Next (v551): the seven heads singly — which readers carry gender (9.6 / 12.4 / 10.1 / 10.5 / 15.1) and 8.1 vs 6.1.
