@@ -1,0 +1,59 @@
+{
+  "candidate_id": "both_ends.h53_panel_pronoun_v532",
+  "finished_utc": "2026-09-19T10:12:56.630909+00:00",
+  "forwards": 12,
+  "plan": {
+    "bars": {
+      "band": 0.03,
+      "copier_panel": 0.298,
+      "fiven_panel": 0.34,
+      "h53_max": 0.05,
+      "replay_tol": 0.001
+    },
+    "candidate_id": "both_ends.h53_panel_pronoun_v532",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 13,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_5_3_carries_little_pronoun_margin_on_the_panel": false,
+    "pred_c_copier_replays_on_the_panel": true,
+    "pred_d_five_noun_replays_on_the_panel": true,
+    "pred_e_5_3_below_a_sixth_of_the_copier": false
+  },
+  "report": {
+    "panel": {
+      "closed": {
+        "COPIER": 0.29813387989997864,
+        "FIVE_N": 0.33970513939857483,
+        "H53_N1": 0.0933808982372284
+      },
+      "gap_mean": 4.0962815284729,
+      "pairs": 48
+    },
+    "replay_max_abs": 1.239776611328125e-05,
+    "text": {
+      "closed": {
+        "COPIER": 0.29813387989997864,
+        "FIVE_N": 0.33970513939857483,
+        "H53_N1": 0.0933808982372284
+      },
+      "gap_mean": 4.0962815284729,
+      "pairs": 48
+    }
+  },
+  "schema": "h53_panel_pronoun_result_v532",
+  "serial_seconds": 1.8294560769572854
+}

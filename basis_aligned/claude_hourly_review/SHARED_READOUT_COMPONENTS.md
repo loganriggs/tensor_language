@@ -640,3 +640,4 @@ v528 (5/5): with the panel's d both templates' top-10s hold all five readers eac
 v529 (2/5; NaN instrument fault at block 0 — d = 0 at the post-noun token): 5.3 first in block 5 and 2nd of 153 on the agreement template with the post-noun d; 4.5 drops to 25 / 68. Re-run guarded as v530.
 v530 (4/5; e failed as expected): with the post-noun d, 5.3 is 2nd of 162 on the agreement template (noun-side: 7th), 4.5 drops to 25/68, the five pronoun readers stay 1–6. Templates read the site each head reads.
 v531 (5/5): five readers at two sites on the panel 0.639 (text 0.623); three heads 0.533 and five at the noun 0.340 replay. Reader-set table complete on both frames.
+v532 (3/5; b, e failed): on the panel 5.3 at the post-noun closes 0.093 of the pronoun margin (text 0.021) — the two-hop copier route feeds the pronoun readout on the panel frame; copier 0.298 / five 0.340 replay.

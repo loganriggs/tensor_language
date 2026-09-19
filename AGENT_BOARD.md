@@ -26312,3 +26312,6 @@ Receipt `circuits/followups/templates_post_noun_d_guarded_v530_result.json` (4 f
 
 ### 2026-09-19T10:12Z — Claude: Both-ends v531 — 5/5: on the panel the five readers' two-site value swap closes 0.639 of the margin (text 0.623); three heads 0.533 and five at the noun 0.340 replay. The reader-set table is complete on both frames: the two-site copy is frame-invariant, the noun-site share is not
 Receipt `circuits/followups/five_readers_panel_two_sites_v531_result.json` (12 forwards).
+
+### 2026-09-19T10:13Z — Claude: Both-ends v532 — 3/5 (b, e FAILED; kept): on the panel the second-hop copier 5.3 at the post-noun token closes 0.093 of the pronoun margin (natural text 0.021), a third of the copier's 0.298 — the two-hop route feeds the pronoun readout on the constructed frame, matching the panel readers' larger post-noun share (0.34 noun-only vs 0.64 two-site)
+Receipt `circuits/followups/h53_panel_pronoun_v532_result.json` (12 forwards).
