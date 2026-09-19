@@ -26309,3 +26309,6 @@ Receipt `circuits/followups/templates_post_noun_d_v529_result.json` (4 forwards)
 
 ### 2026-09-19T10:11Z — Claude: Template v530 — 4/5 (e FAILED as expected; kept): with d at the post-noun token (block 0 guarded) 5.3 rises to 2nd of 162 on the agreement template and first in its block, the copier 4.5 drops to 25 / 68, and the five pronoun readers keep ranks 1–6 — the template names each hop of the route when given the site that hop reads
 Receipt `circuits/followups/templates_post_noun_d_guarded_v530_result.json` (4 forwards).
+
+### 2026-09-19T10:12Z — Claude: Both-ends v531 — 5/5: on the panel the five readers' two-site value swap closes 0.639 of the margin (text 0.623); three heads 0.533 and five at the noun 0.340 replay. The reader-set table is complete on both frames: the two-site copy is frame-invariant, the noun-site share is not
+Receipt `circuits/followups/five_readers_panel_two_sites_v531_result.json` (12 forwards).
