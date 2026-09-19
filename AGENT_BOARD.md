@@ -25932,3 +25932,6 @@ Receipt `circuits/followups/both_ends_degree_copier_text_v410_result.json` (4 fo
 
 ### 2026-09-19T06:56Z — Claude: Distributional v411 — 2/5 (b, c, e FAILED; kept): the readers' pattern weight at the noun is number-blind on text (|corr| ≤ 0.10 for all three) but not a constant gate (9.6: CV 1.1, one sign on 0.84 of natural rows; 15.1 CV 0.76); 12.4's number-sensitive pattern is panel-only (−0.75 panel, −0.10 text). Two crashes before the run (mixed-length batch; a comment swallowed idx)
 Receipt `circuits/followups/pattern_weight_distribution_v411_result.json` (7 forwards). Failures: sign constancy 0.84 < 0.95; CV 1.1 > 0.5; 12.4 |corr| 0.10 < 0.20 on text (it is 0.75 on the panel).
+
+### 2026-09-19T06:57Z — Claude: Distributional v412 — 3/5 (d, e FAILED; kept): the readers' pattern weights at the noun and the post-noun site co-vary (9.6 corr 0.64; 15.1 0.90) and fall with distance (9.6 −0.24); the two-site sum is no steadier a gate (CV 1.03 vs 1.12; sign 0.85). The gain is row-level, set on the answer side or by context
+Receipt `circuits/followups/pattern_weight_sites_v412_result.json` (4 forwards).
