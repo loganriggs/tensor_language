@@ -26267,3 +26267,6 @@ Receipt `circuits/followups/panel_opposing_units_v516_result.json` (12 forwards)
 
 ### 2026-09-19T09:43Z — Claude: Chain v517 — 5/5: the four MLP-17 units that oppose the pronoun number at the panel answer (−0.078) do nothing at the natural pronoun answer (−0.003; random 0.000; hub 0.124 replay) — a panel-specific late opposition isolated to four units of the last block
 Receipt `circuits/followups/text_opposing_units_v517_result.json` (16 forwards).
+
+### 2026-09-19T09:44Z — Claude: Chain v518 — 4/5 (b FAILED; kept): the four MLP-17 units that oppose the panel's pronoun margin (−0.078, replayed) move the panel's agreement margin by 0.002 — not verb-agreement units; a pronoun-specific late correction the constructed frame elicits
+Receipt `circuits/followups/panel_opposing_units_verb_v518_result.json` (9 forwards).
