@@ -169,3 +169,8 @@ The fixed-writer RMS-aware MLP9 response passes native validation on96regional/6
 ### 13 September: smaller fixed-context MLP9 response interface
 
 For the registered head9 writer, the normalized MLP9 response uses three context-dependent vectors rather than the previous four-ingredient upper bound. The two-edit mixed response uses two directions. Folding two generated residual responses into MLP10 therefore needs six symmetric product vectors rather than ten. Actual-weight FP64 controls pass; the bank remains context-dependent and attention/background dependencies remain. [Derivation and price](../RESPONSE_PRODUCT_BASIS_V2_MATH.md).
+
+
+### 2026-09-17 23:55 UTC — regional one-head response evidence navigation
+
+[Ordered native context expansion](../MLP8_CONTEXT_SOURCES_V1_RESULT.json) → [head2 cross causal screen](../HEAD2_MLP8_CROSS_EDIT_V1_RESULT.json) → [fresh cross confirmation](../HEAD2_MLP8_CROSS_FRESH_V1_RESULT.json) → [fresh single-head normalization](../SINGLE_HEAD_FRESH_V1_RESULT.json) → [pruned native replay](../SINGLE_HEAD_PRUNED_V1_RESULT.json) and [isolated replay](../SINGLE_HEAD_PRUNED_V1_STANDALONE_RESULT.json). The pruned replay gates pass; older pending wording is superseded by these receipts. This is a tested approximate response with two residual7 inputs and an external suffix, not exact full-context elimination. Local cross fidelity and composition failures remain; donor-free removal is primary-owned and unscored here. [Bounded strategic review](../HOURLY_STRATEGIC_REVIEW_2026-09-17_2355.md).

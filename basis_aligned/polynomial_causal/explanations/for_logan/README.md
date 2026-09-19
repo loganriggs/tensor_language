@@ -1,6 +1,6 @@
 # Requested full reports for Logan
 
-[Exact-RMS upstream closure preflight fails at the residual composition](research_update_2026-09-18_upstream_exact_preflight.md).
+[Exact-RMS upstream closure corrected and fresh-boundary confirmed](research_update_2026-09-18_upstream_exact_preflight.md).
 
 [The remaining upstream port is explicit](research_update_2026-09-18_upstream_port_gap.md).
 

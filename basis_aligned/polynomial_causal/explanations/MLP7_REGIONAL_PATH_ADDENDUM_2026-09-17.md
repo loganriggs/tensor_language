@@ -17,3 +17,8 @@ Evidence chain:
 The complete retained path still fails composition specificity and has no matched-effect simplicity comparator. Do not reselect an omitted source from the opened factorial errors, repeat the more-expensive Gram as compression, or promote local response magnitude to causal evidence. Next circuit work should freeze predictive nulls before new structural outcomes; the next folding hour retains the full donor computation.
 
 [Current Logan report](for_logan/research_update_2026-09-17_2200_regional_structure.md).
+
+
+### 2026-09-18T02:57:47.492992+00:00 — scheduled folding review navigation
+
+Current regional path: [packed eight-head prefix](../CITY_ATTENTION7_DROP3_FRESH_V1_RESULT.json) → five MLP7 readers → complete head8.2 city removal. [Packing replay](../CITY_ATTENTION7_DROP3_PACK_V1_RESULT.json) and [isolated fresh fixtures](../CITY_ATTENTION7_DROP3_FRESH_V1_ISOLATED_RESULT.json) pass. Twenty fresh Pile documents support 1.9% effect error and selective removal; one residual6 array and the native suffix remain external, mixed8 RMS approximate. Fresh package22,418,566FP32 values; equal-vocabulary saving884,736. No matched-effect simplicity null. [MLP7-present direction](../CITY_SOURCE7_FRESH_V1_RESULT.json) fails; [key/value composition](../CITY_INTERCHANGE_COMPOSITION_V1_RESULT.json) fails. Keep coupled terms; no MLP7 causal-ownership promotion. [Circuit registry](../../bilinear_quotient/CIRCUIT_REGISTRY.md), [path registry](../../bilinear_quotient/COMPUTATION_PATH_REGISTRY.md), [graph inventory](../CIRCUIT_GRAPH_REGISTRY_V1.md), [review](../HOURLY_STRATEGIC_REVIEW_2026-09-18_0257.md). FineWeb confirmation is primary-owned and unscored at review cutoff.

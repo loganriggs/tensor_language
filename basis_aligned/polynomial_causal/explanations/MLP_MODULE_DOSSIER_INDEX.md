@@ -63,3 +63,7 @@ Before registering a run, its module dossier must answer:
 - Are fit/evaluation rows and checkpoint version comparable?
 - What matched-price control makes the new question different?
 - What result would stop this family rather than trigger rank/site tuning?
+
+### 17 September 22:53 UTC — regional MLP8 coupled response navigation
+
+The live regional chain is [native attention8 scope](../TYPED_FACE_NATIVE8_SCOPE_V1_RESULT.json) → [forward response census](../TYPED_FACE_NATIVE8_RESPONSE_V1_RESULT.json) → [exact writer response](../MLP8_WRITER_RESPONSE_FOLD_V1_RESULT.json) → [failed skip/MLP8 factorial](../TYPED_FACE_MLP8_MEDIATION_V1_RESULT.json) → [fresh coupled application](../TYPED_FACE_NATIVE8_FRESH_V1_RESULT.json) → [coupled native precision replay](../TYPED_FACE_MLP8_COUPLED_V1_RESULT.json). The latter is opened replay, with three native-state arrays and an external suffix; isolated verification is separately scored. Preserve both ordered cross terms, quadratic, normalization and skip. Neither standalone packaging nor fresh selectivity establishes small interactions or simplicity. Primary owns the implementation. Historical MLP8/9 dossier above remains relevant prior art.

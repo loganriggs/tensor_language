@@ -8,7 +8,10 @@ def execute(program,residual6,token_ids,city,destination,return_rho=False):
     generated=attention7(program['attention7'],residual6,token_ids)
     norm7=generated['normalized_mlp7'];m=F.linear(norm7,program['mlp7_left'])*F.linear(norm7,program['mlp7_right']);mlp7=F.linear(m,program['mlp7_down'])+program['mlp7_bias']
     mixed8=generated['other_sources']+program['attention7']['lambdas8'][0]*mlp7;rho=(mixed8.square().mean(-1,keepdim=True)+torch.finfo(torch.float32).eps).sqrt();head=program['head8']
-    projected=(F.linear(mixed8,head['sources'])+program['attention7']['lambdas8'][0]*readers(program['readers'],norm7))/rho
+    # The folded readers already supply the MLP7 contribution to the five
+    # attention8 fields. Add full MLP7 only to the residual used for RMS8;
+    # putting it in the linear source projection too would double count it.
+    projected=(F.linear(generated['other_sources'],head['sources'])+program['attention7']['lambdas8'][0]*readers(program['readers'],norm7))/rho
     q1,k1,q2,k1v,value=projected.split(128,-1);t=projected.shape[1];inv=1/(10000**(torch.arange(0,128,2,dtype=torch.float32)/128));angles=torch.outer(torch.arange(t,dtype=torch.float32),inv);co,si=angles.cos().bfloat16().double(),angles.sin().bfloat16().double()
     def rotate(x):
         x=x/(x.square().mean(-1,keepdim=True)+torch.finfo(torch.float32).eps).sqrt();a,b=x.chunk(2,-1);return torch.cat([a*co+b*si,-a*si+b*co],-1)
