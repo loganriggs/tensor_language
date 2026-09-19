@@ -565,3 +565,4 @@ v454 (3/5): on the direct path to an adjacent verb, 829 is first again; 1738 sec
 v455 (5/5): the direct path (adjacent verb) is written across depth — embedding 0.13, MLP 17 0.10, MLP 8 0.10, MLP 12 0.08; late MLPs 12–17 0.34 — the panel-only late-MLP axis (v390–v396) lives on the direct path.
 v456 (2/5): VP0 (the panel-only class axis) is not the direct path's late write either (cos 0.02, energy 0.003). Dead everywhere. The late MLPs' direct write is its own direction, weakly aligned with u_v.
 v457 (4/5): MLP 17's direct agreement write = unit 701 (half) + 2059 (a fifth); top-10 0.71. A late counterpart of 829.
+v458 (4/5; c failed): unit 701 (MLP 17) is a bilinear number detector (dL·dR 0.65; both inputs flip), fed by MLPs 16 / 15 / 10 / 12; 829's column into its L input cos 0.16. The direct path's chain: 829 → MLPs 10–16 → 701.

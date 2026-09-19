@@ -1,0 +1,72 @@
+{
+  "candidate_id": "chain.unit_701_inputs_v458",
+  "finished_utc": "2026-09-19T08:16:37.031704+00:00",
+  "forwards": 2,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "col_min": 0.15,
+      "mlp_min": 0.6,
+      "side_min": 0.3,
+      "unit": 701
+    },
+    "candidate_id": "chain.unit_701_inputs_v458",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 3,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "17.0"
+    ],
+    "text_pairs": 43
+  },
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_701_is_a_product_of_two_number_inputs": true,
+    "pred_c_mlp8_feeds_701": false,
+    "pred_d_mlps_feed_701": true,
+    "pred_e_829_column_reads_into_701": true
+  },
+  "report": {
+    "closure_max": 0.00010031001875177026,
+    "text": {
+      "L_mlp_share": 0.7739820222632261,
+      "L_writers_top5": {
+        "embedding": 0.1139051765203476,
+        "mlp10": 0.09745446592569351,
+        "mlp12": 0.1001824289560318,
+        "mlp15": 0.1135191023349762,
+        "mlp16": 0.13016434013843536
+      },
+      "R_mlp_share": 0.8440444971856778,
+      "R_writers_top5": {
+        "mlp10": 0.1290513128042221,
+        "mlp12": 0.09156063944101334,
+        "mlp15": 0.22529824078083038,
+        "mlp16": 0.2794298827648163,
+        "mlp8": 0.07912495732307434
+      },
+      "closure": 0.00010031001875177026,
+      "cos_829_column_with_L": 0.15900090336799622,
+      "cos_829_column_with_R": 0.1288270801305771,
+      "dh_mean": 344.6632995605469,
+      "pairs": 43,
+      "rel_change": {
+        "L": 2.9349000453948975,
+        "R": 1.5426839590072632
+      },
+      "terms": {
+        "L_dR": 0.07300965487957001,
+        "dL_R": 0.2774942219257355,
+        "dL_dR": 0.6494961380958557
+      }
+    },
+    "unit": 701
+  },
+  "schema": "unit_701_inputs_result_v458",
+  "serial_seconds": 1.704205813119188
+}
