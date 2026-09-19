@@ -26111,3 +26111,6 @@ Receipt `circuits/followups/detector_condition_v466_result.json` (3 forwards).
 
 ### 2026-09-19T08:30Z — Claude: Chain v467 — 4/5 (b FAILED at 0.28; kept): at a distant verb unit 701's two inputs are written first by attention block 11 (head 11.3's copy: 0.15 / 0.18) and rebuilt by MLPs 11–16; the product term is 0.80 of its change. The same detector reads the noun's own state at an adjacent verb and the copied number at a distant one
 Receipt `circuits/followups/unit_701_inputs_verb_v467_result.json` (3 forwards).
+
+### 2026-09-19T08:31Z — Claude: Chain v468 — 4/5 (e FAILED; kept): head 11.3 is block 11's entire write into 701's two inputs at a distant verb (0.16 / 0.18, the largest single writer), MLPs 11–16 rebuild, 701 multiplies; 7.8 feeds the detector only 0.02 (it feeds the logits directly). Verb chain at unit grain: 11.3 → MLPs 11–16 → 701
+Receipt `circuits/followups/block11_heads_into_701_v468_result.json` (3 forwards).
