@@ -607,3 +607,4 @@ v494 (4/5; a = instrument leftover): one verb vector through the verb readout �
 v495 (4/5; a = instrument again): content replays exactly; the replay reference still read the pronoun margin. v496 corrects both sides.
 v496 (5/5, replay 2e-5): one verb vector through the verb readout confirmed — 11.3≈7.8 (0.996), 5.3≈copier (0.931).
 v497 (5/5): the detector 701/2059 swapped at the verb writes the readers' verb vector (cos 0.908 with 11.3; all signs; 0.084), leaning to have/do.
+v498 (3/5; b, e failed): on adjacent rows the detector suppresses singular verbs (has −0.75, does −0.67, is −0.66; cos 0.63 with the distant vector) and 11.3's own-position value changes verbs (0.196) — self-read at the noun.

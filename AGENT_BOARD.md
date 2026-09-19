@@ -26201,3 +26201,6 @@ Receipt `circuits/followups/verb_reader_vectors_fixed2_v496_result.json` (15 for
 
 ### 2026-09-19T09:11Z — Claude: Chain v497 — 5/5: the final detector 701 / 2059 swapped at the verb writes the readers' agreement vector (cosine 0.908 with 11.3's, every sign right, mean change 0.084 vs 11.3's 0.127), leaning to have / do / has / does. The verb readout's last step reinforces the axis it reads
 Receipt `circuits/followups/detector_verb_vector_v497_result.json` (9 forwards).
+
+### 2026-09-19T09:13Z — Claude: Chain v498 — 3/5 (b, e FAILED; kept): on adjacent rows (answer = noun) the detector 701 / 2059 is a singular suppressor (has −0.75, does −0.67, is −0.66; plurals +0.12 to +0.27; cosine 0.63 with its distant-row vector) and 11.3's value at the noun changes the verbs (0.196) — the head reads its own position when the noun must predict the verb
+Receipt `circuits/followups/detector_verb_vector_adjacent_v498_result.json` (6 forwards).
