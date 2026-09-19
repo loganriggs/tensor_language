@@ -573,3 +573,4 @@ v462 (4/5; e failed): 701/2059 act at the ANSWER position (0.069 for distant ver
 v463 (4/5; b failed): 701/2059 do nothing at the pronoun slot (−0.002) — a verb-specific final detector; hub units act at the noun only (0.133 vs 0.000 at the answer) for pronouns.
 v464 (2/5): no pronoun final detector in MLP 17 at the answer position (top unit sign constancy 0.52; top-10 0.41). Pronoun readout ends at the value copy; verb readout has 701/2059.
 v465 (4/5; b failed): 701 at the verb reads the copied number (verb readers' values move 0.48 of its contrast, all values 1.03) but its per-row sign is only 0.61 constant — a conditional detector.
+v466 (3/5): 701's change at the verb tracks the agreement margin gap (corr 0.53; positive rows 3.8 vs 2.0 logits); verb expectation adds little (0.23); 2059 agrees in sign on 0.40 of rows — not a twin.

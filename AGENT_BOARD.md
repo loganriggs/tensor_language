@@ -26105,3 +26105,6 @@ Receipt `circuits/followups/mlp17_units_pronoun_answer_v464_result.json` (4 forw
 
 ### 2026-09-19T08:28Z — Claude: Chain v465 — 4/5 (b FAILED; kept): unit 701 at a distant verb reads the copied number — the four verb readers' values move 0.48 of its pooled contrast, + the copier 0.62, all values at the noun 1.03 — but its per-row sign is constant on only 0.61 of rows: a conditional detector. Two gate refusals (undefined names) fixed before the run
 Receipt `circuits/followups/readers_feed_701_v465_result.json` (12 forwards).
+
+### 2026-09-19T08:29Z — Claude: Chain v466 — 3/5 (d 0.23 vs 0.30, e FAILED; kept): 701's change at a distant verb tracks the agreement margin gap across rows (corr 0.53; positive rows 3.8 vs negative rows 2.0 logits), verb expectation adds little (0.23), and 2059's sign agrees with 701's on only 0.40 of rows — a confidence-weighted detector, not a slot detector, and not a twin pair
+Receipt `circuits/followups/detector_condition_v466_result.json` (3 forwards).
