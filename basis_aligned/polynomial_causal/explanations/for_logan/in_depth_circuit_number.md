@@ -316,10 +316,15 @@ head: units **3289** and **624** carry about 30% of it, each about 9% of the loo
 over 224 single tokens both of their factors are nearly constant (coefficient of variation 0.17–0.23; means about ∓20 with opposite
 signs), across contexts both factors track the attention self-share ($|r|$ 0.62–0.79), their write direction points against the
 common component of the lookup table (cos −0.60 / −0.49), and on text their activation tracks $\alpha$ ($r=-0.49/-0.55$). They read
-"a token is here, diluted by this much context", not which token. So the "gain function" hypothesis is right for this head of the
-distribution and wrong as the whole: the other 70% of the cancellation is every lookup unit cancelling its own contribution by a
-token- and context-dependent ratio (median −0.4 to −0.8, interquartile range 0.45–0.78). Open: what the class-structured remainder
-encodes downstream; whether zeroing 3289 + 624 raises $\alpha$ and moves the number margin against random-unit nulls (v305, queued).
+"a token is here, diluted by this much context", not which token. **The edit did not agree (v305).** Zeroing both units at every position
+lowers $\alpha$ slightly (0.335 → 0.321; twelve random pairs move it by ≤ 0.0003) instead of raising it by the ~0.2 the census implied.
+The reason is the same one that sank the term-wise reading in v295, now at unit grain: a unit's cross term and its context² term are
+individually large and cancel inside the unit, so the cross-term census named these two by one of three terms while their *net*
+along-entry write is slightly positive. Folds nominate, edits decide: the "gain unit" label is withdrawn as a causal claim, and the
+remaining 70% "layer-wide ratio" reading inherits the same caveat until a net-per-unit census (v306) and an edit of its head are run.
+What the edit did show: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect
+whose route is not yet named. The mechanism at the level of the whole layer (Fact 4) stands: it was measured on the total write, not
+term by term per unit. Open: what the class-structured remainder encodes downstream; the net per-unit census (v306, queued).
 
 | receipt | question | result |
 |---|---|---|
@@ -341,6 +346,7 @@ encodes downstream; whether zeroing 3289 + 624 raises $\alpha$ and moves the num
 | v302 | does the cancellation hold on text | yes: −0.87, 99.3% negative, saturating from position 8 (4/5) |
 | v303 | few units or all | layer-wide (r −0.96 to −0.99) with a head: 3289 + 624 ≈ 30% (3/5) |
 | v304 | what 3289 / 624 read | token-constant factors × attention self-share: gain units (4/5) |
+| v305 | edit 3289 + 624 | α falls 0.013, not rises: gain-unit label withdrawn; margin +3.4% (2/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

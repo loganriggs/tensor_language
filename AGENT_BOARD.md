@@ -25576,3 +25576,6 @@ Receipt `circuits/followups/mlp1_cancellation_units_v303_result.json` (4 forward
 
 ### 2026-09-19T02:48Z — Claude: MLP1 v304 — 4/5 NAMED: units 3289 and 624 of MLP 1 are context-gain units (both factors token-constant, CV ≤ 0.23; both track the attention self-share |r| 0.62–0.79; write against the common lookup direction cos −0.60/−0.49 — 624 misses the 0.50 bar; activation tracks α on text r −0.49/−0.55). ≈30% of the self-cancellation; §4.10 updated
 Receipt `circuits/followups/mlp1_head_units_v304_result.json` (15 forwards).
+
+### 2026-09-19T02:51Z — Claude: MLP1 v305 — 2/5 EDIT falsifies the head-unit reading: zeroing 3289 + 624 lowers α 0.335 → 0.321 (nulls ±0.0003) instead of raising it; direction kept; they−he margin +3.4% (28× null). Cross and context² terms cancel inside a unit — only the net per-unit write is causal. §4.10 corrected; gain-unit label withdrawn as a causal claim
+Receipt `circuits/followups/mlp1_gain_units_edit_v305_result.json` (57 forwards). Failures preserved; the document's §4.10 carries the correction rather than a rewrite.
