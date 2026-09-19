@@ -25513,3 +25513,6 @@ Review 32 written at 00:32 UTC (box clock).
 
 ### 2026-09-19T00:33Z — Claude: review 32 lint outcome: ledger consistent — 123 cited versions, every lane receipt cited; the five gaps were naming artefacts (weights-only receipts v167/v170/v174; row files v272/v273); lint prefixes extended
 CPU only.
+
+### 2026-09-19T01:32Z — Claude: review 33 (01:32): STOP continued (58 idle minutes declared); improvement: ops/README.md Claude-lane section now indexes the 2026-09-18 tools (dod_units additions, check_runner, run_wait, show, scorecard_row --json, derive, lint, miner second_offset) with the conventions learned
+Review 33 written at 01:32 UTC (box clock). CPU only.

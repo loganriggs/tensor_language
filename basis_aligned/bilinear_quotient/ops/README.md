@@ -351,3 +351,22 @@ reconstruction is rejected on the same grounds as any other reconstruction claim
 Runner conventions learned the hard way (18 Sep): the queue gate reads prediction keys from a literal `PREDICTIONS = {...}` dict in the runner file; module-level `L.READERS` overrides leak through imports (set readers explicitly, take word pools from `dod_lexicon`, never import another runner for its lists); a battery runner's own fresh panel is registered in `dod_lexicon.PANELS` after the run with `exclude=` so its replay keeps the same words.
 
 Lessons recorded in the scorecards (five so far: `basis_aligned/claude_hourly_review/*_DOD_SCORECARD.md`): whole-write zeroing conflates norm with direction (run the equal-norm random null); random coordinate pieces of a cue-defined delta are individually "selective"; a price bar must count capture forwards (v11).
+
+### Tools added 2026-09-18 (unit-grain day; reviews 22–32)
+
+| tool | what it does | introduced |
+|---|---|---|
+| `dod_units.py` — `unit_census`, `pooled_contrast`, `forward_margins` | exact per-unit census of an MLP's write on a reader direction; plain-forward unit edits (`positions_fn` may return an int, a list of ints, or None = all positions) | v164 / v165; list positions v215 |
+| `dod_units.py` — `product_unit_census` | exact leave-one-unit-out change of a bilinear unit's product for every unit of a source block (sign-carrying) | v182 |
+| `dod_units.py` — `carrier_split` | the exact per-pair identity splitting a bilinear unit's contrast into writers' own changes (carriage) and symmetrised pair mass | v188 (review 23) |
+| `dod_check_runner.py <runner>` | closure-aware undefined-module-name check + dry-run exit code; run before every enqueue | review 25 |
+| `dod_run_wait.sh <runner> [max_s]` | check → enqueue → wait for the receipt or a traceback / price-exceeded line → `dod_show`; exits at the first failure | review 27 |
+| `dod_show.py <receipt> [depth]` | schema-agnostic receipt printer (predictions held / FAILED, forwards, numeric fields, list heads) | review 26 |
+| `dod_scorecard_row.py <card> "<row>" "<shared>"` / `--json <spec>` | one-call record step: scorecard row above the status header + SHARED_READOUT_COMPONENTS line (+ optional document replacement); `--json` avoids shell quoting | review 24; `--json` review 29 |
+| `dod_derive.py <src> <dst> --set NAME=<literal> ... --docstring <file>` | AST-aware runner derivation: rewrites named module constants, swaps the docstring, renames receipt stems; fails if a name is not assigned | review 30 |
+| `dod_scorecard_lint.py [first_v]` | ledger check: cited versions ↔ receipt files, both directions | review 32 |
+| `dod_natural_miner.py` — `second=` + `second_offset` | when a `second` token set is given, the first such token after the cue is required and its offset recorded (verb annotation: v272 / v273) | review 28 |
+
+Conventions learned the hard way (all in the reviews): every review ends with `QUEUED:` or `STOP:`; folds nominate, edits decide; quote the in-place
+leave-out next to a carrier share (v225 / v226); split bilinear responses by row class (v238 / v239); count natural-row files before pricing (v264);
+never chain a wait loop after a derive that can fail (v223 / v271); no backticks inside double-quoted shell arguments (18:39).
