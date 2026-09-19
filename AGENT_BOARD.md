@@ -25849,3 +25849,6 @@ Receipt `circuits/followups/site_units_edit_v386_result.json` (48 forwards). Two
 
 ### 2026-09-19T05:57Z — Claude: Number v387 — 5/5 the ten named units on 128 natural rows: margin −11.1% (25× null; six −8.8%; panel −20.2%). Two-site account transfers
 Receipt `circuits/followups/ten_units_edit_natural_v387_result.json` (28 forwards).
+
+### 2026-09-19T06:00Z — Claude: Number v388 — 5/5 readers' key split under the ten-unit cut: 9.6 −25.1k (0.40 noun key / 0.60 other; the site units' extra loss lands on other keys), 12.4 −9.1k (0.91 other). The two sites map onto the readers' two keys. Logan's template-contraction direction saved to memory; v389 starts it
+Receipt `circuits/followups/reader_key_split_ten_v388_result.json` (6 forwards).
