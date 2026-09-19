@@ -26091,3 +26091,6 @@ Receipt `circuits/followups/late_units_edit_v460_result.json` (10 forwards).
 
 ### 2026-09-19T08:21Z — Claude: Chain v461 — 4/5 (b FAILED; kept): hub units 829 / 953 / 1030 (0.114) and late units 701 / 2059 (0.079) swapped together close 0.179 of the adjacent-verb margin — nearly additive (nesting cost 0.014): on the direct path the early hub and the late detector are parallel contributions, not a relay chain
 Receipt `circuits/followups/hub_and_late_units_v461_result.json` (8 forwards).
+
+### 2026-09-19T08:22Z — Claude: Chain v462 — 4/5 (e FAILED; kept): for distant verbs MLP 17's units 701 / 2059 act at the ANSWER position (0.069 of the agreement margin; 0.000 at the noun) — a position-local final detector fed by the copied number; the hub units act at the noun (0.046) more than at the answer (0.031). The direct and copied paths share the last step
+Receipt `circuits/followups/late_units_position_v462_result.json` (15 forwards).
