@@ -25843,3 +25843,6 @@ Receipt `circuits/followups/factor_writers_829_next_token_v384_result.json` (3 f
 
 ### 2026-09-19T05:42Z — Claude: Number v385 — 5/5 post-noun site units into 829: relays 1036 / 2483 / 1779 again in their layers' top two, plus site-specific 3661 (MLP 4), 715 (MLP 5), 69 (MLP 6, the v240s verb-site unit), 834 (MLP 7). v386 edits the site-specific four
 Receipt `circuits/followups/mlp4567_units_into_829_next_token_v385_result.json` (3 forwards).
+
+### 2026-09-19T05:55Z — Claude: Number v386 — 5/5 post-noun site units {3661, 715, 69, 834} zeroed: margin −3.6% (20× null); with the six-unit chain, ten units −20.2% (additive). Process: a bare until-loop on the result file idled 10 min while the gate refused (duplicate BATCH from a derive leftover) — use the fail-fast waiter only
+Receipt `circuits/followups/site_units_edit_v386_result.json` (48 forwards). Two gate refusals (duplicate BATCH, inherited PHRASE line) and a 10-minute idle wait on a never-produced file preceded it.
