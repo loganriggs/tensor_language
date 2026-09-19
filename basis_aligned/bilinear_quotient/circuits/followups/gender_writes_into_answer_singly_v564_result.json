@@ -1,0 +1,86 @@
+{
+  "candidate_id": "gender.writes_into_answer_singly_v564",
+  "finished_utc": "2026-09-19T11:22:47.357396+00:00",
+  "forwards": 12,
+  "plan": {
+    "bars": {
+      "band": 0.1,
+      "joint_v563": 0.878,
+      "min96": 0.1,
+      "replay_tol": 0.001,
+      "small": 0.05,
+      "unit": 701
+    },
+    "candidate_id": "gender.writes_into_answer_singly_v564",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 13,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 61
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_10_1_writes_most": false,
+    "pred_c_singles_add": true,
+    "pred_d_10_5_small": true,
+    "pred_e_9_6_writes": true
+  },
+  "report": {
+    "panel": {
+      "rows": 61,
+      "skipped": "pronoun slot, natural pairs"
+    },
+    "replay_max_abs": 1.430511474609375e-05,
+    "text": {
+      "contrast_mean": -0.29676592350006104,
+      "margin_closed": {
+        "10.1": 0.18734478950500488,
+        "10.5": 0.02354159578680992,
+        "12.4": 0.3108510971069336,
+        "15.1": 0.10050837695598602,
+        "9.6": 0.18252193927764893
+      },
+      "moved": {
+        "10.1": 1.5150095224380493,
+        "10.5": -0.4913165867328644,
+        "12.4": 1.3209619522094727,
+        "15.1": 1.4321585893630981,
+        "9.6": 1.5003405809402466
+      },
+      "pairs": 61,
+      "sign_constancy": 0.5901639461517334,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": -0.29676592350006104,
+      "margin_closed": {
+        "10.1": 0.18734478950500488,
+        "10.5": 0.02354159578680992,
+        "12.4": 0.3108510971069336,
+        "15.1": 0.10050837695598602,
+        "9.6": 0.18252193927764893
+      },
+      "moved": {
+        "10.1": 1.5150095224380493,
+        "10.5": -0.4913165867328644,
+        "12.4": 1.3209619522094727,
+        "15.1": 1.4321585893630981,
+        "9.6": 1.5003405809402466
+      },
+      "pairs": 61,
+      "sign_constancy": 0.5901639461517334,
+      "unit": 701
+    }
+  },
+  "schema": "gender_writes_into_answer_singly_result_v564",
+  "serial_seconds": 2.044668247923255
+}

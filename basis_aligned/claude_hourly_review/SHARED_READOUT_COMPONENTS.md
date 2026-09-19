@@ -672,3 +672,4 @@ v538 (5/5): write-side verb census complete — 11.3 0.238, 5.3 0.113, 7.8 0.108
 - GENDER DIRECT TOKEN TERM (v561): final rms 3025; without the λ chain the term is 1% of the edit. Chain applied in v562.
 - GENDER DIRECT TERM (v562): with pattern sign, rms and λ chain the readers' direct token write is ~2% of their edit effect. Relay vs instrument: v563 (writes into the answer).
 - GENDER READERS' WRITES INTO THE ANSWER (v563): five heads 0.878, rest of blocks 0.001, all attention 1.042. Both ends of the gender readout closed by edit (values at the noun 0.60; writes into the answer 0.88).
+- GENDER WRITES INTO THE ANSWER SINGLY (v564): 12.4 0.311, 10.1 0.187, 9.6 0.183, 15.1 0.101, 10.5 0.024 (sum 0.806 of joint 0.878).
