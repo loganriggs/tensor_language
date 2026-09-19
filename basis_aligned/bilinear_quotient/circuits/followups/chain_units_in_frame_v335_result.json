@@ -1,0 +1,98 @@
+{
+  "candidate_id": "pronoun_number.chain_units_in_frame_v335",
+  "finished_utc": "2026-09-19T03:57:38.660241+00:00",
+  "forwards": 2,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.0001,
+      "sharpen": 1.3,
+      "silent": 1.0
+    },
+    "candidate_id": "pronoun_number.chain_units_in_frame_v335",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 4,
+    "frame": "The X",
+    "gpu_accessed": false,
+    "groups": {
+      "plural": 256,
+      "singular": 256
+    },
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "tokens": 512,
+    "units": {
+      "3": [
+        3465,
+        493
+      ],
+      "5": [
+        1036
+      ],
+      "8": [
+        829,
+        953,
+        1030
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_context_sharpens_3465": true,
+    "pred_c_context_sharpens_every_surviving_unit": false,
+    "pred_d_953_1030_stay_silent": true,
+    "pred_e_plural_side_fraction_rises": true
+  },
+  "report": {
+    "closure_max": 0.0,
+    "per_unit_by_size": {
+      "mlp3.3465": {
+        "256": {
+          "gap_over_std": -3.792765839482686,
+          "plural_side_fraction": 0.99609375
+        }
+      },
+      "mlp3.493": {
+        "256": {
+          "gap_over_std": 2.994138592806922,
+          "plural_side_fraction": 1.0
+        }
+      },
+      "mlp5.1036": {
+        "256": {
+          "gap_over_std": 2.3720339092409763,
+          "plural_side_fraction": 0.9765625
+        }
+      },
+      "mlp8.1030": {
+        "256": {
+          "gap_over_std": 0.03303735982571481,
+          "plural_side_fraction": 0.5390625
+        }
+      },
+      "mlp8.829": {
+        "256": {
+          "gap_over_std": 3.0111744888179746,
+          "plural_side_fraction": 0.984375
+        }
+      },
+      "mlp8.953": {
+        "256": {
+          "gap_over_std": -0.0030133485010471733,
+          "plural_side_fraction": 0.50390625
+        }
+      }
+    },
+    "sharpening_vs_v333": {
+      "mlp3.3465": 1.4700642788692582,
+      "mlp3.493": 1.1298636199271406,
+      "mlp5.1036": 1.1801163727567048,
+      "mlp8.1030": 0.8259339956428703,
+      "mlp8.829": 1.7108945959193038,
+      "mlp8.953": 0.05022247501745289
+    }
+  },
+  "schema": "chain_units_in_frame_result_v335",
+  "serial_seconds": 1.6355283700395375
+}

@@ -367,7 +367,10 @@ above are the clean case of a broader, noisier vocabulary effect. In context, on
 by 2.8–7.3 pooled standard deviations with every aligned pair in agreement — 3465 at −7.3 against −4.2 from the token alone, so context
 sharpens the noun-position reading — and none of them carries the number to the answer position (all below 1 std there; 3465 and 953 leave a
 faint echo with 98% / 96% pair-sign consistency). They are noun-position detectors; the number reaches the final token by attention reading the
-noun state, as the earlier sections say, and the single-token pronoun breadth of 1036 / 829 plays no part on these rows.
+noun state, as the earlier sections say, and the single-token pronoun breadth of 1036 / 829 plays no part on these rows. One context token is enough
+(v335): read after "The", the 256 vocabulary pairs separate near-perfectly on the four lexical units — 3465 −3.8, 493 +3.0, 1036 +2.4, 829 +3.0
+pooled std, 98–100% of plurals on the plural side, ×1.1–1.7 the token-alone gaps — while 953 and 1030 stay at zero. Context sharpens the
+detectors MLP 1 feeds; it does not create detection where the lexical signal is absent.
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -460,6 +463,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v332 | single tokens up the chain (3465, 493, 1036, 829, 953, 1030) | all separate (1.5–5.4 std), no sharpening (1.03×); breadth grows to pronouns / numerals at MLP 5–8 (4/5) |
 | v333 | 400 vocabulary s-pairs, 4→256 | 3465 / 493 / 1036 / 829 keep 2–3 std; 953 / 1030 lose it; lexicon bars too strict (1/5) |
 | v334 | native rows: noun vs final position | noun 2.8–7.3 std (100% pairs); final < 1 std for all (faint echo 3465 / 953) (2/5) |
+| v335 | 256 vocabulary pairs after "The" | 3465 −3.8, 493 +3.0, 1036 +2.4, 829 +3.0 (98–100%); 953 / 1030 zero (4/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

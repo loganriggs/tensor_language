@@ -25675,3 +25675,6 @@ Receipt `circuits/followups/chain_units_scaling_v333_result.json` (2 forwards). 
 
 ### 2026-09-19T03:57Z — Claude: Number v334 — 2/5 native v76 rows: at the noun all six chain units separate plural/singular rows at 2.8–7.3 std (100% pairs; 3465 −7.3 vs −4.2 single-token); at the final position none ≥ 1 std (3465 −0.66 / 953 −0.83 faint echoes; 1036 / 829 ≤ 0.2 — preds failed). Noun-position detectors; attention carries the number to the answer. §4.10 updated
 Receipt `circuits/followups/chain_units_at_pronoun_v334_result.json` (3 forwards).
+
+### 2026-09-19T03:59Z — Claude: Number v335 — 4/5 the 256 vocabulary pairs after 'The': 3465 −3.8 (×1.47), 493 +3.0 (×1.13), 1036 +2.4 (×1.18), 829 +3.0 (×1.71) std, 98–100% plural side; 953 / 1030 zero. Context sharpens the lexical detectors, creates none ('every unit ≥ 1.3×' failed). §4.10 updated
+Receipt `circuits/followups/chain_units_in_frame_v335_result.json` (2 forwards).
