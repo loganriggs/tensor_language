@@ -26294,3 +26294,6 @@ Receipt `circuits/followups/block9_two_templates_v524_result.json` (4 forwards; 
 
 ### 2026-09-19T10:04Z — Claude: Template v525 — 4/5 (d FAILED; kept): over all 162 heads the pronoun template's top 10 holds all five pronoun readers (ranks 1–7) and the agreement template's top 10 holds 11.3, 7.8, 13.1, 5.3 (9.7 at 12); the lists share six heads — the copier 4.5, early exits 2.6 / 3.4, and cross-scoring readers. Weights alone recover the edit census for both readouts
 Receipt `circuits/followups/templates_all_heads_v525_result.json` (4 forwards).
+
+### 2026-09-19T10:05Z — Claude: Template v526 — 4/5 (d FAILED; kept): the pronoun-minus-agreement template score ranks the five pronoun readers 1–6 and 11.3 / 7.8 / 5.3 at 162 / 161 / 160 of 162, separating the two sets completely; the shared upstream splits by axis (4.5, 3.4 pronoun-leaning; 2.6 verb-leaning). 1.2 / 0.3 / 5.6 are template false positives to edit
+Receipt `circuits/followups/templates_difference_v526_result.json` (4 forwards).
