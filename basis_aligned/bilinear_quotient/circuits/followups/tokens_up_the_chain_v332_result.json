@@ -1,0 +1,125 @@
+{
+  "candidate_id": "pronoun_number.tokens_up_the_chain_v332",
+  "finished_utc": "2026-09-19T03:51:31.529709+00:00",
+  "forwards": 1,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.0001,
+      "gap_std": 1.0,
+      "grow_max": 1.5,
+      "near": 0.25,
+      "replay": 0.05
+    },
+    "candidate_id": "pronoun_number.tokens_up_the_chain_v332",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 3,
+    "gpu_accessed": false,
+    "groups": {
+      "irregular_plural": 7,
+      "numerals": 20,
+      "plural": 64,
+      "plural_pronouns": 6,
+      "singular": 64
+    },
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "tokens": 161,
+    "units": {
+      "3": [
+        3465,
+        493
+      ],
+      "5": [
+        1036
+      ],
+      "8": [
+        829,
+        953,
+        1030
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_3465_replays": true,
+    "pred_c_every_named_unit_separates_from_the_token_alone": true,
+    "pred_d_separation_does_not_grow_up_the_chain": true,
+    "pred_e_numerals_and_pronouns_ignored_everywhere": false
+  },
+  "report": {
+    "closure_max": 0.0,
+    "mlp8_over_3465_gap_ratio": 1.031538354455263,
+    "per_unit": {
+      "mlp3.3465": {
+        "axis": {
+          "irregular_plural": 0.8547852039337158,
+          "numerals": -0.09368102997541428,
+          "plural_pronouns": -0.06398077309131622
+        },
+        "gap_over_std": -4.2189064900576785,
+        "plural_median": -431.8181457519531,
+        "plural_side_fraction": 1.0,
+        "singular_median": -36.75456237792969
+      },
+      "mlp3.493": {
+        "axis": {
+          "irregular_plural": 0.4917726218700409,
+          "numerals": -0.1092301607131958,
+          "plural_pronouns": -0.0280974842607975
+        },
+        "gap_over_std": 3.8019687595592915,
+        "plural_median": 392.9724426269531,
+        "plural_side_fraction": 1.0,
+        "singular_median": 6.844968795776367
+      },
+      "mlp5.1036": {
+        "axis": {
+          "irregular_plural": 0.6234687566757202,
+          "numerals": 0.18582841753959656,
+          "plural_pronouns": 0.48710450530052185
+        },
+        "gap_over_std": 5.402602676492713,
+        "plural_median": 11.621703147888184,
+        "plural_side_fraction": 1.0,
+        "singular_median": 0.4319966435432434
+      },
+      "mlp8.1030": {
+        "axis": {
+          "irregular_plural": 0.31841224431991577,
+          "numerals": -0.4976939558982849,
+          "plural_pronouns": -0.5018784403800964
+        },
+        "gap_over_std": 1.4797244543782262,
+        "plural_median": 48.21220397949219,
+        "plural_side_fraction": 0.78125,
+        "singular_median": 15.999716758728027
+      },
+      "mlp8.829": {
+        "axis": {
+          "irregular_plural": 0.7336767911911011,
+          "numerals": -0.04802447184920311,
+          "plural_pronouns": 0.4607815444469452
+        },
+        "gap_over_std": 4.351963858354727,
+        "plural_median": 37.77665710449219,
+        "plural_side_fraction": 1.0,
+        "singular_median": 1.9234153032302856
+      },
+      "mlp8.953": {
+        "axis": {
+          "irregular_plural": 0.9640330076217651,
+          "numerals": 1.0241481065750122,
+          "plural_pronouns": 0.952545702457428
+        },
+        "gap_over_std": -2.1001648119357044,
+        "plural_median": -0.22466576099395752,
+        "plural_side_fraction": 1.0,
+        "singular_median": 19.530704498291016
+      }
+    }
+  },
+  "schema": "tokens_up_the_chain_result_v332",
+  "serial_seconds": 1.5898285920266062
+}

@@ -355,7 +355,12 @@ people, feet, teeth, mice) score 85% of the regular-plural position, -s adverbs 
 (they, we, these, those) nothing — the pronoun's own number is not this unit's business — while are / were sit a fifth of the way to plural and
 -s verbs 41% — which v331 resolves: -s verbs that are also plural nouns (runs, walks, looks, needs, works, plays, calls, turns) score fully
 plural (1.13; every one in the plural-noun range), unambiguous -s verbs (seems, becomes, does, has, wants, knows, goes, says) 0.09, mass nouns
-−0.11 and collective nouns +0.03. The unit reads the token's lexical plural-noun sense: form with sense, not form alone and not sense alone.
+−0.11 and collective nouns +0.03. The unit reads the token's lexical plural-noun sense: form with sense, not form alone and not sense alone. The same single-token fold
+carried up the chain (v332, blocks 0–8) finds every named unit already separating plural from singular nouns from the token alone — 493
+(+3.8 std), 1036 of MLP 5 (+5.4), 829 (+4.4), 953 (−2.1) and 1030 (+1.5) of MLP 8, five of six with every plural on the plural side — and at the
+same strength as 3465 (the MLP-8 maximum is 1.03× its gap). The chain does not sharpen lexical number; it adds context (the copy to the
+pronoun). What grows is breadth: 3465 / 493 read plural-noun sense only, 1036 and 829 also give plural pronouns half the axis, and 953
+treats numerals and pronouns as plural outright.
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -445,6 +450,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v329 | single tokens → unit 3465 (blocks 0–3 folded) | plural −432 vs singular −37 (4.2 std, 100%); numerals ≈ 0; "one" singular side (4/5) |
 | v330 | more classes → 3465 | irregular plurals 0.85 of the axis; -s adverbs −0.08; plural pronouns −0.06; -s verbs 0.41 (4/5) |
 | v331 | -s verbs split; mass / collective nouns → 3465 | noun-reading -s verbs 1.13, verb-only 0.09; mass −0.11, collective +0.03 (5/5) |
+| v332 | single tokens up the chain (3465, 493, 1036, 829, 953, 1030) | all separate (1.5–5.4 std), no sharpening (1.03×); breadth grows to pronouns / numerals at MLP 5–8 (4/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

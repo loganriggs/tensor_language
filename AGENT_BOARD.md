@@ -25666,3 +25666,6 @@ Receipt `circuits/followups/more_tokens_into_3465_v330_result.json` (1 forward).
 
 ### 2026-09-19T03:51Z — Claude: Number v331 — 5/5 unit 3465 from single tokens: -s verbs with a plural-noun reading score 1.13 of the singular→plural axis (all eight in the plural-noun range), verb-only -s tokens 0.09, mass nouns −0.11, collective nouns +0.03. A lexical plural-noun detector (form with sense). §4.10 updated
 Receipt `circuits/followups/s_verbs_into_3465_v331_result.json` (1 forward).
+
+### 2026-09-19T03:53Z — Claude: Number v332 — 4/5 single tokens through blocks 0–8: all six named chain units separate plural from singular nouns from the token alone (3465 −4.2, 493 +3.8, 1036 +5.4, 829 +4.4, 953 −2.1, 1030 +1.5 std), no sharpening up the chain (1.03×); breadth grows — 1036/829 read plural pronouns ≈ 0.5, 953 reads numerals/pronouns ≈ 1.0 ('ignored everywhere' failed). §4.10 updated
+Receipt `circuits/followups/tokens_up_the_chain_v332_result.json` (1 forward).
