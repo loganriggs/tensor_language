@@ -1,0 +1,94 @@
+{
+  "candidate_id": "chain.panel_detector_units_v513",
+  "finished_utc": "2026-09-19T09:36:55.875369+00:00",
+  "forwards": 12,
+  "plan": {
+    "bars": {
+      "band": 0.02,
+      "det_max": -0.03,
+      "hub_v423": 0.091,
+      "m17_v512": 0.115,
+      "random_max": 0.01,
+      "replay_tol": 0.001,
+      "share": [
+        0.2,
+        0.9
+      ]
+    },
+    "candidate_id": "chain.panel_detector_units_v513",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 13,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_detector_units_oppose_the_panel_pronoun_margin": false,
+    "pred_c_random_units_do_not": true,
+    "pred_d_detector_is_a_share_of_mlp17": false,
+    "pred_e_hub_units_at_the_noun_replay": false
+  },
+  "report": {
+    "panel": {
+      "skipped": "verb slot only (price)",
+      "verb_slot_rows": 79
+    },
+    "replay_max_abs": 9.059906005859375e-06,
+    "text": {
+      "closed": {
+        "DET_A": {
+          "are_is": 0.00041892670560628176,
+          "verb": -0.0017147705657407641
+        },
+        "HUB_N": {
+          "are_is": 0.1366250067949295,
+          "verb": 0.13258418440818787
+        },
+        "RANDOM_A": {
+          "are_is": 0.00040810913196764886,
+          "verb": 0.00018561196338851005
+        }
+      },
+      "gap_mean": {
+        "are_is": 0.8259225487709045,
+        "verb": 0.9060161113739014,
+        "were_was": -0.08009359240531921
+      },
+      "pairs": 79
+    },
+    "verb_slot": {
+      "closed": {
+        "DET_A": {
+          "are_is": 0.00041892670560628176,
+          "verb": -0.0017147705657407641
+        },
+        "HUB_N": {
+          "are_is": 0.1366250067949295,
+          "verb": 0.13258418440818787
+        },
+        "RANDOM_A": {
+          "are_is": 0.00040810913196764886,
+          "verb": 0.00018561196338851005
+        }
+      },
+      "gap_mean": {
+        "are_is": 0.8259225487709045,
+        "verb": 0.9060161113739014,
+        "were_was": -0.08009359240531921
+      },
+      "pairs": 79
+    }
+  },
+  "schema": "panel_detector_units_result_v513",
+  "serial_seconds": 2.0067683139350265
+}

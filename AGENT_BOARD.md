@@ -26252,3 +26252,6 @@ Receipt `circuits/followups/panel_early_mlps_answer_v511_result.json` (12 forwar
 
 ### 2026-09-19T09:36Z — Claude: Chain v512 — 5/5: on the panel MLP 17 alone at the answer closes −0.115 of the pronoun margin (opposes); MLPs 9–17 0.022 vs 9–16 0.092; 1–17 0.035 (replays). The verb-side late write (the block of the detector 701 / 2059) leaks into the panel's pronoun slot, which sits before a verb; on natural text MLP 17 is neutral
 Receipt `circuits/followups/panel_mlp17_answer_v512_result.json` (15 forwards).
+
+### 2026-09-19T09:37Z — Claude: Chain v513 — 2/5 (instrument: the study call was not re-targeted to the panel, so it re-measured the natural pronoun slot — 701 / 2059 −0.002, random 0.000, hub 0.133, all replays of v463); the panel question is re-run as v514
+Receipt `circuits/followups/panel_detector_units_v513_result.json` (12 forwards).
