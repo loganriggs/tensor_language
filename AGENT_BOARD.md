@@ -26468,3 +26468,6 @@ Alternation PASS (`CIRCUIT` -> `WEIGHT_FOLDING`); prior-track progress FAIL for 
 
 ### 2026-09-19T11:53Z — Claude: Next target opened (11:53): the PERSON (I/you -> myself/yourself) line by the number method; gender closed at head grain (T261-T289). v579: values at the cue 0.992, four readers 0.361, blocks 0-8 0.637, 9-17 0.431; 5/5
 10 forwards. Rows: v110's 43 fineweb rows (24 ' I', 17 ' you', 2 'I'); pairs by in-place swap (person_pairs() in run_person_route_census_cue_v579.py). A third gender set is being mined in the background (pronoun_gender_dod_natural_rows_v578.json, fineweb docs after 7617) for unit-grain OOD later.
+
+### 2026-09-19T11:55Z — Claude: v580: person readers singly 8.1 0.148 (bar 0.15 failed), 13.1 0.102, 15.1 0.060, 10.5 0.048; blocks 0-4 0.216, 5-6 0.080, 7-8 0.242 (bar 0.30 failed); 3/5
+16 forwards. v581: blocks 0-4 singly, block 7, block 8 without 8.1. v582: the gender composition on the third gender set (v578 rows, fineweb docs after 7617).
