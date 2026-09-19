@@ -26037,3 +26037,6 @@ Receipt `circuits/followups/copier_non_family_v442_result.json` (21 forwards). T
 
 ### 2026-09-19T07:49Z — Claude: Both-ends v443 — 4/5 (b FAILED; kept): at the natural rows' verb slot the copier 4.5's value swap moves the agreement verbs with all eight signs as predicted (are / were / have / do up, is / does / has / was down; top movers were / are / aren / was / weren) — the copier feeds the verb readout on text too; its non-pronoun output at the pronoun slot is small and diffuse (plural-marked 0.20)
 Receipt `circuits/followups/copier_plural_marking_v443_result.json` (24 forwards).
+
+### 2026-09-19T07:50Z — Claude: Chain v444 — 4/5 (d FAILED; kept): MLP 8's units 829 / 953 / 1030 at the noun feed both readouts — their swap writes the readers' pronoun lemma vector (cos 0.991) and the copier's verb vector (cos 0.996), with a larger verb effect than the copier (0.153 vs 0.116); the five readers move the agreement verbs at the verb slot too (0.63× the copier): they copy number to the answer slot, whatever it is
+Receipt `circuits/followups/units_two_readouts_v444_result.json` (32 forwards).
