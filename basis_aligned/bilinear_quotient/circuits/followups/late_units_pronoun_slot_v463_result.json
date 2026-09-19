@@ -1,0 +1,98 @@
+{
+  "candidate_id": "chain.late_units_pronoun_slot_v463",
+  "finished_utc": "2026-09-19T08:23:10.021295+00:00",
+  "forwards": 15,
+  "plan": {
+    "bars": {
+      "band": 0.02,
+      "hub_a_max": 0.05,
+      "hub_v423": 0.124,
+      "late_min": 0.03,
+      "random_max": 0.01,
+      "replay_tol": 0.001
+    },
+    "candidate_id": "chain.late_units_pronoun_slot_v463",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 21,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_late_units_serve_the_pronoun_slot": false,
+    "pred_c_random_units_do_not": true,
+    "pred_d_hub_units_at_the_answer_small": true,
+    "pred_e_hub_units_at_the_noun_replay": true
+  },
+  "report": {
+    "panel": {
+      "skipped": "verb slot only (price)",
+      "verb_slot_rows": 79
+    },
+    "replay_max_abs": 9.059906005859375e-06,
+    "text": {
+      "closed": {
+        "HUB_A": {
+          "are_is": 0.009458467364311218,
+          "verb": 7.503786036977544e-05
+        },
+        "HUB_N": {
+          "are_is": 0.1366250067949295,
+          "verb": 0.13258418440818787
+        },
+        "LATE_A": {
+          "are_is": 0.00041892670560628176,
+          "verb": -0.0017147705657407641
+        },
+        "RANDOM_A": {
+          "are_is": 0.00040810913196764886,
+          "verb": 0.00018561196338851005
+        }
+      },
+      "gap_mean": {
+        "are_is": 0.8259225487709045,
+        "verb": 0.9060161113739014,
+        "were_was": -0.08009359240531921
+      },
+      "pairs": 79
+    },
+    "verb_slot": {
+      "closed": {
+        "HUB_A": {
+          "are_is": 0.009458467364311218,
+          "verb": 7.503786036977544e-05
+        },
+        "HUB_N": {
+          "are_is": 0.1366250067949295,
+          "verb": 0.13258418440818787
+        },
+        "LATE_A": {
+          "are_is": 0.00041892670560628176,
+          "verb": -0.0017147705657407641
+        },
+        "RANDOM_A": {
+          "are_is": 0.00040810913196764886,
+          "verb": 0.00018561196338851005
+        }
+      },
+      "gap_mean": {
+        "are_is": 0.8259225487709045,
+        "verb": 0.9060161113739014,
+        "were_was": -0.08009359240531921
+      },
+      "pairs": 79
+    }
+  },
+  "schema": "late_units_pronoun_slot_result_v463",
+  "serial_seconds": 2.10806518397294
+}

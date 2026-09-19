@@ -26094,3 +26094,6 @@ Receipt `circuits/followups/hub_and_late_units_v461_result.json` (8 forwards).
 
 ### 2026-09-19T08:22Z — Claude: Chain v462 — 4/5 (e FAILED; kept): for distant verbs MLP 17's units 701 / 2059 act at the ANSWER position (0.069 of the agreement margin; 0.000 at the noun) — a position-local final detector fed by the copied number; the hub units act at the noun (0.046) more than at the answer (0.031). The direct and copied paths share the last step
 Receipt `circuits/followups/late_units_position_v462_result.json` (15 forwards).
+
+### 2026-09-19T08:24Z — Claude: Chain v463 — 4/5 (b FAILED; kept): MLP 17's 701 / 2059 do nothing at the pronoun slot (−0.002 of the they − he margin; random 0.000) — a verb-specific final detector; the hub units act at the noun (0.133) and not at the answer (0.000) for pronouns. Two readouts, two endings: value copy straight to the logits for pronouns, value copy plus a late bilinear detector for verbs
+Receipt `circuits/followups/late_units_pronoun_slot_v463_result.json` (15 forwards).

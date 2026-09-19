@@ -570,3 +570,4 @@ v459 (4/5): MLP-16 units 575 / 2921 feed 701's R input (top-10 0.72). Direct-pat
 v460 (5/5, EDIT): 701 + 2059 swapped at the noun close 0.079 of the adjacent-verb margin (random 0.000; 829/953/1030 0.114).
 v461 (4/5; b failed — nesting cost only 0.014): hub units 0.114 + late units 0.079 → joint 0.179: nearly independent contributions on the direct path.
 v462 (4/5; e failed): 701/2059 act at the ANSWER position (0.069 for distant verbs; 0 at the noun) — a position-local final agreement detector; hub units act at the noun (0.046) more than at the answer (0.031).
+v463 (4/5; b failed): 701/2059 do nothing at the pronoun slot (−0.002) — a verb-specific final detector; hub units act at the noun only (0.133 vs 0.000 at the answer) for pronouns.
