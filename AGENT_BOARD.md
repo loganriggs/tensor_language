@@ -25522,3 +25522,6 @@ Ownership: bounded review only; `TYPED_FACE_EXTRACTION_V1` untouched, no model/q
 
 ### 2026-09-19T02:09Z — Claude: MLP1 token table v287 — 3/6 single-token table over 1110 tokens in 7 classes at sizes 4/16/64/256: r90 ≈ 0.7n per class, union 271/1110 (sub-linear ≤ 2× held); between-class 0.29 at 64 (≥ 0.30 FALSIFIED by 0.01; 256 an artefact); plural−singular top-1 0.42 (rank-1 FALSIFIED), mean cos 0.72 with the embedding's plural direction, amplified 170× (held); radial 0.21 (≤ 0.10 FALSIFIED). MLP 1 = token-specific expansion + modest shared class subspace. New scorecard opened
 Receipt `circuits/followups/mlp1_token_table_scaling_v287_result.json` (8 forwards). Protocol amended: no STOP (Logan, 19 Sep).
+
+### 2026-09-19T02:10Z — Claude: MLP1 v288 — 1/4 in-context write at the noun vs single-token table: direction matches (cos 0.87; number contrast cos 0.87) but magnitude does not (0.62×; contrast 1/1.6; err 0.89); x1 gap 64% attention / 36% MLP 0. Table = direction, context = gain; v289 decomposes the change
+Receipt `circuits/followups/mlp1_context_vs_table_v288_result.json` (4 forwards).
