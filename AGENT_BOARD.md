@@ -25555,3 +25555,6 @@ Receipt `circuits/followups/mlp1_split_into_3465_v296_result.json` (4 forwards).
 
 ### 2026-09-19T02:33Z — Claude: MLP1 v297 — 5/5 OOD on 2,944 natural positions: α tracks the own-key attention share (r 0.65; word tokens 0.72; median gap 0.09), cos(write, table) 0.64. The self-share law holds on natural text
 Receipt `circuits/followups/mlp1_self_share_law_natural_v297_result.json` (8 forwards).
+
+### 2026-09-19T02:36Z — Claude: MLP1 v298 — 1/5 no single head sets the gain: per-head self-only pattern edits move α ≤ 0.15 (1.1 +0.15, 0.3 −0.08), non-additive (sum ≈ 0 vs joint 0.66); ALL heads self-only gives α = 1.00 exactly (write = table entry). Run 1 void (hook returned [B,T,H,D]; preserved as VOID file); run 2 is the receipt
+Receipts `circuits/followups/mlp1_self_share_heads_v298_result.json` (23 forwards) and the void run 1 (23 forwards wasted on an instrument bug).
