@@ -1,0 +1,65 @@
+{
+  "candidate_id": "pronoun_number.next_token_number_writers_v383",
+  "finished_utc": "2026-09-19T05:38:50.672609+00:00",
+  "forwards": 3,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "emb_max": 0.1,
+      "mlp_min": 0.2,
+      "native_m": 2.0481,
+      "writer_tol": 0.001
+    },
+    "candidate_id": "pronoun_number.next_token_number_writers_v383",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 5,
+    "gpu_accessed": false,
+    "head": "9.6",
+    "key": "noun+1",
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117"
+  },
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_writer_closure": true,
+    "pred_c_attention_4_leads_at_the_next_token": false,
+    "pred_d_mlps_at_next_token_secondary": true,
+    "pred_e_embedding_small_at_next_token": true
+  },
+  "report": {
+    "closure_margin_gap": 4.1226172447395015e-05,
+    "embedding": -0.00010039302986247947,
+    "largest": "mlp8",
+    "mlps5_8": 0.8092309417340338,
+    "value_contrast_total": 352696.78125,
+    "writer_closure": 7.800890102771518e-07,
+    "writer_shares": {
+      "attn0": -4.3386379438904794e-07,
+      "attn1": 0.00016493305097655149,
+      "attn2": 0.001403555249897287,
+      "attn3": 0.0026231486523547094,
+      "attn4": 0.03384695728811673,
+      "attn5": 0.020939924150941622,
+      "attn6": 0.00039749858694796,
+      "attn7": -0.0057178519225570615,
+      "attn8": 0.010406242659793553,
+      "attn9": 0.0,
+      "embedding": -0.00010039302986247947,
+      "mlp0": 2.8352447275222335e-05,
+      "mlp1": 0.0012629094634903281,
+      "mlp2": 0.011934324262864959,
+      "mlp3": 0.013936414718219802,
+      "mlp4": 0.09964351017875925,
+      "mlp5": 0.08373766214020417,
+      "mlp6": 0.11872954211642667,
+      "mlp7": 0.09797134968183098,
+      "mlp8": 0.5087923877955719
+    }
+  },
+  "schema": "next_token_number_writers_result_v383",
+  "serial_seconds": 1.6609821419697255
+}

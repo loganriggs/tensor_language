@@ -25834,3 +25834,6 @@ Receipt `circuits/followups/reader_key_split_v381_result.json` (6 forwards).
 
 ### 2026-09-19T05:38Z — Claude: Number v382 — 5/5 readers' key positions: 9.6 reads the noun (46.8k) and the next token (48.7k) equally; 12.4 mostly the next token (32.3k) and the verb phrase; nothing before the noun; the chain cut removes number at both. §4.8 pointer added
 Receipt `circuits/followups/reader_key_positions_v382_result.json` (6 forwards).
+
+### 2026-09-19T05:39Z — Claude: Number v383 — 3/5 number at the noun+1 key as 9.6 reads it: MLP 8 0.51, MLPs 4–7 0.40, attention 4 0.03 ('attention 4 leads' failed). The post-noun number is re-derived by the MLPs at that position, not read from the copier's residual write. v384 folds MLP 8's unit there by writer
+Receipt `circuits/followups/next_token_number_writers_v383_result.json` (3 forwards).
