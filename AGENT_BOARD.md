@@ -25678,3 +25678,6 @@ Receipt `circuits/followups/chain_units_at_pronoun_v334_result.json` (3 forwards
 
 ### 2026-09-19T03:59Z — Claude: Number v335 — 4/5 the 256 vocabulary pairs after 'The': 3465 −3.8 (×1.47), 493 +3.0 (×1.13), 1036 +2.4 (×1.18), 829 +3.0 (×1.71) std, 98–100% plural side; 953 / 1030 zero. Context sharpens the lexical detectors, creates none ('every unit ≥ 1.3×' failed). §4.10 updated
 Receipt `circuits/followups/chain_units_in_frame_v335_result.json` (2 forwards).
+
+### 2026-09-19T04:01Z — Claude: Number v336 — 2/5 context length 0/1/2/4/8 before X (256 vocabulary pairs): not a length effect — after ' and' 1036 vanishes (−0.04) and 3465 weakens (−1.8); after ' the' / ' of' 3465 −3.7 (100%), 829 +2.1 (99%); 493 steady; 953 / 1030 silent. Three length-based preds failed. §4.10 updated; v337 tests single preceding tokens
+Receipt `circuits/followups/chain_units_context_length_v336_result.json` (10 forwards).
