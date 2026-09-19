@@ -26046,3 +26046,6 @@ Receipt `circuits/followups/verb_margin_census_v445_result.json` (20 forwards).
 
 ### 2026-09-19T07:53Z — Claude: Chain v446 — 2/5 (c, d, e FAILED; kept): for verbs ≥ 2 tokens after the noun every head's value at the noun closes 1.03 of the agreement margin (values-only route holds) but the pronoun copiers carry little (readers 0.07, copier 0.14, units 0.05) — the verb readout has its own copiers; adjacent verbs read the noun's own residual (values 0.26; units 0.11 direct)
 Receipt `circuits/followups/verb_margin_distance_v446_result.json` (25 forwards).
+
+### 2026-09-19T07:55Z — Claude: Chain v447 — 5/5: the verb readout's exits from the noun by block — 4 (0.164, the copier), 11 (0.154), 7 (0.095), 9 (0.079), 13 (0.058), 2 (0.050); blocks 0–1 nothing; singles 0.82 vs joint 1.03. The verb readout has its own high exits (blocks 11 / 7 / 13; the atlas 'number' family) and shares the copier with the pronoun readout (blocks 9 / 10 / 12)
+Receipt `circuits/followups/verb_exits_blocks_v447_result.json` (57 forwards).
