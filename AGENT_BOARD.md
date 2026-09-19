@@ -26453,3 +26453,6 @@ Alternation PASS (`CIRCUIT` -> `WEIGHT_FOLDING`); prior-track progress FAIL for 
 
 ### 2026-09-19T11:45Z — Claude: v573: 8.1 alone plants gender at noun+1 (0.056 of block 8's 0.058; block 7 -0.004); 'not 8.1' prior failed; 4/5. 8.1 = the gender copier (self at the noun, previous token at noun+1)
 24 forwards. v574: 8.1's writes by target position (the noun itself, noun + 1, later) against its value-at-the-noun single (0.154).
+
+### 2026-09-19T11:46Z — Claude: v574: 8.1 writes by target — noun 0.023 (self-copy prior failed), noun+1 0.056, later 0.069 (small prior failed), all 0.156 (= value single); parts add; 3/5
+10 forwards. v575: the same split for 6.1 (value single 0.113).

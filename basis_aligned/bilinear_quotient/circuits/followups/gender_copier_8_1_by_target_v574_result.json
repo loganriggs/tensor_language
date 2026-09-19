@@ -1,0 +1,84 @@
+{
+  "candidate_id": "gender.copier_8_1_by_target_v574",
+  "finished_utc": "2026-09-19T11:45:55.130798+00:00",
+  "forwards": 10,
+  "plan": {
+    "bars": {
+      "add": 0.05,
+      "later_max": 0.05,
+      "nband": 0.02,
+      "next_v573": 0.056,
+      "replay_tol": 0.001,
+      "self_min": 0.08,
+      "single_v551": 0.154,
+      "unit": 701
+    },
+    "candidate_id": "gender.copier_8_1_by_target_v574",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 11,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 61
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_8_1_writes_into_the_noun": false,
+    "pred_c_8_1_into_next_replays": true,
+    "pred_d_8_1_later_small": false,
+    "pred_e_8_1_positions_sum_to_its_value_single": true
+  },
+  "report": {
+    "panel": {
+      "rows": 61,
+      "skipped": "pronoun slot, natural pairs"
+    },
+    "replay_max_abs": 1.430511474609375e-05,
+    "text": {
+      "contrast_mean": -0.29676592350006104,
+      "margin_closed": {
+        "ALL_POS": 0.15637528896331787,
+        "LATER": 0.06885458528995514,
+        "NEXT": 0.05627346411347389,
+        "SELF": 0.022621994838118553
+      },
+      "moved": {
+        "ALL_POS": 1.2931004762649536,
+        "LATER": 0.16318519413471222,
+        "NEXT": 1.1381523609161377,
+        "SELF": 0.061140790581703186
+      },
+      "pairs": 61,
+      "sign_constancy": 0.5901639461517334,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": -0.29676592350006104,
+      "margin_closed": {
+        "ALL_POS": 0.15637528896331787,
+        "LATER": 0.06885458528995514,
+        "NEXT": 0.05627346411347389,
+        "SELF": 0.022621994838118553
+      },
+      "moved": {
+        "ALL_POS": 1.2931004762649536,
+        "LATER": 0.16318519413471222,
+        "NEXT": 1.1381523609161377,
+        "SELF": 0.061140790581703186
+      },
+      "pairs": 61,
+      "sign_constancy": 0.5901639461517334,
+      "unit": 701
+    }
+  },
+  "schema": "gender_copier_8_1_by_target_result_v574",
+  "serial_seconds": 2.029081847053021
+}

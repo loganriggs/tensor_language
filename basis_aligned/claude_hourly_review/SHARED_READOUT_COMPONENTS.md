@@ -682,3 +682,4 @@ v538 (5/5): write-side verb census complete — 11.3 0.238, 5.3 0.113, 7.8 0.108
 - GENDER AT NOUN + 1 (v571): planted by blocks 0–8 (0.131), not by 4.5 (0.011); blocks 9–17 into noun + 1 0.094.
 - GENDER PLANTER AT NOUN + 1 (v572): blocks 7–8 0.056, 5–6 0.028, 0–4 0.018 (sum 0.103 of 0.131).
 - GENDER COPIER 8.1 (v573): plants the noun's gender at noun + 1 (0.056 of block 8's 0.058); number's copier 4.5 is inert for gender.
+- GENDER COPIER 8.1 BY TARGET (v574): into the noun 0.023, noun + 1 0.056, later 0.069, all 0.156 — a copier into the following context, not a self-writer.
