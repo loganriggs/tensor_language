@@ -26411,3 +26411,6 @@ Reason: better_circuits §7 allows a new behaviour once the current target meets
 
 ### 2026-09-19T11:18Z — Claude: v561: direct token term / rms_final (3025) = 0.002-0.005 vs singles 0.05-0.18: lambda chain omitted (failed x2); signs and top-2 hold; 3/5
 2 forwards. Instrument lesson (kept): a reader's write reaches the logits as (prod of lambda0 over later blocks) x write / rms(x_final). v562 applies the product.
+
+### 2026-09-19T11:20Z — Claude: v562: direct token term with lambda chain still ~2% of singles (failed x3); signs/top-2 hold; 3/5. v563 tests the readers' writes into the answer by edit
+2 forwards. Three failed magnitude predictions kept (v560-v562). The sign and ranking results stand on their own.
