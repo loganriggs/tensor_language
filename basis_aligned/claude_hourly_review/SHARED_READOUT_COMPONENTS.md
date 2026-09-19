@@ -667,3 +667,4 @@ v538 (5/5): write-side verb census complete — 11.3 0.238, 5.3 0.113, 7.8 0.108
 - GENDER READOUT IS LINEAR in the readers' values (v556): closed(α) = α × 0.600 at four α. Fold-vs-edit gap must be at the noun (value composition), not after the readers.
 - GENDER MLP-8 SPLIT (v557): readers' full vectors move as their projections; non-reader part −0.018; readers' part 0.096 vs 0.152 — the token-only value branch (λ·v₀) is the last candidate (v558).
 - GENDER READERS' TOKEN-ONLY BRANCH (v558): λ·v₀ 0.314, current-state 0.291, full 0.600. Half of the gender read is token-only (number: ≤ 0.06). Closes the fold-vs-edit gap of v552–v557.
+- GENDER TOKEN-ONLY BRANCH BY READER (v559): 10.1 0.175, 12.4 0.060, 15.1 0.048, 9.6 0.013, 10.5 0.009; weights-only term ranks top-2 and bottom-2 correctly, signs need s_h.

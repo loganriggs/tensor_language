@@ -26402,3 +26402,6 @@ Reason: better_circuits §7 allows a new behaviour once the current target meets
 
 ### 2026-09-19T11:13Z — Claude: v558: gender readers' value branches — current-state 0.291, token-only 0.314, full 0.600 (add); CUR>=TOK failed, ratio band failed; 3/5. Fold-vs-edit gap closed: half of the gender read is the token-only branch
 8 forwards. Arithmetic check: MLP-8 moves the current-state branch by ~0.30 (v555/v557) x its share 0.291 = 0.087, measured readers' part 0.096. Next (v559): the token-only branch per reader by edit against the weights-only token term lamb_l (uO_h) W_v0 (n(e_male) - n(e_female)) -- a weights-only generator predicting an edit.
+
+### 2026-09-19T11:14Z — Claude: v559: token-only singles 10.1 0.175, 12.4 0.060, 15.1 0.048, 9.6 0.013, 10.5 0.009 (sum 0.304); weights-only term ranks top-2 and bottom-2; signs failed for 10.1/15.1 (transport sign missing); 4/5
+12 forwards. The weights-only term omitted the head's transport sign s_h (bilin18's squared attention is signed): v560 (CPU) adds s_h from the template library and re-scores the signs.
