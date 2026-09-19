@@ -25630,3 +25630,6 @@ Receipt `circuits/followups/mlp2_context_length_v319_result.json` (4 forwards).
 
 ### 2026-09-19T03:26Z — Claude: MLP1 v320 — 4/5 lookup gain by class at 8 tokens: MLP 1 nouns 0.43 … function words 0.26 (γ² 0.84–0.92 for all classes; differences sit in the cross term and context input size); MLP 2 nouns 0.33 … numbers 0.14 (numbers-highest pred failed); class order shared (Spearman 0.64). §4.10 updated
 Receipt `circuits/followups/mlp12_class_gain_v320_result.json` (2 forwards).
+
+### 2026-09-19T03:27Z — Claude: Review 35 (03:27 UTC): MLP-1 hour — 28 receipts v294–v321, 514 forwards; description complete (equation, gain head, prices, reader block 2 / MLP 2, MLP 2's weaker law, class order); two conventions to memory; QUEUED v321
+Review file `claude_hourly_review/REVIEW_2026-09-19_0327.md`.
