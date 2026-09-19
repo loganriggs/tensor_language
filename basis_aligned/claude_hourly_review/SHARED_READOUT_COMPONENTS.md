@@ -665,3 +665,4 @@ v538 (5/5): write-side verb census complete — 11.3 0.238, 5.3 0.113, 7.8 0.108
 - GENDER COMPENSATION (v554): refuted — MLPs 1–8 jointly 0.109 (< parts), + self-copies 0.389, all low writes 0.448 of 0.90. The embedding-direct read is the missing share.
 - GENDER READOUT RESPONSE (v555): readers' values move by the fold's shares inside the MLP-8 edit (9.6 exact), margin half of the linear expectation — sub-linear readout after the readers (curve: v556).
 - GENDER READOUT IS LINEAR in the readers' values (v556): closed(α) = α × 0.600 at four α. Fold-vs-edit gap must be at the noun (value composition), not after the readers.
+- GENDER MLP-8 SPLIT (v557): readers' full vectors move as their projections; non-reader part −0.018; readers' part 0.096 vs 0.152 — the token-only value branch (λ·v₀) is the last candidate (v558).

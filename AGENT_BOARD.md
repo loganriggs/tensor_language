@@ -26396,3 +26396,6 @@ Reason: better_circuits §7 allows a new behaviour once the current target meets
 
 ### 2026-09-19T11:09Z — Claude: v556: response curve — readers' fractional value swaps close 0.148/0.300/0.451/0.600 at alpha 0.25/0.5/0.75/1: exactly linear; sub-linear and convex priors failed; 3/5
 10 forwards. A clean negative for my registered explanation and a clean positive for the circuit: the readout stage is linear in the readers. v557 next.
+
+### 2026-09-19T11:11Z — Claude: v557: MLP-8 split — full-vector moved = projection (0.29/0.23/0.36); non-reader part -0.018; readers' part 0.096 vs 0.152 expected; 3/5. Last candidate: the token-only value branch
+6 forwards. Two candidates refuted in one runner (projection overstatement; other heads). v558 splits each reader's value at the noun into the current-state branch (1 - lamb) v and the token-only branch lamb v0.
