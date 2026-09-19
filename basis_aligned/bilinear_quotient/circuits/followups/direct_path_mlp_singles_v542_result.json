@@ -1,0 +1,128 @@
+{
+  "candidate_id": "chain.direct_path_mlp_singles_v542",
+  "finished_utc": "2026-09-19T10:39:53.623408+00:00",
+  "forwards": 10,
+  "plan": {
+    "bars": {
+      "all_v501": 0.452,
+      "m17_min": 0.15,
+      "m8_max": 0.1,
+      "over": 0.05,
+      "replay_tol": 0.001
+    },
+    "candidate_id": "chain.direct_path_mlp_singles_v542",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 11,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "sets": {
+      "mlp_17": [
+        [
+          17,
+          0
+        ]
+      ],
+      "mlp_8": [
+        [
+          8,
+          0
+        ]
+      ],
+      "mlps_1_7": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ]
+      ],
+      "mlps_9_16": [
+        [
+          9,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          11,
+          0
+        ],
+        [
+          12,
+          0
+        ],
+        [
+          13,
+          0
+        ],
+        [
+          14,
+          0
+        ],
+        [
+          15,
+          0
+        ],
+        [
+          16,
+          0
+        ]
+      ]
+    },
+    "text_pairs": 43
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_mlp_17_alone_carries_the_detector": false,
+    "pred_c_mlp_8_alone_is_small": false,
+    "pred_d_singles_sub_additive": true,
+    "pred_e_mlps_9_16_below_mlp_17": false
+  },
+  "report": {
+    "panel": {
+      "rows": 43,
+      "skipped": "adjacent natural rows only"
+    },
+    "replay_max_abs": 2.002716064453125e-05,
+    "text": {
+      "closed": {
+        "mlp_17": 0.05156309902667999,
+        "mlp_8": 0.29499632120132446,
+        "mlps_1_7": 0.26827871799468994,
+        "mlps_9_16": 0.43575578927993774
+      },
+      "gap_mean": 14.924256324768066,
+      "pairs": 43
+    }
+  },
+  "schema": "direct_path_mlp_singles_result_v542",
+  "serial_seconds": 1.8909008910413831
+}

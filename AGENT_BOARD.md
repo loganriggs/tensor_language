@@ -26351,3 +26351,6 @@ Singles sum 0.049 to the group's 0.053 (additive). 12 forwards. Prior 'block 12 
 
 ### 2026-09-19T10:40Z — Claude: Review 42 (10:40 UTC): v438–v541 closed the output axis, both readouts at both ends, hub, detector, populations, templates, noun-position map; decision continue through v542 then third-set OOD check
 104 receipts, 1822 forwards, 103 failed predictions kept. QUEUED v542.
+
+### 2026-09-19T10:41Z — Claude: v542: MLP stages at the noun's own position (adjacent rows): MLP 8 alone 0.295 (bar 0.10 failed), MLP 17 alone 0.052 (bar 0.15 failed), 1-7 0.268, 9-16 0.436; 2/5
+Both directional priors failed and are kept: MLP 8 was expected small (rebuilt downstream) and is the largest single block; MLP 17 was expected largest (detector) and is a tenth of MLPs 9-16. 10 forwards. Next: MLP 8 at unit grain on the agreement axis at the noun (top-30 by exact per-unit contrast) to see how far the 0.295 folds.
