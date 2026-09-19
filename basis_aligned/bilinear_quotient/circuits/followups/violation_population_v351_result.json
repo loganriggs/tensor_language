@@ -1,0 +1,166 @@
+{
+  "candidate_id": "pronoun_number.violation_population_v351",
+  "finished_utc": "2026-09-19T04:33:01.665154+00:00",
+  "forwards": 14,
+  "plan": {
+    "bars": {
+      "kl_max": 0.05,
+      "null_factor": 3.0,
+      "replay": 0.05,
+      "top50_max": 0.6,
+      "v350_kl": 0.0008
+    },
+    "candidate_id": "pronoun_number.violation_population_v351",
+    "cells": [
+      "is|s",
+      "is|p",
+      "are|s",
+      "are|p"
+    ],
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 16,
+    "gpu_accessed": false,
+    "ks": [
+      10,
+      50,
+      200
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "n_null": 3,
+    "pairs": 256,
+    "seed": 351
+  },
+  "predictions": {
+    "pred_a_baseline_frames_replay": true,
+    "pred_b_3465_is_the_top_violation_unit": false,
+    "pred_c_violation_population_is_spread": true,
+    "pred_d_top50_edit_moves_more_than_3465_alone": true,
+    "pred_e_top50_edit_stays_small": false
+  },
+  "report": {
+    "edits": {
+      "10": {
+        "delta_logodds": -0.7345454096794128,
+        "kl": 0.09393590688705444,
+        "null_kl_max": 2.219362613686826e-05,
+        "top_units": [
+          3040,
+          114,
+          565,
+          1651,
+          2257,
+          3667,
+          4213,
+          4483,
+          4425,
+          2657
+        ]
+      },
+      "200": {
+        "delta_logodds": -0.7596907019615173,
+        "kl": 0.09999527782201767,
+        "null_kl_max": 0.0012070562224835157,
+        "top_units": [
+          3040,
+          114,
+          565,
+          1651,
+          2257,
+          3667,
+          4213,
+          4483,
+          4425,
+          2657,
+          3465,
+          3200
+        ]
+      },
+      "50": {
+        "delta_logodds": -0.7624704837799072,
+        "kl": 0.10503038018941879,
+        "null_kl_max": 0.0001362312468700111,
+        "top_units": [
+          3040,
+          114,
+          565,
+          1651,
+          2257,
+          3667,
+          4213,
+          4483,
+          4425,
+          2657,
+          3465,
+          3200
+        ]
+      }
+    },
+    "logodds_native_are_s": 1.410528302192688,
+    "native_3465_medians": {
+      "are|s": -164.63609313964844,
+      "is|s": -3.9971518516540527
+    },
+    "rank_3465": 11,
+    "top12_units": [
+      [
+        3040,
+        -5664.59130859375
+      ],
+      [
+        114,
+        -3329.216064453125
+      ],
+      [
+        565,
+        2343.378173828125
+      ],
+      [
+        1651,
+        1605.29296875
+      ],
+      [
+        2257,
+        1298.816162109375
+      ],
+      [
+        3667,
+        -1203.1566162109375
+      ],
+      [
+        4213,
+        -965.2518920898438
+      ],
+      [
+        4483,
+        -843.9756469726562
+      ],
+      [
+        4425,
+        806.0988159179688
+      ],
+      [
+        2657,
+        -734.0725708007812
+      ],
+      [
+        3465,
+        -730.4423828125
+      ],
+      [
+        3200,
+        -688.8077392578125
+      ]
+    ],
+    "top_shares": {
+      "10": 0.06363127380609512,
+      "200": 0.2642982006072998,
+      "50": 0.12809595465660095,
+      "500": 0.4389500916004181
+    }
+  },
+  "schema": "violation_population_result_v351",
+  "serial_seconds": 2.467432609060779
+}

@@ -426,7 +426,12 @@ subject followed by are and −88 for a plural subject followed by is, against �
 829 and 1036 keep reading the verb's form. Whether the detector matters to the model's next prediction: barely (v350). Zeroing 3465 at the verb of "The X are" with X singular moves the
 next-token distribution by 0.0008 nats (KL; eight random units 0.0000) and the plural-versus-singular continuation log-odds by +0.05. The unit
 detects the violation; the prediction at that position does not lean on it — either the flag is read later (the pronoun chain reads MLP 3's
-state at the noun through attention, not at the verb) or a population of MLP-3 units carries it redundantly (v351, queued).
+state at the noun through attention, not at the verb) or a population of MLP-3 units carries it redundantly — the latter (v351). Ranking all 4,608 units of MLP 3 by their write-weighted
+contrast between "The X are" and "The X is" with X singular, 3465 comes eleventh; the leaders are 3040 (−5665), 114 (−3329), 565 (+2343), 1651,
+2257 and 3667, and the top 50 hold only 13% of the summed contrast. Zeroing the top ten at the verb costs 0.094 nats of next-token distribution
+(random ten-sets 0.00002) and lowers the plural-versus-singular continuation log-odds by 0.73 from +1.41: the population is what lets the model
+follow the recent plural verb over the singular noun. So the causal component at the verb is a population of MLP-3 violation units, of which
+3465 — the lexical plural-noun detector named from the noun rows — is a minor member.
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -535,6 +540,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v348 | four more verb pairs | 3465's violation reading holds ×4 (2–5 std); 493's is verb-dependent; 829 / 1036 read verb form (2/5) |
 | v349 | "The X is / are" | 3465 flags both violations (−165 / −88 vs −4 / −49); 493 plural + is (+43) (5/5) |
 | v350 | zero 3465 / 493 at the verb | KL 0.0008 nats on the violation cell, nulls 0.0000: detects but near-inert for the next token (5/5 on paper) |
+| v351 | MLP-3 population census + edit | 3465 ranks 11th; top-10 (3040, 114, 565 …) zeroed: KL 0.094, log-odds −0.73 (nulls 0.00002) (3/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

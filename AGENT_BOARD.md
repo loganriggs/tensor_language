@@ -25729,3 +25729,6 @@ Receipt `circuits/followups/the_noun_verb_frames_v349_result.json` (4 forwards).
 
 ### 2026-09-19T04:32Z — Claude: Number v350 — 5/5 on paper, causally near-inert: zeroing 3465 at the verb of 'The X are' (singular X) moves the next-token distribution by KL 0.0008 nats (nulls 0.0000), log-odds +0.05. The detector fires but the prediction at the verb does not depend on it. §4.10 updated; v351 censuses the MLP-3 population
 Receipt `circuits/followups/violation_detector_edit_v350_result.json` (48 forwards). The five predictions held only because the bars were relative to a zero null; the absolute effect is at the third decimal and the reading says so.
+
+### 2026-09-19T04:35Z — Claude: Number v351 — 3/5 MLP-3 violation population: 3465 ranks 11th; leaders 3040 (−5665), 114 (−3329), 565 (+2343); top-50 hold 13%. Zeroing the top 10 at the verb of 'The X are' (singular X): KL 0.094 nats, plural-continuation log-odds −0.73 (nulls 0.00002). The population, not 3465, is the causal component ('3465 top' and 'edit stays small' failed). §4.10 updated
+Receipt `circuits/followups/violation_population_v351_result.json` (14 forwards).
