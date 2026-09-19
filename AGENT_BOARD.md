@@ -25971,3 +25971,6 @@ Receipt `circuits/followups/template_directions_v422_result.json` (4 forwards).
 
 ### 2026-09-19T07:15Z — Claude: Chain v423 — 4/5 EDIT (e FAILED at 0.091 vs 0.10 on the panel; kept): swapping only units 829 / 953 / 1030's activations at the noun between plural and singular rows closes 0.124 of the natural-text margin gap (0.091 panel); three random units 0.000; units beat random on 0.99 of pairs. Three numbers at one position carry an eighth of the margin
 Receipt `circuits/followups/unit_swap_edit_v423_result.json` (21 forwards).
+
+### 2026-09-19T07:17Z — Claude: Chain v424 — 2/5 (b 0.152 vs 0.16, c 0.172 vs 0.18, e FAILED; kept): top-3 / 10 / 30 MLP-8 units swapped at the noun close 0.124 / 0.152 / 0.172 of the natural-text margin gap (panel 0.091 / 0.112 / 0.125); 30 random units 0.000. Three units plus a thin tail; the whole-layer and MLP 5–7 edits follow
+Receipt `circuits/followups/unit_swap_count_v424_result.json` (35 forwards).

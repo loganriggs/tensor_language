@@ -1,0 +1,138 @@
+{
+  "candidate_id": "chain.unit_swap_count_v424",
+  "finished_utc": "2026-09-19T07:16:14.452471+00:00",
+  "forwards": 35,
+  "plan": {
+    "bars": {
+      "random_max": 0.03,
+      "replay_tol": 0.001,
+      "top10_min": 0.16,
+      "top30_min": 0.18
+    },
+    "candidate_id": "chain.unit_swap_count_v424",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 36,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "sets": {
+      "random30": [
+        3181,
+        3472,
+        332,
+        2137,
+        4216,
+        4008,
+        3344,
+        2502,
+        3931,
+        2957,
+        1802,
+        4162,
+        1150,
+        2326,
+        1154,
+        779,
+        2067,
+        4390,
+        1214,
+        2558,
+        812,
+        606,
+        2725,
+        3894,
+        827,
+        2922,
+        3583,
+        2611,
+        1687,
+        4555
+      ],
+      "top10": [
+        829,
+        953,
+        1030,
+        1484,
+        3152,
+        1738,
+        2092,
+        3205,
+        4000,
+        684
+      ],
+      "top3": [
+        829,
+        953,
+        1030
+      ],
+      "top30": [
+        829,
+        953,
+        1030,
+        1484,
+        3152,
+        1738,
+        2092,
+        3205,
+        4000,
+        684,
+        1959,
+        2583,
+        1027,
+        2733,
+        4565,
+        2863,
+        368,
+        2271,
+        1823,
+        980,
+        1101,
+        2766,
+        4509,
+        2225,
+        306,
+        1038,
+        3039,
+        2597,
+        1173,
+        2596
+      ]
+    },
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_top10_closes_a_fifth": false,
+    "pred_c_top30_closes_over_a_quarter": false,
+    "pred_d_random30_moves_little": true,
+    "pred_e_saturation_by_30": false
+  },
+  "report": {
+    "panel": {
+      "closed": {
+        "random30": 0.00013853197742719203,
+        "top10": 0.1119590699672699,
+        "top3": 0.09090619534254074,
+        "top30": 0.12501424551010132
+      },
+      "gap_mean": 4.0962815284729,
+      "pairs": 48
+    },
+    "replay_max_abs": 1.33514404296875e-05,
+    "text": {
+      "closed": {
+        "random30": 0.0002094839874189347,
+        "top10": 0.15228259563446045,
+        "top3": 0.12375593185424805,
+        "top30": 0.17247159779071808
+      },
+      "gap_mean": 1.8995414972305298,
+      "pairs": 122
+    }
+  },
+  "schema": "unit_swap_count_result_v424",
+  "serial_seconds": 2.546804575016722
+}
