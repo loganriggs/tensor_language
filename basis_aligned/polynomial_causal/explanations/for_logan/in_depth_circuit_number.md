@@ -329,7 +329,11 @@ direction (cosine 0.77 → 0.83). So the pair is the causal head of MLP 1's cont
 Restoring it moves the pronoun-number margin by only −0.7%, which fits the rest of the chapter — the number chain reads the entry's direction
 through rms-normalised readers, not its gain. Pushing the gain all the way to 1 (v322: attention 0/1 self-only on the pronoun rows) leaves MLP 1's exact number
 carriage into units 3465 / 493 flat (0.92× / 1.01×) while the margin falls 37% — but that edit removes every context read of blocks 0/1 attention for
-every downstream consumer, so the margin loss is not MLP 1's (v323, queued, applies the limit to MLP 1's input alone).
+every downstream consumer, so v323 applied the limit to MLP 1's input alone (a parallel self-only stream read only by MLP 1; the residual keeps native attention):
+the margin still falls 32% (2.05 → 1.39) while MLP 1's carriage into 3465 / 493 stays flat (0.93× / 1.01×). So un-conditioning MLP 1 does
+break the behaviour — through consumers other than the two named MLP-3 units. The number chain's §4.6 account (3465 / 493 read MLP 1's
+entry) is true and incomplete: the circuit also uses MLP 1's context-conditioned write, by a route not yet named (v324, queued: path-restricted
+injection on the pronoun rows with the margin as the readout).
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -410,6 +414,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v320 | lookup gain by token class | MLP 1 nouns 0.43 … function words 0.26; MLP 2 numbers lowest 0.14; order shared (4/5) |
 | v321 | kind split on text | alphabetic > punctuation at both layers; numbers claim did not replay (4/5) |
 | v322 | number chain at α = 1 (attention 0/1 self-only, v76 rows) | write = table; carriage into 3465 / 493 flat (0.92× / 1.01×); margin −37% (whole-attention edit) (3/5) |
+| v323 | only MLP 1 un-conditioned, v76 rows | carriage flat (0.93× / 1.01×); margin −32%: the behaviour uses MLP 1's conditioned write elsewhere (3/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

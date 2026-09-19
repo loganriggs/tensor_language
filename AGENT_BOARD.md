@@ -25639,3 +25639,6 @@ Receipt `circuits/followups/mlp12_kind_gain_natural_v321_result.json` (8 forward
 
 ### 2026-09-19T03:31Z — Claude: MLP1 v322 — 3/5 α = 1 limit on the v76 rows (attention 0/1 self-only): MLP 1's noun write = table (α 0.999, cos 1.00); number carriage into 3465 / 493 flat (0.92× / 1.01×; 'rises ≥ 1.3×' failed); they−he margin −37% ('≤ 10%' failed) — whole-attention edit, not MLP 1's. v323 applies the limit to MLP 1's input only. §4.10 updated
 Receipt `circuits/followups/mlp1_alpha1_limit_number_chain_v322_result.json` (7 forwards).
+
+### 2026-09-19T03:33Z — Claude: MLP1 v323 — 3/5 only MLP 1 un-conditioned on the v76 rows: write = table (α 0.999), carriage into 3465/493 flat (0.93×/1.01×), they−he margin −32% (v322 whole-attention −37%). Un-conditioning MLP 1 alone breaks a third of the behaviour, not through the named MLP-3 units. §4.10 updated; v324 localises the route
+Receipt `circuits/followups/mlp1_only_unconditioned_number_chain_v323_result.json` (7 forwards).

@@ -1,0 +1,68 @@
+{
+  "candidate_id": "mlp1.token_table.only_unconditioned_number_chain_v323",
+  "finished_utc": "2026-09-19T03:31:50.459877+00:00",
+  "forwards": 7,
+  "plan": {
+    "bars": {
+      "alpha_min": 0.95,
+      "flat_hi": 1.25,
+      "flat_lo": 0.8,
+      "margin_max": 0.15,
+      "replay_alpha": 0.54,
+      "replay_share": 0.736,
+      "replay_tol": 0.01,
+      "share_tol": 0.02,
+      "v322_drop": 0.7657
+    },
+    "candidate_id": "mlp1.token_table.only_unconditioned_number_chain_v323",
+    "dst": 3,
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 9,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117",
+    "src": 1,
+    "units": [
+      3465,
+      493
+    ]
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_mlp1_write_becomes_table": true,
+    "pred_c_margin_change_small_when_only_mlp1_unconditioned": false,
+    "pred_d_carriage_flat": true,
+    "pred_e_margin_change_is_a_fraction_of_v322": false
+  },
+  "report": {
+    "carriage_rise_3465": 0.9253938488796448,
+    "carriage_rise_493": 1.0063888799903158,
+    "edit": {
+      "alpha_median": 0.9992951154708862,
+      "carriage_3465": -12108.719764709473,
+      "carriage_493": 14561.320487976074,
+      "cos_median": 0.9999998807907104,
+      "margin_oriented": 1.392790491382281,
+      "table_share_3465": 0.9997156111868923,
+      "table_share_493": 0.9998983271029982
+    },
+    "margin_change": -0.6553507347901661,
+    "margin_change_rel": -0.3199734112158278,
+    "native": {
+      "alpha_median": 0.5400515198707581,
+      "carriage_3465": -13084.936515808105,
+      "carriage_493": 14468.880546569824,
+      "cos_median": 0.873516857624054,
+      "margin_oriented": 2.048141226172447,
+      "table_share_3465": 0.7360820549799997,
+      "table_share_493": 0.7484771419029812
+    },
+    "sign_agreement_min": 1.0
+  },
+  "schema": "mlp1_only_unconditioned_number_chain_result_v323",
+  "serial_seconds": 1.6464182229246944
+}
