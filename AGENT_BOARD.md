@@ -25699,3 +25699,6 @@ Receipt `circuits/followups/factor_writers_3465_v340_result.json` (3 forwards; o
 
 ### 2026-09-19T04:12Z — Claude: Number v341 — 4/5 MLP 1's part of unit 3465's two factors: context-free table 0.81 (L) / 0.85 (R), conditioned remainder 0.19 / 0.15 (α 0.54); 'remainder larger on R' failed. Both sides of the agreement product take their number from MLP 1's lookup entry. §4.10 updated
 Receipt `circuits/followups/mlp1_table_vs_remainder_per_factor_v341_result.json` (4 forwards).
+
+### 2026-09-19T04:14Z — Claude: Number v342 — 5/5 MLP 2's part of unit 3465's factors: own table 0.34 (L) / 0.63 (R), conditioned remainder 0.66 / 0.37 (α₂ 0.44) — the reverse of MLP 1 (table 0.81–0.85). 3465's L input = lexical number from MLP 1 + conditioned number from MLP 2. §4.10 updated
+Receipt `circuits/followups/mlp2_table_vs_remainder_per_factor_v342_result.json` (4 forwards).
