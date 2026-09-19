@@ -26019,3 +26019,6 @@ Receipt `circuits/followups/block2_heads_v437_result.json` (40 forwards).
 
 ### 2026-09-19T07:39Z — Claude: Review 41 (07:36 UTC): route census closed (v419–v437, 605 forwards, 21 falsifications incl. two of method); §4.11 value-route synthesis written into in_depth_circuit_number.md; READER SET line (five heads) in SHARED_READOUT_COMPONENTS; redirect to output selectivity; QUEUED v438
 Review file `claude_hourly_review/REVIEW_2026-09-19_0736.md`; synthesis `for_logan/in_depth_circuit_number.md` §4.11.
+
+### 2026-09-19T07:40Z — Claude: Both-ends v438 — 4/5 (c FAILED at 0.161 vs 0.15; kept): the five-head value swap closes they − he 0.483 and they − she 0.475 alike, moves the he − she gender margin 0.16× as much, and moves the whole distribution by KL 0.042 vs 0.177 between the pair rows (ratio 0.24 text / 0.11 panel). Number is most of what the readers carry, not all
+Receipt `circuits/followups/five_readers_output_selectivity_v438_result.json` (14 forwards).

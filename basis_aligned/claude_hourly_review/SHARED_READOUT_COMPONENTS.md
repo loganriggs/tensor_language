@@ -544,3 +544,4 @@ v435 (1/5): joint swaps of nested routes cancel (0.68 → 0.645 → 0.57 as more
 v436 (5/5, EDIT): census at the noun closes and adds — five readers 0.48 + copier 0.19 + small low exits 0.31 ≈ 0.98 of the natural-text margin. Number leaves the noun only through values.
 v437 (4/5): block 2's noun exit = 2.6 (0.036) + 2.5 (0.017) + 2.8 (0.012).
 **READER SET (19 Sep, v431–v436):** the number readout at the noun is FIVE heads — 9.6 (0.28 of the margin gap by value swap), 10.1 (0.07), 10.5 (0.05), 12.4 (0.09), 15.1 (0.02) — plus the copier 4.5 (0.19) and small low exits 2.6 / 2.5 / 2.8 / blocks 5, 6, 8 (0.31 together). Use the five-head set, not {9.6, 12.4, 15.1}.
+v438 (4/5; c failed at 0.161 vs 0.15): five-head swap closes they−he 0.48 and they−she 0.48; gender margin moves 0.16×; KL ratio 0.24 (text) / 0.11 (panel).

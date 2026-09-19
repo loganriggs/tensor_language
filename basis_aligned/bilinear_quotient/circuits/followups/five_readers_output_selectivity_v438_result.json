@@ -1,0 +1,74 @@
+{
+  "candidate_id": "both_ends.five_readers_output_selectivity_v438",
+  "finished_utc": "2026-09-19T07:39:39.862960+00:00",
+  "forwards": 14,
+  "plan": {
+    "bars": {
+      "gender_max": 0.15,
+      "kl_max": 0.5,
+      "replay_tol": 0.001,
+      "she_band": 0.1
+    },
+    "candidate_id": "both_ends.five_readers_output_selectivity_v438",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 15,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_they_she_moves_like_they_he": true,
+    "pred_c_he_she_barely_moves": false,
+    "pred_d_distribution_moves_little": true,
+    "pred_e_holds_on_panel": true
+  },
+  "report": {
+    "panel": {
+      "closed": {
+        "they_he": 0.3397051692008972,
+        "they_she": 0.35289958119392395
+      },
+      "gap_mean_they_he": 4.0962815284729,
+      "gender_over_number": 0.13884316384792328,
+      "kl_edit_vs_native": 0.04193535074591637,
+      "kl_partner_vs_native": 0.3867243528366089,
+      "kl_ratio": 0.10843731572196608,
+      "mean_abs_change": {
+        "he_she": 0.19320416450500488,
+        "they_he": 1.3915281295776367,
+        "they_she": 1.2621066570281982
+      },
+      "pairs": 48
+    },
+    "replay_max_abs": 1.33514404296875e-05,
+    "text": {
+      "closed": {
+        "they_he": 0.48260506987571716,
+        "they_she": 0.4752019941806793
+      },
+      "gap_mean_they_he": 1.8995411396026611,
+      "gender_over_number": 0.16122815012931824,
+      "kl_edit_vs_native": 0.04218794405460358,
+      "kl_partner_vs_native": 0.17677932977676392,
+      "kl_ratio": 0.23864749407002678,
+      "mean_abs_change": {
+        "he_she": 0.15040938556194305,
+        "they_he": 0.9328978061676025,
+        "they_she": 0.8420329093933105
+      },
+      "pairs": 122
+    }
+  },
+  "schema": "five_readers_output_selectivity_result_v438",
+  "serial_seconds": 2.1091064917854965
+}
