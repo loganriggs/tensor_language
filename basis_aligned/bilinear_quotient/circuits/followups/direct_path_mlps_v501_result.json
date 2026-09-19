@@ -1,0 +1,192 @@
+{
+  "candidate_id": "chain.direct_path_mlps_v501",
+  "finished_utc": "2026-09-19T09:20:03.742900+00:00",
+  "forwards": 8,
+  "plan": {
+    "bars": {
+      "all_min": 0.6,
+      "early_min": 0.4,
+      "late_min": 0.25,
+      "replay_tol": 0.001
+    },
+    "candidate_id": "chain.direct_path_mlps_v501",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 9,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "sets": {
+      "all_1_17": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          11,
+          0
+        ],
+        [
+          12,
+          0
+        ],
+        [
+          13,
+          0
+        ],
+        [
+          14,
+          0
+        ],
+        [
+          15,
+          0
+        ],
+        [
+          16,
+          0
+        ],
+        [
+          17,
+          0
+        ]
+      ],
+      "early_1_8": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      "late_9_17": [
+        [
+          9,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          11,
+          0
+        ],
+        [
+          12,
+          0
+        ],
+        [
+          13,
+          0
+        ],
+        [
+          14,
+          0
+        ],
+        [
+          15,
+          0
+        ],
+        [
+          16,
+          0
+        ],
+        [
+          17,
+          0
+        ]
+      ]
+    },
+    "text_pairs": 43
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_early_mlps_carry_half_of_the_direct_path": false,
+    "pred_c_late_mlps_carry_a_third": true,
+    "pred_d_all_mlps_carry_most": false,
+    "pred_e_late_below_early": false
+  },
+  "report": {
+    "panel": {
+      "rows": 43,
+      "skipped": "adjacent natural rows only"
+    },
+    "replay_max_abs": 2.002716064453125e-05,
+    "text": {
+      "closed": {
+        "all_1_17": 0.45182403922080994,
+        "early_1_8": 0.36736825108528137,
+        "late_9_17": 0.4256881773471832
+      },
+      "gap_mean": 14.924256324768066,
+      "pairs": 43
+    }
+  },
+  "schema": "direct_path_mlps_result_v501",
+  "serial_seconds": 1.8418328680563718
+}

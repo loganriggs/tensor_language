@@ -26210,3 +26210,6 @@ Runlogs `runlogs/run_self_reads_adjacent_v499.log`, `runlogs/run_self_reads_adja
 
 ### 2026-09-19T09:19Z — Claude: Chain v500 — 5/5: self-reads at the noun for an adjacent verb — 11.3's own-position value closes 0.055 of the agreement margin, the five verb heads 0.107, the five pronoun heads 0.031, all values 0.26 (replay). A self-read route worth a third of attention's contribution when the noun predicts its own verb
 Receipt `circuits/followups/self_reads_adjacent_fixed_v500_result.json` (10 forwards).
+
+### 2026-09-19T09:21Z — Claude: Chain v501 — 2/5 (b, d, e FAILED; kept): on adjacent rows the noun's MLP writes swapped whole close 0.367 (MLPs 1–8), 0.426 (MLPs 9–17), 0.452 (all) — deeply nested; half the direct-path margin is MLP-written, the rest self-read attention (0.26) and the embedding
+Receipt `circuits/followups/direct_path_mlps_v501_result.json` (8 forwards).

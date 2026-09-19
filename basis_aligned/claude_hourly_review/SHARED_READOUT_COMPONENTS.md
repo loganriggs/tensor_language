@@ -609,3 +609,4 @@ v496 (5/5, replay 2e-5): one verb vector through the verb readout confirmed — 
 v497 (5/5): the detector 701/2059 swapped at the verb writes the readers' verb vector (cos 0.908 with 11.3; all signs; 0.084), leaning to have/do.
 v498 (3/5; b, e failed): on adjacent rows the detector suppresses singular verbs (has −0.75, does −0.67, is −0.66; cos 0.63 with the distant vector) and 11.3's own-position value changes verbs (0.196) — self-read at the noun.
 v500 (5/5): self-reads at the noun for adjacent verbs — 11.3 0.055, five verb heads 0.107, pronoun heads 0.031, all values 0.26.
+v501 (2/5; b, d, e failed): direct path MLPs at the noun — 1–8 0.367, 9–17 0.426, all 0.452 (nested); attention self-reads 0.26; the rest embedding.
