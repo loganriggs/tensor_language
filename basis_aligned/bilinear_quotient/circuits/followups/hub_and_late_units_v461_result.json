@@ -1,0 +1,89 @@
+{
+  "candidate_id": "chain.hub_and_late_units_v461",
+  "finished_utc": "2026-09-19T08:20:24.441184+00:00",
+  "forwards": 8,
+  "plan": {
+    "bars": {
+      "band": 0.01,
+      "hub_v460": 0.114,
+      "late_v460": 0.079,
+      "nest": 0.02,
+      "replay_tol": 0.001
+    },
+    "candidate_id": "chain.hub_and_late_units_v461",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 9,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_joint_below_the_sum": false,
+    "pred_c_joint_above_the_larger": true,
+    "pred_d_late_units_replay": true,
+    "pred_e_hub_units_replay": true
+  },
+  "report": {
+    "panel": {
+      "skipped": "verb slot only (price)",
+      "verb_slot_rows": 43
+    },
+    "replay_max_abs": 2.002716064453125e-05,
+    "text": {
+      "closed": {
+        "BOTH": {
+          "are_is": 0.18589664995670319,
+          "verb": 0.17923328280448914
+        },
+        "LATE": {
+          "are_is": 0.09311268478631973,
+          "verb": 0.07868505269289017
+        },
+        "UNITS8": {
+          "are_is": 0.10840210318565369,
+          "verb": 0.1138540580868721
+        }
+      },
+      "gap_mean": {
+        "are_is": 7.83402681350708,
+        "verb": 14.92425537109375,
+        "were_was": 7.0902299880981445
+      },
+      "pairs": 43
+    },
+    "verb_slot": {
+      "closed": {
+        "BOTH": {
+          "are_is": 0.18589664995670319,
+          "verb": 0.17923328280448914
+        },
+        "LATE": {
+          "are_is": 0.09311268478631973,
+          "verb": 0.07868505269289017
+        },
+        "UNITS8": {
+          "are_is": 0.10840210318565369,
+          "verb": 0.1138540580868721
+        }
+      },
+      "gap_mean": {
+        "are_is": 7.83402681350708,
+        "verb": 14.92425537109375,
+        "were_was": 7.0902299880981445
+      },
+      "pairs": 43
+    }
+  },
+  "schema": "hub_and_late_units_result_v461",
+  "serial_seconds": 1.8646713059861213
+}

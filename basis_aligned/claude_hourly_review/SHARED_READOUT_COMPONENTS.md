@@ -568,3 +568,4 @@ v457 (4/5): MLP 17's direct agreement write = unit 701 (half) + 2059 (a fifth); 
 v458 (4/5; c failed): unit 701 (MLP 17) is a bilinear number detector (dL·dR 0.65; both inputs flip), fed by MLPs 16 / 15 / 10 / 12; 829's column into its L input cos 0.16. The direct path's chain: 829 → MLPs 10–16 → 701.
 v459 (4/5): MLP-16 units 575 / 2921 feed 701's R input (top-10 0.72). Direct-path late chain: 829 → … → 575 / 2921 (MLP 16) → 701 (MLP 17).
 v460 (5/5, EDIT): 701 + 2059 swapped at the noun close 0.079 of the adjacent-verb margin (random 0.000; 829/953/1030 0.114).
+v461 (4/5; b failed — nesting cost only 0.014): hub units 0.114 + late units 0.079 → joint 0.179: nearly independent contributions on the direct path.
