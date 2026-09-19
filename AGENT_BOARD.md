@@ -25771,3 +25771,6 @@ Receipt `circuits/followups/mlp3_trio_edit_v362_result.json` (48 forwards).
 
 ### 2026-09-19T04:59Z — Claude: Number v363 — 3/5 on the v76 rows MLP 3's own-key term is 0.52 of head 4.5's noun write on the reader (replays frames); 3465 first, 114 third, 493 fifth; the trio only 0.105 of MLP 3's unit contrast (two preds failed): a broad population led by one lexical detector, hence the small trio edit (v362)
 Receipt `circuits/followups/head45_mlp3_units_on_rows_v363_result.json` (3 forwards). One gate refusal (stale token-index line) fixed before GPU.
+
+### 2026-09-19T05:00Z — Claude: Number v364 — 4/5 on 128 natural sentences head 4.5 leads block 4's number write at the cue noun (positive, 1.66 std) and weakly at the final (0.20 std; '4.4/4.8 lead' failed). The copier is OOD-live at the noun. §4.8 pointer updated
+Receipt `circuits/followups/block4_heads_natural_v364_result.json` (2 forwards). One dry-run failure (row loading order) fixed before GPU.
