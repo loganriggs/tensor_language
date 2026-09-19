@@ -1,0 +1,78 @@
+{
+  "candidate_id": "chain.verb_writes_adjacent_v539",
+  "finished_utc": "2026-09-19T10:27:44.821102+00:00",
+  "forwards": 8,
+  "plan": {
+    "bars": {
+      "all_v502": 0.313,
+      "band": 0.05,
+      "five_max": 0.15,
+      "replay_tol": 0.001,
+      "rest_max": 0.1,
+      "unit": 701
+    },
+    "candidate_id": "chain.verb_writes_adjacent_v539",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 9,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_five_verb_writes_small_at_the_noun_position": false,
+    "pred_c_all_attention_small_at_the_noun_position": true,
+    "pred_d_five_below_all": true,
+    "pred_e_rest_small": true
+  },
+  "report": {
+    "panel": {
+      "distant_rows": 43,
+      "skipped": "distant rows only"
+    },
+    "replay_max_abs": 2.002716064453125e-05,
+    "text": {
+      "contrast_mean": 344.6632995605469,
+      "margin_closed": {
+        "ALL": 0.31311556696891785,
+        "FIVE_V": 0.1673426479101181,
+        "REST_V": 0.021664412692189217
+      },
+      "moved": {
+        "ALL": 0.35743018984794617,
+        "FIVE_V": 0.18607717752456665,
+        "REST_V": 0.050034165382385254
+      },
+      "pairs": 43,
+      "sign_constancy": 0.9069767594337463,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": 344.6632995605469,
+      "margin_closed": {
+        "ALL": 0.31311556696891785,
+        "FIVE_V": 0.1673426479101181,
+        "REST_V": 0.021664412692189217
+      },
+      "moved": {
+        "ALL": 0.35743018984794617,
+        "FIVE_V": 0.18607717752456665,
+        "REST_V": 0.050034165382385254
+      },
+      "pairs": 43,
+      "sign_constancy": 0.9069767594337463,
+      "unit": 701
+    }
+  },
+  "schema": "verb_writes_adjacent_result_v539",
+  "serial_seconds": 1.8575204401277006
+}

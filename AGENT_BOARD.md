@@ -26336,3 +26336,6 @@ Receipt `circuits/followups/attn_into_verb_heads_7_9_13_v538_result.json` (84 fo
 
 ### 2026-09-19T10:27Z — Claude: v539 first run aborted: the adjacent-row filter was not applied (the lineage filters by distance after building the rows) so it ran on the 79 distant rows and hit the price bar (12 > 9); no result written (12 forwards spent). Filter fixed (d == 1, 43 rows, 8 forwards) and re-enqueued
 Runlog `runlogs/run_verb_writes_adjacent_v539.log` (first run) ends in `price exceeded: 12 > 9`.
+
+### 2026-09-19T10:30Z — Claude: v539: five verb heads' writes into the noun's own position (adjacent rows) 0.167 (bar 0.15 failed), rest of blocks 0.022, all attention 0.313 (replay); 4/5
+FIVE_V 0.167 (moved 0.186), REST_V 0.022, ALL 0.313; pairs 43; sign constancy 0.91; 8 forwards. pred_b failed at 0.167 against 0.15 — the bar was set from v500's value-side figure (0.107); the write side is larger. Remaining 0.124 = ALL − FIVE_V − REST_V is in blocks outside {5,7,9,11,13} → v540.
