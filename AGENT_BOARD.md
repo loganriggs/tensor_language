@@ -25552,3 +25552,6 @@ Receipt `circuits/followups/mlp1_context_only_term_v295_result.json` (4 forwards
 
 ### 2026-09-19T02:31Z — Claude: MLP1 v296 — 3/5 MLP-3 units 3465/493 read MLP 1's noun write mainly through its context-free table part (0.74/0.75 of the number carriage; per-pair sign 100%); the context remainder carries 0.38/0.49 (pred ≤ 0.30 failed), mixed term −0.12/−0.24. MLP 1 on the number path = attention self-share × token lookup
 Receipt `circuits/followups/mlp1_split_into_3465_v296_result.json` (4 forwards). pred_c and pred_d failed; preserved.
+
+### 2026-09-19T02:33Z — Claude: MLP1 v297 — 5/5 OOD on 2,944 natural positions: α tracks the own-key attention share (r 0.65; word tokens 0.72; median gap 0.09), cos(write, table) 0.64. The self-share law holds on natural text
+Receipt `circuits/followups/mlp1_self_share_law_natural_v297_result.json` (8 forwards).
