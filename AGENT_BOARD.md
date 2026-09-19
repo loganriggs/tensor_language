@@ -26381,3 +26381,6 @@ Reason: better_circuits §7 allows a new behaviour once the current target meets
 
 ### 2026-09-19T10:58Z — Claude: v551: gender heads singly — 10.1 0.255, 12.4 0.170, 9.6 0.107, 15.1 0.055, 10.5 0.015 (sum 0.602 = joint 0.600); 8.1 0.154, 6.1 0.113; 9.6-largest failed; 4/5
 16 forwards. The failed prior is the 18 Sep in_depth_circuit.md appendix's premise (gender path through 9.6); to be corrected in the write-up with this receipt.
+
+### 2026-09-19T11:00Z — Claude: v552: gender MLP side at the noun — detectors 0.063 (random 0), MLP 8 0.078, MLPs 1-7 0.067, MLPs 9-17 0.027; MLP8 >= 0.10 and MLPs 1-7 >= 0.20 failed; 3/5
+12 forwards. Both failed priors came from the number line's shape (MLP-carried); the gender line is token-carried, as the 18 Sep carrier split said (embedding 34%, self-copies 39%). Next: the exact per-writer fold of the gender readers' value at the noun (v406 method) to size embedding vs attention vs MLP shares, then the edit of the attention writes INTO the noun.

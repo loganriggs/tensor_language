@@ -1,0 +1,138 @@
+{
+  "candidate_id": "gender.mlp_side_noun_v552",
+  "finished_utc": "2026-09-19T11:00:17.467515+00:00",
+  "forwards": 12,
+  "plan": {
+    "bars": {
+      "low_min": 0.2,
+      "mlp8_min": 0.1,
+      "rand_max": 0.01,
+      "replay_tol": 0.001,
+      "u2_min": 0.05
+    },
+    "candidate_id": "gender.mlp_side_noun_v552",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 13,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "sets": {
+      "MLP8": [
+        [
+          8,
+          0
+        ]
+      ],
+      "MLPS_1_7": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          7,
+          0
+        ]
+      ],
+      "MLPS_9_17": [
+        [
+          9,
+          0
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          11,
+          0
+        ],
+        [
+          12,
+          0
+        ],
+        [
+          13,
+          0
+        ],
+        [
+          14,
+          0
+        ],
+        [
+          15,
+          0
+        ],
+        [
+          16,
+          0
+        ],
+        [
+          17,
+          0
+        ]
+      ]
+    },
+    "text_pairs": 61,
+    "unit_sets": {
+      "RAND": [
+        8,
+        [
+          3156,
+          3446
+        ]
+      ],
+      "U2": [
+        8,
+        [
+          3152,
+          3943
+        ]
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_detectors_by_replacement": true,
+    "pred_c_mlp8_whole_above_the_detectors": false,
+    "pred_d_mlps_1_7_carry": false,
+    "pred_e_random_units_inert": true
+  },
+  "report": {
+    "replay_max_abs": 1.430511474609375e-05,
+    "text": {
+      "closed": {
+        "MLP8": 0.07800419628620148,
+        "MLPS_1_7": 0.06712526828050613,
+        "MLPS_9_17": 0.027365656569600105,
+        "RAND": -1.3996388588566333e-05,
+        "U2": 0.06257560104131699
+      },
+      "gap_mean": 4.360080718994141,
+      "pairs": 61
+    }
+  },
+  "schema": "gender_mlp_side_noun_result_v552",
+  "serial_seconds": 2.027174291200936
+}
