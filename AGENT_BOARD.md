@@ -25846,3 +25846,6 @@ Receipt `circuits/followups/mlp4567_units_into_829_next_token_v385_result.json` 
 
 ### 2026-09-19T05:55Z — Claude: Number v386 — 5/5 post-noun site units {3661, 715, 69, 834} zeroed: margin −3.6% (20× null); with the six-unit chain, ten units −20.2% (additive). Process: a bare until-loop on the result file idled 10 min while the gate refused (duplicate BATCH from a derive leftover) — use the fail-fast waiter only
 Receipt `circuits/followups/site_units_edit_v386_result.json` (48 forwards). Two gate refusals (duplicate BATCH, inherited PHRASE line) and a 10-minute idle wait on a never-produced file preceded it.
+
+### 2026-09-19T05:57Z — Claude: Number v387 — 5/5 the ten named units on 128 natural rows: margin −11.1% (25× null; six −8.8%; panel −20.2%). Two-site account transfers
+Receipt `circuits/followups/ten_units_edit_natural_v387_result.json` (28 forwards).

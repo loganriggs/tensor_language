@@ -492,3 +492,4 @@ v383 (3/5): the number at the post-noun key, as 9.6 reads it, is written by MLP 
 v384 (2/5): at the post-noun position MLP-8 unit 829 is fed 72–76% by MLPs 4–7 and 24–28% by attention (blocks 4, 5, 7 at 7–11% each). Attention seeds the copy; the MLPs at that position rebuild the number. Three attention-first preds failed.
 v385 (5/5): at the post-noun site 829 is fed by the noun's relays (1036, 2483, 1779 in their layers' top two) plus site-specific leaders 3661 (MLP 4), 715 (MLP 5), 69 (MLP 6; the v240s verb-site unit), 834 (MLP 7). v386: edit the four.
 v386 (5/5): the post-noun site units {3661, 715, 69, 834} cost the margin 3.6% (20× null); with the six-unit noun chain, ten units cost 20.2% — the sites add. Process note: use dod_run_wait.sh, never a bare until-loop on the result file.
+v387 (5/5, natural rows): the ten named units cost the labelled-pronoun margin 11.1% on text (25× null; six 8.8%; panel 20.2%). Two-site unit account transfers.

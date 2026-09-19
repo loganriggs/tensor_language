@@ -1,0 +1,81 @@
+{
+  "candidate_id": "pronoun_number.ten_units_edit_natural_v387",
+  "finished_utc": "2026-09-19T05:56:21.249769+00:00",
+  "forwards": 28,
+  "plan": {
+    "bars": {
+      "move_min": 0.08,
+      "null_factor": 3.0,
+      "panel_rel": -0.2018,
+      "six_text": 0.2103
+    },
+    "candidate_id": "pronoun_number.ten_units_edit_natural_v387",
+    "chain": {
+      "3": [
+        3465,
+        493
+      ],
+      "4": [
+        3661
+      ],
+      "5": [
+        1036,
+        715
+      ],
+      "6": [
+        2483,
+        69
+      ],
+      "7": [
+        1779,
+        834
+      ],
+      "8": [
+        829
+      ]
+    },
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 32,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "n_null": 12,
+    "natural_rows": 128,
+    "seed": 387
+  },
+  "predictions": {
+    "pred_a_native_margin_positive": true,
+    "pred_b_ten_lower_the_margin_on_text": true,
+    "pred_c_beats_random_sets_on_text": true,
+    "pred_d_ten_exceed_six_on_text": true,
+    "pred_e_within_2x_of_panel": true
+  },
+  "report": {
+    "chain_rel": -0.11086211930334838,
+    "change_ten": -0.2655868288129568,
+    "labels": {
+      "he": 64,
+      "they": 64
+    },
+    "native_margin": 2.3956499341875315,
+    "null_changes": [
+      -0.0023670904338359833,
+      -2.7978792786598206e-05,
+      -0.0015360042452812195,
+      0.0012749843299388885,
+      0.0022805295884609222,
+      -0.005189834162592888,
+      2.4082139134407043e-05,
+      -0.0021866504102945328,
+      0.0016591846942901611,
+      0.010582488030195236,
+      -0.00017850659787654877,
+      -0.0021720509976148605
+    ],
+    "null_max_abs": 0.010582488030195236
+  },
+  "schema": "ten_units_edit_natural_result_v387",
+  "serial_seconds": 2.65408375300467
+}
