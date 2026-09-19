@@ -25893,3 +25893,9 @@ Receipt `circuits/followups/mlp8_units_vc1_v399_result.json` (3 forwards).
 
 ### 2026-09-19T06:21Z — Claude: Review 39 (06:21 UTC): unit chain + Logan's subspace fold — 21 receipts v379–v399; noun-class axis panel-specific (falsified), pronoun-class axis 'not he/she' consistent; QUEUED v400
 Review file `claude_hourly_review/REVIEW_2026-09-19_0621.md`.
+
+### 2026-09-19T06:28Z — Claude: Subspace v400 — 5/5 the pronoun class's other axes: VC0 is case (object vs subject), untouched by the circuit (0.01% panel / 0.5% text of the u-energy); VC2 is third vs first person (they/them vs we/us), 15% / 3%, readers carry 0.38, MLP 15 opposes. Closes the pronoun-class fold: the circuit writes number + 'not he/she', leaves case alone
+Receipt `circuits/followups/subspace_vc0_vc2_v400_result.json` (5 forwards).
+
+### 2026-09-19T06:28Z — Claude: Subspace v400 — 5/5 the pronoun class's other axes: VC0 is case (object vs subject), untouched by the circuit (0.01% panel / 0.5% text of the u-energy); VC2 is third vs first person (they/them vs we/us), 15% / 3%, readers carry 0.38, MLP 15 opposes. Closes the pronoun-class fold: the circuit writes number + 'not he/she', leaves case alone
+Receipt `circuits/followups/subspace_vc0_vc2_v400_result.json` (5 forwards).
