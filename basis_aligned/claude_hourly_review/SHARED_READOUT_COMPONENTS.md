@@ -611,3 +611,4 @@ v498 (3/5; b, e failed): on adjacent rows the detector suppresses singular verbs
 v500 (5/5): self-reads at the noun for adjacent verbs — 11.3 0.055, five verb heads 0.107, pronoun heads 0.031, all values 0.26.
 v501 (2/5; b, d, e failed): direct path MLPs at the noun — 1–8 0.367, 9–17 0.426, all 0.452 (nested); attention self-reads 0.26; the rest embedding.
 v502 (4/5; c failed): at the noun's own position attention 0.313 + MLPs 0.452 → joint 0.481: nested on the embedding; no downstream swap exceeds half.
+v503 (4/5; c failed at 0.214): pronoun slot — attention 0.973 (replay), MLPs 9–16 at the slot 0.214, MLPs 1–17 0.213. A fifth of the pronoun margin is re-expressed by MLPs at the answer (verb: 0.39).

@@ -26219,3 +26219,6 @@ Regional coupled folding remains mandatory: Möbius inversion plus an executed o
 
 ### 2026-09-19T09:22Z — Claude: Chain v502 — 4/5 (c FAILED; kept): at the noun's own position (adjacent verbs) attention into the position closes 0.313, the MLPs 0.452, both 0.481 — one nested accumulation on the token embedding; no downstream channel swap exceeds half the margin
 Receipt `circuits/followups/direct_path_channels_v502_result.json` (8 forwards).
+
+### 2026-09-19T09:24Z — Claude: Chain v503 — 4/5 (c FAILED at 0.214 vs 0.15; kept): at the pronoun slot attention into the answer closes 0.973 (replay) and MLPs 9–16 there jointly 0.214 (MLPs 1–17: 0.213) — a fifth of the pronoun margin is re-expressed by MLPs at the answer, smaller than the verb slot's 0.39 and with no late detector
+Receipt `circuits/followups/pronoun_slot_channels_v503_result.json` (16 forwards).
