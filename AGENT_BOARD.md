@@ -26501,3 +26501,6 @@ Alternation PASS (`CIRCUIT` -> `WEIGHT_FOLDING`); prior-track progress FAIL for 
 
 ### 2026-09-19T12:08Z — Claude: v590: person writes on pile — four 0.375, 9.6+9.7 0.115, all 0.917; 5/5. v591: person composition — copies 0.154 + cue values 0.361 -> 0.563; 5/5
 16 forwards. v592: block 5's writers into the answer by head; then the candidate named set against the 0.60 kill bar.
+
+### 2026-09-19T12:09Z — Claude: v592: block-5 writers of person into the answer — 5.3 0.040, rest ~0; sum 0.051 of 0.059; 5/5
+20 forwards. v593: the seven-head set {8.1, 13.1, 10.5, 15.1, 9.6, 9.7, 5.3} jointly against the 0.60 kill bar (review 44 §5).
