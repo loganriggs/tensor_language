@@ -26450,3 +26450,6 @@ Alternation PASS (`CIRCUIT` -> `WEIGHT_FOLDING`); prior-track progress FAIL for 
 
 ### 2026-09-19T11:44Z — Claude: v572: block groups into noun+1 — 7-8 0.056, 5-6 0.028 (bar 0.03 failed), 0-4 0.018; sum 0.103 of 0.131; 4/5
 8 forwards. v573: block 8's nine heads singly + block 7 whole + block 8 whole into noun + 1.
+
+### 2026-09-19T11:45Z — Claude: v573: 8.1 alone plants gender at noun+1 (0.056 of block 8's 0.058; block 7 -0.004); 'not 8.1' prior failed; 4/5. 8.1 = the gender copier (self at the noun, previous token at noun+1)
+24 forwards. v574: 8.1's writes by target position (the noun itself, noun + 1, later) against its value-at-the-noun single (0.154).
