@@ -26438,3 +26438,6 @@ Alternation PASS (`CIRCUIT` -> `WEIGHT_FOLDING`); prior-track progress FAIL for 
 
 ### 2026-09-19T11:37Z — Claude: v568: readers' pattern swap -0.072, values 0.732, sum 0.66 vs write swap 0.878 (two predictions failed): ~0.22 pattern x value interaction; 3/5
 6 forwards. v569 checks the decomposition closes: pattern and values swapped jointly for the readers should replay the write swap (0.878), and the interaction = joint - values - pattern.
+
+### 2026-09-19T11:38Z — Claude: v569: joint p+v swap 0.745 (write swap 0.878: failed by 0.13); interaction 0.085 (prior 0.22 failed); pattern/values replay; 3/5
+8 forwards. Next (v570): the readers' writes swapped at the answer only, at the intermediate positions only, and at all positions from the noun on.
