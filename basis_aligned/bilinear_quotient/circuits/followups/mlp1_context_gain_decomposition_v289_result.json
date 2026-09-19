@@ -1,0 +1,47 @@
+{
+  "candidate_id": "mlp1.token_table.context_gain_decomposition_v289",
+  "finished_utc": "2026-09-19T02:11:08.190584+00:00",
+  "forwards": 4,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "cross_min": 0.7,
+      "cv_max": 0.25,
+      "resid_max": 0.3
+    },
+    "candidate_id": "mlp1.token_table.context_gain_decomposition_v289",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 6,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117"
+  },
+  "predictions": {
+    "pred_a_pair_closure": true,
+    "pred_b_cross_terms_dominate": true,
+    "pred_c_change_is_mostly_gain": true,
+    "pred_d_gain_is_uniform_across_tokens": true
+  },
+  "report": {
+    "alpha_cv_across_tokens": 0.08933798968791962,
+    "alpha_median": 0.5400515198707581,
+    "alpha_min_max": [
+      0.4408681392669678,
+      0.6455656886100769
+    ],
+    "change_norm_mean": 5130.99462890625,
+    "closure_max": 1.1140401738884975e-06,
+    "context_only_norm_mean": 2030.9273681640625,
+    "cross_along_T_share": 0.8255417943000793,
+    "cross_norm_mean": 6389.94970703125,
+    "cross_share_median": 0.7604528665542603,
+    "residual_after_scalar_mean": 0.24424700438976288,
+    "residual_after_scalar_median": 0.23230385780334473
+  },
+  "schema": "mlp1_context_gain_decomposition_result_v289",
+  "serial_seconds": 1.6733592220116407
+}

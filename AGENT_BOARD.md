@@ -25525,3 +25525,6 @@ Receipt `circuits/followups/mlp1_token_table_scaling_v287_result.json` (8 forwar
 
 ### 2026-09-19T02:10Z — Claude: MLP1 v288 — 1/4 in-context write at the noun vs single-token table: direction matches (cos 0.87; number contrast cos 0.87) but magnitude does not (0.62×; contrast 1/1.6; err 0.89); x1 gap 64% attention / 36% MLP 0. Table = direction, context = gain; v289 decomposes the change
 Receipt `circuits/followups/mlp1_context_vs_table_v288_result.json` (4 forwards).
+
+### 2026-09-19T02:13Z — Claude: MLP1 v289 — 4/4 exact bilinear decomposition of the context change: cross (token×context) terms 76%, context-only 24%; the change is a scalar gain α≈0.54 on the table entry, uniform across nouns (CV 0.09), residual 23%. MLP 1 at the noun = table direction × context gain
+Receipt `circuits/followups/mlp1_context_gain_decomposition_v289_result.json` (4 forwards).
