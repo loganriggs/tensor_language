@@ -1,0 +1,168 @@
+{
+  "candidate_id": "pronoun_number.chain_units_scaling_v333",
+  "finished_utc": "2026-09-19T03:53:33.895963+00:00",
+  "forwards": 2,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.0001,
+      "replay_frac": 0.5,
+      "side_min": 0.85,
+      "stab": 0.3
+    },
+    "candidate_id": "pronoun_number.chain_units_scaling_v333",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 4,
+    "gpu_accessed": false,
+    "groups": {
+      "plural": 256,
+      "singular": 256
+    },
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "sizes": [
+      4,
+      16,
+      64,
+      256
+    ],
+    "tokens": 512,
+    "units": {
+      "3": [
+        3465,
+        493
+      ],
+      "5": [
+        1036
+      ],
+      "8": [
+        829,
+        953,
+        1030
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_gap_stable_from_16": false,
+    "pred_c_vocab_pairs_replay_lexicon": false,
+    "pred_d_plural_side_fraction_high_at_256": false,
+    "pred_e_order_of_units_stable": false
+  },
+  "report": {
+    "closure_max": 0.0,
+    "per_unit_by_size": {
+      "mlp3.3465": {
+        "16": {
+          "gap_over_std": -1.873947222907455,
+          "plural_side_fraction": 1.0
+        },
+        "256": {
+          "gap_over_std": -2.579813484836879,
+          "plural_side_fraction": 0.95703125
+        },
+        "4": {
+          "gap_over_std": -2.1929021419522554,
+          "plural_side_fraction": 0.75
+        },
+        "64": {
+          "gap_over_std": -2.2530964661319546,
+          "plural_side_fraction": 0.984375
+        }
+      },
+      "mlp3.493": {
+        "16": {
+          "gap_over_std": 3.25552607612646,
+          "plural_side_fraction": 1.0
+        },
+        "256": {
+          "gap_over_std": 2.6468612403341454,
+          "plural_side_fraction": 0.984375
+        },
+        "4": {
+          "gap_over_std": 3.9057744531488647,
+          "plural_side_fraction": 1.0
+        },
+        "64": {
+          "gap_over_std": 2.9265800176724057,
+          "plural_side_fraction": 0.984375
+        }
+      },
+      "mlp5.1036": {
+        "16": {
+          "gap_over_std": 1.571653172992494,
+          "plural_side_fraction": 0.75
+        },
+        "256": {
+          "gap_over_std": 2.0094347860015866,
+          "plural_side_fraction": 0.890625
+        },
+        "4": {
+          "gap_over_std": 1.3021172434986046,
+          "plural_side_fraction": 0.75
+        },
+        "64": {
+          "gap_over_std": 1.8114305070259376,
+          "plural_side_fraction": 0.8125
+        }
+      },
+      "mlp8.1030": {
+        "16": {
+          "gap_over_std": -0.006351627693398864,
+          "plural_side_fraction": 0.5
+        },
+        "256": {
+          "gap_over_std": -0.04077317043829796,
+          "plural_side_fraction": 0.578125
+        },
+        "4": {
+          "gap_over_std": -0.05460522511981996,
+          "plural_side_fraction": 0.75
+        },
+        "64": {
+          "gap_over_std": -0.09029551069949589,
+          "plural_side_fraction": 0.5625
+        }
+      },
+      "mlp8.829": {
+        "16": {
+          "gap_over_std": 1.4785796704064194,
+          "plural_side_fraction": 0.75
+        },
+        "256": {
+          "gap_over_std": 1.7630305341295982,
+          "plural_side_fraction": 0.82421875
+        },
+        "4": {
+          "gap_over_std": 0.8562285540932495,
+          "plural_side_fraction": 0.75
+        },
+        "64": {
+          "gap_over_std": 1.5985574108690448,
+          "plural_side_fraction": 0.765625
+        }
+      },
+      "mlp8.953": {
+        "16": {
+          "gap_over_std": -0.01311225113447145,
+          "plural_side_fraction": 0.5
+        },
+        "256": {
+          "gap_over_std": -0.0630321987438382,
+          "plural_side_fraction": 0.59375
+        },
+        "4": {
+          "gap_over_std": -0.12791412100869232,
+          "plural_side_fraction": 0.5
+        },
+        "64": {
+          "gap_over_std": -0.04334994987265872,
+          "plural_side_fraction": 0.546875
+        }
+      }
+    }
+  },
+  "schema": "chain_units_scaling_result_v333",
+  "serial_seconds": 1.6245172328781337
+}

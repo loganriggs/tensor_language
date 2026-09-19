@@ -25669,3 +25669,6 @@ Receipt `circuits/followups/s_verbs_into_3465_v331_result.json` (1 forward).
 
 ### 2026-09-19T03:53Z — Claude: Number v332 — 4/5 single tokens through blocks 0–8: all six named chain units separate plural from singular nouns from the token alone (3465 −4.2, 493 +3.8, 1036 +5.4, 829 +4.4, 953 −2.1, 1030 +1.5 std), no sharpening up the chain (1.03×); breadth grows — 1036/829 read plural pronouns ≈ 0.5, 953 reads numerals/pronouns ≈ 1.0 ('ignored everywhere' failed). §4.10 updated
 Receipt `circuits/followups/tokens_up_the_chain_v332_result.json` (1 forward).
+
+### 2026-09-19T03:55Z — Claude: Number v333 — 1/5 vocabulary s-pairs 4→256 from the token alone: 3465 −2.6, 493 +2.7, 1036 +2.0, 829 +1.8 std at 256 (82–98% plural side; gap still growing 64→256), 953 / 1030 ≈ 0 (lexicon-specific). Lexicon-derived bars too strict; four preds failed and are kept. §4.10 updated
+Receipt `circuits/followups/chain_units_scaling_v333_result.json` (2 forwards). Four predictions failed; the bars came from the lexicon and were too strict for vocabulary pairs.

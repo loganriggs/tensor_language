@@ -360,7 +360,10 @@ carried up the chain (v332, blocks 0–8) finds every named unit already separat
 (+3.8 std), 1036 of MLP 5 (+5.4), 829 (+4.4), 953 (−2.1) and 1030 (+1.5) of MLP 8, five of six with every plural on the plural side — and at the
 same strength as 3465 (the MLP-8 maximum is 1.03× its gap). The chain does not sharpen lexical number; it adds context (the copy to the
 pronoun). What grows is breadth: 3465 / 493 read plural-noun sense only, 1036 and 829 also give plural pronouns half the axis, and 953
-treats numerals and pronouns as plural outright.
+treats numerals and pronouns as plural outright. On 400 vocabulary s-pairs rather than the hand lexicon (v333, 4 → 256 pairs) the four
+lower units keep the separation — 3465 −2.6, 493 +2.7, 1036 +2.0, 829 +1.8 pooled std at 256 pairs, 82–98% of plurals on the plural side, the
+gap still growing between 64 and 256 — while 953 and 1030 lose it (≈ 0): those two are not lexical number detectors, and the lexicon numbers
+above are the clean case of a broader, noisier vocabulary effect.
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -451,6 +454,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v330 | more classes → 3465 | irregular plurals 0.85 of the axis; -s adverbs −0.08; plural pronouns −0.06; -s verbs 0.41 (4/5) |
 | v331 | -s verbs split; mass / collective nouns → 3465 | noun-reading -s verbs 1.13, verb-only 0.09; mass −0.11, collective +0.03 (5/5) |
 | v332 | single tokens up the chain (3465, 493, 1036, 829, 953, 1030) | all separate (1.5–5.4 std), no sharpening (1.03×); breadth grows to pronouns / numerals at MLP 5–8 (4/5) |
+| v333 | 400 vocabulary s-pairs, 4→256 | 3465 / 493 / 1036 / 829 keep 2–3 std; 953 / 1030 lose it; lexicon bars too strict (1/5) |
 
 ### Pass over the draft (what I changed after rereading)
 
