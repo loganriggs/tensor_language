@@ -25944,3 +25944,6 @@ Receipt `circuits/followups/pattern_gain_side_v414_result.json` (4 forwards). pr
 
 ### 2026-09-19T07:02Z — Claude: Distributional v415 — 4/5 (c FAILED; kept): 9.6's query–key interaction in the gain is content (0.38 → 0.32 without rotary), not distance; 15.1's noun-side gain is the rotary recency term (key 0.76 → 0.30); 12.4 unchanged
 Receipt `circuits/followups/pattern_gain_rotary_v415_result.json` (4 forwards).
+
+### 2026-09-19T07:04Z — Claude: Both-ends v416 — 5/5 EDIT: swapping only the readers' value vectors at the noun between plural and singular rows closes 0.37 of the they − he gap on 122 natural pairs (0.25 panel); swapping only their keys closes 0.01 / 0.00; value beats key on 0.94 / 1.00 of pairs. The value-copy account holds under a replace-edit that matches the claim
+Receipt `circuits/followups/value_swap_edit_v416_result.json` (21 forwards).
