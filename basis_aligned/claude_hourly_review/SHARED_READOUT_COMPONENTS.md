@@ -523,3 +523,4 @@ v414 (2/5): the readers' gain is key-side for 12.4 (0.57) and 15.1 (0.76); for 9
 v415 (4/5; c failed): 9.6's gain interaction is content (0.32 without rotary), not distance; 15.1's key-side gain IS rotary/recency (0.76 → 0.30).
 v416 (5/5, EDIT): swapping only the readers' values at the noun closes 0.37 (text) / 0.25 (panel) of the margin gap; swapping only their keys closes 0.01 / 0.00. The value-copy account holds under intervention.
 v417 (4/5; b failed at 0.50 vs 0.55): two-site value swap closes 0.50 (text) / 0.53 (panel) of the margin gap; two-site key swap 0.00 / −0.04.
+v418 (5/5, EDIT): swapping copier 4.5's value at the noun closes 0.19 (text) / 0.30 (panel) of the margin gap; its keys 0.00.

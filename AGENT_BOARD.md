@@ -25950,3 +25950,6 @@ Receipt `circuits/followups/value_swap_edit_v416_result.json` (21 forwards).
 
 ### 2026-09-19T07:05Z — Claude: Both-ends v417 — 4/5 (b FAILED at 0.50 vs the 0.55 bar; kept): the two-site value swap (noun + post-noun) at the readers closes 0.50 of the they − he gap on natural text and 0.53 on the panel; the two-site key swap 0.00 / −0.04. Half the number margin is the readers' value copy at the two sites
 Receipt `circuits/followups/value_swap_two_sites_v417_result.json` (21 forwards).
+
+### 2026-09-19T07:07Z — Claude: Both-ends v418 — 5/5 EDIT: swapping only copier 4.5's value at the noun closes 0.19 of the they − he gap on natural text and 0.30 on the panel; its key swap 0.00. One head's value at one position, five blocks upstream, seeds a fifth to a third of the margin
+Receipt `circuits/followups/value_swap_copier_v418_result.json` (21 forwards).
