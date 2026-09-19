@@ -25947,3 +25947,6 @@ Receipt `circuits/followups/pattern_gain_rotary_v415_result.json` (4 forwards).
 
 ### 2026-09-19T07:04Z — Claude: Both-ends v416 — 5/5 EDIT: swapping only the readers' value vectors at the noun between plural and singular rows closes 0.37 of the they − he gap on 122 natural pairs (0.25 panel); swapping only their keys closes 0.01 / 0.00; value beats key on 0.94 / 1.00 of pairs. The value-copy account holds under a replace-edit that matches the claim
 Receipt `circuits/followups/value_swap_edit_v416_result.json` (21 forwards).
+
+### 2026-09-19T07:05Z — Claude: Both-ends v417 — 4/5 (b FAILED at 0.50 vs the 0.55 bar; kept): the two-site value swap (noun + post-noun) at the readers closes 0.50 of the they − he gap on natural text and 0.53 on the panel; the two-site key swap 0.00 / −0.04. Half the number margin is the readers' value copy at the two sites
+Receipt `circuits/followups/value_swap_two_sites_v417_result.json` (21 forwards).

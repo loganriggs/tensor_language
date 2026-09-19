@@ -522,3 +522,4 @@ v413 (3/5; b, e failed): the readers' row-level gain is set by neither the answe
 v414 (2/5): the readers' gain is key-side for 12.4 (0.57) and 15.1 (0.76); for 9.6 key 0.37 and interaction 0.38 tie (query 0.25). Closure bar 1e-6 too tight for float32 (3e-5).
 v415 (4/5; c failed): 9.6's gain interaction is content (0.32 without rotary), not distance; 15.1's key-side gain IS rotary/recency (0.76 → 0.30).
 v416 (5/5, EDIT): swapping only the readers' values at the noun closes 0.37 (text) / 0.25 (panel) of the margin gap; swapping only their keys closes 0.01 / 0.00. The value-copy account holds under intervention.
+v417 (4/5; b failed at 0.50 vs 0.55): two-site value swap closes 0.50 (text) / 0.53 (panel) of the margin gap; two-site key swap 0.00 / −0.04.
