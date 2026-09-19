@@ -26010,3 +26010,6 @@ Receipt `circuits/followups/route_census_close_v434_result.json` (28 forwards).
 
 ### 2026-09-19T07:34Z — Claude: Both-ends v435 — 1/5 (b–e FAILED; kept): joint replace-edits of NESTED routes cancel — five readers (two sites) + copier 0.678, + rest 0.645, + all low blocks 0.572. A swap is an involution: downstream values swapped to the partner's originals undo an upstream swap. Census must use sources at one position (the noun); v436
 Receipt `circuits/followups/route_census_copier_v435_result.json` (28 forwards). Methodological failure kept: v428's two-site (0.67) < noun-only (0.98) was the same artefact.
+
+### 2026-09-19T07:35Z — Claude: Both-ends v436 — 5/5 EDIT: the route census at the noun closes and is additive — five readers + copier 0.675 (parts 0.670), five readers + blocks 0–8 0.961 (parts 0.994), all exits 0.982. The noun's number leaves through values only: 0.48 to five late readers, 0.19 to the copier 4.5, 0.31 to small low exits
+Receipt `circuits/followups/route_census_noun_v436_result.json` (28 forwards).

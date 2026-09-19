@@ -541,3 +541,4 @@ v432 (3/5; b, c failed): block 10's noun exit is 10.1 (0.071) + 10.5 (0.054), ad
 v433 (5/5, EDIT): five readers {9.6, 10.1, 10.5, 12.4, 15.1} at the noun = 0.483 (0.96 of the high route); at both sites 0.623 (three heads 0.498). Use the five-head set as the number readout from now on.
 v434 (2/5; c, d, e failed): five readers two sites 0.62 + rest of sequence 0.28 → joint 0.71 (not additive); the missing 0.29 is the other heads at the two sites (copier route).
 v435 (1/5): joint swaps of nested routes cancel (0.68 → 0.645 → 0.57 as more is swapped) — replace-edits compose only for sources at one position. Census must be done at the noun alone (v436).
+v436 (5/5, EDIT): census at the noun closes and adds — five readers 0.48 + copier 0.19 + small low exits 0.31 ≈ 0.98 of the natural-text margin. Number leaves the noun only through values.

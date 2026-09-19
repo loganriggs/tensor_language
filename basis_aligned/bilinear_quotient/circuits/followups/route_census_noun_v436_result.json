@@ -1,0 +1,62 @@
+{
+  "candidate_id": "both_ends.route_census_noun_v436",
+  "finished_utc": "2026-09-19T07:34:53.110269+00:00",
+  "forwards": 28,
+  "plan": {
+    "bars": {
+      "add_rc": 0.05,
+      "add_rl": 0.08,
+      "all_min": 0.93,
+      "copier": 0.187,
+      "five_n": 0.483,
+      "low": 0.511,
+      "panel_min": 0.9,
+      "replay_tol": 0.001
+    },
+    "candidate_id": "both_ends.route_census_noun_v436",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 29,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_readers_and_copier_add": true,
+    "pred_c_readers_and_low_blocks_reach_all": true,
+    "pred_d_readers_and_low_blocks_add": true,
+    "pred_e_holds_on_panel": true
+  },
+  "report": {
+    "panel": {
+      "closed": {
+        "LOW_HIGH": 0.9704789519309998,
+        "R_C": 0.6620889902114868,
+        "R_LOW": 0.9810360670089722
+      },
+      "gap_mean": 4.0962815284729,
+      "pairs": 48
+    },
+    "replay_max_abs": 1.33514404296875e-05,
+    "text": {
+      "closed": {
+        "LOW_HIGH": 0.9819744229316711,
+        "R_C": 0.6754515767097473,
+        "R_LOW": 0.9611143469810486
+      },
+      "gap_mean": 1.8995414972305298,
+      "pairs": 122
+    }
+  },
+  "schema": "route_census_noun_result_v436",
+  "serial_seconds": 2.3922796309925616
+}
