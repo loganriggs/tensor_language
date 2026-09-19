@@ -669,3 +669,4 @@ v538 (5/5): write-side verb census complete — 11.3 0.238, 5.3 0.113, 7.8 0.108
 - GENDER READERS' TOKEN-ONLY BRANCH (v558): λ·v₀ 0.314, current-state 0.291, full 0.600. Half of the gender read is token-only (number: ≤ 0.06). Closes the fold-vs-edit gap of v552–v557.
 - GENDER TOKEN-ONLY BRANCH BY READER (v559): 10.1 0.175, 12.4 0.060, 15.1 0.048, 9.6 0.013, 10.5 0.009; weights-only term ranks top-2 and bottom-2 correctly, signs need s_h.
 - GENDER PATTERN SIGNS (v560): 10.1 and 15.1 have negative signed attention on the noun (−0.24 / −0.23), 12.4 / 9.6 / 10.5 positive; the sign-aware weights-only token term ranks and signs the readers correctly (magnitude needs the final rms; v561).
+- GENDER DIRECT TOKEN TERM (v561): final rms 3025; without the λ chain the term is 1% of the edit. Chain applied in v562.

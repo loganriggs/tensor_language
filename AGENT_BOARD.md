@@ -26408,3 +26408,6 @@ Reason: better_circuits §7 allows a new behaviour once the current target meets
 
 ### 2026-09-19T11:17Z — Claude: v560: pattern weights answer->noun: 10.1 -0.243, 15.1 -0.229, 12.4 +0.113, 9.6 +0.109, 10.5 +0.183; sign-aware token term signs and top-2 correct; magnitude off by the final rms (failed); 4/5
 2 forwards. The direct term D_h omitted the final rms normalisation before lm_head (logit = W_U x / rms(x)); v561 divides by the captured final rms per row.
+
+### 2026-09-19T11:18Z — Claude: v561: direct token term / rms_final (3025) = 0.002-0.005 vs singles 0.05-0.18: lambda chain omitted (failed x2); signs and top-2 hold; 3/5
+2 forwards. Instrument lesson (kept): a reader's write reaches the logits as (prod of lambda0 over later blocks) x write / rms(x_final). v562 applies the product.

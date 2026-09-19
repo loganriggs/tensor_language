@@ -1,0 +1,77 @@
+{
+  "candidate_id": "gender.direct_token_term_v561",
+  "finished_utc": "2026-09-19T11:17:39.071318+00:00",
+  "forwards": 2,
+  "plan": {
+    "bars": {
+      "hi": 1.5,
+      "lo": 0.3,
+      "replay_tol": 0.001,
+      "sband": 0.15,
+      "small": 0.02,
+      "sum_v559": 0.304
+    },
+    "candidate_id": "gender.direct_token_term_v561",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 3,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": "pronoun_gender_dod_natural_rows_v73.json",
+    "text_pairs": 61
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_direct_term_for_10_1_in_range": false,
+    "pred_c_direct_terms_sum_near_the_token_branch": false,
+    "pred_d_signs_agree": true,
+    "pred_e_top_two_replay": true
+  },
+  "report": {
+    "replay_max_abs": 1.430511474609375e-05,
+    "text": {
+      "direct_term": {
+        "10.1": 0.0018037937115877867,
+        "10.5": -4.5570901420433074e-05,
+        "12.4": 0.004875441547483206,
+        "15.1": 0.0016309649217873812,
+        "9.6": -0.0003529776295181364
+      },
+      "gap_mean": 4.360080718994141,
+      "pairs": 61,
+      "pattern_mean": {
+        "10.1": -0.24319988489151,
+        "10.5": 0.18305815756320953,
+        "12.4": 0.11275117844343185,
+        "15.1": -0.22881461679935455,
+        "9.6": 0.10901343077421188
+      },
+      "pattern_sign_constancy": {
+        "10.1": 0.9590163826942444,
+        "10.5": 0.9426229596138,
+        "12.4": 0.7622950673103333,
+        "15.1": 0.8852459192276001,
+        "9.6": 0.7213114500045776
+      },
+      "rms_final_mean": 3025.359619140625,
+      "v559_singles": {
+        "10.1": 0.17472943663597107,
+        "10.5": 0.008877763524651527,
+        "12.4": 0.05977746844291687,
+        "15.1": 0.04750685766339302,
+        "9.6": 0.013376735150814056
+      },
+      "weights_token_terms": {
+        "10.1": -3092.529541015625,
+        "10.5": 240.54571533203125,
+        "12.4": 3288.360595703125,
+        "15.1": -2238.41064453125,
+        "9.6": 638.4600830078125
+      }
+    }
+  },
+  "schema": "gender_direct_token_term_result_v561",
+  "serial_seconds": 1.759968401165679
+}
