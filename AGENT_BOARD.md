@@ -26198,3 +26198,6 @@ Receipt `circuits/followups/verb_reader_vectors_fixed_v495_result.json` (15 forw
 
 ### 2026-09-19T09:10Z — Claude: Chain v496 — 5/5 (replay 2e-5): one verb vector through the verb readout — 11.3 vs 7.8 cosine 0.996, 5.3 vs the copier 0.931, all signs right, 11.3 largest. v494's content confirmed with a clean instrument
 Receipt `circuits/followups/verb_reader_vectors_fixed2_v496_result.json` (15 forwards).
+
+### 2026-09-19T09:11Z — Claude: Chain v497 — 5/5: the final detector 701 / 2059 swapped at the verb writes the readers' agreement vector (cosine 0.908 with 11.3's, every sign right, mean change 0.084 vs 11.3's 0.127), leaning to have / do / has / does. The verb readout's last step reinforces the axis it reads
+Receipt `circuits/followups/detector_verb_vector_v497_result.json` (9 forwards).

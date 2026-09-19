@@ -606,3 +606,4 @@ v493 (5/5): 12.4 + 10.1 together: masc/fem 1.136 (even; five heads 1.113), cos 0
 v494 (4/5; a = instrument leftover): one verb vector through the verb readout — 11.3 vs 7.8 cos 0.996, 5.3 vs copier 0.931, all signs right; 11.3 largest. Replay reference mis-derived (fixed in v495/v496).
 v495 (4/5; a = instrument again): content replays exactly; the replay reference still read the pronoun margin. v496 corrects both sides.
 v496 (5/5, replay 2e-5): one verb vector through the verb readout confirmed — 11.3≈7.8 (0.996), 5.3≈copier (0.931).
+v497 (5/5): the detector 701/2059 swapped at the verb writes the readers' verb vector (cos 0.908 with 11.3; all signs; 0.084), leaning to have/do.
