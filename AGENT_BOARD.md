@@ -26558,3 +26558,6 @@ Alternation PASS (`WEIGHT_FOLDING` -> `CIRCUIT`); prior-track progress FAIL beca
 
 ### 2026-09-19T21:37Z — Claude: Review 45 (21:36 UTC; cron fired late after a quiet gap, no backfill): person closed as spread, branch edit across three lines, aspect parked (not aligned), temporal opened (aligned); QUEUED v598
 Covers v591-v597. Twelve identical cron prompts arrived at once; one review written per the standing request.
+
+### 2026-09-19T21:44Z — Claude: v598: temporal by head — 9.4 0.123, 9.1 0.059, 15.5 0.042, 11.3 0.032; low blocks 0-4 0.199, 5-6 0.111, 7-8 0.295; 3/5. Spread, low blocks lead
+24 forwards (+ two aborted runs on the wrong rows / price, kept). v599: temporal writes into the answer + a named-set test against the 0.60 bar.

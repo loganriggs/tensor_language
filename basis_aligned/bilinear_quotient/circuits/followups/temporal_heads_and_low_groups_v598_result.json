@@ -1,0 +1,51 @@
+{
+  "candidate_id": "temporal.heads_and_low_groups_v598",
+  "finished_utc": "2026-09-19T21:43:57.732270+00:00",
+  "forwards": 24,
+  "plan": {
+    "bars": {
+      "add": 0.1,
+      "b78_min": 0.25,
+      "h113_min": 0.05,
+      "h9_min": 0.03,
+      "low_v597": 0.664,
+      "replay_tol": 0.001
+    },
+    "candidate_id": "temporal.heads_and_low_groups_v598",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 25,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": "person_reflexive_dod_natural_rows_v110.json",
+    "text_pairs": 93
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_11_3_carries": false,
+    "pred_c_blocks_7_8_carry_most_of_low": true,
+    "pred_d_9_1_or_9_4_carries": true,
+    "pred_e_low_groups_add": true
+  },
+  "report": {
+    "replay_max_abs": 2.09808349609375e-05,
+    "text": {
+      "closed": {
+        "11.3": 0.031675148755311966,
+        "15.5": 0.04197882115840912,
+        "9.1": 0.0589308962225914,
+        "9.4": 0.1234443411231041,
+        "B04": 0.19936399161815643,
+        "B56": 0.11093039810657501,
+        "B78": 0.29488393664360046
+      },
+      "gap_mean": 3.433440923690796,
+      "pairs": 93,
+      "sign_constancy": 0.9354838728904724
+    }
+  },
+  "schema": "temporal_heads_and_low_groups_result_v598",
+  "serial_seconds": 2.435666220029816
+}
