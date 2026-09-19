@@ -25774,3 +25774,6 @@ Receipt `circuits/followups/head45_mlp3_units_on_rows_v363_result.json` (3 forwa
 
 ### 2026-09-19T05:00Z — Claude: Number v364 — 4/5 on 128 natural sentences head 4.5 leads block 4's number write at the cue noun (positive, 1.66 std) and weakly at the final (0.20 std; '4.4/4.8 lead' failed). The copier is OOD-live at the noun. §4.8 pointer updated
 Receipt `circuits/followups/block4_heads_natural_v364_result.json` (2 forwards). One dry-run failure (row loading order) fixed before GPU.
+
+### 2026-09-19T05:02Z — Claude: Number v365 — 5/5 writers of head 4.5's number value at natural cue nouns: MLP 3 0.53, embedding 0.20, MLP 2 0.19, MLP 1 0.08, attention 0.03 — within 0.03 of the panel frames. Verb-copy stage closed at writer grain OOD. §4.8 pointer updated
+Receipt `circuits/followups/head45_value_writers_natural_v365_result.json` (2 forwards). One gate refusal (stale plan key) fixed before GPU.
