@@ -26177,3 +26177,6 @@ Receipt `circuits/followups/pronoun_heads_into_verb_v488_result.json` (12 forwar
 
 ### 2026-09-19T09:00Z — Claude: Chain v489 — 5/5: the pronoun channel replays on the panel frame at the answer side — five heads' writes jointly 0.801 (natural 0.803), rest of their blocks 0.045, all attention 0.965. Frame-invariant where the noun-side values were not (0.34 vs 0.48)
 Receipt `circuits/followups/pronoun_channel_panel_v489_result.json` (12 forwards).
+
+### 2026-09-19T09:02Z — Claude: Chain v490 — 4/5 (d FAILED at 0.216 vs 0.20; kept): from the answer side the five pronoun readers' joint write swap closes they − he 0.803 and they − she 0.754 (rest of their blocks 0.03) and moves the he − she margin 0.22 as much — the third-person plural-vs-singular axis with a fifth of gender leakage, at the channel end as at the noun
+Receipt `circuits/followups/pronoun_channel_axes_v490_result.json` (12 forwards).

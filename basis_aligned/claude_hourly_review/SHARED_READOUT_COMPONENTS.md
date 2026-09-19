@@ -599,3 +599,4 @@ v486 (5/5): five verb heads' writes into the verb jointly 0.557; other 40 heads 
 v487 (5/5): verb heads' writes into the pronoun slot 0.041 vs pronoun heads 0.803; union 0.816 (additive). Cross-selectivity confirmed from the answer side.
 v488 (5/5): pronoun heads write 0.096 into the verb (verb heads 0.557; union 0.653, additive). Two nearly disjoint copier sets; both readouts closed at both ends.
 v489 (5/5): pronoun channel on the panel — five writes jointly 0.801 (natural 0.803), rest 0.045, all 0.965. Frame-invariant at the answer side.
+v490 (4/5; d failed at 0.216): from the answer side the five readers close they−he 0.803 and they−she 0.754; gender leakage 0.22 (rest of blocks 0.54). One output axis at both ends.
