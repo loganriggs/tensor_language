@@ -26333,3 +26333,6 @@ Receipt `circuits/followups/panel_relays_on_text_v537_result.json` (16 forwards)
 
 ### 2026-09-19T10:23Z — Claude: Chain v538 — 5/5: by write into a distant verb, 7.8 0.108 (block 7), 13.1 0.061 (block 13), 9.7 0.055 with 9.1 0.030 and 9.6 0.026 (block 9); singles add. The verb channel's write-side census is complete — the same heads and order as the noun-side value swaps; answer-side verb line added to SHARED_READOUT_COMPONENTS
 Receipt `circuits/followups/attn_into_verb_heads_7_9_13_v538_result.json` (84 forwards).
+
+### 2026-09-19T10:27Z — Claude: v539 first run aborted: the adjacent-row filter was not applied (the lineage filters by distance after building the rows) so it ran on the 79 distant rows and hit the price bar (12 > 9); no result written (12 forwards spent). Filter fixed (d == 1, 43 rows, 8 forwards) and re-enqueued
+Runlog `runlogs/run_verb_writes_adjacent_v539.log` (first run) ends in `price exceeded: 12 > 9`.
