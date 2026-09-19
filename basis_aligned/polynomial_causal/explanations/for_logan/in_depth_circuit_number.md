@@ -353,7 +353,9 @@ standard deviations with every one of 64 plurals on the plural side, stable from
 20, 100) sit at zero and "one" on the singular side. The unit detects noun plurality in the token's own lookup, not quantity and not the -s ending (v330): irregular plurals (men, women, children,
 people, feet, teeth, mice) score 85% of the regular-plural position, -s adverbs and adjectives nothing, plural pronouns and demonstratives
 (they, we, these, those) nothing — the pronoun's own number is not this unit's business — while are / were sit a fifth of the way to plural and
--s verbs (runs, walks, looks, needs — also noun plurals) 41%.
+-s verbs 41% — which v331 resolves: -s verbs that are also plural nouns (runs, walks, looks, needs, works, plays, calls, turns) score fully
+plural (1.13; every one in the plural-noun range), unambiguous -s verbs (seems, becomes, does, has, wants, knows, goes, says) 0.09, mass nouns
+−0.11 and collective nouns +0.03. The unit reads the token's lexical plural-noun sense: form with sense, not form alone and not sense alone.
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -442,6 +444,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v328 | selectivity of the harm | KL 0.47 nats, top-1 agreement 15%, gender control 0.26×: generic, not number-specific (5/5) |
 | v329 | single tokens → unit 3465 (blocks 0–3 folded) | plural −432 vs singular −37 (4.2 std, 100%); numerals ≈ 0; "one" singular side (4/5) |
 | v330 | more classes → 3465 | irregular plurals 0.85 of the axis; -s adverbs −0.08; plural pronouns −0.06; -s verbs 0.41 (4/5) |
+| v331 | -s verbs split; mass / collective nouns → 3465 | noun-reading -s verbs 1.13, verb-only 0.09; mass −0.11, collective +0.03 (5/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

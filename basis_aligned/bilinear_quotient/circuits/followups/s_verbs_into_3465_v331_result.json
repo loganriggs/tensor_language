@@ -1,0 +1,99 @@
+{
+  "candidate_id": "pronoun_number.s_verbs_into_3465_v331",
+  "finished_utc": "2026-09-19T03:49:29.161619+00:00",
+  "forwards": 1,
+  "plan": {
+    "bars": {
+      "amb_min": 0.3,
+      "closure_tol": 0.0001,
+      "near": 0.15,
+      "replay": 0.05
+    },
+    "candidate_id": "pronoun_number.s_verbs_into_3465_v331",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 3,
+    "gpu_accessed": false,
+    "groups": {
+      "ambiguous_s_verbs": 8,
+      "collective_nouns": 6,
+      "mass_nouns": 6,
+      "plural": 64,
+      "singular": 64,
+      "unambiguous_s_verbs": 8
+    },
+    "layer": 3,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "tokens": 156,
+    "unit": 3465
+  },
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_replays_v329": true,
+    "pred_c_ambiguous_s_verbs_read_as_plural_nouns": true,
+    "pred_d_unambiguous_s_verbs_read_as_nothing": true,
+    "pred_e_mass_and_collective_nouns_singular_side": true
+  },
+  "report": {
+    "closure_max": 0.0,
+    "each": {
+      "ambiguous_s_verbs": {
+        "11114": -649.9282836914062,
+        "2476": -148.56295776367188,
+        "2499": -250.63758850097656,
+        "3073": -503.8874816894531,
+        "3848": -406.9145812988281,
+        "4539": -516.9315185546875,
+        "4962": -481.1173095703125,
+        "5341": -479.03973388671875
+      },
+      "collective_nouns": {
+        "1074": -46.743614196777344,
+        "1448": -22.553972244262695,
+        "1641": -21.089611053466797,
+        "4315": -81.31123352050781,
+        "5428": -50.16049575805664,
+        "5583": -115.97025299072266
+      },
+      "mass_nouns": {
+        "13091": 20.553857803344727,
+        "1321": 20.047786712646484,
+        "1637": 11.532035827636719,
+        "1660": 5.354975700378418,
+        "2647": 8.42922306060791,
+        "5608": 2.108126163482666
+      },
+      "unambiguous_s_verbs": {
+        "1139": -109.68466186523438,
+        "2331": -2.951711416244507,
+        "2925": -70.10772705078125,
+        "3382": -143.63186645507812,
+        "4206": -46.92414855957031,
+        "4329": -70.67628479003906,
+        "468": 11.473962783813477,
+        "857": -118.57492065429688
+      }
+    },
+    "median": {
+      "ambiguous_s_verbs": -481.1173095703125,
+      "collective_nouns": -50.16049575805664,
+      "mass_nouns": 8.42922306060791,
+      "plural": -431.81805419921875,
+      "singular": -36.75448226928711,
+      "unambiguous_s_verbs": -70.67628479003906
+    },
+    "pooled_std": 93.64122009277344,
+    "position_on_singular_plural_axis": {
+      "ambiguous_s_verbs": 1.1247881650924683,
+      "collective_nouns": 0.033933814615011215,
+      "mass_nouns": -0.11437071859836578,
+      "plural": 1.0,
+      "singular": -0.0,
+      "unambiguous_s_verbs": 0.08586416393518448
+    }
+  },
+  "schema": "s_verbs_into_3465_result_v331",
+  "serial_seconds": 1.563902243040502
+}
