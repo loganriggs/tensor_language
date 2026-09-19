@@ -26174,3 +26174,6 @@ Receipt `circuits/followups/verb_heads_into_pronoun_v487_result.json` (16 forwar
 
 ### 2026-09-19T08:59Z — Claude: Chain v488 — 5/5: the five pronoun heads write 0.096 of the agreement margin into a distant verb (verb heads 0.557; union 0.653, additive) — asymmetric cross-selectivity (0.10 vs 0.04). Both readouts closed at both ends; §4.11 gets 'both readouts from the answer side' (v481–v488)
 Receipt `circuits/followups/pronoun_heads_into_verb_v488_result.json` (12 forwards).
+
+### 2026-09-19T09:00Z — Claude: Chain v489 — 5/5: the pronoun channel replays on the panel frame at the answer side — five heads' writes jointly 0.801 (natural 0.803), rest of their blocks 0.045, all attention 0.965. Frame-invariant where the noun-side values were not (0.34 vs 0.48)
+Receipt `circuits/followups/pronoun_channel_panel_v489_result.json` (12 forwards).
