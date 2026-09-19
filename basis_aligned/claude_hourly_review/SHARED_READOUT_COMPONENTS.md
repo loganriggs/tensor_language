@@ -630,3 +630,4 @@ v518 (4/5; b failed): the four opposing MLP-17 units move the panel's pronoun ma
 v519 (3/5; b, e failed): the four MLP-17 units write 'he' at the panel answer (they−he −0.078, they−she −0.022, gender ratio 0.83) — a panel-specific masculine push, not a number opposer.
 v520 (3/5; b, c failed): the four panel units' columns — 3547 writes 'he' (+0.51 he−she, −0.44 they−he), 3093 the reverse, 4448 number-only; shared anti-'they' component. A mixed late population.
 v521 (5/5): the four panel units — 3547 / 1747 write 'he', 4448 both singulars, 3093 anti-'he' with a negative firing contrast — all four terms against 'they' (−44 to −61). Panel late-write artefact closed.
+v522 (3/5; a float-noise, c at −10.3 vs 10): on text the four panel units fire half as much with number and lose coherence (3547 reversed, 3093 silent). Artefact thread closed.

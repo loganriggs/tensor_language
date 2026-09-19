@@ -26279,3 +26279,6 @@ Receipt `circuits/followups/panel_units_columns_v520_result.json` (2 forwards).
 
 ### 2026-09-19T09:49Z — Claude: Chain v521 — 5/5 (re-run after a double-counted activation buffer): the four panel MLP-17 units — 3547 / 1747 write 'he' (column cosines 0.53 / 0.26), 4448 both singulars, 3093 anti-'he' but firing less on plural rows — each contributes a negative term against 'they' (−44 to −61). A coherent late population pulling the panel's answer toward singular pronouns; absent on natural text. Frame artefact closed at unit grain
 Receipt `circuits/followups/panel_units_tokens_v521_result.json` (2 forwards; 4 spent with the re-run).
+
+### 2026-09-19T09:51Z — Claude: Chain v522 — 3/5 (a = float-noise closure at a small total; c −10.3 vs the 10 bar; kept): on natural text the panel's four late units fire half as much with number and lose coherence (3547 reverses, 3093 silent), so their push against 'they' dissolves — the null edit of v517 explained. The panel frame is what aligns them. Thread closed
+Receipt `circuits/followups/panel_units_on_text_v522_result.json` (4 forwards).
