@@ -1,0 +1,64 @@
+{
+  "candidate_id": "decomposition.pullback_extraction_v600",
+  "finished_utc": "2026-09-19T22:22:26.645631+00:00",
+  "forwards": 0,
+  "plan": {
+    "candidate_id": "decomposition.pullback_extraction_v600",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 0,
+    "gpu_accessed": false,
+    "layer": 17,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_lstsq_closure": true,
+    "pred_b_shapes_match": true,
+    "pred_c_attention17_explains_some_reads": false,
+    "pred_d_M1_finite": true,
+    "pred_e_M0_M1_frobenius_ratio_sane": true
+  },
+  "report": {
+    "M0_frobenius": 869.418212890625,
+    "M1_M0_frobenius_ratio": 8.210805144536703,
+    "M1_frobenius": 7138.62353515625,
+    "lamb17": -0.0888671875,
+    "resid_L_max": 0.9969374537467957,
+    "resid_L_mean": 0.9782352447509766,
+    "resid_L_median": 0.9793733954429626,
+    "resid_L_min": 0.6958372592926025,
+    "resid_R_max": 0.9964683055877686,
+    "resid_R_mean": 0.9781691431999207,
+    "resid_R_median": 0.9792568683624268,
+    "resid_R_min": 0.6544709801673889,
+    "shapes": {
+      "C_L": [
+        4608,
+        9
+      ],
+      "C_R": [
+        4608,
+        9
+      ],
+      "M0": [
+        50304,
+        1152
+      ],
+      "M1": [
+        50304,
+        4608
+      ],
+      "RESID_L": [
+        4608
+      ],
+      "RESID_R": [
+        4608
+      ]
+    }
+  },
+  "schema": "pullback_extraction_result_v600",
+  "serial_seconds": 3.395620589144528,
+  "tensors_path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuits/followups/pullback_extraction_v600_tensors.pt"
+}
