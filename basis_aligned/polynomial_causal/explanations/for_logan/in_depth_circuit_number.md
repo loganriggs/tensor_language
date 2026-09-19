@@ -329,7 +329,11 @@ direction (cosine 0.77 → 0.83). So the pair is the causal head of MLP 1's cont
 Restoring it moves the pronoun-number margin by only −0.7%, which fits the rest of the chapter — the number chain reads the entry's direction
 through rms-normalised readers, not its gain.
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
-is not yet named. Open: what the class-structured remainder encodes downstream; the net per-unit census (v306, queued).
+is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
+while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
+On 2,944 positions of natural text the same census returns the same head (v309): 3289 and 624 rank 1 and 2 with 22.4%, 98.9% of units
+lose in proportion to their lookup ($r=-0.998$), and the head units are cut to ≈ 3% of their single-token value by any real context.
+Open: what the class-structured remainder encodes downstream; what restoring the head does to the model's next-token loss (v310, queued).
 
 | receipt | question | result |
 |---|---|---|
@@ -354,6 +358,8 @@ is not yet named. Open: what the class-structured remainder encodes downstream; 
 | v305 | zero 3289 + 624 | α falls 0.013 — the wrong counterfactual (see v306); margin +3.4% (2/5) |
 | v306 | net per-unit census | 3289 / 624 are the top-2 net cancellers (22%); 92–96% of units lose ∝ lookup (4/5) |
 | v307 | restore 3289 + 624's single-token activations | α +0.152 (census +0.169), 380× null; margin −0.7% (5/5) |
+| v308 | restore top-2/10/50/200 | +0.15/0.21/0.24/0.32 vs random ≤ 0.02; cos → 0.89 (5/5; rise = census by linearity) |
+| v309 | net census on text | same head, 22.4%; 98.9% of units lose, r −0.998 (5/5) |
 
 ### Pass over the draft (what I changed after rereading)
 
