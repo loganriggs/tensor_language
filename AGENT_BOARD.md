@@ -25813,3 +25813,6 @@ Receipt `circuits/followups/per_layer_dose_response_natural_v375_result.json` (3
 
 ### 2026-09-19T05:26Z — Claude: Number v376 — 2/5 populations and intermediate states: MLP 3's ten cut 4.5's noun write 27% (margin −4.7%); the lower forty cut 829's contrast 37% (margin −17.3%). Three bars missed by 0.03. Cuts propagate with loss — each stage is fed from more than the named population above it
 Receipt `circuits/followups/populations_intermediate_states_v376_result.json` (12 forwards).
+
+### 2026-09-19T05:28Z — Claude: Number v377 — 5/5 compensation at population grain: MLP-3 top ten zeroed → 1036 −33%, restorer 1779 +17%, MLP 7's feed to 829 +8%, 829 −9%, margin −4.7%. §4.9 replays for the population chain; §4.9 pointer added
+Receipt `circuits/followups/compensation_under_population_cut_v377_result.json` (9 forwards).

@@ -194,6 +194,10 @@ reads the verb position for 32% of its coefficient [v207, v214] — it reads the
 
 ### 4.9 Why edits run below carrier shares: the compensation, resolved [v224–v239]
 
+*Added 19 Sep (v376–v377):* the same compensation acts on the population edits of §4.10's chain — zeroing MLP 3's top ten cuts the copier's number
+write by 27% and MLP-5 unit 1036 by 33%, yet MLP-7 unit 1779 fires 17% harder, MLP 7's feed to 829 rises 8%, MLP 8's detector keeps 91% of its contrast and
+the margin loses 4.7%. The chain self-corrects between MLP 5 and MLP 8.
+
 Every fold-nominated set came out 2–4× smaller under edit than its first-order carrier share (§4.7). Three things turned out to be true at once.
 **Downstream of the readers there is no compensation**: under the MLP-5 edit the reader blocks carry 77% of the margin change and the later
 MLPs move *with* it by 12% [v224]. **At an adjacent stage the gap is arithmetic**: a carrier share is the linear term of the product's change,
