@@ -26255,3 +26255,6 @@ Receipt `circuits/followups/panel_mlp17_answer_v512_result.json` (15 forwards).
 
 ### 2026-09-19T09:37Z — Claude: Chain v513 — 2/5 (instrument: the study call was not re-targeted to the panel, so it re-measured the natural pronoun slot — 701 / 2059 −0.002, random 0.000, hub 0.133, all replays of v463); the panel question is re-run as v514
 Receipt `circuits/followups/panel_detector_units_v513_result.json` (12 forwards).
+
+### 2026-09-19T09:39Z — Claude: Chain v514 — 3/5 (b, d FAILED; kept; first run had natural rows in the replay block, re-run): 701 / 2059 swapped at the panel answer close −0.001 of the pronoun margin while MLP 17 whole closes −0.115 — the opposing late write on the panel is a population, not the verb detector; hub at the noun 0.091 replays
+Receipt `circuits/followups/panel_detector_units_fixed_v514_result.json` (12 forwards; 24 spent with the re-run).

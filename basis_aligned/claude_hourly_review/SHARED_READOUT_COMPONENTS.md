@@ -622,3 +622,4 @@ v510 (4/5; c failed): on the panel attention into the pronoun slot 0.965 (replay
 v511 (3/5; b, e failed): panel answer — MLPs 1–8 +0.022, 9–16 0.092, 1–17 0.035 (parts 0.114): nesting, not opposition. Answer-side polish small and tangled on the panel.
 v512 (5/5): on the panel MLP 17 at the answer opposes the pronoun margin (−0.115); 9–17 0.022 vs 9–16 0.092. The verb-side late write leaks into the panel's pronoun slot; on text MLP 17 is neutral.
 v513 (2/5; mis-targeted to text): 701/2059 at the natural pronoun answer −0.002 (replay). Panel re-run as v514.
+v514 (3/5; b, d failed): 701/2059 at the panel answer −0.001 (MLP 17 whole −0.115) — the opposing write is a population, not the detector.
