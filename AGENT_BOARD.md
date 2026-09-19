@@ -25902,3 +25902,6 @@ Receipt `circuits/followups/subspace_vc0_vc2_v400_result.json` (5 forwards).
 
 ### 2026-09-19T06:32Z — Claude: Both-ends v401 — 4/5, pred_c FAILED (falsification kept): exact degree expansion of the readers' noun-source write on u; 9.6 is 0.92 pure copy (value branch), 15.1 0.985, 12.4 1.67 with a pattern×value cancellation −1.07; pattern-change terms ≤ 8% for 9.6; degree 3 ≤ 0.11. The readers copy number from the noun's value, they do not re-weight attention by number
 Receipt `circuits/followups/both_ends_degree_v401_result.json` (3 forwards). pred_c asked value-only <= 0.60 (prior unsure, from v379's product effect); measured 0.92 — the failure is the finding.
+
+### 2026-09-19T06:33Z — Claude: Both-ends v402 — 5/5 post-noun source: 9.6 reads noun 0.48 / post-noun 0.50, both pure value copies (1.13 here); 15.1 1.08; 12.4 value 2.08 cancelled by pattern×value −1.31 and query change −0.57. The readers copy number through the value branch at both sites
+Receipt `circuits/followups/both_ends_degree_postnoun_v402_result.json` (3 forwards).

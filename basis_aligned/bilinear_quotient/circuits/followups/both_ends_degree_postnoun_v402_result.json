@@ -1,0 +1,128 @@
+{
+  "candidate_id": "both_ends.degree_expansion_postnoun_v402",
+  "finished_utc": "2026-09-19T06:32:41.168429+00:00",
+  "forwards": 3,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.0001,
+      "instr_tol": 0.02,
+      "noun_min": 0.35,
+      "third_max": 0.25,
+      "value_max": 0.6
+    },
+    "candidate_id": "both_ends.degree_expansion_postnoun_v402",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 4,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117"
+  },
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_postnoun_source_carries_a_third": true,
+    "pred_c_value_only_term_leads": true,
+    "pred_d_third_order_small": true,
+    "pred_e_leading_term_replays_across_frames": true
+  },
+  "report": {
+    "closure_max": 4.423796395658625e-15,
+    "instrument_max_rel": 3.6432859360502334e-06,
+    "readers": {
+      "12.4": {
+        "degree_shares": {
+          "degree1": 2.963668021585036,
+          "degree2": -1.4803024183425086,
+          "degree3": 0.08207577951615637,
+          "query": -0.5654413827586823
+        },
+        "leading_term_by_frame": {
+          "because": "value_only",
+          "later": "value_only",
+          "lost": "value_only"
+        },
+        "noun_source_contrast": 32317.113667858655,
+        "noun_source_share": 0.32081817669069673,
+        "pairs": 48,
+        "skipped": 0,
+        "term_shares": {
+          "query_change": -0.5654413827586823,
+          "s1_only": 0.07287770390855645,
+          "s1_s2": -0.04938907323757645,
+          "s1_s2_value": 0.08207577951615637,
+          "s1_value": -0.11928902150098795,
+          "s2_only": 0.8066881268528137,
+          "s2_value": -1.3116243236039442,
+          "value_only": 2.084102190823666
+        },
+        "total_contrast": 100733.42477416992
+      },
+      "15.1": {
+        "degree_shares": {
+          "degree1": 1.1272337374017045,
+          "degree2": -0.09858387039070102,
+          "degree3": -0.00025462342196900194,
+          "query": -0.02839524358903429
+        },
+        "leading_term_by_frame": {
+          "because": "value_only",
+          "later": "value_only",
+          "lost": "value_only"
+        },
+        "noun_source_contrast": 9068.629368275477,
+        "noun_source_share": 0.17404141723922795,
+        "pairs": 48,
+        "skipped": 0,
+        "term_shares": {
+          "query_change": -0.02839524358903429,
+          "s1_only": 0.051676536523196696,
+          "s1_s2": 8.279265358138386e-06,
+          "s1_s2_value": -0.00025462342196900194,
+          "s1_value": -0.1041116847941924,
+          "s2_only": -0.0017763571371580077,
+          "s2_value": 0.005519535138133243,
+          "value_only": 1.077333558015666
+        },
+        "total_contrast": 52106.15675354004
+      },
+      "9.6": {
+        "degree_shares": {
+          "degree1": 1.1862783183962442,
+          "degree2": -0.1409198909431406,
+          "degree3": 0.004937631832864706,
+          "query": -0.0502960592859684
+        },
+        "leading_term_by_frame": {
+          "because": "value_only",
+          "later": "value_only",
+          "lost": "value_only"
+        },
+        "noun_source_contrast": 48738.621175436776,
+        "noun_source_share": 0.4950455090213089,
+        "pairs": 48,
+        "skipped": 0,
+        "term_shares": {
+          "query_change": -0.0502960592859684,
+          "s1_only": 0.045052795276247434,
+          "s1_s2": -0.002022414615117902,
+          "s1_s2_value": 0.004937631832864706,
+          "s1_value": -0.11352618454833746,
+          "s2_only": 0.010071693382408355,
+          "s2_value": -0.025371291779685244,
+          "value_only": 1.1311538297375885
+        },
+        "total_contrast": 98452.80946350098
+      }
+    }
+  },
+  "schema": "both_ends_degree_result_v402",
+  "serial_seconds": 1.6948329359292984
+}
