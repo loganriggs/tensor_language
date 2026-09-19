@@ -25989,3 +25989,6 @@ Receipt `circuits/followups/value_swap_selective_v427_result.json` (28 forwards)
 
 ### 2026-09-19T07:23Z — Claude: Both-ends v428 — 5/5 EDIT by source position: swapping every head's value at the noun (all 18 blocks) closes 0.982 of the natural-text margin gap (panel 0.970) — the noun's number leaves the noun position through attention values only; the rest of the sequence 0.276; two sites + rest 0.94
 Receipt `circuits/followups/value_swap_positions_v428_result.json` (28 forwards).
+
+### 2026-09-19T07:24Z — Claude: Both-ends v429 — 5/5 EDIT the noun's exits: every head's keys at the noun (all blocks) 0.0002 of the margin gap; values for blocks 0–8 0.511, blocks 9–17 0.505, additive (1.02 vs 0.98 for all). Keys carry nothing; two parallel value routes (low blocks → rebuild sites; high blocks → the answer)
+Receipt `circuits/followups/noun_exits_v429_result.json` (28 forwards).
