@@ -26318,3 +26318,6 @@ Receipt `circuits/followups/h53_panel_pronoun_v532_result.json` (12 forwards).
 
 ### 2026-09-19T10:15Z — Claude: Both-ends v533 — 4/5 (b FAILED; kept): on the panel 5.3's post-noun value effect (0.093) adds in full to the readers' two-site swap (0.639 → 0.731) and to their noun-only swap (0.340 → 0.449) — a parallel route into the answer position, not the readers' post-noun read; a sixth channel into the panel's pronoun slot that natural text barely uses
 Receipt `circuits/followups/h53_route_panel_v533_result.json` (15 forwards).
+
+### 2026-09-19T10:17Z — Claude: Both-ends v534 — 2/5 (b, c, e FAILED; kept): on the panel 5.3's own write into the answer closes 0.040 of the margin against 0.093 for its post-noun value swap — half of the relayed number reaches the panel answer through other, unnamed heads reading the post-noun token; 9.6's write 0.321 replays the channel
+Receipt `circuits/followups/h53_write_panel_v534_result.json` (9 forwards).
