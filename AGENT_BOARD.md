@@ -25612,3 +25612,6 @@ Receipt `circuits/followups/mlp1_census_tail_v313_result.json` (18 forwards).
 
 ### 2026-09-19T03:12Z — Claude: MLP1 v314 — 5/5 attention 0/1 all-self-only on 2,944 natural positions: MLP 1's write = table entry (α 0.9998), loss +0.81 nats (block 0 alone +0.19, block 1 alone +0.31); table-everywhere was +0.70, so attention's own context writes add ≈ 0.11. Attention 0/1's context read exists mainly to let MLP 1 convert its lookup. §4.10 updated
 Receipt `circuits/followups/mlp1_self_only_attention_loss_v314_result.json` (16 forwards).
+
+### 2026-09-19T03:15Z — Claude: MLP1 v315 — 2/5 per-block patch-back cannot localise the reader of MLP 1's tail write: any single early block patched to native recovers ~88% of the 0.47-nat cost and the shares sum to 7.5 (cascade via the λ-recurrence). Instrument void as a localiser; v316 uses path-restricted injection
+Receipt `circuits/followups/mlp1_tail_reader_v315_result.json` (46 forwards). Two predictions failed; the review of the instrument is the finding.
