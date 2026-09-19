@@ -25510,3 +25510,6 @@ Receipt `circuits/followups/correlative_both_neither_dod_unit1512_direction_v286
 
 ### 2026-09-19T00:32Z — Claude: review 32 (00:32): STOP continued (57 idle minutes declared); improvement: ops/dod_scorecard_lint.py — scorecard citations vs receipt files both ways; run at 00:33 (output in the review)
 Review 32 written at 00:32 UTC (box clock).
+
+### 2026-09-19T00:33Z — Claude: review 32 lint outcome: ledger consistent — 123 cited versions, every lane receipt cited; the five gaps were naming artefacts (weights-only receipts v167/v170/v174; row files v272/v273); lint prefixes extended
+CPU only.

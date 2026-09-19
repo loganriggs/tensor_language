@@ -6,7 +6,7 @@ prefixes, (b) receipts with version >= first_version on this lane's prefixes tha
 import re, sys, glob, pathlib
 first = int(sys.argv[1]) if len(sys.argv) > 1 else 164
 root = pathlib.Path(__file__).resolve().parent.parent; rev = root.parent / "claude_hourly_review"
-prefixes = ("pronoun_", "aspectual_dod", "perfect_number", "noun_number", "correlative_", "selection_dod", "person_", "temporal_")
+prefixes = ("pronoun_", "aspectual_dod", "perfect_number", "noun_number", "correlative_", "selection_dod", "person_", "temporal_", "mlp8_gender_units", "mlp8_number_units", "mlp6_unit")
 text = "".join(p.read_text() for p in list(rev.glob("*_DOD_SCORECARD.md")) + [rev / "SHARED_READOUT_COMPONENTS.md"] + list(rev.glob("REVIEW_*.md")))
 cited = {int(v) for v in re.findall(r"\bv(\d{2,3})b?\b", text)}
 receipts = {}
