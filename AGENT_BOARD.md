@@ -25765,3 +25765,6 @@ Receipt `circuits/followups/head45_value_writers_v360_result.json` (2 forwards).
 
 ### 2026-09-19T04:54Z — Claude: Number v361 — 3/5 MLP-3 units writing the state head 4.5 copies: 3465 +172k (1st), 114 +74k (2nd), 493 +32k (3rd), long tail (top-10 21%; 'top-10 ≥ 0.5' failed; 114 in top-10 failed 'leaders outside'). The MLP-1-fed plural-noun detector writes what the copier carries to the pronoun reader. §4.8 pointer updated; v362 edits
 Receipt `circuits/followups/head45_mlp3_units_v361_result.json` (2 forwards).
+
+### 2026-09-19T04:57Z — Claude: Number v362 — 5/5 zeroing MLP-3 {3465, 114, 493} on native v76 rows: they−he margin −3.6% (16× null; pair −2.2%, 114 −0.9%, additive). Small, real, named MLP-3 stage of the copied state; the MLP 1 → 3465 → 4.5 → reader path followed at edit grain. §4.8 pointer updated
+Receipt `circuits/followups/mlp3_trio_edit_v362_result.json` (48 forwards).
