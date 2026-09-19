@@ -1,0 +1,88 @@
+{
+  "candidate_id": "person.other_writers_into_answer_v587",
+  "finished_utc": "2026-09-19T12:02:05.850651+00:00",
+  "forwards": 12,
+  "plan": {
+    "bars": {
+      "add": 0.1,
+      "band": 0.03,
+      "early_max": 0.15,
+      "four_v586": 0.412,
+      "late_min": 0.15,
+      "remainder": 0.5309999999999999,
+      "replay_tol": 0.001,
+      "unit": 701
+    },
+    "candidate_id": "person.other_writers_into_answer_v587",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 13,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 43
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_groups_make_the_remainder": true,
+    "pred_c_late_group_carries": false,
+    "pred_d_early_group_small": false,
+    "pred_e_four_replay": true
+  },
+  "report": {
+    "panel": {
+      "rows": 43,
+      "skipped": "pronoun slot, natural pairs"
+    },
+    "replay_max_abs": 1.239776611328125e-05,
+    "text": {
+      "contrast_mean": 18.781227111816406,
+      "margin_closed": {
+        "FOUR_W": 0.4115847945213318,
+        "G0_7": 0.21627120673656464,
+        "G13_17_REST": 0.0819561555981636,
+        "G8_REST": 0.032453205436468124,
+        "G9_12_REST": 0.2197447270154953
+      },
+      "moved": {
+        "FOUR_W": 0.4355475902557373,
+        "G0_7": 0.08109718561172485,
+        "G13_17_REST": -0.002961216028779745,
+        "G8_REST": 0.009247038513422012,
+        "G9_12_REST": 0.20128732919692993
+      },
+      "pairs": 43,
+      "sign_constancy": 0.6976743936538696,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": 18.781227111816406,
+      "margin_closed": {
+        "FOUR_W": 0.4115847945213318,
+        "G0_7": 0.21627120673656464,
+        "G13_17_REST": 0.0819561555981636,
+        "G8_REST": 0.032453205436468124,
+        "G9_12_REST": 0.2197447270154953
+      },
+      "moved": {
+        "FOUR_W": 0.4355475902557373,
+        "G0_7": 0.08109718561172485,
+        "G13_17_REST": -0.002961216028779745,
+        "G8_REST": 0.009247038513422012,
+        "G9_12_REST": 0.20128732919692993
+      },
+      "pairs": 43,
+      "sign_constancy": 0.6976743936538696,
+      "unit": 701
+    }
+  },
+  "schema": "person_other_writers_into_answer_result_v587",
+  "serial_seconds": 2.0166194019839168
+}
