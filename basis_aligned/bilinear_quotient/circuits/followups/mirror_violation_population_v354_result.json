@@ -1,0 +1,165 @@
+{
+  "candidate_id": "pronoun_number.mirror_violation_population_v354",
+  "finished_utc": "2026-09-19T04:39:29.662944+00:00",
+  "forwards": 14,
+  "plan": {
+    "bars": {
+      "kl_min": 0.03,
+      "null_factor": 3.0,
+      "replay": 0.05,
+      "top50_max": 0.6
+    },
+    "candidate_id": "pronoun_number.mirror_violation_population_v354",
+    "cells": [
+      "is|s",
+      "is|p",
+      "are|s",
+      "are|p"
+    ],
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 16,
+    "gpu_accessed": false,
+    "ks": [
+      10,
+      50,
+      200
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "n_null": 3,
+    "pairs": 256,
+    "seed": 351
+  },
+  "predictions": {
+    "pred_a_baseline_frames_replay": true,
+    "pred_b_114_leads_the_mirror_census": true,
+    "pred_c_mirror_population_is_spread": true,
+    "pred_d_mirror_edit_moves_the_prediction": true,
+    "pred_e_mirror_edit_lowers_singular_preference": true
+  },
+  "report": {
+    "edits": {
+      "10": {
+        "delta_logodds": 0.47507715225219727,
+        "kl": 0.03919244557619095,
+        "null_kl_max": 1.0086466318171006e-05,
+        "top_units": [
+          114,
+          3040,
+          4040,
+          3318,
+          4047,
+          3667,
+          1613,
+          979,
+          998,
+          2160
+        ]
+      },
+      "200": {
+        "delta_logodds": 0.5174695253372192,
+        "kl": 0.05333581566810608,
+        "null_kl_max": 0.0005183224566280842,
+        "top_units": [
+          114,
+          3040,
+          4040,
+          3318,
+          4047,
+          3667,
+          1613,
+          979,
+          998,
+          2160,
+          2873,
+          4080
+        ]
+      },
+      "50": {
+        "delta_logodds": 0.4800281524658203,
+        "kl": 0.04285161942243576,
+        "null_kl_max": 0.00011745090887416154,
+        "top_units": [
+          114,
+          3040,
+          4040,
+          3318,
+          4047,
+          3667,
+          1613,
+          979,
+          998,
+          2160,
+          2873,
+          4080
+        ]
+      }
+    },
+    "logodds_plural_vs_singular_native_is_p": -1.5914647579193115,
+    "native_3465_medians": {
+      "are|p": -48.95232009887695,
+      "is|p": -87.77975463867188
+    },
+    "rank_114": 1,
+    "top12_units": [
+      [
+        114,
+        5471.00732421875
+      ],
+      [
+        3040,
+        1226.7469482421875
+      ],
+      [
+        4040,
+        1149.3294677734375
+      ],
+      [
+        3318,
+        -910.8663330078125
+      ],
+      [
+        4047,
+        806.6029052734375
+      ],
+      [
+        3667,
+        701.3888549804688
+      ],
+      [
+        1613,
+        675.840576171875
+      ],
+      [
+        979,
+        -671.9981079101562
+      ],
+      [
+        998,
+        626.9066772460938
+      ],
+      [
+        2160,
+        -615.003173828125
+      ],
+      [
+        2873,
+        611.3406372070312
+      ],
+      [
+        4080,
+        588.6963500976562
+      ]
+    ],
+    "top_shares": {
+      "10": 0.050355758517980576,
+      "200": 0.2532103359699249,
+      "50": 0.11564990133047104,
+      "500": 0.42551910877227783
+    }
+  },
+  "schema": "mirror_violation_population_result_v354",
+  "serial_seconds": 2.4460133211687207
+}

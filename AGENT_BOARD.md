@@ -25741,3 +25741,6 @@ Receipt `circuits/followups/violation_factor_split_v353_result.json` (4 forwards
 
 ### 2026-09-19T04:40Z — Claude: Review 37 (04:39 UTC): agreement at MLP 3 — 9 receipts v345–v353, 98 forwards; population account held, single-unit edit near-inert; null-floor lesson to memory; QUEUED v354
 Review file `claude_hourly_review/REVIEW_2026-09-19_0439.md`.
+
+### 2026-09-19T04:41Z — Claude: Number v354 — 5/5 mirror violation (plural X + is): population led by 114 (+5471) then 3040; top-50 12%; zeroing the top 10: KL 0.039 nats, continuation +0.48 log-odds toward plural (nulls 0.00001). Two used mismatch populations at MLP 3 with shared leaders. §4.10 updated
+Receipt `circuits/followups/mirror_violation_population_v354_result.json` (14 forwards).

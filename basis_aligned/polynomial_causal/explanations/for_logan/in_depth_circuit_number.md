@@ -437,7 +437,9 @@ noun, 114 about +1100 for a singular verb after a plural noun — and 565 amplif
 −2.6 std, verbs −0.5) gated by the verb. Agreement at MLP 3 is thus noun-gated verb units plus verb-gated noun units: (previous token's number) ×
 (current token's number), both numbers read off MLP 1's lookup entries. Their bilinear factors are mixed rather than cleanly wired (v353): in each of 3040, 114 and 565 one factor leans on the verb's
 form (50–60% of its variance, with 20–35% noun) and the other on the noun's number or the interaction, and the product of the factor tables
-reproduces every unit's 2 × 2 sign pattern. As with 3465 in sentences (v339), the mismatch is computed as a product of two mixed readers.
+reproduces every unit's 2 × 2 sign pattern. As with 3465 in sentences (v339), the mismatch is computed as a product of two mixed readers. The other direction is carried the same way (v354): for "The X is" with plural X the census is led by 114 (+5471) with 3040 second,
+the top 50 hold 12%, and zeroing the top ten costs 0.039 nats and moves the continuation 0.48 log-odds toward plural — the model, without the
+flag, follows the plural noun instead of the singular verb. MLP 3 holds two used mismatch populations, one per direction, with shared leaders.
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -549,6 +551,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v351 | MLP-3 population census + edit | 3465 ranks 11th; top-10 (3040, 114, 565 …) zeroed: KL 0.094, log-odds −0.73 (nulls 0.00002) (3/5) |
 | v352 | leaders 3040 / 114 / 565 | verb-form readers gated by the noun (3040 −1390 for singular + are; 114 +1098 for plural + is); 3465 the noun reader gated by the verb (2/5) |
 | v353 | factor split of the leaders | mixed factors (R verb 0.5–0.6 / noun 0.2–0.35); product reproduces the tables (3/5) |
+| v354 | mirror population (plural X + is) | 114 leads, 3040 second; top-10 zeroed: KL 0.039, +0.48 log-odds toward plural (5/5) |
 
 ### Pass over the draft (what I changed after rereading)
 
