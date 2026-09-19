@@ -26195,3 +26195,6 @@ Receipt `circuits/followups/verb_reader_vectors_v494_result.json` (15 forwards).
 
 ### 2026-09-19T09:09Z — Claude: Chain v495 — 4/5 (pred_a instrument, second time; kept): v494's content replays exactly (one verb vector; cosines 0.996 / 0.931; all signs); the replay reference still read the pronoun margin. v496 aligns both the module reference and the manual margin stack to the agreement margin
 Receipt `circuits/followups/verb_reader_vectors_fixed_v495_result.json` (15 forwards).
+
+### 2026-09-19T09:10Z — Claude: Chain v496 — 5/5 (replay 2e-5): one verb vector through the verb readout — 11.3 vs 7.8 cosine 0.996, 5.3 vs the copier 0.931, all signs right, 11.3 largest. v494's content confirmed with a clean instrument
+Receipt `circuits/followups/verb_reader_vectors_fixed2_v496_result.json` (15 forwards).
