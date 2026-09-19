@@ -347,6 +347,10 @@ MLP 1's raw lookup would leak into the number margin if attention 0/1 did not co
 number-specific (v328): the same edit scrambles the final-token distribution (KL 0.47 nats; the top prediction changes on 85% of rows) and
 moves the unmanipulated he − she contrast a quarter as much as the manipulated one. MLP 1's conditioning is a general prerequisite the whole
 model relies on, not a number component; what the number chain takes from MLP 1 is the entry's direction (v296), and that is all.
+Seen end to end from single tokens (v329) — each token alone, the weights of Embedding → attention 0–3 (own key only) → MLPs 0–2 → unit 3465
+folded into one fixed function of the token — 3465's product separates plural nouns (median −432) from singular nouns (−37) by 4.2 pooled
+standard deviations with every one of 64 plurals on the plural side, stable from 16 to 64 tokens per class; numerals (2–9, two–nine, 10, 12,
+20, 100) sit at zero and "one" on the singular side. The unit detects the -s form in the token's own lookup, not quantity.
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -433,6 +437,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v326 | MLP 3 at unit grain | ten units carry 71% of the effect; response spread; 3465 / 493 rank 113 / 72 (3/5) |
 | v327 | zero the ten on native rows | +3.1% (3.5× null), opposite sign; {3465, 493} −2.2%: a leak channel, not number units (3/5) |
 | v328 | selectivity of the harm | KL 0.47 nats, top-1 agreement 15%, gender control 0.26×: generic, not number-specific (5/5) |
+| v329 | single tokens → unit 3465 (blocks 0–3 folded) | plural −432 vs singular −37 (4.2 std, 100%); numerals ≈ 0; "one" singular side (4/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

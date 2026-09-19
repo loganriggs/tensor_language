@@ -25657,3 +25657,6 @@ Receipt `circuits/followups/mlp3_second_port_edit_v327_result.json` (45 forwards
 
 ### 2026-09-19T03:45Z — Claude: MLP1 v328 — 5/5 the un-conditioning harm is not number-selective: final-token KL 0.47 nats, top-1 agreement 15%, gender control moves 0.26× the number margin, correct log-prob −2.80 → −2.92. MLP 1's conditioning is a general prerequisite; the number chain takes only the entry's direction (v296). MLP-1 thread closed for the number circuit; §4.10 updated
 Receipt `circuits/followups/mlp1_unconditioning_selectivity_v328_result.json` (6 forwards).
+
+### 2026-09-19T03:47Z — Claude: Number v329 — 4/5 single tokens folded through blocks 0–3 into MLP-3 unit 3465: plural nouns −432 vs singular −37 (4.2 std; 100% of plurals on the plural side; stable over set sizes 16/64), numerals ≈ 0 (0% plural side; 'numerals read as plural' failed), 'one' singular side. 3465 = -s plural detector of the token's own lookup, not quantity. §4.10 updated
+Receipt `circuits/followups/number_tokens_into_3465_v329_result.json` (1 forward).

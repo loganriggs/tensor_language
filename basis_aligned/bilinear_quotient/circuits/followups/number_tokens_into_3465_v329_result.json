@@ -1,0 +1,91 @@
+{
+  "candidate_id": "pronoun_number.single_tokens_into_3465_v329",
+  "finished_utc": "2026-09-19T03:46:04.645045+00:00",
+  "forwards": 1,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.0001,
+      "gap_std": 1.0,
+      "stab": 0.3
+    },
+    "candidate_id": "pronoun_number.single_tokens_into_3465_v329",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 3,
+    "gpu_accessed": false,
+    "groups": {
+      "function": 64,
+      "numerals": 20,
+      "one": 2,
+      "plural": 64,
+      "singular": 64
+    },
+    "layer": 3,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "sizes": [
+      4,
+      16,
+      64
+    ],
+    "tokens": 214,
+    "unit": 3465
+  },
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_plural_nouns_positive_singular_negative": true,
+    "pred_c_numerals_above_one_read_as_plural": false,
+    "pred_d_one_reads_as_singular": true,
+    "pred_e_set_size_stability": true
+  },
+  "report": {
+    "closure_max": 0.0,
+    "gap_by_size": {
+      "16": -394.54278564453125,
+      "4": -541.953857421875,
+      "64": -395.0633239746094
+    },
+    "gap_over_std": -4.2189029102364435,
+    "median": {
+      "function": -1.237565517425537,
+      "numerals": 0.2554050385951996,
+      "one": [
+        -6.532954216003418,
+        16.629240036010742
+      ],
+      "plural": -431.8179016113281,
+      "singular": -36.75458908081055
+    },
+    "numerals_each": {
+      " 10": 0.6504164934158325,
+      " 100": 3.5921239852905273,
+      " 12": -9.188033103942871,
+      " 2": -3.6240999698638916,
+      " 20": -3.192686080932617,
+      " 3": -5.491639614105225,
+      " 4": 23.36480140686035,
+      " 5": 13.419022560119629,
+      " 6": -16.128517150878906,
+      " 7": 10.068503379821777,
+      " 8": 10.109661102294922,
+      " 9": 7.581464767456055,
+      " eight": -8.161972045898438,
+      " five": 0.6918362379074097,
+      " four": 3.5055861473083496,
+      " nine": -1.339653491973877,
+      " seven": -2.2412004470825195,
+      " six": 1.2596194744110107,
+      " three": -0.5614238381385803,
+      " two": 0.2554050385951996
+    },
+    "plural_side_fraction": {
+      "function": 0.0625,
+      "numerals": 0.0,
+      "plural": 1.0
+    },
+    "pooled_std": 93.64124298095703
+  },
+  "schema": "number_tokens_into_3465_result_v329",
+  "serial_seconds": 1.556269609136507
+}
