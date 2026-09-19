@@ -26324,3 +26324,6 @@ Receipt `circuits/followups/h53_write_panel_v534_result.json` (9 forwards).
 
 ### 2026-09-19T10:18Z — Claude: Chain v535 — 5/5: attention into the panel's pronoun slot by block — 9 (0.360), 12 (0.261), 10 (0.138), 15 (0.109), 5 (0.097), 11 (0.044), 7 (0.029), 6 (0.021); blocks 0–3 ≤ 0.01; singles add (1.032 vs 0.965). The readers' blocks carry 0.87; the panel's extra channel is block 5 as a whole (5.3's own write 0.040 of 0.097) and block 11
 Receipt `circuits/followups/attn_into_pronoun_blocks_panel_v535_result.json` (60 forwards).
+
+### 2026-09-19T10:20Z — Claude: Chain v536 — 4/5 (d FAILED; kept): on the panel block 5's write into the pronoun slot is 5.3 (0.040) + 5.6 (0.028) + small others (0.055 beyond 5.3); block 11's is 11.1 (0.032), not the verb reader 11.3. The panel's extra channel is a spread of 3–4% relays, no new reader; 11.3 does not leak into the pronoun slot
+Receipt `circuits/followups/attn_into_pronoun_heads_panel_5_11_v536_result.json` (57 forwards).
