@@ -26306,3 +26306,6 @@ Receipt `circuits/followups/templates_all_heads_panel_v528_result.json` (3 forwa
 
 ### 2026-09-19T10:09Z — Claude: Template v529 — 2/5 (instrument: at block 0 the post-noun residual is identical across the pair, d = 0, nine NaN heads top both lists; kept): past the NaNs, 5.3 is first in block 5 and 2nd of 153 heads on the agreement template with the post-noun d (0.024), and the copier 4.5 drops to 25 / 68. Re-run with block 0 guarded as v530
 Receipt `circuits/followups/templates_post_noun_d_v529_result.json` (4 forwards).
+
+### 2026-09-19T10:11Z — Claude: Template v530 — 4/5 (e FAILED as expected; kept): with d at the post-noun token (block 0 guarded) 5.3 rises to 2nd of 162 on the agreement template and first in its block, the copier 4.5 drops to 25 / 68, and the five pronoun readers keep ranks 1–6 — the template names each hop of the route when given the site that hop reads
+Receipt `circuits/followups/templates_post_noun_d_guarded_v530_result.json` (4 forwards).
