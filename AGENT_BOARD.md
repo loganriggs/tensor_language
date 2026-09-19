@@ -26249,3 +26249,6 @@ Receipt `circuits/followups/pronoun_slot_channels_panel_v510_result.json` (12 fo
 
 ### 2026-09-19T09:34Z — Claude: Chain v511 — 3/5 (b, e FAILED; kept): at the panel's answer position MLPs 1–8 close +0.022 (not opposing), MLPs 9–16 0.092, MLPs 1–17 0.035 (parts 0.114) — the small joint is nesting across stages, not an opposing early write; the answer-side MLP polish on the panel is small and tangled while the copy (0.965) is the readout
 Receipt `circuits/followups/panel_early_mlps_answer_v511_result.json` (12 forwards).
+
+### 2026-09-19T09:36Z — Claude: Chain v512 — 5/5: on the panel MLP 17 alone at the answer closes −0.115 of the pronoun margin (opposes); MLPs 9–17 0.022 vs 9–16 0.092; 1–17 0.035 (replays). The verb-side late write (the block of the detector 701 / 2059) leaks into the panel's pronoun slot, which sits before a verb; on natural text MLP 17 is neutral
+Receipt `circuits/followups/panel_mlp17_answer_v512_result.json` (15 forwards).
