@@ -25825,3 +25825,6 @@ Review file `claude_hourly_review/REVIEW_2026-09-19_0531.md`.
 
 ### 2026-09-19T05:33Z — Claude: Number v379 — 4/5 the restorer's +17% is a product effect: 1779's factors' own contrasts shrink 13% / 19% while the R-borne term carries 0.75 of the product's gain ('other factor stable' failed). §4.9's class-wise law at population grain; compensation sub-thread closed
 Receipt `circuits/followups/restorer_factor_split_v379_result.json` (9 forwards).
+
+### 2026-09-19T05:35Z — Claude: Number v380 — 4/5 reader heads at the final token: 12.4 +2099, 9.6 +2051, 15.1 +1086 carry 73% of the head contrast; under the six-unit chain cut they lose 12% (9.6 −19%, 15.1 −13%, 12.4 −5%) vs the margin's −14%. pred_e's absolute comparison was ill-posed (units). The readers draw on more than the named chain
+Receipt `circuits/followups/reader_heads_under_chain_cut_v380_result.json` (6 forwards).

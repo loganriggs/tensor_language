@@ -1,0 +1,87 @@
+{
+  "candidate_id": "pronoun_number.reader_heads_under_chain_cut_v380",
+  "finished_utc": "2026-09-19T05:34:03.380182+00:00",
+  "forwards": 6,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.0001,
+      "reader_min": 0.5
+    },
+    "blocks": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "candidate_id": "pronoun_number.reader_heads_under_chain_cut_v380",
+    "chain": {
+      "3": [
+        3465,
+        493
+      ],
+      "5": [
+        1036
+      ],
+      "6": [
+        2483
+      ],
+      "7": [
+        1779
+      ],
+      "8": [
+        829
+      ]
+    },
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 8,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117"
+  },
+  "predictions": {
+    "pred_a_head_sum_closure": true,
+    "pred_b_readers_carry_the_final_contrast": true,
+    "pred_c_chain_cut_lowers_readers": true,
+    "pred_d_9_6_loses_most": true,
+    "pred_e_cut_matches_margin": false
+  },
+  "report": {
+    "closure_max": 2.652852231221914e-07,
+    "largest_reader_loss": "9.6",
+    "margin_change": -0.28595893581708265,
+    "native_margin": 2.048141226172447,
+    "reader_share_native": 0.7285580225356372,
+    "readers_change": {
+      "11.3": -15.815058390299484,
+      "12.4": -99.77408854166652,
+      "15.1": -139.99251302083337,
+      "9.6": -393.53824869791674
+    },
+    "readers_change_sum": -649.1199086507161,
+    "readers_native": {
+      "11.3": 95.3007303873698,
+      "12.4": 2098.6129557291665,
+      "15.1": 1085.544921875,
+      "9.6": 2051.10009765625
+    },
+    "top8_heads_native": {
+      "10.1": 257.79644775390625,
+      "10.5": 602.8251139322916,
+      "11.1": 214.56949869791666,
+      "12.4": 2098.6129557291665,
+      "13.1": -283.65126546223956,
+      "15.1": 1085.544921875,
+      "9.1": 114.0048828125,
+      "9.6": 2051.10009765625
+    }
+  },
+  "schema": "reader_heads_under_chain_cut_result_v380",
+  "serial_seconds": 1.7635882620234042
+}
