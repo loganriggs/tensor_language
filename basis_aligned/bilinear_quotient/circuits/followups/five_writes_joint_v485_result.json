@@ -1,0 +1,75 @@
+{
+  "candidate_id": "chain.five_writes_joint_v485",
+  "finished_utc": "2026-09-19T08:54:36.468694+00:00",
+  "forwards": 12,
+  "plan": {
+    "bars": {
+      "all_attn": 0.973,
+      "band": 0.05,
+      "five_sum": 0.823,
+      "replay_tol": 0.001,
+      "rest_max": 0.05,
+      "share_min": 0.8,
+      "unit": 701
+    },
+    "candidate_id": "chain.five_writes_joint_v485",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 13,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "panel_pairs": 48,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "text_pairs": 122
+  },
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_five_writes_jointly_add": true,
+    "pred_c_rest_of_their_blocks_small": true,
+    "pred_d_five_writes_are_most_of_the_channel": true,
+    "pred_e_joint_below_all_attention": true
+  },
+  "report": {
+    "panel": {
+      "rows": 122,
+      "skipped": "pronoun slot, natural pairs"
+    },
+    "replay_max_abs": 1.33514404296875e-05,
+    "text": {
+      "contrast_mean": 9.754912376403809,
+      "margin_closed": {
+        "FIVE_W": 0.8027758002281189,
+        "REST_W": 0.026380492374300957
+      },
+      "moved": {
+        "FIVE_W": 0.28516989946365356,
+        "REST_W": 0.02120569720864296
+      },
+      "pairs": 122,
+      "sign_constancy": 0.6475409865379333,
+      "unit": 701
+    },
+    "verb_slot": {
+      "contrast_mean": 9.754912376403809,
+      "margin_closed": {
+        "FIVE_W": 0.8027758002281189,
+        "REST_W": 0.026380492374300957
+      },
+      "moved": {
+        "FIVE_W": 0.28516989946365356,
+        "REST_W": 0.02120569720864296
+      },
+      "pairs": 122,
+      "sign_constancy": 0.6475409865379333,
+      "unit": 701
+    }
+  },
+  "schema": "five_writes_joint_result_v485",
+  "serial_seconds": 2.044155143899843
+}
