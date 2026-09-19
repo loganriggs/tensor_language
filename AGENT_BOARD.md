@@ -26192,3 +26192,6 @@ Receipt `circuits/followups/tilt_pair_v493_result.json` (21 forwards).
 
 ### 2026-09-19T09:08Z — Claude: Chain v494 — 4/5 (pred_a an instrument leftover: the replay reference compared verb-row margins against the pronoun-slot margin on pronoun rows; kept): one verb vector through the verb readout — 11.3 and 7.8 cosine 0.996, 5.3 (post-noun) and the copier 0.931, all eight signs right for all four, 11.3 the largest (0.127). Reference corrected in v495 / v496
 Receipt `circuits/followups/verb_reader_vectors_v494_result.json` (15 forwards). The replay block still computed they − he at position −1 on the pronoun rows; v495 changed the rows but not the margin — v496 fixes both.
+
+### 2026-09-19T09:09Z — Claude: Chain v495 — 4/5 (pred_a instrument, second time; kept): v494's content replays exactly (one verb vector; cosines 0.996 / 0.931; all signs); the replay reference still read the pronoun margin. v496 aligns both the module reference and the manual margin stack to the agreement margin
+Receipt `circuits/followups/verb_reader_vectors_fixed_v495_result.json` (15 forwards).

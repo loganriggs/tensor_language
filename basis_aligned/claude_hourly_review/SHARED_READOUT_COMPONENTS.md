@@ -604,3 +604,4 @@ v491 (4/5; d failed): every reader writes they−he and they−she alike (0.85�
 v492 (4/5; b failed): 12.4 leans masculine (1.32), 10.1 feminine (0.88), 9.6 even (1.15); all share the axis (cos ≥ 0.94). The two leakers' gender tilts oppose and partly cancel.
 v493 (5/5): 12.4 + 10.1 together: masc/fem 1.136 (even; five heads 1.113), cos 0.989 — the tilts cancel. Gender-tilt thread closed.
 v494 (4/5; a = instrument leftover): one verb vector through the verb readout — 11.3 vs 7.8 cos 0.996, 5.3 vs copier 0.931, all signs right; 11.3 largest. Replay reference mis-derived (fixed in v495/v496).
+v495 (4/5; a = instrument again): content replays exactly; the replay reference still read the pronoun margin. v496 corrects both sides.
