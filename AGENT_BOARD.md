@@ -25861,3 +25861,6 @@ Receipt `circuits/followups/subspace_fold_number_v390_result.json` (3 forwards).
 
 ### 2026-09-19T06:06Z — Claude: Subspace v391 — 3/5 the agreement axis VP0 (0.77 of the class-residual energy of the final-state contrast) is written by MLPs 12–17 (mlp17 +512, mlp16 +204, mlp13 +162) and head 11.3; the pronoun readers carry 0.06 of it (pred failed) vs 0.44 of the they−he axis. Two circuits write two number axes; the subspace fold exposed the second. v392 censuses MLP 17 along VP0
 Receipt `circuits/followups/subspace_vp0_writers_v391_result.json` (3 forwards).
+
+### 2026-09-19T06:09Z — Claude: Subspace v392 — 3/5 units along the agreement axis VP0: MLP 17's 701 (+116 of +512), MLP 16's 2483, MLP 12's 1131 lead; along the pronoun axis MLP 17's 3547 / 1747 / 3093 pull against it; disjoint unit sets. Unit closure failed (1.01: λ-chain scale omitted for layers 12–16 — rankings valid, MLP 17 exact); 'MLP 17 top-10 ≥ 0.40' failed (0.18). v393 edits the VP0 heads
+Receipt `circuits/followups/subspace_vp0_units_v392_result.json` (3 forwards). The unit-closure failure is an instrument omission (λ-chain scaling of earlier layers' unit terms), stated in the row.
