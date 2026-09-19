@@ -25801,3 +25801,6 @@ Receipt `circuits/followups/unit_chain_edit_natural_v371_result.json` (30 forwar
 
 ### 2026-09-19T05:17Z — Claude: Number v372 — 5/5 top-10 units per MLP (3, 5, 6, 7, 8; 50 units) zeroed on v76 rows: margin −34% (30× null) vs six leaders −14%. A population per layer with a nameable head. Two gate refusals (duplicate constants) fixed before GPU
 Receipt `circuits/followups/top10_per_layer_edit_v372_result.json` (45 forwards).
+
+### 2026-09-19T05:20Z — Claude: Number v373 — 4/5 dose–response per layer: top-1 −13%, top-5 −31%, top-10 −34%, top-20 −32% (nulls ≤ 0.04; 'monotone' failed at 20). MLP populations saturate near a third of the margin. §4.8 pointer updated; v374 repeats top-10 on natural rows
+Receipt `circuits/followups/per_layer_dose_response_v373_result.json` (54 forwards).
