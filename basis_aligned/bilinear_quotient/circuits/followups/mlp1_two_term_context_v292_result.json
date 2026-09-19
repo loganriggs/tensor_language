@@ -1,0 +1,261 @@
+{
+  "candidate_id": "mlp1.token_table.two_term_context_v292",
+  "finished_utc": "2026-09-19T02:21:20.717418+00:00",
+  "forwards": 9,
+  "plan": {
+    "bars": {
+      "alpha_floor": 0.2,
+      "closure_tol": 0.001,
+      "expl_min": 0.85,
+      "rem_cos_min": 0.5
+    },
+    "candidate_id": "mlp1.token_table.two_term_context_v292",
+    "class_sizes": {
+      "adjectives": 32,
+      "function_words": 32,
+      "nouns": 32,
+      "numbers": 32,
+      "punctuation": 32,
+      "verbs": 32,
+      "vocab_nouns": 32
+    },
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 12,
+    "gpu_accessed": false,
+    "lengths": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "phrase": [
+      ",",
+      " and",
+      " of",
+      " the",
+      " very"
+    ]
+  },
+  "predictions": {
+    "pred_a_pair_closure": true,
+    "pred_b_remainder_is_the_context_write": false,
+    "pred_c_two_term_model_explains_most": false,
+    "pred_d_gain_floors": true,
+    "pred_e_context_coefficient_rises": false
+  },
+  "report": {
+    "alpha_by_length": {
+      "1": 0.5755387544631958,
+      "16": 0.28470438718795776,
+      "2": 0.4428926706314087,
+      "32": 0.30437543988227844,
+      "4": 0.3654695749282837,
+      "64": 0.2937524914741516,
+      "8": 0.3332687020301819
+    },
+    "beta_by_length": {
+      "1": -0.05886354669928551,
+      "16": 0.01470597181469202,
+      "2": -0.008033978752791882,
+      "32": 0.039650268852710724,
+      "4": -0.018091674894094467,
+      "64": -0.009113503620028496,
+      "8": 0.011473923921585083
+    },
+    "closure_max": 1.5926318610581802e-06,
+    "cos_context_by_length": {
+      "1": 0.28524717688560486,
+      "16": 0.14246630668640137,
+      "2": 0.2496613711118698,
+      "32": 0.13592474162578583,
+      "4": 0.17147092521190643,
+      "64": 0.11227047443389893,
+      "8": 0.14961300790309906
+    },
+    "cos_table_by_length": {
+      "1": 0.8623723983764648,
+      "16": 0.7467392683029175,
+      "2": 0.8257455825805664,
+      "32": 0.688554584980011,
+      "4": 0.7826349139213562,
+      "64": 0.6124638319015503,
+      "8": 0.7728161215782166
+    },
+    "explained_by_length": {
+      "1": NaN,
+      "16": 0.5580525398254395,
+      "2": 0.6825885772705078,
+      "32": 0.4770665466785431,
+      "4": 0.6160497665405273,
+      "64": 0.37878116965293884,
+      "8": 0.5983926653862
+    },
+    "per_k": {
+      "1": {
+        "alpha": 0.5755387544631958,
+        "alpha_by_class": {
+          "adjectives": 0.5755387544631958,
+          "function_words": 0.5644988417625427,
+          "nouns": 0.5945497751235962,
+          "numbers": 0.5243963599205017,
+          "punctuation": 0.43451276421546936,
+          "verbs": 0.6055328845977783,
+          "vocab_nouns": 0.6110937595367432
+        },
+        "alpha_single": 0.5549944639205933,
+        "beta": -0.05886354669928551,
+        "context_write_norm": 8041.42431640625,
+        "cos_context_median": 0.28524717688560486,
+        "cos_table_median": 0.8623723983764648,
+        "explained_median": NaN,
+        "explained_p10": NaN,
+        "rem_cos_median": -0.14031776785850525,
+        "write_norm_median": 5914.5615234375
+      },
+      "16": {
+        "alpha": 0.28470438718795776,
+        "alpha_by_class": {
+          "adjectives": 0.3174397051334381,
+          "function_words": 0.23135928809642792,
+          "nouns": 0.3470831513404846,
+          "numbers": 0.25906047224998474,
+          "punctuation": 0.21990495920181274,
+          "verbs": 0.29929524660110474,
+          "vocab_nouns": 0.3609716296195984
+        },
+        "alpha_single": 0.284025639295578,
+        "beta": 0.01470597181469202,
+        "context_write_norm": 3436.628173828125,
+        "cos_context_median": 0.14246630668640137,
+        "cos_table_median": 0.7467392683029175,
+        "explained_median": 0.5580525398254395,
+        "explained_p10": 0.4039045572280884,
+        "rem_cos_median": 0.021304354071617126,
+        "write_norm_median": 3802.798583984375
+      },
+      "2": {
+        "alpha": 0.4428926706314087,
+        "alpha_by_class": {
+          "adjectives": 0.4579302966594696,
+          "function_words": 0.3771159052848816,
+          "nouns": 0.5108253955841064,
+          "numbers": 0.38610607385635376,
+          "punctuation": 0.33692532777786255,
+          "verbs": 0.4949686825275421,
+          "vocab_nouns": 0.5106707811355591
+        },
+        "alpha_single": 0.44010189175605774,
+        "beta": -0.008033978752791882,
+        "context_write_norm": 8398.4765625,
+        "cos_context_median": 0.2496613711118698,
+        "cos_table_median": 0.8257455825805664,
+        "explained_median": 0.6825885772705078,
+        "explained_p10": 0.4887813925743103,
+        "rem_cos_median": -0.022837448865175247,
+        "write_norm_median": 5119.2392578125
+      },
+      "32": {
+        "alpha": 0.30437543988227844,
+        "alpha_by_class": {
+          "adjectives": 0.30968645215034485,
+          "function_words": 0.23549649119377136,
+          "nouns": 0.36211493611335754,
+          "numbers": 0.27378880977630615,
+          "punctuation": 0.22282598912715912,
+          "verbs": 0.32649144530296326,
+          "vocab_nouns": 0.37046682834625244
+        },
+        "alpha_single": 0.30734720826148987,
+        "beta": 0.039650268852710724,
+        "context_write_norm": 4029.321044921875,
+        "cos_context_median": 0.13592474162578583,
+        "cos_table_median": 0.688554584980011,
+        "explained_median": 0.4770665466785431,
+        "explained_p10": 0.30204933881759644,
+        "rem_cos_median": 0.05155021697282791,
+        "write_norm_median": 4405.04296875
+      },
+      "4": {
+        "alpha": 0.3654695749282837,
+        "alpha_by_class": {
+          "adjectives": 0.39208757877349854,
+          "function_words": 0.26999005675315857,
+          "nouns": 0.44642627239227295,
+          "numbers": 0.36282578110694885,
+          "punctuation": 0.30924588441848755,
+          "verbs": 0.33146312832832336,
+          "vocab_nouns": 0.4246172606945038
+        },
+        "alpha_single": 0.36492204666137695,
+        "beta": -0.018091674894094467,
+        "context_write_norm": 6739.716796875,
+        "cos_context_median": 0.17147092521190643,
+        "cos_table_median": 0.7826349139213562,
+        "explained_median": 0.6160497665405273,
+        "explained_p10": 0.3969707489013672,
+        "rem_cos_median": -0.03990554064512253,
+        "write_norm_median": 4379.4091796875
+      },
+      "64": {
+        "alpha": 0.2937524914741516,
+        "alpha_by_class": {
+          "adjectives": 0.3378925621509552,
+          "function_words": 0.21785248816013336,
+          "nouns": 0.38005369901657104,
+          "numbers": 0.2769518792629242,
+          "punctuation": 0.23308387398719788,
+          "verbs": 0.299043208360672,
+          "vocab_nouns": 0.3686645030975342
+        },
+        "alpha_single": 0.2913838326931,
+        "beta": -0.009113503620028496,
+        "context_write_norm": 7100.6240234375,
+        "cos_context_median": 0.11227047443389893,
+        "cos_table_median": 0.6124638319015503,
+        "explained_median": 0.37878116965293884,
+        "explained_p10": 0.19141320884227753,
+        "rem_cos_median": -0.01519857533276081,
+        "write_norm_median": 4846.5302734375
+      },
+      "8": {
+        "alpha": 0.3332687020301819,
+        "alpha_by_class": {
+          "adjectives": 0.35959863662719727,
+          "function_words": 0.25569915771484375,
+          "nouns": 0.4305700957775116,
+          "numbers": 0.33156058192253113,
+          "punctuation": 0.2803102135658264,
+          "verbs": 0.3167066276073456,
+          "vocab_nouns": 0.40444064140319824
+        },
+        "alpha_single": 0.334722101688385,
+        "beta": 0.011473923921585083,
+        "context_write_norm": 5170.27490234375,
+        "cos_context_median": 0.14961300790309906,
+        "cos_table_median": 0.7728161215782166,
+        "explained_median": 0.5983926653862,
+        "explained_p10": 0.3564373254776001,
+        "rem_cos_median": 0.021067891269922256,
+        "write_norm_median": 4286.4892578125
+      }
+    },
+    "rem_cos_by_length": {
+      "1": -0.14031776785850525,
+      "16": 0.021304354071617126,
+      "2": -0.022837448865175247,
+      "32": 0.05155021697282791,
+      "4": -0.03990554064512253,
+      "64": -0.01519857533276081,
+      "8": 0.021067891269922256
+    }
+  },
+  "schema": "mlp1_two_term_context_result_v292",
+  "serial_seconds": 1.83107747300528
+}
