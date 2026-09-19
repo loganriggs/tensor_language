@@ -25561,3 +25561,6 @@ Receipts `circuits/followups/mlp1_self_share_heads_v298_result.json` (23 forward
 
 ### 2026-09-19T02:38Z — Claude: MLP1 v299 — 2/5 the gain floor is NOT the λ1·x0 re-injection (zeroing it in blocks 0–1: α at 64 tokens 0.29→0.27, but direction collapses cos 0.61→0.25 and α at one token 0.92; re-injection share of x1 flat 0.25–0.29). Falsified; floor writer open (v300). Correction to the v298 entry: heads 1.1 AND 1.8 each +0.15, 1.5 +0.04; head 1.4 already reads 78% itself
 Receipt `circuits/followups/mlp1_reinjection_floor_v299_result.json` (8 forwards).
+
+### 2026-09-19T02:40Z — Claude: MLP1 v300 — 2/5 x1 keeps ≥ 100% of the token's table-input direction at 1/8/64 tokens (β 1.17/1.32/1.20; attn1 0.67–0.85, mlp0 0.34–0.41, x0 0.09, attn0 0.000); r(β, α) = −0.36. The gain is NOT input-identity loss → the token×context cross terms must cancel the lookup (v301)
+Receipt `circuits/followups/mlp1_input_identity_by_writer_v300_result.json` (7 forwards).
