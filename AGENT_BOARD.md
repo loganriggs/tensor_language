@@ -25914,3 +25914,6 @@ Receipt `circuits/followups/both_ends_degree_vc1_v404_result.json` (3 forwards).
 
 ### 2026-09-19T06:39Z — Claude: Both-ends v405 — 5/5 on natural text: 122 aligned pairs by swapping the cue noun's number in place (guests ↔ guest); 9.6 noun source 0.66, value-only 0.975, pattern terms ≤ 0.04; 15.1 0.96; 12.4 1.35 with s2×value −0.50. The value-copy account replays on text, purer than on the panel
 Receipt `circuits/followups/both_ends_degree_text_v405_result.json` (4 forwards). New instrument: in-place number swap of the cue noun makes natural aligned pairs (122 / 128).
+
+### 2026-09-19T06:41Z — Claude: Both-ends v406 — 4/5, pred_e FAILED (kept): writers of the number the readers copy — 9.6: MLP 8 0.48 (text) / 0.50 (panel), MLPs 5–7 ~0.25, embedding 0.14 / 0.10, attention 0.03; top-3 set differs between text (embedding 3rd) and panel (MLP 6 3rd). 12.4 / 15.1 add MLPs 9–11 and attention 9–10
+Receipt `circuits/followups/value_copy_writers_v406_result.json` (7 forwards). pred_e asked for the same top-3 set on panel and text; embedding (0.143) and MLP 6 (0.099) swap places with MLP 7 between the frames.
