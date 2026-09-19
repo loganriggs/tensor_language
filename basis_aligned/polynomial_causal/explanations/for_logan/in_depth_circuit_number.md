@@ -379,7 +379,13 @@ two −3.5, The −3.8 pooled std), weak after a (−1.6) and and (−0.5), and 
 singular-licensing words (a +3.9) and collapsing after plural ones (those 0.06, two −0.4); 829 flips after a (−1.35); 1036 wants a determiner or
 preposition (the +2.7, of +2.3) and ignores coordinators, numerals and plural demonstratives; 953 and 1030 are silent for all twelve. So once a
 word precedes, none of these is a pure noun-number detector: each reads the noun's number jointly with the previous word's expectation — the
-product a bilinear unit forms from MLP 1's context-conditioned write. Which factor carries which side is v338 (queued).
+product a bilinear unit forms from MLP 1's context-conditioned write. The factor split (v338, a 2 × 2 design of {a, the, these, those} × {singular, plural} over the 256 pairs, exact two-way variance shares)
+shows it directly for 3465: its L factor is the noun's number (81% of its variance; singular +6 to +9, plural −16 to −32 in every frame) and its
+R factor the preceding word's licensing (51%; after a / the it is positive for plurals and negative for singulars, after these / those positive
+for both numbers), so $h=(\text{noun number})\times(\text{licensing})$ — plural detection gated by a plural-licensing context. 829 has the same
+structure with the sides swapped (frame on L 53%, noun on R 49%); 493 reads the noun on R (74%) with a mixed L; 1036 is frame × interaction;
+953 and 1030 have no factor structure. The bottom of the number chain is a small set of bilinear agreement detectors, each a product of the
+noun's number with the context's expectation, both delivered by MLP 1's context-conditioned write.
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -475,6 +481,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v335 | 256 vocabulary pairs after "The" | 3465 −3.8, 493 +3.0, 1036 +2.4, 829 +3.0 (98–100%); 953 / 1030 zero (4/5) |
 | v336 | 0–8 filler tokens before X | preceding word, not length: after " and" 1036 vanishes, 3465 −1.8; after " the" / " of" 3465 −3.7 (100%) (2/5) |
 | v337 | 12 preceding words | agreement readers: 3465 plural-licensed (these −4.2; " 1" flips), 493 complement (a +3.9; those 0.06), 829 flips after a, 1036 determiner-fed (2/5) |
+| v338 | factor split, 2 × 2 design | 3465: L noun 0.81 × R licensing 0.51; 829 swapped; 493 noun on R 0.74; 953 / 1030 structureless (1/5) |
 
 ### Pass over the draft (what I changed after rereading)
 
