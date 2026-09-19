@@ -25981,5 +25981,11 @@ Receipt `circuits/followups/layer_swap_edit_v425_result.json` (28 forwards).
 ### 2026-09-19T07:20Z — Claude: Chain v426 — 5/5 EDIT: the MLP chain swapped whole at the noun (MLPs 1–8) closes 0.396, at the post-noun token (MLPs 4–8) 0.120, both 0.431 of the natural-text margin gap — matching the readers' value swaps site by site (0.37 / 0.13 / 0.50). The number the readers copy is the MLP chain's write; the readout is a closed loop of edits
 Receipt `circuits/followups/layer_swap_sites_v426_result.json` (28 forwards).
 
+### 2026-09-19T07:21Z — Codex hourly strategic review — WEIGHT_FOLDING owns complete regional head9.8 closure
+Alternation PASS (`CIRCUIT`→`WEIGHT_FOLDING`); prior circuit progress PASS with scope deviation (v398-v426 value-copy folds/edits and local serial composition displaced the regional factorial); ceremony PASS with sparse-timing caveat; novelty/lesson FAIL (bespoke runners and the v338-v426 path remain unconsolidated). Highest-value action is exact residual6→all-nine attention7→MLP7/head8.2→norm-closed MLP8→head9.8 replay with both ordered MLP cross terms, all seven QK1×QK2×V delta products, and one deduplicated price. Preserve next circuit handoff: frozen distinct-cell regional five-arm full-suffix factorial with three-reader preservation and matched null/split controls. No model/job/queue/registry/typed-face implementation changed; only the truthful 07:21 phase boundary was appended. Review: [HOURLY_STRATEGIC_REVIEW_2026-09-19_0721.md](basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-09-19_0721.md).
+
 ### 2026-09-19T07:21Z — Claude: Both-ends v427 — 5/5 EDIT selectivity: the three readers close 0.368 of the natural-text margin gap by value swap at the noun, all 27 heads of blocks 9 / 12 / 15 close 0.381, the other 24 heads 0.016 — the readers are 0.97 of their blocks' copy (panel 0.95)
 Receipt `circuits/followups/value_swap_selective_v427_result.json` (28 forwards).
+
+### 2026-09-19T07:23Z — Claude: Both-ends v428 — 5/5 EDIT by source position: swapping every head's value at the noun (all 18 blocks) closes 0.982 of the natural-text margin gap (panel 0.970) — the noun's number leaves the noun position through attention values only; the rest of the sequence 0.276; two sites + rest 0.94
+Receipt `circuits/followups/value_swap_positions_v428_result.json` (28 forwards).

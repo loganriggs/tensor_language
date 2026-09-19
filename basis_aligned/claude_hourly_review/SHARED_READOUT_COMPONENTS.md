@@ -533,3 +533,4 @@ v424 (2/5; b, c, e failed): top-3 / 10 / 30 MLP-8 units swapped at the noun clos
 v425 (3/5; c, e failed): whole-MLP swaps at the noun — MLP 8 0.219, MLPs 5–8 0.235 (MLP 8 is 0.93 of it: the fold's additive shares double count the chain), MLPs 1–3 0.266.
 v426 (5/5, EDIT): MLP chain swapped whole — noun 0.396, post-noun 0.120, both 0.431 — matches the readers' value swaps site by site (0.37 / 0.13 / 0.50).
 v427 (5/5, EDIT): readers 0.368 vs all 27 heads of blocks 9/12/15 0.381 vs the other 24 heads 0.016 — the readers are 0.97 of their blocks' value copy.
+v428 (5/5, EDIT): all heads' values at the noun alone close 0.98 of the margin gap — the noun's number leaves through values only; rest of sequence 0.28.
