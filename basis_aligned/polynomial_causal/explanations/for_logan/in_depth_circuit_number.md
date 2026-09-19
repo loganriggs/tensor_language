@@ -431,7 +431,11 @@ contrast between "The X are" and "The X is" with X singular, 3465 comes eleventh
 2257 and 3667, and the top 50 hold only 13% of the summed contrast. Zeroing the top ten at the verb costs 0.094 nats of next-token distribution
 (random ten-sets 0.00002) and lowers the plural-versus-singular continuation log-odds by 0.73 from +1.41: the population is what lets the model
 follow the recent plural verb over the singular noun. So the causal component at the verb is a population of MLP-3 violation units, of which
-3465 — the lexical plural-noun detector named from the noun rows — is a minor member.
+3465 — the lexical plural-noun detector named from the noun rows — is a minor member. Its leaders are the other ordering of the same product (v352): 3040 and 114 read the verb's form from the token alone
+(are − is at −11.5 and −9.4 pooled std; nouns alone 0.1 and −0.3) and fire at the mismatch — 3040 about −1400 for a plural verb after a singular
+noun, 114 about +1100 for a singular verb after a plural noun — and 565 amplifies are after a singular noun; 3465 is the noun reader (nouns alone
+−2.6 std, verbs −0.5) gated by the verb. Agreement at MLP 3 is thus noun-gated verb units plus verb-gated noun units: (previous token's number) ×
+(current token's number), both numbers read off MLP 1's lookup entries.
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -541,6 +545,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v349 | "The X is / are" | 3465 flags both violations (−165 / −88 vs −4 / −49); 493 plural + is (+43) (5/5) |
 | v350 | zero 3465 / 493 at the verb | KL 0.0008 nats on the violation cell, nulls 0.0000: detects but near-inert for the next token (5/5 on paper) |
 | v351 | MLP-3 population census + edit | 3465 ranks 11th; top-10 (3040, 114, 565 …) zeroed: KL 0.094, log-odds −0.73 (nulls 0.00002) (3/5) |
+| v352 | leaders 3040 / 114 / 565 | verb-form readers gated by the noun (3040 −1390 for singular + are; 114 +1098 for plural + is); 3465 the noun reader gated by the verb (2/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

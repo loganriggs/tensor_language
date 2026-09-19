@@ -1,0 +1,125 @@
+{
+  "candidate_id": "pronoun_number.violation_leaders_v352",
+  "finished_utc": "2026-09-19T04:35:24.093175+00:00",
+  "forwards": 7,
+  "plan": {
+    "bars": {
+      "alone_max": 1.0,
+      "closure_tol": 0.0001,
+      "mirror_min": 1.0,
+      "viol_min": 2.0
+    },
+    "candidate_id": "pronoun_number.violation_leaders_v352",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 9,
+    "frame": "The X verb",
+    "gpu_accessed": false,
+    "groups": {
+      "plural": 256,
+      "singular": 256
+    },
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "tokens": 512,
+    "units": {
+      "3": [
+        3040,
+        114,
+        565,
+        3465
+      ]
+    },
+    "verbs": [
+      " is",
+      " are"
+    ]
+  },
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_leaders_flag_the_violation_cell": true,
+    "pred_c_leaders_are_interaction_units": false,
+    "pred_d_leaders_mirror_cell": false,
+    "pred_e_leaders_silent_alone": false
+  },
+  "report": {
+    "alone": {
+      "mlp3.114": {
+        "are_minus_is_over_std": -9.366598129272461,
+        "noun_sep_std": -0.30730149149894714
+      },
+      "mlp3.3040": {
+        "are_minus_is_over_std": -11.546555519104004,
+        "noun_sep_std": 0.08992461860179901
+      },
+      "mlp3.3465": {
+        "are_minus_is_over_std": -0.5186855792999268,
+        "noun_sep_std": -2.5798134803771973
+      },
+      "mlp3.565": {
+        "are_minus_is_over_std": 1.314705729484558,
+        "noun_sep_std": -0.4998018741607666
+      }
+    },
+    "closure_max": 0.0,
+    "per_unit": {
+      "mlp3.114": {
+        "agreement_interaction_std": -1.0582229909196639,
+        "medians": {
+          "are|p": -183.63612365722656,
+          "are|s": -793.1029052734375,
+          "is|p": 1098.3385009765625,
+          "is|s": -12.996024131774902
+        },
+        "mirror_gap_std": 5.406265053511513,
+        "noun_number_effect_std": 3.6284290616280384,
+        "pooled_std": 237.12759399414062,
+        "verb_form_effect_std": -4.348042062591849,
+        "viol_gap_std": -3.2898190716721856
+      },
+      "mlp3.3040": {
+        "agreement_interaction_std": 2.9678340178515903,
+        "medians": {
+          "are|p": -60.4788932800293,
+          "are|s": -1390.21484375,
+          "is|p": 241.0697784423828,
+          "is|s": 2.2074668407440186
+        },
+        "mirror_gap_std": 1.6407883994779644,
+        "noun_number_effect_std": 4.267533027334347,
+        "pooled_std": 183.7827911376953,
+        "verb_form_effect_std": -4.6086224173295545,
+        "viol_gap_std": -7.576456435181146
+      },
+      "mlp3.3465": {
+        "agreement_interaction_std": 1.861832217160304,
+        "medians": {
+          "are|p": -48.95232009887695,
+          "are|s": -164.63609313964844,
+          "is|p": -87.77975463867188,
+          "is|s": -3.9971518516540527
+        },
+        "noun_number_effect_std": 0.29776761269695545,
+        "pooled_std": 53.56722640991211,
+        "verb_form_effect_std": -1.1369965827245014
+      },
+      "mlp3.565": {
+        "agreement_interaction_std": -2.7808428573226562,
+        "medians": {
+          "are|p": 42.70063400268555,
+          "are|s": 561.8672485351562,
+          "is|p": 18.94890594482422,
+          "is|s": -21.537845611572266
+        },
+        "mirror_gap_std": -0.23603833129911264,
+        "noun_number_effect_std": -2.3784963310483036,
+        "pooled_std": 100.62657165527344,
+        "verb_form_effect_std": 3.016881188621769,
+        "viol_gap_std": 5.797724045944425
+      }
+    }
+  },
+  "schema": "violation_leaders_result_v352",
+  "serial_seconds": 1.6447569699957967
+}

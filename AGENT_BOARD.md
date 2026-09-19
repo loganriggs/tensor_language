@@ -25732,3 +25732,6 @@ Receipt `circuits/followups/violation_detector_edit_v350_result.json` (48 forwar
 
 ### 2026-09-19T04:35Z — Claude: Number v351 — 3/5 MLP-3 violation population: 3465 ranks 11th; leaders 3040 (−5665), 114 (−3329), 565 (+2343); top-50 hold 13%. Zeroing the top 10 at the verb of 'The X are' (singular X): KL 0.094 nats, plural-continuation log-odds −0.73 (nulls 0.00002). The population, not 3465, is the causal component ('3465 top' and 'edit stays small' failed). §4.10 updated
 Receipt `circuits/followups/violation_population_v351_result.json` (14 forwards).
+
+### 2026-09-19T04:37Z — Claude: Number v352 — 2/5 the violation leaders: 3040 / 114 read verb form from the token alone (are − is −11.5 / −9.4 std; nouns ≈ 0) and fire at the mismatch (3040 −1390 for singular + are; 114 +1098 for plural + is), 565 amplifies are after a singular noun; 3465 is the noun reader gated by the verb. Agreement at MLP 3 = noun-gated verb units + verb-gated noun units. Three preds failed. §4.10 updated
+Receipt `circuits/followups/violation_leaders_v352_result.json` (7 forwards).
