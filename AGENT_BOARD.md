@@ -26330,3 +26330,6 @@ Receipt `circuits/followups/attn_into_pronoun_heads_panel_5_11_v536_result.json`
 
 ### 2026-09-19T10:21Z — Claude: Chain v537 — 5/5: the panel's small relays on natural text — 5.3 0.021, 5.6 0.014, 11.1 0.012 (0.047 together vs 0.100 on the panel): permanent but halved. The pronoun channel's panel-vs-text picture is closed: five frame-invariant readers plus frame-dependent relays and answer-side MLP polish
 Receipt `circuits/followups/panel_relays_on_text_v537_result.json` (16 forwards).
+
+### 2026-09-19T10:23Z — Claude: Chain v538 — 5/5: by write into a distant verb, 7.8 0.108 (block 7), 13.1 0.061 (block 13), 9.7 0.055 with 9.1 0.030 and 9.6 0.026 (block 9); singles add. The verb channel's write-side census is complete — the same heads and order as the noun-side value swaps; answer-side verb line added to SHARED_READOUT_COMPONENTS
+Receipt `circuits/followups/attn_into_verb_heads_7_9_13_v538_result.json` (84 forwards).

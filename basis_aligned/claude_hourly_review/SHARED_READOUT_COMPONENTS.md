@@ -646,3 +646,5 @@ v534 (2/5): 5.3's write into the panel answer 0.040 (its post-noun value effect 
 v535 (5/5): panel channel by block — 9 0.36, 12 0.26, 10 0.14, 15 0.11, 5 0.10, 11 0.04; singles add (1.03 vs 0.965). Block 5 as a whole (not only 5.3) and block 11 are the panel's extra channels.
 v536 (4/5; d failed): panel extra channel by head — 5.3 0.040, 5.6 0.028, 11.1 0.032 (not 11.3), 5.1 0.011; small relays, no new reader.
 v537 (5/5): the panel relays on text — 5.3 0.021, 5.6 0.014, 11.1 0.012 (sum 0.047 vs panel 0.100). Channel picture closed on both frames.
+v538 (5/5): write-side verb census complete — 11.3 0.238, 5.3 0.113, 7.8 0.108, 13.1 0.061, 9.7 0.055 (+9.1 0.030, 9.6 0.026). Both readouts censused at both ends.
+**VERB READERS FROM THE ANSWER SIDE (19 Sep, v476–v478, v538):** by their writes into a distant verb — 11.3 0.238, 5.3 0.113 (relaying the post-noun rebuild), 7.8 0.108, 13.1 0.061, 9.7 0.055, with 9.1 0.030 and 9.6 0.026 behind; the five jointly 0.557 (v486), all attention 0.943. Same heads and order as the noun-side value swaps.
