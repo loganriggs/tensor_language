@@ -397,7 +397,9 @@ context-free entry (v341): 81% of its L contribution and 85% of its R contributi
 — so on both sides of the product the number is the -s plural stored in MLP 1's table row for the noun, written at gain α ≈ 0.54. MLP 2 feeds the unit the other way round (v342): 66% of its L contribution and 37% of its R contribution are its context-conditioned
 remainder rather than its own entry (α₂ ≈ 0.44) — the dense re-read of MLP 1's conditioned write named in v317. So 3465's L input carries lexical
 number from MLP 1 and context-conditioned number from MLP 2, and its R input is lookup-fed by both; the bottom of the chain is accounted for
-writer by writer and part by part.
+writer by writer and part by part. The same holds for the other three lexical units (v343): MLP 1's contribution to both factors of 493 is 76% its entry, of 1036 88% / 71%,
+of 829 67% / 70% — the -s plural in MLP 1's table row is the number signal every agreement detector in the chain multiplies, on both sides,
+five blocks up as much as two.
 Also from v305: the pair moves the they − he margin on the pronoun rows by +3.4% (28× the null), a real downstream effect whose route
 is not yet named. The census order is causal down the list (v308): restoring the top 2 / 10 / 50 / 200 units raises $\alpha$ by 0.15 / 0.21 / 0.24 / 0.32
 while random sets of the same size do ≤ 0.02, and the direction climbs to cosine 0.89 — 4% of the units hold half of what context takes.
@@ -498,6 +500,7 @@ entry rather than MLP 2's write (v296) rests on v296 itself, not on this.
 | v340 | writers of 3465's two factors | MLPs 1 + 2 0.77 / 0.58; embedding 0.04 / 0.05; attention 3 0.07 / 0.12 (3/5) |
 | v341 | MLP 1's part per factor: table vs remainder | table 0.81 (L) / 0.85 (R); remainder 0.19 / 0.15 (4/5) |
 | v342 | MLP 2's part per factor | table 0.34 (L) / 0.63 (R); remainder 0.66 / 0.37 (5/5) |
+| v343 | MLP 1's part per factor for 493 / 1036 / 829 | table 0.76 / 0.76; 0.88 / 0.71; 0.67 / 0.70 (5/5) |
 
 ### Pass over the draft (what I changed after rereading)
 

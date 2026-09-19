@@ -1,0 +1,80 @@
+{
+  "candidate_id": "pronoun_number.mlp1_table_vs_remainder_other_units_v343",
+  "finished_utc": "2026-09-19T04:14:57.824661+00:00",
+  "forwards": 4,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.001,
+      "native_m": 2.0481,
+      "split_tol": 0.001,
+      "table_min": 0.6
+    },
+    "candidate_id": "pronoun_number.mlp1_table_vs_remainder_other_units_v343",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 6,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "rows": 96,
+    "rows_sha256": "2a1755fff7ad9676879102379f2a49eafc64c6b5ed3d710394076e81a9537117",
+    "units": {
+      "3": [
+        493
+      ],
+      "5": [
+        1036
+      ],
+      "8": [
+        829
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_split_closure": true,
+    "pred_c_table_part_dominates_for_493": true,
+    "pred_d_table_part_dominates_for_1036_and_829": true,
+    "pred_e_signs_agree_everywhere": true
+  },
+  "report": {
+    "alpha_median_at_block3": 28.47312355041504,
+    "closure_margin_gap": 4.1226172447395015e-05,
+    "per_unit_factor": {
+      "mlp3.493.L": {
+        "mlp1_contrast_term": 467.39251708984375,
+        "remainder_share": 0.23993830962818236,
+        "table_share": 0.7600617230184444
+      },
+      "mlp3.493.R": {
+        "mlp1_contrast_term": 770.5194702148438,
+        "remainder_share": 0.23663508418083978,
+        "table_share": 0.7633648762126619
+      },
+      "mlp5.1036.L": {
+        "mlp1_contrast_term": -381.5619201660156,
+        "remainder_share": 0.1179252798183735,
+        "table_share": 0.8820745802154535
+      },
+      "mlp5.1036.R": {
+        "mlp1_contrast_term": -1135.640625,
+        "remainder_share": 0.28791826612182003,
+        "table_share": 0.71208173387818
+      },
+      "mlp8.829.L": {
+        "mlp1_contrast_term": -443.7324523925781,
+        "remainder_share": 0.33016421685359065,
+        "table_share": 0.6698359206958627
+      },
+      "mlp8.829.R": {
+        "mlp1_contrast_term": -526.63671875,
+        "remainder_share": 0.3004943491366202,
+        "table_share": 0.699505621889348
+      }
+    },
+    "split_closure": 1.3996617297531533e-07
+  },
+  "schema": "mlp1_table_vs_remainder_other_units_result_v343",
+  "serial_seconds": 1.713300557108596
+}
