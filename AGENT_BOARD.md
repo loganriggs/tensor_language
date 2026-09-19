@@ -25911,3 +25911,6 @@ Receipt `circuits/followups/both_ends_factor_means_v403_result.json` (3 forwards
 
 ### 2026-09-19T06:35Z — Claude: Both-ends v404 — 5/5 output end on VC1: the readers' noun-source writes on the 'not he/she' axis are 44–63% of their u writes and expand identically (9.6 value-only 0.91, 15.1 0.995, 12.4 1.67 with the s2×value cancellation −1.08). One value copy from the noun, two output axes
 Receipt `circuits/followups/both_ends_degree_vc1_v404_result.json` (3 forwards).
+
+### 2026-09-19T06:39Z — Claude: Both-ends v405 — 5/5 on natural text: 122 aligned pairs by swapping the cue noun's number in place (guests ↔ guest); 9.6 noun source 0.66, value-only 0.975, pattern terms ≤ 0.04; 15.1 0.96; 12.4 1.35 with s2×value −0.50. The value-copy account replays on text, purer than on the panel
+Receipt `circuits/followups/both_ends_degree_text_v405_result.json` (4 forwards). New instrument: in-place number swap of the cue noun makes natural aligned pairs (122 / 128).

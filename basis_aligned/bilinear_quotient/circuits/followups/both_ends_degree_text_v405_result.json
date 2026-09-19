@@ -1,0 +1,126 @@
+{
+  "candidate_id": "both_ends.degree_expansion_text_v405",
+  "finished_utc": "2026-09-19T06:37:48.474523+00:00",
+  "forwards": 4,
+  "plan": {
+    "bars": {
+      "closure_tol": 0.0001,
+      "instr_tol": 0.02,
+      "noun_min": 0.25,
+      "third_max": 0.25,
+      "value_min": 0.6
+    },
+    "candidate_id": "both_ends.degree_expansion_text_v405",
+    "dropped_records": 6,
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 5,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "natural_records": 128,
+    "readers": [
+      "9.6",
+      "12.4",
+      "15.1"
+    ],
+    "rows": 244
+  },
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_noun_source_carries_a_quarter_on_text": true,
+    "pred_c_value_only_term_leads_on_text": true,
+    "pred_d_third_order_small": true,
+    "pred_e_12_4_cancellation_replays_on_text": true
+  },
+  "report": {
+    "closure_max": 2.208223248770216e-14,
+    "instrument_max_rel": 0.00010930395364994183,
+    "readers": {
+      "12.4": {
+        "degree_shares": {
+          "degree1": 1.6641669053688608,
+          "degree2": -0.5558872194036841,
+          "degree3": 0.02427558568928493,
+          "query": -0.132555271654461
+        },
+        "leading_term_by_frame": {
+          "plural": "value_only",
+          "singular": "value_only"
+        },
+        "noun_source_contrast": 42447.78870311172,
+        "noun_source_share": 0.4004209224409558,
+        "pairs": 122,
+        "skipped": 0,
+        "term_shares": {
+          "query_change": -0.132555271654461,
+          "s1_only": 0.030856247615920065,
+          "s1_s2": -0.01123594169344982,
+          "s1_s2_value": 0.02427558568928493,
+          "s1_value": -0.048517062711326574,
+          "s2_only": 0.2872255335140938,
+          "s2_value": -0.49613421499890775,
+          "value_only": 1.346085124238847
+        },
+        "total_contrast": 106007.91897773743
+      },
+      "15.1": {
+        "degree_shares": {
+          "degree1": 0.9407696164290755,
+          "degree2": 0.060029561090421235,
+          "degree3": 0.008401038041229715,
+          "query": -0.009200215560726895
+        },
+        "leading_term_by_frame": {
+          "plural": "value_only",
+          "singular": "value_only"
+        },
+        "noun_source_contrast": 18023.540244029264,
+        "noun_source_share": 0.36201166923442885,
+        "pairs": 122,
+        "skipped": 0,
+        "term_shares": {
+          "query_change": -0.009200215560726895,
+          "s1_only": -0.011998028513139828,
+          "s1_s2": -0.002670113260624333,
+          "s1_s2_value": 0.008401038041229715,
+          "s1_value": 0.03647737314017758,
+          "s2_only": -0.00533874387697403,
+          "s2_value": 0.02622230121086799,
+          "value_only": 0.9581063888191894
+        },
+        "total_contrast": 49787.18029212952
+      },
+      "9.6": {
+        "degree_shares": {
+          "degree1": 1.0028766648299912,
+          "degree2": -0.01982654773464666,
+          "degree3": 0.014933406601819252,
+          "query": 0.0020164763028364414
+        },
+        "leading_term_by_frame": {
+          "plural": "value_only",
+          "singular": "value_only"
+        },
+        "noun_source_contrast": 81570.19770152037,
+        "noun_source_share": 0.66007139183252,
+        "pairs": 122,
+        "skipped": 0,
+        "term_shares": {
+          "query_change": 0.0020164763028364414,
+          "s1_only": 0.015169963785597942,
+          "s1_s2": -0.0023136998098284537,
+          "s1_s2_value": 0.014933406601819252,
+          "s1_value": 0.021286122714067275,
+          "s2_only": 0.013119904840217252,
+          "s2_value": -0.03879897063888548,
+          "value_only": 0.9745867962041759
+        },
+        "total_contrast": 123577.84129238129
+      }
+    }
+  },
+  "schema": "both_ends_degree_text_result_v405",
+  "serial_seconds": 1.8127905819565058
+}

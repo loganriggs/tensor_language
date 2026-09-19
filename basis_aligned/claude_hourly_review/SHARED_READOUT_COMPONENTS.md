@@ -510,3 +510,4 @@ v401 (4/5; pred_c failed): exact degree expansion of the readers' noun-source wr
 v402 (5/5): post-noun source — 9.6 splits its read 0.48 noun / 0.50 post-noun, both pure copies (value-only 0.92 / 1.13); 12.4 again pattern×value cancellation (2.08 vs −1.31, query −0.57).
 v403 (4/5; pred_b failed on sign): readers' patterns number-blind (≤ 6%), value factor moves 160–370%; the copy is the current-state value branch (0.94–1.0). 12.4's negative s2 halves in magnitude on plural sites.
 v404 (5/5): on VC1 the readers' noun-source writes are 44–63% of their u writes and split identically (value-only 0.91 / 0.995 / 1.67; 12.4 cancellation replays). One value copy, two output axes.
+v405 (5/5): degree expansion replays on 122 natural pairs (in-place noun-number swap): 9.6 noun source 0.66, value-only 0.975; 15.1 0.96; 12.4 1.35 with −0.50 cancellation. Natural aligned pairs now available via the tokenizer swap.
