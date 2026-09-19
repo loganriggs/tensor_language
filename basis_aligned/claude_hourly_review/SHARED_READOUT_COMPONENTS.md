@@ -703,3 +703,4 @@ v538 (5/5): write-side verb census complete — 11.3 0.238, 5.3 0.113, 7.8 0.108
 - PERSON VERDICT (v593): seven named heads 0.549 of the write side (< 0.60): spread readout; closed at block grain. Named: 8.1, 13.1, 10.5, 15.1, 9.6, 9.7, 5.3; early copies from block 4.
 - NUMBER READERS' BRANCHES BY EDIT (v594): current-state 0.411, token-only 0.075, full 0.483. Number computed, gender half token-read — same edit, same heads.
 - ASPECT since/by IN-PLACE PAIRS (v596): gap 0.48 logits, sign constancy 0.53 — not aligned pairs; line parked pending temporal-'by' rows.
+- VERB READERS' BRANCHES (v595): current-state 0.347, token-only 0.027, full 0.368. Number and agreement computed; gender half token-read.
