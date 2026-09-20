@@ -2,13 +2,13 @@
 import numpy as np
 from scipy.optimize import linprog
 
-def choose(g,kappa):
-    n=-g[0];modal=-g[1:];sign=np.sign(n[2:].sum()) or 1.;target=sign*n;scale=max(np.linalg.norm(target),1e-30)
+def choose(g,kappa,reference=None):
+    n=-g[0];modal=-g[1:];reference=np.array([0.,0.,1.,1.,1.]) if reference is None else np.asarray(reference);assert reference.shape==n.shape;sign=np.sign(n@reference) or 1.;target=sign*n;scale=max(np.linalg.norm(target),1e-30)
     A=np.concatenate([modal-kappa*target,-modal-kappa*target])/scale;c=-target/scale
-    r=linprog(c,A_ub=A,b_ub=np.zeros(6),bounds=[(-1,1)]*5,method='highs');assert r.success,r.message
+    r=linprog(c,A_ub=A,b_ub=np.zeros(6),bounds=[(-1,1)]*len(n),method='highs');assert r.success,r.message
     dual=-np.sum(r.lower.marginals)+np.sum(r.upper.marginals);gap=abs(r.fun-dual);station=c-A.T@r.ineqlin.marginals-r.lower.marginals-r.upper.marginals
     assert gap<1e-9 and max(abs(station))<1e-9 and max(A@r.x)<1e-9
-    return r.x,dict(linear_retention=float(target@r.x/max(abs(n[2:].sum()),1e-30)),gap=float(gap),stationarity=float(max(abs(station))))
+    return r.x,dict(linear_retention=float(target@r.x/max(abs(n@reference),1e-30)),gap=float(gap),stationarity=float(max(abs(station))))
 
 if __name__=='__main__':
     import json,hashlib,argparse

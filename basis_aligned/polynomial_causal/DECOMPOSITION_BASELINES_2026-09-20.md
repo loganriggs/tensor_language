@@ -12,7 +12,7 @@ A candidate must beat an executable baseline for the **same output and input por
 | Native bilinear-channel pruning, optionally scalar refit | Does simply retaining original units suffice? | v617/v618; global tensor scope only |
 | Joint scalar quadratic eigendecomposition | Strong conventional baseline for a fixed output reader | v619–v624; 256-term parent, not yet a simple semantic circuit |
 | Joint symmetric Tucker / HOSVD | Shared input/output spaces of the contracted third-order tensor | v615 family-specific bounds; not a universal circuit bound |
-| HT on fixed trees, then alternative trees | Recursive quartic baseline with explicit slots and ranks | Toy controls exist; native HT comparison still missing |
+| HT on fixed trees, then alternative trees | Recursive quartic baseline with explicit slots and ranks | Native two-MLP homogeneous branch measured below; full normalized path and alternative-tree comparisons remain missing |
 | Sparse shared bilinear DAG | Candidate method: reuse, adaptive widths, sparse interactions | Reference quotient evaluator exists; automatic native discovery incomplete |
 | Individual-matrix SVD, balanced-gauge SVD, matched-price random controls | Sanity/control families; not substitutes for joint decomposition | v629 raw SVD fails; native balanced-gauge and matched-price random arms not yet run |
 
@@ -182,3 +182,5 @@ Later [quadratic design audit](SHARED_SOURCE_QUADRATIC_DICTIONARY_2026-09-20.md)
 20 September: [Budgeted modal selectivity](BUDGETED_MODAL_SELECTIVITY_2026-09-20.md) improves joint native passes from2/48exactnull to35/48 at5%gradientbudget; all13remaining failures arestrength, no nativecollateral failures. This redteams unnecessary exactnull constraints but stillfails all-cell adoption andrequires native gradients.
 
 20 September: [Curvature-aware matched-budget test](QUADRATIC_BUDGETED_SELECTIVITY_2026-09-20.md) gives42/48joint nativepasses versus41/48linear atsame8%budget. No collateral failures, sixstrengthfailures. Native derivative/source generators remain; source capture omitsfourlate residual contributions, motivatingclosure test instead ofanotherbudget sweep.
+
+20 September: six-source residual-complement experiment remains instrument-invalid. Float32 comparator bug is independently reproduced and float64 derivative replay passes, but absolute cast-closure still fails. See `basis_aligned/polynomial_causal/SIX_SOURCE_INSTRUMENT_AUDIT_2026-09-20.md`; exploratory45/48 versus42/48 cell counts are not promoted.

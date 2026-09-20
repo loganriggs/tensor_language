@@ -1,0 +1,19 @@
+{
+  "source_sha256": "eb06402d96290ade8b3a0a2d8451d08a690cfafd2662a23b92a85a22ec1e1922",
+  "reference_sha256": {
+    "opened": "f0a537843a34dc2d1cf4299ddc25d7be95e77a6432af3f405199647f5c497f50",
+    "ood_opened": "749d1d69b13064b2272082b7f46bfa39938647512c66985881c2ca5d9d143ed1"
+  },
+  "max_float64_derivative_replay": 2.220446049250313e-16,
+  "reproduced_float32_comparison_error": 5.67872693313376e-08,
+  "delta_closure_maxima": {
+    "absolute": 1.71661376953125e-05,
+    "relative": 1.7067896624662404e-08
+  },
+  "finite_difference_maxima": {
+    "gradient": 0.0010821091685282796,
+    "hessian": 0.002988486715815515
+  },
+  "original_instrument_valid": false,
+  "verdict": "Comparator dtype bug confirmed; independent absolute cast-closure gate still fails. No promotion."
+}

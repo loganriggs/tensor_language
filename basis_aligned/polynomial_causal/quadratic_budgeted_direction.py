@@ -3,19 +3,19 @@ import numpy as np
 from scipy.optimize import minimize
 from budgeted_modal_direction import choose as linear_choose
 
-def choose(g,h,exact_null):
-    h=(h+h.transpose(0,2,1))/2;B=np.array([0.,0.,1.,1.,1.]);sign=np.sign((-g[0])@B) or 1.;scale=max(np.linalg.norm(g[0]),1e-30)
+def choose(g,h,exact_null,reference=None):
+    h=(h+h.transpose(0,2,1))/2;B=np.array([0.,0.,1.,1.,1.]) if reference is None else np.asarray(reference);assert B.shape==(g.shape[-1],);sign=np.sign((-g[0])@B) or 1.;scale=max(np.linalg.norm(g[0]),1e-30)
     def effect(a):return -g@a-.5*np.einsum('i,oij,j->o',a,h,a)
     def derivative(a):return -g-np.einsum('oij,j->oi',h,a)
     def cons(a):
         e=effect(a);return np.r_[.08*sign*e[0]-e[1:],.08*sign*e[0]+e[1:]]/scale
     def jac(a):
         d=derivative(a);return np.concatenate([.08*sign*d[0]-d[1:],.08*sign*d[0]+d[1:]])/scale
-    starts=[np.zeros(5),B,exact_null,linear_choose(g,.05)[0],linear_choose(g,.1)[0]]
-    candidates=[np.zeros(5)];records=[]
+    starts=[np.zeros(len(B)),B,exact_null,linear_choose(g,.05,reference=B)[0],linear_choose(g,.1,reference=B)[0]]
+    candidates=[np.zeros(len(B))];records=[]
     for a in starts:
         if cons(a).min()>=-1e-8:candidates.append(a)
-        r=minimize(lambda a:-sign*effect(a)[0]/scale,a,jac=lambda a:-sign*derivative(a)[0]/scale,bounds=[(-1,1)]*5,constraints=[dict(type='ineq',fun=cons,jac=jac)],method='SLSQP',options=dict(maxiter=300,ftol=1e-11))
+        r=minimize(lambda a:-sign*effect(a)[0]/scale,a,jac=lambda a:-sign*derivative(a)[0]/scale,bounds=[(-1,1)]*len(B),constraints=[dict(type='ineq',fun=cons,jac=jac)],method='SLSQP',options=dict(maxiter=300,ftol=1e-11))
         feasible=cons(r.x).min()>=-1e-8 and abs(r.x).max()<=1+1e-10
         records.append(dict(success=bool(r.success),feasible=bool(feasible),iterations=int(r.nit),message=str(r.message)))
         if feasible:candidates.append(r.x)

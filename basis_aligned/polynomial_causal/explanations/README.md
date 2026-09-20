@@ -707,3 +707,5 @@ same day sort and link unambiguously.  Older `explanation_HHMM.md` files are ret
 20 September: [Budgeted modal selectivity](../BUDGETED_MODAL_SELECTIVITY_2026-09-20.md) improves joint native passes from2/48exactnull to35/48 at5%gradientbudget; all13remaining failures arestrength, no nativecollateral failures. This redteams unnecessary exactnull constraints but stillfails all-cell adoption andrequires native gradients.
 
 20 September: [Curvature-aware matched-budget test](../QUADRATIC_BUDGETED_SELECTIVITY_2026-09-20.md) gives42/48joint nativepasses versus41/48linear atsame8%budget. No collateral failures, sixstrengthfailures. Native derivative/source generators remain; source capture omitsfourlate residual contributions, motivatingclosure test instead ofanotherbudget sweep.
+
+20 September: six-source residual-complement experiment remains instrument-invalid. Float32 comparator bug is independently reproduced and float64 derivative replay passes, but absolute cast-closure still fails. See `basis_aligned/polynomial_causal/SIX_SOURCE_INSTRUMENT_AUDIT_2026-09-20.md`; exploratory45/48 versus42/48 cell counts are not promoted.
