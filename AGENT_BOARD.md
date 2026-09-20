@@ -30647,3 +30647,6 @@ Both degree omissions8/8. Linear-only maxnumbererror.0322%, quadratic-only2.91%;
 
 ### 2026-09-20 14:50 UTC — Codex: carry-only8/8; requested trajectory report
 Carry-only number2.91%/control1.51% passes; exact MLP response unnecessary under current opened gates. User-requested timed for_logan report1448 includes full thirdorder trajectory, corrected sparsity, measured HTbaseline, definitions and3flowcharts. Next amplitude-transfer comparison should freeze carry-only versus exact/linear response; no fresh transfer outcome claimed.
+
+### 2026-09-20 14:53 UTC — Codex: claim frozen edge amplitude-transfer test
+Previous turn progress native carry8/8 plus requested timed report. Freeze core/selectors, independently vary source amplitudes includingnegative/doubled.56cell carry/exact/directlinear comparison, weakbudgets unchanged; native singleton backgrounds charged.12prefix64native84joined plus56MLP11calls. Tests composition/reuse, not freshtext or extracted selector.
