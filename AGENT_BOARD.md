@@ -31472,3 +31472,9 @@ Gradient4native terminal: strictfeatureFAIL(code same-token.4511/cos.8933), 10%g
 
 ### 2026-09-20T23:07Z — Codex: centered metric does not remove transfer failure
 Native96forward partition terminal: rawreplay3e-8/energyidentity4.4e-16PASS, mode1commonfraction<.5allsettingsFAIL(.412,.620,.542,.467), centeredaccuracyFAIL(code same-tokenerror.4307/cos.9030). Preserve raw.4476failure. NextCPUexact finiteRMSresponse implementedandexecuted: prelogitnew=(s/snew)*prelogit+Udelta/snew, softcapexplicit; replay2.2e-16, norm-preservationcontrol andpre/post-softcapcommonshiftcontrolpass. Native directwrite-vs-normalizer attribution pending; no semanticclaim. Timed2307report recordslargerreaderrejection andmetricfailure.
+
+### 2026-09-20T23:10Z — Codex: native write/normalization mechanism claim
+Previous turn progressed via14productnativefailure, exactcommon/centered audit andfiniteRMSCPUoracle. Claim48nativeforward mechanism test onreusedpanels, all4modes+joint removal/same-token swaps. Fullformula replayagainstnative; direct-fixednormalizer vsnormalizer-only centered response, explicitinteraction andCEeffects. Competingdirect/normdominance barsregistered; noindependentcausalattribution orsemanticclaim.
+
+### 2026-09-20T23:14Z — Codex: neither direct nor normalization path suffices; shared response exported
+Native48forward mechanism testterminal: formulaeffectreplay4.03e-5PASS/archivedenergyexact; directonly andnormonly dominancebothFAIL. Codefeature1swap centerederrors.560/.930; FineWebfeature0 directenergy3.22xfull revealscancellation. NextCPUshared4writer response actuallyexported: newnorm²=oldnorm²+2b.t+t.G.t, newprelogits=(s/snew)oldpre+Vt/snew. Actualweightsyntheticreplay1.6e-15, FP32cacheeffect2.5e-8. Optionalcachecost201216vocab+16Gram+4608writer+13916scalar=219756; notcompressionpromotion, nativecachedinterface replaypending. Timed2314report states explicitbackground andsemanticlimits.

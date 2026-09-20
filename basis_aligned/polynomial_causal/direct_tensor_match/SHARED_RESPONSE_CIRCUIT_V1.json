@@ -1,0 +1,46 @@
+{
+  "writers": 4,
+  "residual_width": 1152,
+  "vocabulary_size": 50304,
+  "synthetic_exact_output_replay": 1.592114475393488e-15,
+  "synthetic_cached_write_effect_replay": 2.4984860771931046e-08,
+  "synthetic_joint_nonadditivity": 0.04269617190266308,
+  "writer_gram_eigenvalues": [
+    337391443136603.0,
+    1566917131023249.8,
+    1886956208346571.8,
+    4747165267012255.0
+  ],
+  "writer_cosines": [
+    [
+      0.9999999999999998,
+      -0.43871356197386274,
+      -0.09451745528938825,
+      -0.016071112285931274
+    ],
+    [
+      -0.4387135619738627,
+      0.9999999999999998,
+      0.20879958569571475,
+      0.6395291620448796
+    ],
+    [
+      -0.09451745528938825,
+      0.20879958569571475,
+      1.0000000000000002,
+      0.49432790003852306
+    ],
+    [
+      -0.016071112285931274,
+      0.6395291620448796,
+      0.49432790003852306,
+      0.9999999999999999
+    ]
+  ],
+  "stored_residual_writer_scalars": 4608,
+  "stored_derived_vocabulary_cache_scalars": 201216,
+  "stored_derived_gram_scalars": 16,
+  "scalar_library_coefficients": 13916,
+  "total_with_scalar_library": 219756,
+  "scope": "Exact joint RMSNorm/linear-unembedding/softcap interface plus rounded cached vocabulary writes. Requires original pre-softcap logits, residual norm and writer projections. No standalone-model or semantic claim."
+}

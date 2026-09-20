@@ -1,0 +1,9 @@
+# Direct write and final normalization — 2026-09-20 23:10 UTC
+
+Native true amplitudes in the fixed canonical four-scalar frame, using SELECTIVE_CONFIRMATION FineWeb32/code16 panels and same-token donor maps.48nativeforwards capture original states; all4individualfeatures plusjoint; removal andsame-token swap. No fitting or student change. Model normalization andsoftcap explicit.
+
+For residual edit delta, let old/new RMS scales s/s'. The exact pre-softcap formula is (s/s')*old_logits+Udelta/s'. Compare full formula with native edited-state execution; direct-only holds the normalizer at s, normalizer-only rescales old_logits by s/s', and the remainder is full-direct-normalizer+baseline. Controls are surgical diagnostic paths, not independently natural counterfactuals or additive causal attributions. Center after softcap when computing probability-relevant effects.
+
+pred_a_replay: analytic full final-logit effect matches native execution<1e-4 relative norm; raw native effect energies replay archived results<1e-5; additive decomposition identity<1e-10. pred_b_direct: direct-only centered effect predicts full centered effect with relativeerror<.5 for native modes0/1, BOTHdomains/interventions. pred_c_norm: normalizer-only centered effect predicts full centered effect with relativeerror<.5 for native modes0/1,BOTHdomains/interventions. These competing hypotheses may both fail due cancellation/interaction. Report centered energies, dots,cosines, signed energy allocations and cross-entropy effects for allcomponents/features. Null: native effects are inseparable combinations of writing andnormalization; no simpledominance claim.
+
+Use shared capture, scalar branch, finite RMSresponse andcentered-effect tools. Literal scalar priceunchanged13916coeff/10products+4608writers, nativebackground extra; this is an interpretation audit, not a new compact replacement.
