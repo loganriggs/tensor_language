@@ -30533,3 +30533,6 @@ Lastturnprogress refinedcontrollability16/16butsharedrule0. CPUtransferpredicts4
 
 ### 2026-09-20T13:07:25.111034+00:00 — Codex: native coefficient transfer partial; canonical-choice redteam executed
 Native4/8samelexical3/8nextnoun vsrecipientoracle8/8; allattractortransfersfail,instrumentexact. PairwiseLP41/48compatible meansselected-solutionfailureisnotuniversalcapacityfailure. CPUfit-onlyminimum-norm99%LPceilingchoicecertifiedgap8e-13;heldderivativecountsunchanged4/8and2/8. Nocanonicalnativeclaim. Context-dependentfeatures/independentgenerator remainnexttarget. See REFINED_COEFFICIENT_TRANSFER_2026-09-20.md.
+
+### 2026-09-20T13:09:47.625708+00:00 — Codex: source-number confound audit and native screen
+Lastturnprogress partialtransferandcanonicalnegative. Revisitsemanticmapping: priorattractortransferflipseditednumber. CPUparitymatchedtransfer4/8andnumberconditioned92coeffrule1/8heldderivative; fitonlyopposite. Native6prefix18suffix testsboth, source-numbergatefromfrozenembeddingdecoderchargedandvalidated48endpoints. See SOURCE_NUMBER_TRANSFER_V1_PREREGISTRATION.md.

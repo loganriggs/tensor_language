@@ -1,0 +1,349 @@
+{
+  "source_sha256": "3e878f4b21ce25060d40f3ce8cf04c9a54fcddfd8d98ce49f29f8f3d6ffe418a",
+  "groups": [
+    {
+      "role": "subject",
+      "source_plural": false,
+      "weights": [
+        0.2656043528633362,
+        1.0,
+        -1.0,
+        1.0,
+        1.0,
+        -1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        -0.5213935803704559,
+        0.14361049238686524,
+        1.0,
+        1.0,
+        0.0639370857985863,
+        0.27958382939777987,
+        -0.10519872947451693,
+        -0.10518526720983261,
+        1.0,
+        1.0,
+        0.7216878639408829
+      ],
+      "fit_certificate": {
+        "retention": 0.7137803706410895,
+        "constraint_violation": 5.551115123125783e-17,
+        "duality_gap": 0.0,
+        "tiny_reference_rows": 0
+      },
+      "count": 12
+    },
+    {
+      "role": "subject",
+      "source_plural": true,
+      "weights": [
+        1.0,
+        -1.0,
+        1.0,
+        1.0,
+        1.0,
+        -1.0,
+        1.0,
+        -0.25356464057926503,
+        1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        1.0,
+        0.31496990673566294,
+        1.0,
+        -1.0,
+        -0.34996718021394063,
+        0.975457721290428,
+        0.8478910945049642,
+        -1.0,
+        -0.13727070899900143,
+        -0.6151183001278605,
+        0.9510107431033611
+      ],
+      "fit_certificate": {
+        "retention": 0.8840888866745417,
+        "constraint_violation": 2.220446049250313e-16,
+        "duality_gap": 1.1102230246251565e-16,
+        "tiny_reference_rows": 0
+      },
+      "count": 12
+    },
+    {
+      "role": "attractor",
+      "source_plural": false,
+      "weights": [
+        0.10732354619014854,
+        1.0,
+        1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -0.06737006681333073,
+        1.0,
+        0.18446308409492038,
+        0.5761758436037809,
+        -0.2284129703432621,
+        -0.4254743221529238,
+        -0.09077136859929344,
+        -0.10362876771994882,
+        -0.1362399661328709,
+        0.6670074714785237,
+        0.07871513760815063,
+        0.08684638950797141,
+        -0.03565912588954105,
+        0.15204233254796024,
+        -0.08962696409774498,
+        0.00913236247245594,
+        -0.11706316415669958
+      ],
+      "fit_certificate": {
+        "retention": 0.05809102318177391,
+        "constraint_violation": 2.3592239273284576e-16,
+        "duality_gap": 9.71445146547012e-17,
+        "tiny_reference_rows": 0
+      },
+      "count": 12
+    },
+    {
+      "role": "attractor",
+      "source_plural": true,
+      "weights": [
+        -0.09992418538018692,
+        -1.0,
+        -1.0,
+        1.0,
+        0.46925872056017676,
+        1.0,
+        0.6402365261421873,
+        -0.3939210808681038,
+        0.18318061606212463,
+        -0.34833897934799174,
+        0.038900667671523385,
+        -0.47004705576999667,
+        0.133545126412578,
+        -0.2796885062299383,
+        -0.01956060221580184,
+        -0.2707597878606398,
+        0.0004565084656001941,
+        0.02622870456323433,
+        -0.008006178823718854,
+        0.27664686241930847,
+        0.1400766981785553,
+        -0.03406435624595334,
+        -0.002595750929410176
+      ],
+      "fit_certificate": {
+        "retention": 0.08181669208544608,
+        "constraint_violation": 1.8457457784393227e-15,
+        "duality_gap": 9.71445146547012e-17,
+        "tiny_reference_rows": 0
+      },
+      "count": 12
+    }
+  ],
+  "records": [
+    {
+      "role": "subject",
+      "family": "unlike_nearby|singular",
+      "mode": "source_number_matched",
+      "retention": 1.4027788205646081,
+      "control_ratio": 0.07111716208991721,
+      "passed": true
+    },
+    {
+      "role": "subject",
+      "family": "unlike_nearby|plural",
+      "mode": "source_number_matched",
+      "retention": 1.4542555770190055,
+      "control_ratio": 0.05689900561224072,
+      "passed": true
+    },
+    {
+      "role": "subject",
+      "family": "unlike_nearby|singular",
+      "mode": "next_noun_source_number_matched",
+      "retention": 1.3801331344705656,
+      "control_ratio": 0.06814317728760368,
+      "passed": true
+    },
+    {
+      "role": "subject",
+      "family": "unlike_nearby|plural",
+      "mode": "next_noun_source_number_matched",
+      "retention": 1.4435547476011608,
+      "control_ratio": 0.061084126087833396,
+      "passed": true
+    },
+    {
+      "role": "subject",
+      "family": "unlike_nearby|singular",
+      "mode": "shared_number_conditioned",
+      "retention": 0.7584586200181439,
+      "control_ratio": 0.0826628498602464,
+      "passed": false
+    },
+    {
+      "role": "subject",
+      "family": "unlike_nearby|plural",
+      "mode": "shared_number_conditioned",
+      "retention": 0.9614714616373511,
+      "control_ratio": 0.06349226647321325,
+      "passed": true
+    },
+    {
+      "role": "attractor",
+      "family": "unlike_nearby|singular",
+      "mode": "source_number_matched",
+      "retention": 0.8186790819065418,
+      "control_ratio": 0.11671620668886465,
+      "passed": false
+    },
+    {
+      "role": "attractor",
+      "family": "unlike_nearby|plural",
+      "mode": "source_number_matched",
+      "retention": 1.2684793382456934,
+      "control_ratio": 0.19853930027299466,
+      "passed": false
+    },
+    {
+      "role": "attractor",
+      "family": "unlike_nearby|singular",
+      "mode": "next_noun_source_number_matched",
+      "retention": 0.6468445236391284,
+      "control_ratio": 0.13585055077786487,
+      "passed": false
+    },
+    {
+      "role": "attractor",
+      "family": "unlike_nearby|plural",
+      "mode": "next_noun_source_number_matched",
+      "retention": 0.5806721525939319,
+      "control_ratio": 0.20567283676157863,
+      "passed": false
+    },
+    {
+      "role": "attractor",
+      "family": "unlike_nearby|singular",
+      "mode": "shared_number_conditioned",
+      "retention": 0.052577573947801805,
+      "control_ratio": 0.17751170379538916,
+      "passed": false
+    },
+    {
+      "role": "attractor",
+      "family": "unlike_nearby|plural",
+      "mode": "shared_number_conditioned",
+      "retention": 0.01828690449343946,
+      "control_ratio": 1.2642227102100896,
+      "passed": false
+    },
+    {
+      "role": "subject",
+      "family": "beside_subject|singular",
+      "mode": "source_number_matched",
+      "retention": 0.9359642047511019,
+      "control_ratio": 0.09663851340998,
+      "passed": true
+    },
+    {
+      "role": "subject",
+      "family": "beside_subject|plural",
+      "mode": "source_number_matched",
+      "retention": 1.4395976731528635,
+      "control_ratio": 0.08800022062224179,
+      "passed": true
+    },
+    {
+      "role": "subject",
+      "family": "beside_subject|singular",
+      "mode": "next_noun_source_number_matched",
+      "retention": 1.0111166864552326,
+      "control_ratio": 0.11639521047124454,
+      "passed": false
+    },
+    {
+      "role": "subject",
+      "family": "beside_subject|plural",
+      "mode": "next_noun_source_number_matched",
+      "retention": 1.4117961475147778,
+      "control_ratio": 0.1312206506202953,
+      "passed": false
+    },
+    {
+      "role": "subject",
+      "family": "beside_subject|singular",
+      "mode": "shared_number_conditioned",
+      "retention": 0.7598288964846998,
+      "control_ratio": 0.11423786554923505,
+      "passed": false
+    },
+    {
+      "role": "subject",
+      "family": "beside_subject|plural",
+      "mode": "shared_number_conditioned",
+      "retention": 0.9749235917660607,
+      "control_ratio": 0.12793308051239094,
+      "passed": false
+    },
+    {
+      "role": "attractor",
+      "family": "beside_subject|singular",
+      "mode": "source_number_matched",
+      "retention": -0.2556810291094401,
+      "control_ratio": 0.12754801430498144,
+      "passed": false
+    },
+    {
+      "role": "attractor",
+      "family": "beside_subject|plural",
+      "mode": "source_number_matched",
+      "retention": 0.9622330774711572,
+      "control_ratio": 0.19121407350719646,
+      "passed": false
+    },
+    {
+      "role": "attractor",
+      "family": "beside_subject|singular",
+      "mode": "next_noun_source_number_matched",
+      "retention": 0.4213692487809801,
+      "control_ratio": 0.19102437562157432,
+      "passed": false
+    },
+    {
+      "role": "attractor",
+      "family": "beside_subject|plural",
+      "mode": "next_noun_source_number_matched",
+      "retention": 1.0296736453832724,
+      "control_ratio": 0.47401136214336187,
+      "passed": false
+    },
+    {
+      "role": "attractor",
+      "family": "beside_subject|singular",
+      "mode": "shared_number_conditioned",
+      "retention": 0.06450599299636271,
+      "control_ratio": 0.3604491241559637,
+      "passed": false
+    },
+    {
+      "role": "attractor",
+      "family": "beside_subject|plural",
+      "mode": "shared_number_conditioned",
+      "retention": 0.04651550659627516,
+      "control_ratio": 0.7934963932463865,
+      "passed": false
+    }
+  ],
+  "summary": {
+    "source_number_matched": 4,
+    "next_noun_source_number_matched": 2,
+    "shared_number_conditioned": 1
+  },
+  "scope": "Derivative-only opened-data diagnostic. Source-number-conditioned shared rule has92coefficients and needs a number gate. Matching source number changes subject number in attractor transfer; neither comparison holds all context fixed. Native validation pending."
+}
