@@ -678,3 +678,5 @@ same day sort and link unambiguously.  Older `explanation_HHMM.md` files are ret
 - [Shared quadratic and coverage correction](../SHARED_SOURCE_QUADRATIC_DICTIONARY_2026-09-20.md): original amplitude designrank2/6; six independent native settings validate fullquadratic4.72% but reject per-context rank1 15.74%. Sharedrank2 dictionaries also fail. Preserve restricted-arm successes; no shared semantic circuit identification.
 
 - [Four-output source observable and selectivity](../SEMANTIC_SOURCE_MULTIOBSERVABLE_2026-09-20.md): native replay/prediction pass (number9.10%,modal2.82%), native selectivity fails129/288cells. Local three-source leakage bound and clipped candidate expose a restricted-interface limitation; no global impossibility or circuit adoption.
+
+- [Five-source null edit](../FIVE_SOURCE_MODAL_NULL_2026-09-20.md): native collateral below4.39%, but target-strength/selection conjunction passes only1/32cells. [Exact normalized MLP source core](../NORMALIZED_MLP_SOURCE_CORE_2026-09-20.md): weight-contracted numerator/shared RMS denominator and analytic local Hessian pass planted CPU replay/gauge/bias controls; captured native-context validation pending.

@@ -1,0 +1,11 @@
+# Five-source modal-null interventions
+
+Extend the pre11 interface to embedding recurrence, early writes0–3, middle writes4–7, MLP8 and MLP10. For each fixed text/site, obtain four native source gradients and Hessians (agreement plus three modal contrasts), keeping all source/context generation charged. Select amplitudes with a small linear program: maximize agreement change in the direction of the original linear B edit, constrain all three modal gradients to zero, and impose -1<=a_i<=1. Selection uses derivatives, not observed finite intervention outcomes. Evaluate the full selected edit and its half-strength version in the native model, with unit B as reference.
+
+Instrument passes: native/reference effect discrepancy4.98e-6, old three-source derivative subblock replay exactly0, normalized modal constraint residual2.06e-15. Native prediction passes all cells/arms: full-null number error1.43%, modal error0.226% of number effect. Half-null errors are smaller. Runtime conditional coefficients80/context; producer24prefix/128double+64native suffix forwards/64gradient+320Hessian-row reverse passes plus192 small LPs. No token-only circuit or global stable feature claim.
+
+The full-null edits have collateral below4.39% in every cell, but fail the registered joint requirement of retaining80% of the unit-B agreement effect. Subject retention minimum9.60%, median21.56%; attractor minimum12.59%, median31.30%. Only1of32 context cells passes both retention and collateral. Thus adding sources enables low-leakage directions, but this bounded construction usually does not retain the required target strength. No threshold relaxation or claim that finite nonlinear optimization is impossible.
+
+A matched-strength native unit-B control remains needed before promoting a selective component: smaller edits can appear harmless. Preserve this test for the next CIRCUIT hour. The present WEIGHT_FOLDING handoff is an exact normalized local MLP source core that can replace part of opaque derivative generation and expose the transported local curvature terms.
+
+Primary receipt: ../bilinear_quotient/circuits/followups/five_source_modal_null_v1_result.json. Runner: ../bilinear_quotient/ops/run_five_source_modal_null_v1.py.

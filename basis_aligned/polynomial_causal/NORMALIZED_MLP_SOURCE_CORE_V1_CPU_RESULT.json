@@ -1,0 +1,42 @@
+{
+  "exact_replay_max_abs": 4.547473508864641e-13,
+  "gradient_max_abs": 2.2737367544323206e-13,
+  "hessian_max_abs": 2.0463630789890885e-12,
+  "gauge_coefficient_max_abs": 1.4210854715202004e-13,
+  "omitted_bias_error": 4.629828133613373,
+  "runtime_values": 318,
+  "shapes": {
+    "n0": [
+      2,
+      4
+    ],
+    "n1": [
+      2,
+      4,
+      5
+    ],
+    "n2": [
+      2,
+      4,
+      5,
+      5
+    ],
+    "bias": [
+      2,
+      4
+    ],
+    "s0": [
+      2
+    ],
+    "s1": [
+      2,
+      5
+    ],
+    "s2": [
+      2,
+      5,
+      5
+    ]
+  },
+  "scope": "CPU planted native algebra; fixed local readers. Not yet verified on captured native model contexts or claimed as a full-suffix replacement."
+}
