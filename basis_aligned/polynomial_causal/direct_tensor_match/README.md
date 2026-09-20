@@ -266,3 +266,5 @@ Normalized-probe diagnostic fails gap explanation: NATIVE_NORMALIZED_PROBE_V1.js
 Fresh frozen validation passed all bars: quadratic20.89/20.94%,quartic17.44/17.90% at64/256 contexts on32newdocuments. FROZEN_FRESH_VALIDATION_V1.json and FRESH_TRANSFER_AUDIT_V1.json. Mixture moment diagnostic passes product covariance but fails fourthmoment improvement; no larger mixture sweep.
 
 DIRECTIONAL_RESPONSE_V1.json: learned-direction bars pass, random directions47–52% response error. Exact QUARTIC_BANK_CORE_V1 now supports next joint shared-product refactor, registered in QUARTIC_BANK_REFACTOR_PLAN_V1.md.
+
+QUARTIC_BANK_REFACTOR_V1: shared12 bank products yields38144coefficients22products,fresh64error17.95%; width8 composition fails despite99.77% bank energy. BANK_FUNCTION_METRIC_AUDIT_V1 exposes noncentral mean mismatch; next BANK_NONCENTRAL_REFIT_PLAN_V1.md.

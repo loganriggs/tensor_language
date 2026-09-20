@@ -31287,3 +31287,9 @@ Previous turn established fresh/context prediction. Claim managed run_direct_dir
 
 ### 2026-09-20T20:43Z — Codex: response screen passes with directional limitation; bank refactor begun
 Learnedresponseerrors quadratic24–24.4%,quartic18.7–20.4%,allbars pass; random47–52% reveals missingdirections. NextCPUstep executed: exact4x32x32 joint quarticbankcore replay3.2e-15, rootweighted input energy99.56% in8directions. Registered8/12sharedproduct refactor with composed-function and cancellation checks; no lowCP-rank claim from spectrum.
+
+### 2026-09-20T20:45Z — Codex: joint bank refactor CPU claim
+Previous turn extracted exactbankcore and tested responses. Executing registered16CPUfits of widths8/12 with penalty.001, analyticwriters, frozenroot, Gaussianmean correction, explicit sharedDAG and full composed fresh evaluation. Claim quartic_bank_refactor.py and receipts.
+
+### 2026-09-20T20:47Z — Codex: bank sharing reduces price; failed width8 metric audited
+Width12:38144coefficients22products,fresh17.95/18.65%,replay<4e-15. Width8:99.77%bankenergy butfresh25.86%,compositionbarfails. Executed nextCPUmetric audit:8bank4.78%coefficienterror becomes30.49%Gaussianfunctionerror,mostlyinternalmeans. Implemented exact noncentral embedding, quadrature5e-16; registered8arm metriccorrectedrefit before more ranksearch.
