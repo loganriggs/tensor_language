@@ -16,6 +16,7 @@ def build(model,context,modal):
     tokens=torch.tensor([r['token_ids'] for r in entries],device='cuda');batch=torch.arange(len(entries),device='cuda');read=torch.tensor([r['readout_position'] for r in entries],device='cuda')
     answers=torch.tensor([r['answer_ids'] for r in entries],device='cuda');pairs=torch.cat([answers[:,None,:],modal[None].expand(len(entries),len(modal),2)],dim=1)
     initial=F.rms_norm(model.transformer.wte(tokens),(model.config.n_embd,)).float();raw,x0,first,pb,_=graph._capture(model,initial,torch,F)
+    source_components={}
     directions=torch.zeros(*raw.shape,2,device='cuda',dtype=torch.float64)
     for index,(role,position) in enumerate([('subject','subject_position'),('attractor','control_position')]):
         pos=torch.tensor([r[position] for r in entries],device='cuda');v=initial[batch,pos].double();orth=v-(v@unit)[:,None]*unit
@@ -23,6 +24,7 @@ def build(model,context,modal):
         changed,_,_,pe,_=graph._capture(model,removed,torch,F)
         original=torch.stack([(pe[i]-pb[i])[batch,pos].float().double() for i in range(5)],dim=1)
         delta=(changed.double()-raw.double())[batch,pos];six=torch.cat([original,(delta-original.sum(1))[:,None,:]],dim=1)
+        source_components[role]=(pos,six)
         amplitudes=torch.tensor(context['amplitudes'][role],device='cuda',dtype=torch.float64);assert bool((amplitudes[:,1]==0).all())
         directions[batch,pos,:,index]=torch.einsum('bi,bid->bd',amplitudes,six)
-    return dict(entries=entries,raw=raw,x0=x0,first=first,directions=directions,read=read,pairs=pairs,batch=batch,prefix_calls=3)
+    return dict(entries=entries,raw=raw,x0=x0,first=first,directions=directions,read=read,pairs=pairs,batch=batch,prefix_calls=3,source_components=source_components)

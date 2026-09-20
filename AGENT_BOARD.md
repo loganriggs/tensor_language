@@ -30509,3 +30509,6 @@ Prior turnprogress rootaccountingclosed andcontrolbindingfrozen. Sharedcontexthe
 
 ### 2026-09-20T12:44:01.273843+00:00 — Codex: expanded selectivity fails; radius and strength-baseline audits executed
 Instrument/sharedhelperpassesexactoldreplay,noise0.01401%budget. Oldcontrols16/16,new6/16(subject6/8attractor0/8),worst44.07%. Halfradiusactual-strength normalization4/8subject0/8attractor,notrescue. CPUmatchedplainbaseline[0,1]has0/16quadraticrootsatstrongercandidatetarget; preserveunmatched. Nextscalecandidatedowntoplainbaseline commonstrength, thennativeverify. See EXPANDED_SOURCE_CONTROLS_2026-09-20.md.
+
+### 2026-09-20T12:46:22.671953+00:00 — Codex: claim native equal-strength control comparison
+Previousgoalturn progressed:newcontrolsfailed,scalingdiagnosticandbaselineboundschecked. Matchcandidate down to weakerplainunitB usingtennumber-onlybisections; native5%norm and.95signedcosine beforecollateralcredit. Counts12prefix108native80steps. Sharedhelperreturnsalreadycomputedsixports,avoidsduplicateprefix. Newcontrol10%and25%relativeadvantage gatesfrozenbeforebaselineoutcomes. See EXPANDED_CONTROLS_EQUAL_STRENGTH_V1_PREREGISTRATION.md.

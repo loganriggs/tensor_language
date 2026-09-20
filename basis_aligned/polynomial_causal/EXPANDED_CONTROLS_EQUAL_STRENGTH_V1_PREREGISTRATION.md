@@ -1,0 +1,7 @@
+# Equal native strength baseline for expanded controls
+
+Compare plain unitB (six-source amplitudes[0,0,1,1,1,0]) against the frozen swap5candidate scaled by one scalar per panel/family/role cell. Number-only native calibration: ten bisection steps in[0,1], with endpoints bracketing baseline number L2effect, then a fresh midpoint evaluation. Control outputs are not used to choose amplitudes. Report every calibration step and retain unmatched cells. This is retrospective strength matching on opened inputs, not an independent predictive circuit.
+
+Replay previous fullcandidate9output norms and plainbaseline4output vectors <=1e-4. Sharedsetup now returns already computed sixsourcecomponents, eliminating a secondprefixcapture. Counts12prefix108native suffix80batchedbisectionsteps. Instrument requires allbrackets and counts.
+
+Matched gate requires candidate number-effect norm within5%of baseline AND signed cosine>=.95 across rows in eachcell. Normmatching alone could hide a changed response pattern. Primary broad-selectivity gate: allfive newcontrol norms<=10%baseline numbernorm in every16cells. Relative-advantage gate: worst newcontrol norm reduced at least25%versus plainbaseline in everycell. Report failures separately; these stricterclaims canfail evenwhen optimizedmodal controls improve. No positive claim without matching gate. Native source/counterfactual/calibration costs remaincharged.
