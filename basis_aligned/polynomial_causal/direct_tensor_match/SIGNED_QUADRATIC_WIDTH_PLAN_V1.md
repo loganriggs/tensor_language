@@ -1,0 +1,7 @@
+# Signed quadratic width inside a shared square — 2026-09-20 17:24 UTC
+
+A real quadratic q=x^T Qx represented by k products (u_a^T x)(v_a^T x) has Q=Sym(UV^T), rank≤2k, but also positive and negative eigenvalue counts each≤k. Its exact minimum bilinear width is max(n_positive,n_negative): pair positive/negative eigen-directions into difference-of-squares products, then retain leftover squares. Rank alone is insufficient: positive rank4 needs4 products while balanced signed rank4 needs2.
+
+Validate the exact squared-quadratic coefficient inner product ((tr QS)^2+2tr(QSQS))/3 against dense symmetric tensors and gradients. Construct five randomly rotated8D teachers: rank4 PSD, rank4 balanced, rank4 unbalanced, full balanced, full PSD with decaying spectrum. Compare widths2/4/8, Adam/Muon rates0.01/0.05 and seeds0/1,600steps (120fits). Fit the quartic q² directly from random factors U,V with analytic scalar output refit, keep best training checkpoint. Unit Frobenius-normalize each quadratic Q in the forward pass; scaling is in the scalar writer.
+
+Include explicit spectral-pair exact constructions at the minimum width and signed eigen-truncation baselines at each tested width. Truncation is optimal for Q's Frobenius error with the inertia constraint, but do not claim it is optimal for quartic coefficient error. Reuse pattern supplied, quadratic directions learned. Report squared-polynomial error plus q recovery modulo scale/sign; the latter is descriptive and should not select fits.

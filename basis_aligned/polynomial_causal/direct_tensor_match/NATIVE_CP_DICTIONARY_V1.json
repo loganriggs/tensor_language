@@ -1,0 +1,317 @@
+{
+  "plan": {
+    "candidates": 1024,
+    "widths": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "native_diagonal": 512,
+    "native_offdiagonal": 512,
+    "native_forwards": 0
+  },
+  "records": [
+    {
+      "family": "native_channels",
+      "width": 1,
+      "explained_fraction_using_estimated_teacher_norm": 0.00016751671325046708,
+      "estimated_coefficient_error": 0.9999162381353498,
+      "evaluation_coefficient_error": 0.9998559951782227,
+      "gaussian_function_error": 1.000766634941101,
+      "reduced_parameters": 5760,
+      "expanded_parameters": 54912,
+      "condition": 1.0
+    },
+    {
+      "family": "native_channels",
+      "width": 2,
+      "explained_fraction_using_estimated_teacher_norm": 0.00017759579253198902,
+      "estimated_coefficient_error": 0.9999111981608507,
+      "evaluation_coefficient_error": 0.999809741973877,
+      "gaussian_function_error": 1.000558614730835,
+      "reduced_parameters": 11520,
+      "expanded_parameters": 109824,
+      "condition": 1.6996904183591859
+    },
+    {
+      "family": "native_channels",
+      "width": 4,
+      "explained_fraction_using_estimated_teacher_norm": 0.00018863455618235188,
+      "estimated_coefficient_error": 0.9999056782736148,
+      "evaluation_coefficient_error": 0.9998130202293396,
+      "gaussian_function_error": 1.0005332231521606,
+      "reduced_parameters": 23040,
+      "expanded_parameters": 219648,
+      "condition": 1.7420474904929573
+    },
+    {
+      "family": "native_channels",
+      "width": 8,
+      "explained_fraction_using_estimated_teacher_norm": 0.00019626026753299318,
+      "estimated_coefficient_error": 0.9999018650509994,
+      "evaluation_coefficient_error": 0.9998137950897217,
+      "gaussian_function_error": 1.0006935596466064,
+      "reduced_parameters": 46080,
+      "expanded_parameters": 439296,
+      "condition": 1.7420474916678592
+    },
+    {
+      "family": "random",
+      "width": 1,
+      "explained_fraction_using_estimated_teacher_norm": 2.7653834162460346e-11,
+      "estimated_coefficient_error": 0.9999999999861731,
+      "evaluation_coefficient_error": 0.9999998807907104,
+      "gaussian_function_error": 1.0,
+      "reduced_parameters": 5760,
+      "expanded_parameters": 54912,
+      "condition": 1.0
+    },
+    {
+      "family": "random",
+      "width": 2,
+      "explained_fraction_using_estimated_teacher_norm": 5.4379484309349765e-11,
+      "estimated_coefficient_error": 0.9999999999728102,
+      "evaluation_coefficient_error": 1.0,
+      "gaussian_function_error": 1.0,
+      "reduced_parameters": 11520,
+      "expanded_parameters": 109824,
+      "condition": 1.0043570913437163
+    },
+    {
+      "family": "random",
+      "width": 4,
+      "explained_fraction_using_estimated_teacher_norm": 1.0540600101671741e-10,
+      "estimated_coefficient_error": 0.9999999999472969,
+      "evaluation_coefficient_error": 0.9999998807907104,
+      "gaussian_function_error": 0.9999997615814209,
+      "reduced_parameters": 23040,
+      "expanded_parameters": 219648,
+      "condition": 1.0057735309313058
+    },
+    {
+      "family": "random",
+      "width": 8,
+      "explained_fraction_using_estimated_teacher_norm": 2.006944473459832e-10,
+      "estimated_coefficient_error": 0.9999999998996527,
+      "evaluation_coefficient_error": 0.9999998807907104,
+      "gaussian_function_error": 0.9999996423721313,
+      "reduced_parameters": 46080,
+      "expanded_parameters": 439296,
+      "condition": 1.0057735727547246
+    }
+  ],
+  "selections": {
+    "native_channels": [
+      {
+        "width": 1,
+        "selected": [
+          413
+        ],
+        "gain": 0.00016751671325046708,
+        "increment": 0.00016751671325046708,
+        "condition": 1.0
+      },
+      {
+        "width": 2,
+        "selected": [
+          413,
+          18
+        ],
+        "gain": 0.00017759579253198902,
+        "increment": 1.007907928152198e-05,
+        "condition": 1.6996904183591859
+      },
+      {
+        "width": 3,
+        "selected": [
+          413,
+          18,
+          114
+        ],
+        "gain": 0.00018367922306063974,
+        "increment": 6.0834305286506855e-06,
+        "condition": 1.6996904188886244
+      },
+      {
+        "width": 4,
+        "selected": [
+          413,
+          18,
+          114,
+          298
+        ],
+        "gain": 0.00018863455618235188,
+        "increment": 4.955333121712151e-06,
+        "condition": 1.7420474904929573
+      },
+      {
+        "width": 5,
+        "selected": [
+          413,
+          18,
+          114,
+          298,
+          264
+        ],
+        "gain": 0.00019122188178258544,
+        "increment": 2.5873256002335104e-06,
+        "condition": 1.7420474904930663
+      },
+      {
+        "width": 6,
+        "selected": [
+          413,
+          18,
+          114,
+          298,
+          264,
+          464
+        ],
+        "gain": 0.00019305065102621075,
+        "increment": 1.8287692436253673e-06,
+        "condition": 1.7420474906129806
+      },
+      {
+        "width": 7,
+        "selected": [
+          413,
+          18,
+          114,
+          298,
+          264,
+          464,
+          49
+        ],
+        "gain": 0.00019466153327049653,
+        "increment": 1.6108822442857608e-06,
+        "condition": 1.742047491667382
+      },
+      {
+        "width": 8,
+        "selected": [
+          413,
+          18,
+          114,
+          298,
+          264,
+          464,
+          49,
+          220
+        ],
+        "gain": 0.00019626026753299318,
+        "increment": 1.5987342624966286e-06,
+        "condition": 1.7420474916678592
+      }
+    ],
+    "random": [
+      {
+        "width": 1,
+        "selected": [
+          725
+        ],
+        "gain": 2.7653834162460346e-11,
+        "increment": 2.7653834162460343e-11,
+        "condition": 1.0
+      },
+      {
+        "width": 2,
+        "selected": [
+          725,
+          50
+        ],
+        "gain": 5.4379484309349765e-11,
+        "increment": 2.6725650146887596e-11,
+        "condition": 1.0043570913437163
+      },
+      {
+        "width": 3,
+        "selected": [
+          725,
+          50,
+          960
+        ],
+        "gain": 8.02903497762355e-11,
+        "increment": 2.5910865466876408e-11,
+        "condition": 1.0043571116823664
+      },
+      {
+        "width": 4,
+        "selected": [
+          725,
+          50,
+          960,
+          153
+        ],
+        "gain": 1.0540600101671741e-10,
+        "increment": 2.5115651240482293e-11,
+        "condition": 1.0057735309313058
+      },
+      {
+        "width": 5,
+        "selected": [
+          725,
+          50,
+          960,
+          153,
+          845
+        ],
+        "gain": 1.3006735419459065e-10,
+        "increment": 2.4661353177872732e-11,
+        "condition": 1.0057735345617091
+      },
+      {
+        "width": 6,
+        "selected": [
+          725,
+          50,
+          960,
+          153,
+          845,
+          227
+        ],
+        "gain": 1.5403112476409872e-10,
+        "increment": 2.396377056951525e-11,
+        "condition": 1.0057735388858704
+      },
+      {
+        "width": 7,
+        "selected": [
+          725,
+          50,
+          960,
+          153,
+          845,
+          227,
+          318
+        ],
+        "gain": 1.774611755860137e-10,
+        "increment": 2.3430050821916125e-11,
+        "condition": 1.0057735390958065
+      },
+      {
+        "width": 8,
+        "selected": [
+          725,
+          50,
+          960,
+          153,
+          845,
+          227,
+          318,
+          875
+        ],
+        "gain": 2.006944473459832e-10,
+        "increment": 2.323327176002822e-11,
+        "condition": 1.0057735727547246
+      }
+    ]
+  },
+  "seconds": 1.6360297640785575,
+  "predictions": {
+    "pred_a_finite": true,
+    "pred_b_monotone": true,
+    "pred_c_native": true
+  },
+  "scope": "Limited candidate dictionary, exact symmetric training contractions, independent coefficient/Gaussian diagnostics. Norm estimate only scales error labels; no normalized model or circuit claim."
+}

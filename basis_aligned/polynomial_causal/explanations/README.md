@@ -817,3 +817,5 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 - [2026-09-20 17:14 — Native exact CP null and quartic covariance tradeoff](for_logan/research_update_2026-09-20_1714_native_cp_null_and_covariance.md): eight native atoms capture0.086% energy; exact Gaussian/covariance matching and12 controlled fits; comparable dictionary baseline queued.
 
 - [2026-09-20 17:21 — Hierarchy capacity and native baseline](for_logan/research_update_2026-09-20_1721_hierarchy_capacity_and_native_baseline.md): rigorous flat-CP capacity counterexample,12 direct shared-square fits, and fully priced native quadratic-root baseline queued.
+
+- [2026-09-20 17:29 — Signed quadratic width and output-weight basins](for_logan/research_update_2026-09-20_1729_signed_width_and_writer_basins.md):144 controls separate exact capacity from a negative-writer basin; native dictionary comparison finished.

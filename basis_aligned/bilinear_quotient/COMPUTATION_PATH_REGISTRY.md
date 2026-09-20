@@ -484,3 +484,6 @@ Eight exact-gradient atoms capture0.0863% estimated coefficient energy; independ
 
 ### 2026-09-20 17:21 — Shared hierarchy versus flat CP capacity
 Known radialquartic CP8error≥81.61% atd1152, yetexact sharedsumofsquares circuit.12direct sharedsquarefits:Adam0.05coefficientrecovery≤1.5e-9; architecture supplied. Nativewholequadraticrootbaseline queued,256candidates andfull4608bankpriced, finitecoefficientGram. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1721_hierarchy_capacity_and_native_baseline.md).
+
+### 2026-09-20 17:29 — Signed feature width and native dictionary outcomes
+120dense signed-squarefits plus24paired controls:exactwidth=max(n+,n-); signedwriterFrobprojection canstall95% atadequatewidth, positivewriter/Gaussian controlsrecover. NativechannelCPdictionary8atoms0.01963%energy, random2e-10fraction, optimizedCP0.08630%; allgloballypoor. Wholequadraticnativehierarchyqueued. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1729_signed_width_and_writer_basins.md).

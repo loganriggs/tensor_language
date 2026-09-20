@@ -1,0 +1,343 @@
+{
+  "records": [
+    {
+      "family": "rank4_balanced",
+      "width": 2,
+      "mode": "fixed_positive",
+      "lr": 0.01,
+      "seed": 0,
+      "errors": {
+        "frobenius": 0.2683140722431378,
+        "gaussian": 0.18023002156662313
+      },
+      "selected_step": 600,
+      "writer": 1.0,
+      "quadratic_abs_cosine": 0.9768184050691748
+    },
+    {
+      "family": "rank4_balanced",
+      "width": 2,
+      "mode": "fixed_positive",
+      "lr": 0.01,
+      "seed": 1,
+      "errors": {
+        "frobenius": 0.12257944329201205,
+        "gaussian": 0.0783208153358488
+      },
+      "selected_step": 600,
+      "writer": 1.0,
+      "quadratic_abs_cosine": 0.9949346358229127
+    },
+    {
+      "family": "rank4_balanced",
+      "width": 2,
+      "mode": "fixed_positive",
+      "lr": 0.05,
+      "seed": 0,
+      "errors": {
+        "frobenius": 0.0,
+        "gaussian": 0.0
+      },
+      "selected_step": 594,
+      "writer": 1.0,
+      "quadratic_abs_cosine": 0.9999999999999998
+    },
+    {
+      "family": "rank4_balanced",
+      "width": 2,
+      "mode": "fixed_positive",
+      "lr": 0.05,
+      "seed": 1,
+      "errors": {
+        "frobenius": 0.0,
+        "gaussian": 0.0
+      },
+      "selected_step": 436,
+      "writer": 1.0,
+      "quadratic_abs_cosine": 1.0000000000000004
+    },
+    {
+      "family": "rank4_balanced",
+      "width": 2,
+      "mode": "learned_positive",
+      "lr": 0.01,
+      "seed": 0,
+      "errors": {
+        "frobenius": 0.41224256976468404,
+        "gaussian": 0.32038118133549903
+      },
+      "selected_step": 600,
+      "writer": 0.6657975624000966,
+      "quadratic_abs_cosine": 0.9635305223979217
+    },
+    {
+      "family": "rank4_balanced",
+      "width": 2,
+      "mode": "learned_positive",
+      "lr": 0.01,
+      "seed": 1,
+      "errors": {
+        "frobenius": 0.10900699065619127,
+        "gaussian": 0.07338866609614922
+      },
+      "selected_step": 600,
+      "writer": 0.9569250234936542,
+      "quadratic_abs_cosine": 0.9963917764235354
+    },
+    {
+      "family": "rank4_balanced",
+      "width": 2,
+      "mode": "learned_positive",
+      "lr": 0.05,
+      "seed": 0,
+      "errors": {
+        "frobenius": 0.0,
+        "gaussian": 0.0
+      },
+      "selected_step": 493,
+      "writer": 0.9999999968628064,
+      "quadratic_abs_cosine": 1.0
+    },
+    {
+      "family": "rank4_balanced",
+      "width": 2,
+      "mode": "learned_positive",
+      "lr": 0.05,
+      "seed": 1,
+      "errors": {
+        "frobenius": 0.0,
+        "gaussian": 0.0
+      },
+      "selected_step": 511,
+      "writer": 0.9999999999675333,
+      "quadratic_abs_cosine": 0.9999999999999999
+    },
+    {
+      "family": "rank4_balanced",
+      "width": 2,
+      "mode": "gaussian_projection",
+      "lr": 0.01,
+      "seed": 0,
+      "errors": {
+        "frobenius": 0.04936370638755032,
+        "gaussian": 0.029459053777795136
+      },
+      "selected_step": 600,
+      "writer": 0.9970696778048151,
+      "quadratic_abs_cosine": 0.9991221707345386
+    },
+    {
+      "family": "rank4_balanced",
+      "width": 2,
+      "mode": "gaussian_projection",
+      "lr": 0.01,
+      "seed": 1,
+      "errors": {
+        "frobenius": 0.10412041177347638,
+        "gaussian": 0.06344261332100454
+      },
+      "selected_step": 600,
+      "writer": 0.9937274642470026,
+      "quadratic_abs_cosine": 0.9961664148844069
+    },
+    {
+      "family": "rank4_balanced",
+      "width": 2,
+      "mode": "gaussian_projection",
+      "lr": 0.05,
+      "seed": 0,
+      "errors": {
+        "frobenius": 0.0,
+        "gaussian": 0.0
+      },
+      "selected_step": 524,
+      "writer": 1.000000000062078,
+      "quadratic_abs_cosine": 1.0000000000000002
+    },
+    {
+      "family": "rank4_balanced",
+      "width": 2,
+      "mode": "gaussian_projection",
+      "lr": 0.05,
+      "seed": 1,
+      "errors": {
+        "frobenius": 0.0,
+        "gaussian": 0.0
+      },
+      "selected_step": 392,
+      "writer": 0.9999999988377448,
+      "quadratic_abs_cosine": 1.0
+    },
+    {
+      "family": "full_balanced",
+      "width": 4,
+      "mode": "fixed_positive",
+      "lr": 0.01,
+      "seed": 0,
+      "errors": {
+        "frobenius": 0.009476260717631593,
+        "gaussian": 0.009134694286804225
+      },
+      "selected_step": 600,
+      "writer": 1.0,
+      "quadratic_abs_cosine": 0.9999750957374913
+    },
+    {
+      "family": "full_balanced",
+      "width": 4,
+      "mode": "fixed_positive",
+      "lr": 0.01,
+      "seed": 1,
+      "errors": {
+        "frobenius": 0.006869335518514309,
+        "gaussian": 0.005707171716208973
+      },
+      "selected_step": 600,
+      "writer": 1.0,
+      "quadratic_abs_cosine": 0.9999875137967853
+    },
+    {
+      "family": "full_balanced",
+      "width": 4,
+      "mode": "fixed_positive",
+      "lr": 0.05,
+      "seed": 0,
+      "errors": {
+        "frobenius": 0.0,
+        "gaussian": 0.0
+      },
+      "selected_step": 462,
+      "writer": 1.0,
+      "quadratic_abs_cosine": 1.0
+    },
+    {
+      "family": "full_balanced",
+      "width": 4,
+      "mode": "fixed_positive",
+      "lr": 0.05,
+      "seed": 1,
+      "errors": {
+        "frobenius": 0.0,
+        "gaussian": 0.0
+      },
+      "selected_step": 449,
+      "writer": 1.0,
+      "quadratic_abs_cosine": 1.0000000000000002
+    },
+    {
+      "family": "full_balanced",
+      "width": 4,
+      "mode": "learned_positive",
+      "lr": 0.01,
+      "seed": 0,
+      "errors": {
+        "frobenius": 0.03968092283419312,
+        "gaussian": 0.03903495932105929
+      },
+      "selected_step": 600,
+      "writer": 0.9613579340643899,
+      "quadratic_abs_cosine": 0.9999609906228939
+    },
+    {
+      "family": "full_balanced",
+      "width": 4,
+      "mode": "learned_positive",
+      "lr": 0.01,
+      "seed": 1,
+      "errors": {
+        "frobenius": 0.18179750498849728,
+        "gaussian": 0.1792271017669971
+      },
+      "selected_step": 600,
+      "writer": 0.8176065768785209,
+      "quadratic_abs_cosine": 0.9996971973671248
+    },
+    {
+      "family": "full_balanced",
+      "width": 4,
+      "mode": "learned_positive",
+      "lr": 0.05,
+      "seed": 0,
+      "errors": {
+        "frobenius": 0.0,
+        "gaussian": 0.0
+      },
+      "selected_step": 442,
+      "writer": 1.000000000371827,
+      "quadratic_abs_cosine": 1.0
+    },
+    {
+      "family": "full_balanced",
+      "width": 4,
+      "mode": "learned_positive",
+      "lr": 0.05,
+      "seed": 1,
+      "errors": {
+        "frobenius": 0.0,
+        "gaussian": 0.0
+      },
+      "selected_step": 582,
+      "writer": 1.000000000573283,
+      "quadratic_abs_cosine": 1.0
+    },
+    {
+      "family": "full_balanced",
+      "width": 4,
+      "mode": "gaussian_projection",
+      "lr": 0.01,
+      "seed": 0,
+      "errors": {
+        "frobenius": 0.0012160497500644304,
+        "gaussian": 0.0009449420600503083
+      },
+      "selected_step": 600,
+      "writer": 1.000029112006721,
+      "quadratic_abs_cosine": 0.9999996047161608
+    },
+    {
+      "family": "full_balanced",
+      "width": 4,
+      "mode": "gaussian_projection",
+      "lr": 0.01,
+      "seed": 1,
+      "errors": {
+        "frobenius": 0.2220508414129573,
+        "gaussian": 0.17031092185353872
+      },
+      "selected_step": 600,
+      "writer": 0.9703871781766684,
+      "quadratic_abs_cosine": 0.9842636204943795
+    },
+    {
+      "family": "full_balanced",
+      "width": 4,
+      "mode": "gaussian_projection",
+      "lr": 0.05,
+      "seed": 0,
+      "errors": {
+        "frobenius": 0.0,
+        "gaussian": 0.0
+      },
+      "selected_step": 476,
+      "writer": 1.0000000000059208,
+      "quadratic_abs_cosine": 1.0
+    },
+    {
+      "family": "full_balanced",
+      "width": 4,
+      "mode": "gaussian_projection",
+      "lr": 0.05,
+      "seed": 1,
+      "errors": {
+        "frobenius": 0.0,
+        "gaussian": 0.0
+      },
+      "selected_step": 458,
+      "writer": 0.999999999905484,
+      "quadratic_abs_cosine": 1.0
+    }
+  ],
+  "gaussian_quadrature_gradient_relative_check": 1.406783526266164e-16,
+  "seconds": 7.296196202049032,
+  "scope": "Paired starts; positive writer justified only for planted square. Gaussian and coefficient objectives distinct; own-objective checkpoint selection."
+}

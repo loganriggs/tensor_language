@@ -130,3 +130,11 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 - `SHARED_SQUARE_FIT_PLAN_V1.md`, `shared_square_fit.py`, `SHARED_SQUARE_FIT_V1.json`:12 direct exact-loss fits of supplied diagonal shared-square hypothesis; rate0.05 recovers coefficients modulo sign to≤1.5e-9, rate0.01 often remains at few-percent error.
 - `quartic_root_features.py`, `check_quartic_root_features.py`, `QUARTIC_ROOT_FEATURE_CHECK_V1.json`: native quadratic-product coefficient queries validated by independent polynomial replay<5e-16.
 - `NATIVE_HIERARCHICAL_ROOT_PLAN_V1.md`:queued sampled-coefficient refits of fixed native whole-quadratic roots, widths1/8/32/128/256; complete4608sharedbank charged. Structural-capacity comparison, not equal-price CP comparison.
+
+## Signed quadratic width and writer basins — 17:29 UTC
+
+[Timed report](../explanations/for_logan/research_update_2026-09-20_1729_signed_width_and_writer_basins.md) includes the inertia-based minimum-width derivation and source background.
+
+- `quadratic_square.py`, `SIGNED_QUADRATIC_WIDTH_PLAN_V1.md`, `signed_quadratic_width.py`, `SIGNED_QUADRATIC_WIDTH_V1.json`:120 rotated dense signed-square fits; exact minimum quadratic width max(n+,n-), constructive baselines. Minimum-width signed fits can stall95% with negative analytic writers.
+- `SIGNED_WRITER_BASIN_PLAN_V1.md`, `signed_writer_basin.py`, `SIGNED_WRITER_BASIN_V1.json`:24 paired controls; fixed/learned positive output or exact Gaussian matching recover both problematic families atlr0.05/same600steps. Gaussian contraction validated by quadrature/gradients1.4e-16. Positivity does not transfer to arbitrary native vector writers.
+- `NATIVE_CP_DICTIONARY_V1.json/.pt`:native channel-pair8atoms0.01963% energy versus random2e-10 fraction; optimizedCP0.08630% (~4.4x native dictionary). All dictionary predictions passed, but no useful global approximation.
