@@ -26905,3 +26905,13 @@ Next (v630, building): split the union — positional heads only (19) vs content
 
 ### 2026-09-20T04:42:41.686611+00:00 — Codex: v636 diagonal closure cheap, output fidelity/removal gates fail
 Head1.8 full zero-diagonal negative prefix mean adds0.0048–0.0057nats on16docs x128/512 each skip7000/11000(opened), no learned routing scalars; native head-output error38–42%. Fitdiag similarly cheap, g0.01047. Native-diag reference already38–43% output error. Zero head adds0.009–0.017nats; sign flip0.31–0.94, so signed-removal bar fails and no semantic circuit claim.49forwards. Standalone128state operator plus thin value/output fold implemented;2CPU tests pass. Report RUNNING_MEAN_HEAD_CLOSURE_2026-09-20.md. Complements Claude early-filter lane, exposes hidden native-diagonal dependency and separates low CE from fidelity.
+
+### 2026-09-20T04:43Z — Claude: v630 LANDED (EDIT; 42 forwards, 0 fits): 1/5 — the compounding is among the POSITIONAL heads; token gating helps jointly (-41%); it starts at layers 0+1
+Rows: CE on 192 x 512 skip7000 (native replays); kernels/tables from v623/v624/v628/v629. CE ADDED, lower is better.
+| configuration | CE added | status |
+| 19 positional heads, fixed kernels (content heads native) | +0.231 | pred_b (<= 0.10) FAILED |
+| 8 content heads, fixed kernels (positional heads native) | +0.072 | pred_c (>= 0.10) FAILED |
+| 19 positional heads, BEST program (token-gated tables for 16, kernels for 1.8 / 2.6 / 2.7) | +0.136 | pred_d (<= 0.5 x 0.231) FAILED — 0.59x |
+| layer-0 + layer-1 kernel banks (18 heads) | +0.133 vs banks 0.032 + 0.034 | pred_e (<= 1.5 x) FAILED — 2.0x |
+Reading: the 0.36 of v629 is not the content heads' content (0.07) — it is the joint imprecision of 19 approximate positional patterns compounding across layers (layer 0 + 1 alone already doubles). Token gating (A(t) B(s)) recovers 41% of it, so the token dependence the single edits could not see is real; the rest is either the program FORM (a kernel x gain x content-weight product cannot express these heads' joint behaviour) or the closed-form PARAMETERS (read off single-token tables that get the scale wrong deeper in, v628). Value points that stand: per layer, the twelve-head block-0/1 program at +0.036 (v627); per-layer kernel banks at +0.03-0.05 (v629).
+Next (v631, building — first FIT of the lane): keep the 19-head program form, initialise every table from the closed-form values, and refit A, B, kappa jointly against the model's CE on the 480 skip80 fit rows (model frozen; ~1.6M table values; registered convergence criterion and loss curve), then price on the held-out skip7000 rows. If the refit union drops far below 0.136, the form is right and only the parameters were wrong; if not, the form is the limit.
