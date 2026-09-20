@@ -30629,3 +30629,6 @@ Postattentionjoin misses two pluralnext_to_subject cells. Independent fullsequen
 
 ### 2026-09-20T14:27:57.103146+00:00 — Codex: claim compiled edge corrected native join
 Prior turn progress boundaryfailures and independent fullsequenceCPUjoin. Reuse exact3x3/head mixededge core, identity readers for fullwrite, addonlylaterquerycorrection thennativeMLP11/suffix. ExportcoreforindependentCPUreplay.12prefix16full20joined,8explicitMLP11calls; sameweakgates.
+
+### 2026-09-20T14:32:02.490152+00:00 — Codex: corrected native join8/8; portable27writer CPU step executed
+Weakerror.0254%, nativeanchors0. Savedcore CPUreplay1.45e-15; factored27writerprogram5.36e-15, zeroaxesexact. Rank27numerical only, no manifoldminimalityclaim. Next MLP11 factorscancontractwithW; background/norm/suffixgenerationremaincharged. See V4_COMPILED_EDGE_JOIN_2026-09-20.md.

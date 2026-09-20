@@ -427,3 +427,6 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 
 ### Selective-source boundary and edge join
 [Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/V4_JOIN_BOUNDARY_2026-09-20.md): onlypre11join8/8; postattention11join6/8,postblock11join2/8. Existing exact mixed-edge core reused in independent full-sequence CPU join,2.78e-16attention/1.78e-15MLP error. Native corrected join pending; no short-suffix or complete-circuit claim.
+
+### Compiled mixed-edge conditional composition
+[Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/V4_COMPILED_EDGE_JOIN_2026-09-20.md): correctedjoin8/8, strictweakerror.0254%; native singleton/suffix dependencies retained. CPU exportreplay1.45e-15,27writerfactor5.36e-15.31,296values/input; no writer-rank compression or completecircuitclaim. Explicit27-feature interface is next MLP11 jointfold target.
