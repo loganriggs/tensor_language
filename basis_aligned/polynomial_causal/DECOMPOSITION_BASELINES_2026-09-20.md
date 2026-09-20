@@ -261,3 +261,6 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 
 ### MLP response necessity control
 [Updated canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/V4_MLP_RESPONSE_FOLD_2026-09-20.md): both degree omissions and carry-only pass8/8opened composition. Carry-only worstnumber2.91%, controls1.51%; exact MLPresponse improves precision but is not necessary at these gates. Native background/suffix remain. No fullcircuitpromotion.
+
+### Frozen mixed-edge amplitude reuse
+[Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/V4_EDGE_AMPLITUDE_TRANSFER_2026-09-20.md): carry/exact/directlinear each56/56 across signed, half anddoubled edits. Carry worstnumber8.12%,controls2.89%; linear .0689%/.0539%. Native backgrounds/suffix/selectorsremain charged. CPU9head writer screen executed, not causal identification.

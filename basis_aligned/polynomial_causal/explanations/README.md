@@ -785,3 +785,6 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 
 ### Joint normalized MLP11 response and degree split
 [Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/V4_MLP_RESPONSE_FOLD_2026-09-20.md): opened composition8/8, weak error0.0268%, model-free CPU replay1.30e-12relative. Canonical498070/context loses48-context storage comparison to conditioned factors. Single-context quadratic-removal response error0.0972% is a screen, not native behavioral sufficiency. Background, oracle edits and native suffix remain required.
+
+### Frozen mixed-edge amplitude reuse
+[Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/V4_EDGE_AMPLITUDE_TRANSFER_2026-09-20.md): carry/exact/directlinear each56/56 across signed, half anddoubled edits. Carry worstnumber8.12%,controls2.89%; linear .0689%/.0539%. Native backgrounds/suffix/selectorsremain charged. CPU9head writer screen executed, not causal identification.

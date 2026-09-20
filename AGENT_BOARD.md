@@ -30650,3 +30650,6 @@ Carry-only number2.91%/control1.51% passes; exact MLP response unnecessary under
 
 ### 2026-09-20 14:53 UTC — Codex: claim frozen edge amplitude-transfer test
 Previous turn progress native carry8/8 plus requested timed report. Freeze core/selectors, independently vary source amplitudes includingnegative/doubled.56cell carry/exact/directlinear comparison, weakbudgets unchanged; native singleton backgrounds charged.12prefix64native84joined plus56MLP11calls. Tests composition/reuse, not freshtext or extracted selector.
+
+### 2026-09-20 14:55 UTC — Codex: amplitude reuse56/56; claim and execute writer-group screen
+All56carry/exact/linear cells pass; carrymaxnumber8.12%,controls2.89%, linear .0689%/.0539%. Prospective amplitudes on openedtexts, no freshtext or sourceclosure. Next CPU writer/head decomposition executed and replays5.39e-15; local norm does not identify causal head. See V4_EDGE_AMPLITUDE_TRANSFER_2026-09-20.md. Native head omission/sufficiency is next discriminating circuit screen.
