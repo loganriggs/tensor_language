@@ -79,6 +79,11 @@ weight metric, not a bound on normalized-model behavioral fidelity.
 
 ## Next discovery step
 
+Follow-up: the [native-atom frontier and spectral bound](NATIVE_ATOM_SPARSE_FRONTIER_2026-09-20.md)
+also rule out sufficiently accurate pruning/scalar refitting in the fixed
+native dictionary at the tested budgets. The next search must change features
+or shared output structure rather than only select native terms.
+
 Inspect the mode lower bounds before investing in low-rank optimization.
 Compare output-sharing block terms and sparse rotations in larger retained
 subspaces at matched error/cost. Avoid a large dense k³ core merely to reach

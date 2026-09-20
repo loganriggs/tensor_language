@@ -1,0 +1,42 @@
+{
+  "plan": {
+    "retained": [
+      64,
+      512,
+      1024,
+      2048,
+      2304,
+      3072,
+      4096,
+      4608
+    ],
+    "forwards_max": 0,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0,
+    "execution_policy": "managed_queue_only"
+  },
+  "minimum_unit_atom_eigenvalue": 0.2891547940056123,
+  "maximum_unit_atom_eigenvalue": 3.497904353086935,
+  "atom_cancellation_ratio_fp64": 1.070603437556636,
+  "relative_energy_ratio_disagreement": 7.3487619323131526e-09,
+  "relative_error_lower_bounds": {
+    "64": 0.51133760325088,
+    "512": 0.4751411644491984,
+    "1024": 0.4352817424367117,
+    "2048": 0.35110929577037847,
+    "2304": 0.32836004068745944,
+    "3072": 0.25335606616302786,
+    "4096": 0.1227144274133151,
+    "4608": 0.0
+  },
+  "eigenvalue_margin": 1e-06,
+  "predictions": {
+    "pred_a_fp64_energy": true,
+    "pred_b_positive_atom_gram": true,
+    "pred_c_half_budget_obstruction": true
+  },
+  "scope": "numerical bound for all supports and arbitrary scalar coefficients in fixed native-atom dictionary; not new basis/writers or behavioral fidelity",
+  "seconds": 1.0860970220528543,
+  "finished_utc": "2026-09-20T03:30:25.561812+00:00"
+}
