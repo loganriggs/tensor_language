@@ -68,7 +68,7 @@ def main() -> None:
         for s in range(0, N_CAP, EBATCH):
             idx = fit[s:s + EBATCH, :-1].to(dev); model(idx, fit[s:s + EBATCH, 1:].to(dev)); forwards += 1
         reals = {l: torch.cat(state["capture"][l]) for l in LAYERS}; state["capture"] = None
-        Tn = reals[0].shape[-1]; pos = torch.arange(Tn, device=dev); dmat = (pos[:, None] - pos[None, :]).clamp_min(0)
+        Tn = reals[LAYERS[0]].shape[-1]; pos = torch.arange(Tn, device=dev); dmat = (pos[:, None] - pos[None, :]).clamp_min(0)
         masks = {d: ((dmat == d) & (pos >= Q_MIN)[:, None]) for d in range(1, Tn)}
         rowsum = {}
         for l in LAYERS:
