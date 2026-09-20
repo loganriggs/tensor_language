@@ -30506,3 +30506,6 @@ Root+14effects64/64passes,worst0.4755%vsmodules206%; expensiveconditionalaccount
 
 ### 2026-09-20T12:41:07.107014+00:00 — Codex: claim expanded output-control execution
 Prior turnprogress rootaccountingclosed andcontrolbindingfrozen. Sharedcontexthelper nowused, allold4outputs/all16settings replay1e-10; additional12float32suffixes verifynewoutput precision<=1%rolebudget. Primarynew/oldcontrol10%nativegateson16rolecells. Counts12prefix68double12native; sourceeditsfrozen,norefit.
+
+### 2026-09-20T12:44:01.273843+00:00 — Codex: expanded selectivity fails; radius and strength-baseline audits executed
+Instrument/sharedhelperpassesexactoldreplay,noise0.01401%budget. Oldcontrols16/16,new6/16(subject6/8attractor0/8),worst44.07%. Halfradiusactual-strength normalization4/8subject0/8attractor,notrescue. CPUmatchedplainbaseline[0,1]has0/16quadraticrootsatstrongercandidatetarget; preserveunmatched. Nextscalecandidatedowntoplainbaseline commonstrength, thennativeverify. See EXPANDED_SOURCE_CONTROLS_2026-09-20.md.
