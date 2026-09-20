@@ -1,0 +1,31 @@
+{
+  "oracle": {
+    "mean_relative_error": 4.0976545046107794e-16,
+    "covariance_relative_error": 1.090166485216812e-15
+  },
+  "root_covariance_eigenvalues": [
+    373537.5652964166,
+    1342973.5880705335,
+    3163400.9189154445,
+    3564179.663166791,
+    9623205.47789615,
+    12724523.66584222,
+    17879538.229726885,
+    45263463.67513228,
+    64366901.00287256,
+    135337842.2309424
+  ],
+  "condition": 362.3138736355648,
+  "centered_root_output_rank_retention_bounds": [
+    0.7664089608790767,
+    0.9373592108571602,
+    0.983782078058178,
+    0.9977811003684599,
+    0.9993385327137863,
+    0.9997303910652141,
+    0.9999437000986515,
+    1.0
+  ],
+  "root_centered_energy": 3254.1269484478053,
+  "scope": "Exact degree8 Gaussian-input moments of four quadratic bank features. Bank output is not assumed Gaussian. Native covariance uses pre-export FP64 bank factors; FP32 archive equivalence needs separate check before fitting."
+}

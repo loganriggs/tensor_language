@@ -849,3 +849,5 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 - [research_update_2026-09-20_2052_function_metric_recovery](for_logan/research_update_2026-09-20_2052_function_metric_recovery.md) — Function metric recovers smaller program; primitive identity still unresolved.
 
 - [research_update_2026-09-20_2057_smaller_bank_frontier](for_logan/research_update_2026-09-20_2057_smaller_bank_frontier.md) — Six-product bank passes; primitive identity remains variable.
+
+- [research_update_2026-09-20_2102_exact_root_metric](for_logan/research_update_2026-09-20_2102_exact_root_metric.md) — Exact root metric and registered next-level refactor.

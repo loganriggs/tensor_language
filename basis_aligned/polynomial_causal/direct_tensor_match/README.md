@@ -272,3 +272,5 @@ QUARTIC_BANK_REFACTOR_V1: shared12 bank products yields38144coefficients22produc
 NONCENTRAL_BANK_REFIT_V1 recovers shared8:28912coefficients18products,fresh17.54/17.95%,directional response passes. SHARED_BANK_IDENTITY_AUDIT_V1 still shows centered primitive minimumcos.44. BANK_FUNCTION_CAPACITY_V1 records rank ceilings; next BANK_WIDTH_FRONTIER_PLAN_V1.md.
 
 BANK_WIDTH_FRONTIER_V1: shared6 yields24296coefficients16products,18.15/18.55%; shared4 19680/14,22.05/22.11%. WIDTH_FRONTIER_IDENTITY_V1 and FROZEN_BANK_FEATURE_ATLAS_V1 retain identity limitations. Next ROOT_FUNCTION_METRIC_PLAN_V1.md.
+
+ROOT_FUNCTION_METRIC_V1 and ROOT_ARCHIVE_METRIC_V1 compute exact Gaussian degree8 root covariance; independentoracle1.1e-15. ROOT_PRODUCT_REFACTOR_PLAN_V1 registers4/6/8root widths; root_product_fit.py gradientchecked. Hourlyreview2101 preserves identification and validation-reuse limitations.
