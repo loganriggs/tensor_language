@@ -24,6 +24,7 @@ def main():
  from native_feature_capture import capture
  from native_quartic_branch import pure_branch
  from extract_scalar_modes import evaluate
+ from logit_effect_partition import partition
  torch.set_num_threads(4);torch.set_grad_enabled(False);torch.backends.cuda.matmul.allow_tf32=False
  out=P/OUTPUT_FILE;assert not out.exists();start=time.perf_counter();model=Bilin18TorchBackend.load('cuda').model.float();b16=model.transformer.h[16];b17=model.transformer.h[17];_,ru=torch.linalg.qr(model.lm_head.weight.float());ru=ru.double();artifact=torch.load(P/PROGRAM_FILE,weights_only=True);program={k:v.cuda().double() for k,v in artifact['program'].items()};writer=artifact['residual_writer'].cuda().double();U=torch.load(P/'CANONICAL_ROOT_FEATURES_V1.pt',weights_only=True)['output_directions'].cuda().double();scale=artifact['teacher_scale'];donors=torch.load(P/f'{DONOR_PREFIX}_V1.pt',weights_only=True);meta=json.loads((P/f'{DONOR_PREFIX}_V1.json').read_text());records=[];checks=[];coverage=[]
  logits=lambda state:30*torch.tanh(model.lm_head(F.rms_norm(state,(1152,)))/30)
@@ -43,7 +44,7 @@ def main():
      sl=list(range(4)) if g=='joint' else [g];effects=[];ces=[];r=dict(domain=domain,family=family,document=document,mode=g,sites=len(ids))
      for label,amp in [('native',a),('predicted',b)]:
       delta=((amp[dst][:,sl]-amp[ids][:,sl])@writer[:,sl].T).float()/den[ids];z=logits(state+delta);effect=(z-native).double();ce=(F.cross_entropy(z,targets[ids],reduction='none')-basece).double();effects.append(effect);ces.append(ce);r[label+'_effect_energy']=float(effect.square().sum());r[label+'_ce_effect_energy']=float(ce.square().sum());r[label+'_ce_added']=float(ce.mean());r[label+'_kl']=float((prob*(logp-F.log_softmax(z,dim=-1))).sum(-1).mean())
-     r['effect_dot']=float((effects[0]*effects[1]).sum());r['effect_error_energy']=float((effects[0]-effects[1]).square().sum());r['ce_effect_dot']=float((ces[0]*ces[1]).sum());r['ce_effect_error_energy']=float((ces[0]-ces[1]).square().sum());records.append(r)
+     r['effect_dot']=float((effects[0]*effects[1]).sum());r['effect_error_energy']=float((effects[0]-effects[1]).square().sum());r['ce_effect_dot']=float((ces[0]*ces[1]).sum());r['ce_effect_error_energy']=float((ces[0]-ces[1]).square().sum());r.update(partition(*effects));records.append(r)
    print(domain,family,'done',flush=True)
  summary={}
  for domain in PLAN['domains']:
@@ -53,6 +54,7 @@ def main():
    for g in PLAN['modes']:
     rr=[r for r in records if r['domain']==domain and r['family']==family and r['mode']==g];n=sum(r['sites'] for r in rr);en=sum(r['native_effect_energy'] for r in rr);ep=sum(r['predicted_effect_energy'] for r in rr);dot=sum(r['effect_dot'] for r in rr);err=sum(r['effect_error_energy'] for r in rr);cen=sum(r['native_ce_effect_energy'] for r in rr)
     summary[domain][family][str(g)]=dict(sites=n,effect_cosine=dot/(en*ep)**.5,effect_relative_error=(err/en)**.5,native_effect_rms=(en/(n*50304))**.5,ce_effect_relative_error=(sum(r['ce_effect_error_energy'] for r in rr)/cen)**.5,native_ce_added=sum(r['native_ce_added']*r['sites'] for r in rr)/n,predicted_ce_added=sum(r['predicted_ce_added']*r['sites'] for r in rr)/n)
+    ec=sum(r['native_centered_effect_energy'] for r in rr);pc=sum(r['predicted_centered_effect_energy'] for r in rr);summary[domain][family][str(g)].update(centered_effect_relative_error=(sum(r['centered_effect_error_energy'] for r in rr)/ec)**.5,centered_effect_cosine=sum(r['centered_effect_dot'] for r in rr)/(ec*pc)**.5,native_common_fraction=sum(r['native_common_effect_energy'] for r in rr)/en)
  major=[summary[d]['same_token'][str(g)] for d in PLAN['domains'] for g in [0,1]];allm=[summary[d]['same_token'][str(g)] for d in PLAN['domains'] for g in range(4)]
  pred=dict(pred_a_instrument=max(checks)==0 and min(coverage)>=.2,pred_b_major=all(r['effect_cosine']>.9 and r['effect_relative_error']<.4 and r['native_effect_rms']>1e-3 for r in major),pred_c_all=all(r['effect_cosine']>.8 and r['effect_relative_error']<.65 for r in allm))
  result=dict(plan=PLAN,summary=summary,records=records,predictions=pred,self_edit_max=max(checks),seconds=time.perf_counter()-start,scope='Frozen context-dependent component interchange in original recipient background. Same-token control removes static token-only explanation; not semantic/task selectivity or a whole upstream-state swap.')

@@ -26,6 +26,7 @@ def main():
  from circuit_fast_screen_producer import Bilin18TorchBackend
  from frozen_program_evaluation import quartic
  from native_quartic_branch import pure_branch
+ from logit_effect_partition import partition
  torch.set_num_threads(4);torch.set_grad_enabled(False);torch.backends.cuda.matmul.allow_tf32=False
  out=P/(OUTPUT_STEM+'.json');assert not out.exists();start=time.perf_counter();model=Bilin18TorchBackend.load('cuda').model.float();blocks=model.transformer.h;b16=blocks[16];b17=blocks[17]
  assert model.config.bilinear and not model.config.gated
@@ -72,14 +73,14 @@ def main():
     edit=(amplitudes[:,sl]@writer[:,sl].T).reshape_as(x).float()/den
     z=logits(x-edit);effect=(z-native).double();ce=F.cross_entropy(z.flatten(0,1),target,reduction='none')-basece
     row[label+'_ce_added']=float(ce.mean());row[label+'_kl']=float((p*(logp-F.log_softmax(z,dim=-1))).sum(-1).mean());row[label+'_argmax_agreement']=float((z.argmax(-1)==native.argmax(-1)).float().mean());row[label+'_effect_energy']=float(effect.square().sum());row[label+'_ce_effect_energy']=float(ce.double().square().sum());effects.append(effect);ces.append(ce.double())
-   row['effect_dot']=float((effects[0]*effects[1]).sum());row['effect_error_energy']=float((effects[0]-effects[1]).square().sum());row['ce_effect_dot']=float((ces[0]*ces[1]).sum());row['ce_effect_error_energy']=float((ces[0]-ces[1]).square().sum());records.append(row)
+   row['effect_dot']=float((effects[0]*effects[1]).sum());row['effect_error_energy']=float((effects[0]-effects[1]).square().sum());row['ce_effect_dot']=float((ces[0]*ces[1]).sum());row['ce_effect_error_energy']=float((ces[0]-ces[1]).square().sum());row.update(partition(*effects));records.append(row)
   print('document',doc,'done',flush=True)
  summary={}
  for mode in PLAN['modes']:
   rows=[r for r in records if r['mode']==mode];sums={k:sum(r[k] for r in rows) for k in rows[0] if k not in ['document','mode']};entry={k:v/len(rows) for k,v in sums.items() if k.endswith(('ce_added','kl','argmax_agreement'))}
-  for prefix in ['effect','ce_effect']:
+  for prefix in ['effect','ce_effect','centered_effect']:
    en=sums['native_'+prefix+'_energy'];ep=sums['predicted_'+prefix+'_energy'];entry[prefix+'_cosine']=sums[prefix+'_dot']/(en*ep)**.5 if en*ep>0 else None;entry[prefix+'_relative_error']=(sums[prefix+'_error_energy']/en)**.5 if en>0 else None
-  entry['native_logit_effect_rms']=(sums['native_effect_energy']/(len(ids)*context*50304))**.5;summary[str(mode)]=entry
+  entry['native_common_fraction']=sums['native_common_effect_energy']/sums['native_effect_energy'];entry['native_logit_effect_rms']=(sums['native_effect_energy']/(len(ids)*context*50304))**.5;summary[str(mode)]=entry
  pred=dict(pred_a_replay=max(checks)<1e-5,pred_b_major=all(summary[str(g)]['effect_cosine']>.9 and summary[str(g)]['effect_relative_error']<.4 for g in [0,1]),pred_c_all=all(summary[str(g)]['effect_cosine']>.8 and summary[str(g)]['effect_relative_error']<.65 for g in range(4)))
  result=dict(plan=PLAN,token_hash=hashlib.sha256(ids.numpy().tobytes()).hexdigest(),records=records,summary=summary,predictions=pred,replay_max=max(checks),seconds=time.perf_counter()-start,scope='Matched native-background scalar-mode removal, fixed calibration centering and output directions. No semantics/OOD/selectivity claim.')
  out.write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(dict(summary=summary,predictions=pred,replay_max=max(checks)),indent=2),flush=True)

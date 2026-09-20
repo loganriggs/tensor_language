@@ -1,0 +1,5 @@
+# Matched-cost native reader additions — 2026-09-20 23:01 UTC
+
+Frozen gradient4 primary versus random4 control from GRADIENT_READER_ADDITIONS_V1.pt. No new fitting or selection. Reuse SELECTIVE_CONFIRMATION panels and donor maps, now diagnostic. Scalar cost18572coeff14products each plus4608fixedwritercoefficients. Native adapters expand factored partner directions solely for evaluation; compact DAG is the priced implementation.
+
+192nativeforwards, existing removal andswap evaluators. pred_a_instrument: compact/expanded scalar replay<1e-5, native/untouched0/2/3effects replay<1e-5, hashes match; pred_b_major: gradient4 feature1 removal andsame-tokenerror<.4/cos>.9 inbothdomains; pred_c_joint: gradient4joint error<=random4 bothinterventions/bothdomains; pred_d_gain: codefeature1 MSEgradient4<=.9random4 bothinterventions. Also report against archived selective10productbaseline, all4modes, alignedswaps andCEeffects. Candidateprovenance explicitlydata-informed derivatives/calibration. Failurepreserved; nofreshvalidation orsemanticclaim.

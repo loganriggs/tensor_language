@@ -1,0 +1,5 @@
+# Post-softcap effect partition — 2026-09-20 23:05 UTC
+
+Audit the frozen selective10product program on reused SELECTIVE_CONFIRMATIONpanels, both native removals and aligned/same-token swaps,96forwards. Add a shared scorer to existing evaluators; partition each final logit-effect row e into mean(e)*1 and e-mean(e)*1 AFTER native normalization and softcap. Only the centered component can affect softmax probabilities. This does not discard common components before nonlinear operations.
+
+pred_a_replay: raw native/predicted/error energies reproduce archived selective runs<1e-5 and common+centered energy identity<1e-10 (FP64 scorer). pred_b_noncommon: native feature1 common fraction<.5 on bothdomains for removal andsame-token swap. pred_c_centered: feature1 centered effecterror<.4 andcosine>.9 for bothinterventions/domains. All4features andjoint retained withCEeffect errors. These are new diagnostic questions, not retrospective threshold changes or semantic identification. Costunchanged13916scalar+4608writercoefficients10products; nativebackground retained.
