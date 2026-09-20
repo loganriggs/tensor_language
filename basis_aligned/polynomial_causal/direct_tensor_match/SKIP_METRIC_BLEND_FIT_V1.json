@@ -1,0 +1,64 @@
+{
+  "alphas": [
+    0,
+    0.25,
+    0.5,
+    0.75,
+    1
+  ],
+  "primary": 0.5,
+  "records": [
+    {
+      "alpha": 0.0,
+      "gaussian_gain": 28.52529049958248,
+      "empirical_gain": 5.72740575094943,
+      "calibration_relative_error": 0.19943500093970418,
+      "gram_condition": 34.311510013022954,
+      "coefficients": 21948,
+      "products": 10
+    },
+    {
+      "alpha": 0.25,
+      "gaussian_gain": 17.918481570484857,
+      "empirical_gain": 91.22052457612924,
+      "calibration_relative_error": 0.17270260976816504,
+      "gram_condition": 33.85582047601127,
+      "coefficients": 21948,
+      "products": 10
+    },
+    {
+      "alpha": 0.5,
+      "gaussian_gain": 1.814230120135818,
+      "empirical_gain": 119.59305807194082,
+      "calibration_relative_error": 0.16286409677069494,
+      "gram_condition": 34.16900264737469,
+      "coefficients": 21948,
+      "products": 10
+    },
+    {
+      "alpha": 0.75,
+      "gaussian_gain": -19.674035231402854,
+      "empirical_gain": 131.93194811076006,
+      "calibration_relative_error": 0.15839488402664795,
+      "gram_condition": 36.191896109320176,
+      "coefficients": 21948,
+      "products": 10
+    },
+    {
+      "alpha": 1.0,
+      "gaussian_gain": -69.80620770127769,
+      "empirical_gain": 140.47650376318606,
+      "calibration_relative_error": 0.1552246111643454,
+      "gram_condition": 48.80294368873697,
+      "coefficients": 21948,
+      "products": 10
+    }
+  ],
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_calibration": true
+  },
+  "alpha0_replay": 6.321873909325293e-09,
+  "transfer_status": "pending",
+  "scope": "Explicitly data-informed calibration polynomial regression versus exact Gaussian moments; same graph, center, rank and cost. No diagnostic-panel fitting."
+}

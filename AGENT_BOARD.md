@@ -31409,3 +31409,9 @@ Native followup terminal: rank2FineWeb CE+.01403 vsbase+.02015; codeKL.04207 vs.
 
 ### 2026-09-20T22:04Z — Codex: mixed skip transfer fails; objective/moment audit executed
 Mixedrank2 costs21972coeff/10products and Gaussianerror.1125 vsquadratic.1153. NativeFineWebCE+.01330; code mode1error.4195 FAIL<.4, no rankselection. Hourlyreview2201 records explicitweightsfocus, remainingcircuitcriteria andauthoringoverhead. Next CPU exactmodegain audit executed: Gaussianmode1 gainspositive forALLranks, while same-paneltextmode1error worsens~20% forrank2. Cannotexplain asGaussianobjective sacrificingmode1. Registered frozen panel-matchedGaussian gain test retaining calibrationcentering to isolate first-two vs highermoments; nativeeffect panels/metrics aredifferent, no conflation.
+
+### 2026-09-20T22:07Z — Codex: matched-moment test queued with centering oracle
+Previous turn progressed via mixedskip test and exact modewise objective audit. Independent shifted-centering Gaussian gain oracle passes1.46e-15. Managed run_direct_skip_moment_match_v1.py queued, hashe9d75fb9, frozenquadraticrank2 andactualpanel mean/covariance; no fitting. Includes nonzero residualmean andfixedcalibrationcentering terms. Dependencies frozen untilterminal.
+
+### 2026-09-20T22:10Z — Codex: higher-moment sign reversal confirmed; matched-cost metric comparison fit
+Panel-matchedGaussian mode1gains+4.64/+8.87 vs actual-14.01/-15.97, allbars pass. Next CPU gain-component audit executed: Gaussian residualalignment+4.93/+7.18 vsactual-4.92/-5.90; energy discrepancy only-1.05/-1.31 in gain, alignmentdominates. Registered andfit alpha0/.25/.5/.75/1 Gaussian/empiricalcalibration moment blends, fixedrank2/21948coeff/10products, primaryalpha.5. This is explicitly data-informed polynomial regression beyond inputcovariance, no testpanel fitting. Alpha0 replay6.3e-9; calibration endpoints ordered as expected; transfer pending.

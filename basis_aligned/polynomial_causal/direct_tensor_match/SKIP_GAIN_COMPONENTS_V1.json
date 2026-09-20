@@ -1,0 +1,87 @@
+{
+  "records": [
+    {
+      "context": 64,
+      "gaussian_correction_energy": [
+        10.971304600408219,
+        5.227207765239062,
+        1.1267445988133122,
+        0.6871987434101665
+      ],
+      "actual_correction_energy": [
+        8.488195466373588,
+        4.179536985687637,
+        0.8416635192692447,
+        1.041129814848839
+      ],
+      "gaussian_residual_alignment": [
+        10.618606187649835,
+        4.932351049502358,
+        1.79155607094963,
+        0.5837932636372738
+      ],
+      "actual_residual_alignment": [
+        5.126007416486768,
+        -4.91530321608111,
+        0.4447792156908707,
+        0.12153406972145732
+      ],
+      "gain_gap_from_alignment": [
+        10.985197542326134,
+        19.695308531166937,
+        2.6935537105175187,
+        0.924518387831633
+      ],
+      "gain_gap_from_energy": [
+        -2.483109134034631,
+        -1.0476707795514253,
+        -0.2850810795440676,
+        0.35393107143867253
+      ],
+      "archive_centering_replay": 5.7763083699856436e-08,
+      "identity_error": 1.7763568394002505e-15
+    },
+    {
+      "context": 256,
+      "gaussian_correction_energy": [
+        11.18429771649032,
+        5.489743663758326,
+        1.1578691565146666,
+        0.7030630842230001
+      ],
+      "actual_correction_energy": [
+        8.169755937281698,
+        4.175487345478553,
+        0.810614487055431,
+        1.1150206745819646
+      ],
+      "gaussian_residual_alignment": [
+        10.005946158267733,
+        7.181862213998981,
+        1.4041412444901165,
+        0.5471501837661221
+      ],
+      "actual_residual_alignment": [
+        2.2208859011077284,
+        -5.896844239774359,
+        -0.6475756776228139,
+        0.1243742522804756
+      ],
+      "gain_gap_from_alignment": [
+        15.57012051432001,
+        26.15741290754668,
+        4.103433844225861,
+        0.845551862971293
+      ],
+      "gain_gap_from_energy": [
+        -3.0145417792086224,
+        -1.3142563182797735,
+        -0.34725466945923555,
+        0.4119575903589645
+      ],
+      "archive_centering_replay": 5.832629107041429e-08,
+      "identity_error": 2.6645352591003757e-15
+    }
+  ],
+  "scope": "Exact decomposition of matched-Gaussian gain mismatch for fixed quadratic skip. Correction energy uses moments through degree4; residual alignment through degree6. Residual includes constant, so alignment is not exclusively sixth order. No fitting."
+}
