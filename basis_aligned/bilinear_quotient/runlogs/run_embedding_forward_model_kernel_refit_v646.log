@@ -1,0 +1,28 @@
+native 3.13241
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_embedding_forward_model_kernel_refit_v646.py:120: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  forwards += 1; backwards += 1; curve.append(float(loss))
+[all162] step 50: train 4.2125 | held-out CE added +1.0098 | lr 0.0188
+[all162] step 100: train 4.0695 | held-out CE added +0.9771 | lr 0.0156
+[all162] step 150: train 4.0386 | held-out CE added +0.9648 | lr 0.0111
+[all162] step 200: train 4.0351 | held-out CE added +0.9596 | lr 0.0066
+[all162] step 250: train 4.0132 | held-out CE added +0.9571 | lr 0.0033
+[all162] step 300: train 4.0387 | held-out CE added +0.9562 | lr 0.0020
+[layers04] step 50: train 3.8000 | held-out CE added +0.4773 | lr 0.0188
+[layers04] step 100: train 3.5415 | held-out CE added +0.4115 | lr 0.0156
+[layers04] step 150: train 3.5105 | held-out CE added +0.3852 | lr 0.0111
+[layers04] step 200: train 3.4754 | held-out CE added +0.3750 | lr 0.0066
+[layers04] step 250: train 3.4622 | held-out CE added +0.3704 | lr 0.0033
+[layers04] step 300: train 3.4839 | held-out CE added +0.3683 | lr 0.0020
+endpoints: all-162 fitted kernels +0.9562 (step-0 +1.4456) | layers 0-4 fitted +0.3683 (step-0 +1.3647)
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_no_overfit": true,
+    "pred_c_all162_fitted": false,
+    "pred_d_layers04_fitted": true,
+    "pred_e_fit_recovers_most": false
+  },
+  "forwards": 690,
+  "backwards": 600
+}
