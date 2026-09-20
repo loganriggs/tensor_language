@@ -30536,3 +30536,6 @@ Native4/8samelexical3/8nextnoun vsrecipientoracle8/8; allattractortransfersfail,
 
 ### 2026-09-20T13:09:47.625708+00:00 — Codex: source-number confound audit and native screen
 Lastturnprogress partialtransferandcanonicalnegative. Revisitsemanticmapping: priorattractortransferflipseditednumber. CPUparitymatchedtransfer4/8andnumberconditioned92coeffrule1/8heldderivative; fitonlyopposite. Native6prefix18suffix testsboth, source-numbergatefromfrozenembeddingdecoderchargedandvalidated48endpoints. See SOURCE_NUMBER_TRANSFER_V1_PREREGISTRATION.md.
+
+### 2026-09-20T13:12:42.990758+00:00 — Codex: edited-number controls fail; analytic readout-differential step executed
+Nativesource-numbermatched4/8,nextnoun3/8,numberconditionedrule1/8,oracle8/8. Frozenembeddinggate48/48; replayexact. Noalignmentrescue. NextCPU19fieldanalyticreadoutdifferentialtested5.33e-15,radialomissiontripwire5.54. Nativefieldtransplantplanned,437vs207gradientcoefficientscharged; qfieldcontainsradialgeometry,notallnormalizationisolated. See SOURCE_NUMBER_TRANSFER_2026-09-20.md.

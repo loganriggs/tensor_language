@@ -216,3 +216,5 @@ Independent five-source selector native validation now passes instrumentation/pr
 20 September: exact23source refinement nativeoracle16/16vs6source11/16; shared0/16,notreuse/extraction. Fit-only12portdictionaryheldfeasibility23/24subject22/24attractor. Nativegeneratorsandoracleamplitudescharged. See `basis_aligned/polynomial_causal/REFINED_SELECTIVE_SOURCES_2026-09-20.md`.
 
 20 September: frozenrefinedcoefficients native4/8samelexical3/8nextnountransfer,oracle8/8;minimum-normfit-onlychoice leavesderivativepasscountsunchanged. Pairwise41/48compatible preventsuniversalno-sharinginference. See `basis_aligned/polynomial_causal/REFINED_COEFFICIENT_TRANSFER_2026-09-20.md`.
+
+20 September: edited-numbermatchedtransfer4/8andnumberconditionedrule1/8; gate48/48/replaypass. Analytic19fieldreadoutdifferentialCPUcontrol5.33e-15, nativecontextattributionnext; diagnosticnotcompression. See `basis_aligned/polynomial_causal/SOURCE_NUMBER_TRANSFER_2026-09-20.md`.
