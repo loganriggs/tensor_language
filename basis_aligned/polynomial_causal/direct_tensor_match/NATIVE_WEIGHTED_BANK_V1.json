@@ -1,0 +1,268 @@
+{
+  "plan": {
+    "metrics": [
+      "isotropic",
+      "centered_floor01",
+      "centered_floor10",
+      "second_floor01"
+    ],
+    "optimizers": [
+      "adam",
+      "muon"
+    ],
+    "seeds": [
+      0,
+      1
+    ],
+    "lr": 0.005,
+    "steps": 400,
+    "energy_probes": 4096,
+    "native_forwards": 0
+  },
+  "records": [
+    {
+      "metric": "isotropic",
+      "optimizer": "adam",
+      "seed": 0,
+      "selected_step": 389,
+      "weighted_gain": 0.001997466591200288,
+      "weighted_explained_fraction_estimate": 0.00198816365473025,
+      "coefficient_error": 0.9984833598136902,
+      "gaussian_error": 0.9992609024047852,
+      "empirical_calibration_error": 0.6174933314323425,
+      "empirical_evaluation_error": 0.6132802963256836
+    },
+    {
+      "metric": "isotropic",
+      "optimizer": "adam",
+      "seed": 1,
+      "selected_step": 395,
+      "weighted_gain": 0.0020147671508615123,
+      "weighted_explained_fraction_estimate": 0.0020053836393229677,
+      "coefficient_error": 0.9985692501068115,
+      "gaussian_error": 0.9998412728309631,
+      "empirical_calibration_error": 0.5902255773544312,
+      "empirical_evaluation_error": 0.5848369002342224
+    },
+    {
+      "metric": "isotropic",
+      "optimizer": "muon",
+      "seed": 0,
+      "selected_step": 400,
+      "weighted_gain": 0.0019119642448486474,
+      "weighted_explained_fraction_estimate": 0.0019030595242484777,
+      "coefficient_error": 0.9986501932144165,
+      "gaussian_error": 0.9992549419403076,
+      "empirical_calibration_error": 0.6329267621040344,
+      "empirical_evaluation_error": 0.6258261799812317
+    },
+    {
+      "metric": "isotropic",
+      "optimizer": "muon",
+      "seed": 1,
+      "selected_step": 400,
+      "weighted_gain": 0.0018126772872044659,
+      "weighted_explained_fraction_estimate": 0.0018042349824781518,
+      "coefficient_error": 0.9986059069633484,
+      "gaussian_error": 0.9988740086555481,
+      "empirical_calibration_error": 0.5960823893547058,
+      "empirical_evaluation_error": 0.5906415581703186
+    },
+    {
+      "metric": "centered_floor01",
+      "optimizer": "adam",
+      "seed": 0,
+      "selected_step": 400,
+      "weighted_gain": 28.164936103689406,
+      "weighted_explained_fraction_estimate": 0.8201373722306594,
+      "coefficient_error": 0.9995052814483643,
+      "gaussian_error": 0.9993330836296082,
+      "empirical_calibration_error": 0.5937737822532654,
+      "empirical_evaluation_error": 0.5732044577598572
+    },
+    {
+      "metric": "centered_floor01",
+      "optimizer": "adam",
+      "seed": 1,
+      "selected_step": 400,
+      "weighted_gain": 28.1623283756227,
+      "weighted_explained_fraction_estimate": 0.820061437556558,
+      "coefficient_error": 0.999184250831604,
+      "gaussian_error": 0.9989949464797974,
+      "empirical_calibration_error": 0.5770249962806702,
+      "empirical_evaluation_error": 0.5569009184837341
+    },
+    {
+      "metric": "centered_floor01",
+      "optimizer": "muon",
+      "seed": 0,
+      "selected_step": 400,
+      "weighted_gain": 28.308674849928558,
+      "weighted_explained_fraction_estimate": 0.8243229140403163,
+      "coefficient_error": 0.9991576075553894,
+      "gaussian_error": 1.0001132488250732,
+      "empirical_calibration_error": 0.5431939959526062,
+      "empirical_evaluation_error": 0.5207827687263489
+    },
+    {
+      "metric": "centered_floor01",
+      "optimizer": "muon",
+      "seed": 1,
+      "selected_step": 400,
+      "weighted_gain": 28.330452083557297,
+      "weighted_explained_fraction_estimate": 0.8249570473150014,
+      "coefficient_error": 0.9992437958717346,
+      "gaussian_error": 0.9996496438980103,
+      "empirical_calibration_error": 0.5720793604850769,
+      "empirical_evaluation_error": 0.5556984543800354
+    },
+    {
+      "metric": "centered_floor10",
+      "optimizer": "adam",
+      "seed": 0,
+      "selected_step": 400,
+      "weighted_gain": 28.211087989920024,
+      "weighted_explained_fraction_estimate": 0.8184010352607717,
+      "coefficient_error": 0.9993177056312561,
+      "gaussian_error": 0.999709963798523,
+      "empirical_calibration_error": 0.5881021022796631,
+      "empirical_evaluation_error": 0.566185712814331
+    },
+    {
+      "metric": "centered_floor10",
+      "optimizer": "adam",
+      "seed": 1,
+      "selected_step": 400,
+      "weighted_gain": 28.21343794867834,
+      "weighted_explained_fraction_estimate": 0.8184692073454964,
+      "coefficient_error": 0.9991880655288696,
+      "gaussian_error": 0.9991826415061951,
+      "empirical_calibration_error": 0.5732525587081909,
+      "empirical_evaluation_error": 0.5541359782218933
+    },
+    {
+      "metric": "centered_floor10",
+      "optimizer": "muon",
+      "seed": 0,
+      "selected_step": 400,
+      "weighted_gain": 28.36259416454779,
+      "weighted_explained_fraction_estimate": 0.8227962152768018,
+      "coefficient_error": 0.9991236329078674,
+      "gaussian_error": 0.9999505281448364,
+      "empirical_calibration_error": 0.5318801999092102,
+      "empirical_evaluation_error": 0.5136354565620422
+    },
+    {
+      "metric": "centered_floor10",
+      "optimizer": "muon",
+      "seed": 1,
+      "selected_step": 400,
+      "weighted_gain": 28.38024368916545,
+      "weighted_explained_fraction_estimate": 0.8233082263422422,
+      "coefficient_error": 0.9991933703422546,
+      "gaussian_error": 0.9996771216392517,
+      "empirical_calibration_error": 0.5607542395591736,
+      "empirical_evaluation_error": 0.545290470123291
+    },
+    {
+      "metric": "second_floor01",
+      "optimizer": "adam",
+      "seed": 0,
+      "selected_step": 399,
+      "weighted_gain": 4588.262253199139,
+      "weighted_explained_fraction_estimate": 0.9493281086572883,
+      "coefficient_error": 1.0000419616699219,
+      "gaussian_error": 0.9985744953155518,
+      "empirical_calibration_error": 0.31309381127357483,
+      "empirical_evaluation_error": 0.310413122177124
+    },
+    {
+      "metric": "second_floor01",
+      "optimizer": "adam",
+      "seed": 1,
+      "selected_step": 400,
+      "weighted_gain": 4591.568492620788,
+      "weighted_explained_fraction_estimate": 0.9500121815902889,
+      "coefficient_error": 1.0000466108322144,
+      "gaussian_error": 0.9988023638725281,
+      "empirical_calibration_error": 0.29965245723724365,
+      "empirical_evaluation_error": 0.30891188979148865
+    },
+    {
+      "metric": "second_floor01",
+      "optimizer": "muon",
+      "seed": 0,
+      "selected_step": 390,
+      "weighted_gain": 4599.16462786959,
+      "weighted_explained_fraction_estimate": 0.9515838495357779,
+      "coefficient_error": 0.9997404217720032,
+      "gaussian_error": 0.999480128288269,
+      "empirical_calibration_error": 0.2323756366968155,
+      "empirical_evaluation_error": 0.24749502539634705
+    },
+    {
+      "metric": "second_floor01",
+      "optimizer": "muon",
+      "seed": 1,
+      "selected_step": 396,
+      "weighted_gain": 4599.171745135523,
+      "weighted_explained_fraction_estimate": 0.9515853221239244,
+      "coefficient_error": 0.9997331500053406,
+      "gaussian_error": 0.9994484782218933,
+      "empirical_calibration_error": 0.23408396542072296,
+      "empirical_evaluation_error": 0.2528158128261566
+    }
+  ],
+  "norms": {
+    "isotropic": {
+      "energy": 1.004679160313541,
+      "standard_error": 0.0026315307031814367
+    },
+    "centered_floor01": {
+      "energy": 34.34172988250091,
+      "standard_error": 2.1358229991291364
+    },
+    "centered_floor10": {
+      "energy": 34.4709827754934,
+      "standard_error": 2.1344291583070247
+    },
+    "second_floor01": {
+      "energy": 4833.1680178402075,
+      "standard_error": 403.4600675181467
+    }
+  },
+  "metric_summary": {
+    "centered_floor01": {
+      "floor": 0.01,
+      "floored_eigenvalues": 0,
+      "original_minimum": 0.01221778691003469,
+      "original_maximum": 53.393891988705924,
+      "post_floor_trace": 1152.0,
+      "condition": 4370.177052674945
+    },
+    "centered_floor10": {
+      "floor": 0.1,
+      "floored_eigenvalues": 305,
+      "original_minimum": 0.01221778691003469,
+      "original_maximum": 53.393891988705924,
+      "post_floor_trace": 1166.9226325601744,
+      "condition": 533.9389198870592
+    },
+    "second_floor01": {
+      "floor": 0.01,
+      "floored_eigenvalues": 85,
+      "original_minimum": 0.0038920412753947965,
+      "original_maximum": 789.4578354241075,
+      "post_floor_trace": 1152.2480019553898,
+      "condition": 78945.78354241075
+    }
+  },
+  "complete": true,
+  "predictions": {
+    "pred_a_integrity": true,
+    "pred_b_empirical": true,
+    "pred_c_tradeoff": true
+  },
+  "seconds": 59.35749616799876,
+  "scope": "Original-coordinate optimization under isotropic or four-slot covariance coefficient metrics; estimatedteacher norms. Empirical diagnostics evaluate purequartic only, not fullmodel. No circuitidentification."
+}

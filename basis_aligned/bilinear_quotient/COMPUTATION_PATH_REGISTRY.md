@@ -514,3 +514,6 @@ Learned32-span coefficientcapacity0.2280%, currentbankuses88.37%; CPspan0.16937%
 
 ### 2026-09-20 18:48 — Exact third-order tensor in centered quartic
 Forfixedcalibrationmu, f2(delta)=FD[(Aδ)(Bδ)]+C[((LJ)δ)((RJ)δ)]. Exactjoint9216channelquadratic; autogradHessiancheckpasses. Degreecensusqueuedbeforeanynativecompressionclaim; literal31.85Mfactorprice. [Derivation](../polynomial_causal/direct_tensor_match/CENTERED_QUADRATIC_FOLD.md).
+
+### 2026-09-20 18:52 — Covariance-weighted native recovery and sensitivity
+16matchedoriginal-coordinatefits: empiricalquarticerrorsisotropic58–63%,centered51–57%,secondmoment25–31%; training-selected25.28%, allpredictionshold. Purequartic, isotropicglobalerrors~100%, meanbaselinepending. Documentsplitmetricshift.914andbottomdirectionquarticweightchangesmillions×. MixedrootV1devicefailureinvalid;V2queued. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1852_weighted_native_results.md).

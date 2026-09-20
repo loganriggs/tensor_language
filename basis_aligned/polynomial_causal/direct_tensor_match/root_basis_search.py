@@ -7,7 +7,7 @@ from audit_learned_bank_stability import qgram
 P=Path(__file__).resolve().parent
 
 def symmetric_square(S):
- i,j=torch.triu_indices(len(S),len(S));a,b=i[:,None],j[:,None];T=S[a,i]*S[b,j];return T+S[a,j]*S[b,i]*(i!=j)
+ i,j=torch.triu_indices(len(S),len(S),device=S.device);a,b=i[:,None],j[:,None];T=S[a,i]*S[b,j];return T+S[a,j]*S[b,i]*(i!=j)
 
 def main():
  torch.set_num_threads(1);torch.set_default_dtype(torch.float64);torch.manual_seed(1833)

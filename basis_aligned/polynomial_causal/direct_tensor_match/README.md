@@ -215,3 +215,11 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 
 - `centered_quartic.py`, `NATIVE_CENTERED_DEGREE_PLAN_V1.md`: independentpolarization/replaychecks<1e-15; queueddegree0..4 census onactualpanels andnoncentralGaussian, calibrationmeanonly. Componentsneednotbeorthogonal.
 - [Exact joint third-order quadratic piece](CENTERED_QUADRATIC_FOLD.md), `centered_quadratic_factors.py`, `CENTERED_QUADRATIC_FOLD_CHECK_V1.json`: foldedconstant/linear/9216-channelquadratic factors, independentlycheckedagainstautogradHessian.31.85Mfactorprice; usefulness/compressionnotyetdemonstrated.
+
+## Native weighted fit results — 18:52 UTC
+
+[Timed report](../explanations/for_logan/research_update_2026-09-20_1852_weighted_native_results.md).
+
+- `NATIVE_WEIGHTED_BANK_V1.json/.pt`:16fits, isotropicpanel2errors58–63%,centered51–57%,secondmoment25–31%; training-selectedsecondmoment25.28%. Allpredictionshold, normestimateshave6–8%relativeSE. Sameoriginalparameters; no denseMdeploymentcost. Meanbaselinepending.
+- `COVARIANCE_DOCUMENT_AUDIT_PLAN_V1.md`, `audit_covariance_documents.py`, `COVARIANCE_DOCUMENT_AUDIT_V1.json`: descriptivehalf-docsplitcovshiftmedian.914; calibrationbottomeigendirections quarticpenaltyratios1e6–1e7onpanel2. Allpredictionshold; noCI/studenterrorclaim.
+- `NATIVE_MIXED_ROOT_V1_FAILURE.md`: V1invalidinstrumentCPU/CUDAmaskmismatch, no scientificresult. Device-awarehelperfix; freshV2queuedwithCPU/CUDAreplaytripwire, originalscientificpreregunchanged.
