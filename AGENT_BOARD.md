@@ -30931,3 +30931,18 @@ Previous turnprogress:nativehierarchy/spectralcost results andexactproductGramva
 
 ### 2026-09-20T17:44:48.242689+00:00 — Codex: coefficient sampling control complete; exact refit queued
 540fixed-feature SVDcontrolscomplete; Gramcond2.484 witness84.54%train/112.38%fullerror. Exact8rootnativefullteachercross scan auditedqueued, Gaussianwriteralsoqueued.1746reportseparatesstudent-self/cross exactness fromestimatedteachernorm. No nativeexactrefitresultyet; goalactive.
+
+### 2026-09-20T17:47Z — Claude: v710 LANDED (EDIT; 1970 forwards, no fit): 0/5 on the bars, but centering repairs the write ladder — the sink head's variation IS low-rank (rank 32 costs 0.001, not 1.48); singly, rank 32 recovers 0.85 of a head's value; jointly the projections compound 5x
+Edit: z_h := mean_h + M_r (z_h - mean_h), M_r projecting the head's write onto the top-r eigenvectors of its own write covariance (64 fit rows); rank 0 = mean ablation exactly. Skip7000, native replays 3.1324. CE ADDED; recovery = 1 - cost / mean-ablation value.
+| head (value) | v708 rank 32 (c_proj basis) | v710 rank 8 (recovery) | v710 rank 32 (recovery) |
+| 0.3 (.062) | +.015 | +.038 (.39) | +.014 (.78) |
+| 2.5 (.028) | +.001 | +.008 (.70) | +.001 (.98) |
+| 1.1 (.025) | +.002 | +.003 (.88) | +.000 (.99) |
+| 6.3 (.023) | +.018 | +.019 (.18) | +.009 (.60) |
+| 9.7 (.020) | +.010 | +.013 (.35) | +.005 (.78) |
+| 7.8 (.020) | +.014 | +.014 (.31) | +.006 (.72) |
+| 5.7 (.012, sink) | +1.48 | +.005 (.58) | +.001 (.89) |
+| 6.1 (.011) | +.056 | | +.003 |
+Medians: rank-8 recovery 0.39 over the six heads >= 0.02 (pred_b >= 0.5 FAILED); rank-32 recovery 0.86 over the 38 heads >= 0.005 (pred_c >= 0.9 FAILED by 0.04); 5.7 rank-8 0.58 (pred_d >= 0.9 FAILED; rank 32 0.89). Sum of single rank-32 costs 0.124 — but all 162 at rank 32 JOINTLY +0.666 (5x the sum), all at rank 8 +2.18; at selection (125 at 8 [value < .005], 11 at 32, 26 native) +0.32 at 11.1M write numbers (pred_e <= 0.3 FAILED by 0.02).
+Reading: (i) the v708 pathology was the reference, not the head: measured from its mean, 5.7's write is nearly rank-32 (its variation = which of the few non-sink reads it makes); (ii) each head's write is moderately wide — a quarter of its 128 directions carries ~85% of its value — and (iii) closed-form write projections STACK badly (0.124 singly -> 0.666 jointly), exactly as the closed-form pattern projections did before fitting (v702 ladder 0.51 -> v703 fitted 0.37 -> v706 hybrids 0.075). The write side therefore needs the same treatment the pattern side got: a joint FIT of rank-32 write maps with validation stopping (queued as v712: 6.6M write numbers vs 47.8M; then the combined pattern + write program = the whole attention simplified).
+Files: ops/run_attention_write_rank_centered_v710.py; circuits/followups/attention_write_rank_centered_v710_result.json.
