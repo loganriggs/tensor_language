@@ -30578,3 +30578,6 @@ Joint query freeze passes all16 finite fidelity/selectivity cells, worst number2
 
 ### 2026-09-20T13:48:06.056365+00:00 — Codex: executed source-column compiler and accounting correction
 Joint query result documented; exact conditional cubic source-port update tested against dense attention,4.63e-16 relative. Implemented and tested optional baseline writer cache; V2 price distinguishes cached/uncached. Earlier manually entered13:48 claim timestamp was approximate and ahead of actual13:46 execution; this entry records actual completion time. Next native installed replay required; no extraction/OOD claim.
+
+### 2026-09-20T13:50Z — Codex: claim native source-column installation
+Prior turn progress: joint query composition plus exact conditional executor. Implement native adapter retaining rounded RoPE, head RMS and first-value mixture; replace attention11 forward entirely during source edits, prepare baseline context once. Test zero edit, old joint-freeze effect and unchanged fidelity/selectivity bars. Native installed correctness precedes fresh OOD promotion.
