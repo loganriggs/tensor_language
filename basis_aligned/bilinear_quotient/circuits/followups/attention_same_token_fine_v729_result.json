@@ -1,0 +1,62 @@
+{
+  "candidate_id": "attention.same_token_fine_v729",
+  "finished_utc": "2026-09-20T19:41:47.336353+00:00",
+  "forwards": 62,
+  "plan": {
+    "bars": {
+      "gain_min": 0.001,
+      "r16_min": 0.001,
+      "rec_min": 0.5,
+      "replay_tol": 0.002
+    },
+    "betas": [
+      -0.1,
+      -0.05,
+      -0.02,
+      0.0,
+      0.01,
+      0.02,
+      0.05,
+      0.1
+    ],
+    "candidate_id": "attention.same_token_fine_v729",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 80,
+    "gpu_accessed": false,
+    "head": [
+      1,
+      4
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_indicator_recovers_half": true,
+    "pred_c_indicator_beats_kernel": true,
+    "pred_d_same_token_attracts": true,
+    "pred_e_rank16_still_better": false
+  },
+  "report": {
+    "best_beta": 0.05,
+    "best_cost": 0.0036823352177934865,
+    "best_recovery": 0.7025349164925495,
+    "indicator_costs": {
+      "-0.02": 0.006144404411315918,
+      "-0.05": 0.008178551991780303,
+      "-0.1": 0.012637217839558623,
+      "0.0": 0.005122025807698272,
+      "0.01": 0.004695415496826172,
+      "0.02": 0.004325668017069351,
+      "0.05": 0.0036823352177934865,
+      "0.1": 0.0045987764994301905
+    },
+    "native": 3.1324122746785483,
+    "rank16_cost": 0.0037293434143066406,
+    "value": 0.012379050254821777
+  },
+  "schema": "attention_same_token_edit_result_v728",
+  "serial_seconds": 31.22013419913128
+}
