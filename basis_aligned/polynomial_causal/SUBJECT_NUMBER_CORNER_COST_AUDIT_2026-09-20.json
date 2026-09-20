@@ -1,0 +1,27 @@
+{
+  "created_utc": "2026-09-20T05:13:58.772778+00:00",
+  "terminal": "subject_number_corner_cost_audited",
+  "native_execution": false,
+  "source_sha256": "bb9aab7458f138914faada773ee59b9bc99ca6959ee1ad4af66efd518677af47",
+  "executor_matches_original_receipt": true,
+  "aggregate_coefficients": {
+    "0": 1,
+    "2": -1,
+    "4": 1,
+    "8": 2,
+    "9": -1,
+    "12": -1,
+    "16": 1,
+    "20": -1,
+    "24": -1
+  },
+  "basis_and_random_columns": 1032,
+  "max_absolute_replay_error": 3.552713678800501e-15,
+  "all_retained_queries_essential_for_arbitrary_corner_oracle": true,
+  "price_block_evaluations_per_sequence": {
+    "original_graph": 92,
+    "aggregate_only_symbolic_plan": 85,
+    "exact_joint_effect_two_corners": 36
+  },
+  "scope": "Block counts exclude embedding, readout, bookkeeping and batching; not FLOPs or measured latency. Aggregate plan not installed or natively replayed. No per-edge removability at nine-query boundary. Oracle minimality is not a native circuit lower bound."
+}

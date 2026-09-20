@@ -101,3 +101,12 @@ v641 compares the same dense-core output ranks with a calibration-interaction
 eigenspace and random frame. The empirical frame has2%calibration error at128
 but18–68%cross error on other families. [Audit](HEAD_OUTPUT_OBJECTIVE_AUDIT_2026-09-20.md).
 This fitted-basis failure is not a proof against all native-distribution metrics.
+
+## Task-specific effect baseline
+
+The subject-number nine-edge graph costs92 native block evaluations per sequence;
+the exact same five-port joint effect costs36 using two suffix corners. An
+aggregate-only algebraic query plan reduces92 to85 but remains more expensive.
+Individual edge attribution is a different interface and needs its own comparison.
+[Cost and reuse audit](SUBJECT_NUMBER_COST_AND_REUSE_AUDIT_2026-09-20.md) verifies
+the symbolic cancellation and distinguishes same-task transfer from cross-task reuse.
