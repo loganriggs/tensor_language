@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# BQGATE: EXPERIMENT pred_a_native_replays pred_b_kappa_only_no_overfit pred_c_kappa_only_under_bar pred_d_regularised_under_bar pred_e_tables_beat_kappa_only
 """Embedding-forward folding, rung 24 (v632): CONTROLLED refits of the 19-head program — few parameters vs regularised tables, more fit rows.
 
 v631: refitting the three tables per head against the loss took the 19-head program from +0.136 to +0.046 (step 50) and then overfit to +0.062
@@ -14,7 +16,7 @@ PREDICTIONS (scored as written; failures preserved)
     pred_e_tables_beat_kappa_only (b) endpoint <= (a) endpoint (the token tables carry information beyond a per-head scale). Prior: unsure
 PRICE (registered maximum): 2 arms x 300 training steps = 600 forwards + 600 BACKWARDS; evaluation 2 x 7 x 6 + 6 = 90 forwards; total 690 forwards,
 600 backwards; fit parameters 9,763 (a) and 1,619,475 (b). Bars: forwards <= 700, backwards <= 600.
-
+"""
 from __future__ import annotations
 from datetime import datetime, timezone
 import json, math, os, time
