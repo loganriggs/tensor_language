@@ -1,0 +1,7 @@
+# Conditional mixed-edge head sufficiency and omission screen
+
+Previous amplitude reuse passed56/56 for fullcarry; headwrite CPU sums replay5.39e-15 but no behavioral importance established. Screen all nine native-head groups, each consisting of three value-related writers from the27-column bank. These are baseline computational groups, not assumed semantic units. Keep each group alone and remove it from fullcarry. All unit edits/selectors/backgrounds frozen; no support fit. Only the mixed interaction correction is changed, not entire native attention heads or singleton computations.
+
+Original exact, fullcarry andlinear controls retained. Per-cell number error<=.1, everycontrol<=.05 relative to weaker singleton effect; eight unit-edit cells. pred_a_instrument: counts12prefix16native84joined; exactreference<=.001 and nativeanchors<=1e-8, headsumabsolute<=1e-10. pred_b_single_head_sufficient: at least one fixedhead passes all8cells alone. pred_c_some_head_needed: at least one headomission fails at least onecell. Both support search and comparisons are opened screens requiring frozen transfer afterward. Report allarms, no bestcell cherry-picking.
+
+Eight explicitMLP11calls beyondsuffixes. Retaining onehead uses3writers instead27 plus its scalar routing/norm core; shared raw source/input norm preparation and native backgrounds/suffix remain. Native output-state price perhead is3456writercoefficients+21headcorevalues with3sharedinputnormvalues (3480total foronehead;9heads31296). This is parameter counting, not an extracted-token program.
