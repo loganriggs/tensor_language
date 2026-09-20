@@ -1,0 +1,138 @@
+{
+  "planted_sign_and_third_order_test": true,
+  "primitive_replay_max_abs": 0.0,
+  "results": {
+    "semantic_port_pairs_v1": {
+      "max_all_pair_error": 0.018977262691347273,
+      "min_target_norm": 0.03343168363356178,
+      "subset_audit": [
+        {
+          "pairs": [],
+          "worst_relative_error": 0.27783177713492674,
+          "passes_10_percent": false
+        },
+        {
+          "pairs": [
+            "pair23"
+          ],
+          "worst_relative_error": 0.20620255160030176,
+          "passes_10_percent": false
+        },
+        {
+          "pairs": [
+            "pair24"
+          ],
+          "worst_relative_error": 0.21015432381124846,
+          "passes_10_percent": false
+        },
+        {
+          "pairs": [
+            "pair34"
+          ],
+          "worst_relative_error": 0.15908779625798364,
+          "passes_10_percent": false
+        },
+        {
+          "pairs": [
+            "pair23",
+            "pair24"
+          ],
+          "worst_relative_error": 0.13893018024141715,
+          "passes_10_percent": false
+        },
+        {
+          "pairs": [
+            "pair23",
+            "pair34"
+          ],
+          "worst_relative_error": 0.10006451307095228,
+          "passes_10_percent": false
+        },
+        {
+          "pairs": [
+            "pair24",
+            "pair34"
+          ],
+          "worst_relative_error": 0.12489926287811005,
+          "passes_10_percent": false
+        },
+        {
+          "pairs": [
+            "pair23",
+            "pair24",
+            "pair34"
+          ],
+          "worst_relative_error": 0.018977262691347273,
+          "passes_10_percent": true
+        }
+      ],
+      "selection_scope": "Opened subset census only; fresh registered subset remains pair23+pair34, irrespective of this audit."
+    },
+    "semantic_port_pairs_fresh_v1": {
+      "max_all_pair_error": 0.019820999160066313,
+      "min_target_norm": 0.032354324017732486,
+      "subset_audit": [
+        {
+          "pairs": [],
+          "worst_relative_error": 0.3811696577287153,
+          "passes_10_percent": false
+        },
+        {
+          "pairs": [
+            "pair23"
+          ],
+          "worst_relative_error": 0.3512622695476778,
+          "passes_10_percent": false
+        },
+        {
+          "pairs": [
+            "pair24"
+          ],
+          "worst_relative_error": 0.24996913464954684,
+          "passes_10_percent": false
+        },
+        {
+          "pairs": [
+            "pair34"
+          ],
+          "worst_relative_error": 0.2639677666037103,
+          "passes_10_percent": false
+        },
+        {
+          "pairs": [
+            "pair23",
+            "pair24"
+          ],
+          "worst_relative_error": 0.22174911250142282,
+          "passes_10_percent": false
+        },
+        {
+          "pairs": [
+            "pair23",
+            "pair34"
+          ],
+          "worst_relative_error": 0.1868415825627318,
+          "passes_10_percent": false
+        },
+        {
+          "pairs": [
+            "pair24",
+            "pair34"
+          ],
+          "worst_relative_error": 0.09188217225701352,
+          "passes_10_percent": true
+        },
+        {
+          "pairs": [
+            "pair23",
+            "pair24",
+            "pair34"
+          ],
+          "worst_relative_error": 0.019820999160066313,
+          "passes_10_percent": true
+        }
+      ],
+      "selection_scope": "Opened subset census only; fresh registered subset remains pair23+pair34, irrespective of this audit."
+    }
+  }
+}

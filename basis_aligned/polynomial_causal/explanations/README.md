@@ -668,3 +668,5 @@ same day sort and link unambiguously.  Older `explanation_HHMM.md` files are ret
 - [Signed failures and matched-control specificity](../SUBJECT_SIGNED_AND_MATCHED_CONTROLS_2026-09-20.md): v692–695 limits, denominator audit, and pending semantic control.
 
 - [Semantic controls, signed evidence, and composition failures](../SUBJECT_SEMANTIC_COMPOSITION_2026-09-20.md): v696–699, including invalid-run repair and denominator audits.
+
+- [Semantic source ports and finite pair graph](../SEMANTIC_SOURCE_PORT_CENSUS_2026-09-20.md): direct recurrence closes numerically but fails A sufficiency; early/middle writes pass signed-role screen. B all-pair effect reconstruction1.90% opened/1.99% new constructions; frozen two-pair prediction fails18.68%, and native capability failures prevent full transfer promotion. Full native computation charged; no compressed execution claim.
