@@ -1,0 +1,57 @@
+{
+  "records": [
+    {
+      "tokens": 5,
+      "relative_error": 4.50180401359081e-16,
+      "max_absolute_error": 5.329070518200751e-15,
+      "pre_source_write": 0.0,
+      "omit_second_key_relative_error": 1.0920926774728115
+    },
+    {
+      "tokens": 11,
+      "relative_error": 4.629991745164623e-16,
+      "max_absolute_error": 1.7763568394002505e-15,
+      "pre_source_write": 0.0,
+      "omit_second_key_relative_error": 0.8917001175078736
+    }
+  ],
+  "prices": [
+    {
+      "baseline_query_ports": 27648,
+      "baseline_key_value_ports": 3456,
+      "new_source_key_value_ports": 3456,
+      "static_output_weights": 1327104,
+      "baseline_cached_writers": 10368,
+      "edited_writer_projection_multiplies": 1327104,
+      "route_dots_multiplies": 55296,
+      "two_route_broadcast_multiplies": 248832,
+      "dense_per_token_output_projection_multiplies": 15925248,
+      "excludes": "source projections, input/head normalization, baseline queries/writers, suffix and full model; these remain charged dependencies"
+    },
+    {
+      "baseline_query_ports": 46080,
+      "baseline_key_value_ports": 3456,
+      "new_source_key_value_ports": 3456,
+      "static_output_weights": 1327104,
+      "baseline_cached_writers": 10368,
+      "edited_writer_projection_multiplies": 1327104,
+      "route_dots_multiplies": 92160,
+      "two_route_broadcast_multiplies": 414720,
+      "dense_per_token_output_projection_multiplies": 26542080,
+      "excludes": "source projections, input/head normalization, baseline queries/writers, suffix and full model; these remain charged dependencies"
+    },
+    {
+      "baseline_query_ports": 73728,
+      "baseline_key_value_ports": 3456,
+      "new_source_key_value_ports": 3456,
+      "static_output_weights": 1327104,
+      "baseline_cached_writers": 10368,
+      "edited_writer_projection_multiplies": 1327104,
+      "route_dots_multiplies": 147456,
+      "two_route_broadcast_multiplies": 663552,
+      "dense_per_token_output_projection_multiplies": 42467328,
+      "excludes": "source projections, input/head normalization, baseline queries/writers, suffix and full model; these remain charged dependencies"
+    }
+  ],
+  "scope": "Conditional exact algebra, synthetic ports; native installed replay still required"
+}

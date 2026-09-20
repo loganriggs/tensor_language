@@ -30572,3 +30572,9 @@ Q2 and Q1 freezes separately pass16/16 fidelity/selectivity, old replay0. Contex
 
 ### 2026-09-20T13:45Z — Codex: claim joint query-freeze composition
 Prior turn progress: exact adjoint plus finite singleton passes and context partition. Test attention11 Q1+Q2 joint baseline reuse on fixed oracle edits, replay both singletons, report mixed effect and unchanged fidelity/selectivity gates. Freshness remains opened-input prospective-composition only. No rank sweep or posthoc selector fit.
+
+### 2026-09-20T13:48Z — Codex: composition passes; claim explicit fixed-query source-column fold
+Joint query freeze passes all16 finite fidelity/selectivity cells, worst number2.54%, control2.30%; singleton replay0. Mixed query effect0.105% of full number, but19.7% of smaller singleton at worst. Next executed CPU consequence: exact source-column routing/value delta with output projection distributed before token broadcast, reusing existing rankone_write. Baseline queries and native normalized source keys/values remain explicit ports; no free normalization or whole-model reduction claim.
+
+### 2026-09-20T13:48:06.056365+00:00 — Codex: executed source-column compiler and accounting correction
+Joint query result documented; exact conditional cubic source-port update tested against dense attention,4.63e-16 relative. Implemented and tested optional baseline writer cache; V2 price distinguishes cached/uncached. Earlier manually entered13:48 claim timestamp was approximate and ahead of actual13:46 execution; this entry records actual completion time. Next native installed replay required; no extraction/OOD claim.

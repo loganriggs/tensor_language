@@ -403,3 +403,6 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 
 ### Attention11 contextual reader and conditional query reuse
 [Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/ATTENTION_READER_FOLD_2026-09-20.md): exact five-factor adjoint; Q2-only derivative omission passes. Native separate Q2/Q1 baseline-query freezes both pass16/16 finite fidelity/selectivity cells; worst number errors1.03%/1.98%. Opened oracle-selected edits; baseline context and source/selector costs retained. Exact signed context partition executed; no independent circuit or joint-freeze claim.
+
+### Joint query reuse and source-column folding
+[Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/ATTENTION_QUERY_COMPOSITION_2026-09-20.md): joint Q1/Q2 reuse passes16/16 opened finite cells, worst number2.54%. Mixed term0.105%full,19.73%smaller singleton. Explicit conditional source-column executor CPU replay4.63e-16 with live second-key negative control; cache accounting corrected in V2. Native installed extraction and fresh OOD remain pending.
