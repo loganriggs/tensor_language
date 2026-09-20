@@ -1,0 +1,16 @@
+[W] step 0 +0.1239 -> validation minimum at step 150, held-out there +0.0740; curve [0.124, 0.082, 0.075, 0.073, 0.073, 0.074, 0.074, 0.075, 0.075]
+[W] snapshot cost +0.0740, recovery 0.981; Spearman 0.883, median ratio 1.27
+[J] step 0 +0.1696 -> validation minimum at step 50, held-out there +0.1608; curve [0.17, 0.162, 0.161, 0.163, 0.18, 0.185, 0.192, 0.203, 0.207]
+[J] pattern-only (v713 endpoint maps) +0.0726 | W snapshot +0.0740 | joint at step 0 +0.1696 -> snapshot +0.1608 (recovery 0.960); exact-rank +0.2412; numbers 39.2M vs 95.6M
+[J] manipulability: 0.3:0.062->0.060 2.5:0.028->0.032 1.1:0.025->0.039 6.3:0.023->0.032 9.7:0.020->0.020 7.8:0.020->0.020 4.0:0.014->0.019 4.1:0.014->0.017 5.7:0.012->0.019 1.4:0.012->0.026 7.0:0.012->0.021 3.8:0.012->0.012 4.5:0.012->0.014 5.5:0.012->0.016 2.3:0.011->0.015 6.1:0.011->0.020 3.5:0.010->0.019 2.6:0.010->0.014 11.2:0.010->0.012 5.8:0.010->0.011 5.3:0.010->0.010 1.3:0.009->0.017 4.7:0.009->0.010 8.3:0.009->0.018; Spearman 0.765, median ratio 1.33
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_write64_snapshot_values": true,
+    "pred_c_joint_removes_superadditivity": true,
+    "pred_d_joint_recovery": false,
+    "pred_e_joint_values_preserved_rank": true
+  },
+  "forwards": 904,
+  "backwards": 400
+}
