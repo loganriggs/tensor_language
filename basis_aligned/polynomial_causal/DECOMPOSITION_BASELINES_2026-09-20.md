@@ -86,3 +86,11 @@ arms fail. v635 fits calibration-only product means with the same supports and
 improves error, but the best tested compressed validation error remains26%.
 [Audit](RADIAL_FEATURE_AUDIT_2026-09-20.md) distinguishes isotropic weight algebra
 from native-distribution statistics. Both remain negative candidates.
+
+## Head-conditioned joint sparse-core baseline
+
+v639/v640 natively verify the exact128-coordinate conditional normalized map
+and compare joint tensor-energy frames with sparse versus dense cores. Both
+output ranks32/128 fail native cross prediction even with dense cores.
+[Measured frontier](HEAD_SHARED_CORE_BASELINE_2026-09-20.md) includes pair sharing,
+branch prices and uncharged background dependencies; no complete-circuit claim.

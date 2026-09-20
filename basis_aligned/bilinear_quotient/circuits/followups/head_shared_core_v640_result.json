@@ -1,0 +1,549 @@
+{
+  "plan": {
+    "output_ranks": [
+      32,
+      128
+    ],
+    "edge_budgets": [
+      "dense"
+    ],
+    "input_rank": 128,
+    "forwards_max": 64,
+    "fit_parameters": 0,
+    "model_updates": 0,
+    "model_backwards": 0,
+    "execution_policy": "managed_queue_only",
+    "families": [
+      "code",
+      "arithmetic",
+      "repetition",
+      "opened_prose"
+    ],
+    "modes": [
+      "native",
+      "mean",
+      "remainder",
+      "zero"
+    ]
+  },
+  "stats": {
+    "code": {
+      "target": 823793636.2727487,
+      "cross": 544546892.28888,
+      "normalization": 298300870.52993995,
+      "cross_error": 298300830.1545348,
+      "cross_dot": 535019849.2035471,
+      "normalization_dot": 288773859.03744465,
+      "layers": [
+        {
+          "interaction": 0.0,
+          "native": 602327189028.2288,
+          "relative_interaction_norm": 0.0
+        },
+        {
+          "interaction": 823793638.0586252,
+          "native": 9762053923.857468,
+          "relative_interaction_norm": 0.29049496922122775
+        },
+        {
+          "interaction": 21807989449.53825,
+          "native": 160715586873.84186,
+          "relative_interaction_norm": 0.36836538652512946
+        },
+        {
+          "interaction": 34827393610.47531,
+          "native": 291158067810.8395,
+          "relative_interaction_norm": 0.34585660400946583
+        },
+        {
+          "interaction": 23500063980.137245,
+          "native": 338091386734.6166,
+          "relative_interaction_norm": 0.26364374310923977
+        },
+        {
+          "interaction": 336296710.8862155,
+          "native": 25777893152.88572,
+          "relative_interaction_norm": 0.11421880188598882
+        },
+        {
+          "interaction": 204156852.32248566,
+          "native": 21168515516.984406,
+          "relative_interaction_norm": 0.09820571883980227
+        },
+        {
+          "interaction": 217267363.24427947,
+          "native": 23510072165.623566,
+          "relative_interaction_norm": 0.09613250645580418
+        },
+        {
+          "interaction": 691456862.0871812,
+          "native": 59524666842.31921,
+          "relative_interaction_norm": 0.1077789774211582
+        },
+        {
+          "interaction": 830285516.2103521,
+          "native": 67881600703.11627,
+          "relative_interaction_norm": 0.11059556040733959
+        },
+        {
+          "interaction": 877104448.9313473,
+          "native": 67742737684.85684,
+          "relative_interaction_norm": 0.11378742907697831
+        },
+        {
+          "interaction": 2178845574.743214,
+          "native": 147315342507.21698,
+          "relative_interaction_norm": 0.12161558563742673
+        },
+        {
+          "interaction": 2970983048.717161,
+          "native": 193383084554.85193,
+          "relative_interaction_norm": 0.1239483772703876
+        },
+        {
+          "interaction": 3338722135.5814977,
+          "native": 214890192082.88757,
+          "relative_interaction_norm": 0.12464700310776834
+        },
+        {
+          "interaction": 4403136246.650106,
+          "native": 253976483614.9715,
+          "relative_interaction_norm": 0.13166923401416475
+        },
+        {
+          "interaction": 7035958271.446052,
+          "native": 348477852784.12823,
+          "relative_interaction_norm": 0.14209344265058382
+        },
+        {
+          "interaction": 12168944374.968758,
+          "native": 540972245268.02155,
+          "relative_interaction_norm": 0.1499819379516981
+        },
+        {
+          "interaction": 41768566041.208885,
+          "native": 1667571223828.3054,
+          "relative_interaction_norm": 0.15826416354547057
+        }
+      ],
+      "cross_relative_error": 0.6017526543188967,
+      "cross_norm_ratio": 0.8130334720260352,
+      "normalization_norm_ratio": 0.6017526950428973,
+      "cross_aligned_fraction": 0.6494585848274362,
+      "normalization_aligned_fraction": 0.35054150253454364
+    },
+    "arithmetic": {
+      "target": 1673314956.1872034,
+      "cross": 120860318.94021441,
+      "normalization": 1107445191.184116,
+      "cross_error": 1107445428.9700317,
+      "cross_dot": 343364923.0786931,
+      "normalization_dot": 1329949883.3931456,
+      "layers": [
+        {
+          "interaction": 0.0,
+          "native": 402444604885.27856,
+          "relative_interaction_norm": 0.0
+        },
+        {
+          "interaction": 1673314966.4307346,
+          "native": 3646206410.813067,
+          "relative_interaction_norm": 0.6774359229096263
+        },
+        {
+          "interaction": 10537002255.300339,
+          "native": 71720022067.65985,
+          "relative_interaction_norm": 0.3832995675259526
+        },
+        {
+          "interaction": 11980242749.324162,
+          "native": 137099108105.3512,
+          "relative_interaction_norm": 0.29560753110664284
+        },
+        {
+          "interaction": 47901749726.327194,
+          "native": 238391713436.19208,
+          "relative_interaction_norm": 0.4482601283155846
+        },
+        {
+          "interaction": 2878161220.19123,
+          "native": 15718563066.589176,
+          "relative_interaction_norm": 0.4279087209699007
+        },
+        {
+          "interaction": 475023859.0551153,
+          "native": 11410479289.679111,
+          "relative_interaction_norm": 0.20403551485599106
+        },
+        {
+          "interaction": 292672164.64072907,
+          "native": 12896686131.159576,
+          "relative_interaction_norm": 0.1506439326256307
+        },
+        {
+          "interaction": 842253440.026289,
+          "native": 29708764625.032074,
+          "relative_interaction_norm": 0.16837557825420352
+        },
+        {
+          "interaction": 928407766.9618709,
+          "native": 44015130531.88198,
+          "relative_interaction_norm": 0.1452340289932744
+        },
+        {
+          "interaction": 1059411490.1850264,
+          "native": 45444657931.71084,
+          "relative_interaction_norm": 0.15268308277443113
+        },
+        {
+          "interaction": 2625962576.311269,
+          "native": 102297007724.5948,
+          "relative_interaction_norm": 0.16021855149191627
+        },
+        {
+          "interaction": 3904655549.410761,
+          "native": 134685211849.60127,
+          "relative_interaction_norm": 0.17026736197257727
+        },
+        {
+          "interaction": 4637746901.6588335,
+          "native": 149930349249.22,
+          "relative_interaction_norm": 0.17587687711880065
+        },
+        {
+          "interaction": 6273399288.266119,
+          "native": 173047035324.73547,
+          "relative_interaction_norm": 0.19040106949765617
+        },
+        {
+          "interaction": 10623245629.129608,
+          "native": 244181303559.87518,
+          "relative_interaction_norm": 0.2085798773289407
+        },
+        {
+          "interaction": 21015731986.812347,
+          "native": 397344451139.00696,
+          "relative_interaction_norm": 0.22997926643264993
+        },
+        {
+          "interaction": 69583415254.96484,
+          "native": 1208751965610.865,
+          "relative_interaction_norm": 0.23992984514452012
+        }
+      ],
+      "cross_relative_error": 0.8135276552742637,
+      "cross_norm_ratio": 0.26875281481277186,
+      "normalization_norm_ratio": 0.8135275679356807,
+      "cross_aligned_fraction": 0.20520041478687343,
+      "normalization_aligned_fraction": 0.7947994957408104
+    },
+    "repetition": {
+      "target": 7059686860.773654,
+      "cross": 5657791758.898259,
+      "normalization": 2986177588.7621517,
+      "cross_error": 2986177725.371762,
+      "cross_dot": 4865650447.150076,
+      "normalization_dot": 2194036413.1505313,
+      "layers": [
+        {
+          "interaction": 0.0,
+          "native": 374735937569.30035,
+          "relative_interaction_norm": 0.0
+        },
+        {
+          "interaction": 7059686859.204221,
+          "native": 47068555914.62278,
+          "relative_interaction_norm": 0.38728197272955645
+        },
+        {
+          "interaction": 69058229760.17035,
+          "native": 344423233617.52594,
+          "relative_interaction_norm": 0.44777670974126854
+        },
+        {
+          "interaction": 75823510719.36734,
+          "native": 416764700746.8348,
+          "relative_interaction_norm": 0.42653677456727673
+        },
+        {
+          "interaction": 67788012240.25329,
+          "native": 497971243166.1408,
+          "relative_interaction_norm": 0.368955779451885
+        },
+        {
+          "interaction": 3379307296.9462476,
+          "native": 36145880070.27303,
+          "relative_interaction_norm": 0.30576265542358694
+        },
+        {
+          "interaction": 2074010095.0668066,
+          "native": 43780928055.25658,
+          "relative_interaction_norm": 0.21765214486160314
+        },
+        {
+          "interaction": 1953540231.3924618,
+          "native": 42063580797.912575,
+          "relative_interaction_norm": 0.21550535163986181
+        },
+        {
+          "interaction": 5037221597.400112,
+          "native": 113089730011.86963,
+          "relative_interaction_norm": 0.21104931395372256
+        },
+        {
+          "interaction": 4846918106.838546,
+          "native": 117648014949.63298,
+          "relative_interaction_norm": 0.20297406012889435
+        },
+        {
+          "interaction": 4015777448.153568,
+          "native": 108084273073.29199,
+          "relative_interaction_norm": 0.19275407367523642
+        },
+        {
+          "interaction": 6968554582.023493,
+          "native": 204709588529.11514,
+          "relative_interaction_norm": 0.18450250218722422
+        },
+        {
+          "interaction": 8577317356.486035,
+          "native": 250609349143.6403,
+          "relative_interaction_norm": 0.18500229042521987
+        },
+        {
+          "interaction": 8876230929.976568,
+          "native": 251130634343.68762,
+          "relative_interaction_norm": 0.18800285716012274
+        },
+        {
+          "interaction": 11885729651.23992,
+          "native": 279812871299.5773,
+          "relative_interaction_norm": 0.20610051635907733
+        },
+        {
+          "interaction": 18784501108.277893,
+          "native": 362323242092.1139,
+          "relative_interaction_norm": 0.22769407818758744
+        },
+        {
+          "interaction": 35739294894.739365,
+          "native": 455301160139.86566,
+          "relative_interaction_norm": 0.2801712782454082
+        },
+        {
+          "interaction": 152893298577.78247,
+          "native": 1419300601128.1587,
+          "relative_interaction_norm": 0.3282139469898744
+        }
+      ],
+      "cross_relative_error": 0.6503768988097152,
+      "cross_norm_ratio": 0.8952220288728993,
+      "normalization_norm_ratio": 0.6503768839332168,
+      "cross_aligned_fraction": 0.6892161852369839,
+      "normalization_aligned_fraction": 0.31078381469600935
+    },
+    "opened_prose": {
+      "target": 1375557991.1235347,
+      "cross": 381763829.3690618,
+      "normalization": 790167341.9239192,
+      "cross_error": 790167404.5361214,
+      "cross_dot": 483577207.97823757,
+      "normalization_dot": 891980760.8085028,
+      "layers": [
+        {
+          "interaction": 0.0,
+          "native": 1339899192806.3975,
+          "relative_interaction_norm": 0.0
+        },
+        {
+          "interaction": 1375557990.2906852,
+          "native": 14791185792.24607,
+          "relative_interaction_norm": 0.30495654301949526
+        },
+        {
+          "interaction": 16061704073.195597,
+          "native": 320969260150.97864,
+          "relative_interaction_norm": 0.2236990240842103
+        },
+        {
+          "interaction": 19234624320.73358,
+          "native": 562466242765.6814,
+          "relative_interaction_norm": 0.18492414644255523
+        },
+        {
+          "interaction": 18130990640.238663,
+          "native": 601401486001.6772,
+          "relative_interaction_norm": 0.17363150051786297
+        },
+        {
+          "interaction": 2440022109.280902,
+          "native": 63676371691.415985,
+          "relative_interaction_norm": 0.19575268433443618
+        },
+        {
+          "interaction": 428853313.37348926,
+          "native": 44596625576.537415,
+          "relative_interaction_norm": 0.09806259586301587
+        },
+        {
+          "interaction": 389438205.3474487,
+          "native": 50697007855.46103,
+          "relative_interaction_norm": 0.0876451954018271
+        },
+        {
+          "interaction": 1181465744.462546,
+          "native": 117049022424.02034,
+          "relative_interaction_norm": 0.10046774893753845
+        },
+        {
+          "interaction": 1647344564.129734,
+          "native": 161889629375.14124,
+          "relative_interaction_norm": 0.10087480522731603
+        },
+        {
+          "interaction": 1897241764.862465,
+          "native": 161124788615.28946,
+          "relative_interaction_norm": 0.10851259711477125
+        },
+        {
+          "interaction": 4512949039.345988,
+          "native": 360898146496.1626,
+          "relative_interaction_norm": 0.11182473789848595
+        },
+        {
+          "interaction": 6938496178.094441,
+          "native": 503648244986.47107,
+          "relative_interaction_norm": 0.1173732186787092
+        },
+        {
+          "interaction": 8525679163.620412,
+          "native": 563256540924.4729,
+          "relative_interaction_norm": 0.12303009824145966
+        },
+        {
+          "interaction": 12126618919.453135,
+          "native": 664060660982.6708,
+          "relative_interaction_norm": 0.13513442197862544
+        },
+        {
+          "interaction": 21410139252.060097,
+          "native": 948447704788.3981,
+          "relative_interaction_norm": 0.15024604581544226
+        },
+        {
+          "interaction": 39692276189.36948,
+          "native": 1561002512289.141,
+          "relative_interaction_norm": 0.15945979495310025
+        },
+        {
+          "interaction": 94488451312.74867,
+          "native": 4223354028104.129,
+          "relative_interaction_norm": 0.149575554428764
+        }
+      ],
+      "cross_relative_error": 0.7579143033409858,
+      "cross_norm_ratio": 0.5268147633570383,
+      "normalization_norm_ratio": 0.7579142733127384,
+      "cross_aligned_fraction": 0.35154985184104026,
+      "normalization_aligned_fraction": 0.6484501319206082
+    }
+  },
+  "candidates": [
+    {
+      "output_rank": 32,
+      "budget": 264192,
+      "unique_products": 8256,
+      "floating_values": 317440,
+      "index_values": 0,
+      "tensor_relative_error": 0.9108643835050618,
+      "stats": {
+        "code": {
+          "error": 305009117.25488037,
+          "target": 823793636.2727487,
+          "cross_error": 298898511.53137195,
+          "cross_target": 544546892.28888,
+          "relative_interaction_error": 0.6084812416889043,
+          "relative_cross_error": 0.7408737955728267
+        },
+        "arithmetic": {
+          "error": 139302872.96288776,
+          "target": 1673314956.1872034,
+          "cross_error": 52430235.604416475,
+          "cross_target": 120860318.94021441,
+          "relative_interaction_error": 0.2885301425149342,
+          "relative_cross_error": 0.6586414168679814
+        },
+        "repetition": {
+          "error": 3189922019.8585587,
+          "target": 7059686860.773654,
+          "cross_error": 3325547015.170268,
+          "cross_target": 5657791758.898259,
+          "relative_interaction_error": 0.6721981521823495,
+          "relative_cross_error": 0.7666692888246714
+        },
+        "opened_prose": {
+          "error": 253886538.66902465,
+          "target": 1375557991.1235347,
+          "cross_error": 234765913.6190609,
+          "cross_target": 381763829.3690618,
+          "relative_interaction_error": 0.42961593869906467,
+          "relative_cross_error": 0.784187889691129
+        }
+      }
+    },
+    {
+      "output_rank": 128,
+      "budget": 1056768,
+      "unique_products": 8256,
+      "floating_values": 1220608,
+      "index_values": 0,
+      "tensor_relative_error": 0.7731755573496795,
+      "stats": {
+        "code": {
+          "error": 151587735.35215086,
+          "target": 823793636.2727487,
+          "cross_error": 148581982.13154057,
+          "cross_target": 544546892.28888,
+          "relative_interaction_error": 0.42896594551823625,
+          "relative_cross_error": 0.5223546100101426
+        },
+        "arithmetic": {
+          "error": 108758576.06598687,
+          "target": 1673314956.1872034,
+          "cross_error": 40704044.29513967,
+          "cross_target": 120860318.94021441,
+          "relative_interaction_error": 0.254942893189237,
+          "relative_cross_error": 0.5803325272085663
+        },
+        "repetition": {
+          "error": 1942909403.4480402,
+          "target": 7059686860.773654,
+          "cross_error": 2015061149.9074047,
+          "cross_target": 5657791758.898259,
+          "relative_interaction_error": 0.5246063657274942,
+          "relative_cross_error": 0.5967887608665959
+        },
+        "opened_prose": {
+          "error": 153076986.7203534,
+          "target": 1375557991.1235347,
+          "cross_error": 141460005.9569444,
+          "cross_target": 381763829.3690618,
+          "relative_interaction_error": 0.3335919025429999,
+          "relative_cross_error": 0.6087226291459922
+        }
+      }
+    }
+  ],
+  "maximum_coordinate_replay": 5.100189521982275e-07,
+  "predictions": {
+    "pred_a_native_fold": true,
+    "pred_b_cross_sufficient": false,
+    "pred_c_normalization_small": false
+  },
+  "maximum_write_replay": 4.931762837060195e-07,
+  "maximum_interaction_replay": 3.04794988397503e-06,
+  "forwards": 64,
+  "seconds": 2.453908591065556,
+  "finished_utc": "2026-09-20T05:02:35.251999+00:00",
+  "scope": "Dense quadratic core at same output ranks as v639; evaluates projection directly; full input span; conditional branch only"
+}
