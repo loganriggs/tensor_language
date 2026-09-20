@@ -1,0 +1,50 @@
+{
+  "candidate_id": "embedding_forward.gate_reading_edit_v660",
+  "finished_utc": "2026-09-20T06:34:23.075077+00:00",
+  "forwards": 30,
+  "plan": {
+    "bars": {
+      "cont_frac": [
+        0.1,
+        0.6
+      ],
+      "punc_frac": [
+        0.03,
+        0.3
+      ],
+      "ratio_k": 2.0,
+      "ratio_q": 3.0,
+      "replay_tol": 0.002
+    },
+    "candidate_id": "embedding_forward.gate_reading_edit_v660",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 34,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_03_cost_on_continuations": false,
+    "pred_c_03_continuation_fraction_sane": false,
+    "pred_d_07_cost_on_punctuation_keys": false,
+    "pred_e_07_punctuation_key_fraction_sane": true
+  },
+  "report": {
+    "h03": {
+      "continuation_fraction": 0.0980282723903656,
+      "per_query_cost_continuation": 0.10518855601549149,
+      "per_query_cost_other": 0.0406077541410923
+    },
+    "h07": {
+      "punctuation_key_fraction": 0.133209228515625,
+      "total_cost_other_keys": 0.007322860416024923,
+      "total_cost_punctuation_keys": 0.00030098616844043136
+    },
+    "native": 3.1324124336242676
+  },
+  "schema": "embedding_forward_gate_reading_edit_result_v660",
+  "serial_seconds": 16.655844010878354
+}

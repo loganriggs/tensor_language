@@ -4,9 +4,9 @@ Each separable head's pattern is `kappa(d) · A(cur) · B(prev)`. `A` is a table
 
 | head | kernel | opens on (A largest) | closes on (A smallest) | weights previous (B largest) | reading |
 |---|---|---|---|---|---|
-| 0.3 | previous token | word-continuation pieces: `y`, `ton`, `er`, `ized`, `ing`, `ers` | rare / capitalised word-initial tokens | word-initial prefixes: ` Mc`, ` Ent`, ` dis`, ` mis`, ` Dr`, ` Ch`, ` fore`, ` Re` | **attach a subword to the start of its word** |
+| 0.3 | previous token | word-continuation pieces: `y`, `ton`, `er`, `ized`, `ing`, `ers` | rare / capitalised word-initial tokens | word-initial prefixes: ` Mc`, ` Ent`, ` dis`, ` mis`, ` Dr`, ` Ch`, ` fore`, ` Re` | **attach a subword to the start of its word** — supported: the head costs 2.6x more per position at continuation queries (edit, v660) |
 | 0.4 | medium window | function words: ` like`, ` nor`, ` Such`, ` neither`, ` never`, ` why`, ` that`, ` either` | concrete nouns: ` markets`, ` chair`, ` basket`, ` games` | entities / adjectives: ` Google`, ` USB`, ` Android`, ` agricultural`, ` ethnic`, ` Republican`, ` University` | **from a function word, recall the recent topic word** |
-| 0.7 | long ~1/d window | subword fragments: `ub`, `ett`, `ag`, `rell` | past-tense verbs: ` saved`, ` found`, ` held`, ` announced`, ` created` | sentence punctuation: `.`, `."`, `!`, `?"`, `).` (and a few nouns) | **distance to the last sentence boundary** |
+| 0.7 | long ~1/d window | subword fragments: `ub`, `ett`, `ag`, `rell` | past-tense verbs: ` saved`, ` found`, ` held`, ` announced`, ` created` | sentence punctuation: `.`, `."`, `!`, `?"`, `).` (and a few nouns) | B ranks punctuation highest, but zeroing the head on punctuation keys costs nothing (+0.0003 vs +0.0073 on other keys; edit, v660): **reading falsified** |
 | 1.0 | medium window (peak d=2) | punctuation / quotes / newline: `:`, `"`, `.`, ` -`, `,`, `;` | suffixes: `ning`, `ative`, `ment`, `ization` | clause-initial words: `Remember`, `Design`, `Monday`, `Sorry`, `Note`, `Look`, `Well`, `Posted` | **from punctuation, look back to the clause start** |
 | 1.1 | previous token (sharp) | ` of`, ` his`, ` their`, ` your`, nouns (` relief`, ` ticket`, ` passage`) | single capitals, ` is`, ` has`, ` (` | rare technical nouns / names (` Drupal`, ` hepatitis`, ` Amendment`, ` Adobe`) | **an `of`-phrase or possessive attaches to its preceding noun** |
 | 1.3 | previous token | ` the`, ` of`, `ing`, `ed`, `s`, ` a`, ` your` | content nouns (` scientist`, ` camera`, ` police`, ` University`) | word fragments (`ust`, `itt`, `umb`, ` wal`, ` rab`) | **after a determiner or suffix, look at the previous word piece** |
@@ -16,4 +16,4 @@ Each separable head's pattern is `kappa(d) · A(cur) · B(prev)`. `A` is a table
 
 Frequency: `A` and `B` correlate only weakly with log unigram frequency (|Spearman| ≤ 0.2), so these are not frequency artefacts. Layer-1 tables are single-token approximations (shape right, scale approximate — v628), read for their orderings only.
 
-Caveat: the readings in the last column are interpretations of the orderings; the only causal facts are the pattern-replacement costs (v623: five layer-0 heads at +0.0094; v625: six layer-1 heads at +0.0126).
+Caveat: a table ordering nominates; only a key- or query-restricted edit decides (v660 falsified the 0.7 reading and supported 0.3's). The readings in the last column are interpretations of the orderings; the only causal facts are the pattern-replacement costs (v623: five layer-0 heads at +0.0094; v625: six layer-1 heads at +0.0126).

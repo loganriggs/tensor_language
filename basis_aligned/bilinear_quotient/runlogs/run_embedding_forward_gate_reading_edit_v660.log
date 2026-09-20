@@ -1,0 +1,12 @@
+native 3.13241 | 0.3: per-query cost at continuation queries +0.1052 vs other queries +0.0406 (continuation fraction 0.098; totals +0.0183 / +0.0384)
+0.7: total cost cutting punctuation keys +0.0003 vs all other keys +0.0073 (punctuation key fraction 0.133)
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_03_cost_on_continuations": false,
+    "pred_c_03_continuation_fraction_sane": false,
+    "pred_d_07_cost_on_punctuation_keys": false,
+    "pred_e_07_punctuation_key_fraction_sane": true
+  },
+  "forwards": 30
+}
