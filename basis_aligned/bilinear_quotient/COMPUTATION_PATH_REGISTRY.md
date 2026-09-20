@@ -526,3 +526,6 @@ Constant and degree-bounded graph compiler checked against exact oracle/gradient
 
 ### 2026-09-20 19:44 — Centered native compact result and mean correction control
 Matched48,384scalars:8productcenteredprogram totalerror23.12% vs26productquartic25.28%, butvariation34.99% vs27.81%; aggregateimprovementismean-driven. Independentfoldreplay1.7e-15. ExactGaussianmomenthelper2e-16; frozenrank8quartic+bias47,312scalars queued. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1944_centered_programs_and_mean_control.md).
+
+### 2026-09-20 19:55 — Native quadratic graph refactor versus exhaustive deletion
+256subsets:4products retain85.35%,fail95%bar. Exact8×16×16core withoutputrank4 ceiling99.30%;24continuousfits learn4products retaining96.82%,34,560coefficients,error24.28% vs8product23.12%. ActualscalarDAGreplay1.5e-15,33,392additions. Centeredvariation36.81%,notsemanticorOODrecovery. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1955_native_graph_refactor.md).

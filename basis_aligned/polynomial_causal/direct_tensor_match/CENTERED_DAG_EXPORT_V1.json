@@ -1,0 +1,41 @@
+{
+  "records": [
+    {
+      "width": 3,
+      "cost": {
+        "products": 3,
+        "additions": 29938,
+        "stored_coefficients": 31104,
+        "edges": 32262,
+        "nodes": 3474
+      },
+      "replay_relative_error": 4.4144210772999515e-16,
+      "maximum_degree": 2
+    },
+    {
+      "width": 4,
+      "cost": {
+        "products": 4,
+        "additions": 33392,
+        "stored_coefficients": 34560,
+        "edges": 35720,
+        "nodes": 3477
+      },
+      "replay_relative_error": 1.5249788229581643e-15,
+      "maximum_degree": 2
+    },
+    {
+      "width": 6,
+      "cost": {
+        "products": 6,
+        "additions": 40300,
+        "stored_coefficients": 41472,
+        "edges": 42636,
+        "nodes": 3483
+      },
+      "replay_relative_error": 4.0151668639359e-16,
+      "maximum_degree": 2
+    }
+  ],
+  "scope": "Actual FP32 frozen refactor programs compiled to scalarDAG; evaluation inFP64. Includes centering,constant,linearbranch,quadraticproducts,fullreducedreadout. Commonvocabularyframe excluded."
+}
