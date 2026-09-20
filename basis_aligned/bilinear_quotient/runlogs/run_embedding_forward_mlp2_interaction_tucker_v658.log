@@ -1,0 +1,14 @@
+replay rel-L2 (MLP-2 normalised input, position 1): 8.15732448700146e-07
+MLP-2 write on the grid: total energy 3.031e+14, prev-dependent share 0.3807 (v657: 0.381)
+prev-dependent write R: 90/95/99% ranks t {'0.9': 435, '0.95': 624, '0.99': 890} s {'0.9': 309, '0.95': 513, '0.99': 841} o {'0.9': 648, '0.95': 826, '0.99': 1055} | top t-evals [0.217, 0.06, 0.046, 0.037]
+retained: {'8x32x32': 0.21547105098849914, '16x64x64': 0.2822565011311594, '32x128x128': 0.36182050905166707, '64x256x256': 0.46698520005705124}
+{
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_prev_part_energy_replays": true,
+    "pred_c_s_mode_wider_than_mlp1": true,
+    "pred_d_o_mode_wide": true,
+    "pred_e_core_retention": true
+  },
+  "forwards": 14
+}

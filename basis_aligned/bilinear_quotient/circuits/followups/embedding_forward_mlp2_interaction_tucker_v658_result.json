@@ -1,0 +1,94 @@
+{
+  "candidate_id": "embedding_forward.mlp2_interaction_tucker_v658",
+  "finished_utc": "2026-09-20T06:29:59.265656+00:00",
+  "forwards": 14,
+  "plan": {
+    "bars": {
+      "core_max": 0.45,
+      "o_min": 500,
+      "replay_tol": 0.0001,
+      "s_min": 255,
+      "share_ref": 0.381
+    },
+    "candidate_id": "embedding_forward.mlp2_interaction_tucker_v658",
+    "cores": [
+      [
+        8,
+        32,
+        32
+      ],
+      [
+        16,
+        64,
+        64
+      ],
+      [
+        32,
+        128,
+        128
+      ],
+      [
+        64,
+        256,
+        256
+      ]
+    ],
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 16,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "n_grid": 1024,
+    "n_verify": 512
+  },
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_prev_part_energy_replays": true,
+    "pred_c_s_mode_wider_than_mlp1": true,
+    "pred_d_o_mode_wide": true,
+    "pred_e_core_retention": true
+  },
+  "report": {
+    "prev_share_of_write_energy": 0.3807058911731,
+    "profile": {
+      "energy": 115407363502880.81,
+      "mode_o": {
+        "0.9": 648,
+        "0.95": 826,
+        "0.99": 1055
+      },
+      "mode_s": {
+        "0.9": 309,
+        "0.95": 513,
+        "0.99": 841
+      },
+      "mode_t": {
+        "0.9": 435,
+        "0.95": 624,
+        "0.99": 890
+      },
+      "top_t_evals_frac": [
+        0.21704581744380827,
+        0.059697338241256566,
+        0.04581111691530155,
+        0.037465284077740135,
+        0.02115884506508117,
+        0.018086171334852654,
+        0.01602064066566576,
+        0.01210229979185778
+      ],
+      "trace_rel_spread": 1.3538997448468674e-16
+    },
+    "replay_rel_l2": 8.15732448700146e-07,
+    "retained": {
+      "16x64x64": 0.2822565011311594,
+      "32x128x128": 0.36182050905166707,
+      "64x256x256": 0.46698520005705124,
+      "8x32x32": 0.21547105098849914
+    }
+  },
+  "schema": "embedding_forward_mlp2_interaction_tucker_result_v658",
+  "serial_seconds": 21.637772056972608
+}

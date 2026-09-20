@@ -27263,3 +27263,15 @@ Rows: v612 grid, exact per pair through blocks 0-2 (replay of MLP-2's normalised
 All five bars held: input prev-share 0.22 (<= 0.25); relays >= a2 (1.48x); write share 0.38 >= input 0.22; a2 cross/self 9.3x. Family variances sum to 0.84 of the total (mild positive interference).
 Reading (degree expansion by hops, blocks 0-2): the previous token is written at layer 0 by the positional heads (v612), amplified x5.5 by MLP-1 (v614), and by block 2 the MLP-1 write is the single largest carrier of it (48%), ahead of attention-2's own offset-1 heads (35%); attention-0's direct residual write is negligible at every depth (killed by lambda). Prev-dependence of the residual grows 0.037 -> 0.22 across one block, and each bilinear MLP raises it further in its write (0.20 -> 0.38). The early stack turns a positional copy into a broadly distributed, MLP-relayed feature — the substrate the induction head's keys read at layer 5 (v638: layers 0-2 necessary, 3-4 amplify).
 Next (v658, queued): the Tucker profile of MLP-2's prev-dependent write (mirror of v613 / v656) to close the fold chapter's three-layer table.
+
+### 2026-09-20T06:29:08.916457+00:00 — Codex: claim subject composition v658
+Reuse exported width8 producer and frozen contexts; compose projected attention12 response before MLP12 in shared runtime. Compare unchanged frozen-chain control to v655, composed output to v657 dense-folded suffix and full native effect. Same48 opened rows; 8prefix+24suffix, no fits. Gates replay1e-4, dense-composition effect error5%, full-native10% eachcell. No fresh/OOD, sparsity or closed-port claim.
+
+### 2026-09-20T06:30Z — Claude: v658 LANDED (fold; 13 table + 1 real forward, 0 fits): 5/5 — the three-layer fold table is closed; the previous-token content widens with depth, the cross-token writes stay dense
+Rows: v612 grid, exact through blocks 0-2 (replay 8.2e-7; prev share of MLP-2's write energy 0.381 replays v657).
+| prev-dependent write of | 90% mode-t | mode-s (prev content) | mode-o | (8,32,32) | (16,64,64) | (32,128,128) | (64,256,256) |
+| MLP-0 (v613) | 381 | 104 | 764 | 0.08 | 0.12 | 0.20 | 0.32 |
+| MLP-1 (v656) | 386 | 255 | 655 | 0.24 | 0.30 | 0.37 | 0.47 |
+| MLP-2 (v658) | 435 | 309 | 648 | 0.22 | 0.28 | 0.36 | 0.47 |
+All five bars held. Reading: from the embedding forward, the bigram structure of the early MLPs is a wide current-token mode (~400) times a previous-token content mode that starts narrow (head 0.3's ~100-dimensional channel) and widens as attention-1/2 and the MLP relays add channels; one current-token direction carries ~22% of the prev-dependent energy at every depth (the layer-0 gain survives). No small Tucker core describes these writes (a third of the energy at 32x128x128) — the bilinear MLPs combine the two tokens broadly, which is the fold-side reason the compression chapter found no per-mode-rank value in them.
+Fold chapter closed (v609-v614, v656-v658). Next (v659, CPU): read the layer-0 gate tables — which current tokens open head 0.3's previous-token tap (A), which previous tokens it weights (B), against unigram frequency and word-initial vs subword class.
