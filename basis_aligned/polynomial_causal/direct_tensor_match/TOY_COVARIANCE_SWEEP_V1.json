@@ -1,0 +1,6986 @@
+{
+  "records": [
+    {
+      "kind": "monomial",
+      "width": 1,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 9.499124338571482e-07,
+      "isotropic_gaussian_error": 9.499124338571482e-07,
+      "symmetric_frobenius_error": 1.1817666782239603e-06,
+      "cosine": 0.9999999999995767,
+      "norm_ratio": 0.9999997636199937,
+      "shifted_input_error": 8.780819527774239e-07,
+      "parameter_values": 63,
+      "diagnostic_weight_entries_above_relative_1e3": 4,
+      "steps": 279,
+      "nonfinite": false,
+      "seconds": 0.49097590800374746,
+      "history": [
+        {
+          "step": 0,
+          "error": 11.061216488420744,
+          "objective": 11.061216488420744
+        },
+        {
+          "step": 100,
+          "error": 0.00020327377647922165,
+          "objective": 0.00020327377647922165
+        },
+        {
+          "step": 200,
+          "error": 4.684223358477058e-09,
+          "objective": 4.684223358477058e-09
+        }
+      ],
+      "case": "coordinate_sparse",
+      "objective": "isotropic",
+      "variant": "matched"
+    },
+    {
+      "kind": "monomial",
+      "width": 1,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 9.46980488488755e-07,
+      "isotropic_gaussian_error": 9.46980488488755e-07,
+      "symmetric_frobenius_error": 1.1732042176096246e-06,
+      "cosine": 0.9999999999995719,
+      "norm_ratio": 1.0000002017756224,
+      "shifted_input_error": 8.988166150308036e-07,
+      "parameter_values": 63,
+      "diagnostic_weight_entries_above_relative_1e3": 4,
+      "steps": 282,
+      "nonfinite": false,
+      "seconds": 0.05373068596236408,
+      "history": [
+        {
+          "step": 0,
+          "error": 11.170715519725274,
+          "objective": 11.170715519725274
+        },
+        {
+          "step": 100,
+          "error": 0.00016132729237430463,
+          "objective": 0.00016132729237430463
+        },
+        {
+          "step": 200,
+          "error": 5.0924771975277384e-09,
+          "objective": 5.0924771975277384e-09
+        }
+      ],
+      "case": "coordinate_sparse",
+      "objective": "isotropic",
+      "variant": "matched"
+    },
+    {
+      "kind": "monomial",
+      "width": 2,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 9.499124338571482e-07,
+      "isotropic_gaussian_error": 9.499124338571482e-07,
+      "symmetric_frobenius_error": 1.1817666782239603e-06,
+      "cosine": 0.9999999999995767,
+      "norm_ratio": 0.9999997636199937,
+      "shifted_input_error": 8.780819527774239e-07,
+      "parameter_values": 63,
+      "diagnostic_weight_entries_above_relative_1e3": 4,
+      "steps": 279,
+      "nonfinite": false,
+      "seconds": 0.057581980945542455,
+      "history": [
+        {
+          "step": 0,
+          "error": 11.061216488420744,
+          "objective": 11.061216488420744
+        },
+        {
+          "step": 100,
+          "error": 0.00020327377647922165,
+          "objective": 0.00020327377647922165
+        },
+        {
+          "step": 200,
+          "error": 4.684223358477058e-09,
+          "objective": 4.684223358477058e-09
+        }
+      ],
+      "case": "coordinate_sparse",
+      "objective": "isotropic",
+      "variant": "wide"
+    },
+    {
+      "kind": "monomial",
+      "width": 2,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 9.46980488488755e-07,
+      "isotropic_gaussian_error": 9.46980488488755e-07,
+      "symmetric_frobenius_error": 1.1732042176096246e-06,
+      "cosine": 0.9999999999995719,
+      "norm_ratio": 1.0000002017756224,
+      "shifted_input_error": 8.988166150308036e-07,
+      "parameter_values": 63,
+      "diagnostic_weight_entries_above_relative_1e3": 4,
+      "steps": 282,
+      "nonfinite": false,
+      "seconds": 0.05356547306291759,
+      "history": [
+        {
+          "step": 0,
+          "error": 11.170715519725274,
+          "objective": 11.170715519725274
+        },
+        {
+          "step": 100,
+          "error": 0.00016132729237430463,
+          "objective": 0.00016132729237430463
+        },
+        {
+          "step": 200,
+          "error": 5.0924771975277384e-09,
+          "objective": 5.0924771975277384e-09
+        }
+      ],
+      "case": "coordinate_sparse",
+      "objective": "isotropic",
+      "variant": "wide"
+    },
+    {
+      "kind": "monomial",
+      "width": 1,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.00020855646771769738,
+      "isotropic_gaussian_error": 0.00020855646771769738,
+      "symmetric_frobenius_error": 0.00025960388405359694,
+      "cosine": 0.9999999786327549,
+      "norm_ratio": 1.0000275704867045,
+      "shifted_input_error": 0.00021527944024518107,
+      "parameter_values": 63,
+      "diagnostic_weight_entries_above_relative_1e3": 4,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.23777476185932755,
+      "history": [
+        {
+          "step": 0,
+          "error": 11.061216488420744,
+          "objective": 11.061216488420744
+        },
+        {
+          "step": 100,
+          "error": 0.02688312041589362,
+          "objective": 0.02688312041589362
+        },
+        {
+          "step": 200,
+          "error": 0.0026586515944764587,
+          "objective": 0.0026586515944764587
+        },
+        {
+          "step": 300,
+          "error": 0.021479615023137374,
+          "objective": 0.021479615023137374
+        },
+        {
+          "step": 400,
+          "error": 0.0020336429332417586,
+          "objective": 0.0020336429332417586
+        },
+        {
+          "step": 500,
+          "error": 0.004453079920374114,
+          "objective": 0.004453079920374114
+        },
+        {
+          "step": 600,
+          "error": 0.000231823871872762,
+          "objective": 0.000231823871872762
+        },
+        {
+          "step": 700,
+          "error": 0.00034792023188423896,
+          "objective": 0.00034792023188423896
+        },
+        {
+          "step": 800,
+          "error": 0.00054924956813865,
+          "objective": 0.00054924956813865
+        },
+        {
+          "step": 900,
+          "error": 0.0003041394647730585,
+          "objective": 0.0003041394647730585
+        },
+        {
+          "step": 1000,
+          "error": 8.991783640876103e-05,
+          "objective": 8.991783640876103e-05
+        },
+        {
+          "step": 1100,
+          "error": 4.22787666123602e-06,
+          "objective": 4.22787666123602e-06
+        },
+        {
+          "step": 1199,
+          "error": 9.284852246149357e-07,
+          "objective": 9.284852246149357e-07
+        }
+      ],
+      "case": "coordinate_sparse",
+      "objective": "isotropic",
+      "variant": "matched"
+    },
+    {
+      "kind": "monomial",
+      "width": 1,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.0005057731379492121,
+      "isotropic_gaussian_error": 0.0005057731379492121,
+      "symmetric_frobenius_error": 0.0005978635790661606,
+      "cosine": 0.9999998721074503,
+      "norm_ratio": 1.0000044964077799,
+      "shifted_input_error": 0.00044424782192156124,
+      "parameter_values": 63,
+      "diagnostic_weight_entries_above_relative_1e3": 4,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.23900510999374092,
+      "history": [
+        {
+          "step": 0,
+          "error": 11.170715519725274,
+          "objective": 11.170715519725274
+        },
+        {
+          "step": 100,
+          "error": 0.1447732212937382,
+          "objective": 0.1447732212937382
+        },
+        {
+          "step": 200,
+          "error": 0.00393059360096474,
+          "objective": 0.00393059360096474
+        },
+        {
+          "step": 300,
+          "error": 0.003939728578397716,
+          "objective": 0.003939728578397716
+        },
+        {
+          "step": 400,
+          "error": 0.0023295903684506236,
+          "objective": 0.0023295903684506236
+        },
+        {
+          "step": 500,
+          "error": 0.004787278102906284,
+          "objective": 0.004787278102906284
+        },
+        {
+          "step": 600,
+          "error": 0.0022956608737304657,
+          "objective": 0.0022956608737304657
+        },
+        {
+          "step": 700,
+          "error": 0.002113400644291884,
+          "objective": 0.002113400644291884
+        },
+        {
+          "step": 800,
+          "error": 0.00022799276083592805,
+          "objective": 0.00022799276083592805
+        },
+        {
+          "step": 900,
+          "error": 0.0005550549162825749,
+          "objective": 0.0005550549162825749
+        },
+        {
+          "step": 1000,
+          "error": 2.5244999348429083e-05,
+          "objective": 2.5244999348429083e-05
+        },
+        {
+          "step": 1100,
+          "error": 4.348988471619017e-06,
+          "objective": 4.348988471619017e-06
+        },
+        {
+          "step": 1199,
+          "error": 2.5580646707099275e-07,
+          "objective": 2.5580646707099275e-07
+        }
+      ],
+      "case": "coordinate_sparse",
+      "objective": "isotropic",
+      "variant": "matched"
+    },
+    {
+      "kind": "monomial",
+      "width": 2,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.00020855646771769738,
+      "isotropic_gaussian_error": 0.00020855646771769738,
+      "symmetric_frobenius_error": 0.00025960388405359694,
+      "cosine": 0.9999999786327549,
+      "norm_ratio": 1.0000275704867045,
+      "shifted_input_error": 0.00021527944024518107,
+      "parameter_values": 63,
+      "diagnostic_weight_entries_above_relative_1e3": 4,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.23697128193452954,
+      "history": [
+        {
+          "step": 0,
+          "error": 11.061216488420744,
+          "objective": 11.061216488420744
+        },
+        {
+          "step": 100,
+          "error": 0.02688312041589362,
+          "objective": 0.02688312041589362
+        },
+        {
+          "step": 200,
+          "error": 0.0026586515944764587,
+          "objective": 0.0026586515944764587
+        },
+        {
+          "step": 300,
+          "error": 0.021479615023137374,
+          "objective": 0.021479615023137374
+        },
+        {
+          "step": 400,
+          "error": 0.0020336429332417586,
+          "objective": 0.0020336429332417586
+        },
+        {
+          "step": 500,
+          "error": 0.004453079920374114,
+          "objective": 0.004453079920374114
+        },
+        {
+          "step": 600,
+          "error": 0.000231823871872762,
+          "objective": 0.000231823871872762
+        },
+        {
+          "step": 700,
+          "error": 0.00034792023188423896,
+          "objective": 0.00034792023188423896
+        },
+        {
+          "step": 800,
+          "error": 0.00054924956813865,
+          "objective": 0.00054924956813865
+        },
+        {
+          "step": 900,
+          "error": 0.0003041394647730585,
+          "objective": 0.0003041394647730585
+        },
+        {
+          "step": 1000,
+          "error": 8.991783640876103e-05,
+          "objective": 8.991783640876103e-05
+        },
+        {
+          "step": 1100,
+          "error": 4.22787666123602e-06,
+          "objective": 4.22787666123602e-06
+        },
+        {
+          "step": 1199,
+          "error": 9.284852246149357e-07,
+          "objective": 9.284852246149357e-07
+        }
+      ],
+      "case": "coordinate_sparse",
+      "objective": "isotropic",
+      "variant": "wide"
+    },
+    {
+      "kind": "monomial",
+      "width": 2,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.0005057731379492121,
+      "isotropic_gaussian_error": 0.0005057731379492121,
+      "symmetric_frobenius_error": 0.0005978635790661606,
+      "cosine": 0.9999998721074503,
+      "norm_ratio": 1.0000044964077799,
+      "shifted_input_error": 0.00044424782192156124,
+      "parameter_values": 63,
+      "diagnostic_weight_entries_above_relative_1e3": 4,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.23907296801917255,
+      "history": [
+        {
+          "step": 0,
+          "error": 11.170715519725274,
+          "objective": 11.170715519725274
+        },
+        {
+          "step": 100,
+          "error": 0.1447732212937382,
+          "objective": 0.1447732212937382
+        },
+        {
+          "step": 200,
+          "error": 0.00393059360096474,
+          "objective": 0.00393059360096474
+        },
+        {
+          "step": 300,
+          "error": 0.003939728578397716,
+          "objective": 0.003939728578397716
+        },
+        {
+          "step": 400,
+          "error": 0.0023295903684506236,
+          "objective": 0.0023295903684506236
+        },
+        {
+          "step": 500,
+          "error": 0.004787278102906284,
+          "objective": 0.004787278102906284
+        },
+        {
+          "step": 600,
+          "error": 0.0022956608737304657,
+          "objective": 0.0022956608737304657
+        },
+        {
+          "step": 700,
+          "error": 0.002113400644291884,
+          "objective": 0.002113400644291884
+        },
+        {
+          "step": 800,
+          "error": 0.00022799276083592805,
+          "objective": 0.00022799276083592805
+        },
+        {
+          "step": 900,
+          "error": 0.0005550549162825749,
+          "objective": 0.0005550549162825749
+        },
+        {
+          "step": 1000,
+          "error": 2.5244999348429083e-05,
+          "objective": 2.5244999348429083e-05
+        },
+        {
+          "step": 1100,
+          "error": 4.348988471619017e-06,
+          "objective": 4.348988471619017e-06
+        },
+        {
+          "step": 1199,
+          "error": 2.5580646707099275e-07,
+          "objective": 2.5580646707099275e-07
+        }
+      ],
+      "case": "coordinate_sparse",
+      "objective": "isotropic",
+      "variant": "wide"
+    },
+    {
+      "kind": "monomial",
+      "width": 1,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.024572324654071408,
+      "isotropic_gaussian_error": 0.8806407197273789,
+      "symmetric_frobenius_error": 1.0039091352635163,
+      "cosine": 0.9996981398020038,
+      "norm_ratio": 1.0001102835781321,
+      "shifted_input_error": 0.625352895967845,
+      "parameter_values": 63,
+      "diagnostic_weight_entries_above_relative_1e3": 63,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.22374772699549794,
+      "history": [
+        {
+          "step": 0,
+          "error": 11.749953329500805,
+          "objective": 11.749953329500805
+        },
+        {
+          "step": 100,
+          "error": 0.026703642565973993,
+          "objective": 0.026703642565973993
+        },
+        {
+          "step": 200,
+          "error": 0.007045348636587892,
+          "objective": 0.007045348636587892
+        },
+        {
+          "step": 300,
+          "error": 0.0035174225006940445,
+          "objective": 0.0035174225006940445
+        },
+        {
+          "step": 400,
+          "error": 0.0022141494283299612,
+          "objective": 0.0022141494283299612
+        },
+        {
+          "step": 500,
+          "error": 0.0015216410479776967,
+          "objective": 0.0015216410479776967
+        },
+        {
+          "step": 600,
+          "error": 0.001121377042850674,
+          "objective": 0.001121377042850674
+        },
+        {
+          "step": 700,
+          "error": 0.0008860553604551607,
+          "objective": 0.0008860553604551607
+        },
+        {
+          "step": 800,
+          "error": 0.0007479042532092535,
+          "objective": 0.0007479042532092535
+        },
+        {
+          "step": 900,
+          "error": 0.0006690512117443044,
+          "objective": 0.0006690512117443044
+        },
+        {
+          "step": 1000,
+          "error": 0.0006276667463190669,
+          "objective": 0.0006276667463190669
+        },
+        {
+          "step": 1100,
+          "error": 0.0006097337739672177,
+          "objective": 0.0006097337739672177
+        },
+        {
+          "step": 1199,
+          "error": 0.0006037991389050855,
+          "objective": 0.0006037991389050855
+        }
+      ],
+      "case": "coordinate_sparse",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "matched"
+    },
+    {
+      "kind": "monomial",
+      "width": 1,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.013509322320747866,
+      "isotropic_gaussian_error": 0.7024199466078156,
+      "symmetric_frobenius_error": 0.7305679762374073,
+      "cosine": 0.999908758224787,
+      "norm_ratio": 1.0000717435029713,
+      "shifted_input_error": 0.48274263175709947,
+      "parameter_values": 63,
+      "diagnostic_weight_entries_above_relative_1e3": 61,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.22724436200223863,
+      "history": [
+        {
+          "step": 0,
+          "error": 9.250171300664398,
+          "objective": 9.250171300664398
+        },
+        {
+          "step": 100,
+          "error": 0.01950540103014624,
+          "objective": 0.01950540103014624
+        },
+        {
+          "step": 200,
+          "error": 0.005368053976497891,
+          "objective": 0.005368053976497891
+        },
+        {
+          "step": 300,
+          "error": 0.0019691842125619283,
+          "objective": 0.0019691842125619283
+        },
+        {
+          "step": 400,
+          "error": 0.0008577090619208882,
+          "objective": 0.0008577090619208882
+        },
+        {
+          "step": 500,
+          "error": 0.0004708555977716998,
+          "objective": 0.0004708555977716998
+        },
+        {
+          "step": 600,
+          "error": 0.00031955805831230253,
+          "objective": 0.00031955805831230253
+        },
+        {
+          "step": 700,
+          "error": 0.0002508536883325495,
+          "objective": 0.0002508536883325495
+        },
+        {
+          "step": 800,
+          "error": 0.00021588772696163442,
+          "objective": 0.00021588772696163442
+        },
+        {
+          "step": 900,
+          "error": 0.00019729965807901666,
+          "objective": 0.00019729965807901666
+        },
+        {
+          "step": 1000,
+          "error": 0.00018786136475363715,
+          "objective": 0.00018786136475363715
+        },
+        {
+          "step": 1100,
+          "error": 0.00018382914907410407,
+          "objective": 0.00018382914907410407
+        },
+        {
+          "step": 1199,
+          "error": 0.0001825017895658565,
+          "objective": 0.0001825017895658565
+        }
+      ],
+      "case": "coordinate_sparse",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "matched"
+    },
+    {
+      "kind": "monomial",
+      "width": 2,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.024572324654071408,
+      "isotropic_gaussian_error": 0.8806407197273789,
+      "symmetric_frobenius_error": 1.0039091352635163,
+      "cosine": 0.9996981398020038,
+      "norm_ratio": 1.0001102835781321,
+      "shifted_input_error": 0.625352895967845,
+      "parameter_values": 63,
+      "diagnostic_weight_entries_above_relative_1e3": 63,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.22338836709968746,
+      "history": [
+        {
+          "step": 0,
+          "error": 11.749953329500805,
+          "objective": 11.749953329500805
+        },
+        {
+          "step": 100,
+          "error": 0.026703642565973993,
+          "objective": 0.026703642565973993
+        },
+        {
+          "step": 200,
+          "error": 0.007045348636587892,
+          "objective": 0.007045348636587892
+        },
+        {
+          "step": 300,
+          "error": 0.0035174225006940445,
+          "objective": 0.0035174225006940445
+        },
+        {
+          "step": 400,
+          "error": 0.0022141494283299612,
+          "objective": 0.0022141494283299612
+        },
+        {
+          "step": 500,
+          "error": 0.0015216410479776967,
+          "objective": 0.0015216410479776967
+        },
+        {
+          "step": 600,
+          "error": 0.001121377042850674,
+          "objective": 0.001121377042850674
+        },
+        {
+          "step": 700,
+          "error": 0.0008860553604551607,
+          "objective": 0.0008860553604551607
+        },
+        {
+          "step": 800,
+          "error": 0.0007479042532092535,
+          "objective": 0.0007479042532092535
+        },
+        {
+          "step": 900,
+          "error": 0.0006690512117443044,
+          "objective": 0.0006690512117443044
+        },
+        {
+          "step": 1000,
+          "error": 0.0006276667463190669,
+          "objective": 0.0006276667463190669
+        },
+        {
+          "step": 1100,
+          "error": 0.0006097337739672177,
+          "objective": 0.0006097337739672177
+        },
+        {
+          "step": 1199,
+          "error": 0.0006037991389050855,
+          "objective": 0.0006037991389050855
+        }
+      ],
+      "case": "coordinate_sparse",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "wide"
+    },
+    {
+      "kind": "monomial",
+      "width": 2,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.013509322320747866,
+      "isotropic_gaussian_error": 0.7024199466078156,
+      "symmetric_frobenius_error": 0.7305679762374073,
+      "cosine": 0.999908758224787,
+      "norm_ratio": 1.0000717435029713,
+      "shifted_input_error": 0.48274263175709947,
+      "parameter_values": 63,
+      "diagnostic_weight_entries_above_relative_1e3": 61,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.22550443117506802,
+      "history": [
+        {
+          "step": 0,
+          "error": 9.250171300664398,
+          "objective": 9.250171300664398
+        },
+        {
+          "step": 100,
+          "error": 0.01950540103014624,
+          "objective": 0.01950540103014624
+        },
+        {
+          "step": 200,
+          "error": 0.005368053976497891,
+          "objective": 0.005368053976497891
+        },
+        {
+          "step": 300,
+          "error": 0.0019691842125619283,
+          "objective": 0.0019691842125619283
+        },
+        {
+          "step": 400,
+          "error": 0.0008577090619208882,
+          "objective": 0.0008577090619208882
+        },
+        {
+          "step": 500,
+          "error": 0.0004708555977716998,
+          "objective": 0.0004708555977716998
+        },
+        {
+          "step": 600,
+          "error": 0.00031955805831230253,
+          "objective": 0.00031955805831230253
+        },
+        {
+          "step": 700,
+          "error": 0.0002508536883325495,
+          "objective": 0.0002508536883325495
+        },
+        {
+          "step": 800,
+          "error": 0.00021588772696163442,
+          "objective": 0.00021588772696163442
+        },
+        {
+          "step": 900,
+          "error": 0.00019729965807901666,
+          "objective": 0.00019729965807901666
+        },
+        {
+          "step": 1000,
+          "error": 0.00018786136475363715,
+          "objective": 0.00018786136475363715
+        },
+        {
+          "step": 1100,
+          "error": 0.00018382914907410407,
+          "objective": 0.00018382914907410407
+        },
+        {
+          "step": 1199,
+          "error": 0.0001825017895658565,
+          "objective": 0.0001825017895658565
+        }
+      ],
+      "case": "coordinate_sparse",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "wide"
+    },
+    {
+      "kind": "monomial",
+      "width": 1,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.0006081104296810119,
+      "isotropic_gaussian_error": 0.02498866387404332,
+      "symmetric_frobenius_error": 0.026216489961983305,
+      "cosine": 0.9999998191869828,
+      "norm_ratio": 0.9999094184501495,
+      "shifted_input_error": 0.016668201177100536,
+      "parameter_values": 63,
+      "diagnostic_weight_entries_above_relative_1e3": 43,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.23784136911854148,
+      "history": [
+        {
+          "step": 0,
+          "error": 11.749953329500805,
+          "objective": 11.749953329500805
+        },
+        {
+          "step": 100,
+          "error": 0.04035846395723571,
+          "objective": 0.04035846395723571
+        },
+        {
+          "step": 200,
+          "error": 0.00810997957082594,
+          "objective": 0.00810997957082594
+        },
+        {
+          "step": 300,
+          "error": 0.014869067398725282,
+          "objective": 0.014869067398725282
+        },
+        {
+          "step": 400,
+          "error": 0.0022315652775725284,
+          "objective": 0.0022315652775725284
+        },
+        {
+          "step": 500,
+          "error": 0.016907111318390587,
+          "objective": 0.016907111318390587
+        },
+        {
+          "step": 600,
+          "error": 0.009839470424114191,
+          "objective": 0.009839470424114191
+        },
+        {
+          "step": 700,
+          "error": 0.0006979194873263968,
+          "objective": 0.0006979194873263968
+        },
+        {
+          "step": 800,
+          "error": 0.001756448447409375,
+          "objective": 0.001756448447409375
+        },
+        {
+          "step": 900,
+          "error": 0.0005493978782877244,
+          "objective": 0.0005493978782877244
+        },
+        {
+          "step": 1000,
+          "error": 5.3871008507750385e-05,
+          "objective": 5.3871008507750385e-05
+        },
+        {
+          "step": 1100,
+          "error": 5.501907124944974e-05,
+          "objective": 5.501907124944974e-05
+        },
+        {
+          "step": 1199,
+          "error": 2.5245469057073444e-06,
+          "objective": 2.5245469057073444e-06
+        }
+      ],
+      "case": "coordinate_sparse",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "matched"
+    },
+    {
+      "kind": "monomial",
+      "width": 1,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.0010027792871941505,
+      "isotropic_gaussian_error": 0.03958965730469174,
+      "symmetric_frobenius_error": 0.04168084259787867,
+      "cosine": 0.9999995337709011,
+      "norm_ratio": 0.9997291482708488,
+      "shifted_input_error": 0.02636862953850383,
+      "parameter_values": 63,
+      "diagnostic_weight_entries_above_relative_1e3": 43,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.2380055789835751,
+      "history": [
+        {
+          "step": 0,
+          "error": 9.250171300664398,
+          "objective": 9.250171300664398
+        },
+        {
+          "step": 100,
+          "error": 0.09300748454204663,
+          "objective": 0.09300748454204663
+        },
+        {
+          "step": 200,
+          "error": 0.002799824038219596,
+          "objective": 0.002799824038219596
+        },
+        {
+          "step": 300,
+          "error": 0.021000797505580718,
+          "objective": 0.021000797505580718
+        },
+        {
+          "step": 400,
+          "error": 0.008610486393966884,
+          "objective": 0.008610486393966884
+        },
+        {
+          "step": 500,
+          "error": 0.0056265846468937075,
+          "objective": 0.0056265846468937075
+        },
+        {
+          "step": 600,
+          "error": 0.006442430890430551,
+          "objective": 0.006442430890430551
+        },
+        {
+          "step": 700,
+          "error": 0.003081822279198817,
+          "objective": 0.003081822279198817
+        },
+        {
+          "step": 800,
+          "error": 0.0022079107245674343,
+          "objective": 0.0022079107245674343
+        },
+        {
+          "step": 900,
+          "error": 0.0007152431544591285,
+          "objective": 0.0007152431544591285
+        },
+        {
+          "step": 1000,
+          "error": 7.827490443509548e-05,
+          "objective": 7.827490443509548e-05
+        },
+        {
+          "step": 1100,
+          "error": 6.3187906047040205e-06,
+          "objective": 6.3187906047040205e-06
+        },
+        {
+          "step": 1199,
+          "error": 1.6082770074366028e-06,
+          "objective": 1.6082770074366028e-06
+        }
+      ],
+      "case": "coordinate_sparse",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "matched"
+    },
+    {
+      "kind": "monomial",
+      "width": 2,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.0006081104296810119,
+      "isotropic_gaussian_error": 0.02498866387404332,
+      "symmetric_frobenius_error": 0.026216489961983305,
+      "cosine": 0.9999998191869828,
+      "norm_ratio": 0.9999094184501495,
+      "shifted_input_error": 0.016668201177100536,
+      "parameter_values": 63,
+      "diagnostic_weight_entries_above_relative_1e3": 43,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.23718581884168088,
+      "history": [
+        {
+          "step": 0,
+          "error": 11.749953329500805,
+          "objective": 11.749953329500805
+        },
+        {
+          "step": 100,
+          "error": 0.04035846395723571,
+          "objective": 0.04035846395723571
+        },
+        {
+          "step": 200,
+          "error": 0.00810997957082594,
+          "objective": 0.00810997957082594
+        },
+        {
+          "step": 300,
+          "error": 0.014869067398725282,
+          "objective": 0.014869067398725282
+        },
+        {
+          "step": 400,
+          "error": 0.0022315652775725284,
+          "objective": 0.0022315652775725284
+        },
+        {
+          "step": 500,
+          "error": 0.016907111318390587,
+          "objective": 0.016907111318390587
+        },
+        {
+          "step": 600,
+          "error": 0.009839470424114191,
+          "objective": 0.009839470424114191
+        },
+        {
+          "step": 700,
+          "error": 0.0006979194873263968,
+          "objective": 0.0006979194873263968
+        },
+        {
+          "step": 800,
+          "error": 0.001756448447409375,
+          "objective": 0.001756448447409375
+        },
+        {
+          "step": 900,
+          "error": 0.0005493978782877244,
+          "objective": 0.0005493978782877244
+        },
+        {
+          "step": 1000,
+          "error": 5.3871008507750385e-05,
+          "objective": 5.3871008507750385e-05
+        },
+        {
+          "step": 1100,
+          "error": 5.501907124944974e-05,
+          "objective": 5.501907124944974e-05
+        },
+        {
+          "step": 1199,
+          "error": 2.5245469057073444e-06,
+          "objective": 2.5245469057073444e-06
+        }
+      ],
+      "case": "coordinate_sparse",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "wide"
+    },
+    {
+      "kind": "monomial",
+      "width": 2,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.0010027792871941505,
+      "isotropic_gaussian_error": 0.03958965730469174,
+      "symmetric_frobenius_error": 0.04168084259787867,
+      "cosine": 0.9999995337709011,
+      "norm_ratio": 0.9997291482708488,
+      "shifted_input_error": 0.02636862953850383,
+      "parameter_values": 63,
+      "diagnostic_weight_entries_above_relative_1e3": 43,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.23616893496364355,
+      "history": [
+        {
+          "step": 0,
+          "error": 9.250171300664398,
+          "objective": 9.250171300664398
+        },
+        {
+          "step": 100,
+          "error": 0.09300748454204663,
+          "objective": 0.09300748454204663
+        },
+        {
+          "step": 200,
+          "error": 0.002799824038219596,
+          "objective": 0.002799824038219596
+        },
+        {
+          "step": 300,
+          "error": 0.021000797505580718,
+          "objective": 0.021000797505580718
+        },
+        {
+          "step": 400,
+          "error": 0.008610486393966884,
+          "objective": 0.008610486393966884
+        },
+        {
+          "step": 500,
+          "error": 0.0056265846468937075,
+          "objective": 0.0056265846468937075
+        },
+        {
+          "step": 600,
+          "error": 0.006442430890430551,
+          "objective": 0.006442430890430551
+        },
+        {
+          "step": 700,
+          "error": 0.003081822279198817,
+          "objective": 0.003081822279198817
+        },
+        {
+          "step": 800,
+          "error": 0.0022079107245674343,
+          "objective": 0.0022079107245674343
+        },
+        {
+          "step": 900,
+          "error": 0.0007152431544591285,
+          "objective": 0.0007152431544591285
+        },
+        {
+          "step": 1000,
+          "error": 7.827490443509548e-05,
+          "objective": 7.827490443509548e-05
+        },
+        {
+          "step": 1100,
+          "error": 6.3187906047040205e-06,
+          "objective": 6.3187906047040205e-06
+        },
+        {
+          "step": 1199,
+          "error": 1.6082770074366028e-06,
+          "objective": 1.6082770074366028e-06
+        }
+      ],
+      "case": "coordinate_sparse",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "wide"
+    },
+    {
+      "kind": "cp",
+      "width": 3,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.000327254507919059,
+      "isotropic_gaussian_error": 0.000327254507919059,
+      "symmetric_frobenius_error": 0.0003321165131159744,
+      "cosine": 0.9999999464537211,
+      "norm_ratio": 0.9999982266120455,
+      "shifted_input_error": 0.00035699012024650005,
+      "parameter_values": 45,
+      "diagnostic_weight_entries_above_relative_1e3": 9,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.44770382810384035,
+      "history": [
+        {
+          "step": 0,
+          "error": 1.671158156468026,
+          "objective": 1.671158156468026
+        },
+        {
+          "step": 100,
+          "error": 0.011502488260789359,
+          "objective": 0.011502488260789359
+        },
+        {
+          "step": 200,
+          "error": 0.00019123165307894624,
+          "objective": 0.00019123165307894624
+        },
+        {
+          "step": 300,
+          "error": 2.8626409974928738e-05,
+          "objective": 2.8626409974928738e-05
+        },
+        {
+          "step": 400,
+          "error": 7.5014259648002755e-06,
+          "objective": 7.5014259648002755e-06
+        },
+        {
+          "step": 500,
+          "error": 2.331891936659162e-06,
+          "objective": 2.331891936659162e-06
+        },
+        {
+          "step": 600,
+          "error": 8.734721818367136e-07,
+          "objective": 8.734721818367136e-07
+        },
+        {
+          "step": 700,
+          "error": 4.0172510010861445e-07,
+          "objective": 4.0172510010861445e-07
+        },
+        {
+          "step": 800,
+          "error": 2.265093543159682e-07,
+          "objective": 2.265093543159682e-07
+        },
+        {
+          "step": 900,
+          "error": 1.5402232194135065e-07,
+          "objective": 1.5402232194135065e-07
+        },
+        {
+          "step": 1000,
+          "error": 1.229738513359763e-07,
+          "objective": 1.229738513359763e-07
+        },
+        {
+          "step": 1100,
+          "error": 1.1090847402104292e-07,
+          "objective": 1.1090847402104292e-07
+        },
+        {
+          "step": 1199,
+          "error": 1.0709551295334544e-07,
+          "objective": 1.0709551295334544e-07
+        }
+      ],
+      "case": "bilinear_cp",
+      "objective": "isotropic",
+      "variant": "matched"
+    },
+    {
+      "kind": "cp",
+      "width": 3,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.00300641105554408,
+      "isotropic_gaussian_error": 0.00300641105554408,
+      "symmetric_frobenius_error": 0.00298806937715341,
+      "cosine": 0.9999954809195984,
+      "norm_ratio": 1.0000146395787524,
+      "shifted_input_error": 0.003417600839590329,
+      "parameter_values": 45,
+      "diagnostic_weight_entries_above_relative_1e3": 9,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.4452146200928837,
+      "history": [
+        {
+          "step": 0,
+          "error": 1.600250879228277,
+          "objective": 1.600250879228277
+        },
+        {
+          "step": 100,
+          "error": 0.014078417328000276,
+          "objective": 0.014078417328000276
+        },
+        {
+          "step": 200,
+          "error": 0.0007877349724663324,
+          "objective": 0.0007877349724663324
+        },
+        {
+          "step": 300,
+          "error": 0.00020221502579408646,
+          "objective": 0.00020221502579408646
+        },
+        {
+          "step": 400,
+          "error": 8.175920503277083e-05,
+          "objective": 8.175920503277083e-05
+        },
+        {
+          "step": 500,
+          "error": 4.225403346344387e-05,
+          "objective": 4.225403346344387e-05
+        },
+        {
+          "step": 600,
+          "error": 2.563563850666569e-05,
+          "objective": 2.563563850666569e-05
+        },
+        {
+          "step": 700,
+          "error": 1.7472934519770733e-05,
+          "objective": 1.7472934519770733e-05
+        },
+        {
+          "step": 800,
+          "error": 1.3163160982834723e-05,
+          "objective": 1.3163160982834723e-05
+        },
+        {
+          "step": 900,
+          "error": 1.0858138148482978e-05,
+          "objective": 1.0858138148482978e-05
+        },
+        {
+          "step": 1000,
+          "error": 9.694525380242365e-06,
+          "objective": 9.694525380242365e-06
+        },
+        {
+          "step": 1100,
+          "error": 9.200560778574984e-06,
+          "objective": 9.200560778574984e-06
+        },
+        {
+          "step": 1199,
+          "error": 9.038507434897668e-06,
+          "objective": 9.038507434897668e-06
+        }
+      ],
+      "case": "bilinear_cp",
+      "objective": "isotropic",
+      "variant": "matched"
+    },
+    {
+      "kind": "cp",
+      "width": 6,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.005086621006272515,
+      "isotropic_gaussian_error": 0.005086621006272515,
+      "symmetric_frobenius_error": 0.0051669800648493835,
+      "cosine": 0.9999870633614408,
+      "norm_ratio": 0.9999624971255879,
+      "shifted_input_error": 0.004032602057494588,
+      "parameter_values": 90,
+      "diagnostic_weight_entries_above_relative_1e3": 18,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.4542431409936398,
+      "history": [
+        {
+          "step": 0,
+          "error": 2.874697730487297,
+          "objective": 2.874697730487297
+        },
+        {
+          "step": 100,
+          "error": 0.0026363139809054185,
+          "objective": 0.0026363139809054185
+        },
+        {
+          "step": 200,
+          "error": 0.0008033007001112429,
+          "objective": 0.0008033007001112429
+        },
+        {
+          "step": 300,
+          "error": 0.00034984743421441505,
+          "objective": 0.00034984743421441505
+        },
+        {
+          "step": 400,
+          "error": 0.000182110053962235,
+          "objective": 0.000182110053962235
+        },
+        {
+          "step": 500,
+          "error": 0.00010188059952705846,
+          "objective": 0.00010188059952705846
+        },
+        {
+          "step": 600,
+          "error": 6.041153666646259e-05,
+          "objective": 6.041153666646259e-05
+        },
+        {
+          "step": 700,
+          "error": 4.144375826538604e-05,
+          "objective": 4.144375826538604e-05
+        },
+        {
+          "step": 800,
+          "error": 3.302206361114485e-05,
+          "objective": 3.302206361114485e-05
+        },
+        {
+          "step": 900,
+          "error": 2.8955144349769886e-05,
+          "objective": 2.8955144349769886e-05
+        },
+        {
+          "step": 1000,
+          "error": 2.6976653760949433e-05,
+          "objective": 2.6976653760949433e-05
+        },
+        {
+          "step": 1100,
+          "error": 2.6145626704215004e-05,
+          "objective": 2.6145626704215004e-05
+        },
+        {
+          "step": 1199,
+          "error": 2.5873713261452814e-05,
+          "objective": 2.5873713261452814e-05
+        }
+      ],
+      "case": "bilinear_cp",
+      "objective": "isotropic",
+      "variant": "wide"
+    },
+    {
+      "kind": "cp",
+      "width": 6,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.009550291603587556,
+      "isotropic_gaussian_error": 0.009550291603587556,
+      "symmetric_frobenius_error": 0.009795914246635276,
+      "cosine": 0.9999543949476298,
+      "norm_ratio": 0.9999477020860208,
+      "shifted_input_error": 0.007799015650474435,
+      "parameter_values": 90,
+      "diagnostic_weight_entries_above_relative_1e3": 18,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.45555680501274765,
+      "history": [
+        {
+          "step": 0,
+          "error": 3.5292462463200107,
+          "objective": 3.5292462463200107
+        },
+        {
+          "step": 100,
+          "error": 0.006197701716995722,
+          "objective": 0.006197701716995722
+        },
+        {
+          "step": 200,
+          "error": 0.001032939930268336,
+          "objective": 0.001032939930268336
+        },
+        {
+          "step": 300,
+          "error": 0.00043523006749923753,
+          "objective": 0.00043523006749923753
+        },
+        {
+          "step": 400,
+          "error": 0.0002568652795235285,
+          "objective": 0.0002568652795235285
+        },
+        {
+          "step": 500,
+          "error": 0.00017691046928459628,
+          "objective": 0.00017691046928459628
+        },
+        {
+          "step": 600,
+          "error": 0.0001369752386026929,
+          "objective": 0.0001369752386026929
+        },
+        {
+          "step": 700,
+          "error": 0.00011560480753906838,
+          "objective": 0.00011560480753906838
+        },
+        {
+          "step": 800,
+          "error": 0.00010359476241070159,
+          "objective": 0.00010359476241070159
+        },
+        {
+          "step": 900,
+          "error": 9.682389278886244e-05,
+          "objective": 9.682389278886244e-05
+        },
+        {
+          "step": 1000,
+          "error": 9.326728021727628e-05,
+          "objective": 9.326728021727628e-05
+        },
+        {
+          "step": 1100,
+          "error": 9.172088912435655e-05,
+          "objective": 9.172088912435655e-05
+        },
+        {
+          "step": 1199,
+          "error": 9.120806971355497e-05,
+          "objective": 9.120806971355497e-05
+        }
+      ],
+      "case": "bilinear_cp",
+      "objective": "isotropic",
+      "variant": "wide"
+    },
+    {
+      "kind": "cp",
+      "width": 3,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.00022966230175098208,
+      "isotropic_gaussian_error": 0.00022966230175098208,
+      "symmetric_frobenius_error": 0.00023111224259421978,
+      "cosine": 0.999999974540179,
+      "norm_ratio": 1.000042696101365,
+      "shifted_input_error": 0.00024391636250397288,
+      "parameter_values": 45,
+      "diagnostic_weight_entries_above_relative_1e3": 9,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.5200268879998475,
+      "history": [
+        {
+          "step": 0,
+          "error": 1.671158156468026,
+          "objective": 1.671158156468026
+        },
+        {
+          "step": 100,
+          "error": 0.07887718235863382,
+          "objective": 0.07887718235863382
+        },
+        {
+          "step": 200,
+          "error": 0.006636972935258661,
+          "objective": 0.006636972935258661
+        },
+        {
+          "step": 300,
+          "error": 0.0009756550210340501,
+          "objective": 0.0009756550210340501
+        },
+        {
+          "step": 400,
+          "error": 0.0003841340428138123,
+          "objective": 0.0003841340428138123
+        },
+        {
+          "step": 500,
+          "error": 0.00041668099661844326,
+          "objective": 0.00041668099661844326
+        },
+        {
+          "step": 600,
+          "error": 0.00022198175357947907,
+          "objective": 0.00022198175357947907
+        },
+        {
+          "step": 700,
+          "error": 0.00014403913872992728,
+          "objective": 0.00014403913872992728
+        },
+        {
+          "step": 800,
+          "error": 3.758108343581468e-05,
+          "objective": 3.758108343581468e-05
+        },
+        {
+          "step": 900,
+          "error": 1.621173285787442e-05,
+          "objective": 1.621173285787442e-05
+        },
+        {
+          "step": 1000,
+          "error": 3.916427082506773e-06,
+          "objective": 3.916427082506773e-06
+        },
+        {
+          "step": 1100,
+          "error": 4.2646618276164493e-07,
+          "objective": 4.2646618276164493e-07
+        },
+        {
+          "step": 1199,
+          "error": 6.809849050341652e-08,
+          "objective": 6.809849050341652e-08
+        }
+      ],
+      "case": "bilinear_cp",
+      "objective": "isotropic",
+      "variant": "matched"
+    },
+    {
+      "kind": "cp",
+      "width": 3,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.028704263690608207,
+      "isotropic_gaussian_error": 0.028704263690608207,
+      "symmetric_frobenius_error": 0.027090476535347206,
+      "cosine": 0.9995883279371344,
+      "norm_ratio": 0.9987164895482958,
+      "shifted_input_error": 0.029497235345471145,
+      "parameter_values": 45,
+      "diagnostic_weight_entries_above_relative_1e3": 8,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.524515989003703,
+      "history": [
+        {
+          "step": 0,
+          "error": 1.600250879228277,
+          "objective": 1.600250879228277
+        },
+        {
+          "step": 100,
+          "error": 0.11086536256354146,
+          "objective": 0.11086536256354146
+        },
+        {
+          "step": 200,
+          "error": 0.035266498224955437,
+          "objective": 0.035266498224955437
+        },
+        {
+          "step": 300,
+          "error": 0.004823076172155223,
+          "objective": 0.004823076172155223
+        },
+        {
+          "step": 400,
+          "error": 0.0033405774249825344,
+          "objective": 0.0033405774249825344
+        },
+        {
+          "step": 500,
+          "error": 0.002966730190037712,
+          "objective": 0.002966730190037712
+        },
+        {
+          "step": 600,
+          "error": 0.001812153310667865,
+          "objective": 0.001812153310667865
+        },
+        {
+          "step": 700,
+          "error": 0.0012987266850845156,
+          "objective": 0.0012987266850845156
+        },
+        {
+          "step": 800,
+          "error": 0.0011592910330519416,
+          "objective": 0.0011592910330519416
+        },
+        {
+          "step": 900,
+          "error": 0.000982979789845543,
+          "objective": 0.000982979789845543
+        },
+        {
+          "step": 1000,
+          "error": 0.0008829101421741938,
+          "objective": 0.0008829101421741938
+        },
+        {
+          "step": 1100,
+          "error": 0.0008346962539293479,
+          "objective": 0.0008346962539293479
+        },
+        {
+          "step": 1199,
+          "error": 0.0008239473934929302,
+          "objective": 0.0008239473934929302
+        }
+      ],
+      "case": "bilinear_cp",
+      "objective": "isotropic",
+      "variant": "matched"
+    },
+    {
+      "kind": "cp",
+      "width": 6,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.0005502758905581212,
+      "isotropic_gaussian_error": 0.0005502758905581212,
+      "symmetric_frobenius_error": 0.0005383763426345369,
+      "cosine": 0.9999998490685045,
+      "norm_ratio": 0.9999691800651531,
+      "shifted_input_error": 0.0005017378817435163,
+      "parameter_values": 90,
+      "diagnostic_weight_entries_above_relative_1e3": 18,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.5332572360057384,
+      "history": [
+        {
+          "step": 0,
+          "error": 2.874697730487297,
+          "objective": 2.874697730487297
+        },
+        {
+          "step": 100,
+          "error": 0.02045480104367589,
+          "objective": 0.02045480104367589
+        },
+        {
+          "step": 200,
+          "error": 0.0028527728265356797,
+          "objective": 0.0028527728265356797
+        },
+        {
+          "step": 300,
+          "error": 0.0015748204201441903,
+          "objective": 0.0015748204201441903
+        },
+        {
+          "step": 400,
+          "error": 0.0006611726986633217,
+          "objective": 0.0006611726986633217
+        },
+        {
+          "step": 500,
+          "error": 0.0006398969299560557,
+          "objective": 0.0006398969299560557
+        },
+        {
+          "step": 600,
+          "error": 0.0004744635425006113,
+          "objective": 0.0004744635425006113
+        },
+        {
+          "step": 700,
+          "error": 0.00024874262148321167,
+          "objective": 0.00024874262148321167
+        },
+        {
+          "step": 800,
+          "error": 8.913258851242392e-05,
+          "objective": 8.913258851242392e-05
+        },
+        {
+          "step": 900,
+          "error": 4.3428143900346064e-05,
+          "objective": 4.3428143900346064e-05
+        },
+        {
+          "step": 1000,
+          "error": 5.7487621464796456e-06,
+          "objective": 5.7487621464796456e-06
+        },
+        {
+          "step": 1100,
+          "error": 1.1272581232844496e-06,
+          "objective": 1.1272581232844496e-06
+        },
+        {
+          "step": 1199,
+          "error": 3.656125767030967e-07,
+          "objective": 3.656125767030967e-07
+        }
+      ],
+      "case": "bilinear_cp",
+      "objective": "isotropic",
+      "variant": "wide"
+    },
+    {
+      "kind": "cp",
+      "width": 6,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.0010080857224615465,
+      "isotropic_gaussian_error": 0.0010080857224615465,
+      "symmetric_frobenius_error": 0.0010213703340530226,
+      "cosine": 0.9999994920493576,
+      "norm_ratio": 1.0000178168105798,
+      "shifted_input_error": 0.0009323038362979463,
+      "parameter_values": 90,
+      "diagnostic_weight_entries_above_relative_1e3": 18,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.5299811589065939,
+      "history": [
+        {
+          "step": 0,
+          "error": 3.5292462463200107,
+          "objective": 3.5292462463200107
+        },
+        {
+          "step": 100,
+          "error": 0.013538429195634258,
+          "objective": 0.013538429195634258
+        },
+        {
+          "step": 200,
+          "error": 0.0019970619927043593,
+          "objective": 0.0019970619927043593
+        },
+        {
+          "step": 300,
+          "error": 0.0008847449868349523,
+          "objective": 0.0008847449868349523
+        },
+        {
+          "step": 400,
+          "error": 0.0006291662514110399,
+          "objective": 0.0006291662514110399
+        },
+        {
+          "step": 500,
+          "error": 0.000191480310501392,
+          "objective": 0.000191480310501392
+        },
+        {
+          "step": 600,
+          "error": 0.00032111900002621045,
+          "objective": 0.00032111900002621045
+        },
+        {
+          "step": 700,
+          "error": 0.00016756286653685294,
+          "objective": 0.00016756286653685294
+        },
+        {
+          "step": 800,
+          "error": 7.072008094900908e-05,
+          "objective": 7.072008094900908e-05
+        },
+        {
+          "step": 900,
+          "error": 3.6249719248920044e-05,
+          "objective": 3.6249719248920044e-05
+        },
+        {
+          "step": 1000,
+          "error": 1.2429709954268396e-05,
+          "objective": 1.2429709954268396e-05
+        },
+        {
+          "step": 1100,
+          "error": 1.8393508016848256e-06,
+          "objective": 1.8393508016848256e-06
+        },
+        {
+          "step": 1199,
+          "error": 1.0416596188014841e-06,
+          "objective": 1.0416596188014841e-06
+        }
+      ],
+      "case": "bilinear_cp",
+      "objective": "isotropic",
+      "variant": "wide"
+    },
+    {
+      "kind": "cp",
+      "width": 3,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.019351460548856725,
+      "isotropic_gaussian_error": 0.23734922176505655,
+      "symmetric_frobenius_error": 0.21109245361153536,
+      "cosine": 0.9998127440025779,
+      "norm_ratio": 0.9997669691319606,
+      "shifted_input_error": 0.1826070489498688,
+      "parameter_values": 45,
+      "diagnostic_weight_entries_above_relative_1e3": 9,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.45108964503742754,
+      "history": [
+        {
+          "step": 0,
+          "error": 0.977215056670448,
+          "objective": 0.977215056670448
+        },
+        {
+          "step": 100,
+          "error": 0.0245587922575453,
+          "objective": 0.0245587922575453
+        },
+        {
+          "step": 200,
+          "error": 0.007524767803998471,
+          "objective": 0.007524767803998471
+        },
+        {
+          "step": 300,
+          "error": 0.006946725520660135,
+          "objective": 0.006946725520660135
+        },
+        {
+          "step": 400,
+          "error": 0.006586027632123429,
+          "objective": 0.006586027632123429
+        },
+        {
+          "step": 500,
+          "error": 0.003412174497807935,
+          "objective": 0.003412174497807935
+        },
+        {
+          "step": 600,
+          "error": 0.0013418917489530495,
+          "objective": 0.0013418917489530495
+        },
+        {
+          "step": 700,
+          "error": 0.0007732802889180256,
+          "objective": 0.0007732802889180256
+        },
+        {
+          "step": 800,
+          "error": 0.0005457940447272742,
+          "objective": 0.0005457940447272742
+        },
+        {
+          "step": 900,
+          "error": 0.00044475194131726373,
+          "objective": 0.00044475194131726373
+        },
+        {
+          "step": 1000,
+          "error": 0.000398922240406139,
+          "objective": 0.000398922240406139
+        },
+        {
+          "step": 1100,
+          "error": 0.0003804282764305371,
+          "objective": 0.0003804282764305371
+        },
+        {
+          "step": 1199,
+          "error": 0.0003744790253739582,
+          "objective": 0.0003744790253739582
+        }
+      ],
+      "case": "bilinear_cp",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "matched"
+    },
+    {
+      "kind": "cp",
+      "width": 3,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.01533463732016129,
+      "isotropic_gaussian_error": 0.16822566170093256,
+      "symmetric_frobenius_error": 0.1540717060644849,
+      "cosine": 0.9998824385534312,
+      "norm_ratio": 0.9996774280736489,
+      "shifted_input_error": 0.13357561557624398,
+      "parameter_values": 45,
+      "diagnostic_weight_entries_above_relative_1e3": 9,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.4506871639750898,
+      "history": [
+        {
+          "step": 0,
+          "error": 1.0897007728458314,
+          "objective": 1.0897007728458314
+        },
+        {
+          "step": 100,
+          "error": 0.011157056113646856,
+          "objective": 0.011157056113646856
+        },
+        {
+          "step": 200,
+          "error": 0.005770434910970346,
+          "objective": 0.005770434910970346
+        },
+        {
+          "step": 300,
+          "error": 0.0030758710902251156,
+          "objective": 0.0030758710902251156
+        },
+        {
+          "step": 400,
+          "error": 0.00204507600564534,
+          "objective": 0.00204507600564534
+        },
+        {
+          "step": 500,
+          "error": 0.0016584252690398603,
+          "objective": 0.0016584252690398603
+        },
+        {
+          "step": 600,
+          "error": 0.0011500231969061323,
+          "objective": 0.0011500231969061323
+        },
+        {
+          "step": 700,
+          "error": 0.0006036572120692532,
+          "objective": 0.0006036572120692532
+        },
+        {
+          "step": 800,
+          "error": 0.00036993052992541104,
+          "objective": 0.00036993052992541104
+        },
+        {
+          "step": 900,
+          "error": 0.000286054459337928,
+          "objective": 0.000286054459337928
+        },
+        {
+          "step": 1000,
+          "error": 0.00025222011701991914,
+          "objective": 0.00025222011701991914
+        },
+        {
+          "step": 1100,
+          "error": 0.00023924554979627062,
+          "objective": 0.00023924554979627062
+        },
+        {
+          "step": 1199,
+          "error": 0.00023515110174088342,
+          "objective": 0.00023515110174088342
+        }
+      ],
+      "case": "bilinear_cp",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "matched"
+    },
+    {
+      "kind": "cp",
+      "width": 6,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.016072993912822516,
+      "isotropic_gaussian_error": 0.31210815295900723,
+      "symmetric_frobenius_error": 0.293907193143599,
+      "cosine": 0.9998708229302495,
+      "norm_ratio": 0.9998101555077957,
+      "shifted_input_error": 0.24665792908868364,
+      "parameter_values": 90,
+      "diagnostic_weight_entries_above_relative_1e3": 18,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.4551597349345684,
+      "history": [
+        {
+          "step": 0,
+          "error": 3.5536289455854333,
+          "objective": 3.5536289455854333
+        },
+        {
+          "step": 100,
+          "error": 0.004430821432412887,
+          "objective": 0.004430821432412887
+        },
+        {
+          "step": 200,
+          "error": 0.002004114161452532,
+          "objective": 0.002004114161452532
+        },
+        {
+          "step": 300,
+          "error": 0.0010747006246467961,
+          "objective": 0.0010747006246467961
+        },
+        {
+          "step": 400,
+          "error": 0.0006732454095072114,
+          "objective": 0.0006732454095072114
+        },
+        {
+          "step": 500,
+          "error": 0.0004884446052783137,
+          "objective": 0.0004884446052783137
+        },
+        {
+          "step": 600,
+          "error": 0.00039204766765195377,
+          "objective": 0.00039204766765195377
+        },
+        {
+          "step": 700,
+          "error": 0.000334921986571999,
+          "objective": 0.000334921986571999
+        },
+        {
+          "step": 800,
+          "error": 0.000299212028475413,
+          "objective": 0.000299212028475413
+        },
+        {
+          "step": 900,
+          "error": 0.00027744498542770884,
+          "objective": 0.00027744498542770884
+        },
+        {
+          "step": 1000,
+          "error": 0.00026546216377341475,
+          "objective": 0.00026546216377341475
+        },
+        {
+          "step": 1100,
+          "error": 0.00026012738386978234,
+          "objective": 0.00026012738386978234
+        },
+        {
+          "step": 1199,
+          "error": 0.00025834113332162965,
+          "objective": 0.00025834113332162965
+        }
+      ],
+      "case": "bilinear_cp",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "wide"
+    },
+    {
+      "kind": "cp",
+      "width": 6,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.025055165696522053,
+      "isotropic_gaussian_error": 0.5682340395230779,
+      "symmetric_frobenius_error": 0.5523002799528881,
+      "cosine": 0.9996860703928968,
+      "norm_ratio": 0.9997118710181839,
+      "shifted_input_error": 0.45045333918488306,
+      "parameter_values": 90,
+      "diagnostic_weight_entries_above_relative_1e3": 18,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.45476573007181287,
+      "history": [
+        {
+          "step": 0,
+          "error": 4.580607789579201,
+          "objective": 4.580607789579201
+        },
+        {
+          "step": 100,
+          "error": 0.010041142034157772,
+          "objective": 0.010041142034157772
+        },
+        {
+          "step": 200,
+          "error": 0.003579089196161568,
+          "objective": 0.003579089196161568
+        },
+        {
+          "step": 300,
+          "error": 0.0019276253331732406,
+          "objective": 0.0019276253331732406
+        },
+        {
+          "step": 400,
+          "error": 0.0013397936494911416,
+          "objective": 0.0013397936494911416
+        },
+        {
+          "step": 500,
+          "error": 0.0010432988135685474,
+          "objective": 0.0010432988135685474
+        },
+        {
+          "step": 600,
+          "error": 0.0008721441474248401,
+          "objective": 0.0008721441474248401
+        },
+        {
+          "step": 700,
+          "error": 0.0007670478022375707,
+          "objective": 0.0007670478022375707
+        },
+        {
+          "step": 800,
+          "error": 0.0007015611034816117,
+          "objective": 0.0007015611034816117
+        },
+        {
+          "step": 900,
+          "error": 0.0006620791433054166,
+          "objective": 0.0006620791433054166
+        },
+        {
+          "step": 1000,
+          "error": 0.0006405172152001612,
+          "objective": 0.0006405172152001612
+        },
+        {
+          "step": 1100,
+          "error": 0.0006309571025829467,
+          "objective": 0.0006309571025829467
+        },
+        {
+          "step": 1199,
+          "error": 0.0006277613280801753,
+          "objective": 0.0006277613280801753
+        }
+      ],
+      "case": "bilinear_cp",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "wide"
+    },
+    {
+      "kind": "cp",
+      "width": 3,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.020925464942554452,
+      "isotropic_gaussian_error": 0.23470259030021234,
+      "symmetric_frobenius_error": 0.2105730461711817,
+      "cosine": 0.9997810616904254,
+      "norm_ratio": 0.9995656599819243,
+      "shifted_input_error": 0.18306829174737885,
+      "parameter_values": 45,
+      "diagnostic_weight_entries_above_relative_1e3": 9,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.5222914528567344,
+      "history": [
+        {
+          "step": 0,
+          "error": 0.977215056670448,
+          "objective": 0.977215056670448
+        },
+        {
+          "step": 100,
+          "error": 0.020955741980064498,
+          "objective": 0.020955741980064498
+        },
+        {
+          "step": 200,
+          "error": 0.0076589966824743005,
+          "objective": 0.0076589966824743005
+        },
+        {
+          "step": 300,
+          "error": 0.004612630863578845,
+          "objective": 0.004612630863578845
+        },
+        {
+          "step": 400,
+          "error": 0.0029994643706592124,
+          "objective": 0.0029994643706592124
+        },
+        {
+          "step": 500,
+          "error": 0.0027940107404629206,
+          "objective": 0.0027940107404629206
+        },
+        {
+          "step": 600,
+          "error": 0.00206317189326657,
+          "objective": 0.00206317189326657
+        },
+        {
+          "step": 700,
+          "error": 0.0017201033077037246,
+          "objective": 0.0017201033077037246
+        },
+        {
+          "step": 800,
+          "error": 0.001209160685584778,
+          "objective": 0.001209160685584778
+        },
+        {
+          "step": 900,
+          "error": 0.0008052700315433237,
+          "objective": 0.0008052700315433237
+        },
+        {
+          "step": 1000,
+          "error": 0.0005704986037278754,
+          "objective": 0.0005704986037278754
+        },
+        {
+          "step": 1100,
+          "error": 0.00046804020684695636,
+          "objective": 0.00046804020684695636
+        },
+        {
+          "step": 1199,
+          "error": 0.0004378750830620754,
+          "objective": 0.0004378750830620754
+        }
+      ],
+      "case": "bilinear_cp",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "matched"
+    },
+    {
+      "kind": "cp",
+      "width": 3,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.007940792788906215,
+      "isotropic_gaussian_error": 0.10865903462618964,
+      "symmetric_frobenius_error": 0.09666119590725815,
+      "cosine": 0.9999684866289383,
+      "norm_ratio": 0.9997940128896291,
+      "shifted_input_error": 0.07473188391711592,
+      "parameter_values": 45,
+      "diagnostic_weight_entries_above_relative_1e3": 9,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.5203717211261392,
+      "history": [
+        {
+          "step": 0,
+          "error": 1.0897007728458314,
+          "objective": 1.0897007728458314
+        },
+        {
+          "step": 100,
+          "error": 0.025563820556053395,
+          "objective": 0.025563820556053395
+        },
+        {
+          "step": 200,
+          "error": 0.0033493340092844233,
+          "objective": 0.0033493340092844233
+        },
+        {
+          "step": 300,
+          "error": 0.0009040786305788792,
+          "objective": 0.0009040786305788792
+        },
+        {
+          "step": 400,
+          "error": 0.0006834598890522923,
+          "objective": 0.0006834598890522923
+        },
+        {
+          "step": 500,
+          "error": 0.00026957516418812797,
+          "objective": 0.00026957516418812797
+        },
+        {
+          "step": 600,
+          "error": 0.0002896890919316335,
+          "objective": 0.0002896890919316335
+        },
+        {
+          "step": 700,
+          "error": 0.00023161036429880246,
+          "objective": 0.00023161036429880246
+        },
+        {
+          "step": 800,
+          "error": 0.00017010453229850044,
+          "objective": 0.00017010453229850044
+        },
+        {
+          "step": 900,
+          "error": 0.00010268949565293583,
+          "objective": 0.00010268949565293583
+        },
+        {
+          "step": 1000,
+          "error": 8.046681967550255e-05,
+          "objective": 8.046681967550255e-05
+        },
+        {
+          "step": 1100,
+          "error": 6.657344839477509e-05,
+          "objective": 6.657344839477509e-05
+        },
+        {
+          "step": 1199,
+          "error": 6.308326538262341e-05,
+          "objective": 6.308326538262341e-05
+        }
+      ],
+      "case": "bilinear_cp",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "matched"
+    },
+    {
+      "kind": "cp",
+      "width": 6,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.005614982029896044,
+      "isotropic_gaussian_error": 0.24445378656147418,
+      "symmetric_frobenius_error": 0.2101287670002997,
+      "cosine": 0.9999842765588894,
+      "norm_ratio": 0.9996989903841653,
+      "shifted_input_error": 0.16982268167073844,
+      "parameter_values": 90,
+      "diagnostic_weight_entries_above_relative_1e3": 18,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.5361797269433737,
+      "history": [
+        {
+          "step": 0,
+          "error": 3.5536289455854333,
+          "objective": 3.5536289455854333
+        },
+        {
+          "step": 100,
+          "error": 0.018660777597643192,
+          "objective": 0.018660777597643192
+        },
+        {
+          "step": 200,
+          "error": 0.004997867602654647,
+          "objective": 0.004997867602654647
+        },
+        {
+          "step": 300,
+          "error": 0.0029447928686504024,
+          "objective": 0.0029447928686504024
+        },
+        {
+          "step": 400,
+          "error": 0.0013948569577074696,
+          "objective": 0.0013948569577074696
+        },
+        {
+          "step": 500,
+          "error": 0.0012717320375723394,
+          "objective": 0.0012717320375723394
+        },
+        {
+          "step": 600,
+          "error": 0.0009239473942441731,
+          "objective": 0.0009239473942441731
+        },
+        {
+          "step": 700,
+          "error": 0.00047401068829436966,
+          "objective": 0.00047401068829436966
+        },
+        {
+          "step": 800,
+          "error": 0.0002403506485134403,
+          "objective": 0.0002403506485134403
+        },
+        {
+          "step": 900,
+          "error": 0.00010306948781759655,
+          "objective": 0.00010306948781759655
+        },
+        {
+          "step": 1000,
+          "error": 4.939371658455598e-05,
+          "objective": 4.939371658455598e-05
+        },
+        {
+          "step": 1100,
+          "error": 3.7218577760388565e-05,
+          "objective": 3.7218577760388565e-05
+        },
+        {
+          "step": 1199,
+          "error": 3.164223923605985e-05,
+          "objective": 3.164223923605985e-05
+        }
+      ],
+      "case": "bilinear_cp",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "wide"
+    },
+    {
+      "kind": "cp",
+      "width": 6,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.0032583733126594675,
+      "isotropic_gaussian_error": 0.1316322218020054,
+      "symmetric_frobenius_error": 0.11491206017549718,
+      "cosine": 0.9999946936858342,
+      "norm_ratio": 1.0000609995707717,
+      "shifted_input_error": 0.09533703436806114,
+      "parameter_values": 90,
+      "diagnostic_weight_entries_above_relative_1e3": 18,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.5334235730115324,
+      "history": [
+        {
+          "step": 0,
+          "error": 4.580607789579201,
+          "objective": 4.580607789579201
+        },
+        {
+          "step": 100,
+          "error": 0.026840496597362158,
+          "objective": 0.026840496597362158
+        },
+        {
+          "step": 200,
+          "error": 0.004084462955280081,
+          "objective": 0.004084462955280081
+        },
+        {
+          "step": 300,
+          "error": 0.0011959476256254368,
+          "objective": 0.0011959476256254368
+        },
+        {
+          "step": 400,
+          "error": 0.0005314917009352489,
+          "objective": 0.0005314917009352489
+        },
+        {
+          "step": 500,
+          "error": 0.00036196604913047223,
+          "objective": 0.00036196604913047223
+        },
+        {
+          "step": 600,
+          "error": 0.00039394178072618496,
+          "objective": 0.00039394178072618496
+        },
+        {
+          "step": 700,
+          "error": 0.00024577204287269184,
+          "objective": 0.00024577204287269184
+        },
+        {
+          "step": 800,
+          "error": 5.4444611393009356e-05,
+          "objective": 5.4444611393009356e-05
+        },
+        {
+          "step": 900,
+          "error": 3.4175031733782056e-05,
+          "objective": 3.4175031733782056e-05
+        },
+        {
+          "step": 1000,
+          "error": 1.732339860452397e-05,
+          "objective": 1.732339860452397e-05
+        },
+        {
+          "step": 1100,
+          "error": 1.1593821229371499e-05,
+          "objective": 1.1593821229371499e-05
+        },
+        {
+          "step": 1199,
+          "error": 1.0717680389429712e-05,
+          "objective": 1.0717680389429712e-05
+        }
+      ],
+      "case": "bilinear_cp",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "wide"
+    },
+    {
+      "kind": "tucker",
+      "width": 3,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 9.89928493629483e-07,
+      "isotropic_gaussian_error": 9.89928493629483e-07,
+      "symmetric_frobenius_error": 1.234121251862827e-06,
+      "cosine": 0.9999999999995098,
+      "norm_ratio": 0.9999999940828458,
+      "shifted_input_error": 1.2887129283090607e-06,
+      "parameter_values": 36,
+      "diagnostic_weight_entries_above_relative_1e3": 6,
+      "steps": 584,
+      "nonfinite": false,
+      "seconds": 0.23100953618995845,
+      "history": [
+        {
+          "step": 0,
+          "error": 3.0712732445964255,
+          "objective": 3.0712732445964255
+        },
+        {
+          "step": 100,
+          "error": 0.0013970420325911475,
+          "objective": 0.0013970420325911475
+        },
+        {
+          "step": 200,
+          "error": 2.312387637706013e-05,
+          "objective": 2.312387637706013e-05
+        },
+        {
+          "step": 300,
+          "error": 3.369979420026165e-07,
+          "objective": 3.369979420026165e-07
+        },
+        {
+          "step": 400,
+          "error": 3.3348979154832295e-09,
+          "objective": 3.3348979154832295e-09
+        },
+        {
+          "step": 500,
+          "error": 3.3297769477894495e-11,
+          "objective": 3.3297769477894495e-11
+        }
+      ],
+      "case": "sparse_tucker",
+      "objective": "isotropic",
+      "variant": "matched"
+    },
+    {
+      "kind": "tucker",
+      "width": 3,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 9.052869708101138e-07,
+      "isotropic_gaussian_error": 9.052869708101138e-07,
+      "symmetric_frobenius_error": 1.1306147777087086e-06,
+      "cosine": 0.9999999999995903,
+      "norm_ratio": 1.0000000128535653,
+      "shifted_input_error": 1.5316501505290637e-06,
+      "parameter_values": 36,
+      "diagnostic_weight_entries_above_relative_1e3": 6,
+      "steps": 315,
+      "nonfinite": false,
+      "seconds": 0.1237639831379056,
+      "history": [
+        {
+          "step": 0,
+          "error": 1.2780387447816024,
+          "objective": 1.2780387447816024
+        },
+        {
+          "step": 100,
+          "error": 0.008472139533177415,
+          "objective": 0.008472139533177415
+        },
+        {
+          "step": 200,
+          "error": 4.5094755479640226e-07,
+          "objective": 4.5094755479640226e-07
+        },
+        {
+          "step": 300,
+          "error": 1.2176841114311295e-11,
+          "objective": 1.2176841114311295e-11
+        }
+      ],
+      "case": "sparse_tucker",
+      "objective": "isotropic",
+      "variant": "matched"
+    },
+    {
+      "kind": "tucker",
+      "width": 6,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.0011929088154039899,
+      "isotropic_gaussian_error": 0.0011929088154039899,
+      "symmetric_frobenius_error": 0.0014939600785192609,
+      "cosine": 0.9999992884840379,
+      "norm_ratio": 0.9999991343832859,
+      "shifted_input_error": 0.0013305883136709809,
+      "parameter_values": 84,
+      "diagnostic_weight_entries_above_relative_1e3": 6,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.4802745468914509,
+      "history": [
+        {
+          "step": 0,
+          "error": 1.5931788942034835,
+          "objective": 1.5931788942034835
+        },
+        {
+          "step": 100,
+          "error": 0.0017519662854946394,
+          "objective": 0.0017519662854946394
+        },
+        {
+          "step": 200,
+          "error": 7.483016922198983e-05,
+          "objective": 7.483016922198983e-05
+        },
+        {
+          "step": 300,
+          "error": 2.1724497241421145e-05,
+          "objective": 2.1724497241421145e-05
+        },
+        {
+          "step": 400,
+          "error": 8.182276080122273e-06,
+          "objective": 8.182276080122273e-06
+        },
+        {
+          "step": 500,
+          "error": 4.160008219800039e-06,
+          "objective": 4.160008219800039e-06
+        },
+        {
+          "step": 600,
+          "error": 2.7283608279134063e-06,
+          "objective": 2.7283608279134063e-06
+        },
+        {
+          "step": 700,
+          "error": 2.090080788100703e-06,
+          "objective": 2.090080788100703e-06
+        },
+        {
+          "step": 800,
+          "error": 1.7565956675152975e-06,
+          "objective": 1.7565956675152975e-06
+        },
+        {
+          "step": 900,
+          "error": 1.5733343197599414e-06,
+          "objective": 1.5733343197599414e-06
+        },
+        {
+          "step": 1000,
+          "error": 1.4779903178874635e-06,
+          "objective": 1.4779903178874635e-06
+        },
+        {
+          "step": 1100,
+          "error": 1.4367019611164066e-06,
+          "objective": 1.4367019611164066e-06
+        },
+        {
+          "step": 1199,
+          "error": 1.4230314418685505e-06,
+          "objective": 1.4230314418685505e-06
+        }
+      ],
+      "case": "sparse_tucker",
+      "objective": "isotropic",
+      "variant": "wide"
+    },
+    {
+      "kind": "tucker",
+      "width": 6,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.002336182212209242,
+      "isotropic_gaussian_error": 0.002336182212209242,
+      "symmetric_frobenius_error": 0.0028620448174858605,
+      "cosine": 0.9999972711237085,
+      "norm_ratio": 0.9999957905025825,
+      "shifted_input_error": 0.004677287152312563,
+      "parameter_values": 84,
+      "diagnostic_weight_entries_above_relative_1e3": 6,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.47956243995577097,
+      "history": [
+        {
+          "step": 0,
+          "error": 2.603909099368162,
+          "objective": 2.603909099368162
+        },
+        {
+          "step": 100,
+          "error": 0.001706526348945947,
+          "objective": 0.001706526348945947
+        },
+        {
+          "step": 200,
+          "error": 9.852510710648161e-05,
+          "objective": 9.852510710648161e-05
+        },
+        {
+          "step": 300,
+          "error": 2.523653540815597e-05,
+          "objective": 2.523653540815597e-05
+        },
+        {
+          "step": 400,
+          "error": 1.5326325280673313e-05,
+          "objective": 1.5326325280673313e-05
+        },
+        {
+          "step": 500,
+          "error": 1.1204858896389915e-05,
+          "objective": 1.1204858896389915e-05
+        },
+        {
+          "step": 600,
+          "error": 8.829510829137462e-06,
+          "objective": 8.829510829137462e-06
+        },
+        {
+          "step": 700,
+          "error": 7.368816772512216e-06,
+          "objective": 7.368816772512216e-06
+        },
+        {
+          "step": 800,
+          "error": 6.464063754648806e-06,
+          "objective": 6.464063754648806e-06
+        },
+        {
+          "step": 900,
+          "error": 5.923311890767884e-06,
+          "objective": 5.923311890767884e-06
+        },
+        {
+          "step": 1000,
+          "error": 5.6302207945973214e-06,
+          "objective": 5.6302207945973214e-06
+        },
+        {
+          "step": 1100,
+          "error": 5.500887247732761e-06,
+          "objective": 5.500887247732761e-06
+        },
+        {
+          "step": 1199,
+          "error": 5.4577473286428675e-06,
+          "objective": 5.4577473286428675e-06
+        }
+      ],
+      "case": "sparse_tucker",
+      "objective": "isotropic",
+      "variant": "wide"
+    },
+    {
+      "kind": "tucker",
+      "width": 3,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.00030654258201416536,
+      "isotropic_gaussian_error": 0.00030654258201416536,
+      "symmetric_frobenius_error": 0.00029547656844042714,
+      "cosine": 0.9999999891602436,
+      "norm_ratio": 1.000268855003096,
+      "shifted_input_error": 0.00032251104762698606,
+      "parameter_values": 36,
+      "diagnostic_weight_entries_above_relative_1e3": 6,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.5390500570647418,
+      "history": [
+        {
+          "step": 0,
+          "error": 3.0712732445964255,
+          "objective": 3.0712732445964255
+        },
+        {
+          "step": 100,
+          "error": 0.05108840932444021,
+          "objective": 0.05108840932444021
+        },
+        {
+          "step": 200,
+          "error": 0.009463630660890138,
+          "objective": 0.009463630660890138
+        },
+        {
+          "step": 300,
+          "error": 0.0016579095438681748,
+          "objective": 0.0016579095438681748
+        },
+        {
+          "step": 400,
+          "error": 0.0008571660431778447,
+          "objective": 0.0008571660431778447
+        },
+        {
+          "step": 500,
+          "error": 0.0005907707222398444,
+          "objective": 0.0005907707222398444
+        },
+        {
+          "step": 600,
+          "error": 0.000315658253679336,
+          "objective": 0.000315658253679336
+        },
+        {
+          "step": 700,
+          "error": 0.0002243518660181917,
+          "objective": 0.0002243518660181917
+        },
+        {
+          "step": 800,
+          "error": 8.324859758968207e-05,
+          "objective": 8.324859758968207e-05
+        },
+        {
+          "step": 900,
+          "error": 2.7656094670511848e-05,
+          "objective": 2.7656094670511848e-05
+        },
+        {
+          "step": 1000,
+          "error": 1.1171965012892202e-05,
+          "objective": 1.1171965012892202e-05
+        },
+        {
+          "step": 1100,
+          "error": 9.215405256690651e-07,
+          "objective": 9.215405256690651e-07
+        },
+        {
+          "step": 1199,
+          "error": 1.3551726071329925e-07,
+          "objective": 1.3551726071329925e-07
+        }
+      ],
+      "case": "sparse_tucker",
+      "objective": "isotropic",
+      "variant": "matched"
+    },
+    {
+      "kind": "tucker",
+      "width": 3,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.0002775991533694988,
+      "isotropic_gaussian_error": 0.0002775991533694988,
+      "symmetric_frobenius_error": 0.00026692115136592575,
+      "cosine": 0.9999999905470457,
+      "norm_ratio": 0.9997588362781048,
+      "shifted_input_error": 0.00028964468275637025,
+      "parameter_values": 36,
+      "diagnostic_weight_entries_above_relative_1e3": 6,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.5397059780079871,
+      "history": [
+        {
+          "step": 0,
+          "error": 1.2780387447816024,
+          "objective": 1.2780387447816024
+        },
+        {
+          "step": 100,
+          "error": 0.038489110636048485,
+          "objective": 0.038489110636048485
+        },
+        {
+          "step": 200,
+          "error": 0.0023932608049907753,
+          "objective": 0.0023932608049907753
+        },
+        {
+          "step": 300,
+          "error": 0.0003440939069519959,
+          "objective": 0.0003440939069519959
+        },
+        {
+          "step": 400,
+          "error": 0.000587238897204794,
+          "objective": 0.000587238897204794
+        },
+        {
+          "step": 500,
+          "error": 0.0004104928463982787,
+          "objective": 0.0004104928463982787
+        },
+        {
+          "step": 600,
+          "error": 0.00020236566656116572,
+          "objective": 0.00020236566656116572
+        },
+        {
+          "step": 700,
+          "error": 0.00017182531783826926,
+          "objective": 0.00017182531783826926
+        },
+        {
+          "step": 800,
+          "error": 8.087170925669764e-05,
+          "objective": 8.087170925669764e-05
+        },
+        {
+          "step": 900,
+          "error": 2.9075867675101475e-05,
+          "objective": 2.9075867675101475e-05
+        },
+        {
+          "step": 1000,
+          "error": 4.468242143712905e-06,
+          "objective": 4.468242143712905e-06
+        },
+        {
+          "step": 1100,
+          "error": 8.434756963724532e-07,
+          "objective": 8.434756963724532e-07
+        },
+        {
+          "step": 1199,
+          "error": 1.1765307965757584e-07,
+          "objective": 1.1765307965757584e-07
+        }
+      ],
+      "case": "sparse_tucker",
+      "objective": "isotropic",
+      "variant": "matched"
+    },
+    {
+      "kind": "tucker",
+      "width": 6,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.00033084919379641856,
+      "isotropic_gaussian_error": 0.00033084919379641856,
+      "symmetric_frobenius_error": 0.0002754460444958147,
+      "cosine": 0.999999990315774,
+      "norm_ratio": 1.0003001448371507,
+      "shifted_input_error": 0.0004156280426349105,
+      "parameter_values": 84,
+      "diagnostic_weight_entries_above_relative_1e3": 6,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.5539477101992816,
+      "history": [
+        {
+          "step": 0,
+          "error": 1.5931788942034835,
+          "objective": 1.5931788942034835
+        },
+        {
+          "step": 100,
+          "error": 0.005011206331806553,
+          "objective": 0.005011206331806553
+        },
+        {
+          "step": 200,
+          "error": 0.0025742661556387276,
+          "objective": 0.0025742661556387276
+        },
+        {
+          "step": 300,
+          "error": 0.000979921251635589,
+          "objective": 0.000979921251635589
+        },
+        {
+          "step": 400,
+          "error": 0.0017213903116901927,
+          "objective": 0.0017213903116901927
+        },
+        {
+          "step": 500,
+          "error": 0.0013575687434708881,
+          "objective": 0.0013575687434708881
+        },
+        {
+          "step": 600,
+          "error": 0.0005362048551937885,
+          "objective": 0.0005362048551937885
+        },
+        {
+          "step": 700,
+          "error": 0.00023191179195747335,
+          "objective": 0.00023191179195747335
+        },
+        {
+          "step": 800,
+          "error": 7.200511506942735e-05,
+          "objective": 7.200511506942735e-05
+        },
+        {
+          "step": 900,
+          "error": 4.420134031029795e-05,
+          "objective": 4.420134031029795e-05
+        },
+        {
+          "step": 1000,
+          "error": 4.630378146635127e-06,
+          "objective": 4.630378146635127e-06
+        },
+        {
+          "step": 1100,
+          "error": 1.674596404822307e-06,
+          "objective": 1.674596404822307e-06
+        },
+        {
+          "step": 1199,
+          "error": 1.0946118903574013e-07,
+          "objective": 1.0946118903574013e-07
+        }
+      ],
+      "case": "sparse_tucker",
+      "objective": "isotropic",
+      "variant": "wide"
+    },
+    {
+      "kind": "tucker",
+      "width": 6,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.0004472713749958105,
+      "isotropic_gaussian_error": 0.0004472713749958105,
+      "symmetric_frobenius_error": 0.0004127115533952689,
+      "cosine": 0.9999999921078214,
+      "norm_ratio": 0.9995707284066206,
+      "shifted_input_error": 0.00045683346363741754,
+      "parameter_values": 84,
+      "diagnostic_weight_entries_above_relative_1e3": 6,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.554494404932484,
+      "history": [
+        {
+          "step": 0,
+          "error": 2.603909099368162,
+          "objective": 2.603909099368162
+        },
+        {
+          "step": 100,
+          "error": 0.02072890386531286,
+          "objective": 0.02072890386531286
+        },
+        {
+          "step": 200,
+          "error": 0.002277343999255694,
+          "objective": 0.002277343999255694
+        },
+        {
+          "step": 300,
+          "error": 0.0015710739073018505,
+          "objective": 0.0015710739073018505
+        },
+        {
+          "step": 400,
+          "error": 0.001418246877705121,
+          "objective": 0.001418246877705121
+        },
+        {
+          "step": 500,
+          "error": 0.0008141697795574188,
+          "objective": 0.0008141697795574188
+        },
+        {
+          "step": 600,
+          "error": 0.0012434655690873413,
+          "objective": 0.0012434655690873413
+        },
+        {
+          "step": 700,
+          "error": 0.00038568038310490393,
+          "objective": 0.00038568038310490393
+        },
+        {
+          "step": 800,
+          "error": 0.0001461904490346961,
+          "objective": 0.0001461904490346961
+        },
+        {
+          "step": 900,
+          "error": 3.698075454607995e-05,
+          "objective": 3.698075454607995e-05
+        },
+        {
+          "step": 1000,
+          "error": 1.1024579606517514e-05,
+          "objective": 1.1024579606517514e-05
+        },
+        {
+          "step": 1100,
+          "error": 1.6039048483422481e-06,
+          "objective": 1.6039048483422481e-06
+        },
+        {
+          "step": 1199,
+          "error": 2.2803811100152148e-07,
+          "objective": 2.2803811100152148e-07
+        }
+      ],
+      "case": "sparse_tucker",
+      "objective": "isotropic",
+      "variant": "wide"
+    },
+    {
+      "kind": "tucker",
+      "width": 3,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.035150139995841816,
+      "isotropic_gaussian_error": 0.21670957128258597,
+      "symmetric_frobenius_error": 0.23072471996272242,
+      "cosine": 0.9993820430396458,
+      "norm_ratio": 0.9993991258898306,
+      "shifted_input_error": 0.25794753233546924,
+      "parameter_values": 36,
+      "diagnostic_weight_entries_above_relative_1e3": 6,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.46649718494154513,
+      "history": [
+        {
+          "step": 0,
+          "error": 5.799123151470926,
+          "objective": 5.799123151470926
+        },
+        {
+          "step": 100,
+          "error": 0.04263911673221214,
+          "objective": 0.04263911673221214
+        },
+        {
+          "step": 200,
+          "error": 0.005377853670051285,
+          "objective": 0.005377853670051285
+        },
+        {
+          "step": 300,
+          "error": 0.0018082227306686525,
+          "objective": 0.0018082227306686525
+        },
+        {
+          "step": 400,
+          "error": 0.001564001320702253,
+          "objective": 0.001564001320702253
+        },
+        {
+          "step": 500,
+          "error": 0.0014561371204678917,
+          "objective": 0.0014561371204678917
+        },
+        {
+          "step": 600,
+          "error": 0.0013799867593600275,
+          "objective": 0.0013799867593600275
+        },
+        {
+          "step": 700,
+          "error": 0.0013246836781896855,
+          "objective": 0.0013246836781896855
+        },
+        {
+          "step": 800,
+          "error": 0.001285552086700381,
+          "objective": 0.001285552086700381
+        },
+        {
+          "step": 900,
+          "error": 0.0012597034281611357,
+          "objective": 0.0012597034281611357
+        },
+        {
+          "step": 1000,
+          "error": 0.0012447223943624704,
+          "objective": 0.0012447223943624704
+        },
+        {
+          "step": 1100,
+          "error": 0.0012378591947824979,
+          "objective": 0.0012378591947824979
+        },
+        {
+          "step": 1199,
+          "error": 0.0012355323417272785,
+          "objective": 0.0012355323417272785
+        }
+      ],
+      "case": "sparse_tucker",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "matched"
+    },
+    {
+      "kind": "tucker",
+      "width": 3,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.017938713284974452,
+      "isotropic_gaussian_error": 0.16417753818198913,
+      "symmetric_frobenius_error": 0.2034061440290172,
+      "cosine": 0.99983908898473,
+      "norm_ratio": 0.9998030871055378,
+      "shifted_input_error": 0.17509801581759282,
+      "parameter_values": 36,
+      "diagnostic_weight_entries_above_relative_1e3": 6,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.46999845886603,
+      "history": [
+        {
+          "step": 0,
+          "error": 2.0598080718491745,
+          "objective": 2.0598080718491745
+        },
+        {
+          "step": 100,
+          "error": 0.022063913350805077,
+          "objective": 0.022063913350805077
+        },
+        {
+          "step": 200,
+          "error": 0.0029103121653205923,
+          "objective": 0.0029103121653205923
+        },
+        {
+          "step": 300,
+          "error": 0.0016490134922581103,
+          "objective": 0.0016490134922581103
+        },
+        {
+          "step": 400,
+          "error": 0.0007151158233553995,
+          "objective": 0.0007151158233553995
+        },
+        {
+          "step": 500,
+          "error": 0.000545868102149977,
+          "objective": 0.000545868102149977
+        },
+        {
+          "step": 600,
+          "error": 0.0004607828583468454,
+          "objective": 0.0004607828583468454
+        },
+        {
+          "step": 700,
+          "error": 0.0004043630850181634,
+          "objective": 0.0004043630850181634
+        },
+        {
+          "step": 800,
+          "error": 0.00036661288268601233,
+          "objective": 0.00036661288268601233
+        },
+        {
+          "step": 900,
+          "error": 0.00034291252588611874,
+          "objective": 0.00034291252588611874
+        },
+        {
+          "step": 1000,
+          "error": 0.00032969861941124675,
+          "objective": 0.00032969861941124675
+        },
+        {
+          "step": 1100,
+          "error": 0.00032378267434829227,
+          "objective": 0.00032378267434829227
+        },
+        {
+          "step": 1199,
+          "error": 0.0003217974343205189,
+          "objective": 0.0003217974343205189
+        }
+      ],
+      "case": "sparse_tucker",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "matched"
+    },
+    {
+      "kind": "tucker",
+      "width": 6,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.006436091323981401,
+      "isotropic_gaussian_error": 0.06631788893287119,
+      "symmetric_frobenius_error": 0.07965585659266383,
+      "cosine": 0.9999792881544585,
+      "norm_ratio": 0.9999823586593708,
+      "shifted_input_error": 0.06834626620289536,
+      "parameter_values": 84,
+      "diagnostic_weight_entries_above_relative_1e3": 6,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.4811285340692848,
+      "history": [
+        {
+          "step": 0,
+          "error": 2.8437961594681282,
+          "objective": 2.8437961594681282
+        },
+        {
+          "step": 100,
+          "error": 0.00891658049333331,
+          "objective": 0.00891658049333331
+        },
+        {
+          "step": 200,
+          "error": 0.001413843237686096,
+          "objective": 0.001413843237686096
+        },
+        {
+          "step": 300,
+          "error": 0.0003797678268976581,
+          "objective": 0.0003797678268976581
+        },
+        {
+          "step": 400,
+          "error": 0.0001965355467891039,
+          "objective": 0.0001965355467891039
+        },
+        {
+          "step": 500,
+          "error": 0.00012060262494635145,
+          "objective": 0.00012060262494635145
+        },
+        {
+          "step": 600,
+          "error": 8.318154642787857e-05,
+          "objective": 8.318154642787857e-05
+        },
+        {
+          "step": 700,
+          "error": 6.336985851521683e-05,
+          "objective": 6.336985851521683e-05
+        },
+        {
+          "step": 800,
+          "error": 5.242115124839331e-05,
+          "objective": 5.242115124839331e-05
+        },
+        {
+          "step": 900,
+          "error": 4.6359705664809926e-05,
+          "objective": 4.6359705664809926e-05
+        },
+        {
+          "step": 1000,
+          "error": 4.3221948654499483e-05,
+          "objective": 4.3221948654499483e-05
+        },
+        {
+          "step": 1100,
+          "error": 4.186984476108814e-05,
+          "objective": 4.186984476108814e-05
+        },
+        {
+          "step": 1199,
+          "error": 4.142327153062867e-05,
+          "objective": 4.142327153062867e-05
+        }
+      ],
+      "case": "sparse_tucker",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "wide"
+    },
+    {
+      "kind": "tucker",
+      "width": 6,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.02596685321229148,
+      "isotropic_gaussian_error": 0.21024924852648258,
+      "symmetric_frobenius_error": 0.21554530331572186,
+      "cosine": 0.9996628052575374,
+      "norm_ratio": 0.9997038066850477,
+      "shifted_input_error": 0.22773421503119934,
+      "parameter_values": 84,
+      "diagnostic_weight_entries_above_relative_1e3": 6,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.48005785793066025,
+      "history": [
+        {
+          "step": 0,
+          "error": 5.912419640502454,
+          "objective": 5.912419640502454
+        },
+        {
+          "step": 100,
+          "error": 0.013726043706106446,
+          "objective": 0.013726043706106446
+        },
+        {
+          "step": 200,
+          "error": 0.0039052052969349932,
+          "objective": 0.0039052052969349932
+        },
+        {
+          "step": 300,
+          "error": 0.0019501673673631282,
+          "objective": 0.0019501673673631282
+        },
+        {
+          "step": 400,
+          "error": 0.0012826916936840836,
+          "objective": 0.0012826916936840836
+        },
+        {
+          "step": 500,
+          "error": 0.0010083200335045735,
+          "objective": 0.0010083200335045735
+        },
+        {
+          "step": 600,
+          "error": 0.000870924176980245,
+          "objective": 0.000870924176980245
+        },
+        {
+          "step": 700,
+          "error": 0.0007893535648169707,
+          "objective": 0.0007893535648169707
+        },
+        {
+          "step": 800,
+          "error": 0.0007369726100458421,
+          "objective": 0.0007369726100458421
+        },
+        {
+          "step": 900,
+          "error": 0.0007040434258808502,
+          "objective": 0.0007040434258808502
+        },
+        {
+          "step": 1000,
+          "error": 0.0006854809270795041,
+          "objective": 0.0006854809270795041
+        },
+        {
+          "step": 1100,
+          "error": 0.0006771007920499868,
+          "objective": 0.0006771007920499868
+        },
+        {
+          "step": 1199,
+          "error": 0.0006742774657486925,
+          "objective": 0.0006742774657486925
+        }
+      ],
+      "case": "sparse_tucker",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "wide"
+    },
+    {
+      "kind": "tucker",
+      "width": 3,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.0001575096446071211,
+      "isotropic_gaussian_error": 0.0004987787460150914,
+      "symmetric_frobenius_error": 0.0005730411134339725,
+      "cosine": 0.9999999926860668,
+      "norm_ratio": 0.9998990896521396,
+      "shifted_input_error": 0.0005092997015659386,
+      "parameter_values": 36,
+      "diagnostic_weight_entries_above_relative_1e3": 6,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.539301804965362,
+      "history": [
+        {
+          "step": 0,
+          "error": 5.799123151470926,
+          "objective": 5.799123151470926
+        },
+        {
+          "step": 100,
+          "error": 0.04126892020035195,
+          "objective": 0.04126892020035195
+        },
+        {
+          "step": 200,
+          "error": 0.004705047732244984,
+          "objective": 0.004705047732244984
+        },
+        {
+          "step": 300,
+          "error": 0.0026673856480650686,
+          "objective": 0.0026673856480650686
+        },
+        {
+          "step": 400,
+          "error": 0.0010127980971815118,
+          "objective": 0.0010127980971815118
+        },
+        {
+          "step": 500,
+          "error": 0.00028965862083195966,
+          "objective": 0.00028965862083195966
+        },
+        {
+          "step": 600,
+          "error": 0.0004062931637507145,
+          "objective": 0.0004062931637507145
+        },
+        {
+          "step": 700,
+          "error": 0.00010522027656978254,
+          "objective": 0.00010522027656978254
+        },
+        {
+          "step": 800,
+          "error": 6.123894096074233e-05,
+          "objective": 6.123894096074233e-05
+        },
+        {
+          "step": 900,
+          "error": 5.330611982563245e-05,
+          "objective": 5.330611982563245e-05
+        },
+        {
+          "step": 1000,
+          "error": 4.2823748069525895e-06,
+          "objective": 4.2823748069525895e-06
+        },
+        {
+          "step": 1100,
+          "error": 2.2200701788293445e-06,
+          "objective": 2.2200701788293445e-06
+        },
+        {
+          "step": 1199,
+          "error": 1.252459317292709e-07,
+          "objective": 1.252459317292709e-07
+        }
+      ],
+      "case": "sparse_tucker",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "matched"
+    },
+    {
+      "kind": "tucker",
+      "width": 3,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.004690805635255773,
+      "isotropic_gaussian_error": 0.05142852684646681,
+      "symmetric_frobenius_error": 0.06383690177365188,
+      "cosine": 0.9999890364299004,
+      "norm_ratio": 1.0002658712346308,
+      "shifted_input_error": 0.05304247402599005,
+      "parameter_values": 36,
+      "diagnostic_weight_entries_above_relative_1e3": 6,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.5410482389852405,
+      "history": [
+        {
+          "step": 0,
+          "error": 2.0598080718491745,
+          "objective": 2.0598080718491745
+        },
+        {
+          "step": 100,
+          "error": 0.04998551464035974,
+          "objective": 0.04998551464035974
+        },
+        {
+          "step": 200,
+          "error": 0.004202605896870058,
+          "objective": 0.004202605896870058
+        },
+        {
+          "step": 300,
+          "error": 0.0022999716261487206,
+          "objective": 0.0022999716261487206
+        },
+        {
+          "step": 400,
+          "error": 0.0014381216724128774,
+          "objective": 0.0014381216724128774
+        },
+        {
+          "step": 500,
+          "error": 0.0005754709994177518,
+          "objective": 0.0005754709994177518
+        },
+        {
+          "step": 600,
+          "error": 0.0002894655080559057,
+          "objective": 0.0002894655080559057
+        },
+        {
+          "step": 700,
+          "error": 0.00024124909373750237,
+          "objective": 0.00024124909373750237
+        },
+        {
+          "step": 800,
+          "error": 0.00011947068945981336,
+          "objective": 0.00011947068945981336
+        },
+        {
+          "step": 900,
+          "error": 6.879587979420936e-05,
+          "objective": 6.879587979420936e-05
+        },
+        {
+          "step": 1000,
+          "error": 3.770248588944169e-05,
+          "objective": 3.770248588944169e-05
+        },
+        {
+          "step": 1100,
+          "error": 2.5243312703519808e-05,
+          "objective": 2.5243312703519808e-05
+        },
+        {
+          "step": 1199,
+          "error": 2.2003657507747313e-05,
+          "objective": 2.2003657507747313e-05
+        }
+      ],
+      "case": "sparse_tucker",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "matched"
+    },
+    {
+      "kind": "tucker",
+      "width": 6,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.0004614290338293312,
+      "isotropic_gaussian_error": 0.004719991022903005,
+      "symmetric_frobenius_error": 0.005256303613835506,
+      "cosine": 0.9999999074424125,
+      "norm_ratio": 0.9998331693640449,
+      "shifted_input_error": 0.004565275412611499,
+      "parameter_values": 84,
+      "diagnostic_weight_entries_above_relative_1e3": 6,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.5521983220241964,
+      "history": [
+        {
+          "step": 0,
+          "error": 2.8437961594681282,
+          "objective": 2.8437961594681282
+        },
+        {
+          "step": 100,
+          "error": 0.008199415355117975,
+          "objective": 0.008199415355117975
+        },
+        {
+          "step": 200,
+          "error": 0.0027323345996737207,
+          "objective": 0.0027323345996737207
+        },
+        {
+          "step": 300,
+          "error": 0.003294570027011277,
+          "objective": 0.003294570027011277
+        },
+        {
+          "step": 400,
+          "error": 0.0012801958344630967,
+          "objective": 0.0012801958344630967
+        },
+        {
+          "step": 500,
+          "error": 0.0009749564905528149,
+          "objective": 0.0009749564905528149
+        },
+        {
+          "step": 600,
+          "error": 0.0006375494262043462,
+          "objective": 0.0006375494262043462
+        },
+        {
+          "step": 700,
+          "error": 0.00021898734596276735,
+          "objective": 0.00021898734596276735
+        },
+        {
+          "step": 800,
+          "error": 0.00013920717539752747,
+          "objective": 0.00013920717539752747
+        },
+        {
+          "step": 900,
+          "error": 6.127068452062703e-05,
+          "objective": 6.127068452062703e-05
+        },
+        {
+          "step": 1000,
+          "error": 1.5197583164543807e-05,
+          "objective": 1.5197583164543807e-05
+        },
+        {
+          "step": 1100,
+          "error": 1.3932101149343628e-06,
+          "objective": 1.3932101149343628e-06
+        },
+        {
+          "step": 1199,
+          "error": 5.382998916492514e-07,
+          "objective": 5.382998916492514e-07
+        }
+      ],
+      "case": "sparse_tucker",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "wide"
+    },
+    {
+      "kind": "tucker",
+      "width": 6,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.00025131855051417786,
+      "isotropic_gaussian_error": 0.00032053355168035045,
+      "symmetric_frobenius_error": 0.0003740112459998447,
+      "cosine": 0.9999999723020626,
+      "norm_ratio": 1.0000880923311652,
+      "shifted_input_error": 0.0004325160012900748,
+      "parameter_values": 84,
+      "diagnostic_weight_entries_above_relative_1e3": 6,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.5511703579686582,
+      "history": [
+        {
+          "step": 0,
+          "error": 5.912419640502454,
+          "objective": 5.912419640502454
+        },
+        {
+          "step": 100,
+          "error": 0.024055595804767665,
+          "objective": 0.024055595804767665
+        },
+        {
+          "step": 200,
+          "error": 0.0025585220847963164,
+          "objective": 0.0025585220847963164
+        },
+        {
+          "step": 300,
+          "error": 0.0016858802178949216,
+          "objective": 0.0016858802178949216
+        },
+        {
+          "step": 400,
+          "error": 0.0007648325066352893,
+          "objective": 0.0007648325066352893
+        },
+        {
+          "step": 500,
+          "error": 0.001125002028372493,
+          "objective": 0.001125002028372493
+        },
+        {
+          "step": 600,
+          "error": 0.0002844335581568645,
+          "objective": 0.0002844335581568645
+        },
+        {
+          "step": 700,
+          "error": 0.00021993709706739437,
+          "objective": 0.00021993709706739437
+        },
+        {
+          "step": 800,
+          "error": 0.0001953599204569144,
+          "objective": 0.0001953599204569144
+        },
+        {
+          "step": 900,
+          "error": 4.7272299788971334e-05,
+          "objective": 4.7272299788971334e-05
+        },
+        {
+          "step": 1000,
+          "error": 7.368074388416673e-06,
+          "objective": 7.368074388416673e-06
+        },
+        {
+          "step": 1100,
+          "error": 5.43350959684059e-07,
+          "objective": 5.43350959684059e-07
+        },
+        {
+          "step": 1199,
+          "error": 7.915351279569177e-07,
+          "objective": 7.915351279569177e-07
+        }
+      ],
+      "case": "sparse_tucker",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "wide"
+    },
+    {
+      "kind": "tree",
+      "width": 2,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.13394278076655403,
+      "isotropic_gaussian_error": 0.13394278076655403,
+      "symmetric_frobenius_error": 0.13720846894943892,
+      "cosine": 0.9909890674093804,
+      "norm_ratio": 0.990973434402794,
+      "shifted_input_error": 0.10269103822793561,
+      "parameter_values": 96,
+      "diagnostic_weight_entries_above_relative_1e3": 12,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.6152615940663964,
+      "history": [
+        {
+          "step": 0,
+          "error": 9.571742973988137,
+          "objective": 9.571742973988137
+        },
+        {
+          "step": 100,
+          "error": 0.30496954273810317,
+          "objective": 0.30496954273810317
+        },
+        {
+          "step": 200,
+          "error": 0.19307658107524056,
+          "objective": 0.19307658107524056
+        },
+        {
+          "step": 300,
+          "error": 0.11690158016262688,
+          "objective": 0.11690158016262688
+        },
+        {
+          "step": 400,
+          "error": 0.05051690226581861,
+          "objective": 0.05051690226581861
+        },
+        {
+          "step": 500,
+          "error": 0.023659505414052876,
+          "objective": 0.023659505414052876
+        },
+        {
+          "step": 600,
+          "error": 0.019339870304232953,
+          "objective": 0.019339870304232953
+        },
+        {
+          "step": 700,
+          "error": 0.018404905901604537,
+          "objective": 0.018404905901604537
+        },
+        {
+          "step": 800,
+          "error": 0.018113787166853926,
+          "objective": 0.018113787166853926
+        },
+        {
+          "step": 900,
+          "error": 0.018005509372048048,
+          "objective": 0.018005509372048048
+        },
+        {
+          "step": 1000,
+          "error": 0.017962053531242878,
+          "objective": 0.017962053531242878
+        },
+        {
+          "step": 1100,
+          "error": 0.0179457462853322,
+          "objective": 0.0179457462853322
+        },
+        {
+          "step": 1199,
+          "error": 0.017940668519477156,
+          "objective": 0.017940668519477156
+        }
+      ],
+      "case": "quartic_tree",
+      "objective": "isotropic",
+      "variant": "matched"
+    },
+    {
+      "kind": "tree",
+      "width": 2,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.13350494438729502,
+      "isotropic_gaussian_error": 0.13350494438729502,
+      "symmetric_frobenius_error": 0.137270721467809,
+      "cosine": 0.9910481470766931,
+      "norm_ratio": 0.9910481048819494,
+      "shifted_input_error": 0.10206658919954216,
+      "parameter_values": 96,
+      "diagnostic_weight_entries_above_relative_1e3": 12,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.61534732603468,
+      "history": [
+        {
+          "step": 0,
+          "error": 5.777657108982232,
+          "objective": 5.777657108982232
+        },
+        {
+          "step": 100,
+          "error": 0.11262145491555209,
+          "objective": 0.11262145491555209
+        },
+        {
+          "step": 200,
+          "error": 0.034123187207409825,
+          "objective": 0.034123187207409825
+        },
+        {
+          "step": 300,
+          "error": 0.018778541513064913,
+          "objective": 0.018778541513064913
+        },
+        {
+          "step": 400,
+          "error": 0.017876018456596678,
+          "objective": 0.017876018456596678
+        },
+        {
+          "step": 500,
+          "error": 0.017827062069150156,
+          "objective": 0.017827062069150156
+        },
+        {
+          "step": 600,
+          "error": 0.017823882898103688,
+          "objective": 0.017823882898103688
+        },
+        {
+          "step": 700,
+          "error": 0.017823610876939296,
+          "objective": 0.017823610876939296
+        },
+        {
+          "step": 800,
+          "error": 0.017823577930909038,
+          "objective": 0.017823577930909038
+        },
+        {
+          "step": 900,
+          "error": 0.01782357211381788,
+          "objective": 0.01782357211381788
+        },
+        {
+          "step": 1000,
+          "error": 0.017823570694434097,
+          "objective": 0.017823570694434097
+        },
+        {
+          "step": 1100,
+          "error": 0.017823570288557272,
+          "objective": 0.017823570288557272
+        },
+        {
+          "step": 1199,
+          "error": 0.017823570175854737,
+          "objective": 0.017823570175854737
+        }
+      ],
+      "case": "quartic_tree",
+      "objective": "isotropic",
+      "variant": "matched"
+    },
+    {
+      "kind": "tree",
+      "width": 4,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.016857549651426825,
+      "isotropic_gaussian_error": 0.016857549651426825,
+      "symmetric_frobenius_error": 0.023979164662382178,
+      "cosine": 0.999857901721826,
+      "norm_ratio": 0.9998330859456238,
+      "shifted_input_error": 0.0177760223474123,
+      "parameter_values": 216,
+      "diagnostic_weight_entries_above_relative_1e3": 48,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.6389999820385128,
+      "history": [
+        {
+          "step": 0,
+          "error": 21.029071122812745,
+          "objective": 21.029071122812745
+        },
+        {
+          "step": 100,
+          "error": 0.155221126615505,
+          "objective": 0.155221126615505
+        },
+        {
+          "step": 200,
+          "error": 0.026750551683137294,
+          "objective": 0.026750551683137294
+        },
+        {
+          "step": 300,
+          "error": 0.007155856399728742,
+          "objective": 0.007155856399728742
+        },
+        {
+          "step": 400,
+          "error": 0.0027035752713780144,
+          "objective": 0.0027035752713780144
+        },
+        {
+          "step": 500,
+          "error": 0.0011572810626498929,
+          "objective": 0.0011572810626498929
+        },
+        {
+          "step": 600,
+          "error": 0.0006838038137432331,
+          "objective": 0.0006838038137432331
+        },
+        {
+          "step": 700,
+          "error": 0.00047847910266771317,
+          "objective": 0.00047847910266771317
+        },
+        {
+          "step": 800,
+          "error": 0.000377291057724642,
+          "objective": 0.000377291057724642
+        },
+        {
+          "step": 900,
+          "error": 0.00032491129260740526,
+          "objective": 0.00032491129260740526
+        },
+        {
+          "step": 1000,
+          "error": 0.00029881674045668385,
+          "objective": 0.00029881674045668385
+        },
+        {
+          "step": 1100,
+          "error": 0.0002877896880461845,
+          "objective": 0.0002877896880461845
+        },
+        {
+          "step": 1199,
+          "error": 0.00028417698025032066,
+          "objective": 0.00028417698025032066
+        }
+      ],
+      "case": "quartic_tree",
+      "objective": "isotropic",
+      "variant": "wide"
+    },
+    {
+      "kind": "tree",
+      "width": 4,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.14010199926422698,
+      "isotropic_gaussian_error": 0.14010199926422698,
+      "symmetric_frobenius_error": 0.20454008121335188,
+      "cosine": 0.9901371069732388,
+      "norm_ratio": 0.9898905239891042,
+      "shifted_input_error": 0.1459570133839235,
+      "parameter_values": 216,
+      "diagnostic_weight_entries_above_relative_1e3": 48,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.6419634080957621,
+      "history": [
+        {
+          "step": 0,
+          "error": 20.993121660331365,
+          "objective": 20.993121660331365
+        },
+        {
+          "step": 100,
+          "error": 0.12481651055447573,
+          "objective": 0.12481651055447573
+        },
+        {
+          "step": 200,
+          "error": 0.05882364970855722,
+          "objective": 0.05882364970855722
+        },
+        {
+          "step": 300,
+          "error": 0.03235237340851768,
+          "objective": 0.03235237340851768
+        },
+        {
+          "step": 400,
+          "error": 0.027512818615120064,
+          "objective": 0.027512818615120064
+        },
+        {
+          "step": 500,
+          "error": 0.025458623587180693,
+          "objective": 0.025458623587180693
+        },
+        {
+          "step": 600,
+          "error": 0.02387061940731831,
+          "objective": 0.02387061940731831
+        },
+        {
+          "step": 700,
+          "error": 0.022519285962287267,
+          "objective": 0.022519285962287267
+        },
+        {
+          "step": 800,
+          "error": 0.0213932240421411,
+          "objective": 0.0213932240421411
+        },
+        {
+          "step": 900,
+          "error": 0.020535944920147358,
+          "objective": 0.020535944920147358
+        },
+        {
+          "step": 1000,
+          "error": 0.01998674791214603,
+          "objective": 0.01998674791214603
+        },
+        {
+          "step": 1100,
+          "error": 0.019720847533458628,
+          "objective": 0.019720847533458628
+        },
+        {
+          "step": 1199,
+          "error": 0.019628570197833456,
+          "objective": 0.019628570197833456
+        }
+      ],
+      "case": "quartic_tree",
+      "objective": "isotropic",
+      "variant": "wide"
+    },
+    {
+      "kind": "tree",
+      "width": 2,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.1837893081424123,
+      "isotropic_gaussian_error": 0.1837893081424123,
+      "symmetric_frobenius_error": 0.2647942883812395,
+      "cosine": 0.982965671836687,
+      "norm_ratio": 0.98311330928487,
+      "shifted_input_error": 0.15444534139479835,
+      "parameter_values": 96,
+      "diagnostic_weight_entries_above_relative_1e3": 12,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.6892085559666157,
+      "history": [
+        {
+          "step": 0,
+          "error": 9.571742973988137,
+          "objective": 9.571742973988137
+        },
+        {
+          "step": 100,
+          "error": 0.3406102851543227,
+          "objective": 0.3406102851543227
+        },
+        {
+          "step": 200,
+          "error": 0.14458194868127175,
+          "objective": 0.14458194868127175
+        },
+        {
+          "step": 300,
+          "error": 0.05939614722917503,
+          "objective": 0.05939614722917503
+        },
+        {
+          "step": 400,
+          "error": 0.03734686594154431,
+          "objective": 0.03734686594154431
+        },
+        {
+          "step": 500,
+          "error": 0.03583824005706755,
+          "objective": 0.03583824005706755
+        },
+        {
+          "step": 600,
+          "error": 0.035207424739724755,
+          "objective": 0.035207424739724755
+        },
+        {
+          "step": 700,
+          "error": 0.035219389324002606,
+          "objective": 0.035219389324002606
+        },
+        {
+          "step": 800,
+          "error": 0.033918210970039435,
+          "objective": 0.033918210970039435
+        },
+        {
+          "step": 900,
+          "error": 0.033935914837453625,
+          "objective": 0.033935914837453625
+        },
+        {
+          "step": 1000,
+          "error": 0.033803962305171874,
+          "objective": 0.033803962305171874
+        },
+        {
+          "step": 1100,
+          "error": 0.03378080541673874,
+          "objective": 0.03378080541673874
+        },
+        {
+          "step": 1199,
+          "error": 0.03377869397706379,
+          "objective": 0.03377869397706379
+        }
+      ],
+      "case": "quartic_tree",
+      "objective": "isotropic",
+      "variant": "matched"
+    },
+    {
+      "kind": "tree",
+      "width": 2,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.13350526934618256,
+      "isotropic_gaussian_error": 0.13350526934618256,
+      "symmetric_frobenius_error": 0.13727184922455662,
+      "cosine": 0.9910481168274398,
+      "norm_ratio": 0.9912118556788361,
+      "shifted_input_error": 0.10207038819763974,
+      "parameter_values": 96,
+      "diagnostic_weight_entries_above_relative_1e3": 12,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.696791130816564,
+      "history": [
+        {
+          "step": 0,
+          "error": 5.777657108982232,
+          "objective": 5.777657108982232
+        },
+        {
+          "step": 100,
+          "error": 0.13330656348722836,
+          "objective": 0.13330656348722836
+        },
+        {
+          "step": 200,
+          "error": 0.025872601674715348,
+          "objective": 0.025872601674715348
+        },
+        {
+          "step": 300,
+          "error": 0.022443088230411676,
+          "objective": 0.022443088230411676
+        },
+        {
+          "step": 400,
+          "error": 0.02181025119065617,
+          "objective": 0.02181025119065617
+        },
+        {
+          "step": 500,
+          "error": 0.01919598980667914,
+          "objective": 0.01919598980667914
+        },
+        {
+          "step": 600,
+          "error": 0.018434698989834485,
+          "objective": 0.018434698989834485
+        },
+        {
+          "step": 700,
+          "error": 0.01805164208066707,
+          "objective": 0.01805164208066707
+        },
+        {
+          "step": 800,
+          "error": 0.017996453081218222,
+          "objective": 0.017996453081218222
+        },
+        {
+          "step": 900,
+          "error": 0.01789878166866442,
+          "objective": 0.01789878166866442
+        },
+        {
+          "step": 1000,
+          "error": 0.017864835063682243,
+          "objective": 0.017864835063682243
+        },
+        {
+          "step": 1100,
+          "error": 0.01782648572614062,
+          "objective": 0.01782648572614062
+        },
+        {
+          "step": 1199,
+          "error": 0.017823947738947046,
+          "objective": 0.017823947738947046
+        }
+      ],
+      "case": "quartic_tree",
+      "objective": "isotropic",
+      "variant": "matched"
+    },
+    {
+      "kind": "tree",
+      "width": 4,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.000441628074543132,
+      "isotropic_gaussian_error": 0.000441628074543132,
+      "symmetric_frobenius_error": 0.0006111274483557977,
+      "cosine": 0.9999999092946721,
+      "norm_ratio": 1.0001166342223113,
+      "shifted_input_error": 0.000502157615260382,
+      "parameter_values": 216,
+      "diagnostic_weight_entries_above_relative_1e3": 46,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.719182139961049,
+      "history": [
+        {
+          "step": 0,
+          "error": 21.029071122812745,
+          "objective": 21.029071122812745
+        },
+        {
+          "step": 100,
+          "error": 0.2336602644034699,
+          "objective": 0.2336602644034699
+        },
+        {
+          "step": 200,
+          "error": 0.016347500384039943,
+          "objective": 0.016347500384039943
+        },
+        {
+          "step": 300,
+          "error": 0.012044005119645856,
+          "objective": 0.012044005119645856
+        },
+        {
+          "step": 400,
+          "error": 0.005032196435574165,
+          "objective": 0.005032196435574165
+        },
+        {
+          "step": 500,
+          "error": 0.001677776257103464,
+          "objective": 0.001677776257103464
+        },
+        {
+          "step": 600,
+          "error": 0.0007893201777980141,
+          "objective": 0.0007893201777980141
+        },
+        {
+          "step": 700,
+          "error": 0.0007880574327454202,
+          "objective": 0.0007880574327454202
+        },
+        {
+          "step": 800,
+          "error": 0.0007039131780874515,
+          "objective": 0.0007039131780874515
+        },
+        {
+          "step": 900,
+          "error": 0.00019853626374165061,
+          "objective": 0.00019853626374165061
+        },
+        {
+          "step": 1000,
+          "error": 2.167296340083382e-05,
+          "objective": 2.167296340083382e-05
+        },
+        {
+          "step": 1100,
+          "error": 3.6624173470108045e-06,
+          "objective": 3.6624173470108045e-06
+        },
+        {
+          "step": 1199,
+          "error": 5.342393067455772e-07,
+          "objective": 5.342393067455772e-07
+        }
+      ],
+      "case": "quartic_tree",
+      "objective": "isotropic",
+      "variant": "wide"
+    },
+    {
+      "kind": "tree",
+      "width": 4,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.0004101028380000629,
+      "isotropic_gaussian_error": 0.0004101028380000629,
+      "symmetric_frobenius_error": 0.0005604033816105925,
+      "cosine": 0.9999999181428839,
+      "norm_ratio": 1.0000667770392164,
+      "shifted_input_error": 0.000461721017271632,
+      "parameter_values": 216,
+      "diagnostic_weight_entries_above_relative_1e3": 48,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.7193425330333412,
+      "history": [
+        {
+          "step": 0,
+          "error": 20.993121660331365,
+          "objective": 20.993121660331365
+        },
+        {
+          "step": 100,
+          "error": 0.20604743361710812,
+          "objective": 0.20604743361710812
+        },
+        {
+          "step": 200,
+          "error": 0.013952195744661059,
+          "objective": 0.013952195744661059
+        },
+        {
+          "step": 300,
+          "error": 0.009861367482833758,
+          "objective": 0.009861367482833758
+        },
+        {
+          "step": 400,
+          "error": 0.00499060786939351,
+          "objective": 0.00499060786939351
+        },
+        {
+          "step": 500,
+          "error": 0.009078198556477134,
+          "objective": 0.009078198556477134
+        },
+        {
+          "step": 600,
+          "error": 0.0017098398266885597,
+          "objective": 0.0017098398266885597
+        },
+        {
+          "step": 700,
+          "error": 0.000639078477584252,
+          "objective": 0.000639078477584252
+        },
+        {
+          "step": 800,
+          "error": 0.0006574376462998466,
+          "objective": 0.0006574376462998466
+        },
+        {
+          "step": 900,
+          "error": 0.00017625080778009545,
+          "objective": 0.00017625080778009545
+        },
+        {
+          "step": 1000,
+          "error": 4.147183048490844e-05,
+          "objective": 4.147183048490844e-05
+        },
+        {
+          "step": 1100,
+          "error": 8.314083461254245e-06,
+          "objective": 8.314083461254245e-06
+        },
+        {
+          "step": 1199,
+          "error": 1.6818433773570584e-07,
+          "objective": 1.6818433773570584e-07
+        }
+      ],
+      "case": "quartic_tree",
+      "objective": "isotropic",
+      "variant": "wide"
+    },
+    {
+      "kind": "tree",
+      "width": 2,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.04780535736134829,
+      "isotropic_gaussian_error": 0.7088432172631981,
+      "symmetric_frobenius_error": 0.8134654709149992,
+      "cosine": 0.9988566703897066,
+      "norm_ratio": 0.9988698786127493,
+      "shifted_input_error": 0.5951198537751288,
+      "parameter_values": 96,
+      "diagnostic_weight_entries_above_relative_1e3": 12,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.6062212139368057,
+      "history": [
+        {
+          "step": 0,
+          "error": 3.3524139806501756,
+          "objective": 3.3524139806501756
+        },
+        {
+          "step": 100,
+          "error": 0.05751482947120545,
+          "objective": 0.05751482947120545
+        },
+        {
+          "step": 200,
+          "error": 0.03172324054536046,
+          "objective": 0.03172324054536046
+        },
+        {
+          "step": 300,
+          "error": 0.01621659516682219,
+          "objective": 0.01621659516682219
+        },
+        {
+          "step": 400,
+          "error": 0.009516725637434368,
+          "objective": 0.009516725637434368
+        },
+        {
+          "step": 500,
+          "error": 0.005991523790736232,
+          "objective": 0.005991523790736232
+        },
+        {
+          "step": 600,
+          "error": 0.0041175905770657285,
+          "objective": 0.0041175905770657285
+        },
+        {
+          "step": 700,
+          "error": 0.0031903855972376556,
+          "objective": 0.0031903855972376556
+        },
+        {
+          "step": 800,
+          "error": 0.002724577442161579,
+          "objective": 0.002724577442161579
+        },
+        {
+          "step": 900,
+          "error": 0.0024801665669829777,
+          "objective": 0.0024801665669829777
+        },
+        {
+          "step": 1000,
+          "error": 0.002356083748658112,
+          "objective": 0.002356083748658112
+        },
+        {
+          "step": 1100,
+          "error": 0.002302897595563599,
+          "objective": 0.002302897595563599
+        },
+        {
+          "step": 1199,
+          "error": 0.0022853521924462174,
+          "objective": 0.0022853521924462174
+        }
+      ],
+      "case": "quartic_tree",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "matched"
+    },
+    {
+      "kind": "tree",
+      "width": 2,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.09935673870121858,
+      "isotropic_gaussian_error": 1.1247391372783888,
+      "symmetric_frobenius_error": 1.1522941611391675,
+      "cosine": 0.9950518774283349,
+      "norm_ratio": 0.9950345859209104,
+      "shifted_input_error": 1.0053958751597245,
+      "parameter_values": 96,
+      "diagnostic_weight_entries_above_relative_1e3": 12,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.6078648529946804,
+      "history": [
+        {
+          "step": 0,
+          "error": 10.281126106879897,
+          "objective": 10.281126106879897
+        },
+        {
+          "step": 100,
+          "error": 0.09555018336120695,
+          "objective": 0.09555018336120695
+        },
+        {
+          "step": 200,
+          "error": 0.04620788268423942,
+          "objective": 0.04620788268423942
+        },
+        {
+          "step": 300,
+          "error": 0.034263358871672873,
+          "objective": 0.034263358871672873
+        },
+        {
+          "step": 400,
+          "error": 0.026760768549774158,
+          "objective": 0.026760768549774158
+        },
+        {
+          "step": 500,
+          "error": 0.019908238878547316,
+          "objective": 0.019908238878547316
+        },
+        {
+          "step": 600,
+          "error": 0.01528728789730982,
+          "objective": 0.01528728789730982
+        },
+        {
+          "step": 700,
+          "error": 0.01269350041858288,
+          "objective": 0.01269350041858288
+        },
+        {
+          "step": 800,
+          "error": 0.011279458050248029,
+          "objective": 0.011279458050248029
+        },
+        {
+          "step": 900,
+          "error": 0.010503947735730997,
+          "objective": 0.010503947735730997
+        },
+        {
+          "step": 1000,
+          "error": 0.010102517260506533,
+          "objective": 0.010102517260506533
+        },
+        {
+          "step": 1100,
+          "error": 0.00992912018681512,
+          "objective": 0.00992912018681512
+        },
+        {
+          "step": 1199,
+          "error": 0.009871761525342226,
+          "objective": 0.009871761525342226
+        }
+      ],
+      "case": "quartic_tree",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "matched"
+    },
+    {
+      "kind": "tree",
+      "width": 4,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.053969669498652145,
+      "isotropic_gaussian_error": 1.9200257139676262,
+      "symmetric_frobenius_error": 1.910940343611423,
+      "cosine": 0.9985425803209831,
+      "norm_ratio": 0.9986422792739493,
+      "shifted_input_error": 1.3104673387693762,
+      "parameter_values": 216,
+      "diagnostic_weight_entries_above_relative_1e3": 48,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.6307483839336783,
+      "history": [
+        {
+          "step": 0,
+          "error": 17.59479819513154,
+          "objective": 17.59479819513154
+        },
+        {
+          "step": 100,
+          "error": 0.05038853235819339,
+          "objective": 0.05038853235819339
+        },
+        {
+          "step": 200,
+          "error": 0.02016863572951699,
+          "objective": 0.02016863572951699
+        },
+        {
+          "step": 300,
+          "error": 0.010992301044711989,
+          "objective": 0.010992301044711989
+        },
+        {
+          "step": 400,
+          "error": 0.007105818339770443,
+          "objective": 0.007105818339770443
+        },
+        {
+          "step": 500,
+          "error": 0.005165799362991675,
+          "objective": 0.005165799362991675
+        },
+        {
+          "step": 600,
+          "error": 0.004164545066698451,
+          "objective": 0.004164545066698451
+        },
+        {
+          "step": 700,
+          "error": 0.0036039087279341564,
+          "objective": 0.0036039087279341564
+        },
+        {
+          "step": 800,
+          "error": 0.00327215685362168,
+          "objective": 0.00327215685362168
+        },
+        {
+          "step": 900,
+          "error": 0.0030779903367401064,
+          "objective": 0.0030779903367401064
+        },
+        {
+          "step": 1000,
+          "error": 0.0029737682772804546,
+          "objective": 0.0029737682772804546
+        },
+        {
+          "step": 1100,
+          "error": 0.002927974803700469,
+          "objective": 0.002927974803700469
+        },
+        {
+          "step": 1199,
+          "error": 0.0029127252257937436,
+          "objective": 0.0029127252257937436
+        }
+      ],
+      "case": "quartic_tree",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "wide"
+    },
+    {
+      "kind": "tree",
+      "width": 4,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.08345046504152989,
+      "isotropic_gaussian_error": 2.290331471008083,
+      "symmetric_frobenius_error": 2.4328413895724337,
+      "cosine": 0.9965128342549411,
+      "norm_ratio": 0.9978578065461681,
+      "shifted_input_error": 1.5612003943689163,
+      "parameter_values": 216,
+      "diagnostic_weight_entries_above_relative_1e3": 48,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.6319757360033691,
+      "history": [
+        {
+          "step": 0,
+          "error": 32.932243735158565,
+          "objective": 32.932243735158565
+        },
+        {
+          "step": 100,
+          "error": 0.06854512365670862,
+          "objective": 0.06854512365670862
+        },
+        {
+          "step": 200,
+          "error": 0.03621556264873437,
+          "objective": 0.03621556264873437
+        },
+        {
+          "step": 300,
+          "error": 0.02306935477108597,
+          "objective": 0.02306935477108597
+        },
+        {
+          "step": 400,
+          "error": 0.01627265195368026,
+          "objective": 0.01627265195368026
+        },
+        {
+          "step": 500,
+          "error": 0.012432303429453192,
+          "objective": 0.012432303429453192
+        },
+        {
+          "step": 600,
+          "error": 0.01014384573701785,
+          "objective": 0.01014384573701785
+        },
+        {
+          "step": 700,
+          "error": 0.008749322154605747,
+          "objective": 0.008749322154605747
+        },
+        {
+          "step": 800,
+          "error": 0.007898313085229857,
+          "objective": 0.007898313085229857
+        },
+        {
+          "step": 900,
+          "error": 0.007394852927012673,
+          "objective": 0.007394852927012673
+        },
+        {
+          "step": 1000,
+          "error": 0.007123369358306682,
+          "objective": 0.007123369358306682
+        },
+        {
+          "step": 1100,
+          "error": 0.007003824990970014,
+          "objective": 0.007003824990970014
+        },
+        {
+          "step": 1199,
+          "error": 0.0069639801156476016,
+          "objective": 0.0069639801156476016
+        }
+      ],
+      "case": "quartic_tree",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "wide"
+    },
+    {
+      "kind": "tree",
+      "width": 2,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.015437469365506782,
+      "isotropic_gaussian_error": 1.1694170887057982,
+      "symmetric_frobenius_error": 1.312660092575251,
+      "cosine": 0.9998808545129726,
+      "norm_ratio": 0.9996841771048247,
+      "shifted_input_error": 0.9816269333479446,
+      "parameter_values": 96,
+      "diagnostic_weight_entries_above_relative_1e3": 12,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.6807337049394846,
+      "history": [
+        {
+          "step": 0,
+          "error": 3.3524139806501756,
+          "objective": 3.3524139806501756
+        },
+        {
+          "step": 100,
+          "error": 0.04119848648709515,
+          "objective": 0.04119848648709515
+        },
+        {
+          "step": 200,
+          "error": 0.008832459432980947,
+          "objective": 0.008832459432980947
+        },
+        {
+          "step": 300,
+          "error": 0.004831743716815156,
+          "objective": 0.004831743716815156
+        },
+        {
+          "step": 400,
+          "error": 0.0023545630294710546,
+          "objective": 0.0023545630294710546
+        },
+        {
+          "step": 500,
+          "error": 0.0015377159475574243,
+          "objective": 0.0015377159475574243
+        },
+        {
+          "step": 600,
+          "error": 0.0009322169574777516,
+          "objective": 0.0009322169574777516
+        },
+        {
+          "step": 700,
+          "error": 0.0009046366937268194,
+          "objective": 0.0009046366937268194
+        },
+        {
+          "step": 800,
+          "error": 0.0006455937475717474,
+          "objective": 0.0006455937475717474
+        },
+        {
+          "step": 900,
+          "error": 0.0004110031139597637,
+          "objective": 0.0004110031139597637
+        },
+        {
+          "step": 1000,
+          "error": 0.0002872502117854927,
+          "objective": 0.0002872502117854927
+        },
+        {
+          "step": 1100,
+          "error": 0.00025356157879079586,
+          "objective": 0.00025356157879079586
+        },
+        {
+          "step": 1199,
+          "error": 0.00023831546041096037,
+          "objective": 0.00023831546041096037
+        }
+      ],
+      "case": "quartic_tree",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "matched"
+    },
+    {
+      "kind": "tree",
+      "width": 2,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.015600600064854926,
+      "isotropic_gaussian_error": 0.8712721099916325,
+      "symmetric_frobenius_error": 0.9692030521387098,
+      "cosine": 0.9998783032344041,
+      "norm_ratio": 0.9998771655514381,
+      "shifted_input_error": 0.5436759696181995,
+      "parameter_values": 96,
+      "diagnostic_weight_entries_above_relative_1e3": 12,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.6829561700578779,
+      "history": [
+        {
+          "step": 0,
+          "error": 10.281126106879897,
+          "objective": 10.281126106879897
+        },
+        {
+          "step": 100,
+          "error": 0.1275450016492071,
+          "objective": 0.1275450016492071
+        },
+        {
+          "step": 200,
+          "error": 0.015325950458298675,
+          "objective": 0.015325950458298675
+        },
+        {
+          "step": 300,
+          "error": 0.004681753439133186,
+          "objective": 0.004681753439133186
+        },
+        {
+          "step": 400,
+          "error": 0.0037873082573207286,
+          "objective": 0.0037873082573207286
+        },
+        {
+          "step": 500,
+          "error": 0.0012389590963138928,
+          "objective": 0.0012389590963138928
+        },
+        {
+          "step": 600,
+          "error": 0.001186956185585483,
+          "objective": 0.001186956185585483
+        },
+        {
+          "step": 700,
+          "error": 0.0009354376665766906,
+          "objective": 0.0009354376665766906
+        },
+        {
+          "step": 800,
+          "error": 0.0006814881686918369,
+          "objective": 0.0006814881686918369
+        },
+        {
+          "step": 900,
+          "error": 0.000352070206439198,
+          "objective": 0.000352070206439198
+        },
+        {
+          "step": 1000,
+          "error": 0.0003117210005530437,
+          "objective": 0.0003117210005530437
+        },
+        {
+          "step": 1100,
+          "error": 0.00025749399325169706,
+          "objective": 0.00025749399325169706
+        },
+        {
+          "step": 1199,
+          "error": 0.0002436705773173904,
+          "objective": 0.0002436705773173904
+        }
+      ],
+      "case": "quartic_tree",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "matched"
+    },
+    {
+      "kind": "tree",
+      "width": 4,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.017541164939165035,
+      "isotropic_gaussian_error": 1.463517926586482,
+      "symmetric_frobenius_error": 1.5639450583138448,
+      "cosine": 0.9998461440372093,
+      "norm_ratio": 0.9997812325701133,
+      "shifted_input_error": 1.4684092805259514,
+      "parameter_values": 216,
+      "diagnostic_weight_entries_above_relative_1e3": 48,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.7099606269039214,
+      "history": [
+        {
+          "step": 0,
+          "error": 17.59479819513154,
+          "objective": 17.59479819513154
+        },
+        {
+          "step": 100,
+          "error": 0.07391796624856749,
+          "objective": 0.07391796624856749
+        },
+        {
+          "step": 200,
+          "error": 0.012451428297075467,
+          "objective": 0.012451428297075467
+        },
+        {
+          "step": 300,
+          "error": 0.00768517116959147,
+          "objective": 0.00768517116959147
+        },
+        {
+          "step": 400,
+          "error": 0.003955983258629985,
+          "objective": 0.003955983258629985
+        },
+        {
+          "step": 500,
+          "error": 0.0018997440204163653,
+          "objective": 0.0018997440204163653
+        },
+        {
+          "step": 600,
+          "error": 0.0014992173265301007,
+          "objective": 0.0014992173265301007
+        },
+        {
+          "step": 700,
+          "error": 0.0008219659955100078,
+          "objective": 0.0008219659955100078
+        },
+        {
+          "step": 800,
+          "error": 0.0008444065956209856,
+          "objective": 0.0008444065956209856
+        },
+        {
+          "step": 900,
+          "error": 0.0004830193560059643,
+          "objective": 0.0004830193560059643
+        },
+        {
+          "step": 1000,
+          "error": 0.00036209666807746933,
+          "objective": 0.00036209666807746933
+        },
+        {
+          "step": 1100,
+          "error": 0.0003247209816755955,
+          "objective": 0.0003247209816755955
+        },
+        {
+          "step": 1199,
+          "error": 0.0003076924674229927,
+          "objective": 0.0003076924674229927
+        }
+      ],
+      "case": "quartic_tree",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "wide"
+    },
+    {
+      "kind": "tree",
+      "width": 4,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.01637254191540836,
+      "isotropic_gaussian_error": 1.2369892892137704,
+      "symmetric_frobenius_error": 1.4334204808914603,
+      "cosine": 0.9998659973479858,
+      "norm_ratio": 0.9995962169651138,
+      "shifted_input_error": 1.3591835843779971,
+      "parameter_values": 216,
+      "diagnostic_weight_entries_above_relative_1e3": 48,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.710937004070729,
+      "history": [
+        {
+          "step": 0,
+          "error": 32.932243735158565,
+          "objective": 32.932243735158565
+        },
+        {
+          "step": 100,
+          "error": 0.11202262367061955,
+          "objective": 0.11202262367061955
+        },
+        {
+          "step": 200,
+          "error": 0.012762020491504347,
+          "objective": 0.012762020491504347
+        },
+        {
+          "step": 300,
+          "error": 0.006525754402360382,
+          "objective": 0.006525754402360382
+        },
+        {
+          "step": 400,
+          "error": 0.004687998670504882,
+          "objective": 0.004687998670504882
+        },
+        {
+          "step": 500,
+          "error": 0.002345626302004862,
+          "objective": 0.002345626302004862
+        },
+        {
+          "step": 600,
+          "error": 0.001263856542556422,
+          "objective": 0.001263856542556422
+        },
+        {
+          "step": 700,
+          "error": 0.0007686594845656108,
+          "objective": 0.0007686594845656108
+        },
+        {
+          "step": 800,
+          "error": 0.0005475685109599147,
+          "objective": 0.0005475685109599147
+        },
+        {
+          "step": 900,
+          "error": 0.00043015146495378894,
+          "objective": 0.00043015146495378894
+        },
+        {
+          "step": 1000,
+          "error": 0.0003293065861050862,
+          "objective": 0.0003293065861050862
+        },
+        {
+          "step": 1100,
+          "error": 0.00028051918932352795,
+          "objective": 0.00028051918932352795
+        },
+        {
+          "step": 1199,
+          "error": 0.00026806012877180364,
+          "objective": 0.00026806012877180364
+        }
+      ],
+      "case": "quartic_tree",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "wide"
+    },
+    {
+      "kind": "dag",
+      "width": 3,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.010419086883001916,
+      "isotropic_gaussian_error": 0.010419086883001916,
+      "symmetric_frobenius_error": 0.0141560676835356,
+      "cosine": 0.9999457200140046,
+      "norm_ratio": 0.999927124274593,
+      "shifted_input_error": 0.009009626016804127,
+      "parameter_values": 81,
+      "diagnostic_weight_entries_above_relative_1e3": 18,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.5896938799414784,
+      "history": [
+        {
+          "step": 0,
+          "error": 14.897135560600413,
+          "objective": 14.897135560600413
+        },
+        {
+          "step": 100,
+          "error": 0.5127984632911922,
+          "objective": 0.5127984632911922
+        },
+        {
+          "step": 200,
+          "error": 0.07514810773272068,
+          "objective": 0.07514810773272068
+        },
+        {
+          "step": 300,
+          "error": 0.01455843241892218,
+          "objective": 0.01455843241892218
+        },
+        {
+          "step": 400,
+          "error": 0.005045651541920692,
+          "objective": 0.005045651541920692
+        },
+        {
+          "step": 500,
+          "error": 0.0018608603010209573,
+          "objective": 0.0018608603010209573
+        },
+        {
+          "step": 600,
+          "error": 0.0007752152546302319,
+          "objective": 0.0007752152546302319
+        },
+        {
+          "step": 700,
+          "error": 0.000380317329620347,
+          "objective": 0.000380317329620347
+        },
+        {
+          "step": 800,
+          "error": 0.0002223073167357891,
+          "objective": 0.0002223073167357891
+        },
+        {
+          "step": 900,
+          "error": 0.0001540066478323197,
+          "objective": 0.0001540066478323197
+        },
+        {
+          "step": 1000,
+          "error": 0.00012405872036413875,
+          "objective": 0.00012405872036413875
+        },
+        {
+          "step": 1100,
+          "error": 0.00011229201916222267,
+          "objective": 0.00011229201916222267
+        },
+        {
+          "step": 1199,
+          "error": 0.00010855737147554256,
+          "objective": 0.00010855737147554256
+        }
+      ],
+      "case": "shared_quartic_dag",
+      "objective": "isotropic",
+      "variant": "matched"
+    },
+    {
+      "kind": "dag",
+      "width": 3,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.3578428993368835,
+      "isotropic_gaussian_error": 0.3578428993368835,
+      "symmetric_frobenius_error": 0.43884033160216607,
+      "cosine": 0.9337818186995125,
+      "norm_ratio": 0.9339416298270065,
+      "shifted_input_error": 0.29052359245143355,
+      "parameter_values": 81,
+      "diagnostic_weight_entries_above_relative_1e3": 18,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.5895190790761262,
+      "history": [
+        {
+          "step": 0,
+          "error": 52.06597269116073,
+          "objective": 52.06597269116073
+        },
+        {
+          "step": 100,
+          "error": 0.7967789252531721,
+          "objective": 0.7967789252531721
+        },
+        {
+          "step": 200,
+          "error": 0.6164234140944692,
+          "objective": 0.6164234140944692
+        },
+        {
+          "step": 300,
+          "error": 0.42849065352991583,
+          "objective": 0.42849065352991583
+        },
+        {
+          "step": 400,
+          "error": 0.2668252314894327,
+          "objective": 0.2668252314894327
+        },
+        {
+          "step": 500,
+          "error": 0.21332989852480583,
+          "objective": 0.21332989852480583
+        },
+        {
+          "step": 600,
+          "error": 0.1788847423761921,
+          "objective": 0.1788847423761921
+        },
+        {
+          "step": 700,
+          "error": 0.15825128770167757,
+          "objective": 0.15825128770167757
+        },
+        {
+          "step": 800,
+          "error": 0.14516442148807368,
+          "objective": 0.14516442148807368
+        },
+        {
+          "step": 900,
+          "error": 0.13649026989864244,
+          "objective": 0.13649026989864244
+        },
+        {
+          "step": 1000,
+          "error": 0.13130302906066946,
+          "objective": 0.13130302906066946
+        },
+        {
+          "step": 1100,
+          "error": 0.12887949529433168,
+          "objective": 0.12887949529433168
+        },
+        {
+          "step": 1199,
+          "error": 0.12805154060582694,
+          "objective": 0.12805154060582694
+        }
+      ],
+      "case": "shared_quartic_dag",
+      "objective": "isotropic",
+      "variant": "matched"
+    },
+    {
+      "kind": "dag",
+      "width": 6,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.00405930026587381,
+      "isotropic_gaussian_error": 0.00405930026587381,
+      "symmetric_frobenius_error": 0.005593667129905971,
+      "cosine": 0.9999917611702609,
+      "norm_ratio": 0.9999736766863899,
+      "shifted_input_error": 0.0034462520414846477,
+      "parameter_values": 189,
+      "diagnostic_weight_entries_above_relative_1e3": 61,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.6112496289424598,
+      "history": [
+        {
+          "step": 0,
+          "error": 73.34309576222853,
+          "objective": 73.34309576222853
+        },
+        {
+          "step": 100,
+          "error": 0.22107814988484348,
+          "objective": 0.22107814988484348
+        },
+        {
+          "step": 200,
+          "error": 0.1270529286294539,
+          "objective": 0.1270529286294539
+        },
+        {
+          "step": 300,
+          "error": 0.03576069853323173,
+          "objective": 0.03576069853323173
+        },
+        {
+          "step": 400,
+          "error": 0.005334038805803517,
+          "objective": 0.005334038805803517
+        },
+        {
+          "step": 500,
+          "error": 0.0011331427780675893,
+          "objective": 0.0011331427780675893
+        },
+        {
+          "step": 600,
+          "error": 0.00030979765776764623,
+          "objective": 0.00030979765776764623
+        },
+        {
+          "step": 700,
+          "error": 0.00010651770662395688,
+          "objective": 0.00010651770662395688
+        },
+        {
+          "step": 800,
+          "error": 4.762507831485371e-05,
+          "objective": 4.762507831485371e-05
+        },
+        {
+          "step": 900,
+          "error": 2.7582848364871915e-05,
+          "objective": 2.7582848364871915e-05
+        },
+        {
+          "step": 1000,
+          "error": 2.0043637960623217e-05,
+          "objective": 2.0043637960623217e-05
+        },
+        {
+          "step": 1100,
+          "error": 1.7314722771649077e-05,
+          "objective": 1.7314722771649077e-05
+        },
+        {
+          "step": 1199,
+          "error": 1.6477918648523183e-05,
+          "objective": 1.6477918648523183e-05
+        }
+      ],
+      "case": "shared_quartic_dag",
+      "objective": "isotropic",
+      "variant": "wide"
+    },
+    {
+      "kind": "dag",
+      "width": 6,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.000842480958553199,
+      "isotropic_gaussian_error": 0.000842480958553199,
+      "symmetric_frobenius_error": 0.0011754270641910623,
+      "cosine": 0.9999996451151865,
+      "norm_ratio": 0.9999974854458368,
+      "shifted_input_error": 0.0006524053935801585,
+      "parameter_values": 189,
+      "diagnostic_weight_entries_above_relative_1e3": 63,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.6097307258751243,
+      "history": [
+        {
+          "step": 0,
+          "error": 32.7857651706538,
+          "objective": 32.7857651706538
+        },
+        {
+          "step": 100,
+          "error": 0.291732714791646,
+          "objective": 0.291732714791646
+        },
+        {
+          "step": 200,
+          "error": 0.016125665633616178,
+          "objective": 0.016125665633616178
+        },
+        {
+          "step": 300,
+          "error": 0.002178947212889588,
+          "objective": 0.002178947212889588
+        },
+        {
+          "step": 400,
+          "error": 0.0003783054804757028,
+          "objective": 0.0003783054804757028
+        },
+        {
+          "step": 500,
+          "error": 7.566992970992837e-05,
+          "objective": 7.566992970992837e-05
+        },
+        {
+          "step": 600,
+          "error": 1.7833836421962667e-05,
+          "objective": 1.7833836421962667e-05
+        },
+        {
+          "step": 700,
+          "error": 5.451621026685635e-06,
+          "objective": 5.451621026685635e-06
+        },
+        {
+          "step": 800,
+          "error": 2.250604940789588e-06,
+          "objective": 2.250604940789588e-06
+        },
+        {
+          "step": 900,
+          "error": 1.2405962099751345e-06,
+          "objective": 1.2405962099751345e-06
+        },
+        {
+          "step": 1000,
+          "error": 8.773283112986008e-07,
+          "objective": 8.773283112986008e-07
+        },
+        {
+          "step": 1100,
+          "error": 7.488145522513243e-07,
+          "objective": 7.488145522513243e-07
+        },
+        {
+          "step": 1199,
+          "error": 7.09774165524717e-07,
+          "objective": 7.09774165524717e-07
+        }
+      ],
+      "case": "shared_quartic_dag",
+      "objective": "isotropic",
+      "variant": "wide"
+    },
+    {
+      "kind": "dag",
+      "width": 3,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.0004003393945103277,
+      "isotropic_gaussian_error": 0.0004003393945103277,
+      "symmetric_frobenius_error": 0.000388821742578224,
+      "cosine": 0.9999999333754643,
+      "norm_ratio": 0.999835547962792,
+      "shifted_input_error": 0.00038135244554817887,
+      "parameter_values": 81,
+      "diagnostic_weight_entries_above_relative_1e3": 18,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.6328906088601798,
+      "history": [
+        {
+          "step": 0,
+          "error": 14.897135560600413,
+          "objective": 14.897135560600413
+        },
+        {
+          "step": 100,
+          "error": 0.5272990772956458,
+          "objective": 0.5272990772956458
+        },
+        {
+          "step": 200,
+          "error": 0.1294627633387822,
+          "objective": 0.1294627633387822
+        },
+        {
+          "step": 300,
+          "error": 0.019855542443535434,
+          "objective": 0.019855542443535434
+        },
+        {
+          "step": 400,
+          "error": 0.009324539909848911,
+          "objective": 0.009324539909848911
+        },
+        {
+          "step": 500,
+          "error": 0.005320748081536823,
+          "objective": 0.005320748081536823
+        },
+        {
+          "step": 600,
+          "error": 0.0024095522714099185,
+          "objective": 0.0024095522714099185
+        },
+        {
+          "step": 700,
+          "error": 0.0026936555065177545,
+          "objective": 0.0026936555065177545
+        },
+        {
+          "step": 800,
+          "error": 0.00013236578455244494,
+          "objective": 0.00013236578455244494
+        },
+        {
+          "step": 900,
+          "error": 0.00024195560866026352,
+          "objective": 0.00024195560866026352
+        },
+        {
+          "step": 1000,
+          "error": 3.854749990192301e-05,
+          "objective": 3.854749990192301e-05
+        },
+        {
+          "step": 1100,
+          "error": 8.296489621959497e-06,
+          "objective": 8.296489621959497e-06
+        },
+        {
+          "step": 1199,
+          "error": 3.7988027868845174e-07,
+          "objective": 3.7988027868845174e-07
+        }
+      ],
+      "case": "shared_quartic_dag",
+      "objective": "isotropic",
+      "variant": "matched"
+    },
+    {
+      "kind": "dag",
+      "width": 3,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.0005115780057182801,
+      "isotropic_gaussian_error": 0.0005115780057182801,
+      "symmetric_frobenius_error": 0.0005535805044483691,
+      "cosine": 0.9999998714359901,
+      "norm_ratio": 1.0000675770684924,
+      "shifted_input_error": 0.00048749745521907997,
+      "parameter_values": 81,
+      "diagnostic_weight_entries_above_relative_1e3": 18,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.6334922579117119,
+      "history": [
+        {
+          "step": 0,
+          "error": 52.06597269116073,
+          "objective": 52.06597269116073
+        },
+        {
+          "step": 100,
+          "error": 0.7622358294386425,
+          "objective": 0.7622358294386425
+        },
+        {
+          "step": 200,
+          "error": 0.1973709389373116,
+          "objective": 0.1973709389373116
+        },
+        {
+          "step": 300,
+          "error": 0.05833068684337332,
+          "objective": 0.05833068684337332
+        },
+        {
+          "step": 400,
+          "error": 0.005908362353932118,
+          "objective": 0.005908362353932118
+        },
+        {
+          "step": 500,
+          "error": 0.0019359588055992806,
+          "objective": 0.0019359588055992806
+        },
+        {
+          "step": 600,
+          "error": 0.0009555592817403454,
+          "objective": 0.0009555592817403454
+        },
+        {
+          "step": 700,
+          "error": 0.0007980114234240332,
+          "objective": 0.0007980114234240332
+        },
+        {
+          "step": 800,
+          "error": 0.0006800429190287981,
+          "objective": 0.0006800429190287981
+        },
+        {
+          "step": 900,
+          "error": 0.00010852155492792416,
+          "objective": 0.00010852155492792416
+        },
+        {
+          "step": 1000,
+          "error": 7.200288561040792e-05,
+          "objective": 7.200288561040792e-05
+        },
+        {
+          "step": 1100,
+          "error": 2.5761292199012545e-06,
+          "objective": 2.5761292199012545e-06
+        },
+        {
+          "step": 1199,
+          "error": 5.480046571247195e-07,
+          "objective": 5.480046571247195e-07
+        }
+      ],
+      "case": "shared_quartic_dag",
+      "objective": "isotropic",
+      "variant": "matched"
+    },
+    {
+      "kind": "dag",
+      "width": 6,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.0004444165685478287,
+      "isotropic_gaussian_error": 0.0004444165685478287,
+      "symmetric_frobenius_error": 0.0005157834760273127,
+      "cosine": 0.9999999030491046,
+      "norm_ratio": 0.9999398671876272,
+      "shifted_input_error": 0.00037688978147514066,
+      "parameter_values": 189,
+      "diagnostic_weight_entries_above_relative_1e3": 62,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.6621811401564628,
+      "history": [
+        {
+          "step": 0,
+          "error": 73.34309576222853,
+          "objective": 73.34309576222853
+        },
+        {
+          "step": 100,
+          "error": 0.4535752340657095,
+          "objective": 0.4535752340657095
+        },
+        {
+          "step": 200,
+          "error": 0.08117851966940612,
+          "objective": 0.08117851966940612
+        },
+        {
+          "step": 300,
+          "error": 0.01743982655541989,
+          "objective": 0.01743982655541989
+        },
+        {
+          "step": 400,
+          "error": 0.009116622732137213,
+          "objective": 0.009116622732137213
+        },
+        {
+          "step": 500,
+          "error": 0.009438499558646713,
+          "objective": 0.009438499558646713
+        },
+        {
+          "step": 600,
+          "error": 0.008194659016115817,
+          "objective": 0.008194659016115817
+        },
+        {
+          "step": 700,
+          "error": 0.0005749504251868758,
+          "objective": 0.0005749504251868758
+        },
+        {
+          "step": 800,
+          "error": 0.0027993660572316562,
+          "objective": 0.0027993660572316562
+        },
+        {
+          "step": 900,
+          "error": 0.00022833670987472155,
+          "objective": 0.00022833670987472155
+        },
+        {
+          "step": 1000,
+          "error": 0.00012626261354868818,
+          "objective": 0.00012626261354868818
+        },
+        {
+          "step": 1100,
+          "error": 1.836699744546259e-05,
+          "objective": 1.836699744546259e-05
+        },
+        {
+          "step": 1199,
+          "error": 2.7598597582965263e-06,
+          "objective": 2.7598597582965263e-06
+        }
+      ],
+      "case": "shared_quartic_dag",
+      "objective": "isotropic",
+      "variant": "wide"
+    },
+    {
+      "kind": "dag",
+      "width": 6,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.0006852271717451488,
+      "isotropic_gaussian_error": 0.0006852271717451488,
+      "symmetric_frobenius_error": 0.0008151541350927687,
+      "cosine": 0.999999765619916,
+      "norm_ratio": 1.0000276253421159,
+      "shifted_input_error": 0.0006969409340818723,
+      "parameter_values": 189,
+      "diagnostic_weight_entries_above_relative_1e3": 63,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.6624860879965127,
+      "history": [
+        {
+          "step": 0,
+          "error": 32.7857651706538,
+          "objective": 32.7857651706538
+        },
+        {
+          "step": 100,
+          "error": 0.397328677237311,
+          "objective": 0.397328677237311
+        },
+        {
+          "step": 200,
+          "error": 0.048811782593752726,
+          "objective": 0.048811782593752726
+        },
+        {
+          "step": 300,
+          "error": 0.007133231660159438,
+          "objective": 0.007133231660159438
+        },
+        {
+          "step": 400,
+          "error": 0.018528206824200144,
+          "objective": 0.018528206824200144
+        },
+        {
+          "step": 500,
+          "error": 0.005363364614638851,
+          "objective": 0.005363364614638851
+        },
+        {
+          "step": 600,
+          "error": 0.01137214921590959,
+          "objective": 0.01137214921590959
+        },
+        {
+          "step": 700,
+          "error": 0.003630029116493531,
+          "objective": 0.003630029116493531
+        },
+        {
+          "step": 800,
+          "error": 0.0009784285479546707,
+          "objective": 0.0009784285479546707
+        },
+        {
+          "step": 900,
+          "error": 0.001038462809428728,
+          "objective": 0.001038462809428728
+        },
+        {
+          "step": 1000,
+          "error": 0.0002873012222588538,
+          "objective": 0.0002873012222588538
+        },
+        {
+          "step": 1100,
+          "error": 4.127544875389133e-05,
+          "objective": 4.127544875389133e-05
+        },
+        {
+          "step": 1199,
+          "error": 6.328096265089087e-06,
+          "objective": 6.328096265089087e-06
+        }
+      ],
+      "case": "shared_quartic_dag",
+      "objective": "isotropic",
+      "variant": "wide"
+    },
+    {
+      "kind": "dag",
+      "width": 3,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.07106914734240476,
+      "isotropic_gaussian_error": 1.3995912243389335,
+      "symmetric_frobenius_error": 1.530570609132165,
+      "cosine": 0.997471441197725,
+      "norm_ratio": 0.9977872085849236,
+      "shifted_input_error": 1.0256749460103833,
+      "parameter_values": 81,
+      "diagnostic_weight_entries_above_relative_1e3": 18,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.5772529160603881,
+      "history": [
+        {
+          "step": 0,
+          "error": 8.26005157857438,
+          "objective": 8.26005157857438
+        },
+        {
+          "step": 100,
+          "error": 0.07755031288676138,
+          "objective": 0.07755031288676138
+        },
+        {
+          "step": 200,
+          "error": 0.024527296400311732,
+          "objective": 0.024527296400311732
+        },
+        {
+          "step": 300,
+          "error": 0.015565957196257741,
+          "objective": 0.015565957196257741
+        },
+        {
+          "step": 400,
+          "error": 0.01078292457760472,
+          "objective": 0.01078292457760472
+        },
+        {
+          "step": 500,
+          "error": 0.008270699958978764,
+          "objective": 0.008270699958978764
+        },
+        {
+          "step": 600,
+          "error": 0.006876494061680747,
+          "objective": 0.006876494061680747
+        },
+        {
+          "step": 700,
+          "error": 0.006072063032666391,
+          "objective": 0.006072063032666391
+        },
+        {
+          "step": 800,
+          "error": 0.005587564803234646,
+          "objective": 0.005587564803234646
+        },
+        {
+          "step": 900,
+          "error": 0.005299464973385587,
+          "objective": 0.005299464973385587
+        },
+        {
+          "step": 1000,
+          "error": 0.005143069114482192,
+          "objective": 0.005143069114482192
+        },
+        {
+          "step": 1100,
+          "error": 0.005073915326914281,
+          "objective": 0.005073915326914281
+        },
+        {
+          "step": 1199,
+          "error": 0.005050823703976437,
+          "objective": 0.005050823703976437
+        }
+      ],
+      "case": "shared_quartic_dag",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "matched"
+    },
+    {
+      "kind": "dag",
+      "width": 3,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.06900208247288186,
+      "isotropic_gaussian_error": 1.3664527047270845,
+      "symmetric_frobenius_error": 1.258241606094272,
+      "cosine": 0.9976165187697333,
+      "norm_ratio": 0.99769338121542,
+      "shifted_input_error": 1.0273763337302726,
+      "parameter_values": 81,
+      "diagnostic_weight_entries_above_relative_1e3": 17,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.5779325219336897,
+      "history": [
+        {
+          "step": 0,
+          "error": 17.283375782675332,
+          "objective": 17.283375782675332
+        },
+        {
+          "step": 100,
+          "error": 0.08210883411532996,
+          "objective": 0.08210883411532996
+        },
+        {
+          "step": 200,
+          "error": 0.03596991930849725,
+          "objective": 0.03596991930849725
+        },
+        {
+          "step": 300,
+          "error": 0.016533138272845613,
+          "objective": 0.016533138272845613
+        },
+        {
+          "step": 400,
+          "error": 0.00979549754269882,
+          "objective": 0.00979549754269882
+        },
+        {
+          "step": 500,
+          "error": 0.007421954788823361,
+          "objective": 0.007421954788823361
+        },
+        {
+          "step": 600,
+          "error": 0.006240365969608005,
+          "objective": 0.006240365969608005
+        },
+        {
+          "step": 700,
+          "error": 0.0055776579293387646,
+          "objective": 0.0055776579293387646
+        },
+        {
+          "step": 800,
+          "error": 0.005185967605512188,
+          "objective": 0.005185967605512188
+        },
+        {
+          "step": 900,
+          "error": 0.0049567328905841404,
+          "objective": 0.0049567328905841404
+        },
+        {
+          "step": 1000,
+          "error": 0.004833538491686338,
+          "objective": 0.004833538491686338
+        },
+        {
+          "step": 1100,
+          "error": 0.00477934527226469,
+          "objective": 0.00477934527226469
+        },
+        {
+          "step": 1199,
+          "error": 0.004761287385594391,
+          "objective": 0.004761287385594391
+        }
+      ],
+      "case": "shared_quartic_dag",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "matched"
+    },
+    {
+      "kind": "dag",
+      "width": 6,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.16852629989710738,
+      "isotropic_gaussian_error": 4.159917216262528,
+      "symmetric_frobenius_error": 3.613768972081843,
+      "cosine": 0.9857269257669151,
+      "norm_ratio": 0.9933876006002866,
+      "shifted_input_error": 2.4315455922208806,
+      "parameter_values": 189,
+      "diagnostic_weight_entries_above_relative_1e3": 63,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.6006757768336684,
+      "history": [
+        {
+          "step": 0,
+          "error": 186.59017866154977,
+          "objective": 186.59017866154977
+        },
+        {
+          "step": 100,
+          "error": 0.2063185344034141,
+          "objective": 0.2063185344034141
+        },
+        {
+          "step": 200,
+          "error": 0.11535667710446185,
+          "objective": 0.11535667710446185
+        },
+        {
+          "step": 300,
+          "error": 0.08110845250644094,
+          "objective": 0.08110845250644094
+        },
+        {
+          "step": 400,
+          "error": 0.06130884489809141,
+          "objective": 0.06130884489809141
+        },
+        {
+          "step": 500,
+          "error": 0.048764578429684055,
+          "objective": 0.048764578429684055
+        },
+        {
+          "step": 600,
+          "error": 0.04070734418290027,
+          "objective": 0.04070734418290027
+        },
+        {
+          "step": 700,
+          "error": 0.03552652257772824,
+          "objective": 0.03552652257772824
+        },
+        {
+          "step": 800,
+          "error": 0.032217561601580666,
+          "objective": 0.032217561601580666
+        },
+        {
+          "step": 900,
+          "error": 0.030188775243851558,
+          "objective": 0.030188775243851558
+        },
+        {
+          "step": 1000,
+          "error": 0.02906843253672772,
+          "objective": 0.02906843253672772
+        },
+        {
+          "step": 1100,
+          "error": 0.028568631036719225,
+          "objective": 0.028568631036719225
+        },
+        {
+          "step": 1199,
+          "error": 0.028401113757009773,
+          "objective": 0.028401113757009773
+        }
+      ],
+      "case": "shared_quartic_dag",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "wide"
+    },
+    {
+      "kind": "dag",
+      "width": 6,
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.12863440765754014,
+      "isotropic_gaussian_error": 3.022050706817263,
+      "symmetric_frobenius_error": 2.580188920254238,
+      "cosine": 0.9916969861641847,
+      "norm_ratio": 0.994815190861348,
+      "shifted_input_error": 2.307546449775167,
+      "parameter_values": 189,
+      "diagnostic_weight_entries_above_relative_1e3": 63,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.6009876569733024,
+      "history": [
+        {
+          "step": 0,
+          "error": 60.264551021030194,
+          "objective": 60.264551021030194
+        },
+        {
+          "step": 100,
+          "error": 0.3259563192898173,
+          "objective": 0.3259563192898173
+        },
+        {
+          "step": 200,
+          "error": 0.12162296904103276,
+          "objective": 0.12162296904103276
+        },
+        {
+          "step": 300,
+          "error": 0.06341390077758817,
+          "objective": 0.06341390077758817
+        },
+        {
+          "step": 400,
+          "error": 0.04196356520549365,
+          "objective": 0.04196356520549365
+        },
+        {
+          "step": 500,
+          "error": 0.03163781553106722,
+          "objective": 0.03163781553106722
+        },
+        {
+          "step": 600,
+          "error": 0.025481640594344667,
+          "objective": 0.025481640594344667
+        },
+        {
+          "step": 700,
+          "error": 0.021610739136429413,
+          "objective": 0.021610739136429413
+        },
+        {
+          "step": 800,
+          "error": 0.019200265921832018,
+          "objective": 0.019200265921832018
+        },
+        {
+          "step": 900,
+          "error": 0.017767664528489723,
+          "objective": 0.017767664528489723
+        },
+        {
+          "step": 1000,
+          "error": 0.01699731297053718,
+          "objective": 0.01699731297053718
+        },
+        {
+          "step": 1100,
+          "error": 0.01665927016336566,
+          "objective": 0.01665927016336566
+        },
+        {
+          "step": 1199,
+          "error": 0.016546810833406225,
+          "objective": 0.016546810833406225
+        }
+      ],
+      "case": "shared_quartic_dag",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "wide"
+    },
+    {
+      "kind": "dag",
+      "width": 3,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.022270916565638708,
+      "isotropic_gaussian_error": 0.5765715960455661,
+      "symmetric_frobenius_error": 0.5888555218599717,
+      "cosine": 0.9997520050503447,
+      "norm_ratio": 0.999496413857067,
+      "shifted_input_error": 0.47799851125707066,
+      "parameter_values": 81,
+      "diagnostic_weight_entries_above_relative_1e3": 18,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.6233250049408525,
+      "history": [
+        {
+          "step": 0,
+          "error": 8.26005157857438,
+          "objective": 8.26005157857438
+        },
+        {
+          "step": 100,
+          "error": 0.0819348999712928,
+          "objective": 0.0819348999712928
+        },
+        {
+          "step": 200,
+          "error": 0.02372249269044249,
+          "objective": 0.02372249269044249
+        },
+        {
+          "step": 300,
+          "error": 0.012016345082026467,
+          "objective": 0.012016345082026467
+        },
+        {
+          "step": 400,
+          "error": 0.008228743106123175,
+          "objective": 0.008228743106123175
+        },
+        {
+          "step": 500,
+          "error": 0.006371574778100748,
+          "objective": 0.006371574778100748
+        },
+        {
+          "step": 600,
+          "error": 0.004133864209880087,
+          "objective": 0.004133864209880087
+        },
+        {
+          "step": 700,
+          "error": 0.0019083143540475228,
+          "objective": 0.0019083143540475228
+        },
+        {
+          "step": 800,
+          "error": 0.0014267833691436397,
+          "objective": 0.0014267833691436397
+        },
+        {
+          "step": 900,
+          "error": 0.0009033291723204613,
+          "objective": 0.0009033291723204613
+        },
+        {
+          "step": 1000,
+          "error": 0.0006248702669135273,
+          "objective": 0.0006248702669135273
+        },
+        {
+          "step": 1100,
+          "error": 0.0005305399258322564,
+          "objective": 0.0005305399258322564
+        },
+        {
+          "step": 1199,
+          "error": 0.0004959937246736407,
+          "objective": 0.0004959937246736407
+        }
+      ],
+      "case": "shared_quartic_dag",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "matched"
+    },
+    {
+      "kind": "dag",
+      "width": 3,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.012446491174147818,
+      "isotropic_gaussian_error": 0.7094325369891105,
+      "symmetric_frobenius_error": 0.6888899159503662,
+      "cosine": 0.9999225395281731,
+      "norm_ratio": 0.9999084321142315,
+      "shifted_input_error": 0.4354108227125483,
+      "parameter_values": 81,
+      "diagnostic_weight_entries_above_relative_1e3": 18,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.6262240100186318,
+      "history": [
+        {
+          "step": 0,
+          "error": 17.283375782675332,
+          "objective": 17.283375782675332
+        },
+        {
+          "step": 100,
+          "error": 0.10726207934110875,
+          "objective": 0.10726207934110875
+        },
+        {
+          "step": 200,
+          "error": 0.021150686881471356,
+          "objective": 0.021150686881471356
+        },
+        {
+          "step": 300,
+          "error": 0.009571715819063277,
+          "objective": 0.009571715819063277
+        },
+        {
+          "step": 400,
+          "error": 0.005702697293098879,
+          "objective": 0.005702697293098879
+        },
+        {
+          "step": 500,
+          "error": 0.00278475318305988,
+          "objective": 0.00278475318305988
+        },
+        {
+          "step": 600,
+          "error": 0.0017855102029328545,
+          "objective": 0.0017855102029328545
+        },
+        {
+          "step": 700,
+          "error": 0.0008771665011428169,
+          "objective": 0.0008771665011428169
+        },
+        {
+          "step": 800,
+          "error": 0.0004977081431159245,
+          "objective": 0.0004977081431159245
+        },
+        {
+          "step": 900,
+          "error": 0.0002863615266851977,
+          "objective": 0.0002863615266851977
+        },
+        {
+          "step": 1000,
+          "error": 0.0002106301946630591,
+          "objective": 0.0002106301946630591
+        },
+        {
+          "step": 1100,
+          "error": 0.0001671447147524122,
+          "objective": 0.0001671447147524122
+        },
+        {
+          "step": 1199,
+          "error": 0.00015491514254813951,
+          "objective": 0.00015491514254813951
+        }
+      ],
+      "case": "shared_quartic_dag",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "matched"
+    },
+    {
+      "kind": "dag",
+      "width": 6,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.014345286948045193,
+      "isotropic_gaussian_error": 1.9038941274444325,
+      "symmetric_frobenius_error": 1.872375865084511,
+      "cosine": 0.9998971026246725,
+      "norm_ratio": 0.9999527338803041,
+      "shifted_input_error": 0.7037131755279549,
+      "parameter_values": 189,
+      "diagnostic_weight_entries_above_relative_1e3": 63,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.6553996440488845,
+      "history": [
+        {
+          "step": 0,
+          "error": 186.59017866154977,
+          "objective": 186.59017866154977
+        },
+        {
+          "step": 100,
+          "error": 0.2891449065844857,
+          "objective": 0.2891449065844857
+        },
+        {
+          "step": 200,
+          "error": 0.02784714910679814,
+          "objective": 0.02784714910679814
+        },
+        {
+          "step": 300,
+          "error": 0.007376659298214249,
+          "objective": 0.007376659298214249
+        },
+        {
+          "step": 400,
+          "error": 0.0026321455920173195,
+          "objective": 0.0026321455920173195
+        },
+        {
+          "step": 500,
+          "error": 0.0022105841420426366,
+          "objective": 0.0022105841420426366
+        },
+        {
+          "step": 600,
+          "error": 0.0012457815509919947,
+          "objective": 0.0012457815509919947
+        },
+        {
+          "step": 700,
+          "error": 0.0007814596741953266,
+          "objective": 0.0007814596741953266
+        },
+        {
+          "step": 800,
+          "error": 0.0007663887053229929,
+          "objective": 0.0007663887053229929
+        },
+        {
+          "step": 900,
+          "error": 0.0003512477078612575,
+          "objective": 0.0003512477078612575
+        },
+        {
+          "step": 1000,
+          "error": 0.00026550512182341537,
+          "objective": 0.00026550512182341537
+        },
+        {
+          "step": 1100,
+          "error": 0.00022538897796148158,
+          "objective": 0.00022538897796148158
+        },
+        {
+          "step": 1199,
+          "error": 0.0002057872576217558,
+          "objective": 0.0002057872576217558
+        }
+      ],
+      "case": "shared_quartic_dag",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "wide"
+    },
+    {
+      "kind": "dag",
+      "width": 6,
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1,
+      "penalty": 0.0,
+      "metric": "gaussian",
+      "relative_error": 0.009848648640859345,
+      "isotropic_gaussian_error": 1.1054217638056152,
+      "symmetric_frobenius_error": 1.2692525022322447,
+      "cosine": 0.9999515122090117,
+      "norm_ratio": 0.9998010158946077,
+      "shifted_input_error": 0.7286861096490849,
+      "parameter_values": 189,
+      "diagnostic_weight_entries_above_relative_1e3": 63,
+      "steps": 1200,
+      "nonfinite": false,
+      "seconds": 0.654188423184678,
+      "history": [
+        {
+          "step": 0,
+          "error": 60.264551021030194,
+          "objective": 60.264551021030194
+        },
+        {
+          "step": 100,
+          "error": 0.25165404555713927,
+          "objective": 0.25165404555713927
+        },
+        {
+          "step": 200,
+          "error": 0.014843134772044924,
+          "objective": 0.014843134772044924
+        },
+        {
+          "step": 300,
+          "error": 0.005764204068962851,
+          "objective": 0.005764204068962851
+        },
+        {
+          "step": 400,
+          "error": 0.004411103062209925,
+          "objective": 0.004411103062209925
+        },
+        {
+          "step": 500,
+          "error": 0.0025302160545025453,
+          "objective": 0.0025302160545025453
+        },
+        {
+          "step": 600,
+          "error": 0.0011326671620194707,
+          "objective": 0.0011326671620194707
+        },
+        {
+          "step": 700,
+          "error": 0.0006571063445696101,
+          "objective": 0.0006571063445696101
+        },
+        {
+          "step": 800,
+          "error": 0.0005568932805153294,
+          "objective": 0.0005568932805153294
+        },
+        {
+          "step": 900,
+          "error": 0.00021986306015499738,
+          "objective": 0.00021986306015499738
+        },
+        {
+          "step": 1000,
+          "error": 0.0001334925775067118,
+          "objective": 0.0001334925775067118
+        },
+        {
+          "step": 1100,
+          "error": 0.00010694250102208598,
+          "objective": 0.00010694250102208598
+        },
+        {
+          "step": 1199,
+          "error": 9.703332277852219e-05,
+          "objective": 9.703332277852219e-05
+        }
+      ],
+      "case": "shared_quartic_dag",
+      "objective": "empirical_covariance_gaussian",
+      "variant": "wide"
+    }
+  ],
+  "covariance": [
+    [
+      0.32190116825104764,
+      -0.0035086668756599206,
+      0.0014613354906722156,
+      0.1264481590265473,
+      -0.20925311150316653,
+      0.27542679691802396
+    ],
+    [
+      -0.0035086668756599206,
+      0.21906635701646612,
+      0.12790417138675586,
+      0.11409721220021596,
+      -0.08933511448676994,
+      0.0028324253293163185
+    ],
+    [
+      0.0014613354906722156,
+      0.12790417138675586,
+      0.18815877296341973,
+      0.14460613107119874,
+      -0.1342824718007864,
+      -0.07307036090660173
+    ],
+    [
+      0.1264481590265473,
+      0.11409721220021596,
+      0.14460613107119874,
+      0.17998695752791144,
+      -0.2139122257659917,
+      0.042026206866423464
+    ],
+    [
+      -0.20925311150316653,
+      -0.08933511448676994,
+      -0.1342824718007864,
+      -0.2139122257659917,
+      0.46553591984602294,
+      -0.09561002342693233
+    ],
+    [
+      0.27542679691802396,
+      0.0028324253293163185,
+      -0.07307036090660173,
+      0.042026206866423464,
+      -0.09561002342693233,
+      0.3357379651870717
+    ]
+  ],
+  "ridge": 0.0002847797437216017,
+  "calibration_rows": 512,
+  "population_eigenvalues": [
+    1.0,
+    0.5,
+    0.2,
+    0.08,
+    0.02,
+    0.005
+  ],
+  "seconds": 39.52908629295416,
+  "scope": "Synthetic calibration covariance; exact Gaussian moment metric built from its second moment. Not empirical fourth/eighth moment matching, and not native activation covariance."
+}

@@ -794,3 +794,6 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 
 ### Head3 response-factorial negative
 [Updated dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/V4_EDGE_HEAD3_2026-09-20.md): restoringexactMLPresponse only rescues1of3head3failures; exact and3writerlinear each54/56, doubledsubjectplural failures remain. Full-edgepositivecontrolpasses. Next crosshead/valuebranch CPUgrouping executed, replay1.02e-14; no branchcausalityclaim.
+
+### User-directed direct tensor optimization study
+[Study index](/workspace/tensor_language/basis_aligned/polynomial_causal/direct_tensor_match/README.md): two-dayfocus through22September15:10UTC. Fiveplantedstructures, Adam/Muon/restart/width/objective sweeps, exactisotropic/covariance losses. Nativequartic16context width4tree184values achievesmax6.14%coefficienterror; independentlyfitpercontext, notsharedcircuit. Fullquadratic initialbestGaussian56.67%. Preserve optimizer failures and sparsebasisidentificationgap.

@@ -30701,3 +30701,6 @@ v702 (running): per-head ladder {runmean, kernel, kernel + rank-4 / rank-16 cont
 
 ### 2026-09-20T15:25:05.849237+00:00 — Codex: decomposition science first native sweeps
 Nativequartic16contexts384fits completed; treewidth4 bestof3 <10%all16,184values vs280canonical. Firstfullquadratic12fits bestGaussian56.67%/Frob95.97%, allimprove. Toy48longrestartstudy provesmatchedtree recoverypossible butunstable. Next fullquadratic24fit objective/rate/radial control preregistered. No more oldcausalheadscreens.
+
+### 2026-09-20T15:27:03.511352+00:00 — Codex: 740directtensorfits archived, two-dayfocusongoing
+Fiveplantedsupported; functionalrecovery doesnotselectsparseTuckerbasis (12versus4coreentries). Nativequarticwidth4tree184values achieves<10%all16independentlyfitcontexts; fullquadraticbestGaussian56.67%notenough. Covariance80fits showsobjective/conditioningtradeoffs. NativeV2metric/rate/radialcontrol queued; nextactualnativecovariance andsparsebasisrecovery. See direct_tensor_match/README.md andINITIAL_FINDINGS_2026-09-20_1522.md.

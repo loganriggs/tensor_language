@@ -1,0 +1,53 @@
+{
+  "records": [
+    {
+      "case": "coordinate_sparse",
+      "best_loss": 9.46980488488755e-07,
+      "student_width": 1,
+      "teacher_width": 1,
+      "optimizer": "adam",
+      "thresholded_support_exact": true,
+      "thresholded_support": 4,
+      "teacher_support": 4
+    },
+    {
+      "case": "bilinear_cp",
+      "best_loss": 0.00012208918598707465,
+      "student_width": 3,
+      "teacher_width": 3,
+      "optimizer": "muon",
+      "teacher_feature_energy_outside_student_span": 7.919104807837186e-05,
+      "student_feature_rank": 3
+    },
+    {
+      "case": "sparse_tucker",
+      "best_loss": 9.052869708101138e-07,
+      "student_width": 3,
+      "teacher_width": 3,
+      "optimizer": "adam",
+      "teacher_feature_energy_outside_student_span": 2.1379462305135113e-06,
+      "student_feature_rank": 3,
+      "teacher_core_nonzeros": 4,
+      "student_core_thresholded_nonzeros": 12
+    },
+    {
+      "case": "quartic_tree",
+      "best_loss": 0.00021980043164075006,
+      "student_width": 4,
+      "teacher_width": 2,
+      "optimizer": "muon",
+      "teacher_feature_energy_outside_student_span": 2.9058113312336943e-05,
+      "student_feature_rank": 8
+    },
+    {
+      "case": "shared_quartic_dag",
+      "best_loss": 0.0004003393945103277,
+      "student_width": 3,
+      "teacher_width": 3,
+      "optimizer": "muon",
+      "teacher_feature_energy_outside_student_span": 8.970942023296211e-05,
+      "student_feature_rank": 3
+    }
+  ],
+  "scope": "Best-run posthoc diagnosis. Span inclusion permits rotations and does not prove unique atom identification; wider spans can include extra directions. Threshold support is a diagnostic, not a deployed sparse program."
+}

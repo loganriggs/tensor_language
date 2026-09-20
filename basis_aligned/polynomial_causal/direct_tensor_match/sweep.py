@@ -19,8 +19,8 @@ def target_cases():
   result.append(dict(name=name,kind=kind,width=width,degree=degree,d=d,o=o,target=target))
  return result
 
-def fit(target,d,degree,kind,width,optimizer,lr,seed,steps=1200,penalty=0.,metric_kind='gaussian',device='cpu'):
- torch.manual_seed(seed);t0=time.perf_counter();target=target.to(device);model=Model(d,target.shape[0],kind,width,degree).to(device);M=metric(d,degree,metric_kind,device);F=metric(d,degree,'frobenius',device);den=inner(target,target,M)
+def fit(target,d,degree,kind,width,optimizer,lr,seed,steps=1200,penalty=0.,metric_kind='gaussian',device='cpu',M_override=None):
+ torch.manual_seed(seed);t0=time.perf_counter();target=target.to(device);model=Model(d,target.shape[0],kind,width,degree).to(device);M=metric(d,degree,metric_kind,device) if M_override is None else M_override.to(device);F=metric(d,degree,'frobenius',device);den=inner(target,target,M)
  opt=(torch.optim.Adam(model.parameters(),lr=lr) if optimizer=='adam' else torch.optim.Muon(model.parameters(),lr=lr,weight_decay=0.,adjust_lr_fn='match_rms_adamw'))
  history=[];best=math.inf;beststate=None;nonfinite=False
  for step in range(steps):
@@ -35,12 +35,13 @@ def fit(target,d,degree,kind,width,optimizer,lr,seed,steps=1200,penalty=0.,metri
  if beststate is not None:model.load_state_dict(beststate)
  with torch.no_grad():
   c=model();delta=c-target;relative=float((inner(delta,delta,M)/den).clamp_min(0).sqrt());frob=float((inner(delta,delta,F)/inner(target,target,F)).clamp_min(0).sqrt())
+  isotropic=metric(d,degree,'gaussian',device);isoerror=float((inner(delta,delta,isotropic)/inner(target,target,isotropic)).clamp_min(0).sqrt())
   cosine=float(inner(c,target,M)/(inner(c,c,M)*den).sqrt());scale=float((inner(c,c,M)/den).sqrt())
   # Independent shifted/heavy-tail evaluations never enter optimization or selection.
   gen=torch.Generator(device=device).manual_seed(923);x=torch.randn(256,d,generator=gen,device=device,dtype=target.dtype)*2+1
   a,b=evaluate(c,x,degree),evaluate(target,x,degree);shift=float((a-b).norm()/b.norm())
   weight=model.weight;threshold=weight.abs().max()*1e-3;active=int((weight.abs()>threshold).sum())
- return dict(kind=kind,width=width,optimizer=optimizer,lr=lr,seed=seed,penalty=penalty,metric=metric_kind,relative_error=relative,symmetric_frobenius_error=frob,cosine=cosine,norm_ratio=scale,shifted_input_error=shift,parameter_values=sum(v.numel() for v in model.parameters()),diagnostic_weight_entries_above_relative_1e3=active,steps=step+1,nonfinite=nonfinite,seconds=time.perf_counter()-t0,history=history),{k:v.cpu() for k,v in model.state_dict().items()}
+ return dict(kind=kind,width=width,optimizer=optimizer,lr=lr,seed=seed,penalty=penalty,metric=metric_kind,relative_error=relative,isotropic_gaussian_error=isoerror,symmetric_frobenius_error=frob,cosine=cosine,norm_ratio=scale,shifted_input_error=shift,parameter_values=sum(v.numel() for v in model.parameters()),diagnostic_weight_entries_above_relative_1e3=active,steps=step+1,nonfinite=nonfinite,seconds=time.perf_counter()-t0,history=history),{k:v.cpu() for k,v in model.state_dict().items()}
 
 def toys(out,steps=1200):
  torch.set_num_threads(1);records=[];saved=[];start=time.perf_counter()

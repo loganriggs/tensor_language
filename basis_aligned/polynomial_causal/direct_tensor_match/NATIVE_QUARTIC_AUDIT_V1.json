@@ -1,0 +1,121 @@
+{
+  "optimized": [
+    {
+      "kind": "tree",
+      "width": 1,
+      "values": 34,
+      "optimized_frobenius_error": 0.13552297982641925,
+      "optimizer": "muon",
+      "seed": 0
+    },
+    {
+      "kind": "tree",
+      "width": 2,
+      "values": 76,
+      "optimized_frobenius_error": 0.050968459195836355,
+      "optimizer": "muon",
+      "seed": 1
+    },
+    {
+      "kind": "tree",
+      "width": 4,
+      "values": 184,
+      "optimized_frobenius_error": 0.0226296386747803,
+      "optimizer": "muon",
+      "seed": 2
+    },
+    {
+      "kind": "tree",
+      "width": 8,
+      "values": 496,
+      "optimized_frobenius_error": 0.007104744178356121,
+      "optimizer": "muon",
+      "seed": 1
+    },
+    {
+      "kind": "dag",
+      "width": 1,
+      "values": 19,
+      "optimized_frobenius_error": 0.20353505628583937,
+      "optimizer": "adam",
+      "seed": 1
+    },
+    {
+      "kind": "dag",
+      "width": 2,
+      "values": 42,
+      "optimized_frobenius_error": 0.062448315998225416,
+      "optimizer": "muon",
+      "seed": 1
+    },
+    {
+      "kind": "dag",
+      "width": 4,
+      "values": 100,
+      "optimized_frobenius_error": 0.03441319524453741,
+      "optimizer": "muon",
+      "seed": 0
+    },
+    {
+      "kind": "dag",
+      "width": 8,
+      "values": 264,
+      "optimized_frobenius_error": 0.023478802681980396,
+      "optimizer": "muon",
+      "seed": 1
+    }
+  ],
+  "same_target_spectral": [
+    {
+      "representative": "raw",
+      "rank": 1,
+      "old_dense_values": 54,
+      "error": 0.1419026674225857
+    },
+    {
+      "representative": "raw",
+      "rank": 2,
+      "old_dense_values": 116,
+      "error": 0.06483657409861915
+    },
+    {
+      "representative": "raw",
+      "rank": 4,
+      "old_dense_values": 264,
+      "error": 0.04295750099362962
+    },
+    {
+      "representative": "raw",
+      "rank": 8,
+      "old_dense_values": 656,
+      "error": 0.017287655317532038
+    },
+    {
+      "representative": "symmetric",
+      "rank": 1,
+      "old_dense_values": 54,
+      "error": 0.2684679892724279
+    },
+    {
+      "representative": "symmetric",
+      "rank": 2,
+      "old_dense_values": 116,
+      "error": 0.11756992374927122
+    },
+    {
+      "representative": "symmetric",
+      "rank": 4,
+      "old_dense_values": 264,
+      "error": 0.05557314761764827
+    },
+    {
+      "representative": "symmetric",
+      "rank": 8,
+      "old_dense_values": 656,
+      "error": 0.019435041381544855
+    }
+  ],
+  "canonical_values": 280,
+  "scope": "One native quartic context; independent dense tensor symmetrization confirms coefficient loss. Native generators/norms excluded; not population or causal evidence.",
+  "correction": "Pilot grid is96fits (2families*4widths*2optimizers*3seeds*2metrics), not192 stated in initial prereg prose."
+}
