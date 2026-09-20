@@ -31502,3 +31502,9 @@ Previous turn was a status-only update (no progress); current turn begins the ex
 
 ### 2026-09-20T23:40Z — Codex: midpoint low output rank ruled out under coefficient metric
 Native spectrum terminal: exactness PASS (trace1.46e-16), rank64<.5 FAIL (.8698), rank256<.2 FAIL (.7013). This is an output-rank coefficient floor, not arbitrary-DAG or native functional impossibility. Successor CPU necessary-width/CP-price analysis executed and saved MIDPOINT_CAPACITY_V1.json. Next comparison must retain joint dependence of midpoint and previous products; independent marginal covariance is a different metric. No small-rank optimizer sweep justified for isotropic accuracy.
+
+### 2026-09-20T23:41Z — Codex: native joint midpoint output-space test claimed
+Previous turn made progress: exact coefficient rank floors and necessary CP width analysis. Claim80forward native paired-input output basis, calibration-only fit and held FineWeb/code transfer, explicit frozen last-MLP denominator. Artificial within-document source mismatch diagnoses dependence without causal interpretation. No input factor fitting or new circuit claim. Registered exactness/rank64/transfer bars, unique filenames checked.
+
+### 2026-09-20T23:44Z — Codex: native midpoint basis passes; common-output audit launched
+Native80forward test allbarsPASS, replay5.1e-15; frozen rank64 error.0817FW/.0630code, rank4~.13. Exact joint-moment CPU oracle executed (same marginal covariance, product energy3vs1). Successor zero-forward native-QR centered-output audit claimed: remove vocabulary common direction, compare frozen original basis vs calibration-refit centered basis; error<.2 rank64 bars registered. Important correction: shifted control rotates already-normalized m, so donor normalization shifts with it; interpret only as normalized-source mismatch, not raw-source shift at recipient denominator. Primary paired results unaffected.
