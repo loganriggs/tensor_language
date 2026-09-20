@@ -31400,3 +31400,9 @@ Reading: unlike v715's extra rank (which overfit the fit stream), the readable h
 
 ### 2026-09-20T21:52Z — Codex: reader floors pass; reusable quadratic skip oracle executed
 Conditional test terminal, allregisteredbars pass: calibrationGaussian floors.0746(original32)/.0859(compressed12), actualstudents.1232/.1299. Isotropicfloors.889/.892 andcentered.988/.992; strongdistributiondependence. Pairinvariance1.5e-14, FP32teachercheck5.1e-7. Next graphedit begun: reuse6primitivequadraticnodes in direct outputskip. Exact crosscovariance via first/mixedsecond derivatives ofGaussianmean implemented, independentdegree6quadratureerror<9e-16. Registered rank1/2/4/6 analyticreadout, fixedrank2nativeprediction; no refit on code.
+
+### 2026-09-20T21:55Z — Codex: exact skip fit passes; native transfer implementation
+ExactGaussianreadout solve7.3e-16, FP32export6.7e-9. Rank2 adds2316coeff/no products, GaussianMSE improves21.5%; fullrank25.6%. Text reconstruction largelyunchanged/slightlyworse. Implemented native allrank branch/mode checks on reusedFineWeb/code with originalfixedbasis, primaryrank2 unchanged; native transfer stillpending. Fit/evaluator artifacts frozen for managed followup.
+
+### 2026-09-20T21:58Z — Codex: native skip improves aggregate fidelity but fails feature target
+Native followup terminal: rank2FineWeb CE+.01403 vsbase+.02015; codeKL.04207 vs.05907; code mode1error.4283 failsregistered<.4. Ranks1/4/6 code mode1errors.4018/.4348/.4609; no posthoc rankpromotion. Literal sharedDAG replay6e-16, rank2cost21948coeff/10products20774adds. Next CPU pairedgain audit executed: rank2 KL/logitMSE improve all16FineWeb andall16code docs; CE pairedCI excludeszero onboth reusedpanels. Aggregatefidelity andindividualfeature objectives demonstrably differ. Goalactive, no semanticcircuitclaim.

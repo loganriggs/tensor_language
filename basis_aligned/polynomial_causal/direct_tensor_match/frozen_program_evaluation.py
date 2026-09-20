@@ -12,7 +12,11 @@ def quadratic(s,x):
 def quartic(s,x):
  if 'output_writer' in s:
   primitive=(x@s['A'].T)*(x@s['B'].T);bank=primitive@s['bank_writer'].T if 'bank_writer' in s else primitive
-  return ((bank@s['root_left'].T)*(bank@s['root_right'].T))@s['output_writer'].T+s['constant']
+  result=((bank@s['root_left'].T)*(bank@s['root_right'].T))@s['output_writer'].T+s['constant']
+  if 'skip_writer' in s:
+   skip=primitive@s['skip_reader'].T if 'skip_reader' in s else primitive
+   result=result+skip@s['skip_writer'].T
+  return result
  if 'bank_writer' in s:bank=((x@s['A'].T)*(x@s['B'].T))@s['bank_writer'].T
  else:bank=((x@s['U'].flatten(0,1).T)*(x@s['V'].flatten(0,1).T)).reshape(len(x),4,4).sum(2)
  i,j=torch.triu_indices(4,4,device=x.device)

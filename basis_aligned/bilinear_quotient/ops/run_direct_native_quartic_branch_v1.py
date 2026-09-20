@@ -14,6 +14,8 @@ ROOT=Path(__file__).resolve().parents[3];P=ROOT/'basis_aligned/polynomial_causal
 PLAN=dict(documents=list(range(64,80)),context=128,arms=['exact','ablation','quartic10','quartic26'],native_forwards=16)
 PANEL_PATH=None
 OUTPUT_STEM='NATIVE_QUARTIC_BRANCH_V1'
+PROGRAM_SPECS=None
+PRIMARY='quartic10'
 def main():
  if os.environ.get('BQLIB_DRYRUN') or os.environ.get('BQLIB_NO_MODEL'):print(json.dumps(PLAN));return
  import torch
@@ -26,9 +28,10 @@ def main():
  out=P/(OUTPUT_STEM+'.json');assert not out.exists();start=time.perf_counter();model=Bilin18TorchBackend.load('cuda').model.float();assert not model.config.gated and model.config.bilinear
  blocks=model.transformer.h;b16=blocks[16];b17=blocks[17];_,ru=torch.linalg.qr(model.lm_head.weight.float());ru=ru.double()
  artifact=torch.load(P/'NATIVE_QUARTIC_MEAN_V1.pt',weights_only=True);scale=float(artifact['teacher_scale']);programs={'quartic26':artifact['programs'][8],'quartic10':torch.load(P/'FUSED_ROOT_PROGRAM_V1.pt',weights_only=True)['programs'][4]};solves=[]
+ if PROGRAM_SPECS is not None:programs={name:torch.load(P/file,weights_only=True)['programs'][key] for name,(file,key) in PROGRAM_SPECS.items()}
  for name,s in programs.items():
   s={k:v.cuda().double() for k,v in s.items()};key='output_writer' if 'output_writer' in s else 'W'
-  for k in [key,'constant']:
+  for k in [key,'constant']+(['skip_writer'] if 'skip_writer' in s else []):
    y=s[k]*scale;s[k]=torch.linalg.solve_triangular(ru,y[:,None] if y.ndim==1 else y,upper=True)
    if y.ndim==1:s[k]=s[k][:,0]
    solves.append(float((ru@s[k]-y).norm()/y.norm()))
@@ -60,8 +63,8 @@ def main():
    if arm=='exact':checks.extend([row['relative_logit_error'],row['relative_residual_error']])
    rows.append(row)
   print('document',doc,'done',flush=True)
- summary={arm:{k:sum(r[k] for r in rows if r['arm']==arm)/len(ids) for k in ['native_ce','ce_added','kl','logit_mse','argmax_agreement']} for arm in PLAN['arms']};ratio=(summary['quartic10']['logit_mse']/summary['ablation']['logit_mse'])**.5 if summary['ablation']['logit_mse']>0 else None
- pred=dict(pred_a_instrument=max(checks+solves)<1e-5,pred_b_preservation=summary['quartic10']['ce_added']<.02 and summary['quartic10']['kl']<.02,pred_c_effect=ratio is not None and ratio<.5)
+ summary={arm:{k:sum(r[k] for r in rows if r['arm']==arm)/len(ids) for k in ['native_ce','ce_added','kl','logit_mse','argmax_agreement']} for arm in PLAN['arms']};ratio=(summary[PRIMARY]['logit_mse']/summary['ablation']['logit_mse'])**.5 if summary['ablation']['logit_mse']>0 else None
+ pred=dict(pred_a_instrument=max(checks+solves)<1e-5,pred_b_preservation=summary[PRIMARY]['ce_added']<.02 and summary[PRIMARY]['kl']<.02,pred_c_effect=ratio is not None and ratio<.5)
  result=dict(plan=PLAN,token_hash=digest,records=rows,summary=summary,checks_max=max(checks),solve_error=max(solves),frame_condition=float(torch.linalg.cond(ru)),ten_product_to_ablation_logit_norm=ratio,predictions=pred,seconds=time.perf_counter()-start,scope='Native additive pure-quartic branch intervention with fixed denominator; not whole-block simplification, semantics or OOD.')
  out.write_text(json.dumps(result,indent=2)+'\n');print(json.dumps({k:result[k] for k in ['summary','predictions','checks_max','solve_error','ten_product_to_ablation_logit_norm']},indent=2),flush=True)
 if __name__=='__main__':main()

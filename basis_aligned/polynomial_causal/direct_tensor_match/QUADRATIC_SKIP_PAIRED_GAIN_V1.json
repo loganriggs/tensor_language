@@ -1,0 +1,93 @@
+{
+  "records": [
+    {
+      "domain": "fineweb",
+      "metric": "ce_added",
+      "rank2_minus_base": -0.0061159878969192505,
+      "ci95": [
+        -0.009150628745555878,
+        -0.003006872907280923
+      ],
+      "improved_documents": 11,
+      "documents": 16
+    },
+    {
+      "domain": "fineweb",
+      "metric": "kl",
+      "rank2_minus_base": -0.00612168965744786,
+      "ci95": [
+        -0.008084983119624667,
+        -0.004272691917140037
+      ],
+      "improved_documents": 16,
+      "documents": 16
+    },
+    {
+      "domain": "fineweb",
+      "metric": "logit_mse",
+      "rank2_minus_base": -0.04821676295250654,
+      "ci95": [
+        -0.06537839491793421,
+        -0.03242185006965883
+      ],
+      "improved_documents": 16,
+      "documents": 16
+    },
+    {
+      "domain": "fineweb",
+      "metric": "argmax_agreement",
+      "rank2_minus_base": 0.00244140625,
+      "ci95": [
+        -0.001953125,
+        0.0068359375
+      ],
+      "improved_documents": 6,
+      "documents": 16
+    },
+    {
+      "domain": "code",
+      "metric": "ce_added",
+      "rank2_minus_base": -0.009389638900756836,
+      "ci95": [
+        -0.015424351394176482,
+        -0.003211978077888495
+      ],
+      "improved_documents": 13,
+      "documents": 16
+    },
+    {
+      "domain": "code",
+      "metric": "kl",
+      "rank2_minus_base": -0.016998059232719243,
+      "ci95": [
+        -0.019015685006161222,
+        -0.01477288924797904
+      ],
+      "improved_documents": 16,
+      "documents": 16
+    },
+    {
+      "domain": "code",
+      "metric": "logit_mse",
+      "rank2_minus_base": -0.05810260400176048,
+      "ci95": [
+        -0.0765945682534948,
+        -0.044489511195570236
+      ],
+      "improved_documents": 16,
+      "documents": 16
+    },
+    {
+      "domain": "code",
+      "metric": "argmax_agreement",
+      "rank2_minus_base": 0.0107421875,
+      "ci95": [
+        0.001953125,
+        0.01904296875
+      ],
+      "improved_documents": 11,
+      "documents": 16
+    }
+  ],
+  "scope": "Paired reused-panel diagnostic for fixed preregistered rank2. Related code files and repeated panel use limit inference; no rank selection."
+}
