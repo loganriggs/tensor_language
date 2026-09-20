@@ -1,0 +1,11 @@
+canary: native: 3.1324 (ref 3.1324, diff +0.0000) | twelve: 0.0364 (ref 0.0364, diff -0.0000) | bank5: 0.1632 (ref 0.1632, diff +0.0000) | all162: 0.9562 (ref 0.9562, diff +0.0000) | mlp: 0.2027 (ref 0.2027, diff +0.0000)
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_twelve_head_program_replays": true,
+    "pred_c_layer5_bank_replays": true,
+    "pred_d_all162_fitted_replays": true,
+    "pred_e_mlp_program_replays": true
+  },
+  "forwards": 30
+}

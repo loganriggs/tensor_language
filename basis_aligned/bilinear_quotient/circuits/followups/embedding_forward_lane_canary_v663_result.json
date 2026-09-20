@@ -1,0 +1,51 @@
+{
+  "candidate_id": "embedding_forward.lane_canary_v663",
+  "finished_utc": "2026-09-20T06:40:14.436198+00:00",
+  "forwards": 30,
+  "plan": {
+    "bars": {
+      "tol": 0.003,
+      "tol_native": 0.002
+    },
+    "candidate_id": "embedding_forward.lane_canary_v663",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 34,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "reference": {
+      "all162": 0.9562,
+      "bank5": 0.1632,
+      "mlp": 0.2027,
+      "native": 3.13241,
+      "twelve": 0.0364
+    }
+  },
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_twelve_head_program_replays": true,
+    "pred_c_layer5_bank_replays": true,
+    "pred_d_all162_fitted_replays": true,
+    "pred_e_mlp_program_replays": true
+  },
+  "report": {
+    "got": {
+      "all162": 0.9562155008316036,
+      "bank5": 0.1632016897201538,
+      "mlp": 0.20271221796671535,
+      "native": 3.1324122746785483,
+      "twelve": 0.03636646270751953
+    },
+    "reference": {
+      "all162": 0.9562,
+      "bank5": 0.1632,
+      "mlp": 0.2027,
+      "native": 3.13241,
+      "twelve": 0.0364
+    }
+  },
+  "schema": "embedding_forward_lane_canary_result_v663",
+  "serial_seconds": 16.3066615650896
+}
