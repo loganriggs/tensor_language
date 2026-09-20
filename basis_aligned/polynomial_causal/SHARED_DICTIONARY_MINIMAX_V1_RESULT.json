@@ -1,0 +1,622 @@
+{
+  "minimax": [
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "optimizer_success": true,
+      "primal": 0.01295301736819614,
+      "dual": 0.012953016601542746,
+      "gap": 7.666533935468678e-10,
+      "dual_stationarity": 1.2401286165170167e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "optimizer_success": true,
+      "primal": 0.017629448549268033,
+      "dual": 0.017629446255054033,
+      "gap": 2.294213999332051e-09,
+      "dual_stationarity": 1.6997944640474725e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "optimizer_success": true,
+      "primal": 0.04091260134283082,
+      "dual": 0.04091259375948803,
+      "gap": 7.583342787054193e-09,
+      "dual_stationarity": 1.4628279355479654e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "optimizer_success": true,
+      "primal": 0.051116989296139545,
+      "dual": 0.05111697123389396,
+      "gap": 1.8062245588090775e-08,
+      "dual_stationarity": 1.6196391194822538e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "optimizer_success": true,
+      "primal": 0.012562438134656798,
+      "dual": 0.012562437827500392,
+      "gap": 3.0715640621237217e-10,
+      "dual_stationarity": 1.5306093418658658e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "optimizer_success": true,
+      "primal": 0.014576664406744034,
+      "dual": 0.014576663346624295,
+      "gap": 1.0601197385218253e-09,
+      "dual_stationarity": 1.0336972152049468e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "optimizer_success": true,
+      "primal": 0.03970385339849132,
+      "dual": 0.039703846607194525,
+      "gap": 6.791296795760626e-09,
+      "dual_stationarity": 1.1252000673668251e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "optimizer_success": true,
+      "primal": 0.07015391077774139,
+      "dual": 0.07015387816932772,
+      "gap": 3.260841366370393e-08,
+      "dual_stationarity": 1.6078903837289488e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "optimizer_success": true,
+      "primal": 0.00962677787891203,
+      "dual": 0.009626775692470233,
+      "gap": 2.186441796711569e-09,
+      "dual_stationarity": 2.0894106540839685e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "optimizer_success": true,
+      "primal": 0.00864124018809227,
+      "dual": 0.00864123754608954,
+      "gap": 2.6420027311735428e-09,
+      "dual_stationarity": 2.3117861779897256e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "optimizer_success": true,
+      "primal": 0.01936815487698459,
+      "dual": 0.01936815472620275,
+      "gap": 1.5078184187333754e-10,
+      "dual_stationarity": 1.4539220237508445e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "optimizer_success": true,
+      "primal": 0.031356934376942085,
+      "dual": 0.031356928732185686,
+      "gap": 5.644756398415218e-09,
+      "dual_stationarity": 1.1483741487355485e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "optimizer_success": true,
+      "primal": 0.012571947508681534,
+      "dual": 0.01257194633436218,
+      "gap": 1.1743193535640462e-09,
+      "dual_stationarity": 1.885166887846343e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "optimizer_success": true,
+      "primal": 0.013184383820624038,
+      "dual": 0.01318438363406583,
+      "gap": 1.8655820811785961e-10,
+      "dual_stationarity": 1.9826328368996196e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "optimizer_success": true,
+      "primal": 0.055935906576236295,
+      "dual": 0.055935899924097324,
+      "gap": 6.652138971607879e-09,
+      "dual_stationarity": 1.1674498981665402e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "optimizer_success": true,
+      "primal": 0.07364049917156248,
+      "dual": 0.07364047315744544,
+      "gap": 2.6014117041062157e-08,
+      "dual_stationarity": 1.0242691010559469e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "optimizer_success": true,
+      "primal": 0.015074940266275727,
+      "dual": 0.015074936766407306,
+      "gap": 3.499868421116825e-09,
+      "dual_stationarity": 1.4705077711605918e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "optimizer_success": true,
+      "primal": 0.024958653640216235,
+      "dual": 0.024958646126953917,
+      "gap": 7.513262317848657e-09,
+      "dual_stationarity": 2.5823316032700462e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "optimizer_success": true,
+      "primal": 0.029343657523254855,
+      "dual": 0.02934365300068164,
+      "gap": 4.522573215232084e-09,
+      "dual_stationarity": 1.5122939371770503e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "optimizer_success": true,
+      "primal": 0.06560320166154557,
+      "dual": 0.06560318353049831,
+      "gap": 1.8131047260783184e-08,
+      "dual_stationarity": 9.065114532104568e-18,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "optimizer_success": true,
+      "primal": 0.016140837696182898,
+      "dual": 0.016140834047404348,
+      "gap": 3.6487785501360115e-09,
+      "dual_stationarity": 7.739586409638112e-18,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "optimizer_success": true,
+      "primal": 0.026106664620707737,
+      "dual": 0.026106647682502714,
+      "gap": 1.6938205022604125e-08,
+      "dual_stationarity": 4.9370462630226506e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "optimizer_success": true,
+      "primal": 0.04960856756721953,
+      "dual": 0.049608559915681374,
+      "gap": 7.651538153075066e-09,
+      "dual_stationarity": 1.5631410086041416e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "optimizer_success": true,
+      "primal": 0.033735134471759146,
+      "dual": 0.03373513442065341,
+      "gap": 5.110573769728788e-11,
+      "dual_stationarity": 1.4646994532115652e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "optimizer_success": true,
+      "primal": 0.011194331505282927,
+      "dual": 0.011194328938202417,
+      "gap": 2.5670805099686778e-09,
+      "dual_stationarity": 1.787269582198196e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "optimizer_success": true,
+      "primal": 0.01298608197981263,
+      "dual": 0.012986081328761185,
+      "gap": 6.51051445393902e-10,
+      "dual_stationarity": 3.2467332102077655e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "optimizer_success": true,
+      "primal": 0.016272953475945283,
+      "dual": 0.016272951512776728,
+      "gap": 1.963168554802719e-09,
+      "dual_stationarity": 1.0730935278713934e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "optimizer_success": true,
+      "primal": 0.026282594460803922,
+      "dual": 0.026282584789080334,
+      "gap": 9.67172358867785e-09,
+      "dual_stationarity": 1.3650633826946103e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "optimizer_success": true,
+      "primal": 0.013313829175870939,
+      "dual": 0.01331382769606752,
+      "gap": 1.4798034186913611e-09,
+      "dual_stationarity": 1.1354119522714426e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "optimizer_success": true,
+      "primal": 0.011043395292496292,
+      "dual": 0.01104339520582739,
+      "gap": 8.666890122244197e-11,
+      "dual_stationarity": 1.0058223426707973e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "optimizer_success": true,
+      "primal": 0.07492187989586549,
+      "dual": 0.07492187114195953,
+      "gap": 8.753905961222941e-09,
+      "dual_stationarity": 6.983412557679679e-18,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "optimizer_success": true,
+      "primal": 0.067933186054335,
+      "dual": 0.06793318383506428,
+      "gap": 2.2192707255230815e-09,
+      "dual_stationarity": 1.2546406335613726e-17,
+      "feasible_under_ten_percent": true,
+      "excluded_by_dual": false
+    }
+  ],
+  "minimax_max_primal": 0.07492187989586549,
+  "minimax_max_gap": 3.260841366370393e-08,
+  "minimax_feasible_cells": 32,
+  "minimax_excluded_cells": 0,
+  "bounds": [
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "worst_arm_error_lower_bound": 0.00868516059657002,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "worst_arm_error_lower_bound": 0.010527068374160255,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "worst_arm_error_lower_bound": 0.02917409344745725,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "worst_arm_error_lower_bound": 0.04237417985064137,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "worst_arm_error_lower_bound": 0.008315473087432015,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "worst_arm_error_lower_bound": 0.009716676587462666,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "worst_arm_error_lower_bound": 0.02491591554637118,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "worst_arm_error_lower_bound": 0.04469732108279623,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "worst_arm_error_lower_bound": 0.00601719621119089,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "worst_arm_error_lower_bound": 0.006080785338018926,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "worst_arm_error_lower_bound": 0.01244807314471829,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "worst_arm_error_lower_bound": 0.018108023527595708,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "worst_arm_error_lower_bound": 0.008871506675566906,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "worst_arm_error_lower_bound": 0.007652978993541443,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "worst_arm_error_lower_bound": 0.03574043871097908,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "worst_arm_error_lower_bound": 0.05408614474314103,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "worst_arm_error_lower_bound": 0.010740997232006885,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "worst_arm_error_lower_bound": 0.01463382730364387,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "worst_arm_error_lower_bound": 0.02209553667796643,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "worst_arm_error_lower_bound": 0.04550282840689643,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "worst_arm_error_lower_bound": 0.011127631008748315,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "worst_arm_error_lower_bound": 0.013807683778047008,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "worst_arm_error_lower_bound": 0.030475182919623745,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "worst_arm_error_lower_bound": 0.02265886827846744,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "worst_arm_error_lower_bound": 0.006857174878814589,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "worst_arm_error_lower_bound": 0.007163664904232374,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "worst_arm_error_lower_bound": 0.010196791604507652,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "worst_arm_error_lower_bound": 0.0194061901278134,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "worst_arm_error_lower_bound": 0.00921890780700502,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "worst_arm_error_lower_bound": 0.006696798296867751,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "worst_arm_error_lower_bound": 0.04985084819448664,
+      "excludes_ten_percent": false
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "worst_arm_error_lower_bound": 0.043558590010031165,
+      "excludes_ten_percent": false
+    }
+  ],
+  "max_lower_bound": 0.05408614474314103,
+  "excluded_cells": 0,
+  "least_squares_normal_residual": 1.5276668818842154e-13,
+  "scope": "Number-only oracle minimax fit, arbitrary six coefficients/context, fixed analytic linear term, all18 finite arms. Floating-point primal/dual witnesses checked independently. All native outcomes used; not a predictor, modal preservation, OOD or circuit evidence. No claim against other dictionaries or linear terms."
+}

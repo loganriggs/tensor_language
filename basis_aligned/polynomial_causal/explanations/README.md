@@ -689,3 +689,5 @@ same day sort and link unambiguously.  Older `explanation_HHMM.md` files are ret
 20 September: [Exact source attention fold and spectral baseline](../ATTENTION_FOLD_AND_SPECTRAL_BASELINE_2026-09-20.md). Native attention fold replays exactly but fails the one-shot speed gate (1.024x). Per-context signed rank-two Hessians pass opened finite-edit tests with68 versus80 stored values; native generators remain required. Rank-one fails. No native HT or complete-circuit claim.
 
 20 September: [Shared five-source features](../SHARED_FIVE_SOURCE_FEATURES_2026-09-20.md) fail the reuse screen: common rank2 plane17.46% heldout number error; per-output planes do not rescue it; three calibrated sparse residual pairs improve to11.86% but still fail. Full-basis recovery is exact. Opened data only.
+
+20 September: [Dictionary optimization redteam](../SHARED_DICTIONARY_OPTIMIZATION_REDTEAM_2026-09-20.md). Joint analytic coefficient fits still fail, but native-outcome minimax oracle fits number effects in all32cells (worst7.49%, gap<3.3e-8). Therefore fixed-dictionary capacity is not ruled out. Oracle uses labels and does not establish prediction or modal preservation.
