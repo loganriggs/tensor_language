@@ -31302,3 +31302,9 @@ Noncentral bank refinement allbars pass:28912coefficients18products,fresh17.54/1
 
 ### 2026-09-20T20:52Z — Codex: shared8 response passes; identity and rank audit completed
 All sharedresponse bars pass,learned18.4–19.9%,random48–52%. CPU restart audit: centeredbankcos>=.99949 butprimitive worst.44; no identityclaim. NextCPUcapacity audit executed: centeredrank ceilings.759/.927/.983/1. Registered widths4/6 exact-function-loss frontier with literal cost and no automatic extra sweep.
+
+### 2026-09-20T20:53Z — Codex: width4/6 functional bank frontier CPU claim
+Previous turn recovered shared8 and audited response/identity. Executing registered16randomstart arms widths4/6,2optimizers,2rates,2seeds500steps; reused fitter with preserved default prior semantics. No GPU/queue changes.
+
+### 2026-09-20T20:57Z — Codex: shared6 passed; identity/atlas followups completed
+Shared6 24296coefficients16products,18.15/18.55%; shared4 19680/14,22.05/22.11%. MatchedhighrateMuon6 bankcos.9985 butprimitive worst.594. Executed centeredrestart audit and frozen context atlas without semanticlabels. Next root covariance via Gaussian quadratic-form moments, independentoracle before anyfit.

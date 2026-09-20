@@ -270,3 +270,5 @@ DIRECTIONAL_RESPONSE_V1.json: learned-direction bars pass, random directions47â€
 QUARTIC_BANK_REFACTOR_V1: shared12 bank products yields38144coefficients22products,fresh64error17.95%; width8 composition fails despite99.77% bank energy. BANK_FUNCTION_METRIC_AUDIT_V1 exposes noncentral mean mismatch; next BANK_NONCENTRAL_REFIT_PLAN_V1.md.
 
 NONCENTRAL_BANK_REFIT_V1 recovers shared8:28912coefficients18products,fresh17.54/17.95%,directional response passes. SHARED_BANK_IDENTITY_AUDIT_V1 still shows centered primitive minimumcos.44. BANK_FUNCTION_CAPACITY_V1 records rank ceilings; next BANK_WIDTH_FRONTIER_PLAN_V1.md.
+
+BANK_WIDTH_FRONTIER_V1: shared6 yields24296coefficients16products,18.15/18.55%; shared4 19680/14,22.05/22.11%. WIDTH_FRONTIER_IDENTITY_V1 and FROZEN_BANK_FEATURE_ATLAS_V1 retain identity limitations. Next ROOT_FUNCTION_METRIC_PLAN_V1.md.
