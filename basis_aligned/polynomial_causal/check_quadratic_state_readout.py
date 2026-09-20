@@ -4,6 +4,7 @@ from pathlib import Path
 import torch
 import torch.nn.functional as F
 from quadratic_state_readout import compile_core, fields_at, execute
+from directional_state_jet import second_jet
 
 torch.set_num_threads(2)
 torch.manual_seed(735)
@@ -11,6 +12,13 @@ states=torch.randn(5,3,7,dtype=torch.float64)
 states[0,2]=states[0,0]+states[0,1]
 rows=10*torch.randn(5,4,2,7,dtype=torch.float64)
 core=compile_core(states,rows)
+calls=[]
+def state_function(t):
+    calls.append(1)
+    return states[:,0]+t[:,None]*states[:,1]+t[:,None].square()*states[:,2]
+recovered=second_jet(state_function,torch.zeros(len(states),dtype=torch.float64))
+jet_error=float((recovered-states).abs().max())
+assert jet_error<1e-12 and len(calls)==1
 def direct(t):
     h=states[:,0]+t*states[:,1]+t*t*states[:,2]
     z=F.rms_norm(h,(7,),eps=torch.finfo(torch.float32).eps)
@@ -32,6 +40,7 @@ assert max(errors)<1e-11 and max(norm_errors)<1e-12 and third_error<1e-10
 out=dict(max_readout_replay=max(errors),max_relative_norm_error=max(norm_errors),
          third_derivative_error=third_error,coefficients_per_ray=sum(v.numel() for v in core.values())//len(states),
          shared_norm_features=3,numerator_degree=2,norm_degree=4,
+         state_jet_error=jet_error,state_function_calls=len(calls),
          scope='Exact planted quadratic state curves including rank deficiency; native-state approximation not yet tested.')
 (Path(__file__).parent/'QUADRATIC_STATE_READOUT_CONTROL.json').write_text(json.dumps(out,indent=2)+'\n')
 print(json.dumps(out,indent=2))
