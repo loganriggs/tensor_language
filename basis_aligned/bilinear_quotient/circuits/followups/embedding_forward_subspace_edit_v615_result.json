@@ -1,0 +1,67 @@
+{
+  "candidate_id": "embedding_forward.subspace_edit_v615",
+  "finished_utc": "2026-09-20T03:46:53.091195+00:00",
+  "forwards": 114,
+  "plan": {
+    "bars": {
+      "cheap_max": 0.1,
+      "floor": 0.05,
+      "ratio_max": 0.5,
+      "replay_tol": 0.002
+    },
+    "candidate_id": "embedding_forward.subspace_edit_v615",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 130,
+    "gpu_accessed": false,
+    "metrics": [
+      "coefficient",
+      "uniform_centered",
+      "frequency_centered"
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "ranks": [
+      128,
+      256,
+      512
+    ]
+  },
+  "predictions": {
+    "pred_a_baseline_replays": false,
+    "pred_b_token_beats_coefficient_out": false,
+    "pred_c_token_beats_coefficient_in": false,
+    "pred_d_frequency_le_uniform": true,
+    "pred_e_out512_cheap": true
+  },
+  "report": {
+    "edits": {
+      "coefficient|in|128": 0.5004958709081011,
+      "coefficient|in|256": 0.09538662433624268,
+      "coefficient|in|512": 0.013167937596638701,
+      "coefficient|out|128": 0.04889055093129446,
+      "coefficient|out|256": 0.01748482386271144,
+      "coefficient|out|512": 0.0042469104131059865,
+      "frequency_centered|in|128": 0.4782513777414956,
+      "frequency_centered|in|256": 0.1414271593093872,
+      "frequency_centered|in|512": 0.019641637802124023,
+      "frequency_centered|out|128": 0.06555656592051173,
+      "frequency_centered|out|256": 0.018425504366556655,
+      "frequency_centered|out|512": 0.00408327579498291,
+      "uniform_centered|in|128": 3.375208139419555,
+      "uniform_centered|in|256": 0.4764153560002642,
+      "uniform_centered|in|512": 0.02198127905527736,
+      "uniform_centered|out|128": 0.0706104834874468,
+      "uniform_centered|out|256": 0.020822445551554214,
+      "uniform_centered|out|512": 0.004404743512471221
+    },
+    "native": 3.1324122746785483
+  },
+  "schema": "embedding_forward_subspace_edit_result_v615",
+  "serial_seconds": 57.63405868085101,
+  "whitening_kept_dims": {
+    "frequency_centered": 1152,
+    "uniform_centered": 1152
+  }
+}

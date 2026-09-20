@@ -1,0 +1,20 @@
+native CE 3.13241 (record 3.29205)
+coefficient         r=128: CE added OUT +0.0489  IN +0.5005
+coefficient         r=256: CE added OUT +0.0175  IN +0.0954
+coefficient         r=512: CE added OUT +0.0042  IN +0.0132
+uniform_centered    r=128: CE added OUT +0.0706  IN +3.3752
+uniform_centered    r=256: CE added OUT +0.0208  IN +0.4764
+uniform_centered    r=512: CE added OUT +0.0044  IN +0.0220
+frequency_centered  r=128: CE added OUT +0.0656  IN +0.4783
+frequency_centered  r=256: CE added OUT +0.0184  IN +0.1414
+frequency_centered  r=512: CE added OUT +0.0041  IN +0.0196
+{
+  "predictions": {
+    "pred_a_baseline_replays": false,
+    "pred_b_token_beats_coefficient_out": false,
+    "pred_c_token_beats_coefficient_in": false,
+    "pred_d_frequency_le_uniform": true,
+    "pred_e_out512_cheap": true
+  },
+  "forwards": 114
+}
