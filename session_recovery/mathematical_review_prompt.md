@@ -76,3 +76,11 @@ receipt or reset the clock. Preserve genuinely new work in a uniquely named
 REVIEW_ADDENDUM_YYYY-MM-DD_HHMM.md, link the already completed review, and stop.
 Use concise current receipt summaries and hashes; do not dump full historical
 inventories merely to recover state.
+
+USER PRIORITY UPDATE 2026-09-20 15:10 UTC: Read
+basis_aligned/polynomial_causal/direct_tensor_match/FOCUS_2026-09-20_TO_2026-09-22.md.
+Until 2026-09-22 15:10 UTC, orient this review to direct weight-tensor decomposition
+science: planted structures, optimizer/restart/hyperparameter effects, sparse and
+shared representations, isotropic and covariance-informed metrics. The explicit
+user focus overrides older instructions that would redirect to data-based circuit
+screens. Preserve the primary worker's running sweep files; do not mutate them.
