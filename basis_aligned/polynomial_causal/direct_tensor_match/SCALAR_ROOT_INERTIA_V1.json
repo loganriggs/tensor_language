@@ -1,0 +1,213 @@
+{
+  "records": [
+    {
+      "mode": 0,
+      "exact_rank": 6,
+      "exact_inertia": [
+        4,
+        2,
+        0
+      ],
+      "exact_minimum_root_products": 4,
+      "eigenvalues": [
+        -0.7856455693556617,
+        -1.498787406573468e-14,
+        3.329301407383917e-16,
+        0.60666866234425,
+        2.6700852909115724,
+        21.251614215508127
+      ],
+      "retained_positive": 3,
+      "retained_negative": 1,
+      "approximate_root_products": 3,
+      "relative_eigenvalue_cutoff": 1e-10,
+      "root_coefficient_relative_error": 8.788361711369184e-16,
+      "cost": {
+        "products": 9,
+        "additions": 13841,
+        "stored_coefficients": 13855,
+        "edges": 13876,
+        "nodes": 1179
+      },
+      "checks": [
+        {
+          "panel": "isotropic",
+          "fp64_relative_error": 6.406884930450743e-18,
+          "fp32_archive_relative_error": 2.7259609893227177e-11
+        },
+        {
+          "panel": "reused_context_64",
+          "fp64_relative_error": 8.174519516809157e-16,
+          "fp32_archive_relative_error": 4.782426094759291e-08
+        },
+        {
+          "panel": "reused_context_256",
+          "fp64_relative_error": 8.471530424744452e-16,
+          "fp32_archive_relative_error": 5.10209774482721e-08
+        }
+      ]
+    },
+    {
+      "mode": 1,
+      "exact_rank": 6,
+      "exact_inertia": [
+        3,
+        3,
+        0
+      ],
+      "exact_minimum_root_products": 3,
+      "eigenvalues": [
+        -6.067561214193768,
+        -0.656469599680206,
+        -3.9286402763073656e-15,
+        5.481759888392848e-15,
+        1.7493137937324086,
+        7.609192661786093
+      ],
+      "retained_positive": 2,
+      "retained_negative": 2,
+      "approximate_root_products": 2,
+      "relative_eigenvalue_cutoff": 1e-10,
+      "root_coefficient_relative_error": 7.627827470825355e-16,
+      "cost": {
+        "products": 8,
+        "additions": 13840,
+        "stored_coefficients": 13855,
+        "edges": 13873,
+        "nodes": 1178
+      },
+      "checks": [
+        {
+          "panel": "isotropic",
+          "fp64_relative_error": 1.560122633046996e-17,
+          "fp32_archive_relative_error": 8.299126698586938e-11
+        },
+        {
+          "panel": "reused_context_64",
+          "fp64_relative_error": 3.5191906159158316e-16,
+          "fp32_archive_relative_error": 9.536888484598503e-09
+        },
+        {
+          "panel": "reused_context_256",
+          "fp64_relative_error": 3.4902692587824125e-16,
+          "fp32_archive_relative_error": 9.143678712490536e-09
+        }
+      ]
+    },
+    {
+      "mode": 2,
+      "exact_rank": 6,
+      "exact_inertia": [
+        3,
+        3,
+        0
+      ],
+      "exact_minimum_root_products": 3,
+      "eigenvalues": [
+        -4.306129555363886,
+        -1.4005633076927217,
+        -3.5157122708963145e-15,
+        2.06201399802775e-15,
+        1.6171948342608196,
+        8.698457871711076
+      ],
+      "retained_positive": 2,
+      "retained_negative": 2,
+      "approximate_root_products": 2,
+      "relative_eigenvalue_cutoff": 1e-10,
+      "root_coefficient_relative_error": 1.1235924543259865e-15,
+      "cost": {
+        "products": 8,
+        "additions": 13840,
+        "stored_coefficients": 13855,
+        "edges": 13873,
+        "nodes": 1178
+      },
+      "checks": [
+        {
+          "panel": "isotropic",
+          "fp64_relative_error": 1.5266367455955794e-17,
+          "fp32_archive_relative_error": 2.222186130762148e-11
+        },
+        {
+          "panel": "reused_context_64",
+          "fp64_relative_error": 1.274117022448466e-15,
+          "fp32_archive_relative_error": 2.977199745918322e-08
+        },
+        {
+          "panel": "reused_context_256",
+          "fp64_relative_error": 1.3301813432911427e-15,
+          "fp32_archive_relative_error": 3.024317430266184e-08
+        }
+      ]
+    },
+    {
+      "mode": 3,
+      "exact_rank": 6,
+      "exact_inertia": [
+        2,
+        4,
+        0
+      ],
+      "exact_minimum_root_products": 4,
+      "eigenvalues": [
+        -5.647767620155281,
+        -1.735568053794303,
+        -0.0012770269538496702,
+        -7.641639061443371e-16,
+        1.07659971094395e-12,
+        4.509558197906276
+      ],
+      "retained_positive": 1,
+      "retained_negative": 3,
+      "approximate_root_products": 3,
+      "relative_eigenvalue_cutoff": 1e-10,
+      "root_coefficient_relative_error": 1.4481428670048646e-13,
+      "cost": {
+        "products": 9,
+        "additions": 13851,
+        "stored_coefficients": 13867,
+        "edges": 13888,
+        "nodes": 1181
+      },
+      "checks": [
+        {
+          "panel": "isotropic",
+          "fp64_relative_error": 1.0287328280602823e-15,
+          "fp32_archive_relative_error": 1.8633927448989863e-10
+        },
+        {
+          "panel": "reused_context_64",
+          "fp64_relative_error": 8.014242615522357e-14,
+          "fp32_archive_relative_error": 8.665280793014055e-08
+        },
+        {
+          "panel": "reused_context_256",
+          "fp64_relative_error": 7.761868068113422e-14,
+          "fp32_archive_relative_error": 8.694302058576475e-08
+        }
+      ]
+    }
+  ],
+  "independent_reader_minor_columns": [
+    981,
+    645,
+    990,
+    329,
+    992,
+    540,
+    1046,
+    44,
+    1139,
+    452,
+    195,
+    807
+  ],
+  "independent_reader_minor_exact_nonzero": true,
+  "exact_quartic_output_span_rank": 4,
+  "shared_root_products_lower_bound_fixed_primitives": 4,
+  "existing_shared_root_products": 4,
+  "shared_root_optimal_within_restricted_class": true,
+  "separate_approximate_roots_plus_shared_primitives": 16,
+  "scope": "Exact ranks/inertias refer to stored FP32 coefficients treated as dyadic rationals. Exported scalar reductions deliberately discard eigenvalues below a stated tolerance; they are approximations, not exact identities. Bounds require products of linear forms in the fixed six primitive coordinates and linear output readout. No bound on arbitrary circuits, changed primitive dictionaries, or native-model approximation error."
+}

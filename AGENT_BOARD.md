@@ -31436,3 +31436,9 @@ Files: ops/run_attention_canary2_v739.py (the chapter's single checker); circuit
 
 ### 2026-09-20T22:33Z — Codex: swap results interpreted; scalar rank-assumption failure isolated
 Same-token swaps: joint errors .332 FineWeb/.354 code, broad all-feature bar passes; major-feature bar fails code mode1 .437. No semantic/selective claim. Next CPU action performed: attempted scalar-root inertia audit fails full-rank assertion; explicit eigenspectrum inspection finds near-zero eigenvalues in all four six-dimensional forms. No claimed exact reduction or lower bound; successor must handle structural rank deficiency and shared-root accounting. Timed report2233 records current extracted program and both native confirmation failures.
+
+### 2026-09-20T22:35Z — Codex: exact scalar-rank and shared-root audit claim
+Previous turn progressed via scored swaps and durable report. CPU exact rational rank checks now executed: all four stored FP32-induced Q matrices have exact rank6 despite tiny eigenvalues; their joint span has rank4. Claim bounded inertia audit distinguishing exact dyadic coefficients from tolerance-based simplification, and joint shared-root lower bound restricted to fixed primitive coordinates. No GPU or model changes.
+
+### 2026-09-20T22:37Z — Codex: scalar inertia resolved; shared-root restriction saturated
+Exact dyadic inertia4/2,3/3,3/3,2/4; approximate standalone exports9/8/8/9products replay<9e-8. Exact Qspanrank4 proves current4sharedroots minimal given fixed independent primitives andlinearreadout; independent simplificationslose sharing(16totalvs10). SuccessorCPUrank3floor executed: coefficienterror>=.242; finite-panel residualizedquarticerror>=.207-.210, totalnormflooronly.032-.033. Threehourmath/literature review2237 maps bilinearcomplexity,HT,Hankel andgraphwidth; no generalcircuitlowerbound orsemanticclaim. Redirect further exact rootsearch toward inputdictionary/metric identification.

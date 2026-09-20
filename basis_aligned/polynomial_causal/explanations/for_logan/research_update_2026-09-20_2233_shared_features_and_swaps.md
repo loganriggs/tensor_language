@@ -65,3 +65,5 @@ The attempted scalar-root inertia audit did **not** complete: its assertion that
 The next question is whether rank deficiency permits fewer products for individual scalar outputs, while preserving the savings from shared roots across all four outputs. Numerical eigenvalues alone do not certify an exact rank or an arbitrary-circuit lower bound. No product-count reduction from this audit is included in the validated counts above.
 
 Primary receipts: `direct_tensor_match/FEATURE_SWAP_V1.json`, `BLEND_CONFIRMATION_V1.json`, `EXTRACTED_SCALAR_MODES_V1.pt`, and `EXTRACTED_SCALAR_INTERVENTIONS_V1.pt`, relative to `basis_aligned/polynomial_causal/`.
+
+Follow-up at 22:37: the rank-assumption issue is resolved in the [three-hour mathematical review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-20_2237.md). Exact stored ranks differ from numerical ranks; standalone reductions are approximate, while the shared four-root lower bound is exact within the stated restricted class.

@@ -1,0 +1,36 @@
+{
+  "coefficient_output_unfolding_singular_values": [
+    22.27431353177274,
+    11.29178081011692,
+    6.824387861154045,
+    6.46209675489396
+  ],
+  "rank3_relative_frobenius_lower_bound": 0.24218066154654627,
+  "scope": "Necessary lower bound for three shared quartic functions with linear readout under equal-output coefficient Frobenius metric. Does not assert attainability by product roots or control native behavior. Fixed primitive coordinates only.",
+  "panels": [
+    {
+      "context": 64,
+      "rows": 2048,
+      "quartic_residualized_singular_values": [
+        301.131289056241,
+        180.21699027185178,
+        139.1790140913223,
+        81.20249855747802
+      ],
+      "rank3_relative_residualized_error_floor": 0.2102796664493309,
+      "rank3_error_floor_relative_total_scalar": 0.03302153694735744
+    },
+    {
+      "context": 256,
+      "rows": 8192,
+      "quartic_residualized_singular_values": [
+        599.5479664514031,
+        384.47281514801796,
+        288.58102718157295,
+        162.7604268566963
+      ],
+      "rank3_relative_residualized_error_floor": 0.20719996180862885,
+      "rank3_error_floor_relative_total_scalar": 0.03234348104598494
+    }
+  ]
+}
