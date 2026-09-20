@@ -1,0 +1,82 @@
+{
+  "plan": {
+    "budgets": [
+      64,
+      512,
+      2048,
+      4608,
+      16384,
+      65536
+    ],
+    "chunk": 8,
+    "forwards_max": 0,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0,
+    "execution_policy": "managed_queue_only"
+  },
+  "rows": [
+    {
+      "squares": 64,
+      "active_output_features": 9,
+      "relative_tensor_error": 0.9716660436285447,
+      "stored_values": 895168,
+      "alternative_factored_values": 65996992
+    },
+    {
+      "squares": 512,
+      "active_output_features": 30,
+      "relative_tensor_error": 0.9452794185820266,
+      "stored_values": 5048576,
+      "alternative_factored_values": 66537728
+    },
+    {
+      "squares": 2048,
+      "active_output_features": 148,
+      "relative_tensor_error": 0.9283621532592206,
+      "stored_values": 21602816,
+      "alternative_factored_values": 68444672
+    },
+    {
+      "squares": 4608,
+      "active_output_features": 301,
+      "relative_tensor_error": 0.912917287829338,
+      "stored_values": 46996608,
+      "alternative_factored_values": 71572608
+    },
+    {
+      "squares": 16384,
+      "active_output_features": 552,
+      "relative_tensor_error": 0.863592204418317,
+      "stored_values": 141030400,
+      "alternative_factored_values": 85439488
+    },
+    {
+      "squares": 65536,
+      "active_output_features": 916,
+      "relative_tensor_error": 0.7339506884995209,
+      "stored_values": 499128832,
+      "alternative_factored_values": 142531072
+    }
+  ],
+  "energy_relative_mismatch": 4.5390024608323855e-08,
+  "component_replay": 2.1462519725901075e-06,
+  "component": {
+    "input_port": "z=[r,m16,a17]",
+    "normalization": "divide by mean(h**2)+native_eps with actual h=Ez",
+    "scope": "strongest output-mode component only; upstream states still required",
+    "retained_block_energy": 0.9900732021661404,
+    "full_tensor_energy_fraction": 0.09281960925859632
+  },
+  "component_squares": 709,
+  "artifact_bytes": 19809181,
+  "artifact_sha256": "5007c016911fdd6872482f0e5f3949e006ce03d17783edad5fb9e1375beb9277",
+  "predictions": {
+    "pred_a_block_energy": true,
+    "pred_b_component_replay": true,
+    "pred_c_native_product_budget": false
+  },
+  "scope": "new features in fixed output spectral frame; no input sharing across blocks optimized; no behavioral/circuit claim",
+  "seconds": 11.274417392909527,
+  "finished_utc": "2026-09-20T03:37:12.434796+00:00"
+}

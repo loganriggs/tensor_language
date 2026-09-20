@@ -1,0 +1,54 @@
+{
+  "plan": {
+    "panels": [
+      "fineweb_n96_skip1200.pt",
+      "fineweb_n192_skip7000.pt"
+    ],
+    "documents_per_panel": 8,
+    "tokens": 64,
+    "batch": 4,
+    "forwards_max": 12,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0,
+    "execution_policy": "managed_queue_only"
+  },
+  "adapter_checks": {
+    "input": 7.943232276375056e-07,
+    "output": 8.216968012675352e-07
+  },
+  "rows": [
+    {
+      "panel": "fineweb_n96_skip1200.pt",
+      "component_relative_error": 0.009621967733715753,
+      "losses": {
+        "baseline": 3.0476784706115723,
+        "remove": 3.2091959714889526,
+        "random": 3.1004806756973267
+      },
+      "removal_delta_ce": 0.16151750087738037,
+      "random_delta_ce": 0.052802205085754395
+    },
+    {
+      "panel": "fineweb_n192_skip7000.pt",
+      "component_relative_error": 0.00959397136695167,
+      "losses": {
+        "baseline": 3.542909622192383,
+        "remove": 3.733087658882141,
+        "random": 3.569198727607727
+      },
+      "removal_delta_ce": 0.1901780366897583,
+      "random_delta_ce": 0.02628910541534424
+    }
+  ],
+  "forwards": 12,
+  "vocabulary_writer_centered_energy_fraction": 0.12285780906677246,
+  "predictions": {
+    "pred_a_adapters": true,
+    "pred_b_component_fidelity": true,
+    "pred_c_finite_edits": true
+  },
+  "scope": "conditional MLP17 component only; heldout documents, no domain OOD or semantic selectivity/reuse/simplicity claim",
+  "seconds": 1.1905262968502939,
+  "finished_utc": "2026-09-20T03:37:54.846852+00:00"
+}

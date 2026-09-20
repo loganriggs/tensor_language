@@ -1,0 +1,89 @@
+{
+  "plan": {
+    "panels": [
+      "fineweb_n96_skip1200.pt",
+      "fineweb_n192_skip11000.pt"
+    ],
+    "documents": 8,
+    "tokens": 64,
+    "prefixes": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128,
+      256,
+      512
+    ],
+    "forwards_max": 4,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0,
+    "execution_policy": "managed_queue_only"
+  },
+  "prefixes": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128,
+    256,
+    512,
+    709
+  ],
+  "rows": [
+    {
+      "panel": "fineweb_n96_skip1200.pt",
+      "selected_rows_sha256": "98acad92d29c3c940d70ccff19ada96dd14e3c64f130c661db96c1ce1baf2353",
+      "errors": {
+        "1": 0.3535382173385829,
+        "2": 0.3066947225367466,
+        "4": 0.29694652565500795,
+        "8": 0.22348162538941002,
+        "16": 0.24796934307892637,
+        "32": 0.19256426688416012,
+        "64": 0.13602025019117267,
+        "128": 0.08678092164620481,
+        "256": 0.047085504174612255,
+        "512": 0.018289817942640983,
+        "709": 0.009621956889082033
+      },
+      "selected_relative_error": 0.047085504174612255
+    },
+    {
+      "panel": "fineweb_n192_skip11000.pt",
+      "selected_rows_sha256": "4f999de8045f74b9dde718a4d52384c2d22bce4fe827fb49f3eaa4e6cff169a4",
+      "errors": {
+        "1": 0.35413073266290923,
+        "2": 0.29682046184541516,
+        "4": 0.2793819760372108,
+        "8": 0.20963507464898803,
+        "16": 0.22409369076203434,
+        "32": 0.17577632440577273,
+        "64": 0.12752329090684011,
+        "128": 0.07895780877350539,
+        "256": 0.042716439988716964,
+        "512": 0.01685694112149679,
+        "709": 0.009492866852159085
+      },
+      "selected_relative_error": 0.042716439988716964
+    }
+  ],
+  "selected": 256,
+  "forwards": 4,
+  "predictions": {
+    "pred_a_full_replay": true,
+    "pred_b_compact_calibration": false,
+    "pred_c_frozen_new_documents": true
+  },
+  "selected_program_values": 346624,
+  "scope": "conditional component approximation; no semantic task, domain OOD, independent upstream extraction or reuse claim",
+  "seconds": 1.1724388869479299,
+  "finished_utc": "2026-09-20T03:39:37.362421+00:00"
+}
