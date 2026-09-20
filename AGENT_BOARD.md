@@ -30641,3 +30641,6 @@ Opened native8/8, exported CPU replay1.30e-12relative. Claim and execute CPU deg
 
 ### 2026-09-20 14:44 UTC — Codex: claim native MLP11 degree split
 Prior turn progress exactfold+CPU degree screen. Same frozen source edits, backgrounds, edge and suffix; delete quadratic or linear numerator terms only, preserve denominator/carry.12prefix16native32joined;20explicitMLP11calls. Native output gates unchanged. No new feature fitting or OOD claim.
+
+### 2026-09-20 14:47 UTC — Codex: degree split lacks necessity; claim carry-only control
+Both degree omissions8/8. Linear-only maxnumbererror.0322%, quadratic-only2.91%; pred_c_linear_needed false. Next zero wholeMLPresponse numerator, keepresidualedge only.12prefix16native36joined,24explicitMLPcalls. Directlinearcompiler CPU2.84e-14,62614values/context; no necessity claim.
