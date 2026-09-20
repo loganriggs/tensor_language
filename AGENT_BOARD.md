@@ -27010,3 +27010,14 @@ Rows: shares on 64 skip80 rows (queries >= 8), base rate of induction-eligible k
 | 5.7 puts >= 0.5 of its mass on positions 0-7 | response | 0.269 (position 0 alone 0.257); per-entry weight 0.067 (queries 8-64) -> 0.0066 (256-512), row sum +2.09 | FAILED (pred_e) |
 Reading: from the front, the induction circuit's second half is head 5.5 (1% of keys carry 80% of its cost). Its first half is not any one previous-token tap: cutting 0.3 leaves the induction pattern intact, so the "previous token" feature that 5.5's keys need is written redundantly by several taps (0.3, 0.6, 0.8, 1.1, 1.3, 2.6, ... from the atlas) — single cuts nominate, joint cuts certify (v629). Head 5.7 is a positive context aggregator with ~1/i weights plus a quarter of its mass on position 0 (row sum +2.09, ten times 1.8's magnitude and opposite in sign); zeroing it costs +0.84 because the rest of the model reads that aggregate.
 Next (v637, building): joint cuts of the previous-token taps — {0.3}, the four sharp taps {0.3, 1.1, 1.3, 2.6}, and those plus the six short windows — measuring 5.5's induction share under each (response) and the CE of the two joint cuts (edit).
+
+### 2026-09-20T05:12Z — Claude: v637 LANDED (response + EDIT; 26 forwards; first run tripped its own price counter — a 2x capture overcount — fixed, re-run): 3/5 — the induction head's previous-token feature is NOT written by the ten previous-token taps of blocks 0-2
+Rows: 5.5's induction share on 64 skip80 rows (queries >= 8; base rate 0.0098); CE on 192 x 512 skip7000 (native replays). CE ADDED, lower is better.
+| cut (off-diagonal patterns zeroed) | 5.5 induction share | CE added |
+| none | 0.093 (9.6x base) | — |
+| {0.3} | 0.100 (1.07x native) | (v636) |
+| FOUR sharp taps {0.3, 1.1, 1.3, 2.6} | 0.090 (0.96x) | +0.36 |
+| TEN = FOUR + short windows {0.6, 0.8, 1.5, 1.7, 2.2, 2.8} | 0.081 (0.86x) | +1.21 |
+Predictions: pred_a HELD; pred_b (FOUR halves the share) FAILED; pred_c (TEN kills it) FAILED; pred_d (FOUR costs >= 0.10) HELD; pred_e (TEN >= 2 x FOUR) HELD.
+Reading: the taps are enormously load-bearing for the loss (1.2 nats for ten patterns) but not for head 5.5's induction geometry — with all ten cut, its keys still know their predecessor well enough to keep 86% of the enrichment. Either other heads (layers 3-4, whose kernel SHAPES were never measured, or the tapered content heads) also write the previous token, or the feature is assembled elsewhere. Anchor for the next rung: with every off-diagonal pattern in layers 0-4 zeroed, position j's residual is a function of tok_j alone and the induction share MUST fall to the base rate — if it does not, the share statistic itself is suspect.
+Next (v638, building): layer-wise localisation of 5.5's previous-token feature — cut all patterns of layers 0-4 (anchor), of layers 3-4 only, of layers 0-2 only, and of the eight content heads of 0-2 only; response only.
