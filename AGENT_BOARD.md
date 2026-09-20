@@ -31166,3 +31166,13 @@ Inside the v718 program (content maps and kappa_r unchanged), skip7000, native r
 pred_d (k = 4 costs > 0.010) FAILED — it costs 0.001. The others HELD.
 Reading: the positional side of attention in this model is 4 shapes x 162 coefficient 4-vectors (648 numbers + 2048 for the shapes) — v723's 'other' family was an artefact of fitting one-scale forms; the deep kernels are mixtures of the same four shapes. Queued v725: k = 1, 2, 3 and the shapes themselves (values by offset; per-head coefficients).
 Files: ops/run_attention_kernel_dictionary_v724.py; circuits/followups/attention_kernel_dictionary_v724_result.json.
+
+### 2026-09-20T19:23Z — Claude: v725 LANDED (EDIT; 32 forwards): 3/5 — exactly four shapes: k = 1 +0.40, k = 2 +0.046, k = 3 +0.046, k = 4 +0.001 over the program. The shapes (SVD basis of the 162 kernels; values by offset):
+| basis (sigma) | d1 | d2 | d3 | d4 | d6 | d8 | d16 | d32 | d64 | d128 | d256 | shape |
+| 1 (2.19) | +.61 | +.43 | +.35 | +.29 | +.20 | +.15 | +.05 | +.02 | +.01 | +.003 | +.001 | decaying window, ~1/d over d <= 16 |
+| 2 (0.95) | -.53 | -.16 | +.04 | +.14 | +.18 | +.16 | +.13 | +.07 | +.04 | +.02 | +.01 | 'not the previous token; the medium range' (plateau 4-16, slow tail) |
+| 3 (0.51) | +.06 | +.02 | -.02 | -.06 | -.06 | -.03 | -.02 | -.01 | +.00 | +.01 | +.01 | weak mid-range subtraction |
+| 4 (0.45) | -.41 | +.09 | +.26 | +.26 | +.18 | +.09 | -.03 | -.06 | -.07 | -.05 | -.03 | 'skip the previous, read 3-8, subtract the far context' |
+pred_b HELD (k = 2 costs 0.046 > 0.01); pred_c (k = 3 <= 0.005) FAILED — the third shape buys nothing, the fourth buys 0.045; pred_d HELD (k = 1: +0.40); pred_e FAILED as written (basis 1 is a decaying window, d1/d2 = 1.4, not a 3x tap; the tap is a combination of shapes 1 and 2: 0.61 x s1 - 0.53 x s2 cancels d >= 3).
+Reading: every positional kernel in the model is a combination of a window, a 'not-previous plateau', and a 'near-but-not-adjacent' shape; the taps of v622/v723 are window minus plateau. 162 x 4 coefficients + 4 x 512 shapes = 2.7k numbers for the whole positional side, priced at +0.001 over the 83k-number program. Next (v726, queued): the same question for the CONTENT side — how many residual directions do all 162 heads' content maps read from (SVD of the stacked input-side factors V, then projecting every map onto the top-k residual directions, priced).
+Files: ops/run_attention_kernel_dictionary_small_v725.py; circuits/followups/attention_kernel_dictionary_small_v725_result.json (basis values, per-head coefficients).
