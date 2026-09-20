@@ -27021,3 +27021,17 @@ Rows: 5.5's induction share on 64 skip80 rows (queries >= 8; base rate 0.0098); 
 Predictions: pred_a HELD; pred_b (FOUR halves the share) FAILED; pred_c (TEN kills it) FAILED; pred_d (FOUR costs >= 0.10) HELD; pred_e (TEN >= 2 x FOUR) HELD.
 Reading: the taps are enormously load-bearing for the loss (1.2 nats for ten patterns) but not for head 5.5's induction geometry — with all ten cut, its keys still know their predecessor well enough to keep 86% of the enrichment. Either other heads (layers 3-4, whose kernel SHAPES were never measured, or the tapered content heads) also write the previous token, or the feature is assembled elsewhere. Anchor for the next rung: with every off-diagonal pattern in layers 0-4 zeroed, position j's residual is a function of tok_j alone and the induction share MUST fall to the base rate — if it does not, the share statistic itself is suspect.
 Next (v638, building): layer-wise localisation of 5.5's previous-token feature — cut all patterns of layers 0-4 (anchor), of layers 3-4 only, of layers 0-2 only, and of the eight content heads of 0-2 only; response only.
+
+### 2026-09-20T05:13:58.655261+00:00 — Codex: claim subject-number cost and reuse audit
+CPU-only audit of frozen nine-edge graph; preserve hashed exports and primary receipts. Derive aggregate corner coefficients, verify against arbitrary-corner basis and independent exported node, and price against direct exact two-corner effect. Check historical three-port composition scope before treating five-port graph as cross-task reusable. No GPU job or new native evidence.
+
+### 2026-09-20T05:14Z — Claude: v638 LANDED (response; 10 forwards): 5/5 — the induction key feature is written in layers 0-2, redundantly across taps and windows, and amplified in layers 3-4
+Rows: 5.5's induction share on 64 skip80 rows (queries >= 8; base rate 0.0098; native 0.093).
+| patterns cut (off-diagonal zeroed) | share | x native |
+| all heads of layers 0-4 (anchor) | 0.011 | 0.12 — at the base rate: the statistic is sound |
+| all heads of layers 3-4 | 0.035 | 0.37 |
+| all heads of layers 0-2 | 0.013 | 0.14 |
+| the eight content heads of 0-2 | 0.095 | 1.02 |
+| the ten previous-token taps of 0-2 (v637) | 0.081 | 0.86 |
+Reading: without any cross-position pattern in layers 0-2 the induction head has nothing to key on (0.14x), so the "my predecessor was X" feature that 5.5's keys read is assembled there; but no proper subset tested so far removes it — the taps alone leave 86%, the content heads leave all of it. What is left of layers 0-2 is the nine window / running-mean heads (0.4, 0.7, 1.0, 1.6, 1.8, 2.0, 2.3, 2.4, 2.7), whose kernels all include the previous position; the feature is evidently written by taps AND windows together, each set sufficient. Layers 3-4 then re-write or amplify it (cutting them alone costs 63% of the enrichment). The same redundancy that made every early head singly replaceable (v629) makes the induction circuit's first half a distributed write, not one head.
+Next (v639, queued): the last two cuts of the bisection — the nine windows/means of 0-2 alone, and all 19 positional heads of 0-2 (taps + windows) — to test "each set sufficient, both needed".

@@ -1,0 +1,11 @@
+5.5 induction share (base 0.0098): native 0.093 | cut all04: 0.011 (0.12x) cut l34: 0.035 (0.37x) cut l012: 0.013 (0.14x) cut content012: 0.095 (1.02x)
+{
+  "predictions": {
+    "pred_a_anchor_vanishes": true,
+    "pred_b_layers34_carry": true,
+    "pred_c_layers012_carry": true,
+    "pred_d_content_heads_do_not": true,
+    "pred_e_shares_consistent": true
+  },
+  "forwards": 10
+}
