@@ -30494,3 +30494,6 @@ Jointreader63/64passes(numberworst14.237%); allbeside_subject32passworst0.1714%,
 
 ### 2026-09-20T12:32:03.975451+00:00 — Codex: claim finite interaction census
 Previous turn progressed via nativecontext transport and exactquartet split. Screen allattention/MLP11–17newlygenerated terms; carryincominginteraction separately. Subtractonegeneratedterm thenrerunnonlinearsuffix, no fixedreaders. Strong screenanysinglemodulehalvesall13failedcell interactions. Counts12prefix68trajectories448additive448intervened56zero-removal. Nativeboundariesonlylocalizationcandidates. See FINITE_INTERACTION_CENSUS_V1_PREREGISTRATION.md.
+
+### 2026-09-20T12:34:59.559930+00:00 — Codex: census rejects single-module sufficiency; root closure audit executed
+Allinstrumentchecks pass; bestMLP11/12halves2/13,others0. Sum14finiteeffects passes7/64number10%,butfinalreadoutgenerationomitted so cannotblamenonadditivityalone. CPU savedquadraticstate root split executed:medianrootnorm26.45%total,max106.19%,closure8.88e-16; native rootsplitpending. Next close nativefinalreadout boundary,then reassesssum. See FINITE_INTERACTION_CENSUS_2026-09-20.md.
