@@ -110,3 +110,14 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 
 - `RESIDUAL_OBSTRUCTION_PLAN_V1.md`, `residual_obstruction.py`, `RESIDUAL_OBSTRUCTION_V1.json`: exact residual output-rank relaxation,12 refinements across longer, perturbed and oracle initializations; longer joint runs recover both.
 - `REFINEMENT_RATE_PLAN_V1.md`, `refinement_rate.py`, `REFINEMENT_RATE_V1.json`:nine same-budget refinement rates, initial/best/final training losses. One teacher orientation and initialization; no heldout selection or native result.
+
+## Native exact CP and quartic covariance — 17:14 UTC
+
+[Timed report](../explanations/for_logan/research_update_2026-09-20_1714_native_cp_null_and_covariance.md).
+
+- `NATIVE_EXACT_CP_GREEDY_V1.json/.pt`:8atoms capture0.0863% estimated coefficient energy;99.9356% independent coefficient error,100.1773% Gaussian error. Both improvement predictions failed; finite check passed.
+- `audit_native_cp_structure.py`, `NATIVE_CP_STRUCTURE_V1.json`:Gram condition3.58; no cross-atom linear factor correlation>.99. Descriptive, not a no-sharing theorem.
+- `cp_dictionary.py`, `check_cp_dictionary.py`, `CP_DICTIONARY_CHECK_V1.json`:conditional exact writer-refit selection matches exhaustive small-dictionary evaluation.
+- `NATIVE_CP_DICTIONARY_PLAN_V1.md`:queued native-channel vs random1024candidate dictionaries, retainedwidths1/2/4/8.
+- `gaussian_cp.py`, `check_gaussian_cp.py`, `GAUSSIAN_CP_CHECK_V1.json`:105pairing exact quartic Gaussian Gram, full covariance; independent quadrature/gradient/whitening checks below3e-15.
+- `QUARTIC_METRIC_TRADEOFF_PLAN_V1.md`, `quartic_metric_tradeoff.py`, `QUARTIC_METRIC_TRADEOFF_V1.json`:12known-undercapacity fits, three metrics, two rates/starts. Covariance2.07% vs coefficient89.45%; fixed teacher-atom covariance baseline1.992%. No empirical-eighth-moment or native covariance claim.

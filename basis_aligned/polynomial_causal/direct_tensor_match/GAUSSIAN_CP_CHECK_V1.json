@@ -1,0 +1,18 @@
+{
+  "pairings": 105,
+  "checks": [
+    {
+      "metric": "isotropic",
+      "value_relative_error": 5.398655263299725e-16,
+      "gradient_relative_error": 1.1915486191317839e-15,
+      "whitening_relative_error": 0.0
+    },
+    {
+      "metric": "covariance",
+      "value_relative_error": 1.4569037564664186e-15,
+      "gradient_relative_error": 2.5666002610332116e-15,
+      "whitening_relative_error": 9.871674281261797e-16
+    }
+  ],
+  "scope": "Exact zero-mean Gaussian eighth-moment CP Gram independently validated by5-point-per-axis quadrature and gradients, isotropic and full covariance. Not empirical eighth moments or noncentral Gaussian."
+}

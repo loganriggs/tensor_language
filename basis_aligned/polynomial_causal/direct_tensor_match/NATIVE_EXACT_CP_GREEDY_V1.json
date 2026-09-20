@@ -1,0 +1,378 @@
+{
+  "plan": {
+    "atoms": 8,
+    "restarts": 2,
+    "steps": 300,
+    "lr": 0.05,
+    "evaluation_queries": 8192,
+    "function_queries": 256,
+    "native_forwards": 0
+  },
+  "records": [
+    {
+      "atoms": 1,
+      "explained_fraction_using_estimated_teacher_norm": 0.000159056490135497,
+      "estimated_coefficient_error": 0.9999204685923099,
+      "evaluation_coefficient_error": 0.9998630285263062,
+      "gaussian_function_error": 1.000162959098816,
+      "reduced_parameters": 5760,
+      "expanded_parameters": 54912
+    },
+    {
+      "atoms": 2,
+      "explained_fraction_using_estimated_teacher_norm": 0.0002996803619495663,
+      "estimated_coefficient_error": 0.9998501485913028,
+      "evaluation_coefficient_error": 0.9997273087501526,
+      "gaussian_function_error": 0.9998489022254944,
+      "reduced_parameters": 11520,
+      "expanded_parameters": 109824
+    },
+    {
+      "atoms": 4,
+      "explained_fraction_using_estimated_teacher_norm": 0.00045070599440481953,
+      "estimated_coefficient_error": 0.9997746216050871,
+      "evaluation_coefficient_error": 0.9996300339698792,
+      "gaussian_function_error": 1.000685453414917,
+      "reduced_parameters": 23040,
+      "expanded_parameters": 219648
+    },
+    {
+      "atoms": 8,
+      "explained_fraction_using_estimated_teacher_norm": 0.0008629544410926036,
+      "estimated_coefficient_error": 0.9995684296529714,
+      "evaluation_coefficient_error": 0.9993558526039124,
+      "gaussian_function_error": 1.0017729997634888,
+      "reduced_parameters": 46080,
+      "expanded_parameters": 439296
+    }
+  ],
+  "attempts": [
+    {
+      "stage": 1,
+      "seed": 0,
+      "residual_explained": 0.0001590564934303984,
+      "initial_explained": 1.2077682604028084e-11,
+      "history": [
+        {
+          "step": 0,
+          "residual_explained": 1.2077682604028084e-11
+        },
+        {
+          "step": 100,
+          "residual_explained": 0.00015514898404944688
+        },
+        {
+          "step": 200,
+          "residual_explained": 0.00015893233648966998
+        }
+      ]
+    },
+    {
+      "stage": 1,
+      "seed": 1,
+      "residual_explained": 0.00015862508735153824,
+      "initial_explained": 1.1694956635055487e-11,
+      "history": [
+        {
+          "step": 0,
+          "residual_explained": 1.1694956635055487e-11
+        },
+        {
+          "step": 100,
+          "residual_explained": 0.00014924831339158118
+        },
+        {
+          "step": 200,
+          "residual_explained": 0.00015821288980077952
+        }
+      ]
+    },
+    {
+      "stage": 2,
+      "seed": 0,
+      "residual_explained": 0.00014061843103263527,
+      "initial_explained": 1.4621841931683477e-11,
+      "history": [
+        {
+          "step": 0,
+          "residual_explained": 1.4621841931683477e-11
+        },
+        {
+          "step": 100,
+          "residual_explained": 0.00013632905029226094
+        },
+        {
+          "step": 200,
+          "residual_explained": 0.00014051103789824992
+        }
+      ]
+    },
+    {
+      "stage": 2,
+      "seed": 1,
+      "residual_explained": 0.0001351319078821689,
+      "initial_explained": 1.3720941917372276e-11,
+      "history": [
+        {
+          "step": 0,
+          "residual_explained": 1.3720941917372276e-11
+        },
+        {
+          "step": 100,
+          "residual_explained": 0.00010708340414566919
+        },
+        {
+          "step": 200,
+          "residual_explained": 0.00013308551569934934
+        }
+      ]
+    },
+    {
+      "stage": 3,
+      "seed": 0,
+      "residual_explained": 7.617159280925989e-05,
+      "initial_explained": 1.144175292705496e-11,
+      "history": [
+        {
+          "step": 0,
+          "residual_explained": 1.144175292705496e-11
+        },
+        {
+          "step": 100,
+          "residual_explained": 5.9812380641233176e-05
+        },
+        {
+          "step": 200,
+          "residual_explained": 7.582125545013696e-05
+        }
+      ]
+    },
+    {
+      "stage": 3,
+      "seed": 1,
+      "residual_explained": 7.666455348953605e-05,
+      "initial_explained": 1.4530535628887176e-11,
+      "history": [
+        {
+          "step": 0,
+          "residual_explained": 1.4530535628887176e-11
+        },
+        {
+          "step": 100,
+          "residual_explained": 7.103737880242988e-05
+        },
+        {
+          "step": 200,
+          "residual_explained": 7.617334631504491e-05
+        }
+      ]
+    },
+    {
+      "stage": 4,
+      "seed": 0,
+      "residual_explained": 6.862609006930143e-05,
+      "initial_explained": 1.1729485438483067e-11,
+      "history": [
+        {
+          "step": 0,
+          "residual_explained": 1.1729485438483067e-11
+        },
+        {
+          "step": 100,
+          "residual_explained": 6.292488251347095e-05
+        },
+        {
+          "step": 200,
+          "residual_explained": 6.809701881138608e-05
+        }
+      ]
+    },
+    {
+      "stage": 4,
+      "seed": 1,
+      "residual_explained": 7.412567356368527e-05,
+      "initial_explained": 1.3331544201911072e-11,
+      "history": [
+        {
+          "step": 0,
+          "residual_explained": 1.3331544201911072e-11
+        },
+        {
+          "step": 100,
+          "residual_explained": 6.929837400093675e-05
+        },
+        {
+          "step": 200,
+          "residual_explained": 7.392455881927162e-05
+        }
+      ]
+    },
+    {
+      "stage": 5,
+      "seed": 0,
+      "residual_explained": 5.6929191487142816e-05,
+      "initial_explained": 1.3131013637535105e-11,
+      "history": [
+        {
+          "step": 0,
+          "residual_explained": 1.3131013637535105e-11
+        },
+        {
+          "step": 100,
+          "residual_explained": 5.0544818805065006e-05
+        },
+        {
+          "step": 200,
+          "residual_explained": 5.667600635206327e-05
+        }
+      ]
+    },
+    {
+      "stage": 5,
+      "seed": 1,
+      "residual_explained": 6.727231811964884e-05,
+      "initial_explained": 1.2481325001312271e-11,
+      "history": [
+        {
+          "step": 0,
+          "residual_explained": 1.2481325001312271e-11
+        },
+        {
+          "step": 100,
+          "residual_explained": 5.086339297122322e-05
+        },
+        {
+          "step": 200,
+          "residual_explained": 6.58618300803937e-05
+        }
+      ]
+    },
+    {
+      "stage": 6,
+      "seed": 0,
+      "residual_explained": 0.00024855908122844994,
+      "initial_explained": 1.34155516556822e-11,
+      "history": [
+        {
+          "step": 0,
+          "residual_explained": 1.34155516556822e-11
+        },
+        {
+          "step": 100,
+          "residual_explained": 0.00022905401419848204
+        },
+        {
+          "step": 200,
+          "residual_explained": 0.0002479594259057194
+        }
+      ]
+    },
+    {
+      "stage": 6,
+      "seed": 1,
+      "residual_explained": 5.175505066290498e-05,
+      "initial_explained": 1.2564420857896774e-11,
+      "history": [
+        {
+          "step": 0,
+          "residual_explained": 1.2564420857896774e-11
+        },
+        {
+          "step": 100,
+          "residual_explained": 4.2795563786057755e-05
+        },
+        {
+          "step": 200,
+          "residual_explained": 5.1292707212269306e-05
+        }
+      ]
+    },
+    {
+      "stage": 7,
+      "seed": 0,
+      "residual_explained": 5.368705387809314e-05,
+      "initial_explained": 1.1474148887968827e-11,
+      "history": [
+        {
+          "step": 0,
+          "residual_explained": 1.1474148887968827e-11
+        },
+        {
+          "step": 100,
+          "residual_explained": 3.976614971179515e-05
+        },
+        {
+          "step": 200,
+          "residual_explained": 5.360718569136225e-05
+        }
+      ]
+    },
+    {
+      "stage": 7,
+      "seed": 1,
+      "residual_explained": 5.227079236647114e-05,
+      "initial_explained": 1.1824261188231322e-11,
+      "history": [
+        {
+          "step": 0,
+          "residual_explained": 1.1824261188231322e-11
+        },
+        {
+          "step": 100,
+          "residual_explained": 3.867036502924748e-05
+        },
+        {
+          "step": 200,
+          "residual_explained": 5.083705764263868e-05
+        }
+      ]
+    },
+    {
+      "stage": 8,
+      "seed": 0,
+      "residual_explained": 4.175118374405429e-05,
+      "initial_explained": 1.3632407702690585e-11,
+      "history": [
+        {
+          "step": 0,
+          "residual_explained": 1.3632407702690585e-11
+        },
+        {
+          "step": 100,
+          "residual_explained": 3.390420170035213e-05
+        },
+        {
+          "step": 200,
+          "residual_explained": 4.171085311099887e-05
+        }
+      ]
+    },
+    {
+      "stage": 8,
+      "seed": 1,
+      "residual_explained": 4.108939174329862e-05,
+      "initial_explained": 1.1443702756241958e-11,
+      "history": [
+        {
+          "step": 0,
+          "residual_explained": 1.1443702756241958e-11
+        },
+        {
+          "step": 100,
+          "residual_explained": 3.248116627219133e-05
+        },
+        {
+          "step": 200,
+          "residual_explained": 4.0386039472650737e-05
+        }
+      ]
+    }
+  ],
+  "seconds": 27.704720481066033,
+  "predictions": {
+    "pred_a_finite": true,
+    "pred_b_gain": false,
+    "pred_c_explained": false
+  },
+  "scope": "Exact algebraic residual gradients, greedyCP growth, teacher norm estimated only for scale/error labels. Finite heldout coefficient/function diagnostics; pure twoMLP numerator, no circuit identification."
+}

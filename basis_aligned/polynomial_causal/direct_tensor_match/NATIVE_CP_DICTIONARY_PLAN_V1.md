@@ -1,0 +1,7 @@
+# Native channel-pair versus random CP dictionary — 2026-09-20 17:07 UTC
+
+Compare8-atom exact-gradient pursuit with a fixed dictionary baseline at the same retained widths1/2/4/8. Build1024 candidates from native penultimate MLP channels:512 random distinct-channel pairs and512 unique diagonal channel pairs. A pair(i,j) has factors L1_i,R1_i,L1_j,R1_j, individually normalized. This is a limited candidate sample, not the full4608x4608 search. Compare a1024-atom dictionary of random unit factors.
+
+Compute exact symmetric Gram and teacher cross contractions. At each stage, choose the atom giving the largest conditional reduction after an exact joint output-writer refit, using its Schur complement. Do not use evaluation queries to choose atoms. Reject numerically dependent candidates at relative Schur threshold1e-10. Independent exhaustive small-dictionary refits validate the selector.
+
+Teacher/path/norm scaling and heldout queries match NATIVE_EXACT_CP_GREEDY_V1: pure MLP16→17→unembedding,1152 input and reduced output directions;8192 coefficient tuples and256 Gaussian vectors, seed1651. Charge retained standalone factors/writers, not only indices into the large original model. Dictionary generation and search cost reported separately through candidate count and runtime. Predictions: finite objectives; nondecreasing explained energy; native-channel dictionary beats random dictionary at width8. No circuit identity or normalized-model replacement claim.

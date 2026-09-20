@@ -813,3 +813,5 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 - [2026-09-20 17:00 — Exact gradients and competing components](for_logan/research_update_2026-09-20_1700_exact_gradients_and_component_competition.md): known-capacity optimization failure, residual recovery, raw-scale control and overlap counterexamples; native pilot queued.
 
 - [2026-09-20 17:05 — Refinement overshoot revises the negative result](for_logan/research_update_2026-09-20_1705_refinement_overshoot.md): same-budget learning-rate controls repair two overlap failures; exact residual rank bounds and initial/best/final error distinction.
+
+- [2026-09-20 17:14 — Native exact CP null and quartic covariance tradeoff](for_logan/research_update_2026-09-20_1714_native_cp_null_and_covariance.md): eight native atoms capture0.086% energy; exact Gaussian/covariance matching and12 controlled fits; comparable dictionary baseline queued.

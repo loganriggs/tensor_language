@@ -478,3 +478,6 @@ Known-rank2 d1152 joint fitting stalls~34%, residual Adam<4e-7 at same1500steps.
 
 ### 2026-09-20 17:05 — Correction: overlap failures are refinement-rate sensitive
 At amplitude0.5, overlap0.5/0.95, the prior residual endpoint errors44.65%/24.08% were worse than initial0.65%/11.78%. Same300steps at Adam0.005 recover both to numerical precision. Rank capacity and greedy construction not ruled out. Best-training checkpoint reporting required for meaningful refinements; retain historical results. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1705_refinement_overshoot.md).
+
+### 2026-09-20 17:14 — Native CP null; exact quartic covariance control
+Eight exact-gradient atoms capture0.0863% estimated coefficient energy; independent coefficienterror99.9356%, Gaussian100.1773%. Gramcondition3.58. Nativechannel/random dictionarybaselinequeued. Exact Gaussian105pairing kernel verified3e-15;12toyfits show covariance2.07% versus coefficient89.45%, close to1.992% teacheratom baseline. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1714_native_cp_null_and_covariance.md).
