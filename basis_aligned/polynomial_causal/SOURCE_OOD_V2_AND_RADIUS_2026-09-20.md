@@ -67,3 +67,11 @@ direction storage and all native generators; no automatic simplicity win.
 
 Receipts: `source_ood_v2_result.json` and
 `source_ood_v2_cubic_radius_result.json` in the followup directory.
+
+The next consumer is implemented in `final_readout_field_program.py`.
+Its planted affine-state control gives exact quadratic numerator/denominator
+fields and replays nonlinear outputs within1.43e-14, with first/second
+derivatives within1.07e-14. Output-space quadratic truncation has52.3%worst
+relative error on that toy. Nonpositive denominators are rejected explicitly.
+This validates the representation and distinguishes it from an output Taylor
+polynomial; the native-field approximation has not yet been tested.
