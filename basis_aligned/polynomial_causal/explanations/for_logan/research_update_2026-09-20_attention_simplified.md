@@ -47,6 +47,20 @@
 | write side, rank 64 all heads (v716) | 13.3M vs 47.8M | +0.074 | 0.981 | yes (0.88 / 1.27) |
 | **both sides, exact rank (v720)** | **39.2M vs 95.6M** | **+0.165** | **0.957** | **partly (0.70 / 1.26)** |
 
+## Addendum (19:30 UTC) — what the program is made of, and what it is not (v721–v727)
+
+| # | claim | tag | numbers | status |
+|---|---|---|---|---|
+| 13 | **every positional kernel is a combination of four shapes**: projecting all 162 kernels onto the top-4 SVD basis of the 162×512 kernel matrix costs +0.001 over the program; k = 1 costs +0.40, k = 2 +0.046, k = 3 +0.046 | edit | v724/v725 | held — the positional side is 2.7k numbers |
+| 13a | the shapes: a decaying window (~1/d over d ≤ 16); "not the previous token, the medium range" (−.53 at d = 1, plateau 4–16, slow tail); a weak mid-range subtraction; "skip the previous, read 3–8, subtract the far context". The previous-token taps of blocks 0–2 are window minus plateau | fold | v725 (values by offset in the result JSON) | measured |
+| 14 | the fitted content directions are CE-equivalents, not copies of the native pattern: on exact single-token tables (layers 0–1, 1024-token grid, d = 1) they correlate 0.64–0.95 with the native tables and carry systematically *less* query×key interaction (0.0: .42 vs .59; 0.1: .24 vs .58) — the fit kept the separable gating and dropped the bigram term wherever the loss allowed | fold | v721 | held; no token readings claimed (v660/v661 lesson) |
+| 14a | head 1.4 (rank 64) is a same-token matcher: interaction share 0.79, 90%-energy rank 33, top pairs ('.', '.'), (' the', ' the'), (' of', ' of') | fold | v721 | measured, not yet edited |
+| 15 | the write side is wide in *energy*, not only in importance: median 90%-energy rank of a head's centered write is 58 of 128 (0.3: 83, 6.3: 85, 1.1: 15), and energy predicts the CE rank a head needs (Spearman 0.76) — unlike the token metric on the MLP side, the head's own write covariance is an honest guide | fold | v722 | held — the OV side has no hidden low rank |
+| 16 | there is no shared read subspace: the 11.6k content directions of all heads spread over the whole residual stream (top-256 of 1152 carry 40% of their energy; projecting reads onto them costs +1.00) | edit | v726 | held |
+| 17 | the weights-only writer→reader coupling graph (reader's content directions inside the writer's write subspace) is flat: median 1.06× chance, 3 of 12,393 pairs ≥ 4×, no decay with layer distance; 5.5's strongest writers are the layer-4 heads 4.3/4.5/4.7 (2–3×), 8.3's is 6.3 — not 7.3 | fold | v727 | held — the circuit skeleton is not in pairwise weights |
+
+**So the honest description of a head in this model is per head:** *read these r directions of the residual stream (r = 16 for 111 heads, 64 for 51), weigh keys by one of four positional shapes (a 4-vector of coefficients) plus a rank-r bilinear content term that is mostly separable gating, write 64 of your 128 directions.* There is no shared coordinate system across heads on either side, and the pairwise weight overlaps do not expose the circuit — that still needs activations (the census and path-patching of the earlier lanes).
+
 ## Open
 
 - Done: v720 — both sides exact-rank: +0.165 at step 0, +0.172 at the validation-chosen step (39.2M numbers). The whole program leans 1.5–2× on 1.3 / 1.4 / 1.1 / 3.5 / 8.3.
