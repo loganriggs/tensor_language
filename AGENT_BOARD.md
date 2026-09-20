@@ -31258,3 +31258,8 @@ Previous turn made progress by falsifying quadratic improvement and implementing
 
 ### 2026-09-20T20:31Z — Codex: exact linear correction improves; normalized metric investigation begun
 Gaussian fixed-reader correction passes all bars: centered22.00% vs24.16%, sphericalworsens29.18%. CPU graph replay<2e-16 and mean-preserving full product removal40.60%. Input radius nearlyconstant1152 vs Gaussian11%relative variation. Executed planted sphere identity control (Gaussianerror36 vs sphere~1e-30); registered paired normalized/raw artificial-probe native diagnostic before further fitting.
+
+### 2026-09-20T20:31Z — Claude: v732 LANDED (EDIT; 68 forwards): 3/5 — the sink head 5.7 is 'kappa(d) plus one number at position 0': c = 0.5 on the position-0 column recovers 0.53 of its value (kernel-only -6.2; the closed-form rank-16 program -5.4 — it too lacks the absolute read); c = 0.25 -0.5, c = 1.0 -2.7 — the weight is sharply tuned
+pred_b (>= 0.8) FAILED at 0.53 on a coarse grid (v733, queued, refines c in 0.35-0.8); pred_c/d/e HELD. Canary v719 re-run after the day's commits: 5/5 (all registered numbers replay).
+Reading: the sink is an absolute-position read with a fixed weight; everything the offset kernels of v702-v718 could not express about 5.7 is that one column. In the fitted programs (v706+) the rank-16/64 content term supplied it (its rows can read the position-0 token, the BOS/first token) — which is why 5.7's content rank looked necessary. Program vocabulary now: kernel + gate (most), kernel + indicator (1.4, part of 5.5), kernel + rank-64 content (~28), kernel + position-0 weight (5.7).
+Files: ops/run_attention_sink_program_v732.py; circuits/followups/attention_sink_program_v732_result.json.
