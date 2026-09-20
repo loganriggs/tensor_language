@@ -1,0 +1,39 @@
+native 3.13241 | band 6-8 alone cost +0.0252; ratios 8.3 3.21 5.5 2.53
+band 6-8 alone, 6.0 native: cost +0.0250 | 8.3 ratio 3.26 | 5.5 ratio 2.53
+band 6-8 alone, 6.1 native: cost +0.0247 | 8.3 ratio 3.22 | 5.5 ratio 2.53
+band 6-8 alone, 6.2 native: cost +0.0250 | 8.3 ratio 3.21 | 5.5 ratio 2.53
+band 6-8 alone, 6.3 native: cost +0.0243 | 8.3 ratio 3.24 | 5.5 ratio 2.53
+band 6-8 alone, 6.4 native: cost +0.0250 | 8.3 ratio 3.20 | 5.5 ratio 2.53
+band 6-8 alone, 6.5 native: cost +0.0218 | 8.3 ratio 3.07 | 5.5 ratio 2.08
+band 6-8 alone, 6.6 native: cost +0.0247 | 8.3 ratio 3.22 | 5.5 ratio 2.51
+band 6-8 alone, 6.7 native: cost +0.0199 | 8.3 ratio 3.00 | 5.5 ratio 2.24
+band 6-8 alone, 6.8 native: cost +0.0248 | 8.3 ratio 3.22 | 5.5 ratio 2.53
+band 6-8 alone, 7.0 native: cost +0.0250 | 8.3 ratio 3.21 | 5.5 ratio 2.55
+band 6-8 alone, 7.1 native: cost +0.0245 | 8.3 ratio 3.20 | 5.5 ratio 2.53
+band 6-8 alone, 7.2 native: cost +0.0247 | 8.3 ratio 3.22 | 5.5 ratio 2.53
+band 6-8 alone, 7.3 native: cost +0.0198 | 8.3 ratio 2.13 | 5.5 ratio 1.66
+band 6-8 alone, 7.4 native: cost +0.0238 | 8.3 ratio 2.91 | 5.5 ratio 2.24
+band 6-8 alone, 7.5 native: cost +0.0251 | 8.3 ratio 3.24 | 5.5 ratio 2.56
+band 6-8 alone, 7.6 native: cost +0.0250 | 8.3 ratio 3.21 | 5.5 ratio 2.54
+band 6-8 alone, 7.7 native: cost +0.0251 | 8.3 ratio 3.22 | 5.5 ratio 2.53
+band 6-8 alone, 7.8 native: cost +0.0249 | 8.3 ratio 3.22 | 5.5 ratio 2.54
+band 6-8 alone, 8.0 native: cost +0.0252 | 8.3 ratio 3.21 | 5.5 ratio 2.53
+band 6-8 alone, 8.1 native: cost +0.0245 | 8.3 ratio 3.21 | 5.5 ratio 2.53
+band 6-8 alone, 8.2 native: cost +0.0244 | 8.3 ratio 3.21 | 5.5 ratio 2.53
+band 6-8 alone, 8.4 native: cost +0.0202 | 8.3 ratio 2.15 | 5.5 ratio 2.22
+band 6-8 alone, 8.5 native: cost +0.0251 | 8.3 ratio 3.22 | 5.5 ratio 2.53
+band 6-8 alone, 8.6 native: cost +0.0232 | 8.3 ratio 2.76 | 5.5 ratio 2.40
+band 6-8 alone, 8.7 native: cost +0.0243 | 8.3 ratio 3.15 | 5.5 ratio 2.51
+band 6-8 alone, 8.8 native: cost +0.0245 | 8.3 ratio 3.22 | 5.5 ratio 2.53
+full program with band 6-8 at closed-form rank 64: cost +0.0611; ratios 8.3:1.30 5.5:0.99 1.4:1.71 3.5:1.40 1.1:1.25
+8.3: argmin head 7.3 (ratio 2.13, drop 1.08); 5.5: argmin head 7.3 (ratio 1.66)
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_single_head_inflates": true,
+    "pred_c_inflating_head_is_layer8": false,
+    "pred_d_55_shares_cause": true,
+    "pred_e_rank64_band_fixes": true
+  },
+  "forwards": 532
+}

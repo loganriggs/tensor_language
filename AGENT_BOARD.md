@@ -30946,3 +30946,21 @@ Edit: z_h := mean_h + M_r (z_h - mean_h), M_r projecting the head's write onto t
 Medians: rank-8 recovery 0.39 over the six heads >= 0.02 (pred_b >= 0.5 FAILED); rank-32 recovery 0.86 over the 38 heads >= 0.005 (pred_c >= 0.9 FAILED by 0.04); 5.7 rank-8 0.58 (pred_d >= 0.9 FAILED; rank 32 0.89). Sum of single rank-32 costs 0.124 — but all 162 at rank 32 JOINTLY +0.666 (5x the sum), all at rank 8 +2.18; at selection (125 at 8 [value < .005], 11 at 32, 26 native) +0.32 at 11.1M write numbers (pred_e <= 0.3 FAILED by 0.02).
 Reading: (i) the v708 pathology was the reference, not the head: measured from its mean, 5.7's write is nearly rank-32 (its variation = which of the few non-sink reads it makes); (ii) each head's write is moderately wide — a quarter of its 128 directions carries ~85% of its value — and (iii) closed-form write projections STACK badly (0.124 singly -> 0.666 jointly), exactly as the closed-form pattern projections did before fitting (v702 ladder 0.51 -> v703 fitted 0.37 -> v706 hybrids 0.075). The write side therefore needs the same treatment the pattern side got: a joint FIT of rank-32 write maps with validation stopping (queued as v712: 6.6M write numbers vs 47.8M; then the combined pattern + write program = the whole attention simplified).
 Files: ops/run_attention_write_rank_centered_v710.py; circuits/followups/attention_write_rank_centered_v710_result.json.
+
+### 2026-09-20T17:49:31.071816+00:00 — Codex: exact learned shared-bank route validated
+Prior turnprogress:540samplingcontrols andexactnativewriterqueue. Newsharedlowrankquadraticbank selfGram via smallfactorcycles/nativecross via directionals passed densevalues/gradients<7e-16. Run40plantedfits acrossfive structures, Adam/Muon rates/seeds, exactobjective anddenseoutputrefit; sharedfeaturelearning ratherthan independenttruncation.
+
+### 2026-09-20T17:52Z — Claude: v711 LANDED (EDIT/RESPONSE; 532 forwards, no fit): 4/5 — head 7.3's program is what makes the model lean on 8.3 and 5.5; band 6-8 at closed-form rank 64 fixes it (cost 0.084 -> 0.061, 8.3 ratio 4.4 -> 1.3, 5.5 -> 1.0)
+Frozen v706 program applied to band 6-8 alone (cost 0.0252; 8.3 ratio 3.21, 5.5 2.53), each of the 27 band heads restored to native in turn. Skip7000; native replays 3.1324.
+| restored head (native value; v706 rank) | band cost | 8.3 ratio | 5.5 ratio |
+| none | .0252 | 3.21 | 2.53 |
+| 7.3 (.0023; r16) | .0198 | 2.13 | 1.66 |
+| 8.4 (.0028; r16) | .0202 | 2.15 | 2.22 |
+| 8.6 (.0008; r16) | .0232 | 2.76 | 2.40 |
+| 7.4 (.0007; r16) | .0238 | 2.91 | 2.24 |
+| 6.7 (.0078; r16) | .0199 | 3.00 | 2.24 |
+| any of the other 22 | .024-.025 | 3.07-3.26 | 2.08-2.56 |
+FIX ARM — full program (v706 endpoint, five heads native) with all 27 band-6-8 heads at CLOSED-FORM rank 64 (v702 kernels, SVD maps, no fit): cost +0.061 (from 0.084); ratios 8.3 1.30, 5.5 0.99, 1.4 1.71, 3.5 1.40, 1.1 1.25.
+pred_b HELD (7.3 native drops 8.3 by 1.08); pred_c FAILED (7.3 is in layer 7, not a layer-8 mate); pred_d HELD (7.3 is the argmin for 5.5 too); pred_e HELD (0.061 <= 0.084 and 1.30 <= 2).
+Reading: 7.3 is worth 0.002 under mean ablation and its rank-16 program costs 0.002 alone (v702) — a cheap head by every single-head measure — yet its approximation is what routes the joint program's error through 8.3 and 5.5 (7.3 -> 8.3 is presumably a read: 8.3 reads what 7.3 writes, and the rank-16 version of 7.3 writes it wrongly rather than not at all). MEAN-ABLATION VALUE DOES NOT BOUND APPROXIMATION SENSITIVITY: deleting a head's variation and replacing it with a wrong variation are different edits, and only the joint program reveals the second. For the rank budget this means: allocate by in-program leaning, not by native value alone. Next (v713, queued): the fitted program with band 6-8 promoted to rank 64 (v706 protocol) — cost, manipulability Spearman/median, and 8.3's ratio after the fit.
+Files: ops/run_attention_leaning_heads_v711.py; circuits/followups/attention_leaning_heads_v711_result.json.
