@@ -9,8 +9,8 @@ def coefficients(a,b):
 def objective(Z,G,a,b,penalty=.001):
  H=coefficients(a,b);scale=((H@G)*H).sum(1).clamp_min(1e-24).pow(.25);u,v=a/scale[:,None],b/scale[:,None];H=coefficients(u,v);gram=H@G@H.T;cross=Z@G@H.T;writer=torch.linalg.solve(gram+penalty*torch.eye(len(a),dtype=a.dtype,device=a.device),cross.T).T;loss=((writer@gram)*writer).sum()-2*(writer*cross).sum()+penalty*writer.square().sum();return loss,(u,v,writer)
 
-def fit(Z,G,width,optimizer,lr,seed,steps=500):
- torch.manual_seed(seed);a=torch.nn.Parameter(torch.randn(width,4,dtype=Z.dtype)/2);b=torch.nn.Parameter(torch.randn_like(a)/2);opt=torch.optim.Adam([a,b],lr=lr) if optimizer=='adam' else torch.optim.Muon([a,b],lr=lr,weight_decay=0.,adjust_lr_fn='match_rms_adamw');norm=((Z@G)*Z).sum();best=float('inf')
+def fit(Z,G,width,optimizer,lr,seed,steps=500,initial=None):
+ torch.manual_seed(seed);a=torch.nn.Parameter(torch.randn(width,4,dtype=Z.dtype)/2 if initial is None else initial[0].clone());b=torch.nn.Parameter(torch.randn_like(a)/2 if initial is None else initial[1].clone());opt=torch.optim.Adam([a,b],lr=lr) if optimizer=='adam' else torch.optim.Muon([a,b],lr=lr,weight_decay=0.,adjust_lr_fn='match_rms_adamw');norm=((Z@G)*Z).sum();best=float('inf')
  for step in range(steps+1):
   opt.zero_grad();loss,program=objective(Z,G,a,b);value=float(loss.detach());assert math.isfinite(value)
   if value<best:best=value;saved=tuple(t.detach().clone() for t in program);selected=step

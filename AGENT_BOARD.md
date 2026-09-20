@@ -31338,3 +31338,15 @@ Previous turn completed10product graph and native response checks. Executing6reg
 
 ### 2026-09-20T21:13Z — Codex: root identity replication fails; canonical interpretation computed
 8starts functionmincos.9992 butfeaturemin.137/outputmin.340, all3identitybarsfail. Mismatchedcomponents8.3/14.9%energy. Follow-on CPU spectral canonicalization givesfeaturemin.98355/outputmin.99959; exact frozenprogram interpretation replay7e-16. This fixes a metric-dependent basis, not semantics. Registered alternatebank/root crossmoment check; exportedmodel unchanged.
+
+### 2026-09-20T21:15Z — Codex: cross-bank canonical replication CPU claim
+Previous turn falsified primitiveidentity and exported spectralinterpretation. Executing registered alternateMuon6bank +4Muonrootstarts with exact20x20crosscovariance incommoninputframe; storedcandidate unchanged. Report centered and completeGaussiancosines separately to expose mean effects.
+
+### 2026-09-20T21:16Z — Codex: cross-bank all-feature bars fail; bounded optimization control started
+Predictionbar passes; feature/output bars fail because alternatebank rootseed0 fourthmodecos.829/output.975, worseobjectivegap.0038; otherstarts fourthmode.959–.974. Executing one registered1500stepMuon.005warmrefinement on savedseed0, no modelreplacement; originalnegative preserved.
+
+### 2026-09-20T21:18Z — Codex: cross-bank optimization control passes; vocabulary artifact audit claim
+Oneboundedseed0refinement reducesrooterror.0802→.0520 andfourthfeaturecos.829→.977,allfollowupbars pass. Originalfixedbudgetreplication remainsfailed. Claim managed canonical vocabulary projection: QR/frame replay, common-logit-shift andextra-rowenergy tests, top token effects only,no semanticlabels orselectedmodelchange.
+
+### 2026-09-20T21:21Z — Codex: vocabulary common component found; contrast interpretation executed
+Common-modecosines.403/.767/.150/-.278 failbar, extra-vocabenergy<.0086 passes. CPU contrast view identifies22.75%centeredGaussianenergy common-shift, replay4e-15; no modelchange or probabilityinvarianceclaim before softcap. Registered full frozen-program contrast error diagnostic, ordinaryerror retained.

@@ -1,0 +1,148 @@
+{
+  "selected_bank_seed": 0,
+  "alternate_bank_seed": 1,
+  "coordinate_dimension": 24,
+  "reference_covariance_replay": 6.103413509024231e-15,
+  "joint_covariance_minimum_eigenvalue": 13617.906732076497,
+  "records": [
+    {
+      "seed": 0,
+      "relative_error": 0.08023319693423392,
+      "penalized_objective": -3234.0779032246473,
+      "selected_step": 500,
+      "canonical_feature_cosines": [
+        0.9995158561708606,
+        0.9968745429868865,
+        0.986532988519642,
+        0.8293125076144411
+      ],
+      "canonical_output_cosines": [
+        0.9999924006476258,
+        0.9999388491713949,
+        0.9997943048038185,
+        0.9747781014312473
+      ],
+      "centered_prediction_cosine": 0.9960415025702524,
+      "complete_prediction_cosine": 0.9983899539990502,
+      "reference_mode_energies": [
+        2490.714631962571,
+        554.5371150507597,
+        148.96167233182126,
+        44.77353051904511
+      ],
+      "alternate_mode_energies": [
+        2493.25066862789,
+        551.7590719180129,
+        153.450094584854,
+        32.24475283639301
+      ],
+      "relative_objective_gap": 0.0038004688607153267
+    },
+    {
+      "seed": 1,
+      "relative_error": 0.056276085002541165,
+      "penalized_objective": -3245.617762665176,
+      "selected_step": 500,
+      "canonical_feature_cosines": [
+        0.9996361111328741,
+        0.9985352591293861,
+        0.987604989958292,
+        0.971481504096726
+      ],
+      "canonical_output_cosines": [
+        0.9999961580856275,
+        0.9999517996314632,
+        0.9998675533488681,
+        0.9991452408007863
+      ],
+      "centered_prediction_cosine": 0.9984788143656167,
+      "complete_prediction_cosine": 0.9993806078577635,
+      "reference_mode_energies": [
+        2490.714631962571,
+        554.5371150507597,
+        148.96167233182126,
+        44.77353051904511
+      ],
+      "alternate_mode_energies": [
+        2494.1526959508105,
+        553.8111990712707,
+        152.969176230121,
+        42.194980037318814
+      ],
+      "relative_objective_gap": 0.0002458227117757779
+    },
+    {
+      "seed": 2,
+      "relative_error": 0.053241973015281184,
+      "penalized_objective": -3246.4158054020118,
+      "selected_step": 500,
+      "canonical_feature_cosines": [
+        0.9996493451369063,
+        0.9985566890252702,
+        0.9894029231094414,
+        0.9743594586122298
+      ],
+      "canonical_output_cosines": [
+        0.999996175293939,
+        0.9999538190866811,
+        0.9999100231253439,
+        0.999204839999258
+      ],
+      "centered_prediction_cosine": 0.9986134788928114,
+      "complete_prediction_cosine": 0.9994353963874205,
+      "reference_mode_energies": [
+        2490.714631962571,
+        554.5371150507597,
+        148.96167233182126,
+        44.77353051904511
+      ],
+      "alternate_mode_energies": [
+        2493.9202628331177,
+        553.7887460088884,
+        153.50024587403993,
+        42.4321391994223
+      ],
+      "relative_objective_gap": 0.0
+    },
+    {
+      "seed": 3,
+      "relative_error": 0.061440787546202705,
+      "penalized_objective": -3243.2780758558615,
+      "selected_step": 500,
+      "canonical_feature_cosines": [
+        0.9995585463784757,
+        0.9983187337753313,
+        0.9844505233673735,
+        0.9590040731481289
+      ],
+      "canonical_output_cosines": [
+        0.9999969097282565,
+        0.9999566859369938,
+        0.9997249190249586,
+        0.9983568110470278
+      ],
+      "centered_prediction_cosine": 0.9980601873177894,
+      "complete_prediction_cosine": 0.999210404113935,
+      "reference_mode_energies": [
+        2490.714631962571,
+        554.5371150507597,
+        148.96167233182126,
+        44.77353051904511
+      ],
+      "alternate_mode_energies": [
+        2493.702381751614,
+        553.080127819333,
+        152.1620392201361,
+        41.485163258256414
+      ],
+      "relative_objective_gap": 0.0009665211526290259
+    }
+  ],
+  "predictions": {
+    "pred_feature": false,
+    "pred_output": false,
+    "pred_prediction": true
+  },
+  "seconds": 1.8392941581550986,
+  "scope": "Exact cross-moments in common Gaussian input frame, actual FP32 archived bank readers. Root fits FP64 and final Gaussian mean matched analytically; selected deployed model unchanged. Complete and centered prediction cosines both reported. Not semantic or native causal identification."
+}

@@ -1,0 +1,534 @@
+{
+  "plan": {
+    "modes": 4,
+    "valid_gpt2_tokens": 50257,
+    "native_forwards": 0
+  },
+  "records": [
+    {
+      "mode": 0,
+      "common_shift_cosine": 0.40260799661213786,
+      "extra_vocabulary_energy_fraction": 0.003783501308390624,
+      "top_positive": [
+        {
+          "token_id": 49473,
+          "token": " interrogated",
+          "weight": 0.019520750269293785
+        },
+        {
+          "token_id": 42774,
+          "token": " extinguished",
+          "weight": 0.019146451726555824
+        },
+        {
+          "token_id": 23196,
+          "token": " stagn",
+          "weight": 0.018741078674793243
+        },
+        {
+          "token_id": 41529,
+          "token": " handcuffed",
+          "weight": 0.018526602536439896
+        },
+        {
+          "token_id": 37665,
+          "token": " indist",
+          "weight": 0.01823231391608715
+        },
+        {
+          "token_id": 22251,
+          "token": " humili",
+          "weight": 0.01784820295870304
+        },
+        {
+          "token_id": 43186,
+          "token": " hurled",
+          "weight": 0.017783818766474724
+        },
+        {
+          "token_id": 18865,
+          "token": "uddenly",
+          "weight": 0.01764608733355999
+        },
+        {
+          "token_id": 34622,
+          "token": " massac",
+          "weight": 0.01745547540485859
+        },
+        {
+          "token_id": 34019,
+          "token": " discredit",
+          "weight": 0.01737213507294655
+        },
+        {
+          "token_id": 39098,
+          "token": "instance",
+          "weight": 0.017370622605085373
+        },
+        {
+          "token_id": 16136,
+          "token": " maneu",
+          "weight": 0.01720236986875534
+        }
+      ],
+      "top_negative": [
+        {
+          "token_id": 42062,
+          "token": "��",
+          "weight": -0.017477767542004585
+        },
+        {
+          "token_id": 47486,
+          "token": "━",
+          "weight": -0.015229098498821259
+        },
+        {
+          "token_id": 9968,
+          "token": "██",
+          "weight": -0.014756171964108944
+        },
+        {
+          "token_id": 25362,
+          "token": "ァ",
+          "weight": -0.014668174088001251
+        },
+        {
+          "token_id": 41678,
+          "token": "��",
+          "weight": -0.01433536410331726
+        },
+        {
+          "token_id": 27674,
+          "token": "DonaldTrump",
+          "weight": -0.014231031760573387
+        },
+        {
+          "token_id": 25081,
+          "token": "��",
+          "weight": -0.014218300580978394
+        },
+        {
+          "token_id": 38160,
+          "token": "FontSize",
+          "weight": -0.014155102893710136
+        },
+        {
+          "token_id": 23329,
+          "token": "��",
+          "weight": -0.01403629221022129
+        },
+        {
+          "token_id": 38626,
+          "token": "▓",
+          "weight": -0.013760499656200409
+        },
+        {
+          "token_id": 50159,
+          "token": "��",
+          "weight": -0.01367573719471693
+        },
+        {
+          "token_id": 28670,
+          "token": "═",
+          "weight": -0.013628007844090462
+        }
+      ]
+    },
+    {
+      "mode": 1,
+      "common_shift_cosine": 0.7672844161257603,
+      "extra_vocabulary_energy_fraction": 0.008558570125275803,
+      "top_positive": [
+        {
+          "token_id": 42062,
+          "token": "��",
+          "weight": 0.02029118500649929
+        },
+        {
+          "token_id": 21253,
+          "token": "��",
+          "weight": 0.018555443733930588
+        },
+        {
+          "token_id": 31739,
+          "token": "dylib",
+          "weight": 0.01811344176530838
+        },
+        {
+          "token_id": 41678,
+          "token": "��",
+          "weight": 0.017494210973381996
+        },
+        {
+          "token_id": 36408,
+          "token": "iannopoulos",
+          "weight": 0.017085513100028038
+        },
+        {
+          "token_id": 29047,
+          "token": "maxwell",
+          "weight": 0.01705893501639366
+        },
+        {
+          "token_id": 50159,
+          "token": "��",
+          "weight": 0.016627566888928413
+        },
+        {
+          "token_id": 23329,
+          "token": "��",
+          "weight": 0.016596319153904915
+        },
+        {
+          "token_id": 14531,
+          "token": "groupon",
+          "weight": 0.01657911017537117
+        },
+        {
+          "token_id": 35098,
+          "token": "ㅋ",
+          "weight": 0.01655946485698223
+        },
+        {
+          "token_id": 48908,
+          "token": " 4090",
+          "weight": 0.01634622924029827
+        },
+        {
+          "token_id": 28670,
+          "token": "═",
+          "weight": 0.016249263659119606
+        }
+      ],
+      "top_negative": [
+        {
+          "token_id": 31966,
+          "token": "answered",
+          "weight": -0.006432904861867428
+        },
+        {
+          "token_id": 39098,
+          "token": "instance",
+          "weight": -0.006248007994145155
+        },
+        {
+          "token_id": 46699,
+          "token": "completely",
+          "weight": -0.0061916448175907135
+        },
+        {
+          "token_id": 48205,
+          "token": "objects",
+          "weight": -0.006075406912714243
+        },
+        {
+          "token_id": 37165,
+          "token": "issues",
+          "weight": -0.005986106116324663
+        },
+        {
+          "token_id": 38933,
+          "token": "ghost",
+          "weight": -0.005983985960483551
+        },
+        {
+          "token_id": 22866,
+          "token": "context",
+          "weight": -0.005944519769400358
+        },
+        {
+          "token_id": 23814,
+          "token": "items",
+          "weight": -0.0059066154062747955
+        },
+        {
+          "token_id": 36007,
+          "token": "shr",
+          "weight": -0.00587930204346776
+        },
+        {
+          "token_id": 45380,
+          "token": "snap",
+          "weight": -0.005813461262732744
+        },
+        {
+          "token_id": 22569,
+          "token": "dollar",
+          "weight": -0.005807551089674234
+        },
+        {
+          "token_id": 47635,
+          "token": "matter",
+          "weight": -0.0057894391939044
+        }
+      ]
+    },
+    {
+      "mode": 2,
+      "common_shift_cosine": 0.14993689910332794,
+      "extra_vocabulary_energy_fraction": 0.0012499601051424167,
+      "top_positive": [
+        {
+          "token_id": 48800,
+          "token": " Presumably",
+          "weight": 0.019172700121998787
+        },
+        {
+          "token_id": 41512,
+          "token": " Err",
+          "weight": 0.016714805737137794
+        },
+        {
+          "token_id": 23635,
+          "token": " Replay",
+          "weight": 0.01653437688946724
+        },
+        {
+          "token_id": 36125,
+          "token": " Static",
+          "weight": 0.016507919877767563
+        },
+        {
+          "token_id": 26828,
+          "token": " Auth",
+          "weight": 0.016286736354231834
+        },
+        {
+          "token_id": 30249,
+          "token": " Cunning",
+          "weight": 0.016244379803538322
+        },
+        {
+          "token_id": 49274,
+          "token": " Absent",
+          "weight": 0.016063237562775612
+        },
+        {
+          "token_id": 28865,
+          "token": " Ibid",
+          "weight": 0.01597001403570175
+        },
+        {
+          "token_id": 40806,
+          "token": " Iter",
+          "weight": 0.015748629346489906
+        },
+        {
+          "token_id": 48002,
+          "token": " Oops",
+          "weight": 0.015736477449536324
+        },
+        {
+          "token_id": 23652,
+          "token": " Proced",
+          "weight": 0.01568804495036602
+        },
+        {
+          "token_id": 38481,
+          "token": " Unsure",
+          "weight": 0.015594221651554108
+        }
+      ],
+      "top_negative": [
+        {
+          "token_id": 42469,
+          "token": "goo",
+          "weight": -0.009922120720148087
+        },
+        {
+          "token_id": 26841,
+          "token": "utm",
+          "weight": -0.009785973466932774
+        },
+        {
+          "token_id": 21713,
+          "token": "GF",
+          "weight": -0.009760585613548756
+        },
+        {
+          "token_id": 37390,
+          "token": "plugins",
+          "weight": -0.009489343501627445
+        },
+        {
+          "token_id": 49585,
+          "token": "saf",
+          "weight": -0.009389249607920647
+        },
+        {
+          "token_id": 43413,
+          "token": "Ble",
+          "weight": -0.00927668996155262
+        },
+        {
+          "token_id": 11604,
+          "token": "youtube",
+          "weight": -0.009263274259865284
+        },
+        {
+          "token_id": 43806,
+          "token": "Cod",
+          "weight": -0.009232320822775364
+        },
+        {
+          "token_id": 24875,
+          "token": "posts",
+          "weight": -0.00921748485416174
+        },
+        {
+          "token_id": 10247,
+          "token": "wa",
+          "weight": -0.00920602772384882
+        },
+        {
+          "token_id": 1192,
+          "token": "anc",
+          "weight": -0.009183792397379875
+        },
+        {
+          "token_id": 48010,
+          "token": "tis",
+          "weight": -0.009176471270620823
+        }
+      ]
+    },
+    {
+      "mode": 3,
+      "common_shift_cosine": -0.27799509601841416,
+      "extra_vocabulary_energy_fraction": 2.0954494344908487e-05,
+      "top_positive": [
+        {
+          "token_id": 32008,
+          "token": " dissip",
+          "weight": 0.013912813737988472
+        },
+        {
+          "token_id": 41847,
+          "token": " penetrated",
+          "weight": 0.01303417980670929
+        },
+        {
+          "token_id": 15493,
+          "token": " dispro",
+          "weight": 0.012830543331801891
+        },
+        {
+          "token_id": 47933,
+          "token": " propagate",
+          "weight": 0.012706028297543526
+        },
+        {
+          "token_id": 26132,
+          "token": " corro",
+          "weight": 0.012652993202209473
+        },
+        {
+          "token_id": 23196,
+          "token": " stagn",
+          "weight": 0.012586010619997978
+        },
+        {
+          "token_id": 46066,
+          "token": " dissu",
+          "weight": 0.012565313838422298
+        },
+        {
+          "token_id": 36572,
+          "token": " annihil",
+          "weight": 0.012216712348163128
+        },
+        {
+          "token_id": 38891,
+          "token": " palp",
+          "weight": 0.012212861329317093
+        },
+        {
+          "token_id": 22251,
+          "token": " humili",
+          "weight": 0.012204553931951523
+        },
+        {
+          "token_id": 16136,
+          "token": " maneu",
+          "weight": 0.012017547152936459
+        },
+        {
+          "token_id": 30522,
+          "token": " forcibly",
+          "weight": 0.011993537656962872
+        }
+      ],
+      "top_negative": [
+        {
+          "token_id": 50084,
+          "token": "CHECK",
+          "weight": -0.01814289763569832
+        },
+        {
+          "token_id": 44806,
+          "token": " SHARES",
+          "weight": -0.017060939222574234
+        },
+        {
+          "token_id": 46700,
+          "token": "FIL",
+          "weight": -0.016901636496186256
+        },
+        {
+          "token_id": 37187,
+          "token": "0010",
+          "weight": -0.016565531492233276
+        },
+        {
+          "token_id": 42197,
+          "token": "TAG",
+          "weight": -0.016314895823597908
+        },
+        {
+          "token_id": 48510,
+          "token": "DK",
+          "weight": -0.01631346344947815
+        },
+        {
+          "token_id": 48551,
+          "token": " DEFENSE",
+          "weight": -0.016220906749367714
+        },
+        {
+          "token_id": 43806,
+          "token": "Cod",
+          "weight": -0.016103677451610565
+        },
+        {
+          "token_id": 49819,
+          "token": " DRAGON",
+          "weight": -0.016017593443393707
+        },
+        {
+          "token_id": 49560,
+          "token": "TIT",
+          "weight": -0.015923617407679558
+        },
+        {
+          "token_id": 31386,
+          "token": "_-_",
+          "weight": -0.01583501137793064
+        },
+        {
+          "token_id": 25664,
+          "token": "FILE",
+          "weight": -0.015708068385720253
+        }
+      ]
+    }
+  ],
+  "predictions": {
+    "pred_a_frame": true,
+    "pred_b_common": false,
+    "pred_c_extra": true
+  },
+  "orthogonality_error": 1.5000552573210402e-07,
+  "qr_replay_error": 9.70949258771725e-07,
+  "seconds": 1.5544326370581985,
+  "scope": "Output effects of canonical combinations, no feature semantics inferred from token rankings. Signs arbitrary. Softcap remains explicit; common shift before softcap is not automatically probability-invariant."
+}
