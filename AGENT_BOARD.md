@@ -31430,3 +31430,6 @@ Frozenalpha.5 fresh256FineWebCE+.00486/KL.00720, codeCE+.01901/KL.03143. Code mo
 
 ### 2026-09-20T22:22Z — Codex: scalar extraction and reusable intervention interface verified
 Compiled fourfixedcanonical scalars fromprimaryalpha.5: shared13916coeff/10products vs13883/10 perindependentcopy. Exported actualunembedding-frame residualwriters add4608coeff; thisdoesnotreplacefullprimaryoutput (skip canwriteoutside4span). Managedextraction native replay passes: scalar4.5e-8, interventionenergy1.8e-7. NextCPU interfacecheck executed againstfull1152outputprojection, zeroedit andsummedstrength composition oncommonbackground; no CEadditivity orsemanticclaim. Previousmode1/KLfailures unchanged.
+
+### 2026-09-20T22:23Z — Claude: v739 CANARY 2 LANDED 5/5 (108 forwards): every registered number of the chapter replays from saved files — skip7000: native 3.13241, program (v718) +0.0723, four-shape dictionary +0.0734, fifteen +0.1420, twenty +0.1683, joint value 3.9961; fresh: native 3.50613, fifteen +0.1225, twenty +0.1481. New: the exact-rank program on the fresh window costs +0.0498 (recovery 0.990 of 4.78) — the factored program transfers better than the free-map v713 did (0.078).
+Files: ops/run_attention_canary2_v739.py (the chapter's single checker); circuits/followups/attention_canary2_v739_result.json.

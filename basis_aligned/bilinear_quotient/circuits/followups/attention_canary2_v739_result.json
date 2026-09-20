@@ -1,0 +1,118 @@
+{
+  "candidate_id": "attention.canary2_v739",
+  "finished_utc": "2026-09-20T22:23:16.002083+00:00",
+  "forwards": 114,
+  "plan": {
+    "bars": {
+      "cost_tol": 0.003,
+      "joint_tol": 0.02,
+      "replay_tol": 0.002
+    },
+    "candidate_id": "attention.canary2_v739",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 120,
+    "gates": {
+      "0": [
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "1": [
+        0,
+        1,
+        3,
+        5,
+        6,
+        7
+      ]
+    },
+    "gpu_accessed": false,
+    "layer2": {
+      "0": 0.0013,
+      "2": 0.0094,
+      "3": 0.0096,
+      "4": 0.0022,
+      "8": 0.009
+    },
+    "mean_head": 8,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "readings": {
+      "1.4": [
+        "same",
+        0.05,
+        0.0037
+      ],
+      "5.5": [
+        "induction",
+        0.1,
+        0.0071
+      ],
+      "5.7": [
+        "sink",
+        0.55,
+        0.0058
+      ]
+    },
+    "registered": {
+      "dictionary4": 0.0734,
+      "fifteen": 0.142,
+      "fresh_fifteen": 0.1225,
+      "fresh_native": 3.5061,
+      "fresh_twenty": 0.1481,
+      "joint": 3.9961,
+      "native": 3.13241,
+      "program": 0.0723,
+      "twenty": 0.1683
+    },
+    "sets": [
+      "skip7000",
+      "fresh"
+    ],
+    "steps": 200
+  },
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_program_replays": true,
+    "pred_c_readable_replays": true,
+    "pred_d_dictionary_replays": true,
+    "pred_e_fresh_replays": true
+  },
+  "report": {
+    "dictionary4": 0.0734328428904214,
+    "joint_value": 3.9960677623748775,
+    "registered": {
+      "dictionary4": 0.0734,
+      "fifteen": 0.142,
+      "fresh_fifteen": 0.1225,
+      "fresh_native": 3.5061,
+      "fresh_twenty": 0.1481,
+      "joint": 3.9961,
+      "native": 3.13241,
+      "program": 0.0723,
+      "twenty": 0.1683
+    },
+    "sets": {
+      "fresh": {
+        "fifteen": 0.12252897024154663,
+        "native": 3.506130591034889,
+        "program": 0.04976929724216461,
+        "rows": 512,
+        "twenty": 0.1480667144060135
+      },
+      "skip7000": {
+        "fifteen": 0.14202570915222168,
+        "native": 3.1324122746785483,
+        "program": 0.07231485843658447,
+        "rows": 192,
+        "twenty": 0.16825926303863525
+      }
+    }
+  },
+  "schema": "attention_canary2_result_v739",
+  "serial_seconds": 71.00276467693038
+}

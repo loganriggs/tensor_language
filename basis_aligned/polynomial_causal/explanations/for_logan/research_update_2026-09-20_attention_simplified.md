@@ -73,5 +73,5 @@
 ## Open
 
 - Done: v720 — both sides exact-rank: +0.165 at step 0, +0.172 at the validation-chosen step (39.2M numbers). The whole program leans 1.5–2× on 1.3 / 1.4 / 1.1 / 3.5 / 8.3.
-- Canary `ops/run_attention_canary_v719.py` replays the registered numbers (native, joint value, v713, v716 exact-rank, the fresh window): 5/5 on first run.
+- Canaries: `ops/run_attention_canary_v719.py` (v713 / v716) and `ops/run_attention_canary2_v739.py` (the whole chapter: program 0.0723, dictionary 0.0734, fifteen 0.1420, twenty 0.1683, joint value 3.9961, fresh-window numbers) — both 5/5. The exact-rank program on the fresh window costs +0.050 (recovery 0.990), better than the free-map v713's 0.078 there.
 - Not yet done: *reading* the fitted content directions (what the 16–64 directions of the content heads are — the induction key of 5.5 is known; the rest are not), and whether the write directions align with the MLP readers downstream. The kernels of blocks 0–2 were read in the embedding-forward report; the deeper kernels (layer 5 content-critical, layers 6-8 mostly positional) are described only by shape.
