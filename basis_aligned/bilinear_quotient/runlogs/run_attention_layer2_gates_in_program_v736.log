@@ -1,0 +1,16 @@
+layer-2 gate 2.0 inside the program: excess +0.0013 (standalone +0.0013)
+layer-2 gate 2.2 inside the program: excess +0.0110 (standalone +0.0094)
+layer-2 gate 2.3 inside the program: excess +0.0116 (standalone +0.0096)
+layer-2 gate 2.4 inside the program: excess +0.0041 (standalone +0.0022)
+layer-2 gate 2.8 inside the program: excess +0.0122 (standalone +0.0090)
+five layer-2 gates together: excess +0.0415 (sum of standalone +0.0315) | fifteen +0.1420 | twenty readable heads +0.2330 (excess over fifteen +0.0910; recovery 0.942)
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_layer2_five_hold": false,
+    "pred_c_each_layer2_gate_holds": false,
+    "pred_d_twenty_readable_heads": false,
+    "pred_e_layer2_composes_with_fifteen": false
+  },
+  "forwards": 62
+}
