@@ -1,0 +1,23 @@
+base rates: induction-eligible keys 0.0098, duplicate keys 0.0098
+head 5.0: induction share 0.019 (1.9x), duplicate share 0.014 (1.4x), row sum +1.78
+head 5.1: induction share 0.018 (1.9x), duplicate share 0.016 (1.6x), row sum -0.71
+head 5.2: induction share 0.020 (2.1x), duplicate share 0.018 (1.8x), row sum -0.91
+head 5.3: induction share 0.014 (1.5x), duplicate share 0.014 (1.5x), row sum +0.24
+head 5.4: induction share 0.012 (1.3x), duplicate share 0.010 (1.0x), row sum -0.74
+head 5.5: induction share 0.093 (9.6x), duplicate share 0.016 (1.6x), row sum +0.38
+head 5.6: induction share 0.013 (1.3x), duplicate share 0.010 (1.1x), row sum -0.83
+head 5.7: induction share 0.011 (1.1x), duplicate share 0.010 (1.1x), row sum +2.09
+head 5.8: induction share 0.013 (1.3x), duplicate share 0.011 (1.1x), row sum +0.26
+with head 0.3's off-diagonal zeroed: 5.5 induction share 0.100 (native 0.093)
+head 5.7: share on position 0 0.257, on positions 0-7 0.269; per-entry |weight| queries 8-64 0.0674 vs 256-512 0.0066
+native 3.13241 | CE added: 5.5 zeroed on induction keys +0.0104, on other keys +0.0024
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_55_induction_enriched": true,
+    "pred_c_55_pairs_with_03": false,
+    "pred_d_55_induction_keys_carry_cost": true,
+    "pred_e_57_first_positions": false
+  },
+  "forwards": 26
+}
