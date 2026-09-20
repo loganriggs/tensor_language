@@ -1,0 +1,119 @@
+{
+  "results": {
+    "fineweb": {
+      "0": {
+        "effect_norm_ratio": 1.0119318259066343,
+        "largest_document_error_fraction": 0.07410566999833643,
+        "leave_one_document_out_error_range": [
+          0.03577149607894933,
+          0.03748878458174428
+        ],
+        "mean_absolute_document_CE_effect_error": 0.0012090131640434265,
+        "true_mean_CE_added": 0.06358181685209274,
+        "pred_mean_CE_added": 0.06411483883857727
+      },
+      "1": {
+        "effect_norm_ratio": 0.9904083212426081,
+        "largest_document_error_fraction": 0.08260959946677024,
+        "leave_one_document_out_error_range": [
+          0.058406717809821124,
+          0.06155173800081157
+        ],
+        "mean_absolute_document_CE_effect_error": 0.0010565593838691711,
+        "true_mean_CE_added": 0.020528972148895264,
+        "pred_mean_CE_added": 0.02068427950143814
+      },
+      "2": {
+        "effect_norm_ratio": 0.9654899554816168,
+        "largest_document_error_fraction": 0.10946521095561469,
+        "leave_one_document_out_error_range": [
+          0.1235760366063749,
+          0.13356613980570284
+        ],
+        "mean_absolute_document_CE_effect_error": 0.001024596393108368,
+        "true_mean_CE_added": 0.0050199031829833984,
+        "pred_mean_CE_added": 0.004453010857105255
+      },
+      "3": {
+        "effect_norm_ratio": 1.006807660098339,
+        "largest_document_error_fraction": 0.16549431413831792,
+        "leave_one_document_out_error_range": [
+          0.05977736284557285,
+          0.06291389950862036
+        ],
+        "mean_absolute_document_CE_effect_error": 0.0005301535129547119,
+        "true_mean_CE_added": 0.002768702805042267,
+        "pred_mean_CE_added": 0.0027604326605796814
+      },
+      "joint": {
+        "effect_norm_ratio": 0.9976494093072802,
+        "largest_document_error_fraction": 0.08915309386148441,
+        "leave_one_document_out_error_range": [
+          0.056700647867309995,
+          0.057682085410972736
+        ],
+        "mean_absolute_document_CE_effect_error": 0.0021942630410194397,
+        "true_mean_CE_added": 0.10822688043117523,
+        "pred_mean_CE_added": 0.1081991121172905
+      }
+    },
+    "code": {
+      "0": {
+        "effect_norm_ratio": 0.970643031545436,
+        "largest_document_error_fraction": 0.09472490944848108,
+        "leave_one_document_out_error_range": [
+          0.051012730163966784,
+          0.05311110610989054
+        ],
+        "mean_absolute_document_CE_effect_error": 0.023004502058029175,
+        "true_mean_CE_added": 0.3418104946613312,
+        "pred_mean_CE_added": 0.318805992603302
+      },
+      "1": {
+        "effect_norm_ratio": 0.9802092779910438,
+        "largest_document_error_fraction": 0.11979207871781117,
+        "leave_one_document_out_error_range": [
+          0.03914524978392034,
+          0.040742484694115455
+        ],
+        "mean_absolute_document_CE_effect_error": 0.004615604877471924,
+        "true_mean_CE_added": 0.09303921461105347,
+        "pred_mean_CE_added": 0.08842360973358154
+      },
+      "2": {
+        "effect_norm_ratio": 0.9658646568753363,
+        "largest_document_error_fraction": 0.09697119599305253,
+        "leave_one_document_out_error_range": [
+          0.05336750216746922,
+          0.054622788141411124
+        ],
+        "mean_absolute_document_CE_effect_error": 0.006334900856018066,
+        "true_mean_CE_added": 0.05417734384536743,
+        "pred_mean_CE_added": 0.04792976379394531
+      },
+      "3": {
+        "effect_norm_ratio": 0.9995895460083626,
+        "largest_document_error_fraction": 0.1265376609480369,
+        "leave_one_document_out_error_range": [
+          0.035471471273518435,
+          0.03713602769217654
+        ],
+        "mean_absolute_document_CE_effect_error": 0.001193419098854065,
+        "true_mean_CE_added": 0.04877850413322449,
+        "pred_mean_CE_added": 0.048394545912742615
+      },
+      "joint": {
+        "effect_norm_ratio": 0.977828250814594,
+        "largest_document_error_fraction": 0.08129471162336055,
+        "leave_one_document_out_error_range": [
+          0.043297451844358216,
+          0.04383338031811803
+        ],
+        "mean_absolute_document_CE_effect_error": 0.037607431411743164,
+        "true_mean_CE_added": 0.6915613412857056,
+        "pred_mean_CE_added": 0.6539539098739624
+      }
+    }
+  },
+  "scope": "Descriptive removal influence audit on reused recipient documents. Not a confidence interval, swap validation, or semantic selectivity test."
+}

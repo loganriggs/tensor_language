@@ -63,3 +63,9 @@ flowchart LR
 The next managed experiment tests individual and simultaneous feature removals against the true native amplitudes, with final RMSNorm and softcap executed normally. Passing scalar prediction is not assumed to guarantee accurate effects. Same-token swaps, fresh confirmation, semantic selectivity and stability remain open.
 
 Receipts: `MIDPOINT_FACTOR_V1.json`, `MIDPOINT_FACTOR_PROGRAMS_V1.pt`, `MIDPOINT_EXTRACTED_PROGRAM_V1.pt`, `MIDPOINT_EXPORT_ORACLE_V1.json`, `WEIGHTED_BILINEAR_SVD_ORACLE_V1.json` under `direct_tensor_match`.
+
+## Native removal result
+
+The managed removal experiment completed and all registered predictions pass. Centered final-logit effect errors for features0–3 are3.7%,5.9%,12.9%,6.1% on FineWeb and5.2%,4.0%,5.4%,3.6% on code. Joint removal errors are5.7% /4.4%, with cosine0.9984 /0.9993. These comparisons execute native final RMSNorm and softcap; the four calibration means remain in the background.
+
+A successor CPU document-influence audit records effect amplitude ratios, signed CE-effect discrepancies and leave-one-document-out errors in `MIDPOINT_REMOVAL_INFLUENCE_V1.json`. These are descriptive checks on reused documents, not fresh confirmation or semantic selectivity. The next discriminating behavioral test is same-token cross-document interchange, which failed for the older isolated-quartic program.

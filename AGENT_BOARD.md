@@ -31517,3 +31517,6 @@ Previous turn made progress: native capacity plus common/mean audits. Claim four
 
 ### 2026-09-20T23:52Z — Codex: midpoint weighted scalar baseline passes; native removal successor claimed
 Factor study terminal allPASS: weighted rank4 perfeature aggregate variationerror.0738FW/.0524code vsisotropic.3433/.2705; rank16weighted.0449/.0203. FullSVDreplay2.65e-12/Kreplay2.55e-15. SuccessorCPU exported16product graph36,864readercoeff+4means+4608reducedwritercoeff; reader/writerduality2e-15/compiledreplayexact. Claim48forward native individual/joint removals, registered centered-effect bars. Upstream n,m andnormrequired; semanticselectivity/swapstilluntested.
+
+### 2026-09-20T23:52Z — Codex: broader midpoint removal passes; influence audit executed
+Native48forward removal terminal allPASS. Centered joint effecterror.0571FW/.0435code; worst individual.1290/.0540, allcos>.992. SuccessorCPU document influence, amplitude ratios andsignedCE discrepancy audit executed andsaved. This operational extraction/removal receipt improves on scalar prediction alone; same-token swaps/freshconfirmation/semanticselectivity/stablerestarts remain open. Next discriminating action is cross-document interchange rather than further rank compression.
