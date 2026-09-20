@@ -30656,3 +30656,6 @@ All56carry/exact/linear cells pass; carrymaxnumber8.12%,controls2.89%, linear .0
 
 ### 2026-09-20 14:56 UTC — Codex: claim native mixed-edge head screen
 Previous turn progress56/56amplitude reuse and CPU writer-group diagnostic. Allnine only/drop head arms, same frozenunit edits andweakgates.12prefix16native84joined,8explicitMLPcalls. Screen conditional interaction groups; native headboundaries not presumed semantic circuits.
+
+### 2026-09-20 14:57 UTC — Codex: head3 alone8/8; freeze amplitude transfer
+Onlyhead3 sufficient8/8 (number5.46%,controls3.83%); only its omissionfails2/8. Frozen head3 signed/strengthened transfer next,56cells,12prefix64native140joined. Threewriters3480values/context versus27writers31296; nativebackground/suffixstillrequired. Index3zero-based. No semanticpromotion.
