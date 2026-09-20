@@ -30220,3 +30220,21 @@ A/B native target/medianrandom19.61/20.18x, minimumcell12.21/12.86x; numbercontr
 
 ### 2026-09-20T08:34:16.998275+00:00 — Codex: control denominator and semantic-site CPU audits executed
 Randompredictiongates use sourceeffectdenominator; medianrandom-own-effect numbererrors54.8/59.6%, so no arbitrary-direction accuracyclaim. v69648rolepositions/oppositenounnumbers/unchangedsubjectlabels verified,controlhash8f5dd61488ce13d8eea3de10e832b9e12ec5c6a3bbb0d4a6c7232d119e690be8. Nativecontrol pending. Signed/control dossiercrosslinked; allfailedgates retained.
+
+### 2026-09-20T08:36:10.677065+00:00 — Codex: v696 semantic-attractor control preregistration
+Frozen48role-audited rows hash8f5dd61488ce13d8eea3de10e832b9e12ec5c6a3bbb0d4a6c7232d119e690be8. Applysameembeddingnumber-threshold/normpreserving removal atpairedhumanattractor; captureA/Bearlierports,patchonlyattractorsitepre11,thenfullblock11/nativeorselectedsuffix. Extra4prefix+8block11+8post11suffix+8reducedevaluations. Gates existinginstrument plusnormpreservation1e-5/counters; subject/attractor number-effect norm>=5 pooledA/B andeditednativecapability>=90% eachcell; predictorcontrolerrors<=10%number/5%modal ofsubjecteffect eachcell. Also reportown-control-relativeerrors; nofits.
+
+### 2026-09-20T08:38:30.154551+00:00 — Codex: v696 semantic specificity fails with opposite signs; claim v697 congruent-attractor falsifier
+Subject/attractor effectnorm1.48/1.94x fails5, predictorerrorspass,editedcapability100%. Attractorremovalimprovesmargin93.75/95.83% while subjectremovalharms100%;medianinputnormratios0.978/0.999, widerrowvariationretained. Testsame-number attractors bypaired single-token replacement, unchangedsubject/labels/positions. Gates instrument; attractorremovalharms>=75%rows eachA/B andsame-minus-opposite removaleffect positive>=90%pairedrows; predictionnumber10/modal5 ofsubjecteffect. Samev696calls, nofits; originalfailedmagnitudeclaimretained.
+
+### 2026-09-20T08:41:57.483506+00:00 — Codex: v697 congruence flip passes; claim v698 two-site post11 composition
+Congruentattractor removal harms100%A/95.83%B, pairedsame-minus-opposite positive100/95.83%;predictiongatespass. Hypothesis signednumber evidence, not subjectexclusivefeature. Onopposite-numberv69648rows combine separatelycomputed subject/attractor post11 deltas, not pre11jointembeddingedit. Extra8native suffix+8reducedexecutions. Gates instruments; jointnumber10%/modal5% ofsumofindividualeffectnorms eachcell; predictednumbercross error<=5%budget andbeatsadditivezero whennativecross>=1%budget, at leastonematerialcell. Reportown-effectnormalization separately; nofits.
+
+### 2026-09-20T08:44:13.942603+00:00 — Codex: v698 output invalid, v698r1 bounded repair
+Nativeworkfinished butjsonserializationfailed:local cross ndarray overwroteearlier crossdict. Preserveoriginalscript/log; invalidreceiptTWO_SITE_V698_INVALID_OUTPUT.json. Renameonlylocalscoringvector,CPUexecscoringblock verifieslegacydictionarysurvives andJSONserializes. v698r1 unchangeddata/thresholds/nativecalls; no scientificfailureorpass inferredfrominvalidrun.
+
+### 2026-09-20T08:46:07.018717+00:00 — Codex: v698r1 valid composition passes; claim v699 congruent two-site composition
+Jointbudget numberA6.41/B5.54%,modal1.76/2.47%pass;ownnetnumberA12.27%B7.60% (cancellation caveat). Fourmaterialcrosscells, allbeatadditivezero; maxcrosssize1.45/1.96%budget, maxerror0.61/1.04%. Preservev698invalidoutputseparately. v699 samemodel/formula/gates/counts onfrozenv697congruentrows, sumsubject+attractorpost11responses; nofit. Testsreinforcingtwo-site inputs; nofreshtextclaimrelativev697.
+
+### 2026-09-20T08:53:14.776324+00:00 — Codex: semantic composition audit landed; claim primitive-failure localization CPU analysis
+Native/predicted primitive replays match exactly across v696/698r1 and v697/699. Congruent joint A number12.50% and B modal5.53% remain failures; primitive-error sums12.58% and5.43%, interaction errors0.398% and0.097% in failed observables. Next CPU analysis scores subject and attractor separately in these failed cells, preserving denominators and original gates; no new GPU work or fitting. Three-hour review cron and explicit literature/baseline/positive-and-negative red-team requirements verified.

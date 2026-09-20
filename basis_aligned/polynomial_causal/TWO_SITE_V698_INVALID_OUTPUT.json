@@ -1,0 +1,8 @@
+{
+  "status": "invalid_output_no_scientific_verdict",
+  "cause": "local ndarray named cross overwrote legacy cross-effects dictionary before JSON serialization",
+  "original_script_sha256": "e420c9b880188ee2f0efd809bb86808ab34a9c3346d3be76bdfb41d16b4ee10a",
+  "repair_script": "run_subject_two_site_sum_v698r1.py",
+  "repair_scope": "rename local scoring vector only; same model/data/gates",
+  "cpu_scoring_serialization_pass": true
+}

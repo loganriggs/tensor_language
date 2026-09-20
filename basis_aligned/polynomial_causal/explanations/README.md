@@ -666,3 +666,5 @@ same day sort and link unambiguously.  Older `explanation_HHMM.md` files are ret
 - [Smaller modal derivative path, v689–691](../SUBJECT_MODAL_DERIVATIVE_PATH_2026-09-20.md): prospective source-reuse validation and explicit reader-generator dependency reduction; whole-predictor native dependencies remain.
 
 - [Signed failures and matched-control specificity](../SUBJECT_SIGNED_AND_MATCHED_CONTROLS_2026-09-20.md): v692–695 limits, denominator audit, and pending semantic control.
+
+- [Semantic controls, signed evidence, and composition failures](../SUBJECT_SEMANTIC_COMPOSITION_2026-09-20.md): v696–699, including invalid-run repair and denominator audits.
