@@ -1,0 +1,5 @@
+# Fixed-feature coefficient sampling control — 2026-09-20 17:44 UTC
+
+Native hierarchy shows increasing training/evaluation gap despitefeatureGramcondition≤2.6. Isolate finite-sample writer estimation fromfeaturelearning/optimizerfailure. Three d8 teacherfamilies with12quadratic-product roots/3outputs: dense independentquadratics, diagonalquadratics, and a commonquadratic reused acrossallroots. Students retainfirst2/4/8 roots. Compute full4096coefficient entries and exactGram/cross/optimalwriters, independentlyreplay quadratic_product_gram against fullenumeration.
+
+For each width sample16/64/256/1024/4096 orderedtuples withreplacement,12seeds (540fits). Fit outputwriters by SVD leastsquares, report sampledtrainingerror, fullcoefficienterror, designrank/condition and optimalgainfraction. Rankdeficient/zero designs remainvisible; no hiddenridgeor discardedfailures. A deterministic omitted-feature residual can act as sampling noise even with noiseless coefficients. This is a controlledstatistical comparison, not a native sample-complexity guarantee.

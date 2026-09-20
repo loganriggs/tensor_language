@@ -147,3 +147,10 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 - `NATIVE_ROOT_SPECTRAL_PLAN_V1.md`, `native_root_spectral.py`, `NATIVE_ROOT_SPECTRAL_V1.json`:16quadratics fullnumericalrank at1e-6, signwidth579–629. Independentwidth256truncation saves12% but40.7%coefficienterror vs exportedprogram; width5124.23%error costs18.88M vs10.70Mshared. Fullmatrixreplay1.9e-15.
 - `NATIVE_ROOT_GAUSSIAN_PLAN_V1.md`:queued fixed-feature outputwriter sweep, syntheticGaussian vs coefficient metrics;12cells, pairedbaseline/radial checks.
 - `quadratic_product_gram.py`, `check_quadratic_product_gram.py`, `QUADRATIC_PRODUCT_GRAM_CHECK_V1.json`:exact hierarchical coefficient Gram formula, independently dense-validated values/gradients<3e-16. Fullnative application not yet executed.
+
+## Exact native refit and coefficient-sampling control — 17:46 UTC
+
+[Timed report](../explanations/for_logan/research_update_2026-09-20_1746_exact_refit_and_sampling_control.md).
+
+- `NATIVE_EXACT_ROOT_PLAN_V1.md`:queued exact full-teacher cross/student-self contractions for fixed8native roots, streaming4608teacherroots. Teacher self norm still estimated; runtime/precision/heldout comparisons preregistered.
+- `COEFFICIENT_REFIT_SAMPLING_PLAN_V1.md`, `coefficient_refit_sampling.py`, `COEFFICIENT_REFIT_SAMPLING_V1.json`:540 fixed-feature SVD writer fits, three teacher structures/three widths/five sample counts/12seeds, vs exact4096tuple enumeration. Gramcondition2.484 witness has84.54%train/112.38%fullerror. Dense/shared cases converge withsamplecount; diagonal concentration remains difficult. Not a native samplecomplexity claim.

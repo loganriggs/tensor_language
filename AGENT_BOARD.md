@@ -30925,3 +30925,9 @@ Prior turnprogress:144signedcontrols andnativeCPdictionaryinterpretation. Native
 
 ### 2026-09-20T17:38:13.133367+00:00 — Codex: native hierarchy interpretation and exact contraction route
 1738report includesrootfit/spectralcost outcomes. ExactproductquadraticGram formula validatedvalues4.7e-17/gradients2.8e-16; nativefullteachercontraction costnotyettested. Gaussianwriterjobqueued ascontinuation. Goalactive; currentapproximationsnotusefulglobalcircuits.
+
+### 2026-09-20T17:41:02.765882+00:00 — Codex: claim exact native root refit
+Previous turnprogress:nativehierarchy/spectralcost results andexactproductGramvalidation. Stream4608teacherroots againstfixed8studentroots to remove coefficientquerysampling fromwriterfit; normalizequadratics, checkfp32/fp64block, accumulate/solvefp64, preserveestimatedteachernorm caveat. Gaussianwriterjobalsoqueued; this pilot measuresfullnativecontractioncost andexactobjective improvement.
+
+### 2026-09-20T17:44:48.242689+00:00 — Codex: coefficient sampling control complete; exact refit queued
+540fixed-feature SVDcontrolscomplete; Gramcond2.484 witness84.54%train/112.38%fullerror. Exact8rootnativefullteachercross scan auditedqueued, Gaussianwriteralsoqueued.1746reportseparatesstudent-self/cross exactness fromestimatedteachernorm. No nativeexactrefitresultyet; goalactive.
