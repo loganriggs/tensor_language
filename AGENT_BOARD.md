@@ -31252,3 +31252,6 @@ Previous profile/CPU fitter turn was progress. Implemented registered 8-arm comp
 
 ### 2026-09-20T20:27Z — Codex: Gaussian quadratic refit null; linear control begun
 8 arms completed16.8s; both science predictions failed, export passed. Centered winner24.16% vs pairedmean-only24.18%; spherical28.05%. CPU graph replay<2e-16,34560coeff/4products. Next exact Gaussian linear derivative helper implemented and dense-oracle checked; registered fixed-reader writer correction before further quadratic sweeps.
+
+### 2026-09-20T20:28Z — Codex: fixed-reader Gaussian linear control claim
+Previous turn made progress by falsifying quadratic improvement and implementing exact mean derivatives. Claim managed run_direct_gaussian_linear_control_v1.py: profile native JVP then fixed rank8 writer correction, two metrics and independent finite differences, unchanged four-product graph.
