@@ -94,8 +94,10 @@ registered absolute gate**: relative local replay1.42e-6, absolute replay.00412.
 The projected baseline-write ports were sourced from native float32 writes while
 the independent contraction uses float64 polynomial numerators. The original
 receipt remains intact. v648 recomputes these ports directly in float64 with the
-same data, bases, ranks and thresholds; no gate is relaxed. Its native verdict is
-pending. The v647 behavioral numbers must not be promoted before this repair.
+same data, bases, ranks and thresholds; no gate is relaxed. The repair has now
+passed: absolute replay3.64e-10, while both effect gates still fail. See the
+[subsequent observable-basis audit](SUBJECT_OBSERVABLE_BASIS_AUDIT_2026-09-20.md).
+The original v647 instrument remains invalid and is not itself promoted.
 
 A planted four-block circuit with a known three-feature invariant response space
 is recovered exactly by the compiled recurrence despite arbitrary biases and

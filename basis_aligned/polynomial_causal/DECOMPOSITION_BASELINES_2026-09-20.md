@@ -116,3 +116,10 @@ attention writes gives1.7–3.9% effect error on opened prompts and3.0–9.8% on
 matched-position prompts. [Conditional chain](SUBJECT_NUMBER_CONDITIONAL_CHAIN_2026-09-20.md)
 charges eight vector ports,95,560,716 fixed values and27,648 products. It is an
 explicit dense reference for future folding, not a simple discovered circuit.
+
+v648 validates the513,030-value width8 joint response compiler after correcting
+baseline-port precision, but state-SVD8 fails the effect gates. v649 identifies
+large losses even at initial-only and final-only projections. v650 reserves two
+answer readers at the same width/cost and improves strongly, but still fails.
+[Observable-basis audit](SUBJECT_OBSERVABLE_BASIS_AUDIT_2026-09-20.md) preserves
+these negatives and separates oracle diagnostics from executable predictors.
