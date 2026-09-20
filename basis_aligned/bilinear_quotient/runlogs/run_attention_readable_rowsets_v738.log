@@ -1,0 +1,13 @@
+skip7000 (192 rows): native 3.1324 | fifteen +0.1420 | twenty +0.1683
+fresh (512 rows): native 3.5061 | fifteen +0.1225 | twenty +0.1481
+skip1200 (96 rows): native 3.2670 | fifteen +0.1448 | twenty +0.1724
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_refit_replays": true,
+    "pred_c_fifteen_transfers": true,
+    "pred_d_twenty_transfers": true,
+    "pred_e_skip1200_agrees": true
+  },
+  "forwards": 382
+}

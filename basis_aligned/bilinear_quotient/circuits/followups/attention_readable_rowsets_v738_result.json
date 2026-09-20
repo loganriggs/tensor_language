@@ -1,0 +1,117 @@
+{
+  "backwards": 200,
+  "candidate_id": "attention.readable_rowsets_v738",
+  "finished_utc": "2026-09-20T21:49:16.660578+00:00",
+  "forwards": 382,
+  "plan": {
+    "bars": {
+      "fifteen_fresh": 0.172,
+      "refit_tol": 0.005,
+      "replay_tol": 0.002,
+      "s1200_tol": 0.02,
+      "twenty_fresh": 0.20800000000000002
+    },
+    "candidate_id": "attention.readable_rowsets_v738",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 505605,
+    "forwards_max": 390,
+    "gates": {
+      "0": [
+        3,
+        4,
+        6,
+        7,
+        8
+      ],
+      "1": [
+        0,
+        1,
+        3,
+        5,
+        6,
+        7
+      ]
+    },
+    "gpu_accessed": false,
+    "layer2": {
+      "0": 0.0013,
+      "2": 0.0094,
+      "3": 0.0096,
+      "4": 0.0022,
+      "8": 0.009
+    },
+    "mean_head": 8,
+    "model_backwards": 200,
+    "model_loaded": false,
+    "model_updates": 0,
+    "readings": {
+      "1.4": [
+        "same",
+        0.05,
+        0.0037
+      ],
+      "5.5": [
+        "induction",
+        0.1,
+        0.0071
+      ],
+      "5.7": [
+        "sink",
+        0.55,
+        0.0058
+      ]
+    },
+    "sets": [
+      "skip7000",
+      "fresh",
+      "skip1200"
+    ],
+    "steps": 200
+  },
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_refit_replays": true,
+    "pred_c_fifteen_transfers": true,
+    "pred_d_twenty_transfers": true,
+    "pred_e_skip1200_agrees": true
+  },
+  "report": {
+    "chosen_step": 200,
+    "heldout_curve": {
+      "0": 0.23299992084503174,
+      "100": 0.171158154805501,
+      "125": 0.1697373390197754,
+      "150": 0.1689375638961792,
+      "175": 0.16850634415944388,
+      "200": 0.16825926303863525,
+      "25": 0.19439693291981985,
+      "50": 0.17925147215525294,
+      "75": 0.17382919788360596
+    },
+    "native": 3.1324122746785483,
+    "program_cost": 0.07231485843658447,
+    "sets": {
+      "fresh": {
+        "fifteen": 0.12252897024154663,
+        "native": 3.506130591034889,
+        "rows": 512,
+        "twenty": 0.1480667144060135
+      },
+      "skip1200": {
+        "fifteen": 0.1447817484537759,
+        "native": 3.2670481204986572,
+        "rows": 96,
+        "twenty": 0.17240802447001125
+      },
+      "skip7000": {
+        "fifteen": 0.14202570915222168,
+        "native": 3.1324122746785483,
+        "rows": 192,
+        "twenty": 0.16825926303863525
+      }
+    },
+    "twenty_snapshot": 0.16825926303863525
+  },
+  "schema": "attention_readable_rowsets_result_v738",
+  "serial_seconds": 197.7899617650546
+}
