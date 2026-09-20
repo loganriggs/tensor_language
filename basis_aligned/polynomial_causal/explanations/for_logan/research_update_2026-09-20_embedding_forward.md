@@ -49,14 +49,14 @@ Single-token folds said the "right" metric to compress MLP-0 was the token secon
 
 ## Addendum (05:30 UTC) — the atlas past layer 2, and the induction circuit from the front
 
-Fixed positional kernels stay cheap one head at a time through layer 4 (banks 0.043 / 0.035; edit, v634). Layer 5 is where content first becomes load-bearing: the bank costs 0.163 and head **5.7** alone 0.083 — it is the model's costliest head (+0.84 when its off-diagonal pattern is zeroed), a broad positive ~1/i aggregator with a quarter of its mass on position 0, and **not** the induction head (response, v635/v636).
+Fixed positional kernels stay cheap one head at a time through layer 4 (banks 0.043 / 0.035; edit, v634). Layer 5 is where content first becomes load-bearing: the bank costs 0.163 and head **5.7** alone 0.083 — it is the model's costliest head (+0.84 when its off-diagonal pattern is zeroed), the position-0 sink already in the ledger (§432/§451: top read at position 0 for 99.5% of queries, re-verified in v700) whose remaining three quarters of off-diagonal mass is spread over the context with ~1/i weights; **not** the induction head (response, v635/v636). An earlier line here called it "not a sink"; that was wrong (see the correction section below).
 
 The induction head is **5.5** (response, 9.6× enrichment on keys whose predecessor is the current token; 1% of keys carry 4.3× its cost, edit, v636). Its first half is not a head: the "my predecessor was X" key feature is written redundantly by the nineteen positional heads of blocks 0–2 — the ten previous-token taps and the nine window heads are *each* sufficient (cut one family: 0.86× / 0.90× of the enrichment remains; cut both: 0.23×; response, v637/v639) — and amplified in layers 3–4 (0.37× when those are cut, v638). Its write raises the logit of the successor of the earlier copy at 87% of eligible positions, 2.7× the effect on random tokens (direct path, approximate), and cutting the head costs 4.2× more per eligible position than elsewhere (edit, v640).
 
 | claim | tag | rows | numbers | status |
 |---|---|---|---|---|
 | 18 | fixed kernels cheap singly through layer 4; layer 5 breaks it at 5.7 | edit | fresh | banks 0.043 / 0.035 / 0.163; 5.7 alone 0.083 | held (v634) |
-| 19 | 5.7 is not induction and not a position-0 sink | response | opened (64 rows) | induction 1.1× base; 26% mass on position 0; zeroing it +0.84 | held (v635/v636) |
+| 19 | 5.7 is not induction; it IS the position-0 sink (§432) with 75% of its mass spread over the context | response | opened (64 rows) | induction 1.1× base; argmax at position 0 for 99.5% of queries (v700); 26% of |mass| there; zeroing it +0.84 | corrected (v635/v636/v700) |
 | 20 | 5.5 is the induction head | response+edit | opened / fresh | 9.6× enrichment; eligible keys carry 4.3× its cost | held (v636) |
 | 21 | its key feature is written redundantly by taps and windows, amplified in 3–4 | response | opened | families alone 0.86× / 0.90×, both 0.23×, layers 3–4 0.37×, layers 0–4 anchor 0.12× | held (v637–v639) |
 | 22 | its write copies the successor token to the logits | response+edit | opened / fresh | positive at 0.87; cost 0.020 vs 0.005 per position | held (v640) |
@@ -88,6 +88,48 @@ The per-layer projection programs of the MLPs compound when stacked (claim 7) �
 About 0.056 nats per layer at (256, 512, 256): honest, priced, and — against the registered whole-model Pareto set — not competitive, which says the value in these MLPs is not in per-mode rank. The rule that carries forward: **projection-only stacks compound; fitted programs compose** (attention kernels 1.45 → 0.96, early MLPs 0.41 → 0.18).
 
 The attention content budget is flat (edit, v649): keeping the 9 / 18 / 54 most content-critical heads native (ranked on fit rows) recovers 0.25 / 0.34 / 0.56 of the 0.96 — pattern content is ~0.02 nats per head across the whole model, not a property of a few heads.
+
+
+## Addendum (14:50 UTC, answering Logan) — novelty against the dossier, what a "kernel" replaces, and why the lane drifted
+
+### 1. What was already in the dossier, and what is new
+
+I did not re-read the ledger before opening this lane; checking it now (§280, §343, §398, §428, §432, §451, §475 and the board's closed-items list), here is the honest split.
+
+**Already established before today**
+- Head 0.3 is a previous-token head whose top read folds *exactly* from weights, tokens and rotary (§475) — my v612/v622 rediscovered this with more detail (the offset kernel, separability, the A/B/κ tables, and the +0.0037 edit price), but the headline was known.
+- Head 5.5 is the induction head (§280, §398: "a5 contains the induction head (5,5)"), and induction heads are the least compressible heads in the model, high-rank in QK by construction (§343). My v635–v640 re-derive 5.5 from the front and add the key-side and output-side edits; the identification itself is not new.
+- Head 5.7 is the position-0 attention sink and the costliest head (+0.916 to delete; §432, §451). **My board text called it "not a sink" (v636, v647); v700 re-measured with both instruments: top read at position 0 for 99.5% of queries on both row sets, value norm 771 vs 209 — the ledger was right.** What my numbers add is only that its remaining off-diagonal mass (75%) is spread ~1/i over the context.
+- The stack's costliest heads are previous-token readers rather than identity matchers (§428), and deep-layer content behaves like a recency-weighted bag of words (§894/§930 lineage) — my kernel atlas is consistent with both but was not needed to state them.
+- Tucker/HOSVD compression of the MLPs is on the board's **closed** list. My v611 re-derived the coefficient-space numbers exactly and then tried token-metric frames (v615), context frames (v616–v621) and fitted rank-limited programs (v650–v653). The new construction is not on the closed list, but its conclusion (not competitive with the Pareto set) agrees with the closure; treat that chapter as a confirmation with a new mechanism, not a discovery.
+
+**New, as far as the ledger shows**
+- The per-head *positional kernels* and their separability (gain(cur) × kernel(d) × content-weight(prev)) at layers 0–2, with named kernel types (previous-token, short/medium/long windows, "previous minus mean"), and the observation that heads 1.8 and 2.7 are running-mean subtractors (1.8 ≡ −1/i exactly; edit +0.0027). The ledger's bag-of-words results are about features, not about heads implementing a subtraction.
+- The three-table program for twelve heads of blocks 0–1 priced at +0.036, and the price ladder for the 19 positional heads (fitted kernels only 0.087 at 9.7k numbers; with the closed-form gates 0.050).
+- The whole-model kernel atlas: singles, per-layer banks, the joint numbers (+1.45 closed-form / +0.96 fitted), the flat content budget, and the pattern-variance control. The ledger has per-head deletion costs and motif classes; it did not have "replace the pattern by its positional mean" as an instrument or the joint/redundancy picture that comes out of it.
+- The redundancy of the induction key feature — no tap or family of taps is necessary; taps and windows are each sufficient (v637–v639). §428 lists the taps as costly; the necessity structure is new.
+- On the folding side proper: the degree census of the token-folded MLPs (v610), the bigram Tucker tables at MLP-0/1/2 (v613, v656, v658), the hop census (v614, v657), and the negative that single-token statistics do not transfer to contexts as compression frames (v616).
+
+### 2. What "a 512-number positional kernel" means, exactly
+
+For one head *h*, the model computes an unnormalised pattern `P_h(i, j) = (q̂_i·k̂_j / 128) · (q̂2_i·k̂2_j / 128)` for every key `j ≤ i` and forms the head output `Σ_j P_h(i, j) v_j`. The kernel edit keeps the diagonal term `P_h(i, i)` native and replaces every off-diagonal entry by a number that depends only on the offset:
+
+`P_h(i, j) := κ_h(i − j)` for `j < i`, with `κ_h ∈ ℝ^512` (one number per offset 1…512).
+
+So yes — it replaces the whole **QK side** of the head (`c_q, c_k, c_q2, c_k2` and the rotary; 4 × 1152 × 128 = 590k weights) by a lookup on relative position; it is an ALiBi-style fixed bias, except that this model has no softmax, so the kernel *is* the attention weight. The **values** (`c_v`, the token branch `v1` mixed with λ), the output projection `c_proj`, and the self term are untouched. "Closed-form" κ is the mean of the real pattern per offset on 64 rows; "fitted" κ is that vector refit jointly against CE with the model frozen. The three-table program of v623 is the same thing with a token gate on each side: `P_h(i, j) := κ_h(i − j) · A_h(tok_i) · B_h(tok_j)`.
+
+So "159 of 162 heads are singly replaceable at ≤ 0.011" means: for any one head, the model barely cares which positions its QK circuit picks, as long as the values it mixes are still weighted by the usual offset profile — because the other heads still carry the content-dependent routing. The joint numbers (+0.96 fitted) are the honest measure of how much content-dependent routing the model needs in total.
+
+### 3. Why most of the day is not embedding-forward folding
+
+You are right, and here is what happened, in order.
+
+- v609–v614 and v656–v658 are embedding-forward folds in your sense: exact single-token and bigram tables contracted into the early tensors (degree census, Tucker tables, hop census). That is the part of the day that answers your question.
+- v615 was the first edit — does the token-metric fold *price* under CE? It did not (the single-token frames transfer badly). The follow-ups (v616–v621) chased the reason with **context** statistics and gradients; that is compression work, not folding from the embedding, and it partly retreads the closed Tucker item.
+- v622–v628 came back to the tables: kernels, gates and programs of the layer-0/1/2 heads derived from single-token tables (embedding-forward objects). At layer 2 the tables got the kernel shapes right and the scales wrong (v628), and I replaced table-derived kernels with **context-mean kernels** (v629). From that point the instrument was "replace a head's pattern by its real mean" — an edit/response census on the model's own activations. The atlas (v634–v649), the induction thread (v635–v640), the fitted programs (v646, v650–v653) and the gate-reading checks (v660–v662) all use that instrument. None of them folds anything from the embedding.
+- Three reasons for the drift, none of them good enough: each rung's failure suggested a cheap next rung with the instrument already in hand; the loop I set up says "never leave the queue empty", which biases toward cheap edit censuses over the harder folding rungs; and I never re-anchored to the premise. I also ran the whole night without reading the ledger for the heads I was naming, which is how the 5.7 error happened.
+
+What is still embedding-forward and worth building on: the single-token tables through block 2 (exact), the bigram Tucker tables and the (cur, prev) interaction structure, the hop census through block 2, and the A/B/κ tables of blocks 0–1 (weights-only objects that install at +0.036). The natural embedding-forward continuations I did **not** do: the three-token fold (skip-trigrams; the layer-0 heads with d=2 peaks), the two-bilinear-layer order-five tensor with your sparse-core fit, and contracting the front-side tables against Codex's readout-side object to close the loop through the whole network. If you want the lane to stay on the folding premise, those are the next rungs, and the atlas/compression machinery should be treated as instruments for pricing them, not as the lane.
 
 ## Appendix A — layer-0 positional kernels (fold, 4096² grid; pattern rms / separable fraction)
 
