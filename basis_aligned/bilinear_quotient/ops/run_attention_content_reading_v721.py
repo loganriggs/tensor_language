@@ -54,7 +54,7 @@ def main() -> None:
         # replay check against the model's own MLP-0 input hook on 64 tokens
         cap = {}
         hk = blocks[0].mlp.register_forward_pre_hook(lambda m, a: cap.__setitem__("x", a[0].detach()))
-        ids = torch.arange(64, device=dev); model(ids[:, None]); forwards += 1; hk.remove()
+        ids = torch.arange(64, device=dev); model(ids[:, None], ids[:, None]); forwards += 1; hk.remove()
         x_hook = cap["x"][:, 0]; x_tab = EF.rms(tabs["X0"][:64]); rel = float((x_hook.float() - x_tab).norm() / x_tab.norm())
         n_in = {0: EF.rms(tabs["fam0"]["r"]), 1: EF.rms(tabs["fam1"]["r"] + tabs["fam1"]["a0"] + tabs["fam1"]["m0"])}
         p, _, _ = EF.unigram_weights(FIT_ROWS, V, dev=dev); grid = torch.argsort(p, descending=True)[:GRID]; w = p[grid] / p[grid].sum(); w = w.float()
