@@ -1,0 +1,43 @@
+{
+  "scope": "Necessary output-width and CP storage bounds only; no general arithmetic-DAG lower bound. Exact fixed vocabulary frame excluded from both costs.",
+  "bounds": [
+    {
+      "relative_error": 0.9,
+      "minimum_output_rank": 36,
+      "CP_coefficient_count_lower_bound": 248832,
+      "CP_product_count_lower_bound": 36
+    },
+    {
+      "relative_error": 0.75,
+      "minimum_output_rank": 197,
+      "CP_coefficient_count_lower_bound": 1361664,
+      "CP_product_count_lower_bound": 197
+    },
+    {
+      "relative_error": 0.5,
+      "minimum_output_rank": 527,
+      "CP_coefficient_count_lower_bound": 3642624,
+      "CP_product_count_lower_bound": 527
+    },
+    {
+      "relative_error": 0.25,
+      "minimum_output_rank": 894,
+      "CP_coefficient_count_lower_bound": 6179328,
+      "CP_product_count_lower_bound": 894
+    },
+    {
+      "relative_error": 0.1,
+      "minimum_output_rank": 1090,
+      "CP_coefficient_count_lower_bound": 7534080,
+      "CP_product_count_lower_bound": 1090
+    },
+    {
+      "relative_error": 0.05,
+      "minimum_output_rank": 1133,
+      "CP_coefficient_count_lower_bound": 7831296,
+      "CP_product_count_lower_bound": 1133
+    }
+  ],
+  "original_factor_coefficients": 21233664,
+  "notes": "Isotropic metric on independent n,p. Native n,p are dependent; separate marginal covariance weighting cannot reproduce arbitrary joint fourth moments."
+}

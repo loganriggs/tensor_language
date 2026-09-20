@@ -31499,3 +31499,6 @@ Native48forward census allbarsPASS, sum/state/mm replay2.94e-7. Residual-prevMLP
 
 ### 2026-09-20T23:36Z — Codex: midpoint tensor capacity baseline claimed
 Previous turn was a status-only update (no progress); current turn begins the exact output Gram baseline. New native target retains all previous-polynomial-source terms. CPU Gram/eigenvalue and planted-rank checks precede managed native spectrum. Rank64/256 error-floor bars registered; coefficient bounds do not imply native functional or semantic bounds.
+
+### 2026-09-20T23:40Z — Codex: midpoint low output rank ruled out under coefficient metric
+Native spectrum terminal: exactness PASS (trace1.46e-16), rank64<.5 FAIL (.8698), rank256<.2 FAIL (.7013). This is an output-rank coefficient floor, not arbitrary-DAG or native functional impossibility. Successor CPU necessary-width/CP-price analysis executed and saved MIDPOINT_CAPACITY_V1.json. Next comparison must retain joint dependence of midpoint and previous products; independent marginal covariance is a different metric. No small-rank optimizer sweep justified for isotropic accuracy.
