@@ -1,0 +1,21 @@
+native 3.13241 | step-0 (context-PCA small stack) CE added +0.4064
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_embedding_forward_mlp_program_refit_v650.py:93: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  forwards += 1; backwards += 1; curve.append(float(loss))
+step 50: train 3.3024 | held-out CE added +0.1865 | lr 0.00028
+step 100: train 3.2077 | held-out CE added +0.1726 | lr 0.00023
+step 150: train 3.0942 | held-out CE added +0.1799 | lr 0.00017
+step 200: train 3.0020 | held-out CE added +0.1908 | lr 0.00010
+step 250: train 2.9325 | held-out CE added +0.1913 | lr 0.00005
+step 300: train 2.8547 | held-out CE added +0.2027 | lr 0.00003
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_step0_replays_v619": true,
+    "pred_c_no_overfit": false,
+    "pred_d_stack_composes_when_fitted": true,
+    "pred_e_under_quarter": true
+  },
+  "forwards": 348,
+  "backwards": 300
+}
