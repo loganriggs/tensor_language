@@ -1,0 +1,57 @@
+{
+  "plan": {
+    "spaces": 3,
+    "dimension": 32,
+    "unique_entries": 52360,
+    "batch": 256,
+    "native_forwards": 0
+  },
+  "validation": {
+    "relative_error": 0.0,
+    "dimension32_unique_entries": 52360,
+    "ordered_entries": 1048576
+  },
+  "records": [
+    {
+      "subspace": "input_mode_32",
+      "normalized_projected_energy": 0.0003925135320311218,
+      "estimated_conditional_minimum_error": 0.9998037239718448,
+      "sampled_energy": 0.0003884895356582466,
+      "sampled_standard_error": 2.5958615508657807e-05,
+      "sample_discrepancy_in_se": 0.1550158317007733,
+      "precision_error": 4.32898962189007e-07,
+      "orthogonality_error": 3.203397949266849e-08
+    },
+    {
+      "subspace": "cp8_span",
+      "normalized_projected_energy": 0.001693715044375318,
+      "estimated_conditional_minimum_error": 0.9991527835899896,
+      "sampled_energy": 0.0017726315895164632,
+      "sampled_standard_error": 9.543770864235485e-05,
+      "sample_discrepancy_in_se": 0.8268906102605479,
+      "precision_error": 2.5387943432714944e-07,
+      "orthogonality_error": 9.63166034130868e-08,
+      "student_gain": 0.0008629544410926036,
+      "available_energy_utilization": 0.5095039121004452
+    },
+    {
+      "subspace": "learned_bank_span",
+      "normalized_projected_energy": 0.0022799520377188606,
+      "estimated_conditional_minimum_error": 0.9988593734666963,
+      "sampled_energy": 0.002333531371642697,
+      "sampled_standard_error": 0.00013193897758325253,
+      "sample_discrepancy_in_se": 0.40609177746604946,
+      "precision_error": 6.016418619628277e-07,
+      "orthogonality_error": 9.068518445410482e-08,
+      "student_gain": 0.0020147671508615123,
+      "available_energy_utilization": 0.8836883923564149
+    }
+  ],
+  "predictions": {
+    "pred_a_precision": true,
+    "pred_b_sampling": true,
+    "pred_c_utilization": true
+  },
+  "seconds": 3.1095558498054743,
+  "scope": "Exhaustive projected coefficient energy in floating point. Conditional frozen-subspace ceiling; total teacher norm estimated. Not global capacity or circuit identification."
+}

@@ -1,0 +1,98 @@
+{
+  "panels": [
+    {
+      "panel": 0,
+      "mean_energy_fraction": 0.6814703824813777,
+      "centered_condition": 4370.177052674386,
+      "normalized_minimum": 0.012217786910036254,
+      "centered_floor01_count": 0,
+      "centered_floor10_count": 305,
+      "second_floor01_count": 85,
+      "projections": [
+        {
+          "name": "input_mode_32",
+          "dimension": 32,
+          "mean_fraction": 0.020719491715053218,
+          "centered_energy_fraction": 0.06576021830396955,
+          "second_moment_fraction": 0.03506629557951727
+        },
+        {
+          "name": "input_mode_64",
+          "dimension": 64,
+          "mean_fraction": 0.022386624861931867,
+          "centered_energy_fraction": 0.1039518709604829,
+          "second_moment_fraction": 0.048367569300770616
+        },
+        {
+          "name": "input_mode_128",
+          "dimension": 128,
+          "mean_fraction": 0.025915775604663526,
+          "centered_energy_fraction": 0.17245642397165992,
+          "second_moment_fraction": 0.07259330894885747
+        },
+        {
+          "name": "cp8_span",
+          "dimension": 32,
+          "mean_fraction": 0.3304835070143742,
+          "centered_energy_fraction": 0.08991088467622944,
+          "second_moment_fraction": 0.25385400737265224
+        },
+        {
+          "name": "learned_bank_span",
+          "dimension": 32,
+          "mean_fraction": 0.13274348019925794,
+          "centered_energy_fraction": 0.08748365439405047,
+          "second_moment_fraction": 0.11832688484131801
+        }
+      ]
+    },
+    {
+      "panel": 1,
+      "mean_energy_fraction": 0.672079533922649,
+      "centered_condition": 3754.972422415717,
+      "normalized_minimum": 0.013718782075744881,
+      "centered_floor01_count": 0,
+      "centered_floor10_count": 299,
+      "second_floor01_count": 71,
+      "projections": [
+        {
+          "name": "input_mode_32",
+          "dimension": 32,
+          "mean_fraction": 0.023741511952733496,
+          "centered_energy_fraction": 0.06352703569590366,
+          "second_moment_fraction": 0.03678799946760366
+        },
+        {
+          "name": "input_mode_64",
+          "dimension": 64,
+          "mean_fraction": 0.02539836724626027,
+          "centered_energy_fraction": 0.1028174057134654,
+          "second_moment_fraction": 0.05078565496983068
+        },
+        {
+          "name": "input_mode_128",
+          "dimension": 128,
+          "mean_fraction": 0.028969655976839263,
+          "centered_energy_fraction": 0.17136467837497943,
+          "second_moment_fraction": 0.0756638992790695
+        },
+        {
+          "name": "cp8_span",
+          "dimension": 32,
+          "mean_fraction": 0.34021992122216543,
+          "centered_energy_fraction": 0.08396549055083595,
+          "second_moment_fraction": 0.256188845651927
+        },
+        {
+          "name": "learned_bank_span",
+          "dimension": 32,
+          "mean_fraction": 0.13887664593939647,
+          "centered_energy_fraction": 0.08022740097135322,
+          "second_moment_fraction": 0.11964435821835594
+        }
+      ]
+    }
+  ],
+  "mean_cosine": 0.9932548513546987,
+  "scope": "Input second-moment coverage only, not quartic function or causal sufficiency. No features fit on panel2. Floorcounts flag when configured floor is inactive."
+}

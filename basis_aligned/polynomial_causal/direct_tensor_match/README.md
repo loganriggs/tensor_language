@@ -202,3 +202,11 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 - [Metric definitions and derivation](QUARTIC_METRIC_GEOMETRY.md): four-independent-slot covariance loss, repeated-input Gaussian trace terms, empirical eighth moments, and eigenvalue-floor sensitivity.
 - `check_quartic_covariance_metric.py`, `QUARTIC_COVARIANCE_METRIC_CHECK_V1.json`: independentdense/gradient/quadrature checks<5e-16; equalcovariance doesnotdeterminequarticfunctionerror, floor.01canweightquarticenergy1e-8.
 - `NATIVE_WEIGHTED_BANK_PLAN_V1.md`: queued16original-coordinate bankfits, isotropic/centeredfloors.01,.1/secondmomentfloor.01. Matchedisotropicreruns, originalreaderparameterization, empiricalandGaussian diagnostics; depends onMLP16capture, notMLP17statistics.
+
+## Native exact capacity and covariance capture — 18:42 UTC
+
+[Timed report](../explanations/for_logan/research_update_2026-09-20_1842_input_capacity_and_covariance.md).
+
+- `NATIVE_PROJECTED_ENERGY_V1.json`: exact32-span enumeration, learnedavailable0.2280%/utilization88.37%; CPavailable0.16937%/utilization50.95%. Allpredictionshold; conditionalspanonly, totalteachernormestimated.
+- `NATIVE_QUARTIC_COVARIANCE_V1.json/.pt`:16forwards,2048actualMLP16inputrows/panel, means/covariances/secondmoments/hashes. Meanenergy68.15/67.21%, covariancepanelshift93.2%; allpredictionshold.
+- `audit_quartic_input_statistics.py`, `QUARTIC_INPUT_STATISTICS_AUDIT_V1.json`: inputcoverage andliveflooraudit. Centeredfloor.01inactive, .1changes305eigenvalues; secondmoment.01changes85. Inputcoverage≠quarticfunctioncoverage.

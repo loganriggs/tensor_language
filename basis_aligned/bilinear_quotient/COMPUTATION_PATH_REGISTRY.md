@@ -508,3 +508,6 @@ Fourfeaturemixing adds16scalars whilepreservingleafreuse.130basis screensreduce 
 
 ### 2026-09-20 18:40 — Covariance-weighted quartic objectives distinguished
 Exactdense/gradient/quadrature verification of four-slot coefficient weighting and Gaussian24/72/9traceformula. Equalcovariance empiricalcounterexample0vs192, floor.01⇒1e-8quarticpenalty.16nativefitsqueued withsameoriginalreadercoordinates, trueMLP16covariance, isotropiccontrols andfloors. [Instrument note](../polynomial_causal/direct_tensor_match/QUARTIC_METRIC_GEOMETRY.md).
+
+### 2026-09-20 18:42 — Exact conditional input capacity and actual quartic input statistics
+Learned32-span coefficientcapacity0.2280%, currentbankuses88.37%; CPspan0.16937%,uses50.95%. CorrectMLP16capturemeanenergy~68%, centeredcovshift93%; floor.01inactivecentered, .1active305modes. Controllednativecovariancefitsqueued. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1842_input_capacity_and_covariance.md).
