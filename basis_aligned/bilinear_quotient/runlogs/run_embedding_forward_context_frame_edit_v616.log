@@ -1,0 +1,17 @@
+context x: n=245760, 90/95/99% PCA ranks = 559/763/1041, mean norm 8.69
+context w: n=245760, 90/95/99% PCA ranks = 437/647/978, mean norm 34673.93
+native CE 3.13241 (v615: 3.13241)
+r= 32: OUT coefficient=+0.2171 single_token=+0.5005 context_mean=+0.1575 context_bias=+0.2887 | IN coefficient=+0.8960 single_token=+5.4022 context=+0.2550
+r= 64: OUT coefficient=+0.1103 single_token=+0.2097 context_mean=+0.0816 context_bias=+0.1451 | IN coefficient=+0.9723 single_token=+6.0158 context=+0.1323
+r=128: OUT coefficient=+0.0489 single_token=+0.0656 context_mean=+0.0357 context_bias=+0.0576 | IN coefficient=+0.5005 single_token=+5.5611 context=+0.0555
+r=256: OUT coefficient=+0.0175 single_token=+0.0184 context_mean=+0.0112 context_bias=+0.0168 | IN coefficient=+0.0954 single_token=+2.7775 context=+0.0188
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_context_out_beats_coefficient": false,
+    "pred_c_context_in_beats_coefficient": true,
+    "pred_d_context_beats_single_token": true,
+    "pred_e_mean_matters": true
+  },
+  "forwards": 189
+}
