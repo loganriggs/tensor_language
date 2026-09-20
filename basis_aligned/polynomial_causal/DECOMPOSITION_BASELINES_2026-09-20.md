@@ -153,3 +153,5 @@ v665–v667 use four calibration reader contrasts at width8 and pass prospective
 ## Conditional source-amplitude baseline (later20 September)
 
 [Native source Hessians](SEMANTIC_SOURCE_QUADRATIC_JET_2026-09-20.md) provide a measured same-output/source-interface comparison: linear3, diagonal6, signed-rank1 7, full symmetric9 values/context. Rank1 andfull pass unit/negative/mixed10% on opened contexts; doubled edits fail. Producer computation and context dependence are fully charged; this is not a global tensor-decomposition or HT comparison. CPU extraction is exact only for the quadratic observable.
+
+Later [quadratic design audit](SHARED_SOURCE_QUADRATIC_DICTIONARY_2026-09-20.md): original four arms had symmetric designrank2/6. On six independent source settings, fullquadratic4.72% passes, rank1 15.74% fails. Always report monomial-design rank; signed/strengthened versions of the same direction do not identify additional Hessian dimensions. Sharedoutput2/input2 fail17.33/18.29% on this stronger benchmark.

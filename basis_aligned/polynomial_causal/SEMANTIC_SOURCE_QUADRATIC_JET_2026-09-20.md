@@ -32,3 +32,7 @@ Errors are maxima across context cells under each arm's own native effect norm. 
 A coefficient-only rank-one consistency audit is cautionary: median leading Hessian energy98.29%, minimum53.01%; leading input vectors have median absolute cosine.858 to a common reference, minimum.0617. Thus good per-context rank-one prediction does not identify one shared semantic input feature. No shared-feature or stable-identification claim follows. [Feature audit](SOURCE_AMPLITUDE_RANK1_FEATURE_AUDIT.json).
 
 Next discrimination: a common low-width source feature dictionary versus context-dependent curvature directions, validated on coefficients and fresh effects separately. A local quadratic also needs an explicit amplitude-validity region; doubled-edit failure must survive into any exported interface description. The prior cross-layer chain-rule target remains: preserve both transported block11 curvature and downstream curvature.
+
+## Later coverage correction
+
+[Full-span audit](SHARED_SOURCE_QUADRATIC_DICTIONARY_2026-09-20.md) shows the four amplitude arms cover only2of6 quadratic directions. Existing six-setting native census validates fullquadratic4.72% but rejects per-context rank1 at15.74%. Earlier rank1 success is restricted to the listed arms, not general three-source geometry. Sharedrank2 alternatives also fail.

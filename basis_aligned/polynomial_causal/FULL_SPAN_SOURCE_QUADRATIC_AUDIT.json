@@ -1,0 +1,4824 @@
+{
+  "original_quadratic_design_rank": 2,
+  "complete_quadratic_design_rank": 6,
+  "predictions": {
+    "pred_a_design_rank": true,
+    "pred_b_full_quadratic": true,
+    "pred_c_context_rank1": false
+  },
+  "max_own_effect_errors": {
+    "full": 0.047168394086453305,
+    "shared2": 0.17330717709037602,
+    "input_rank2": 0.18289975192181626,
+    "context_rank1": 0.1573845290921311
+  },
+  "max_B_budget_errors": {
+    "full": 0.03959055524259161,
+    "shared2": 0.15601970932654283,
+    "input_rank2": 0.15612803589465682,
+    "context_rank1": 0.09995847396363218
+  },
+  "scores": [
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.3637704186380687,
+      "errors": {
+        "full": 0.0014644206189139307,
+        "shared2": 0.005960789547284036,
+        "input_rank2": 0.004722234726857135,
+        "context_rank1": 0.0027137713960065824
+      },
+      "B_budget_errors": {
+        "full": 0.0009471379860596939,
+        "shared2": 0.003855238129143068,
+        "input_rank2": 0.0030541825423174318,
+        "context_rank1": 0.0017551760344280876
+      },
+      "absolute_rms_errors": {
+        "full": 0.00021747913138809764,
+        "shared2": 0.000885228817723151,
+        "input_rank2": 0.0007012927114951801,
+        "context_rank1": 0.00040301853058247894
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.25118625833062114,
+      "errors": {
+        "full": 0.0018149318719135592,
+        "shared2": 0.005423999267999133,
+        "input_rank2": 0.01092667577190297,
+        "context_rank1": 0.01705353381052569
+      },
+      "B_budget_errors": {
+        "full": 0.00045819870785879756,
+        "shared2": 0.0013693458660814315,
+        "input_rank2": 0.002758554630813394,
+        "context_rank1": 0.0043053446122860006
+      },
+      "absolute_rms_errors": {
+        "full": 0.00018611465811363916,
+        "shared2": 0.0005562113845672588,
+        "input_rank2": 0.0011204908333347964,
+        "context_rank1": 0.001748777826811199
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.32054586687567965,
+      "errors": {
+        "full": 0.0013305639230031829,
+        "shared2": 0.007172630060749265,
+        "input_rank2": 0.0047389984681584585,
+        "context_rank1": 0.0025994141773541357
+      },
+      "B_budget_errors": {
+        "full": 0.000845096062003136,
+        "shared2": 0.00455563337751043,
+        "input_rank2": 0.003009933513183062,
+        "context_rank1": 0.0016509952260233094
+      },
+      "absolute_rms_errors": {
+        "full": 0.0001741206581448884,
+        "shared2": 0.0009386268823436943,
+        "input_rank2": 0.0006201562495103025,
+        "context_rank1": 0.0003401653235347589
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.3551596657080005,
+      "errors": {
+        "full": 0.0025636473358343734,
+        "shared2": 0.00985541392528551,
+        "input_rank2": 0.006694755637778694,
+        "context_rank1": 0.01494591308129147
+      },
+      "B_budget_errors": {
+        "full": 0.0006859394372219393,
+        "shared2": 0.0026369528238170885,
+        "input_rank2": 0.0017912748178453065,
+        "context_rank1": 0.0039989865471931
+      },
+      "absolute_rms_errors": {
+        "full": 0.00037171175485454464,
+        "shared2": 0.0014289692477508803,
+        "input_rank2": 0.0009706948891358149,
+        "context_rank1": 0.0021670576532486327
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.2998263516482836,
+      "errors": {
+        "full": 0.0007962654248454338,
+        "shared2": 0.00583623380996992,
+        "input_rank2": 0.004684283340431275,
+        "context_rank1": 0.0030194600154613434
+      },
+      "B_budget_errors": {
+        "full": 0.0005329261530364011,
+        "shared2": 0.0039060865077395475,
+        "input_rank2": 0.0031351067401088318,
+        "context_rank1": 0.002020870378240276
+      },
+      "absolute_rms_errors": {
+        "full": 9.746575097057251e-05,
+        "shared2": 0.0007143760024981397,
+        "input_rank2": 0.0005733731231928102,
+        "context_rank1": 0.00036959276235017097
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.24618723119189814,
+      "errors": {
+        "full": 0.001006727146709691,
+        "shared2": 0.0119085159573028,
+        "input_rank2": 0.01566583819714422,
+        "context_rank1": 0.019334652906146818
+      },
+      "B_budget_errors": {
+        "full": 0.000215882964017043,
+        "shared2": 0.002553666830490402,
+        "input_rank2": 0.003359388484620018,
+        "context_rank1": 0.004146130549138125
+      },
+      "absolute_rms_errors": {
+        "full": 0.00010118163162119315,
+        "shared2": 0.0011968715442759136,
+        "input_rank2": 0.0015745031557768804,
+        "context_rank1": 0.0019432392721972745
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.15112107983764228,
+      "errors": {
+        "full": 0.0007499585090319223,
+        "shared2": 0.007352386938480606,
+        "input_rank2": 0.005522045284795082,
+        "context_rank1": 0.0016616950325531712
+      },
+      "B_budget_errors": {
+        "full": 0.0004365810502299415,
+        "shared2": 0.004280120530190739,
+        "input_rank2": 0.003214604942565584,
+        "context_rank1": 0.0009673395977737492
+      },
+      "absolute_rms_errors": {
+        "full": 4.6268632090517946e-05,
+        "shared2": 0.00045360494233582816,
+        "input_rank2": 0.0003406821558690892,
+        "context_rank1": 0.00010251814624663631
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.11547444007663457,
+      "errors": {
+        "full": 0.0015301937163142974,
+        "shared2": 0.010066108167112495,
+        "input_rank2": 0.010237452961014111,
+        "context_rank1": 0.015213045083565059
+      },
+      "B_budget_errors": {
+        "full": 0.0003351199272962493,
+        "shared2": 0.0022045270485387637,
+        "input_rank2": 0.002242052398605687,
+        "context_rank1": 0.0033317314716457317
+      },
+      "absolute_rms_errors": {
+        "full": 7.213676363445745e-05,
+        "shared2": 0.0004745389147975886,
+        "input_rank2": 0.0004826164926662569,
+        "context_rank1": 0.0007171770643502439
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "arm": "mlp_8",
+      "target_norm": 0.13601107079883198,
+      "errors": {
+        "full": 0.0006118549915008104,
+        "shared2": 0.02942169128021515,
+        "input_rank2": 0.010423912512519814,
+        "context_rank1": 0.008488093824989659
+      },
+      "B_budget_errors": {
+        "full": 0.0001479594836417498,
+        "shared2": 0.007114787507101412,
+        "input_rank2": 0.0025207226128793688,
+        "context_rank1": 0.0020526006928008067
+      },
+      "absolute_rms_errors": {
+        "full": 3.397403594475953e-05,
+        "shared2": 0.001633677278104421,
+        "input_rank2": 0.0005788011592693001,
+        "context_rank1": 0.00047131233497881524
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "arm": "mlp_8",
+      "target_norm": 0.39353094256904936,
+      "errors": {
+        "full": 0.0014529807844569085,
+        "shared2": 0.0074748315718962885,
+        "input_rank2": 0.00723504120488328,
+        "context_rank1": 0.0030799146725593147
+      },
+      "B_budget_errors": {
+        "full": 0.0005746936687638784,
+        "shared2": 0.0029565004750223152,
+        "input_rank2": 0.0028616568217358397,
+        "context_rank1": 0.001218190551167131
+      },
+      "absolute_rms_errors": {
+        "full": 0.00023343347296174305,
+        "shared2": 0.0012008939913710085,
+        "input_rank2": 0.0011623696703659376,
+        "context_rank1": 0.0004948139618447052
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "arm": "mlp_8",
+      "target_norm": 0.11163916537269934,
+      "errors": {
+        "full": 0.0006785146959007693,
+        "shared2": 0.030002442293697636,
+        "input_rank2": 0.009814371891958383,
+        "context_rank1": 0.009134369360474917
+      },
+      "B_budget_errors": {
+        "full": 0.00015009146345682905,
+        "shared2": 0.006636717669264318,
+        "input_rank2": 0.0021709971045181776,
+        "context_rank1": 0.0020205765230314233
+      },
+      "absolute_rms_errors": {
+        "full": 3.0924323960387315e-05,
+        "shared2": 0.0013674062635613425,
+        "input_rank2": 0.0004473047049507484,
+        "context_rank1": 0.0004163125706542887
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "arm": "mlp_8",
+      "target_norm": 0.5475493863605001,
+      "errors": {
+        "full": 0.0017734228758522136,
+        "shared2": 0.007275085794977229,
+        "input_rank2": 0.012076671492935074,
+        "context_rank1": 0.004021931680090863
+      },
+      "B_budget_errors": {
+        "full": 0.0007315423197984344,
+        "shared2": 0.0030009949751171393,
+        "input_rank2": 0.004981663651507769,
+        "context_rank1": 0.0016590590272557593
+      },
+      "absolute_rms_errors": {
+        "full": 0.00039642403496135254,
+        "shared2": 0.0016262443125128767,
+        "input_rank2": 0.0026995720576974353,
+        "context_rank1": 0.0008990469259591182
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "arm": "mlp_8",
+      "target_norm": 0.06483024013110492,
+      "errors": {
+        "full": 0.0010696007349796002,
+        "shared2": 0.012847386408005179,
+        "input_rank2": 0.01255699393547495,
+        "context_rank1": 0.014179085562452402
+      },
+      "B_budget_errors": {
+        "full": 0.00015478850220835218,
+        "shared2": 0.0018592243202085977,
+        "input_rank2": 0.0018171998391050097,
+        "context_rank1": 0.002051942697045676
+      },
+      "absolute_rms_errors": {
+        "full": 2.8308945851859316e-05,
+        "shared2": 0.0003400296524376159,
+        "input_rank2": 0.00033234388286790576,
+        "context_rank1": 0.0003752755138336744
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "arm": "mlp_8",
+      "target_norm": 0.5594157331753978,
+      "errors": {
+        "full": 0.0022829011487381524,
+        "shared2": 0.007485991102776601,
+        "input_rank2": 0.006156874547416393,
+        "context_rank1": 0.004382926875558557
+      },
+      "B_budget_errors": {
+        "full": 0.0011124047935418147,
+        "shared2": 0.003647749878150866,
+        "input_rank2": 0.0030001022004685833,
+        "context_rank1": 0.0021356986345245454
+      },
+      "absolute_rms_errors": {
+        "full": 0.0005213701439864964,
+        "shared2": 0.0017096545162691738,
+        "input_rank2": 0.0014061101905650081,
+        "context_rank1": 0.001000975104618668
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "mlp_8",
+      "target_norm": 0.03950512489266293,
+      "errors": {
+        "full": 0.0009564753942815588,
+        "shared2": 0.03503699632494161,
+        "input_rank2": 0.012792605120943117,
+        "context_rank1": 0.00969272724885641
+      },
+      "B_budget_errors": {
+        "full": 0.00014555590783551798,
+        "shared2": 0.005331911137909875,
+        "input_rank2": 0.0019467717236561141,
+        "context_rank1": 0.0014750339868064063
+      },
+      "absolute_rms_errors": {
+        "full": 1.542593922639532e-05,
+        "shared2": 0.000565073162587687,
+        "input_rank2": 0.0002063178523177476,
+        "context_rank1": 0.00015632333290831174
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "arm": "mlp_8",
+      "target_norm": 0.2524209912092695,
+      "errors": {
+        "full": 0.00206139986308267,
+        "shared2": 0.015877560066759926,
+        "input_rank2": 0.017050417979074514,
+        "context_rank1": 0.00939375874278492
+      },
+      "B_budget_errors": {
+        "full": 0.000986860314161576,
+        "shared2": 0.007601113299857443,
+        "input_rank2": 0.008162599185513217,
+        "context_rank1": 0.004497103094884121
+      },
+      "absolute_rms_errors": {
+        "full": 0.0002124281590690617,
+        "shared2": 0.001636189521448026,
+        "input_rank2": 0.0017570530431861076,
+        "context_rank1": 0.0009680309542102057
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "arm": "mlp_10",
+      "target_norm": 0.24074966461450473,
+      "errors": {
+        "full": 0.00036984577519726504,
+        "shared2": 0.010580965472970837,
+        "input_rank2": 0.012070134235048035,
+        "context_rank1": 0.004441454529912534
+      },
+      "B_budget_errors": {
+        "full": 0.00015830928693609753,
+        "shared2": 0.004529090803397849,
+        "input_rank2": 0.005166516618864337,
+        "context_rank1": 0.0019011262173118722
+      },
+      "absolute_rms_errors": {
+        "full": 3.635052834990159e-05,
+        "shared2": 0.0010399569528390833,
+        "input_rank2": 0.001186320856211516,
+        "context_rank1": 0.00043653119660018306
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "arm": "mlp_10",
+      "target_norm": 0.20140068774123154,
+      "errors": {
+        "full": 0.023586585748317988,
+        "shared2": 0.022606323154908296,
+        "input_rank2": 0.025463138174767405,
+        "context_rank1": 0.029145405620970514
+      },
+      "B_budget_errors": {
+        "full": 0.004774453686276649,
+        "shared2": 0.004576026563226091,
+        "input_rank2": 0.00515430996329596,
+        "context_rank1": 0.005899683438286279
+      },
+      "absolute_rms_errors": {
+        "full": 0.0019393241409458974,
+        "shared2": 0.0018587254933861833,
+        "input_rank2": 0.0020936170708848343,
+        "context_rank1": 0.0023963785738866043
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "arm": "mlp_10",
+      "target_norm": 0.2098598267688673,
+      "errors": {
+        "full": 0.0006436798379531009,
+        "shared2": 0.012028698601339398,
+        "input_rank2": 0.013464864493191162,
+        "context_rank1": 0.004996837244852201
+      },
+      "B_budget_errors": {
+        "full": 0.00026765747008507577,
+        "shared2": 0.005001820542163655,
+        "input_rank2": 0.005599012665592457,
+        "context_rank1": 0.002077804424692059
+      },
+      "absolute_rms_errors": {
+        "full": 5.5147215735619214e-05,
+        "shared2": 0.001030557736430354,
+        "input_rank2": 0.0011536011278808999,
+        "context_rank1": 0.00042810360879707893
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "arm": "mlp_10",
+      "target_norm": 0.26146243280969717,
+      "errors": {
+        "full": 0.02202442811259516,
+        "shared2": 0.03990983690379619,
+        "input_rank2": 0.04408822012378108,
+        "context_rank1": 0.022577337943457728
+      },
+      "B_budget_errors": {
+        "full": 0.0043382821155035,
+        "shared2": 0.007861277068682957,
+        "input_rank2": 0.008684317971371097,
+        "context_rank1": 0.004447192041266585
+      },
+      "absolute_rms_errors": {
+        "full": 0.002350922502340582,
+        "shared2": 0.004260039496245588,
+        "input_rank2": 0.004706046769853171,
+        "context_rank1": 0.0024099409774853142
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "arm": "mlp_10",
+      "target_norm": 0.13459021959013362,
+      "errors": {
+        "full": 0.0007445128036979747,
+        "shared2": 0.012794819623167265,
+        "input_rank2": 0.012175759822924124,
+        "context_rank1": 0.002222084429468134
+      },
+      "B_budget_errors": {
+        "full": 0.0002236789150565371,
+        "shared2": 0.0038440324430137536,
+        "input_rank2": 0.0036580442050872563,
+        "context_rank1": 0.0006675955495710819
+      },
+      "absolute_rms_errors": {
+        "full": 4.090816956168257e-05,
+        "shared2": 0.0007030270642168861,
+        "input_rank2": 0.0006690120638684955,
+        "context_rank1": 0.00012209515560988648
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "arm": "mlp_10",
+      "target_norm": 0.2457632527194134,
+      "errors": {
+        "full": 0.0059415694835941975,
+        "shared2": 0.0217626271274019,
+        "input_rank2": 0.021968601941897443,
+        "context_rank1": 0.010104046616288793
+      },
+      "B_budget_errors": {
+        "full": 0.0012719182396548423,
+        "shared2": 0.004658749251789492,
+        "input_rank2": 0.004702842504286124,
+        "context_rank1": 0.0021629842453355125
+      },
+      "absolute_rms_errors": {
+        "full": 0.00059613209112171,
+        "shared2": 0.00218349721459661,
+        "input_rank2": 0.0022041631677967998,
+        "context_rank1": 0.0010137635274300974
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "mlp_10",
+      "target_norm": 0.08058359829304722,
+      "errors": {
+        "full": 0.0003138597486136745,
+        "shared2": 0.011807778683419286,
+        "input_rank2": 0.0112194021024149,
+        "context_rank1": 0.008399216604847956
+      },
+      "B_budget_errors": {
+        "full": 9.742824389756575e-05,
+        "shared2": 0.0036653669243604616,
+        "input_rank2": 0.003482723252175944,
+        "context_rank1": 0.0026072821619852575
+      },
+      "absolute_rms_errors": {
+        "full": 1.0325394493754327e-05,
+        "shared2": 0.00038845367569358754,
+        "input_rank2": 0.0003690971945373033,
+        "context_rank1": 0.00027631840421275507
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "arm": "mlp_10",
+      "target_norm": 0.14037258229314753,
+      "errors": {
+        "full": 0.003935590220251742,
+        "shared2": 0.022989607676039733,
+        "input_rank2": 0.024717144581013355,
+        "context_rank1": 0.0047347693874144284
+      },
+      "B_budget_errors": {
+        "full": 0.0010477559500447606,
+        "shared2": 0.006120428419558518,
+        "input_rank2": 0.006580343443687286,
+        "context_rank1": 0.001260518123107829
+      },
+      "absolute_rms_errors": {
+        "full": 0.0002255363443313245,
+        "shared2": 0.0013174623837066291,
+        "input_rank2": 0.0014164621109242354,
+        "context_rank1": 0.00027133479837263355
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "arm": "pair23",
+      "target_norm": 0.2913270387680932,
+      "errors": {
+        "full": 0.000851998731885881,
+        "shared2": 0.022909632166410603,
+        "input_rank2": 0.010915444188787945,
+        "context_rank1": 0.006486452812354533
+      },
+      "B_budget_errors": {
+        "full": 0.00044130594971641274,
+        "shared2": 0.011866399094835379,
+        "input_rank2": 0.005653823514088012,
+        "context_rank1": 0.003359758778408869
+      },
+      "absolute_rms_errors": {
+        "full": 0.0001013314174210262,
+        "shared2": 0.002724728820755645,
+        "input_rank2": 0.001298214879946719,
+        "context_rank1": 0.0007714582579901357
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "arm": "pair23",
+      "target_norm": 0.6699378488947447,
+      "errors": {
+        "full": 0.006395863344076964,
+        "shared2": 0.012942001250054357,
+        "input_rank2": 0.013177277049730513,
+        "context_rank1": 0.008724124391305694
+      },
+      "B_budget_errors": {
+        "full": 0.0043065683705913104,
+        "shared2": 0.008714322091833395,
+        "input_rank2": 0.00887274188017819,
+        "context_rank1": 0.005874271563274534
+      },
+      "absolute_rms_errors": {
+        "full": 0.0017492749023260356,
+        "shared2": 0.003539650044830577,
+        "input_rank2": 0.003603998206971865,
+        "context_rank1": 0.0023860565839972417
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "arm": "pair23",
+      "target_norm": 0.2660906709276077,
+      "errors": {
+        "full": 0.0006474618694295199,
+        "shared2": 0.02382946574577211,
+        "input_rank2": 0.012709168145452891,
+        "context_rank1": 0.005766272654488268
+      },
+      "B_budget_errors": {
+        "full": 0.00034136893573646064,
+        "shared2": 0.012563889465753587,
+        "input_rank2": 0.006700804184394143,
+        "context_rank1": 0.003040219744466652
+      },
+      "absolute_rms_errors": {
+        "full": 7.033447016634196e-05,
+        "shared2": 0.0025886201592885036,
+        "input_rank2": 0.0013806104266078105,
+        "context_rank1": 0.000626396319439545
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "arm": "pair23",
+      "target_norm": 0.9198463587687594,
+      "errors": {
+        "full": 0.007556879685917289,
+        "shared2": 0.017397291714030687,
+        "input_rank2": 0.016973218947691954,
+        "context_rank1": 0.011001894357617252
+      },
+      "B_budget_errors": {
+        "full": 0.005236747736723338,
+        "shared2": 0.012055932050677752,
+        "input_rank2": 0.01176205915715149,
+        "context_rank1": 0.007624065457107768
+      },
+      "absolute_rms_errors": {
+        "full": 0.0028378025599921537,
+        "shared2": 0.006533130209153753,
+        "input_rank2": 0.006373879985257549,
+        "context_rank1": 0.004131494118001126
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "arm": "pair23",
+      "target_norm": 0.30242271027093154,
+      "errors": {
+        "full": 0.0019707510002234916,
+        "shared2": 0.007740976970035894,
+        "input_rank2": 0.009150848431442545,
+        "context_rank1": 0.0037224385041375744
+      },
+      "B_budget_errors": {
+        "full": 0.0013304100955223329,
+        "shared2": 0.0052257610976595825,
+        "input_rank2": 0.00617753391189716,
+        "context_rank1": 0.0025129353050202994
+      },
+      "absolute_rms_errors": {
+        "full": 0.00024331592345414193,
+        "shared2": 0.000955728531756641,
+        "input_rank2": 0.001129796273721454,
+        "context_rank1": 0.00045958548900027206
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "arm": "pair23",
+      "target_norm": 0.8244481690048903,
+      "errors": {
+        "full": 0.003986963985952235,
+        "shared2": 0.01432645568470309,
+        "input_rank2": 0.01465400344324256,
+        "context_rank1": 0.008035845048743715
+      },
+      "B_budget_errors": {
+        "full": 0.002863167390699868,
+        "shared2": 0.010288289757639173,
+        "input_rank2": 0.010523512364226892,
+        "context_rank1": 0.005770799430681298
+      },
+      "absolute_rms_errors": {
+        "full": 0.001341930566474603,
+        "shared2": 0.004821992087283738,
+        "input_rank2": 0.004932237966281659,
+        "context_rank1": 0.002704701155154095
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "pair23",
+      "target_norm": 0.1625662033088969,
+      "errors": {
+        "full": 0.0007974039219572651,
+        "shared2": 0.007419706332309764,
+        "input_rank2": 0.00960428925882715,
+        "context_rank1": 0.004311382799985023
+      },
+      "B_budget_errors": {
+        "full": 0.0004993570968848597,
+        "shared2": 0.004646431892065585,
+        "input_rank2": 0.006014480076995901,
+        "context_rank1": 0.0026999109726917286
+      },
+      "absolute_rms_errors": {
+        "full": 5.2921604786524345e-05,
+        "shared2": 0.0004924264294897877,
+        "input_rank2": 0.0006374114628926429,
+        "context_rank1": 0.0002861351572791162
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "arm": "pair23",
+      "target_norm": 0.36842819807992633,
+      "errors": {
+        "full": 0.005895235606892529,
+        "shared2": 0.02609950443388917,
+        "input_rank2": 0.025998785215390403,
+        "context_rank1": 0.014761610154304126
+      },
+      "B_budget_errors": {
+        "full": 0.004119286537345423,
+        "shared2": 0.018236987359794045,
+        "input_rank2": 0.01816660996549129,
+        "context_rank1": 0.010314651700616078
+      },
+      "absolute_rms_errors": {
+        "full": 0.000886703460711855,
+        "shared2": 0.003925631212658643,
+        "input_rank2": 0.003910482016670847,
+        "context_rank1": 0.0022202964702881882
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "arm": "pair24",
+      "target_norm": 0.6396055534156387,
+      "errors": {
+        "full": 0.0037932857248640104,
+        "shared2": 0.006957112546565831,
+        "input_rank2": 0.007094707016348048,
+        "context_rank1": 0.004003771640327434
+      },
+      "B_budget_errors": {
+        "full": 0.004313678982568203,
+        "shared2": 0.007911544858002613,
+        "input_rank2": 0.008068015637023205,
+        "context_rank1": 0.004553041038452814
+      },
+      "absolute_rms_errors": {
+        "full": 0.0009904947030145816,
+        "shared2": 0.0018166264356204765,
+        "input_rank2": 0.001852554811010198,
+        "context_rank1": 0.0010454563377153715
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "arm": "pair24",
+      "target_norm": 0.48933792120972086,
+      "errors": {
+        "full": 0.02639763998742973,
+        "shared2": 0.02195324991103248,
+        "input_rank2": 0.021305929721108417,
+        "context_rank1": 0.029310325835967023
+      },
+      "B_budget_errors": {
+        "full": 0.012982897560815889,
+        "shared2": 0.01079705590566608,
+        "input_rank2": 0.010478690638209068,
+        "context_rank1": 0.014415415847162884
+      },
+      "absolute_rms_errors": {
+        "full": 0.005273492699591547,
+        "shared2": 0.004385630806135213,
+        "input_rank2": 0.004256314765099412,
+        "context_rank1": 0.005855363941330555
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "arm": "pair24",
+      "target_norm": 0.5628729438458143,
+      "errors": {
+        "full": 0.004450328347585264,
+        "shared2": 0.008365224969634858,
+        "input_rank2": 0.008047844044632785,
+        "context_rank1": 0.004633188160231968
+      },
+      "B_budget_errors": {
+        "full": 0.004963437766435429,
+        "shared2": 0.009329710146340799,
+        "input_rank2": 0.008975736159150337,
+        "context_rank1": 0.00516738076325867
+      },
+      "absolute_rms_errors": {
+        "full": 0.001022649482597784,
+        "shared2": 0.0019222610825227993,
+        "input_rank2": 0.0018493295113240393,
+        "context_rank1": 0.0010646691895015558
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "arm": "pair24",
+      "target_norm": 0.6568908080655911,
+      "errors": {
+        "full": 0.02186926159508814,
+        "shared2": 0.025999712581382613,
+        "input_rank2": 0.024514107460142272,
+        "context_rank1": 0.025262278183478218
+      },
+      "B_budget_errors": {
+        "full": 0.010822588769089305,
+        "shared2": 0.012866652866140693,
+        "input_rank2": 0.012131461454646103,
+        "context_rank1": 0.01250171373922967
+      },
+      "absolute_rms_errors": {
+        "full": 0.005864779374284099,
+        "shared2": 0.006972461206411071,
+        "input_rank2": 0.006574059722415009,
+        "context_rank1": 0.006774700069030525
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "arm": "pair24",
+      "target_norm": 0.4448976491232119,
+      "errors": {
+        "full": 0.0009456515954908434,
+        "shared2": 0.0036594678247392413,
+        "input_rank2": 0.0036044577302765586,
+        "context_rank1": 0.0010301509960727565
+      },
+      "B_budget_errors": {
+        "full": 0.0009391406638891307,
+        "shared2": 0.003634271922972504,
+        "input_rank2": 0.003579640580012127,
+        "context_rank1": 0.001023058275342576
+      },
+      "absolute_rms_errors": {
+        "full": 0.00017175747437319708,
+        "shared2": 0.0006646644008472733,
+        "input_rank2": 0.0006546729886453648,
+        "context_rank1": 0.00018710499104762851
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "arm": "pair24",
+      "target_norm": 0.5088013059038607,
+      "errors": {
+        "full": 0.010642447862008898,
+        "shared2": 0.008881866586837038,
+        "input_rank2": 0.0075746468885939154,
+        "context_rank1": 0.010663228549139597
+      },
+      "B_budget_errors": {
+        "full": 0.004716619227792892,
+        "shared2": 0.003936348410191703,
+        "input_rank2": 0.0033570026014428413,
+        "context_rank1": 0.004725829006385024
+      },
+      "absolute_rms_errors": {
+        "full": 0.002210620144933258,
+        "shared2": 0.0018449170206003064,
+        "input_rank2": 0.0015733849223218996,
+        "context_rank1": 0.0022149366523939776
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "pair24",
+      "target_norm": 0.24556178484836969,
+      "errors": {
+        "full": 0.0032990128366176034,
+        "shared2": 0.00588127087235353,
+        "input_rank2": 0.004771098887184885,
+        "context_rank1": 0.004458510929053399
+      },
+      "B_budget_errors": {
+        "full": 0.0031206666722630627,
+        "shared2": 0.005563326640681565,
+        "input_rank2": 0.004513171068038217,
+        "context_rank1": 0.004217481759932393
+      },
+      "absolute_rms_errors": {
+        "full": 0.0003307266269574294,
+        "shared2": 0.0005895984569222583,
+        "input_rank2": 0.000478303516835301,
+        "context_rank1": 0.00044696651812076106
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "arm": "pair24",
+      "target_norm": 0.2560021292955612,
+      "errors": {
+        "full": 0.005041906014930184,
+        "shared2": 0.012148537422535232,
+        "input_rank2": 0.010004430929261164,
+        "context_rank1": 0.006871807943255649
+      },
+      "B_budget_errors": {
+        "full": 0.0024479711613288385,
+        "shared2": 0.005898418013867366,
+        "input_rank2": 0.0048574008178287565,
+        "context_rank1": 0.003336434201959872
+      },
+      "absolute_rms_errors": {
+        "full": 0.0005269418577208051,
+        "shared2": 0.0012696731868989588,
+        "input_rank2": 0.0010455874035917262,
+        "context_rank1": 0.0007181893579128641
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "arm": "pair34",
+      "target_norm": 0.1939892794270862,
+      "errors": {
+        "full": 0.000777550969967413,
+        "shared2": 0.02497019758313625,
+        "input_rank2": 0.0005995454203727217,
+        "context_rank1": 0.011451340705425027
+      },
+      "B_budget_errors": {
+        "full": 0.00026818015485787855,
+        "shared2": 0.008612311878355644,
+        "input_rank2": 0.0002067853940001218,
+        "context_rank1": 0.003949609018994494
+      },
+      "absolute_rms_errors": {
+        "full": 6.157876464933702e-05,
+        "shared2": 0.0019775345663626824,
+        "input_rank2": 4.748147422318428e-05,
+        "context_rank1": 0.0009068979931287253
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "arm": "pair34",
+      "target_norm": 0.6711095885170284,
+      "errors": {
+        "full": 0.029717252950776575,
+        "shared2": 0.029336638307945393,
+        "input_rank2": 0.029323629683644135,
+        "context_rank1": 0.03118951950919813
+      },
+      "B_budget_errors": {
+        "full": 0.02004470923795235,
+        "shared2": 0.019787979254871635,
+        "input_rank2": 0.01977920475299771,
+        "context_rank1": 0.021037773944612915
+      },
+      "absolute_rms_errors": {
+        "full": 0.008141913416216931,
+        "shared2": 0.008037632866732466,
+        "input_rank2": 0.008034068772403142,
+        "context_rank1": 0.00854528403947458
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "arm": "pair34",
+      "target_norm": 0.17380080496382644,
+      "errors": {
+        "full": 0.00046171124780136527,
+        "shared2": 0.0231537316719186,
+        "input_rank2": 0.0008681303119136421,
+        "context_rank1": 0.011651720572397628
+      },
+      "B_budget_errors": {
+        "full": 0.00015900192815861844,
+        "shared2": 0.007973572221671667,
+        "input_rank2": 0.00029896259652438946,
+        "context_rank1": 0.0040125642296973
+      },
+      "absolute_rms_errors": {
+        "full": 3.276020516728212e-05,
+        "shared2": 0.0016428471335109816,
+        "input_rank2": 6.159721528478528e-05,
+        "context_rank1": 0.000826734800855028
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "arm": "pair34",
+      "target_norm": 0.9005489617407941,
+      "errors": {
+        "full": 0.023527773761364053,
+        "shared2": 0.024761239728512734,
+        "input_rank2": 0.024620035678508484,
+        "context_rank1": 0.024475760508582387
+      },
+      "B_budget_errors": {
+        "full": 0.015962173153834386,
+        "shared2": 0.01679900529726994,
+        "input_rank2": 0.016703206879661394,
+        "context_rank1": 0.016605324892716204
+      },
+      "absolute_rms_errors": {
+        "full": 0.008649928947567017,
+        "shared2": 0.009103409718136087,
+        "input_rank2": 0.009051496391697562,
+        "context_rank1": 0.008998453975469969
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "arm": "pair34",
+      "target_norm": 0.1486267911864755,
+      "errors": {
+        "full": 0.0026233092392331267,
+        "shared2": 0.0077475648155441584,
+        "input_rank2": 0.003155035283289732,
+        "context_rank1": 0.0047035194297063345
+      },
+      "B_budget_errors": {
+        "full": 0.0008703340312655024,
+        "shared2": 0.002570405813221811,
+        "input_rank2": 0.0010467445224617016,
+        "context_rank1": 0.0015604843550921295
+      },
+      "absolute_rms_errors": {
+        "full": 0.00015917357305364566,
+        "shared2": 0.0004700961502027786,
+        "input_rank2": 0.00019143691930820767,
+        "context_rank1": 0.00028539372421547367
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "arm": "pair34",
+      "target_norm": 0.8527783740127738,
+      "errors": {
+        "full": 0.005816781034496262,
+        "shared2": 0.0056529820261753344,
+        "input_rank2": 0.005609266716769092,
+        "context_rank1": 0.006895848205724235
+      },
+      "B_budget_errors": {
+        "full": 0.004320758197316241,
+        "shared2": 0.004199086794573433,
+        "input_rank2": 0.0041666146625909724,
+        "context_rank1": 0.0051222991695288695
+      },
+      "absolute_rms_errors": {
+        "full": 0.0020250850558573437,
+        "shared2": 0.001968059198781448,
+        "input_rank2": 0.001952839918690664,
+        "context_rank1": 0.0024007572342943074
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "pair34",
+      "target_norm": 0.09987923808340655,
+      "errors": {
+        "full": 0.0011789399878877804,
+        "shared2": 0.014273076153909861,
+        "input_rank2": 0.0013967879952239371,
+        "context_rank1": 0.006382589867730526
+      },
+      "B_budget_errors": {
+        "full": 0.00045359631257301555,
+        "shared2": 0.005491555786555958,
+        "input_rank2": 0.0005374131767427512,
+        "context_rank1": 0.002455696861937331
+      },
+      "absolute_rms_errors": {
+        "full": 4.807190072267844e-05,
+        "shared2": 0.0005819922192199784,
+        "input_rank2": 5.695476828921133e-05,
+        "context_rank1": 0.0002602534731431305
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "arm": "pair34",
+      "target_norm": 0.4039248670906462,
+      "errors": {
+        "full": 0.003353205430680581,
+        "shared2": 0.005235006123807425,
+        "input_rank2": 0.004345511305031415,
+        "context_rank1": 0.00324972411288795
+      },
+      "B_budget_errors": {
+        "full": 0.0025687907306849943,
+        "shared2": 0.004010382150426824,
+        "input_rank2": 0.0033289666831375487,
+        "context_rank1": 0.0024895167776153113
+      },
+      "absolute_rms_errors": {
+        "full": 0.0005529490629245629,
+        "shared2": 0.0008632610767232786,
+        "input_rank2": 0.0007165819254794427,
+        "context_rank1": 0.0005358848242769413
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.1453936159508608,
+      "errors": {
+        "full": 0.007665735214928533,
+        "shared2": 0.029557756534415783,
+        "input_rank2": 0.051611482436865135,
+        "context_rank1": 0.02163502367625637
+      },
+      "B_budget_errors": {
+        "full": 0.003329755932528788,
+        "shared2": 0.01283896618044484,
+        "input_rank2": 0.02241841584823892,
+        "context_rank1": 0.009397578499205578
+      },
+      "absolute_rms_errors": {
+        "full": 0.0004550127083014144,
+        "shared2": 0.001754450744117404,
+        "input_rank2": 0.003063487029569651,
+        "context_rank1": 0.0012841835050508472
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.018131072654965844,
+      "errors": {
+        "full": 0.017032406276673455,
+        "shared2": 0.05941024147192362,
+        "input_rank2": 0.06497527934237303,
+        "context_rank1": 0.017517809080687455
+      },
+      "B_budget_errors": {
+        "full": 0.009544807535524759,
+        "shared2": 0.03329296584858781,
+        "input_rank2": 0.03641156310011605,
+        "context_rank1": 0.009816822908235942
+      },
+      "absolute_rms_errors": {
+        "full": 0.00012607352065919562,
+        "shared2": 0.00043975338445491926,
+        "input_rank2": 0.00048094568021938693,
+        "context_rank1": 0.00012966646222281372
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.1610547448740334,
+      "errors": {
+        "full": 0.004279422903642762,
+        "shared2": 0.02215342697877456,
+        "input_rank2": 0.03206645016704722,
+        "context_rank1": 0.03501080018743761
+      },
+      "B_budget_errors": {
+        "full": 0.0018081895433514738,
+        "shared2": 0.009360513301530088,
+        "input_rank2": 0.0135490745341153,
+        "context_rank1": 0.014793154177261741
+      },
+      "absolute_rms_errors": {
+        "full": 0.0002813734435855069,
+        "shared2": 0.0014565950074557578,
+        "input_rank2": 0.002108379496540247,
+        "context_rank1": 0.0023019714651332764
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.0333424351947083,
+      "errors": {
+        "full": 0.008883193338655088,
+        "shared2": 0.033362995651319505,
+        "input_rank2": 0.03814227458209121,
+        "context_rank1": 0.009022495800465736
+      },
+      "B_budget_errors": {
+        "full": 0.003961361138803932,
+        "shared2": 0.0148778563528632,
+        "input_rank2": 0.017009122566047953,
+        "context_rank1": 0.004023481520261256
+      },
+      "absolute_rms_errors": {
+        "full": 0.00012091795815386252,
+        "shared2": 0.00045413683551151024,
+        "input_rank2": 0.0005191923428865398,
+        "context_rank1": 0.0001228141421730319
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.3549347124736912,
+      "errors": {
+        "full": 0.0026264884272257784,
+        "shared2": 0.010560697860201628,
+        "input_rank2": 0.012866440945595296,
+        "context_rank1": 0.010469608237006768
+      },
+      "B_budget_errors": {
+        "full": 0.0008260885059307697,
+        "shared2": 0.003321572266029368,
+        "input_rank2": 0.004046779291778552,
+        "context_rank1": 0.0032929225716500483
+      },
+      "absolute_rms_errors": {
+        "full": 0.0003805820855055435,
+        "shared2": 0.0015302608510918696,
+        "input_rank2": 0.0018643664587857105,
+        "context_rank1": 0.0015170618290044086
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.15401677576223563,
+      "errors": {
+        "full": 0.0008297551097248783,
+        "shared2": 0.009223027515593436,
+        "input_rank2": 0.009778343398872211,
+        "context_rank1": 0.004749088732209114
+      },
+      "B_budget_errors": {
+        "full": 0.0003974322889140218,
+        "shared2": 0.004417603330523246,
+        "input_rank2": 0.0046835859800726685,
+        "context_rank1": 0.0022746966942131597
+      },
+      "absolute_rms_errors": {
+        "full": 5.2172582901637394e-05,
+        "shared2": 0.0005799170888154327,
+        "input_rank2": 0.0006148337330365984,
+        "context_rank1": 0.00029860885782380516
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.05637249200686717,
+      "errors": {
+        "full": 0.005472818771131832,
+        "shared2": 0.04853706054732974,
+        "input_rank2": 0.059070630186756644,
+        "context_rank1": 0.0066078801786534
+      },
+      "B_budget_errors": {
+        "full": 0.002505255964153872,
+        "shared2": 0.022218488406760783,
+        "input_rank2": 0.02704037074319102,
+        "context_rank1": 0.0030248454992347507
+      },
+      "absolute_rms_errors": {
+        "full": 0.0001259513061198276,
+        "shared2": 0.0011170306247668866,
+        "input_rank2": 0.0013594499172141683,
+        "context_rank1": 0.00015207357926317624
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.02307095746000406,
+      "errors": {
+        "full": 0.005755360211709345,
+        "shared2": 0.03965859393184625,
+        "input_rank2": 0.042348647105528096,
+        "context_rank1": 0.0067995070712766345
+      },
+      "B_budget_errors": {
+        "full": 0.003431171816181044,
+        "shared2": 0.02364325511572193,
+        "input_rank2": 0.025246983517427688,
+        "context_rank1": 0.00405366061700576
+      },
+      "absolute_rms_errors": {
+        "full": 5.420789003201787e-05,
+        "shared2": 0.0003735315635515155,
+        "input_rank2": 0.00039886831073243905,
+        "context_rank1": 6.404237407100905e-05
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "arm": "mlp_8",
+      "target_norm": 0.1375784961471983,
+      "errors": {
+        "full": 0.0021709878106469355,
+        "shared2": 0.07935274106197385,
+        "input_rank2": 0.10150227706019829,
+        "context_rank1": 0.05935447737167224
+      },
+      "B_budget_errors": {
+        "full": 0.0008923211619312013,
+        "shared2": 0.03261562766939076,
+        "input_rank2": 0.04171954783017829,
+        "context_rank1": 0.024395925188694254
+      },
+      "absolute_rms_errors": {
+        "full": 0.00012193610486538883,
+        "shared2": 0.004456940802724053,
+        "input_rank2": 0.005700995758239616,
+        "context_rank1": 0.003333714607483621
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "mlp_8",
+      "target_norm": 0.004218136323478491,
+      "errors": {
+        "full": 0.0036652191876273333,
+        "shared2": 0.13333843790683914,
+        "input_rank2": 0.10801193602833706,
+        "context_rank1": 0.0548679144876838
+      },
+      "B_budget_errors": {
+        "full": 0.0004778463051914724,
+        "shared2": 0.017383757050292947,
+        "input_rank2": 0.014081860294180688,
+        "context_rank1": 0.007153304855547745
+      },
+      "absolute_rms_errors": {
+        "full": 6.311679497491856e-06,
+        "shared2": 0.00022961504938235014,
+        "input_rank2": 0.00018600162424550025,
+        "context_rank1": 9.448512441249983e-05
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "arm": "mlp_8",
+      "target_norm": 0.2117244672033237,
+      "errors": {
+        "full": 0.001636933828041539,
+        "shared2": 0.04981978300898114,
+        "input_rank2": 0.06187598552437435,
+        "context_rank1": 0.042456352215519605
+      },
+      "B_budget_errors": {
+        "full": 0.0009092585527821198,
+        "shared2": 0.027673118499152872,
+        "input_rank2": 0.034369910430143744,
+        "context_rank1": 0.023582994443995135
+      },
+      "absolute_rms_errors": {
+        "full": 0.00014149026082281094,
+        "shared2": 0.004306230326066492,
+        "input_rank2": 0.005348322076639275,
+        "context_rank1": 0.003669763704343556
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "arm": "mlp_8",
+      "target_norm": 0.013725940613009406,
+      "errors": {
+        "full": 0.0004577282247203578,
+        "shared2": 0.047931067152327235,
+        "input_rank2": 0.03451400685722241,
+        "context_rank1": 0.008374593068178822
+      },
+      "B_budget_errors": {
+        "full": 8.402873298673084e-05,
+        "shared2": 0.008799079073554103,
+        "input_rank2": 0.00633600488211002,
+        "context_rank1": 0.0015373892340338946
+      },
+      "absolute_rms_errors": {
+        "full": 2.564922122217675e-06,
+        "shared2": 0.0002685861343936417,
+        "input_rank2": 0.00019340240547444015,
+        "context_rank1": 4.6927800963695535e-05
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "arm": "mlp_8",
+      "target_norm": 0.4812215661438873,
+      "errors": {
+        "full": 0.0016144244049009673,
+        "shared2": 0.02865301310360327,
+        "input_rank2": 0.034434421455533284,
+        "context_rank1": 0.014894988942016144
+      },
+      "B_budget_errors": {
+        "full": 0.0006884389110037126,
+        "shared2": 0.01221850281632095,
+        "input_rank2": 0.014683868464776087,
+        "context_rank1": 0.006351669322840148
+      },
+      "absolute_rms_errors": {
+        "full": 0.0003171663987719443,
+        "shared2": 0.005629110259016833,
+        "input_rank2": 0.00676491349715245,
+        "context_rank1": 0.002926237975680866
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "arm": "mlp_8",
+      "target_norm": 0.0646082754928658,
+      "errors": {
+        "full": 0.0016680392025381578,
+        "shared2": 0.009897546852140974,
+        "input_rank2": 0.013016217491066507,
+        "context_rank1": 0.011727788007043043
+      },
+      "B_budget_errors": {
+        "full": 0.00033515028060276736,
+        "shared2": 0.0019886616571880007,
+        "input_rank2": 0.002615279627648796,
+        "context_rank1": 0.0023564023168216454
+      },
+      "absolute_rms_errors": {
+        "full": 4.3996565671687684e-05,
+        "shared2": 0.0002610598536330651,
+        "input_rank2": 0.0003433185903372539,
+        "context_rank1": 0.00030933469336353735
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "mlp_8",
+      "target_norm": 0.0678241999541352,
+      "errors": {
+        "full": 0.0017261385148434614,
+        "shared2": 0.08284912901868602,
+        "input_rank2": 0.09862468522769054,
+        "context_rank1": 0.04888347034591806
+      },
+      "B_budget_errors": {
+        "full": 0.0009506794944255884,
+        "shared2": 0.045629575733224154,
+        "input_rank2": 0.05431804289393689,
+        "context_rank1": 0.026922817881993726
+      },
+      "absolute_rms_errors": {
+        "full": 4.7795245570718016e-05,
+        "shared2": 0.002294018951965336,
+        "input_rank2": 0.0027308301212546175,
+        "context_rank1": 0.0013535399676450342
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "arm": "mlp_8",
+      "target_norm": 0.005539215519638021,
+      "errors": {
+        "full": 0.0021509157266798354,
+        "shared2": 0.024032080508106,
+        "input_rank2": 0.05717887048404741,
+        "context_rank1": 0.02823887137848732
+      },
+      "B_budget_errors": {
+        "full": 0.0003078761133889751,
+        "shared2": 0.003439885371477388,
+        "input_rank2": 0.008184424984317606,
+        "context_rank1": 0.0040420337527217135
+      },
+      "absolute_rms_errors": {
+        "full": 4.864027624431275e-06,
+        "shared2": 5.434555246123946e-05,
+        "input_rank2": 0.00012930288347349226,
+        "context_rank1": 6.385868528645024e-05
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "arm": "mlp_10",
+      "target_norm": 0.16023267302740302,
+      "errors": {
+        "full": 0.012436191608297162,
+        "shared2": 0.06636470657828872,
+        "input_rank2": 0.06862562286986144,
+        "context_rank1": 0.05047960089352907
+      },
+      "B_budget_errors": {
+        "full": 0.005953217258946635,
+        "shared2": 0.031768850869361515,
+        "input_rank2": 0.03285115374084866,
+        "context_rank1": 0.02416463502086904
+      },
+      "absolute_rms_errors": {
+        "full": 0.000813509927751022,
+        "shared2": 0.004341228356251889,
+        "input_rank2": 0.004489125550741986,
+        "context_rank1": 0.003302108697681783
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "mlp_10",
+      "target_norm": 0.010842502739557548,
+      "errors": {
+        "full": 0.0037112697021760466,
+        "shared2": 0.08698581059902676,
+        "input_rank2": 0.08022043286672381,
+        "context_rank1": 0.009723099467982159
+      },
+      "B_budget_errors": {
+        "full": 0.0012437117181316045,
+        "shared2": 0.029150474267540596,
+        "input_rank2": 0.02688327725991858,
+        "context_rank1": 0.003258381555454779
+      },
+      "absolute_rms_errors": {
+        "full": 1.6427687452718022e-05,
+        "shared2": 0.00038503688064068207,
+        "input_rank2": 0.0003550903879832808,
+        "context_rank1": 4.303865036756711e-05
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "arm": "mlp_10",
+      "target_norm": 0.05829443124717984,
+      "errors": {
+        "full": 0.040442286062113614,
+        "shared2": 0.17330717709037602,
+        "input_rank2": 0.18289975192181626,
+        "context_rank1": 0.08605689062702919
+      },
+      "B_budget_errors": {
+        "full": 0.006185117988335136,
+        "shared2": 0.02650506296510891,
+        "input_rank2": 0.027972121653464646,
+        "context_rank1": 0.013161274350810272
+      },
+      "absolute_rms_errors": {
+        "full": 0.0009624698659272345,
+        "shared2": 0.0041244685140255435,
+        "input_rank2": 0.004352758383637102,
+        "context_rank1": 0.0020480336808038177
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "arm": "mlp_10",
+      "target_norm": 0.02343430535069631,
+      "errors": {
+        "full": 0.001088687120405706,
+        "shared2": 0.04527098373941266,
+        "input_rank2": 0.041824851262462034,
+        "context_rank1": 0.004303313762814553
+      },
+      "B_budget_errors": {
+        "full": 0.00034121897671462044,
+        "shared2": 0.014188942311240047,
+        "input_rank2": 0.013108847052126563,
+        "context_rank1": 0.0013487551116452324
+      },
+      "absolute_rms_errors": {
+        "full": 1.041548611751664e-05,
+        "shared2": 0.0004331081849195199,
+        "input_rank2": 0.00040013898348410044,
+        "context_rank1": 4.1169867738685483e-05
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "arm": "mlp_10",
+      "target_norm": 0.2579236921478392,
+      "errors": {
+        "full": 0.011948977231512064,
+        "shared2": 0.06778053773225402,
+        "input_rank2": 0.07139919861884858,
+        "context_rank1": 0.005893522428325585
+      },
+      "B_budget_errors": {
+        "full": 0.002731018130518142,
+        "shared2": 0.015491692205662553,
+        "input_rank2": 0.01631876119223857,
+        "context_rank1": 0.00134700370521467
+      },
+      "absolute_rms_errors": {
+        "full": 0.0012581903369965903,
+        "shared2": 0.007137080936621976,
+        "input_rank2": 0.007518114733253007,
+        "context_rank1": 0.0006205696794397181
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "arm": "mlp_10",
+      "target_norm": 0.09300114105551872,
+      "errors": {
+        "full": 0.0009677078200306154,
+        "shared2": 0.01768038390076901,
+        "input_rank2": 0.017199845774338366,
+        "context_rank1": 0.003935782403153937
+      },
+      "B_budget_errors": {
+        "full": 0.00027988376833365704,
+        "shared2": 0.0051135811546675295,
+        "input_rank2": 0.004974598272779535,
+        "context_rank1": 0.0011383204594762604
+      },
+      "absolute_rms_errors": {
+        "full": 3.674150166839958e-05,
+        "shared2": 0.0006712809808310715,
+        "input_rank2": 0.0006530361221986152,
+        "context_rank1": 0.0001494320421295791
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "mlp_10",
+      "target_norm": 0.05009635155592424,
+      "errors": {
+        "full": 0.016421241735971016,
+        "shared2": 0.10815376336126432,
+        "input_rank2": 0.11086346753579965,
+        "context_rank1": 0.13340283688952354
+      },
+      "B_budget_errors": {
+        "full": 0.00668014510664717,
+        "shared2": 0.04399684534821838,
+        "input_rank2": 0.045099150361019726,
+        "context_rank1": 0.05426814380963171
+      },
+      "absolute_rms_errors": {
+        "full": 0.00033584312872251854,
+        "shared2": 0.0022119337169732058,
+        "input_rank2": 0.0022673519090027987,
+        "context_rank1": 0.002728321453504756
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "arm": "mlp_10",
+      "target_norm": 0.01349521325004771,
+      "errors": {
+        "full": 0.0011073251182835955,
+        "shared2": 0.07486692760268022,
+        "input_rank2": 0.07120663310924207,
+        "context_rank1": 0.02888541937183848
+      },
+      "B_budget_errors": {
+        "full": 0.00038615284647026244,
+        "shared2": 0.026108029812481785,
+        "input_rank2": 0.02483159065814249,
+        "context_rank1": 0.010073091206683895
+      },
+      "absolute_rms_errors": {
+        "full": 6.100694502762893e-06,
+        "shared2": 0.00041247168164340657,
+        "input_rank2": 0.00039230566343799954,
+        "context_rank1": 0.00015914126417083954
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "arm": "pair23",
+      "target_norm": 0.26489284406252556,
+      "errors": {
+        "full": 0.01650049758826303,
+        "shared2": 0.15963825881294672,
+        "input_rank2": 0.15834735406946002,
+        "context_rank1": 0.07825292496742658
+      },
+      "B_budget_errors": {
+        "full": 0.013058115837993878,
+        "shared2": 0.12633406141872255,
+        "input_rank2": 0.12531246897364043,
+        "context_rank1": 0.06192757239111028
+      },
+      "absolute_rms_errors": {
+        "full": 0.0017843976475016966,
+        "shared2": 0.017263608685335136,
+        "input_rank2": 0.0171240075990585,
+        "context_rank1": 0.008462431782743696
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "pair23",
+      "target_norm": 0.018887696449534606,
+      "errors": {
+        "full": 0.023503456745570122,
+        "shared2": 0.15312903168263073,
+        "input_rank2": 0.17147038400072842,
+        "context_rank1": 0.03398479632151231
+      },
+      "B_budget_errors": {
+        "full": 0.013720767470888642,
+        "shared2": 0.08939314159206461,
+        "input_rank2": 0.10010039342240205,
+        "context_rank1": 0.019839527986063952
+      },
+      "absolute_rms_errors": {
+        "full": 0.0001812320944935633,
+        "shared2": 0.0011807580238104762,
+        "input_rank2": 0.0013221858032403987,
+        "context_rank1": 0.00026205233914988616
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "arm": "pair23",
+      "target_norm": 0.35797931240220376,
+      "errors": {
+        "full": 0.00845010475411335,
+        "shared2": 0.09213002175622824,
+        "input_rank2": 0.09119185473787961,
+        "context_rank1": 0.06271596000307762
+      },
+      "B_budget_errors": {
+        "full": 0.00793606552325807,
+        "shared2": 0.08652554146866746,
+        "input_rank2": 0.08564444529932706,
+        "context_rank1": 0.058900804477740556
+      },
+      "absolute_rms_errors": {
+        "full": 0.001234935846747839,
+        "shared2": 0.01346429064953795,
+        "input_rank2": 0.013327182753848102,
+        "context_rank1": 0.009165588998562768
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "arm": "pair23",
+      "target_norm": 0.04546116512964085,
+      "errors": {
+        "full": 0.00868031684587311,
+        "shared2": 0.06570596707131322,
+        "input_rank2": 0.0743560348798746,
+        "context_rank1": 0.014669508380571397
+      },
+      "B_budget_errors": {
+        "full": 0.005277814800598565,
+        "shared2": 0.03995060683314696,
+        "input_rank2": 0.04521002958427747,
+        "context_rank1": 0.008919368938161937
+      },
+      "absolute_rms_errors": {
+        "full": 0.0001611018452600114,
+        "shared2": 0.0012194661471158982,
+        "input_rank2": 0.0013800065870937309,
+        "context_rank1": 0.00027225790384493074
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "arm": "pair23",
+      "target_norm": 0.8289632549621266,
+      "errors": {
+        "full": 0.0068592699828353455,
+        "shared2": 0.048855615702065744,
+        "input_rank2": 0.04790237150728013,
+        "context_rank1": 0.022109775346278587
+      },
+      "B_budget_errors": {
+        "full": 0.005038668540719125,
+        "shared2": 0.035888258443168376,
+        "input_rank2": 0.035188026268620845,
+        "context_rank1": 0.016241353636529607
+      },
+      "absolute_rms_errors": {
+        "full": 0.002321333570956094,
+        "shared2": 0.016533855810127434,
+        "input_rank2": 0.01621125621043065,
+        "context_rank1": 0.007482452780842218
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "arm": "pair23",
+      "target_norm": 0.21821726703403665,
+      "errors": {
+        "full": 0.00294558594234352,
+        "shared2": 0.019306311690585228,
+        "input_rank2": 0.020272703058512847,
+        "context_rank1": 0.005128116686419563
+      },
+      "B_budget_errors": {
+        "full": 0.0019989687084681186,
+        "shared2": 0.013101879796013549,
+        "input_rank2": 0.013757703846791055,
+        "context_rank1": 0.0034801037858600823
+      },
+      "absolute_rms_errors": {
+        "full": 0.00026241290295085645,
+        "shared2": 0.0017199380344576937,
+        "input_rank2": 0.0018060307743092343,
+        "context_rank1": 0.000456847640060182
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "pair23",
+      "target_norm": 0.11760048300164129,
+      "errors": {
+        "full": 0.013796982894192136,
+        "shared2": 0.16337912093105159,
+        "input_rank2": 0.163492557236941,
+        "context_rank1": 0.05851618983771216
+      },
+      "B_budget_errors": {
+        "full": 0.013175497875542924,
+        "shared2": 0.15601970932654283,
+        "input_rank2": 0.15612803589465682,
+        "context_rank1": 0.05588032838804115
+      },
+      "absolute_rms_errors": {
+        "full": 0.000662395854933776,
+        "shared2": 0.007843863641594334,
+        "input_rank2": 0.00784930974088984,
+        "context_rank1": 0.002809373751658048
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "arm": "pair23",
+      "target_norm": 0.02541592305815623,
+      "errors": {
+        "full": 0.010897793864247066,
+        "shared2": 0.10308313707021047,
+        "input_rank2": 0.11114740084230748,
+        "context_rank1": 0.013387890829564387
+      },
+      "B_budget_errors": {
+        "full": 0.007157293278922561,
+        "shared2": 0.06770143143773304,
+        "input_rank2": 0.07299776036581526,
+        "context_rank1": 0.008792702655879288
+      },
+      "absolute_rms_errors": {
+        "full": 0.00011307558693535944,
+        "shared2": 0.0010695913661565198,
+        "input_rank2": 0.0011532662246270078,
+        "context_rank1": 0.00013891285082442707
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "arm": "pair24",
+      "target_norm": 0.21925449277694004,
+      "errors": {
+        "full": 0.017206400199734583,
+        "shared2": 0.040466237864173506,
+        "input_rank2": 0.037088139576868906,
+        "context_rank1": 0.01637117987457614
+      },
+      "B_budget_errors": {
+        "full": 0.011270722859192497,
+        "shared2": 0.02650663397497267,
+        "input_rank2": 0.024293875399944855,
+        "context_rank1": 0.010723627783990731
+      },
+      "absolute_rms_errors": {
+        "full": 0.0015401495594847179,
+        "shared2": 0.0036221439520784833,
+        "input_rank2": 0.003319769456036684,
+        "context_rank1": 0.001465388761122879
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "pair24",
+      "target_norm": 0.029729584223316754,
+      "errors": {
+        "full": 0.03399353267657978,
+        "shared2": 0.009497272291511134,
+        "input_rank2": 0.013838592520754298,
+        "context_rank1": 0.03478661957798007
+      },
+      "B_budget_errors": {
+        "full": 0.03123581231994092,
+        "shared2": 0.008726807468686558,
+        "input_rank2": 0.012715938730552398,
+        "context_rank1": 0.03196456016269191
+      },
+      "absolute_rms_errors": {
+        "full": 0.0004125812715623629,
+        "shared2": 0.00011526888704642582,
+        "input_rank2": 0.00016795971613682464,
+        "context_rank1": 0.0004222070084739203
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "arm": "pair24",
+      "target_norm": 0.15033266234043463,
+      "errors": {
+        "full": 0.021967653884741364,
+        "shared2": 0.060396457600599154,
+        "input_rank2": 0.05594428467501755,
+        "context_rank1": 0.039418064073920324
+      },
+      "B_budget_errors": {
+        "full": 0.008664075907932414,
+        "shared2": 0.023820454199038537,
+        "input_rank2": 0.022064510465362275,
+        "context_rank1": 0.01554654407211907
+      },
+      "absolute_rms_errors": {
+        "full": 0.0013482219730032504,
+        "shared2": 0.003706714957178307,
+        "input_rank2": 0.003433471514916655,
+        "context_rank1": 0.0024192069119690204
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "arm": "pair24",
+      "target_norm": 0.06191309927279554,
+      "errors": {
+        "full": 0.014846304471514965,
+        "shared2": 0.004273099332834054,
+        "input_rank2": 0.007556214084829282,
+        "context_rank1": 0.01509004091475682
+      },
+      "B_budget_errors": {
+        "full": 0.012293595356357436,
+        "shared2": 0.0035383724088491816,
+        "input_rank2": 0.006256980554529931,
+        "context_rank1": 0.01249542317233428
+      },
+      "absolute_rms_errors": {
+        "full": 0.00037525395862023737,
+        "shared2": 0.00010800650379359004,
+        "input_rank2": 0.0001909902395545333,
+        "context_rank1": 0.0003814146207137576
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "arm": "pair24",
+      "target_norm": 0.6105876051691952,
+      "errors": {
+        "full": 0.008353678038757,
+        "shared2": 0.021883360026613563,
+        "input_rank2": 0.019961883001989925,
+        "context_rank1": 0.014289322245200773
+      },
+      "B_budget_errors": {
+        "full": 0.004519894829586787,
+        "shared2": 0.011840351684537079,
+        "input_rank2": 0.010800704953064715,
+        "context_rank1": 0.007731472703967493
+      },
+      "absolute_rms_errors": {
+        "full": 0.0020823325686776025,
+        "shared2": 0.00545489460859033,
+        "input_rank2": 0.004975925444375941,
+        "context_rank1": 0.003561918589328157
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "arm": "pair24",
+      "target_norm": 0.2537952949107183,
+      "errors": {
+        "full": 0.000903361399285203,
+        "shared2": 0.005442379081219437,
+        "input_rank2": 0.005989387751129183,
+        "context_rank1": 0.002292700102706873
+      },
+      "B_budget_errors": {
+        "full": 0.0007130012325375636,
+        "shared2": 0.004295537750358327,
+        "input_rank2": 0.004727278420441186,
+        "context_rank1": 0.0018095725590693559
+      },
+      "absolute_rms_errors": {
+        "full": 9.359862535372187e-05,
+        "shared2": 0.0005638930344589223,
+        "input_rank2": 0.0006205694206766997,
+        "context_rank1": 0.00023755008585877186
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "pair24",
+      "target_norm": 0.059254747607878355,
+      "errors": {
+        "full": 0.014648104628172906,
+        "shared2": 0.0855625279408125,
+        "input_rank2": 0.07821678536740344,
+        "context_rank1": 0.09991998241043318
+      },
+      "B_budget_errors": {
+        "full": 0.007048202772905174,
+        "shared2": 0.04116997126913835,
+        "input_rank2": 0.037635433218708866,
+        "context_rank1": 0.04807832241581243
+      },
+      "absolute_rms_errors": {
+        "full": 0.0003543471636219098,
+        "shared2": 0.002069813116287732,
+        "input_rank2": 0.0018921148330178314,
+        "context_rank1": 0.0024171292638223347
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "arm": "pair24",
+      "target_norm": 0.036812885950523185,
+      "errors": {
+        "full": 0.01117801301796863,
+        "shared2": 0.01468876249298899,
+        "input_rank2": 0.016776231132505245,
+        "context_rank1": 0.014222876785050529
+      },
+      "B_budget_errors": {
+        "full": 0.010633318288285301,
+        "shared2": 0.01397299203336975,
+        "input_rank2": 0.01595874016455452,
+        "context_rank1": 0.013529808525664992
+      },
+      "absolute_rms_errors": {
+        "full": 0.00016799209696481145,
+        "shared2": 0.00022075444079807716,
+        "input_rank2": 0.0002521265848040739,
+        "context_rank1": 0.0002137527387158997
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "arm": "pair34",
+      "target_norm": 0.2167629942206957,
+      "errors": {
+        "full": 0.020022040489510076,
+        "shared2": 0.045263010039828994,
+        "input_rank2": 0.027583800789506095,
+        "context_rank1": 0.08607427790730877
+      },
+      "B_budget_errors": {
+        "full": 0.012966021172060057,
+        "shared2": 0.029311755052891224,
+        "input_rank2": 0.01786292187502086,
+        "context_rank1": 0.05574061796052513
+      },
+      "absolute_rms_errors": {
+        "full": 0.001771812868251874,
+        "shared2": 0.0040054650616853866,
+        "input_rank2": 0.002440976643701663,
+        "context_rank1": 0.00761698156097323
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "pair34",
+      "target_norm": 0.01164938108214133,
+      "errors": {
+        "full": 0.0052154485307620985,
+        "shared2": 0.06387837851228496,
+        "input_rank2": 0.005369342339963101,
+        "context_rank1": 0.027112677259830516
+      },
+      "B_budget_errors": {
+        "full": 0.0018778555662557726,
+        "shared2": 0.022999818317670055,
+        "input_rank2": 0.0019332660155231493,
+        "context_rank1": 0.009762092676817073
+      },
+      "absolute_rms_errors": {
+        "full": 2.4803838280256807e-05,
+        "shared2": 0.00030379534202635986,
+        "input_rank2": 2.55357326002256e-05,
+        "context_rank1": 0.00012894355262659733
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "arm": "pair34",
+      "target_norm": 0.22883134521693163,
+      "errors": {
+        "full": 0.027276944568553098,
+        "shared2": 0.04701351949239478,
+        "input_rank2": 0.035013828306609276,
+        "context_rank1": 0.08896002333343145
+      },
+      "B_budget_errors": {
+        "full": 0.016375571187054933,
+        "shared2": 0.02822432084601121,
+        "input_rank2": 0.021020368924576135,
+        "context_rank1": 0.05340668531394639
+      },
+      "absolute_rms_errors": {
+        "full": 0.0025482123113271557,
+        "shared2": 0.00439200324905358,
+        "input_rank2": 0.003270992032606892,
+        "context_rank1": 0.008310645868142619
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "arm": "pair34",
+      "target_norm": 0.03434543866231345,
+      "errors": {
+        "full": 0.0007293959571032828,
+        "shared2": 0.025187676151463806,
+        "input_rank2": 0.0029568765972121207,
+        "context_rank1": 0.0076942353647648275
+      },
+      "B_budget_errors": {
+        "full": 0.00033505062006314177,
+        "shared2": 0.011570048380872187,
+        "input_rank2": 0.0013582517529718494,
+        "context_rank1": 0.003534374306260611
+      },
+      "absolute_rms_errors": {
+        "full": 1.0227201064645445e-05,
+        "shared2": 0.0003531681603709782,
+        "input_rank2": 4.145974650466965e-05,
+        "context_rank1": 0.00010788446432670983
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "arm": "pair34",
+      "target_norm": 0.7606456770857233,
+      "errors": {
+        "full": 0.008038144984472265,
+        "shared2": 0.012301937366831233,
+        "input_rank2": 0.01112814271988787,
+        "context_rank1": 0.00719690834818186
+      },
+      "B_budget_errors": {
+        "full": 0.0054180230636402295,
+        "shared2": 0.008291985341108542,
+        "input_rank2": 0.007500801992039589,
+        "context_rank1": 0.004850996777574828
+      },
+      "absolute_rms_errors": {
+        "full": 0.002496103628211162,
+        "shared2": 0.003820148871996234,
+        "input_rank2": 0.003455647723700198,
+        "context_rank1": 0.0022348724829550164
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "arm": "pair34",
+      "target_norm": 0.15789303377829159,
+      "errors": {
+        "full": 0.0026128368778855484,
+        "shared2": 0.011321148612404639,
+        "input_rank2": 0.003530195319416265,
+        "context_rank1": 0.0036936445908433055
+      },
+      "B_budget_errors": {
+        "full": 0.0012829816694853076,
+        "shared2": 0.005559025238111483,
+        "input_rank2": 0.0017334323175119744,
+        "context_rank1": 0.0018136908368655913
+      },
+      "absolute_rms_errors": {
+        "full": 0.0001684223184165693,
+        "shared2": 0.0007297562708862064,
+        "input_rank2": 0.00022755484094382595,
+        "context_rank1": 0.0002380907092447659
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "pair34",
+      "target_norm": 0.07821386984017589,
+      "errors": {
+        "full": 0.023582951926048628,
+        "shared2": 0.04485572165061583,
+        "input_rank2": 0.03605352213372618,
+        "context_rank1": 0.1573845290921311
+      },
+      "B_budget_errors": {
+        "full": 0.014978066139560486,
+        "shared2": 0.028488883313990177,
+        "input_rank2": 0.022898407323070805,
+        "context_rank1": 0.09995847396363218
+      },
+      "absolute_rms_errors": {
+        "full": 0.0007530196596354412,
+        "shared2": 0.0014322736337659264,
+        "input_rank2": 0.0011512134295541604,
+        "context_rank1": 0.005025394823365437
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "arm": "pair34",
+      "target_norm": 0.014485648786970281,
+      "errors": {
+        "full": 0.0041436765998460355,
+        "shared2": 0.02679234412321932,
+        "input_rank2": 0.003373836739026645,
+        "context_rank1": 0.007264911419124211
+      },
+      "B_budget_errors": {
+        "full": 0.0015510583695927988,
+        "shared2": 0.010028893083710697,
+        "input_rank2": 0.001262892406203079,
+        "context_rank1": 0.002719396987062551
+      },
+      "absolute_rms_errors": {
+        "full": 2.450463166420779e-05,
+        "shared2": 0.0001584429933997712,
+        "input_rank2": 1.9951997843676264e-05,
+        "context_rank1": 4.29628070890838e-05
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.2711045685812037,
+      "errors": {
+        "full": 0.004062747638712644,
+        "shared2": 0.006136639488480991,
+        "input_rank2": 0.005792548495198571,
+        "context_rank1": 0.005191230065888687
+      },
+      "B_budget_errors": {
+        "full": 0.0025510837032563264,
+        "shared2": 0.0038533235100922224,
+        "input_rank2": 0.0036372616220645896,
+        "context_rank1": 0.003259681279425779
+      },
+      "absolute_rms_errors": {
+        "full": 0.0004496566883338,
+        "shared2": 0.0006791908420782806,
+        "input_rank2": 0.0006411075471547772,
+        "context_rank1": 0.000574554840070258
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.16332597739131582,
+      "errors": {
+        "full": 0.001615499036229949,
+        "shared2": 0.011018765722907567,
+        "input_rank2": 0.020951337573149122,
+        "context_rank1": 0.019431924213406577
+      },
+      "B_budget_errors": {
+        "full": 0.0004133905838750176,
+        "shared2": 0.002819595613256947,
+        "input_rank2": 0.0053612447163935645,
+        "context_rank1": 0.004972441528124706
+      },
+      "absolute_rms_errors": {
+        "full": 0.00010771751947292832,
+        "shared2": 0.0007347043140891026,
+        "input_rank2": 0.0013969838807742566,
+        "context_rank1": 0.0012956731189012927
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.23975240837626613,
+      "errors": {
+        "full": 0.0033134646105849605,
+        "shared2": 0.007236983878234511,
+        "input_rank2": 0.005942101159647591,
+        "context_rank1": 0.004407252136629968
+      },
+      "B_budget_errors": {
+        "full": 0.0020853729658907956,
+        "shared2": 0.0045546919336475,
+        "input_rank2": 0.003739740294594495,
+        "context_rank1": 0.002773762674341659
+      },
+      "absolute_rms_errors": {
+        "full": 0.0003243169818521629,
+        "shared2": 0.0007083452050774804,
+        "input_rank2": 0.0005816040128513486,
+        "context_rank1": 0.0004313752760923528
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.18430528117516395,
+      "errors": {
+        "full": 0.002151058056328767,
+        "shared2": 0.010403820945153078,
+        "input_rank2": 0.014014047958923956,
+        "context_rank1": 0.016215911500049033
+      },
+      "B_budget_errors": {
+        "full": 0.0005985699187354102,
+        "shared2": 0.0028950470394585393,
+        "input_rank2": 0.003899656507757768,
+        "context_rank1": 0.004512363950497409
+      },
+      "absolute_rms_errors": {
+        "full": 0.0001618505899295239,
+        "shared2": 0.0007828075827799979,
+        "input_rank2": 0.0010544494244491066,
+        "context_rank1": 0.0012201227367183392
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.23893729236920583,
+      "errors": {
+        "full": 0.0006178322117894312,
+        "shared2": 0.005816442935176749,
+        "input_rank2": 0.004840870772627509,
+        "context_rank1": 0.0012773232011068952
+      },
+      "B_budget_errors": {
+        "full": 0.0003949939437705995,
+        "shared2": 0.0037185819868924587,
+        "input_rank2": 0.003094876895825647,
+        "context_rank1": 0.000816621275238485
+      },
+      "absolute_rms_errors": {
+        "full": 6.026690099780165e-05,
+        "shared2": 0.0005673692368974932,
+        "input_rank2": 0.00047220632726822855,
+        "context_rank1": 0.00012459743832446968
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.18836023875290261,
+      "errors": {
+        "full": 0.0009800806517769173,
+        "shared2": 0.013406819935667355,
+        "input_rank2": 0.015810543629708587,
+        "context_rank1": 0.017532028974659667
+      },
+      "B_budget_errors": {
+        "full": 0.00022057375381008887,
+        "shared2": 0.0030172951527046256,
+        "input_rank2": 0.0035582693647306075,
+        "context_rank1": 0.003945701239828316
+      },
+      "absolute_rms_errors": {
+        "full": 7.536599249280529e-05,
+        "shared2": 0.0010309542268710007,
+        "input_rank2": 0.0012157951596569328,
+        "context_rank1": 0.0013481735015299532
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.1419833770939422,
+      "errors": {
+        "full": 0.0011965520484658366,
+        "shared2": 0.007559950252931771,
+        "input_rank2": 0.006059487867264299,
+        "context_rank1": 0.0021200712838528035
+      },
+      "B_budget_errors": {
+        "full": 0.0006740434872684477,
+        "shared2": 0.004258682469012216,
+        "input_rank2": 0.0034134397566311057,
+        "context_rank1": 0.0011942817224357787
+      },
+      "absolute_rms_errors": {
+        "full": 6.935750648084757e-05,
+        "shared2": 0.00043820851699254035,
+        "input_rank2": 0.000351235008592608,
+        "context_rank1": 0.00012288881039333906
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.10935381314608371,
+      "errors": {
+        "full": 0.0016948044803445793,
+        "shared2": 0.010506083577228662,
+        "input_rank2": 0.010579622076255317,
+        "context_rank1": 0.013731169380903546
+      },
+      "B_budget_errors": {
+        "full": 0.0003821998777331819,
+        "shared2": 0.0023692549230545984,
+        "input_rank2": 0.0023858387860680795,
+        "context_rank1": 0.0030965526226647325
+      },
+      "absolute_rms_errors": {
+        "full": 7.566201614388708e-05,
+        "shared2": 0.00046902841858648174,
+        "input_rank2": 0.00047231143510259376,
+        "context_rank1": 0.0006130075601175791
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "arm": "mlp_8",
+      "target_norm": 0.09568051203894866,
+      "errors": {
+        "full": 0.00038730068554239914,
+        "shared2": 0.04189143338738118,
+        "input_rank2": 0.014894191953473402,
+        "context_rank1": 0.00925985072499946
+      },
+      "B_budget_errors": {
+        "full": 8.583013233049985e-05,
+        "shared2": 0.00928360678246109,
+        "input_rank2": 0.0033007183153631174,
+        "context_rank1": 0.0020520857379178895
+      },
+      "absolute_rms_errors": {
+        "full": 1.5128509117016044e-05,
+        "shared2": 0.001636338265289456,
+        "input_rank2": 0.0005817880710516895,
+        "context_rank1": 0.000361702783766506
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "arm": "mlp_8",
+      "target_norm": 0.2382921254443725,
+      "errors": {
+        "full": 0.001098331611608175,
+        "shared2": 0.027620729078332157,
+        "input_rank2": 0.023098035787206293,
+        "context_rank1": 0.0039055828945434496
+      },
+      "B_budget_errors": {
+        "full": 0.00041005469183243924,
+        "shared2": 0.01031201272065662,
+        "input_rank2": 0.008623495715278047,
+        "context_rank1": 0.0014581230052216592
+      },
+      "absolute_rms_errors": {
+        "full": 0.00010684828337981823,
+        "shared2": 0.0026870095119976,
+        "input_rank2": 0.0022470312674466152,
+        "context_rank1": 0.0003799442932071602
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "arm": "mlp_8",
+      "target_norm": 0.07435728465016087,
+      "errors": {
+        "full": 0.0004572542513960026,
+        "shared2": 0.044735811874944326,
+        "input_rank2": 0.016199188585655503,
+        "context_rank1": 0.010677233023668128
+      },
+      "B_budget_errors": {
+        "full": 8.925235791050053e-05,
+        "shared2": 0.008732071228839003,
+        "input_rank2": 0.003161951524983152,
+        "context_rank1": 0.0020841101431267623
+      },
+      "absolute_rms_errors": {
+        "full": 1.3880517209235925e-05,
+        "shared2": 0.001358010788753782,
+        "input_rank2": 0.0004917463648558109,
+        "context_rank1": 0.00032412058779021603
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "arm": "mlp_8",
+      "target_norm": 0.2652472516059636,
+      "errors": {
+        "full": 0.0012781479931504804,
+        "shared2": 0.02059521566320355,
+        "input_rank2": 0.01485793892820954,
+        "context_rank1": 0.0019306147939839493
+      },
+      "B_budget_errors": {
+        "full": 0.0005118668575216326,
+        "shared2": 0.008247877693348742,
+        "input_rank2": 0.00595023936913975,
+        "context_rank1": 0.0007731637752256694
+      },
+      "absolute_rms_errors": {
+        "full": 0.000138406475604847,
+        "shared2": 0.002230188702357995,
+        "input_rank2": 0.00160891772535407,
+        "context_rank1": 0.00020905997647991986
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "arm": "mlp_8",
+      "target_norm": 0.05332535766641531,
+      "errors": {
+        "full": 0.0010620485263043479,
+        "shared2": 0.01592767138878094,
+        "input_rank2": 0.010570960495717287,
+        "context_rank1": 0.014658222978759185
+      },
+      "B_budget_errors": {
+        "full": 0.0001515353963820751,
+        "shared2": 0.0022725948368301743,
+        "input_rank2": 0.001508287662176683,
+        "context_rank1": 0.0020914671734185725
+      },
+      "absolute_rms_errors": {
+        "full": 2.312078166121218e-05,
+        "shared2": 0.000346745184829727,
+        "input_rank2": 0.00023012966311554317,
+        "context_rank1": 0.00031910931058166557
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "arm": "mlp_8",
+      "target_norm": 0.3996151517041369,
+      "errors": {
+        "full": 0.0017716149706131959,
+        "shared2": 0.015708543487563297,
+        "input_rank2": 0.011298649547749198,
+        "context_rank1": 0.0033789537684499192
+      },
+      "B_budget_errors": {
+        "full": 0.0008458903573961836,
+        "shared2": 0.007500334827419772,
+        "input_rank2": 0.005394749345977675,
+        "context_rank1": 0.0016133440156186915
+      },
+      "absolute_rms_errors": {
+        "full": 0.0002890251683350606,
+        "shared2": 0.0025627263830470728,
+        "input_rank2": 0.0018432865727967813,
+        "context_rank1": 0.0005512499600207156
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "mlp_8",
+      "target_norm": 0.03570736835613414,
+      "errors": {
+        "full": 0.0008099601390983325,
+        "shared2": 0.03642338086114048,
+        "input_rank2": 0.013525525284798964,
+        "context_rank1": 0.011389146240084556
+      },
+      "B_budget_errors": {
+        "full": 0.00011474672800941629,
+        "shared2": 0.0051600857562069,
+        "input_rank2": 0.001916155741648033,
+        "context_rank1": 0.0016134957793420368
+      },
+      "absolute_rms_errors": {
+        "full": 1.180717132038624e-05,
+        "shared2": 0.0005309608178668064,
+        "input_rank2": 0.00019716796731949945,
+        "context_rank1": 0.0001660249614250282
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "arm": "mlp_8",
+      "target_norm": 0.2284783703626838,
+      "errors": {
+        "full": 0.0021546852578571856,
+        "shared2": 0.015208523653691405,
+        "input_rank2": 0.0162119351733381,
+        "context_rank1": 0.009424031378045938
+      },
+      "B_budget_errors": {
+        "full": 0.0010152335042627706,
+        "shared2": 0.007165873858976274,
+        "input_rank2": 0.007638656131743867,
+        "context_rank1": 0.00444036657573402
+      },
+      "absolute_rms_errors": {
+        "full": 0.0002009802154959609,
+        "shared2": 0.0014185887939541062,
+        "input_rank2": 0.0015121829106420708,
+        "context_rank1": 0.000879035047134438
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "arm": "mlp_10",
+      "target_norm": 0.17485070897674804,
+      "errors": {
+        "full": 0.001841918388822488,
+        "shared2": 0.013638826439555595,
+        "input_rank2": 0.015674115321498705,
+        "context_rank1": 0.005530678187866193
+      },
+      "B_budget_errors": {
+        "full": 0.0007459432817794161,
+        "shared2": 0.0055234754241451104,
+        "input_rank2": 0.006347730221306005,
+        "context_rank1": 0.002239823579024129
+      },
+      "absolute_rms_errors": {
+        "full": 0.00013148074496404592,
+        "shared2": 0.0009735735695947368,
+        "input_rank2": 0.0011188575843691338,
+        "context_rank1": 0.0003947936524820304
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "arm": "mlp_10",
+      "target_norm": 0.12048329569002443,
+      "errors": {
+        "full": 0.0312349437365969,
+        "shared2": 0.0350833942371528,
+        "input_rank2": 0.03432065805356307,
+        "context_rank1": 0.04082766595149544
+      },
+      "B_budget_errors": {
+        "full": 0.005896118151658663,
+        "shared2": 0.00662257756338161,
+        "input_rank2": 0.006478598349110733,
+        "context_rank1": 0.007706904943914458
+      },
+      "absolute_rms_errors": {
+        "full": 0.0015363562852897387,
+        "shared2": 0.0017256504029617972,
+        "input_rank2": 0.0016881336224112053,
+        "context_rank1": 0.0020081944673009345
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "arm": "mlp_10",
+      "target_norm": 0.151609960303661,
+      "errors": {
+        "full": 0.0015982859748923126,
+        "shared2": 0.014785746221137297,
+        "input_rank2": 0.01681253136826123,
+        "context_rank1": 0.005567332345240821
+      },
+      "B_budget_errors": {
+        "full": 0.0006360930445894268,
+        "shared2": 0.005884497817084031,
+        "input_rank2": 0.006691126890488467,
+        "context_rank1": 0.0022157119798063875
+      },
+      "absolute_rms_errors": {
+        "full": 9.892512263880534e-05,
+        "shared2": 0.0009151564746295234,
+        "input_rank2": 0.0010406033423311894,
+        "context_rank1": 0.00034458729143327664
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "arm": "mlp_10",
+      "target_norm": 0.10056674255921502,
+      "errors": {
+        "full": 0.04048630185996934,
+        "shared2": 0.03227919619495292,
+        "input_rank2": 0.03209095986811321,
+        "context_rank1": 0.045440490150277124
+      },
+      "B_budget_errors": {
+        "full": 0.006147343307390269,
+        "shared2": 0.004901195999162851,
+        "input_rank2": 0.00487261464520249,
+        "context_rank1": 0.0068995754162973835
+      },
+      "absolute_rms_errors": {
+        "full": 0.0016622137358697278,
+        "shared2": 0.001325261158296497,
+        "input_rank2": 0.0013175328898775928,
+        "context_rank1": 0.0018656138847575373
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "arm": "mlp_10",
+      "target_norm": 0.11299114785947528,
+      "errors": {
+        "full": 0.0005561968633174103,
+        "shared2": 0.013289871461752888,
+        "input_rank2": 0.012444541256677846,
+        "context_rank1": 0.008000580201210696
+      },
+      "B_budget_errors": {
+        "full": 0.00016815466011796217,
+        "shared2": 0.004017918773100188,
+        "input_rank2": 0.0037623506052503787,
+        "context_rank1": 0.002418810556494143
+      },
+      "absolute_rms_errors": {
+        "full": 2.5656495279162622e-05,
+        "shared2": 0.0006130410775519881,
+        "input_rank2": 0.0005740473114122744,
+        "context_rank1": 0.0003690543073878907
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "arm": "mlp_10",
+      "target_norm": 0.17132963686316563,
+      "errors": {
+        "full": 0.008020251951025622,
+        "shared2": 0.031126347464055758,
+        "input_rank2": 0.030413345506548346,
+        "context_rank1": 0.012115979418987805
+      },
+      "B_budget_errors": {
+        "full": 0.0016418114960190268,
+        "shared2": 0.006371819165735104,
+        "input_rank2": 0.006225861804586363,
+        "context_rank1": 0.0024802405731256753
+      },
+      "absolute_rms_errors": {
+        "full": 0.0005609767741909453,
+        "shared2": 0.0021771333493456643,
+        "input_rank2": 0.002127262405071502,
+        "context_rank1": 0.0008474525603598396
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "mlp_10",
+      "target_norm": 0.07698345946523953,
+      "errors": {
+        "full": 0.0006252988380259194,
+        "shared2": 0.012163898176917223,
+        "input_rank2": 0.01136406569204467,
+        "context_rank1": 0.008955683863110278
+      },
+      "B_budget_errors": {
+        "full": 0.00019098702578523397,
+        "shared2": 0.00371525835886417,
+        "input_rank2": 0.003470962962610947,
+        "context_rank1": 0.0027353631909633382
+      },
+      "absolute_rms_errors": {
+        "full": 1.9652120566193674e-05,
+        "shared2": 0.0003822914404932445,
+        "input_rank2": 0.00035715401264339115,
+        "context_rank1": 0.0002814625077286054
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "arm": "mlp_10",
+      "target_norm": 0.13019899420805456,
+      "errors": {
+        "full": 0.0041061257586157305,
+        "shared2": 0.020631345586889057,
+        "input_rank2": 0.022134693201163215,
+        "context_rank1": 0.004668274419514357
+      },
+      "B_budget_errors": {
+        "full": 0.0011024956502103417,
+        "shared2": 0.00553952073187347,
+        "input_rank2": 0.00594316988996699,
+        "context_rank1": 0.0012534326866885529
+      },
+      "absolute_rms_errors": {
+        "full": 0.00021825502451629396,
+        "shared2": 0.0010966285743738726,
+        "input_rank2": 0.0011765367870537817,
+        "context_rank1": 0.00024813520281058806
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "arm": "pair23",
+      "target_norm": 0.22702478462544404,
+      "errors": {
+        "full": 0.0038497651505434325,
+        "shared2": 0.026729536251997713,
+        "input_rank2": 0.01317945563552792,
+        "context_rank1": 0.009241276704498839
+      },
+      "B_budget_errors": {
+        "full": 0.0020243030746135405,
+        "shared2": 0.014055060582143583,
+        "input_rank2": 0.006930088335639353,
+        "context_rank1": 0.00485929507768306
+      },
+      "absolute_rms_errors": {
+        "full": 0.00035680578240250517,
+        "shared2": 0.0024773597148656954,
+        "input_rank2": 0.0012215046362009487,
+        "context_rank1": 0.0008565044453377371
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "arm": "pair23",
+      "target_norm": 0.4268118142339678,
+      "errors": {
+        "full": 0.003630755768601801,
+        "shared2": 0.03874089522471198,
+        "input_rank2": 0.03948025814882965,
+        "context_rank1": 0.011623351597103574
+      },
+      "B_budget_errors": {
+        "full": 0.002427907179613233,
+        "shared2": 0.025906258546535162,
+        "input_rank2": 0.02640067476900016,
+        "context_rank1": 0.007772601792117885
+      },
+      "absolute_rms_errors": {
+        "full": 0.0006326417414904642,
+        "shared2": 0.006750414785211461,
+        "input_rank2": 0.0068792452209990515,
+        "context_rank1": 0.0020253131482813463
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "arm": "pair23",
+      "target_norm": 0.20332992099738498,
+      "errors": {
+        "full": 0.0024943181497857083,
+        "shared2": 0.028869065101570023,
+        "input_rank2": 0.015046057000387561,
+        "context_rank1": 0.007749291996263854
+      },
+      "B_budget_errors": {
+        "full": 0.0013313479166120724,
+        "shared2": 0.015408928360167502,
+        "input_rank2": 0.008030866729015066,
+        "context_rank1": 0.004136202013897402
+      },
+      "absolute_rms_errors": {
+        "full": 0.00020705108638749046,
+        "shared2": 0.0023963948996581644,
+        "input_rank2": 0.0012489595395222507,
+        "context_rank1": 0.0006432616972691158
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "arm": "pair23",
+      "target_norm": 0.4705045867402305,
+      "errors": {
+        "full": 0.006381309277964378,
+        "shared2": 0.024297536429236925,
+        "input_rank2": 0.025096401123553738,
+        "context_rank1": 0.010437532183886421
+      },
+      "B_budget_errors": {
+        "full": 0.004533134770524747,
+        "shared2": 0.01726040886402567,
+        "input_rank2": 0.017827903897569535,
+        "context_rank1": 0.007414581867177563
+      },
+      "absolute_rms_errors": {
+        "full": 0.0012257390722031677,
+        "shared2": 0.004667136235261122,
+        "input_rank2": 0.004820584317241584,
+        "context_rank1": 0.0020048692921601817
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "arm": "pair23",
+      "target_norm": 0.24949910064328937,
+      "errors": {
+        "full": 0.0012304473500577206,
+        "shared2": 0.008532371303219972,
+        "input_rank2": 0.010773811754316142,
+        "context_rank1": 0.003360951908577701
+      },
+      "B_budget_errors": {
+        "full": 0.0008214251039653757,
+        "shared2": 0.0056960616677258664,
+        "input_rank2": 0.007192408061976298,
+        "context_rank1": 0.002243712638981714
+      },
+      "absolute_rms_errors": {
+        "full": 0.00012533039100604814,
+        "shared2": 0.0008690867037839363,
+        "input_rank2": 0.0010973944067827503,
+        "context_rank1": 0.0003423384323065973
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "arm": "pair23",
+      "target_norm": 0.6033610359085031,
+      "errors": {
+        "full": 0.0039175024742859514,
+        "shared2": 0.023087188734549773,
+        "input_rank2": 0.023755153147429212,
+        "context_rank1": 0.008831384089851456
+      },
+      "B_budget_errors": {
+        "full": 0.002824160187647871,
+        "shared2": 0.016643746799601535,
+        "input_rank2": 0.017125287912594336,
+        "context_rank1": 0.006366618403459052
+      },
+      "absolute_rms_errors": {
+        "full": 0.0009649635635434955,
+        "shared2": 0.0056868619891690285,
+        "input_rank2": 0.0058513957257532966,
+        "context_rank1": 0.0021753563445847473
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "pair23",
+      "target_norm": 0.15800200284973498,
+      "errors": {
+        "full": 0.0007998581726253319,
+        "shared2": 0.007988195183653625,
+        "input_rank2": 0.011033582794781987,
+        "context_rank1": 0.004640911696841695
+      },
+      "B_budget_errors": {
+        "full": 0.0005014116256901545,
+        "shared2": 0.0050076051860786785,
+        "input_rank2": 0.006916684576916882,
+        "context_rank1": 0.0029092746167236577
+      },
+      "absolute_rms_errors": {
+        "full": 5.159408960289663e-05,
+        "shared2": 0.0005152709219912017,
+        "input_rank2": 0.0007117107492775669,
+        "context_rank1": 0.000299357588783607
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "arm": "pair23",
+      "target_norm": 0.3381828395514175,
+      "errors": {
+        "full": 0.006456023257320418,
+        "shared2": 0.026332195333412047,
+        "input_rank2": 0.026264198068119596,
+        "context_rank1": 0.015920170209503617
+      },
+      "B_budget_errors": {
+        "full": 0.004502499378689187,
+        "shared2": 0.01836435347313461,
+        "input_rank2": 0.018316931456123647,
+        "context_rank1": 0.011102896259804871
+      },
+      "absolute_rms_errors": {
+        "full": 0.0008913351377784773,
+        "shared2": 0.003635490459069101,
+        "input_rank2": 0.0036261025821342895,
+        "context_rank1": 0.0021979795520492566
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "arm": "pair24",
+      "target_norm": 0.47896675268571476,
+      "errors": {
+        "full": 0.01151397143889034,
+        "shared2": 0.015010880579229063,
+        "input_rank2": 0.015517000608372111,
+        "context_rank1": 0.011708860834805932
+      },
+      "B_budget_errors": {
+        "full": 0.012773165564166446,
+        "shared2": 0.01665250464794467,
+        "input_rank2": 0.017213975115532344,
+        "context_rank1": 0.012989368508037058
+      },
+      "absolute_rms_errors": {
+        "full": 0.0022514115549368634,
+        "shared2": 0.002935187929310231,
+        "input_rank2": 0.003034153302626065,
+        "context_rank1": 0.0022895197125111467
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "arm": "pair24",
+      "target_norm": 0.3095734268575049,
+      "errors": {
+        "full": 0.03637161949321711,
+        "shared2": 0.0232023598791289,
+        "input_rank2": 0.02313353149454069,
+        "context_rank1": 0.03967211699659326
+      },
+      "B_budget_errors": {
+        "full": 0.01764107005990556,
+        "shared2": 0.011253676957089781,
+        "input_rank2": 0.01122029361118578,
+        "context_rank1": 0.01924188708430175
+      },
+      "absolute_rms_errors": {
+        "full": 0.004596747922724052,
+        "shared2": 0.002932379725257262,
+        "input_rank2": 0.002923680999759506,
+        "context_rank1": 0.005013874112153961
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "arm": "pair24",
+      "target_norm": 0.42052508027631913,
+      "errors": {
+        "full": 0.009678836703090981,
+        "shared2": 0.013533898981396524,
+        "input_rank2": 0.014220502988374429,
+        "context_rank1": 0.009897608369298865
+      },
+      "B_budget_errors": {
+        "full": 0.010684482432746192,
+        "shared2": 0.014940091495408038,
+        "input_rank2": 0.01569803469414656,
+        "context_rank1": 0.010925984804992463
+      },
+      "absolute_rms_errors": {
+        "full": 0.0016616495715242523,
+        "shared2": 0.0023234814403169145,
+        "input_rank2": 0.002441356685968835,
+        "context_rank1": 0.0016992079947694637
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "arm": "pair24",
+      "target_norm": 0.3099570105754075,
+      "errors": {
+        "full": 0.038002474702019666,
+        "shared2": 0.027438439333586116,
+        "input_rank2": 0.02692255774877026,
+        "context_rank1": 0.041553265971185194
+      },
+      "B_budget_errors": {
+        "full": 0.017784363145210355,
+        "shared2": 0.012840615593394115,
+        "input_rank2": 0.012599193803991432,
+        "context_rank1": 0.019446059176293457
+      },
+      "absolute_rms_errors": {
+        "full": 0.004808811095376047,
+        "shared2": 0.0034720441903258233,
+        "input_rank2": 0.003406764833957202,
+        "context_rank1": 0.005258126161997751
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "arm": "pair24",
+      "target_norm": 0.3635364170376294,
+      "errors": {
+        "full": 0.0021771909909116373,
+        "shared2": 0.0036994656487550474,
+        "input_rank2": 0.0036920692269670472,
+        "context_rank1": 0.004039694258698114
+      },
+      "B_budget_errors": {
+        "full": 0.0021177778552340493,
+        "shared2": 0.003598511320245712,
+        "input_rank2": 0.0035913167386329896,
+        "context_rank1": 0.003929455467480488
+      },
+      "absolute_rms_errors": {
+        "full": 0.00032312370948870024,
+        "shared2": 0.0005490492421389352,
+        "input_rank2": 0.0005479515160987953,
+        "context_rank1": 0.0005995436319181962
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "arm": "pair24",
+      "target_norm": 0.37236840974116453,
+      "errors": {
+        "full": 0.013099420353506678,
+        "shared2": 0.010132112514855839,
+        "input_rank2": 0.008499380633397438,
+        "context_rank1": 0.01404133369853047
+      },
+      "B_budget_errors": {
+        "full": 0.005828109395376227,
+        "shared2": 0.004507913980104666,
+        "input_rank2": 0.0037814894695796133,
+        "context_rank1": 0.006247179389896547
+      },
+      "absolute_rms_errors": {
+        "full": 0.0019913577266194313,
+        "shared2": 0.0015402712485697414,
+        "input_rank2": 0.0012920653615993542,
+        "context_rank1": 0.0021345462316678223
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "pair24",
+      "target_norm": 0.23328513911444965,
+      "errors": {
+        "full": 0.004902550153996015,
+        "shared2": 0.006869907563441876,
+        "input_rank2": 0.00555428747916539,
+        "context_rank1": 0.005896146350828615
+      },
+      "B_budget_errors": {
+        "full": 0.004537618081325987,
+        "shared2": 0.006358530927318148,
+        "input_rank2": 0.0051408419093480415,
+        "context_rank1": 0.0054572537661561485
+      },
+      "absolute_rms_errors": {
+        "full": 0.00046691034247444216,
+        "shared2": 0.0006542780374413717,
+        "input_rank2": 0.0005289806708014611,
+        "context_rank1": 0.0005615387146423997
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "arm": "pair24",
+      "target_norm": 0.23891996481442332,
+      "errors": {
+        "full": 0.004990296879061139,
+        "shared2": 0.011544883283881356,
+        "input_rank2": 0.009495549816218054,
+        "context_rank1": 0.006856444529156013
+      },
+      "B_budget_errors": {
+        "full": 0.0024587582729833214,
+        "shared2": 0.005688254220700918,
+        "input_rank2": 0.00467853160502625,
+        "context_rank1": 0.003378223804689805
+      },
+      "absolute_rms_errors": {
+        "full": 0.0004867469064818825,
+        "shared2": 0.0011260725284105487,
+        "input_rank2": 0.0009261832733403033,
+        "context_rank1": 0.0006687684610578112
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "arm": "pair34",
+      "target_norm": 0.15031400596064404,
+      "errors": {
+        "full": 0.0016674571217894147,
+        "shared2": 0.03167974730221309,
+        "input_rank2": 0.002502542214929518,
+        "context_rank1": 0.011827700016641114
+      },
+      "B_budget_errors": {
+        "full": 0.000580526634258732,
+        "shared2": 0.011029331330442163,
+        "input_rank2": 0.0008712622292586305,
+        "context_rank1": 0.004117823955985218
+      },
+      "absolute_rms_errors": {
+        "full": 0.00010232423323356558,
+        "shared2": 0.001944041504499603,
+        "input_rank2": 0.0001535695940429893,
+        "context_rank1": 0.0007258119679987057
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "arm": "pair34",
+      "target_norm": 0.4113303857567394,
+      "errors": {
+        "full": 0.044099379980428115,
+        "shared2": 0.042084887953016153,
+        "input_rank2": 0.041817420890749975,
+        "context_rank1": 0.04642189394978432
+      },
+      "B_budget_errors": {
+        "full": 0.028419856937852716,
+        "shared2": 0.02712161702502624,
+        "input_rank2": 0.026949247806942758,
+        "context_rank1": 0.029916601671555593
+      },
+      "absolute_rms_errors": {
+        "full": 0.007405385155184207,
+        "shared2": 0.007067101728939795,
+        "input_rank2": 0.00702218734208706,
+        "context_rank1": 0.007795393143482718
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "arm": "pair34",
+      "target_norm": 0.12862348224535816,
+      "errors": {
+        "full": 0.0014115573631020965,
+        "shared2": 0.03233956697517295,
+        "input_rank2": 0.0023541622801253872,
+        "context_rank1": 0.012581635329277809
+      },
+      "B_budget_errors": {
+        "full": 0.0004766034910341478,
+        "shared2": 0.010919251970764751,
+        "input_rank2": 0.0007948681296967707,
+        "context_rank1": 0.004248110262890291
+      },
+      "absolute_rms_errors": {
+        "full": 7.412132423341944e-05,
+        "shared2": 0.0016981609051064837,
+        "input_rank2": 0.00012361780698716022,
+        "context_rank1": 0.0006606656562497728
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "arm": "pair34",
+      "target_norm": 0.41719505281808944,
+      "errors": {
+        "full": 0.04496901698938365,
+        "shared2": 0.04400739565562798,
+        "input_rank2": 0.04310248564817915,
+        "context_rank1": 0.046881209213332324
+      },
+      "B_budget_errors": {
+        "full": 0.028325495747245213,
+        "shared2": 0.027719780905709163,
+        "input_rank2": 0.02714978791311867,
+        "context_rank1": 0.029529964875849034
+      },
+      "absolute_rms_errors": {
+        "full": 0.007659085519070954,
+        "shared2": 0.007495302974437245,
+        "input_rank2": 0.007341179455665422,
+        "context_rank1": 0.007984768505994659
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "arm": "pair34",
+      "target_norm": 0.13020805281959333,
+      "errors": {
+        "full": 0.0021860519696010193,
+        "shared2": 0.009455236874180026,
+        "input_rank2": 0.0029236745863429584,
+        "context_rank1": 0.006626985475743228
+      },
+      "B_budget_errors": {
+        "full": 0.0007616128770331497,
+        "shared2": 0.0032941715288170785,
+        "input_rank2": 0.0010185980224522134,
+        "context_rank1": 0.002308818612010798
+      },
+      "absolute_rms_errors": {
+        "full": 0.0001162044344797982,
+        "shared2": 0.0005026140590962977,
+        "input_rank2": 0.00015541439848337584,
+        "context_rank1": 0.00035227209152540324
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "arm": "pair34",
+      "target_norm": 0.6085912077793104,
+      "errors": {
+        "full": 0.010733533691840916,
+        "shared2": 0.011482331852138,
+        "input_rank2": 0.009697938317832977,
+        "context_rank1": 0.01182459018075021
+      },
+      "B_budget_errors": {
+        "full": 0.007804969028631709,
+        "shared2": 0.00834946319221343,
+        "input_rank2": 0.007051928133397891,
+        "context_rank1": 0.00859833888695692
+      },
+      "absolute_rms_errors": {
+        "full": 0.0026668142834658966,
+        "shared2": 0.00285285791892131,
+        "input_rank2": 0.002409514067657666,
+        "context_rank1": 0.00293789416379489
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "pair34",
+      "target_norm": 0.09853511224293328,
+      "errors": {
+        "full": 0.0005690972593156569,
+        "shared2": 0.014095010744434049,
+        "input_rank2": 0.000965064038053848,
+        "context_rank1": 0.00634385196757978
+      },
+      "B_budget_errors": {
+        "full": 0.00022248274296147303,
+        "shared2": 0.005510300043026137,
+        "input_rank2": 0.0003772818983136305,
+        "context_rank1": 0.0024800639321052114
+      },
+      "absolute_rms_errors": {
+        "full": 2.289295657964209e-05,
+        "shared2": 0.0005669970531046625,
+        "input_rank2": 3.882142947992401e-05,
+        "context_rank1": 0.0002551928080204083
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "arm": "pair34",
+      "target_norm": 0.36855201061556553,
+      "errors": {
+        "full": 0.003916883221475766,
+        "shared2": 0.005965338046355594,
+        "input_rank2": 0.0047458442083779485,
+        "context_rank1": 0.00396416002718604
+      },
+      "B_budget_errors": {
+        "full": 0.0029769834303076926,
+        "shared2": 0.004533888685477253,
+        "input_rank2": 0.00360702598783115,
+        "context_rank1": 0.003012915639485054
+      },
+      "absolute_rms_errors": {
+        "full": 0.0005893371020941843,
+        "shared2": 0.0008975491068959714,
+        "input_rank2": 0.0007140631758998775,
+        "context_rank1": 0.0005964504047121432
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.0586058920532589,
+      "errors": {
+        "full": 0.008137545682834393,
+        "shared2": 0.033892918634665155,
+        "input_rank2": 0.029566628773603994,
+        "context_rank1": 0.006231696235130942
+      },
+      "B_budget_errors": {
+        "full": 0.006696085172267221,
+        "shared2": 0.027889228369332077,
+        "input_rank2": 0.02432928455842479,
+        "context_rank1": 0.0051278321971397495
+      },
+      "absolute_rms_errors": {
+        "full": 0.0001946969262768903,
+        "shared2": 0.0008109136756850249,
+        "input_rank2": 0.0007074039233639669,
+        "context_rank1": 0.0001490980388633175
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.013921514439547183,
+      "errors": {
+        "full": 0.005057566079321749,
+        "shared2": 0.04014088959296549,
+        "input_rank2": 0.037070027077403166,
+        "context_rank1": 0.03116759648839905
+      },
+      "B_budget_errors": {
+        "full": 0.0018645036434588901,
+        "shared2": 0.014798192198371057,
+        "input_rank2": 0.013666099357856926,
+        "context_rank1": 0.011490131082631298
+      },
+      "absolute_rms_errors": {
+        "full": 2.8744345392620888e-05,
+        "shared2": 0.00022813811559373558,
+        "input_rank2": 0.00021068506971827497,
+        "context_rank1": 0.00017713899224832763
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.046188134215874546,
+      "errors": {
+        "full": 0.011699730366516243,
+        "shared2": 0.04084293578966554,
+        "input_rank2": 0.04125544925328946,
+        "context_rank1": 0.00872868823226475
+      },
+      "B_budget_errors": {
+        "full": 0.004732400563476818,
+        "shared2": 0.01652047750589435,
+        "input_rank2": 0.016687334252720124,
+        "context_rank1": 0.0035306496658249987
+      },
+      "absolute_rms_errors": {
+        "full": 0.00022061276968001945,
+        "shared2": 0.000770143661789729,
+        "input_rank2": 0.0007779221092316309,
+        "context_rank1": 0.00016459012526514415
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.04886553702231682,
+      "errors": {
+        "full": 0.0023668078026849726,
+        "shared2": 0.01649080773344574,
+        "input_rank2": 0.014703484546071862,
+        "context_rank1": 0.013309069794606698
+      },
+      "B_budget_errors": {
+        "full": 0.000709584687891286,
+        "shared2": 0.004944053608973932,
+        "input_rank2": 0.0044082022548273024,
+        "context_rank1": 0.003990147457523125
+      },
+      "absolute_rms_errors": {
+        "full": 4.72160925137821e-05,
+        "shared2": 0.0003289796081819851,
+        "input_rank2": 0.00029332381185102067,
+        "context_rank1": 0.0002655062527602181
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.1450142751027231,
+      "errors": {
+        "full": 0.0030276145732892764,
+        "shared2": 0.00842535471840876,
+        "input_rank2": 0.013762421640132735,
+        "context_rank1": 0.0035212691943848685
+      },
+      "B_budget_errors": {
+        "full": 0.0013375420057951436,
+        "shared2": 0.0037221599965258523,
+        "input_rank2": 0.006079973721735299,
+        "context_rank1": 0.001555629142082406
+      },
+      "absolute_rms_errors": {
+        "full": 0.0001792403229813598,
+        "shared2": 0.0004987964169162493,
+        "input_rank2": 0.0008147605449999782,
+        "context_rank1": 0.00020846557989055904
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.11464468065597956,
+      "errors": {
+        "full": 0.0007248270137502591,
+        "shared2": 0.01723773914265685,
+        "input_rank2": 0.005097182419891401,
+        "context_rank1": 0.013640570658098124
+      },
+      "B_budget_errors": {
+        "full": 0.00016745502481036102,
+        "shared2": 0.003982393013849095,
+        "input_rank2": 0.0011775896764244257,
+        "context_rank1": 0.0031513479142574064
+      },
+      "absolute_rms_errors": {
+        "full": 3.392443743316435e-05,
+        "shared2": 0.0008067864358540009,
+        "input_rank2": 0.00023856595133554275,
+        "context_rank1": 0.0006384263790735985
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.020422932861175653,
+      "errors": {
+        "full": 0.009031176626149676,
+        "shared2": 0.05287289056021327,
+        "input_rank2": 0.0470497451647714,
+        "context_rank1": 0.006977727622781173
+      },
+      "B_budget_errors": {
+        "full": 0.004430226840567291,
+        "shared2": 0.025936697796386528,
+        "input_rank2": 0.02308016468942514,
+        "context_rank1": 0.003422911263976937
+      },
+      "absolute_rms_errors": {
+        "full": 7.529858593476056e-05,
+        "shared2": 0.000440834462470785,
+        "input_rank2": 0.0003922832457113113,
+        "context_rank1": 5.817769320467202e-05
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "arm": "middle_writes_4_7",
+      "target_norm": 0.02907475487265304,
+      "errors": {
+        "full": 0.0032001335774186905,
+        "shared2": 0.04485322136296343,
+        "input_rank2": 0.050116375311518906,
+        "context_rank1": 0.03711270318662005
+      },
+      "B_budget_errors": {
+        "full": 0.0008990950311454882,
+        "shared2": 0.012601757858757296,
+        "input_rank2": 0.014080469746501994,
+        "context_rank1": 0.010427016941706157
+      },
+      "absolute_rms_errors": {
+        "full": 3.7984686238153644e-05,
+        "shared2": 0.000532395132585963,
+        "input_rank2": 0.0005948672908638806,
+        "context_rank1": 0.00044051735713188545
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "arm": "mlp_8",
+      "target_norm": 0.03956891356015174,
+      "errors": {
+        "full": 0.0015811511059953174,
+        "shared2": 0.0351078473922493,
+        "input_rank2": 0.01634951331324192,
+        "context_rank1": 0.010049368256824016
+      },
+      "B_budget_errors": {
+        "full": 0.0008784433325881512,
+        "shared2": 0.01950493810889131,
+        "input_rank2": 0.009083332330870286,
+        "context_rank1": 0.005583147941052138
+      },
+      "absolute_rms_errors": {
+        "full": 2.5541822178679388e-05,
+        "shared2": 0.0005671301065210779,
+        "input_rank2": 0.0002641090786145351,
+        "context_rank1": 0.00016233690508807348
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "mlp_8",
+      "target_norm": 0.023794640582373943,
+      "errors": {
+        "full": 0.004740671524488005,
+        "shared2": 0.08160781425927711,
+        "input_rank2": 0.07674493132125486,
+        "context_rank1": 0.0633010523453599
+      },
+      "B_budget_errors": {
+        "full": 0.0029871305413688098,
+        "shared2": 0.05142165896308695,
+        "input_rank2": 0.048357522148664574,
+        "context_rank1": 0.03988643924913822
+      },
+      "absolute_rms_errors": {
+        "full": 4.605145842175172e-05,
+        "shared2": 0.0007927482100032274,
+        "input_rank2": 0.0007455095750812764,
+        "context_rank1": 0.0006149141034297465
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "arm": "mlp_8",
+      "target_norm": 0.029337597140698488,
+      "errors": {
+        "full": 0.0009978096342778086,
+        "shared2": 0.025343989790428678,
+        "input_rank2": 0.020794385965094794,
+        "context_rank1": 0.018744704765447016
+      },
+      "B_budget_errors": {
+        "full": 0.00025635834472948697,
+        "shared2": 0.006511405631213206,
+        "input_rank2": 0.0053425164305374705,
+        "context_rank1": 0.004815910090496301
+      },
+      "absolute_rms_errors": {
+        "full": 1.1950789816449228e-05,
+        "shared2": 0.000303545570909291,
+        "input_rank2": 0.0002490548572532424,
+        "context_rank1": 0.00022450577658070784
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "arm": "mlp_8",
+      "target_norm": 0.0812103485331773,
+      "errors": {
+        "full": 0.0025775976627395833,
+        "shared2": 0.030877305734329712,
+        "input_rank2": 0.036232602783209326,
+        "context_rank1": 0.01914402109562186
+      },
+      "B_budget_errors": {
+        "full": 0.0012842958247075878,
+        "shared2": 0.01538471089032243,
+        "input_rank2": 0.01805300382810968,
+        "context_rank1": 0.009538566362249661
+      },
+      "absolute_rms_errors": {
+        "full": 8.545763671234685e-05,
+        "shared2": 0.0010237057606949742,
+        "input_rank2": 0.0012012552038471866,
+        "context_rank1": 0.0006347006065579459
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "arm": "mlp_8",
+      "target_norm": 0.07687184526050668,
+      "errors": {
+        "full": 0.0015020302888454535,
+        "shared2": 0.02611810313836948,
+        "input_rank2": 0.017595388035096103,
+        "context_rank1": 0.009724817604431977
+      },
+      "B_budget_errors": {
+        "full": 0.000351756461299737,
+        "shared2": 0.006116528810398504,
+        "input_rank2": 0.004120616925227641,
+        "context_rank1": 0.002277429059003714
+      },
+      "absolute_rms_errors": {
+        "full": 4.713791526619281e-05,
+        "shared2": 0.0008196591918239409,
+        "input_rank2": 0.0005521925332888425,
+        "context_rank1": 0.00030519200020210843
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "arm": "mlp_8",
+      "target_norm": 0.22904173892599816,
+      "errors": {
+        "full": 0.002449327242295463,
+        "shared2": 0.03193872296034251,
+        "input_rank2": 0.026223880613642926,
+        "context_rank1": 0.016349453849569026
+      },
+      "B_budget_errors": {
+        "full": 0.0011305020374205556,
+        "shared2": 0.014741513814805445,
+        "input_rank2": 0.012103793217525693,
+        "context_rank1": 0.0075461908757970325
+      },
+      "absolute_rms_errors": {
+        "full": 0.00022902654417191024,
+        "shared2": 0.002986458982922993,
+        "input_rank2": 0.002452087515301024,
+        "context_rank1": 0.0015287703699223515
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "mlp_8",
+      "target_norm": 0.011569750663464986,
+      "errors": {
+        "full": 0.0008416459929600246,
+        "shared2": 0.019165106375591583,
+        "input_rank2": 0.032492998118563085,
+        "context_rank1": 0.022790432146202914
+      },
+      "B_budget_errors": {
+        "full": 0.00023389286736939278,
+        "shared2": 0.005325970444962903,
+        "input_rank2": 0.009029782786288361,
+        "context_rank1": 0.006333446089983543
+      },
+      "absolute_rms_errors": {
+        "full": 3.975372550198035e-06,
+        "shared2": 9.052313971008336e-05,
+        "input_rank2": 0.00015347518300405825,
+        "context_rank1": 0.0001076467530517539
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "arm": "mlp_8",
+      "target_norm": 0.0602363862430411,
+      "errors": {
+        "full": 0.0031624218486220137,
+        "shared2": 0.09387700535653097,
+        "input_rank2": 0.08933945764015723,
+        "context_rank1": 0.03542489436663956
+      },
+      "B_budget_errors": {
+        "full": 0.0018407725954992882,
+        "shared2": 0.054643632974879765,
+        "input_rank2": 0.052002431425279196,
+        "context_rank1": 0.020620011456403676
+      },
+      "absolute_rms_errors": {
+        "full": 7.776838604785681e-05,
+        "shared2": 0.0023085671498141833,
+        "input_rank2": 0.0021969824911541483,
+        "context_rank1": 0.0008711478078137498
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "arm": "mlp_10",
+      "target_norm": 0.03469145598983906,
+      "errors": {
+        "full": 0.0015862315731846946,
+        "shared2": 0.04563496636210843,
+        "input_rank2": 0.042884413520158926,
+        "context_rank1": 0.020264340337931203
+      },
+      "B_budget_errors": {
+        "full": 0.0007726367586936344,
+        "shared2": 0.022228313374397228,
+        "input_rank2": 0.020888547940178383,
+        "context_rank1": 0.009870547592448407
+      },
+      "absolute_rms_errors": {
+        "full": 2.2465365683999516e-05,
+        "shared2": 0.0006463155976926278,
+        "input_rank2": 0.0006073602670384163,
+        "context_rank1": 0.0002869983322313052
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "mlp_10",
+      "target_norm": 0.03370762694959476,
+      "errors": {
+        "full": 0.012062974711015632,
+        "shared2": 0.01994618199193632,
+        "input_rank2": 0.020214174698274526,
+        "context_rank1": 0.014112677499536246
+      },
+      "B_budget_errors": {
+        "full": 0.010767572004619898,
+        "shared2": 0.017804227892420452,
+        "input_rank2": 0.0180434417539545,
+        "context_rank1": 0.012597164032472845
+      },
+      "absolute_rms_errors": {
+        "full": 0.00016599957303732338,
+        "shared2": 0.0002744810275829059,
+        "input_rank2": 0.00027816889694307577,
+        "context_rank1": 0.000194205699295478
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "arm": "mlp_10",
+      "target_norm": 0.036447663634815865,
+      "errors": {
+        "full": 0.0010694549274272089,
+        "shared2": 0.04941513367433105,
+        "input_rank2": 0.04658402545204278,
+        "context_rank1": 0.014963764642846399
+      },
+      "B_budget_errors": {
+        "full": 0.0003413558935765302,
+        "shared2": 0.015772658275729972,
+        "input_rank2": 0.01486900590829829,
+        "context_rank1": 0.004776236117978322
+      },
+      "absolute_rms_errors": {
+        "full": 1.591316460185465e-05,
+        "shared2": 0.0007352821851725983,
+        "input_rank2": 0.0006931561544334451,
+        "context_rank1": 0.00022265627444241674
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "arm": "mlp_10",
+      "target_norm": 0.028400588979795166,
+      "errors": {
+        "full": 0.04537819695582058,
+        "shared2": 0.09111472822190354,
+        "input_rank2": 0.09733231705115714,
+        "context_rank1": 0.025205081474274606
+      },
+      "B_budget_errors": {
+        "full": 0.007907025682809286,
+        "shared2": 0.015876490131024677,
+        "input_rank2": 0.016959887838648897,
+        "context_rank1": 0.004391915940345144
+      },
+      "absolute_rms_errors": {
+        "full": 0.000526137137003121,
+        "shared2": 0.0010564289782637733,
+        "input_rank2": 0.0011285187615769129,
+        "context_rank1": 0.0002922401129713515
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "arm": "mlp_10",
+      "target_norm": 0.10729058344604596,
+      "errors": {
+        "full": 0.0004760426644991395,
+        "shared2": 0.019160932002891474,
+        "input_rank2": 0.01958249033141148,
+        "context_rank1": 0.005232977459838628
+      },
+      "B_budget_errors": {
+        "full": 0.00015559784269107506,
+        "shared2": 0.006262883363063948,
+        "input_rank2": 0.006400672623098406,
+        "context_rank1": 0.001710434934353209
+      },
+      "absolute_rms_errors": {
+        "full": 2.085123865890954e-05,
+        "shared2": 0.0008392717626261205,
+        "input_rank2": 0.0008577365221364259,
+        "context_rank1": 0.00022921067805254812
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "arm": "mlp_10",
+      "target_norm": 0.10759373674019439,
+      "errors": {
+        "full": 0.017672659795870925,
+        "shared2": 0.04653372716069064,
+        "input_rank2": 0.049279048737684766,
+        "context_rank1": 0.010511084922892239
+      },
+      "B_budget_errors": {
+        "full": 0.003831764524608255,
+        "shared2": 0.010089385921059478,
+        "input_rank2": 0.010684623194275447,
+        "context_rank1": 0.002279000602506553
+      },
+      "absolute_rms_errors": {
+        "full": 0.0007762708585239692,
+        "shared2": 0.0020439920617828706,
+        "input_rank2": 0.002164580199737947,
+        "context_rank1": 0.0004616989752169787
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "mlp_10",
+      "target_norm": 0.01679019539111807,
+      "errors": {
+        "full": 0.0005214419548692651,
+        "shared2": 0.05525282803967043,
+        "input_rank2": 0.05142402818340151,
+        "context_rank1": 0.017008840390196005
+      },
+      "B_budget_errors": {
+        "full": 0.0002102932048674179,
+        "shared2": 0.022283006148524798,
+        "input_rank2": 0.02073888300106427,
+        "context_rank1": 0.006859523909290113
+      },
+      "absolute_rms_errors": {
+        "full": 3.574259632307638e-06,
+        "shared2": 0.0003787342982068701,
+        "input_rank2": 0.00035248952707049624,
+        "context_rank1": 0.00011658826266536881
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "arm": "mlp_10",
+      "target_norm": 0.03444826705056955,
+      "errors": {
+        "full": 0.017078042866262765,
+        "shared2": 0.08905665880425187,
+        "input_rank2": 0.09179007991724951,
+        "context_rank1": 0.12030321871550495
+      },
+      "B_budget_errors": {
+        "full": 0.005684953379293389,
+        "shared2": 0.029645256039142455,
+        "input_rank2": 0.030555159575224183,
+        "context_rank1": 0.04004663737714609
+      },
+      "absolute_rms_errors": {
+        "full": 0.00024017613590397857,
+        "shared2": 0.0012524435238640973,
+        "input_rank2": 0.0012908848444451006,
+        "context_rank1": 0.001691877836012489
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "arm": "pair23",
+      "target_norm": 0.04147909612289648,
+      "errors": {
+        "full": 0.010586998058222333,
+        "shared2": 0.10481957940920769,
+        "input_rank2": 0.10946918778124692,
+        "context_rank1": 0.019054366687171406
+      },
+      "B_budget_errors": {
+        "full": 0.00616578484746435,
+        "shared2": 0.06104610304872376,
+        "input_rank2": 0.063753998590907,
+        "context_rank1": 0.01109711409709259
+      },
+      "absolute_rms_errors": {
+        "full": 0.000179277790978198,
+        "shared2": 0.001774990657824103,
+        "input_rank2": 0.001853726056968296,
+        "context_rank1": 0.00032266226454170525
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "pair23",
+      "target_norm": 0.03419291297480624,
+      "errors": {
+        "full": 0.014189914334689666,
+        "shared2": 0.11918679385067528,
+        "input_rank2": 0.12310212735936919,
+        "context_rank1": 0.08643609149620549
+      },
+      "B_budget_errors": {
+        "full": 0.012848459591515267,
+        "shared2": 0.10791937629172112,
+        "input_rank2": 0.11146457065915841,
+        "context_rank1": 0.07826478741471563
+      },
+      "absolute_rms_errors": {
+        "full": 0.00019807982760307785,
+        "shared2": 0.0016637520862821794,
+        "input_rank2": 0.0017184070030151638,
+        "context_rank1": 0.0012065785387017059
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "arm": "pair23",
+      "target_norm": 0.0704350844135976,
+      "errors": {
+        "full": 0.01134066251453305,
+        "shared2": 0.07056336085232734,
+        "input_rank2": 0.0753428052225692,
+        "context_rank1": 0.01583257547293809
+      },
+      "B_budget_errors": {
+        "full": 0.006995241156955223,
+        "shared2": 0.04352547528636227,
+        "input_rank2": 0.04647357165403469,
+        "context_rank1": 0.009765980023386365
+      },
+      "absolute_rms_errors": {
+        "full": 0.00032610078236525327,
+        "shared2": 0.0020290496389234187,
+        "input_rank2": 0.002166482575174696,
+        "context_rank1": 0.00045526575206392323
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "arm": "pair23",
+      "target_norm": 0.13130710246104568,
+      "errors": {
+        "full": 0.008257446225580304,
+        "shared2": 0.05206353855619736,
+        "input_rank2": 0.052053468222849154,
+        "context_rank1": 0.026131558913450603
+      },
+      "B_budget_errors": {
+        "full": 0.006652310915454721,
+        "shared2": 0.04194309431427749,
+        "input_rank2": 0.04193498151685509,
+        "context_rank1": 0.021051939043730074
+      },
+      "absolute_rms_errors": {
+        "full": 0.00044264783749487364,
+        "shared2": 0.002790912846981593,
+        "input_rank2": 0.0027903730176981004,
+        "context_rank1": 0.0014008057367150344
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "arm": "pair23",
+      "target_norm": 0.20976746225923518,
+      "errors": {
+        "full": 0.0015387233416349509,
+        "shared2": 0.021899633440036866,
+        "input_rank2": 0.02063559536775552,
+        "context_rank1": 0.008150805719642072
+      },
+      "B_budget_errors": {
+        "full": 0.000983319729619545,
+        "shared2": 0.013994940513570916,
+        "input_rank2": 0.013187158151509767,
+        "context_rank1": 0.005208764863411904
+      },
+      "absolute_rms_errors": {
+        "full": 0.00013177197065012772,
+        "shared2": 0.0018754234610120805,
+        "input_rank2": 0.0017671747698702923,
+        "context_rank1": 0.0006980122436580136
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "arm": "pair23",
+      "target_norm": 0.3510088024516598,
+      "errors": {
+        "full": 0.004609822196401874,
+        "shared2": 0.03161308934488688,
+        "input_rank2": 0.032508599167502726,
+        "context_rank1": 0.013168452559942641
+      },
+      "B_budget_errors": {
+        "full": 0.0032607093333081928,
+        "shared2": 0.022361186850555062,
+        "input_rank2": 0.02299461632185914,
+        "context_rank1": 0.00931456666613869
+      },
+      "absolute_rms_errors": {
+        "full": 0.0006605817286810049,
+        "shared2": 0.004530115982497625,
+        "input_rank2": 0.004658441414905001,
+        "context_rank1": 0.001887022706188204
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "pair23",
+      "target_norm": 0.024111684733922452,
+      "errors": {
+        "full": 0.010954825520189788,
+        "shared2": 0.10746155667004427,
+        "input_rank2": 0.11286757524361593,
+        "context_rank1": 0.02119262822314891
+      },
+      "B_budget_errors": {
+        "full": 0.006344487406010203,
+        "shared2": 0.062236362566141165,
+        "input_rank2": 0.06536725832467885,
+        "context_rank1": 0.012273711033938518
+      },
+      "absolute_rms_errors": {
+        "full": 0.00010783441736637845,
+        "shared2": 0.0010578036438317938,
+        "input_rank2": 0.001111018079979456,
+        "context_rank1": 0.00020861078185989578
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "arm": "pair23",
+      "target_norm": 0.08872595219534829,
+      "errors": {
+        "full": 0.010332783864346435,
+        "shared2": 0.13920577931717332,
+        "input_rank2": 0.14166494060363918,
+        "context_rank1": 0.06085708727813712
+      },
+      "B_budget_errors": {
+        "full": 0.008859096715546943,
+        "shared2": 0.1193519073392451,
+        "input_rank2": 0.12146033697078931,
+        "context_rank1": 0.0521774992201097
+      },
+      "absolute_rms_errors": {
+        "full": 0.0003742763528175424,
+        "shared2": 0.0050423421275395865,
+        "input_rank2": 0.005131418404501541,
+        "context_rank1": 0.002204378700705623
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "arm": "pair24",
+      "target_norm": 0.08890381831868552,
+      "errors": {
+        "full": 0.01758023475081196,
+        "shared2": 0.006341798118919252,
+        "input_rank2": 0.011665657461677149,
+        "context_rank1": 0.017253236417347165
+      },
+      "B_budget_errors": {
+        "full": 0.02194478510928491,
+        "shared2": 0.00791624224015112,
+        "input_rank2": 0.014561827517303628,
+        "context_rank1": 0.02153660465773276
+      },
+      "absolute_rms_errors": {
+        "full": 0.0006380716640642721,
+        "shared2": 0.00023017449631675626,
+        "input_rank2": 0.00042340307592493006,
+        "context_rank1": 0.0006262033145377967
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "pair24",
+      "target_norm": 0.03354876401319022,
+      "errors": {
+        "full": 0.044563560191465186,
+        "shared2": 0.061646707698706185,
+        "input_rank2": 0.047916789312739606,
+        "context_rank1": 0.03683488957793544
+      },
+      "B_budget_errors": {
+        "full": 0.03959055524259161,
+        "shared2": 0.054767334032188794,
+        "input_rank2": 0.04256958569250409,
+        "context_rank1": 0.03272435425770384
+      },
+      "absolute_rms_errors": {
+        "full": 0.000610352571941103,
+        "shared2": 0.0008443272133991864,
+        "input_rank2": 0.0006562791543255514,
+        "context_rank1": 0.0005044989559735676
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "arm": "pair24",
+      "target_norm": 0.08779916637803527,
+      "errors": {
+        "full": 0.01984705407051549,
+        "shared2": 0.00818686965595105,
+        "input_rank2": 0.009651781857085307,
+        "context_rank1": 0.019267940342417158
+      },
+      "B_budget_errors": {
+        "full": 0.01526025077477083,
+        "shared2": 0.006294822574992354,
+        "input_rank2": 0.007421182561361338,
+        "context_rank1": 0.014814974579800327
+      },
+      "absolute_rms_errors": {
+        "full": 0.0007113950191402364,
+        "shared2": 0.00029344900633117727,
+        "input_rank2": 0.00034595711356271076,
+        "context_rank1": 0.0006906373479905963
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "arm": "pair24",
+      "target_norm": 0.06772828291077126,
+      "errors": {
+        "full": 0.044649275991533385,
+        "shared2": 0.06411117243510843,
+        "input_rank2": 0.05776221430105033,
+        "context_rank1": 0.047993747882523086
+      },
+      "B_budget_errors": {
+        "full": 0.018553380581017985,
+        "shared2": 0.02664049875992146,
+        "input_rank2": 0.02400227823028809,
+        "context_rank1": 0.01994312898024881
+      },
+      "absolute_rms_errors": {
+        "full": 0.0012345505038448158,
+        "shared2": 0.0017726710786274227,
+        "input_rank2": 0.0015971226673882938,
+        "context_rank1": 0.0013270250035186538
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "arm": "pair24",
+      "target_norm": 0.26289415491586904,
+      "errors": {
+        "full": 0.006809173841911023,
+        "shared2": 0.008160363945597899,
+        "input_rank2": 0.009795781207884081,
+        "context_rank1": 0.0073199513863240525
+      },
+      "B_budget_errors": {
+        "full": 0.005453451302544496,
+        "shared2": 0.006535616276154331,
+        "input_rank2": 0.007845418112072105,
+        "context_rank1": 0.005862531835596059
+      },
+      "absolute_rms_errors": {
+        "full": 0.0007308019999342751,
+        "shared2": 0.0008758199496872861,
+        "input_rank2": 0.0010513428888505416,
+        "context_rank1": 0.0007856217562872424
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "arm": "pair24",
+      "target_norm": 0.2329291676243139,
+      "errors": {
+        "full": 0.026133342478772432,
+        "shared2": 0.03978334252499724,
+        "input_rank2": 0.032817047041242074,
+        "context_rank1": 0.025103243930337284
+      },
+      "B_budget_errors": {
+        "full": 0.012266728097900446,
+        "shared2": 0.01867390082138107,
+        "input_rank2": 0.015403991791632246,
+        "context_rank1": 0.011783210200487981
+      },
+      "absolute_rms_errors": {
+        "full": 0.0024850962241242626,
+        "shared2": 0.003783114784196441,
+        "input_rank2": 0.0031206693041788743,
+        "context_rank1": 0.0023871411303481253
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "pair24",
+      "target_norm": 0.03788647594976694,
+      "errors": {
+        "full": 0.011338652032854451,
+        "shared2": 0.012854222970961041,
+        "input_rank2": 0.01418370078818498,
+        "context_rank1": 0.010397273500797867
+      },
+      "B_budget_errors": {
+        "full": 0.010318323902590115,
+        "shared2": 0.011697513579760172,
+        "input_rank2": 0.01290735604601422,
+        "context_rank1": 0.009461656938954637
+      },
+      "absolute_rms_errors": {
+        "full": 0.0001753759405652435,
+        "shared2": 0.00019881741120863523,
+        "input_rank2": 0.00021938056298193988,
+        "context_rank1": 0.00016081555499128126
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "arm": "pair24",
+      "target_norm": 0.04680023603446154,
+      "errors": {
+        "full": 0.03341386996104826,
+        "shared2": 0.09039359709909009,
+        "input_rank2": 0.07257541598371862,
+        "context_rank1": 0.11754601285920836
+      },
+      "B_budget_errors": {
+        "full": 0.015111105946036244,
+        "shared2": 0.0408796474098929,
+        "input_rank2": 0.03282154390635029,
+        "context_rank1": 0.053159070048464145
+      },
+      "absolute_rms_errors": {
+        "full": 0.0006384092873257172,
+        "shared2": 0.0017270705838656377,
+        "input_rank2": 0.0013866343422520376,
+        "context_rank1": 0.0022458477986808017
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "arm": "pair34",
+      "target_norm": 0.024119995870275197,
+      "errors": {
+        "full": 0.001449103513160201,
+        "shared2": 0.10224506788481051,
+        "input_rank2": 0.008198455885875942,
+        "context_rank1": 0.08096406952565563
+      },
+      "B_budget_errors": {
+        "full": 0.000490752914077762,
+        "shared2": 0.034626280703110954,
+        "input_rank2": 0.002776486345104045,
+        "context_rank1": 0.027419264872707152
+      },
+      "absolute_rms_errors": {
+        "full": 1.4269245607581716e-05,
+        "shared2": 0.0010068017726563446,
+        "input_rank2": 8.072976124622421e-05,
+        "context_rank1": 0.0007972489080034286
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "pair34",
+      "target_norm": 0.03144891682503302,
+      "errors": {
+        "full": 0.047168394086453305,
+        "shared2": 0.03688882595036276,
+        "input_rank2": 0.05105492842441941,
+        "context_rank1": 0.04319900163460404
+      },
+      "B_budget_errors": {
+        "full": 0.03928185341616524,
+        "shared2": 0.03072102584244543,
+        "input_rank2": 0.042518560434026666,
+        "context_rank1": 0.03597614213502672
+      },
+      "absolute_rms_errors": {
+        "full": 0.0006055934329856696,
+        "shared2": 0.0004736144017357366,
+        "input_rank2": 0.0006554925172714656,
+        "context_rank1": 0.0005546305361489256
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "arm": "pair34",
+      "target_norm": 0.0608224152138816,
+      "errors": {
+        "full": 0.0011265692962274937,
+        "shared2": 0.028264812650173648,
+        "input_rank2": 0.0026929909407845546,
+        "context_rank1": 0.028401390312693026
+      },
+      "B_budget_errors": {
+        "full": 0.0006000629290679419,
+        "shared2": 0.015055146918361304,
+        "input_rank2": 0.001434411569081404,
+        "context_rank1": 0.015127894500326367
+      },
+      "absolute_rms_errors": {
+        "full": 2.7973444552784255e-05,
+        "shared2": 0.0007018335863689337,
+        "input_rank2": 6.686870751355435e-05,
+        "context_rank1": 0.0007052248980995378
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "arm": "pair34",
+      "target_norm": 0.1044054549926961,
+      "errors": {
+        "full": 0.040654637914814815,
+        "shared2": 0.04280036719094409,
+        "input_rank2": 0.044297909979655145,
+        "context_rank1": 0.040687151037387195
+      },
+      "B_budget_errors": {
+        "full": 0.026041851302761147,
+        "shared2": 0.027416325793519738,
+        "input_rank2": 0.028375596091409272,
+        "context_rank1": 0.026062678001677823
+      },
+      "absolute_rms_errors": {
+        "full": 0.0017328368006296533,
+        "shared2": 0.001824294967386817,
+        "input_rank2": 0.0018881252555874761,
+        "context_rank1": 0.0017342226187843951
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "arm": "pair34",
+      "target_norm": 0.17716510689607143,
+      "errors": {
+        "full": 0.001761790671782423,
+        "shared2": 0.013656002948023105,
+        "input_rank2": 0.0024774507585814012,
+        "context_rank1": 0.010443581453952133
+      },
+      "B_budget_errors": {
+        "full": 0.0009508862857692772,
+        "shared2": 0.007370515765396018,
+        "input_rank2": 0.0013371474759940605,
+        "context_rank1": 0.005636684617492324
+      },
+      "absolute_rms_errors": {
+        "full": 0.00012742565410385682,
+        "shared2": 0.0009877025324101288,
+        "input_rank2": 0.00017918745312855104,
+        "context_rank1": 0.0007553565921713014
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "arm": "pair34",
+      "target_norm": 0.350275572469877,
+      "errors": {
+        "full": 0.01464529109397072,
+        "shared2": 0.010795777565297083,
+        "input_rank2": 0.016753566930406246,
+        "context_rank1": 0.014317782690548229
+      },
+      "B_budget_errors": {
+        "full": 0.010337553353116835,
+        "shared2": 0.007620328326255356,
+        "input_rank2": 0.01182570499191982,
+        "context_rank1": 0.010106377641261717
+      },
+      "absolute_rms_errors": {
+        "full": 0.002094267892748906,
+        "shared2": 0.0015437897537979681,
+        "input_rank2": 0.002395750080093272,
+        "context_rank1": 0.0020474343863684454
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "pair34",
+      "target_norm": 0.019619446658952197,
+      "errors": {
+        "full": 0.000535680386143114,
+        "shared2": 0.04065773078795267,
+        "input_rank2": 0.005272522977597564,
+        "context_rank1": 0.02008950423338237
+      },
+      "B_budget_errors": {
+        "full": 0.00025243874814261504,
+        "shared2": 0.01915990752681428,
+        "input_rank2": 0.002484670214642339,
+        "context_rank1": 0.00946715509969396
+      },
+      "absolute_rms_errors": {
+        "full": 4.290588598358559e-06,
+        "shared2": 0.00032565238650966033,
+        "input_rank2": 4.223082934796832e-05,
+        "context_rank1": 0.00016090900477248025
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "arm": "pair34",
+      "target_norm": 0.07343906621342727,
+      "errors": {
+        "full": 0.02094020602284211,
+        "shared2": 0.023085428535903514,
+        "input_rank2": 0.02966443975691486,
+        "context_rank1": 0.10107991769775126
+      },
+      "B_budget_errors": {
+        "full": 0.014860366663621923,
+        "shared2": 0.016382739131417835,
+        "input_rank2": 0.021051581401721448,
+        "context_rank1": 0.07173208504628839
+      },
+      "absolute_rms_errors": {
+        "full": 0.0006278161323864073,
+        "shared2": 0.0006921328492223988,
+        "input_rank2": 0.0008893806401560965,
+        "context_rank1": 0.0030305147390486615
+      }
+    }
+  ],
+  "scope": "Cross-audit of opened native intervention receipts; not new OOD and not a changed denominator for prior gates."
+}
