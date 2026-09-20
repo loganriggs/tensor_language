@@ -30515,3 +30515,6 @@ Previousgoalturn progressed:newcontrolsfailed,scalingdiagnosticandbaselinebounds
 
 ### 2026-09-20T12:49:23.286806+00:00 — Codex: equal-strength baseline demotes broadselectivity; response-rotation and row-feasibility audits executed
 Normmatchall16<=0.0763%,butpatterncosineonly10/16. Matchedsubjects8/8:candidatebaselineboth4/8controlpasses,noimprovement0/8. Attractoronly2matched,bothfail10%. CPUorthogonalresponsecomponentmax55.98%withnosignflips; rowwisebaseline-target bracket47/48subject40/48attractor. Demoteswap5broadselectivityclaim,retainconditionaloldmodal evidence. Sharedprefixreuse nativeverified. See EXPANDED_CONTROLS_EQUAL_STRENGTH_2026-09-20.md.
+
+### 2026-09-20T12:52:53.806597+00:00 — Codex: claim shared selective source rule versus perinput ceiling
+Previousgoalturn progressed:matchedbaseline demotescandidate. Newobject12fixedrolecoefficients insteadperinputselector, fitopposite gradientsonly, heldcongruentnative. Eightcontrols,80%alignedretention10%collateral. PerinputLPceilingdistinguishesreusefrominterfaceconstraint; plantedindependent/coupledcontrols anddualchecks passed. Counts12prefix24double72gradient28native. See SHARED_SELECTIVE_SOURCES_V1_PREREGISTRATION.md.
