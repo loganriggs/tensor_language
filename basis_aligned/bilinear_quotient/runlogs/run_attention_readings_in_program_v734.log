@@ -1,0 +1,14 @@
+reading 1.4 (same 0.05) inside the program: cost +0.0783, excess over the program +0.0060 (standalone single-head cost +0.0037)
+reading 5.5 (induction 0.1) inside the program: cost +0.0797, excess over the program +0.0074 (standalone single-head cost +0.0071)
+reading 5.7 (sink 0.55) inside the program: cost +0.0772, excess over the program +0.0049 (standalone single-head cost +0.0058)
+all three readings: cost +0.0930, excess +0.0207 (sum of singles +0.0182) | values inside: 1.4:0.0124->0.0158 (1.28x) 5.5:0.0118->0.0055 (0.46x) 5.7:0.0124->0.0090 (0.72x)
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_readings_in_program_cheap": false,
+    "pred_c_each_reading_holds_in_context": true,
+    "pred_d_readings_additive": true,
+    "pred_e_reading_heads_values_preserved": false
+  },
+  "forwards": 56
+}

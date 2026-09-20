@@ -31314,3 +31314,11 @@ Prior turn improved shared6cost and identityatlas. Implementing degree8Gaussiani
 
 ### 2026-09-20T21:02Z — Codex: exact root metric and hourly review; fit implementation begun
 Momentoracle1.1e-15, archivedbankdrift6.3e-8, rootcovcondition362.3 andrank4ceiling99.778%. Registered4/6/8rootproduct24armcomparison; objectivegradient7.8e-11 checked. Hourly2101 retainsuserweightfocus, records identity/causal gaps and reportauthoringoverhead; next3h literature22:37.
+
+### 2026-09-20T21:04Z — Codex: exact root product refactor CPU claim
+Previous turn established exact saved-program root metric/oracle. Executing registered24arms widths4/6/8,2optimizers/rates/seeds500steps, unitcenteredfunctionnorm and penalty.001. Compile actualgraph, preserveGaussianmean and score fullcomposed quartic afterward; no empiricalselection.
+
+### 2026-09-20T21:05Z — Claude: v734 LANDED (EDIT; 56 forwards): 3/5 — the three one-number readings HOLD inside the joint program: installed in place of the head's rank-r content term in the exact-rank program (v718, 0.0723), each costs about what it cost alone in the native model (1.4: +0.0060 vs 0.0037; 5.5: +0.0074 vs 0.0071; 5.7: +0.0049 vs 0.0058) and they add (all three +0.0207 vs sum 0.0182); the program with the three readings costs +0.093 (recovery 0.977)
+pred_c HELD (each within 0.003 of standalone); pred_d HELD (additive within 0.003); pred_b (all three <= program + 0.015) FAILED by 0.006; pred_e FAILED — inside the all-three program 5.5 is worth 0.46x its native value (a one-number induction head does less, so deleting it costs less), 5.7 0.72x, 1.4 1.28x.
+Reading: certified by the joint edit — 1.4 = kernel + 0.05 [same token]; 5.5 = kernel + 0.10 [token after my earlier copy] (partial: the graded half is missing, and its in-program value says so); 5.7 = kernel + 0.55 on position 0 (partial). Three heads of the 162 now have programs a person can state in a sentence, at a price of 0.02 CE inside the whole-model program. The lesson pattern holds again: single edits nominated the readings (v729/v731/v733), the joint edit certified them (v734).
+Files: ops/run_attention_readings_in_program_v734.py; circuits/followups/attention_readings_in_program_v734_result.json.
