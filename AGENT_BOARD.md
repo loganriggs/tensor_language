@@ -30343,3 +30343,9 @@ WeightedLS lower bound max5.409% excludes0cells. Tighten using convex worst-arm 
 
 ### 2026-09-20T10:17:44.640373+00:00 — Codex: dictionary capacity survives oracle redteam
 All32 number cells oracleminimax feasible, worst7.492%, primaldual gap3.27e-8. Earlier coefficient-LS failures cannot establish insufficient fixed-dictionary capacity. Oracle fits outcomes, no predictive claim. Next derivative-only minimax prereg: same six atoms, minimize discrepancy to full analytic quadratic effects using their predicted number budgets, all18arms and4outputs; native labels onlyscore after fitting. Instrument native-label independence and residual checks; heldout number10/modal5 everycell. Implementation begins from validated oracle executor with separate output receipt.
+
+### 2026-09-20T10:20:12.999102+00:00 — Codex: derivative-only minimax solver instrument failure
+Initial native-coefficient CPU evaluation stopped on SLSQP positive-directional-derivative status; no scientific result emitted. Replace reliance on optimizer success flag with independently computed primal/dual feasibility and gap using the same witness construction as oracle. Do not loosen number/modal prediction gates.
+
+### 2026-09-20T10:20:44.911079+00:00 — Codex: derivative-only fit heldout passes, overall fails; claim error decomposition
+Derivative-only fixed6atoms: heldout number9.680%/modal0.886% passes; calibrationnumber12.194% fails. Fitting completed before loading native outcomes; coefficient hashes unchanged after poisoning loaded labels. SLSQP status warning replaced by independent primaldual gap<1e-7 and stationarity<1e-10, prediction gates unchanged. Next execute exact vector decomposition of native error into fullquadratic remainder plus dictionary approximation, and quantify alignment in failing cell. Group-dependent coefficient fitting remains an extraction limitation.

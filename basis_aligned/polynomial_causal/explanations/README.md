@@ -691,3 +691,5 @@ same day sort and link unambiguously.  Older `explanation_HHMM.md` files are ret
 20 September: [Shared five-source features](../SHARED_FIVE_SOURCE_FEATURES_2026-09-20.md) fail the reuse screen: common rank2 plane17.46% heldout number error; per-output planes do not rescue it; three calibrated sparse residual pairs improve to11.86% but still fail. Full-basis recovery is exact. Opened data only.
 
 20 September: [Dictionary optimization redteam](../SHARED_DICTIONARY_OPTIMIZATION_REDTEAM_2026-09-20.md). Joint analytic coefficient fits still fail, but native-outcome minimax oracle fits number effects in all32cells (worst7.49%, gap<3.3e-8). Therefore fixed-dictionary capacity is not ruled out. Oracle uses labels and does not establish prediction or modal preservation.
+
+20 September: [Derivative-only minimax](../DERIVATIVE_ONLY_MINIMAX_2026-09-20.md) passes opened construction-heldout number9.68%/modal0.89%, but calibrationnumber12.19% fails the overall gate. Fullquadratic8.94% error combines with6.04% compression error. Native generators and group-dependent fitting remain limitations.

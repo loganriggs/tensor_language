@@ -1,8 +1,8 @@
 """Conditional robust coefficient selection; accepts derivatives, never native labels."""
 import numpy as np
-from scipy.optimize import minimize
+from scipy.optimize import minimize,nnls
 
-def fit(gradient,hessian,amplitudes,atoms):
+def fit(gradient,hessian,amplitudes,atoms,diagnostics=None):
     # G[B,O,P], H[B,O,P,P], A[arms,B,P], atoms[K,P,P].
     linear=-np.einsum('bop,abp->abo',gradient,amplitudes)
     quadratic=-.5*np.einsum('abp,bopq,abq->abo',amplitudes,hessian,amplitudes)
@@ -23,7 +23,17 @@ def fit(gradient,hessian,amplitudes,atoms):
         start=np.einsum('abk,ab->bk',U,Y);v=np.r_[start.ravel(),0.];v[-1]=np.linalg.norm(error(v),axis=1).max()+1e-8
         objective_jac=np.r_[np.zeros(len(v)-1),1.]
         result=minimize(lambda v:v[-1],v,jac=lambda v:objective_jac,constraints=[dict(type='ineq',fun=constraint,jac=jac)],method='SLSQP',options=dict(maxiter=500,ftol=1e-11))
-        assert result.success and constraint(result.x).min()>-1e-8, result.message
+        e=error(result.x);norm=np.linalg.norm(e,axis=1);primal=float(norm.max())
+        active=norm>=primal-1e-6;directions=e/np.maximum(norm[:,None],1e-30)
+        gradients=(U*directions[...,None]).reshape(len(amplitudes),-1)
+        weights=np.zeros(len(amplitudes));weights[active]=nnls(np.vstack([gradients[active].T,np.ones(active.sum())]),np.r_[np.zeros(gradients.shape[1]),1.])[0]
+        dual=weights[:,None]*directions
+        dual-=np.einsum('abk,bk->ab',U,np.einsum('abk,ab->bk',U,dual))
+        dual/=max(1.,np.linalg.norm(dual,axis=1).sum())
+        bound=float(-np.sum(dual*Y))
+        assert primal-bound<1e-7 and abs(np.einsum('abk,ab->bk',U,dual)).max()<1e-10, (result.message,primal,bound)
+        if diagnostics is not None:diagnostics.append(dict(output=o,optimizer_success=bool(result.success),message=str(result.message),primal=primal,dual=bound,gap=primal-bound,dual_stationarity=float(abs(np.einsum('abk,ab->bk',U,dual)).max())))
+        # Use actual residual for the primal witness; epigraph t and status are not trusted.
         whitened=result.x[:-1].reshape(batch,rank)
         coeff.append(np.stack([vt.T@(whitened[b]/s) for b,(_,s,vt) in enumerate(decomposed)]))
         checks.append(float(np.linalg.norm(error(result.x),axis=1).max()))
