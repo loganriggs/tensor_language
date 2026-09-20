@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_native_two_mlp_quartic_ht_v1.py", line 62, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_native_two_mlp_quartic_ht_v1.py", line 60, in main
+    export=A/'native_two_mlp_quartic_ht_v1.pt';guard_torch_save(exports,label=export.name);torch.save(exports,export)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: guard_torch_save() missing 1 required positional argument: 'path'

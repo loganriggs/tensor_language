@@ -1,0 +1,3872 @@
+{
+  "plan": {
+    "prefix": 24,
+    "full_forward": 16,
+    "full_source_jvp": 80,
+    "reader_reverse": 64,
+    "folds": 16,
+    "pure_path_replays": 64,
+    "predictions": {
+      "pred_a_polynomial_replay": "same pure native path versus folded quartic relative1e-8",
+      "pred_b_full_ht": "full pair-tree coefficient replay relative1e-10",
+      "pred_c_rank8": "rank8 pair-tree symmetrized coefficient relative error<=10%"
+    }
+  },
+  "counts": {
+    "prefix": 24,
+    "full_forward": 16,
+    "full_source_jvp": 80,
+    "reader_reverse": 64,
+    "folds": 16,
+    "pure_path_replays": 64
+  },
+  "checks": [
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 0,
+      "representative": "native_pair",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 1.1271398293670378e-15,
+      "rank8_polynomial_coefficient_error": 0.017287655317532076
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 0,
+      "representative": "symmetric",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 2.5101213638690188e-15,
+      "rank8_polynomial_coefficient_error": 0.019435041381544896
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 1,
+      "representative": "native_pair",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 1.073100375237909e-15,
+      "rank8_polynomial_coefficient_error": 0.001759677045780979
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 1,
+      "representative": "symmetric",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 1.5157628933265658e-15,
+      "rank8_polynomial_coefficient_error": 0.0020615396072680434
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 2,
+      "representative": "native_pair",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 1.0279996366197423e-15,
+      "rank8_polynomial_coefficient_error": 0.0047408213307847495
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 2,
+      "representative": "symmetric",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 1.0385315231957054e-15,
+      "rank8_polynomial_coefficient_error": 0.005856003197198204
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 3,
+      "representative": "native_pair",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 1.152929084052014e-15,
+      "rank8_polynomial_coefficient_error": 0.0010760491031386273
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 3,
+      "representative": "symmetric",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 1.446030879193355e-15,
+      "rank8_polynomial_coefficient_error": 0.0012108359525915987
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 4,
+      "representative": "native_pair",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 1.7663324559969192e-15,
+      "rank8_polynomial_coefficient_error": 0.008626520399243751
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 4,
+      "representative": "symmetric",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 1.7336796939200199e-15,
+      "rank8_polynomial_coefficient_error": 0.008808636610307842
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 5,
+      "representative": "native_pair",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 9.644227132768092e-16,
+      "rank8_polynomial_coefficient_error": 0.004505638034527399
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 5,
+      "representative": "symmetric",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 1.0481073883240785e-15,
+      "rank8_polynomial_coefficient_error": 0.00494301158849541
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 6,
+      "representative": "native_pair",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 3.1406453133758122e-15,
+      "rank8_polynomial_coefficient_error": 0.00733870304517631
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 6,
+      "representative": "symmetric",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 1.790606776932115e-15,
+      "rank8_polynomial_coefficient_error": 0.0078042779239045484
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 7,
+      "representative": "native_pair",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 1.5093704111103074e-15,
+      "rank8_polynomial_coefficient_error": 0.001999514948615315
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 7,
+      "representative": "symmetric",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 2.0152737374723688e-15,
+      "rank8_polynomial_coefficient_error": 0.0021357862900370016
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 8,
+      "representative": "native_pair",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 1.6378646405081443e-15,
+      "rank8_polynomial_coefficient_error": 0.02126603964641651
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 8,
+      "representative": "symmetric",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 1.9572613590787366e-15,
+      "rank8_polynomial_coefficient_error": 0.019214700629222065
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 9,
+      "representative": "native_pair",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 9.588177718748347e-16,
+      "rank8_polynomial_coefficient_error": 0.0070125676126660775
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 9,
+      "representative": "symmetric",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 1.045654238685799e-15,
+      "rank8_polynomial_coefficient_error": 0.006570210455764818
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 10,
+      "representative": "native_pair",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 1.276677730880716e-15,
+      "rank8_polynomial_coefficient_error": 0.015395204518420948
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 10,
+      "representative": "symmetric",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 3.7280726624619475e-15,
+      "rank8_polynomial_coefficient_error": 0.016831874511188925
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 11,
+      "representative": "native_pair",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 7.925203285470955e-16,
+      "rank8_polynomial_coefficient_error": 0.009027382032471132
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 11,
+      "representative": "symmetric",
+      "polynomial_replay": 2.402660182114791e-15,
+      "full_coefficient_error": 1.5573423303865509e-15,
+      "rank8_polynomial_coefficient_error": 0.009433250972248793
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 0,
+      "representative": "native_pair",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 1.180294416277832e-15,
+      "rank8_polynomial_coefficient_error": 0.0034310359908873438
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 0,
+      "representative": "symmetric",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 1.1015083490608005e-15,
+      "rank8_polynomial_coefficient_error": 0.0034699019762652276
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 1,
+      "representative": "native_pair",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 8.569527347995199e-16,
+      "rank8_polynomial_coefficient_error": 0.015960423170570455
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 1,
+      "representative": "symmetric",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 1.1523165241448166e-15,
+      "rank8_polynomial_coefficient_error": 0.016955682568715033
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 2,
+      "representative": "native_pair",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 2.26162610224934e-15,
+      "rank8_polynomial_coefficient_error": 0.009736168631301223
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 2,
+      "representative": "symmetric",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 1.0189368699010385e-15,
+      "rank8_polynomial_coefficient_error": 0.008693100480804012
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 3,
+      "representative": "native_pair",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 1.3668747581640168e-15,
+      "rank8_polynomial_coefficient_error": 0.02961268586591716
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 3,
+      "representative": "symmetric",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 2.1902342771655503e-15,
+      "rank8_polynomial_coefficient_error": 0.025216336598668353
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 4,
+      "representative": "native_pair",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 1.2291801025478089e-15,
+      "rank8_polynomial_coefficient_error": 0.009913854896181136
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 4,
+      "representative": "symmetric",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 8.948093599711979e-16,
+      "rank8_polynomial_coefficient_error": 0.010820794942472347
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 5,
+      "representative": "native_pair",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 1.2278158778579613e-15,
+      "rank8_polynomial_coefficient_error": 0.013432383057530002
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 5,
+      "representative": "symmetric",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 2.1842623732487147e-15,
+      "rank8_polynomial_coefficient_error": 0.013128989611968385
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 6,
+      "representative": "native_pair",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 1.2301461126291624e-15,
+      "rank8_polynomial_coefficient_error": 0.0019879006488838814
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 6,
+      "representative": "symmetric",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 1.3585519739810542e-15,
+      "rank8_polynomial_coefficient_error": 0.0014750720977594412
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 7,
+      "representative": "native_pair",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 9.229520949423007e-16,
+      "rank8_polynomial_coefficient_error": 0.011147392264401645
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 7,
+      "representative": "symmetric",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 2.738557792126995e-15,
+      "rank8_polynomial_coefficient_error": 0.011409622160106861
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 8,
+      "representative": "native_pair",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 8.89795395339131e-16,
+      "rank8_polynomial_coefficient_error": 0.0025439948989623576
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 8,
+      "representative": "symmetric",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 1.3538267826775512e-15,
+      "rank8_polynomial_coefficient_error": 0.002634269793267983
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 9,
+      "representative": "native_pair",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 1.3589403140386932e-15,
+      "rank8_polynomial_coefficient_error": 0.05055053761192649
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 9,
+      "representative": "symmetric",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 2.0707024042769718e-15,
+      "rank8_polynomial_coefficient_error": 0.03966116531953104
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 10,
+      "representative": "native_pair",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 1.0633138719049624e-15,
+      "rank8_polynomial_coefficient_error": 0.002144305365829646
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 10,
+      "representative": "symmetric",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 2.310551322804195e-15,
+      "rank8_polynomial_coefficient_error": 0.0022066551098369187
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 11,
+      "representative": "native_pair",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 1.0255077235344238e-15,
+      "rank8_polynomial_coefficient_error": 0.018414503717264354
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 11,
+      "representative": "symmetric",
+      "polynomial_replay": 2.3648117191986202e-15,
+      "full_coefficient_error": 2.338298631170901e-15,
+      "rank8_polynomial_coefficient_error": 0.019142326228565886
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 0,
+      "representative": "native_pair",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 1.7243122569146153e-15,
+      "rank8_polynomial_coefficient_error": 0.01799438411916462
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 0,
+      "representative": "symmetric",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 2.047434231960635e-15,
+      "rank8_polynomial_coefficient_error": 0.020242298191370814
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 1,
+      "representative": "native_pair",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 1.2847717706175375e-15,
+      "rank8_polynomial_coefficient_error": 0.0031947534563142688
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 1,
+      "representative": "symmetric",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 1.1018420431039921e-15,
+      "rank8_polynomial_coefficient_error": 0.003481356932972413
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 2,
+      "representative": "native_pair",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 1.3203468595230614e-15,
+      "rank8_polynomial_coefficient_error": 0.004394827490727392
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 2,
+      "representative": "symmetric",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 8.808334496229514e-16,
+      "rank8_polynomial_coefficient_error": 0.005286561239346123
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 3,
+      "representative": "native_pair",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 1.3695318552472965e-15,
+      "rank8_polynomial_coefficient_error": 0.0010703088780347272
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 3,
+      "representative": "symmetric",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 9.579002213729779e-16,
+      "rank8_polynomial_coefficient_error": 0.0011072715176067883
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 4,
+      "representative": "native_pair",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 1.8750408047638005e-15,
+      "rank8_polynomial_coefficient_error": 0.007540648083538186
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 4,
+      "representative": "symmetric",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 1.1883506993411575e-15,
+      "rank8_polynomial_coefficient_error": 0.008299014119367357
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 5,
+      "representative": "native_pair",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 1.0813228234350148e-15,
+      "rank8_polynomial_coefficient_error": 0.006656938051283085
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 5,
+      "representative": "symmetric",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 1.0794959430489569e-15,
+      "rank8_polynomial_coefficient_error": 0.007251065257292852
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 6,
+      "representative": "native_pair",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 1.1784485091046738e-15,
+      "rank8_polynomial_coefficient_error": 0.0067917516617562335
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 6,
+      "representative": "symmetric",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 2.234049584366904e-15,
+      "rank8_polynomial_coefficient_error": 0.007940454119357995
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 7,
+      "representative": "native_pair",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 1.0258444588727932e-15,
+      "rank8_polynomial_coefficient_error": 0.0017763280847633853
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 7,
+      "representative": "symmetric",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 1.4629677365913736e-15,
+      "rank8_polynomial_coefficient_error": 0.002763350873957276
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 8,
+      "representative": "native_pair",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 1.449281838133423e-15,
+      "rank8_polynomial_coefficient_error": 0.019603384218939496
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 8,
+      "representative": "symmetric",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 1.8054215976879597e-15,
+      "rank8_polynomial_coefficient_error": 0.018785497477921013
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 9,
+      "representative": "native_pair",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 1.1414017808160128e-15,
+      "rank8_polynomial_coefficient_error": 0.011702380570943579
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 9,
+      "representative": "symmetric",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 1.4467909886226838e-15,
+      "rank8_polynomial_coefficient_error": 0.011617245585583875
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 10,
+      "representative": "native_pair",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 1.8636888553843842e-15,
+      "rank8_polynomial_coefficient_error": 0.01549655726196271
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 10,
+      "representative": "symmetric",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 2.76801143012039e-15,
+      "rank8_polynomial_coefficient_error": 0.019650006339468763
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 11,
+      "representative": "native_pair",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 1.1506882260571794e-15,
+      "rank8_polynomial_coefficient_error": 0.015001654674399173
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 11,
+      "representative": "symmetric",
+      "polynomial_replay": 3.3669248983893454e-15,
+      "full_coefficient_error": 1.0954237720592554e-15,
+      "rank8_polynomial_coefficient_error": 0.014420567687478413
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 0,
+      "representative": "native_pair",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 1.005599255070386e-15,
+      "rank8_polynomial_coefficient_error": 0.009456335318872645
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 0,
+      "representative": "symmetric",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 1.1463056163016584e-15,
+      "rank8_polynomial_coefficient_error": 0.01016899945930262
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 1,
+      "representative": "native_pair",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 8.25513620242052e-16,
+      "rank8_polynomial_coefficient_error": 0.01596160447385852
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 1,
+      "representative": "symmetric",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 1.490048124344397e-15,
+      "rank8_polynomial_coefficient_error": 0.014712428562847768
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 2,
+      "representative": "native_pair",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 1.096774936452707e-15,
+      "rank8_polynomial_coefficient_error": 0.008652626884057048
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 2,
+      "representative": "symmetric",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 1.2307933334326042e-15,
+      "rank8_polynomial_coefficient_error": 0.007668991245555418
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 3,
+      "representative": "native_pair",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 1.4063961365847857e-15,
+      "rank8_polynomial_coefficient_error": 0.023219419034141556
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 3,
+      "representative": "symmetric",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 8.342037906738394e-16,
+      "rank8_polynomial_coefficient_error": 0.02540194059503452
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 4,
+      "representative": "native_pair",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 1.4308335240363202e-15,
+      "rank8_polynomial_coefficient_error": 0.041824175682849615
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 4,
+      "representative": "symmetric",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 2.0949823182866927e-15,
+      "rank8_polynomial_coefficient_error": 0.0328429325824466
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 5,
+      "representative": "native_pair",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 1.1893014879156218e-15,
+      "rank8_polynomial_coefficient_error": 0.010246634256678254
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 5,
+      "representative": "symmetric",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 1.5018413107981722e-15,
+      "rank8_polynomial_coefficient_error": 0.009811588161318996
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 6,
+      "representative": "native_pair",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 1.5097304554030305e-15,
+      "rank8_polynomial_coefficient_error": 0.006108938393485774
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 6,
+      "representative": "symmetric",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 1.242159668985483e-15,
+      "rank8_polynomial_coefficient_error": 0.005503825295394536
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 7,
+      "representative": "native_pair",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 1.0378067777522694e-15,
+      "rank8_polynomial_coefficient_error": 0.019766240449571034
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 7,
+      "representative": "symmetric",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 2.9609246369374005e-15,
+      "rank8_polynomial_coefficient_error": 0.023406491059068692
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 8,
+      "representative": "native_pair",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 1.0507237570254076e-15,
+      "rank8_polynomial_coefficient_error": 0.0074854691734231186
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 8,
+      "representative": "symmetric",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 1.29718998026696e-15,
+      "rank8_polynomial_coefficient_error": 0.00817443578993363
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 9,
+      "representative": "native_pair",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 1.3973789230998682e-15,
+      "rank8_polynomial_coefficient_error": 0.08230621621198862
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 9,
+      "representative": "symmetric",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 1.4343458261951391e-15,
+      "rank8_polynomial_coefficient_error": 0.06916328235750567
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 10,
+      "representative": "native_pair",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 9.459272741803805e-16,
+      "rank8_polynomial_coefficient_error": 0.0016954430819193494
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 10,
+      "representative": "symmetric",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 1.551440761368689e-15,
+      "rank8_polynomial_coefficient_error": 0.001868902937124326
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 11,
+      "representative": "native_pair",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 1.9956286575472424e-15,
+      "rank8_polynomial_coefficient_error": 0.02479646263634579
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 11,
+      "representative": "symmetric",
+      "polynomial_replay": 6.220707310072262e-15,
+      "full_coefficient_error": 1.3660814038794361e-15,
+      "rank8_polynomial_coefficient_error": 0.025309829821622682
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 0,
+      "representative": "native_pair",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 1.3788313342255915e-15,
+      "rank8_polynomial_coefficient_error": 0.08323278800782392
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 0,
+      "representative": "symmetric",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 2.2475611028888615e-15,
+      "rank8_polynomial_coefficient_error": 0.08334263122934853
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 1,
+      "representative": "native_pair",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 1.3015456663419469e-15,
+      "rank8_polynomial_coefficient_error": 0.004923335929534753
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 1,
+      "representative": "symmetric",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 9.418567970040485e-16,
+      "rank8_polynomial_coefficient_error": 0.00494100922796088
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 2,
+      "representative": "native_pair",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 1.17888203025517e-15,
+      "rank8_polynomial_coefficient_error": 0.01531668928893901
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 2,
+      "representative": "symmetric",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 1.1296177011106726e-15,
+      "rank8_polynomial_coefficient_error": 0.016502289891285635
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 3,
+      "representative": "native_pair",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 1.209446216872119e-15,
+      "rank8_polynomial_coefficient_error": 0.0021889696447308237
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 3,
+      "representative": "symmetric",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 1.1550294034275305e-15,
+      "rank8_polynomial_coefficient_error": 0.002592389612494306
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 4,
+      "representative": "native_pair",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 1.4634582637087631e-15,
+      "rank8_polynomial_coefficient_error": 0.023105362285813186
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 4,
+      "representative": "symmetric",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 1.027387442020029e-15,
+      "rank8_polynomial_coefficient_error": 0.020961621549990275
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 5,
+      "representative": "native_pair",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 9.821070130054609e-16,
+      "rank8_polynomial_coefficient_error": 0.0051617755276880724
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 5,
+      "representative": "symmetric",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 1.4222235483805916e-15,
+      "rank8_polynomial_coefficient_error": 0.005531331506660292
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 6,
+      "representative": "native_pair",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 9.051421832278052e-16,
+      "rank8_polynomial_coefficient_error": 0.02779769213121405
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 6,
+      "representative": "symmetric",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 1.4494260315697315e-15,
+      "rank8_polynomial_coefficient_error": 0.02813365104689037
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 7,
+      "representative": "native_pair",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 2.069616430421388e-15,
+      "rank8_polynomial_coefficient_error": 0.006481017859593259
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 7,
+      "representative": "symmetric",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 9.250896258455613e-16,
+      "rank8_polynomial_coefficient_error": 0.00631849372818668
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 8,
+      "representative": "native_pair",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 1.127862462574052e-15,
+      "rank8_polynomial_coefficient_error": 0.03484441412915135
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 8,
+      "representative": "symmetric",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 1.4503860383874924e-15,
+      "rank8_polynomial_coefficient_error": 0.03667531739109503
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 9,
+      "representative": "native_pair",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 9.38632725326406e-16,
+      "rank8_polynomial_coefficient_error": 0.008389015333266652
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 9,
+      "representative": "symmetric",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 1.055349286267656e-15,
+      "rank8_polynomial_coefficient_error": 0.009192000725522469
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 10,
+      "representative": "native_pair",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 1.7757741992377893e-15,
+      "rank8_polynomial_coefficient_error": 0.050401288009269754
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 10,
+      "representative": "symmetric",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 2.166668910410194e-15,
+      "rank8_polynomial_coefficient_error": 0.05624772268588491
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 11,
+      "representative": "native_pair",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 1.4653792587281447e-15,
+      "rank8_polynomial_coefficient_error": 0.009785712600935945
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 11,
+      "representative": "symmetric",
+      "polynomial_replay": 2.652660911381103e-15,
+      "full_coefficient_error": 1.0426151574781997e-15,
+      "rank8_polynomial_coefficient_error": 0.010215289989222318
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 0,
+      "representative": "native_pair",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 1.1025343779665489e-15,
+      "rank8_polynomial_coefficient_error": 0.0026538273485394058
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 0,
+      "representative": "symmetric",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 1.0827129786916975e-15,
+      "rank8_polynomial_coefficient_error": 0.0029942466745562506
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 1,
+      "representative": "native_pair",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 1.846646469377669e-15,
+      "rank8_polynomial_coefficient_error": 0.009363270134616474
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 1,
+      "representative": "symmetric",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 1.0279421090109253e-15,
+      "rank8_polynomial_coefficient_error": 0.009579233825614476
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 2,
+      "representative": "native_pair",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 1.4819674514297052e-15,
+      "rank8_polynomial_coefficient_error": 0.002938786879169309
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 2,
+      "representative": "symmetric",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 8.646063244684538e-16,
+      "rank8_polynomial_coefficient_error": 0.003346952517774382
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 3,
+      "representative": "native_pair",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 1.0003685059949664e-15,
+      "rank8_polynomial_coefficient_error": 0.018316618528430122
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 3,
+      "representative": "symmetric",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 1.1672316916821054e-15,
+      "rank8_polynomial_coefficient_error": 0.019456353887490493
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 4,
+      "representative": "native_pair",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 1.803327260814712e-15,
+      "rank8_polynomial_coefficient_error": 0.00413941855818558
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 4,
+      "representative": "symmetric",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 9.717173168374265e-16,
+      "rank8_polynomial_coefficient_error": 0.0042484978208904315
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 5,
+      "representative": "native_pair",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 2.3316859817275022e-15,
+      "rank8_polynomial_coefficient_error": 0.01150573591585292
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 5,
+      "representative": "symmetric",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 1.6874842399329498e-15,
+      "rank8_polynomial_coefficient_error": 0.010806814750079921
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 6,
+      "representative": "native_pair",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 9.274883715140315e-16,
+      "rank8_polynomial_coefficient_error": 0.000855010189016585
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 6,
+      "representative": "symmetric",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 9.713173234249781e-16,
+      "rank8_polynomial_coefficient_error": 0.0008299520649230115
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 7,
+      "representative": "native_pair",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 1.9305581102952398e-15,
+      "rank8_polynomial_coefficient_error": 0.02149801639095417
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 7,
+      "representative": "symmetric",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 3.0758797269881285e-15,
+      "rank8_polynomial_coefficient_error": 0.02470938982445939
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 8,
+      "representative": "native_pair",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 1.3385803610544064e-15,
+      "rank8_polynomial_coefficient_error": 0.0013911672148669409
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 8,
+      "representative": "symmetric",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 9.144447163382726e-16,
+      "rank8_polynomial_coefficient_error": 0.0013801092200359587
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 9,
+      "representative": "native_pair",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 1.4604539898407826e-15,
+      "rank8_polynomial_coefficient_error": 0.056599574403439185
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 9,
+      "representative": "symmetric",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 1.2681696170584794e-15,
+      "rank8_polynomial_coefficient_error": 0.06117781100216942
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 10,
+      "representative": "native_pair",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 1.4671759470328942e-15,
+      "rank8_polynomial_coefficient_error": 0.0017528886367736479
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 10,
+      "representative": "symmetric",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 8.828495755425609e-16,
+      "rank8_polynomial_coefficient_error": 0.0019784756564179863
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 11,
+      "representative": "native_pair",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 1.1060959491604734e-15,
+      "rank8_polynomial_coefficient_error": 0.018289603451887383
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 11,
+      "representative": "symmetric",
+      "polynomial_replay": 6.582310584537347e-15,
+      "full_coefficient_error": 2.3839203501221056e-15,
+      "rank8_polynomial_coefficient_error": 0.01566921379476355
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 0,
+      "representative": "native_pair",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 1.262079372054543e-15,
+      "rank8_polynomial_coefficient_error": 0.05496350369808739
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 0,
+      "representative": "symmetric",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 2.6835362803541643e-15,
+      "rank8_polynomial_coefficient_error": 0.05080954463709916
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 1,
+      "representative": "native_pair",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 1.098593069274193e-15,
+      "rank8_polynomial_coefficient_error": 0.011190991257470057
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 1,
+      "representative": "symmetric",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 2.2241740192882598e-15,
+      "rank8_polynomial_coefficient_error": 0.011395561627197136
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 2,
+      "representative": "native_pair",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 9.249166575577616e-16,
+      "rank8_polynomial_coefficient_error": 0.012226324747170886
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 2,
+      "representative": "symmetric",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 1.2631135314472449e-15,
+      "rank8_polynomial_coefficient_error": 0.014299562209947686
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 3,
+      "representative": "native_pair",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 1.8448471902319587e-15,
+      "rank8_polynomial_coefficient_error": 0.0026534774627467845
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 3,
+      "representative": "symmetric",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 9.374435459847379e-16,
+      "rank8_polynomial_coefficient_error": 0.0026042104515205137
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 4,
+      "representative": "native_pair",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 1.3858793218916783e-15,
+      "rank8_polynomial_coefficient_error": 0.015378041530707383
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 4,
+      "representative": "symmetric",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 1.4375940770512709e-15,
+      "rank8_polynomial_coefficient_error": 0.016960437952065532
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 5,
+      "representative": "native_pair",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 1.4279009200445417e-15,
+      "rank8_polynomial_coefficient_error": 0.01200164107560929
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 5,
+      "representative": "symmetric",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 1.4538369303560933e-15,
+      "rank8_polynomial_coefficient_error": 0.01427082882673546
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 6,
+      "representative": "native_pair",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 1.399452744414958e-15,
+      "rank8_polynomial_coefficient_error": 0.02334460172212186
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 6,
+      "representative": "symmetric",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 2.862008057831089e-15,
+      "rank8_polynomial_coefficient_error": 0.023777784098930322
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 7,
+      "representative": "native_pair",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 1.421865689869573e-15,
+      "rank8_polynomial_coefficient_error": 0.010597619175708206
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 7,
+      "representative": "symmetric",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 1.274698405025347e-15,
+      "rank8_polynomial_coefficient_error": 0.008865584728699319
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 8,
+      "representative": "native_pair",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 9.169103896093905e-16,
+      "rank8_polynomial_coefficient_error": 0.019054315113287416
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 8,
+      "representative": "symmetric",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 1.6380560652427506e-15,
+      "rank8_polynomial_coefficient_error": 0.017531253999615585
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 9,
+      "representative": "native_pair",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 1.1914946332155153e-15,
+      "rank8_polynomial_coefficient_error": 0.017597467370612137
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 9,
+      "representative": "symmetric",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 1.7637303061644716e-15,
+      "rank8_polynomial_coefficient_error": 0.018934751037158602
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 10,
+      "representative": "native_pair",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 2.6974752478676726e-15,
+      "rank8_polynomial_coefficient_error": 0.019131734575206692
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 10,
+      "representative": "symmetric",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 1.995485302310201e-15,
+      "rank8_polynomial_coefficient_error": 0.02293503180643658
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 11,
+      "representative": "native_pair",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 8.609514166789743e-16,
+      "rank8_polynomial_coefficient_error": 0.008509626020734455
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 11,
+      "representative": "symmetric",
+      "polynomial_replay": 1.6772339789711302e-15,
+      "full_coefficient_error": 9.167893842388255e-16,
+      "rank8_polynomial_coefficient_error": 0.008618236999803961
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 0,
+      "representative": "native_pair",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 1.1326555084100342e-15,
+      "rank8_polynomial_coefficient_error": 0.013152850578425983
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 0,
+      "representative": "symmetric",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 1.1175080610153206e-15,
+      "rank8_polynomial_coefficient_error": 0.011527443821629303
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 1,
+      "representative": "native_pair",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 1.3949301440686171e-15,
+      "rank8_polynomial_coefficient_error": 0.014134079226132478
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 1,
+      "representative": "symmetric",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 9.944633039749837e-16,
+      "rank8_polynomial_coefficient_error": 0.013485335005270415
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 2,
+      "representative": "native_pair",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 1.3228898339970386e-15,
+      "rank8_polynomial_coefficient_error": 0.01679533435249397
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 2,
+      "representative": "symmetric",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 2.1187067218015645e-15,
+      "rank8_polynomial_coefficient_error": 0.017817396458956875
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 3,
+      "representative": "native_pair",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 1.081815150016962e-15,
+      "rank8_polynomial_coefficient_error": 0.0334989722274941
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 3,
+      "representative": "symmetric",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 1.7223475341963104e-15,
+      "rank8_polynomial_coefficient_error": 0.034472627557289415
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 4,
+      "representative": "native_pair",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 9.47358805000341e-16,
+      "rank8_polynomial_coefficient_error": 0.03628977579880696
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 4,
+      "representative": "symmetric",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 1.2233656967484508e-15,
+      "rank8_polynomial_coefficient_error": 0.0349150548106288
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 5,
+      "representative": "native_pair",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 9.90128092428593e-16,
+      "rank8_polynomial_coefficient_error": 0.01898605758314473
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 5,
+      "representative": "symmetric",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 2.3643405166831475e-15,
+      "rank8_polynomial_coefficient_error": 0.013765120855639667
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 6,
+      "representative": "native_pair",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 1.0777579164575546e-15,
+      "rank8_polynomial_coefficient_error": 0.0053869285298266505
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 6,
+      "representative": "symmetric",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 1.0356474430128484e-15,
+      "rank8_polynomial_coefficient_error": 0.005320987900278756
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 7,
+      "representative": "native_pair",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 1.4128933741715059e-15,
+      "rank8_polynomial_coefficient_error": 0.03525344483525215
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 7,
+      "representative": "symmetric",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 1.3182503842737413e-15,
+      "rank8_polynomial_coefficient_error": 0.034713979712271525
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 8,
+      "representative": "native_pair",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 1.171321863445226e-15,
+      "rank8_polynomial_coefficient_error": 0.015175449254090803
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 8,
+      "representative": "symmetric",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 1.0412186581522758e-15,
+      "rank8_polynomial_coefficient_error": 0.0148534235477447
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 9,
+      "representative": "native_pair",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 2.604253937093968e-15,
+      "rank8_polynomial_coefficient_error": 0.0696463356604178
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 9,
+      "representative": "symmetric",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 1.454772378037273e-15,
+      "rank8_polynomial_coefficient_error": 0.0729273904248582
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 10,
+      "representative": "native_pair",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 1.162287721254789e-15,
+      "rank8_polynomial_coefficient_error": 0.003434483140221135
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 10,
+      "representative": "symmetric",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 1.1962555666539728e-15,
+      "rank8_polynomial_coefficient_error": 0.0028004835027810276
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 11,
+      "representative": "native_pair",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 2.1174472621603214e-15,
+      "rank8_polynomial_coefficient_error": 0.0267277613053324
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 11,
+      "representative": "symmetric",
+      "polynomial_replay": 4.519532193533233e-15,
+      "full_coefficient_error": 1.2582051812812652e-15,
+      "rank8_polynomial_coefficient_error": 0.025992496975086047
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 0,
+      "representative": "native_pair",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 1.4246005695675968e-15,
+      "rank8_polynomial_coefficient_error": 0.016566070603029434
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 0,
+      "representative": "symmetric",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 1.4091052183639153e-15,
+      "rank8_polynomial_coefficient_error": 0.01942489138239404
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 1,
+      "representative": "native_pair",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 1.0170369207066474e-15,
+      "rank8_polynomial_coefficient_error": 0.0018708304185542247
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 1,
+      "representative": "symmetric",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 9.253627760838207e-16,
+      "rank8_polynomial_coefficient_error": 0.0020705020763493415
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 2,
+      "representative": "native_pair",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 1.8607013289139604e-15,
+      "rank8_polynomial_coefficient_error": 0.0049954750073785935
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 2,
+      "representative": "symmetric",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 1.3961985495101574e-15,
+      "rank8_polynomial_coefficient_error": 0.006074195271368689
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 3,
+      "representative": "native_pair",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 1.5137204248529366e-15,
+      "rank8_polynomial_coefficient_error": 0.0011218178545966053
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 3,
+      "representative": "symmetric",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 1.3331763783835303e-15,
+      "rank8_polynomial_coefficient_error": 0.001296376400527557
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 4,
+      "representative": "native_pair",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 1.457125349099899e-15,
+      "rank8_polynomial_coefficient_error": 0.009280281012824996
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 4,
+      "representative": "symmetric",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 1.3785983514940655e-15,
+      "rank8_polynomial_coefficient_error": 0.009352318692380627
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 5,
+      "representative": "native_pair",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 8.8625516215036e-16,
+      "rank8_polynomial_coefficient_error": 0.004970461833930254
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 5,
+      "representative": "symmetric",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 1.7872922592853455e-15,
+      "rank8_polynomial_coefficient_error": 0.005366858501827915
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 6,
+      "representative": "native_pair",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 1.3652525536675873e-15,
+      "rank8_polynomial_coefficient_error": 0.008252324663821687
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 6,
+      "representative": "symmetric",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 2.414682550147111e-15,
+      "rank8_polynomial_coefficient_error": 0.009005098408832263
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 7,
+      "representative": "native_pair",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 1.0203407378429257e-15,
+      "rank8_polynomial_coefficient_error": 0.0021864379765913415
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 7,
+      "representative": "symmetric",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 6.846153458029171e-16,
+      "rank8_polynomial_coefficient_error": 0.0024493458505729826
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 8,
+      "representative": "native_pair",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 1.4875311669773283e-15,
+      "rank8_polynomial_coefficient_error": 0.02330172929808386
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 8,
+      "representative": "symmetric",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 1.9533530417104444e-15,
+      "rank8_polynomial_coefficient_error": 0.020178800651152212
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 9,
+      "representative": "native_pair",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 1.1731053302740125e-15,
+      "rank8_polynomial_coefficient_error": 0.007550101385488162
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 9,
+      "representative": "symmetric",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 1.483521641186345e-15,
+      "rank8_polynomial_coefficient_error": 0.007078144374384792
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 10,
+      "representative": "native_pair",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 1.993993257230577e-15,
+      "rank8_polynomial_coefficient_error": 0.015912307895159936
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 10,
+      "representative": "symmetric",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 9.18384477130421e-16,
+      "rank8_polynomial_coefficient_error": 0.016090392867179757
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 11,
+      "representative": "native_pair",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 1.1444064911287097e-15,
+      "rank8_polynomial_coefficient_error": 0.009503314945416903
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "near_greeted",
+      "row": 11,
+      "representative": "symmetric",
+      "polynomial_replay": 4.3270786912737985e-15,
+      "full_coefficient_error": 1.3990468318621335e-15,
+      "rank8_polynomial_coefficient_error": 0.00950613197387328
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 0,
+      "representative": "native_pair",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 1.7486397524953187e-15,
+      "rank8_polynomial_coefficient_error": 0.007803831455462502
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 0,
+      "representative": "symmetric",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 1.2557169421508257e-15,
+      "rank8_polynomial_coefficient_error": 0.007367402997727407
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 1,
+      "representative": "native_pair",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 9.316813957824202e-16,
+      "rank8_polynomial_coefficient_error": 0.00524673542830228
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 1,
+      "representative": "symmetric",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 9.927388889018812e-16,
+      "rank8_polynomial_coefficient_error": 0.005174880669976296
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 2,
+      "representative": "native_pair",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 1.2582340511740418e-15,
+      "rank8_polynomial_coefficient_error": 0.020274303792060792
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 2,
+      "representative": "symmetric",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 1.833080712234581e-15,
+      "rank8_polynomial_coefficient_error": 0.021117677672386575
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 3,
+      "representative": "native_pair",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 1.0971502693707308e-15,
+      "rank8_polynomial_coefficient_error": 0.013295747689028489
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 3,
+      "representative": "symmetric",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 1.07280815674453e-15,
+      "rank8_polynomial_coefficient_error": 0.011201144870603284
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 4,
+      "representative": "native_pair",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 1.0939459229716358e-15,
+      "rank8_polynomial_coefficient_error": 0.014502347768764029
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 4,
+      "representative": "symmetric",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 1.2096437889577743e-15,
+      "rank8_polynomial_coefficient_error": 0.01428367794082694
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 5,
+      "representative": "native_pair",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 1.0009122171126213e-15,
+      "rank8_polynomial_coefficient_error": 0.014119188845748953
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 5,
+      "representative": "symmetric",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 1.09708904414004e-15,
+      "rank8_polynomial_coefficient_error": 0.016866176753602774
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 6,
+      "representative": "native_pair",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 1.4355679974004059e-15,
+      "rank8_polynomial_coefficient_error": 0.007886712897827539
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 6,
+      "representative": "symmetric",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 1.0643685917745813e-15,
+      "rank8_polynomial_coefficient_error": 0.008708522153143241
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 7,
+      "representative": "native_pair",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 1.090151011800828e-15,
+      "rank8_polynomial_coefficient_error": 0.00810675007845939
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 7,
+      "representative": "symmetric",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 1.0102332951842626e-15,
+      "rank8_polynomial_coefficient_error": 0.008876409396348968
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 8,
+      "representative": "native_pair",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 1.3525587353092842e-15,
+      "rank8_polynomial_coefficient_error": 0.09065197213052648
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 8,
+      "representative": "symmetric",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 3.993956643639497e-15,
+      "rank8_polynomial_coefficient_error": 0.06785403499469317
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 9,
+      "representative": "native_pair",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 1.0339622918214387e-15,
+      "rank8_polynomial_coefficient_error": 0.007425799925418624
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 9,
+      "representative": "symmetric",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 2.2539845931144634e-15,
+      "rank8_polynomial_coefficient_error": 0.007523198101772315
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 10,
+      "representative": "native_pair",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 1.1046303179154979e-15,
+      "rank8_polynomial_coefficient_error": 0.0178998105038613
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 10,
+      "representative": "symmetric",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 2.4302713957482804e-15,
+      "rank8_polynomial_coefficient_error": 0.02127396140504663
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 11,
+      "representative": "native_pair",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 9.278515673776889e-16,
+      "rank8_polynomial_coefficient_error": 0.006231910228862952
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "near_greeted",
+      "row": 11,
+      "representative": "symmetric",
+      "polynomial_replay": 4.934936524327483e-15,
+      "full_coefficient_error": 2.13497296570481e-15,
+      "rank8_polynomial_coefficient_error": 0.006643475811186489
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 0,
+      "representative": "native_pair",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 1.0567775277181217e-15,
+      "rank8_polynomial_coefficient_error": 0.016671155749480047
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 0,
+      "representative": "symmetric",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 2.4864198983396094e-15,
+      "rank8_polynomial_coefficient_error": 0.01891512131225532
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 1,
+      "representative": "native_pair",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 8.370259389611285e-16,
+      "rank8_polynomial_coefficient_error": 0.003727269433077188
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 1,
+      "representative": "symmetric",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 1.3190660207222811e-15,
+      "rank8_polynomial_coefficient_error": 0.004272939565575066
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 2,
+      "representative": "native_pair",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 1.0842516180557702e-15,
+      "rank8_polynomial_coefficient_error": 0.0049718033847479534
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 2,
+      "representative": "symmetric",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 3.2966667876192385e-15,
+      "rank8_polynomial_coefficient_error": 0.005879024565633536
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 3,
+      "representative": "native_pair",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 8.842390521749723e-16,
+      "rank8_polynomial_coefficient_error": 0.0012087085909736539
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 3,
+      "representative": "symmetric",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 1.4214065083947276e-15,
+      "rank8_polynomial_coefficient_error": 0.0011839498289401321
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 4,
+      "representative": "native_pair",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 1.0882714474200955e-15,
+      "rank8_polynomial_coefficient_error": 0.008404543821026662
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 4,
+      "representative": "symmetric",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 3.658532775053903e-15,
+      "rank8_polynomial_coefficient_error": 0.008939358306750909
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 5,
+      "representative": "native_pair",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 1.6017040372064061e-15,
+      "rank8_polynomial_coefficient_error": 0.008504835235225234
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 5,
+      "representative": "symmetric",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 1.0255191307985816e-15,
+      "rank8_polynomial_coefficient_error": 0.00835702439536114
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 6,
+      "representative": "native_pair",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 1.1057462963481173e-15,
+      "rank8_polynomial_coefficient_error": 0.007161309635283393
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 6,
+      "representative": "symmetric",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 2.2924320443958975e-15,
+      "rank8_polynomial_coefficient_error": 0.008766514716929161
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 7,
+      "representative": "native_pair",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 2.2278114769570435e-15,
+      "rank8_polynomial_coefficient_error": 0.0026528962470470296
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 7,
+      "representative": "symmetric",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 1.3172895209531002e-15,
+      "rank8_polynomial_coefficient_error": 0.0037252539193076114
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 8,
+      "representative": "native_pair",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 7.616232809071591e-16,
+      "rank8_polynomial_coefficient_error": 0.02041626765450611
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 8,
+      "representative": "symmetric",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 1.4598001613042115e-15,
+      "rank8_polynomial_coefficient_error": 0.019894970013868973
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 9,
+      "representative": "native_pair",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 1.0693579301669216e-15,
+      "rank8_polynomial_coefficient_error": 0.014250213641515916
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 9,
+      "representative": "symmetric",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 1.0952325097366072e-15,
+      "rank8_polynomial_coefficient_error": 0.01442004022734974
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 10,
+      "representative": "native_pair",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 1.447441049586654e-15,
+      "rank8_polynomial_coefficient_error": 0.016434397574771782
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 10,
+      "representative": "symmetric",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 3.1944093276769205e-15,
+      "rank8_polynomial_coefficient_error": 0.01967877606174828
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 11,
+      "representative": "native_pair",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 9.55627151278531e-16,
+      "rank8_polynomial_coefficient_error": 0.013179205725155256
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "outside_called",
+      "row": 11,
+      "representative": "symmetric",
+      "polynomial_replay": 3.415719050423296e-15,
+      "full_coefficient_error": 1.4046745232280332e-15,
+      "rank8_polynomial_coefficient_error": 0.011780016166700387
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 0,
+      "representative": "native_pair",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 1.8854561530217553e-15,
+      "rank8_polynomial_coefficient_error": 0.007341567182205024
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 0,
+      "representative": "symmetric",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 1.2932502811529159e-15,
+      "rank8_polynomial_coefficient_error": 0.008005704371233012
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 1,
+      "representative": "native_pair",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 1.144661190507096e-15,
+      "rank8_polynomial_coefficient_error": 0.006845815195682393
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 1,
+      "representative": "symmetric",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 1.1716591760102556e-15,
+      "rank8_polynomial_coefficient_error": 0.006413752847479136
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 2,
+      "representative": "native_pair",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 1.0321644501222166e-15,
+      "rank8_polynomial_coefficient_error": 0.009454933028241786
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 2,
+      "representative": "symmetric",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 1.6167874798866798e-15,
+      "rank8_polynomial_coefficient_error": 0.010755304718495095
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 3,
+      "representative": "native_pair",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 1.953185502892138e-15,
+      "rank8_polynomial_coefficient_error": 0.0045934030438240575
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 3,
+      "representative": "symmetric",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 1.479774811694865e-15,
+      "rank8_polynomial_coefficient_error": 0.005302410185210208
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 4,
+      "representative": "native_pair",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 1.4021384928119083e-15,
+      "rank8_polynomial_coefficient_error": 0.009329760002892444
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 4,
+      "representative": "symmetric",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 2.7889681129735623e-15,
+      "rank8_polynomial_coefficient_error": 0.00910044636629215
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 5,
+      "representative": "native_pair",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 1.2544332649803323e-15,
+      "rank8_polynomial_coefficient_error": 0.017478534449598127
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 5,
+      "representative": "symmetric",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 1.2055944923511188e-15,
+      "rank8_polynomial_coefficient_error": 0.021299919980391456
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 6,
+      "representative": "native_pair",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 1.1460252370949979e-15,
+      "rank8_polynomial_coefficient_error": 0.01458968804352868
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 6,
+      "representative": "symmetric",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 2.0390326482227664e-15,
+      "rank8_polynomial_coefficient_error": 0.017894770251197137
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 7,
+      "representative": "native_pair",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 9.772933400950038e-16,
+      "rank8_polynomial_coefficient_error": 0.010745627536484998
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 7,
+      "representative": "symmetric",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 1.5680133805625042e-15,
+      "rank8_polynomial_coefficient_error": 0.009186554869080009
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 8,
+      "representative": "native_pair",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 1.4087905633077469e-15,
+      "rank8_polynomial_coefficient_error": 0.0742602091815028
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 8,
+      "representative": "symmetric",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 1.8218721855544865e-15,
+      "rank8_polynomial_coefficient_error": 0.06870656992842042
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 9,
+      "representative": "native_pair",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 1.1389153481132254e-15,
+      "rank8_polynomial_coefficient_error": 0.012860120849121765
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 9,
+      "representative": "symmetric",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 1.2216381968569618e-15,
+      "rank8_polynomial_coefficient_error": 0.012929852513773866
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 10,
+      "representative": "native_pair",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 1.0418077029248046e-15,
+      "rank8_polynomial_coefficient_error": 0.022467645686372963
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 10,
+      "representative": "symmetric",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 1.366059878567299e-15,
+      "rank8_polynomial_coefficient_error": 0.021603976752346696
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 11,
+      "representative": "native_pair",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 1.1745371807814015e-15,
+      "rank8_polynomial_coefficient_error": 0.0031771296580736614
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "outside_called",
+      "row": 11,
+      "representative": "symmetric",
+      "polynomial_replay": 4.484625345373133e-15,
+      "full_coefficient_error": 1.8377613524722907e-15,
+      "rank8_polynomial_coefficient_error": 0.003848394580711555
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 0,
+      "representative": "native_pair",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 1.239948721130877e-15,
+      "rank8_polynomial_coefficient_error": 0.08281240763114812
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 0,
+      "representative": "symmetric",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 3.4501637093023134e-15,
+      "rank8_polynomial_coefficient_error": 0.07599211257401078
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 1,
+      "representative": "native_pair",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 1.161153037440699e-15,
+      "rank8_polynomial_coefficient_error": 0.005338221001630602
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 1,
+      "representative": "symmetric",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 9.808978085344396e-16,
+      "rank8_polynomial_coefficient_error": 0.005637828191600362
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 2,
+      "representative": "native_pair",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 7.614608311432766e-16,
+      "rank8_polynomial_coefficient_error": 0.017348983099186296
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 2,
+      "representative": "symmetric",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 1.0541494406869484e-15,
+      "rank8_polynomial_coefficient_error": 0.01636652061022514
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 3,
+      "representative": "native_pair",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 1.0376930966871533e-15,
+      "rank8_polynomial_coefficient_error": 0.002213883765552896
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 3,
+      "representative": "symmetric",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 1.0576536235230353e-15,
+      "rank8_polynomial_coefficient_error": 0.002486540627266131
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 4,
+      "representative": "native_pair",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 1.022851674815977e-15,
+      "rank8_polynomial_coefficient_error": 0.023822860150589625
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 4,
+      "representative": "symmetric",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 9.981577568909535e-16,
+      "rank8_polynomial_coefficient_error": 0.022320471184706543
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 5,
+      "representative": "native_pair",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 1.1506589779042909e-15,
+      "rank8_polynomial_coefficient_error": 0.005790030758855877
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 5,
+      "representative": "symmetric",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 1.4118195719027493e-15,
+      "rank8_polynomial_coefficient_error": 0.006297623638799899
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 6,
+      "representative": "native_pair",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 1.3898059510759776e-15,
+      "rank8_polynomial_coefficient_error": 0.027457577493085944
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 6,
+      "representative": "symmetric",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 2.2655250796272846e-15,
+      "rank8_polynomial_coefficient_error": 0.028140461342665037
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 7,
+      "representative": "native_pair",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 1.1395007818466843e-15,
+      "rank8_polynomial_coefficient_error": 0.007968090134667111
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 7,
+      "representative": "symmetric",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 1.2187721120543607e-15,
+      "rank8_polynomial_coefficient_error": 0.008187446006095804
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 8,
+      "representative": "native_pair",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 2.0846288054039638e-15,
+      "rank8_polynomial_coefficient_error": 0.037365036028175466
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 8,
+      "representative": "symmetric",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 1.940358464356118e-15,
+      "rank8_polynomial_coefficient_error": 0.04080499778277848
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 9,
+      "representative": "native_pair",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 9.285359628622945e-16,
+      "rank8_polynomial_coefficient_error": 0.00935529586989708
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 9,
+      "representative": "symmetric",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 1.0210764276883238e-15,
+      "rank8_polynomial_coefficient_error": 0.009570879003834019
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 10,
+      "representative": "native_pair",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 1.1460719790314464e-15,
+      "rank8_polynomial_coefficient_error": 0.0544931249094199
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 10,
+      "representative": "symmetric",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 1.155556902356111e-15,
+      "rank8_polynomial_coefficient_error": 0.057436369721600704
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 11,
+      "representative": "native_pair",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 2.017935187683586e-15,
+      "rank8_polynomial_coefficient_error": 0.009717177292695828
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "yesterday_helped",
+      "row": 11,
+      "representative": "symmetric",
+      "polynomial_replay": 3.8895629107443766e-15,
+      "full_coefficient_error": 7.806681678101074e-16,
+      "rank8_polynomial_coefficient_error": 0.010236274504335728
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 0,
+      "representative": "native_pair",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 9.196876257398843e-16,
+      "rank8_polynomial_coefficient_error": 0.007153221395731445
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 0,
+      "representative": "symmetric",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 2.5163557198320003e-15,
+      "rank8_polynomial_coefficient_error": 0.00882687456404422
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 1,
+      "representative": "native_pair",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 8.910080804409241e-16,
+      "rank8_polynomial_coefficient_error": 0.010876152014464091
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 1,
+      "representative": "symmetric",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 9.7581724003459e-16,
+      "rank8_polynomial_coefficient_error": 0.013540981827205603
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 2,
+      "representative": "native_pair",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 9.630099747229864e-16,
+      "rank8_polynomial_coefficient_error": 0.012580741616477839
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 2,
+      "representative": "symmetric",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 1.3624741945357647e-15,
+      "rank8_polynomial_coefficient_error": 0.016799996515695588
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 3,
+      "representative": "native_pair",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 1.1077366261946653e-15,
+      "rank8_polynomial_coefficient_error": 0.004934431438073204
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 3,
+      "representative": "symmetric",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 2.064439225203141e-15,
+      "rank8_polynomial_coefficient_error": 0.004911265242447974
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 4,
+      "representative": "native_pair",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 3.3577241820753543e-15,
+      "rank8_polynomial_coefficient_error": 0.015611047128189408
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 4,
+      "representative": "symmetric",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 1.0586605181956345e-15,
+      "rank8_polynomial_coefficient_error": 0.011933196893236379
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 5,
+      "representative": "native_pair",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 1.1788787026937308e-15,
+      "rank8_polynomial_coefficient_error": 0.005707579470209242
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 5,
+      "representative": "symmetric",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 1.1003391031896066e-15,
+      "rank8_polynomial_coefficient_error": 0.005655693086684806
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 6,
+      "representative": "native_pair",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 9.86660514485186e-16,
+      "rank8_polynomial_coefficient_error": 0.011731650560953495
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 6,
+      "representative": "symmetric",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 1.046967880893303e-15,
+      "rank8_polynomial_coefficient_error": 0.011913889055042046
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 7,
+      "representative": "native_pair",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 1.1077494372590249e-15,
+      "rank8_polynomial_coefficient_error": 0.002487907708426207
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 7,
+      "representative": "symmetric",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 1.7154173982129e-15,
+      "rank8_polynomial_coefficient_error": 0.002288119398391973
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 8,
+      "representative": "native_pair",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 2.094076283917296e-15,
+      "rank8_polynomial_coefficient_error": 0.12229075076549087
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 8,
+      "representative": "symmetric",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 1.6489845362292204e-15,
+      "rank8_polynomial_coefficient_error": 0.09352136803027279
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 9,
+      "representative": "native_pair",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 9.344688154093174e-16,
+      "rank8_polynomial_coefficient_error": 0.0024711681537714215
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 9,
+      "representative": "symmetric",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 9.269105964194643e-16,
+      "rank8_polynomial_coefficient_error": 0.0024362660613373556
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 10,
+      "representative": "native_pair",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 1.0262000526517524e-15,
+      "rank8_polynomial_coefficient_error": 0.018508852383837975
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 10,
+      "representative": "symmetric",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 1.1061272957383292e-15,
+      "rank8_polynomial_coefficient_error": 0.02234403611656601
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 11,
+      "representative": "native_pair",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 1.3259938496397731e-15,
+      "rank8_polynomial_coefficient_error": 0.003294747263734448
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "yesterday_helped",
+      "row": 11,
+      "representative": "symmetric",
+      "polynomial_replay": 6.155577745816605e-15,
+      "full_coefficient_error": 1.118757068443861e-15,
+      "rank8_polynomial_coefficient_error": 0.003850146375513144
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 0,
+      "representative": "native_pair",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.802412754362491e-15,
+      "rank8_polynomial_coefficient_error": 0.048777695880268486
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 0,
+      "representative": "symmetric",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.955544229725944e-15,
+      "rank8_polynomial_coefficient_error": 0.04467275787363978
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 1,
+      "representative": "native_pair",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.1500443952421488e-15,
+      "rank8_polynomial_coefficient_error": 0.014491851714853699
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 1,
+      "representative": "symmetric",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.629571719622083e-15,
+      "rank8_polynomial_coefficient_error": 0.014216209408133538
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 2,
+      "representative": "native_pair",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.4372354606849763e-15,
+      "rank8_polynomial_coefficient_error": 0.011307324951657276
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 2,
+      "representative": "symmetric",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.2444453549604092e-15,
+      "rank8_polynomial_coefficient_error": 0.01236916839240651
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 3,
+      "representative": "native_pair",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.356071074322001e-15,
+      "rank8_polynomial_coefficient_error": 0.0030248258356489746
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 3,
+      "representative": "symmetric",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.1069821475975725e-15,
+      "rank8_polynomial_coefficient_error": 0.002897962911198551
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 4,
+      "representative": "native_pair",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.1625192542578867e-15,
+      "rank8_polynomial_coefficient_error": 0.015280594204588074
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 4,
+      "representative": "symmetric",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.8185408734106255e-15,
+      "rank8_polynomial_coefficient_error": 0.01690109163336001
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 5,
+      "representative": "native_pair",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.2763162026671177e-15,
+      "rank8_polynomial_coefficient_error": 0.014048748019073515
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 5,
+      "representative": "symmetric",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.7140735267729677e-15,
+      "rank8_polynomial_coefficient_error": 0.017246156718095224
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 6,
+      "representative": "native_pair",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.886643370186899e-15,
+      "rank8_polynomial_coefficient_error": 0.021281994709847134
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 6,
+      "representative": "symmetric",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 2.270911804478604e-15,
+      "rank8_polynomial_coefficient_error": 0.0221364845614808
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 7,
+      "representative": "native_pair",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.0911594518292928e-15,
+      "rank8_polynomial_coefficient_error": 0.012144519473449212
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 7,
+      "representative": "symmetric",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 2.5417049869018728e-15,
+      "rank8_polynomial_coefficient_error": 0.010127299971849702
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 8,
+      "representative": "native_pair",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.3968168131532461e-15,
+      "rank8_polynomial_coefficient_error": 0.017600094354981378
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 8,
+      "representative": "symmetric",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.3546728882356767e-15,
+      "rank8_polynomial_coefficient_error": 0.016164404826188514
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 9,
+      "representative": "native_pair",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.1136987344375433e-15,
+      "rank8_polynomial_coefficient_error": 0.02085916899909666
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 9,
+      "representative": "symmetric",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.9731142087767626e-15,
+      "rank8_polynomial_coefficient_error": 0.02203249947367695
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 10,
+      "representative": "native_pair",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.3640405852474314e-15,
+      "rank8_polynomial_coefficient_error": 0.020302597978585676
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 10,
+      "representative": "symmetric",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.84185787825972e-15,
+      "rank8_polynomial_coefficient_error": 0.02381279929421199
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 11,
+      "representative": "native_pair",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.0465265654686933e-15,
+      "rank8_polynomial_coefficient_error": 0.008376616621286961
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "template": "earlier_noticed",
+      "row": 11,
+      "representative": "symmetric",
+      "polynomial_replay": 2.195319202590091e-15,
+      "full_coefficient_error": 1.2607715814750785e-15,
+      "rank8_polynomial_coefficient_error": 0.008709810229899063
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 0,
+      "representative": "native_pair",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 1.4232202189691237e-15,
+      "rank8_polynomial_coefficient_error": 0.005112260258150791
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 0,
+      "representative": "symmetric",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 1.4324028470789556e-15,
+      "rank8_polynomial_coefficient_error": 0.0060833902428726275
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 1,
+      "representative": "native_pair",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 9.492928906028177e-16,
+      "rank8_polynomial_coefficient_error": 0.008937886612350829
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 1,
+      "representative": "symmetric",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 1.2338252502950656e-15,
+      "rank8_polynomial_coefficient_error": 0.010394877783869817
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 2,
+      "representative": "native_pair",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 1.202766365774468e-15,
+      "rank8_polynomial_coefficient_error": 0.025785336802822148
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 2,
+      "representative": "symmetric",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 1.3924516548861718e-15,
+      "rank8_polynomial_coefficient_error": 0.030343630011833225
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 3,
+      "representative": "native_pair",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 9.690971895760784e-16,
+      "rank8_polynomial_coefficient_error": 0.008760002020686879
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 3,
+      "representative": "symmetric",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 1.1760304050307763e-15,
+      "rank8_polynomial_coefficient_error": 0.010968075072688332
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 4,
+      "representative": "native_pair",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 1.8214183390934843e-15,
+      "rank8_polynomial_coefficient_error": 0.017615491992758192
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 4,
+      "representative": "symmetric",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 1.3124180180995082e-15,
+      "rank8_polynomial_coefficient_error": 0.013461895177660497
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 5,
+      "representative": "native_pair",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 1.1533060040276265e-15,
+      "rank8_polynomial_coefficient_error": 0.02431698433151925
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 5,
+      "representative": "symmetric",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 8.762772257585743e-16,
+      "rank8_polynomial_coefficient_error": 0.02615396238541181
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 6,
+      "representative": "native_pair",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 1.084318176819572e-15,
+      "rank8_polynomial_coefficient_error": 0.02495642810668596
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 6,
+      "representative": "symmetric",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 1.5930248672038672e-15,
+      "rank8_polynomial_coefficient_error": 0.020306806829616768
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 7,
+      "representative": "native_pair",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 1.250732114157419e-15,
+      "rank8_polynomial_coefficient_error": 0.011383372920098543
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 7,
+      "representative": "symmetric",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 1.4712868874626116e-15,
+      "rank8_polynomial_coefficient_error": 0.01021501430612965
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 8,
+      "representative": "native_pair",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 1.2744642062731064e-15,
+      "rank8_polynomial_coefficient_error": 0.055311837141655044
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 8,
+      "representative": "symmetric",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 1.6561900750698952e-15,
+      "rank8_polynomial_coefficient_error": 0.04827095400509723
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 9,
+      "representative": "native_pair",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 1.151142818122557e-15,
+      "rank8_polynomial_coefficient_error": 0.01668928946873717
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 9,
+      "representative": "symmetric",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 1.3520760753046598e-15,
+      "rank8_polynomial_coefficient_error": 0.017551512950491618
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 10,
+      "representative": "native_pair",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 1.41787157139907e-15,
+      "rank8_polynomial_coefficient_error": 0.024686160509869253
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 10,
+      "representative": "symmetric",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 1.0408893129539263e-15,
+      "rank8_polynomial_coefficient_error": 0.0284090065913012
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 11,
+      "representative": "native_pair",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 1.4694431982146223e-15,
+      "rank8_polynomial_coefficient_error": 0.003265559444042668
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "template": "earlier_noticed",
+      "row": 11,
+      "representative": "symmetric",
+      "polynomial_replay": 4.725628316800935e-15,
+      "full_coefficient_error": 1.4911197260608644e-15,
+      "rank8_polynomial_coefficient_error": 0.0040475089031754095
+    }
+  ],
+  "predictions": {
+    "pred_a_polynomial_replay": true,
+    "pred_b_full_ht": true,
+    "pred_c_rank8": false
+  },
+  "scope": "Single nominated-position homogeneous MLP11->direct lambda12->MLP12 numerator path under native derivative source frame and downstream readers. Biases, backgrounds, RMS denominators and attention12 path excluded explicitly; not full native finite edit or causal extraction.",
+  "seconds": 13.693743736948818
+}

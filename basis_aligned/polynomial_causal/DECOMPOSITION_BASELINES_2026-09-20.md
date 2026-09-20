@@ -170,3 +170,5 @@ Later [quadratic design audit](SHARED_SOURCE_QUADRATIC_DICTIONARY_2026-09-20.md)
 20 September: [Derivative-only minimax](DERIVATIVE_ONLY_MINIMAX_2026-09-20.md) passes opened construction-heldout number9.68%/modal0.89%, but calibrationnumber12.19% fails the overall gate. Fullquadratic8.94% error combines with6.04% compression error. Native generators and group-dependent fitting remain limitations.
 
 20 September: [Per-input minimax extraction check](SINGLETON_MINIMAX_2026-09-20.md) fails heldout number37.22%; retaining group budgets reduces it to10.104% but still fails. True singleton coefficients pass batch permutation/peer-removal checks exactly. Grouped partial success is not standalone extraction.
+
+20 September: [Native two-MLP quartic/HT baseline](NATIVE_TWO_MLP_QUARTIC_HT_2026-09-20.md). Exact homogeneous numerator fold6.59e-15; rank8 symmetric tree9.35% error but656values loses to exact canonical280. Rank2 costs116 but fails36%coefficient error. This is a named direct polynomial branch, not the normalized full model or causal extraction.
