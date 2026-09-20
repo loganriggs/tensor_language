@@ -20,7 +20,7 @@ Include the current circuit object and the current folded-path object. For bilin
 QK or MLP inputs, show how earlier attention and MLP residual sources create self
 and cross terms, and which subset the current path proposes to retain.
 
-Search and open primary mathematical literature when it can change the plan. Map
+Search and open related primary mathematical literature at every review. Record the actual queries, sources opened, and whether they change the plan. Map
 the best theorem or algorithm to the precise native object and assumptions, then
 derive an executable consequence such as an exact folding identity, lower bound,
 identifiability test, canonical form, falsifying toy model, or opposing-prediction
@@ -50,3 +50,20 @@ organizational/efficiency result, and paths written.
 Current instance correction (17 September): /workspace/tensor_language is the live checkout; Supervisor manages bqrunner/bqrunner2 and cron. Do not assume old workstation systemd paths. Use /venv/main/bin/python for CPU controls. Read the latest commits and CIRCUIT_GRAPH_REGISTRY_V1.md; historical LATEST pointers may be stale. Explicitly score all four traits: held-out/OOD prediction, extraction at a declared boundary, selective manipulation/removal against appropriate controls, and composition/reuse. Price simplicity separately; lower error or storage alone cannot stand in for a missing trait. Primary agent owns TYPED_FACE_EXTRACTION_V1: do not modify that implementation.
 
 User-designated authorities: read basis_aligned/better_circuits.md and basis_aligned/communicating_results.md. Apply the five-property definition (simple, predicts OOD, extracted, selective, composes), keeping measured simplicity in addition to the four behavioral properties. Prefer depth on the regional path, exact port closure, full QK1*QK2*V interactions, forward response census before proposing a suffix, and preregistered matched nulls. Distinguish fold/edit/response/fit and fresh/opened/replay evidence; use actual distinct context cells, not only row counts. A closed Mobius face identity is not proof of small interactions relative to the smallest piece or of random-split specificity.
+
+20 September user update: Every three hours perform a high-level mathematical
+review AND related literature search. Include these explicit sections:
+LITERATURE_SEARCH: actual searches, opened primary sources, assumptions mapped to
+our model; report access failures honestly. Never mark a skipped search complete.
+BASELINE_COMPARISON: use DECOMPOSITION_BASELINES_2026-09-20.md; compare equal output,
+ports, precision, and error measure; include native factorization, conventional
+spectral/Tucker/HT baselines and matched-cost controls. Missing runs stay missing.
+REDTEAM_POSITIVE: try to break the strongest new success: leakage, constants,
+fallback-to-dense, free native ports, norm or bias shortcuts, unrelated damage,
+capacity differences and reuse claims. Run a targeted control if feasible.
+REDTEAM_NEGATIVE: try to rescue the strongest new failure: full-rank recovery,
+independent contractions, axes/signs/bias/norm checks, positive planted examples,
+precision, factor gauges and convergence. A failed implementation is not evidence
+against the method. Preserve original receipts and write corrections separately.
+This bounded scheduled review ends after its executed consequence and receipt;
+it does not continue the primary agent's unbounded goal.

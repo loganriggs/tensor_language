@@ -1,0 +1,14 @@
+{
+  "target": "0.01*x0^2 + x1^2",
+  "norm": "symmetric coefficient Frobenius",
+  "errors": {
+    "raw_matrix_svd": 0.9999500037496877,
+    "balanced_matrix_svd": 0.009999500037496877,
+    "joint_quadratic_spectral": 0.009999500037496877
+  },
+  "gauge_invariance_error": 1.734723475976807e-18,
+  "independent_evaluation_max_error": 5.551115123125783e-17,
+  "sign_mutation_detected": true,
+  "conclusion": "Raw factor-SVD failure does not rule out a simple joint decomposition.",
+  "scope": "planted CPU control, no native compression claim"
+}

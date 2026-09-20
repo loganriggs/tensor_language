@@ -1,0 +1,5 @@
+SHELL=/bin/bash
+PATH=/opt/nvm/versions/node/v24.20.0/bin:/usr/local/bin:/usr/bin:/bin
+HOME=/root
+# Check every five minutes; wrapper runs only after the three-hour interval.
+*/5 * * * * root /bin/bash /workspace/tensor_language/session_recovery/scheduled_review.sh mathematical >> /var/log/bilin18-reviews.log 2>&1
