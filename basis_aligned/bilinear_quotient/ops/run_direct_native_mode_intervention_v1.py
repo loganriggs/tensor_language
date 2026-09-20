@@ -14,6 +14,8 @@ ROOT=Path(__file__).resolve().parents[3];P=ROOT/'basis_aligned/polynomial_causal
 PLAN=dict(documents=list(range(80,96)),context=128,modes=[0,1,2,3,'joint'],native_forwards=16)
 PANEL_PATH=None
 OUTPUT_STEM='NATIVE_MODE_INTERVENTION_V1'
+PROGRAM_FILE='FUSED_ROOT_PROGRAM_V1.pt'
+PROGRAM_KEY=4
 def main():
  if os.environ.get('BQLIB_DRYRUN') or os.environ.get('BQLIB_NO_MODEL'):print(json.dumps(PLAN));return
  import torch
@@ -29,7 +31,7 @@ def main():
  scale=float(torch.load(P/'NATIVE_QUARTIC_MEAN_V1.pt',weights_only=True)['teacher_scale'])
  view=torch.load(P/'CANONICAL_ROOT_FEATURES_V1.pt',weights_only=True);U=view['output_directions'].cuda().double();mu=view['output_mean'].cuda().double()
  writer=torch.linalg.solve_triangular(ru,scale*U,upper=True)
- s={k:v.cuda().double() for k,v in torch.load(P/'FUSED_ROOT_PROGRAM_V1.pt',weights_only=True)['programs'][4].items()}
+ s={k:v.cuda().double() for k,v in torch.load(P/PROGRAM_FILE,weights_only=True)['programs'][PROGRAM_KEY].items()}
  ids=torch.load(PANEL_PATH,weights_only=True) if PANEL_PATH is not None else torch.load(BQ/'.rowcache/fineweb_n192_skip7000.pt',weights_only=True)[80:96,:129];records=[];checks=[]
  rel=lambda a,b:float((a-b).norm()/b.norm().clamp_min(1e-30))
  checks.append(rel(ru@writer,scale*U))

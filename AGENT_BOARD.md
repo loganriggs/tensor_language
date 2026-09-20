@@ -31379,3 +31379,6 @@ Files: ops/run_attention_layer2_gates_in_program_v736.py; circuits/followups/att
 
 ### 2026-09-20T21:42Z — Codex: code shift exposes prediction and feature transfer limits
 Both managed repeats terminal and instruments pass. Code tenproduct CE+.01061 but KL.05907 fails .02; ablation CE+.37197, logit disturbance ratio<.5 passes. Mode1 stricter bar fails cos.892/error.481; broad all4bar passes. Post-hoc CPU effect-vector scalar oracle executed: code mode1 best scalar error.452, still>.4; simple gain rescaling of final effects cannot repair it (not a lower bound for nonlinear edits). Preserve all failures; next work must address directional/extrapolation error rather than polish average CE.
+
+### 2026-09-20T21:42Z — Codex: archived-stage attribution claim
+Previous turn progressed via code transfer failures and CPU scalar-oracle falsifier. Claim32forward managed comparison: original26 and archived12-product predict native mode removals using same frozen ten-product canonical directions on reused code panel. Preregistered mode1error<.4/cos>.9 for both, exact native-energy/hash equality. This distinguishes final rootcompression failure from earlier/shared representation assumptions, no refitting.
