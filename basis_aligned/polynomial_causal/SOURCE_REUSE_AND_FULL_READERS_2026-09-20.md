@@ -72,3 +72,20 @@ At boundary k, replace the reduced response by the projected native response aft
 Earlier substitutions are not monotonic improvements: k1 makes A modal error13.01% versus6.11% at k0; k2 gives A target14.40%. Thus native-state substitution plus projection can disrupt compensating errors or expose state directions omitted by the next interface. These experiments localize a diagnostic distinction to earlier versus later suffix computation, not a unique faulty layer. They do not justify adopting the whole circuit, or replacing a legal initial interface by an uncharged native oracle.
 
 CPU audit independently summarizes all boundaries and telescopes the modal-prediction differences. Adjacent differences are differences between reset experiments, not isolated causal layer effects. Primary receipt: `subject_attention_freeze_v681_result.json`; audit: `SOURCE_BOUNDARY_CPU_AUDIT_2026-09-20.json`. Next informative test separates attention-input projection from post-attention/MLP propagation in blocks12–15, keeping the same basis and control rows.
+
+## v682–685: fixed initial reconstruction fails a source control
+
+Four opposing diagnostics keep the same v665 basis and opened source rows:
+
+| Diagnostic | A target / modal maximum | B target / modal maximum | Interpretation |
+|---|---:|---:|---|
+| v682 native post-attention resets | only layers16,17 pass both source gates | same | Early post-attention interfaces do not rescue reuse |
+| v683 full attention write through MLP, projection only at block ends | 9.69% / 6.06% | 4.71% / 6.60% | Removing the attention-to-MLP projection is insufficient |
+| v684 decoded initial state, native suffix, projected final readout | 5.09% / 7.11% | 2.10% / 4.78% | A still fails; final-projection confound remains |
+| v685 decoded initial state, native suffix and native readout | 5.25% / 6.69% | 1.97% / 4.89% | A failure survives removal of final projection |
+
+The v683 independent native projected-interface control matches the dense compiled runtime within4.02e-6. The v685 confound control intentionally reruns v684 while retaining previously omitted native modal outputs. All shared baseline targets and predictions agree exactly across v680–685; v684/v685 final-projected predictions agree exactly. No negative is relabelled an impossibility theorem.
+
+CPU audit checks WᵀP=I with maxerror2.51e-14. Thus, in exact arithmetic, delta and P Wᵀdelta have identical latent coordinates and their difference lies in the encoder kernel. The discarded direction nevertheless matters to source A's native modal responses. This invalidates this fixed linear state reconstruction on the tested intervention interface. It does not establish a lower bound for all width8 models, nor preclude a nonlinear predictor on a restricted source-edit manifold: reconstructed states need not be natural examples. Native float32 add/subtract also means the actual executed pair is a numerical near-collision, not a symbolic exact collision.
+
+Reproducible audit: `audit_subject_interface.py`; receipt: `SUBJECT_INTERFACE_AUDIT_2026-09-20.json`. The next representation decision must preserve the missing source information or explicitly narrow the allowed interface; changing internal contraction order alone cannot recover an input direction already discarded. The full program goal retains source reuse and cannot adopt the current eight-feature reconstruction.

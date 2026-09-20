@@ -1,0 +1,22 @@
+{
+  "cross_receipt_max_difference": 0.0,
+  "initial_final_projection_rerun_identical": true,
+  "encoder_decoder_identity_max_error": 2.5071470507315174e-14,
+  "random_discarded_coordinate_max_error": 2.8835034403609794e-16,
+  "exact_native_after_initial_decode": {
+    "A": {
+      "max_target_error": 0.05254983452859808,
+      "max_modal_error": 0.06691249248066647
+    },
+    "B": {
+      "max_target_error": 0.019740751768536194,
+      "max_modal_error": 0.04893350387905793
+    },
+    "sum": {
+      "max_target_error": 0.018150701214778308,
+      "max_modal_error": 0.04584620870586693
+    }
+  },
+  "algebra": "For column delta, z=W.T delta, decoded=P z; W.T P=I implies W.T(delta-decoded)=0.",
+  "scope": "Fixed linear reconstruction is not faithful for all tested source effects. Original versus decoded states constitute a kernel-direction diagnostic on the continuous interface; decoded states need not lie on the natural/source-edit manifold. No lower bound against all width8 or nonlinear predictors."
+}
