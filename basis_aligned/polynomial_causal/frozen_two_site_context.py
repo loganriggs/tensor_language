@@ -13,7 +13,7 @@ def build(model,context,modal,capture_fn=None):
     decoder=json.loads((P/'SUBJECT_NUMBER_EMBEDDING_DECODER_FROZEN_V1_ARTIFACT.json').read_text())['frozen_decoder']
     axis=torch.tensor(decoder['axis'],device='cuda',dtype=torch.float64);unit=axis/axis.norm();threshold=float(decoder['threshold'])/float(axis.norm())
     panel,template=context['panel'],context['template']
-    rows=json.loads((P/f'SOURCE_OOD_V2_{panel.upper()}_ROWS.json').read_text());entries=[r for r in rows if r['template']==template]
+    rows=json.loads((P/context.get('rows_file',f'SOURCE_OOD_V2_{panel.upper()}_ROWS.json')).read_text());entries=[r for r in rows if r['template']==template]
     tokens=torch.tensor([r['token_ids'] for r in entries],device='cuda');batch=torch.arange(len(entries),device='cuda');read=torch.tensor([r['readout_position'] for r in entries],device='cuda')
     answers=torch.tensor([r['answer_ids'] for r in entries],device='cuda');pairs=torch.cat([answers[:,None,:],modal[None].expand(len(entries),len(modal),2)],dim=1)
     initial=F.rms_norm(model.transformer.wte(tokens),(model.config.n_embd,)).float();raw,x0,first,pb,_=capture_fn(model,initial,torch,F)
