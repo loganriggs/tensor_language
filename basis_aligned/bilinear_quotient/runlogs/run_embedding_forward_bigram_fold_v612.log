@@ -1,0 +1,24 @@
+bigram instances 245760, unique pairs 129917, unigram vocab seen 21878
+natural: {'share_mean': 0.2746, 'share_median': 0.2367, 'write_energy': 2867761686.7445, 'fraction_uu': 0.7487, 'fraction_interaction': 0.12, 'fraction_cc': 0.0808, 'cross_uu_inter': -0.0453, 'cross_uu_cc': 0.1218, 'cross_inter_cc': -0.026, 'head_share_of_cross': [0.004, 0.005, 0.001, 0.794, 0.008, 0.005, 0.057, 0.026, 0.099]}
+random : {'share_mean': 0.1974, 'share_median': 0.1709, 'write_energy': 2810457551.826, 'fraction_uu': 0.8266, 'fraction_interaction': 0.0686, 'fraction_cc': 0.049, 'cross_uu_inter': -0.0296, 'cross_uu_cc': 0.0902, 'cross_inter_cc': -0.0048, 'head_share_of_cross': [0.001, 0.002, 0.004, 0.841, 0.007, 0.012, 0.022, 0.023, 0.088]}
+replay rel-L2 (MLP-0 input, position 1): 5.666133233717119e-07
+head 0.0: pattern 90/95/99% rank {'0.9': 352, '0.95': 753, '0.99': 1755} | factors 64/38 | rms 0.0134
+head 0.1: pattern 90/95/99% rank {'0.9': 402, '0.95': 868, '0.99': 1920} | factors 66/61 | rms 0.0138
+head 0.2: pattern 90/95/99% rank {'0.9': 1036, '0.95': 1516, '0.99': 2443} | factors 77/80 | rms 0.0100
+head 0.3: pattern 90/95/99% rank {'0.9': 1, '0.95': 2, '0.99': 36} | factors 1/1 | rms 0.0995
+head 0.4: pattern 90/95/99% rank {'0.9': 1, '0.95': 9, '0.99': 89} | factors 1/1 | rms 0.0423
+head 0.5: pattern 90/95/99% rank {'0.9': 462, '0.95': 947, '0.99': 1985} | factors 51/78 | rms 0.0131
+head 0.6: pattern 90/95/99% rank {'0.9': 2, '0.95': 15, '0.99': 305} | factors 8/47 | rms 0.0371
+head 0.7: pattern 90/95/99% rank {'0.9': 1, '0.95': 4, '0.99': 68} | factors 1/1 | rms 0.0614
+head 0.8: pattern 90/95/99% rank {'0.9': 2, '0.95': 9, '0.99': 71} | factors 4/1 | rms 0.0626
+cross-term Tucker profile (t / s / o): {'mode_t': {'0.9': 1, '0.95': 3, '0.99': 60}, 'mode_s': {'0.9': 129, '0.95': 229, '0.99': 610}, 'mode_o': {'0.9': 116, '0.95': 164, '0.99': 351}, 'energy_check_rel': 1.27659942323985e-07}
+{
+  "predictions": {
+    "pred_a_bigram_replay": true,
+    "pred_b_cross_share_moderate": true,
+    "pred_c_interaction_over_pure": false,
+    "pred_d_natural_over_random": true,
+    "pred_e_score_rank": false
+  },
+  "forwards": 14
+}
