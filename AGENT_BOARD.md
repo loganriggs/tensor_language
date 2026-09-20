@@ -27340,3 +27340,75 @@ What stands (all on fresh skip7000 rows unless tagged fold/response):
 Retracted along the way: v611's "token metric is the right metric" as a CE claim (v615); cascade frame fitting (v620); four of five gate-table readings (v660/v661). Instrument bugs preserved: v615 pred_a, v628 pred_e (vacuous), v634/v637 first runs, v635 base rate.
 Documents: explanations/for_logan/research_update_2026-09-20_embedding_forward.md (+ addenda), attention_atlas_2026-09-20.md, gate_tables_reading_2026-09-20.md (retracted readings marked). Handoff to Codex's readout-side fitter: the front-side objects and mode ranks are in the ledger above; nothing of Codex's was touched.
 Idle policy from here: the runner stays up; the loop wakes hourly to check the board for Logan's or Codex's direction and re-runs nothing unless asked. Further rungs at this point would spend GPU on diminishing returns; the honest next steps need Logan's choice (loss-aware sparse-core fits with Codex, OOD rows, or a different target).
+
+### 2026-09-20T06:42:18.686506+00:00 — Codex: v663 selective native intervention, reduced collateral fails; claim v664 projection diagnostic
+Native modal collateral3.2–3.5%, target/random12.93x pass; reduced collateral prediction errors5.17%,2.73%,7.45% fail5% forcan/will andshould/could. v664 uses true final-state delta projected through frozen final W/V to isolate final-decoder loss. Diagnostic oracle, not executable predictor. Hypothesis retains>=75% of candidate collateral error on both failed readers. Reuse saved random control receipt, 8prefix+24suffix+24attentioncalls, no fit.
+
+### 2026-09-20T06:42:56.950296+00:00 — Codex: CPU red-team of pooled preservation metrics
+Audit v663 per template-number cell to detect aggregate masking. Preserve original aggregate gates; report these as exploratory disaggregation, not revised preregistration.
+
+### 2026-09-20T06:44:04.893145+00:00 — Codex: v664 final decoder explains collateral loss; claim v665 joint-observable frame
+Final-state projection oracle retains92.5% and107.1% of two failed collateral errors, supporting decoder-limited control observability. v665 changes calibration observable dictionary fromis/are alone to four equal-weight contrastsis/are,can/will,may/might,should/could. Same256originalcalibrationrows,width8,andresponse dictionary; no extra rank, fits, or evaluation-data basis input. 16prefix+20suffix, exportallencoders. This creates a new candidate, not a repair verdict; independent dynamic/control validation required.
+
+### 2026-09-20T06:45:15.182227+00:00 — Codex: v665 landed; claim v666 joint-reader causal validation
+Same-width four-observable frame passes conditional5% on original opened48cells; frozen attention still fails native10%, as expected no full dynamics in exporter. v666 repeats unchanged v663 full-dynamic/selectivity protocol with v665 frozen package. 8prefix+56suffix+24attentioncalls, no fits. Preserve original gates and exact reader/random controls; this panel is opened relative to candidate design.
+
+### 2026-09-20T06:46:41.199742+00:00 — Codex: v666 gates pass; claim v667 prospective joint-reader transfer
+Openedpanel nativeeffectmax5.97%, modalprediction1.38–1.60% pass unchanged5%, samewidth8. Freeze48new noun/object-relative/adverb rows (eightcells), no refit. Hash 6f1f1ee75784999f42622cdb2d6d5fd08069bb7d8980ceaf343fdf98ab0b0c71. Same8prefix+56suffix+24attentioncalls, original gates10%target/90%capability/10%nativecollateral/5%collateralprediction/5xrandom.
+
+### 2026-09-20T06:49:03.053193+00:00 — Codex: v667 prospective target/control transfer passes; claim sparse pair-bank control
+Nativeeffect0.64–4.57%, modalprediction1.71–3.36%, nativecollateral1.59–3.53%, target/random15.23x, all8cells capability100%. Next remove shared quadratic pair terms atfixedwidth8; rank each native-space tensor atom by Frobenius norm including encoder/decoder geometry (diagonal-gauge invariant), compare18/36,9/36,matchedrandom18/36 andzero. MLP mixed/norm terms andfullattention retained; measure fullnative effect andmodal preservation, not coefficient reconstruction alone. New helper/CPU planted andscale-gauge tests before native screen.
+
+### 2026-09-20T06:50:07.963687+00:00 — Codex: claim v668 sparse shared-pair native screen
+Same now-openedv66748rows andv665frame. Arms: native-space atom-norm top18/36 and9/36 perMLP, three random18/36 seeds668–670, zeroquadratic. Shared products counted once perstage; output vectors retained jointly. Tests: dense/native instrument, top18 target<=10% eachcell andmodalprediction<=5%, top18 worst-cell error<medianrandom worst-cell error. Native/first-value/background dependencies charged. Same8prefix+56suffix+24attentioncalls, zero fits; six additional reduced-program executions perbatch.
+
+### 2026-09-20T06:52:20.019820+00:00 — Codex: v668 half-pair screen passes; claim v669 irregular transfer
+Top18/36 worstcell7.66% passes, modalmax4.15%; top9fails28.63%,zero22.52%,random18worst17.80/9.28/26.10%. One randomarm passes; no uniquenessclaim. v669 freezes48new irregular-noun rows, samebases/supportbudgets/gates/controls. SHA 39e808a080116eb77c33eb90844b07db6a560384e4a378338b6e77977ee6cd83. Native capability and preservation gates also retained in report; no filtering/refit.
+
+### 2026-09-20T06:55:34.349174+00:00 — Codex: v669 nuance and v670 portable conditional DAG export
+Irregular native-effect max5.09% top18, modalmax3.42%; nativecapability83.3% in onecell fails90%, despite sparse-screen gatebools true (they omit capability). Zero/random also pass here; preserve restrictedclaim. v670 exports frozen top18 full-attention/MLP runtime plus two fixed examples pertemplate (first singular/plural), slicing only explicit example axes. Independent CPU replay must match GPU<=1e-8. No token-input closure; context storage/initialcoordinates charged. Same48row native screen reused, exportselectionfixed byroworder not outcomes.
+
+### 2026-09-20T06:58:48.524640+00:00 — Codex: v670 exported and CPU replayed; claim full-DAG gauge audit
+15,805,403-byte conditional artifact, eight fixed rows,1934runtimevalues incl216integerindices; preparedcase tensors1,943,258values charged. IndependentCPU logits/control replay1.78e-15, noCUDA/checkpoint. Next CPU transform every latent boundary by signed diagonal scales, including attention score/value andRMS geometry, sparseMLP cores/carry andfinalreadouts. Require unchangedoutputs1e-8 to red-team coordinate-dependent implementation shortcuts.
+
+### 2026-09-20T07:03:13.707988+00:00 — Codex: claim v671 source-write reuse at post11 boundary
+Split pre11 source ports A=embedding recurrence+early0–3, B=middle4–7+MLP8+MLP10. Run block11 exactly for each, then test fixed sparse suffix on deltaA,deltaB,and deltaA+deltaB at post11. The sum is explicitly NOT the pre11 joint intervention because block11 is nonlinear. Gates A/B targeterror<=10% eachcell, modalprediction<=5% ofown target; summed effect<=10%, cross-error<=5% ofsummed effect and below additive baseline.48openedv667rows; original8prefix+56suffix+24attention plus8block11+12post11suffix, no fits.
+
+### 2026-09-20T07:04:34.149248+00:00 — Codex: v671 partial reuse; claim v672 dense-core rescue control
+Sparse targeterrors A9.96%,B6.77%,sum7.59% pass; cross-error0.27–2.07% ofsum beatsadditive1.73–7.14%. Per-cell modalerrors A6.11%,B7.71% fail5%; prior modal gate was pooled, so distinguish strictergranularity. Before changing basis, v672 restores dense36-pair cores onidenticalsourcewrites/rows withsamegates, nofit. This checks whether pruning causesfailure. Same8prefix+56suffix+24attention+8block11+12post11suffix calls.
+
+### 2026-09-20T07:06:44.716334+00:00 — Codex: dense core does not rescue source preservation; claim v673 shared-source calibration
+v672 dense A target10.14% andmodal6.08%, Bmodal6.81% stillfail. v673 broadens response dictionary tojoint,A,B edits onthe same256calibrationprompts, fourreadercontrasts andwidth8unchanged. 768interventioncases, not768distincttexts. Cache exactprefixcaptures acrossvariants:16prefix+36suffix total,16denseendpointbatches, nofits. Testoriginalopened48rows ascompilercontrol, then source reuse separately. No evaluation rows enterbasis.
+
+### 2026-09-20T07:07:23.965593+00:00 — Codex: source reuse CPU receipt checked
+Recomputed target errors independently; native targets agree exactly between sparse/dense controls. Pre11-joint versus post11-superposition effect gap measured separately. SOURCE_REUSE_CPU_AUDIT_2026-09-20.json preserves the stricter per-cell preservation criterion.
+
+### 2026-09-20T07:08:29.920537+00:00 — Codex: v673 exact compiler, conditional gate regresses; claim v674 joint source validation
+Source-expanded samewidth8 compiler passes replay but fails conditional5% onoriginaleval; full dynamics notmeasured there. v674 tests fullattention with newframes on A/B/sum atsamepost11boundary, reporting sparse18 anddense36 sidebyside, samepredictions/sourcegate asv671. No extra nativecalls vsv671; densearm isone additional reducedprogram evaluation persource. Freezeallframes/supports before evaluation.
+
+### 2026-09-20T07:12:14.929535+00:00 — Codex: v674 fails source controls; exact full-attention finite reader work
+Multi-source samewidth calibration stillfails A target11.3% andmodal6.2%, Bmodal8.1%; densecores alsofail. Hypothesis: conditional-MLP finite readers/calibration responses miss full-attention observability. Implement exact two-endpoint pullback through both QK scores, their product, value mixing, RoPE andnestedRMS using midpoint bilinear product identities. CPU closure and equal-endpoint autograd tests before native use. This changes calibration object, not rank or evaluation gates.
+
+### 2026-09-20T07:14:46.452944+00:00 — Codex: claim v675 native finite-attention-reader validation
+CPU exactfiniteclosure, causalprefix andequal-endpointautograd pass. Native screen allattention12–17 on48openedpositionrows, amplitudes0,1,-1,.5 at5% rawstate norm:4prefix+4block11+96attention+24MLP calls,96analyticalpullbacks (including causal localreader), nooptimizer/autogradbackwards. Gates nativeoutputrelative1e-4, finiteclosureabsolute/scaled1e-4 plusfloat64closure1e-10, causalreaderzero. Related primary sources opened DeepLIFT/PMLR andMcLachlan etal1998; incidental search doesnotreset07:23 mathematical clock.
+
+### 2026-09-20T07:19:38.036619+00:00 — Codex: claim v676 full dynamic suffix reader closure
+Batched four-observable pullback implemented throughMLP andbothQK-productattention atall6layers; CPUtwo-block finiteclosure everyboundary andequalendpointautograd tests. v676 native48openedrows,8prefix+16suffix,8analyticalreversepasses with4readers each (48attentionpullbacks+96referenceattentionforwards). Gates graphendpointreplay1e-4, all7boundaryfiniteclosureabsolute/normscaled1e-4, early-token readerzero onfuturepositions. No fits.
+
+### 2026-09-20T07:26:17.636993+00:00 — Codex: three-hour mathematical review and hourly switch
+THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-20_0726.md and HOURLY_STRATEGIC_REVIEW_2026-09-20_0726.md written. Full dynamic finite readers passnativeclosure; next full-native calibration before ranksweeps. Literatureopened HT, QB balancedtruncation, newRedmann2026treebound, discretegradients/DeepLIFT/arithmeticcircuits; assumptions do not certify transformer. Alloldsource/controlfailures retained. Organization cross-links beingrepaired; fullgoalactive.
+
+### 2026-09-20T07:29:33.545364+00:00 — Codex: claim v677 full-native observable calibration
+Use original256joint calibration prompts, width8/fourreaders unchanged; full dynamic attention/MLP endpoint traces and exact finite readers at all token positions replace attention-frozen/readout-only snapshots. QR-exact balancing avoids sample-by-samplematrix.16prefix+24suffix,4batched fullreversepasses (4readers each),24attentionpullbacks+48referenceattentionforwards,8denseendpointbatches,0fits/optimizer. Native finite-reader closure1e-4 gates before frame export. This changes the calibrated object/position coverage, not rank.
+
+### 2026-09-20T07:31:03.637672+00:00 — Codex: bounded three-hour mathematical review complete
+Literature search and CPU falsifier: exact endpoint readers need not be unique or reusable; full-rank quadratic control rescues frozen-reader failure. Regional CITY_VALUE_PATH_COMPOSITION_V1 already passes opened gates (interaction/smaller 0.200); stale pending handoffs corrected in review, fresh/random-split specificity still missing. Subject source-preservation failures survive dense cores; native closure is not prediction. Shared-code refactor deferred around concurrent edits; no GPU/queue/timer changes. Review: [THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-20_0731.md](basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-20_0731.md); CPU source/receipt: `review_secant_control_2026_09_20_0727.py`, `REVIEW_SECANT_CONTROL_2026-09-20_0727.json`. Next review 2026-09-20 10:31 UTC.
+
+### 2026-09-20T07:32:00.431273+00:00 — Codex: v677 full-native frames exported; claim v678 source validation
+Exactfullnative readers andQR pass, allpositions frameexport6.52s. Conditional-MLP-only gatesfail; those do not test the intended full-attention predictor. v678 repeats frozen sourceA/B/post11sum validation with v677frames, sparse18 anddense36 sidebyside, unchanged per-cell gates andsameopened48rows. No new calibration or rankincrease; allnative/reference costs samev674.
+
+### 2026-09-20T07:41:01.663763+00:00 — Codex: exact factorized-attention baseline, CPU claim
+Keep the supported v665 frame fixed. Factor each projected Q/K branch before multiplying scores; preserve nested RMS, rounded RoPE, cached values and causal mask. Compare independently evaluated native attention and expanded compiler on nonorthogonal bases, multiple amplitudes and large eps. This prices an equivalent conditional computation and extraction interface; it does not repair failed source reuse or identify new features. No GPU/queue changes.
+
+### 2026-09-20T07:42:01.441798+00:00 — Codex: factorized attention CPU baseline executed
+Six focused tests pass, independent native and expanded comparison at1e-10; toy tensor storage4395 versus145543. Exact same conditional function, no new circuit/reuse claim. FACTORIZED_ATTENTION_BASELINE_2026-09-20.md records scope and outstanding native-model replay. Three-hour schedule verified installed; latest review0731, next eligible1032UTC with five-minute polling.

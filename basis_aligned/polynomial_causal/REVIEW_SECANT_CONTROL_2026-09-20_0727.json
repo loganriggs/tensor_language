@@ -1,0 +1,76 @@
+{
+  "created_utc": "2026-09-20T07:30:39.080664+00:00",
+  "scope": "float64 planted CPU falsifier, not native-model evidence",
+  "cubic": {
+    "x": [
+      1.0,
+      2.0,
+      3.0
+    ],
+    "y": [
+      2.0,
+      4.0,
+      5.0
+    ],
+    "left_reader": [
+      12.0,
+      6.0,
+      5.0
+    ],
+    "right_reader": [
+      13.0,
+      6.0,
+      4.5
+    ],
+    "true_change": 34.0,
+    "max_closure_error": 0.0,
+    "reader_difference": 1.118033988749895
+  },
+  "quadratic": {
+    "matrix": [
+      [
+        1.0,
+        2.0
+      ],
+      [
+        2.0,
+        3.0
+      ]
+    ],
+    "training_endpoint": [
+      1.0,
+      0.0
+    ],
+    "test_endpoint": [
+      0.0,
+      1.0
+    ],
+    "frozen_prediction": 2.0,
+    "true_change": 3.0,
+    "endpoint_specific_rescue": 3.0
+  },
+  "gates": {
+    "exact_closure": true,
+    "distinct_readers": true,
+    "frozen_reader_transfer_falsified": true,
+    "full_rank_rescue": true
+  },
+  "sources": {
+    "basis_aligned/polynomial_causal/CITY_VALUE_PATH_COMPOSITION_V1_RESULT.json": {
+      "sha256": "3c440076ad04ee9e1c6f12fc1219c789ccc21dc765cc4c3c04ecb678cc129512",
+      "mtime_utc": "2026-09-20T03:05:55.855457+00:00"
+    },
+    "basis_aligned/polynomial_causal/CIRCUIT_GRAPH_REGISTRY_V1.md": {
+      "sha256": "71ee7297ea12ba6d2602365a98ba48b8f3ecb3f878624b0c2f5aec083c16e52c",
+      "mtime_utc": "2026-09-20T03:05:51.097376+00:00"
+    },
+    "basis_aligned/bilinear_quotient/circuits/followups/full_suffix_reader_v676_result.json": {
+      "sha256": "f86b94a8ebfac2c2b578cee12dede3557ca27853d061e44d2b69e50dba09be63",
+      "mtime_utc": "2026-09-20T07:21:06.605275+00:00"
+    },
+    "basis_aligned/bilinear_quotient/circuits/followups/subject_attention_freeze_v674_result.json": {
+      "sha256": "fda3fa979e5e793776e404ffdf8b2de85084243fe681a7d22c06567dcf246ada",
+      "mtime_utc": "2026-09-20T07:08:37.871823+00:00"
+    }
+  }
+}

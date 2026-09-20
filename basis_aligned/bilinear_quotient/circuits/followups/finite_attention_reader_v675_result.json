@@ -1,0 +1,54 @@
+{
+  "created_utc": "2026-09-20T07:15:01.927689+00:00",
+  "plan": {
+    "rows": 48,
+    "prefix_calls": 4,
+    "block11_calls": 4,
+    "attention_calls": 96,
+    "mlp_calls": 24,
+    "analytical_pullbacks": 96,
+    "reference_attention_forwards": 288,
+    "optimizer_steps": 0,
+    "autograd_backwards": 0,
+    "amplitudes": [
+      0.0,
+      1.0,
+      -1.0,
+      0.5
+    ],
+    "predictions": {
+      "pred_a_native_forward": "all native output relative errors<=1e-4",
+      "pred_b_finite_closure": "native closure absolute and norm-scaled errors<=1e-4; float64 closure absolute<=1e-10",
+      "pred_c_causal_reader": "reader at first token has exactly zero pullback on later input tokens"
+    },
+    "execution_policy": "managed_queue_only"
+  },
+  "counts": {
+    "prefix_calls": 4,
+    "block11_calls": 4,
+    "attention_calls": 96,
+    "mlp_calls": 24,
+    "analytical_pullbacks": 96,
+    "reference_attention_forwards": 288
+  },
+  "predictions": {
+    "pred_a_native_forward": true,
+    "pred_b_finite_closure": true,
+    "pred_c_causal_reader": true
+  },
+  "max_native_forward_relative": 4.0492839417032944e-07,
+  "max_native_closure_absolute": 6.804921034708755e-05,
+  "max_native_closure_scaled": 5.215509477296206e-07,
+  "max_float64_closure_absolute": 5.520028878436278e-13,
+  "max_causal_leakage": 0.0,
+  "layer_max_scaled_closure": {
+    "12": 4.0352682396823773e-07,
+    "13": 3.407165877402794e-07,
+    "14": 3.8833548740929176e-07,
+    "15": 3.967985033399203e-07,
+    "16": 5.215509477296206e-07,
+    "17": 5.175048474688345e-07
+  },
+  "wall_seconds": 1.7906199600547552,
+  "scope": "Exact two-endpoint calibration/attribution reader; edited states required, not predictive circuit extraction"
+}

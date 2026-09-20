@@ -25,5 +25,8 @@ The noninteractive runner follows [official OpenAI documentation](https://develo
 Verification: shell syntax passed; due-time checks cover early and due boundaries;
 a live wrapper invocation after the new review returned immediately without
 launching another reviewer; installed cron file is root-owned mode0644.
-The next review is expected around07:25UTC on20September, subject to runtime
-availability. End-to-end execution at that deadline is not yet observed.
+The scheduled invocation completed a substantive review at 07:31 UTC on
+20 September. Next eligibility is 10:32 UTC, with the next five-minute poll
+around 10:35 UTC. The primary agent's 07:26 review overlapped that invocation;
+both are preserved. A final freshness check in the reviewer prompt now directs
+concurrent work into an addendum instead of another clock-resetting receipt.

@@ -1,5 +1,7 @@
 # Plain-language explanations
 
+Latest subject-number update: [Sparse conditional response and source-reuse limit](for_logan/research_update_2026-09-20_0726_sparse_subject_response.md).
+
 Latest regional result: [Fresh-confirmed extracted value mediator](for_logan/research_update_2026-09-18_0326_extracted_mediator.md).
 
 Latest regional result: [MLP8 value mediation](for_logan/research_update_2026-09-18_0317_value_mediation.md).

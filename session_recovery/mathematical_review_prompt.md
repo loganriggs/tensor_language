@@ -67,3 +67,12 @@ precision, factor gauges and convergence. A failed implementation is not evidenc
 against the method. Preserve original receipts and write corrections separately.
 This bounded scheduled review ends after its executed consequence and receipt;
 it does not continue the primary agent's unbounded goal.
+
+Concurrent-review check: immediately before writing a new THREE_HOURLY_MATHEMATICAL_REVIEW
+receipt, re-read the newest receipt timestamp. Another process may have completed
+the review while you were researching. If a new substantive review less than175
+minutes old appeared since your initial check, do not create another three-hour
+receipt or reset the clock. Preserve genuinely new work in a uniquely named
+REVIEW_ADDENDUM_YYYY-MM-DD_HHMM.md, link the already completed review, and stop.
+Use concise current receipt summaries and hashes; do not dump full historical
+inventories merely to recover state.

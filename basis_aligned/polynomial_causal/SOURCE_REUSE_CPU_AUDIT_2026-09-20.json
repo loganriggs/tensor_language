@@ -1,0 +1,26 @@
+{
+  "native_target_max_difference": 0.0,
+  "independent_scoring_pass": true,
+  "arms": {
+    "A": {
+      "sparse_max_target": 0.09962629504407783,
+      "dense_max_target": 0.10140515547446383,
+      "sparse_max_modal": 0.06110703673275722,
+      "dense_max_modal": 0.06082556440999568
+    },
+    "B": {
+      "sparse_max_target": 0.06772004440568442,
+      "dense_max_target": 0.048741683551517104,
+      "sparse_max_modal": 0.07713404938209001,
+      "dense_max_modal": 0.06814801213529448
+    },
+    "sum": {
+      "sparse_max_target": 0.07589337285492126,
+      "dense_max_target": 0.043491656156623856,
+      "sparse_max_modal": 0.0726236187490309,
+      "dense_max_modal": 0.06207938647362351
+    }
+  },
+  "boundary_gap_over_joint": 0.05028181360306303,
+  "scope": "Opened source-write diagnostics; per-cell source modal gates stricter than earlier pooled joint gate"
+}
