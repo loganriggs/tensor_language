@@ -30503,3 +30503,6 @@ Censusnegativeverified; omittedrootmustbeclosedbeforeblamingnonadditivity. Nativ
 
 ### 2026-09-20T12:39:20.510573+00:00 — Codex: native root closure passes; switch CIRCUIT and freeze expanded controls
 Root+14effects64/64passes,worst0.4755%vsmodules206%; expensiveconditionalaccountingnotextraction. Hour1238CIRCUITreview recordspriorprogress andrepeatedauthoringrepair. Sharedcontextbuilder extracted/syntaxchecked; five prospective lexicalcontrolpairs tokenvalidated,frozenbeforeoutcomes. Nativehelperreplayandnewcontrolscreen next. See HOURLY_STRATEGIC_REVIEW_2026-09-20_1238.md and EXPANDED_SOURCE_CONTROLS_V1_PREREGISTRATION.md.
+
+### 2026-09-20T12:41:07.107014+00:00 — Codex: claim expanded output-control execution
+Prior turnprogress rootaccountingclosed andcontrolbindingfrozen. Sharedcontexthelper nowused, allold4outputs/all16settings replay1e-10; additional12float32suffixes verifynewoutput precision<=1%rolebudget. Primarynew/oldcontrol10%nativegateson16rolecells. Counts12prefix68double12native; sourceeditsfrozen,norefit.
