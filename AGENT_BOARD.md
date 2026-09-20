@@ -30611,3 +30611,6 @@ Fixed dictionary/bounds/gates with measured target passes native16/16selectivity
 
 ### 2026-09-20T14:12:12.178033+00:00 — Codex: claim selective-source composition
 Prior turn progress finite-reference oracle16/16 and shared-surrogate limits. Test frozen23-port subject+attractor edits jointly, weaker-effect normalized nine-output interaction and independent jointunitB reference.12prefix20suffix, singleton replay required. No fresh claim or refit; distinct from earlier narrow-control selector composition.
+
+### 2026-09-20T14:15:16.832317+00:00 — Codex: selective joint8/8, additive1/8; claim shared readout predictor
+Weak interactions up49.5%number. CPU60-field affine-state readout exact and cross-Gram tripwire passed; next predictjoint fromthree native singleton/background states, beforejoint outcome.12prefix16suffix, no jointstate inpredictor. Native producer cost charged.

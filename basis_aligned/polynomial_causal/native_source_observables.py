@@ -50,7 +50,7 @@ def source_observables(model,raw,x0,first,directions,positions,read,pairs,amplit
     logits=30*torch.tanh((norm64(x[batch,read])[:,None,None,:]*model.lm_head.weight[pairs].double()).sum(-1)/30)
     return logits[:,:,0]-logits[:,:,1]
 
-def source_observables32(model,raw,x0,first,directions,positions,read,pairs,amplitudes):
+def source_observables32(model,raw,x0,first,directions,positions,read,pairs,amplitudes,capture=None):
     """Native float32 endpoint for the same nominated-source interface."""
     import torch
     import torch.nn.functional as F
@@ -61,6 +61,7 @@ def source_observables32(model,raw,x0,first,directions,positions,read,pairs,ampl
         if layer>11:x=block.lambdas[0]*x+block.lambdas[1]*x0
         attention,_=block.attn(F.rms_norm(x,(x.shape[-1],)),first);x=x+attention
         x=x+block.mlp(F.rms_norm(x,(x.shape[-1],)))
+    if capture is not None:capture['final_state']=x[batch,read].detach().clone()
     logits=30*torch.tanh(model.lm_head(F.rms_norm(x[batch,read],(x.shape[-1],)))/30)
     values=logits.gather(1,pairs.reshape(len(x),-1)).reshape(len(x),-1,2)
     return (values[:,:,0]-values[:,:,1]).double()
