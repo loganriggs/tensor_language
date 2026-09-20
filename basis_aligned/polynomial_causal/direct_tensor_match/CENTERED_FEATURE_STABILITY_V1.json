@@ -1,0 +1,682 @@
+{
+  "records": [
+    {
+      "gain": 252.8587708642038,
+      "selected_step": 1000,
+      "initial_gain": 17.417955707547833,
+      "optimizer": "adam",
+      "seed": 0,
+      "retained_energy": 0.9671204881173817
+    },
+    {
+      "gain": 253.07542999965904,
+      "selected_step": 1000,
+      "initial_gain": 11.393542918599596,
+      "optimizer": "adam",
+      "seed": 1,
+      "retained_energy": 0.9679491542068371
+    },
+    {
+      "gain": 252.72750489256237,
+      "selected_step": 1000,
+      "initial_gain": 7.833085078264966,
+      "optimizer": "adam",
+      "seed": 2,
+      "retained_energy": 0.9666184291611779
+    },
+    {
+      "gain": 252.51247131822652,
+      "selected_step": 1000,
+      "initial_gain": 32.839056758586274,
+      "optimizer": "adam",
+      "seed": 3,
+      "retained_energy": 0.9657959804295695
+    },
+    {
+      "gain": 253.14852836294432,
+      "selected_step": 999,
+      "initial_gain": 17.417955707547833,
+      "optimizer": "muon",
+      "seed": 0,
+      "retained_energy": 0.968228736855046
+    },
+    {
+      "gain": 252.8441463981887,
+      "selected_step": 999,
+      "initial_gain": 11.393542918599596,
+      "optimizer": "muon",
+      "seed": 1,
+      "retained_energy": 0.9670645532543646
+    },
+    {
+      "gain": 252.98103781082773,
+      "selected_step": 1000,
+      "initial_gain": 7.833085078264966,
+      "optimizer": "muon",
+      "seed": 2,
+      "retained_energy": 0.9675881280916465
+    },
+    {
+      "gain": 253.14668129494908,
+      "selected_step": 999,
+      "initial_gain": 32.839056758586274,
+      "optimizer": "muon",
+      "seed": 3,
+      "retained_energy": 0.9682216722897353
+    }
+  ],
+  "pairs": [
+    {
+      "first": [
+        "adam",
+        0
+      ],
+      "second": [
+        "adam",
+        1
+      ],
+      "function_cosine": 0.9992785873564611,
+      "mean_feature_cosine": 0.8949186501346704,
+      "minimum_feature_cosine": 0.6444538170635391,
+      "matched_feature_cosines": [
+        0.972529564102337,
+        0.9952333445563786,
+        0.9674578748164271,
+        0.6444538170635391
+      ],
+      "mean_component_cosine": 0.8734097947471363,
+      "minimum_subspace_cosine": 0.9899151815868142
+    },
+    {
+      "first": [
+        "adam",
+        0
+      ],
+      "second": [
+        "adam",
+        2
+      ],
+      "function_cosine": 0.9963733749732145,
+      "mean_feature_cosine": 0.923579830802458,
+      "minimum_feature_cosine": 0.7724976426084629,
+      "matched_feature_cosines": [
+        0.7724976426084629,
+        0.9890653835235067,
+        0.9491704725289442,
+        0.9835858245489182
+      ],
+      "mean_component_cosine": 0.828350554520916,
+      "minimum_subspace_cosine": 0.9532818522083757
+    },
+    {
+      "first": [
+        "adam",
+        0
+      ],
+      "second": [
+        "adam",
+        3
+      ],
+      "function_cosine": 0.9928508743643475,
+      "mean_feature_cosine": 0.9426187665175962,
+      "minimum_feature_cosine": 0.8777281655118377,
+      "matched_feature_cosines": [
+        0.8777281655118377,
+        0.9513931469098047,
+        0.9881196660387386,
+        0.9532340876100038
+      ],
+      "mean_component_cosine": 0.8569239000398418,
+      "minimum_subspace_cosine": 0.8668968382640738
+    },
+    {
+      "first": [
+        "adam",
+        0
+      ],
+      "second": [
+        "muon",
+        0
+      ],
+      "function_cosine": 0.9971411683892388,
+      "mean_feature_cosine": 0.9114933088440561,
+      "minimum_feature_cosine": 0.7711067643023759,
+      "matched_feature_cosines": [
+        0.9579358760461423,
+        0.986493810844667,
+        0.9304367841830392,
+        0.7711067643023759
+      ],
+      "mean_component_cosine": 0.7099588910478893,
+      "minimum_subspace_cosine": 0.9620922007051893
+    },
+    {
+      "first": [
+        "adam",
+        0
+      ],
+      "second": [
+        "muon",
+        1
+      ],
+      "function_cosine": 0.9991281177723745,
+      "mean_feature_cosine": 0.9074278695433717,
+      "minimum_feature_cosine": 0.8707997390920732,
+      "matched_feature_cosines": [
+        0.8707997390920732,
+        0.8809200047109766,
+        0.9913487363883127,
+        0.8866429979821242
+      ],
+      "mean_component_cosine": 0.6673701588830867,
+      "minimum_subspace_cosine": 0.9799041974812172
+    },
+    {
+      "first": [
+        "adam",
+        0
+      ],
+      "second": [
+        "muon",
+        2
+      ],
+      "function_cosine": 0.9958379435578135,
+      "mean_feature_cosine": 0.9587426587904875,
+      "minimum_feature_cosine": 0.9057440415134305,
+      "matched_feature_cosines": [
+        0.971271708152511,
+        0.9653097660886967,
+        0.9926451194073118,
+        0.9057440415134305
+      ],
+      "mean_component_cosine": 0.9135058064721661,
+      "minimum_subspace_cosine": 0.9479890430436775
+    },
+    {
+      "first": [
+        "adam",
+        0
+      ],
+      "second": [
+        "muon",
+        3
+      ],
+      "function_cosine": 0.9969631118105042,
+      "mean_feature_cosine": 0.9307560275480878,
+      "minimum_feature_cosine": 0.8068690412961647,
+      "matched_feature_cosines": [
+        0.9835005538273749,
+        0.9934012044109155,
+        0.9392533106578962,
+        0.8068690412961647
+      ],
+      "mean_component_cosine": 0.5712441619211015,
+      "minimum_subspace_cosine": 0.9597026678609221
+    },
+    {
+      "first": [
+        "adam",
+        1
+      ],
+      "second": [
+        "adam",
+        2
+      ],
+      "function_cosine": 0.9967463981241206,
+      "mean_feature_cosine": 0.9246216732451571,
+      "minimum_feature_cosine": 0.7637200189683258,
+      "matched_feature_cosines": [
+        0.9959141294925544,
+        0.7637200189683258,
+        0.9519197956698874,
+        0.9869327488498606
+      ],
+      "mean_component_cosine": 0.6196076494033393,
+      "minimum_subspace_cosine": 0.9592556936013563
+    },
+    {
+      "first": [
+        "adam",
+        1
+      ],
+      "second": [
+        "adam",
+        3
+      ],
+      "function_cosine": 0.9929905519241732,
+      "mean_feature_cosine": 0.8815902541111086,
+      "minimum_feature_cosine": 0.6540126555112293,
+      "matched_feature_cosines": [
+        0.9681259522828153,
+        0.6540126555112293,
+        0.9573044324001831,
+        0.9469179762502066
+      ],
+      "mean_component_cosine": 0.7579589024582825,
+      "minimum_subspace_cosine": 0.8873397356231886
+    },
+    {
+      "first": [
+        "adam",
+        1
+      ],
+      "second": [
+        "muon",
+        0
+      ],
+      "function_cosine": 0.9985494328999943,
+      "mean_feature_cosine": 0.9905206903104825,
+      "minimum_feature_cosine": 0.9773771650369301,
+      "matched_feature_cosines": [
+        0.9967855063047217,
+        0.9773771650369301,
+        0.9915671030711288,
+        0.9963529868291495
+      ],
+      "mean_component_cosine": 0.7724192903594106,
+      "minimum_subspace_cosine": 0.9841882594495162
+    },
+    {
+      "first": [
+        "adam",
+        1
+      ],
+      "second": [
+        "muon",
+        1
+      ],
+      "function_cosine": 0.9988624262524454,
+      "mean_feature_cosine": 0.894736938562505,
+      "minimum_feature_cosine": 0.8042892906025021,
+      "matched_feature_cosines": [
+        0.9758321740362886,
+        0.8163428996287434,
+        0.9824833899824861,
+        0.8042892906025021
+      ],
+      "mean_component_cosine": 0.8593820128411982,
+      "minimum_subspace_cosine": 0.9787301582448653
+    },
+    {
+      "first": [
+        "adam",
+        1
+      ],
+      "second": [
+        "muon",
+        2
+      ],
+      "function_cosine": 0.9949428021436386,
+      "mean_feature_cosine": 0.8340797979866668,
+      "minimum_feature_cosine": 0.6141071538248233,
+      "matched_feature_cosines": [
+        0.8690635438800695,
+        0.6141071538248233,
+        0.8963598133092688,
+        0.9567886809325055
+      ],
+      "mean_component_cosine": 0.693956080586716,
+      "minimum_subspace_cosine": 0.939822516263644
+    },
+    {
+      "first": [
+        "adam",
+        1
+      ],
+      "second": [
+        "muon",
+        3
+      ],
+      "function_cosine": 0.9982693261903169,
+      "mean_feature_cosine": 0.9879353325271416,
+      "minimum_feature_cosine": 0.9629310929368797,
+      "matched_feature_cosines": [
+        0.998742967899824,
+        0.9629310929368797,
+        0.9942895634149842,
+        0.9957777058568784
+      ],
+      "mean_component_cosine": 0.6082888664982504,
+      "minimum_subspace_cosine": 0.9808578880448096
+    },
+    {
+      "first": [
+        "adam",
+        2
+      ],
+      "second": [
+        "adam",
+        3
+      ],
+      "function_cosine": 0.9894866111513592,
+      "mean_feature_cosine": 0.8269919268585009,
+      "minimum_feature_cosine": 0.45544753139742794,
+      "matched_feature_cosines": [
+        0.9264794399863269,
+        0.9548554047671076,
+        0.9711853312831411,
+        0.45544753139742794
+      ],
+      "mean_component_cosine": 0.6590953760547524,
+      "minimum_subspace_cosine": 0.8271308480325038
+    },
+    {
+      "first": [
+        "adam",
+        2
+      ],
+      "second": [
+        "muon",
+        0
+      ],
+      "function_cosine": 0.997451470838348,
+      "mean_feature_cosine": 0.9001105034761941,
+      "minimum_feature_cosine": 0.6352890625701172,
+      "matched_feature_cosines": [
+        0.9926081344307696,
+        0.6352890625701172,
+        0.9977480415796621,
+        0.9747967753242276
+      ],
+      "mean_component_cosine": 0.628670609020973,
+      "minimum_subspace_cosine": 0.9644599343014852
+    },
+    {
+      "first": [
+        "adam",
+        2
+      ],
+      "second": [
+        "muon",
+        1
+      ],
+      "function_cosine": 0.9966998823020452,
+      "mean_feature_cosine": 0.9281177753361929,
+      "minimum_feature_cosine": 0.8203728163516597,
+      "matched_feature_cosines": [
+        0.8203728163516597,
+        0.9808581311164082,
+        0.9814610175318375,
+        0.929779136344866
+      ],
+      "mean_component_cosine": 0.6800526501565007,
+      "minimum_subspace_cosine": 0.9490254258770836
+    },
+    {
+      "first": [
+        "adam",
+        2
+      ],
+      "second": [
+        "muon",
+        2
+      ],
+      "function_cosine": 0.9932682805359832,
+      "mean_feature_cosine": 0.9387451877424859,
+      "minimum_feature_cosine": 0.8840990699806128,
+      "matched_feature_cosines": [
+        0.9383333358851991,
+        0.9440172603771277,
+        0.9885310847270042,
+        0.8840990699806128
+      ],
+      "mean_component_cosine": 0.8511889249811464,
+      "minimum_subspace_cosine": 0.925068486424027
+    },
+    {
+      "first": [
+        "adam",
+        2
+      ],
+      "second": [
+        "muon",
+        3
+      ],
+      "function_cosine": 0.9974347398282825,
+      "mean_feature_cosine": 0.8839868426746533,
+      "minimum_feature_cosine": 0.587941391684758,
+      "matched_feature_cosines": [
+        0.9858745880398787,
+        0.587941391684758,
+        0.9980688194287131,
+        0.9640625715452634
+      ],
+      "mean_component_cosine": 0.5463272575757351,
+      "minimum_subspace_cosine": 0.9638286401912721
+    },
+    {
+      "first": [
+        "adam",
+        3
+      ],
+      "second": [
+        "muon",
+        0
+      ],
+      "function_cosine": 0.99186263110358,
+      "mean_feature_cosine": 0.9032032351088198,
+      "minimum_feature_cosine": 0.766294105275592,
+      "matched_feature_cosines": [
+        0.9484924432489448,
+        0.9785492727542473,
+        0.9194771191564951,
+        0.766294105275592
+      ],
+      "mean_component_cosine": 0.8057214142499654,
+      "minimum_subspace_cosine": 0.8760772067003822
+    },
+    {
+      "first": [
+        "adam",
+        3
+      ],
+      "second": [
+        "muon",
+        1
+      ],
+      "function_cosine": 0.9920170581106036,
+      "mean_feature_cosine": 0.791051638603622,
+      "minimum_feature_cosine": 0.5766470863758794,
+      "matched_feature_cosines": [
+        0.5766470863758794,
+        0.8020221124483518,
+        0.9159888568513039,
+        0.869548498738953
+      ],
+      "mean_component_cosine": 0.6492552247635739,
+      "minimum_subspace_cosine": 0.8495599724457331
+    },
+    {
+      "first": [
+        "adam",
+        3
+      ],
+      "second": [
+        "muon",
+        2
+      ],
+      "function_cosine": 0.9960257709915225,
+      "mean_feature_cosine": 0.9005064901887976,
+      "minimum_feature_cosine": 0.7778197528162316,
+      "matched_feature_cosines": [
+        0.7778197528162316,
+        0.9890138859573252,
+        0.9802669244606124,
+        0.8549253975210213
+      ],
+      "mean_component_cosine": 0.863700060149939,
+      "minimum_subspace_cosine": 0.9043522632688896
+    },
+    {
+      "first": [
+        "adam",
+        3
+      ],
+      "second": [
+        "muon",
+        3
+      ],
+      "function_cosine": 0.9915820067181308,
+      "mean_feature_cosine": 0.9044441628258493,
+      "minimum_feature_cosine": 0.7915662954434866,
+      "matched_feature_cosines": [
+        0.9281675706895116,
+        0.9685023534168229,
+        0.929540431753576,
+        0.7915662954434866
+      ],
+      "mean_component_cosine": 0.723763141389461,
+      "minimum_subspace_cosine": 0.8680263769497765
+    },
+    {
+      "first": [
+        "muon",
+        0
+      ],
+      "second": [
+        "muon",
+        1
+      ],
+      "function_cosine": 0.9972102445300285,
+      "mean_feature_cosine": 0.8672517148878833,
+      "minimum_feature_cosine": 0.6918919695426822,
+      "matched_feature_cosines": [
+        0.6918919695426822,
+        0.9878366098592519,
+        0.8299373544533601,
+        0.9593409256962391
+      ],
+      "mean_component_cosine": 0.6771913792344826,
+      "minimum_subspace_cosine": 0.9610555651524171
+    },
+    {
+      "first": [
+        "muon",
+        0
+      ],
+      "second": [
+        "muon",
+        2
+      ],
+      "function_cosine": 0.993692854074451,
+      "mean_feature_cosine": 0.8166081138139738,
+      "minimum_feature_cosine": 0.4833722346596564,
+      "matched_feature_cosines": [
+        0.4833722346596564,
+        0.9005276779275136,
+        0.9416263744399719,
+        0.9409061682287531
+      ],
+      "mean_component_cosine": 0.7396345284728599,
+      "minimum_subspace_cosine": 0.9292929432231746
+    },
+    {
+      "first": [
+        "muon",
+        0
+      ],
+      "second": [
+        "muon",
+        3
+      ],
+      "function_cosine": 0.9999136642149502,
+      "mean_feature_cosine": 0.9969986964028874,
+      "minimum_feature_cosine": 0.9934587554117368,
+      "matched_feature_cosines": [
+        0.9974302176066894,
+        0.9982580147821172,
+        0.9934587554117368,
+        0.9988477978110062
+      ],
+      "mean_component_cosine": 0.9607452720726254,
+      "minimum_subspace_cosine": 0.9988318965423754
+    },
+    {
+      "first": [
+        "muon",
+        1
+      ],
+      "second": [
+        "muon",
+        2
+      ],
+      "function_cosine": 0.994014175880736,
+      "mean_feature_cosine": 0.8285142952018847,
+      "minimum_feature_cosine": 0.6132526960499407,
+      "matched_feature_cosines": [
+        0.9509431138391519,
+        0.6132526960499407,
+        0.7513276272168571,
+        0.9985337437015891
+      ],
+      "mean_component_cosine": 0.5331830663108411,
+      "minimum_subspace_cosine": 0.8957333907700677
+    },
+    {
+      "first": [
+        "muon",
+        1
+      ],
+      "second": [
+        "muon",
+        3
+      ],
+      "function_cosine": 0.9967666105756298,
+      "mean_feature_cosine": 0.8930904495572065,
+      "minimum_feature_cosine": 0.7781193126347951,
+      "matched_feature_cosines": [
+        0.7781193126347951,
+        0.9677634610372483,
+        0.9147350197830383,
+        0.9117440047737446
+      ],
+      "mean_component_cosine": 0.498985392806961,
+      "minimum_subspace_cosine": 0.9539255547504657
+    },
+    {
+      "first": [
+        "muon",
+        2
+      ],
+      "second": [
+        "muon",
+        3
+      ],
+      "function_cosine": 0.9937206864086033,
+      "mean_feature_cosine": 0.8409863188447517,
+      "minimum_feature_cosine": 0.49832524071654055,
+      "matched_feature_cosines": [
+        0.49832524071654055,
+        0.9848145185128474,
+        0.9622344656972354,
+        0.9185710504523835
+      ],
+      "mean_component_cosine": 0.6589942572499075,
+      "minimum_subspace_cosine": 0.9336543158803955
+    }
+  ],
+  "gauge_control": {
+    "function_cosine": 1.0000000000000004,
+    "mean_feature_cosine": 0.9999999999999998,
+    "minimum_feature_cosine": 0.9999999999999996,
+    "matched_feature_cosines": [
+      1.0,
+      1.0,
+      0.9999999999999996,
+      0.9999999999999997
+    ],
+    "mean_component_cosine": 0.9999999999999994,
+    "minimum_subspace_cosine": 0.9999999999999991
+  },
+  "max_repeat_energy_error": 2.220446049250313e-16,
+  "median_matched_feature_cosine": 0.9018548626488088,
+  "worst_individual_matched_feature_cosine": 0.45544753139742794,
+  "predictions": {
+    "pred_a": true,
+    "pred_b": false,
+    "pred_c": false
+  },
+  "seconds": 4.758492452092469,
+  "scope": "Correlatedrestartcomparisons withinfixednative-student quadraticcore. Featuregaugeaccounted; no semantic/OOD/datasplitclaim.",
+  "median_convention": "Arithmetic midpoint of the two central ordered pair scores"
+}

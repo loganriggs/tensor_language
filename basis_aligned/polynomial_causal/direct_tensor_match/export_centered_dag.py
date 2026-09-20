@@ -10,7 +10,9 @@ def build(s):
  d=DAG(degree_limit=4);inputs=[d.input(i) for i in range(len(s['mu']))];one=d.constant();delta=[d.linear([(n,1),(one,-float(mu))]) for n,mu in zip(inputs,s['mu'])]
  linear=[d.linear(zip(delta,row.tolist())) for row in s['linear_reader']]
  left=[d.linear(zip(delta,row.tolist())) for row in s['quadratic_left']];right=[d.linear(zip(delta,row.tolist())) for row in s['quadratic_right']];products=[d.product(a,b) for a,b in zip(left,right)];outputs=[]
- for rowl,rowq,c in zip(s['linear_writer'],s['quadratic_writer'],s['constant']):outputs.append(d.linear(list(zip(linear,rowl.tolist()))+list(zip(products,rowq.tolist()))+[(one,float(c))]))
+ if 'Z' in s:products=[d.linear(zip(products,row.tolist())) for row in s['Z']]
+ quadratic_writer=s['quadratic_writer'] if 'quadratic_writer' in s else s['W']
+ for rowl,rowq,c in zip(s['linear_writer'],quadratic_writer,s['constant']):outputs.append(d.linear(list(zip(linear,rowl.tolist()))+list(zip(products,rowq.tolist()))+[(one,float(c))]))
  return d,outputs
 
 def main():

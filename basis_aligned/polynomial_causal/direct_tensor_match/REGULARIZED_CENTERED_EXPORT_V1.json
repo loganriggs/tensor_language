@@ -1,0 +1,81 @@
+{
+  "records": [
+    {
+      "source_key": [
+        0.0001,
+        "adam",
+        2
+      ],
+      "retained_quadratic_energy": 0.9672333064146449,
+      "cancellation_ratio": 9.21350357081093,
+      "cost": {
+        "products": 4,
+        "additions": 33392,
+        "stored_coefficients": 34560,
+        "edges": 35720,
+        "nodes": 3477
+      },
+      "full_quartic_errors": [
+        0.24756545852496795,
+        0.2398179658205544
+      ],
+      "centered_variation_errors": [
+        0.3639519872723059,
+        0.3633240855549366
+      ],
+      "archive_graph_replay": 2.3659674858571783e-16
+    },
+    {
+      "source_key": [
+        0.001,
+        "muon",
+        2
+      ],
+      "retained_quadratic_energy": 0.9655748897843384,
+      "cancellation_ratio": 3.000516849583884,
+      "cost": {
+        "products": 4,
+        "additions": 33392,
+        "stored_coefficients": 34560,
+        "edges": 35720,
+        "nodes": 3477
+      },
+      "full_quartic_errors": [
+        0.249142304383647,
+        0.24056678600717382
+      ],
+      "centered_variation_errors": [
+        0.36636010739489705,
+        0.3643990472403277
+      ],
+      "archive_graph_replay": 2.271059664710609e-16
+    },
+    {
+      "source_key": [
+        0.01,
+        "muon",
+        2
+      ],
+      "retained_quadratic_energy": 0.9601420311634021,
+      "cancellation_ratio": 1.1835110752384217,
+      "cost": {
+        "products": 4,
+        "additions": 33392,
+        "stored_coefficients": 34560,
+        "edges": 35720,
+        "nodes": 3477
+      },
+      "full_quartic_errors": [
+        0.24833780467161282,
+        0.2406060226795068
+      ],
+      "centered_variation_errors": [
+        0.365131570084517,
+        0.36429187993631723
+      ],
+      "archive_graph_replay": 1.8989506904235113e-16
+    }
+  ],
+  "penalty_selected_without_empirical_targets": 0.001,
+  "scope": "Bestpenalizedtrainingobjective perpenalty; priorregisteredgroupselectionpreserved. FP32exportedprograms,FP64replay. Noempiricalselection."
+}

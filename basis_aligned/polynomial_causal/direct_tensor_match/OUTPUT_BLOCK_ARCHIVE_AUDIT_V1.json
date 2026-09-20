@@ -1,0 +1,69 @@
+{
+  "records": [
+    {
+      "rank": 2,
+      "graph_replay": 2.63789479878053e-16,
+      "archive_metric_drift": 4.869644243399307e-09,
+      "cost": {
+        "products": 8,
+        "additions": 40310,
+        "stored_coefficients": 41488,
+        "edges": 42656,
+        "nodes": 3491
+      },
+      "full_quartic_errors": [
+        0.3011116004773715,
+        0.2895515348883143
+      ]
+    },
+    {
+      "rank": 3,
+      "graph_replay": 2.7642574266034743e-16,
+      "archive_metric_drift": 6.7594806141269e-09,
+      "cost": {
+        "products": 8,
+        "additions": 41469,
+        "stored_coefficients": 42648,
+        "edges": 43816,
+        "nodes": 3492
+      },
+      "full_quartic_errors": [
+        0.24283069199456073,
+        0.23423419141961133
+      ]
+    },
+    {
+      "rank": 4,
+      "graph_replay": 2.658219610914005e-16,
+      "archive_metric_drift": 7.927500239590657e-09,
+      "cost": {
+        "products": 8,
+        "additions": 42628,
+        "stored_coefficients": 43808,
+        "edges": 44976,
+        "nodes": 3493
+      },
+      "full_quartic_errors": [
+        0.23936405703720112,
+        0.2314727228859798
+      ]
+    },
+    {
+      "rank": 6,
+      "graph_replay": 2.7141607972060543e-16,
+      "archive_metric_drift": 7.483358183124622e-09,
+      "cost": {
+        "products": 8,
+        "additions": 44946,
+        "stored_coefficients": 46128,
+        "edges": 47296,
+        "nodes": 3495
+      },
+      "full_quartic_errors": [
+        0.23960795811522315,
+        0.2315215321037914
+      ]
+    }
+  ],
+  "scope": "IndependentFP32archive replay, including sharedoutputfactor representation andliteralprice."
+}

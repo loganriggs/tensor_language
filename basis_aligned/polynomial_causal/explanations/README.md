@@ -1,5 +1,7 @@
 # Plain-language explanations
 
+Latest decomposition evidence: [Mean correction and feature stability](for_logan/research_update_2026-09-20_2015_mean_correction_and_feature_stability.md).
+
 Latest native graph refactor: [New products beat deleting old ones](for_logan/research_update_2026-09-20_1955_native_graph_refactor.md).
 
 Latest native decomposition result: [Centered programs and mean-versus-variation control](for_logan/research_update_2026-09-20_1944_centered_programs_and_mean_control.md).

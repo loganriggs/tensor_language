@@ -529,3 +529,6 @@ Matched48,384scalars:8productcenteredprogram totalerror23.12% vs26productquartic
 
 ### 2026-09-20 19:55 — Native quadratic graph refactor versus exhaustive deletion
 256subsets:4products retain85.35%,fail95%bar. Exact8×16×16core withoutputrank4 ceiling99.30%;24continuousfits learn4products retaining96.82%,34,560coefficients,error24.28% vs8product23.12%. ActualscalarDAGreplay1.5e-15,33,392additions. Centeredvariation36.81%,notsemanticorOODrecovery. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1955_native_graph_refactor.md).
+
+### 2026-09-20 20:15 — Mean correction and failed feature identity
+QuarticGaussianbias47,312coefficients/26products18.38%error,27.84%variationunchanged. Fourproductfeaturematchingfails(cos.455),componentscancel63–1367×. Normalizedwriterpenalty.001medianratio3.02,24.06%nativeerror,stabilitystillfails. Orthogonaloutputsharing43,808/8products23.15%. Matrix-freeGaussianprojectedquadraticcrosschecked4e-16. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_2015_mean_correction_and_feature_stability.md).

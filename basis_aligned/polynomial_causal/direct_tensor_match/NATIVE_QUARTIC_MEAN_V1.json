@@ -1,0 +1,111 @@
+{
+  "plan": {
+    "source": [
+      "second_floor01",
+      "muon",
+      1
+    ],
+    "output_ranks": [
+      10,
+      8,
+      4
+    ],
+    "primary_rank": 8,
+    "native_forwards": 0
+  },
+  "validation": {
+    "native_relative_error": 2.0031390031897071e-16,
+    "bank_relative_error": 6.42576753353155e-16,
+    "scope": "Exact noncentral Gaussian mean, checked against independent tensor-product Gaussian quadrature. Does not equate Gaussian mean to empirical text mean."
+  },
+  "records": [
+    {
+      "rank": 10,
+      "scalar_count": 49536,
+      "products": 26,
+      "panels": [
+        {
+          "panel": 0,
+          "centered_relative_error": 0.2641079536750735,
+          "oracle_total_error": 0.1762516465366793,
+          "teacher_gaussian_mean_error": 0.053071244522911044,
+          "uncorrected_error": 0.2340839981468041,
+          "gaussian_error": 0.17851169441351222,
+          "empirical_calibration_error": 0.1762516465366793
+        },
+        {
+          "panel": 1,
+          "centered_relative_error": 0.27806280544629963,
+          "oracle_total_error": 0.18172734185828165,
+          "teacher_gaussian_mean_error": 0.05411576962566149,
+          "uncorrected_error": 0.25281582419407,
+          "gaussian_error": 0.18358919861473852,
+          "empirical_calibration_error": 0.18380790355292317
+        }
+      ],
+      "centered_invariance_error": 1.9726131030613055e-16,
+      "gaussian_vs_empirical_bias_relative": 0.18381169480182474
+    },
+    {
+      "rank": 8,
+      "scalar_count": 47312,
+      "products": 26,
+      "panels": [
+        {
+          "panel": 0,
+          "centered_relative_error": 0.26425864627289536,
+          "oracle_total_error": 0.17635221078746166,
+          "teacher_gaussian_mean_error": 0.053071244522911044,
+          "uncorrected_error": 0.23397558537729893,
+          "gaussian_error": 0.17856218253054215,
+          "empirical_calibration_error": 0.17635221078746166
+        },
+        {
+          "panel": 1,
+          "centered_relative_error": 0.27840857210497666,
+          "oracle_total_error": 0.18195331690619845,
+          "teacher_gaussian_mean_error": 0.05411576962566149,
+          "uncorrected_error": 0.2528381105542433,
+          "gaussian_error": 0.1837768810226013,
+          "empirical_calibration_error": 0.18402951607245643
+        }
+      ],
+      "centered_invariance_error": 2.0190158435616893e-16,
+      "gaussian_vs_empirical_bias_relative": 0.182133718160415
+    },
+    {
+      "rank": 4,
+      "scalar_count": 42664,
+      "products": 26,
+      "panels": [
+        {
+          "panel": 0,
+          "centered_relative_error": 0.28708909443253,
+          "oracle_total_error": 0.19158804152755524,
+          "teacher_gaussian_mean_error": 0.053071244522911044,
+          "uncorrected_error": 0.24572222729167645,
+          "gaussian_error": 0.1936914455812133,
+          "empirical_calibration_error": 0.19158804152755524
+        },
+        {
+          "panel": 1,
+          "centered_relative_error": 0.29895846284624306,
+          "oracle_total_error": 0.19538365331489033,
+          "teacher_gaussian_mean_error": 0.05411576962566149,
+          "uncorrected_error": 0.2628361226689146,
+          "gaussian_error": 0.19713363796598124,
+          "empirical_calibration_error": 0.1973335810368091
+        }
+      ],
+      "centered_invariance_error": 1.8549946824467393e-16,
+      "gaussian_vs_empirical_bias_relative": 0.18501999063440364
+    }
+  ],
+  "predictions": {
+    "pred_a_moments": true,
+    "pred_b_primary": true,
+    "pred_c_law": true
+  },
+  "seconds": 1.493633694946766,
+  "scope": "Frozenprograms plusGaussian mean correction. All evaluation reuses previouspanels. Rank10exports original C; rank4/8use W,Z. No empirical/oraclebias candidate export."
+}

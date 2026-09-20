@@ -1,0 +1,56 @@
+{
+  "records": [
+    {
+      "rank": 10,
+      "cost": {
+        "products": 26,
+        "additions": 48364,
+        "stored_coefficients": 49536,
+        "edges": 50756,
+        "nodes": 3519
+      },
+      "archived_panel_errors": [
+        0.17851169435434866,
+        0.18358919865678816
+      ],
+      "graph_replay_relative_error": 4.492329271815178e-15,
+      "archive_metric_drift": 5.916356293766967e-11,
+      "maximum_degree": 4
+    },
+    {
+      "rank": 8,
+      "cost": {
+        "products": 26,
+        "additions": 46132,
+        "stored_coefficients": 47312,
+        "edges": 48532,
+        "nodes": 3527
+      },
+      "archived_panel_errors": [
+        0.17856218170950702,
+        0.18377688148043236
+      ],
+      "graph_replay_relative_error": 4.486149071941054e-15,
+      "archive_metric_drift": 8.210351287729623e-10,
+      "maximum_degree": 4
+    },
+    {
+      "rank": 4,
+      "cost": {
+        "products": 26,
+        "additions": 41488,
+        "stored_coefficients": 42664,
+        "edges": 43884,
+        "nodes": 3523
+      },
+      "archived_panel_errors": [
+        0.19369144535671942,
+        0.19713363879581233
+      ],
+      "graph_replay_relative_error": 4.487641746772956e-15,
+      "archive_metric_drift": 8.2983109273016e-10,
+      "maximum_degree": 4
+    }
+  ],
+  "scope": "Gaussianbias archive only; literal reachable DAG includingbias. FP32storedparameters,FP64replay. Commonvocabularyframe excluded."
+}

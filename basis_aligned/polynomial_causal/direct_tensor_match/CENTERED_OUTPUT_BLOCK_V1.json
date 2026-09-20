@@ -1,0 +1,116 @@
+{
+  "records": [
+    {
+      "rank": 2,
+      "products": 8,
+      "scalar_count": 41488,
+      "retained_quadratic_energy": 0.9051567635293347,
+      "full_quartic_errors": [
+        0.30111159560772727,
+        0.2895515310248943
+      ],
+      "centered_variation_errors": [
+        0.4454551584224751,
+        0.43972328072009403
+      ],
+      "output_component_energy_ratio": 1.0000000000000007,
+      "primitive_component_energy_ratio": 4.653606249934293,
+      "graph_cost": {
+        "products": 8,
+        "additions": 40310,
+        "stored_coefficients": 41488,
+        "edges": 42656,
+        "nodes": 3491
+      },
+      "graph_replay": 1.8649417329161897e-16
+    },
+    {
+      "rank": 3,
+      "products": 8,
+      "scalar_count": 42648,
+      "retained_quadratic_energy": 0.9658228503800654,
+      "full_quartic_errors": [
+        0.24283069875404134,
+        0.2342341978136893
+      ],
+      "centered_variation_errors": [
+        0.3567175389910228,
+        0.3545151353824794
+      ],
+      "output_component_energy_ratio": 1.0000000000000004,
+      "primitive_component_energy_ratio": 5.292443807813863,
+      "graph_cost": {
+        "products": 8,
+        "additions": 41469,
+        "stored_coefficients": 42648,
+        "edges": 43816,
+        "nodes": 3492
+      },
+      "graph_replay": 1.9396801859732806e-16
+    },
+    {
+      "rank": 4,
+      "products": 8,
+      "scalar_count": 43808,
+      "retained_quadratic_energy": 0.9929762853982154,
+      "full_quartic_errors": [
+        0.23936406496470136,
+        0.23147273009613153
+      ],
+      "centered_variation_errors": [
+        0.35141710773022644,
+        0.35033577043451647
+      ],
+      "output_component_energy_ratio": 1.0000000000000007,
+      "primitive_component_energy_ratio": 5.518425953399545,
+      "graph_cost": {
+        "products": 8,
+        "additions": 42628,
+        "stored_coefficients": 43808,
+        "edges": 44976,
+        "nodes": 3493
+      },
+      "graph_replay": 1.96256717562519e-16
+    },
+    {
+      "rank": 6,
+      "products": 8,
+      "scalar_count": 46128,
+      "retained_quadratic_energy": 0.9982456225662159,
+      "full_quartic_errors": [
+        0.23960796559858133,
+        0.231521538833771
+      ],
+      "centered_variation_errors": [
+        0.35179013135927256,
+        0.35040615713067097
+      ],
+      "output_component_energy_ratio": 1.0000000000000004,
+      "primitive_component_energy_ratio": 5.5816985758899085,
+      "graph_cost": {
+        "products": 8,
+        "additions": 44946,
+        "stored_coefficients": 46128,
+        "edges": 47296,
+        "nodes": 3495
+      },
+      "graph_replay": 2.009110380822144e-16
+    }
+  ],
+  "singular_values": [
+    14.070301256435354,
+    6.219698516170999,
+    3.982646046299845,
+    2.6644716767886414,
+    0.884162933546099,
+    0.7719792753880504,
+    0.5509392749158168,
+    0.39389996425571255
+  ],
+  "predictions": {
+    "pred_a": true,
+    "pred_b": true,
+    "pred_c": true
+  },
+  "scope": "Closed-form outputsharing baseline withoriginal8products globallyreused. Allranks declared; no empiricalselection or semantics."
+}
