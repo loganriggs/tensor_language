@@ -16,6 +16,7 @@ PANEL_PATH=None
 OUTPUT_STEM='NATIVE_MODE_INTERVENTION_V1'
 PROGRAM_FILE='FUSED_ROOT_PROGRAM_V1.pt'
 PROGRAM_KEY=4
+EXTRACTED_FILE=None
 def main():
  if os.environ.get('BQLIB_DRYRUN') or os.environ.get('BQLIB_NO_MODEL'):print(json.dumps(PLAN));return
  context=PLAN['context']
@@ -32,10 +33,16 @@ def main():
  scale=float(torch.load(P/'NATIVE_QUARTIC_MEAN_V1.pt',weights_only=True)['teacher_scale'])
  view=torch.load(P/'CANONICAL_ROOT_FEATURES_V1.pt',weights_only=True);U=view['output_directions'].cuda().double();mu=view['output_mean'].cuda().double()
  writer=torch.linalg.solve_triangular(ru,scale*U,upper=True)
+ extracted=None
+ if EXTRACTED_FILE is not None:
+  from extract_scalar_modes import evaluate as scalar_evaluate
+  extracted=torch.load(EXTRACTED_FILE,weights_only=True);scalar_program={k:v.cuda().double() for k,v in extracted['program'].items()};export_writer=extracted['residual_writer'].cuda().double()
  s={k:v.cuda().double() for k,v in torch.load(P/PROGRAM_FILE,weights_only=True)['programs'][PROGRAM_KEY].items()}
  ids=torch.load(PANEL_PATH,weights_only=True) if PANEL_PATH is not None else torch.load(BQ/'.rowcache/fineweb_n192_skip7000.pt',weights_only=True)[80:96,:context+1];records=[];checks=[]
  rel=lambda a,b:float((a-b).norm()/b.norm().clamp_min(1e-30))
  checks.append(rel(ru@writer,scale*U))
+ if extracted is not None:
+  checks.append(rel(export_writer,writer));writer=export_writer
  assert len(ids)==len(PLAN['documents']) and ids.shape[1]==context+1
  for doc,tokens in zip(PLAN['documents'],ids):
   tokens=tokens.cuda()[None];x=F.rms_norm(model.transformer.wte(tokens[:,:context]),(1152,));x0=x;v1=None;cache={}
@@ -52,6 +59,8 @@ def main():
   h=b17.lambdas[0]*incoming+b17.lambdas[1]*x0+cache['attn17'];den=h.square().mean(-1,keepdim=True)+torch.finfo(h.dtype).eps
   pure=pure_branch(cache['m16'],b16.mlp.Down_bias,b17.lambdas[0],b17.mlp.Left.weight,b17.mlp.Right.weight,b17.mlp.Down.weight).double().flatten(0,1)
   y=pure@ru.T/scale;yhat=quartic(s,cache['x16'].flatten(0,1).double());a=(y-mu)@U;b=(yhat-mu)@U
+  if extracted is not None:
+   scalar=scalar_evaluate(scalar_program,cache['x16'].flatten(0,1).double());checks.append(rel(scalar,b));b=scalar
   # Independently solve the entire rank-four projection for the joint oracle.
   joint=torch.linalg.solve_triangular(ru,scale*((y-mu)@U@U.T).T,upper=True).T
   checks.append(rel(a@writer.T,joint))

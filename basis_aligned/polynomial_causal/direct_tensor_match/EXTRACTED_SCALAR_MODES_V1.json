@@ -1,0 +1,63 @@
+{
+  "shared_cost": {
+    "products": 10,
+    "additions": 13892,
+    "stored_coefficients": 13916,
+    "edges": 13936,
+    "nodes": 1187
+  },
+  "separate_costs": [
+    {
+      "products": 10,
+      "additions": 13862,
+      "stored_coefficients": 13883,
+      "edges": 13903,
+      "nodes": 1184
+    },
+    {
+      "products": 10,
+      "additions": 13862,
+      "stored_coefficients": 13883,
+      "edges": 13903,
+      "nodes": 1184
+    },
+    {
+      "products": 10,
+      "additions": 13862,
+      "stored_coefficients": 13883,
+      "edges": 13903,
+      "nodes": 1184
+    },
+    {
+      "products": 10,
+      "additions": 13862,
+      "stored_coefficients": 13883,
+      "edges": 13903,
+      "nodes": 1184
+    }
+  ],
+  "graph_replay": 8.904726633490559e-16,
+  "checks": [
+    {
+      "context": 64,
+      "exact_composition_error": 1.0991464729018197e-15,
+      "archive_per_mode_error": [
+        5.601394777694187e-08,
+        1.716187892126359e-08,
+        2.9252562113676196e-08,
+        4.9900285057961106e-08
+      ]
+    },
+    {
+      "context": 256,
+      "exact_composition_error": 1.1439577596001847e-15,
+      "archive_per_mode_error": [
+        5.538663579684841e-08,
+        1.6153379563264576e-08,
+        3.0773119023996194e-08,
+        5.380052569481791e-08
+      ]
+    }
+  ],
+  "scope": "Exact folded scalar readouts plus FP32 rounding audit. Shared four-feature dictionary costs13916 coefficients/10products; independent copies duplicate common input work. Fixed downstream residual writers and normalization are separate and must be priced."
+}
