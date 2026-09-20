@@ -1,0 +1,24 @@
+{
+ "replay_max_abs": 1.33514404296875e-05,
+ "text": {
+  "pairs": 122,
+  "gap_mean": 1.8995414972305298,
+  "sign_constancy": 0.8606557250022888,
+  "closed": {
+   "CUR": 0.41062214970588684,
+   "TOK": 0.075359046459198,
+   "FULL": 0.4826049506664276
+  }
+ }
+}
+number readers by branch: CUR 0.411 TOK 0.075 FULL 0.483
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_branches_add": true,
+    "pred_c_token_only_branch_small": true,
+    "pred_d_current_branch_carries": true,
+    "pred_e_full_replays": true
+  },
+  "forwards": 16
+}

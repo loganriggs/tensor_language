@@ -1,0 +1,14 @@
+sentence 0: sym_err=1.04e-07 max_offdiag=0.068 (pos [4, 5], noun=20) diag_rms=0.173 conc=0.975
+sentence 1: sym_err=6.71e-08 max_offdiag=0.076 (pos [23, 21], noun=13) diag_rms=0.214 conc=0.612
+sentence 2: sym_err=1.64e-07 max_offdiag=0.249 (pos [17, 16], noun=20) diag_rms=0.421 conc=0.848
+sentence 3: sym_err=1.29e-07 max_offdiag=0.116 (pos [7, 8], noun=14) diag_rms=0.323 conc=0.787
+{
+  "predictions": {
+    "pred_a_hessian_symmetric": true,
+    "pred_b_diagonal_matches_prior_expansion": false,
+    "pred_c_offdiag_significant": true,
+    "pred_d_noun_verb_pair_dominates": false,
+    "pred_e_eigenfilter_concentrated": true
+  },
+  "forwards": 104
+}

@@ -1,0 +1,44 @@
+{
+ "instrument_max_rel": 7.197863851615693e-07,
+ "readers": {
+  "4.5": {
+   "noun_source_contrast": 122258324.48020466,
+   "total_contrast": 120220355.6171875,
+   "noun_source_share": 1.0169519450558486,
+   "term_shares": {
+    "value_only": 0.9070860570086196,
+    "s1_only": -0.017962797232776193,
+    "s2_only": -0.014931575701778037,
+    "s1_s2": -0.0012605598540168024,
+    "s1_value": 0.03831523457911065,
+    "s2_value": 0.02832333057919444,
+    "s1_s2_value": 0.0026283610564862654,
+    "query_change": 0.057801949565159945
+   },
+   "degree_shares": {
+    "degree1": 0.8741916840740653,
+    "degree2": 0.06537800530428829,
+    "degree3": 0.0026283610564862654,
+    "query": 0.057801949565159945
+   },
+   "leading_term_by_frame": {
+    "lost": "value_only",
+    "because": "value_only",
+    "later": "value_only"
+   },
+   "pairs": 48,
+   "skipped": 0
+  }
+ },
+ "closure_max": 2.212299624745058e-16
+}
+{
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_noun_source_carries_a_third": true,
+    "pred_c_copier_is_a_value_copy_too": true,
+    "pred_d_third_order_small": true,
+    "pred_e_leading_term_replays_across_frames": true
+  },
+  "forwards": 3
+}

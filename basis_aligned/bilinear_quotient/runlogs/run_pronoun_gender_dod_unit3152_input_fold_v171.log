@@ -1,0 +1,11 @@
+L contrast 159.768 embed 0.321 heads 0.318 mlps 0.36 top [('embed', 0.321), ('mlp:06', 0.282), ('attnhead:08:1', 0.209), ('attn:06', 0.182), ('attn:07', -0.114), ('mlp:07', 0.037)]
+R contrast -385.056 embed 0.312 heads 0.399 mlps 0.288 top [('embed', 0.312), ('attnhead:08:1', 0.234), ('attn:06', 0.216), ('mlp:06', 0.172), ('attn:07', -0.103), ('mlp:07', 0.056)]
+{
+  "predictions": {
+    "pred_a_factor_closure": true,
+    "pred_b_right_factor_reads_the_embedding": false,
+    "pred_c_heads_write_little_of_the_right_factor": false,
+    "pred_d_left_factor_reads_the_embedding": true
+  },
+  "forwards": 2
+}

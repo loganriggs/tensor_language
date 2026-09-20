@@ -1,0 +1,61 @@
+{
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_heads_9_1_and_9_4_rank_top3": true,
+    "pred_c_no_head_outside_blocks_9_to_15_exceeds_half_of_9_4": false,
+    "pred_d_pair_is_near_additive": true,
+    "pred_e_at_most_five_heads_are_live": true
+  },
+  "top10": [
+    [
+      "attn9_h1",
+      0.3621
+    ],
+    [
+      "attn8_h1",
+      0.3448
+    ],
+    [
+      "attn9_h4",
+      0.33
+    ],
+    [
+      "attn15_h5",
+      0.1821
+    ],
+    [
+      "attn11_h3",
+      0.1163
+    ],
+    [
+      "attn7_h7",
+      0.0378
+    ],
+    [
+      "attn15_h1",
+      0.021
+    ],
+    [
+      "attn9_h7",
+      0.0191
+    ],
+    [
+      "attn5_h1",
+      0.0182
+    ],
+    [
+      "attn10_h2",
+      0.0171
+    ]
+  ],
+  "live": [
+    "attn8_h1",
+    "attn9_h1",
+    "attn9_h4"
+  ],
+  "joint_vs_sum": [
+    0.7013408914208412,
+    0.6920666769146919
+  ],
+  "forwards": 328
+}

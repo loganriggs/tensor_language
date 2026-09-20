@@ -1,0 +1,43 @@
+{
+ "native_3465_medians": {
+  "is|s": -3.9971518516540527,
+  "is|p": -87.77975463867188,
+  "are|s": -164.63609313964844,
+  "are|p": -48.95232009887695
+ },
+ "kl_3465_violation_mean": 0.00042802355528692715,
+ "kl_3465_grammatical_mean": 2.068766661977861e-06,
+ "null_violation_kl_max": 4.412759716387882e-05,
+ "delta_logodds_3465_on_are_s": 0.048554301261901855,
+ "kl_493_argmax_cell": "is|p"
+}
+{
+ "3465": {
+  "is|s": 0.0,
+  "is|p": 0.0,
+  "are|s": 0.0008,
+  "are|p": 0.0
+ },
+ "493": {
+  "is|s": 0.0,
+  "is|p": 0.0,
+  "are|s": 0.0,
+  "are|p": 0.0
+ },
+ "both": {
+  "is|s": 0.0,
+  "is|p": 0.0,
+  "are|s": 0.0009,
+  "are|p": 0.0
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_frames_replay": true,
+    "pred_b_zeroing_3465_moves_the_violation_cells_more": true,
+    "pred_c_beats_random_units": true,
+    "pred_d_direction_toward_repair": true,
+    "pred_e_493_effect_on_its_own_cell": true
+  },
+  "forwards": 48
+}

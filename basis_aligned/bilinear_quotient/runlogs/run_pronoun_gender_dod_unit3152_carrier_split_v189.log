@@ -1,0 +1,12 @@
+contrast -953.55 carrier sum 1.0
+carrier [('embed', 0.337, 'mass', 0.336), ('attn:06', 0.237, 'mass', 0.023), ('attnhead:08:1', 0.149, 'mass', -0.003), ('mlp:06', 0.136, 'mass', -0.191), ('attn:07', -0.078, 'mass', -0.034), ('mlp:07', 0.057, 'mass', 0.334), ('attn:04', 0.04, 'mass', 0.043), ('mlp:05', 0.036, 'mass', 0.261), ('attnhead:08:8', 0.03, 'mass', 0.098), ('mlp:02', 0.021, 'mass', 0.059)]
+{
+  "predictions": {
+    "pred_a_carrier_closure": true,
+    "pred_b_embedding_carries_040": false,
+    "pred_c_mlp7_carries_020": false,
+    "pred_d_mlp6_carrier_negative": false,
+    "pred_e_8_1_carries_little": false
+  },
+  "forwards": 2
+}

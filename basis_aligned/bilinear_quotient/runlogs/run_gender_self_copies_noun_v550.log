@@ -1,0 +1,24 @@
+{
+ "replay_max_abs": 1.430511474609375e-05,
+ "text": {
+  "pairs": 61,
+  "gap_mean": 4.360080718994141,
+  "sign_constancy": 0.8852459192276001,
+  "closed": {
+   "SELF": 0.31032195687294006,
+   "LOW_REST": 0.08406148850917816,
+   "FIVE_SELF": 0.828291654586792,
+   "ALL": 0.9005147218704224
+  }
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_self_copies_carry_a_share": true,
+    "pred_c_rest_of_low_blocks_small": true,
+    "pred_d_readers_and_self_copies_nested": true,
+    "pred_e_all_replays": true
+  },
+  "forwards": 10
+}

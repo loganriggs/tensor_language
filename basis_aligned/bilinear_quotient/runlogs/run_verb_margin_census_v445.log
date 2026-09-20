@@ -1,0 +1,43 @@
+{
+ "replay_max_abs": 2.384185791015625e-05,
+ "text": {
+  "pairs": 122,
+  "gap_mean": {
+   "verb": 7.292904376983643,
+   "are_is": 3.824225425720215,
+   "were_was": 3.4686784744262695
+  },
+  "closed": {
+   "FIVE_N": {
+    "verb": 0.04269244521856308,
+    "are_is": 0.04048600047826767
+   },
+   "COPIER": {
+    "verb": 0.03948153555393219,
+    "are_is": 0.03917842358350754
+   },
+   "UNITS": {
+    "verb": 0.09482161700725555,
+    "are_is": 0.09077128767967224
+   },
+   "ALL_NOUN": {
+    "verb": 0.4745945930480957,
+    "are_is": 0.4702806770801544
+   }
+  }
+ },
+ "panel": {
+  "skipped": "verb slot only (price)",
+  "verb_slot_rows": 122
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_all_values_at_noun_carry_the_verb_margin": false,
+    "pred_c_readers_carry_a_share_of_the_verb_margin": false,
+    "pred_d_units_carry_a_share_of_the_verb_margin": false,
+    "pred_e_copier_carries_a_share_of_the_verb_margin": false
+  },
+  "forwards": 20
+}

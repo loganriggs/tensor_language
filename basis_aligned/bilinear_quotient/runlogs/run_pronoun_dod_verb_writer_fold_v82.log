@@ -1,0 +1,14 @@
+gender noun contrast 237.361 heads 0.214 mlp 0.461 embed 0.325 top [('attnhead:08:1', 0.136), ('attnhead:06:1', 0.085), ('attnhead:07:1', -0.071), ('attnhead:08:8', 0.02)]
+gender verb contrast 255.522 heads 0.269 mlp 0.729 embed 0.001 top [('attnhead:08:1', 0.197), ('attnhead:06:1', 0.091), ('attnhead:07:1', -0.076), ('attnhead:04:5', 0.024)]
+number noun contrast 644.635 heads 0.027 mlp 0.871 embed 0.102 top [('attnhead:04:5', 0.008), ('attnhead:05:3', 0.007), ('attnhead:08:8', 0.005), ('attnhead:07:8', 0.005)]
+number verb contrast 699.122 heads 0.061 mlp 0.939 embed -0.001 top [('attnhead:05:3', 0.03), ('attnhead:04:5', 0.028), ('attnhead:07:8', 0.015), ('attnhead:07:7', -0.01)]
+{
+  "predictions": {
+    "pred_a_writer_closure": true,
+    "pred_b_verb_state_is_mostly_attention_written": false,
+    "pred_c_top_three_heads_carry_070_of_verb_attention": true,
+    "pred_d_largest_verb_writer_shared_across_lines": false,
+    "pred_e_noun_state_is_mostly_embedding_and_early_mlp": false
+  },
+  "forwards": 10
+}

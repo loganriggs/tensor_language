@@ -1,0 +1,85 @@
+{
+ "alpha_baseline_median": 0.334722101688385,
+ "cos_baseline_median": 0.7728161215782166,
+ "replay_gap": 0.0002778983116150102,
+ "per_k": {
+  "2": {
+   "rise": 0.14844739437103271,
+   "census": 0.1484474092721939,
+   "null_max_abs": 0.0001214444637298584,
+   "cos_median": 0.832313597202301,
+   "top_units": [
+    3289,
+    624
+   ]
+  },
+  "10": {
+   "rise": 0.20536580681800842,
+   "census": 0.2053658664226532,
+   "null_max_abs": 0.0013517439365386963,
+   "cos_median": 0.8382499814033508,
+   "top_units": [
+    3289,
+    624,
+    1715,
+    3804,
+    1782,
+    778,
+    2976,
+    3887,
+    4331,
+    640
+   ]
+  },
+  "50": {
+   "rise": 0.24150371551513672,
+   "census": 0.24150380492210388,
+   "null_max_abs": 0.005140155553817749,
+   "cos_median": 0.8617752194404602,
+   "top_units": [
+    3289,
+    624,
+    1715,
+    3804,
+    1782,
+    778,
+    2976,
+    3887,
+    4331,
+    640,
+    2894,
+    2126
+   ]
+  },
+  "200": {
+   "rise": 0.31692856550216675,
+   "census": 0.31692856550216675,
+   "null_max_abs": 0.022923022508621216,
+   "cos_median": 0.892508864402771,
+   "top_units": [
+    3289,
+    624,
+    1715,
+    3804,
+    1782,
+    778,
+    2976,
+    3887,
+    4331,
+    640,
+    2894,
+    2126
+   ]
+  }
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_rise_matches_census_at_every_k": true,
+    "pred_c_rise_beats_random_sets_at_every_k": true,
+    "pred_d_top200_restores_half": true,
+    "pred_e_direction_improves_monotonically": true
+  },
+  "forwards": 22
+}

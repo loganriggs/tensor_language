@@ -1,0 +1,46 @@
+{
+ "replay_max_abs": 1.430511474609375e-05,
+ "text": {
+  "pairs": 61,
+  "gap_mean": 4.360080718994141,
+  "closed": {
+   "MLP8": 0.07800419628620148,
+   "MLP8_RESTORE": -0.018411150202155113
+  },
+  "w_moved": {
+   "MLP8": {
+    "10.1": 0.2979447543621063,
+    "12.4": 0.2261658012866974,
+    "9.6": 0.3412144184112549
+   },
+   "MLP8_RESTORE": {
+    "10.1": 0.29551151394844055,
+    "12.4": 0.20821164548397064,
+    "9.6": 0.3412144184112549
+   }
+  },
+  "v_moved_full": {
+   "MLP8": {
+    "10.1": 0.29432618618011475,
+    "12.4": 0.22914552688598633,
+    "9.6": 0.3548074960708618
+   },
+   "MLP8_RESTORE": {
+    "10.1": 0.29229480028152466,
+    "12.4": 0.2107745110988617,
+    "9.6": 0.3548074960708618
+   }
+  }
+ }
+}
+u-projection moved {'10.1': 0.298, '12.4': 0.226, '9.6': 0.341} full-vector moved {'10.1': 0.294, '12.4': 0.229, '9.6': 0.355} readers part 0.096 expected 0.152 non-reader part -0.018
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_full_vector_moves_less_than_the_projection": false,
+    "pred_c_readers_part_composes_linearly": false,
+    "pred_d_non_reader_part_small": true,
+    "pred_e_mlp8_margin_replays": true
+  },
+  "forwards": 6
+}

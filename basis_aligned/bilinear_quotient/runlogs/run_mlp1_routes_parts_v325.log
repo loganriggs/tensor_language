@@ -1,0 +1,26 @@
+{
+ "native_margin": 2.048141226172447,
+ "full_delta_change": -0.6553510278463364,
+ "share": {
+  "2.attn": 0.020170071925872075,
+  "2.mlp": 0.44215343887421094,
+  "2.both": 0.22930573173151247,
+  "3.attn": 0.05486480634709246,
+  "3.mlp": 0.647218417513791,
+  "3.both": 0.11573712723934589,
+  "4.attn": 0.05860730701533434,
+  "4.mlp": 0.11636522530019412,
+  "4.both": 0.15101898642415798
+ },
+ "largest_part": "3.mlp"
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_parts_replay_v324_blocks": true,
+    "pred_c_mlp_parts_exceed_attention_parts": true,
+    "pred_d_parts_additive": false,
+    "pred_e_mlp2_is_the_largest_part": false
+  },
+  "forwards": 36
+}

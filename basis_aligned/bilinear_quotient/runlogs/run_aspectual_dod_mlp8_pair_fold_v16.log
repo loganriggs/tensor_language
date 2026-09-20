@@ -1,0 +1,12 @@
+9.1 contrast 165896.86 with_8.1 0.426 self 0.035 top [('mlp:06 x mlp:07', 0.095), ('mlp:07 x attnhead:08:1', 0.075), ('attn:07 x attnhead:08:1', 0.062), ('mlp:04 x attnhead:08:1', 0.054), ('mlp:05 x mlp:06', 0.041), ('mlp:05 x mlp:07', 0.038)]
+9.4 contrast 255931.7 with_8.1 0.213 self 0.0 top [('mlp:06 x mlp:07', 0.144), ('mlp:07 x mlp:07', 0.09), ('mlp:05 x mlp:07', 0.066), ('mlp:07 x attnhead:08:1', 0.054), ('mlp:04 x mlp:07', 0.039), ('mlp:06 x attn:07', 0.038)]
+{
+  "predictions": {
+    "pred_a_bilinear_closure": true,
+    "pred_b_top_pair_involves_head_8_1": false,
+    "pred_c_pairs_with_8_1_carry_half": false,
+    "pred_d_8_1_self_term_at_least_020": false
+  },
+  "closure": 0.00018996394736104494,
+  "forwards": 2
+}

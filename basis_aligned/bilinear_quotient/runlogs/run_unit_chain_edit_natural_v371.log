@@ -1,0 +1,35 @@
+{
+ "native_margin": 2.3956499341875315,
+ "change_chain": -0.21032464876770973,
+ "change_upper_four": -0.18734716437757015,
+ "null_changes": [
+  0.0001579858362674713,
+  -0.001091809943318367,
+  0.00019463896751403809,
+  -0.0006036758422851562,
+  -0.0004016999155282974,
+  0.00012499839067459106,
+  -0.0018258485943078995,
+  -0.0008820872753858566,
+  0.0035303328186273575,
+  0.0009504333138465881,
+  0.000755874440073967,
+  0.00046524591743946075
+ ],
+ "null_max_abs": 0.0035303328186273575,
+ "chain_rel": -0.08779440007750544,
+ "labels": {
+  "they": 64,
+  "he": 64
+ }
+}
+{
+  "predictions": {
+    "pred_a_native_margin_positive": true,
+    "pred_b_chain_lowers_the_margin_on_text": true,
+    "pred_c_beats_random_sets_on_text": true,
+    "pred_d_upper_four_carry_most_on_text": true,
+    "pred_e_effect_within_3x_of_panel": true
+  },
+  "forwards": 30
+}

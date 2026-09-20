@@ -1,0 +1,27 @@
+{
+ "replay_max_abs": 2.384185791015625e-05,
+ "text": {
+  "pairs": 79,
+  "corr_d701_gap": 0.5266985297203064,
+  "mean_gap_pos": 3.8452680110931396,
+  "mean_gap_neg": 2.0457534790039062,
+  "n_pos": 48,
+  "corr_abs_d701_pverb": 0.2295006960630417,
+  "pverb_mean": 0.16311031579971313,
+  "same_sign_2059": 0.40506330132484436
+ },
+ "panel": {
+  "skipped": "distant rows only",
+  "distant_rows": 79
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_701_change_tracks_the_margin_gap": true,
+    "pred_c_positive_rows_have_larger_gaps": true,
+    "pred_d_701_fires_more_when_a_verb_is_expected": false,
+    "pred_e_2059_same_sign_as_701": false
+  },
+  "forwards": 3
+}

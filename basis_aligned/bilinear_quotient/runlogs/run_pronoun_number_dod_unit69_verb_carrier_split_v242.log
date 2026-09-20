@@ -1,0 +1,11 @@
+69 contrast 606.04 sum 1.0 mlp stack 0.505 [('mlp:05', 0.364, 'mass', -0.266), ('attn:05', 0.205, 'mass', 0.119), ('attn:04', 0.179, 'mass', -0.004), ('mlp:04', 0.11, 'mass', 0.411), ('attn:03', 0.044, 'mass', 0.038), ('attnhead:06:1', 0.035, 'mass', 0.126), ('attn:02', 0.018, 'mass', 0.011), ('attnhead:06:3', 0.017, 'mass', 0.165), ('mlp:02', 0.016, 'mass', 0.063)]
+   attn:04 + attn:05 0.384 largest attention writer attn:05 0.205
+{
+  "predictions": {
+    "pred_a_carrier_closure": true,
+    "pred_b_attention_4_5_carries_030": true,
+    "pred_c_head_4_5_leads_attention": false,
+    "pred_d_embedding_carries_at_most_010": true
+  },
+  "forwards": 3
+}

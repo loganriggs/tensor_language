@@ -1,0 +1,32 @@
+{
+ "replay_max_abs": 1.430511474609375e-05,
+ "text": {
+  "pairs": 61,
+  "unit": 701,
+  "contrast_mean": -0.29676592350006104,
+  "sign_constancy": 0.5901639461517334,
+  "moved": {
+   "COPIERS_POST": 1.8103742599487305,
+   "COPIERS_POST_AND_NOUN": 5.676612377166748
+  },
+  "margin_closed": {
+   "COPIERS_POST": 0.2559209167957306,
+   "COPIERS_POST_AND_NOUN": 0.8975075483322144
+  }
+ },
+ "panel": {
+  "skipped": "pronoun slot, natural pairs",
+  "rows": 61
+ }
+}
+copiers post-noun 0.256 copiers + readers' noun values 0.898
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_copiers_post_noun_add": true,
+    "pred_c_copiers_below_readers_post_noun": true,
+    "pred_d_copiers_and_noun_values_reach_most": true,
+    "pred_e_copiers_and_noun_values_nested": false
+  },
+  "forwards": 6
+}

@@ -1,0 +1,35 @@
+{
+ "replay_max_abs": 1.239776611328125e-05,
+ "text": {
+  "pairs": 48,
+  "gap_mean": {
+   "verb": 4.0962815284729,
+   "are_is": 5.8501973152160645,
+   "were_was": -0.5198912620544434
+  },
+  "closed": {
+   "DET_A": {
+    "verb": -0.07845767587423325,
+    "are_is": 0.00189400021918118
+   },
+   "RANDOM_A": {
+    "verb": 0.0001727266499074176,
+    "are_is": 0.0001292876695515588
+   }
+  }
+ },
+ "panel": {
+  "frame": "v76 panel pairs",
+  "rows": 48
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_four_units_help_the_panel_verb_margin": false,
+    "pred_c_pronoun_opposition_replays": true,
+    "pred_d_random_units_do_not": true,
+    "pred_e_verb_and_pronoun_effects_opposite": true
+  },
+  "forwards": 9
+}

@@ -1,0 +1,41 @@
+{
+ "replay_max_abs": 1.430511474609375e-05,
+ "text": {
+  "pairs": 61,
+  "unit": 701,
+  "contrast_mean": -0.29676592350006104,
+  "sign_constancy": 0.5901639461517334,
+  "moved": {
+   "FIVE_W": 4.426050662994385,
+   "REST_W": -2.739957332611084,
+   "ALL_W": -2.6803781986236572
+  },
+  "margin_closed": {
+   "FIVE_W": 0.8780553936958313,
+   "REST_W": 0.0014291609404608607,
+   "ALL_W": 1.0417639017105103
+  },
+  "number_moved": {
+   "FIVE_W": 0.06326202303171158,
+   "REST_W": 0.0008737054886296391,
+   "ALL_W": 0.10676567256450653
+  },
+  "native_number_ratio": 0.11725759506225586,
+  "gender_gap_mean": 4.360080718994141
+ },
+ "panel": {
+  "skipped": "pronoun slot, natural pairs",
+  "rows": 61
+ }
+}
+number component moved {'FIVE_W': 0.063, 'REST_W': 0.001, 'ALL_W': 0.107} native number ratio 0.117 gender gap 4.36
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_five_writes_leave_number_alone": true,
+    "pred_c_all_writes_leave_number_alone": true,
+    "pred_d_gender_effect_replays": true,
+    "pred_e_rows_do_not_differ_in_number": false
+  },
+  "forwards": 8
+}

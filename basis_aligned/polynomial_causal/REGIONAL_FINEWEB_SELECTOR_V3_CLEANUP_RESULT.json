@@ -1,0 +1,10 @@
+{
+  "passes": false,
+  "exit_code": -6,
+  "rows_contexts_scan_count_equal": true,
+  "stdout_tail": "{\"pred_a\": true, \"contexts\": 20, \"rows\": 240, \"sequences\": 40, \"docs_scanned\": 725, \"prior_exact_prefix_collisions_skipped\": 0, \"row_sha256\": \"b797fdf48d15eef5b745261fae66d256417cb3ad2101a762cb8381a65f60e113\", \"selection_model_calls\": 0}\n",
+  "stderr_tail": "Fatal Python error: PyGILState_Release: thread state 0x7eafe4dc0480 must be current when releasing\nPython runtime state: finalizing (tstate=0x000060d5a19925d0)\n\nThread 0x00007eb1332d8740 (most recent call first):\n  <no Python frame>\n",
+  "seconds": 20.75961552397348,
+  "source_sha256": "87741d3d58df79b7497a765d7a1aa2c4207325cff4988d145fdb853a362c5041",
+  "scope": "Replay of already-frozen outcome-blind selection in isolated temporary directory; no new panel, original files unchanged. Tests explicit streaming iterator cleanup."
+}

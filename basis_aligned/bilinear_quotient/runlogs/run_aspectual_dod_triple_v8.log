@@ -1,0 +1,54 @@
+agent_first_comma single {"target_native_mean_margin": 2.0936, "target_damage_mean": 0.3468, "target_damage_fraction": 0.1657, "target_damage_positive_fraction": 1.0, "flip_fraction": 0.0, "number_was_were_abs_move_mean": 0.0347, "number_was_were_native_abs_mean": 5.5337, "animacy_who_which_abs_move_mean": 0.0166, "animacy_who_which_native_abs_mean": 0.6468, "canonical_night_day_abs_move_mean": 0.0291, "canonical_night_day_native_abs_mean": 0.3579} live True beats True gates {'number_was_were': True, 'animacy_who_which': True, 'canonical_night_day': True}
+agent_first_comma triple {"target_native_mean_margin": 2.0936, "target_damage_mean": 1.0384, "target_damage_fraction": 0.496, "target_damage_positive_fraction": 1.0, "flip_fraction": 0.125, "number_was_were_abs_move_mean": 0.0936, "number_was_were_native_abs_mean": 5.5337, "animacy_who_which_abs_move_mean": 0.0225, "animacy_who_which_native_abs_mean": 0.6468, "canonical_night_day_abs_move_mean": 0.0429, "canonical_night_day_native_abs_mean": 0.3579} live True beats True gates {'number_was_were': True, 'animacy_who_which': True, 'canonical_night_day': True}
+clear_that_began_ended single {"target_native_mean_margin": 2.7345, "target_damage_mean": 0.3718, "target_damage_fraction": 0.136, "target_damage_positive_fraction": 1.0, "flip_fraction": 0.0, "number_was_were_abs_move_mean": 0.1117, "number_was_were_native_abs_mean": 5.4763, "animacy_who_which_abs_move_mean": 0.02, "animacy_who_which_native_abs_mean": 4.4766, "canonical_night_day_abs_move_mean": 0.0507, "canonical_night_day_native_abs_mean": 0.9392} live True beats True gates {'number_was_were': True, 'animacy_who_which': True, 'canonical_night_day': True}
+clear_that_began_ended triple {"target_native_mean_margin": 2.7345, "target_damage_mean": 1.4109, "target_damage_fraction": 0.516, "target_damage_positive_fraction": 1.0, "flip_fraction": 0.0, "number_was_were_abs_move_mean": 0.2815, "number_was_were_native_abs_mean": 5.4763, "animacy_who_which_abs_move_mean": 0.0377, "animacy_who_which_native_abs_mean": 4.4766, "canonical_night_day_abs_move_mean": 0.1022, "canonical_night_day_native_abs_mean": 0.9392} live True beats True gates {'number_was_were': True, 'animacy_who_which': True, 'canonical_night_day': True}
+discovery single {"target_native_mean_margin": 2.0674, "target_damage_mean": 0.3448, "target_damage_fraction": 0.1668, "target_damage_positive_fraction": 1.0, "flip_fraction": 0.0, "number_was_were_abs_move_mean": 0.1184, "number_was_were_native_abs_mean": 5.467, "animacy_who_which_abs_move_mean": 0.0201, "animacy_who_which_native_abs_mean": 3.3816, "canonical_night_day_abs_move_mean": 0.0419, "canonical_night_day_native_abs_mean": 0.902} live True beats True gates {'number_was_were': True, 'animacy_who_which': True, 'canonical_night_day': True}
+discovery triple {"target_native_mean_margin": 2.0674, "target_damage_mean": 1.0846, "target_damage_fraction": 0.5246, "target_damage_positive_fraction": 1.0, "flip_fraction": 0.0625, "number_was_were_abs_move_mean": 0.2596, "number_was_were_native_abs_mean": 5.467, "animacy_who_which_abs_move_mean": 0.0293, "animacy_who_which_native_abs_mean": 3.3816, "canonical_night_day_abs_move_mean": 0.0939, "canonical_night_day_native_abs_mean": 0.902} live True beats True gates {'number_was_were': True, 'animacy_who_which': True, 'canonical_night_day': True}
+ever_since_by_end single {"target_native_mean_margin": 1.7225, "target_damage_mean": 0.3171, "target_damage_fraction": 0.1841, "target_damage_positive_fraction": 0.9688, "flip_fraction": 0.0, "number_was_were_abs_move_mean": 0.0914, "number_was_were_native_abs_mean": 5.5828, "animacy_who_which_abs_move_mean": 0.0204, "animacy_who_which_native_abs_mean": 3.9774, "canonical_night_day_abs_move_mean": 0.0304, "canonical_night_day_native_abs_mean": 0.7461} live True beats True gates {'number_was_were': True, 'animacy_who_which': True, 'canonical_night_day': True}
+ever_since_by_end triple {"target_native_mean_margin": 1.7225, "target_damage_mean": 1.1431, "target_damage_fraction": 0.6636, "target_damage_positive_fraction": 1.0, "flip_fraction": 0.25, "number_was_were_abs_move_mean": 0.1982, "number_was_were_native_abs_mean": 5.5828, "animacy_who_which_abs_move_mean": 0.0446, "animacy_who_which_native_abs_mean": 3.9774, "canonical_night_day_abs_move_mean": 0.0576, "canonical_night_day_native_abs_mean": 0.7461} live True beats True gates {'number_was_were': True, 'animacy_who_which': True, 'canonical_night_day': True}
+{
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_head_8_1_live_and_beats_null_everywhere": true,
+    "pred_c_head_8_1_selective_everywhere": true,
+    "pred_d_triple_live_null_selective_everywhere": true,
+    "pred_e_triple_is_additive_with_block9_pair": true,
+    "pred_f_triple_fraction_at_least_045_pooled": true
+  },
+  "pooled_triple_fraction": 0.5392028680690338,
+  "additivity": {
+    "agent_first_comma": {
+      "triple": 1.0384037345647812,
+      "single_8_1": 0.3468356877565384,
+      "pair_9_1_9_4": 0.7169082015752792,
+      "gap": 0.025340154767036438,
+      "bar": 0.0867089219391346,
+      "passes": true
+    },
+    "clear_that_began_ended": {
+      "triple": 1.4109030812978745,
+      "single_8_1": 0.37176887691020966,
+      "pair_9_1_9_4": 0.9799602329730988,
+      "gap": 0.05917397141456604,
+      "bar": 0.09294221922755241,
+      "passes": true
+    },
+    "discovery": {
+      "triple": 1.0846001878380775,
+      "single_8_1": 0.344808429479599,
+      "pair_9_1_9_4": 0.7013408914208412,
+      "gap": 0.03845086693763733,
+      "bar": 0.08620210736989975,
+      "passes": true
+    },
+    "ever_since_by_end": {
+      "triple": 1.1430736482143402,
+      "single_8_1": 0.31713542342185974,
+      "pair_9_1_9_4": 0.7945820391178131,
+      "gap": 0.03135618567466736,
+      "bar": 0.07928385585546494,
+      "passes": true
+    }
+  },
+  "forwards": 180
+}

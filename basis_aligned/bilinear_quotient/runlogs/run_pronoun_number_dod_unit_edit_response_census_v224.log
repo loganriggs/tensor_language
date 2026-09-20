@@ -1,0 +1,12 @@
+{'n': 96, 'exact_change_mean': -0.0273, 'linear_total_mean': -0.0273, 'remainder': 0.0, 'reader_blocks': -0.021, 'reader_share_of_linear': 0.7682, 'later_mlps_net': -0.0033, 'pre_reader_blocks': -0.0024, 'other_net': -0.0007, 'largest_non_reader_responder': 'mlp:09', 'max_closure': 0.0004}
+{'attn:06': -0.001, 'attn:09': -0.011, 'mlp:09': -0.0047, 'attn:10': -0.0063, 'attn:11': -0.0019, 'mlp:11': 0.0018, 'mlp:12': -0.0022, 'attn:13': 0.001, 'attn:15': -0.0033, 'mlp:15': 0.0026}
+{
+  "predictions": {
+    "pred_a_recurrence_closure": true,
+    "pred_b_linearization_remainder_small": true,
+    "pred_c_reader_blocks_carry_most": true,
+    "pred_d_later_mlps_oppose": false,
+    "pred_e_pre_reader_blocks_small": true
+  },
+  "forwards": 6
+}

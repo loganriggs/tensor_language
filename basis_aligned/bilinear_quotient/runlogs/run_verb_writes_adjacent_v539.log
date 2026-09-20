@@ -1,0 +1,33 @@
+{
+ "replay_max_abs": 2.002716064453125e-05,
+ "text": {
+  "pairs": 43,
+  "unit": 701,
+  "contrast_mean": 344.6632995605469,
+  "sign_constancy": 0.9069767594337463,
+  "moved": {
+   "FIVE_V": 0.18607717752456665,
+   "REST_V": 0.050034165382385254,
+   "ALL": 0.35743018984794617
+  },
+  "margin_closed": {
+   "FIVE_V": 0.1673426479101181,
+   "REST_V": 0.021664412692189217,
+   "ALL": 0.31311556696891785
+  }
+ },
+ "panel": {
+  "skipped": "distant rows only",
+  "distant_rows": 43
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_five_verb_writes_small_at_the_noun_position": false,
+    "pred_c_all_attention_small_at_the_noun_position": true,
+    "pred_d_five_below_all": true,
+    "pred_e_rest_small": true
+  },
+  "forwards": 8
+}

@@ -1,0 +1,13 @@
+mean pairwise cosine of per-row directions 0.0276 | cosine of each with the mean: min -0.256
+native 196.62 damage per-row 0.0426 fixed 0.0356 random max 0.0123
+moves fixed {'tense_will_would': 0.013, 'animacy_who_which': 0.0139, 'canonical_night_day': 0.0072} null {'tense_will_would': 0.0132, 'animacy_who_which': 0.0126, 'canonical_night_day': 0.0082} gates {'tense_will_would': True, 'animacy_who_which': True, 'canonical_night_day': True}
+{
+  "predictions": {
+    "pred_a_baseline_replays_v206": true,
+    "pred_b_directions_are_aligned_across_rows": false,
+    "pred_c_fixed_direction_damages_like_per_row": true,
+    "pred_d_fixed_direction_beats_matched_random": true,
+    "pred_e_fixed_direction_selective": true
+  },
+  "forwards": 60
+}

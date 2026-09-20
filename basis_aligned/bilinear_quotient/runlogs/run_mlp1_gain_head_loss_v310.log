@@ -1,0 +1,21 @@
+{
+ "native_loss": 4.220860958099365,
+ "manual_loss": 4.220860958099365,
+ "replay_gap": 0.0,
+ "delta_restore": 0.05939812213182449,
+ "delta_zero": -0.0004157679504714906,
+ "null_max_abs": 0.00020250689703971148,
+ "early_1_6": 0.023631758367021877,
+ "late_12_23": 0.08131548731277387,
+ "restore_positive_fraction": 0.576766312122345
+}
+{
+  "predictions": {
+    "pred_a_baseline_loss_replays_native": true,
+    "pred_b_restoring_head_changes_loss_beyond_null": true,
+    "pred_c_restoring_head_hurts": true,
+    "pred_d_effect_grows_with_position": true,
+    "pred_e_zeroing_head_is_smaller": true
+  },
+  "forwards": 38
+}

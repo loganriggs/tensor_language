@@ -1,0 +1,13 @@
+9.1 {"contrast": 187111.772, "inherited_share": 0.818, "largest_source": "cue", "top2_heads": ["8.1", "8.8"], "top2_head_share": 0.997} sources {'prefix': -0.004, 'cue': 0.874, 'last': 0.112, 'period': 0.012, 'the': 0.005} heads {'8.0': -0.001, '8.1': 1.026, '8.2': -0.007, '8.3': -0.001, '8.4': -0.004, '8.5': 0.015, '8.6': -0.008, '8.7': 0.009, '8.8': -0.029}
+9.4 {"contrast": 163156.481, "inherited_share": 0.833, "largest_source": "cue", "top2_heads": ["8.1", "8.7"], "top2_head_share": 0.963} sources {'prefix': -0.0, 'cue': 0.832, 'last': 0.14, 'period': 0.023, 'the': 0.006} heads {'8.0': -0.001, '8.1': 0.994, '8.2': 0.011, '8.3': 0.017, '8.4': -0.014, '8.5': 0.024, '8.6': 0.01, '8.7': -0.03, '8.8': -0.011}
+{
+  "predictions": {
+    "pred_a_attn8_fold_closure": true,
+    "pred_b_cue_is_the_dominant_source": true,
+    "pred_c_inherited_share_at_least_030": true,
+    "pred_d_two_block8_heads_carry_070": true
+  },
+  "closure": 1.7172707314384354e-05,
+  "pooled_inherited": 0.8251353328853015,
+  "forwards": 14
+}

@@ -1,0 +1,34 @@
+{
+ "replay_max_abs": 1.430511474609375e-05,
+ "text": {
+  "pairs": 61,
+  "unit": 701,
+  "contrast_mean": -0.29676592350006104,
+  "sign_constancy": 0.5901639461517334,
+  "moved": {
+   "W_ANSWER": 4.426050662994385,
+   "W_INTER": 0.49587559700012207,
+   "W_ALLPOS": 4.122045993804932
+  },
+  "margin_closed": {
+   "W_ANSWER": 0.8780553936958313,
+   "W_INTER": 0.12476114928722382,
+   "W_ALLPOS": 0.7448449730873108
+  }
+ },
+ "panel": {
+  "skipped": "pronoun slot, natural pairs",
+  "rows": 61
+ }
+}
+writes by position {'W_ANSWER': 0.878, 'W_INTER': 0.125, 'W_ALLPOS': 0.745} answer + inter 1.003
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_answer_write_replays": true,
+    "pred_c_all_position_writes_match_the_joint": true,
+    "pred_d_intermediate_writes_oppose": false,
+    "pred_e_positions_add": false
+  },
+  "forwards": 8
+}

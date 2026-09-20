@@ -1,0 +1,39 @@
+{
+ "replay_max_abs": 1.33514404296875e-05,
+ "text": {
+  "pairs": 122,
+  "gap_mean": {
+   "verb": 1.8995411396026611,
+   "are_is": 1.7406734228134155,
+   "were_was": -0.15886791050434113
+  },
+  "closed": {
+   "DET_A": {
+    "verb": -0.0030943790916353464,
+    "are_is": -0.015016796998679638
+   },
+   "RANDOM_A": {
+    "verb": 8.678866288391873e-05,
+    "are_is": 1.853728826972656e-05
+   },
+   "HUB_N": {
+    "verb": 0.12375592440366745,
+    "are_is": 0.12945494055747986
+   }
+  }
+ },
+ "panel": {
+  "frame": "natural pairs (pronoun slot)",
+  "rows": 122
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_four_units_do_little_on_text": true,
+    "pred_c_random_units_do_not": true,
+    "pred_d_four_units_below_the_panel": true,
+    "pred_e_hub_units_at_the_noun_replay": true
+  },
+  "forwards": 16
+}

@@ -1,0 +1,31 @@
+{
+ "replay_max_abs": 1.33514404296875e-05,
+ "text": {
+  "pairs": 122,
+  "gap_mean": 1.8995414972305298,
+  "closed": {
+   "NAMED_NOREST": 0.678333044052124,
+   "NAMED": 0.6450081467628479,
+   "ALL_LOW": 0.5717798471450806
+  }
+ },
+ "panel": {
+  "pairs": 48,
+  "gap_mean": 4.0962815284729,
+  "closed": {
+   "NAMED_NOREST": 0.6497993469238281,
+   "NAMED": 0.6175219416618347,
+   "ALL_LOW": 0.5123561024665833
+  }
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_copier_adds_to_the_census": false,
+    "pred_c_named_route_plus_rest_closes_most": false,
+    "pred_d_low_exits_close_the_gap": false,
+    "pred_e_holds_on_panel": false
+  },
+  "forwards": 28
+}

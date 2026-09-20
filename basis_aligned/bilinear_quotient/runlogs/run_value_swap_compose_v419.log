@@ -1,0 +1,37 @@
+{
+ "replay_max_abs": 1.33514404296875e-05,
+ "text": {
+  "pairs": 122,
+  "gap_mean": 1.8995414972305298,
+  "closed": {
+   "A": 0.49808216094970703,
+   "C": 0.1872600018978119,
+   "AC": 0.5705608129501343,
+   "NC": 0.5603535771369934
+  },
+  "AC_minus_A": 0.07247865200042725,
+  "NC_over_sum": 1.000631387744631
+ },
+ "panel": {
+  "pairs": 48,
+  "gap_mean": 4.0962815284729,
+  "closed": {
+   "A": 0.533067524433136,
+   "C": 0.29813387989997864,
+   "AC": 0.5757362842559814,
+   "NC": 0.568977415561676
+  },
+  "AC_minus_A": 0.04266875982284546,
+  "NC_over_sum": 1.0160310992172785
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_copier_routes_through_postnoun_read": true,
+    "pred_c_copier_adds_to_noun_read": true,
+    "pred_d_joint_closes_most": true,
+    "pred_e_holds_on_panel": true
+  },
+  "forwards": 35
+}

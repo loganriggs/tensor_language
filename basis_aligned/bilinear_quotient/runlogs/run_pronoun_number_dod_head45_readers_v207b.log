@@ -1,0 +1,13 @@
+coefficients {'9.6': {'native': 1410.35, 'verb': 1353.89, 'all': 1260.64}, '12.4': {'native': 1197.22, 'verb': 1195.23, 'all': 1130.0}, '15.1': {'native': 1368.15, 'verb': 1315.28, 'all': 1277.99}, '10.5': {'native': 869.99, 'verb': 778.65, 'all': 767.96}}
+drops {'9.6': 56.463, '12.4': 1.989, '15.1': 52.869, '10.5': 91.342} loser 10.5 0.451
+margin native 196.62 damage verb 15.09 all 17.61 moves {'tense_will_would': 0.1296, 'animacy_who_which': 0.121, 'canonical_night_day': 0.06} null {'tense_will_would': 0.0231, 'animacy_who_which': 0.0238, 'canonical_night_day': 0.0103} gates {'tense_will_would': False, 'animacy_who_which': False, 'canonical_night_day': True}
+{
+  "predictions": {
+    "pred_a_baseline_replays_v206": true,
+    "pred_b_one_reader_loses_half": false,
+    "pred_c_loser_is_a_contextual_reader": true,
+    "pred_d_edit_selective": false,
+    "pred_e_all_positions_removes_more": false
+  },
+  "forwards": 42
+}

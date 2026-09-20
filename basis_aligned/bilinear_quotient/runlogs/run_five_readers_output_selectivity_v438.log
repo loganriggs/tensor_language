@@ -1,0 +1,47 @@
+{
+ "replay_max_abs": 1.33514404296875e-05,
+ "text": {
+  "pairs": 122,
+  "gap_mean_they_he": 1.8995411396026611,
+  "closed": {
+   "they_he": 0.48260506987571716,
+   "they_she": 0.4752019941806793
+  },
+  "mean_abs_change": {
+   "they_he": 0.9328978061676025,
+   "they_she": 0.8420329093933105,
+   "he_she": 0.15040938556194305
+  },
+  "gender_over_number": 0.16122815012931824,
+  "kl_edit_vs_native": 0.04218794405460358,
+  "kl_partner_vs_native": 0.17677932977676392,
+  "kl_ratio": 0.23864749407002678
+ },
+ "panel": {
+  "pairs": 48,
+  "gap_mean_they_he": 4.0962815284729,
+  "closed": {
+   "they_he": 0.3397051692008972,
+   "they_she": 0.35289958119392395
+  },
+  "mean_abs_change": {
+   "they_he": 1.3915281295776367,
+   "they_she": 1.2621066570281982,
+   "he_she": 0.19320416450500488
+  },
+  "gender_over_number": 0.13884316384792328,
+  "kl_edit_vs_native": 0.04193535074591637,
+  "kl_partner_vs_native": 0.3867243528366089,
+  "kl_ratio": 0.10843731572196608
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_they_she_moves_like_they_he": true,
+    "pred_c_he_she_barely_moves": false,
+    "pred_d_distribution_moves_little": true,
+    "pred_e_holds_on_panel": true
+  },
+  "forwards": 14
+}

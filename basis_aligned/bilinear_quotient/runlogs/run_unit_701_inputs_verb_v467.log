@@ -1,0 +1,45 @@
+{
+ "pairs": 79,
+ "closure": 0.0006288178265094757,
+ "dh_mean": 37.78722381591797,
+ "terms": {
+  "dL_R": -0.10098090767860413,
+  "L_dR": 0.30424201488494873,
+  "dL_dR": 0.7967389822006226
+ },
+ "rel_change": {
+  "L": 0.28093135356903076,
+  "R": 0.2692515552043915
+ },
+ "L_writers_top5": {
+  "attn11": 0.1492433398962021,
+  "mlp16": 0.10435429215431213,
+  "mlp11": 0.09345410019159317,
+  "mlp14": 0.09186630696058273,
+  "mlp13": 0.08895648270845413
+ },
+ "R_writers_top5": {
+  "attn11": 0.17571242153644562,
+  "mlp13": 0.11681090295314789,
+  "mlp9": 0.07806781679391861,
+  "mlp11": 0.06765887886285782,
+  "mlp14": 0.055825125426054
+ },
+ "L_mlp_share": 0.6604373300306179,
+ "R_mlp_share": 0.5735146912666096,
+ "L_attn_share": 0.3431535937335255,
+ "R_attn_share": 0.42659924809737504,
+ "prod_abs_share": 0.5053725838661194,
+ "cos_829_column_with_L": 0.15900090336799622,
+ "cos_829_column_with_R": 0.1288270801305771
+}
+{
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_both_inputs_move_at_the_verb": false,
+    "pred_c_attention_carries_the_inputs_at_the_verb": true,
+    "pred_d_block_11_attention_in_the_top_three": true,
+    "pred_e_product_term_matters": true
+  },
+  "forwards": 3
+}

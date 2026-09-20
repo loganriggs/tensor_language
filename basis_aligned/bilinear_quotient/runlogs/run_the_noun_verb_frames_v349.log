@@ -1,0 +1,87 @@
+{
+ "closure_max": 0.0,
+ "per_unit": {
+  "mlp3.3465": {
+   "medians": {
+    "is|s": -3.9971518516540527,
+    "is|p": -87.77975463867188,
+    "are|s": -164.63609313964844,
+    "are|p": -48.95232009887695
+   },
+   "pooled_std": 53.56722640991211,
+   "verb_form_effect_std": -1.1369965827245014,
+   "noun_number_effect_std": 0.29776761269695545,
+   "agreement_interaction_std": 1.861832217160304
+  },
+  "mlp3.493": {
+   "medians": {
+    "is|s": -12.40780258178711,
+    "is|p": 42.68517303466797,
+    "are|s": 4.511371612548828,
+    "are|p": 0.21692459285259247
+   },
+   "pooled_std": 27.233951568603516,
+   "verb_form_effect_std": -0.4690666020889441,
+   "noun_number_effect_std": 0.9326323517319021,
+   "agreement_interaction_std": -1.0903196050443102
+  },
+  "mlp5.1036": {
+   "medians": {
+    "is|s": 4.741954326629639,
+    "is|p": -10.572367668151855,
+    "are|s": 22.45995330810547,
+    "are|p": 29.616050720214844
+   },
+   "pooled_std": 11.85331916809082,
+   "verb_form_effect_std": 2.4426245741246393,
+   "noun_number_effect_std": -0.3441324943242096,
+   "agreement_interaction_std": 0.9478534699116734
+  },
+  "mlp8.1030": {
+   "medians": {
+    "is|s": 2.096555471420288,
+    "is|p": 3.485304594039917,
+    "are|s": 16.157785415649414,
+    "are|p": 1.5370341539382935
+   },
+   "pooled_std": 14.577049255371094,
+   "verb_form_effect_std": 0.41548050266978187,
+   "noun_number_effect_std": -0.4538642185837438,
+   "agreement_interaction_std": -0.5491337822855971
+  },
+  "mlp8.829": {
+   "medians": {
+    "is|s": 7.721634864807129,
+    "is|p": 0.04135474935173988,
+    "are|s": 79.07182312011719,
+    "are|p": 61.61791229248047
+   },
+   "pooled_std": 21.874414443969727,
+   "verb_form_effect_std": 3.0384069511648946,
+   "noun_number_effect_std": -0.5745111716583807,
+   "agreement_interaction_std": -0.22340325354116383
+  },
+  "mlp8.953": {
+   "medians": {
+    "is|s": 1.2275112867355347,
+    "is|p": 0.7311956286430359,
+    "are|s": 4.872153282165527,
+    "are|p": 6.499151706695557
+   },
+   "pooled_std": 14.582172393798828,
+   "verb_form_effect_std": 0.3227433409539613,
+   "noun_number_effect_std": 0.03876935260065782,
+   "agreement_interaction_std": 0.07280513579463244
+  }
+ }
+}
+{
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_3465_violation_survives_the_determiner": true,
+    "pred_c_3465_violation_gap_within_half_of_v347": true,
+    "pred_d_493_mirror_with_determiner": true,
+    "pred_e_verb_form_readers_unchanged": true
+  },
+  "forwards": 4
+}

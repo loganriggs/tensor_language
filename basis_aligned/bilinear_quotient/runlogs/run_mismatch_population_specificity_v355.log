@@ -1,0 +1,42 @@
+{
+ "violation_cell_medians": {
+  "3040": -1390.21484375,
+  "114": 1098.3385009765625
+ },
+ "per_unit_at_natural_verbs": {
+  "3040": {
+   "natural_verb_abs_median": 24.114099502563477,
+   "natural_verb_median": -9.481252670288086,
+   "sep_over_std_at_verb": -0.1318870186805725
+  },
+  "114": {
+   "natural_verb_abs_median": 36.53072738647461,
+   "natural_verb_median": 0.650477945804596,
+   "sep_over_std_at_verb": -0.06693658232688904
+  },
+  "565": {
+   "natural_verb_abs_median": 40.64804458618164,
+   "natural_verb_median": -18.738557815551758,
+   "sep_over_std_at_verb": 0.5357849597930908
+  },
+  "3465": {
+   "natural_verb_abs_median": 9.440983772277832,
+   "natural_verb_median": -2.998542070388794,
+   "sep_over_std_at_verb": 0.023399189114570618
+  }
+ },
+ "violation_over_natural_ratio": {
+  "3040": 57.651534680041095,
+  "114": 30.066154701951515
+ }
+}
+{
+  "predictions": {
+    "pred_a_rows_load": true,
+    "pred_b_leaders_quiet_at_grammatical_verbs": true,
+    "pred_c_leaders_loud_on_the_violation_frames": true,
+    "pred_d_ratio_at_least_5x": true,
+    "pred_e_no_number_separation_at_natural_verbs": true
+  },
+  "forwards": 4
+}

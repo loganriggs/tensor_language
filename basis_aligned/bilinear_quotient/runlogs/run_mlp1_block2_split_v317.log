@@ -1,0 +1,42 @@
+{
+ "native_loss": 4.220860958099365,
+ "manual_loss": 4.220860958099365,
+ "replay_gap": 0.0,
+ "tail_cost": 0.4728594124317169,
+ "share_by_part": {
+  "attn": 0.0830029838284101,
+  "mlp": 0.350167954188342,
+  "both": 0.45187006559531706
+ },
+ "attn_plus_mlp": 0.4331709380167521,
+ "mlp2_response_top_shares": {
+  "10": 0.00898150447756052,
+  "50": 0.024057069793343544,
+  "200": 0.06850666552782059,
+  "500": 0.14684651792049408
+ },
+ "mlp2_top12_units": [
+  526,
+  2362,
+  1615,
+  4371,
+  3567,
+  4412,
+  4174,
+  1391,
+  3369,
+  2854,
+  2626,
+  472
+ ]
+}
+{
+  "predictions": {
+    "pred_a_baseline_loss_replays_native": true,
+    "pred_b_block2_replays_v316": true,
+    "pred_c_mlp2_takes_more_than_attn2": true,
+    "pred_d_attn2_and_mlp2_add": true,
+    "pred_e_mlp2_unit_census_is_spread": true
+  },
+  "forwards": 22
+}

@@ -1,0 +1,15 @@
+agents ('resident', 'voter', 'taxpayer', 'immigrant', 'pioneer', 'robot', 'alien', 'zombie', 'vampire', 'ghost', 'giant', 'dwarf', 'goblin', 'dragon', 'villain', 'toddler') objects ('cane', 'cloak', 'bench', 'stove', 'cage', 'chest', 'clock', 'trunk', 'hat', 'coat', 'boot', 'glove', 'belt', 'scarf', 'shirt', 'sock')
+capability {'grew/positive': 1.0, 'grew/negative': 1.0, 'looked/positive': 1.0, 'looked/negative': 1.0, 'remained/positive': 1.0, 'remained/negative': 1.0} fractions {'grew': 0.404, 'looked': 0.468, 'remained': 0.429} joint 1.762 pos 1.0 null_max 0.085 gates {'number_was_were': True, 'animacy_who_which': True, 'canonical_night_day': True}
+singles {'attn13_h8_final': 0.699, 'attn14_h8_final': 0.403, 'attn7_h8_final': 0.329, 'attn8_h8_final': 0.294} gap/bar 0.0358 0.0735 keep 0.9729324896442605 random keep max 0.024727759259830284
+{
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_native_capability": true,
+    "pred_c_set_live_and_beats_null": true,
+    "pred_d_set_selective": true,
+    "pred_e_set_is_additive": true,
+    "pred_f_keep_only_retains_most": true,
+    "pred_g_set_fraction_within_band_of_frozen": true
+  },
+  "forwards": 123
+}

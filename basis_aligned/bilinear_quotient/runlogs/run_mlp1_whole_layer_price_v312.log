@@ -1,0 +1,20 @@
+{
+ "native_loss": 4.220860958099365,
+ "manual_loss": 4.220860958099365,
+ "replay_gap": 0.0,
+ "cost_restore": 0.7009315490722656,
+ "cost_zero": 0.41473188996315,
+ "restore_early_1_6": 0.3146204468794167,
+ "restore_late_12_23": 0.9543510129054388,
+ "zero_beats_restore_positions": 0
+}
+{
+  "predictions": {
+    "pred_a_baseline_loss_replays_native": true,
+    "pred_b_full_restore_matches_linear_price": false,
+    "pred_c_zeroing_mlp1_costs_more_than_restoring": false,
+    "pred_d_restore_cost_grows_with_position": true,
+    "pred_e_table_alone_beats_nothing_at_every_position": false
+  },
+  "forwards": 14
+}

@@ -1,0 +1,52 @@
+{
+ "closure_max": 0.011132865212857723,
+ "pearson_crossproj_vs_neg_cnorm": 0.6844478249549866,
+ "per_k": {
+  "1": {
+   "alpha_median": 0.5549944639205933,
+   "gamma2_median": 0.9287564158439636,
+   "gamma_median": 0.9644098281860352,
+   "cross_proj_median": -0.44262340664863586,
+   "cross_negative_fraction": 1.0,
+   "only_proj_median": 0.07140819728374481,
+   "loss_gap_median": 0.0726824402809143,
+   "c_norm_median": 8.974437713623047,
+   "attn0_norm_median": 226.77015686035156,
+   "attn1_norm_median": 1089.183837890625
+  },
+  "8": {
+   "alpha_median": 0.334722101688385,
+   "gamma2_median": 0.8979500532150269,
+   "gamma_median": 0.948358416557312,
+   "cross_proj_median": -0.7482146620750427,
+   "cross_negative_fraction": 1.0,
+   "only_proj_median": 0.19083890318870544,
+   "loss_gap_median": 0.19231271743774414,
+   "c_norm_median": 10.766135215759277,
+   "attn0_norm_median": 283.43829345703125,
+   "attn1_norm_median": 1374.218017578125
+  },
+  "64": {
+   "alpha_median": 0.2913838326931,
+   "gamma2_median": 0.8585010766983032,
+   "gamma_median": 0.9272540211677551,
+   "cross_proj_median": -0.7539272904396057,
+   "cross_negative_fraction": 1.0,
+   "only_proj_median": 0.20059439539909363,
+   "loss_gap_median": 0.20187562704086304,
+   "c_norm_median": 12.708675384521484,
+   "attn0_norm_median": 366.3080139160156,
+   "attn1_norm_median": 1269.16748046875
+  }
+ }
+}
+{
+  "predictions": {
+    "pred_a_pair_closure": false,
+    "pred_b_normalised_table_term_near_full": true,
+    "pred_c_cross_projection_negative": true,
+    "pred_d_cross_projection_is_the_gain_loss": false,
+    "pred_e_cross_projection_tracks_context_size": true
+  },
+  "forwards": 4
+}

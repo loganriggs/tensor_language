@@ -1,0 +1,40 @@
+{
+  "schema": "regional.head_product.boolean_mobius_control.v1",
+  "execution_clock": "Completed before the separately sampled 2026-09-19T03:05:41Z audit clock; exact process start was not separately sampled.",
+  "seed": 20260919,
+  "python": "/venv/main/bin/python",
+  "device": "CPU",
+  "dtype": "float64",
+  "toy_shapes": {
+    "queries": 3,
+    "keys": 5,
+    "head_width": 4,
+    "output_width": 6
+  },
+  "arms": 8,
+  "nonempty_mobius_components": 7,
+  "max_mobius_vs_direct_product_abs_error": 7.105427357601002e-15,
+  "max_joint_delta_vs_sum_components_abs_error": 3.552713678800501e-15,
+  "scalar_cancellation_falsifier": {
+    "baseline_factors": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "factor_deltas": [
+      0.001,
+      100.0,
+      0.0
+    ],
+    "single_effects": [
+      0.001,
+      100.0,
+      0.0
+    ],
+    "pair_interaction_12": 0.1,
+    "interaction_over_smaller_live_single": 100.0,
+    "interpretation": "Exact Mobius closure does not imply small interactions relative to the smallest live piece or random-split specificity."
+  },
+  "seconds": 0.015448982128873467,
+  "scope": "CPU algebra control on a head-shaped factor contraction; not native-model causal, predictive, selective, or composition evidence."
+}

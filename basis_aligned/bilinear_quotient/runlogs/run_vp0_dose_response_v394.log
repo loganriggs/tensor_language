@@ -1,0 +1,82 @@
+{
+ "native_margin": 2.048141226172447,
+ "replay_gap": 4.1226172447395015e-05,
+ "census_closure": 0.000270144926616922,
+ "vp0_projection_native": 2239.198974609375,
+ "per_k": {
+  "1": {
+   "vp0_cut_rel": 0.1267775352579587,
+   "margin_change_rel": 0.007414892450342655,
+   "null_cut_max": 0.007648805425436931
+  },
+  "5": {
+   "vp0_cut_rel": 0.19844661204028582,
+   "margin_change_rel": 0.00046686843106519906,
+   "null_cut_max": 0.00202611080382727
+  },
+  "10": {
+   "vp0_cut_rel": 0.23396504421888975,
+   "margin_change_rel": 0.054177473052905614,
+   "null_cut_max": 0.0022281440234092503
+  },
+  "20": {
+   "vp0_cut_rel": 0.27024309077462677,
+   "margin_change_rel": 0.03299127753108614,
+   "null_cut_max": 0.00585907239821718
+  }
+ },
+ "top5_per_layer": {
+  "12": [
+   1131,
+   2110,
+   2150,
+   1048,
+   470
+  ],
+  "13": [
+   1330,
+   191,
+   968,
+   1561,
+   2676
+  ],
+  "14": [
+   2498,
+   359,
+   1888,
+   688,
+   375
+  ],
+  "15": [
+   3173,
+   1579,
+   4435,
+   1082,
+   3417
+  ],
+  "16": [
+   2483,
+   4103,
+   3840,
+   2138,
+   3134
+  ],
+  "17": [
+   701,
+   3941,
+   1348,
+   343,
+   280
+  ]
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_census_closure": true,
+    "pred_c_cut_grows_with_k": true,
+    "pred_d_every_k_beats_null": true,
+    "pred_e_pronoun_margin_stays_within_003": false
+  },
+  "forwards": 54
+}

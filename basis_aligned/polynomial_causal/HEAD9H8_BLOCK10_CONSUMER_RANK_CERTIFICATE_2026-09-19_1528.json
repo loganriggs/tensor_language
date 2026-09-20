@@ -1,0 +1,159 @@
+{
+  "checkpoint": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin",
+  "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "common_exact_float32_scale_per_factor": "2**149",
+  "composed_exact_scale": "2**298",
+  "consequence": "The head-9.8 output image remains 128-dimensional under every tested immediate native block-10 attention/MLP reader. No exact linear consumer quotient below width 128 exists for these maps. Any smaller regional program must declare an approximate/task-specific quotient, exploit the attainable activation manifold, or move to another boundary.",
+  "consumer_boundary": "first 128 rows of each native block-10 attention/MLP input map",
+  "finished_utc": "2026-09-19T15:29:06.068155+00:00",
+  "finite_field_prime": 65521,
+  "predictions": {
+    "pred_a_all_five_attention_input_maps_retain_rank_128": true,
+    "pred_b_both_mlp_input_maps_retain_rank_128": true,
+    "pred_c_no_exact_linear_dimension_below_128_at_tested_boundary": true
+  },
+  "producer": "transformer.h.9.attn.c_proj.weight[:,1024:1152]",
+  "producer_shape": [
+    1152,
+    128
+  ],
+  "runtime_seconds": 1.2586165780667216,
+  "schema": "head9h8_block10_consumer_rank_certificate_v1",
+  "scope": "Exact weight-only rank witnesses for frozen float32 maps. First-128-row nonsingular minors certify the full composed maps have column rank 128. This does not establish that all directions are reachable or behaviorally used, nor does it establish OOD prediction, extraction, selective causal manipulation, composition, reuse, or a favorable literal program price.",
+  "source_sha256": "0782d867bf0d66ea1949337249d5464841eef07b3288bbaceed9b1a1557f41bf",
+  "witnesses": {
+    "transformer.h.10.attn.c_k.weight": {
+      "certifies_full_column_rank_128_over_reals": true,
+      "composed_witness_shape": [
+        128,
+        128
+      ],
+      "determinant_mod_prime": 44644,
+      "numerical_condition_number": 299294.9502040556,
+      "numerical_singular_value_min": 0.00012738081550046275,
+      "rank_mod_prime": 128,
+      "reader_shape": [
+        1152,
+        1152
+      ],
+      "witness_reader_rows": [
+        0,
+        127
+      ]
+    },
+    "transformer.h.10.attn.c_k2.weight": {
+      "certifies_full_column_rank_128_over_reals": true,
+      "composed_witness_shape": [
+        128,
+        128
+      ],
+      "determinant_mod_prime": 14658,
+      "numerical_condition_number": 2372.6492477515217,
+      "numerical_singular_value_min": 0.024369541199636715,
+      "rank_mod_prime": 128,
+      "reader_shape": [
+        1152,
+        1152
+      ],
+      "witness_reader_rows": [
+        0,
+        127
+      ]
+    },
+    "transformer.h.10.attn.c_q.weight": {
+      "certifies_full_column_rank_128_over_reals": true,
+      "composed_witness_shape": [
+        128,
+        128
+      ],
+      "determinant_mod_prime": 10912,
+      "numerical_condition_number": 766.1747746292556,
+      "numerical_singular_value_min": 0.07935783119664316,
+      "rank_mod_prime": 128,
+      "reader_shape": [
+        1152,
+        1152
+      ],
+      "witness_reader_rows": [
+        0,
+        127
+      ]
+    },
+    "transformer.h.10.attn.c_q2.weight": {
+      "certifies_full_column_rank_128_over_reals": true,
+      "composed_witness_shape": [
+        128,
+        128
+      ],
+      "determinant_mod_prime": 34471,
+      "numerical_condition_number": 33210.183432885475,
+      "numerical_singular_value_min": 0.002319366141068831,
+      "rank_mod_prime": 128,
+      "reader_shape": [
+        1152,
+        1152
+      ],
+      "witness_reader_rows": [
+        0,
+        127
+      ]
+    },
+    "transformer.h.10.attn.c_v.weight": {
+      "certifies_full_column_rank_128_over_reals": true,
+      "composed_witness_shape": [
+        128,
+        128
+      ],
+      "determinant_mod_prime": 13123,
+      "numerical_condition_number": 1199.1196493006214,
+      "numerical_singular_value_min": 0.03216843818298,
+      "rank_mod_prime": 128,
+      "reader_shape": [
+        1152,
+        1152
+      ],
+      "witness_reader_rows": [
+        0,
+        127
+      ]
+    },
+    "transformer.h.10.mlp.Left.weight": {
+      "certifies_full_column_rank_128_over_reals": true,
+      "composed_witness_shape": [
+        128,
+        128
+      ],
+      "determinant_mod_prime": 32483,
+      "numerical_condition_number": 268.0449168918828,
+      "numerical_singular_value_min": 0.14185615783961003,
+      "rank_mod_prime": 128,
+      "reader_shape": [
+        4608,
+        1152
+      ],
+      "witness_reader_rows": [
+        0,
+        127
+      ]
+    },
+    "transformer.h.10.mlp.Right.weight": {
+      "certifies_full_column_rank_128_over_reals": true,
+      "composed_witness_shape": [
+        128,
+        128
+      ],
+      "determinant_mod_prime": 28774,
+      "numerical_condition_number": 365.64005764767336,
+      "numerical_singular_value_min": 0.09756767731111844,
+      "rank_mod_prime": 128,
+      "reader_shape": [
+        4608,
+        1152
+      ],
+      "witness_reader_rows": [
+        0,
+        127
+      ]
+    }
+  }
+}

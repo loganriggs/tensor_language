@@ -1,0 +1,33 @@
+{
+ "replay_max_abs": 2.384185791015625e-05,
+ "text": {
+  "pairs": 79,
+  "unit": 701,
+  "contrast_mean": 37.7872428894043,
+  "sign_constancy": 0.607594907283783,
+  "moved": {
+   "m9": 0.1246967539191246,
+   "m10": 0.01969071477651596,
+   "m11": -0.0674271285533905,
+   "m12": 0.14514729380607605,
+   "m13": 0.09570961445569992,
+   "m14": 0.1277269572019577,
+   "m15": 0.11949822306632996,
+   "m16": 0.13688164949417114
+  }
+ },
+ "panel": {
+  "skipped": "distant rows only",
+  "distant_rows": 79
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_one_rebuild_stage_leads": false,
+    "pred_c_late_stages_carry_a_quarter": true,
+    "pred_d_mlp9_small": false,
+    "pred_e_singles_sum_bounded": true
+  },
+  "forwards": 27
+}

@@ -1,7 +1,51 @@
-canary: score-rank 4.1 | L1 cost +0.275 | ratios 0.253/0.043
-(a) OK | (b) OK | (c) OK
-wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_canary_results.json (11s)
-
-canary2: c1 OK | atlases OK | leverage 0.78 OK | fraction spot L7 OK | smooth 35/36 OK
-ALL: GREEN
-wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_canary2_results.json (13s)
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_canary2.py", line 12, in <module>
+    import json, sys, time, torch
+  File "/venv/main/lib/python3.12/site-packages/torch/__init__.py", line 2229, in <module>
+    from torch import _VF as _VF, functional as functional  # usort: skip
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/functional.py", line 8, in <module>
+    import torch.nn.functional as F
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/__init__.py", line 8, in <module>
+    from torch.nn.modules import *  # usort: skip # noqa: F403
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/__init__.py", line 1, in <module>
+    from .module import Module  # usort: skip
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 17, in <module>
+    from torch.utils._python_dispatch import is_traceable_wrapper_subclass
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/__init__.py", line 8, in <module>
+    from torch.utils import (
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/data/__init__.py", line 1, in <module>
+    from torch.utils.data.dataloader import (
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 26, in <module>
+    import torch.utils.data.graph_settings
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/data/graph_settings.py", line 8, in <module>
+    from torch.utils.data.datapipes.iter.sharding import (
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/data/datapipes/__init__.py", line 1, in <module>
+    from torch.utils.data.datapipes import dataframe as dataframe, iter as iter, map as map
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/data/datapipes/dataframe/__init__.py", line 1, in <module>
+    from torch.utils.data.datapipes.dataframe.dataframes import (
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/data/datapipes/dataframe/dataframes.py", line 4, in <module>
+    from torch.utils.data.datapipes._decorator import functional_datapipe
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/data/datapipes/_decorator.py", line 8, in <module>
+    from torch.utils.data.datapipes.datapipe import IterDataPipe, MapDataPipe
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/data/datapipes/datapipe.py", line 17, in <module>
+    dill = import_dill()
+           ^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_import_utils.py", line 30, in import_dill
+    import dill
+  File "/venv/main/lib/python3.12/site-packages/dill/__init__.py", line 33, in <module>
+    from .session import (
+  File "/venv/main/lib/python3.12/site-packages/dill/session.py", line 25, in <module>
+    TEMPDIR = pathlib.PurePath(tempfile.gettempdir())
+                               ^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/tempfile.py", line 315, in gettempdir
+    return _os.fsdecode(_gettempdir())
+                        ^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/tempfile.py", line 308, in _gettempdir
+    tempdir = _get_default_tempdir()
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/tempfile.py", line 223, in _get_default_tempdir
+    raise FileNotFoundError(_errno.ENOENT,
+FileNotFoundError: [Errno 2] No usable temporary directory found in ['/tmp', '/var/tmp', '/usr/tmp', '/workspace/tensor_language/basis_aligned/bilinear_quotient']

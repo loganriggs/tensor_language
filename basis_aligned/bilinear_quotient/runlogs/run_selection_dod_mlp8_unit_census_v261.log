@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_selection_dod_mlp8_unit_census_v261.py", line 69, in <module>
+    main()
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_selection_dod_mlp8_unit_census_v261.py", line 57, in main
+    report[label] = {"contrast": contrast, "shares": {str(k): share(k) for k in (5, 10, 20, 50, 100, 500)}, "top_units": [(int(j), float(total[j])) for j in order[:40]], "jaccard_fronted_report_top50": jac}
+                                                              ^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_selection_dod_mlp8_unit_census_v261.py", line 48, in <lambda>
+    order = torch.argsort(total.abs(), descending=True); share = lambda k: float(total[order[:k]].sum()) / contrast
+                                                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~
+ZeroDivisionError: float division by zero

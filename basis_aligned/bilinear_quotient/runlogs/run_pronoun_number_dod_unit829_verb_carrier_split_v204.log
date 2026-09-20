@@ -1,0 +1,12 @@
+contrast 3611.77 carrier sum 1.0
+carrier [('mlp:07', 0.246, 'mass', 0.012), ('mlp:05', 0.179, 'mass', 0.282), ('mlp:04', 0.14, 'mass', 0.214), ('mlp:06', 0.128, 'mass', -0.02), ('attn:05', 0.093, 'mass', 0.053), ('attn:04', 0.083, 'mass', 0.057), ('attn:07', 0.048, 'mass', 0.169), ('mlp:02', 0.021, 'mass', 0.029), ('mlp:03', 0.018, 'mass', 0.057), ('attnhead:08:8', 0.015, 'mass', 0.018)]
+attention 0.265 mlps 0.735 embed -0.0 lead attn:05 0.093
+{
+  "predictions": {
+    "pred_a_carrier_closure": true,
+    "pred_b_attention_carries_040_at_verb": false,
+    "pred_c_mlp_stack_carries_at_most_050": false,
+    "pred_d_one_attention_block_leads": false
+  },
+  "forwards": 3
+}

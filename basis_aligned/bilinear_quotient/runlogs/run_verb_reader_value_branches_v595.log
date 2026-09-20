@@ -1,0 +1,34 @@
+{
+ "replay_max_abs": 2.384185791015625e-05,
+ "text": {
+  "pairs": 79,
+  "unit": 701,
+  "contrast_mean": 37.7872428894043,
+  "sign_constancy": 0.607594907283783,
+  "moved": {
+   "CUR": 0.43169987201690674,
+   "TOK": 0.07696318626403809,
+   "FULL": 0.4987412095069885
+  },
+  "margin_closed": {
+   "CUR": 0.3465079069137573,
+   "TOK": 0.0272194966673851,
+   "FULL": 0.36833956837654114
+  }
+ },
+ "panel": {
+  "skipped": "distant rows only",
+  "distant_rows": 79
+ }
+}
+verb readers by branch {'CUR': 0.347, 'TOK': 0.027, 'FULL': 0.368}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_branches_add": true,
+    "pred_c_token_only_branch_small": true,
+    "pred_d_current_branch_carries": true,
+    "pred_e_five_values_carry": true
+  },
+  "forwards": 12
+}

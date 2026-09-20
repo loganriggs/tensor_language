@@ -1,0 +1,47 @@
+{
+ "closure_margin_gap": 4.1226172447395015e-05,
+ "split_closure": 1.3996617297531533e-07,
+ "per_unit_factor": {
+  "mlp3.493.L": {
+   "mlp1_contrast_term": 467.39251708984375,
+   "table_share": 0.7600617230184444,
+   "remainder_share": 0.23993830962818236
+  },
+  "mlp3.493.R": {
+   "mlp1_contrast_term": 770.5194702148438,
+   "table_share": 0.7633648762126619,
+   "remainder_share": 0.23663508418083978
+  },
+  "mlp5.1036.L": {
+   "mlp1_contrast_term": -381.5619201660156,
+   "table_share": 0.8820745802154535,
+   "remainder_share": 0.1179252798183735
+  },
+  "mlp5.1036.R": {
+   "mlp1_contrast_term": -1135.640625,
+   "table_share": 0.71208173387818,
+   "remainder_share": 0.28791826612182003
+  },
+  "mlp8.829.L": {
+   "mlp1_contrast_term": -443.7324523925781,
+   "table_share": 0.6698359206958627,
+   "remainder_share": 0.33016421685359065
+  },
+  "mlp8.829.R": {
+   "mlp1_contrast_term": -526.63671875,
+   "table_share": 0.699505621889348,
+   "remainder_share": 0.3004943491366202
+  }
+ },
+ "alpha_median_at_block3": 28.47312355041504
+}
+{
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_split_closure": true,
+    "pred_c_table_part_dominates_for_493": true,
+    "pred_d_table_part_dominates_for_1036_and_829": true,
+    "pred_e_signs_agree_everywhere": true
+  },
+  "forwards": 4
+}

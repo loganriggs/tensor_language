@@ -1,0 +1,57 @@
+{
+  "schema": "regional.factorial_additive_lower_bound.v1",
+  "executed_utc": "2026-09-19T09:18:32Z",
+  "python": "/venv/main/bin/python",
+  "device": "CPU",
+  "dtype": "float64",
+  "threads": {
+    "OMP_NUM_THREADS": 2,
+    "OPENBLAS_NUM_THREADS": 2
+  },
+  "object": "The four native full-suffix Boolean-factorial arms baseline, key/routing-only, value-only, and true joint from CITY_INTERCHANGE_COMPOSITION_V1_ARTIFACT.pt. For vector-valued f on {0,1}^2, D=f11-f10-f01+f00 is the unique order-two Mobius coefficient. Under the uniform measure on all four corners, the orthogonal projection onto all additive functions has residuals (+D,-D,-D,+D)/4, hence minimum RMS error ||D||_2/4.",
+  "shape": {
+    "arms_in_source_artifact": 5,
+    "factorial_arms_used": 4,
+    "expanded_rows": 240,
+    "declared_distinct_context_cells": 20,
+    "readouts": 5,
+    "target_readouts": 1,
+    "control_readouts": 4
+  },
+  "all_five_readouts": {
+    "interaction_norm": 4.191939097555931,
+    "smaller_single_norm": 1.8200642314139222,
+    "interaction_over_smaller": 2.303181956550737,
+    "best_additive_uniform_factorial_rmse": 1.0479847743889827,
+    "rmse_over_smaller": 0.5757954891376843
+  },
+  "target_readout": {
+    "interaction_norm": 4.142748478877057,
+    "smaller_single_norm": 1.7667634559555276,
+    "interaction_over_smaller": 2.344823504760864,
+    "best_additive_uniform_factorial_rmse": 1.0356871197192643,
+    "rmse_over_smaller": 0.586205876190216
+  },
+  "control_readouts": {
+    "interaction_norm": 0.6403033955710844,
+    "smaller_single_norm": 0.4372421493548305,
+    "interaction_over_smaller": 1.464413704204591,
+    "best_additive_uniform_factorial_rmse": 0.1600758488927711,
+    "rmse_over_smaller": 0.36610342605114776
+  },
+  "per_context_target_rmse_over_smaller": {
+    "minimum": 0.34197052910410236,
+    "median": 0.45215556025505066,
+    "maximum": 1.3355212538134642,
+    "context_count": 20
+  },
+  "head_product_specific_norm_over_joint_all_readouts": 0.4194138128900582,
+  "suffix_interaction_cosine_with_head_product_all_readouts": -0.6762232962026189,
+  "cpu_seconds": 0.002295201877132058,
+  "source_sha256": {
+    "CITY_INTERCHANGE_COMPOSITION_V1_ARTIFACT.pt": "e501aa82b770ba281aee80781fb4b942ee32c5a614d4a5dcd3325241701b851d",
+    "CITY_INTERCHANGE_COMPOSITION_V1_RESULT.json": "b3981e78c035a9725e0717d06bf0b71b3d4149a2070db5bcc4dd050d22157330"
+  },
+  "interpretation": "No additive key-plus-value program can fit all four observed target arms with uniform-factorial RMS error below 58.62% of the smaller live single-effect norm, even if it may distribute the error across baseline and single arms. The per-context lower bound is nonzero in every one of the 20 declared context cells. The product-specific and downstream-suffix interaction vectors partly cancel.",
+  "limitations": "Opened existing regional rows; no new model forward; no fresh/OOD upgrade; no matched random-split distribution; no selective manipulation; no extraction or price improvement. The bound is for additive arm functions on this observed factorial only. Exact Mobius closure and this approximation lower bound do not prove native causal fidelity, semantic identification, or random-split specificity."
+}

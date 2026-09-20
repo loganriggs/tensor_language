@@ -1,0 +1,14 @@
+gender noun contrast 131191.69 top [('embed x mlp:07', 0.148), ('embed x mlp:05', 0.107), ('mlp:06 x attnhead:08:1', -0.095), ('mlp:07 x attnhead:08:1', 0.086), ('mlp:06 x mlp:06', -0.086), ('embed x embed', 0.084)] 8.1 0.106 mlp6/7 0.395 embed^2 0.084
+gender verb contrast 250104.14 top [('mlp:06 x mlp:06', -0.119), ('mlp:06 x attn:07', 0.117), ('mlp:05 x mlp:06', 0.087), ('mlp:05 x attnhead:08:1', 0.082), ('mlp:07 x attnhead:08:1', 0.078), ('mlp:06 x attnhead:08:1', -0.072)] 8.1 0.329 mlp6/7 0.43 embed^2 0.0
+number noun contrast 734439.44 top [('mlp:05 x mlp:06', 0.068), ('embed x mlp:06', 0.062), ('mlp:06 x mlp:07', 0.06), ('mlp:06 x mlp:06', 0.049), ('embed x mlp:05', 0.046), ('mlp:05 x mlp:07', 0.042)] 8.1 -0.001 mlp6/7 0.575 embed^2 0.019
+number verb contrast 654555.12 top [('mlp:05 x mlp:07', 0.054), ('mlp:04 x mlp:05', 0.048), ('mlp:04 x mlp:07', 0.044), ('mlp:05 x attn:07', 0.032), ('attn:07 x mlp:07', 0.032), ('attn:05 x mlp:05', 0.032)] 8.1 0.02 mlp6/7 0.414 embed^2 0.0
+{
+  "predictions": {
+    "pred_a_bilinear_closure": true,
+    "pred_b_gender_verb_top_pair_involves_head_8_1": false,
+    "pred_c_gender_verb_pairs_with_8_1_carry_half": false,
+    "pred_d_number_verb_pairs_with_mlp6_or_mlp7_carry_half": false,
+    "pred_e_noun_embedding_self_term_at_least_020": false
+  },
+  "forwards": 5
+}

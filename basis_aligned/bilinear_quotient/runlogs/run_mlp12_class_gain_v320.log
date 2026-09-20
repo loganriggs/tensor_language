@@ -1,0 +1,51 @@
+{
+ "closure_max": 0.010984995402395725,
+ "alpha1_by_class": {
+  "nouns": 0.43054360151290894,
+  "vocab_nouns": 0.40350469946861267,
+  "verbs": 0.3153189420700073,
+  "numbers": 0.33210262656211853,
+  "punctuation": 0.28160279989242554,
+  "function_words": 0.25921496748924255,
+  "adjectives": 0.35732170939445496
+ },
+ "alpha2_by_class": {
+  "nouns": 0.3253324627876282,
+  "vocab_nouns": 0.28554365038871765,
+  "verbs": 0.24851810932159424,
+  "numbers": 0.14230139553546906,
+  "punctuation": 0.2778833210468292,
+  "function_words": 0.18093585968017578,
+  "adjectives": 0.25404152274131775
+ },
+ "alpha1_spread": 0.17132863402366638,
+ "order_mlp1_low_to_high": [
+  "function_words",
+  "punctuation",
+  "verbs",
+  "numbers",
+  "adjectives",
+  "vocab_nouns",
+  "nouns"
+ ],
+ "order_mlp2_low_to_high": [
+  "numbers",
+  "function_words",
+  "verbs",
+  "adjectives",
+  "punctuation",
+  "vocab_nouns",
+  "nouns"
+ ],
+ "spearman_alpha1_alpha2": 0.6428571428571428
+}
+{
+  "predictions": {
+    "pred_a_pair_closure": true,
+    "pred_b_classes_differ_in_gain": true,
+    "pred_c_function_words_and_punctuation_cancel_most": true,
+    "pred_d_numbers_keep_lookup_most": false,
+    "pred_e_class_order_shared_by_mlp1_and_mlp2": true
+  },
+  "forwards": 2
+}

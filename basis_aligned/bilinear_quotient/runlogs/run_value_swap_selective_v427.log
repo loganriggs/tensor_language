@@ -1,0 +1,33 @@
+{
+ "replay_max_abs": 1.33514404296875e-05,
+ "text": {
+  "pairs": 122,
+  "gap_mean": 1.8995414972305298,
+  "closed": {
+   "R": 0.3684348165988922,
+   "ALL": 0.3812517821788788,
+   "OTHER": 0.016433894634246826
+  },
+  "reader_share_of_all": 0.9663818867764059
+ },
+ "panel": {
+  "pairs": 48,
+  "gap_mean": 4.0962815284729,
+  "closed": {
+   "R": 0.2525726854801178,
+   "ALL": 0.26569363474845886,
+   "OTHER": 0.015066192485392094
+  },
+  "reader_share_of_all": 0.9506162453580678
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_other_heads_carry_little": true,
+    "pred_c_readers_are_most_of_their_blocks": true,
+    "pred_d_all_heads_bounded": true,
+    "pred_e_selective_on_panel": true
+  },
+  "forwards": 28
+}

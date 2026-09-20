@@ -738,6 +738,7 @@ they also read the gender the noun copies into the positions after it. Number's 
 **Number against gender, same heads.** Number: MLP-carried (MLP 8 alone 0.30 on adjacent rows; readers' copy 0.94–1.0 current-state; 9.6-led; exits add).
 Gender: token-carried (token-only branch half; self-copies 0.31; MLP stack ~0.17; 10.1 / 12.4-led; exits nested). One reader set, two signals, two
 constructions.
+The branch edit run on the number line itself (v594) confirms the fold: the number readers' current-state branch closes 0.411 and their token-only branch 0.075 of the 0.483; on gender the same edit gave 0.291 / 0.314 of 0.600.
 
 **Kept failures.** v549 d, v551 b, v552 c/d, v553 c/d, v554 b/c/d, v555 e, v556 b/e, v557 b/c, v558 d/e, v559 d, v560 e, v561 b/c, v562 b/c, v564 b.
 **Out of sample, selective, and where the readers look (v565–v573).** On the second natural gender set (64 pile-10k pairs) the five readers' writes into
@@ -783,5 +784,13 @@ reaches 0.02 (4.5 0.018, 4.4 0.017) — a population, so the early exit stops at
 (v586); every head 0.943. The other half by block group: blocks 0–7 0.216, block 8 without 8.1 0.032, blocks 9–12 without 10.5 0.220, blocks 13–17 without
 13.1 / 15.1 0.082; by block, block 9 0.114 (9.6 0.058, 9.7 0.035 — the number readers write person too), block 5 0.059, block 10 0.047, block 12 0.038, blocks
 6 / 7 0.03. Person is the least concentrated of the three lines: no set of four heads carries more than 0.41 of its write side.
+
+**Verdict (v590–v593).** Out of sample (36 pile pairs) the four readers write 0.375, 9.6 + 9.7 0.115, all heads 0.917. Two named sources — the early copies
+(0.154) and the readers' cue values (0.361) — give 0.563 jointly. Block 5's contribution is 5.3 (0.040), the verb line's relay. The seven heads {8.1, 13.1, 10.5,
+15.1, 9.6, 9.7, 5.3} write 0.549 of the channel jointly (their singles add to 0.545), short of the 0.60 bar I registered in review 44 for a named-set circuit.
+So person is recorded as a SPREAD readout: seven named heads carry 0.55, the remaining 0.39 is 0.02–0.05 per block over blocks 6–12 (each block's heads
+adding), and the block census is its depth limit. Number and gender concentrate on five heads (0.80 / 0.88 of their write sides); person does not.
+
+**Kept failures (person).** v580 b/c; v581 b/c; v583 c; v584 c; v585 b; v586 b; v587 c/d; v588 e; v593 b.
 
 **Kept failures (continued).** v565 none; v566 e; v567 b/e; v568 b/c; v569 b/c; v570 d/e; v571 c/d; v572 c; v573 e; v574 b/d; v575 none.

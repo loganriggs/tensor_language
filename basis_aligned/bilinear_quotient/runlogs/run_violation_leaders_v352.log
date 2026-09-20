@@ -1,0 +1,107 @@
+{
+ "closure_max": 0.0,
+ "per_unit": {
+  "mlp3.114": {
+   "medians": {
+    "is|s": -12.996024131774902,
+    "is|p": 1098.3385009765625,
+    "are|s": -793.1029052734375,
+    "are|p": -183.63612365722656
+   },
+   "pooled_std": 237.12759399414062,
+   "verb_form_effect_std": -4.348042062591849,
+   "noun_number_effect_std": 3.6284290616280384,
+   "agreement_interaction_std": -1.0582229909196639
+  },
+  "mlp3.3040": {
+   "medians": {
+    "is|s": 2.2074668407440186,
+    "is|p": 241.0697784423828,
+    "are|s": -1390.21484375,
+    "are|p": -60.4788932800293
+   },
+   "pooled_std": 183.7827911376953,
+   "verb_form_effect_std": -4.6086224173295545,
+   "noun_number_effect_std": 4.267533027334347,
+   "agreement_interaction_std": 2.9678340178515903
+  },
+  "mlp3.3465": {
+   "medians": {
+    "is|s": -3.9971518516540527,
+    "is|p": -87.77975463867188,
+    "are|s": -164.63609313964844,
+    "are|p": -48.95232009887695
+   },
+   "pooled_std": 53.56722640991211,
+   "verb_form_effect_std": -1.1369965827245014,
+   "noun_number_effect_std": 0.29776761269695545,
+   "agreement_interaction_std": 1.861832217160304
+  },
+  "mlp3.565": {
+   "medians": {
+    "is|s": -21.537845611572266,
+    "is|p": 18.94890594482422,
+    "are|s": 561.8672485351562,
+    "are|p": 42.70063400268555
+   },
+   "pooled_std": 100.62657165527344,
+   "verb_form_effect_std": 3.016881188621769,
+   "noun_number_effect_std": -2.3784963310483036,
+   "agreement_interaction_std": -2.7808428573226562
+  }
+ }
+}
+{
+ "mlp3.3040": {
+  "pooled_std": 183.78,
+  "verb_form_effect_std": -4.61,
+  "noun_number_effect_std": 4.27,
+  "agreement_interaction_std": 2.97,
+  "viol_gap_std": -7.58,
+  "mirror_gap_std": 1.64
+ },
+ "mlp3.114": {
+  "pooled_std": 237.13,
+  "verb_form_effect_std": -4.35,
+  "noun_number_effect_std": 3.63,
+  "agreement_interaction_std": -1.06,
+  "viol_gap_std": -3.29,
+  "mirror_gap_std": 5.41
+ },
+ "mlp3.565": {
+  "pooled_std": 100.63,
+  "verb_form_effect_std": 3.02,
+  "noun_number_effect_std": -2.38,
+  "agreement_interaction_std": -2.78,
+  "viol_gap_std": 5.8,
+  "mirror_gap_std": -0.24
+ }
+}
+{
+ "mlp3.3040": {
+  "noun_sep_std": 0.08992461860179901,
+  "are_minus_is_over_std": -11.546555519104004
+ },
+ "mlp3.114": {
+  "noun_sep_std": -0.30730149149894714,
+  "are_minus_is_over_std": -9.366598129272461
+ },
+ "mlp3.565": {
+  "noun_sep_std": -0.4998018741607666,
+  "are_minus_is_over_std": 1.314705729484558
+ },
+ "mlp3.3465": {
+  "noun_sep_std": -2.5798134803771973,
+  "are_minus_is_over_std": -0.5186855792999268
+ }
+}
+{
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_leaders_flag_the_violation_cell": true,
+    "pred_c_leaders_are_interaction_units": false,
+    "pred_d_leaders_mirror_cell": false,
+    "pred_e_leaders_silent_alone": false
+  },
+  "forwards": 7
+}

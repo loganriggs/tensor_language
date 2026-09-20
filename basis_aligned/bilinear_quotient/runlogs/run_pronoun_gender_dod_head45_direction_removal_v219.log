@@ -1,0 +1,12 @@
+native 103.46 damage zero -0.0055 number direction 0.0019 random max 0.0061 random norm ratios [1.0, 1.0, 1.0, 1.0]
+moves number {'tense_will_would': 0.0161, 'animacy_who_which': 0.0366, 'canonical_night_day': 0.0149} null {'tense_will_would': 0.0126, 'animacy_who_which': 0.0127, 'canonical_night_day': 0.0066} gates {'tense_will_would': False, 'animacy_who_which': False, 'canonical_night_day': False}
+{
+  "predictions": {
+    "pred_a_whole_slice_damages": false,
+    "pred_b_direction_removal_damages": false,
+    "pred_c_direction_beats_random_directions": false,
+    "pred_d_direction_removal_selective": false,
+    "pred_e_direction_carries_half_of_full_zeroing": true
+  },
+  "forwards": 40
+}

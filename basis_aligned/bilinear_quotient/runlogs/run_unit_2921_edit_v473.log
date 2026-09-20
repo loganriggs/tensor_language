@@ -1,0 +1,33 @@
+{
+ "replay_max_abs": 2.384185791015625e-05,
+ "text": {
+  "pairs": 79,
+  "unit": 701,
+  "contrast_mean": 37.7872428894043,
+  "sign_constancy": 0.607594907283783,
+  "moved": {
+   "m16": 0.13688164949417114,
+   "u2921": 0.0303741917014122,
+   "urand": -9.800794941838831e-05
+  },
+  "margin_closed": {
+   "m16": 0.09117152541875839,
+   "u2921": 0.004063547123223543,
+   "urand": -1.8177895981352776e-05
+  }
+ },
+ "panel": {
+  "skipped": "distant rows only",
+  "distant_rows": 79
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_2921_feeds_701": false,
+    "pred_c_random_unit_does_not": true,
+    "pred_d_2921_moves_the_margin_a_little": true,
+    "pred_e_2921_within_mlp16": true
+  },
+  "forwards": 12
+}

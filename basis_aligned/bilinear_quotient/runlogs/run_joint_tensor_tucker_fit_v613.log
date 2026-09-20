@@ -1,0 +1,20 @@
+K=16: independent_matrix_err=0.8974  tucker_held_out_err=1.2669  sparse_frac=0.003  converged=False
+K=32: independent_matrix_err=0.8574  tucker_held_out_err=2.8186  sparse_frac=0.010  converged=False
+K=64: independent_matrix_err=0.8171  tucker_held_out_err=24.1342  sparse_frac=0.003  converged=False
+{
+  "pred_a_baseline_target_finite": true,
+  "pred_b_tucker_converges": false,
+  "pred_c_tucker_beats_independent_matrix": false,
+  "pred_d_core_is_sparse": false,
+  "pred_e_scale_constraint_holds": true
+}
+[disk_guard] WARNING: only 2.53 GB free on / before this OUT json (0.0 MB) (0.0 MB)
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_joint_tensor_tucker_fit_v613.py", line 150, in <module>
+    main()
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_joint_tensor_tucker_fit_v613.py", line 145, in main
+    disk_guard.guard_write(payload_bytes, label=f"OUT json ({payload_bytes/1e6:.1f} MB)")
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/disk_guard.py", line 41, in guard_write
+    raise DiskBudgetError(
+disk_guard.DiskBudgetError: [disk_guard] REFUSED: OUT json (0.0 MB) of 0.0 MB would leave 2.53 GB free on /, below the 3 GB safety margin. Save a smaller object (factors, not composed matrices), or delete old followups/*.pt files first.

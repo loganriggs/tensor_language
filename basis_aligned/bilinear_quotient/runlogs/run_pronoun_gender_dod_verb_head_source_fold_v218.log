@@ -1,0 +1,11 @@
+block 4 total -472.46 shares {'4.5': 0.768, '4.4': 0.22, '4.6': 0.052, '4.7': -0.032, '4.8': -0.026, '4.2': 0.01, '4.3': 0.005, '4.0': 0.004, '4.1': -0.002} lead 4.5 noun 1.078 self -0.012 token-only 0.18
+block 5 total -189.09 shares {'5.7': -1.195, '5.3': 1.133, '5.1': 0.729, '5.6': 0.319, '5.8': -0.249, '5.5': 0.182, '5.0': 0.101, '5.2': -0.089, '5.4': 0.069} lead 5.7 noun 0.154 self 0.147 token-only -0.01
+{
+  "predictions": {
+    "pred_a_fold_closure": true,
+    "pred_b_one_head_per_block_leads": true,
+    "pred_c_leading_heads_read_the_noun": false,
+    "pred_d_leading_heads_are_contextual": true
+  },
+  "forwards": 6
+}

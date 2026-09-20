@@ -1,0 +1,12 @@
+cue contrast 126283.74 top-10 0.347 top-50 0.628 jaccard v168 0.125 top [(2428, 16799.2), (3892, -7965.7), (4512, 6657.8), (3765, 5068.0), (1738, 4436.3), (4592, 4219.7), (60, 3975.5), (370, 3584.8)] rank 3892 2
+final contrast 113347.83 top-10 0.746 top-50 0.871 jaccard v168 0.2 top [(3892, 23232.9), (684, 21036.2), (2428, 18670.2), (2546, 9529.7), (3765, 4057.4), (829, 3572.0), (370, 2474.6), (2590, 2005.6)] rank 3892 1
+cue: rank 3892 2 share -0.063 rank 829 973 | final: rank 3892 1 share 0.205
+{
+  "predictions": {
+    "pred_a_unit_closure": true,
+    "pred_b_3892_in_cue_top3": true,
+    "pred_c_cue_top10_carry_half": false,
+    "pred_d_cue_top50_overlaps_demonstrative_top50": false
+  },
+  "forwards": 3
+}

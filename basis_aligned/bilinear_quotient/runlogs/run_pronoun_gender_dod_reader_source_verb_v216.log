@@ -1,0 +1,15 @@
+gender_verb 10.1 {"mean_contrast": 21.2808, "pairs": 30, "shares": {"noun": 0.9833081807775369, "verb": 0.02609779721536845, "object": 0.0, "final": -0.005115462420119634, "other": -0.004290505251906028}, "inherited_share": 0.7173, "largest_source": "noun"}
+gender_verb 12.4 {"mean_contrast": 23.2812, "pairs": 30, "shares": {"noun": 0.39744146136556596, "verb": 0.2308383982168916, "object": 0.0, "final": 0.08606988928057824, "other": 0.2856502593340364}, "inherited_share": 0.1264, "largest_source": "noun"}
+gender_verb 15.1 {"mean_contrast": 35.856, "pairs": 30, "shares": {"noun": 0.5840653949590061, "verb": 0.10941721008725766, "object": 0.0, "final": 0.1379669572131241, "other": 0.16855044174276637}, "inherited_share": 0.503, "largest_source": "noun"}
+gender_verb 9.6 {"mean_contrast": 17.8986, "pairs": 30, "shares": {"noun": 0.4980549529331799, "verb": 0.4766800592434916, "object": 0.0, "final": -0.005485963860395456, "other": 0.0307509507010576}, "inherited_share": 0.0554, "largest_source": "noun"}
+pooled verb share 0.187 {'10.1': {'noun': 0.983, 'verb': 0.026, 'object': 0.0, 'final': -0.005, 'other': -0.004}, '12.4': {'noun': 0.397, 'verb': 0.231, 'object': 0.0, 'final': 0.086, 'other': 0.286}, '15.1': {'noun': 0.584, 'verb': 0.109, 'object': 0.0, 'final': 0.138, 'other': 0.169}, '9.6': {'noun': 0.498, 'verb': 0.477, 'object': 0.0, 'final': -0.005, 'other': 0.031}}
+{
+  "predictions": {
+    "pred_a_fold_closure": true,
+    "pred_b_pooled_verb_share_020": false,
+    "pred_c_9_6_verb_at_least_noun": true,
+    "pred_d_10_1_is_a_noun_reader": true,
+    "pred_e_token_only_small": false
+  },
+  "forwards": 10
+}

@@ -1,0 +1,37 @@
+{
+ "replay_max_abs": 1.239776611328125e-05,
+ "text": {
+  "pairs": 48,
+  "gap_mean": {
+   "verb": 4.0962815284729,
+   "are_is": 3.576390504837036,
+   "were_was": -0.5198912620544434
+  },
+  "closed": {
+   "DET_A": {
+    "verb": -0.07845767587423325,
+    "are_is": -0.0217482578009367,
+    "gender_over_number": 0.8282626271247864
+   },
+   "RANDOM_A": {
+    "verb": 0.0001727266499074176,
+    "are_is": 0.0002537212276365608,
+    "gender_over_number": 0.6023044586181641
+   }
+  }
+ },
+ "panel": {
+  "frame": "v76 panel pairs",
+  "rows": 48
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_they_she_opposition_matches_they_he": false,
+    "pred_c_pronoun_opposition_replays": true,
+    "pred_d_random_units_do_not": true,
+    "pred_e_gender_margin_barely_moves": false
+  },
+  "forwards": 9
+}

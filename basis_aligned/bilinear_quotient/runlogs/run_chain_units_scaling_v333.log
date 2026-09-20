@@ -1,0 +1,123 @@
+{
+ "closure_max": 0.0,
+ "per_unit_by_size": {
+  "mlp3.3465": {
+   "4": {
+    "gap_over_std": -2.1929021419522554,
+    "plural_side_fraction": 0.75
+   },
+   "16": {
+    "gap_over_std": -1.873947222907455,
+    "plural_side_fraction": 1.0
+   },
+   "64": {
+    "gap_over_std": -2.2530964661319546,
+    "plural_side_fraction": 0.984375
+   },
+   "256": {
+    "gap_over_std": -2.579813484836879,
+    "plural_side_fraction": 0.95703125
+   }
+  },
+  "mlp3.493": {
+   "4": {
+    "gap_over_std": 3.9057744531488647,
+    "plural_side_fraction": 1.0
+   },
+   "16": {
+    "gap_over_std": 3.25552607612646,
+    "plural_side_fraction": 1.0
+   },
+   "64": {
+    "gap_over_std": 2.9265800176724057,
+    "plural_side_fraction": 0.984375
+   },
+   "256": {
+    "gap_over_std": 2.6468612403341454,
+    "plural_side_fraction": 0.984375
+   }
+  },
+  "mlp5.1036": {
+   "4": {
+    "gap_over_std": 1.3021172434986046,
+    "plural_side_fraction": 0.75
+   },
+   "16": {
+    "gap_over_std": 1.571653172992494,
+    "plural_side_fraction": 0.75
+   },
+   "64": {
+    "gap_over_std": 1.8114305070259376,
+    "plural_side_fraction": 0.8125
+   },
+   "256": {
+    "gap_over_std": 2.0094347860015866,
+    "plural_side_fraction": 0.890625
+   }
+  },
+  "mlp8.829": {
+   "4": {
+    "gap_over_std": 0.8562285540932495,
+    "plural_side_fraction": 0.75
+   },
+   "16": {
+    "gap_over_std": 1.4785796704064194,
+    "plural_side_fraction": 0.75
+   },
+   "64": {
+    "gap_over_std": 1.5985574108690448,
+    "plural_side_fraction": 0.765625
+   },
+   "256": {
+    "gap_over_std": 1.7630305341295982,
+    "plural_side_fraction": 0.82421875
+   }
+  },
+  "mlp8.953": {
+   "4": {
+    "gap_over_std": -0.12791412100869232,
+    "plural_side_fraction": 0.5
+   },
+   "16": {
+    "gap_over_std": -0.01311225113447145,
+    "plural_side_fraction": 0.5
+   },
+   "64": {
+    "gap_over_std": -0.04334994987265872,
+    "plural_side_fraction": 0.546875
+   },
+   "256": {
+    "gap_over_std": -0.0630321987438382,
+    "plural_side_fraction": 0.59375
+   }
+  },
+  "mlp8.1030": {
+   "4": {
+    "gap_over_std": -0.05460522511981996,
+    "plural_side_fraction": 0.75
+   },
+   "16": {
+    "gap_over_std": -0.006351627693398864,
+    "plural_side_fraction": 0.5
+   },
+   "64": {
+    "gap_over_std": -0.09029551069949589,
+    "plural_side_fraction": 0.5625
+   },
+   "256": {
+    "gap_over_std": -0.04077317043829796,
+    "plural_side_fraction": 0.578125
+   }
+  }
+ }
+}
+{
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_gap_stable_from_16": false,
+    "pred_c_vocab_pairs_replay_lexicon": false,
+    "pred_d_plural_side_fraction_high_at_256": false,
+    "pred_e_order_of_units_stable": false
+  },
+  "forwards": 2
+}

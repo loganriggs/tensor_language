@@ -1,0 +1,43 @@
+{
+ "replay_max_abs": 1.430511474609375e-05,
+ "text": {
+  "pairs": 45,
+  "gap_mean": {
+   "verb": 0.7535225749015808,
+   "are_is": 0.7477173805236816,
+   "were_was": -0.005805158521980047
+  },
+  "closed": {
+   "LATE_A": {
+    "verb": -0.004509208723902702,
+    "are_is": 0.0017821562942117453
+   },
+   "RANDOM_A": {
+    "verb": 0.00010198887321166694,
+    "are_is": 0.00020167927141301334
+   },
+   "HUB_A": {
+    "verb": 0.047361962497234344,
+    "are_is": 0.05260760709643364
+   },
+   "HUB_N": {
+    "verb": 0.1727844476699829,
+    "are_is": 0.16407650709152222
+   }
+  }
+ },
+ "panel": {
+  "skipped": "verb slot only (price)",
+  "verb_slot_rows": 45
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_late_units_inert_at_the_pronoun_slot": true,
+    "pred_c_random_units_do_not": true,
+    "pred_d_hub_units_at_the_answer_small": true,
+    "pred_e_hub_units_at_the_noun_replay": true
+  },
+  "forwards": 10
+}

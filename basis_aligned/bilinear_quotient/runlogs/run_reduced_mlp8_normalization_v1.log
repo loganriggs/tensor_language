@@ -1,0 +1,124 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "pred_d": true,
+  "families": {
+    "catalog_entry": {
+      "omit_correction": {
+        "target_error": 0.002640681393995792,
+        "target_rms": 0.471779800833351,
+        "control_over_target": [
+          0.11995716940582389,
+          0.11113415136688805,
+          0.03387847108964246,
+          0.18006578778237928
+        ]
+      },
+      "freeze_denominator": {
+        "target_error": 0.0007216992518353116,
+        "target_rms": 0.47246689535822894,
+        "control_over_target": [
+          0.1199015858362056,
+          0.11106124324851706,
+          0.03385980252533143,
+          0.1800478145829526
+        ]
+      }
+    },
+    "copy_request": {
+      "omit_correction": {
+        "target_error": 0.0013321810045468525,
+        "target_rms": 0.3444518200125901,
+        "control_over_target": [
+          0.12807225480300966,
+          0.07833597726970451,
+          0.06138381988489618,
+          0.14032002478106584
+        ]
+      },
+      "freeze_denominator": {
+        "target_error": 0.0003125103587640546,
+        "target_rms": 0.3447314311387552,
+        "control_over_target": [
+          0.1280394462404807,
+          0.07834040856962907,
+          0.061368037366070174,
+          0.14033088926167847
+        ]
+      }
+    },
+    "plain_record": {
+      "omit_correction": {
+        "target_error": 0.0012907365704957737,
+        "target_rms": 0.4133082589359018,
+        "control_over_target": [
+          0.08350772772620782,
+          0.0352108045698436,
+          0.05582567749540709,
+          0.13191143429781085
+        ]
+      },
+      "freeze_denominator": {
+        "target_error": 0.0006161996938641022,
+        "target_rms": 0.41359566471405207,
+        "control_over_target": [
+          0.08348474909801047,
+          0.03521399520684908,
+          0.055815865268210814,
+          0.13190648093469787
+        ]
+      }
+    },
+    "line_separated": {
+      "omit_correction": {
+        "target_error": 0.0015062517199511186,
+        "target_rms": 0.3018898908117479,
+        "control_over_target": [
+          0.0998591948189197,
+          0.07108701895137506,
+          0.08824952440713407,
+          0.1438766440241243
+        ]
+      },
+      "freeze_denominator": {
+        "target_error": 0.00041480839636848926,
+        "target_rms": 0.3022143100100468,
+        "control_over_target": [
+          0.09976386147334983,
+          0.07111392593821017,
+          0.0882420275682195,
+          0.14384996125828425
+        ]
+      }
+    },
+    "indirect_account": {
+      "omit_correction": {
+        "target_error": 0.0014317503724125768,
+        "target_rms": 0.288936214764758,
+        "control_over_target": [
+          0.1484639886467183,
+          0.07301757310902202,
+          0.028390058078391622,
+          0.12578221167983664
+        ]
+      },
+      "freeze_denominator": {
+        "target_error": 0.0007067142790701829,
+        "target_rms": 0.28917827348228664,
+        "control_over_target": [
+          0.14842091520439307,
+          0.0730199451768345,
+          0.028381559725935118,
+          0.12580590182248474
+        ]
+      }
+    }
+  },
+  "anchor_max_abs": 3.814697265625e-06,
+  "anchor_relative": 3.336481707490376e-07,
+  "max_outside": 0.0,
+  "body_forwards": 200,
+  "seconds": 3.4460343210957944,
+  "scope": "Opened normalization approximation screen. Full native suffix recomputed; no fresh or random-null selective confirmation, no approximation adopted into exact package."
+}

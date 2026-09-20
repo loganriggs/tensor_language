@@ -1,0 +1,39 @@
+{
+ "replay_max_abs": 1.33514404296875e-05,
+ "text": {
+  "pairs": 122,
+  "unit": 701,
+  "contrast_mean": 9.754912376403809,
+  "sign_constancy": 0.6475409865379333,
+  "moved": {
+   "FIVE_W": 0.28516989946365356,
+   "REST_W": 0.02120569720864296
+  },
+  "margin_closed": {
+   "FIVE_W": 0.8027758002281189,
+   "REST_W": 0.026380492374300957
+  },
+  "they_she_closed": {
+   "FIVE_W": 0.7541542649269104,
+   "REST_W": 0.0295313261449337
+  },
+  "gender_over_number": {
+   "FIVE_W": 0.21582502126693726,
+   "REST_W": 0.5440168380737305
+  }
+ },
+ "panel": {
+  "skipped": "pronoun slot, natural pairs",
+  "rows": 122
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_five_writes_carry_the_they_she_margin": true,
+    "pred_c_rest_small_on_they_she": true,
+    "pred_d_five_writes_move_he_she_little": false,
+    "pred_e_they_he_replays": true
+  },
+  "forwards": 12
+}

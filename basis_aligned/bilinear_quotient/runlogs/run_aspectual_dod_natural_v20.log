@@ -1,0 +1,13 @@
+triple {"since": {"mean": -0.2462, "n": 32, "fraction_negative": 0.6875, "fraction_positive": 0.3125, "native_accuracy": 0.8438}, "by": {"mean": 0.0923, "n": 32, "fraction_negative": 0.4688, "fraction_positive": 0.5312, "native_accuracy": 0.9375}}
+head_8_1 {"since": {"mean": -0.1467, "n": 32, "fraction_negative": 0.875, "fraction_positive": 0.125, "native_accuracy": 0.8438}, "by": {"mean": 0.0176, "n": 32, "fraction_negative": 0.4375, "fraction_positive": 0.5625, "native_accuracy": 0.9375}}
+pooled |shift| 0.0769 unrelated {'number_was_were': 0.0591, 'animacy_who_which': 0.0361, 'canonical_night_day': 0.0373}
+{
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_since_rows_shift_toward_had": true,
+    "pred_c_by_rows_shift_toward_has": false,
+    "pred_d_head_8_1_alone_shifts_the_same_way": false,
+    "pred_e_unrelated_readers_within_gate": false
+  },
+  "forwards": 8
+}

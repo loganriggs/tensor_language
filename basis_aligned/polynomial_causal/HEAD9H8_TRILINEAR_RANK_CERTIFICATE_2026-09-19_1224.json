@@ -1,0 +1,40 @@
+{
+  "checkpoint": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin",
+  "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "common_exact_float32_scale": "2**149",
+  "exact_full_column_rank_over_reals": true,
+  "finished_utc": "2026-09-19T12:24:52.950027+00:00",
+  "finite_field_prime": 2305843009213693951,
+  "independent_port_cp_rank": {
+    "all_causal_cells_T32": 67584,
+    "final_position_T32": 4096,
+    "formula": "number_of_live_(t,s)_cells * rank(O_head)"
+  },
+  "literal_native_trilinear_products_T32": {
+    "all_positions": 67584,
+    "final_position": 4096
+  },
+  "numerical_condition_number": 3.3535536687472343,
+  "numerical_singular_value_max": 12.21818172870839,
+  "numerical_singular_value_min": 3.643353569252004,
+  "output_map_shape": [
+    1152,
+    128
+  ],
+  "predictions": {
+    "pred_a_head_output_map_has_exact_rank_128": true,
+    "pred_b_final_position_cp_rank_is_4096": true,
+    "pred_c_all_position_cp_rank_is_67584": true
+  },
+  "runtime_seconds": 1.1909423370379955,
+  "schema": "head9h8_trilinear_rank_certificate_v1",
+  "scope": "Exact float32/dyadic rank witness for the frozen layer-9 head-8 output map and the induced independent-field trilinear tensor (p1,p2,v)->write. The CP-rank identity applies when p1, p2, and v are independent formal ports and counts rank-one trilinear terms. Native fields share residual/RMS sources, and deeper tensor-network executions may reuse intermediates; this is not a whole-path, runtime, causal-fidelity, extraction, selectivity, OOD, or composition proof.",
+  "source_sha256": "e8b4af2d7d271d9d90d54d28f02b896a070c5805d2018943c5fce6553696679b",
+  "weight_key": "transformer.h.9.attn.c_proj.weight[:,1024:1152]",
+  "witness_determinant_mod_prime": 1783287831876411080,
+  "witness_rank_mod_prime": 128,
+  "witness_rows": [
+    0,
+    127
+  ]
+}

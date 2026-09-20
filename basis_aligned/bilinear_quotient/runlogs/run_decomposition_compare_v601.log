@@ -1,0 +1,10 @@
+M0: svd@16=0.9330607652664185, kmeans@16=0.9470851421356201, dict@16=0.9339166283607483 (nnz=648982), hier@16=0.9514920115470886
+M1: svd@16=0.9381482005119324, kmeans@16=0.9570706486701965, dict@16=0.9383228421211243 (nnz=795183), hier@16=0.9581738114356995
+{
+  "pred_a_svd_is_frobenius_optimal": true,
+  "pred_b_sparse_dict_converges": true,
+  "pred_c_kmeans_converges": true,
+  "pred_d_pullback_changes_fidelity": false,
+  "pred_e_sparse_dict_beats_kmeans_at_matched_params": true
+}
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/circuits/followups/decomposition_compare_v601_result.json

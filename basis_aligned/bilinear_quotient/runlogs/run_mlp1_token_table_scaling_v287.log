@@ -1,0 +1,14 @@
+closure 0.0 | r90 union {'4': 18, '16': 64, '64': 164, '256': 271} | between {'4': 0.552, '16': 0.343, '64': 0.29, '256': 0.0} | radial 0.211
+lexicon noun pairs {'4': {'top1_energy': 0.564, 'median_norm_ratio_mlp1_over_x0': 160.328, 'cos_mean_diff_mlp1_x0': 0.471, 'r90': 3}, '16': {'top1_energy': 0.454, 'median_norm_ratio_mlp1_over_x0': 160.328, 'cos_mean_diff_mlp1_x0': 0.604, 'r90': 13}, '64': {'top1_energy': 0.399, 'median_norm_ratio_mlp1_over_x0': 173.488, 'cos_mean_diff_mlp1_x0': 0.703, 'r90': 47}, '126': {'top1_energy': 0.418, 'median_norm_ratio_mlp1_over_x0': 172.174, 'cos_mean_diff_mlp1_x0': 0.718, 'r90': 89}}
+verb pairs {'4': 0.687, '16': 0.498, '64': 0.426, '129': 0.393} vocab pairs {'4': 0.462, '16': 0.298, '64': 0.257, '256': 0.25, '400': 0.262}
+{
+  "predictions": {
+    "pred_a_writer_closure": true,
+    "pred_b_rank_scales_sublinearly": true,
+    "pred_c_classes_separable": false,
+    "pred_d_number_difference_is_rank1": false,
+    "pred_e_mlp1_amplifies_embedding_number": true,
+    "pred_f_radial_share_small": false
+  },
+  "forwards": 8
+}

@@ -1,0 +1,11 @@
+1250 contrast -194.34 sum 1.0 mlp stack 0.254 [('attnhead:07:8', 0.324, 'mass', 0.32), ('mlp:04', 0.211, 'mass', 0.144), ('mlp:06', 0.204, 'mass', 0.005), ('mlp:05', -0.2, 'mass', -0.287), ('attn:04', 0.138, 'mass', 0.161), ('attn:06', 0.121, 'mass', 0.26), ('attn:05', 0.063, 'mass', 0.195), ('attn:03', 0.053, 'mass', 0.063), ('mlp:02', 0.033, 'mass', 0.017)]
+   attention total 0.749 lead attnhead:07:8 0.324 embed -0.003
+{
+  "predictions": {
+    "pred_a_carrier_closure": true,
+    "pred_b_attention_carries_050": true,
+    "pred_c_embedding_carries_nothing": true,
+    "pred_d_one_attention_writer_leads": true
+  },
+  "forwards": 2
+}

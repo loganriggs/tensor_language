@@ -1,0 +1,25 @@
+{
+ "replay_max_abs": 2.384185791015625e-05,
+ "text": {
+  "pairs": 64,
+  "gap_mean": 0.4802556037902832,
+  "sign_constancy": 0.53125,
+  "closed": {
+   "ALL_N": 0.9826534986495972,
+   "FIVE_N": 0.3935820460319519,
+   "LOW_N": 0.8572593331336975,
+   "HIGH_N": 0.14665323495864868
+  }
+ }
+}
+aspect census {'ALL_N': 0.983, 'FIVE_N': 0.394, 'LOW_N': 0.857, 'HIGH_N': 0.147} gap 0.48 sign 0.531
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_all_values_at_the_cue_carry_aspect": true,
+    "pred_c_three_readers_carry": true,
+    "pred_d_low_and_high_add": true,
+    "pred_e_pairs_are_sign_constant": false
+  },
+  "forwards": 10
+}

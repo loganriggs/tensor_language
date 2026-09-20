@@ -1,0 +1,21 @@
+{
+ "n": 96,
+ "exact_change_mean": -1.184,
+ "linear_total_mean": -1.1767,
+ "remainder": -0.0072,
+ "direct_mean": -0.9846,
+ "direct_share_of_linear": 0.8367,
+ "downstream_net_mean": -0.1921,
+ "largest_downstream_responder": "mlp:17"
+}
+{'attn:06': -0.0218, 'mlp:06': 0.0026, 'attn:07': -0.0851, 'mlp:07': -0.0131, 'attn:08': -0.0005, 'mlp:08': -0.0169, 'attn:09': -0.0012, 'mlp:09': -0.0094, 'attn:10': -0.0008, 'mlp:10': -0.0126, 'attn:11': -0.7527, 'mlp:11': -0.0098, 'attn:12': -0.0004, 'mlp:12': 0.0098, 'attn:13': 0.0003, 'mlp:13': 0.0788, 'attn:14': 0.0004, 'mlp:14': 0.002, 'attn:15': -0.1251, 'mlp:15': -0.0052, 'attn:16': 0.0033, 'mlp:16': -0.0893, 'attn:17': 0.001, 'mlp:17': -0.1315}
+{
+  "predictions": {
+    "pred_a_recurrence_closure": true,
+    "pred_b_linearization_remainder_small": true,
+    "pred_c_direct_terms_carry_most": true,
+    "pred_d_downstream_net_is_small": true,
+    "pred_e_largest_responder_is_an_mlp": true
+  },
+  "forwards": 6
+}

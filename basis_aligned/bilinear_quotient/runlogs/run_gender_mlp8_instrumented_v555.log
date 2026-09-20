@@ -1,0 +1,33 @@
+{
+ "replay_max_abs": 1.430511474609375e-05,
+ "text": {
+  "pairs": 61,
+  "gap_mean": 4.360080718994141,
+  "closed": {
+   "MLP8": 0.07800419628620148
+  },
+  "w_moved": {
+   "MLP8": {
+    "10.1": 0.2979447543621063,
+    "12.4": 0.2261658012866974,
+    "9.6": 0.3412144184112549
+   }
+  },
+  "w_native_gap_mean": {
+   "10.1": -1223.5535888671875,
+   "12.4": 6130.02783203125,
+   "9.6": 4472.3564453125
+  }
+ }
+}
+w moved under MLP8 {'10.1': 0.298, '12.4': 0.226, '9.6': 0.341} fold {'10.1': 0.273, '12.4': 0.151, '9.6': 0.341} expected linear 0.151 margin 0.078
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_9_6_value_moves_by_its_fold_share": true,
+    "pred_c_10_1_value_moves_by_its_fold_share": true,
+    "pred_d_mlp8_margin_replays": true,
+    "pred_e_readout_is_linear_in_the_readers": false
+  },
+  "forwards": 4
+}

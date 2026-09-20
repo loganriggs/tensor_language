@@ -1,0 +1,34 @@
+{
+ "replay_max_abs": 1.239776611328125e-05,
+ "text": {
+  "pairs": 43,
+  "unit": 701,
+  "contrast_mean": 18.781227111816406,
+  "sign_constancy": 0.6976743936538696,
+  "moved": {
+   "SELF": -0.02006685733795166,
+   "POST": 0.315021812915802,
+   "ALL": 0.34544333815574646
+  },
+  "margin_closed": {
+   "SELF": -0.008501606993377209,
+   "POST": 0.1537904590368271,
+   "ALL": 0.17937543988227844
+  }
+ },
+ "panel": {
+  "skipped": "pronoun slot, natural pairs",
+  "rows": 43
+ }
+}
+person early blocks by target {'SELF': -0.009, 'POST': 0.154, 'ALL': 0.179} SELF + POST 0.145
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_early_copies_into_the_context_carry": true,
+    "pred_c_early_writes_into_the_cue_carry": false,
+    "pred_d_targets_add": true,
+    "pred_e_all_targets_match_the_value_swap": true
+  },
+  "forwards": 8
+}

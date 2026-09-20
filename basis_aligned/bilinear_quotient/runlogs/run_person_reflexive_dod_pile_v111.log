@@ -1,0 +1,14 @@
+capability {'natural_I_myself': 1.0, 'natural_I_yourself': 1.0, 'natural_you_myself': 1.0, 'natural_you_yourself': 1.0}
+congruent 2.069 positive 1.0 null max 0.025 gates {'tense_will_would': True, 'animacy_who_which': True, 'canonical_night_day': True}
+incongruent -0.048 positive 0.5
+{
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_congruent_native_capability": true,
+    "pred_c_congruent_removal_shifts_away_from_label": true,
+    "pred_d_congruent_removal_beats_null": true,
+    "pred_e_congruent_removal_selective": true,
+    "pred_f_incongruent_removal_shifts_toward_label": true
+  },
+  "forwards": 38
+}

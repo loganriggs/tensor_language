@@ -1,0 +1,37 @@
+{
+ "positions": 2944,
+ "closure_max": 1.3439116628433112e-06,
+ "decomposition_max_rel_err": 0.017839936539530754,
+ "alpha_median": 0.26184162497520447,
+ "gamma2_median": 0.8462087512016296,
+ "cross_proj_median": -0.8667205572128296,
+ "cross_negative_fraction": 0.9928668737411499,
+ "only_proj_median": 0.28748905658721924,
+ "pearson_crossproj_vs_neg_cnorm": 0.05270491912961006,
+ "c_norm_median": 13.264041900634766,
+ "word_fraction": 0.82472825050354,
+ "by_kind": {
+  "word": {
+   "gamma2": 0.852306604385376,
+   "cross": -0.85220867395401,
+   "only": 0.28168249130249023,
+   "alpha": 0.2707105278968811
+  },
+  "rest": {
+   "gamma2": 0.8199743628501892,
+   "cross": -0.929851233959198,
+   "only": 0.31987589597702026,
+   "alpha": 0.20426683127880096
+  }
+ }
+}
+{
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_table_term_near_full_on_text": true,
+    "pred_c_cross_negative_on_text": true,
+    "pred_d_cross_tracks_context_size_on_text": false,
+    "pred_e_decomposition_closes_on_text": true
+  },
+  "forwards": 8
+}

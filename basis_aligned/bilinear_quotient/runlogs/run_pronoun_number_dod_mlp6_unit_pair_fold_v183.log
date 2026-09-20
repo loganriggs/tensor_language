@@ -1,0 +1,13 @@
+2483 contrast -1043.5 top [('mlp:05 x mlp:05', -0.198), ('mlp:04 x mlp:05', 0.133), ('mlp:05 x attnhead:06:3', 0.096), ('mlp:03 x mlp:04', 0.089), ('mlp:03 x attnhead:06:3', 0.061), ('embed x mlp:04', 0.058), ('mlp:02 x mlp:04', 0.055), ('mlp:04 x attnhead:06:3', 0.053)]
+   embed pairs 0.199 block-6 head pairs 0.43 writers {'mlp:04': 0.52, 'mlp:03': 0.33, 'attnhead:06:3': 0.32, 'mlp:02': 0.22, 'embed': 0.2, 'attn:05': 0.11, 'mlp:05': 0.09, 'attnhead:06:6': 0.09}
+2826 contrast -1695.98 top [('mlp:03 x mlp:05', 0.059), ('mlp:03 x mlp:04', 0.057), ('embed x mlp:03', 0.057), ('mlp:04 x mlp:05', 0.052), ('embed x mlp:04', 0.048), ('embed x mlp:05', 0.048), ('mlp:03 x mlp:03', 0.034), ('mlp:05 x attnhead:06:3', 0.033)]
+   embed pairs 0.291 block-6 head pairs 0.194 writers {'mlp:05': 0.35, 'mlp:03': 0.35, 'mlp:04': 0.3, 'embed': 0.29, 'mlp:02': 0.16, 'mlp:01': 0.15, 'attnhead:06:6': 0.1, 'attn:04': 0.09}
+{
+  "predictions": {
+    "pred_a_pair_closure": true,
+    "pred_b_top_pair_involves_the_embedding": false,
+    "pred_c_embed_pairs_carry_half": false,
+    "pred_d_block6_head_pairs_carry_030": false
+  },
+  "forwards": 3
+}

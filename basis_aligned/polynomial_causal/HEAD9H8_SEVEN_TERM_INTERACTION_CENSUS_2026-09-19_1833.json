@@ -1,0 +1,82 @@
+{
+  "schema": "head9h8.seven_term_interaction_census.v1",
+  "started_utc": "2026-09-19T18:33:33.739153+00:00",
+  "finished_utc": "2026-09-19T18:33:33.753871+00:00",
+  "runtime_seconds": 0.014718672959133983,
+  "execution": "CPU-only replay of stored float64 fold contributions; no model load or forward",
+  "evidence_type": "fold",
+  "evaluation_status": "opened replay",
+  "term_names": [
+    "deltaK1",
+    "deltaK2",
+    "deltaV",
+    "deltaK1_deltaK2",
+    "deltaK1_deltaV",
+    "deltaK2_deltaV",
+    "deltaK1_deltaK2_deltaV"
+  ],
+  "shape": [
+    7,
+    240,
+    5
+  ],
+  "distinct_context_cells": 20,
+  "rows": 240,
+  "target": {
+    "single_norms": [
+      0.5443829711940454,
+      0.3296754173092504,
+      2.4493779935134015
+    ],
+    "interaction_norm": 0.6210070000562923,
+    "full_delta_norm": 2.1764716157296298,
+    "interaction_over_smallest_single": 1.883692163415872,
+    "interaction_omission_relative_l2": 0.28532740586562116,
+    "triple_over_smallest_single": 0.20232881672422634
+  },
+  "all_five_readouts": {
+    "single_norms": [
+      0.5598194525091768,
+      0.36422955875335716,
+      2.4572718296975182
+    ],
+    "interaction_norm": 0.6231817377997462,
+    "full_delta_norm": 2.190090826118741,
+    "interaction_over_smallest_single": 1.7109587149727787,
+    "interaction_omission_relative_l2": 0.28454607012995126,
+    "triple_over_smallest_single": 0.18368595817819136
+  },
+  "four_controls": {
+    "single_norms": [
+      0.13055650149118392,
+      0.1548460225244316,
+      0.1968052080541925
+    ],
+    "interaction_norm": 0.05201715301894097,
+    "full_delta_norm": 0.24386293808761253,
+    "interaction_over_smallest_single": 0.39842637038227874,
+    "interaction_omission_relative_l2": 0.2133048729210865,
+    "triple_over_smallest_single": 0.039694790910123796
+  },
+  "target_cell_distribution": {
+    "interaction_over_smallest_single": {
+      "minimum": 0.20739695014307977,
+      "median": 6.476054665745352,
+      "maximum": 41.74936650171377,
+      "count": 20
+    },
+    "interaction_omission_relative_l2": {
+      "minimum": 0.02632066896163814,
+      "median": 0.3002194346025617,
+      "maximum": 0.9175986068581267,
+      "count": 20
+    },
+    "cells_interaction_over_0_35": 19,
+    "cells_omission_over_0_10": 16
+  },
+  "interpretation": "The unique Boolean/Mobius coefficients of the tri-affine local head change show that collectively omitting the four order>=2 terms is not a small local approximation on these opened cells. This is replay attribution, not a fresh causal, random-split-specific, or suffix-fidelity result.",
+  "source_sha256": {
+    "CITY_FINEWEB_HEAD9_FOLD_V1_ARTIFACT.pt": "803ef5267f418cc6eb33ff8cd387290246af891097825e4ad20cb2117ca534fc",
+    "CITY_ATTENTION7_DROP3_FINEWEB_V1_ROWS.json": "7db2588fec84842e090be85a66d89c0536970c213cea4dbd6fa2f5d340906590"
+  }
+}

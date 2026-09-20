@@ -1,0 +1,16 @@
+native_pattern_pooled {'zero_damage': 0.5466, 'arm_damage': 0.1219, 'retention': 0.777}
+constant_pattern_pooled {'zero_damage': 0.5466, 'arm_damage': 0.1147, 'retention': 0.7901}
+constant_pattern_because {'zero_damage': 0.5971, 'arm_damage': 0.3051, 'retention': 0.4891}
+constant_pattern_later {'zero_damage': 0.5227, 'arm_damage': 0.001, 'retention': 0.9981}
+constant_pattern_lost {'zero_damage': 0.5198, 'arm_damage': 0.0381, 'retention': 0.9267}
+pattern cv max 0.322
+{
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_token_only_term_carries_the_three_heads": false,
+    "pred_c_pattern_is_stable_within_cue": true,
+    "pred_d_constant_pattern_transfers_pooled": true,
+    "pred_e_constant_pattern_transfers_in_every_construction": false
+  },
+  "forwards": 22
+}

@@ -1,0 +1,36 @@
+{
+ "replay_max_abs": 1.430511474609375e-05,
+ "text": {
+  "pairs": 61,
+  "unit": 701,
+  "contrast_mean": -0.29676592350006104,
+  "sign_constancy": 0.5901639461517334,
+  "moved": {
+   "SELF": 0.15740056335926056,
+   "NEXT": 0.05267840251326561,
+   "LATER": 0.2711017429828644,
+   "ALL_POS": 0.5089011192321777
+  },
+  "margin_closed": {
+   "SELF": 0.013664811849594116,
+   "NEXT": 0.02192368544638157,
+   "LATER": 0.07545631378889084,
+   "ALL_POS": 0.11359168589115143
+  }
+ },
+ "panel": {
+  "skipped": "pronoun slot, natural pairs",
+  "rows": 61
+ }
+}
+6.1 writes by target {'SELF': 0.014, 'NEXT': 0.022, 'LATER': 0.075, 'ALL_POS': 0.114} sum of parts 0.111
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_6_1_writes_into_the_noun": true,
+    "pred_c_6_1_into_next_replays": true,
+    "pred_d_6_1_later_small": true,
+    "pred_e_6_1_positions_sum_to_its_value_single": true
+  },
+  "forwards": 10
+}

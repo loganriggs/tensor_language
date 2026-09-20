@@ -1,0 +1,35 @@
+{
+ "native": {
+  "alpha_median": 0.5400515198707581,
+  "cos_median": 0.873516857624054,
+  "margin_oriented": 2.048141226172447,
+  "carriage_3465": -13084.936515808105,
+  "table_share_3465": 0.7360820549799997,
+  "carriage_493": 14468.880546569824,
+  "table_share_493": 0.7484771419029812
+ },
+ "edit": {
+  "alpha_median": 0.9992951154708862,
+  "cos_median": 0.9999998807907104,
+  "margin_oriented": 1.392790491382281,
+  "carriage_3465": -12108.719764709473,
+  "table_share_3465": 0.9997156111868923,
+  "carriage_493": 14561.320487976074,
+  "table_share_493": 0.9998983271029982
+ },
+ "carriage_rise_3465": 0.9253938488796448,
+ "carriage_rise_493": 1.0063888799903158,
+ "margin_change": -0.6553507347901661,
+ "margin_change_rel": -0.3199734112158278,
+ "sign_agreement_min": 1.0
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_mlp1_write_becomes_table": true,
+    "pred_c_margin_change_small_when_only_mlp1_unconditioned": false,
+    "pred_d_carriage_flat": true,
+    "pred_e_margin_change_is_a_fraction_of_v322": false
+  },
+  "forwards": 7
+}

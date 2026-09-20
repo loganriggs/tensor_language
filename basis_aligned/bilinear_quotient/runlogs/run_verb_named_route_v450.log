@@ -1,0 +1,43 @@
+{
+ "replay_max_abs": 2.384185791015625e-05,
+ "text": {
+  "pairs": 79,
+  "gap_mean": {
+   "verb": 3.139129638671875,
+   "are_is": 1.641675353050232,
+   "were_was": 1.497454285621643
+  },
+  "closed": {
+   "V2": {
+    "verb": 0.25185561180114746,
+    "are_is": 0.2540440559387207
+   },
+   "V2_C": {
+    "verb": 0.41155657172203064,
+    "are_is": 0.41269686818122864
+   },
+   "V2_P": {
+    "verb": 0.3226817548274994,
+    "are_is": 0.32182738184928894
+   },
+   "V2_C_P": {
+    "verb": 0.4841521084308624,
+    "are_is": 0.48213905096054077
+   }
+  }
+ },
+ "panel": {
+  "skipped": "distant rows only",
+  "distant_rows": 79
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_two_verb_readers_carry_a_quarter": true,
+    "pred_c_verb_readers_and_copier_add": true,
+    "pred_d_verb_readers_and_pronoun_readers_add": true,
+    "pred_e_named_verb_route_bounded": true
+  },
+  "forwards": 15
+}

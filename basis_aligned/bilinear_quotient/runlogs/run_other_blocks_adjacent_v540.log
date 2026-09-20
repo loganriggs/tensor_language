@@ -1,0 +1,35 @@
+{
+ "replay_max_abs": 2.002716064453125e-05,
+ "text": {
+  "pairs": 43,
+  "unit": 701,
+  "contrast_mean": 344.6632995605469,
+  "sign_constancy": 0.9069767594337463,
+  "moved": {
+   "EARLY": 0.05543407052755356,
+   "MID": 0.052981164306402206,
+   "LATE": 0.007972135208547115,
+   "ALL": 0.35743018984794617
+  },
+  "margin_closed": {
+   "EARLY": 0.012823049910366535,
+   "MID": 0.053139738738536835,
+   "LATE": 0.03186289221048355,
+   "ALL": 0.31311556696891785
+  }
+ },
+ "panel": {
+  "skipped": "distant rows only",
+  "distant_rows": 43
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_groups_sum_to_the_remainder": true,
+    "pred_c_early_is_the_largest_group": false,
+    "pred_d_late_small": true,
+    "pred_e_all_replays": true
+  },
+  "forwards": 10
+}

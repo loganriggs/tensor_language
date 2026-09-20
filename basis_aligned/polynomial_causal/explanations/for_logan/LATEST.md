@@ -192,3 +192,4 @@
   named carry 0.36 by value and 0.41 by write; I / you is also copied into the sentence by blocks 1–4 (0.15; block 4 a population of small heads); the other
   half of the write side is spread over blocks 5–12, led by block 9 — where the number readers 9.6 and 9.7 write person too (0.09). Person is the least
   concentrated of the three lines; OOD (pile) and composition are running. Details: `in_depth_circuit_number.md` §4.13.
+- **Person verdict (12:10 UTC, v590–v593).** Seven named heads {8.1, 13.1, 10.5, 15.1, 9.6, 9.7, 5.3} write 0.55 of the channel (they add); the bar for a named-set circuit was 0.60, so person is recorded as a spread readout with the block census as its depth limit (OOD on pile: four readers 0.375, all 0.917).

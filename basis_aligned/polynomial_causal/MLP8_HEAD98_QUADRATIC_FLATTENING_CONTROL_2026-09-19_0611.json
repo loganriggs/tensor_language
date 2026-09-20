@@ -1,0 +1,59 @@
+{
+  "schema": "mlp8_head98_quadratic_flattening_control_v1",
+  "started_utc": "2026-09-19T06:11:31.580123+00:00",
+  "finished_utc": "2026-09-19T06:11:32.269718+00:00",
+  "seconds": 0.6896011759527028,
+  "execution": {
+    "python": "/venv/main/bin/python",
+    "device": "cpu",
+    "omp_threads": 2,
+    "openblas_threads": 2
+  },
+  "inputs": {
+    "program": "CITY_MLP8_NORM_CLOSED_V1_PROGRAM.pt",
+    "program_sha256": "a45b305d851acdf828362600a5d879a8a1b6da6fbe522d0d79bb55e76e75b7b2",
+    "artifact": "CITY_MLP8_NORM_CLOSED_V1_ARTIFACT.pt",
+    "artifact_sha256": "eece2ab636cbb6fce2464ac738cc5be18b18431c50ef91c69fefae5a335a9454",
+    "fixture_count": 40,
+    "fixture_vectors": 2560,
+    "ambient_input_dim": 1152,
+    "output_dim": 128
+  },
+  "object": "The symmetric quadratic coefficient tensor of value_reader @ down applied to the native MLP8 numerator, restricted to the leading right-singular-vector subspaces of the centered opened-fixture z and delta vectors.",
+  "rows": [
+    {
+      "subspace_dim": 8,
+      "monomial_dim": 36,
+      "flattening_rank": 36,
+      "sigma_max": 326.352338277998,
+      "sigma_min": 0.24973334719485657,
+      "relative_sigma_min": 0.0007652261617384988,
+      "lapack_tol": 9.275491330470175e-12
+    },
+    {
+      "subspace_dim": 12,
+      "monomial_dim": 78,
+      "flattening_rank": 78,
+      "sigma_max": 373.40564429463,
+      "sigma_min": 0.16682013913716742,
+      "relative_sigma_min": 0.0004467531267565429,
+      "lapack_tol": 1.061282672181477e-11
+    },
+    {
+      "subspace_dim": 16,
+      "monomial_dim": 136,
+      "flattening_rank": 128,
+      "sigma_max": 484.50052860360114,
+      "sigma_min": 0.10050260207950534,
+      "relative_sigma_min": 0.00020743548488825805,
+      "lapack_tol": 1.463097907052674e-11
+    }
+  ],
+  "consequence": "Within the standard exact program class consisting of r scalar products of pairs of linear forms followed by arbitrary 128-dimensional output writers, the 16-dimensional witness restriction requires r >= 128. This is a robust numerical flattening-rank witness for the stored FP32 map, not a formal interval certificate.",
+  "limitations": [
+    "The witness basis was selected from opened fixture activations; this is not held-out or OOD evidence.",
+    "The result is an exact-numerator product-count lower bound, not an approximation-error lower bound.",
+    "The common live RMS denominator and downstream full QK1*QK2*V product are outside this numerator bound.",
+    "The result establishes neither causal fidelity, selective manipulation, composition/reuse, nor semantic identifiability."
+  ]
+}

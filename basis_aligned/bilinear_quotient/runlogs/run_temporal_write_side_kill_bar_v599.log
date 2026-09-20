@@ -1,0 +1,32 @@
+{
+ "replay_max_abs": 2.09808349609375e-05,
+ "text": {
+  "pairs": 93,
+  "unit": 701,
+  "contrast_mean": 0.4377375841140747,
+  "sign_constancy": 0.5161290168762207,
+  "moved": {
+   "FOUR": -5.632168292999268,
+   "ALL": -30.029508590698242
+  },
+  "margin_closed": {
+   "FOUR": 0.47563067078590393,
+   "ALL": 0.8285355567932129
+  }
+ },
+ "panel": {
+  "skipped": "pronoun slot, natural pairs",
+  "rows": 93
+ }
+}
+temporal write side {'FOUR': 0.476, 'ALL': 0.829} kill bar 0.6
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_four_readers_reach_the_bar": false,
+    "pred_c_readers_add": true,
+    "pred_d_all_writes": false,
+    "pred_e_four_below_all": true
+  },
+  "forwards": 9
+}

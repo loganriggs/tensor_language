@@ -1,0 +1,43 @@
+{
+ "replay_max_abs": 2.002716064453125e-05,
+ "text": {
+  "pairs": 43,
+  "gap_mean": {
+   "verb": 14.92425537109375,
+   "are_is": 7.83402681350708,
+   "were_was": 7.0902299880981445
+  },
+  "closed": {
+   "LATE": {
+    "verb": 0.07868505269289017,
+    "are_is": 0.09311268478631973
+   },
+   "RANDOM": {
+    "verb": -4.2393461626488715e-05,
+    "are_is": -7.607191218994558e-05
+   },
+   "UNITS8": {
+    "verb": 0.1138540580868721,
+    "are_is": 0.10840210318565369
+   },
+   "ALL_NOUN": {
+    "verb": 0.2604181468486786,
+    "are_is": 0.25507500767707825
+   }
+  }
+ },
+ "panel": {
+  "skipped": "verb slot only (price)",
+  "verb_slot_rows": 43
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_701_and_2059_move_the_adjacent_verb": true,
+    "pred_c_random_two_units_do_not": true,
+    "pred_d_late_units_beat_mlp8_units_here": true,
+    "pred_e_values_at_noun_replay": true
+  },
+  "forwards": 10
+}

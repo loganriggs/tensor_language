@@ -1,0 +1,15 @@
+triple_since {'n': 32, 'mean': -0.2426, 'fraction_negative': 0.6875, 'fraction_nonneg': 0.3125, 'native_accuracy': 0.875}
+triple_any_by {'n': 32, 'mean': 0.093, 'fraction_negative': 0.5312, 'fraction_nonneg': 0.4688, 'native_accuracy': 0.8125}
+head_8_1_since {'n': 32, 'mean': -0.186, 'fraction_negative': 0.9062, 'fraction_nonneg': 0.0938, 'native_accuracy': 0.875}
+triple_temporal_by {'n': 32, 'mean': 0.2702, 'fraction_negative': 0.3125, 'fraction_nonneg': 0.6875, 'native_accuracy': 0.875}
+pearson_pattern_shift_since -0.8426078997018736
+{
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_since_rows_shift_toward_had": true,
+    "pred_c_temporal_by_rows_shift_toward_has": true,
+    "pred_d_head_8_1_alone_shifts_since_rows": true,
+    "pred_e_pattern_tracks_shift_on_since_rows": true
+  },
+  "forwards": 13
+}

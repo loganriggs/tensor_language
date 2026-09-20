@@ -1,0 +1,39 @@
+{
+ "replay_max_abs": 2.002716064453125e-05,
+ "text": {
+  "pairs": 43,
+  "gap_mean": {
+   "verb": 14.92425537109375,
+   "are_is": 7.83402681350708,
+   "were_was": 7.0902299880981445
+  },
+  "closed": {
+   "LATE": {
+    "verb": 0.07868505269289017,
+    "are_is": 0.09311268478631973
+   },
+   "UNITS8": {
+    "verb": 0.1138540580868721,
+    "are_is": 0.10840210318565369
+   },
+   "BOTH": {
+    "verb": 0.17923328280448914,
+    "are_is": 0.18589664995670319
+   }
+  }
+ },
+ "panel": {
+  "skipped": "verb slot only (price)",
+  "verb_slot_rows": 43
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_joint_below_the_sum": false,
+    "pred_c_joint_above_the_larger": true,
+    "pred_d_late_units_replay": true,
+    "pred_e_hub_units_replay": true
+  },
+  "forwards": 8
+}

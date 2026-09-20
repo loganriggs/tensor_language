@@ -1,0 +1,33 @@
+{
+ "replay_max_abs": 1.33514404296875e-05,
+ "text": {
+  "pairs": 122,
+  "gap_mean": 1.8995414972305298,
+  "closed": {
+   "noun": 0.9819744229316711,
+   "two": 0.6676262021064758,
+   "rest": 0.27618348598480225
+  },
+  "two_plus_rest": 0.9438096880912781
+ },
+ "panel": {
+  "pairs": 48,
+  "gap_mean": 4.0962815284729,
+  "closed": {
+   "noun": 0.9704789519309998,
+   "two": 0.4431973695755005,
+   "rest": 0.2486087828874588
+  },
+  "two_plus_rest": 0.6918061524629593
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_noun_site_all_heads": true,
+    "pred_c_two_sites_all_heads": true,
+    "pred_d_rest_of_sequence_bounded": true,
+    "pred_e_sites_add_up": true
+  },
+  "forwards": 28
+}

@@ -1,0 +1,100 @@
+{
+ "instrument_max_rel": 3.5964453672931995e-06,
+ "readers": {
+  "9.6": {
+   "noun_source_contrast": -26951.698638095022,
+   "total_contrast": -60587.4584274292,
+   "noun_source_share": 0.4448395647818333,
+   "term_shares": {
+    "value_only": 0.9140292593141707,
+    "s1_only": -0.04943576417062092,
+    "s2_only": 0.017100307031522002,
+    "s1_s2": -0.00044579090828805257,
+    "s1_value": 0.08867789132361784,
+    "s2_value": -0.031205691736933782,
+    "s1_s2_value": 0.004235015878122609,
+    "query_change": 0.05704477326840984
+   },
+   "degree_shares": {
+    "degree1": 0.8816938021750718,
+    "degree2": 0.05702640867839599,
+    "degree3": 0.004235015878122609,
+    "query": 0.05704477326840984
+   },
+   "leading_term_by_frame": {
+    "lost": "value_only",
+    "because": "value_only",
+    "later": "value_only"
+   },
+   "pairs": 48,
+   "skipped": 0
+  },
+  "12.4": {
+   "noun_source_contrast": -16052.537856432904,
+   "total_contrast": -66037.34127998352,
+   "noun_source_share": 0.24308273993608773,
+   "term_shares": {
+    "value_only": 1.6744692995856247,
+    "s1_only": 0.10474944743412813,
+    "s2_only": 0.6578399328240763,
+    "s1_s2": -0.07034675813350777,
+    "s1_value": -0.15988210666924194,
+    "s2_value": -1.0752252934108841,
+    "s1_s2_value": 0.1084734422825078,
+    "query_change": -0.24007796391270306
+   },
+   "degree_shares": {
+    "degree1": 2.437058679843829,
+    "degree2": -1.3054541582136339,
+    "degree3": 0.1084734422825078,
+    "query": -0.24007796391270306
+   },
+   "leading_term_by_frame": {
+    "lost": "value_only",
+    "because": "value_only",
+    "later": "value_only"
+   },
+   "pairs": 48,
+   "skipped": 0
+  },
+  "15.1": {
+   "noun_source_contrast": -7498.26762532349,
+   "total_contrast": -31320.335903167725,
+   "noun_source_share": 0.2394057218449282,
+   "term_shares": {
+    "value_only": 0.9945712334909328,
+    "s1_only": -0.012645411107008366,
+    "s2_only": -0.014443135339597632,
+    "s1_s2": -0.0007147879378914344,
+    "s1_value": 0.016852483330692655,
+    "s2_value": 0.019931598609864366,
+    "s1_s2_value": 0.0033159514211941275,
+    "query_change": -0.006867932468187047
+   },
+   "degree_shares": {
+    "degree1": 0.9674826870443268,
+    "degree2": 0.03606929400266559,
+    "degree3": 0.0033159514211941275,
+    "query": -0.006867932468187047
+   },
+   "leading_term_by_frame": {
+    "lost": "value_only",
+    "because": "value_only",
+    "later": "value_only"
+   },
+   "pairs": 48,
+   "skipped": 0
+  }
+ },
+ "closure_max": 2.7496722964333855e-16
+}
+{
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_noun_source_carries_a_third": true,
+    "pred_c_value_only_term_leads_on_vc1": true,
+    "pred_d_third_order_small": true,
+    "pred_e_12_4_cancellation_replays_on_vc1": true
+  },
+  "forwards": 3
+}

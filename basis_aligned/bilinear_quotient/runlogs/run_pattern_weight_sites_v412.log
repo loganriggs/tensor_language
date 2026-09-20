@@ -1,0 +1,66 @@
+{
+ "instrument_max_rel": 0.00010930395364994183,
+ "readers": {
+  "9.6": {
+   "corr_noun_distance": -0.24093183670108012,
+   "corr_noun_post": 0.6408321057751436,
+   "cv_noun": 1.1155055088462167,
+   "cv_post": 1.158298159898676,
+   "cv_sum": 1.0293080108598522,
+   "sign_noun": 0.8401639344262295,
+   "sign_post": 0.7991803278688525,
+   "sign_sum": 0.8524590163934426,
+   "mean_noun": 0.0971491174132023,
+   "mean_post": 0.09260101783372536,
+   "distance_range": [
+    1.0,
+    11.0
+   ],
+   "n": 244
+  },
+  "12.4": {
+   "corr_noun_distance": -0.18032646988392112,
+   "corr_noun_post": 0.46369356960733515,
+   "cv_noun": 1.011261837929269,
+   "cv_post": 1.2072608621872147,
+   "cv_sum": 0.9401741352339674,
+   "sign_noun": 0.8278688524590164,
+   "sign_post": 0.7827868852459017,
+   "sign_sum": 0.860655737704918,
+   "mean_noun": 0.14462388647370972,
+   "mean_post": 0.11706870448759844,
+   "distance_range": [
+    1.0,
+    11.0
+   ],
+   "n": 244
+  },
+  "15.1": {
+   "corr_noun_distance": 0.7839971557447184,
+   "corr_noun_post": 0.8960359093999344,
+   "cv_noun": 0.7630065245638397,
+   "cv_post": 0.7585340124698269,
+   "cv_sum": 0.740668465145024,
+   "sign_noun": 0.9631147540983607,
+   "sign_post": 0.9549180327868853,
+   "sign_sum": 0.9713114754098361,
+   "mean_noun": -0.23555017696129593,
+   "mean_post": -0.26331811492246876,
+   "distance_range": [
+    1.0,
+    11.0
+   ],
+   "n": 244
+  }
+ }
+}
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_9_6_weight_falls_with_distance": true,
+    "pred_c_noun_and_postnoun_weights_covary": true,
+    "pred_d_two_site_sum_narrower": false,
+    "pred_e_two_site_sum_sign_constant": false
+  },
+  "forwards": 4
+}

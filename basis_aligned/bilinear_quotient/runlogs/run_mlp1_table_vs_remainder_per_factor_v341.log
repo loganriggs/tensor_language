@@ -1,0 +1,28 @@
+{
+ "closure_margin_gap": 4.1226172447395015e-05,
+ "split_closure": 7.235417775192964e-08,
+ "per_factor": {
+  "L": {
+   "mlp1_contrast_term": -705.0287475585938,
+   "table_share": 0.8108608021458567,
+   "remainder_share": 0.18913924113972316,
+   "alpha_median": 0.5400514006614685
+  },
+  "R": {
+   "mlp1_contrast_term": 421.78045654296875,
+   "table_share": 0.8484451304263644,
+   "remainder_share": 0.1515549419278134,
+   "alpha_median": 0.5400514006614685
+  }
+ }
+}
+{
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_split_closure": true,
+    "pred_c_table_part_carries_most_of_mlp1_on_L": true,
+    "pred_d_remainder_carries_more_on_R": false,
+    "pred_e_signs_agree": true
+  },
+  "forwards": 4
+}

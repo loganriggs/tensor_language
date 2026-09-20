@@ -1,0 +1,108 @@
+{
+ "mlp3.3465": {
+  "L_variance": {
+   "noun": 0.8107598423957825,
+   "frame": 0.02427336946129799,
+   "interaction": 0.031956810504198074,
+   "residual": 0.1330099105834961
+  },
+  "R_variance": {
+   "noun": 0.1914922297000885,
+   "frame": 0.5139796137809753,
+   "interaction": 0.09477347135543823,
+   "residual": 0.1997547149658203
+  },
+  "product_sign_matches": true,
+  "noun_reading_factor": "L"
+ },
+ "mlp3.493": {
+  "L_variance": {
+   "noun": 0.37721380591392517,
+   "frame": 0.29336246848106384,
+   "interaction": 0.11265669018030167,
+   "residual": 0.2167670726776123
+  },
+  "R_variance": {
+   "noun": 0.7434870600700378,
+   "frame": 0.057870905846357346,
+   "interaction": 0.03875955939292908,
+   "residual": 0.15988248586654663
+  },
+  "product_sign_matches": false,
+  "noun_reading_factor": "R"
+ },
+ "mlp5.1036": {
+  "L_variance": {
+   "noun": 0.10351376980543137,
+   "frame": 0.4715369641780853,
+   "interaction": 0.14170771837234497,
+   "residual": 0.2832415699958801
+  },
+  "R_variance": {
+   "noun": 0.19509360194206238,
+   "frame": 0.11032507568597794,
+   "interaction": 0.3165891170501709,
+   "residual": 0.3779922127723694
+  },
+  "product_sign_matches": true,
+  "noun_reading_factor": "R"
+ },
+ "mlp8.829": {
+  "L_variance": {
+   "noun": 0.1432238519191742,
+   "frame": 0.5336481332778931,
+   "interaction": 0.08191662281751633,
+   "residual": 0.2412114143371582
+  },
+  "R_variance": {
+   "noun": 0.48782873153686523,
+   "frame": 0.23803453147411346,
+   "interaction": 0.057420942932367325,
+   "residual": 0.21671581268310547
+  },
+  "product_sign_matches": true,
+  "noun_reading_factor": "R"
+ },
+ "mlp8.953": {
+  "L_variance": {
+   "noun": 1.5519011867581867e-05,
+   "frame": 0.24468635022640228,
+   "interaction": 0.009526800364255905,
+   "residual": 0.7457712888717651
+  },
+  "R_variance": {
+   "noun": 0.04428735002875328,
+   "frame": 0.24079734086990356,
+   "interaction": 0.06855931133031845,
+   "residual": 0.6463559865951538
+  },
+  "product_sign_matches": false,
+  "noun_reading_factor": "R"
+ },
+ "mlp8.1030": {
+  "L_variance": {
+   "noun": 0.006872222758829594,
+   "frame": 0.017275743186473846,
+   "interaction": 0.013427789323031902,
+   "residual": 0.9624242186546326
+  },
+  "R_variance": {
+   "noun": 0.004593500867486,
+   "frame": 0.28873491287231445,
+   "interaction": 0.02471507526934147,
+   "residual": 0.6819565296173096
+  },
+  "product_sign_matches": false,
+  "noun_reading_factor": "L"
+ }
+}
+{
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_one_factor_reads_the_noun": false,
+    "pred_c_other_factor_reads_the_determiner": false,
+    "pred_d_product_reproduces_the_table": false,
+    "pred_e_3465_and_493_split_the_same_way": false
+  },
+  "forwards": 8
+}

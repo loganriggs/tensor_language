@@ -1,0 +1,12 @@
+singles {'11.3': 1.383, '7.8': 0.255, '5.3': 0.086, '9.7': 0.135} joint 2.114 gap 0.256
+pairs {'11.3 x 7.8': 0.116, '11.3 x 5.3': 0.052, '11.3 x 9.7': 0.057, '7.8 x 5.3': 0.025, '7.8 x 9.7': 0.016, '5.3 x 9.7': 0.007} pair sum 0.273
+{
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_pairwise_terms_account_for_the_gap": true,
+    "pred_c_pairs_with_11_3_carry_the_interaction": true,
+    "pred_d_largest_pair_is_11_3_x_7_8": true,
+    "pred_e_pairs_without_5_3_pass_the_pair_bar": false
+  },
+  "forwards": 39
+}

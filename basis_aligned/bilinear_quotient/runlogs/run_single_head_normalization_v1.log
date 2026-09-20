@@ -1,0 +1,78 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "families": {
+    "catalog_entry": {
+      "single_head_norm": {
+        "target_error": 0.028950622433275015,
+        "target_rms": 0.48137482232760376,
+        "control_over_target": [
+          0.11762545067710614,
+          0.11104901117481795,
+          0.0336334976221202,
+          0.18072427626791648
+        ],
+        "error_against_native8": 0.04563951504161267
+      }
+    },
+    "copy_request": {
+      "single_head_norm": {
+        "target_error": 0.026602320104090086,
+        "target_rms": 0.3500954926798392,
+        "control_over_target": [
+          0.1259161395533791,
+          0.07905077592923347,
+          0.061214506091666024,
+          0.14140425469627915
+        ],
+        "error_against_native8": 0.11178593262305117
+      }
+    },
+    "plain_record": {
+      "single_head_norm": {
+        "target_error": 0.01238320027929402,
+        "target_rms": 0.41675050230959326,
+        "control_over_target": [
+          0.08278390513875306,
+          0.035308490097428244,
+          0.05585589343283717,
+          0.13178176983358456
+        ],
+        "error_against_native8": 0.053290094652119896
+      }
+    },
+    "line_separated": {
+      "single_head_norm": {
+        "target_error": 0.05478591441398535,
+        "target_rms": 0.31599075341191224,
+        "control_over_target": [
+          0.09573552251897517,
+          0.07287451493236848,
+          0.08867580152361763,
+          0.1431886175538505
+        ],
+        "error_against_native8": 0.05699548972863193
+      }
+    },
+    "indirect_account": {
+      "single_head_norm": {
+        "target_error": 0.010738552083890294,
+        "target_rms": 0.29028924310190346,
+        "control_over_target": [
+          0.14768532022111386,
+          0.073025533456359,
+          0.02835690551841374,
+          0.1262187042763559
+        ],
+        "error_against_native8": 0.06528130369366418
+      }
+    }
+  },
+  "anchor_max_abs": 3.814697265625e-06,
+  "anchor_relative": 3.336481707490376e-07,
+  "max_outside": 0.0,
+  "body_forwards": 160,
+  "seconds": 2.9160428119357675,
+  "scope": "Opened single-head normalization approximation screen. Full native suffix recomputed; no fresh or random-null selective confirmation, no approximation adopted into exact package."
+}

@@ -1,0 +1,69 @@
+{
+ "replay_max_abs": 2.384185791015625e-05,
+ "text": {
+  "pairs": 79,
+  "gap_mean": {
+   "verb": 3.139129638671875,
+   "are_is": 1.641675353050232,
+   "were_was": 1.497454285621643
+  },
+  "closed": {
+   "FIVE_N": {
+    "verb": 0.07184511423110962,
+    "are_is": 0.06883664429187775
+   },
+   "COPIER": {
+    "verb": 0.1384584605693817,
+    "are_is": 0.13724596798419952
+   },
+   "UNITS": {
+    "verb": 0.04557016119360924,
+    "are_is": 0.04497697576880455
+   },
+   "ALL_NOUN": {
+    "verb": 1.0288329124450684,
+    "are_is": 1.0292562246322632
+   }
+  }
+ },
+ "panel": {
+  "adjacent": {
+   "pairs": 43,
+   "gap_mean": {
+    "verb": 14.92425537109375,
+    "are_is": 7.83402681350708,
+    "were_was": 7.0902299880981445
+   },
+   "closed": {
+    "FIVE_N": {
+     "verb": 0.03142682835459709,
+     "are_is": 0.029570959508419037
+    },
+    "COPIER": {
+     "verb": 0.0012334827333688736,
+     "are_is": 0.0014223754405975342
+    },
+    "UNITS": {
+     "verb": 0.1138540580868721,
+     "are_is": 0.10840210318565369
+    },
+    "ALL_NOUN": {
+     "verb": 0.2604181468486786,
+     "are_is": 0.25507500767707825
+    }
+   }
+  },
+  "adjacent_rows": 43,
+  "distant_rows": 79
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_distant_verbs_read_values_at_the_noun": true,
+    "pred_c_adjacent_verbs_do_not": false,
+    "pred_d_distant_named_copiers_carry": false,
+    "pred_e_distant_units_carry": false
+  },
+  "forwards": 25
+}

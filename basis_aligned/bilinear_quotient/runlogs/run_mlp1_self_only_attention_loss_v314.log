@@ -1,0 +1,27 @@
+{
+ "native_loss": 4.220860958099365,
+ "manual_loss": 4.220860958099365,
+ "replay_gap": 0.0,
+ "cost": {
+  "all": 0.8127090334892273,
+  "block0": 0.18727615475654602,
+  "block1": 0.3116462528705597
+ },
+ "all_early_1_6": 0.35606934626897174,
+ "all_late_12_23": 1.1153308550516765,
+ "alpha_under_all_self_only_median": 0.9998452067375183,
+ "alpha_p10_p90": [
+  0.9989385604858398,
+  1.0006701946258545
+ ]
+}
+{
+  "predictions": {
+    "pred_a_baseline_loss_replays_native": true,
+    "pred_b_self_only_attention_costs_within_2x_of_table": true,
+    "pred_c_block1_self_only_costs_more_than_block0": true,
+    "pred_d_self_only_cost_grows_with_position": true,
+    "pred_e_mlp1_write_under_self_only_is_the_table": true
+  },
+  "forwards": 16
+}

@@ -1,0 +1,33 @@
+gender 10.1 {"mean_contrast": 21.2808, "pairs": 30, "shares": {"prefix": 6.548978001863494e-05, "det_noun": -9.070091204208252e-05, "noun": 0.9833081807775369, "verb": 0.02609779721536845, "det_object": -0.009314905204255281, "object": 0.004164272953240468, "conj": 0.0008853381311322331, "final": -0.005115462420119634}, "inherited_share": 0.7173, "largest_source": "noun"}
+gender 12.4 {"mean_contrast": 23.2812, "pairs": 30, "shares": {"prefix": 0.00011904183984259564, "det_noun": -0.0022529777865619256, "noun": 0.39744146136556596, "verb": 0.2308383982168916, "det_object": 0.1540000219494953, "object": 0.032314597291108214, "conj": 0.10146957604015222, "final": 0.08606988928057824}, "inherited_share": 0.1264, "largest_source": "noun"}
+gender 15.1 {"mean_contrast": 35.856, "pairs": 30, "shares": {"prefix": -2.691492481049518e-05, "det_noun": -4.875528256804252e-05, "noun": 0.5840653949590061, "verb": 0.10941721008725766, "det_object": 0.053163588648247356, "object": 0.05569489667535026, "conj": 0.05976762662654729, "final": 0.1379669572131241}, "inherited_share": 0.503, "largest_source": "noun"}
+gender 9.6 {"mean_contrast": 17.8986, "pairs": 30, "shares": {"prefix": 0.00010604495549095642, "det_noun": 0.0005602339483839534, "noun": 0.4980549529331799, "verb": 0.4766800592434916, "det_object": 0.010808453428262772, "object": -0.005137520511589914, "conj": 0.024413738880509833, "final": -0.005485963860395456}, "inherited_share": 0.0554, "largest_source": "noun"}
+number 10.5 {"mean_contrast": 18.1248, "pairs": 48, "shares": {"prefix": -0.0017346173621692392, "det_noun": -0.00491517948659758, "noun": 0.3149128101740661, "verb": 0.3439162067962475, "det_object": 0.09431550421048704, "object": 0.03878083312737398, "conj": 0.08456787618491, "final": 0.13015656895163538}, "inherited_share": 0.0664, "largest_source": "verb"}
+number 12.4 {"mean_contrast": 24.942, "pairs": 48, "shares": {"prefix": 0.0002370349818694397, "det_noun": -0.0011342322299611534, "noun": 0.23725906411385106, "verb": 0.32081817841111415, "det_object": 0.15244409420022695, "object": 0.06864978449363511, "conj": 0.09931078781771263, "final": 0.12241528611260556}, "inherited_share": 0.0177, "largest_source": "verb"}
+number 15.1 {"mean_contrast": 28.5031, "pairs": 48, "shares": {"prefix": -0.001160814483620001, "det_noun": 6.593766987402528e-05, "noun": 0.30741129140634715, "verb": 0.17404141684157629, "det_object": 0.07758454903417002, "object": 0.09156247982689075, "conj": 0.1529552061707835, "final": 0.19753993723916244}, "inherited_share": 0.1144, "largest_source": "noun"}
+number 9.6 {"mean_contrast": 29.3823, "pairs": 48, "shares": {"prefix": 3.12242407350409e-06, "det_noun": -7.547311606305524e-05, "noun": 0.4751251654534219, "verb": 0.4950455083859898, "det_object": 0.01966251397574547, "object": -0.0031296685824731235, "conj": 0.024121325433527182, "final": -0.010752491580628298}, "inherited_share": 0.0177, "largest_source": "verb"}
+{
+  "predictions": {
+    "pred_a_fold_closure": true,
+    "pred_b_gender_contextual_heads_largest_non_noun_source_is_verb": true,
+    "pred_c_gender_contextual_heads_read_noun_through_current_branch": false,
+    "pred_d_head_10_1_noun_term_is_token_only": true,
+    "pred_e_number_noun_plus_verb_carry_060": false
+  },
+  "largest_non_noun": {
+    "9.6": "verb",
+    "12.4": "verb"
+  },
+  "noun_current": {
+    "9.6": 0.8875496449035809,
+    "12.4": 0.6741395274785372
+  },
+  "inh_10_1": 0.7261550523808218,
+  "noun_verb": {
+    "10.5": 0.6588290169703136,
+    "12.4": 0.5580772425249652,
+    "15.1": 0.4814527082479234,
+    "9.6": 0.9701706738394118
+  },
+  "forwards": 25
+}

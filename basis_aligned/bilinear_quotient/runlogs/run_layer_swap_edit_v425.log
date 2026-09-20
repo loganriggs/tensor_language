@@ -1,0 +1,31 @@
+{
+ "replay_max_abs": 1.33514404296875e-05,
+ "text": {
+  "pairs": 122,
+  "gap_mean": 1.8995414972305298,
+  "closed": {
+   "mlp8": 0.2194579690694809,
+   "mlp5_8": 0.23518986999988556,
+   "mlp1_3": 0.26595184206962585
+  }
+ },
+ "panel": {
+  "pairs": 48,
+  "gap_mean": 4.0962815284729,
+  "closed": {
+   "mlp8": 0.15512821078300476,
+   "mlp5_8": 0.16960376501083374,
+   "mlp1_3": 0.28579843044281006
+  }
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_whole_mlp8_matches_writer_share": true,
+    "pred_c_mlps_5_to_8_close_most_of_noun_read": false,
+    "pred_d_mlps_5_to_8_do_not_exceed_noun_read": true,
+    "pred_e_mlp8_share_of_5_to_8_matches_fold": false
+  },
+  "forwards": 28
+}

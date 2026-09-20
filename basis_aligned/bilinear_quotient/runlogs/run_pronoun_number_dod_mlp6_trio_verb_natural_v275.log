@@ -1,0 +1,12 @@
+instrument 0.0 congruent {'damage': -0.005, 'native_margin': 3.337, 'fraction': -0.0015, 'positive': 0.4531, 'tense_will_would_abs_move': 0.0094, 'animacy_who_which_abs_move': 0.0068, 'canonical_night_day_abs_move': 0.0078} incongruent -0.0048 -0.0033 all-pos congruent 0.0015 null max 0.0029 gates {'tense_will_would': False, 'animacy_who_which': False, 'canonical_night_day': False}
+per cell {'natural_plural_he': (0.005, 0.003, 0.65625), 'natural_plural_they': (-0.017, -0.004, 0.34375), 'natural_singular_he': (0.006, 0.003, 0.5625), 'natural_singular_they': (-0.014, -0.009, 0.3125)}
+{
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_congruent_damage_live": false,
+    "pred_c_units_beat_random_unit_triples": false,
+    "pred_d_units_selective": false,
+    "pred_e_incongruent_shifts_toward_label": true
+  },
+  "forwards": 80
+}

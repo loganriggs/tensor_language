@@ -1,0 +1,23 @@
+zero 3.4479 keep retention 1.189 random max 0.0153
+adverb_phrase capable True fraction 0.82 pos 1.0 null_max 0.0356 gates {'number_was_were': True, 'animacy_who_which': True, 'canonical_night_day': True}
+expected_that capable True fraction 0.784 pos 1.0 null_max 0.1024 gates {'number_was_were': True, 'animacy_who_which': True, 'canonical_night_day': True}
+agent_first_comma capable True fraction 0.358 pos 1.0 null_max 0.0237 gates {'number_was_were': True, 'animacy_who_which': True, 'canonical_night_day': True}
+{
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_keep_only_readout_retains_most": true,
+    "pred_c_random_keep_retains_little": true,
+    "pred_d_two_of_three_templates_capable": true,
+    "pred_e_set_removal_transfers_to_every_capable_template": false,
+    "pred_f_set_removal_selective_on_every_capable_template": true
+  },
+  "capability": {
+    "adverb_phrase/tomorrow": 1.0,
+    "adverb_phrase/earlier": 1.0,
+    "expected_that/tomorrow": 1.0,
+    "expected_that/earlier": 1.0,
+    "agent_first_comma/tomorrow": 1.0,
+    "agent_first_comma/earlier": 1.0
+  },
+  "forwards": 97
+}

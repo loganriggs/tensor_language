@@ -1,0 +1,28 @@
+{
+  "report": {
+    "n_samples": 960,
+    "first_sentence_checks": {
+      "identity_err": 0.00390625,
+      "replay_err": 0.0,
+      "target_rel_err": 3398750.5
+    },
+    "r_median_norm": 51374.4140625,
+    "h_median_norm": 58494.6875,
+    "m_cv": 0.23663482069969177,
+    "target_rel_err_mean": 3303435.0375,
+    "target_rel_err_max": 3797850.0,
+    "dims": {
+      "D": 1152,
+      "HID16": 4608,
+      "HID17": 4608,
+      "V": 50304
+    }
+  },
+  "predictions": {
+    "pred_a_exact_identity": false,
+    "pred_b_replay_matches_native": true,
+    "pred_c_r_is_not_degenerate": true,
+    "pred_d_samples_diverse": true,
+    "pred_e_target_matches_true_mlp17_write": false
+  }
+}

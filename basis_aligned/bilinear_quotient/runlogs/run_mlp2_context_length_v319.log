@@ -1,0 +1,42 @@
+{
+ "closure_max": 0.0037480646278709173,
+ "per_k": {
+  "1": {
+   "alpha2_median": 0.4075063467025757,
+   "cos_median": 0.6538398265838623,
+   "gamma2_median": 0.6851521134376526,
+   "cross_proj_median": -0.42614972591400146,
+   "cross_negative_fraction": 1.0,
+   "only_proj_median": 0.13658888638019562,
+   "c_norm_median": 19.034963607788086
+  },
+  "8": {
+   "alpha2_median": 0.255936861038208,
+   "cos_median": 0.44135549664497375,
+   "gamma2_median": 0.49455690383911133,
+   "cross_proj_median": -0.5200114250183105,
+   "cross_negative_fraction": 1.0,
+   "only_proj_median": 0.25081413984298706,
+   "c_norm_median": 24.125577926635742
+  },
+  "64": {
+   "alpha2_median": 0.282321572303772,
+   "cos_median": 0.4008813798427582,
+   "gamma2_median": 0.39434680342674255,
+   "cross_proj_median": -0.27404382824897766,
+   "cross_negative_fraction": 1.0,
+   "only_proj_median": 0.1627582162618637,
+   "c_norm_median": 26.41015625
+  }
+ }
+}
+{
+  "predictions": {
+    "pred_a_pair_closure": true,
+    "pred_b_mlp2_gain_falls_with_length": false,
+    "pred_c_mlp2_cross_negative": true,
+    "pred_d_mlp2_lookup_term_weaker_than_mlp1": true,
+    "pred_e_mlp2_gain_floors": true
+  },
+  "forwards": 4
+}

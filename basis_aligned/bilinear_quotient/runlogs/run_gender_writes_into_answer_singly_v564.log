@@ -1,0 +1,38 @@
+{
+ "replay_max_abs": 1.430511474609375e-05,
+ "text": {
+  "pairs": 61,
+  "unit": 701,
+  "contrast_mean": -0.29676592350006104,
+  "sign_constancy": 0.5901639461517334,
+  "moved": {
+   "10.1": 1.5150095224380493,
+   "12.4": 1.3209619522094727,
+   "9.6": 1.5003405809402466,
+   "15.1": 1.4321585893630981,
+   "10.5": -0.4913165867328644
+  },
+  "margin_closed": {
+   "10.1": 0.18734478950500488,
+   "12.4": 0.3108510971069336,
+   "9.6": 0.18252193927764893,
+   "15.1": 0.10050837695598602,
+   "10.5": 0.02354159578680992
+  }
+ },
+ "panel": {
+  "skipped": "pronoun slot, natural pairs",
+  "rows": 61
+ }
+}
+writes into the answer singly {'10.1': 0.187, '12.4': 0.311, '9.6': 0.183, '15.1': 0.101, '10.5': 0.024} sum 0.805
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_10_1_writes_most": false,
+    "pred_c_singles_add": true,
+    "pred_d_10_5_small": true,
+    "pred_e_9_6_writes": true
+  },
+  "forwards": 12
+}

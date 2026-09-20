@@ -1,0 +1,28 @@
+{
+ "replay_max_abs": 1.239776611328125e-05,
+ "text": {
+  "pairs": 43,
+  "gap_mean": 7.4646477699279785,
+  "sign_constancy": 0.9767441749572754,
+  "closed": {
+   "B0": -0.005343988072127104,
+   "B1": 0.0036036171950399876,
+   "B2": 0.01602698490023613,
+   "B3": 0.009463006630539894,
+   "B4": 0.06549399346113205,
+   "B7": 0.025129713118076324,
+   "B8_REST": 0.04335791990160942
+  }
+ }
+}
+person early blocks {'B0': -0.005, 'B1': 0.004, 'B2': 0.016, 'B3': 0.009, 'B4': 0.065, 'B7': 0.025, 'B8_REST': 0.043} early sum 0.089 B7 + B8_REST 0.068
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_block_4_leads_the_early_group": false,
+    "pred_c_early_blocks_add": false,
+    "pred_d_block_8_rest_and_7_make_the_remainder": true,
+    "pred_e_no_single_block_above_0_15": true
+  },
+  "forwards": 16
+}

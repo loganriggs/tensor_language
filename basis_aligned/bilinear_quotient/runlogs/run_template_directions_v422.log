@@ -1,0 +1,39 @@
+{
+ "readers": {
+  "9.6": {
+   "corr_dir1_with_embedding_coordinate": 0.41767895221710205,
+   "d_share_in_dirs_2_4": 0.30420973896980286,
+   "u829_share_in_dirs_2_4": 0.4174168109893799,
+   "cos_transport_vs_mlp8_top3_span": 0.7896293997764587,
+   "transport_var_dir1": 0.0008160353172570467,
+   "mean_transport": 3139.886962890625
+  },
+  "12.4": {
+   "corr_dir1_with_embedding_coordinate": 0.48410385847091675,
+   "d_share_in_dirs_2_4": 0.1669151782989502,
+   "u829_share_in_dirs_2_4": 0.21969211101531982,
+   "cos_transport_vs_mlp8_top3_span": 0.5841148495674133,
+   "transport_var_dir1": 0.008655744604766369,
+   "mean_transport": 2837.7490234375
+  },
+  "15.1": {
+   "corr_dir1_with_embedding_coordinate": 0.4862613081932068,
+   "d_share_in_dirs_2_4": 0.1937977522611618,
+   "u829_share_in_dirs_2_4": 0.1856147050857544,
+   "cos_transport_vs_mlp8_top3_span": 0.4240536093711853,
+   "transport_var_dir1": 0.0035635866224765778,
+   "mean_transport": -672.7863159179688
+  }
+ },
+ "closure_max": 2.004890973239526e-07
+}
+{
+  "predictions": {
+    "pred_a_capture_closure": true,
+    "pred_b_nuisance_direction_is_noun_identity": false,
+    "pred_c_transport_directions_align_with_d": false,
+    "pred_d_transport_directions_align_with_829": true,
+    "pred_e_transport_vector_is_mlp8_written": true
+  },
+  "forwards": 4
+}

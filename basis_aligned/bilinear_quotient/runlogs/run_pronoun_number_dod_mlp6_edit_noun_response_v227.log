@@ -1,0 +1,12 @@
+{'u829_contrast': 4823.6896, 'exact_change_fraction': -0.0633, 'linear_total_fraction': -0.0553, 'direct_mlp6': -0.1347, 'mlp7_response': 0.0963, 'attention_response': -0.0169, 'max_closure': 0.0}
+{'mlp:06': -0.1347, 'attn:07': -0.0148, 'mlp:07': 0.0963, 'attnhead:08:5': 0.0012, 'attnhead:08:8': -0.0032}
+{
+  "predictions": {
+    "pred_a_recurrence_closure": true,
+    "pred_b_linear_matches_exact": true,
+    "pred_c_mlp7_opposes_direct": true,
+    "pred_d_attention_response_small": true,
+    "pred_e_direct_plus_mlp7_within_020": false
+  },
+  "forwards": 6
+}

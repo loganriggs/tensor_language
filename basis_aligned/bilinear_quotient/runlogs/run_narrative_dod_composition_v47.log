@@ -1,0 +1,10 @@
+singles {'attn15_h5_final': 0.55, 'attn11_h3_final': 0.574, 'attn9_h4_final': 0.187, 'attn9_h1_final': 0.084} joint 1.456 gap/bar 0.0607 0.0209 pairs {'attn15_h5_final+attn11_h3_final': 0.0254, 'attn15_h5_final+attn9_h4_final': 0.023, 'attn15_h5_final+attn9_h1_final': 0.0104, 'attn11_h3_final+attn9_h4_final': 0.0017, 'attn11_h3_final+attn9_h1_final': 0.0017, 'attn9_h4_final+attn9_h1_final': 0.0054} module_g 0.0417 random med 0.0504
+{
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_pairwise_mobius_terms_below_gate": true,
+    "pred_c_four_piece_gap_below_gate": false,
+    "pred_d_module_split_no_less_additive_than_random_splits": true
+  },
+  "forwards": 156
+}

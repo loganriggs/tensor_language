@@ -1,0 +1,76 @@
+{
+ "mlp3.3040": {
+  "L_variance": {
+   "noun": 0.16246077418327332,
+   "frame": 0.42842909693717957,
+   "interaction": 0.23485197126865387,
+   "residual": 0.17425823211669922
+  },
+  "R_variance": {
+   "noun": 0.3518528938293457,
+   "frame": 0.5081957578659058,
+   "interaction": 0.061361365020275116,
+   "residual": 0.07858997583389282
+  },
+  "product_sign_matches": true,
+  "noun_reading_factor": "R"
+ },
+ "mlp3.114": {
+  "L_variance": {
+   "noun": 0.450627863407135,
+   "frame": 0.07233788818120956,
+   "interaction": 0.27381110191345215,
+   "residual": 0.20322316884994507
+  },
+  "R_variance": {
+   "noun": 0.3467552363872528,
+   "frame": 0.5774715542793274,
+   "interaction": 0.00039811269380152225,
+   "residual": 0.07537508010864258
+  },
+  "product_sign_matches": true,
+  "noun_reading_factor": "L"
+ },
+ "mlp3.565": {
+  "L_variance": {
+   "noun": 0.39826875925064087,
+   "frame": 0.27175453305244446,
+   "interaction": 0.06046716123819351,
+   "residual": 0.26950961351394653
+  },
+  "R_variance": {
+   "noun": 0.22119811177253723,
+   "frame": 0.5623170733451843,
+   "interaction": 0.14143326878547668,
+   "residual": 0.07505148649215698
+  },
+  "product_sign_matches": true,
+  "noun_reading_factor": "L"
+ },
+ "mlp3.3465": {
+  "L_variance": {
+   "noun": 0.6444212794303894,
+   "frame": 0.15228262543678284,
+   "interaction": 0.062210485339164734,
+   "residual": 0.14108556509017944
+  },
+  "R_variance": {
+   "noun": 0.2838621437549591,
+   "frame": 0.35945644974708557,
+   "interaction": 0.20150013267993927,
+   "residual": 0.15518128871917725
+  },
+  "product_sign_matches": true,
+  "noun_reading_factor": "L"
+ }
+}
+{
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_one_factor_reads_the_verb": false,
+    "pred_c_other_factor_reads_the_noun": false,
+    "pred_d_product_reproduces_the_table": true,
+    "pred_e_3040_and_114_split_the_same_way": true
+  },
+  "forwards": 4
+}

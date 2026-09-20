@@ -1,0 +1,42 @@
+{
+ "alone": {
+  "order": [
+   "4.8",
+   "4.5",
+   "4.1"
+  ],
+  "4.5": -145506,
+  "4.8": -200579,
+  "share_4.5": 0.311
+ },
+ "The": {
+  "order": [
+   "4.5",
+   "4.4",
+   "4.7"
+  ],
+  "4.5": 892568,
+  "4.8": -19576,
+  "share_4.5": 0.763
+ },
+ "a": {
+  "order": [
+   "4.5",
+   "4.0",
+   "4.4"
+  ],
+  "4.5": 207938,
+  "4.8": 30607,
+  "share_4.5": 0.587
+ }
+}
+{
+  "predictions": {
+    "pred_a_head_sum_closure": true,
+    "pred_b_4_5_flips_sign_after_The": true,
+    "pred_c_4_5_dominates_after_The": true,
+    "pred_d_4_8_keeps_its_sign": false,
+    "pred_e_flip_also_after_a": true
+  },
+  "forwards": 6
+}

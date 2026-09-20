@@ -1,0 +1,11 @@
+2483 contrast -1043.5 sum 1.0 mlp stack 0.876 [('mlp:05', 0.346, 'mass', -0.053), ('mlp:03', 0.201, 'mass', 0.18), ('mlp:04', 0.152, 'mass', 0.284), ('embed', 0.137, 'mass', 0.104), ('mlp:02', 0.124, 'mass', 0.115), ('mlp:01', 0.052, 'mass', 0.042), ('attn:05', -0.039, 'mass', 0.051), ('attnhead:06:3', 0.035, 'mass', 0.167), ('attnhead:06:1', -0.033, 'mass', 0.012)]
+2826 contrast -1695.98 sum 1.0 mlp stack 0.781 [('mlp:05', 0.233, 'mass', 0.188), ('mlp:03', 0.206, 'mass', 0.192), ('embed', 0.199, 'mass', 0.156), ('mlp:04', 0.177, 'mass', 0.161), ('mlp:02', 0.092, 'mass', 0.082), ('mlp:01', 0.073, 'mass', 0.076), ('attnhead:06:6', 0.02, 'mass', 0.048), ('attn:05', -0.009, 'mass', -0.038), ('attn:02', 0.007, 'mass', 0.025)]
+{
+  "predictions": {
+    "pred_a_carrier_closure": true,
+    "pred_b_mlp_stack_carries_060": true,
+    "pred_c_head_6_3_carries_little": true,
+    "pred_d_embedding_carries_015": false
+  },
+  "forwards": 3
+}

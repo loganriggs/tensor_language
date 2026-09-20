@@ -1,0 +1,27 @@
+{
+ "replay_max_abs": 1.33514404296875e-05,
+ "text": {
+  "pairs": 122,
+  "gap_mean": 1.8995414972305298,
+  "value_closed": 0.3684348165988922,
+  "key_closed": 0.01058202888816595,
+  "value_beats_key_share": 0.9426229596138
+ },
+ "panel": {
+  "pairs": 48,
+  "gap_mean": 4.0962815284729,
+  "value_closed": 0.2525726854801178,
+  "key_closed": -0.003056736197322607,
+  "value_beats_key_share": 1.0
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_value_swap_moves_margin": true,
+    "pred_c_key_swap_moves_little": true,
+    "pred_d_value_swap_beats_key_swap_on_most_pairs": true,
+    "pred_e_effect_holds_on_panel": true
+  },
+  "forwards": 21
+}

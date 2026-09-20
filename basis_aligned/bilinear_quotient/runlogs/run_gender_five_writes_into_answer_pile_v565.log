@@ -1,0 +1,33 @@
+{
+ "replay_max_abs": 1.6689300537109375e-05,
+ "text": {
+  "pairs": 64,
+  "unit": 701,
+  "contrast_mean": -1.239933967590332,
+  "sign_constancy": 0.703125,
+  "moved": {
+   "FIVE_W": 2.1331684589385986,
+   "REST_W": -0.7245262861251831,
+   "ALL_W": 5.961836814880371
+  },
+  "margin_closed": {
+   "FIVE_W": 0.8925960659980774,
+   "REST_W": 0.0008549828780815005,
+   "ALL_W": 1.0220674276351929
+  }
+ },
+ "panel": {
+  "skipped": "pronoun slot, natural pairs",
+  "rows": 64
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_five_writes_replay_on_pile": true,
+    "pred_c_rest_of_their_blocks_small": true,
+    "pred_d_all_writes_into_the_answer": true,
+    "pred_e_five_below_all": true
+  },
+  "forwards": 8
+}

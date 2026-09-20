@@ -1,0 +1,48 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "arms": {
+    "full": {
+      "target_error": 0.02349668550341026,
+      "control_over_target": [
+        0.07735496048732145,
+        0.0713996924026125,
+        0.07944891325207164,
+        0.0747640379262504
+      ],
+      "positive_fraction": 0.918918918918919,
+      "mean_attenuation": 0.3045918512464074,
+      "screen_pass": true
+    },
+    "secant": {
+      "target_error": 0.07302797452383575,
+      "control_over_target": [
+        0.07487403711836058,
+        0.07172820679546979,
+        0.0764557490468573,
+        0.07217789481441621
+      ],
+      "positive_fraction": 0.9009009009009009,
+      "mean_attenuation": 0.30333646461669866,
+      "screen_pass": true
+    },
+    "linear": {
+      "target_error": 0.1359781422236035,
+      "control_over_target": [
+        0.07269132857346745,
+        0.07189331945747708,
+        0.07357556679715904,
+        0.06981621981127273
+      ],
+      "positive_fraction": 0.9009009009009009,
+      "mean_attenuation": 0.30238132727210043,
+      "screen_pass": true
+    }
+  },
+  "replay_max_abs": 0.0,
+  "replay_relative": 0.0,
+  "body_forwards": 120,
+  "seconds": 1.9632088700309396,
+  "scope": "Opened term-necessity screen, full suffix recomputed; not fresh/selectivity-null/composition confirmation"
+}

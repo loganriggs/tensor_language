@@ -1,0 +1,39 @@
+{
+ "closure_max": 2.043820359176607e-06,
+ "alpha_cv_max_64": 0.20176978409290314,
+ "alpha_cv_argmax_64": " of|function_words|64",
+ "resid_max_64": 0.6271809339523315,
+ "resid_argmax_64": "The|function_words|64",
+ "context_alpha_medians": {
+  "The": 0.4661068022251129,
+  ",": 0.5665431618690491,
+  " and": 0.556780993938446,
+  " of": 0.5588638186454773,
+  " very": 0.5849369168281555,
+  " 1": 0.5002836585044861
+ },
+ "class_alpha_medians_pooled": {
+  "nouns": 0.567229151725769,
+  "vocab_nouns": 0.5640987157821655,
+  "verbs": 0.5002836585044861,
+  "numbers": 0.4888360798358917,
+  "punctuation": 0.4105217754840851,
+  "function_words": 0.47468623518943787,
+  "adjectives": 0.556780993938446
+ },
+ "spread_across_contexts": 0.04558924213051796,
+ "within_std_median": 0.049648016691207886,
+ "spread_ratio": 0.9182490091007263,
+ "cross_share_median_all": 0.7654515504837036,
+ "resid_median_all": 0.2749713063240051
+}
+{
+  "predictions": {
+    "pred_a_pair_closure": true,
+    "pred_b_gain_uniform_within_every_class": true,
+    "pred_c_scalar_reading_holds_every_class": false,
+    "pred_d_uniformity_stable_with_size": true,
+    "pred_e_gain_is_set_by_the_context": false
+  },
+  "forwards": 12
+}

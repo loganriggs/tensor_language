@@ -1,0 +1,28 @@
+gender 10.1 {"mean_contrast": 21.2808, "pairs": 30, "shares": {"noun": 0.9833081807775369, "object": 0.004164272953240468, "final": -0.005115462420119634, "other": 0.017643019010221958}, "inherited_share": 0.7173, "largest_source": "noun"}
+gender 12.4 {"mean_contrast": 23.2812, "pairs": 30, "shares": {"noun": 0.39744146136556596, "object": 0.032314597291108214, "final": 0.08606988928057824, "other": 0.4841740602598198}, "inherited_share": 0.1264, "largest_source": "other"}
+gender 15.1 {"mean_contrast": 35.856, "pairs": 30, "shares": {"noun": 0.5840653949590061, "object": 0.05569489667535026, "final": 0.1379669572131241, "other": 0.22227275515467376}, "inherited_share": 0.503, "largest_source": "noun"}
+gender 9.6 {"mean_contrast": 17.8986, "pairs": 30, "shares": {"noun": 0.4980549529331799, "object": -0.005137520511589914, "final": -0.005485963860395456, "other": 0.5125685304561391}, "inherited_share": 0.0554, "largest_source": "other"}
+number 10.5 {"mean_contrast": 18.1248, "pairs": 48, "shares": {"noun": 0.3149128101740661, "object": 0.03878083312737398, "final": 0.13015656895163538, "other": 0.5161497903428778}, "inherited_share": 0.0664, "largest_source": "other"}
+number 12.4 {"mean_contrast": 24.942, "pairs": 48, "shares": {"noun": 0.23725906411385106, "object": 0.06864978449363511, "final": 0.12241528611260556, "other": 0.571675863180962}, "inherited_share": 0.0177, "largest_source": "other"}
+number 15.1 {"mean_contrast": 28.5031, "pairs": 48, "shares": {"noun": 0.30741129140634715, "object": 0.09156247982689075, "final": 0.19753993723916244, "other": 0.40348629523278384}, "inherited_share": 0.1144, "largest_source": "other"}
+number 9.6 {"mean_contrast": 29.3823, "pairs": 48, "shares": {"noun": 0.4751251654534219, "object": -0.0031296685824731235, "final": -0.010752491580628298, "other": 0.538756997103273}, "inherited_share": 0.0177, "largest_source": "other"}
+{
+  "predictions": {
+    "pred_a_fold_closure": true,
+    "pred_b_contrast_positive_for_every_head": true,
+    "pred_c_gender_noun_is_largest_source_for_every_head": false,
+    "pred_d_number_noun_share_below_gender": true,
+    "pred_e_inherited_branch_share_at_most_030": false
+  },
+  "pooled": {
+    "gender": {
+      "noun": 0.611,
+      "inherited": 0.379
+    },
+    "number": {
+      "noun": 0.34,
+      "inherited": 0.054
+    }
+  },
+  "forwards": 25
+}

@@ -1,0 +1,43 @@
+{
+ "instrument_max_rel": 1.0972853488055989e-05,
+ "readers": {
+  "4.5": {
+   "noun_source_contrast": 166174223.67102256,
+   "total_contrast": 155812679.8642578,
+   "noun_source_share": 1.0665000038237684,
+   "term_shares": {
+    "value_only": 0.8958690256760533,
+    "s1_only": -0.014721119071439,
+    "s2_only": -0.021112644270962596,
+    "s1_s2": -0.0021293359071691124,
+    "s1_value": 0.030395464861480623,
+    "s2_value": 0.050957899855252904,
+    "s1_s2_value": 0.006465694913309132,
+    "query_change": 0.0542750139434751
+   },
+   "degree_shares": {
+    "degree1": 0.8600352623336517,
+    "degree2": 0.07922402880956442,
+    "degree3": 0.006465694913309132,
+    "query": 0.0542750139434751
+   },
+   "leading_term_by_frame": {
+    "plural": "value_only",
+    "singular": "value_only"
+   },
+   "pairs": 122,
+   "skipped": 0
+  }
+ },
+ "closure_max": 2.1177521035257456e-16
+}
+{
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_noun_source_carries_most_on_text": true,
+    "pred_c_copier_value_copy_replays_on_text": true,
+    "pred_d_third_order_small": true,
+    "pred_e_leading_term_same_on_both_halves": true
+  },
+  "forwards": 4
+}

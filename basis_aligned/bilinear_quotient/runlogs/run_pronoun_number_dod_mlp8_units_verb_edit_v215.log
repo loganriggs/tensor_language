@@ -1,0 +1,12 @@
+native 196.62 damage verb 0.0586 noun+verb 0.1166 all 0.1176 null max 0.0016
+moves {'tense_will_would': 0.0055, 'animacy_who_which': 0.0058, 'canonical_night_day': 0.0054} null {'tense_will_would': 0.0008, 'animacy_who_which': 0.0004, 'canonical_night_day': 0.0003} {'tense_will_would': True, 'animacy_who_which': True, 'canonical_night_day': True}
+{
+  "predictions": {
+    "pred_a_baseline_replays_v206": true,
+    "pred_b_verb_only_removes_004": true,
+    "pred_c_noun_plus_verb_matches_all_positions": true,
+    "pred_d_verb_edit_beats_random_sets": true,
+    "pred_e_verb_edit_selective": true
+  },
+  "forwards": 60
+}

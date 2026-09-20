@@ -1,0 +1,10 @@
+M0 ambient_rank 1152 {128: 0.8446, 256: 0.7594, 512: 0.6018, 1024: 0.2325, 1152: 0.0003} dict@256 0.7652
+M1 ambient_rank 4608 {128: 0.8253, 256: 0.7168, 512: 0.5233, 1024: 0.1593, 4608: 0.0007} dict@256 0.7171
+{
+  "pred_a_error_keeps_dropping": true,
+  "pred_b_no_knee_by_1024": false,
+  "pred_c_svd_still_optimal_vs_dict_at_256": true,
+  "pred_d_M0_M1_still_close": true,
+  "pred_e_ambient_rank_bound_respected": true
+}
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/circuits/followups/decomposition_compare_extended_v602_result.json

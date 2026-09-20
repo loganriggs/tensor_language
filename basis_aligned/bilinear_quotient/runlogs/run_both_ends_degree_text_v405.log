@@ -1,0 +1,97 @@
+{
+ "instrument_max_rel": 0.00010930395364994183,
+ "readers": {
+  "9.6": {
+   "noun_source_contrast": 81570.19770152037,
+   "total_contrast": 123577.84129238129,
+   "noun_source_share": 0.66007139183252,
+   "term_shares": {
+    "value_only": 0.9745867962041759,
+    "s1_only": 0.015169963785597942,
+    "s2_only": 0.013119904840217252,
+    "s1_s2": -0.0023136998098284537,
+    "s1_value": 0.021286122714067275,
+    "s2_value": -0.03879897063888548,
+    "s1_s2_value": 0.014933406601819252,
+    "query_change": 0.0020164763028364414
+   },
+   "degree_shares": {
+    "degree1": 1.0028766648299912,
+    "degree2": -0.01982654773464666,
+    "degree3": 0.014933406601819252,
+    "query": 0.0020164763028364414
+   },
+   "leading_term_by_frame": {
+    "plural": "value_only",
+    "singular": "value_only"
+   },
+   "pairs": 122,
+   "skipped": 0
+  },
+  "12.4": {
+   "noun_source_contrast": 42447.78870311172,
+   "total_contrast": 106007.91897773743,
+   "noun_source_share": 0.4004209224409558,
+   "term_shares": {
+    "value_only": 1.346085124238847,
+    "s1_only": 0.030856247615920065,
+    "s2_only": 0.2872255335140938,
+    "s1_s2": -0.01123594169344982,
+    "s1_value": -0.048517062711326574,
+    "s2_value": -0.49613421499890775,
+    "s1_s2_value": 0.02427558568928493,
+    "query_change": -0.132555271654461
+   },
+   "degree_shares": {
+    "degree1": 1.6641669053688608,
+    "degree2": -0.5558872194036841,
+    "degree3": 0.02427558568928493,
+    "query": -0.132555271654461
+   },
+   "leading_term_by_frame": {
+    "plural": "value_only",
+    "singular": "value_only"
+   },
+   "pairs": 122,
+   "skipped": 0
+  },
+  "15.1": {
+   "noun_source_contrast": 18023.540244029264,
+   "total_contrast": 49787.18029212952,
+   "noun_source_share": 0.36201166923442885,
+   "term_shares": {
+    "value_only": 0.9581063888191894,
+    "s1_only": -0.011998028513139828,
+    "s2_only": -0.00533874387697403,
+    "s1_s2": -0.002670113260624333,
+    "s1_value": 0.03647737314017758,
+    "s2_value": 0.02622230121086799,
+    "s1_s2_value": 0.008401038041229715,
+    "query_change": -0.009200215560726895
+   },
+   "degree_shares": {
+    "degree1": 0.9407696164290755,
+    "degree2": 0.060029561090421235,
+    "degree3": 0.008401038041229715,
+    "query": -0.009200215560726895
+   },
+   "leading_term_by_frame": {
+    "plural": "value_only",
+    "singular": "value_only"
+   },
+   "pairs": 122,
+   "skipped": 0
+  }
+ },
+ "closure_max": 2.208223248770216e-14
+}
+{
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_noun_source_carries_a_quarter_on_text": true,
+    "pred_c_value_only_term_leads_on_text": true,
+    "pred_d_third_order_small": true,
+    "pred_e_12_4_cancellation_replays_on_text": true
+  },
+  "forwards": 4
+}

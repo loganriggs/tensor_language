@@ -1,0 +1,12 @@
+fineweb {"set/tomorrow": {"n": 20, "mean": -1.341, "fraction_negative": 0.9, "fraction_nonneg": 0.1, "native_accuracy": 0.95}, "set/earlier": {"n": 32, "mean": 0.54, "fraction_negative": 0.281, "fraction_nonneg": 0.719, "native_accuracy": 0.812}, "head_11_3/tomorrow": {"n": 20, "mean": -0.373, "fraction_negative": 0.8, "fraction_nonneg": 0.2, "native_accuracy": 0.95}, "head_11_3/earlier": {"n": 32, "mean": 0.025, "fraction_negative": 0.438, "fraction_nonneg": 0.562, "native_accuracy": 0.812}, "mean_abs_shift": 1.248, "unrelated": {"number_was_were": 0.075, "animacy_who_which": 0.068, "canonical_night_day": 0.058}}
+pile {"set/tomorrow": {"n": 14, "mean": -1.565, "fraction_negative": 0.857, "fraction_nonneg": 0.143, "native_accuracy": 0.857}, "set/earlier": {"n": 27, "mean": 0.587, "fraction_negative": 0.296, "fraction_nonneg": 0.704, "native_accuracy": 0.926}, "head_11_3/tomorrow": {"n": 14, "mean": -0.328, "fraction_negative": 0.714, "fraction_nonneg": 0.286, "native_accuracy": 0.857}, "head_11_3/earlier": {"n": 27, "mean": -0.012, "fraction_negative": 0.37, "fraction_nonneg": 0.63, "native_accuracy": 0.926}, "mean_abs_shift": 1.531, "unrelated": {"number_was_were": 0.087, "animacy_who_which": 0.071, "canonical_night_day": 0.068}}
+{
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_tomorrow_rows_shift_toward_had_on_both_corpora": true,
+    "pred_c_earlier_rows_shift_toward_will_on_both_corpora": true,
+    "pred_d_head_11_3_alone_shifts_the_same_way": false,
+    "pred_e_unrelated_readers_within_gate": true
+  },
+  "forwards": 16
+}

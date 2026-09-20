@@ -1,0 +1,24 @@
+{
+ "replay_max_abs": 1.430511474609375e-05,
+ "text": {
+  "pairs": 61,
+  "gap_mean": 4.360080718994141,
+  "sign_constancy": 0.8852459192276001,
+  "closed": {
+   "CUR": 0.29075857996940613,
+   "TOK": 0.3144698143005371,
+   "FULL": 0.6001140475273132
+  }
+ }
+}
+CUR 0.291 TOK 0.314 FULL 0.6 CUR/FULL 0.485 v557 ratio 0.632
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_branches_add": true,
+    "pred_c_token_only_branch_carries": true,
+    "pred_d_current_branch_carries_most": false,
+    "pred_e_mlp8_gap_is_the_token_branch": false
+  },
+  "forwards": 8
+}

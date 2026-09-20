@@ -1,0 +1,37 @@
+{
+ "replay_max_abs": 2.002716064453125e-05,
+ "text": {
+  "pairs": 43,
+  "unit": 701,
+  "contrast_mean": 344.6632995605469,
+  "sign_constancy": 0.9069767594337463,
+  "moved": {
+   "B6": 0.010581482201814651,
+   "B8": 0.03298512101173401,
+   "B10": 0.00844914186745882,
+   "B12": -0.0015514441765844822,
+   "ALL": 0.35743018984794617
+  },
+  "margin_closed": {
+   "B6": 0.006980962119996548,
+   "B8": 0.024419382214546204,
+   "B10": 0.02069750800728798,
+   "B12": -0.002507466822862625,
+   "ALL": 0.31311556696891785
+  }
+ },
+ "panel": {
+  "skipped": "distant rows only",
+  "distant_rows": 43
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_singles_sum_to_mid": true,
+    "pred_c_each_block_small": true,
+    "pred_d_block_5_rest_matches": false,
+    "pred_e_all_replays": true
+  },
+  "forwards": 12
+}

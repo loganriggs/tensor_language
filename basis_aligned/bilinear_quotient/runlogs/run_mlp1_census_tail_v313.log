@@ -1,0 +1,31 @@
+{
+ "native_loss": 4.220860958099365,
+ "manual_loss": 4.220860958099365,
+ "replay_gap": 0.0,
+ "cost": {
+  "head": 0.15618659555912018,
+  "tail": 0.4728594124317169,
+  "all": 0.7009315490722656
+ },
+ "share": {
+  "head": 0.4636537730693817,
+  "tail": 0.5363461971282959
+ },
+ "cost_per_share": {
+  "head": 0.33686040021882496,
+  "tail": 0.8816309595621264
+ },
+ "head_plus_tail": 0.6290460079908371,
+ "tail_early_1_6": 0.22257016273215413,
+ "tail_late_12_23": 0.6281859477361044
+}
+{
+  "predictions": {
+    "pred_a_baseline_loss_replays_native": true,
+    "pred_b_tail_costs_more_than_head": true,
+    "pred_c_costs_are_superadditive": true,
+    "pred_d_tail_cost_grows_with_position": true,
+    "pred_e_tail_per_share_exceeds_head": true
+  },
+  "forwards": 18
+}

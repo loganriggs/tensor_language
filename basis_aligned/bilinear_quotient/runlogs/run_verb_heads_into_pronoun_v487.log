@@ -1,0 +1,33 @@
+{
+ "replay_max_abs": 1.33514404296875e-05,
+ "text": {
+  "pairs": 122,
+  "unit": 701,
+  "contrast_mean": 9.754912376403809,
+  "sign_constancy": 0.6475409865379333,
+  "moved": {
+   "FIVE_V": 0.4559834897518158,
+   "FIVE_W": 0.28516989946365356,
+   "UNION": 0.7399537563323975
+  },
+  "margin_closed": {
+   "FIVE_V": 0.041497234255075455,
+   "FIVE_W": 0.8027758002281189,
+   "UNION": 0.8157618641853333
+  }
+ },
+ "panel": {
+  "skipped": "pronoun slot, natural pairs",
+  "rows": 122
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_verb_heads_write_little_into_the_pronoun_slot": true,
+    "pred_c_pronoun_heads_replay": true,
+    "pred_d_union_adds": true,
+    "pred_e_verb_heads_a_small_fraction": true
+  },
+  "forwards": 16
+}

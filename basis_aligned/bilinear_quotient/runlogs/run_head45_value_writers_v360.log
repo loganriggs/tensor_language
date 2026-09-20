@@ -1,0 +1,50 @@
+{
+ "closure_max": 3.9777037841304264e-07,
+ "own_key_contrast": 881750.4375,
+ "writer_contrast": {
+  "embedding": 144276.09375,
+  "attn0": -2.7506985664367676,
+  "mlp0": 5377.86181640625,
+  "attn1": -918.2303466796875,
+  "mlp1": 96091.078125,
+  "attn2": 15542.888671875,
+  "mlp2": 159634.109375,
+  "attn3": 3670.053955078125,
+  "mlp3": 458079.4375
+ },
+ "writer_share_of_own": {
+  "embedding": 0.16362463528689772,
+  "attn0": -3.1195885473396973e-06,
+  "mlp0": 0.0060990747355384786,
+  "attn1": -0.0010413721475240976,
+  "mlp1": 0.10897763589144803,
+  "attn2": 0.017627310416701663,
+  "mlp2": 0.18104227974936501,
+  "attn3": 0.004162236613665559,
+  "mlp3": 0.5195114377246907
+ },
+ "writer_abs_share": {
+  "embedding": 0.1632835193348807,
+  "attn0": 3.113084994770359e-06,
+  "mlp0": 0.006086359708359422,
+  "attn1": 0.0010392011501624604,
+  "mlp1": 0.10875044510229519,
+  "attn2": 0.01759056193586472,
+  "mlp2": 0.18066485241696026,
+  "attn3": 0.00415355940376681,
+  "mlp3": 0.5184283878627156
+ },
+ "mlp123_share": 0.8095313533655037,
+ "attn_abs_share": 0.022786435574788762,
+ "largest_positive_writer": "mlp3"
+}
+{
+  "predictions": {
+    "pred_a_writer_closure": true,
+    "pred_b_mlps_1_to_3_carry_the_flip": true,
+    "pred_c_embedding_keeps_the_alone_sign": false,
+    "pred_d_mlp3_is_the_largest_writer": true,
+    "pred_e_attention_writers_small": true
+  },
+  "forwards": 2
+}

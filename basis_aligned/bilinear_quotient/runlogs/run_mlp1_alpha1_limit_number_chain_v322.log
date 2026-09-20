@@ -1,0 +1,35 @@
+{
+ "native": {
+  "alpha_median": 0.5400515198707581,
+  "cos_median": 0.873516857624054,
+  "margin_oriented": 2.048141226172447,
+  "carriage_3465": -13084.936515808105,
+  "table_share_3465": 0.7360820549799997,
+  "carriage_493": 14468.880546569824,
+  "table_share_493": 0.7484771419029812
+ },
+ "edit": {
+  "alpha_median": 0.9992951154708862,
+  "cos_median": 0.9999998807907104,
+  "margin_oriented": 1.2824762463569641,
+  "carriage_3465": -12005.715034484863,
+  "table_share_3465": 0.9997145346556763,
+  "carriage_493": 14622.135818481445,
+  "table_share_493": 0.9998991924346813
+ },
+ "carriage_rise_3465": 0.9175218404751587,
+ "carriage_rise_493": 1.0105920614534312,
+ "margin_change": -0.7656649798154831,
+ "margin_change_rel": -0.37383407454101825,
+ "sign_agreement_min": 1.0
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_mlp1_write_becomes_table": true,
+    "pred_c_number_carriage_into_3465_rises": false,
+    "pred_d_margin_moves_little": false,
+    "pred_e_carriage_sign_kept": true
+  },
+  "forwards": 7
+}

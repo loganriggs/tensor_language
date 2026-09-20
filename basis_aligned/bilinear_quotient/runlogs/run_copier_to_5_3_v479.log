@@ -1,0 +1,39 @@
+{
+ "replay_max_abs": 2.384185791015625e-05,
+ "text": {
+  "pairs": 79,
+  "gap_mean": {
+   "verb": 3.139129638671875,
+   "are_is": 1.641675353050232,
+   "were_was": 1.497454285621643
+  },
+  "closed": {
+   "copier": {
+    "verb": 0.1384584605693817,
+    "are_is": 0.13724596798419952
+   },
+   "h53_n1": {
+    "verb": 0.07622270286083221,
+    "are_is": 0.07411320507526398
+   },
+   "joint": {
+    "verb": 0.14932334423065186,
+    "are_is": 0.1478298008441925
+   }
+  }
+ },
+ "panel": {
+  "skipped": "distant rows only",
+  "distant_rows": 79
+ }
+}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_copier_replays": true,
+    "pred_c_5_3_replays": true,
+    "pred_d_joint_below_the_sum": true,
+    "pred_e_joint_above_the_copier": true
+  },
+  "forwards": 12
+}

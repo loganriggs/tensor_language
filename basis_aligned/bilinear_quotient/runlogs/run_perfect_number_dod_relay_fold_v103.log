@@ -1,0 +1,15 @@
+11.3 contrast 51.601 {'prefix': -0.004, 'det_noun': 0.008, 'noun': 0.598, 'prep': 0.39, 'det_object': 0.027, 'final': -0.02} inherited -0.065
+5.3 contrast 9.71 {'prefix': 0.001, 'det_noun': -0.003, 'noun': 0.12, 'prep': 0.864, 'det_object': 0.037, 'final': -0.02} inherited -0.007
+7.8 contrast 6.945 {'prefix': 0.004, 'det_noun': 0.017, 'noun': 0.383, 'prep': 0.488, 'det_object': 0.127, 'final': -0.019} inherited 0.118
+9.7 contrast 13.714 {'prefix': 0.021, 'det_noun': 0.005, 'noun': 0.336, 'prep': 0.44, 'det_object': 0.16, 'final': 0.038} inherited -0.07
+11.3 reads at noun heads 0.036 mlp 0.853 embed 0.11 relay 7.8/9.7/5.3 {'7.8': 0.012, '9.7': 0.007, '5.3': 0.003} top [('attnhead:08:8', 0.015), ('attnhead:07:8', 0.012), ('attnhead:09:7', 0.007), ('attnhead:10:5', 0.004), ('attnhead:07:7', -0.003)]
+{
+  "predictions": {
+    "pred_a_fold_closure": true,
+    "pred_b_head_11_3_largest_source_is_the_head_noun": true,
+    "pred_c_relay_heads_write_11_3_source": false,
+    "pred_d_source_state_is_mostly_mlp_written": true,
+    "pred_e_token_only_share_at_most_030": true
+  },
+  "forwards": 18
+}

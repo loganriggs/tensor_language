@@ -32,12 +32,12 @@ FORWARDS_MAX = 11
 PREDICTIONS = {"pred_a_baseline_replays": "<= 1e-3", "pred_b_all_values_at_the_noun_carry_gender": ">= 0.80", "pred_c_five_readers_carry_a_third": ">= 0.30", "pred_d_low_and_high_add": "|LOW + HIGH - ALL| <= 0.08", "pred_e_high_at_least_low": "HIGH >= LOW"}
 
 
-def gender_pairs():
-    """Aligned pairs from v73's natural rows: the gendered noun swapped in place for its partner (same surface form: ' king' <-> ' queen', 'King' <-> 'Queen')."""
+def gender_pairs(rows_path=None):
+    """Aligned pairs from v73's natural rows (or `rows_path`, e.g. the v75 pile rows): the gendered noun swapped in place for its partner (same surface form: ' king' <-> ' queen', 'King' <-> 'Queen')."""
     E = L.ENCODING; partner_word = {}
     for m, f in gm.PAIRS: partner_word[m], partner_word[f] = f, m
     items = []
-    for r_ in json.loads(ROWS.read_text())["rows"]:
+    for r_ in json.loads((rows_path or ROWS).read_text())["rows"]:
         c = r_["cue_offset"]; tok = r_["ids"][c]; t = E.decode([tok]); w = t.strip(); lead = " " if t.startswith(" ") else ""
         base = w.lower()
         if base not in partner_word: continue

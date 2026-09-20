@@ -1,0 +1,43 @@
+{
+ "closure_max": 1.5926318610581802e-06,
+ "alpha_by_length": {
+  "1": 0.5549944639205933,
+  "2": 0.44010189175605774,
+  "4": 0.36492204666137695,
+  "8": 0.334722101688385
+ },
+ "self_share_by_length": {
+  "1": 0.5247279405593872,
+  "2": 0.3988194465637207,
+  "4": 0.2791878879070282,
+  "8": 0.21033993363380432
+ },
+ "self_share_single_token": 1.0,
+ "track_gap": {
+  "2": 0.03293433848842253,
+  "4": 0.1254615876628964,
+  "8": 0.20225368268580346
+ },
+ "cos_by_length": {
+  "1": 0.8623723983764648,
+  "2": 0.8257455825805664,
+  "4": 0.7826349139213562,
+  "8": 0.7728161215782166
+ },
+ "class_cv_by_length": {
+  "1": 0.12053418904542923,
+  "2": 0.1571025550365448,
+  "4": 0.1928752213716507,
+  "8": 0.18267913162708282
+ }
+}
+{
+  "predictions": {
+    "pred_a_pair_closure": true,
+    "pred_b_gain_falls_with_context_length": true,
+    "pred_c_gain_tracks_self_share": true,
+    "pred_d_gain_uniform_across_classes_at_every_length": true,
+    "pred_e_direction_kept_at_every_length": false
+  },
+  "forwards": 5
+}

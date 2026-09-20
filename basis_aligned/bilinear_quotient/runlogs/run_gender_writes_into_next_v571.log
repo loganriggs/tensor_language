@@ -1,0 +1,34 @@
+{
+ "replay_max_abs": 1.430511474609375e-05,
+ "text": {
+  "pairs": 61,
+  "unit": 701,
+  "contrast_mean": -0.29676592350006104,
+  "sign_constancy": 0.5901639461517334,
+  "moved": {
+   "LOW_NEXT": -0.25434088706970215,
+   "H45_NEXT": 0.42707839608192444,
+   "HIGH_NEXT": -0.1939876675605774
+  },
+  "margin_closed": {
+   "LOW_NEXT": 0.13076847791671753,
+   "H45_NEXT": 0.010662197135388851,
+   "HIGH_NEXT": 0.09377841651439667
+  }
+ },
+ "panel": {
+  "skipped": "pronoun slot, natural pairs",
+  "rows": 61
+ }
+}
+writes into noun + 1 {'LOW_NEXT': 0.131, 'H45_NEXT': 0.011, 'HIGH_NEXT': 0.094}
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_low_writes_into_next_carry": true,
+    "pred_c_copier_4_5_carries": false,
+    "pred_d_high_writes_into_next_small": false,
+    "pred_e_copier_below_low": true
+  },
+  "forwards": 8
+}

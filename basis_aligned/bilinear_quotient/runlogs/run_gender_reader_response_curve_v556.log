@@ -1,0 +1,25 @@
+{
+ "replay_max_abs": 1.430511474609375e-05,
+ "text": {
+  "pairs": 61,
+  "gap_mean": 4.360080718994141,
+  "sign_constancy": 0.8852459192276001,
+  "closed": {
+   "A025": 0.1480501890182495,
+   "A050": 0.3004179000854492,
+   "A075": 0.4511692225933075,
+   "A100": 0.6001140475273132
+  }
+ }
+}
+response [0.148, 0.3, 0.451, 0.6] linear [0.15, 0.3, 0.45, 0.6]
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_half_swap_is_sub_linear": false,
+    "pred_c_full_swap_replays": true,
+    "pred_d_response_is_monotone": true,
+    "pred_e_response_accelerates": false
+  },
+  "forwards": 10
+}

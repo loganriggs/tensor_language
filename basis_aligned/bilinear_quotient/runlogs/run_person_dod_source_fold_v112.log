@@ -1,0 +1,18 @@
+person 10.5 {"mean_contrast": 35.2807, "pairs": 48, "shares": {"noun": 0.5206323406410321, "object": 0.00021440397827395991, "final": 0.23921862171498942, "other": 0.23993462650986805}, "inherited_share": 0.2862, "largest_source": "noun"}
+person 13.1 {"mean_contrast": 152.0487, "pairs": 48, "shares": {"noun": 0.976823979594721, "object": -7.913554587585459e-05, "final": 0.005069288070779853, "other": 0.018185874405702945}, "inherited_share": 0.9496, "largest_source": "noun"}
+person 15.1 {"mean_contrast": 56.713, "pairs": 48, "shares": {"noun": 0.7951328367386103, "object": 0.0001310708785776902, "final": 0.12518329039803278, "other": 0.0795527992322647}, "inherited_share": 0.7189, "largest_source": "noun"}
+person 8.1 {"mean_contrast": 66.1162, "pairs": 48, "shares": {"noun": 0.9806086227336176, "object": 0.00015504024912692613, "final": 0.002834300922624973, "other": 0.01640203164491778}, "inherited_share": 0.9081, "largest_source": "noun"}
+{
+  "predictions": {
+    "pred_a_fold_closure": true,
+    "pred_b_head_8_1_is_a_token_only_pronoun_reader": true,
+    "pred_c_pronoun_position_is_largest_source_for_every_head": true,
+    "pred_d_pooled_inherited_share_at_most_050": false,
+    "pred_e_contrast_positive_for_every_head": true
+  },
+  "pooled": {
+    "pronoun": 0.893,
+    "inherited": 0.823
+  },
+  "forwards": 15
+}

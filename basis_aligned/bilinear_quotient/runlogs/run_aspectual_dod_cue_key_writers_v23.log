@@ -1,0 +1,11 @@
+discovery {'s1': [('mlp:06', 0.246), ('mlp:07', 0.237), ('mlp:05', 0.226), ('embed', 0.114), ('mlp:04', -0.051)], 's2': [('mlp:06', 0.237), ('mlp:05', 0.145), ('attn:05', 0.142), ('attn:06', 0.126), ('mlp:07', 0.123)]} top4 {'s1': 0.823, 's2': 0.649}
+natural {'s1': [('attn:05', 0.21), ('mlp:06', 0.19), ('mlp:05', 0.145), ('attn:07', 0.12), ('attn:06', 0.07)], 's2': [('mlp:06', 0.185), ('attn:05', 0.167), ('attn:07', 0.153), ('mlp:07', 0.133), ('attn:06', 0.127)]} top4 {'s1': 0.664, 's2': 0.637}
+{
+  "predictions": {
+    "pred_a_key_writer_closure": true,
+    "pred_b_few_writers_build_the_key": false,
+    "pred_c_same_writers_on_templates_and_corpus": false
+  },
+  "closure": 4.209214925330636e-05,
+  "forwards": 8
+}

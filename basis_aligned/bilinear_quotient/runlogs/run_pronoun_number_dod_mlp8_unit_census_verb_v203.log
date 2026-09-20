@@ -1,0 +1,13 @@
+contrast 654555.062 closure 6.095003124533753e-07 top-50 share 0.937 top-200 0.969 top-500 0.986 min pairwise Jaccard of frame top-50s 0.205
+top units [(829, 215261.641), (953, 165848.984), (3152, 75469.406), (1030, 33897.148), (3122, 29239.342), (1738, 25987.848), (1484, 16921.939), (4000, 13984.942), (2733, 2701.329), (2664, 2688.757), (3133, 1964.196), (684, -1822.676)]
+gender units rank here {3152: 3, 3943: 68}
+top-10 share 0.889 Jaccard with noun top-50 0.22 top-3 [829, 953, 3152]
+{
+  "predictions": {
+    "pred_a_unit_closure": true,
+    "pred_b_detectors_lead_at_verb": true,
+    "pred_c_top_10_units_carry_half": true,
+    "pred_d_verb_top50_overlaps_noun_top50": false
+  },
+  "forwards": 3
+}

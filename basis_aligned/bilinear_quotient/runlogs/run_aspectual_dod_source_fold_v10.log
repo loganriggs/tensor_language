@@ -1,0 +1,19 @@
+attn8_h1_final:1 {"mean_contrast": 45.7667, "pairs": 32, "shares": {"prefix": -0.0004625470087597402, "cue": 0.8271240505107345, "last": 0.11291625879504587, "period": 0.020891102194254864, "the": 0.04500835395795167, "agent": -0.005477212902239077}, "inherited_share": 0.7797, "current_share": 0.2203, "largest_source": "cue", "top2_share": 0.94}
+attn9_h1_h4_final:1 {"mean_contrast": 31.6066, "pairs": 32, "shares": {"prefix": 0.004299167542438857, "cue": 0.15481489980831076, "last": 0.21214604425578962, "period": 0.17828725004115084, "the": 0.41766161527027734, "agent": 0.03279103017028907}, "inherited_share": -0.0302, "current_share": 1.0302, "largest_source": "the", "top2_share": 0.6298}
+attn9_h1_h4_final:4 {"mean_contrast": 21.302, "pairs": 32, "shares": {"prefix": 0.0020109959356516306, "cue": 0.01743864109641244, "last": 0.3792540018780543, "period": 0.283108592966545, "the": 0.42660697353502686, "agent": -0.10841920369943626}, "inherited_share": 0.0016, "current_share": 0.9984, "largest_source": "the", "top2_share": 0.8059}
+{
+  "predictions": {
+    "pred_a_fold_closure": true,
+    "pred_b_contrast_is_positive_for_every_head": true,
+    "pred_c_cue_token_is_the_largest_source": false,
+    "pred_d_inherited_branch_share_at_least_030": true,
+    "pred_e_top_two_sources_carry_070": false
+  },
+  "closure": 4.789447438631683e-05,
+  "pooled_inherited": 0.3523116007786876,
+  "lambda": {
+    "attn8_h1_final": 4.0,
+    "attn9_h1_h4_final": -0.65625
+  },
+  "forwards": 6
+}

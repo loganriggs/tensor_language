@@ -1,0 +1,13 @@
+capability {'direct/past': 1.0, 'direct/present': 1.0, 'relative/past': 1.0, 'relative/present': 1.0}
+top10 [('attn15_h5', 0.573), ('attn11_h3', 0.538), ('attn9_h4', 0.139), ('attn9_h1', 0.086), ('attn7_h7', 0.059), ('attn15_h1', 0.038), ('attn9_h7', 0.035), ('attn10_h5', 0.031), ('attn5_h1', 0.023), ('attn6_h1', 0.015)]
+set ['attn15_h5', 'attn11_h3', 'attn9_h4', 'attn9_h1'] joint 1.3887 fraction 0.745 pos 1.0 null_max 0.0308 gates {'number_was_were': True, 'animacy_who_which': True, 'canonical_night_day': True}
+{
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_native_capability": true,
+    "pred_c_top4_set_live_and_beats_null": true,
+    "pred_d_top4_set_selective": true,
+    "pred_e_shared_heads_appear_in_top6": true
+  },
+  "forwards": 362
+}

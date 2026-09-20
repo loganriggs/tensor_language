@@ -1,0 +1,13 @@
+since {'n': 32, 'pearson': -0.8884, 'pattern_mean': 0.0788, 'pattern_median': 0.0585, 'shift_mean': -0.1467, 'top_tercile_shift_mean': -0.3039, 'bottom_tercile_shift_mean': -0.0172}
+by {'n': 32, 'pearson': 0.6346, 'pattern_mean': 0.0257, 'pattern_median': 0.0105, 'shift_mean': 0.0176, 'top_tercile_shift_mean': 0.0648, 'bottom_tercile_shift_mean': -0.0129}
+temporal_by panel {'n': 32, 'triple_shift_mean': 0.3585, 'triple_fraction_nonneg': 0.6562, 'head_8_1_shift_mean': 0.0424, 'native_accuracy': 1.0}
+{
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_pattern_predicts_shift_on_since_rows": true,
+    "pred_c_pattern_predicts_shift_on_by_rows": true,
+    "pred_d_high_pattern_by_rows_shift_toward_has": false,
+    "pred_e_temporal_by_panel_shifts_toward_has": true
+  },
+  "forwards": 12
+}

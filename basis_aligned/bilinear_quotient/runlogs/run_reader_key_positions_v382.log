@@ -1,0 +1,35 @@
+{
+ "closure_max": 3.1878707886789925e-06,
+ "9.6": {
+  "top3_non_noun": [
+   1,
+   4,
+   2
+  ],
+  "top3_share_of_non_noun": 0.9716367239082185,
+  "largest_offset": 1,
+  "non_noun_sum_native": 51675.40210721269,
+  "non_noun_sum_cut": 42440.65429275902
+ },
+ "12.4": {
+  "top3_non_noun": [
+   1,
+   4,
+   2
+  ],
+  "top3_share_of_non_noun": 0.8278256035593534,
+  "largest_offset": 1,
+  "non_noun_sum_native": 76833.50620114803,
+  "non_noun_sum_cut": 72557.45270040631
+ }
+}
+{
+  "predictions": {
+    "pred_a_key_split_closure": true,
+    "pred_b_few_positions_carry_the_rest": true,
+    "pred_c_12_4_top_key_is_not_the_noun": true,
+    "pred_d_top_non_noun_key_is_after_the_noun": true,
+    "pred_e_cut_hits_non_noun_keys_too": true
+  },
+  "forwards": 6
+}

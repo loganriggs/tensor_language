@@ -1,0 +1,23 @@
+{
+ "replay_max_abs": 1.430511474609375e-05,
+ "text": {
+  "pairs": 61,
+  "gap_mean": 4.360080718994141,
+  "sign_constancy": 0.8852459192276001,
+  "closed": {
+   "ALL_POS": 0.7319962978363037,
+   "PATTERN": -0.07241163402795792
+  }
+ }
+}
+pattern side {'ALL_POS': 0.732, 'PATTERN': -0.072} pattern + values 0.66 write swap 0.878
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_pattern_carries": false,
+    "pred_c_pattern_and_values_make_the_write": false,
+    "pred_d_pattern_below_values": true,
+    "pred_e_all_positions_replay": true
+  },
+  "forwards": 6
+}

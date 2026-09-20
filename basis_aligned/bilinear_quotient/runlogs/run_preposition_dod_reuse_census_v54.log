@@ -1,0 +1,13 @@
+capability {'A1/positive': 1.0, 'A1/negative': 1.0, 'A2/positive': 1.0, 'A2/negative': 1.0}
+top10 [('attn6_h3', 0.494), ('attn13_h8', 0.363), ('attn7_h8', 0.338), ('attn8_h8', 0.268), ('attn16_h8', 0.208), ('attn14_h8', 0.087), ('attn10_h8', 0.069), ('attn11_h3', 0.059), ('attn14_h3', 0.029), ('attn11_h6', 0.016)]
+set ['attn6_h3', 'attn13_h8', 'attn7_h8', 'attn8_h8'] joint 1.6351 fraction 0.283 pos 1.0 null_max 0.067 gates {'number_was_were': True, 'animacy_who_which': True, 'canonical_night_day': True} family []
+{
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_native_capability": true,
+    "pred_c_top4_set_live_and_beats_null": true,
+    "pred_d_top4_set_selective": true,
+    "pred_e_top4_overlaps_shared_family": false
+  },
+  "forwards": 724
+}

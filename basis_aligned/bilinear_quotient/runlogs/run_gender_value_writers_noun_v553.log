@@ -1,0 +1,52 @@
+{
+ "closure": 1.32716445477854e-06,
+ "text": {
+  "10.1": {
+   "delta_w_total": -74636.758,
+   "mlp_share": 0.511,
+   "attn_abs_share": 0.157,
+   "embedding_share": 0.338,
+   "top3": [
+    "embedding",
+    "mlp8",
+    "attn8"
+   ],
+   "attn_signed_share": 0.151
+  },
+  "12.4": {
+   "delta_w_total": 373931.688,
+   "mlp_share": 0.548,
+   "attn_abs_share": 0.228,
+   "embedding_share": 0.226,
+   "top3": [
+    "embedding",
+    "mlp11",
+    "mlp8"
+   ],
+   "attn_signed_share": 0.225
+  },
+  "9.6": {
+   "delta_w_total": 272813.75,
+   "mlp_share": 0.549,
+   "attn_abs_share": 0.178,
+   "embedding_share": 0.279,
+   "top3": [
+    "mlp8",
+    "embedding",
+    "attn8"
+   ],
+   "attn_signed_share": 0.172
+  }
+ }
+}
+10.1 writers {'embedding': 0.338, 'mlp8': 0.273, 'attn8': 0.07, 'mlp9': 0.062, 'mlp6': 0.061, 'mlp7': 0.049, 'attn6': 0.034, 'attn9': 0.027}
+{
+  "predictions": {
+    "pred_a_closure": true,
+    "pred_b_embedding_is_a_quarter_for_10_1": true,
+    "pred_c_attention_carries_for_10_1": false,
+    "pred_d_mlps_below_half_for_10_1": false,
+    "pred_e_readers_agree_on_writers": true
+  },
+  "forwards": 2
+}

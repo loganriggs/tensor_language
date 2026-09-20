@@ -1,0 +1,45 @@
+{
+ "closure_max": 3.183818009233619e-08,
+ "9.6": {
+  "native": {
+   "noun": 46777.41015625,
+   "other": 51675.40625,
+   "total": 98452.8125,
+   "noun_share": 0.4751251789404188
+  },
+  "cut": {
+   "noun": 36687.33984375,
+   "other": 36664.90234375,
+   "total": 73352.234375
+  },
+  "loss_total": -25100.578125,
+  "loss_on_noun_share": 0.4019855742864488,
+  "noun_rel_loss": 0.21570391090050228
+ },
+ "12.4": {
+  "native": {
+   "noun": 23899.91796875,
+   "other": 76833.515625,
+   "total": 100733.421875,
+   "noun_share": 0.2372590697693898
+  },
+  "cut": {
+   "noun": 23108.59765625,
+   "other": 68512.359375,
+   "total": 91620.96875
+  },
+  "loss_total": -9112.453125,
+  "loss_on_noun_share": 0.08683943847447775,
+  "noun_rel_loss": 0.03310975014787414
+ }
+}
+{
+  "predictions": {
+    "pred_a_key_split_closure": true,
+    "pred_b_ten_cut_larger_than_six": true,
+    "pred_c_site_units_hit_the_next_key": true,
+    "pred_d_9_6_loss_split_both_keys": true,
+    "pred_e_12_4_loss_mostly_other_keys": true
+  },
+  "forwards": 6
+}

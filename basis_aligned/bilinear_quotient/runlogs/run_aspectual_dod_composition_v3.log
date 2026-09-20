@@ -1,0 +1,41 @@
+split 201 [0.347, 0.333, 0.346, 0.334, 0.317] gap 0.1131
+split 202 [0.338, 0.332, 0.334, 0.343, 0.329] gap 0.114
+split 203 [0.343, 0.322, 0.338, 0.347, 0.326] gap 0.1133
+split 204 [0.337, 0.339, 0.322, 0.327, 0.351] gap 0.1125
+split 205 [0.347, 0.338, 0.326, 0.341, 0.326] gap 0.1118
+split 206 [0.327, 0.331, 0.338, 0.337, 0.345] gap 0.1127
+split 207 [0.323, 0.327, 0.347, 0.343, 0.336] gap 0.114
+split 208 [0.342, 0.335, 0.324, 0.332, 0.345] gap 0.1132
+split 209 [0.317, 0.335, 0.329, 0.351, 0.345] gap 0.1134
+split 210 [0.339, 0.339, 0.329, 0.326, 0.345] gap 0.1132
+split 211 [0.34, 0.338, 0.335, 0.33, 0.332] gap 0.1148
+split 212 [0.346, 0.34, 0.321, 0.341, 0.33] gap 0.1119
+split 213 [0.346, 0.332, 0.34, 0.328, 0.331] gap 0.1123
+split 214 [0.339, 0.329, 0.318, 0.361, 0.33] gap 0.1127
+split 215 [0.339, 0.343, 0.332, 0.332, 0.333] gap 0.1121
+split 216 [0.338, 0.328, 0.329, 0.339, 0.343] gap 0.1131
+{
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_pairwise_mobius_terms_below_gate": false,
+    "pred_c_five_piece_gap_replays_below_gate": true,
+    "pred_d_module_split_is_no_less_additive_than_random_splits": true,
+    "pred_e_random_pieces_are_not_individually_selective": false
+  },
+  "pairs": {
+    "mlp4_source_bank+attn5_h7_h1_h6_h8_final": 0.0247,
+    "mlp4_source_bank+attn9_h1_h4_final": 0.0268,
+    "mlp4_source_bank+attn11_h3_final": 0.0019,
+    "mlp4_source_bank+attn15_h5_final": -0.002,
+    "attn5_h7_h1_h6_h8_final+attn9_h1_h4_final": 0.0037,
+    "attn5_h7_h1_h6_h8_final+attn11_h3_final": 0.0004,
+    "attn5_h7_h1_h6_h8_final+attn15_h5_final": -0.0007,
+    "attn9_h1_h4_final+attn11_h3_final": 0.0053,
+    "attn9_h1_h4_final+attn15_h5_final": -0.0009,
+    "attn11_h3_final+attn15_h5_final": -0.0002
+  },
+  "module_g": 0.03317493257463553,
+  "random_g_median": 0.06318757033261155,
+  "random_selective_live": 80,
+  "forwards": 198
+}

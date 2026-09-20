@@ -1,0 +1,23 @@
+mlp4_source_bank {"target_native_mean_margin": 2.0674, "target_damage_mean": 0.4076, "target_damage_fraction": 0.1971, "target_damage_positive_fraction": 0.9219, "flip_fraction": 0.0, "number_was_were_abs_move_mean": 0.2197, "number_was_were_native_abs_mean": 5.467, "animacy_who_which_abs_move_mean": 0.1729, "animacy_who_which_native_abs_mean": 3.3816, "canonical_night_day_abs_move_mean": 0.1537, "canonical_night_day_native_abs_mean": 0.902} live True beats_null True gates {'number_was_were': False, 'animacy_who_which': False, 'canonical_night_day': False}
+attn5_h7_h1_h6_h8_final {"target_native_mean_margin": 2.0674, "target_damage_mean": 0.9421, "target_damage_fraction": 0.4557, "target_damage_positive_fraction": 0.7656, "flip_fraction": 0.0469, "number_was_were_abs_move_mean": 2.5797, "number_was_were_native_abs_mean": 5.467, "animacy_who_which_abs_move_mean": 1.4301, "animacy_who_which_native_abs_mean": 3.3816, "canonical_night_day_abs_move_mean": 0.5722, "canonical_night_day_native_abs_mean": 0.902} live True beats_null False gates {'number_was_were': False, 'animacy_who_which': False, 'canonical_night_day': False}
+attn9_h1_h4_final {"target_native_mean_margin": 2.0674, "target_damage_mean": 0.703, "target_damage_fraction": 0.34, "target_damage_positive_fraction": 1.0, "flip_fraction": 0.0312, "number_was_were_abs_move_mean": 0.1976, "number_was_were_native_abs_mean": 5.467, "animacy_who_which_abs_move_mean": 0.0702, "animacy_who_which_native_abs_mean": 3.3816, "canonical_night_day_abs_move_mean": 0.1212, "canonical_night_day_native_abs_mean": 0.902} live True beats_null True gates {'number_was_were': False, 'animacy_who_which': True, 'canonical_night_day': True}
+attn11_h3_final {"target_native_mean_margin": 2.0674, "target_damage_mean": 0.1986, "target_damage_fraction": 0.0961, "target_damage_positive_fraction": 0.7031, "flip_fraction": 0.0, "number_was_were_abs_move_mean": 0.336, "number_was_were_native_abs_mean": 5.467, "animacy_who_which_abs_move_mean": 0.0372, "animacy_who_which_native_abs_mean": 3.3816, "canonical_night_day_abs_move_mean": 0.0497, "canonical_night_day_native_abs_mean": 0.902} live False beats_null True gates {'number_was_were': False, 'animacy_who_which': True, 'canonical_night_day': False}
+attn15_h5_final {"target_native_mean_margin": 2.0674, "target_damage_mean": 0.1784, "target_damage_fraction": 0.0863, "target_damage_positive_fraction": 0.7344, "flip_fraction": 0.0, "number_was_were_abs_move_mean": 0.0319, "number_was_were_native_abs_mean": 5.467, "animacy_who_which_abs_move_mean": 0.0359, "animacy_who_which_native_abs_mean": 3.3816, "canonical_night_day_abs_move_mean": 0.0299, "canonical_night_day_native_abs_mean": 0.902} live False beats_null True gates {'number_was_were': True, 'animacy_who_which': True, 'canonical_night_day': True}
+{
+  "predictions": {
+    "pred_a_instrument_replays_native": true,
+    "pred_b_native_capability": true,
+    "pred_c_at_least_one_component_is_live": true,
+    "pred_d_live_components_beat_the_random_null": false,
+    "pred_e_live_components_are_selective": false,
+    "pred_f_head11_3_moves_the_number_reader": true,
+    "pred_g_joint_removal_exceeds_best_single": true
+  },
+  "live": [
+    "mlp4_source_bank",
+    "attn5_h7_h1_h6_h8_final",
+    "attn9_h1_h4_final"
+  ],
+  "forwards": 176,
+  "seconds": 5.727303365943953
+}

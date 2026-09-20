@@ -1,0 +1,38 @@
+{
+ "replay_max_abs": 1.239776611328125e-05,
+ "text": {
+  "pairs": 43,
+  "unit": 701,
+  "contrast_mean": 18.781227111816406,
+  "sign_constancy": 0.6976743936538696,
+  "moved": {
+   "FOUR_W": 0.4355475902557373,
+   "G0_7": 0.08109718561172485,
+   "G8_REST": 0.009247038513422012,
+   "G9_12_REST": 0.20128732919692993,
+   "G13_17_REST": -0.002961216028779745
+  },
+  "margin_closed": {
+   "FOUR_W": 0.4115847945213318,
+   "G0_7": 0.21627120673656464,
+   "G8_REST": 0.032453205436468124,
+   "G9_12_REST": 0.2197447270154953,
+   "G13_17_REST": 0.0819561555981636
+  }
+ },
+ "panel": {
+  "skipped": "pronoun slot, natural pairs",
+  "rows": 43
+ }
+}
+other writers into the answer {'FOUR_W': 0.412, 'G0_7': 0.216, 'G8_REST': 0.032, 'G9_12_REST': 0.22, 'G13_17_REST': 0.082} groups sum 0.55
+{
+  "predictions": {
+    "pred_a_baseline_replays": true,
+    "pred_b_groups_make_the_remainder": true,
+    "pred_c_late_group_carries": false,
+    "pred_d_early_group_small": false,
+    "pred_e_four_replay": true
+  },
+  "forwards": 12
+}

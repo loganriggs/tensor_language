@@ -1,0 +1,63 @@
+{
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": true,
+  "families": {
+    "museum_label": {
+      "target_error": 0.021704458582019595,
+      "retained_target_rms": 0.44417643780429045,
+      "control_over_target": [
+        0.16138802400632804,
+        0.10838995686831406,
+        0.02525792179507065,
+        0.15677330061126846
+      ]
+    },
+    "editorial_request": {
+      "target_error": 0.09197775796218406,
+      "retained_target_rms": 0.4077354279267826,
+      "control_over_target": [
+        0.12274778548615732,
+        0.0952135176460371,
+        0.06127347657137284,
+        0.1335006644042404
+      ]
+    },
+    "plain_memo": {
+      "target_error": 0.030084583724143604,
+      "retained_target_rms": 0.3511388628275961,
+      "control_over_target": [
+        0.1015070138173724,
+        0.05550914234591014,
+        0.06120095617478239,
+        0.07637422278919626
+      ]
+    },
+    "multiline_record": {
+      "target_error": 0.04945829026790733,
+      "retained_target_rms": 0.5428854435713328,
+      "control_over_target": [
+        0.12448869472076793,
+        0.04818492255292925,
+        0.06573384675798137,
+        0.12022315978054433
+      ]
+    },
+    "reported_note": {
+      "target_error": 0.03255999074994019,
+      "retained_target_rms": 0.3873286897155529,
+      "control_over_target": [
+        0.08709622280410591,
+        0.0456621061080621,
+        0.029361358032506384,
+        0.12203597389839385
+      ]
+    }
+  },
+  "anchor_max_abs": 0.0,
+  "max_full_joint_input_error": 1.7151321618430827e-05,
+  "max_outside": 0.0,
+  "body_forwards": 120,
+  "seconds": 2.564056745963171,
+  "scope": "Opened causal screen: only other-head attention/write cross terms omitted. Full normalization/background terms retained; all later native operations recomputed. Not a context port closure or random-null selectivity confirmation."
+}
