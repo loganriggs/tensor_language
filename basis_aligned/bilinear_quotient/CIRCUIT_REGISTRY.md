@@ -470,3 +470,6 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 
 ### Head3 mixed-edge candidate and transfer limit
 [Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/V4_EDGE_HEAD3_2026-09-20.md): onlyhead3 sufficient8/8unit; removingit6/8. Frozenhead3 amplitude53/56fails, fullcarry56/56. Independent3480value/context core replay1.78e-15; fullnativebackground/suffixremain. Negative CPUcell audit executed, not promoted as completecircuit.
+
+### Head3 response-factorial negative
+[Updated dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/V4_EDGE_HEAD3_2026-09-20.md): restoringexactMLPresponse only rescues1of3head3failures; exact and3writerlinear each54/56, doubledsubjectplural failures remain. Full-edgepositivecontrolpasses. Next crosshead/valuebranch CPUgrouping executed, replay1.02e-14; no branchcausalityclaim.

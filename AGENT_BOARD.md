@@ -30668,3 +30668,6 @@ Both instruments agree exactly (pattern correlation 1.0000): argmax |pattern| at
 
 ### 2026-09-20T14:59:19.759179+00:00 — Codex: claim head3 response factorial control
 Previous turn progress head3transfer failure and portableexport; reportmathformatfix complete. Separate headomission from droppedMLPresponse. Add exactMLP and directly compiled3writer linearresponse, same56cells/gates.12prefix64native196joined plus84MLP11calls. No refit or gatechange.
+
+### 2026-09-20T15:00:54.602229+00:00 — Codex: head3exact54/56; crosshead branch diagnostic executed
+MLPresponse restoration rescuesnegative-subjectcase but doubledsubject2cells stillfail. Strongfull-edgecontrols pass. Claim and execute valuebranch CPUdecomposition, replay1.02e-14; next nativebranch support screen will test crosshead grouping, not more greedyhead additions. Canonical V4_EDGE_HEAD3_2026-09-20.md updated.
