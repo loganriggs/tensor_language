@@ -1,0 +1,7 @@
+# Composition of finite-reference selective source edits
+
+Earlier two-site composition used a different, narrower selector/control interface and exposed weak-attractor errors. Here the23-port finite-reference oracle passes all16 single-role cells across nine contrasts; test whether those same fixed edits compose. Inputs remain openedv4. No refitting or new gradients.
+
+Four contexts, native baseline, subject alone, attractor alone, joint, jointunitB:12prefix20suffix. Source patches are at distinct nominated pre11 tokens, x0/cache/background fixed; this is NOT joint full embedding erasure. Both source vectors and amplitude arrays frozen from prior choices. Single effects must replay V4 finite-reference native receipt<=1e-8.
+
+For E_s,E_a,E_sa, I=E_sa-E_s-E_a. Report all nine interaction L2 norms divided by min(||E_s,number||,||E_a,number||), with .1number/.05each-control bars in every8panel/family cell. Also report each conditional-increment error separately and norms/cancellation; a strong subject must not hide a weak attractor. Joint selective gate: retention>=.8 against explicitly computed jointunitB number effect and maxcontrol/jointnumber<=.1. Preserve near-zero/cancelling references and individual controls; no dropping cells or sign changes. Null: individually selective edits do not compose additively or selectively. Passing this would still be opened conditional manipulation, not a fresh extracted circuit.
