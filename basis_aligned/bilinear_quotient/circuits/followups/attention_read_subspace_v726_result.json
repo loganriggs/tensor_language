@@ -1,0 +1,161 @@
+{
+  "candidate_id": "attention.read_subspace_v726",
+  "finished_utc": "2026-09-20T19:25:38.166320+00:00",
+  "forwards": 38,
+  "plan": {
+    "bars": {
+      "cost128": 0.05,
+      "cost256": 0.02,
+      "energy256": 0.8,
+      "n_layers": 12,
+      "replay_tol": 0.002
+    },
+    "candidate_id": "attention.read_subspace_v726",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 40,
+    "gpu_accessed": false,
+    "ks": [
+      128,
+      256,
+      512
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "sets": [
+      "skip7000"
+    ]
+  },
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_read_energy_concentrates": false,
+    "pred_c_read256_cheap": false,
+    "pred_d_read128_cost": true,
+    "pred_e_per_layer_narrower": true
+  },
+  "report": {
+    "energy": {
+      "128": 0.2453867344895463,
+      "256": 0.39783337088855547,
+      "32": 0.09260756644194591,
+      "512": 0.6319196637545768,
+      "64": 0.15097462850702115,
+      "768": 0.809393283238886
+    },
+    "native": 3.1324122746785483,
+    "per_layer": {
+      "0": {
+        "global_top64_on_layer": 0.1204244678020761,
+        "own_top64": 0.3344388640998675,
+        "rows": 576
+      },
+      "1": {
+        "global_top64_on_layer": 0.08705490977980394,
+        "own_top64": 0.2275958114405177,
+        "rows": 1152
+      },
+      "10": {
+        "global_top64_on_layer": 0.2365915395168172,
+        "own_top64": 0.38425041654463915,
+        "rows": 576
+      },
+      "11": {
+        "global_top64_on_layer": 0.18787416288781805,
+        "own_top64": 0.2899178094013826,
+        "rows": 960
+      },
+      "12": {
+        "global_top64_on_layer": 0.23649935352653548,
+        "own_top64": 0.3834023776429348,
+        "rows": 576
+      },
+      "13": {
+        "global_top64_on_layer": 0.23170406481762715,
+        "own_top64": 0.3404656350392512,
+        "rows": 768
+      },
+      "14": {
+        "global_top64_on_layer": 0.2708181946117039,
+        "own_top64": 0.3946292595257854,
+        "rows": 768
+      },
+      "15": {
+        "global_top64_on_layer": 0.23504656417138098,
+        "own_top64": 0.3922630402727843,
+        "rows": 576
+      },
+      "16": {
+        "global_top64_on_layer": 0.25683388344147146,
+        "own_top64": 0.41448264501186105,
+        "rows": 576
+      },
+      "17": {
+        "global_top64_on_layer": 0.15365887955786703,
+        "own_top64": 0.36088003363633103,
+        "rows": 576
+      },
+      "2": {
+        "global_top64_on_layer": 0.10260926586961512,
+        "own_top64": 0.23585772838652996,
+        "rows": 1152
+      },
+      "3": {
+        "global_top64_on_layer": 0.10681926599118907,
+        "own_top64": 0.2128508437448476,
+        "rows": 1536
+      },
+      "4": {
+        "global_top64_on_layer": 0.14429781386308735,
+        "own_top64": 0.2566272564402489,
+        "rows": 1152
+      },
+      "5": {
+        "global_top64_on_layer": 0.13321673003061213,
+        "own_top64": 0.21992950489175891,
+        "rows": 1536
+      },
+      "6": {
+        "global_top64_on_layer": 0.12284205153844455,
+        "own_top64": 0.18249130667089133,
+        "rows": 2304
+      },
+      "7": {
+        "global_top64_on_layer": 0.12138531690742328,
+        "own_top64": 0.1742632526535883,
+        "rows": 2304
+      },
+      "8": {
+        "global_top64_on_layer": 0.12582191099318218,
+        "own_top64": 0.18192245365565515,
+        "rows": 2304
+      },
+      "9": {
+        "global_top64_on_layer": 0.20526520504548912,
+        "own_top64": 0.33442457063963554,
+        "rows": 768
+      }
+    },
+    "program_cost": 0.07231485843658447,
+    "projection": {
+      "128": {
+        "cost": 1.127151250839233,
+        "energy": 0.2453867344895463,
+        "over_program": 1.0548363924026485
+      },
+      "256": {
+        "cost": 1.0736498037974038,
+        "energy": 0.39783337088855547,
+        "over_program": 1.0013349453608194
+      },
+      "512": {
+        "cost": 0.2981499830881753,
+        "energy": 0.6319196637545768,
+        "over_program": 0.22583512465159084
+      }
+    },
+    "rows": 20160
+  },
+  "schema": "attention_read_subspace_result_v726",
+  "serial_seconds": 36.73062204499729
+}

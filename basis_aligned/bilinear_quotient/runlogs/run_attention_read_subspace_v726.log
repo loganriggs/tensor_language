@@ -1,0 +1,14 @@
+read subspace k=128: energy 0.245 | cost +1.1272 (program +0.0723, over +1.0548)
+read subspace k=256: energy 0.398 | cost +1.0736 (program +0.0723, over +1.0013)
+read subspace k=512: energy 0.632 | cost +0.2981 (program +0.0723, over +0.2258)
+native 3.13241 | global energy at 32/64/128/256/512: [0.093, 0.151, 0.245, 0.398, 0.632] | per-layer own top-64: 0:0.33 1:0.23 2:0.24 3:0.21 4:0.26 5:0.22 6:0.18 7:0.17 8:0.18 9:0.33 10:0.38 11:0.29 12:0.38 13:0.34 14:0.39 15:0.39 16:0.41 17:0.36 | layers narrower than global top-64 (0.15): 18/18
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_read_energy_concentrates": false,
+    "pred_c_read256_cheap": false,
+    "pred_d_read128_cost": true,
+    "pred_e_per_layer_narrower": true
+  },
+  "forwards": 38
+}
