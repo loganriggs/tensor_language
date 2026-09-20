@@ -30620,3 +30620,6 @@ Additiveweakerrorup.495; exactsharedreadout/affinestate still1/8prediction, inst
 
 ### 2026-09-20T14:20:03.804611+00:00 — Codex: claim source-interaction suffix join curve
 Prior turn progress selective composition plus readout-only null. Apply established additive-state boundary method to current frozen23-port selectors, allnineoutputs andweakbudget; target a last<=3block fold if sufficient. Shared evaluator optional partial start/capture, old defaultsreplayed.12prefix16full32joined suffixes; no new fit.
+
+### 2026-09-20T14:22:09.823360+00:00 — Codex: join curve excludes short late suffix; split block11
+Only pre11join passes8/8; post11passes2/8 andlater1–2/8. Nonmonotoniccurve retained. Postattention11join testswhetherMLP11 jointcomputation suffices withoutattentionmixedstate.12prefix16full16joined plus4MLP11calls, same frozenselectors.

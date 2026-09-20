@@ -63,6 +63,7 @@ def source_observables32(model,raw,x0,first,directions,positions,read,pairs,ampl
         block=model.transformer.h[layer]
         if layer>11:x=block.lambdas[0]*x+block.lambdas[1]*x0
         attention,_=block.attn(F.rms_norm(x,(x.shape[-1],)),first);x=x+attention
+        if capture is not None and capture.get('all_blocks') and layer==11:capture['first_mlp_input']=x.detach().clone()
         x=x+block.mlp(F.rms_norm(x,(x.shape[-1],)))
         if capture is not None and capture.get('all_blocks'):capture['post_blocks'][layer]=x.detach().clone()
     if capture is not None:capture['final_state']=x[batch,read].detach().clone()

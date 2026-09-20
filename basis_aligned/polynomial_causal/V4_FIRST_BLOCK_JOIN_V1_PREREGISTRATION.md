@@ -1,0 +1,5 @@
+# Split the first necessary joint block
+
+Postblock joins11–17 fail all-cell weak prediction; exact pre11join passes. Test whether adding singleton states after attention11, then evaluating native MLP11 and suffix12–17, is sufficient. This removes accumulated mixed attention11 state but keeps native joint normalized bilinearMLP11 and later interactions. Bound label10.5 denotes postattention11, not fractional storage/compute. Compare pre11,postblock11,postblock17 replay boundaries.
+
+12prefix16fullsuffix16joined suffix calls, plus4explicit MLP11 calls for the postattention join. Capture postattention11 only on opt-in all_blocks observer; defaults unchanged. Same source choices/outputs/budgets. Existing singleton/joint/pre11zero-replay<=1e-8; final readout consistency<=.001weaker-effect budget. Postattention join passes only if .1number/.05everycontrol in all8cells. All outcomes opened; positive result selects an exact normalized bilinear folding target, not a standalone circuit or fresh evidence. No claim that boundary differences are local causal contributions.
