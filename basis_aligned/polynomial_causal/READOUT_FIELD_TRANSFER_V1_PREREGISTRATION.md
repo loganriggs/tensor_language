@@ -1,0 +1,9 @@
+# Native readout-field context transfer
+
+Collect19basefields andtheir23-source derivatives perinput:18unembedding numerators+sharedmeanstate²/epsilon. Analyticreadout contraction mustreplay saved9outputgradients<=1e-8, andlocalrootmustreplaynativefloat64readout. Counts12prefix8double suffix152fieldgradientreverse14native suffix. Sharedfloat32endpointhelper isnew andmustreplayrecipientoracle outputs inthesameinstrumentgate. Plantedanalyticandanswer-tokenpermutation controls pass.
+
+For eachcongruentrecipient, use opposite donor with editednounnumbermatched (attractor rowparityswap). Alignindividualnumeratorfields andderivatives bytokenIDs; answerordercanreverse, so positionalcopyisinvalid. Compare stale donorroot+donorfields, recipientroot+donorfieldderivatives, anddonorroot+recipientfieldderivatives. Lastarmisdiagnostic,nottransferbecauseitusesrecipientderivatives.
+
+Registeredgradientgate: recipientroot transfer <=10%numberFrobeniuserror and<=5%ofnumbergradientnorm for eachcontrol inall8cells. Then selectcoefficients bysameLP usingonlytransferredgradients and recipientbasefields; native80%alignedunitBretention/10%max8controlgateall8cells. Nativecontrols: transferredexistingdonorcoefficients andrecipientownoracle. No finiteoutcomefitting.
+
+Basefields require recipientnativeforward; donorderivativesarelookupdiagnostic. No extractionornewOODclaim. Fieldderivativeprice437/context+19basefields vs207outputgradientvalues; sourcegenerators/nativecontexts charged. A successwouldlocatevariationintheexplicitroot,notprovecompression. A failuredoesnotisolateallnormalization: dqfieldalreadycontainsstate-dependentradialgeometry.

@@ -30539,3 +30539,6 @@ Lastturnprogress partialtransferandcanonicalnegative. Revisitsemanticmapping: pr
 
 ### 2026-09-20T13:12:42.990758+00:00 — Codex: edited-number controls fail; analytic readout-differential step executed
 Nativesource-numbermatched4/8,nextnoun3/8,numberconditionedrule1/8,oracle8/8. Frozenembeddinggate48/48; replayexact. Noalignmentrescue. NextCPU19fieldanalyticreadoutdifferentialtested5.33e-15,radialomissiontripwire5.54. Nativefieldtransplantplanned,437vs207gradientcoefficientscharged; qfieldcontainsradialgeometry,notallnormalizationisolated. See SOURCE_NUMBER_TRANSFER_2026-09-20.md.
+
+### 2026-09-20T13:15:59.311418+00:00 — Codex: claim native field/root context transfer
+Lastturnprogress source-numberhypothesisfalsified andanalyticdifferentialverified. Collect19fields/23sourcederivatives, alignanswer-tokenIDs underparitydonors; testrecipientroot withdonorfieldJacobian, thennativeLPselectedeffects. Nativecounterfactualhelpersharedwithoracle-replaygate. Counts12prefix8double152reverse14native. Explicitrootdiagnosticnotgradient-freeextraction. See READOUT_FIELD_TRANSFER_V1_PREREGISTRATION.md.
