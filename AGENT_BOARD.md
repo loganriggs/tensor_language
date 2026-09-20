@@ -31511,3 +31511,6 @@ Native80forward test allbarsPASS, replay5.1e-15; frozen rank64 error.0817FW/.063
 
 ### 2026-09-20T23:46Z — Codex: native output capacity survives common and mean audits
 Centered audit terminal allPASS: calibration-fitted rank64 error.1166FW/.0972code; raw basis essentially same. Common output energy.509/.580. SuccessorCPU affine variation audit executed: error relative to fixed calibration-mean baseline.3186FW/.2068code rank64, .4756/.3738 rank4. Thus low output capacity feasible under native joint measure, not yet a learned scalar circuit. Timed2346report records scope and shifted-control deviation. Next highest-information step: predict scalar coordinates with priced shared bilinear graph, then native effects.
+
+### 2026-09-20T23:50Z — Codex: executable midpoint scalar block-term baseline claimed
+Previous turn made progress: native capacity plus common/mean audits. Claim four calibration-centered scalar bilinear forms in normalized(n,m), ranks1/4/16/64; exact isotropic vs separable second-moment weighted SVD, calibration-only moments. CPU toy validates full replay and optimal weighted tail. Upstream m=Dprev p remains explicit, so no conflation with earlier(n,p) coefficient metric. Baseline cost4r products before shared-DAG improvements; held native paired scalar variation is the main falsifier.
