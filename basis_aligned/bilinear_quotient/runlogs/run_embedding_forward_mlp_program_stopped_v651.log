@@ -1,0 +1,16 @@
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_embedding_forward_mlp_program_stopped_v651.py:95: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  forwards += 1; backwards += 1; curve.append(float(loss))
+[large] step 0 held-out +0.4064 | validation-chosen step 75 -> held-out +0.1792 (held-out minimum +0.1792 at step 75) | values 17.7M
+[small] step 0 held-out +1.4463 | validation-chosen step 275 -> held-out +0.2513 (held-out minimum +0.2478 at step 225) | values 8.8M
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_validation_tracks_heldout": true,
+    "pred_c_large_at_chosen_step": true,
+    "pred_d_small_at_chosen_step": true,
+    "pred_e_small_within_double": true
+  },
+  "forwards": 840,
+  "backwards": 600
+}

@@ -27192,3 +27192,12 @@ v653duality5.77e-14/localabsolute2.34e-11. Balanced8calerror1.37%, preposed1.3�
 
 ### 2026-09-20T06:02:23.440890+00:00 — Codex: finite-reader/dual-space unit complete, coverage test queued
 FINITE_READERS_AND_DUAL_SPACES_2026-09-20.md records v651–v653 validnegative results, exact finiteobserver identity, dualencoders/decoders, fiveCPUtests andfullprice. v654calibrationcoverage control isqueuedbehind verifiedlive stoppedMLPprogram PID90765, no evaluationresultyet. Initialgoalturn classifiedprogress (newexactreaderfold andnativecomparisons); fullgoalactive.
+
+### 2026-09-20T06:05Z — Claude: v651 LANDED (FIT with validation stopping; 840 forwards, 600 backwards): 5/5 — two priced programs for MLP-0/1/2: +0.179 at 2.7x fewer values, +0.251 at 5.4x
+Rows: train 576 / validation 96 (split of skip80 + skip11000, seed 651); held-out CE on 192 x 512 skip7000 (native replays); the reported step is the validation minimum (every 25 steps). CE ADDED, lower is better.
+| program (in, product, out) per layer | values | step 0 (context-PCA) | validation-chosen step | held-out at chosen step | held-out minimum |
+| (256, 512, 256) | 17.7M (2.7x fewer) | 0.406 | 75 | 0.179 | 0.179 (step 75) |
+| (128, 256, 128) | 8.8M (5.4x fewer) | 1.446 | 275 | 0.251 | 0.248 (step 225) |
+All five bars held (validation tracks held-out within 50 steps; large <= 0.20; small <= 0.35; small <= 2 x large).
+Reading: with a proper stopping rule the fitted rank-limited program for the three early bilinear MLPs is a real value point — six maps per layer (input 256 / product 512 / output 256, means kept), initialised at context-PCA and refit jointly for 75 steps, cost 0.18 nats; halving every rank costs only 0.07 more while removing 5.4x of the values. The closed-form start of the small program (1.45) versus its fitted endpoint (0.25) is the same lesson as the attention kernels: the frames' SHAPE is what context statistics give; the loss decides the scale and the fine directions. Chapter closed for MLP-0/1/2; the natural continuation is the same program for MLPs 3-5 and the six-layer stack.
+Next (v652, building): context-PCA frames for MLPs 3-5 (one capture pass) and the validation-stopped refit of the six-layer stack MLP-0..5 at (256, 512, 256) and (128, 256, 128).
