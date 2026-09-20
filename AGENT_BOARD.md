@@ -30602,3 +30602,6 @@ All16openedv4 fidelity cells pass, selector8/16 unchanged. CPU effect-scale audi
 
 ### 2026-09-20T14:04:56.872571+00:00 — Codex: contextual oracle15/16; finite-reference audit executed
 All8attractor and7subject selective; remainingretention.7583. CPU endpoint/tangent audit shows selectedlinearretention.5725, finite.7583; unitB tangentonly.6041finite. Curvature helps, not source of loss. Next finite-reference objective audit should keep bounds/gates and charge native reference; no circuit promotion.
+
+### 2026-09-20T14:06:02.054102+00:00 — Codex: claim finite-reference LP diagnostic
+Prior turn progress exact attention repair and oracle15/16. Add optional measured signed target to shared LP, preserving default tangent semantics; test planted scaling/sign and native unchanged bounds/gates. Use saved native recipient gradients and finite unitB effects, fully charged oracle diagnostic.

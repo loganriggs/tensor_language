@@ -2,10 +2,13 @@
 import numpy as np
 from scipy.optimize import linprog
 
-def choose(gradients,reference,control_budget=.08):
+def choose(gradients,reference,control_budget=.08,*,target_effect=None):
     g=np.asarray(gradients,dtype=float);reference=np.asarray(reference,dtype=float)
     if g.ndim==2:g=g[None]
-    n,o,d=g.shape;target=-g[:,0]@reference;scale=np.maximum(abs(target),1e-10)
+    n,o,d=g.shape
+    target=-g[:,0]@reference if target_effect is None else np.broadcast_to(np.asarray(target_effect,dtype=float),(n,))
+    if not np.isfinite(target).all():raise ValueError("Nonfinite reference effect")
+    scale=np.maximum(abs(target),1e-10)
     signed=-g[:,0]*np.sign(target)[:,None]/scale[:,None]
     control=(g[:,1:]/scale[:,None,None]).reshape(-1,d)
     matrix=np.concatenate([np.c_[-signed,np.ones(n)],np.c_[control,np.zeros(len(control))],np.c_[-control,np.zeros(len(control))]])

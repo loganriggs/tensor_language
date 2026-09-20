@@ -1,0 +1,5 @@
+# Measured finite-reference target audit
+
+Opened v4 diagnostic only. Fixed saved recipient gradients,23-source dictionary,[-1,1] amplitudes, gamma<=2,.08reference control constraints. The only objective change is supplying signed measured unitB finite effect as target instead of its tangent. Source selection remains oracle/context-dependent and requires the finite unitB evaluation; no extraction or fresh prediction claim.
+
+CPU V4_FINITE_REFERENCE_CHOICES_V1.json stores all96selected vectors and certificates. Planted tests: default==explicit tangent reference; doubling target halves attainable gamma on independent2Dproblem; negative target flips target coefficient. Native12prefix28suffix calls replay frozen-bank and unitB effects<=1e-8, then evaluate new choices for all16cells. Original finite retention>=.8, collateral<=.1; prediction10%number/5%controls unchanged. Null: reference mismatch alone does not explain remaining failure. No dropped cells or widening amplitude box. Native cap<=.001? No new approximation is used here; full native endpoint is authoritative. Save original failed oracle receipt separately.
