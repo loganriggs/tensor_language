@@ -1,0 +1,52 @@
+{
+  "core_shape": [
+    4,
+    32,
+    32
+  ],
+  "primitive_products": 16,
+  "core_replay_error": 3.1348714180749654e-15,
+  "root_sensitivity_eigenvalues": [
+    0.05043731251877454,
+    0.11337885418192195,
+    0.2143345269157612,
+    1.9270352110409226
+  ],
+  "root_sensitivity_condition": 38.20654025377764,
+  "input_mode_cumulative_energy": [
+    0.795376167342749,
+    0.9380885627315385,
+    0.9630042693848085,
+    0.9745108854734521,
+    0.9842782669720608,
+    0.988928197259103,
+    0.9927704579639267,
+    0.9955834824423134,
+    0.9973166163104356,
+    0.9981939075406058,
+    0.9987012686056819,
+    0.9991007281198205,
+    0.9993725343401414,
+    0.9995592827658892,
+    0.9997076170822405,
+    0.999785372555394,
+    0.9998539278527556,
+    0.9999105138127812,
+    0.9999450142239129,
+    0.9999639075054826,
+    0.9999811437431699,
+    0.9999934703195639,
+    0.9999976631988563,
+    0.9999985062277651,
+    0.9999990483561271,
+    0.9999993615319192,
+    0.9999995471680642,
+    0.9999996695688171,
+    0.9999997803565202,
+    0.9999998732908887,
+    0.9999999615370634,
+    1.0
+  ],
+  "weighted_primitive_component_energy_ratio": 0.5443281053610453,
+  "scope": "Exact 4x32x32 bank coefficient tensor under centered covariance input scaling. Root sensitivity K=E[J(q)^T J(q)] is a local surrogate; compressing it need not preserve full quartic behavior or Gaussian function loss with nonzero mean. Final quartic and fresh response checks required."
+}

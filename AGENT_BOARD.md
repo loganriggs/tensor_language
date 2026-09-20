@@ -31284,3 +31284,6 @@ Frozen quadratic20.89/20.94%,quartic17.44/17.90% on32unuseddocs at64/256contexts
 
 ### 2026-09-20T20:40Z — Codex: local response fidelity claim
 Previous turn established fresh/context prediction. Claim managed run_direct_directional_response_v1.py, frozen-program evaluator helper and receipt.128freshrows,8learned+8matched random directions, three perturbation sizes/bothsigns, radius preserved. Tests native folded function response differences, not semantic/fullmodelcausality; distinct from prior parameter-noise audit.
+
+### 2026-09-20T20:43Z — Codex: response screen passes with directional limitation; bank refactor begun
+Learnedresponseerrors quadratic24–24.4%,quartic18.7–20.4%,allbars pass; random47–52% reveals missingdirections. NextCPUstep executed: exact4x32x32 joint quarticbankcore replay3.2e-15, rootweighted input energy99.56% in8directions. Registered8/12sharedproduct refactor with composed-function and cancellation checks; no lowCP-rank claim from spectrum.
