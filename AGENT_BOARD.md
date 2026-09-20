@@ -26793,3 +26793,19 @@ Next (v624, building): the same construction one layer deeper — layer-1 heads 
 
 ### 2026-09-20T04:22:08.810715+00:00 — Codex: three-hour review, baseline ledger, positive/negative red-team
 User requests math + literature every3h. Review THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-20_0422.md opens HT/bilinear-eigen/VeST sources. CPU gauge control: raw matrix SVD~100% error vs1% after function-preserving gauge balancing; joint quadratic spectral also1%. Native v629 negative stays family-specific; dense fallback validation is not compression success. DECOMPOSITION_BASELINES_2026-09-20.md defines equal-port/output/full-price comparisons and marks missing native HT arms. Scheduled mathematical cron missing on current instance; restoring with due checks and mandatory literature/baseline/red-team sections. Goal active.
+
+### 2026-09-20T04:23Z — Claude: v624 LANDED (fold + EDIT; 13 table + 54 eval forwards, 0 loss fits): 3/5 — six of nine layer-1 heads are gated positional filters too; head 1.8 is not (+0.558 when replaced)
+Rows: v612 grid on SINGLE-TOKEN block-1 tables (token alone at position 0, exact); CE on 192 x 512 skip7000 (native through the patched block-1 attention replays 3.13241). CE ADDED, lower is better.
+| head | d=1 rms / sep | kernel (rms at d = 1, 2, 4, 8, 16, 32, 64) | program residual d1 / d4 / d16 | edit |
+| 1.0 | .069 / .97 | .069 .076 .066 .036 .018 .008 .003 — medium window, peak d=2 | .03 / .12 / .30 | +0.0022 |
+| 1.1 | .229 / 1.00 | .229 .116 .010 .006 .003 .001 .001 — sharp previous-token | .00 / .70 / .60 | +0.0009 |
+| 1.3 | .063 / .93 | .063 .030 .010 .005 ... — previous-token | .07 / .82 / 1.0 | +0.0015 |
+| 1.5 | .124 / .96 | .124 .093 .040 .016 .004 ... — short window | .04 / .24 / .89 | +0.0012 |
+| 1.6 | .039 / .85 | .039 .034 .026 .018 .014 .010 .007 — slow | .15 / .59 / .93 | +0.0018 |
+| 1.7 | .138 / .96 | .138 .114 .048 .019 .004 ... — short window | .05 / .33 / .79 | +0.0014 |
+| 1.8 | .169 / .99 | .169 .172 .142 .118 .078 .056 .027 — very broad, rank-1 to d=64 | .01 / .03 / .08 | +0.5582 |
+| 1.4 | .028 / .04 | flat ~.03, rank 63 at every d — pure CONTENT matcher | — | (not separable) |
+| 1.2 | .026 / .70 | flat ~.027, rank 4 — low-rank content | — | (below the 0.8 rule) |
+Predictions: pred_a HELD; pred_b (>= 2 separable heads) HELD — 7; pred_c (each separable head <= 0.02) FAILED — 1.8 alone is 0.558; pred_d (set <= 0.05) FAILED — 0.581, of which 0.558 is 1.8 and the other six sum to 0.009; pred_e (best grid residual <= 0.2) HELD — 1.8 fits its own single-token pattern to 0.013.
+Reading: for six layer-1 heads the pattern is token x position (gain(cur) x kernel(d) x content-weight(prev)) even though block-1 queries and keys read context — the context dependence they carry does not matter to the loss. Head 1.8 is the opposite: on single tokens it looks like a broad rank-one window (a perfect table fit, residual 0.01), but in context its real pattern must be something the tables cannot express — the natural candidate is the model's sink head (+0.916 nats on ablation, the costliest head in the model), which attends by position-0/context rather than by token. Layer 1 also holds the model's first pure content-matching head (1.4, 63-dimensional pattern, no positional structure at all).
+Next (v625, building): (i) the clean six-head layer-1 set and the 11-head layer-0 + layer-1 combination — does the pattern program COMPOSE across layers where the MLP projections did not (v619)?; (ii) head 1.8 diagnosis: its real pattern mass on position 0 in context vs what the token program predicts.
