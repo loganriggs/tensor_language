@@ -30902,3 +30902,17 @@ Files: ops/run_attention_write_rank_v708.py; circuits/followups/attention_write_
 
 ### 2026-09-20T17:29:24.447970+00:00 — Codex: signed-writer trap repaired; native dictionary interpreted
 120signedwidthfits+24controlscomplete. Minimumwidth signed failures95% hadnegativeanalyticwriters; fixedpositive/softplus/Gaussian atlr0.05recoverbothfamilies atsamewidth600steps. Exactcapacity=max(n+,n-), spectralconstructionvalidated. Nativechannel8CPenergy0.01963%, random2e-10fraction, optimized0.08630%; improvementrealbutgloballysmall.1729reportproof/primarysource/results. Nativewholequadraticrootjob queued continuation; goalactive.
+
+### 2026-09-20T17:30Z — Claude: v709 LANDED (EDIT/RESPONSE; 476 forwards, no fit): 3/5 — the leaning is LOCAL: 8.3 and 5.5 are inflated by band 6-8's programs, 1.4 / 1.1 by band 0-2's, 3.5 by band 3-5's; and the joint cost is near-additive ACROSS bands
+Frozen program (v706 endpoint maps, five heads native; full cost 0.084) applied to one layer band ALONE / to all bands but one (LEAVE). Ratio = in-program mean-ablation value / native value. Held-out skip7000; native replays 3.1324.
+| band | ALONE cost | 8.3 | 5.5 | 1.4 | 3.5 | 1.1 | LEAVE-native cost | 8.3 | 5.5 | 1.4 | 3.5 | 1.1 |
+| full | 0.084 | 4.44 | 2.51 | 1.97 | 1.52 | 1.27 | | | | | | |
+| 0-2 | .0095 | 0.97 | 0.98 | 1.61 | 1.15 | 1.16 | .074 | 4.51 | 2.54 | 1.28 | 1.36 | 1.10 |
+| 3-5 | .0132 | 0.97 | 1.00 | 1.05 | 1.28 | 1.09 | .072 | 4.52 | 2.55 | 1.89 | 1.20 | 1.19 |
+| 6-8 | .0252 | 3.21 | 2.53 | 1.21 | 1.09 | 1.00 | .057 | 1.36 | 0.97 | 1.58 | 1.41 | 1.22 |
+| 9-11 | .0113 | 1.14 | 1.04 | 1.02 | 1.02 | 1.01 | .068 | 3.91 | 2.46 | 1.91 | 1.51 | 1.25 |
+| 12-14 | .0133 | 1.25 | 0.99 | 0.92 | 0.97 | 0.99 | .067 | 3.68 | 2.48 | 2.08 | 1.58 | 1.27 |
+| 15-17 | .0058 | 0.97 | 0.95 | 1.00 | 0.99 | 0.98 | .077 | 4.18 | 2.55 | 1.91 | 1.53 | 1.30 |
+pred_b HELD (band 6-8 alone gives 8.3 3.21x); pred_c FAILED (the band is 6-8, not an early one — the leaning is on layer-mates, not upstream writers); pred_d HELD (leaving 6-8 native: 4.44 -> 1.36); pred_e FAILED (only 5.5 shares 8.3's band; 1.4 and 1.1 are inflated by 0-2, 3.5 by 3-5 — each head by ITS OWN band).
+Reading: a head becomes over-valued when the patterns of its neighbours (same or adjacent layer) are approximated — the intact head carries what its approximated neighbours drop. So the manipulability defect is a per-band rank-budget question, not a global one. Second finding, for the price ledger: ALONE costs sum to 0.078 and LEAVE marginals to 0.089 against the full 0.084 — the joint cost is near-ADDITIVE across bands (while, v707, not decomposable across single heads): interactions are within-band. Band 6-8 is the dearest (0.025 alone, 0.028 marginal) with only 27 heads. Next (v711, queued): inside band 6-8, which head's program inflates 8.3 / 5.5 (leave-one-head-native within the band-alone configuration), and the fix arm: band 6-8 at closed-form rank 64.
+Files: ops/run_attention_leaning_localize_v709.py; circuits/followups/attention_leaning_localize_v709_result.json.

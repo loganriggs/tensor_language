@@ -1,0 +1,18 @@
+native 3.13241 | full program cost +0.0840; ratios 8.3:4.44 5.5:2.51 1.4:1.97 3.5:1.52 1.1:1.27
+band 0-2: ALONE cost +0.0095 ratios 8.3:0.97 5.5:0.98 1.4:1.61 3.5:1.15 1.1:1.16 | LEAVE native cost +0.0744 ratios 8.3:4.51 5.5:2.54 1.4:1.28 3.5:1.36 1.1:1.10
+band 3-5: ALONE cost +0.0132 ratios 8.3:0.97 5.5:1.00 1.4:1.05 3.5:1.28 1.1:1.09 | LEAVE native cost +0.0722 ratios 8.3:4.52 5.5:2.55 1.4:1.89 3.5:1.20 1.1:1.19
+band 6-8: ALONE cost +0.0252 ratios 8.3:3.21 5.5:2.53 1.4:1.21 3.5:1.09 1.1:1.00 | LEAVE native cost +0.0565 ratios 8.3:1.36 5.5:0.97 1.4:1.58 3.5:1.41 1.1:1.22
+band 9-11: ALONE cost +0.0113 ratios 8.3:1.14 5.5:1.04 1.4:1.02 3.5:1.02 1.1:1.01 | LEAVE native cost +0.0677 ratios 8.3:3.91 5.5:2.46 1.4:1.91 3.5:1.51 1.1:1.25
+band 12-14: ALONE cost +0.0133 ratios 8.3:1.25 5.5:0.99 1.4:0.92 3.5:0.97 1.1:0.99 | LEAVE native cost +0.0668 ratios 8.3:3.68 5.5:2.48 1.4:2.08 3.5:1.58 1.1:1.27
+band 15-17: ALONE cost +0.0058 ratios 8.3:0.97 5.5:0.95 1.4:1.00 3.5:0.99 1.1:0.98 | LEAVE native cost +0.0773 ratios 8.3:4.18 5.5:2.55 1.4:1.91 3.5:1.53 1.1:1.30
+8.3: alone-band argmax 6-8 (ratio 3.21); leave-6-8-native ratio 1.36 vs full 4.44; argmax bands {'8.3': '6-8', '5.5': '6-8', '1.4': '0-2', '3.5': '3-5', '1.1': '0-2'}; shared with 8.3: 1/4
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_single_band_inflates": true,
+    "pred_c_inflating_band_is_early": false,
+    "pred_d_leave_one_band_consistent": true,
+    "pred_e_five_heads_share_cause": false
+  },
+  "forwards": 476
+}
