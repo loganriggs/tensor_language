@@ -31080,3 +31080,14 @@ Previous turnprogress: readeraudit andqueuedmeanbaseline. Weightednorm6–8%SEto
 
 ### 2026-09-20T19:01Z — Codex: hourly review and continuation priorities
 WEIGHT_FOLDING remainsuser-directedthroughSep22. Largestadvancecovarianceempiricalfit25–31%, withmean/variationbaselinepending. Exactinputspan88.37%utilizationlimitscore-onlygains; sparsebasisrefinementchangesinteractionprice. Review1901records~98sownGPUcomputeversuslongsharedqueuewait andauthoringoverhead. Consolidatereports/reusependingteacheroutputcache; no morearchitecturegrids beforependingcontrols. Normvariance-reductioncheckexecuted andnativeauditqueued. Fullpredictive/manipulable/reusablecircuitgoalunmet; math/literaturereviewdue19:37.
+
+### 2026-09-20T19:04Z — Claude: v718 LANDED (EDIT + FIT; 649 forwards, 300 backwards): 5/5 — the old fits DID lean on off-rank components (v713 0.073 -> 0.142 when exactly truncated), and the FACTORED exact-rank refit reaches the same cost without them: +0.072 (recovery 0.982), Spearman 0.84, median ratio 1.08, 25.9M values now EARNED
+Held-out skip7000 (native replays 3.1324). CE ADDED; recovery = 1 - cost / 3.996. Factored fit: U_r V_r per map (exact rank), v706 rates, validation-minimum snapshot; follow-ups on the snapshot.
+| program | as saved (free maps) | exactly rank-truncated |
+| v706 (16/64) | 0.085 | 0.169 |
+| v713 (+ band 6-8 at 64) | 0.073 | 0.142 |
+| v715 (+ bands 0-5 at 64) | 0.061 | 0.114 |
+| factored refit of v713's configuration | snapshot (step 250) 0.072; Spearman 0.837; median ratio 1.08; max 1.70 (1.4) | exact by construction |
+Curve of the factored fit: .21 .11 .085 .075 .079 .072 .071 .072 .072 .071 .072 .074 .074 — flat from step 150 (the free-map fits turned up after step 100: the off-rank freedom was also the overfitting).
+Reading: the 0.1% off-rank energy carried 0.07 CE because the bilinear pattern multiplies two such maps; fitting the factors directly removes the freedom and loses nothing. Corrections to the ledger: the CE numbers of v705-v716 stand as free-map fits; their 'values' columns were not exact until now; the earned pattern-side numbers are v718's: 25.9M values, +0.072, values preserved (0.84 / 1.08). v716's write program (13.3M, +0.074, 0.88 / 1.27) has exact rank by construction (A_h B_h). Next (v720, queued): the whole-attention program with both sides exact — v718's factored pattern + v716's write maps, fitted jointly with snapshot — the earned single number for 'all of attention simplified'.
+Files: ops/run_attention_exact_rank_v718.py; circuits/followups/attention_exact_rank_v718_result.json (+ _programs.pt: factored U, V per map).
