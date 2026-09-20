@@ -1,0 +1,12 @@
+census_T256: argmax-at-0 fraction — model's own pattern 0.997, ledger recomputation 0.997 (pattern corr 1.0000); |mass| share at 0 0.297; value norm at 0 771.0 vs median elsewhere 209.2
+skip7000_T512: argmax-at-0 fraction — model's own pattern 0.995, ledger recomputation 0.995 (pattern corr 1.0000); |mass| share at 0 0.252; value norm at 0 772.1 vs median elsewhere 205.7
+{
+  "predictions": {
+    "pred_a_two_instruments_agree": true,
+    "pred_b_census_rows_position0": true,
+    "pred_c_skip7000_rows_position0": false,
+    "pred_d_mass_share_position0": true,
+    "pred_e_value_norm_position0": true
+  },
+  "forwards": 4
+}

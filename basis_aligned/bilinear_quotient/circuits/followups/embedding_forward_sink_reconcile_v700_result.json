@@ -1,0 +1,46 @@
+{
+  "candidate_id": "embedding_forward.sink_reconcile_v700",
+  "finished_utc": "2026-09-20T14:57:43.977153+00:00",
+  "forwards": 4,
+  "plan": {
+    "candidate_id": "embedding_forward.sink_reconcile_v700",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 6,
+    "gpu_accessed": false,
+    "head": [
+      5,
+      7
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_two_instruments_agree": true,
+    "pred_b_census_rows_position0": true,
+    "pred_c_skip7000_rows_position0": false,
+    "pred_d_mass_share_position0": true,
+    "pred_e_value_norm_position0": true
+  },
+  "report": {
+    "census_T256": {
+      "argmax0_ledger_recompute": 0.9970238095238095,
+      "argmax0_model_own": 0.9970238095238095,
+      "mass_share_pos0": 0.2969432473182678,
+      "pattern_corr_own_vs_ledger": 0.9999999403953552,
+      "value_norm_median_other": 209.1630401611328,
+      "value_norm_pos0": 771.0257568359375
+    },
+    "skip7000_T512": {
+      "argmax0_ledger_recompute": 0.9950787401574803,
+      "argmax0_model_own": 0.9950787401574803,
+      "mass_share_pos0": 0.2521897852420807,
+      "pattern_corr_own_vs_ledger": 1.0,
+      "value_norm_median_other": 205.6541748046875,
+      "value_norm_pos0": 772.079833984375
+    }
+  },
+  "schema": "embedding_forward_sink_reconcile_result_v700",
+  "serial_seconds": 5.186591155827045
+}
