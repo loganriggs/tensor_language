@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# BQGATE: EXPERIMENT pred_a_instrument pred_b_single_module
+# BQGATE: EXPERIMENT pred_a_instrument pred_b_single_module pred_c_prior_causal_replay
 """Exact mixed edge replay and finite removal; opened composition diagnosis."""
 import os,json,sys,time,hashlib
 from pathlib import Path
@@ -105,8 +105,11 @@ def main():
         selected=[r for g in groups for r in g['records'] if r['layer']==layer and r['kind']==kind and (g['panel'],r['family'],tuple(r['coordinate'])) in failed]
         assert len(selected)==13
         table.append(dict(layer=layer,kind=kind,count=13,halved=sum(r['remaining_ratio']<=.5 for r in selected),median_remaining=float(np.median([r['remaining_ratio'] for r in selected])),worst_remaining=max(r['remaining_ratio'] for r in selected)))
+    edge=json.loads((A/'attention_mixed_edge_native_v1_result.json').read_text())
+    earlier={(g['panel'],r['family'],tuple(r['coordinate'])):r for g in edge['groups'] for r in g['records']}
+    causal_replay=max(abs(float(np.linalg.norm(np.asarray(r['effect'])[:,0]))-earlier[g['panel'],r['family'],tuple(r['coordinate'])]['native_removal_norm']) for g in groups for r in g['records'] if r['layer']==11 and r['kind']=='attention')
     instrument=counts==PLAN and max(max(c.values()) for c in checks)<=1e-8
-    result=dict(plan=PLAN,counts=counts,checks=checks,groups=groups,failed_cells_summary=table,predictions=dict(pred_a_instrument=instrument,pred_b_single_module=instrument and any(r['halved']==13 for r in table)),seconds=time.perf_counter()-tic)
+    result=dict(plan=PLAN,counts=counts,checks=checks,groups=groups,failed_cells_summary=table,predictions=dict(pred_a_instrument=instrument,pred_b_single_module=instrument and any(r['halved']==13 for r in table),pred_c_prior_causal_replay=instrument and causal_replay<=1e-8),causal_replay=causal_replay,seconds=time.perf_counter()-tic)
     payload=json.dumps(result,separators=(',',':'))+'\n';guard_write(len(payload.encode()),label=OUT.name);OUT.write_text(payload)
     print(json.dumps(dict(predictions=result['predictions'],counts=counts,summary=table,seconds=result['seconds'])))
 if __name__=='__main__':main()
