@@ -418,3 +418,6 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 
 ### Opened v4 contextual oracle audit
 [Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/V4_SOURCE_ORACLE_AUDIT_2026-09-20.md): unchanged23ports with recipient readers pass15/16selectivity,6/16finite prediction. Remaining retention.7583miss; nonlinearity helps rather than hurts. UnitB tangent projects.6041 of finite reference in that cell. Tangent feasibility does not certify finite dictionary sufficiency. Native reader generation remains charged.
+
+### Finite-reference contextual oracle baseline
+[Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/V4_FINITE_REFERENCE_2026-09-20.md):16/16openedv4 selective, minimumretention1.0522/maxcollateral.07833; finite prediction5/16. Per-input derivatives/native reference remain charged. CPU shared-amplitude finite-target LP ceilings.2359subject/.00399attractor under stricter per-row linear constraints; not nonlinear impossibility.

@@ -30605,3 +30605,6 @@ All8attractor and7subject selective; remainingretention.7583. CPU endpoint/tange
 
 ### 2026-09-20T14:06:02.054102+00:00 — Codex: claim finite-reference LP diagnostic
 Prior turn progress exact attention repair and oracle15/16. Add optional measured signed target to shared LP, preserving default tangent semantics; test planted scaling/sign and native unchanged bounds/gates. Use saved native recipient gradients and finite unitB effects, fully charged oracle diagnostic.
+
+### 2026-09-20T14:10:00.935988+00:00 — Codex: finite reference16/16, sharing baseline executed
+Fixed dictionary/bounds/gates with measured target passes native16/16selectivity, prediction5/16. Shared role LP certified linearceilings.2359/.00399; role/template stillweak. CPU consequence executed; no nonlinear impossibility or extractionclaim. See V4_FINITE_REFERENCE_2026-09-20.md.
