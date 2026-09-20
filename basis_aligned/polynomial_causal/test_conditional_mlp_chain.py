@@ -1,5 +1,5 @@
 import torch
-from conditional_mlp_chain import execute
+from conditional_mlp_chain import execute, response
 
 
 def test_independent_rational_quadratic_reference_and_bias():
@@ -24,3 +24,11 @@ def test_independent_rational_quadratic_reference_and_bias():
     torch.testing.assert_close(actual,expected,atol=1e-12,rtol=1e-12)
     no_bias=[dict(b,bias=torch.zeros_like(b['bias'])) for b in blocks]
     assert (execute(no_bias,start,initial,backgrounds,readout,eps)[0]-actual).abs().max()>.01
+    edited = start + torch.randn_like(start)/2
+    ref,ref_state = execute(blocks,edited,initial,backgrounds,readout,eps)
+    base_logits,edited_logits,delta = response(blocks,start,edited,initial,backgrounds,readout,eps)
+    torch.testing.assert_close(base_logits,actual,atol=1e-12,rtol=1e-12)
+    torch.testing.assert_close(edited_logits,ref,atol=1e-12,rtol=1e-12)
+    torch.testing.assert_close(delta,ref_state-state,atol=1e-12,rtol=1e-12)
+    omitted = response(blocks,start,edited,initial,backgrounds,readout,eps,False)[1]
+    assert (omitted-ref).abs().max()>.001
