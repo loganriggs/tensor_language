@@ -371,3 +371,5 @@ Four-reader width8 response dictionary; full attention12–17 and sparse18/36 ML
 20 September: [Dictionary optimization redteam](../polynomial_causal/SHARED_DICTIONARY_OPTIMIZATION_REDTEAM_2026-09-20.md). Joint analytic coefficient fits still fail, but native-outcome minimax oracle fits number effects in all32cells (worst7.49%, gap<3.3e-8). Therefore fixed-dictionary capacity is not ruled out. Oracle uses labels and does not establish prediction or modal preservation.
 
 20 September: [Derivative-only minimax](../polynomial_causal/DERIVATIVE_ONLY_MINIMAX_2026-09-20.md) passes opened construction-heldout number9.68%/modal0.89%, but calibrationnumber12.19% fails the overall gate. Fullquadratic8.94% error combines with6.04% compression error. Native generators and group-dependent fitting remain limitations.
+
+20 September: [Per-input minimax extraction check](../polynomial_causal/SINGLETON_MINIMAX_2026-09-20.md) fails heldout number37.22%; retaining group budgets reduces it to10.104% but still fails. True singleton coefficients pass batch permutation/peer-removal checks exactly. Grouped partial success is not standalone extraction.

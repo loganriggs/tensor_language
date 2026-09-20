@@ -5,7 +5,7 @@ import numpy as np
 import torch
 from derivative_only_minimax import fit
 P=Path(__file__).parent;A=P.parent/'bilinear_quotient/circuits/followups'
-def main():
+def main(fitter=fit, output_name='DERIVATIVE_ONLY_MINIMAX_V1_RESULT.json', scope_extra=''):
     torch.set_num_threads(2)
     prior=json.loads((P/'SHARED_FIVE_SOURCE_SPARSE_RESIDUAL_V1_RESULT.json').read_text());F=np.array(prior['plane']);support=prior['supports']['shared2_plus3']
     atoms=[np.outer(F[:,0],F[:,0]),(np.outer(F[:,0],F[:,1])+np.outer(F[:,1],F[:,0]))/2**.5,np.outer(F[:,1],F[:,1])]
@@ -20,7 +20,7 @@ def main():
         amplitudes=np.stack([a for _,a,_ in arms]);coeff=np.zeros((len(G),4,6))
         for family in dict.fromkeys(c['families']):
             ids=[i for i,f in enumerate(c['families']) if f==family]
-            fitted,errors=fit(G[ids],H[ids],amplitudes[:,ids],atoms,solver_diagnostics);coeff[ids]=fitted
+            fitted,errors=fitter(G[ids],H[ids],amplitudes[:,ids],atoms,solver_diagnostics);coeff[ids]=fitted
             checks.append(dict(panel=c['panel'],role=c['role'],family=family,analytic_errors=errors))
         R=np.einsum('bok,kij->boij',coeff,atoms)
         pred=-np.einsum('bop,abp->abo',G,amplitudes)-.5*np.einsum('abp,bopq,abq->abo',amplitudes,R,amplitudes)
@@ -50,6 +50,6 @@ def main():
     summary={}
     for split in ['calibration','heldout_opened']:
         rows=[r for r in scores if r['split']==split];summary[split]=dict(number_error=max(r['number_error'] for r in rows),modal_error=max(r['modal_error'] for r in rows),passes=all(r['number_error']<=.1 and r['modal_error']<=.05 for r in rows))
-    out=dict(summary=summary,solver_diagnostics=solver_diagnostics,error_decomposition=decomposition,coefficient_hash_before_outcomes=before,coefficient_hash_after_poisoned_outcomes=after,checks=checks,scores=scores,literal_context_values=44,shared_plane_values=10,shared_index_values=6,scope='Frozen dictionary; analytic-response minimax fit per family group. Native outcomes loaded after all fitting. Source directions and derivatives are full native dependencies. All data opened. No fresh OOD, autonomous context generator, selectivity or composition adoption.')
-    (P/'DERIVATIVE_ONLY_MINIMAX_V1_RESULT.json').write_text(json.dumps(out,separators=(',',':'))+'\n');print(json.dumps(summary,indent=2))
+    out=dict(summary=summary,scope_extra=scope_extra,solver_diagnostics=solver_diagnostics,error_decomposition=decomposition,coefficient_hash_before_outcomes=before,coefficient_hash_after_poisoned_outcomes=after,checks=checks,scores=scores,literal_context_values=44,shared_plane_values=10,shared_index_values=6,scope='Frozen dictionary; analytic-response minimax fit per family group. Native outcomes loaded after all fitting. Source directions and derivatives are full native dependencies. All data opened. No fresh OOD, autonomous context generator, selectivity or composition adoption.')
+    (P/output_name).write_text(json.dumps(out,separators=(',',':'))+'\n');print(json.dumps(summary,indent=2))
 if __name__=='__main__':main()
