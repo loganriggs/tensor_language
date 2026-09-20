@@ -1,0 +1,333 @@
+{
+  "input_dimension": 12,
+  "stratum_counts": {
+    "4": 12,
+    "31": 528,
+    "22": 396,
+    "211": 7920,
+    "1111": 11880
+  },
+  "records": [
+    {
+      "target": "dense",
+      "method": "uniform",
+      "budget": 500,
+      "relative_rmse": 0.2659286302027166,
+      "zero_estimates": 0,
+      "repetitions": 200
+    },
+    {
+      "target": "dense",
+      "method": "equal",
+      "budget": 500,
+      "allocation": [
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "theoretical_relative_se": 0.20646407456879792,
+      "relative_rmse": 0.21574297227887615,
+      "zero_estimates": 0,
+      "repetitions": 200
+    },
+    {
+      "target": "dense",
+      "method": "oracle_neyman",
+      "budget": 500,
+      "allocation": [
+        7,
+        83,
+        52,
+        271,
+        87
+      ],
+      "theoretical_relative_se": 0.15251746876700967,
+      "relative_rmse": 0.1552212410769102,
+      "zero_estimates": 0,
+      "repetitions": 200
+    },
+    {
+      "target": "dense",
+      "method": "uniform",
+      "budget": 5000,
+      "relative_rmse": 0.08100722918989267,
+      "zero_estimates": 0,
+      "repetitions": 200
+    },
+    {
+      "target": "dense",
+      "method": "equal",
+      "budget": 5000,
+      "allocation": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "theoretical_relative_se": 0.0652896730636248,
+      "relative_rmse": 0.06399727694850295,
+      "zero_estimates": 0,
+      "repetitions": 200
+    },
+    {
+      "target": "dense",
+      "method": "oracle_neyman",
+      "budget": 5000,
+      "allocation": [
+        61,
+        827,
+        511,
+        2729,
+        872
+      ],
+      "theoretical_relative_se": 0.048221953272113705,
+      "relative_rmse": 0.05175162655104627,
+      "zero_estimates": 0,
+      "repetitions": 200
+    },
+    {
+      "target": "single_diagonal",
+      "method": "uniform",
+      "budget": 500,
+      "relative_rmse": 5.8085846537689365,
+      "zero_estimates": 196,
+      "repetitions": 200
+    },
+    {
+      "target": "single_diagonal",
+      "method": "equal",
+      "budget": 500,
+      "allocation": [
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "theoretical_relative_se": 0.3316624790355399,
+      "relative_rmse": 0.29680970334542633,
+      "zero_estimates": 0,
+      "repetitions": 200
+    },
+    {
+      "target": "single_diagonal",
+      "method": "oracle_neyman",
+      "budget": 500,
+      "allocation": [
+        496,
+        1,
+        1,
+        1,
+        1
+      ],
+      "theoretical_relative_se": 0.14892084929531763,
+      "relative_rmse": 0.1265319753692436,
+      "zero_estimates": 0,
+      "repetitions": 200
+    },
+    {
+      "target": "single_diagonal",
+      "method": "uniform",
+      "budget": 5000,
+      "relative_rmse": 2.083534744226743,
+      "zero_estimates": 158,
+      "repetitions": 200
+    },
+    {
+      "target": "single_diagonal",
+      "method": "equal",
+      "budget": 5000,
+      "allocation": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "theoretical_relative_se": 0.10488088481701513,
+      "relative_rmse": 0.1054108153843808,
+      "zero_estimates": 0,
+      "repetitions": 200
+    },
+    {
+      "target": "single_diagonal",
+      "method": "oracle_neyman",
+      "budget": 5000,
+      "allocation": [
+        4996,
+        1,
+        1,
+        1,
+        1
+      ],
+      "theoretical_relative_se": 0.04692293052578132,
+      "relative_rmse": 0.04863685182473188,
+      "zero_estimates": 0,
+      "repetitions": 200
+    },
+    {
+      "target": "single_distinct",
+      "method": "uniform",
+      "budget": 500,
+      "relative_rmse": 1.2687697348218865,
+      "zero_estimates": 115,
+      "repetitions": 200
+    },
+    {
+      "target": "single_distinct",
+      "method": "equal",
+      "budget": 500,
+      "allocation": [
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "theoretical_relative_se": 2.222611077088757,
+      "relative_rmse": 2.388249882235944,
+      "zero_estimates": 153,
+      "repetitions": 200
+    },
+    {
+      "target": "single_distinct",
+      "method": "oracle_neyman",
+      "budget": 500,
+      "allocation": [
+        1,
+        1,
+        1,
+        1,
+        496
+      ],
+      "theoretical_relative_se": 0.9979818344714539,
+      "relative_rmse": 1.0250336379502385,
+      "zero_estimates": 78,
+      "repetitions": 200
+    },
+    {
+      "target": "single_distinct",
+      "method": "uniform",
+      "budget": 5000,
+      "relative_rmse": 0.47739656638899286,
+      "zero_estimates": 4,
+      "repetitions": 200
+    },
+    {
+      "target": "single_distinct",
+      "method": "equal",
+      "budget": 5000,
+      "allocation": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "theoretical_relative_se": 0.7028513356320555,
+      "relative_rmse": 0.6562494761902672,
+      "zero_estimates": 23,
+      "repetitions": 200
+    },
+    {
+      "target": "single_distinct",
+      "method": "oracle_neyman",
+      "budget": 5000,
+      "allocation": [
+        1,
+        1,
+        1,
+        1,
+        4996
+      ],
+      "theoretical_relative_se": 0.3144504782673719,
+      "relative_rmse": 0.3047714135814989,
+      "zero_estimates": 0,
+      "repetitions": 200
+    },
+    {
+      "target": "single_paired",
+      "method": "uniform",
+      "budget": 500,
+      "relative_rmse": 3.104567783122153,
+      "zero_estimates": 171,
+      "repetitions": 200
+    },
+    {
+      "target": "single_paired",
+      "method": "equal",
+      "budget": 500,
+      "allocation": [
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "theoretical_relative_se": 0.8062257748298566,
+      "relative_rmse": 0.8073314065487606,
+      "zero_estimates": 61,
+      "repetitions": 200
+    },
+    {
+      "target": "single_paired",
+      "method": "oracle_neyman",
+      "budget": 500,
+      "allocation": [
+        1,
+        1,
+        496,
+        1,
+        1
+      ],
+      "theoretical_relative_se": 0.3620060594752176,
+      "relative_rmse": 0.36467165448211947,
+      "zero_estimates": 1,
+      "repetitions": 200
+    },
+    {
+      "target": "single_paired",
+      "method": "uniform",
+      "budget": 5000,
+      "relative_rmse": 0.8657100114934563,
+      "zero_estimates": 41,
+      "repetitions": 200
+    },
+    {
+      "target": "single_paired",
+      "method": "equal",
+      "budget": 5000,
+      "allocation": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "theoretical_relative_se": 0.2549509756796398,
+      "relative_rmse": 0.2562661116886117,
+      "zero_estimates": 0,
+      "repetitions": 200
+    },
+    {
+      "target": "single_paired",
+      "method": "oracle_neyman",
+      "budget": 5000,
+      "allocation": [
+        1,
+        1,
+        4996,
+        1,
+        1
+      ],
+      "theoretical_relative_se": 0.11406317690938379,
+      "relative_rmse": 0.12485973389153905,
+      "zero_estimates": 0,
+      "repetitions": 200
+    }
+  ],
+  "scope": "Known finite toy tensors; uniform/equal-stratum allocations at equal query budgets. Oracle Neyman is an unattainable-information comparator unless variances are known; empirical pilot zeros do not prove zero mass."
+}

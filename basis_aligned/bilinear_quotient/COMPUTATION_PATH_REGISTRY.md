@@ -463,3 +463,6 @@ Sparse exports stable in float32, but feature agreement failed.136 common-factor
 
 ### 2026-09-20 16:11 — Bound negative transfer claim; global quartic oracle
 Native local exporters vary K_b and q_b. Frozen amplitude failure does not imply no ambient reusable circuit; exact transport/rectangular ambiguity toy controls in TRANSFER_INTERFACE_AUDIT_V1. Fully symmetrized two-layer coefficient-entry oracle validated to4.45e-16 values/2.23e-15 gradients, including all input pairings. Uniform sampling misses sparse adversary; native1152input pure MLP16→17 numerator collision-stratified variance pilot queued before optimizing. [Note](../polynomial_causal/direct_tensor_match/INTERFACE_AND_GLOBAL_QUARTIC_2026-09-20_1611.md).
+
+### 2026-09-20 16:20 — Full-input native quartic estimator held; global fits queued
+Native pure MLP16→17→unembedding full1152input coefficient queries pass6.19e-7 replay; uniform/stratified norm estimates agree1.05SE,98.74%energy all-distinct.36sampled-loss toys show both beneficial and harmful noise. Full quadratic variableprojection width512best95.21% fails89.80%teacherchannel baseline. Queue8+8globalquartic sharedbilinear student fits with pairedoutputscaling. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1620_global_quartic_and_sampling.md).

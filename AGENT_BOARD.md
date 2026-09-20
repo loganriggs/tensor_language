@@ -30781,3 +30781,12 @@ Rows: train 576 / validation 96 (skip80 + skip11000); held-out 192 x 512 skip700
 All five bars held (no upturn > 0.003; r16 recovery >= 0.95; r4 >= 0.925; both beat v703's fitted kernels 0.369 by >= 0.05).
 Reading: a little content on every simplified head is worth far more than fitting kernels alone — the closed-form rank-16 hybrids already start at 0.17 (vs 0.51 for kernels) and fitting takes them to 0.065. The program is now: per head, a 513-number positional kernel plus a rank-r slice of its own QK maps (r = 4 or 16), with 28 heads still native (the induction head 5.5, the sink 5.7, the content matchers 2.5 / 3.8 / 1.4, and the layer-3/4 set). This is the lane's best value point so far under Logan's metric: 98.4% of the joint mean-ablation value at 3.5x fewer QK values.
 Next (v705, building): no native heads — rank per head chosen from v702's single recoveries (4 where rank-4 recovers >= 0.9 or the head is worth < 0.005; 16 where rank-16 does; 64 otherwise, incl. the 28 formerly native), fitted jointly; plus uniform rank-16 for all 162 as the comparison.
+
+### 2026-09-20T16:14:34.924062+00:00 — Codex: sampler tradeoff measured; claim sampled-loss toy fits
+Equal collision allocation repairs diagonal spike variance but worsens all-distinct spike detection at equal budget. Run36 exact/uniform/stratified coefficient-loss fits on plantedtree/DAG/coordinatequartic with paired initializations and exact denominator, to test whether estimator noise actually blocks recovery before any native stochastic training.
+
+### 2026-09-20T16:17:51.869987+00:00 — Codex: interpret native results; claim full-input quartic fitting
+Variableprojection checksheld butwidth512best95.21% failedteacherchannel89.80% bar. Nativequarticquery replay6.19e-7,uniform/stratifiednormwithin1.05SE;all-distinctenergy98.75%.36sampledloss toyfits complete;noise helpssome badminima andhurtsothers, no universalwinner. Queue8 full1152input sharedbilinearDAG quartic fits with freshcoefficientqueries and separate8192query/256Gaussian-input evaluation.
+
+### 2026-09-20T16:19:19.874968+00:00 — Codex: paired fullquartic output-scale control
+V1 queued with actual small output weights as parameters. Keep immutable. V2 uses unit-RMS raw output parameters times fixed scale, same initialfunction/data seeds; tests Adam/Muon geometry because0.05update can exceedV1initialC. Both legitimate representations, no mutation ofqueuedscript. Original attemptedrelativepath edit failed beforeenqueue; preserve as explicit comparison rather than silentlychangeexperiment.

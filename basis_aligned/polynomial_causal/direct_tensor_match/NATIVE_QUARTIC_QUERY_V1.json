@@ -1,0 +1,133 @@
+{
+  "plan": {
+    "uniform_batches": 16,
+    "stratum_batches": 4,
+    "batch_size": 512,
+    "strata": [
+      "4",
+      "31",
+      "22",
+      "211",
+      "1111"
+    ],
+    "native_forwards": 0
+  },
+  "input_dimension": 1152,
+  "output_dimension": 1152,
+  "replay": 6.186320433698711e-07,
+  "precision": 5.118791468576833e-07,
+  "summaries": {
+    "uniform": {
+      "samples": 8192,
+      "mean_entry_output_energy": 207088905.15302333,
+      "standard_error": 462954.5692379778,
+      "maximum_entry_output_energy": 854666585.0904462,
+      "batch_means": [
+        206171300.7807942,
+        206517379.6021875,
+        207645223.8806388,
+        208636220.85414636,
+        206807032.5577141,
+        209322382.26293707,
+        207132517.65806064,
+        205871487.68925846,
+        206978162.15451893,
+        208460122.95588005,
+        205329459.99203506,
+        209136560.2724112,
+        203752744.93915066,
+        206569164.5851077,
+        205267019.49986032,
+        209825702.7636722
+      ],
+      "ordered_tuple_count": 1761205026816,
+      "estimated_energy": 3.6472602075332654e+20,
+      "estimated_energy_se": 8.153579145293624e+17
+    },
+    "4": {
+      "samples": 2048,
+      "mean_entry_output_energy": 20421922723.869595,
+      "standard_error": 3274132946.6095214,
+      "maximum_entry_output_energy": 3970113842846.132,
+      "batch_means": [
+        14429275948.436459,
+        21524409981.909782,
+        26771247418.50442,
+        18962757546.627716
+      ],
+      "ordered_tuple_count": 1152,
+      "estimated_energy": 23526054977897.773,
+      "estimated_energy_se": 3771801154494.1685
+    },
+    "31": {
+      "samples": 2048,
+      "mean_entry_output_energy": 2066269701.9515147,
+      "standard_error": 54875464.41482654,
+      "maximum_entry_output_energy": 105378386937.7838,
+      "batch_means": [
+        2038996890.3824196,
+        2024846607.942772,
+        2237200781.2752275,
+        1964034528.2056394
+      ],
+      "ordered_tuple_count": 5303808,
+      "estimated_energy": 1.095909777536806e+16,
+      "estimated_energy_se": 291048927167072.3
+    },
+    "22": {
+      "samples": 2048,
+      "mean_entry_output_energy": 1534531698.070849,
+      "standard_error": 23608036.81437598,
+      "maximum_entry_output_energy": 24780136273.933586,
+      "batch_means": [
+        1524382203.8393638,
+        1489003180.4971955,
+        1529802992.7257473,
+        1594938415.221089
+      ],
+      "ordered_tuple_count": 3977856,
+      "estimated_energy": 6104146122361315.0,
+      "estimated_energy_se": 93909370890286.39
+    },
+    "211": {
+      "samples": 2048,
+      "mean_entry_output_energy": 496335919.14247453,
+      "standard_error": 3263441.5937606385,
+      "maximum_entry_output_energy": 2275869124.255054,
+      "batch_means": [
+        496304812.7508714,
+        503509062.22609544,
+        489063705.5228366,
+        496466096.07009447
+      ],
+      "ordered_tuple_count": 9149068800,
+      "estimated_energy": 4.5410114721457367e+18,
+      "estimated_energy_se": 2.9857451666097732e+16
+    },
+    "1111": {
+      "samples": 2048,
+      "mean_entry_output_energy": 204629387.44434696,
+      "standard_error": 767251.8108186556,
+      "maximum_entry_output_energy": 462445053.1081458,
+      "batch_means": [
+        206067729.40419614,
+        203368873.81510103,
+        204669293.19145247,
+        204411653.3666382
+      ],
+      "ordered_tuple_count": 1752046675200,
+      "estimated_energy": 3.585202379200807e+20,
+      "estimated_energy_se": 1.344260984186005e+18
+    }
+  },
+  "stratified_energy": 3.630783361621791e+20,
+  "stratified_standard_error": 1.3445925608032325e+18,
+  "estimator_gap_in_estimated_se": 1.0478160743959808,
+  "seconds": 1.8673756630159914,
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_precision": true,
+    "pred_c_estimator": true
+  },
+  "scope": "Full-input MLP16/17 pure bilinear quartic numerator, exact output QR; no intervening terms/norm polynomialization, no student fitting. Estimated SE does not certify unobserved tails."
+}

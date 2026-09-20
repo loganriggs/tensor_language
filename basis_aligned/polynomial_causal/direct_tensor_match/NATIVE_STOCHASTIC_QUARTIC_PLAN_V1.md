@@ -1,0 +1,13 @@
+# Full-input shared-quadratic quartic fitting pilot — 2026-09-20 16:18 UTC
+
+Native full-input query pilot passed: replay6.19e-7, precision5.12e-7, uniform/stratified norm estimates within1.05 estimated SE. All-distinct entries account for98.75% of estimated coefficient energy. This motivates a bounded uniform-entry fit, not a guarantee against rare missed structure.
+
+Teacher is the same pure MLP16→17→unembedding quartic numerator, full1152-dimensional input and exact1152 output frame. Student computes a bank of k bilinear quadratic features, followed by r=128 bilinear products of linear combinations of that bank and a dense output matrix. Test k=128/512, Adam/Muon at0.05, two restarts,300steps,256 fresh uniform ordered input tuples per step:8 fits. This is a shared bilinear DAG; leaf projections and cores are dense, so no sparsity claim beyond the specified widths.
+
+Normalize first-layer rows to norm sqrt(1152), second-layer rows to1. Initialize output matrix at small random scale. Use a fixed2048-query teacher coefficient-energy calibration for scale only. Train mean squared coefficient discrepancy; its numerator estimates full symmetric coefficient Frobenius error. No activation data is used. Final checkpoints only, evaluated on8192 disjoint random coefficient queries, plus256 Gaussian input vectors as a distinct function-error diagnostic. Query independence does not make this native behavioral OOD.
+
+Report parameter counts (2*k*1152+2*r*k+1152*r, plus frames), numerical finiteness, training curves, evaluation error and output-rank lower bound on the fixed evaluation coefficient matrix. The latter is exact for that finite query matrix only, not a certified full-tensor bound. Predictions: every fit finite; at least one improves over zero-tensor error1 by≥1%; at least one has evaluation relative coefficient error<0.9. Preserve failures and avoid equating approximate norm estimation with small-error certification.
+
+## Paired output-parameter scaling control
+
+Run a V2 companion with the same initial functions, data seeds, widths and steps. V1 stores the small actual output weights as optimizer parameters. V2 stores unit-RMS raw weights and multiplies by0.1/sqrt(output_width*root_width) inside the computation. This changes optimizer geometry while preserving the representable functions and initial distribution. At lr0.05, V1's output update can be much larger than its initial weights; V2 isolates that conditioning issue. Both scripts are immutable once queued. An attempted pre-enqueue parameterization edit hit a relative-path error, leaving V1 valid and unchanged; rather than mutate queued bytes, V2 is an explicit paired control. Interpret any failure at these settings with this scaling distinction.

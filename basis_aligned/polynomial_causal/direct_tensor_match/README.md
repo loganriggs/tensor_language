@@ -62,3 +62,13 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 [Mathematical note](INTERFACE_AND_GLOBAL_QUARTIC_2026-09-20_1611.md) bounds the row-transfer failure: native input ports and output readers both change. `TRANSFER_INTERFACE_AUDIT_V1.json` gives a same-circuit coordinate-transport positive control and a rectangular-port nonidentifiability counterexample.
 
 `implicit_quartic.py` queries exact fully symmetrized two-layer coefficients without expanded tensors. `check_implicit_quartic.py` / `IMPLICIT_QUARTIC_CHECK_V1.json` independently validate values, gradients and Frobenius enumeration; a sparse sampling adversary exposes high variance. `NATIVE_QUARTIC_QUERY_PLAN_V1.md` preregisters the queued full1152-input native estimator pilot. No native stochastic fit yet.
+
+## Native global query results and sampled optimization — 16:20 UTC
+
+[Timed report with equations and flowchart](../explanations/for_logan/research_update_2026-09-20_1620_global_quartic_and_sampling.md).
+
+- `VARIABLE_PROJECTION_V1.json/.pt`:8 full quadratic fits; width512 best95.21% Frobenius error, failed89.80% teacher-channel bar; numerical replay/conditioning held.
+- `NATIVE_QUARTIC_QUERY_V1.json`:full1152-input native pure quartic oracle passed replay6.19e-7/precision5.12e-7. Uniform and stratified energy within1.05 estimated SE;98.74% energy in all-distinct tuples.
+- `check_stratified_quartic_sampling.py`, `STRATIFIED_QUARTIC_CHECK_V1.json`:equal-budget dense/diagonal/paired/distinct sampling controls; equal strata helps diagonal and hurts distinct spikes.
+- `STOCHASTIC_QUARTIC_TOY_PLAN_V1.md`, `stochastic_quartic_toys.py`, `STOCHASTIC_QUARTIC_TOYS_V1.json`:36 paired-initialization coefficient-loss fits; noise can both help escape and obstruct recovery.
+- `NATIVE_STOCHASTIC_QUARTIC_PLAN_V1.md`:queued V1/V2 full-input random shared-bilinear students with paired output-parameter scaling, independent coefficient and function diagnostics. Dense cores, no sparsity or circuit identity claim.

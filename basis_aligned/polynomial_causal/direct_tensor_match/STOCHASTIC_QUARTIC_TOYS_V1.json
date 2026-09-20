@@ -1,0 +1,1266 @@
+{
+  "records": [
+    {
+      "case": "quartic_tree",
+      "mode": "exact",
+      "optimizer": "adam",
+      "seed": 0,
+      "final_frobenius_error": 0.13372690670967868,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 3.386633731996395
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.3242707914327776
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.13381283007623118
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.13372692312786152
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.13372690676292687
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.1337269067115783
+        }
+      ]
+    },
+    {
+      "case": "quartic_tree",
+      "mode": "exact",
+      "optimizer": "adam",
+      "seed": 1,
+      "final_frobenius_error": 0.13372690670714102,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 2.585920654412235
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.13545991436839164
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.1337269067190494
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.13372690670714102
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.13372690670714102
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.13372690670714102
+        }
+      ]
+    },
+    {
+      "case": "quartic_tree",
+      "mode": "exact",
+      "optimizer": "muon",
+      "seed": 0,
+      "final_frobenius_error": 0.13372774842845933,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 3.386633731996395
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.42403187540114734
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.14538708340992562
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.1390883260074822
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.13511722941729465
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.13380948957552544
+        }
+      ]
+    },
+    {
+      "case": "quartic_tree",
+      "mode": "exact",
+      "optimizer": "muon",
+      "seed": 1,
+      "final_frobenius_error": 0.13372761891716417,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 2.585920654412235
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.2091974865551647
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.1380466099610871
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.13577164925359372
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.1357344544309182
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.13376939926590037
+        }
+      ]
+    },
+    {
+      "case": "quartic_tree",
+      "mode": "uniform",
+      "optimizer": "adam",
+      "seed": 0,
+      "final_frobenius_error": 0.13381652821029544,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 3.386633731996395
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.4012691873403494
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.16977162921670552
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.14774288939998803
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.13743570525223248
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.13626929233251403
+        }
+      ]
+    },
+    {
+      "case": "quartic_tree",
+      "mode": "uniform",
+      "optimizer": "adam",
+      "seed": 1,
+      "final_frobenius_error": 0.1338156254378714,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 2.585920654412235
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.2076806439438589
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.1459839152573873
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.14267363587670479
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.13894337229812603
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.1349983053180913
+        }
+      ]
+    },
+    {
+      "case": "quartic_tree",
+      "mode": "uniform",
+      "optimizer": "muon",
+      "seed": 0,
+      "final_frobenius_error": 0.13381612885194025,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 3.386633731996395
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.4007958460949503
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.1608000222995587
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.14346643189670316
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.13861811236247476
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.13569128129733118
+        }
+      ]
+    },
+    {
+      "case": "quartic_tree",
+      "mode": "uniform",
+      "optimizer": "muon",
+      "seed": 1,
+      "final_frobenius_error": 0.13389186509012563,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 2.585920654412235
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.2932982875281124
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.15350167429591333
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.15217092279665215
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.1421348130243888
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.13546906937975745
+        }
+      ]
+    },
+    {
+      "case": "quartic_tree",
+      "mode": "stratified",
+      "optimizer": "adam",
+      "seed": 0,
+      "final_frobenius_error": 0.1369307072191,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 3.386633731996395
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.45268912482754164
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.3259957430325865
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.1827959074524988
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.14446040645873648
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.1380907735990222
+        }
+      ]
+    },
+    {
+      "case": "quartic_tree",
+      "mode": "stratified",
+      "optimizer": "adam",
+      "seed": 1,
+      "final_frobenius_error": 0.13375420512125744,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 2.585920654412235
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.21628788883421282
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.13594511547479124
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.13632684193472372
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.1343554369745092
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.13417260942391562
+        }
+      ]
+    },
+    {
+      "case": "quartic_tree",
+      "mode": "stratified",
+      "optimizer": "muon",
+      "seed": 0,
+      "final_frobenius_error": 0.0008812206061799246,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 3.386633731996395
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.441151988261174
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.2744535572338698
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.21580404887999205
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.055604495666656276
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.007975297343655222
+        }
+      ]
+    },
+    {
+      "case": "quartic_tree",
+      "mode": "stratified",
+      "optimizer": "muon",
+      "seed": 1,
+      "final_frobenius_error": 0.13382578125300582,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 2.585920654412235
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.21046864544120356
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.1401456276124655
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.1398874156865178
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.13646520278369945
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.13468688350442554
+        }
+      ]
+    },
+    {
+      "case": "shared_quartic_dag",
+      "mode": "exact",
+      "optimizer": "adam",
+      "seed": 0,
+      "final_frobenius_error": 0.011601963286946232,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 3.562486169762333
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.26325843385990066
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.12555373180233698
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.041453987421495066
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.01827013973775868
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.012607957791251859
+        }
+      ]
+    },
+    {
+      "case": "shared_quartic_dag",
+      "mode": "exact",
+      "optimizer": "adam",
+      "seed": 1,
+      "final_frobenius_error": 0.15065483479607084,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 6.438949836736848
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.5612097987662159
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.2651263224139791
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.19155314373011498
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.1635356650911708
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.15292968347813518
+        }
+      ]
+    },
+    {
+      "case": "shared_quartic_dag",
+      "mode": "exact",
+      "optimizer": "muon",
+      "seed": 0,
+      "final_frobenius_error": 0.000775409926704127,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 3.562486169762333
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.7651439385136655
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.46393178642970034
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.1893320698488862
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.03583338916416803
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.013025389577924129
+        }
+      ]
+    },
+    {
+      "case": "shared_quartic_dag",
+      "mode": "exact",
+      "optimizer": "muon",
+      "seed": 1,
+      "final_frobenius_error": 0.0007558022065150688,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 6.438949836736848
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.6789013582170551
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.2540140980544061
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.06620054879541552
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.022684391317919987
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.005306229226795002
+        }
+      ]
+    },
+    {
+      "case": "shared_quartic_dag",
+      "mode": "uniform",
+      "optimizer": "adam",
+      "seed": 0,
+      "final_frobenius_error": 0.03558856595926637,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 3.562486169762333
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.4269872358764297
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.21612400994552067
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.11012865280381548
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.04662687460846097
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.037476778034120264
+        }
+      ]
+    },
+    {
+      "case": "shared_quartic_dag",
+      "mode": "uniform",
+      "optimizer": "adam",
+      "seed": 1,
+      "final_frobenius_error": 0.19655856727049956,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 6.438949836736848
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.5744637835984004
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.28862375361939224
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.24873724440163425
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.21743138526026043
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.20003111958082134
+        }
+      ]
+    },
+    {
+      "case": "shared_quartic_dag",
+      "mode": "uniform",
+      "optimizer": "muon",
+      "seed": 0,
+      "final_frobenius_error": 0.11703831780149422,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 3.562486169762333
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.8632490933961985
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.42828479437636835
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.24477448037888697
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.16810647423252092
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.12422162273542621
+        }
+      ]
+    },
+    {
+      "case": "shared_quartic_dag",
+      "mode": "uniform",
+      "optimizer": "muon",
+      "seed": 1,
+      "final_frobenius_error": 0.0012957000694971187,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 6.438949836736848
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.7704152483624622
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.27917844900696853
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.09137006968537348
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.03371383385674917
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.007580041654599768
+        }
+      ]
+    },
+    {
+      "case": "shared_quartic_dag",
+      "mode": "stratified",
+      "optimizer": "adam",
+      "seed": 0,
+      "final_frobenius_error": 0.04654750105673869,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 3.562486169762333
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.3075115411518549
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.28419342283560944
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.15270657755387454
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.07453548232671278
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.050901081218357284
+        }
+      ]
+    },
+    {
+      "case": "shared_quartic_dag",
+      "mode": "stratified",
+      "optimizer": "adam",
+      "seed": 1,
+      "final_frobenius_error": 0.1374651441731585,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 6.438949836736848
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.6007196046646743
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.2970014625393223
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.18787221465135237
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.1541325395423255
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.14051791550811496
+        }
+      ]
+    },
+    {
+      "case": "shared_quartic_dag",
+      "mode": "stratified",
+      "optimizer": "muon",
+      "seed": 0,
+      "final_frobenius_error": 0.2402802749523392,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 3.562486169762333
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.8381601594266156
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.5893408522717897
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.4915120231697282
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.33398823034912417
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.2561775644950792
+        }
+      ]
+    },
+    {
+      "case": "shared_quartic_dag",
+      "mode": "stratified",
+      "optimizer": "muon",
+      "seed": 1,
+      "final_frobenius_error": 0.0013203658442016665,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 6.438949836736848
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.6651083278639783
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.32069338222151905
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.10997717561865954
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.030870771959316676
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.007753577963397069
+        }
+      ]
+    },
+    {
+      "case": "coordinate_fourth_power",
+      "mode": "exact",
+      "optimizer": "adam",
+      "seed": 0,
+      "final_frobenius_error": 0.9999998893962023,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 1.161320150272953
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.9999999419519107
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.9999999306257356
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.9999999155008172
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.9999999006849323
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.9999998917031057
+        }
+      ]
+    },
+    {
+      "case": "coordinate_fourth_power",
+      "mode": "exact",
+      "optimizer": "adam",
+      "seed": 1,
+      "final_frobenius_error": 8.97553204307535e-26,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 1.0092680971004908
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 4.7698560425143565e-05
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 1.4999618719140876e-09
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 2.7185256966943782e-14
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 2.2995320775581196e-19
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 1.7265799142345994e-23
+        }
+      ]
+    },
+    {
+      "case": "coordinate_fourth_power",
+      "mode": "exact",
+      "optimizer": "muon",
+      "seed": 0,
+      "final_frobenius_error": 9.653872476535169e-05,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 1.161320150272953
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.038659741974311775
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.008576316506877615
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.00681669318951554
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.003011917469235061
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.0008346100026774895
+        }
+      ]
+    },
+    {
+      "case": "coordinate_fourth_power",
+      "mode": "exact",
+      "optimizer": "muon",
+      "seed": 1,
+      "final_frobenius_error": 5.167462492560757e-05,
+      "empty_teacher_batches": 0,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 1.0092680971004908
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.0634184230691294
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.0022377614469215605
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.0011654354065530883
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.0006598729183619247
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.00034569924798413294
+        }
+      ]
+    },
+    {
+      "case": "coordinate_fourth_power",
+      "mode": "uniform",
+      "optimizer": "adam",
+      "seed": 0,
+      "final_frobenius_error": 2.9977350764852734e-15,
+      "empty_teacher_batches": 1099,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 1.161320150272953
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.3631020008102972
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.0029488420489769598
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 3.02878165961775e-07
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 2.2572622131566e-09
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 9.847299546824868e-13
+        }
+      ]
+    },
+    {
+      "case": "coordinate_fourth_power",
+      "mode": "uniform",
+      "optimizer": "adam",
+      "seed": 1,
+      "final_frobenius_error": 6.698669279565364e-12,
+      "empty_teacher_batches": 1100,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 1.0092680971004908
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.1565648832913897
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.00019285440627902605
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.00021873177246250933
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.0004266033276312526
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 9.929600076392244e-08
+        }
+      ]
+    },
+    {
+      "case": "coordinate_fourth_power",
+      "mode": "uniform",
+      "optimizer": "muon",
+      "seed": 0,
+      "final_frobenius_error": 0.0013022442367295142,
+      "empty_teacher_batches": 1099,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 1.161320150272953
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.07824912430961528
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.05186732159362163
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.004518374367120409
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.017007058642816472
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.018575626552819458
+        }
+      ]
+    },
+    {
+      "case": "coordinate_fourth_power",
+      "mode": "uniform",
+      "optimizer": "muon",
+      "seed": 1,
+      "final_frobenius_error": 0.0015029080003621858,
+      "empty_teacher_batches": 1100,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 1.0092680971004908
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.13154730105054047
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.39124040107730695
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.21634398817462933
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.01445210800843516
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.005631535478774913
+        }
+      ]
+    },
+    {
+      "case": "coordinate_fourth_power",
+      "mode": "stratified",
+      "optimizer": "adam",
+      "seed": 0,
+      "final_frobenius_error": 1.9812538248984337e-12,
+      "empty_teacher_batches": 11,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 1.161320150272953
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.9999938799185414
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.9997431915081229
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.0006246760792090656
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 7.91833455210637e-06
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 5.471314686011467e-10
+        }
+      ]
+    },
+    {
+      "case": "coordinate_fourth_power",
+      "mode": "stratified",
+      "optimizer": "adam",
+      "seed": 1,
+      "final_frobenius_error": 6.606333387892775e-16,
+      "empty_teacher_batches": 11,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 1.0092680971004908
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.006871613367069829
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.00010698381878911217
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 1.2110169010951597e-05
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 8.522352003134714e-08
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 1.270670187033237e-11
+        }
+      ]
+    },
+    {
+      "case": "coordinate_fourth_power",
+      "mode": "stratified",
+      "optimizer": "muon",
+      "seed": 0,
+      "final_frobenius_error": 0.0001317254091494935,
+      "empty_teacher_batches": 11,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 1.161320150272953
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.03213692033011015
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.013725603918210575
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.005286490615600255
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.0033839861158943326
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.0006785582580885943
+        }
+      ]
+    },
+    {
+      "case": "coordinate_fourth_power",
+      "mode": "stratified",
+      "optimizer": "muon",
+      "seed": 1,
+      "final_frobenius_error": 5.64651284841935e-05,
+      "empty_teacher_batches": 11,
+      "steps": 1200,
+      "history": [
+        {
+          "step": 0,
+          "exact_relative_error": 1.0092680971004908
+        },
+        {
+          "step": 200,
+          "exact_relative_error": 0.07919121894476208
+        },
+        {
+          "step": 400,
+          "exact_relative_error": 0.0027130043401249787
+        },
+        {
+          "step": 600,
+          "exact_relative_error": 0.0026811851147494955
+        },
+        {
+          "step": 800,
+          "exact_relative_error": 0.0052978338944831265
+        },
+        {
+          "step": 1000,
+          "exact_relative_error": 0.0016699704053783646
+        }
+      ]
+    }
+  ],
+  "seconds": 21.142267022049055,
+  "scope": "36 paired-initialization toy fits, exact teacher denominator; final checkpoints evaluated exactly. Small canonical materialization only."
+}
