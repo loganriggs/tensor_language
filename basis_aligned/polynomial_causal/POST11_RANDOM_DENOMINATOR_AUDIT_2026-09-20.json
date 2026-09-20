@@ -1,0 +1,33 @@
+{
+  "audit": {
+    "A": {
+      "native_specificity": 19.611481603895818,
+      "random_effect_relative_errors": [
+        0.44630487805495184,
+        0.5444186561326645,
+        0.5341018689105059,
+        0.6873912286846127,
+        0.5773830969785405,
+        0.6171546427422518,
+        0.5506857549363646,
+        0.4571651445168877
+      ],
+      "median_random_effect_relative_error": 0.5475522055345146
+    },
+    "B": {
+      "native_specificity": 20.18285777942749,
+      "random_effect_relative_errors": [
+        0.4748819569511851,
+        0.5609829048497825,
+        0.4675487432164455,
+        0.7991018396916321,
+        0.6310831777048174,
+        0.7208512264847656,
+        0.7012026819106802,
+        0.4409817897541598
+      ],
+      "median_random_effect_relative_error": 0.5960330412773
+    }
+  },
+  "scope": "Registered control-prediction gates use source-effect denominator, not random-effect denominator; passing does not imply accurate reconstruction relative to each small random effect"
+}

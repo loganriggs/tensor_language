@@ -30202,3 +30202,21 @@ Nativeoptimized/generic reader difference3.79e-19. FreshlongerA/B number6.57/5.6
 
 ### 2026-09-20T08:19:11.884664+00:00 — Codex: selected-reader dependency CPU audit passed
 Unused-port perturbations preserve optimized reader1e-10; full/equalendpoint/autograd/single-attention identities also pass. SUBJECT_MODAL_DERIVATIVE_PATH_2026-09-20.md prices modalgenerator ports(7+2T)Bd versus(1+13T)Bd, while explicitly retaining wholepredictor numbercontextdependencies. Nextpreservedhandoff: prospective amplitude/composition stress andportable smaller-reader export. Goalactive; no standalone/adoptionclaim.
+
+### 2026-09-20T08:20:38.790706+00:00 — Codex: claim v692 signed/mixed source-amplitude stress
+Keepv69148rows andfrozen sparse-number/attention12+MLP-modal formula. Arms A,B,sum plus half_sum(.5,.5),negA(-1,0),negB(0,-1),difference(1,-1),twiceA(2,0) atpost11. No fits; changing amplitudesnotfreshtext. Gates instrument,originalA/Breplication,allnewarms own-effect target10%/modal5%; nativecollateral10% separatelyreported. Also report source-budget-normalized errors andadditive baseline to diagnose cancellations, notreplacegates. Adds20true+20decoded-initial native suffixcalls over v691 (32each vs12), allcounted.
+
+### 2026-09-20T08:22:24.937602+00:00 — Codex: v692 signed number fails; claim v693 dense quadratic control
+Half_sum/negA/twiceA pass;negB max13.13%,difference11.94% fail10;allmodal<=3.37%,nativepreservationallpass. negB source-budgetmax10.96% so notsolelycancellation. Exactnativeafterinitialdecode failedcells1.26–5.73% vscompressed10–13%. Restoreall36sharedquadraticpairs eachMLP, unchangedframes/rows/gradreader/gates/counts. v693 tests whether18pairpruningcauses signedfailure; nofit/no rankincrease. Correct stale inheritedruntime-price/scope metadata innewrunner; preservehistoricalreceipts.
+
+### 2026-09-20T08:24:34.243769+00:00 — Codex: v693 dense signedfailure persists; claim v694 blockgroup composition control
+Dense36negB12.20%,difference11.14% fail10. Run exactnative groups of1,2,6blocks, project onlyatgroupends into existing v665frames, unchangedinitial/final interfaces andmodalpredictor. Gates group6 reproduces existinginitial-interface oracle1e-8; group2 all8arms target10%; group2 beatsgroup1 worstcell. Adds576nativeattention+576MLPcalls (3groupschedules*8arms*4batches*6blocks),0fits. Nativecomputationfullycharged; evidenceforjointfolding, not compressedadoption.
+
+### 2026-09-20T08:29:17.541417+00:00 — Codex: hourly switch to CIRCUIT; claim v695 post11 matched-control screen
+0828review andtimingaudit written; preservebackwardquadratic-observable handoffforfolding. v695 usesv69148openedrows,A/Bfullpost11sourcevectors,8seeds69500–69507 withper-tokenL2/supportmatched randomdirections. Adds64nativepost11suffixcalls and64reducedDAGevaluations. Gates existinginstrument+normmatch1e-5; poolednative source/medianrandom numbernorm>=5 forA/B (percellreported); randomnumberprediction<=10% andmodal<=5% ofmatchedsourceeffect norm eachcell/seed. Contextreader/fullsourceinputs charged; nofits.
+
+### 2026-09-20T08:32:33.070037+00:00 — Codex: v695 matchedcontrol passes; claim v696 semantic-attractor control preparation
+A/B native target/medianrandom19.61/20.18x, minimumcell12.21/12.86x; numbercontrolerrors6.65/6.34%,modal3.08/3.57% ofsourceeffect allpass. Per-token normmatch1.71e-7. Registries/dossiers/backlog/connection/sourceexecutors searched; no matching attractor-removal receipt found. Preparepairedhumanattractor positions onv691rows for sameembedding-number-removal A/Bsourceports atnon-subjectsite. CPUrole/token audit now; nativeexecution notyetdone. Intended5x subject/attractoreffect and10%/5% predictionbars remain toregister inrunner.
+
+### 2026-09-20T08:34:16.998275+00:00 — Codex: control denominator and semantic-site CPU audits executed
+Randompredictiongates use sourceeffectdenominator; medianrandom-own-effect numbererrors54.8/59.6%, so no arbitrary-direction accuracyclaim. v69648rolepositions/oppositenounnumbers/unchangedsubjectlabels verified,controlhash8f5dd61488ce13d8eea3de10e832b9e12ec5c6a3bbb0d4a6c7232d119e690be8. Nativecontrol pending. Signed/control dossiercrosslinked; allfailedgates retained.
