@@ -18,6 +18,7 @@ PROGRAM_SPECS=None
 PRIMARY='quartic10'
 def main():
  if os.environ.get('BQLIB_DRYRUN') or os.environ.get('BQLIB_NO_MODEL'):print(json.dumps(PLAN));return
+ context=PLAN['context']
  import torch
  import torch.nn.functional as F
  sys.path.insert(0,str(P))
@@ -36,10 +37,11 @@ def main():
    if y.ndim==1:s[k]=s[k][:,0]
    solves.append(float((ru@s[k]-y).norm()/y.norm()))
   programs[name]=s
- ids=torch.load(PANEL_PATH,weights_only=True) if PANEL_PATH is not None else torch.load(BQ/'.rowcache/fineweb_n192_skip7000.pt',weights_only=True)[64:80,:129];digest=hashlib.sha256(ids.numpy().tobytes()).hexdigest();rows=[];checks=[];L,R,D=[getattr(b17.mlp,k).weight for k in ['Left','Right','Down']]
+ ids=torch.load(PANEL_PATH,weights_only=True) if PANEL_PATH is not None else torch.load(BQ/'.rowcache/fineweb_n192_skip7000.pt',weights_only=True)[64:80,:context+1];digest=hashlib.sha256(ids.numpy().tobytes()).hexdigest();rows=[];checks=[];L,R,D=[getattr(b17.mlp,k).weight for k in ['Left','Right','Down']]
  rel=lambda a,b:float((a-b).norm()/b.norm().clamp_min(1e-30))
+ assert len(ids)==len(PLAN['documents']) and ids.shape[1]==context+1
  for doc,tokens in zip(PLAN['documents'],ids):
-  tokens=tokens.cuda()[None];x=F.rms_norm(model.transformer.wte(tokens[:,:128]),(1152,));x0=x;v1=None;cache={}
+  tokens=tokens.cuda()[None];x=F.rms_norm(model.transformer.wte(tokens[:,:context]),(1152,));x0=x;v1=None;cache={}
   def pre16(module,args):cache['x16']=args[0].clone()
   def post16(module,args,value):cache['m16']=value.clone()
   def postattn(module,args,value):cache['attn17']=value[0].clone()
@@ -55,10 +57,10 @@ def main():
   previous=bilinear(cache['x16'],b16.mlp.Left.weight,b16.mlp.Right.weight,b16.mlp.Down.weight);exact=bilinear(b17.lambdas[0]*previous,L,R,D)
   checks.extend([rel(F.rms_norm(h,(1152,)),cache['norm17']),rel(h+cache['mlp17'],x)])
   logits=lambda state:30*torch.tanh(model.lm_head(F.rms_norm(state,(1152,)))/30)
-  native=logits(x);logp=F.log_softmax(native,dim=-1);p=logp.exp();native_ce=float(F.cross_entropy(native.flatten(0,1),tokens[:,1:129].flatten()))
+  native=logits(x);logp=F.log_softmax(native,dim=-1);p=logp.exp();native_ce=float(F.cross_entropy(native.flatten(0,1),tokens[:,1:context+1].flatten()))
   for arm in PLAN['arms']:
    replacement=exact if arm=='exact' else torch.zeros_like(original) if arm=='ablation' else quartic(programs[arm],cache['x16'].flatten(0,1).double()).reshape_as(original).float()
-   mlp=replace_branch(cache['mlp17'],h,original,replacement);changed=x+(mlp-cache['mlp17']);z=logits(changed);delta=z-native;ce=float(F.cross_entropy(z.flatten(0,1),tokens[:,1:129].flatten()))
+   mlp=replace_branch(cache['mlp17'],h,original,replacement);changed=x+(mlp-cache['mlp17']);z=logits(changed);delta=z-native;ce=float(F.cross_entropy(z.flatten(0,1),tokens[:,1:context+1].flatten()))
    row=dict(document=doc,arm=arm,native_ce=native_ce,ce_added=ce-native_ce,kl=float((p*(logp-F.log_softmax(z,dim=-1))).sum(-1).mean()),logit_mse=float(delta.square().mean()),argmax_agreement=float((z.argmax(-1)==native.argmax(-1)).float().mean()),relative_logit_error=rel(z,native),relative_residual_error=rel(changed,x))
    if arm=='exact':checks.extend([row['relative_logit_error'],row['relative_residual_error']])
    rows.append(row)

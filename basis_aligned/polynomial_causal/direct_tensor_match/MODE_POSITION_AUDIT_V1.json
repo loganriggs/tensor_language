@@ -1,0 +1,77 @@
+{
+  "records": [
+    {
+      "source": "native",
+      "position_mean_variance_fraction": [
+        0.037037879729597135,
+        0.03473035788297016,
+        0.04632692810168376,
+        0.03546529566212748
+      ],
+      "circular_shift_null_mean": [
+        0.031254843308359335,
+        0.031236666991514103,
+        0.030995626253813257,
+        0.031100683106342432
+      ],
+      "circular_shift_null_95": [
+        0.03631733773943023,
+        0.036043955480657544,
+        0.0357016743928019,
+        0.03592919054544492
+      ],
+      "log_position_correlation": [
+        0.07154069782357848,
+        -0.022572042634626505,
+        0.11183185403357179,
+        0.004228686693865504
+      ],
+      "first8_positions_fraction_of_centered_energy": [
+        0.020232362196265223,
+        0.021193086304785363,
+        0.035794546631446156,
+        0.022197368950857443
+      ],
+      "scope": "Within-document centering. Circular shifts preserve each trajectory but randomize alignment; exploratory reference, not a definitive null for nonstationary language."
+    },
+    {
+      "source": "primary",
+      "position_mean_variance_fraction": [
+        0.03727487400079784,
+        0.035091493047381815,
+        0.049758717499010445,
+        0.03374287088170452
+      ],
+      "circular_shift_null_mean": [
+        0.031309782950034504,
+        0.03127654555282072,
+        0.031127410257724128,
+        0.03118851288263554
+      ],
+      "circular_shift_null_95": [
+        0.035968765977248136,
+        0.03649676370315148,
+        0.03584629673272363,
+        0.036296190480333
+      ],
+      "log_position_correlation": [
+        0.08106850964703198,
+        -0.006805008514840362,
+        0.12815873829734326,
+        0.002218901322139598
+      ],
+      "first8_positions_fraction_of_centered_energy": [
+        0.02342470660356858,
+        0.02211942692696547,
+        0.04249374804694658,
+        0.030343072742893572
+      ],
+      "scope": "Within-document centering. Circular shifts preserve each trajectory but randomize alignment; exploratory reference, not a definitive null for nonstationary language."
+    }
+  ],
+  "documents": 32,
+  "context": 256,
+  "seed": 260935,
+  "permutations": 500,
+  "scope": "Reused panel, frozen canonical basis and primary blend. Position association is descriptive and does not establish semantic meaning or causal position dependence."
+}

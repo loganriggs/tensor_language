@@ -1,0 +1,365 @@
+{
+  "context": 256,
+  "primary_alpha": 0.5,
+  "records": {
+    "fineweb": {
+      "branch": {
+        "exact": {
+          "native_ce": 3.3224843963980675,
+          "ce_added": -2.9802322387695312e-08,
+          "kl": 1.4373181950189107e-09,
+          "logit_mse": 1.245671495708517e-13,
+          "argmax_agreement": 1.0
+        },
+        "ablation": {
+          "native_ce": 3.3224843963980675,
+          "ce_added": 0.11758603155612946,
+          "kl": 0.13110912090633065,
+          "logit_mse": 0.8957237973809242,
+          "argmax_agreement": 0.8707275390625
+        },
+        "primary": {
+          "native_ce": 3.3224843963980675,
+          "ce_added": 0.004857555031776428,
+          "kl": 0.007204573121271096,
+          "logit_mse": 0.07100202329456806,
+          "argmax_agreement": 0.970703125
+        },
+        "gaussian": {
+          "native_ce": 3.3224843963980675,
+          "ce_added": 0.008217550814151764,
+          "kl": 0.010982407293340657,
+          "logit_mse": 0.08025749889202416,
+          "argmax_agreement": 0.971435546875
+        },
+        "base": {
+          "native_ce": 3.3224843963980675,
+          "ce_added": 0.013991221785545349,
+          "kl": 0.017016426718328148,
+          "logit_mse": 0.12908590084407479,
+          "argmax_agreement": 0.9647216796875
+        }
+      },
+      "modes": {
+        "primary": {
+          "0": {
+            "native_ce_added": 0.23911043140105903,
+            "native_kl": 0.24068468273617327,
+            "native_argmax_agreement": 0.927490234375,
+            "predicted_ce_added": 0.2507207754533738,
+            "predicted_kl": 0.25237585534341633,
+            "predicted_argmax_agreement": 0.9285888671875,
+            "effect_cosine": 0.9948203833907145,
+            "effect_relative_error": 0.10307221139023304,
+            "ce_effect_cosine": 0.9966761578402643,
+            "ce_effect_relative_error": 0.09191437748513664,
+            "native_logit_effect_rms": 0.9229161538754653
+          },
+          "1": {
+            "native_ce_added": 0.014764693496545078,
+            "native_kl": 0.018895845365477726,
+            "native_argmax_agreement": 0.9703369140625,
+            "predicted_ce_added": 0.012359139393083751,
+            "predicted_kl": 0.01526399198337458,
+            "predicted_argmax_agreement": 0.9720458984375,
+            "effect_cosine": 0.9577482414497589,
+            "effect_relative_error": 0.29042180547371643,
+            "ce_effect_cosine": 0.9782347078094096,
+            "ce_effect_relative_error": 0.23137953743006695,
+            "native_logit_effect_rms": 0.353540353587488
+          },
+          "2": {
+            "native_ce_added": 0.011855066288262606,
+            "native_kl": 0.019917912228265777,
+            "native_argmax_agreement": 0.9825439453125,
+            "predicted_ce_added": 0.011553373471542727,
+            "predicted_kl": 0.019906304049072787,
+            "predicted_argmax_agreement": 0.98291015625,
+            "effect_cosine": 0.9408162218460625,
+            "effect_relative_error": 0.35392437785544795,
+            "ce_effect_cosine": 0.9536722176672315,
+            "ce_effect_relative_error": 0.3115835967692561,
+            "native_logit_effect_rms": 0.33870395330633796
+          },
+          "3": {
+            "native_ce_added": 0.0031377956074720714,
+            "native_kl": 0.0037380016656243242,
+            "native_argmax_agreement": 0.9901123046875,
+            "predicted_ce_added": 0.0029979343071318,
+            "predicted_kl": 0.0028999231799389236,
+            "predicted_argmax_agreement": 0.9912109375,
+            "effect_cosine": 0.9204834280346263,
+            "effect_relative_error": 0.3951100803604758,
+            "ce_effect_cosine": 0.9250654232125851,
+            "ce_effect_relative_error": 0.3849596402479599,
+            "native_logit_effect_rms": 0.24707100857667325
+          },
+          "joint": {
+            "native_ce_added": 0.2926460762973875,
+            "native_kl": 0.30413615913130343,
+            "native_argmax_agreement": 0.909912109375,
+            "predicted_ce_added": 0.3024197854101658,
+            "predicted_kl": 0.31286868057213724,
+            "predicted_argmax_agreement": 0.913818359375,
+            "effect_cosine": 0.9882881597614626,
+            "effect_relative_error": 0.15419037169125718,
+            "ce_effect_cosine": 0.9968324192467105,
+            "ce_effect_relative_error": 0.08763145187287016,
+            "native_logit_effect_rms": 0.9834127631399407
+          }
+        },
+        "gaussian": {
+          "0": {
+            "native_ce_added": 0.23911043140105903,
+            "native_kl": 0.24068468273617327,
+            "native_argmax_agreement": 0.927490234375,
+            "predicted_ce_added": 0.25344870146363974,
+            "predicted_kl": 0.25494190654717386,
+            "predicted_argmax_agreement": 0.92919921875,
+            "effect_cosine": 0.9927562560165164,
+            "effect_relative_error": 0.1213956198698366,
+            "ce_effect_cosine": 0.9957033159385674,
+            "ce_effect_relative_error": 0.111019191796081,
+            "native_logit_effect_rms": 0.9229161538754653
+          },
+          "1": {
+            "native_ce_added": 0.014764693496545078,
+            "native_kl": 0.018895845365477726,
+            "native_argmax_agreement": 0.9703369140625,
+            "predicted_ce_added": 0.009631303633796051,
+            "predicted_kl": 0.012288719597563613,
+            "predicted_argmax_agreement": 0.9747314453125,
+            "effect_cosine": 0.9588330174749329,
+            "effect_relative_error": 0.31703075408477577,
+            "ce_effect_cosine": 0.9777488588072691,
+            "ce_effect_relative_error": 0.27894590956062887,
+            "native_logit_effect_rms": 0.353540353587488
+          },
+          "2": {
+            "native_ce_added": 0.011855066288262606,
+            "native_kl": 0.019917912228265777,
+            "native_argmax_agreement": 0.9825439453125,
+            "predicted_ce_added": 0.01060936584144656,
+            "predicted_kl": 0.018384651470114477,
+            "predicted_argmax_agreement": 0.982666015625,
+            "effect_cosine": 0.8876460907607552,
+            "effect_relative_error": 0.49423661989042383,
+            "ce_effect_cosine": 0.9190741113367853,
+            "ce_effect_relative_error": 0.40007175881948354,
+            "native_logit_effect_rms": 0.33870395330633796
+          },
+          "3": {
+            "native_ce_added": 0.0031377956074720714,
+            "native_kl": 0.0037380016656243242,
+            "native_argmax_agreement": 0.9901123046875,
+            "predicted_ce_added": 0.003274014010457904,
+            "predicted_kl": 0.0030472048056253698,
+            "predicted_argmax_agreement": 0.990966796875,
+            "effect_cosine": 0.9221700534280866,
+            "effect_relative_error": 0.3950020467447318,
+            "ce_effect_cosine": 0.8983199191103225,
+            "ce_effect_relative_error": 0.43936043442471767,
+            "native_logit_effect_rms": 0.24707100857667325
+          },
+          "joint": {
+            "native_ce_added": 0.2926460762973875,
+            "native_kl": 0.30413615913130343,
+            "native_argmax_agreement": 0.909912109375,
+            "predicted_ce_added": 0.29747739899903536,
+            "predicted_kl": 0.30654654279351234,
+            "predicted_argmax_agreement": 0.914306640625,
+            "effect_cosine": 0.9833096687129234,
+            "effect_relative_error": 0.18226124775110492,
+            "ce_effect_cosine": 0.9951008391515056,
+            "ce_effect_relative_error": 0.11148157190629183,
+            "native_logit_effect_rms": 0.9834127631399407
+          }
+        }
+      }
+    },
+    "code": {
+      "branch": {
+        "exact": {
+          "native_ce": 5.071418076753616,
+          "ce_added": -8.940696716308594e-08,
+          "kl": -2.5015051280385947e-09,
+          "logit_mse": 2.1024775853412028e-13,
+          "argmax_agreement": 1.0
+        },
+        "ablation": {
+          "native_ce": 5.071418076753616,
+          "ce_added": 0.495028555393219,
+          "kl": 0.5711923372000456,
+          "logit_mse": 1.6467531844973564,
+          "argmax_agreement": 0.663818359375
+        },
+        "primary": {
+          "native_ce": 5.071418076753616,
+          "ce_added": 0.019005343317985535,
+          "kl": 0.03142656898126006,
+          "logit_mse": 0.16774447867646813,
+          "argmax_agreement": 0.90283203125
+        },
+        "gaussian": {
+          "native_ce": 5.071418076753616,
+          "ce_added": 0.01992689073085785,
+          "kl": 0.04769906704314053,
+          "logit_mse": 0.18078485829755664,
+          "argmax_agreement": 0.899169921875
+        },
+        "base": {
+          "native_ce": 5.071418076753616,
+          "ce_added": 0.030017495155334473,
+          "kl": 0.06343413516879082,
+          "logit_mse": 0.23112015891820192,
+          "argmax_agreement": 0.88623046875
+        }
+      },
+      "modes": {
+        "primary": {
+          "0": {
+            "native_ce_added": 0.37330122385174036,
+            "native_kl": 0.3820341359823942,
+            "native_argmax_agreement": 0.836669921875,
+            "predicted_ce_added": 0.42595808766782284,
+            "predicted_kl": 0.42986099794507027,
+            "predicted_argmax_agreement": 0.830810546875,
+            "effect_cosine": 0.98360798121316,
+            "effect_relative_error": 0.18741781923791742,
+            "ce_effect_cosine": 0.9899218916930049,
+            "ce_effect_relative_error": 0.16987822529202096,
+            "native_logit_effect_rms": 0.9235159514848951
+          },
+          "1": {
+            "native_ce_added": 0.007750310105620883,
+            "native_kl": 0.02774114126805216,
+            "native_argmax_agreement": 0.935791015625,
+            "predicted_ce_added": 0.0031366405019070953,
+            "predicted_kl": 0.02127452555578202,
+            "predicted_argmax_agreement": 0.94140625,
+            "effect_cosine": 0.9257078052362339,
+            "effect_relative_error": 0.40002529341666365,
+            "ce_effect_cosine": 0.9523497098134118,
+            "ce_effect_relative_error": 0.31624886785562106,
+            "native_logit_effect_rms": 0.4144706602434549
+          },
+          "2": {
+            "native_ce_added": 0.10627647861838341,
+            "native_kl": 0.1340417736209929,
+            "native_argmax_agreement": 0.912353515625,
+            "predicted_ce_added": 0.06592903204727918,
+            "predicted_kl": 0.09051223052665591,
+            "predicted_argmax_agreement": 0.9306640625,
+            "effect_cosine": 0.9579998862449596,
+            "effect_relative_error": 0.30982968630308405,
+            "ce_effect_cosine": 0.9704105924871443,
+            "ce_effect_relative_error": 0.28933395127654377,
+            "native_logit_effect_rms": 0.5921152519671359
+          },
+          "3": {
+            "native_ce_added": 0.03793649491854012,
+            "native_kl": 0.03490999946370721,
+            "native_argmax_agreement": 0.943115234375,
+            "predicted_ce_added": 0.022470822019386105,
+            "predicted_kl": 0.02071941236499697,
+            "predicted_argmax_agreement": 0.955810546875,
+            "effect_cosine": 0.9291905123342045,
+            "effect_relative_error": 0.42024851019931225,
+            "ce_effect_cosine": 0.9050263171825437,
+            "ce_effect_relative_error": 0.4483226996866281,
+            "native_logit_effect_rms": 0.3988571715658382
+          },
+          "joint": {
+            "native_ce_added": 0.5143371447920799,
+            "native_kl": 0.5628312863409519,
+            "native_argmax_agreement": 0.777587890625,
+            "predicted_ce_added": 0.5352435689419508,
+            "predicted_kl": 0.5763620473444462,
+            "predicted_argmax_agreement": 0.78662109375,
+            "effect_cosine": 0.9770467106133552,
+            "effect_relative_error": 0.21311415324322835,
+            "ce_effect_cosine": 0.9906919767045252,
+            "ce_effect_relative_error": 0.14686905800580707,
+            "native_logit_effect_rms": 1.1132244608218984
+          }
+        },
+        "gaussian": {
+          "0": {
+            "native_ce_added": 0.37330122385174036,
+            "native_kl": 0.3820341359823942,
+            "native_argmax_agreement": 0.836669921875,
+            "predicted_ce_added": 0.423911951482296,
+            "predicted_kl": 0.4267960023134947,
+            "predicted_argmax_agreement": 0.83349609375,
+            "effect_cosine": 0.984873301318583,
+            "effect_relative_error": 0.17883501458115336,
+            "ce_effect_cosine": 0.989804942046866,
+            "ce_effect_relative_error": 0.17223275509860278,
+            "native_logit_effect_rms": 0.9235159514848951
+          },
+          "1": {
+            "native_ce_added": 0.007750310105620883,
+            "native_kl": 0.02774114126805216,
+            "native_argmax_agreement": 0.935791015625,
+            "predicted_ce_added": -0.0008321891364175826,
+            "predicted_kl": 0.013784628245048225,
+            "predicted_argmax_agreement": 0.95166015625,
+            "effect_cosine": 0.9333756722755312,
+            "effect_relative_error": 0.4396156771068454,
+            "ce_effect_cosine": 0.9645150842525366,
+            "ce_effect_relative_error": 0.36951412718189897,
+            "native_logit_effect_rms": 0.4144706602434549
+          },
+          "2": {
+            "native_ce_added": 0.10627647861838341,
+            "native_kl": 0.1340417736209929,
+            "native_argmax_agreement": 0.912353515625,
+            "predicted_ce_added": 0.051483366871252656,
+            "predicted_kl": 0.07050732360221446,
+            "predicted_argmax_agreement": 0.935302734375,
+            "effect_cosine": 0.9338356987491312,
+            "effect_relative_error": 0.38537515979192727,
+            "ce_effect_cosine": 0.9566206955012144,
+            "ce_effect_relative_error": 0.37800754061513847,
+            "native_logit_effect_rms": 0.5921152519671359
+          },
+          "3": {
+            "native_ce_added": 0.03793649491854012,
+            "native_kl": 0.03490999946370721,
+            "native_argmax_agreement": 0.943115234375,
+            "predicted_ce_added": 0.028625616803765297,
+            "predicted_kl": 0.02152166242012754,
+            "predicted_argmax_agreement": 0.955078125,
+            "effect_cosine": 0.9379949188851844,
+            "effect_relative_error": 0.3839556281732469,
+            "ce_effect_cosine": 0.9247780938579501,
+            "ce_effect_relative_error": 0.39667742784876187,
+            "native_logit_effect_rms": 0.3988571715658382
+          },
+          "joint": {
+            "native_ce_added": 0.5143371447920799,
+            "native_kl": 0.5628312863409519,
+            "native_argmax_agreement": 0.777587890625,
+            "predicted_ce_added": 0.5004874505102634,
+            "predicted_kl": 0.5308946147561073,
+            "predicted_argmax_agreement": 0.791259765625,
+            "effect_cosine": 0.9745017951970419,
+            "effect_relative_error": 0.22587531412701348,
+            "ce_effect_cosine": 0.9865910229431756,
+            "ce_effect_relative_error": 0.1688153260312312,
+            "native_logit_effect_rms": 1.1132244608218984
+          }
+        }
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_feature": false,
+    "pred_c_preservation": false
+  },
+  "replay_max": 1.9297773690141184e-07,
+  "panel_manifest": "BLEND_CONFIRMATION_PANELS_V1.json",
+  "program_hash": "a61b8e73fd9b004a94db705c98521ee1b73f6be4a668c936d51738b4c3093fb5",
+  "scope": "Frozen primary and controls on new documents/code files at longer context. Limited local-code domain shift, no semantic selectivity or whole-model speedup claim."
+}

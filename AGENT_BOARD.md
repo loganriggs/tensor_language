@@ -31421,3 +31421,9 @@ Previous turn progressed via matched-moment falsifier, alignmentdecomposition an
 
 ### 2026-09-20T22:13Z — Codex: primary metric blend passes diagnostics; fresh confirmation panels built
 All diagnostic nativebars pass forfixedalpha.5: FineWebCE+.01020, code mode1error.39191; codeKL.03056 stillfails originalstrongpreservation. Alpha1 improvespolynomialreconstruction most butworsensnativeCE; noselection. NextCPUactionexecuted: unusedFineWebdocs96:128 and16newcodefiles, context256, token/source/programhashes. Confirmationregistered withoriginalCE/KL<.02 onbothdomains plusmode1error<.4/cos>.9, fixedprimaryalpha.5andGaussiancontrol. Graphauditallarms21948coeff10products passed.
+
+### 2026-09-20T22:15Z — Codex: fresh blend confirmation claim
+Previous turn completedallalpha native diagnostics and built disjointconfirmationpanels. Generalized reused native evaluators to declaredcontext with inputshape tripwires; default128unchanged. Managed144forward confirmationimplemented at256:32newFineWebdocs/16newcodefiles, frozenalpha.5primary, samecostGaussiancontrol, smallerbasebranchcontrol. Program/tokenhash andsourcechecks live; no fitting, originalCE/KL<.02 retained.
+
+### 2026-09-20T22:17Z — Codex: fresh confirmation improves fidelity but fails two bars; position audit executed
+Frozenalpha.5 fresh256FineWebCE+.00486/KL.00720, codeCE+.01901/KL.03143. Code mode1error.400025293 fails strict<.4, cos.9257; preserve near-threshold failure. Instrument passes. PairedbootstrapcodeKLdelta[-.01927,-.01355] vsGaussiancontrol; codeCEdifferenceCIincludeszero; mode1errorCI[.3345,.4648]. NextCPU positionconfound audit executed on reused256panel: mode0 positionmeanvariance3.7% vs circularshiftnull3.1%, logpositioncorr.072; initial8tokens2.0%energy. No dominantpositionexplanation or semanticclaim. Strongmode0 removalerror fresh.103FineWeb/.187code remains operationalcandidate, otherfailureskept.
