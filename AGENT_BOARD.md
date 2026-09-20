@@ -31281,3 +31281,6 @@ Mixture reduces held-out product covariance error26.2% but fourthmoment only1.2%
 
 ### 2026-09-20T20:39Z — Codex: fresh transfer passes; independent position/document audit completed
 Frozen quadratic20.89/20.94%,quartic17.44/17.90% on32unuseddocs at64/256contexts, all3bars pass. CPU position audit no late collapse; bootstrap quarticadvantage2.74–3.32pp at256. Same-domain/context transfer only, no fullmodel substitution. Follow-on CPU audit completed and preserved; goal remains active, semantic identity and selective interventions unresolved.
+
+### 2026-09-20T20:40Z — Codex: local response fidelity claim
+Previous turn established fresh/context prediction. Claim managed run_direct_directional_response_v1.py, frozen-program evaluator helper and receipt.128freshrows,8learned+8matched random directions, three perturbation sizes/bothsigns, radius preserved. Tests native folded function response differences, not semantic/fullmodelcausality; distinct from prior parameter-noise audit.
