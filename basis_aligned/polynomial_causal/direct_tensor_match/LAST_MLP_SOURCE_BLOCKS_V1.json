@@ -1,0 +1,4163 @@
+{
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_cross": true,
+    "pred_c_cancel": true
+  },
+  "replay_max": 2.937580703462444e-07,
+  "toy": {
+    "sum_replay": 2.8628108601384304e-16,
+    "self_replay": 0.0,
+    "source_union_replay": 2.4305324233482064e-16
+  },
+  "summary": {
+    "fineweb": {
+      "r_r": {
+        "raw_effect_energy": 11751902065.671162,
+        "centered_effect_energy": 3420839708.515921,
+        "ce_added": 1.400475911796093,
+        "kl": 1.3726760037243366,
+        "centered_effect_norm_over_mm": 3.340844903329436
+      },
+      "r_m": {
+        "raw_effect_energy": 3694876652.991133,
+        "centered_effect_energy": 1556444968.585529,
+        "ce_added": 2.496423862874508,
+        "kl": 2.5318521969020367,
+        "centered_effect_norm_over_mm": 2.253496234964128
+      },
+      "r_a": {
+        "raw_effect_energy": 141765918.4218789,
+        "centered_effect_energy": 53652988.91106568,
+        "ce_added": 0.02457277410576353,
+        "kl": 0.0210773847065866,
+        "centered_effect_norm_over_mm": 0.41839541074059766
+      },
+      "m_m": {
+        "raw_effect_energy": 372227514.6564712,
+        "centered_effect_energy": 306492672.65794665,
+        "ce_added": 0.11280545743647963,
+        "kl": 0.12066408118698746,
+        "centered_effect_norm_over_mm": 1.0
+      },
+      "m_a": {
+        "raw_effect_energy": 32779330.109897997,
+        "centered_effect_energy": 15771197.694366058,
+        "ce_added": 0.006525123815663392,
+        "kl": 0.008310508113936521,
+        "centered_effect_norm_over_mm": 0.2268413847283444
+      },
+      "a_a": {
+        "raw_effect_energy": 332466.6882944007,
+        "centered_effect_energy": 203566.082673211,
+        "ce_added": 0.00011605029430938885,
+        "kl": 8.517569744981301e-05,
+        "centered_effect_norm_over_mm": 0.025771675926716826
+      },
+      "mlp_dependent": {
+        "raw_effect_energy": 2750669920.200407,
+        "centered_effect_energy": 1042922996.939002,
+        "ce_added": 1.5543419905006886,
+        "kl": 1.585782002657652,
+        "centered_effect_norm_over_mm": 1.8446589097238477
+      },
+      "attention_dependent": {
+        "raw_effect_energy": 47791846.39268205,
+        "centered_effect_energy": 18231377.929763395,
+        "ce_added": 0.008575658703193767,
+        "kl": 0.006898847466800362,
+        "centered_effect_norm_over_mm": 0.24389320389411395
+      },
+      "all_polynomial": {
+        "raw_effect_energy": 6249561393.818269,
+        "centered_effect_energy": 1542010552.3901575,
+        "ce_added": 0.653111738152802,
+        "kl": 0.6214023735374212,
+        "centered_effect_norm_over_mm": 2.2430224724453347
+      }
+    },
+    "code": {
+      "r_r": {
+        "raw_effect_energy": 6926556970.181352,
+        "centered_effect_energy": 2056656045.784829,
+        "ce_added": 3.4959097504615784,
+        "kl": 3.7032032907009125,
+        "centered_effect_norm_over_mm": 2.6293063538188317
+      },
+      "r_m": {
+        "raw_effect_energy": 2256448108.462184,
+        "centered_effect_energy": 1022966008.6917448,
+        "ce_added": 4.621484950184822,
+        "kl": 4.803188145160675,
+        "centered_effect_norm_over_mm": 1.8543468000945629
+      },
+      "r_a": {
+        "raw_effect_energy": 72358152.48572034,
+        "centered_effect_energy": 33358244.538472362,
+        "ce_added": 0.13027035910636187,
+        "kl": 0.05955709144473076,
+        "centered_effect_norm_over_mm": 0.334858981254826
+      },
+      "m_m": {
+        "raw_effect_energy": 323434065.4899055,
+        "centered_effect_energy": 297494735.45449674,
+        "ce_added": 0.4615887999534607,
+        "kl": 0.623259037733078,
+        "centered_effect_norm_over_mm": 1.0
+      },
+      "m_a": {
+        "raw_effect_energy": 19534096.686407518,
+        "centered_effect_energy": 12252367.877891723,
+        "ce_added": 0.0006821081915404648,
+        "kl": 0.03461724251974374,
+        "centered_effect_norm_over_mm": 0.20294126897261058
+      },
+      "a_a": {
+        "raw_effect_energy": 161224.93609775472,
+        "centered_effect_energy": 112484.66204959065,
+        "ce_added": 0.00133128123707138,
+        "kl": 0.00019320023375257733,
+        "centered_effect_norm_over_mm": 0.019444958095113474
+      },
+      "mlp_dependent": {
+        "raw_effect_energy": 1779605737.1855931,
+        "centered_effect_energy": 651711801.9037163,
+        "ce_added": 3.1963991522789,
+        "kl": 3.332611605525017,
+        "centered_effect_norm_over_mm": 1.4800900889774855
+      },
+      "attention_dependent": {
+        "raw_effect_energy": 21212899.092724826,
+        "centered_effect_energy": 8856369.124486437,
+        "ce_added": 0.051938660559244454,
+        "kl": 0.015460782567970455,
+        "centered_effect_norm_over_mm": 0.172539371701107
+      },
+      "all_polynomial": {
+        "raw_effect_energy": 5430778434.738377,
+        "centered_effect_energy": 1312835191.5832624,
+        "ce_added": 2.1261834278702736,
+        "kl": 1.900061883032322,
+        "centered_effect_norm_over_mm": 2.10070690291934
+      }
+    }
+  },
+  "source_grams": [
+    {
+      "domain": "fineweb",
+      "names": [
+        "r_r",
+        "r_m",
+        "r_a",
+        "m_m",
+        "m_a",
+        "a_a"
+      ],
+      "gram": [
+        [
+          4.398969965184518e+16,
+          -2.8695904135572064e+16,
+          1491580803185590.8,
+          5235021473830589.0,
+          -210610825310262.22,
+          27700832478648.926
+        ],
+        [
+          -2.8695904135572064e+16,
+          2.5448415756857776e+16,
+          -100325529741581.78,
+          -6401363383608690.0,
+          -236052832977921.12,
+          -18756124329000.336
+        ],
+        [
+          1491580803185590.8,
+          -100325529741581.78,
+          349904190008987.1,
+          -253997333198391.06,
+          -143004675155491.75,
+          -491179031338.68134
+        ],
+        [
+          5235021473830589.0,
+          -6401363383608690.0,
+          -253997333198391.06,
+          2176159982334827.8,
+          215021029291965.06,
+          8484009697618.997
+        ],
+        [
+          -210610825310262.22,
+          -236052832977921.12,
+          -143004675155491.75,
+          215021029291965.06,
+          95060559068888.64,
+          4882281335837.171
+        ],
+        [
+          27700832478648.926,
+          -18756124329000.336,
+          -491179031338.68134,
+          8484009697618.997,
+          4882281335837.171,
+          1050551536669.9755
+        ]
+      ],
+      "m_dependent_cancellation_ratio": 0.7325419059872944
+    },
+    {
+      "domain": "code",
+      "names": [
+        "r_r",
+        "r_m",
+        "r_a",
+        "m_m",
+        "m_a",
+        "a_a"
+      ],
+      "gram": [
+        [
+          4.887921075250211e+16,
+          -3.3578117742606428e+16,
+          117987742088218.61,
+          5679321150406584.0,
+          485477502775772.6,
+          81371324687383.89
+        ],
+        [
+          -3.3578117742606428e+16,
+          2.9995436473353948e+16,
+          622553633932719.6,
+          -7579383056726038.0,
+          -724880227362246.2,
+          -54975932501059.39
+        ],
+        [
+          117987742088218.61,
+          622553633932719.6,
+          226991389414319.25,
+          -366253209235969.3,
+          -125346896194387.98,
+          -2880591064388.7056
+        ],
+        [
+          5679321150406584.0,
+          -7579383056726038.0,
+          -366253209235969.3,
+          2820740886904089.5,
+          312675708781173.25,
+          12086312563130.38
+        ],
+        [
+          485477502775772.6,
+          -724880227362246.2,
+          -125346896194387.98,
+          312675708781173.25,
+          95327320028652.53,
+          4715411652939.543
+        ],
+        [
+          81371324687383.89,
+          -54975932501059.39,
+          -2880591064388.7056,
+          12086312563130.38,
+          4715411652939.543,
+          607409295678.1583
+        ]
+      ],
+      "m_dependent_cancellation_ratio": 0.7171882787374824
+    }
+  ],
+  "records": [
+    {
+      "domain": "fineweb",
+      "document": 0,
+      "group": "r_r",
+      "raw_effect_energy": 430559617.3817471,
+      "centered_effect_energy": 114915972.48791605,
+      "ce_added": 0.8040170669555664,
+      "kl": 0.8117368221282959
+    },
+    {
+      "domain": "fineweb",
+      "document": 0,
+      "group": "r_m",
+      "raw_effect_energy": 94413853.80949701,
+      "centered_effect_energy": 44522701.193201475,
+      "ce_added": 1.9789494276046753,
+      "kl": 1.9720913171768188
+    },
+    {
+      "domain": "fineweb",
+      "document": 0,
+      "group": "r_a",
+      "raw_effect_energy": 4523613.0385675635,
+      "centered_effect_energy": 1774822.296681236,
+      "ce_added": 0.003362435381859541,
+      "kl": 0.010303303599357605
+    },
+    {
+      "domain": "fineweb",
+      "document": 0,
+      "group": "m_m",
+      "raw_effect_energy": 11033686.299536634,
+      "centered_effect_energy": 8020184.710787684,
+      "ce_added": 0.06131846830248833,
+      "kl": 0.04720950499176979
+    },
+    {
+      "domain": "fineweb",
+      "document": 0,
+      "group": "m_a",
+      "raw_effect_energy": 2032964.5502408985,
+      "centered_effect_energy": 663698.8410218465,
+      "ce_added": 0.008267860859632492,
+      "kl": 0.003588571213185787
+    },
+    {
+      "domain": "fineweb",
+      "document": 0,
+      "group": "a_a",
+      "raw_effect_energy": 43812.82781682841,
+      "centered_effect_energy": 18297.906339141082,
+      "ce_added": 0.0014472512993961573,
+      "kl": 0.00012539737508632243
+    },
+    {
+      "domain": "fineweb",
+      "document": 0,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 73735643.04195419,
+      "centered_effect_energy": 30193922.488584712,
+      "ce_added": 1.1651320457458496,
+      "kl": 1.1535090208053589
+    },
+    {
+      "domain": "fineweb",
+      "document": 0,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1660154.7413742454,
+      "centered_effect_energy": 677029.6472942204,
+      "ce_added": 0.0040524364449083805,
+      "kl": 0.0048040663823485374
+    },
+    {
+      "domain": "fineweb",
+      "document": 0,
+      "group": "all_polynomial",
+      "raw_effect_energy": 217242770.87760118,
+      "centered_effect_energy": 51190008.22747789,
+      "ce_added": 0.39996960759162903,
+      "kl": 0.404912531375885
+    },
+    {
+      "domain": "fineweb",
+      "document": 1,
+      "group": "r_r",
+      "raw_effect_energy": 478571730.4797447,
+      "centered_effect_energy": 129135967.61046451,
+      "ce_added": 1.4796162843704224,
+      "kl": 1.4656298160552979
+    },
+    {
+      "domain": "fineweb",
+      "document": 1,
+      "group": "r_m",
+      "raw_effect_energy": 90864195.05284238,
+      "centered_effect_energy": 45355180.013335526,
+      "ce_added": 2.3783764839172363,
+      "kl": 2.435983180999756
+    },
+    {
+      "domain": "fineweb",
+      "document": 1,
+      "group": "r_a",
+      "raw_effect_energy": 5848275.416649601,
+      "centered_effect_energy": 1969860.994203232,
+      "ce_added": 0.04895491525530815,
+      "kl": 0.025428742170333862
+    },
+    {
+      "domain": "fineweb",
+      "document": 1,
+      "group": "m_m",
+      "raw_effect_energy": 12130590.071473591,
+      "centered_effect_energy": 9096384.55049501,
+      "ce_added": 0.03892632573843002,
+      "kl": 0.07787668704986572
+    },
+    {
+      "domain": "fineweb",
+      "document": 1,
+      "group": "m_a",
+      "raw_effect_energy": 1373906.421511447,
+      "centered_effect_energy": 464457.47925937374,
+      "ce_added": 0.0035173692740499973,
+      "kl": 0.007087227888405323
+    },
+    {
+      "domain": "fineweb",
+      "document": 1,
+      "group": "a_a",
+      "raw_effect_energy": 13251.34250866752,
+      "centered_effect_energy": 7491.186896988848,
+      "ce_added": 0.0015865879831835628,
+      "kl": 0.00014630270015913993
+    },
+    {
+      "domain": "fineweb",
+      "document": 1,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 72377308.0709151,
+      "centered_effect_energy": 30818714.30926089,
+      "ce_added": 1.5292365550994873,
+      "kl": 1.587735891342163
+    },
+    {
+      "domain": "fineweb",
+      "document": 1,
+      "group": "attention_dependent",
+      "raw_effect_energy": 2468139.5738117984,
+      "centered_effect_energy": 839153.885816777,
+      "ce_added": 0.03274978697299957,
+      "kl": 0.011258398182690144
+    },
+    {
+      "domain": "fineweb",
+      "document": 1,
+      "group": "all_polynomial",
+      "raw_effect_energy": 256357448.56350982,
+      "centered_effect_energy": 59610301.124591015,
+      "ce_added": 0.8967718482017517,
+      "kl": 0.7228899002075195
+    },
+    {
+      "domain": "fineweb",
+      "document": 2,
+      "group": "r_r",
+      "raw_effect_energy": 444932320.25912195,
+      "centered_effect_energy": 125680764.18494336,
+      "ce_added": 2.309929847717285,
+      "kl": 2.156741142272949
+    },
+    {
+      "domain": "fineweb",
+      "document": 2,
+      "group": "r_m",
+      "raw_effect_energy": 115357878.20362988,
+      "centered_effect_energy": 54630750.753491595,
+      "ce_added": 2.6737101078033447,
+      "kl": 2.6783905029296875
+    },
+    {
+      "domain": "fineweb",
+      "document": 2,
+      "group": "r_a",
+      "raw_effect_energy": 3599022.1107566366,
+      "centered_effect_energy": 1385462.4815456658,
+      "ce_added": -0.0017904369160532951,
+      "kl": 0.010304207913577557
+    },
+    {
+      "domain": "fineweb",
+      "document": 2,
+      "group": "m_m",
+      "raw_effect_energy": 15369702.93853908,
+      "centered_effect_energy": 12932617.255322985,
+      "ce_added": 0.20940935611724854,
+      "kl": 0.20121708512306213
+    },
+    {
+      "domain": "fineweb",
+      "document": 2,
+      "group": "m_a",
+      "raw_effect_energy": 1233488.8655127294,
+      "centered_effect_energy": 556040.0418785698,
+      "ce_added": 0.01581277698278427,
+      "kl": 0.0061431387439370155
+    },
+    {
+      "domain": "fineweb",
+      "document": 2,
+      "group": "a_a",
+      "raw_effect_energy": 12131.693183310892,
+      "centered_effect_energy": 5560.820641451492,
+      "ce_added": 0.0009008168708533049,
+      "kl": 5.499299368239008e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 2,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 91470368.43381588,
+      "centered_effect_energy": 37100962.170343846,
+      "ce_added": 1.6294949054718018,
+      "kl": 1.6267820596694946
+    },
+    {
+      "domain": "fineweb",
+      "document": 2,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1110481.9486378178,
+      "centered_effect_energy": 448138.52362788795,
+      "ce_added": 0.0032437313348054886,
+      "kl": 0.0037341518327593803
+    },
+    {
+      "domain": "fineweb",
+      "document": 2,
+      "group": "all_polynomial",
+      "raw_effect_energy": 226843305.79144788,
+      "centered_effect_energy": 55587150.72750673,
+      "ce_added": 0.8551510572433472,
+      "kl": 0.820369303226471
+    },
+    {
+      "domain": "fineweb",
+      "document": 3,
+      "group": "r_r",
+      "raw_effect_energy": 406894104.87527746,
+      "centered_effect_energy": 114350374.86587,
+      "ce_added": 1.122401475906372,
+      "kl": 1.2017114162445068
+    },
+    {
+      "domain": "fineweb",
+      "document": 3,
+      "group": "r_m",
+      "raw_effect_energy": 117877711.47602923,
+      "centered_effect_energy": 57162899.74333529,
+      "ce_added": 2.4685075283050537,
+      "kl": 2.3988289833068848
+    },
+    {
+      "domain": "fineweb",
+      "document": 3,
+      "group": "r_a",
+      "raw_effect_energy": 3569995.582578928,
+      "centered_effect_energy": 1517310.4111810017,
+      "ce_added": -0.00513508589938283,
+      "kl": 0.009018704295158386
+    },
+    {
+      "domain": "fineweb",
+      "document": 3,
+      "group": "m_m",
+      "raw_effect_energy": 13715392.884393204,
+      "centered_effect_energy": 11758223.214698853,
+      "ce_added": 0.1531294584274292,
+      "kl": 0.11432069540023804
+    },
+    {
+      "domain": "fineweb",
+      "document": 3,
+      "group": "m_a",
+      "raw_effect_energy": 1087237.3791114097,
+      "centered_effect_energy": 575802.357267851,
+      "ce_added": 0.015946723520755768,
+      "kl": 0.004195490386337042
+    },
+    {
+      "domain": "fineweb",
+      "document": 3,
+      "group": "a_a",
+      "raw_effect_energy": 10181.410380040907,
+      "centered_effect_energy": 5916.856239519567,
+      "ce_added": 0.0004828085657209158,
+      "kl": 5.485680958372541e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 3,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 90085763.22974952,
+      "centered_effect_energy": 38182453.44961283,
+      "ce_added": 1.4017527103424072,
+      "kl": 1.328181266784668
+    },
+    {
+      "domain": "fineweb",
+      "document": 3,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1127030.1882046382,
+      "centered_effect_energy": 494610.83187692857,
+      "ce_added": 0.0021422570571303368,
+      "kl": 0.003738600993528962
+    },
+    {
+      "domain": "fineweb",
+      "document": 3,
+      "group": "all_polynomial",
+      "raw_effect_energy": 209302835.6241607,
+      "centered_effect_energy": 51939727.06147665,
+      "ce_added": 0.37489253282546997,
+      "kl": 0.4815068244934082
+    },
+    {
+      "domain": "fineweb",
+      "document": 4,
+      "group": "r_r",
+      "raw_effect_energy": 436006374.1875294,
+      "centered_effect_energy": 119519114.0797306,
+      "ce_added": 1.961954116821289,
+      "kl": 1.8242710828781128
+    },
+    {
+      "domain": "fineweb",
+      "document": 4,
+      "group": "r_m",
+      "raw_effect_energy": 120349280.23766907,
+      "centered_effect_energy": 56828895.326969355,
+      "ce_added": 2.9307925701141357,
+      "kl": 3.006753444671631
+    },
+    {
+      "domain": "fineweb",
+      "document": 4,
+      "group": "r_a",
+      "raw_effect_energy": 4975352.860196701,
+      "centered_effect_energy": 1729262.235811673,
+      "ce_added": 0.017144381999969482,
+      "kl": 0.015450147911906242
+    },
+    {
+      "domain": "fineweb",
+      "document": 4,
+      "group": "m_m",
+      "raw_effect_energy": 16013844.487102143,
+      "centered_effect_energy": 14069213.80974345,
+      "ce_added": 0.26487332582473755,
+      "kl": 0.23647186160087585
+    },
+    {
+      "domain": "fineweb",
+      "document": 4,
+      "group": "m_a",
+      "raw_effect_energy": 1406148.9718348726,
+      "centered_effect_energy": 754319.3844791241,
+      "ce_added": 0.010967466048896313,
+      "kl": 0.008612540550529957
+    },
+    {
+      "domain": "fineweb",
+      "document": 4,
+      "group": "a_a",
+      "raw_effect_energy": 10000.270437953175,
+      "centered_effect_energy": 6446.552433029568,
+      "ce_added": 0.001407746342010796,
+      "kl": 9.123496420215815e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 4,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 96221269.15588334,
+      "centered_effect_energy": 39363328.66550812,
+      "ce_added": 1.8230563402175903,
+      "kl": 1.8790699243545532
+    },
+    {
+      "domain": "fineweb",
+      "document": 4,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1321200.586149244,
+      "centered_effect_energy": 522057.29471713176,
+      "ce_added": 0.012908415868878365,
+      "kl": 0.0057113817892968655
+    },
+    {
+      "domain": "fineweb",
+      "document": 4,
+      "group": "all_polynomial",
+      "raw_effect_energy": 217345999.51984543,
+      "centered_effect_energy": 51642945.997191146,
+      "ce_added": 0.8195230960845947,
+      "kl": 0.743699312210083
+    },
+    {
+      "domain": "fineweb",
+      "document": 5,
+      "group": "r_r",
+      "raw_effect_energy": 438906440.6661608,
+      "centered_effect_energy": 112095185.59062965,
+      "ce_added": 1.114449143409729,
+      "kl": 1.1523041725158691
+    },
+    {
+      "domain": "fineweb",
+      "document": 5,
+      "group": "r_m",
+      "raw_effect_energy": 95350218.7033377,
+      "centered_effect_energy": 49952151.581748545,
+      "ce_added": 2.2597079277038574,
+      "kl": 2.1551170349121094
+    },
+    {
+      "domain": "fineweb",
+      "document": 5,
+      "group": "r_a",
+      "raw_effect_energy": 2978109.6233975533,
+      "centered_effect_energy": 1043787.4981595404,
+      "ce_added": 0.0009299672674387693,
+      "kl": 0.008000957779586315
+    },
+    {
+      "domain": "fineweb",
+      "document": 5,
+      "group": "m_m",
+      "raw_effect_energy": 11992961.517573025,
+      "centered_effect_energy": 9791902.92873893,
+      "ce_added": 0.09303000569343567,
+      "kl": 0.09240924566984177
+    },
+    {
+      "domain": "fineweb",
+      "document": 5,
+      "group": "m_a",
+      "raw_effect_energy": 1104949.5664861712,
+      "centered_effect_energy": 394758.95369968296,
+      "ce_added": 0.006963720545172691,
+      "kl": 0.0032454035244882107
+    },
+    {
+      "domain": "fineweb",
+      "document": 5,
+      "group": "a_a",
+      "raw_effect_energy": 13471.366704610968,
+      "centered_effect_energy": 5944.528812652052,
+      "ce_added": 7.404394273180515e-05,
+      "kl": 5.215597047936171e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 5,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 77362836.25213301,
+      "centered_effect_energy": 34003468.85502042,
+      "ce_added": 1.3496193885803223,
+      "kl": 1.267265796661377
+    },
+    {
+      "domain": "fineweb",
+      "document": 5,
+      "group": "attention_dependent",
+      "raw_effect_energy": 955311.9773806551,
+      "centered_effect_energy": 366005.75429588783,
+      "ce_added": -0.001030370476655662,
+      "kl": 0.0032320194877684116
+    },
+    {
+      "domain": "fineweb",
+      "document": 5,
+      "group": "all_polynomial",
+      "raw_effect_energy": 206043849.48734286,
+      "centered_effect_energy": 45949992.90459494,
+      "ce_added": 0.47051799297332764,
+      "kl": 0.5135111808776855
+    },
+    {
+      "domain": "fineweb",
+      "document": 6,
+      "group": "r_r",
+      "raw_effect_energy": 405384080.82460344,
+      "centered_effect_energy": 110689205.86050238,
+      "ce_added": 1.3652164936065674,
+      "kl": 1.2865636348724365
+    },
+    {
+      "domain": "fineweb",
+      "document": 6,
+      "group": "r_m",
+      "raw_effect_energy": 114870949.7280538,
+      "centered_effect_energy": 52359602.92161651,
+      "ce_added": 2.643935203552246,
+      "kl": 2.6147570610046387
+    },
+    {
+      "domain": "fineweb",
+      "document": 6,
+      "group": "r_a",
+      "raw_effect_energy": 4367442.5250220215,
+      "centered_effect_energy": 1617045.3329947724,
+      "ce_added": 0.0067739905789494514,
+      "kl": 0.015998534858226776
+    },
+    {
+      "domain": "fineweb",
+      "document": 6,
+      "group": "m_m",
+      "raw_effect_energy": 12645415.046820652,
+      "centered_effect_energy": 10587684.847201502,
+      "ce_added": 0.1544504165649414,
+      "kl": 0.1278892159461975
+    },
+    {
+      "domain": "fineweb",
+      "document": 6,
+      "group": "m_a",
+      "raw_effect_energy": 1180846.659142913,
+      "centered_effect_energy": 548960.3858041179,
+      "ce_added": 0.011227685026824474,
+      "kl": 0.0066145327873528
+    },
+    {
+      "domain": "fineweb",
+      "document": 6,
+      "group": "a_a",
+      "raw_effect_energy": 9128.477514242757,
+      "centered_effect_energy": 6046.388581764235,
+      "ce_added": -0.0007347522769123316,
+      "kl": 6.676631164737046e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 6,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 88116914.7371651,
+      "centered_effect_energy": 34918943.31817292,
+      "ce_added": 1.5701231956481934,
+      "kl": 1.5589454174041748
+    },
+    {
+      "domain": "fineweb",
+      "document": 6,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1408802.7233185167,
+      "centered_effect_energy": 524178.74515417253,
+      "ce_added": -0.0005286377854645252,
+      "kl": 0.0052391840144991875
+    },
+    {
+      "domain": "fineweb",
+      "document": 6,
+      "group": "all_polynomial",
+      "raw_effect_energy": 202180743.2275408,
+      "centered_effect_energy": 48627186.424128965,
+      "ce_added": 0.6309838891029358,
+      "kl": 0.6087575554847717
+    },
+    {
+      "domain": "fineweb",
+      "document": 7,
+      "group": "r_r",
+      "raw_effect_energy": 386769219.5303689,
+      "centered_effect_energy": 124348736.48413882,
+      "ce_added": 2.760140895843506,
+      "kl": 2.7804298400878906
+    },
+    {
+      "domain": "fineweb",
+      "document": 7,
+      "group": "r_m",
+      "raw_effect_energy": 146807518.50983906,
+      "centered_effect_energy": 62900887.49792768,
+      "ce_added": 3.238521099090576,
+      "kl": 3.117891311645508
+    },
+    {
+      "domain": "fineweb",
+      "document": 7,
+      "group": "r_a",
+      "raw_effect_energy": 3648638.953091658,
+      "centered_effect_energy": 1589022.523261218,
+      "ce_added": 0.010647072456777096,
+      "kl": 0.013523383066058159
+    },
+    {
+      "domain": "fineweb",
+      "document": 7,
+      "group": "m_m",
+      "raw_effect_energy": 17852795.760471445,
+      "centered_effect_energy": 16166819.65793486,
+      "ce_added": 0.2207271158695221,
+      "kl": 0.21169084310531616
+    },
+    {
+      "domain": "fineweb",
+      "document": 7,
+      "group": "m_a",
+      "raw_effect_energy": 1040822.2075799643,
+      "centered_effect_energy": 636906.4882000398,
+      "ce_added": 0.012926820665597916,
+      "kl": 0.006791091524064541
+    },
+    {
+      "domain": "fineweb",
+      "document": 7,
+      "group": "a_a",
+      "raw_effect_energy": 6619.951785416173,
+      "centered_effect_energy": 3979.0526859541305,
+      "ce_added": 0.0003193677985109389,
+      "kl": 4.540816735243425e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 7,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 112342916.12735042,
+      "centered_effect_energy": 42054131.07489903,
+      "ce_added": 1.923027515411377,
+      "kl": 1.8194279670715332
+    },
+    {
+      "domain": "fineweb",
+      "document": 7,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1027651.987011567,
+      "centered_effect_energy": 470155.18606783566,
+      "ce_added": 0.006757616531103849,
+      "kl": 0.004001392051577568
+    },
+    {
+      "domain": "fineweb",
+      "document": 7,
+      "group": "all_polynomial",
+      "raw_effect_energy": 211708970.18101698,
+      "centered_effect_energy": 60136673.00499331,
+      "ce_added": 0.9145100116729736,
+      "kl": 0.9262584447860718
+    },
+    {
+      "domain": "fineweb",
+      "document": 8,
+      "group": "r_r",
+      "raw_effect_energy": 355500004.8487426,
+      "centered_effect_energy": 110823811.60850166,
+      "ce_added": 1.578796625137329,
+      "kl": 1.6145579814910889
+    },
+    {
+      "domain": "fineweb",
+      "document": 8,
+      "group": "r_m",
+      "raw_effect_energy": 122668445.64858077,
+      "centered_effect_energy": 55756212.174902335,
+      "ce_added": 2.625884532928467,
+      "kl": 2.603903293609619
+    },
+    {
+      "domain": "fineweb",
+      "document": 8,
+      "group": "r_a",
+      "raw_effect_energy": 3309706.9158060225,
+      "centered_effect_energy": 1533277.2027979637,
+      "ce_added": 0.015675263479351997,
+      "kl": 0.01305221114307642
+    },
+    {
+      "domain": "fineweb",
+      "document": 8,
+      "group": "m_m",
+      "raw_effect_energy": 12789019.220182491,
+      "centered_effect_energy": 10866564.588322861,
+      "ce_added": 0.1350475400686264,
+      "kl": 0.1339312046766281
+    },
+    {
+      "domain": "fineweb",
+      "document": 8,
+      "group": "m_a",
+      "raw_effect_energy": 777716.3888173618,
+      "centered_effect_energy": 484211.6009888662,
+      "ce_added": 0.0043822843581438065,
+      "kl": 0.006622656248509884
+    },
+    {
+      "domain": "fineweb",
+      "document": 8,
+      "group": "a_a",
+      "raw_effect_energy": 7488.514334107889,
+      "centered_effect_energy": 6265.794387024627,
+      "ce_added": 0.0006572490674443543,
+      "kl": 8.055430953390896e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 8,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 91188996.47413558,
+      "centered_effect_energy": 36628195.55048999,
+      "ce_added": 1.5906131267547607,
+      "kl": 1.5833743810653687
+    },
+    {
+      "domain": "fineweb",
+      "document": 8,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1093698.3529005433,
+      "centered_effect_energy": 457537.08752357564,
+      "ce_added": 0.004163098055869341,
+      "kl": 0.004408937878906727
+    },
+    {
+      "domain": "fineweb",
+      "document": 8,
+      "group": "all_polynomial",
+      "raw_effect_energy": 204563779.95911387,
+      "centered_effect_energy": 51964062.19420329,
+      "ce_added": 0.6092081069946289,
+      "kl": 0.6545331478118896
+    },
+    {
+      "domain": "fineweb",
+      "document": 9,
+      "group": "r_r",
+      "raw_effect_energy": 390442215.7640623,
+      "centered_effect_energy": 106100244.45220116,
+      "ce_added": 1.465449333190918,
+      "kl": 1.5091150999069214
+    },
+    {
+      "domain": "fineweb",
+      "document": 9,
+      "group": "r_m",
+      "raw_effect_energy": 109447822.18750769,
+      "centered_effect_energy": 49577434.34593603,
+      "ce_added": 2.38344669342041,
+      "kl": 2.297638177871704
+    },
+    {
+      "domain": "fineweb",
+      "document": 9,
+      "group": "r_a",
+      "raw_effect_energy": 2733434.59484272,
+      "centered_effect_energy": 1038731.631596814,
+      "ce_added": 0.006711769849061966,
+      "kl": 0.00905291922390461
+    },
+    {
+      "domain": "fineweb",
+      "document": 9,
+      "group": "m_m",
+      "raw_effect_energy": 10685063.568610901,
+      "centered_effect_energy": 9505131.38601035,
+      "ce_added": 0.11718244105577469,
+      "kl": 0.11259113252162933
+    },
+    {
+      "domain": "fineweb",
+      "document": 9,
+      "group": "m_a",
+      "raw_effect_energy": 628240.9532592448,
+      "centered_effect_energy": 353533.7252412583,
+      "ce_added": 0.009205322712659836,
+      "kl": 0.004192460794001818
+    },
+    {
+      "domain": "fineweb",
+      "document": 9,
+      "group": "a_a",
+      "raw_effect_energy": 4219.101333922312,
+      "centered_effect_energy": 2973.8765657294657,
+      "ce_added": 0.0007291684160009027,
+      "kl": 5.056199006503448e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 9,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 87640124.74845043,
+      "centered_effect_energy": 33472945.20191189,
+      "ce_added": 1.420241117477417,
+      "kl": 1.3519997596740723
+    },
+    {
+      "domain": "fineweb",
+      "document": 9,
+      "group": "attention_dependent",
+      "raw_effect_energy": 868204.4817737469,
+      "centered_effect_energy": 345886.33687339316,
+      "ce_added": 0.006613980978727341,
+      "kl": 0.0038926389534026384
+    },
+    {
+      "domain": "fineweb",
+      "document": 9,
+      "group": "all_polynomial",
+      "raw_effect_energy": 199767333.2463046,
+      "centered_effect_energy": 45962813.56669827,
+      "ce_added": 0.511551022529602,
+      "kl": 0.6099284887313843
+    },
+    {
+      "domain": "fineweb",
+      "document": 10,
+      "group": "r_r",
+      "raw_effect_energy": 311937879.9451904,
+      "centered_effect_energy": 95927354.28067154,
+      "ce_added": 1.6980775594711304,
+      "kl": 1.543867588043213
+    },
+    {
+      "domain": "fineweb",
+      "document": 10,
+      "group": "r_m",
+      "raw_effect_energy": 133159328.52511379,
+      "centered_effect_energy": 48093227.140548505,
+      "ce_added": 2.8591413497924805,
+      "kl": 2.914890766143799
+    },
+    {
+      "domain": "fineweb",
+      "document": 10,
+      "group": "r_a",
+      "raw_effect_energy": 3959555.3923232686,
+      "centered_effect_energy": 1758999.6137201786,
+      "ce_added": 0.019936518743634224,
+      "kl": 0.016645237803459167
+    },
+    {
+      "domain": "fineweb",
+      "document": 10,
+      "group": "m_m",
+      "raw_effect_energy": 12131443.945557985,
+      "centered_effect_energy": 9967371.089013612,
+      "ce_added": 0.12472272664308548,
+      "kl": 0.15258026123046875
+    },
+    {
+      "domain": "fineweb",
+      "document": 10,
+      "group": "m_a",
+      "raw_effect_energy": 1112534.6070365668,
+      "centered_effect_energy": 734683.8769134753,
+      "ce_added": 0.005382092669606209,
+      "kl": 0.007784227840602398
+    },
+    {
+      "domain": "fineweb",
+      "document": 10,
+      "group": "a_a",
+      "raw_effect_energy": 18440.958113447432,
+      "centered_effect_energy": 13465.884136958459,
+      "ce_added": 0.00011681704199872911,
+      "kl": 0.0001195807199110277
+    },
+    {
+      "domain": "fineweb",
+      "document": 10,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 99506829.66928089,
+      "centered_effect_energy": 33099810.720943943,
+      "ce_added": 1.7586617469787598,
+      "kl": 1.812616229057312
+    },
+    {
+      "domain": "fineweb",
+      "document": 10,
+      "group": "attention_dependent",
+      "raw_effect_energy": 859535.5151115147,
+      "centered_effect_energy": 449646.8930599123,
+      "ce_added": 0.006442424841225147,
+      "kl": 0.005637409631162882
+    },
+    {
+      "domain": "fineweb",
+      "document": 10,
+      "group": "all_polynomial",
+      "raw_effect_energy": 161765956.14846098,
+      "centered_effect_energy": 43142627.76301777,
+      "ce_added": 0.7997471690177917,
+      "kl": 0.6310567855834961
+    },
+    {
+      "domain": "fineweb",
+      "document": 11,
+      "group": "r_r",
+      "raw_effect_energy": 282280121.6932733,
+      "centered_effect_energy": 90298654.68421537,
+      "ce_added": 1.21669340133667,
+      "kl": 1.32332181930542
+    },
+    {
+      "domain": "fineweb",
+      "document": 11,
+      "group": "r_m",
+      "raw_effect_energy": 138128441.50715113,
+      "centered_effect_energy": 48242845.72525102,
+      "ce_added": 2.7370216846466064,
+      "kl": 2.663482189178467
+    },
+    {
+      "domain": "fineweb",
+      "document": 11,
+      "group": "r_a",
+      "raw_effect_energy": 4307625.472413869,
+      "centered_effect_energy": 1717079.6371673497,
+      "ce_added": 0.010431293398141861,
+      "kl": 0.020684491842985153
+    },
+    {
+      "domain": "fineweb",
+      "document": 11,
+      "group": "m_m",
+      "raw_effect_energy": 12784868.91058566,
+      "centered_effect_energy": 9747502.15415755,
+      "ce_added": 0.13781289756298065,
+      "kl": 0.13699622452259064
+    },
+    {
+      "domain": "fineweb",
+      "document": 11,
+      "group": "m_a",
+      "raw_effect_energy": 961987.9262192312,
+      "centered_effect_energy": 540163.8552040869,
+      "ce_added": 0.015850285068154335,
+      "kl": 0.008512765169143677
+    },
+    {
+      "domain": "fineweb",
+      "document": 11,
+      "group": "a_a",
+      "raw_effect_energy": 10303.489544730794,
+      "centered_effect_energy": 7458.518623452165,
+      "ce_added": -0.00011128420010209084,
+      "kl": 7.511384319514036e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 11,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 100414533.63728936,
+      "centered_effect_energy": 32954339.882402845,
+      "ce_added": 1.705755352973938,
+      "kl": 1.645014762878418
+    },
+    {
+      "domain": "fineweb",
+      "document": 11,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1149876.8990354324,
+      "centered_effect_energy": 529274.1307283998,
+      "ce_added": 0.004117125179618597,
+      "kl": 0.0068260300904512405
+    },
+    {
+      "domain": "fineweb",
+      "document": 11,
+      "group": "all_polynomial",
+      "raw_effect_energy": 152020366.53921583,
+      "centered_effect_energy": 41975262.7552694,
+      "ce_added": 0.456487774848938,
+      "kl": 0.5508928894996643
+    },
+    {
+      "domain": "fineweb",
+      "document": 12,
+      "group": "r_r",
+      "raw_effect_energy": 190932131.84068412,
+      "centered_effect_energy": 98426791.89753358,
+      "ce_added": 1.4102091789245605,
+      "kl": 1.4966082572937012
+    },
+    {
+      "domain": "fineweb",
+      "document": 12,
+      "group": "r_m",
+      "raw_effect_energy": 196972588.60516208,
+      "centered_effect_energy": 63471581.85228061,
+      "ce_added": 2.3010072708129883,
+      "kl": 2.6224100589752197
+    },
+    {
+      "domain": "fineweb",
+      "document": 12,
+      "group": "r_a",
+      "raw_effect_energy": 3030002.225172055,
+      "centered_effect_energy": 1342888.3732538405,
+      "ce_added": 0.01093374378979206,
+      "kl": 0.010229608044028282
+    },
+    {
+      "domain": "fineweb",
+      "document": 12,
+      "group": "m_m",
+      "raw_effect_energy": 14912318.522439346,
+      "centered_effect_energy": 13350045.252328278,
+      "ce_added": -0.026070013642311096,
+      "kl": 0.13538306951522827
+    },
+    {
+      "domain": "fineweb",
+      "document": 12,
+      "group": "m_a",
+      "raw_effect_energy": 921416.7850823806,
+      "centered_effect_energy": 673656.4570379653,
+      "ce_added": -0.014931906946003437,
+      "kl": 0.005249403417110443
+    },
+    {
+      "domain": "fineweb",
+      "document": 12,
+      "group": "a_a",
+      "raw_effect_energy": 7444.403625603636,
+      "centered_effect_energy": 5333.86376896225,
+      "ce_added": -0.0008295169100165367,
+      "kl": 7.56367007852532e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 12,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 121718895.18799236,
+      "centered_effect_energy": 40632645.95527503,
+      "ce_added": 1.2349613904953003,
+      "kl": 1.513451099395752
+    },
+    {
+      "domain": "fineweb",
+      "document": 12,
+      "group": "attention_dependent",
+      "raw_effect_energy": 854226.5132553512,
+      "centered_effect_energy": 437272.2024148913,
+      "ce_added": -0.010086453519761562,
+      "kl": 0.0070924838073551655
+    },
+    {
+      "domain": "fineweb",
+      "document": 12,
+      "group": "all_polynomial",
+      "raw_effect_energy": 94227099.83663481,
+      "centered_effect_energy": 45161356.53551455,
+      "ce_added": 0.493233859539032,
+      "kl": 0.5108423829078674
+    },
+    {
+      "domain": "fineweb",
+      "document": 13,
+      "group": "r_r",
+      "raw_effect_energy": 323672276.51762724,
+      "centered_effect_energy": 95471675.7412718,
+      "ce_added": 0.9623574614524841,
+      "kl": 0.9771178364753723
+    },
+    {
+      "domain": "fineweb",
+      "document": 13,
+      "group": "r_m",
+      "raw_effect_energy": 108690332.55468768,
+      "centered_effect_energy": 45377567.46023969,
+      "ce_added": 2.28131103515625,
+      "kl": 2.2928078174591064
+    },
+    {
+      "domain": "fineweb",
+      "document": 13,
+      "group": "r_a",
+      "raw_effect_energy": 2413145.488167991,
+      "centered_effect_energy": 1134056.0187100908,
+      "ce_added": 0.01549019105732441,
+      "kl": 0.013667751103639603
+    },
+    {
+      "domain": "fineweb",
+      "document": 13,
+      "group": "m_m",
+      "raw_effect_energy": 8957244.475397818,
+      "centered_effect_energy": 7424600.804608724,
+      "ce_added": 0.11138303577899933,
+      "kl": 0.10307922959327698
+    },
+    {
+      "domain": "fineweb",
+      "document": 13,
+      "group": "m_a",
+      "raw_effect_energy": 543791.1541384916,
+      "centered_effect_energy": 301332.07807114604,
+      "ce_added": 0.006973016541451216,
+      "kl": 0.006411837413907051
+    },
+    {
+      "domain": "fineweb",
+      "document": 13,
+      "group": "a_a",
+      "raw_effect_energy": 3373.7180298795956,
+      "centered_effect_energy": 2586.267905940774,
+      "ce_added": -0.0004828151722904295,
+      "kl": 6.379555270541459e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 13,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 79612500.79168244,
+      "centered_effect_energy": 30039929.09002481,
+      "ce_added": 1.3992586135864258,
+      "kl": 1.4098541736602783
+    },
+    {
+      "domain": "fineweb",
+      "document": 13,
+      "group": "attention_dependent",
+      "raw_effect_energy": 752429.1175636394,
+      "centered_effect_energy": 356708.14147832163,
+      "ce_added": 0.0054319677874445915,
+      "kl": 0.004008418880403042
+    },
+    {
+      "domain": "fineweb",
+      "document": 13,
+      "group": "all_polynomial",
+      "raw_effect_energy": 163309201.22938347,
+      "centered_effect_energy": 40162935.82457773,
+      "ce_added": 0.4265096187591553,
+      "kl": 0.4452506899833679
+    },
+    {
+      "domain": "fineweb",
+      "document": 14,
+      "group": "r_r",
+      "raw_effect_energy": 333999124.4893914,
+      "centered_effect_energy": 98562740.94642738,
+      "ce_added": 0.8652782440185547,
+      "kl": 0.9654213786125183
+    },
+    {
+      "domain": "fineweb",
+      "document": 14,
+      "group": "r_m",
+      "raw_effect_energy": 112826379.11582577,
+      "centered_effect_energy": 47001038.71979515,
+      "ce_added": 2.616976737976074,
+      "kl": 2.507779121398926
+    },
+    {
+      "domain": "fineweb",
+      "document": 14,
+      "group": "r_a",
+      "raw_effect_energy": 3639221.6407455066,
+      "centered_effect_energy": 1597259.6442439605,
+      "ce_added": 0.01420240756124258,
+      "kl": 0.01401044987142086
+    },
+    {
+      "domain": "fineweb",
+      "document": 14,
+      "group": "m_m",
+      "raw_effect_energy": 9967949.211603343,
+      "centered_effect_energy": 8250472.1315754,
+      "ce_added": 0.11408369243144989,
+      "kl": 0.12014993280172348
+    },
+    {
+      "domain": "fineweb",
+      "document": 14,
+      "group": "m_a",
+      "raw_effect_energy": 796747.3409897517,
+      "centered_effect_energy": 420227.25453427783,
+      "ce_added": 0.008874228224158287,
+      "kl": 0.008333265781402588
+    },
+    {
+      "domain": "fineweb",
+      "document": 14,
+      "group": "a_a",
+      "raw_effect_energy": 7103.140798894132,
+      "centered_effect_energy": 5386.90562333006,
+      "ce_added": 5.816799239255488e-05,
+      "kl": 9.805461741052568e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 14,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 82288017.30055535,
+      "centered_effect_energy": 31342532.47074499,
+      "ce_added": 1.6438167095184326,
+      "kl": 1.5419479608535767
+    },
+    {
+      "domain": "fineweb",
+      "document": 14,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1088336.0853120014,
+      "centered_effect_energy": 442000.8534747438,
+      "ce_added": 0.003665746422484517,
+      "kl": 0.00405013095587492
+    },
+    {
+      "domain": "fineweb",
+      "document": 14,
+      "group": "all_polynomial",
+      "raw_effect_energy": 182152728.10601777,
+      "centered_effect_energy": 44334246.45075249,
+      "ce_added": 0.4231693744659424,
+      "kl": 0.47858867049217224
+    },
+    {
+      "domain": "fineweb",
+      "document": 15,
+      "group": "r_r",
+      "raw_effect_energy": 206860793.01041842,
+      "centered_effect_energy": 101541227.06985426,
+      "ce_added": 1.6146223545074463,
+      "kl": 1.5962811708450317
+    },
+    {
+      "domain": "fineweb",
+      "document": 15,
+      "group": "r_m",
+      "raw_effect_energy": 200549359.57023484,
+      "centered_effect_energy": 64369955.95375985,
+      "ce_added": 2.516902446746826,
+      "kl": 2.796872138977051
+    },
+    {
+      "domain": "fineweb",
+      "document": 15,
+      "group": "r_a",
+      "raw_effect_energy": 3417679.957534707,
+      "centered_effect_energy": 1534272.124462715,
+      "ce_added": 0.014457507990300655,
+      "kl": 0.012817390263080597
+    },
+    {
+      "domain": "fineweb",
+      "document": 15,
+      "group": "m_m",
+      "raw_effect_energy": 15476920.969760187,
+      "centered_effect_energy": 13868114.556054436,
+      "ce_added": 0.036375708878040314,
+      "kl": 0.14719060063362122
+    },
+    {
+      "domain": "fineweb",
+      "document": 15,
+      "group": "m_a",
+      "raw_effect_energy": 984900.0640389756,
+      "centered_effect_energy": 733635.2882679628,
+      "ce_added": -0.01238732598721981,
+      "kl": 0.0064160507172346115
+    },
+    {
+      "domain": "fineweb",
+      "document": 15,
+      "group": "a_a",
+      "raw_effect_energy": 7952.158419385538,
+      "centered_effect_energy": 6397.677267654837,
+      "ce_added": -0.0016020656330510974,
+      "kl": 7.211804040707648e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 15,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 124075819.31102106,
+      "centered_effect_energy": 41319685.49547908,
+      "ce_added": 1.38246488571167,
+      "kl": 1.627908706665039
+    },
+    {
+      "domain": "fineweb",
+      "document": 15,
+      "group": "attention_dependent",
+      "raw_effect_energy": 936999.5659093675,
+      "centered_effect_energy": 472348.81820419943,
+      "ce_added": -0.009576978161931038,
+      "kl": 0.007186087779700756
+    },
+    {
+      "domain": "fineweb",
+      "document": 15,
+      "group": "all_polynomial",
+      "raw_effect_energy": 116991621.62319121,
+      "centered_effect_energy": 49216652.27933398,
+      "ce_added": 0.5755459666252136,
+      "kl": 0.5602700114250183
+    },
+    {
+      "domain": "fineweb",
+      "document": 16,
+      "group": "r_r",
+      "raw_effect_energy": 381369450.0248855,
+      "centered_effect_energy": 102551317.55463162,
+      "ce_added": 1.3166568279266357,
+      "kl": 1.283919095993042
+    },
+    {
+      "domain": "fineweb",
+      "document": 16,
+      "group": "r_m",
+      "raw_effect_energy": 93955514.53646618,
+      "centered_effect_energy": 45577843.36865275,
+      "ce_added": 2.1271724700927734,
+      "kl": 2.1168594360351562
+    },
+    {
+      "domain": "fineweb",
+      "document": 16,
+      "group": "r_a",
+      "raw_effect_energy": 2684491.864328313,
+      "centered_effect_energy": 1025867.4522741381,
+      "ce_added": 0.006123952567577362,
+      "kl": 0.011128755286335945
+    },
+    {
+      "domain": "fineweb",
+      "document": 16,
+      "group": "m_m",
+      "raw_effect_energy": 9220217.40982122,
+      "centered_effect_energy": 8055600.898636956,
+      "ce_added": 0.07747896760702133,
+      "kl": 0.09926793724298477
+    },
+    {
+      "domain": "fineweb",
+      "document": 16,
+      "group": "m_a",
+      "raw_effect_energy": 602477.758286542,
+      "centered_effect_energy": 329995.0275363076,
+      "ce_added": 0.007048008032143116,
+      "kl": 0.004959670826792717
+    },
+    {
+      "domain": "fineweb",
+      "document": 16,
+      "group": "a_a",
+      "raw_effect_energy": 3930.8182089603847,
+      "centered_effect_energy": 2689.7434206580456,
+      "ce_added": 0.00015466025797650218,
+      "kl": 3.083387127844617e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 16,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 73050929.92270258,
+      "centered_effect_energy": 30496456.84369587,
+      "ce_added": 1.2993829250335693,
+      "kl": 1.293999433517456
+    },
+    {
+      "domain": "fineweb",
+      "document": 16,
+      "group": "attention_dependent",
+      "raw_effect_energy": 905907.7758347713,
+      "centered_effect_energy": 341679.3374794282,
+      "ce_added": 0.0011091167107224464,
+      "kl": 0.0037530118133872747
+    },
+    {
+      "domain": "fineweb",
+      "document": 16,
+      "group": "all_polynomial",
+      "raw_effect_energy": 177731260.39287013,
+      "centered_effect_energy": 39651062.45304957,
+      "ce_added": 0.600455641746521,
+      "kl": 0.5598104000091553
+    },
+    {
+      "domain": "fineweb",
+      "document": 17,
+      "group": "r_r",
+      "raw_effect_energy": 411537042.8557945,
+      "centered_effect_energy": 105217593.81963769,
+      "ce_added": 1.374510407447815,
+      "kl": 1.1417382955551147
+    },
+    {
+      "domain": "fineweb",
+      "document": 17,
+      "group": "r_m",
+      "raw_effect_energy": 95133076.27497658,
+      "centered_effect_energy": 45775035.43428134,
+      "ce_added": 2.1031723022460938,
+      "kl": 2.2015249729156494
+    },
+    {
+      "domain": "fineweb",
+      "document": 17,
+      "group": "r_a",
+      "raw_effect_energy": 2751986.529404062,
+      "centered_effect_energy": 1104688.428138093,
+      "ce_added": -0.0007519670762121677,
+      "kl": 0.010500146076083183
+    },
+    {
+      "domain": "fineweb",
+      "document": 17,
+      "group": "m_m",
+      "raw_effect_energy": 9362896.453402456,
+      "centered_effect_energy": 8232390.2663467005,
+      "ce_added": 0.08183591812849045,
+      "kl": 0.06706804037094116
+    },
+    {
+      "domain": "fineweb",
+      "document": 17,
+      "group": "m_a",
+      "raw_effect_energy": 600441.3329519245,
+      "centered_effect_energy": 324150.2379480925,
+      "ce_added": 0.009192777797579765,
+      "kl": 0.0041573550552129745
+    },
+    {
+      "domain": "fineweb",
+      "document": 17,
+      "group": "a_a",
+      "raw_effect_energy": 3943.4024650677816,
+      "centered_effect_energy": 2637.846910720865,
+      "ce_added": 0.0008618928259238601,
+      "kl": 4.580316090141423e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 17,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 76872048.75878611,
+      "centered_effect_energy": 31082271.442595262,
+      "ce_added": 1.2462708950042725,
+      "kl": 1.342816710472107
+    },
+    {
+      "domain": "fineweb",
+      "document": 17,
+      "group": "attention_dependent",
+      "raw_effect_energy": 935299.2839013292,
+      "centered_effect_energy": 371383.79202793253,
+      "ce_added": -0.0015891639050096273,
+      "kl": 0.004066438414156437
+    },
+    {
+      "domain": "fineweb",
+      "document": 17,
+      "group": "all_polynomial",
+      "raw_effect_energy": 188227346.43209466,
+      "centered_effect_energy": 39285615.33186448,
+      "ce_added": 0.6072086691856384,
+      "kl": 0.5009843111038208
+    },
+    {
+      "domain": "fineweb",
+      "document": 18,
+      "group": "r_r",
+      "raw_effect_energy": 413090985.47853905,
+      "centered_effect_energy": 106004781.48512834,
+      "ce_added": 1.4857714176177979,
+      "kl": 1.2508355379104614
+    },
+    {
+      "domain": "fineweb",
+      "document": 18,
+      "group": "r_m",
+      "raw_effect_energy": 87773880.46945082,
+      "centered_effect_energy": 44584849.02535644,
+      "ce_added": 2.0194196701049805,
+      "kl": 2.118072032928467
+    },
+    {
+      "domain": "fineweb",
+      "document": 18,
+      "group": "r_a",
+      "raw_effect_energy": 2943858.738947467,
+      "centered_effect_energy": 1199318.0490394407,
+      "ce_added": 0.011959733441472054,
+      "kl": 0.009209072217345238
+    },
+    {
+      "domain": "fineweb",
+      "document": 18,
+      "group": "m_m",
+      "raw_effect_energy": 9018165.344872268,
+      "centered_effect_energy": 7938183.093534809,
+      "ce_added": 0.0962439551949501,
+      "kl": 0.07775284349918365
+    },
+    {
+      "domain": "fineweb",
+      "document": 18,
+      "group": "m_a",
+      "raw_effect_energy": 622049.2797620122,
+      "centered_effect_energy": 378186.35336903704,
+      "ce_added": 1.655658707022667e-06,
+      "kl": 0.0037797014228999615
+    },
+    {
+      "domain": "fineweb",
+      "document": 18,
+      "group": "a_a",
+      "raw_effect_energy": 5178.32253435254,
+      "centered_effect_energy": 3661.256775429382,
+      "ce_added": -0.0005260296165943146,
+      "kl": 4.230307968100533e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 18,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 70226173.03257345,
+      "centered_effect_energy": 30397233.345987912,
+      "ce_added": 1.1987287998199463,
+      "kl": 1.296968698501587
+    },
+    {
+      "domain": "fineweb",
+      "document": 18,
+      "group": "attention_dependent",
+      "raw_effect_energy": 936789.4886514226,
+      "centered_effect_energy": 378006.2540321513,
+      "ce_added": 0.0021370307076722383,
+      "kl": 0.0036864641588181257
+    },
+    {
+      "domain": "fineweb",
+      "document": 18,
+      "group": "all_polynomial",
+      "raw_effect_energy": 198260393.15899158,
+      "centered_effect_energy": 41945540.34258345,
+      "ce_added": 0.6972092986106873,
+      "kl": 0.5496711134910583
+    },
+    {
+      "domain": "fineweb",
+      "document": 19,
+      "group": "r_r",
+      "raw_effect_energy": 403451125.49342346,
+      "centered_effect_energy": 102393671.94024314,
+      "ce_added": 1.240804672241211,
+      "kl": 1.1307317018508911
+    },
+    {
+      "domain": "fineweb",
+      "document": 19,
+      "group": "r_m",
+      "raw_effect_energy": 98400634.92643827,
+      "centered_effect_energy": 41065259.73114813,
+      "ce_added": 2.5392606258392334,
+      "kl": 2.5355772972106934
+    },
+    {
+      "domain": "fineweb",
+      "document": 19,
+      "group": "r_a",
+      "raw_effect_energy": 3191778.462242864,
+      "centered_effect_energy": 1054383.0395868525,
+      "ce_added": 0.010302327573299408,
+      "kl": 0.015129552222788334
+    },
+    {
+      "domain": "fineweb",
+      "document": 19,
+      "group": "m_m",
+      "raw_effect_energy": 8506396.109621689,
+      "centered_effect_energy": 7336998.145619977,
+      "ce_added": 0.12884220480918884,
+      "kl": 0.093640998005867
+    },
+    {
+      "domain": "fineweb",
+      "document": 19,
+      "group": "m_a",
+      "raw_effect_energy": 660444.7312061153,
+      "centered_effect_energy": 270975.9723986215,
+      "ce_added": 0.012420961633324623,
+      "kl": 0.006284849718213081
+    },
+    {
+      "domain": "fineweb",
+      "document": 19,
+      "group": "a_a",
+      "raw_effect_energy": 3315.941958316914,
+      "centered_effect_energy": 2132.483481151595,
+      "ce_added": -0.00016422182670794427,
+      "kl": 0.00010045304225059226
+    },
+    {
+      "domain": "fineweb",
+      "document": 19,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 76724259.27571654,
+      "centered_effect_energy": 27535136.148549333,
+      "ce_added": 1.6479122638702393,
+      "kl": 1.6352229118347168
+    },
+    {
+      "domain": "fineweb",
+      "document": 19,
+      "group": "attention_dependent",
+      "raw_effect_energy": 967911.4509991166,
+      "centered_effect_energy": 370246.8260303475,
+      "ce_added": 0.006720838136970997,
+      "kl": 0.005100825801491737
+    },
+    {
+      "domain": "fineweb",
+      "document": 19,
+      "group": "all_polynomial",
+      "raw_effect_energy": 196351079.41532624,
+      "centered_effect_energy": 39749036.911841586,
+      "ce_added": 0.6544312834739685,
+      "kl": 0.5780129432678223
+    },
+    {
+      "domain": "fineweb",
+      "document": 20,
+      "group": "r_r",
+      "raw_effect_energy": 341391641.6209044,
+      "centered_effect_energy": 102987205.71762529,
+      "ce_added": 1.0631698369979858,
+      "kl": 1.1662665605545044
+    },
+    {
+      "domain": "fineweb",
+      "document": 20,
+      "group": "r_m",
+      "raw_effect_energy": 134017212.92023683,
+      "centered_effect_energy": 57471331.73884982,
+      "ce_added": 2.811500072479248,
+      "kl": 2.8007993698120117
+    },
+    {
+      "domain": "fineweb",
+      "document": 20,
+      "group": "r_a",
+      "raw_effect_energy": 4397893.215913455,
+      "centered_effect_energy": 1859078.5587482164,
+      "ce_added": 0.014516936615109444,
+      "kl": 0.01661873795092106
+    },
+    {
+      "domain": "fineweb",
+      "document": 20,
+      "group": "m_m",
+      "raw_effect_energy": 13553767.38313595,
+      "centered_effect_energy": 11377068.18771892,
+      "ce_added": 0.11523351818323135,
+      "kl": 0.10749591886997223
+    },
+    {
+      "domain": "fineweb",
+      "document": 20,
+      "group": "m_a",
+      "raw_effect_energy": 897179.0689081876,
+      "centered_effect_energy": 465674.81166808296,
+      "ce_added": 0.006655324250459671,
+      "kl": 0.006589301861822605
+    },
+    {
+      "domain": "fineweb",
+      "document": 20,
+      "group": "a_a",
+      "raw_effect_energy": 4354.974143533662,
+      "centered_effect_energy": 3294.051909111941,
+      "ce_added": -0.0002628993825055659,
+      "kl": 5.038578456151299e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 20,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 102258622.30752449,
+      "centered_effect_energy": 39513676.28329721,
+      "ce_added": 1.7516989707946777,
+      "kl": 1.7363426685333252
+    },
+    {
+      "domain": "fineweb",
+      "document": 20,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1389384.5356659396,
+      "centered_effect_energy": 611243.8860034149,
+      "ce_added": 0.0022570984438061714,
+      "kl": 0.004920092411339283
+    },
+    {
+      "domain": "fineweb",
+      "document": 20,
+      "group": "all_polynomial",
+      "raw_effect_energy": 177828109.52444726,
+      "centered_effect_energy": 46329394.17117487,
+      "ce_added": 0.31568869948387146,
+      "kl": 0.41343310475349426
+    },
+    {
+      "domain": "fineweb",
+      "document": 21,
+      "group": "r_r",
+      "raw_effect_energy": 357684737.6953671,
+      "centered_effect_energy": 102990886.92336881,
+      "ce_added": 1.406335711479187,
+      "kl": 1.1587743759155273
+    },
+    {
+      "domain": "fineweb",
+      "document": 21,
+      "group": "r_m",
+      "raw_effect_energy": 103625503.68743737,
+      "centered_effect_energy": 44588455.06822039,
+      "ce_added": 2.3616809844970703,
+      "kl": 2.4477617740631104
+    },
+    {
+      "domain": "fineweb",
+      "document": 21,
+      "group": "r_a",
+      "raw_effect_energy": 3931982.8185709603,
+      "centered_effect_energy": 1714559.4442172328,
+      "ce_added": 0.008728845976293087,
+      "kl": 0.017489241436123848
+    },
+    {
+      "domain": "fineweb",
+      "document": 21,
+      "group": "m_m",
+      "raw_effect_energy": 10560969.271173328,
+      "centered_effect_energy": 7922870.541856352,
+      "ce_added": 0.16241616010665894,
+      "kl": 0.09929700195789337
+    },
+    {
+      "domain": "fineweb",
+      "document": 21,
+      "group": "m_a",
+      "raw_effect_energy": 1264515.039731773,
+      "centered_effect_energy": 526065.7458716051,
+      "ce_added": 0.015025366097688675,
+      "kl": 0.00732401804998517
+    },
+    {
+      "domain": "fineweb",
+      "document": 21,
+      "group": "a_a",
+      "raw_effect_energy": 13858.952339221494,
+      "centered_effect_energy": 7857.56009537589,
+      "ce_added": 0.0009061948512680829,
+      "kl": 6.617447070311755e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 21,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 77058309.34968357,
+      "centered_effect_energy": 30098205.737059534,
+      "ce_added": 1.5013129711151123,
+      "kl": 1.5710275173187256
+    },
+    {
+      "domain": "fineweb",
+      "document": 21,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1354215.68546603,
+      "centered_effect_energy": 566699.8182047945,
+      "ce_added": 0.004896671045571566,
+      "kl": 0.005286109168082476
+    },
+    {
+      "domain": "fineweb",
+      "document": 21,
+      "group": "all_polynomial",
+      "raw_effect_energy": 197015566.42401364,
+      "centered_effect_energy": 48316808.315129094,
+      "ce_added": 0.6372334957122803,
+      "kl": 0.5641549229621887
+    },
+    {
+      "domain": "fineweb",
+      "document": 22,
+      "group": "r_r",
+      "raw_effect_energy": 342756755.2302484,
+      "centered_effect_energy": 99566384.29159056,
+      "ce_added": 1.1019235849380493,
+      "kl": 1.0346534252166748
+    },
+    {
+      "domain": "fineweb",
+      "document": 22,
+      "group": "r_m",
+      "raw_effect_energy": 91748548.25301875,
+      "centered_effect_energy": 37342369.37634381,
+      "ce_added": 1.9949272871017456,
+      "kl": 2.11691951751709
+    },
+    {
+      "domain": "fineweb",
+      "document": 22,
+      "group": "r_a",
+      "raw_effect_energy": 5875503.004985429,
+      "centered_effect_energy": 1865310.6455153213,
+      "ce_added": 0.059871312230825424,
+      "kl": 0.029466819018125534
+    },
+    {
+      "domain": "fineweb",
+      "document": 22,
+      "group": "m_m",
+      "raw_effect_energy": 7315325.52155493,
+      "centered_effect_energy": 5624283.9828799805,
+      "ce_added": 0.07191100716590881,
+      "kl": 0.06616005301475525
+    },
+    {
+      "domain": "fineweb",
+      "document": 22,
+      "group": "m_a",
+      "raw_effect_energy": 939293.4954319872,
+      "centered_effect_energy": 338483.4465652886,
+      "ce_added": 0.0019217830849811435,
+      "kl": 0.010266355238854885
+    },
+    {
+      "domain": "fineweb",
+      "document": 22,
+      "group": "a_a",
+      "raw_effect_energy": 9112.604593310436,
+      "centered_effect_energy": 6282.018932580267,
+      "ce_added": 0.0005860843230038881,
+      "kl": 0.00011108499893452972
+    },
+    {
+      "domain": "fineweb",
+      "document": 22,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 69951494.33738858,
+      "centered_effect_energy": 25348965.65969146,
+      "ce_added": 1.3244783878326416,
+      "kl": 1.4329476356506348
+    },
+    {
+      "domain": "fineweb",
+      "document": 22,
+      "group": "attention_dependent",
+      "raw_effect_energy": 2313604.0168525726,
+      "centered_effect_energy": 765633.4210956666,
+      "ce_added": 0.031065374612808228,
+      "kl": 0.009177792817354202
+    },
+    {
+      "domain": "fineweb",
+      "document": 22,
+      "group": "all_polynomial",
+      "raw_effect_energy": 194700480.12426987,
+      "centered_effect_energy": 45531786.57352953,
+      "ce_added": 0.71037358045578,
+      "kl": 0.5969465970993042
+    },
+    {
+      "domain": "fineweb",
+      "document": 23,
+      "group": "r_r",
+      "raw_effect_energy": 430930093.583671,
+      "centered_effect_energy": 113418079.72481202,
+      "ce_added": 1.407421350479126,
+      "kl": 1.265116810798645
+    },
+    {
+      "domain": "fineweb",
+      "document": 23,
+      "group": "r_m",
+      "raw_effect_energy": 90524784.1989977,
+      "centered_effect_energy": 38212824.02044508,
+      "ce_added": 2.2547554969787598,
+      "kl": 2.365853786468506
+    },
+    {
+      "domain": "fineweb",
+      "document": 23,
+      "group": "r_a",
+      "raw_effect_energy": 6906940.517109136,
+      "centered_effect_energy": 1923595.798847972,
+      "ce_added": 0.05392489582300186,
+      "kl": 0.040645889937877655
+    },
+    {
+      "domain": "fineweb",
+      "document": 23,
+      "group": "m_m",
+      "raw_effect_energy": 10764433.878948294,
+      "centered_effect_energy": 7320327.052217071,
+      "ce_added": 0.11087102442979813,
+      "kl": 0.09373797476291656
+    },
+    {
+      "domain": "fineweb",
+      "document": 23,
+      "group": "m_a",
+      "raw_effect_energy": 1360446.3638151877,
+      "centered_effect_energy": 399966.44842756935,
+      "ce_added": 0.0035504442639648914,
+      "kl": 0.00930963084101677
+    },
+    {
+      "domain": "fineweb",
+      "document": 23,
+      "group": "a_a",
+      "raw_effect_energy": 23151.106586942347,
+      "centered_effect_energy": 12706.310684807479,
+      "ce_added": 0.0001458209881093353,
+      "kl": 9.106264042202383e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 23,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 71833823.00820613,
+      "centered_effect_energy": 26241882.910846464,
+      "ce_added": 1.5496349334716797,
+      "kl": 1.6504708528518677
+    },
+    {
+      "domain": "fineweb",
+      "document": 23,
+      "group": "attention_dependent",
+      "raw_effect_energy": 2880328.261184344,
+      "centered_effect_energy": 837778.7230214746,
+      "ce_added": 0.022279029712080956,
+      "kl": 0.015482520684599876
+    },
+    {
+      "domain": "fineweb",
+      "document": 23,
+      "group": "all_polynomial",
+      "raw_effect_energy": 233127466.79697317,
+      "centered_effect_energy": 48270617.08540176,
+      "ce_added": 0.907303512096405,
+      "kl": 0.790336012840271
+    },
+    {
+      "domain": "fineweb",
+      "document": 24,
+      "group": "r_r",
+      "raw_effect_energy": 397779171.88157016,
+      "centered_effect_energy": 108092321.53772879,
+      "ce_added": 1.177882194519043,
+      "kl": 1.171168565750122
+    },
+    {
+      "domain": "fineweb",
+      "document": 24,
+      "group": "r_m",
+      "raw_effect_energy": 78170503.80703416,
+      "centered_effect_energy": 34785389.362092495,
+      "ce_added": 2.1841742992401123,
+      "kl": 2.2197628021240234
+    },
+    {
+      "domain": "fineweb",
+      "document": 24,
+      "group": "r_a",
+      "raw_effect_energy": 9018987.042707166,
+      "centered_effect_energy": 2430149.038432971,
+      "ce_added": 0.05571041256189346,
+      "kl": 0.04348674416542053
+    },
+    {
+      "domain": "fineweb",
+      "document": 24,
+      "group": "m_m",
+      "raw_effect_energy": 7948395.828857506,
+      "centered_effect_energy": 5945790.301441668,
+      "ce_added": 0.09988710284233093,
+      "kl": 0.08353918045759201
+    },
+    {
+      "domain": "fineweb",
+      "document": 24,
+      "group": "m_a",
+      "raw_effect_energy": 1164686.4156170636,
+      "centered_effect_energy": 387100.02864365675,
+      "ce_added": 0.010823754593729973,
+      "kl": 0.012430235743522644
+    },
+    {
+      "domain": "fineweb",
+      "document": 24,
+      "group": "a_a",
+      "raw_effect_energy": 18876.63388342683,
+      "centered_effect_energy": 9466.101012200757,
+      "ce_added": 0.0009158391039818525,
+      "kl": 0.00011060258839279413
+    },
+    {
+      "domain": "fineweb",
+      "document": 24,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 61846235.701835096,
+      "centered_effect_energy": 23680626.694853738,
+      "ce_added": 1.5033507347106934,
+      "kl": 1.5305380821228027
+    },
+    {
+      "domain": "fineweb",
+      "document": 24,
+      "group": "attention_dependent",
+      "raw_effect_energy": 3615399.728521724,
+      "centered_effect_energy": 1022912.0331344432,
+      "ce_added": 0.026730287820100784,
+      "kl": 0.01428248081356287
+    },
+    {
+      "domain": "fineweb",
+      "document": 24,
+      "group": "all_polynomial",
+      "raw_effect_energy": 233427068.67155823,
+      "centered_effect_energy": 49992400.390037045,
+      "ce_added": 0.7189834117889404,
+      "kl": 0.7058661580085754
+    },
+    {
+      "domain": "fineweb",
+      "document": 25,
+      "group": "r_r",
+      "raw_effect_energy": 278518292.95245034,
+      "centered_effect_energy": 91137301.23051965,
+      "ce_added": 0.8427603840827942,
+      "kl": 0.9501254558563232
+    },
+    {
+      "domain": "fineweb",
+      "document": 25,
+      "group": "r_m",
+      "raw_effect_energy": 122127030.58921733,
+      "centered_effect_energy": 45012789.50499633,
+      "ce_added": 2.218606948852539,
+      "kl": 2.198577880859375
+    },
+    {
+      "domain": "fineweb",
+      "document": 25,
+      "group": "r_a",
+      "raw_effect_energy": 3915510.362635202,
+      "centered_effect_energy": 1507614.9545575692,
+      "ce_added": 0.02294398844242096,
+      "kl": 0.018358450382947922
+    },
+    {
+      "domain": "fineweb",
+      "document": 25,
+      "group": "m_m",
+      "raw_effect_energy": 15018810.86853845,
+      "centered_effect_energy": 9029979.56187365,
+      "ce_added": 0.07505208253860474,
+      "kl": 0.09909337759017944
+    },
+    {
+      "domain": "fineweb",
+      "document": 25,
+      "group": "m_a",
+      "raw_effect_energy": 1768329.065155443,
+      "centered_effect_energy": 592114.7526611305,
+      "ce_added": 0.004307838156819344,
+      "kl": 0.007753472309559584
+    },
+    {
+      "domain": "fineweb",
+      "document": 25,
+      "group": "a_a",
+      "raw_effect_energy": 9891.5077100075,
+      "centered_effect_energy": 6615.323751901695,
+      "ce_added": -0.0013095301110297441,
+      "kl": 9.612478606868535e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 25,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 89177771.91008441,
+      "centered_effect_energy": 29934784.362618275,
+      "ce_added": 1.40671968460083,
+      "kl": 1.3787540197372437
+    },
+    {
+      "domain": "fineweb",
+      "document": 25,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1379279.4622924295,
+      "centered_effect_energy": 576897.7338755014,
+      "ce_added": 0.005430045537650585,
+      "kl": 0.006374174728989601
+    },
+    {
+      "domain": "fineweb",
+      "document": 25,
+      "group": "all_polynomial",
+      "raw_effect_energy": 174955592.79977378,
+      "centered_effect_energy": 46465516.914387494,
+      "ce_added": 0.4706178605556488,
+      "kl": 0.46379750967025757
+    },
+    {
+      "domain": "fineweb",
+      "document": 26,
+      "group": "r_r",
+      "raw_effect_energy": 310455541.80675864,
+      "centered_effect_energy": 102861011.76928385,
+      "ce_added": 1.8832613229751587,
+      "kl": 1.8194072246551514
+    },
+    {
+      "domain": "fineweb",
+      "document": 26,
+      "group": "r_m",
+      "raw_effect_energy": 126780112.37039922,
+      "centered_effect_energy": 50029093.69238221,
+      "ce_added": 3.0315685272216797,
+      "kl": 3.0597622394561768
+    },
+    {
+      "domain": "fineweb",
+      "document": 26,
+      "group": "r_a",
+      "raw_effect_energy": 6326452.086231751,
+      "centered_effect_energy": 2484012.9132609665,
+      "ce_added": 0.06978195905685425,
+      "kl": 0.052968598902225494
+    },
+    {
+      "domain": "fineweb",
+      "document": 26,
+      "group": "m_m",
+      "raw_effect_energy": 11301072.473106908,
+      "centered_effect_energy": 9788379.718568454,
+      "ce_added": 0.16850507259368896,
+      "kl": 0.18571123480796814
+    },
+    {
+      "domain": "fineweb",
+      "document": 26,
+      "group": "m_a",
+      "raw_effect_energy": 1061376.4066760535,
+      "centered_effect_energy": 568360.021776514,
+      "ce_added": 0.0075513385236263275,
+      "kl": 0.022249221801757812
+    },
+    {
+      "domain": "fineweb",
+      "document": 26,
+      "group": "a_a",
+      "raw_effect_energy": 7920.003472712526,
+      "centered_effect_energy": 5596.946669859914,
+      "ce_added": -0.0011326774256303906,
+      "kl": 9.223758388543501e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 26,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 89131601.04937285,
+      "centered_effect_energy": 32007497.187750906,
+      "ce_added": 2.016016960144043,
+      "kl": 2.0597355365753174
+    },
+    {
+      "domain": "fineweb",
+      "document": 26,
+      "group": "attention_dependent",
+      "raw_effect_energy": 2161179.4648308945,
+      "centered_effect_energy": 810750.5125943654,
+      "ce_added": 0.010746587067842484,
+      "kl": 0.012266233563423157
+    },
+    {
+      "domain": "fineweb",
+      "document": 26,
+      "group": "all_polynomial",
+      "raw_effect_energy": 205296762.0450614,
+      "centered_effect_energy": 55845127.68015549,
+      "ce_added": 0.9579054713249207,
+      "kl": 0.9012870788574219
+    },
+    {
+      "domain": "fineweb",
+      "document": 27,
+      "group": "r_r",
+      "raw_effect_energy": 338578950.93788695,
+      "centered_effect_energy": 100593364.68928906,
+      "ce_added": 1.3280799388885498,
+      "kl": 1.2435091733932495
+    },
+    {
+      "domain": "fineweb",
+      "document": 27,
+      "group": "r_m",
+      "raw_effect_energy": 108684557.56101808,
+      "centered_effect_energy": 41826712.664266065,
+      "ce_added": 2.602802038192749,
+      "kl": 2.6989378929138184
+    },
+    {
+      "domain": "fineweb",
+      "document": 27,
+      "group": "r_a",
+      "raw_effect_energy": 7928590.141864365,
+      "centered_effect_energy": 2589446.1165092415,
+      "ce_added": 0.0843728557229042,
+      "kl": 0.054720133543014526
+    },
+    {
+      "domain": "fineweb",
+      "document": 27,
+      "group": "m_m",
+      "raw_effect_energy": 9495251.213230705,
+      "centered_effect_energy": 7474037.219605105,
+      "ce_added": 0.1075964942574501,
+      "kl": 0.10908384621143341
+    },
+    {
+      "domain": "fineweb",
+      "document": 27,
+      "group": "m_a",
+      "raw_effect_energy": 960484.2595111626,
+      "centered_effect_energy": 432968.0353591539,
+      "ce_added": 0.00966382771730423,
+      "kl": 0.018129076808691025
+    },
+    {
+      "domain": "fineweb",
+      "document": 27,
+      "group": "a_a",
+      "raw_effect_energy": 8278.239539344962,
+      "centered_effect_energy": 6020.123385837357,
+      "ce_added": 0.002261403249576688,
+      "kl": 0.00015519349835813046
+    },
+    {
+      "domain": "fineweb",
+      "document": 27,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 78831901.04017487,
+      "centered_effect_energy": 27611729.081688106,
+      "ce_added": 1.7720885276794434,
+      "kl": 1.8478872776031494
+    },
+    {
+      "domain": "fineweb",
+      "document": 27,
+      "group": "attention_dependent",
+      "raw_effect_energy": 2994277.572239872,
+      "centered_effect_energy": 962311.6784749834,
+      "ce_added": 0.03744994103908539,
+      "kl": 0.01502751000225544
+    },
+    {
+      "domain": "fineweb",
+      "document": 27,
+      "group": "all_polynomial",
+      "raw_effect_energy": 199076707.80118698,
+      "centered_effect_energy": 48686732.911879495,
+      "ce_added": 0.9067121744155884,
+      "kl": 0.737372875213623
+    },
+    {
+      "domain": "fineweb",
+      "document": 28,
+      "group": "r_r",
+      "raw_effect_energy": 349753163.0103924,
+      "centered_effect_energy": 101934846.60087311,
+      "ce_added": 1.579735517501831,
+      "kl": 1.361609935760498
+    },
+    {
+      "domain": "fineweb",
+      "document": 28,
+      "group": "r_m",
+      "raw_effect_energy": 109739207.03090687,
+      "centered_effect_energy": 43855069.60695344,
+      "ce_added": 2.3340373039245605,
+      "kl": 2.5569653511047363
+    },
+    {
+      "domain": "fineweb",
+      "document": 28,
+      "group": "r_a",
+      "raw_effect_energy": 5343588.508233541,
+      "centered_effect_energy": 1980604.0751702986,
+      "ce_added": 0.0630858838558197,
+      "kl": 0.029049165546894073
+    },
+    {
+      "domain": "fineweb",
+      "document": 28,
+      "group": "m_m",
+      "raw_effect_energy": 9174102.213367585,
+      "centered_effect_energy": 7609935.107385697,
+      "ce_added": 0.10435087978839874,
+      "kl": 0.12862679362297058
+    },
+    {
+      "domain": "fineweb",
+      "document": 28,
+      "group": "m_a",
+      "raw_effect_energy": 794106.8546568154,
+      "centered_effect_energy": 405181.27832720836,
+      "ce_added": -0.009091358631849289,
+      "kl": 0.011045193299651146
+    },
+    {
+      "domain": "fineweb",
+      "document": 28,
+      "group": "a_a",
+      "raw_effect_energy": 7521.217353680011,
+      "centered_effect_energy": 5564.151156932562,
+      "ce_added": -0.0009786417940631509,
+      "kl": 9.001100988825783e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 28,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 80431562.62834883,
+      "centered_effect_energy": 29501822.468037564,
+      "ce_added": 1.495208978652954,
+      "kl": 1.7006299495697021
+    },
+    {
+      "domain": "fineweb",
+      "document": 28,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1890657.9400584456,
+      "centered_effect_energy": 667755.3895719994,
+      "ce_added": 0.019079603254795074,
+      "kl": 0.007991442456841469
+    },
+    {
+      "domain": "fineweb",
+      "document": 28,
+      "group": "all_polynomial",
+      "raw_effect_energy": 208933718.23639947,
+      "centered_effect_energy": 50069466.597450085,
+      "ce_added": 0.8951642513275146,
+      "kl": 0.6809543967247009
+    },
+    {
+      "domain": "fineweb",
+      "document": 29,
+      "group": "r_r",
+      "raw_effect_energy": 428778066.4410423,
+      "centered_effect_energy": 114555070.77803503,
+      "ce_added": 1.0447781085968018,
+      "kl": 1.24905264377594
+    },
+    {
+      "domain": "fineweb",
+      "document": 29,
+      "group": "r_m",
+      "raw_effect_energy": 93619620.94709547,
+      "centered_effect_energy": 44612291.49701763,
+      "ce_added": 2.5906405448913574,
+      "kl": 2.525573968887329
+    },
+    {
+      "domain": "fineweb",
+      "document": 29,
+      "group": "r_a",
+      "raw_effect_energy": 4961066.5758831715,
+      "centered_effect_energy": 1837751.8599635058,
+      "ce_added": 0.019665012136101723,
+      "kl": 0.020320113748311996
+    },
+    {
+      "domain": "fineweb",
+      "document": 29,
+      "group": "m_m",
+      "raw_effect_energy": 10375939.533117415,
+      "centered_effect_energy": 8652631.518833064,
+      "ce_added": 0.07467140257358551,
+      "kl": 0.0982506275177002
+    },
+    {
+      "domain": "fineweb",
+      "document": 29,
+      "group": "m_a",
+      "raw_effect_energy": 784470.4215107311,
+      "centered_effect_energy": 387430.4433842246,
+      "ce_added": 0.005737403407692909,
+      "kl": 0.0069542620331048965
+    },
+    {
+      "domain": "fineweb",
+      "document": 29,
+      "group": "a_a",
+      "raw_effect_energy": 7149.970771674989,
+      "centered_effect_energy": 5028.947725678421,
+      "ce_added": 5.1402676035650074e-05,
+      "kl": 0.0001061374568962492
+    },
+    {
+      "domain": "fineweb",
+      "document": 29,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 72978856.31898656,
+      "centered_effect_energy": 30269756.709648073,
+      "ce_added": 1.6759612560272217,
+      "kl": 1.614971399307251
+    },
+    {
+      "domain": "fineweb",
+      "document": 29,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1767065.448963971,
+      "centered_effect_energy": 660498.9747320473,
+      "ce_added": 0.005206798668950796,
+      "kl": 0.007290321867913008
+    },
+    {
+      "domain": "fineweb",
+      "document": 29,
+      "group": "all_polynomial",
+      "raw_effect_energy": 216323379.27214134,
+      "centered_effect_energy": 49383908.199823394,
+      "ce_added": 0.4839472770690918,
+      "kl": 0.5831477642059326
+    },
+    {
+      "domain": "fineweb",
+      "document": 30,
+      "group": "r_r",
+      "raw_effect_energy": 423288899.1969938,
+      "centered_effect_energy": 117096606.16308677,
+      "ce_added": 1.4987819194793701,
+      "kl": 1.478069543838501
+    },
+    {
+      "domain": "fineweb",
+      "document": 30,
+      "group": "r_m",
+      "raw_effect_energy": 107382636.25149155,
+      "centered_effect_energy": 45477636.503828265,
+      "ce_added": 2.6342320442199707,
+      "kl": 2.73915958404541
+    },
+    {
+      "domain": "fineweb",
+      "document": 30,
+      "group": "r_a",
+      "raw_effect_energy": 5305423.929976575,
+      "centered_effect_energy": 2069756.1353352696,
+      "ce_added": 0.050533369183540344,
+      "kl": 0.03275656700134277
+    },
+    {
+      "domain": "fineweb",
+      "document": 30,
+      "group": "m_m",
+      "raw_effect_energy": 10835443.633614436,
+      "centered_effect_energy": 9175103.39887561,
+      "ce_added": 0.09783788025379181,
+      "kl": 0.11603312194347382
+    },
+    {
+      "domain": "fineweb",
+      "document": 30,
+      "group": "m_a",
+      "raw_effect_energy": 914113.1660361876,
+      "centered_effect_energy": 473086.2461035121,
+      "ce_added": 0.002277619205415249,
+      "kl": 0.011208880692720413
+    },
+    {
+      "domain": "fineweb",
+      "document": 30,
+      "group": "a_a",
+      "raw_effect_energy": 6677.92599560497,
+      "centered_effect_energy": 4847.558247460354,
+      "ce_added": -0.0010112952440977097,
+      "kl": 9.703281830297783e-05
+    },
+    {
+      "domain": "fineweb",
+      "document": 30,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 81605090.8620057,
+      "centered_effect_energy": 30861493.245275218,
+      "ce_added": 1.7218244075775146,
+      "kl": 1.8023960590362549
+    },
+    {
+      "domain": "fineweb",
+      "document": 30,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1877918.216424457,
+      "centered_effect_energy": 692483.6545621046,
+      "ce_added": 0.016752801835536957,
+      "kl": 0.009420216083526611
+    },
+    {
+      "domain": "fineweb",
+      "document": 30,
+      "group": "all_polynomial",
+      "raw_effect_energy": 222064314.48780185,
+      "centered_effect_energy": 50632182.481553115,
+      "ce_added": 0.8205513954162598,
+      "kl": 0.711523711681366
+    },
+    {
+      "domain": "fineweb",
+      "document": 31,
+      "group": "r_r",
+      "raw_effect_energy": 318889711.1472895,
+      "centered_effect_energy": 101551442.44519539,
+      "ce_added": 1.334146499633789,
+      "kl": 1.5149747133255005
+    },
+    {
+      "domain": "fineweb",
+      "document": 31,
+      "group": "r_m",
+      "raw_effect_energy": 134859525.7317861,
+      "centered_effect_energy": 50625085.58635571,
+      "ce_added": 3.1834208965301514,
+      "kl": 3.2375659942626953
+    },
+    {
+      "domain": "fineweb",
+      "document": 31,
+      "group": "r_a",
+      "raw_effect_energy": 5961042.825578634,
+      "centered_effect_energy": 2723714.381677338,
+      "ce_added": 0.06683331727981567,
+      "kl": 0.05444028228521347
+    },
+    {
+      "domain": "fineweb",
+      "document": 31,
+      "group": "m_m",
+      "raw_effect_energy": 11317109.690060522,
+      "centered_effect_energy": 9606260.725558128,
+      "ce_added": 0.09063846617937088,
+      "kl": 0.18550485372543335
+    },
+    {
+      "domain": "fineweb",
+      "document": 31,
+      "group": "m_a",
+      "raw_effect_energy": 1197216.6096384013,
+      "centered_effect_energy": 655070.7764564089,
+      "ce_added": 0.01273879874497652,
+      "kl": 0.023694369941949844
+    },
+    {
+      "domain": "fineweb",
+      "document": 31,
+      "group": "a_a",
+      "raw_effect_energy": 14382.242207201225,
+      "centered_effect_energy": 9613.577603950867,
+      "ce_added": -0.0008039845852181315,
+      "kl": 0.0001676504616625607
+    },
+    {
+      "domain": "fineweb",
+      "document": 31,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 90532504.52764314,
+      "centered_effect_energy": 32215450.118731823,
+      "ce_added": 2.101137399673462,
+      "kl": 2.14323091506958
+    },
+    {
+      "domain": "fineweb",
+      "document": 31,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1740547.8040446525,
+      "centered_effect_energy": 763091.5623144603,
+      "ce_added": 0.013082870282232761,
+      "kl": 0.011816151440143585
+    },
+    {
+      "domain": "fineweb",
+      "document": 31,
+      "group": "all_polynomial",
+      "raw_effect_energy": 204418138.27457082,
+      "centered_effect_energy": 55251413.18896879,
+      "ce_added": 0.8580166697502136,
+      "kl": 0.884308934211731
+    },
+    {
+      "domain": "code",
+      "document": 0,
+      "group": "r_r",
+      "raw_effect_energy": 439527126.72743213,
+      "centered_effect_energy": 131914524.49696207,
+      "ce_added": 4.150210380554199,
+      "kl": 4.0876264572143555
+    },
+    {
+      "domain": "code",
+      "document": 0,
+      "group": "r_m",
+      "raw_effect_energy": 139081838.80457902,
+      "centered_effect_energy": 62025288.565862894,
+      "ce_added": 4.3370561599731445,
+      "kl": 4.601078987121582
+    },
+    {
+      "domain": "code",
+      "document": 0,
+      "group": "r_a",
+      "raw_effect_energy": 3303087.153277073,
+      "centered_effect_energy": 1587907.8188626613,
+      "ce_added": 0.11365810036659241,
+      "kl": 0.044841885566711426
+    },
+    {
+      "domain": "code",
+      "document": 0,
+      "group": "m_m",
+      "raw_effect_energy": 19320093.64566578,
+      "centered_effect_energy": 17957613.197414644,
+      "ce_added": 0.527093768119812,
+      "kl": 0.5946235656738281
+    },
+    {
+      "domain": "code",
+      "document": 0,
+      "group": "m_a",
+      "raw_effect_energy": 885512.3065639032,
+      "centered_effect_energy": 601806.9643119356,
+      "ce_added": 0.003862522542476654,
+      "kl": 0.02698732167482376
+    },
+    {
+      "domain": "code",
+      "document": 0,
+      "group": "a_a",
+      "raw_effect_energy": 5326.998826166491,
+      "centered_effect_energy": 4108.667291989417,
+      "ce_added": 0.0016879187896847725,
+      "kl": 0.00012629327829927206
+    },
+    {
+      "domain": "code",
+      "document": 0,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 111318878.94643053,
+      "centered_effect_energy": 39886083.64102259,
+      "ce_added": 3.022765636444092,
+      "kl": 3.22165584564209
+    },
+    {
+      "domain": "code",
+      "document": 0,
+      "group": "attention_dependent",
+      "raw_effect_energy": 987471.691872364,
+      "centered_effect_energy": 435399.28139620624,
+      "ce_added": 0.05920998752117157,
+      "kl": 0.01335746981203556
+    },
+    {
+      "domain": "code",
+      "document": 0,
+      "group": "all_polynomial",
+      "raw_effect_energy": 344540986.87756974,
+      "centered_effect_energy": 83984271.87718746,
+      "ce_added": 2.475017547607422,
+      "kl": 2.120448112487793
+    },
+    {
+      "domain": "code",
+      "document": 1,
+      "group": "r_r",
+      "raw_effect_energy": 403813691.67360675,
+      "centered_effect_energy": 126017277.82436827,
+      "ce_added": 3.534524917602539,
+      "kl": 3.9048290252685547
+    },
+    {
+      "domain": "code",
+      "document": 1,
+      "group": "r_m",
+      "raw_effect_energy": 151687797.62687087,
+      "centered_effect_energy": 66422786.20248988,
+      "ce_added": 4.748970985412598,
+      "kl": 4.866127014160156
+    },
+    {
+      "domain": "code",
+      "document": 1,
+      "group": "r_a",
+      "raw_effect_energy": 3615774.996631842,
+      "centered_effect_energy": 2133731.515016762,
+      "ce_added": 0.1373407244682312,
+      "kl": 0.060540735721588135
+    },
+    {
+      "domain": "code",
+      "document": 1,
+      "group": "m_m",
+      "raw_effect_energy": 20311064.123243056,
+      "centered_effect_energy": 18738189.355224617,
+      "ce_added": 0.4967033863067627,
+      "kl": 0.6747894287109375
+    },
+    {
+      "domain": "code",
+      "document": 1,
+      "group": "m_a",
+      "raw_effect_energy": 1113291.679576763,
+      "centered_effect_energy": 838061.8191755654,
+      "ce_added": 0.014747479930520058,
+      "kl": 0.042153406888246536
+    },
+    {
+      "domain": "code",
+      "document": 1,
+      "group": "a_a",
+      "raw_effect_energy": 10686.107686949927,
+      "centered_effect_energy": 8086.217155378221,
+      "ce_added": 0.0023084720596671104,
+      "kl": 0.00024492782540619373
+    },
+    {
+      "domain": "code",
+      "document": 1,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 116305219.94726084,
+      "centered_effect_energy": 41513759.473264284,
+      "ce_added": 3.2420904636383057,
+      "kl": 3.3069300651550293
+    },
+    {
+      "domain": "code",
+      "document": 1,
+      "group": "attention_dependent",
+      "raw_effect_energy": 992048.33344108,
+      "centered_effect_energy": 515080.2882187619,
+      "ce_added": 0.059008557349443436,
+      "kl": 0.013744039461016655
+    },
+    {
+      "domain": "code",
+      "document": 1,
+      "group": "all_polynomial",
+      "raw_effect_energy": 314863910.9436046,
+      "centered_effect_energy": 80239441.5716438,
+      "ce_added": 2.151493549346924,
+      "kl": 2.019094944000244
+    },
+    {
+      "domain": "code",
+      "document": 2,
+      "group": "r_r",
+      "raw_effect_energy": 431071145.57632214,
+      "centered_effect_energy": 134428701.3044612,
+      "ce_added": 4.263305187225342,
+      "kl": 4.3628153800964355
+    },
+    {
+      "domain": "code",
+      "document": 2,
+      "group": "r_m",
+      "raw_effect_energy": 143920492.66792154,
+      "centered_effect_energy": 65686591.982025534,
+      "ce_added": 4.648488521575928,
+      "kl": 4.925138473510742
+    },
+    {
+      "domain": "code",
+      "document": 2,
+      "group": "r_a",
+      "raw_effect_energy": 2955914.681566475,
+      "centered_effect_energy": 1704584.8430689252,
+      "ce_added": 0.10688026249408722,
+      "kl": 0.03921568766236305
+    },
+    {
+      "domain": "code",
+      "document": 2,
+      "group": "m_m",
+      "raw_effect_energy": 21326978.08549411,
+      "centered_effect_energy": 19759256.058752235,
+      "ce_added": 0.4966662526130676,
+      "kl": 0.6928644180297852
+    },
+    {
+      "domain": "code",
+      "document": 2,
+      "group": "m_a",
+      "raw_effect_energy": 994025.4272650803,
+      "centered_effect_energy": 717347.8036895203,
+      "ce_added": -0.00916982814669609,
+      "kl": 0.027208924293518066
+    },
+    {
+      "domain": "code",
+      "document": 2,
+      "group": "a_a",
+      "raw_effect_energy": 7381.848436612044,
+      "centered_effect_energy": 5186.372884348713,
+      "ce_added": 0.0007476668106392026,
+      "kl": 0.00012214355228934437
+    },
+    {
+      "domain": "code",
+      "document": 2,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 115465731.4138174,
+      "centered_effect_energy": 42140437.61694105,
+      "ce_added": 3.1633968353271484,
+      "kl": 3.387573719024658
+    },
+    {
+      "domain": "code",
+      "document": 2,
+      "group": "attention_dependent",
+      "raw_effect_energy": 812355.8208278592,
+      "centered_effect_energy": 439805.4430137204,
+      "ce_added": 0.04528876766562462,
+      "kl": 0.011217189952731133
+    },
+    {
+      "domain": "code",
+      "document": 2,
+      "group": "all_polynomial",
+      "raw_effect_energy": 348502387.4508635,
+      "centered_effect_energy": 88167525.23880538,
+      "ce_added": 2.561023712158203,
+      "kl": 2.144268035888672
+    },
+    {
+      "domain": "code",
+      "document": 3,
+      "group": "r_r",
+      "raw_effect_energy": 439091857.2861651,
+      "centered_effect_energy": 134232060.98548353,
+      "ce_added": 4.964631080627441,
+      "kl": 4.718633651733398
+    },
+    {
+      "domain": "code",
+      "document": 3,
+      "group": "r_m",
+      "raw_effect_energy": 142928135.55625665,
+      "centered_effect_energy": 69563469.07557538,
+      "ce_added": 4.544963836669922,
+      "kl": 5.060707092285156
+    },
+    {
+      "domain": "code",
+      "document": 3,
+      "group": "r_a",
+      "raw_effect_energy": 4363498.7803488495,
+      "centered_effect_energy": 1840559.4889545685,
+      "ce_added": 0.10591159015893936,
+      "kl": 0.047919176518917084
+    },
+    {
+      "domain": "code",
+      "document": 3,
+      "group": "m_m",
+      "raw_effect_energy": 24890662.957417987,
+      "centered_effect_energy": 22991117.902933918,
+      "ce_added": 0.7422863841056824,
+      "kl": 1.012239694595337
+    },
+    {
+      "domain": "code",
+      "document": 3,
+      "group": "m_a",
+      "raw_effect_energy": 1531129.2820133823,
+      "centered_effect_energy": 929394.1135163193,
+      "ce_added": -0.006672695279121399,
+      "kl": 0.029880400747060776
+    },
+    {
+      "domain": "code",
+      "document": 3,
+      "group": "a_a",
+      "raw_effect_energy": 11369.006997088494,
+      "centered_effect_energy": 5913.7218508114565,
+      "ce_added": 0.0009882590966299176,
+      "kl": 0.0001154716665041633
+    },
+    {
+      "domain": "code",
+      "document": 3,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 119299794.80292316,
+      "centered_effect_energy": 45575960.75552339,
+      "ce_added": 3.1069445610046387,
+      "kl": 3.5744457244873047
+    },
+    {
+      "domain": "code",
+      "document": 3,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1037147.242928753,
+      "centered_effect_energy": 464186.63544084725,
+      "ce_added": 0.03915373980998993,
+      "kl": 0.012939093634486198
+    },
+    {
+      "domain": "code",
+      "document": 3,
+      "group": "all_polynomial",
+      "raw_effect_energy": 353421299.3143436,
+      "centered_effect_energy": 89444840.96653481,
+      "ce_added": 2.94578218460083,
+      "kl": 2.173705816268921
+    },
+    {
+      "domain": "code",
+      "document": 4,
+      "group": "r_r",
+      "raw_effect_energy": 412652664.2091038,
+      "centered_effect_energy": 127337233.0429802,
+      "ce_added": 3.6726763248443604,
+      "kl": 3.767406940460205
+    },
+    {
+      "domain": "code",
+      "document": 4,
+      "group": "r_m",
+      "raw_effect_energy": 140657276.37626928,
+      "centered_effect_energy": 63899447.74374552,
+      "ce_added": 4.963488578796387,
+      "kl": 5.0947723388671875
+    },
+    {
+      "domain": "code",
+      "document": 4,
+      "group": "r_a",
+      "raw_effect_energy": 3665245.446914918,
+      "centered_effect_energy": 2002317.6333940178,
+      "ce_added": 0.10596106946468353,
+      "kl": 0.06077846139669418
+    },
+    {
+      "domain": "code",
+      "document": 4,
+      "group": "m_m",
+      "raw_effect_energy": 20262186.476220313,
+      "centered_effect_energy": 18910239.98770216,
+      "ce_added": 0.5013442039489746,
+      "kl": 0.6151309013366699
+    },
+    {
+      "domain": "code",
+      "document": 4,
+      "group": "m_a",
+      "raw_effect_energy": 969206.3691464097,
+      "centered_effect_energy": 698210.0132634253,
+      "ce_added": 0.026111450046300888,
+      "kl": 0.03659658879041672
+    },
+    {
+      "domain": "code",
+      "document": 4,
+      "group": "a_a",
+      "raw_effect_energy": 8542.850039699733,
+      "centered_effect_energy": 6393.756439654453,
+      "ce_added": 0.003259317483752966,
+      "kl": 0.00021330220624804497
+    },
+    {
+      "domain": "code",
+      "document": 4,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 113694141.55136552,
+      "centered_effect_energy": 41076398.20859165,
+      "ce_added": 3.5825672149658203,
+      "kl": 3.679281234741211
+    },
+    {
+      "domain": "code",
+      "document": 4,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1083382.7716745161,
+      "centered_effect_energy": 546900.3549846278,
+      "ce_added": 0.050848063081502914,
+      "kl": 0.015616684220731258
+    },
+    {
+      "domain": "code",
+      "document": 4,
+      "group": "all_polynomial",
+      "raw_effect_energy": 374903495.2423334,
+      "centered_effect_energy": 91933830.14838554,
+      "ce_added": 2.367568016052246,
+      "kl": 2.1995530128479004
+    },
+    {
+      "domain": "code",
+      "document": 5,
+      "group": "r_r",
+      "raw_effect_energy": 400562695.2203776,
+      "centered_effect_energy": 119339067.53900462,
+      "ce_added": 3.079392194747925,
+      "kl": 3.437560558319092
+    },
+    {
+      "domain": "code",
+      "document": 5,
+      "group": "r_m",
+      "raw_effect_energy": 148907542.59347403,
+      "centered_effect_energy": 66425983.857277185,
+      "ce_added": 4.524425029754639,
+      "kl": 4.6133599281311035
+    },
+    {
+      "domain": "code",
+      "document": 5,
+      "group": "r_a",
+      "raw_effect_energy": 4613777.9639544,
+      "centered_effect_energy": 2233025.774836068,
+      "ce_added": 0.13525184988975525,
+      "kl": 0.06334315985441208
+    },
+    {
+      "domain": "code",
+      "document": 5,
+      "group": "m_m",
+      "raw_effect_energy": 18875317.633734312,
+      "centered_effect_energy": 17568453.804794583,
+      "ce_added": 0.38283273577690125,
+      "kl": 0.5614824891090393
+    },
+    {
+      "domain": "code",
+      "document": 5,
+      "group": "m_a",
+      "raw_effect_energy": 1228513.1380171229,
+      "centered_effect_energy": 832270.7896854627,
+      "ce_added": 0.0045654987916350365,
+      "kl": 0.03701326251029968
+    },
+    {
+      "domain": "code",
+      "document": 5,
+      "group": "a_a",
+      "raw_effect_energy": 10835.855312877711,
+      "centered_effect_energy": 7956.362262301783,
+      "ce_added": 0.0019514214945957065,
+      "kl": 0.00021404495055321604
+    },
+    {
+      "domain": "code",
+      "document": 5,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 113282996.68298957,
+      "centered_effect_energy": 41504842.617373124,
+      "ce_added": 3.005610942840576,
+      "kl": 3.0761213302612305
+    },
+    {
+      "domain": "code",
+      "document": 5,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1365887.715751022,
+      "centered_effect_energy": 586106.2415983796,
+      "ce_added": 0.05046524479985237,
+      "kl": 0.015496596693992615
+    },
+    {
+      "domain": "code",
+      "document": 5,
+      "group": "all_polynomial",
+      "raw_effect_energy": 301524003.54539454,
+      "centered_effect_energy": 74895835.56381044,
+      "ce_added": 1.815516710281372,
+      "kl": 1.7385653257369995
+    },
+    {
+      "domain": "code",
+      "document": 6,
+      "group": "r_r",
+      "raw_effect_energy": 507949573.87364554,
+      "centered_effect_energy": 139542866.38873035,
+      "ce_added": 3.3304290771484375,
+      "kl": 3.5055088996887207
+    },
+    {
+      "domain": "code",
+      "document": 6,
+      "group": "r_m",
+      "raw_effect_energy": 128346658.8907568,
+      "centered_effect_energy": 61625790.49816123,
+      "ce_added": 5.093428611755371,
+      "kl": 5.264462471008301
+    },
+    {
+      "domain": "code",
+      "document": 6,
+      "group": "r_a",
+      "raw_effect_energy": 4794389.745805459,
+      "centered_effect_energy": 1743134.4640226709,
+      "ce_added": 0.10320612043142319,
+      "kl": 0.04759756475687027
+    },
+    {
+      "domain": "code",
+      "document": 6,
+      "group": "m_m",
+      "raw_effect_energy": 22561006.19419547,
+      "centered_effect_energy": 20937312.415715642,
+      "ce_added": 0.5386714935302734,
+      "kl": 0.621423602104187
+    },
+    {
+      "domain": "code",
+      "document": 6,
+      "group": "m_a",
+      "raw_effect_energy": 1137906.8991483299,
+      "centered_effect_energy": 565105.263098744,
+      "ce_added": -0.0010005738586187363,
+      "kl": 0.022620048373937607
+    },
+    {
+      "domain": "code",
+      "document": 6,
+      "group": "a_a",
+      "raw_effect_energy": 5286.626676168844,
+      "centered_effect_energy": 3233.9861835367115,
+      "ce_added": 0.0012455214746296406,
+      "kl": 6.686088454443961e-05
+    },
+    {
+      "domain": "code",
+      "document": 6,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 110169523.98907827,
+      "centered_effect_energy": 40769514.277969055,
+      "ce_added": 3.656489133834839,
+      "kl": 3.7721712589263916
+    },
+    {
+      "domain": "code",
+      "document": 6,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1424124.4503091155,
+      "centered_effect_energy": 488880.63709298405,
+      "ce_added": 0.04529060795903206,
+      "kl": 0.013175005093216896
+    },
+    {
+      "domain": "code",
+      "document": 6,
+      "group": "all_polynomial",
+      "raw_effect_energy": 403425283.7616674,
+      "centered_effect_energy": 89550464.83817795,
+      "ce_added": 1.7753421068191528,
+      "kl": 1.7289775609970093
+    },
+    {
+      "domain": "code",
+      "document": 7,
+      "group": "r_r",
+      "raw_effect_energy": 476490737.8582268,
+      "centered_effect_energy": 136275787.60281783,
+      "ce_added": 3.167456865310669,
+      "kl": 3.2938036918640137
+    },
+    {
+      "domain": "code",
+      "document": 7,
+      "group": "r_m",
+      "raw_effect_energy": 131267731.94224428,
+      "centered_effect_energy": 62709619.88062513,
+      "ce_added": 5.2699480056762695,
+      "kl": 5.31506872177124
+    },
+    {
+      "domain": "code",
+      "document": 7,
+      "group": "r_a",
+      "raw_effect_energy": 4780904.247004388,
+      "centered_effect_energy": 1833244.8421625386,
+      "ce_added": 0.07900332659482956,
+      "kl": 0.04542131721973419
+    },
+    {
+      "domain": "code",
+      "document": 7,
+      "group": "m_m",
+      "raw_effect_energy": 21396899.57570575,
+      "centered_effect_energy": 19943016.795965407,
+      "ce_added": 0.4274768829345703,
+      "kl": 0.5057002305984497
+    },
+    {
+      "domain": "code",
+      "document": 7,
+      "group": "m_a",
+      "raw_effect_energy": 987116.3796420572,
+      "centered_effect_energy": 552617.4176825724,
+      "ce_added": -0.0018642707727849483,
+      "kl": 0.0214677806943655
+    },
+    {
+      "domain": "code",
+      "document": 7,
+      "group": "a_a",
+      "raw_effect_energy": 6234.828020570926,
+      "centered_effect_energy": 4319.611896971643,
+      "ce_added": -0.0005102314171381295,
+      "kl": 7.265078602358699e-05
+    },
+    {
+      "domain": "code",
+      "document": 7,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 109719199.63263926,
+      "centered_effect_energy": 41112190.25092384,
+      "ce_added": 3.8041768074035645,
+      "kl": 3.8233962059020996
+    },
+    {
+      "domain": "code",
+      "document": 7,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1526028.6240691654,
+      "centered_effect_energy": 525216.9987169974,
+      "ce_added": 0.020400045439600945,
+      "kl": 0.012815326452255249
+    },
+    {
+      "domain": "code",
+      "document": 7,
+      "group": "all_polynomial",
+      "raw_effect_energy": 397051917.93003625,
+      "centered_effect_energy": 89732168.89316417,
+      "ce_added": 1.5822830200195312,
+      "kl": 1.5785622596740723
+    },
+    {
+      "domain": "code",
+      "document": 8,
+      "group": "r_r",
+      "raw_effect_energy": 415488886.75870794,
+      "centered_effect_energy": 121541314.43438342,
+      "ce_added": 3.168349027633667,
+      "kl": 3.373957633972168
+    },
+    {
+      "domain": "code",
+      "document": 8,
+      "group": "r_m",
+      "raw_effect_energy": 146822127.6720677,
+      "centered_effect_energy": 62624378.29161641,
+      "ce_added": 4.223057746887207,
+      "kl": 4.598282814025879
+    },
+    {
+      "domain": "code",
+      "document": 8,
+      "group": "r_a",
+      "raw_effect_energy": 4376696.225874659,
+      "centered_effect_energy": 2166046.486101997,
+      "ce_added": 0.20927420258522034,
+      "kl": 0.059802133589982986
+    },
+    {
+      "domain": "code",
+      "document": 8,
+      "group": "m_m",
+      "raw_effect_energy": 20107770.546943706,
+      "centered_effect_energy": 17437006.369984087,
+      "ce_added": 0.28224650025367737,
+      "kl": 0.5355899930000305
+    },
+    {
+      "domain": "code",
+      "document": 8,
+      "group": "m_a",
+      "raw_effect_energy": 1557719.78860291,
+      "centered_effect_energy": 866534.4087893752,
+      "ce_added": -0.03897110000252724,
+      "kl": 0.03892096132040024
+    },
+    {
+      "domain": "code",
+      "document": 8,
+      "group": "a_a",
+      "raw_effect_energy": 11031.619465781583,
+      "centered_effect_energy": 8450.375545339259,
+      "ce_added": 0.0007598674856126308,
+      "kl": 0.0003459324361756444
+    },
+    {
+      "domain": "code",
+      "document": 8,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 113038292.1430769,
+      "centered_effect_energy": 39535576.34844914,
+      "ce_added": 2.8504271507263184,
+      "kl": 3.1602206230163574
+    },
+    {
+      "domain": "code",
+      "document": 8,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1320599.659859431,
+      "centered_effect_energy": 553551.8821025422,
+      "ce_added": 0.08697836101055145,
+      "kl": 0.015436187386512756
+    },
+    {
+      "domain": "code",
+      "document": 8,
+      "group": "all_polynomial",
+      "raw_effect_energy": 316745934.47277737,
+      "centered_effect_energy": 74950593.43941641,
+      "ce_added": 2.2617692947387695,
+      "kl": 1.7692738771438599
+    },
+    {
+      "domain": "code",
+      "document": 9,
+      "group": "r_r",
+      "raw_effect_energy": 423789437.87877876,
+      "centered_effect_energy": 126518330.32660758,
+      "ce_added": 3.005396842956543,
+      "kl": 3.5724077224731445
+    },
+    {
+      "domain": "code",
+      "document": 9,
+      "group": "r_m",
+      "raw_effect_energy": 142866854.40459484,
+      "centered_effect_energy": 63153336.33101846,
+      "ce_added": 4.498661041259766,
+      "kl": 4.6528449058532715
+    },
+    {
+      "domain": "code",
+      "document": 9,
+      "group": "r_a",
+      "raw_effect_energy": 4117506.961880421,
+      "centered_effect_energy": 2044738.1583354662,
+      "ce_added": 0.16582611203193665,
+      "kl": 0.05943503975868225
+    },
+    {
+      "domain": "code",
+      "document": 9,
+      "group": "m_m",
+      "raw_effect_energy": 18290207.058860846,
+      "centered_effect_energy": 17086135.093400143,
+      "ce_added": 0.30868685245513916,
+      "kl": 0.6141859292984009
+    },
+    {
+      "domain": "code",
+      "document": 9,
+      "group": "m_a",
+      "raw_effect_energy": 1073976.7932434077,
+      "centered_effect_energy": 748107.9401313604,
+      "ce_added": -0.02266577258706093,
+      "kl": 0.03691708296537399
+    },
+    {
+      "domain": "code",
+      "document": 9,
+      "group": "a_a",
+      "raw_effect_energy": 9199.44895236572,
+      "centered_effect_energy": 7433.653240127697,
+      "ce_added": 0.00041375920409336686,
+      "kl": 0.00021962958271615207
+    },
+    {
+      "domain": "code",
+      "document": 9,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 109086015.37928393,
+      "centered_effect_energy": 39479637.87188419,
+      "ce_added": 3.0631136894226074,
+      "kl": 3.165163993835449
+    },
+    {
+      "domain": "code",
+      "document": 9,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1212768.6192201097,
+      "centered_effect_energy": 526154.1402897339,
+      "ce_added": 0.055133309215307236,
+      "kl": 0.015670709311962128
+    },
+    {
+      "domain": "code",
+      "document": 9,
+      "group": "all_polynomial",
+      "raw_effect_energy": 335781356.02683604,
+      "centered_effect_energy": 81575235.98022307,
+      "ce_added": 1.9940986633300781,
+      "kl": 1.8652013540267944
+    },
+    {
+      "domain": "code",
+      "document": 10,
+      "group": "r_r",
+      "raw_effect_energy": 428693482.7698792,
+      "centered_effect_energy": 123483570.44318679,
+      "ce_added": 3.190101385116577,
+      "kl": 3.652055501937866
+    },
+    {
+      "domain": "code",
+      "document": 10,
+      "group": "r_m",
+      "raw_effect_energy": 136224465.10814136,
+      "centered_effect_energy": 62039983.902686715,
+      "ce_added": 4.22782564163208,
+      "kl": 4.373581886291504
+    },
+    {
+      "domain": "code",
+      "document": 10,
+      "group": "r_a",
+      "raw_effect_energy": 4679906.03535017,
+      "centered_effect_energy": 2133794.273531912,
+      "ce_added": 0.16367514431476593,
+      "kl": 0.07928779721260071
+    },
+    {
+      "domain": "code",
+      "document": 10,
+      "group": "m_m",
+      "raw_effect_energy": 17389133.112566054,
+      "centered_effect_energy": 16474535.070894483,
+      "ce_added": 0.3789388835430145,
+      "kl": 0.5490174889564514
+    },
+    {
+      "domain": "code",
+      "document": 10,
+      "group": "m_a",
+      "raw_effect_energy": 1084961.1229265681,
+      "centered_effect_energy": 699415.8159933108,
+      "ce_added": 0.004311922937631607,
+      "kl": 0.041801128536462784
+    },
+    {
+      "domain": "code",
+      "document": 10,
+      "group": "a_a",
+      "raw_effect_energy": 8596.120099881286,
+      "centered_effect_energy": 6593.091483590695,
+      "ce_added": 0.0027407235465943813,
+      "kl": 0.0002460620307829231
+    },
+    {
+      "domain": "code",
+      "document": 10,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 102694782.16851117,
+      "centered_effect_energy": 38475711.13645628,
+      "ce_added": 2.918940544128418,
+      "kl": 2.9939332008361816
+    },
+    {
+      "domain": "code",
+      "document": 10,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1469092.1455005056,
+      "centered_effect_energy": 596631.9068981402,
+      "ce_added": 0.06558278203010559,
+      "kl": 0.020122133195400238
+    },
+    {
+      "domain": "code",
+      "document": 10,
+      "group": "all_polynomial",
+      "raw_effect_energy": 329039069.3702487,
+      "centered_effect_energy": 77620659.23982656,
+      "ce_added": 2.1507604122161865,
+      "kl": 2.079076051712036
+    },
+    {
+      "domain": "code",
+      "document": 11,
+      "group": "r_r",
+      "raw_effect_energy": 449859477.1848239,
+      "centered_effect_energy": 127026235.18519756,
+      "ce_added": 3.0584075450897217,
+      "kl": 3.4302127361297607
+    },
+    {
+      "domain": "code",
+      "document": 11,
+      "group": "r_m",
+      "raw_effect_energy": 134298551.75212395,
+      "centered_effect_energy": 60079003.2736225,
+      "ce_added": 4.3321027755737305,
+      "kl": 4.376160621643066
+    },
+    {
+      "domain": "code",
+      "document": 11,
+      "group": "r_a",
+      "raw_effect_energy": 6124952.7187702935,
+      "centered_effect_energy": 2317001.8865797073,
+      "ce_added": 0.17540013790130615,
+      "kl": 0.09355315566062927
+    },
+    {
+      "domain": "code",
+      "document": 11,
+      "group": "m_m",
+      "raw_effect_energy": 17455407.22047703,
+      "centered_effect_energy": 16189193.422430666,
+      "ce_added": 0.32112354040145874,
+      "kl": 0.5099496841430664
+    },
+    {
+      "domain": "code",
+      "document": 11,
+      "group": "m_a",
+      "raw_effect_energy": 1183903.2699103875,
+      "centered_effect_energy": 665051.2907974392,
+      "ce_added": 0.005266344174742699,
+      "kl": 0.041966862976551056
+    },
+    {
+      "domain": "code",
+      "document": 11,
+      "group": "a_a",
+      "raw_effect_energy": 9138.061444723313,
+      "centered_effect_energy": 6855.182232077868,
+      "ce_added": 0.002072987612336874,
+      "kl": 0.00025189039297401905
+    },
+    {
+      "domain": "code",
+      "document": 11,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 103251329.18643406,
+      "centered_effect_energy": 37438414.84158338,
+      "ce_added": 3.0460307598114014,
+      "kl": 3.065258026123047
+    },
+    {
+      "domain": "code",
+      "document": 11,
+      "group": "attention_dependent",
+      "raw_effect_energy": 2084942.1529386383,
+      "centered_effect_energy": 736470.1233406763,
+      "ce_added": 0.0670025572180748,
+      "kl": 0.025228898972272873
+    },
+    {
+      "domain": "code",
+      "document": 11,
+      "group": "all_polynomial",
+      "raw_effect_energy": 333768819.25104403,
+      "centered_effect_energy": 78539678.35764046,
+      "ce_added": 2.102977752685547,
+      "kl": 1.9105360507965088
+    },
+    {
+      "domain": "code",
+      "document": 12,
+      "group": "r_r",
+      "raw_effect_energy": 427678831.8817308,
+      "centered_effect_energy": 125666756.82321686,
+      "ce_added": 3.069390296936035,
+      "kl": 3.3447673320770264
+    },
+    {
+      "domain": "code",
+      "document": 12,
+      "group": "r_m",
+      "raw_effect_energy": 135724777.54991472,
+      "centered_effect_energy": 61492325.65363392,
+      "ce_added": 4.547667503356934,
+      "kl": 4.555593490600586
+    },
+    {
+      "domain": "code",
+      "document": 12,
+      "group": "r_a",
+      "raw_effect_energy": 5198789.893393169,
+      "centered_effect_energy": 2277794.3007447664,
+      "ce_added": 0.11012376844882965,
+      "kl": 0.06806284189224243
+    },
+    {
+      "domain": "code",
+      "document": 12,
+      "group": "m_m",
+      "raw_effect_energy": 20545785.261204343,
+      "centered_effect_energy": 17573081.97882343,
+      "ce_added": 0.43534111976623535,
+      "kl": 0.5582646727561951
+    },
+    {
+      "domain": "code",
+      "document": 12,
+      "group": "m_a",
+      "raw_effect_energy": 1426118.8875551922,
+      "centered_effect_energy": 782219.0028951659,
+      "ce_added": 0.01825951598584652,
+      "kl": 0.03230451047420502
+    },
+    {
+      "domain": "code",
+      "document": 12,
+      "group": "a_a",
+      "raw_effect_energy": 11898.513129002189,
+      "centered_effect_energy": 7834.8876217198995,
+      "ce_added": 0.0021674397867172956,
+      "kl": 0.0001724067988106981
+    },
+    {
+      "domain": "code",
+      "document": 12,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 105657488.5924994,
+      "centered_effect_energy": 39183347.955362275,
+      "ce_added": 3.134645462036133,
+      "kl": 3.132925510406494
+    },
+    {
+      "domain": "code",
+      "document": 12,
+      "group": "attention_dependent",
+      "raw_effect_energy": 1662640.169105021,
+      "centered_effect_energy": 650765.2532856818,
+      "ce_added": 0.050767138600349426,
+      "kl": 0.01727798394858837
+    },
+    {
+      "domain": "code",
+      "document": 12,
+      "group": "all_polynomial",
+      "raw_effect_energy": 337411160.157565,
+      "centered_effect_energy": 79804882.58346355,
+      "ce_added": 1.9804011583328247,
+      "kl": 1.8782554864883423
+    },
+    {
+      "domain": "code",
+      "document": 13,
+      "group": "r_r",
+      "raw_effect_energy": 444348053.8215885,
+      "centered_effect_energy": 120242946.89762792,
+      "ce_added": 3.0986204147338867,
+      "kl": 2.8123738765716553
+    },
+    {
+      "domain": "code",
+      "document": 13,
+      "group": "r_m",
+      "raw_effect_energy": 136303234.698858,
+      "centered_effect_energy": 57146281.36167587,
+      "ce_added": 3.764333486557007,
+      "kl": 4.09979772567749
+    },
+    {
+      "domain": "code",
+      "document": 13,
+      "group": "r_a",
+      "raw_effect_energy": 7791591.995933542,
+      "centered_effect_energy": 3041286.514436879,
+      "ce_added": 0.1337079405784607,
+      "kl": 0.08327314257621765
+    },
+    {
+      "domain": "code",
+      "document": 13,
+      "group": "m_m",
+      "raw_effect_energy": 16212879.943436652,
+      "centered_effect_energy": 14616486.853762679,
+      "ce_added": 0.4516507685184479,
+      "kl": 0.3860207200050354
+    },
+    {
+      "domain": "code",
+      "document": 13,
+      "group": "m_a",
+      "raw_effect_energy": 1497809.984920159,
+      "centered_effect_energy": 803229.8168374803,
+      "ce_added": 0.02017262950539589,
+      "kl": 0.040817346423864365
+    },
+    {
+      "domain": "code",
+      "document": 13,
+      "group": "a_a",
+      "raw_effect_energy": 17443.02136097908,
+      "centered_effect_energy": 12290.40591508735,
+      "ce_added": 0.001622323994524777,
+      "kl": 0.00025903264759108424
+    },
+    {
+      "domain": "code",
+      "document": 13,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 102657493.08010548,
+      "centered_effect_energy": 36223900.22121133,
+      "ce_added": 2.5030460357666016,
+      "kl": 2.785329818725586
+    },
+    {
+      "domain": "code",
+      "document": 13,
+      "group": "attention_dependent",
+      "raw_effect_energy": 2492771.327287393,
+      "centered_effect_energy": 813315.1868003213,
+      "ce_added": 0.05143505334854126,
+      "kl": 0.021655727177858353
+    },
+    {
+      "domain": "code",
+      "document": 13,
+      "group": "all_polynomial",
+      "raw_effect_energy": 258510576.67386305,
+      "centered_effect_energy": 58147629.47489986,
+      "ce_added": 1.8148900270462036,
+      "kl": 1.5035407543182373
+    },
+    {
+      "domain": "code",
+      "document": 14,
+      "group": "r_r",
+      "raw_effect_energy": 416659930.22893757,
+      "centered_effect_energy": 130210665.57535863,
+      "ce_added": 3.7762036323547363,
+      "kl": 4.024489402770996
+    },
+    {
+      "domain": "code",
+      "document": 14,
+      "group": "r_m",
+      "raw_effect_energy": 149331481.3895444,
+      "centered_effect_energy": 70473380.05296865,
+      "ce_added": 5.031167030334473,
+      "kl": 5.138676643371582
+    },
+    {
+      "domain": "code",
+      "document": 14,
+      "group": "r_a",
+      "raw_effect_energy": 3944204.5977997486,
+      "centered_effect_energy": 2087926.9366635135,
+      "ce_added": 0.11813615262508392,
+      "kl": 0.046684250235557556
+    },
+    {
+      "domain": "code",
+      "document": 14,
+      "group": "m_m",
+      "raw_effect_energy": 22348828.784974262,
+      "centered_effect_energy": 20770349.994453777,
+      "ce_added": 0.6420906782150269,
+      "kl": 0.808695375919342
+    },
+    {
+      "domain": "code",
+      "document": 14,
+      "group": "m_a",
+      "raw_effect_energy": 1515160.34036586,
+      "centered_effect_energy": 1045269.8137246687,
+      "ce_added": 0.00024003628641366959,
+      "kl": 0.03743821382522583
+    },
+    {
+      "domain": "code",
+      "document": 14,
+      "group": "a_a",
+      "raw_effect_energy": 12828.069164401717,
+      "centered_effect_energy": 7976.129381653309,
+      "ce_added": -2.6990368496626616e-05,
+      "kl": 0.00018813245696946979
+    },
+    {
+      "domain": "code",
+      "document": 14,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 117408339.105705,
+      "centered_effect_energy": 44599856.530131154,
+      "ce_added": 3.4515573978424072,
+      "kl": 3.514233112335205
+    },
+    {
+      "domain": "code",
+      "document": 14,
+      "group": "attention_dependent",
+      "raw_effect_energy": 834428.0034203246,
+      "centered_effect_energy": 464705.66407815204,
+      "ce_added": 0.046014659106731415,
+      "kl": 0.011309455148875713
+    },
+    {
+      "domain": "code",
+      "document": 14,
+      "group": "all_polynomial",
+      "raw_effect_energy": 332191403.664517,
+      "centered_effect_energy": 85333924.87520657,
+      "ce_added": 2.212035894393921,
+      "kl": 1.9419375658035278
+    },
+    {
+      "domain": "code",
+      "document": 15,
+      "group": "r_r",
+      "raw_effect_energy": 408879377.2320247,
+      "centered_effect_energy": 132878706.91444203,
+      "ce_added": 3.405460834503174,
+      "kl": 3.962803840637207
+    },
+    {
+      "domain": "code",
+      "document": 15,
+      "group": "r_m",
+      "raw_effect_energy": 148079141.4285664,
+      "centered_effect_energy": 67598342.01875958,
+      "ce_added": 5.188174247741699,
+      "kl": 5.315357208251953
+    },
+    {
+      "domain": "code",
+      "document": 15,
+      "group": "r_a",
+      "raw_effect_energy": 4031911.041214936,
+      "centered_effect_energy": 2211149.601759909,
+      "ce_added": 0.1209692433476448,
+      "kl": 0.05315711349248886
+    },
+    {
+      "domain": "code",
+      "document": 15,
+      "group": "m_m",
+      "raw_effect_energy": 22139844.86976581,
+      "centered_effect_energy": 20542747.152244262,
+      "ce_added": 0.4522673487663269,
+      "kl": 0.7321664094924927
+    },
+    {
+      "domain": "code",
+      "document": 15,
+      "group": "m_a",
+      "raw_effect_energy": 1347745.0175099862,
+      "centered_effect_energy": 907725.6042993785,
+      "ce_added": -0.006279428489506245,
+      "kl": 0.03978203982114792
+    },
+    {
+      "domain": "code",
+      "document": 15,
+      "group": "a_a",
+      "raw_effect_energy": 15425.960484485671,
+      "centered_effect_energy": 9852.240665002177,
+      "ce_added": -0.00012795726070180535,
+      "kl": 0.0002324222441529855
+    },
+    {
+      "domain": "code",
+      "document": 15,
+      "group": "mlp_dependent",
+      "raw_effect_energy": 116556510.56347264,
+      "centered_effect_energy": 43196170.15702956,
+      "ce_added": 3.5905838012695312,
+      "kl": 3.6631460189819336
+    },
+    {
+      "domain": "code",
+      "document": 15,
+      "group": "attention_dependent",
+      "raw_effect_energy": 907210.3645195272,
+      "centered_effect_energy": 513199.08722866536,
+      "ce_added": 0.03843969479203224,
+      "kl": 0.012310020625591278
+    },
+    {
+      "domain": "code",
+      "document": 15,
+      "group": "all_polynomial",
+      "raw_effect_energy": 349096830.0557122,
+      "centered_effect_energy": 88914208.53487635,
+      "ce_added": 1.827974796295166,
+      "kl": 1.749993920326233
+    }
+  ],
+  "seconds": 7.1942615730222315,
+  "scope": "Exact native source-block numerator with shared frozen normalization. Component removals are not full upstream source interventions. Reused data, no student fit or semantic claim."
+}

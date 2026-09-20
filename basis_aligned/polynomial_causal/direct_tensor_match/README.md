@@ -1,5 +1,11 @@
 # Direct weight-tensor decomposition study
 
+## Current direction — 20 September 23:30 UTC
+
+The retained ten-product scalar program has executable native removal/swap and joint-response interfaces, but semantic selectivity and robust code swaps remain unproven. Empirical readout refinements are explicitly data-informed; the original isotropic studies below remain weights-only. Larger reader additions and paired-readout penalties failed their transfer/control criteria.
+
+The new source-block census finds that last-MLP residual–previous-MLP cross effects exceed the isolated quartic self term. Next target: the complete previous-polynomial-dependent contribution, represented as an implicit mixed third-order midpoint/channel-product tensor. Its algebra and matching gradients are checked; native compression is not yet tested. [Current timed report](../explanations/for_logan/research_update_2026-09-20_2330_broader_source_tensor.md). Earlier “next” entries below are historical.
+
 Primary research focus: **20 September 15:10 UTC to 22 September 15:10 UTC**, per user direction. [Scope and questions](FOCUS_2026-09-20_TO_2026-09-22.md). This replaces the prior head/branch omission agenda for this period.
 
 We optimize randomly initialized student computations directly against the folded teacher's weights. Exact coefficient losses include symmetric Frobenius and Gaussian function norms; correlated-Gaussian metrics can incorporate covariance estimated from calibration data. No sampled activation targets are used to train the isotropic decompositions.

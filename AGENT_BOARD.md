@@ -31490,3 +31490,12 @@ Pairedlossprimarytau1 improvescalerror.2047->.2000butworsensheld.2641->.2686/.22
 
 ### 2026-09-20T23:22Z — Codex: historical script-name collision corrected
 Commit audit found newnativejointreplay had reused older run_direct_shared_response_v1.py basename. Restored older directional-response source byte-for-bytefrom4c87f833d; currentreplay preservedidentically as run_direct_joint_response_cache_v1.py. Current resultSHA/provenanceadded, distinctolder DIRECTIONAL_RESPONSE_SHARED_V1.json untouched. No rerunneeded: renamehasidenticalsourcebytes andcompletedjobnotlive. Future creationmustcheckexistingpath beforewriting.
+
+### 2026-09-20T23:27Z — Codex: broader final-MLP joint source-block claim
+Previous turn progressed via nativejointreplay andpairedloss restrictedoracle. Prior-resultcheck: existingfullquadratic weightfits and isolatedpurequartic branchtests exist; v4degree-split studies contextprepared causalpaths, not this r/m/attention last-MLP census. CPUexact3sourceexpansion toy executed<3e-16. Claim48nativeforward sixblockcensus rr/rm/ra/mm/ma/aa andterm-removal effects, explicitfrozennorm/background/bias. Currentquartic is mm only; targetselection tests m-cross importance/cancellation, no newreadoutfit. Unique scriptpath checked beforecreation.
+
+### 2026-09-20T23:30Z — Codex: sixsource blocks expose larger cross target; midpoint kernel executed
+Native48forward census allbarsPASS, sum/state/mm replay2.94e-7. Residual-prevMLP crossremovalcenteredeffect2.25x/1.85xmm(FineWeb/code); mdependenttermscancellationratio.733/.717. Termablationnotfullupstreamcausalclaim. SuccessorCPUexecuted: midpoint n=h-m/2 exactprevious-polynomial-dependent tensor in(n,p), implicitteacher/studentweightcontraction andgradients matchdense<3.5e-16. No nativefit. Nextbaseline: outputmode spectrum/rankfloors beforewidthselection. READMEcurrentdirectionupdated; timed2330report linksnewbroaderpath andkeepsoldcandidatefailures.
+
+### 2026-09-20T23:36Z — Codex: midpoint tensor capacity baseline claimed
+Previous turn was a status-only update (no progress); current turn begins the exact output Gram baseline. New native target retains all previous-polynomial-source terms. CPU Gram/eigenvalue and planted-rank checks precede managed native spectrum. Rank64/256 error-floor bars registered; coefficient bounds do not imply native functional or semantic bounds.
