@@ -28,7 +28,6 @@ ROOT = dod_battery.ROOT
 OUT = ROOT / "circuits/followups/attention_coupling_graph_v727_result.json"
 PROGS718 = ROOT / "circuits/followups/attention_exact_rank_v718_programs.pt"
 SNAP716 = ROOT / "circuits/followups/attention_whole_program_v716_snapshot.pt"
-MODEL_BIN = ROOT / ".hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd"
 CANDIDATE_ID = "attention.coupling_graph_v727"
 LAYERS = tuple(range(18)); H = 9; D = 1152; HD = 128; R_WRITE = 64
 BASELINE = R_WRITE / D
@@ -40,7 +39,7 @@ PREDICTIONS = {"pred_a_baseline_matches": "median in [0.5, 2] x 0.056", "pred_b_
 def load_c_proj():
     """c_proj weights per layer from the model checkpoint on CPU (no model construction)."""
     import glob
-    paths = glob.glob(str(ROOT / ".hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/*/pytorch_model.bin"))
+    paths = glob.glob(os.path.join(os.environ.get("HF_HOME", "/workspace/.hf_home"), "hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/*/pytorch_model.bin"))
     sd = torch.load(paths[0], map_location="cpu")
     out = {}
     for l in LAYERS:
