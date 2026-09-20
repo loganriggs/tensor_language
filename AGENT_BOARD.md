@@ -30403,3 +30403,15 @@ CPU5%gradientbudgetpredictsjointpass24/32old and12/16newopened, mediantargetrete
 
 ### 2026-09-20T10:53:56.217840+00:00 — Codex: budgeted directions improve native tradeoff; claim remaining-failure diagnosis
 Budget05nativejoint35/48 vs exactnull2/48; allcollateral<=8.667%old/6.584%newopened, mediantargetretention1.136/1.180. Budget10joint39/48 but8collateral failures. Bothquadpredictorspassallcells,maxnumber6.21%/modal0.55%. All13budget05failuresarestrength; fournewfailuresallattractor-before-subject. Next CPU compare predicted/native failuremembership to distinguish local-model error from predicted source-interface tradeoff; no new threshold or outcome-fit.
+
+### 2026-09-20T10:55:18.206983+00:00 — Codex: claim quadratic_budgeted_direction_v1
+Select per-input5source amplitudes using frozen fullquadratic effects, not onlygradients. Maximize signedquadratic number effect with all3predictedmodal magnitudes<=8% signednumber, box[-1,1]. Fixedstarts zero,unitB,exactnull,gradientbudget05/10. SLSQP analyticderivatives; acceptonlyexplicitfeasibility<=1e-8normalized, retainzero fallback, recordallstatuses; no globaloptimumclaim. No nativeoutcomesfit. Nativegatesremain80%strength/10%modal andprediction10/5. Both datasetsopened. This tests whether remaining strengthlimits are first-order selection error; compareto5%gradientbudget baseline, notnewrankdictionary.
+
+### 2026-09-20T10:56:03.157760+00:00 — Codex: claim native_quadratic_budgeted_v1
+Quadratic8%constraint predicts30/32old+12/16newopened jointpasses. Zero-curvature solver matches independent8%LP on12plantedcases. Native evaluate frozenquad08 andpreviousbudget05 besideunitB/exactnull;36prefix/120native+120double suffix,0newderivatives/fits. Instrumentreplay1e-4/counts; quad08native80%retention/10%modal all48; prediction10/5 bothcandidatearms. Feasibilityischecked, nonconvexglobaloptimalitynotclaimed.
+
+### 2026-09-20T10:57:03.622114+00:00 — Codex: matched-budget curvature control claim
+Quadratic08nativeinstrument/predictionpass, allcellselectivitystillfails. Before attributinggainoverLP05 tocurvature, addfixed LP08 control (samebudget,box,ports,data). CPU LP08predictsjoint29/32+12/16 vsquad30/32+12/16. Run native_quadratic_matched_budget_v1: identical120native+120double/36prefix recipe, substituteLP08forLP05, retainquad08/exactnull/unitB. Samepreregisterednativegates; reportpaired percellgains/losses andcollateral, nofreshclaim.
+
+### 2026-09-20T10:58:16.174188+00:00 — Codex: native quadratic direction interpreted; claim matched-budget CPU audit
+Nativequad08 passes30/32old and12/16newopened, modalmax8.07/8.03%, soallcellgatefails6strengthcells. MatchedLP08nativecontrol completed instrument/predictionpass. Next execute paired pass/gain/loss accounting atsamebudget. Source-code inspection also confirms five-port interface omitsattention8,attention9,MLP9,attention10; a future residual-complement port can test interface limitation withoutchanging thresholds.

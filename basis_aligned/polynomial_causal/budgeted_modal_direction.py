@@ -11,12 +11,13 @@ def choose(g,kappa):
     return r.x,dict(linear_retention=float(target@r.x/max(abs(n[2:].sum()),1e-30)),gap=float(gap),stationarity=float(max(abs(station))))
 
 if __name__=='__main__':
-    import json,hashlib
+    import json,hashlib,argparse
+    parser=argparse.ArgumentParser();parser.add_argument('--kappa',type=float,nargs='+',default=[.05,.1]);parser.add_argument('--output',default='BUDGETED_MODAL_DIRECTIONS_V1.json');args=parser.parse_args()
     from pathlib import Path
     P=Path(__file__).parent;A=P.parent/'bilinear_quotient/circuits/followups';contexts=[];summary={}
     for dataset,file in [('opened','five_source_modal_null_v1_result.json'),('ood_opened','source_ood_v1_result.json')]:
         source=A/file;r=json.loads(source.read_text());all_results={}
-        for kappa in [.05,.1]:
+        for kappa in args.kappa:
             results=[]
             for c in r['contexts']:
                 g=np.array(c['gradient']);h=np.array(c['hessian']);selected=[choose(gi,kappa) for gi in g];a=np.array([v for v,_ in selected]);pred=-np.einsum('boi,bi->bo',g,a)-.5*np.einsum('bi,boij,bj->bo',a,h,a)
@@ -28,4 +29,4 @@ if __name__=='__main__':
             all_results[str(kappa)]=dict(cells=results,predicted_joint_passes=sum(c['predicted_retention']>=.8 and c['predicted_modal_ratio']<=.1 for c in results),median_retention=float(np.median([c['predicted_retention'] for c in results])),max_modal_ratio=max(c['predicted_modal_ratio'] for c in results))
         summary[dataset]=all_results
     out=dict(contexts=contexts,summary=summary,scope='Derivative-only direction selection; finite quadratic estimates, not new native outcomes. Existing finite gates unchanged. Both datasets now opened; no fresh claim.')
-    (P/'BUDGETED_MODAL_DIRECTIONS_V1.json').write_text(json.dumps(out,indent=2)+'\n');print({d:{k:{key:v for key,v in value.items() if key!='cells'} for k,value in values.items()} for d,values in summary.items()})
+    (P/args.output).write_text(json.dumps(out,indent=2)+'\n');print({d:{k:{key:v for key,v in value.items() if key!='cells'} for k,value in values.items()} for d,values in summary.items()})

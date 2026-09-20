@@ -1,0 +1,529 @@
+{
+  "summary": {
+    "opened": {
+      "budget0.08": {
+        "joint_passes": 29,
+        "strength_failures": 3,
+        "collateral_failures": 1,
+        "median_retention": 1.2849697800819517,
+        "max_modal_ratio": 0.10473708781825013,
+        "max_number_error": 0.0394665300104407,
+        "max_modal_error": 0.005123425566233088
+      },
+      "budget_quadratic08": {
+        "joint_passes": 30,
+        "strength_failures": 2,
+        "collateral_failures": 0,
+        "median_retention": 1.340012239780767,
+        "max_modal_ratio": 0.08069723384150056,
+        "max_number_error": 0.04328089967516447,
+        "max_modal_error": 0.006008550120605714
+      }
+    },
+    "ood_opened": {
+      "budget0.08": {
+        "joint_passes": 12,
+        "strength_failures": 4,
+        "collateral_failures": 0,
+        "median_retention": 1.3193769960840442,
+        "max_modal_ratio": 0.09855550231456812,
+        "max_number_error": 0.0643012577526636,
+        "max_modal_error": 0.005451226296511534
+      },
+      "budget_quadratic08": {
+        "joint_passes": 12,
+        "strength_failures": 4,
+        "collateral_failures": 0,
+        "median_retention": 1.3541486955775406,
+        "max_modal_ratio": 0.08026349556511711,
+        "max_number_error": 0.06201926059941332,
+        "max_modal_error": 0.005451226296511534
+      }
+    }
+  },
+  "paired": [
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.9979812402651989,
+      "quadratic_retention": 1.9979812402651989
+    },
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.2786160035147571,
+      "quadratic_retention": 1.2832343044214316
+    },
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.45795860249641,
+      "quadratic_retention": 1.4587004330554265
+    },
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "linear_pass": false,
+      "quadratic_pass": false,
+      "linear_retention": 0.7826466664211842,
+      "quadratic_retention": 0.6830515939979208
+    },
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.9418289068751096,
+      "quadratic_retention": 1.9418289068751096
+    },
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.291323556649146,
+      "quadratic_retention": 1.291323556649146
+    },
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.4395184063870783,
+      "quadratic_retention": 1.6067309003416885
+    },
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 0.8689818685696522,
+      "quadratic_retention": 0.8381894453034138
+    },
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.7176188816109188,
+      "quadratic_retention": 1.7795221204422367
+    },
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.3715387387593918,
+      "quadratic_retention": 1.3715387387593918
+    },
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.2353490364449509,
+      "quadratic_retention": 1.2622303793539407
+    },
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.3233772632461789,
+      "quadratic_retention": 1.337517026666887
+    },
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 0.9612303250108241,
+      "quadratic_retention": 1.07818305354697
+    },
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.3956926787454458,
+      "quadratic_retention": 1.3956926787454458
+    },
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 0.9531672491774467,
+      "quadratic_retention": 0.9814704751216284
+    },
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.0111345800837925,
+      "quadratic_retention": 0.9772275789772868
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.977779451348832,
+      "quadratic_retention": 1.977779451348832
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.1205166585561266,
+      "quadratic_retention": 1.3120563595678214
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.7690023021096066,
+      "quadratic_retention": 1.770747457765654
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 0.8377384426795401,
+      "quadratic_retention": 0.8972150663807749
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.8384094749099098,
+      "quadratic_retention": 1.968462990814773
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.1521597310759688,
+      "quadratic_retention": 1.2012451928810024
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 0.961619512144603,
+      "quadratic_retention": 1.2553891399193662
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.4388354357727553,
+      "quadratic_retention": 1.4447096210713404
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.4260927574989792,
+      "quadratic_retention": 1.4965433535468255
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.3846078826280688,
+      "quadratic_retention": 1.3846078826280688
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.2439201619780376,
+      "quadratic_retention": 1.4622335799143173
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.2299065458630745,
+      "quadratic_retention": 1.2736720298584083
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "linear_pass": false,
+      "quadratic_pass": true,
+      "linear_retention": 0.7954901143089835,
+      "quadratic_retention": 0.8809030119467285
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.3882814646814274,
+      "quadratic_retention": 1.3882814646814274
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "linear_pass": false,
+      "quadratic_pass": false,
+      "linear_retention": 0.586180675753825,
+      "quadratic_retention": 0.5495179901094112
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.2421028311666662,
+      "quadratic_retention": 1.3425074528946468
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "opposite",
+      "role": "subject",
+      "family": "according_to|singular",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.3971845387273074,
+      "quadratic_retention": 1.5080392422657545
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "opposite",
+      "role": "subject",
+      "family": "according_to|plural",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.238224937384266,
+      "quadratic_retention": 1.262409094467657
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "according_to|singular",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.509026600869732,
+      "quadratic_retention": 1.585654420916347
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "according_to|plural",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.901166210734569,
+      "quadratic_retention": 1.9674099544699868
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "opposite",
+      "role": "subject",
+      "family": "after_speaking|singular",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.5356227333640884,
+      "quadratic_retention": 1.538181731501659
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "opposite",
+      "role": "subject",
+      "family": "after_speaking|plural",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.2413105330629464,
+      "quadratic_retention": 1.2413105330629464
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "after_speaking|singular",
+      "linear_pass": false,
+      "quadratic_pass": false,
+      "linear_retention": 0.7094111622442728,
+      "quadratic_retention": 0.7002276834333815
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "after_speaking|plural",
+      "linear_pass": false,
+      "quadratic_pass": false,
+      "linear_retention": 0.44872283634481286,
+      "quadratic_retention": 0.4673545485007607
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "congruent",
+      "role": "subject",
+      "family": "according_to|singular",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.382962994433876,
+      "quadratic_retention": 1.4458882966874242
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "congruent",
+      "role": "subject",
+      "family": "according_to|plural",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.2506483917335987,
+      "quadratic_retention": 1.2562459422205965
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "according_to|singular",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.4697195476144929,
+      "quadratic_retention": 1.5458444125545148
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "according_to|plural",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.7122556495530348,
+      "quadratic_retention": 1.8165093972508644
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "congruent",
+      "role": "subject",
+      "family": "after_speaking|singular",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.465922047228796,
+      "quadratic_retention": 1.465922047228796
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "congruent",
+      "role": "subject",
+      "family": "after_speaking|plural",
+      "linear_pass": true,
+      "quadratic_pass": true,
+      "linear_retention": 1.2557909977342123,
+      "quadratic_retention": 1.2557909977342123
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "after_speaking|singular",
+      "linear_pass": false,
+      "quadratic_pass": false,
+      "linear_retention": 0.5456935026021199,
+      "quadratic_retention": 0.6417824264725888
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "after_speaking|plural",
+      "linear_pass": false,
+      "quadratic_pass": false,
+      "linear_retention": 0.40341836697691325,
+      "quadratic_retention": 0.4015194529179093
+    }
+  ],
+  "gains": 1,
+  "losses": 0,
+  "scope": "Same8%surrogate modal budget and same native10%/80%gates. Bothdatasetsopened; localnonconvexoptimizationnotglobalcertificate."
+}

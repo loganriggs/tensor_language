@@ -705,3 +705,5 @@ same day sort and link unambiguously.  Older `explanation_HHMM.md` files are ret
 20 September: [Prospective source-response transfer](../SOURCE_OOD_TRANSFER_2026-09-20.md) passes full19-arm prediction on48newtexts: number6.409%/modal2.129%, all16nativecapabilitycells100%. Null strengthretention stillfails15/16cells. Posthoc fixed-rule spectral2passes7.527/3.568%; tangentfails61.47/13.41%. Fresh native derivative generators remain required.
 
 20 September: [Budgeted modal selectivity](../BUDGETED_MODAL_SELECTIVITY_2026-09-20.md) improves joint native passes from2/48exactnull to35/48 at5%gradientbudget; all13remaining failures arestrength, no nativecollateral failures. This redteams unnecessary exactnull constraints but stillfails all-cell adoption andrequires native gradients.
+
+20 September: [Curvature-aware matched-budget test](../QUADRATIC_BUDGETED_SELECTIVITY_2026-09-20.md) gives42/48joint nativepasses versus41/48linear atsame8%budget. No collateral failures, sixstrengthfailures. Native derivative/source generators remain; source capture omitsfourlate residual contributions, motivatingclosure test instead ofanotherbudget sweep.
