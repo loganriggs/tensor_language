@@ -30485,3 +30485,6 @@ Previous turn only verified scheduling (no research progress). Resume with regis
 
 ### 2026-09-20T12:26:08.132303+00:00 — Codex: native edge exact, causal localization fails; CPU transport audit executed
 Native edge1.254e-15 and suffix replay0 pass. Removing local mixed write halves0/13failed-cell interactions; medianremaining90.09%,4increase. Follow-on CPU transport audit executed: baseline-reader finite-removal relative error median57.82% beside_subject,16.02% unlike_nearby. Preserves negative causality result while validating algebra; do not substitute fixed readers for finite transport. Next discriminate joint-context versus integrated readers before later-layer source census. See ATTENTION_MIXED_EDGE_NATIVE_2026-09-20.md.
+
+### 2026-09-20T12:27:45.564969+00:00 — Codex: claim context/finite transport diagnostic
+Last goal turn progressed via exact native fold and causal falsification. New registered four-reader comparison isolates baseline-context mismatch versus finite curvature; exact straight-path integral approximated bythree-nodeGauss. Counts12prefix232suffix68attention16readers128JVP; midpoint reused. No rescue of previous causal sufficiency claim; no freshOODclaim. See ATTENTION_EDGE_TRANSPORT_NATIVE_V1_PREREGISTRATION.md.
