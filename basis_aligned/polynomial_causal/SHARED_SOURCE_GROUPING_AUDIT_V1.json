@@ -1,0 +1,91 @@
+{
+  "source_sha256": "318d47c3befe9c17027f4e440134cf0d49e4d84f6542c112344969f866afd03a",
+  "coefficients": 24,
+  "records": [
+    {
+      "role": "subject",
+      "template": "unlike_nearby",
+      "weights": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        -0.19309718141432392,
+        0.5281409704271155
+      ],
+      "fit_certificate": {
+        "retention": 1.0356200735848733,
+        "constraint_violation": 0.0,
+        "duality_gap": 0.0,
+        "tiny_reference_rows": 0
+      },
+      "held_min_retention": 1.031027288345745,
+      "held_max_control_reference_ratio": 0.10829432128041983,
+      "held_linear_pass": false
+    },
+    {
+      "role": "attractor",
+      "template": "unlike_nearby",
+      "weights": [
+        -0.008582091443519959,
+        -0.048201344551063854,
+        0.06372145782570494,
+        0.11070868168132288,
+        -0.04117455555301642,
+        0.011463210645960268
+      ],
+      "fit_certificate": {
+        "retention": 0.05897644388976255,
+        "constraint_violation": 1.3183898417423734e-16,
+        "duality_gap": 0.0,
+        "tiny_reference_rows": 0
+      },
+      "held_min_retention": 0.04267720949524676,
+      "held_max_control_reference_ratio": 0.08196509726789533,
+      "held_linear_pass": false
+    },
+    {
+      "role": "subject",
+      "template": "beside_subject",
+      "weights": [
+        0.04931041875851383,
+        1.0,
+        0.1532749640954749,
+        0.45775782293797035,
+        -0.017282147641522826,
+        0.5289530328020805
+      ],
+      "fit_certificate": {
+        "retention": 0.48175443175410504,
+        "constraint_violation": 5.551115123125783e-17,
+        "duality_gap": 0.0,
+        "tiny_reference_rows": 0
+      },
+      "held_min_retention": 0.4820022913248046,
+      "held_max_control_reference_ratio": 0.15145465297118405,
+      "held_linear_pass": false
+    },
+    {
+      "role": "attractor",
+      "template": "beside_subject",
+      "weights": [
+        -0.002996546402410103,
+        0.011275690274565707,
+        0.0018440104450838807,
+        0.0034785279733928857,
+        -0.0023409474649043077,
+        0.0030609947435386075
+      ],
+      "fit_certificate": {
+        "retention": 0.0019184802408689638,
+        "constraint_violation": 1.3877787807814457e-17,
+        "duality_gap": 4.336808689942018e-19,
+        "tiny_reference_rows": 0
+      },
+      "held_min_retention": -0.025674115711699776,
+      "held_max_control_reference_ratio": 0.011596265830025172,
+      "held_linear_pass": false
+    }
+  ],
+  "scope": "Opened derivative-only structural dictionary test: fit opposite panel, held congruent. No native effects evaluated for these new weights. Certificates bound only the registered first-order program."
+}

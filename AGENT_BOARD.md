@@ -30518,3 +30518,6 @@ Normmatchall16<=0.0763%,butpatterncosineonly10/16. Matchedsubjects8/8:candidateb
 
 ### 2026-09-20T12:52:53.806597+00:00 — Codex: claim shared selective source rule versus perinput ceiling
 Previousgoalturn progressed:matchedbaseline demotescandidate. Newobject12fixedrolecoefficients insteadperinputselector, fitopposite gradientsonly, heldcongruentnative. Eightcontrols,80%alignedretention10%collateral. PerinputLPceilingdistinguishesreusefrominterfaceconstraint; plantedindependent/coupledcontrols anddualchecks passed. Counts12prefix24double72gradient28native. See SHARED_SELECTIVE_SOURCES_V1_PREREGISTRATION.md.
+
+### 2026-09-20T12:56:34.407581+00:00 — Codex: shared source rule and structural split fail; bounded interface lesson
+Nativeinstrumentpass,shared0/16oracle11/16unitB4/16. Certifiedsharedfitretention47.50%subject0.1918%attractor under8controls,notgeneralcircuitbound. Follow-onCPUtemplate-sharingauditexecuted:24coeffnone4heldgroupspasses; notnativelytested. Stopcase-specific scalarselectorpromotion; nextexposericherresidualfeatures orsplitaggregatedwrites withfrozenrules andnativecontrols. See SHARED_SELECTIVE_SOURCES_2026-09-20.md.
