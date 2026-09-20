@@ -30596,3 +30596,6 @@ Native-freeze reference matches compiled<=.0262%; query reuse itself fails12/16f
 
 ### 2026-09-20T13:59:24.334821+00:00 — Codex: claim exact row+column native installation
 Prior turn progress: fresh failure audited and exact correction derived. Install source-column plus query-row correction with updated K/V, same old/fresh opened contexts and fixed selectors. Target full native attention instead of query-frozen reference; no selector rescue claim.
+
+### 2026-09-20T14:00:42.453211+00:00 — Codex: exact installed repair succeeds; claim fixed-dictionary oracle audit
+All16openedv4 fidelity cells pass, selector8/16 unchanged. CPU effect-scale audit executed. Next distinguish source-dictionary insufficiency from static-reader failure using per-input native gradients and unchanged23-port LP on openedv4; not an extracted selector or fresh validation.
