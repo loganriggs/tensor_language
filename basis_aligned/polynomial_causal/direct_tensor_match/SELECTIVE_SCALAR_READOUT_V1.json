@@ -1,0 +1,24 @@
+{
+  "checks": [
+    {
+      "context": 64,
+      "unchanged_scalar_max_abs": 0.0,
+      "changed_mode1_relative_norm": 0.2117548050701103
+    },
+    {
+      "context": 256,
+      "unchanged_scalar_max_abs": 0.0,
+      "changed_mode1_relative_norm": 0.2007104876464354
+    }
+  ],
+  "cost": {
+    "products": 10,
+    "additions": 13892,
+    "stored_coefficients": 13916,
+    "edges": 13936,
+    "nodes": 1187
+  },
+  "changed_scalar": 1,
+  "selection": "After reused diagnostic native outcomes, not a preregistered candidate or fresh confirmation.",
+  "scope": "Diagnostic-selected refit of scalar1 only. Input features, other scalar functions, and residual writers are unchanged. Native joint behavior and fresh transfer untested."
+}

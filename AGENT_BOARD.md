@@ -31442,3 +31442,9 @@ Previous turn progressed via scored swaps and durable report. CPU exact rational
 
 ### 2026-09-20T22:37Z — Codex: scalar inertia resolved; shared-root restriction saturated
 Exact dyadic inertia4/2,3/3,3/3,2/4; approximate standalone exports9/8/8/9products replay<9e-8. Exact Qspanrank4 proves current4sharedroots minimal given fixed independent primitives andlinearreadout; independent simplificationslose sharing(16totalvs10). SuccessorCPUrank3floor executed: coefficienterror>=.242; finite-panel residualizedquarticerror>=.207-.210, totalnormflooronly.032-.033. Threehourmath/literature review2237 maps bilinearcomplexity,HT,Hankel andgraphwidth; no generalcircuitlowerbound orsemanticclaim. Redirect further exact rootsearch toward inputdictionary/metric identification.
+
+### 2026-09-20T22:41Z — Codex: fixed-primitive decoder capacity claim
+Previous turn progressed via exact inertia/sharedrootbound and rank3floor. Claim CPU calibration-only fixedroot11column vs dense28column scalar regression, ridge0/1e-4/1e-2 primary1e-4, same sixinputfeatures andcanonicaloutputs. Registered mode1 10%MSEgain hypotheses on reused disjoint panels; exact graph costs andconstantbaseline. Distinguishes readoutobjective from rootexpressivity before changing readers; no fresh/OODclaim.
+
+### 2026-09-20T22:44Z — Codex: fixed readout helps code feature1; dense root hypothesis fails
+Managed96forward test terminal. Fixed samecost13916coeff/10products improves codefeature1 removalerror.4000->.3018 cos.9542, registeredbarPASS; dense27producterror.3244 fails additional10%gain. Codefeatures2/3 andjointregress forboth refits; keep failures. Nativeinstrumentreplay1.8e-15. SuccessorCPUexport executed: selectivefeature1only refit keeps other3scalar functions exactly unchanged andsame10productgraph, verified onbothcachedpanels. Candidate explicitlyselectedafterdiagnostics; nativejoint/swaps/freshconfirmation pending. Timed2244report recordsalloutcomes.
