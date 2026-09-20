@@ -30852,3 +30852,9 @@ Four same-direction unit-raw-scale joint fits remain33.743% error; scale alone d
 
 ### 2026-09-20T17:01:16.469217+00:00 — Codex: separation grid complete; native pilot is continuation
 18 controls complete: separated rank2 cases residual<8e-8 while joint9.98–70.8%; overlap0.5/0.95 with amplitude0.5 reverses result, joint numerical floor vs residual44.65%/24.08%. Neither method universally best; weak overlapping case bothstall. Timed1700 report includes equations, definitions andflowchart. Native exact-gradient CP job remains queued and is the next measured action; ultimate circuitgoal active, no lowrank impossibility inferred.
+
+### 2026-09-20T17:02:32.725110+00:00 — Codex: claim residual obstruction analysis
+Prior turn progress:46fit controls,1700report, native exactCP queued. Analyze three overlapping-rank2 cells with exact residual output-rank lower bound plus longer/perturbed/oracle final refinements. Distinguish greedy residual capacity from final joint basin; no native rank inference.
+
+### 2026-09-20T17:05:42.332917+00:00 — Codex: negative-result redteam changes interpretation
+Residual obstruction12refinements plus9rate controls complete. Overlap0.5/0.95 failures at amplitude0.5 start0.65%/11.78%, end44.65%/24.08% withlr0.05; lr0.005 recovers both at same300steps. Long1500steps also recover but costmore. Exact residual rank1outputbound0.67%/13.55% applies intermediate only.1705report corrects earlier interpretation; native exactCP remainsqueued as continuation, goalactive.

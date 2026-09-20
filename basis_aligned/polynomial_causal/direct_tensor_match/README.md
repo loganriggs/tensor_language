@@ -103,3 +103,10 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 - `EXACT_CP_SCALE_CONTROL_PLAN_V1.md`, `exact_cp_scale_control.py`, `EXACT_CP_SCALE_CONTROL_V1.json`:four same-direction/unit-raw-scale joint controls remain33.743%; scale alone does not explain success.
 - `EXACT_CP_SEPARATION_PLAN_V1.md`, `exact_cp_separation.py`, `EXACT_CP_SEPARATION_V1.json`:18 fits on amplitude/overlap grid; residual wins separated cases but loses badly on some overlaps. One initialization per cell; no universal strategy ranking.
 - `NATIVE_EXACT_CP_GREEDY_PLAN_V1.md`:queued native eight-atom exact-gradient residual pilot; heldout coefficient/Gaussian checks, estimated teacher norm only for scaling.
+
+## Refinement-rate correction — 17:05 UTC
+
+[Timed correction](../explanations/for_logan/research_update_2026-09-20_1705_refinement_overshoot.md): the two amplitude0.5 overlapping failures are repaired at the same300-step budget by reducing refinement rate0.05 to0.005. Initial errors0.65%/11.78% had been worsened to44.65%/24.08%; smaller rate reaches numerical precision. Historical endpoints remain intact; do not infer structural impossibility or a universal joint advantage.
+
+- `RESIDUAL_OBSTRUCTION_PLAN_V1.md`, `residual_obstruction.py`, `RESIDUAL_OBSTRUCTION_V1.json`: exact residual output-rank relaxation,12 refinements across longer, perturbed and oracle initializations; longer joint runs recover both.
+- `REFINEMENT_RATE_PLAN_V1.md`, `refinement_rate.py`, `REFINEMENT_RATE_V1.json`:nine same-budget refinement rates, initial/best/final training losses. One teacher orientation and initialization; no heldout selection or native result.

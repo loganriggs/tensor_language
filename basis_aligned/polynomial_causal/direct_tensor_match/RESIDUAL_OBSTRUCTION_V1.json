@@ -1,0 +1,945 @@
+{
+  "records": [
+    {
+      "linear_overlap": 0.0,
+      "amplitude_ratio": 0.5,
+      "first": {
+        "relative_error": 0.4482663409581418,
+        "signed_squared_relative_error": 0.20094271243600104,
+        "seconds": 0.9997900500893593,
+        "teacher_feature_correlations": [
+          [
+            0.9999999999999999
+          ],
+          [
+            -5.571640276774e-07
+          ]
+        ],
+        "history": [
+          {
+            "step": 0,
+            "explained_fraction": 6.465019450073251e-10
+          },
+          {
+            "step": 100,
+            "explained_fraction": 0.798325749016866
+          },
+          {
+            "step": 200,
+            "explained_fraction": 0.7990572665623461
+          },
+          {
+            "step": 300,
+            "explained_fraction": 0.7990572875634206
+          },
+          {
+            "step": 400,
+            "explained_fraction": 0.7990572875639983
+          },
+          {
+            "step": 500,
+            "explained_fraction": 0.7990572875639975
+          }
+        ]
+      },
+      "second": {
+        "relative_error": 5.606929790667517e-07,
+        "signed_squared_relative_error": 3.143766167747489e-13,
+        "seconds": 1.0014015228953212,
+        "teacher_feature_correlations": [
+          [
+            5.571640304041031e-07
+          ],
+          [
+            -0.9999999999999999
+          ],
+          [
+            5.571640300520746e-07
+          ]
+        ],
+        "history": [
+          {
+            "step": 0,
+            "explained_fraction": 1.9483356295724966e-13
+          },
+          {
+            "step": 100,
+            "explained_fraction": 0.9979894457613658
+          },
+          {
+            "step": 200,
+            "explained_fraction": 0.9999999694542161
+          },
+          {
+            "step": 300,
+            "explained_fraction": 0.9999999999979462
+          },
+          {
+            "step": 400,
+            "explained_fraction": 0.9999999999996854
+          },
+          {
+            "step": 500,
+            "explained_fraction": 0.9999999999996912
+          }
+        ]
+      },
+      "residual_output_eigenvalues": [
+        0.0,
+        8.486034609417986e-16,
+        0.2009427124360007
+      ],
+      "residual_rank_one_output_lower_bound": 6.54364659197286e-08,
+      "runs": [
+        {
+          "relative_error": 6.664001874625056e-08,
+          "signed_squared_relative_error": 4.440892098500626e-15,
+          "seconds": 0.5264331928920001,
+          "teacher_feature_correlations": [
+            [
+              0.9999999999999979,
+              5.57164054839842e-07
+            ],
+            [
+              -5.571640165622344e-07,
+              -0.9999999999999977
+            ]
+          ],
+          "history": [
+            {
+              "step": 0,
+              "explained_fraction": 0.9999999999999991
+            },
+            {
+              "step": 100,
+              "explained_fraction": 0.999996773710877
+            },
+            {
+              "step": 200,
+              "explained_fraction": 0.9999999999388334
+            }
+          ],
+          "method": "joint300",
+          "steps": 300
+        },
+        {
+          "relative_error": 0.0,
+          "signed_squared_relative_error": 0.0,
+          "seconds": 2.6196087850257754,
+          "teacher_feature_correlations": [
+            [
+              0.9999999999999997,
+              5.571640280294268e-07
+            ],
+            [
+              -5.571640280294277e-07,
+              -1.0000000000000016
+            ]
+          ],
+          "history": [
+            {
+              "step": 0,
+              "explained_fraction": 0.9999999999999991
+            },
+            {
+              "step": 100,
+              "explained_fraction": 0.9999963375515174
+            },
+            {
+              "step": 200,
+              "explained_fraction": 0.9999999998847042
+            },
+            {
+              "step": 300,
+              "explained_fraction": 0.9999999999999971
+            },
+            {
+              "step": 400,
+              "explained_fraction": 0.9999999999999996
+            },
+            {
+              "step": 500,
+              "explained_fraction": 0.9999999999999996
+            },
+            {
+              "step": 600,
+              "explained_fraction": 1.0
+            },
+            {
+              "step": 700,
+              "explained_fraction": 1.0000000000000002
+            },
+            {
+              "step": 800,
+              "explained_fraction": 1.0
+            },
+            {
+              "step": 900,
+              "explained_fraction": 1.0000000000000004
+            },
+            {
+              "step": 1000,
+              "explained_fraction": 0.9999999999999999
+            },
+            {
+              "step": 1100,
+              "explained_fraction": 1.0
+            },
+            {
+              "step": 1200,
+              "explained_fraction": 0.9999999999999999
+            },
+            {
+              "step": 1300,
+              "explained_fraction": 1.0000000000000002
+            },
+            {
+              "step": 1400,
+              "explained_fraction": 1.0
+            }
+          ],
+          "method": "joint1500",
+          "steps": 1500
+        },
+        {
+          "relative_error": 0.0,
+          "signed_squared_relative_error": -6.661338147750939e-16,
+          "seconds": 2.6205203698482364,
+          "teacher_feature_correlations": [
+            [
+              1.0000000000000002,
+              5.571640280294273e-07
+            ],
+            [
+              -5.571640280294267e-07,
+              -1.0000000000000016
+            ]
+          ],
+          "history": [
+            {
+              "step": 0,
+              "explained_fraction": 0.9610143113597103
+            },
+            {
+              "step": 100,
+              "explained_fraction": 0.9995263408422923
+            },
+            {
+              "step": 200,
+              "explained_fraction": 0.9999999853739563
+            },
+            {
+              "step": 300,
+              "explained_fraction": 0.9999999999995796
+            },
+            {
+              "step": 400,
+              "explained_fraction": 0.9999999999999996
+            },
+            {
+              "step": 500,
+              "explained_fraction": 0.9999999999999996
+            },
+            {
+              "step": 600,
+              "explained_fraction": 0.9999999999999999
+            },
+            {
+              "step": 700,
+              "explained_fraction": 1.0000000000000009
+            },
+            {
+              "step": 800,
+              "explained_fraction": 1.0000000000000004
+            },
+            {
+              "step": 900,
+              "explained_fraction": 1.0000000000000004
+            },
+            {
+              "step": 1000,
+              "explained_fraction": 1.0000000000000007
+            },
+            {
+              "step": 1100,
+              "explained_fraction": 1.0000000000000004
+            },
+            {
+              "step": 1200,
+              "explained_fraction": 1.0000000000000007
+            },
+            {
+              "step": 1300,
+              "explained_fraction": 1.0000000000000007
+            },
+            {
+              "step": 1400,
+              "explained_fraction": 1.0000000000000007
+            }
+          ],
+          "method": "perturbed_joint1500",
+          "steps": 1500
+        },
+        {
+          "relative_error": 3.7191459529305783e-06,
+          "signed_squared_relative_error": 1.38320466191999e-11,
+          "seconds": 0.526626287959516,
+          "teacher_feature_correlations": [
+            [
+              0.9999999999925065,
+              -5.571755980448362e-07
+            ],
+            [
+              -5.571668777460599e-07,
+              0.9999999999953805
+            ]
+          ],
+          "history": [
+            {
+              "step": 0,
+              "explained_fraction": 0.9611398945568894
+            },
+            {
+              "step": 100,
+              "explained_fraction": 0.9992613452292349
+            },
+            {
+              "step": 200,
+              "explained_fraction": 0.9999999848472643
+            }
+          ],
+          "method": "oracle_perturbed300",
+          "steps": 300
+        }
+      ]
+    },
+    {
+      "linear_overlap": 0.5,
+      "amplitude_ratio": 0.5,
+      "first": {
+        "relative_error": 0.4464506463482235,
+        "signed_squared_relative_error": 0.19931817962474652,
+        "seconds": 0.9925457090139389,
+        "teacher_feature_correlations": [
+          [
+            0.9999942164665228
+          ],
+          [
+            0.06255040334808208
+          ]
+        ],
+        "history": [
+          {
+            "step": 0,
+            "explained_fraction": 6.471701850711746e-10
+          },
+          {
+            "step": 100,
+            "explained_fraction": 0.7999484487785847
+          },
+          {
+            "step": 200,
+            "explained_fraction": 0.8006818007146005
+          },
+          {
+            "step": 300,
+            "explained_fraction": 0.8006818203746795
+          },
+          {
+            "step": 400,
+            "explained_fraction": 0.8006818203752533
+          },
+          {
+            "step": 500,
+            "explained_fraction": 0.8006818203752538
+          }
+        ]
+      },
+      "second": {
+        "relative_error": 0.061446471964703105,
+        "signed_squared_relative_error": 0.003775668916909045,
+        "seconds": 0.9923542658798397,
+        "teacher_feature_correlations": [
+          [
+            -0.05898640377187197
+          ],
+          [
+            -0.9999122698313755
+          ],
+          [
+            -0.059700380174480636
+          ]
+        ],
+        "history": [
+          {
+            "step": 0,
+            "explained_fraction": 2.726034708062398e-13
+          },
+          {
+            "step": 100,
+            "explained_fraction": 0.9938818649649321
+          },
+          {
+            "step": 200,
+            "explained_fraction": 0.9962242726743256
+          },
+          {
+            "step": 300,
+            "explained_fraction": 0.9962243310815817
+          },
+          {
+            "step": 400,
+            "explained_fraction": 0.9962243310830882
+          },
+          {
+            "step": 500,
+            "explained_fraction": 0.9962243310830882
+          }
+        ]
+      },
+      "residual_output_eigenvalues": [
+        0.0,
+        8.81753538493678e-06,
+        0.19930936208936184
+      ],
+      "residual_rank_one_output_lower_bound": 0.006651202180463792,
+      "runs": [
+        {
+          "relative_error": 0.4464492923185416,
+          "signed_squared_relative_error": 0.1993169706117266,
+          "seconds": 0.5270657401997596,
+          "teacher_feature_correlations": [
+            [
+              0.40761959643177725,
+              -0.9999940113564977
+            ],
+            [
+              0.023253877608595038,
+              -0.06256339819692462
+            ]
+          ],
+          "history": [
+            {
+              "step": 0,
+              "explained_fraction": 0.999957686712653
+            },
+            {
+              "step": 100,
+              "explained_fraction": 0.8006807555934655
+            },
+            {
+              "step": 200,
+              "explained_fraction": 0.8006822968017057
+            }
+          ],
+          "method": "joint300",
+          "steps": 300
+        },
+        {
+          "relative_error": 0.0,
+          "signed_squared_relative_error": 0.0,
+          "seconds": 2.621348534943536,
+          "teacher_feature_correlations": [
+            [
+              0.9999999999999999,
+              -0.061814040497340225
+            ],
+            [
+              0.0618140404973402,
+              -0.9999999999999999
+            ]
+          ],
+          "history": [
+            {
+              "step": 0,
+              "explained_fraction": 0.999957686712653
+            },
+            {
+              "step": 100,
+              "explained_fraction": 0.8006805882268612
+            },
+            {
+              "step": 200,
+              "explained_fraction": 0.8006859259207303
+            },
+            {
+              "step": 300,
+              "explained_fraction": 0.8008224065870309
+            },
+            {
+              "step": 400,
+              "explained_fraction": 0.8030182824031679
+            },
+            {
+              "step": 500,
+              "explained_fraction": 0.9999812475048118
+            },
+            {
+              "step": 600,
+              "explained_fraction": 0.9999999994862167
+            },
+            {
+              "step": 700,
+              "explained_fraction": 0.9999999999999873
+            },
+            {
+              "step": 800,
+              "explained_fraction": 1.0
+            },
+            {
+              "step": 900,
+              "explained_fraction": 1.0000000000000002
+            },
+            {
+              "step": 1000,
+              "explained_fraction": 0.9999999999999989
+            },
+            {
+              "step": 1100,
+              "explained_fraction": 0.9999999999999998
+            },
+            {
+              "step": 1200,
+              "explained_fraction": 1.0000000000000002
+            },
+            {
+              "step": 1300,
+              "explained_fraction": 0.9999999999999998
+            },
+            {
+              "step": 1400,
+              "explained_fraction": 0.9999999999999998
+            }
+          ],
+          "method": "joint1500",
+          "steps": 1500
+        },
+        {
+          "relative_error": 2.1073424255447017e-08,
+          "signed_squared_relative_error": 4.440892098500626e-16,
+          "seconds": 2.6275423020124435,
+          "teacher_feature_correlations": [
+            [
+              0.9999999999999997,
+              -0.06181404049734021
+            ],
+            [
+              0.06181404049734022,
+              -0.9999999999999999
+            ]
+          ],
+          "history": [
+            {
+              "step": 0,
+              "explained_fraction": 0.9609531207313518
+            },
+            {
+              "step": 100,
+              "explained_fraction": 0.9994676805877851
+            },
+            {
+              "step": 200,
+              "explained_fraction": 0.9999999832935202
+            },
+            {
+              "step": 300,
+              "explained_fraction": 0.9999999999689392
+            },
+            {
+              "step": 400,
+              "explained_fraction": 0.9999999999888096
+            },
+            {
+              "step": 500,
+              "explained_fraction": 0.9999999999999994
+            },
+            {
+              "step": 600,
+              "explained_fraction": 1.0
+            },
+            {
+              "step": 700,
+              "explained_fraction": 1.0000000000000004
+            },
+            {
+              "step": 800,
+              "explained_fraction": 1.0000000000000004
+            },
+            {
+              "step": 900,
+              "explained_fraction": 0.9999999999999993
+            },
+            {
+              "step": 1000,
+              "explained_fraction": 0.9999999999999996
+            },
+            {
+              "step": 1100,
+              "explained_fraction": 0.9999999999999993
+            },
+            {
+              "step": 1200,
+              "explained_fraction": 0.9999999999999993
+            },
+            {
+              "step": 1300,
+              "explained_fraction": 0.9999999999999993
+            },
+            {
+              "step": 1400,
+              "explained_fraction": 0.9999999999999993
+            }
+          ],
+          "method": "perturbed_joint1500",
+          "steps": 1500
+        },
+        {
+          "relative_error": 3.84620302557215e-06,
+          "signed_squared_relative_error": 1.479327771392036e-11,
+          "seconds": 0.5241141659207642,
+          "teacher_feature_correlations": [
+            [
+              0.9999999999925294,
+              0.06181403574528492
+            ],
+            [
+              0.06181403934994553,
+              0.9999999999928982
+            ]
+          ],
+          "history": [
+            {
+              "step": 0,
+              "explained_fraction": 0.9611279383326095
+            },
+            {
+              "step": 100,
+              "explained_fraction": 0.9992388767849673
+            },
+            {
+              "step": 200,
+              "explained_fraction": 0.999999984480273
+            }
+          ],
+          "method": "oracle_perturbed300",
+          "steps": 300
+        }
+      ]
+    },
+    {
+      "linear_overlap": 0.95,
+      "amplitude_ratio": 0.5,
+      "first": {
+        "relative_error": 0.2409747725518127,
+        "signed_squared_relative_error": 0.058068841006397864,
+        "seconds": 0.988729814067483,
+        "teacher_feature_correlations": [
+          [
+            0.9947141284097635
+          ],
+          [
+            0.8667297582654353
+          ]
+        ],
+        "history": [
+          {
+            "step": 0,
+            "explained_fraction": 7.67548976411409e-10
+          },
+          {
+            "step": 100,
+            "explained_fraction": 0.9410434497864293
+          },
+          {
+            "step": 200,
+            "explained_fraction": 0.94193113637627
+          },
+          {
+            "step": 300,
+            "explained_fraction": 0.9419311589929227
+          },
+          {
+            "step": 400,
+            "explained_fraction": 0.9419311589936018
+          },
+          {
+            "step": 500,
+            "explained_fraction": 0.9419311589936008
+          }
+        ]
+      },
+      "second": {
+        "relative_error": 0.642178682536788,
+        "signed_squared_relative_error": 0.41239346030468477,
+        "seconds": 0.9983357989694923,
+        "teacher_feature_correlations": [
+          [
+            0.412463737918362
+          ],
+          [
+            0.8079529847673478
+          ],
+          [
+            0.4771841573818852
+          ]
+        ],
+        "history": [
+          {
+            "step": 0,
+            "explained_fraction": 1.787181504173729e-14
+          },
+          {
+            "step": 100,
+            "explained_fraction": 0.5861107949585774
+          },
+          {
+            "step": 200,
+            "explained_fraction": 0.5876065013706104
+          },
+          {
+            "step": 300,
+            "explained_fraction": 0.5876065396942477
+          },
+          {
+            "step": 400,
+            "explained_fraction": 0.5876065396953125
+          },
+          {
+            "step": 500,
+            "explained_fraction": 0.5876065396953154
+          }
+        ]
+      },
+      "residual_output_eigenvalues": [
+        0.0,
+        0.0010661296935863688,
+        0.057002711312813176
+      ],
+      "residual_rank_one_output_lower_bound": 0.13549817339241035,
+      "runs": [
+        {
+          "relative_error": 0.24084284732922462,
+          "signed_squared_relative_error": 0.0580052771096482,
+          "seconds": 0.5243611240293831,
+          "teacher_feature_correlations": [
+            [
+              0.02022539704768334,
+              0.9946876475511864
+            ],
+            [
+              0.00040557178563756637,
+              0.8668514504799172
+            ]
+          ],
+          "history": [
+            {
+              "step": 0,
+              "explained_fraction": 0.9861132634454014
+            },
+            {
+              "step": 100,
+              "explained_fraction": 0.9419351636709092
+            },
+            {
+              "step": 200,
+              "explained_fraction": 0.9419610969756343
+            }
+          ],
+          "method": "joint300",
+          "steps": 300
+        },
+        {
+          "relative_error": 1.4901161193847656e-08,
+          "signed_squared_relative_error": 2.220446049250313e-16,
+          "seconds": 2.629729141946882,
+          "teacher_feature_correlations": [
+            [
+              0.9999999999999997,
+              0.8147930469646979
+            ],
+            [
+              0.8147930469646983,
+              0.9999999999999999
+            ]
+          ],
+          "history": [
+            {
+              "step": 0,
+              "explained_fraction": 0.9861132634454014
+            },
+            {
+              "step": 100,
+              "explained_fraction": 0.9419354111605017
+            },
+            {
+              "step": 200,
+              "explained_fraction": 0.9435180126735068
+            },
+            {
+              "step": 300,
+              "explained_fraction": 0.9999978743060879
+            },
+            {
+              "step": 400,
+              "explained_fraction": 0.9999999999251674
+            },
+            {
+              "step": 500,
+              "explained_fraction": 0.9999999999999973
+            },
+            {
+              "step": 600,
+              "explained_fraction": 1.0000000000000002
+            },
+            {
+              "step": 700,
+              "explained_fraction": 1.0
+            },
+            {
+              "step": 800,
+              "explained_fraction": 0.9999999999999998
+            },
+            {
+              "step": 900,
+              "explained_fraction": 1.0000000000000002
+            },
+            {
+              "step": 1000,
+              "explained_fraction": 1.0000000000000002
+            },
+            {
+              "step": 1100,
+              "explained_fraction": 0.9999999999999998
+            },
+            {
+              "step": 1200,
+              "explained_fraction": 0.9999999999999996
+            },
+            {
+              "step": 1300,
+              "explained_fraction": 0.9999999999999998
+            },
+            {
+              "step": 1400,
+              "explained_fraction": 0.9999999999999996
+            }
+          ],
+          "method": "joint1500",
+          "steps": 1500
+        },
+        {
+          "relative_error": 0.027185764264366252,
+          "signed_squared_relative_error": 0.0007390657786376931,
+          "seconds": 2.6275850569363683,
+          "teacher_feature_correlations": [
+            [
+              0.9997068562147993,
+              0.8875472002434958
+            ],
+            [
+              0.8017986133214803,
+              0.9889822312628447
+            ]
+          ],
+          "history": [
+            {
+              "step": 0,
+              "explained_fraction": 0.9479989967221321
+            },
+            {
+              "step": 100,
+              "explained_fraction": 0.9419322266486595
+            },
+            {
+              "step": 200,
+              "explained_fraction": 0.9419356313911873
+            },
+            {
+              "step": 300,
+              "explained_fraction": 0.9419367320367182
+            },
+            {
+              "step": 400,
+              "explained_fraction": 0.9419385608165428
+            },
+            {
+              "step": 500,
+              "explained_fraction": 0.9419417167151634
+            },
+            {
+              "step": 600,
+              "explained_fraction": 0.9419475526235004
+            },
+            {
+              "step": 700,
+              "explained_fraction": 0.941959479617127
+            },
+            {
+              "step": 800,
+              "explained_fraction": 0.9419874562891272
+            },
+            {
+              "step": 900,
+              "explained_fraction": 0.9420664957993616
+            },
+            {
+              "step": 1000,
+              "explained_fraction": 0.9423500992877459
+            },
+            {
+              "step": 1100,
+              "explained_fraction": 0.9436707972851405
+            },
+            {
+              "step": 1200,
+              "explained_fraction": 0.950920399287674
+            },
+            {
+              "step": 1300,
+              "explained_fraction": 0.9790224199879554
+            },
+            {
+              "step": 1400,
+              "explained_fraction": 0.997587110418597
+            }
+          ],
+          "method": "perturbed_joint1500",
+          "steps": 1500
+        },
+        {
+          "relative_error": 0.2406963146786238,
+          "signed_squared_relative_error": 0.05793471589987109,
+          "seconds": 0.5270916568115354,
+          "teacher_feature_correlations": [
+            [
+              0.06695143184904423,
+              0.9946871118135346
+            ],
+            [
+              0.03024487720869378,
+              0.8668538478399045
+            ]
+          ],
+          "history": [
+            {
+              "step": 0,
+              "explained_fraction": 0.9633919995212451
+            },
+            {
+              "step": 100,
+              "explained_fraction": 0.9419899231125697
+            },
+            {
+              "step": 200,
+              "explained_fraction": 0.9420455785465123
+            }
+          ],
+          "method": "oracle_perturbed300",
+          "steps": 300
+        }
+      ]
+    }
+  ],
+  "seconds": 25.318943846039474,
+  "scope": "Rank-one output relaxation is a lower bound only. Longer/oracle controls not equal-budget native algorithms."
+}

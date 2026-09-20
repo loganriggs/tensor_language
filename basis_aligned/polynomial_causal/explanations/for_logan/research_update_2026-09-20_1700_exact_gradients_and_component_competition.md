@@ -1,5 +1,7 @@
 # Exact gradients and competing components — 2026-09-20 17:00 UTC
 
+**Update at17:05:** [Refinement-rate controls](research_update_2026-09-20_1705_refinement_overshoot.md) recover the two amplitude0.5 overlapping failures at the same step budget. Their original endpoints were worse than their initializations; do not interpret those cells as a structural obstruction. The measurements below are retained unchanged.
+
 **Bad decomposition fits can be optimization failures even when the student has exactly enough capacity.** We now have a concrete example and a counterexample to its proposed remedy. Exact-gradient joint fitting repeatedly duplicates one planted component. Residual fitting recovers that example, but loses to joint fitting on some overlapping components. This is evidence about the geometry of optimization, not a proof that native tensors have—or lack—simple circuits.
 
 The two-day decomposition focus remains active through September 22, 15:10 UTC. The native exact-gradient pilot is queued; no native result is claimed here. The last mathematical/literature review was at 16:37, with results added through 16:42. The next is due around 19:37.
