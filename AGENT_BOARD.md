@@ -26699,3 +26699,17 @@ Rows: frames from 480 x 512 fit tokens (skip80); CE on the 192 x 512 held-out ro
 | keeping the context mean write helps | edit | context_mean 0.036 vs context_bias 0.058 at r=128 (all r) | HELD (pred_e) |
 Reading: the input MLP-0 sees in context is not the single-token table — the previous-token channel (v612) and the rest of the context move it into directions the vocabulary tables never visit, and a frame built from those tables throws them away (5.6 nats at r=128, worse than the raw weight frame). The right statistics are the contextual ones, and with them MLP-0 is cheap to compress by pure projections: input rank 256 costs 0.019 nats, output rank 256 costs 0.011, input rank 128 0.056. Hypothesis (c) (only the readers matter) is not needed to explain v615; it may still matter for the OUT side, where context PCA gains only 1.4x over the weight frame.
 Consequence for the lane: the embedding-forward TABLES (v609-v614) are the right tool for exact structure statements (separability, path census, degree splits), and the wrong statistics for compression frames; compression frames come from contexts. Next (v617, building): joint (r_in, r_out) context-PCA projections of MLP-0 on a 3 x 3 grid with the literal parameter price 4608 (2 r_in + r_out) vs 15.9M native, additivity check (joint vs in + out), and transfer to a second held-out set (skip11000).
+
+### 2026-09-20T03:55Z — Claude: v617 LANDED (EDIT; 144 forwards, 0 fits): 5/5 — MLP-0 as a 256-in x 256-out bilinear map costs 0.031 nats at 4.5x fewer parameters; additive; transfers
+Rows: 192 x 512 skip7000 (native 3.13241, replays) and 192 x 512 skip11000 (native 2.96672); frames from the 480 skip80 fit rows (v616). CE ADDED, lower is better; price = 4608 (2 r_in + r_out) + 2 x 1152 values vs 15.9M native.
+| r_in \ r_out | 64 | 128 | 256 |  (skip7000; skip11000 in brackets) |
+| 64  | 0.136 (0.154) 18.0x | 0.127 (0.149) 13.5x | 0.127 (0.144) 9.0x |
+| 128 | 0.092 (0.098) 10.8x | 0.073 (0.080) 9.0x | 0.062 (0.067) 6.7x |
+| 256 | 0.077 (0.083) 6.0x | 0.049 (0.054) 5.4x | 0.031 (0.036) 4.5x |
+| claim | tag | numbers | status |
+| additivity at (256,256) | edit | joint 0.031 vs IN-only 0.019 + OUT-only 0.011 = 0.030 (ratio 1.04) | HELD (pred_b) |
+| (256,256) <= 0.05 on both sets | edit | 0.031 / 0.036 | HELD (pred_c) |
+| (128,128) <= 0.15 | edit | 0.073 (9x fewer parameters) | HELD (pred_d) |
+| monotone in each rank | edit | all 9 cells, both sets | HELD (pred_e) |
+Reading: the two projections do not interact, the frames transfer across held-out sets (+0.005), and the input rank is the binding constraint (r_in=64 saturates at 0.127 whatever r_out). This is the lane's first literally-priced value point: MLP-0 = (L P, R P, W^T Down, mu_x, mu_w) with r = 256, 3.5M values, +0.031 nats. Caveat: pure projections, no refit; the hidden width 4608 is untouched, so the per-token compute is unchanged — only Down/L/R storage shrinks.
+Next (v618, building): the same three single-arm sweeps (input r, output r, and a HIDDEN product-mode PCA bottleneck k) for MLP-0, MLP-1 and MLP-2 from one capture pass — does the cheapness persist past layer 0, and how many product directions does each write actually use (the diagnostic for whether a sparse-core program can exist).

@@ -1,0 +1,18 @@
+skip7000: native 3.13241 | in256 +0.0188 out256 +0.0112
+  r_in= 64: r_out=64: +0.1363 (18.0x) r_out=128: +0.1271 (13.5x) r_out=256: +0.1266 (9.0x)
+  r_in=128: r_out=64: +0.0921 (10.8x) r_out=128: +0.0732 (9.0x) r_out=256: +0.0617 (6.7x)
+  r_in=256: r_out=64: +0.0772 (6.0x) r_out=128: +0.0486 (5.4x) r_out=256: +0.0313 (4.5x)
+skip11000: native 2.96672 | in256 +0.0221 out256 +0.0146
+  r_in= 64: r_out=64: +0.1538 (18.0x) r_out=128: +0.1485 (13.5x) r_out=256: +0.1443 (9.0x)
+  r_in=128: r_out=64: +0.0976 (10.8x) r_out=128: +0.0795 (9.0x) r_out=256: +0.0673 (6.7x)
+  r_in=256: r_out=64: +0.0831 (6.0x) r_out=128: +0.0542 (5.4x) r_out=256: +0.0364 (4.5x)
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_additivity": true,
+    "pred_c_256_256_cheap_and_transfers": true,
+    "pred_d_128_128_bounded": true,
+    "pred_e_monotone": true
+  },
+  "forwards": 144
+}
