@@ -853,3 +853,5 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 - [research_update_2026-09-20_2102_exact_root_metric](for_logan/research_update_2026-09-20_2102_exact_root_metric.md) — Exact root metric and registered next-level refactor.
 
 - [research_update_2026-09-20_2108_ten_product_program](for_logan/research_update_2026-09-20_2108_ten_product_program.md) — Ten-product graph and exact cost-guided linear folding.
+
+- [research_update_2026-09-20_2113_root_identity_and_output_features](for_logan/research_update_2026-09-20_2113_root_identity_and_output_features.md) — Root identity replication fails; canonical output-shared basis and limits.

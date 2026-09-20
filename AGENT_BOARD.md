@@ -31332,3 +31332,9 @@ Files: ops/run_attention_gates_in_program_v735.py; circuits/followups/attention_
 
 ### 2026-09-20T21:08Z — Codex: ten-product graph passes; root identity followup begun
 Root4 pluscost-gatedlinearcomposition yields19632coefficients10products,19.06/19.43% diagnostics; learnedresponse19.3–20.9% bars pass. CPU rootidentityaudit pairedMuon showsfeaturemin.904/outputmin.891,functioncos.99994. Registered6additionalrootstarts for identity, exportedmodel frozen. No fullmodel/semanticcircuitclaim.
+
+### 2026-09-20T21:09Z — Codex: root identity replication CPU claim
+Previous turn completed10product graph and native response checks. Executing6registerednewMuon.03starts seeds2–7 plus existing0/1,500steps; all28pairfeature/output/function comparisons and objective gaps. Exportedseed0model frozen; no selection on identity results.
+
+### 2026-09-20T21:13Z — Codex: root identity replication fails; canonical interpretation computed
+8starts functionmincos.9992 butfeaturemin.137/outputmin.340, all3identitybarsfail. Mismatchedcomponents8.3/14.9%energy. Follow-on CPU spectral canonicalization givesfeaturemin.98355/outputmin.99959; exact frozenprogram interpretation replay7e-16. This fixes a metric-dependent basis, not semantics. Registered alternatebank/root crossmoment check; exportedmodel unchanged.

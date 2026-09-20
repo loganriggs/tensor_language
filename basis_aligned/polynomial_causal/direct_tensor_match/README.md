@@ -276,3 +276,5 @@ BANK_WIDTH_FRONTIER_V1: shared6 yields24296coefficients16products,18.15/18.55%; 
 ROOT_FUNCTION_METRIC_V1 and ROOT_ARCHIVE_METRIC_V1 compute exact Gaussian degree8 root covariance; independentoracle1.1e-15. ROOT_PRODUCT_REFACTOR_PLAN_V1 registers4/6/8root widths; root_product_fit.py gradientchecked. Hourlyreview2101 preserves identification and validation-reuse limitations.
 
 ROOT_PRODUCT_REFACTOR_V1 passes root4 bars; FUSED_ROOT_PROGRAM_V1 gives19632coefficients10products,19.06/19.43% diagnostic errors. Fusedresponse passes learned-direction bars, random48–52%. ROOT_IDENTITY_AUDIT_V1 pairedrootfeatureminimum.904; replication registered with model frozen.
+
+ROOT_IDENTITY_REPLICATION_V1: functionbar passes, all3identitybars fail. ROOT_CANONICAL_FEATURE_AUDIT_V1 posthoc output-shared featuremin.98355/outputmin.99959. CANONICAL_ROOT_FEATURES_V1 exports exact interpretation, not new deployedgraph. Cross-bank replication registered separately.

@@ -11,8 +11,8 @@ def fourth(Q,m):
   if r<4:power=power@Q
  a,b,c,d=k;return a**4+6*a*a*b+3*b*b+4*a*c+d
 
-def root_moments(Q,m):
- n=len(Q);pairs=list(itertools.combinations_with_replacement(range(n),2));indices=list(itertools.combinations_with_replacement(range(n),4));signs=torch.tensor(list(itertools.product([-1.,1.],repeat=4)),dtype=Q.dtype,device=Q.device);mixed={}
+def root_moments(Q,m,pairs=None):
+ n=len(Q);pairs=list(itertools.combinations_with_replacement(range(n),2)) if pairs is None else list(pairs);indices=sorted({tuple(sorted((i,j,k,l))) for i,j in pairs for k,l in pairs});signs=torch.tensor(list(itertools.product([-1.,1.],repeat=4)),dtype=Q.dtype,device=Q.device);mixed={}
  for ix in indices:
   forms=torch.einsum('sk,kij->sij',signs,Q[list(ix)]);mixed[ix]=(fourth(forms,m)*signs.prod(1)).sum()/384
  mean=Q.diagonal(dim1=-2,dim2=-1).sum(-1)+torch.einsum('i,vij,j->v',m,Q,m);qm=torch.einsum('vij,j->vi',Q,m);cov=2*torch.einsum('aij,bij->ab',Q,Q)+4*qm@qm.T;second=cov+mean[:,None]*mean[None,:];phi_mean=torch.stack([second[i,j] for i,j in pairs]);raw=torch.stack([torch.stack([mixed[tuple(sorted((i,j,k,l)))] for k,l in pairs]) for i,j in pairs]);G=raw-phi_mean[:,None]*phi_mean[None,:];return phi_mean,(G+G.T)/2

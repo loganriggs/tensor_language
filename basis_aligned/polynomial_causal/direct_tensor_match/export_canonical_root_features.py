@@ -1,0 +1,12 @@
+"""Stable output-shared view of frozen fused program, without replacing its graph."""
+import json
+from pathlib import Path
+import torch
+from root_function_moments import root_moments,check
+from fuse_root_program import evaluate
+P=Path(__file__).resolve().parent
+
+def main():
+ torch.set_num_threads(1);oracle=check();s={k:v.double() for k,v in torch.load(P/'FUSED_ROOT_PROGRAM_V1.pt',weights_only=True)['programs'][4].items()};panel=torch.load(P/'NATIVE_QUARTIC_COVARIANCE_V1.pt',weights_only=True)['panels'][0];L=torch.linalg.cholesky(panel['covariance'].double());a=s['A']@L;b=s['B']@L;basis,_=torch.linalg.qr(torch.cat([a,b]).T,mode='reduced');a,b=a@basis,b@basis;primitive=.5*(a[:,:,None]*b[:,None,:]+b[:,:,None]*a[:,None,:]);left=torch.einsum('vk,kij->vij',s['root_left'],primitive);right=torch.einsum('vk,kij->vij',s['root_right'],primitive);Q=torch.stack([left,right],1).flatten(0,1);m=basis.T@torch.linalg.solve_triangular(L,panel['mean'].double()[:,None],upper=False).flatten();mean,G=root_moments(Q,m,[(2*i,2*i+1) for i in range(4)]);ev,E=torch.linalg.eigh(G);assert ev.min()>0;sqrtG=(E*ev.sqrt())@E.T;U,sv,_=torch.linalg.svd(s['output_writer']@sqrtG,full_matrices=False);K=U.T@s['output_writer'];constant=s['constant']+s['output_writer']@mean;x=panel['rows'][:32].double();p=(x@s['A'].T)*(x@s['B'].T);h=(p@s['root_left'].T)*(p@s['root_right'].T);g=(h-mean)@K.T;y=g@U.T+constant;replay=float((y-evaluate(s,x)).norm()/y.norm());assert replay<1e-12;cross=K@G@K.T;offdiag=float((cross-torch.diag(cross.diag())).norm()/cross.norm());assert offdiag<1e-12
+ torch.save(dict(output_directions=U,feature_mixing=K,root_mean=mean,output_mean=constant,mode_variances=sv.square(),root_covariance=G,source='FUSED_ROOT_PROGRAM_V1.pt programs[4]'),P/'CANONICAL_ROOT_FEATURES_V1.pt');out=dict(oracle=oracle,mode_variances=sv.square().tolist(),relative_mode_energy=(sv.square()/sv.square().sum()).tolist(),eigenvalue_ratios=(sv[:-1].square()/sv[1:].square()).tolist(),exact_program_replay=replay,mode_covariance_offdiagonal=offdiag,scope='Interpretation view: four centered output-shared combinations of existing root products, ordered by Gaussian output variance. Deployment graph stays unchanged; this extra view is not free additional deployed state. Exact equivalence for archived program, no semantic uniqueness claim.');(P/'CANONICAL_ROOT_FEATURES_V1.json').write_text(json.dumps(out,indent=2)+'\n');print(out)
+if __name__=='__main__':main()
