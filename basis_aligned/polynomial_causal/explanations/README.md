@@ -662,3 +662,5 @@ same day sort and link unambiguously.  Older `explanation_HHMM.md` files are ret
 - [explanation_0959.md](explanation_2026-09-05_0959.md) — Task14 below-head update: distributed grammatical value relays, OOD route changes, final-subject self-score localization, exact computations, and the active Q/K branch split
 
 - 2026-09-20 08:05 update: [conditional nonlinear-number / linear-modal predictor](../SUBJECT_HYBRID_RESPONSE_2026-09-20.md): fresh source A/B prediction passes, independentCPU extraction, all dense context/reader dependencies priced. Not a standalone replacement model.
+
+- [Smaller modal derivative path, v689–691](../SUBJECT_MODAL_DERIVATIVE_PATH_2026-09-20.md): prospective source-reuse validation and explicit reader-generator dependency reduction; whole-predictor native dependencies remain.

@@ -30184,3 +30184,21 @@ Fresh A/B number4.66/7.31%,modal0.223/0.789%,nativecollateral9.73/9.44%,capabili
 
 ### 2026-09-20T08:07:18.212000+00:00 — Codex: v688 independent CPU replay passes; claim number-correction ablation audit
 24sourcecases/8fixedrows,CPUerror2.08e-15,zeroresponse2.94e-6. Artifact28,750,173bytes;runtime1934+encoder9216,preparedvalues3,553,136 includingreader294,912 andsourceinputs221,184. Fullnativegenerators external. Use saved v686/687 predictions to remove onlynumberkernelcorrection and price reduced3readerbranch; posthoc ablation no newOODclaim. Next foldedpath work should prune modal backward branches againstfullgradientbaseline, not hidecontextcost.
+
+### 2026-09-20T08:09:36.523847+00:00 — Codex: claim v689 modal derivative path screen
+On now-openedv68748rows compare modal readers from residualcarryonly,MLP17,MLP16–17,allMLPs12–17,attentiononly12–17,fullgradient. Numberbranchfixeduncorrected sparse (posthoc ablation alreadypassesopened). Omitted derivativebranches are zeroed, not primalmodelmodules. Gates fullreader tangentinstrument1%,fullmodalprediction5%,atleastoneprunedpath modal5% allA/Bcells. Extra24attentionpullbacks/48referenceforwards and36MLPpullbacks (3modalreaders), baselineforwardports stillcharged. CPUfullpath/equalendpoint/carrychecks beforemanagedrun.
+
+### 2026-09-20T08:12:17.084373+00:00 — Codex: v689 pruned paths fail; claim v690 single-attention derivative expansion
+AllMLP modalA3.80%,B5.31% misses5%;carry11.26/6.93%,lastMLP8.98/8.21%,lasttwo10.67/7.09%,attentiononly8.89/6.07%. Expand baseline Jacobian product into allMLP zeroattention term plus six exactly-one-attention terms, allnorms andMLP derivatives retained. Test sum (atmostoneattention), andeachsingle correction. Gates CPUterm identity1e-10 andnativefulltangent1%; oneattention-sum modal5%; at leastonesinglelayer modal5% allA/Bcells. Omittedhigherattention-degree interactions preserved asresidual; this degree countsJacobianbranches, not polynomialdegreeininput. Extra24attentionpullbacks/48forwards and84 three-reader MLP-batch-equivalents beyondv689.
+
+### 2026-09-20T08:14:48.401643+00:00 — Codex: v690 passes; choose earliest attention12 for prospective test
+Atmostoneattention modalA0.506%,B1.052%;singleattention12/15/17 pass5%. Freezeattention12 (earliest passing minimizes token-local MLP derivative work);A3.44%,B4.18%,sum2.97%. Implementexactreadout-positionMLPpullbacks17..12 thenonefullattention12pullback, samefunction asselectedpath. Nextv691 newlongerrelative/preposition48rows,uncorrectedsparsenumber+selectedmodal, originaltarget10/modal5/nativecollateral10/capability90 gates. No fitting.
+
+### 2026-09-20T08:15:33.391335+00:00 — Codex: v691 frozen rows and cost
+New48row hashc38db7a51d9f958e5020d5c921af04b0fe14a3f4a8be6a2ff88116e9bce8c62a; nouns reusedv687, newlongerrelative/prepositioncombinations, no rowoverlap. Optimizedearliestattention CPUequal genericselectedpath1e-10. Extra4attentionpullbacks/8referenceforwards and24token-localMLPpullbacks, plusgenericselectedpathcontrol4attention/8forwards/24fulltokenMLP toverifymaxdifference1e-10 onnativecontexts. Gates fixed before evaluation; no supportselectiononnewrows.
+
+### 2026-09-20T08:17:40.894236+00:00 — Codex: v691 prospective selectedpath passes; CPU dependency audit claim
+Nativeoptimized/generic reader difference3.79e-19. FreshlongerA/B number6.57/5.66%,modal3.36/2.48%,nativecollateral6.59/5.50%,capability100%. All3gates pass (puretangentalsopassesonthispanel, unlikeearlierpanels). Auditselectedgenerator invariance to unusedlater rawattention inputs, nonreadoutMLP states andnonreadoutfinalstates. Expected exactsameoutput1e-10; retainedports finalreadoutstate,6MLPreadoutstates,rawattention12allpositions,cachedfirstvalues. FullMLPweights/nativeportgeneration stillcharged.
+
+### 2026-09-20T08:19:11.884664+00:00 — Codex: selected-reader dependency CPU audit passed
+Unused-port perturbations preserve optimized reader1e-10; full/equalendpoint/autograd/single-attention identities also pass. SUBJECT_MODAL_DERIVATIVE_PATH_2026-09-20.md prices modalgenerator ports(7+2T)Bd versus(1+13T)Bd, while explicitly retaining wholepredictor numbercontextdependencies. Nextpreservedhandoff: prospective amplitude/composition stress andportable smaller-reader export. Goalactive; no standalone/adoptionclaim.
