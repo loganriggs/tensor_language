@@ -30659,3 +30659,6 @@ Previous turn progress56/56amplitude reuse and CPU writer-group diagnostic. Alln
 
 ### 2026-09-20 14:57 UTC — Codex: head3 alone8/8; freeze amplitude transfer
 Onlyhead3 sufficient8/8 (number5.46%,controls3.83%); only its omissionfails2/8. Frozen head3 signed/strengthened transfer next,56cells,12prefix64native140joined. Threewriters3480values/context versus27writers31296; nativebackground/suffixstillrequired. Index3zero-based. No semanticpromotion.
+
+### 2026-09-20 15:00 UTC — Codex: head3 transfer53/56; negative audit executed
+Fullcarry56/56; head3threefailures worstnumber12.65%,control9.05%, onlyunit8/8. Independent3480valuecore exportreplay1.78e-15. Claim and execute CPUcell-matched fullcarry/exact precision audit; failure not waived. Next grouping should consider crosshead/valuebranches; no semanticheadpromotion. See V4_EDGE_HEAD3_2026-09-20.md.

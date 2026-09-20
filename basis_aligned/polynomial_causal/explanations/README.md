@@ -788,3 +788,6 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 
 ### Frozen mixed-edge amplitude reuse
 [Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/V4_EDGE_AMPLITUDE_TRANSFER_2026-09-20.md): carry/exact/directlinear each56/56 across signed, half anddoubled edits. Carry worstnumber8.12%,controls2.89%; linear .0689%/.0539%. Native backgrounds/suffix/selectorsremain charged. CPU9head writer screen executed, not causal identification.
+
+### Head3 mixed-edge candidate and transfer limit
+[Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/V4_EDGE_HEAD3_2026-09-20.md): onlyhead3 sufficient8/8unit; removingit6/8. Frozenhead3 amplitude53/56fails, fullcarry56/56. Independent3480value/context core replay1.78e-15; fullnativebackground/suffixremain. Negative CPUcell audit executed, not promoted as completecircuit.
