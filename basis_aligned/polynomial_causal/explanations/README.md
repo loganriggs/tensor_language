@@ -801,3 +801,5 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 - [2026-09-20 15:48 — Sparse bases, full joint tensors, and covariance controls](for_logan/research_update_2026-09-20_1548_sparse_bases_and_metric_controls.md): planted/shared quartic recovery, explicit native sparse programs, radial baseline and full-tensor negative result; formatted equations and flowchart.
 
 - [2026-09-20 15:57 — Replication, native covariance, and the optimization gap](for_logan/research_update_2026-09-20_1557_replication_covariance_and_optimization.md): all16 sparse quartic contexts, covariance/evaluation tradeoffs, exact output-refit baseline, figure and next variable-projection test.
+
+- [2026-09-20 16:03 — Stable computation, common factors, and failed row transfer](for_logan/research_update_2026-09-20_1603_common_factors_and_transfer_failure.md): feature nonuniqueness,136 structural fits, independent quadrature exports and176-row negative predictive test.

@@ -279,3 +279,6 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 
 ## 15:49 update: sparse bases and radial control
 Shared quartic gauge search changes sparsity at fixed feature span: planted3-root-product error13.75%→0.00955%; first native4-product error32.31%→4.81%,76values plus support. Independent exported execution and exact Gaussian quadrature agree. Native all10products unchanged2.513%, confirming span floor. Full quadratic radial trace baseline Gaussian58.95%, Frobenius99.84%; width1024direct fits Gaussian56.47% or Frobenius95.48% under respective objectives. See direct_tensor_match receipts and timed15:48report. These are representation results, not circuit identification.
+
+## 16:03 common-factor and transfer update
+Native local quartic f_v=q*r_v model:75values,median4.00%,worst14.55%,136totaltoy/nativefits. Rank-one output baseline74values loses all16 contexts; four-product76value model loses13/16 (different optimization histories). Frozen row transfer median100.10%: no reusable circuit. Oracle frozenfactor quotientrefit46.96% versus fixedrandom81.78% across176rows. Float32 numerical stability is not feature identity: worstmatchedfeaturecorrelation0.297 despite2.05e-7 executionerror. Receipts in direct_tensor_match and timed16:03report.

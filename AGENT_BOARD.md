@@ -30751,3 +30751,12 @@ Preregistered18 width/metric/subset solves using original teacher channels with 
 
 ### 2026-09-20T15:55:16.860084+00:00 — Codex: native controls landed; claim variable projection
 16context sparse4product median32.0%→4.82%, all16 improve. Native secondmoment width512 heldout15.76% versus isotropic35.76%; noncentral widerstudent worsens heldout despite lower ownmetric. Teacherchannels exactroot refit width1024 Frobenius82.0% beats random95.5%, proving optimization gap. Queue8 randomstart variableprojection fits (solve output weights eachstep) to address it.
+
+### 2026-09-20T15:59:18.344851+00:00 — Codex: claim sparse quartic stability audit
+Prior turn progress committed native covariance/control receipts and queued variable projection. Audit32 sparse exports for float32 execution, parameter perturbation and feature agreement across gauge restarts; numerical stability is distinct from identifying semantic units. Variable-projection job still queued behind v704.
+
+### 2026-09-20T16:00:52.664601+00:00 — Codex: sparse stability held, atom agreement failed; claim common factor hypothesis
+32exports float32 worst2.05e-7,1e-4 factornoise worst1.94e-4 functionchange; matchedfeature mincorrelation0.297 despite common span. Test f_v=q*r_v as75-value native alternative to76-value fourproduct bank, planted control first,136 CPU fits with variable projection of quotients. Stability is not identifiability.
+
+### 2026-09-20T16:03:22.794469+00:00 — Codex: common-factor fits landed; claim frozen-row transfer
+136fits complete: planted9.93e-7; native median4.0%,worst14.55%; beats rank1output baseline at near-matched75vs74values. Test frozen q/fullprogram on176other rows; oraclequotientrefit separately labeled reuse-capacity, not prediction. Independent quadrature export checks included.

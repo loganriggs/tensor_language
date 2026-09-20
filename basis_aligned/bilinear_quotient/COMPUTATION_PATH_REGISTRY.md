@@ -457,3 +457,6 @@ Twenty-four gauge searches recover planted3 shared products at9.55e-5 error and 
 
 ### 2026-09-20 15:57 — Sparse basis replication and optimization gap
 All16 independent local quartic contexts improve with four shared products, median31.98%→4.82%;15/16 improve≥2×. Native512-channel secondmoment Gaussian evaluation error15.76% versus isotropic35.76%, with worse isotropic norm; no full-model/circuit adoption. Width1024 teacher-channel exact output refit reaches82.02% coefficient error versus95.48% random-start, proving optimization gap. [Timed report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1557_replication_covariance_and_optimization.md). Variable projection preregistered and queued.
+
+### 2026-09-20 16:03 — Local shared factor is not a row-independent circuit
+Sparse exports stable in float32, but feature agreement failed.136 common-factor fits f_v=q*r_v achieve native median4.0% at75values and beat74-value output-rank-one controls; independent quadrature passes. Frozen176row predictions fail median100.10%; oracle quotient refit46.96% versus random81.78% is only reuse-capacity evidence. Preserve no-circuit verdict. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1603_common_factors_and_transfer_failure.md). Full joint variable-projection job remains queued behind verified live v704.

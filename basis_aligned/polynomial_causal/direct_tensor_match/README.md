@@ -46,3 +46,13 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 - `NATIVE_METRIC_SWEEP_V1.json/.pt`:16 native fits; width512 evaluation error35.76% isotropic versus15.76% second-moment Gaussian. Noncentral Gaussian improves its own objective with width but worsens evaluation; isotropic errors explicitly retained.
 - `NATIVE_CHANNEL_BASELINE_PLAN_V1.md`, `NATIVE_CHANNEL_BASELINE_V1.json`:18 teacher-channel selection/output-refit controls; width1024 Frobenius82.02% versus random-start95.48%. Exact Gram/implicit agreement and least-squares residual controls passed.
 - `VARIABLE_PROJECTION_PLAN_V1.md`:8 next random-start fits eliminate output weights through differentiable ridge solves, testing the demonstrated optimization gap.
+
+## Stability, common factors, and failed row transfer — 16:03 UTC
+
+[Timed report](../explanations/for_logan/research_update_2026-09-20_1603_common_factors_and_transfer_failure.md).
+
+- `QUARTIC_STABILITY_PLAN_V1.md`, `audit_quartic_stability.py`, `QUARTIC_STABILITY_AUDIT_V1.json`:32 exports pass float32 and perturbation bars; individual feature agreement fails.
+- `audit_shared_structure.py`, `SHARED_STRUCTURE_AUDIT_V1.json`: planted common factor correlation≥0.999999997 across12 searches; native support graphs agree12/16.
+- `COMMON_FACTOR_PLAN_V1.md`, `common_factor_sweep.py`, `COMMON_FACTOR_SWEEP_V1.json`:136 random-start common-factor/quotient fits; native median4.00%,worst14.55%,75values.
+- `audit_common_factor_baselines.py`, `COMMON_FACTOR_OUTPUT_BASELINES_V1.json`:74-value rank-one output control loses to common-factor model on all16 targets.
+- `COMMON_FACTOR_TRANSFER_PLAN_V1.md`, `common_factor_transfer.py`, `COMMON_FACTOR_TRANSFER_V1.json`: all selected programs independently validated by quadrature; frozen transfer to176other rows fails (median100.10%). Oracle quotient refit46.96% versus random-factor81.78% is reuse-capacity evidence only. Exports include factors and original scale.
