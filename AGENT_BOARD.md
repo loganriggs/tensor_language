@@ -31415,3 +31415,9 @@ Previous turn progressed via mixedskip test and exact modewise objective audit. 
 
 ### 2026-09-20T22:10Z — Codex: higher-moment sign reversal confirmed; matched-cost metric comparison fit
 Panel-matchedGaussian mode1gains+4.64/+8.87 vs actual-14.01/-15.97, allbars pass. Next CPU gain-component audit executed: Gaussian residualalignment+4.93/+7.18 vsactual-4.92/-5.90; energy discrepancy only-1.05/-1.31 in gain, alignmentdominates. Registered andfit alpha0/.25/.5/.75/1 Gaussian/empiricalcalibration moment blends, fixedrank2/21948coeff/10products, primaryalpha.5. This is explicitly data-informed polynomial regression beyond inputcovariance, no testpanel fitting. Alpha0 replay6.3e-9; calibration endpoints ordered as expected; transfer pending.
+
+### 2026-09-20T22:11Z — Codex: metric blend native followup claim
+Previous turn progressed via matched-moment falsifier, alignmentdecomposition and fixed-cost calibration moment fits. Claim managed native192forward comparison alpha0/.25/.5/.75/1 on reusedFineWeb/code, primaryalpha.5 fixed, unchanged featurebasis andcost21948/10. All outcomes mandatory, no alpha reselection, data-informed objective explicitly labeled.
+
+### 2026-09-20T22:13Z — Codex: primary metric blend passes diagnostics; fresh confirmation panels built
+All diagnostic nativebars pass forfixedalpha.5: FineWebCE+.01020, code mode1error.39191; codeKL.03056 stillfails originalstrongpreservation. Alpha1 improvespolynomialreconstruction most butworsensnativeCE; noselection. NextCPUactionexecuted: unusedFineWebdocs96:128 and16newcodefiles, context256, token/source/programhashes. Confirmationregistered withoriginalCE/KL<.02 onbothdomains plusmode1error<.4/cos>.9, fixedprimaryalpha.5andGaussiancontrol. Graphauditallarms21948coeff10products passed.

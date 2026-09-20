@@ -1,0 +1,141 @@
+{
+  "context": 256,
+  "code_sources": [
+    {
+      "path": "jacclust/jacsae2.py",
+      "sha256": "4aae4afccd1bd1a75939fe3aece8279dfeef5fffe35ed3139b612caffc2a7ea6"
+    },
+    {
+      "path": "jacclust/magfree.py",
+      "sha256": "b1273e71efcbb88d6e1cf150c10d493c7c8a33bd4707659af6d1fb47150fed68"
+    },
+    {
+      "path": "jacclust/metric.py",
+      "sha256": "e8ccc7377fdf465d1e096bffe65c0165c3751f1a21ff2dbf388121c84202fd0a"
+    },
+    {
+      "path": "jacclust/ov_multi.py",
+      "sha256": "f2d5316daa4aec6cf3d282006fac5c0e3954a7b51bf32063471c379c29c376aa"
+    },
+    {
+      "path": "jacclust/ov_squared.py",
+      "sha256": "61cfc2965b26551df02995230476600811acfb9a52f161f50f3d4d462e0d15e1"
+    },
+    {
+      "path": "jacclust/real_bilinear_sae.py",
+      "sha256": "7db523ee9c474ebd624d979288b813fd742437b2aae82c1008d38bc325b57370"
+    },
+    {
+      "path": "jacclust/real_bilinear_sae_500m.py",
+      "sha256": "c5cca1e8b9c7843e3f15d8de469f8fe9fcd7fac04eff4b36d05f98ac810e3cbf"
+    },
+    {
+      "path": "jacclust/real_mlp_gtop.py",
+      "sha256": "3309f7f070babb1501e886cb6f379dfc061340f03c0c10222eb7b4e13983d65c"
+    },
+    {
+      "path": "jacclust/sae_losscurve.py",
+      "sha256": "323d8be99a0c491d1513a2753123c5f1d40173dc6f63306ccf90734d76514ffd"
+    },
+    {
+      "path": "jacclust/secant_depth_sweep.py",
+      "sha256": "1efd398c2549935cfaaa60e9126d9269bdb12efe88089714b1a372ff2f23a83e"
+    },
+    {
+      "path": "jacclust/secant_honly.py",
+      "sha256": "1e4ea4955dd7583e00ffd312635e3fe9191f8eb511c96ba8870f7918c215f1a4"
+    },
+    {
+      "path": "jacclust/secant_lowrank_ctrl.py",
+      "sha256": "4155d5082e450e3a50e94fc840795a3ba2cd538eb8dc56934f507cb04a5ec4e0"
+    },
+    {
+      "path": "jacclust/surrogate.py",
+      "sha256": "fe3c9d1f0a0f508e6666badc78ff47f5a48e867016c0bced193a7196d72f7cc5"
+    },
+    {
+      "path": "jacclust/transcoder_vs_secant.py",
+      "sha256": "1be417ac26ad04109142b2ff7a731143714c6797849770c3c7d33e4fa8aa9d0e"
+    },
+    {
+      "path": "jacclust/tt_model.py",
+      "sha256": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+    },
+    {
+      "path": "jacclust/twoqk.py",
+      "sha256": "b4be36e7af32f3206b271ea4869727615bc1e9de48ed3dc24c40b14b31d38384"
+    }
+  ],
+  "excluded_code_sources": [
+    "jacclust/attn_jacblock.py",
+    "jacclust/attn_sae_real.py",
+    "jacclust/attn_secant.py",
+    "jacclust/bilinear_sae.py",
+    "jacclust/bsae_scaled.py",
+    "jacclust/complexity_split.py",
+    "jacclust/depth_corrected.py",
+    "jacclust/dgp.py",
+    "jacclust/dgp_c.py",
+    "jacclust/dgp_e.py",
+    "jacclust/dict_autointerp_data.py",
+    "jacclust/dict_stability.py",
+    "jacclust/full_mlp_arch.py",
+    "jacclust/hier_geom.py",
+    "jacclust/intervene.py",
+    "jacclust/jacsae.py"
+  ],
+  "fineweb_cache": "fineweb_n192_skip7000.pt",
+  "fineweb_documents": [
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127
+  ],
+  "panels": {
+    "code": {
+      "shape": [
+        16,
+        257
+      ],
+      "token_sha256": "94776f79cfc4f8f91c51150085b8b9e0bdc0c2ec4bc3d62baf410527184b5a44",
+      "unique_rows": 16
+    },
+    "fineweb": {
+      "shape": [
+        32,
+        257
+      ],
+      "token_sha256": "bda72eddbfa0266553402a2edc0ef0de3dec8cfed800f96ff28b8386b66dca73",
+      "unique_rows": 32
+    }
+  },
+  "program_sha256": "a61b8e73fd9b004a94db705c98521ee1b73f6be4a668c936d51738b4c3093fb5"
+}
