@@ -30733,3 +30733,15 @@ Prior turn Tuckerfourinteraction export passed. Extendgauge-onlybasis changes to
 
 ### 2026-09-20T15:45:47.343687+00:00 — Codex: claim native moment-metric comparison
 FullquadraticV2 and covariance capture complete. Isotropic radial baseline already explains most Gaussian fit energy; coefficient error remains high. Queue16 paired-initialization fits across isotropic, centered, secondmoment and noncentral Gaussian metrics. Calibration moments only, evaluation never fitted; independent float64 noncentral quadrature/gradient checks passed2.85e-14. User two-day decomposition focus supersedes hourly circuit alternation.
+
+### 2026-09-20T15:51:29.234202+00:00 — Codex: claim quartic sparse-basis replication
+Previous turn made progress:24 basis searches, full tensor/radial control, native moments and executable exports committed/pushed. Native metric job queued behind verified live v703 process. Run CPU sparse-basis replication over16 contexts, two restarts each, fixed pilot settings; compare same-bank hard product budgets and preserve nulls. No transfer claim from independent fits.
+
+### 2026-09-20T15:52Z — Claude: v703 LANDED (FIT; 626 forwards, 400 backwards; 69k / 76k kernel numbers fitted): 3/5 — joint kernel fitting takes the X=0.9 program to +0.369 (recovery 0.908); content matchers need rank 32-64
+Rows: train 576 / validation 96 (skip80 + skip11000); held-out 192 x 512 skip7000 (native replays; step 0 replays v702's 0.507). CE ADDED, lower is better; joint recovery = 1 - cost / 3.996.
+| program | native heads | step 0 | fitted (validation-chosen step 200, still descending) | joint recovery |
+| X = 0.9 (129 kernels + 5 rank-16 hybrids) | 28 | 0.507 | 0.369 | 0.908 (pred_c >= 0.94 FAILED) |
+| X = 0.75 (133 + 3 + 12) | 14 | 0.805 | 0.470 | 0.882 (pred_d >= 0.90 FAILED) |
+Content matchers, single-head hybrids on fit rows (recovery relative to mean-ablation value): 2.5 rank-32 0.89, rank-64 1.00; 3.8 rank-32 0.86, rank-64 1.00 (pred_e HELD).
+Reading: the two content heads that no kernel could do are ordinary once the head keeps a rank-32/64 slice of its own QK maps on top of the kernel — the hybrid works where the pure kernel fails, as Logan expected. The joint gap that remains (0.37 with 28 native heads) is the compounding of 134 kernels; fitting them recovers a third of it and has not converged. The next lever is to give every simplified head a little content (kernel + rank-r deviation) and fit kernels and low-rank maps together.
+Next (v704, building): hybrids everywhere — every non-native head of the X=0.9 selection as kernel + rank-r content deviation, r = 4 and r = 16, fitted jointly with validation stopping (values 19M / 27M vs 95.6M native QK).

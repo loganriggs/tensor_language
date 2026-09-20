@@ -1,0 +1,99 @@
+{
+  "backwards": 400,
+  "candidate_id": "attention.program_fit_v703",
+  "finished_utc": "2026-09-20T15:52:00.295828+00:00",
+  "forwards": 626,
+  "plan": {
+    "bars": {
+      "rec075": 0.9,
+      "rec09": 0.94,
+      "rec_content": 0.75,
+      "replay_tol": 0.002,
+      "step0_tol": 0.01
+    },
+    "candidate_id": "attention.program_fit_v703",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 75924,
+    "forwards_max": 650,
+    "gpu_accessed": false,
+    "lr": [
+      0.02,
+      0.002
+    ],
+    "model_backwards": 400,
+    "model_loaded": false,
+    "model_updates": 0,
+    "steps": 200
+  },
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_step0_replays_v702": true,
+    "pred_c_fitted_x09_recovery": false,
+    "pred_d_fitted_x075_recovery": false,
+    "pred_e_rank32_helps_content_heads": true
+  },
+  "report": {
+    "content_hybrids": {
+      "2.5|r32": {
+        "cost": 0.003550410270690918,
+        "recovery": 0.8866786647845095
+      },
+      "2.5|r64": {
+        "cost": -0.00012540817260742188,
+        "recovery": 1.0040027547475638
+      },
+      "3.8|r32": {
+        "cost": 0.002865910530090332,
+        "recovery": 0.8567649529619943
+      },
+      "3.8|r64": {
+        "cost": -1.704692840576172e-05,
+        "recovery": 1.0008519866780266
+      }
+    },
+    "fits": {
+      "0.75": {
+        "chosen_step": 200,
+        "heldout_at_chosen": 0.46970653533935547,
+        "heldout_curve": {
+          "0": 0.8047611316045122,
+          "100": 0.47809608777364065,
+          "125": 0.4738861322402954,
+          "150": 0.4717482328414917,
+          "175": 0.4704524676005044,
+          "200": 0.46970653533935547,
+          "25": 0.536136706670125,
+          "50": 0.4992797772089639,
+          "75": 0.48560988903045654
+        },
+        "n_fitted_kernels": 148,
+        "n_native": 14,
+        "recovery_at_chosen": 0.8824587634595342,
+        "step0_added": 0.8047611316045122
+      },
+      "0.9": {
+        "chosen_step": 200,
+        "heldout_at_chosen": 0.36848700046539307,
+        "heldout_curve": {
+          "0": 0.5065043369928994,
+          "100": 0.37350483735402396,
+          "125": 0.371142228444417,
+          "150": 0.36971147855122855,
+          "175": 0.3688697020212808,
+          "200": 0.36848700046539307,
+          "25": 0.4099271694819131,
+          "50": 0.38818883895874023,
+          "75": 0.37852275371551514
+        },
+        "n_fitted_kernels": 134,
+        "n_native": 28,
+        "recovery_at_chosen": 0.9077883435185824,
+        "step0_added": 0.5065043369928994
+      }
+    },
+    "joint_value": 3.9961,
+    "native": 3.1324122746785483
+  },
+  "schema": "attention_program_fit_result_v703",
+  "serial_seconds": 714.807466511149
+}

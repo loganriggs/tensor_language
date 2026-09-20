@@ -1,0 +1,14 @@
+content-head hybrids (fit rows): 2.5|r32: rec 0.89 2.5|r64: rec 1.00 3.8|r32: rec 0.86 3.8|r64: rec 1.00
+X=0.9: step 0 +0.5065 -> fitted (validation step 200) +0.3685, joint recovery 0.908; native heads 28, fitted kernels 134
+X=0.75: step 0 +0.8048 -> fitted (validation step 200) +0.4697, joint recovery 0.882; native heads 14, fitted kernels 148
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_step0_replays_v702": true,
+    "pred_c_fitted_x09_recovery": false,
+    "pred_d_fitted_x075_recovery": false,
+    "pred_e_rank32_helps_content_heads": true
+  },
+  "forwards": 626,
+  "backwards": 400
+}
