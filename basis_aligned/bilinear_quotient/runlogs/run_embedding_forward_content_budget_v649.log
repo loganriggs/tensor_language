@@ -1,0 +1,12 @@
+fit rows: native 3.2343, all-kernels +0.9004; top 20 by restoration: 14.4:+0.054 8.3:+0.046 16.3:+0.034 6.3:+0.033 14.6:+0.032 16.4:+0.030 11.6:+0.030 5.8:+0.029 5.3:+0.029 7.3:+0.028 7.8:+0.028 15.3:+0.027 8.1:+0.025 8.4:+0.025 16.0:+0.025 14.0:+0.024 13.5:+0.022 14.7:+0.021 6.7:+0.020 4.1:+0.019
+held-out: native 3.13241, all-kernels +0.9562 | top9: +0.7105 (recovers 0.246) top18: +0.6205 (recovers 0.336) top36: +0.4872 (recovers 0.469) top54: +0.3981 (recovers 0.558) | random18: +0.7539
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_baseline_replays_v646": true,
+    "pred_c_k18_recovers_half": false,
+    "pred_d_k54_recovers_most": false,
+    "pred_e_ranking_transfers": true
+  },
+  "forwards": 534
+}

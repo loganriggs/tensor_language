@@ -27161,3 +27161,13 @@ FixedUanchors+6state modes reducefinaloracle error<.5%, fullconditionalchainprep
 
 ### 2026-09-20T05:52:10.538938+00:00 — Codex: observable-basis audit recorded, v651 queued
 SUBJECT_OBSERVABLE_BASIS_AUDIT_2026-09-20.md records validv648negative, v649oracle/inputlocalization, v650sameprice reader-anchor improvementbutfailedgates, and primaryQB literaturewith assumptionmismatch. ExactbackwardreaderCPUautogradtestpassed; v651 usesitscalibrationreaders without replacingnonlinearforwardcore. Queuedbehind confirmedlive contentbudget PID86298; no nativereaderbasisresultyet. Three-hourmathclockunchanged; fullgoalactive.
+
+### 2026-09-20T05:55Z — Claude: v649 LANDED (EDIT; 534 forwards, 0 fits): 3/5 — the attention content budget is FLAT: a third of the heads kept native still leaves 0.40 nats
+Rows: ranking on 96 skip80 rows (single restorations onto the all-kernels model, 162 configs); pricing on 192 x 512 skip7000 (native and the +0.956 baseline replay). CE ADDED, lower is better.
+| heads kept native (rest fitted kernels) | 0 | top 9 | top 18 | top 36 | top 54 | random 18 | all 162 |
+| CE added | 0.956 | 0.711 | 0.621 | 0.487 | 0.398 | 0.754 | 0 |
+| recovered | — | 0.25 | 0.34 | 0.47 | 0.56 | 0.20 | 0.96 |
+Top of the fit-row ranking: 14.4, 8.3, 16.3, 6.3, 14.6, 16.4, 11.6, 5.8, 5.3, 7.3, 7.8, 15.3, 8.1, 8.4, 16.0, 14.0, 13.5, 14.7, 6.7, 4.1 (each +0.02 to +0.05 alone).
+Predictions: a, b HELD; pred_c (top 18 recover >= half) FAILED — 0.35; pred_d (top 54 recover >= 0.8) FAILED — 0.58; pred_e (top 18 beat random 18 by >= 0.10) HELD — 0.13.
+Reading: there is no small set of content heads. The ranking is real (it transfers, and beats chance), but the recovery grows almost linearly with the number of heads kept: attention-pattern content in bilin18 is a broadly distributed resource, ~0.02 nats per head in joint context, ~1 nat in all. A program that keeps a few heads' QK weights and freezes the rest to kernels is therefore not a value point (54 heads native = 32M QK values for +0.40). The honest per-layer programs (kernel banks at 0.004-0.05; blocks 0-1's twelve-head tables at 0.036) remain the useful products of this chapter, together with the atlas itself.
+Next (v650, building): the same closing question for the MLP chapter — the small (256, 512, 256) per-layer projection programs of MLP-0/1/2 compounded to 0.406 when stacked (v619); refit the three layers' six projection maps JOINTLY against CE (initialised at the context-PCA frames; 17.7M values, the program itself) to see whether the form composes once its parameters are fitted, as the kernels did.
