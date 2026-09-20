@@ -1,0 +1,118 @@
+{
+  "window": [
+    "2026-09-20T10:34:00Z",
+    "2026-09-20T11:34:00Z"
+  ],
+  "anchor": "[bqrunner] 10:35:23 running run_matched_strength_null_v1",
+  "anchor_log_date": "2026-09-20",
+  "jobs": [
+    {
+      "name": "run_matched_strength_null_v1",
+      "start": "10:35:23",
+      "end": "10:35:28",
+      "seconds": 5,
+      "exit": 0
+    },
+    {
+      "name": "run_native_all_five_source_v1",
+      "start": "10:41:09",
+      "end": "10:41:13",
+      "seconds": 4,
+      "exit": 0
+    },
+    {
+      "name": "run_source_ood_v1",
+      "start": "10:46:14",
+      "end": "10:46:35",
+      "seconds": 21,
+      "exit": 0
+    },
+    {
+      "name": "run_native_budgeted_modal_v1",
+      "start": "10:51:36",
+      "end": "10:51:43",
+      "seconds": 7,
+      "exit": 0
+    },
+    {
+      "name": "run_native_quadratic_budgeted_v1",
+      "start": "10:56:24",
+      "end": "10:56:31",
+      "seconds": 7,
+      "exit": 0
+    },
+    {
+      "name": "run_native_quadratic_matched_budget_v1",
+      "start": "10:57:11",
+      "end": "10:57:19",
+      "seconds": 8,
+      "exit": 0
+    },
+    {
+      "name": "bilin18_canary2",
+      "start": "10:59:39",
+      "end": "10:59:56",
+      "seconds": 17,
+      "exit": 0
+    },
+    {
+      "name": "run_six_source_complement_v1",
+      "start": "11:02:57",
+      "end": "11:03:50",
+      "seconds": 53,
+      "exit": 0
+    },
+    {
+      "name": "run_six_source_complement_v1r1",
+      "start": "11:09:31",
+      "end": "11:10:24",
+      "seconds": 53,
+      "exit": 0
+    },
+    {
+      "name": "run_native_matched_width_source_swap_v1",
+      "start": "11:15:25",
+      "end": "11:15:32",
+      "seconds": 7,
+      "exit": 0
+    },
+    {
+      "name": "run_native_independent_source_swap_v1",
+      "start": "11:18:13",
+      "end": "11:18:20",
+      "seconds": 7,
+      "exit": 0
+    },
+    {
+      "name": "run_source_ood_v2",
+      "start": "11:22:20",
+      "end": "11:22:40",
+      "seconds": 20,
+      "exit": 0
+    },
+    {
+      "name": "run_source_ood_v2_cubic_radius",
+      "start": "11:26:01",
+      "end": "11:26:34",
+      "seconds": 33,
+      "exit": 0
+    },
+    {
+      "name": "bilin18_canary2",
+      "start": "11:30:15",
+      "end": "11:30:32",
+      "seconds": 17,
+      "exit": 0
+    },
+    {
+      "name": "run_source_ood_v2_readout_fields",
+      "start": "11:32:32",
+      "end": "11:33:00",
+      "seconds": 28,
+      "exit": 0
+    }
+  ],
+  "experiment_seconds": 253,
+  "canary_seconds": 34,
+  "scope": "Known current-day anchored tail only; runner log omits dates. Authoring/review/idle not inferred from remainder. Initial time-only parsing rejected for mixing historical days."
+}
