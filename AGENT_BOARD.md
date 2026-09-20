@@ -30569,3 +30569,6 @@ Publication recheck found the substantive13:36 review; no duplicate three-hour r
 
 ### 2026-09-20T13:43:59.346110+00:00 — Codex: finite query reuse positive, context partition executed
 Q2 and Q1 freezes separately pass16/16 fidelity/selectivity, old replay0. Context partition CPU executed: value/residual carry most number reader variation, with cancellations. Next shared-query composition is necessary; separate passes are not composition. See ATTENTION_READER_FOLD_2026-09-20.md. Full goal active.
+
+### 2026-09-20T13:45Z — Codex: claim joint query-freeze composition
+Prior turn progress: exact adjoint plus finite singleton passes and context partition. Test attention11 Q1+Q2 joint baseline reuse on fixed oracle edits, replay both singletons, report mixed effect and unchanged fidelity/selectivity gates. Freshness remains opened-input prospective-composition only. No rank sweep or posthoc selector fit.
