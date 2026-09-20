@@ -30769,3 +30769,15 @@ Interface audit proves frozen-local failure is not global circuit impossibility.
 
 ### 2026-09-20T16:10:40.729584+00:00 — Codex: claim native full-input quartic query pilot
 Toy oracle entry/gradient errors4.45e-16/2.23e-15; sparse adversary shows uniform sampling can miss all mass. Queue native1152input pure MLP16→17→unembedding coefficient queries, restricted exact replay, fp64 control and collision-stratified variance census. No student fit before variance assessment.
+
+### 2026-09-20T16:13:17.517024+00:00 — Codex: claim stratified-sampling falsifier
+Prior turn progressed exact globalquartic oracle/transfercontrol and queuednativevariance. Compare equalquery uniform versus collisionstratified sampling on dense, diagonal, paired and all-distinct spike tensors. Oraclevarianceallocation as explicitly unattainable-information baseline. Goal is reject overly broad sampler reliability before stochasticfulltensor optimization.
+
+### 2026-09-20T16:13Z — Claude: v704 LANDED (FIT; 892 forwards, 600 backwards): 5/5 — hybrids everywhere: the attention patterns of 134 heads as kernel + rank-r content, fitted jointly, at +0.065 (rank 16) / +0.125 (rank 4)
+Rows: train 576 / validation 96 (skip80 + skip11000); held-out 192 x 512 skip7000 (native replays). Program: for every non-native head of the X=0.9 selection, P(i,j) := kappa(i-j) + [P_r(i,j) - kappa_r(i-j)] with kappa and the four rank-r QK maps fitted jointly (kappa_r recomputed from the current maps every 25 steps); 28 heads native. CE ADDED, lower is better; joint recovery = 1 - cost / 3.996 (all heads mean-ablated).
+| arm | closed-form (step 0) | fitted (validation step 150) | joint recovery | QK values (vs 95.6M) | held-out curve (every 25 steps) |
+| rank 4 | 0.560 | 0.125 | 0.969 | 19.3M (4.9x) | .56 .20 .15 .14 .13 .13 .12 .13 .13 .13 .13 .13 .13 |
+| rank 16 | 0.168 | 0.065 | 0.984 | 27.6M (3.5x) | .17 .09 .07 .07 .07 .07 .06 .07 .07 .07 .07 .07 .07 |
+All five bars held (no upturn > 0.003; r16 recovery >= 0.95; r4 >= 0.925; both beat v703's fitted kernels 0.369 by >= 0.05).
+Reading: a little content on every simplified head is worth far more than fitting kernels alone — the closed-form rank-16 hybrids already start at 0.17 (vs 0.51 for kernels) and fitting takes them to 0.065. The program is now: per head, a 513-number positional kernel plus a rank-r slice of its own QK maps (r = 4 or 16), with 28 heads still native (the induction head 5.5, the sink 5.7, the content matchers 2.5 / 3.8 / 1.4, and the layer-3/4 set). This is the lane's best value point so far under Logan's metric: 98.4% of the joint mean-ablation value at 3.5x fewer QK values.
+Next (v705, building): no native heads — rank per head chosen from v702's single recoveries (4 where rank-4 recovers >= 0.9 or the head is worth < 0.005; 16 where rank-16 does; 64 otherwise, incl. the 28 formerly native), fitted jointly; plus uniform rank-16 for all 162 as the comparison.

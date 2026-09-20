@@ -1,0 +1,95 @@
+{
+  "backwards": 600,
+  "candidate_id": "attention.hybrids_everywhere_v704",
+  "finished_utc": "2026-09-20T16:12:45.670606+00:00",
+  "forwards": 892,
+  "plan": {
+    "arms": [
+      4,
+      16
+    ],
+    "bars": {
+      "beat": 0.05,
+      "rec16": 0.95,
+      "rec4": 0.925,
+      "replay_tol": 0.002,
+      "upturn_tol": 0.003
+    },
+    "candidate_id": "attention.hybrids_everywhere_v704",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 11046022,
+    "forwards_max": 950,
+    "gpu_accessed": false,
+    "lr": [
+      0.02,
+      0.002
+    ],
+    "model_backwards": 600,
+    "model_loaded": false,
+    "model_updates": 0,
+    "steps": 300
+  },
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_no_overfit": true,
+    "pred_c_rank16_everywhere_recovery": true,
+    "pred_d_rank4_everywhere_recovery": true,
+    "pred_e_hybrids_beat_kernels": true
+  },
+  "report": {
+    "arms": {
+      "16": {
+        "chosen_step": 150,
+        "heldout_at_chosen": 0.0647820234298706,
+        "heldout_curve": {
+          "0": 0.16847014427185059,
+          "100": 0.06721174716949463,
+          "125": 0.06662678718566895,
+          "150": 0.0647820234298706,
+          "175": 0.06714260578155518,
+          "200": 0.06883021195729544,
+          "225": 0.06849292914072658,
+          "25": 0.08830511569976807,
+          "250": 0.07068256537119533,
+          "275": 0.07259881496429443,
+          "300": 0.07338444391886378,
+          "50": 0.07376412550608302,
+          "75": 0.06636555989583304
+        },
+        "n_hybrid": 134,
+        "n_native": 28,
+        "recovery_at_chosen": 0.983788688113443,
+        "step0_added": 0.16847014427185059,
+        "values": 27561094
+      },
+      "4": {
+        "chosen_step": 150,
+        "heldout_at_chosen": 0.12445541222890188,
+        "heldout_curve": {
+          "0": 0.5599921544392901,
+          "100": 0.13261143366495753,
+          "125": 0.12769957383473685,
+          "150": 0.12445541222890188,
+          "175": 0.1263493299484253,
+          "200": 0.12592418988545706,
+          "225": 0.1254735787709551,
+          "25": 0.1954780419667559,
+          "250": 0.12754158178965236,
+          "275": 0.12864331404368068,
+          "300": 0.12983218828837062,
+          "50": 0.15171591440836574,
+          "75": 0.13599765300750732
+        },
+        "n_hybrid": 134,
+        "n_native": 28,
+        "recovery_at_chosen": 0.9688557813295708,
+        "step0_added": 0.5599921544392901,
+        "values": 19328134
+      }
+    },
+    "joint_value": 3.9961,
+    "native": 3.1324122746785483
+  },
+  "schema": "attention_hybrids_everywhere_result_v704",
+  "serial_seconds": 1133.6611019282136
+}
