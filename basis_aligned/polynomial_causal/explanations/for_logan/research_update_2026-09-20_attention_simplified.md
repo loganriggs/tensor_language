@@ -1,6 +1,6 @@
 # 20 September — Simplifying all of attention: every head valued by mean ablation, and what a program recovers relative to that
 
-**Path now.** Every one of bilin18's 162 heads has a price (its CE cost under mean ablation) and a program. On the *pattern* side (the QK products that decide where a head reads) the whole model is now a fitted program — a positional kernel plus a few content directions per head — that costs +0.060 CE where deleting every head's variation costs 3.996 (recovery 0.985), preserves what each head is worth (rank correlation 0.82 with the native values, median scale 1.05), and uses 3.7× fewer numbers than the native QK maps. On the *write* side (the values and c_proj that decide what a head says) the picture is the opposite: heads use most of their 128 write directions, and truncating them jointly is expensive (rank 32: +0.275; rank 64 pending, v714). Attention in this model is simple in where it reads and wide in what it writes.
+**Path now.** Every one of bilin18's 162 heads has a price (its CE cost under mean ablation) and a program. On the *pattern* side (the QK products that decide where a head reads) the whole model is now a fitted program — a positional kernel plus a few content directions per head, exact rank by construction — that costs +0.072 CE where deleting every head's variation costs 3.996 (recovery 0.982), preserves what each head is worth (rank correlation 0.84 with the native values, median scale 1.08), transfers to a never-used text window (0.078 there), and uses 3.7× fewer numbers than the native QK maps (25.9M vs 95.6M). On the *write* side (the values and c_proj that decide what a head says) heads use most of their 128 write directions: rank 32 for all heads costs +0.275; rank 64 costs +0.074 (recovery 0.981, values preserved 0.88 / 1.27) at 3.6× fewer numbers. Attention in this model is simple in where it reads and wide in what it writes; both sides together (v720, running) are the last number.
 
 **Method, as you asked.** Value = CE added when the head's 128-d output z_h is replaced at every position by its fit-row mean (v701). Recovery of a program = 1 − cost(program) / value. Programs replace the off-diagonal pattern only; values, c_proj, the λ-mixed token branch and the diagonal stay native unless a write program is also installed. Fits use the 480+192 skip80/skip11000 rows split 576/96 with validation stopping; **every CE number below is on the fresh 192×512 skip7000 rows** (native 3.1324 replayed by every rung). Rungs v701–v715, all `ops/run_attention_*.py`, results in `circuits/followups/`, scored on the board.
 
@@ -17,9 +17,13 @@
 | 7 | the leaning is not those heads' own programs (restoring them native leaves 8.3 at 4.4×) and not attributable to any single head's approximation (max residual 1.5% of the joint cost) | edit | v707 | held |
 | 8 | the leaning is local: each over-weighted head is inflated by its own layer band's programs; joint cost is near-additive across bands, not across heads | edit | band 6-8 alone 3.2×; leave-6-8-native 1.36×; band sums 0.078 / 0.089 vs 0.084 | held (v709) |
 | 9 | inside band 6-8 it is head 7.3's rank-16 program — a head worth 0.002 — that routes error through 8.3 and 5.5; rank 64 for the band fixes it closed-form | edit | 7.3 native: 3.21 → 2.13; band at 64: cost 0.084 → 0.061, 8.3 1.30× | held (v711) |
-| 10 | **the fitted pattern program with band 6-8 at rank 64 passes all three gates** | fit | +0.060, rec 0.985, Spearman 0.82, median ratio 1.05, max 1.81 (1.4); 25.9M values vs 95.6M | held (v713) |
+| 10 | **the fitted pattern program with band 6-8 at rank 64 passes all three gates** | fit | free-map fit +0.060 reported / 0.073 endpoint (v713); **factored, exact rank: +0.072, rec 0.982, Spearman 0.84, median ratio 1.08, max 1.70 (1.4); 25.9M values vs 95.6M (v718)** | held |
+| 10a | the free-map fits of v705–v716 leaned on 0.1% off-rank energy worth 0.07 CE; the factored refit reaches the same cost without it — the numbers column is earned only from v718 on | fit | v713 as saved 0.073 → 0.142 when exactly truncated; factored 0.072 | held (v718) — instrument correction |
+| 10b | the program transfers across text: 0.073 / 0.078 / 0.072 on skip7000 / a never-used 512-row window / skip1200; the per-head *values* do not (Spearman 0.64 across windows: 1.4 .012→.041, 3.5 .010→.001) but the program reproduces them on whichever window it is asked (0.89) | edit | v717 | held |
+| 10c | more fitted values overfit the fit stream: bands 0-8 at 64 (34.5M) gives 0.047 on skip7000 but 0.088 on the fresh window, worse than v713's 0.078 | fit | v715/v717 | held — v713's configuration is the one to report |
 | 11 | the write side in c_proj's singular basis is not low-rank at all; **centered** on the head's mean and in the head's own write-covariance basis, rank 32 recovers 0.85 singly (5.7: 0.89) | edit | v708 → v710 | held (v710) |
-| 12 | closed-form write projections stack (0.124 singly → 0.666 jointly); fitted, rank 32 for all heads costs +0.275 and doubles every head's value; pattern + write compose super-additively (+0.486 vs 0.385) | fit | v712 | held; rank 64 and a 32/64 mix running (v714) |
+| 12 | closed-form write projections stack (0.124 singly → 0.666 jointly); fitted, rank 32 for all heads costs +0.275 and doubles every head's value; rank 64 costs +0.074 (rec 0.981, Spearman 0.88, median ratio 1.27; 13.3M vs 47.8M) with lr 1e-4 and snapshotting — at 3e-4 it overfits from step 75 | fit | v712/v714/v716 | held |
+| 12a | pattern + write compose additively once both are measured at their validation minima (0.170 at step 0 vs 0.073 + 0.074); the earlier super-additivity was an endpoint-vs-snapshot instrument defect of mine (all fits before v716 ran their follow-ups on endpoint parameters) | fit | v716 | held — instrument correction |
 
 ## What this means
 
@@ -38,9 +42,12 @@
 | 28 native + rank-16 hybrids | 27.6M | +0.065 | 0.984 | not checked |
 | no native, 4/16/64 mix | 12.4M | +0.124 | 0.969 | not checked |
 | no native, 16/64 mix (v706) | 20.2M | +0.075 | 0.981 | no (Spearman 0.65) |
-| **no native, 16/64 + band 6-8 at 64 (v713)** | **25.9M** | **+0.060** | **0.985** | **yes (0.82 / 1.05)** |
+| no native, 16/64 + band 6-8 at 64, free maps (v713) | (25.9M nominal; not exact) | +0.060 reported / 0.073 endpoint | 0.985 | yes (0.82 / 1.05) |
+| **same configuration, factored exact-rank maps (v718)** | **25.9M exact** | **+0.072** | **0.982** | **yes (0.84 / 1.08)** |
+| write side, rank 64 all heads (v716) | 13.3M vs 47.8M | +0.074 | 0.981 | yes (0.88 / 1.27) |
 
 ## Open
 
-- v714 (running): write maps at rank 64 (13.3M vs 47.8M) and a 32/64 mix; composition with the pattern program. v715 (queued): bands 0-8 at 64.
+- v720 (running): both sides exact-rank fitted jointly — the single earned number for all of attention at 39.2M numbers (2.4× fewer). v716's free-map version was +0.161 (recovery 0.960, Spearman 0.77).
+- Canary `ops/run_attention_canary_v719.py` replays the registered numbers (native, joint value, v713, v716 exact-rank, the fresh window): 5/5 on first run.
 - Not yet done: *reading* the fitted content directions (what the 16–64 directions of the content heads are — the induction key of 5.5 is known; the rest are not), and whether the write directions align with the MLP readers downstream. The kernels of blocks 0–2 were read in the embedding-forward report; the deeper kernels (layer 5 content-critical, layers 6-8 mostly positional) are described only by shape.

@@ -1,0 +1,65 @@
+{
+  "candidate_id": "attention.canary_v719",
+  "finished_utc": "2026-09-20T19:05:00.638422+00:00",
+  "forwards": 60,
+  "plan": {
+    "bars": {
+      "cost_tol": 0.003,
+      "joint_tol": 0.02,
+      "replay_tol": 0.002,
+      "whole_tol": 0.005
+    },
+    "candidate_id": "attention.canary_v719",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 70,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "programs": [
+      "v713"
+    ],
+    "registered": {
+      "fresh_native": 3.5061,
+      "fresh_v713": 0.0782,
+      "joint": 3.9961,
+      "native": 3.13241,
+      "v713": 0.0726,
+      "v716": 0.2412
+    },
+    "sets": [
+      "skip7000",
+      "fresh"
+    ]
+  },
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_joint_value_replays": true,
+    "pred_c_v713_replays": true,
+    "pred_d_whole_program_exact_rank_replays": true,
+    "pred_e_fresh_replays": true
+  },
+  "report": {
+    "fresh": {
+      "native": 3.506130591034889,
+      "v713": 0.07820333540439606
+    },
+    "registered": {
+      "fresh_native": 3.5061,
+      "fresh_v713": 0.0782,
+      "joint": 3.9961,
+      "native": 3.13241,
+      "v713": 0.0726,
+      "v716": 0.2412
+    },
+    "skip7000": {
+      "joint_value": 3.9960677623748775,
+      "native": 3.1324122746785483,
+      "v713": 0.0725551446278887,
+      "v716_exact_rank": 0.2412048578262329
+    }
+  },
+  "schema": "attention_canary_result_v719",
+  "serial_seconds": 37.221870123874396
+}
