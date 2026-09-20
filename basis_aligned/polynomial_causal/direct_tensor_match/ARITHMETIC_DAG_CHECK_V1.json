@@ -1,0 +1,80 @@
+{
+  "checks": [
+    {
+      "case": "shared_linear_combination",
+      "before": {
+        "products": 4,
+        "additions": 2,
+        "stored_coefficients": 0,
+        "edges": 12,
+        "nodes": 10
+      },
+      "after": {
+        "products": 2,
+        "additions": 1,
+        "stored_coefficients": 0,
+        "edges": 6,
+        "nodes": 7
+      },
+      "edits": 2,
+      "exact_polynomial_replay": true
+    },
+    {
+      "case": "cross_depth_product_reuse",
+      "cost": {
+        "products": 3,
+        "additions": 0,
+        "stored_coefficients": 0,
+        "edges": 6,
+        "nodes": 7
+      },
+      "unfolded_tree_products": 4
+    },
+    {
+      "case": "other_consumers_prevent_saving",
+      "before": {
+        "products": 2,
+        "additions": 1,
+        "stored_coefficients": 0,
+        "edges": 6,
+        "nodes": 6
+      },
+      "rejected_proposals": [
+        {
+          "target": 5,
+          "shared": 0,
+          "cost": {
+            "products": 3,
+            "additions": 1,
+            "stored_coefficients": 0,
+            "edges": 8,
+            "nodes": 7
+          },
+          "score": 3.01
+        }
+      ]
+    },
+    {
+      "case": "signed_cancellation",
+      "cost": {
+        "products": 1,
+        "additions": 0,
+        "stored_coefficients": 0,
+        "edges": 2,
+        "nodes": 3
+      }
+    },
+    {
+      "case": "repeated_squaring",
+      "cost": {
+        "products": 5,
+        "additions": 0,
+        "stored_coefficients": 0,
+        "edges": 10,
+        "nodes": 6
+      },
+      "unfolded_tree_products": 31
+    }
+  ],
+  "scope": "Five exact small-circuit controls for structural DAG sharing, distributive rewrites and global reachable-cost acceptance. Rational coefficient oracle, no approximate merging/general optimality/native discovery claim. Unit signed coefficients implicit; edge references counted separately."
+}

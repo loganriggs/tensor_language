@@ -517,3 +517,6 @@ Forfixedcalibrationmu, f2(delta)=FD[(Aδ)(Bδ)]+C[((LJ)δ)((RJ)δ)]. Exactjoint9
 
 ### 2026-09-20 18:52 — Covariance-weighted native recovery and sensitivity
 16matchedoriginal-coordinatefits: empiricalquarticerrorsisotropic58–63%,centered51–57%,secondmoment25–31%; training-selected25.28%, allpredictionshold. Purequartic, isotropicglobalerrors~100%, meanbaselinepending. Documentsplitmetricshift.914andbottomdirectionquarticweightchangesmillions×. MixedrootV1devicefailureinvalid;V2queued. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1852_weighted_native_results.md).
+
+### 2026-09-20 19:23 — Scalar DAG export and approximate output sharing
+Exact caching/global factoring controls pass. Native24-product export replays4.5e-15. Weighted native26-product student: output rank2 fails, rank4 selected by registered99% rule saves14.2% coefficients with evaluation25.28%→26.28%; actual edit5.22% vs coefficient1.32%, positive residual cross term. No semantics/OOD claim. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1923_two_stage_decomposition_and_graphs.md).

@@ -244,3 +244,7 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 - `NATIVE_VARIATION_AUDIT_V1.json/.pt`: secondmomenttrainingwinner25.28%total/27.81%centerederror, constantbaseline65.51%; allpredictionspass. Cachedteacheroutputs/perdocresiduals.
 - `NATIVE_WEIGHTED_NORM_V1.json`: secondmomentprojectedresidualnormSE12.53vsraw454.42; estimatedcoverage99.52%underweightedmetriconly. Allpredictionspass.
 - `CENTERED_COMPACT_PLAN_V1.md`, `quadratic_student_fit.py`, `QUADRATIC_STUDENT_FIT_CHECK_V1.json`: matched48,384pricecenteredlinear/quadraticallocation proposal, helperdensevalues/gradients<5e-16; finalcross-allocationselectionrulemustbefrozenbeforeGPUrun.
+
+Latest graph stage: [Timed report](../explanations/for_logan/research_update_2026-09-20_1923_two_stage_decomposition_and_graphs.md). Five exact graph controls pass; native DAG export and replay pass. Rank2 output sharing fails native-error bars; predeclared rank4 saves14.2% coefficients with25.28%→26.28% error,26 products unchanged. Residual audit separates metric mismatch and adverse residual alignment. Full arbitrary graph search remains unimplemented.
+
+Implementation target: [Arithmetic-program search specification](ARITHMETIC_PROGRAM_SEARCH_SPEC.md), incorporating the user’s concrete two-stage proposal, degree constraints, artificial-probe objective, edit/refit loop, and baseline accounting.
