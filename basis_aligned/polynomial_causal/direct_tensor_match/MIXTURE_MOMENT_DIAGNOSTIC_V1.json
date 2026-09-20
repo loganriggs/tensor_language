@@ -1,0 +1,57 @@
+{
+  "split_direction": 11,
+  "split_threshold": -0.3394496320104825,
+  "component_counts": [
+    1024,
+    1024
+  ],
+  "records": [
+    {
+      "law": "single",
+      "panel": 0,
+      "third_moment_rmse": 0.7051794687485983,
+      "fourth_moment_rmse": 0.8945404986061781,
+      "quadratic_covariance_relative_error": 0.39236087820986104
+    },
+    {
+      "law": "single",
+      "panel": 1,
+      "third_moment_rmse": 0.5383009574745165,
+      "fourth_moment_rmse": 0.9762796179697639,
+      "quadratic_covariance_relative_error": 0.6744188510500194
+    },
+    {
+      "law": "mixture",
+      "panel": 0,
+      "third_moment_rmse": 0.37190187587100376,
+      "fourth_moment_rmse": 0.727911204399409,
+      "quadratic_covariance_relative_error": 0.22016269726616844
+    },
+    {
+      "law": "mixture",
+      "panel": 1,
+      "third_moment_rmse": 0.5292985290502418,
+      "fourth_moment_rmse": 0.9645991114716201,
+      "quadratic_covariance_relative_error": 0.4978031042048658
+    },
+    {
+      "law": "random_split",
+      "panel": 0,
+      "third_moment_rmse": 0.7045769048692226,
+      "fourth_moment_rmse": 0.8930631246734118,
+      "quadratic_covariance_relative_error": 0.39218320140252383
+    },
+    {
+      "law": "random_split",
+      "panel": 1,
+      "third_moment_rmse": 0.5380099131443289,
+      "fourth_moment_rmse": 0.975587804791561,
+      "quadratic_covariance_relative_error": 0.6742454650173804
+    }
+  ],
+  "predictions": {
+    "pred_fourth": false,
+    "pred_quadratic_covariance": true
+  },
+  "scope": "Input-only low-dimensional mixture diagnostic; calibration-only split/moments, reused second panel. No student fitting."
+}

@@ -839,3 +839,5 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 - [research_update_2026-09-20_2031_linear_correction_and_normalization](for_logan/research_update_2026-09-20_2031_linear_correction_and_normalization.md) — Exact linear correction improves four-product candidate; normalization-aware metric control.
 
 - [research_update_2026-09-20_2034_input_law_null](for_logan/research_update_2026-09-20_2034_input_law_null.md) — Normalization hypothesis fails; input higher moments differ.
+
+- [research_update_2026-09-20_2039_fresh_transfer](for_logan/research_update_2026-09-20_2039_fresh_transfer.md) — Frozen programs transfer to unused documents and longer contexts.

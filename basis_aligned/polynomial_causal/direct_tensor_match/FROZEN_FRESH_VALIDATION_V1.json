@@ -1,0 +1,58 @@
+{
+  "plan": {
+    "cache": "fineweb_n192_skip7000.pt",
+    "document_start": 32,
+    "documents": 32,
+    "contexts": [
+      64,
+      256
+    ],
+    "batch": 4,
+    "forwards": 16,
+    "rows": 10240
+  },
+  "records": [
+    {
+      "context": 64,
+      "rows": 2048,
+      "metrics": {
+        "quadratic": {
+          "error": 0.20887662297494738,
+          "variation": 0.3125038962449501
+        },
+        "quartic": {
+          "error": 0.17440680952441104,
+          "variation": 0.26527090271040227
+        }
+      },
+      "precision": 2.183137391494513e-07,
+      "finite": true,
+      "token_sha256": "1c77f4efedf6aafc9087cc052fdb88fc450569229d258ffb7014cd894b69876e"
+    },
+    {
+      "context": 256,
+      "rows": 8192,
+      "metrics": {
+        "quadratic": {
+          "error": 0.2094450561699596,
+          "variation": 0.3185152440484997
+        },
+        "quartic": {
+          "error": 0.17896810969063323,
+          "variation": 0.27637154896012767
+        }
+      },
+      "precision": 2.1858350394176942e-07,
+      "finite": true,
+      "token_sha256": "52636cde05ce90297545bb66d75efe2daa425e9f5e6bfb8d606984f8c3c86bd2"
+    }
+  ],
+  "predictions": {
+    "pred_a_fresh": true,
+    "pred_b_context": true,
+    "pred_c_capture": true
+  },
+  "calls": 16,
+  "seconds": 2.092312853084877,
+  "scope": "Frozen programs, disjoint documents from previous32,64 vs256 context. Same source domain, no broad OOD claim; isolated folded contribution, not full model substitution."
+}

@@ -31272,3 +31272,12 @@ Prior turn made progress via linear correction and input-radius mismatch audit. 
 
 ### 2026-09-20T20:34Z — Codex: normalized probe explanation falsified; higher moments audited
 Two paired seeds: normalized quadratic12.59–12.68% vsGaussian13.15–13.66%, both underestimate text22.00%; quarticordering/precision pass but lawprediction fails. No normalized fitting sweep. Executed CPU learned-direction moment audit: calibration quadratic covariance31.81% mismatch despite matching secondmoments; variance ratios.40–3.39. Registered two-component moment diagnostic with random-split control; no output fitting.
+
+### 2026-09-20T20:35Z — Codex: input mixture diagnostic CPU claim
+Previous turn made progress by falsifying radius-only explanation and measuring higher moments. Executing registered two-component calibration split versus single Gaussian and random split, frozen16directions, no output fitting.
+
+### 2026-09-20T20:37Z — Codex: mixed moment diagnostic; fresh validation claim
+Mixture reduces held-out product covariance error26.2% but fourthmoment only1.2% (registered10% barfails); randomsplitnegligible. Rather than more law fitting, implemented frozen fresh-text validation: unused documents32:64 at64/256 context,16nativeforwards, fixed two candidates. Claim run_direct_frozen_fresh_v1.py and receipts. No broad-domain OOD claim.
+
+### 2026-09-20T20:39Z — Codex: fresh transfer passes; independent position/document audit completed
+Frozen quadratic20.89/20.94%,quartic17.44/17.90% on32unuseddocs at64/256contexts, all3bars pass. CPU position audit no late collapse; bootstrap quarticadvantage2.74–3.32pp at256. Same-domain/context transfer only, no fullmodel substitution. Follow-on CPU audit completed and preserved; goal remains active, semantic identity and selective interventions unresolved.

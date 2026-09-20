@@ -1,0 +1,84 @@
+{
+  "records": [
+    {
+      "context": 64,
+      "position_blocks": [
+        {
+          "start_position": 0,
+          "end_position": 64,
+          "errors": {
+            "quadratic": 0.20887662288809034,
+            "quartic": 0.1744068093966655
+          }
+        }
+      ],
+      "document_bootstrap_intervals": {
+        "quadratic": [
+          0.19714989459965088,
+          0.21995531183640588
+        ],
+        "quartic": [
+          0.16497525373978933,
+          0.18438355268055648
+        ]
+      },
+      "paired_quadratic_minus_quartic_interval": [
+        0.02998565914804537,
+        0.0389182547251522
+      ]
+    },
+    {
+      "context": 256,
+      "position_blocks": [
+        {
+          "start_position": 0,
+          "end_position": 64,
+          "errors": {
+            "quadratic": 0.20887663249458002,
+            "quartic": 0.17440680483619755
+          }
+        },
+        {
+          "start_position": 64,
+          "end_position": 128,
+          "errors": {
+            "quadratic": 0.21173164862765484,
+            "quartic": 0.17918020350029285
+          }
+        },
+        {
+          "start_position": 128,
+          "end_position": 192,
+          "errors": {
+            "quadratic": 0.20512937440517715,
+            "quartic": 0.17702699869057126
+          }
+        },
+        {
+          "start_position": 192,
+          "end_position": 256,
+          "errors": {
+            "quadratic": 0.21188973942072425,
+            "quartic": 0.1841985778348442
+          }
+        }
+      ],
+      "document_bootstrap_intervals": {
+        "quadratic": [
+          0.20091301714666904,
+          0.2176876571576112
+        ],
+        "quartic": [
+          0.17060514085755576,
+          0.1877732725937823
+        ]
+      },
+      "paired_quadratic_minus_quartic_interval": [
+        0.02742590898963945,
+        0.03320070782322835
+      ]
+    }
+  ],
+  "prefix_input_relative_disagreement": 7.78116176260116e-07,
+  "scope": "Document-resampled descriptive intervals for frozen candidates,32documents only. Position blocks audit averages. Cached targets roundedFP32. Not broad OOD or semantic identification."
+}

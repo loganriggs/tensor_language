@@ -262,3 +262,5 @@ Native Gaussian quadratic fit V1: science bars failed; centered 24.16%, spherica
 Gaussian linear control: 22.00% panel2 error at 34560 coefficients/four products; all bars passed. See NATIVE_GAUSSIAN_LINEAR_CONTROL_V1.json and GAUSSIAN_LINEAR_PROGRAM_AUDIT_V1.json. Input-radius mismatch motivates NORMALIZED_PROBE_PLAN_V1.md; planted sphere identity check executed.
 
 Normalized-probe diagnostic fails gap explanation: NATIVE_NORMALIZED_PROBE_V1.json. FEATURE_MOMENT_AUDIT_V1.json shows non-Gaussian higher moments. Next bounded input-only control: MIXTURE_MOMENT_DIAGNOSTIC_PLAN_V1.md.
+
+Fresh frozen validation passed all bars: quadratic20.89/20.94%,quartic17.44/17.90% at64/256 contexts on32newdocuments. FROZEN_FRESH_VALIDATION_V1.json and FRESH_TRANSFER_AUDIT_V1.json. Mixture moment diagnostic passes product covariance but fails fourthmoment improvement; no larger mixture sweep.
