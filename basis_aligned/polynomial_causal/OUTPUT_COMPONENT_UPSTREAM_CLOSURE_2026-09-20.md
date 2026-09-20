@@ -1,5 +1,9 @@
 # Upstream closure of the output component
 
+Follow-up: [the complete recent-path executor](RECENT_FOLDED_COMPONENT_2026-09-20.md)
+recomputes attention17 and reduces MLP16 intervention prediction errors to
+2.1–3.1%, while explicitly charging the remaining dense local weights.
+
 The previous256-square program predicts a selected quadratic component from
 the actual normalized MLP17 input. That conditional extraction leaves its
 upstream feature generators unexplained. These experiments test that gap.

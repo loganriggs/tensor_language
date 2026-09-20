@@ -1,0 +1,106 @@
+{
+  "plan": {
+    "panels": [
+      "fineweb_n96_skip1200.pt",
+      "fineweb_n192_skip11000.pt"
+    ],
+    "scales": [
+      1.0,
+      0.0,
+      0.5,
+      1.5
+    ],
+    "documents": 8,
+    "tokens": 64,
+    "forwards_max": 16,
+    "local_path_replays": 16,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0,
+    "execution_policy": "managed_queue_only"
+  },
+  "rows": [
+    {
+      "panel": "fineweb_n96_skip1200.pt",
+      "scale": 1.0,
+      "relative_prediction_error": 0.04592302327831615,
+      "relative_change_error": null,
+      "cross_term_l2_over_target": 1.161783942958916
+    },
+    {
+      "panel": "fineweb_n96_skip1200.pt",
+      "scale": 0.0,
+      "relative_prediction_error": 0.027609880362559257,
+      "relative_change_error": 0.022719091680010486,
+      "cross_term_l2_over_target": 0.0
+    },
+    {
+      "panel": "fineweb_n96_skip1200.pt",
+      "scale": 0.5,
+      "relative_prediction_error": 0.036539330961952936,
+      "relative_change_error": 0.02805242053001536,
+      "cross_term_l2_over_target": 0.4536341890039739
+    },
+    {
+      "panel": "fineweb_n96_skip1200.pt",
+      "scale": 1.5,
+      "relative_prediction_error": 0.06101269484772698,
+      "relative_change_error": 0.031162378924123994,
+      "cross_term_l2_over_target": 2.222570829741919
+    },
+    {
+      "panel": "fineweb_n192_skip11000.pt",
+      "scale": 1.0,
+      "relative_prediction_error": 0.04165184216363148,
+      "relative_change_error": null,
+      "cross_term_l2_over_target": 1.2771936192078603
+    },
+    {
+      "panel": "fineweb_n192_skip11000.pt",
+      "scale": 0.0,
+      "relative_prediction_error": 0.024085307055042342,
+      "relative_change_error": 0.02050681575576498,
+      "cross_term_l2_over_target": 0.0
+    },
+    {
+      "panel": "fineweb_n192_skip11000.pt",
+      "scale": 0.5,
+      "relative_prediction_error": 0.032332201684819345,
+      "relative_change_error": 0.02523481852814677,
+      "cross_term_l2_over_target": 0.48673158063405847
+    },
+    {
+      "panel": "fineweb_n192_skip11000.pt",
+      "scale": 1.5,
+      "relative_prediction_error": 0.05689693576160804,
+      "relative_change_error": 0.028974416858364185,
+      "cross_term_l2_over_target": 2.5151808623561815
+    }
+  ],
+  "forwards": 16,
+  "maximum_state_replay": 1.185391269586944e-07,
+  "maximum_component_replay": 8.593969482717512e-07,
+  "package_files": {
+    "mlp16.pt": {
+      "bytes": 63707721,
+      "sha256": "87e53ebd321a7a542cba3461115cca2caad437278888eacf7652b39fb0aa6f38"
+    },
+    "attention17.pt": {
+      "bytes": 31854725,
+      "sha256": "57335267781b05d165dd6679687d5fc60e0410a589c133a1268f7a5dbc280a83"
+    },
+    "component.pt": {
+      "bytes": 1388913,
+      "sha256": "329c4b2c9c2b5c2a5acbc26c368eb712ed2ccd5bf2362f4d5c3df8ccad8e87d7"
+    }
+  },
+  "package_tensor_values": 24235715,
+  "predictions": {
+    "pred_a_recent_replay": true,
+    "pred_b_component_replay": true,
+    "pred_c_intervention_prediction": true
+  },
+  "scope": "local extracted recent path; requires upstream h16/x0/v1 ports and is not yet a simpler full circuit",
+  "seconds": 1.3606285301502794,
+  "finished_utc": "2026-09-20T04:03:36.298583+00:00"
+}

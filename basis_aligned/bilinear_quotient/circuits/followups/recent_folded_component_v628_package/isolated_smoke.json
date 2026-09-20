@@ -1,0 +1,37 @@
+{
+  "isolated_python": true,
+  "device": "cpu",
+  "full_checkpoint_loaded": false,
+  "native_model_imported": false,
+  "synthetic_port_smoke_only": true,
+  "results": {
+    "0.0": {
+      "shape": [
+        1,
+        4
+      ],
+      "alpha_norm": 842747.0625
+    },
+    "0.5": {
+      "shape": [
+        1,
+        4
+      ],
+      "alpha_norm": 643655.25
+    },
+    "1.0": {
+      "shape": [
+        1,
+        4
+      ],
+      "alpha_norm": 652034.9375
+    },
+    "1.5": {
+      "shape": [
+        1,
+        4
+      ],
+      "alpha_norm": 654526.1875
+    }
+  }
+}
