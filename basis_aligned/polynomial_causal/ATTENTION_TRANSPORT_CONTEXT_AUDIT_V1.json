@@ -1,0 +1,142 @@
+{
+  "source_sha256": "bb5f1b2466bf71ec60721ccb3db1236efe2f58f21dc0a51354ddb9ae2afbb0b1",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_joint_reader": false,
+    "pred_c_integrated_reader": true
+  },
+  "summary": [
+    {
+      "template": "beside_subject",
+      "radius": 0.5,
+      "count": 16,
+      "modes": {
+        "baseline": {
+          "number_relative_median": 0.4553937796729428,
+          "number_relative_max": 0.9752007752353049,
+          "number_pass_count": 0,
+          "absolute_error_max": 0.0020516582949088795
+        },
+        "joint": {
+          "number_relative_median": 0.00013389042144079132,
+          "number_relative_max": 0.0006197983459595717,
+          "number_pass_count": 16,
+          "absolute_error_max": 1.3039514015479864e-06
+        },
+        "midpoint": {
+          "number_relative_median": 3.3187884855094453e-09,
+          "number_relative_max": 1.6041131352187508e-08,
+          "number_pass_count": 16,
+          "absolute_error_max": 7.399114222323787e-11
+        },
+        "integrated": {
+          "number_relative_median": 1.1039522954458173e-11,
+          "number_relative_max": 5.6360368472200905e-11,
+          "number_pass_count": 16,
+          "absolute_error_max": 3.012543633774969e-14
+        }
+      }
+    },
+    {
+      "template": "beside_subject",
+      "radius": 1.0,
+      "count": 16,
+      "modes": {
+        "baseline": {
+          "number_relative_median": 0.7457762677705208,
+          "number_relative_max": 2.5163332093786335,
+          "number_pass_count": 0,
+          "absolute_error_max": 0.016312298492271976
+        },
+        "joint": {
+          "number_relative_median": 0.0003581710119671152,
+          "number_relative_max": 0.001713963170523798,
+          "number_pass_count": 16,
+          "absolute_error_max": 1.4711077397675076e-05
+        },
+        "midpoint": {
+          "number_relative_median": 8.324666557271816e-08,
+          "number_relative_max": 8.971076118115471e-07,
+          "number_pass_count": 16,
+          "absolute_error_max": 7.699943463411703e-09
+        },
+        "integrated": {
+          "number_relative_median": 3.3054650067137654e-12,
+          "number_relative_max": 2.0398683917889934e-11,
+          "number_pass_count": 16,
+          "absolute_error_max": 3.8619334729518797e-14
+        }
+      }
+    },
+    {
+      "template": "unlike_nearby",
+      "radius": 0.5,
+      "count": 16,
+      "modes": {
+        "baseline": {
+          "number_relative_median": 0.10016148637536565,
+          "number_relative_max": 0.5152471784647593,
+          "number_pass_count": 8,
+          "absolute_error_max": 0.00021859167910066383
+        },
+        "joint": {
+          "number_relative_median": 0.001743301778250903,
+          "number_relative_max": 0.023583736601653076,
+          "number_pass_count": 16,
+          "absolute_error_max": 7.349206035436471e-06
+        },
+        "midpoint": {
+          "number_relative_median": 1.2505367255770953e-06,
+          "number_relative_max": 1.4397565657176245e-05,
+          "number_pass_count": 16,
+          "absolute_error_max": 1.3960902625745178e-08
+        },
+        "integrated": {
+          "number_relative_median": 4.154199881073831e-11,
+          "number_relative_max": 1.3835003072964684e-10,
+          "number_pass_count": 16,
+          "absolute_error_max": 2.2806037149251906e-14
+        }
+      }
+    },
+    {
+      "template": "unlike_nearby",
+      "radius": 1.0,
+      "count": 16,
+      "modes": {
+        "baseline": {
+          "number_relative_median": 0.22982476499839605,
+          "number_relative_max": 0.7954449142713232,
+          "number_pass_count": 2,
+          "absolute_error_max": 0.0026228938399878556
+        },
+        "joint": {
+          "number_relative_median": 0.00995282612860729,
+          "number_relative_max": 0.1423707997025457,
+          "number_pass_count": 15,
+          "absolute_error_max": 0.00021663392164346495
+        },
+        "midpoint": {
+          "number_relative_median": 1.9567911252532868e-05,
+          "number_relative_max": 0.0003996548221004763,
+          "number_pass_count": 16,
+          "absolute_error_max": 1.0815862561960636e-06
+        },
+        "integrated": {
+          "number_relative_median": 1.4043506460929226e-11,
+          "number_relative_max": 4.194102586186882e-11,
+          "number_pass_count": 16,
+          "absolute_error_max": 5.2630428473120234e-14
+        }
+      }
+    }
+  ],
+  "logical_cost": {
+    "prefix": 12,
+    "suffix": 232,
+    "attention": 68,
+    "reader_gradients": 16,
+    "directional_jvp": 128
+  },
+  "limitations": "Opened diagnostic. Actual joint states and native suffix derivative evaluations are required; no extracted circuit or new causal-sufficiency success."
+}

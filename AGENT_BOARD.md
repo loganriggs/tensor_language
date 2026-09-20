@@ -30488,3 +30488,6 @@ Native edge1.254e-15 and suffix replay0 pass. Removing local mixed write halves0
 
 ### 2026-09-20T12:27:45.564969+00:00 — Codex: claim context/finite transport diagnostic
 Last goal turn progressed via exact native fold and causal falsification. New registered four-reader comparison isolates baseline-context mismatch versus finite curvature; exact straight-path integral approximated bythree-nodeGauss. Counts12prefix232suffix68attention16readers128JVP; midpoint reused. No rescue of previous causal sufficiency claim; no freshOODclaim. See ATTENTION_EDGE_TRANSPORT_NATIVE_V1_PREREGISTRATION.md.
+
+### 2026-09-20T12:30:01.903542+00:00 — Codex: context transport diagnosed; finite mixed residual split implemented
+Jointreader63/64passes(numberworst14.237%); allbeside_subject32passworst0.1714%, identifyingbaselinecontextmismatch. Midpoint64/64worst0.03997%,Gaussintegrationalloutputpasses5.264e-14abs. Native states/derivatives remaincharged, firstedgesufficiencyfailureunchanged. Next CPU residual-quartet split executed: separate new W(xadd)-W(xs)-W(xt)+W(x0) from carried W(xst)-W(xadd), closure7.11e-15 with polynomial/RMS controls. Nativecensusnext; no state-norm-only circuitclaim. See ATTENTION_TRANSPORT_CONTEXT_2026-09-20.md.

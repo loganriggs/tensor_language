@@ -725,3 +725,5 @@ Independent five-source selector native validation now passes instrumentation/pr
 20 September: native two-site stateprogram joint64/64passes butattractorincrements51/64/subject62/64 failcomposition. Ignored-attractor oraclejoint63/64versusincrements0/64demonstratesmetricconfound. All13weak-axisfailuresremaininteraction-only afterexactmarginals. Exactattention11mixed-edgecompilerplantedreplaypasses, nativecausaltestpending. See `basis_aligned/polynomial_causal/TWO_SITE_COMPOSITION_2026-09-20.md`.
 
 20 September: exact native mixed attention11 edge passes1.254e-15, but removal halves0/13failed-cell interactions. Fixed baseline reader also misses finite transport (beside_subject median57.82%). No circuit sufficiency claim; source/reader costs retained. See `basis_aligned/polynomial_causal/ATTENTION_MIXED_EDGE_NATIVE_2026-09-20.md`.
+
+20 September: transport context test jointreader63/64, midpoint64/64; integratedeffect5.264e-14absolute replay. Allrequire native states/derivatives. Exactresidualquartet CPU split separates generated/carried interactions; nativecensuspending. See `basis_aligned/polynomial_causal/ATTENTION_TRANSPORT_CONTEXT_2026-09-20.md`.
