@@ -46,6 +46,23 @@ Single-token folds said the "right" metric to compress MLP-0 was the token secon
 - All grid statements (ranks, separability) are on a 1024² or 4096² unigram-sampled token grid; they are exact for those pairs and sample-based as statements about the vocabulary.
 - The single-token bigram fold was verified against the real model at T=2 (replay 5.7e-7); deeper single-token tables (layers 1–2) were verified only through the layer-1 input (3.7e-7).
 
+
+## Addendum (05:30 UTC) — the atlas past layer 2, and the induction circuit from the front
+
+Fixed positional kernels stay cheap one head at a time through layer 4 (banks 0.043 / 0.035; edit, v634). Layer 5 is where content first becomes load-bearing: the bank costs 0.163 and head **5.7** alone 0.083 — it is the model's costliest head (+0.84 when its off-diagonal pattern is zeroed), a broad positive ~1/i aggregator with a quarter of its mass on position 0, and **not** the induction head (response, v635/v636).
+
+The induction head is **5.5** (response, 9.6× enrichment on keys whose predecessor is the current token; 1% of keys carry 4.3× its cost, edit, v636). Its first half is not a head: the "my predecessor was X" key feature is written redundantly by the nineteen positional heads of blocks 0–2 — the ten previous-token taps and the nine window heads are *each* sufficient (cut one family: 0.86× / 0.90× of the enrichment remains; cut both: 0.23×; response, v637/v639) — and amplified in layers 3–4 (0.37× when those are cut, v638). Its write raises the logit of the successor of the earlier copy at 87% of eligible positions, 2.7× the effect on random tokens (direct path, approximate), and cutting the head costs 4.2× more per eligible position than elsewhere (edit, v640).
+
+| claim | tag | rows | numbers | status |
+|---|---|---|---|---|
+| 18 | fixed kernels cheap singly through layer 4; layer 5 breaks it at 5.7 | edit | fresh | banks 0.043 / 0.035 / 0.163; 5.7 alone 0.083 | held (v634) |
+| 19 | 5.7 is not induction and not a position-0 sink | response | opened (64 rows) | induction 1.1× base; 26% mass on position 0; zeroing it +0.84 | held (v635/v636) |
+| 20 | 5.5 is the induction head | response+edit | opened / fresh | 9.6× enrichment; eligible keys carry 4.3× its cost | held (v636) |
+| 21 | its key feature is written redundantly by taps and windows, amplified in 3–4 | response | opened | families alone 0.86× / 0.90×, both 0.23×, layers 3–4 0.37×, layers 0–4 anchor 0.12× | held (v637–v639) |
+| 22 | its write copies the successor token to the logits | response+edit | opened / fresh | positive at 0.87; cost 0.020 vs 0.005 per position | held (v640) |
+
+Instrument notes preserved: v635's base-rate broadcast bug (corrected in v636; shares unaffected), v637's doubled capture counter (fixed, re-run).
+
 ## Appendix A — layer-0 positional kernels (fold, 4096² grid; pattern rms / separable fraction)
 
 | head | d=1 | d=2 | d=4 | d=8 | d=16 | d=32 | kernel |
