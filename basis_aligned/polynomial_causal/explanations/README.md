@@ -1,5 +1,7 @@
 # Plain-language explanations
 
+Latest folding trajectory: [Full joint tensor, HT, conditional circuits and carry-only control](for_logan/research_update_2026-09-20_1448_folding_joint_tensors_and_circuits.md).
+
 Latest subject-number update: [Sparse conditional response and source-reuse limit](for_logan/research_update_2026-09-20_0726_sparse_subject_response.md).
 
 Latest regional result: [Fresh-confirmed extracted value mediator](for_logan/research_update_2026-09-18_0326_extracted_mediator.md).

@@ -1762,3 +1762,6 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 
 ### Joint normalized MLP11 response and degree split
 [Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/V4_MLP_RESPONSE_FOLD_2026-09-20.md): opened composition8/8, weak error0.0268%, model-free CPU replay1.30e-12relative. Canonical498070/context loses48-context storage comparison to conditioned factors. Single-context quadratic-removal response error0.0972% is a screen, not native behavioral sufficiency. Background, oracle edits and native suffix remain required.
+
+### MLP response necessity control
+[Updated canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/V4_MLP_RESPONSE_FOLD_2026-09-20.md): both degree omissions and carry-only pass8/8opened composition. Carry-only worstnumber2.91%, controls1.51%; exact MLPresponse improves precision but is not necessary at these gates. Native background/suffix remain. No fullcircuitpromotion.

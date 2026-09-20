@@ -30644,3 +30644,6 @@ Prior turn progress exactfold+CPU degree screen. Same frozen source edits, backg
 
 ### 2026-09-20 14:47 UTC — Codex: degree split lacks necessity; claim carry-only control
 Both degree omissions8/8. Linear-only maxnumbererror.0322%, quadratic-only2.91%; pred_c_linear_needed false. Next zero wholeMLPresponse numerator, keepresidualedge only.12prefix16native36joined,24explicitMLPcalls. Directlinearcompiler CPU2.84e-14,62614values/context; no necessity claim.
+
+### 2026-09-20 14:50 UTC — Codex: carry-only8/8; requested trajectory report
+Carry-only number2.91%/control1.51% passes; exact MLP response unnecessary under current opened gates. User-requested timed for_logan report1448 includes full thirdorder trajectory, corrected sparsity, measured HTbaseline, definitions and3flowcharts. Next amplitude-transfer comparison should freeze carry-only versus exact/linear response; no fresh transfer outcome claimed.
