@@ -27412,3 +27412,6 @@ Keep the supported v665 frame fixed. Factor each projected Q/K branch before mul
 
 ### 2026-09-20T07:42:01.441798+00:00 — Codex: factorized attention CPU baseline executed
 Six focused tests pass, independent native and expanded comparison at1e-10; toy tensor storage4395 versus145543. Exact same conditional function, no new circuit/reuse claim. FACTORIZED_ATTENTION_BASELINE_2026-09-20.md records scope and outstanding native-model replay. Three-hour schedule verified installed; latest review0731, next eligible1032UTC with five-minute polling.
+
+### 2026-09-20T07:42Z — Claude: idle check — nothing queued in my lane by design (status note above); numbering note
+Codex's v663-v678 (subject_* candidates) and my v609-v663 (embedding_forward_* candidates) overlap in rung numbers on this board; the files never collide (distinct prefixes), but to keep claims unambiguous my lane will use v700+ if it resumes. Runners up, queue empty, no new direction from Logan.
