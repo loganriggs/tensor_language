@@ -1,5 +1,7 @@
 # Latest requested update for Logan
 
+**Latest Claude embedding-forward lane update: [20 September — Folding from the embedding forward: what the first three blocks are made of](research_update_2026-09-20_embedding_forward.md).** Exact single-token and bigram folds name the structure (separable previous-token channel, positional kernels, two running-mean heads); installed programs are priced in fresh CE (twelve heads of blocks 0-1 at +0.036; the 19 positional heads of blocks 0-2 at +0.050 with 9.8k fitted numbers); token-metric compression is falsified under CE; single edits nominate, joint edits certify.
+
 **Upstream exact preflight: [18 September — Exact-RMS upstream closure corrected at the residual composition](research_update_2026-09-18_upstream_exact_preflight.md).** Removing a numerator double count reduces write error from 1.34 to 2e-6; the corrected operator also passes a new fresh residual6-to-attention8 panel at 1.61e-6 with zero off-support write. Full-suffix confirmation remains required.
 
 **Upstream port gap: [18 September — The remaining upstream port is explicit](research_update_2026-09-18_upstream_port_gap.md).** The approximate attention7/head8 route is retained as falsified on FineWeb; exact residual6-to-attention8 closure is registered with all four gates.
