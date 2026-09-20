@@ -1,0 +1,98 @@
+{
+  "scope": "Exact tensor-value counts, not runtime or allocator memory; analytical long-length extrapolation checked against all24 native compiled programs",
+  "formulas": {
+    "common": "BT(1+r)+r\u00b2+2BTHa+Har",
+    "factored": "common+4(BTd+dr)+T*d/H",
+    "expanded": "common+4(BTH(1+r)+Hr\u00b2)+2(BHT\u00b2(1+2r)+HT\u00b2r\u00b2)"
+  },
+  "rows": [
+    {
+      "batch": 1,
+      "length": 5,
+      "factored_values": 61949,
+      "expanded_values": 41779,
+      "ratio": 1.4827784293544604
+    },
+    {
+      "batch": 1,
+      "length": 8,
+      "factored_values": 76616,
+      "expanded_values": 100072,
+      "ratio": 0.7656087616915821
+    },
+    {
+      "batch": 1,
+      "length": 16,
+      "factored_values": 115728,
+      "expanded_values": 383824,
+      "ratio": 0.30151319354704237
+    },
+    {
+      "batch": 1,
+      "length": 32,
+      "factored_values": 193952,
+      "expanded_values": 1511200,
+      "ratio": 0.1283430386447856
+    },
+    {
+      "batch": 1,
+      "length": 128,
+      "factored_values": 663296,
+      "expanded_values": 23951872,
+      "ratio": 0.027692866762147026
+    },
+    {
+      "batch": 1,
+      "length": 512,
+      "factored_values": 2540672,
+      "expanded_values": 382453120,
+      "ratio": 0.006643093930048211
+    },
+    {
+      "batch": 12,
+      "length": 5,
+      "factored_values": 323804,
+      "expanded_values": 152164,
+      "ratio": 2.1279934807181724
+    },
+    {
+      "batch": 12,
+      "length": 8,
+      "factored_values": 495584,
+      "expanded_values": 357472,
+      "ratio": 1.3863575328976816
+    },
+    {
+      "batch": 12,
+      "length": 16,
+      "factored_values": 953664,
+      "expanded_values": 1329472,
+      "ratio": 0.7173253742839263
+    },
+    {
+      "batch": 12,
+      "length": 32,
+      "factored_values": 1869824,
+      "expanded_values": 5125888,
+      "ratio": 0.36478050242221444
+    },
+    {
+      "batch": 12,
+      "length": 128,
+      "factored_values": 7366784,
+      "expanded_values": 79772032,
+      "ratio": 0.09234795473180375
+    },
+    {
+      "batch": 12,
+      "length": 512,
+      "factored_values": 29354624,
+      "expanded_values": 1267516288,
+      "ratio": 0.023159169059924538
+    }
+  ],
+  "first_winning_integer_length": {
+    "1": 7,
+    "12": 12
+  }
+}

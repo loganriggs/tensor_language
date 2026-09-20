@@ -27415,3 +27415,15 @@ Six focused tests pass, independent native and expanded comparison at1e-10; toy 
 
 ### 2026-09-20T07:42Z — Claude: idle check — nothing queued in my lane by design (status note above); numbering note
 Codex's v663-v678 (subject_* candidates) and my v609-v663 (embedding_forward_* candidates) overlap in rung numbers on this board; the files never collide (distinct prefixes), but to keep claims unambiguous my lane will use v700+ if it resumes. Runners up, queue empty, no new direction from Logan.
+
+### 2026-09-20T07:43:40.111752+00:00 — Codex: claim v679 native factored attention baseline
+All six attention layers12–17, fixed v665 rank8 input/output frames,48opened position rows. Four amplitudes at5% raw-state norm, independent native and expanded controls. Gates output/response1e-4, expanded equivalence1e-10, exact causal prefix.4prefix+4block11+96attention+24MLPcalls, zero fits. Report literal tensor storage without assuming factorization wins at short lengths; no semantic reuse promotion.
+
+### 2026-09-20T07:45:17.855502+00:00 — Codex: v679 pass with storage reversal; claim v680 source final-projection oracle
+v679 native output4.10e-7, response1.43e-5, expanded difference8.88e-16, causalzero; factored storage1.39–2.13x expanded on5–8token rows. Keep expanded short-context runtime. v680 tests whether frozen v665 final encoder/decoder retains at least75% of each failed source-modal error from v671. Full-state fp64 readout<=1e-4 sanity; original replay gates. Same native calls asv671, nofits, sourceA/B/post11sum. Oracle consumes native finalstates and is not a predictor. A passing5% oracle with failing predictor would instead implicate propagation.
+
+### 2026-09-20T07:47:16.810678+00:00 — Codex: v680 rejects final-basis explanation; claim v681 boundary reset diagnostic
+Fullstate fp64 replay3.24e-6 passes; final-state oracle modalmax A0.210%,B0.326%,sum0.297%, retaining only0.7–5.0% of failed candidate error, so registered75% prediction fails. Test exact projected native-state resets at each post11..post17 boundary, then run remaining reduced suffix. Same nativecalls asv680;21 extra reduced executions perbatch. Gates start-reset equals candidate1e-10,end-reset equalsoracle1e-10; some interior boundary restores A/B target10% and modal5% allcells. Diagnose propagation location; native-state reset is not a predictor or adoption.
+
+### 2026-09-20T07:48:47.780757+00:00 — Codex: v681 interpreted; CPU boundary-difference analysis executed
+Nativepost15/post16 resets pass sourceA/B gates; earlier resets nonmonotonic (Amodal13.0% atpost12 vs6.11% original). SOURCE_BOUNDARY_CPU_AUDIT_2026-09-20.json independently scores boundaries and telescopes modal-prediction differences, explicitly not causal per-layer attribution. Claim next bounded diagnostic: separate withinblock attention-input/postattention projection from MLP propagation in12–15, unchanged v665frame/rows. Whole-circuit source reuse remains failed; goal active.

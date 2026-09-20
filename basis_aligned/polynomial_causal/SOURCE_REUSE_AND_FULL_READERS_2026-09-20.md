@@ -58,3 +58,17 @@ exact factorized attention contraction against the expanded T^2r^2 score cores.
 This is a same-function storage/extraction baseline, not a claimed repair of reuse.
 Source-specific hierarchical feature spaces remain a separate future hypothesis;
 no additional rank or calibration sweep is registered here.
+
+## v680: final projection is not the main source-reuse failure
+
+The frozen v665 final encoder/decoder was tested on true native final response states for A, B and post11-superposition. Modal error maxima fall to0.210%,0.326%,0.297% of each cell's source-target effect. At the five failing A/B modal cells, the oracle retains only0.7–5.0% of the candidate error, decisively failing the registered hypothesis that it retains at least75%. Full-state float64 selected-logit replay differs by at most3.24e-6, within the1e-4 instrument bar.
+
+Thus the final eight-feature output interface can represent these tested control responses when provided the native final state. Loss during reduced propagation (including its initial projection) is the next localization target. This reverses the explanation found for the older v659 frame in v664; it does not invalidate that older result or establish a unique basis. Oracle states are unavailable to a deployed predictor. v681 tests exact projected-state replacements at interior boundaries, with no change to calibration, width or sparse cores.
+
+## v681: upstream propagation, with nonmonotonic resets
+
+At boundary k, replace the reduced response by the projected native response after block11+k and run the remaining reduced suffix. k0 preserves the exact original coordinate port; k6 is the final-state oracle. Both controls reproduce their respective earlier outputs exactly. Interior boundaries k4 and k5 pass A/B target10% and modal5% in every opened cell. k4 (post15) has worst target errors2.69%/5.83% and modal2.46%/3.21% for A/B; sum target6.57%,modal3.06%.
+
+Earlier substitutions are not monotonic improvements: k1 makes A modal error13.01% versus6.11% at k0; k2 gives A target14.40%. Thus native-state substitution plus projection can disrupt compensating errors or expose state directions omitted by the next interface. These experiments localize a diagnostic distinction to earlier versus later suffix computation, not a unique faulty layer. They do not justify adopting the whole circuit, or replacing a legal initial interface by an uncharged native oracle.
+
+CPU audit independently summarizes all boundaries and telescopes the modal-prediction differences. Adjacent differences are differences between reset experiments, not isolated causal layer effects. Primary receipt: `subject_attention_freeze_v681_result.json`; audit: `SOURCE_BOUNDARY_CPU_AUDIT_2026-09-20.json`. Next informative test separates attention-input projection from post-attention/MLP propagation in blocks12–15, keeping the same basis and control rows.
