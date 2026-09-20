@@ -1,0 +1,363 @@
+{
+  "plan": {
+    "bank_widths": [
+      128,
+      512
+    ],
+    "root_width": 128,
+    "optimizers": [
+      "adam",
+      "muon"
+    ],
+    "seeds": [
+      0,
+      1
+    ],
+    "steps": 300,
+    "batch_size": 256,
+    "lr": 0.05,
+    "calibration_queries": 2048,
+    "evaluation_queries": 8192,
+    "function_queries": 256,
+    "native_forwards": 0
+  },
+  "records": [
+    {
+      "bank_width": 128,
+      "root_width": 128,
+      "optimizer": "adam",
+      "seed": 0,
+      "evaluation_coefficient_error": 1.0076249837875366,
+      "gaussian_function_sample_error": 1.0013264417648315,
+      "finite": true,
+      "parameter_values": 475136,
+      "history": [
+        {
+          "step": 0,
+          "sampled_scaled_squared_error": 0.9788603782653809
+        },
+        {
+          "step": 50,
+          "sampled_scaled_squared_error": 2.355196475982666
+        },
+        {
+          "step": 100,
+          "sampled_scaled_squared_error": 1.911298155784607
+        },
+        {
+          "step": 150,
+          "sampled_scaled_squared_error": 1.5284889936447144
+        },
+        {
+          "step": 200,
+          "sampled_scaled_squared_error": 1.222592830657959
+        },
+        {
+          "step": 250,
+          "sampled_scaled_squared_error": 1.062453269958496
+        },
+        {
+          "step": 299,
+          "sampled_scaled_squared_error": 0.9994286298751831
+        }
+      ],
+      "seconds": 1.6316281640902162
+    },
+    {
+      "bank_width": 128,
+      "root_width": 128,
+      "optimizer": "adam",
+      "seed": 1,
+      "evaluation_coefficient_error": 1.0076879262924194,
+      "gaussian_function_sample_error": 1.0037399530410767,
+      "finite": true,
+      "parameter_values": 475136,
+      "history": [
+        {
+          "step": 0,
+          "sampled_scaled_squared_error": 0.9963701367378235
+        },
+        {
+          "step": 50,
+          "sampled_scaled_squared_error": 2.462425708770752
+        },
+        {
+          "step": 100,
+          "sampled_scaled_squared_error": 1.9941238164901733
+        },
+        {
+          "step": 150,
+          "sampled_scaled_squared_error": 1.5527215003967285
+        },
+        {
+          "step": 200,
+          "sampled_scaled_squared_error": 1.2518216371536255
+        },
+        {
+          "step": 250,
+          "sampled_scaled_squared_error": 1.0770021677017212
+        },
+        {
+          "step": 299,
+          "sampled_scaled_squared_error": 1.008443832397461
+        }
+      ],
+      "seconds": 1.4096444239839911
+    },
+    {
+      "bank_width": 128,
+      "root_width": 128,
+      "optimizer": "muon",
+      "seed": 0,
+      "evaluation_coefficient_error": 1.0129327774047852,
+      "gaussian_function_sample_error": 1.0046143531799316,
+      "finite": true,
+      "parameter_values": 475136,
+      "history": [
+        {
+          "step": 0,
+          "sampled_scaled_squared_error": 0.9788603782653809
+        },
+        {
+          "step": 50,
+          "sampled_scaled_squared_error": 2.1907429695129395
+        },
+        {
+          "step": 100,
+          "sampled_scaled_squared_error": 2.128355026245117
+        },
+        {
+          "step": 150,
+          "sampled_scaled_squared_error": 1.6932286024093628
+        },
+        {
+          "step": 200,
+          "sampled_scaled_squared_error": 1.3734591007232666
+        },
+        {
+          "step": 250,
+          "sampled_scaled_squared_error": 1.1174075603485107
+        },
+        {
+          "step": 299,
+          "sampled_scaled_squared_error": 1.0099198818206787
+        }
+      ],
+      "seconds": 1.772570494795218
+    },
+    {
+      "bank_width": 128,
+      "root_width": 128,
+      "optimizer": "muon",
+      "seed": 1,
+      "evaluation_coefficient_error": 1.0125409364700317,
+      "gaussian_function_sample_error": 1.0041663646697998,
+      "finite": true,
+      "parameter_values": 475136,
+      "history": [
+        {
+          "step": 0,
+          "sampled_scaled_squared_error": 0.9963701367378235
+        },
+        {
+          "step": 50,
+          "sampled_scaled_squared_error": 2.35132098197937
+        },
+        {
+          "step": 100,
+          "sampled_scaled_squared_error": 2.1034297943115234
+        },
+        {
+          "step": 150,
+          "sampled_scaled_squared_error": 1.6911661624908447
+        },
+        {
+          "step": 200,
+          "sampled_scaled_squared_error": 1.3720272779464722
+        },
+        {
+          "step": 250,
+          "sampled_scaled_squared_error": 1.1253985166549683
+        },
+        {
+          "step": 299,
+          "sampled_scaled_squared_error": 1.020071268081665
+        }
+      ],
+      "seconds": 1.765104206977412
+    },
+    {
+      "bank_width": 512,
+      "root_width": 128,
+      "optimizer": "adam",
+      "seed": 0,
+      "evaluation_coefficient_error": 1.0077441930770874,
+      "gaussian_function_sample_error": 1.0028722286224365,
+      "finite": true,
+      "parameter_values": 1458176,
+      "history": [
+        {
+          "step": 0,
+          "sampled_scaled_squared_error": 0.97868812084198
+        },
+        {
+          "step": 50,
+          "sampled_scaled_squared_error": 2.197139263153076
+        },
+        {
+          "step": 100,
+          "sampled_scaled_squared_error": 1.8138498067855835
+        },
+        {
+          "step": 150,
+          "sampled_scaled_squared_error": 1.5091898441314697
+        },
+        {
+          "step": 200,
+          "sampled_scaled_squared_error": 1.2392334938049316
+        },
+        {
+          "step": 250,
+          "sampled_scaled_squared_error": 1.0599784851074219
+        },
+        {
+          "step": 299,
+          "sampled_scaled_squared_error": 1.0001208782196045
+        }
+      ],
+      "seconds": 1.4086523519363254
+    },
+    {
+      "bank_width": 512,
+      "root_width": 128,
+      "optimizer": "adam",
+      "seed": 1,
+      "evaluation_coefficient_error": 1.007777214050293,
+      "gaussian_function_sample_error": 1.0034129619598389,
+      "finite": true,
+      "parameter_values": 1458176,
+      "history": [
+        {
+          "step": 0,
+          "sampled_scaled_squared_error": 0.9964760541915894
+        },
+        {
+          "step": 50,
+          "sampled_scaled_squared_error": 2.3199849128723145
+        },
+        {
+          "step": 100,
+          "sampled_scaled_squared_error": 1.8418478965759277
+        },
+        {
+          "step": 150,
+          "sampled_scaled_squared_error": 1.5008792877197266
+        },
+        {
+          "step": 200,
+          "sampled_scaled_squared_error": 1.2282729148864746
+        },
+        {
+          "step": 250,
+          "sampled_scaled_squared_error": 1.0810191631317139
+        },
+        {
+          "step": 299,
+          "sampled_scaled_squared_error": 1.0085151195526123
+        }
+      ],
+      "seconds": 1.4102918908465654
+    },
+    {
+      "bank_width": 512,
+      "root_width": 128,
+      "optimizer": "muon",
+      "seed": 0,
+      "evaluation_coefficient_error": 1.0127010345458984,
+      "gaussian_function_sample_error": 1.005326509475708,
+      "finite": true,
+      "parameter_values": 1458176,
+      "history": [
+        {
+          "step": 0,
+          "sampled_scaled_squared_error": 0.97868812084198
+        },
+        {
+          "step": 50,
+          "sampled_scaled_squared_error": 2.180248498916626
+        },
+        {
+          "step": 100,
+          "sampled_scaled_squared_error": 1.9790441989898682
+        },
+        {
+          "step": 150,
+          "sampled_scaled_squared_error": 1.608694314956665
+        },
+        {
+          "step": 200,
+          "sampled_scaled_squared_error": 1.3238998651504517
+        },
+        {
+          "step": 250,
+          "sampled_scaled_squared_error": 1.1039801836013794
+        },
+        {
+          "step": 299,
+          "sampled_scaled_squared_error": 1.011527419090271
+        }
+      ],
+      "seconds": 1.6786512897815555
+    },
+    {
+      "bank_width": 512,
+      "root_width": 128,
+      "optimizer": "muon",
+      "seed": 1,
+      "evaluation_coefficient_error": 1.0127289295196533,
+      "gaussian_function_sample_error": 1.0056554079055786,
+      "finite": true,
+      "parameter_values": 1458176,
+      "history": [
+        {
+          "step": 0,
+          "sampled_scaled_squared_error": 0.9964760541915894
+        },
+        {
+          "step": 50,
+          "sampled_scaled_squared_error": 2.1998465061187744
+        },
+        {
+          "step": 100,
+          "sampled_scaled_squared_error": 2.0085315704345703
+        },
+        {
+          "step": 150,
+          "sampled_scaled_squared_error": 1.6115357875823975
+        },
+        {
+          "step": 200,
+          "sampled_scaled_squared_error": 1.328516960144043
+        },
+        {
+          "step": 250,
+          "sampled_scaled_squared_error": 1.116756558418274
+        },
+        {
+          "step": 299,
+          "sampled_scaled_squared_error": 1.0184992551803589
+        }
+      ],
+      "seconds": 1.6704302018042654
+    }
+  ],
+  "finite_query_output_rank128_lower_bound": 0.7844082713127136,
+  "teacher_scale": 14387.1376953125,
+  "seconds": 14.474335805978626,
+  "predictions": {
+    "pred_a_finite": true,
+    "pred_b_improves": false,
+    "pred_c_small_error": false
+  },
+  "scope": "Full1152input pure native quartic coefficient fit with dense shared bilinear cores, final checkpoints, finite query evaluation; no exact small-error certificate, behavioral OOD or circuit identity claim."
+}

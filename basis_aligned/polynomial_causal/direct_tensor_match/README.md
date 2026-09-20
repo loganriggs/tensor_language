@@ -81,3 +81,15 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 - `symmetric_quadratic_als.py`, `quadratic_als_toys.py`, `QUADRATIC_ALS_PLAN_V1.md`, `QUADRATIC_ALS_TOYS_V1.json`:27 paired ALS/Adam/Muon toy fits. Monotone exact blocks can still stall; no universal optimizer winner.
 - `matrix_free_quadratic.py`, `check_matrix_free_quadratic.py`, `MATRIX_FREE_QUADRATIC_CHECK_V1.json`: exact symmetric input normal operator validated against dense design, proximal CG solution error1.66e-11.
 - `MATRIX_FREE_NATIVE_ALS_PLAN_V1.md`: queued native block-solve pilot, explicitly reports residuals and rejected sweeps.
+
+## Three-hour mathematical review — 16:37 UTC
+
+[Review](../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-20_1637.md) separates capacity, optimization, metric and interface assumptions. `quartic_gaussian.py`, `check_quartic_gaussian.py`, `QUARTIC_GAUSSIAN_CHECK_V1.json` validate the exact quartic trace-energy identity and implicit mean. `check_quartic_metric_spectrum.py` / `QUARTIC_METRIC_SPECTRUM_V1.json` verify the Gaussian/Frobenius eigenvalues. `NATIVE_QUARTIC_GAUSSIAN_PLAN_V1.md` preregisters the queued radial/mean diagnostic.
+
+## Review-boundary outcomes and exact-gradient continuation
+
+- `NATIVE_STOCHASTIC_QUARTIC_V1.json/.pt`, `NATIVE_STOCHASTIC_QUARTIC_V2.json/.pt`:all16 global sampled fits stay near100% coefficient error. Finite-query output-rank relaxation78.44% is not an attainability claim.
+- `MATRIX_FREE_NATIVE_ALS_V1.json/.pt`:width51289.89% coefficient error, no rejected sweeps; solver residual bar held, teacher-channel89.80% bar narrowly failed.
+- `NATIVE_QUARTIC_GAUSSIAN_V1.json`:estimated native energy fractions19.2/43.4/37.4% in Wick degrees0/2/4; radial error90.04%; mean mismatch is not the majority of failed-student residual.
+- `check_quartic_gradient_noise.py`, `QUARTIC_GRADIENT_NOISE_V1.json`:representable rank-one toy exposes huge sampled-gradient error despite tolerable scalar-loss estimation. Native cause remains a hypothesis.
+- `quartic_cp.py`, `check_quartic_cp.py`, `QUARTIC_CP_CHECK_V1.json`, `EXACT_QUARTIC_CP_PLAN_V1.md`:exact symmetric CP quartic self/cross contractions and gradients independently verified; next route removes coefficient-gradient sampling.

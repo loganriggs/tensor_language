@@ -469,3 +469,6 @@ Native pure MLP16→17→unembedding full1152input coefficient queries pass6.19e
 
 ### 2026-09-20 16:28 — Symmetric ALS route and parameterization controls
 Paired quartic parameterizations agree initially and bygradientchainrule, differinoptimizerstepgeometry.27symmetricquadratic ALS/Adam/Muon toyfits:exactblocksmonotone butsomeCPfitsstall9–13%; no universalwinner. Derivedmatrixfree symmetricnormaloperator agrees3.78e-16 withdense design,CG1.66e-11. Four native ALSfits queued; primaryliterature assumptions explicitlymapped in [note](../polynomial_causal/direct_tensor_match/ALS_AND_PARAMETERIZATION_2026-09-20_1628.md).
+
+### 2026-09-20 16:42 — Three-hour review, native outcomes and exact-gradient direction
+[Review](../polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-20_1637.md) maps primaryliterature andexactGaussiantrace identities.16globalquartic sampled fits≈100%error; nativequadraticALS89.89% at512; radialquartic90.04%Gaussianerror. Rank1gradient-noisecontrol revealsnormprecision≠gradientprecision. ExactquarticCP self/cross contractions implemented anddensevalidated1e-15, no teacher-norm expansion needed for gradients; [next plan](../polynomial_causal/direct_tensor_match/EXACT_QUARTIC_CP_PLAN_V1.md). No circuit identification or fullDAGranklowerbound claim.

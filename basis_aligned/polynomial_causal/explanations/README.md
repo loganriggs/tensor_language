@@ -805,3 +805,7 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 - [2026-09-20 16:03 — Stable computation, common factors, and failed row transfer](for_logan/research_update_2026-09-20_1603_common_factors_and_transfer_failure.md): feature nonuniqueness,136 structural fits, independent quadrature exports and176-row negative predictive test.
 
 - [2026-09-20 16:20 — Full-input quartic queries and sampled-loss optimization controls](for_logan/research_update_2026-09-20_1620_global_quartic_and_sampling.md): native oracle/variance validation, variable-projection null, sampling allocation tradeoffs, and queued global fits.
+
+- [2026-09-20 16:37 — Three-hour decomposition mathematical review](../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-20_1637.md): primary literature mappings, exact quartic trace/metric formulas, scope/pricing and ranked next experiments.
+
+- [2026-09-20 16:43 — Global fitting null and exact-gradient continuation](for_logan/research_update_2026-09-20_1643_global_null_and_exact_gradients.md):16failed quartic fits, improved quadraticALS, trace/radial controls, gradient-noise falsifier and exact contraction implementation.
