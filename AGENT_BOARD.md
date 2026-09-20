@@ -30593,3 +30593,6 @@ Old replay0, capabilityallpass; subject fidelity8/8, attractor failures. Frozen 
 
 ### 2026-09-20T13:58:19.107550+00:00 — Codex: fresh negative audited; exact row correction executed
 Native-freeze reference matches compiled<=.0262%; query reuse itself fails12/16fidelity, full/compiled selector8/16. Exact row+column CPU fold restores query-source interactions,3.03e-16; omitting mixed terms21–29%error. Native adapter still pending. See FIXED_QUERY_FRESH_V4_2026-09-20.md. Goal active.
+
+### 2026-09-20T13:59:24.334821+00:00 — Codex: claim exact row+column native installation
+Prior turn progress: fresh failure audited and exact correction derived. Install source-column plus query-row correction with updated K/V, same old/fresh opened contexts and fixed selectors. Target full native attention instead of query-frozen reference; no selector rescue claim.
