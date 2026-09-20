@@ -15,6 +15,7 @@ def reduce_gram(gram):
     certificate or lower bound on arbitrary arithmetic circuits is implied.
     """
     gram=(np.asarray(gram,dtype=np.float64)+np.asarray(gram,dtype=np.float64).T)/2
+    assert gram.shape==(3,3), 'This quotient is only for the basis (1,t,t²)'
     scale=float(np.linalg.norm(gram))
     if scale==0:
         return np.zeros(5),dict(coefficient_error=0.,rank=0,shift=0.)
