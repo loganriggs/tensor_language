@@ -1,0 +1,165 @@
+{
+  "records": [
+    {
+      "domain": "fineweb",
+      "mode": 0,
+      "metric": "effect",
+      "oracle_gain": 0.9223207684716581,
+      "best_scalar_relative_error": 0.13384930418905544,
+      "original_relative_error": 0.15773970882618701
+    },
+    {
+      "domain": "fineweb",
+      "mode": 0,
+      "metric": "ce_effect",
+      "oracle_gain": 0.8675257126231285,
+      "best_scalar_relative_error": 0.12323684657080615,
+      "original_relative_error": 0.19532424781130142
+    },
+    {
+      "domain": "fineweb",
+      "mode": 1,
+      "metric": "effect",
+      "oracle_gain": 1.2131812489993499,
+      "best_scalar_relative_error": 0.2635319828529009,
+      "original_relative_error": 0.3133408506210343
+    },
+    {
+      "domain": "fineweb",
+      "mode": 1,
+      "metric": "ce_effect",
+      "oracle_gain": 1.3690465663890992,
+      "best_scalar_relative_error": 0.26313822598350683,
+      "original_relative_error": 0.3699667179833561
+    },
+    {
+      "domain": "fineweb",
+      "mode": 2,
+      "metric": "effect",
+      "oracle_gain": 0.7931643391649824,
+      "best_scalar_relative_error": 0.4212971588038313,
+      "original_relative_error": 0.4831396198785386
+    },
+    {
+      "domain": "fineweb",
+      "mode": 2,
+      "metric": "ce_effect",
+      "oracle_gain": 0.7401770687630074,
+      "best_scalar_relative_error": 0.44289859451482694,
+      "original_relative_error": 0.5433313930763842
+    },
+    {
+      "domain": "fineweb",
+      "mode": 3,
+      "metric": "effect",
+      "oracle_gain": 1.1727075344348743,
+      "best_scalar_relative_error": 0.5779012954905052,
+      "original_relative_error": 0.5902673581092949
+    },
+    {
+      "domain": "fineweb",
+      "mode": 3,
+      "metric": "ce_effect",
+      "oracle_gain": 0.916911536812469,
+      "best_scalar_relative_error": 0.7149054073605817,
+      "original_relative_error": 0.7177077857924572
+    },
+    {
+      "domain": "fineweb",
+      "mode": "joint",
+      "metric": "effect",
+      "oracle_gain": 0.9155202721049615,
+      "best_scalar_relative_error": 0.1683875853023444,
+      "original_relative_error": 0.1913835017326881
+    },
+    {
+      "domain": "fineweb",
+      "mode": "joint",
+      "metric": "ce_effect",
+      "oracle_gain": 0.8946325780465442,
+      "best_scalar_relative_error": 0.1104845554989092,
+      "original_relative_error": 0.16096274594581067
+    },
+    {
+      "domain": "code",
+      "mode": 0,
+      "metric": "effect",
+      "oracle_gain": 0.9124041486864373,
+      "best_scalar_relative_error": 0.15510372339464595,
+      "original_relative_error": 0.18180344318540265
+    },
+    {
+      "domain": "code",
+      "mode": 0,
+      "metric": "ce_effect",
+      "oracle_gain": 0.8552353493144184,
+      "best_scalar_relative_error": 0.14446029283574657,
+      "original_relative_error": 0.22118491834213458
+    },
+    {
+      "domain": "code",
+      "mode": 1,
+      "metric": "effect",
+      "oracle_gain": 1.2253742157399197,
+      "best_scalar_relative_error": 0.45168226734289807,
+      "original_relative_error": 0.4805653512569992
+    },
+    {
+      "domain": "code",
+      "mode": 1,
+      "metric": "ce_effect",
+      "oracle_gain": 1.244954253920447,
+      "best_scalar_relative_error": 0.3618946724393091,
+      "original_relative_error": 0.40572292485502787
+    },
+    {
+      "domain": "code",
+      "mode": 2,
+      "metric": "effect",
+      "oracle_gain": 1.0349376400944228,
+      "best_scalar_relative_error": 0.46835124139052553,
+      "original_relative_error": 0.4693000359333788
+    },
+    {
+      "domain": "code",
+      "mode": 2,
+      "metric": "ce_effect",
+      "oracle_gain": 1.2044640413565253,
+      "best_scalar_relative_error": 0.3747701329845736,
+      "original_relative_error": 0.4064751927350099
+    },
+    {
+      "domain": "code",
+      "mode": 3,
+      "metric": "effect",
+      "oracle_gain": 1.23119180188747,
+      "best_scalar_relative_error": 0.5246663217766344,
+      "original_relative_error": 0.548479002294191
+    },
+    {
+      "domain": "code",
+      "mode": 3,
+      "metric": "ce_effect",
+      "oracle_gain": 1.0207326593778785,
+      "best_scalar_relative_error": 0.5915415407900372,
+      "original_relative_error": 0.5917681895991567
+    },
+    {
+      "domain": "code",
+      "mode": "joint",
+      "metric": "effect",
+      "oracle_gain": 0.9521482724745295,
+      "best_scalar_relative_error": 0.22395979248801973,
+      "original_relative_error": 0.22925319720815437
+    },
+    {
+      "domain": "code",
+      "mode": "joint",
+      "metric": "ce_effect",
+      "oracle_gain": 0.8953936000050551,
+      "best_scalar_relative_error": 0.1427499552648146,
+      "original_relative_error": 0.1837063909717586
+    }
+  ],
+  "scope": "Same-panel unconstrained scalar least-squares oracle on post-softcap effect vectors. Lower bound for a scalar rescaling of those vectors, not for nonlinear model edits at changed amplitudes; no candidate refit/export."
+}

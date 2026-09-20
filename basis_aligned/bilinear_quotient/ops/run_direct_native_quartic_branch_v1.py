@@ -12,6 +12,8 @@ import os,sys,json,time,hashlib
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3];P=ROOT/'basis_aligned/polynomial_causal/direct_tensor_match';BQ=ROOT/'basis_aligned/bilinear_quotient'
 PLAN=dict(documents=list(range(64,80)),context=128,arms=['exact','ablation','quartic10','quartic26'],native_forwards=16)
+PANEL_PATH=None
+OUTPUT_STEM='NATIVE_QUARTIC_BRANCH_V1'
 def main():
  if os.environ.get('BQLIB_DRYRUN') or os.environ.get('BQLIB_NO_MODEL'):print(json.dumps(PLAN));return
  import torch
@@ -21,7 +23,7 @@ def main():
  from frozen_program_evaluation import quartic
  from native_quartic_branch import bilinear,pure_branch,replace_branch
  torch.set_num_threads(4);torch.set_grad_enabled(False);torch.backends.cuda.matmul.allow_tf32=False
- out=P/'NATIVE_QUARTIC_BRANCH_V1.json';assert not out.exists();start=time.perf_counter();model=Bilin18TorchBackend.load('cuda').model.float();assert not model.config.gated and model.config.bilinear
+ out=P/(OUTPUT_STEM+'.json');assert not out.exists();start=time.perf_counter();model=Bilin18TorchBackend.load('cuda').model.float();assert not model.config.gated and model.config.bilinear
  blocks=model.transformer.h;b16=blocks[16];b17=blocks[17];_,ru=torch.linalg.qr(model.lm_head.weight.float());ru=ru.double()
  artifact=torch.load(P/'NATIVE_QUARTIC_MEAN_V1.pt',weights_only=True);scale=float(artifact['teacher_scale']);programs={'quartic26':artifact['programs'][8],'quartic10':torch.load(P/'FUSED_ROOT_PROGRAM_V1.pt',weights_only=True)['programs'][4]};solves=[]
  for name,s in programs.items():
@@ -31,7 +33,7 @@ def main():
    if y.ndim==1:s[k]=s[k][:,0]
    solves.append(float((ru@s[k]-y).norm()/y.norm()))
   programs[name]=s
- ids=torch.load(BQ/'.rowcache/fineweb_n192_skip7000.pt',weights_only=True)[64:80,:129];digest=hashlib.sha256(ids.numpy().tobytes()).hexdigest();rows=[];checks=[];L,R,D=[getattr(b17.mlp,k).weight for k in ['Left','Right','Down']]
+ ids=torch.load(PANEL_PATH,weights_only=True) if PANEL_PATH is not None else torch.load(BQ/'.rowcache/fineweb_n192_skip7000.pt',weights_only=True)[64:80,:129];digest=hashlib.sha256(ids.numpy().tobytes()).hexdigest();rows=[];checks=[];L,R,D=[getattr(b17.mlp,k).weight for k in ['Left','Right','Down']]
  rel=lambda a,b:float((a-b).norm()/b.norm().clamp_min(1e-30))
  for doc,tokens in zip(PLAN['documents'],ids):
   tokens=tokens.cuda()[None];x=F.rms_norm(model.transformer.wte(tokens[:,:128]),(1152,));x0=x;v1=None;cache={}
