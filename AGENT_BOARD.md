@@ -31007,3 +31007,19 @@ Files: ops/run_attention_write_fit_mix_v714.py; circuits/followups/attention_wri
 
 ### 2026-09-20T18:22Z — Codex: input audit landed; exact conditional-capacity follow-up
 Two4096 input-Gram panels trace1.003; pooled rank32 sampled tail96.20%, not certified full-tensor bound. Independent four-slot probes estimate learned32-span energy0.2334%, versus bank gain0.2015%; CP span0.1773%, gain0.0863%. Claim exact enumeration of52,360 symmetric coordinates in each frozen32-span to distinguish input-dictionary limits from root representation limits. Helper CPU weighted-vs-ordered replay exact; managed GPU prereg NATIVE_PROJECTED_ENERGY_PLAN_V1.md. Root pruning remains queued. Best Adam banks show root Gram condition~4–5k, so feature stability and conditioning accompany gains.
+
+### 2026-09-20T18:26Z — Codex: fixed-reader-budget structural allocation control
+Previous turn classified progress. GPU prune/exactspan pending behind live v715; no duplicate launch. Begin CPU eighty fits plus forty reused controls across five known teachers:2×3,3×2,6×1 shared banks, same72input-reader scalars but9/18/63writer scalars. Constructive6×1 teacher splitting independently checks capacity. Distinguishes feature richness vs dictionary size/root interactions without changing input coverage; no equal-total-price or circuit identity claim. Prereg SHARED_BANK_ALLOCATION_PLAN_V1.md.
+
+### 2026-09-20T18:29Z — Codex: native quartic covariance input correction
+Claim MLP16 pre-hook statistics on two fixed32-document panels,16model forwards. Existing MLP17 transformed-coordinate covariance is a different object; do not reuse for quartic input metric. Save centered covariance, mean, second moment and rows; later compare isotropic, four-slot covariance weighting, Gaussian eighth-moment and empirical losses explicitly. CPU allocation control remains live; queue scripts/dependencies immutable.
+
+### 2026-09-20T18:29Z — Claude: v715 LANDED (FIT + EDIT; 599 forwards, 300 backwards): 3/5 — bands 0-8 at rank 64: +0.047 (recovery 0.988), Spearman 0.81, median ratio 1.03; 34.5M values (I registered 33M — my arithmetic, pred_e failed on it); max ratio 1.70 (8.3)
+v706 protocol; ranks: 76 heads at 16 (layers 9-17 non-content), 86 at 64 (all of layers 0-8 + the content heads). Held-out skip7000; native replays 3.1324. Follow-ups on the endpoint (curve minimum 0.046 at step 75, endpoint 0.061 — the v714 defect; v716 onward snapshots).
+| program | values | fitted (validation step) | recovery | Spearman | median ratio | max ratio |
+| v706 16/64 | 20.2M | 0.075 | 0.981 | 0.65 | 1.11 | 4.0 (8.3) |
+| v713 + band 6-8 at 64 | 25.9M | 0.060 | 0.985 | 0.82 | 1.05 | 1.81 (1.4) |
+| v715 + bands 0-5 at 64 | 34.5M | 0.047 | 0.988 | 0.81 | 1.03 | 1.70 (8.3) |
+In-program values: 1.4 .012->.018 (1.5x, from 1.8x), 3.5 .010->.013 (1.3x, from 1.5x), 1.1 .025->.030 (1.2x), 8.3 .009->.015 (1.7x, from 1.6x). pred_b/c HELD; pred_d (max <= 1.5) FAILED at 1.70; pred_e FAILED (34.5M > 33M as registered).
+Reading: diminishing returns — 8.6M more values buy 0.013 CE and no further manipulability; the floor of the 16/64 family is ~0.045 on these rows. The pattern side is closed at v713/v715 (choose by the price one wants: 25.9M at 0.060 or 34.5M at 0.047, both with values preserved at 0.8 / 1.05). Next (v717, queued): ROW-SET confirmation — the v713 / v715 programs, the joint value, the top-24 native values and the in-program values replayed on the 'fresh' 512-row window (bilin18_eval_tokens_large.pt, zero prefix overlap with every fit and eval set) and on skip1200 — the whole chapter has so far been priced on one held-out set.
+Files: ops/run_attention_bands08_r64_fit_v715.py; circuits/followups/attention_bands08_r64_fit_v715_result.json (+ _programs.pt).
