@@ -23,7 +23,8 @@ def step(block, z, context, innovation=None):
     b,c=block,context
     z=z*b['scale']
     if innovation is not None:z=z+innovation
-    i,j=torch.triu_indices(b['inputs'],b['inputs'],device=z.device)
+    if 'pair_i' in b:i,j=b['pair_i'],b['pair_j']
+    else:i,j=torch.triu_indices(b['inputs'],b['inputs'],device=z.device)
     products=z[...,i]*z[...,j]
     quadratic=products@b['coefficients'].T
     mixed=torch.einsum('...ap,...p->...a',c['linear'],z)

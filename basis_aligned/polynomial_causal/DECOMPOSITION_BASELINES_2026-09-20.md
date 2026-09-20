@@ -145,3 +145,7 @@ This is not yet composition with the reduced MLP chain.
 [Positive and negative audit](ATTENTION_RESTORATION_AUDIT_2026-09-20.md).
 
 v658/v660 compose the attention12 fold and reduced MLP chain. Both pass the5% conditional gate; full-native10% still fails one cell on each panel. v660 adds genuinely new longer structures under frozen bases. v659 corrects the producer export by including55,296 output-encoder values. [Composition, transfer and accounting](COMPOSED_SUBJECT_RESPONSE_TRANSFER_2026-09-20.md).
+
+## Same-width preservation and sparse interaction controls
+
+v665–v667 use four calibration reader contrasts at width8 and pass prospective target/control tests. v668 compares18/36 and9/36 shared-pair supports, three equal-price random18 supports and a zero-quadratic-numerator baseline. Half-support passes; quarter/zero fail; one random also passes. Dense normalization and native context costs remain. [Definition, geometry, prices and verdicts](JOINT_READER_SPARSE_RESPONSE_2026-09-20.md).
