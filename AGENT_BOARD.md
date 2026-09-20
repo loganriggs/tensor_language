@@ -26971,3 +26971,16 @@ Native128-coordinate replay5.10e-7. Sparsecores out32/128 and256/2048/8192 edges
 
 ### 2026-09-20T05:03:59.201442+00:00 — Codex: v639/v640 shared-core frontier and dense control complete
 Exact conditional128-coordinate native replay5.10e-7; shared-pair compiler test passes. Sparse joint cores fail. Dense outputrank128 control still crosserror52–61% (sparse8192edges64–80%), identifying an output-energy-subspace bottleneck before pruning. Both ranks32/128 fail10% gates, not a universal sparse-DAG bound. Each64forwards/0fits. HEAD_SHARED_CORE_BASELINE_2026-09-20.md records allfrontier values and conditional-only cost. Change observable/feature objective next, not repeat rank/budget sweeps.
+
+### 2026-09-20T05:05:38.973831+00:00 — Codex: claim v641 output-objective discriminator
+Prior turn progress: native conditional executor verified, dense cores show output-energy-basis bottleneck. Compare same dense ranks32/128 with calibration-interaction covariance basis and matched random basis. Cal8docs skip80[96:104] x128; freeze before evaluation on now-opened v637families.65forwards, no model updates; explicitly data-informed basis, not weights-only discovery. Cross and normalized face10% criteria remain; full conditional background costs unchanged.
+
+### 2026-09-20T05:05Z — Claude: v634 LANDED (EDIT; 188 forwards, 0 fits; first run died on an inherited layer-0 index, re-run): 3/5 — fixed kernels stay cheap singly through layer 4; content becomes load-bearing at layer 5 (head 5.7)
+Rows: kernels from 64 skip80 rows; CE on 192 x 512 skip7000 (native replays). Kernel-only singles (x1e-3) and 9-head banks. CE ADDED, lower is better.
+| layer | singles | cheap (<= 0.01) | bank |
+| 3 | 3.0:4.7 3.1:1.3 3.2:2.0 3.3:3.5 3.4:2.9 3.5:5.9 3.6:2.5 3.7:1.0 3.8:11.2 | 8 / 9 | 0.043 |
+| 4 | 4.0:3.8 4.1:5.1 4.2:0.9 4.3:1.0 4.4:0.9 4.5:5.8 4.6:2.2 4.7:2.2 4.8:1.6 | 9 / 9 | 0.035 |
+| 5 | 5.0:2.6 5.1:2.3 5.2:4.4 5.3:6.6 5.4:3.3 5.5:11.4 5.6:2.8 5.7:82.5 5.8:6.5 | 7 / 9 | 0.163 |
+Predictions: pred_a HELD; pred_b (cheap count non-increasing with depth) FAILED — 8, 9, 7; pred_c (banks grow with depth) FAILED — 0.043, 0.035, 0.163; pred_d (>= 3 cheap heads per layer) HELD; pred_e (layer-5 bank >= 0.10) HELD.
+Reading: through layer 4 the single-head picture of v629 persists — any one head is a fixed positional filter to the loss — and the per-layer banks stay at 0.03-0.05. Layer 5 breaks it: head 5.7 (mean signed row sum +2.09, the largest in the model so far — a strong, broad, positive attention) costs 0.083 on its own when its pattern is replaced by its mean kernel; its content dependence is load-bearing by itself, the first such head from the front. Natural candidate: the induction head that pairs with 0.3's previous-token tap (Logan's 19 Sep template: two identity couplings).
+Next (v635, building): name 5.7 — on 64 rows, the share of each layer-5 head's off-diagonal |mass| on induction-eligible keys (tok_{j-1} == tok_i) and on duplicate keys (tok_j == tok_i) against the base rates; then an edit that zeroes 5.7's off-diagonal only on induction-eligible keys vs only elsewhere, to see which part carries the 0.083.
