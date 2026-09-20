@@ -50,17 +50,21 @@ def source_observables(model,raw,x0,first,directions,positions,read,pairs,amplit
     logits=30*torch.tanh((norm64(x[batch,read])[:,None,None,:]*model.lm_head.weight[pairs].double()).sum(-1)/30)
     return logits[:,:,0]-logits[:,:,1]
 
-def source_observables32(model,raw,x0,first,directions,positions,read,pairs,amplitudes,capture=None):
+def source_observables32(model,raw,x0,first,directions,positions,read,pairs,amplitudes,capture=None,start_layer=11):
     """Native float32 endpoint for the same nominated-source interface."""
     import torch
     import torch.nn.functional as F
     batch=torch.arange(len(raw),device=raw.device);x=raw.clone()
     x[batch,positions]=(raw[batch,positions].double()+torch.einsum('bi,bid->bd',amplitudes.double(),directions.double())).float()
-    for layer in range(11,18):
+    if not 11<=start_layer<=18:raise ValueError('Invalid suffix start')
+    if capture is not None and capture.get('all_blocks'):
+        capture['initial_state']=x.detach().clone();capture['post_blocks']={}
+    for layer in range(start_layer,18):
         block=model.transformer.h[layer]
         if layer>11:x=block.lambdas[0]*x+block.lambdas[1]*x0
         attention,_=block.attn(F.rms_norm(x,(x.shape[-1],)),first);x=x+attention
         x=x+block.mlp(F.rms_norm(x,(x.shape[-1],)))
+        if capture is not None and capture.get('all_blocks'):capture['post_blocks'][layer]=x.detach().clone()
     if capture is not None:capture['final_state']=x[batch,read].detach().clone()
     logits=30*torch.tanh(model.lm_head(F.rms_norm(x[batch,read],(x.shape[-1],)))/30)
     values=logits.gather(1,pairs.reshape(len(x),-1)).reshape(len(x),-1,2)

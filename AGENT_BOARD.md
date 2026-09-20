@@ -30617,3 +30617,6 @@ Weak interactions up49.5%number. CPU60-field affine-state readout exact and cros
 
 ### 2026-09-20T14:18:01.468216+00:00 — Codex: selective composition8/8; predictive closure1/8
 Additiveweakerrorup.495; exactsharedreadout/affinestate still1/8prediction, instrument4.03e-6absolute. CPU interactionprediction partition executed; rootshares-.138to.240. Next upstream joint-state computation needed; repeated final-root-only fitting demoted. See V4_SELECTIVE_COMPOSITION_2026-09-20.md.
+
+### 2026-09-20T14:20:03.804611+00:00 — Codex: claim source-interaction suffix join curve
+Prior turn progress selective composition plus readout-only null. Apply established additive-state boundary method to current frozen23-port selectors, allnineoutputs andweakbudget; target a last<=3block fold if sufficient. Shared evaluator optional partial start/capture, old defaultsreplayed.12prefix16full32joined suffixes; no new fit.

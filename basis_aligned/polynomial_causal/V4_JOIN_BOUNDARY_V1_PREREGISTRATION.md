@@ -1,0 +1,7 @@
+# Selective source interaction join boundary
+
+Openedv4 frozen selectors. Existing CrossFirst boundary-curve method is prior art, but different inputs, causal sources and outcome budget. This instance asks which native suffix suffices for weak-component prediction of the now-selective subject/attractor pair. No local generation/unique causality claim.
+
+Capture baseline and singleton states at initial rawpre11 and postblocks11–17. For each boundary independently form hs+ha-h0 in FP64, cast to nativeFP32, and run remaining suffix. Earlier source/background states are native borrowed ports. Bound10 is exact full-joint construction; bound17 is final additive-state readout. All8boundaries, no selective reporting.12prefix16fullsuffix32joined suffix calls. Shared evaluator gains optional start_layer and opt-in all_blocks capture; existing defaults unchanged.
+
+Instrument: original single/joint effects replay<=1e-8, boundary10 fulljoint<=1e-8absolute; report boundary17 agreement with prior final-root prediction normalized by weaker-effect norm<=.001. All boundaries scored at.1number/.05eachcontrol relative to min(single number norms), every8cells. A short suffix candidate requires at least boundary>=14 (last three blocks or less) pass every cell. Null: earlier/multiple interactions remain necessary. Finite normative gates unchanged, no fresh OOD claim. Literal remaining block counts and extra native prefix/singleton generation charged. Passing only exact boundary10 is not a scientific success.
