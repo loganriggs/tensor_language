@@ -70,3 +70,11 @@ The native CUDA SVD full basis fails orthogonality/replay; CPU float64 repairs
 full-rank recovery but leaves rank512 failure unchanged. Joint-mode rank512
 also fails. See [audit](JOINT_INPUT_BASELINE_AUDIT_2026-09-20.md). This is a
 measured input-mode projection baseline, not yet a native HT or sparse-core run.
+
+## Shared native-product follow-up
+
+v632/v633 compare full-write, contracted-parent and matched random supports,
+preserving full input span. The parent isotropic functional metric (including
+trace) improves strongly over coefficient Frobenius selection but no compressed
+arm reaches10% error. See [metric audit](SHARED_PRODUCT_METRIC_AUDIT_2026-09-20.md).
+These are fixed-dictionary baselines, not a bound on learned quadratic features.
