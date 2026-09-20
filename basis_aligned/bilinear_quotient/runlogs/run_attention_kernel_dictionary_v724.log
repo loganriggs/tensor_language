@@ -1,0 +1,14 @@
+dictionary k=4: energy 0.9640 | cost +0.0734 (program +0.0723, over +0.0011)
+dictionary k=8: energy 0.9829 | cost +0.0724 (program +0.0723, over +0.0001)
+dictionary k=16: energy 0.9911 | cost +0.0725 (program +0.0723, over +0.0002)
+native 3.13241 | energy cum (1..16): [0.751, 0.891, 0.933, 0.964, 0.972, 0.977, 0.98, 0.983, 0.984, 0.986, 0.987, 0.988, 0.989, 0.99, 0.99, 0.991]
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_kernel_energy_concentrates": true,
+    "pred_c_dictionary8_cheap": true,
+    "pred_d_dictionary4_cost": false,
+    "pred_e_dictionary16_free": true
+  },
+  "forwards": 32
+}

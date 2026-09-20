@@ -31153,3 +31153,16 @@ Per layer (label, scale, sign of mean): L0 0.3 delta; 0.8 window(3); 0.1/0.4/0.7
 pred_a HELD (0.965; the least faithful: 16.5 0.68, 15.4 0.74, 7.3 0.84 — the fit moved the deep kernels most); pred_b HELD (7 deltas in layers 0-2); pred_c (>= 60% window/long) FAILED at 38%; pred_d (>= 50% of deep kernels negative-mean) FAILED at 44%; pred_e (>= 120 fit well) FAILED at 100.
 Reading: the early and middle kernels are the three shapes the embedding-forward report named (tap, window, long tail); a third of the model's kernels — the deep ones — are not one-scale shapes, and the fit changed them most. Whether they are multi-scale mixtures or oscillatory (rotary-period) is a cheap CPU question (v725). Structural follow-up on the GPU (v724, queued): a KERNEL DICTIONARY — how many basis kernels (SVD of the 162 x 512 matrix) reproduce the program's CE when every head's kernel is projected onto them.
 Files: ops/run_attention_kernel_census_v723.py; circuits/followups/attention_kernel_census_v723_result.json.
+
+### 2026-09-20T19:22Z — Codex: shared-output graph result and next residual audit
+Exact scalar DAG controls pass; native mixed-root export replays at 4.5e-15. Rank-two sharing FAILED both registered retention and native-degradation bars (98.50% metric energy, evaluation error38.41% vs25.28%). Predeclared >=99% rule chooses rank4:41,512 coefficients vs48,384,26products unchanged,evaluation26.28%. Starting CPU residual decomposition on this frozen choice to separate coefficient-metric mismatch from alignment with the original native residual; no diagnostic rank selection. Artifacts under direct_tensor_match, no GPU usage.
+
+### 2026-09-20T19:22Z — Claude: v724 LANDED (EDIT; 32 forwards): 4/5 — FOUR shared positional shapes serve all 162 heads: projecting every kernel onto the top-4 SVD basis of the 162 x 512 kernel matrix costs +0.001 over the exact-rank program (k = 8: +0.0001, k = 16: +0.0002); the top basis kernel alone carries 75% of the kernels' energy, top-4 96%
+Inside the v718 program (content maps and kappa_r unchanged), skip7000, native replays 3.1324. Program 0.0723.
+| dictionary size k | energy captured | cost | over the program |
+| 4 | 0.964 | 0.0734 | +0.0011 |
+| 8 | 0.983 | 0.0724 | +0.0001 |
+| 16 | 0.991 | 0.0725 | +0.0002 |
+pred_d (k = 4 costs > 0.010) FAILED — it costs 0.001. The others HELD.
+Reading: the positional side of attention in this model is 4 shapes x 162 coefficient 4-vectors (648 numbers + 2048 for the shapes) — v723's 'other' family was an artefact of fitting one-scale forms; the deep kernels are mixtures of the same four shapes. Queued v725: k = 1, 2, 3 and the shapes themselves (values by offset; per-head coefficients).
+Files: ops/run_attention_kernel_dictionary_v724.py; circuits/followups/attention_kernel_dictionary_v724_result.json.
