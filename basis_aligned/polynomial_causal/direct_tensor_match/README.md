@@ -178,3 +178,13 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 - `input_mode_calibration.py`, `INPUT_MODE_CALIBRATION_PLAN_V1.md`, `INPUT_MODE_CALIBRATION_V1.json`: radial input-span bound99.9591% atd1152/r32 and finite-probe spectral-bias calibration.
 - `NATIVE_SHARED_BANK_PRUNE_PLAN_V1.md`: queued45-support exact eight-of-ten root selection, matchingCP8 scalar count plus16supportintegers.
 - `projected_quartic_energy.py`, `NATIVE_PROJECTED_ENERGY_PLAN_V1.md`: CPU exhaustive weighted-coordinate check passed; native exact conditional input-capacity audit queued.
+
+## Root sparsity and structural allocation — 18:29 UTC
+
+[Timed report](../explanations/for_logan/research_update_2026-09-20_1829_sparsity_and_structural_assumptions.md).
+
+- `NATIVE_SHARED_BANK_PRUNE_V1.json/.pt`: best gain0.14363% atCP8 scalar count+16support integers; strongest ten-root banks retain only44–46% when pruned. Allregistered predictions pass, but90%-retention prediction applies to a weakfit.
+- `audit_root_output_rank.py`, `ROOT_OUTPUT_RANK_V1.json`: exact outputrank8 approximation preserves≥99.9586% of exportedstudent energy; keeps10root products andadds80mixing scalars. Notnative teacherrefit or8-rootprogram.
+- `SHARED_BANK_ALLOCATION_PLAN_V1.md`, `shared_bank_allocation.py`, `SHARED_BANK_ALLOCATION_V1.json`:80new+40prior fits,2×3/3×2/6×1, same72reader scalars butdifferentwriter costs. All6×1oracle witnesses<2.5e-8; randomcoordinatebest31.1%, contradictingallfamilyrecoveryprediction.
+- `square_leaf_control.py`, `SQUARE_LEAF_CONTROL_V1.json`:16known-capacity controls; squareleavesrescuecoordinate butrandomrotatedsignedbest31.1%. Witnessespass; coordinatepredictionholds, signedrecoverypredictionfails.
+- `NATIVE_QUARTIC_COVARIANCE_PLAN_V1.md`: queued16forward MLP16input capture, distinctfromearlierMLP17coordinates; centeredcovariance/mean/secondmoment/rows saved forisotropic-vsweightedfollowup.

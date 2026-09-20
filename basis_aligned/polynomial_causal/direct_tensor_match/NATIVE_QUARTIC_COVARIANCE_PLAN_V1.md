@@ -1,0 +1,7 @@
+# Covariance at the quartic teacher's actual input — 2026-09-20 18:29 UTC
+
+Pure MLP16→MLP17 quartic input x is the normalized input to MLP16. Existing NATIVE_COVARIANCE_V1 measured MLP17 input after a concatenation-frame coordinate change; it cannot be reused as this x covariance. Capture MLP16 pre-hook inputs on the same two disjoint fixed FineWeb panels (32documents×64tokens,16model forwards total). Save actual rows, centered covariance, mean and second moment, with token hashes. Fit/calibrate only on first panel in follow-ups. The second panel is a diagnostic evaluation set, not claimed untouched final OOD evidence.
+
+Pred_a_capture:16forwards and2048rows perpanel, all finite. Pred_b_identity: covariance+mean outer product=second moment with relative error<1e-10, minimum eigenvalue≥−1e-10×largest. Pred_c_shift: centered covariance relative panel shift>.01. No loss-based selection here. Save FP32 rows/statistics after FP64 calculations and report cast error; no deployment/circuit claim.
+
+Next use: contrast isotropic and data-informed coefficient metrics via M^(1/2) on each of four input slots; distinguish this from E_{x~N(0,M)} squared polynomial error, which includes eighth-moment Wick terms, and from empirical non-Gaussian function error. Explicitly vary eigenvalue floors and separate centered M from uncentered second moment. Do not call Gaussian or Kronecker-metric matching exact empirical matching. Captured statistics are data information; weight contraction remains the teacher objective.
