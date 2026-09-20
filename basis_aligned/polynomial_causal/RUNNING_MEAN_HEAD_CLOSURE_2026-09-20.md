@@ -55,3 +55,10 @@ With normalized source ports n1,n0 and mixed values v=(1-mix)V1*n1+mix*V0*n0, li
 Next tests must explain which part of the head output matters to downstream computation, evaluate untouched text families and counterfactual preservation controls, and test the same operator in other heads without choosing parameters on their test data. Ordinary low CE, this algebraic reuse, and the existing multi-head replacement composition are not substitutes for those requirements.
 
 [Native receipt](../bilinear_quotient/circuits/followups/mean_head_closure_v636_result.json) · [standalone operator](running_mean_head.py)
+
+## Causal prediction follow-up
+
+v637 rejects the frozen mean as a faithful predictor of whole-head removal:
+centered-logit errors2.0–5.7 across constructed shifts and opened prose; all
+substantive prediction gates fail. [Causal audit](MEAN_HEAD_CAUSAL_PREDICTION_2026-09-20.md)
+keeps this limitation alongside the earlier low-CE result.
