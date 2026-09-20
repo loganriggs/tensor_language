@@ -1,0 +1,558 @@
+{
+  "candidate_id": "embedding_forward.mass_census_v662",
+  "finished_utc": "2026-09-20T06:38:14.734405+00:00",
+  "forwards": 2,
+  "plan": {
+    "bars": {
+      "cover": 0.95,
+      "enrich_max": 1.5,
+      "enrich_min": 2.0
+    },
+    "candidate_id": "embedding_forward.mass_census_v662",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 4,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_classes_cover": true,
+    "pred_b_03_continuation_queries_enriched": false,
+    "pred_c_07_punctuation_keys_not_enriched": true,
+    "pred_d_11_of_queries_not_enriched": true,
+    "pred_e_15_determiner_queries_not_enriched": false
+  },
+  "report": {
+    "cover": 1.000000087544322,
+    "heads": {
+      "0.3": {
+        "key_enrichment": {
+          "capitalised": 1.1556112846253135,
+          "continuation": 1.0947255527789193,
+          "determiner": 0.9183189818306049,
+          "digit": 0.8148043977404461,
+          "of_possessive": 0.833953862279036,
+          "other": 1.0274949881942188,
+          "punctuation": 1.0244695444544865,
+          "word_initial": 0.9544133206051142
+        },
+        "key_mass": {
+          "capitalised": 0.11955665796995163,
+          "continuation": 0.11981041729450226,
+          "determiner": 0.06761199980974197,
+          "digit": 0.01006898283958435,
+          "of_possessive": 0.026839375495910645,
+          "other": 0.026288889348506927,
+          "punctuation": 0.13556607067584991,
+          "word_initial": 0.5887089967727661
+        },
+        "query_enrichment": {
+          "capitalised": 0.9642757307660544,
+          "continuation": 1.2420266060634568,
+          "determiner": 1.0500511378419233,
+          "digit": 1.1806979639720898,
+          "of_possessive": 1.0430184554905175,
+          "other": 1.1823945847345305,
+          "punctuation": 0.8397163015227974,
+          "word_initial": 0.9867058543664693
+        },
+        "query_mass": {
+          "capitalised": 0.09673848003149033,
+          "continuation": 0.13515357673168182,
+          "determiner": 0.07842179387807846,
+          "digit": 0.014678196981549263,
+          "of_possessive": 0.0328206792473793,
+          "other": 0.029985083267092705,
+          "punctuation": 0.11204548925161362,
+          "word_initial": 0.6113991737365723
+        }
+      },
+      "0.4": {
+        "key_enrichment": {
+          "capitalised": 1.0016727122777167,
+          "continuation": 0.932204915218191,
+          "determiner": 1.392785409919477,
+          "digit": 0.8872820132982495,
+          "of_possessive": 0.9062400344478933,
+          "other": 1.674466934385221,
+          "punctuation": 1.0472512118279542,
+          "word_initial": 0.9758933983620487
+        },
+        "key_mass": {
+          "capitalised": 0.10363055765628815,
+          "continuation": 0.10202361643314362,
+          "determiner": 0.10254498571157455,
+          "digit": 0.01096462830901146,
+          "of_possessive": 0.029165782034397125,
+          "other": 0.04284193739295006,
+          "punctuation": 0.13858072459697723,
+          "word_initial": 0.6019585132598877
+        },
+        "query_enrichment": {
+          "capitalised": 1.498918384843485,
+          "continuation": 0.898434506089523,
+          "determiner": 0.7253313285224257,
+          "digit": 1.0453199376111544,
+          "of_possessive": 0.6087327922804004,
+          "other": 1.0855693913518663,
+          "punctuation": 0.8071696744443887,
+          "word_initial": 0.9741713439656614
+        },
+        "query_mass": {
+          "capitalised": 0.1503751277923584,
+          "continuation": 0.09776492416858673,
+          "determiner": 0.05417048931121826,
+          "digit": 0.012995204888284206,
+          "of_possessive": 0.019155004993081093,
+          "other": 0.027529632672667503,
+          "punctuation": 0.10770270973443985,
+          "word_initial": 0.6036323308944702
+        }
+      },
+      "0.6": {
+        "key_enrichment": {
+          "capitalised": 1.02770723624679,
+          "continuation": 0.9840193867128284,
+          "determiner": 1.3568014100943422,
+          "digit": 1.0120192354795237,
+          "of_possessive": 1.2552066844655165,
+          "other": 0.8567352649051581,
+          "punctuation": 0.9058053895404997,
+          "word_initial": 1.0240975183354675
+        },
+        "key_mass": {
+          "capitalised": 0.10632402449846268,
+          "continuation": 0.1076943650841713,
+          "determiner": 0.09989563375711441,
+          "digit": 0.012506074272096157,
+          "of_possessive": 0.04039667546749115,
+          "other": 0.02191993035376072,
+          "punctuation": 0.11986347287893295,
+          "word_initial": 0.6316921710968018
+        },
+        "query_enrichment": {
+          "capitalised": 0.9646721645552248,
+          "continuation": 1.1710555586252454,
+          "determiner": 1.4541321690745148,
+          "digit": 1.252498550403265,
+          "of_possessive": 0.9646632720336532,
+          "other": 0.9251921707518521,
+          "punctuation": 1.2042296689253802,
+          "word_initial": 0.9296967548078888
+        },
+        "query_mass": {
+          "capitalised": 0.0967782512307167,
+          "continuation": 0.127430722117424,
+          "determiner": 0.10860009491443634,
+          "digit": 0.0155708072707057,
+          "of_possessive": 0.030355075374245644,
+          "other": 0.023462526500225067,
+          "punctuation": 0.16068343818187714,
+          "word_initial": 0.5760742425918579
+        }
+      },
+      "0.7": {
+        "key_enrichment": {
+          "capitalised": 1.0749991844204354,
+          "continuation": 1.0055548157848373,
+          "determiner": 0.7365737249506471,
+          "digit": 0.7259031590916867,
+          "of_possessive": 0.9658102923498707,
+          "other": 0.7179643197721735,
+          "punctuation": 0.962870420272272,
+          "word_initial": 1.0115901973386117
+        },
+        "key_mass": {
+          "capitalised": 0.11121673136949539,
+          "continuation": 0.11005127429962158,
+          "determiner": 0.05423085391521454,
+          "digit": 0.008970381692051888,
+          "of_possessive": 0.03108294866979122,
+          "other": 0.018369417637586594,
+          "punctuation": 0.1274147778749466,
+          "word_initial": 0.6239773035049438
+        },
+        "query_enrichment": {
+          "capitalised": 1.0684887272589003,
+          "continuation": 0.6351233094424733,
+          "determiner": 1.0138171934881954,
+          "digit": 0.8803961332100739,
+          "of_possessive": 0.7691459539476371,
+          "other": 1.5244884535960563,
+          "punctuation": 0.956707052660744,
+          "word_initial": 1.0432452440553035
+        },
+        "query_mass": {
+          "capitalised": 0.10719338059425354,
+          "continuation": 0.06911219656467438,
+          "determiner": 0.07571570575237274,
+          "digit": 0.010944905690848827,
+          "of_possessive": 0.024202728644013405,
+          "other": 0.038660455495119095,
+          "punctuation": 0.12765586376190186,
+          "word_initial": 0.6464330554008484
+        }
+      },
+      "0.8": {
+        "key_enrichment": {
+          "capitalised": 0.9929878881573598,
+          "continuation": 0.9219910416035252,
+          "determiner": 0.914502202614641,
+          "digit": 1.0324368101022443,
+          "of_possessive": 1.0163223517169253,
+          "other": 2.1101108490516243,
+          "punctuation": 1.0011167307367044,
+          "word_initial": 0.9680813717023626
+        },
+        "key_mass": {
+          "capitalised": 0.10273204743862152,
+          "continuation": 0.10090577602386475,
+          "determiner": 0.0673309862613678,
+          "digit": 0.012758385390043259,
+          "of_possessive": 0.03270859271287918,
+          "other": 0.05398806929588318,
+          "punctuation": 0.1324758380651474,
+          "word_initial": 0.597139835357666
+        },
+        "query_enrichment": {
+          "capitalised": 1.0253192561957447,
+          "continuation": 0.6674040084581025,
+          "determiner": 1.0065039633323916,
+          "digit": 0.8439769442950316,
+          "of_possessive": 1.015615264507072,
+          "other": 1.0997875480771173,
+          "punctuation": 0.9258260672530604,
+          "word_initial": 1.0693280416984625
+        },
+        "query_mass": {
+          "capitalised": 0.10286251455545425,
+          "continuation": 0.07262488454580307,
+          "determiner": 0.07516952604055405,
+          "digit": 0.010492149740457535,
+          "of_possessive": 0.031958382576704025,
+          "other": 0.027890199795365334,
+          "punctuation": 0.12353533506393433,
+          "word_initial": 0.6625949144363403
+        }
+      },
+      "1.0": {
+        "key_enrichment": {
+          "capitalised": 1.1150254529239194,
+          "continuation": 0.9990891970147392,
+          "determiner": 0.8276398386058055,
+          "digit": 0.9916790603892707,
+          "of_possessive": 0.8719193530370807,
+          "other": 1.0354603686775843,
+          "punctuation": 1.019241055512677,
+          "word_initial": 0.9754370107276701
+        },
+        "key_mass": {
+          "capitalised": 0.11535774916410446,
+          "continuation": 0.10934365540742874,
+          "determiner": 0.060935672372579575,
+          "digit": 0.012254719622433186,
+          "of_possessive": 0.02806122973561287,
+          "other": 0.026492686942219734,
+          "punctuation": 0.13487419486045837,
+          "word_initial": 0.6016770005226135
+        },
+        "query_enrichment": {
+          "capitalised": 0.8325653944939521,
+          "continuation": 0.5662865751552173,
+          "determiner": 0.8051630265621483,
+          "digit": 0.8554603724452262,
+          "of_possessive": 0.6220358374463988,
+          "other": 3.2306048287732985,
+          "punctuation": 2.520355615334267,
+          "word_initial": 0.6874900380240865
+        },
+        "query_mass": {
+          "capitalised": 0.08352497965097427,
+          "continuation": 0.061621591448783875,
+          "determiner": 0.060132622718811035,
+          "digit": 0.010634909383952618,
+          "of_possessive": 0.01957361213862896,
+          "other": 0.08192692697048187,
+          "punctuation": 0.33629748225212097,
+          "word_initial": 0.42599406838417053
+        }
+      },
+      "1.1": {
+        "key_enrichment": {
+          "capitalised": 1.0539174789034953,
+          "continuation": 1.0664029769826013,
+          "determiner": 0.9375958571496228,
+          "digit": 1.151607898038212,
+          "of_possessive": 0.9454581390382255,
+          "other": 1.0023705475519302,
+          "punctuation": 1.095171989145517,
+          "word_initial": 0.9556219796207412
+        },
+        "key_mass": {
+          "capitalised": 0.1090356707572937,
+          "continuation": 0.11671070009469986,
+          "determiner": 0.06903127580881119,
+          "digit": 0.014231047593057156,
+          "of_possessive": 0.030427949503064156,
+          "other": 0.025646070018410683,
+          "punctuation": 0.14492198824882507,
+          "word_initial": 0.5894545316696167
+        },
+        "query_enrichment": {
+          "capitalised": 1.066963890511196,
+          "continuation": 0.9990107610546323,
+          "determiner": 1.0577701985497046,
+          "digit": 1.1719740885520065,
+          "of_possessive": 0.8911800747804244,
+          "other": 1.3597385794696892,
+          "punctuation": 1.353862473947477,
+          "word_initial": 0.8949578477957255
+        },
+        "query_mass": {
+          "capitalised": 0.1070404052734375,
+          "continuation": 0.10870932787656784,
+          "determiner": 0.07899828255176544,
+          "digit": 0.014569743536412716,
+          "of_possessive": 0.028042778372764587,
+          "other": 0.03448246046900749,
+          "punctuation": 0.18064932525157928,
+          "word_initial": 0.5545487403869629
+        }
+      },
+      "1.3": {
+        "key_enrichment": {
+          "capitalised": 1.1718129077042634,
+          "continuation": 1.2411873565105769,
+          "determiner": 0.6389282538202199,
+          "digit": 1.0195235987180165,
+          "of_possessive": 0.6321723760538526,
+          "other": 0.6399010721191153,
+          "punctuation": 0.596368220930937,
+          "word_initial": 1.029525564616633
+        },
+        "key_mass": {
+          "capitalised": 0.12123283743858337,
+          "continuation": 0.13583968579769135,
+          "determiner": 0.047041624784469604,
+          "digit": 0.012598809786140919,
+          "of_possessive": 0.020345384255051613,
+          "other": 0.016372136771678925,
+          "punctuation": 0.07891625165939331,
+          "word_initial": 0.6350403428077698
+        },
+        "query_enrichment": {
+          "capitalised": 0.5582739846155765,
+          "continuation": 0.9808469838105925,
+          "determiner": 1.608955227751946,
+          "digit": 0.7552933878911102,
+          "of_possessive": 1.8063593549463275,
+          "other": 0.9042239555426448,
+          "punctuation": 1.4371384153253774,
+          "word_initial": 0.9895772120588558
+        },
+        "query_mass": {
+          "capitalised": 0.056007400155067444,
+          "continuation": 0.1067328006029129,
+          "determiner": 0.12016286700963974,
+          "digit": 0.00938965380191803,
+          "of_possessive": 0.05684074014425278,
+          "other": 0.022930780425667763,
+          "punctuation": 0.1917610466480255,
+          "word_initial": 0.6131783723831177
+        }
+      },
+      "1.5": {
+        "key_enrichment": {
+          "capitalised": 1.0356356058200622,
+          "continuation": 0.91740162660604,
+          "determiner": 0.7729161581608056,
+          "digit": 0.6804407688584677,
+          "of_possessive": 0.8436582481926721,
+          "other": 1.2868123022405176,
+          "punctuation": 0.7777474425098189,
+          "word_initial": 1.0508634983527818
+        },
+        "key_mass": {
+          "capitalised": 0.10714427381753922,
+          "continuation": 0.10040349513292313,
+          "determiner": 0.05690659582614899,
+          "digit": 0.008408578112721443,
+          "of_possessive": 0.027151694521307945,
+          "other": 0.032923631370067596,
+          "punctuation": 0.10291781276464462,
+          "word_initial": 0.6482021808624268
+        },
+        "query_enrichment": {
+          "capitalised": 0.521458148533893,
+          "continuation": 0.5606259072559732,
+          "determiner": 1.5147309108002802,
+          "digit": 0.8530248251868744,
+          "of_possessive": 1.1486738923077124,
+          "other": 1.2147170239543674,
+          "punctuation": 0.9137150152431619,
+          "word_initial": 1.1673803377313041
+        },
+        "query_mass": {
+          "capitalised": 0.052313946187496185,
+          "continuation": 0.0610056146979332,
+          "determiner": 0.11312583833932877,
+          "digit": 0.010604631155729294,
+          "of_possessive": 0.03614534065127373,
+          "other": 0.030804768204689026,
+          "punctuation": 0.12191932648420334,
+          "word_initial": 0.7233517169952393
+        }
+      },
+      "1.6": {
+        "key_enrichment": {
+          "capitalised": 1.1225253281564496,
+          "continuation": 0.9300704951571341,
+          "determiner": 0.7597441866395626,
+          "digit": 0.9973981849470496,
+          "of_possessive": 0.6977715361549507,
+          "other": 2.0328974807708784,
+          "punctuation": 1.2116663622504698,
+          "word_initial": 0.9036566960028347
+        },
+        "key_mass": {
+          "capitalised": 0.1161336675286293,
+          "continuation": 0.10179001837968826,
+          "determiner": 0.055936798453330994,
+          "digit": 0.012325393967330456,
+          "of_possessive": 0.02245658077299595,
+          "other": 0.05201253294944763,
+          "punctuation": 0.16033746302127838,
+          "word_initial": 0.5574008822441101
+        },
+        "query_enrichment": {
+          "capitalised": 1.0038506361061617,
+          "continuation": 0.7581910566308485,
+          "determiner": 1.101824761010897,
+          "digit": 0.8900747946966485,
+          "of_possessive": 1.1639193153718723,
+          "other": 1.5289568114804097,
+          "punctuation": 1.3715610474144473,
+          "word_initial": 0.9423865205291494
+        },
+        "query_mass": {
+          "capitalised": 0.1007087305188179,
+          "continuation": 0.08250405639410019,
+          "determiner": 0.08228844404220581,
+          "digit": 0.011065228842198849,
+          "of_possessive": 0.03662506863474846,
+          "other": 0.03877377137541771,
+          "punctuation": 0.18301089107990265,
+          "word_initial": 0.5839372873306274
+        }
+      },
+      "1.7": {
+        "key_enrichment": {
+          "capitalised": 0.8850115632258523,
+          "continuation": 0.8800831438748754,
+          "determiner": 1.1945698252925654,
+          "digit": 1.1474104618543903,
+          "of_possessive": 1.2248638318535363,
+          "other": 1.4097110912461333,
+          "punctuation": 1.2276224254215977,
+          "word_initial": 0.9717835905115823
+        },
+        "key_mass": {
+          "capitalised": 0.09156108647584915,
+          "continuation": 0.09631923586130142,
+          "determiner": 0.08795119822025299,
+          "digit": 0.014179177582263947,
+          "of_possessive": 0.03942014276981354,
+          "other": 0.03606804832816124,
+          "punctuation": 0.16244889795780182,
+          "word_initial": 0.5994234681129456
+        },
+        "query_enrichment": {
+          "capitalised": 0.8573239397289931,
+          "continuation": 0.6736512495885874,
+          "determiner": 1.0870118461020315,
+          "digit": 0.9192756661028098,
+          "of_possessive": 1.036749382581439,
+          "other": 1.0750143685073168,
+          "punctuation": 1.3937830413220962,
+          "word_initial": 0.9941634965498978
+        },
+        "query_mass": {
+          "capitalised": 0.08600881695747375,
+          "continuation": 0.0733046904206276,
+          "determiner": 0.08118215948343277,
+          "digit": 0.011428248137235641,
+          "of_possessive": 0.03262341022491455,
+          "other": 0.02726196125149727,
+          "punctuation": 0.1859760284423828,
+          "word_initial": 0.6160202026367188
+        }
+      },
+      "1.8": {
+        "key_enrichment": {
+          "capitalised": 1.0355583328070175,
+          "continuation": 0.8195942253225423,
+          "determiner": 0.9202189216397022,
+          "digit": 0.9664319659616903,
+          "of_possessive": 0.865780428248893,
+          "other": 1.6179041642706022,
+          "punctuation": 0.7331381766513303,
+          "word_initial": 1.0583374135721353
+        },
+        "key_mass": {
+          "capitalised": 0.10713627934455872,
+          "continuation": 0.08969912678003311,
+          "determiner": 0.06775188446044922,
+          "digit": 0.011942727491259575,
+          "of_possessive": 0.02786365896463394,
+          "other": 0.041394755244255066,
+          "punctuation": 0.09701475501060486,
+          "word_initial": 0.6528123021125793
+        },
+        "query_enrichment": {
+          "capitalised": 1.1580113193803692,
+          "continuation": 0.6826842856367202,
+          "determiner": 0.9815360067869873,
+          "digit": 1.0400063227888594,
+          "of_possessive": 0.8768928772729,
+          "other": 1.3893735844954533,
+          "punctuation": 1.324648805344616,
+          "word_initial": 0.9434938930502467
+        },
+        "query_mass": {
+          "capitalised": 0.11617450416088104,
+          "continuation": 0.07428763806819916,
+          "determiner": 0.07330482453107834,
+          "digit": 0.012929147109389305,
+          "of_possessive": 0.027593202888965607,
+          "other": 0.0352339930832386,
+          "punctuation": 0.1767512708902359,
+          "word_initial": 0.5846234560012817
+        }
+      }
+    },
+    "key_share": {
+      "capitalised": 0.1034575030207634,
+      "continuation": 0.10944333672523499,
+      "determiner": 0.0736258327960968,
+      "digit": 0.012357546016573906,
+      "of_possessive": 0.03218328580260277,
+      "other": 0.025585418567061424,
+      "punctuation": 0.132328063249588,
+      "word_initial": 0.6168281435966492
+    },
+    "position_share": {
+      "capitalised": 0.100322425365448,
+      "continuation": 0.1088169738650322,
+      "determiner": 0.0746837854385376,
+      "digit": 0.0124317966401577,
+      "of_possessive": 0.0314670167863369,
+      "other": 0.02535962499678135,
+      "punctuation": 0.1334325522184372,
+      "word_initial": 0.6196367144584656
+    }
+  },
+  "schema": "embedding_forward_mass_census_result_v662",
+  "serial_seconds": 2.7077660460490733
+}

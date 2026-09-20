@@ -1,0 +1,23 @@
+head 0.3: query enrichment word_=0.99 capit=0.96 conti=1.24 punct=0.84 digit=1.18 other=1.18 of_po=1.04 deter=1.05 | key enrichment word_=0.95 capit=1.16 conti=1.09 punct=1.02 digit=0.81 other=1.03 of_po=0.83 deter=0.92
+head 0.4: query enrichment word_=0.97 capit=1.50 conti=0.90 punct=0.81 digit=1.05 other=1.09 of_po=0.61 deter=0.73 | key enrichment word_=0.98 capit=1.00 conti=0.93 punct=1.05 digit=0.89 other=1.67 of_po=0.91 deter=1.39
+head 0.6: query enrichment word_=0.93 capit=0.96 conti=1.17 punct=1.20 digit=1.25 other=0.93 of_po=0.96 deter=1.45 | key enrichment word_=1.02 capit=1.03 conti=0.98 punct=0.91 digit=1.01 other=0.86 of_po=1.26 deter=1.36
+head 0.7: query enrichment word_=1.04 capit=1.07 conti=0.64 punct=0.96 digit=0.88 other=1.52 of_po=0.77 deter=1.01 | key enrichment word_=1.01 capit=1.07 conti=1.01 punct=0.96 digit=0.73 other=0.72 of_po=0.97 deter=0.74
+head 0.8: query enrichment word_=1.07 capit=1.03 conti=0.67 punct=0.93 digit=0.84 other=1.10 of_po=1.02 deter=1.01 | key enrichment word_=0.97 capit=0.99 conti=0.92 punct=1.00 digit=1.03 other=2.11 of_po=1.02 deter=0.91
+head 1.0: query enrichment word_=0.69 capit=0.83 conti=0.57 punct=2.52 digit=0.86 other=3.23 of_po=0.62 deter=0.81 | key enrichment word_=0.98 capit=1.12 conti=1.00 punct=1.02 digit=0.99 other=1.04 of_po=0.87 deter=0.83
+head 1.1: query enrichment word_=0.89 capit=1.07 conti=1.00 punct=1.35 digit=1.17 other=1.36 of_po=0.89 deter=1.06 | key enrichment word_=0.96 capit=1.05 conti=1.07 punct=1.10 digit=1.15 other=1.00 of_po=0.95 deter=0.94
+head 1.3: query enrichment word_=0.99 capit=0.56 conti=0.98 punct=1.44 digit=0.76 other=0.90 of_po=1.81 deter=1.61 | key enrichment word_=1.03 capit=1.17 conti=1.24 punct=0.60 digit=1.02 other=0.64 of_po=0.63 deter=0.64
+head 1.5: query enrichment word_=1.17 capit=0.52 conti=0.56 punct=0.91 digit=0.85 other=1.21 of_po=1.15 deter=1.51 | key enrichment word_=1.05 capit=1.04 conti=0.92 punct=0.78 digit=0.68 other=1.29 of_po=0.84 deter=0.77
+head 1.6: query enrichment word_=0.94 capit=1.00 conti=0.76 punct=1.37 digit=0.89 other=1.53 of_po=1.16 deter=1.10 | key enrichment word_=0.90 capit=1.12 conti=0.93 punct=1.21 digit=1.00 other=2.03 of_po=0.70 deter=0.76
+head 1.7: query enrichment word_=0.99 capit=0.86 conti=0.67 punct=1.39 digit=0.92 other=1.08 of_po=1.04 deter=1.09 | key enrichment word_=0.97 capit=0.89 conti=0.88 punct=1.23 digit=1.15 other=1.41 of_po=1.22 deter=1.19
+head 1.8: query enrichment word_=0.94 capit=1.16 conti=0.68 punct=1.32 digit=1.04 other=1.39 of_po=0.88 deter=0.98 | key enrichment word_=1.06 capit=1.04 conti=0.82 punct=0.73 digit=0.97 other=1.62 of_po=0.87 deter=0.92
+position shares: {'word_initial': 0.62, 'capitalised': 0.1, 'continuation': 0.109, 'punctuation': 0.133, 'digit': 0.012, 'other': 0.025, 'of_possessive': 0.031, 'determiner': 0.075} | cover of the six base classes: 1.0
+{
+  "predictions": {
+    "pred_a_classes_cover": true,
+    "pred_b_03_continuation_queries_enriched": false,
+    "pred_c_07_punctuation_keys_not_enriched": true,
+    "pred_d_11_of_queries_not_enriched": true,
+    "pred_e_15_determiner_queries_not_enriched": false
+  },
+  "forwards": 2
+}
