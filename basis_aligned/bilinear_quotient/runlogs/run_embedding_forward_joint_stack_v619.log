@@ -1,0 +1,20 @@
+skip7000: native 3.13241
+  MLP-0: singles in +0.0188 hid +0.0185 out +0.0112 | joint small +0.0428 large +0.0168
+  MLP-1: singles in +0.0411 hid +0.0239 out +0.0205 | joint small +0.1041 large +0.0235
+  MLP-2: singles in +0.0251 hid +0.0164 out +0.0129 | joint small +0.0501 large +0.0153
+  STACK small +0.4064 (price 19.46M vs 47.8M, 2.5x) | large +0.0833 (1.2x)
+skip11000: native 2.96672
+  MLP-0: singles in +0.0221 hid +0.0226 out +0.0146 | joint small +0.0486 large +0.0201
+  MLP-1: singles in +0.0461 hid +0.0282 out +0.0241 | joint small +0.1134 large +0.0271
+  MLP-2: singles in +0.0293 hid +0.0185 out +0.0140 | joint small +0.0554 large +0.0175
+  STACK small +0.4357 (price 19.46M vs 47.8M, 2.5x) | large +0.0900 (1.2x)
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_three_mode_additive": true,
+    "pred_c_stack_additive": false,
+    "pred_d_stack_large_cheap": false,
+    "pred_e_stack_small_bounded": false
+  },
+  "forwards": 216
+}
