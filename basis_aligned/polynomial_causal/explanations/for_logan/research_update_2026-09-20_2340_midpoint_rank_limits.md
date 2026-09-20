@@ -11,7 +11,7 @@ $$
 Output rank means the dimension of the shared output space. The output unfolding treats the two input indices as one column index. Its Gram eigenvalues are squared singular values. For any approximation whose output rank is at most r,
 
 $$
-rac{\|T-\widehat T\|_F}{\|T\|_F}\geq\sqrt{rac{\sum_{j>r}\lambda_j}{\sum_j\lambda_j}}.
+\frac{\|T-\widehat T\|_F}{\|T\|_F}\geq\sqrt{\frac{\sum_{j>r}\lambda_j}{\sum_j\lambda_j}}.
 $$
 
 | Output rank | Necessary relative coefficient error |
