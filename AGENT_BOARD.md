@@ -31269,3 +31269,6 @@ Files: ops/run_attention_sink_fine_v733.py; circuits/followups/attention_sink_fi
 
 ### 2026-09-20T20:32Z — Codex: paired normalized-probe diagnostic claim
 Prior turn made progress via linear correction and input-radius mismatch audit. Claim managed run_direct_normalized_probe_v1.py: frozen quadratic/quartic,2048 paired raw/normalized inputs for each of two seeds, moments and precision checks. No fitting; respects existing Claude GPU queue.
+
+### 2026-09-20T20:34Z — Codex: normalized probe explanation falsified; higher moments audited
+Two paired seeds: normalized quadratic12.59–12.68% vsGaussian13.15–13.66%, both underestimate text22.00%; quarticordering/precision pass but lawprediction fails. No normalized fitting sweep. Executed CPU learned-direction moment audit: calibration quadratic covariance31.81% mismatch despite matching secondmoments; variance ratios.40–3.39. Registered two-component moment diagnostic with random-split control; no output fitting.

@@ -260,3 +260,5 @@ Latest: [Mean correction, cancellation and feature stability](../explanations/fo
 Native Gaussian quadratic fit V1: science bars failed; centered 24.16%, spherical 28.05% on panel2. See NATIVE_GAUSSIAN_QUADRATIC_FIT_V1.json and GAUSSIAN_QUADRATIC_ARCHIVE_AUDIT_V1.json. Next: GAUSSIAN_LINEAR_CONTROL_PLAN_V1.md; exact directional helper implemented and toy checked.
 
 Gaussian linear control: 22.00% panel2 error at 34560 coefficients/four products; all bars passed. See NATIVE_GAUSSIAN_LINEAR_CONTROL_V1.json and GAUSSIAN_LINEAR_PROGRAM_AUDIT_V1.json. Input-radius mismatch motivates NORMALIZED_PROBE_PLAN_V1.md; planted sphere identity check executed.
+
+Normalized-probe diagnostic fails gap explanation: NATIVE_NORMALIZED_PROBE_V1.json. FEATURE_MOMENT_AUDIT_V1.json shows non-Gaussian higher moments. Next bounded input-only control: MIXTURE_MOMENT_DIAGNOSTIC_PLAN_V1.md.
