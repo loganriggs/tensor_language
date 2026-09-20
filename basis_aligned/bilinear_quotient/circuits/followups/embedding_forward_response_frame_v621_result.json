@@ -1,0 +1,76 @@
+{
+  "backwards": 60,
+  "candidate_id": "embedding_forward.response_frame_v621",
+  "finished_utc": "2026-09-20T04:09:15.578205+00:00",
+  "forwards": 120,
+  "plan": {
+    "bars": {
+      "fisher_rank_max": 256,
+      "overlap_max": 0.5,
+      "ratio": 0.5,
+      "replay_tol": 0.002
+    },
+    "candidate_id": "embedding_forward.response_frame_v621",
+    "damp": 0.001,
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 130,
+    "gpu_accessed": false,
+    "model_backwards": 60,
+    "model_loaded": false,
+    "model_updates": 0,
+    "ranks": [
+      64,
+      128,
+      256
+    ]
+  },
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_response_beats_pca_128": false,
+    "pred_c_response_beats_pca_64": false,
+    "pred_d_fisher_concentrated": false,
+    "pred_e_frames_overlap_weakly": true
+  },
+  "report": {
+    "edits": {
+      "fisher|128": 0.0682450532913208,
+      "fisher|256": 0.0262979666392007,
+      "fisher|64": 0.1434265772501626,
+      "pca|128": 0.03566145896911621,
+      "pca|256": 0.011217355728149414,
+      "pca|64": 0.08162232240041067,
+      "response|128": 0.02789274851481105,
+      "response|256": 0.00864966710408499,
+      "response|64": 0.06530396143595363
+    },
+    "fisher_evals_top16": [
+      6.94753793917889e-10,
+      5.85367029948658e-10,
+      4.6409712256621905e-10,
+      4.3385607660072805e-10,
+      3.795739152860412e-10,
+      3.457856061186434e-10,
+      3.3252061632667647e-10,
+      3.278434529125594e-10,
+      3.0931774045462734e-10,
+      3.0871725984930283e-10,
+      2.9762913634749946e-10,
+      2.9252325105260536e-10,
+      2.785377589513988e-10,
+      2.725574643374475e-10,
+      2.660574894206972e-10,
+      2.627043384451506e-10
+    ],
+    "fisher_ranks": {
+      "0.9": 851,
+      "0.95": 982,
+      "0.99": 1113
+    },
+    "n_tokens": 245760,
+    "native": 3.1324122746785483,
+    "overlap_f128_pca128": 0.3377828779010766
+  },
+  "schema": "embedding_forward_response_frame_result_v621",
+  "serial_seconds": 46.01424525096081
+}
