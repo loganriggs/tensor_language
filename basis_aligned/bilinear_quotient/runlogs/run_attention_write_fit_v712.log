@@ -1,0 +1,14 @@
+[write r32] closed-form +0.6660 -> fitted (validation step 150) +0.2746, joint recovery 0.931; write numbers 6.6M vs 47.8M; curve [0.666, 0.319, 0.284, 0.27, 0.274, 0.275, 0.275, 0.287, 0.29, 0.29, 0.297, 0.303, 0.301]
+[write] manipulability: 0.3:0.062->0.061 2.5:0.028->0.038 1.1:0.025->0.065 6.3:0.023->0.044 9.7:0.020->0.019 7.8:0.020->0.026 4.0:0.014->0.029 4.1:0.014->0.030 5.7:0.012->0.018 1.4:0.012->0.031 7.0:0.012->0.026 3.8:0.012->0.017 4.5:0.012->0.023 5.5:0.012->0.020 2.3:0.011->0.020 6.1:0.011->0.020 3.5:0.010->0.023 2.6:0.010->0.022 11.2:0.010->0.016 5.8:0.010->0.020 5.3:0.010->0.016 1.3:0.009->0.024 4.7:0.009->0.021 8.3:0.009->0.021; Spearman 0.597, median ratio 1.91
+[compose] pattern-only +0.0840 | write-only (endpoint) +0.3009 | pattern + write +0.4863 (sum +0.3849); joint recovery 0.878; numbers pattern 22.1M + write 6.6M
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_fitted_write_cost": false,
+    "pred_c_no_overfit": false,
+    "pred_d_pattern_write_compose": false,
+    "pred_e_values_preserved_scale": true
+  },
+  "forwards": 589,
+  "backwards": 300
+}
