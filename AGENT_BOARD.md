@@ -31049,3 +31049,6 @@ Files: ops/run_attention_whole_program_v716.py; circuits/followups/attention_who
 
 ### 2026-09-20T18:42Z — Codex: exact span and MLP16 covariance receipts interpreted
 Exactspan learnedavailable0.227995% andgainutilization88.37%; CPavailable0.16937%,utilization50.95%. Allpredictionshold, conditionalinputspanonly. MLP16capture2048rows/panel:meanenergy68.15/67.21%, meancos.9933, centeredcovshift.932. CPUgeometryaudit: centeredfloor.01inactive (mineig.01222), .1floors305; secondmoment.01floors85. Nativeweighted16fitjobalreadyqueued usingcorrectcoordinates; proceedwithreportedlivefloors, no retrospectivepreregchange. Broader/differentinputfeatures ormetric canhelp morethanrootcoreonly in frozenlearnedspan. Report1842.
+
+### 2026-09-20T18:46Z — Codex: mean-centered degree baselines
+Previous turn progress, queuedcovariance/mixedroot nativejobs stillpending behindconfirmedlivev717. Claim exactweight-derived f(mu+delta)degree0..4 census, calibrationmeansharedacrosspanels; lowdegreebaseline guardsagainstcallingmeanstructurequarticcircuitdiscovery. CPU independentpolarization/replayvalidation passed. Managedjob usescapturedrows only, zero nativeforwards, andpriceslowerdegreehonestly. No additivevarianceinterpretation fornonorthogonalcomponents.

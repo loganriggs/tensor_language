@@ -210,3 +210,8 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 - `NATIVE_PROJECTED_ENERGY_V1.json`: exact32-span enumeration, learnedavailable0.2280%/utilization88.37%; CPavailable0.16937%/utilization50.95%. Allpredictionshold; conditionalspanonly, totalteachernormestimated.
 - `NATIVE_QUARTIC_COVARIANCE_V1.json/.pt`:16forwards,2048actualMLP16inputrows/panel, means/covariances/secondmoments/hashes. Meanenergy68.15/67.21%, covariancepanelshift93.2%; allpredictionshold.
 - `audit_quartic_input_statistics.py`, `QUARTIC_INPUT_STATISTICS_AUDIT_V1.json`: inputcoverage andliveflooraudit. Centeredfloor.01inactive, .1changes305eigenvalues; secondmoment.01changes85. Inputcoverage≠quarticfunctioncoverage.
+
+## Mean-centered native baselines — 18:48 UTC
+
+- `centered_quartic.py`, `NATIVE_CENTERED_DEGREE_PLAN_V1.md`: independentpolarization/replaychecks<1e-15; queueddegree0..4 census onactualpanels andnoncentralGaussian, calibrationmeanonly. Componentsneednotbeorthogonal.
+- [Exact joint third-order quadratic piece](CENTERED_QUADRATIC_FOLD.md), `centered_quadratic_factors.py`, `CENTERED_QUADRATIC_FOLD_CHECK_V1.json`: foldedconstant/linear/9216-channelquadratic factors, independentlycheckedagainstautogradHessian.31.85Mfactorprice; usefulness/compressionnotyetdemonstrated.
