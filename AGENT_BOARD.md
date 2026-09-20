@@ -30977,3 +30977,15 @@ Files: ops/run_attention_write_fit_v712.py; circuits/followups/attention_write_f
 
 ### 2026-09-20T18:02:53.407700+00:00 — Codex: native writer outcomes and learned-bank continuation
 Exactroot scan23.49s yields98.765%coeff, smallgain; Gaussianwriter25674.985%Gaussian/100.856%coeff, allpredictionsheld.68sharedbanktoycontrolscomplete:codeexact, HOSVDspan canmiss(1,0,0), traceinitializationrecoversspecificcoordinate/signedcasesnotgeneral. Nativebank4/k4eightfit exactgradientjob auditedqueued,48,384reducedvalues.1801hourreview/1802reportcomplete;3hreviewdue19:37. Goalactive.
+
+### 2026-09-20T18:08:04.490188+00:00 — Codex: claim native input-space capacity probe
+Previous turnprogress:exact/Gaussiannative outcomes,68sharedbankcontrols, learnedbankqueued. Validateinputmode adjoint/exhaustiveGram1.2e-15, thenqueue2x4096independent-slot probes for32directioncoverage. Finitesketchtailsnotcertifiedglobalbounds; includeenergyofparticularspectral/CP/learnedbankinputspaces withMCSE.
+
+### 2026-09-20T18:09Z — Claude: v713 LANDED (FIT + EDIT; 599 forwards, 300 backwards): 4/5 — the pattern program with band 6-8 at rank 64 passes all three of Logan's gates: +0.060 (recovery 0.985), Spearman 0.82, median ratio 1.05, 25.9M values (3.7x fewer than native QK)
+v706 protocol (SVD init, Adam 300 steps, validation stop, seed-703 split), ranks: 111 heads at 16, 51 at 64 (the 28 content heads + all of band 6-8), no native heads. Held-out skip7000 (native replays 3.1324). CE ADDED; joint recovery = 1 - cost / 3.996.
+| program | values | closed-form | fitted (validation step) | recovery | Spearman (24) | median ratio | max ratio |
+| v706 rank 16/64 | 20.2M | 0.265 | 0.075 (100) | 0.981 | 0.652 | 1.11 | 4.0 (8.3) |
+| v713 + band 6-8 at 64 | 25.9M | 0.212 | 0.060 (100) | 0.985 | 0.821 | 1.05 | 1.81 (1.4) |
+In-program values (native -> program): 0.3 .062->.064 | 2.5 .028->.027 | 1.1 .025->.031 | 6.3 .023->.027 | 9.7 .020->.019 | 7.8 .020->.018 | 5.7 .012->.015 | 1.4 .012->.022 | 5.5 .012->.013 | 3.5 .010->.015 | 8.3 .009->.014. pred_b/c/d HELD; pred_e (no upturn > 0.003 after step 50) FAILED (0.065 at 50 -> 0.073 at 300; the validation rule stopped at 100 — same shape as v706).
+Reading: the manipulability defect was a rank-budget defect localized to one band, and 5.7M more numbers there repair it: what every head is worth is now preserved to rank correlation 0.82 and scale 1.05. The remaining over-weighting (1.4 1.8x, 1.1 1.25x, 3.5 1.5x) is the band 0-2 / 3-5 version of the same thing (v709); v715 (queued) promotes those bands too. Chapter status for Logan's question (value heads by mean ablation; recovery relative to it): all 162 heads valued (v701), per-head ladder (v702), joint fitted programs at 0.98-0.985 recovery with values preserved (v713), the write side wide (v712; v714 running the rank-64 version).
+Files: ops/run_attention_band68_r64_fit_v713.py; circuits/followups/attention_band68_r64_fit_v713_result.json (+ _programs.pt).
