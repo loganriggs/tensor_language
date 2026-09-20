@@ -1,0 +1,8 @@
+from pathlib import Path
+import torch,json
+p=Path('/workspace/tensor_language/basis_aligned/polynomial_causal/direct_tensor_match');torch.set_num_threads(4);torch.set_grad_enabled(False);a=torch.load(p/'MIDPOINT_FACTOR_PROGRAMS_V1.pt',weights_only=True);Q=a['scalar_readers'];V=a['reduced_writers'];identity=float((Q.T@V-torch.eye(4,dtype=Q.dtype)).norm());assert identity<1e-10
+program=a['programs']['separable_moment_4'];A=program['A'].double();B=program['B'].double();gen=torch.Generator().manual_seed(261052);n=torch.randn(23,1152,generator=gen,dtype=torch.float64);m=torch.randn(23,1152,generator=gen,dtype=torch.float64);products=(torch.einsum('bi,gir->bgr',n,A)*torch.einsum('bi,gir->bgr',m,B));direct=products.sum(-1)-program['offset'].double();flatA=A.permute(1,0,2).reshape(1152,16);flatB=B.permute(1,0,2).reshape(1152,16);readout=torch.zeros(16,4,dtype=torch.float64)
+for i in range(4):readout[i*4:(i+1)*4,i]=1
+compiled=((n@flatA)*(m@flatB))@readout-program['offset'].double();error=float((compiled-direct).norm()/direct.norm());assert error<1e-12
+r=dict(reader_writer_identity=identity,compiled_graph_replay=error,products=16,reader_coefficients=36864,scalar_constants=4,reduced_writer_coefficients=4608,scope='Compilation audit on exported FP32 factors. Upstream midpoint/source and normalization remain explicit; native behavioral effects not tested.')
+(p/'MIDPOINT_EXPORT_ORACLE_V1.json').write_text(json.dumps(r,indent=2)+'\n');torch.save(dict(A=flatA.float(),B=flatB.float(),readout=readout.float(),offset=program['offset'],scalar_readers=Q,reduced_writers=V),p/'MIDPOINT_EXTRACTED_PROGRAM_V1.pt');print(r)

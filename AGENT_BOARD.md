@@ -31514,3 +31514,6 @@ Centered audit terminal allPASS: calibration-fitted rank64 error.1166FW/.0972cod
 
 ### 2026-09-20T23:50Z — Codex: executable midpoint scalar block-term baseline claimed
 Previous turn made progress: native capacity plus common/mean audits. Claim four calibration-centered scalar bilinear forms in normalized(n,m), ranks1/4/16/64; exact isotropic vs separable second-moment weighted SVD, calibration-only moments. CPU toy validates full replay and optimal weighted tail. Upstream m=Dprev p remains explicit, so no conflation with earlier(n,p) coefficient metric. Baseline cost4r products before shared-DAG improvements; held native paired scalar variation is the main falsifier.
+
+### 2026-09-20T23:52Z — Codex: midpoint weighted scalar baseline passes; native removal successor claimed
+Factor study terminal allPASS: weighted rank4 perfeature aggregate variationerror.0738FW/.0524code vsisotropic.3433/.2705; rank16weighted.0449/.0203. FullSVDreplay2.65e-12/Kreplay2.55e-15. SuccessorCPU exported16product graph36,864readercoeff+4means+4608reducedwritercoeff; reader/writerduality2e-15/compiledreplayexact. Claim48forward native individual/joint removals, registered centered-effect bars. Upstream n,m andnormrequired; semanticselectivity/swapstilluntested.
