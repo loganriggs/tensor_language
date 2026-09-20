@@ -1,0 +1,62 @@
+{
+  "results": {
+    "calibration": {
+      "constant_mean_error_over_total": 0.3384894141966182,
+      "error_over_calibration_mean_baseline": {
+        "4": 0.4653621249264508,
+        "16": 0.34901038057883965,
+        "32": 0.3037714300000229,
+        "64": 0.25818817803902333,
+        "128": 0.20661794850583065,
+        "256": 0.14546018641956202
+      },
+      "error_over_total": {
+        "4": 0.1575201530556478,
+        "16": 0.1181363192706702,
+        "32": 0.10282341339037676,
+        "64": 0.08739396513692117,
+        "128": 0.06993798835224564,
+        "256": 0.04923673329008843
+      }
+    },
+    "fineweb": {
+      "constant_mean_error_over_total": 0.3661410521583659,
+      "error_over_calibration_mean_baseline": {
+        "4": 0.4756441881049053,
+        "16": 0.3831827168903628,
+        "32": 0.3512051651079315,
+        "64": 0.31864708184725393,
+        "128": 0.28159967257741264,
+        "256": 0.2331169357552811
+      },
+      "error_over_total": {
+        "4": 0.17415286348574172,
+        "16": 0.1402989231311387,
+        "32": 0.12859062867607066,
+        "64": 0.1166697778147465,
+        "128": 0.1031052004049452,
+        "256": 0.0853536801333728
+      }
+    },
+    "code": {
+      "constant_mean_error_over_total": 0.4699020425025116,
+      "error_over_calibration_mean_baseline": {
+        "4": 0.3737642008069156,
+        "16": 0.2587221474203459,
+        "32": 0.23418519794858647,
+        "64": 0.20678674645275838,
+        "128": 0.18129260577547798,
+        "256": 0.14788817569230953
+      },
+      "error_over_total": {
+        "4": 0.17563256137348854,
+        "16": 0.12157406551345645,
+        "32": 0.11004410283989578,
+        "64": 0.09716951452060016,
+        "128": 0.08518976574449974,
+        "256": 0.06949295581978654
+      }
+    }
+  },
+  "scope": "CPU moments-only successor audit. Vocabulary-centered pre-final-normalization outputs; mean and affine output basis fit calibration only. Denominator is error of the fixed calibration-mean predictor, not each held panel mean. No learned scalar input computations or behavioral validation."
+}
