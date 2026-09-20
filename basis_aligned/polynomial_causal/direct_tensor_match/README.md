@@ -234,3 +234,13 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 - `check_projected_norm_estimator.py`, `PROJECTED_NORM_ESTIMATOR_CHECK_V1.json`: exhaustive independent-sign identity validates exactprojectednorm+sampledorthogonalresidualnorm, errors2.2e-16. Variancereductiontarget-dependent.
 - `NATIVE_WEIGHTED_NORM_PLAN_V1.md`: queuedrank4exactprojection+4096residualprobes foreachweightedmetric; refines6–8%SEteachercoverageestimates withoutchangingfit/checkpointselection.
 - [19:01 strategic checkpoint](../HOURLY_STRATEGIC_REVIEW_2026-09-20_1901.md): prioritizependingmean/variationcontrols, sparsebasisnativevalidation andmetricprecision overanotherarchitecturegrid. Nextmath/literature review19:37.
+
+## Two-stage clarification and latest controls — 19:09 UTC
+
+[Candidate discovery versus general DAG search](TWO_STAGE_DISCOVERY_AND_DAG_SEARCH.md): userclarificationadopted. Currentrestrictedsharing/basis/pruningisnotgeneralgraphoptimization. Countdistinctreachablecomputationsonce; preserveconstituentconditions; paperM/generalmetricandscoringtractabilitydistinguished.
+
+- `NATIVE_CENTERED_DEGREE_V1.json`: f≤2panel2error18.73%, f≤1 41.94%, f0 66.58%; allpredictionspass, fullreplay3.2e-7. Nativequadraticprice31.85M, notcompactwin.
+- `NATIVE_MIXED_ROOT_V2.json/.pt`: devicefixpasses, eightmixedrootsretain99.93–99.94%nativebankgain; allpredictionspass.46,096floats+16supportintegers.
+- `NATIVE_VARIATION_AUDIT_V1.json/.pt`: secondmomenttrainingwinner25.28%total/27.81%centerederror, constantbaseline65.51%; allpredictionspass. Cachedteacheroutputs/perdocresiduals.
+- `NATIVE_WEIGHTED_NORM_V1.json`: secondmomentprojectedresidualnormSE12.53vsraw454.42; estimatedcoverage99.52%underweightedmetriconly. Allpredictionspass.
+- `CENTERED_COMPACT_PLAN_V1.md`, `quadratic_student_fit.py`, `QUADRATIC_STUDENT_FIT_CHECK_V1.json`: matched48,384pricecenteredlinear/quadraticallocation proposal, helperdensevalues/gradients<5e-16; finalcross-allocationselectionrulemustbefrozenbeforeGPUrun.

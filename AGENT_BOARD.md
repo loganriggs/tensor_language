@@ -31093,3 +31093,9 @@ Reading: the 0.1% off-rank energy carried 0.07 CE because the bilinear pattern m
 Files: ops/run_attention_exact_rank_v718.py; circuits/followups/attention_exact_rank_v718_result.json (+ _programs.pt: factored U, V per map).
 
 ### 2026-09-20T19:06Z — Claude: v719 canary LANDED 5/5 (60 forwards): native 3.13241, joint value 3.9961, v713 +0.0726, v716 exact-rank whole program +0.2412, fresh native 3.50613 / v713 +0.0782 — all replay to the registered digits. Chapter report for Logan updated with v714-v718 (snapshot defect, exact rank, row-set transfer, write side). v720 (whole attention, both sides exact) running.
+
+### 2026-09-20T19:06Z — Codex: centeredquadratic useful; native sparsebasis survives; matched-price successor begun
+Centereddegree f≤2 panel2error18.73%vsf≤1 41.94%/f0 66.58%; fullreplay3.2e-7. Large31.85Mquadraticpricepreventscompressionclaim. MixedrootV2 repaired, allpredictionshold:8mixedrootsretain99.93–99.94%nativegain at46,096scalars+16supportintegers. Nextclaim matched48,384totalbudgetcenteredprograms:2r+3k=40 plusmu/constant, allocations(2,12),(8,8),(14,4),(20,0). Exactquadraticcontractionhelperimplemented+densegradientvalidated; finalselectionrulemustbefixedbeforeGPUenqueue. Variationandnormauditsstillqueued. Currentuserstatusanswered; fullgoalunmet.
+
+### 2026-09-20T19:09Z — Codex: usertwo-stageclarification andnativecontrols
+Userexplicitlyclarifiesdecomposition→candidategraph→arbitraryreuse/edit/refit, notfixedTucker/HTfinalarchitecture. AdoptedTWO_STAGE_DISCOVERY_AND_DAG_SEARCH.md; currentrestrictedDAGsharing/basismixingispartialstage2only. Latestcontrols: variation27.81%vsconstant65.51%totalbaseline, secondmomenttotal25.28%; centeredf≤2 18.73%largeprice; native8mixedroots99.94%gainretained; weightednormSEreducedto.27%relative. NextcandidatecompactcenteredT2 alreadypreregistered/helperstarted; graphstageexport+exactrewritecontrols planned, no nativegeneralDAGclaim. Userstatusquestionsansweredwhilepreservinggoal.

@@ -66,3 +66,19 @@ A CPU audit of the16exported programs finds a marked optimizer difference under 
 On the second empirical panel, centered output predictions have pairwise cosine0.966–0.998 across second-moment fits. Their own output mean components account for70.7–76.4% of prediction energy. High agreement between predictions does not establish that the common variation is correct, or that the reader features are identical.
 
 A new queued frozen-model audit will compare all16programs against the teacher's centered variation, split total residual energy into mean error plus centered error, and compare both a calibration-output-mean constant and the weight-derived$f(\mu)$constant. It selects the representative fit by training gain and records the data-fitted constant as a baseline, not a weight-discovered circuit. Teacher outputs and per-document residual terms will be cached to avoid repeated native contractions. Receipt: `WEIGHTED_READER_AUDIT_V1.json`; preregistration: `NATIVE_VARIATION_AUDIT_PLAN_V1.md`.
+
+## 19:09 UTC: controls confirm variation recovery and a useful graph rewrite
+
+The mean-versus-variation audit is complete. The training-selected second-moment student has **25.28% total error and27.81% centered-variation error** on panel2; centered prediction/teacher cosine is0.964. The calibration-output-mean constant has65.51% error, and the weight-derived$f(\mu)$constant has66.58%. Thus the improvement is not merely matching a constant. All registered checks pass, including the exact residual-energy split.
+
+The centered-degree census also passes. Keeping the exact constant, linear and quadratic terms gives18.73% error on panel2, versus41.94% for constant+linear. This is a stronger but much larger baseline:31.85Mquadratic-factor scalars alone. A matched48,384-scalar compression study is now preregistered, with its exact quadratic-contraction helper independently validated; native fitting has not started.
+
+Repaired mixed-basis validation passes. Eight root products plus16feature-mixing coefficients retain99.93–99.94% of the full ten-root bank's native coefficient gain. This is a successful, restricted graph edit. The full gain remains only about0.20% of global coefficient energy, so retaining it does not establish broad recovery.
+
+The projected-plus-residual norm audit reduces the second-moment teacher-energy SE from454.4 on raw fresh probes to12.53, about0.27% of the refined estimate. The corresponding training-gain fraction is approximately99.52% **under that weighted coefficient metric**, not global recovery or empirical accuracy. The leading four transformed input directions contain about96.2% of weighted energy, illustrating how concentrated that metric is.
+
+![Sixteen fixed-budget quartic fits under four metrics](weighted_quartic_metrics_2026-09-20.png)
+
+[Download the figure as PDF](weighted_quartic_metrics_2026-09-20.pdf). Each point is one optimizer/seed configuration, not an independent statistical sample; rings mark training-selected runs.
+
+The user's two-stage clarification is adopted: use decompositions to discover candidate computations, then optimize a computation DAG with arbitrary reuse. Our shared banks, root pruning and feature mixing implement only a restricted portion of that second stage. General common-subexpression search, cross-depth sharing, split/merge edits and graph-wide complexity optimization remain to be built. [Detailed comparison and next steps](../../direct_tensor_match/TWO_STAGE_DISCOVERY_AND_DAG_SEARCH.md).

@@ -1,0 +1,68 @@
+{
+  "plan": {
+    "students": 2,
+    "roots": 8,
+    "mixing_scalars": 16,
+    "coefficient_queries": 8192,
+    "gaussian_rows": 256,
+    "native_forwards": 0
+  },
+  "device_transform_absolute_error": 0.0,
+  "records": [
+    {
+      "source_seed": 0,
+      "writer": "student_refit",
+      "explained_fraction_using_estimated_teacher_norm": 0.001996072856557743,
+      "gain_retention": 0.9993022488342557,
+      "evaluation_coefficient_error": 0.9984835330484904,
+      "gaussian_function_error": 0.9992695926610954,
+      "feature_replay": 9.481018217173086e-16,
+      "normal_residual": 2.2593810521122656e-14,
+      "reduced_float_parameters": 46096,
+      "support_integers": 16
+    },
+    {
+      "source_seed": 0,
+      "writer": "native_refit",
+      "explained_fraction_using_estimated_teacher_norm": 0.001996074450347829,
+      "gain_retention": 0.9993030467400095,
+      "evaluation_coefficient_error": 0.9984832953578554,
+      "gaussian_function_error": 0.9992678487306287,
+      "feature_replay": 9.481018217173086e-16,
+      "normal_residual": 2.2593810521122656e-14,
+      "reduced_float_parameters": 46096,
+      "support_integers": 16
+    },
+    {
+      "source_seed": 1,
+      "writer": "student_refit",
+      "explained_fraction_using_estimated_teacher_norm": 0.0020135317659078626,
+      "gain_retention": 0.9993868348741335,
+      "evaluation_coefficient_error": 0.9985663001262691,
+      "gaussian_function_error": 0.9998645995280006,
+      "feature_replay": 7.603517854176858e-16,
+      "normal_residual": 2.371386566535026e-14,
+      "reduced_float_parameters": 46096,
+      "support_integers": 16
+    },
+    {
+      "source_seed": 1,
+      "writer": "native_refit",
+      "explained_fraction_using_estimated_teacher_norm": 0.00201353318300182,
+      "gain_retention": 0.999387538227847,
+      "evaluation_coefficient_error": 0.9985660474766651,
+      "gaussian_function_error": 0.9998639966202784,
+      "feature_replay": 7.603517854176858e-16,
+      "normal_residual": 2.371386566535026e-14,
+      "reduced_float_parameters": 46096,
+      "support_integers": 16
+    }
+  ],
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_retention": true,
+    "pred_c_cp": true
+  },
+  "seconds": 1.128782999003306,
+  "scope": "Eight mixedroot native cross/self validation; estimatedteacher norm.46,096floating scalars+16supportintegers. No identifiedcircuit."
+}
