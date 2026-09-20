@@ -1741,3 +1741,9 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 
 ### Fresh query reuse failure and exact row correction
 [Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/FIXED_QUERY_FRESH_V4_2026-09-20.md): v4 fidelity12/16, selectivity8/16 both full and compiled, bank prediction0/16; capabilityallpass. Independent native freeze matches executor<=.0262%, preserving approximation failure. CPU exact query-row plus source-column fold3.03e-16; updated source/query cross terms live. Native exact replacement remains pending.
+
+### Exact single-token native repair
+[Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/SINGLE_TOKEN_ATTENTION_NATIVE_2026-09-20.md): full row+column replacement passes16/16openedv4 fidelity, worst strict replay.04821%; selector still8/16. Conditional background-dependent extraction, not parameter compression or full circuit. Fixed-dictionary recipient-reader oracle audit queued; no oracle outcome claimed here.
+
+### Opened v4 contextual oracle audit
+[Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/V4_SOURCE_ORACLE_AUDIT_2026-09-20.md): unchanged23ports with recipient readers pass15/16selectivity,6/16finite prediction. Remaining retention.7583miss; nonlinearity helps rather than hurts. UnitB tangent projects.6041 of finite reference in that cell. Tangent feasibility does not certify finite dictionary sufficiency. Native reader generation remains charged.

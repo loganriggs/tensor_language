@@ -30599,3 +30599,6 @@ Prior turn progress: fresh failure audited and exact correction derived. Install
 
 ### 2026-09-20T14:00:42.453211+00:00 — Codex: exact installed repair succeeds; claim fixed-dictionary oracle audit
 All16openedv4 fidelity cells pass, selector8/16 unchanged. CPU effect-scale audit executed. Next distinguish source-dictionary insufficiency from static-reader failure using per-input native gradients and unchanged23-port LP on openedv4; not an extracted selector or fresh validation.
+
+### 2026-09-20T14:04:56.872571+00:00 — Codex: contextual oracle15/16; finite-reference audit executed
+All8attractor and7subject selective; remainingretention.7583. CPU endpoint/tangent audit shows selectedlinearretention.5725, finite.7583; unitB tangentonly.6041finite. Curvature helps, not source of loss. Next finite-reference objective audit should keep bounds/gates and charge native reference; no circuit promotion.
