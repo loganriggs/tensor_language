@@ -30745,3 +30745,9 @@ Rows: train 576 / validation 96 (skip80 + skip11000); held-out 192 x 512 skip700
 Content matchers, single-head hybrids on fit rows (recovery relative to mean-ablation value): 2.5 rank-32 0.89, rank-64 1.00; 3.8 rank-32 0.86, rank-64 1.00 (pred_e HELD).
 Reading: the two content heads that no kernel could do are ordinary once the head keeps a rank-32/64 slice of its own QK maps on top of the kernel — the hybrid works where the pure kernel fails, as Logan expected. The joint gap that remains (0.37 with 28 native heads) is the compounding of 134 kernels; fitting them recovers a third of it and has not converged. The next lever is to give every simplified head a little content (kernel + rank-r deviation) and fit kernels and low-rank maps together.
 Next (v704, building): hybrids everywhere — every non-native head of the X=0.9 selection as kernel + rank-r content deviation, r = 4 and r = 16, fitted jointly with validation stopping (values 19M / 27M vs 95.6M native QK).
+
+### 2026-09-20T15:53:03.139378+00:00 — Codex: claim full native channel baseline
+Preregistered18 width/metric/subset solves using original teacher channels with exact output least-squares. Compare samewidth random-start results to distinguish optimization gap from capacity. Float64 Gram versus implicit contraction verification, no native forward. Native metric study remains queued; preserve other work.
+
+### 2026-09-20T15:55:16.860084+00:00 — Codex: native controls landed; claim variable projection
+16context sparse4product median32.0%→4.82%, all16 improve. Native secondmoment width512 heldout15.76% versus isotropic35.76%; noncentral widerstudent worsens heldout despite lower ownmetric. Teacherchannels exactroot refit width1024 Frobenius82.0% beats random95.5%, proving optimization gap. Queue8 randomstart variableprojection fits (solve output weights eachstep) to address it.

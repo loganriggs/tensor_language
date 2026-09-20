@@ -37,3 +37,12 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 - `NATIVE_FULL_QUADRATIC_V2.json/.pt`:24 full quadratic fits; radial Gaussian baseline58.95% error; width1024 Gaussian fit56.47%, best coefficient Frobenius fit95.48%.
 - `NATIVE_COVARIANCE_V1.json/.pt`: native calibration/evaluation rows and moments in a precisely saved coordinate frame; nonzero means retained.
 - `noncentral_quadratic.py`, `check_noncentral.py`, `NONCENTRAL_CHECK_V1.json`, `NATIVE_METRIC_PLAN_V1.md`: next16 native moment-metric fits, including both isotropic and measured covariance/mean, with heldout empirical diagnostics.
+
+## Replication and native metric results — 15:57 UTC
+
+[Timed scientific report](../explanations/for_logan/research_update_2026-09-20_1557_replication_covariance_and_optimization.md), with [figure](REPLICATION_AND_METRICS_V1.png) and [PDF](REPLICATION_AND_METRICS_V1.pdf).
+
+- `QUARTIC_CONTEXT_BASIS_PLAN_V1.md`, `quartic_context_basis.py`, `QUARTIC_CONTEXT_BASIS_V1.json`:32 gauge fits,16 independent contexts; four-product error median31.98%→4.82%,15/16 improve≥2×. All-product error invariant.
+- `NATIVE_METRIC_SWEEP_V1.json/.pt`:16 native fits; width512 evaluation error35.76% isotropic versus15.76% second-moment Gaussian. Noncentral Gaussian improves its own objective with width but worsens evaluation; isotropic errors explicitly retained.
+- `NATIVE_CHANNEL_BASELINE_PLAN_V1.md`, `NATIVE_CHANNEL_BASELINE_V1.json`:18 teacher-channel selection/output-refit controls; width1024 Frobenius82.02% versus random-start95.48%. Exact Gram/implicit agreement and least-squares residual controls passed.
+- `VARIABLE_PROJECTION_PLAN_V1.md`:8 next random-start fits eliminate output weights through differentiable ridge solves, testing the demonstrated optimization gap.

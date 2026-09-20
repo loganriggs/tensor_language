@@ -1,0 +1,721 @@
+{
+  "plan": {
+    "widths": [
+      128,
+      512
+    ],
+    "metrics": [
+      "isotropic",
+      "centered_covariance",
+      "second_moment",
+      "noncentral"
+    ],
+    "seeds": [
+      0,
+      1
+    ],
+    "steps": 600,
+    "lr": 0.005,
+    "ridge_fraction": 0.001,
+    "native_forwards": 0
+  },
+  "records": [
+    {
+      "metric": "isotropic",
+      "width": 128,
+      "seed": 0,
+      "training_relative_error": 0.5687447516230627,
+      "isotropic_relative_error": 0.5687445944225272,
+      "frobenius_relative_error": 0.9631685238954675,
+      "empirical_calibration_error": 0.47480306029319763,
+      "empirical_evaluation_error": 0.48256251215934753,
+      "coordinate_replay": 0.0,
+      "parameter_values": 442368,
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.0099925994873047
+        },
+        {
+          "step": 100,
+          "loss": 0.3786172866821289
+        },
+        {
+          "step": 200,
+          "loss": 0.3676034212112427
+        },
+        {
+          "step": 300,
+          "loss": 0.3398929834365845
+        },
+        {
+          "step": 400,
+          "loss": 0.3282763957977295
+        },
+        {
+          "step": 500,
+          "loss": 0.3239767551422119
+        },
+        {
+          "step": 599,
+          "loss": 0.3234705924987793
+        }
+      ]
+    },
+    {
+      "metric": "isotropic",
+      "width": 128,
+      "seed": 1,
+      "training_relative_error": 0.5683479439021748,
+      "isotropic_relative_error": 0.5683478390286534,
+      "frobenius_relative_error": 0.9624959202469403,
+      "empirical_calibration_error": 0.40453559160232544,
+      "empirical_evaluation_error": 0.4051937758922577,
+      "coordinate_replay": 0.0,
+      "parameter_values": 442368,
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.0099050998687744
+        },
+        {
+          "step": 100,
+          "loss": 0.4042785167694092
+        },
+        {
+          "step": 200,
+          "loss": 0.36525702476501465
+        },
+        {
+          "step": 300,
+          "loss": 0.34215259552001953
+        },
+        {
+          "step": 400,
+          "loss": 0.32842373847961426
+        },
+        {
+          "step": 500,
+          "loss": 0.32356715202331543
+        },
+        {
+          "step": 599,
+          "loss": 0.32301950454711914
+        }
+      ]
+    },
+    {
+      "metric": "isotropic",
+      "width": 512,
+      "seed": 0,
+      "training_relative_error": 0.5581329152057526,
+      "isotropic_relative_error": 0.5581329953004381,
+      "frobenius_relative_error": 0.9452177583492071,
+      "empirical_calibration_error": 0.34141021966934204,
+      "empirical_evaluation_error": 0.3576112985610962,
+      "coordinate_replay": 0.0,
+      "parameter_values": 1769472,
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.0099339485168457
+        },
+        {
+          "step": 100,
+          "loss": 0.4879951477050781
+        },
+        {
+          "step": 200,
+          "loss": 0.426424503326416
+        },
+        {
+          "step": 300,
+          "loss": 0.37301039695739746
+        },
+        {
+          "step": 400,
+          "loss": 0.32675349712371826
+        },
+        {
+          "step": 500,
+          "loss": 0.3130241632461548
+        },
+        {
+          "step": 599,
+          "loss": 0.31151247024536133
+        }
+      ]
+    },
+    {
+      "metric": "isotropic",
+      "width": 512,
+      "seed": 1,
+      "training_relative_error": 0.5585942835238383,
+      "isotropic_relative_error": 0.5585941234667403,
+      "frobenius_relative_error": 0.9459981087208043,
+      "empirical_calibration_error": 0.3287108838558197,
+      "empirical_evaluation_error": 0.3420199155807495,
+      "coordinate_replay": 0.0,
+      "parameter_values": 1769472,
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.0100020170211792
+        },
+        {
+          "step": 100,
+          "loss": 0.5049134492874146
+        },
+        {
+          "step": 200,
+          "loss": 0.4665759801864624
+        },
+        {
+          "step": 300,
+          "loss": 0.37258219718933105
+        },
+        {
+          "step": 400,
+          "loss": 0.3281097412109375
+        },
+        {
+          "step": 500,
+          "loss": 0.31372904777526855
+        },
+        {
+          "step": 599,
+          "loss": 0.31202757358551025
+        }
+      ]
+    },
+    {
+      "metric": "centered_covariance",
+      "width": 128,
+      "seed": 0,
+      "training_relative_error": 0.3238838373352896,
+      "isotropic_relative_error": 0.7100369125495677,
+      "frobenius_relative_error": 0.9685332763422236,
+      "empirical_calibration_error": 0.24213925004005432,
+      "empirical_evaluation_error": 0.22495250403881073,
+      "coordinate_replay": 8.652681913190463e-07,
+      "parameter_values": 442368,
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.0057573318481445
+        },
+        {
+          "step": 100,
+          "loss": 0.17280428111553192
+        },
+        {
+          "step": 200,
+          "loss": 0.14743879437446594
+        },
+        {
+          "step": 300,
+          "loss": 0.12485554814338684
+        },
+        {
+          "step": 400,
+          "loss": 0.1108483374118805
+        },
+        {
+          "step": 500,
+          "loss": 0.10565521568059921
+        },
+        {
+          "step": 599,
+          "loss": 0.10490074008703232
+        }
+      ]
+    },
+    {
+      "metric": "centered_covariance",
+      "width": 128,
+      "seed": 1,
+      "training_relative_error": 0.32375775160401954,
+      "isotropic_relative_error": 0.7071102793663209,
+      "frobenius_relative_error": 0.968669641915058,
+      "empirical_calibration_error": 0.2438654899597168,
+      "empirical_evaluation_error": 0.22464895248413086,
+      "coordinate_replay": 8.624621727904014e-07,
+      "parameter_values": 442368,
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.0061296224594116
+        },
+        {
+          "step": 100,
+          "loss": 0.17715983092784882
+        },
+        {
+          "step": 200,
+          "loss": 0.14772382378578186
+        },
+        {
+          "step": 300,
+          "loss": 0.1230100691318512
+        },
+        {
+          "step": 400,
+          "loss": 0.11061349511146545
+        },
+        {
+          "step": 500,
+          "loss": 0.10557129234075546
+        },
+        {
+          "step": 599,
+          "loss": 0.10481908172369003
+        }
+      ]
+    },
+    {
+      "metric": "centered_covariance",
+      "width": 512,
+      "seed": 0,
+      "training_relative_error": 0.2824389836364596,
+      "isotropic_relative_error": 0.6649678510050925,
+      "frobenius_relative_error": 0.9543611296399648,
+      "empirical_calibration_error": 0.18231767416000366,
+      "empirical_evaluation_error": 0.18348146975040436,
+      "coordinate_replay": 6.206262810337648e-07,
+      "parameter_values": 1769472,
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.0066547393798828
+        },
+        {
+          "step": 100,
+          "loss": 0.2843523621559143
+        },
+        {
+          "step": 200,
+          "loss": 0.20813624560832977
+        },
+        {
+          "step": 300,
+          "loss": 0.13321498036384583
+        },
+        {
+          "step": 400,
+          "loss": 0.09791471809148788
+        },
+        {
+          "step": 500,
+          "loss": 0.08141162246465683
+        },
+        {
+          "step": 599,
+          "loss": 0.07977404445409775
+        }
+      ]
+    },
+    {
+      "metric": "centered_covariance",
+      "width": 512,
+      "seed": 1,
+      "training_relative_error": 0.28220442582798977,
+      "isotropic_relative_error": 0.6661292731458888,
+      "frobenius_relative_error": 0.9542639446783728,
+      "empirical_calibration_error": 0.1826305240392685,
+      "empirical_evaluation_error": 0.1841932088136673,
+      "coordinate_replay": 6.127770575403702e-07,
+      "parameter_values": 1769472,
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.0062817335128784
+        },
+        {
+          "step": 100,
+          "loss": 0.2731713652610779
+        },
+        {
+          "step": 200,
+          "loss": 0.20127074420452118
+        },
+        {
+          "step": 300,
+          "loss": 0.14638450741767883
+        },
+        {
+          "step": 400,
+          "loss": 0.09644594043493271
+        },
+        {
+          "step": 500,
+          "loss": 0.08140578120946884
+        },
+        {
+          "step": 599,
+          "loss": 0.07963933795690536
+        }
+      ]
+    },
+    {
+      "metric": "second_moment",
+      "width": 128,
+      "seed": 0,
+      "training_relative_error": 0.07867239867626105,
+      "isotropic_relative_error": 0.7289851825657718,
+      "frobenius_relative_error": 0.9746702859379079,
+      "empirical_calibration_error": 0.1436948925256729,
+      "empirical_evaluation_error": 0.1819843351840973,
+      "coordinate_replay": 8.549112635591882e-07,
+      "parameter_values": 442368,
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.0003198385238647
+        },
+        {
+          "step": 100,
+          "loss": 0.05971336364746094
+        },
+        {
+          "step": 200,
+          "loss": 0.03858494758605957
+        },
+        {
+          "step": 300,
+          "loss": 0.020909547805786133
+        },
+        {
+          "step": 400,
+          "loss": 0.011063814163208008
+        },
+        {
+          "step": 500,
+          "loss": 0.006592512130737305
+        },
+        {
+          "step": 599,
+          "loss": 0.0061893463134765625
+        }
+      ]
+    },
+    {
+      "metric": "second_moment",
+      "width": 128,
+      "seed": 1,
+      "training_relative_error": 0.07893561392831651,
+      "isotropic_relative_error": 0.724583257734029,
+      "frobenius_relative_error": 0.9747642439911705,
+      "empirical_calibration_error": 0.14379960298538208,
+      "empirical_evaluation_error": 0.18124186992645264,
+      "coordinate_replay": 8.835288554109866e-07,
+      "parameter_values": 442368,
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.0006576776504517
+        },
+        {
+          "step": 100,
+          "loss": 0.061141371726989746
+        },
+        {
+          "step": 200,
+          "loss": 0.03707408905029297
+        },
+        {
+          "step": 300,
+          "loss": 0.022432446479797363
+        },
+        {
+          "step": 400,
+          "loss": 0.010267853736877441
+        },
+        {
+          "step": 500,
+          "loss": 0.00663304328918457
+        },
+        {
+          "step": 599,
+          "loss": 0.006231427192687988
+        }
+      ]
+    },
+    {
+      "metric": "second_moment",
+      "width": 512,
+      "seed": 0,
+      "training_relative_error": 0.06938148399501194,
+      "isotropic_relative_error": 0.6443909000984334,
+      "frobenius_relative_error": 0.9707071776276696,
+      "empirical_calibration_error": 0.12385542690753937,
+      "empirical_evaluation_error": 0.15761928260326385,
+      "coordinate_replay": 8.116092544696585e-07,
+      "parameter_values": 1769472,
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.0016120672225952
+        },
+        {
+          "step": 100,
+          "loss": 0.1847015619277954
+        },
+        {
+          "step": 200,
+          "loss": 0.1437225341796875
+        },
+        {
+          "step": 300,
+          "loss": 0.06640815734863281
+        },
+        {
+          "step": 400,
+          "loss": 0.020860671997070312
+        },
+        {
+          "step": 500,
+          "loss": 0.0061609745025634766
+        },
+        {
+          "step": 599,
+          "loss": 0.0048139095306396484
+        }
+      ]
+    },
+    {
+      "metric": "second_moment",
+      "width": 512,
+      "seed": 1,
+      "training_relative_error": 0.06949393310412967,
+      "isotropic_relative_error": 0.650610282394358,
+      "frobenius_relative_error": 0.9702584612506185,
+      "empirical_calibration_error": 0.12418241053819656,
+      "empirical_evaluation_error": 0.15972815454006195,
+      "coordinate_replay": 7.929021421659854e-07,
+      "parameter_values": 1769472,
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.000132441520691
+        },
+        {
+          "step": 100,
+          "loss": 0.2004777193069458
+        },
+        {
+          "step": 200,
+          "loss": 0.12212991714477539
+        },
+        {
+          "step": 300,
+          "loss": 0.05774366855621338
+        },
+        {
+          "step": 400,
+          "loss": 0.018497705459594727
+        },
+        {
+          "step": 500,
+          "loss": 0.0063626766204833984
+        },
+        {
+          "step": 599,
+          "loss": 0.004831194877624512
+        }
+      ]
+    },
+    {
+      "metric": "noncentral",
+      "width": 128,
+      "seed": 0,
+      "training_relative_error": 0.1271328167908018,
+      "isotropic_relative_error": 1.135707444687056,
+      "frobenius_relative_error": 0.9934553021290583,
+      "empirical_calibration_error": 0.1611381620168686,
+      "empirical_evaluation_error": 0.2167186588048935,
+      "coordinate_replay": 6.379272576850781e-07,
+      "parameter_values": 442368,
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.0010714530944824
+        },
+        {
+          "step": 100,
+          "loss": 0.13892710208892822
+        },
+        {
+          "step": 200,
+          "loss": 0.09074831008911133
+        },
+        {
+          "step": 300,
+          "loss": 0.05294597148895264
+        },
+        {
+          "step": 400,
+          "loss": 0.026378750801086426
+        },
+        {
+          "step": 500,
+          "loss": 0.01743948459625244
+        },
+        {
+          "step": 599,
+          "loss": 0.016162753105163574
+        }
+      ]
+    },
+    {
+      "metric": "noncentral",
+      "width": 128,
+      "seed": 1,
+      "training_relative_error": 0.12702446913597926,
+      "isotropic_relative_error": 1.1636226770425144,
+      "frobenius_relative_error": 0.9940666366054566,
+      "empirical_calibration_error": 0.16308362782001495,
+      "empirical_evaluation_error": 0.2203366458415985,
+      "coordinate_replay": 7.47482147289702e-07,
+      "parameter_values": 442368,
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.001247763633728
+        },
+        {
+          "step": 100,
+          "loss": 0.12066125869750977
+        },
+        {
+          "step": 200,
+          "loss": 0.08035421371459961
+        },
+        {
+          "step": 300,
+          "loss": 0.04625439643859863
+        },
+        {
+          "step": 400,
+          "loss": 0.025319337844848633
+        },
+        {
+          "step": 500,
+          "loss": 0.017367959022521973
+        },
+        {
+          "step": 599,
+          "loss": 0.016135215759277344
+        }
+      ]
+    },
+    {
+      "metric": "noncentral",
+      "width": 512,
+      "seed": 0,
+      "training_relative_error": 0.10901692222336258,
+      "isotropic_relative_error": 1.8737251398169128,
+      "frobenius_relative_error": 1.004393997155151,
+      "empirical_calibration_error": 0.139497309923172,
+      "empirical_evaluation_error": 0.27318593859672546,
+      "coordinate_replay": 7.832229016457859e-07,
+      "parameter_values": 1769472,
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.0019810199737549
+        },
+        {
+          "step": 100,
+          "loss": 0.2525053024291992
+        },
+        {
+          "step": 200,
+          "loss": 0.15658998489379883
+        },
+        {
+          "step": 300,
+          "loss": 0.0901021957397461
+        },
+        {
+          "step": 400,
+          "loss": 0.03333544731140137
+        },
+        {
+          "step": 500,
+          "loss": 0.013848066329956055
+        },
+        {
+          "step": 599,
+          "loss": 0.011884689331054688
+        }
+      ]
+    },
+    {
+      "metric": "noncentral",
+      "width": 512,
+      "seed": 1,
+      "training_relative_error": 0.10827354590902331,
+      "isotropic_relative_error": 1.948538499063689,
+      "frobenius_relative_error": 1.007634760834078,
+      "empirical_calibration_error": 0.13900701701641083,
+      "empirical_evaluation_error": 0.2828761041164398,
+      "coordinate_replay": 8.674473406244942e-07,
+      "parameter_values": 1769472,
+      "history": [
+        {
+          "step": 0,
+          "loss": 1.000828742980957
+        },
+        {
+          "step": 100,
+          "loss": 0.26444530487060547
+        },
+        {
+          "step": 200,
+          "loss": 0.16517329216003418
+        },
+        {
+          "step": 300,
+          "loss": 0.08577132225036621
+        },
+        {
+          "step": 400,
+          "loss": 0.02968454360961914
+        },
+        {
+          "step": 500,
+          "loss": 0.013713359832763672
+        },
+        {
+          "step": 599,
+          "loss": 0.011723637580871582
+        }
+      ]
+    }
+  ],
+  "transforms": {
+    "isotropic": {
+      "ridge": 0.0,
+      "scale": 92358832.0
+    },
+    "centered_covariance": {
+      "ridge": 3.6037676276677835e-06,
+      "scale": 434571.1875
+    },
+    "second_moment": {
+      "ridge": 5.225606557459734e-06,
+      "scale": 1999274.125
+    },
+    "noncentral": {
+      "ridge": 3.6037676276677835e-06,
+      "scale": 1359311.75
+    }
+  },
+  "seconds": 64.15993782388978,
+  "scope": "Gaussian moment objectives from native calibration statistics, whitened-coordinate optimization, paired physical random initialization; evaluation rows never optimized. Empirical fourth moments used only for diagnostics. No causal adoption.",
+  "predictions": {
+    "pred_a_metric_replay": true,
+    "pred_b_weighted_gain": true,
+    "pred_c_heldout_gain": true
+  }
+}
