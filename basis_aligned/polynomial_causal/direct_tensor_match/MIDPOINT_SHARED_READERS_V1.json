@@ -1,0 +1,65 @@
+{
+  "records": [
+    {
+      "shared_input_rank_each": 2,
+      "reader_coefficients": 4672,
+      "products": 16,
+      "coefficient_error_per_scalar": [
+        0.9965260530293581,
+        0.9782636540078375,
+        0.9721401044983407,
+        0.9781487445041342
+      ],
+      "scope": "Coefficient error relative to confirmed approximate scalar program, not original teacher or native functional error."
+    },
+    {
+      "shared_input_rank_each": 4,
+      "reader_coefficients": 9344,
+      "products": 16,
+      "coefficient_error_per_scalar": [
+        0.6238389467323819,
+        0.6720053028372304,
+        0.6281191567949226,
+        0.6493443219072669
+      ],
+      "scope": "Coefficient error relative to confirmed approximate scalar program, not original teacher or native functional error."
+    },
+    {
+      "shared_input_rank_each": 8,
+      "reader_coefficients": 18688,
+      "products": 16,
+      "coefficient_error_per_scalar": [
+        0.3785462611819585,
+        0.3733416884730311,
+        0.4244026224945477,
+        0.3840040308785377
+      ],
+      "scope": "Coefficient error relative to confirmed approximate scalar program, not original teacher or native functional error."
+    },
+    {
+      "shared_input_rank_each": 12,
+      "reader_coefficients": 28032,
+      "products": 16,
+      "coefficient_error_per_scalar": [
+        0.26774397031673375,
+        0.2074556655235659,
+        0.2541064872499796,
+        0.20241169557043825
+      ],
+      "scope": "Coefficient error relative to confirmed approximate scalar program, not original teacher or native functional error."
+    },
+    {
+      "shared_input_rank_each": 16,
+      "reader_coefficients": 37376,
+      "products": 16,
+      "coefficient_error_per_scalar": [
+        3.6950500408370705e-15,
+        3.0625903447440654e-15,
+        3.645547410270866e-15,
+        2.6473941965499975e-15
+      ],
+      "scope": "Coefficient error relative to confirmed approximate scalar program, not original teacher or native functional error."
+    }
+  ],
+  "scope": "CPU structural proposal only. Full-span replay checked; reduced-span programs require native evaluation. No confirmation data used to choose spans."
+}

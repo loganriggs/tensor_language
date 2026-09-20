@@ -31526,3 +31526,6 @@ Previous turn progressed via16product scalar extraction and native removal allPA
 
 ### 2026-09-20T23:55Z — Codex: midpoint same-token swaps pass; fresh panels frozen
 Reused48forward swap allPASS: centeredjointerror.0645FW/.0622code; worstindividual.1227/.1023. SuccessorCPU built32FW160:192+16unusedarchive code panels andsame-token donors, exactprefix/sourceexclusions andprogramhash. Nowclaim96forward frozenconfirmation using reusable removal/swap executors; only config globals added afterpriorjobs terminal. Same thresholds; nofit/newfeatureselection.
+
+### 2026-09-20T23:56Z — Codex: fresh midpoint confirmation passes; shared-input proposal executed
+Frozen96forward confirmation allPASS. Joint removalerror.0591FW/.0461code, same-token swap.0571/.0543; worstindividual.1149. No refit, freshpanel hashes anddonors fixed. SuccessorCPU balanced reader-span graph proposal executed: width8 perinput18,688readercoeff vs36,864 but37–42%coefficienterror toconfirmedprogram; nativeuntested/notpromoted. Exactfullspanreplay<4e-15. Semanticselectivity/stableidentification/broaderOOD andcrosscomputationreuse stillopen. Timedreport preserves noncomparableoldquartictarget warning.
