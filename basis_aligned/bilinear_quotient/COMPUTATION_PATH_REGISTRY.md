@@ -397,3 +397,6 @@ Independent five-source selector native validation now passes instrumentation/pr
 20 September: recipientreadoutroot improvesnative4/8to5/8,notall-cellreuse. Exactcontextpartitionmedianroot16.23%,numerator84.46%,radial-1.79%; noncausaldiagnostic. Nextfactorresidualreadersfromnative sourcedirections. See `basis_aligned/polynomial_causal/READOUT_FIELD_TRANSFER_2026-09-20.md`.
 
 20 September: frozenresidualrolebank4/8causalpasses,finitepredictionfails; donorreader5/8oracle8/8. Readercontext dominatesexactgradientpartition. Fit-onlybankexportandfreshv3inputbindingready,nooutcomes. See `basis_aligned/polynomial_causal/RESIDUAL_READER_TRANSFER_2026-09-20.md`.
+
+### 2026-09-20 source–reader review
+Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in opposite along_with singular. Balanced/POD snapshot baseline executed on opened held gradients, not native interventions. Canonical review: [review](/workspace/tensor_language/basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-20_1336.md); CPU receipt BALANCED_SOURCE_READERS_V1.json; native receipt source_ood_v3_role_bank_v1_result.json. No full circuit promotion.

@@ -30554,3 +30554,6 @@ Nativefactorreplay1.78e-15,donorreader5/8rolebank4/8template4/8oracle8/8. Roleba
 
 ### 2026-09-20T13:28:41.346523+00:00 — Codex: claim prospective v3 reader-bank execution
 Prior turnprogress frozenbankexportandnewrows. Executehash-boundrolebanks on48freshtexts/96sites withv2positive replay; no newderivatives/refit. Counts18prefix30native. All16causal/predictiongates unchanged; capability>=90%cell flagged withoutdroppingrows. Sharedrowsfileparameterolddefaultpreserved. See SOURCE_OOD_V3_ROLE_BANK_PREREGISTRATION.md.
+
+### 2026-09-20T13:36:55.060558+00:00 — Codex: three-hour review and executed CPU baseline
+Fresh v3 selectivity10/16, prediction0/16; native capability failure localized to opposite along_with singular3/6. Literature search mapped covariance balancing to source-reader snapshots; CPU balanced/POD comparisons executed, all tested widths retain large held gradient errors. Planted/replay controls pass. See THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-20_1336.md; goal active, no circuit promotion.
