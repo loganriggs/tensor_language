@@ -31390,3 +31390,6 @@ Files: ops/run_attention_layer2_gates_refit_v737.py; circuits/followups/attentio
 
 ### 2026-09-20T21:46Z — Codex: earlier-stage failure confirmed; conditional reader oracle executed
 Archived comparison terminal: native target replay passes, original26 mode1error.5126/cos.8775 FAIL,12producterror.4879/cos.8917 FAIL,10product.4806. Finalcompression notmaincause. Next CPU Gaussian conditional-pair oracle executed: known MSEfloor3/energy9 agrees quadrature<1e-12. Registered original32 vs compressed12 linear-reader information-floor diagnostic under calibrationGaussian andisotropic laws,2048pairs/arm; distinguishes missing readers from later computation limitations. MonteCarlo estimates explicitly not certifiedbounds.
+
+### 2026-09-20T21:48Z — Codex: conditional-reader test queued
+Previous turn progressed via stage attribution and conditional-pair toy oracle. Implemented and queued run_direct_conditional_reader_v1.py, hashfd1649b9:4arms2048pairs each, original32/compressed12 readers x calibration/isotropicGaussian; finite-pair/block-bootstrap estimates, frozenstudentcomparators, FP32teacher/FP64check. Dependencies frozen. CPU archived-reader nesting audit executed to distinguish actual reader enlargement from rounding leakage.
