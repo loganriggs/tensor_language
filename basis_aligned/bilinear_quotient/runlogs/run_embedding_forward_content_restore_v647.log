@@ -1,0 +1,12 @@
+native 3.13241 | all-kernels baseline +0.9562 | single-layer recoveries: 0:0.031 1:-0.006 2:-0.016 3:-0.011 4:0.027 5:-0.105 6:0.006 7:0.056 8:0.151 9:0.063 10:0.081 11:0.088 12:0.056 13:-0.052 14:0.107 15:0.044 16:0.016 17:0.006
+groups: 0-4 0.164, 0-5 0.363, 6-17 0.438 | sum of singles 0.542
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_baseline_replays_v646": true,
+    "pred_c_layer5_restores_most": false,
+    "pred_d_early_layers_matter": false,
+    "pred_e_restorations_superadditive": true
+  },
+  "forwards": 138
+}
