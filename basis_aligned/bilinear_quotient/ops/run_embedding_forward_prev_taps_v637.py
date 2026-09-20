@@ -78,7 +78,7 @@ def main() -> None:
             Tn = P.shape[-1]; pos = torch.arange(Tn, device=dev); off = (pos[:, None] > pos[None, :])[None].expand(P.shape[0], -1, -1)
             prev_tok = torch.cat([torch.full_like(idx[:, :1], -1), idx[:, :-1]], 1); ind = (idx[:, :, None] == prev_tok[:, None, :]) & off
             qm = pos >= Q_MIN; m = P[:, qm].abs() * off[:, qm]
-            return float((m * ind[:, qm]).sum() / m.sum()), float(ind[:, qm].sum() / off[:, qm].sum()), 2 * (N_CAP // EBATCH)
+            return float((m * ind[:, qm]).sum() / m.sum()), float(ind[:, qm].sum() / off[:, qm].sum()), N_CAP // EBATCH
 
         shares = {}
         nat_share, base, fw = induction_share(()); forwards += fw; shares["native"] = nat_share
