@@ -1,0 +1,1576 @@
+{
+  "independent_cpu_replay_error": 4.440892098500626e-16,
+  "contexts": 192,
+  "coefficient_values": 1728,
+  "artifact_bytes": 62245,
+  "baseline_values_per_context": {
+    "linear": 3,
+    "diagonal": 6,
+    "rank1": 7,
+    "full": 9
+  },
+  "max_errors_by_arm": {
+    "unit": {
+      "linear": 0.5272729556851631,
+      "diagonal": 0.39332520996583126,
+      "rank1": 0.08407769941013397,
+      "full": 0.0894424281983299
+    },
+    "negative": {
+      "linear": 0.47768455866957377,
+      "diagonal": 0.24456888503692076,
+      "rank1": 0.09110298194034222,
+      "full": 0.09096173947800729
+    },
+    "mixed": {
+      "linear": 0.3691569816174424,
+      "diagonal": 0.7089146041451592,
+      "rank1": 0.07321320196733118,
+      "full": 0.028558483441703603
+    },
+    "double": {
+      "linear": 1.1873292022054145,
+      "diagonal": 1.0112172966707962,
+      "rank1": 0.3378046920322884,
+      "full": 0.3715592522885208
+    }
+  },
+  "records": [
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.15264642686766766,
+        "diagonal": 0.07494060644504295,
+        "rank1": 0.00566280896677527,
+        "full": 0.0031245157822486908
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.2461592099325908,
+        "diagonal": 0.16387396691771336,
+        "rank1": 0.03317424791995392,
+        "full": 0.031919641397005594
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.20013940939625788,
+        "diagonal": 0.09227604530917653,
+        "rank1": 0.00651467009839674,
+        "full": 0.007275296825584161
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.3197269000202692,
+        "diagonal": 0.17629579030627324,
+        "rank1": 0.05293440629155059,
+        "full": 0.0550092931234689
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.11992909507090879,
+        "diagonal": 0.05874430869116631,
+        "rank1": 0.004617333415776513,
+        "full": 0.003201641821044312
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.2479566661251345,
+        "diagonal": 0.7009236799117424,
+        "rank1": 0.0642851929468018,
+        "full": 0.02705657371580301
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.26549088595155695,
+        "diagonal": 0.1297136332529845,
+        "rank1": 0.009315406153741716,
+        "full": 0.004799859220427585
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.412089129462913,
+        "diagonal": 0.2834319953833851,
+        "rank1": 0.08159693732762177,
+        "full": 0.07954007133866339
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.1831160910772395,
+        "diagonal": 0.13202374912037046,
+        "rank1": 0.020920285746029655,
+        "full": 0.022811923832794873
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.5272729556851631,
+        "diagonal": 0.310017398293427,
+        "rank1": 0.04238822109843899,
+        "full": 0.039200277163896874
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.1803639481237711,
+        "diagonal": 0.11542259043735517,
+        "rank1": 0.06328330178533899,
+        "full": 0.023240282407529133
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.47768455866957377,
+        "diagonal": 0.24456888503692076,
+        "rank1": 0.046252384242693116,
+        "full": 0.04851898664972636
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.10720314687751971,
+        "diagonal": 0.06208688755520184,
+        "rank1": 0.035640776462840064,
+        "full": 0.006704093082937715
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.3691569816174424,
+        "diagonal": 0.13439825250354379,
+        "rank1": 0.039966899209891084,
+        "full": 0.027950324267621975
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.36953258911858555,
+        "diagonal": 0.28227041445969786,
+        "rank1": 0.052658893339627574,
+        "full": 0.09333395396417657
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.7898576172517077,
+        "diagonal": 0.48072196812334783,
+        "rank1": 0.10073861643923009,
+        "full": 0.096392792694653
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.15446062092463886,
+        "diagonal": 0.07683476256867074,
+        "rank1": 0.006006569795177339,
+        "full": 0.0039832449170318284
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.2111215672015393,
+        "diagonal": 0.13776768747688134,
+        "rank1": 0.0255662789678258,
+        "full": 0.024051565902929006
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.20322231172657387,
+        "diagonal": 0.09431668698305269,
+        "rank1": 0.007002287615174698,
+        "full": 0.0073852971523471565
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.2612183163890425,
+        "diagonal": 0.14458202208157597,
+        "rank1": 0.03568900681885468,
+        "full": 0.03786693397815195
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.1236471109079413,
+        "diagonal": 0.0602545049246963,
+        "rank1": 0.0052506491788827225,
+        "full": 0.003779866352298424
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.27358174815869657,
+        "diagonal": 0.5841040947575921,
+        "rank1": 0.052853065805804816,
+        "full": 0.028558483441703603
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.27089458028516206,
+        "diagonal": 0.1363642607358017,
+        "rank1": 0.012777163451779526,
+        "full": 0.009958861179406588
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.36370968685310373,
+        "diagonal": 0.24504178624710704,
+        "rank1": 0.06739050285446109,
+        "full": 0.0647238709730108
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.16018177222723767,
+        "diagonal": 0.10506171177617277,
+        "rank1": 0.04755272567982936,
+        "full": 0.015142363742460991
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.26229727546328135,
+        "diagonal": 0.15150488898175346,
+        "rank1": 0.014293989669802434,
+        "full": 0.014807720278599817
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.1847639598912373,
+        "diagonal": 0.10749586460592693,
+        "rank1": 0.07027592213245638,
+        "full": 0.019332438941663446
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.3809816197435714,
+        "diagonal": 0.19783606447386415,
+        "rank1": 0.02999795502536177,
+        "full": 0.028431099007840056
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.09511576628388763,
+        "diagonal": 0.16779669680777912,
+        "rank1": 0.05026367550755389,
+        "full": 0.010711241925497205
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.2514139942065542,
+        "diagonal": 0.09846593327156666,
+        "rank1": 0.018507619658490623,
+        "full": 0.013348411220900901
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.29476894137302173,
+        "diagonal": 0.20162788149647135,
+        "rank1": 0.07907720453055987,
+        "full": 0.05035289814882277
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.43379082075327724,
+        "diagonal": 0.257671659758698,
+        "rank1": 0.03945748524372948,
+        "full": 0.04043035287860292
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.08617186824472883,
+        "diagonal": 0.04282330585436991,
+        "rank1": 0.0017444944922670146,
+        "full": 0.0025986918587122235
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.15747357111679805,
+        "diagonal": 0.10093813228363084,
+        "rank1": 0.011011019671632318,
+        "full": 0.009803950756383706
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.1073723078629911,
+        "diagonal": 0.0554831346907064,
+        "rank1": 0.0037844280864544368,
+        "full": 0.0017793287842810621
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.19217007164963362,
+        "diagonal": 0.11246685680377855,
+        "rank1": 0.015688988067991086,
+        "full": 0.01711387627706324
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.06925904220866898,
+        "diagonal": 0.027123925684297227,
+        "rank1": 0.001959803569018477,
+        "full": 0.0020503187434058635
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.11583594801848532,
+        "diagonal": 0.3825226675226641,
+        "rank1": 0.026788292924182902,
+        "full": 0.012045678549133139
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.1535265129231741,
+        "diagonal": 0.07285393418638804,
+        "rank1": 0.009613296549846372,
+        "full": 0.011970394839428524
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.2752222249477639,
+        "diagonal": 0.17783265201927476,
+        "rank1": 0.026690638887470444,
+        "full": 0.024556828226927636
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.11741048754641943,
+        "diagonal": 0.06798973696810752,
+        "rank1": 0.010210021701036928,
+        "full": 0.008231439242916158
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.1040570577213336,
+        "diagonal": 0.05821456035471444,
+        "rank1": 0.0034989907056005563,
+        "full": 0.003514158934550091
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.14023445668471266,
+        "diagonal": 0.07613719756834136,
+        "rank1": 0.010685773579699426,
+        "full": 0.009274916906602076
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.1350072545063443,
+        "diagonal": 0.07781536218591127,
+        "rank1": 0.0037411638554807995,
+        "full": 0.0017541634229432603
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.14680554378758862,
+        "diagonal": 0.1521294257850368,
+        "rank1": 0.03580710660010712,
+        "full": 0.012254898306949398
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.0978167905285488,
+        "diagonal": 0.029185571791305313,
+        "rank1": 0.00873083278191284,
+        "full": 0.001614653809473826
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.20910016019654645,
+        "diagonal": 0.12268432365176611,
+        "rank1": 0.041921486139135315,
+        "full": 0.037911723587395
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.18038748995009854,
+        "diagonal": 0.09614497422186187,
+        "rank1": 0.01666732316082682,
+        "full": 0.017746124850017364
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.15357408549203708,
+        "diagonal": 0.08533797145314836,
+        "rank1": 0.0030045906598069484,
+        "full": 0.002733518663447532
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.09574884842760034,
+        "diagonal": 0.0582727670967801,
+        "rank1": 0.006484868442714878,
+        "full": 0.0041678337259904415
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.2064354723097697,
+        "diagonal": 0.11057073985181261,
+        "rank1": 0.006137303084230788,
+        "full": 0.005984329821632064
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.11225406931194577,
+        "diagonal": 0.06649777650311867,
+        "rank1": 0.004650857344914157,
+        "full": 0.004988769688717199
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.11809621163013971,
+        "diagonal": 0.044728782489831996,
+        "rank1": 0.008622830498223214,
+        "full": 0.002362029849068517
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.12794625896642625,
+        "diagonal": 0.2718920902593835,
+        "rank1": 0.03646348459221332,
+        "full": 0.010370204285068617
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.26764741609147513,
+        "diagonal": 0.14890002323308746,
+        "rank1": 0.006253605899357517,
+        "full": 0.006671555699801223
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.17035600909345955,
+        "diagonal": 0.10164303021362321,
+        "rank1": 0.024118514247515835,
+        "full": 0.02047940004413014
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.10765371281624155,
+        "diagonal": 0.07607918948567183,
+        "rank1": 0.07899785639597774,
+        "full": 0.0077253229140928905
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.2849884257322201,
+        "diagonal": 0.17543596348010593,
+        "rank1": 0.018406227195118825,
+        "full": 0.017864018071412056
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.11418578056176097,
+        "diagonal": 0.07596887460322947,
+        "rank1": 0.09110298194034222,
+        "full": 0.01012723379402791
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.2535997031104597,
+        "diagonal": 0.14174714405801078,
+        "rank1": 0.020190806199697337,
+        "full": 0.019734023171704508
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.046414112814916454,
+        "diagonal": 0.09543396450580378,
+        "rank1": 0.07194595341182088,
+        "full": 0.008218574846970465
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.12426031205580702,
+        "diagonal": 0.032217729402389615,
+        "rank1": 0.029457574879487886,
+        "full": 0.005668448136494211
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.2079551232795844,
+        "diagonal": 0.1504020076827631,
+        "rank1": 0.13415202424604108,
+        "full": 0.0302319814103459
+      }
+    },
+    {
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.5291035280037362,
+        "diagonal": 0.3359150734229155,
+        "rank1": 0.05886863727564815,
+        "full": 0.05836658447653315
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.17871576688820054,
+        "diagonal": 0.09377392978301709,
+        "rank1": 0.01401029827210336,
+        "full": 0.011855216117937552
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.3048686269031316,
+        "diagonal": 0.2084370325046206,
+        "rank1": 0.050526642222551564,
+        "full": 0.04961549048488853
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.22440235189175076,
+        "diagonal": 0.10178922648725704,
+        "rank1": 0.015533374523591527,
+        "full": 0.017501960836226977
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.4294803073345316,
+        "diagonal": 0.23327536634346152,
+        "rank1": 0.08920419805999406,
+        "full": 0.09096173947800729
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.14910924317524293,
+        "diagonal": 0.0786901532773807,
+        "rank1": 0.01160529661927182,
+        "full": 0.010281927440406386
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.2255505349756311,
+        "diagonal": 0.7089146041451592,
+        "rank1": 0.07321320196733118,
+        "full": 0.026564737949208314
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|singular",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.31786297681261483,
+        "diagonal": 0.1750296808801646,
+        "rank1": 0.04100838593370058,
+        "full": 0.03763392062851105
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.4959253332830991,
+        "diagonal": 0.35528463066312177,
+        "rank1": 0.12712864536102425,
+        "full": 0.12572585265153424
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.32867273304300193,
+        "diagonal": 0.17996843232376883,
+        "rank1": 0.026618164068350037,
+        "full": 0.02206103102463416
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.47766679499613285,
+        "diagonal": 0.39332520996583126,
+        "rank1": 0.07419650959868973,
+        "full": 0.0894424281983299
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.26790016333461264,
+        "diagonal": 0.1296993849500205,
+        "rank1": 0.030409452691915934,
+        "full": 0.020192635886705453
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.20550427708048205,
+        "diagonal": 0.14974611681233138,
+        "rank1": 0.06264322627558921,
+        "full": 0.052764060992657506
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.22988244939324654,
+        "diagonal": 0.12436745938331614,
+        "rank1": 0.014595538930259156,
+        "full": 0.01391349457891837
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.02023940125114785,
+        "diagonal": 0.06997033526815626,
+        "rank1": 0.053263852474595884,
+        "full": 0.00837243161573611
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|singular",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.6134110288522815,
+        "diagonal": 0.35415535191067826,
+        "rank1": 0.07901944340807888,
+        "full": 0.07860356272347307
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 1.1873292022054145,
+        "diagonal": 1.0112172966707962,
+        "rank1": 0.3378046920322884,
+        "full": 0.3715592522885208
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.1713542319580741,
+        "diagonal": 0.08774785238050675,
+        "rank1": 0.011749396323692683,
+        "full": 0.00947627256850035
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.29173944711549554,
+        "diagonal": 0.20040649423380388,
+        "rank1": 0.04879727955992326,
+        "full": 0.04782603686891033
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.218273579443447,
+        "diagonal": 0.09845366536032661,
+        "rank1": 0.012440474956413093,
+        "full": 0.014213725645388125
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.39230062545112293,
+        "diagonal": 0.21601595064598772,
+        "rank1": 0.07967992780801934,
+        "full": 0.08144083734204648
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.15114154757102324,
+        "diagonal": 0.08024828918431018,
+        "rank1": 0.010265395294321803,
+        "full": 0.00904482198661788
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.22622999824509574,
+        "diagonal": 0.6658183385683357,
+        "rank1": 0.06851938203263716,
+        "full": 0.02846881594873853
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|singular",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.3041308688365868,
+        "diagonal": 0.1623982105190604,
+        "rank1": 0.033281469415349825,
+        "full": 0.029767683451993782
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "outside_called|plural",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.4843734450822122,
+        "diagonal": 0.3500964222690472,
+        "rank1": 0.1310036485375006,
+        "full": 0.12950793273453176
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.2343375141942059,
+        "diagonal": 0.14173587718676528,
+        "rank1": 0.022316350236302532,
+        "full": 0.02035218519421035
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.26155048617197474,
+        "diagonal": 0.18331077308682436,
+        "rank1": 0.03872963917877595,
+        "full": 0.04129685519656354
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.26976952871106974,
+        "diagonal": 0.14190920548510608,
+        "rank1": 0.03320242373781031,
+        "full": 0.024998272167355482
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.3173675914858857,
+        "diagonal": 0.1847503970440714,
+        "rank1": 0.062211908339097954,
+        "full": 0.05780754218345955
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.30846096342241847,
+        "diagonal": 0.15203027361416352,
+        "rank1": 0.018183454247221585,
+        "full": 0.019989912920448754
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.09158028739686716,
+        "diagonal": 0.19680446547964808,
+        "rank1": 0.04169934597319501,
+        "full": 0.017834181392133986
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.41870245689883057,
+        "diagonal": 0.2682727364936988,
+        "rank1": 0.06982686582606437,
+        "full": 0.07014164597422455
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.45804618674609693,
+        "diagonal": 0.3401874491519456,
+        "rank1": 0.12449909384048705,
+        "full": 0.12831965213994936
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.09849874075647862,
+        "diagonal": 0.04868188609428806,
+        "rank1": 0.003364715894971682,
+        "full": 0.0013493042393098679
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.17533568535792504,
+        "diagonal": 0.11431412365183731,
+        "rank1": 0.016858333942893187,
+        "full": 0.015916348257678598
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.11887549378804971,
+        "diagonal": 0.058093141686238636,
+        "rank1": 0.0022610357922276036,
+        "full": 0.0022499169091810176
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.2101463476705346,
+        "diagonal": 0.12119583379628278,
+        "rank1": 0.023004373223887268,
+        "full": 0.02421514386311782
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.08854967811741582,
+        "diagonal": 0.037618980311873905,
+        "rank1": 0.006138831581991116,
+        "full": 0.002057437872961826
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.12304563332385093,
+        "diagonal": 0.43052268738145966,
+        "rank1": 0.023068535689152736,
+        "full": 0.01207696125762238
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|singular",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.17800619918881205,
+        "diagonal": 0.0865226908322232,
+        "rank1": 0.007493035228141327,
+        "full": 0.00566207617174881
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "yesterday_helped|plural",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.3100113840480357,
+        "diagonal": 0.2076487163986563,
+        "rank1": 0.047183341606167196,
+        "full": 0.045564821733738
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.10443836804236141,
+        "diagonal": 0.05817646155648952,
+        "rank1": 0.006941446459190616,
+        "full": 0.003974375846173822
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.19210237506281824,
+        "diagonal": 0.1324038808005706,
+        "rank1": 0.021154341063712574,
+        "full": 0.02186949182677881
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.11767910479120293,
+        "diagonal": 0.060993904302568513,
+        "rank1": 0.007904212010218074,
+        "full": 0.0054501500803892594
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.2298803936540385,
+        "diagonal": 0.13934681984324856,
+        "rank1": 0.031099627214649102,
+        "full": 0.02983471827398836
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.15983270964508378,
+        "diagonal": 0.08474825057082619,
+        "rank1": 0.011424554306838359,
+        "full": 0.008458184697315003
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.1938892666603703,
+        "diagonal": 0.19530352722797384,
+        "rank1": 0.05507250050014541,
+        "full": 0.02377635577635962
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|singular",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.19487464189909934,
+        "diagonal": 0.11110936564065986,
+        "rank1": 0.01685906105744205,
+        "full": 0.012960021320213119
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "yesterday_helped|plural",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.3439973980353778,
+        "diagonal": 0.2470477995390385,
+        "rank1": 0.06919089329567438,
+        "full": 0.07017166464590556
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.15960068827717186,
+        "diagonal": 0.08983599508302062,
+        "rank1": 0.00491482174205548,
+        "full": 0.004258227365447275
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.09732800876538843,
+        "diagonal": 0.05958486169216873,
+        "rank1": 0.007021413126945138,
+        "full": 0.004494007035126771
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.21403352478258791,
+        "diagonal": 0.11433530105625433,
+        "rank1": 0.007614589762002092,
+        "full": 0.008092765038471759
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.11395892734037207,
+        "diagonal": 0.06775316608143629,
+        "rank1": 0.004966653760107464,
+        "full": 0.005438903624348124
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.12635027224089043,
+        "diagonal": 0.047677070516456685,
+        "rank1": 0.009757570920720762,
+        "full": 0.003619420231738186
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.12817488821149806,
+        "diagonal": 0.2801251803738447,
+        "rank1": 0.02932614922570979,
+        "full": 0.00987777814149908
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.2786497225430528,
+        "diagonal": 0.158361126214334,
+        "rank1": 0.01204932314848296,
+        "full": 0.011265265044895641
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|plural",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.1730446057565773,
+        "diagonal": 0.10396363226916035,
+        "rank1": 0.025705576732301397,
+        "full": 0.02154735964259322
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.24443805590622264,
+        "diagonal": 0.13600591665959494,
+        "rank1": 0.013150516318487886,
+        "full": 0.0135873856897533
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "arm": "unit",
+      "relative_errors": {
+        "linear": 0.1618366658047821,
+        "diagonal": 0.12677187142206242,
+        "rank1": 0.08407769941013397,
+        "full": 0.024739863994080794
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.2903985991513009,
+        "diagonal": 0.1456097662640611,
+        "rank1": 0.023880766591065857,
+        "full": 0.018820447198417356
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "arm": "negative",
+      "relative_errors": {
+        "linear": 0.14693318402027253,
+        "diagonal": 0.10378675316788484,
+        "rank1": 0.08544325291600814,
+        "full": 0.024502473889103236
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.21863754498578059,
+        "diagonal": 0.10734847579932866,
+        "rank1": 0.013951886398090986,
+        "full": 0.007292802949825921
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "arm": "mixed",
+      "relative_errors": {
+        "linear": 0.04930752198777661,
+        "diagonal": 0.06650757366683688,
+        "rank1": 0.06500040184916611,
+        "full": 0.009439171349563543
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.42565821252727426,
+        "diagonal": 0.24595543467185937,
+        "rank1": 0.04087457135528095,
+        "full": 0.04314603015546242
+      }
+    },
+    {
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "arm": "double",
+      "relative_errors": {
+        "linear": 0.3267306660817135,
+        "diagonal": 0.2653326696515553,
+        "rank1": 0.18200392861580206,
+        "full": 0.08656647496620708
+      }
+    }
+  ]
+}

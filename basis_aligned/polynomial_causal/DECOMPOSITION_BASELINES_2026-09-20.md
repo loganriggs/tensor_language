@@ -149,3 +149,7 @@ v658/v660 compose the attention12 fold and reduced MLP chain. Both pass the5% co
 ## Same-width preservation and sparse interaction controls
 
 v665–v667 use four calibration reader contrasts at width8 and pass prospective target/control tests. v668 compares18/36 and9/36 shared-pair supports, three equal-price random18 supports and a zero-quadratic-numerator baseline. Half-support passes; quarter/zero fail; one random also passes. Dense normalization and native context costs remain. [Definition, geometry, prices and verdicts](JOINT_READER_SPARSE_RESPONSE_2026-09-20.md).
+
+## Conditional source-amplitude baseline (later20 September)
+
+[Native source Hessians](SEMANTIC_SOURCE_QUADRATIC_JET_2026-09-20.md) provide a measured same-output/source-interface comparison: linear3, diagonal6, signed-rank1 7, full symmetric9 values/context. Rank1 andfull pass unit/negative/mixed10% on opened contexts; doubled edits fail. Producer computation and context dependence are fully charged; this is not a global tensor-decomposition or HT comparison. CPU extraction is exact only for the quadratic observable.
