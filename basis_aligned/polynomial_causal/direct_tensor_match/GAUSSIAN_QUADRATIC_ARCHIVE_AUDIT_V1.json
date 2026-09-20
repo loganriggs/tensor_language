@@ -1,0 +1,45 @@
+{
+  "records": [
+    {
+      "key": [
+        "centered",
+        "muon",
+        "muon"
+      ],
+      "cost": {
+        "products": 4,
+        "additions": 33392,
+        "stored_coefficients": 34560,
+        "edges": 35720,
+        "nodes": 3477
+      },
+      "panel_errors": [
+        0.25181353631914033,
+        0.24156741735537618
+      ],
+      "graph_replay": 1.76875196666981e-16,
+      "metric_drift": 1.5987211554602254e-14
+    },
+    {
+      "key": [
+        "spherical",
+        "adam",
+        "muon"
+      ],
+      "cost": {
+        "products": 4,
+        "additions": 33392,
+        "stored_coefficients": 34560,
+        "edges": 35720,
+        "nodes": 3477
+      },
+      "panel_errors": [
+        0.28886547092009446,
+        0.2805322855242407
+      ],
+      "graph_replay": 1.6745089392734717e-16,
+      "metric_drift": 1.759703494030873e-14
+    }
+  ],
+  "scope": "Independent CPU scalar DAG replay of saved FP32 programs; same diagnostic panels, no new generalization evidence."
+}

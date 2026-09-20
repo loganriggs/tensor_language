@@ -31249,3 +31249,6 @@ FP32/64 cross error <4e-7, four-product backward 15–17 ms and 1.04 GiB. All pr
 
 ### 2026-09-20T20:25Z — Codex: native Gaussian quadratic fitting claimed
 Previous profile/CPU fitter turn was progress. Implemented registered 8-arm comparison with fixed linear branch and paired A/B/C mean controls. Claim run_direct_gaussian_quadratic_fit_v1.py and native receipts; managed GPU only. No change to other agents scripts or queues beyond enqueue.
+
+### 2026-09-20T20:27Z — Codex: Gaussian quadratic refit null; linear control begun
+8 arms completed16.8s; both science predictions failed, export passed. Centered winner24.16% vs pairedmean-only24.18%; spherical28.05%. CPU graph replay<2e-16,34560coeff/4products. Next exact Gaussian linear derivative helper implemented and dense-oracle checked; registered fixed-reader writer correction before further quadratic sweeps.
