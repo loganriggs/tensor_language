@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "<stdin>", line 52, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_native_attention_source_core_v1.py", line 85, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_native_attention_source_core_v1.py", line 66, in main
+    core,compile_seconds=timed(compiler);counts['compiles']+=1
+                         ^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_native_attention_source_core_v1.py", line 53, in timed
+    torch.cuda.synchronize();t0=time.perf_counter();result=fn();torch.cuda.synchronize();return result,time.perf_counter()-t0
+                                                           ^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_native_attention_source_core_v1.py", line 65, in compiler
+    return compile_core(weights,before,K,q,first,att.lamb.double(),att.n_head,cos[0,:,0].double(),sin[0,:,0].double(),eps,eps)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/polynomial_causal/attention_source_core.py", line 22, in compile_core
+    return dict(score1=score('q','k'),score2=score('q2','k2'),global_norm=global_norm,value_base=(1-mixture)*torch.einsum('btohd,bshd->bohts',output,vb),value_linear=(1-mixture)*torch.einsum('btohd,bshdp->bohtsp',output,vk),cached_value=mixture*torch.einsum('btohd,bshd->bohts',output,first.reshape_as(vb)),head_width=hd,length=t)
+                                                                                                                                                                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/functional.py", line 373, in einsum
+    return _VF.einsum(equation, operands)  # type: ignore[attr-defined]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: expected scalar type Double but found Float

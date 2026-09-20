@@ -1,0 +1,48 @@
+{
+  "layers": {
+    "11": {
+      "native_first": true,
+      "one_shot_ratio": 1.0343187702054815,
+      "folded_only_ratio": 0.8895431881248527,
+      "amortized_strict_break_even_calls": 2
+    },
+    "12": {
+      "native_first": false,
+      "one_shot_ratio": 1.0209739032045577,
+      "folded_only_ratio": 0.8816800196722717,
+      "amortized_strict_break_even_calls": 2
+    },
+    "13": {
+      "native_first": true,
+      "one_shot_ratio": 1.020483577339275,
+      "folded_only_ratio": 0.8813047349502466,
+      "amortized_strict_break_even_calls": 2
+    },
+    "14": {
+      "native_first": false,
+      "one_shot_ratio": 1.0238956188879074,
+      "folded_only_ratio": 0.8847542522002051,
+      "amortized_strict_break_even_calls": 2
+    },
+    "15": {
+      "native_first": true,
+      "one_shot_ratio": 1.02244400329141,
+      "folded_only_ratio": 0.8832955909361182,
+      "amortized_strict_break_even_calls": 2
+    },
+    "16": {
+      "native_first": false,
+      "one_shot_ratio": 1.024350252408972,
+      "folded_only_ratio": 0.8850636424930118,
+      "amortized_strict_break_even_calls": 2
+    },
+    "17": {
+      "native_first": true,
+      "one_shot_ratio": 1.0213125293504013,
+      "folded_only_ratio": 0.8821293061326273,
+      "amortized_strict_break_even_calls": 2
+    }
+  },
+  "aggregate_strict_break_even_calls": 2,
+  "scope": "Posthoc arithmetic on one synchronized run. Repeated evaluations must share identical compiled background/readers/K/cache; changing context invalidates reuse. Break-even is an extrapolation, not a measured repeat benchmark. Layer and order are confounded, so no causal order effect inferred."
+}

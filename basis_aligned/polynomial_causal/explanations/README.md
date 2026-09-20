@@ -684,3 +684,6 @@ same day sort and link unambiguously.  Older `explanation_HHMM.md` files are ret
 - [Native normalized MLP source-core validation](../NORMALIZED_MLP_SOURCE_CORE_2026-09-20.md): exact local output/derivative andCPUexport replay pass; localMLP11curvature alone fails number53.11%/modal8.16%. Full-path source-Jacobian/adjoint capture implemented; planted chain-rule proof passes, native all-node closure pending.
 
 - [Native source-Hessian decomposition](../NATIVE_SOURCE_CURVATURE_DECOMPOSITION_2026-09-20.md): fifteen local terms close1.25e-15 relative. Broad curvature omissions fail; full fifteen-direction finite test passes4.70%number/1.39%modal. Early-layer-only A/B cross-curvature candidate passes6.82/2.00% on openeddata; material interaction errors canreach41.69%. Fresh validation and native-generator reduction remain pending.
+
+
+20 September: [Exact source attention fold and spectral baseline](../ATTENTION_FOLD_AND_SPECTRAL_BASELINE_2026-09-20.md). Native attention fold replays exactly but fails the one-shot speed gate (1.024x). Per-context signed rank-two Hessians pass opened finite-edit tests with68 versus80 stored values; native generators remain required. Rank-one fails. No native HT or complete-circuit claim.

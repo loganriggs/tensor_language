@@ -159,3 +159,6 @@ Later [quadratic design audit](SHARED_SOURCE_QUADRATIC_DICTIONARY_2026-09-20.md)
 ## Full-path curvature controls
 
 [Exact local Hessian sum](NATIVE_SOURCE_CURVATURE_DECOMPOSITION_2026-09-20.md) supplies a native coefficient reference for curvature-path omission. Full quadratic passes fifteen positive single/pair directions; linear, all-MLP-only, attention-only and zero-A/B-cross controls fail their stated gates. Joint omission of individually passing terms fails modal fidelity. These are conditional derivative-program baselines, not native HT or whole-model replacements.
+
+
+20 September: [Exact source attention fold and spectral baseline](ATTENTION_FOLD_AND_SPECTRAL_BASELINE_2026-09-20.md). Native attention fold replays exactly but fails the one-shot speed gate (1.024x). Per-context signed rank-two Hessians pass opened finite-edit tests with68 versus80 stored values; native generators remain required. Rank-one fails. No native HT or complete-circuit claim.
