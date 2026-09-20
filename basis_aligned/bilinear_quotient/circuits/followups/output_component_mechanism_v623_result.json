@@ -1,0 +1,90 @@
+{
+  "plan": {
+    "panels": [
+      "fineweb_n96_skip1200.pt",
+      "fineweb_n192_skip11000.pt"
+    ],
+    "documents": 8,
+    "tokens": 64,
+    "forwards_max": 6,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0,
+    "execution_policy": "managed_queue_only"
+  },
+  "rows": [
+    {
+      "panel": "fineweb_n96_skip1200.pt",
+      "rows_sha256": "98acad92d29c3c940d70ccff19ada96dd14e3c64f130c661db96c1ce1baf2353",
+      "alpha_mean": -922996.3591156006,
+      "alpha_std": 503006.29295460205,
+      "isotropic_value_mean": 573396.0596923828,
+      "isotropic_prediction_error": 1.5020249005574615,
+      "rank256_prediction_error": 0.04592300933197759,
+      "losses": {
+        "baseline": 3.0476784706115723,
+        "exact": 3.2093464136123657,
+        "rank256": 3.217466115951538,
+        "isotropic": 3.145111918449402,
+        "traceless": 3.4282196760177612,
+        "fixed_norm": 3.2114973068237305,
+        "common_fixed_norm": 3.0528950691223145,
+        "centered_fixed_norm": 3.1876107454299927
+      },
+      "delta_ce": {
+        "exact": 0.16166794300079346,
+        "rank256": 0.16978764533996582,
+        "isotropic": 0.09743344783782959,
+        "traceless": 0.38054120540618896,
+        "fixed_norm": 0.1638188362121582,
+        "common_fixed_norm": 0.0052165985107421875,
+        "centered_fixed_norm": 0.1399322748184204
+      },
+      "final_norm_increment": -0.002150893211364746,
+      "common_centered_interaction": 0.018669962882995605
+    },
+    {
+      "panel": "fineweb_n192_skip11000.pt",
+      "rows_sha256": "4f999de8045f74b9dde718a4d52384c2d22bce4fe827fb49f3eaa4e6cff169a4",
+      "alpha_mean": -916421.766494751,
+      "alpha_std": 516016.3541686723,
+      "isotropic_value_mean": 573396.0538330078,
+      "isotropic_prediction_error": 1.4993218333777727,
+      "rank256_prediction_error": 0.041651875209541785,
+      "losses": {
+        "baseline": 3.3078296184539795,
+        "exact": 3.510467290878296,
+        "rank256": 3.5196168422698975,
+        "isotropic": 3.410862684249878,
+        "traceless": 3.80343234539032,
+        "fixed_norm": 3.5104258060455322,
+        "common_fixed_norm": 3.3089241981506348,
+        "centered_fixed_norm": 3.4870723485946655
+      },
+      "delta_ce": {
+        "exact": 0.2026376724243164,
+        "rank256": 0.21178722381591797,
+        "isotropic": 0.10303306579589844,
+        "traceless": 0.49560272693634033,
+        "fixed_norm": 0.20259618759155273,
+        "common_fixed_norm": 0.0010945796966552734,
+        "centered_fixed_norm": 0.17924273014068604
+      },
+      "final_norm_increment": 4.1484832763671875e-05,
+      "common_centered_interaction": 0.022258877754211426
+    }
+  ],
+  "trace_Q": 573396.0625,
+  "excluded_bias_alpha": 2256.15234375,
+  "maximum_replay_relative_error": 5.605731416835624e-07,
+  "forwards": 6,
+  "manual_suffix_evaluations": 32,
+  "predictions": {
+    "pred_a_native_suffix_replay": true,
+    "pred_b_isotropic_prediction": false,
+    "pred_c_direction_dominates": true
+  },
+  "scope": "path-dependent intervention decomposition, no semantic circuit or domain OOD claim; common and centered effects need not add through softcap",
+  "seconds": 1.1153811318799853,
+  "finished_utc": "2026-09-20T03:45:54.991613+00:00"
+}

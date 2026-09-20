@@ -5,6 +5,10 @@ The native checkpoint gives z width **6912**, not the 7872 in v614's prose.
 The tensor is symmetric in its two input indices. It is the last MLP's
 unnormalized logit contribution; it excludes residual readout, final RMSNorm,
 and softcap. Those operations must remain explicit during behavioral tests.
+The native MLP also has `Down_bias`: its constant contribution is outside
+C,A,B. It must be preserved separately, or represented by a homogeneous
+constant coordinate. See the v622/v623 bias instrument correction in
+[the mechanism audit](OUTPUT_COMPONENT_MECHANISM_AND_SHIFT_2026-09-20.md).
 
 ## What was wrong with the previous experiment
 

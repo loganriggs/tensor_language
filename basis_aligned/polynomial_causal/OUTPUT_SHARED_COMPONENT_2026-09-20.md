@@ -1,5 +1,9 @@
 # New spectral features and a conditionally extracted component
 
+Follow-up: [bias-corrected mechanism and input-shift tests](OUTPUT_COMPONENT_MECHANISM_AND_SHIFT_2026-09-20.md)
+rule out the tested isotropic/constant and final-normalization explanations.
+They also distinguish the native affine MLP projection from its quadratic part.
+
 This follows the failure of small shared-input Tucker ranks and fixed native
 atom pruning. Unlike pruning, v619 constructs new input features. The full
 target is still C=UD, A=LE, B=RE with all vocabulary outputs and source ports.

@@ -1,0 +1,89 @@
+{
+  "plan": {
+    "families": {
+      "code": [
+        "def add_1(x):\n    result = x + 1\n    return result\n\nprint(add_1(4))\n",
+        "def add_2(x):\n    result = x + 2\n    return result\n\nprint(add_2(5))\n",
+        "def add_3(x):\n    result = x + 3\n    return result\n\nprint(add_3(6))\n",
+        "def add_4(x):\n    result = x + 4\n    return result\n\nprint(add_4(7))\n",
+        "def add_5(x):\n    result = x + 5\n    return result\n\nprint(add_5(8))\n",
+        "def add_6(x):\n    result = x + 6\n    return result\n\nprint(add_6(9))\n",
+        "def add_7(x):\n    result = x + 7\n    return result\n\nprint(add_7(10))\n",
+        "def add_8(x):\n    result = x + 8\n    return result\n\nprint(add_8(11))\n"
+      ],
+      "arithmetic": [
+        "Compute each sum. 1 + 3 = 4. 5 + 2 = 7. The next calculation is 4 + 8 =",
+        "Compute each sum. 2 + 4 = 6. 6 + 3 = 9. The next calculation is 5 + 9 =",
+        "Compute each sum. 3 + 5 = 8. 7 + 4 = 11. The next calculation is 6 + 10 =",
+        "Compute each sum. 4 + 6 = 10. 8 + 5 = 13. The next calculation is 7 + 11 =",
+        "Compute each sum. 5 + 7 = 12. 9 + 6 = 15. The next calculation is 8 + 12 =",
+        "Compute each sum. 6 + 8 = 14. 10 + 7 = 17. The next calculation is 9 + 13 =",
+        "Compute each sum. 7 + 9 = 16. 11 + 8 = 19. The next calculation is 10 + 14 =",
+        "Compute each sum. 8 + 10 = 18. 12 + 9 = 21. The next calculation is 11 + 15 ="
+      ],
+      "repetition": [
+        "hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello.",
+        "world world world world world world world world world world world world world world world world world world world world world world world world.",
+        "red red red red red red red red red red red red red red red red red red red red red red red red.",
+        "green green green green green green green green green green green green green green green green green green green green green green green green.",
+        "zero zero zero zero zero zero zero zero zero zero zero zero zero zero zero zero zero zero zero zero zero zero zero zero.",
+        "seven seven seven seven seven seven seven seven seven seven seven seven seven seven seven seven seven seven seven seven seven seven seven seven.",
+        "again again again again again again again again again again again again again again again again again again again again again again again again.",
+        "never never never never never never never never never never never never never never never never never never never never never never never never."
+      ]
+    },
+    "forwards_max": 24,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0,
+    "execution_policy": "managed_queue_only",
+    "component": "frozen v621 width256"
+  },
+  "rows": [
+    {
+      "family": "code",
+      "tokens": 256,
+      "relative_prediction_error": 0.018852394793393974,
+      "token_weighted_losses": {
+        "baseline": 4.510755956172943,
+        "exact": 4.871780335903168,
+        "approximate": 4.8624483942985535
+      },
+      "removal_ce_difference": -0.009331941604614258
+    },
+    {
+      "family": "arithmetic",
+      "tokens": 192,
+      "relative_prediction_error": 0.023134522545963376,
+      "token_weighted_losses": {
+        "baseline": 3.588770031929016,
+        "exact": 3.85519015789032,
+        "approximate": 3.8577645421028137
+      },
+      "removal_ce_difference": 0.0025743842124938965
+    },
+    {
+      "family": "repetition",
+      "tokens": 192,
+      "relative_prediction_error": 0.01850832468093374,
+      "token_weighted_losses": {
+        "baseline": 1.3701641336083412,
+        "exact": 2.074328273534775,
+        "approximate": 2.0935155004262924
+      },
+      "removal_ce_difference": 0.01918722689151764
+    }
+  ],
+  "forwards": 24,
+  "manual_suffix_evaluations": 72,
+  "maximum_replay_relative_error": 4.3217360712333175e-07,
+  "program_sha256": "097e85195e880490836c535043b343cb34a0d71edcf185effac86621b426fa3d",
+  "predictions": {
+    "pred_a_quadratic_replay": true,
+    "pred_b_all_family_prediction": true,
+    "pred_c_removal_prediction": true
+  },
+  "scope": "synthetic shifts relative to prose calibration; conditional component and model loss only, not semantic selectivity or reuse",
+  "seconds": 1.3122934368439019,
+  "finished_utc": "2026-09-20T03:47:52.881174+00:00"
+}
