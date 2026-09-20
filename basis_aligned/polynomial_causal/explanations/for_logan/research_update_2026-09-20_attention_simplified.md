@@ -60,6 +60,9 @@
 | 17 | the weights-only writer→reader coupling graph (reader's content directions inside the writer's write subspace) is flat: median 1.06× chance, 3 of 12,393 pairs ≥ 4×, no decay with layer distance; 5.5's strongest writers are the layer-4 heads 4.3/4.5/4.7 (2–3×), 8.3's is 6.3 — not 7.3 | fold | v727 | held — the circuit skeleton is not in pairwise weights |
 
 **So the honest description of a head in this model is per head:** *read these r directions of the residual stream (r = 16 for 111 heads, 64 for 51), weigh keys by one of four positional shapes (a 4-vector of coefficients) plus a rank-r bilinear content term that is mostly separable gating, write 64 of your 128 directions.* There is no shared coordinate system across heads on either side, and the pairwise weight overlaps do not expose the circuit — that still needs activations (the census and path-patching of the earlier lanes).
+| 18 | one-number content programs are rare: of the 38 valuable heads only 1.4 (same-token, recovery 0.70) and 5.5 (induction indicator [tok_i = tok_{j−1}], 0.40 at β = 0.1; its rank-16 term gets 0.54 — the rest of the induction read is graded similarity) gain from an indicator; the sink 5.7 needs an absolute-position read that no offset kernel gives | edit | v730/v731 | held |
+
+**Vocabulary of the atlas, as it stands:** kernel + separable gate for most heads; kernel + one indicator for 1.4 and (partly) 5.5; kernel + rank-64 content for the ~28 content heads; an absolute-position read for 5.7; 64 write directions for everyone.
 
 ## Open
 

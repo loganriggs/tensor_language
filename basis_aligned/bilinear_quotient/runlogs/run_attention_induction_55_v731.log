@@ -1,0 +1,20 @@
+beta +0.00: cost +0.0114 (recovery 0.03)
+beta +0.10: cost +0.0071 (recovery 0.40)
+beta +0.20: cost +0.0138 (recovery -0.17)
+beta +0.30: cost +0.0284 (recovery -1.40)
+beta +0.50: cost +0.0778 (recovery -5.59)
+beta +0.75: cost +0.1669 (recovery -13.13)
+beta +1.00: cost +0.2715 (recovery -21.99)
+beta +1.50: cost +0.4883 (recovery -40.35)
+beta +2.00: cost +0.6953 (recovery -57.88)
+native 3.13241 | value 0.0118 | kernel-only +0.0114 | best beta +0.10: +0.0071 (recovery 0.40) | rank-16 closed-form +0.0054 (recovery 0.54)
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_indicator_recovers_half": false,
+    "pred_c_indicator_beats_kernel": true,
+    "pred_d_induction_attracts": false,
+    "pred_e_rank16_still_better": true
+  },
+  "forwards": 68
+}
