@@ -1,0 +1,11 @@
+5.5 induction share (base 0.0098): native 0.093 | cut taps: 0.081 (0.86x) cut windows: 0.084 (0.90x) cut positional19: 0.022 (0.23x) cut windows_content: 0.080 (0.85x)
+{
+  "predictions": {
+    "pred_a_windows_alone_keep": true,
+    "pred_b_positional19_kill": true,
+    "pred_c_taps_replay": true,
+    "pred_d_windows_plus_content_keep": true,
+    "pred_e_monotone": true
+  },
+  "forwards": 10
+}

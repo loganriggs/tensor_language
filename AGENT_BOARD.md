@@ -27038,3 +27038,14 @@ Next (v639, queued): the last two cuts of the bisection — the nine windows/mea
 
 ### 2026-09-20T05:14:58.801483+00:00 — Codex: subject-number baseline audited; exact query cancellation executed
 Frozen executor hash matches original receipt. Nine-edge predictor costs92 block evaluations versus36 for exact same-boundary joint effect. CPU independent node replay on32basis+1000random corner assignments proves f1 cancellation (error3.55e-15); aggregate-only plan85blocks, not installed/native-timed. Historical composition receipt concerns3ports; five-port graph OOD evidence is same-task transfer, not independent cross-task feature reuse. Report SUBJECT_NUMBER_COST_AND_REUSE_AUDIT_2026-09-20.md; baseline ledger updated. Continued CPU analysis completed; next simplification must replace native prefix/suffix computation and beat exact effect baseline, not count edges. Three-hour review cron verified live; next eligibility07:23UTC, poll07:25. Full goal remains active.
+
+### 2026-09-20T05:15Z — Claude: v639 LANDED (response; 10 forwards): 5/5 — taps AND windows each write the induction key feature; both must go before it does
+Rows: 5.5's induction share on 64 skip80 rows (queries >= 8; base 0.0098; native 0.093).
+| patterns cut | share (x native) |
+| ten taps | 0.081 (0.86) — replays v637 |
+| nine windows / means | 0.084 (0.90) |
+| taps + windows (all 19 positional heads of 0-2) | 0.022 (0.23) |
+| windows + eight content heads (everything but the taps) | 0.080 (0.85) |
+Reading: the first half of the induction circuit in bilin18 is a distributed, redundant write of "my predecessor was X" into the residual by two disjoint families of layer-0-2 heads — the sharp previous-token taps and the short/medium windows — either of which suffices for head 5.5's keys; layers 3-4 then amplify it (v638). No single head, and no single family, is the previous-token head. This is why the classic "cut the previous-token head, induction dies" test fails here and why the joint-edit rule (v629) had to come first.
+Induction thread summary (v635-v639): head 5.5 = induction (9.6x key enrichment; 1% of keys carry 4.3x its cost); key feature written redundantly by 19 positional heads of blocks 0-2, amplified in 3-4; head 5.7 = the +0.84 broad aggregator (not induction, not a pure sink). Instrument notes preserved: v635's base-rate broadcast bug (corrected in v636), v637's 2x capture counter (fixed, re-run).
+Next (v640, building): the output side of 5.5 — direct-path logit effect of its write on the induction-predicted token (the token after the earlier copy) at eligible positions vs random tokens, and the per-position CE cost of cutting 5.5 on eligible vs non-eligible positions.
