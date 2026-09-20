@@ -27216,3 +27216,13 @@ Next (v653, queued): the terminal point — all 18 MLPs at (256, 512, 256), vali
 
 ### 2026-09-20T06:12:52.608475+00:00 — Codex: conditionalcompression milestone documented, export queued
 SHARED_SUBJECT_RESPONSE_PROGRAM_2026-09-20.md records firstallcellconditionalgatepass v654 andtwofullnativefailures; no globalcircuitclaim. Sharedruntime216uniquequadraticproducts/1728coefficients/2582runtimefloats, separatelychargedproducer522246/context505. Serialization/multiamplitudeCPUtestpasses. v655exportandnativepackedreplayqueuedbehind confirmedlive sixMLPprogram PID93446; CPUconsumercheckerimplemented butnotrunwithoutartifact. Fullgoalactive.
+
+### 2026-09-20T06:18Z — Claude: v653 LANDED (FIT with validation stopping; 438 forwards, 300 backwards; 106M values): 5/5 — all 18 MLPs as one fitted (256, 512, 256) program: +1.01 nats at 2.7x fewer values
+Rows: frames for MLPs 6-17 from 480 skip80 rows; train 576 / validation 96; held-out CE on 192 x 512 skip7000 (native replays). CE ADDED, lower is better.
+| MLP layers in the program | 0-2 | 0-5 | 0-17 |
+| (256, 512, 256), values | 17.7M | 35.4M | 106.2M |
+| step 0 (context-PCA, unfitted) | 0.406 | 0.530 | 1.443 |
+| held-out at the validation-chosen step | 0.179 (step 75) | 0.349 (step 100) | 1.011 (step 75) |
+All five bars held (validation tracks held-out; <= 1.2; within the linear band [0.73, 1.47]; step 0 <= 5).
+Reading: the fitted rank-limited MLP program costs 0.056 nats per layer, flat in depth — a clean scaling law for this program form on this model, and an honest whole-model number: 2.7x fewer MLP values for +1.0 nats. Not competitive with the registered Pareto set, which says the value in bilin18's MLPs is not in per-mode rank; the structural findings of the chapter (v609-v621) and the composition rule (fitted programs compose, projections do not) are what carries forward. MLP chapter closed.
+Next (v654, queued; cheap robustness): the atlas numbers for layers 0-2 and 5 re-estimated with kernels from a DISJOINT set of 64 skip80 rows (rows 64-127) — are the single-head and bank costs stable to the kernel-estimation rows?
