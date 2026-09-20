@@ -1,0 +1,39 @@
+{
+  "records": [
+    {
+      "context": 64,
+      "old_mse": 56.71860842531753,
+      "new_mse": 30.19714300362457,
+      "mse_gain": 26.521465421692966,
+      "symmetric_gain_attribution": {
+        "constant": 47.306522470159905,
+        "quadratic": -117.83306298257929,
+        "quartic": 97.04800593411233
+      },
+      "component_rms": {
+        "constant": 22.706756114959713,
+        "quadratic": 39.04923619026887,
+        "quartic": 23.43345639124879
+      },
+      "delta_replay": 1.258635072124376e-15
+    },
+    {
+      "context": 256,
+      "old_mse": 59.777845540440076,
+      "new_mse": 34.104712516050114,
+      "mse_gain": 25.673133024389962,
+      "symmetric_gain_attribution": {
+        "constant": 21.644329811807893,
+        "quadratic": -77.38268088816,
+        "quartic": 81.41148410074209
+      },
+      "component_rms": {
+        "constant": 22.706756114959713,
+        "quadratic": 40.36083577263704,
+        "quartic": 24.322738701973048
+      },
+      "delta_replay": 1.356104532450275e-15
+    }
+  ],
+  "scope": "Algebraic symmetric allocation of cached feature1 MSE change. Correlated components are not independent causal effects; not attribution of nonlinear native intervention gains. Reused diagnostics only."
+}

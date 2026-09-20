@@ -1,0 +1,157 @@
+{
+  "context": 256,
+  "code_source_glob": "archive/*.py",
+  "selection_note": "Fewer than16 unused eligible jacclust files; switched to lexicographic archive files before native evaluation.",
+  "code_sources": [
+    {
+      "path": "archive/analysis.py",
+      "sha256": "ae28b8d9a061e9c882a8dc9de58b4b889fbe1199364d8ecdeb17bc49fa82eb5c"
+    },
+    {
+      "path": "archive/analysis_general.py",
+      "sha256": "1f6a4e9d5d75e423497ac5d67c6b983e512a3921f8555936c24a746e6418e587"
+    },
+    {
+      "path": "archive/analysis_geo.py",
+      "sha256": "91feddb9700db016b6e09602b24d69973b489d0d3c3ad95c4ba655981902777e"
+    },
+    {
+      "path": "archive/build_gen.py",
+      "sha256": "1fcb1272016f27de54ed96768de19eb317a0d09e60f25497fe10d54e31952095"
+    },
+    {
+      "path": "archive/build_mech.py",
+      "sha256": "47da076e5423f8ced7c434286362b34c14f88574b5e8f0993bc58977e738df49"
+    },
+    {
+      "path": "archive/compare3d.py",
+      "sha256": "078a7ac14753a2a247b8bb099bef208a177d94a09ef189e9318ab52781500ba3"
+    },
+    {
+      "path": "archive/data.py",
+      "sha256": "bf6102f3dab207b2cb111b251d9d6b243956321afea32f9dabaefebeb6829872"
+    },
+    {
+      "path": "archive/geodata.py",
+      "sha256": "65b4c1fb1f9389d6f087d719f1a99c2eb6f780532b4cd95be49aaad74567c836"
+    },
+    {
+      "path": "archive/geometry.py",
+      "sha256": "0fc993a305ba7572e12718a28081381c1dd1fb08252f29a50d98aafd9125d217"
+    },
+    {
+      "path": "archive/gpt2_circuit.py",
+      "sha256": "fd603f5928cda4cf67ba593f025f1e80fe366ac75b4da2680847274653120c39"
+    },
+    {
+      "path": "archive/gpt2_localheads.py",
+      "sha256": "5e03a1af02ef396e073666985fdb43ec6cc8f76daf0f92b3fae5eead2c7d35f8"
+    },
+    {
+      "path": "archive/gpt2_usetest.py",
+      "sha256": "2ea70117e8351ea25a79ca7a32c349ecec68b9a2d942ad5eae678109666e6cdd"
+    },
+    {
+      "path": "archive/graphs.py",
+      "sha256": "411d5027e3470414813259ca081ecb208cd0bca1203aac2a9772607e5d5e5dc0"
+    },
+    {
+      "path": "archive/icl_reps.py",
+      "sha256": "42658320f2111b28d6494d3542d5ce8e8c8534af9476422729f1c6829f8a7356"
+    },
+    {
+      "path": "archive/llm_circuit_fig.py",
+      "sha256": "44b90439bca20443bcc36b7e0c8a73ca3c8d73b7649998d363e10e9a17681507"
+    },
+    {
+      "path": "archive/llm_figs.py",
+      "sha256": "5e2e9c03f80d00761a319c56cb86a603c5fba98720576fd1bdeac6f75462809a"
+    }
+  ],
+  "excluded_code_sources": [
+    "jacclust/attn_jacblock.py",
+    "jacclust/attn_sae_real.py",
+    "jacclust/attn_secant.py",
+    "jacclust/bilinear_sae.py",
+    "jacclust/bsae_scaled.py",
+    "jacclust/complexity_split.py",
+    "jacclust/depth_corrected.py",
+    "jacclust/dgp.py",
+    "jacclust/dgp_c.py",
+    "jacclust/dgp_e.py",
+    "jacclust/dict_autointerp_data.py",
+    "jacclust/dict_stability.py",
+    "jacclust/full_mlp_arch.py",
+    "jacclust/hier_geom.py",
+    "jacclust/intervene.py",
+    "jacclust/jacsae.py",
+    "jacclust/jacsae2.py",
+    "jacclust/magfree.py",
+    "jacclust/metric.py",
+    "jacclust/ov_multi.py",
+    "jacclust/ov_squared.py",
+    "jacclust/real_bilinear_sae.py",
+    "jacclust/real_bilinear_sae_500m.py",
+    "jacclust/real_mlp_gtop.py",
+    "jacclust/sae_losscurve.py",
+    "jacclust/secant_depth_sweep.py",
+    "jacclust/secant_honly.py",
+    "jacclust/secant_lowrank_ctrl.py",
+    "jacclust/surrogate.py",
+    "jacclust/transcoder_vs_secant.py",
+    "jacclust/tt_model.py",
+    "jacclust/twoqk.py"
+  ],
+  "fineweb_documents": [
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159
+  ],
+  "panels": {
+    "code": {
+      "shape": [
+        16,
+        257
+      ],
+      "token_sha256": "871bb3dbb640b0b6aed0d1eea7a3538c74d5317f99324bd229ba8934ffb776a0"
+    },
+    "fineweb": {
+      "shape": [
+        32,
+        257
+      ],
+      "token_sha256": "65234b2fd77834ea065566fc2d255c5fad520420c481c77ce6de795cf2521dac"
+    }
+  },
+  "program_sha256": "101237890aa1413f5f73e880e6108d1660525c640b19c92b980afe328cc150a1",
+  "scope": "Unused in this decomposition study at selection time. Related local source files, not broad code representativeness; pretrained overlap unknown."
+}

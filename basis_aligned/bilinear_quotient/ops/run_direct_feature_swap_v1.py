@@ -10,6 +10,10 @@ Price13916scalar+4608writer coefficients/10products, native background retained.
 import os,sys,json,time,hashlib
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3];P=ROOT/'basis_aligned/polynomial_causal/direct_tensor_match'
+PROGRAM_FILE='EXTRACTED_SCALAR_INTERVENTIONS_V1.pt'
+OUTPUT_FILE='FEATURE_SWAP_V1.json'
+PANEL_PREFIX='BLEND_CONFIRMATION'
+DONOR_PREFIX='FEATURE_SWAP_DONORS'
 PLAN=dict(domains=['fineweb','code'],families=['aligned','same_token'],modes=[0,1,2,3,'joint'],context=256,native_forwards=48)
 def main():
  if os.environ.get('BQLIB_DRYRUN') or os.environ.get('BQLIB_NO_MODEL'):print(json.dumps(PLAN));return
@@ -21,10 +25,10 @@ def main():
  from native_quartic_branch import pure_branch
  from extract_scalar_modes import evaluate
  torch.set_num_threads(4);torch.set_grad_enabled(False);torch.backends.cuda.matmul.allow_tf32=False
- out=P/'FEATURE_SWAP_V1.json';assert not out.exists();start=time.perf_counter();model=Bilin18TorchBackend.load('cuda').model.float();b16=model.transformer.h[16];b17=model.transformer.h[17];_,ru=torch.linalg.qr(model.lm_head.weight.float());ru=ru.double();artifact=torch.load(P/'EXTRACTED_SCALAR_INTERVENTIONS_V1.pt',weights_only=True);program={k:v.cuda().double() for k,v in artifact['program'].items()};writer=artifact['residual_writer'].cuda().double();U=torch.load(P/'CANONICAL_ROOT_FEATURES_V1.pt',weights_only=True)['output_directions'].cuda().double();scale=artifact['teacher_scale'];donors=torch.load(P/'FEATURE_SWAP_DONORS_V1.pt',weights_only=True);meta=json.loads((P/'FEATURE_SWAP_DONORS_V1.json').read_text());records=[];checks=[];coverage=[]
+ out=P/OUTPUT_FILE;assert not out.exists();start=time.perf_counter();model=Bilin18TorchBackend.load('cuda').model.float();b16=model.transformer.h[16];b17=model.transformer.h[17];_,ru=torch.linalg.qr(model.lm_head.weight.float());ru=ru.double();artifact=torch.load(P/PROGRAM_FILE,weights_only=True);program={k:v.cuda().double() for k,v in artifact['program'].items()};writer=artifact['residual_writer'].cuda().double();U=torch.load(P/'CANONICAL_ROOT_FEATURES_V1.pt',weights_only=True)['output_directions'].cuda().double();scale=artifact['teacher_scale'];donors=torch.load(P/f'{DONOR_PREFIX}_V1.pt',weights_only=True);meta=json.loads((P/f'{DONOR_PREFIX}_V1.json').read_text());records=[];checks=[];coverage=[]
  logits=lambda state:30*torch.tanh(model.lm_head(F.rms_norm(state,(1152,)))/30)
  for domain in PLAN['domains']:
-  tokens=torch.load(P/f'BLEND_CONFIRMATION_{domain.upper()}_V1.pt',weights_only=True);manifest=next(r for r in meta['records'] if r['domain']==domain);assert hashlib.sha256(tokens.numpy().tobytes()).hexdigest()==manifest['token_sha256'];coverage.append(manifest['same_token_coverage']);states=[];den=[];aa=[];bb=[]
+  tokens=torch.load(P/f'{PANEL_PREFIX}_{domain.upper()}_V1.pt',weights_only=True);manifest=next(r for r in meta['records'] if r['domain']==domain);assert hashlib.sha256(tokens.numpy().tobytes()).hexdigest()==manifest['token_sha256'];coverage.append(manifest['same_token_coverage']);states=[];den=[];aa=[];bb=[]
   for row in tokens:
    cache=capture(model,row[None,:256].cuda());pure=pure_branch(cache['m16'],b16.mlp.Down_bias,b17.lambdas[0],b17.mlp.Left.weight,b17.mlp.Right.weight,b17.mlp.Down.weight).flatten(0,1).double();aa.append((pure@ru.T/scale)@U);bb.append(evaluate(program,cache['x16'].flatten(0,1).double()));states.append(cache['final'].flatten(0,1));den.append(cache['h17'].square().mean(-1,keepdim=True).flatten(0,1)+torch.finfo(cache['h17'].dtype).eps)
   states=torch.cat(states);den=torch.cat(den);a=torch.cat(aa);b=torch.cat(bb);flat=tokens[:,:256].reshape(-1);doc=torch.arange(len(tokens)).repeat_interleave(256);targets=tokens[:,1:257].reshape(-1).cuda();selfedit=(a-a)@writer.T;checks.append(float(selfedit.abs().max()))
