@@ -1,0 +1,14 @@
+real vs program (queries >= 8): Pearson 0.512, LS scale 0.191, residual after scale 0.619
+real kernel kbar(1..8) [-0.0079, -0.0117, -0.0139, -0.0153, -0.016, -0.0162, -0.0166, -0.0166] | program kappa-mean(1..8) [-0.1232, -0.1255, -0.1152, -0.1022, -0.0933, -0.0895, -0.0879, -0.0846] | kbar(16,32,64,128,256) [-0.0147, -0.0099, -0.0054, -0.0028, -0.0011]
+mean |pattern| per entry: queries 8-64 0.0296, 256-512 0.0033 (ratio 0.11); signed row sums -0.847 -> -1.031; rank90 of real query rows 199
+native 3.13241 | CE added: kernel-only +0.0031 scaled program +0.0029 off-diagonal zero +0.0187
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_kernel_only_cheap": true,
+    "pred_c_offdiag_matters": false,
+    "pred_d_program_shape_right": true,
+    "pred_e_mass_grows_with_position": false
+  },
+  "forwards": 26
+}

@@ -26828,3 +26828,14 @@ Next (v626, building): head 1.8 itself — real pattern vs token program on 64 f
 
 ### 2026-09-20T04:27:33.112064+00:00 — Codex: v631 numerical correction verified, negative rank512 survives
 CUDA SVD basis orthogonality error5.65e-4 causes full-rank replay1.59e-3. Independent CPU float64 SVD repairs replay9.99e-7; corrected rank512 maxcal error2.81358 vs raw2.81363, so bug does not rescue compression. Joint tensor fullrank1.28e-6, rank512 fails2.66526. Broad channel gauge leaves joint Gram within3.26e-7.8focused tests pass. Report JOINT_INPUT_BASELINE_AUDIT_2026-09-20.md. Stop raw input rank sweeps; preserve wide input span and target sparse interaction/reuse next. Full circuit objective unmet.
+
+### 2026-09-20T04:28Z — Claude: v626 LANDED (response + EDIT; 26 forwards, 0 fits): 3/5 — head 1.8 is a context-MEAN SUBTRACTOR; the token program had its shape but 5x its scale
+Rows: real pattern on 64 skip80 rows (queries >= 8); CE on 192 x 512 skip7000 (native replays). CE ADDED, lower is better.
+| claim | tag | numbers | status |
+| kernel-only program (real mean kernel per offset, no token dependence) <= 0.10 | edit | +0.0031 | HELD (pred_b) |
+| zeroing the off-diagonal costs >= 0.30 | edit | +0.0187 | FAILED (pred_c) — the head's context part is modest, not the +0.916 sink of the old board |
+| token program has the right shape (Pearson >= 0.5) | response | 0.51; least-squares scale 0.19; scaled program costs +0.0029 (unscaled: +0.558, v624) | HELD (pred_d) |
+| per-entry |pattern| grows with query position (>= 1.5x) | response | it SHRINKS: 0.030 (queries 8-64) -> 0.0033 (256-512), ratio 0.11 ~ 1/8 — while the signed row sum stays -0.85 -> -1.03 | FAILED (pred_e) — the opposite, and more informative |
+Real kernel (mean signed pattern at offset d): -0.008 (d=1), -0.012, -0.014, -0.015, -0.016, -0.016, -0.017, -0.017 (d=8), -0.015 (16), -0.010 (32), -0.005 (64), -0.003 (128), -0.001 (256); the token program predicted -0.12 at every small d. Rank-90 of the real query rows: 199.
+Reading: head 1.8's pattern is a nearly uniform NEGATIVE weight over the context whose per-entry size scales like 1/(number of positions), so the total mass is ~ -0.9 at every query position: output ~ -(mean of the context values). The unnormalised squared attention implements the normalisation through the query/key geometry in context, which single-token tables cannot see — hence the 5x over-estimate. Named program: "subtract the running mean of v_1.8" — no token tables needed. The old-board +0.916 "sink" cost must refer to a different head or to the diagonal (self) term; zeroing 1.8's off-diagonal costs 0.019.
+Next (v627, building): the uniform-average form directly — pattern := -m / i for every j < i (m = the measured mean row sum; and m = 1 exactly) — plus the full twelve-head program for blocks 0-1 (5 + 6 gated filters + 1.8 as a running-mean subtractor), priced together.
