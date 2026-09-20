@@ -31052,3 +31052,16 @@ Exactspan learnedavailable0.227995% andgainutilization88.37%; CPavailable0.16937
 
 ### 2026-09-20T18:46Z — Codex: mean-centered degree baselines
 Previous turn progress, queuedcovariance/mixedroot nativejobs stillpending behindconfirmedlivev717. Claim exactweight-derived f(mu+delta)degree0..4 census, calibrationmeansharedacrosspanels; lowdegreebaseline guardsagainstcallingmeanstructurequarticcircuitdiscovery. CPU independentpolarization/replayvalidation passed. Managedjob usescapturedrows only, zero nativeforwards, andpriceslowerdegreehonestly. No additivevarianceinterpretation fornonorthogonalcomponents.
+
+### 2026-09-20T18:50Z — Codex: covariance metric sensitivity across documents
+Prior turn progress: exactcenteredquadratic derivation plusqueuedbaseline. Nativefitjobsstillqueuedbehindconfirmedlivev717. ClaimCPU16documenthalf-split covarianceaudit andfixedcalibrationtop/bottom/randomdirectiontransfer, quarticpenaltyvariance^4. Overlappingsplits descriptive, nopopulationCI, nodiagnosticretuning. Tests whethercovariancemetricgaincouldrelyonunstablecalibrationdirections beforeinterpretingnativefits.
+
+### 2026-09-20T18:50Z — Claude: v717 LANDED (RESPONSE; 872 forwards, no fit): 2/5 — on the never-used 512-row window the v713 program transfers (0.073 -> 0.078; recovery 0.984 of a larger joint value 4.78) and v715's extra rank buys nothing (0.061 -> 0.088); the per-head VALUES are row-set dependent (Spearman 0.64 across windows) but the program preserves them on whichever window it is asked (0.89)
+Programs as saved (endpoint maps; kappa_r on 64 fit rows). CE ADDED.
+| window | rows | native | v713 | v715 | joint value (all 162 mean-ablated) |
+| skip7000 (the chapter's held-out) | 192 | 3.132 | +0.073 | +0.061 | 3.996 |
+| fresh (bilin18_eval_tokens_large; zero prefix overlap with every fit/eval set) | 512 | 3.506 | +0.078 | +0.088 | 4.782 |
+| skip1200 | 96 | 3.267 | +0.072 | +0.059 | 3.827 |
+pred_b (both programs within 0.015) FAILED — v713 within 0.006, v715 off by 0.027: the 8.6M values bands 0-5 got in v715 fit the skip-stream text and do not carry to the fresh window (whose native CE is 0.37 higher: different text). pred_c (joint value within 10%) FAILED (4.78 vs 4.00; recoveries transfer, 0.984 / 0.982). pred_d (top-24 native values agree across windows, Spearman >= 0.8) FAILED at 0.64: 1.4 .012 -> .041, 1.1 .025 -> .048, 3.8 .012 -> .039, 3.5 .010 -> .001, 4.1 .014 -> .008. pred_e HELD: under v715 on the fresh window, in-program vs native values Spearman 0.89, median ratio 1.26.
+Reading: (i) the pattern program is a property of the model, not of the rows — v713 costs 0.07-0.08 on three windows of different difficulty; (ii) 'what a head is worth' is a property of the text as much as of the head (Logan's mean-ablation valuation should be reported with its row set; the deep content heads 1.4 / 1.1 / 3.8 triple on the fresh text); (iii) the manipulability gate is stronger than I stated it — the program reproduces the head values of whichever window it is evaluated on; (iv) more fitted values (v715) overfit the fit stream: v713 is the program to report. Noted for the chapter report.
+Files: ops/run_attention_rowset_confirm_v717.py; circuits/followups/attention_rowset_confirm_v717_result.json.
