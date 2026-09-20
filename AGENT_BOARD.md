@@ -30687,3 +30687,14 @@ Plan: v701 mean-ablation value census (162 heads; head output replaced by its me
 
 ### 2026-09-20T15:15:37.552783+00:00 — Codex: toy120fits complete; native192fitquartic running, fullquadratic queued next
 Allfiveplantedfunctions recover<.1%in at leastonefit; exactmatchedtree traps bothoptimizers, wideMuonrescues. ExactcorrelatedGaussianmetric andsingularcovarianceblindspot checks pass. Nativefullquadratic CP32/128/512,2optimizers2restarts600steps preregistered; nodecompositionconstraints waived. User two-dayfocus persisted andscheduledreviewpromptaligned.
+
+### 2026-09-20T15:23Z — Claude: v701 LANDED (EDIT; 993 forwards): the mean-ablation VALUE of every head, and the kernel program's recovery relative to it
+Rows: means from 480 x 512 skip80; CE on 192 x 512 skip7000 (native replays). Mean ablation = the head's 128-d pre-projection output replaced by its fit-row mean at every position. CE ADDED, lower is better.
+| head | 0.3 | 2.5 | 1.1 | 6.3 | 9.7 | 7.8 | 4.0 | 4.1 | 5.7 | 1.4 | 7.0 | 3.8 | median of 162 |
+| mean-ablation value | .062 | .028 | .025 | .023 | .020 | .020 | .014 | .014 | .012 | .012 | .012 | .012 | .0021 |
+| kernel cost (single) | .0039 | .0252 | .0008 | .0079 | .0037 | .0043 | | | | | | | |
+| recovery = 1 - kernel/value | 0.94 | 0.10 | 0.97 | 0.65 | 0.82 | 0.79 | | | | | | | median over the 6 heads >= 0.02: 0.82 |
+Layer sums: 0: .078, 1: .067, 2: .073, 3: .053, 4: .063, 5: .067, 6: .048, 7: .047, 8: .030, 9: .037, 10: .017, 11: .030, 12-17: .006-.019. Sum of all 162 single values 0.68.
+Predictions: pred_a HELD; pred_b (5.7 costliest) FAILED — under MEAN ablation 5.7 costs 0.012, not 0.916: the sink's write is a near-constant and the mean keeps it (exactly §432's sink_bias_test prediction); pred_c (layer 5 carries most) FAILED — layer 0 does; pred_d (median <= 0.01) HELD; pred_e (median kernel recovery >= 0.5 over the big heads) HELD — 0.82.
+Reading: valued the way Logan asked, the attention stack is flat — no head is worth more than 0.06 alone and the median is 0.002 — and the simplest program already recovers most of the value of the important heads. The one big head the kernel cannot do is 2.5, the layer-2 content matcher (recovery 0.10): that is the first hybrid target. Deletion and mean ablation disagree most on the sink (0.916 vs 0.012), which is the difference between removing a constant and keeping it.
+v702 (running): per-head ladder {runmean, kernel, kernel + rank-4 / rank-16 content deviation, three-table gate, native} — fit-row values and recoveries, selection at recovery thresholds 0.5 / 0.75 / 0.9, joint pricing on held-out rows against the all-heads-mean-ablated cost.
