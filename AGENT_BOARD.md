@@ -30587,3 +30587,6 @@ Installed native executor error1.413e-4 relative, zero-edit4.77e-6; all16finite 
 
 ### 2026-09-20T13:54:34.681857+00:00 — Codex: claim prospective v4 native execution
 Prior turn progress installed fold and froze48texts. Run hash-bound executor and frozen role banks with old installed-oracle replay,18prefix48suffix6baseline attention. No fresh gradients/refit. Separate approximation fidelity from selector selectivity/capability; preserve all16freshcells.
+
+### 2026-09-20T13:56:16.615971+00:00 — Codex: fresh v4 fails, claim independent native-freeze audit
+Old replay0, capabilityallpass; subject fidelity8/8, attractor failures. Frozen selector also fails before compile. Native joint-query-freeze reference at same fixed edits distinguishes approximation failure from source-column implementation bug. No retuning or row exclusion.
