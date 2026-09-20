@@ -10,7 +10,10 @@ def build(s):
  d,out=base_build(s);inputs=[d.input(i) for i in range(s['A'].shape[1])]
  # Interning reuses exactly the primitive reader and product nodes already built.
  left=[d.linear(zip(inputs,r.tolist())) for r in s['A']];right=[d.linear(zip(inputs,r.tolist())) for r in s['B']];p=[d.product(a,b) for a,b in zip(left,right)]
- features=[d.linear(zip(p,row.tolist())) for row in s['skip_reader']] if 'skip_reader' in s else p
+ width=s['skip_reader'].shape[1] if 'skip_reader' in s else s['skip_writer'].shape[1]
+ pool=left+right+p if width==3*len(p) else p
+ assert len(pool)==width
+ features=[d.linear(zip(pool,row.tolist())) for row in s['skip_reader']] if 'skip_reader' in s else pool
  outputs=[]
  for original,row in zip(out,s['skip_writer']):
   key=d.nodes[original];terms=list(key[1]) if key[0]=='linear' else [(original,1)]

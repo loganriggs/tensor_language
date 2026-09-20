@@ -1,0 +1,99 @@
+{
+  "plan": {
+    "ranks": [
+      1,
+      2,
+      4,
+      6
+    ],
+    "primary": 2,
+    "probe_pairs": 4096,
+    "probe_seed": 260930,
+    "products": 10
+  },
+  "records": [
+    {
+      "rank": 1,
+      "coefficients": 20802,
+      "products": 10,
+      "analytic_mse_reduction": 22.10233853700775,
+      "gaussian_relative_error": 0.1184575536109735,
+      "gaussian_mse_reduction_fraction": 0.1714288827348721,
+      "reused_fineweb": [
+        {
+          "context": 64,
+          "relative_error": 0.1903881743976177
+        },
+        {
+          "context": 256,
+          "relative_error": 0.19554882115053115
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "coefficients": 21972,
+      "products": 10,
+      "analytic_mse_reduction": 33.064167044111144,
+      "gaussian_relative_error": 0.11252359733763577,
+      "gaussian_mse_reduction_fraction": 0.25236179244476253,
+      "reused_fineweb": [
+        {
+          "context": 64,
+          "relative_error": 0.18432661339720138
+        },
+        {
+          "context": 256,
+          "relative_error": 0.1896315240120376
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "coefficients": 24312,
+      "products": 10,
+      "analytic_mse_reduction": 40.58739664831587,
+      "gaussian_relative_error": 0.1082198188885067,
+      "gaussian_mse_reduction_fraction": 0.3084590897017845,
+      "reused_fineweb": [
+        {
+          "context": 64,
+          "relative_error": 0.17821604651442682
+        },
+        {
+          "context": 256,
+          "relative_error": 0.1841491305787194
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "coefficients": 26652,
+      "products": 10,
+      "analytic_mse_reduction": 43.52700494400807,
+      "gaussian_relative_error": 0.10643618566527338,
+      "gaussian_mse_reduction_fraction": 0.331066606718616,
+      "reused_fineweb": [
+        {
+          "context": 64,
+          "relative_error": 0.17988490313710878
+        },
+        {
+          "context": 256,
+          "relative_error": 0.1856661967338163
+        }
+      ]
+    }
+  ],
+  "predictions": {
+    "pred_a_exact": true,
+    "pred_b_gaussian": true,
+    "pred_c_export": true
+  },
+  "covariance_condition": 67299.16200829748,
+  "solve_residual": 3.118535813877455e-14,
+  "fp32_export_replay": 5.209819853334545e-08,
+  "base_gaussian_relative_error": 0.13013612300148653,
+  "seconds": 5.459838609909639,
+  "scope": "Exact Gaussian fixed-feature readout fit; ten product nodes reused with linear and quadratic output skip. Native transfer pending; text only diagnostic."
+}

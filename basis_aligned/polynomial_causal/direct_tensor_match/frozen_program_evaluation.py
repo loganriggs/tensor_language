@@ -11,10 +11,13 @@ def quadratic(s,x):
 
 def quartic(s,x):
  if 'output_writer' in s:
-  primitive=(x@s['A'].T)*(x@s['B'].T);bank=primitive@s['bank_writer'].T if 'bank_writer' in s else primitive
+  left=x@s['A'].T;right=x@s['B'].T;primitive=left*right;bank=primitive@s['bank_writer'].T if 'bank_writer' in s else primitive
   result=((bank@s['root_left'].T)*(bank@s['root_right'].T))@s['output_writer'].T+s['constant']
   if 'skip_writer' in s:
-   skip=primitive@s['skip_reader'].T if 'skip_reader' in s else primitive
+   width=s['skip_reader'].shape[1] if 'skip_reader' in s else s['skip_writer'].shape[1]
+   features=torch.cat([left,right,primitive],-1) if width==3*primitive.shape[-1] else primitive
+   assert features.shape[-1]==width
+   skip=features@s['skip_reader'].T if 'skip_reader' in s else features
    result=result+skip@s['skip_writer'].T
   return result
  if 'bank_writer' in s:bank=((x@s['A'].T)*(x@s['B'].T))@s['bank_writer'].T
