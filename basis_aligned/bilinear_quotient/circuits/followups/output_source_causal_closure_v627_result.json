@@ -1,0 +1,64 @@
+{
+  "plan": {
+    "panels": [
+      "fineweb_n96_skip1200.pt",
+      "fineweb_n192_skip11000.pt"
+    ],
+    "sources": [
+      "mlp16",
+      "attn5"
+    ],
+    "documents": 8,
+    "tokens": 64,
+    "forwards_max": 12,
+    "isolated_mlp_evaluations": 8,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0,
+    "execution_policy": "managed_queue_only"
+  },
+  "rows": [
+    {
+      "panel": "fineweb_n96_skip1200.pt",
+      "source": "mlp16",
+      "relative_effect_prediction_error": 0.09255624328877307,
+      "effect_over_baseline": 1.2592029281900219,
+      "downstream_state_drift_relative": 0.10951091392656634,
+      "delta_ce": 0.9552037715911865
+    },
+    {
+      "panel": "fineweb_n96_skip1200.pt",
+      "source": "attn5",
+      "relative_effect_prediction_error": 1.3161234666523625,
+      "effect_over_baseline": 0.7708352047304018,
+      "downstream_state_drift_relative": 0.7908543672647822,
+      "delta_ce": 2.110440731048584
+    },
+    {
+      "panel": "fineweb_n192_skip11000.pt",
+      "source": "mlp16",
+      "relative_effect_prediction_error": 0.07549830476128434,
+      "effect_over_baseline": 1.3577761172735456,
+      "downstream_state_drift_relative": 0.1081749722777053,
+      "delta_ce": 1.1613284349441528
+    },
+    {
+      "panel": "fineweb_n192_skip11000.pt",
+      "source": "attn5",
+      "relative_effect_prediction_error": 1.3324000121164394,
+      "effect_over_baseline": 0.787247565880129,
+      "downstream_state_drift_relative": 0.7846743883706734,
+      "delta_ce": 2.2887390851974487
+    }
+  ],
+  "forwards": 12,
+  "maximum_baseline_replay": 5.113391310374027e-08,
+  "predictions": {
+    "pred_a_baseline_replay": true,
+    "pred_b_mlp16_closure": true,
+    "pred_c_attn5_closure": false
+  },
+  "scope": "actual upstream whole-write ablations compared to frozen-write boundary prediction; no semantic selectivity claim",
+  "seconds": 0.9882709218654782,
+  "finished_utc": "2026-09-20T03:58:23.384912+00:00"
+}

@@ -1,0 +1,289 @@
+{
+  "plan": {
+    "panels": [
+      "fineweb_n96_skip1200.pt",
+      "fineweb_n192_skip11000.pt"
+    ],
+    "documents": 8,
+    "tokens": 64,
+    "prefixes": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      24,
+      36
+    ],
+    "forwards_max": 4,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0,
+    "execution_policy": "managed_queue_only"
+  },
+  "rows": [
+    {
+      "panel": "fineweb_n96_skip1200.pt",
+      "rows_sha256": "98acad92d29c3c940d70ccff19ada96dd14e3c64f130c661db96c1ce1baf2353",
+      "frontier": [
+        {
+          "sources": 1,
+          "oracle_norm_error_vs_native": 0.894965648651123,
+          "own_norm_error_vs_native": 0.8346685171127319,
+          "own_norm_error_vs_program": 0.8379176259040833
+        },
+        {
+          "sources": 2,
+          "oracle_norm_error_vs_native": 0.8391755819320679,
+          "own_norm_error_vs_native": 0.8278570771217346,
+          "own_norm_error_vs_program": 0.8280965685844421
+        },
+        {
+          "sources": 4,
+          "oracle_norm_error_vs_native": 0.9619131684303284,
+          "own_norm_error_vs_native": 1.0019570589065552,
+          "own_norm_error_vs_program": 1.0056707859039307
+        },
+        {
+          "sources": 8,
+          "oracle_norm_error_vs_native": 0.9143896698951721,
+          "own_norm_error_vs_native": 0.8714941143989563,
+          "own_norm_error_vs_program": 0.8756486773490906
+        },
+        {
+          "sources": 16,
+          "oracle_norm_error_vs_native": 0.3255108892917633,
+          "own_norm_error_vs_native": 0.17591555416584015,
+          "own_norm_error_vs_program": 0.14684118330478668
+        },
+        {
+          "sources": 24,
+          "oracle_norm_error_vs_native": 0.06046707183122635,
+          "own_norm_error_vs_native": 0.06224324181675911,
+          "own_norm_error_vs_program": 0.044557634741067886
+        },
+        {
+          "sources": 36,
+          "oracle_norm_error_vs_native": 0.045922987163066864,
+          "own_norm_error_vs_native": 0.045922987163066864,
+          "own_norm_error_vs_program": 5.754274639002688e-07
+        }
+      ],
+      "half_cross_absolute_attribution": {
+        "embedding": 52355.92960190773,
+        "attn0": 0.5469948942300107,
+        "mlp0": 542.9247685968876,
+        "attn1": 1265.7230095267296,
+        "mlp1": 1548.6849766895175,
+        "attn2": 705.3664249349385,
+        "mlp2": 2362.712585709989,
+        "attn3": 891.9533502981067,
+        "mlp3": 7945.086479604244,
+        "attn4": 5636.034927681088,
+        "mlp4": 12531.155347108841,
+        "attn5": 187858.78716278076,
+        "mlp5": 59201.39071702957,
+        "attn6": 121726.48626327515,
+        "mlp6": 91194.87816238403,
+        "attn7": 100134.45331573486,
+        "mlp7": 47337.28322505951,
+        "attn8": 14364.37223237753,
+        "mlp8": 40873.23866868019,
+        "attn9": 91990.0577468872,
+        "mlp9": 98501.0455493927,
+        "attn10": 75489.73142266273,
+        "mlp10": 38491.78959274292,
+        "attn11": 49533.843601465225,
+        "mlp11": 152475.83913993835,
+        "attn12": 25175.591514468193,
+        "mlp12": 125823.91158676147,
+        "attn13": 13010.856271266937,
+        "mlp13": 123894.06979238987,
+        "attn14": 6990.656716257334,
+        "mlp14": 46149.55779957771,
+        "attn15": 14205.233019590378,
+        "mlp15": 224954.54790496826,
+        "attn16": 8212.502307653427,
+        "mlp16": 372863.7962837219,
+        "attn17": 37673.563996315
+      },
+      "self_term_l2_over_program": 0.5019554303303637,
+      "cross_term_l2_over_program": 0.7740335008744053
+    },
+    {
+      "panel": "fineweb_n192_skip11000.pt",
+      "rows_sha256": "4f999de8045f74b9dde718a4d52384c2d22bce4fe827fb49f3eaa4e6cff169a4",
+      "frontier": [
+        {
+          "sources": 1,
+          "oracle_norm_error_vs_native": 0.8914543986320496,
+          "own_norm_error_vs_native": 0.8704295754432678,
+          "own_norm_error_vs_program": 0.8765770196914673
+        },
+        {
+          "sources": 2,
+          "oracle_norm_error_vs_native": 0.837092399597168,
+          "own_norm_error_vs_native": 0.8383471369743347,
+          "own_norm_error_vs_program": 0.842734158039093
+        },
+        {
+          "sources": 4,
+          "oracle_norm_error_vs_native": 0.9649538993835449,
+          "own_norm_error_vs_native": 1.0282105207443237,
+          "own_norm_error_vs_program": 1.033989429473877
+        },
+        {
+          "sources": 8,
+          "oracle_norm_error_vs_native": 0.9493513107299805,
+          "own_norm_error_vs_native": 0.9349426031112671,
+          "own_norm_error_vs_program": 0.9396110773086548
+        },
+        {
+          "sources": 16,
+          "oracle_norm_error_vs_native": 0.3536459803581238,
+          "own_norm_error_vs_native": 0.17067484557628632,
+          "own_norm_error_vs_program": 0.15138711035251617
+        },
+        {
+          "sources": 24,
+          "oracle_norm_error_vs_native": 0.06195065379142761,
+          "own_norm_error_vs_native": 0.06086095795035362,
+          "own_norm_error_vs_program": 0.045483123511075974
+        },
+        {
+          "sources": 36,
+          "oracle_norm_error_vs_native": 0.04165186360478401,
+          "own_norm_error_vs_native": 0.04165186733007431,
+          "own_norm_error_vs_program": 5.840273615831393e-07
+        }
+      ],
+      "half_cross_absolute_attribution": {
+        "embedding": 48984.24787187576,
+        "attn0": 0.49610962550286786,
+        "mlp0": 520.9800855070353,
+        "attn1": 1258.068412721157,
+        "mlp1": 1427.341532126069,
+        "attn2": 845.4622159227729,
+        "mlp2": 2257.4362260103226,
+        "attn3": 1013.8178785890341,
+        "mlp3": 7484.534213900566,
+        "attn4": 5483.531797081232,
+        "mlp4": 11686.914499133825,
+        "attn5": 185800.98778533936,
+        "mlp5": 58796.969727516174,
+        "attn6": 128724.54429244995,
+        "mlp6": 91925.95586109161,
+        "attn7": 98696.43830108643,
+        "mlp7": 48584.52830505371,
+        "attn8": 15016.932381987572,
+        "mlp8": 47386.627734184265,
+        "attn9": 106128.20747852325,
+        "mlp9": 102049.4716873169,
+        "attn10": 74003.91695308685,
+        "mlp10": 44384.62510442734,
+        "attn11": 64432.06569314003,
+        "mlp11": 166462.03699874878,
+        "attn12": 26853.665719389915,
+        "mlp12": 124167.17476463318,
+        "attn13": 11821.418533325195,
+        "mlp13": 116146.130453825,
+        "attn14": 8795.700063943863,
+        "mlp14": 46383.82540225983,
+        "attn15": 12752.30268406868,
+        "mlp15": 242985.5128660202,
+        "attn16": 7658.1354957818985,
+        "mlp16": 397041.0507659912,
+        "attn17": 44713.08600521088
+      },
+      "self_term_l2_over_program": 0.5626474367655471,
+      "cross_term_l2_over_program": 0.7681645565776798
+    }
+  ],
+  "calibration_source_order": [
+    "mlp16",
+    "mlp15",
+    "attn5",
+    "mlp11",
+    "mlp12",
+    "mlp13",
+    "attn6",
+    "attn7",
+    "mlp9",
+    "attn9",
+    "mlp6",
+    "attn10",
+    "mlp5",
+    "embedding",
+    "attn11",
+    "mlp7",
+    "mlp14",
+    "mlp8",
+    "mlp10",
+    "attn17",
+    "attn12",
+    "attn8",
+    "attn15",
+    "attn13",
+    "mlp4",
+    "attn16",
+    "mlp3",
+    "attn14",
+    "attn4",
+    "mlp2",
+    "mlp1",
+    "attn1",
+    "attn3",
+    "attn2",
+    "mlp0",
+    "attn0"
+  ],
+  "carriage_weights": {
+    "embedding": 145.1215400920464,
+    "attn0": 0.0003568002768520047,
+    "mlp0": 0.0003568002768520047,
+    "attn1": 0.028104883345880988,
+    "mlp1": 0.028104883345880988,
+    "attn2": 0.014219071416097894,
+    "mlp2": 0.014219071416097894,
+    "attn3": 0.02476246450694599,
+    "mlp3": 0.02476246450694599,
+    "attn4": 0.05349528197281159,
+    "mlp4": 0.05349528197281159,
+    "attn5": 0.8299874051539252,
+    "mlp5": 0.8299874051539252,
+    "attn6": 1.6930420376048199,
+    "mlp6": 1.6930420376048199,
+    "attn7": 2.0837440462828547,
+    "mlp7": 2.0837440462828547,
+    "attn8": 1.4817735440233635,
+    "mlp8": 1.4817735440233635,
+    "attn9": 1.6421386461903942,
+    "mlp9": 1.6421386461903942,
+    "attn10": 1.8683888596655152,
+    "mlp10": 1.8683888596655152,
+    "attn11": 1.5136314812480123,
+    "mlp11": 1.5136314812480123,
+    "attn12": 1.4567280421033502,
+    "mlp12": 1.4567280421033502,
+    "attn13": 1.522132158279419,
+    "mlp13": 1.522132158279419,
+    "attn14": 1.443206787109375,
+    "mlp14": 1.443206787109375,
+    "attn15": 1.21533203125,
+    "mlp15": 1.21533203125,
+    "attn16": 1.0234375,
+    "mlp16": 1.0234375,
+    "attn17": 1.0
+  },
+  "maximum_source_replay": 1.5866162073052692e-07,
+  "maximum_pair_replay": 7.536481234637904e-07,
+  "forwards": 4,
+  "predictions": {
+    "pred_a_source_identity": true,
+    "pred_b_pair_identity": true,
+    "pred_c_eight_source_closure": false
+  },
+  "scope": "frozen native-write boundary census; attribution is not source causality, and retained writes still require upstream generators",
+  "seconds": 1.010094084078446,
+  "finished_utc": "2026-09-20T03:52:51.531353+00:00"
+}

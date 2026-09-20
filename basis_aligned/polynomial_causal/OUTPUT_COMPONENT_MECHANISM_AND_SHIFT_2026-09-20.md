@@ -1,5 +1,9 @@
 # Mechanism controls and transfer of the frozen output component
 
+Next-stage evidence: [upstream source and causal closure](OUTPUT_COMPONENT_UPSTREAM_CLOSURE_2026-09-20.md)
+finds that the recent MLP16 branch is substantially easier to predict than
+attention5 under actual intervention; the source generators remain open.
+
 This continues the [output-sharing component screen](OUTPUT_SHARED_COMPONENT_2026-09-20.md).
 The256-feature program is unchanged throughout these experiments. It receives
 the actual normalized MLP17 input; upstream state production is still native.
