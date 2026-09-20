@@ -30827,3 +30827,19 @@ Next (v706, building): (a) the 128 cheap heads at rank 16 with the 28 at rank 64
 
 ### 2026-09-20T16:42:33.718594+00:00 — Codex: exact quartic gradient route; correction to rank-bound interpretation
 Correction: finite-query outputrankbound78.44% does NOT prove fullDAGfamily can achieve it; only an outputrank relaxation. Nativeglobalfitsnear100%, ALS89.89%, radial90.04% results interpreted in3hreviewaddendum. Gradientnoisecontrol rank1toy d1152 exceeds4millionrelativeRMSE at256queries. ExactquarticCP self/cross helper implemented andvalidatedvalues9.19e-16/gradients1.27e-15; next planted optimization controls before nativeexact-gradientfits. Goalactive.
+
+### 2026-09-20T16:44:54.463178+00:00 — Codex: claim exact quartic CP optimization controls
+Previous turn progressed3hreview/nativeoutcomes/exactgradientinstrument. Run16 plantedrank2 quarticCP exactgradient fits up to1152inputs, outputvariableprojection and initial-explained-energy objective scaling; Adam/Muon two starts. No stochasticcoefficientgradient; globalnativeapplication depends on thesecontrols.
+
+### 2026-09-20T16:47:31.893710+00:00 — Codex: exact gradients still stall; claim residual initialization control
+16exactCPtoyfitscomplete, d1152~34%error; no automaticrecoveryfromexactgradients. Test componentcoverage andsamefinalwidth/same1500step jointvsresidualinitialization,8fits acrossAdam/Muon/seeds. Nativeexactgradientfit deferreduntil thisfailureunderstood; prevents replacing stochasticbughypothesis with anotherunsupportedrankclaim.
+
+### 2026-09-20T16:52Z — Claude: v706 LANDED (FIT + EDIT; 599 forwards, 300 backwards): 3/5 — rank-16/64 all-hybrid program +0.075 (recovery 0.981, 4.7x fewer values); values preserved in scale, a few heads over-weighted
+Rows: train 576 / validation 96; held-out 192 x 512 skip7000 (native replays). CE ADDED, lower is better; joint recovery = 1 - cost / 3.996.
+| program | ranks | closed-form | fitted (validation step 100) | joint recovery | values |
+| MIXED16 (no native heads) | 134 at 16, 28 at 64 | 0.265 | 0.075 | 0.981 | 20.2M (4.7x) |
+Held-out curve every 25 steps: .27 .10 .08 .077 .075 .082 .077 .078 .080 .080 .083 .084 .085 — pred_b (no upturn > 0.003 after step 50) FAILED by 0.007; the validation rule stopped at 100. pred_c (recovery >= 0.98) HELD.
+MANIPULABILITY (edit, inside the fitted program at its endpoint, 24 most valuable heads mean-ablated one at a time; native value -> in-program value): 0.3 .062->.065 | 2.5 .028->.031 | 1.1 .025->.033 | 6.3 .023->.027 | 9.7 .020->.020 | 7.8 .020->.020 | 4.0 .014->.016 | 4.1 .014->.014 | 5.7 .012->.015 | 1.4 .012->.023 | 7.0 .012->.015 | 3.8 .012->.013 | 4.5 .012->.012 | 5.5 .012->.027 | 2.3 .011->.012 | 6.1 .011->.014 | 3.5 .010->.016 | 2.6 .010->.012 | 11.2 .010->.010 | 5.8 .010->.009 | 5.3 .010->.009 | 1.3 .009->.012 | 4.7 .009->.008 | 8.3 .009->.037. Median ratio 1.11 (pred_e in [0.5, 2] HELD); Spearman 0.652 (pred_d >= 0.8 FAILED).
+Reading: the program reproduces the loss and, for most heads, what the head is worth; where it deviates it LEANS HARDER on a few heads than the model does — 8.3 (4x), 5.5 (2.3x), 1.4 (1.9x), 3.5 (1.6x), 1.1 (1.3x) — the fit routes more of the joint behaviour through them. Under Logan's gate (predictive + manipulable + priced) the program passes on price and prediction and is dented on manipulability at exactly those heads; the cheap fix is to keep them native.
+Chapter so far (v701-v706): every head valued by mean ablation (median 0.002, top 0.062, all 162 jointly 3.996); per-head ladder kernel < kernel + rank-4/16/64 content < native chosen by relative recovery; fitted joint programs — 28 native + rank-16 hybrids +0.065 (27.6M); no native heads: 4/16/64 mix +0.124 (12.4M), 16/64 mix +0.075 (20.2M).
+Next (v707, queued): the manipulability fix — v706's program with the five over-weighted heads (8.3, 5.5, 1.4, 3.5, 1.1) native — cost and the top-24 in-program values again; meanwhile the chapter write-up for Logan.
