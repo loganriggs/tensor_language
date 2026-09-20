@@ -1,0 +1,9 @@
+# Residual reader/source factorization and frozen reader banks
+
+For eachpre11sourceposition, responseG[o,k]=R[o,d]D[k,d]. Obtainfullresidualreaders R fromonefloat64suffix and9reversecallspercontext, extractingbothsubjectandattractorpositions. D is the exact23sourcewriteinterface. Require R D replayssavedsourcegradients andnativeoracleoutputs<=1e-8. Canonicalize numberreader to is-minus-are before averaging; restore eachrecipientanswerorientation afterward. Controlreadersretainfixedtokencontrastorder.
+
+Fitbanks bysimpleaverage ofopposite-panel canonicalreaders only: onebankperrole(20,736weights), orperrole/template(41,472weights). Noheldderivatives inbanks. Nativecongruentarms: source-numbermatcheddonorreader withrecipientD, rolebankwithrecipientD, templatebankwithrecipientD, recipientownoracle. Per-inputLP usestheestimatedG fromfrozenreaderandcurrentports, notrecipientbackprop; nativeforward stillgeneratesports. Diagnosticdonorbankislookup,notgeneralization.
+
+Registeredrolebanknativeall8gate80%alignednumberretention/10%max8controlratio; rolebanklinearresponsepredictionall8gate10%number/5%controlerrorrelative toactualnumbernorm; templatebanknativegate separately. Recipientoraclepositivecontrol. Counts12prefix4double suffix36fullreaderreverse18native suffix. Cache float64R,D forCPUfactorpartition, about28MB; price readers/sourcegeneration/LP explicitly. Thisis independentselection at adeclaredsourceinterface, not extraction ofthefullmodel orfreshOOD.
+
+Opposingpredictions: donorreader/currentD successimplicates sourcegeometryin priorcoefficientfailures; fixedbank successwouldsupport reusable residualfeatures; bothfailureimplies readercontext remainsessentialatthisboundary. Frozenbankmanymoreparametersthan46scalarcoefficients, so do not confuse capacitywithsimplicity.

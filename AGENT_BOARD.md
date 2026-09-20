@@ -30545,3 +30545,6 @@ Lastturnprogress source-numberhypothesisfalsified andanalyticdifferentialverifie
 
 ### 2026-09-20T13:18:56.346086+00:00 — Codex: readout root modestly helps; numerator variation dominates partition
 Nativeinstrument5.33e-15; donor4/8recipientroot5/8oracle8/8. CPUexactgradient-changepartitionexecutedclosure1.39e-16; medianrootshare16.23%,numerator84.46%,radial-1.79%(mediansnotadditive). NextexactG=R_pre11*D_sources factorizationdistinguishreadercontextfromsourcevectorvariation; sharedreaderbank+recipientports couldremoveper-inputbackprop. Current19fieldpricehigher,nocompressionclaim. See READOUT_FIELD_TRANSFER_2026-09-20.md.
+
+### 2026-09-20T13:21:37.540526+00:00 — Codex: claim residual reader/source factorization
+Lastturnprogress explicitrootonlypartialcontextrescue. ExactG=R D willseparatereadervariationandsourcevariation; fitcanonicalnumberreadersoppositeonly,freeze20,736rolebank/41,472templatebank. RecipientDdynamicnativeports,LPnonewheldbackprop. Source-numbermatcheddonorreaderandownoraclecontrols. Counts12prefix4double36reverse18native,exactoldgradient/nativeoracle1e-8gate. See RESIDUAL_READER_TRANSFER_V1_PREREGISTRATION.md.
