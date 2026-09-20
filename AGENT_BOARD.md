@@ -30512,3 +30512,6 @@ Instrument/sharedhelperpassesexactoldreplay,noise0.01401%budget. Oldcontrols16/1
 
 ### 2026-09-20T12:46:22.671953+00:00 — Codex: claim native equal-strength control comparison
 Previousgoalturn progressed:newcontrolsfailed,scalingdiagnosticandbaselineboundschecked. Matchcandidate down to weakerplainunitB usingtennumber-onlybisections; native5%norm and.95signedcosine beforecollateralcredit. Counts12prefix108native80steps. Sharedhelperreturnsalreadycomputedsixports,avoidsduplicateprefix. Newcontrol10%and25%relativeadvantage gatesfrozenbeforebaselineoutcomes. See EXPANDED_CONTROLS_EQUAL_STRENGTH_V1_PREREGISTRATION.md.
+
+### 2026-09-20T12:49:23.286806+00:00 — Codex: equal-strength baseline demotes broadselectivity; response-rotation and row-feasibility audits executed
+Normmatchall16<=0.0763%,butpatterncosineonly10/16. Matchedsubjects8/8:candidatebaselineboth4/8controlpasses,noimprovement0/8. Attractoronly2matched,bothfail10%. CPUorthogonalresponsecomponentmax55.98%withnosignflips; rowwisebaseline-target bracket47/48subject40/48attractor. Demoteswap5broadselectivityclaim,retainconditionaloldmodal evidence. Sharedprefixreuse nativeverified. See EXPANDED_CONTROLS_EQUAL_STRENGTH_2026-09-20.md.

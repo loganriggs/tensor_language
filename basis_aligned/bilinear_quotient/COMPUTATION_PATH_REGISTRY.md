@@ -383,3 +383,5 @@ Independent five-source selector native validation now passes instrumentation/pr
 20 September: nativefinalreadout closesfiniteaccountinggap:root+14moduleeffects64/64numberpasses,worst0.4755%. Nativecounterfactualgeneratorsremain; no extractedcircuitclaim. See `basis_aligned/polynomial_causal/NATIVE_ROOT_INTERACTION_CLOSURE_2026-09-20.md`. Expandedoutputcontrols frozen,nextCIRCUITscreen.
 
 20 September: expandedcontrols rejectbroadselectivity:new6/16vsold16/16,worst44.07%; nativeprecisionandsharedsetup pass. Halfradiusnotrescue. Plainbaselineweaker:0/16boundedstrengthmatches; nextcomparelowercommonstrength. See `basis_aligned/polynomial_causal/EXPANDED_SOURCE_CONTROLS_2026-09-20.md`.
+
+20 September: equalstrengthcomparison demotesswap5broadselectivity. Normmatch16/16butpattern10/16; subjectsbothmethods4/8passes,candidatenoadvantage0/8. Attractorsonly2matched,bothfail. CPUresponse-rotationandrowfeasibilityauditsretainunmatchedcases. See `basis_aligned/polynomial_causal/EXPANDED_CONTROLS_EQUAL_STRENGTH_2026-09-20.md`.
