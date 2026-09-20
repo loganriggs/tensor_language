@@ -1,0 +1,28 @@
+native 3.13241
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_embedding_forward_controlled_refit_v632.py:140: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  forwards += 1; backwards += 1; curve.append(float(loss))
+[kappa_only] step 50: train 3.1621 | held-out CE added +0.0535 | lr 0.0188
+[kappa_only] step 100: train 3.1387 | held-out CE added +0.0514 | lr 0.0156
+[kappa_only] step 150: train 3.1554 | held-out CE added +0.0508 | lr 0.0111
+[kappa_only] step 200: train 3.1331 | held-out CE added +0.0506 | lr 0.0066
+[kappa_only] step 250: train 3.1286 | held-out CE added +0.0503 | lr 0.0033
+[kappa_only] step 300: train 3.1543 | held-out CE added +0.0503 | lr 0.0020
+[regularised] step 50: train 3.1575 | held-out CE added +0.0464 | lr 0.0188
+[regularised] step 100: train 3.1136 | held-out CE added +0.0449 | lr 0.0156
+[regularised] step 150: train 3.0925 | held-out CE added +0.0469 | lr 0.0111
+[regularised] step 200: train 3.0479 | held-out CE added +0.0506 | lr 0.0066
+[regularised] step 250: train 3.0325 | held-out CE added +0.0512 | lr 0.0033
+[regularised] step 300: train 3.0396 | held-out CE added +0.0533 | lr 0.0020
+endpoints: kappa-only +0.0503 | regularised tables +0.0533 | step-0 +0.1356
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_kappa_only_no_overfit": true,
+    "pred_c_kappa_only_under_bar": true,
+    "pred_d_regularised_under_bar": false,
+    "pred_e_tables_beat_kappa_only": false
+  },
+  "forwards": 690,
+  "backwards": 600
+}
