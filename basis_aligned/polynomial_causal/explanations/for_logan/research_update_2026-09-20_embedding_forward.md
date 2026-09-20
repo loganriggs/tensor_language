@@ -72,6 +72,23 @@ The single-head kernel census was run for all 18 layers (edit, v629 / v634 / v64
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | bank (CE added) | .032 | .034 | .049 | .043 | .035 | .163 | .027 | .021 | .039 | .016 | .013 | .018 | .007 | .015 | .026 | .004 | .012 | .009 |
 
+
+## Addendum (07:05 UTC) — the MLP program, fitted and priced
+
+The per-layer projection programs of the MLPs compound when stacked (claim 7) — but, as with the attention kernels, that was parameters, not form. Refitting the six rank-limited maps per layer jointly against the loss (initialised at context-PCA, validation-stopped on 96 fit rows never trained on; fit, v650–v653) gives a program that composes and scales linearly in depth:
+
+| MLP layers | values (vs native) | unfitted (context-PCA) | fitted, held-out at the validation-chosen step |
+|---|---|---|---|
+| 0–2, (256, 512, 256) | 17.7M (2.7×) | 0.406 | **0.179** |
+| 0–2, (128, 256, 128) | 8.8M (5.4×) | 1.446 | **0.251** |
+| 0–5, (256, 512, 256) | 35.4M (2.7×) | 0.530 | **0.349** |
+| 0–5, (128, 256, 128) | 17.7M (5.4×) | 1.319 | **0.442** |
+| 0–17, (256, 512, 256) | 106.2M (2.7×) | 1.443 | **1.011** |
+
+About 0.056 nats per layer at (256, 512, 256): honest, priced, and — against the registered whole-model Pareto set — not competitive, which says the value in these MLPs is not in per-mode rank. The rule that carries forward: **projection-only stacks compound; fitted programs compose** (attention kernels 1.45 → 0.96, early MLPs 0.41 → 0.18).
+
+The attention content budget is flat (edit, v649): keeping the 9 / 18 / 54 most content-critical heads native (ranked on fit rows) recovers 0.25 / 0.34 / 0.56 of the 0.96 — pattern content is ~0.02 nats per head across the whole model, not a property of a few heads.
+
 ## Appendix A — layer-0 positional kernels (fold, 4096² grid; pattern rms / separable fraction)
 
 | head | d=1 | d=2 | d=4 | d=8 | d=16 | d=32 | kernel |
