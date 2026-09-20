@@ -1,0 +1,15 @@
+layer 15 kernel-only singles: 15.0=+0.0004(sum-1.22) 15.1=+0.0003(sum-3.38) 15.2=+0.0003(sum-2.40) 15.3=+0.0009(sum-0.93) 15.4=+0.0007(sum-0.61) 15.5=+0.0005(sum-1.82) 15.6=+0.0001(sum-0.80) 15.7=+0.0004(sum-0.90) 15.8=+0.0001(sum+1.40)
+layer 16 kernel-only singles: 16.0=+0.0018(sum-2.33) 16.1=+0.0002(sum-0.29) 16.2=+0.0007(sum+0.07) 16.3=+0.0030(sum+2.22) 16.4=+0.0020(sum+3.12) 16.5=+0.0012(sum-1.97) 16.6=+0.0001(sum+0.80) 16.7=+0.0003(sum+0.45) 16.8=+0.0001(sum-0.56)
+layer 17 kernel-only singles: 17.0=+0.0012(sum-4.60) 17.1=+0.0007(sum+2.75) 17.2=+0.0021(sum-5.31) 17.3=+0.0004(sum+1.01) 17.4=+0.0008(sum+0.78) 17.5=+0.0001(sum+0.80) 17.6=+0.0013(sum+1.58) 17.7=+0.0009(sum-1.37) 17.8=+0.0007(sum-2.42)
+native 3.13241 | banks: layer15=+0.0040 layer16=+0.0118 layer17=+0.0085
+cheap heads per layer: {15: 9, 16: 9, 17: 9}
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_cheap_heads_persist": true,
+    "pred_c_banks_at_least_layer5": false,
+    "pred_d_a_content_critical_head": false,
+    "pred_e_banks_under_one": true
+  },
+  "forwards": 188
+}
