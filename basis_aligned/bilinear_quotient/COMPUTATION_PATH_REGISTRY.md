@@ -347,3 +347,5 @@ Four-reader width8 response dictionary; full attention12–17 and sparse18/36 ML
 20 September: [Per-input minimax extraction check](../polynomial_causal/SINGLETON_MINIMAX_2026-09-20.md) fails heldout number37.22%; retaining group budgets reduces it to10.104% but still fails. True singleton coefficients pass batch permutation/peer-removal checks exactly. Grouped partial success is not standalone extraction.
 
 20 September: [Native two-MLP quartic/HT baseline](../polynomial_causal/NATIVE_TWO_MLP_QUARTIC_HT_2026-09-20.md). Exact homogeneous numerator fold6.59e-15; rank8 symmetric tree9.35% error but656values loses to exact canonical280. Rank2 costs116 but fails36%coefficient error. This is a named direct polynomial branch, not the normalized full model or causal extraction.
+
+20 September: [Matched-strength modal-null control](../polynomial_causal/MATCHED_STRENGTH_NULL_2026-09-20.md). All-cell strength matching fails22/32pass; all22 matched cells show>2x collateral reduction, but original target-strength retention failure remains. Conditional reduced-strength selectivity evidence only.

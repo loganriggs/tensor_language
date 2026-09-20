@@ -1,0 +1,14 @@
+ACTIVE_TRACK: CIRCUIT
+
+The prior09:31 track was WEIGHT_FOLDING. It produced exact normalizedMLP and twoQK attention folds, full native Hessian chain closure, spectral/shared-feature controls, and a native two-MLP quartic/HT baseline. Preserve the full goal: simple, predicts OOD, extracted, selective, composes, with stable identified features and explicit read/compute/write specifications. Conditional exact algebra does not finish any missing behavioral property.
+
+TRACK_ALTERNATION: PASS — CIRCUIT follows WEIGHT_FOLDING.
+TRACK_PROGRESS: PASS — exact native contraction paths and executable HT baseline completed.
+CEREMONY_BUDGET: INCOMPLETE MEASUREMENT — commit/run timestamps are known, but exact authoring/review proportions are not. No fabricated pass by estimated minutes. Bounded repair: reuse existing source-observables/native intervention executor and frozen derivatives for the next circuit control; no new compiler or derivative run.
+NOVELTY_LESSON_GATE: PASS — five-source modal-null dossier explicitly left matched-strength native control undone; follow that handoff instead of another dictionary fit.
+PAST_HOUR_TIMING: managed attention corrected run10:07:21–10:07:52; quartic invalid10:27:55–10:28:10, corrected receipt completed before10:29; commits09:34,09:43,09:54,10:10,10:13,10:18,10:21,10:24,10:30 establish completed units. Full lifecycle timing remains unavailable. Two avoidable wrapper/dtype failures consumed extra execution. Numerous sequential coefficient fits from10:07–10:24 clarified failures but did not establish a reusable circuit; demote further variants.
+PROCESS_IMPROVEMENT: the evaluator now injects fitter/output path and shared native-source helpers remain available. Enqueue corrections must use absolute paths and separate success-checked tool calls. Do not mix a failed edit and enqueue in one shell command.
+
+Interpretation: exact derivative programs and raw polynomial folds are useful baselines. Native attention compiler loses one-shot speed1.024x; rank8 HT loses storage to canonical polynomial656vs280. Spectral2 conditional predictor passes but common-feature and independent-input6atom routes fail. Oracle minimax is not predictive evidence. Future weight folding should target native generators or reusable nonlinear structure rather than another opened-data compression objective.
+
+Next CIRCUIT experiment: native matched-strength unit-B versus frozen five-source gradient-null edits, roots chosen from analytic quadratic responses only. Retain strength mismatch failures, especially26/192 inputs without a root in[0,1]. Thresholds and native-capability failures stay unchanged. This tests selective manipulation, not new OOD. If control strength does not match, restrict interpretation rather than declaring specificity. Later prospective rows and stronger modal/task controls remain necessary.
