@@ -1,0 +1,480 @@
+{
+  "records": [
+    {
+      "metric": "isotropic",
+      "optimizer": "adam",
+      "seed": 0,
+      "reader_rank_at_relative_1e6": 32,
+      "mean_input_energy_captured": 0.11182429759859903,
+      "prediction_mean_energy_fraction": 0.4448742316236117,
+      "prediction_centered_norm": 1803.3292479398426,
+      "prediction_total_norm": 2420.356466022406
+    },
+    {
+      "metric": "isotropic",
+      "optimizer": "adam",
+      "seed": 1,
+      "reader_rank_at_relative_1e6": 32,
+      "mean_input_energy_captured": 0.1327434963483372,
+      "prediction_mean_energy_fraction": 0.48333240409758227,
+      "prediction_centered_norm": 1880.8948441477485,
+      "prediction_total_norm": 2616.729941077683
+    },
+    {
+      "metric": "isotropic",
+      "optimizer": "muon",
+      "seed": 0,
+      "reader_rank_at_relative_1e6": 32,
+      "mean_input_energy_captured": 0.11816266462467825,
+      "prediction_mean_energy_fraction": 0.4728141189552043,
+      "prediction_centered_norm": 1755.9744535880407,
+      "prediction_total_norm": 2418.445517475808
+    },
+    {
+      "metric": "isotropic",
+      "optimizer": "muon",
+      "seed": 1,
+      "reader_rank_at_relative_1e6": 32,
+      "mean_input_energy_captured": 0.1197725059840924,
+      "prediction_mean_energy_fraction": 0.4897574305383037,
+      "prediction_centered_norm": 1858.3404293878687,
+      "prediction_total_norm": 2601.5784764680484
+    },
+    {
+      "metric": "centered_floor01",
+      "optimizer": "adam",
+      "seed": 0,
+      "reader_rank_at_relative_1e6": 32,
+      "mean_input_energy_captured": 0.11074684312821467,
+      "prediction_mean_energy_fraction": 0.4138400857847584,
+      "prediction_centered_norm": 1704.682507602005,
+      "prediction_total_norm": 2226.5653549826957
+    },
+    {
+      "metric": "centered_floor01",
+      "optimizer": "adam",
+      "seed": 1,
+      "reader_rank_at_relative_1e6": 32,
+      "mean_input_energy_captured": 0.12315974909573858,
+      "prediction_mean_energy_fraction": 0.42565755774433095,
+      "prediction_centered_norm": 1791.7063472256998,
+      "prediction_total_norm": 2364.184561074494
+    },
+    {
+      "metric": "centered_floor01",
+      "optimizer": "muon",
+      "seed": 0,
+      "reader_rank_at_relative_1e6": 32,
+      "mean_input_energy_captured": 0.2122408009113297,
+      "prediction_mean_energy_fraction": 0.4296744545606794,
+      "prediction_centered_norm": 1952.8395505223386,
+      "prediction_total_norm": 2585.8608438391516
+    },
+    {
+      "metric": "centered_floor01",
+      "optimizer": "muon",
+      "seed": 1,
+      "reader_rank_at_relative_1e6": 32,
+      "mean_input_energy_captured": 0.22861318836881944,
+      "prediction_mean_energy_fraction": 0.38621811165692543,
+      "prediction_centered_norm": 1929.175859550052,
+      "prediction_total_norm": 2462.435050464582
+    },
+    {
+      "metric": "centered_floor10",
+      "optimizer": "adam",
+      "seed": 0,
+      "reader_rank_at_relative_1e6": 32,
+      "mean_input_energy_captured": 0.1126202765423785,
+      "prediction_mean_energy_fraction": 0.4116898653684251,
+      "prediction_centered_norm": 1752.8476458538426,
+      "prediction_total_norm": 2285.2883450534914
+    },
+    {
+      "metric": "centered_floor10",
+      "optimizer": "adam",
+      "seed": 1,
+      "reader_rank_at_relative_1e6": 32,
+      "mean_input_energy_captured": 0.12824740795813735,
+      "prediction_mean_energy_fraction": 0.39514580383321013,
+      "prediction_centered_norm": 1886.6512459878456,
+      "prediction_total_norm": 2425.863040447506
+    },
+    {
+      "metric": "centered_floor10",
+      "optimizer": "muon",
+      "seed": 0,
+      "reader_rank_at_relative_1e6": 32,
+      "mean_input_energy_captured": 0.2094484782873097,
+      "prediction_mean_energy_fraction": 0.44713831763265344,
+      "prediction_centered_norm": 2035.4882653700515,
+      "prediction_total_norm": 2737.5392679087818
+    },
+    {
+      "metric": "centered_floor10",
+      "optimizer": "muon",
+      "seed": 1,
+      "reader_rank_at_relative_1e6": 32,
+      "mean_input_energy_captured": 0.23372763206317904,
+      "prediction_mean_energy_fraction": 0.3923851711381911,
+      "prediction_centered_norm": 1965.5662848491213,
+      "prediction_total_norm": 2521.5844172144148
+    },
+    {
+      "metric": "second_floor01",
+      "optimizer": "adam",
+      "seed": 0,
+      "reader_rank_at_relative_1e6": 32,
+      "mean_input_energy_captured": 0.3297945638359455,
+      "prediction_mean_energy_fraction": 0.7641411512685521,
+      "prediction_centered_norm": 2080.995033221879,
+      "prediction_total_norm": 4284.942085935996
+    },
+    {
+      "metric": "second_floor01",
+      "optimizer": "adam",
+      "seed": 1,
+      "reader_rank_at_relative_1e6": 32,
+      "mean_input_energy_captured": 0.34022573082177493,
+      "prediction_mean_energy_fraction": 0.7469772959932832,
+      "prediction_centered_norm": 2214.81641529065,
+      "prediction_total_norm": 4403.094306063213
+    },
+    {
+      "metric": "second_floor01",
+      "optimizer": "muon",
+      "seed": 0,
+      "reader_rank_at_relative_1e6": 32,
+      "mean_input_energy_captured": 0.9756476705663056,
+      "prediction_mean_energy_fraction": 0.7070555150192372,
+      "prediction_centered_norm": 2526.310977669505,
+      "prediction_total_norm": 4667.605533926237
+    },
+    {
+      "metric": "second_floor01",
+      "optimizer": "muon",
+      "seed": 1,
+      "reader_rank_at_relative_1e6": 32,
+      "mean_input_energy_captured": 0.9667781844082634,
+      "prediction_mean_energy_fraction": 0.7132558833767849,
+      "prediction_centered_norm": 2482.455318091514,
+      "prediction_total_norm": 4635.901313851365
+    }
+  ],
+  "restart_pairs": [
+    {
+      "metric": "centered_floor01",
+      "first": [
+        "adam",
+        0
+      ],
+      "second": [
+        "adam",
+        1
+      ],
+      "empirical_function_cosine": 0.9837714804838986,
+      "centered_function_cosine": 0.9856138428290442
+    },
+    {
+      "metric": "centered_floor01",
+      "first": [
+        "adam",
+        0
+      ],
+      "second": [
+        "muon",
+        0
+      ],
+      "empirical_function_cosine": 0.9824401629065315,
+      "centered_function_cosine": 0.9793680814093784
+    },
+    {
+      "metric": "centered_floor01",
+      "first": [
+        "adam",
+        0
+      ],
+      "second": [
+        "muon",
+        1
+      ],
+      "empirical_function_cosine": 0.9823035340762806,
+      "centered_function_cosine": 0.9824835521053711
+    },
+    {
+      "metric": "centered_floor01",
+      "first": [
+        "adam",
+        1
+      ],
+      "second": [
+        "muon",
+        0
+      ],
+      "empirical_function_cosine": 0.9647817381026019,
+      "centered_function_cosine": 0.9630685271938243
+    },
+    {
+      "metric": "centered_floor01",
+      "first": [
+        "adam",
+        1
+      ],
+      "second": [
+        "muon",
+        1
+      ],
+      "empirical_function_cosine": 0.9735306493599758,
+      "centered_function_cosine": 0.9793213435427749
+    },
+    {
+      "metric": "centered_floor01",
+      "first": [
+        "muon",
+        0
+      ],
+      "second": [
+        "muon",
+        1
+      ],
+      "empirical_function_cosine": 0.98676136459776,
+      "centered_function_cosine": 0.9838086347843472
+    },
+    {
+      "metric": "centered_floor10",
+      "first": [
+        "adam",
+        0
+      ],
+      "second": [
+        "adam",
+        1
+      ],
+      "empirical_function_cosine": 0.9768989622727082,
+      "centered_function_cosine": 0.9817972150083502
+    },
+    {
+      "metric": "centered_floor10",
+      "first": [
+        "adam",
+        0
+      ],
+      "second": [
+        "muon",
+        0
+      ],
+      "empirical_function_cosine": 0.9845494261434914,
+      "centered_function_cosine": 0.984551838923242
+    },
+    {
+      "metric": "centered_floor10",
+      "first": [
+        "adam",
+        0
+      ],
+      "second": [
+        "muon",
+        1
+      ],
+      "empirical_function_cosine": 0.9864538169809096,
+      "centered_function_cosine": 0.98577981103523
+    },
+    {
+      "metric": "centered_floor10",
+      "first": [
+        "adam",
+        1
+      ],
+      "second": [
+        "muon",
+        0
+      ],
+      "empirical_function_cosine": 0.9649031120448643,
+      "centered_function_cosine": 0.9685622692659849
+    },
+    {
+      "metric": "centered_floor10",
+      "first": [
+        "adam",
+        1
+      ],
+      "second": [
+        "muon",
+        1
+      ],
+      "empirical_function_cosine": 0.9787547532499831,
+      "centered_function_cosine": 0.9805699479165059
+    },
+    {
+      "metric": "centered_floor10",
+      "first": [
+        "muon",
+        0
+      ],
+      "second": [
+        "muon",
+        1
+      ],
+      "empirical_function_cosine": 0.9878558020942569,
+      "centered_function_cosine": 0.9853696696933204
+    },
+    {
+      "metric": "isotropic",
+      "first": [
+        "adam",
+        0
+      ],
+      "second": [
+        "adam",
+        1
+      ],
+      "empirical_function_cosine": 0.9915727821003348,
+      "centered_function_cosine": 0.9883030492319654
+    },
+    {
+      "metric": "isotropic",
+      "first": [
+        "adam",
+        0
+      ],
+      "second": [
+        "muon",
+        0
+      ],
+      "empirical_function_cosine": 0.9879552982878637,
+      "centered_function_cosine": 0.9803919697398399
+    },
+    {
+      "metric": "isotropic",
+      "first": [
+        "adam",
+        0
+      ],
+      "second": [
+        "muon",
+        1
+      ],
+      "empirical_function_cosine": 0.9784598658869983,
+      "centered_function_cosine": 0.9762595969402582
+    },
+    {
+      "metric": "isotropic",
+      "first": [
+        "adam",
+        1
+      ],
+      "second": [
+        "muon",
+        0
+      ],
+      "empirical_function_cosine": 0.9871159275685314,
+      "centered_function_cosine": 0.9788024755892536
+    },
+    {
+      "metric": "isotropic",
+      "first": [
+        "adam",
+        1
+      ],
+      "second": [
+        "muon",
+        1
+      ],
+      "empirical_function_cosine": 0.9792891661694973,
+      "centered_function_cosine": 0.9773953058241076
+    },
+    {
+      "metric": "isotropic",
+      "first": [
+        "muon",
+        0
+      ],
+      "second": [
+        "muon",
+        1
+      ],
+      "empirical_function_cosine": 0.986448491785904,
+      "centered_function_cosine": 0.9856016054216822
+    },
+    {
+      "metric": "second_floor01",
+      "first": [
+        "adam",
+        0
+      ],
+      "second": [
+        "adam",
+        1
+      ],
+      "empirical_function_cosine": 0.996229438002105,
+      "centered_function_cosine": 0.9866096352910584
+    },
+    {
+      "metric": "second_floor01",
+      "first": [
+        "adam",
+        0
+      ],
+      "second": [
+        "muon",
+        0
+      ],
+      "empirical_function_cosine": 0.9887877774654487,
+      "centered_function_cosine": 0.9662991588890222
+    },
+    {
+      "metric": "second_floor01",
+      "first": [
+        "adam",
+        0
+      ],
+      "second": [
+        "muon",
+        1
+      ],
+      "empirical_function_cosine": 0.9896616661427491,
+      "centered_function_cosine": 0.9679175157284673
+    },
+    {
+      "metric": "second_floor01",
+      "first": [
+        "adam",
+        1
+      ],
+      "second": [
+        "muon",
+        0
+      ],
+      "empirical_function_cosine": 0.9901023808728517,
+      "centered_function_cosine": 0.9684645113297164
+    },
+    {
+      "metric": "second_floor01",
+      "first": [
+        "adam",
+        1
+      ],
+      "second": [
+        "muon",
+        1
+      ],
+      "empirical_function_cosine": 0.9914541765067616,
+      "centered_function_cosine": 0.9721068149512712
+    },
+    {
+      "metric": "second_floor01",
+      "first": [
+        "muon",
+        0
+      ],
+      "second": [
+        "muon",
+        1
+      ],
+      "empirical_function_cosine": 0.9993212625456193,
+      "centered_function_cosine": 0.9977690985291965
+    }
+  ],
+  "seconds": 0.3035333489533514,
+  "scope": "Diagnostic calibration-mean reader coverage and secondpanel prediction stability. No teacher targets; highcosine doesnot imply correctvariation or featureidentity. Rankcutoff explicit."
+}

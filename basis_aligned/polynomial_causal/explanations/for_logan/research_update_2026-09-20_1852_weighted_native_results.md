@@ -58,3 +58,11 @@ flowchart TD
 Next evidence is the constant/linear/quadratic baseline and repaired native mixed-basis validation. The two-day decomposition focus remains active. OOD prediction, extraction, selective manipulation and reusable identified circuits remain unproven.
 
 Receipts and programs: `NATIVE_WEIGHTED_BANK_V1.json/.pt`, `COVARIANCE_DOCUMENT_AUDIT_V1.json`, and `NATIVE_MIXED_ROOT_V1_FAILURE.md`, indexed in [direct_tensor_match](../../direct_tensor_match/README.md).
+
+## 18:57 UTC addendum: reader coverage and restart consistency
+
+A CPU audit of the16exported programs finds a marked optimizer difference under second-moment weighting. Muon's32-direction reader spans capture97.56% and96.68% of calibration mean-vector energy; Adam's capture32.98% and34.02%. Isotropic fits capture11.18–13.27%. Reader ranks are measured using a relative singular-value cutoff10⁻⁶, rather than letting arbitrary QR completion count as coverage.
+
+On the second empirical panel, centered output predictions have pairwise cosine0.966–0.998 across second-moment fits. Their own output mean components account for70.7–76.4% of prediction energy. High agreement between predictions does not establish that the common variation is correct, or that the reader features are identical.
+
+A new queued frozen-model audit will compare all16programs against the teacher's centered variation, split total residual energy into mean error plus centered error, and compare both a calibration-output-mean constant and the weight-derived$f(\mu)$constant. It selects the representative fit by training gain and records the data-fitted constant as a baseline, not a weight-discovered circuit. Teacher outputs and per-document residual terms will be cached to avoid repeated native contractions. Receipt: `WEIGHTED_READER_AUDIT_V1.json`; preregistration: `NATIVE_VARIATION_AUDIT_PLAN_V1.md`.

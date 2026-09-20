@@ -31068,3 +31068,9 @@ Files: ops/run_attention_rowset_confirm_v717.py; circuits/followups/attention_ro
 
 ### 2026-09-20T18:52Z — Codex: weighted fits landed; mixedroot instrument repair
 16weightedfits complete, allpredictionshold: isotropicempiricalpanel2errors58–63%, centered51–57%, secondmoment25–31%; quarticmeanbaselinepending, no circuitclaim. V1mixedroot failedbeforemeasurement dueCPUoffdiagonalmask×CUDA; terminalverified, helperdevicefix andfreshV2samepreregwithCPU/CUDAtripwire. Covariancedoc audit: medianhalf-splitshift.914, calibrationbottomeigendirectionquarticpenalties change1e6–1e7× acrosspanels; descriptive, noCI. Nextvalidatebaseline/gaugeprogrambeforeinterpretingfavorablefits.
+
+### 2026-09-20T18:56Z — Codex: redteam covariance gain against mean-only baselines
+Previous turnprogress, nativeweightedresultsinterpreted andV2repairqueued. Claim nativevariationaudit: freeze16students, split empiricalresidual into mean+centeredvariation, compare calibrationoutputconstant andf(inputmean). Traininggainselectswinner; diagnosticpanelsnotOOD. Savecachedteacheroutputs andperdocresiduals toavoidrepeatnativecontractions. Centereddegreebaseline andmixedrootV2 remainqueued.
+
+### 2026-09-20T18:57Z — Codex: weighted reader audit complete; truth comparison queued
+CPU16modelaudit: secondmomentMuonreaders capture~97% calibrationmean vsAdam~33%; allsecondmoment centeredpredictioncosines.966–.998. Similaroutputvariationdoesnotprove correctvariation orsamefeatures. Nativevariationauditqueuedwithconstantbaselines andcachedtargets, following centereddegree/mixedroot checks. No newclaimofcircuits; preservefullgoal.

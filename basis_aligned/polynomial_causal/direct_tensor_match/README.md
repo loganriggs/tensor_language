@@ -223,3 +223,8 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 - `NATIVE_WEIGHTED_BANK_V1.json/.pt`:16fits, isotropicpanel2errors58–63%,centered51–57%,secondmoment25–31%; training-selectedsecondmoment25.28%. Allpredictionshold, normestimateshave6–8%relativeSE. Sameoriginalparameters; no denseMdeploymentcost. Meanbaselinepending.
 - `COVARIANCE_DOCUMENT_AUDIT_PLAN_V1.md`, `audit_covariance_documents.py`, `COVARIANCE_DOCUMENT_AUDIT_V1.json`: descriptivehalf-docsplitcovshiftmedian.914; calibrationbottomeigendirections quarticpenaltyratios1e6–1e7onpanel2. Allpredictionshold; noCI/studenterrorclaim.
 - `NATIVE_MIXED_ROOT_V1_FAILURE.md`: V1invalidinstrumentCPU/CUDAmaskmismatch, no scientificresult. Device-awarehelperfix; freshV2queuedwithCPU/CUDAreplaytripwire, originalscientificpreregunchanged.
+
+## Mean recovery versus variation — 18:57 UTC
+
+- `audit_weighted_readers.py`, `WEIGHTED_READER_AUDIT_V1.json`: secondmomentMuonreader spanscapture96.68–97.56%meanenergy vsAdam32.98–34.02%; centeredpredictioncosines.966–.998. No teachercorrectness orfeatureidentityclaim.
+- `NATIVE_VARIATION_AUDIT_PLAN_V1.md`: queued frozen16student mean/centeredresidual decomposition, calibrationconstant andweightconstant baselines, teacheroutputcache. Input-dependent recovery remainsunproven untilthisreceipt.
