@@ -31362,3 +31362,9 @@ Previous goal turn progressed via CPU algebra oracle and committed registration.
 
 ### 2026-09-20T21:36Z — Codex: native branch result and mode-removal followup
 Native branch screen terminal: exact replay1.06e-7, solve1.77e-15 pass; ten-product CE+.020146 narrowly FAILS .02, KL.019965; ablation CE+.127850, logit disturbance ratio.4041 passes. 26product CE+.016752. Document bootstrap tenproduct CE95%[.01276,.02776], ratio[.3503,.4524]; preserve failure. Next CPU canonical scalar/native comparison executed: modes0/1 errors18–26%, mode3 53–54% despite .85 correlation. Registered NATIVE_MODE_INTERVENTION_PLAN_V1 on fresh docs80:96; compare native and predicted removal in identical native background, no semanticclaim.
+
+### 2026-09-20T21:37Z — Codex: canonical mode removal queued
+Previous turn made progress via native branch test plus scalar CPU diagnostic. Registered mode-removal script now queued through managed runner, hash4b37c1c0. Compares native vs predicted mode amplitudes in identical original background on docs80:96, four modes plus joint edit. Direct triangular-solve joint oracle, zero edit, full logit and token CE effect-vector metrics. Frozen candidate; no semantic labels.
+
+### 2026-09-20T21:38Z — Codex: mode removal passes; code-shift preparation executed
+Native mode effects cos .991/.965/.907/.816 and errors .158/.313/.483/.590, all registered bars pass; joint error.191. Mode3 CE-effect error.718 and bootstrap logitcos[.704,.900] caution against all-feature robustness claim. Next CPU action executed: deterministic16-file local Python-code panel, hashed, no model-output selection. Registered unchanged-bar branch and mode screens on code domain shift; no refitting, no representative-code or semanticclaim.

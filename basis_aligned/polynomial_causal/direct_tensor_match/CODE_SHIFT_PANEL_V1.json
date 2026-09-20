@@ -1,0 +1,87 @@
+{
+  "selection": "First16 lexicographically sorted tracked jacclust Python files with >=129 GPT2 tokens; first129 tokens each. No model-output selection.",
+  "sources": [
+    {
+      "path": "jacclust/attn_jacblock.py",
+      "sha256": "b48a1ae4a8d7aca76329430c867cea0e196b09f912db745deb197dd3af26f0ff",
+      "offset": 0
+    },
+    {
+      "path": "jacclust/attn_sae_real.py",
+      "sha256": "6b2cce88ead8356d27d8dbc349c4e5117918d127cf9760badec097dba2c7c03f",
+      "offset": 0
+    },
+    {
+      "path": "jacclust/attn_secant.py",
+      "sha256": "06a879f9435e714fcf00a66402e15cbd68b83440e917a5a1fd9998852eda0e65",
+      "offset": 0
+    },
+    {
+      "path": "jacclust/bilinear_sae.py",
+      "sha256": "3a1b0285cba2213e1231b2157c1f82f7b4e2129b1eece941c6d6b42f6064c57d",
+      "offset": 0
+    },
+    {
+      "path": "jacclust/bsae_scaled.py",
+      "sha256": "ba40631f363ae748101355a159550f4c12d691df28ff0f5d5a1aae7b834279e7",
+      "offset": 0
+    },
+    {
+      "path": "jacclust/complexity_split.py",
+      "sha256": "e48ae93c011fe81e272e00b947bdbdb1e24433891d228f618eaf5d0e303686e4",
+      "offset": 0
+    },
+    {
+      "path": "jacclust/depth_corrected.py",
+      "sha256": "0fb6a811948e062d4414a9cf06c77487d36bd1b734d28543da02588a2d818af0",
+      "offset": 0
+    },
+    {
+      "path": "jacclust/dgp.py",
+      "sha256": "0768af47eb55bd79d13dd1dcf1d45bc34a1bcdda892bed996bf62eae98c3f1f4",
+      "offset": 0
+    },
+    {
+      "path": "jacclust/dgp_c.py",
+      "sha256": "3135192c278d04af185ed642015ed5a0e8d2b502be972d07e816a49b005e7662",
+      "offset": 0
+    },
+    {
+      "path": "jacclust/dgp_e.py",
+      "sha256": "1383bd14a288d1f9a4afc13cee7cfb639404d31db18514d165c065b86622078c",
+      "offset": 0
+    },
+    {
+      "path": "jacclust/dict_autointerp_data.py",
+      "sha256": "5fa5633249ed934ba30086c679672f2455e87073698edd97777700289b534345",
+      "offset": 0
+    },
+    {
+      "path": "jacclust/dict_stability.py",
+      "sha256": "56b1e84b52824bcfa8fcd600ad424e8720db8a995a469b4c1031b5be17ebd800",
+      "offset": 0
+    },
+    {
+      "path": "jacclust/full_mlp_arch.py",
+      "sha256": "d7fa673a243013faa72980746403544cc012f230af77b3e5da18b28b86ea1b34",
+      "offset": 0
+    },
+    {
+      "path": "jacclust/hier_geom.py",
+      "sha256": "ce53b0ea5579a031791c3e09d6d8030172e2553312f366ffdf5b0c7c508c24bd",
+      "offset": 0
+    },
+    {
+      "path": "jacclust/intervene.py",
+      "sha256": "8385f6f500be23dde91f726f11d1c06267f54ba11e3f52a112e7f306c0b0b765",
+      "offset": 0
+    },
+    {
+      "path": "jacclust/jacsae.py",
+      "sha256": "3fc23af2bbe1c38fa48f6691b0e930e1ca2d19d36ea20d2779ee4412b2ae9aed",
+      "offset": 0
+    }
+  ],
+  "token_sha256": "ef8bb997810bf269b76df461aca148d3a99be525b22c918eb656f6397657a76e",
+  "scope": "Local Python-code domain shift relative to FineWeb calibration. Files may be correlated and are not a representative code benchmark; model pretraining overlap unknown."
+}
