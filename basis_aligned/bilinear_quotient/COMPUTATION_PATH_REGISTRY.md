@@ -502,3 +502,6 @@ Native four-quadratic bank best coefficient gain0.2015% vsCP8 0.0863%, stillglob
 
 ### 2026-09-20 18:29 — Interaction sparsity and fixed-reader structural controls
 Eight-root nativebank bestgain0.14363% vsCP8 0.08630%; bestten-rootbankslose54–56% onpruning. Rank8output relaxation retains≥99.9586% of fittedstudent energy butkeeps10rootproducts.120allocationcontrols+16squareleafcontrols separate capacity fromoptimization; all6×1witnessesexact whilecoordinate randomstalls31.1%, squareconstraintrescuescoordinate buthurtsrotatedsigned. MLP16covariancecapture queued atcorrectquarticinput. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1829_sparsity_and_structural_assumptions.md).
+
+### 2026-09-20 18:36 — Quadratic basis mixing rescues eight-root student approximations
+Fourfeaturemixing adds16scalars whilepreservingleafreuse.130basis screensreduce highrateAdam exportedstudenterrors73/75%→6.30/7.39%;8rotationfits→2.52/2.43%. Nativeobjectivevalidationqueued, notinferredfromstudentcompression. [Report addendum](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1829_sparsity_and_structural_assumptions.md).

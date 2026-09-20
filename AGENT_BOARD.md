@@ -31026,3 +31026,9 @@ Files: ops/run_attention_bands08_r64_fit_v715.py; circuits/followups/attention_b
 
 ### 2026-09-20T18:29Z — Codex: root pruning and structural-control outcomes
 Prune landed:bestgain0.14363%vsCP0.08630%; fullbestAdam banksretain44–46%, weakMuonfitpassesregistered90%retention. ExactCPU outputrank8 studentapprox retains≥99.9586% butkeeps10roots, +80mixscalars: outputrank≠interaction deletion.80allocationfits+40reused controls:6×1knowncapacityallfive, coordinate random31.1%failure.16squareleafcontrols:coordinate recovered2.35e-8, rotatedsignedstill31.1% despitecapacity. Nativeexactspan and correct-input MLP16covariance jobsqueued; no circuitidentification. Report1829, continuations active.
+
+### 2026-09-20T18:33Z — Codex: change the feature basis before declaring sparsity limits
+Claim CPU130basis×45support searches foreachof8exported banks:identity,whitening,64orthogonal,64whitenedrotations. Targetstudentfunction, notnativeteacher. Fourquadraticlinear mixing adds16scalars whilepreservingleafreuse; tests whetherprunefailureisfixed-coordinate ratherthan8interactioncapacity. Nativeexactspan/covariance jobsremainqueued; prior turn progress, no duplicate GPU work.
+
+### 2026-09-20T18:35Z — Codex: basis refinement rescues sparse student approximation; native validation queued next
+Random-basis screen high-rateAdam errors6.30/7.39% vsfullstudents, failed<5%prediction. Eightorthogonalrefinement fits yield2.52/2.43%; allrefinementpredictionshold, basisconditionpreserved, exactresidualreplay. Sameleafreaders+16mixcoeffs+8rootproducts. Claim nativecross/writer/heldout check of two frozenprograms, notinferredfromstudentfit. Nativeexactspan andMLP16covcapturealreadyqueued; no circuitidentity claim.

@@ -81,3 +81,30 @@ The exact32-dimensional input-span energy audit remains queued. A new queued cap
 Subsequent covariance comparisons must distinguish four-slot coefficient weighting by $M^{1/2}$, Gaussian function error involving eighth moments, and empirical function error on actual rows. Centered covariance and uncentered second moment are saved separately. No covariance-weighted quartic result is claimed yet.
 
 Primary receipts: `NATIVE_SHARED_BANK_PRUNE_V1`, `ROOT_OUTPUT_RANK_V1`, `SHARED_BANK_ALLOCATION_V1`, and `SQUARE_LEAF_CONTROL_V1` in [direct_tensor_match](../../direct_tensor_match/README.md). Native input-capacity and covariance jobs provide the next continuation; the three-hour literature review remains due around19:37 UTC.
+
+## 18:36 UTC addendum: sparse interactions after changing the feature basis
+
+A direct follow-up now shows that the fixed feature basis caused much of the pruning loss. Let $q$ contain the four frozen quadratic features. Introduce an invertible matrix $S\in\mathbb R^{4\times4}$ and set $\widetilde q=S q$. Its induced symmetric-square matrix $T(S)\in\mathbb R^{10\times10}$ transforms the root-product vector:
+
+$$
+\widetilde\phi=T(S)\phi,
+\qquad
+\widetilde G=T(S)G T(S)^\top.
+$$
+
+For an original input pair $i\leq j$, the row corresponding to mixed pair $(a,b)$ has coefficient $S_{ai}S_{bi}$ when $i=j$, and $S_{ai}S_{bj}+S_{aj}S_{bi}$ otherwise. Full ten-root functions replay exactly after transporting the writer by $T(S)^{-1}$. Restricting to eight rows then imposes sparsity in this new basis.
+
+We evaluated130 bases per exported student: identity, quadratic-Gram whitening,64 orthogonal rotations, and64 rotations after whitening. Each basis received an exhaustive45-support search and exact writer refit. This targets the **exported full student**, not the native teacher.
+
+| Source student | Eight roots in original basis | Best screened basis | Refined basis |
+|---|---:|---:|---:|
+| Adam0.005, seed0 | 73.281% error | 6.302% | **2.524%** |
+| Adam0.005, seed1 | 74.689% error | 7.388% | **2.430%** |
+
+The screen passed the improvement and replay predictions but missed the<5% target. Eight subsequent fits optimized rotations around the two selected bases, keeping the supports fixed. Adam/Muon, rates0.005/0.05,600steps all converged close to the displayed minima. The parameterization $S=\exp(K-K^\top)S_0$ preserves invertibility and singular values of the starting basis; basis-condition changes remained at floating-point noise. Independent direct coefficient residuals agreed with the analytic objective. All three refinement predictions passed.
+
+The executable program still computes the original four quadratics once, adds a4×4 linear mixing step, then computes eight selected products. It costs **46,096 floating scalars plus16 support integers**, and eight root multiplications. This is a different constraint from keeping ten products and lowering output rank. It preserves sharing rather than separately expanding each mixed quadratic into new leaf readers.
+
+These are strong student-compression results, but the native gain has not yet been measured. A managed GPU validation is queued to compute native cross contractions, refit writers, and compare coefficient and Gaussian diagnostics directly. Low error against an already poor global approximation does not make it a good global model or an identified circuit.
+
+Receipts: `ROOT_BASIS_SEARCH_V1.json`, `ROOT_BASIS_REFINE_V1.json/.pt`; native follow-up: `NATIVE_MIXED_ROOT_PLAN_V1.md`. The exact input-capacity and MLP16 covariance measurements remain queued too.

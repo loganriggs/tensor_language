@@ -188,3 +188,11 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 - `SHARED_BANK_ALLOCATION_PLAN_V1.md`, `shared_bank_allocation.py`, `SHARED_BANK_ALLOCATION_V1.json`:80new+40prior fits,2×3/3×2/6×1, same72reader scalars butdifferentwriter costs. All6×1oracle witnesses<2.5e-8; randomcoordinatebest31.1%, contradictingallfamilyrecoveryprediction.
 - `square_leaf_control.py`, `SQUARE_LEAF_CONTROL_V1.json`:16known-capacity controls; squareleavesrescuecoordinate butrandomrotatedsignedbest31.1%. Witnessespass; coordinatepredictionholds, signedrecoverypredictionfails.
 - `NATIVE_QUARTIC_COVARIANCE_PLAN_V1.md`: queued16forward MLP16input capture, distinctfromearlierMLP17coordinates; centeredcovariance/mean/secondmoment/rows saved forisotropic-vsweightedfollowup.
+
+## Change feature basis before pruning — 18:36 UTC
+
+[Report addendum](../explanations/for_logan/research_update_2026-09-20_1829_sparsity_and_structural_assumptions.md).
+
+- `ROOT_BASIS_SEARCH_PLAN_V1.md`, `root_basis_search.py`, `ROOT_BASIS_SEARCH_V1.json`:130bases×45supports×8students. HighrateAdam eightrootstudent-errors73/75%→6.30/7.39%;<5%predictionfails. Includes16featuremixing scalars.
+- `ROOT_BASIS_REFINE_PLAN_V1.md`, `root_basis_refine.py`, `ROOT_BASIS_REFINE_V1.json/.pt`:8rotationrefinements yield2.52/2.43% errorsvsfullstudents, analytic/directreplay andfixedbasisconditionspass. Allrefinementpredictionshold. Eightrootproducts,46,096scalars+16supportintegers; nativeteacherresultpending.
+- `NATIVE_MIXED_ROOT_PLAN_V1.md`: queuedfullnativecross/writerrefit andcoefficient/Gaussiandiagnostics for two selectedmixed-rootstudents. Noidentityclaim frombasisoptimization.
