@@ -1,0 +1,16 @@
+replay rel-L2: {0: 2.278220563312061e-07, 1: 4.964844606547558e-07}
+unigram rows: (480, 513), tokens 246240, vocab seen 21878
+MLP-0: coef in/out 90% = 882/832; vocab-uniform in/out = 502/715; frequency in/out = 130/437; Sigma own 90% = 830/543
+  family fractions (uniform): {'r|r': 0.9777, 'r|a0': 0.0505, 'a0|r': 0.0503, 'a0|a0': 0.0032} interference -0.0816
+MLP-1: coef in/out 90% = 937/835; vocab-uniform in/out = 116/318; frequency in/out = 46/290; Sigma own 90% = 85/35
+  family fractions (uniform): {'r|r': 0.0218, 'r|a0': 0.0, 'r|m0': 0.0662, 'r|a1': 0.0268, 'a0|r': 0.0, 'a0|a0': 0.0, 'a0|m0': 0.0, 'a0|a1': 0.0, 'm0|r': 0.0664, 'm0|a0': 0.0, 'm0|m0': 0.9303, 'm0|a1': 0.1225, 'a1|r': 0.027, 'a1|a0': 0.0, 'a1|m0': 0.1331, 'a1|a1': 0.0456} interference -0.4397
+{
+  "predictions": {
+    "pred_a_tables_replay": true,
+    "pred_b_coefficient_ranks_reproduce": true,
+    "pred_c_vocab_fold_shrinks_input_rank": true,
+    "pred_d_frequency_fold_shrinks_further": true,
+    "pred_e_embedding_family_dominates": false
+  },
+  "forwards": 14
+}
