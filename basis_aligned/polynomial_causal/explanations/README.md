@@ -845,3 +845,5 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 - [research_update_2026-09-20_2043_directional_response](for_logan/research_update_2026-09-20_2043_directional_response.md) — Directional response strengths/limits and joint bank refactor.
 
 - [research_update_2026-09-20_2047_shared_bank_refactor](for_logan/research_update_2026-09-20_2047_shared_bank_refactor.md) — Shared bank reduces cost; noncentral metric explains aggressive-refactor failure.
+
+- [research_update_2026-09-20_2052_function_metric_recovery](for_logan/research_update_2026-09-20_2052_function_metric_recovery.md) — Function metric recovers smaller program; primitive identity still unresolved.

@@ -268,3 +268,5 @@ Fresh frozen validation passed all bars: quadratic20.89/20.94%,quartic17.44/17.9
 DIRECTIONAL_RESPONSE_V1.json: learned-direction bars pass, random directions47–52% response error. Exact QUARTIC_BANK_CORE_V1 now supports next joint shared-product refactor, registered in QUARTIC_BANK_REFACTOR_PLAN_V1.md.
 
 QUARTIC_BANK_REFACTOR_V1: shared12 bank products yields38144coefficients22products,fresh64error17.95%; width8 composition fails despite99.77% bank energy. BANK_FUNCTION_METRIC_AUDIT_V1 exposes noncentral mean mismatch; next BANK_NONCENTRAL_REFIT_PLAN_V1.md.
+
+NONCENTRAL_BANK_REFIT_V1 recovers shared8:28912coefficients18products,fresh17.54/17.95%,directional response passes. SHARED_BANK_IDENTITY_AUDIT_V1 still shows centered primitive minimumcos.44. BANK_FUNCTION_CAPACITY_V1 records rank ceilings; next BANK_WIDTH_FRONTIER_PLAN_V1.md.

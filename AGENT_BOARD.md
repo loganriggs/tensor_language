@@ -31293,3 +31293,12 @@ Previous turn extracted exactbankcore and tested responses. Executing registered
 
 ### 2026-09-20T20:47Z — Codex: bank sharing reduces price; failed width8 metric audited
 Width12:38144coefficients22products,fresh17.95/18.65%,replay<4e-15. Width8:99.77%bankenergy butfresh25.86%,compositionbarfails. Executed nextCPUmetric audit:8bank4.78%coefficienterror becomes30.49%Gaussianfunctionerror,mostlyinternalmeans. Implemented exact noncentral embedding, quadrature5e-16; registered8arm metriccorrectedrefit before more ranksearch.
+
+### 2026-09-20T20:48Z — Codex: noncentral bank metric refinement CPU claim
+Previous turn improved shared12 price and diagnosed8product failure. Running registered8arms exact noncentralGaussian bank loss, fixed root/ranks and500steps; explicitfunctional normalization/writerpenalty. Finalprogramprice and composederrors retained regardless of outcome.
+
+### 2026-09-20T20:49Z — Codex: exact metric recovers shared8; response validation claimed
+Noncentral bank refinement allbars pass:28912coefficients18products,fresh17.54/17.95%, versus original47312/26 and17.44/17.90%. Now enqueuing unchanged128row direction screen for smallerprogram, registered<=.02responseerror increase perlearnedamplitude. Shared evaluator generalized tobankwriter form; no original program mutation.
+
+### 2026-09-20T20:52Z — Codex: shared8 response passes; identity and rank audit completed
+All sharedresponse bars pass,learned18.4–19.9%,random48–52%. CPU restart audit: centeredbankcos>=.99949 butprimitive worst.44; no identityclaim. NextCPUcapacity audit executed: centeredrank ceilings.759/.927/.983/1. Registered widths4/6 exact-function-loss frontier with literal cost and no automatic extra sweep.

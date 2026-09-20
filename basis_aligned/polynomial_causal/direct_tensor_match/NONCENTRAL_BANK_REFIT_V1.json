@@ -1,0 +1,145 @@
+{
+  "records": [
+    {
+      "width": 8,
+      "optimizer": "adam",
+      "seed": 0,
+      "initial_function_error": 0.16564179008995367,
+      "function_error": 0.009406026408208479,
+      "penalized_objective": -27742.81055917066,
+      "selected_step": 500,
+      "function_component_energy_ratio": 0.2579383832341183
+    },
+    {
+      "width": 8,
+      "optimizer": "adam",
+      "seed": 1,
+      "initial_function_error": 0.17241676502152226,
+      "function_error": 0.009657924197354032,
+      "penalized_objective": -27742.2728979946,
+      "selected_step": 500,
+      "function_component_energy_ratio": 0.2725277676858367
+    },
+    {
+      "width": 8,
+      "optimizer": "muon",
+      "seed": 0,
+      "initial_function_error": 0.30490759055549743,
+      "function_error": 0.008427001308674863,
+      "penalized_objective": -27743.53525264896,
+      "selected_step": 500,
+      "function_component_energy_ratio": 0.24927065995643513
+    },
+    {
+      "width": 8,
+      "optimizer": "muon",
+      "seed": 1,
+      "initial_function_error": 0.24750560902908203,
+      "function_error": 0.007468973161834815,
+      "penalized_objective": -27744.03788731056,
+      "selected_step": 500,
+      "function_component_energy_ratio": 0.24638125220472554
+    },
+    {
+      "width": 12,
+      "optimizer": "adam",
+      "seed": 0,
+      "initial_function_error": 0.16117887386296773,
+      "function_error": 0.0047190176198283924,
+      "penalized_objective": -27747.02043987524,
+      "selected_step": 500,
+      "function_component_energy_ratio": 0.17235582954143278
+    },
+    {
+      "width": 12,
+      "optimizer": "adam",
+      "seed": 1,
+      "initial_function_error": 0.1805336563994676,
+      "function_error": 0.004934022711813034,
+      "penalized_objective": -27747.043558475885,
+      "selected_step": 500,
+      "function_component_energy_ratio": 0.1694456450405139
+    },
+    {
+      "width": 12,
+      "optimizer": "muon",
+      "seed": 0,
+      "initial_function_error": 0.05078253572710094,
+      "function_error": 0.0033789433854825098,
+      "penalized_objective": -27747.72886180657,
+      "selected_step": 500,
+      "function_component_energy_ratio": 0.15766948004236608
+    },
+    {
+      "width": 12,
+      "optimizer": "muon",
+      "seed": 1,
+      "initial_function_error": 0.12365449202591514,
+      "function_error": 0.004041772847856157,
+      "penalized_objective": -27747.49881891077,
+      "selected_step": 500,
+      "function_component_energy_ratio": 0.1610429015309818
+    }
+  ],
+  "winners": [
+    {
+      "width": 8,
+      "optimizer": "muon",
+      "seed": 1,
+      "initial_function_error": 0.24750560902908203,
+      "function_error": 0.007468973161834815,
+      "penalized_objective": -27744.03788731056,
+      "selected_step": 500,
+      "function_component_energy_ratio": 0.24638125220472554,
+      "diagnostic_errors": [
+        0.18027523872672843,
+        0.1849016153794698
+      ],
+      "fresh_errors": [
+        0.1754066772846181,
+        0.17948146003012813
+      ],
+      "cost": {
+        "products": 18,
+        "additions": 27732,
+        "stored_coefficients": 28912,
+        "edges": 28948,
+        "nodes": 2351
+      },
+      "graph_replay": 3.5921554242934726e-16
+    },
+    {
+      "width": 12,
+      "optimizer": "muon",
+      "seed": 0,
+      "initial_function_error": 0.05078253572710094,
+      "function_error": 0.0033789433854825098,
+      "penalized_objective": -27747.72886180657,
+      "selected_step": 500,
+      "function_component_energy_ratio": 0.15766948004236608,
+      "diagnostic_errors": [
+        0.17910179853980057,
+        0.184344866114665
+      ],
+      "fresh_errors": [
+        0.17503295446243872,
+        0.1794626004695731
+      ],
+      "cost": {
+        "products": 22,
+        "additions": 36956,
+        "stored_coefficients": 38144,
+        "edges": 38188,
+        "nodes": 2363
+      },
+      "graph_replay": 1.1481544219732124e-15
+    }
+  ],
+  "predictions": {
+    "pred_a_function": true,
+    "pred_b_composed": true,
+    "pred_c_export": true
+  },
+  "seconds": 5.691913182847202,
+  "scope": "Exact noncentral Gaussian bank function metric with fixed local root sensitivity. Complete quartic scored only after weight-space selection; same reused diagnostic/fresh panels, no new unseen evaluation."
+}

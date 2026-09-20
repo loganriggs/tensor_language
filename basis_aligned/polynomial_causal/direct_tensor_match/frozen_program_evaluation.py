@@ -10,7 +10,9 @@ def quadratic(s,x):
  return s['constant']+(d@s['linear_reader'].T)@s['linear_writer'].T+((d@s['quadratic_left'].T)*(d@s['quadratic_right'].T))@s['quadratic_writer'].T
 
 def quartic(s,x):
- bank=((x@s['U'].flatten(0,1).T)*(x@s['V'].flatten(0,1).T)).reshape(len(x),4,4).sum(2);i,j=torch.triu_indices(4,4,device=x.device)
+ if 'bank_writer' in s:bank=((x@s['A'].T)*(x@s['B'].T))@s['bank_writer'].T
+ else:bank=((x@s['U'].flatten(0,1).T)*(x@s['V'].flatten(0,1).T)).reshape(len(x),4,4).sum(2)
+ i,j=torch.triu_indices(4,4,device=x.device)
  return ((bank[:,i]*bank[:,j])@s['Z'].T)@s['W'].T+s['constant']
 
 def load_teacher(path,scale,device='cuda'):
