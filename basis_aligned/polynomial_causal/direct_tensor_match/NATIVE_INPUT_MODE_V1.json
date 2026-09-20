@@ -1,0 +1,96 @@
+{
+  "plan": {
+    "panels": 2,
+    "probes_per_panel": 4096,
+    "projection_probes": 1024,
+    "batch": 128,
+    "ranks": [
+      32,
+      64,
+      128,
+      256,
+      512
+    ],
+    "native_forwards": 0
+  },
+  "panels": [
+    {
+      "panel": "0",
+      "normalized_trace": 1.0031754779898483,
+      "finite_probe_rank_tail_errors": {
+        "32": 0.9574647552402737,
+        "64": 0.9205683336522698,
+        "128": 0.8525683776785231,
+        "256": 0.7307815485278504,
+        "512": 0.5206998812136835
+      }
+    },
+    {
+      "panel": "1",
+      "normalized_trace": 1.0028713317658986,
+      "finite_probe_rank_tail_errors": {
+        "32": 0.9573922436172342,
+        "64": 0.9202706808854796,
+        "128": 0.8522266293959511,
+        "256": 0.7302907201601079,
+        "512": 0.5203175081582387
+      }
+    },
+    {
+      "panel": "pooled",
+      "normalized_trace": 1.0030234048778737,
+      "finite_probe_rank_tail_errors": {
+        "32": 0.9620042953810054,
+        "64": 0.9293524155329561,
+        "128": 0.8687942940521621,
+        "256": 0.7582813135231697,
+        "512": 0.5610747777349283
+      }
+    }
+  ],
+  "projections": [
+    {
+      "subspace": "input_mode_32",
+      "dimension": 32,
+      "normalized_projected_energy": 0.0003884895356582466,
+      "standard_error": 2.5958615508657807e-05,
+      "estimated_projection_error": 0.9998063219869282
+    },
+    {
+      "subspace": "input_mode_64",
+      "dimension": 64,
+      "normalized_projected_energy": 0.0006696611001479993,
+      "standard_error": 2.870729530886885e-05,
+      "estimated_projection_error": 0.9996661229898628
+    },
+    {
+      "subspace": "input_mode_128",
+      "dimension": 128,
+      "normalized_projected_energy": 0.0022926453895161835,
+      "standard_error": 4.936057566374843e-05,
+      "estimated_projection_error": 0.998856478835618
+    },
+    {
+      "subspace": "cp8_span",
+      "dimension": 32,
+      "normalized_projected_energy": 0.0017726315895164632,
+      "standard_error": 9.543770864235485e-05,
+      "estimated_projection_error": 0.9991159650604806
+    },
+    {
+      "subspace": "learned_bank_span",
+      "dimension": 32,
+      "normalized_projected_energy": 0.002333531371642697,
+      "standard_error": 0.00013193897758325253,
+      "estimated_projection_error": 0.9988360739240596
+    }
+  ],
+  "rank32_panel_gap": 7.251162303956171e-05,
+  "seconds": 1.9164337790571153,
+  "predictions": {
+    "pred_a_trace": true,
+    "pred_b_stability": true,
+    "pred_c_rank": true
+  },
+  "scope": "Unbiased first-input Gram estimate and finite-measurement rank tails. NOT certified full-tensor rank/error bounds. Particular projected-subspace energies estimated with independent input-slot probes; no Gaussianfunction/circuitclaim."
+}

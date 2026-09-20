@@ -1,0 +1,5 @@
+# Match CP8 parameter count and root count — 2026-09-20 18:14 UTC
+
+Learnedbankbestgain0.00201477 versusCP8 0.00086295, butbankhas10rootwriters/48,384values versus8/46,080. Testwhether extraoutputrootcapacity explains gain. Freeze learnedquadratics ineachofeightbank fits. Recompute exactselfGram andfullnativecross; enumerateall45 choices of8rootproductsoutof10, refitwriters in float64 andselectbyexacttraininggain. No furtherinput optimization orheldoutselection.
+
+The result hasexactly46,080reducedfloats (32linearreadervectors andeight1152-outputwriters), sameasCP8, plus explicitroot-support indices. Rootcount/outputrank bound alsoeight. Rootsupport sparsity means fewerinteractions amongfour sharedquadratics, not elementwiseleaf orwriter sparsity. Reportretainedrootpairs, gain versusfullbank, independentcoefficient/Gaussian error(seed1651). Predictions:finite/solverresidual<1e-10; someprunedfit retains≥90% fullbankgain; someprunedfit beatsCP8 exactgain andheldoutcoefficienterror. Exporttheprogram; do notcall itsfeaturesstable/semanticcircuits.

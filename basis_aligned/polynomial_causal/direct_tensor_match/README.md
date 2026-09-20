@@ -166,3 +166,15 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 - `shared_bank_fit.py`, `SHARED_BANK_INITIALIZATION_PLAN_V1.md`, `shared_bank_initialization.py`, `SHARED_BANK_INITIALIZATION_V1.json`:18followups; widerbank rescuesonehardcase, leadingunfoldingcanmissthetruequadraticspan.
 - `SHARED_BANK_TRACE_INITIALIZATION_PLAN_V1.md`, `shared_bank_trace_initialization.py`, `SHARED_BANK_TRACE_INITIALIZATION_V1.json`:10fits; traceinitialization exactlyrecoverscoordinate/rotatedsigned cases butisworseonotherfamilies.
 - `NATIVE_LEARNED_SHARED_BANK_PLAN_V1.md`:queued8exact-gradientnative fits,bank4,k4,48,384reducedvalues; compareCP8 at46,080. Dense rootcore, nosparsity/circuitclaim.
+
+## Learned sharing, stability and input capacity — 18:25 UTC
+
+[Timed report](../explanations/for_logan/research_update_2026-09-20_1825_shared_features_and_input_capacity.md).
+
+- `NATIVE_LEARNED_SHARED_BANK_V1.json/.pt`: eight fits; best training-selected coefficient gain0.2015% vs CP8's0.0863%;48,384 vs46,080 reduced scalars. Root conditioning and independent diagnostics retained.
+- `audit_learned_bank_stability.py`, `LEARNED_BANK_STABILITY_V1.json`:28 exact function/feature-space comparisons; high-rate function cosines0.830–0.934, minimum quadratic-space cosines0.00049–0.643. Approximation stability is not feature identification.
+- `quartic_input_probes.py`, `check_quartic_input_probes.py`, `QUARTIC_INPUT_PROBE_CHECK_V1.json`: dense adjoint and exhaustive Gram validation.
+- `NATIVE_INPUT_MODE_PLAN_V1.md`, `NATIVE_INPUT_MODE_V1.json/.pt`: two4096-probe spectra plus independent projected-energy estimates. Learned32-span retains about0.2334%; finite-probe spectra are not global certificates.
+- `input_mode_calibration.py`, `INPUT_MODE_CALIBRATION_PLAN_V1.md`, `INPUT_MODE_CALIBRATION_V1.json`: radial input-span bound99.9591% atd1152/r32 and finite-probe spectral-bias calibration.
+- `NATIVE_SHARED_BANK_PRUNE_PLAN_V1.md`: queued45-support exact eight-of-ten root selection, matchingCP8 scalar count plus16supportintegers.
+- `projected_quartic_energy.py`, `NATIVE_PROJECTED_ENERGY_PLAN_V1.md`: CPU exhaustive weighted-coordinate check passed; native exact conditional input-capacity audit queued.

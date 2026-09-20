@@ -1,0 +1,7 @@
+# Native input-space coverage probe — 2026-09-20 18:07 UTC
+
+BothCP8 andbank4/k4 depend on atmost32 linearinputdirections. Test that shared capacityconstraint. Drawindependent Rademacher vectors inthreeinputslots andoutput, differentiate the exact multilinearteacher in its remaining slot. Each resulting vector t has E[t t^T]=the true first-input unfolding Gram. This is a coefficient metric withindependent inputslots, not repeated-input Gaussianfunction error. Smallteacher exhaustiveadjoint/Gram checks passed1.2e-15.
+
+Two independent4096probe panels; compare traces/spectra andpooled8192. Report finite-probe rank-tail bounds for32/64/128/256/512. A finiteprobe lowerbound applies to the projected measurement matrix; it is NOT automatically a certified full-coefficient lowerbound. Agreement betweenpanels is diagnostic only. Predictions: finite values and normalizedtrace within0.15 ofexistingteacherenergyestimate; rank32tail errors differ<0.02 betweenpanels; pooledrank32tailerror>0.90.
+
+Estimate quartic coefficientenergy captured by projecting allinputslots onto the top32/64/128 pooleddirections, andthe CP8 inputspan. If the learnedbank artifact exists, include its besttraininggain inputspan. Use1024fresh independent four-slot Rademacher probes perprojection andreportMonteCarlo SE. These are particular subspace projections, not a globaloptimum overinputspaces or a circuitadoption. Export spectralbases forfutureinitialization studies; no heldout textdata.

@@ -496,3 +496,6 @@ Known radialquartic CP8error≥81.61% atd1152, yetexact sharedsumofsquares circu
 
 ### 2026-09-20 18:02 — Exact native writers and learned shared bank
 Exact8root98.816→98.765%coeff; Gaussian256root74.985% but100.856%coeff, versusradial89.94%. Exactsharedlowrankbank kernelsvalidated,68toycontrols:naiveunfoldingmissestruebank, tracehelpsspecificstructures, widerbankhelpsonefailure. Nativebank4/k4eightfitsqueued at48,384reducedvalues. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1802_exact_native_metrics_and_learned_sharing.md).
+
+### 2026-09-20 18:25 — Learned shared quadratics and input coverage
+Native four-quadratic bank best coefficient gain0.2015% vsCP8 0.0863%, stillgloballypoor. Exact function cosines~.83–.93 do not establish stable quadraticspaces. Independent32-span energy~.2334% motivates exact conditional-capacity enumeration. Matched8-root pruning and exactspan audit queued. Radial32-direction restriction proves99.9591% error atd1152, strengthening earlier pair-bound. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1825_shared_features_and_input_capacity.md).

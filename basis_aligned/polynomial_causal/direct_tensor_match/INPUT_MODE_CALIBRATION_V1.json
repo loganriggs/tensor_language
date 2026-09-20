@@ -1,0 +1,818 @@
+{
+  "projection_checks": [
+    {
+      "d": 6,
+      "subspace_dimension": 2,
+      "error": 0.9128709291752766,
+      "formula": 0.9128709291752769
+    },
+    {
+      "d": 8,
+      "subspace_dimension": 3,
+      "error": 0.9013878188659968,
+      "formula": 0.9013878188659973
+    }
+  ],
+  "bounds": [
+    {
+      "d": 16,
+      "cp_atoms": 8,
+      "maximum_input_span": 16,
+      "radial_projection_lower_bound": 0.0,
+      "previous_pair_unfolding_bound": 0.6382847385042254
+    },
+    {
+      "d": 32,
+      "cp_atoms": 8,
+      "maximum_input_span": 32,
+      "radial_projection_lower_bound": 0.0,
+      "previous_pair_unfolding_bound": 0.7669649888473704
+    },
+    {
+      "d": 128,
+      "cp_atoms": 8,
+      "maximum_input_span": 32,
+      "radial_projection_lower_bound": 0.9667550799532344,
+      "previous_pair_unfolding_bound": 0.8109823103448729
+    },
+    {
+      "d": 1152,
+      "cp_atoms": 8,
+      "maximum_input_span": 32,
+      "radial_projection_lower_bound": 0.9995907115428466,
+      "previous_pair_unfolding_bound": 0.8161132422564927
+    }
+  ],
+  "records": [
+    {
+      "probes": 256,
+      "seed": 0,
+      "rank": 4,
+      "normalized_trace": 0.9724584334935883,
+      "finite_probe_tail_error": 0.9377010596771119,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 256,
+      "seed": 0,
+      "rank": 16,
+      "normalized_trace": 0.9724584334935883,
+      "finite_probe_tail_error": 0.7938987021449012,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 256,
+      "seed": 0,
+      "rank": 32,
+      "normalized_trace": 0.9724584334935883,
+      "finite_probe_tail_error": 0.6371949227813893,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 256,
+      "seed": 1,
+      "rank": 4,
+      "normalized_trace": 1.0726963141025632,
+      "finite_probe_tail_error": 0.9378751676184376,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 256,
+      "seed": 1,
+      "rank": 16,
+      "normalized_trace": 1.0726963141025632,
+      "finite_probe_tail_error": 0.7948808700487101,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 256,
+      "seed": 1,
+      "rank": 32,
+      "normalized_trace": 1.0726963141025632,
+      "finite_probe_tail_error": 0.6398911751945721,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 256,
+      "seed": 2,
+      "rank": 4,
+      "normalized_trace": 0.9746494391025631,
+      "finite_probe_tail_error": 0.936660531267166,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 256,
+      "seed": 2,
+      "rank": 16,
+      "normalized_trace": 0.9746494391025631,
+      "finite_probe_tail_error": 0.7906309222247229,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 256,
+      "seed": 2,
+      "rank": 32,
+      "normalized_trace": 0.9746494391025631,
+      "finite_probe_tail_error": 0.6352425541929402,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 256,
+      "seed": 3,
+      "rank": 4,
+      "normalized_trace": 0.9673477564102555,
+      "finite_probe_tail_error": 0.9380786588316008,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 256,
+      "seed": 3,
+      "rank": 16,
+      "normalized_trace": 0.9673477564102555,
+      "finite_probe_tail_error": 0.7972803843474637,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 256,
+      "seed": 3,
+      "rank": 32,
+      "normalized_trace": 0.9673477564102555,
+      "finite_probe_tail_error": 0.642546732179404,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 256,
+      "seed": 4,
+      "rank": 4,
+      "normalized_trace": 0.9653996394230759,
+      "finite_probe_tail_error": 0.939187461921696,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 256,
+      "seed": 4,
+      "rank": 16,
+      "normalized_trace": 0.9653996394230759,
+      "finite_probe_tail_error": 0.7902080917227583,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 256,
+      "seed": 4,
+      "rank": 32,
+      "normalized_trace": 0.9653996394230759,
+      "finite_probe_tail_error": 0.6303442857217872,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 256,
+      "seed": 5,
+      "rank": 4,
+      "normalized_trace": 0.9898913261217936,
+      "finite_probe_tail_error": 0.9425404999182867,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 256,
+      "seed": 5,
+      "rank": 16,
+      "normalized_trace": 0.9898913261217936,
+      "finite_probe_tail_error": 0.8029219862496033,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 256,
+      "seed": 5,
+      "rank": 32,
+      "normalized_trace": 0.9898913261217936,
+      "finite_probe_tail_error": 0.6454388174434218,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 256,
+      "seed": 6,
+      "rank": 4,
+      "normalized_trace": 1.1211187900641024,
+      "finite_probe_tail_error": 0.93867840338121,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 256,
+      "seed": 6,
+      "rank": 16,
+      "normalized_trace": 1.1211187900641024,
+      "finite_probe_tail_error": 0.7954481303412794,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 256,
+      "seed": 6,
+      "rank": 32,
+      "normalized_trace": 1.1211187900641024,
+      "finite_probe_tail_error": 0.6440881379613318,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 256,
+      "seed": 7,
+      "rank": 4,
+      "normalized_trace": 1.03408954326923,
+      "finite_probe_tail_error": 0.938487700227138,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 256,
+      "seed": 7,
+      "rank": 16,
+      "normalized_trace": 1.03408954326923,
+      "finite_probe_tail_error": 0.7963013713135898,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 256,
+      "seed": 7,
+      "rank": 32,
+      "normalized_trace": 1.03408954326923,
+      "finite_probe_tail_error": 0.6417570226465882,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 512,
+      "seed": 0,
+      "rank": 4,
+      "normalized_trace": 1.019288361378209,
+      "finite_probe_tail_error": 0.9554590021296538,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 512,
+      "seed": 0,
+      "rank": 16,
+      "normalized_trace": 1.019288361378209,
+      "finite_probe_tail_error": 0.842699717193363,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 512,
+      "seed": 0,
+      "rank": 32,
+      "normalized_trace": 1.019288361378209,
+      "finite_probe_tail_error": 0.7141212912499816,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 512,
+      "seed": 1,
+      "rank": 4,
+      "normalized_trace": 1.0065429687500043,
+      "finite_probe_tail_error": 0.9556498386176595,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 512,
+      "seed": 1,
+      "rank": 16,
+      "normalized_trace": 1.0065429687500043,
+      "finite_probe_tail_error": 0.8453431764402835,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 512,
+      "seed": 1,
+      "rank": 32,
+      "normalized_trace": 1.0065429687500043,
+      "finite_probe_tail_error": 0.7170497716191959,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 512,
+      "seed": 2,
+      "rank": 4,
+      "normalized_trace": 0.9986177884615428,
+      "finite_probe_tail_error": 0.95442004880424,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 512,
+      "seed": 2,
+      "rank": 16,
+      "normalized_trace": 0.9986177884615428,
+      "finite_probe_tail_error": 0.8415293049064162,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 512,
+      "seed": 2,
+      "rank": 32,
+      "normalized_trace": 0.9986177884615428,
+      "finite_probe_tail_error": 0.7118084709215752,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 512,
+      "seed": 3,
+      "rank": 4,
+      "normalized_trace": 0.9635028545673119,
+      "finite_probe_tail_error": 0.954742718857784,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 512,
+      "seed": 3,
+      "rank": 16,
+      "normalized_trace": 0.9635028545673119,
+      "finite_probe_tail_error": 0.8431021518014091,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 512,
+      "seed": 3,
+      "rank": 32,
+      "normalized_trace": 0.9635028545673119,
+      "finite_probe_tail_error": 0.7153888893630828,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 512,
+      "seed": 4,
+      "rank": 4,
+      "normalized_trace": 0.9390111678685942,
+      "finite_probe_tail_error": 0.9582519665562489,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 512,
+      "seed": 4,
+      "rank": 16,
+      "normalized_trace": 0.9390111678685942,
+      "finite_probe_tail_error": 0.8488852566766354,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 512,
+      "seed": 4,
+      "rank": 32,
+      "normalized_trace": 0.9390111678685942,
+      "finite_probe_tail_error": 0.7222303311390171,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 512,
+      "seed": 5,
+      "rank": 4,
+      "normalized_trace": 1.0846504407051305,
+      "finite_probe_tail_error": 0.9552903471118313,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 512,
+      "seed": 5,
+      "rank": 16,
+      "normalized_trace": 1.0846504407051305,
+      "finite_probe_tail_error": 0.8404971449767772,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 512,
+      "seed": 5,
+      "rank": 32,
+      "normalized_trace": 1.0846504407051305,
+      "finite_probe_tail_error": 0.710623704841191,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 512,
+      "seed": 6,
+      "rank": 4,
+      "normalized_trace": 1.0621231470352603,
+      "finite_probe_tail_error": 0.9534889226380895,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 512,
+      "seed": 6,
+      "rank": 16,
+      "normalized_trace": 1.0621231470352603,
+      "finite_probe_tail_error": 0.8408430121043075,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 512,
+      "seed": 6,
+      "rank": 32,
+      "normalized_trace": 1.0621231470352603,
+      "finite_probe_tail_error": 0.712529013740558,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 512,
+      "seed": 7,
+      "rank": 4,
+      "normalized_trace": 1.0015562399839788,
+      "finite_probe_tail_error": 0.9551112168109671,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 512,
+      "seed": 7,
+      "rank": 16,
+      "normalized_trace": 1.0015562399839788,
+      "finite_probe_tail_error": 0.8451679920281864,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 512,
+      "seed": 7,
+      "rank": 32,
+      "normalized_trace": 1.0015562399839788,
+      "finite_probe_tail_error": 0.7169392425112902,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 1024,
+      "seed": 0,
+      "rank": 4,
+      "normalized_trace": 1.0369240785256373,
+      "finite_probe_tail_error": 0.9664693709975555,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 1024,
+      "seed": 0,
+      "rank": 16,
+      "normalized_trace": 1.0369240785256373,
+      "finite_probe_tail_error": 0.8752915114908377,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 1024,
+      "seed": 0,
+      "rank": 32,
+      "normalized_trace": 1.0369240785256373,
+      "finite_probe_tail_error": 0.7645155564532036,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 1024,
+      "seed": 1,
+      "rank": 4,
+      "normalized_trace": 1.0270946013621751,
+      "finite_probe_tail_error": 0.9651905113462478,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 1024,
+      "seed": 1,
+      "rank": 16,
+      "normalized_trace": 1.0270946013621751,
+      "finite_probe_tail_error": 0.8734209021066911,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 1024,
+      "seed": 1,
+      "rank": 32,
+      "normalized_trace": 1.0270946013621751,
+      "finite_probe_tail_error": 0.7619307484860285,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 1024,
+      "seed": 2,
+      "rank": 4,
+      "normalized_trace": 1.027820137219547,
+      "finite_probe_tail_error": 0.9655833453744388,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 1024,
+      "seed": 2,
+      "rank": 16,
+      "normalized_trace": 1.027820137219547,
+      "finite_probe_tail_error": 0.8749675659539964,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 1024,
+      "seed": 2,
+      "rank": 32,
+      "normalized_trace": 1.027820137219547,
+      "finite_probe_tail_error": 0.7638003321119227,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 1024,
+      "seed": 3,
+      "rank": 4,
+      "normalized_trace": 0.9805463741987126,
+      "finite_probe_tail_error": 0.9659594691665215,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 1024,
+      "seed": 3,
+      "rank": 16,
+      "normalized_trace": 0.9805463741987126,
+      "finite_probe_tail_error": 0.8742706720615787,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 1024,
+      "seed": 3,
+      "rank": 32,
+      "normalized_trace": 0.9805463741987126,
+      "finite_probe_tail_error": 0.7635376785089002,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 1024,
+      "seed": 4,
+      "rank": 4,
+      "normalized_trace": 0.9961419521233924,
+      "finite_probe_tail_error": 0.9657993238589776,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 1024,
+      "seed": 4,
+      "rank": 16,
+      "normalized_trace": 0.9961419521233924,
+      "finite_probe_tail_error": 0.8742672348120638,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 1024,
+      "seed": 4,
+      "rank": 32,
+      "normalized_trace": 0.9961419521233924,
+      "finite_probe_tail_error": 0.7640340939749554,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 1024,
+      "seed": 5,
+      "rank": 4,
+      "normalized_trace": 0.9978834885817252,
+      "finite_probe_tail_error": 0.9660600743257449,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 1024,
+      "seed": 5,
+      "rank": 16,
+      "normalized_trace": 0.9978834885817252,
+      "finite_probe_tail_error": 0.8744106304070315,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 1024,
+      "seed": 5,
+      "rank": 32,
+      "normalized_trace": 0.9978834885817252,
+      "finite_probe_tail_error": 0.7613229567603874,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 1024,
+      "seed": 6,
+      "rank": 4,
+      "normalized_trace": 1.0215557391826882,
+      "finite_probe_tail_error": 0.965232557915376,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 1024,
+      "seed": 6,
+      "rank": 16,
+      "normalized_trace": 1.0215557391826882,
+      "finite_probe_tail_error": 0.8738592523350097,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 1024,
+      "seed": 6,
+      "rank": 32,
+      "normalized_trace": 1.0215557391826882,
+      "finite_probe_tail_error": 0.7618385733122472,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 1024,
+      "seed": 7,
+      "rank": 4,
+      "normalized_trace": 1.0068478315304437,
+      "finite_probe_tail_error": 0.9662989351488709,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 1024,
+      "seed": 7,
+      "rank": 16,
+      "normalized_trace": 1.0068478315304437,
+      "finite_probe_tail_error": 0.876266934717405,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 1024,
+      "seed": 7,
+      "rank": 32,
+      "normalized_trace": 1.0068478315304437,
+      "finite_probe_tail_error": 0.765934758554273,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 4096,
+      "seed": 0,
+      "rank": 4,
+      "normalized_trace": 1.0179585774739535,
+      "finite_probe_tail_error": 0.9766769404778687,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 4096,
+      "seed": 0,
+      "rank": 16,
+      "normalized_trace": 1.0179585774739535,
+      "finite_probe_tail_error": 0.9085488992347159,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 4096,
+      "seed": 0,
+      "rank": 32,
+      "normalized_trace": 1.0179585774739535,
+      "finite_probe_tail_error": 0.8192905161037425,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 4096,
+      "seed": 1,
+      "rank": 4,
+      "normalized_trace": 0.9930815867888544,
+      "finite_probe_tail_error": 0.9764990417085077,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 4096,
+      "seed": 1,
+      "rank": 16,
+      "normalized_trace": 0.9930815867888544,
+      "finite_probe_tail_error": 0.9081329573071175,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 4096,
+      "seed": 1,
+      "rank": 32,
+      "normalized_trace": 0.9930815867888544,
+      "finite_probe_tail_error": 0.8186764632158952,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 4096,
+      "seed": 2,
+      "rank": 4,
+      "normalized_trace": 0.9944058931790783,
+      "finite_probe_tail_error": 0.9762900265869532,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 4096,
+      "seed": 2,
+      "rank": 16,
+      "normalized_trace": 0.9944058931790783,
+      "finite_probe_tail_error": 0.9077825584516854,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 4096,
+      "seed": 2,
+      "rank": 32,
+      "normalized_trace": 0.9944058931790783,
+      "finite_probe_tail_error": 0.818278497706611,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 4096,
+      "seed": 3,
+      "rank": 4,
+      "normalized_trace": 1.0078544421073659,
+      "finite_probe_tail_error": 0.9763706272873456,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 4096,
+      "seed": 3,
+      "rank": 16,
+      "normalized_trace": 1.0078544421073659,
+      "finite_probe_tail_error": 0.9082467331335026,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 4096,
+      "seed": 3,
+      "rank": 32,
+      "normalized_trace": 1.0078544421073659,
+      "finite_probe_tail_error": 0.818870896978029,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 4096,
+      "seed": 4,
+      "rank": 4,
+      "normalized_trace": 1.023174735827321,
+      "finite_probe_tail_error": 0.9762502302878521,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 4096,
+      "seed": 4,
+      "rank": 16,
+      "normalized_trace": 1.023174735827321,
+      "finite_probe_tail_error": 0.907858495442281,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 4096,
+      "seed": 4,
+      "rank": 32,
+      "normalized_trace": 1.023174735827321,
+      "finite_probe_tail_error": 0.8184136046996973,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 4096,
+      "seed": 5,
+      "rank": 4,
+      "normalized_trace": 1.013988005809289,
+      "finite_probe_tail_error": 0.9762245893093825,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 4096,
+      "seed": 5,
+      "rank": 16,
+      "normalized_trace": 1.013988005809289,
+      "finite_probe_tail_error": 0.9077286416178225,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 4096,
+      "seed": 5,
+      "rank": 32,
+      "normalized_trace": 1.013988005809289,
+      "finite_probe_tail_error": 0.8180729493276616,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 4096,
+      "seed": 6,
+      "rank": 4,
+      "normalized_trace": 1.005730105669064,
+      "finite_probe_tail_error": 0.9764387776140638,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 4096,
+      "seed": 6,
+      "rank": 16,
+      "normalized_trace": 1.005730105669064,
+      "finite_probe_tail_error": 0.908314016116118,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 4096,
+      "seed": 6,
+      "rank": 32,
+      "normalized_trace": 1.005730105669064,
+      "finite_probe_tail_error": 0.8189034092515431,
+      "true_input_mode_tail_error": 0.8660254037844386
+    },
+    {
+      "probes": 4096,
+      "seed": 7,
+      "rank": 4,
+      "normalized_trace": 0.9904769506209872,
+      "finite_probe_tail_error": 0.9763881712131676,
+      "true_input_mode_tail_error": 0.9842509842514764
+    },
+    {
+      "probes": 4096,
+      "seed": 7,
+      "rank": 16,
+      "normalized_trace": 0.9904769506209872,
+      "finite_probe_tail_error": 0.9080033515618853,
+      "true_input_mode_tail_error": 0.9354143466934853
+    },
+    {
+      "probes": 4096,
+      "seed": 7,
+      "rank": 32,
+      "normalized_trace": 0.9904769506209872,
+      "finite_probe_tail_error": 0.8186733442327924,
+      "true_input_mode_tail_error": 0.8660254037844386
+    }
+  ],
+  "seconds": 0.13625006400980055,
+  "scope": "Radial quartic: exact best coefficient projection onto any r-dimensional inputspace. CP8 inputspan\u226432 gives necessary bound, not an attainable CP optimum. Rademacher Gram calibration illustrates finite-sample spectral bias, not a native error certificate."
+}
