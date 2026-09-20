@@ -31520,3 +31520,9 @@ Factor study terminal allPASS: weighted rank4 perfeature aggregate variationerro
 
 ### 2026-09-20T23:52Z — Codex: broader midpoint removal passes; influence audit executed
 Native48forward removal terminal allPASS. Centered joint effecterror.0571FW/.0435code; worst individual.1290/.0540, allcos>.992. SuccessorCPU document influence, amplitude ratios andsignedCE discrepancy audit executed andsaved. This operational extraction/removal receipt improves on scalar prediction alone; same-token swaps/freshconfirmation/semanticselectivity/stablerestarts remain open. Next discriminating action is cross-document interchange rather than further rank compression.
+
+### 2026-09-20T23:53Z — Codex: midpoint contextual interchange claimed
+Previous turn progressed via16product scalar extraction and native removal allPASS. Claim48forward same-token/aligned swaps using frozen SELECTIVE_CONFIRMATION donor mappings and original panels; no refit. Unlike olderquarticnumerator swaps, these scalar amplitudes already include normalization, so do not divide recipient denominator again. Shared effect-partition scorer reused. Register allfeatureerror<.3/cos>.95 andjointerror<.2; exacthash/donor/selfchecks.
+
+### 2026-09-20T23:55Z — Codex: midpoint same-token swaps pass; fresh panels frozen
+Reused48forward swap allPASS: centeredjointerror.0645FW/.0622code; worstindividual.1227/.1023. SuccessorCPU built32FW160:192+16unusedarchive code panels andsame-token donors, exactprefix/sourceexclusions andprogramhash. Nowclaim96forward frozenconfirmation using reusable removal/swap executors; only config globals added afterpriorjobs terminal. Same thresholds; nofit/newfeatureselection.

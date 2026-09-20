@@ -1,0 +1,173 @@
+{
+  "context": 256,
+  "code_source_glob": "archive/*.py",
+  "selection_note": "Next lexicographic16 eligible archive files, excluding all three prior code panels by source and exact prefix; selected before midpoint confirmation outputs.",
+  "code_sources": [
+    {
+      "path": "archive/llm_reps.py",
+      "sha256": "110748be980f36b4472ebc0846e911441bf04d58deccac4a7f96b11d28071107"
+    },
+    {
+      "path": "archive/llm_variants.py",
+      "sha256": "0cdad18a56141fb967e6264d5281c844bf52866f92265bc70db5f7c811206143"
+    },
+    {
+      "path": "archive/mech.py",
+      "sha256": "301b3561016924d5d6b9b1f4b9f43ddcf0092488da507a4f4c1080837047e3b7"
+    },
+    {
+      "path": "archive/mech_general.py",
+      "sha256": "67989afe58c026786f622466e09d9c6e4fa04d6b6a3216d165d6aa078ea1d007"
+    },
+    {
+      "path": "archive/probe.py",
+      "sha256": "01e92584bbac2bc1abde407f8bd86e8344511de77d530e44dffd1e931e2b42f9"
+    },
+    {
+      "path": "archive/structure3d.py",
+      "sha256": "60b83527d452a878731db6e34900f875eb17a1cb6b0130bd2c94e03bb11055cb"
+    },
+    {
+      "path": "archive/toy_burst.py",
+      "sha256": "84d50c245ee49145db8f80a358f3fba66a20b5db755cf1c1b1cbf92a31fa7311"
+    },
+    {
+      "path": "archive/toy_burst2.py",
+      "sha256": "49540ea1142c09875a9cf75dc2991f705aac914226af1380927e770f92a13c17"
+    },
+    {
+      "path": "archive/toy_lag_fig.py",
+      "sha256": "e698a605481b8c6f8cefc285741fb1eb4170e1ceba6a1e842bd1da37a51e039c"
+    },
+    {
+      "path": "archive/toy_localmix.py",
+      "sha256": "cdaacacf6e0afe01b26b6e0e4c603ab7215eadfc0b94592daee33c53369c2c13"
+    },
+    {
+      "path": "archive/toy_nlmix.py",
+      "sha256": "4ffcb3fe01c018c34aec804e985039794c5857124daac21dff0d02aeb51c815b"
+    },
+    {
+      "path": "archive/toy_query.py",
+      "sha256": "b1453064f3c381da37acca8107955bdb6c2d50ed391dd52150c923e11fcccca7"
+    },
+    {
+      "path": "archive/toy_query_ctrl.py",
+      "sha256": "7a05c7742ff118f28ce43df3358499326014907003b3ff9120eb5a7b4782e491"
+    },
+    {
+      "path": "archive/toy_recur.py",
+      "sha256": "f1e20859a08e1c852d567f3663fc09e2281c4063026951491e2ea807be1977de"
+    },
+    {
+      "path": "archive/toy_selfloop_seeds.py",
+      "sha256": "49cf6b57c79e8c9ef7c0a0edc24fce1e4f6d05480fd99995e24c9302243aad1b"
+    },
+    {
+      "path": "archive/toy_stutter.py",
+      "sha256": "dc256ebed49d2df66a88db6c42869249e8fad8803e0fdf61d8ee1a72e9030483"
+    }
+  ],
+  "excluded_code_sources": [
+    "archive/analysis.py",
+    "archive/analysis_general.py",
+    "archive/analysis_geo.py",
+    "archive/build_gen.py",
+    "archive/build_mech.py",
+    "archive/compare3d.py",
+    "archive/data.py",
+    "archive/geodata.py",
+    "archive/geometry.py",
+    "archive/gpt2_circuit.py",
+    "archive/gpt2_localheads.py",
+    "archive/gpt2_usetest.py",
+    "archive/graphs.py",
+    "archive/icl_reps.py",
+    "archive/llm_circuit_fig.py",
+    "archive/llm_figs.py",
+    "jacclust/attn_jacblock.py",
+    "jacclust/attn_sae_real.py",
+    "jacclust/attn_secant.py",
+    "jacclust/bilinear_sae.py",
+    "jacclust/bsae_scaled.py",
+    "jacclust/complexity_split.py",
+    "jacclust/depth_corrected.py",
+    "jacclust/dgp.py",
+    "jacclust/dgp_c.py",
+    "jacclust/dgp_e.py",
+    "jacclust/dict_autointerp_data.py",
+    "jacclust/dict_stability.py",
+    "jacclust/full_mlp_arch.py",
+    "jacclust/hier_geom.py",
+    "jacclust/intervene.py",
+    "jacclust/jacsae.py",
+    "jacclust/jacsae2.py",
+    "jacclust/magfree.py",
+    "jacclust/metric.py",
+    "jacclust/ov_multi.py",
+    "jacclust/ov_squared.py",
+    "jacclust/real_bilinear_sae.py",
+    "jacclust/real_bilinear_sae_500m.py",
+    "jacclust/real_mlp_gtop.py",
+    "jacclust/sae_losscurve.py",
+    "jacclust/secant_depth_sweep.py",
+    "jacclust/secant_honly.py",
+    "jacclust/secant_lowrank_ctrl.py",
+    "jacclust/surrogate.py",
+    "jacclust/transcoder_vs_secant.py",
+    "jacclust/tt_model.py",
+    "jacclust/twoqk.py"
+  ],
+  "fineweb_documents": [
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191
+  ],
+  "panels": {
+    "code": {
+      "shape": [
+        16,
+        257
+      ],
+      "token_sha256": "dd0d4ccd23107540aa486a399a7bfe11a894708efe4f79658a91e0c7b962552f"
+    },
+    "fineweb": {
+      "shape": [
+        32,
+        257
+      ],
+      "token_sha256": "32e9761cfba722da5ef1a35b3021b0b82c2f5b38b43c82d108a3dbe6fd7b9d89"
+    }
+  },
+  "program_sha256": "30a34d1ef0672a0ad45252dfde8e4c3742b041c9f08d273745e7ff9b1b5fe8c2",
+  "scope": "Unused in this decomposition study at selection time. Related local source files, not broad code representativeness; pretrained overlap unknown."
+}

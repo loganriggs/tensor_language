@@ -11,6 +11,9 @@ These remove operational feature variations through specified writers, not whole
 import os,json,sys,time
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3];P=ROOT/'basis_aligned/polynomial_causal/direct_tensor_match'
+PANEL_PREFIX='SELECTIVE_CONFIRMATION'
+OUTPUT_NAME='MIDPOINT_REMOVAL_V1.json'
+DONOR_PREFIX='SELECTIVE_CONFIRMATION_DONORS'
 def main():
  if os.environ.get('BQLIB_DRYRUN') or os.environ.get('BQLIB_NO_MODEL'):print(json.dumps(dict(forwards=48,features=4,products=16,edited_readouts=480)));return
  import torch
@@ -18,11 +21,11 @@ def main():
  sys.path.insert(0,str(P))
  from circuit_fast_screen_producer import Bilin18TorchBackend
  from native_feature_capture import capture
- torch.set_num_threads(4);torch.set_grad_enabled(False);torch.backends.cuda.matmul.allow_tf32=False;start=time.perf_counter();out=P/'MIDPOINT_REMOVAL_V1.json';assert not out.exists()
+ torch.set_num_threads(4);torch.set_grad_enabled(False);torch.backends.cuda.matmul.allow_tf32=False;start=time.perf_counter();out=P/OUTPUT_NAME;assert not out.exists()
  model=Bilin18TorchBackend.load('cuda').model.float();b16=model.transformer.h[16];b17=model.transformer.h[17];_,ru=torch.linalg.qr(model.lm_head.weight.double(),mode='reduced');e=torch.load(P/'MIDPOINT_EXTRACTED_PROGRAM_V1.pt',weights_only=True);a=torch.load(P/'MIDPOINT_FACTOR_PROGRAMS_V1.pt',weights_only=True)['programs']['separable_moment_4'];e={k:v.cuda().double() for k,v in e.items()};writer=torch.linalg.solve(ru,e['reduced_writers']);duality=float((e['scalar_readers'].T@e['reduced_writers']-torch.eye(4,device='cuda')).norm());L=b17.mlp.Left.weight.double();R=b17.mlp.Right.weight.double();C=e['scalar_readers'].T@ru@b17.mlp.Down.weight.double();records=[];checks=[]
  logits=lambda x:30*torch.tanh(model.lm_head(F.rms_norm(x,(1152,)))/30)
  for domain in ['fineweb','code']:
-  ids=torch.load(P/f'SELECTIVE_CONFIRMATION_{domain.upper()}_V1.pt',weights_only=True)
+  ids=torch.load(P/f'{PANEL_PREFIX}_{domain.upper()}_V1.pt',weights_only=True)
   for doc,row in enumerate(ids):
    tokens=row.cuda()[None];c=capture(model,tokens[:,:256]);h=c['h17'].double().flatten(0,1);m=(b17.lambdas[0]*(c['m16']-b16.mlp.Down_bias)).double().flatten(0,1);s=(h.square().mean(-1,keepdim=True)+torch.finfo(torch.float32).eps).sqrt();n=(h-m/2)/s;m=m/s;truth=((n@L.T)*(m@R.T)+(m@L.T)*(n@R.T))@C.T-e['offset'];pred=((n@e['A'])*(m@e['B']))@e['readout']-e['offset'];factor=(torch.einsum('bi,gir->bgr',n,a['A'].cuda().double())*torch.einsum('bi,gir->bgr',m,a['B'].cuda().double())).sum(-1)-a['offset'].cuda().double();checks.append(float((factor-pred).norm()/factor.norm()));state=c['final'].flatten(0,1);native=logits(state);targets=tokens[:,1:257].flatten();basece=F.cross_entropy(native,targets)
    for mode in [0,1,2,3,'joint']:
