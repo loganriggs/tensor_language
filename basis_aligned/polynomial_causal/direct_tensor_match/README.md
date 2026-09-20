@@ -258,3 +258,5 @@ Native stage2 refactor: [report](../explanations/for_logan/research_update_2026-
 Latest: [Mean correction, cancellation and feature stability](../explanations/for_logan/research_update_2026-09-20_2015_mean_correction_and_feature_stability.md). QuarticGaussianbias18.38%error at47,312coefficients;4productrefits unstable with63–1367×componentenergy. Penalty.001cutsmedianratio3.02 butworstfeaturematchstillfails. Outputsharing4features8products99.30%quadraticenergy. Next fullquarticGaussianprojectedquadraticcross implemented/dense-gradientchecked; nativeprofilingpending.
 
 Native Gaussian quadratic fit V1: science bars failed; centered 24.16%, spherical 28.05% on panel2. See NATIVE_GAUSSIAN_QUADRATIC_FIT_V1.json and GAUSSIAN_QUADRATIC_ARCHIVE_AUDIT_V1.json. Next: GAUSSIAN_LINEAR_CONTROL_PLAN_V1.md; exact directional helper implemented and toy checked.
+
+Gaussian linear control: 22.00% panel2 error at 34560 coefficients/four products; all bars passed. See NATIVE_GAUSSIAN_LINEAR_CONTROL_V1.json and GAUSSIAN_LINEAR_PROGRAM_AUDIT_V1.json. Input-radius mismatch motivates NORMALIZED_PROBE_PLAN_V1.md; planted sphere identity check executed.

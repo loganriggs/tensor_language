@@ -1,0 +1,27 @@
+{
+  "records": [
+    {
+      "panel": 0,
+      "radius_squared_mean": 1151.9999864408626,
+      "radius_squared_std": 0.00010287814350519899,
+      "relative_radius_squared_std": 8.930394506604466e-08,
+      "gaussian_expected_squared_radius": 1151.9999568721041,
+      "gaussian_squared_radius_std": 126.87113110836079,
+      "gaussian_relative_squared_radius_std": 0.11013119432125648,
+      "relative_gaussian_radius_variance_mismatch": 0.01212887933998657,
+      "max_relative_deviation": 2.8740058932719137e-07
+    },
+    {
+      "panel": 1,
+      "radius_squared_mean": 1151.999988262038,
+      "radius_squared_std": 0.00010538653602326006,
+      "relative_radius_squared_std": 9.148136900786884e-08,
+      "gaussian_expected_squared_radius": 1151.9999568721041,
+      "gaussian_squared_radius_std": 126.87113110836079,
+      "gaussian_relative_squared_radius_std": 0.11013119432125648,
+      "relative_gaussian_radius_variance_mismatch": 0.012128879301637538,
+      "max_relative_deviation": 3.2873697475288566e-07
+    }
+  ],
+  "scope": "Input-only diagnostic, calibration Gaussian fixed from panel0. Radius mismatch does not by itself establish its effect on output reconstruction. No fit or model selection."
+}

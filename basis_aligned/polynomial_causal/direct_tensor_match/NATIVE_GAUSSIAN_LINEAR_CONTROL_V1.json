@@ -1,0 +1,69 @@
+{
+  "plan": {
+    "metrics": [
+      "centered",
+      "spherical"
+    ],
+    "reader_rank": 8,
+    "native_forwards": 0
+  },
+  "records": [
+    {
+      "metric": "centered",
+      "first_jvp_seconds": 0.6864789519459009,
+      "peak_gib": 2.12921142578125,
+      "finite_difference_error": 3.66054204419055e-08,
+      "finite": true,
+      "gram_condition": 1.000000048114275,
+      "gaussian_linear_gain": 46.02278348474101,
+      "normal_equation_error": 8.360809594040851e-16,
+      "panels": [
+        {
+          "before_error": 0.25181353631915304,
+          "after_error": 0.22641303383952957,
+          "variation": 0.32982124323668105
+        },
+        {
+          "before_error": 0.24156741735539217,
+          "after_error": 0.21995083789769065,
+          "variation": 0.3286351097990287
+        }
+      ],
+      "archive_replay": 1.3643034703628247e-08,
+      "scalar_count": 34560,
+      "products": 4
+    },
+    {
+      "metric": "spherical",
+      "first_jvp_seconds": 0.24136193399317563,
+      "peak_gib": 2.1923751831054688,
+      "finite_difference_error": 7.685357788634557e-08,
+      "finite": true,
+      "gram_condition": 18.491670830514085,
+      "gaussian_linear_gain": 1.5186925675481575,
+      "normal_equation_error": 1.795371753296272e-16,
+      "panels": [
+        {
+          "before_error": 0.28886547092011117,
+          "after_error": 0.3014242318486694,
+          "variation": 0.4486271045829271
+        },
+        {
+          "before_error": 0.2805322855242583,
+          "after_error": 0.29176535229215517,
+          "variation": 0.44311558788096217
+        }
+      ],
+      "archive_replay": 1.3145931423882607e-08,
+      "scalar_count": 34560,
+      "products": 4
+    }
+  ],
+  "predictions": {
+    "pred_a_derivative": true,
+    "pred_b_prediction": true,
+    "pred_c_export": true
+  },
+  "seconds": 6.251703840913251,
+  "scope": "Fixed linear reader, quadratic branch and constant. Gaussian-optimal writer in fixed reader span, not globally optimal rank8 linear approximation. Same reused diagnostic panels."
+}

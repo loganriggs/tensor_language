@@ -835,3 +835,5 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 - [2026-09-20 18:02 — Exact native metrics and learned sharing](for_logan/research_update_2026-09-20_1802_exact_native_metrics_and_learned_sharing.md): exact/native Gaussian outcomes,68 shared-bank controls and initialization failures, native close-price learned-bank sweep queued.
 
 - [research_update_2026-09-20_2027_gaussian_quadratic_null](for_logan/research_update_2026-09-20_2027_gaussian_quadratic_null.md) — Gaussian quadratic refitting null and fixed-linear control.
+
+- [research_update_2026-09-20_2031_linear_correction_and_normalization](for_logan/research_update_2026-09-20_2031_linear_correction_and_normalization.md) — Exact linear correction improves four-product candidate; normalization-aware metric control.

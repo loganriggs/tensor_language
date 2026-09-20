@@ -1,0 +1,75 @@
+{
+  "records": [
+    {
+      "metric": "centered",
+      "cost": {
+        "products": 4,
+        "additions": 33392,
+        "stored_coefficients": 34560,
+        "edges": 35720,
+        "nodes": 3477
+      },
+      "replay": 1.7851951492393148e-16,
+      "errors": [
+        0.22641303383951428,
+        0.21995083789767594
+      ],
+      "ablations": [
+        {
+          "individual_mean_preserving_removal_errors": [
+            0.3774689358273645,
+            0.28546247570793887,
+            0.2553208581625242,
+            0.3265225872916154
+          ],
+          "all_products_removed_error": 0.42338052160188155
+        },
+        {
+          "individual_mean_preserving_removal_errors": [
+            0.3553925711475501,
+            0.2694247327489519,
+            0.24631455545674033,
+            0.3080932428311709
+          ],
+          "all_products_removed_error": 0.40604447128418114
+        }
+      ]
+    },
+    {
+      "metric": "spherical",
+      "cost": {
+        "products": 4,
+        "additions": 33392,
+        "stored_coefficients": 34560,
+        "edges": 35720,
+        "nodes": 3477
+      },
+      "replay": 1.6177135636190228e-16,
+      "errors": [
+        0.30142423184864897,
+        0.29176535229213363
+      ],
+      "ablations": [
+        {
+          "individual_mean_preserving_removal_errors": [
+            0.3921552847252669,
+            0.4513267247292365,
+            0.4307270439452541,
+            0.3169062828243735
+          ],
+          "all_products_removed_error": 0.4608550440700526
+        },
+        {
+          "individual_mean_preserving_removal_errors": [
+            0.37859365090198305,
+            0.4018646714923092,
+            0.4003538349016807,
+            0.30439285057885523
+          ],
+          "all_products_removed_error": 0.4406457682625829
+        }
+      ]
+    }
+  ],
+  "scope": "Independent CPU graph replay; ablations preserve Gaussian component mean without refit. Reconstruction necessity, not selective causal or semantic identification."
+}

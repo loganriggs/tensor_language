@@ -31255,3 +31255,6 @@ Previous profile/CPU fitter turn was progress. Implemented registered 8-arm comp
 
 ### 2026-09-20T20:28Z — Codex: fixed-reader Gaussian linear control claim
 Previous turn made progress by falsifying quadratic improvement and implementing exact mean derivatives. Claim managed run_direct_gaussian_linear_control_v1.py: profile native JVP then fixed rank8 writer correction, two metrics and independent finite differences, unchanged four-product graph.
+
+### 2026-09-20T20:31Z — Codex: exact linear correction improves; normalized metric investigation begun
+Gaussian fixed-reader correction passes all bars: centered22.00% vs24.16%, sphericalworsens29.18%. CPU graph replay<2e-16 and mean-preserving full product removal40.60%. Input radius nearlyconstant1152 vs Gaussian11%relative variation. Executed planted sphere identity control (Gaussianerror36 vs sphere~1e-30); registered paired normalized/raw artificial-probe native diagnostic before further fitting.
