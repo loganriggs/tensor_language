@@ -1,0 +1,8 @@
+- [Claude circuit lane 2026-09-17](claude-circuit-lane-2026-09-17.md) — aspectual has/had definition-of-done battery; Codex owns regional path; hourly review cron
+- [tensor_language ops conventions](tensor-language-ops-conventions.md) — enqueue/runner/board/git identity/restore steps; removal-null lessons
+- [Communicating results style](communicating-results-style.md) — evidence tags, fresh/opened, claim tables, no "narrowly missed"
+- [Aspectual readout component](aspectual-readout-component.md) — heads 8.1/9.1/9.4 weight-only readout removal; 8.1 missed by released path
+- [Run by default, depth over breadth](run-by-default-depth.md) — Logan's standing preference for the circuit lane (18 Sep)
+- [Logan template-contraction direction](logan-template-contraction-direction.md) — identity/shift/contrast templates, equivariant split; v389 starts it (19 Sep)
+- [Logan decomposition/pullback direction](logan-decomposition-pullback-direction.md) — decompose unembedding pulled back through last MLP + attn, compare decompositions by simplicity; DCT/fixed-pos/mixed-partials/distributional approved (19 Sep 22:12)
+- [Disk budget lesson](tensor-language-ops-conventions.md) — see disk_guard.py; never re-serialize composed matrices between runners (20 Sep outage)
