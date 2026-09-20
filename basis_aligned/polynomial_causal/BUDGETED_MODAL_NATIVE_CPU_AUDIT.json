@@ -1,0 +1,298 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_budget05_selectivity": false,
+    "pred_c_prediction": true
+  },
+  "summary": {
+    "opened": {
+      "budget0.05": {
+        "cells": 32,
+        "joint_passes": 23,
+        "strength_failures": 9,
+        "collateral_failures": 0,
+        "median_retention": 1.1364231411003503,
+        "max_modal_ratio": 0.08666518398107616,
+        "max_number_prediction_error": 0.036392851727536424,
+        "max_modal_prediction_error": 0.005485499059565454
+      },
+      "budget0.1": {
+        "cells": 32,
+        "joint_passes": 27,
+        "strength_failures": 1,
+        "collateral_failures": 5,
+        "median_retention": 1.338025495492746,
+        "max_modal_ratio": 0.16888512631124977,
+        "max_number_prediction_error": 0.04334454140452358,
+        "max_modal_prediction_error": 0.005230478031525685
+      }
+    },
+    "ood_opened": {
+      "budget0.05": {
+        "cells": 16,
+        "joint_passes": 12,
+        "strength_failures": 4,
+        "collateral_failures": 0,
+        "median_retention": 1.1802433305160684,
+        "max_modal_ratio": 0.06583993822552131,
+        "max_number_prediction_error": 0.04539048724370191,
+        "max_modal_prediction_error": 0.0054429418847434345
+      },
+      "budget0.1": {
+        "cells": 16,
+        "joint_passes": 12,
+        "strength_failures": 4,
+        "collateral_failures": 3,
+        "median_retention": 1.3541486955775406,
+        "max_modal_ratio": 0.11531143268842389,
+        "max_number_prediction_error": 0.06203070870880296,
+        "max_modal_prediction_error": 0.005451226296511534
+      }
+    }
+  },
+  "failures": [
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "budget0.05",
+      "retention": 0.5516016070003112,
+      "modal_ratio": 0.07678662043749582,
+      "number_error": 0.007207494548561222,
+      "modal_error": 0.002154706104289484
+    },
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "outside_called|plural",
+      "arm": "budget0.05",
+      "retention": 0.4709622517055028,
+      "modal_ratio": 0.04953736046844445,
+      "number_error": 0.0026286103589966236,
+      "modal_error": 0.0003101263750520087
+    },
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "budget0.05",
+      "retention": 0.6399782617884819,
+      "modal_ratio": 0.04619414774465908,
+      "number_error": 0.0017681657859889345,
+      "modal_error": 0.0003858777692428751
+    },
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "budget0.05",
+      "retention": 0.6424702358805239,
+      "modal_ratio": 0.05075238029635797,
+      "number_error": 0.0044275234525049225,
+      "modal_error": 0.0022296504797396713
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "subject",
+      "family": "near_greeted|plural",
+      "arm": "budget0.05",
+      "retention": 0.7934633702341267,
+      "modal_ratio": 0.03944215886601731,
+      "number_error": 0.036392851727536424,
+      "modal_error": 0.005241169169172129
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "budget0.05",
+      "retention": 0.6368374406538382,
+      "modal_ratio": 0.052798102478496325,
+      "number_error": 0.005023507029189615,
+      "modal_error": 0.0014272205708357507
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "outside_called|singular",
+      "arm": "budget0.05",
+      "retention": 0.4914623242194891,
+      "modal_ratio": 0.04599278746415788,
+      "number_error": 0.005362289485062496,
+      "modal_error": 0.0002939701505854079
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "subject",
+      "family": "earlier_noticed|singular",
+      "arm": "budget0.05",
+      "retention": 0.502733990846024,
+      "modal_ratio": 0.04716223210072265,
+      "number_error": 0.0017984558658546423,
+      "modal_error": 0.00032340267600208203
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "budget0.05",
+      "retention": 0.49631551926747774,
+      "modal_ratio": 0.08666518398107616,
+      "number_error": 0.012705743525984923,
+      "modal_error": 0.002339551428497989
+    },
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "budget0.1",
+      "retention": 0.9889418637170282,
+      "modal_ratio": 0.16888512631124977,
+      "number_error": 0.03835973795823632,
+      "modal_error": 0.0036767679461755867
+    },
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "budget0.1",
+      "retention": 1.1349625085182697,
+      "modal_ratio": 0.10380903379196249,
+      "number_error": 0.0077665609128387695,
+      "modal_error": 0.0016651189222740266
+    },
+    {
+      "dataset": "opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "earlier_noticed|plural",
+      "arm": "budget0.1",
+      "retention": 1.107816200275735,
+      "modal_ratio": 0.12304698266005772,
+      "number_error": 0.018067031901378813,
+      "modal_error": 0.0024756211112372
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "near_greeted|plural",
+      "arm": "budget0.1",
+      "retention": 0.927893615800514,
+      "modal_ratio": 0.10660264966922138,
+      "number_error": 0.028599421684464565,
+      "modal_error": 0.002556478845335522
+    },
+    {
+      "dataset": "opened",
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "earlier_noticed|singular",
+      "arm": "budget0.1",
+      "retention": 0.6733497586651653,
+      "modal_ratio": 0.10964208454083652,
+      "number_error": 0.01089243219065285,
+      "modal_error": 0.0019745971570309393
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "after_speaking|singular",
+      "arm": "budget0.05",
+      "retention": 0.5684736609222308,
+      "modal_ratio": 0.05684513951933316,
+      "number_error": 0.008394587993784751,
+      "modal_error": 0.001506297378176613
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "after_speaking|plural",
+      "arm": "budget0.05",
+      "retention": 0.40534367120762577,
+      "modal_ratio": 0.06583993822552131,
+      "number_error": 0.003548858324979518,
+      "modal_error": 0.0005188770957624232
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "after_speaking|singular",
+      "arm": "budget0.05",
+      "retention": 0.38511015216675365,
+      "modal_ratio": 0.048937782354344386,
+      "number_error": 0.004944627381738385,
+      "modal_error": 0.0005365953870406742
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "after_speaking|plural",
+      "arm": "budget0.05",
+      "retention": 0.3664260713970582,
+      "modal_ratio": 0.06277932381163244,
+      "number_error": 0.01932681971928955,
+      "modal_error": 0.0014072799183125289
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "after_speaking|singular",
+      "arm": "budget0.1",
+      "retention": 0.7827005885174283,
+      "modal_ratio": 0.10716934670977138,
+      "number_error": 0.007558194834360974,
+      "modal_error": 0.001647231246749793
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "opposite",
+      "role": "attractor",
+      "family": "after_speaking|plural",
+      "arm": "budget0.1",
+      "retention": 0.48092885811133107,
+      "modal_ratio": 0.11531143268842389,
+      "number_error": 0.003370975936698986,
+      "modal_error": 0.000924852757031747
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "after_speaking|singular",
+      "arm": "budget0.1",
+      "retention": 0.6757419967412411,
+      "modal_ratio": 0.0924931495803155,
+      "number_error": 0.005180772982342799,
+      "modal_error": 0.0008005390408246706
+    },
+    {
+      "dataset": "ood_opened",
+      "panel": "congruent",
+      "role": "attractor",
+      "family": "after_speaking|plural",
+      "arm": "budget0.1",
+      "retention": 0.4286800030113071,
+      "modal_ratio": 0.11449030844753055,
+      "number_error": 0.015774237849770438,
+      "modal_error": 0.001480789074773087
+    }
+  ],
+  "scope": "Both datasets already opened; coefficients chosen from analytic gradients only. Exact-null baseline previously passed joint retention/collateral1/32 and1/16. Partial gains do not satisfy all-cell circuit gate."
+}
