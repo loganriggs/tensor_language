@@ -30880,3 +30880,22 @@ Prior turnprogress: nativeCPnull interpreted, exactquarticcovariancecontrols. Ne
 
 ### 2026-09-20T17:21:35.199639+00:00 — Codex: hierarchy control complete, native comparison queued
 RadialCP8lowerbound81.61% atd1152, cheapsharedsquare exact.12directfits rate0.05 recoverquadraticcoefficients≤1.5e-9 withknownsupport/reuse; loweratefailuresretained. Nativewholequadraticrootbaselinequeued andvalidated, completebankcost10.70M ateightroots vs46kflatCP.1721reportdefinesbounds/prices; nativeCPdictionary stillqueued. Goalactive, no nativehierarchy successclaim.
+
+### 2026-09-20T17:24:25.748181+00:00 — Codex: claim signed quadratic width control
+Prior turnprogress:radialcapacitybound/directsharedrecovery plusnativehierarchyqueue. Remove supplieddiagonalsupport:five rotatedsignedspectra, widths2/4/8, Adam/Muon rates/seeds120fits. Exactminimumquadraticbilinearwidth max(positive,negative inertia), not simplyhalf rank. Independentdense quarticinner/gradient check and spectralconstructivebaseline precedeoptimization.
+
+### 2026-09-20T17:26Z — Claude: v708 LANDED (EDIT; 1962 forwards, 0 fits): 1/5 — the write side is NOT low-rank in c_proj's singular basis; the sink head's write is a large near-constant vector that mean ablation keeps and a projection deletes
+Edit: z_h (128-d, pre-c_proj) projected onto the top-r right singular vectors of the head's c_proj block; one head at a time on skip7000 (native replays 3.1324); recovery = 1 - cost / mean-ablation value (v701). CE ADDED, lower is better.
+| head (value) | rank 8 cost (recovery) | rank 32 cost (recovery) |
+| 0.3 (.062) | +.038 (.39) | +.015 (.76) |
+| 2.5 (.028) | +.017 (.39) | +.001 (.97) |
+| 1.1 (.025) | +.018 (.28) | +.002 (.91) |
+| 6.3 (.023) | +.022 (.02) | +.018 (.23) |
+| 9.7 (.020) | +.017 (.16) | +.010 (.53) |
+| 7.8 (.020) | +.020 (.03) | +.014 (.30) |
+| 5.7 (.012, the sink) | +4.17 | +1.48 |
+| 6.1 (.011) | +.069 | +.056 |
+| 1.4 (.012) | +.004 (.71) | +.000 (.99) |
+Medians: rank-8 recovery 0.28 over the six heads >= 0.02 (pred_b >= 0.5 FAILED); rank-32 recovery 0.71 over the 38 heads >= 0.005 (pred_c >= 0.9 FAILED); 5.7 rank-8 recovery -334 (pred_d FAILED); all 162 at rank 32 jointly +4.52 (pred_e <= 0.3 FAILED; 5.7 alone is +1.48). Joint at selection (rec >= 0.9 -> smallest rank; 124 at 8 [value < .005], 5 at 32, 33 native): +0.398 at 12.7M write numbers (of 47.8M).
+Reading: (i) for 5.7 and 6.1 the projection costs 100x MORE than deleting the head's variation — their write carries a large near-constant component (5.7 reads position 0 for 99.5% of queries, value norm 771) that sits in c_proj's SMALL singular directions; mean ablation keeps that constant (it is the mean), the projection removes it, and downstream blocks depend on it as a bias. The value of a head under mean ablation is the value of its VARIATION around its mean; a rank ladder for the write must therefore be CENTERED: z := mean + M_r (z - mean), with rank 0 = mean ablation exactly and the directions chosen by the write's own covariance, not c_proj's singular vectors. (ii) even for ordinary heads the singular basis is the wrong one (6.3: rank 32 recovers 0.23). Queued as v710 (same price, PCA-of-write directions, centered).
+Files: ops/run_attention_write_rank_v708.py; circuits/followups/attention_write_rank_v708_result.json.
