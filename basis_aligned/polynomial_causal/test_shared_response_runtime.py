@@ -28,3 +28,14 @@ def test_shared_product_runtime_serializes_and_matches_full_symmetric_cores():
         expected=readout_prepared(fixed,z,final)
         actual=execute(loaded,initial*amplitude,contexts,final)
         torch.testing.assert_close(actual,expected,atol=1e-11,rtol=1e-11)
+    innovations=[torch.randn_like(initial)/20,None,torch.randn_like(initial)/20]
+    z=initial
+    for p,c,scale,delta in zip(programs,contexts,scales,innovations):
+        z=z*scale
+        if delta is not None:z=z+delta
+        z=evaluate_prepared(p,z,c)
+    expected=readout_prepared(fixed,z,final)
+    actual=execute(loaded,initial,contexts,final,innovations)
+    torch.testing.assert_close(actual,expected,atol=1e-11,rtol=1e-11)
+    zero=execute(loaded,initial,contexts,final,[torch.zeros_like(initial)]*3)
+    torch.testing.assert_close(zero,execute(loaded,initial,contexts,final),atol=0,rtol=0)

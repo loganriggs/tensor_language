@@ -58,3 +58,7 @@ new validation and selective manipulation. Do not fit a global gain to conceal t
 remaining position-dependent discrepancy. The full goal remains unfinished.
 
 Primary evidence: [v654 receipt](../bilinear_quotient/circuits/followups/subject_joint_chain_v654_result.json).
+
+## Context-generation correction
+
+v659 adds six previously omitted output encoders (55,296 values), keeping the old response tensors bitwise unchanged. v655 remains a valid prepared-context consumer artifact but is not sufficient to generate new contexts with the stated native factors alone. See [composition and corrected accounting](COMPOSED_SUBJECT_RESPONSE_TRANSFER_2026-09-20.md).

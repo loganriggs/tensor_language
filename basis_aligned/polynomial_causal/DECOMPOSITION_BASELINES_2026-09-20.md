@@ -143,3 +143,5 @@ recovers only17.9–24.3% of the postposed frozen-model error, missing the50% ga
 The projected restoration passes10% full-native effect error on these opened rows.
 This is not yet composition with the reduced MLP chain.
 [Positive and negative audit](ATTENTION_RESTORATION_AUDIT_2026-09-20.md).
+
+v658/v660 compose the attention12 fold and reduced MLP chain. Both pass the5% conditional gate; full-native10% still fails one cell on each panel. v660 adds genuinely new longer structures under frozen bases. v659 corrects the producer export by including55,296 output-encoder values. [Composition, transfer and accounting](COMPOSED_SUBJECT_RESPONSE_TRANSFER_2026-09-20.md).
