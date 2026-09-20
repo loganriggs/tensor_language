@@ -46,3 +46,11 @@ Compiled storage includes sequence/background-dependent arrays and must not be s
 ## Fresh syntax (v662)
 
 The unchanged all-dynamic program passes on48 newly frozen relative-clause/fronted-comma prompts: full-native effect error0.93–3.66%, all eight cells nativeaccuracy100%, localattention replay3.52e-7. Vocabulary is reused fromv660; syntax is new relative to selection and calibration. This strengthens conditional OOD fidelity, not selective-manipulation or closed-port simplicity. v663 registers three number-invariant modal readers and eight matched random site edits to test selectivity and control-reader prediction.
+
+## Selectivity and a failed control prediction
+
+v663 native modal collateral is3.52%,3.32%,3.23% of target-effect norm for can/will, may/might and should/could; target effect is12.93 times median of eight equal-L2 random same-site edits. This supports native selectivity under these limited controls. Reduced collateral prediction errors are5.17%,2.73%,7.45%, failing the5% gate for two readers. Exploratory cell disaggregation keeps native collateral below6.96%, but reduced prediction error reaches10.84%; pooling does not rescue the candidate.
+
+v664 isolates final-decoder loss using the true final-state delta, projected through the same frozen encoder/decoder. This oracle retains92.5% and107.1% of the errors on the two failed readers. Thus the negative is largely already present in final projection, rather than being explained by recurrent attention dynamics. Oracle execution is not a predictor and is never counted as circuit success.
+
+v665 is registered as a new same-width candidate: use four equal-weight finite-reader contrasts on the unchanged256 calibration rows when constructing balanced frames. Rank, response snapshots and runtime form are unchanged. This changes the identified observable space instead of adding capacity. Fresh validation and extraction/port closure remain outstanding.
