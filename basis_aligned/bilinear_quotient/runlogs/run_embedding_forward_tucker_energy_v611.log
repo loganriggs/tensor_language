@@ -1,0 +1,16 @@
+MLP-0 coefficient       : cubic r32=0.0129 r64=0.0186 r128=0.0354 r256=0.1005 r512=0.3313 | 2-input 0.021 0.036 0.077 0.190 0.456 | in1 0.088 0.148 0.251 0.421 0.670 | out1 0.109 0.174 0.283 0.459 0.709
+MLP-0 uniform_centered  : cubic r32=0.2380 r64=0.2673 r128=0.3196 r256=0.4323 r512=0.6526 | 2-input 0.287 0.352 0.456 0.608 0.798 | in1 0.427 0.519 0.634 0.763 0.890 | out1 0.308 0.367 0.460 0.600 0.790
+MLP-0 frequency_centered: cubic r32=0.3426 r64=0.3972 r128=0.4715 r256=0.5911 r512=0.7751 | 2-input 0.454 0.548 0.659 0.787 0.908 | in1 0.615 0.706 0.796 0.881 0.952 | out1 0.392 0.460 0.552 0.679 0.836
+MLP-1 coefficient       : cubic r32=0.0009 r64=0.0033 r128=0.0135 r256=0.0603 r512=0.2590 | 2-input 0.005 0.014 0.041 0.124 0.362 | in1 0.057 0.104 0.190 0.343 0.597 | out1 0.091 0.156 0.267 0.446 0.703
+MLP-1 uniform_centered  : cubic r32=0.1879 r64=0.2311 r128=0.2999 r256=0.4318 r512=0.6637 | 2-input 0.281 0.360 0.476 0.633 0.817 | in1 0.471 0.561 0.667 0.786 0.902 | out1 0.248 0.323 0.430 0.586 0.788
+MLP-1 frequency_centered: cubic r32=0.2599 r64=0.3338 r128=0.4330 r256=0.5812 r512=0.7835 | 2-input 0.428 0.549 0.678 0.812 0.926 | in1 0.629 0.727 0.817 0.898 0.962 | out1 0.301 0.388 0.504 0.656 0.832
+{
+  "predictions": {
+    "pred_a_coefficient_core_reproduces": true,
+    "pred_b_token_metric_core_gain": true,
+    "pred_c_quarter_at_256": true,
+    "pred_d_frequency_beats_uniform": true,
+    "pred_e_input_side_compresses_more": false
+  },
+  "forwards": 13
+}
