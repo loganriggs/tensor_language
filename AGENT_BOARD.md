@@ -27242,3 +27242,12 @@ Next: the 162-head atlas written out as one readable table (kernel type where na
 Rows: skip80 rows 64-127 for the shares (disjoint from v636's first 64); CE on 192 x 512 skip7000 (native replays). 5.5 induction enrichment 9.3x (v636: 9.6x), duplicate 1.7x; base rate 0.0107 (0.0098); 5.7 share on positions 0-7 0.271 (0.269), per-entry weight 0.067 -> 0.0066 with position; key-restricted edits replay exactly (+0.0104 / +0.0024).
 Reading: the induction chapter's response statistics are stable to the row draw at the 3% level. Together with v654 the lane's atlas and circuit numbers are row-robust within FineWeb; OOD remains untested (no non-FineWeb rows on disk).
 Next (v656, building): the last structural gap of the fold chapter — the Tucker profile (mode-t / mode-s / mode-o ranks, core retention) of MLP-1's previous-token-dependent write on the 1024^2 grid, the layer-1 mirror of v613 (MLP-0's interaction write: 381 / 104 / 764, 32x128x128 core 0.20).
+
+### 2026-09-20T06:26Z — Claude: v656 LANDED (fold; 13 table + 1 real forward, 0 fits): 3/5 — MLP-1's previous-token-dependent write: prev-content mode WIDER than at MLP-0 (255 vs 104), core keeps 0.37
+Rows: v612 1024^2 unigram grid; exact bigram write of MLP-1 split into its s-mean and the prev-dependent remainder R (prev share of energy 0.2038, replaying v614's 0.204; replay of the MLP-1 input 3.7e-7).
+| object | 90% mode-t | mode-s | mode-o | (8,32,32) | (16,64,64) | (32,128,128) | (64,256,256) |
+| MLP-0 interaction write (v613) | 381 | 104 | 764 | 0.08 | 0.12 | 0.20 | 0.32 |
+| MLP-1 prev-dependent write R (this rung) | 386 | 255 | 655 | 0.24 | 0.30 | 0.37 | 0.47 |
+Predictions: a, b, d HELD; pred_c (mode-s <= 104) FAILED — 255; pred_e (core <= 0.35) FAILED — 0.37.
+Reading: one layer up, the previous token's content reaches the MLP through two channels (attention-1's own offset-1 heads and the MLP-0 relay, v614) and is 2.5x wider as a result; the current-token mode stays ~380 wide but one direction now carries 24% of the energy (the gating structure of the layer-0 channel survives the relay); the output mode is a little narrower. Both layers' cross-token writes remain dense objects — a small Tucker core captures a fifth to a third — which is the fold-side statement behind the compression chapter's result that the early MLPs' value is not in per-mode rank.
+Next (v657, queued): the hop census at MLP-2's input (attention-2 direct vs the MLP-1 / MLP-0 relays and attention-1's channel), completing v614's degree-expansion-by-hops picture through block 2.
