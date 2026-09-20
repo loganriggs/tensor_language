@@ -1,0 +1,624 @@
+{
+  "source_sha256": "3e878f4b21ce25060d40f3ce8cf04c9a54fcddfd8d98ce49f29f8f3d6ffe418a",
+  "summary": {
+    "same_lexical_pair": {
+      "passed": 4,
+      "count": 8
+    },
+    "next_noun_same_number": {
+      "passed": 2,
+      "count": 8
+    },
+    "held_oracle": {
+      "passed": 8,
+      "count": 8
+    }
+  },
+  "pairwise_compatible": 41,
+  "pairwise_count": 48,
+  "records": [
+    {
+      "role": "subject",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "mode": "same_lexical_pair",
+      "retention": 1.4027788205646081,
+      "control_ratio": 0.07111716208991721,
+      "passed": true
+    },
+    {
+      "role": "subject",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "mode": "same_lexical_pair",
+      "retention": 1.4542555770190055,
+      "control_ratio": 0.05689900561224072,
+      "passed": true
+    },
+    {
+      "role": "subject",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "mode": "next_noun_same_number",
+      "retention": 1.3801331344705656,
+      "control_ratio": 0.06814317728760368,
+      "passed": true
+    },
+    {
+      "role": "subject",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "mode": "next_noun_same_number",
+      "retention": 1.4435547476011608,
+      "control_ratio": 0.061084126087833396,
+      "passed": true
+    },
+    {
+      "role": "subject",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "mode": "held_oracle",
+      "retention": 1.227602877149005,
+      "control_ratio": 0.06175913738886485,
+      "passed": true
+    },
+    {
+      "role": "subject",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "mode": "held_oracle",
+      "retention": 1.4792682638297001,
+      "control_ratio": 0.0531883627715852,
+      "passed": true
+    },
+    {
+      "role": "attractor",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "mode": "same_lexical_pair",
+      "retention": 0.2521921517442445,
+      "control_ratio": 0.15404920241775646,
+      "passed": false
+    },
+    {
+      "role": "attractor",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "mode": "same_lexical_pair",
+      "retention": 0.976336798569088,
+      "control_ratio": 0.13732677710857505,
+      "passed": false
+    },
+    {
+      "role": "attractor",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "mode": "next_noun_same_number",
+      "retention": 0.6723235786086712,
+      "control_ratio": 0.15179023789717802,
+      "passed": false
+    },
+    {
+      "role": "attractor",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "mode": "next_noun_same_number",
+      "retention": 0.9088399403818858,
+      "control_ratio": 0.20428922053801415,
+      "passed": false
+    },
+    {
+      "role": "attractor",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "mode": "held_oracle",
+      "retention": 1.0187525102723836,
+      "control_ratio": 0.07317937020327527,
+      "passed": true
+    },
+    {
+      "role": "attractor",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "mode": "held_oracle",
+      "retention": 1.729591165238066,
+      "control_ratio": 0.045264873888333564,
+      "passed": true
+    },
+    {
+      "role": "subject",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "mode": "same_lexical_pair",
+      "retention": 0.9359642047511019,
+      "control_ratio": 0.09663851340998,
+      "passed": true
+    },
+    {
+      "role": "subject",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "mode": "same_lexical_pair",
+      "retention": 1.4395976731528635,
+      "control_ratio": 0.08800022062224179,
+      "passed": true
+    },
+    {
+      "role": "subject",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "mode": "next_noun_same_number",
+      "retention": 1.0111166864552326,
+      "control_ratio": 0.11639521047124454,
+      "passed": false
+    },
+    {
+      "role": "subject",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "mode": "next_noun_same_number",
+      "retention": 1.4117961475147778,
+      "control_ratio": 0.1312206506202953,
+      "passed": false
+    },
+    {
+      "role": "subject",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "mode": "held_oracle",
+      "retention": 1.0990837695336029,
+      "control_ratio": 0.0716886443166168,
+      "passed": true
+    },
+    {
+      "role": "subject",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "mode": "held_oracle",
+      "retention": 1.3461498130906622,
+      "control_ratio": 0.05287799990464947,
+      "passed": true
+    },
+    {
+      "role": "attractor",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "mode": "same_lexical_pair",
+      "retention": 0.5019139633137698,
+      "control_ratio": 0.3125161113049013,
+      "passed": false
+    },
+    {
+      "role": "attractor",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "mode": "same_lexical_pair",
+      "retention": 0.14088280531591857,
+      "control_ratio": 0.27568749529084685,
+      "passed": false
+    },
+    {
+      "role": "attractor",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "mode": "next_noun_same_number",
+      "retention": 0.6190566602393595,
+      "control_ratio": 0.28186561586305814,
+      "passed": false
+    },
+    {
+      "role": "attractor",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "mode": "next_noun_same_number",
+      "retention": 0.5572860467674928,
+      "control_ratio": 0.28410291978566227,
+      "passed": false
+    },
+    {
+      "role": "attractor",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "mode": "held_oracle",
+      "retention": 1.321614772513403,
+      "control_ratio": 0.057352274968685606,
+      "passed": true
+    },
+    {
+      "role": "attractor",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "mode": "held_oracle",
+      "retention": 1.8533840953436005,
+      "control_ratio": 0.04279712975545155,
+      "passed": true
+    }
+  ],
+  "compatibility": [
+    {
+      "role": "subject",
+      "template": "unlike_nearby",
+      "row": 0,
+      "retention_ceiling": 1.375745273834211,
+      "compatible": true,
+      "duality_gap": 0.0
+    },
+    {
+      "role": "subject",
+      "template": "unlike_nearby",
+      "row": 1,
+      "retention_ceiling": 1.3832041078330413,
+      "compatible": true,
+      "duality_gap": 2.220446049250313e-16
+    },
+    {
+      "role": "subject",
+      "template": "unlike_nearby",
+      "row": 2,
+      "retention_ceiling": 1.5614558012139237,
+      "compatible": true,
+      "duality_gap": 0.0
+    },
+    {
+      "role": "subject",
+      "template": "unlike_nearby",
+      "row": 3,
+      "retention_ceiling": 1.4310721922720309,
+      "compatible": true,
+      "duality_gap": 2.220446049250313e-16
+    },
+    {
+      "role": "subject",
+      "template": "unlike_nearby",
+      "row": 4,
+      "retention_ceiling": 1.0712146948761672,
+      "compatible": true,
+      "duality_gap": 2.220446049250313e-16
+    },
+    {
+      "role": "subject",
+      "template": "unlike_nearby",
+      "row": 5,
+      "retention_ceiling": 1.4704983507238134,
+      "compatible": true,
+      "duality_gap": 2.220446049250313e-16
+    },
+    {
+      "role": "subject",
+      "template": "unlike_nearby",
+      "row": 6,
+      "retention_ceiling": 1.262924909742515,
+      "compatible": true,
+      "duality_gap": 0.0
+    },
+    {
+      "role": "subject",
+      "template": "unlike_nearby",
+      "row": 7,
+      "retention_ceiling": 1.4627960056066494,
+      "compatible": true,
+      "duality_gap": 0.0
+    },
+    {
+      "role": "subject",
+      "template": "unlike_nearby",
+      "row": 8,
+      "retention_ceiling": 1.5717335127191512,
+      "compatible": true,
+      "duality_gap": 0.0
+    },
+    {
+      "role": "subject",
+      "template": "unlike_nearby",
+      "row": 9,
+      "retention_ceiling": 1.4282392928145609,
+      "compatible": true,
+      "duality_gap": 4.440892098500626e-16
+    },
+    {
+      "role": "subject",
+      "template": "unlike_nearby",
+      "row": 10,
+      "retention_ceiling": 1.0666912785367904,
+      "compatible": true,
+      "duality_gap": 0.0
+    },
+    {
+      "role": "subject",
+      "template": "unlike_nearby",
+      "row": 11,
+      "retention_ceiling": 1.266569847793678,
+      "compatible": true,
+      "duality_gap": 0.0
+    },
+    {
+      "role": "attractor",
+      "template": "unlike_nearby",
+      "row": 0,
+      "retention_ceiling": 0.8458643244615084,
+      "compatible": true,
+      "duality_gap": 1.1102230246251565e-16
+    },
+    {
+      "role": "attractor",
+      "template": "unlike_nearby",
+      "row": 1,
+      "retention_ceiling": 1.250933674440312,
+      "compatible": true,
+      "duality_gap": 8.881784197001252e-16
+    },
+    {
+      "role": "attractor",
+      "template": "unlike_nearby",
+      "row": 2,
+      "retention_ceiling": 1.3358184676761307,
+      "compatible": true,
+      "duality_gap": 0.0
+    },
+    {
+      "role": "attractor",
+      "template": "unlike_nearby",
+      "row": 3,
+      "retention_ceiling": 1.862540776946701,
+      "compatible": true,
+      "duality_gap": 0.0
+    },
+    {
+      "role": "attractor",
+      "template": "unlike_nearby",
+      "row": 4,
+      "retention_ceiling": 0.728558118406833,
+      "compatible": false,
+      "duality_gap": 1.1102230246251565e-16
+    },
+    {
+      "role": "attractor",
+      "template": "unlike_nearby",
+      "row": 5,
+      "retention_ceiling": 0.9259107769758875,
+      "compatible": true,
+      "duality_gap": 1.1102230246251565e-16
+    },
+    {
+      "role": "attractor",
+      "template": "unlike_nearby",
+      "row": 6,
+      "retention_ceiling": 0.6161281794875644,
+      "compatible": false,
+      "duality_gap": 3.3306690738754696e-16
+    },
+    {
+      "role": "attractor",
+      "template": "unlike_nearby",
+      "row": 7,
+      "retention_ceiling": 1.1388822561751664,
+      "compatible": true,
+      "duality_gap": 2.220446049250313e-16
+    },
+    {
+      "role": "attractor",
+      "template": "unlike_nearby",
+      "row": 8,
+      "retention_ceiling": 0.9187965716831816,
+      "compatible": true,
+      "duality_gap": 2.220446049250313e-16
+    },
+    {
+      "role": "attractor",
+      "template": "unlike_nearby",
+      "row": 9,
+      "retention_ceiling": 0.8016090009726364,
+      "compatible": true,
+      "duality_gap": 3.3306690738754696e-16
+    },
+    {
+      "role": "attractor",
+      "template": "unlike_nearby",
+      "row": 10,
+      "retention_ceiling": 0.8666191921755054,
+      "compatible": true,
+      "duality_gap": 0.0
+    },
+    {
+      "role": "attractor",
+      "template": "unlike_nearby",
+      "row": 11,
+      "retention_ceiling": 0.8127934936451885,
+      "compatible": true,
+      "duality_gap": 3.3306690738754696e-16
+    },
+    {
+      "role": "subject",
+      "template": "beside_subject",
+      "row": 0,
+      "retention_ceiling": 0.8665735051197264,
+      "compatible": true,
+      "duality_gap": 0.0
+    },
+    {
+      "role": "subject",
+      "template": "beside_subject",
+      "row": 1,
+      "retention_ceiling": 1.1298623271809378,
+      "compatible": true,
+      "duality_gap": 2.220446049250313e-16
+    },
+    {
+      "role": "subject",
+      "template": "beside_subject",
+      "row": 2,
+      "retention_ceiling": 0.868060942368399,
+      "compatible": true,
+      "duality_gap": 1.1102230246251565e-16
+    },
+    {
+      "role": "subject",
+      "template": "beside_subject",
+      "row": 3,
+      "retention_ceiling": 1.31812471032466,
+      "compatible": true,
+      "duality_gap": 0.0
+    },
+    {
+      "role": "subject",
+      "template": "beside_subject",
+      "row": 4,
+      "retention_ceiling": 1.134418113483955,
+      "compatible": true,
+      "duality_gap": 0.0
+    },
+    {
+      "role": "subject",
+      "template": "beside_subject",
+      "row": 5,
+      "retention_ceiling": 1.378055946734599,
+      "compatible": true,
+      "duality_gap": 0.0
+    },
+    {
+      "role": "subject",
+      "template": "beside_subject",
+      "row": 6,
+      "retention_ceiling": 1.2730682032540441,
+      "compatible": true,
+      "duality_gap": 0.0
+    },
+    {
+      "role": "subject",
+      "template": "beside_subject",
+      "row": 7,
+      "retention_ceiling": 1.5085814469208167,
+      "compatible": true,
+      "duality_gap": 0.0
+    },
+    {
+      "role": "subject",
+      "template": "beside_subject",
+      "row": 8,
+      "retention_ceiling": 1.1182343443176976,
+      "compatible": true,
+      "duality_gap": 0.0
+    },
+    {
+      "role": "subject",
+      "template": "beside_subject",
+      "row": 9,
+      "retention_ceiling": 1.0655315467766864,
+      "compatible": true,
+      "duality_gap": 4.440892098500626e-16
+    },
+    {
+      "role": "subject",
+      "template": "beside_subject",
+      "row": 10,
+      "retention_ceiling": 0.8136746179226748,
+      "compatible": true,
+      "duality_gap": 1.1102230246251565e-16
+    },
+    {
+      "role": "subject",
+      "template": "beside_subject",
+      "row": 11,
+      "retention_ceiling": 1.1348295318822283,
+      "compatible": true,
+      "duality_gap": 4.440892098500626e-16
+    },
+    {
+      "role": "attractor",
+      "template": "beside_subject",
+      "row": 0,
+      "retention_ceiling": 0.43519901465681093,
+      "compatible": false,
+      "duality_gap": 3.3306690738754696e-16
+    },
+    {
+      "role": "attractor",
+      "template": "beside_subject",
+      "row": 1,
+      "retention_ceiling": 0.6337958167497305,
+      "compatible": false,
+      "duality_gap": 3.3306690738754696e-16
+    },
+    {
+      "role": "attractor",
+      "template": "beside_subject",
+      "row": 2,
+      "retention_ceiling": 0.5655238308716004,
+      "compatible": false,
+      "duality_gap": 4.440892098500626e-16
+    },
+    {
+      "role": "attractor",
+      "template": "beside_subject",
+      "row": 3,
+      "retention_ceiling": 0.5422700331034631,
+      "compatible": false,
+      "duality_gap": 0.0
+    },
+    {
+      "role": "attractor",
+      "template": "beside_subject",
+      "row": 4,
+      "retention_ceiling": 2.0,
+      "compatible": true,
+      "duality_gap": 0.0
+    },
+    {
+      "role": "attractor",
+      "template": "beside_subject",
+      "row": 5,
+      "retention_ceiling": 1.0280756647511986,
+      "compatible": true,
+      "duality_gap": 8.881784197001252e-16
+    },
+    {
+      "role": "attractor",
+      "template": "beside_subject",
+      "row": 6,
+      "retention_ceiling": 1.4190884325448319,
+      "compatible": true,
+      "duality_gap": 0.0
+    },
+    {
+      "role": "attractor",
+      "template": "beside_subject",
+      "row": 7,
+      "retention_ceiling": 0.30290481989863466,
+      "compatible": false,
+      "duality_gap": 1.1102230246251565e-16
+    },
+    {
+      "role": "attractor",
+      "template": "beside_subject",
+      "row": 8,
+      "retention_ceiling": 0.8815617341746774,
+      "compatible": true,
+      "duality_gap": 2.220446049250313e-16
+    },
+    {
+      "role": "attractor",
+      "template": "beside_subject",
+      "row": 9,
+      "retention_ceiling": 0.9030257552799447,
+      "compatible": true,
+      "duality_gap": 1.1102230246251565e-16
+    },
+    {
+      "role": "attractor",
+      "template": "beside_subject",
+      "row": 10,
+      "retention_ceiling": 0.8667016732044026,
+      "compatible": true,
+      "duality_gap": 1.1102230246251565e-15
+    },
+    {
+      "role": "attractor",
+      "template": "beside_subject",
+      "row": 11,
+      "retention_ceiling": 0.8783698305597734,
+      "compatible": true,
+      "duality_gap": 2.220446049250313e-16
+    }
+  ],
+  "scope": "Derivative-only transfer on opened panels. Pairwise joint fit uses held derivatives and is a feasibility diagnostic, not held-out prediction. A transfer miss can reflect nonunique LP choices; native validation remains necessary."
+}

@@ -30527,3 +30527,6 @@ Lastturnprogress certifiedsixportlimitations. Newhookcapture splitsnativeearly/m
 
 ### 2026-09-20T13:02:34.500193+00:00 — Codex: refined23ports oracle16/16, shared0/16; fit-only sparse dictionary audit executed
 Nativegauge/replaychecks pass; oracleminretention93.50%worst8control7.535%. Sharedcertifiedfit63.03%subject1.5668%attractorstillinsufficient. CPUfixed-orderfit-onlypruning12portsperrole; heldfeasibility23/24subject22/24attractor,threemissesretained. SparsesourceedgesnotTuckercore sparsity; amplitudesstilloraclederived. Nextindependentfeature/selector andprospectivecontrols,notoraclepromotion. See REFINED_SELECTIVE_SOURCES_2026-09-20.md.
+
+### 2026-09-20T13:04:58.441674+00:00 — Codex: coefficient transfer CPU audit and nativeclaim
+Lastturnprogress refinedcontrollability16/16butsharedrule0. CPUtransferpredicts4/8samelexical2/8nextnoun; pairwisejointLP41/48compatible,sochosen-coefficientfailurecanreflectnonuniquechoices. Nativefreezeexistingdonors,norefitting, ownoraclepositivecontrol;6prefix14suffix. See REFINED_COEFFICIENT_TRANSFER_V1_PREREGISTRATION.md.
