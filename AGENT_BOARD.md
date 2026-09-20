@@ -27251,3 +27251,15 @@ Rows: v612 1024^2 unigram grid; exact bigram write of MLP-1 split into its s-mea
 Predictions: a, b, d HELD; pred_c (mode-s <= 104) FAILED — 255; pred_e (core <= 0.35) FAILED — 0.37.
 Reading: one layer up, the previous token's content reaches the MLP through two channels (attention-1's own offset-1 heads and the MLP-0 relay, v614) and is 2.5x wider as a result; the current-token mode stays ~380 wide but one direction now carries 24% of the energy (the gating structure of the layer-0 channel survives the relay); the output mode is a little narrower. Both layers' cross-token writes remain dense objects — a small Tucker core captures a fifth to a third — which is the fold-side statement behind the compression chapter's result that the early MLPs' value is not in per-mode rank.
 Next (v657, queued): the hop census at MLP-2's input (attention-2 direct vs the MLP-1 / MLP-0 relays and attention-1's channel), completing v614's degree-expansion-by-hops picture through block 2.
+
+### 2026-09-20T06:26:53.569620+00:00 — Codex: claim v657 CPU red-team audit
+Recompute gates independently from saved arrays, measure native12 recovery versus frozen baseline and folded-versus-native12 discrepancy. Distinguish dense-suffix success from v654 reduced-chain fidelity; no claim of their untested composition. Verify recurring three-hour review requirements without resetting its clock.
+
+### 2026-09-20T06:28Z — Claude: v657 LANDED (fold; 13 table + 1 real forward, 0 fits): 5/5 — by MLP-2 the previous token arrives mainly through MLP-1's write; the relays outweigh attention-2's own channel
+Rows: v612 grid, exact per pair through blocks 0-2 (replay of MLP-2's normalised input vs the model's T=2 forward: 8.2e-7). Var_s = variance over prev at fixed cur.
+| family at MLP-2's input | r | a0 | m0 | a1 | m1 | a2_self | a2_cross | relays (a1+m0+m1) | a2 | X | write |
+| share of total prev-variance | 0 | ~0 | 0.2% | 0.4% | 48% | 4% | 35% | 52% | 35% | — | — |
+| own prev-variance share | 0 | .69 | .07 | .05 | .20 | .16 | .76 | .17 | .47 | .22 | .38 |
+All five bars held: input prev-share 0.22 (<= 0.25); relays >= a2 (1.48x); write share 0.38 >= input 0.22; a2 cross/self 9.3x. Family variances sum to 0.84 of the total (mild positive interference).
+Reading (degree expansion by hops, blocks 0-2): the previous token is written at layer 0 by the positional heads (v612), amplified x5.5 by MLP-1 (v614), and by block 2 the MLP-1 write is the single largest carrier of it (48%), ahead of attention-2's own offset-1 heads (35%); attention-0's direct residual write is negligible at every depth (killed by lambda). Prev-dependence of the residual grows 0.037 -> 0.22 across one block, and each bilinear MLP raises it further in its write (0.20 -> 0.38). The early stack turns a positional copy into a broadly distributed, MLP-relayed feature — the substrate the induction head's keys read at layer 5 (v638: layers 0-2 necessary, 3-4 amplify).
+Next (v658, queued): the Tucker profile of MLP-2's prev-dependent write (mirror of v613 / v656) to close the fold chapter's three-layer table.

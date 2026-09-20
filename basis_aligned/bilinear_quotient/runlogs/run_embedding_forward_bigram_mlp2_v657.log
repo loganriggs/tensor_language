@@ -1,0 +1,15 @@
+replay rel-L2 (MLP-2 normalised input, position 1): 8.15732448700146e-07
+energy rms per family: {'r': 818.603, 'a0': 5.608, 'm0': 1292.362, 'a1': 2190.919, 'm1': 11434.042, 'a2_self': 3597.417, 'a2_cross': 4994.37, 'a2': 6413.694, 'relays': 12749.975, 'X': 15698.209, 'nX': 33.941, 'write': 17002.861}
+prev-variance (Var_s): {'r': '0', 'a0': '2.269e+07', 'm0': '1.284e+11', 'a1': '2.488e+11', 'm1': '2.782e+13', 'a2_self': '2.136e+12', 'a2_cross': '1.989e+13', 'a2': '2.011e+13', 'relays': '2.975e+13', 'X': '5.75e+13', 'nX': '2.688e+08', 'write': '1.154e+14'}
+prev-variance share  : {'r': 0.0, 'a0': 0.6879, 'm0': 0.0733, 'a1': 0.0494, 'm1': 0.203, 'a2_self': 0.1574, 'a2_cross': 0.7606, 'a2': 0.4663, 'relays': 0.1746, 'X': 0.2225, 'nX': 0.2225, 'write': 0.3807}
+relays (a1+m0+m1) / a2 = 1.4792970676265644 | a2 cross/self = 9.314830344718372 | sum of family Var / Var(X) = 0.8402623554635501
+{
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_prev_share_at_mlp2_input": true,
+    "pred_c_relays_dominate": true,
+    "pred_d_write_prev_share": true,
+    "pred_e_a2_cross_over_self": true
+  },
+  "forwards": 14
+}
