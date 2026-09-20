@@ -1,0 +1,5 @@
+# Exact quartic residual initialization control — 2026-09-20 16:48 UTC
+
+Exact-gradient rank-two toy at1152 inputs stalls near34% error. Hypothesis: the fit captures a strong component while failing to discover the weaker one. Inspect component correlations, then compare joint width2 for1500steps against rank1 residual stages600+600steps followed by joint width2 refinement300steps. Same final family and total optimizer steps; compute time differs and is recorded. Adam/Muon, two seeds:8 comparisons/final models. No extra final feature capacity. Residual target is an exact signed CP sum, so all gradients remain exact.
+
+This is an initialization/optimization control, not a proposed rank theorem. Low error with residual initialization would motivate a native exact-gradient search with more deliberate initialization. If both approaches fail, inspect objective geometry before scaling to native tensors. Correlations refer to symmetrized quartic atoms, not individual linear-factor signs/permutations.

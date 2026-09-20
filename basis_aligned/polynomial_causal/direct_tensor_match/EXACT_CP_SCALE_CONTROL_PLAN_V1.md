@@ -1,0 +1,3 @@
+# Redteam: raw parameter scale — 2026-09-20 16:56 UTC
+
+The residual-vs-joint comparison has a hidden optimizer-coordinate difference: joint initial raw vectors have norm about sqrt(1152), whereas final residual refinement starts from unit vectors. Forward computation normalizes both, but Adam steps are not invariant to raw scale. Hold the teacher, four initial directions, optimizer, seed and 1500 steps fixed; normalize raw initial parameters for four joint runs (Adam/Muon, seeds0/1). Compare previous joint and residual receipts. Prediction: normalized joint initialization may materially improve the joint result; even if it does not, this rules out only this particular alternative explanation. Do not claim a general advantage for residual growth from one planted teacher.

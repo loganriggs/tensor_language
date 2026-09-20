@@ -93,3 +93,13 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 - `NATIVE_QUARTIC_GAUSSIAN_V1.json`:estimated native energy fractions19.2/43.4/37.4% in Wick degrees0/2/4; radial error90.04%; mean mismatch is not the majority of failed-student residual.
 - `check_quartic_gradient_noise.py`, `QUARTIC_GRADIENT_NOISE_V1.json`:representable rank-one toy exposes huge sampled-gradient error despite tolerable scalar-loss estimation. Native cause remains a hypothesis.
 - `quartic_cp.py`, `check_quartic_cp.py`, `QUARTIC_CP_CHECK_V1.json`, `EXACT_QUARTIC_CP_PLAN_V1.md`:exact symmetric CP quartic self/cross contractions and gradients independently verified; next route removes coefficient-gradient sampling.
+
+## Exact-gradient component competition — 17:00 UTC
+
+[Timed report](../explanations/for_logan/research_update_2026-09-20_1700_exact_gradients_and_component_competition.md) defines the exact symmetric CP objective and separates rank capacity from optimizer failure.
+
+- `EXACT_QUARTIC_CP_TOY_PLAN_V1.md`, `exact_quartic_cp_toys.py`, `EXACT_QUARTIC_CP_TOYS_V1.json`:16 fits, d6/32/128/1152; exact gradients still stall.
+- `exact_cp_fit.py`, `EXACT_CP_RESIDUAL_PLAN_V1.md`, `exact_cp_residual_controls.py`, `EXACT_CP_RESIDUAL_CONTROLS_V1.json`:same rank2/1500steps,8 fits; joint duplicates strong atom (~34%error), residual Adam<4e-7, Muon<1.6e-4.
+- `EXACT_CP_SCALE_CONTROL_PLAN_V1.md`, `exact_cp_scale_control.py`, `EXACT_CP_SCALE_CONTROL_V1.json`:four same-direction/unit-raw-scale joint controls remain33.743%; scale alone does not explain success.
+- `EXACT_CP_SEPARATION_PLAN_V1.md`, `exact_cp_separation.py`, `EXACT_CP_SEPARATION_V1.json`:18 fits on amplitude/overlap grid; residual wins separated cases but loses badly on some overlaps. One initialization per cell; no universal strategy ranking.
+- `NATIVE_EXACT_CP_GREEDY_PLAN_V1.md`:queued native eight-atom exact-gradient residual pilot; heldout coefficient/Gaussian checks, estimated teacher norm only for scaling.

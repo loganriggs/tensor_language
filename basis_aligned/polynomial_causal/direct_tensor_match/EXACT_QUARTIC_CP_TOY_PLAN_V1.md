@@ -1,0 +1,5 @@
+# Exact quartic CP planted optimization control — 2026-09-20 16:44 UTC
+
+Sixteen fits: planted rank-two quartic CP teachers, three outputs, dimensions6/32/128/1152; Adam/Muon, two random starts,600steps at0.05 cosine decay. Every input factor row has unit norm. Solve output weights at each step using exact fully symmetrized feature Gram and teacher cross Gram, with1e-10 mean-diagonal ridge. Optimize the actual residual minus its constant teacher norm, scaled by initial explained energy to avoid irrelevant tiny-gradient/epsilon effects. Teacher coefficients are never expanded or sampled.
+
+The teacher norm is exactly computable for these CP controls. Final error is exact, with roundoff-clamped squared error only at the numerical floor. Log initial explained energy and progress. This tests whether exact contractions can learn representable high-dimensional targets, not whether native weights have low CP rank. Failure remains possible from nonconvexity. Successful native application will change the cross contraction to the native two-layer directional oracle.

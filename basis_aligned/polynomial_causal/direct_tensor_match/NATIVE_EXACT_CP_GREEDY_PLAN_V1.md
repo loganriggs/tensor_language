@@ -1,0 +1,9 @@
+# Native exact-gradient residual quartic pilot — 2026-09-20 16:51 UTC
+
+Planted1152-input rank-two control: joint1500steps repeatedly placed both terms on the stronger component (≈34%error); two600step residual stages plus300joint steps recovered both with Adam<4e-7 and Muon<1.6e-4, same finalwidth2 and1500steps. This motivates residual initialization, not a global-recovery claim for native tensors.
+
+Build up to8 native quartic CP atoms. Each atom has four unit-norm linear input vectors and an output writer. At each stage, fit the residual using exact teacher directional contractions minus the already fitted CP expansion. Solve the candidate's output weights analytically; optimize its four input vectors with Adam0.05,300steps, two restarts. Select by exact residual objective, never by heldout queries. Refit output writers jointly after each accepted atom; use a small1e-6 mean-diagonal ridge and retain the previous model if numerical/regularization effects worsen the exact objective.
+
+The native teacher norm is the existing stratified estimate, used as a fixed scale. Gradients of self norm and cross term are exact algebraic contractions, not coefficient samples. Evaluate checkpoints at1/2/4/8 atoms on8192 independent coefficient queries and256 Gaussian input vectors. Also report exact objective improvement over the zero tensor, conditional on the fixed scale; estimated relative error is not certified exact. Price5*1152*r reduced parameters plus output frame; expanded vocabulary writer can be charged separately.
+
+Predictions: every atom run finite; sampled coefficient error improves below0.99 at some checkpoint; at8atoms exact explained fraction exceeds0.02. Null: even exact-gradient residual search finds negligible native low-CP-rank structure at this budget. CP factors do not provide shared quadratic reuse automatically. No native activation data, normalized-block replacement or circuit claim.

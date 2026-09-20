@@ -1,0 +1,566 @@
+{
+  "records": [
+    {
+      "dimension": 6,
+      "optimizer": "adam",
+      "seed": 0,
+      "relative_frobenius_error": 0.014111640543065483,
+      "initial_explained_fraction": 0.0007467541854810555,
+      "steps": 600,
+      "seconds": 0.9690237548202276,
+      "history": [
+        {
+          "step": 0,
+          "explained_fraction": 0.0007467541854810555
+        },
+        {
+          "step": 100,
+          "explained_fraction": 0.9791459177255274
+        },
+        {
+          "step": 200,
+          "explained_fraction": 0.9939837626662354
+        },
+        {
+          "step": 300,
+          "explained_fraction": 0.9990483501827633
+        },
+        {
+          "step": 400,
+          "explained_fraction": 0.9996691964849627
+        },
+        {
+          "step": 500,
+          "explained_fraction": 0.9997823776114054
+        }
+      ]
+    },
+    {
+      "dimension": 6,
+      "optimizer": "adam",
+      "seed": 1,
+      "relative_frobenius_error": 0.0029260295711552903,
+      "initial_explained_fraction": 0.00923550973952228,
+      "steps": 600,
+      "seconds": 0.9539771128911525,
+      "history": [
+        {
+          "step": 0,
+          "explained_fraction": 0.00923550973952228
+        },
+        {
+          "step": 100,
+          "explained_fraction": 0.9576330026521634
+        },
+        {
+          "step": 200,
+          "explained_fraction": 0.994636914200018
+        },
+        {
+          "step": 300,
+          "explained_fraction": 0.99956183628347
+        },
+        {
+          "step": 400,
+          "explained_fraction": 0.999965366570766
+        },
+        {
+          "step": 500,
+          "explained_fraction": 0.999988994990241
+        }
+      ]
+    },
+    {
+      "dimension": 6,
+      "optimizer": "muon",
+      "seed": 0,
+      "relative_frobenius_error": 0.07075341546339076,
+      "initial_explained_fraction": 0.0007467541854810555,
+      "steps": 600,
+      "seconds": 1.0086084760259837,
+      "history": [
+        {
+          "step": 0,
+          "explained_fraction": 0.0007467541854810555
+        },
+        {
+          "step": 100,
+          "explained_fraction": 0.6663174113812836
+        },
+        {
+          "step": 200,
+          "explained_fraction": 0.8373938491042889
+        },
+        {
+          "step": 300,
+          "explained_fraction": 0.9595580482949986
+        },
+        {
+          "step": 400,
+          "explained_fraction": 0.9849351462533932
+        },
+        {
+          "step": 500,
+          "explained_fraction": 0.9935635176605704
+        }
+      ]
+    },
+    {
+      "dimension": 6,
+      "optimizer": "muon",
+      "seed": 1,
+      "relative_frobenius_error": 0.09828297610658085,
+      "initial_explained_fraction": 0.00923550973952228,
+      "steps": 600,
+      "seconds": 1.0110833968501538,
+      "history": [
+        {
+          "step": 0,
+          "explained_fraction": 0.00923550973952228
+        },
+        {
+          "step": 100,
+          "explained_fraction": 0.7923066239190247
+        },
+        {
+          "step": 200,
+          "explained_fraction": 0.9149390725338671
+        },
+        {
+          "step": 300,
+          "explained_fraction": 0.9663379110887931
+        },
+        {
+          "step": 400,
+          "explained_fraction": 0.9848311587700165
+        },
+        {
+          "step": 500,
+          "explained_fraction": 0.9896735579401563
+        }
+      ]
+    },
+    {
+      "dimension": 32,
+      "optimizer": "adam",
+      "seed": 0,
+      "relative_frobenius_error": 0.0,
+      "initial_explained_fraction": 3.900177249476373e-06,
+      "steps": 600,
+      "seconds": 0.951721009099856,
+      "history": [
+        {
+          "step": 0,
+          "explained_fraction": 3.900177249476373e-06
+        },
+        {
+          "step": 100,
+          "explained_fraction": 0.9995254006978603
+        },
+        {
+          "step": 200,
+          "explained_fraction": 0.9999999867035365
+        },
+        {
+          "step": 300,
+          "explained_fraction": 0.9999999999996173
+        },
+        {
+          "step": 400,
+          "explained_fraction": 1.0000000000000009
+        },
+        {
+          "step": 500,
+          "explained_fraction": 0.9999999999999999
+        }
+      ]
+    },
+    {
+      "dimension": 32,
+      "optimizer": "adam",
+      "seed": 1,
+      "relative_frobenius_error": 0.5128448223358566,
+      "initial_explained_fraction": 4.291008825247504e-06,
+      "steps": 600,
+      "seconds": 0.9678135400172323,
+      "history": [
+        {
+          "step": 0,
+          "explained_fraction": 4.291008825247504e-06
+        },
+        {
+          "step": 100,
+          "explained_fraction": 0.6888240660154019
+        },
+        {
+          "step": 200,
+          "explained_fraction": 0.7357066894365389
+        },
+        {
+          "step": 300,
+          "explained_fraction": 0.7366775434700886
+        },
+        {
+          "step": 400,
+          "explained_fraction": 0.7369170979377913
+        },
+        {
+          "step": 500,
+          "explained_fraction": 0.7369785713581276
+        }
+      ]
+    },
+    {
+      "dimension": 32,
+      "optimizer": "muon",
+      "seed": 0,
+      "relative_frobenius_error": 0.00012260346904914343,
+      "initial_explained_fraction": 3.900177249476373e-06,
+      "steps": 600,
+      "seconds": 1.0064784700516611,
+      "history": [
+        {
+          "step": 0,
+          "explained_fraction": 3.900177249476373e-06
+        },
+        {
+          "step": 100,
+          "explained_fraction": 0.26336276148017546
+        },
+        {
+          "step": 200,
+          "explained_fraction": 0.7912117068941604
+        },
+        {
+          "step": 300,
+          "explained_fraction": 0.9971783525466995
+        },
+        {
+          "step": 400,
+          "explained_fraction": 0.9999882349898014
+        },
+        {
+          "step": 500,
+          "explained_fraction": 0.9999987139265439
+        }
+      ]
+    },
+    {
+      "dimension": 32,
+      "optimizer": "muon",
+      "seed": 1,
+      "relative_frobenius_error": 0.4811618434280716,
+      "initial_explained_fraction": 4.291008825247504e-06,
+      "steps": 600,
+      "seconds": 1.0180820380337536,
+      "history": [
+        {
+          "step": 0,
+          "explained_fraction": 4.291008825247504e-06
+        },
+        {
+          "step": 100,
+          "explained_fraction": 0.14450295511324873
+        },
+        {
+          "step": 200,
+          "explained_fraction": 0.5824930627929544
+        },
+        {
+          "step": 300,
+          "explained_fraction": 0.7043024432717344
+        },
+        {
+          "step": 400,
+          "explained_fraction": 0.7461765681369114
+        },
+        {
+          "step": 500,
+          "explained_fraction": 0.7644682515561257
+        }
+      ]
+    },
+    {
+      "dimension": 128,
+      "optimizer": "adam",
+      "seed": 0,
+      "relative_frobenius_error": 0.16066046957150046,
+      "initial_explained_fraction": 3.3322120740184884e-07,
+      "steps": 600,
+      "seconds": 0.9784420849755406,
+      "history": [
+        {
+          "step": 0,
+          "explained_fraction": 3.3322120740184884e-07
+        },
+        {
+          "step": 100,
+          "explained_fraction": 0.9740461394306481
+        },
+        {
+          "step": 200,
+          "explained_fraction": 0.9741882078905792
+        },
+        {
+          "step": 300,
+          "explained_fraction": 0.9741882132367548
+        },
+        {
+          "step": 400,
+          "explained_fraction": 0.9741882134108567
+        },
+        {
+          "step": 500,
+          "explained_fraction": 0.9741882134970893
+        }
+      ]
+    },
+    {
+      "dimension": 128,
+      "optimizer": "adam",
+      "seed": 1,
+      "relative_frobenius_error": 0.16070482642901734,
+      "initial_explained_fraction": 6.327235819988659e-07,
+      "steps": 600,
+      "seconds": 0.9915889909025282,
+      "history": [
+        {
+          "step": 0,
+          "explained_fraction": 6.327235819988659e-07
+        },
+        {
+          "step": 100,
+          "explained_fraction": 0.973422325769145
+        },
+        {
+          "step": 200,
+          "explained_fraction": 0.9741105189850172
+        },
+        {
+          "step": 300,
+          "explained_fraction": 0.9741549695277659
+        },
+        {
+          "step": 400,
+          "explained_fraction": 0.9741687439213196
+        },
+        {
+          "step": 500,
+          "explained_fraction": 0.9741731070926116
+        }
+      ]
+    },
+    {
+      "dimension": 128,
+      "optimizer": "muon",
+      "seed": 0,
+      "relative_frobenius_error": 0.16065853419961318,
+      "initial_explained_fraction": 3.3322120740184884e-07,
+      "steps": 600,
+      "seconds": 1.0475380930583924,
+      "history": [
+        {
+          "step": 0,
+          "explained_fraction": 3.3322120740184884e-07
+        },
+        {
+          "step": 100,
+          "explained_fraction": 0.16790375024011978
+        },
+        {
+          "step": 200,
+          "explained_fraction": 0.9179376343755326
+        },
+        {
+          "step": 300,
+          "explained_fraction": 0.9739548019847408
+        },
+        {
+          "step": 400,
+          "explained_fraction": 0.9741836783120048
+        },
+        {
+          "step": 500,
+          "explained_fraction": 0.9741881528772218
+        }
+      ]
+    },
+    {
+      "dimension": 128,
+      "optimizer": "muon",
+      "seed": 1,
+      "relative_frobenius_error": 0.16065556029296232,
+      "initial_explained_fraction": 6.327235819988659e-07,
+      "steps": 600,
+      "seconds": 1.0534012268763036,
+      "history": [
+        {
+          "step": 0,
+          "explained_fraction": 6.327235819988659e-07
+        },
+        {
+          "step": 100,
+          "explained_fraction": 0.1553685825500538
+        },
+        {
+          "step": 200,
+          "explained_fraction": 0.8906216989811357
+        },
+        {
+          "step": 300,
+          "explained_fraction": 0.9737423568900971
+        },
+        {
+          "step": 400,
+          "explained_fraction": 0.9741841203769689
+        },
+        {
+          "step": 500,
+          "explained_fraction": 0.9741886338868473
+        }
+      ]
+    },
+    {
+      "dimension": 1152,
+      "optimizer": "adam",
+      "seed": 0,
+      "relative_frobenius_error": 0.3374631414819403,
+      "initial_explained_fraction": 1.1214596416664203e-11,
+      "steps": 600,
+      "seconds": 1.0529657900333405,
+      "history": [
+        {
+          "step": 0,
+          "explained_fraction": 1.1214596416664203e-11
+        },
+        {
+          "step": 100,
+          "explained_fraction": 0.885546332750269
+        },
+        {
+          "step": 200,
+          "explained_fraction": 0.886066470027489
+        },
+        {
+          "step": 300,
+          "explained_fraction": 0.8861030812501954
+        },
+        {
+          "step": 400,
+          "explained_fraction": 0.8861142899661895
+        },
+        {
+          "step": 500,
+          "explained_fraction": 0.8861179108075388
+        }
+      ]
+    },
+    {
+      "dimension": 1152,
+      "optimizer": "adam",
+      "seed": 1,
+      "relative_frobenius_error": 0.33747550656281466,
+      "initial_explained_fraction": 1.4366922640803665e-11,
+      "steps": 600,
+      "seconds": 1.0475757068488747,
+      "history": [
+        {
+          "step": 0,
+          "explained_fraction": 1.4366922640803665e-11
+        },
+        {
+          "step": 100,
+          "explained_fraction": 0.8850881388056561
+        },
+        {
+          "step": 200,
+          "explained_fraction": 0.8860383017198561
+        },
+        {
+          "step": 300,
+          "explained_fraction": 0.8860889570664596
+        },
+        {
+          "step": 400,
+          "explained_fraction": 0.8861043538470375
+        },
+        {
+          "step": 500,
+          "explained_fraction": 0.8861093036014449
+        }
+      ]
+    },
+    {
+      "dimension": 1152,
+      "optimizer": "muon",
+      "seed": 0,
+      "relative_frobenius_error": 0.33743137672943097,
+      "initial_explained_fraction": 1.1214596416664203e-11,
+      "steps": 600,
+      "seconds": 1.4111503059975803,
+      "history": [
+        {
+          "step": 0,
+          "explained_fraction": 1.1214596416664203e-11
+        },
+        {
+          "step": 100,
+          "explained_fraction": 0.13759899949408788
+        },
+        {
+          "step": 200,
+          "explained_fraction": 0.6298415617005855
+        },
+        {
+          "step": 300,
+          "explained_fraction": 0.8753930635074213
+        },
+        {
+          "step": 400,
+          "explained_fraction": 0.8861338698170094
+        },
+        {
+          "step": 500,
+          "explained_fraction": 0.8861394415877272
+        }
+      ]
+    },
+    {
+      "dimension": 1152,
+      "optimizer": "muon",
+      "seed": 1,
+      "relative_frobenius_error": 0.36169229746636467,
+      "initial_explained_fraction": 1.4366922640803665e-11,
+      "steps": 600,
+      "seconds": 1.3976904009468853,
+      "history": [
+        {
+          "step": 0,
+          "explained_fraction": 1.4366922640803665e-11
+        },
+        {
+          "step": 100,
+          "explained_fraction": 0.11219584970673677
+        },
+        {
+          "step": 200,
+          "explained_fraction": 0.22953350018141527
+        },
+        {
+          "step": 300,
+          "explained_fraction": 0.6453237974492678
+        },
+        {
+          "step": 400,
+          "explained_fraction": 0.8274053039999446
+        },
+        {
+          "step": 500,
+          "explained_fraction": 0.8642543861781948
+        }
+      ]
+    }
+  ],
+  "seconds": 17.312590074026957,
+  "scope": "16 exact-gradient rank-two quartic CP fits with output elimination, dimensions6/32/128/1152, two restarts. Exact teacher norm; objective scaled by initial explained energy; no coefficient sampling."
+}

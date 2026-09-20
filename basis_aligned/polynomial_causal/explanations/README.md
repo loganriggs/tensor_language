@@ -809,3 +809,5 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 - [2026-09-20 16:37 — Three-hour decomposition mathematical review](../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-20_1637.md): primary literature mappings, exact quartic trace/metric formulas, scope/pricing and ranked next experiments.
 
 - [2026-09-20 16:43 — Global fitting null and exact-gradient continuation](for_logan/research_update_2026-09-20_1643_global_null_and_exact_gradients.md):16failed quartic fits, improved quadraticALS, trace/radial controls, gradient-noise falsifier and exact contraction implementation.
+
+- [2026-09-20 17:00 — Exact gradients and competing components](for_logan/research_update_2026-09-20_1700_exact_gradients_and_component_competition.md): known-capacity optimization failure, residual recovery, raw-scale control and overlap counterexamples; native pilot queued.

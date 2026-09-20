@@ -472,3 +472,6 @@ Paired quartic parameterizations agree initially and bygradientchainrule, differ
 
 ### 2026-09-20 16:42 — Three-hour review, native outcomes and exact-gradient direction
 [Review](../polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-20_1637.md) maps primaryliterature andexactGaussiantrace identities.16globalquartic sampled fits≈100%error; nativequadraticALS89.89% at512; radialquartic90.04%Gaussianerror. Rank1gradient-noisecontrol revealsnormprecision≠gradientprecision. ExactquarticCP self/cross contractions implemented anddensevalidated1e-15, no teacher-norm expansion needed for gradients; [next plan](../polynomial_causal/direct_tensor_match/EXACT_QUARTIC_CP_PLAN_V1.md). No circuit identification or fullDAGranklowerbound claim.
+
+### 2026-09-20 17:00 — Exact-gradient CP component competition
+Known-rank2 d1152 joint fitting stalls~34%, residual Adam<4e-7 at same1500steps. Four raw-scale controls preserve joint failure.18fit amplitude/overlap grid: residual recovers separated atoms but loses to joint at some overlaps (24–45% vs numerical floor). No universal optimizer/initialization result. Native exact residual CP pilot queued. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1700_exact_gradients_and_component_competition.md).
