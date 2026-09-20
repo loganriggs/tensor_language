@@ -1,0 +1,61 @@
+v659 (CPU, fold reading): layer-0 gate tables. pattern = kappa(d) A(t) B(s); A = gain on the CURRENT token t, B = weight on the PREVIOUS token s. GPT-2 vocabulary; tokens seen >= 5 times in the fit rows (5933).
+
+=== head 0.3: kappa(1..6) = [0.0025, 0.0013, 0.0003, 0.0, 0.0001, 0.0001]; A range [-0.11, +13.03], B range [+0.02, +10.76] ===
+Spearman(A, log freq) +0.205; Spearman(B, log freq) +0.155; mean A word-initial +5.43 vs other +7.97; mean B word-initial +6.09 vs other +5.46
+OPEN (A largest):    'y' 'ton' 'on' 'er' 'a' 'way' 'ized' 'time' 'izing' 'ize' 'up' 'fully' 'man' 'les' 'led' 'o' 'ity' 'in' 'x' 'ers' 'to' 'e' 'ie' 'ies' 'ling'
+CLOSE (A smallest):  ' TH' ' imperson' ' Stephen' 'dis' ' f' ' Tor' ' Ma' 'Most' 'asc' ' Justin' 'sych' '://' ' global' ' […]' ' entire' '�' ' EX' ' vener' 'LU' ' mis' ' Federal' ' digestive' ' Unc' ' governmental' ')|'
+B largest (prev):    ' Mc' ' Ent' ' par' ')|' ' Ok' ' ent' 'dis' ' dis' ' Cal' ' le' ' mis' ' aqu' ' Den' ' mid' ' et' ' Tor' ' grand' ' Dr' 'cal' '�' ' oh' ' Ch' ' fore' ' Del' ' Re'
+B smallest (prev):   ' Welch' ' Zen' ' Desmond' '47' '64' 'bert' 'ima' '27' '67' '77' ' Astral' '29' ' Warden' '36' ' Wang' '37' 'í' '�' ' Barack' ' Seraph' 'SEA' ' nihil' 'kan' ' Johnston' '�'
+
+=== head 0.4: kappa(1..6) = [0.0061, 0.006, 0.0049, 0.0035, 0.0027, 0.0024]; A range [-7.38, +0.14], B range [-1.52, +7.34] ===
+Spearman(A, log freq) +0.131; Spearman(B, log freq) -0.102; mean A word-initial -2.50 vs other -0.78; mean B word-initial +2.47 vs other +1.95
+OPEN (A largest):    ' like' '.,' ' nor' ' Such' 'It' ' a' ' neither' ' These' ' probably' 'ii' ' never' ' why' ' that' ' these' ' already' 'ly' 'ately' 'These' 'uch' 'ul' 'that' ' either' 'í' ' such' ' Why'
+CLOSE (A smallest):  ' markets' ' feed' ' models' ' chair' ' workshop' ' mixer' ' basket' ' play' ' mechanics' ' buildings' ' plates' ' games' ' card' ' screening' ' bowl' ' seeds' ' animation' ' activities' ' platform' ' glass' ' station' ' machines' ' stations' ' outlets' ' boots'
+B largest (prev):    ' Google' ' USB' ' Android' ' agricultural' ' ethnic' ' iPhone' ' personal' ' renewable' ' constitutional' 'Facebook' ' Protestant' 'USB' ' WordPress' ' Republican' ' racial' 'Apple' ' diagnosed' ' Voter' ' police' ' University' ' Career' ' professional' ' wedding' ' Naval' ' iOS'
+B smallest (prev):   'uc' 'cl' 'pl' ' lines' 'AV' ' Ronald' ' Johnston' ' peanut' ' various' '--' ' Stephen' '�' 'ph' ' Justin' 'Getty' ' Ann' 'An' ' @' 'ST' ' steril' '|' ' Benn' '�' ' �' '\n'
+
+=== head 0.7: kappa(1..6) = [0.0041, 0.0047, 0.0045, 0.0038, 0.003, 0.0025]; A range [-9.46, +0.06], B range [-1.68, +10.20] ===
+Spearman(A, log freq) -0.102; Spearman(B, log freq) -0.168; mean A word-initial -3.98 vs other -1.44; mean B word-initial +3.52 vs other +3.30
+OPEN (A largest):    'ub' 'ett' '�' 'ag' 'bs' 'ERN' 'rell' 'el' 'l' 'itt' 'ch' 'mon' 'ul' 'io' '�' 'og' 'ore' '�' 'ra' 'lin' 'ck' 'ol' 'cher' 'í' 'gg'
+CLOSE (A smallest):  ' saved' ' engaged' ' shared' ' settled' ' reached' ' reviewed' ' found' ' held' ' brings' ' announced' ' offered' ' drew' ' sold' ' launched' ' sought' ' supported' ' demanded' ' produced' ' hired' ' determined' ' submitted' ' defined' ' created' ' brought' ' learned'
+B largest (prev):    '.' ').' '."' '".' '!!!' '!' ' chicken' '?"' ' chocolate' ' duck' '….' ' whiskey' ' cotton' ')?' '.)' ' $' '?' ' Steelers' 'USB' ' bacteria' 'Sorry' ' toxin' ' turkey' 'BSD' '!!'
+B smallest (prev):   '�' ';' ' how' ' an' ' neither' ' any' '.,' ' what' ' that' ' every' ',"' ' The' '�' '),' ' What' ' where' ' if' ' If' ' as' ' why' ' the' ' When' ' TO' ' when' ' a'
+
+
+##### LAYER 1 gate tables (v624; single-token block-1 tables, shape right / scale approximate) #####
+
+=== head 1.0: kappa(1..6) = [0.0036, 0.0039, 0.0038, 0.0032, 0.0027, 0.0022] ===
+OPEN (A largest):    ':' '"' '.' " '" ' -' ' –' '�' ' :' ' --' '\n' ',' ';' ' "' ' —' ',"' ' (' ' /' '."' '!' ' ,' ')' ' We'
+CLOSE (A smallest):  ' surface' ' craft' ' shelf' 'ning' 'ative' 'iness' ' flying' 'hood' 'ment' 'board' ' wings' 'ured' 'illing' 'ising' ' digestive' 'ering' 'ication' 'ences' 'ization' 'uring' ' pace' 'ered'
+B largest (prev):    ' guild' 'Remember' 'Design' 'Monday' 'Getty' 'Sorry' 'Aside' 'Note' ' Bulletin' 'Look' ' workout' ' introduction' 'Well' ' Edition' 'Posted' ' brother' 'Order' ' example' ' dad' ' Policy' ' Help' ' visit'
+B smallest (prev):   ' an' ' -' '�' '/' ' ' ',' ' de' 'r' '–' 'ast' '-' 'Â' ' (' 'oc' ' ,' 'el' '.' '�' ' .' '\n' '||' ' �'
+
+=== head 1.1: kappa(1..6) = [0.0011, 0.0005, 0.0002, 0.0, 0.0, 0.0] ===
+OPEN (A largest):    ' of' ' his' ' forward' ' relief' 'Our' ' their' ' your' ' existential' ' resistance' ' reception' ' ticket' ' testimony' ' immune' ' promotion' ' passage' ' distribution' ' lessons' ' exception' ' franchise' ' abroad' ' batter' ' realize'
+CLOSE (A smallest):  'C' ' E' 'We' '2012' ' is' ' g' ' S' '-' ' F' ' has' ' R' ' B' ' K' ' H' ' D' ' C' ' P' ' G' ' T' ' M' ' (' ' L'
+B largest (prev):    ' �' '�' ' �' ' Drupal' ' Mé' '�' ' Blackhawks' ' CVE' ' hepatitis' ' cough' ' Crypto' '!"' ' Amendment' '�' ' Photoshop' ' Leh' ' USC' '?"' ' Alzheimer' ' Xan' ' peanut' ' Adobe'
+B smallest (prev):   ' isn' 'who' ' usually' ' not' ' must' ' mainly' ' often' ' even' ' typically' ' shall' ' either' ' thus' 'including' ' perhaps' 'this' "'m" ' whatever' "'d" ' maybe' "'t" ' �' '�'
+
+=== head 1.3: kappa(1..6) = [0.004, 0.0017, 0.0001, -0.0003, -0.0, 0.0002] ===
+OPEN (A largest):    '�' ' the' ' of' 'ing' 'ed' 's' 'ING' ' your' ' Of' 'ized' 'es' 'izing' ' a' 'ly' 'ised' 'y' ' our' 'of' 'ization' 'in' 'ies' ' an'
+CLOSE (A smallest):  'C' 'tech' ' laws' ' scientist' ' syndrome' ' TV' ' camera' ' photographer' ' Sciences' ' detector' ' police' ' Award' ' disease' ' Smith' ' University' ' analysis' ' knives' 'SA' ' videos' ' Insurance' ' magazine' ' Coliseum'
+B largest (prev):    ' �' '�' ' Xan' 'ust' ' Dod' 'itt' 'umb' 'oss' ' wal' '�' 'pt' ' Rhode' 'Getty' ' Muse' ' rab' ' Seraph' ' Wal' ' Ez' ' Pony' ' Nag' ' Pac' 'eg'
+B smallest (prev):   ' (' 'The' ' |' '|' ' —' '—' '�' ' my' ' their' ' --' ' or' ' and' ' your' ' -' ' The' ' –' ' our' ',' '||' ' the' '\n' ' /'
+
+=== head 1.5: kappa(1..6) = [0.002, 0.0015, 0.0009, 0.0006, 0.0004, 0.0003] ===
+OPEN (A largest):    ' a' ' an' ' the' ' higher' ' some' ' worried' ' fantastic' ' their' ' thrilled' ' smaller' ' larger' ' confused' ' faster' ' asking' ' high' ' several' ' wonderful' ' significant' ' happy' ' impressive' ' separated' ' thought'
+CLOSE (A smallest):  'ole' 'ashi' ' Club' 'Page' 'Col' 'etz' 'Oh' 'ao' 'She' 'aine' 'IFA' 'Pal' 'ki' 'Joe' 'Mar' 'ron' 'ifer' 'Med' 'zer' 'ie' 'ou' 'Script'
+B largest (prev):    ' enjoyed' 'Think' ' proceed' 'Who' ' seriously' 'Please' 'Remember' ' represents' 'Why' ' began' 'Thanks' ' tends' ' represented' ' sorts' ' requires' ' Im' 'Sorry' ' assume' ' Buy' ' Dug' ' Judge' ' imagine'
+B smallest (prev):   ' 18' ' 30' ' 17' ' 75' ' 14' ' 6' ' 85' ' 120' ' 300' ' 25' ' 100' ' 56' '25' ' 60' '600' ' 50' ' 28' ' 20' '\n' ' 315' ' 150' ' �'
+
+=== head 1.6: kappa(1..6) = [0.0068, 0.0056, 0.0042, 0.0031, 0.0024, 0.0021] ===
+OPEN (A largest):    'are' 'ologist' 'is' 'uses' 'ants' 'zin' 'men' 'anna' 'aries' 'lers' 'ors' 'ian' 'ars' '04' 'ers' 'ities' 'ines' 'ader' 'ries' 'aker' 'ans' 'sex'
+CLOSE (A smallest):  ' after' ' towards' ' upon' ' through' ' behind' ' onto' ' into' ' across' ' during' ' to' ' within' ' against' ' between' ' among' ' with' ' of' ' by' ' from' ' at' ' on' ' for' ' in'
+B largest (prev):    ' votes' ' scored' ' voted' ' defeat' ' ratio' ' score' ' ranked' ' pressure' ' scoring' ' names' ' presence' ' victories' ' definition' ' role' ' name' ' wins' ' permission' ' dosage' ' Award' ' output' ' damage' ' blame'
+B smallest (prev):   ' there' ' [' ' Which' ' it' 'You' ' There' ' This' 'there' 'Its' " '" ' It' '\n' ' These' 'That' 'Those' 'This' '�' ' ``' 'These' 'There' ' "' 'It'
+
+=== head 1.7: kappa(1..6) = [0.0018, 0.0015, 0.0009, 0.0005, 0.0004, 0.0003] ===
+OPEN (A largest):    ' workers' ' companies' ' device' ' person' ' devices' ' animals' ' procedure' ' technology' ' people' ' movies' ' images' ' problems' ' services' ' students' ' artists' ' products' ' item' ' strategies' ' proposal' ' beliefs' ' employees' ' users'
+CLOSE (A smallest):  'il' 'ald' 'ul' 'ose' 'ued' ' […]' 'ENS' 'ø' 'ed' 'el' 'i' 'au' 've' 'ne' 'ol' '36' 'ep' 'ish' 'ven' '�' 'EN' 'en'
+B largest (prev):    ' century' ' billion' 'ABLE' ' drunk' ' random' ' tired' ' midnight' 'usr' ' minority' ' adverse' ' vaccinated' ' forgotten' ' pregnant' 'century' ' Pocket' ' takeoff' ' reserved' 'ending' 'Monday' 'GY' ' foul' 'ulated'
+B smallest (prev):   ' ...' ' […]' '?)' '….' ';' '):' ' .' '?"' ')|' '..."' '....' ',"' '||' ');' ' …' '..' ')?' '".' '.' '.)' ').' '."'
