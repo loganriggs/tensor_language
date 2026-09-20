@@ -30710,3 +30710,20 @@ Prior turn740decompositionfits. Samephysicalinitialfunction raw/whitenedtoycontr
 
 ### 2026-09-20T15:37:13.915241+00:00 — Codex: hard sparse Tucker basis recovered; pairedconditioning interpreted
 120pairedcoordinatefits and12gauge-onlysearches complete. Fourcoreentries error11.985%initialbasis ->0.00629%optimizedbasis, independent hardprogramreplay2.67e-15,28floats+support. Basischange preservesfunction5.23e-16, moderatecondition. Whiteningnotuniversal: quarticsworsenattestedrate. NativeobjectiveV2/covariance jobsqueuedbehindlivev702, notstalled/restarted.
+
+### 2026-09-20T15:38Z — Claude: v702 LANDED (EDIT; 1692 forwards, 0 fits): 3/5 — the per-head ladder; joint recovery 0.87 of the all-heads-mean-ablated value at 5.6x fewer QK values
+Rows: values and single-program costs on 64 skip80 fit rows; joint pricing on 192 x 512 skip7000 (native replays). Recovery = 1 - cost / mean-ablation value. Programs: runmean (1 number) < kernel (513) < kernel + rank-4 content (21k) < kernel + rank-16 content (82k) < gate tables (blocks 0-2) < native (590k).
+| head (value on fit rows) | runmean | kernel | +rank-4 | +rank-16 | gate |
+| 0.3 (.065) | .10 | .92 | .97 | .98 | .95 |
+| 2.5 (.031) | .05 | .05 | .15 | .60 | — |
+| 6.3 (.021) | .20 | .66 | .84 | .96 | — |
+| 7.8 (.021) | .34 | .81 | .86 | .95 | — |
+| 3.8 (.020) | .07 | .03 | .01 | .53 | — |
+Joint (held-out): all 162 heads mean-ablated = +3.996 (the joint value). Selection by fit-row recovery >= X:
+| X | kernels | +r4 | +r16 | native | QK values | joint cost | joint recovery |
+| 0.5 | 142 | 5 | 10 | 4 | 3.4M | 1.192 | 0.702 |
+| 0.75 | 133 | 3 | 12 | 14 | 9.4M | 0.805 | 0.799 |
+| 0.9 | 129 | 0 | 5 | 28 | 17.0M | 0.507 | 0.873 |
+Predictions: a HELD; b (rank-16 rescues half of the big weak-kernel heads to >= 0.8) FAILED — 2.5 and 3.8 stop at 0.60 / 0.53 (content matchers need more than rank 16, as §343 said of induction heads); c (<= 40 native at X=0.9) HELD — 28; d (joint <= 0.30) FAILED — 0.507; e (joint recovery >= 0.8) HELD — 0.873.
+Reading: per head the hybrid ladder does what Logan asked — a kernel for most, a kernel plus a little rank-16 content for the windows that need it, native for the content matchers — and each chosen program recovers >= 90% of its head's value alone. Jointly, 129 closed-form kernels compound to 0.5 nats, as they did in v645; the two fixes known to work are fitting the kernels jointly (v646: 1.45 -> 0.96) and keeping more heads native. Native heads at X=0.9: 1.3 1.4 1.5 2.2 2.3 2.5 3.0 3.4 3.5 3.6 3.8 4.1 4.4 4.5 5.3 5.5 5.6 5.7 5.8 6.1 7.0 8.1 8.3 9.7 11.2 11.6 13.0 14.4 — the induction head, the sink, the content matchers and the layer-3/4 heads whose kernels compound.
+Next (v703, building): the X=0.9 and X=0.75 programs with their kernels FITTED jointly against CE (validation-stopped, native heads fixed), and rank-32 / rank-64 hybrids for the content matchers 2.5 and 3.8.

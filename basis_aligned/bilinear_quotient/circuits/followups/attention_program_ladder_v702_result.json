@@ -1,0 +1,3062 @@
+{
+  "candidate_id": "attention.program_ladder_v702",
+  "finished_utc": "2026-09-20T15:37:29.314758+00:00",
+  "forwards": 1692,
+  "plan": {
+    "bars": {
+      "joint_max": 0.3,
+      "native_max": 40,
+      "rec_min": 0.8,
+      "replay_tol": 0.002,
+      "rescue": 0.8,
+      "value_floor": 0.02
+    },
+    "candidate_id": "attention.program_ladder_v702",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 1750,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "prices": {
+      "gate": 101121,
+      "kernel": 513,
+      "lowrank16": 82433,
+      "lowrank4": 20993,
+      "native": 589824,
+      "runmean": 1
+    },
+    "ranks": [
+      4,
+      16
+    ],
+    "thresholds": [
+      0.5,
+      0.75,
+      0.9
+    ]
+  },
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_lowrank_rescues_valuable_heads": false,
+    "pred_c_selection_keeps_few_native": true,
+    "pred_d_joint_cost_bounded": false,
+    "pred_e_joint_recovery": true
+  },
+  "report": {
+    "heads": {
+      "0.0": {
+        "cost_fit": {
+          "kernel": 0.002130866050720215,
+          "lowrank16": 0.001016855239868164,
+          "lowrank4": 0.0020231008529663086,
+          "runmean": 0.0023075342178344727
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0024917125701904297
+      },
+      "0.1": {
+        "cost_fit": {
+          "kernel": 0.0006848573684692383,
+          "lowrank16": 0.0002518892288208008,
+          "lowrank4": 0.00016164779663085938,
+          "runmean": 0.0007339715957641602
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0006568431854248047
+      },
+      "0.2": {
+        "cost_fit": {
+          "kernel": 0.00037980079650878906,
+          "lowrank16": 0.00016868114471435547,
+          "lowrank4": 0.0003561973571777344,
+          "runmean": 0.00037980079650878906
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0004146099090576172
+      },
+      "0.3": {
+        "cost_fit": {
+          "gate": 0.0031418800354003906,
+          "kernel": 0.0051337480545043945,
+          "lowrank16": 0.001191258430480957,
+          "lowrank4": 0.0021271705627441406,
+          "runmean": 0.05823469161987305
+        },
+        "recovery": {
+          "gate": 0.9515813762088122,
+          "kernel": 0.9208852620440316,
+          "lowrank16": 0.9816418535610358,
+          "lowrank4": 0.967218776637959,
+          "runmean": 0.1025616530966168
+        },
+        "value_fit": 0.06488990783691406
+      },
+      "0.4": {
+        "cost_fit": {
+          "gate": 0.0002492666244506836,
+          "kernel": 0.00024271011352539062,
+          "lowrank16": 0.0005153417587280273,
+          "lowrank4": 0.0006660223007202148,
+          "runmean": 0.000316619873046875
+        },
+        "recovery": {
+          "gate": null,
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.00032067298889160156
+      },
+      "0.5": {
+        "cost_fit": {
+          "kernel": 0.0018993616104125977,
+          "lowrank16": 0.001130223274230957,
+          "lowrank4": 0.0016758441925048828,
+          "runmean": 0.001958012580871582
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.001764059066772461
+      },
+      "0.6": {
+        "cost_fit": {
+          "gate": 3.2782554626464844e-05,
+          "kernel": 0.003153562545776367,
+          "lowrank16": 0.00038063526153564453,
+          "lowrank4": 0.0007157325744628906,
+          "runmean": 0.003180861473083496
+        },
+        "recovery": {
+          "gate": null,
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0034998655319213867
+      },
+      "0.7": {
+        "cost_fit": {
+          "gate": 0.0011941194534301758,
+          "kernel": 0.0007756948471069336,
+          "lowrank16": 0.0005202293395996094,
+          "lowrank4": 0.0009266138076782227,
+          "runmean": 0.0012077093124389648
+        },
+        "recovery": {
+          "gate": null,
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.002435445785522461
+      },
+      "0.8": {
+        "cost_fit": {
+          "gate": 0.0010020732879638672,
+          "kernel": 0.00336301326751709,
+          "lowrank16": 0.0003147125244140625,
+          "lowrank4": 0.00099945068359375,
+          "runmean": 0.005147695541381836
+        },
+        "recovery": {
+          "gate": 0.8125376329698267,
+          "kernel": 0.3708659485738498,
+          "lowrank16": 0.9411253094266407,
+          "lowrank4": 0.8130282553912713,
+          "runmean": 0.0369973907807587
+        },
+        "value_fit": 0.005345463752746582
+      },
+      "1.0": {
+        "cost_fit": {
+          "gate": 0.0032088756561279297,
+          "kernel": 0.0015424489974975586,
+          "lowrank16": 0.0008982419967651367,
+          "lowrank4": 0.0018438100814819336,
+          "runmean": 0.0015246868133544922
+        },
+        "recovery": {
+          "gate": null,
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0015561580657958984
+      },
+      "1.1": {
+        "cost_fit": {
+          "gate": 0.001427769660949707,
+          "kernel": 0.0006965398788452148,
+          "lowrank16": 0.00031065940856933594,
+          "lowrank4": 0.0004723072052001953,
+          "runmean": 0.011043906211853027
+        },
+        "recovery": {
+          "gate": 0.9266771148359924,
+          "kernel": 0.9642293046661687,
+          "lowrank16": 0.9840461351976786,
+          "lowrank4": 0.9757447381631629,
+          "runmean": 0.43284194286973665
+        },
+        "value_fit": 0.019472360610961914
+      },
+      "1.2": {
+        "cost_fit": {
+          "kernel": 0.0012701749801635742,
+          "lowrank16": 0.0007269382476806641,
+          "lowrank4": 0.0014444589614868164,
+          "runmean": 0.0014268159866333008
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0010138750076293945
+      },
+      "1.3": {
+        "cost_fit": {
+          "gate": 0.0015662908554077148,
+          "kernel": 0.0053855180740356445,
+          "lowrank16": 0.0019605159759521484,
+          "lowrank4": 0.0029802322387695312,
+          "runmean": 0.010529398918151855
+        },
+        "recovery": {
+          "gate": 0.8576273757666385,
+          "kernel": 0.5104674598530654,
+          "lowrank16": 0.8217931213835251,
+          "lowrank4": 0.7291030058730468,
+          "runmean": 0.04289924798994427
+        },
+        "value_fit": 0.011001348495483398
+      },
+      "1.4": {
+        "cost_fit": {
+          "kernel": 0.004110455513000488,
+          "lowrank16": 0.002881646156311035,
+          "lowrank4": 0.005011916160583496,
+          "runmean": 0.004247426986694336
+        },
+        "recovery": {
+          "kernel": 0.6089880250385558,
+          "lowrank16": 0.7258799782273428,
+          "lowrank4": 0.5232355075750703,
+          "runmean": 0.5959584505125646
+        },
+        "value_fit": 0.010512351989746094
+      },
+      "1.5": {
+        "cost_fit": {
+          "gate": 0.0020291805267333984,
+          "kernel": 0.003614187240600586,
+          "lowrank16": 0.0018422603607177734,
+          "lowrank4": 0.002688288688659668,
+          "runmean": 0.008007287979125977
+        },
+        "recovery": {
+          "gate": 0.7340021564858656,
+          "kernel": 0.5262294313440532,
+          "lowrank16": 0.7585048364664886,
+          "lowrank4": 0.6476020814776616,
+          "runmean": -0.04964605503726971
+        },
+        "value_fit": 0.0076285600662231445
+      },
+      "1.6": {
+        "cost_fit": {
+          "gate": 0.0015437602996826172,
+          "kernel": 0.0017830133438110352,
+          "lowrank16": 0.0004571676254272461,
+          "lowrank4": 0.0007448196411132812,
+          "runmean": 0.0016800165176391602
+        },
+        "recovery": {
+          "gate": null,
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0014348030090332031
+      },
+      "1.7": {
+        "cost_fit": {
+          "gate": 0.0011157989501953125,
+          "kernel": 0.0027278661727905273,
+          "lowrank16": 0.0016394853591918945,
+          "lowrank4": 0.0014678239822387695,
+          "runmean": 0.0033227205276489258
+        },
+        "recovery": {
+          "gate": null,
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.002669215202331543
+      },
+      "1.8": {
+        "cost_fit": {
+          "gate": 0.1941361427307129,
+          "kernel": 0.0032993555068969727,
+          "lowrank16": 0.0031557083129882812,
+          "lowrank4": 0.003362894058227539,
+          "runmean": 0.003361821174621582
+        },
+        "recovery": {
+          "gate": null,
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0032150745391845703
+      },
+      "10.0": {
+        "cost_fit": {
+          "kernel": 0.00033795833587646484,
+          "lowrank16": 0.00045228004455566406,
+          "lowrank4": 0.0026110410690307617,
+          "runmean": 0.00034677982330322266
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0003358125686645508
+      },
+      "10.1": {
+        "cost_fit": {
+          "kernel": 0.0005320310592651367,
+          "lowrank16": 0.00013184547424316406,
+          "lowrank4": 0.0005170106887817383,
+          "runmean": 0.0004311800003051758
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.00023162364959716797
+      },
+      "10.2": {
+        "cost_fit": {
+          "kernel": 0.0002862215042114258,
+          "lowrank16": 0.0002466440200805664,
+          "lowrank4": 0.0024069547653198242,
+          "runmean": 0.0006897449493408203
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0013786554336547852
+      },
+      "10.3": {
+        "cost_fit": {
+          "kernel": 0.0012173652648925781,
+          "lowrank16": 0.0008085966110229492,
+          "lowrank4": 0.0010782480239868164,
+          "runmean": 0.0013598203659057617
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0015126466751098633
+      },
+      "10.4": {
+        "cost_fit": {
+          "kernel": 0.0015454292297363281,
+          "lowrank16": 0.0004328489303588867,
+          "lowrank4": 0.002314925193786621,
+          "runmean": 0.0015494823455810547
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0016335248947143555
+      },
+      "10.5": {
+        "cost_fit": {
+          "kernel": 0.0013916492462158203,
+          "lowrank16": 0.00011980533599853516,
+          "lowrank4": 0.0009443759918212891,
+          "runmean": 0.0031429529190063477
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.004168391227722168
+      },
+      "10.6": {
+        "cost_fit": {
+          "kernel": 0.0005937814712524414,
+          "lowrank16": 0.00022864341735839844,
+          "lowrank4": 0.0016084909439086914,
+          "runmean": 0.0006926059722900391
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0009976625442504883
+      },
+      "10.7": {
+        "cost_fit": {
+          "kernel": 0.00025844573974609375,
+          "lowrank16": 0.00017309188842773438,
+          "lowrank4": 0.0010663270950317383,
+          "runmean": 0.0003165006637573242
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0002499818801879883
+      },
+      "10.8": {
+        "cost_fit": {
+          "kernel": 0.0007535219192504883,
+          "lowrank16": 0.000408172607421875,
+          "lowrank4": 0.001119375228881836,
+          "runmean": 0.0008538961410522461
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.000992417335510254
+      },
+      "11.0": {
+        "cost_fit": {
+          "kernel": 0.0011502504348754883,
+          "lowrank16": 0.000972747802734375,
+          "lowrank4": 0.0034258365631103516,
+          "runmean": 0.0011795759201049805
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.001526474952697754
+      },
+      "11.1": {
+        "cost_fit": {
+          "kernel": 0.0013595819473266602,
+          "lowrank16": 0.0015718936920166016,
+          "lowrank4": 0.0010389089584350586,
+          "runmean": 0.001450181007385254
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0015326738357543945
+      },
+      "11.2": {
+        "cost_fit": {
+          "kernel": 0.006648063659667969,
+          "lowrank16": 0.0011768341064453125,
+          "lowrank4": 0.008177399635314941,
+          "runmean": 0.009077191352844238
+        },
+        "recovery": {
+          "kernel": 0.3254469361588891,
+          "lowrank16": 0.8805912378740596,
+          "lowrank4": 0.17027118562063048,
+          "runmean": 0.07897283305513225
+        },
+        "value_fit": 0.009855508804321289
+      },
+      "11.3": {
+        "cost_fit": {
+          "kernel": 0.0020390748977661133,
+          "lowrank16": 0.0008116960525512695,
+          "lowrank4": 0.0035167932510375977,
+          "runmean": 0.002390742301940918
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.003018975257873535
+      },
+      "11.4": {
+        "cost_fit": {
+          "kernel": 0.0008200407028198242,
+          "lowrank16": 0.0003949403762817383,
+          "lowrank4": 0.0017344951629638672,
+          "runmean": 0.000838160514831543
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0006859302520751953
+      },
+      "11.5": {
+        "cost_fit": {
+          "kernel": 0.001591324806213379,
+          "lowrank16": 0.0007055997848510742,
+          "lowrank4": 0.0016175508499145508,
+          "runmean": 0.0016732215881347656
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0018569231033325195
+      },
+      "11.6": {
+        "cost_fit": {
+          "kernel": 0.002768874168395996,
+          "lowrank16": 0.0018478631973266602,
+          "lowrank4": 0.004275083541870117,
+          "runmean": 0.0041075944900512695
+        },
+        "recovery": {
+          "kernel": 0.6182595118744351,
+          "lowrank16": 0.7452378995809024,
+          "lowrank4": 0.4106007067137809,
+          "runmean": 0.4336921686251952
+        },
+        "value_fit": 0.007253289222717285
+      },
+      "11.7": {
+        "cost_fit": {
+          "kernel": 0.0006905794143676758,
+          "lowrank16": 0.00033795833587646484,
+          "lowrank4": 0.00043129920959472656,
+          "runmean": 0.000683903694152832
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.000705718994140625
+      },
+      "11.8": {
+        "cost_fit": {
+          "kernel": 0.0004080533981323242,
+          "lowrank16": 0.0006285905838012695,
+          "lowrank4": 0.0004144906997680664,
+          "runmean": 0.0004029273986816406
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0002142190933227539
+      },
+      "12.0": {
+        "cost_fit": {
+          "kernel": 0.0006090402603149414,
+          "lowrank16": 0.0003027915954589844,
+          "lowrank4": 0.0010358095169067383,
+          "runmean": 0.000614166259765625
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0006197690963745117
+      },
+      "12.1": {
+        "cost_fit": {
+          "kernel": 0.0005235671997070312,
+          "lowrank16": 0.00014519691467285156,
+          "lowrank4": 0.0003858804702758789,
+          "runmean": 0.0005344152450561523
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0006513595581054688
+      },
+      "12.2": {
+        "cost_fit": {
+          "kernel": 0.0002905130386352539,
+          "lowrank16": 0.00010025501251220703,
+          "lowrank4": 0.0004075765609741211,
+          "runmean": 0.0003567934036254883
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.00048220157623291016
+      },
+      "12.3": {
+        "cost_fit": {
+          "kernel": 0.0006787776947021484,
+          "lowrank16": 0.0006527900695800781,
+          "lowrank4": 0.0015517473220825195,
+          "runmean": 0.0007153749465942383
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0007946491241455078
+      },
+      "12.4": {
+        "cost_fit": {
+          "kernel": 0.0025491714477539062,
+          "lowrank16": 0.0014760494232177734,
+          "lowrank4": 0.0021933317184448242,
+          "runmean": 0.002788543701171875
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0037604570388793945
+      },
+      "12.5": {
+        "cost_fit": {
+          "kernel": 0.00011217594146728516,
+          "lowrank16": 0.0001932382583618164,
+          "lowrank4": 0.0003876686096191406,
+          "runmean": 0.00017440319061279297
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 8.881092071533203e-05
+      },
+      "12.6": {
+        "cost_fit": {
+          "kernel": 0.0007539987564086914,
+          "lowrank16": 0.0001468658447265625,
+          "lowrank4": 0.0013115406036376953,
+          "runmean": 0.0008184909820556641
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0004385709762573242
+      },
+      "12.7": {
+        "cost_fit": {
+          "kernel": 3.731250762939453e-05,
+          "lowrank16": 7.033348083496094e-05,
+          "lowrank4": 0.0003350973129272461,
+          "runmean": 6.318092346191406e-05
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 2.8014183044433594e-05
+      },
+      "12.8": {
+        "cost_fit": {
+          "kernel": 0.00026726722717285156,
+          "lowrank16": 0.00012993812561035156,
+          "lowrank4": 0.0003873109817504883,
+          "runmean": 0.0003126859664916992
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0005238056182861328
+      },
+      "13.0": {
+        "cost_fit": {
+          "kernel": 0.006045699119567871,
+          "lowrank16": 0.0022531747817993164,
+          "lowrank4": 0.006766676902770996,
+          "runmean": 0.00588381290435791
+        },
+        "recovery": {
+          "kernel": 0.10161024605409996,
+          "lowrank16": 0.6651786505110626,
+          "lowrank4": -0.005526917149386135,
+          "runmean": 0.1256665072363643
+        },
+        "value_fit": 0.006729483604431152
+      },
+      "13.1": {
+        "cost_fit": {
+          "kernel": 5.626678466796875e-05,
+          "lowrank16": -5.733966827392578e-05,
+          "lowrank4": 0.00029790401458740234,
+          "runmean": 9.560585021972656e-05
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0003560781478881836
+      },
+      "13.2": {
+        "cost_fit": {
+          "kernel": 0.0011316537857055664,
+          "lowrank16": 0.0009064674377441406,
+          "lowrank4": 0.001543879508972168,
+          "runmean": 0.0012494325637817383
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.001173853874206543
+      },
+      "13.3": {
+        "cost_fit": {
+          "kernel": 0.0011104345321655273,
+          "lowrank16": 0.0011218786239624023,
+          "lowrank4": 0.0038633346557617188,
+          "runmean": 0.0010894536972045898
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0009812116622924805
+      },
+      "13.4": {
+        "cost_fit": {
+          "kernel": 7.104873657226562e-05,
+          "lowrank16": -0.0001423358917236328,
+          "lowrank4": 5.316734313964844e-05,
+          "runmean": 8.83340835571289e-05
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 6.890296936035156e-05
+      },
+      "13.5": {
+        "cost_fit": {
+          "kernel": 0.0014139413833618164,
+          "lowrank16": 0.0009026527404785156,
+          "lowrank4": 0.0010881423950195312,
+          "runmean": 0.0014342069625854492
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0013839006423950195
+      },
+      "13.6": {
+        "cost_fit": {
+          "kernel": 0.0009200572967529297,
+          "lowrank16": 0.00036215782165527344,
+          "lowrank4": 0.0070580244064331055,
+          "runmean": 0.0008679628372192383
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0009895563125610352
+      },
+      "13.7": {
+        "cost_fit": {
+          "kernel": 0.00033020973205566406,
+          "lowrank16": 0.00022041797637939453,
+          "lowrank4": 0.00034308433532714844,
+          "runmean": 0.0003553628921508789
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.00035893917083740234
+      },
+      "13.8": {
+        "cost_fit": {
+          "kernel": 0.0043756961822509766,
+          "lowrank16": 0.0006445646286010742,
+          "lowrank4": 0.002705097198486328,
+          "runmean": 0.004140138626098633
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.004489541053771973
+      },
+      "14.0": {
+        "cost_fit": {
+          "kernel": 0.0017684698104858398,
+          "lowrank16": 0.0010429620742797852,
+          "lowrank4": 0.001520395278930664,
+          "runmean": 0.0019954442977905273
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0019148588180541992
+      },
+      "14.1": {
+        "cost_fit": {
+          "kernel": 0.0010551214218139648,
+          "lowrank16": 0.0008068084716796875,
+          "lowrank4": 0.0011436939239501953,
+          "runmean": 0.0011277198791503906
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.001153111457824707
+      },
+      "14.2": {
+        "cost_fit": {
+          "kernel": 0.0004277229309082031,
+          "lowrank16": 0.00045108795166015625,
+          "lowrank4": 0.0018259286880493164,
+          "runmean": 0.00046515464782714844
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0003973245620727539
+      },
+      "14.3": {
+        "cost_fit": {
+          "kernel": 0.00020062923431396484,
+          "lowrank16": 0.00019407272338867188,
+          "lowrank4": 0.0007175207138061523,
+          "runmean": 0.00012886524200439453
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.00021374225616455078
+      },
+      "14.4": {
+        "cost_fit": {
+          "kernel": 0.006657838821411133,
+          "lowrank16": 0.003184676170349121,
+          "lowrank4": 0.0058737993240356445,
+          "runmean": 0.006749391555786133
+        },
+        "recovery": {
+          "kernel": -0.007813486836169448,
+          "lowrank16": 0.5179277117130123,
+          "lowrank4": 0.11086850605409893,
+          "runmean": -0.021672050092931716
+        },
+        "value_fit": 0.0066062211990356445
+      },
+      "14.5": {
+        "cost_fit": {
+          "kernel": 0.0004513263702392578,
+          "lowrank16": 0.00020051002502441406,
+          "lowrank4": 0.0003554821014404297,
+          "runmean": 0.0004628896713256836
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0005326271057128906
+      },
+      "14.6": {
+        "cost_fit": {
+          "kernel": 0.00277864933013916,
+          "lowrank16": 0.0013216733932495117,
+          "lowrank4": 0.0027135610580444336,
+          "runmean": 0.002838730812072754
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0028619766235351562
+      },
+      "14.7": {
+        "cost_fit": {
+          "kernel": 0.0014847517013549805,
+          "lowrank16": 0.0009757280349731445,
+          "lowrank4": 0.0016701221466064453,
+          "runmean": 0.0017067193984985352
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0014615058898925781
+      },
+      "14.8": {
+        "cost_fit": {
+          "kernel": 0.0007686614990234375,
+          "lowrank16": 0.0009453296661376953,
+          "lowrank4": 0.0010467767715454102,
+          "runmean": 0.0007793903350830078
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0008754730224609375
+      },
+      "15.0": {
+        "cost_fit": {
+          "kernel": 0.00026226043701171875,
+          "lowrank16": 0.00013875961303710938,
+          "lowrank4": 0.00044357776641845703,
+          "runmean": 0.00029408931732177734
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.00028717517852783203
+      },
+      "15.1": {
+        "cost_fit": {
+          "kernel": 0.0003337860107421875,
+          "lowrank16": 9.322166442871094e-05,
+          "lowrank4": 0.0002664327621459961,
+          "runmean": 0.0007665157318115234
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0013257265090942383
+      },
+      "15.2": {
+        "cost_fit": {
+          "kernel": 0.00023114681243896484,
+          "lowrank16": 0.0001252889633178711,
+          "lowrank4": 0.0005192756652832031,
+          "runmean": 0.00029480457305908203
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.00013756752014160156
+      },
+      "15.3": {
+        "cost_fit": {
+          "kernel": 0.002112150192260742,
+          "lowrank16": 0.00021541118621826172,
+          "lowrank4": 0.001543283462524414,
+          "runmean": 0.0020830631256103516
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0023669004440307617
+      },
+      "15.4": {
+        "cost_fit": {
+          "kernel": 0.0012956857681274414,
+          "lowrank16": 4.649162292480469e-05,
+          "lowrank4": 0.0012401342391967773,
+          "runmean": 0.001263737678527832
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.001355886459350586
+      },
+      "15.5": {
+        "cost_fit": {
+          "kernel": 0.00023686885833740234,
+          "lowrank16": 0.00029265880584716797,
+          "lowrank4": 0.0006927251815795898,
+          "runmean": 0.00019872188568115234
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.00038504600524902344
+      },
+      "15.6": {
+        "cost_fit": {
+          "kernel": 0.0005255937576293945,
+          "lowrank16": 0.00021660327911376953,
+          "lowrank4": 0.0005793571472167969,
+          "runmean": 0.00048542022705078125
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0005692243576049805
+      },
+      "15.7": {
+        "cost_fit": {
+          "kernel": 0.00010764598846435547,
+          "lowrank16": -1.895427703857422e-05,
+          "lowrank4": 0.00011968612670898438,
+          "runmean": 0.00011408329010009766
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.00013756752014160156
+      },
+      "15.8": {
+        "cost_fit": {
+          "kernel": 0.0005240440368652344,
+          "lowrank16": 0.0002664327621459961,
+          "lowrank4": 0.0004061460494995117,
+          "runmean": 0.0005413293838500977
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.000797271728515625
+      },
+      "16.0": {
+        "cost_fit": {
+          "kernel": 0.002289891242980957,
+          "lowrank16": 0.0009027719497680664,
+          "lowrank4": 0.005265712738037109,
+          "runmean": 0.0022585391998291016
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0027790069580078125
+      },
+      "16.1": {
+        "cost_fit": {
+          "kernel": 0.000213623046875,
+          "lowrank16": 0.0001347064971923828,
+          "lowrank4": 0.0015308856964111328,
+          "runmean": 0.00021719932556152344
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.00011050701141357422
+      },
+      "16.2": {
+        "cost_fit": {
+          "kernel": 0.0004906654357910156,
+          "lowrank16": 0.000274658203125,
+          "lowrank4": 0.0007473230361938477,
+          "runmean": 0.00048720836639404297
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0005636215209960938
+      },
+      "16.3": {
+        "cost_fit": {
+          "kernel": 0.0024977922439575195,
+          "lowrank16": 0.0009784698486328125,
+          "lowrank4": 0.0029529333114624023,
+          "runmean": 0.0030330419540405273
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.002505183219909668
+      },
+      "16.4": {
+        "cost_fit": {
+          "kernel": 0.002553582191467285,
+          "lowrank16": 0.001024007797241211,
+          "lowrank4": 0.004463315010070801,
+          "runmean": 0.002602219581604004
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.002764463424682617
+      },
+      "16.5": {
+        "cost_fit": {
+          "kernel": 0.002064824104309082,
+          "lowrank16": 0.00013530254364013672,
+          "lowrank4": 0.0008552074432373047,
+          "runmean": 0.002039194107055664
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0020520687103271484
+      },
+      "16.6": {
+        "cost_fit": {
+          "kernel": 5.6862831115722656e-05,
+          "lowrank16": 8.428096771240234e-05,
+          "lowrank4": 0.0003113746643066406,
+          "runmean": 7.271766662597656e-05
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 8.106231689453125e-05
+      },
+      "16.7": {
+        "cost_fit": {
+          "kernel": 0.00023376941680908203,
+          "lowrank16": 0.0001443624496459961,
+          "lowrank4": 0.000641942024230957,
+          "runmean": 0.0002206563949584961
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0002378225326538086
+      },
+      "16.8": {
+        "cost_fit": {
+          "kernel": 0.00019919872283935547,
+          "lowrank16": -1.9550323486328125e-05,
+          "lowrank4": 0.00020062923431396484,
+          "runmean": 0.00044476985931396484
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0005977153778076172
+      },
+      "17.0": {
+        "cost_fit": {
+          "kernel": 0.0017529726028442383,
+          "lowrank16": 5.364418029785156e-05,
+          "lowrank4": 0.0005806684494018555,
+          "runmean": 0.0016132593154907227
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0029599666595458984
+      },
+      "17.1": {
+        "cost_fit": {
+          "kernel": 0.0009058713912963867,
+          "lowrank16": 0.0005050897598266602,
+          "lowrank4": 0.0006275177001953125,
+          "runmean": 0.0009301900863647461
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0014165639877319336
+      },
+      "17.2": {
+        "cost_fit": {
+          "kernel": 0.0045626163482666016,
+          "lowrank16": 0.0014957189559936523,
+          "lowrank4": 0.0024832487106323242,
+          "runmean": 0.0037986040115356445
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0031911134719848633
+      },
+      "17.3": {
+        "cost_fit": {
+          "kernel": 0.0006557703018188477,
+          "lowrank16": 4.7087669372558594e-05,
+          "lowrank4": 0.00035178661346435547,
+          "runmean": 0.0006010532379150391
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0006182193756103516
+      },
+      "17.4": {
+        "cost_fit": {
+          "kernel": 0.000845789909362793,
+          "lowrank16": 0.00024008750915527344,
+          "lowrank4": 0.0007772445678710938,
+          "runmean": 0.0008260011672973633
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.001124262809753418
+      },
+      "17.5": {
+        "cost_fit": {
+          "kernel": -7.271766662597656e-06,
+          "lowrank16": 0.00020968914031982422,
+          "lowrank4": 0.0007013082504272461,
+          "runmean": -6.9141387939453125e-06
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 1.990795135498047e-05
+      },
+      "17.6": {
+        "cost_fit": {
+          "kernel": 0.0022302865982055664,
+          "lowrank16": 0.0013791322708129883,
+          "lowrank4": 0.0031998157501220703,
+          "runmean": 0.002159714698791504
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.003006577491760254
+      },
+      "17.7": {
+        "cost_fit": {
+          "kernel": 0.0003415346145629883,
+          "lowrank16": 0.00019228458404541016,
+          "lowrank4": 0.00030934810638427734,
+          "runmean": 0.00029540061950683594
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.00034105777740478516
+      },
+      "17.8": {
+        "cost_fit": {
+          "kernel": 0.0006746053695678711,
+          "lowrank16": 4.112720489501953e-05,
+          "lowrank4": 0.0001958608627319336,
+          "runmean": 0.0006676912307739258
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0008087158203125
+      },
+      "2.0": {
+        "cost_fit": {
+          "gate": 0.0010924339294433594,
+          "kernel": 0.0024596452713012695,
+          "lowrank16": 0.0003293752670288086,
+          "lowrank4": 0.0018389225006103516,
+          "runmean": 0.00360715389251709
+        },
+        "recovery": {
+          "gate": null,
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.004078030586242676
+      },
+      "2.1": {
+        "cost_fit": {
+          "kernel": 0.0005584955215454102,
+          "lowrank16": 0.00028324127197265625,
+          "lowrank4": 0.000760197639465332,
+          "runmean": 0.0005339384078979492
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0007954835891723633
+      },
+      "2.2": {
+        "cost_fit": {
+          "gate": 0.007372498512268066,
+          "kernel": 0.00461268424987793,
+          "lowrank16": 0.002247452735900879,
+          "lowrank4": 0.002089977264404297,
+          "runmean": 0.00944221019744873
+        },
+        "recovery": {
+          "gate": 0.16382737081203858,
+          "kernel": 0.4768394581001054,
+          "lowrank16": 0.7450988345366539,
+          "lowrank4": 0.7629593575079094,
+          "runmean": -0.07091479408344825
+        },
+        "value_fit": 0.008816957473754883
+      },
+      "2.3": {
+        "cost_fit": {
+          "gate": 0.009786248207092285,
+          "kernel": 0.008120059967041016,
+          "lowrank16": 0.0033125877380371094,
+          "lowrank4": 0.007273077964782715,
+          "runmean": 0.009366273880004883
+        },
+        "recovery": {
+          "gate": 0.0842229733498433,
+          "kernel": 0.24014144997378495,
+          "lowrank16": 0.6900148366297425,
+          "lowrank4": 0.3194002878083063,
+          "runmean": 0.12352330912620058
+        },
+        "value_fit": 0.010686278343200684
+      },
+      "2.4": {
+        "cost_fit": {
+          "gate": 0.002321958541870117,
+          "kernel": 0.0005637407302856445,
+          "lowrank16": 0.0002551078796386719,
+          "lowrank4": 0.0031480789184570312,
+          "runmean": 0.0006809234619140625
+        },
+        "recovery": {
+          "gate": null,
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0005292892456054688
+      },
+      "2.5": {
+        "cost_fit": {
+          "kernel": 0.02961421012878418,
+          "lowrank16": 0.012484431266784668,
+          "lowrank4": 0.026497244834899902,
+          "runmean": 0.02978050708770752
+        },
+        "recovery": {
+          "kernel": 0.05477914458239319,
+          "lowrank16": 0.6015242429200325,
+          "lowrank4": 0.1542658635791172,
+          "runmean": 0.04947130915192588
+        },
+        "value_fit": 0.03133046627044678
+      },
+      "2.6": {
+        "cost_fit": {
+          "gate": 0.09714758396148682,
+          "kernel": 0.0009028911590576172,
+          "lowrank16": 0.00021946430206298828,
+          "lowrank4": 0.001453995704650879,
+          "runmean": 0.008900046348571777
+        },
+        "recovery": {
+          "gate": -9.373515446988888,
+          "kernel": 0.9035883857992082,
+          "lowrank16": 0.9765653839789203,
+          "lowrank4": 0.8447408953779961,
+          "runmean": 0.049644216448783696
+        },
+        "value_fit": 0.009364962577819824
+      },
+      "2.7": {
+        "cost_fit": {
+          "gate": 0.5261698961257935,
+          "kernel": 0.0017830133438110352,
+          "lowrank16": 0.0008736848831176758,
+          "lowrank4": 0.0025442838668823242,
+          "runmean": 0.0024123191833496094
+        },
+        "recovery": {
+          "gate": null,
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0038536787033081055
+      },
+      "2.8": {
+        "cost_fit": {
+          "gate": 0.007261991500854492,
+          "kernel": 0.0019333362579345703,
+          "lowrank16": 0.00034046173095703125,
+          "lowrank4": 0.0010074377059936523,
+          "runmean": 0.002929091453552246
+        },
+        "recovery": {
+          "gate": null,
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0030804872512817383
+      },
+      "3.0": {
+        "cost_fit": {
+          "kernel": 0.004599094390869141,
+          "lowrank16": 0.0012385845184326172,
+          "lowrank4": 0.00454556941986084,
+          "runmean": 0.005462288856506348
+        },
+        "recovery": {
+          "kernel": 0.18514763654796607,
+          "lowrank16": 0.7805516833523423,
+          "lowrank4": 0.19463101423562712,
+          "runmean": 0.03220969036455035
+        },
+        "value_fit": 0.005644083023071289
+      },
+      "3.1": {
+        "cost_fit": {
+          "kernel": 0.0019720792770385742,
+          "lowrank16": 0.0017800331115722656,
+          "lowrank4": 0.002238631248474121,
+          "runmean": 0.002673506736755371
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.003568291664123535
+      },
+      "3.2": {
+        "cost_fit": {
+          "kernel": 0.001217484474182129,
+          "lowrank16": 0.0006393194198608398,
+          "lowrank4": 0.0019394159317016602,
+          "runmean": 0.001265883445739746
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0009523630142211914
+      },
+      "3.3": {
+        "cost_fit": {
+          "kernel": 0.003307938575744629,
+          "lowrank16": 0.00151824951171875,
+          "lowrank4": 0.004210829734802246,
+          "runmean": 0.003373265266418457
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.003436446189880371
+      },
+      "3.4": {
+        "cost_fit": {
+          "kernel": 0.002877354621887207,
+          "lowrank16": 0.0018097162246704102,
+          "lowrank4": 0.0028803348541259766,
+          "runmean": 0.006316781044006348
+        },
+        "recovery": {
+          "kernel": 0.6101716814445144,
+          "lowrank16": 0.7548169323449133,
+          "lowrank4": 0.6097679151121662,
+          "runmean": 0.14419303260816896
+        },
+        "value_fit": 0.007381081581115723
+      },
+      "3.5": {
+        "cost_fit": {
+          "kernel": 0.004470944404602051,
+          "lowrank16": 0.0030198097229003906,
+          "lowrank4": 0.005192875862121582,
+          "runmean": 0.004676938056945801
+        },
+        "recovery": {
+          "kernel": 0.42620442758135335,
+          "lowrank16": 0.6124412894145006,
+          "lowrank4": 0.33355262151370046,
+          "runmean": 0.39976745253430845
+        },
+        "value_fit": 0.007791876792907715
+      },
+      "3.6": {
+        "cost_fit": {
+          "kernel": 0.002103447914123535,
+          "lowrank16": 0.0012537240982055664,
+          "lowrank4": 0.0027898550033569336,
+          "runmean": 0.005228757858276367
+        },
+        "recovery": {
+          "kernel": 0.6357950792602378,
+          "lowrank16": 0.7829218956406869,
+          "lowrank4": 0.5169460039630118,
+          "runmean": 0.09465819022457067
+        },
+        "value_fit": 0.00577545166015625
+      },
+      "3.7": {
+        "cost_fit": {
+          "kernel": 0.00043022632598876953,
+          "lowrank16": -9.5367431640625e-06,
+          "lowrank4": 0.0010181665420532227,
+          "runmean": 0.0014187097549438477
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0015431642532348633
+      },
+      "3.8": {
+        "cost_fit": {
+          "kernel": 0.019467830657958984,
+          "lowrank16": 0.00933825969696045,
+          "lowrank4": 0.01973140239715576,
+          "runmean": 0.018687009811401367
+        },
+        "recovery": {
+          "kernel": 0.02701929779615475,
+          "lowrank16": 0.5332840809566083,
+          "lowrank4": 0.01384627300512975,
+          "runmean": 0.06604386241904636
+        },
+        "value_fit": 0.020008444786071777
+      },
+      "4.0": {
+        "cost_fit": {
+          "kernel": 0.0025959014892578125,
+          "lowrank16": 0.00047004222869873047,
+          "lowrank4": 0.00225222110748291,
+          "runmean": 0.009494304656982422
+        },
+        "recovery": {
+          "kernel": 0.7970606600001864,
+          "lowrank16": 0.9632535903003644,
+          "lowrank4": 0.823928501533042,
+          "runmean": 0.2577653933254429
+        },
+        "value_fit": 0.01279151439666748
+      },
+      "4.1": {
+        "cost_fit": {
+          "kernel": 0.005045175552368164,
+          "lowrank16": 0.001522660255432129,
+          "lowrank4": 0.003641486167907715,
+          "runmean": 0.011930108070373535
+        },
+        "recovery": {
+          "kernel": 0.6336487106463649,
+          "lowrank16": 0.8894332730278819,
+          "lowrank4": 0.7355764652926258,
+          "runmean": 0.13370497649818647
+        },
+        "value_fit": 0.013771414756774902
+      },
+      "4.2": {
+        "cost_fit": {
+          "kernel": 0.0010701417922973633,
+          "lowrank16": 0.0006501674652099609,
+          "lowrank4": 0.0013773441314697266,
+          "runmean": 0.0013420581817626953
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0016540288925170898
+      },
+      "4.3": {
+        "cost_fit": {
+          "kernel": 0.0007568597793579102,
+          "lowrank16": 0.00010097026824951172,
+          "lowrank4": 0.0003522634506225586,
+          "runmean": 0.0016459226608276367
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0019725561141967773
+      },
+      "4.4": {
+        "cost_fit": {
+          "kernel": 0.003932476043701172,
+          "lowrank16": 0.0011125802993774414,
+          "lowrank4": 0.0032601356506347656,
+          "runmean": 0.007067441940307617
+        },
+        "recovery": {
+          "kernel": 0.5672399543468849,
+          "lowrank16": 0.8775630682041796,
+          "lowrank4": 0.6412294856153331,
+          "runmean": 0.22224408674091856
+        },
+        "value_fit": 0.009086966514587402
+      },
+      "4.5": {
+        "cost_fit": {
+          "kernel": 0.00552213191986084,
+          "lowrank16": 0.002015829086303711,
+          "lowrank4": 0.004802107810974121,
+          "runmean": 0.00895678997039795
+        },
+        "recovery": {
+          "kernel": 0.4870781291522721,
+          "lowrank16": 0.8127602090530606,
+          "lowrank4": 0.5539573921516521,
+          "runmean": 0.1680507573744353
+        },
+        "value_fit": 0.010766029357910156
+      },
+      "4.6": {
+        "cost_fit": {
+          "kernel": 0.002530813217163086,
+          "lowrank16": 0.0022039413452148438,
+          "lowrank4": 0.012011170387268066,
+          "runmean": 0.002901315689086914
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.003464937210083008
+      },
+      "4.7": {
+        "cost_fit": {
+          "kernel": 0.0012612342834472656,
+          "lowrank16": 0.0004496574401855469,
+          "lowrank4": 0.0024608373641967773,
+          "runmean": 0.006247520446777344
+        },
+        "recovery": {
+          "kernel": 0.8389943998052106,
+          "lowrank16": 0.9425980034088142,
+          "lowrank4": 0.6858564645726808,
+          "runmean": 0.20245921597272953
+        },
+        "value_fit": 0.007833480834960938
+      },
+      "4.8": {
+        "cost_fit": {
+          "kernel": 0.0013707876205444336,
+          "lowrank16": 0.0008013248443603516,
+          "lowrank4": 0.0009491443634033203,
+          "runmean": 0.0014431476593017578
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.002222299575805664
+      },
+      "5.0": {
+        "cost_fit": {
+          "kernel": 0.0028399229049682617,
+          "lowrank16": 0.002060532569885254,
+          "lowrank4": 0.0036107301712036133,
+          "runmean": 0.002819657325744629
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.004355788230895996
+      },
+      "5.1": {
+        "cost_fit": {
+          "kernel": 0.0034281015396118164,
+          "lowrank16": 0.00345611572265625,
+          "lowrank4": 0.005172371864318848,
+          "runmean": 0.0032352209091186523
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0034481287002563477
+      },
+      "5.2": {
+        "cost_fit": {
+          "kernel": 0.003519415855407715,
+          "lowrank16": 0.0027736425399780273,
+          "lowrank4": 0.004016518592834473,
+          "runmean": 0.0034607648849487305
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.002324700355529785
+      },
+      "5.3": {
+        "cost_fit": {
+          "kernel": 0.005791306495666504,
+          "lowrank16": 0.002912759780883789,
+          "lowrank4": 0.005899548530578613,
+          "runmean": 0.007527709007263184
+        },
+        "recovery": {
+          "kernel": 0.31709751331899516,
+          "lowrank16": 0.6565315790213526,
+          "lowrank4": 0.30433376909993115,
+          "runmean": 0.1123434403070046
+        },
+        "value_fit": 0.008480429649353027
+      },
+      "5.4": {
+        "cost_fit": {
+          "kernel": 0.002819061279296875,
+          "lowrank16": 0.0018309354782104492,
+          "lowrank4": 0.0025377273559570312,
+          "runmean": 0.003102898597717285
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0035457611083984375
+      },
+      "5.5": {
+        "cost_fit": {
+          "kernel": 0.009704113006591797,
+          "lowrank16": 0.005390286445617676,
+          "lowrank4": 0.01107168197631836,
+          "runmean": 0.009791135787963867
+        },
+        "recovery": {
+          "kernel": 0.028835256081411575,
+          "lowrank16": 0.46055284475250835,
+          "lowrank4": -0.10802782119039378,
+          "runmean": 0.020126221352644302
+        },
+        "value_fit": 0.009992241859436035
+      },
+      "5.6": {
+        "cost_fit": {
+          "kernel": 0.0033991336822509766,
+          "lowrank16": 0.0019987821578979492,
+          "lowrank4": 0.0033112764358520508,
+          "runmean": 0.007754921913146973
+        },
+        "recovery": {
+          "kernel": 0.6280750267393629,
+          "lowrank16": 0.7812980982443325,
+          "lowrank4": 0.6376881538100332,
+          "runmean": 0.15147523021939324
+        },
+        "value_fit": 0.009139299392700195
+      },
+      "5.7": {
+        "cost_fit": {
+          "kernel": 0.07487940788269043,
+          "lowrank16": 0.07162988185882568,
+          "lowrank4": 0.08304572105407715,
+          "runmean": 0.05679655075073242
+        },
+        "recovery": {
+          "kernel": -4.48842695745629,
+          "lowrank16": -4.250246839148252,
+          "lowrank4": -5.086992232212291,
+          "runmean": -3.163009952204951
+        },
+        "value_fit": 0.013643145561218262
+      },
+      "5.8": {
+        "cost_fit": {
+          "kernel": 0.005089402198791504,
+          "lowrank16": 0.0011310577392578125,
+          "lowrank4": 0.003870368003845215,
+          "runmean": 0.006439566612243652
+        },
+        "recovery": {
+          "kernel": 0.3827815526962556,
+          "lowrank16": 0.8628307069538818,
+          "lowrank4": 0.5306202110741651,
+          "runmean": 0.2190400462628307
+        },
+        "value_fit": 0.008245706558227539
+      },
+      "6.0": {
+        "cost_fit": {
+          "kernel": 0.001114964485168457,
+          "lowrank16": 0.00023114681243896484,
+          "lowrank4": 0.0007693767547607422,
+          "runmean": 0.0011626482009887695
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0014870166778564453
+      },
+      "6.1": {
+        "cost_fit": {
+          "kernel": 0.0030363798141479492,
+          "lowrank16": 0.0015635490417480469,
+          "lowrank4": 0.003226637840270996,
+          "runmean": 0.00306856632232666
+        },
+        "recovery": {
+          "kernel": 0.4445074477133448,
+          "lowrank16": 0.713955466381698,
+          "lowrank4": 0.4097005648485377,
+          "runmean": 0.4386190652738098
+        },
+        "value_fit": 0.005466103553771973
+      },
+      "6.2": {
+        "cost_fit": {
+          "kernel": 0.00023794174194335938,
+          "lowrank16": 7.164478302001953e-05,
+          "lowrank4": 0.0010164976119995117,
+          "runmean": 0.00023484230041503906
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0002372264862060547
+      },
+      "6.3": {
+        "cost_fit": {
+          "kernel": 0.007264494895935059,
+          "lowrank16": 0.0008352994918823242,
+          "lowrank4": 0.0033434629440307617,
+          "runmean": 0.01712942123413086
+        },
+        "recovery": {
+          "kernel": 0.6615383760906874,
+          "lowrank16": 0.9610823840441662,
+          "lowrank4": 0.844224008175643,
+          "runmean": 0.20191949879753623
+        },
+        "value_fit": 0.02146327495574951
+      },
+      "6.4": {
+        "cost_fit": {
+          "kernel": 0.00042641162872314453,
+          "lowrank16": -0.00022780895233154297,
+          "lowrank4": 0.0004703998565673828,
+          "runmean": 0.0005217790603637695
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0009222030639648438
+      },
+      "6.5": {
+        "cost_fit": {
+          "kernel": 0.0021554231643676758,
+          "lowrank16": 0.0012974739074707031,
+          "lowrank4": 0.002194523811340332,
+          "runmean": 0.0022344589233398438
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0022760629653930664
+      },
+      "6.6": {
+        "cost_fit": {
+          "kernel": 0.0005693435668945312,
+          "lowrank16": 0.000293731689453125,
+          "lowrank4": 0.0013848543167114258,
+          "runmean": 0.0005612373352050781
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0005240440368652344
+      },
+      "6.7": {
+        "cost_fit": {
+          "kernel": 0.00356137752532959,
+          "lowrank16": 0.0017794370651245117,
+          "lowrank4": 0.003202080726623535,
+          "runmean": 0.003754854202270508
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.004250764846801758
+      },
+      "6.8": {
+        "cost_fit": {
+          "kernel": 0.0004633665084838867,
+          "lowrank16": -0.0001430511474609375,
+          "lowrank4": 0.0005729198455810547,
+          "runmean": 0.0005093812942504883
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0007833242416381836
+      },
+      "7.0": {
+        "cost_fit": {
+          "kernel": 0.0067636966705322266,
+          "lowrank16": 0.0023490190505981445,
+          "lowrank4": 0.004750609397888184,
+          "runmean": 0.007311344146728516
+        },
+        "recovery": {
+          "kernel": 0.4931799301467633,
+          "lowrank16": 0.8239823491053961,
+          "lowrank4": 0.6440254044252294,
+          "runmean": 0.45214338672073895
+        },
+        "value_fit": 0.01334536075592041
+      },
+      "7.1": {
+        "cost_fit": {
+          "kernel": 0.001511216163635254,
+          "lowrank16": 0.0010075569152832031,
+          "lowrank4": 0.0031059980392456055,
+          "runmean": 0.001744389533996582
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.001981377601623535
+      },
+      "7.2": {
+        "cost_fit": {
+          "kernel": 0.0008807182312011719,
+          "lowrank16": -0.00011789798736572266,
+          "lowrank4": 0.0005894899368286133,
+          "runmean": 0.001590728759765625
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0024111270904541016
+      },
+      "7.3": {
+        "cost_fit": {
+          "kernel": 0.0021349191665649414,
+          "lowrank16": 0.0020520687103271484,
+          "lowrank4": 0.0024143457412719727,
+          "runmean": 0.002122163772583008
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0021799802780151367
+      },
+      "7.4": {
+        "cost_fit": {
+          "kernel": 0.0006650686264038086,
+          "lowrank16": 0.0005846023559570312,
+          "lowrank4": 0.0011996030807495117,
+          "runmean": 0.000647425651550293
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0006740093231201172
+      },
+      "7.5": {
+        "cost_fit": {
+          "kernel": 0.0020383596420288086,
+          "lowrank16": 0.000500798225402832,
+          "lowrank4": 0.0015527009963989258,
+          "runmean": 0.0020464658737182617
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0022535324096679688
+      },
+      "7.6": {
+        "cost_fit": {
+          "kernel": 0.00013720989227294922,
+          "lowrank16": 0.00010502338409423828,
+          "lowrank4": 0.00500643253326416,
+          "runmean": 0.00010454654693603516
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 7.82012939453125e-05
+      },
+      "7.7": {
+        "cost_fit": {
+          "kernel": 0.0011227130889892578,
+          "lowrank16": 0.0003223419189453125,
+          "lowrank4": 0.0013126134872436523,
+          "runmean": 0.0016896724700927734
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0024704933166503906
+      },
+      "7.8": {
+        "cost_fit": {
+          "kernel": 0.0041664838790893555,
+          "lowrank16": 0.0010268688201904297,
+          "lowrank4": 0.0030649900436401367,
+          "runmean": 0.01423346996307373
+        },
+        "recovery": {
+          "kernel": 0.8055858401566394,
+          "lowrank16": 0.9520848166607334,
+          "lowrank4": 0.8569831345674617,
+          "runmean": 0.3358457191171236
+        },
+        "value_fit": 0.02143096923828125
+      },
+      "8.0": {
+        "cost_fit": {
+          "kernel": 3.933906555175781e-06,
+          "lowrank16": 0.00016701221466064453,
+          "lowrank4": 0.0026540756225585938,
+          "runmean": 5.9604644775390625e-06
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 2.7418136596679688e-06
+      },
+      "8.1": {
+        "cost_fit": {
+          "kernel": 0.0037087202072143555,
+          "lowrank16": 0.0027794837951660156,
+          "lowrank4": 0.003664374351501465,
+          "runmean": 0.004465460777282715
+        },
+        "recovery": {
+          "kernel": 0.3311044699103438,
+          "lowrank16": 0.498699232439638,
+          "lowrank4": 0.33910257788480147,
+          "runmean": 0.19462062737846964
+        },
+        "value_fit": 0.005544543266296387
+      },
+      "8.2": {
+        "cost_fit": {
+          "kernel": 0.0024641752243041992,
+          "lowrank16": 0.0009597539901733398,
+          "lowrank4": 0.0027832984924316406,
+          "runmean": 0.002503633499145508
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0025136470794677734
+      },
+      "8.3": {
+        "cost_fit": {
+          "kernel": 0.007924556732177734,
+          "lowrank16": 0.0066318511962890625,
+          "lowrank4": 0.007858514785766602,
+          "runmean": 0.00803673267364502
+        },
+        "recovery": {
+          "kernel": -0.004563725934657148,
+          "lowrank16": 0.1593072808051501,
+          "lowrank4": 0.003808142170641071,
+          "runmean": -0.018783812373439623
+        },
+        "value_fit": 0.007888555526733398
+      },
+      "8.4": {
+        "cost_fit": {
+          "kernel": 0.0034317970275878906,
+          "lowrank16": 0.0028373003005981445,
+          "lowrank4": 0.003237605094909668,
+          "runmean": 0.003475785255432129
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.003474593162536621
+      },
+      "8.5": {
+        "cost_fit": {
+          "kernel": 0.0006566047668457031,
+          "lowrank16": 0.0003587007522583008,
+          "lowrank4": 0.0008605718612670898,
+          "runmean": 0.0006814002990722656
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0007354021072387695
+      },
+      "8.6": {
+        "cost_fit": {
+          "kernel": 0.0009649991989135742,
+          "lowrank16": 0.0005779266357421875,
+          "lowrank4": 0.0009024143218994141,
+          "runmean": 0.0009530782699584961
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.000826716423034668
+      },
+      "8.7": {
+        "cost_fit": {
+          "kernel": 0.0016834735870361328,
+          "lowrank16": 0.0002218484878540039,
+          "lowrank4": 0.0009301900863647461,
+          "runmean": 0.001704096794128418
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0017608404159545898
+      },
+      "8.8": {
+        "cost_fit": {
+          "kernel": 0.001727461814880371,
+          "lowrank16": 0.0006165504455566406,
+          "lowrank4": 0.0010905265808105469,
+          "runmean": 0.0018548965454101562
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.003009200096130371
+      },
+      "9.0": {
+        "cost_fit": {
+          "kernel": 0.0009185075759887695,
+          "lowrank16": 0.0003453493118286133,
+          "lowrank4": 0.000599980354309082,
+          "runmean": 0.0009304285049438477
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0009812116622924805
+      },
+      "9.1": {
+        "cost_fit": {
+          "kernel": 0.0023213624954223633,
+          "lowrank16": 0.0009316205978393555,
+          "lowrank4": 0.0016082525253295898,
+          "runmean": 0.0024656057357788086
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.002413511276245117
+      },
+      "9.2": {
+        "cost_fit": {
+          "kernel": 0.00011157989501953125,
+          "lowrank16": 0.0003660917282104492,
+          "lowrank4": 0.0011848211288452148,
+          "runmean": 0.00012493133544921875
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.00020956993103027344
+      },
+      "9.3": {
+        "cost_fit": {
+          "kernel": 0.002716541290283203,
+          "lowrank16": 0.0025919675827026367,
+          "lowrank4": 0.005701661109924316,
+          "runmean": 0.0027011632919311523
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0025469064712524414
+      },
+      "9.4": {
+        "cost_fit": {
+          "kernel": 0.001343846321105957,
+          "lowrank16": 0.0009059906005859375,
+          "lowrank4": 0.0018987655639648438,
+          "runmean": 0.0014423131942749023
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.001898646354675293
+      },
+      "9.5": {
+        "cost_fit": {
+          "kernel": 0.0009381771087646484,
+          "lowrank16": 0.00033473968505859375,
+          "lowrank4": 0.0011900663375854492,
+          "runmean": 0.0010876655578613281
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.001370549201965332
+      },
+      "9.6": {
+        "cost_fit": {
+          "kernel": 0.0035730600357055664,
+          "lowrank16": 0.0018123388290405273,
+          "lowrank4": 0.004461169242858887,
+          "runmean": 0.003954172134399414
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0038002729415893555
+      },
+      "9.7": {
+        "cost_fit": {
+          "kernel": 0.004173994064331055,
+          "lowrank16": 0.0018104314804077148,
+          "lowrank4": 0.004785418510437012,
+          "runmean": 0.012676239013671875
+        },
+        "recovery": {
+          "kernel": 0.7533148276007835,
+          "lowrank16": 0.8930025785906522,
+          "lowrank4": 0.7171793318209359,
+          "runmean": 0.25082782623398947
+        },
+        "value_fit": 0.01692032814025879
+      },
+      "9.8": {
+        "cost_fit": {
+          "kernel": 0.0019932985305786133,
+          "lowrank16": 0.0014024972915649414,
+          "lowrank4": 0.0027256011962890625,
+          "runmean": 0.0020036697387695312
+        },
+        "recovery": {
+          "kernel": null,
+          "lowrank16": null,
+          "lowrank4": null,
+          "runmean": null
+        },
+        "value_fit": 0.0031142234802246094
+      }
+    },
+    "joint": {
+      "0.5": {
+        "cost": 1.1923799514770503,
+        "counts": {
+          "gate": 0,
+          "kernel": 142,
+          "lowrank16": 10,
+          "lowrank4": 5,
+          "native": 4,
+          "runmean": 1
+        },
+        "price_values": 3361438,
+        "recovery": 0.7016116786847442
+      },
+      "0.75": {
+        "cost": 0.8047611316045122,
+        "counts": {
+          "gate": 0,
+          "kernel": 133,
+          "lowrank16": 12,
+          "lowrank4": 3,
+          "native": 14,
+          "runmean": 0
+        },
+        "price_values": 9377940,
+        "recovery": 0.7986117404760325
+      },
+      "0.9": {
+        "cost": 0.5065043369928994,
+        "counts": {
+          "gate": 0,
+          "kernel": 129,
+          "lowrank16": 5,
+          "lowrank4": 0,
+          "native": 28,
+          "runmean": 0
+        },
+        "price_values": 16993414,
+        "recovery": 0.8732493122959751
+      }
+    },
+    "joint_value_all_mean_ablated": 3.9960677623748775,
+    "n_big": 5,
+    "n_rescued_lowrank16": 0,
+    "n_weak_kernel": 2,
+    "native": 3.1324122746785483,
+    "native_fit": 3.3230870962142944,
+    "selections": {
+      "0.5": {
+        "0.0": "kernel",
+        "0.1": "kernel",
+        "0.2": "kernel",
+        "0.3": "kernel",
+        "0.4": "kernel",
+        "0.5": "kernel",
+        "0.6": "kernel",
+        "0.7": "kernel",
+        "0.8": "lowrank4",
+        "1.0": "kernel",
+        "1.1": "kernel",
+        "1.2": "kernel",
+        "1.3": "kernel",
+        "1.4": "runmean",
+        "1.5": "kernel",
+        "1.6": "kernel",
+        "1.7": "kernel",
+        "1.8": "kernel",
+        "10.0": "kernel",
+        "10.1": "kernel",
+        "10.2": "kernel",
+        "10.3": "kernel",
+        "10.4": "kernel",
+        "10.5": "kernel",
+        "10.6": "kernel",
+        "10.7": "kernel",
+        "10.8": "kernel",
+        "11.0": "kernel",
+        "11.1": "kernel",
+        "11.2": "lowrank16",
+        "11.3": "kernel",
+        "11.4": "kernel",
+        "11.5": "kernel",
+        "11.6": "kernel",
+        "11.7": "kernel",
+        "11.8": "kernel",
+        "12.0": "kernel",
+        "12.1": "kernel",
+        "12.2": "kernel",
+        "12.3": "kernel",
+        "12.4": "kernel",
+        "12.5": "kernel",
+        "12.6": "kernel",
+        "12.7": "kernel",
+        "12.8": "kernel",
+        "13.0": "lowrank16",
+        "13.1": "kernel",
+        "13.2": "kernel",
+        "13.3": "kernel",
+        "13.4": "kernel",
+        "13.5": "kernel",
+        "13.6": "kernel",
+        "13.7": "kernel",
+        "13.8": "kernel",
+        "14.0": "kernel",
+        "14.1": "kernel",
+        "14.2": "kernel",
+        "14.3": "kernel",
+        "14.4": "lowrank16",
+        "14.5": "kernel",
+        "14.6": "kernel",
+        "14.7": "kernel",
+        "14.8": "kernel",
+        "15.0": "kernel",
+        "15.1": "kernel",
+        "15.2": "kernel",
+        "15.3": "kernel",
+        "15.4": "kernel",
+        "15.5": "kernel",
+        "15.6": "kernel",
+        "15.7": "kernel",
+        "15.8": "kernel",
+        "16.0": "kernel",
+        "16.1": "kernel",
+        "16.2": "kernel",
+        "16.3": "kernel",
+        "16.4": "kernel",
+        "16.5": "kernel",
+        "16.6": "kernel",
+        "16.7": "kernel",
+        "16.8": "kernel",
+        "17.0": "kernel",
+        "17.1": "kernel",
+        "17.2": "kernel",
+        "17.3": "kernel",
+        "17.4": "kernel",
+        "17.5": "kernel",
+        "17.6": "kernel",
+        "17.7": "kernel",
+        "17.8": "kernel",
+        "2.0": "kernel",
+        "2.1": "kernel",
+        "2.2": "lowrank4",
+        "2.3": "lowrank16",
+        "2.4": "kernel",
+        "2.5": "lowrank16",
+        "2.6": "kernel",
+        "2.7": "kernel",
+        "2.8": "kernel",
+        "3.0": "lowrank16",
+        "3.1": "kernel",
+        "3.2": "kernel",
+        "3.3": "kernel",
+        "3.4": "kernel",
+        "3.5": "lowrank16",
+        "3.6": "kernel",
+        "3.7": "kernel",
+        "3.8": "lowrank16",
+        "4.0": "kernel",
+        "4.1": "kernel",
+        "4.2": "kernel",
+        "4.3": "kernel",
+        "4.4": "kernel",
+        "4.5": "lowrank4",
+        "4.6": "kernel",
+        "4.7": "kernel",
+        "4.8": "kernel",
+        "5.0": "kernel",
+        "5.1": "kernel",
+        "5.2": "kernel",
+        "5.3": "lowrank16",
+        "5.4": "kernel",
+        "5.5": "native",
+        "5.6": "kernel",
+        "5.7": "native",
+        "5.8": "lowrank4",
+        "6.0": "kernel",
+        "6.1": "lowrank16",
+        "6.2": "kernel",
+        "6.3": "kernel",
+        "6.4": "kernel",
+        "6.5": "kernel",
+        "6.6": "kernel",
+        "6.7": "kernel",
+        "6.8": "kernel",
+        "7.0": "lowrank4",
+        "7.1": "kernel",
+        "7.2": "kernel",
+        "7.3": "kernel",
+        "7.4": "kernel",
+        "7.5": "kernel",
+        "7.6": "kernel",
+        "7.7": "kernel",
+        "7.8": "kernel",
+        "8.0": "kernel",
+        "8.1": "native",
+        "8.2": "kernel",
+        "8.3": "native",
+        "8.4": "kernel",
+        "8.5": "kernel",
+        "8.6": "kernel",
+        "8.7": "kernel",
+        "8.8": "kernel",
+        "9.0": "kernel",
+        "9.1": "kernel",
+        "9.2": "kernel",
+        "9.3": "kernel",
+        "9.4": "kernel",
+        "9.5": "kernel",
+        "9.6": "kernel",
+        "9.7": "kernel",
+        "9.8": "kernel"
+      },
+      "0.75": {
+        "0.0": "kernel",
+        "0.1": "kernel",
+        "0.2": "kernel",
+        "0.3": "kernel",
+        "0.4": "kernel",
+        "0.5": "kernel",
+        "0.6": "kernel",
+        "0.7": "kernel",
+        "0.8": "lowrank4",
+        "1.0": "kernel",
+        "1.1": "kernel",
+        "1.2": "kernel",
+        "1.3": "lowrank16",
+        "1.4": "native",
+        "1.5": "lowrank16",
+        "1.6": "kernel",
+        "1.7": "kernel",
+        "1.8": "kernel",
+        "10.0": "kernel",
+        "10.1": "kernel",
+        "10.2": "kernel",
+        "10.3": "kernel",
+        "10.4": "kernel",
+        "10.5": "kernel",
+        "10.6": "kernel",
+        "10.7": "kernel",
+        "10.8": "kernel",
+        "11.0": "kernel",
+        "11.1": "kernel",
+        "11.2": "lowrank16",
+        "11.3": "kernel",
+        "11.4": "kernel",
+        "11.5": "kernel",
+        "11.6": "native",
+        "11.7": "kernel",
+        "11.8": "kernel",
+        "12.0": "kernel",
+        "12.1": "kernel",
+        "12.2": "kernel",
+        "12.3": "kernel",
+        "12.4": "kernel",
+        "12.5": "kernel",
+        "12.6": "kernel",
+        "12.7": "kernel",
+        "12.8": "kernel",
+        "13.0": "native",
+        "13.1": "kernel",
+        "13.2": "kernel",
+        "13.3": "kernel",
+        "13.4": "kernel",
+        "13.5": "kernel",
+        "13.6": "kernel",
+        "13.7": "kernel",
+        "13.8": "kernel",
+        "14.0": "kernel",
+        "14.1": "kernel",
+        "14.2": "kernel",
+        "14.3": "kernel",
+        "14.4": "native",
+        "14.5": "kernel",
+        "14.6": "kernel",
+        "14.7": "kernel",
+        "14.8": "kernel",
+        "15.0": "kernel",
+        "15.1": "kernel",
+        "15.2": "kernel",
+        "15.3": "kernel",
+        "15.4": "kernel",
+        "15.5": "kernel",
+        "15.6": "kernel",
+        "15.7": "kernel",
+        "15.8": "kernel",
+        "16.0": "kernel",
+        "16.1": "kernel",
+        "16.2": "kernel",
+        "16.3": "kernel",
+        "16.4": "kernel",
+        "16.5": "kernel",
+        "16.6": "kernel",
+        "16.7": "kernel",
+        "16.8": "kernel",
+        "17.0": "kernel",
+        "17.1": "kernel",
+        "17.2": "kernel",
+        "17.3": "kernel",
+        "17.4": "kernel",
+        "17.5": "kernel",
+        "17.6": "kernel",
+        "17.7": "kernel",
+        "17.8": "kernel",
+        "2.0": "kernel",
+        "2.1": "kernel",
+        "2.2": "lowrank4",
+        "2.3": "native",
+        "2.4": "kernel",
+        "2.5": "native",
+        "2.6": "kernel",
+        "2.7": "kernel",
+        "2.8": "kernel",
+        "3.0": "lowrank16",
+        "3.1": "kernel",
+        "3.2": "kernel",
+        "3.3": "kernel",
+        "3.4": "lowrank16",
+        "3.5": "native",
+        "3.6": "lowrank16",
+        "3.7": "kernel",
+        "3.8": "native",
+        "4.0": "kernel",
+        "4.1": "lowrank16",
+        "4.2": "kernel",
+        "4.3": "kernel",
+        "4.4": "lowrank16",
+        "4.5": "lowrank16",
+        "4.6": "kernel",
+        "4.7": "kernel",
+        "4.8": "kernel",
+        "5.0": "kernel",
+        "5.1": "kernel",
+        "5.2": "kernel",
+        "5.3": "native",
+        "5.4": "kernel",
+        "5.5": "native",
+        "5.6": "lowrank16",
+        "5.7": "native",
+        "5.8": "lowrank16",
+        "6.0": "kernel",
+        "6.1": "native",
+        "6.2": "kernel",
+        "6.3": "lowrank4",
+        "6.4": "kernel",
+        "6.5": "kernel",
+        "6.6": "kernel",
+        "6.7": "kernel",
+        "6.8": "kernel",
+        "7.0": "lowrank16",
+        "7.1": "kernel",
+        "7.2": "kernel",
+        "7.3": "kernel",
+        "7.4": "kernel",
+        "7.5": "kernel",
+        "7.6": "kernel",
+        "7.7": "kernel",
+        "7.8": "kernel",
+        "8.0": "kernel",
+        "8.1": "native",
+        "8.2": "kernel",
+        "8.3": "native",
+        "8.4": "kernel",
+        "8.5": "kernel",
+        "8.6": "kernel",
+        "8.7": "kernel",
+        "8.8": "kernel",
+        "9.0": "kernel",
+        "9.1": "kernel",
+        "9.2": "kernel",
+        "9.3": "kernel",
+        "9.4": "kernel",
+        "9.5": "kernel",
+        "9.6": "kernel",
+        "9.7": "kernel",
+        "9.8": "kernel"
+      },
+      "0.9": {
+        "0.0": "kernel",
+        "0.1": "kernel",
+        "0.2": "kernel",
+        "0.3": "kernel",
+        "0.4": "kernel",
+        "0.5": "kernel",
+        "0.6": "kernel",
+        "0.7": "kernel",
+        "0.8": "lowrank16",
+        "1.0": "kernel",
+        "1.1": "kernel",
+        "1.2": "kernel",
+        "1.3": "native",
+        "1.4": "native",
+        "1.5": "native",
+        "1.6": "kernel",
+        "1.7": "kernel",
+        "1.8": "kernel",
+        "10.0": "kernel",
+        "10.1": "kernel",
+        "10.2": "kernel",
+        "10.3": "kernel",
+        "10.4": "kernel",
+        "10.5": "kernel",
+        "10.6": "kernel",
+        "10.7": "kernel",
+        "10.8": "kernel",
+        "11.0": "kernel",
+        "11.1": "kernel",
+        "11.2": "native",
+        "11.3": "kernel",
+        "11.4": "kernel",
+        "11.5": "kernel",
+        "11.6": "native",
+        "11.7": "kernel",
+        "11.8": "kernel",
+        "12.0": "kernel",
+        "12.1": "kernel",
+        "12.2": "kernel",
+        "12.3": "kernel",
+        "12.4": "kernel",
+        "12.5": "kernel",
+        "12.6": "kernel",
+        "12.7": "kernel",
+        "12.8": "kernel",
+        "13.0": "native",
+        "13.1": "kernel",
+        "13.2": "kernel",
+        "13.3": "kernel",
+        "13.4": "kernel",
+        "13.5": "kernel",
+        "13.6": "kernel",
+        "13.7": "kernel",
+        "13.8": "kernel",
+        "14.0": "kernel",
+        "14.1": "kernel",
+        "14.2": "kernel",
+        "14.3": "kernel",
+        "14.4": "native",
+        "14.5": "kernel",
+        "14.6": "kernel",
+        "14.7": "kernel",
+        "14.8": "kernel",
+        "15.0": "kernel",
+        "15.1": "kernel",
+        "15.2": "kernel",
+        "15.3": "kernel",
+        "15.4": "kernel",
+        "15.5": "kernel",
+        "15.6": "kernel",
+        "15.7": "kernel",
+        "15.8": "kernel",
+        "16.0": "kernel",
+        "16.1": "kernel",
+        "16.2": "kernel",
+        "16.3": "kernel",
+        "16.4": "kernel",
+        "16.5": "kernel",
+        "16.6": "kernel",
+        "16.7": "kernel",
+        "16.8": "kernel",
+        "17.0": "kernel",
+        "17.1": "kernel",
+        "17.2": "kernel",
+        "17.3": "kernel",
+        "17.4": "kernel",
+        "17.5": "kernel",
+        "17.6": "kernel",
+        "17.7": "kernel",
+        "17.8": "kernel",
+        "2.0": "kernel",
+        "2.1": "kernel",
+        "2.2": "native",
+        "2.3": "native",
+        "2.4": "kernel",
+        "2.5": "native",
+        "2.6": "kernel",
+        "2.7": "kernel",
+        "2.8": "kernel",
+        "3.0": "native",
+        "3.1": "kernel",
+        "3.2": "kernel",
+        "3.3": "kernel",
+        "3.4": "native",
+        "3.5": "native",
+        "3.6": "native",
+        "3.7": "kernel",
+        "3.8": "native",
+        "4.0": "lowrank16",
+        "4.1": "native",
+        "4.2": "kernel",
+        "4.3": "kernel",
+        "4.4": "native",
+        "4.5": "native",
+        "4.6": "kernel",
+        "4.7": "lowrank16",
+        "4.8": "kernel",
+        "5.0": "kernel",
+        "5.1": "kernel",
+        "5.2": "kernel",
+        "5.3": "native",
+        "5.4": "kernel",
+        "5.5": "native",
+        "5.6": "native",
+        "5.7": "native",
+        "5.8": "native",
+        "6.0": "kernel",
+        "6.1": "native",
+        "6.2": "kernel",
+        "6.3": "lowrank16",
+        "6.4": "kernel",
+        "6.5": "kernel",
+        "6.6": "kernel",
+        "6.7": "kernel",
+        "6.8": "kernel",
+        "7.0": "native",
+        "7.1": "kernel",
+        "7.2": "kernel",
+        "7.3": "kernel",
+        "7.4": "kernel",
+        "7.5": "kernel",
+        "7.6": "kernel",
+        "7.7": "kernel",
+        "7.8": "lowrank16",
+        "8.0": "kernel",
+        "8.1": "native",
+        "8.2": "kernel",
+        "8.3": "native",
+        "8.4": "kernel",
+        "8.5": "kernel",
+        "8.6": "kernel",
+        "8.7": "kernel",
+        "8.8": "kernel",
+        "9.0": "kernel",
+        "9.1": "kernel",
+        "9.2": "kernel",
+        "9.3": "kernel",
+        "9.4": "kernel",
+        "9.5": "kernel",
+        "9.6": "kernel",
+        "9.7": "native",
+        "9.8": "kernel"
+      }
+    }
+  },
+  "schema": "attention_program_ladder_result_v702",
+  "serial_seconds": 855.6436402241234
+}
