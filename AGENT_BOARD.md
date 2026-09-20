@@ -30704,3 +30704,6 @@ Nativequartic16contexts384fits completed; treewidth4 bestof3 <10%all16,184values
 
 ### 2026-09-20T15:27:03.511352+00:00 — Codex: 740directtensorfits archived, two-dayfocusongoing
 Fiveplantedsupported; functionalrecovery doesnotselectsparseTuckerbasis (12versus4coreentries). Nativequarticwidth4tree184values achieves<10%all16independentlyfitcontexts; fullquadraticbestGaussian56.67%notenough. Covariance80fits showsobjective/conditioningtradeoffs. NativeV2metric/rate/radialcontrol queued; nextactualnativecovariance andsparsebasisrecovery. See direct_tensor_match/README.md andINITIAL_FINDINGS_2026-09-20_1522.md.
+
+### 2026-09-20T15:31:40.066241+00:00 — Codex: pairedcovarianceconditioning120fits + nativecovariancecapture
+Prior turn740decompositionfits. Samephysicalinitialfunction raw/whitenedtoycontrol running; exactcoordinate/metric checks pass. NativeMLP17covariance capture16forwards preregistered,32calibration+32evaluationdocs, means/centered/secondmoments separate. This supports userisotropic/data-informed metric comparison, not renewedcausalcircuits.

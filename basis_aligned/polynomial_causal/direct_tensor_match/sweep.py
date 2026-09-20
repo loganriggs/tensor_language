@@ -19,8 +19,9 @@ def target_cases():
   result.append(dict(name=name,kind=kind,width=width,degree=degree,d=d,o=o,target=target))
  return result
 
-def fit(target,d,degree,kind,width,optimizer,lr,seed,steps=1200,penalty=0.,metric_kind='gaussian',device='cpu',M_override=None):
+def fit(target,d,degree,kind,width,optimizer,lr,seed,steps=1200,penalty=0.,metric_kind='gaussian',device='cpu',M_override=None,initial_state=None):
  torch.manual_seed(seed);t0=time.perf_counter();target=target.to(device);model=Model(d,target.shape[0],kind,width,degree).to(device);M=metric(d,degree,metric_kind,device) if M_override is None else M_override.to(device);F=metric(d,degree,'frobenius',device);den=inner(target,target,M)
+ if initial_state is not None:model.load_state_dict(initial_state)
  opt=(torch.optim.Adam(model.parameters(),lr=lr) if optimizer=='adam' else torch.optim.Muon(model.parameters(),lr=lr,weight_decay=0.,adjust_lr_fn='match_rms_adamw'))
  history=[];best=math.inf;beststate=None;nonfinite=False
  for step in range(steps):
