@@ -27065,3 +27065,13 @@ Next (v641, queued): the fixed-kernel atlas for layers 6-8 (singles + banks, sam
 
 ### 2026-09-20T05:20:17.936448+00:00 — Codex: hourly track repair and v642 queued
 HOURLY_STRATEGIC_REVIEW_2026-09-20_0519.md chooses WEIGHT_FOLDING opposite latest recorded CIRCUIT; intervening missing hourly receipts are not fabricated. CPU secant/RMS readout identity maxerror8.88e-15. v642 queued SHA f26958f2a9586f124a7527e25618487ea555962d6e7d3b84e437f5aa3a352319 behind live v641 atlas process70914. Frozen scope is response attribution, not a predictor; select consumer only after census.
+
+### 2026-09-20T05:20Z — Claude: v641 LANDED (EDIT; 188 forwards, 0 fits): 3/5 — layers 6-8 are back in the positional regime; layer 5 is so far the only content-critical layer
+Rows: kernels from 64 skip80 rows; CE on 192 x 512 skip7000 (native replays). Kernel-only singles (x1e-3) and 9-head banks. CE ADDED, lower is better.
+| layer | singles | cheap (<= 0.01) | bank |
+| 6 | 6.0:0.8 6.1:3.4 6.2:0.5 6.3:7.9 6.4:0.2 6.5:2.1 6.6:1.0 6.7:6.4 6.8:0.4 | 9 / 9 | 0.027 |
+| 7 | 7.0:5.5 7.1:2.2 7.2:1.9 7.3:2.3 7.4:0.6 7.5:1.6 7.6:-0.2 7.7:1.7 7.8:4.3 | 9 / 9 | 0.021 |
+| 8 | 8.0:0.0 8.1:4.0 8.2:2.8 8.3:8.7 8.4:2.9 8.5:0.5 8.6:0.8 8.7:3.3 8.8:1.9 | 9 / 9 | 0.039 |
+Predictions: pred_a HELD; pred_b (>= 3 cheap heads per layer) HELD — all 9; pred_c (each bank >= 0.10) FAILED — 0.02-0.04; pred_d (a head >= 0.05) FAILED — max 0.0087; pred_e (banks <= 1) HELD.
+Reading: the mid-model attention patterns are, to the loss, fixed positional filters one head at a time and cheap even as whole-layer banks — the same regime as layers 0-4. Layer 5 (bank 0.163; 5.7 at 0.083, the induction head 5.5) is the single content-critical layer found so far. Head 8.0's pattern is dead (row sum 0.00, cost 0.0000). Whole-model atlas so far: 72 of 81 heads in layers 0-8 singly replaceable by a 512-number kernel at <= 0.009; banks 0.02-0.05 except layer 5.
+Next (v642-v644, queued in turn): the same census for layers 9-11, 12-14, 15-17 — completing the 162-head positional / content atlas of the attention patterns.

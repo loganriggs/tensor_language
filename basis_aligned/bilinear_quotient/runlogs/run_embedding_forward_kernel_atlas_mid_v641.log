@@ -1,0 +1,15 @@
+layer 6 kernel-only singles: 6.0=+0.0008(sum-0.57) 6.1=+0.0034(sum+2.65) 6.2=+0.0005(sum+0.06) 6.3=+0.0079(sum+0.60) 6.4=+0.0002(sum-0.19) 6.5=+0.0021(sum-0.51) 6.6=+0.0010(sum-0.17) 6.7=+0.0064(sum-0.48) 6.8=+0.0004(sum+0.04)
+layer 7 kernel-only singles: 7.0=+0.0055(sum-1.45) 7.1=+0.0022(sum+0.82) 7.2=+0.0019(sum-1.48) 7.3=+0.0023(sum-0.20) 7.4=+0.0006(sum-0.42) 7.5=+0.0016(sum+0.04) 7.6=-0.0002(sum+0.41) 7.7=+0.0017(sum+0.92) 7.8=+0.0043(sum+0.71)
+layer 8 kernel-only singles: 8.0=+0.0000(sum-0.00) 8.1=+0.0040(sum+0.16) 8.2=+0.0028(sum-0.21) 8.3=+0.0087(sum-0.08) 8.4=+0.0029(sum+0.16) 8.5=+0.0005(sum+0.11) 8.6=+0.0008(sum+0.18) 8.7=+0.0033(sum+0.04) 8.8=+0.0019(sum+0.06)
+native 3.13241 | banks: layer6=+0.0274 layer7=+0.0214 layer8=+0.0385
+cheap heads per layer: {6: 9, 7: 9, 8: 9}
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_cheap_heads_persist": true,
+    "pred_c_banks_at_least_layer5": false,
+    "pred_d_a_content_critical_head": false,
+    "pred_e_banks_under_one": true
+  },
+  "forwards": 188
+}
