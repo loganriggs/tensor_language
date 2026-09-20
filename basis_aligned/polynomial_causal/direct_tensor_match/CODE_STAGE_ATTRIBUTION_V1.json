@@ -1,0 +1,157 @@
+{
+  "arms": [
+    [
+      "quartic26",
+      "NATIVE_QUARTIC_MEAN_V1.pt",
+      8
+    ],
+    [
+      "quartic12",
+      "FUSED_ROOT_PROGRAM_V1.pt",
+      6
+    ]
+  ],
+  "summary": {
+    "quartic26": {
+      "0": {
+        "native_ce_added": 0.40283544175326824,
+        "native_kl": 0.42250752449035645,
+        "native_argmax_agreement": 0.82763671875,
+        "predicted_ce_added": 0.5012409817427397,
+        "predicted_kl": 0.5227286461740732,
+        "predicted_argmax_agreement": 0.80029296875,
+        "effect_cosine": 0.9891877085866094,
+        "effect_relative_error": 0.17361777253027397,
+        "ce_effect_cosine": 0.9902211479356209,
+        "ce_effect_relative_error": 0.215140581613385,
+        "native_logit_effect_rms": 0.9724514781416134
+      },
+      "1": {
+        "native_ce_added": 0.0052332412742543966,
+        "native_kl": 0.026856858748942614,
+        "native_argmax_agreement": 0.93359375,
+        "predicted_ce_added": -0.0011614133836701512,
+        "predicted_kl": 0.013659812975674868,
+        "predicted_argmax_agreement": 0.94873046875,
+        "effect_cosine": 0.8775099565889022,
+        "effect_relative_error": 0.5125652212952134,
+        "ce_effect_cosine": 0.9142608365469399,
+        "ce_effect_relative_error": 0.4453235627257441,
+        "native_logit_effect_rms": 0.3929258547221373
+      },
+      "2": {
+        "native_ce_added": 0.04449078469770029,
+        "native_kl": 0.09733985620550811,
+        "native_argmax_agreement": 0.92138671875,
+        "predicted_ce_added": 0.030789817799814045,
+        "predicted_kl": 0.0653986600227654,
+        "predicted_argmax_agreement": 0.93310546875,
+        "effect_cosine": 0.8986114952998643,
+        "effect_relative_error": 0.4388809840341075,
+        "ce_effect_cosine": 0.9359291098753265,
+        "ce_effect_relative_error": 0.37259240427831725,
+        "native_logit_effect_rms": 0.53132716142247
+      },
+      "3": {
+        "native_ce_added": 0.03129845188232139,
+        "native_kl": 0.030748410732485354,
+        "native_argmax_agreement": 0.94970703125,
+        "predicted_ce_added": 0.012296079192310572,
+        "predicted_kl": 0.021317913429811597,
+        "predicted_argmax_agreement": 0.95751953125,
+        "effect_cosine": 0.8439956153065898,
+        "effect_relative_error": 0.5546160844409237,
+        "ce_effect_cosine": 0.8102379043629374,
+        "ce_effect_relative_error": 0.5861609786665816,
+        "native_logit_effect_rms": 0.37800936015654146
+      },
+      "joint": {
+        "native_ce_added": 0.49167126696556807,
+        "native_kl": 0.5697507821023464,
+        "native_argmax_agreement": 0.76123046875,
+        "predicted_ce_added": 0.5595828723162413,
+        "predicted_kl": 0.6227260734885931,
+        "predicted_argmax_agreement": 0.76171875,
+        "effect_cosine": 0.9768007310667418,
+        "effect_relative_error": 0.21998940757516203,
+        "ce_effect_cosine": 0.9913844115244096,
+        "ce_effect_relative_error": 0.17411162019925222,
+        "native_logit_effect_rms": 1.1227352764356613
+      }
+    },
+    "quartic12": {
+      "0": {
+        "native_ce_added": 0.40283544175326824,
+        "native_kl": 0.42250752449035645,
+        "native_argmax_agreement": 0.82763671875,
+        "predicted_ce_added": 0.5050215758383274,
+        "predicted_kl": 0.5247537922114134,
+        "predicted_argmax_agreement": 0.80029296875,
+        "effect_cosine": 0.9880434860800285,
+        "effect_relative_error": 0.18130629422997155,
+        "ce_effect_cosine": 0.9897967045903081,
+        "ce_effect_relative_error": 0.21972027187132187,
+        "native_logit_effect_rms": 0.9724514781416134
+      },
+      "1": {
+        "native_ce_added": 0.0052332412742543966,
+        "native_kl": 0.026856858748942614,
+        "native_argmax_agreement": 0.93359375,
+        "predicted_ce_added": -0.0014360194909386337,
+        "predicted_kl": 0.014127943257335573,
+        "predicted_argmax_agreement": 0.94873046875,
+        "effect_cosine": 0.8917271337415899,
+        "effect_relative_error": 0.48790819646516714,
+        "ce_effect_cosine": 0.9299541193591139,
+        "ce_effect_relative_error": 0.416844782179411,
+        "native_logit_effect_rms": 0.3929258547221373
+      },
+      "2": {
+        "native_ce_added": 0.04449078469770029,
+        "native_kl": 0.09733985620550811,
+        "native_argmax_agreement": 0.92138671875,
+        "predicted_ce_added": 0.028958178852917627,
+        "predicted_kl": 0.061505602207034826,
+        "predicted_argmax_agreement": 0.93994140625,
+        "effect_cosine": 0.8907123735700704,
+        "effect_relative_error": 0.4552839748724121,
+        "ce_effect_cosine": 0.9294341569480278,
+        "ce_effect_relative_error": 0.39553342268820696,
+        "native_logit_effect_rms": 0.53132716142247
+      },
+      "3": {
+        "native_ce_added": 0.03129845188232139,
+        "native_kl": 0.030748410732485354,
+        "native_argmax_agreement": 0.94970703125,
+        "predicted_ce_added": 0.0124101230467204,
+        "predicted_kl": 0.02140804653754458,
+        "predicted_argmax_agreement": 0.9560546875,
+        "effect_cosine": 0.8507882111300556,
+        "effect_relative_error": 0.5464809395472933,
+        "ce_effect_cosine": 0.8118255024629841,
+        "ce_effect_relative_error": 0.5839057770127822,
+        "native_logit_effect_rms": 0.37800936015654146
+      },
+      "joint": {
+        "native_ce_added": 0.49167126696556807,
+        "native_kl": 0.5697507821023464,
+        "native_argmax_agreement": 0.76123046875,
+        "predicted_ce_added": 0.5615151142701507,
+        "predicted_kl": 0.6222684513777494,
+        "predicted_argmax_agreement": 0.7646484375,
+        "effect_cosine": 0.9755410693272831,
+        "effect_relative_error": 0.22551283651872264,
+        "ce_effect_cosine": 0.9904813057690753,
+        "ce_effect_relative_error": 0.18109097088960247,
+        "native_logit_effect_rms": 1.1227352764356613
+      }
+    }
+  },
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_original": false,
+    "pred_c_intermediate": false
+  },
+  "native_replay_max": 1.6291093917969096e-15,
+  "scope": "Archived-stage attribution on reused code panel, fixed common feature basis, no refitting."
+}
