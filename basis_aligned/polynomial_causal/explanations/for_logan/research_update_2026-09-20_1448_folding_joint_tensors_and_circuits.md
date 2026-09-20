@@ -21,24 +21,24 @@ The shift toward conditional programs was motivated by those measured failures a
 
 For a bilinear MLP,
 
-\[
+$$
 B(h)=D[(Lh)\odot(Rh)],
-\]
+$$
 
-write its input as contributions from earlier computations, \(h=Ez\). With unembedding \(U\), the MLP's unnormalized projected contribution is
+write its input as contributions from earlier computations, $h=Ez$. With unembedding $U$, the MLP's unnormalized projected contribution is
 
-\[
+$$
 f(z)=C[(Az)\odot(Bz)],\qquad C=UD,\quad A=LE,\quad B=RE.
-\]
+$$
 
-Here the symbol \(B\) on the right denotes the contracted right-factor matrix, rather than the whole MLP. Equivalently,
+Here the symbol $B$ on the right denotes the contracted right-factor matrix, rather than the whole MLP. Equivalently,
 
-\[
+$$
 T_{vij}=\tfrac12\sum_k C_{vk}(A_{ki}B_{kj}+A_{kj}B_{ki}),
 \qquad f_v(z)=\sum_{ij}T_{vij}z_i z_j.
-\]
+$$
 
-The native last-layer experiment used **6,912 source coordinates**, 50,304 vocabulary outputs and 4,608 bilinear channels. The source assembly was \(E=[I,\lambda_{17,0}D_{16},O_{17}]\). An earlier prose dimension of 7,872 was corrected.
+The native last-layer experiment used **6,912 source coordinates**, 50,304 vocabulary outputs and 4,608 bilinear channels. The source assembly was $E=[I,\lambda_{17,0}D_{16},O_{17}]$. An earlier prose dimension of 7,872 was corrected.
 
 We evaluated this joint tensor through contractions, mode Gram matrices and streamed blocks rather than storing the enormous dense array. Exact QR-based changes of coordinates reduced the effective input and output ambient dimensions to 1,152. That is an exact algebraic reduction, not evidence that a much smaller semantic feature space exists; expanded feature adapters still cost storage and computation.
 
@@ -60,11 +60,11 @@ flowchart LR
 
 We tested the symmetric shared-input Tucker family
 
-\[
+$$
 T_{vij}\approx\sum_{\alpha,p,q}W_{v\alpha}G_{\alpha pq}P_{ip}P_{jq}.
-\]
+$$
 
-The same input features \(P^\top z\) feed both input slots; \(W\) supplies shared output directions; \(G\) specifies their pair interactions.
+The same input features $P^\top z$ feed both input slots; $W$ supplies shared output directions; $G$ specifies their pair interactions.
 
 | Experiment | Result | What it establishes |
 | --- | --- | --- |
@@ -120,7 +120,7 @@ flowchart BT
 
 The tree groups **tensor slots, not necessarily disjoint input coordinates**. Every leaf can read the same full vector. Ordinary HT targets compression; sparse cores, useful feature bases and explicit sharing between branches are additional objectives. A shared computation DAG allows one quadratic feature to feed several parents instead of being recomputed in separate branches.
 
-We ran a restricted native-weight benchmark: a two-MLP homogeneous numerator branch with five source-amplitude inputs and four output readers. The exact fold replayed at about \(6.6\times10^{-15}\) relative error.
+We ran a restricted native-weight benchmark: a two-MLP homogeneous numerator branch with five source-amplitude inputs and four output readers. The exact fold replayed at about $6.6\times10^{-15}$ relative error.
 
 | Representation | Stored values per context | Worst polynomial coefficient error |
 | --- | ---: | ---: |
@@ -130,7 +130,7 @@ We ran a restricted native-weight benchmark: a two-MLP homogeneous numerator bra
 
 **HT did not win this benchmark's accuracy–storage comparison.** Rank 8 met the 10% error bar but cost more than the exact canonical polynomial. Rank 2 saved storage but missed fidelity. This benchmark excluded RMS denominators, background/bias terms and the intervening attention path; it was not a full normalized-model or causal test.
 
-We retained your symmetry refinement: two coefficient tensors can compute the same polynomial when every input slot receives the same \(x\). For \((x^\top x)^2\), a compact representative has pair rank one, while the fully symmetric representative has pair rank \(d(d+1)/2\). Thus symmetry identifies the function but can obscure a cheap representation. On the measured native benchmark, however, symmetrization improved the rank-8 approximation. We should compare representatives rather than assume one always wins.
+We retained your symmetry refinement: two coefficient tensors can compute the same polynomial when every input slot receives the same $x$. For $(x^\top x)^2$, a compact representative has pair rank one, while the fully symmetric representative has pair rank $d(d+1)/2$. Thus symmetry identifies the function but can obscure a cheap representation. On the measured native benchmark, however, symmetrization improved the rank-8 approximation. We should compare representatives rather than assume one always wins.
 
 Sources: [native quartic/HT benchmark](../../NATIVE_TWO_MLP_QUARTIC_HT_2026-09-20.md), [HT and shared-DAG direction](../../HIERARCHICAL_TUCKER_SHARED_DAG_DIRECTION_2026-09-20.md). Adaptive trees, learned sparse hierarchical cores and automatic reusable-feature discovery remain unfinished.
 
@@ -164,13 +164,13 @@ For two token edits at fixed background, we compiled the mixed attention correct
 
 Adding this correction to the additive singleton attention states, then executing native MLP11 and the remaining suffix, passes all eight opened composition cells. We next folded the MLP11 response jointly over those 27 coordinates, retaining its exact RMS denominator.
 
-For background \(h\), correction \(Wz\), homogeneous MLP numerator \(P\), and \(s(h)=\operatorname{mean}(h^2)+\epsilon\), the exact residual response is
+For background $h$, correction $Wz$, homogeneous MLP numerator $P$, and $s(h)=\operatorname{mean}(h^2)+\epsilon$, the exact residual response is
 
-\[
+$$
 Wz+\frac{P(h+Wz)-P(h)-[P(h)/s(h)]\,[s(h+Wz)-s(h)]}{s(h+Wz)}.
-\]
+$$
 
-The numerator has linear and quadratic terms in \(z\); the background correction ensures zero intervention gives exactly zero response. Independent CPU replay agreed to about \(1.3\times10^{-12}\) relative error.
+The numerator has linear and quadratic terms in $z$; the background correction ensures zero intervention gives exactly zero response. Independent CPU replay agreed to about $1.3\times10^{-12}$ relative error.
 
 But exactness is not simplicity. The canonical response stores **498,070 values per context**. Across 48 contexts it costs 23.91 million values, versus 19.26 million for conditioned native factors plus their shared Down matrix. Expanding the joint tensor loses that storage comparison.
 
