@@ -63,6 +63,15 @@ The induction head is **5.5** (response, 9.6× enrichment on keys whose predeces
 
 Instrument notes preserved: v635's base-rate broadcast bug (corrected in v636; shares unaffected), v637's doubled capture counter (fixed, re-run).
 
+
+## Addendum (05:50 UTC) — the whole-model kernel atlas
+
+The single-head kernel census was run for all 18 layers (edit, v629 / v634 / v641–v644): **159 of 162 heads** are singly replaceable by a 512-number positional kernel at ≤ 0.011 nats (exceptions 5.7 at 0.083, 2.5 at 0.025, 3.8 at 0.011); per-layer banks cost 0.004–0.05 except layer 5 (0.163). The control holds — real patterns vary far more than their kernels (median variance ratio 12 in layers 12–17, response, v645) — so the cheapness is robustness, not constancy. The joint numbers (edit, v645): all 162 kernels at once **+1.45 nats**, of which layers 0–4 alone are +1.36 and layers 6–17 together +0.70; freezing layer 5 on top of everything else *helps* (1.92 → 1.45), because its two big content heads amplify a corrupted residual. Attention-pattern content in bilin18 is therefore a distributed, deeply redundant resource whose joint effect sits in the first five layers; no single head or layer carries more than a tenth of it.
+
+| layer | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| bank (CE added) | .032 | .034 | .049 | .043 | .035 | .163 | .027 | .021 | .039 | .016 | .013 | .018 | .007 | .015 | .026 | .004 | .012 | .009 |
+
 ## Appendix A — layer-0 positional kernels (fold, 4096² grid; pattern rms / separable fraction)
 
 | head | d=1 | d=2 | d=4 | d=8 | d=16 | d=32 | kernel |
