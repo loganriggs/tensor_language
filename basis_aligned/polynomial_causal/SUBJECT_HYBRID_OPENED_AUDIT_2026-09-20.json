@@ -1,0 +1,236 @@
+{
+  "posthoc": true,
+  "formula": "number=sparse number prediction minus baseline gradient dotted with discarded initial delta; modals=negative baseline gradient dotted with full initial delta",
+  "passes_all_sources": true,
+  "report": {
+    "A": {
+      "object_relative_greeted|singular": {
+        "target_error": 0.03619962400424699,
+        "modal_error": [
+          0.0005580836874296938,
+          0.00033409483377719155,
+          0.0014381094742690209
+        ],
+        "passes": true
+      },
+      "object_relative_greeted|plural": {
+        "target_error": 0.014917074225052814,
+        "modal_error": [
+          0.00028350800146658404,
+          0.00031594172167286755,
+          0.0007496257048206676
+        ],
+        "passes": true
+      },
+      "object_relative_thanked|singular": {
+        "target_error": 0.01216042447940388,
+        "modal_error": [
+          0.002020426355356781,
+          0.0005749208524884482,
+          0.0012904692782129384
+        ],
+        "passes": true
+      },
+      "object_relative_thanked|plural": {
+        "target_error": 0.031244557402185055,
+        "modal_error": [
+          0.0003536225016886022,
+          0.0005966615773363597,
+          0.0009632032192374055
+        ],
+        "passes": true
+      },
+      "subject_relative_yesterday|singular": {
+        "target_error": 0.02392446034270502,
+        "modal_error": [
+          0.0005578025426966772,
+          0.00029024985981302917,
+          0.0002758821213858219
+        ],
+        "passes": true
+      },
+      "subject_relative_yesterday|plural": {
+        "target_error": 0.05857311351984376,
+        "modal_error": [
+          0.0005766693481657186,
+          0.0006975754442691142,
+          0.0010892564791283286
+        ],
+        "passes": true
+      },
+      "subject_relative_outside|singular": {
+        "target_error": 0.01469339115237934,
+        "modal_error": [
+          0.0008184683992175893,
+          0.0003450269440899631,
+          0.0011881466033844322
+        ],
+        "passes": true
+      },
+      "subject_relative_outside|plural": {
+        "target_error": 0.03285993664650117,
+        "modal_error": [
+          0.0007410564269562003,
+          0.00039134232374587303,
+          0.0012713625347591006
+        ],
+        "passes": true
+      }
+    },
+    "B": {
+      "object_relative_greeted|singular": {
+        "target_error": 0.014834960154038125,
+        "modal_error": [
+          0.0024239121519534106,
+          0.0005858095430550508,
+          0.01055325875797991
+        ],
+        "passes": true
+      },
+      "object_relative_greeted|plural": {
+        "target_error": 0.013740123136137532,
+        "modal_error": [
+          0.002278028487470303,
+          0.0020583000186479134,
+          0.0014530621399960542
+        ],
+        "passes": true
+      },
+      "object_relative_thanked|singular": {
+        "target_error": 0.06357092718276905,
+        "modal_error": [
+          0.006365537823153614,
+          0.0013505526212143175,
+          0.008296497854977823
+        ],
+        "passes": true
+      },
+      "object_relative_thanked|plural": {
+        "target_error": 0.018835187364964832,
+        "modal_error": [
+          0.0030561924239533803,
+          0.002735595284806642,
+          0.003076093840531997
+        ],
+        "passes": true
+      },
+      "subject_relative_yesterday|singular": {
+        "target_error": 0.040734443277671735,
+        "modal_error": [
+          0.001209941578517487,
+          0.003824082703247387,
+          0.0008849411476703515
+        ],
+        "passes": true
+      },
+      "subject_relative_yesterday|plural": {
+        "target_error": 0.03490538786506734,
+        "modal_error": [
+          0.0015728010662598856,
+          0.003452800587812703,
+          0.002348168550437523
+        ],
+        "passes": true
+      },
+      "subject_relative_outside|singular": {
+        "target_error": 0.03416470532278283,
+        "modal_error": [
+          0.0022974057565100054,
+          0.0013272099005649336,
+          0.007620627674040836
+        ],
+        "passes": true
+      },
+      "subject_relative_outside|plural": {
+        "target_error": 0.030543287161170777,
+        "modal_error": [
+          0.0026806256177773027,
+          0.002699103355174558,
+          0.005034009184175374
+        ],
+        "passes": true
+      }
+    },
+    "sum": {
+      "object_relative_greeted|singular": {
+        "target_error": 0.018521664296317346,
+        "modal_error": [
+          0.0022224294533193674,
+          0.0007858089255063502,
+          0.011436293296558162
+        ],
+        "passes": true
+      },
+      "object_relative_greeted|plural": {
+        "target_error": 0.012037597058594932,
+        "modal_error": [
+          0.002520061758086042,
+          0.002213339905875182,
+          0.00183097687844552
+        ],
+        "passes": true
+      },
+      "object_relative_thanked|singular": {
+        "target_error": 0.0713740610951987,
+        "modal_error": [
+          0.006387875381133749,
+          0.0012286415403119106,
+          0.009137345884675107
+        ],
+        "passes": true
+      },
+      "object_relative_thanked|plural": {
+        "target_error": 0.015722002355706522,
+        "modal_error": [
+          0.0034807756648549937,
+          0.0027973047703068,
+          0.003879206734158818
+        ],
+        "passes": true
+      },
+      "subject_relative_yesterday|singular": {
+        "target_error": 0.04940911264172437,
+        "modal_error": [
+          0.001717484955847714,
+          0.004258655225588094,
+          0.0014802891045003275
+        ],
+        "passes": true
+      },
+      "subject_relative_yesterday|plural": {
+        "target_error": 0.02474921593074404,
+        "modal_error": [
+          0.0018654741580924462,
+          0.0036918641233383612,
+          0.0029004592257933135
+        ],
+        "passes": true
+      },
+      "subject_relative_outside|singular": {
+        "target_error": 0.03666388886609757,
+        "modal_error": [
+          0.0023410366455351743,
+          0.00155117764609076,
+          0.007962984756830636
+        ],
+        "passes": true
+      },
+      "subject_relative_outside|plural": {
+        "target_error": 0.030925279278827877,
+        "modal_error": [
+          0.0027728409561919073,
+          0.002787706699950059,
+          0.005943481532181451
+        ],
+        "passes": true
+      }
+    }
+  },
+  "reader_values_per_batch": [
+    331776,
+    331776,
+    387072,
+    387072
+  ],
+  "scope": "Output predictor at native prepared-context/full input-response ports; all reader generation and full residual input charged. No fresh evidence, no shared residual-state realization, no model replacement claim."
+}

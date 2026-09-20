@@ -660,3 +660,5 @@ same day sort and link unambiguously.  Older `explanation_HHMM.md` files are ret
 - [explanation_0736.md](explanation_2026-09-05_0736.md) — circuit-only goal and live hourly anti-drift checks; exact L13H8 μ/δ removal plus MLP15 rescue shows only 1.3–2.2% causal recovery and negative CE rescue, despite the old structured activation response
 - [explanation_0909.md](explanation_2026-09-05_0909.md) — update since 08:04: exact bracket readout, Task14 L11H3 subject-number value, TEST transfer limits, the repaired context-score null, and the all-source causal atlas now running
 - [explanation_0959.md](explanation_2026-09-05_0959.md) — Task14 below-head update: distributed grammatical value relays, OOD route changes, final-subject self-score localization, exact computations, and the active Q/K branch split
+
+- 2026-09-20 08:05 update: [conditional nonlinear-number / linear-modal predictor](../SUBJECT_HYBRID_RESPONSE_2026-09-20.md): fresh source A/B prediction passes, independentCPU extraction, all dense context/reader dependencies priced. Not a standalone replacement model.

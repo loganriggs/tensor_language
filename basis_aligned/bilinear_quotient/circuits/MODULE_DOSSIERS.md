@@ -1639,3 +1639,5 @@ Four-reader width8 response dictionary; full attention12–17 and sparse18/36 ML
 - Subject source-reuse v680: final native-state oracle modal error<=0.326% for A/B; final output basis is sufficient on these opened cells, propagation remains failed. See [source diagnostic](../../polynomial_causal/SOURCE_REUSE_AND_FULL_READERS_2026-09-20.md).
 
 - Subject sourceA: v685 native readout after fixed initial reconstruction fails modal5% (6.69%). v683 direct attention-to-MLP write also fails; see [full diagnostic](../../polynomial_causal/SOURCE_REUSE_AND_FULL_READERS_2026-09-20.md). Current decomposition remains unadopted for source reuse.
+
+- Subject v686–688 [hybrid output predictor](../../polynomial_causal/SUBJECT_HYBRID_RESPONSE_2026-09-20.md): sparse nonlinear number plus baseline-gradient modal branches passes fresh48-row A/B prediction/capability/collateral gates. IndependentCPU replay2.08e-15 on24sourcecases. Native gradient/context/fullsource inputs remain external; no residual-state replacement or fullmodel adoption. Prior eight-state source-reuse failures remain valid.
