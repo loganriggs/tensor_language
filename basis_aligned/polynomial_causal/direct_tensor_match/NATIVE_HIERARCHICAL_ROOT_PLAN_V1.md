@@ -1,0 +1,7 @@
+# Native quadratic-product hierarchy baseline — 2026-09-20 17:18 UTC
+
+The exact radial control proves that eight flat quartic CP atoms can have at least81.6% coefficient error even when a shared quadratic-square circuit is exact. Thus compare a native hierarchy retaining whole quadratic features. Define m_i=(L1_i x)(R1_i x), q_k=(L2 D1)_k m, r_k=(R2 D1)_k m, f=C(q*r). Candidate root set:128 largest reduced-output writer norms plus128 random distinct remaining channels. This is a fixed, disclosed proxy, not exhaustive selection by true channel energy.
+
+Use8192 uniform coefficient tuples (seed1718) to construct a training Gram and teacher cross matrix. Select up to128 root features by conditional output-refit gain; evaluate widths1/8/32/128 plus all256 candidates. Heldout8192 tuples and256 Gaussian vectors use seed1651 as in the CP pilot. Exact entry queries do not make the finite training Gram an exact full-tensor metric: label the objective sampled. No activation data are used.
+
+Keep the full shared4608-channel quadratic bank and absorb D1 into selected L2/R2. Charge2*4608*1152+2*r*4608+1152*r values plus output frame. This is much larger than r-atom CP, so same-root-count accuracy is a capacity comparison, not an equal-price win. Export shared bank and selected root writers for replay. Predictions: finite metrics; width8 heldout coefficient error beats the observed CP8 error; width128 heldout coefficient error<0.95. Train/eval discrepancy and Gaussian error diagnose overfit/metric mismatch. No normalized-block or circuit adoption.

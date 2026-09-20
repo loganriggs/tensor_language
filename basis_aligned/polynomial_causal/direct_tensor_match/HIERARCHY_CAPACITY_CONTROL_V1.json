@@ -1,0 +1,258 @@
+{
+  "checks": [
+    {
+      "d": 4,
+      "spectrum_max_absolute_error": 5.551115123125783e-16,
+      "polynomial_relative_error": 1.210634181326091e-16,
+      "cp_rank_checks": [
+        {
+          "atoms": 1,
+          "unfolding_rank": 6,
+          "rank_bound": 6
+        },
+        {
+          "atoms": 2,
+          "unfolding_rank": 10,
+          "rank_bound": 12
+        }
+      ]
+    },
+    {
+      "d": 8,
+      "spectrum_max_absolute_error": 1.3322676295501878e-15,
+      "polynomial_relative_error": 3.762730666554792e-16,
+      "cp_rank_checks": [
+        {
+          "atoms": 1,
+          "unfolding_rank": 6,
+          "rank_bound": 6
+        },
+        {
+          "atoms": 2,
+          "unfolding_rank": 12,
+          "rank_bound": 12
+        }
+      ]
+    },
+    {
+      "d": 16,
+      "spectrum_max_absolute_error": 2.4424906541753444e-15,
+      "polynomial_relative_error": 2.9583363031963673e-16,
+      "cp_rank_checks": [
+        {
+          "atoms": 1,
+          "unfolding_rank": 6,
+          "rank_bound": 6
+        },
+        {
+          "atoms": 2,
+          "unfolding_rank": 12,
+          "rank_bound": 12
+        }
+      ]
+    }
+  ],
+  "bounds": [
+    {
+      "d": 16,
+      "atoms": 1,
+      "symmetric_unfolding_rank": 136,
+      "cp_unfolding_rank_bound": 6,
+      "relative_frobenius_lower_bound": 0.775791113542719,
+      "shared_scalar_multiplications": 17,
+      "shared_scalar_additions": 15,
+      "coordinate_CP_expansion_terms": 136
+    },
+    {
+      "d": 16,
+      "atoms": 2,
+      "symmetric_unfolding_rank": 136,
+      "cp_unfolding_rank_bound": 12,
+      "relative_frobenius_lower_bound": 0.7576767609436587,
+      "shared_scalar_multiplications": 17,
+      "shared_scalar_additions": 15,
+      "coordinate_CP_expansion_terms": 136
+    },
+    {
+      "d": 16,
+      "atoms": 4,
+      "symmetric_unfolding_rank": 136,
+      "cp_unfolding_rank_bound": 24,
+      "relative_frobenius_lower_bound": 0.7200822998230956,
+      "shared_scalar_multiplications": 17,
+      "shared_scalar_additions": 15,
+      "coordinate_CP_expansion_terms": 136
+    },
+    {
+      "d": 16,
+      "atoms": 8,
+      "symmetric_unfolding_rank": 136,
+      "cp_unfolding_rank_bound": 48,
+      "relative_frobenius_lower_bound": 0.6382847385042254,
+      "shared_scalar_multiplications": 17,
+      "shared_scalar_additions": 15,
+      "coordinate_CP_expansion_terms": 136
+    },
+    {
+      "d": 16,
+      "atoms": 32,
+      "symmetric_unfolding_rank": 136,
+      "cp_unfolding_rank_bound": 192,
+      "relative_frobenius_lower_bound": 0.0,
+      "shared_scalar_multiplications": 17,
+      "shared_scalar_additions": 15,
+      "coordinate_CP_expansion_terms": 136
+    },
+    {
+      "d": 32,
+      "atoms": 1,
+      "symmetric_unfolding_rank": 528,
+      "cp_unfolding_rank_bound": 6,
+      "relative_frobenius_lower_bound": 0.7998161553463028,
+      "shared_scalar_multiplications": 33,
+      "shared_scalar_additions": 31,
+      "coordinate_CP_expansion_terms": 528
+    },
+    {
+      "d": 32,
+      "atoms": 2,
+      "symmetric_unfolding_rank": 528,
+      "cp_unfolding_rank_bound": 12,
+      "relative_frobenius_lower_bound": 0.7952062255644573,
+      "shared_scalar_multiplications": 33,
+      "shared_scalar_additions": 31,
+      "coordinate_CP_expansion_terms": 528
+    },
+    {
+      "d": 32,
+      "atoms": 4,
+      "symmetric_unfolding_rank": 528,
+      "cp_unfolding_rank_bound": 24,
+      "relative_frobenius_lower_bound": 0.7859052479933757,
+      "shared_scalar_multiplications": 33,
+      "shared_scalar_additions": 31,
+      "coordinate_CP_expansion_terms": 528
+    },
+    {
+      "d": 32,
+      "atoms": 8,
+      "symmetric_unfolding_rank": 528,
+      "cp_unfolding_rank_bound": 48,
+      "relative_frobenius_lower_bound": 0.7669649888473704,
+      "shared_scalar_multiplications": 33,
+      "shared_scalar_additions": 31,
+      "coordinate_CP_expansion_terms": 528
+    },
+    {
+      "d": 32,
+      "atoms": 32,
+      "symmetric_unfolding_rank": 528,
+      "cp_unfolding_rank_bound": 192,
+      "relative_frobenius_lower_bound": 0.6416889479197478,
+      "shared_scalar_multiplications": 33,
+      "shared_scalar_additions": 31,
+      "coordinate_CP_expansion_terms": 528
+    },
+    {
+      "d": 128,
+      "atoms": 1,
+      "symmetric_unfolding_rank": 8256,
+      "cp_unfolding_rank_bound": 6,
+      "relative_frobenius_lower_bound": 0.8130545444849886,
+      "shared_scalar_multiplications": 129,
+      "shared_scalar_additions": 127,
+      "coordinate_CP_expansion_terms": 8256
+    },
+    {
+      "d": 128,
+      "atoms": 2,
+      "symmetric_unfolding_rank": 8256,
+      "cp_unfolding_rank_bound": 12,
+      "relative_frobenius_lower_bound": 0.8127588345117652,
+      "shared_scalar_multiplications": 129,
+      "shared_scalar_additions": 127,
+      "coordinate_CP_expansion_terms": 8256
+    },
+    {
+      "d": 128,
+      "atoms": 4,
+      "symmetric_unfolding_rank": 8256,
+      "cp_unfolding_rank_bound": 24,
+      "relative_frobenius_lower_bound": 0.81216709156145,
+      "shared_scalar_multiplications": 129,
+      "shared_scalar_additions": 127,
+      "coordinate_CP_expansion_terms": 8256
+    },
+    {
+      "d": 128,
+      "atoms": 8,
+      "symmetric_unfolding_rank": 8256,
+      "cp_unfolding_rank_bound": 48,
+      "relative_frobenius_lower_bound": 0.8109823103448729,
+      "shared_scalar_multiplications": 129,
+      "shared_scalar_additions": 127,
+      "coordinate_CP_expansion_terms": 8256
+    },
+    {
+      "d": 128,
+      "atoms": 32,
+      "symmetric_unfolding_rank": 8256,
+      "cp_unfolding_rank_bound": 192,
+      "relative_frobenius_lower_bound": 0.8038369524685003,
+      "shared_scalar_multiplications": 129,
+      "shared_scalar_additions": 127,
+      "coordinate_CP_expansion_terms": 8256
+    },
+    {
+      "d": 1152,
+      "atoms": 1,
+      "symmetric_unfolding_rank": 664128,
+      "cp_unfolding_rank_bound": 6,
+      "relative_frobenius_lower_bound": 0.816139049549462,
+      "shared_scalar_multiplications": 1153,
+      "shared_scalar_additions": 1151,
+      "coordinate_CP_expansion_terms": 664128
+    },
+    {
+      "d": 1152,
+      "atoms": 2,
+      "symmetric_unfolding_rank": 664128,
+      "cp_unfolding_rank_bound": 12,
+      "relative_frobenius_lower_bound": 0.8161353628432866,
+      "shared_scalar_multiplications": 1153,
+      "shared_scalar_additions": 1151,
+      "coordinate_CP_expansion_terms": 664128
+    },
+    {
+      "d": 1152,
+      "atoms": 4,
+      "symmetric_unfolding_rank": 664128,
+      "cp_unfolding_rank_bound": 24,
+      "relative_frobenius_lower_bound": 0.8161279893809734,
+      "shared_scalar_multiplications": 1153,
+      "shared_scalar_additions": 1151,
+      "coordinate_CP_expansion_terms": 664128
+    },
+    {
+      "d": 1152,
+      "atoms": 8,
+      "symmetric_unfolding_rank": 664128,
+      "cp_unfolding_rank_bound": 48,
+      "relative_frobenius_lower_bound": 0.8161132422564927,
+      "shared_scalar_multiplications": 1153,
+      "shared_scalar_additions": 1151,
+      "coordinate_CP_expansion_terms": 664128
+    },
+    {
+      "d": 1152,
+      "atoms": 32,
+      "symmetric_unfolding_rank": 664128,
+      "cp_unfolding_rank_bound": 192,
+      "relative_frobenius_lower_bound": 0.8160247539129264,
+      "shared_scalar_multiplications": 1153,
+      "shared_scalar_additions": 1151,
+      "coordinate_CP_expansion_terms": 664128
+    }
+  ],
+  "scope": "Known radial quartic, symmetric coefficient objective. Rank relaxation is a rigorous necessary error bound, not sufficient CP capacity or a native-model statement. Shared q computation exact without symmetric coefficient storage."
+}

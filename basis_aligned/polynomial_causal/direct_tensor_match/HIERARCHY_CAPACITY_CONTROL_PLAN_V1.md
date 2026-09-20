@@ -1,0 +1,5 @@
+# Hierarchy versus flat quartic CP — 2026-09-20 17:15 UTC
+
+Use the known shared circuit f(x)=(sum_i x_i^2)^2. Its symmetric coefficient tensor is H_ijkl=(delta_ij delta_kl+delta_ik delta_jl+delta_il delta_jk)/3. The (ij)|(kl) unfolding has eigenvalue(d+2)/3 on the identity direction,2/3 on symmetric traceless matrices, and0 on skew matrices. Each symmetric product of four arbitrary linear forms has unfolding rank at most6. Thus an r-atom flat CP student has rank at most6r and its coefficient error is bounded below by the corresponding singular-value tail of this unfolding. This is a necessary bound, not an attainable CP optimum.
+
+Verify spectra and rank constraints by dense enumeration atd4/8/16; verify the actual polynomial by independent contractions. Report analytical lower bounds atd16/32/128/1152 andr1/2/4/8/32. Compare with exact shared computation q=sum squares; f=q*q. Its d+1 scalar multiplications andd-1 additions do not establish that the native teacher has this structure. The control demonstrates why an eight-atom CP negative result cannot rule out cheap shared hierarchies.

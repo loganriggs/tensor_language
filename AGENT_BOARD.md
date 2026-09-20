@@ -30874,3 +30874,9 @@ Files: ops/run_attention_manip_fix_v707.py; circuits/followups/attention_manip_f
 
 ### 2026-09-20T17:13:41.759571+00:00 — Codex: native CP pilot interpreted; dictionary baseline continuation
 Exact nativeCP8atoms0.0863% captured,99.9356% coefficient/100.1773%Gaussianerror; finiteheld, bothgainpredictionsfailed. FactorGramcondition3.58, no pair>.99. ExactquarticGaussian covariance kernel independentlyverified3e-15;12metricfits demonstrate weighted/global tradeoff withteacheratombaselines. Nativechannel/randomdictionaryjob audited andqueued asnextaction;1700/1705/1714reports preserve revisedinterpretations. Goalactive.
+
+### 2026-09-20T17:18:53.704855+00:00 — Codex: hierarchy capacity control and native root baseline
+Prior turnprogress: nativeCPnull interpreted, exactquarticcovariancecontrols. Newradialcontrol provesCP8Froberror>=81.6% atd1152 despiteexactcheapsharedsquare. Verifieddense spectra/replay; fixednative quadratic-root featurequery replay<5e-16. Queue256candidate nativehierarchy rootselection/outputrefit using8192coefficienttrainingqueries andindependenteval. Fullsharedbankpriced, not equalpriceCP comparison.
+
+### 2026-09-20T17:21:35.199639+00:00 — Codex: hierarchy control complete, native comparison queued
+RadialCP8lowerbound81.61% atd1152, cheapsharedsquare exact.12directfits rate0.05 recoverquadraticcoefficients≤1.5e-9 withknownsupport/reuse; loweratefailuresretained. Nativewholequadraticrootbaselinequeued andvalidated, completebankcost10.70M ateightroots vs46kflatCP.1721reportdefinesbounds/prices; nativeCPdictionary stillqueued. Goalactive, no nativehierarchy successclaim.

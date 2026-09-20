@@ -481,3 +481,6 @@ At amplitude0.5, overlap0.5/0.95, the prior residual endpoint errors44.65%/24.08
 
 ### 2026-09-20 17:14 — Native CP null; exact quartic covariance control
 Eight exact-gradient atoms capture0.0863% estimated coefficient energy; independent coefficienterror99.9356%, Gaussian100.1773%. Gramcondition3.58. Nativechannel/random dictionarybaselinequeued. Exact Gaussian105pairing kernel verified3e-15;12toyfits show covariance2.07% versus coefficient89.45%, close to1.992% teacheratom baseline. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1714_native_cp_null_and_covariance.md).
+
+### 2026-09-20 17:21 — Shared hierarchy versus flat CP capacity
+Known radialquartic CP8error≥81.61% atd1152, yetexact sharedsumofsquares circuit.12direct sharedsquarefits:Adam0.05coefficientrecovery≤1.5e-9; architecture supplied. Nativewholequadraticrootbaseline queued,256candidates andfull4608bankpriced, finitecoefficientGram. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1721_hierarchy_capacity_and_native_baseline.md).

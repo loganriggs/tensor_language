@@ -121,3 +121,12 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 - `NATIVE_CP_DICTIONARY_PLAN_V1.md`:queued native-channel vs random1024candidate dictionaries, retainedwidths1/2/4/8.
 - `gaussian_cp.py`, `check_gaussian_cp.py`, `GAUSSIAN_CP_CHECK_V1.json`:105pairing exact quartic Gaussian Gram, full covariance; independent quadrature/gradient/whitening checks below3e-15.
 - `QUARTIC_METRIC_TRADEOFF_PLAN_V1.md`, `quartic_metric_tradeoff.py`, `QUARTIC_METRIC_TRADEOFF_V1.json`:12known-undercapacity fits, three metrics, two rates/starts. Covariance2.07% vs coefficient89.45%; fixed teacher-atom covariance baseline1.992%. No empirical-eighth-moment or native covariance claim.
+
+## Hierarchy capacity control — 17:21 UTC
+
+[Timed report](../explanations/for_logan/research_update_2026-09-20_1721_hierarchy_capacity_and_native_baseline.md).
+
+- `HIERARCHY_CAPACITY_CONTROL_PLAN_V1.md`, `hierarchy_capacity_control.py`, `HIERARCHY_CAPACITY_CONTROL_V1.json`: radial quartic symmetric unfolding rank d(d+1)/2; each symmetric flat CP atom rank≤6. At d1152,8atom coefficient error≥81.61% despite exact cheap shared square. Dense spectrum/replay checks pass.
+- `SHARED_SQUARE_FIT_PLAN_V1.md`, `shared_square_fit.py`, `SHARED_SQUARE_FIT_V1.json`:12 direct exact-loss fits of supplied diagonal shared-square hypothesis; rate0.05 recovers coefficients modulo sign to≤1.5e-9, rate0.01 often remains at few-percent error.
+- `quartic_root_features.py`, `check_quartic_root_features.py`, `QUARTIC_ROOT_FEATURE_CHECK_V1.json`: native quadratic-product coefficient queries validated by independent polynomial replay<5e-16.
+- `NATIVE_HIERARCHICAL_ROOT_PLAN_V1.md`:queued sampled-coefficient refits of fixed native whole-quadratic roots, widths1/8/32/128/256; complete4608sharedbank charged. Structural-capacity comparison, not equal-price CP comparison.
