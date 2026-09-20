@@ -1,0 +1,337 @@
+{
+  "source_sha256": "3e878f4b21ce25060d40f3ce8cf04c9a54fcddfd8d98ce49f29f8f3d6ffe418a",
+  "removal_order": [
+    "embedding",
+    "attention0",
+    "mlp0",
+    "attention1",
+    "mlp1",
+    "attention2",
+    "mlp2",
+    "attention3",
+    "mlp3",
+    "attention4",
+    "mlp4",
+    "attention5",
+    "mlp5",
+    "attention6",
+    "mlp6",
+    "attention7",
+    "mlp7",
+    "mlp8",
+    "mlp10",
+    "attention8",
+    "attention9",
+    "mlp9",
+    "attention10"
+  ],
+  "records": [
+    {
+      "role": "subject",
+      "indices": [
+        8,
+        9,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20,
+        21,
+        22
+      ],
+      "names": [
+        "mlp3",
+        "attention4",
+        "attention5",
+        "attention6",
+        "mlp6",
+        "attention7",
+        "mlp7",
+        "mlp8",
+        "attention8",
+        "attention9",
+        "mlp9",
+        "attention10"
+      ],
+      "count": 12,
+      "fit_min_retention": 0.8011096763225664,
+      "held_min_retention": 0.7265794738096941,
+      "held_pass_count": 23,
+      "held_count": 24,
+      "history": [
+        {
+          "removed": "embedding",
+          "accepted": true,
+          "fit_min_retention": 0.8231274323373202
+        },
+        {
+          "removed": "attention0",
+          "accepted": true,
+          "fit_min_retention": 0.8231265514589357
+        },
+        {
+          "removed": "mlp0",
+          "accepted": true,
+          "fit_min_retention": 0.8229098757904215
+        },
+        {
+          "removed": "attention1",
+          "accepted": true,
+          "fit_min_retention": 0.8226193306654428
+        },
+        {
+          "removed": "mlp1",
+          "accepted": true,
+          "fit_min_retention": 0.8196445814753439
+        },
+        {
+          "removed": "attention2",
+          "accepted": true,
+          "fit_min_retention": 0.8195487843988774
+        },
+        {
+          "removed": "mlp2",
+          "accepted": true,
+          "fit_min_retention": 0.8129712049422145
+        },
+        {
+          "removed": "attention3",
+          "accepted": true,
+          "fit_min_retention": 0.8066899846291546
+        },
+        {
+          "removed": "mlp3",
+          "accepted": false,
+          "fit_min_retention": 0.7886195376308642
+        },
+        {
+          "removed": "attention4",
+          "accepted": false,
+          "fit_min_retention": 0.7924137946895556
+        },
+        {
+          "removed": "mlp4",
+          "accepted": true,
+          "fit_min_retention": 0.8061555981794534
+        },
+        {
+          "removed": "attention5",
+          "accepted": false,
+          "fit_min_retention": 0.7815932753149989
+        },
+        {
+          "removed": "mlp5",
+          "accepted": true,
+          "fit_min_retention": 0.8031615129039567
+        },
+        {
+          "removed": "attention6",
+          "accepted": false,
+          "fit_min_retention": 0.7978270186227474
+        },
+        {
+          "removed": "mlp6",
+          "accepted": false,
+          "fit_min_retention": 0.629961040390931
+        },
+        {
+          "removed": "attention7",
+          "accepted": false,
+          "fit_min_retention": 0.778136305518316
+        },
+        {
+          "removed": "mlp7",
+          "accepted": false,
+          "fit_min_retention": 0.7737487003222838
+        },
+        {
+          "removed": "mlp8",
+          "accepted": false,
+          "fit_min_retention": 0.646606045063879
+        },
+        {
+          "removed": "mlp10",
+          "accepted": true,
+          "fit_min_retention": 0.8011096763225664
+        },
+        {
+          "removed": "attention8",
+          "accepted": false,
+          "fit_min_retention": 0.7914810850989638
+        },
+        {
+          "removed": "attention9",
+          "accepted": false,
+          "fit_min_retention": 0.7081410586890744
+        },
+        {
+          "removed": "mlp9",
+          "accepted": false,
+          "fit_min_retention": 0.6115068176889347
+        },
+        {
+          "removed": "attention10",
+          "accepted": false,
+          "fit_min_retention": 0.7872156660474683
+        }
+      ]
+    },
+    {
+      "role": "attractor",
+      "indices": [
+        0,
+        10,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "names": [
+        "embedding",
+        "mlp4",
+        "mlp5",
+        "mlp6",
+        "attention7",
+        "mlp7",
+        "mlp8",
+        "mlp10",
+        "attention8",
+        "attention9",
+        "mlp9",
+        "attention10"
+      ],
+      "count": 12,
+      "fit_min_retention": 0.8002325463425255,
+      "held_min_retention": 0.7856092278112717,
+      "held_pass_count": 22,
+      "held_count": 24,
+      "history": [
+        {
+          "removed": "embedding",
+          "accepted": false,
+          "fit_min_retention": 0.5602832511830181
+        },
+        {
+          "removed": "attention0",
+          "accepted": true,
+          "fit_min_retention": 0.8358202291862395
+        },
+        {
+          "removed": "mlp0",
+          "accepted": true,
+          "fit_min_retention": 0.8351412996553487
+        },
+        {
+          "removed": "attention1",
+          "accepted": true,
+          "fit_min_retention": 0.8348483339995725
+        },
+        {
+          "removed": "mlp1",
+          "accepted": true,
+          "fit_min_retention": 0.8303451607493034
+        },
+        {
+          "removed": "attention2",
+          "accepted": true,
+          "fit_min_retention": 0.8292361984659117
+        },
+        {
+          "removed": "mlp2",
+          "accepted": true,
+          "fit_min_retention": 0.820800092921065
+        },
+        {
+          "removed": "attention3",
+          "accepted": true,
+          "fit_min_retention": 0.8200442845121215
+        },
+        {
+          "removed": "mlp3",
+          "accepted": true,
+          "fit_min_retention": 0.8116031788372138
+        },
+        {
+          "removed": "attention4",
+          "accepted": true,
+          "fit_min_retention": 0.8099932534408324
+        },
+        {
+          "removed": "mlp4",
+          "accepted": false,
+          "fit_min_retention": 0.7990154140940029
+        },
+        {
+          "removed": "attention5",
+          "accepted": true,
+          "fit_min_retention": 0.800755273761888
+        },
+        {
+          "removed": "mlp5",
+          "accepted": false,
+          "fit_min_retention": 0.7636640030697951
+        },
+        {
+          "removed": "attention6",
+          "accepted": true,
+          "fit_min_retention": 0.8002325463425255
+        },
+        {
+          "removed": "mlp6",
+          "accepted": false,
+          "fit_min_retention": 0.7384759483259499
+        },
+        {
+          "removed": "attention7",
+          "accepted": false,
+          "fit_min_retention": 0.7609767903796426
+        },
+        {
+          "removed": "mlp7",
+          "accepted": false,
+          "fit_min_retention": 0.618189936863835
+        },
+        {
+          "removed": "mlp8",
+          "accepted": false,
+          "fit_min_retention": 0.4810948441238488
+        },
+        {
+          "removed": "mlp10",
+          "accepted": false,
+          "fit_min_retention": 0.7091760980378875
+        },
+        {
+          "removed": "attention8",
+          "accepted": false,
+          "fit_min_retention": 0.7131121826728856
+        },
+        {
+          "removed": "attention9",
+          "accepted": false,
+          "fit_min_retention": 0.7061903341939894
+        },
+        {
+          "removed": "mlp9",
+          "accepted": false,
+          "fit_min_retention": 0.7051930129383063
+        },
+        {
+          "removed": "attention10",
+          "accepted": false,
+          "fit_min_retention": 0.7194596444151885
+        }
+      ]
+    }
+  ],
+  "scope": "Single fixed-order greedy source dictionary screen. Per-input amplitudes remain oracle-derived. No globally sparsest guarantee, no native validation for the pruned support, no shared-selector success."
+}
