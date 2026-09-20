@@ -94,3 +94,10 @@ and compare joint tensor-energy frames with sparse versus dense cores. Both
 output ranks32/128 fail native cross prediction even with dense cores.
 [Measured frontier](HEAD_SHARED_CORE_BASELINE_2026-09-20.md) includes pair sharing,
 branch prices and uncharged background dependencies; no complete-circuit claim.
+
+## Data-informed output-objective control
+
+v641 compares the same dense-core output ranks with a calibration-interaction
+eigenspace and random frame. The empirical frame has2%calibration error at128
+but18–68%cross error on other families. [Audit](HEAD_OUTPUT_OBJECTIVE_AUDIT_2026-09-20.md).
+This fitted-basis failure is not a proof against all native-distribution metrics.
