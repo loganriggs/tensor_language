@@ -1,0 +1,38 @@
+{
+  "coefficient_value_relative_error": 3.633145763216739e-16,
+  "coefficient_gradient_relative_error": 4.151028346343321e-16,
+  "wick_quadrature_relative_error": 1.366346407298186e-16,
+  "same_covariance_example": {
+    "coefficient_norm_squared": 2.0,
+    "gaussian_function_norm_squared": 192.0,
+    "rademacher_function_norm_squared": 0.0
+  },
+  "floor_blindspot": [
+    {
+      "eigenvalue_floor": 0.0,
+      "weighted_coefficient_energy": 0.0,
+      "unweighted_energy": 1.0
+    },
+    {
+      "eigenvalue_floor": 0.001,
+      "weighted_coefficient_energy": 9.999999999999996e-13,
+      "unweighted_energy": 1.0
+    },
+    {
+      "eigenvalue_floor": 0.01,
+      "weighted_coefficient_energy": 1.0000000000000007e-08,
+      "unweighted_energy": 1.0
+    },
+    {
+      "eigenvalue_floor": 0.1,
+      "weighted_coefficient_energy": 0.00010000000000000005,
+      "unweighted_energy": 1.0
+    },
+    {
+      "eigenvalue_floor": 1.0,
+      "weighted_coefficient_energy": 1.0,
+      "unweighted_energy": 1.0
+    }
+  ],
+  "scope": "Weighted four-slot coefficient metric differs from Gaussian eighth-moment function metric and empirical loss. Exact dense/gradient/quadrature checks; singular covariance is blind to hidden directions."
+}

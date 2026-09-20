@@ -196,3 +196,9 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 - `ROOT_BASIS_SEARCH_PLAN_V1.md`, `root_basis_search.py`, `ROOT_BASIS_SEARCH_V1.json`:130bases×45supports×8students. HighrateAdam eightrootstudent-errors73/75%→6.30/7.39%;<5%predictionfails. Includes16featuremixing scalars.
 - `ROOT_BASIS_REFINE_PLAN_V1.md`, `root_basis_refine.py`, `ROOT_BASIS_REFINE_V1.json/.pt`:8rotationrefinements yield2.52/2.43% errorsvsfullstudents, analytic/directreplay andfixedbasisconditionspass. Allrefinementpredictionshold. Eightrootproducts,46,096scalars+16supportintegers; nativeteacherresultpending.
 - `NATIVE_MIXED_ROOT_PLAN_V1.md`: queuedfullnativecross/writerrefit andcoefficient/Gaussiandiagnostics for two selectedmixed-rootstudents. Noidentityclaim frombasisoptimization.
+
+## Covariance metric instrument — 18:40 UTC
+
+- [Metric definitions and derivation](QUARTIC_METRIC_GEOMETRY.md): four-independent-slot covariance loss, repeated-input Gaussian trace terms, empirical eighth moments, and eigenvalue-floor sensitivity.
+- `check_quartic_covariance_metric.py`, `QUARTIC_COVARIANCE_METRIC_CHECK_V1.json`: independentdense/gradient/quadrature checks<5e-16; equalcovariance doesnotdeterminequarticfunctionerror, floor.01canweightquarticenergy1e-8.
+- `NATIVE_WEIGHTED_BANK_PLAN_V1.md`: queued16original-coordinate bankfits, isotropic/centeredfloors.01,.1/secondmomentfloor.01. Matchedisotropicreruns, originalreaderparameterization, empiricalandGaussian diagnostics; depends onMLP16capture, notMLP17statistics.

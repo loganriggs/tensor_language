@@ -505,3 +505,6 @@ Eight-root nativebank bestgain0.14363% vsCP8 0.08630%; bestten-rootbankslose54�
 
 ### 2026-09-20 18:36 — Quadratic basis mixing rescues eight-root student approximations
 Fourfeaturemixing adds16scalars whilepreservingleafreuse.130basis screensreduce highrateAdam exportedstudenterrors73/75%→6.30/7.39%;8rotationfits→2.52/2.43%. Nativeobjectivevalidationqueued, notinferredfromstudentcompression. [Report addendum](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1829_sparsity_and_structural_assumptions.md).
+
+### 2026-09-20 18:40 — Covariance-weighted quartic objectives distinguished
+Exactdense/gradient/quadrature verification of four-slot coefficient weighting and Gaussian24/72/9traceformula. Equalcovariance empiricalcounterexample0vs192, floor.01⇒1e-8quarticpenalty.16nativefitsqueued withsameoriginalreadercoordinates, trueMLP16covariance, isotropiccontrols andfloors. [Instrument note](../polynomial_causal/direct_tensor_match/QUARTIC_METRIC_GEOMETRY.md).
