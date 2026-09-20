@@ -273,3 +273,6 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 
 ### User-directed direct tensor optimization study
 [Study index](/workspace/tensor_language/basis_aligned/polynomial_causal/direct_tensor_match/README.md): two-dayfocus through22September15:10UTC. Fiveplantedstructures, Adam/Muon/restart/width/objective sweeps, exactisotropic/covariance losses. Nativequartic16context width4tree184values achievesmax6.14%coefficienterror; independentlyfitpercontext, notsharedcircuit. Fullquadratic initialbestGaussian56.67%. Preserve optimizer failures and sparsebasisidentificationgap.
+
+### Direct tensor study: sparse basis versus function matching
+[Scientific receipt](/workspace/tensor_language/basis_aligned/polynomial_causal/direct_tensor_match/BASIS_AND_CONDITIONING_2026-09-20_1536.md): plantedTucker fourinteraction hardprogram28floats+support,0.00629%Gaussianerror aftergauge search versus11.985%in initialbasis. Exactfunctionpreservation independentlychecked; no nativecircuitclaim. Pairedcovariancecoordinatecontrols show optimizer/architecture dependence.

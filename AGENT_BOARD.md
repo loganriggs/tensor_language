@@ -30707,3 +30707,6 @@ Fiveplantedsupported; functionalrecovery doesnotselectsparseTuckerbasis (12versu
 
 ### 2026-09-20T15:31:40.066241+00:00 — Codex: pairedcovarianceconditioning120fits + nativecovariancecapture
 Prior turn740decompositionfits. Samephysicalinitialfunction raw/whitenedtoycontrol running; exactcoordinate/metric checks pass. NativeMLP17covariance capture16forwards preregistered,32calibration+32evaluationdocs, means/centered/secondmoments separate. This supports userisotropic/data-informed metric comparison, not renewedcausalcircuits.
+
+### 2026-09-20T15:37:13.915241+00:00 — Codex: hard sparse Tucker basis recovered; pairedconditioning interpreted
+120pairedcoordinatefits and12gauge-onlysearches complete. Fourcoreentries error11.985%initialbasis ->0.00629%optimizedbasis, independent hardprogramreplay2.67e-15,28floats+support. Basischange preservesfunction5.23e-16, moderatecondition. Whiteningnotuniversal: quarticsworsenattestedrate. NativeobjectiveV2/covariance jobsqueuedbehindlivev702, notstalled/restarted.
