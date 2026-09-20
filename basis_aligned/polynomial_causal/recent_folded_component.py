@@ -49,13 +49,24 @@ def attention(x, v1, w):
 
 def execute(w,h16,x0,v1,scale=1.):
     n16=F.rms_norm(h16,(h16.shape[-1],))
-    products=(n16@w['left16'].T)*(n16@w['right16'].T)
-    write16=products@w['down16'].T+w['bias16']
+    if 'input_basis16' in w:
+        shared=n16@w['input_basis16']
+        left=shared@w['left16'].T;right=shared@w['right16'].T
+    elif 'left_basis16' in w:
+        left=(n16@w['left_basis16'])@w['left16'].T
+        right=(n16@w['right_basis16'])@w['right16'].T
+    else:
+        left=n16@w['left16'].T;right=n16@w['right16'].T
+    products=left*right
+    write16=products@w['down16'].T
+    if 'output_basis16' in w:write16=write16@w['output_basis16'].T
+    write16=write16+w['bias16']
     live=w['residual17']*(h16+scale*write16)+w['embedding17']*x0
     attn=attention(F.rms_norm(live,(live.shape[-1],)),v1,w)
     h17=live+attn
     # Pull parent readers back through the preceding Down projection.
-    folded=w['residual17']*(w['down16'].T@w['readers'])
+    projected_readers=w['output_basis16'].T@w['readers'] if 'output_basis16' in w else w['readers']
+    folded=w['residual17']*(w['down16'].T@projected_readers)
     gated_features=scale*(products@folded)
     background=w['residual17']*h16+w['embedding17']*x0+attn+scale*w['residual17']*w['bias16']
     background_features=background@w['readers']

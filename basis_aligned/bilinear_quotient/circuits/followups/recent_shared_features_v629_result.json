@@ -1,0 +1,669 @@
+{
+  "plan": {
+    "panels": [
+      "fineweb_n96_skip1200.pt",
+      "fineweb_n192_skip11000.pt"
+    ],
+    "ranks": [
+      128,
+      256,
+      512,
+      768
+    ],
+    "families": [
+      "shared_input",
+      "shared_input_output",
+      "independent_matched_input_output"
+    ],
+    "scales": [
+      1.0,
+      0.0,
+      0.5,
+      1.5
+    ],
+    "documents": 8,
+    "tokens": 64,
+    "forwards_max": 16,
+    "model_backwards": 0,
+    "model_updates": 0,
+    "fit_parameters": 0,
+    "execution_policy": "managed_queue_only"
+  },
+  "rows": [
+    {
+      "family": "dense",
+      "rank": 1152,
+      "stored_values": 24235715,
+      "fraction_of_dense": 1.0,
+      "panels": {
+        "fineweb_n96_skip1200.pt": {
+          "1.0": {
+            "relative_error": 0.04592302327831615,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.027609880362559257,
+            "relative_change_error": 0.022719091680010486
+          },
+          "0.5": {
+            "relative_error": 0.036539330961952936,
+            "relative_change_error": 0.02805242053001536
+          },
+          "1.5": {
+            "relative_error": 0.06101269484772698,
+            "relative_change_error": 0.031162378924123994
+          }
+        },
+        "fineweb_n192_skip11000.pt": {
+          "1.0": {
+            "relative_error": 0.04165184216363148,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.024085307055042342,
+            "relative_change_error": 0.02050681575576498
+          },
+          "0.5": {
+            "relative_error": 0.032332201684819345,
+            "relative_change_error": 0.02523481852814677
+          },
+          "1.5": {
+            "relative_error": 0.05689693576160804,
+            "relative_change_error": 0.028974416858364185
+          }
+        }
+      },
+      "calibration_max_error": 0.06101269484772698,
+      "validation_max_error": 0.05689693576160804
+    },
+    {
+      "family": "shared_input",
+      "rank": 128,
+      "stored_values": 14945987,
+      "fraction_of_dense": 0.6166926372916994,
+      "panels": {
+        "fineweb_n96_skip1200.pt": {
+          "1.0": {
+            "relative_error": 1.3195997990076396,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.027609880362559257,
+            "relative_change_error": 1.0155516729232963
+          },
+          "0.5": {
+            "relative_error": 0.5113063842503941,
+            "relative_change_error": 1.018143486770846
+          },
+          "1.5": {
+            "relative_error": 2.748491693100401,
+            "relative_change_error": 1.0276890115629032
+          }
+        },
+        "fineweb_n192_skip11000.pt": {
+          "1.0": {
+            "relative_error": 1.4013042379297016,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.024085307055042342,
+            "relative_change_error": 1.0034967723331758
+          },
+          "0.5": {
+            "relative_error": 0.525277963774122,
+            "relative_change_error": 1.0049911746954325
+          },
+          "1.5": {
+            "relative_error": 3.012648649877648,
+            "relative_change_error": 1.0124208505510928
+          }
+        }
+      },
+      "calibration_max_error": 2.748491693100401,
+      "validation_max_error": 3.012648649877648
+    },
+    {
+      "family": "shared_input",
+      "rank": 256,
+      "stored_values": 16273091,
+      "fraction_of_dense": 0.6714508319643139,
+      "panels": {
+        "fineweb_n96_skip1200.pt": {
+          "1.0": {
+            "relative_error": 1.3402964793133005,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.027609880362559257,
+            "relative_change_error": 1.031867673101173
+          },
+          "0.5": {
+            "relative_error": 0.5186622028951323,
+            "relative_change_error": 1.035927595550329
+          },
+          "1.5": {
+            "relative_error": 2.7949977385883873,
+            "relative_change_error": 1.0503327364160118
+          }
+        },
+        "fineweb_n192_skip11000.pt": {
+          "1.0": {
+            "relative_error": 1.4073758703332806,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.024085307055042342,
+            "relative_change_error": 1.0078497236182289
+          },
+          "0.5": {
+            "relative_error": 0.5274706723142757,
+            "relative_change_error": 1.0102015368728279
+          },
+          "1.5": {
+            "relative_error": 3.02549987418794,
+            "relative_change_error": 1.0200774495893623
+          }
+        }
+      },
+      "calibration_max_error": 2.7949977385883873,
+      "validation_max_error": 3.02549987418794
+    },
+    {
+      "family": "shared_input",
+      "rank": 512,
+      "stored_values": 18927299,
+      "fraction_of_dense": 0.7809672213095425,
+      "panels": {
+        "fineweb_n96_skip1200.pt": {
+          "1.0": {
+            "relative_error": 1.3529465628963904,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.027609880362559257,
+            "relative_change_error": 1.0416281475577047
+          },
+          "0.5": {
+            "relative_error": 0.5245456514384346,
+            "relative_change_error": 1.043613613970539
+          },
+          "1.5": {
+            "relative_error": 2.8136261915802954,
+            "relative_change_error": 1.0519199621586475
+          }
+        },
+        "fineweb_n192_skip11000.pt": {
+          "1.0": {
+            "relative_error": 1.402245459970557,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.024085307055042342,
+            "relative_change_error": 1.0039306734278977
+          },
+          "0.5": {
+            "relative_error": 0.5268216152559566,
+            "relative_change_error": 1.005040623096351
+          },
+          "1.5": {
+            "relative_error": 3.0055162441569134,
+            "relative_change_error": 1.0134888200031686
+          }
+        }
+      },
+      "calibration_max_error": 2.8136261915802954,
+      "validation_max_error": 3.0055162441569134
+    },
+    {
+      "family": "shared_input",
+      "rank": 768,
+      "stored_values": 21581507,
+      "fraction_of_dense": 0.8904836106547713,
+      "panels": {
+        "fineweb_n96_skip1200.pt": {
+          "1.0": {
+            "relative_error": 1.3550714092916794,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.027609880362559257,
+            "relative_change_error": 1.0434092496687437
+          },
+          "0.5": {
+            "relative_error": 0.5282525368126053,
+            "relative_change_error": 1.0378791105084637
+          },
+          "1.5": {
+            "relative_error": 2.8000458850668064,
+            "relative_change_error": 1.0295693688836476
+          }
+        },
+        "fineweb_n192_skip11000.pt": {
+          "1.0": {
+            "relative_error": 1.381225345024607,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.024085307055042342,
+            "relative_change_error": 0.9884705776601277
+          },
+          "0.5": {
+            "relative_error": 0.5217094807371482,
+            "relative_change_error": 0.9843523436124085
+          },
+          "1.5": {
+            "relative_error": 2.9441159776745267,
+            "relative_change_error": 0.9847186942011764
+          }
+        }
+      },
+      "calibration_max_error": 2.8000458850668064,
+      "validation_max_error": 2.9441159776745267
+    },
+    {
+      "family": "shared_input_output",
+      "rank": 128,
+      "stored_values": 10374851,
+      "fraction_of_dense": 0.42808107786380556,
+      "panels": {
+        "fineweb_n96_skip1200.pt": {
+          "1.0": {
+            "relative_error": 1.2826746671397695,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.027609880362559257,
+            "relative_change_error": 0.9865267303409705
+          },
+          "0.5": {
+            "relative_error": 0.4982717357720804,
+            "relative_change_error": 0.9883488142313556
+          },
+          "1.5": {
+            "relative_error": 2.6652885173860827,
+            "relative_change_error": 0.9953101391393612
+          }
+        },
+        "fineweb_n192_skip11000.pt": {
+          "1.0": {
+            "relative_error": 1.3727491259854805,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.024085307055042342,
+            "relative_change_error": 0.9825244186480939
+          },
+          "0.5": {
+            "relative_error": 0.5154425863192578,
+            "relative_change_error": 0.9837194335980757
+          },
+          "1.5": {
+            "relative_error": 2.9478295510993022,
+            "relative_change_error": 0.992666735420958
+          }
+        }
+      },
+      "calibration_max_error": 2.6652885173860827,
+      "validation_max_error": 2.9478295510993022
+    },
+    {
+      "family": "shared_input_output",
+      "rank": 256,
+      "stored_values": 12439235,
+      "fraction_of_dense": 0.5132604917989835,
+      "panels": {
+        "fineweb_n96_skip1200.pt": {
+          "1.0": {
+            "relative_error": 1.303264055012966,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.027609880362559257,
+            "relative_change_error": 1.0027502940119977
+          },
+          "0.5": {
+            "relative_error": 0.5053156366744929,
+            "relative_change_error": 1.0067728040178376
+          },
+          "1.5": {
+            "relative_error": 2.7132424516321207,
+            "relative_change_error": 1.0202264196098763
+          }
+        },
+        "fineweb_n192_skip11000.pt": {
+          "1.0": {
+            "relative_error": 1.38194371493174,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.024085307055042342,
+            "relative_change_error": 0.989119851516277
+          },
+          "0.5": {
+            "relative_error": 0.51842723466556,
+            "relative_change_error": 0.9920497816729389
+          },
+          "1.5": {
+            "relative_error": 2.9700157173356483,
+            "relative_change_error": 1.0058306525636154
+          }
+        }
+      },
+      "calibration_max_error": 2.7132424516321207,
+      "validation_max_error": 2.9700157173356483
+    },
+    {
+      "family": "shared_input_output",
+      "rank": 512,
+      "stored_values": 16568003,
+      "fraction_of_dense": 0.6836193196693392,
+      "panels": {
+        "fineweb_n96_skip1200.pt": {
+          "1.0": {
+            "relative_error": 1.3329773408759078,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.027609880362559257,
+            "relative_change_error": 1.0258960598187519
+          },
+          "0.5": {
+            "relative_error": 0.5166737525080152,
+            "relative_change_error": 1.0300826232962996
+          },
+          "1.5": {
+            "relative_error": 2.7743277679012626,
+            "relative_change_error": 1.0442344714667036
+          }
+        },
+        "fineweb_n192_skip11000.pt": {
+          "1.0": {
+            "relative_error": 1.390424367772887,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.024085307055042342,
+            "relative_change_error": 0.9952596963903083
+          },
+          "0.5": {
+            "relative_error": 0.5219817094467811,
+            "relative_change_error": 0.9986567227702441
+          },
+          "1.5": {
+            "relative_error": 2.9845231067899958,
+            "relative_change_error": 1.0150696426283277
+          }
+        }
+      },
+      "calibration_max_error": 2.7743277679012626,
+      "validation_max_error": 2.9845231067899958
+    },
+    {
+      "family": "shared_input_output",
+      "rank": 768,
+      "stored_values": 20696771,
+      "fraction_of_dense": 0.853978147539695,
+      "panels": {
+        "fineweb_n96_skip1200.pt": {
+          "1.0": {
+            "relative_error": 1.3532857787618888,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.027609880362559257,
+            "relative_change_error": 1.0421124410439717
+          },
+          "0.5": {
+            "relative_error": 0.5267781870550456,
+            "relative_change_error": 1.0394393303901401
+          },
+          "1.5": {
+            "relative_error": 2.801193697510551,
+            "relative_change_error": 1.03815943302078
+          }
+        },
+        "fineweb_n192_skip11000.pt": {
+          "1.0": {
+            "relative_error": 1.3854521291767705,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.024085307055042342,
+            "relative_change_error": 0.9916410004737073
+          },
+          "0.5": {
+            "relative_error": 0.5224894666982636,
+            "relative_change_error": 0.9900280216914497
+          },
+          "1.5": {
+            "relative_error": 2.9583154981741635,
+            "relative_change_error": 0.9971988851977703
+          }
+        }
+      },
+      "calibration_max_error": 2.801193697510551,
+      "validation_max_error": 2.9583154981741635
+    },
+    {
+      "family": "independent_matched_input_output",
+      "rank": 128,
+      "stored_values": 10372547,
+      "fraction_of_dense": 0.42798601155361005,
+      "panels": {
+        "fineweb_n96_skip1200.pt": {
+          "1.0": {
+            "relative_error": 1.277586541583237,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.027609880362559257,
+            "relative_change_error": 0.9827386737098395
+          },
+          "0.5": {
+            "relative_error": 0.4968380223650186,
+            "relative_change_error": 0.9824570432905674
+          },
+          "1.5": {
+            "relative_error": 2.650208443500356,
+            "relative_change_error": 0.9818224512343765
+          }
+        },
+        "fineweb_n192_skip11000.pt": {
+          "1.0": {
+            "relative_error": 1.3700148236058298,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.024085307055042342,
+            "relative_change_error": 0.9807153121282117
+          },
+          "0.5": {
+            "relative_error": 0.5147844455470414,
+            "relative_change_error": 0.9802493430856275
+          },
+          "1.5": {
+            "relative_error": 2.9378279620422845,
+            "relative_change_error": 0.9810963483568038
+          }
+        }
+      },
+      "calibration_max_error": 2.650208443500356,
+      "validation_max_error": 2.9378279620422845
+    },
+    {
+      "family": "independent_matched_input_output",
+      "rank": 256,
+      "stored_values": 12434627,
+      "fraction_of_dense": 0.5130703591785925,
+      "panels": {
+        "fineweb_n96_skip1200.pt": {
+          "1.0": {
+            "relative_error": 1.2783231543698996,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.027609880362559257,
+            "relative_change_error": 0.9832058561176208
+          },
+          "0.5": {
+            "relative_error": 0.49715044694665234,
+            "relative_change_error": 0.9839248481783612
+          },
+          "1.5": {
+            "relative_error": 2.651920884620442,
+            "relative_change_error": 0.9867020155259909
+          }
+        },
+        "fineweb_n192_skip11000.pt": {
+          "1.0": {
+            "relative_error": 1.3607689293177556,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.024085307055042342,
+            "relative_change_error": 0.9737713785378522
+          },
+          "0.5": {
+            "relative_error": 0.511663070119204,
+            "relative_change_error": 0.974160401611873
+          },
+          "1.5": {
+            "relative_error": 2.9159550440868895,
+            "relative_change_error": 0.9783324982143954
+          }
+        }
+      },
+      "calibration_max_error": 2.651920884620442,
+      "validation_max_error": 2.9159550440868895
+    },
+    {
+      "family": "independent_matched_input_output",
+      "rank": 512,
+      "stored_values": 16558787,
+      "fraction_of_dense": 0.6832390544285571,
+      "panels": {
+        "fineweb_n96_skip1200.pt": {
+          "1.0": {
+            "relative_error": 1.2982706544007125,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.027609880362559257,
+            "relative_change_error": 0.9988353883053425
+          },
+          "0.5": {
+            "relative_error": 0.5051114728777296,
+            "relative_change_error": 0.999624853338513
+          },
+          "1.5": {
+            "relative_error": 2.6908074987474206,
+            "relative_change_error": 1.0029393249542344
+          }
+        },
+        "fineweb_n192_skip11000.pt": {
+          "1.0": {
+            "relative_error": 1.364461532935831,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.024085307055042342,
+            "relative_change_error": 0.976415600914432
+          },
+          "0.5": {
+            "relative_error": 0.5135696501572026,
+            "relative_change_error": 0.9771527784844227
+          },
+          "1.5": {
+            "relative_error": 2.9183858495923993,
+            "relative_change_error": 0.9826350757986557
+          }
+        }
+      },
+      "calibration_max_error": 2.6908074987474206,
+      "validation_max_error": 2.9183858495923993
+    },
+    {
+      "family": "independent_matched_input_output",
+      "rank": 768,
+      "stored_values": 20694467,
+      "fraction_of_dense": 0.8538830812294995,
+      "panels": {
+        "fineweb_n96_skip1200.pt": {
+          "1.0": {
+            "relative_error": 1.3112309530006578,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.027609880362559257,
+            "relative_change_error": 1.0090275426005453
+          },
+          "0.5": {
+            "relative_error": 0.5125806791060208,
+            "relative_change_error": 1.0032270573422088
+          },
+          "1.5": {
+            "relative_error": 2.702180335816758,
+            "relative_change_error": 0.9929586576279671
+          }
+        },
+        "fineweb_n192_skip11000.pt": {
+          "1.0": {
+            "relative_error": 1.355948744005706,
+            "relative_change_error": null
+          },
+          "0.0": {
+            "relative_error": 0.024085307055042342,
+            "relative_change_error": 0.9700287866729088
+          },
+          "0.5": {
+            "relative_error": 0.5128126824889954,
+            "relative_change_error": 0.9664184424080683
+          },
+          "1.5": {
+            "relative_error": 2.886291212044865,
+            "relative_change_error": 0.9678698357870237
+          }
+        }
+      },
+      "calibration_max_error": 2.702180335816758,
+      "validation_max_error": 2.886291212044865
+    }
+  ],
+  "selected": {
+    "family": "dense",
+    "rank": 1152,
+    "stored_values": 24235715,
+    "fraction_of_dense": 1.0,
+    "calibration_max_error": 0.06101269484772698,
+    "validation_max_error": 0.05689693576160804
+  },
+  "forwards": 16,
+  "local_replays": 208,
+  "maximum_dense_replay": 8.593969482717512e-07,
+  "package_files": {
+    "mlp16.pt": {
+      "bytes": 63707721,
+      "sha256": "87e53ebd321a7a542cba3461115cca2caad437278888eacf7652b39fb0aa6f38"
+    },
+    "attention17.pt": {
+      "bytes": 31854725,
+      "sha256": "57335267781b05d165dd6679687d5fc60e0410a589c133a1268f7a5dbc280a83"
+    },
+    "component.pt": {
+      "bytes": 1388913,
+      "sha256": "508aaa88b361d8fff0481821051c38e8423a6af03613886f545bf027417a0c78"
+    },
+    "execute.py": {
+      "bytes": 4552,
+      "sha256": "c81decf3ddd1d4fe338959a660fdbe832dee448bcdc1c68e4f45137c238b8de4"
+    }
+  },
+  "predictions": {
+    "pred_a_factored_replay": true,
+    "pred_b_twenty_percent_saving": false,
+    "pred_c_frozen_validation": true
+  },
+  "scope": "shared-linear-factor spectral baseline, not joint tensor optimum or sparse circuit; upstream ports still required",
+  "seconds": 1.8682534240651876,
+  "finished_utc": "2026-09-20T04:13:27.905566+00:00"
+}
