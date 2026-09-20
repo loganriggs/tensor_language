@@ -30491,3 +30491,6 @@ Last goal turn progressed via exact native fold and causal falsification. New re
 
 ### 2026-09-20T12:30:01.903542+00:00 — Codex: context transport diagnosed; finite mixed residual split implemented
 Jointreader63/64passes(numberworst14.237%); allbeside_subject32passworst0.1714%, identifyingbaselinecontextmismatch. Midpoint64/64worst0.03997%,Gaussintegrationalloutputpasses5.264e-14abs. Native states/derivatives remaincharged, firstedgesufficiencyfailureunchanged. Next CPU residual-quartet split executed: separate new W(xadd)-W(xs)-W(xt)+W(x0) from carried W(xst)-W(xadd), closure7.11e-15 with polynomial/RMS controls. Nativecensusnext; no state-norm-only circuitclaim. See ATTENTION_TRANSPORT_CONTEXT_2026-09-20.md.
+
+### 2026-09-20T12:32:03.975451+00:00 — Codex: claim finite interaction census
+Previous turn progressed via nativecontext transport and exactquartet split. Screen allattention/MLP11–17newlygenerated terms; carryincominginteraction separately. Subtractonegeneratedterm thenrerunnonlinearsuffix, no fixedreaders. Strong screenanysinglemodulehalvesall13failedcell interactions. Counts12prefix68trajectories448additive448intervened56zero-removal. Nativeboundariesonlylocalizationcandidates. See FINITE_INTERACTION_CENSUS_V1_PREREGISTRATION.md.

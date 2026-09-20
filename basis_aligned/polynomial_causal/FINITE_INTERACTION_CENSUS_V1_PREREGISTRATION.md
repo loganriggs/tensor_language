@@ -1,0 +1,9 @@
+# Finite source-interaction census
+
+Opened frozen OODv2 two-site edits, eight mixed coordinates in four contexts. Four native trajectories define baseline, subject, attractor, joint at every attention/MLP11–17 boundary. For each residual write W, let xadd=xs+xt-x0. Newly generated G=W(xadd)-W(xs)-W(xt)+W(x0); transported T=W(xjoint)-W(xadd). Exact state identity I_after=I_before+G+T. Lambda0 scales incoming interactions at block boundaries; fixed x0/cache retain identical backgrounds.
+
+Individually subtract G from that module's joint residual write, then execute the remaining nonlinear suffix. Report original versus remaining number interaction and allfour signed effect vectors, not just state norms. All14modules are screened; module boundaries are localization candidates, not presumed semantic units. No combined-removal prediction follows from individual tests.
+
+Instrument:68native trajectories,448additive module writes,448intervened suffixes,56zero-removal suffixes,12prefix captures. Prior output replay, zero-removal replay, and exact state closure must each be <=1e-8. Registered strong screen: at least one fixed module reduces number-interaction norm by50% in ALL13previously failed attractor-increment cells. Report every module and every cell if this fails. Postselected candidates require held-out confirmation and matched controls; no circuit identification or freshOODclaim. Redteam with prior replay and exact planted polynomial/RMS split controls. Cache, norms, biases and softcap are explicit. Native state/derivative-free forward census costs are charged.
+
+The target is missing composition: the firstattention edge was algebraically exact but causally insufficient. This screen asks whether a later generated term is more causally relevant. An interaction attenuation is not itself a repair of the earlier polynomial predictor.
