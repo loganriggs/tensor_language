@@ -406,3 +406,6 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 
 ### Joint query reuse and source-column folding
 [Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/ATTENTION_QUERY_COMPOSITION_2026-09-20.md): joint Q1/Q2 reuse passes16/16 opened finite cells, worst number2.54%. Mixed term0.105%full,19.73%smaller singleton. Explicit conditional source-column executor CPU replay4.63e-16 with live second-key negative control; cache accounting corrected in V2. Native installed extraction and fresh OOD remain pending.
+
+### Native source-column installation
+[Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/FIXED_QUERY_NATIVE_INSTALL_2026-09-20.md): installed executor passes all16 opened cells; worst joint-query-reference error0.0142%. Native baseline context and oracle selector remain charged. Fresh48textv4 panel frozen without model outcomes; no fresh transfer claim yet.

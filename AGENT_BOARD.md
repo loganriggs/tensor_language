@@ -30581,3 +30581,6 @@ Joint query result documented; exact conditional cubic source-port update tested
 
 ### 2026-09-20T13:50Z — Codex: claim native source-column installation
 Prior turn progress: joint query composition plus exact conditional executor. Implement native adapter retaining rounded RoPE, head RMS and first-value mixture; replace attention11 forward entirely during source edits, prepare baseline context once. Test zero edit, old joint-freeze effect and unchanged fidelity/selectivity bars. Native installed correctness precedes fresh OOD promotion.
+
+### 2026-09-20T13:52:32.903277+00:00 — Codex: installed fold passes, fresh v4 frozen
+Installed native executor error1.413e-4 relative, zero-edit4.77e-6; all16finite cells pass. No edited native attention11 fallback. Next CPU fresh48text panel construction/token/novelty checks executed and implementation/bank hashes frozen; v4 model outcomes unopened. See FIXED_QUERY_NATIVE_INSTALL_2026-09-20.md.
