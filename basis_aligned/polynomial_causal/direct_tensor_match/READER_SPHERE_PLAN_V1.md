@@ -1,0 +1,11 @@
+# Equal-reader sphere probes — 2026-09-20 22:54 UTC
+
+Target: pure quartic native branch through MLP16/17 and unembedding, projected on the frozen canonical scalar1 output direction. The current student depends on twelve linear readers (six left/right pairs). Biases, residual cross terms and normalization backgrounds remain excluded from this polynomial target. No fitting/native text forwards.
+
+For normalized state x and orthonormal reader frame Q, let x_perp=x-QQ^T x. Project the exact folded target gradient into ker(Q^T) intersect x^perp, normalize to d, and construct
+x_plus/minus=QQ^T x+cos(theta)x_perp +/- sin(theta)||x_perp||d.
+These have identical original reader values and input norm. Any function of those readers gives identical outputs, whereas the teacher can differ. Compare gradient-selected and seeded random directions at theta.001/.01/.05. These are artificial off-data perturbations of real normalized states, not naturally occurring counterfactual text or population error bounds.
+
+Use256deterministic rows each: originalcalibration rows every8; reused context256diagnostic rows every32. Batch64 native weight contractions; TF32disabled. Audit analytic gradient against autograd on a small planted folded model, FP32 vsFP64 on native first8states, finite differences at theta.001, student/reader equality andnorm preservation. Compute missing gradient energy divided by total spherical tangent gradient energy. Explore leading1/4/8/16 missing-gradient directions trained on calibration only and their held-panel gradient-energy coverage; no semantic claim or adoption.
+
+pred_a_instrument: toygradient<1e-12; reader/student/norm invariance<1e-5; nativeFP32/64gradient discrepancy<1e-4; finite-difference discrepancy<.02 for gradientdirections at.001. pred_b_missing: invisible tangent-gradient energy fraction>.1 on BOTH panels. pred_c_effect: gradient-aligned plus-minus native scalar RMS difference at.05 exceeds.01times unperturbed scalar standarddeviation on BOTH panels. All angles/randomcontrols reported. Null: useful local target dependence lies in existing readers, or the instrument fails. Positive results show restricted-reader insufficiency on artificial states, not that it explains the natural code-swap failure.

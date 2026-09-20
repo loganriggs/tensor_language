@@ -1,0 +1,200 @@
+{
+  "records": [
+    {
+      "panel": "calibration",
+      "model": "baseline",
+      "mse": 28.36666761075513,
+      "relative_error": 0.15937822469699536
+    },
+    {
+      "panel": "diagnostic_64",
+      "model": "baseline",
+      "mse": 30.19714300362457,
+      "relative_error": 0.1721245199043639
+    },
+    {
+      "panel": "diagnostic_256",
+      "model": "baseline",
+      "mse": 34.104712516050114,
+      "relative_error": 0.17367508443398816
+    },
+    {
+      "panel": "calibration",
+      "model": "gradient_1",
+      "mse": 26.697445585080015,
+      "relative_error": 0.1546178678113174
+    },
+    {
+      "panel": "diagnostic_64",
+      "model": "gradient_1",
+      "mse": 28.449199347240956,
+      "relative_error": 0.1670686019177117
+    },
+    {
+      "panel": "diagnostic_256",
+      "model": "gradient_1",
+      "mse": 31.63122002702565,
+      "relative_error": 0.16725853700700383
+    },
+    {
+      "panel": "calibration",
+      "model": "gradient_4",
+      "mse": 19.61224437003361,
+      "relative_error": 0.13252214996143133
+    },
+    {
+      "panel": "diagnostic_64",
+      "model": "gradient_4",
+      "mse": 24.754014878956074,
+      "relative_error": 0.15584132711274085
+    },
+    {
+      "panel": "diagnostic_256",
+      "model": "gradient_4",
+      "mse": 27.114716364443062,
+      "relative_error": 0.15485771797205566
+    },
+    {
+      "panel": "calibration",
+      "model": "gradient_8",
+      "mse": 16.718423283744272,
+      "relative_error": 0.12235521468219934
+    },
+    {
+      "panel": "diagnostic_64",
+      "model": "gradient_8",
+      "mse": 23.370898718741735,
+      "relative_error": 0.15142497852972886
+    },
+    {
+      "panel": "diagnostic_256",
+      "model": "gradient_8",
+      "mse": 26.61936640884411,
+      "relative_error": 0.15343667521213025
+    },
+    {
+      "panel": "calibration",
+      "model": "random_1",
+      "mse": 27.122794056029846,
+      "relative_error": 0.15584470033391076
+    },
+    {
+      "panel": "diagnostic_64",
+      "model": "random_1",
+      "mse": 29.00698399806812,
+      "relative_error": 0.16869845367486266
+    },
+    {
+      "panel": "diagnostic_256",
+      "model": "random_1",
+      "mse": 33.583465662908765,
+      "relative_error": 0.172342773545866
+    },
+    {
+      "panel": "calibration",
+      "model": "random_4",
+      "mse": 23.842601726120773,
+      "relative_error": 0.14611730288381325
+    },
+    {
+      "panel": "diagnostic_64",
+      "model": "random_4",
+      "mse": 26.0588826051545,
+      "relative_error": 0.15989604025195717
+    },
+    {
+      "panel": "diagnostic_256",
+      "model": "random_4",
+      "mse": 30.3456783823859,
+      "relative_error": 0.16382446090438238
+    },
+    {
+      "panel": "calibration",
+      "model": "random_8",
+      "mse": 21.807298309951392,
+      "relative_error": 0.13974161473211308
+    },
+    {
+      "panel": "diagnostic_64",
+      "model": "random_8",
+      "mse": 25.003638906491474,
+      "relative_error": 0.1566251223525959
+    },
+    {
+      "panel": "diagnostic_256",
+      "model": "random_8",
+      "mse": 29.520540660698657,
+      "relative_error": 0.1615818126398429
+    }
+  ],
+  "prices": [
+    {
+      "model": "gradient_1",
+      "cost": {
+        "products": 11,
+        "additions": 15055,
+        "stored_coefficients": 15080,
+        "edges": 15103,
+        "nodes": 1190
+      }
+    },
+    {
+      "model": "gradient_4",
+      "cost": {
+        "products": 14,
+        "additions": 18544,
+        "stored_coefficients": 18572,
+        "edges": 18604,
+        "nodes": 1199
+      }
+    },
+    {
+      "model": "gradient_8",
+      "cost": {
+        "products": 18,
+        "additions": 23196,
+        "stored_coefficients": 23228,
+        "edges": 23272,
+        "nodes": 1211
+      }
+    },
+    {
+      "model": "random_1",
+      "cost": {
+        "products": 11,
+        "additions": 15055,
+        "stored_coefficients": 15080,
+        "edges": 15103,
+        "nodes": 1190
+      }
+    },
+    {
+      "model": "random_4",
+      "cost": {
+        "products": 14,
+        "additions": 18544,
+        "stored_coefficients": 18572,
+        "edges": 18604,
+        "nodes": 1199
+      }
+    },
+    {
+      "model": "random_8",
+      "cost": {
+        "products": 18,
+        "additions": 23196,
+        "stored_coefficients": 23228,
+        "edges": 23272,
+        "nodes": 1211
+      }
+    }
+  ],
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_gain": true,
+    "pred_c_directions": false
+  },
+  "replay_max": 3.0653099676977297e-15,
+  "primary": "gradient_4",
+  "scope": "Calibration-fitted quadratic cross-reader additions. Shared old scalar readers; no native intervention claim. Gradient proposals data-informed via calibration states and teacher weight derivatives. Reused diagnostic panels."
+}

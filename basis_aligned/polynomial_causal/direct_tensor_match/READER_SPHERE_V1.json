@@ -1,0 +1,166 @@
+{
+  "plan": {
+    "rows": 256,
+    "batch": 64,
+    "angles": [
+      0.001,
+      0.01,
+      0.05
+    ],
+    "families": [
+      "gradient",
+      "random"
+    ],
+    "seed": 260954
+  },
+  "records": [
+    {
+      "panel": "calibration",
+      "native_scalar_std": 34.909124891377864,
+      "invisible_tangent_gradient_energy_fraction": 0.27737996755972416,
+      "perturbations": [
+        {
+          "family": "gradient",
+          "angle": 0.001,
+          "pair_difference_rms": 0.376294892152102,
+          "pair_difference_over_native_std": 0.010779270271683102,
+          "first_order_relative_error": 2.856152188220822e-05,
+          "relative_input_displacement": 0.000720801198703108
+        },
+        {
+          "family": "gradient",
+          "angle": 0.01,
+          "pair_difference_rms": 3.7628578510864243,
+          "pair_difference_over_native_std": 0.10779009393087952,
+          "first_order_relative_error": 4.963860356306908e-05,
+          "relative_input_displacement": 0.007207982254017929
+        },
+        {
+          "family": "gradient",
+          "angle": 0.05,
+          "pair_difference_rms": 18.803152883787707,
+          "pair_difference_over_native_std": 0.5386314593188746,
+          "first_order_relative_error": 0.0012479130054152108,
+          "relative_input_displacement": 0.03603630738107442
+        },
+        {
+          "family": "random",
+          "angle": 0.001,
+          "pair_difference_rms": 0.00978932101962822,
+          "pair_difference_over_native_std": 0.00028042298539675124,
+          "first_order_relative_error": 0.0012346627973365478,
+          "relative_input_displacement": 0.0007208011987031072
+        },
+        {
+          "family": "random",
+          "angle": 0.01,
+          "pair_difference_rms": 0.09789914306897275,
+          "pair_difference_over_native_std": 0.002804399805884354,
+          "first_order_relative_error": 0.00015143809733747532,
+          "relative_input_displacement": 0.007207982254017928
+        },
+        {
+          "family": "random",
+          "angle": 0.05,
+          "pair_difference_rms": 0.4888683386283856,
+          "pair_difference_over_native_std": 0.014004027318058901,
+          "first_order_relative_error": 0.0018552699411589206,
+          "relative_input_displacement": 0.03603630738107442
+        }
+      ]
+    },
+    {
+      "panel": "diagnostic256",
+      "native_scalar_std": 32.68881924614661,
+      "invisible_tangent_gradient_energy_fraction": 0.2726440541855254,
+      "perturbations": [
+        {
+          "family": "gradient",
+          "angle": 0.001,
+          "pair_difference_rms": 0.3839385246780493,
+          "pair_difference_over_native_std": 0.011745255213625018,
+          "first_order_relative_error": 2.6847466811478093e-05,
+          "relative_input_displacement": 0.000734040951891182
+        },
+        {
+          "family": "gradient",
+          "angle": 0.01,
+          "pair_difference_rms": 3.8392697641628293,
+          "pair_difference_over_native_std": 0.11744901934980127,
+          "first_order_relative_error": 4.5978763022172076e-05,
+          "relative_input_displacement": 0.007340379239759519
+        },
+        {
+          "family": "gradient",
+          "angle": 0.05,
+          "pair_difference_rms": 19.1808275759087,
+          "pair_difference_over_native_std": 0.586770278592114,
+          "first_order_relative_error": 0.001150687409806448,
+          "relative_input_displacement": 0.036698226113165096
+        },
+        {
+          "family": "random",
+          "angle": 0.001,
+          "pair_difference_rms": 0.010370872531124644,
+          "pair_difference_over_native_std": 0.0003172605426042476,
+          "first_order_relative_error": 0.001212232319619835,
+          "relative_input_displacement": 0.0007340409518911818
+        },
+        {
+          "family": "random",
+          "angle": 0.01,
+          "pair_difference_rms": 0.10369745574377304,
+          "pair_difference_over_native_std": 0.0031722606730739287,
+          "first_order_relative_error": 0.00013324028187318448,
+          "relative_input_displacement": 0.007340379239759519
+        },
+        {
+          "family": "random",
+          "angle": 0.05,
+          "pair_difference_rms": 0.5177992512646322,
+          "pair_difference_over_native_std": 0.015840255573797483,
+          "first_order_relative_error": 0.001778473045884595,
+          "relative_input_displacement": 0.036698226113165096
+        }
+      ]
+    }
+  ],
+  "gradient_subspace_coverage": [
+    {
+      "rank": 1,
+      "calibration": 0.21897458790285565,
+      "diagnostic256": 0.17471305946577226
+    },
+    {
+      "rank": 4,
+      "calibration": 0.4562183618311557,
+      "diagnostic256": 0.3586504627311584
+    },
+    {
+      "rank": 8,
+      "calibration": 0.5583115654496437,
+      "diagnostic256": 0.427276834831687
+    },
+    {
+      "rank": 16,
+      "calibration": 0.6614757003778271,
+      "diagnostic256": 0.48882473824467143
+    }
+  ],
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_missing": true,
+    "pred_c_effect": true
+  },
+  "invariance_max": 4.787235161057842e-15,
+  "gradient_fp32_fp64": 3.422586357856926e-07,
+  "small_angle_fd": 2.856152188220822e-05,
+  "toy": {
+    "gradient_relative_error": 0.0,
+    "reader_pair_error": 9.42159000040007e-17,
+    "norm_error": 1.0372880733825014e-16,
+    "finite_difference_relative_error": 1.125836016250642e-06
+  },
+  "seconds": 1.6913028869312257,
+  "scope": "Artificial norm-preserving states with identical student readers. Gradient-selected directions are adaptive counterexamples, not natural text or certified population error floors. Subspace coverage is a held-panel derivative diagnostic, not a circuit."
+}

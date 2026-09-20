@@ -1,0 +1,9 @@
+# Gradient-proposed reusable reader additions — 2026-09-20 22:57 UTC
+
+Freeze the selective scalar program and its existing12linear readers. Take leading1/4/8calibration missing-gradient directions from READER_SPHERE_DIRECTIONS_V1.pt. For each new direction v, add one quadratic feature (v^T x)(w^T Hx), with H the existing12readers. Learn only partner coefficients w and a compensating constant for scalar1 from original2048calibrationrows. The four original scalar readouts and quartic roots otherwise stay frozen. Product means are subtracted using calibration data. This is weight-gradient-proposed, data-informed fitting, not purely weight-only optimization.
+
+For each width compare a seeded equally wide random orthonormal frame in the old-reader nullspace. Ridge1e-3 on standardized centered cross features, fixed before outcomes. Primarywidth4; report all widths without diagnostic selection. Native targets from cached branch values with token/scale checks. Evaluate reused disjointcontext64/256panels, nofreshclaim.
+
+pred_a_instrument: compact evaluation agrees expanded quadratic polynomial and literalsharedDAG<1e-5; untouchedscalar0/2/3 unchanged<1e-10; all pricesrecorded. pred_b_gain: primarygradient4 reduces scalar1 MSE>=10% versus selectivebaseline onbothdiagnostics. pred_c_directions: gradient4MSE<=.9random4MSE onbothdiagnostics. Failurecanreflect quadratic correctionexpressivity ormetric mismatch, not a proof that proposed directions are useless. No nativeintervention claim until tested.
+
+Literal sharing: new partner forms combine already computed reader scalars, rather than storing a second dense1152-direction for each product. Count new projections, partner coefficients, products andadditions. Native adapter may expand partner factors for replay only; do not report its unshared storage as the candidate cost.
