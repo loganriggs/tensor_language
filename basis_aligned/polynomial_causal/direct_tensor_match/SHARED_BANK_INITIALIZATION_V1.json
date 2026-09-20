@@ -1,0 +1,295 @@
+{
+  "records": [
+    {
+      "error": 0.5913910346182262,
+      "signed_squared_error": 0.34974335582681604,
+      "selected_step": 600,
+      "initial_error": 0.6832183825574053,
+      "seconds": 0.9421822070144117,
+      "family": "coordinate",
+      "method": "spectral16",
+      "optimizer": "adam",
+      "bank": 3,
+      "seed": 0
+    },
+    {
+      "error": 0.5913887896004684,
+      "signed_squared_error": 0.3497407004651071,
+      "selected_step": 595,
+      "initial_error": 0.6832183825574053,
+      "seconds": 1.0272085608448833,
+      "family": "coordinate",
+      "method": "spectral16",
+      "optimizer": "muon",
+      "bank": 3,
+      "seed": 0
+    },
+    {
+      "error": 0.5312183404088668,
+      "signed_squared_error": 0.28219292518675076,
+      "selected_step": 600,
+      "initial_error": 0.9757018392194892,
+      "seconds": 0.9393619771581143,
+      "family": "coordinate",
+      "method": "extra_starts",
+      "optimizer": "adam",
+      "bank": 3,
+      "seed": 2
+    },
+    {
+      "error": 0.5402934718169787,
+      "signed_squared_error": 0.2919170356880444,
+      "selected_step": 595,
+      "initial_error": 0.9757018392194892,
+      "seconds": 1.0158945301081985,
+      "family": "coordinate",
+      "method": "extra_starts",
+      "optimizer": "muon",
+      "bank": 3,
+      "seed": 2
+    },
+    {
+      "error": 0.5402934553178175,
+      "signed_squared_error": 0.2919170178592664,
+      "selected_step": 546,
+      "initial_error": 0.9345681888143734,
+      "seconds": 0.9246330540627241,
+      "family": "coordinate",
+      "method": "extra_starts",
+      "optimizer": "adam",
+      "bank": 3,
+      "seed": 3
+    },
+    {
+      "error": 0.540293478852611,
+      "signed_squared_error": 0.2919170432906568,
+      "selected_step": 596,
+      "initial_error": 0.9345681888143734,
+      "seconds": 1.014894915977493,
+      "family": "coordinate",
+      "method": "extra_starts",
+      "optimizer": "muon",
+      "bank": 3,
+      "seed": 3
+    },
+    {
+      "error": 0.41818584755380667,
+      "signed_squared_error": 0.17487940309429562,
+      "selected_step": 600,
+      "initial_error": 0.9139964421901845,
+      "seconds": 0.998636111849919,
+      "family": "coordinate",
+      "method": "wider_bank",
+      "optimizer": "adam",
+      "bank": 4,
+      "seed": 0
+    },
+    {
+      "error": 0.5337489364731689,
+      "signed_squared_error": 0.2848879271862389,
+      "selected_step": 600,
+      "initial_error": 0.9139964421901845,
+      "seconds": 1.2913192440755665,
+      "family": "coordinate",
+      "method": "wider_bank",
+      "optimizer": "muon",
+      "bank": 4,
+      "seed": 0
+    },
+    {
+      "error": 0.3553893402119644,
+      "signed_squared_error": 0.12630158313629536,
+      "selected_step": 600,
+      "initial_error": 0.9694129316501946,
+      "seconds": 1.0726433948148042,
+      "family": "coordinate",
+      "method": "wider_bank",
+      "optimizer": "adam",
+      "bank": 4,
+      "seed": 1
+    },
+    {
+      "error": 0.0001628647718690949,
+      "signed_squared_error": 2.6524933915972326e-08,
+      "selected_step": 600,
+      "initial_error": 0.9694129316501946,
+      "seconds": 1.1090383720584214,
+      "family": "coordinate",
+      "method": "wider_bank",
+      "optimizer": "muon",
+      "bank": 4,
+      "seed": 1
+    },
+    {
+      "error": 0.6383430876377392,
+      "signed_squared_error": 0.4074818975348823,
+      "selected_step": 600,
+      "initial_error": 0.6832183825574057,
+      "seconds": 0.9178945850580931,
+      "family": "rotated_signed",
+      "method": "spectral16",
+      "optimizer": "adam",
+      "bank": 3,
+      "seed": 0
+    },
+    {
+      "error": 0.6450043581562943,
+      "signed_squared_error": 0.41603062204061314,
+      "selected_step": 600,
+      "initial_error": 0.6832183825574057,
+      "seconds": 1.0146558510605246,
+      "family": "rotated_signed",
+      "method": "spectral16",
+      "optimizer": "muon",
+      "bank": 3,
+      "seed": 0
+    },
+    {
+      "error": 0.024406840920109075,
+      "signed_squared_error": 0.0005956938836995107,
+      "selected_step": 600,
+      "initial_error": 0.32784675661811763,
+      "seconds": 0.9340675149578601,
+      "family": "dense",
+      "method": "spectral16",
+      "optimizer": "adam",
+      "bank": 3,
+      "seed": 0
+    },
+    {
+      "error": 0.00044241652040596756,
+      "signed_squared_error": 1.957323775281239e-07,
+      "selected_step": 600,
+      "initial_error": 0.32784675661811763,
+      "seconds": 1.0256321080960333,
+      "family": "dense",
+      "method": "spectral16",
+      "optimizer": "muon",
+      "bank": 3,
+      "seed": 0
+    },
+    {
+      "error": 0.0008201623671153247,
+      "signed_squared_error": 6.726663084322126e-07,
+      "selected_step": 600,
+      "initial_error": 0.3490189061872157,
+      "seconds": 0.9307940658181906,
+      "family": "common_factor",
+      "method": "spectral16",
+      "optimizer": "adam",
+      "bank": 3,
+      "seed": 0
+    },
+    {
+      "error": 0.0003229331289426826,
+      "signed_squared_error": 1.0428580576871127e-07,
+      "selected_step": 598,
+      "initial_error": 0.3490189061872157,
+      "seconds": 1.0255572281312197,
+      "family": "common_factor",
+      "method": "spectral16",
+      "optimizer": "muon",
+      "bank": 3,
+      "seed": 0
+    },
+    {
+      "error": 0.0008159756296988595,
+      "signed_squared_error": 6.658162282624502e-07,
+      "selected_step": 600,
+      "initial_error": 0.26831423409367644,
+      "seconds": 0.9342442990746349,
+      "family": "squares",
+      "method": "spectral16",
+      "optimizer": "adam",
+      "bank": 3,
+      "seed": 0
+    },
+    {
+      "error": 0.0001987023649386728,
+      "signed_squared_error": 3.9482629832221505e-08,
+      "selected_step": 596,
+      "initial_error": 0.26831423409367644,
+      "seconds": 1.02171910693869,
+      "family": "squares",
+      "method": "spectral16",
+      "optimizer": "muon",
+      "bank": 3,
+      "seed": 0
+    }
+  ],
+  "capacity_checks": [
+    {
+      "family": "coordinate",
+      "teacher_bank_replay_error": 2.5809568279517847e-08
+    },
+    {
+      "family": "rotated_signed",
+      "teacher_bank_replay_error": 3.650024149988857e-08
+    },
+    {
+      "family": "dense",
+      "teacher_bank_replay_error": 0.0
+    },
+    {
+      "family": "common_factor",
+      "teacher_bank_replay_error": 2.5809568279517847e-08
+    },
+    {
+      "family": "squares",
+      "teacher_bank_replay_error": 1.0536712127723509e-08
+    }
+  ],
+  "initializations": [
+    {
+      "family": "coordinate",
+      "unfolded_span_principal_cosines": [
+        1.0,
+        5.084544494377383e-17,
+        0.0
+      ],
+      "selected_rotation": 15,
+      "initial_error": 0.6832183825574053
+    },
+    {
+      "family": "rotated_signed",
+      "unfolded_span_principal_cosines": [
+        1.0,
+        8.506458855783087e-16,
+        6.171022949153997e-16
+      ],
+      "selected_rotation": 4,
+      "initial_error": 0.6832183825574057
+    },
+    {
+      "family": "dense",
+      "unfolded_span_principal_cosines": [
+        0.9953763593503095,
+        0.956703709703004,
+        0.502736447378211
+      ],
+      "selected_rotation": 9,
+      "initial_error": 0.32784675661811763
+    },
+    {
+      "family": "common_factor",
+      "unfolded_span_principal_cosines": [
+        0.9937580373833268,
+        0.8059460332344816,
+        0.074522560553897
+      ],
+      "selected_rotation": 0,
+      "initial_error": 0.3490189061872157
+    },
+    {
+      "family": "squares",
+      "unfolded_span_principal_cosines": [
+        0.9873635686976943,
+        0.965743281427187,
+        0.9098768710103041
+      ],
+      "selected_rotation": 13,
+      "initial_error": 0.26831423409367644
+    }
+  ],
+  "scope": "18followups. Spectral16 includesextra weights-only initialization search onsmall dense unfolding; not a native algorithm or equalcomputebudget comparison."
+}

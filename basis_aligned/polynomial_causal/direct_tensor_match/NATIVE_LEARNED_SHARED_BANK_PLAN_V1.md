@@ -1,0 +1,7 @@
+# Native learned shared quadratic bank — 2026-09-20 17:56 UTC
+
+Exact self/cross sharedbank kernels passed dense values/gradients<7e-16;40toyfits and18initializationcontrols establish both recovery examples andoptimization failures. A fourfeature bank fixes the coordinatecontrol for one Muonstart; spectralinitialization misses its actualquadraticspan. Do not assume generic recovery.
+
+Fit four sharedquadratics, each a sum offour bilinearproducts, andall10unorderedrootproducts to the fullnativepurequartic teacher. Exact smallfactor selfGram anddirectional teacher cross, analyticoutputrefit with1e-6 mean-diagonalridge. Normalize eachquadratic's Frobenius norm. Nativeinput1152/reducedoutput1152;48,384 retainedvalues plusoutputframe, versus46,080 forCP8. This is a close-price structural comparison; trainingcost differs.
+
+Eightfits:Adam/Muon, learningrates0.0005/0.005, seeds0/1,400steps, best exacttrainingobjective checkpoint includinginitial. Rawreaders have unit expectedrownorm; rates approximate the d6toy0.005/0.05 scales after inverse-sqrt-d angular adjustment, not an optimum guarantee. Muon acts separately on each4x1152 reader. Compare8192heldoutcoefficienttuples and256Gaussianinputs seed1651; teacher norm estimate used only for scaling/normalizedlabels. Predictions:all objectives finite; somefit explains morethanCP8's0.00086295 fraction underexactself/cross; somefit beatsCP8 heldouterror0.99935585. No sparsecore, discoveredfeatureidentity, Gaussian-fitting orcircuitadoption claim.

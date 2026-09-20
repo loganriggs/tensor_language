@@ -1,0 +1,37 @@
+{
+  "plan": {
+    "student_roots": 8,
+    "teacher_roots": 4608,
+    "teacher_block": 16,
+    "evaluation_queries": 8192,
+    "function_queries": 256,
+    "native_forwards": 0
+  },
+  "records": [
+    {
+      "method": "sampled_writer",
+      "explained_fraction_using_estimated_teacher_norm": 0.020762766615398942,
+      "estimated_coefficient_error": 0.9895641633489973,
+      "evaluation_coefficient_error": 0.9881594386117373,
+      "gaussian_function_error": 0.92835854870725
+    },
+    {
+      "method": "exact_writer",
+      "explained_fraction_using_estimated_teacher_norm": 0.021729592285597205,
+      "estimated_coefficient_error": 0.9890755318550767,
+      "evaluation_coefficient_error": 0.9876521272860503,
+      "gaussian_function_error": 0.9248454131032876
+    }
+  ],
+  "scan_seconds": 23.48974682786502,
+  "seconds": 24.821831721113995,
+  "kernel_precision": 2.506307715319736e-07,
+  "normal_residual": 1.520539803720819e-16,
+  "condition": 1.301892960547135,
+  "predictions": {
+    "pred_a_numerics": true,
+    "pred_b_objective": true,
+    "pred_c_evaluation": true
+  },
+  "scope": "Full teacher self/cross weight contractions for fixed eight-root student, fp32 kernels/fp64 solve. Teacher norm only estimated; heldout metrics finite. No feature discovery or circuitclaim."
+}

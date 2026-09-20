@@ -1,0 +1,199 @@
+{
+  "records": [
+    {
+      "error": 0.0,
+      "signed_squared_error": 0.0,
+      "selected_step": 332,
+      "initial_error": 2.5809568279517847e-08,
+      "seconds": 0.9144543479196727,
+      "family": "coordinate",
+      "method": "trace16",
+      "optimizer": "adam",
+      "bank": 3,
+      "seed": 0
+    },
+    {
+      "error": 2.5809568279517847e-08,
+      "signed_squared_error": 6.661338147750939e-16,
+      "selected_step": 0,
+      "initial_error": 2.5809568279517847e-08,
+      "seconds": 0.9889551291707903,
+      "family": "coordinate",
+      "method": "trace16",
+      "optimizer": "muon",
+      "bank": 3,
+      "seed": 0
+    },
+    {
+      "error": 0.0,
+      "signed_squared_error": -4.440892098500626e-16,
+      "selected_step": 411,
+      "initial_error": 2.9802322387695312e-08,
+      "seconds": 0.9050122720655054,
+      "family": "rotated_signed",
+      "method": "trace16",
+      "optimizer": "adam",
+      "bank": 3,
+      "seed": 0
+    },
+    {
+      "error": 2.9802322387695312e-08,
+      "signed_squared_error": 8.881784197001252e-16,
+      "selected_step": 0,
+      "initial_error": 2.9802322387695312e-08,
+      "seconds": 0.9890140169300139,
+      "family": "rotated_signed",
+      "method": "trace16",
+      "optimizer": "muon",
+      "bank": 3,
+      "seed": 0
+    },
+    {
+      "error": 0.08357025989731118,
+      "signed_squared_error": 0.006983988339304137,
+      "selected_step": 600,
+      "initial_error": 0.7409432394204283,
+      "seconds": 0.9163081499282271,
+      "family": "dense",
+      "method": "trace16",
+      "optimizer": "adam",
+      "bank": 3,
+      "seed": 0
+    },
+    {
+      "error": 0.026108035607133265,
+      "signed_squared_error": 0.0006816295232633385,
+      "selected_step": 600,
+      "initial_error": 0.7409432394204283,
+      "seconds": 0.9880691720172763,
+      "family": "dense",
+      "method": "trace16",
+      "optimizer": "muon",
+      "bank": 3,
+      "seed": 0
+    },
+    {
+      "error": 0.03287335277590001,
+      "signed_squared_error": 0.001080657322728773,
+      "selected_step": 600,
+      "initial_error": 0.5842174392926819,
+      "seconds": 0.9110936541110277,
+      "family": "common_factor",
+      "method": "trace16",
+      "optimizer": "adam",
+      "bank": 3,
+      "seed": 0
+    },
+    {
+      "error": 0.04251363343379798,
+      "signed_squared_error": 0.0018074090277433452,
+      "selected_step": 600,
+      "initial_error": 0.5842174392926819,
+      "seconds": 0.9949213988147676,
+      "family": "common_factor",
+      "method": "trace16",
+      "optimizer": "muon",
+      "bank": 3,
+      "seed": 0
+    },
+    {
+      "error": 0.029266116315941806,
+      "signed_squared_error": 0.0008565055642182351,
+      "selected_step": 600,
+      "initial_error": 0.44268337719525425,
+      "seconds": 0.9082566290162504,
+      "family": "squares",
+      "method": "trace16",
+      "optimizer": "adam",
+      "bank": 3,
+      "seed": 0
+    },
+    {
+      "error": 0.16540093987840593,
+      "signed_squared_error": 0.027357470912660053,
+      "selected_step": 600,
+      "initial_error": 0.44268337719525425,
+      "seconds": 1.0115241738967597,
+      "family": "squares",
+      "method": "trace16",
+      "optimizer": "muon",
+      "bank": 3,
+      "seed": 0
+    }
+  ],
+  "capacity_checks": [
+    {
+      "family": "coordinate",
+      "teacher_bank_replay_error": 2.5809568279517847e-08
+    },
+    {
+      "family": "rotated_signed",
+      "teacher_bank_replay_error": 3.650024149988857e-08
+    },
+    {
+      "family": "dense",
+      "teacher_bank_replay_error": 0.0
+    },
+    {
+      "family": "common_factor",
+      "teacher_bank_replay_error": 2.5809568279517847e-08
+    },
+    {
+      "family": "squares",
+      "teacher_bank_replay_error": 1.0536712127723509e-08
+    }
+  ],
+  "initializations": [
+    {
+      "family": "coordinate",
+      "unfolded_span_principal_cosines": [
+        1.0000000000000002,
+        1.0,
+        1.0
+      ],
+      "selected_rotation": 10,
+      "initial_error": 2.5809568279517847e-08
+    },
+    {
+      "family": "rotated_signed",
+      "unfolded_span_principal_cosines": [
+        1.0000000000000002,
+        1.0,
+        0.9999999999999999
+      ],
+      "selected_rotation": 1,
+      "initial_error": 2.9802322387695312e-08
+    },
+    {
+      "family": "dense",
+      "unfolded_span_principal_cosines": [
+        0.8705165187587659,
+        0.6818388356382022,
+        0.27198475384324594
+      ],
+      "selected_rotation": 10,
+      "initial_error": 0.7409432394204283
+    },
+    {
+      "family": "common_factor",
+      "unfolded_span_principal_cosines": [
+        0.9389653270497701,
+        0.34002343972695365,
+        0.05606394948068832
+      ],
+      "selected_rotation": 8,
+      "initial_error": 0.5842174392926819
+    },
+    {
+      "family": "squares",
+      "unfolded_span_principal_cosines": [
+        0.9318788712645314,
+        0.8289932559063148,
+        0.7372638252671413
+      ],
+      "selected_rotation": 2,
+      "initial_error": 0.44268337719525425
+    }
+  ],
+  "scope": "10followups. Trace16 includesextra weights-only initialization search onsmall teacher input-trace contraction; not a native algorithm or equalcomputebudget comparison."
+}

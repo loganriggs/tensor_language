@@ -493,3 +493,6 @@ Known radialquartic CP8error≥81.61% atd1152, yetexact sharedsumofsquares circu
 
 ### 2026-09-20 17:46 — Fixed-feature sampling error and exact native refit
 540control fits vsfullenumeration:conditioned sampledsolves canexceed100%fullerror; dense/shared metricsconvergewithN, diagonalconcentrationbad. Nativeexact8rootwriterrefitqueued: studentself/fullteachercross exact, teacher normstillestimated. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1746_exact_refit_and_sampling_control.md).
+
+### 2026-09-20 18:02 — Exact native writers and learned shared bank
+Exact8root98.816→98.765%coeff; Gaussian256root74.985% but100.856%coeff, versusradial89.94%. Exactsharedlowrankbank kernelsvalidated,68toycontrols:naiveunfoldingmissestruebank, tracehelpsspecificstructures, widerbankhelpsonefailure. Nativebank4/k4eightfitsqueued at48,384reducedvalues. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1802_exact_native_metrics_and_learned_sharing.md).

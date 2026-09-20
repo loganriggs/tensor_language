@@ -154,3 +154,15 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 
 - `NATIVE_EXACT_ROOT_PLAN_V1.md`:queued exact full-teacher cross/student-self contractions for fixed8native roots, streaming4608teacherroots. Teacher self norm still estimated; runtime/precision/heldout comparisons preregistered.
 - `COEFFICIENT_REFIT_SAMPLING_PLAN_V1.md`, `coefficient_refit_sampling.py`, `COEFFICIENT_REFIT_SAMPLING_V1.json`:540 fixed-feature SVD writer fits, three teacher structures/three widths/five sample counts/12seeds, vs exact4096tuple enumeration. Gramcondition2.484 witness has84.54%train/112.38%fullerror. Dense/shared cases converge withsamplecount; diagonal concentration remains difficult. Not a native samplecomplexity claim.
+
+## Native exact/ Gaussian results and learned sharing — 18:02 UTC
+
+[Consolidated report](../explanations/for_logan/research_update_2026-09-20_1802_exact_native_metrics_and_learned_sharing.md).
+
+- `NATIVE_EXACT_ROOT_V1.json/.pt`:scan23.49s,fp32/64 error2.5e-7;8rootheldout98.816%→98.765%, allpredictionsheld. Exact studentself/fullteachercross only; receipt scope wording does not imply exactteacher selfnorm.
+- `NATIVE_ROOT_GAUSSIAN_V1.json/.pt`:12writerfits;256rootGaussian75.055% (ridge0) /74.985%(ridge.01), versusoriginal90.635% andradial89.940%; coefficienterror101.027% /100.856%. Allpredictionsheld; syntheticGaussian, noactivationcovariance.
+- `shared_quadratic_bank.py`, `check_shared_quadratic_bank.py`, `SHARED_QUADRATIC_BANK_CHECK_V1.json`:exactlowrank sharedbank Gram/nativecross andcoefficientqueries, densecheckedvalues/gradients<7e-16.
+- `SHARED_BANK_TOY_PLAN_V1.md`, `shared_bank_toys.py`, `SHARED_BANK_TOYS_V1.json`:40plantedfits,5families; exactcapacitydoesnotguaranteerandomrecovery.
+- `shared_bank_fit.py`, `SHARED_BANK_INITIALIZATION_PLAN_V1.md`, `shared_bank_initialization.py`, `SHARED_BANK_INITIALIZATION_V1.json`:18followups; widerbank rescuesonehardcase, leadingunfoldingcanmissthetruequadraticspan.
+- `SHARED_BANK_TRACE_INITIALIZATION_PLAN_V1.md`, `shared_bank_trace_initialization.py`, `SHARED_BANK_TRACE_INITIALIZATION_V1.json`:10fits; traceinitialization exactlyrecoverscoordinate/rotatedsigned cases butisworseonotherfamilies.
+- `NATIVE_LEARNED_SHARED_BANK_PLAN_V1.md`:queued8exact-gradientnative fits,bank4,k4,48,384reducedvalues; compareCP8 at46,080. Dense rootcore, nosparsity/circuitclaim.

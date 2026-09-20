@@ -1,0 +1,5 @@
+# Exact learned shared quadratic dictionary controls — 2026-09-20 17:51 UTC
+
+Validate shared_quadratic_bank selfGram andnativecross againstdense tensors/gradients (completed<7e-16). Now fit five planted teacherfamilies fromrandom sharedbank readers:coordinatequadratics, rotatedsignedquadratics, densemixedroots, commonquadraticfactor, and squaredquadratics. Teacher/student eachthreequadraticfeatures, two bilinearproductsperfeature, sixunorderedquarticroots, threeoutputs, inputd6. Native teacherform is an exact two-bilinear-layer computation; no coefficientsampling.
+
+Forty fits:Adam/Muon, rates0.005/0.05, seeds0/1,600steps perteacher. Muon acts on each2xd reader matrix separately. Normalize each quadratic's Frobenius norm, solve outputwriters with1e-8 mean-diagonalridge, retainbesttrainingcheckpoint includinginitial. Report exactcoefficienterror, conditioning and learnedquadraticspanprincipalcosines; no sparsity or individualfeatureidentityclaim. CandidateC may bedense evenwhenplantedcoreissparse. Thesecontrols gate a native learnedhierarchy whose self/cross objectives remainexact withoutdense input tensors.
