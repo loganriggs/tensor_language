@@ -393,3 +393,5 @@ Four-reader width8 response dictionary; full attention12–17 and sparse18/36 ML
 20 September: fixed five-source substitution improves nativejoint44/48 versus42/48original at80coefficients/context; full6passes45/48at108. Instrument/predictionpass; fourstrengthfailures. Independent5Dselection removes6Dwarmstartdependency andpredicts44/48, nativevalidation separatelyqueued. See `basis_aligned/polynomial_causal/MATCHED_WIDTH_SOURCE_SWAP_2026-09-20.md`.
 
 Independent five-source selector native validation now passes instrumentation/prediction and retains44/48joint cells. Warm-start dependence removed; prospective SOURCE_OOD_V2_BINDING.json freezes48newtexts and support before model evaluation. Full goal remains unmet.
+
+20 September: prospective OODv2 all3sourcevariants pass16/16native selectivity and100%capability, butswap5quadratic16.751%/full6 17.987%fail prediction; original5 7.773%passes. Openedradius/cubicdiagnostic passeshalfquadratic3.33%andfullcubic7.21%, butcubicworsens7/48cells andaddsderivativecost. Freshfailurepreserved. See `basis_aligned/polynomial_causal/SOURCE_OOD_V2_AND_RADIUS_2026-09-20.md`.

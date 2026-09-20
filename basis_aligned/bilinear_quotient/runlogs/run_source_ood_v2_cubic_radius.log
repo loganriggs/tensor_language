@@ -1,0 +1,4 @@
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_source_ood_v2_cubic_radius.py:67: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  derivative_replays.extend([float((d1-torch.einsum('bi,bi->b',g[:,o],direction)).abs().max()),float((d2-torch.einsum('bi,bij,bj->b',direction,h[:,o],direction)).abs().max())]);third.append(d3.detach())
+{"predictions": {"pred_a_instrument": true, "pred_b_half_quadratic": true, "pred_c_full_cubic": true, "pred_d_cubic_improvement": false}, "counts": {"prefix": 12, "double_suffix": 208, "native_suffix": 88, "gradient": 96, "hessian": 96, "third": 96}, "max_native_reference_replay": 7.431561010129428e-06, "max_prior_replay": 0.0, "max_derivative_replay": 7.993605777301127e-15, "seconds": 31.738365910016}
