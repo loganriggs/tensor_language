@@ -81,3 +81,43 @@ A failure means this width-eight response-space hypothesis failed; it is not a
 bound on other shared DAGs. A success nominates a causal/selective test and genuine
 new OOD prompts, not immediate circuit adoption. Native implementation remains the
 next step; the joint compiler and its independent tests are already executed.
+
+## Executed follow-up and numerical red team
+
+v646's exact finite-response replay passes at4.07e-6 maximum margin error.
+Omitting response quadratics gives7–21% conditional and11–23% full native effect
+error; both substantive gates fail. These interactions cannot be dropped on this
+panel. This says nothing about whether their joint tensor admits a simpler basis.
+
+v647 implements the width-eight comparison but is **numerically invalid under its
+registered absolute gate**: relative local replay1.42e-6, absolute replay.00412.
+The projected baseline-write ports were sourced from native float32 writes while
+the independent contraction uses float64 polynomial numerators. The original
+receipt remains intact. v648 recomputes these ports directly in float64 with the
+same data, bases, ranks and thresholds; no gate is relaxed. Its native verdict is
+pending. The v647 behavioral numbers must not be promoted before this repair.
+
+A planted four-block circuit with a known three-feature invariant response space
+is recovered exactly by the compiled recurrence despite arbitrary biases and
+background states. A matched unrelated space fails its10% gate. This provides a
+positive implementation control independent of native success. Together with the
+finite-response and single-block tests, three CPU tests pass.
+
+## Reusable sufficient background coefficients
+
+`prepare_context` contracts K with the baseline h once. Each subsequent response
+evaluation then needs only the resulting8x8 linear map,8 overlaps P^T h,8 projected
+baseline writes and one baseline squared RMS:81 floating values per block. A
+similar exact contraction closes final RMS/softcap to two baseline raw logits,
+eight basis overlaps and one squared RMS. Across six blocks plus initial latent
+coordinates this is505 per-example floating context values, excluding IDs and
+metadata. Their production still requires the native background generator and the
+mixed tensors. End-to-end cost is not reduced merely by renaming these inputs.
+
+`evaluate_prepared` and `readout_prepared` consume those coefficients without full
+residual vectors. CPU checks verify their equality with the original contraction,
+including nonorthogonal norm geometry and reused contexts at edit scales
+-.5,0,.5,1.5. This is algebraic reuse, not yet independently validated reuse of a
+semantic feature by multiple circuits. The prepared execution coefficients would
+store3,926 fixed floating values (dense cores, carry/Gram matrices, scales and final
+projected readout); the producer tensors still cost513,030 values and remain charged.
