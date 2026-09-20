@@ -487,3 +487,6 @@ Known radialquartic CP8error≥81.61% atd1152, yetexact sharedsumofsquares circu
 
 ### 2026-09-20 17:29 — Signed feature width and native dictionary outcomes
 120dense signed-squarefits plus24paired controls:exactwidth=max(n+,n-); signedwriterFrobprojection canstall95% atadequatewidth, positivewriter/Gaussian controlsrecover. NativechannelCPdictionary8atoms0.01963%energy, random2e-10fraction, optimizedCP0.08630%; allgloballypoor. Wholequadraticnativehierarchyqueued. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1729_signed_width_and_writer_basins.md).
+
+### 2026-09-20 17:38 — Native hierarchy and spectral-cost outcomes
+256rootcoeff96.294%,Gaussian91.622%,train93.256%;8roots98.816% at10.70Mvalues. Independentquadraticwidth256compressionsaves12%but40.7%programerror; width512costs18.88M. Gaussianwriterrefitqueued; exactquadratic-productGram independentlyvalidated3e-16 pendingnativeapplication. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1738_native_hierarchy_and_spectral_cost.md).

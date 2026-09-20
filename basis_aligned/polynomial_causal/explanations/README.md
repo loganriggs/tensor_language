@@ -819,3 +819,5 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 - [2026-09-20 17:21 — Hierarchy capacity and native baseline](for_logan/research_update_2026-09-20_1721_hierarchy_capacity_and_native_baseline.md): rigorous flat-CP capacity counterexample,12 direct shared-square fits, and fully priced native quadratic-root baseline queued.
 
 - [2026-09-20 17:29 — Signed quadratic width and output-weight basins](for_logan/research_update_2026-09-20_1729_signed_width_and_writer_basins.md):144 controls separate exact capacity from a negative-writer basin; native dictionary comparison finished.
+
+- [2026-09-20 17:38 — Native hierarchy and spectral compression cost](for_logan/research_update_2026-09-20_1738_native_hierarchy_and_spectral_cost.md): hierarchy results, reuse lost by independent truncation, paired Gaussian writer experiment queued, exact hierarchical contraction formula validated.

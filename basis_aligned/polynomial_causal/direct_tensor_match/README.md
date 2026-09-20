@@ -138,3 +138,12 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 - `quadratic_square.py`, `SIGNED_QUADRATIC_WIDTH_PLAN_V1.md`, `signed_quadratic_width.py`, `SIGNED_QUADRATIC_WIDTH_V1.json`:120 rotated dense signed-square fits; exact minimum quadratic width max(n+,n-), constructive baselines. Minimum-width signed fits can stall95% with negative analytic writers.
 - `SIGNED_WRITER_BASIN_PLAN_V1.md`, `signed_writer_basin.py`, `SIGNED_WRITER_BASIN_V1.json`:24 paired controls; fixed/learned positive output or exact Gaussian matching recover both problematic families atlr0.05/same600steps. Gaussian contraction validated by quadrature/gradients1.4e-16. Positivity does not transfer to arbitrary native vector writers.
 - `NATIVE_CP_DICTIONARY_V1.json/.pt`:native channel-pair8atoms0.01963% energy versus random2e-10 fraction; optimizedCP0.08630% (~4.4x native dictionary). All dictionary predictions passed, but no useful global approximation.
+
+## Native hierarchy and independent spectral cost — 17:38 UTC
+
+[Timed report](../explanations/for_logan/research_update_2026-09-20_1738_native_hierarchy_and_spectral_cost.md).
+
+- `NATIVE_HIERARCHICAL_ROOT_V1.json/.pt`:8roots98.816% heldout coefficienterror beatsCP butuses10.70Mvalues;256roots96.294%,Gaussian91.622%,train93.256%.128root<95%predictionfailed; finite/8rootcomparisonheld.
+- `NATIVE_ROOT_SPECTRAL_PLAN_V1.md`, `native_root_spectral.py`, `NATIVE_ROOT_SPECTRAL_V1.json`:16quadratics fullnumericalrank at1e-6, signwidth579–629. Independentwidth256truncation saves12% but40.7%coefficienterror vs exportedprogram; width5124.23%error costs18.88M vs10.70Mshared. Fullmatrixreplay1.9e-15.
+- `NATIVE_ROOT_GAUSSIAN_PLAN_V1.md`:queued fixed-feature outputwriter sweep, syntheticGaussian vs coefficient metrics;12cells, pairedbaseline/radial checks.
+- `quadratic_product_gram.py`, `check_quadratic_product_gram.py`, `QUADRATIC_PRODUCT_GRAM_CHECK_V1.json`:exact hierarchical coefficient Gram formula, independently dense-validated values/gradients<3e-16. Fullnative application not yet executed.

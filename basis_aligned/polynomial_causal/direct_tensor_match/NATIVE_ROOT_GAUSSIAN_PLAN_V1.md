@@ -1,0 +1,7 @@
+# Native fixed hierarchy: coefficient versus Gaussian writers — 2026-09-20 17:36 UTC
+
+The coefficient-fitted hierarchy remainspoor:256roots training93.26%,heldout96.29%,Gaussian91.62%. Independent spectral compression of8roots loses40.7%programcoefficient accuracy atwidth256 despiteonly12%saving; width5124.2%errorcosts18.88M vs10.70Mshared. Preservebankreuse and test metric choice before moreindependentfactorcompression.
+
+Hold all root features/selectedsets fixed from NATIVE_HIERARCHICAL_ROOT_V1. Refit outputwriters on4096 synthetic standardGaussian inputs fromweights (seed1736), evaluate1024 independentGaussian inputs and the same8192coefficient queries(seed1651) usedpreviously. Widths8/32/128/256; ridge0/1e-4/1e-2 on unit-RMSfeatures,12fits. Report every cell, no heldout modelselection. Normal equations accumulate/solvefloat64; trackcondition/normalresidual. Homogeneous radialquartic trained on the sameGaussianinputs is the functionbaseline. No textactivations,covariancecapture,normalizedmodelreplacement or circuitclaim. SyntheticGaussian fitting approximates the Gaussian tensor metric, not exact contraction of allroots.
+
+Predictions:finite fits and normalizedlinear-systemresidual<1e-8; somewidth256cell beatsits coefficient-fitted writer'sGaussianerror on this newpanel by≥0.03; somewidth256cell beats the radialbaselineGaussianerror. Reevaluate the original coefficient writers on the same newGaussianpanel forpairedcomparisons. Standaloneprice includes completequadraticbank. Training/evaluation seeds fixed; no tuning after heldoutreadout.
