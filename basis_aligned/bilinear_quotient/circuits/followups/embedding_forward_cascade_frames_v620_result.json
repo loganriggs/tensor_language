@@ -1,0 +1,83 @@
+{
+  "candidate_id": "embedding_forward.cascade_frames_v620",
+  "derived": {
+    "pair_excess_independent": 0.09178964296976755,
+    "pair_sum_small": 0.1468734343846636,
+    "sum_joints_small": 0.19702343146006207
+  },
+  "finished_utc": "2026-09-20T04:05:48.720961+00:00",
+  "forwards": 162,
+  "plan": {
+    "bars": {
+      "add_ratio": 1.5,
+      "excess_ratio": 0.75,
+      "large_max": 0.05,
+      "pair_ratio": 1.5,
+      "pair_remove": 0.5,
+      "replay_tol": 0.002
+    },
+    "candidate_id": "embedding_forward.cascade_frames_v620",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 170,
+    "gpu_accessed": false,
+    "layers": [
+      0,
+      1,
+      2
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "sizes": {
+      "large": [
+        512,
+        1024,
+        512
+      ],
+      "small": [
+        256,
+        512,
+        256
+      ]
+    }
+  },
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_cascade_removes_excess_small": false,
+    "pred_c_cascade_stack_additive": false,
+    "pred_d_cascade_large_cheap": false,
+    "pred_e_pair_localises_excess": false
+  },
+  "report": {
+    "skip11000": {
+      "added": {
+        "native": 0.0,
+        "stack|cascade|large": 0.11136158307393407,
+        "stack|cascade|small": 0.6301352580388389,
+        "stack|independent|large": 0.08998207251230905,
+        "stack|independent|small": 0.43569223086039255
+      },
+      "native": 2.9667210976282754
+    },
+    "skip7000": {
+      "added": {
+        "mlp0|joint|small": 0.0428227980931597,
+        "mlp1|joint|small": 0.1040506362915039,
+        "mlp2|joint|small": 0.05014999707539847,
+        "native": 0.0,
+        "pair|cascade|large": 0.058534582455952666,
+        "pair|cascade|small": 0.25905942916870117,
+        "pair|independent|large": 0.052765409151712905,
+        "pair|independent|small": 0.23866307735443115,
+        "stack|cascade|large": 0.10118993123372366,
+        "stack|cascade|small": 0.5756272077560425,
+        "stack|independent|large": 0.0832656224568682,
+        "stack|independent|small": 0.40638236204783107
+      },
+      "native": 3.1324122746785483
+    }
+  },
+  "schema": "embedding_forward_cascade_frames_result_v620",
+  "serial_seconds": 111.88083299295977
+}
