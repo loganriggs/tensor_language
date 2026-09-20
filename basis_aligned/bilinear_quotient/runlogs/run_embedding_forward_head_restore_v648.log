@@ -1,0 +1,14 @@
+layer 5: whole-layer recovery -0.105 | heads: 5.0:-0.056 5.1:-0.039 5.2:-0.030 5.3:+0.036 5.4:-0.000 5.5:+0.027 5.6:+0.017 5.7:-0.154 5.8:+0.032 | sum -0.168
+layer 8: whole-layer recovery 0.151 | heads: 8.0:-0.000 8.1:+0.027 8.2:+0.012 8.3:+0.058 8.4:+0.030 8.5:+0.005 8.6:+0.017 8.7:+0.014 8.8:+0.012 | sum +0.175
+layer 14: whole-layer recovery 0.107 | heads: 14.0:+0.028 14.1:+0.017 14.2:+0.005 14.3:+0.004 14.4:+0.044 14.5:+0.002 14.6:+0.031 14.7:+0.022 14.8:+0.010 | sum +0.165
+native 3.13241 | all-kernels baseline +0.9562
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_baseline_replays_v646": true,
+    "pred_c_layer8_has_a_lead_head": true,
+    "pred_d_57_hurts_alone": true,
+    "pred_e_head_sums_under_layer": false
+  },
+  "forwards": 192
+}
