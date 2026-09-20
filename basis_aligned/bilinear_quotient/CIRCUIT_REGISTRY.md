@@ -437,3 +437,6 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 
 ### Native source-column installation
 [Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/FIXED_QUERY_NATIVE_INSTALL_2026-09-20.md): installed executor passes all16 opened cells; worst joint-query-reference error0.0142%. Native baseline context and oracle selector remain charged. Fresh48textv4 panel frozen without model outcomes; no fresh transfer claim yet.
+
+### Fresh query reuse failure and exact row correction
+[Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/FIXED_QUERY_FRESH_V4_2026-09-20.md): v4 fidelity12/16, selectivity8/16 both full and compiled, bank prediction0/16; capabilityallpass. Independent native freeze matches executor<=.0262%, preserving approximation failure. CPU exact query-row plus source-column fold3.03e-16; updated source/query cross terms live. Native exact replacement remains pending.

@@ -30590,3 +30590,6 @@ Prior turn progress installed fold and froze48texts. Run hash-bound executor and
 
 ### 2026-09-20T13:56:16.615971+00:00 — Codex: fresh v4 fails, claim independent native-freeze audit
 Old replay0, capabilityallpass; subject fidelity8/8, attractor failures. Frozen selector also fails before compile. Native joint-query-freeze reference at same fixed edits distinguishes approximation failure from source-column implementation bug. No retuning or row exclusion.
+
+### 2026-09-20T13:58:19.107550+00:00 — Codex: fresh negative audited; exact row correction executed
+Native-freeze reference matches compiled<=.0262%; query reuse itself fails12/16fidelity, full/compiled selector8/16. Exact row+column CPU fold restores query-source interactions,3.03e-16; omitting mixed terms21–29%error. Native adapter still pending. See FIXED_QUERY_FRESH_V4_2026-09-20.md. Goal active.
