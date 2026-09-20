@@ -1,0 +1,90 @@
+{
+  "candidate_id": "embedding_forward.bigram_mlp1_v614",
+  "finished_utc": "2026-09-20T03:43:30.284426+00:00",
+  "forwards": 14,
+  "plan": {
+    "bars": {
+      "cross_self_ratio": 2.0,
+      "replay_tol": 0.0001,
+      "share_max": 0.25
+    },
+    "candidate_id": "embedding_forward.bigram_mlp1_v614",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 16,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "n_grid": 1024,
+    "n_verify": 512
+  },
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_prev_share_at_mlp1_input": true,
+    "pred_c_attention1_direct_dominates": true,
+    "pred_d_write_prev_share": true,
+    "pred_e_a1_cross_over_self": true
+  },
+  "report": {
+    "energy": {
+      "X": 2881553750745.714,
+      "a0": 8442449.555956578,
+      "a1": 1288343150887.142,
+      "a1_cross": 318712763461.03864,
+      "a1_self": 396482833561.0856,
+      "m0": 448277886352.3941,
+      "nX": 1207959538.2703526,
+      "r": 80328737116.41916,
+      "write": 34941756295455.047
+    },
+    "family_var_sum_over_total": 0.8933979457420522,
+    "lambdas": {
+      "attn1_lamb": -0.053466796875,
+      "block0": [
+        6.09375,
+        6.09375
+      ],
+      "block1": [
+        0.0126953125,
+        8.0
+      ]
+    },
+    "prev_variance": {
+      "X": 108076496858.3208,
+      "a0": 5807974.323678002,
+      "a1": 63690453544.33887,
+      "a1_cross": 59978579192.22955,
+      "a1_self": 6622534417.519165,
+      "m0": 32859058757.558655,
+      "nX": 44829067.65916896,
+      "r": -4.57763671875e-05,
+      "write": 7121612693585.805
+    },
+    "prev_variance_share": {
+      "X": 0.03750632686631364,
+      "a0": 0.6879489519223932,
+      "a1": 0.04943593909781114,
+      "a1_cross": 0.18819007604495167,
+      "a1_self": 0.01670320593211469,
+      "m0": 0.07330064622399853,
+      "nX": 0.03711139838620637,
+      "r": -5.698629012573301e-16,
+      "write": 0.20381381615073907
+    },
+    "replay_rel_l2": 3.7214101666904753e-07,
+    "rms": {
+      "X": 1657.7285071537754,
+      "a0": 2.837489613914232,
+      "a1": 1108.4492652886597,
+      "a1_cross": 551.3149524760352,
+      "a1_self": 614.910965313826,
+      "m0": 653.8433350789454,
+      "nX": 33.94112530406716,
+      "r": 276.78051495233257,
+      "write": 5772.612541051224
+    }
+  },
+  "schema": "embedding_forward_bigram_mlp1_result_v614",
+  "serial_seconds": 3.9955326430499554
+}
