@@ -395,5 +395,11 @@
   "zero_max": 0.0,
   "coefficient_composition_max": 0.0,
   "seconds": 1.7208835389465094,
-  "scope": "Native interface replay for predicted features with mixed edit strengths. Does not measure accuracy against native true feature effects, semanticselectivity or fullmodel replacement."
+  "scope": "Native interface replay for predicted features with mixed edit strengths. Does not measure accuracy against native true feature effects, semanticselectivity or fullmodel replacement.",
+  "execution_provenance": {
+    "script_sha256": "4d1bc0ec97bf47478349ea076409e949e5105d4872aeef44590762d77f2ede5d",
+    "current_script": "basis_aligned/bilinear_quotient/ops/run_direct_joint_response_cache_v1.py",
+    "original_execution_name": "run_direct_shared_response_v1.py",
+    "correction": "Execution reused an older script basename. Older source restored byte-for-byte from4c87f833d; current replay source moved without changing bytes. Result file is distinct from the older DIRECTIONAL_RESPONSE_SHARED_V1.json."
+  }
 }

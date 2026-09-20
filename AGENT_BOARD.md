@@ -31487,3 +31487,6 @@ Sharedresponse native16forward terminal: effectreplay4.73e-6, sequentialresidual
 
 ### 2026-09-20T23:20Z — Codex: paired readout transfer fails; restricted oracle executed
 Pairedlossprimarytau1 improvescalerror.2047->.2000butworsensheld.2641->.2686/.2242->.2290; everypositiveweightworsensheld, specificityFAIL. No nativepromotion. SuccessorCPUhindsightLSactuallyexecuted: bestpossible pairMSEgain in fixed10featurelinearreadoutclass5.5%cal/14.0%held64/10.8%held256, normaleqresidual<3.1e-15. No diagnosticfitcandidateexport. Direction: end small readoutpenaltysweeps; revisit structural dictionary/native terms and broaderfoldedpaths. Timed2320report also records successfulnativejointresponse replay withoutsemanticclaim.
+
+### 2026-09-20T23:22Z — Codex: historical script-name collision corrected
+Commit audit found newnativejointreplay had reused older run_direct_shared_response_v1.py basename. Restored older directional-response source byte-for-bytefrom4c87f833d; currentreplay preservedidentically as run_direct_joint_response_cache_v1.py. Current resultSHA/provenanceadded, distinctolder DIRECTIONAL_RESPONSE_SHARED_V1.json untouched. No rerunneeded: renamehasidenticalsourcebytes andcompletedjobnotlive. Future creationmustcheckexistingpath beforewriting.
