@@ -1,0 +1,12 @@
+eligible positions 15903 / 32256 (0.493); direct-path effect on induction token: mean +111.7309 (positive at 0.872); |effect| on random tokens: 41.3112; ratio 2.70
+native CE 3.13241 | cut 5.5: CE added +0.0120 overall; per position: eligible +0.0197 vs non-eligible +0.0047 (ratio 4.23); eligible fraction on eval 0.497
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_direct_path_favours_induction_token": false,
+    "pred_c_direct_path_sign_rate": true,
+    "pred_d_cost_concentrates_on_eligible": true,
+    "pred_e_eligible_fraction_sane": true
+  },
+  "forwards": 14
+}

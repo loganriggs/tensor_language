@@ -1,0 +1,51 @@
+{
+  "candidate_id": "embedding_forward.induction_output_v640",
+  "finished_utc": "2026-09-20T05:17:17.412734+00:00",
+  "forwards": 14,
+  "plan": {
+    "bars": {
+      "cost_ratio": 3.0,
+      "effect_ratio": 5.0,
+      "frac": [
+        0.2,
+        0.8
+      ],
+      "replay_tol": 0.002,
+      "sign_rate": 0.7
+    },
+    "candidate_id": "embedding_forward.induction_output_v640",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 16,
+    "gpu_accessed": false,
+    "head": [
+      5,
+      5
+    ],
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_direct_path_favours_induction_token": false,
+    "pred_c_direct_path_sign_rate": true,
+    "pred_d_cost_concentrates_on_eligible": true,
+    "pred_e_eligible_fraction_sane": true
+  },
+  "report": {
+    "cost_eligible": 0.019684327766299248,
+    "cost_non_eligible": 0.004656982142478228,
+    "cut_added_total": 0.011957730166614056,
+    "direct_path": {
+      "mean_abs_effect_random": 41.311222076416016,
+      "mean_effect_target": 111.73086547851562,
+      "n_eligible": 15903,
+      "sign_rate": 0.8722254037857056
+    },
+    "eligible_fraction_fit": 0.49302455357142855,
+    "native": 3.1324124336242676
+  },
+  "schema": "embedding_forward_induction_output_result_v640",
+  "serial_seconds": 8.612478222930804
+}
