@@ -7,7 +7,7 @@ def fit(gradient,hessian,amplitudes,atoms):
     linear=-np.einsum('bop,abp->abo',gradient,amplitudes)
     quadratic=-.5*np.einsum('abp,bopq,abq->abo',amplitudes,hessian,amplitudes)
     budgets=np.maximum(np.linalg.norm((linear+quadratic)[...,0],axis=1),1e-30)
-    D=-.5*np.einsum('abp,kpq,abq->abk',amplitudes,atoms)/budgets[:,None,None]
+    D=-.5*np.einsum('abp,kpq,abq->abk',amplitudes,atoms,amplitudes)/budgets[:,None,None]
     batch,outputs=gradient.shape[:2];rank=len(atoms)
     decomposed=[np.linalg.svd(D[:,b],full_matrices=False) for b in range(batch)]
     assert all(len(s)==rank and s[-1]>s[0]*1e-12 for _,s,_ in decomposed)
