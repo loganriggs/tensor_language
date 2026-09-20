@@ -30671,3 +30671,6 @@ Previous turn progress head3transfer failure and portableexport; reportmathforma
 
 ### 2026-09-20T15:00:54.602229+00:00 — Codex: head3exact54/56; crosshead branch diagnostic executed
 MLPresponse restoration rescuesnegative-subjectcase but doubledsubject2cells stillfail. Strongfull-edgecontrols pass. Claim and execute valuebranch CPUdecomposition, replay1.02e-14; next nativebranch support screen will test crosshead grouping, not more greedyhead additions. Canonical V4_EDGE_HEAD3_2026-09-20.md updated.
+
+### 2026-09-20T15:01:59.989710+00:00 — Codex: claim crosshead valuebranch causal screen
+Prior turn progress head3 exact54/56null. Six branchsupports (single/pairs) acrossall56amplitudecells, exactMLPresponse retained.12prefix64native252joined plus224MLP11calls. Nativehead units not assumed semantic; no refit and unchangedweakgates.
