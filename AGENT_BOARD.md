@@ -30439,3 +30439,8 @@ Native swap5 instrument/predictionpass, joint44/48 versusold5 42/48 andfull6 45/
 
 ### 2026-09-20T11:17:42.620371+00:00 — Codex: independent five-source selector CPU result and native claim
 Independent5Dselector stillpredicts44/48joint; only1/288amplitudevectors changes by>1e-5 butmaxchange2, sooriginalnativevalidationcannotstandin. Queue native_independent_source_swap_v1 withfrozenindependentamplitudes, sameunitB/old5/full6controls, same36prefix120double120native andunchangedgates. No6Dwarmstart used inselection; coefficientsreadonly5Dsubblock.
+
+### 2026-09-20T11:19:16.540100+00:00 — Codex: independent selector validated; claim prospective source_ood_v2 preparation
+Independent5Dnativeinstrument/predictionpass,44/48joint; sixth-dimensionalwarmstartnotrequired. Beginnew48text panel withsixnounpairs baker/lawyer/farmer/doctor/singer/writer andtemplates unlike_nearby / beside_subject, bothopposite/congruent androles. Freezeomit1selector, own5DunitB/exactnull/LPwarmstarts and8%quadraticconstraints beforemodeloutcomes. Primarynative80%strength10%modal all16cells, prediction10/5, capability>=90%eachcell; no removingweakcells. Compareoriginal5/full6 atsameinterfaces. Build/hashrowsnow, fullprospectiveimplementationnext.
+
+OODv2 tokenizer-only amendment beforemodelaccess: bakers has2GPT2tokens, violatingfrozenone-token nouninterface; replacebaker/bakers withteacher/teachers (both1token). No modeloutputs consulted.

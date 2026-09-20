@@ -34,3 +34,5 @@ Native matched-width receipt:
 Independent-selector frozen artifact: `INDEPENDENT_SOURCE_SWAP_V1.json`.
 The fresh-panel rule should be frozen only after that numerical independence
 check; support choice stays fixed across every input.
+
+Independent-selector native validation completed: instrumentation/prediction pass,44/48joint cells, maxmodal8.205%. The one changed initialization outcome does not alter cell counts. The six-source warm-start dependency is removed; native source generation remains. New48text OODv2 rows and algorithm hashes are frozen in SOURCE_OOD_V2_BINDING.json before any model outcomes.
