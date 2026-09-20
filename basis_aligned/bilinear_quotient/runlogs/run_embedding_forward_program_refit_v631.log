@@ -1,0 +1,22 @@
+native 3.13241 | step-0 (closed-form) program CE added +0.1356
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_embedding_forward_program_refit_v631.py:125: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  forwards += 1; backwards += 1; curve.append(float(loss))
+step 50: train CE (last 50 mean) 3.1844 | held-out CE added +0.0460 | lr 0.0188
+step 100: train CE (last 50 mean) 3.1406 | held-out CE added +0.0474 | lr 0.0156
+step 150: train CE (last 50 mean) 3.0985 | held-out CE added +0.0534 | lr 0.0111
+step 200: train CE (last 50 mean) 3.0731 | held-out CE added +0.0578 | lr 0.0066
+step 250: train CE (last 50 mean) 3.0537 | held-out CE added +0.0600 | lr 0.0033
+step 300: train CE (last 50 mean) 3.0554 | held-out CE added +0.0623 | lr 0.0020
+convergence (mean 201-250 minus mean 251-300) = -0.00160; final held-out CE added +0.0623; layer-0 kappa shape cosines {3: 0.9960527420043945, 4: 0.9907234311103821, 6: 0.998397171497345, 7: 0.9793857932090759, 8: 0.9967291355133057}
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_refit_converges": true,
+    "pred_c_refit_halves_union": true,
+    "pred_d_refit_under_bar": false,
+    "pred_e_kernels_keep_shape": true
+  },
+  "forwards": 348,
+  "backwards": 300
+}
