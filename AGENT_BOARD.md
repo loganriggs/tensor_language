@@ -30548,3 +30548,6 @@ Nativeinstrument5.33e-15; donor4/8recipientroot5/8oracle8/8. CPUexactgradient-ch
 
 ### 2026-09-20T13:21:37.540526+00:00 — Codex: claim residual reader/source factorization
 Lastturnprogress explicitrootonlypartialcontextrescue. ExactG=R D willseparatereadervariationandsourcevariation; fitcanonicalnumberreadersoppositeonly,freeze20,736rolebank/41,472templatebank. RecipientDdynamicnativeports,LPnonewheldbackprop. Source-numbermatcheddonorreaderandownoraclecontrols. Counts12prefix4double36reverse18native,exactoldgradient/nativeoracle1e-8gate. See RESIDUAL_READER_TRANSFER_V1_PREREGISTRATION.md.
+
+### 2026-09-20T13:26:29.550801+00:00 — Codex: residual reader bank partial; fresh v3 frozen
+Nativefactorreplay1.78e-15,donorreader5/8rolebank4/8template4/8oracle8/8. Rolebanksubject4/4causalpassesbutprediction39–241%fails; nofullcircuitpromotion. CPUreader/sourcepartitionexecuted,medianreadershare69.67%subject86.77%attractor. Exportedfit-onlyrolebank andtokenvalidated48freshv3texts/96sites,nooutcomes. Bothroleandpredictiongatespreserved. See RESIDUAL_READER_TRANSFER_2026-09-20.md and SOURCE_OOD_V3_ROLE_BANK_PREREGISTRATION.md.

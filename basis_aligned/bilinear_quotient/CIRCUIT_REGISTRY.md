@@ -423,3 +423,5 @@ Independent five-source selector native validation now passes instrumentation/pr
 20 September: edited-numbermatchedtransfer4/8andnumberconditionedrule1/8; gate48/48/replaypass. Analytic19fieldreadoutdifferentialCPUcontrol5.33e-15, nativecontextattributionnext; diagnosticnotcompression. See `basis_aligned/polynomial_causal/SOURCE_NUMBER_TRANSFER_2026-09-20.md`.
 
 20 September: recipientreadoutroot improvesnative4/8to5/8,notall-cellreuse. Exactcontextpartitionmedianroot16.23%,numerator84.46%,radial-1.79%; noncausaldiagnostic. Nextfactorresidualreadersfromnative sourcedirections. See `basis_aligned/polynomial_causal/READOUT_FIELD_TRANSFER_2026-09-20.md`.
+
+20 September: frozenresidualrolebank4/8causalpasses,finitepredictionfails; donorreader5/8oracle8/8. Readercontext dominatesexactgradientpartition. Fit-onlybankexportandfreshv3inputbindingready,nooutcomes. See `basis_aligned/polynomial_causal/RESIDUAL_READER_TRANSFER_2026-09-20.md`.
