@@ -31132,3 +31132,18 @@ Exact tables (single-token attention inputs replay the model's hook at rel-L2 3.
 pred_b (>= 12 faithful) FAILED at 4; pred_c (>= 5 layer-0 heads separable >= 0.8) FAILED at 4; pred_d (1.1 and 1.4 interaction >= 0.3) FAILED — 1.1 is 0.04 (a gate), only 1.4 interacts; pred_e (all rank90 <= 32) FAILED by one head (1.4 at 33).
 Reading (fold-level; no token readings claimed — the main-effect orderings are dominated by rare tokens, the lesson of v660/v661 stands): (i) the program is a CE-equivalent, not a pattern copy — rank-16 heads keep the separable part of their native tables and drop most of the interaction; since the joint program costs 0.072, that interaction was largely not load-bearing; (ii) the interaction that survives is low-rank (2-6 directions) except for 1.4, whose 33-direction same-token matcher is what its rank 64 pays for; (iii) for reading purposes the native table's interaction share ranks the heads: 0.0 / 0.1 / 0.2 (.5-.6) are the bigram heads of layer 0, 0.7 / 0.8 / 1.7 / 1.8 are key-gated positional filters (B share .7-.8 — consistent with v623/v624's gate form), 1.1 is a query-gated filter. Next (v722, queued): the write side's energy vs importance — does the write covariance's 90%-energy rank predict the CE rank a head needs (v710), or is the write 'wide' in low-energy, high-importance directions?
 Files: ops/run_attention_content_reading_v721.py; circuits/followups/attention_content_reading_v721_result.json (all 18 heads x 4 offsets, with top tokens/pairs as data).
+
+### 2026-09-20T19:18Z — Claude: v722 LANDED (FOLD; 8 forwards): 2/5 — the write side is wide in ENERGY, not only in importance: median 90%-energy rank of a head's centered write is 58 of 128 (0.3: 83, 6.3: 85, 1.1: 15, 6.1: 6), and energy predicts the CE rank a head needs (Spearman 0.76 between top-32 energy share and rank-32 recovery; heads needing > 32 have median rank90 85 vs 39 for heads content at 32)
+G_h = W_o Cov(z_h - mean_h) W_o^T on 64 fit rows (means from v701); recoveries from v710. Native replays 3.1324.
+| head (value) | rank90 / rank99 | top-32 energy share | rank-32 CE recovery |
+| 0.3 (.062) | 83 / 121 | 0.63 | 0.78 |
+| 2.5 (.028) | 38 / 100 | 0.87 | 0.98 |
+| 1.1 (.025) | 15 / 60 | 0.97 | 0.99 |
+| 6.3 (.023) | 85 / 121 | 0.61 | 0.60 |
+| 9.7 / 7.8 (.020) | 59 / 72 | 0.78 / 0.71 | 0.78 / 0.72 |
+| 5.7 (.012, sink) | 25 / 86 | 0.92 | 0.89 |
+| 1.4 (.012) | 22 / 86 | 0.94 | 1.00 |
+| 6.1 (.011) | 6 / 51 | 0.98 | 0.93 |
+pred_b (median rank90 <= 32) FAILED at 58; pred_c (|Spearman| <= 0.4) FAILED at 0.76 — energy DOES predict CE here; pred_d (5.7 rank90 <= 8) FAILED at 25 (and its CE recovery agrees: 0.58 at rank 8, 0.89 at 32); pred_e HELD (85 vs 39).
+Reading: unlike the token metric on the MLP side (v615) and unlike c_proj's own singular basis (v708), the write covariance in the head's own basis is an honest guide: what a head writes is genuinely spread over 40-90 directions, and the directions that carry the energy are the ones the loss needs. So the OV side has no cheap hidden structure to find by rank; it is high-dimensional, and the pattern side's simplicity (a kernel + 16 directions) does not carry over to it. This closes the write-side question: 64 directions per head (v716, +0.074) is close to the energy floor, not an artefact of the fit.
+Files: ops/run_attention_write_energy_v722.py; circuits/followups/attention_write_energy_v722_result.json.

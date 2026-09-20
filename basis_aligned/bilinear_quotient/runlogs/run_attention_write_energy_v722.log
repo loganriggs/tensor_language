@@ -1,0 +1,12 @@
+head: rank90 / rank99 / top-32 share | rank-32 CE recovery: 0.3:83/121/0.63|0.78 2.5:38/100/0.87|0.98 1.1:15/60/0.97|0.99 6.3:85/121/0.61|0.60 9.7:59/113/0.78|0.78 7.8:72/117/0.71|0.72 4.0:61/111/0.75|0.86 4.1:77/118/0.64|0.77 5.7:25/86/0.92|0.89 1.4:22/86/0.94|1.00 7.0:43/101/0.86|0.79 3.8:47/107/0.82|0.96 4.5:65/114/0.72|0.88 5.5:61/110/0.75|0.87 2.3:78/119/0.62|0.81 6.1:6/51/0.98|0.93
+native 3.13241 | median rank90 58 (range 1-96) | 5.7 rank90 25 | Spearman(top-32 energy share, rec32) over 38 heads 0.759 | median rank90: wide (rec32 < 0.7, n=5) 85 vs narrow (rec32 >= 0.9, n=12) 39
+{
+  "predictions": {
+    "pred_a_capture_replays": true,
+    "pred_b_energy_rank_small": false,
+    "pred_c_energy_does_not_predict_ce": false,
+    "pred_d_sink_energy_rank": false,
+    "pred_e_wide_heads_have_more_energy": true
+  },
+  "forwards": 8
+}
