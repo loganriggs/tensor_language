@@ -30632,3 +30632,6 @@ Prior turn progress boundaryfailures and independent fullsequenceCPUjoin. Reuse 
 
 ### 2026-09-20T14:32:02.490152+00:00 — Codex: corrected native join8/8; portable27writer CPU step executed
 Weakerror.0254%, nativeanchors0. Savedcore CPUreplay1.45e-15; factored27writerprogram5.36e-15, zeroaxesexact. Rank27numerical only, no manifoldminimalityclaim. Next MLP11 factorscancontractwithW; background/norm/suffixgenerationremaincharged. See V4_COMPILED_EDGE_JOIN_2026-09-20.md.
+
+### 2026-09-20T14:36:47.231005+00:00 — Codex: claim joint normalized MLP11 response tensor
+Prior turn portable27writers; CPU context-prepared response compiler and planted norm-cancellation passed. Native fold retains405monomials/output plus exactnorm/carry, chargescanonical498070/context againstimplicit290710+sharedDown.12prefix16full24joined, firstrowportableexport; no sparse-decomposition claim yet.
