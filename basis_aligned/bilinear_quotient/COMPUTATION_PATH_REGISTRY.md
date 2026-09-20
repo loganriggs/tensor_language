@@ -523,3 +523,6 @@ Exact caching/global factoring controls pass. Native24-product export replays4.5
 
 ### 2026-09-20 19:34 — Differentiable DAG, first approximate edit/refit, centered native fit queued
 Constant and degree-bounded graph compiler checked against exact oracle/gradients.4/5 planted topologies recovered; square failure diagnosed with paired16-arm exact-Gaussian control: analytic writers8/8 vs joint5/8 below1%. Delete/refit loop removes redundant product with6.3e-12 error, rejects independent-product deletion (50% squared error). Native centered comparison now queued with matched48,384 scalars and common within-metric Gaussian selection score. [Updated report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1923_two_stage_decomposition_and_graphs.md).
+
+### 2026-09-20 19:44 — Centered native compact result and mean correction control
+Matched48,384scalars:8productcenteredprogram totalerror23.12% vs26productquartic25.28%, butvariation34.99% vs27.81%; aggregateimprovementismean-driven. Independentfoldreplay1.7e-15. ExactGaussianmomenthelper2e-16; frozenrank8quartic+bias47,312scalars queued. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1944_centered_programs_and_mean_control.md).

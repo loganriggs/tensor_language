@@ -1,0 +1,59 @@
+{
+  "records": [
+    {
+      "key": [
+        "spherical",
+        8,
+        8,
+        "adam",
+        1
+      ],
+      "panels": [
+        {
+          "total_relative_error": 0.26072246694056017,
+          "centered_relative_error": 0.3847334877305538,
+          "centered_cosine": 0.9430392384865546,
+          "mean_error_energy_fraction": 0.002055265884941578,
+          "centered_error_energy_fraction": 0.06592093888262994,
+          "identity_error": 1.3877787807814457e-17
+        },
+        {
+          "total_relative_error": 0.2532832886033554,
+          "centered_relative_error": 0.3801943391014617,
+          "centered_cosine": 0.9444700841722252,
+          "mean_error_energy_fraction": 0.0024125074226858433,
+          "centered_error_energy_fraction": 0.06173991686304477,
+          "identity_error": 1.3877787807814457e-17
+        }
+      ]
+    },
+    {
+      "key": [
+        "centered_floor01",
+        8,
+        8,
+        "muon",
+        1
+      ],
+      "panels": [
+        {
+          "total_relative_error": 0.23952086921774754,
+          "centered_relative_error": 0.3516569272603113,
+          "centered_cosine": 0.9547844188217824,
+          "mean_error_energy_fraction": 0.002296863248021455,
+          "centered_error_energy_fraction": 0.05507338354280387,
+          "identity_error": 6.938893903907228e-18
+        },
+        {
+          "total_relative_error": 0.231228871375852,
+          "centered_relative_error": 0.34986940441759085,
+          "centered_cosine": 0.9537352880093337,
+          "mean_error_energy_fraction": 0.0011830469676959677,
+          "centered_error_energy_fraction": 0.05228374399005433,
+          "identity_error": 6.938893903907228e-18
+        }
+      ]
+    }
+  ],
+  "scope": "Frozen training-selected programs; same reused diagnostic panels. Mean/variation separation, no further model selection and no OOD claim."
+}

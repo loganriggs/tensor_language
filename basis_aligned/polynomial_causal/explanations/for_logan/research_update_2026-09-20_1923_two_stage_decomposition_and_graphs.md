@@ -113,3 +113,7 @@ $$
 A free constant matches the Taylor target's Gaussian mean. This removes an ambiguous cross-allocation selection rule and avoids selecting using native evaluation errors. Neither the degree truncation nor the covariance metric turns this into a full-model circuit claim.
 
 Receipts: [fixed-graph controls](../../direct_tensor_match/TRAINABLE_DAG_CHECK_V1.json), [square optimizer comparison](../../direct_tensor_match/DAG_SQUARE_OPTIMIZER_V1.json), [edit/refit controls](../../direct_tensor_match/DAG_EDIT_REFIT_V1.json).
+
+### Follow-up interpretation, 19:44 UTC
+
+The centered native run completed and improved total error25.28%→23.12% with26→8products at matched storage. Its centered-variation error worsened27.81%→34.99%; the apparent aggregate gain is mean-driven. See the [new report and constant-control plan](research_update_2026-09-20_1944_centered_programs_and_mean_control.md). Do not interpret the lower total error alone as better recovery of varying computation.

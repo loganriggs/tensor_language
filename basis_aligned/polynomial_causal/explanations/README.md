@@ -1,5 +1,7 @@
 # Plain-language explanations
 
+Latest native decomposition result: [Centered programs and mean-versus-variation control](for_logan/research_update_2026-09-20_1944_centered_programs_and_mean_control.md).
+
 Latest decomposition and DAG update: [Two-stage discovery, native graph sharing, and metric failures](for_logan/research_update_2026-09-20_1923_two_stage_decomposition_and_graphs.md).
 
 Latest folding trajectory: [Full joint tensor, HT, conditional circuits and carry-only control](for_logan/research_update_2026-09-20_1448_folding_joint_tensors_and_circuits.md).
