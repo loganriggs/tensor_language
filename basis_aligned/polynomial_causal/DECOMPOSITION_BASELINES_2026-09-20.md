@@ -204,3 +204,5 @@ Independent five-source selector native validation now passes instrumentation/pr
 20 September: transport context test jointreader63/64, midpoint64/64; integratedeffect5.264e-14absolute replay. Allrequire native states/derivatives. Exactresidualquartet CPU split separates generated/carried interactions; nativecensuspending. See `basis_aligned/polynomial_causal/ATTENTION_TRANSPORT_CONTEXT_2026-09-20.md`.
 
 20 September: finiteinteractioncensus instrumentpasses; no singlemodulehalvesall13, best2/13. Summedmoduleeffects7/64predictionpasses excludesrootgeneration. Surrogate rootsplitmedian26.45%; native rootclosurepending. See `basis_aligned/polynomial_causal/FINITE_INTERACTION_CENSUS_2026-09-20.md`.
+
+20 September: nativefinalreadout closesfiniteaccountinggap:root+14moduleeffects64/64numberpasses,worst0.4755%. Nativecounterfactualgeneratorsremain; no extractedcircuitclaim. See `basis_aligned/polynomial_causal/NATIVE_ROOT_INTERACTION_CLOSURE_2026-09-20.md`. Expandedoutputcontrols frozen,nextCIRCUITscreen.

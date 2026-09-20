@@ -30497,3 +30497,9 @@ Previous turn progressed via nativecontext transport and exactquartet split. Scr
 
 ### 2026-09-20T12:34:59.559930+00:00 — Codex: census rejects single-module sufficiency; root closure audit executed
 Allinstrumentchecks pass; bestMLP11/12halves2/13,others0. Sum14finiteeffects passes7/64number10%,butfinalreadoutgenerationomitted so cannotblamenonadditivityalone. CPU savedquadraticstate root split executed:medianrootnorm26.45%total,max106.19%,closure8.88e-16; native rootsplitpending. Next close nativefinalreadout boundary,then reassesssum. See FINITE_INTERACTION_CENSUS_2026-09-20.md.
+
+### 2026-09-20T12:36:33.446979+00:00 — Codex: claim native final-readout closure
+Censusnegativeverified; omittedrootmustbeclosedbeforeblamingnonadditivity. Nativefinalstates68suffix plus32additivereadouts; combineexactrootgenerationwith14storedfiniteeffects,10%numberall64gate. No freshOOD/extractionclaim. See NATIVE_ROOT_INTERACTION_CLOSURE_V1_PREREGISTRATION.md.
+
+### 2026-09-20T12:39:20.510573+00:00 — Codex: native root closure passes; switch CIRCUIT and freeze expanded controls
+Root+14effects64/64passes,worst0.4755%vsmodules206%; expensiveconditionalaccountingnotextraction. Hour1238CIRCUITreview recordspriorprogress andrepeatedauthoringrepair. Sharedcontextbuilder extracted/syntaxchecked; five prospective lexicalcontrolpairs tokenvalidated,frozenbeforeoutcomes. Nativehelperreplayandnewcontrolscreen next. See HOURLY_STRATEGIC_REVIEW_2026-09-20_1238.md and EXPANDED_SOURCE_CONTROLS_V1_PREREGISTRATION.md.
