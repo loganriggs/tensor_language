@@ -228,3 +228,9 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 
 - `audit_weighted_readers.py`, `WEIGHTED_READER_AUDIT_V1.json`: secondmomentMuonreader spanscapture96.68–97.56%meanenergy vsAdam32.98–34.02%; centeredpredictioncosines.966–.998. No teachercorrectness orfeatureidentityclaim.
 - `NATIVE_VARIATION_AUDIT_PLAN_V1.md`: queued frozen16student mean/centeredresidual decomposition, calibrationconstant andweightconstant baselines, teacheroutputcache. Input-dependent recovery remainsunproven untilthisreceipt.
+
+## Weighted norm precision — 18:59 UTC
+
+- `check_projected_norm_estimator.py`, `PROJECTED_NORM_ESTIMATOR_CHECK_V1.json`: exhaustive independent-sign identity validates exactprojectednorm+sampledorthogonalresidualnorm, errors2.2e-16. Variancereductiontarget-dependent.
+- `NATIVE_WEIGHTED_NORM_PLAN_V1.md`: queuedrank4exactprojection+4096residualprobes foreachweightedmetric; refines6–8%SEteachercoverageestimates withoutchangingfit/checkpointselection.
+- [19:01 strategic checkpoint](../HOURLY_STRATEGIC_REVIEW_2026-09-20_1901.md): prioritizependingmean/variationcontrols, sparsebasisnativevalidation andmetricprecision overanotherarchitecturegrid. Nextmath/literature review19:37.

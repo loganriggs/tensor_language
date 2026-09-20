@@ -31074,3 +31074,9 @@ Previous turnprogress, nativeweightedresultsinterpreted andV2repairqueued. Claim
 
 ### 2026-09-20T18:57Z — Codex: weighted reader audit complete; truth comparison queued
 CPU16modelaudit: secondmomentMuonreaders capture~97% calibrationmean vsAdam~33%; allsecondmoment centeredpredictioncosines.966–.998. Similaroutputvariationdoesnotprove correctvariation orsamefeatures. Nativevariationauditqueuedwithconstantbaselines andcachedtargets, following centereddegree/mixedroot checks. No newclaimofcircuits; preservefullgoal.
+
+### 2026-09-20T18:59Z — Codex: precision audit for covariance coverage
+Previous turnprogress: readeraudit andqueuedmeanbaseline. Weightednorm6–8%SEtooimpreciseforcoverageclaim. CPUexhaustiveindependent-sign check validates ||H||²=||H_P||²+||residual||². ClaimGPUrank4exactprojection+4096residualprobes foreachweightedmetric; no modelchanges, reportactualSEimprovement. Existingcentered/mixedroot/variation checksremainqueued behindlivev718.
+
+### 2026-09-20T19:01Z — Codex: hourly review and continuation priorities
+WEIGHT_FOLDING remainsuser-directedthroughSep22. Largestadvancecovarianceempiricalfit25–31%, withmean/variationbaselinepending. Exactinputspan88.37%utilizationlimitscore-onlygains; sparsebasisrefinementchangesinteractionprice. Review1901records~98sownGPUcomputeversuslongsharedqueuewait andauthoringoverhead. Consolidatereports/reusependingteacheroutputcache; no morearchitecturegrids beforependingcontrols. Normvariance-reductioncheckexecuted andnativeauditqueued. Fullpredictive/manipulable/reusablecircuitgoalunmet; math/literaturereviewdue19:37.

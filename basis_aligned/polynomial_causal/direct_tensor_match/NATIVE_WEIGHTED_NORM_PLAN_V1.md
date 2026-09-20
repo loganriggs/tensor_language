@@ -1,0 +1,5 @@
+# Reduce weighted tensor norm uncertainty — 2026-09-20 18:59 UTC
+
+Weightedself/cross traininggains exactalgebra, butteacher normestimated with4096independentslotprobes has6–8%relativeSE undercovariance/secondmoment. Quantitativecoverage thereforeuncertain. For eachthreeweightedmetrics, take4leadingeigenvectors of its saved symmetricL, restrictteacher to their spaninallfourslots, and enumerate35symmetricinputtuples for exactprojectionnorm. Orthogonalcoefficientprojection gives ||H||²=||H_P||²+||H−H_P||². Estimate onlyresidualnorm using4096fresh independentRademacher4-slotprobes,seed1858; also reportrawsameprobenorm. Basisfrozenbeforeprobes, no trainingchanges. Normunits matchpreviousweightedteacher.
+
+Pred_a_identity: projectedbasisorthogonality<1e-5, refined/rawestimates within3combinedSE; exhaustive smalltensor allsignchoices identity<1e-12. Pred_b_precision: secondmoment residualestimatorSE is<halfrawSE. Pred_c_coverage: secondmomentrefinedrelativeSE<.02. No guaranteedvarianceimprovementforarbitraryprojection. Reportallmisses andold/newestimatedgainfractions. Thisrefinesmeasurement, notmodels orcircuitclaim.
