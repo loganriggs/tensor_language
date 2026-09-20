@@ -1,0 +1,28 @@
+native 3.13241
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/run_embedding_forward_kernel_refit_v633.py:120: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  forwards += 1; backwards += 1; curve.append(float(loss))
+[positional19] step 50: train 3.2387 | held-out CE added +0.0989 | lr 0.0188
+[positional19] step 100: train 3.1852 | held-out CE added +0.0911 | lr 0.0156
+[positional19] step 150: train 3.1980 | held-out CE added +0.0887 | lr 0.0111
+[positional19] step 200: train 3.1756 | held-out CE added +0.0876 | lr 0.0066
+[positional19] step 250: train 3.1691 | held-out CE added +0.0872 | lr 0.0033
+[positional19] step 300: train 3.1968 | held-out CE added +0.0870 | lr 0.0020
+[all27] step 50: train 3.3232 | held-out CE added +0.1736 | lr 0.0188
+[all27] step 100: train 3.2653 | held-out CE added +0.1616 | lr 0.0156
+[all27] step 150: train 3.2691 | held-out CE added +0.1586 | lr 0.0111
+[all27] step 200: train 3.2452 | held-out CE added +0.1566 | lr 0.0066
+[all27] step 250: train 3.2412 | held-out CE added +0.1559 | lr 0.0033
+[all27] step 300: train 3.2641 | held-out CE added +0.1555 | lr 0.0020
+endpoints: positional-19 kernels +0.0870 (step-0 +0.2314) | all-27 kernels +0.1555 (step-0 +0.3554)
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_no_overfit": true,
+    "pred_c_positional_kernels_under_bar": false,
+    "pred_d_all27_under_bar": false,
+    "pred_e_content_heads_cost": true
+  },
+  "forwards": 690,
+  "backwards": 600
+}

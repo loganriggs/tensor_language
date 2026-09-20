@@ -26948,3 +26948,20 @@ Next (v633, building): remove the tables altogether — (c) fitted FIXED KERNELS
 
 ### 2026-09-20T04:56:22.281997+00:00 — Codex: v638 normalized joint fold closes; denominator is material
 64forwards/0fits, now-opened v637 prompts. Native MLP1 write replay4.93e-7, four-corner interaction3.05e-6. Cross-only error60–81%; RMS correction signed share31–80%, so both simplification gates fail. Exact conditional rational-quadratic head-coordinate form folds L O/R O into128coordinates and norm geometry O^T O;3CPU tests pass. Background ports and remainder remain required, no circuit promotion. Report MEAN_REMAINDER_NORMALIZED_FOLD_2026-09-20.md. Next tensor search must jointly retain denominator geometry and background terms.
+
+### 2026-09-20T04:59:11.829008+00:00 — Codex: claim v639 joint128-coordinate sparse core
+Prior turn progress: exact normalized interaction fold, RMS correction material. Validate conditional128coordinate executor natively and factor joint T=D sym((LO),(RO)) keeping full128 input span; output modes32/128,256/2048/8192unordered interactions. Shared products compiled once across output channels. All background/linear terms and denominator exact; cost only conditional quadratic branch, not complete-program savings.64native forwards/0fits, now-opened prompts; must pass both cross and totalinteraction10% to avoid normalization masking.
+
+### 2026-09-20T05:01Z — Claude: v633 LANDED (FIT; 690 forwards, 600 backwards; 9.7k / 13.9k fitted numbers): 3/5 — the price ladder of blocks 0-2 attention patterns is complete
+Rows: fit on skip80 + skip11000; held-out CE on 192 x 512 skip7000 (native replays). CE ADDED, lower is better; all held-out curves monotone (pred_b HELD).
+| program for the attention PATTERNS of blocks 0-2 (values, projections, diagonals native) | numbers | CE added |
+| 19 positional heads: closed-form kernels only | 9.7k | 0.231 (v630) |
+| 19 positional heads: closed-form token tables + kernels | 1.6M | 0.136 (v630) |
+| 19 positional heads: FITTED kernels only | 9.7k | 0.087 (pred_c <= 0.08 FAILED) |
+| 19 positional heads: closed-form token tables + fitted kernels + one gain per head | 1.6M (9.8k fitted) | 0.050 (v632) |
+| all 27 heads: closed-form kernels only | 13.9k | 0.355 (v629) |
+| all 27 heads: FITTED kernels only | 13.9k | 0.156 (pred_d <= 0.15 FAILED) |
+| twelve heads of blocks 0-1 only: closed-form token tables + kernels + 1.8 as -1/i | 1.1M | 0.036 (v627) |
+pred_e HELD: the 8 content heads' joint content dependence is worth 0.156 - 0.087 = 0.069 against a fitted positional prior; the 19 positional heads' token gating is worth 0.087 - 0.050 = 0.037.
+Chapter summary (v622-v633): from the embedding forward, every early attention head has an exact single-token positional kernel; 19 of 27 are separable ("gated positional filters": previous-token taps, windows of three widths, two running-mean subtractors 1.8 and 2.7, a "previous minus mean" head 2.4); 8 are content matchers. Per head, any of them is replaceable by a fixed kernel at <= 0.009; jointly the patterns compound (redundancy), and the honest joint prices are the ladder above. The closed-form tables have the right structure and wrong scale beyond layer 0; ten thousand fitted kernel numbers recover most of it; the vocabulary tables add only a scalar per head. Method lessons recorded: single-component edits nominate, joint edits certify; vocabulary-sized refits must show the held-out curve.
+Next (v634, queued): the kernel atlas continued to layers 3-5 — closed-form kernel-only singles and per-layer banks (~60 forwards per layer) — to find where fixed positional structure stops paying and content takes over. Meanwhile (CPU): a for_logan summary of the lane.
