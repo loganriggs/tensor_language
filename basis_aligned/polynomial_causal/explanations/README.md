@@ -797,3 +797,5 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 
 ### User-directed direct tensor optimization study
 [Study index](/workspace/tensor_language/basis_aligned/polynomial_causal/direct_tensor_match/README.md): two-dayfocus through22September15:10UTC. Fiveplantedstructures, Adam/Muon/restart/width/objective sweeps, exactisotropic/covariance losses. Nativequartic16context width4tree184values achievesmax6.14%coefficienterror; independentlyfitpercontext, notsharedcircuit. Fullquadratic initialbestGaussian56.67%. Preserve optimizer failures and sparsebasisidentificationgap.
+
+- [2026-09-20 15:48 — Sparse bases, full joint tensors, and covariance controls](for_logan/research_update_2026-09-20_1548_sparse_bases_and_metric_controls.md): planted/shared quartic recovery, explicit native sparse programs, radial baseline and full-tensor negative result; formatted equations and flowchart.

@@ -27,3 +27,13 @@ Next questions: matched-rank optimization traps, explicit support pruning/refit,
 Next managed job: NATIVE_FULL_QUADRATIC_V2,24fits comparing objective/rate/width with an explicit radial baseline.
 
 Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CONDITIONING_2026-09-20_1536.md). Hard four-entry Tucker program improves11.985%to0.00629%error after function-preserving basis search. Paired-coordinate whitening helps somequadratic cases but hurtsquartics at thetestedrate. Nativecovariance capture is queued.
+
+## Sparse quartic bases and full-tensor metric controls — 15:49 UTC
+
+[Timed report for Logan](../explanations/for_logan/research_update_2026-09-20_1548_sparse_bases_and_metric_controls.md) explains the joint tensor, shared computations, baselines and metric distinctions with equations and a flowchart.
+
+- `QUARTIC_BASIS_PLAN_V1.md`, `quartic_sparse_basis.py`, `quartic_basis_sweep.py`, `QUARTIC_BASIS_SWEEP_V1.json`:24 fixed-span gauge searches; planted3 products error9.55e-5; native4 products4.81%.
+- `export_quartic_programs.py`, `SPARSE_QUARTIC_PROGRAMS_V1.json`: independently executable exports and exact-degree Gaussian quadrature validation.
+- `NATIVE_FULL_QUADRATIC_V2.json/.pt`:24 full quadratic fits; radial Gaussian baseline58.95% error; width1024 Gaussian fit56.47%, best coefficient Frobenius fit95.48%.
+- `NATIVE_COVARIANCE_V1.json/.pt`: native calibration/evaluation rows and moments in a precisely saved coordinate frame; nonzero means retained.
+- `noncentral_quadratic.py`, `check_noncentral.py`, `NONCENTRAL_CHECK_V1.json`, `NATIVE_METRIC_PLAN_V1.md`: next16 native moment-metric fits, including both isotropic and measured covariance/mean, with heldout empirical diagnostics.

@@ -451,3 +451,6 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 
 ### Direct tensor study: sparse basis versus function matching
 [Scientific receipt](/workspace/tensor_language/basis_aligned/polynomial_causal/direct_tensor_match/BASIS_AND_CONDITIONING_2026-09-20_1536.md): plantedTucker fourinteraction hardprogram28floats+support,0.00629%Gaussianerror aftergauge search versus11.985%in initialbasis. Exactfunctionpreservation independentlychecked; no nativecircuitclaim. Pairedcovariancecoordinatecontrols show optimizer/architecture dependence.
+
+### 2026-09-20 15:49 — Direct matching: sparse quartic basis and full quadratic controls
+Twenty-four gauge searches recover planted3 shared products at9.55e-5 error and one native4-product quartic at4.81% (76values plus support). Export/quadrature replay agrees. Fixed feature span; no semantic/causal identification. Full MLP17 folded numerator width1024 remains95.48% coefficient error; radial baseline explains most Gaussian improvement. See [timed report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1548_sparse_bases_and_metric_controls.md) and [native moment plan](../polynomial_causal/direct_tensor_match/NATIVE_METRIC_PLAN_V1.md). Native calibration/evaluation covariance captured;16-fit moment comparison queued.

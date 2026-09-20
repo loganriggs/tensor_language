@@ -276,3 +276,6 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 
 ### Direct tensor study: sparse basis versus function matching
 [Scientific receipt](/workspace/tensor_language/basis_aligned/polynomial_causal/direct_tensor_match/BASIS_AND_CONDITIONING_2026-09-20_1536.md): plantedTucker fourinteraction hardprogram28floats+support,0.00629%Gaussianerror aftergauge search versus11.985%in initialbasis. Exactfunctionpreservation independentlychecked; no nativecircuitclaim. Pairedcovariancecoordinatecontrols show optimizer/architecture dependence.
+
+## 15:49 update: sparse bases and radial control
+Shared quartic gauge search changes sparsity at fixed feature span: planted3-root-product error13.75%→0.00955%; first native4-product error32.31%→4.81%,76values plus support. Independent exported execution and exact Gaussian quadrature agree. Native all10products unchanged2.513%, confirming span floor. Full quadratic radial trace baseline Gaussian58.95%, Frobenius99.84%; width1024direct fits Gaussian56.47% or Frobenius95.48% under respective objectives. See direct_tensor_match receipts and timed15:48report. These are representation results, not circuit identification.
