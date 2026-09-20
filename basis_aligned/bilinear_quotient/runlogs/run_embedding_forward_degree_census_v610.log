@@ -1,0 +1,14 @@
+MLP-0 uniform  : mean_frac 0.015 | product const/linL/linR/quad = 0.023/0.038/0.046/0.893 | diagonal const/lin/quad = 0.004/0.023/0.911 (cross c-l -0.000, c-q 0.052, l-q 0.010; exact 2.8e-15) | centred fold in/out 90% = 544/747 (Cov own 834)
+MLP-0 frequency: mean_frac 0.054 | product const/linL/linR/quad = 0.264/0.088/0.096/0.552 | diagonal const/lin/quad = 0.048/0.060/0.742 (cross c-l 0.000, c-q 0.127, l-q 0.024; exact 2.7e-15) | centred fold in/out 90% = 303/673 (Cov own 561)
+MLP-1 uniform  : mean_frac 0.806 | product const/linL/linR/quad = 0.460/0.123/0.122/0.295 | diagonal const/lin/quad = 0.233/0.182/0.386 (cross c-l -0.000, c-q 0.090, l-q 0.109; exact 2.8e-15) | centred fold in/out 90% = 507/746 (Cov own 667)
+MLP-1 frequency: mean_frac 0.724 | product const/linL/linR/quad = 0.481/0.084/0.083/0.352 | diagonal const/lin/quad = 0.193/0.096/0.623 (cross c-l 0.000, c-q 0.086, l-q 0.001; exact 2.9e-15) | centred fold in/out 90% = 260/674 (Cov own 303)
+{
+  "predictions": {
+    "pred_a_mean_dominates_mlp1_not_mlp0": true,
+    "pred_b_centered_fold_still_shrinks": true,
+    "pred_c_degree_split_by_layer": false,
+    "pred_d_diagonal_affine_residual": false,
+    "pred_e_exactness": true
+  },
+  "forwards": 13
+}
