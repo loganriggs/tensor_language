@@ -31243,3 +31243,6 @@ Writerpenalty.001 reduces mediancomponentcancellationratio to3.02 while retainin
 
 ### 2026-09-20T20:21Z — Codex: native Gaussian projection profiling claim
 Previous turn made progress: mean/stability receipts committed and pushed 96d5066fb. Implemented managed profile of exact full-quartic Gaussian quadratic cross contractions, centered and spherical metrics, four readers, FP32/64 and backward cost. No empirical fitting. Next fitting budget depends on measured runtime and precision; user two-day weight-space science remains active.
+
+### 2026-09-20T20:23Z — Codex: native projected quadratic profile passed; fitting implementation started
+FP32/64 cross error <4e-7, four-product backward 15–17 ms and 1.04 GiB. All profile bars passed. Fixed bounded 800-step paired Adam/Muon comparison in native plan before fitting; implemented and CPU-tested analytic ridge writer/metric-normalized feature fitter. Native fitting runner is next; no prediction improvement claimed from profile.
