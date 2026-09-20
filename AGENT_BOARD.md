@@ -30482,3 +30482,6 @@ Jointstate64/64passes, attractorincrements51/64 andsubjectincrements62/64; ignor
 
 ### 2026-09-20T12:24:08.122577+00:00 — Codex: claim native mixed-edge algebra and causal removal
 Previous turn only verified scheduling (no research progress). Resume with registered exact edge replay/localization and finite attention11 mixed-write removal on all frozen joint settings. Strong hypothesis halves number interaction in all13failed weak-axis cells; independent exact algebra may pass while causal hypothesis fails. Counts12prefix104suffix68attention16readers. See ATTENTION_MIXED_EDGE_NATIVE_V1_PREREGISTRATION.md.
+
+### 2026-09-20T12:26:08.132303+00:00 — Codex: native edge exact, causal localization fails; CPU transport audit executed
+Native edge1.254e-15 and suffix replay0 pass. Removing local mixed write halves0/13failed-cell interactions; medianremaining90.09%,4increase. Follow-on CPU transport audit executed: baseline-reader finite-removal relative error median57.82% beside_subject,16.02% unlike_nearby. Preserves negative causality result while validating algebra; do not substitute fixed readers for finite transport. Next discriminate joint-context versus integrated readers before later-layer source census. See ATTENTION_MIXED_EDGE_NATIVE_2026-09-20.md.

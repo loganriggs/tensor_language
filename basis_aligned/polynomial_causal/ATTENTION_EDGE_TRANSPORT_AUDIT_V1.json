@@ -1,0 +1,1003 @@
+{
+  "source_sha256": "edb884172d4e7a67b9f831529c303fcb842ad5dce471566fd1f77a2d15a90c0c",
+  "instrument": {
+    "pred_a_instrument": true,
+    "pred_b_edge_localization": true,
+    "pred_c_causal_attenuation": false
+  },
+  "max_checks": {
+    "edge_error": 1.2536358669906766e-15,
+    "outside_error": 5.6843418860808015e-12,
+    "saved_replay": 0.0
+  },
+  "failed_cell_summary": {
+    "count": 13,
+    "halved": 0,
+    "increased": 4,
+    "median_remaining": 0.9008992294604053,
+    "range_remaining": [
+      0.6208487410538409,
+      2.3507155454164126
+    ]
+  },
+  "groups": [
+    {
+      "template": "beside_subject",
+      "count": 32,
+      "transport_error_median": 0.5781922817299153,
+      "transport_error_max": 2.5163332093786335,
+      "removal_norm_min": 0.0004168672320089487,
+      "removal_norm_max": 0.0243295950411662
+    },
+    {
+      "template": "unlike_nearby",
+      "count": 32,
+      "transport_error_median": 0.1601972516484339,
+      "transport_error_max": 0.7954449142713232,
+      "removal_norm_min": 0.0001648430219276043,
+      "removal_norm_max": 0.004232495123415051
+    }
+  ],
+  "records": [
+    {
+      "panel": "opposite",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "coordinate": [
+        1,
+        1
+      ],
+      "original_interaction_norm": 0.014346256343602336,
+      "remaining_interaction_norm": 0.014986776322188129,
+      "remaining_ratio": 1.044647186223703,
+      "fixed_reader_error": 0.00012037181121044608,
+      "native_removal_norm": 0.0019784896109107885,
+      "transport_relative_error": 0.06084025437719306
+    },
+    {
+      "panel": "opposite",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "coordinate": [
+        1,
+        1
+      ],
+      "original_interaction_norm": 0.04059176839039096,
+      "remaining_interaction_norm": 0.04357365930106089,
+      "remaining_ratio": 1.0734604829725973,
+      "fixed_reader_error": 0.00021190603933016723,
+      "native_removal_norm": 0.004232495123415051,
+      "transport_relative_error": 0.05006645799964625
+    },
+    {
+      "panel": "opposite",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "coordinate": [
+        1,
+        -1
+      ],
+      "original_interaction_norm": 0.016520490844478104,
+      "remaining_interaction_norm": 0.01741989927599465,
+      "remaining_ratio": 1.0544419920681212,
+      "fixed_reader_error": 0.0004778571029701894,
+      "native_removal_norm": 0.0011614789602259626,
+      "transport_relative_error": 0.4114212304605359
+    },
+    {
+      "panel": "opposite",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "coordinate": [
+        1,
+        -1
+      ],
+      "original_interaction_norm": 0.020755763952496183,
+      "remaining_interaction_norm": 0.023047348756628686,
+      "remaining_ratio": 1.1104071528938788,
+      "fixed_reader_error": 0.0008407164256191593,
+      "native_removal_norm": 0.003683413331422907,
+      "transport_relative_error": 0.22824384612149665
+    },
+    {
+      "panel": "opposite",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "coordinate": [
+        -1,
+        1
+      ],
+      "original_interaction_norm": 0.016067879867226468,
+      "remaining_interaction_norm": 0.015064552397354916,
+      "remaining_ratio": 0.9375569472660776,
+      "fixed_reader_error": 0.0002139615638028052,
+      "native_removal_norm": 0.0014312478938692103,
+      "transport_relative_error": 0.14949301565390274
+    },
+    {
+      "panel": "opposite",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "coordinate": [
+        -1,
+        1
+      ],
+      "original_interaction_norm": 0.034920892330719176,
+      "remaining_interaction_norm": 0.0367778217343278,
+      "remaining_ratio": 1.0531753136781996,
+      "fixed_reader_error": 0.0006503124185735811,
+      "native_removal_norm": 0.0024460049406068033,
+      "transport_relative_error": 0.2658671729470227
+    },
+    {
+      "panel": "opposite",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "coordinate": [
+        -1,
+        -1
+      ],
+      "original_interaction_norm": 0.014863896280868118,
+      "remaining_interaction_norm": 0.014670360786911994,
+      "remaining_ratio": 0.9869794910904195,
+      "fixed_reader_error": 0.00011764554142174267,
+      "native_removal_norm": 0.0006883821963417846,
+      "transport_relative_error": 0.1709014876429651
+    },
+    {
+      "panel": "opposite",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "coordinate": [
+        -1,
+        -1
+      ],
+      "original_interaction_norm": 0.018301700641393033,
+      "remaining_interaction_norm": 0.020310733835807393,
+      "remaining_ratio": 1.1097730333251392,
+      "fixed_reader_error": 0.00030538423036156073,
+      "native_removal_norm": 0.002837199618607464,
+      "transport_relative_error": 0.10763579282851005
+    },
+    {
+      "panel": "opposite",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "coordinate": [
+        0.5,
+        0.5
+      ],
+      "original_interaction_norm": 0.005976969302270735,
+      "remaining_interaction_norm": 0.006153014853491519,
+      "remaining_ratio": 1.0294539828327212,
+      "fixed_reader_error": 3.2299976642513596e-05,
+      "native_removal_norm": 0.0004281344771888679,
+      "transport_relative_error": 0.07544353086113346
+    },
+    {
+      "panel": "opposite",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "coordinate": [
+        0.5,
+        0.5
+      ],
+      "original_interaction_norm": 0.008722165481527818,
+      "remaining_interaction_norm": 0.009459595672530898,
+      "remaining_ratio": 1.084546686549899,
+      "fixed_reader_error": 2.6437004461112558e-05,
+      "native_removal_norm": 0.0009940110801955793,
+      "transport_relative_error": 0.0265962874940095
+    },
+    {
+      "panel": "opposite",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "coordinate": [
+        0.5,
+        -0.5
+      ],
+      "original_interaction_norm": 0.006376028794937311,
+      "remaining_interaction_norm": 0.006598554123539337,
+      "remaining_ratio": 1.034900301701698,
+      "fixed_reader_error": 3.977055707506507e-05,
+      "native_removal_norm": 0.000335507537448826,
+      "transport_relative_error": 0.11853849060285615
+    },
+    {
+      "panel": "opposite",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "coordinate": [
+        0.5,
+        -0.5
+      ],
+      "original_interaction_norm": 0.0062252816722043105,
+      "remaining_interaction_norm": 0.0069099758908994485,
+      "remaining_ratio": 1.1099860624383113,
+      "fixed_reader_error": 7.363363758723867e-05,
+      "native_removal_norm": 0.0009696710512159798,
+      "transport_relative_error": 0.07593671843137026
+    },
+    {
+      "panel": "opposite",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "coordinate": [
+        -0.5,
+        0.5
+      ],
+      "original_interaction_norm": 0.004612257056759455,
+      "remaining_interaction_norm": 0.004510179250786272,
+      "remaining_ratio": 0.9778681446595473,
+      "fixed_reader_error": 3.3183713877033134e-05,
+      "native_removal_norm": 0.00033287906221945106,
+      "transport_relative_error": 0.09968699639978172
+    },
+    {
+      "panel": "opposite",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "coordinate": [
+        -0.5,
+        0.5
+      ],
+      "original_interaction_norm": 0.008090064271719682,
+      "remaining_interaction_norm": 0.00869312922783965,
+      "remaining_ratio": 1.0745439017373561,
+      "fixed_reader_error": 7.353452968891478e-05,
+      "native_removal_norm": 0.000777317402652522,
+      "transport_relative_error": 0.0946003903141563
+    },
+    {
+      "panel": "opposite",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "coordinate": [
+        -0.5,
+        -0.5
+      ],
+      "original_interaction_norm": 0.004629759906937957,
+      "remaining_interaction_norm": 0.004632249256623478,
+      "remaining_ratio": 1.000537684401688,
+      "fixed_reader_error": 1.9492028882185894e-05,
+      "native_removal_norm": 0.0002372630701302967,
+      "transport_relative_error": 0.08215365699972416
+    },
+    {
+      "panel": "opposite",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "coordinate": [
+        -0.5,
+        -0.5
+      ],
+      "original_interaction_norm": 0.0058129218578580055,
+      "remaining_interaction_norm": 0.006423560814851675,
+      "remaining_ratio": 1.105048540463037,
+      "fixed_reader_error": 3.3668086567776354e-05,
+      "native_removal_norm": 0.0008173388096354981,
+      "transport_relative_error": 0.04119232583950227
+    },
+    {
+      "panel": "opposite",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "coordinate": [
+        1,
+        1
+      ],
+      "original_interaction_norm": 0.014705426986571,
+      "remaining_interaction_norm": 0.015452592874942153,
+      "remaining_ratio": 1.0508088537009816,
+      "fixed_reader_error": 0.002097877687202758,
+      "native_removal_norm": 0.01310458920703001,
+      "transport_relative_error": 0.16008725295084741
+    },
+    {
+      "panel": "opposite",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "coordinate": [
+        1,
+        1
+      ],
+      "original_interaction_norm": 0.017891137608621512,
+      "remaining_interaction_norm": 0.014678274690704379,
+      "remaining_ratio": 0.8204215412009969,
+      "fixed_reader_error": 0.003342867885970021,
+      "native_removal_norm": 0.006880359421197742,
+      "transport_relative_error": 0.48585657831638257
+    },
+    {
+      "panel": "opposite",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "coordinate": [
+        1,
+        -1
+      ],
+      "original_interaction_norm": 0.019356822199247233,
+      "remaining_interaction_norm": 0.016745267297341212,
+      "remaining_ratio": 0.8650834896852242,
+      "fixed_reader_error": 0.0026609529383267863,
+      "native_removal_norm": 0.017266891979040057,
+      "transport_relative_error": 0.15410723259037384
+    },
+    {
+      "panel": "opposite",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "coordinate": [
+        1,
+        -1
+      ],
+      "original_interaction_norm": 0.021448562853048202,
+      "remaining_interaction_norm": 0.017641443768763997,
+      "remaining_ratio": 0.8225000383303933,
+      "fixed_reader_error": 0.003926625047980243,
+      "native_removal_norm": 0.00758724839398977,
+      "transport_relative_error": 0.5175295237586678
+    },
+    {
+      "panel": "opposite",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "coordinate": [
+        -1,
+        1
+      ],
+      "original_interaction_norm": 0.01027868898090103,
+      "remaining_interaction_norm": 0.006381511113476392,
+      "remaining_ratio": 0.6208487410538409,
+      "fixed_reader_error": 0.01257002982863571,
+      "native_removal_norm": 0.006510015078213988,
+      "transport_relative_error": 1.9308756857878548
+    },
+    {
+      "panel": "opposite",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "coordinate": [
+        -1,
+        1
+      ],
+      "original_interaction_norm": 0.010376997498380556,
+      "remaining_interaction_norm": 0.0105809373136364,
+      "remaining_ratio": 1.0196530658591438,
+      "fixed_reader_error": 0.0023440217260806647,
+      "native_removal_norm": 0.0011626117979584294,
+      "transport_relative_error": 2.016168879583723
+    },
+    {
+      "panel": "opposite",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "coordinate": [
+        -1,
+        -1
+      ],
+      "original_interaction_norm": 0.017945834587950626,
+      "remaining_interaction_norm": 0.014895952337412595,
+      "remaining_ratio": 0.8300506874957037,
+      "fixed_reader_error": 0.016312298492271976,
+      "native_removal_norm": 0.008583076725726422,
+      "transport_relative_error": 1.900518778234666
+    },
+    {
+      "panel": "opposite",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "coordinate": [
+        -1,
+        -1
+      ],
+      "original_interaction_norm": 0.014143217023265318,
+      "remaining_interaction_norm": 0.013945157139102283,
+      "remaining_ratio": 0.9859961221101797,
+      "fixed_reader_error": 0.002557920365423827,
+      "native_removal_norm": 0.0010165268875720408,
+      "transport_relative_error": 2.5163332093786335
+    },
+    {
+      "panel": "opposite",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "coordinate": [
+        0.5,
+        0.5
+      ],
+      "original_interaction_norm": 0.004113093357072759,
+      "remaining_interaction_norm": 0.0038066641675672808,
+      "remaining_ratio": 0.925499092069342,
+      "fixed_reader_error": 0.0007795561807136749,
+      "native_removal_norm": 0.004057239498703052,
+      "transport_relative_error": 0.19213955226524584
+    },
+    {
+      "panel": "opposite",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "coordinate": [
+        0.5,
+        0.5
+      ],
+      "original_interaction_norm": 0.004335658769979513,
+      "remaining_interaction_norm": 0.0037147597438475883,
+      "remaining_ratio": 0.8567924601375263,
+      "fixed_reader_error": 0.00047624190915773263,
+      "native_removal_norm": 0.0013075345995341302,
+      "transport_relative_error": 0.3642289154928794
+    },
+    {
+      "panel": "opposite",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "coordinate": [
+        0.5,
+        -0.5
+      ],
+      "original_interaction_norm": 0.005048913442643795,
+      "remaining_interaction_norm": 0.004125450606951672,
+      "remaining_ratio": 0.817096718693485,
+      "fixed_reader_error": 0.0009399370990223832,
+      "native_removal_norm": 0.0046125887631452995,
+      "transport_relative_error": 0.20377647938886387
+    },
+    {
+      "panel": "opposite",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "coordinate": [
+        0.5,
+        -0.5
+      ],
+      "original_interaction_norm": 0.004891837823547738,
+      "remaining_interaction_norm": 0.004288244698414674,
+      "remaining_ratio": 0.876612196294088,
+      "fixed_reader_error": 0.0005138004191894548,
+      "native_removal_norm": 0.0013572489928623263,
+      "transport_relative_error": 0.37856017716092905
+    },
+    {
+      "panel": "opposite",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "coordinate": [
+        -0.5,
+        0.5
+      ],
+      "original_interaction_norm": 0.003640703973888248,
+      "remaining_interaction_norm": 0.0032863547713999674,
+      "remaining_ratio": 0.902670141535886,
+      "fixed_reader_error": 0.0017785145533613883,
+      "native_removal_norm": 0.0019007174418389134,
+      "transport_relative_error": 0.9357069673863276
+    },
+    {
+      "panel": "opposite",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "coordinate": [
+        -0.5,
+        0.5
+      ],
+      "original_interaction_norm": 0.0033033814415107214,
+      "remaining_interaction_norm": 0.003209663625444151,
+      "remaining_ratio": 0.9716297322225946,
+      "fixed_reader_error": 0.00037654309157909876,
+      "native_removal_norm": 0.0004368026020527142,
+      "transport_relative_error": 0.8620440670672946
+    },
+    {
+      "panel": "opposite",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "coordinate": [
+        -0.5,
+        -0.5
+      ],
+      "original_interaction_norm": 0.004534969404897943,
+      "remaining_interaction_norm": 0.004015923616506179,
+      "remaining_ratio": 0.885545911769289,
+      "fixed_reader_error": 0.0020516582949088795,
+      "native_removal_norm": 0.002103831689852623,
+      "transport_relative_error": 0.9752007752353049
+    },
+    {
+      "panel": "opposite",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "coordinate": [
+        -0.5,
+        -0.5
+      ],
+      "original_interaction_norm": 0.0038510995271953717,
+      "remaining_interaction_norm": 0.003719175046809555,
+      "remaining_ratio": 0.9657436845103058,
+      "fixed_reader_error": 0.0003960846143371104,
+      "native_removal_norm": 0.0004168672320089487,
+      "transport_relative_error": 0.9501457152876143
+    },
+    {
+      "panel": "congruent",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "coordinate": [
+        1,
+        1
+      ],
+      "original_interaction_norm": 0.032472181907251214,
+      "remaining_interaction_norm": 0.03135880690367268,
+      "remaining_ratio": 0.9657129598879861,
+      "fixed_reader_error": 0.000324310674579169,
+      "native_removal_norm": 0.0014014810230587942,
+      "transport_relative_error": 0.23140568387529548
+    },
+    {
+      "panel": "congruent",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "coordinate": [
+        1,
+        1
+      ],
+      "original_interaction_norm": 0.02907410908664516,
+      "remaining_interaction_norm": 0.032159515426162605,
+      "remaining_ratio": 1.1061221284656557,
+      "fixed_reader_error": 0.0026228938399878556,
+      "native_removal_norm": 0.003544984377657482,
+      "transport_relative_error": 0.7398886879498912
+    },
+    {
+      "panel": "congruent",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "coordinate": [
+        1,
+        -1
+      ],
+      "original_interaction_norm": 0.01967518273792654,
+      "remaining_interaction_norm": 0.018688196657895326,
+      "remaining_ratio": 0.9498359891657491,
+      "fixed_reader_error": 0.0002646352943377107,
+      "native_removal_norm": 0.0012044945554461688,
+      "transport_relative_error": 0.21970650937453554
+    },
+    {
+      "panel": "congruent",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "coordinate": [
+        1,
+        -1
+      ],
+      "original_interaction_norm": 0.023442699773315458,
+      "remaining_interaction_norm": 0.024371641946919494,
+      "remaining_ratio": 1.0396260747519124,
+      "fixed_reader_error": 0.0005321867354140426,
+      "native_removal_norm": 0.001435567925351089,
+      "transport_relative_error": 0.3707151197905795
+    },
+    {
+      "panel": "congruent",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "coordinate": [
+        -1,
+        1
+      ],
+      "original_interaction_norm": 0.02268477931187932,
+      "remaining_interaction_norm": 0.021939415470794043,
+      "remaining_ratio": 0.9671425570935596,
+      "fixed_reader_error": 0.00012467821779240952,
+      "native_removal_norm": 0.0009813411867881454,
+      "transport_relative_error": 0.12704879757515505
+    },
+    {
+      "panel": "congruent",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "coordinate": [
+        -1,
+        1
+      ],
+      "original_interaction_norm": 0.02026090563105586,
+      "remaining_interaction_norm": 0.020599194469887876,
+      "remaining_ratio": 1.016696629706102,
+      "fixed_reader_error": 0.00022959420914362322,
+      "native_removal_norm": 0.0006830402932965084,
+      "transport_relative_error": 0.3361356736885157
+    },
+    {
+      "panel": "congruent",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "coordinate": [
+        -1,
+        -1
+      ],
+      "original_interaction_norm": 0.013964037957349431,
+      "remaining_interaction_norm": 0.013415490820453622,
+      "remaining_ratio": 0.9607171551258136,
+      "fixed_reader_error": 0.00030617262638227874,
+      "native_removal_norm": 0.0007201521457801516,
+      "transport_relative_error": 0.4251499189113675
+    },
+    {
+      "panel": "congruent",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "coordinate": [
+        -1,
+        -1
+      ],
+      "original_interaction_norm": 0.016158424590534178,
+      "remaining_interaction_norm": 0.01614237628997258,
+      "remaining_ratio": 0.9990068152701596,
+      "fixed_reader_error": 0.00043915606841603744,
+      "native_removal_norm": 0.0005520885991437026,
+      "transport_relative_error": 0.7954449142713232
+    },
+    {
+      "panel": "congruent",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "coordinate": [
+        0.5,
+        0.5
+      ],
+      "original_interaction_norm": 0.006968829358633731,
+      "remaining_interaction_norm": 0.006707965704838831,
+      "remaining_ratio": 0.9625670768546349,
+      "fixed_reader_error": 4.467096468486771e-05,
+      "native_removal_norm": 0.0003197835797117265,
+      "transport_relative_error": 0.13969123969760108
+    },
+    {
+      "panel": "congruent",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "coordinate": [
+        0.5,
+        0.5
+      ],
+      "original_interaction_norm": 0.0065686227627159335,
+      "remaining_interaction_norm": 0.006915835705007731,
+      "remaining_ratio": 1.0528593214794748,
+      "fixed_reader_error": 0.00021859167910066383,
+      "native_removal_norm": 0.00043639097605842,
+      "transport_relative_error": 0.5009078809901898
+    },
+    {
+      "panel": "congruent",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "coordinate": [
+        0.5,
+        -0.5
+      ],
+      "original_interaction_norm": 0.00543729696860851,
+      "remaining_interaction_norm": 0.005201326941161459,
+      "remaining_ratio": 0.9566015928853268,
+      "fixed_reader_error": 2.892970689195827e-05,
+      "native_removal_norm": 0.0002874688351119206,
+      "transport_relative_error": 0.10063597635094958
+    },
+    {
+      "panel": "congruent",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "coordinate": [
+        0.5,
+        -0.5
+      ],
+      "original_interaction_norm": 0.00583931496385993,
+      "remaining_interaction_norm": 0.006016764934796881,
+      "remaining_ratio": 1.0303888336277809,
+      "fixed_reader_error": 6.248597524367551e-05,
+      "native_removal_norm": 0.0002894899220882932,
+      "transport_relative_error": 0.21584853383814018
+    },
+    {
+      "panel": "congruent",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "coordinate": [
+        -0.5,
+        0.5
+      ],
+      "original_interaction_norm": 0.005842550139272085,
+      "remaining_interaction_norm": 0.00563324906732607,
+      "remaining_ratio": 0.9641764183521253,
+      "fixed_reader_error": 1.966513134353738e-05,
+      "native_removal_norm": 0.0002612996201875605,
+      "transport_relative_error": 0.07525893581254262
+    },
+    {
+      "panel": "congruent",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "coordinate": [
+        -0.5,
+        0.5
+      ],
+      "original_interaction_norm": 0.00539548584333161,
+      "remaining_interaction_norm": 0.005484299117056732,
+      "remaining_ratio": 1.0164606629141448,
+      "fixed_reader_error": 4.4784788853194196e-05,
+      "native_removal_norm": 0.00019176142270626963,
+      "transport_relative_error": 0.23354430844932378
+    },
+    {
+      "panel": "congruent",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|singular",
+      "coordinate": [
+        -0.5,
+        -0.5
+      ],
+      "original_interaction_norm": 0.004583164113425907,
+      "remaining_interaction_norm": 0.0044018121313471785,
+      "remaining_ratio": 0.9604308338975955,
+      "fixed_reader_error": 4.2737644847186046e-05,
+      "native_removal_norm": 0.00022552737775192658,
+      "transport_relative_error": 0.18950091679865222
+    },
+    {
+      "panel": "congruent",
+      "template": "unlike_nearby",
+      "family": "unlike_nearby|plural",
+      "coordinate": [
+        -0.5,
+        -0.5
+      ],
+      "original_interaction_norm": 0.0047847839351669065,
+      "remaining_interaction_norm": 0.004815668140779022,
+      "remaining_ratio": 1.0064546708964484,
+      "fixed_reader_error": 8.493490193780257e-05,
+      "native_removal_norm": 0.0001648430219276043,
+      "transport_relative_error": 0.5152471784647593
+    },
+    {
+      "panel": "congruent",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "coordinate": [
+        1,
+        1
+      ],
+      "original_interaction_norm": 0.015006173079768243,
+      "remaining_interaction_norm": 0.013165398287360668,
+      "remaining_ratio": 0.8773321630623226,
+      "fixed_reader_error": 0.0022807378993758664,
+      "native_removal_norm": 0.002589207574949032,
+      "transport_relative_error": 0.8808632886147656
+    },
+    {
+      "panel": "congruent",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "coordinate": [
+        1,
+        1
+      ],
+      "original_interaction_norm": 0.008516385081700545,
+      "remaining_interaction_norm": 0.020019598802305895,
+      "remaining_ratio": 2.3507155454164126,
+      "fixed_reader_error": 0.00967825008373236,
+      "native_removal_norm": 0.022705639825843716,
+      "transport_relative_error": 0.4262487275393363
+    },
+    {
+      "panel": "congruent",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "coordinate": [
+        1,
+        -1
+      ],
+      "original_interaction_norm": 0.014740655893647953,
+      "remaining_interaction_norm": 0.012260790846713285,
+      "remaining_ratio": 0.8317669807350098,
+      "fixed_reader_error": 0.003633518767616176,
+      "native_removal_norm": 0.0054299478076458305,
+      "transport_relative_error": 0.6691627426878526
+    },
+    {
+      "panel": "congruent",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "coordinate": [
+        1,
+        -1
+      ],
+      "original_interaction_norm": 0.010847687476118471,
+      "remaining_interaction_norm": 0.025147022783770283,
+      "remaining_ratio": 2.3181920422331723,
+      "fixed_reader_error": 0.010313796632324934,
+      "native_removal_norm": 0.0243295950411662,
+      "transport_relative_error": 0.42391978225999105
+    },
+    {
+      "panel": "congruent",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "coordinate": [
+        -1,
+        1
+      ],
+      "original_interaction_norm": 0.025732741493261806,
+      "remaining_interaction_norm": 0.02368338469137468,
+      "remaining_ratio": 0.9203599506712584,
+      "fixed_reader_error": 0.0009552247944798256,
+      "native_removal_norm": 0.0024378759340364284,
+      "transport_relative_error": 0.3918266640001837
+    },
+    {
+      "panel": "congruent",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "coordinate": [
+        -1,
+        1
+      ],
+      "original_interaction_norm": 0.016850870660436456,
+      "remaining_interaction_norm": 0.021436773635712447,
+      "remaining_ratio": 1.2721463518228209,
+      "fixed_reader_error": 0.005564669518583602,
+      "native_removal_norm": 0.00480312598042069,
+      "transport_relative_error": 1.1585516476701305
+    },
+    {
+      "panel": "congruent",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "coordinate": [
+        -1,
+        -1
+      ],
+      "original_interaction_norm": 0.024314703762527562,
+      "remaining_interaction_norm": 0.0219050978842191,
+      "remaining_ratio": 0.9008992294604053,
+      "fixed_reader_error": 0.002485356205789316,
+      "native_removal_norm": 0.0030221146071945423,
+      "transport_relative_error": 0.8223897928531889
+    },
+    {
+      "panel": "congruent",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "coordinate": [
+        -1,
+        -1
+      ],
+      "original_interaction_norm": 0.01961817292918157,
+      "remaining_interaction_norm": 0.024325248350180257,
+      "remaining_ratio": 1.239934444353736,
+      "fixed_reader_error": 0.0057770790646195416,
+      "native_removal_norm": 0.005055095597140953,
+      "transport_relative_error": 1.1428229107846992
+    },
+    {
+      "panel": "congruent",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "coordinate": [
+        0.5,
+        0.5
+      ],
+      "original_interaction_norm": 0.003490442540927853,
+      "remaining_interaction_norm": 0.0034061518899107944,
+      "remaining_ratio": 0.975851013151286,
+      "fixed_reader_error": 0.0004376335520343708,
+      "native_removal_norm": 0.0005212421322419642,
+      "transport_relative_error": 0.8395974250048118
+    },
+    {
+      "panel": "congruent",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "coordinate": [
+        0.5,
+        0.5
+      ],
+      "original_interaction_norm": 0.002308701014525481,
+      "remaining_interaction_norm": 0.006026069341142233,
+      "remaining_ratio": 2.61015579896594,
+      "fixed_reader_error": 0.0012065881993690774,
+      "native_removal_norm": 0.0043693134380563235,
+      "transport_relative_error": 0.2761505248993592
+    },
+    {
+      "panel": "congruent",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "coordinate": [
+        0.5,
+        -0.5
+      ],
+      "original_interaction_norm": 0.002636274115370201,
+      "remaining_interaction_norm": 0.0030285370986876236,
+      "remaining_ratio": 1.1487944599654574,
+      "fixed_reader_error": 0.0006100739759884118,
+      "native_removal_norm": 0.0007772093970420791,
+      "transport_relative_error": 0.7849544515419461
+    },
+    {
+      "panel": "congruent",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "coordinate": [
+        0.5,
+        -0.5
+      ],
+      "original_interaction_norm": 0.0029318355379442723,
+      "remaining_interaction_norm": 0.006609108787780123,
+      "remaining_ratio": 2.254256319034273,
+      "fixed_reader_error": 0.001221992459754986,
+      "native_removal_norm": 0.0044840026742200886,
+      "transport_relative_error": 0.27252268754891623
+    },
+    {
+      "panel": "congruent",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "coordinate": [
+        -0.5,
+        0.5
+      ],
+      "original_interaction_norm": 0.0053459437886289,
+      "remaining_interaction_norm": 0.0048232938337666505,
+      "remaining_ratio": 0.9022342965943726,
+      "fixed_reader_error": 0.0001885763478304502,
+      "native_removal_norm": 0.0006543458513575907,
+      "transport_relative_error": 0.28819063716718807
+    },
+    {
+      "panel": "congruent",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "coordinate": [
+        -0.5,
+        0.5
+      ],
+      "original_interaction_norm": 0.0042752934156388344,
+      "remaining_interaction_norm": 0.006100111772520948,
+      "remaining_ratio": 1.4268287996812123,
+      "fixed_reader_error": 0.0008793576169714802,
+      "native_removal_norm": 0.0019279629048872895,
+      "transport_relative_error": 0.45610712464557934
+    },
+    {
+      "panel": "congruent",
+      "template": "beside_subject",
+      "family": "beside_subject|singular",
+      "coordinate": [
+        -0.5,
+        -0.5
+      ],
+      "original_interaction_norm": 0.004887207626019338,
+      "remaining_interaction_norm": 0.004512244772251501,
+      "remaining_ratio": 0.9232766678928174,
+      "fixed_reader_error": 0.00037226390680054986,
+      "native_removal_norm": 0.000582704813559401,
+      "transport_relative_error": 0.6388550397011629
+    },
+    {
+      "panel": "congruent",
+      "template": "beside_subject",
+      "family": "beside_subject|plural",
+      "coordinate": [
+        -0.5,
+        -0.5
+      ],
+      "original_interaction_norm": 0.004712230943622688,
+      "remaining_interaction_norm": 0.006536440917829697,
+      "remaining_ratio": 1.387122362216947,
+      "fixed_reader_error": 0.0008984878794219997,
+      "native_removal_norm": 0.001976086523305584,
+      "transport_relative_error": 0.4546804347003062
+    }
+  ]
+}
