@@ -93,3 +93,23 @@ Your proposal changes the final search space from a prescribed decomposition to 
 The next discriminating comparison is a compact centered expansion of the native quartic path: its exact degree-two part is itself a folded third-order tensor. A registered matched-budget comparison will test how much of the observed simplicity comes from lower-degree behavior around the actual input mean, versus genuinely necessary quartic structure. Full normalizations, attention, residual terms outside the selected path, and the final softcap remain explicit boundaries.
 
 Primary receipts: [exact graph controls](../../direct_tensor_match/ARITHMETIC_DAG_CHECK_V1.json), [native graph export](../../direct_tensor_match/NATIVE_DAG_EXPORT_V1.json), [output-sharing sweep](../../direct_tensor_match/DAG_OUTPUT_SHARING_V1.json), [graph replay](../../direct_tensor_match/SHARED_OUTPUT_DAG_REPLAY_V1.json), [residual audit](../../direct_tensor_match/OUTPUT_SHARING_RESIDUAL_AUDIT_V1.json), [centered comparison plan](../../direct_tensor_match/CENTERED_COMPACT_PLAN_V1.md).
+
+## Addendum — 19:34 UTC: fitting and editing the graph now work on controls
+
+The graph now has an explicit shared constant and enforces conservative degree bounds. Its differentiable compiler gives each shared node one set of coefficients. Exact unit aggregation can remain structural; if unit coefficients are learned, they count as stored parameters even at value one. Zero and unit products simplify exactly.
+
+Five planted topologies were fitted from two random starts each using 1,024 artificial Gaussian probes and evaluated on 4,096 fresh probes. Four families recovered to below1% error in at least one start. The square of a quadratic failed both starts (best39.92%). Compiler replay, directional gradients, and exact capacity witnesses passed: this failure does not establish a representation limit.
+
+A separate paired16-arm experiment on that square compared Adam/Muon, two rates, two seeds, and joint versus analytic output fitting. It used exact Gaussian quadrature for the degree-eight squared loss. Analytic readouts gave8/8 recoveries below1%; joint readouts gave5/8. Adam reached machine precision in several arms; Muon reached roughly0.19–0.28% at its best checkpoints with analytic readouts and often overshot afterward. This comparison does not isolate why the earlier probe-based runs failed: objective integration, initialization layout, and parameter grouping also changed. Within the paired grid, the writer comparison is controlled. Five- versus seven-point quadrature agrees to numerical precision.
+
+The first approximate topology-edit loop is implemented: remove a product globally, simplify, refit, then evaluate the whole-graph objective. On a near-duplicate control, it reduces2products/7coefficients to1product/2coefficients, with fresh relative error6.33e-12. On two independent products, either deletion incurs50% squared Gaussian error and is rejected. This is a narrow but real edit/refit loop; arbitrary graph search remains unfinished.
+
+The matched48,384-scalar native centered comparison is now queued through the managed runner. Its allocation selection uses the common Gaussian Taylor-target objective within each metric:
+
+$$
+\text{score}=\text{linear explained energy}+2\,\text{quadratic coefficient explained energy}.
+$$
+
+A free constant matches the Taylor target's Gaussian mean. This removes an ambiguous cross-allocation selection rule and avoids selecting using native evaluation errors. Neither the degree truncation nor the covariance metric turns this into a full-model circuit claim.
+
+Receipts: [fixed-graph controls](../../direct_tensor_match/TRAINABLE_DAG_CHECK_V1.json), [square optimizer comparison](../../direct_tensor_match/DAG_SQUARE_OPTIMIZER_V1.json), [edit/refit controls](../../direct_tensor_match/DAG_EDIT_REFIT_V1.json).

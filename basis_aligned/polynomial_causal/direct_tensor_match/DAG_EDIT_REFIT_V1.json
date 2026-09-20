@@ -1,0 +1,108 @@
+{
+  "records": [
+    {
+      "baseline_error": 7.255033836508278e-27,
+      "baseline_price": {
+        "products": 2,
+        "additions": 3,
+        "stored_coefficients": 7,
+        "edges": 11,
+        "nodes": 9,
+        "trainable_coefficients": 7
+      },
+      "baseline_objective": 0.0101,
+      "candidates": [
+        {
+          "removed_node": 3,
+          "squared_relative_error": 1.5150872183645743e-23,
+          "price": {
+            "products": 1,
+            "additions": 1,
+            "stored_coefficients": 5,
+            "edges": 7,
+            "nodes": 8,
+            "trainable_coefficients": 5
+          },
+          "objective": 0.00506
+        },
+        {
+          "removed_node": 6,
+          "squared_relative_error": 4.004945114034169e-23,
+          "price": {
+            "products": 1,
+            "additions": 0,
+            "stored_coefficients": 2,
+            "edges": 4,
+            "nodes": 5,
+            "trainable_coefficients": 2
+          },
+          "objective": 0.00502
+        }
+      ],
+      "accepted": true,
+      "accepted_objective": 0.00502,
+      "case": "near_duplicate",
+      "fresh_relative_error": 6.328431224051871e-12,
+      "replay_error": 0.0,
+      "degree": 2,
+      "accepted_price": {
+        "products": 1,
+        "additions": 0,
+        "stored_coefficients": 2,
+        "edges": 4,
+        "nodes": 5,
+        "trainable_coefficients": 2
+      }
+    },
+    {
+      "baseline_error": 3.841021163706196e-24,
+      "baseline_price": {
+        "products": 2,
+        "additions": 2,
+        "stored_coefficients": 4,
+        "edges": 8,
+        "nodes": 8,
+        "trainable_coefficients": 4
+      },
+      "baseline_objective": 0.01006,
+      "candidates": [
+        {
+          "removed_node": 4,
+          "squared_relative_error": 0.49999999999999983,
+          "price": {
+            "products": 1,
+            "additions": 0,
+            "stored_coefficients": 2,
+            "edges": 4,
+            "nodes": 5,
+            "trainable_coefficients": 2
+          },
+          "objective": 0.5050199999999998
+        },
+        {
+          "removed_node": 5,
+          "squared_relative_error": 0.4999999999999999,
+          "price": {
+            "products": 1,
+            "additions": 0,
+            "stored_coefficients": 2,
+            "edges": 4,
+            "nodes": 5,
+            "trainable_coefficients": 2
+          },
+          "objective": 0.5050199999999999
+        }
+      ],
+      "accepted": false,
+      "accepted_objective": 0.01006,
+      "case": "independent"
+    }
+  ],
+  "predictions": {
+    "pred_a": true,
+    "pred_b": true,
+    "pred_c": true
+  },
+  "seconds": 1.3772754799574614,
+  "scope": "First approximate delete/refit/accept loop on opposing planted cases. No feature discovery or native generality claim."
+}

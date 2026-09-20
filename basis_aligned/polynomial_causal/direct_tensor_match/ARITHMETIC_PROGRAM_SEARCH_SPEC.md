@@ -139,3 +139,7 @@ flowchart TD
 The research question is whether joint search over learned feature directions, algebraic factorization, and cross-branch reuse finds substantially smaller, understandable programs in trained weights. Individual ingredients are existing techniques; their combination and demonstrated recovery are the proposed experiment.
 
 Related: [two-stage overview](TWO_STAGE_DISCOVERY_AND_DAG_SEARCH.md), [latest timed report](../explanations/for_logan/research_update_2026-09-20_1923_two_stage_decomposition_and_graphs.md), [centered quadratic target](CENTERED_QUADRATIC_FOLD.md).
+
+### Implementation update, 19:34 UTC
+
+Explicit shared constants, conservative degree limits, a differentiable fixed-graph compiler, and the first product-deletion/refit/accept loop are now implemented. Five planted topology controls and a16-arm square optimizer diagnostic are recorded in TRAINABLE_DAG_CHECK_V1.json and DAG_SQUARE_OPTIMIZER_V1.json. DAG_EDIT_REFIT_V1.json records successful redundant-product removal and rejection of independent-product removal. General topology search, automatic residual additions, equality saturation, and native graph-edit discovery remain outstanding. This update supersedes the corresponding pending items in the recording-time status above.

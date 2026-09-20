@@ -5,21 +5,33 @@ from collections import defaultdict
 from fractions import Fraction
 
 class DAG:
- def __init__(self):self.nodes=[];self.index={}
+ def __init__(self,degree_limit=None):self.nodes=[];self.index={};self.degrees=[];self.degree_limit=degree_limit
  def intern(self,key):
-  if key not in self.index:self.index[key]=len(self.nodes);self.nodes.append(key)
+  if key not in self.index:
+   if key[0]=='input':degree=1
+   elif key[0]=='constant':degree=0
+   elif key[0]=='product':degree=sum(self.degrees[n] for n in key[1:])
+   else:degree=max((self.degrees[n] for n,c in key[1]),default=0)
+   if self.degree_limit is not None and degree>self.degree_limit:raise ValueError(f'Node degree bound {degree} exceeds {self.degree_limit}')
+   self.index[key]=len(self.nodes);self.nodes.append(key);self.degrees.append(degree)
   return self.index[key]
+ def constant(self):return self.intern(('constant',))
  def input(self,index):return self.intern(('input',index))
  def linear(self,terms):
   values=defaultdict(Fraction)
-  for node,coefficient in terms:values[node]+=Fraction(coefficient)
+  for node,coefficient in terms:
+   if self.nodes[node]!=('linear',()):values[node]+=Fraction(coefficient)
   terms=tuple(sorted((n,c) for n,c in values.items() if c))
   if len(terms)==1 and terms[0][1]==1:return terms[0][0]
   return self.intern(('linear',terms))
- def product(self,a,b):return self.intern(('product',*sorted((a,b))))
+ def product(self,a,b):
+  if self.nodes[a]==('linear',()) or self.nodes[b]==('linear',()):return self.linear([])
+  if self.nodes[a]==('constant',):return b
+  if self.nodes[b]==('constant',):return a
+  return self.intern(('product',*sorted((a,b))))
  def children(self,node):
   key=self.nodes[node]
-  return [] if key[0]=='input' else ([n for n,c in key[1]] if key[0]=='linear' else list(key[1:]))
+  return [] if key[0] in ('input','constant') else ([n for n,c in key[1]] if key[0]=='linear' else list(key[1:]))
  def reachable(self,outputs):
   seen=set();stack=list(outputs)
   while stack:
@@ -40,6 +52,7 @@ class DAG:
   for n in self.reachable(outputs):
    key=self.nodes[n]
    if key[0]=='input':values[n]=x[...,key[1]]
+   elif key[0]=='constant':values[n]=x.new_ones(x.shape[:-1])
    elif key[0]=='product':values[n]=values[key[1]]*values[key[2]]
    elif key[1]:
     refs,coeff=zip(*key[1]);values[n]=torch.stack([values[r] for r in refs],-1)@x.new_tensor([float(c) for c in coeff])
@@ -50,7 +63,7 @@ class DAG:
   def visit(n):
    if n in memo:return memo[n]
    key=self.nodes[n]
-   if key[0]=='input':out=n
+   if key[0] in ('input','constant'):out=n
    elif key[0]=='product':
     a,b=visit(key[1]),visit(key[2]);out=n if (a,b)==key[1:] else self.product(a,b)
    else:
@@ -78,6 +91,7 @@ class DAG:
   for n in self.reachable(outputs):
    key=self.nodes[n];p=defaultdict(Fraction)
    if key[0]=='input':e=[0]*dimensions;e[key[1]]=1;p[tuple(e)]=Fraction(1)
+   elif key[0]=='constant':p[(0,)*dimensions]=Fraction(1)
    elif key[0]=='linear':
     for ref,c in key[1]:
      for power,v in values[ref].items():p[power]+=c*v

@@ -520,3 +520,6 @@ Forfixedcalibrationmu, f2(delta)=FD[(Aδ)(Bδ)]+C[((LJ)δ)((RJ)δ)]. Exactjoint9
 
 ### 2026-09-20 19:23 — Scalar DAG export and approximate output sharing
 Exact caching/global factoring controls pass. Native24-product export replays4.5e-15. Weighted native26-product student: output rank2 fails, rank4 selected by registered99% rule saves14.2% coefficients with evaluation25.28%→26.28%; actual edit5.22% vs coefficient1.32%, positive residual cross term. No semantics/OOD claim. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1923_two_stage_decomposition_and_graphs.md).
+
+### 2026-09-20 19:34 — Differentiable DAG, first approximate edit/refit, centered native fit queued
+Constant and degree-bounded graph compiler checked against exact oracle/gradients.4/5 planted topologies recovered; square failure diagnosed with paired16-arm exact-Gaussian control: analytic writers8/8 vs joint5/8 below1%. Delete/refit loop removes redundant product with6.3e-12 error, rejects independent-product deletion (50% squared error). Native centered comparison now queued with matched48,384 scalars and common within-metric Gaussian selection score. [Updated report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1923_two_stage_decomposition_and_graphs.md).

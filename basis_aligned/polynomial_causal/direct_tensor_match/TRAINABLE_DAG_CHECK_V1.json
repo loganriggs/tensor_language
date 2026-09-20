@@ -1,0 +1,185 @@
+{
+  "records": [
+    {
+      "family": "affine_quadratic_residual",
+      "seed": 0,
+      "training_best_relative_error": 1.2508676137690508e-16,
+      "training_final_relative_error": 1.323776181774606e-16,
+      "validation_relative_error": 1.3045243122337946e-16,
+      "export_replay": 0.0,
+      "price": {
+        "products": 1,
+        "additions": 16,
+        "stored_coefficients": 21,
+        "edges": 23,
+        "nodes": 11,
+        "trainable_coefficients": 21
+      },
+      "degree": 2
+    },
+    {
+      "family": "affine_quadratic_residual",
+      "seed": 1,
+      "training_best_relative_error": 5.724811247007835e-15,
+      "training_final_relative_error": 5.724811247007835e-15,
+      "validation_relative_error": 6.2709804816201735e-15,
+      "export_replay": 0.0,
+      "price": {
+        "products": 1,
+        "additions": 16,
+        "stored_coefficients": 21,
+        "edges": 23,
+        "nodes": 11,
+        "trainable_coefficients": 21
+      },
+      "degree": 2
+    },
+    {
+      "family": "shared_linear_sum",
+      "seed": 0,
+      "training_best_relative_error": 0.29883316721846986,
+      "training_final_relative_error": 0.3029847780949214,
+      "validation_relative_error": 0.3040415666725384,
+      "export_replay": 0.0,
+      "price": {
+        "products": 2,
+        "additions": 21,
+        "stored_coefficients": 26,
+        "edges": 32,
+        "nodes": 14,
+        "trainable_coefficients": 26
+      },
+      "degree": 2
+    },
+    {
+      "family": "shared_linear_sum",
+      "seed": 1,
+      "training_best_relative_error": 1.0480425173194302e-08,
+      "training_final_relative_error": 1.0480425173194302e-08,
+      "validation_relative_error": 1.1073169815206642e-08,
+      "export_replay": 0.0,
+      "price": {
+        "products": 2,
+        "additions": 21,
+        "stored_coefficients": 26,
+        "edges": 32,
+        "nodes": 14,
+        "trainable_coefficients": 26
+      },
+      "degree": 2
+    },
+    {
+      "family": "square_quadratic",
+      "seed": 0,
+      "training_best_relative_error": 0.5961556580738345,
+      "training_final_relative_error": 0.596160585157442,
+      "validation_relative_error": 0.596979794844234,
+      "export_replay": 0.0,
+      "price": {
+        "products": 3,
+        "additions": 19,
+        "stored_coefficients": 24,
+        "edges": 32,
+        "nodes": 15,
+        "trainable_coefficients": 24
+      },
+      "degree": 4
+    },
+    {
+      "family": "square_quadratic",
+      "seed": 1,
+      "training_best_relative_error": 0.39398085701533947,
+      "training_final_relative_error": 0.39398085701533947,
+      "validation_relative_error": 0.39916743566120305,
+      "export_replay": 0.0,
+      "price": {
+        "products": 3,
+        "additions": 19,
+        "stored_coefficients": 24,
+        "edges": 32,
+        "nodes": 15,
+        "trainable_coefficients": 24
+      },
+      "degree": 4
+    },
+    {
+      "family": "shared_quadratic_branches",
+      "seed": 0,
+      "training_best_relative_error": 2.587040679856071e-16,
+      "training_final_relative_error": 3.474466188487319e-10,
+      "validation_relative_error": 2.7166213549138054e-16,
+      "export_replay": 0.0,
+      "price": {
+        "products": 5,
+        "additions": 20,
+        "stored_coefficients": 26,
+        "edges": 36,
+        "nodes": 16,
+        "trainable_coefficients": 26
+      },
+      "degree": 4
+    },
+    {
+      "family": "shared_quadratic_branches",
+      "seed": 1,
+      "training_best_relative_error": 6.911802744243977e-15,
+      "training_final_relative_error": 1.3634574813261538e-07,
+      "validation_relative_error": 7.903154295109772e-15,
+      "export_replay": 0.0,
+      "price": {
+        "products": 5,
+        "additions": 20,
+        "stored_coefficients": 26,
+        "edges": 36,
+        "nodes": 16,
+        "trainable_coefficients": 26
+      },
+      "degree": 4
+    },
+    {
+      "family": "mixed_degree_skips",
+      "seed": 0,
+      "training_best_relative_error": 2.1216215246172697e-11,
+      "training_final_relative_error": 0.00010992620712644901,
+      "validation_relative_error": 2.3735977355374932e-11,
+      "export_replay": 0.0,
+      "price": {
+        "products": 3,
+        "additions": 24,
+        "stored_coefficients": 30,
+        "edges": 36,
+        "nodes": 14,
+        "trainable_coefficients": 30
+      },
+      "degree": 4
+    },
+    {
+      "family": "mixed_degree_skips",
+      "seed": 1,
+      "training_best_relative_error": 0.05297356560110036,
+      "training_final_relative_error": 0.05297356560110036,
+      "validation_relative_error": 0.06076663271774583,
+      "export_replay": 0.0,
+      "price": {
+        "products": 3,
+        "additions": 24,
+        "stored_coefficients": 30,
+        "edges": 36,
+        "nodes": 14,
+        "trainable_coefficients": 30
+      },
+      "degree": 4
+    }
+  ],
+  "oracle_replay": 0.0,
+  "gradient_relative_discrepancy": 5.840949945934426e-11,
+  "export_replay": 0.0,
+  "families_below_one_percent": 4,
+  "predictions": {
+    "pred_a": true,
+    "pred_b": true,
+    "pred_c": true
+  },
+  "seconds": 7.965984342852607,
+  "scope": "Known topology capacity controls with random continuous fitting. Not topology discovery, optimizer comparison, text OOD, or identified semantics."
+}
