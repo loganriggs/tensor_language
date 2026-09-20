@@ -30563,3 +30563,9 @@ Prior turn made progress: fresh negative and balanced baseline recorded. Switchi
 
 ### 2026-09-20T13:42Z — Codex: native attention adjoint passes, claim finite Q2 freeze discriminator
 Five-factor explicit native reader replays old pre11 readers1.63e-19. Only Q2 whole-branch omission passes all opened gradient cells at10%. Next native test freezes only attention11 Q2 projection at its unedited baseline during source interventions; Q1 freeze is live comparison. This is conditional context reuse, not deleting Q2's baseline computation. Retain all nine contrasts and both roles; unchanged23-port oracle amplitudes. No selector retraining.
+
+### 2026-09-20T13:42:43.017930+00:00 — Codex: concurrent-review addendum; clock unchanged
+Publication recheck found the substantive13:36 review; no duplicate three-hour receipt. Independent CPU SVD/QR control finds fixed-reader derivative residual floors21%/31% at stated numerical rank; exact recipient tangents still fail finite prediction8/8 checked cells. Regional norm-closed manifest/navigation gaps linked, concurrent code preserved. See [REVIEW_ADDENDUM_2026-09-20_1340.md](basis_aligned/polynomial_causal/REVIEW_ADDENDUM_2026-09-20_1340.md) and its two control receipts. Next deadline remains16:36UTC; bounded scheduled review ends.
+
+### 2026-09-20T13:43:59.346110+00:00 — Codex: finite query reuse positive, context partition executed
+Q2 and Q1 freezes separately pass16/16 fidelity/selectivity, old replay0. Context partition CPU executed: value/residual carry most number reader variation, with cancellations. Next shared-query composition is necessary; separate passes are not composition. See ATTENTION_READER_FOLD_2026-09-20.md. Full goal active.

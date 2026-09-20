@@ -400,3 +400,6 @@ Independent five-source selector native validation now passes instrumentation/pr
 
 ### 2026-09-20 source–reader review
 Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in opposite along_with singular. Balanced/POD snapshot baseline executed on opened held gradients, not native interventions. Canonical review: [review](/workspace/tensor_language/basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-20_1336.md); CPU receipt BALANCED_SOURCE_READERS_V1.json; native receipt source_ood_v3_role_bank_v1_result.json. No full circuit promotion.
+
+### Attention11 contextual reader and conditional query reuse
+[Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/ATTENTION_READER_FOLD_2026-09-20.md): exact five-factor adjoint; Q2-only derivative omission passes. Native separate Q2/Q1 baseline-query freezes both pass16/16 finite fidelity/selectivity cells; worst number errors1.03%/1.98%. Opened oracle-selected edits; baseline context and source/selector costs retained. Exact signed context partition executed; no independent circuit or joint-freeze claim.
