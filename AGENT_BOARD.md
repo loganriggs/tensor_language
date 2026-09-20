@@ -31246,3 +31246,6 @@ Previous turn made progress: mean/stability receipts committed and pushed 96d506
 
 ### 2026-09-20T20:23Z — Codex: native projected quadratic profile passed; fitting implementation started
 FP32/64 cross error <4e-7, four-product backward 15–17 ms and 1.04 GiB. All profile bars passed. Fixed bounded 800-step paired Adam/Muon comparison in native plan before fitting; implemented and CPU-tested analytic ridge writer/metric-normalized feature fitter. Native fitting runner is next; no prediction improvement claimed from profile.
+
+### 2026-09-20T20:25Z — Codex: native Gaussian quadratic fitting claimed
+Previous profile/CPU fitter turn was progress. Implemented registered 8-arm comparison with fixed linear branch and paired A/B/C mean controls. Claim run_direct_gaussian_quadratic_fit_v1.py and native receipts; managed GPU only. No change to other agents scripts or queues beyond enqueue.
