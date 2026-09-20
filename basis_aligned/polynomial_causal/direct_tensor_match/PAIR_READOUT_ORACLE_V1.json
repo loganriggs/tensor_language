@@ -1,0 +1,38 @@
+{
+  "records": [
+    {
+      "panel": "calibration",
+      "pairs": 873,
+      "design_rank": 10,
+      "baseline_pair_mse": 65.79829706023837,
+      "hindsight_pair_mse": 62.204359209512255,
+      "max_fractional_mse_improvement": 0.0546205298814324,
+      "baseline_relative_error": 0.20473015364010252,
+      "hindsight_relative_error": 0.1990604107197205,
+      "normal_equation_relative_residual": 2.3203602593523563e-15
+    },
+    {
+      "panel": "diagnostic_64",
+      "pairs": 987,
+      "design_rank": 10,
+      "baseline_pair_mse": 53.33399743613037,
+      "hindsight_pair_mse": 45.8798366627419,
+      "max_fractional_mse_improvement": 0.1397637741726584,
+      "baseline_relative_error": 0.2641484296087665,
+      "hindsight_relative_error": 0.24499481704189244,
+      "normal_equation_relative_residual": 2.768737383550711e-15
+    },
+    {
+      "panel": "diagnostic_256",
+      "pairs": 6198,
+      "design_rank": 10,
+      "baseline_pair_mse": 48.31000418223636,
+      "hindsight_pair_mse": 43.09114721734525,
+      "max_fractional_mse_improvement": 0.10802849333658493,
+      "baseline_relative_error": 0.2241985556906164,
+      "hindsight_relative_error": 0.2117426291044067,
+      "normal_equation_relative_residual": 3.035331013887355e-15
+    }
+  ],
+  "scope": "Exact numerical least-squares minimum on each finite panel within the frozen ten-feature linear-readout class. Diagnostic targets used only for hindsight bound, no exported candidate. Not a bound on changed features, native logit effects, unseen data or arbitrary functions of readers."
+}

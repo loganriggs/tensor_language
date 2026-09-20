@@ -31478,3 +31478,12 @@ Previous turn progressed via14productnativefailure, exactcommon/centered audit a
 
 ### 2026-09-20T23:14Z — Codex: neither direct nor normalization path suffices; shared response exported
 Native48forward mechanism testterminal: formulaeffectreplay4.03e-5PASS/archivedenergyexact; directonly andnormonly dominancebothFAIL. Codefeature1swap centerederrors.560/.930; FineWebfeature0 directenergy3.22xfull revealscancellation. NextCPUshared4writer response actuallyexported: newnorm²=oldnorm²+2b.t+t.G.t, newprelogits=(s/snew)oldpre+Vt/snew. Actualweightsyntheticreplay1.6e-15, FP32cacheeffect2.5e-8. Optionalcachecost201216vocab+16Gram+4608writer+13916scalar=219756; notcompressionpromotion, nativecachedinterface replaypending. Timed2314report states explicitbackground andsemanticlimits.
+
+### 2026-09-20T23:16Z — Codex: native shared-response replay claim
+Previous turn progressed via nativepathcancellation and actualcachedresponseexport. Claim16nativeforward replay with zero/allones/mixedsigned/tokenwise-randomstrengths onreused8FineWeb+8code. Tests compactjointRMSresponse vsnative editedstate and residualcomposition, nofitting ornewfeatureaccuracyclaim.
+
+### 2026-09-20T23:20Z — Codex: sharedresponse replay passes; pairedmetric CPU comparison
+Sharedresponse native16forward terminal: effectreplay4.73e-6, sequentialresidualcomposition1.04e-6, zero/coefficientcompositionexact, allbarsPASS. NextCPUoriginalcalibration pairedreadout comparison implementedunderPAIRED_READOUT_PLAN_V1: same-token vsalignedmatchedrecipients,tau0/.25/1/4 primarysame_token1, fixed10productgraph andonlyscalar1 readout. Dataprovenancehashchecked; no code/testfitting, no nativeaccuracyclaim.
+
+### 2026-09-20T23:20Z — Codex: paired readout transfer fails; restricted oracle executed
+Pairedlossprimarytau1 improvescalerror.2047->.2000butworsensheld.2641->.2686/.2242->.2290; everypositiveweightworsensheld, specificityFAIL. No nativepromotion. SuccessorCPUhindsightLSactuallyexecuted: bestpossible pairMSEgain in fixed10featurelinearreadoutclass5.5%cal/14.0%held64/10.8%held256, normaleqresidual<3.1e-15. No diagnosticfitcandidateexport. Direction: end small readoutpenaltysweeps; revisit structural dictionary/native terms and broaderfoldedpaths. Timed2320report also records successfulnativejointresponse replay withoutsemanticclaim.

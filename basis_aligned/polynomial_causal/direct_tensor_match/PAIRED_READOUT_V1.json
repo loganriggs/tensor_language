@@ -1,0 +1,338 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_pairs": false,
+    "pred_c_specificity": false
+  },
+  "records": [
+    {
+      "panel": "calibration",
+      "model": "baseline",
+      "absolute_mse": 28.36666761075513,
+      "absolute_relative_error": 0.15937822469699536,
+      "pair_mse": 65.79829706023837,
+      "pair_relative_error": 0.20473015364010252,
+      "pairs": 873
+    },
+    {
+      "panel": "calibration",
+      "model": "same_token_0",
+      "absolute_mse": 28.36666761075513,
+      "absolute_relative_error": 0.15937822469699536,
+      "pair_mse": 65.79829706023837,
+      "pair_relative_error": 0.20473015364010252,
+      "pairs": 873
+    },
+    {
+      "panel": "calibration",
+      "model": "same_token_0.25",
+      "absolute_mse": 28.491154924343768,
+      "absolute_relative_error": 0.15972755806470443,
+      "pair_mse": 64.03709405266311,
+      "pair_relative_error": 0.20197159417287538,
+      "pairs": 873
+    },
+    {
+      "panel": "calibration",
+      "model": "same_token_1",
+      "absolute_mse": 28.933917709504783,
+      "absolute_relative_error": 0.16096388516364563,
+      "pair_mse": 62.79201879746636,
+      "pair_relative_error": 0.19999848623266975,
+      "pairs": 873
+    },
+    {
+      "panel": "calibration",
+      "model": "same_token_4",
+      "absolute_mse": 29.5528144035591,
+      "absolute_relative_error": 0.1626762858409055,
+      "pair_mse": 62.30210574184013,
+      "pair_relative_error": 0.19921674885552584,
+      "pairs": 873
+    },
+    {
+      "panel": "calibration",
+      "model": "aligned_0",
+      "absolute_mse": 28.36666761075513,
+      "absolute_relative_error": 0.15937822469699536,
+      "pair_mse": 65.79829706023837,
+      "pair_relative_error": 0.20473015364010252,
+      "pairs": 873
+    },
+    {
+      "panel": "calibration",
+      "model": "aligned_0.25",
+      "absolute_mse": 28.378742233469694,
+      "absolute_relative_error": 0.15941214174380106,
+      "pair_mse": 65.53438087514843,
+      "pair_relative_error": 0.20431915599657743,
+      "pairs": 873
+    },
+    {
+      "panel": "calibration",
+      "model": "aligned_1",
+      "absolute_mse": 28.469830417373593,
+      "absolute_relative_error": 0.15966777198358553,
+      "pair_mse": 65.20950561341117,
+      "pair_relative_error": 0.2038120885033723,
+      "pairs": 873
+    },
+    {
+      "panel": "calibration",
+      "model": "aligned_4",
+      "absolute_mse": 28.70382007197677,
+      "absolute_relative_error": 0.16032257313077902,
+      "pair_mse": 65.00448009017242,
+      "pair_relative_error": 0.20349143297273478,
+      "pairs": 873
+    },
+    {
+      "panel": "diagnostic_64",
+      "model": "baseline",
+      "absolute_mse": 30.19714300362457,
+      "absolute_relative_error": 0.1721245199043639,
+      "pair_mse": 53.33399743613037,
+      "pair_relative_error": 0.2641484296087665,
+      "pairs": 987
+    },
+    {
+      "panel": "diagnostic_64",
+      "model": "same_token_0",
+      "absolute_mse": 30.19714300362457,
+      "absolute_relative_error": 0.1721245199043639,
+      "pair_mse": 53.33399743613037,
+      "pair_relative_error": 0.2641484296087665,
+      "pairs": 987
+    },
+    {
+      "panel": "diagnostic_64",
+      "model": "same_token_0.25",
+      "absolute_mse": 30.581433908414695,
+      "absolute_relative_error": 0.17321629159480784,
+      "pair_mse": 54.14637135759686,
+      "pair_relative_error": 0.2661525576667133,
+      "pairs": 987
+    },
+    {
+      "panel": "diagnostic_64",
+      "model": "same_token_1",
+      "absolute_mse": 31.190446478821613,
+      "absolute_relative_error": 0.17493254313153647,
+      "pair_mse": 55.15689386965052,
+      "pair_relative_error": 0.2686246519634621,
+      "pairs": 987
+    },
+    {
+      "panel": "diagnostic_64",
+      "model": "same_token_4",
+      "absolute_mse": 31.828492815846523,
+      "absolute_relative_error": 0.17671273599874257,
+      "pair_mse": 55.92390245626698,
+      "pair_relative_error": 0.270485943014985,
+      "pairs": 987
+    },
+    {
+      "panel": "diagnostic_64",
+      "model": "aligned_0",
+      "absolute_mse": 30.19714300362457,
+      "absolute_relative_error": 0.1721245199043639,
+      "pair_mse": 53.33399743613037,
+      "pair_relative_error": 0.2641484296087665,
+      "pairs": 987
+    },
+    {
+      "panel": "diagnostic_64",
+      "model": "aligned_0.25",
+      "absolute_mse": 30.395386027264973,
+      "absolute_relative_error": 0.17268859090205152,
+      "pair_mse": 53.819743572445375,
+      "pair_relative_error": 0.26534858579726517,
+      "pairs": 987
+    },
+    {
+      "panel": "diagnostic_64",
+      "model": "aligned_1",
+      "absolute_mse": 30.77599142605206,
+      "absolute_relative_error": 0.17376641461012118,
+      "pair_mse": 54.71046288957817,
+      "pair_relative_error": 0.26753534106058374,
+      "pairs": 987
+    },
+    {
+      "panel": "diagnostic_64",
+      "model": "aligned_4",
+      "absolute_mse": 31.315433938988647,
+      "absolute_relative_error": 0.17528269063800828,
+      "pair_mse": 55.88443397458402,
+      "pair_relative_error": 0.2703904779876822,
+      "pairs": 987
+    },
+    {
+      "panel": "diagnostic_256",
+      "model": "baseline",
+      "absolute_mse": 34.104712516050114,
+      "absolute_relative_error": 0.17367508443398816,
+      "pair_mse": 48.31000418223636,
+      "pair_relative_error": 0.2241985556906164,
+      "pairs": 6198
+    },
+    {
+      "panel": "diagnostic_256",
+      "model": "same_token_0",
+      "absolute_mse": 34.104712516050114,
+      "absolute_relative_error": 0.17367508443398816,
+      "pair_mse": 48.31000418223636,
+      "pair_relative_error": 0.2241985556906164,
+      "pairs": 6198
+    },
+    {
+      "panel": "diagnostic_256",
+      "model": "same_token_0.25",
+      "absolute_mse": 34.542052112424486,
+      "absolute_relative_error": 0.17478509289920413,
+      "pair_mse": 49.24212116708369,
+      "pair_relative_error": 0.22635112074485164,
+      "pairs": 6198
+    },
+    {
+      "panel": "diagnostic_256",
+      "model": "same_token_1",
+      "absolute_mse": 35.24558792690061,
+      "absolute_relative_error": 0.17655608977955622,
+      "pair_mse": 50.42063635616495,
+      "pair_relative_error": 0.22904374405450031,
+      "pairs": 6198
+    },
+    {
+      "panel": "diagnostic_256",
+      "model": "same_token_4",
+      "absolute_mse": 36.00941231814216,
+      "absolute_relative_error": 0.17845895230077563,
+      "pair_mse": 51.420083443622396,
+      "pair_relative_error": 0.23130267825308376,
+      "pairs": 6198
+    },
+    {
+      "panel": "diagnostic_256",
+      "model": "aligned_0",
+      "absolute_mse": 34.104712516050114,
+      "absolute_relative_error": 0.17367508443398816,
+      "pair_mse": 48.31000418223636,
+      "pair_relative_error": 0.2241985556906164,
+      "pairs": 6198
+    },
+    {
+      "panel": "diagnostic_256",
+      "model": "aligned_0.25",
+      "absolute_mse": 34.26534949479808,
+      "absolute_relative_error": 0.17408361839466713,
+      "pair_mse": 48.70602083658991,
+      "pair_relative_error": 0.22511560331852082,
+      "pairs": 6198
+    },
+    {
+      "panel": "diagnostic_256",
+      "model": "aligned_1",
+      "absolute_mse": 34.560898878657,
+      "absolute_relative_error": 0.1748327693453505,
+      "pair_mse": 49.40511647674619,
+      "pair_relative_error": 0.2267254312935729,
+      "pairs": 6198
+    },
+    {
+      "panel": "diagnostic_256",
+      "model": "aligned_4",
+      "absolute_mse": 34.95831429972948,
+      "absolute_relative_error": 0.1758350962538593,
+      "pair_mse": 50.271291100665145,
+      "pair_relative_error": 0.22870428023170397,
+      "pairs": 6198
+    }
+  ],
+  "prices": [
+    {
+      "model": "same_token_0",
+      "cost": {
+        "products": 10,
+        "additions": 13892,
+        "stored_coefficients": 13916,
+        "edges": 13936,
+        "nodes": 1187
+      }
+    },
+    {
+      "model": "same_token_0.25",
+      "cost": {
+        "products": 10,
+        "additions": 13892,
+        "stored_coefficients": 13916,
+        "edges": 13936,
+        "nodes": 1187
+      }
+    },
+    {
+      "model": "same_token_1",
+      "cost": {
+        "products": 10,
+        "additions": 13892,
+        "stored_coefficients": 13916,
+        "edges": 13936,
+        "nodes": 1187
+      }
+    },
+    {
+      "model": "same_token_4",
+      "cost": {
+        "products": 10,
+        "additions": 13892,
+        "stored_coefficients": 13916,
+        "edges": 13936,
+        "nodes": 1187
+      }
+    },
+    {
+      "model": "aligned_0",
+      "cost": {
+        "products": 10,
+        "additions": 13892,
+        "stored_coefficients": 13916,
+        "edges": 13936,
+        "nodes": 1187
+      }
+    },
+    {
+      "model": "aligned_0.25",
+      "cost": {
+        "products": 10,
+        "additions": 13892,
+        "stored_coefficients": 13916,
+        "edges": 13936,
+        "nodes": 1187
+      }
+    },
+    {
+      "model": "aligned_1",
+      "cost": {
+        "products": 10,
+        "additions": 13892,
+        "stored_coefficients": 13916,
+        "edges": 13936,
+        "nodes": 1187
+      }
+    },
+    {
+      "model": "aligned_4",
+      "cost": {
+        "products": 10,
+        "additions": 13892,
+        "stored_coefficients": 13916,
+        "edges": 13936,
+        "nodes": 1187
+      }
+    }
+  ],
+  "replay_max": 5.007433678455664e-08,
+  "calibration_token_sha256": "4779918d92859011804f998ca7ec53f08dadbf2346e977d82fd66354b4804e5c",
+  "primary": "same_token_1",
+  "scope": "Calibration-only data-informed paired polynomial metric; reused diagnostics, no native intervention or fresh/OOD claim."
+}
