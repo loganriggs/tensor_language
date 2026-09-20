@@ -1,0 +1,13 @@
+native 3.13241 | 0.4: cut on capitalised keys +0.0001 vs other keys +0.0013 (fraction 0.084)
+h11: per-query cost at class queries +0.0004 vs other +0.0221 (class fraction 0.032; totals +0.0001 / +0.0218)
+h15: per-query cost at class queries +0.0014 vs other +0.0058 (class fraction 0.073; totals +0.0003 / +0.0059)
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_04_cost_on_capitalised_keys": false,
+    "pred_c_11_cost_on_of_queries": false,
+    "pred_d_15_cost_on_determiner_queries": false,
+    "pred_e_class_fractions_sane": true
+  },
+  "forwards": 42
+}

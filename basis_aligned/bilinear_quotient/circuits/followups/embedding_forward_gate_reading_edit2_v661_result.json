@@ -1,0 +1,56 @@
+{
+  "candidate_id": "embedding_forward.gate_reading_edit2_v661",
+  "finished_utc": "2026-09-20T06:36:28.665048+00:00",
+  "forwards": 42,
+  "plan": {
+    "bars": {
+      "frac": [
+        0.02,
+        0.5
+      ],
+      "r04": 1.5,
+      "r11": 3.0,
+      "r15": 2.0,
+      "replay_tol": 0.002
+    },
+    "candidate_id": "embedding_forward.gate_reading_edit2_v661",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 46,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0
+  },
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_04_cost_on_capitalised_keys": false,
+    "pred_c_11_cost_on_of_queries": false,
+    "pred_d_15_cost_on_determiner_queries": false,
+    "pred_e_class_fractions_sane": true
+  },
+  "report": {
+    "h04": {
+      "capitalised_key_fraction": 0.0836385115981102,
+      "total_cost_capitalised_keys": 0.00010395104618510231,
+      "total_cost_other_keys": 0.0013090018182992935
+    },
+    "h11": {
+      "class_fraction": 0.031725361943244934,
+      "per_query_cost_class": 0.0004228421894367784,
+      "per_query_cost_other": 0.02210971713066101,
+      "total_class": 5.105904347146861e-05,
+      "total_other": 0.02182690240442753
+    },
+    "h15": {
+      "class_fraction": 0.07345402985811234,
+      "per_query_cost_class": 0.0014141767751425505,
+      "per_query_cost_other": 0.005752435885369778,
+      "total_class": 0.00030706299003213644,
+      "total_other": 0.005866166669875383
+    },
+    "native": 3.1324124336242676
+  },
+  "schema": "embedding_forward_gate_reading_edit2_result_v661",
+  "serial_seconds": 22.6504470622167
+}
