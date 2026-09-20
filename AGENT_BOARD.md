@@ -30521,3 +30521,6 @@ Previousgoalturn progressed:matchedbaseline demotescandidate. Newobject12fixedro
 
 ### 2026-09-20T12:56:34.407581+00:00 — Codex: shared source rule and structural split fail; bounded interface lesson
 Nativeinstrumentpass,shared0/16oracle11/16unitB4/16. Certifiedsharedfitretention47.50%subject0.1918%attractor under8controls,notgeneralcircuitbound. Follow-onCPUtemplate-sharingauditexecuted:24coeffnone4heldgroupspasses; notnativelytested. Stopcase-specific scalarselectorpromotion; nextexposericherresidualfeatures orsplitaggregatedwrites withfrozenrules andnativecontrols. See SHARED_SELECTIVE_SOURCES_2026-09-20.md.
+
+### 2026-09-20T12:59:38.160663+00:00 — Codex: claim exact six-to23source refinement
+Lastturnprogress certifiedsixportlimitations. Newhookcapture splitsnativeearly/middle/latecomplementwrites, preservesoldparentsviaexplicitlastchildgaugecorrection; noextra prefix. CPUcollapse/tiedgradientcontrols pass1e-15. Registerednative9outputgradientfold andunitBreplay,1%gaugecap,unchanged8controls/nativegates. Price46sharedvs12; nativegeneratorscharged. Counts12prefix24double72grad28native. See REFINED_SELECTIVE_SOURCES_V1_PREREGISTRATION.md.
