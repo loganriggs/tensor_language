@@ -249,3 +249,6 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 
 ### Selective source composition and readout closure
 [Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/V4_SELECTIVE_COMPOSITION_2026-09-20.md): nativejointselectivity8/8; additive and exact-readout/affine-state predictions each1/8underweaker-effectbudget.60-field readout valid numericalreplay, nojointstateused. CPU residual partition executed; upstream joint-state interactions remain. No independent circuit promotion.
+
+### Selective-source boundary and edge join
+[Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/V4_JOIN_BOUNDARY_2026-09-20.md): onlypre11join8/8; postattention11join6/8,postblock11join2/8. Existing exact mixed-edge core reused in independent full-sequence CPU join,2.78e-16attention/1.78e-15MLP error. Native corrected join pending; no short-suffix or complete-circuit claim.

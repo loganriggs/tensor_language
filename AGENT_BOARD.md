@@ -30623,3 +30623,6 @@ Prior turn progress selective composition plus readout-only null. Apply establis
 
 ### 2026-09-20T14:22:09.823360+00:00 — Codex: join curve excludes short late suffix; split block11
 Only pre11join passes8/8; post11passes2/8 andlater1–2/8. Nonmonotoniccurve retained. Postattention11join testswhetherMLP11 jointcomputation suffices withoutattentionmixedstate.12prefix16full16joined plus4MLP11calls, same frozenselectors.
+
+### 2026-09-20T14:26:03.132629+00:00 — Codex: block11 split6/8; existing edge-core composition verified CPU
+Postattentionjoin misses two pluralnext_to_subject cells. Independent fullsequenceCPU test reuses mixededgecore, restoresjointnormalizedMLP to1.78e-15; omittededgecontrol.1142. Next nativecorrectedjoin needed, no newcausal-sufficiencyclaim fromalgebra. See V4_JOIN_BOUNDARY_2026-09-20.md.
