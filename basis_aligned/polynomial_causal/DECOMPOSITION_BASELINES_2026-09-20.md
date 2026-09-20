@@ -129,3 +129,17 @@ encoders and decoders. All retain width8 and fail the all-cell effect gates. The
 dual-space program costs522,246 values, including its extra initial encoder.
 [Finite-reader audit](FINITE_READERS_AND_DUAL_SPACES_2026-09-20.md) distinguishes
 exact contraction, planted recovery and empirical native prediction.
+
+## Conditional positive and its limits
+
+v654 broadens calibration coverage at unchanged width8 and passes the conditional
+5% effect gate in every opened evaluation cell (1.2–2.9%). Full-native fidelity
+still fails two cells (10.2–11.3%). v655 exports and independently replays the
+shared-product runtime on CPU; native context generation remains charged.
+[Portable program](SHARED_SUBJECT_RESPONSE_PROGRAM_2026-09-20.md).
+
+v657 restores attention12 while keeping all suffix MLPs dense. Native restoration
+recovers only17.9–24.3% of the postposed frozen-model error, missing the50% gate.
+The projected restoration passes10% full-native effect error on these opened rows.
+This is not yet composition with the reduced MLP chain.
+[Positive and negative audit](ATTENTION_RESTORATION_AUDIT_2026-09-20.md).

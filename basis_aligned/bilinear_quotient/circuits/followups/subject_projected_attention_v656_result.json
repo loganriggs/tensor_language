@@ -1,0 +1,67 @@
+{
+  "created_utc": "2026-09-20T06:19:12.671044+00:00",
+  "plan": {
+    "prefix_calls": 4,
+    "block11_calls": 4,
+    "attention_calls": 16,
+    "rows": 48,
+    "fits": 0,
+    "backwards": 0,
+    "amplitudes": [
+      0.0,
+      1.0,
+      -1.0,
+      0.5
+    ],
+    "relative_perturbation": 0.05,
+    "predictions": {
+      "pred_a_attention_replay": "output relativeL2 and maxabs/max(1,RMS)<=1e-4",
+      "pred_b_response_replay": "finite response relativeL2<=1e-4 for each nonzero amplitude",
+      "pred_c_causal_prefix": "changing final-token coordinates leaves earlier projected outputs exactly unchanged"
+    },
+    "execution_policy": "managed_queue_only"
+  },
+  "counts": {
+    "prefix_calls": 4,
+    "block11_calls": 4,
+    "attention_calls": 16
+  },
+  "predictions": {
+    "pred_a_attention_replay": true,
+    "pred_b_response_replay": true,
+    "pred_c_causal_prefix": true
+  },
+  "max_output_relative_error": 3.05745718949316e-07,
+  "max_output_absolute_error": 1.0119482159870463e-07,
+  "max_output_scaled_absolute_error": 1.0119482159870463e-07,
+  "max_response_relative_error": 6.345740494841988e-06,
+  "max_causal_prefix_difference": 0.0,
+  "prices": [
+    {
+      "template": "pre_beside",
+      "batch": 12,
+      "length": 8,
+      "compiled_values": 357472
+    },
+    {
+      "template": "pre_beyond",
+      "batch": 12,
+      "length": 6,
+      "compiled_values": 210952
+    },
+    {
+      "template": "post_beside",
+      "batch": 12,
+      "length": 5,
+      "compiled_values": 152164
+    },
+    {
+      "template": "post_beyond",
+      "batch": 12,
+      "length": 5,
+      "compiled_values": 152164
+    }
+  ],
+  "wall_seconds": 1.0892582698725164,
+  "scope": "Exact projected attention at a declared raw-state basis and native background/first-value ports; all feature slots tied. No compressed full-model or fresh semantic claim."
+}

@@ -40,13 +40,18 @@ requires505 per-example context/initial-coordinate values plus answer orientatio
 The native context generator is still needed for new prompts. Counts for the
 runtime alone cannot be compared to the whole native model.
 
-An independent CPU test verifies serialization without a model object and equality
-to full symmetric-core execution at five edit amplitudes. v655 is registered to
-export the unchanged native-derived program, producer tensors and prepared contexts,
-and to check packed execution against the existing joint-tensor executor at1e-8.
-[check_shared_response_export.py](check_shared_response_export.py) is ready to
-replay the exported contexts in a separate CPU-only consumer process. The export
-job remains queued; artifact creation and native/CPU replay are not yet claimed.
+The v655 export is complete: packed native execution matches the prior joint
+executor within 4.44e-14. A separate CPU-only consumer, with no checkpoint or
+model object, replays 304 saved calibration/evaluation rows within 3.55e-15.
+The artifact is 5,529,935 bytes and contains producer tensors, runtime tensors,
+and saved prepared contexts. It does not establish token-input extraction:
+new prompts still require native context generation. The physical producer
+contains 522,240 values and runtime 2,582; the logical producer count of 522,246
+includes six residual scales held in the runtime. Do not add logical and physical
+counts as though they described disjoint storage.
+
+See [CPU receipt](SHARED_RESPONSE_EXPORT_CPU_2026-09-20.json) and
+[portable artifact](../bilinear_quotient/circuits/followups/subject_response_v655_program.pt).
 
 The next scientific issue is the omitted attention response, followed by genuinely
 new validation and selective manipulation. Do not fit a global gain to conceal the

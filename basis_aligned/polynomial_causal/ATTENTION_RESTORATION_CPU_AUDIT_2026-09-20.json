@@ -1,0 +1,65 @@
+{
+  "cells": {
+    "pre_beside|singular": {
+      "frozen_error": 0.041641856689692405,
+      "native12_error": 0.04033187349376675,
+      "folded12_error": 0.03930554774372385,
+      "error_reduction_fraction": 0.03145832823179373,
+      "folded_native12_discrepancy_over_target": 0.0014685224909677377
+    },
+    "pre_beside|plural": {
+      "frozen_error": 0.03448885413094474,
+      "native12_error": 0.03280224178579218,
+      "folded12_error": 0.032007041460438236,
+      "error_reduction_fraction": 0.04890311341597364,
+      "folded_native12_discrepancy_over_target": 0.0015061305367321256
+    },
+    "pre_beyond|singular": {
+      "frozen_error": 0.029754543338580377,
+      "native12_error": 0.027294723373036803,
+      "folded12_error": 0.02706788889421757,
+      "error_reduction_fraction": 0.08267039885482363,
+      "folded_native12_discrepancy_over_target": 0.0015557575342277964
+    },
+    "pre_beyond|plural": {
+      "frozen_error": 0.034360575390891705,
+      "native12_error": 0.03290995422472299,
+      "folded12_error": 0.03282845225547898,
+      "error_reduction_fraction": 0.042217604032127154,
+      "folded_native12_discrepancy_over_target": 0.0012879413369119295
+    },
+    "post_beside|singular": {
+      "frozen_error": 0.08342502498973628,
+      "native12_error": 0.06687532935153236,
+      "folded12_error": 0.06660727590030373,
+      "error_reduction_fraction": 0.19837807228993964,
+      "folded_native12_discrepancy_over_target": 0.003879373284582405
+    },
+    "post_beside|plural": {
+      "frozen_error": 0.09842276353336615,
+      "native12_error": 0.08081097644693817,
+      "folded12_error": 0.08568694777154126,
+      "error_reduction_fraction": 0.1789401806469032,
+      "folded_native12_discrepancy_over_target": 0.00539051399347433
+    },
+    "post_beyond|singular": {
+      "frozen_error": 0.0763339942894182,
+      "native12_error": 0.05776003414510059,
+      "folded12_error": 0.058400137808868456,
+      "error_reduction_fraction": 0.2433248818854541,
+      "folded_native12_discrepancy_over_target": 0.004429352440810671
+    },
+    "post_beyond|plural": {
+      "frozen_error": 0.07450932367187749,
+      "native12_error": 0.05770558151566144,
+      "folded12_error": 0.060480148770749156,
+      "error_reduction_fraction": 0.22552536149993785,
+      "folded_native12_discrepancy_over_target": 0.003321307772568503
+    }
+  },
+  "independent_scoring_pass": true,
+  "native12_halves_error": false,
+  "folded12_dense_suffix_pass": true,
+  "evidence_scope": "48 opened rows, dense MLP suffix; not combined with reduced response chain",
+  "remaining": "Fresh generalization, selective removal, reuse and total port-closed simplicity unestablished"
+}
