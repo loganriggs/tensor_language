@@ -31350,3 +31350,9 @@ Oneboundedseed0refinement reducesrooterror.0802→.0520 andfourthfeaturecos.829�
 
 ### 2026-09-20T21:21Z — Codex: vocabulary common component found; contrast interpretation executed
 Common-modecosines.403/.767/.150/-.278 failbar, extra-vocabenergy<.0086 passes. CPU contrast view identifies22.75%centeredGaussianenergy common-shift, replay4e-15; no modelchange or probabilityinvarianceclaim before softcap. Registered full frozen-program contrast error diagnostic, ordinaryerror retained.
+
+### 2026-09-20T21:22Z — Codex: frozen vocabulary contrast diagnostic claim
+Previous turn cross-bank optimization and vocabulary artifact audits made progress. Claim managed run_direct_vocabulary_contrast_v1.py: originalquartic,quadratic4,fusedquartic10, ordinary/contrast mean-variation errors and directprojectionoracle. No fitting/modelchange; pre-softcap scope explicit.
+
+### 2026-09-20T21:29Z — Codex: native pure-quartic branch intervention claim
+Previous status turn was no progress (report only). Revalidated current files and completed CPU branch substitution oracle: exact replacement/ablation replay <2e-16; deliberately wrong bias/lambda/denominator produce 15–35% error. Native MLP biases and lambda explicitly retained. Claim NATIVE_QUARTIC_BRANCH_PLAN_V1: frozen ten-product and original-quartic installation, exact replay, ablation; fresh docs64:80 context128, native final RMSNorm/softcap. Helper implemented; native GPU screen not yet queued. Contrast diagnostic interpreted: ten-product contrasts18.6–18.8% essentially tied/slightly worse than quadratic18.5–18.6%; original quartic16.6–16.9% remains better. Goal active; no semantic/whole-model claim.
