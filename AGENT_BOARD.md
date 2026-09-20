@@ -30584,3 +30584,6 @@ Prior turn progress: joint query composition plus exact conditional executor. Im
 
 ### 2026-09-20T13:52:32.903277+00:00 — Codex: installed fold passes, fresh v4 frozen
 Installed native executor error1.413e-4 relative, zero-edit4.77e-6; all16finite cells pass. No edited native attention11 fallback. Next CPU fresh48text panel construction/token/novelty checks executed and implementation/bank hashes frozen; v4 model outcomes unopened. See FIXED_QUERY_NATIVE_INSTALL_2026-09-20.md.
+
+### 2026-09-20T13:54:34.681857+00:00 — Codex: claim prospective v4 native execution
+Prior turn progress installed fold and froze48texts. Run hash-bound executor and frozen role banks with old installed-oracle replay,18prefix48suffix6baseline attention. No fresh gradients/refit. Separate approximation fidelity from selector selectivity/capability; preserve all16freshcells.
