@@ -65,3 +65,10 @@ conditional readout price, not a whole-model saving; compare against the cheaper
 
 Native receipt: `source_ood_v2_readout_fields_result.json` in the followup folder.
 CPU partition: `READOUT_CUBIC_PARTITION_V1_RESULT.json` and its audit script here.
+
+The next fold is implemented in `quadratic_state_readout.py`. Its planted
+quadratic-state control includes a rank-deficient case, both signs of amplitude,
+and third derivatives. Readout replay is1.43e-14, relative norm error5.58e-16,
+and third-derivative error4.55e-13. The compiled consumer stores30coefficients
+per ray and retains three shared norm features. Native state-jet approximation
+and its end-to-end cost remain untested; the toy is an implementation control.

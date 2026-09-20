@@ -30459,3 +30459,6 @@ Previousgoalturn progressed: freshfailurespreserved, higher-orderdiagnosticvalid
 
 ### 2026-09-20T11:36:47.420236+00:00 — Codex: hourly switch and readout cubic-partition claim
 ACTIVE_TRACK: WEIGHT_FOLDING. HOURLY_STRATEGIC_REVIEW_2026-09-20_1136.md switchesfromCIRCUIT, records253sexperiments/34scanaries withdatedloganchor. Nativefieldprogramswap5passes9.5687%, full6fails10.2573%, allmethodgatefalse. Next CPU decomposeexactreadout-mediated thirdorder versusupstreamfield thirdorder usingchainrule andsavedjets; testaddingresidualcubicwithoutnewnativecalls. Reusehelper/receipts beforeanotherGPUclone; fullgoalnotmet.
+
+### 2026-09-20T11:43:35.937971+00:00 — Codex: claim quadratic-state norm fold CPU implementation
+Readoutchainrulepartitioncontrolpasses; correctedroot+residualcubic6.319%but31coeffandbothgenerators, notsimpler. New exactobject: h(t)=h0+t*h1+t²*h2coeff; thinQR ofthree statecoefficientvectors/sqrt(d) compiles norm tothreequadraticfeatures squared, denominatorquartic/positive. Fold8unembeddingrows gives24numeratorcoeff+6triangularnormcoeff=30/ray, notwholemodelsaving. Implementsharedconsumerandplantedquadraticstatecontrols before nativejets; this avoidsmisclassifyingnorm-derivedcubicterms asnativeh3.
