@@ -70,8 +70,9 @@ The first run gives rank-64 full-core relative error 0.972741 versus 0.984126
 for independent SVD, at 3,794,944 versus 4,988,928 stored floating values.
 Exact ambient-reduction replay error is 7.69e-7; mode-energy agreement is
 1.81e-7. These establish a functioning instrument and poor low-rank fidelity,
-not circuits. The completed follow-up gives universal rank-16/32/64 Tucker error lower
-bounds 0.955650/0.932177/0.891714. Error <=0.10 requires output rank >=1088
+not circuits. The completed follow-up gives rank-16/32/64 error lower bounds
+for the symmetric shared-input Tucker family W G(P,P):
+0.955650/0.932177/0.891714. Error <=0.10 requires output rank >=1088
 and input rank >=1089 (necessary, not sufficient). Low-rank optimization
 alone cannot solve this global tensor. This is a bound in the declared ambient
 weight metric, not a bound on normalized-model behavioral fidelity.
@@ -82,8 +83,11 @@ Inspect the mode lower bounds before investing in low-rank optimization.
 Compare output-sharing block terms and sparse rotations in larger retained
 subspaces at matched error/cost. Avoid a large dense k³ core merely to reach
 the required ranks: stream projected blocks or use implicit block terms.
-Then jointly refactor selected two-layer compositions, preserving full input
-symmetry rather than compressing an arbitrary tensor representative.
+Then jointly refactor selected two-layer compositions. Match the symmetrized
+input difference, while allowing the stored coefficient representative to
+remain unsymmetrized and compact. Requiring a fully symmetric representation
+can inflate tree ranks for the same polynomial; see the user's
+[HT and shared DAG refinement](HIERARCHICAL_TUCKER_SHARED_DAG_DIRECTION_2026-09-20.md).
 
 Hierarchical Tucker is a tree representation, whereas a computation DAG can
 reuse a node under multiple parents. Keep those as distinct candidate grammars.

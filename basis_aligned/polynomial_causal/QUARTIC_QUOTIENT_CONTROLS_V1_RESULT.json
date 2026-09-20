@@ -1,0 +1,37 @@
+{
+  "rows": [
+    {
+      "d": 2,
+      "relative_execution_error": 1.4804424117764313e-17,
+      "unsymmetric_pair_rank": 1,
+      "symmetric_pair_rank": 3,
+      "compact_features": 1,
+      "compact_scalar_products": 3,
+      "fixed_monomial_scalar_products": 5,
+      "fixed_monomial_pair_optimum_proven": true
+    },
+    {
+      "d": 4,
+      "relative_execution_error": 1.3733412548723757e-16,
+      "unsymmetric_pair_rank": 1,
+      "symmetric_pair_rank": 10,
+      "compact_features": 1,
+      "compact_scalar_products": 5,
+      "fixed_monomial_scalar_products": 14,
+      "fixed_monomial_pair_optimum_proven": true
+    },
+    {
+      "d": 8,
+      "relative_execution_error": 3.0688530627309025e-16,
+      "unsymmetric_pair_rank": 1,
+      "symmetric_pair_rank": 36,
+      "compact_features": 1,
+      "compact_scalar_products": 9,
+      "fixed_monomial_scalar_products": 44,
+      "fixed_monomial_pair_optimum_proven": true
+    }
+  ],
+  "all_checks_passed": true,
+  "scope": "planted algebra/price controls, no native model discovery or behavioral evidence",
+  "interpretation": "fixed-monomial pair optimality is weaker than shared quadratic-feature simplicity"
+}
