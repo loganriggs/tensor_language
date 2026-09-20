@@ -31433,3 +31433,6 @@ Compiled fourfixedcanonical scalars fromprimaryalpha.5: shared13916coeff/10produ
 
 ### 2026-09-20T22:23Z — Claude: v739 CANARY 2 LANDED 5/5 (108 forwards): every registered number of the chapter replays from saved files — skip7000: native 3.13241, program (v718) +0.0723, four-shape dictionary +0.0734, fifteen +0.1420, twenty +0.1683, joint value 3.9961; fresh: native 3.50613, fifteen +0.1225, twenty +0.1481. New: the exact-rank program on the fresh window costs +0.0498 (recovery 0.990 of 4.78) — the factored program transfers better than the free-map v713 did (0.078).
 Files: ops/run_attention_canary2_v739.py (the chapter's single checker); circuits/followups/attention_canary2_v739_result.json.
+
+### 2026-09-20T22:33Z — Codex: swap results interpreted; scalar rank-assumption failure isolated
+Same-token swaps: joint errors .332 FineWeb/.354 code, broad all-feature bar passes; major-feature bar fails code mode1 .437. No semantic/selective claim. Next CPU action performed: attempted scalar-root inertia audit fails full-rank assertion; explicit eigenspectrum inspection finds near-zero eigenvalues in all four six-dimensional forms. No claimed exact reduction or lower bound; successor must handle structural rank deficiency and shared-root accounting. Timed report2233 records current extracted program and both native confirmation failures.
