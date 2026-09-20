@@ -743,3 +743,5 @@ Independent five-source selector native validation now passes instrumentation/pr
 20 September: frozenrefinedcoefficients native4/8samelexical3/8nextnountransfer,oracle8/8;minimum-normfit-onlychoice leavesderivativepasscountsunchanged. Pairwise41/48compatible preventsuniversalno-sharinginference. See `basis_aligned/polynomial_causal/REFINED_COEFFICIENT_TRANSFER_2026-09-20.md`.
 
 20 September: edited-numbermatchedtransfer4/8andnumberconditionedrule1/8; gate48/48/replaypass. Analytic19fieldreadoutdifferentialCPUcontrol5.33e-15, nativecontextattributionnext; diagnosticnotcompression. See `basis_aligned/polynomial_causal/SOURCE_NUMBER_TRANSFER_2026-09-20.md`.
+
+20 September: recipientreadoutroot improvesnative4/8to5/8,notall-cellreuse. Exactcontextpartitionmedianroot16.23%,numerator84.46%,radial-1.79%; noncausaldiagnostic. Nextfactorresidualreadersfromnative sourcedirections. See `basis_aligned/polynomial_causal/READOUT_FIELD_TRANSFER_2026-09-20.md`.

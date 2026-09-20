@@ -30542,3 +30542,6 @@ Nativesource-numbermatched4/8,nextnoun3/8,numberconditionedrule1/8,oracle8/8. Fr
 
 ### 2026-09-20T13:15:59.311418+00:00 — Codex: claim native field/root context transfer
 Lastturnprogress source-numberhypothesisfalsified andanalyticdifferentialverified. Collect19fields/23sourcederivatives, alignanswer-tokenIDs underparitydonors; testrecipientroot withdonorfieldJacobian, thennativeLPselectedeffects. Nativecounterfactualhelpersharedwithoracle-replaygate. Counts12prefix8double152reverse14native. Explicitrootdiagnosticnotgradient-freeextraction. See READOUT_FIELD_TRANSFER_V1_PREREGISTRATION.md.
+
+### 2026-09-20T13:18:56.346086+00:00 — Codex: readout root modestly helps; numerator variation dominates partition
+Nativeinstrument5.33e-15; donor4/8recipientroot5/8oracle8/8. CPUexactgradient-changepartitionexecutedclosure1.39e-16; medianrootshare16.23%,numerator84.46%,radial-1.79%(mediansnotadditive). NextexactG=R_pre11*D_sources factorizationdistinguishreadercontextfromsourcevectorvariation; sharedreaderbank+recipientports couldremoveper-inputbackprop. Current19fieldpricehigher,nocompressionclaim. See READOUT_FIELD_TRANSFER_2026-09-20.md.
