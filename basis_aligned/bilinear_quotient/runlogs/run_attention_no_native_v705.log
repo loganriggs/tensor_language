@@ -1,0 +1,15 @@
+[mixed] rank counts {4: 128, 16: 6, 64: 28}
+[mixed]: step 0 +0.6564 -> fitted (validation step 175) +0.1241, joint recovery 0.969; values 12.4M; curve [0.656, 0.198, 0.152, 0.135, 0.129, 0.127, 0.123, 0.124, 0.125, 0.125, 0.127, 0.129, 0.13]
+[uniform16] rank counts {4: 0, 16: 162, 64: 0}
+[uniform16]: step 0 +0.5374 -> fitted (validation step 200) +0.1539, joint recovery 0.961; values 13.4M; curve [0.537, 0.201, 0.169, 0.16, 0.158, 0.153, 0.16, 0.156, 0.154, 0.155, 0.156, 0.158, 0.159]
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_no_overfit": true,
+    "pred_c_mixed_no_native_recovery": false,
+    "pred_d_uniform16_no_native_recovery": true,
+    "pred_e_mixed_cheaper_and_better": true
+  },
+  "forwards": 892,
+  "backwards": 600
+}

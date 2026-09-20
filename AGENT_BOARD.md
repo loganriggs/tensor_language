@@ -30802,3 +30802,22 @@ ALS objective monotone but plantedCP two seeds stall9–13%; no universalwinner.
 
 ### 2026-09-20T16:27:57.626828+00:00 — Codex: claim native matrixfree ALS pilot
 Implicit input operators/RHS agree3.8e-16/2.6e-16 with explicitdesign; proximalCG densecomparison1.7e-11. Queue4 nativewidth128/512 randomstarts,30sweeps,CGresidual/rejectionledger; compareteacherchannelbar. This is an alternativeoptimizer probe, nottheorem-backed globalrecovery.
+
+### 2026-09-20T16:32:05.804524+00:00 — Codex: claim quartic Gaussian trace audit
+Previous turn progressed27ALScontrols andmatrixfreepilot. Derive/validate degree4 Gaussian norm as24||H||²+72||TrH||²+9||Tr²H||², plus exactimplicitnative-eligible mean contraction and radialbaseline. This diagnoses Frob/functionmetric gaps without assuming success/failure reflects circuits. Preparing3hmathreview due16:36.
+
+### 2026-09-20T16:33:33.837724+00:00 — Codex: claim native quartic radial/mean diagnostic
+ExactHermiteidentity andmeanformula validated<7e-16. Queue nativeexactGaussianmean+4096newGaussianinputs, radialquarticbaseline andfinalstudentmeanmismatch decomposition. No nativeforwards/fitting; aims distinguish coefficientquality from trace-dominatedGaussian behavior.
+
+### 2026-09-20T16:37:39.303058+00:00 — Codex: three-hour mathematical review complete
+Review basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-20_1637.md maps variableprojection/ALS, GaussianWick andHankel/Waring literature to currentobjects. New executed consequence:quarticGaussian metric24||H||²+72||TrH||²+9||Tr²H||²; d1152 squaredcondition167331. Native radial/mean diagnostic queued; do not launch more broad sweeps beforeinterpreting queuedglobalquartic/ALS results. Goal active; two-dayfocusoverride retained.
+
+### 2026-09-20T16:37Z — Claude: v705 LANDED (FIT; 892 forwards, 600 backwards): 4/5 — NO native heads: every attention pattern as kernel + rank-r content, +0.124 at 7.7x fewer QK values
+Rows: train 576 / validation 96; held-out 192 x 512 skip7000 (native replays). Ranks per head from v702's single recoveries (4 if rank-4 recovers >= 0.9 or value < 0.005; 16 if rank-16 does; 64 otherwise). CE ADDED, lower is better; joint recovery = 1 - cost / 3.996.
+| program (all 162 heads hybrid) | ranks (4 / 16 / 64) | closed-form | fitted (validation step) | joint recovery | QK values (vs 95.6M) |
+| MIXED | 128 / 6 / 28 | 0.656 | 0.124 (175) | 0.969 | 12.4M (7.7x) |
+| UNIFORM-16 | 0 / 162 / 0 | 0.537 | 0.154 (200) | 0.961 | 13.4M (7.1x) |
+| v704 rank-16 + 28 native (for reference) | 0 / 134 / native | 0.168 | 0.065 (150) | 0.984 | 27.6M (3.5x) |
+Predictions: a, b (no overfit), d (uniform >= 0.95), e (mixed cheaper than v704's 27.6M and better than uniform) HELD; c (mixed recovery >= 0.975) FAILED — 0.969.
+Reading: the attention-pattern side of bilin18 is now one program family with a price ladder: kernel + rank-4 content for the 128 cheap heads, rank 16 for six, rank 64 for the 28 content-heavy heads (induction 5.5, sink 5.7, matchers 2.5 / 3.8 / 1.4, the layer-3/4 set) — 12.4M numbers for 97% of the joint mean-ablation value, or 27.6M for 98.4% if those 28 stay native. Value-guided rank assignment beats uniform rank on both price and cost. The residual 0.12 sits with the 128 rank-4 heads (v704: the same heads at rank 16 with natives gave 0.065).
+Next (v706, building): (a) the 128 cheap heads at rank 16 with the 28 at rank 64 (expected ~0.07 at ~21M); (b) MANIPULABILITY: under the fitted MIXED program, mean-ablate each of the 24 most valuable heads and compare with their native mean-ablation values — does the program preserve what each head is worth?
