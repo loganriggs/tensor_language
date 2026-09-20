@@ -1,0 +1,7 @@
+# Native symmetric quadratic ALS pilot — 2026-09-20 16:27 UTC
+
+Toy comparison gives no universal winner, but exact block solves are substantially faster on these small controls and a native implementation is now available without a huge design matrix. Test widths128/512 and two random starts,30 ALS sweeps, against prior same-width gradient and teacher-channel baselines. Same folded MLP17 numerator and exact QR frames.
+
+Use float64 matrix-free symmetric Frobenius normal equations for input factors, diagonally preconditioned CG (30steps, relative tolerance1e-5), and a direct small solve for output weights. A proximal1e-6 mean-diagonal ridge targets the previous block value, rather than shrinking toward zero. Normalize input rows and compensate output weights after each solve. Reject an entire sweep if unregularized objective increases beyond numerical tolerance; report every rejection so monotonic accepted history is not mistaken for unconstrained convergence.
+
+Predictions: finite runs; at least95% of input-block solves finish with true relative residual<0.1; width512 best Frobenius error<0.8981 (selected teacher-channel baseline). Record both Gaussian/Frobenius errors, initial/final curves, CG residuals, rejections, wall time and final factors. The recurrence is independently checked against an explicit coefficient design to3.8e-16, CG versus dense solve to1.7e-11. No sparse-feature or circuit-identification claim.

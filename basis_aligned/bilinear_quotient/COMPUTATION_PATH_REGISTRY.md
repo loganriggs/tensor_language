@@ -466,3 +466,6 @@ Native local exporters vary K_b and q_b. Frozen amplitude failure does not imply
 
 ### 2026-09-20 16:20 — Full-input native quartic estimator held; global fits queued
 Native pure MLP16→17→unembedding full1152input coefficient queries pass6.19e-7 replay; uniform/stratified norm estimates agree1.05SE,98.74%energy all-distinct.36sampled-loss toys show both beneficial and harmful noise. Full quadratic variableprojection width512best95.21% fails89.80%teacherchannel baseline. Queue8+8globalquartic sharedbilinear student fits with pairedoutputscaling. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1620_global_quartic_and_sampling.md).
+
+### 2026-09-20 16:28 — Symmetric ALS route and parameterization controls
+Paired quartic parameterizations agree initially and bygradientchainrule, differinoptimizerstepgeometry.27symmetricquadratic ALS/Adam/Muon toyfits:exactblocksmonotone butsomeCPfitsstall9–13%; no universalwinner. Derivedmatrixfree symmetricnormaloperator agrees3.78e-16 withdense design,CG1.66e-11. Four native ALSfits queued; primaryliterature assumptions explicitlymapped in [note](../polynomial_causal/direct_tensor_match/ALS_AND_PARAMETERIZATION_2026-09-20_1628.md).

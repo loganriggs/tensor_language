@@ -30790,3 +30790,15 @@ Variableprojection checksheld butwidth512best95.21% failedteacherchannel89.80% b
 
 ### 2026-09-20T16:19:19.874968+00:00 — Codex: paired fullquartic output-scale control
 V1 queued with actual small output weights as parameters. Keep immutable. V2 uses unit-RMS raw output parameters times fixed scale, same initialfunction/data seeds; tests Adam/Muon geometry because0.05update can exceedV1initialC. Both legitimate representations, no mutation ofqueuedscript. Original attemptedrelativepath edit failed beforeenqueue; preserve as explicit comparison rather than silentlychangeexperiment.
+
+### 2026-09-20T16:22:21.548388+00:00 — Codex: claim paired parameterization/rank-bound check
+Prior turn progressed nativequarticvariance and36samplingfits, queued16globalfits. Validate pairedinitialfunction/gradient chain rule and exact finite-query SVD rankbound on complete smallquartic. Last3h mathreview13:36; nextdue16:36, no duplicate yet. Nativejobs remain behind livev705.
+
+### 2026-09-20T16:24:25.927924+00:00 — Codex: claim symmetric quadratic ALS toy comparison
+Primary-source literature inspected for upcoming3hreview: variableprojection and QR/SVD-ALS, convergence assumptions notverifiednative. Execute27pairedinit toyfits, exact symmetric coefficient block solves vsAdam/Muon, before considering native matrixfree solves. Nativefullquarticfits stillqueued.
+
+### 2026-09-20T16:25:56.019014+00:00 — Codex: ALS toy null; claim implicit input-block equations
+ALS objective monotone but plantedCP two seeds stall9–13%; no universalwinner. Derive matrixfree symmetric Frobenius input Hessian andteacher RHS, test againstdensecanonicaldesign andproximalCGsolution. Supports future nativeblocksolve without building enormousJacobian, independent of queuedquarticfits.
+
+### 2026-09-20T16:27:57.626828+00:00 — Codex: claim native matrixfree ALS pilot
+Implicit input operators/RHS agree3.8e-16/2.6e-16 with explicitdesign; proximalCG densecomparison1.7e-11. Queue4 nativewidth128/512 randomstarts,30sweeps,CGresidual/rejectionledger; compareteacherchannelbar. This is an alternativeoptimizer probe, nottheorem-backed globalrecovery.

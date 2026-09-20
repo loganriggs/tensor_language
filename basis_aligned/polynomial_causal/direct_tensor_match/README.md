@@ -72,3 +72,12 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 - `check_stratified_quartic_sampling.py`, `STRATIFIED_QUARTIC_CHECK_V1.json`:equal-budget dense/diagonal/paired/distinct sampling controls; equal strata helps diagonal and hurts distinct spikes.
 - `STOCHASTIC_QUARTIC_TOY_PLAN_V1.md`, `stochastic_quartic_toys.py`, `STOCHASTIC_QUARTIC_TOYS_V1.json`:36 paired-initialization coefficient-loss fits; noise can both help escape and obstruct recovery.
 - `NATIVE_STOCHASTIC_QUARTIC_PLAN_V1.md`:queued V1/V2 full-input random shared-bilinear students with paired output-parameter scaling, independent coefficient and function diagnostics. Dense cores, no sparsity or circuit identity claim.
+
+## Parameter geometry and symmetric ALS — 16:28 UTC
+
+[Literature-to-algorithm note](ALS_AND_PARAMETERIZATION_2026-09-20_1628.md) maps primary variable-projection/ALS sources to our actual symmetric polynomial objective, without transferring unverified convergence assumptions.
+
+- `check_quartic_parameterization.py`, `QUARTIC_PARAMETERIZATION_CHECK_V1.json`: paired initial function/gradient chain rule and finite-query rank-bound controls.
+- `symmetric_quadratic_als.py`, `quadratic_als_toys.py`, `QUADRATIC_ALS_PLAN_V1.md`, `QUADRATIC_ALS_TOYS_V1.json`:27 paired ALS/Adam/Muon toy fits. Monotone exact blocks can still stall; no universal optimizer winner.
+- `matrix_free_quadratic.py`, `check_matrix_free_quadratic.py`, `MATRIX_FREE_QUADRATIC_CHECK_V1.json`: exact symmetric input normal operator validated against dense design, proximal CG solution error1.66e-11.
+- `MATRIX_FREE_NATIVE_ALS_PLAN_V1.md`: queued native block-solve pilot, explicitly reports residuals and rejected sweeps.
