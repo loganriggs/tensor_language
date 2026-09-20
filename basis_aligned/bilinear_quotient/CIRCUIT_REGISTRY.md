@@ -449,3 +449,6 @@ Fresh v3 frozen-bank selectivity10/16 and prediction0/16; capability3/6 in oppos
 
 ### Finite-reference contextual oracle baseline
 [Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/V4_FINITE_REFERENCE_2026-09-20.md):16/16openedv4 selective, minimumretention1.0522/maxcollateral.07833; finite prediction5/16. Per-input derivatives/native reference remain charged. CPU shared-amplitude finite-target LP ceilings.2359subject/.00399attractor under stricter per-row linear constraints; not nonlinear impossibility.
+
+### Selective source composition and readout closure
+[Canonical dossier](/workspace/tensor_language/basis_aligned/polynomial_causal/V4_SELECTIVE_COMPOSITION_2026-09-20.md): nativejointselectivity8/8; additive and exact-readout/affine-state predictions each1/8underweaker-effectbudget.60-field readout valid numericalreplay, nojointstateused. CPU residual partition executed; upstream joint-state interactions remain. No independent circuit promotion.

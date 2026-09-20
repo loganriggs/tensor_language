@@ -30614,3 +30614,6 @@ Prior turn progress finite-reference oracle16/16 and shared-surrogate limits. Te
 
 ### 2026-09-20T14:15:16.832317+00:00 — Codex: selective joint8/8, additive1/8; claim shared readout predictor
 Weak interactions up49.5%number. CPU60-field affine-state readout exact and cross-Gram tripwire passed; next predictjoint fromthree native singleton/background states, beforejoint outcome.12prefix16suffix, no jointstate inpredictor. Native producer cost charged.
+
+### 2026-09-20T14:18:01.468216+00:00 — Codex: selective composition8/8; predictive closure1/8
+Additiveweakerrorup.495; exactsharedreadout/affinestate still1/8prediction, instrument4.03e-6absolute. CPU interactionprediction partition executed; rootshares-.138to.240. Next upstream joint-state computation needed; repeated final-root-only fitting demoted. See V4_SELECTIVE_COMPOSITION_2026-09-20.md.
