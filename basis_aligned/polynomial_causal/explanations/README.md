@@ -680,3 +680,5 @@ same day sort and link unambiguously.  Older `explanation_HHMM.md` files are ret
 - [Four-output source observable and selectivity](../SEMANTIC_SOURCE_MULTIOBSERVABLE_2026-09-20.md): native replay/prediction pass (number9.10%,modal2.82%), native selectivity fails129/288cells. Local three-source leakage bound and clipped candidate expose a restricted-interface limitation; no global impossibility or circuit adoption.
 
 - [Five-source null edit](../FIVE_SOURCE_MODAL_NULL_2026-09-20.md): native collateral below4.39%, but target-strength/selection conjunction passes only1/32cells. [Exact normalized MLP source core](../NORMALIZED_MLP_SOURCE_CORE_2026-09-20.md): weight-contracted numerator/shared RMS denominator and analytic local Hessian pass planted CPU replay/gauge/bias controls; captured native-context validation pending.
+
+- [Native normalized MLP source-core validation](../NORMALIZED_MLP_SOURCE_CORE_2026-09-20.md): exact local output/derivative andCPUexport replay pass; localMLP11curvature alone fails number53.11%/modal8.16%. Full-path source-Jacobian/adjoint capture implemented; planted chain-rule proof passes, native all-node closure pending.
