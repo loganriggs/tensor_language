@@ -30433,3 +30433,9 @@ Six-source r1 valid,45/48nativejoint versus42/48old5, allremainingfailsstrength.
 
 ### 2026-09-20T11:15:04.204664+00:00 — Codex: claim native_matched_width_source_swap_v1
 CPU commonomission1 (earlywrites0–3) predicts44/48 at5ports/80coeff versusomission5(original)42/48. Validatefixedswap5 alongsideoldquad5/fullquad6/unitB, same8%optimizationbox andnative80%strength10%collateral gates. Allopened; selectionfromderivativepredictions, notnewnativeoutcomes. Frozenr1g/H, no newderivatives/optimizations.36prefix120double120native; native/reference1e-4, priorunitB andquad6replay1e-4, old5subblock1e-8, closuregates unchanged. Primaryall48swap5joint; predictive10/5 allthreecandidatearms. This tests matchedinterfacewidth, not fullsource-generator price.
+
+### 2026-09-20T11:16:58.855211+00:00 — Codex: matched-width native result; claim independent selector audit
+Native swap5 instrument/predictionpass, joint44/48 versusold5 42/48 andfull6 45/48; allfourfailsstrength. Source substitutions improveopenedselectivityatmatchedcoefficientwidth butnotfullgeneratorprice. Redteam: CPU swap screen usedprojected6Doptimizerwarmstart, a hidden discovery dependency. Beforeprospectivetest rebuildfixedomit1selector usingonlyits5Dg/H, unitBsubvector anditsownexactnullLP. Compare predictions without6Dwarmstart; no new thresholds.
+
+### 2026-09-20T11:17:42.620371+00:00 — Codex: independent five-source selector CPU result and native claim
+Independent5Dselector stillpredicts44/48joint; only1/288amplitudevectors changes by>1e-5 butmaxchange2, sooriginalnativevalidationcannotstandin. Queue native_independent_source_swap_v1 withfrozenindependentamplitudes, sameunitB/old5/full6controls, same36prefix120double120native andunchangedgates. No6Dwarmstart used inselection; coefficientsreadonly5Dsubblock.
