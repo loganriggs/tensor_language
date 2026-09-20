@@ -1,0 +1,11 @@
+fifteen +0.1420 | twenty at step 0 +0.2330 -> snapshot (validation step 200) +0.1683 (excess over fifteen +0.0262; recovery 0.958); curve [0.233, 0.194, 0.179, 0.174, 0.171, 0.17, 0.169, 0.169, 0.168]; median table corr 1.000
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_refit_halves_excess": true,
+    "pred_c_no_overfit": true,
+    "pred_d_twenty_readable_heads": true,
+    "pred_e_tables_stay_close": true
+  },
+  "forwards": 307
+}
