@@ -48,3 +48,17 @@ def test_bound_below_every_refitted_subset():
                 residual = atoms.sum(0)
             error = float(residual.norm()/atoms.sum(0).norm())
             assert error+1e-12 >= bounds[size]
+
+
+def test_centered_atom_gram_matches_explicit_trace_removal():
+    torch.manual_seed(634)
+    C=torch.randn(3,5,dtype=torch.float64)
+    A=torch.randn(5,4,dtype=torch.float64)
+    B=torch.randn(5,4,dtype=torch.float64)
+    trace=(A*B).sum(-1)
+    forms=(A[:,:,None]*B[:,None,:]+B[:,:,None]*A[:,None,:])/2
+    centered=forms-trace[:,None,None]*torch.eye(4,dtype=torch.float64)/4
+    explicit=(C.T@C)*torch.einsum('kij,lij->kl',centered,centered)
+    formula=atom_gram(C,A,B)-(C.T@C)*torch.outer(trace,trace)/4
+    torch.testing.assert_close(formula,explicit)
+    torch.testing.assert_close(centered.diagonal(dim1=1,dim2=2).sum(-1),torch.zeros(5,dtype=torch.float64),atol=1e-14,rtol=0)

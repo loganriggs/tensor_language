@@ -53,3 +53,28 @@ def test_factored_runtime_matches_explicit_reconstructed_weights():
             a=execute(w,h,x0,v1,scale);b=execute(dense,h,x0,v1,scale)
             torch.testing.assert_close(a['h17'],b['h17'],atol=2e-6,rtol=2e-5)
             torch.testing.assert_close(a['alpha'],b['alpha'],atol=2e-5,rtol=2e-5)
+
+
+def test_shared_radial_feature_matches_expanded_coordinate_squares():
+    torch.manual_seed(634)
+    model=GPT(GPTConfig(vocab_size=17,n_layer=18,n_embd=8,n_head=2,
+        expansion_factor=2,bilinear=True,bilinear_attn=True,squared_attn=True))
+    with torch.no_grad():
+        for parameter in model.parameters():parameter.normal_(0,.15)
+    component=dict(readers=torch.randn(8,3),coefficients=torch.tensor([1.,-2.,3.]),
+        residual_writer=torch.randn(8),vocabulary_writer=torch.randn(17))
+    original=extract(model,component)
+    for retained in [0,5]:
+        w=dict(original,left16=original['left16'][:retained],right16=original['right16'][:retained],
+               down16=original['down16'][:,:retained],radial16=torch.randn(8)*.1)
+        expanded=dict(w);expanded.pop('radial16')
+        expanded.update(left16=torch.cat([w['left16'],torch.eye(8)]),
+                        right16=torch.cat([w['right16'],torch.eye(8)]),
+                        down16=torch.cat([w['down16'],w['radial16'][:,None].expand(-1,8)],dim=1))
+        h=torch.randn(2,5,8);h[0,0]=0
+        x0=torch.randn_like(h);v1=torch.randn(2,5,2,4)
+        for scale in [0.,.5,1.,1.5]:
+            a=execute(w,h,x0,v1,scale);b=execute(expanded,h,x0,v1,scale)
+            torch.testing.assert_close(a['write16'],b['write16'],atol=2e-6,rtol=2e-5)
+            torch.testing.assert_close(a['h17'],b['h17'],atol=2e-6,rtol=2e-5)
+            torch.testing.assert_close(a['alpha'],b['alpha'],atol=2e-5,rtol=2e-5)

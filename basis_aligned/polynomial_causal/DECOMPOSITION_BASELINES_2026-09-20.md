@@ -78,3 +78,11 @@ preserving full input span. The parent isotropic functional metric (including
 trace) improves strongly over coefficient Frobenius selection but no compressed
 arm reaches10% error. See [metric audit](SHARED_PRODUCT_METRIC_AUDIT_2026-09-20.md).
 These are fixed-dictionary baselines, not a bound on learned quadratic features.
+
+## Radial-feature extension
+
+v634 adds one shared radial quadratic and centered native atoms; all compressed
+arms fail. v635 fits calibration-only product means with the same supports and
+improves error, but the best tested compressed validation error remains26%.
+[Audit](RADIAL_FEATURE_AUDIT_2026-09-20.md) distinguishes isotropic weight algebra
+from native-distribution statistics. Both remain negative candidates.

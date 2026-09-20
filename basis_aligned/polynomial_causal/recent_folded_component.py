@@ -2,6 +2,9 @@
 
 Ports: pre-MLP16 residual h16, normalized embedding x0, first-layer value v1.
 These upstream ports are still required. No full expanded tensor is built.
+Optional radial16 shares sum(n16**2) across writers; it is explicitly computed.
+The three returned terms split retained products from their computed complement,
+which includes the radial feature when present.
 """
 import torch
 import torch.nn.functional as F
@@ -60,7 +63,8 @@ def execute(w,h16,x0,v1,scale=1.):
     products=left*right
     write16=products@w['down16'].T
     if 'output_basis16' in w:write16=write16@w['output_basis16'].T
-    write16=write16+w['bias16']
+    radial=n16.square().sum(-1,keepdim=True)*w['radial16'] if 'radial16' in w else 0.
+    write16=write16+w['bias16']+radial
     live=w['residual17']*(h16+scale*write16)+w['embedding17']*x0
     attn=attention(F.rms_norm(live,(live.shape[-1],)),v1,w)
     h17=live+attn
@@ -68,7 +72,7 @@ def execute(w,h16,x0,v1,scale=1.):
     projected_readers=w['output_basis16'].T@w['readers'] if 'output_basis16' in w else w['readers']
     folded=w['residual17']*(w['down16'].T@projected_readers)
     gated_features=scale*(products@folded)
-    background=w['residual17']*h16+w['embedding17']*x0+attn+scale*w['residual17']*w['bias16']
+    background=w['residual17']*h16+w['embedding17']*x0+attn+scale*w['residual17']*(w['bias16']+radial)
     background_features=background@w['readers']
     denominator=h17.square().mean(-1)+torch.finfo(h17.dtype).eps
     c=w['coefficients']
