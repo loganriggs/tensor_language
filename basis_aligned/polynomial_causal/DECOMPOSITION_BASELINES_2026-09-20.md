@@ -62,3 +62,11 @@ See [gauge control](DECOMPOSITION_GAUGE_CONTROL_RESULT.json),
 [HT objective](HIERARCHICAL_TUCKER_SHARED_DAG_DIRECTION_2026-09-20.md),
 [recent-path extraction](RECENT_FOLDED_COMPONENT_2026-09-20.md), and
 [negative SVD comparison](RECENT_SHARED_FEATURES_2026-09-20.md).
+
+## Native gauge/numerical follow-up
+
+v630/v631 add the joint MLP16 input-mode Gram and balanced-factor controls.
+The native CUDA SVD full basis fails orthogonality/replay; CPU float64 repairs
+full-rank recovery but leaves rank512 failure unchanged. Joint-mode rank512
+also fails. See [audit](JOINT_INPUT_BASELINE_AUDIT_2026-09-20.md). This is a
+measured input-mode projection baseline, not yet a native HT or sparse-core run.
