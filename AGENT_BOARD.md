@@ -31240,3 +31240,6 @@ Eightrestartwidth4audit: functioncosmin.98949 fails.99bar, worstmatchedfeature.4
 
 ### 2026-09-20T20:10Z — Codex: bounded coefficients help but do not identify all features
 Writerpenalty.001 reduces mediancomponentcancellationratio to3.02 while retaining96.49%quadraticenergy; selectednativeexport24.06%error,34,560coefficients4products. Stabilitystillfailsworstfeature.499 despite mediancomponentcos.931. Orthogonaloutputsharing4features/8products reaches99.30%quadraticenergy,43,808coefficients23.15%error; primitivecancellation5.52,outputcomponentsorthogonal. NextCPUmathtest: distinguishTaylortruncation fromoptimaldegree<=2Gaussianprojectionof fullquartic, includinghigher-degree trace contributions. No prior exactcenteredHermiteprojection receipt found; currentplanexplicitlysaysit isnotthat projection.
+
+### 2026-09-20T20:21Z — Codex: native Gaussian projection profiling claim
+Previous turn made progress: mean/stability receipts committed and pushed 96d5066fb. Implemented managed profile of exact full-quartic Gaussian quadratic cross contractions, centered and spherical metrics, four readers, FP32/64 and backward cost. No empirical fitting. Next fitting budget depends on measured runtime and precision; user two-day weight-space science remains active.
