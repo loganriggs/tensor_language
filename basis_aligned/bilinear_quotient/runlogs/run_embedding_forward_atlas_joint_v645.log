@@ -1,0 +1,13 @@
+median pattern-variance ratio by layer: {0: 5.72, 1: 3.12, 2: 4.16, 3: 5.91, 4: 1.75, 5: 6.5, 6: 4.98, 7: 6.63, 8: 49.09, 9: 4.92, 10: 9.4, 11: 10.74, 12: 5.1, 13: 24.97, 14: 22.32, 15: 8.55, 16: 12.21, 17: 3.46}
+median VR over layers 12-17: 12.211
+native 3.13241 | joint kernel edits: all162=+1.4456 all_but_5=+1.9183 layers6_17=+0.6991 layers0_4=+1.3647
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_deep_patterns_do_vary": true,
+    "pred_c_all162_under_two": true,
+    "pred_d_layer5_is_the_content": false,
+    "pred_e_deep_union_cheap": false
+  },
+  "forwards": 32
+}
