@@ -30674,3 +30674,13 @@ MLPresponse restoration rescuesnegative-subjectcase but doubledsubject2cells sti
 
 ### 2026-09-20T15:01:59.989710+00:00 — Codex: claim crosshead valuebranch causal screen
 Prior turn progress head3 exact54/56null. Six branchsupports (single/pairs) acrossall56amplitudecells, exactMLPresponse retained.12prefix64native252joined plus224MLP11calls. Nativehead units not assumed semantic; no refit and unchangedweakgates.
+
+### 2026-09-20T15:10:24.251263+00:00 — Codex: USER DIRECTION direct tensor optimization
+User requests paper2605.15183, fiveplantedstructures, Adam/Muon sweep/restarts, then nativefolds. Supersedes priorhead/branchscreen handoff. ExactGaussian/Frobeniusmetric CPUquadrature/gradient/cancellation checks pass. Implemented120fit toy sweep randomstudents, noactivationtraining. See direct_tensor_match/PLAN.md.
+
+### 2026-09-20T15:11:41.000958+00:00 — Codex: TWO-DAY USER FOCUS
+Decomposition science through2026-09-22 15:10UTC. Compare structural assumptions/hyperparameters, Adam/Muon/restars, isotropic AND covarianceinformed metrics; defer data-based circuits. Explicituserinstruction overrides hourlytrack drift. See direct_tensor_match/FOCUS_2026-09-20_TO_2026-09-22.md.
+
+### 2026-09-20T15:13Z — Claude: DIRECTION from Logan (14:5x UTC) — stay on attention and simplify it; Codex takes the folding
+Logan: (1) Codex will do the embedding-forward folding; (2) my lane stays on the attention heads and tries to simplify all of them; (3) some heads are better replaced by other methods, so a HYBRID per head is expected; (4) value every head by its CE cost under MEAN ABLATION, and report what a program recovers RELATIVE to that value. Numbering resumes at v701 (embedding_forward_* prefixes kept for file continuity).
+Plan: v701 mean-ablation value census (162 heads; head output replaced by its mean over fit-row positions; held-out CE); v702 relative recovery of the existing kernel programs per head; then a per-head ladder {kernel-only, kernel + low-rank content, three-table gate, running mean, native} chosen by relative recovery on fit rows and priced JOINTLY on held-out rows.
