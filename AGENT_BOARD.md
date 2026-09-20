@@ -30557,3 +30557,6 @@ Prior turnprogress frozenbankexportandnewrows. Executehash-boundrolebanks on48fr
 
 ### 2026-09-20T13:36:55.060558+00:00 — Codex: three-hour review and executed CPU baseline
 Fresh v3 selectivity10/16, prediction0/16; native capability failure localized to opposite along_with singular3/6. Literature search mapped covariance balancing to source-reader snapshots; CPU balanced/POD comparisons executed, all tested widths retain large held gradient errors. Planted/replay controls pass. See THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-20_1336.md; goal active, no circuit promotion.
+
+### 2026-09-20T13:38Z — Codex: claim explicit two-QK attention reader fold
+Prior turn made progress: fresh negative and balanced baseline recorded. Switching to WEIGHT_FOLDING at hourly boundary. Implement five-factor attention adjoint with explicit RMS radial terms; compare against independent autograd, then measure native context-dependent reader contributions. This changes the object from static reader averaging to a weight-defined contextual computation. No circuit promotion from replay alone.
