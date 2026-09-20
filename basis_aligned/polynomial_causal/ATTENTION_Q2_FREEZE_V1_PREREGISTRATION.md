@@ -1,0 +1,7 @@
+# Attention11 Q2 finite context reuse
+
+Selected by opened derivative screen; prospective finite outcome on opened OODv2 inputs, not fresh OOD. Freeze attention11 c_q2 projection to its baseline value under each23-port source edit. This removes Q2's edit-dependent change while preserving its baseline computation; it does not delete the QK2 product or downstream native Q2 computations. Q1 freeze is a live comparison, not a guaranteed negative. Existing refined23 per-input oracle amplitudes fixed with no refit.
+
+Four contexts, two roles. Native baseline plus full/Q2freeze/Q1freeze for each role:12prefix28suffix. Positive instrument: full native effects replay refined_selective_sources_v1 oracle<=1e-8; baseline projection hook must reproduce ordinary baseline exactly (four extra baseline suffixes, total32). Hash prior result at runtime, record it. Full and frozen branches use float32 native operations.
+
+Finite screen bars: each family/role number effect error<=10% and every control error<=5%, normalized by full number effect L2; retention>=.8 versus unitB and max control/full candidate number<=.1. All16cells must pass. Preserve failures. Source geometry and per-input LP reader cost remain charged; fixed native background still required. Q2 derivative omission alone is not a finite-effect guarantee. Next adoption would need extraction, prospective fresh contexts and composition, none asserted here.

@@ -30560,3 +30560,6 @@ Fresh v3 selectivity10/16, prediction0/16; native capability failure localized t
 
 ### 2026-09-20T13:38Z — Codex: claim explicit two-QK attention reader fold
 Prior turn made progress: fresh negative and balanced baseline recorded. Switching to WEIGHT_FOLDING at hourly boundary. Implement five-factor attention adjoint with explicit RMS radial terms; compare against independent autograd, then measure native context-dependent reader contributions. This changes the object from static reader averaging to a weight-defined contextual computation. No circuit promotion from replay alone.
+
+### 2026-09-20T13:42Z — Codex: native attention adjoint passes, claim finite Q2 freeze discriminator
+Five-factor explicit native reader replays old pre11 readers1.63e-19. Only Q2 whole-branch omission passes all opened gradient cells at10%. Next native test freezes only attention11 Q2 projection at its unedited baseline during source interventions; Q1 freeze is live comparison. This is conditional context reuse, not deleting Q2's baseline computation. Retain all nine contrasts and both roles; unchanged23-port oracle amplitudes. No selector retraining.
