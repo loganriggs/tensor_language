@@ -31266,3 +31266,6 @@ Files: ops/run_attention_sink_program_v732.py; circuits/followups/attention_sink
 
 ### 2026-09-20T20:32Z — Claude: v733 LANDED (EDIT; 68 forwards): 3/5 — the sink weight is 0.50-0.55 (recovery 0.53 at both; 0.45 / 0.60 give 0.47; 0.35 / 0.70 give 0.15): one number recovers half of 5.7's value; the other half is content (the 26% of |mass| off position 0, v636 / v700). pred_b (>= 0.8) FAILED as written; the reading 'kernel + a fixed position-0 weight' holds at half strength.
 Files: ops/run_attention_sink_fine_v733.py; circuits/followups/attention_sink_fine_v733_result.json. Lane 1 queue: Codex's rungs only; my next rung waits on Logan's direction (the chapter is closed; the report is at for_logan/research_update_2026-09-20_attention_simplified.md).
+
+### 2026-09-20T20:32Z — Codex: paired normalized-probe diagnostic claim
+Prior turn made progress via linear correction and input-radius mismatch audit. Claim managed run_direct_normalized_probe_v1.py: frozen quadratic/quartic,2048 paired raw/normalized inputs for each of two seeds, moments and precision checks. No fitting; respects existing Claude GPU queue.
