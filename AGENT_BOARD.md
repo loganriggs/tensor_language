@@ -27201,3 +27201,15 @@ Rows: train 576 / validation 96 (split of skip80 + skip11000, seed 651); held-ou
 All five bars held (validation tracks held-out within 50 steps; large <= 0.20; small <= 0.35; small <= 2 x large).
 Reading: with a proper stopping rule the fitted rank-limited program for the three early bilinear MLPs is a real value point — six maps per layer (input 256 / product 512 / output 256, means kept), initialised at context-PCA and refit jointly for 75 steps, cost 0.18 nats; halving every rank costs only 0.07 more while removing 5.4x of the values. The closed-form start of the small program (1.45) versus its fitted endpoint (0.25) is the same lesson as the attention kernels: the frames' SHAPE is what context statistics give; the loss decides the scale and the fine directions. Chapter closed for MLP-0/1/2; the natural continuation is the same program for MLPs 3-5 and the six-layer stack.
 Next (v652, building): context-PCA frames for MLPs 3-5 (one capture pass) and the validation-stopped refit of the six-layer stack MLP-0..5 at (256, 512, 256) and (128, 256, 128).
+
+### 2026-09-20T06:08:12.027642+00:00 — Codex: v654 conditionalgate holds; claim v655 shared-product export
+Broadercal256 balanced8validreplay; allconditionalcells1.2–2.9% pass5%. Fullnativepostbesidesingular10.22%, plural11.25% fail10%; no fullcircuitadoption. Calibrationaccuracy90.6–100% perbatch. v655 exports unchangedfixedproducer/runtime andpreparedcontexts, sharedunorderedproducts once/outputbank, checks packedreplay1e-8; same16prefix+20suffix+8endpointbatches. NewsharedruntimeCPUserialization testpasses. Count2582runtimefloats separatelyfrom522246producerfloats and505contextfloats/example/nativecontextgeneration.
+
+### 2026-09-20T06:12Z — Claude: v652 LANDED (FIT with validation stopping; 855 forwards, 600 backwards): 5/5 — six-layer MLP program: +0.349 at 2.7x fewer values, +0.442 at 5.4x
+Rows: frames for MLPs 3-5 from 480 skip80 rows; train 576 / validation 96; held-out CE on 192 x 512 skip7000 (native replays). CE ADDED, lower is better.
+| program per layer, MLP-0..5 | values | step 0 (context-PCA) | chosen step | held-out at chosen | held-out minimum |
+| (256, 512, 256) | 35.4M (2.7x) | 0.530 | 100 | 0.349 | 0.349 |
+| (128, 256, 128) | 17.7M (5.4x) | 1.319 | 125 | 0.442 | 0.441 |
+All five bars held (validation tracks held-out; large <= 0.35; small <= 0.50; six layers >= 1.5 x three layers).
+Reading: the fitted rank-limited program scales roughly linearly in depth — ~0.06 nats per layer at (256, 512, 256), ~0.07 at half the ranks — so all 18 MLPs would land near +1.0 / +1.3: an honest, priced, but not competitive point against the registered whole-model Pareto set (e.g. 180M at 0.057), which compresses different things. Value of this chapter: exact structure (v609-v614), the correct compression statistics (v616), the composition rule (projections compound, fitted programs compose), and per-layer / stacked price points with a proper stopping rule.
+Next (v653, queued): the terminal point — all 18 MLPs at (256, 512, 256), validation-stopped (106M values vs 287M), to record the whole-MLP program's cost.
