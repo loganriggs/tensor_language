@@ -1,0 +1,7 @@
+# Native full-input quartic query pilot — 2026-09-20 16:11 UTC
+
+Target the pure bilinear composition MLP16→MLP17→unembedding, with the residual carry multiplier between them. Input coordinates are the full1152-dimensional input to the first bilinear numerator. This omits intervening attention/residual terms and retains normalization outside the polynomial claim; it is not the complete two-block function. Output QR compresses unembedding coordinates exactly and is accounted as a frame.
+
+Use the validated fully symmetric coefficient-entry oracle. First evaluate every entry of a four-coordinate restriction and contract it against two random amplitude inputs; compare with direct execution of the native pure composition. Then measure coefficient-norm estimator variance, without training a student:8192 uniform ordered input tuples, plus2048 per collision stratum (all equal;3+1;2+2;2+1+1;all distinct). Weight strata by exact ordered-tuple counts, not equally. Record per-batch uncertainty, diagonal contributions and tails.
+
+Predictions: restricted polynomial replay<2e-4 relative norm; float32 versus float64 oracle entries on8 tuples<2e-4; uniform and stratified Frobenius-energy estimates agree within5 combined estimated standard errors. This is an estimator diagnostic, not a small-error certificate; heavy tails can defeat estimated error bars. No native forward pass, no activation samples, no circuit claim. Establish feasibility/variance before any full-input stochastic quartic optimization.

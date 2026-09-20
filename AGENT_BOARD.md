@@ -30760,3 +30760,12 @@ Prior turn progress committed native covariance/control receipts and queued vari
 
 ### 2026-09-20T16:03:22.794469+00:00 — Codex: common-factor fits landed; claim frozen-row transfer
 136fits complete: planted9.93e-7; native median4.0%,worst14.55%; beats rank1output baseline at near-matched75vs74values. Test frozen q/fullprogram on176other rows; oraclequotientrefit separately labeled reuse-capacity, not prediction. Independent quadrature export checks included.
+
+### 2026-09-20T16:07:07.727738+00:00 — Codex: claim negative transfer-interface audit
+Prior turn progress:136commonfactor fits and176row failure recorded. Read native quartic source: both1152x5 input port K and4x1152 output reader vary by row. Construct positive transport and unobserved-direction ambiguity controls; frozen-amplitude failure must not be promoted into impossibility of ambient reusable circuits. Full-tensor variableprojection remains queued.
+
+### 2026-09-20T16:09:09.971894+00:00 — Codex: claim global quartic coefficient oracle
+Interface audit proves frozen-local failure is not global circuit impossibility. Implement exact fully symmetrized full-input quartic coefficient queries, validate against24-permutation dense toy and gradients, measure uniform entry-sampling variance including sparse adversary. Next path toward global quartic optimization without restricted moving amplitude frames; native run not yet claimed.
+
+### 2026-09-20T16:10:40.729584+00:00 — Codex: claim native full-input quartic query pilot
+Toy oracle entry/gradient errors4.45e-16/2.23e-15; sparse adversary shows uniform sampling can miss all mass. Queue native1152input pure MLP16→17→unembedding coefficient queries, restricted exact replay, fp64 control and collision-stratified variance census. No student fit before variance assessment.

@@ -1,0 +1,56 @@
+{
+  "entry_relative_error": 4.448498571634887e-16,
+  "gradient_relative_error": 2.2247109502584257e-15,
+  "enumerated_frobenius_relative_error": 2.0997195740016253e-16,
+  "sampling": [
+    {
+      "target": "dense_two_layer",
+      "samples": 512,
+      "theoretical_relative_standard_error": 0.08121342260167767,
+      "observed_relative_rmse": 0.0828111042495539,
+      "zero_estimates": 0,
+      "repetitions": 100
+    },
+    {
+      "target": "dense_two_layer",
+      "samples": 4096,
+      "theoretical_relative_standard_error": 0.028713280922507554,
+      "observed_relative_rmse": 0.02862355423475756,
+      "zero_estimates": 0,
+      "repetitions": 100
+    },
+    {
+      "target": "dense_two_layer",
+      "samples": 32768,
+      "theoretical_relative_standard_error": 0.01015167782520971,
+      "observed_relative_rmse": 0.008980512960338518,
+      "zero_estimates": 0,
+      "repetitions": 100
+    },
+    {
+      "target": "single_coordinate_quartic",
+      "samples": 512,
+      "theoretical_relative_standard_error": 1.5903763312499022,
+      "observed_relative_rmse": 1.5690114323993947,
+      "zero_estimates": 65,
+      "repetitions": 100
+    },
+    {
+      "target": "single_coordinate_quartic",
+      "samples": 4096,
+      "theoretical_relative_standard_error": 0.5622829442326944,
+      "observed_relative_rmse": 0.62370043112315,
+      "zero_estimates": 5,
+      "repetitions": 100
+    },
+    {
+      "target": "single_coordinate_quartic",
+      "samples": 32768,
+      "theoretical_relative_standard_error": 0.19879704140623777,
+      "observed_relative_rmse": 0.19160513373885746,
+      "zero_estimates": 0,
+      "repetitions": 100
+    }
+  ],
+  "scope": "Exact fully symmetrized coefficient-entry oracle and its gradients; small dense teacher only. Uniform stochastic loss is unbiased for squared Frobenius numerator, can miss concentrated structure; ratio of estimated losses need not be unbiased. No native fit yet."
+}

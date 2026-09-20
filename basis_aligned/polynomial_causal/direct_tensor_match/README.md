@@ -56,3 +56,9 @@ Latest: [Sparse basis recovery and paired covariance conditioning](BASIS_AND_CON
 - `COMMON_FACTOR_PLAN_V1.md`, `common_factor_sweep.py`, `COMMON_FACTOR_SWEEP_V1.json`:136 random-start common-factor/quotient fits; native median4.00%,worst14.55%,75values.
 - `audit_common_factor_baselines.py`, `COMMON_FACTOR_OUTPUT_BASELINES_V1.json`:74-value rank-one output control loses to common-factor model on all16 targets.
 - `COMMON_FACTOR_TRANSFER_PLAN_V1.md`, `common_factor_transfer.py`, `COMMON_FACTOR_TRANSFER_V1.json`: all selected programs independently validated by quadrature; frozen transfer to176other rows fails (median100.10%). Oracle quotient refit46.96% versus random-factor81.78% is reuse-capacity evidence only. Exports include factors and original scale.
+
+## Interface audit and global quartic queries — 16:11 UTC
+
+[Mathematical note](INTERFACE_AND_GLOBAL_QUARTIC_2026-09-20_1611.md) bounds the row-transfer failure: native input ports and output readers both change. `TRANSFER_INTERFACE_AUDIT_V1.json` gives a same-circuit coordinate-transport positive control and a rectangular-port nonidentifiability counterexample.
+
+`implicit_quartic.py` queries exact fully symmetrized two-layer coefficients without expanded tensors. `check_implicit_quartic.py` / `IMPLICIT_QUARTIC_CHECK_V1.json` independently validate values, gradients and Frobenius enumeration; a sparse sampling adversary exposes high variance. `NATIVE_QUARTIC_QUERY_PLAN_V1.md` preregisters the queued full1152-input native estimator pilot. No native stochastic fit yet.

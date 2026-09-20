@@ -75,3 +75,7 @@ flowchart TD
 This is a useful negative result. Good local tensor compression and stable numerical execution are insufficient for the ultimate goal. The full native joint-tensor experiment now queued uses variable projection to address the separately demonstrated optimization gap; it does not depend on assuming these local amplitude features transfer.
 
 Primary artifacts are indexed in [the study README](../../direct_tensor_match/README.md): `QUARTIC_STABILITY_AUDIT_V1.json`, `SHARED_STRUCTURE_AUDIT_V1.json`, `COMMON_FACTOR_SWEEP_V1.json`, `COMMON_FACTOR_OUTPUT_BASELINES_V1.json`, and `COMMON_FACTOR_TRANSFER_V1.json`. No model checkpoint was modified.
+
+### Follow-up interface control — 16:11 UTC
+
+[The interface audit](../../direct_tensor_match/INTERFACE_AND_GLOBAL_QUARTIC_2026-09-20_1611.md) confirms that both native input ports and output readers vary by row. An unchanged global circuit can therefore have very different local coefficients. The176-row failure rules out the tested frozen amplitude program, not reusable circuits in the ambient residual space. A same-circuit toy fails naive coefficient transfer by177% and passes exact coordinate transport to machine precision; rectangular native ports also leave unobserved directions, so that transport is not automatically available. The next queued quartic pilot queries coefficients in a fixed full1152-dimensional input space.

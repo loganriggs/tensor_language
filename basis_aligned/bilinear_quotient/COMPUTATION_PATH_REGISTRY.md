@@ -460,3 +460,6 @@ All16 independent local quartic contexts improve with four shared products, medi
 
 ### 2026-09-20 16:03 — Local shared factor is not a row-independent circuit
 Sparse exports stable in float32, but feature agreement failed.136 common-factor fits f_v=q*r_v achieve native median4.0% at75values and beat74-value output-rank-one controls; independent quadrature passes. Frozen176row predictions fail median100.10%; oracle quotient refit46.96% versus random81.78% is only reuse-capacity evidence. Preserve no-circuit verdict. [Report](../polynomial_causal/explanations/for_logan/research_update_2026-09-20_1603_common_factors_and_transfer_failure.md). Full joint variable-projection job remains queued behind verified live v704.
+
+### 2026-09-20 16:11 — Bound negative transfer claim; global quartic oracle
+Native local exporters vary K_b and q_b. Frozen amplitude failure does not imply no ambient reusable circuit; exact transport/rectangular ambiguity toy controls in TRANSFER_INTERFACE_AUDIT_V1. Fully symmetrized two-layer coefficient-entry oracle validated to4.45e-16 values/2.23e-15 gradients, including all input pairings. Uniform sampling misses sparse adversary; native1152input pure MLP16→17 numerator collision-stratified variance pilot queued before optimizing. [Note](../polynomial_causal/direct_tensor_match/INTERFACE_AND_GLOBAL_QUARTIC_2026-09-20_1611.md).

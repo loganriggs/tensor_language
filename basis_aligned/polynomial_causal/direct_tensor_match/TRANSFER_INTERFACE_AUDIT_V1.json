@@ -1,0 +1,25 @@
+{
+  "square_frames": {
+    "naive_frozen_program_error": 1.7736903839843456,
+    "exact_transport_error": 8.962203973575778e-16,
+    "global_circuit_identical": true
+  },
+  "rectangular_frames": {
+    "calibration_restriction_difference_norm": 0.0,
+    "other_port_difference_norm": 10.246950765959598,
+    "global_polynomials": "F=(sum_{i=0}^4 x_i^2)^2; G=F+x_5^4",
+    "calibration_port": "x=(a0,a1,a2,a3,a4,0)",
+    "other_port": "x=(a0,a1,a2,a3,a4,a0)"
+  },
+  "native_mapping": {
+    "source": "ops/run_native_two_mlp_quartic_ht_v1r1.py",
+    "input_port": "K_b=ports[mlp_input_directions][0][batch,pos], 1152x5",
+    "output_port": "q_b=ports[mlp_readers][1][batch,pos], 4x1152",
+    "shared_native_layers": [
+      11,
+      12
+    ],
+    "implication": "Frozen amplitude-coordinate program failure is not a lower bound on existence of reusable ambient-residual circuits. It remains a valid failure of the specified fixed amplitude interface."
+  },
+  "scope": "Constructive mathematical controls, not a demonstration that native row differences admit invertible coordinate transport."
+}
