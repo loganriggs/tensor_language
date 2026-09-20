@@ -1,0 +1,146 @@
+{
+  "records": [
+    {
+      "root_width": 4,
+      "bank_fused": true,
+      "original_cost": {
+        "products": 10,
+        "additions": 23096,
+        "stored_coefficients": 24280,
+        "edges": 24300,
+        "nodes": 2347
+      },
+      "cost": {
+        "products": 10,
+        "additions": 18460,
+        "stored_coefficients": 19632,
+        "edges": 19652,
+        "nodes": 2335
+      },
+      "exact_arithmetic_fusion_error": 3.3713249516101244e-16,
+      "archive_rounding_error": 3.365941188794367e-08,
+      "graph_replay": 6.333168934842292e-16,
+      "fresh_errors": [
+        0.19063735615145658,
+        0.19431216720368172
+      ],
+      "rejected_or_alternative_costs": [
+        {
+          "bank_fused": false,
+          "cost": {
+            "products": 10,
+            "additions": 18464,
+            "stored_coefficients": 19640,
+            "edges": 19660,
+            "nodes": 2339
+          }
+        },
+        {
+          "bank_fused": true,
+          "cost": {
+            "products": 10,
+            "additions": 18460,
+            "stored_coefficients": 19632,
+            "edges": 19652,
+            "nodes": 2335
+          }
+        }
+      ]
+    },
+    {
+      "root_width": 6,
+      "bank_fused": false,
+      "original_cost": {
+        "products": 12,
+        "additions": 23124,
+        "stored_coefficients": 24312,
+        "edges": 24336,
+        "nodes": 2353
+      },
+      "cost": {
+        "products": 12,
+        "additions": 20780,
+        "stored_coefficients": 21960,
+        "edges": 21984,
+        "nodes": 2345
+      },
+      "exact_arithmetic_fusion_error": 2.1296339876855223e-16,
+      "archive_rounding_error": 1.8506214474149508e-08,
+      "graph_replay": 6.770042315613995e-16,
+      "fresh_errors": [
+        0.18182143808969314,
+        0.18577227192359785
+      ],
+      "rejected_or_alternative_costs": [
+        {
+          "bank_fused": false,
+          "cost": {
+            "products": 12,
+            "additions": 20780,
+            "stored_coefficients": 21960,
+            "edges": 21984,
+            "nodes": 2345
+          }
+        },
+        {
+          "bank_fused": true,
+          "cost": {
+            "products": 12,
+            "additions": 20784,
+            "stored_coefficients": 21960,
+            "edges": 21984,
+            "nodes": 2341
+          }
+        }
+      ]
+    },
+    {
+      "root_width": 8,
+      "bank_fused": false,
+      "original_cost": {
+        "products": 14,
+        "additions": 23152,
+        "stored_coefficients": 24344,
+        "edges": 24372,
+        "nodes": 2359
+      },
+      "cost": {
+        "products": 14,
+        "additions": 23096,
+        "stored_coefficients": 24280,
+        "edges": 24308,
+        "nodes": 2351
+      },
+      "exact_arithmetic_fusion_error": 2.0589370266395698e-16,
+      "archive_rounding_error": 1.7107070738069727e-08,
+      "graph_replay": 6.343305797668085e-16,
+      "fresh_errors": [
+        0.18166901941465202,
+        0.18567968250291286
+      ],
+      "rejected_or_alternative_costs": [
+        {
+          "bank_fused": false,
+          "cost": {
+            "products": 14,
+            "additions": 23096,
+            "stored_coefficients": 24280,
+            "edges": 24308,
+            "nodes": 2351
+          }
+        },
+        {
+          "bank_fused": true,
+          "cost": {
+            "products": 14,
+            "additions": 23108,
+            "stored_coefficients": 24288,
+            "edges": 24316,
+            "nodes": 2347
+          }
+        }
+      ]
+    }
+  ],
+  "scope": "Algebraic linear composition chosen by literal reachable graph costs; FP64 equivalence and FP32 rounding audited. Output fusion accepted for all widths, bank fusion only when no counted cost regresses. Same reused text diagnostics."
+}

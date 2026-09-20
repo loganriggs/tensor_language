@@ -1,0 +1,1000 @@
+{
+  "plan": {
+    "amplitudes": [
+      0.25,
+      0.5,
+      1.0
+    ],
+    "signs": [
+      -1,
+      1
+    ],
+    "rows": 128,
+    "directions": 8,
+    "seed": 2040,
+    "native_forwards": 0
+  },
+  "records": [
+    {
+      "family": "learned",
+      "amplitude": 0.25,
+      "metrics": {
+        "quadratic": {
+          "error": 0.23957227066878128,
+          "cosine": 0.9715881826665386,
+          "response_norm_ratio": 1.0087159293078691
+        },
+        "quartic": {
+          "error": 0.19311942345175093,
+          "cosine": 0.9812623692570194,
+          "response_norm_ratio": 0.9681876212963175
+        }
+      },
+      "directions": [
+        {
+          "direction": 0,
+          "sign": -1,
+          "target_rms": 0.35360925362463996,
+          "errors": {
+            "quadratic": 0.23574907432046247,
+            "quartic": 0.16385741901858047
+          }
+        },
+        {
+          "direction": 0,
+          "sign": 1,
+          "target_rms": 0.3950983607407989,
+          "errors": {
+            "quadratic": 0.2276225090904042,
+            "quartic": 0.1596672636480049
+          }
+        },
+        {
+          "direction": 1,
+          "sign": -1,
+          "target_rms": 0.17723880721454785,
+          "errors": {
+            "quadratic": 0.2816864546813844,
+            "quartic": 0.27922411495531385
+          }
+        },
+        {
+          "direction": 1,
+          "sign": 1,
+          "target_rms": 0.19668662126308267,
+          "errors": {
+            "quadratic": 0.2450406283420132,
+            "quartic": 0.2872719882015601
+          }
+        },
+        {
+          "direction": 2,
+          "sign": -1,
+          "target_rms": 0.2752130814164973,
+          "errors": {
+            "quadratic": 0.23294799257185694,
+            "quartic": 0.1825711799793122
+          }
+        },
+        {
+          "direction": 2,
+          "sign": 1,
+          "target_rms": 0.29512993078562044,
+          "errors": {
+            "quadratic": 0.2258148261974572,
+            "quartic": 0.1799313218944829
+          }
+        },
+        {
+          "direction": 3,
+          "sign": -1,
+          "target_rms": 0.23721535589201848,
+          "errors": {
+            "quadratic": 0.26933006940228627,
+            "quartic": 0.24450907341739317
+          }
+        },
+        {
+          "direction": 3,
+          "sign": 1,
+          "target_rms": 0.20932058991319427,
+          "errors": {
+            "quadratic": 0.32235826432709513,
+            "quartic": 0.2529343094629255
+          }
+        },
+        {
+          "direction": 4,
+          "sign": -1,
+          "target_rms": 0.3457185393852767,
+          "errors": {
+            "quadratic": 0.24133845199152357,
+            "quartic": 0.1678615313678934
+          }
+        },
+        {
+          "direction": 4,
+          "sign": 1,
+          "target_rms": 0.3827172907284697,
+          "errors": {
+            "quadratic": 0.23631542751840112,
+            "quartic": 0.1638413820355665
+          }
+        },
+        {
+          "direction": 5,
+          "sign": -1,
+          "target_rms": 0.31532955261250445,
+          "errors": {
+            "quadratic": 0.20334829728375667,
+            "quartic": 0.1879810429414474
+          }
+        },
+        {
+          "direction": 5,
+          "sign": 1,
+          "target_rms": 0.27954658859284043,
+          "errors": {
+            "quadratic": 0.23533854221697345,
+            "quartic": 0.18603694158720024
+          }
+        },
+        {
+          "direction": 6,
+          "sign": -1,
+          "target_rms": 0.1458772503732652,
+          "errors": {
+            "quadratic": 0.3185910807002186,
+            "quartic": 0.3139814977563653
+          }
+        },
+        {
+          "direction": 6,
+          "sign": 1,
+          "target_rms": 0.14952422485709085,
+          "errors": {
+            "quadratic": 0.28564764284425287,
+            "quartic": 0.2937917175119235
+          }
+        },
+        {
+          "direction": 7,
+          "sign": -1,
+          "target_rms": 0.26955270356806543,
+          "errors": {
+            "quadratic": 0.2255274726255085,
+            "quartic": 0.1767518980754343
+          }
+        },
+        {
+          "direction": 7,
+          "sign": 1,
+          "target_rms": 0.2913975486855594,
+          "errors": {
+            "quadratic": 0.21588411135415705,
+            "quartic": 0.17655257171540564
+          }
+        }
+      ]
+    },
+    {
+      "family": "learned",
+      "amplitude": 0.5,
+      "metrics": {
+        "quadratic": {
+          "error": 0.2402791369264315,
+          "cosine": 0.9711947637178492,
+          "response_norm_ratio": 1.002070850177754
+        },
+        "quartic": {
+          "error": 0.1963257669852034,
+          "cosine": 0.9806789948476322,
+          "response_norm_ratio": 0.9640929248583214
+        }
+      },
+      "directions": [
+        {
+          "direction": 0,
+          "sign": -1,
+          "target_rms": 0.6683421440417189,
+          "errors": {
+            "quadratic": 0.24224841169298772,
+            "quartic": 0.16751125051569918
+          }
+        },
+        {
+          "direction": 0,
+          "sign": 1,
+          "target_rms": 0.834200314482112,
+          "errors": {
+            "quadratic": 0.22584394526917995,
+            "quartic": 0.15919698352008127
+          }
+        },
+        {
+          "direction": 1,
+          "sign": -1,
+          "target_rms": 0.3368388718940597,
+          "errors": {
+            "quadratic": 0.30351133038399103,
+            "quartic": 0.2809132317619363
+          }
+        },
+        {
+          "direction": 1,
+          "sign": 1,
+          "target_rms": 0.4147131289902454,
+          "errors": {
+            "quadratic": 0.23236917826152217,
+            "quartic": 0.29628120599901653
+          }
+        },
+        {
+          "direction": 2,
+          "sign": -1,
+          "target_rms": 0.5309404082901769,
+          "errors": {
+            "quadratic": 0.23805591749303387,
+            "quartic": 0.18438935805162807
+          }
+        },
+        {
+          "direction": 2,
+          "sign": 1,
+          "target_rms": 0.6105434984047162,
+          "errors": {
+            "quadratic": 0.223719838003261,
+            "quartic": 0.1791250662624359
+          }
+        },
+        {
+          "direction": 3,
+          "sign": -1,
+          "target_rms": 0.5076703811911171,
+          "errors": {
+            "quadratic": 0.24924801969260257,
+            "quartic": 0.2523779696642079
+          }
+        },
+        {
+          "direction": 3,
+          "sign": 1,
+          "target_rms": 0.39600898995881034,
+          "errors": {
+            "quadratic": 0.35089214350688197,
+            "quartic": 0.2698992718812363
+          }
+        },
+        {
+          "direction": 4,
+          "sign": -1,
+          "target_rms": 0.6563918942827972,
+          "errors": {
+            "quadratic": 0.24609114298467974,
+            "quartic": 0.17078106841032
+          }
+        },
+        {
+          "direction": 4,
+          "sign": 1,
+          "target_rms": 0.8042899273649197,
+          "errors": {
+            "quadratic": 0.23579824930766452,
+            "quartic": 0.16277897151138845
+          }
+        },
+        {
+          "direction": 5,
+          "sign": -1,
+          "target_rms": 0.6694902090322932,
+          "errors": {
+            "quadratic": 0.19194223875378458,
+            "quartic": 0.1948726212322496
+          }
+        },
+        {
+          "direction": 5,
+          "sign": 1,
+          "target_rms": 0.5263940447985355,
+          "errors": {
+            "quadratic": 0.2539554795159545,
+            "quartic": 0.1916791743347925
+          }
+        },
+        {
+          "direction": 6,
+          "sign": -1,
+          "target_rms": 0.28884234872113007,
+          "errors": {
+            "quadratic": 0.33517154843014013,
+            "quartic": 0.3256502190609813
+          }
+        },
+        {
+          "direction": 6,
+          "sign": 1,
+          "target_rms": 0.3034192992471862,
+          "errors": {
+            "quadratic": 0.2697241205960489,
+            "quartic": 0.28550528579456746
+          }
+        },
+        {
+          "direction": 7,
+          "sign": -1,
+          "target_rms": 0.5181401057476166,
+          "errors": {
+            "quadratic": 0.2323738380389941,
+            "quartic": 0.17822916803592317
+          }
+        },
+        {
+          "direction": 7,
+          "sign": 1,
+          "target_rms": 0.6054713192732961,
+          "errors": {
+            "quadratic": 0.21318058451505523,
+            "quartic": 0.1778570971798756
+          }
+        }
+      ]
+    },
+    {
+      "family": "learned",
+      "amplitude": 1.0,
+      "metrics": {
+        "quadratic": {
+          "error": 0.24440177737517838,
+          "cosine": 0.9697008467957692,
+          "response_norm_ratio": 0.9769092488779276
+        },
+        "quartic": {
+          "error": 0.20867172394970737,
+          "cosine": 0.9784428798706809,
+          "response_norm_ratio": 0.948537068633154
+        }
+      },
+      "directions": [
+        {
+          "direction": 0,
+          "sign": -1,
+          "target_rms": 1.1919330325054838,
+          "errors": {
+            "quadratic": 0.26197887673343356,
+            "quartic": 0.17763484904962956
+          }
+        },
+        {
+          "direction": 0,
+          "sign": 1,
+          "target_rms": 1.853783552871522,
+          "errors": {
+            "quadratic": 0.22706177652242446,
+            "quartic": 0.16144084899697655
+          }
+        },
+        {
+          "direction": 1,
+          "sign": -1,
+          "target_rms": 0.6099246559193394,
+          "errors": {
+            "quadratic": 0.3497252785621977,
+            "quartic": 0.29647596864033066
+          }
+        },
+        {
+          "direction": 1,
+          "sign": 1,
+          "target_rms": 0.9226966121702243,
+          "errors": {
+            "quadratic": 0.22309513850718507,
+            "quartic": 0.32184347119402246
+          }
+        },
+        {
+          "direction": 2,
+          "sign": -1,
+          "target_rms": 0.9859836481366799,
+          "errors": {
+            "quadratic": 0.2516441207396737,
+            "quartic": 0.18894919066029817
+          }
+        },
+        {
+          "direction": 2,
+          "sign": 1,
+          "target_rms": 1.3033409305658856,
+          "errors": {
+            "quadratic": 0.22232786325180087,
+            "quartic": 0.17854572244903225
+          }
+        },
+        {
+          "direction": 3,
+          "sign": -1,
+          "target_rms": 1.1699711162064,
+          "errors": {
+            "quadratic": 0.23307095454047297,
+            "quartic": 0.28509322106114426
+          }
+        },
+        {
+          "direction": 3,
+          "sign": 1,
+          "target_rms": 0.7220094004757732,
+          "errors": {
+            "quadratic": 0.4039940999566135,
+            "quartic": 0.32448436308216977
+          }
+        },
+        {
+          "direction": 4,
+          "sign": -1,
+          "target_rms": 1.1807964256802492,
+          "errors": {
+            "quadratic": 0.26162792941334956,
+            "quartic": 0.17828936574831375
+          }
+        },
+        {
+          "direction": 4,
+          "sign": 1,
+          "target_rms": 1.7708157500099975,
+          "errors": {
+            "quadratic": 0.23854537755871408,
+            "quartic": 0.16255775436764652
+          }
+        },
+        {
+          "direction": 5,
+          "sign": -1,
+          "target_rms": 1.5060512948238542,
+          "errors": {
+            "quadratic": 0.18325691845953673,
+            "quartic": 0.2173309098028343
+          }
+        },
+        {
+          "direction": 5,
+          "sign": 1,
+          "target_rms": 0.9343074078117877,
+          "errors": {
+            "quadratic": 0.29340728384535697,
+            "quartic": 0.21590193453053433
+          }
+        },
+        {
+          "direction": 6,
+          "sign": -1,
+          "target_rms": 0.5689923297611851,
+          "errors": {
+            "quadratic": 0.36775109743989204,
+            "quartic": 0.3515357851812444
+          }
+        },
+        {
+          "direction": 6,
+          "sign": 1,
+          "target_rms": 0.6271332335729625,
+          "errors": {
+            "quadratic": 0.2404067603956222,
+            "quartic": 0.27304510221914696
+          }
+        },
+        {
+          "direction": 7,
+          "sign": -1,
+          "target_rms": 0.9561536763623645,
+          "errors": {
+            "quadratic": 0.24998231830298745,
+            "quartic": 0.18368294661783896
+          }
+        },
+        {
+          "direction": 7,
+          "sign": 1,
+          "target_rms": 1.3046755470244042,
+          "errors": {
+            "quadratic": 0.2121475351797018,
+            "quartic": 0.18314283332790227
+          }
+        }
+      ]
+    },
+    {
+      "family": "random",
+      "amplitude": 0.25,
+      "metrics": {
+        "quadratic": {
+          "error": 0.49628561454514036,
+          "cosine": 0.8682268766899922,
+          "response_norm_ratio": 0.8790583406402951
+        },
+        "quartic": {
+          "error": 0.5165469317666491,
+          "cosine": 0.8563715304126568,
+          "response_norm_ratio": 0.8424815765302518
+        }
+      },
+      "directions": [
+        {
+          "direction": 0,
+          "sign": -1,
+          "target_rms": 0.010954043990830331,
+          "errors": {
+            "quadratic": 0.6686337718950066,
+            "quartic": 0.7094206015376614
+          }
+        },
+        {
+          "direction": 0,
+          "sign": 1,
+          "target_rms": 0.012694955745735675,
+          "errors": {
+            "quadratic": 0.5896666421920388,
+            "quartic": 0.6126446985421684
+          }
+        },
+        {
+          "direction": 1,
+          "sign": -1,
+          "target_rms": 0.01477966031970881,
+          "errors": {
+            "quadratic": 0.4735811847728413,
+            "quartic": 0.4852193734359904
+          }
+        },
+        {
+          "direction": 1,
+          "sign": 1,
+          "target_rms": 0.01295664422068629,
+          "errors": {
+            "quadratic": 0.5397497628134641,
+            "quartic": 0.5574234406480705
+          }
+        },
+        {
+          "direction": 2,
+          "sign": -1,
+          "target_rms": 0.011959061655024904,
+          "errors": {
+            "quadratic": 0.5739312757712133,
+            "quartic": 0.5710310995210732
+          }
+        },
+        {
+          "direction": 2,
+          "sign": 1,
+          "target_rms": 0.013989922612333566,
+          "errors": {
+            "quadratic": 0.5085869807021973,
+            "quartic": 0.49369796306858904
+          }
+        },
+        {
+          "direction": 3,
+          "sign": -1,
+          "target_rms": 0.013974755901072328,
+          "errors": {
+            "quadratic": 0.5876267288713897,
+            "quartic": 0.655968402115207
+          }
+        },
+        {
+          "direction": 3,
+          "sign": 1,
+          "target_rms": 0.016980360201207374,
+          "errors": {
+            "quadratic": 0.49633764303905403,
+            "quartic": 0.5479732806179674
+          }
+        },
+        {
+          "direction": 4,
+          "sign": -1,
+          "target_rms": 0.011156976615299066,
+          "errors": {
+            "quadratic": 0.6398101689679133,
+            "quartic": 0.7015806326388744
+          }
+        },
+        {
+          "direction": 4,
+          "sign": 1,
+          "target_rms": 0.012361038020943663,
+          "errors": {
+            "quadratic": 0.5797403025594832,
+            "quartic": 0.6310119308687898
+          }
+        },
+        {
+          "direction": 5,
+          "sign": -1,
+          "target_rms": 0.0163354027929174,
+          "errors": {
+            "quadratic": 0.6462200602508082,
+            "quartic": 0.67753300243639
+          }
+        },
+        {
+          "direction": 5,
+          "sign": 1,
+          "target_rms": 0.01814351676615443,
+          "errors": {
+            "quadratic": 0.6037674019933829,
+            "quartic": 0.6135077039020062
+          }
+        },
+        {
+          "direction": 6,
+          "sign": -1,
+          "target_rms": 0.024809888980082948,
+          "errors": {
+            "quadratic": 0.3069041965083409,
+            "quartic": 0.2894532474039543
+          }
+        },
+        {
+          "direction": 6,
+          "sign": 1,
+          "target_rms": 0.02317727867039866,
+          "errors": {
+            "quadratic": 0.32116781863661786,
+            "quartic": 0.30895209908926785
+          }
+        },
+        {
+          "direction": 7,
+          "sign": -1,
+          "target_rms": 0.01695513989577573,
+          "errors": {
+            "quadratic": 0.47022289863508016,
+            "quartic": 0.5049574308995928
+          }
+        },
+        {
+          "direction": 7,
+          "sign": 1,
+          "target_rms": 0.01878683997920518,
+          "errors": {
+            "quadratic": 0.44282480140363994,
+            "quartic": 0.46067657946905105
+          }
+        }
+      ]
+    },
+    {
+      "family": "random",
+      "amplitude": 0.5,
+      "metrics": {
+        "quadratic": {
+          "error": 0.4910482174172598,
+          "cosine": 0.8711641433941649,
+          "response_norm_ratio": 0.8786016540232293
+        },
+        "quartic": {
+          "error": 0.5094023261312804,
+          "cosine": 0.8606552510713795,
+          "response_norm_ratio": 0.8458839591611002
+        }
+      },
+      "directions": [
+        {
+          "direction": 0,
+          "sign": -1,
+          "target_rms": 0.02103536925394845,
+          "errors": {
+            "quadratic": 0.6939471019172947,
+            "quartic": 0.7395380411787025
+          }
+        },
+        {
+          "direction": 0,
+          "sign": 1,
+          "target_rms": 0.027772911574021068,
+          "errors": {
+            "quadratic": 0.548640171450338,
+            "quartic": 0.5610569234673286
+          }
+        },
+        {
+          "direction": 1,
+          "sign": -1,
+          "target_rms": 0.031689048574870655,
+          "errors": {
+            "quadratic": 0.44463279597746974,
+            "quartic": 0.45152923312282245
+          }
+        },
+        {
+          "direction": 1,
+          "sign": 1,
+          "target_rms": 0.024513720111462748,
+          "errors": {
+            "quadratic": 0.5738590370942733,
+            "quartic": 0.5919941633357373
+          }
+        },
+        {
+          "direction": 2,
+          "sign": -1,
+          "target_rms": 0.022030241729003353,
+          "errors": {
+            "quadratic": 0.6138118760423157,
+            "quartic": 0.6168326457022293
+          }
+        },
+        {
+          "direction": 2,
+          "sign": 1,
+          "target_rms": 0.03009805341956669,
+          "errors": {
+            "quadratic": 0.4824640609440292,
+            "quartic": 0.46178384144191537
+          }
+        },
+        {
+          "direction": 3,
+          "sign": -1,
+          "target_rms": 0.025253305791076028,
+          "errors": {
+            "quadratic": 0.6445295227987716,
+            "quartic": 0.720589690562602
+          }
+        },
+        {
+          "direction": 3,
+          "sign": 1,
+          "target_rms": 0.03712949069417528,
+          "errors": {
+            "quadratic": 0.4614193519919808,
+            "quartic": 0.5048836646535096
+          }
+        },
+        {
+          "direction": 4,
+          "sign": -1,
+          "target_rms": 0.02172565947634306,
+          "errors": {
+            "quadratic": 0.6589120175883317,
+            "quartic": 0.7221804249460303
+          }
+        },
+        {
+          "direction": 4,
+          "sign": 1,
+          "target_rms": 0.026419450613236528,
+          "errors": {
+            "quadratic": 0.5460112265399665,
+            "quartic": 0.5897227200622489
+          }
+        },
+        {
+          "direction": 5,
+          "sign": -1,
+          "target_rms": 0.03160120820649586,
+          "errors": {
+            "quadratic": 0.6569177394491386,
+            "quartic": 0.6981356310874264
+          }
+        },
+        {
+          "direction": 5,
+          "sign": 1,
+          "target_rms": 0.03866654708611091,
+          "errors": {
+            "quadratic": 0.5777485505133644,
+            "quartic": 0.5771022955165925
+          }
+        },
+        {
+          "direction": 6,
+          "sign": -1,
+          "target_rms": 0.051233138401320655,
+          "errors": {
+            "quadratic": 0.3008261125128854,
+            "quartic": 0.2806943716068487
+          }
+        },
+        {
+          "direction": 6,
+          "sign": 1,
+          "target_rms": 0.044715674465608396,
+          "errors": {
+            "quadratic": 0.3294875360009625,
+            "quartic": 0.319771618875385
+          }
+        },
+        {
+          "direction": 7,
+          "sign": -1,
+          "target_rms": 0.032129544810503834,
+          "errors": {
+            "quadratic": 0.4857816437508679,
+            "quartic": 0.529841708331827
+          }
+        },
+        {
+          "direction": 7,
+          "sign": 1,
+          "target_rms": 0.03943194587050467,
+          "errors": {
+            "quadratic": 0.43084692618951487,
+            "quartic": 0.4411225507004521
+          }
+        }
+      ]
+    },
+    {
+      "family": "random",
+      "amplitude": 1.0,
+      "metrics": {
+        "quadratic": {
+          "error": 0.4724653170647244,
+          "cosine": 0.8813592947403366,
+          "response_norm_ratio": 0.8771542674807341
+        },
+        "quartic": {
+          "error": 0.48389509317068796,
+          "cosine": 0.8753058083867957,
+          "response_norm_ratio": 0.8575654760806949
+        }
+      },
+      "directions": [
+        {
+          "direction": 0,
+          "sign": -1,
+          "target_rms": 0.042702583290390936,
+          "errors": {
+            "quadratic": 0.6891330703723737,
+            "quartic": 0.7317464070585427
+          }
+        },
+        {
+          "direction": 0,
+          "sign": 1,
+          "target_rms": 0.0666225720411945,
+          "errors": {
+            "quadratic": 0.478751712414903,
+            "quartic": 0.47061162655212685
+          }
+        },
+        {
+          "direction": 1,
+          "sign": -1,
+          "target_rms": 0.07265255686318062,
+          "errors": {
+            "quadratic": 0.39719476915270135,
+            "quartic": 0.3929590285299659
+          }
+        },
+        {
+          "direction": 1,
+          "sign": 1,
+          "target_rms": 0.0456990148367089,
+          "errors": {
+            "quadratic": 0.6299551575316131,
+            "quartic": 0.6422904142358534
+          }
+        },
+        {
+          "direction": 2,
+          "sign": -1,
+          "target_rms": 0.03745254506181111,
+          "errors": {
+            "quadratic": 0.7058073571673487,
+            "quartic": 0.7192750839080609
+          }
+        },
+        {
+          "direction": 2,
+          "sign": 1,
+          "target_rms": 0.06883084058488596,
+          "errors": {
+            "quadratic": 0.44068937875215,
+            "quartic": 0.409161299470769
+          }
+        },
+        {
+          "direction": 3,
+          "sign": -1,
+          "target_rms": 0.04203670522612126,
+          "errors": {
+            "quadratic": 0.7674843747792631,
+            "quartic": 0.8530771762981403
+          }
+        },
+        {
+          "direction": 3,
+          "sign": 1,
+          "target_rms": 0.08710786314542215,
+          "errors": {
+            "quadratic": 0.4082286259945112,
+            "quartic": 0.4365185599483225
+          }
+        },
+        {
+          "direction": 4,
+          "sign": -1,
+          "target_rms": 0.043884172437428905,
+          "errors": {
+            "quadratic": 0.6618061718164008,
+            "quartic": 0.7188387870774217
+          }
+        },
+        {
+          "direction": 4,
+          "sign": 1,
+          "target_rms": 0.06096437605953707,
+          "errors": {
+            "quadratic": 0.48322033814280213,
+            "quartic": 0.5103241334550546
+          }
+        },
+        {
+          "direction": 5,
+          "sign": -1,
+          "target_rms": 0.06243385462427013,
+          "errors": {
+            "quadratic": 0.6461188618905674,
+            "quartic": 0.701451491628265
+          }
+        },
+        {
+          "direction": 5,
+          "sign": 1,
+          "target_rms": 0.08831877003426991,
+          "errors": {
+            "quadratic": 0.5261105711852645,
+            "quartic": 0.5071033055395961
+          }
+        },
+        {
+          "direction": 6,
+          "sign": -1,
+          "target_rms": 0.10880484718897328,
+          "errors": {
+            "quadratic": 0.29046326823996615,
+            "quartic": 0.26493777800538565
+          }
+        },
+        {
+          "direction": 6,
+          "sign": 1,
+          "target_rms": 0.08290030806236852,
+          "errors": {
+            "quadratic": 0.34887327376447397,
+            "quartic": 0.34376824511771165
+          }
+        },
+        {
+          "direction": 7,
+          "sign": -1,
+          "target_rms": 0.057471975208129376,
+          "errors": {
+            "quadratic": 0.5207123393875193,
+            "quartic": 0.5850607519740578
+          }
+        },
+        {
+          "direction": 7,
+          "sign": 1,
+          "target_rms": 0.08631192424227929,
+          "errors": {
+            "quadratic": 0.40985865427116697,
+            "quartic": 0.4066113513043657
+          }
+        }
+      ]
+    }
+  ],
+  "predictions": {
+    "pred_a_response": true,
+    "pred_b_order": true,
+    "pred_c_instrument": true
+  },
+  "maximum_radius_error": 4.172325134277344e-07,
+  "maximum_response_precision_error": 0.00011727714919360297,
+  "seconds": 1.6133281248621643,
+  "scope": "Input counterfactual responses of isolated folded function, not semantic/native full-model interventions. Random directions match pre-normalization perturbation L2; normalization can change realized tangent lengths."
+}

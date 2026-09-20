@@ -10,6 +10,9 @@ def quadratic(s,x):
  return s['constant']+(d@s['linear_reader'].T)@s['linear_writer'].T+((d@s['quadratic_left'].T)*(d@s['quadratic_right'].T))@s['quadratic_writer'].T
 
 def quartic(s,x):
+ if 'output_writer' in s:
+  primitive=(x@s['A'].T)*(x@s['B'].T);bank=primitive@s['bank_writer'].T if 'bank_writer' in s else primitive
+  return ((bank@s['root_left'].T)*(bank@s['root_right'].T))@s['output_writer'].T+s['constant']
  if 'bank_writer' in s:bank=((x@s['A'].T)*(x@s['B'].T))@s['bank_writer'].T
  else:bank=((x@s['U'].flatten(0,1).T)*(x@s['V'].flatten(0,1).T)).reshape(len(x),4,4).sum(2)
  i,j=torch.triu_indices(4,4,device=x.device)
