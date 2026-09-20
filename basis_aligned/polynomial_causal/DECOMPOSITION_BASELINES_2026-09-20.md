@@ -110,3 +110,9 @@ aggregate-only algebraic query plan reduces92 to85 but remains more expensive.
 Individual edge attribution is a different interface and needs its own comparison.
 [Cost and reuse audit](SUBJECT_NUMBER_COST_AND_REUSE_AUDIT_2026-09-20.md) verifies
 the symbolic cancellation and distinguishes same-task transfer from cross-task reuse.
+
+v643/v644 now support a conditional six-MLP response baseline: freezing six later
+attention writes gives1.7–3.9% effect error on opened prompts and3.0–9.8% on new
+matched-position prompts. [Conditional chain](SUBJECT_NUMBER_CONDITIONAL_CHAIN_2026-09-20.md)
+charges eight vector ports,95,560,716 fixed values and27,648 products. It is an
+explicit dense reference for future folding, not a simple discovered circuit.
