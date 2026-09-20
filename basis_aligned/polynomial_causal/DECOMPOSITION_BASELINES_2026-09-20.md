@@ -123,3 +123,9 @@ large losses even at initial-only and final-only projections. v650 reserves two
 answer readers at the same width/cost and improves strongly, but still fails.
 [Observable-basis audit](SUBJECT_OBSERVABLE_BASIS_AUDIT_2026-09-20.md) preserves
 these negatives and separates oracle diagnostics from executable predictors.
+
+v651/v652 use derivative/finite-reader bases; v653 uses separate snapshot-balanced
+encoders and decoders. All retain width8 and fail the all-cell effect gates. The
+dual-space program costs522,246 values, including its extra initial encoder.
+[Finite-reader audit](FINITE_READERS_AND_DUAL_SPACES_2026-09-20.md) distinguishes
+exact contraction, planted recovery and empirical native prediction.

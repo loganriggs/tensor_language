@@ -84,3 +84,7 @@ The final reader explicitly differentiates RMS and both separate softcaps. An
 independent three-block float64 autograd test passes, including biases and saturated
 readouts. v651 is registered and queued; no native outcome is claimed yet. This
 targeted search does not reset the scheduled three-hour review clock.
+
+Subsequent v651–v653 results and exact finite-reader/dual-space constructions are
+recorded in [finite readers and dual spaces](FINITE_READERS_AND_DUAL_SPACES_2026-09-20.md).
+The numerical instruments pass; the reduced models still fail the all-cell gates.
