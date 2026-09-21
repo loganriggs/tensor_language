@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-09-21T13:37:15.536103+00:00",
+  "cases": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "noise_levels": [
+    0.0,
+    0.0001,
+    0.01
+  ],
+  "seed_base": 48000,
+  "shared_width": "2r per pair, r per reuse edge",
+  "pair_support_width": "2r + private_width from fixed architecture",
+  "proposal": "Enumerate regular pencil block subsets at shared width; minimize top-r principal-angle residual to each neighboring truncated pair support. Recover edges by balanced leading principal vectors of selected common spaces.",
+  "refit": "At fixed graph family, <=200 L-BFGS iterations from algebraic proposals, raw dense coefficient residual with exact conditional cores. Strong-Wolfe line search. No oracle directions used.",
+  "pred_a": "All five zero-noise cases retain coefficient error<1e-8.",
+  "pred_b": "At each positive noise level at least4/5 refitted cases achieve coefficient error<=2*noise.",
+  "pred_c": "At noise.01 at least4/5 refitted shared-edge subspaces have maximum projector discrepancy<=.1.",
+  "scope": "Exploratory approximate extension of exact algebraic discovery. Same architecture and original noisy coefficient targets. Native full-rank applicability and exponential enumeration remain unresolved; no native promotion from this test alone.",
+  "correction_utc": "2026-09-21T13:39:19.094264+00:00",
+  "instrument_correction": "V1 all positive-noise arms invalid: torch LBFGS flattens gradients with view and QR-initialized parameters inherited non-contiguous layout. Make parameter and gradient buffers contiguous. Same mathematical objective, data, initialization values, optimizer budget and gates; V1 preserved."
+}

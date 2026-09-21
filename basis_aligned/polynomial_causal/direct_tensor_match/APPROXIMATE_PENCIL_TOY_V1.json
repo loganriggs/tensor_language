@@ -1,0 +1,297 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T13:37:15.536103+00:00",
+    "cases": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "noise_levels": [
+      0.0,
+      0.0001,
+      0.01
+    ],
+    "seed_base": 48000,
+    "shared_width": "2r per pair, r per reuse edge",
+    "pair_support_width": "2r + private_width from fixed architecture",
+    "proposal": "Enumerate regular pencil block subsets at shared width; minimize top-r principal-angle residual to each neighboring truncated pair support. Recover edges by balanced leading principal vectors of selected common spaces.",
+    "refit": "At fixed graph family, <=200 L-BFGS iterations from algebraic proposals, raw dense coefficient residual with exact conditional cores. Strong-Wolfe line search. No oracle directions used.",
+    "pred_a": "All five zero-noise cases retain coefficient error<1e-8.",
+    "pred_b": "At each positive noise level at least4/5 refitted cases achieve coefficient error<=2*noise.",
+    "pred_c": "At noise.01 at least4/5 refitted shared-edge subspaces have maximum projector discrepancy<=.1.",
+    "scope": "Exploratory approximate extension of exact algebraic discovery. Same architecture and original noisy coefficient targets. Native full-rank applicability and exponential enumeration remain unresolved; no native promotion from this test alone."
+  },
+  "records": [
+    {
+      "case": 0,
+      "noise": 0.0,
+      "instrument": true,
+      "initial_error": 6.738918814269711e-15,
+      "final_error": 6.749733062396184e-15,
+      "projector_errors": [
+        1.1156669786133305e-14,
+        1.8088011928359675e-15,
+        2.3513488871372546e-15
+      ],
+      "source_multiplications": 231,
+      "execution_replay": 1.1697769714178104e-15,
+      "evaluations": 0,
+      "proposal_stats": [
+        {
+          "pair": 0,
+          "score": -4.440892098500626e-16,
+          "next_score": 0.19585681331574378,
+          "candidate_count": 3
+        },
+        {
+          "pair": 1,
+          "score": -8.881784197001252e-16,
+          "next_score": 0.3568681775052588,
+          "candidate_count": 3
+        },
+        {
+          "pair": 2,
+          "score": -1.5543122344752192e-15,
+          "next_score": 0.35448816090785473,
+          "candidate_count": 3
+        }
+      ],
+      "coefficient_pass": true,
+      "subspace_pass": null
+    },
+    {
+      "case": 0,
+      "noise": 0.0001,
+      "instrument": false,
+      "failure": "view size is not compatible with input tensor's size and stride (at least one dimension spans across two contiguous subspaces). Use .reshape(...) instead."
+    },
+    {
+      "case": 0,
+      "noise": 0.01,
+      "instrument": false,
+      "failure": "view size is not compatible with input tensor's size and stride (at least one dimension spans across two contiguous subspaces). Use .reshape(...) instead."
+    },
+    {
+      "case": 1,
+      "noise": 0.0,
+      "instrument": true,
+      "initial_error": 6.310072776194207e-15,
+      "final_error": 6.32145733406942e-15,
+      "projector_errors": [
+        3.6740121574229864e-14,
+        2.871176784803121e-14,
+        4.517805608301561e-15
+      ],
+      "source_multiplications": 498,
+      "execution_replay": 3.061451897725657e-15,
+      "evaluations": 0,
+      "proposal_stats": [
+        {
+          "pair": 0,
+          "score": 1.1102230246251565e-15,
+          "next_score": 0.2899530564467845,
+          "candidate_count": 10
+        },
+        {
+          "pair": 1,
+          "score": -4.440892098500626e-16,
+          "next_score": 0.1880301229673791,
+          "candidate_count": 10
+        },
+        {
+          "pair": 2,
+          "score": -8.881784197001252e-16,
+          "next_score": 0.1255247532210897,
+          "candidate_count": 10
+        }
+      ],
+      "coefficient_pass": true,
+      "subspace_pass": null
+    },
+    {
+      "case": 1,
+      "noise": 0.0001,
+      "instrument": false,
+      "failure": "view size is not compatible with input tensor's size and stride (at least one dimension spans across two contiguous subspaces). Use .reshape(...) instead."
+    },
+    {
+      "case": 1,
+      "noise": 0.01,
+      "instrument": false,
+      "failure": "view size is not compatible with input tensor's size and stride (at least one dimension spans across two contiguous subspaces). Use .reshape(...) instead."
+    },
+    {
+      "case": 2,
+      "noise": 0.0,
+      "instrument": true,
+      "initial_error": 9.038124653840536e-15,
+      "final_error": 9.032708846867339e-15,
+      "projector_errors": [
+        1.8525265338063392e-14,
+        3.185062924103776e-14,
+        5.1951720729093056e-14
+      ],
+      "source_multiplications": 861,
+      "execution_replay": 7.787236259743601e-15,
+      "evaluations": 0,
+      "proposal_stats": [
+        {
+          "pair": 0,
+          "score": -8.881784197001252e-16,
+          "next_score": 0.06978700649734693,
+          "candidate_count": 35
+        },
+        {
+          "pair": 1,
+          "score": -8.881784197001252e-16,
+          "next_score": 0.07463299633306253,
+          "candidate_count": 35
+        },
+        {
+          "pair": 2,
+          "score": 4.440892098500626e-16,
+          "next_score": 0.0652745131146566,
+          "candidate_count": 35
+        }
+      ],
+      "coefficient_pass": true,
+      "subspace_pass": null
+    },
+    {
+      "case": 2,
+      "noise": 0.0001,
+      "instrument": false,
+      "failure": "view size is not compatible with input tensor's size and stride (at least one dimension spans across two contiguous subspaces). Use .reshape(...) instead."
+    },
+    {
+      "case": 2,
+      "noise": 0.01,
+      "instrument": false,
+      "failure": "view size is not compatible with input tensor's size and stride (at least one dimension spans across two contiguous subspaces). Use .reshape(...) instead."
+    },
+    {
+      "case": 3,
+      "noise": 0.0,
+      "instrument": true,
+      "initial_error": 1.2983160871188144e-15,
+      "final_error": 1.2979868421269516e-15,
+      "projector_errors": [
+        1.0700369563725175e-15,
+        8.011098246997389e-16,
+        9.964583130026116e-16
+      ],
+      "source_multiplications": 231,
+      "execution_replay": 4.151603052057755e-15,
+      "evaluations": 0,
+      "proposal_stats": [
+        {
+          "pair": 0,
+          "score": -1.3322676295501878e-15,
+          "next_score": 0.19719847877498697,
+          "candidate_count": 3
+        },
+        {
+          "pair": 1,
+          "score": -8.881784197001252e-16,
+          "next_score": 0.4653335270505061,
+          "candidate_count": 3
+        },
+        {
+          "pair": 2,
+          "score": 0.0,
+          "next_score": 0.749744450699665,
+          "candidate_count": 3
+        }
+      ],
+      "coefficient_pass": true,
+      "subspace_pass": null
+    },
+    {
+      "case": 3,
+      "noise": 0.0001,
+      "instrument": false,
+      "failure": "view size is not compatible with input tensor's size and stride (at least one dimension spans across two contiguous subspaces). Use .reshape(...) instead."
+    },
+    {
+      "case": 3,
+      "noise": 0.01,
+      "instrument": false,
+      "failure": "view size is not compatible with input tensor's size and stride (at least one dimension spans across two contiguous subspaces). Use .reshape(...) instead."
+    },
+    {
+      "case": 4,
+      "noise": 0.0,
+      "instrument": true,
+      "initial_error": 2.6608978598140293e-14,
+      "final_error": 2.6605662340061012e-14,
+      "projector_errors": [
+        2.6603193579597516e-13,
+        9.370060847730554e-14,
+        1.3953244987685544e-13
+      ],
+      "source_multiplications": 498,
+      "execution_replay": 5.2993091546921565e-14,
+      "evaluations": 0,
+      "proposal_stats": [
+        {
+          "pair": 0,
+          "score": 1.3322676295501878e-15,
+          "next_score": 0.25005387604239027,
+          "candidate_count": 10
+        },
+        {
+          "pair": 1,
+          "score": -2.6645352591003757e-15,
+          "next_score": 0.28469765649562584,
+          "candidate_count": 22
+        },
+        {
+          "pair": 2,
+          "score": 6.661338147750939e-16,
+          "next_score": 0.25238713682207115,
+          "candidate_count": 10
+        }
+      ],
+      "coefficient_pass": true,
+      "subspace_pass": null
+    },
+    {
+      "case": 4,
+      "noise": 0.0001,
+      "instrument": false,
+      "failure": "view size is not compatible with input tensor's size and stride (at least one dimension spans across two contiguous subspaces). Use .reshape(...) instead."
+    },
+    {
+      "case": 4,
+      "noise": 0.01,
+      "instrument": false,
+      "failure": "view size is not compatible with input tensor's size and stride (at least one dimension spans across two contiguous subspaces). Use .reshape(...) instead."
+    }
+  ],
+  "summary": {
+    "0.0": {
+      "valid": 5,
+      "coefficient_passes": 5,
+      "subspace_passes": 0
+    },
+    "0.0001": {
+      "valid": 0,
+      "coefficient_passes": 0,
+      "subspace_passes": 0
+    },
+    "0.01": {
+      "valid": 0,
+      "coefficient_passes": 0,
+      "subspace_passes": 0
+    }
+  },
+  "seconds": 0.7283008280210197,
+  "predictions": {
+    "pred_a": true,
+    "pred_b": false,
+    "pred_c": false
+  },
+  "scope": "Architecture-width support truncation, scored invariant block proposals, balanced shared edges, then local dense coefficient refinement. Exact graph export checked. Known directions used only to audit, never initialize. Tiny regular pencil cases; not native recovery."
+}
