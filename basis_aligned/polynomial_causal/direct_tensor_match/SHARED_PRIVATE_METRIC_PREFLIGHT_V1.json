@@ -1,0 +1,40 @@
+{
+  "checks": [
+    {
+      "seed": 0,
+      "private_width": 0,
+      "loss_replay": 1.1102230246251565e-16,
+      "gradient_replay": 4.336808689942018e-18,
+      "envelope_replay": 4.336808689942018e-18
+    },
+    {
+      "seed": 1,
+      "private_width": 3,
+      "loss_replay": 0.0,
+      "gradient_replay": 1.3877787807814457e-17,
+      "envelope_replay": 1.734723475976807e-17
+    },
+    {
+      "seed": 2,
+      "private_width": 3,
+      "loss_replay": 1.1102230246251565e-16,
+      "gradient_replay": 8.673617379884035e-18,
+      "envelope_replay": 5.204170427930421e-18
+    },
+    {
+      "seed": 3,
+      "private_width": 3,
+      "loss_replay": 1.1102230246251565e-16,
+      "gradient_replay": 1.734723475976807e-17,
+      "envelope_replay": 6.938893903907228e-18
+    },
+    {
+      "seed": 4,
+      "private_width": 3,
+      "loss_replay": 1.1102230246251565e-16,
+      "gradient_replay": 8.673617379884035e-18,
+      "envelope_replay": 6.071532165918825e-18
+    }
+  ],
+  "scope": "Five synthetic dense-loss, gradient and analytic-readout envelope checks; includes empty-private baseline. These are instrument checks, not structural recovery experiments."
+}
