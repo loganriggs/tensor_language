@@ -1,0 +1,52 @@
+{
+  "created_utc": "2026-09-21T13:47:58.777103+00:00",
+  "metrics": [
+    "calibration_shaped",
+    "native_isotropic"
+  ],
+  "initial_objectives": {
+    "calibration_shaped": {
+      "algebraic": 0.02497037918635728,
+      "inherited": 0.006310575870076995
+    },
+    "native_isotropic": {
+      "algebraic": 0.43800285745675166,
+      "inherited": 0.250510612552894
+    }
+  },
+  "baseline": {
+    "native_error": 0.5525962583461952,
+    "covariance_error": 0.0703133565524768,
+    "per_mode_errors": [
+      0.018692583665713903,
+      0.020499346791718828,
+      0.08805202711597365
+    ],
+    "euclidean_jacobian_errors": [
+      0.187428758387592,
+      0.15902999281611183,
+      0.16001348745745214
+    ],
+    "stored_floats": 1340940,
+    "index_integers": 3456,
+    "activation_products": 1152,
+    "projection_multiplications": 1327104,
+    "source_total_multiplications": 1330560,
+    "source_additions": 1329148
+  },
+  "optimizer": "LBFGS, strong Wolfe, 200iterations/max250evaluations/history50; positive objective rescaling by initial loss",
+  "primary": "Lowest covariance objective across both initializations, retaining any instrument failure rather than selecting around it.",
+  "scope": "Joint shared and private directions; exact symmetric cores; same1056products and original fidelity/cost limits. Algebraic versus inherited initializations at identical optimization budget. No random fit claimed; all direction information from weights or previously saved weight fits.",
+  "hashes": {
+    "joint_orthogonal_private.py": "afd05040dc1da451543319bb2e914ac4b3c7dec47e98acad65fd0aac95b1b705",
+    "orthogonal_private_varpro.py": "7ac13c9095868742f1381ee516cb819418935f22daf92f3436aa5310efcba3b6",
+    "pairwise_reader_graph.py": "408d43a44a72547ad451bc918792c08f4d12370171f4f2655b037cb4388c7116",
+    "pairwise_graph_assessment.py": "9e592cf80486fa0de84a4de4ee156a37db772ca64635ba7b86c31b3d06bcc854",
+    "export_orthogonal_private.py": "baa1b1efbc62b53edbd748bbc645bf89bf119807b4d697926c3e673e4fe1cc3c",
+    "quadratic_pair_blocks.py": "45b8fa4b2ee41e260f984f7908f6e0a448ce7cb0a96e0423a0112d716458b259",
+    "SHARED_PRODUCT_NATIVE_INPUTS_V1.pt": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+    "PENCIL_NATIVE_PROPOSAL_STATES_V1.pt": "b204c576a301497455bb178b4981876b07bb6bb318e8cc4f9ceae19d05be5d6b",
+    "ORTHOGONAL_PRIVATE_NATIVE_STATES_V1.pt": "2374c9f80896c1999a7bcdb98345ef704f0d0428b963f4526ba6f39bf3c58e81",
+    "ORTHOGONAL_PRIVATE_NATIVE_PROGRAMS_V1.pt": "cfce0d97e610c45361ca79905c152a78f6f09153018e54db0ac7cd3a2fa6d3b9"
+  }
+}

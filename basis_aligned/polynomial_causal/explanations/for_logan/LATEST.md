@@ -2,6 +2,8 @@
 
 **Start here — [Folding → tensor decomposition → a simpler arithmetic circuit](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Overall review rewritten 21 September 2026, 13:07 UTC. Reconnects QR and the two-stage proposal to the broad and local results, explains the scope change, and distinguishes better tensor fits from a successful cheap circuit. Includes the completed private-direction fit.
 
+**Latest two-stage result — [Algebraic proposals and local graph refitting](research_update_2026-09-21_1345_algebraic_proposals_and_refitting.md).** Exact planted sharing is recovered algebraically. A bounded sixteen-candidate search plus refitting passes noisy toy gates; internal-feature ambiguity remains. Native-size proposal checks have started.
+
 **Latest optimization result — [Coordinates and shared-feature discovery](research_update_2026-09-21_1320_parameterization_and_shared_feature_discovery.md).** Equivalent coordinates slightly improve the native fit but still fail fidelity. Known-shared toy recovery passes; learning the shared spaces from scratch fails. Actual FP32 execution and derivative checks pass.
 
 **Latest algebraic result — [Private forms and input-span limits](research_update_2026-09-21_1256_private_forms_and_input_span_limits.md).** Alternating exact fits improve covariance error to7.994%but still fail. A rank bound excludes the frozen pair spans; a spectral release fails. The subsequent private-direction fit has completed without improving its warm start; see the overall review.
