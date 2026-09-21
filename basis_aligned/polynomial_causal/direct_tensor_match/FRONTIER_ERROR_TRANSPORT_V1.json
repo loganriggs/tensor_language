@@ -1,0 +1,112 @@
+{
+  "records": [
+    {
+      "cohort": "all",
+      "candidate": "graph",
+      "error_energies": {
+        "natural": 16364778.508367589,
+        "hybrid": 16774452.513064362,
+        "change": 14290747.407554854
+      },
+      "paired_error_inner_product": 9424241.80693855,
+      "error_cosine": 0.5688099406542699,
+      "common_level_error_energy": 12996928.658827264,
+      "half_change_error_energy": 3572686.8518887134,
+      "sites": 6371
+    },
+    {
+      "cohort": "all",
+      "candidate": "separate",
+      "error_energies": {
+        "natural": 18581209.553529147,
+        "hybrid": 19124106.015527677,
+        "change": 16339588.05597969
+      },
+      "paired_error_inner_product": 10682863.756538566,
+      "error_cosine": 0.5667090234732521,
+      "common_level_error_energy": 14767760.770533489,
+      "half_change_error_energy": 4084897.0139949224,
+      "sites": 6371
+    },
+    {
+      "cohort": "continuation",
+      "candidate": "graph",
+      "error_energies": {
+        "natural": 371036.46324393793,
+        "hybrid": 512529.5543669636,
+        "change": 589988.0267448823
+      },
+      "paired_error_inner_product": 146788.99543300958,
+      "error_cosine": 0.3366090171886997,
+      "common_level_error_energy": 294286.00211923016,
+      "half_change_error_energy": 147497.0066862206,
+      "sites": 157
+    },
+    {
+      "cohort": "continuation",
+      "candidate": "separate",
+      "error_energies": {
+        "natural": 430811.74833339424,
+        "hybrid": 606512.5657105492,
+        "change": 701883.1303309116
+      },
+      "paired_error_inner_product": 167720.59185651597,
+      "error_cosine": 0.3281124545590503,
+      "common_level_error_energy": 343191.37443924387,
+      "half_change_error_energy": 175470.7825827279,
+      "sites": 157
+    },
+    {
+      "cohort": "spaced_word",
+      "candidate": "graph",
+      "error_energies": {
+        "natural": 661201.007876461,
+        "hybrid": 780764.5537894551,
+        "change": 811908.8797074205
+      },
+      "paired_error_inner_product": 315028.3409792478,
+      "error_cosine": 0.43845278038819346,
+      "common_level_error_energy": 518005.56090610294,
+      "half_change_error_energy": 202977.21992685512,
+      "sites": 318
+    },
+    {
+      "cohort": "spaced_word",
+      "candidate": "separate",
+      "error_energies": {
+        "natural": 507670.8551422199,
+        "hybrid": 629151.5611826456,
+        "change": 913696.6488404608
+      },
+      "paired_error_inner_product": 111562.88374220236,
+      "error_cosine": 0.19740174001225375,
+      "common_level_error_energy": 339987.04595231754,
+      "half_change_error_energy": 228424.1622101152,
+      "sites": 318
+    }
+  ],
+  "comparisons": [
+    {
+      "cohort": "all",
+      "common_level_error_ratio": 0.9381300411563289,
+      "change_error_ratio": 0.935205215025885,
+      "graph_error_cosine": 0.5688099406542699,
+      "baseline_error_cosine": 0.5667090234732521
+    },
+    {
+      "cohort": "continuation",
+      "common_level_error_ratio": 0.9260120125803284,
+      "change_error_ratio": 0.9168308049646142,
+      "graph_error_cosine": 0.3366090171886997,
+      "baseline_error_cosine": 0.3281124545590503
+    },
+    {
+      "cohort": "spaced_word",
+      "common_level_error_ratio": 1.2343434760592322,
+      "change_error_ratio": 0.942654683425524,
+      "graph_error_cosine": 0.43845278038819346,
+      "baseline_error_cosine": 0.19740174001225375
+    }
+  ],
+  "scope": "Exact paired-vector identities from aggregate squared errors on identical recipient/donor sites. Common-level error means mean of natural and hybrid errors; it need not be a constant bias or an invariant semantic feature. No mean subtraction, row selection, fitting or new-data claim."
+}
