@@ -1,0 +1,378 @@
+{
+  "predictions": {
+    "pred_a_integrity": true,
+    "pred_b_price": true,
+    "pred_c_fidelity": false
+  },
+  "parent_native_errors": [
+    {
+      "value_error": 0.03243586841337468,
+      "response_errors": [
+        0.06021223786215359,
+        0.07357813972409183,
+        0.07337205617460939
+      ]
+    },
+    {
+      "value_error": 0.08985961656976432,
+      "response_errors": [
+        0.14937801877325826,
+        0.1539306955256682,
+        0.1484468597866039
+      ]
+    }
+  ],
+  "records": [
+    {
+      "metric": "coefficient",
+      "projection": {
+        "relative_error": 0.18614965842145503,
+        "tail_error": 0.18614965842147277,
+        "certificate": 6.605508642701146e-15,
+        "metric_minimum_eigenvalue": 0.1164463766305565,
+        "metric_maximum_eigenvalue": 0.8073529994420198
+      },
+      "parent_metric_errors": {
+        "coefficient": 0.18614965842145503,
+        "empirical": 0.1311713349784975
+      },
+      "native_errors": [
+        {
+          "value_error": 0.12598217969822453,
+          "response_errors": [
+            0.15586424305863636,
+            0.16200287290637144,
+            0.16294438346090315
+          ]
+        },
+        {
+          "value_error": 0.14804913701377706,
+          "response_errors": [
+            0.202280052285599,
+            0.2058007562297864,
+            0.20108822425528602
+          ]
+        }
+      ],
+      "fp32_replay": [
+        8.848021459766121e-07,
+        8.750788439458722e-07
+      ],
+      "price": {
+        "products": 384,
+        "stored_coefficients": 322048,
+        "stored_integer_indices": 768,
+        "additions": 320652,
+        "fp32_parameter_and_index_bytes": 1294336
+      },
+      "pair_diagnostics": [
+        {
+          "first": 0,
+          "status": "shared",
+          "pencil_condition": 425.6086332249341,
+          "eigenbasis_condition": 37.5809421560087,
+          "real_basis_condition": 43.62575090013738,
+          "matrix_replay": [
+            4.713436616173569e-14,
+            3.9940369264430525e-14
+          ],
+          "output_rotation": 0.0,
+          "original_matrix_replay": [
+            4.712033683974179e-14,
+            3.998161455126494e-14
+          ]
+        },
+        {
+          "first": 2,
+          "status": "shared",
+          "pencil_condition": 98.78201441436153,
+          "eigenbasis_condition": 177.6947931943566,
+          "real_basis_condition": 177.88901290688796,
+          "matrix_replay": [
+            6.077416321509621e-13,
+            2.955668375766334e-13
+          ],
+          "output_rotation": 0.0,
+          "original_matrix_replay": [
+            6.078356069837978e-13,
+            2.9552174331848206e-13
+          ]
+        },
+        {
+          "first": 4,
+          "status": "shared",
+          "pencil_condition": 206.79891302386494,
+          "eigenbasis_condition": 105.65894479573564,
+          "real_basis_condition": 108.53752270337588,
+          "matrix_replay": [
+            1.9062452673330009e-13,
+            6.667009184414258e-14
+          ],
+          "output_rotation": 0.0,
+          "original_matrix_replay": [
+            1.905281264861908e-13,
+            6.663111951806493e-14
+          ]
+        },
+        {
+          "first": 6,
+          "status": "shared",
+          "pencil_condition": 2316.108672367035,
+          "eigenbasis_condition": 31.082422660978082,
+          "real_basis_condition": 32.458337515175124,
+          "matrix_replay": [
+            1.9543118038444715e-13,
+            1.983445834494631e-13
+          ],
+          "output_rotation": 0.0,
+          "original_matrix_replay": [
+            1.9541297057436415e-13,
+            1.9837236860155286e-13
+          ]
+        },
+        {
+          "first": 8,
+          "status": "shared",
+          "pencil_condition": 226.6666878137629,
+          "eigenbasis_condition": 73.53098995751947,
+          "real_basis_condition": 76.50688504785731,
+          "matrix_replay": [
+            1.9609308430156736e-13,
+            1.1485155898321252e-13
+          ],
+          "output_rotation": 0.0,
+          "original_matrix_replay": [
+            1.9609663913981293e-13,
+            1.1484061233406062e-13
+          ]
+        },
+        {
+          "first": 10,
+          "status": "shared",
+          "pencil_condition": 346.2941011726652,
+          "eigenbasis_condition": 90.07145332106346,
+          "real_basis_condition": 96.81437697460001,
+          "matrix_replay": [
+            7.296806345158641e-14,
+            4.202755096381982e-14
+          ],
+          "output_rotation": 0.0,
+          "original_matrix_replay": [
+            7.299495596415743e-14,
+            4.2030830753540643e-14
+          ]
+        },
+        {
+          "first": 12,
+          "status": "shared",
+          "pencil_condition": 1893.4708656242656,
+          "eigenbasis_condition": 79.67017020471734,
+          "real_basis_condition": 87.83701632005932,
+          "matrix_replay": [
+            1.9819988657940191e-13,
+            1.9850280267670566e-13
+          ],
+          "output_rotation": 0.0,
+          "original_matrix_replay": [
+            1.9816893656627154e-13,
+            1.9855990276423334e-13
+          ]
+        },
+        {
+          "first": 14,
+          "status": "shared",
+          "pencil_condition": 126.80708769244879,
+          "eigenbasis_condition": 90.82518114024846,
+          "real_basis_condition": 95.85010580390328,
+          "matrix_replay": [
+            3.423002710967372e-14,
+            3.826484971453152e-14
+          ],
+          "output_rotation": 0.0,
+          "original_matrix_replay": [
+            3.426198964778642e-14,
+            3.829753526957369e-14
+          ]
+        }
+      ],
+      "program_sha256": "d3549f11efcc8b332ea5472d08696a81fe3973c9be34f44badf933aea0b0082c"
+    },
+    {
+      "metric": "empirical",
+      "projection": {
+        "relative_error": 0.0352480945407697,
+        "tail_error": 0.03524809454077343,
+        "certificate": 2.6237692574149227e-16,
+        "metric_minimum_eigenvalue": 0.0019452286121283597,
+        "metric_maximum_eigenvalue": 2903.8891774302506
+      },
+      "parent_metric_errors": {
+        "coefficient": 0.21403775805256997,
+        "empirical": 0.035248094540769645
+      },
+      "native_errors": [
+        {
+          "value_error": 0.042906239244366554,
+          "response_errors": [
+            0.07525133075670006,
+            0.08637710303603935,
+            0.08587777654024305
+          ]
+        },
+        {
+          "value_error": 0.0912336543742198,
+          "response_errors": [
+            0.1514169423241381,
+            0.15593850372481585,
+            0.15054925010604217
+          ]
+        }
+      ],
+      "fp32_replay": [
+        5.656349372520655e-07,
+        5.428139427439887e-07
+      ],
+      "price": {
+        "products": 384,
+        "stored_coefficients": 322048,
+        "stored_integer_indices": 768,
+        "additions": 320616,
+        "fp32_parameter_and_index_bytes": 1294336
+      },
+      "pair_diagnostics": [
+        {
+          "first": 0,
+          "status": "shared",
+          "pencil_condition": 286.9972370371703,
+          "eigenbasis_condition": 33.53854576237887,
+          "real_basis_condition": 39.03364721587073,
+          "matrix_replay": [
+            2.5076209998139863e-14,
+            2.957160411158027e-14
+          ],
+          "output_rotation": 0.0,
+          "original_matrix_replay": [
+            2.508888744806039e-14,
+            2.956202062221988e-14
+          ]
+        },
+        {
+          "first": 2,
+          "status": "shared",
+          "pencil_condition": 1619.815146956645,
+          "eigenbasis_condition": 35.10840529402626,
+          "real_basis_condition": 40.40414445091425,
+          "matrix_replay": [
+            1.2659918276393065e-13,
+            1.314477716851648e-13
+          ],
+          "output_rotation": 0.0,
+          "original_matrix_replay": [
+            1.2656641101920358e-13,
+            1.3146805129098375e-13
+          ]
+        },
+        {
+          "first": 4,
+          "status": "shared",
+          "pencil_condition": 963.2864865395179,
+          "eigenbasis_condition": 19.085999476867514,
+          "real_basis_condition": 22.30415866882988,
+          "matrix_replay": [
+            8.940640552984941e-14,
+            1.0148301756066023e-13
+          ],
+          "output_rotation": 0.0,
+          "original_matrix_replay": [
+            8.941344588996148e-14,
+            1.0148459660876279e-13
+          ]
+        },
+        {
+          "first": 6,
+          "status": "shared",
+          "pencil_condition": 189.89785496418887,
+          "eigenbasis_condition": 79.20464820355815,
+          "real_basis_condition": 71.97649364592262,
+          "matrix_replay": [
+            4.29081145399978e-14,
+            5.5097859244431487e-14
+          ],
+          "output_rotation": 0.0,
+          "original_matrix_replay": [
+            4.294986776877093e-14,
+            5.5070084619684215e-14
+          ]
+        },
+        {
+          "first": 8,
+          "status": "shared",
+          "pencil_condition": 342.35378061494686,
+          "eigenbasis_condition": 74.2173956576495,
+          "real_basis_condition": 68.21410958116181,
+          "matrix_replay": [
+            1.1143576441470569e-13,
+            1.7529353806612208e-13
+          ],
+          "output_rotation": 0.0,
+          "original_matrix_replay": [
+            1.1144350284456711e-13,
+            1.7528011861279412e-13
+          ]
+        },
+        {
+          "first": 10,
+          "status": "shared",
+          "pencil_condition": 293.19404721482863,
+          "eigenbasis_condition": 61.17649346124756,
+          "real_basis_condition": 68.59467320046514,
+          "matrix_replay": [
+            1.2497612905519012e-13,
+            9.723707015533443e-14
+          ],
+          "output_rotation": 0.0,
+          "original_matrix_replay": [
+            1.2508371017565444e-13,
+            9.722748550279155e-14
+          ]
+        },
+        {
+          "first": 12,
+          "status": "shared",
+          "pencil_condition": 586.7335815490787,
+          "eigenbasis_condition": 50.38101898746287,
+          "real_basis_condition": 45.82110479181086,
+          "matrix_replay": [
+            2.3064175936999868e-14,
+            3.856266721757491e-14
+          ],
+          "output_rotation": 0.0,
+          "original_matrix_replay": [
+            2.3077658205476626e-14,
+            3.8552514224525066e-14
+          ]
+        },
+        {
+          "first": 14,
+          "status": "shared",
+          "pencil_condition": 1477.9224677825027,
+          "eigenbasis_condition": 110.62692751609936,
+          "real_basis_condition": 99.53718092687961,
+          "matrix_replay": [
+            3.5690228689079847e-13,
+            2.478721450802743e-13
+          ],
+          "output_rotation": 0.0,
+          "original_matrix_replay": [
+            3.569062256061516e-13,
+            2.477993838401798e-13
+          ]
+        }
+      ],
+      "program_sha256": "f50ab7fe62295fd338e883c486ca1d77d3dbf9d3d21883f8b7b95393bf6fb2df"
+    }
+  ],
+  "parent_sha256": "6e66addcd456148a4ddfc4705ba1df21e73a13ea389ea806c9878be4b4023aa8",
+  "seconds": 1.505091424100101,
+  "scope": "Fixed data-informed parent; weight-onlycoefficient versuscalibrationfunctionalcompression; exactconditionaloutputprojectionandpairedrewrite. Oldpanels diagnostic, not nativeendpoint orsemanticadoption."
+}
