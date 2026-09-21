@@ -31610,3 +31610,6 @@ Matched native instrument/improvement/individual gates PASS. Learned vs fixed sw
 
 ### 2026-09-21T00:58Z — Codex: broaden midpoint output coverage
 Previous turn progress: native learned-block improvement plus full-output coverage limit. Claim original-weight fits for 4/16/64/256 outputs at 1/4/16 products each, isotropic and separable-moment metrics. 80 native capture forwards and 512 matrix SVDs. Primary weighted256x4 full variation error <.3 held both domains; compare isotropic same size. Fit calibration only; reused diagnostics; no selective intervention claim. Export64/256 rank4 for successor native evaluation.
+
+### 2026-09-21T01:00Z — Codex: full folded-path native replacement preregistered
+While coverage sweep is live, implement 48-forward successor comparing constant, exact64/256 output projections, and rank4 programs against entire source-dependent contribution. Include omitted directions in native removal/swap and replacement CE; thresholds in executable/plan. Queue dependency requires coverage exports; no changes to running script.
