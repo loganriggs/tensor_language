@@ -1,0 +1,173 @@
+{
+  "predictions": {
+    "pred_a_integrity": true,
+    "pred_b_capacity": false,
+    "pred_c_target": false
+  },
+  "records": [
+    {
+      "objective": 0.0071535190508492386,
+      "selected_step": 100,
+      "training_error": 0.08455995357527268,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.0388534916063502,
+          "error": 0.19668556519355154
+        },
+        {
+          "step": 25,
+          "objective": 0.010550283777446011,
+          "error": 0.10269488198911966
+        },
+        {
+          "step": 50,
+          "objective": 0.007880204666456182,
+          "error": 0.08875173996044139
+        },
+        {
+          "step": 75,
+          "objective": 0.007257654209614093,
+          "error": 0.085173288888273
+        },
+        {
+          "step": 100,
+          "objective": 0.0071535190508492386,
+          "error": 0.08455995357527268
+        }
+      ],
+      "width": 4,
+      "learning_rate": 0.0017677669529663686,
+      "initialization": "inherited",
+      "evaluation_error": 0.12992609147475376,
+      "export_replay": 2.9379903082806505e-07,
+      "products": 26,
+      "stored_coefficients": 48384,
+      "program_sha256": "3a0257474864b4283682e954e9f8c887de6d63b1614116da13adfc5f4ad7c9dc"
+    },
+    {
+      "objective": 0.01353173847599711,
+      "selected_step": 100,
+      "training_error": 0.11632259290391926,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.5301455962620948,
+          "error": 0.7281108267247268
+        },
+        {
+          "step": 25,
+          "objective": 0.02235443263299005,
+          "error": 0.14951044115712459
+        },
+        {
+          "step": 50,
+          "objective": 0.01566668512816587,
+          "error": 0.12516335494587277
+        },
+        {
+          "step": 75,
+          "objective": 0.013852636079037093,
+          "error": 0.1176938631969646
+        },
+        {
+          "step": 100,
+          "objective": 0.01353173847599711,
+          "error": 0.11632259290391926
+        }
+      ],
+      "width": 4,
+      "learning_rate": 0.0017677669529663686,
+      "initialization": "random",
+      "evaluation_error": 0.19412053082575856,
+      "export_replay": 2.0313622140023377e-07,
+      "products": 26,
+      "stored_coefficients": 48384,
+      "program_sha256": "f9471fb31075dc776834d9637419033bf51f404a24386e64bc58f03f437f5171"
+    },
+    {
+      "objective": 0.000883193909435873,
+      "selected_step": 100,
+      "training_error": 0.029660956827353438,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.012138582261401874,
+          "error": 0.10979874283105288
+        },
+        {
+          "step": 25,
+          "objective": 0.0012988117412924853,
+          "error": 0.03599008724859458
+        },
+        {
+          "step": 50,
+          "objective": 0.000964804922517785,
+          "error": 0.031004801947895178
+        },
+        {
+          "step": 75,
+          "objective": 0.0008942914804358429,
+          "error": 0.02984719887380388
+        },
+        {
+          "step": 100,
+          "objective": 0.000883193909435873,
+          "error": 0.029660956827353438
+        }
+      ],
+      "width": 32,
+      "learning_rate": 0.0017677669529663686,
+      "initialization": "inherited",
+      "evaluation_error": 0.12873940345535037,
+      "export_replay": 6.225731765416901e-07,
+      "products": 656,
+      "stored_coefficients": 903168,
+      "program_sha256": "10f16a93dfa96e624747b68aca860dccab070a663560d968024ee33f86c42bf1"
+    },
+    {
+      "objective": 0.0013452387717887095,
+      "selected_step": 100,
+      "training_error": 0.03663970810482324,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.13918144211553715,
+          "error": 0.37306933405224507
+        },
+        {
+          "step": 25,
+          "objective": 0.0022966814959914667,
+          "error": 0.04789655376489218
+        },
+        {
+          "step": 50,
+          "objective": 0.001529973353160175,
+          "error": 0.0390801109634604
+        },
+        {
+          "step": 75,
+          "objective": 0.0013699850934770805,
+          "error": 0.036975998523249815
+        },
+        {
+          "step": 100,
+          "objective": 0.0013452387717887095,
+          "error": 0.03663970810482324
+        }
+      ],
+      "width": 32,
+      "learning_rate": 0.0017677669529663686,
+      "initialization": "random",
+      "evaluation_error": 0.1947743525207424,
+      "export_replay": 4.109726656933533e-07,
+      "products": 656,
+      "stored_coefficients": 903168,
+      "program_sha256": "2e278ce246e97cea0ddf9010d0da97ea1d2bd857b5d590b8f26803c670167d05"
+    }
+  ],
+  "target_replay": 6.500653450529694e-07,
+  "optimizer": "adam",
+  "seconds": 4.685700512025505,
+  "scope": "True native purequartic teacher, empirical functional fit on old2048calibrationstates; oldsecondpanel reporting only. Best trainingobjective checkpoint; physical residual writer exported with teacher_scale/QR folded. Counts exclude common unembedding, no explicit-normalization/residual-path replacement or circuit adoption."
+}
