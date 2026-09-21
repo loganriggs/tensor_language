@@ -1,0 +1,46 @@
+{
+  "panels": [
+    {
+      "panel": "fineweb_n96_skip1200.pt",
+      "full_cache_shape": [
+        96,
+        513
+      ],
+      "captured_prefixes": 32,
+      "positions": [
+        0,
+        63
+      ],
+      "normalized_state_rows": 2048,
+      "token_hash_replay": true,
+      "distinct_65token_prefixes": 31,
+      "mean_state_squared_radius": 1151.9999864408626,
+      "document_identity_certified": false
+    },
+    {
+      "panel": "fineweb_n192_skip7000.pt",
+      "full_cache_shape": [
+        192,
+        513
+      ],
+      "captured_prefixes": 32,
+      "positions": [
+        0,
+        63
+      ],
+      "normalized_state_rows": 2048,
+      "token_hash_replay": true,
+      "distinct_65token_prefixes": 32,
+      "mean_state_squared_radius": 1151.999988262038,
+      "document_identity_certified": false
+    }
+  ],
+  "old_panel_exact_prefix_overlap": 0,
+  "candidate_additional_prefixes": 64,
+  "candidate_distinct_prefixes": 64,
+  "candidate_overlap_with_oldcal": 0,
+  "candidate_overlap_with_eval": 0,
+  "candidate_token_sha256": "f6ec9c317602b23f742849dd58ad3df3cc159e4ba2d39e970b63fbe0384f25f4",
+  "candidate_state_rows": 4096,
+  "scope": "Exacttoken-prefixprovenance only. Different65tokenstrings do not establish documentdisjointness or untouchedhistoricalusage. Candidatecapture expandsoldcalprefix32to96withoutfittingevalpanel or changing positions. No new activations collected."
+}
