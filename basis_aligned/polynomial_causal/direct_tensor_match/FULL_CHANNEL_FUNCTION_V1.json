@@ -1,0 +1,62 @@
+{
+  "records": [
+    {
+      "geometry": "folded_euclidean",
+      "policy": "energy",
+      "width": 3686,
+      "coefficient_error": 0.33755475116910466,
+      "normal_residual": 2.162327126760038e-15,
+      "raw": {
+        "total_error": 0.1601318278461112,
+        "centered_error": 0.21207953996954643,
+        "mean_error": 0.12209978397389074
+      },
+      "affine_repaired": {
+        "total_error": 0.09157421520087593,
+        "centered_error": 0.1412850589781727,
+        "mean_error": 0.04426950755779235
+      },
+      "affine_identity_replay": 3.924552003754645e-14,
+      "reduced_factor_coefficients": 12738816,
+      "extra_affine_coefficients": 1328256,
+      "parameter_saving_with_repair": 0.1166811342592593
+    },
+    {
+      "geometry": "activation_covariance",
+      "policy": "conditional",
+      "width": 3686,
+      "coefficient_error": 0.1080244473185234,
+      "normal_residual": 2.9847483968362423e-15,
+      "raw": {
+        "total_error": 0.0577096189959734,
+        "centered_error": 0.07504218110376623,
+        "mean_error": 0.04531083844986441
+      },
+      "affine_repaired": {
+        "total_error": 0.0394616828566574,
+        "centered_error": 0.06392897302790146,
+        "mean_error": 0.012365407292584044
+      },
+      "affine_identity_replay": 1.1129372136055708e-13,
+      "reduced_factor_coefficients": 12738816,
+      "extra_affine_coefficients": 1328256,
+      "parameter_saving_with_repair": 0.1166811342592593
+    }
+  ],
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_centered": true,
+    "pred_c_repair": true
+  },
+  "controls": [
+    0.0,
+    2.686500258325772e-16,
+    5.905500306058718e-16,
+    0.0,
+    3.3970096125554614e-16,
+    3.0518508364223453e-16,
+    7.096702179747258e-16
+  ],
+  "seconds": 2.4851032542064786,
+  "scope": "Full lastMLP unembedding-read polynomial evaluated at2048opened historical normalized inputs, not fresh or finalnormalizedlogit behavior. Exact affine mean/tangent correction changes student function and is fully priced. Teacher andstudent outputcommonframe norm preserved; no candidateadoption."
+}
