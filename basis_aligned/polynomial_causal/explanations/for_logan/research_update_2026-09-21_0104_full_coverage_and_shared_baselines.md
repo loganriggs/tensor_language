@@ -162,3 +162,18 @@ Code replacement CE increases are0.04257,0.07990 and0.06768 nats/token respectiv
 Ridge0.1 was selected using complementary16-document halves of the original calibration panel: mean conditional validation error fell from42.41% to34.67%. Channel selection used the full calibration panel, so this is conditional output-fit validation rather than an independent validation of channel selection. No held native outcomes selected the penalty.
 
 The successor experiment exposes all1,024 learned products individually and refits their output writes, allowing them to escape the original256 output groups. This instantiates the proposed graph edit of splitting an output-shared feature. It increases output-weight storage and does not yet save products. Initial conditional calibration validation warns of severe overfitting: unregularized average error295.6%, reduced to42.9% with ridge0.1. Native testing is pending. A useful next control is regularizing around the original weight-derived writers rather than around zero, preserving their prior structure while fitting residual errors.
+
+## 01:15 UTC addendum: a weight-anchored graph correction helps
+
+The zero-centered output refit discarded useful weight-derived structure. Penalizing departure from the original writers instead, with penalty10 selected by conditional calibration-document validation, improved native results at the same1,024product count:
+
+| Metric | Original grouped writers | Dense anchored correction |
+|---|---:|---:|
+| FineWeb swap error | 31.15% | 30.55% |
+| Code swap error | 26.71% | 26.37% |
+| FineWeb replacement CE added | 0.00958 | 0.00955 |
+| Code replacement CE added | 0.04257 | 0.03032 |
+
+The relative-improvement and CE checks pass, but FineWeb remains above the earlier absolute30% intervention bar. We do not promote this as a completed circuit.
+
+A successor computation compresses the output correction into shared linear features of the existing products. For product vector $p$, the write becomes the original grouped write plus $(p^\top A_r)B_r^\top$. This retains all1,024products and adds only linear combinations. Rank8 adds17,408coefficients, bringing weight storage to2,671,616; its conditional calibration error is18.92%. An exact flat-versus-graph replay passed below1e-12. Rank8/32 native tests are queued with a rank0 mean-only control. The broader contribution is moving from a decomposition into a graph with reusable corrections; feature semantics and identification remain unproved.

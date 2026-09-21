@@ -11,6 +11,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3];P=ROOT/'basis_aligned/polynomial_causal/direct_tensor_match'
 OUTPUT_NAME='MIDPOINT_FULL_REPLACE_V1.json'
 EXTRA_CHANNEL_FILE=None
+EXTRA_PRODUCT_FILE=None
 def main():
  if os.environ.get('BQLIB_DRYRUN') or os.environ.get('BQLIB_NO_MODEL'):print(json.dumps(dict(forwards=48,candidates=['constant','projected64','projected256','program64','program256'])));return
  import torch
@@ -24,9 +25,10 @@ def main():
  extra={} if EXTRA_CHANNEL_FILE is None else {name:{k:v.cuda().double() for k,v in e.items()} for name,e in torch.load(P/EXTRA_CHANNEL_FILE,weights_only=True).items()}
  for e in extra.values():
   ids=e['indices'].long();checks.extend([float((e['L']-L[ids]).abs().max()),float((e['R']-R[ids]).abs().max())])
+ product_extra={} if EXTRA_PRODUCT_FILE is None else {name:{k:v.cuda().double() for k,v in e.items()} for name,e in torch.load(P/EXTRA_PRODUCT_FILE,weights_only=True).items()}
  logits=lambda x:30*torch.tanh(model.lm_head(F.rms_norm(x,(1152,)))/30)
  for domain in ['fineweb','code']:
-  tokens=torch.load(P/f'SELECTIVE_CONFIRMATION_{domain.upper()}_V1.pt',weights_only=True);states=[];teacher=[];preds={k:[] for k in ['constant','projected64','projected256','program64','program256']+['channel_'+name for name in extra]}
+  tokens=torch.load(P/f'SELECTIVE_CONFIRMATION_{domain.upper()}_V1.pt',weights_only=True);states=[];teacher=[];preds={k:[] for k in ['constant','projected64','projected256','program64','program256']+['channel_'+name for name in extra]+['product_'+name for name in product_extra]}
   for row in tokens:
    c=capture(model,row[None,:256].cuda());h=c['h17'].double().flatten(0,1);m=(b17.lambdas[0]*(c['m16']-b16.mlp.Down_bias)).double().flatten(0,1);s=(h.square().mean(-1,keepdim=True)+torch.finfo(torch.float32).eps).sqrt();n=(h-m/2)/s;m=m/s;y=((n@L.T)*(m@R.T)+(m@L.T)*(n@R.T))@C.T-mu;teacher.append(y@invru.T);states.append(c['final'].flatten(0,1));preds['constant'].append(torch.zeros_like(y))
    for w,e in programs.items():
@@ -34,6 +36,8 @@ def main():
     if len(states)==1:checks.append(float((reduced@e['scalar_readers']-scalar).norm()/scalar.norm()))
    for name,e in extra.items():
     phi=(n@e['L'].T)*(m@e['R'].T)+(n@e['R'].T)*(m@e['L'].T)-e['channel_mean'];reduced=phi@e['reduced_writers'].T+e['full_mean']-mu;preds['channel_'+name].append(reduced@invru.T)
+   for name,e in product_extra.items():
+    phi=(n@e['A'])*(m@e['B'])-e['product_mean'];reduced=phi@e['reduced_writers'].T+e['full_mean']-mu;preds['product_'+name].append(reduced@invru.T)
   states=torch.cat(states);true=torch.cat(teacher);preds={k:torch.cat(v) for k,v in preds.items()};targets=tokens[:,1:257].reshape(-1).cuda();flat=tokens[:,:256].flatten();mapping=donors[domain]['same_token'];valid=mapping>=0;docs=torch.arange(len(flat))//256;assert torch.all(docs[valid]!=docs[mapping[valid]]) and torch.all(flat[valid]==flat[mapping[valid]])
   for doc in range(len(tokens)):
    idx=torch.arange(doc*256+16,(doc+1)*256,device='cuda');state=states[idx];base=logits(state);basece=F.cross_entropy(base,targets[idx],reduction='none');checks.append(float((logits(state+(true[idx]-true[idx]).float())-base).abs().max()))

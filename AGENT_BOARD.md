@@ -31634,3 +31634,9 @@ Conditional calibration halves favor ridge .1: mean validation normerror .4241 t
 
 ### 2026-09-21T01:11Z — Codex: ridge insufficient; lift output grouping of learned products
 Ridge native channel instrumentPASS, equalbudget/CEFAIL: swap FW .3863/code .3305, codeCE .06768. SuccessorCPU exposes1024learned individualproducts from256x4 weightdecomposition, regularizedall-outputrefit atfixedproductdirections. This tests user two-stage split-outputsharedfeature edit; rootcoeff cost rises to1.18M, inputcoeff2.36M. Conditionalcaldocumentvalidation selectsridge; no nativefitting.
+
+### 2026-09-21T01:12Z — Codex: anchor graph-output refit to original weights
+Previous turn progress: regularizedchannel native null, ungroupedproduct conditionalfit overfit diagnosed. CPU fit standardized residual output weights around originalgroupedwriter prior at sevenridgevalues .001..1e6, conditionalcaldocvalidation. Productdirections frozen; no nativepanelfit. Compare tozero-prior ungroupedgraph beforestructuralconclusion.
+
+### 2026-09-21T01:14Z — Codex: anchored refit improves; compress correction CPU
+Native anchored allrelativecomparison/CEchecksPASS: swapFW .3055/code .2637, codeCE .03032. Stillabove original30%FWbar; no promotion. Zero-prior worse. SuccessorCPU lowrank outputcorrection in calibrationfunctionalmetric, ranks0/1/4/8/16/32/64/128, preserve originalgroupedwriter; export8/32 reusablelinear-node graphs with exactflat replay, price addedcoefficients.
