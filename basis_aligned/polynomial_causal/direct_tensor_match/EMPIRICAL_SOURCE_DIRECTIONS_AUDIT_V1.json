@@ -1,0 +1,144 @@
+{
+  "rows": [
+    {
+      "key": "0_seed816",
+      "lam": 0,
+      "replay_error": 1.3702075695100883e-15,
+      "source_products": 399,
+      "stored_floats": 896198,
+      "original_coefficient_error": 0.07395122267037665,
+      "per_mode_errors": [
+        0.020826967704170658,
+        0.020345370353421117,
+        0.17192096546203411
+      ],
+      "without_centered_private_errors": [
+        0.020826967704170658,
+        0.020345370353421117,
+        0.23112140806997214
+      ],
+      "third_error_reduction_from_private": 0.2561443489908778,
+      "other_components_max_change": 0.0
+    },
+    {
+      "key": "0_seed1816",
+      "lam": 0,
+      "replay_error": 1.2861682787336415e-15,
+      "source_products": 399,
+      "stored_floats": 896198,
+      "original_coefficient_error": 0.0739480418264823,
+      "per_mode_errors": [
+        0.020532617805255192,
+        0.022409057029660968,
+        0.17110775674811354
+      ],
+      "without_centered_private_errors": [
+        0.020532617805255192,
+        0.022409057029660968,
+        0.24265146558196857
+      ],
+      "third_error_reduction_from_private": 0.2948414453721372,
+      "other_components_max_change": 0.0
+    },
+    {
+      "key": "1_seed816",
+      "lam": 1,
+      "replay_error": 1.254223793749555e-15,
+      "source_products": 399,
+      "stored_floats": 896198,
+      "original_coefficient_error": 0.07940361770994075,
+      "per_mode_errors": [
+        0.01523437003469919,
+        0.018852490135620126,
+        0.14435645344479014
+      ],
+      "without_centered_private_errors": [
+        0.01523437003469919,
+        0.018852490135620126,
+        0.22526926285737645
+      ],
+      "third_error_reduction_from_private": 0.35918264385591836,
+      "other_components_max_change": 0.0
+    },
+    {
+      "key": "1_seed1816",
+      "lam": 1,
+      "replay_error": 1.2911661125409404e-15,
+      "source_products": 399,
+      "stored_floats": 896198,
+      "original_coefficient_error": 0.07938844959201878,
+      "per_mode_errors": [
+        0.01499060941102524,
+        0.018496630137647244,
+        0.14781133386537817
+      ],
+      "without_centered_private_errors": [
+        0.01499060941102524,
+        0.018496630137647244,
+        0.2266466827173959
+      ],
+      "third_error_reduction_from_private": 0.3478336762171673,
+      "other_components_max_change": 0.0
+    },
+    {
+      "key": "10_seed816",
+      "lam": 10,
+      "replay_error": 1.4988010832439613e-15,
+      "source_products": 399,
+      "stored_floats": 896198,
+      "original_coefficient_error": 0.09307982333625339,
+      "per_mode_errors": [
+        0.021305197728650582,
+        0.022371613907364602,
+        0.1567282224588121
+      ],
+      "without_centered_private_errors": [
+        0.021305197728650582,
+        0.022371613907364602,
+        0.24154007150109597
+      ],
+      "third_error_reduction_from_private": 0.3511295186558684,
+      "other_components_max_change": 0.0
+    },
+    {
+      "key": "10_seed1816",
+      "lam": 10,
+      "replay_error": 3.2751579226442118e-15,
+      "source_products": 399,
+      "stored_floats": 896198,
+      "original_coefficient_error": 0.09308303852423012,
+      "per_mode_errors": [
+        0.01948029951306084,
+        0.02249281313622373,
+        0.15035365247573187
+      ],
+      "without_centered_private_errors": [
+        0.01948029951306084,
+        0.02249281313622373,
+        0.2406991637433103
+      ],
+      "third_error_reduction_from_private": 0.3753461784517287,
+      "other_components_max_change": 0.0
+    }
+  ],
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_values": false,
+    "pred_c_coefficient": true
+  },
+  "private_restart_comparison": {
+    "0": {
+      "cosine": 0.9372611600482615,
+      "relative_difference": 0.35520912194668586
+    },
+    "1": {
+      "cosine": 0.9143654032379306,
+      "relative_difference": 0.4126633859243965
+    },
+    "10": {
+      "cosine": 0.9415855091418509,
+      "relative_difference": 0.34062032007647564
+    }
+  },
+  "scope": "Opened 448 states; centered branch removal is algebraic selectivity, not fresh semantic validation. Native earlier and later inputs remain supplied."
+}

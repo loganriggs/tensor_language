@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-09-21T09:49:17.074502+00:00",
+  "purpose": "Complete all three later component inputs on the existing expanded calibration prefixes, enabling actual conditional component objectives and both-port response checks.",
+  "forwards": 232,
+  "context": 64,
+  "fit": false,
+  "new_prefixes": false,
+  "predictions": {
+    "pred_a_inputs": "Prior z, scale, third t and phi replay below1e-6",
+    "pred_b_source": "All six folded/native source read relative errors below1e-4",
+    "pred_c_components": "All three component replays below1e-4"
+  },
+  "hashes": {
+    "EXPANDED_COVARIANCE_STATES_V1.pt": "d81d3ee4dce0de8583f42a42ec2f6c169b2996719b86a06f34b360d0352b75e4",
+    "SHARED_PRODUCT_NATIVE_INPUTS_V1.pt": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+    "native_feature_capture.py": "f64d717d3e28cb1031a59ffb9281b9cc92664588a13050f6fa8f5be1d27ebf79"
+  }
+}

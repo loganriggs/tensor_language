@@ -167,3 +167,7 @@ Fixed399directions, empiricalsourcepool1536->16384states atsameobjective: primar
 ## 21 September, 09:46 — Later-input conditional response
 
 Analytic derivative through explicit RMS denominator verified against five autodiff controls below 1.7e-16. On opened448 states, partial512 later-h derivative errors are 3.30/6.47/12.79%, compact399 3.20/7.04/18.51%. Complements earlier-z derivatives, but actual upstream chain remains unclosed. Descriptive diagnostic, no new gates or fresh claim. Six-arm empirical-source direction fit remains live; no final selection. [Report](../../explanations/for_logan/research_update_2026-09-21_0946_later_input_response.md).
+
+## 21 September, 09:51 — Empirical direction fit completed
+
+Six matched fits434.7s, selectedlambda1 seed1816 values1.50/1.85/14.78%, coefficient7.94% versus continuedlambda0 7.39%; componentgateFAIL, coefficientguardPASS, independentexportPASS<4e-15. Privatecenteredremoval third22.66%, useful34.8% reduction butrestartformcos.914failsidentity. Later-h derivative14.23%improves, earlier-z19.92%worsens versuscontrol. Noadoption/freshclaim. Next completeall3laterstatecache onexisting232prefixes for actualconditionalcomponentobjective; nativeportsremain. [Report](../../explanations/for_logan/research_update_2026-09-21_0951_empirical_direction_result.md).

@@ -2,6 +2,8 @@
 
 **Start here — [Overall review: folding → decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 09:40 UTC. The two-stage proposal, exact QR, what was implemented, why experiments narrowed, and the main results through the 09:34 update.
 
+**Latest completed experiment — [Empirical direction result](research_update_2026-09-21_0951_empirical_direction_result.md).** All six fits completed. The primary improves component three to 14.78% but fails the 13.14% relative requirement; execution and coefficient checks pass.
+
 **Latest diagnostic — [Later-input response](research_update_2026-09-21_0946_later_input_response.md).** The compact graph retains a third-component response gap at its supplied later state. The empirical direction fit is running; no final outcome yet.
 
 **Latest experiment — [Expanded moment calibration](research_update_2026-09-21_0934_expanded_moment_calibration.md).** More calibration improves fixed-direction transfer, but the relative component gate still fails. Full-batch direction refitting is preregistered, with no outcome yet.
