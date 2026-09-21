@@ -1,0 +1,284 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T12:49:09.849489+00:00",
+    "steps": 1800,
+    "rate": 0.03,
+    "optimizers": [
+      "adam",
+      "muon"
+    ],
+    "seeds": [
+      0,
+      1
+    ],
+    "threshold": 0.01,
+    "required_cases": 4,
+    "selection": "Lowest geometricmeanerror overall10runs peroptimizer; require4of5within1%usingbestof2starts.",
+    "pred_a": "Five independent oracle/fulltensor/envelope/throughKroneckergradient andfinite-differencecontrols pass.",
+    "pred_b": "Selectedoptimizer recovers>=4of5plantedtargetswithin1%.",
+    "scope": "Freeprivate inputspan withfixedsharedspaces. Nativeintent warmstartfromstrongalternatingfit, not failedspectraljump. No nativefitbeforetoyinterpretation."
+  },
+  "records": [
+    {
+      "case": 0,
+      "optimizer": "adam",
+      "seed": 0,
+      "error": 6.91442526469133e-07,
+      "coupling_norms": [
+        1.1874432653976448,
+        2.8022832577946124,
+        0.9250639012459405
+      ]
+    },
+    {
+      "case": 0,
+      "optimizer": "adam",
+      "seed": 1,
+      "error": 0.008584165784502305,
+      "coupling_norms": [
+        1.187443265397652,
+        3.453536957821584,
+        0.9250639013090682
+      ]
+    },
+    {
+      "case": 0,
+      "optimizer": "muon",
+      "seed": 0,
+      "error": 1.5391953642249302e-07,
+      "coupling_norms": [
+        1.187443268358437,
+        2.802326673276395,
+        0.9250628600682272
+      ]
+    },
+    {
+      "case": 0,
+      "optimizer": "muon",
+      "seed": 1,
+      "error": 0.03648725252011406,
+      "coupling_norms": [
+        1.3052486582816487,
+        2.48558667487419,
+        1.526353645394567
+      ]
+    },
+    {
+      "case": 1,
+      "optimizer": "adam",
+      "seed": 0,
+      "error": 0.02105147340492244,
+      "coupling_norms": [
+        2.490461972886441,
+        1.6152174945911775,
+        2.809679093390037
+      ]
+    },
+    {
+      "case": 1,
+      "optimizer": "adam",
+      "seed": 1,
+      "error": 0.03180953725008347,
+      "coupling_norms": [
+        6.53689459038223,
+        1.6151992606471475,
+        6.819184029895207
+      ]
+    },
+    {
+      "case": 1,
+      "optimizer": "muon",
+      "seed": 0,
+      "error": 0.019669521515247784,
+      "coupling_norms": [
+        3.501629327037705,
+        1.6135077846917139,
+        2.602560106418419
+      ]
+    },
+    {
+      "case": 1,
+      "optimizer": "muon",
+      "seed": 1,
+      "error": 0.036292280133925776,
+      "coupling_norms": [
+        9.377703296774355,
+        1.615334455762825,
+        7.287182749765284
+      ]
+    },
+    {
+      "case": 2,
+      "optimizer": "adam",
+      "seed": 0,
+      "error": 0.009463015504378225,
+      "coupling_norms": [
+        3.2691370527108514,
+        5.0161587503299305,
+        5.704698376429397
+      ]
+    },
+    {
+      "case": 2,
+      "optimizer": "adam",
+      "seed": 1,
+      "error": 0.008625967527656892,
+      "coupling_norms": [
+        6.57568213275132,
+        4.1942776802015205,
+        6.46916278763414
+      ]
+    },
+    {
+      "case": 2,
+      "optimizer": "muon",
+      "seed": 0,
+      "error": 0.002466812235475943,
+      "coupling_norms": [
+        3.8640160036155917,
+        3.785960405662628,
+        5.002861781282
+      ]
+    },
+    {
+      "case": 2,
+      "optimizer": "muon",
+      "seed": 1,
+      "error": 0.012339488869638735,
+      "coupling_norms": [
+        3.9388336819977128,
+        4.893312909862159,
+        4.822677355431633
+      ]
+    },
+    {
+      "case": 3,
+      "optimizer": "adam",
+      "seed": 0,
+      "error": 0.05884442641272871,
+      "coupling_norms": [
+        6.391381457654611,
+        0.9876499929048982,
+        1.4342889532773588
+      ]
+    },
+    {
+      "case": 3,
+      "optimizer": "adam",
+      "seed": 1,
+      "error": 0.04329958574393206,
+      "coupling_norms": [
+        6.607073851207202,
+        0.987649992905185,
+        1.4342889532773606
+      ]
+    },
+    {
+      "case": 3,
+      "optimizer": "muon",
+      "seed": 0,
+      "error": 1.534737469465698e-07,
+      "coupling_norms": [
+        1.6390893650686071,
+        0.9876500729742255,
+        1.434288119297978
+      ]
+    },
+    {
+      "case": 3,
+      "optimizer": "muon",
+      "seed": 1,
+      "error": 0.029702903814015035,
+      "coupling_norms": [
+        3.5374165111294,
+        0.9864542327284412,
+        1.4338506655712497
+      ]
+    },
+    {
+      "case": 4,
+      "optimizer": "adam",
+      "seed": 0,
+      "error": 0.012090166991635141,
+      "coupling_norms": [
+        1.6216334665604193,
+        4.690034533600392,
+        1.399367445892918
+      ]
+    },
+    {
+      "case": 4,
+      "optimizer": "adam",
+      "seed": 1,
+      "error": 0.010460703423594217,
+      "coupling_norms": [
+        1.6216334665604193,
+        2.3471901119671332,
+        5.021395509104828
+      ]
+    },
+    {
+      "case": 4,
+      "optimizer": "muon",
+      "seed": 0,
+      "error": 0.005010430120845665,
+      "coupling_norms": [
+        2.326338528839139,
+        2.347057302520712,
+        1.3993672274443612
+      ]
+    },
+    {
+      "case": 4,
+      "optimizer": "muon",
+      "seed": 1,
+      "error": 0.001552903016973881,
+      "coupling_norms": [
+        1.6185001905416967,
+        2.349787375691745,
+        1.387612155292282
+      ]
+    }
+  ],
+  "summaries": [
+    {
+      "optimizer": "adam",
+      "best_restart_errors": [
+        6.91442526469133e-07,
+        0.02105147340492244,
+        0.008625967527656892,
+        0.04329958574393206,
+        0.010460703423594217
+      ],
+      "recovered_cases": 2,
+      "geometric_mean_error": 0.006337695462073893
+    },
+    {
+      "optimizer": "muon",
+      "best_restart_errors": [
+        1.5391953642249302e-07,
+        0.019669521515247784,
+        0.002466812235475943,
+        1.534737469465698e-07,
+        0.001552903016973881
+      ],
+      "recovered_cases": 4,
+      "geometric_mean_error": 0.0011577981656423052
+    }
+  ],
+  "winner": {
+    "optimizer": "muon",
+    "best_restart_errors": [
+      1.5391953642249302e-07,
+      0.019669521515247784,
+      0.002466812235475943,
+      1.534737469465698e-07,
+      0.001552903016973881
+    ],
+    "recovered_cases": 4,
+    "geometric_mean_error": 0.0011577981656423052
+  },
+  "recovery_pass": true,
+  "seconds": 45.77883180370554,
+  "scope": "Five unchanged whole-block producttargets; shared spans given, private spans andcouplings randomlyinitialized, symmetriccoreseliminated. Optimizercomparison specifictothisparameterization."
+}
