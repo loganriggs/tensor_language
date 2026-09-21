@@ -30,8 +30,8 @@ def evaluate(program,x):
 
 
 def price(program):
-    m,k,_=program['U'].shape;r=len(program['root_eigenvalues'])
-    return dict(products=m*k+r*m,stored_coefficients=sum(t.numel() for t in program.values()),quadratic_features=m,output_shared_forms=r)
+    m,k,d=program['U'].shape;r=len(program['root_eigenvalues']);v=program['writer'].shape[0]
+    return dict(products=m*k+r*m,additions=2*m*k*(d-1)+m*(k-1)+r*m*(m-1)+r*(m-1)+v*(r-1),stored_coefficients=sum(t.numel() for t in program.values()),quadratic_features=m,output_shared_forms=r)
 
 
 def controls():
