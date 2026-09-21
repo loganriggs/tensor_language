@@ -1,0 +1,5 @@
+**Test actual quadratic banks before scaling Gram-nullspace search**
+
+Use finite evaluation of all unordered quadratic-feature products to test column rank. Any exact polynomial dependency must vanish on every input, so a full-column-rank evaluation matrix rules it out in exact arithmetic. Numerical evidence uses float64, column normalization, relative singular cutoff1e-10, two Gaussian seeds933/934, max(128,8times root-count) probes. This is not a function-norm conditioning bound. No data activations or refitting.
+
+Controls: three independent coordinate squares (root rank6), plus duplicated or linearly dependent fourth feature (still rank6). Native banks: four-feature32input exact-span bank, four-feature12input exact-span compressed bank, and six original1152input source reads. Predict at least one deficient root map; retain null if all full rank. Exact-span coordinates of the first two preserve their complete learned feature functions, unlike the five-amplitude restriction; they are nevertheless approximations to the teacher, not the whole teacher.

@@ -1,0 +1,42 @@
+{
+  "dense_24permutation_control": 3.1244291056976847e-16,
+  "banks": [
+    {
+      "source": "QUARTIC_BANK_CORE_V1.pt",
+      "gram_eigenvalues": [
+        0.099287359797556,
+        0.19592196351441996,
+        0.28725377074140807,
+        0.43439800096742226,
+        0.5458511890813449,
+        0.6188046684968088,
+        0.7937796579960239,
+        1.0923445351765517,
+        1.8373442431514437,
+        4.095014611077024
+      ],
+      "min_over_max": 0.02424591099845736,
+      "numerical_rank": 10,
+      "root_features": 10
+    },
+    {
+      "source": "ROOT_ARCHIVE_METRIC_V1.pt",
+      "gram_eigenvalues": [
+        0.0024783324127263086,
+        0.019677288837802773,
+        0.04036936916798582,
+        0.07067870983176962,
+        0.3519867386894103,
+        0.6327605474362795,
+        0.9718901605867404,
+        1.0597436469493557,
+        1.941535250994703,
+        4.908879955093224
+      ],
+      "min_over_max": 0.0005048671866898898,
+      "numerical_rank": 10,
+      "root_features": 10
+    }
+  ],
+  "scope": "Exact coefficient-inner-product contractions in saved full-feature input spans. Input geometry is that of each saved covariance-scaled coordinate system; rank invariant under invertible input transforms, conditioning is not. No teacher full-model fidelity claim."
+}
