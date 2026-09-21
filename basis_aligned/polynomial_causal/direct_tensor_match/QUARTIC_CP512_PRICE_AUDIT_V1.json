@@ -1,0 +1,13 @@
+{
+  "status": "analytical price audit only; no CP512 fit run",
+  "cp512": {
+    "products": 1536,
+    "coefficients": 2385920,
+    "input_span_upper_bound": 1152
+  },
+  "original_projected_two_mlp": {
+    "products": 9216,
+    "coefficients": 26634240
+  },
+  "scope": "16 fixed output directions; common writer included; dense direct evaluation without further algebraic sharing. Counts are not wall-clock measurements or sufficiency guarantees."
+}

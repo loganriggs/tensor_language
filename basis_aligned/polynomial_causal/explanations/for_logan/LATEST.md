@@ -1,3 +1,5 @@
+**Latest overall follow-up — [What changed after the two-stage proposal](research_update_2026-09-21_2213_what_changed_after_shared_graph.md).** Exact weight fitting, feature-removal failures, optimizer controls, and the new capacity bound; distinguishes completed results from the proposed larger baseline.
+
 **New follow-up — [What the shared features respond to](research_update_2026-09-21_2112_shared_feature_conditions.md).** Newline and UTF-8 associations, second-panel support, and the current-token confound; no new causal-circuit claim.
 
 **Start here — [Overall review: folded weights → decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 21:08 UTC. Explains QR, both stages, why narrow Tucker fits failed, weight versus data-informed objectives, and the latest 656-to-384-product result with its remaining intervention failures.
