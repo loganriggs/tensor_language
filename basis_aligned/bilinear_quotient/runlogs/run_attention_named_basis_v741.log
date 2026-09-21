@@ -1,0 +1,15 @@
+svd4 inside the program: energy 0.9640 | cost +0.0734 (over the program +0.0011)
+rotated4 inside the program: energy 0.9640 | cost +0.0734 (over the program +0.0011)
+named4 inside the program: energy 0.9195 | cost +0.0745 (over the program +0.0022)
+named6 inside the program: energy 0.9336 | cost +0.0728 (over the program +0.0004)
+kernels-only program: as fitted +0.9562 | named-4 +0.9692
+{
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_named4_cheap": true,
+    "pred_c_named6_closer": true,
+    "pred_d_named4_kernels_only": true,
+    "pred_e_rotation_invariant": true
+  },
+  "forwards": 50
+}

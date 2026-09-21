@@ -1,0 +1,64 @@
+{
+  "candidate_id": "attention.named_basis_v741",
+  "finished_utc": "2026-09-21T21:19:58.248932+00:00",
+  "forwards": 50,
+  "plan": {
+    "bars": {
+      "ko_tol": 0.05,
+      "n4_tol": 0.01,
+      "n6_gain": 0.001,
+      "replay_tol": 0.002,
+      "rot_tol": 0.0005
+    },
+    "candidate_id": "attention.named_basis_v741",
+    "execution_policy": "managed_queue_only",
+    "fit_parameters": 0,
+    "forwards_max": 50,
+    "gpu_accessed": false,
+    "model_backwards": 0,
+    "model_loaded": false,
+    "model_updates": 0,
+    "sets": [
+      "skip7000"
+    ]
+  },
+  "predictions": {
+    "pred_a_native_replays": true,
+    "pred_b_named4_cheap": true,
+    "pred_c_named6_closer": true,
+    "pred_d_named4_kernels_only": true,
+    "pred_e_rotation_invariant": true
+  },
+  "report": {
+    "inside_program": {
+      "named4": {
+        "cost": 0.0745004415512085,
+        "energy": 0.9195410310100319,
+        "over_program": 0.0021855831146240234
+      },
+      "named6": {
+        "cost": 0.0727541446685791,
+        "energy": 0.9335702442463544,
+        "over_program": 0.0004392862319946289
+      },
+      "rotated4": {
+        "cost": 0.0734328428904214,
+        "energy": 0.9639782775870342,
+        "over_program": 0.0011179844538369288
+      },
+      "svd4": {
+        "cost": 0.0734328428904214,
+        "energy": 0.9639782775870335,
+        "over_program": 0.0011179844538369288
+      }
+    },
+    "kernels_only": {
+      "as_fitted": 0.9562155008316036,
+      "named4": 0.9692091147104898
+    },
+    "native": 3.1324122746785483,
+    "program_cost": 0.07231485843658447
+  },
+  "schema": "attention_named_basis_result_v741",
+  "serial_seconds": 31.37029283726588
+}
