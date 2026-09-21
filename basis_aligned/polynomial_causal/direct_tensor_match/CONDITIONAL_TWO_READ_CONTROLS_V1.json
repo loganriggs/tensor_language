@@ -1,0 +1,36 @@
+{
+  "records": [
+    {
+      "parity": 0,
+      "alpha": -0.7,
+      "relative_quadratic_replay": 3.657359851206244e-15
+    },
+    {
+      "parity": 0,
+      "alpha": 0.3,
+      "relative_quadratic_replay": 2.743424423866416e-15
+    },
+    {
+      "parity": 0,
+      "alpha": 1.2,
+      "relative_quadratic_replay": 2.1949173380591267e-15
+    },
+    {
+      "parity": 1,
+      "alpha": -0.7,
+      "relative_quadratic_replay": 2.4743823901342856e-14
+    },
+    {
+      "parity": 1,
+      "alpha": 0.3,
+      "relative_quadratic_replay": 1.1327584704765269e-14
+    },
+    {
+      "parity": 1,
+      "alpha": 1.2,
+      "relative_quadratic_replay": 2.2580243424433266e-14
+    }
+  ],
+  "pass_all": true,
+  "scope": "Both read blocks separately, other block and native h fixed. This validates conditional quadratic dependence, not joint convexity or fidelity recovery. Existing correction products already store two readout coefficients."
+}

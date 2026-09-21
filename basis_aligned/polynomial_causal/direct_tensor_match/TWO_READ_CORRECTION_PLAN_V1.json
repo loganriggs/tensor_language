@@ -1,0 +1,9 @@
+{
+  "created_utc": "2026-09-21T14:43:00.177654+00:00",
+  "parent_receipt": "CONVEX_SOURCE_TANGENT_V1_A.json",
+  "products": 14,
+  "proposal": "Let each existing correction square feed both source reads. Alternate first-read and second-read convex minimax solves, other block frozen; no direction or product changes.",
+  "steps": 10,
+  "scope": "Exploratory opened-state fitting. Joint objective is not convex; every conditional update must be nonworsening and checked against the independent executor. Same original fidelity and price bars. Stop early only on registered success or objective improvement below1e-8 for a complete sweep.",
+  "prediction": "Freeing currently zero first-read correction coefficients improves worst fidelity and may pass all original bars at identical physical cost."
+}

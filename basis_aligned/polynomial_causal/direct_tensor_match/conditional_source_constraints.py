@@ -14,7 +14,9 @@ class ConditionalSourceConstraints:
    a=(self.h@pair['a']-.5*reads[:,2*j])/s-pair['alpha'];b=reads[:,2*j+1]/s-pair['beta'];values.append(a*b);jac.append(-.5*(b/s)[:,None]*grad[:,2*j]+(a/s)[:,None]*grad[:,2*j+1])
   return values,jac
  def ratios(self,second):
-  H=torch.stack([form for j in range(3) for form in (self.parent[2*j],second[j])]);values,jac=self.responses(H);out=[]
+  H=torch.stack([form for j in range(3) for form in (self.parent[2*j],second[j])]);return self.ratios_full(H)
+ def ratios_full(self,H):
+  values,jac=self.responses(H);out=[]
   for M,name in ((self.I,'native_error'),(self.S,'covariance_error')):
    E=M@(H-self.true)@M;T=M@self.true@M;out.append((E.square().sum((-1,-2)).reshape(3,2).sum(1)/T.square().sum((-1,-2)).reshape(3,2).sum(1)).mean()/(1.1*self.base[name])**2)
   for j,v in enumerate(values):
