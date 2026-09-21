@@ -1,6 +1,6 @@
 # Latest requested update for Logan
 
-**Start here — [Overall review: QR → tensor decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 15:15 UTC. Explains the original two-stage plan, what is implemented, why work narrowed to six quadratic reads, and the latest local success and fresh-data failures.
+**Start here — [Overall review: QR → tensor decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 16:10 UTC, covering results through 16:02. Explains the two-stage plan, the move to a smaller diagnostic target, the local 15.7% saving, and the unresolved transfer failures.
 
 **Latest experiment detail — [Local graph reconstruction and fresh follow-ups](research_update_2026-09-21_1451_local_graph_fidelity_pass.md).** Local reconstruction passes at 15.7% source-cost saving. Both fresh panels pass absolute checks but retain relative baseline failures; two failures remain after pooling. The full folded replacement and circuit-identification goals remain open.
 
