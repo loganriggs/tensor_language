@@ -1,0 +1,173 @@
+{
+  "predictions": {
+    "pred_a_frozen": true,
+    "pred_b_absolute": true,
+    "pred_c_preserve": true
+  },
+  "summary": {
+    "fineweb": {
+      "constant": {
+        "replacement": {
+          "ce_added": 0.1992920512954394
+        },
+        "removal": {
+          "centered_effect_relative_error": 1.0
+        },
+        "same_token": {
+          "centered_effect_relative_error": 1.0
+        }
+      },
+      "projected64": {
+        "replacement": {
+          "ce_added": 0.016155282609785597
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.26803157744321393
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.33682273771563886
+        }
+      },
+      "projected256": {
+        "replacement": {
+          "ce_added": 0.0083968302855889
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.19744326030221265
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.25135212548436825
+        }
+      },
+      "program64": {
+        "replacement": {
+          "ce_added": 0.016884320974349977
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.2815445206016846
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.35061260104089204
+        }
+      },
+      "program256": {
+        "replacement": {
+          "ce_added": 0.012118670321069658
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.2276908576989295
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.28702221572810604
+        }
+      },
+      "product_pruned512": {
+        "replacement": {
+          "ce_added": 0.012529580120462925
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.22638553847065956
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.2927973637384782
+        }
+      },
+      "product_original1024": {
+        "replacement": {
+          "ce_added": 0.011780164887507756
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.2208567379115381
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.28427840872382626
+        }
+      }
+    },
+    "code": {
+      "constant": {
+        "replacement": {
+          "ce_added": 0.8812508304913839
+        },
+        "removal": {
+          "centered_effect_relative_error": 1.0
+        },
+        "same_token": {
+          "centered_effect_relative_error": 1.0
+        }
+      },
+      "projected64": {
+        "replacement": {
+          "ce_added": 0.05037719818452994
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.18639901622203084
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.2979608182339443
+        }
+      },
+      "projected256": {
+        "replacement": {
+          "ce_added": 0.021420654095709323
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.13443669223866647
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.21972424501291266
+        }
+      },
+      "program64": {
+        "replacement": {
+          "ce_added": 0.06228006271024545
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.19861868822334383
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.3120745789197981
+        }
+      },
+      "program256": {
+        "replacement": {
+          "ce_added": 0.038312075473368165
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.15835577899144296
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.25174201277778474
+        }
+      },
+      "product_pruned512": {
+        "replacement": {
+          "ce_added": 0.027194613963365553
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.15805811308423526
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.2597886462525661
+        }
+      },
+      "product_original1024": {
+        "replacement": {
+          "ce_added": 0.02560553147147099
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.15300687379528582
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.25088457740074965
+        }
+      }
+    }
+  },
+  "program_hashes": {
+    "MIDPOINT_COVERAGE_64_R4_V1.pt": "4b053776e0d0e788500ef0031caa1a8b65a90b7e74dd86afcf3b1b4836447662",
+    "MIDPOINT_COVERAGE_256_R4_V1.pt": "d45e2771288d7b87047e31946fba68a38659524f5887771249d43c6f70cbcd6f",
+    "MIDPOINT_PRUNED_FROZEN_V1.pt": "ff789f8127cdaaa7506580f6b9e3ba5920f64be40a7008aaa253caf1f6999781"
+  },
+  "scope": "Frozenprograms, newdocuments for this decomposition study; nofit orpostselection. Relatedlocalcode, pretrainedoverlapunknown. Fullmidpointcontribution with upstream native states explicit."
+}

@@ -1,0 +1,210 @@
+{
+  "context": 256,
+  "code_source_glob": "top-level tracked *.py",
+  "selection_note": "Next lexicographic16 eligible top-level tracked Python files, excluding all five prior code panels by source and exact prefix; selected before graph confirmation outputs.",
+  "code_sources": [
+    {
+      "path": "hop_curriculum.py",
+      "sha256": "31f24e697b4a93dc62a4f863c2599aca5c529acc5422b5d7acdd92661c2c258e"
+    },
+    {
+      "path": "hop_data.py",
+      "sha256": "43227263364644c79242145c50420c98c9d63f4dc529e4d729ecce8fe54783c7"
+    },
+    {
+      "path": "hop_fig.py",
+      "sha256": "dce8e15d42fea8ab412b1a0bcb7b333028a9e54d1b2df9fed7fbc2a6f9928691"
+    },
+    {
+      "path": "hop_ladder_figure.py",
+      "sha256": "db11152b9823b14ed312676167aa28e5840359e179addaee9903b739e188f236"
+    },
+    {
+      "path": "hop_probe.py",
+      "sha256": "bbec9cd90155989a0992aaa12fd65b18be60be421ecfc7f451f15d987a6de399"
+    },
+    {
+      "path": "hop_residual_track.py",
+      "sha256": "7651b8043cdd8f2ed1eb32087a67217b803690e399ae88bcb57aa9c0b2b5b8ec"
+    },
+    {
+      "path": "hop_train.py",
+      "sha256": "d891417475b7a4581ede9042f22c5a5be6c6ea860e5356c4ae18ac8406fb7b54"
+    },
+    {
+      "path": "induction_dynamics.py",
+      "sha256": "ca6f05bba7d270b3db720d7edbc144f85bcd4be2d84294a33651c5b47512a2e3"
+    },
+    {
+      "path": "lm_eval.py",
+      "sha256": "3cc8605512fda7bf78f1b3433c4c9b457707256839b9ab2017ca54b863437566"
+    },
+    {
+      "path": "lm_train.py",
+      "sha256": "dabf2e5d71bd6a15af334aeffa846ef657d1e620719cd0ab0729d2a67ab6540a"
+    },
+    {
+      "path": "make_induction_mask.py",
+      "sha256": "d150b42efa5c47ad4831008ecaf84f0e1ec353aa8e30ad22ff32f3fc51c5879e"
+    },
+    {
+      "path": "markov_toy.py",
+      "sha256": "ee676cf3b36c6a706cda979159abd96245f8444c2769ec95dc1eb0c8023a688d"
+    },
+    {
+      "path": "model.py",
+      "sha256": "bd77d02c0b4beebad9f27d93cf9005e3403d7e65a39a60cef9024c8c4426e420"
+    },
+    {
+      "path": "ngram_demo_data.py",
+      "sha256": "85cc6fd47467579b49c6029a24064c83374c713f992ae2995d69b5f7a79988e7"
+    },
+    {
+      "path": "ngram_order.py",
+      "sha256": "d289a1545231392c0379fcc48f16bcb5fefcf828aeed566e035b4d4716a01cda"
+    },
+    {
+      "path": "plot_curves.py",
+      "sha256": "334dd94a40e0e80c220d9142e93013fa9f34a487ebf04d4b3b544ca12ab1b4cd"
+    }
+  ],
+  "excluded_code_sources": [
+    "archive/analysis.py",
+    "archive/analysis_general.py",
+    "archive/analysis_geo.py",
+    "archive/build_gen.py",
+    "archive/build_mech.py",
+    "archive/compare3d.py",
+    "archive/data.py",
+    "archive/geodata.py",
+    "archive/geometry.py",
+    "archive/gpt2_circuit.py",
+    "archive/gpt2_localheads.py",
+    "archive/gpt2_usetest.py",
+    "archive/graphs.py",
+    "archive/icl_reps.py",
+    "archive/llm_circuit_fig.py",
+    "archive/llm_figs.py",
+    "archive/llm_reps.py",
+    "archive/llm_variants.py",
+    "archive/mech.py",
+    "archive/mech_general.py",
+    "archive/probe.py",
+    "archive/structure3d.py",
+    "archive/toy_burst.py",
+    "archive/toy_burst2.py",
+    "archive/toy_lag_fig.py",
+    "archive/toy_localmix.py",
+    "archive/toy_nlmix.py",
+    "archive/toy_query.py",
+    "archive/toy_query_ctrl.py",
+    "archive/toy_recur.py",
+    "archive/toy_selfloop_seeds.py",
+    "archive/toy_stutter.py",
+    "atlas_artifact.py",
+    "build_atlas.py",
+    "build_log.py",
+    "circuit_demo_data.py",
+    "circuit_demo_data2.py",
+    "circuit_demo_data3.py",
+    "circuit_fingerprints.py",
+    "clamp_train.py",
+    "component_fingerprints.py",
+    "copy_isolation.py",
+    "deep_model.py",
+    "differential.py",
+    "gated_curve.py",
+    "hop_ablate.py",
+    "hop_circuit.py",
+    "hop_circuit_agg.py",
+    "jacclust/attn_jacblock.py",
+    "jacclust/attn_sae_real.py",
+    "jacclust/attn_secant.py",
+    "jacclust/bilinear_sae.py",
+    "jacclust/bsae_scaled.py",
+    "jacclust/complexity_split.py",
+    "jacclust/depth_corrected.py",
+    "jacclust/dgp.py",
+    "jacclust/dgp_c.py",
+    "jacclust/dgp_e.py",
+    "jacclust/dict_autointerp_data.py",
+    "jacclust/dict_stability.py",
+    "jacclust/full_mlp_arch.py",
+    "jacclust/hier_geom.py",
+    "jacclust/intervene.py",
+    "jacclust/jacsae.py",
+    "jacclust/jacsae2.py",
+    "jacclust/magfree.py",
+    "jacclust/metric.py",
+    "jacclust/ov_multi.py",
+    "jacclust/ov_squared.py",
+    "jacclust/real_bilinear_sae.py",
+    "jacclust/real_bilinear_sae_500m.py",
+    "jacclust/real_mlp_gtop.py",
+    "jacclust/sae_losscurve.py",
+    "jacclust/secant_depth_sweep.py",
+    "jacclust/secant_honly.py",
+    "jacclust/secant_lowrank_ctrl.py",
+    "jacclust/surrogate.py",
+    "jacclust/transcoder_vs_secant.py",
+    "jacclust/tt_model.py",
+    "jacclust/twoqk.py"
+  ],
+  "fineweb_documents": [
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+  ],
+  "panels": {
+    "code": {
+      "shape": [
+        16,
+        257
+      ],
+      "token_sha256": "27f9be0fc691ca64aac21c49385ebdfa9447c5d06294fb34a1f75dddbb5e2160"
+    },
+    "fineweb": {
+      "shape": [
+        32,
+        257
+      ],
+      "token_sha256": "c30c2ec111ac0c291dd2935d4ce018ec3ba37a1c957187c420ef3b250f7e5f76"
+    }
+  },
+  "program_hashes": {
+    "MIDPOINT_COVERAGE_64_R4_V1.pt": "4b053776e0d0e788500ef0031caa1a8b65a90b7e74dd86afcf3b1b4836447662",
+    "MIDPOINT_COVERAGE_256_R4_V1.pt": "d45e2771288d7b87047e31946fba68a38659524f5887771249d43c6f70cbcd6f",
+    "MIDPOINT_PRUNED_FROZEN_V1.pt": "ff789f8127cdaaa7506580f6b9e3ba5920f64be40a7008aaa253caf1f6999781"
+  },
+  "fineweb_cache": "fineweb_n192_skip11000.pt",
+  "scope": "Unused in this decomposition study at selection time. Related local source files, not broad code representativeness; pretrained overlap unknown."
+}
