@@ -1,0 +1,77 @@
+{
+  "toys": [
+    {
+      "case": 0,
+      "execution_replay": 1.857634448962691e-16,
+      "oracle_regularized_squared_error": 1.3387934049817636e-10,
+      "dense_envelope_gradient_replay": 1.4727432300235223e-16
+    },
+    {
+      "case": 1,
+      "execution_replay": 4.489598833365252e-16,
+      "oracle_regularized_squared_error": 1.8796805333690558e-10,
+      "dense_envelope_gradient_replay": 2.551170794815583e-16
+    },
+    {
+      "case": 2,
+      "execution_replay": 4.285976410928934e-16,
+      "oracle_regularized_squared_error": 1.6384902853180555e-10,
+      "dense_envelope_gradient_replay": 2.3911604618981124e-16
+    },
+    {
+      "case": 3,
+      "execution_replay": 2.831598080288781e-16,
+      "oracle_regularized_squared_error": 1.3223320455719362e-10,
+      "dense_envelope_gradient_replay": 1.7959777797185102e-16
+    },
+    {
+      "case": 4,
+      "execution_replay": 3.6222358039914675e-16,
+      "oracle_regularized_squared_error": 1.5232076730775403e-10,
+      "dense_envelope_gradient_replay": 2.5840638888269425e-16
+    }
+  ],
+  "native": [
+    {
+      "key": "calibration_shaped_0",
+      "execution_replay": 6.813565061794233e-16,
+      "stored_floats": 1070604,
+      "physical_storage_floats": 1070604,
+      "index_integers": 4608,
+      "projection_multiplications": 1056768,
+      "activation_products": 1152,
+      "source_total_multiplications": 1060224
+    },
+    {
+      "key": "calibration_shaped_26301",
+      "execution_replay": 8.584850323923184e-16,
+      "stored_floats": 1070604,
+      "physical_storage_floats": 1070604,
+      "index_integers": 4608,
+      "projection_multiplications": 1056768,
+      "activation_products": 1152,
+      "source_total_multiplications": 1060224
+    },
+    {
+      "key": "native_isotropic_0",
+      "execution_replay": 1.0391692100985966e-15,
+      "stored_floats": 1070604,
+      "physical_storage_floats": 1070604,
+      "index_integers": 4608,
+      "projection_multiplications": 1056768,
+      "activation_products": 1152,
+      "source_total_multiplications": 1060224
+    },
+    {
+      "key": "native_isotropic_26301",
+      "execution_replay": 8.33621627739628e-16,
+      "stored_floats": 1070604,
+      "physical_storage_floats": 1070604,
+      "index_integers": 4608,
+      "projection_multiplications": 1056768,
+      "activation_products": 1152,
+      "source_total_multiplications": 1060224
+    }
+  ],
+  "scope": "Exact graph rewrite and literal physical price; no optimization or accuracy gain. Five planted product programs verify variable-projected loss and gradients."
+}

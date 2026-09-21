@@ -1,0 +1,15 @@
+{
+  "created_utc": "2026-09-21T12:19:42.618411+00:00",
+  "steps": 1800,
+  "rate": 0.03,
+  "optimizer": "Muon",
+  "seeds": [
+    0,
+    1
+  ],
+  "threshold": 0.01,
+  "required_cases": 4,
+  "pred_a": "Reduced-space/full-space coefficient errors and gradients agree including deliberately nonzero outside residual.",
+  "pred_b": "At least4of5planted product graphs recoverwithin1%inoneof2randomstarts withknownfixedsupports.",
+  "scope": "Second-stage random product fitting with support guidance. Does not count densecore ascheapgraph. Native first-stage experiment stilllive; no native second-stagequeuebeforeterminalinterpretation."
+}
