@@ -1,0 +1,271 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T11:17:00.520625+00:00",
+    "optimizers": [
+      "adam",
+      "muon"
+    ],
+    "rates": [
+      0.03
+    ],
+    "seeds": [
+      0,
+      1
+    ],
+    "steps": 1800,
+    "selection": "Minimize geometric mean final-best root regularized coefficient error across all five fixtures and both starts; no native outcomes used.",
+    "recovery_gate": "Selected setting recovers at least4of5planted targets within1%coefficient error in at leastone of two fully random starts. Otherwise diagnose or extend toy optimization before native queue.",
+    "native_intent": "Jointly learn all shared/private reader directions at fixed overlapping128/160layout, all996876floats/986496source mults, two input metrics and warm/randomstarts. Original component/Jacobian/dualmetric/20%arithmetic gates retained.",
+    "gradient_controls": "Five dense loss and envelope-gradient checks pass; exact planted parameter objective<1e-7. No feature semantic recovery asserted.",
+    "reason": "V1 fails recovery (2of5). Every hard-case best was at600final step; extend the same two optimizers at their better tested rate under equal1800step budgets. Keep original4of5 recovery gate; preserve V1 negative result. Save best parameters for further diagnosis, not only losses."
+  },
+  "records": [
+    {
+      "case": 0,
+      "optimizer": "adam",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.588026146981699,
+      "best_objective": 0.002160612051565332,
+      "regularized_root_error": 0.04648238431454794,
+      "best_step": 1800
+    },
+    {
+      "case": 0,
+      "optimizer": "adam",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.8281082234701485,
+      "best_objective": 0.0005524674082051743,
+      "regularized_root_error": 0.023504625251323925,
+      "best_step": 1800
+    },
+    {
+      "case": 0,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.588026146981699,
+      "best_objective": 0.002006207965757789,
+      "regularized_root_error": 0.044790712940941106,
+      "best_step": 1800
+    },
+    {
+      "case": 0,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.8281082234701485,
+      "best_objective": 2.1131781573184107e-05,
+      "regularized_root_error": 0.004596931756420157,
+      "best_step": 1800
+    },
+    {
+      "case": 1,
+      "optimizer": "adam",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.8822939328205897,
+      "best_objective": 8.9951860252994e-07,
+      "regularized_root_error": 0.0009484295453695757,
+      "best_step": 1800
+    },
+    {
+      "case": 1,
+      "optimizer": "adam",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.6819692952572072,
+      "best_objective": 0.0017231460323384742,
+      "regularized_root_error": 0.04151079416655955,
+      "best_step": 1800
+    },
+    {
+      "case": 1,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.8822939328205897,
+      "best_objective": 1.6634449162925928e-06,
+      "regularized_root_error": 0.0012897460665931852,
+      "best_step": 1800
+    },
+    {
+      "case": 1,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.6819692952572072,
+      "best_objective": 1.8467895858872059e-06,
+      "regularized_root_error": 0.001358966366724065,
+      "best_step": 1800
+    },
+    {
+      "case": 2,
+      "optimizer": "adam",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.9189009974520129,
+      "best_objective": 0.00033429066671734436,
+      "regularized_root_error": 0.018283617440685646,
+      "best_step": 1800
+    },
+    {
+      "case": 2,
+      "optimizer": "adam",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.8686121792906849,
+      "best_objective": 0.00015672101049143036,
+      "regularized_root_error": 0.012518826242560855,
+      "best_step": 1800
+    },
+    {
+      "case": 2,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.9189009974520129,
+      "best_objective": 2.6085607747935075e-10,
+      "regularized_root_error": 1.6151039516989326e-05,
+      "best_step": 1800
+    },
+    {
+      "case": 2,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.8686121792906849,
+      "best_objective": 1.2862150226370753e-07,
+      "regularized_root_error": 0.0003586384004310017,
+      "best_step": 1800
+    },
+    {
+      "case": 3,
+      "optimizer": "adam",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.9093367757553046,
+      "best_objective": 1.5078016613045975e-10,
+      "regularized_root_error": 1.2279257556157854e-05,
+      "best_step": 614
+    },
+    {
+      "case": 3,
+      "optimizer": "adam",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.8987818883269598,
+      "best_objective": 1.529862903026924e-10,
+      "regularized_root_error": 1.236876268277035e-05,
+      "best_step": 1417
+    },
+    {
+      "case": 3,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.9093367757553046,
+      "best_objective": 1.4753835190598844e-10,
+      "regularized_root_error": 1.2146536621851862e-05,
+      "best_step": 1800
+    },
+    {
+      "case": 3,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.8987818883269598,
+      "best_objective": 1.535635692680633e-10,
+      "regularized_root_error": 1.2392076874683408e-05,
+      "best_step": 1800
+    },
+    {
+      "case": 4,
+      "optimizer": "adam",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.9111452791493522,
+      "best_objective": 1.846809002022572e-10,
+      "regularized_root_error": 1.3589735104197476e-05,
+      "best_step": 1785
+    },
+    {
+      "case": 4,
+      "optimizer": "adam",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.7540039619839587,
+      "best_objective": 1.4901783510860392e-10,
+      "regularized_root_error": 1.2207286148387115e-05,
+      "best_step": 1780
+    },
+    {
+      "case": 4,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.9111452791493522,
+      "best_objective": 1.459599108244447e-10,
+      "regularized_root_error": 1.2081386957814268e-05,
+      "best_step": 1800
+    },
+    {
+      "case": 4,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.7540039619839587,
+      "best_objective": 1.3399970022476282e-10,
+      "regularized_root_error": 1.1575823954464875e-05,
+      "best_step": 1800
+    }
+  ],
+  "summaries": [
+    {
+      "optimizer": "adam",
+      "rate": 0.03,
+      "geometric_mean_error": 0.000869873711983047,
+      "best_restart_errors": [
+        0.023504625251323925,
+        0.0009484295453695757,
+        0.012518826242560855,
+        1.2279257556157854e-05,
+        1.2207286148387115e-05
+      ],
+      "recovered_cases": 3
+    },
+    {
+      "optimizer": "muon",
+      "rate": 0.03,
+      "geometric_mean_error": 0.00018380154140748743,
+      "best_restart_errors": [
+        0.004596931756420157,
+        0.0012897460665931852,
+        1.6151039516989326e-05,
+        1.2146536621851862e-05,
+        1.1575823954464875e-05
+      ],
+      "recovered_cases": 5
+    }
+  ],
+  "winner": {
+    "optimizer": "muon",
+    "rate": 0.03,
+    "geometric_mean_error": 0.00018380154140748743,
+    "best_restart_errors": [
+      0.004596931756420157,
+      0.0012897460665931852,
+      1.6151039516989326e-05,
+      1.2146536621851862e-05,
+      1.1575823954464875e-05
+    ],
+    "recovered_cases": 5
+  },
+  "seconds": 57.67871224693954,
+  "predictions": {
+    "instrument": true,
+    "optimization_recovery": true
+  },
+  "scope": "Selection uses five planted graph fixtures and two fully random starts per setting. This is optimizer evidence for this topology, not a universal Adam/Muon ranking or native success guarantee."
+}

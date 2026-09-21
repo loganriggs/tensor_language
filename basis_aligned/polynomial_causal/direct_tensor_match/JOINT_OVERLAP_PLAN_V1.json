@@ -1,0 +1,75 @@
+{
+  "created_utc": "2026-09-21T11:18:59.903976+00:00",
+  "optimizer": "muon",
+  "rate": 0.03,
+  "steps": 1800,
+  "metrics": [
+    "calibration_shaped",
+    "native_isotropic"
+  ],
+  "seeds": [
+    0,
+    26301
+  ],
+  "starts": {
+    "0": "Inherited shared/private128/160program, with exact basis-column gauge normalization.",
+    "26301": "All shared basis/maps/private readers independently random; same topology."
+  },
+  "primary": "calibration_shaped; choose restart by coefficient fitting objective only",
+  "baseline": {
+    "native_error": 0.5525962583461952,
+    "covariance_error": 0.0703133565524768,
+    "per_mode_errors": [
+      0.018692583665713903,
+      0.020499346791718828,
+      0.08805202711597365
+    ],
+    "euclidean_jacobian_errors": [
+      0.187428758387592,
+      0.15902999281611183,
+      0.16001348745745214
+    ],
+    "stored_floats": 1340940,
+    "index_integers": 3456,
+    "activation_products": 1152,
+    "projection_multiplications": 1327104,
+    "source_total_multiplications": 1330560,
+    "source_additions": 1329148
+  },
+  "stored_floats": 996876,
+  "source_multiplications": 986496,
+  "source_products": 1152,
+  "optimizer_evidence": {
+    "optimizer": "muon",
+    "rate": 0.03,
+    "geometric_mean_error": 0.00018380154140748743,
+    "best_restart_errors": [
+      0.004596931756420157,
+      0.0012897460665931852,
+      1.6151039516989326e-05,
+      1.2146536621851862e-05,
+      1.1575823954464875e-05
+    ],
+    "recovered_cases": 5
+  },
+  "preflight": "Five independent dense/envelope-gradient checks plus both full native-width losses, gradients, exports and costs pass. V1toy recovery fails2of5; V2 passes5of5Muon vs3of5Adam.",
+  "pred_a": "All native dense/export errors<1e-8, finite gradients and exactphysical storage/cost.",
+  "pred_b": "Primary all3values<=.15 and<=1.10 originalcovpairbaseline, all3fixed-h zJacobianerrors<=1.10baseline.",
+  "pred_c": "Primary native and covariance coefficient errors<=1.10 originalcovpairbaseline.",
+  "pred_d": "Primary source totalmultiplications<=.80 originalcovpairbaseline andfewerfloatingcoefficients.",
+  "null": "Joint optimization cannot rescue fidelity in this tied overlapping-reader graph at the registered cost. No fresh or semantic claim.",
+  "hashes": {
+    "SHARED_PRODUCT_NATIVE_INPUTS_V1.pt": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+    "LOCAL_SHARED_READER_PROGRAMS_V1.pt": "26d8df78e9651ec82e0a024f1030a7155d19d77f44c2d45218ca9b4232351fc5",
+    "TOY_OVERLAP_OPTIMIZER_V2.json": "1f0e53341f25b3d81c592dfb708066994fd71855fdd97d481108a782b485a7b4",
+    "OVERLAP_VARPRO_PREFLIGHT_V1.json": "49a9106bc37767af09518fb5dbade9ce71d99ba4b4de28b120f93aa7dee28c39",
+    "OVERLAP_NATIVE_PREFLIGHT_V1.json": "30cc69de987cfec3ec1d4e3c8120913429a3db024299258b40fd781d7cc5a433",
+    "overlap_varpro.py": "bb756350f3f16b1bb9b562aa6837b1cb1ccd2831bf4891bedd12b63d66aaa7c8",
+    "overlap_export.py": "9efbf25e3c7b01d29e6a5e2d07ff4a0092e456675f05b968f363691d0946d21c",
+    "local_shared_reader_graph.py": "977e2f7ba66cd07b83c50c226ecc9ec4679c96648b62bcc220330a4ef01df957",
+    "fit_local_shared_reader_graph.py": "15274738511de36d7913c7b36a8e1375a55688c0dc70454e16bb360d4fc2f44d",
+    "global_mixed_source_graph.py": "eae269588366ddd34919ab15c8da315e38be566175823d8cb73415769c2a76b3",
+    "shared_private_metric.py": "8ef7fd29a5c4aeb09c3c4670e9db20f3631384b03223a02cf52499b993566623",
+    "pack_reader_graph_artifacts.py": "644cd5d2b3b2988b69236d91e44fd9d6f8cdcbb3809420f0a4c83fe0570987a2"
+  }
+}
