@@ -1,0 +1,33 @@
+{
+  "records": [
+    {
+      "program": "private_equal",
+      "left_rank": 192,
+      "right_rank": 192,
+      "linear_weight_coefficients": 884736,
+      "total_weight_coefficients": 2654208,
+      "joint_linear_error": 0.126110129414134,
+      "left_linear_error": 0.11259332929121373,
+      "right_linear_error": 0.023361008253668575
+    },
+    {
+      "program": "private_adaptive",
+      "left_rank": 344,
+      "right_rank": 40,
+      "linear_weight_coefficients": 884736,
+      "total_weight_coefficients": 2654208,
+      "joint_linear_error": 0.08690892388726063,
+      "left_linear_error": 0.0678745143745421,
+      "right_linear_error": 0.04854907729944789
+    }
+  ],
+  "shared_linear_weight_coefficients": 884736,
+  "shared_reference": {
+    "metric": "separate",
+    "rank": 256,
+    "joint_error": 0.10964219372770945,
+    "context_linear_error": 0.09352395064601103,
+    "source_linear_error": 0.04228351727749804
+  },
+  "scope": "Same884736 linear coefficients: private low-rank maps cost2*d*(rn+rm), common output dictionary costs3*d*r. Adaptive ranks maximize retained sum of separate calibration-role output energies. Centered interaction unchanged; native evaluation pending."
+}

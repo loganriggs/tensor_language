@@ -1,0 +1,203 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_alignment": false,
+    "pred_c_increment": true
+  },
+  "checks": 1.4577940115597373e-16,
+  "records": [
+    {
+      "domain": "fineweb",
+      "program": "paired256",
+      "family": "removal",
+      "baseline_fraction": 0.6039770912928021,
+      "increment_fraction": 0.45003679948524117,
+      "cross_fraction": -0.05401389077804327
+    },
+    {
+      "domain": "fineweb",
+      "program": "paired256",
+      "family": "same_token",
+      "baseline_fraction": 0.5989160368190056,
+      "increment_fraction": 0.4637442155234256,
+      "cross_fraction": -0.06266025234243124
+    },
+    {
+      "domain": "fineweb",
+      "program": "paired256",
+      "family": "source_only",
+      "baseline_fraction": 0.9040453864732323,
+      "increment_fraction": 0.12518126102590854,
+      "cross_fraction": -0.02922664749914094
+    },
+    {
+      "domain": "fineweb",
+      "program": "paired256",
+      "family": "context_only",
+      "baseline_fraction": 1.0,
+      "increment_fraction": 0.0,
+      "cross_fraction": 0.0
+    },
+    {
+      "domain": "fineweb",
+      "program": "separate256",
+      "family": "removal",
+      "baseline_fraction": 0.6070571449926075,
+      "increment_fraction": 0.4521502999286901,
+      "cross_fraction": -0.0592074449212977
+    },
+    {
+      "domain": "fineweb",
+      "program": "separate256",
+      "family": "same_token",
+      "baseline_fraction": 0.6002969517496213,
+      "increment_fraction": 0.46430669625774357,
+      "cross_fraction": -0.0646036480073648
+    },
+    {
+      "domain": "fineweb",
+      "program": "separate256",
+      "family": "source_only",
+      "baseline_fraction": 0.9654495872594181,
+      "increment_fraction": 0.059110096031391356,
+      "cross_fraction": -0.024559683290809497
+    },
+    {
+      "domain": "fineweb",
+      "program": "separate256",
+      "family": "context_only",
+      "baseline_fraction": 1.0,
+      "increment_fraction": 0.0,
+      "cross_fraction": 0.0
+    },
+    {
+      "domain": "fineweb",
+      "program": "source256",
+      "family": "removal",
+      "baseline_fraction": 0.40884624126511293,
+      "increment_fraction": 0.6534559974678557,
+      "cross_fraction": -0.062302238732968536
+    },
+    {
+      "domain": "fineweb",
+      "program": "source256",
+      "family": "same_token",
+      "baseline_fraction": 0.4303169877362086,
+      "increment_fraction": 0.645187459842454,
+      "cross_fraction": -0.07550444757866262
+    },
+    {
+      "domain": "fineweb",
+      "program": "source256",
+      "family": "source_only",
+      "baseline_fraction": 0.9836171194431788,
+      "increment_fraction": 0.025043986863147266,
+      "cross_fraction": -0.008661106306325978
+    },
+    {
+      "domain": "fineweb",
+      "program": "source256",
+      "family": "context_only",
+      "baseline_fraction": 1.0,
+      "increment_fraction": 0.0,
+      "cross_fraction": 0.0
+    },
+    {
+      "domain": "code",
+      "program": "paired256",
+      "family": "removal",
+      "baseline_fraction": 0.5771125780237882,
+      "increment_fraction": 0.3226803946061604,
+      "cross_fraction": 0.10020702737005148
+    },
+    {
+      "domain": "code",
+      "program": "paired256",
+      "family": "same_token",
+      "baseline_fraction": 0.6203086443354189,
+      "increment_fraction": 0.2922933267798086,
+      "cross_fraction": 0.08739802888477254
+    },
+    {
+      "domain": "code",
+      "program": "paired256",
+      "family": "source_only",
+      "baseline_fraction": 0.8689325828252479,
+      "increment_fraction": 0.13765752975862436,
+      "cross_fraction": -0.006590112583872225
+    },
+    {
+      "domain": "code",
+      "program": "paired256",
+      "family": "context_only",
+      "baseline_fraction": 1.0,
+      "increment_fraction": 0.0,
+      "cross_fraction": 0.0
+    },
+    {
+      "domain": "code",
+      "program": "separate256",
+      "family": "removal",
+      "baseline_fraction": 0.5791066652624142,
+      "increment_fraction": 0.32116463534578016,
+      "cross_fraction": 0.0997286993918057
+    },
+    {
+      "domain": "code",
+      "program": "separate256",
+      "family": "same_token",
+      "baseline_fraction": 0.6227193145503054,
+      "increment_fraction": 0.2899970668315158,
+      "cross_fraction": 0.08728361861817889
+    },
+    {
+      "domain": "code",
+      "program": "separate256",
+      "family": "source_only",
+      "baseline_fraction": 0.9392016580056497,
+      "increment_fraction": 0.0676514243176062,
+      "cross_fraction": -0.006853082323255889
+    },
+    {
+      "domain": "code",
+      "program": "separate256",
+      "family": "context_only",
+      "baseline_fraction": 1.0,
+      "increment_fraction": 0.0,
+      "cross_fraction": 0.0
+    },
+    {
+      "domain": "code",
+      "program": "source256",
+      "family": "removal",
+      "baseline_fraction": 0.3822214870559999,
+      "increment_fraction": 0.4971897881540896,
+      "cross_fraction": 0.1205887247899106
+    },
+    {
+      "domain": "code",
+      "program": "source256",
+      "family": "same_token",
+      "baseline_fraction": 0.4925735541707437,
+      "increment_fraction": 0.39561258046396336,
+      "cross_fraction": 0.11181386536529289
+    },
+    {
+      "domain": "code",
+      "program": "source256",
+      "family": "source_only",
+      "baseline_fraction": 0.9740654471186712,
+      "increment_fraction": 0.027254684568395447,
+      "cross_fraction": -0.0013201316870666013
+    },
+    {
+      "domain": "code",
+      "program": "source256",
+      "family": "context_only",
+      "baseline_fraction": 1.0,
+      "increment_fraction": 0.0,
+      "cross_fraction": 0.0
+    }
+  ],
+  "scope": "Exact decomposition of errors in centered final-logit effects: baseline plus incremental prediction change. After nonlinearities, increment is not itself a standalone linear-write effect. No fitting, reused panels; signed cross contribution."
+}

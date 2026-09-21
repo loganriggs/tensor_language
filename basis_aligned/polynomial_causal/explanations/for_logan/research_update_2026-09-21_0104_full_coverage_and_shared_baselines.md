@@ -213,6 +213,8 @@ The current evidence supports three conclusions:
 
 The next substantive step is to broaden graph search and test intermediate-feature identity and interventions. Further compression is useful, but does not by itself answer the circuit-discovery question.
 
+Subsequent conditional tests found a larger remaining gap than aggregate swaps suggested: isolating the context-dependent interaction produced errors around40–56%. Later adaptive rank allocation and separate linear feature spaces improved the cost–fidelity tradeoff, but did not remove that gap. See the [conditional limitations](research_update_2026-09-21_0212_conditional_native_limits.md) and [same-cost private-space comparison](research_update_2026-09-21_0256_private_linear_spaces.md). The newer candidate is frozen for confirmation; it does not supersede the independently tested earlier result yet.
+
 ## Supporting records
 
 - [Latest frozen 512-product confirmation and uncertainty](research_update_2026-09-21_0140_pruned_graph_confirmation.md).

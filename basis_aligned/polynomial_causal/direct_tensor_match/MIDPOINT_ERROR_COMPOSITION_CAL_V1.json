@@ -1,0 +1,29 @@
+{
+  "records": [
+    {
+      "program": "paired256",
+      "baseline_fraction": 0.7871060554410977,
+      "increment_fraction": 0.2228837052475857,
+      "cross_fraction": -0.0099897606886834,
+      "error_cosine": -0.011925299709391386,
+      "identity_error": 9.992780087667063e-18
+    },
+    {
+      "program": "separate256",
+      "baseline_fraction": 0.7693049390326405,
+      "increment_fraction": 0.2441922257656713,
+      "cross_fraction": -0.013497164798311633,
+      "error_cosine": -0.01557031425086014,
+      "identity_error": 1.423160000109009e-16
+    },
+    {
+      "program": "source256",
+      "baseline_fraction": 0.3727406046365956,
+      "increment_fraction": 0.6547353080633658,
+      "cross_fraction": -0.027475912699961434,
+      "error_cosine": -0.027809033709401913,
+      "identity_error": 1.2438830925874551e-16
+    }
+  ],
+  "scope": "Full paired calibration output errors in vocabulary-centered linear metric, before native final nonlinearities. Baseline has exact first-order terms; incremental error changes only their sharing. Fractions are signed contributions to squared total error."
+}

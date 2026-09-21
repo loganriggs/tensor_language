@@ -18,6 +18,7 @@ SOURCE_CONTEXT_FAMILIES=False
 OUTPUT_SPAN_CONTROLS=False
 EXTRA_ORACLE_FILE=None
 POSITION_BINS=False
+ERROR_REFERENCE=None
 def main():
  if os.environ.get('BQLIB_DRYRUN') or os.environ.get('BQLIB_NO_MODEL'):print(json.dumps(dict(forwards=48,candidates=['constant','projected64','projected256','program64','program256'])));return
  import torch
@@ -25,7 +26,7 @@ def main():
  sys.path.insert(0,str(P))
  from circuit_fast_screen_producer import Bilin18TorchBackend
  from native_feature_capture import capture
- from logit_effect_partition import partition,position_partition
+ from logit_effect_partition import partition,position_partition,error_composition
  from midpoint_program import product_source_delta
  torch.set_num_threads(4);torch.set_grad_enabled(False);torch.backends.cuda.matmul.allow_tf32=False;start=time.perf_counter();out=P/OUTPUT_NAME;assert not out.exists()
  model=Bilin18TorchBackend.load('cuda').model.float();b16=model.transformer.h[16];b17=model.transformer.h[17];_,ru=torch.linalg.qr(model.lm_head.weight.double(),mode='reduced');invru=torch.linalg.inv(ru);L=b17.mlp.Left.weight.double();R=b17.mlp.Right.weight.double();C=ru@b17.mlp.Down.weight.double();mu=torch.load(P/'MIDPOINT_NATIVE_V1.pt',weights_only=True)['stats']['calibration']['native']['mean'].cuda();programs={w:{k:v.cuda().double() for k,v in torch.load(P/f'MIDPOINT_COVERAGE_{w}_R4_V1.pt',weights_only=True).items()} for w in [64,256]};donors=torch.load(P/f'{DONOR_PREFIX}_V1.pt',weights_only=True);records=[];checks=[]
@@ -34,6 +35,7 @@ def main():
   ids=e['indices'].long();checks.extend([float((e['L']-L[ids]).abs().max()),float((e['R']-R[ids]).abs().max())])
  product_extra={} if EXTRA_PRODUCT_FILE is None else {name:{k:v.cuda().double() for k,v in e.items()} for name,e in torch.load(P/EXTRA_PRODUCT_FILE,weights_only=True).items()}
  oracle_extra={} if EXTRA_ORACLE_FILE is None else {name:{k:v.cuda().double() for k,v in e.items()} for name,e in torch.load(P/EXTRA_ORACLE_FILE,weights_only=True).items()}
+ if ERROR_REFERENCE is not None:assert 'product_'+next(iter(product_extra))==ERROR_REFERENCE
  source_metric=torch.load(P/'MIDPOINT_CENTERED_V1.pt',weights_only=True)['metric_sqrt'].cuda().double() if SOURCE_CONTEXT_FAMILIES else None
  mean_n=torch.load(P/'MIDPOINT_CALIBRATION_ROWS_V1.pt',weights_only=True)['n'].double().mean((0,1)).cuda() if SOURCE_CONTEXT_FAMILIES else None
  logits=lambda x:30*torch.tanh(model.lm_head(F.rms_norm(x,(1152,)))/30)
@@ -58,7 +60,8 @@ def main():
     if 'centered_correction_left' in e:
      centered=products-left*e['right_mean']-right*e['left_mean']+e['left_mean']*e['right_mean'];reduced=reduced+(centered@e['centered_correction_left'])@e['centered_correction_writers'].T
     if 'linear_n' in e:reduced=reduced+n@e['linear_n']+m@e['linear_m']
-    if 'linear_left_reader' in e:reduced=reduced+(n@e['linear_left_reader']+m@e['linear_right_reader'])@e['linear_writer'].T
+    if 'linear_right_writer' in e:reduced=reduced+(n@e['linear_left_reader'])@e['linear_writer'].T+(m@e['linear_right_reader'])@e['linear_right_writer'].T
+    elif 'linear_left_reader' in e:reduced=reduced+(n@e['linear_left_reader']+m@e['linear_right_reader'])@e['linear_writer'].T
     reduced=reduced+e['full_mean']-mu;preds['product_'+name].append(reduced@invru.T)
   states=torch.cat(states);true=torch.cat(teacher);preds={k:torch.cat(v) for k,v in preds.items()};targets=tokens[:,1:257].reshape(-1).cuda();flat=tokens[:,:256].flatten();mapping=donors[domain]['same_token'];valid=mapping>=0;docs=torch.arange(len(flat))//256;assert torch.all(docs[valid]!=docs[mapping[valid]]) and torch.all(flat[valid]==flat[mapping[valid]])
   for doc in range(len(tokens)):
@@ -68,7 +71,10 @@ def main():
    for family in ['removal','same_token']:
     ids=idx if family=='removal' else torch.where(valid&(docs==doc))[0].cuda();dst=mapping[ids.cpu()].cuda();state=states[ids];base=logits(state);delta=-true[ids] if family=='removal' else true[dst]-true[ids];reference=(logits(state+delta.float())-base).double()
     for key,approx in preds.items():
-     delta=-approx[ids] if family=='removal' else approx[dst]-approx[ids];effect=(logits(state+delta.float())-base).double();records.append(dict(domain=domain,candidate=key,family=family,sites=len(ids),position_bins=position_partition(reference,effect,ids%256) if POSITION_BINS and key.startswith('product_') else {},**partition(reference,effect)))
+     delta=-approx[ids] if family=='removal' else approx[dst]-approx[ids];effect=(logits(state+delta.float())-base).double()
+     if key==ERROR_REFERENCE:baseline_effect=effect
+     composition=error_composition(reference,baseline_effect,effect) if ERROR_REFERENCE is not None and key.startswith('product_') else {}
+     records.append(dict(domain=domain,candidate=key,family=family,sites=len(ids),error_composition=composition,position_bins=position_partition(reference,effect,ids%256) if POSITION_BINS and key.startswith('product_') else {},**partition(reference,effect)))
   if SOURCE_CONTEXT_FAMILIES:
    nn=torch.cat([z[0] for z in normalized_inputs]);mm=torch.cat([z[1] for z in normalized_inputs])
    for doc in range(len(tokens)):
@@ -80,7 +86,9 @@ def main():
      for name,e in product_extra.items():
       approx=product_source_delta(e,ni,dm,context_only=family=='context_only')@invru.T
       effect=(logits(state+approx.float())-base).double()
-      records.append(dict(domain=domain,candidate='product_'+name,family=family,sites=len(ids),position_bins=position_partition(reference,effect,ids%256) if POSITION_BINS else {},linear_reference_energy=float(((delta@ru.T)@source_metric).square().sum()),linear_error_energy=float((((approx-delta)@ru.T)@source_metric).square().sum()),**partition(reference,effect)))
+      if 'product_'+name==ERROR_REFERENCE:baseline_effect=effect
+      composition=error_composition(reference,baseline_effect,effect) if ERROR_REFERENCE is not None else {}
+      records.append(dict(domain=domain,candidate='product_'+name,family=family,sites=len(ids),error_composition=composition,position_bins=position_partition(reference,effect,ids%256) if POSITION_BINS else {},linear_reference_energy=float(((delta@ru.T)@source_metric).square().sum()),linear_error_energy=float((((approx-delta)@ru.T)@source_metric).square().sum()),**partition(reference,effect)))
       if OUTPUT_SPAN_CONTROLS:
        target_red=delta@ru.T;approx_red=approx@ru.T;projected=(target_red@e['span_readers'])@e['span_writers'].T
        reference_energy=float((target_red@source_metric).square().sum());omitted=float(((target_red-projected)@source_metric).square().sum());inspace=float(((approx_red-projected)@source_metric).square().sum());total=float(((approx_red-target_red)@source_metric).square().sum())

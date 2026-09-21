@@ -15,5 +15,5 @@ def product_source_delta(e,n,dm,context_only=False):
         correction_left=left if context_only else left-e['left_mean']
         out=out+((correction_left*right)@e['centered_correction_left'])@e['centered_correction_writers'].T
     if 'linear_m' in e and not context_only:out=out+dm@e['linear_m']
-    if 'linear_right_reader' in e and not context_only:out=out+(dm@e['linear_right_reader'])@e['linear_writer'].T
+    if 'linear_right_reader' in e and not context_only:out=out+(dm@e['linear_right_reader'])@e.get('linear_right_writer',e['linear_writer']).T
     return out

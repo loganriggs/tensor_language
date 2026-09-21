@@ -6,6 +6,12 @@ def partition(native,predicted):
  a=native.double();b=predicted.double();am=a.mean(-1,keepdim=True);bm=b.mean(-1,keepdim=True);ac=a-am;bc=b-bm;v=a.shape[-1]
  return dict(native_centered_effect_energy=float(ac.square().sum()),predicted_centered_effect_energy=float(bc.square().sum()),centered_effect_dot=float((ac*bc).sum()),centered_effect_error_energy=float((ac-bc).square().sum()),native_common_effect_energy=float(v*am.square().sum()),predicted_common_effect_energy=float(v*bm.square().sum()),common_effect_error_energy=float(v*(am-bm).square().sum()))
 
+def error_composition(native,baseline,predicted):
+ b=baseline.double()-native.double();i=predicted.double()-baseline.double()
+ b=b-b.mean(-1,keepdim=True);i=i-i.mean(-1,keepdim=True)
+ total=b+i
+ return dict(baseline_error_energy=float(b.square().sum()),increment_error_energy=float(i.square().sum()),twice_error_cross=float(2*(b*i).sum()),total_error_energy=float(total.square().sum()))
+
 def position_partition(native,predicted,positions):
  bins={}
  for lo,hi in [(0,64),(64,128),(128,256)]:
