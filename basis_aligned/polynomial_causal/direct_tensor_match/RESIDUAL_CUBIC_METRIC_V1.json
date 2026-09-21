@@ -1,0 +1,150 @@
+{
+  "control_explicit_vs_implicit": 1.2980462408583775e-16,
+  "rows": [
+    {
+      "component": 1,
+      "geometry": "native",
+      "candidate": "graph",
+      "quadratic_relative_error": 0.5236796305066306,
+      "cubic_relative_error": 0.5170178158062388,
+      "reader_contracted_relative_error": 0.08953020916163618
+    },
+    {
+      "component": 1,
+      "geometry": "native",
+      "candidate": "covariance_baseline",
+      "quadratic_relative_error": 0.5647315259293058,
+      "cubic_relative_error": 0.5575513133737923,
+      "reader_contracted_relative_error": 0.09739421526306066
+    },
+    {
+      "component": 1,
+      "geometry": "native",
+      "candidate": "isotropic_baseline",
+      "quadratic_relative_error": 0.469127249877827,
+      "cubic_relative_error": 0.4631724253044431,
+      "reader_contracted_relative_error": 0.08304087215637333
+    },
+    {
+      "component": 1,
+      "geometry": "covariance_shaped",
+      "candidate": "graph",
+      "quadratic_relative_error": 0.07731471764013625,
+      "cubic_relative_error": 0.05835792658561292,
+      "reader_contracted_relative_error": 0.0018933201827506679
+    },
+    {
+      "component": 1,
+      "geometry": "covariance_shaped",
+      "candidate": "covariance_baseline",
+      "quadratic_relative_error": 0.08679138567804617,
+      "cubic_relative_error": 0.06551007079272857,
+      "reader_contracted_relative_error": 0.0020569786170620036
+    },
+    {
+      "component": 1,
+      "geometry": "covariance_shaped",
+      "candidate": "isotropic_baseline",
+      "quadratic_relative_error": 0.1490983578266478,
+      "cubic_relative_error": 0.1151964964408014,
+      "reader_contracted_relative_error": 0.037657315806058314
+    },
+    {
+      "component": 2,
+      "geometry": "native",
+      "candidate": "graph",
+      "quadratic_relative_error": 0.5631310876128826,
+      "cubic_relative_error": 0.5528053902922865,
+      "reader_contracted_relative_error": 0.09574013481217085
+    },
+    {
+      "component": 2,
+      "geometry": "native",
+      "candidate": "covariance_baseline",
+      "quadratic_relative_error": 0.5956026620272664,
+      "cubic_relative_error": 0.5846779958972813,
+      "reader_contracted_relative_error": 0.10070947691415022
+    },
+    {
+      "component": 2,
+      "geometry": "native",
+      "candidate": "isotropic_baseline",
+      "quadratic_relative_error": 0.4901577833516518,
+      "cubic_relative_error": 0.4811114312276467,
+      "reader_contracted_relative_error": 0.07372007929344336
+    },
+    {
+      "component": 2,
+      "geometry": "covariance_shaped",
+      "candidate": "graph",
+      "quadratic_relative_error": 0.06584029670328671,
+      "cubic_relative_error": 0.050515786088993944,
+      "reader_contracted_relative_error": 0.0010641695560545431
+    },
+    {
+      "component": 2,
+      "geometry": "covariance_shaped",
+      "candidate": "covariance_baseline",
+      "quadratic_relative_error": 0.0722913939603199,
+      "cubic_relative_error": 0.055465453085913545,
+      "reader_contracted_relative_error": 0.0011776793228069687
+    },
+    {
+      "component": 2,
+      "geometry": "covariance_shaped",
+      "candidate": "isotropic_baseline",
+      "quadratic_relative_error": 0.11580245657484589,
+      "cubic_relative_error": 0.09017792845945356,
+      "reader_contracted_relative_error": 0.024118492292190284
+    },
+    {
+      "component": 3,
+      "geometry": "native",
+      "candidate": "graph",
+      "quadratic_relative_error": 0.5408771886732114,
+      "cubic_relative_error": 0.5376148165419544,
+      "reader_contracted_relative_error": 0.1665516385482194
+    },
+    {
+      "component": 3,
+      "geometry": "native",
+      "candidate": "covariance_baseline",
+      "quadratic_relative_error": 0.5707193490547574,
+      "cubic_relative_error": 0.5672866445705735,
+      "reader_contracted_relative_error": 0.17807337851153351
+    },
+    {
+      "component": 3,
+      "geometry": "native",
+      "candidate": "isotropic_baseline",
+      "quadratic_relative_error": 0.4679317086169717,
+      "cubic_relative_error": 0.4650455982682111,
+      "reader_contracted_relative_error": 0.12767585705386467
+    },
+    {
+      "component": 3,
+      "geometry": "covariance_shaped",
+      "candidate": "graph",
+      "quadratic_relative_error": 0.05191113364219523,
+      "cubic_relative_error": 0.04944392866716655,
+      "reader_contracted_relative_error": 0.00328321438818978
+    },
+    {
+      "component": 3,
+      "geometry": "covariance_shaped",
+      "candidate": "covariance_baseline",
+      "quadratic_relative_error": 0.05727368512400536,
+      "cubic_relative_error": 0.05455238271969733,
+      "reader_contracted_relative_error": 0.0037449433055048807
+    },
+    {
+      "component": 3,
+      "geometry": "covariance_shaped",
+      "candidate": "isotropic_baseline",
+      "quadratic_relative_error": 0.0915119152922553,
+      "cubic_relative_error": 0.08811219276518284,
+      "reader_contracted_relative_error": 0.042660972820721184
+    }
+  ],
+  "scope": "Homogeneous cubic numerator only; affine read corrections yield lower-degree terms. RMS scales, embedding/attention contributions and bias remain explicit. Coefficient error is not text-functional error. Native execution identity needs separate capture verification."
+}
