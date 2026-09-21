@@ -1,0 +1,94 @@
+{
+  "records": [
+    {
+      "domain": "fineweb",
+      "family": "replacement",
+      "corrected_ce": 0.01126459144676725,
+      "corrected_ce_interval": [
+        0.008560874036629685,
+        0.014108958408275307
+      ],
+      "ce_difference": 0.0002799834357574582,
+      "ce_difference_interval": [
+        -0.00032271811932635804,
+        0.0009078768321584598
+      ]
+    },
+    {
+      "domain": "fineweb",
+      "family": "removal",
+      "corrected_error": 0.23728432974512104,
+      "corrected_error_interval": [
+        0.23264258967385557,
+        0.24141731695632332
+      ],
+      "error_ratio": 0.9994186497287912,
+      "error_ratio_interval": [
+        0.9981920645471364,
+        1.0009129075827745
+      ],
+      "worst_document_error": 0.2721041346253178
+    },
+    {
+      "domain": "fineweb",
+      "family": "same_token",
+      "corrected_error": 0.3145448823509686,
+      "corrected_error_interval": [
+        0.3061947238842877,
+        0.32269325212948663
+      ],
+      "error_ratio": 0.9934966450920532,
+      "error_ratio_interval": [
+        0.9926255819142873,
+        0.9944343589463039
+      ],
+      "worst_document_error": 0.3523712304855596
+    },
+    {
+      "domain": "code",
+      "family": "replacement",
+      "corrected_ce": 0.028665616859992346,
+      "corrected_ce_interval": [
+        0.021554036353093883,
+        0.03594288813415915
+      ],
+      "ce_difference": 0.001084388109544913,
+      "ce_difference_interval": [
+        -0.001903327771772941,
+        0.004249944691546261
+      ]
+    },
+    {
+      "domain": "code",
+      "family": "removal",
+      "corrected_error": 0.158832093833992,
+      "corrected_error_interval": [
+        0.15344109239484574,
+        0.16425690236449658
+      ],
+      "error_ratio": 0.9842634894787137,
+      "error_ratio_interval": [
+        0.980476409060378,
+        0.9880975983950264
+      ],
+      "worst_document_error": 0.1848470292229465
+    },
+    {
+      "domain": "code",
+      "family": "same_token",
+      "corrected_error": 0.2700238443987104,
+      "corrected_error_interval": [
+        0.26192146159066676,
+        0.277958453973025
+      ],
+      "error_ratio": 0.9795863210750378,
+      "error_ratio_interval": [
+        0.9777127618670709,
+        0.9813402258113788
+      ],
+      "worst_document_error": 0.29413992379068093
+    }
+  ],
+  "bootstrap_draws": 10000,
+  "scope": "Paired documentbootstrap on reused diagnostic panel. Records in deterministic documentloop order; token/site and referenceenergy agreement asserted. Descriptive95%intervals, notfamilywisebounds or proof ofpopulationrepresentativeness. Doesnot change preregisteredpoint-estimate gates."
+}

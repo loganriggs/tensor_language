@@ -1,0 +1,46 @@
+{
+  "checks": {
+    "cross_replay": 3.7742020965065535e-16,
+    "gram_replay": 2.3315883483420573e-16,
+    "centered_product_compile": 2.0241789890320013e-15,
+    "full_correction_replay": 1.3411226296806443e-14
+  },
+  "records": [
+    {
+      "rank": 4,
+      "correction_relative_error": 0.9108577645498455,
+      "paired_error": 0.20312874827065455,
+      "weight_coefficients": 1297920,
+      "additional_mean_state": 1024
+    },
+    {
+      "rank": 8,
+      "correction_relative_error": 0.8638773017200583,
+      "paired_error": 0.20352933445400576,
+      "weight_coefficients": 1304576,
+      "additional_mean_state": 1024
+    },
+    {
+      "rank": 16,
+      "correction_relative_error": 0.79266913491278,
+      "paired_error": 0.20384423681821223,
+      "weight_coefficients": 1317888,
+      "additional_mean_state": 1024
+    },
+    {
+      "rank": 32,
+      "correction_relative_error": 0.6922473629570648,
+      "paired_error": 0.20477291542821666,
+      "weight_coefficients": 1344512,
+      "additional_mean_state": 1024
+    },
+    {
+      "rank": 64,
+      "correction_relative_error": 0.5641055864113823,
+      "paired_error": 0.20518156138004442,
+      "weight_coefficients": 1397760,
+      "additional_mean_state": 1024
+    }
+  ],
+  "scope": "Original weight centered operator, optimal output-rank compression conditional on fixed product dictionary and separable centered input metric. Additive centered correction shares raw products. Counts extra512+512 means separately; mean multiplications and linear arithmetic not free. No native result yet."
+}
