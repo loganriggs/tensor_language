@@ -1,6 +1,6 @@
 # Latest requested update for Logan
 
-**Start here — [Overall review: folding → decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 09:40 UTC. The two-stage proposal, exact QR, what was implemented, why experiments narrowed, and the main results through the 09:34 update.
+**Start here — [Overall review: from folded weights to a simpler arithmetic program](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 10:42 UTC. Explains the original QR → decomposition → graph plan, distinguishes the broad and local targets, and summarizes completed evidence through the 10:37 fresh tests.
 
 **Latest fresh result — [Metric transfer across FineWeb and code](research_update_2026-09-21_1037_fresh_metric_transfer.md).** All three wider graphs pass absolute limits; none passes all matched-baseline comparisons. The primary has10relative failures, with several supported by paired uncertainty intervals.
 
