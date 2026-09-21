@@ -1,0 +1,181 @@
+{
+  "records": [
+    {
+      "domain": "fineweb",
+      "family": "opposite_cohort",
+      "kind": "full",
+      "cohort": "continuation",
+      "old_error": 0.14292293504757955,
+      "new_error": 0.12782048330347373,
+      "relative_error_reduction": 0.10566849707556147,
+      "documents_improved": 17,
+      "documents": 24
+    },
+    {
+      "domain": "fineweb",
+      "family": "opposite_cohort",
+      "kind": "full",
+      "cohort": "spaced_word",
+      "old_error": 0.11032856239038938,
+      "new_error": 0.10625538408183019,
+      "relative_error_reduction": 0.03691862034915816,
+      "documents_improved": 29,
+      "documents": 32
+    },
+    {
+      "domain": "fineweb",
+      "family": "opposite_cohort",
+      "kind": "mode",
+      "cohort": "continuation",
+      "old_error": 0.08957863104217471,
+      "new_error": 0.09182828748550138,
+      "relative_error_reduction": -0.025113762257289896,
+      "documents_improved": 4,
+      "documents": 24
+    },
+    {
+      "domain": "fineweb",
+      "family": "opposite_cohort",
+      "kind": "mode",
+      "cohort": "spaced_word",
+      "old_error": 0.03251438502221424,
+      "new_error": 0.0336929874095404,
+      "relative_error_reduction": -0.0362486446082535,
+      "documents_improved": 12,
+      "documents": 32
+    },
+    {
+      "domain": "fineweb",
+      "family": "same_cohort",
+      "kind": "full",
+      "cohort": "continuation",
+      "old_error": 0.1477128745902904,
+      "new_error": 0.14591225386023635,
+      "relative_error_reduction": 0.012190005340078969,
+      "documents_improved": 14,
+      "documents": 29
+    },
+    {
+      "domain": "fineweb",
+      "family": "same_cohort",
+      "kind": "full",
+      "cohort": "spaced_word",
+      "old_error": 0.12267631667742379,
+      "new_error": 0.1162359423423814,
+      "relative_error_reduction": 0.05249892162948855,
+      "documents_improved": 32,
+      "documents": 32
+    },
+    {
+      "domain": "fineweb",
+      "family": "same_cohort",
+      "kind": "mode",
+      "cohort": "continuation",
+      "old_error": 0.054228778178945954,
+      "new_error": 0.05694860073083555,
+      "relative_error_reduction": -0.05015459767348318,
+      "documents_improved": 7,
+      "documents": 29
+    },
+    {
+      "domain": "fineweb",
+      "family": "same_cohort",
+      "kind": "mode",
+      "cohort": "spaced_word",
+      "old_error": 0.08005177025280764,
+      "new_error": 0.08122870554772069,
+      "relative_error_reduction": -0.014702176993665717,
+      "documents_improved": 22,
+      "documents": 32
+    },
+    {
+      "domain": "stdlib",
+      "family": "opposite_cohort",
+      "kind": "full",
+      "cohort": "continuation",
+      "old_error": 0.12188142091190181,
+      "new_error": 0.10392032808086005,
+      "relative_error_reduction": 0.14736530552941596,
+      "documents_improved": 4,
+      "documents": 4
+    },
+    {
+      "domain": "stdlib",
+      "family": "opposite_cohort",
+      "kind": "full",
+      "cohort": "spaced_word",
+      "old_error": 0.0761521841262842,
+      "new_error": 0.07427867098774922,
+      "relative_error_reduction": 0.024602224611550372,
+      "documents_improved": 6,
+      "documents": 12
+    },
+    {
+      "domain": "stdlib",
+      "family": "opposite_cohort",
+      "kind": "mode",
+      "cohort": "continuation",
+      "old_error": 0.037432118246220246,
+      "new_error": 0.0392151090401798,
+      "relative_error_reduction": -0.04763264483808882,
+      "documents_improved": 1,
+      "documents": 4
+    },
+    {
+      "domain": "stdlib",
+      "family": "opposite_cohort",
+      "kind": "mode",
+      "cohort": "spaced_word",
+      "old_error": 0.030806172438170853,
+      "new_error": 0.038791230844734216,
+      "relative_error_reduction": -0.25920319775491985,
+      "documents_improved": 2,
+      "documents": 12
+    },
+    {
+      "domain": "stdlib",
+      "family": "same_cohort",
+      "kind": "full",
+      "cohort": "continuation",
+      "old_error": 0.1378348956151751,
+      "new_error": 0.12508726180355859,
+      "relative_error_reduction": 0.09248480767313794,
+      "documents_improved": 11,
+      "documents": 16
+    },
+    {
+      "domain": "stdlib",
+      "family": "same_cohort",
+      "kind": "full",
+      "cohort": "spaced_word",
+      "old_error": 0.1049091421191576,
+      "new_error": 0.09032440785792424,
+      "relative_error_reduction": 0.1390225290820486,
+      "documents_improved": 14,
+      "documents": 16
+    },
+    {
+      "domain": "stdlib",
+      "family": "same_cohort",
+      "kind": "mode",
+      "cohort": "continuation",
+      "old_error": 0.030984680953448508,
+      "new_error": 0.028925034501235847,
+      "relative_error_reduction": 0.06647305664715675,
+      "documents_improved": 9,
+      "documents": 16
+    },
+    {
+      "domain": "stdlib",
+      "family": "same_cohort",
+      "kind": "mode",
+      "cohort": "spaced_word",
+      "old_error": 0.04797509471307135,
+      "new_error": 0.051728113535202985,
+      "relative_error_reduction": -0.07822848176908526,
+      "documents_improved": 2,
+      "documents": 16
+    }
+  ],
+  "scope": "Same teacher and frozen donor maps; response candidate chosen before native results. Descriptive document comparisons, not independent validation or significance under crossed donor-recipient dependence. Natural-input fidelity of new program not yet revalidated."
+}
