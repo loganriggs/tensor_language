@@ -1,5 +1,5 @@
 """Conditional second-read refitting under eight original fidelity constraints."""
-import copy,json,time
+import copy,json,time,sys
 from pathlib import Path
 import numpy as np
 import torch
@@ -8,6 +8,8 @@ from pairwise_reader_graph import expand
 from local_shared_reader_graph import decode
 from pairwise_graph_assessment import Assessment
 P=Path(__file__).parent;torch.set_num_threads(2);torch.set_grad_enabled(False);start=time.monotonic()
+VERSION=sys.argv[1] if len(sys.argv)>1 else 'V1'
+assert not (P/f'CONVEX_SOURCE_{VERSION}.json').exists()
 plan=json.loads((P/'CONVEX_SOURCE_PLAN_V1.json').read_text());base=json.loads((P/'SOURCE_SQUARE_PLAN_V1.json').read_text())['baseline'];data=torch.load(P/'SHARED_PRODUCT_NATIVE_INPUTS_V1.pt',weights_only=True);audit=Assessment(data);parents=torch.load(P/'PENCIL_JOINT_REFIT_PROGRAMS_V1.pt',weights_only=True)
 ids=data['indices'];z=data['z'][ids];h=data['h'][ids];s=(h.square().mean(-1)+torch.finfo(torch.float32).eps).sqrt();rows=[]
 def ratios(result):
@@ -17,7 +19,7 @@ def make_graph(parent,banks,allocation,x):
  for j,n in enumerate(allocation):
   V,lam=banks[j];p=graph['pairs'][str(j)];width=len(p['shared_indices'])+len(p['private_indices']);idx=torch.arange(width,width+n)
   if n:
-   p['private_reader']=torch.cat([p['private_reader'],V[:,:n]],1);p['private_indices']=torch.cat([p['private_indices'],idx]);p['product_indices']=torch.cat([p['product_indices'],torch.stack([idx,idx,torch.zeros_like(idx)])],1);weights=lam[:n]*torch.as_tensor(x[offset:offset+n]);p['product_weights']=torch.cat([p['product_weights'],torch.stack([torch.zeros_like(weights),weights],1)])
+   p['private_reader']=torch.cat([p['private_reader'],V[:,:n]],1);p['private_indices']=torch.cat([p['private_indices'],idx]);p['product_indices']=torch.cat([p['product_indices'],torch.stack([idx,idx,torch.zeros_like(idx)])],1);weights=lam[:n]*torch.as_tensor(x[offset:offset+n],dtype=V.dtype);p['product_weights']=torch.cat([p['product_weights'],torch.stack([torch.zeros_like(weights),weights],1)])
   offset+=n
  return audit.correct(graph)
 for geometry in plan['geometries']:
@@ -48,7 +50,8 @@ for geometry in plan['geometries']:
   control=np.linspace(-.3,.7,total);control_result=audit.assess(make_graph(parent,banks,allocation,control));replay=float(np.max(np.abs(predicted(control)-ratios(control_result))));assert replay<1e-8
   result=solve(Gn,bn,cn,initial=np.ones(total));graph=make_graph(parent,banks,allocation,result['x']);scores=audit.assess(graph);final_replay=float(np.max(np.abs(predicted(result['x'])-ratios(scores))));assert final_replay<1e-8
   assert scores['source_total_multiplications']==1047648+1155*total<=1064448
-  row=dict(geometry=geometry,allocation=allocation,solver=result,control_replay=replay,final_replay=final_replay,fidelity_pass=bool(ratios(scores).max()<=1),**scores);rows.append(row);print(json.dumps({k:v for k,v in row.items() if k!='solver'}),flush=True)
-  (P/'CONVEX_SOURCE_PARTIAL_V1.json').write_text(json.dumps(rows,indent=2)+'\n')
+  weights=np.zeros(8);weights[result['active']]=result['multipliers'];weights/=weights.sum();dualG=np.einsum('k,kij->ij',weights,Gn);dualb=weights@bn;eig,U=np.linalg.eigh(dualG);keep=eig>1e-12*max(1,float(eig.max()));projected=U.T@dualb;range_error=float(np.linalg.norm(projected[~keep]));lower=float(weights@cn-np.sum(projected[keep]**2/eig[keep]));gap=result['maximum']-lower
+  row=dict(dual_lower_bound=lower,dual_gap=gap,dual_range_residual=range_error,dual_weights=weights.tolist(),quadratics=dict(G=Gn.tolist(),b=bn.tolist(),c=cn.tolist()),geometry=geometry,allocation=allocation,solver=result,control_replay=replay,final_replay=final_replay,fidelity_pass=bool(ratios(scores).max()<=1),**scores);rows.append(row);print(json.dumps({k:v for k,v in row.items() if k not in ('solver','quadratics','dual_weights')}),flush=True)
+  (P/f'CONVEX_SOURCE_PARTIAL_{VERSION}.json').write_text(json.dumps(rows,indent=2)+'\n')
 primary=rows[0];out=dict(plan=plan,records=rows,predictions=dict(instrument=True,fidelity=primary['fidelity_pass'],cost=True),seconds=time.monotonic()-start)
-(P/'CONVEX_SOURCE_V1.json').write_text(json.dumps(out,indent=2)+'\n')
+(P/f'CONVEX_SOURCE_{VERSION}.json').write_text(json.dumps(out,indent=2)+'\n')
