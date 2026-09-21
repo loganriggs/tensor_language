@@ -1,0 +1,76 @@
+{
+  "records": [
+    {
+      "candidate": "0.005_pruned",
+      "native_relative_jacobian_error": [
+        0.2014248796891777,
+        0.17911177956229812
+      ],
+      "winner_relative_jacobian_difference": [
+        0.08940708503484354,
+        0.08380509757328201
+      ],
+      "tangent_native_relative_error": [
+        0.2056967438267567,
+        0.1858191425898029
+      ]
+    },
+    {
+      "candidate": "0.005_pruned_1pct_perturbed",
+      "native_relative_jacobian_error": [
+        0.20151331715044105,
+        0.1787549360576375
+      ],
+      "winner_relative_jacobian_difference": [
+        0.08899036458398192,
+        0.08335124603383154
+      ],
+      "tangent_native_relative_error": [
+        0.20579091651945497,
+        0.18546250931131245
+      ]
+    },
+    {
+      "candidate": "0.02_pruned",
+      "native_relative_jacobian_error": [
+        0.20089859324748152,
+        0.17933050476073656
+      ],
+      "winner_relative_jacobian_difference": [
+        0.0,
+        0.0
+      ],
+      "tangent_native_relative_error": [
+        0.20518091994653714,
+        0.18608037892633816
+      ]
+    },
+    {
+      "candidate": "0.02_pruned_1pct_perturbed",
+      "native_relative_jacobian_error": [
+        0.20068106333203103,
+        0.17890108947297856
+      ],
+      "winner_relative_jacobian_difference": [
+        0.08392094011413521,
+        0.07889720013904197
+      ],
+      "tangent_native_relative_error": [
+        0.20491365662728417,
+        0.1856152997466885
+      ]
+    }
+  ],
+  "finite_difference_errors": [
+    2.2406101431568857e-10,
+    1.2296878553379429e-10,
+    4.1316913018994355e-10,
+    7.103739640621855e-10
+  ],
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_native": false,
+    "pred_c_crossfit": true
+  },
+  "scope": "448opened states. Derivative with respect to z at fixed h and its RMS denominator. Tangent errors additionally project gradients onto the sphere orthogonal to each z; neither measures full upstream causal response. No native model forwards."
+}

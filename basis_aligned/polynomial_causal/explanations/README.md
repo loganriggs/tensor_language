@@ -1,5 +1,7 @@
 # Plain-language explanations
 
+Current overview: [QR, decomposition and arithmetic circuits](for_logan/research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md). Latest follow-up: [stable functions, unstable products](for_logan/research_update_2026-09-21_0748_stable_functions_unstable_products.md).
+
 Latest decomposition evidence: [Mean correction and feature stability](for_logan/research_update_2026-09-20_2015_mean_correction_and_feature_stability.md).
 
 Latest native graph refactor: [New products beat deleting old ones](for_logan/research_update_2026-09-20_1955_native_graph_refactor.md).

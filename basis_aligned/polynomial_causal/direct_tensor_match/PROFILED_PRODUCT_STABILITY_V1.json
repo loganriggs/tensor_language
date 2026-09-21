@@ -1,0 +1,52 @@
+{
+  "reference": "0.02_pruned",
+  "gauge_control": {
+    "median_abs_cosine": 0.9999999999999998,
+    "median_signed_cosine": 0.9999999999999998,
+    "negative_matches": 0,
+    "fraction_atoms_abs_above_090": 1.0,
+    "atom_energy_fraction_abs_above_090": 1.0,
+    "energy_weighted_abs_cosine": 1.0,
+    "min_abs_cosine": 0.9999999999999957
+  },
+  "records": [
+    {
+      "candidate": "0.005_pruned",
+      "median_abs_cosine": 0.04673330095243367,
+      "median_signed_cosine": 0.04313557507118291,
+      "negative_matches": 50,
+      "fraction_atoms_abs_above_090": 0.00390625,
+      "atom_energy_fraction_abs_above_090": 0.11170611044571845,
+      "energy_weighted_abs_cosine": 0.3215614699820049,
+      "min_abs_cosine": 0.011118278746339019,
+      "function_coefficient_disagreement": 0.04431115169594769
+    },
+    {
+      "candidate": "0.005_pruned_1pct_perturbed",
+      "median_abs_cosine": 0.0488181285701075,
+      "median_signed_cosine": 0.04543319475076003,
+      "negative_matches": 52,
+      "fraction_atoms_abs_above_090": 0.00390625,
+      "atom_energy_fraction_abs_above_090": 0.11170611044571845,
+      "energy_weighted_abs_cosine": 0.32016832107590587,
+      "min_abs_cosine": 0.01161705150789389,
+      "function_coefficient_disagreement": 0.04430119188542062
+    },
+    {
+      "candidate": "0.02_pruned_1pct_perturbed",
+      "median_abs_cosine": 0.06475847732067315,
+      "median_signed_cosine": 0.06389944999132115,
+      "negative_matches": 22,
+      "fraction_atoms_abs_above_090": 0.01171875,
+      "atom_energy_fraction_abs_above_090": 0.2678674684584494,
+      "energy_weighted_abs_cosine": 0.38969608503590597,
+      "min_abs_cosine": 0.00821641564917236,
+      "function_coefficient_disagreement": 0.041847629393838515
+    }
+  ],
+  "predictions": {
+    "pred_a_gauge": true,
+    "pred_b_stable_atoms": false
+  },
+  "scope": "Hungarian alignment on absolute joint quadratic-atom cosine, with signed matches separately reported. Atom energies are before cancellation. Coefficient-level stability across two rates and a nearby start does not establish monosemanticity, cross-data identification or global uniqueness."
+}

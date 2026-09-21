@@ -1,0 +1,89 @@
+{
+  "records": [
+    {
+      "candidate": "0.005_pruned",
+      "product_gram_condition": 26.119983506243575,
+      "gram_min_eigenvalue": 0.044469114847527934,
+      "readout_frobenius_norm": 3.127215233472502,
+      "sum_atom_norms_over_tensor_norm": 24.253347668865157,
+      "sum_atom_squared_norms_over_tensor_squared_norm": 2.579447929894762,
+      "fp32_scalar_relative_variation_error": [
+        4.798291081696394e-07,
+        8.952959541279567e-07,
+        3.2207404123079426e-06
+      ],
+      "fp32_source_relative_variation_error": [
+        4.696392890408505e-07,
+        3.874266770059761e-07,
+        4.826986265528949e-07,
+        4.422295861291208e-07,
+        1.8175261439123574e-06,
+        1.697025895936527e-06
+      ]
+    },
+    {
+      "candidate": "0.005_pruned_1pct_perturbed",
+      "product_gram_condition": 26.02410210886605,
+      "gram_min_eigenvalue": 0.04441834661962308,
+      "readout_frobenius_norm": 3.1233714254738216,
+      "sum_atom_norms_over_tensor_norm": 24.231174436873484,
+      "sum_atom_squared_norms_over_tensor_squared_norm": 2.571740160778432,
+      "fp32_scalar_relative_variation_error": [
+        4.85485039895217e-07,
+        8.735250288970728e-07,
+        3.2207404123079426e-06
+      ],
+      "fp32_source_relative_variation_error": [
+        4.4382896803573927e-07,
+        3.628715916652485e-07,
+        4.7478812578773244e-07,
+        4.483071746775183e-07,
+        1.8175261439123574e-06,
+        1.697025895936527e-06
+      ]
+    },
+    {
+      "candidate": "0.02_pruned",
+      "product_gram_condition": 23.712533656594488,
+      "gram_min_eigenvalue": 0.053065419298251724,
+      "readout_frobenius_norm": 2.547410503884032,
+      "sum_atom_norms_over_tensor_norm": 18.595531905891335,
+      "sum_atom_squared_norms_over_tensor_squared_norm": 1.7798962951251935,
+      "fp32_scalar_relative_variation_error": [
+        4.879864253689562e-07,
+        8.437373397628077e-07,
+        3.2207404123079426e-06
+      ],
+      "fp32_source_relative_variation_error": [
+        5.141411425765235e-07,
+        4.831029205237176e-07,
+        3.936501216902591e-07,
+        4.087190968657332e-07,
+        1.8175261439123574e-06,
+        1.697025895936527e-06
+      ]
+    },
+    {
+      "candidate": "0.02_pruned_1pct_perturbed",
+      "product_gram_condition": 25.391938590756936,
+      "gram_min_eigenvalue": 0.05467693461898851,
+      "readout_frobenius_norm": 2.568013745561261,
+      "sum_atom_norms_over_tensor_norm": 18.629861831975077,
+      "sum_atom_squared_norms_over_tensor_squared_norm": 1.7896253625804615,
+      "fp32_scalar_relative_variation_error": [
+        5.08341868471967e-07,
+        8.586912065478481e-07,
+        3.2207404123079426e-06
+      ],
+      "fp32_source_relative_variation_error": [
+        4.404135432070039e-07,
+        3.692819762641467e-07,
+        5.253674037207528e-07,
+        4.0275972570043907e-07,
+        1.8175261439123574e-06,
+        1.697025895936527e-06
+      ]
+    }
+  ],
+  "scope": "Cancellation ratios are coefficient-space diagnostics, not proofs of ill-posedness or causal salience. FP32 comparison reuses all32 cached rows and native input boundaries; no new native forward, semantic result or quantization claim."
+}

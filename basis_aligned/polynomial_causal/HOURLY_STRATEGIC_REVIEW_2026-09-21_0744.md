@@ -1,0 +1,18 @@
+ACTIVE_TRACK: WEIGHT_FOLDING
+
+21 September 2026, 07:44 UTC. The user's two-day weights-first request overrides hourly alternation. Previous goal turn is progress: requested overview rewritten from verified artifacts. Full goal remains predictive, OOD-valid, extractable, selectively manipulable, reusable, simple and stably identified circuits.
+
+Since06:34: common projection failed; shared squares and mixed products traded cost against individual component fidelity; partial graph edit plus variable-projection refit achieved512vs768products at897804coefficients each. Two fresh panels pass all72relative comparisons each, but private mode3 continuation error16.73% and16.01% still exceeds15%. Second panel uses a larger private branch in both arms; it is not an exact replication. Atom identity fails after gauge alignment. Product Gram conditions23.7–26.1 and FP32 scalar discrepancies<=3.3e-6 oppose a numerical-breakdown explanation.
+
+Computational specification: MLP16 quadratic source reads feed selected last-MLP component scalars and a fixed residual writer. Shared graph includes all six reads, exact centered affine/mean terms and explicit RMS denominators. Native z,h are still required. Cross-boundary grouping is algebraic; components2/3 lack semantic names. Fresh/OOD native effect comparisons now exist, with one retained absolute failure. Extraction is conditional on native inputs. Selective semantic manipulation and full upstream closure remain unproved. Sharing saves distinct products, while internal identity is unstable. Composition checks cover selected joint removals, not arbitrary task reuse.
+
+TRACK_ALTERNATION: explicit user override; remain WEIGHT_FOLDING.
+TRACK_PROGRESS: PASS, native folded graph edit/refit plus fresh intervention comparisons.
+CEREMONY_BUDGET: user-requested rewrite and literature checkpoint add documentation overhead; four-fit mixed/refit GPU jobs took238.3/190.4seconds, fresh panels6.23/6.16seconds. Serial authoring and CPU analysis dominate. Exact category minutes are not instrumented; no invented percentages. Reuse current executors rather than build another framework.
+NOVELTY_LESSON_GATE: PASS, prior shared-bank/reuse failures, board and continuation dossier read. Preserve per-component scores, chunk/document correction, and capacity-matched private baseline.
+
+Highest-information action: distinguish stable functions from unstable implementations using coefficient-space principal angles. Executed: only3–4/256 common directions above cosine.90, so full span stability fails. A three-direction consensus retains99.9937% fitted-function energy. This can arise because every fit shares one target; it is not discovery of three semantic features. Native scalar replay of this consensus is executing to test whether coefficient closeness survives composition.
+
+Alternatives: more private width is lower priority after repeated inherited subgroup failure; optimizing another global coefficient score alone risks objective mismatch; semantic/OOD tasks are necessary later but the current explicit exploration remains weights-first. Stable downstream-defined observables are plausible units even when their product implementations differ. A useful follow-up must test constituent functions or interventions, not rename the whole fitted tensor a circuit.
+
+Confounds: opened states cannot certify fresh behavior; repeated starts are correlated; dictionary subspaces may differ simply because approximations differ; sum-of-atom energies precedes cancellation; output normalization changes geometry. Current bootstrap keeps donors fixed and cannot measure donor-selection uncertainty. No thresholds relaxed.
