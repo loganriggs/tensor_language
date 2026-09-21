@@ -1,0 +1,162 @@
+{
+  "records": [
+    {
+      "geometry": "native_isotropic",
+      "edge": [
+        0,
+        1
+      ],
+      "consumer": 0,
+      "mean_squared_cosine": 0.8793059312849614,
+      "within_shared_energy": 0.1340294386698444,
+      "shared_to_remaining_cross_energy": 0.2138910155967336,
+      "remaining_energy": 0.6520795457334221,
+      "orthogonal_energy_replay": 0.0
+    },
+    {
+      "geometry": "native_isotropic",
+      "edge": [
+        0,
+        1
+      ],
+      "consumer": 1,
+      "mean_squared_cosine": 0.8793059312849614,
+      "within_shared_energy": 0.13046523015424938,
+      "shared_to_remaining_cross_energy": 0.2224452743300591,
+      "remaining_energy": 0.6470894955156914,
+      "orthogonal_energy_replay": 1.1102230246251565e-16
+    },
+    {
+      "geometry": "native_isotropic",
+      "edge": [
+        0,
+        2
+      ],
+      "consumer": 0,
+      "mean_squared_cosine": 0.8607128198177392,
+      "within_shared_energy": 0.1323490440216348,
+      "shared_to_remaining_cross_energy": 0.2200006698957828,
+      "remaining_energy": 0.6476502860825823,
+      "orthogonal_energy_replay": 0.0
+    },
+    {
+      "geometry": "native_isotropic",
+      "edge": [
+        0,
+        2
+      ],
+      "consumer": 2,
+      "mean_squared_cosine": 0.8607128198177392,
+      "within_shared_energy": 0.1525577110827606,
+      "shared_to_remaining_cross_energy": 0.21349696057983641,
+      "remaining_energy": 0.6339453283374028,
+      "orthogonal_energy_replay": 2.220446049250313e-16
+    },
+    {
+      "geometry": "native_isotropic",
+      "edge": [
+        1,
+        2
+      ],
+      "consumer": 1,
+      "mean_squared_cosine": 0.9107835773150685,
+      "within_shared_energy": 0.18037905778077618,
+      "shared_to_remaining_cross_energy": 0.19561361224742918,
+      "remaining_energy": 0.6240073299717946,
+      "orthogonal_energy_replay": 0.0
+    },
+    {
+      "geometry": "native_isotropic",
+      "edge": [
+        1,
+        2
+      ],
+      "consumer": 2,
+      "mean_squared_cosine": 0.9107835773150685,
+      "within_shared_energy": 0.20888314941957087,
+      "shared_to_remaining_cross_energy": 0.1746274950772734,
+      "remaining_energy": 0.6164893555031556,
+      "orthogonal_energy_replay": 1.1102230246251565e-16
+    },
+    {
+      "geometry": "calibration_shaped",
+      "edge": [
+        0,
+        1
+      ],
+      "consumer": 0,
+      "mean_squared_cosine": 0.9667024801428701,
+      "within_shared_energy": 0.8697945003466034,
+      "shared_to_remaining_cross_energy": 0.09149979815331787,
+      "remaining_energy": 0.038705701500080625,
+      "orthogonal_energy_replay": 1.9984014443252818e-15
+    },
+    {
+      "geometry": "calibration_shaped",
+      "edge": [
+        0,
+        1
+      ],
+      "consumer": 1,
+      "mean_squared_cosine": 0.9667024801428701,
+      "within_shared_energy": 0.9139910587804401,
+      "shared_to_remaining_cross_energy": 0.059949356982742466,
+      "remaining_energy": 0.026059584236818128,
+      "orthogonal_energy_replay": 6.661338147750939e-16
+    },
+    {
+      "geometry": "calibration_shaped",
+      "edge": [
+        0,
+        2
+      ],
+      "consumer": 0,
+      "mean_squared_cosine": 0.9642189372162921,
+      "within_shared_energy": 0.8745039406550922,
+      "shared_to_remaining_cross_energy": 0.08746427774488415,
+      "remaining_energy": 0.038031781600022574,
+      "orthogonal_energy_replay": 1.1102230246251565e-15
+    },
+    {
+      "geometry": "calibration_shaped",
+      "edge": [
+        0,
+        2
+      ],
+      "consumer": 2,
+      "mean_squared_cosine": 0.9642189372162921,
+      "within_shared_energy": 0.9511985635509228,
+      "shared_to_remaining_cross_energy": 0.0312725633182251,
+      "remaining_energy": 0.017528873130850976,
+      "orthogonal_energy_replay": 1.1102230246251565e-15
+    },
+    {
+      "geometry": "calibration_shaped",
+      "edge": [
+        1,
+        2
+      ],
+      "consumer": 1,
+      "mean_squared_cosine": 0.9830148339838587,
+      "within_shared_energy": 0.9250273773559818,
+      "shared_to_remaining_cross_energy": 0.048336578260395974,
+      "remaining_energy": 0.026636044383622114,
+      "orthogonal_energy_replay": 1.1102230246251565e-16
+    },
+    {
+      "geometry": "calibration_shaped",
+      "edge": [
+        1,
+        2
+      ],
+      "consumer": 2,
+      "mean_squared_cosine": 0.9830148339838587,
+      "within_shared_energy": 0.9598631294333754,
+      "shared_to_remaining_cross_energy": 0.022958752048967898,
+      "remaining_energy": 0.017178118517655234,
+      "orthogonal_energy_replay": 1.4432899320127035e-15
+    }
+  ],
+  "seconds": 1.8522117352113128,
+  "scope": "Descriptive decomposition of native quadratic coefficient energy around each target-derived midpoint principal64 input subspace. Each edge is assessed separately; energies across edges overlap and must not be added. Remaining space is the entire orthogonal complement, not the private224 graph branch. No fitted graph, causal identity, cost saving or acceptance claim."
+}

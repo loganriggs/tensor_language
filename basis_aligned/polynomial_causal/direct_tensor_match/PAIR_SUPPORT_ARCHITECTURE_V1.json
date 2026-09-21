@@ -1,0 +1,1152 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T14:07:18.157954+00:00",
+    "metrics": [
+      "calibration_shaped",
+      "native_isotropic"
+    ],
+    "nulls": [
+      "common",
+      "pairwise"
+    ],
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "pair_width": 352,
+    "edge_width": 64,
+    "pred_a": "Native forms replay saved source targets<1e-10; permutations preserve all two-read coefficient Gram matrices, and common permutation preserves full six-read coefficient Gram matrix<1e-10relative.",
+    "pred_b": "Native support statistic exceeds every null statistic separately in each geometry and each permutation family.",
+    "scope": "Hold trained MLP16 L/R fixed. Permute folded output channel coefficients jointly across all6reads or independently by pair. Preserves channel coefficient distributions/correlations as declared, but not each quadratic form spectrum. Complements the spectral-preserving Haar orientation null; not causal or semantic evidence.",
+    "hashes": {
+      "PAIR_SUPPORT_ARCHITECTURE_INPUTS_V1.pt": "e09067dab2c4126c3642bb42c5b39b75e678138216e78076765a380343571f6e",
+      "pair_support_architecture.py": "eda4b971be5c2221ad5bde27134e39c4c55db341b4afe71d961fa018f2ebd862",
+      "SHARED_PRODUCT_NATIVE_INPUTS_V1.pt": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+      "PAIR_SUPPORT_NULL_V1.json": "72ba18c2caaf433d5014be84e0fd9db5a4819825f6cd66732ef9c6923a91ab35"
+    }
+  },
+  "native": {
+    "calibration_shaped": {
+      "statistic": 0.9713120837811342,
+      "edge_values": [
+        0.9667024801429993,
+        0.964218937216408,
+        0.9830148339839954
+      ]
+    },
+    "native_isotropic": {
+      "statistic": 0.8836007761393612,
+      "edge_values": [
+        0.879305931285066,
+        0.860712819817843,
+        0.9107835773151747
+      ]
+    }
+  },
+  "records": [
+    {
+      "kind": "common",
+      "seed": 0,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9661801308684564,
+      "edge_values": [
+        0.9612369020619311,
+        0.9586640971828644,
+        0.9786393933605739
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 0,
+      "geometry": "native_isotropic",
+      "statistic": 0.8807407093549657,
+      "edge_values": [
+        0.874339581283441,
+        0.8610678020781486,
+        0.9068147447033075
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 1,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9662947473774146,
+      "edge_values": [
+        0.9617047435580949,
+        0.9584998477279448,
+        0.9786796508462043
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 1,
+      "geometry": "native_isotropic",
+      "statistic": 0.8792635574393001,
+      "edge_values": [
+        0.8740090301976968,
+        0.8578336860236626,
+        0.905947956096541
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 2,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9663729856672889,
+      "edge_values": [
+        0.9618770813660281,
+        0.9590682097392309,
+        0.9781736658966078
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 2,
+      "geometry": "native_isotropic",
+      "statistic": 0.8834047496037959,
+      "edge_values": [
+        0.8766344222970871,
+        0.8651797452105926,
+        0.9084000813037078
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 3,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9667691053004438,
+      "edge_values": [
+        0.9622747256690891,
+        0.9594577779633531,
+        0.9785748122688891
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 3,
+      "geometry": "native_isotropic",
+      "statistic": 0.8828625276182308,
+      "edge_values": [
+        0.8754448732960018,
+        0.865009837948207,
+        0.9081328716104837
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 4,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9666236508721262,
+      "edge_values": [
+        0.9617885112651934,
+        0.9596559479329816,
+        0.9784264934182039
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 4,
+      "geometry": "native_isotropic",
+      "statistic": 0.881490015389577,
+      "edge_values": [
+        0.8754180770291591,
+        0.8628866327325282,
+        0.9061653364070438
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 5,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9663662825997156,
+      "edge_values": [
+        0.961528892421806,
+        0.9587288683785045,
+        0.9788410869988364
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 5,
+      "geometry": "native_isotropic",
+      "statistic": 0.8811919799669963,
+      "edge_values": [
+        0.874838302538383,
+        0.8608544511599113,
+        0.9078831862026946
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 6,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9659914342373219,
+      "edge_values": [
+        0.9618385775503147,
+        0.9577150769193354,
+        0.9784206482423156
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 6,
+      "geometry": "native_isotropic",
+      "statistic": 0.8823674312177695,
+      "edge_values": [
+        0.8762328029106533,
+        0.8630834438118207,
+        0.9077860469308346
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 7,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9660354340201326,
+      "edge_values": [
+        0.9615288931846699,
+        0.9584643437346857,
+        0.9781130651410423
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 7,
+      "geometry": "native_isotropic",
+      "statistic": 0.8804524207987097,
+      "edge_values": [
+        0.874905166374518,
+        0.859549689518057,
+        0.906902406503554
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 8,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9663507526683418,
+      "edge_values": [
+        0.9614516047243622,
+        0.9590530675752893,
+        0.9785475857053743
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 8,
+      "geometry": "native_isotropic",
+      "statistic": 0.8786935809953227,
+      "edge_values": [
+        0.8731349944625473,
+        0.8593944268137756,
+        0.9035513217096452
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 9,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9661679744043452,
+      "edge_values": [
+        0.9613190994894175,
+        0.9590096028941235,
+        0.9781752208294944
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 9,
+      "geometry": "native_isotropic",
+      "statistic": 0.8786215099149418,
+      "edge_values": [
+        0.8723929611769732,
+        0.8599947142236033,
+        0.9034768543442488
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 10,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9660431458447327,
+      "edge_values": [
+        0.9606781138343988,
+        0.9588766860433178,
+        0.9785746376564813
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 10,
+      "geometry": "native_isotropic",
+      "statistic": 0.8790602533769737,
+      "edge_values": [
+        0.8726884435447915,
+        0.8602981040882984,
+        0.9041942124978313
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 11,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9661872738662662,
+      "edge_values": [
+        0.9614526226049547,
+        0.9588977020636913,
+        0.9782114969301529
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 11,
+      "geometry": "native_isotropic",
+      "statistic": 0.8800915733439546,
+      "edge_values": [
+        0.8756503954892944,
+        0.8598401269784602,
+        0.904784197564109
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 12,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9659585021052327,
+      "edge_values": [
+        0.9607662195236351,
+        0.9587889583214657,
+        0.9783203284705975
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 12,
+      "geometry": "native_isotropic",
+      "statistic": 0.8809765868504934,
+      "edge_values": [
+        0.8748772078750491,
+        0.8618761693189612,
+        0.9061763833574701
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 13,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9661999279592065,
+      "edge_values": [
+        0.9611091512462723,
+        0.9591213629545818,
+        0.9783692696767657
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 13,
+      "geometry": "native_isotropic",
+      "statistic": 0.8802840656597594,
+      "edge_values": [
+        0.8716283162656736,
+        0.8612288986642326,
+        0.9079949820493718
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 14,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9662472899273774,
+      "edge_values": [
+        0.9615045571468559,
+        0.9592783923329118,
+        0.9779589203023645
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 14,
+      "geometry": "native_isotropic",
+      "statistic": 0.8795302824451586,
+      "edge_values": [
+        0.8722288601180572,
+        0.8608697127553349,
+        0.9054922744620838
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 15,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9662225882646706,
+      "edge_values": [
+        0.9614773272071329,
+        0.9588439254885647,
+        0.9783465120983144
+      ]
+    },
+    {
+      "kind": "common",
+      "seed": 15,
+      "geometry": "native_isotropic",
+      "statistic": 0.880654595752283,
+      "edge_values": [
+        0.8744425143435345,
+        0.8608963229076803,
+        0.9066249500056345
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 0,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9484786358259315,
+      "edge_values": [
+        0.9466291416771206,
+        0.9465289819662315,
+        0.9522777838344421
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 0,
+      "geometry": "native_isotropic",
+      "statistic": 0.8015702880503226,
+      "edge_values": [
+        0.7989269648034617,
+        0.7997460396584888,
+        0.8060378596890174
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 1,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9488790649540872,
+      "edge_values": [
+        0.9460438381924274,
+        0.9479024583665958,
+        0.9526908983032385
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 1,
+      "geometry": "native_isotropic",
+      "statistic": 0.8041061611470374,
+      "edge_values": [
+        0.7997699337720456,
+        0.8056607010675805,
+        0.8068878486014857
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 2,
+      "geometry": "calibration_shaped",
+      "statistic": 0.948593946810134,
+      "edge_values": [
+        0.9453392362075339,
+        0.9489520179635326,
+        0.9514905862593355
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 2,
+      "geometry": "native_isotropic",
+      "statistic": 0.8044172846019105,
+      "edge_values": [
+        0.7995283544851219,
+        0.8077703936204143,
+        0.8059531057001957
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 3,
+      "geometry": "calibration_shaped",
+      "statistic": 0.948574201107701,
+      "edge_values": [
+        0.9459294283146389,
+        0.9478119655732207,
+        0.9519812094352434
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 3,
+      "geometry": "native_isotropic",
+      "statistic": 0.7999966321161347,
+      "edge_values": [
+        0.7924657423343648,
+        0.8010173398125335,
+        0.8065068142015057
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 4,
+      "geometry": "calibration_shaped",
+      "statistic": 0.948424488255629,
+      "edge_values": [
+        0.9464712075499526,
+        0.9467986189812705,
+        0.9520036382356639
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 4,
+      "geometry": "native_isotropic",
+      "statistic": 0.8013586035097434,
+      "edge_values": [
+        0.7980168563363143,
+        0.7991411004602871,
+        0.8069178537326287
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 5,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9488149734317433,
+      "edge_values": [
+        0.9462459340023068,
+        0.9474433847894608,
+        0.9527556015034621
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 5,
+      "geometry": "native_isotropic",
+      "statistic": 0.8037792298812301,
+      "edge_values": [
+        0.7981279289894722,
+        0.8028984920210459,
+        0.8103112686331722
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 6,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9478253112088432,
+      "edge_values": [
+        0.9445846114784681,
+        0.9467431797374416,
+        0.9521481424106198
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 6,
+      "geometry": "native_isotropic",
+      "statistic": 0.8007108694070079,
+      "edge_values": [
+        0.7967230141482277,
+        0.7975388273521313,
+        0.8078707667206646
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 7,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9485188269017472,
+      "edge_values": [
+        0.9453015408174785,
+        0.9474326512987872,
+        0.9528222885889759
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 7,
+      "geometry": "native_isotropic",
+      "statistic": 0.8039774330599334,
+      "edge_values": [
+        0.8002125532336297,
+        0.8032519954360263,
+        0.8084677505101441
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 8,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9490117644408339,
+      "edge_values": [
+        0.9460486022965942,
+        0.9482232946308203,
+        0.9527633963950873
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 8,
+      "geometry": "native_isotropic",
+      "statistic": 0.8041619470021558,
+      "edge_values": [
+        0.7989272927426638,
+        0.8023357097105258,
+        0.8112228385532777
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 9,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9492863627859269,
+      "edge_values": [
+        0.947001692238849,
+        0.9477334758750962,
+        0.9531239202438356
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 9,
+      "geometry": "native_isotropic",
+      "statistic": 0.8073223103736344,
+      "edge_values": [
+        0.803655831158556,
+        0.8028871806776692,
+        0.8154239192846782
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 10,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9490215174575222,
+      "edge_values": [
+        0.9468870921865273,
+        0.9482375001350067,
+        0.9519399600510323
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 10,
+      "geometry": "native_isotropic",
+      "statistic": 0.8027853237955253,
+      "edge_values": [
+        0.7997624275680579,
+        0.8037309048423937,
+        0.804862638976124
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 11,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9487212872613017,
+      "edge_values": [
+        0.9458028092496651,
+        0.9481658061570846,
+        0.9521952463771554
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 11,
+      "geometry": "native_isotropic",
+      "statistic": 0.802588039325293,
+      "edge_values": [
+        0.7984243808641702,
+        0.8041027842429056,
+        0.8052369528688035
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 12,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9489550844805564,
+      "edge_values": [
+        0.9462537039126033,
+        0.947592947741123,
+        0.953018601787943
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 12,
+      "geometry": "native_isotropic",
+      "statistic": 0.8024627992190007,
+      "edge_values": [
+        0.7984694992932607,
+        0.801505493354522,
+        0.8074134050092194
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 13,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9487552383289183,
+      "edge_values": [
+        0.9467829719490267,
+        0.9469937963038835,
+        0.9524889467338447
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 13,
+      "geometry": "native_isotropic",
+      "statistic": 0.8019620506122124,
+      "edge_values": [
+        0.7996751941701419,
+        0.799573871481249,
+        0.8066370861852461
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 14,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9489009264318807,
+      "edge_values": [
+        0.9469988729512872,
+        0.9477487015386561,
+        0.951955204805699
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 14,
+      "geometry": "native_isotropic",
+      "statistic": 0.8017552299222023,
+      "edge_values": [
+        0.8029231852016834,
+        0.7986362112084471,
+        0.8037062933564765
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 15,
+      "geometry": "calibration_shaped",
+      "statistic": 0.9491374242532115,
+      "edge_values": [
+        0.9462754208931953,
+        0.9480267918748218,
+        0.9531100599916171
+      ]
+    },
+    {
+      "kind": "pairwise",
+      "seed": 15,
+      "geometry": "native_isotropic",
+      "statistic": 0.8038188140517729,
+      "edge_values": [
+        0.7980039950750238,
+        0.8014620969171202,
+        0.8119903501631747
+      ]
+    }
+  ],
+  "invariant_checks": [
+    {
+      "kind": "common",
+      "seed": 0,
+      "pair_gram_replay": [
+        4.571659360835451e-16,
+        4.232703042254945e-16,
+        1.218703816347571e-15
+      ],
+      "full_gram_difference": 9.413409647791774e-16
+    },
+    {
+      "kind": "common",
+      "seed": 1,
+      "pair_gram_replay": [
+        2.500431460038539e-15,
+        1.3864006356636297e-15,
+        5.725695258685958e-16
+      ],
+      "full_gram_difference": 1.6191594512040833e-15
+    },
+    {
+      "kind": "common",
+      "seed": 2,
+      "pair_gram_replay": [
+        2.29207299605505e-15,
+        6.112870679863551e-16,
+        1.0971452787548568e-15
+      ],
+      "full_gram_difference": 1.64558600368112e-15
+    },
+    {
+      "kind": "common",
+      "seed": 3,
+      "pair_gram_replay": [
+        2.4161392264397642e-15,
+        1.0380298160793365e-15,
+        1.675279097041318e-15
+      ],
+      "full_gram_difference": 1.937326959296972e-15
+    },
+    {
+      "kind": "common",
+      "seed": 4,
+      "pair_gram_replay": [
+        9.684129403062358e-16,
+        2.2202246583423192e-15,
+        2.4387230568123805e-15
+      ],
+      "full_gram_difference": 1.9808141384164363e-15
+    },
+    {
+      "kind": "common",
+      "seed": 5,
+      "pair_gram_replay": [
+        8.905789327237174e-16,
+        1.5033120274806701e-15,
+        1.6631106137499126e-15
+      ],
+      "full_gram_difference": 1.4684332132547684e-15
+    },
+    {
+      "kind": "common",
+      "seed": 6,
+      "pair_gram_replay": [
+        1.5655177209630624e-15,
+        1.2257102868353327e-15,
+        1.7892424264588857e-15
+      ],
+      "full_gram_difference": 1.608926623054926e-15
+    },
+    {
+      "kind": "common",
+      "seed": 7,
+      "pair_gram_replay": [
+        2.1802353130652513e-15,
+        7.331256722536921e-16,
+        1.6919994972933019e-15
+      ],
+      "full_gram_difference": 1.976282674361521e-15
+    },
+    {
+      "kind": "common",
+      "seed": 8,
+      "pair_gram_replay": [
+        1.9972171830553615e-15,
+        1.4645047669434272e-15,
+        8.679342116983138e-16
+      ],
+      "full_gram_difference": 1.7163925072387579e-15
+    },
+    {
+      "kind": "common",
+      "seed": 9,
+      "pair_gram_replay": [
+        8.453001148434432e-16,
+        1.510953877483243e-15,
+        1.5451538107930785e-15
+      ],
+      "full_gram_difference": 1.4402409274335721e-15
+    },
+    {
+      "kind": "common",
+      "seed": 10,
+      "pair_gram_replay": [
+        2.528846366069186e-15,
+        4.4103755967968545e-16,
+        1.4349047879209841e-15
+      ],
+      "full_gram_difference": 1.7941009911627884e-15
+    },
+    {
+      "kind": "common",
+      "seed": 11,
+      "pair_gram_replay": [
+        2.996943578351123e-15,
+        3.1944191311921796e-15,
+        8.646434540231076e-16
+      ],
+      "full_gram_difference": 2.3666454180075274e-15
+    },
+    {
+      "kind": "common",
+      "seed": 12,
+      "pair_gram_replay": [
+        2.123369660001262e-15,
+        2.4768676295521356e-15,
+        1.421180489697013e-15
+      ],
+      "full_gram_difference": 1.88817181850686e-15
+    },
+    {
+      "kind": "common",
+      "seed": 13,
+      "pair_gram_replay": [
+        2.7455993148724866e-15,
+        7.190257852390753e-16,
+        8.044373711046325e-16
+      ],
+      "full_gram_difference": 1.6711161247893013e-15
+    },
+    {
+      "kind": "common",
+      "seed": 14,
+      "pair_gram_replay": [
+        1.78165924698177e-15,
+        2.5731612030620515e-15,
+        1.9931170118403396e-15
+      ],
+      "full_gram_difference": 2.1275627256028417e-15
+    },
+    {
+      "kind": "common",
+      "seed": 15,
+      "pair_gram_replay": [
+        1.4720119400663946e-15,
+        1.2078311007179732e-15,
+        3.565815844543368e-15
+      ],
+      "full_gram_difference": 2.484212309614744e-15
+    },
+    {
+      "kind": "pairwise",
+      "seed": 0,
+      "pair_gram_replay": [
+        4.571659360835451e-16,
+        8.644904620495875e-16,
+        4.641837533085174e-15
+      ],
+      "full_gram_difference": 0.38494785381885066
+    },
+    {
+      "kind": "pairwise",
+      "seed": 1,
+      "pair_gram_replay": [
+        2.500431460038539e-15,
+        2.517352889977081e-15,
+        1.8714011407632235e-15
+      ],
+      "full_gram_difference": 0.3988608677300473
+    },
+    {
+      "kind": "pairwise",
+      "seed": 2,
+      "pair_gram_replay": [
+        2.29207299605505e-15,
+        1.827570066364786e-15,
+        2.9497781930573672e-15
+      ],
+      "full_gram_difference": 0.3942366883113943
+    },
+    {
+      "kind": "pairwise",
+      "seed": 3,
+      "pair_gram_replay": [
+        2.4161392264397642e-15,
+        1.1301056680627713e-15,
+        1.6705929924856996e-15
+      ],
+      "full_gram_difference": 0.4000060567859131
+    },
+    {
+      "kind": "pairwise",
+      "seed": 4,
+      "pair_gram_replay": [
+        9.684129403062358e-16,
+        2.9062016851877565e-16,
+        4.561847253851883e-16
+      ],
+      "full_gram_difference": 0.38712655602174856
+    },
+    {
+      "kind": "pairwise",
+      "seed": 5,
+      "pair_gram_replay": [
+        8.905789327237174e-16,
+        1.7886434925820518e-15,
+        4.258523765258772e-15
+      ],
+      "full_gram_difference": 0.38511205993469494
+    },
+    {
+      "kind": "pairwise",
+      "seed": 6,
+      "pair_gram_replay": [
+        1.5655177209630624e-15,
+        1.5386493109969953e-15,
+        1.5502191475561195e-15
+      ],
+      "full_gram_difference": 0.3938895655332404
+    },
+    {
+      "kind": "pairwise",
+      "seed": 7,
+      "pair_gram_replay": [
+        2.1802353130652513e-15,
+        5.587900903300606e-16,
+        8.044373711046325e-16
+      ],
+      "full_gram_difference": 0.39801203473168245
+    },
+    {
+      "kind": "pairwise",
+      "seed": 8,
+      "pair_gram_replay": [
+        1.9972171830553615e-15,
+        1.237141490710439e-15,
+        1.6733636404188394e-15
+      ],
+      "full_gram_difference": 0.38213582796629253
+    },
+    {
+      "kind": "pairwise",
+      "seed": 9,
+      "pair_gram_replay": [
+        8.453001148434432e-16,
+        2.235732818843093e-15,
+        1.0469537131958559e-15
+      ],
+      "full_gram_difference": 0.3840592334443722
+    },
+    {
+      "kind": "pairwise",
+      "seed": 10,
+      "pair_gram_replay": [
+        2.528846366069186e-15,
+        2.697948009265353e-15,
+        4.715109781016205e-15
+      ],
+      "full_gram_difference": 0.38466035776891944
+    },
+    {
+      "kind": "pairwise",
+      "seed": 11,
+      "pair_gram_replay": [
+        2.996943578351123e-15,
+        1.8028958572954284e-15,
+        5.292313822641483e-16
+      ],
+      "full_gram_difference": 0.39186833887119177
+    },
+    {
+      "kind": "pairwise",
+      "seed": 12,
+      "pair_gram_replay": [
+        2.123369660001262e-15,
+        1.2309194487975961e-15,
+        1.1407742259639585e-15
+      ],
+      "full_gram_difference": 0.3898527949518803
+    },
+    {
+      "kind": "pairwise",
+      "seed": 13,
+      "pair_gram_replay": [
+        2.7455993148724866e-15,
+        2.0343411796314296e-15,
+        1.1074898354836153e-15
+      ],
+      "full_gram_difference": 0.3938180156007476
+    },
+    {
+      "kind": "pairwise",
+      "seed": 14,
+      "pair_gram_replay": [
+        1.78165924698177e-15,
+        1.5193997447117384e-15,
+        1.4448042139526656e-15
+      ],
+      "full_gram_difference": 0.3882240947735504
+    },
+    {
+      "kind": "pairwise",
+      "seed": 15,
+      "pair_gram_replay": [
+        1.4720119400663946e-15,
+        2.4156622014359464e-15,
+        1.7876484462525392e-15
+      ],
+      "full_gram_difference": 0.38350069649833585
+    }
+  ],
+  "native_form_replay": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "summaries": [
+    {
+      "kind": "common",
+      "geometry": "calibration_shaped",
+      "native": 0.9713120837811342,
+      "null_mean": 0.9662507016239421,
+      "null_std": 0.00021746154485723844,
+      "null_min": 0.9659585021052327,
+      "null_max": 0.9667691053004438,
+      "native_minus_null_mean": 0.005061382157192096,
+      "exceeds_all": true,
+      "monte_carlo_upper_tail": 0.058823529411764705
+    },
+    {
+      "kind": "common",
+      "geometry": "native_isotropic",
+      "native": 0.8836007761393612,
+      "null_mean": 0.8806053649830144,
+      "null_std": 0.0014293660961600637,
+      "null_min": 0.8786215099149418,
+      "null_max": 0.8834047496037959,
+      "native_minus_null_mean": 0.0029954111563467167,
+      "exceeds_all": true,
+      "monte_carlo_upper_tail": 0.058823529411764705
+    },
+    {
+      "kind": "pairwise",
+      "geometry": "calibration_shaped",
+      "native": 0.9713120837811342,
+      "null_mean": 0.948743690870998,
+      "null_std": 0.00034730412075412116,
+      "null_min": 0.9478253112088432,
+      "null_max": 0.9492863627859269,
+      "native_minus_null_mean": 0.022568392910136237,
+      "exceeds_all": true,
+      "monte_carlo_upper_tail": 0.058823529411764705
+    },
+    {
+      "kind": "pairwise",
+      "geometry": "native_isotropic",
+      "native": 0.8836007761393612,
+      "null_mean": 0.8029233135046947,
+      "null_std": 0.0017801401390370774,
+      "null_min": 0.7999966321161347,
+      "null_max": 0.8073223103736344,
+      "native_minus_null_mean": 0.08067746263466646,
+      "exceeds_all": true,
+      "monte_carlo_upper_tail": 0.058823529411764705
+    }
+  ],
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_excess_alignment": true,
+    "pred_c_cpu_gpu_replay": true
+  },
+  "seconds": 35.47823774581775
+}
