@@ -1,6 +1,6 @@
 ACTIVE_TRACK: WEIGHT_FOLDING
 
-21 September2026,19:20UTC. Usertwo-dayweights-firstfocus overrideshourlyalternation untilSep22 15:10. Lastreview18:06; math/literaturelast16:50,next19:50.
+21 September2026,19:13UTC. Usertwo-dayweights-firstfocus overrideshourlyalternation untilSep22 15:10. Lastreview18:06; math/literaturelast16:50,next19:50.
 
 Fulltarget remains explicitcomputations, cross-boundarygrouping/splitting, OODprediction, extraction, selectivemanipulation, composition/reuse, stableidentification andliteral simplicity. Currentdecompositionbranch hasnotidentifiedcircuitunits. Broadfunctionalreconstruction is a necessarycontrol, not thesemanticendpoint.
 

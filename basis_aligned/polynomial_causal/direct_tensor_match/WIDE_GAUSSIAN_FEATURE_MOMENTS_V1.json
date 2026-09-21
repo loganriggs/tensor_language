@@ -1,0 +1,27 @@
+{
+  "records": [
+    {
+      "law": "isotropic",
+      "calibration_gram_shape_error": 0.9690429371621839,
+      "optimal_gram_energy_scale": 90563.11099956722,
+      "calibration_mean_shape_error": 0.9477241644664257,
+      "optimal_mean_scale": 221.29696630226306,
+      "gaussian_raw_feature_energy": 2982.417344772813,
+      "calibration_raw_feature_energy": 117971804.33158064
+    },
+    {
+      "law": "second_floor01",
+      "calibration_gram_shape_error": 0.21761097877005875,
+      "optimal_gram_energy_scale": 0.015831643574007254,
+      "calibration_mean_shape_error": 0.0676673991959113,
+      "optimal_mean_scale": 0.37104226015495867,
+      "gaussian_raw_feature_energy": 5978360102.328334,
+      "calibration_raw_feature_energy": 117971804.33158064
+    }
+  ],
+  "panel_to_panel_gram_shape_error": 0.08467938858170833,
+  "panel_to_panel_optimal_scale": 0.9697594132916478,
+  "prediction_gaussian_gap_exceeds_panel_gap": true,
+  "seconds": 3.5553610380738974,
+  "scope": "Fixed learned32 dictionary; exact zero-mean Gaussian raw moments versus two cached2048-row panels. Gram shape controls student self geometry only; no teacher cross, covariance-law causal attribution, heldout confirmation or nativecircuitadoption."
+}

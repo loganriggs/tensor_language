@@ -1,6 +1,6 @@
 **Overall review: from folded weights to a smaller arithmetic program**
 
-Rewritten 21 September 2026, 19:07 UTC. Results through the completed wide-dictionary weight-readout experiment. The existing filename is retained so earlier links still work.
+Rewritten 21 September 2026, 19:07 UTC. Results through the completed wide-dictionary Gaussian functional comparison. The existing filename is retained so earlier links still work.
 
 **We are still pursuing the two-stage approach you remember.** First, use tensor decompositions to propose useful features. Then convert those features into an arithmetic graph and simplify it, allowing intermediate computations to be reused. QR reduces the output coordinates before either stage.
 
@@ -171,8 +171,11 @@ The latest controlled comparison holds the learned 32-feature quartic dictionary
 | Fit empirical function values | 15.05% |
 | Match isotropic coefficient tensor | 54.38% |
 | Match second-moment-weighted coefficient tensor | 21.44% |
+| Match exact second-moment Gaussian functional loss | 19.44% |
 
 The coefficient objectives improved their own scores and passed numerical checks, but worsened function matching on these inputs. Activation information helps relative to isotropic matching, yet does not beat the empirical baseline. These are weight-based readout fits of a **data-informed dictionary**, not end-to-end weight-only discovery. A separate random-dictionary/isotropic control is fully weight-only and reconstructs almost none of the panel output. [Recorded comparison](../../direct_tensor_match/WIDE_QUARTIC_WEIGHT_READOUT_V1.json).
+
+A follow-up included the complete Gaussian functional moments. It improved the activation-informed result to **19.44%**, but still missed the empirical baseline. Its predicted feature-moment geometry differs from the calibration panel by **21.76%**, even after correcting overall scale, compared with **8.47%** between the two empirical panels. Exact Gaussian algebra therefore does not establish that the Gaussian law fits these model inputs. [Gaussian comparison and moment audit](../../direct_tensor_match/WIDE_QUARTIC_GAUSSIAN_INTERPRETATION_V1.md).
 
 Why can those results coexist? Coefficient Frobenius error, covariance-shaped coefficient error, and expected functional error weight discrepancies differently. Quadratic functional loss involves fourth-order input moments; quartic loss involves eighth-order moments. Covariance alone needs extra distributional assumptions to determine them. Better optimization of one metric need not improve another.
 
