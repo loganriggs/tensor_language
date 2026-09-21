@@ -43,7 +43,8 @@ def main():
      assert torch.isfinite(parameter.grad).all();parameter.grad=parameter.grad.contiguous()
     return scaled
    try:opt.step(closure)
-   except (ValueError,RuntimeError,AssertionError) as error:failure=str(error)
+   except (ValueError,RuntimeError,AssertionError) as optimization_error:
+    failure=str(optimization_error)
    savedstates[key]=[p.cpu().clone() for p in saved];row=dict(key=key,geometry=geometry,initialization=init,initial_objective=first,objective=best,evaluations=evaluations,best_evaluation=best_eval,history=history,optimization_failure=failure)
    try:
     with torch.no_grad():
@@ -51,7 +52,8 @@ def main():
      template=dict(parent,input_bases={str(j):inv@saved[j].cpu() for j in range(3)});graph,diag=export(components,metric.scales,template,A,inv);graph=audit.correct(graph);scores=audit.assess(graph);field='covariance_error' if geometry=='calibration_shaped' else 'native_error';assert abs(scores[field]-float(dense.sqrt()))<1e-8
      assert scores['stored_floats']==scores['physical_storage_floats']==1058124 and scores['source_total_multiplications']==1047648
      graphs[key]=graph;row.update(instrument=failure is None,dense_replay=replay,compiler=diag,**scores)
-   except (ValueError,RuntimeError,AssertionError) as error:row.update(instrument=False,export_failure=str(error))
+   except (ValueError,RuntimeError,AssertionError) as export_error:
+    row.update(instrument=False,export_failure=str(export_error))
    records.append(row);print('RECORD',json.dumps({k:v for k,v in row.items() if k not in ('compiler','history')}),flush=True)
  primary=min((r for r in records if r['geometry']=='calibration_shaped'),key=lambda r:r['objective']);valid=primary['instrument'];baseline=plan['baseline'];bykey={r['key']:r for r in records}
  pred=dict(pred_a_instrument=all(r['instrument'] for r in records),pred_b_components=valid and all(a<=.15 and a<=1.1*b for a,b in zip(primary['per_mode_errors'],baseline['per_mode_errors'])) and all(a<=1.1*b for a,b in zip(primary['euclidean_jacobian_errors'],baseline['euclidean_jacobian_errors'])),pred_c_coefficients=valid and all(primary[k]<=1.1*baseline[k] for k in ('native_error','covariance_error')),pred_d_arithmetic=valid and primary['source_total_multiplications']<=.8*baseline['source_total_multiplications'],pred_e_initialization=all(bykey[g+'_algebraic']['instrument'] and bykey[g+'_algebraic']['objective']<=.9801*bykey[g+'_inherited']['objective'] for g in plan['metrics']))
