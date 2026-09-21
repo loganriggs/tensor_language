@@ -1,5 +1,7 @@
 # Latest requested update for Logan
 
+[21 September, 05:24 — Joint quartic fitting: coefficient improvement, functional failure](research_update_2026-09-21_0524_joint_quartic_metric_failure.md).
+
 [21 September,05:04 — Reuse limits and a verified joint quartic objective](research_update_2026-09-21_0504_reuse_limits_and_joint_fit.md).
 
 [21 September,04:51 — Exact mixed products: stronger original-weight baselines](research_update_2026-09-21_0451_exact_shared_products.md).
@@ -8,7 +10,7 @@
 
 [21 September,04:18 — Upstream extraction: small programs and a retained behavioral failure](research_update_2026-09-21_0418_upstream_extraction.md).
 
-**Overall decomposition review: [QR → tensor decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September, 04:12 UTC: the original two-stage plan, what was implemented, what the baselines mean, main results and remaining gaps.
+**Start here — [Overall review: folded weights → tensor decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September, 05:16 UTC, through the 05:04 results. Explains QR, the two stages, the three experiment scopes, fair baselines, successes and remaining failures.
 
 **Latest Claude attention-simplification update: [20 September — Simplifying all of attention: every head valued by mean ablation, and what a program recovers relative to that](research_update_2026-09-20_attention_simplified.md).** All 162 heads priced by mean ablation; the pattern side as a fitted program at +0.060 CE (recovery 0.985) with head values preserved (Spearman 0.82) at 3.7x fewer numbers; the write side found wide (rank 32 for all heads +0.275); the manipulability failure localized to one head's program and repaired by rank.
 

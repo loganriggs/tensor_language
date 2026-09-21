@@ -1,0 +1,52 @@
+{
+  "records": [
+    {
+      "program": "initial",
+      "normalized": {
+        "relative_variation_error": 0.37710677187105723,
+        "relative_centered_error": 0.37649158347039907,
+        "bias_fraction_of_error_energy": 0.0032600136437175055
+      },
+      "numerator": {
+        "relative_variation_error": 0.282670156050663,
+        "relative_centered_error": 0.2822012330642254,
+        "bias_fraction_of_error_energy": 0.003315058395961784
+      },
+      "export_native_error_replay": 4.440892098500626e-16
+    },
+    {
+      "program": "isotropic_0.05_spectral",
+      "normalized": {
+        "relative_variation_error": 0.5356144989771361,
+        "relative_centered_error": 0.5354163454028601,
+        "bias_fraction_of_error_energy": 0.0007397742990294294
+      },
+      "numerator": {
+        "relative_variation_error": 0.4450987570996825,
+        "relative_centered_error": 0.4446542794129577,
+        "bias_fraction_of_error_energy": 0.001996212080564571
+      },
+      "export_native_error_replay": 3.3306690738754696e-16,
+      "independent_dense_coefficient_error": 0.4210744464966035
+    },
+    {
+      "program": "covariance_0.05_spectral",
+      "normalized": {
+        "relative_variation_error": 0.48970219463696857,
+        "relative_centered_error": 0.48826924751454487,
+        "bias_fraction_of_error_energy": 0.005843758192635103
+      },
+      "numerator": {
+        "relative_variation_error": 0.4624296907072882,
+        "relative_centered_error": 0.46171415218299083,
+        "bias_fraction_of_error_energy": 0.0030922968225846003
+      },
+      "export_native_error_replay": 3.3306690738754696e-16,
+      "independent_dense_coefficient_error": 0.13965020684069496
+    }
+  ],
+  "rms_min": 672.9793733488488,
+  "rms_max": 2879.252724020057,
+  "rms_mean": 1664.2902211293685,
+  "scope": "Calibration-only diagnostic. Dense-matrix contraction independently checks lowrank implementation; no fresh or native intervention evidence."
+}
