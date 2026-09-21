@@ -1,0 +1,426 @@
+{
+  "plan": {
+    "lambdas": [
+      0,
+      0.1,
+      1,
+      10
+    ],
+    "rates": [
+      0.005,
+      0.02
+    ],
+    "steps": 2000,
+    "parent": "0.02_pruned",
+    "parent_jacobian": [
+      0.20089859324748152,
+      0.17933050476073656
+    ],
+    "scalar_baseline": [
+      0.03058409729022641,
+      0.027558449717507608,
+      0.11941807478056159
+    ],
+    "hashes": {
+      "SHARED_PRODUCT_NATIVE_INPUTS_V1.pt": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+      "PROFILED_PARTIAL_GRAPH_PROGRAMS_V1.pt": "4b91b40a4946f3394912a537755bed9240427dcc7e39f88c3581afa831f6c62a",
+      "source_sobolev.py": "e1e88d3a6b836051c8fe450de5be62da230f585f623ae1feead2b4d35a3eb1ba",
+      "source_graph_metrics.py": "7aa78f6576ec16a0510c2ced7335df71ac3ad70653cfb676c38487fd6de8ee24"
+    },
+    "native_forwards": 0,
+    "primary_lambda": 1,
+    "source_products": 512,
+    "stored_floats": 897804,
+    "scope": "Source derivative metric, not full native phi-Jacobian fitting. Selected by weight objective; private third unchanged; matched extra optimization budget controls."
+  },
+  "records": [
+    {
+      "key": "0_0.005",
+      "lam": 0,
+      "rate": 0.005,
+      "objective": 0.007545933796018647,
+      "best_step": 2000,
+      "dense_replay": 3.37403716077489e-16,
+      "coefficient_error": 0.08686733251200048,
+      "source_gradient_error": 0.29457328780981545,
+      "stored_float_scalars": 897804,
+      "source_products": 512,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.00758952131926505
+        },
+        {
+          "step": 400,
+          "objective": 0.007663134900304964
+        },
+        {
+          "step": 800,
+          "objective": 0.007619315545561505
+        },
+        {
+          "step": 1200,
+          "objective": 0.007573056855105197
+        },
+        {
+          "step": 1600,
+          "objective": 0.007549484322055449
+        },
+        {
+          "step": 2000,
+          "objective": 0.007545933796018647
+        }
+      ],
+      "per_mode_errors": [
+        0.02645097325048913,
+        0.02438390271030798,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.2003641014732177,
+        0.17907747731998638
+      ]
+    },
+    {
+      "key": "0_0.02",
+      "lam": 0,
+      "rate": 0.02,
+      "objective": 0.00758952131926505,
+      "best_step": 0,
+      "dense_replay": 5.741934705483231e-16,
+      "coefficient_error": 0.08711785692268037,
+      "source_gradient_error": 0.29515944135534355,
+      "stored_float_scalars": 897804,
+      "source_products": 512,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.00758952131926505
+        },
+        {
+          "step": 400,
+          "objective": 0.008948652623303173
+        },
+        {
+          "step": 800,
+          "objective": 0.00805663059767315
+        },
+        {
+          "step": 1200,
+          "objective": 0.007840663033214488
+        },
+        {
+          "step": 1600,
+          "objective": 0.007706375304373906
+        },
+        {
+          "step": 2000,
+          "objective": 0.007688192952399459
+        }
+      ],
+      "per_mode_errors": [
+        0.02649119718203732,
+        0.02484261930063129,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.20089859324748177,
+        0.17933050476073678
+      ]
+    },
+    {
+      "key": "0.1_0.005",
+      "lam": 0.1,
+      "rate": 0.005,
+      "objective": 0.014553946462860205,
+      "best_step": 2000,
+      "dense_replay": 5.238864897449957e-16,
+      "coefficient_error": 0.08752869256699455,
+      "source_gradient_error": 0.28893024608119755,
+      "stored_float_scalars": 897804,
+      "source_products": 512,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.01481760618284348
+        },
+        {
+          "step": 400,
+          "objective": 0.014982927015103523
+        },
+        {
+          "step": 800,
+          "objective": 0.014721302193243089
+        },
+        {
+          "step": 1200,
+          "objective": 0.014687282731551453
+        },
+        {
+          "step": 1600,
+          "objective": 0.014560945676516994
+        },
+        {
+          "step": 2000,
+          "objective": 0.014553946462860205
+        }
+      ],
+      "per_mode_errors": [
+        0.024911261393855293,
+        0.024883269097404712,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.19227168091102806,
+        0.1761066286801889
+      ]
+    },
+    {
+      "key": "0.1_0.02",
+      "lam": 0.1,
+      "rate": 0.02,
+      "objective": 0.01467264700547217,
+      "best_step": 2000,
+      "dense_replay": 2.498001805406602e-16,
+      "coefficient_error": 0.0882044219168096,
+      "source_gradient_error": 0.28913476724192694,
+      "stored_float_scalars": 897804,
+      "source_products": 512,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.01481760618284348
+        },
+        {
+          "step": 400,
+          "objective": 0.022733967116637777
+        },
+        {
+          "step": 800,
+          "objective": 0.01630066232294118
+        },
+        {
+          "step": 1200,
+          "objective": 0.015004440215920546
+        },
+        {
+          "step": 1600,
+          "objective": 0.014708660324396883
+        },
+        {
+          "step": 2000,
+          "objective": 0.01467264700547217
+        }
+      ],
+      "per_mode_errors": [
+        0.02302114239342683,
+        0.026145778267043264,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.19099102923704064,
+        0.17663535220102888
+      ]
+    },
+    {
+      "key": "1_0.005",
+      "lam": 1,
+      "rate": 0.005,
+      "objective": 0.04490624182209478,
+      "best_step": 2000,
+      "dense_replay": 6.938893903907228e-18,
+      "coefficient_error": 0.09046132588375615,
+      "source_gradient_error": 0.28570829805718406,
+      "stored_float_scalars": 897804,
+      "source_products": 512,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.0473221430633448
+        },
+        {
+          "step": 400,
+          "objective": 0.04599741865662615
+        },
+        {
+          "step": 800,
+          "objective": 0.04566369233070272
+        },
+        {
+          "step": 1200,
+          "objective": 0.04515724659008753
+        },
+        {
+          "step": 1600,
+          "objective": 0.04492926156885099
+        },
+        {
+          "step": 2000,
+          "objective": 0.04490624182209478
+        }
+      ],
+      "per_mode_errors": [
+        0.02318751138617127,
+        0.02589634268751531,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.1856464740432686,
+        0.17427128956225352
+      ]
+    },
+    {
+      "key": "1_0.02",
+      "lam": 1,
+      "rate": 0.02,
+      "objective": 0.04507988534912452,
+      "best_step": 2000,
+      "dense_replay": 4.510281037539698e-16,
+      "coefficient_error": 0.09175473860142151,
+      "source_gradient_error": 0.285903547014805,
+      "stored_float_scalars": 897804,
+      "source_products": 512,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.0473221430633448
+        },
+        {
+          "step": 400,
+          "objective": 0.05955605342773675
+        },
+        {
+          "step": 800,
+          "objective": 0.051119577035641475
+        },
+        {
+          "step": 1200,
+          "objective": 0.046208213073444256
+        },
+        {
+          "step": 1600,
+          "objective": 0.04518021528721424
+        },
+        {
+          "step": 2000,
+          "objective": 0.04507988534912452
+        }
+      ],
+      "per_mode_errors": [
+        0.022528153989536205,
+        0.029090810819382584,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.18462862839336822,
+        0.17560722355748326
+      ]
+    },
+    {
+      "key": "10_0.005",
+      "lam": 10,
+      "rate": 0.005,
+      "objective": 0.07479657266692456,
+      "best_step": 2000,
+      "dense_replay": 4.996003610813204e-16,
+      "coefficient_error": 0.0921699213010669,
+      "source_gradient_error": 0.28535364056307394,
+      "stored_float_scalars": 897804,
+      "source_products": 512,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.07981380415487675
+        },
+        {
+          "step": 400,
+          "objective": 0.07718365733861171
+        },
+        {
+          "step": 800,
+          "objective": 0.07573506469213695
+        },
+        {
+          "step": 1200,
+          "objective": 0.07644380853171434
+        },
+        {
+          "step": 1600,
+          "objective": 0.07483485621888786
+        },
+        {
+          "step": 2000,
+          "objective": 0.07479657266692456
+        }
+      ],
+      "per_mode_errors": [
+        0.022359396128443457,
+        0.026405179567997736,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.18412552888153377,
+        0.17420714024449283
+      ]
+    },
+    {
+      "key": "10_0.02",
+      "lam": 10,
+      "rate": 0.02,
+      "objective": 0.07498751990006837,
+      "best_step": 2000,
+      "dense_replay": 1.942890293094024e-16,
+      "coefficient_error": 0.093843795780268,
+      "source_gradient_error": 0.2856669492029641,
+      "stored_float_scalars": 897804,
+      "source_products": 512,
+      "history": [
+        {
+          "step": 0,
+          "objective": 0.07981380415487675
+        },
+        {
+          "step": 400,
+          "objective": 0.09571262861176688
+        },
+        {
+          "step": 800,
+          "objective": 0.07969360264594304
+        },
+        {
+          "step": 1200,
+          "objective": 0.07679600511412425
+        },
+        {
+          "step": 1600,
+          "objective": 0.07514486395198326
+        },
+        {
+          "step": 2000,
+          "objective": 0.07498751990006837
+        }
+      ],
+      "per_mode_errors": [
+        0.02140694533769205,
+        0.028456438362469534,
+        0.11941807156784633
+      ],
+      "euclidean_jacobian_errors": [
+        0.18274146766155505,
+        0.17572985439460573
+      ]
+    }
+  ],
+  "winners": {
+    "0": "0_0.005",
+    "0.1": "0.1_0.005",
+    "1": "1_0.005",
+    "10": "10_0.005"
+  },
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_sensitivity": false,
+    "pred_c_values": true
+  },
+  "seconds": 200.04225037596188
+}

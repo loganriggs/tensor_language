@@ -1,6 +1,6 @@
 # The sensitivity gap is shared by the baseline; the perturbation metric matters
 
-21 September 2026,07:54 UTC. Follow-up to [stable functions and unstable products](research_update_2026-09-21_0748_stable_functions_unstable_products.md).
+21 September 2026,07:54 UTC; updated with completed fits at07:58 UTC. Follow-up to [stable functions and unstable products](research_update_2026-09-21_0748_stable_functions_unstable_products.md).
 
 **The shared graph is more faithful to input derivatives than the separate baseline.** The previous18–20%derivative errors therefore do not show that sharing damaged responsiveness. Both compressed programs have difficulty with unrestricted input perturbations, while errors are much smaller for perturbations shaped by the measured covariance.
 
@@ -61,17 +61,31 @@ The256mixed products have at most512distinct input directions. A right-unfolding
 
 ## Registered joint refit
 
-A managed GPU job is fitting the product directions with four objective balances and two learning rates. Every arm starts from the same frozen parent graph, gets2,000cosine-decayed Adam steps, and keeps512products and897,804floating coefficients. The third component's private branch stays unchanged and remains scored.
+The managed GPU job fitted the product directions with four objective balances and two learning rates. Every arm starts from the same frozen parent graph, gets2,000cosine-decayed Adam steps, and keeps512products and897,804floating coefficients. The third component's private branch stays unchanged and remains scored.
 
 The primary balance is $\lambda=1$, selected in advance. Its rate is selected by its weight objective. It must reduce both first-two component derivative errors by at least10% while preserving the existing per-component scalar limits. The $\lambda=0$arm controls for additional optimization budget. Other balances measure the tradeoff, not alternative primary successes chosen after seeing results.
 
-No new success is assumed while the job runs. Even a passing conditional-response screen would leave fresh intervention tests, semantic identity, and native upstream input dependencies unresolved.
+The job completed in200.04seconds. The0.005learning rate won by the weight objective for every balance:
+
+| Gradient weight | Coefficient error | Source-gradient error | Component1/2 derivative errors | Component1/2 value errors |
+|---|---:|---:|---|---|
+|0, extra-budget control|8.69%|29.46%|20.04%,17.91%|2.65%,2.44%|
+|0.1|8.75%|28.89%|19.23%,17.61%|2.49%,2.49%|
+|**1, primary**|9.05%|28.57%|18.56%,17.43%|2.32%,2.59%|
+|10|9.22%|28.54%|18.41%,17.42%|2.24%,2.64%|
+
+**The primary improvement gate fails:** component derivative errors improve7.59%and2.82%, below the required10%for each. Scalar fidelity and cost gates pass; private component3remains11.94%. A stronger derivative weight gives little additional improvement and trades away coefficient fidelity. None of these fits establishes a global optimum; all selected runs reached their best recorded value at the final step.
+
+An exact follow-up decomposed each component's derivative error into source-gradient error, modulation by source-value errors, and their cross-term. The source-gradient term has cosine0.987–0.993with the total error, but the remaining value-plus-cross term is11.7–16.4%of the total error norm. Thus the strict hypothesis that this remainder is at most10%also fails. Replay is below1e-15. The next response objective must account for how downstream factors weight source gradients, while retaining value terms; simply matching each source gradient equally has limited benefit.
+
+Fresh intervention tests, semantic identity, and native upstream input dependencies remain unresolved. No new circuit is adopted from these opened-state diagnostics.
 
 ## Receipts
 
 - [Matched derivative comparison](../../direct_tensor_match/BASELINE_SENSITIVITY_V1.json).
 - [Implicit objective checks](../../direct_tensor_match/SOURCE_SOBOLEV_CHECK_V1.json), [five planted recoveries](../../direct_tensor_match/SOURCE_SOBOLEV_RECOVERY_V1.json), and [retained restart failure](../../direct_tensor_match/SOURCE_SOBOLEV_CASE3_SEED9473_V1.json), and [successful alternate rate/start](../../direct_tensor_match/SOURCE_SOBOLEV_CASE3_SEED5473_V1.json).
 - [Fixed-readout control](../../direct_tensor_match/SOURCE_SOBOLEV_READOUT_V1.json).
-- [Frozen joint-refit plan](../../direct_tensor_match/SOURCE_SOBOLEV_REFIT_PLAN_V1.json).
+- [Frozen joint-refit plan](../../direct_tensor_match/SOURCE_SOBOLEV_REFIT_PLAN_V1.json) and [completed eight-fit results](../../direct_tensor_match/SOURCE_SOBOLEV_REFIT_V1.json).
+- [Exact derivative-error decomposition](../../direct_tensor_match/JACOBIAN_ERROR_TERMS_V1.json).
 
 All completed response measurements use448previously opened states. The CPU comparisons and the weight-only GPU refit require no new native-model forwards. These are structural and objective diagnostics, not fresh behavioral confirmation.

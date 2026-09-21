@@ -1,0 +1,63 @@
+{
+  "records": [
+    {
+      "candidate": "parent",
+      "component": 1,
+      "replay": 8.628381877496669e-16,
+      "total_relative_error": 0.20089859324748197,
+      "gradient_term_over_total": 0.9926142116721858,
+      "value_plus_cross_over_total": 0.12091098038386322,
+      "gradient_term_cosine_with_total": 0.9926633554421793
+    },
+    {
+      "candidate": "parent",
+      "component": 2,
+      "replay": 7.566653395286788e-16,
+      "total_relative_error": 0.1793305047607367,
+      "gradient_term_over_total": 0.9863920105225388,
+      "value_plus_cross_over_total": 0.16143192096493078,
+      "gradient_term_cosine_with_total": 0.9868839733834114
+    },
+    {
+      "candidate": "lambda1",
+      "component": 1,
+      "replay": 9.496912126476983e-16,
+      "total_relative_error": 0.1856464740432686,
+      "gradient_term_over_total": 0.993499832510825,
+      "value_plus_cross_over_total": 0.11851513568118778,
+      "gradient_term_cosine_with_total": 0.9929523967946926
+    },
+    {
+      "candidate": "lambda1",
+      "component": 2,
+      "replay": 7.98165272224715e-16,
+      "total_relative_error": 0.17427128956225352,
+      "gradient_term_over_total": 0.9864667266313134,
+      "value_plus_cross_over_total": 0.16204386946339683,
+      "gradient_term_cosine_with_total": 0.9867836058537737
+    },
+    {
+      "candidate": "lambda10",
+      "component": 1,
+      "replay": 9.75181680798985e-16,
+      "total_relative_error": 0.18412552888153377,
+      "gradient_term_over_total": 0.9936636532251585,
+      "value_plus_cross_over_total": 0.11710379022071137,
+      "gradient_term_cosine_with_total": 0.9931198306644224
+    },
+    {
+      "candidate": "lambda10",
+      "component": 2,
+      "replay": 8.280226494093577e-16,
+      "total_relative_error": 0.17420714024449283,
+      "gradient_term_over_total": 0.9861869402885451,
+      "value_plus_cross_over_total": 0.16369420573743762,
+      "gradient_term_cosine_with_total": 0.9865111819643259
+    }
+  ],
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_gradient_dominates": false
+  },
+  "scope": "Exact algebraic decomposition on448opened states, h fixed. Norm fractions need not sum to1 because errors can align or cancel. No independent causal or fresh-data evidence."
+}
