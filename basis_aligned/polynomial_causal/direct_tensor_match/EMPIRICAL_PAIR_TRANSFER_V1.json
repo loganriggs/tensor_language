@@ -1,0 +1,70 @@
+{
+  "records": [
+    {
+      "key": "source_0",
+      "component3_error": 0.12486927284871403,
+      "mean_squared_error": 859.7968517801356,
+      "max_chunk_error_energy_share": 0.02479176898147841
+    },
+    {
+      "key": "source_0.01",
+      "component3_error": 0.12452537137530324,
+      "mean_squared_error": 855.0674539865506,
+      "max_chunk_error_energy_share": 0.024855724291055894
+    },
+    {
+      "key": "source_0.1",
+      "component3_error": 0.12223486002870108,
+      "mean_squared_error": 823.9006477122662,
+      "max_chunk_error_energy_share": 0.025173284572772237
+    },
+    {
+      "key": "source_1",
+      "component3_error": 0.11648915520256711,
+      "mean_squared_error": 748.2654220618557,
+      "max_chunk_error_energy_share": 0.025308961313677644
+    },
+    {
+      "key": "source_10",
+      "component3_error": 0.12289171141890391,
+      "mean_squared_error": 832.7792008740118,
+      "max_chunk_error_energy_share": 0.03071813365031926
+    },
+    {
+      "key": "downstream_0",
+      "component3_error": 0.12486927284871403,
+      "mean_squared_error": 859.7968517801356,
+      "max_chunk_error_energy_share": 0.02479176898147841
+    },
+    {
+      "key": "downstream_0.01",
+      "component3_error": 0.12388559687779091,
+      "mean_squared_error": 846.3038574069628,
+      "max_chunk_error_energy_share": 0.024625622502910338
+    },
+    {
+      "key": "downstream_0.1",
+      "component3_error": 0.11996027758511166,
+      "mean_squared_error": 793.5231646241039,
+      "max_chunk_error_energy_share": 0.025552001221341762
+    },
+    {
+      "key": "downstream_1",
+      "component3_error": 0.11986388072524837,
+      "mean_squared_error": 792.2483691848141,
+      "max_chunk_error_energy_share": 0.027068421585388126
+    },
+    {
+      "key": "downstream_10",
+      "component3_error": 0.14091092577902523,
+      "mean_squared_error": 1094.8989054203105,
+      "max_chunk_error_energy_share": 0.027876858917182674
+    }
+  ],
+  "primary": "downstream_0.1",
+  "primary_gain": 0.03931307640070825,
+  "predictions": {
+    "pred_a_transfer": false
+  },
+  "scope": "Additional232training-prefix calibration rows excluded from original32prefixes. Already used for input covariance, not fresh or fully held-out. This readout fit used onlyold24trainingprefixes. Captures retain t=h@a onlyforcomponent3, so cannot claim validationofcomponents1/2or fullgoal."
+}

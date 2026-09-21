@@ -155,3 +155,7 @@ Frozen399graph tested32newFineWebdocs+16newcodefiles, all3individual+combined re
 ## 21 September, 09:17 — Native value metric geometry
 
 All24matched-panelGaussianquadraticMSEratios.325–.860fail10%agreement; downstreamsensitivityindependence20/24fails,ratios.305–.980. Compactread6combinedsurrogate.238/.383ofactualweightedtrain/openederror. FiveGaussianformulacontrolsandnativeexecutorreplayspass. ActualnextCPUfiveequal-covdistributionmetrics giveq=x1²-x2²MSE4/0/16/6/3.2; empiricalmetricscanhaveOODblindnullspaces. RevisitedpaperMscope; proposeddatafourth-momenttermmustretainpositivecoefficientconstraint andmatrix-freeevaluation. No newcandidatefit/adoption. [Report](../../explanations/for_logan/research_update_2026-09-21_0917_covariance_and_lifted_polynomial_metrics.md).
+
+## 21 September, 09:26 — Empirical higher-moment fixed readout
+
+TenCPUfits22.27s,399products896198floats unchanged. Source anddownstreamlinearized losses useactual1536trainingstatequadraticfeatures pluspositivecoefficientpenalty. Primarydownstream.1 opened2.532/2.518/15.570%failscomponent3, coefficient8.694%passes1.10control8.629%. Trainingthird12.706%vs15.609%control; lambda10train6.295%opened18.959%overfits. ActualnextCPUtransfer toexisting232covariance-trainingprefixes third12.487->11.996%,3.93%gainfails10%; notfreshandonlythirdlaterreaderavailable. Allothergatesandnativeportsretained. [Report](../../explanations/for_logan/research_update_2026-09-21_0926_empirical_polynomial_metric_readout.md).

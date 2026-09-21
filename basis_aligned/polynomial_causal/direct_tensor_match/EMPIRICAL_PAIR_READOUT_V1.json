@@ -1,0 +1,412 @@
+{
+  "records": [
+    {
+      "key": "source_0",
+      "family": "source",
+      "lam": 0,
+      "original_coefficient_error": 0.08628904881448009,
+      "empirical_objective_terms": [
+        0.005733411466066305,
+        0.00744831144438051,
+        0.008641941636310683
+      ],
+      "normal_equation_replay": 1.5637991787378701e-15,
+      "execution_replay": 2.034905387602744e-16,
+      "coefficient_control_replay": 3.995306003818698e-10,
+      "training": {
+        "per_mode_errors": [
+          0.01916967882096976,
+          0.02586519479651819,
+          0.15608876140037892
+        ],
+        "euclidean_jacobian_errors": [
+          0.17625901884432393,
+          0.17596694905225077,
+          0.20746725752360598
+        ]
+      },
+      "opened": {
+        "per_mode_errors": [
+          0.02575917405879774,
+          0.02518130029309282,
+          0.16087309691069493
+        ],
+        "euclidean_jacobian_errors": [
+          0.20785459422590305,
+          0.17941126510718092,
+          0.20377748792189354
+        ]
+      },
+      "source_products": 399,
+      "stored_floats": 896198
+    },
+    {
+      "key": "source_0.01",
+      "family": "source",
+      "lam": 0.01,
+      "original_coefficient_error": 0.08629116727177805,
+      "empirical_objective_terms": [
+        0.005677827873717401,
+        0.0073869282563912555,
+        0.00853702681581449
+      ],
+      "normal_equation_replay": 1.3446425163541756e-15,
+      "execution_replay": 1.7087484966176644e-16,
+      "coefficient_control_replay": null,
+      "training": {
+        "per_mode_errors": [
+          0.019055849995570275,
+          0.025736471425124332,
+          0.15534810663261453
+        ],
+        "euclidean_jacobian_errors": [
+          0.17625267474661577,
+          0.17595938902243138,
+          0.2074325035051685
+        ]
+      },
+      "opened": {
+        "per_mode_errors": [
+          0.025653461546246235,
+          0.025159593552592285,
+          0.16053635103779484
+        ],
+        "euclidean_jacobian_errors": [
+          0.20785221302600634,
+          0.17941109966969296,
+          0.20377272380343106
+        ]
+      },
+      "source_products": 399,
+      "stored_floats": 896198
+    },
+    {
+      "key": "source_0.1",
+      "family": "source",
+      "lam": 0.1,
+      "original_coefficient_error": 0.08644170693097096,
+      "empirical_objective_terms": [
+        0.0052891734566504174,
+        0.006967048619533203,
+        0.007830719509598764
+      ],
+      "normal_equation_replay": 1.2695614270728003e-15,
+      "execution_replay": 2.132689893385199e-16,
+      "coefficient_control_replay": null,
+      "training": {
+        "per_mode_errors": [
+          0.018201765621920357,
+          0.024838064875888834,
+          0.15009530788063688
+        ],
+        "euclidean_jacobian_errors": [
+          0.1762390767931117,
+          0.17598405741105325,
+          0.20733604762445254
+        ]
+      },
+      "opened": {
+        "per_mode_errors": [
+          0.02484736304755073,
+          0.02504909711584519,
+          0.15827621546061107
+        ],
+        "euclidean_jacobian_errors": [
+          0.20786013072855644,
+          0.1794729788958248,
+          0.20386948409166605
+        ]
+      },
+      "source_products": 399,
+      "stored_floats": 896198
+    },
+    {
+      "key": "source_1",
+      "family": "source",
+      "lam": 1,
+      "original_coefficient_error": 0.09009808270607492,
+      "empirical_objective_terms": [
+        0.004049661131458516,
+        0.005660299908774921,
+        0.005758301440750793
+      ],
+      "normal_equation_replay": 1.1065525479694207e-15,
+      "execution_replay": 1.772617907710739e-16,
+      "coefficient_control_replay": null,
+      "training": {
+        "per_mode_errors": [
+          0.014744831365673377,
+          0.022017581831304135,
+          0.1311093878218491
+        ],
+        "euclidean_jacobian_errors": [
+          0.1771701560368679,
+          0.17777009347702794,
+          0.2098469019259723
+        ]
+      },
+      "opened": {
+        "per_mode_errors": [
+          0.02182175212090425,
+          0.025442451840221984,
+          0.1541435327622211
+        ],
+        "euclidean_jacobian_errors": [
+          0.20865691451314916,
+          0.1810380607082992,
+          0.20694151936286387
+        ]
+      },
+      "source_products": 399,
+      "stored_floats": 896198
+    },
+    {
+      "key": "source_10",
+      "family": "source",
+      "lam": 10,
+      "original_coefficient_error": 0.10788583183725672,
+      "empirical_objective_terms": [
+        0.003085437682804653,
+        0.00468071447668687,
+        0.004323619541786741
+      ],
+      "normal_equation_replay": 7.752771256035369e-16,
+      "execution_replay": 1.9155205863421307e-16,
+      "coefficient_control_replay": null,
+      "training": {
+        "per_mode_errors": [
+          0.011677763166970952,
+          0.019997203628364015,
+          0.11108965074845116
+        ],
+        "euclidean_jacobian_errors": [
+          0.18330772639780243,
+          0.1868134504567167,
+          0.2237780509405989
+        ]
+      },
+      "opened": {
+        "per_mode_errors": [
+          0.020575466322115658,
+          0.02811531339270388,
+          0.16420736656290238
+        ],
+        "euclidean_jacobian_errors": [
+          0.21331433540712094,
+          0.18824034385736152,
+          0.22163819349466535
+        ]
+      },
+      "source_products": 399,
+      "stored_floats": 896198
+    },
+    {
+      "key": "downstream_0",
+      "family": "downstream",
+      "lam": 0,
+      "original_coefficient_error": 0.08628904881448009,
+      "empirical_objective_terms": [
+        0.00035559177404386193,
+        0.0006647445630153693,
+        0.025038992511300272
+      ],
+      "normal_equation_replay": 1.5637991787378701e-15,
+      "execution_replay": 2.034905387602744e-16,
+      "coefficient_control_replay": 3.995306003818698e-10,
+      "training": {
+        "per_mode_errors": [
+          0.01916967882096976,
+          0.02586519479651819,
+          0.15608876140037892
+        ],
+        "euclidean_jacobian_errors": [
+          0.17625901884432393,
+          0.17596694905225077,
+          0.20746725752360598
+        ]
+      },
+      "opened": {
+        "per_mode_errors": [
+          0.02575917405879774,
+          0.02518130029309282,
+          0.16087309691069493
+        ],
+        "euclidean_jacobian_errors": [
+          0.20785459422590305,
+          0.17941126510718092,
+          0.20377748792189354
+        ]
+      },
+      "source_products": 399,
+      "stored_floats": 896198
+    },
+    {
+      "key": "downstream_0.01",
+      "family": "downstream",
+      "lam": 0.01,
+      "original_coefficient_error": 0.08630493267432339,
+      "empirical_objective_terms": [
+        0.00035380053652342886,
+        0.0006625849865564398,
+        0.023330005839218095
+      ],
+      "normal_equation_replay": 2.3934047115458658e-15,
+      "execution_replay": 2.473151868740108e-16,
+      "coefficient_control_replay": null,
+      "training": {
+        "per_mode_errors": [
+          0.01912214768898335,
+          0.025822903910706334,
+          0.15102944637413732
+        ],
+        "euclidean_jacobian_errors": [
+          0.17626131744925394,
+          0.17596687955845658,
+          0.2073461888228204
+        ]
+      },
+      "opened": {
+        "per_mode_errors": [
+          0.025713152285648796,
+          0.025180902109607585,
+          0.15976521468518584
+        ],
+        "euclidean_jacobian_errors": [
+          0.207857920750938,
+          0.17941154134267476,
+          0.2037564284961723
+        ]
+      },
+      "source_products": 399,
+      "stored_floats": 896198
+    },
+    {
+      "key": "downstream_0.1",
+      "family": "downstream",
+      "lam": 0.1,
+      "original_coefficient_error": 0.08693989808960463,
+      "empirical_objective_terms": [
+        0.00033894159379104123,
+        0.0006450690544094075,
+        0.016160339944805518
+      ],
+      "normal_equation_replay": 2.3565330483833813e-15,
+      "execution_replay": 2.227250847689035e-16,
+      "coefficient_control_replay": null,
+      "training": {
+        "per_mode_errors": [
+          0.01872293724805779,
+          0.025477423731564322,
+          0.12705712211181489
+        ],
+        "euclidean_jacobian_errors": [
+          0.1762858814540477,
+          0.17597145545978993,
+          0.20818866842412492
+        ]
+      },
+      "opened": {
+        "per_mode_errors": [
+          0.025323108083142594,
+          0.025179666037788945,
+          0.15570428182278653
+        ],
+        "euclidean_jacobian_errors": [
+          0.2078902513964266,
+          0.1794178768635628,
+          0.20472819835758305
+        ]
+      },
+      "source_products": 399,
+      "stored_floats": 896198
+    },
+    {
+      "key": "downstream_1",
+      "family": "downstream",
+      "lam": 1,
+      "original_coefficient_error": 0.09287745805941094,
+      "empirical_objective_terms": [
+        0.0002520723024604973,
+        0.000548344173522099,
+        0.0074189568016370284
+      ],
+      "normal_equation_replay": 2.5604689987225563e-15,
+      "execution_replay": 2.0811901535818044e-16,
+      "coefficient_control_replay": null,
+      "training": {
+        "per_mode_errors": [
+          0.01618164624938229,
+          0.02348237470206266,
+          0.0876637772954715
+        ],
+        "euclidean_jacobian_errors": [
+          0.17671482102665215,
+          0.17624886693093156,
+          0.21987741177712866
+        ]
+      },
+      "opened": {
+        "per_mode_errors": [
+          0.022864703638285168,
+          0.02526982353328107,
+          0.16086493772002575
+        ],
+        "euclidean_jacobian_errors": [
+          0.2083329478167183,
+          0.1796503261335538,
+          0.2152091626918932
+        ]
+      },
+      "source_products": 399,
+      "stored_floats": 896198
+    },
+    {
+      "key": "downstream_10",
+      "family": "downstream",
+      "lam": 10,
+      "original_coefficient_error": 0.11399973469653317,
+      "empirical_objective_terms": [
+        0.00012050570814517902,
+        0.0003633197765362199,
+        0.0036354442366445094
+      ],
+      "normal_equation_replay": 1.6708354181000102e-15,
+      "execution_replay": 2.0487732211617965e-16,
+      "coefficient_control_replay": null,
+      "training": {
+        "per_mode_errors": [
+          0.011216768805073102,
+          0.019126235127243776,
+          0.0629482876292076
+        ],
+        "euclidean_jacobian_errors": [
+          0.18038434284257146,
+          0.18047318830509684,
+          0.2541303438838471
+        ]
+      },
+      "opened": {
+        "per_mode_errors": [
+          0.01952133184139834,
+          0.026526360225008788,
+          0.18958514777293678
+        ],
+        "euclidean_jacobian_errors": [
+          0.21149521263235765,
+          0.18301075008882034,
+          0.2454675846829836
+        ]
+      },
+      "source_products": 399,
+      "stored_floats": 896198
+    }
+  ],
+  "primary": "downstream_0.1",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_component_values": false,
+    "pred_c_coefficient_fidelity": true
+  },
+  "seconds": 22.27189053269103,
+  "scope": "Fixed input directions and399product graph; actual empirical quadratic features on1536training sites,448opened diagnostics, no newdata or model forwards. Source loss and coupled linearized component loss each added to original isotropic-output coefficient loss. Original geometry baseline differs from parent half-output weighting and is explicitly recomputed. No fresh/OOD adoption."
+}
