@@ -1,0 +1,39 @@
+{
+  "created_utc": "2026-09-21T12:40:02.978944+00:00",
+  "parents": [
+    "calibration_shaped_pairwise_0",
+    "calibration_shaped_pairwise_26301",
+    "native_isotropic_pairwise_0",
+    "native_isotropic_pairwise_26301"
+  ],
+  "primary": "calibration_shaped_pairwise_0",
+  "baseline": {
+    "native_error": 0.5525962583461952,
+    "covariance_error": 0.0703133565524768,
+    "per_mode_errors": [
+      0.018692583665713903,
+      0.020499346791718828,
+      0.08805202711597365
+    ],
+    "euclidean_jacobian_errors": [
+      0.187428758387592,
+      0.15902999281611183,
+      0.16001348745745214
+    ],
+    "stored_floats": 1340940,
+    "index_integers": 3456,
+    "activation_products": 1152,
+    "projection_multiplications": 1327104,
+    "source_total_multiplications": 1330560,
+    "source_additions": 1329148
+  },
+  "method": "Alternate exact least-squares couplingE and symmetric privateC Lyapunovsolves; sharedcorealwaysadjustedexactly. Compilecommon128/private224pairs andrefitfixedproductreadouts.",
+  "pred_a": "15plantedpairs exactand allnativecompilers/executorspass.",
+  "pred_b": "Original3componentvalue/Jacobianguards.",
+  "pred_c": "Originalnative/covariancecoefficientguards.",
+  "pred_d": "Sourcearithmetic<=.80originalbaseline; explicit1056products/1058124floats/1047648mults.",
+  "null": "Even improved fitting fails originalfidelity atfixed graphcost; do notchangeprice oracceptance threshold.",
+  "scope": "Stage2deterministicgraphconstruction, not anotheroptimizerretry. Mixed-slottoyrecovery2of5fails; no native mixedgradientfit authorizedbythatgate.",
+  "refine_steps": 200,
+  "pred_e": "Each alternatingobjective nonincreasing; recordcouplingnorm/coreamplificationandcompilerfailures. No jointglobaloptimalityclaim."
+}
