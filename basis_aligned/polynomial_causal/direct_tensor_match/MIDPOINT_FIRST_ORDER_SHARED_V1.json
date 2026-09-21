@@ -1,0 +1,43 @@
+{
+  "records": [
+    {
+      "rank": 8,
+      "linear_variation_error": 0.3376929927691884,
+      "weight_coefficients": 27648,
+      "extra_state": 1160
+    },
+    {
+      "rank": 16,
+      "linear_variation_error": 0.2959830136438602,
+      "weight_coefficients": 55296,
+      "extra_state": 1168
+    },
+    {
+      "rank": 32,
+      "linear_variation_error": 0.25433437995192293,
+      "weight_coefficients": 110592,
+      "extra_state": 1184
+    },
+    {
+      "rank": 64,
+      "linear_variation_error": 0.2102789502571525,
+      "weight_coefficients": 221184,
+      "extra_state": 1216
+    },
+    {
+      "rank": 128,
+      "linear_variation_error": 0.16067691302242074,
+      "weight_coefficients": 442368,
+      "extra_state": 1280
+    },
+    {
+      "rank": 256,
+      "linear_variation_error": 0.10355798528098063,
+      "weight_coefficients": 884736,
+      "extra_state": 1408
+    }
+  ],
+  "exact_linear_weight_coefficients": 2654208,
+  "seconds": 4.022751295007765,
+  "scope": "Joint paired-calibration linear-output metric, exact original linear terms around fixedcalmeans. Centered interaction excluded and unchanged. This is calibration projection error of linear variation only, not native intervention or wholefunction error. Sharedlinearfeatures combine n/m reads before one outputwrite; constant retained."
+}
