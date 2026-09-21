@@ -1,0 +1,88 @@
+{
+  "raw_source_frame_orthogonality_error": 1.3148856952166978e-05,
+  "source_frame_orthogonality_error": 1.8541221041566042e-15,
+  "source_matrix_projection_errors": [
+    3.5095009181342514e-15,
+    3.36237241877235e-15
+  ],
+  "context_gram": [
+    [
+      2941891.1930960985,
+      127033.62099968333
+    ],
+    [
+      127033.62099968333,
+      4180724.8533697217
+    ]
+  ],
+  "context_gram_eigenvalues": [
+    2928998.9608899555,
+    4193617.0855758647
+  ],
+  "records": [
+    {
+      "rank_per_source": 8,
+      "gaussian_variation_error_lower_bound": 0.008619601572563288,
+      "squared_bound_candidates": [
+        77580955909374.77,
+        3164007309053.8994,
+        106093991156477.6
+      ]
+    },
+    {
+      "rank_per_source": 16,
+      "gaussian_variation_error_lower_bound": 0.006545403281813367,
+      "squared_bound_candidates": [
+        45170961646484.1,
+        2261140163092.396,
+        61177147570296.266
+      ]
+    },
+    {
+      "rank_per_source": 32,
+      "gaussian_variation_error_lower_bound": 0.004846655845090206,
+      "squared_bound_candidates": [
+        25070901910425.58,
+        1544747427017.954,
+        33542912420969.66
+      ]
+    },
+    {
+      "rank_per_source": 64,
+      "gaussian_variation_error_lower_bound": 0.0034686264238678053,
+      "squared_bound_candidates": [
+        12952482024048.219,
+        902975752900.4629,
+        17180328376227.154
+      ]
+    },
+    {
+      "rank_per_source": 128,
+      "gaussian_variation_error_lower_bound": 0.00227113541264527,
+      "squared_bound_candidates": [
+        5584287364352.969,
+        418552281712.1428,
+        7365503872535.522
+      ]
+    },
+    {
+      "rank_per_source": 256,
+      "gaussian_variation_error_lower_bound": 0.0011937694159791274,
+      "squared_bound_candidates": [
+        1548476808615.6567,
+        121287167791.03267,
+        2034966669909.1458
+      ]
+    },
+    {
+      "rank_per_source": 512,
+      "gaussian_variation_error_lower_bound": 0.0003694824404509214,
+      "squared_bound_candidates": [
+        148578290303.9036,
+        11860182779.143732,
+        194941368735.7585
+      ]
+    }
+  ],
+  "scope": "Lower bound only for two rank-r source quadratic forms with fixed exact centered affine branches and fixed outer product. Exact Gaussian jointframe; not arbitrary DAG, native distribution or semantic-circuit lower bound."
+}

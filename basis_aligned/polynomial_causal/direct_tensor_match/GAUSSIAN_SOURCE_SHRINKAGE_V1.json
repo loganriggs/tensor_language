@@ -1,0 +1,55 @@
+{
+  "predictions": {
+    "pred_a_unshrunk_replay": true,
+    "pred_b_shrinkage": false
+  },
+  "records": [
+    {
+      "covariance_shrinkage": 0.0,
+      "rank_per_source": 64,
+      "source_products": 128,
+      "stored_scalars": 152196,
+      "gaussian_numerator_variation_error": 0.04855002427144237,
+      "train_normalized_error": 0.1505000889689132,
+      "opened_distinct_normalized_error": 0.3516988017360601
+    },
+    {
+      "covariance_shrinkage": 0.01,
+      "rank_per_source": 64,
+      "source_products": 128,
+      "stored_scalars": 152196,
+      "gaussian_numerator_variation_error": 0.048550332453582555,
+      "train_normalized_error": 0.1505224669368106,
+      "opened_distinct_normalized_error": 0.35156392231921446
+    },
+    {
+      "covariance_shrinkage": 0.1,
+      "rank_per_source": 64,
+      "source_products": 128,
+      "stored_scalars": 152196,
+      "gaussian_numerator_variation_error": 0.048604407448444825,
+      "train_normalized_error": 0.15073039385202383,
+      "opened_distinct_normalized_error": 0.3503612969337406
+    },
+    {
+      "covariance_shrinkage": 0.5,
+      "rank_per_source": 64,
+      "source_products": 128,
+      "stored_scalars": 152196,
+      "gaussian_numerator_variation_error": 0.050463865676189434,
+      "train_normalized_error": 0.15515024494876542,
+      "opened_distinct_normalized_error": 0.3377758121335437
+    },
+    {
+      "covariance_shrinkage": 1.0,
+      "rank_per_source": 64,
+      "source_products": 128,
+      "stored_scalars": 152196,
+      "gaussian_numerator_variation_error": 0.09376786056627687,
+      "train_normalized_error": 0.28422807181284876,
+      "opened_distinct_normalized_error": 0.27585576083183183
+    }
+  ],
+  "seconds": 3.4909884890075773,
+  "scope": "Fixedrank64 spectral source truncation with covariance shrinkage toward scaled identity. Primaryrho.1; no joint refit. Training24 mean/centeredaffinebranches fixed. Native evaluation on seven previouslyopened distinct rows. Prices include sourceprogram and fixed downstream readers/writer, exclude native input producers and common RMS computation."
+}

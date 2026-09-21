@@ -1,0 +1,60 @@
+{
+  "predictions": {
+    "pred_a_recovery": false
+  },
+  "records": [
+    {
+      "structure": "independent_psd",
+      "seed": 0,
+      "relative_gaussian_error": 7.381925336547125e-08
+    },
+    {
+      "structure": "independent_psd",
+      "seed": 1,
+      "relative_gaussian_error": 5.331686522115123e-07
+    },
+    {
+      "structure": "signed",
+      "seed": 0,
+      "relative_gaussian_error": 6.971632711412736e-08
+    },
+    {
+      "structure": "signed",
+      "seed": 1,
+      "relative_gaussian_error": 0.000232587033204521
+    },
+    {
+      "structure": "shared_subspace",
+      "seed": 0,
+      "relative_gaussian_error": 6.222890029093204e-05
+    },
+    {
+      "structure": "shared_subspace",
+      "seed": 1,
+      "relative_gaussian_error": 0.00010813224907602429
+    },
+    {
+      "structure": "opposite_forms",
+      "seed": 0,
+      "relative_gaussian_error": 0.0010346250141424597
+    },
+    {
+      "structure": "opposite_forms",
+      "seed": 1,
+      "relative_gaussian_error": 0.0018126873726053002
+    },
+    {
+      "structure": "separated_scale",
+      "seed": 0,
+      "relative_gaussian_error": 0.005266493266995679
+    },
+    {
+      "structure": "separated_scale",
+      "seed": 1,
+      "relative_gaussian_error": 0.40591137313930753
+    }
+  ],
+  "recovered_structures": 3,
+  "seconds": 6.209933735895902,
+  "scope": "Five known rank2 source families, ten random-start Adam.05 fits,400steps, exact Gaussian numerator objective. Numerical nearzero loss subtraction not an exact-recovery certificate."
+}

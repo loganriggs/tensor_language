@@ -1,5 +1,7 @@
 # Latest requested update for Logan
 
+[21 September, 05:54 — Rank limits, Gaussian fitting and input geometry](research_update_2026-09-21_0554_rank_limits_and_input_geometry.md).
+
 [21 September, 05:34 — Functional moments, overfitting and a fixed-product control](research_update_2026-09-21_0534_functional_moments_and_overfitting.md).
 
 [21 September, 05:24 — Joint quartic fitting: coefficient improvement, functional failure](research_update_2026-09-21_0524_joint_quartic_metric_failure.md).

@@ -1,0 +1,22 @@
+{
+  "predictions": {
+    "pred_a_recovery": true
+  },
+  "records": [
+    {
+      "structure": "opposite_forms",
+      "seed": 0,
+      "relative_gaussian_error": 3.1831639316579384e-16,
+      "subtracted_objective_report": 0.0
+    },
+    {
+      "structure": "separated_scale",
+      "seed": 0,
+      "relative_gaussian_error": 7.783214772938091e-14,
+      "subtracted_objective_report": 0.0
+    }
+  ],
+  "recovered_structures": 2,
+  "seconds": 6.251027321908623,
+  "scope": "Only the two failed planted structures; original seed0 and Adam.05 restarted at2000steps. Extended-budget diagnostic, not independent optimizer selection, exact Gaussian numerator objective. Numerical nearzero loss subtraction not an exact-recovery certificate."
+}

@@ -1,0 +1,45 @@
+{
+  "selected_program": "covariance_0.05_spectral",
+  "dense_gaussian_error": 0.08981182246000126,
+  "export_native_error": 0.4002479320268905,
+  "fixed_affine_relative_errors": [
+    3.675439323466743e-16,
+    7.826693617815653e-16
+  ],
+  "covariance_eigenvalue_min": 0.0011527012073236375,
+  "covariance_eigenvalue_max": 18.080707839928134,
+  "covariance_condition": 15685.511323362147,
+  "geometry": [
+    {
+      "isotropic_shrinkage": 0.0,
+      "train_mean_squared_mahalanobis": 1152.0,
+      "evaluation_mean_squared_mahalanobis": 10838.501835329642,
+      "evaluation_train_ratio": 9.408421732056981
+    },
+    {
+      "isotropic_shrinkage": 0.001,
+      "train_mean_squared_mahalanobis": 1134.6460062427634,
+      "evaluation_mean_squared_mahalanobis": 10063.879823632586,
+      "evaluation_train_ratio": 8.869620805309886
+    },
+    {
+      "isotropic_shrinkage": 0.01,
+      "train_mean_squared_mahalanobis": 1039.0855687642356,
+      "evaluation_mean_squared_mahalanobis": 6843.090345619465,
+      "evaluation_train_ratio": 6.5856850978671755
+    },
+    {
+      "isotropic_shrinkage": 0.1,
+      "train_mean_squared_mahalanobis": 789.2544932603671,
+      "evaluation_mean_squared_mahalanobis": 2619.703748942019,
+      "evaluation_train_ratio": 3.3192129678225415
+    },
+    {
+      "isotropic_shrinkage": 1.0,
+      "train_mean_squared_mahalanobis": 1151.9999999999998,
+      "evaluation_mean_squared_mahalanobis": 1117.9016790050614,
+      "evaluation_train_ratio": 0.9704007630252272
+    }
+  ],
+  "scope": "Independent dense/export audit; covariance shift diagnostic uses input states only and does not refit programs or establish that shrinkage improves functional fidelity."
+}

@@ -1,0 +1,78 @@
+{
+  "affine_gram": [
+    [
+      902700683.6905355,
+      133968520.0389043
+    ],
+    [
+      133968520.0389043,
+      686117687.9306867
+    ]
+  ],
+  "records": [
+    {
+      "rank_per_source": 8,
+      "gaussian_variation_error_lower_bound": 0.10412491635727701,
+      "squared_bound_candidates": [
+        1.5095393398572956e+16,
+        898870316815869.6,
+        1.5481952659414336e+16
+      ]
+    },
+    {
+      "rank_per_source": 16,
+      "gaussian_variation_error_lower_bound": 0.08019530441524139,
+      "squared_bound_candidates": [
+        9039550638742536.0,
+        653265130396489.8,
+        9183628023095234.0
+      ]
+    },
+    {
+      "rank_per_source": 32,
+      "gaussian_variation_error_lower_bound": 0.060416875921580356,
+      "squared_bound_candidates": [
+        5188008789659147.0,
+        451700737128243.44,
+        5212342358977871.0
+      ]
+    },
+    {
+      "rank_per_source": 64,
+      "gaussian_variation_error_lower_bound": 0.04346719876105133,
+      "squared_bound_candidates": [
+        2697986113939702.5,
+        265407409590020.4,
+        2687455566588290.5
+      ]
+    },
+    {
+      "rank_per_source": 128,
+      "gaussian_variation_error_lower_bound": 0.028650319147095774,
+      "squared_bound_candidates": [
+        1172128787228985.2,
+        123428094064895.14,
+        1161379803040797.5
+      ]
+    },
+    {
+      "rank_per_source": 256,
+      "gaussian_variation_error_lower_bound": 0.015083882760462701,
+      "squared_bound_candidates": [
+        324894755102697.1,
+        35800967083141.21,
+        320707759684878.94
+      ]
+    },
+    {
+      "rank_per_source": 512,
+      "gaussian_variation_error_lower_bound": 0.004674493802732244,
+      "squared_bound_candidates": [
+        31202226185295.605,
+        3499349508710.53,
+        30753676816852.53
+      ]
+    }
+  ],
+  "scope": "Numerical lower bound for fixed affine vectors and rank-r quadratic forms in the current exact Gaussian numerator objective. Uses only an orthogonal cubic Hermite sector. Does not bound arbitrary DAGs, changed affine terms, native-function error or semantic circuit complexity."
+}

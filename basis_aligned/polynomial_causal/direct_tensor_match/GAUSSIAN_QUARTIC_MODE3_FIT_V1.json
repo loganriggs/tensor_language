@@ -1,0 +1,156 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_gaussian": false,
+    "pred_c_native_probe": false
+  },
+  "selected_by_gaussian_loss": {
+    "covariance": "covariance_0.05_spectral"
+  },
+  "initial_gaussian_errors": {
+    "covariance": 0.09025675109803634
+  },
+  "initial_native_opened_evaluation_error": 0.39867872778912544,
+  "records": [
+    {
+      "label": "covariance_0.01_spectral",
+      "metric": "covariance",
+      "learning_rate": 0.01,
+      "initialization": "spectral",
+      "gaussian_numerator_variation_error": 0.0898118224620396,
+      "native_opened_evaluation_error": 0.4002479787470136,
+      "best_step": 400,
+      "history": [
+        [
+          0,
+          0.008146281118772884
+        ],
+        [
+          100,
+          0.008066164395026387
+        ],
+        [
+          200,
+          0.008066163456366042
+        ],
+        [
+          300,
+          0.008066163454153891
+        ],
+        [
+          400,
+          0.008066163453952922
+        ]
+      ],
+      "seconds": 3.2103735709097236
+    },
+    {
+      "label": "covariance_0.01_perturbed",
+      "metric": "covariance",
+      "learning_rate": 0.01,
+      "initialization": "perturbed",
+      "gaussian_numerator_variation_error": 0.08981182246852554,
+      "native_opened_evaluation_error": 0.4002481264406671,
+      "best_step": 400,
+      "history": [
+        [
+          0,
+          0.00821918476429705
+        ],
+        [
+          100,
+          0.008066165128168202
+        ],
+        [
+          200,
+          0.00806616346333273
+        ],
+        [
+          300,
+          0.0080661634558873
+        ],
+        [
+          400,
+          0.00806616345511795
+        ]
+      ],
+      "seconds": 3.1989114040043205
+    },
+    {
+      "label": "covariance_0.05_spectral",
+      "metric": "covariance",
+      "learning_rate": 0.05,
+      "initialization": "spectral",
+      "gaussian_numerator_variation_error": 0.08981182246000133,
+      "native_opened_evaluation_error": 0.4002479320268903,
+      "best_step": 285,
+      "history": [
+        [
+          0,
+          0.008146281118772884
+        ],
+        [
+          100,
+          0.0080661670593493
+        ],
+        [
+          200,
+          0.008066163453675116
+        ],
+        [
+          300,
+          0.008066163453586992
+        ],
+        [
+          400,
+          0.008066163453587103
+        ]
+      ],
+      "seconds": 3.1720224788878113
+    },
+    {
+      "label": "covariance_0.05_perturbed",
+      "metric": "covariance",
+      "learning_rate": 0.05,
+      "initialization": "perturbed",
+      "gaussian_numerator_variation_error": 0.08981182246000138,
+      "native_opened_evaluation_error": 0.4002479329656855,
+      "best_step": 339,
+      "history": [
+        [
+          0,
+          0.00821918476429705
+        ],
+        [
+          100,
+          0.008066166432090781
+        ],
+        [
+          200,
+          0.008066163453658492
+        ],
+        [
+          300,
+          0.008066163453587056
+        ],
+        [
+          400,
+          0.008066163453587074
+        ]
+      ],
+      "seconds": 3.1643892030697316
+    }
+  ],
+  "seconds": 13.713466840796173,
+  "input_sha256": "f12b528a80a4f9e2ee945f2311ffc42a39d14c7dd66da2774d5e0b42fad1617f",
+  "evaluation_documents": [
+    24,
+    25,
+    26,
+    27,
+    29,
+    30,
+    31
+  ],
+  "scope": "Exact Gaussian numerator moment objective with constant coordinate fixed1 and training24-document jointmean/covariance. Four fixedrank16 fits; winner chosen by Gaussianobjective only. Native normalized error scored on seven distinct previouslyopened rows, no refitting to them. NoGaussianinverseRMS, nativeintervention or semanticadoptionclaim."
+}
