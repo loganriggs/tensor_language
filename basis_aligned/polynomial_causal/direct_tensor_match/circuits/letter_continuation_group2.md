@@ -159,3 +159,7 @@ All24matched-panelGaussianquadraticMSEratios.325–.860fail10%agreement; downstr
 ## 21 September, 09:26 — Empirical higher-moment fixed readout
 
 TenCPUfits22.27s,399products896198floats unchanged. Source anddownstreamlinearized losses useactual1536trainingstatequadraticfeatures pluspositivecoefficientpenalty. Primarydownstream.1 opened2.532/2.518/15.570%failscomponent3, coefficient8.694%passes1.10control8.629%. Trainingthird12.706%vs15.609%control; lambda10train6.295%opened18.959%overfits. ActualnextCPUtransfer toexisting232covariance-trainingprefixes third12.487->11.996%,3.93%gainfails10%; notfreshandonlythirdlaterreaderavailable. Allothergatesandnativeportsretained. [Report](../../explanations/for_logan/research_update_2026-09-21_0926_empirical_polynomial_metric_readout.md).
+
+## 21 September, 09:34 — Expanded source moments
+
+Fixed399directions, empiricalsourcepool1536->16384states atsameobjective: primarylambda1 opened2.144/2.475/14.908%, absolute15%passesbutrelative1.10separatefails. Coefficient8.819%passes10%guard; lambda10third14.426%coef9.435%alsofailsrelative. Morecoverage mitigatesoverfit; nofreshclaim. Fullbatchvarpro source-objective directionrefit registered0/1/10,2seeds,1000steps,.005Adam; explicitloss/gradient/envelope/nativewidthchecks pass. [Report](../../explanations/for_logan/research_update_2026-09-21_0934_expanded_moment_calibration.md).

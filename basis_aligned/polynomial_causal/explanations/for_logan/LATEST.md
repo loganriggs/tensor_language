@@ -2,6 +2,8 @@
 
 **Start here — [Overall review: from folded weights to smaller arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 08:40 UTC. Explains the two-stage plan, what QR does, why the target narrowed, the actual savings, and the remaining failures. Read this before the chronological experiment updates.
 
+**Latest experiment — [Expanded moment calibration](research_update_2026-09-21_0934_expanded_moment_calibration.md).** More calibration improves fixed-direction transfer, but the relative component gate still fails. Full-batch direction refitting is preregistered, with no outcome yet.
+
 **Latest experiment — [Empirical polynomial metric readout](research_update_2026-09-21_0926_empirical_polynomial_metric_readout.md).** Exact coefficient-plus-data-moment fitting improves training much more than transfer. The primary retains coefficient fidelity but fails component and transfer-improvement gates.
 
 **Latest analysis — [Covariance and lifted polynomial metrics](research_update_2026-09-21_0917_covariance_and_lifted_polynomial_metrics.md).** Matched-Gaussian closure and downstream-sensitivity independence understate measured errors. Five equal-covariance controls motivate higher-moment fitting with a retained global coefficient constraint.

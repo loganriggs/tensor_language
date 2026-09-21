@@ -1,0 +1,212 @@
+{
+  "records": [
+    {
+      "key": "source_0",
+      "family": "source",
+      "lam": 0,
+      "original_coefficient_error": 0.08628904881448009,
+      "empirical_objective_terms": [
+        0.005444145922107919,
+        0.006603127835830103,
+        0.007969664189175297
+      ],
+      "normal_equation_replay": 1.5637991787378701e-15,
+      "execution_replay": 2.034905387602744e-16,
+      "coefficient_control_replay": 3.995306003818698e-10,
+      "training": {
+        "per_mode_errors": [
+          0.01916967882096976,
+          0.02586519479651819,
+          0.15608876140037892
+        ],
+        "euclidean_jacobian_errors": [
+          0.17625901884432393,
+          0.17596694905225077,
+          0.20746725752360598
+        ]
+      },
+      "opened": {
+        "per_mode_errors": [
+          0.02575917405879774,
+          0.02518130029309282,
+          0.16087309691069493
+        ],
+        "euclidean_jacobian_errors": [
+          0.20785459422590305,
+          0.17941126510718092,
+          0.20377748792189354
+        ]
+      },
+      "source_products": 399,
+      "stored_floats": 896198
+    },
+    {
+      "key": "source_0.01",
+      "family": "source",
+      "lam": 0.01,
+      "original_coefficient_error": 0.08629003447028065,
+      "empirical_objective_terms": [
+        0.005414041817999436,
+        0.0065805881384152776,
+        0.00791929709703124
+      ],
+      "normal_equation_replay": 1.1883520988801775e-15,
+      "execution_replay": 2.1043838577992182e-16,
+      "coefficient_control_replay": null,
+      "training": {
+        "per_mode_errors": [
+          0.01909212274292227,
+          0.02581364967782293,
+          0.1557646762548078
+        ],
+        "euclidean_jacobian_errors": [
+          0.17625550807947973,
+          0.1759682009443837,
+          0.2074540610753862
+        ]
+      },
+      "opened": {
+        "per_mode_errors": [
+          0.025661490323295205,
+          0.025159156276004166,
+          0.16053151077838063
+        ],
+        "euclidean_jacobian_errors": [
+          0.20785057414497002,
+          0.17941181181594804,
+          0.203774845030237
+        ]
+      },
+      "source_products": 399,
+      "stored_floats": 896198
+    },
+    {
+      "key": "source_0.1",
+      "family": "source",
+      "lam": 0.1,
+      "original_coefficient_error": 0.08636350881374256,
+      "empirical_objective_terms": [
+        0.005203346215596998,
+        0.00642283847899908,
+        0.00755520685798261
+      ],
+      "normal_equation_replay": 1.8596175552229476e-15,
+      "execution_replay": 1.756676651758795e-16,
+      "coefficient_control_replay": null,
+      "training": {
+        "per_mode_errors": [
+          0.018492957418011644,
+          0.025470258486625878,
+          0.15334739300631312
+        ],
+        "euclidean_jacobian_errors": [
+          0.1762486711954641,
+          0.17601176547662242,
+          0.20742517928055826
+        ]
+      },
+      "opened": {
+        "per_mode_errors": [
+          0.024890551353060092,
+          0.025020115110461698,
+          0.1580047371634521
+        ],
+        "euclidean_jacobian_errors": [
+          0.2078371197064734,
+          0.1794440381322998,
+          0.20381751682092047
+        ]
+      },
+      "source_products": 399,
+      "stored_floats": 896198
+    },
+    {
+      "key": "source_1",
+      "family": "source",
+      "lam": 1,
+      "original_coefficient_error": 0.08818908065361741,
+      "empirical_objective_terms": [
+        0.004556725923451609,
+        0.005942057951203197,
+        0.006375935978285157
+      ],
+      "normal_equation_replay": 9.899794373183662e-16,
+      "execution_replay": 2.377288848619256e-16,
+      "coefficient_control_replay": null,
+      "training": {
+        "per_mode_errors": [
+          0.015875519018480156,
+          0.024585057179073187,
+          0.14417983982517682
+        ],
+        "euclidean_jacobian_errors": [
+          0.17677873167358835,
+          0.1769410792692854,
+          0.20890380649973395
+        ]
+      },
+      "opened": {
+        "per_mode_errors": [
+          0.021439346009989823,
+          0.024748919166637205,
+          0.14908065821859867
+        ],
+        "euclidean_jacobian_errors": [
+          0.20825894237437084,
+          0.1801775687337467,
+          0.2054856907958607
+        ]
+      },
+      "source_products": 399,
+      "stored_floats": 896198
+    },
+    {
+      "key": "source_10",
+      "family": "source",
+      "lam": 10,
+      "original_coefficient_error": 0.09434670009228581,
+      "empirical_objective_terms": [
+        0.004193363153605089,
+        0.005701490289990514,
+        0.005744628180038524
+      ],
+      "normal_equation_replay": 7.854702867848852e-16,
+      "execution_replay": 1.9469614326683925e-16,
+      "coefficient_control_replay": null,
+      "training": {
+        "per_mode_errors": [
+          0.013461658136633208,
+          0.024306113383192888,
+          0.13727225112240307
+        ],
+        "euclidean_jacobian_errors": [
+          0.17886799915741147,
+          0.17955402987200786,
+          0.214601943512573
+        ]
+      },
+      "opened": {
+        "per_mode_errors": [
+          0.018536170805803266,
+          0.024780300715111846,
+          0.1442647362140808
+        ],
+        "euclidean_jacobian_errors": [
+          0.20997289103881336,
+          0.1822361083162155,
+          0.21113852654009557
+        ]
+      },
+      "source_products": 399,
+      "stored_floats": 896198
+    }
+  ],
+  "primary": "source_1",
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_component_values": false,
+    "pred_c_coefficient_fidelity": true
+  },
+  "seconds": 16.82462943997234,
+  "scope": "Same399product fixed directions and positive original coefficient penalty; source-only empirical metric now16384states from old24plus232additionalprefixes, alladditionalprefixes excludedfromold32. Opened448unchanged; training score refersold1536only because full h unavailable elsewhere. Compareprevioussource-family fits atsame lambdas; no fresh/OOD evidence or model forwards."
+}
