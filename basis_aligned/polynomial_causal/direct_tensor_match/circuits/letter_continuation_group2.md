@@ -139,3 +139,7 @@ Selective79pair45degree rotation changesfittedtensor1.863%atunchanged512products
 ## 21 September, 08:43 — Output contrast weighting
 
 Full output balancing makes all four quadratic groups repeatable across tested seeds/rates (minimum cosine .9957), but original-feature cosine .9874 and component errors5.14/3.59% fail fidelity gates. Partial balance preserves scalar gates, fails group fidelity. Independent export/mean/affine replay passes. All-six audit exposes weak combinations involving private3; prepared next graph shares383products across all6reads at896262coefficients. Native ports, selective manipulation, semantic identity, OOD and fresh third-component failure remain unresolved. See [report](../../explanations/for_logan/research_update_2026-09-21_0843_output_weighting_and_group_stability.md).
+
+## 21 September, 08:53 — Global sharing and targeted private residual
+
+Global383fits terminal257.62s; primarypartial-balance values2.658/2.602/18.690% fail third. Fullbalance25.60%third and.98959minimumrestartgroupcosfail. Independentexports pass. Exact valueerror terms localize main third miss to secondsource read; exactreadoracle leaves3.31%, notdeployablefreecapacity. Targetedfixedprojectionbudget exchange16mixed->32privatesquares yields399products896198floats, errors3.812/3.437/17.125%; exactconstrainedreadoutrefit4.390/3.526/17.837%fails. No semantic/OODpromotion or nativeportclosure. [Report](../../explanations/for_logan/research_update_2026-09-21_0853_global_sharing_and_targeted_graph_edits.md).

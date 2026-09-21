@@ -1,0 +1,85 @@
+{
+  "parent": "0.5_seed1816",
+  "selection": "Remove lowest individual atom energy under parent output metric; exact truncated spectral residual correction to sixth source read. No state-based candidate selection or refit.",
+  "records": [
+    {
+      "removed_mixed": 0,
+      "added_private_squares": 0,
+      "source_products": 383,
+      "stored_floats": 896262,
+      "original_coefficient_error": 0.08644868119028727,
+      "native_replay": 0.0,
+      "per_mode_errors": [
+        0.02658338186891322,
+        0.026020873156047473,
+        0.18689619601881705
+      ],
+      "euclidean_jacobian_errors": [
+        0.2079631595931021,
+        0.17931054126512508,
+        0.20537988920547817
+      ]
+    },
+    {
+      "removed_mixed": 8,
+      "added_private_squares": 16,
+      "source_products": 391,
+      "stored_floats": 896230,
+      "original_coefficient_error": 0.1257745529337202,
+      "native_replay": 1.7758241392433587e-16,
+      "per_mode_errors": [
+        0.0321942034647759,
+        0.03235362691534165,
+        0.17376614537822854
+      ],
+      "euclidean_jacobian_errors": [
+        0.23733024644121614,
+        0.20326527259830093,
+        0.2058877994447615
+      ]
+    },
+    {
+      "removed_mixed": 16,
+      "added_private_squares": 32,
+      "source_products": 399,
+      "stored_floats": 896198,
+      "original_coefficient_error": 0.16823372150144295,
+      "native_replay": 2.2172231260894412e-16,
+      "per_mode_errors": [
+        0.03811932220586333,
+        0.0343684204702761,
+        0.17124940903635472
+      ],
+      "euclidean_jacobian_errors": [
+        0.27830909578773066,
+        0.22101267679380632,
+        0.20626357778969026
+      ]
+    },
+    {
+      "removed_mixed": 32,
+      "added_private_squares": 64,
+      "source_products": 415,
+      "stored_floats": 896134,
+      "original_coefficient_error": 0.24293979588086279,
+      "native_replay": 2.110338859943892e-16,
+      "per_mode_errors": [
+        0.04051682824622652,
+        0.0520285954524816,
+        0.171034921151149
+      ],
+      "euclidean_jacobian_errors": [
+        0.3603739206963292,
+        0.2776783638465851,
+        0.20795086623072026
+      ]
+    }
+  ],
+  "primary_removed": 16,
+  "predictions": {
+    "pred_a_execution": true,
+    "pred_b_value_repair": false,
+    "pred_c_price": true
+  },
+  "scope": "Opened-state graph-edit screen with actual compact private-square serialization; same input-projection coefficient budget, no fresh model or semantic validation."
+}

@@ -1,0 +1,66 @@
+{
+  "toy_dense_gradient_maxabs": 8.526512829121202e-14,
+  "toy_normal_replay": 2.268125933641301e-16,
+  "records": [
+    {
+      "removed_mixed": 8,
+      "source_products": 391,
+      "stored_floats": 896230,
+      "weighted_coefficient_error": 0.16046644544423982,
+      "original_coefficient_error": 0.12246599214896613,
+      "normal_equation_replay": 8.45914180665586e-15,
+      "execution_replay": 1.8092710709802768e-16,
+      "per_mode_errors": [
+        0.03543765715543735,
+        0.03170482943697253,
+        0.1786072749343271
+      ],
+      "euclidean_jacobian_errors": [
+        0.2350499082862157,
+        0.20145585383357756,
+        0.21026289194391584
+      ]
+    },
+    {
+      "removed_mixed": 16,
+      "source_products": 399,
+      "stored_floats": 896198,
+      "weighted_coefficient_error": 0.19714109437823607,
+      "original_coefficient_error": 0.15840722409765728,
+      "normal_equation_replay": 1.1129859820711395e-14,
+      "execution_replay": 2.1587914018976444e-16,
+      "per_mode_errors": [
+        0.0438965963907255,
+        0.03526271635954354,
+        0.17837392740348326
+      ],
+      "euclidean_jacobian_errors": [
+        0.2730045424688345,
+        0.21648936616767964,
+        0.21228108866638656
+      ]
+    },
+    {
+      "removed_mixed": 32,
+      "source_products": 415,
+      "stored_floats": 896134,
+      "weighted_coefficient_error": 0.2544246860826294,
+      "original_coefficient_error": 0.2115408413591591,
+      "normal_equation_replay": 1.0416526512190618e-14,
+      "execution_replay": 1.6151656411290117e-16,
+      "per_mode_errors": [
+        0.05416351483301047,
+        0.0504855701801271,
+        0.18692485483089089
+      ],
+      "euclidean_jacobian_errors": [
+        0.3349193399582913,
+        0.2548103385249445,
+        0.21719809427764053
+      ]
+    }
+  ],
+  "primary_removed": 16,
+  "primary_values_pass": false,
+  "scope": "Exact output-metric constrained linear refit, fixed directions/topology; no native-row fitting, fresh test, or semantic promotion."
+}

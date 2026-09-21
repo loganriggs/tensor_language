@@ -1,0 +1,98 @@
+{
+  "checks": [
+    {
+      "key": "0_seed816",
+      "coefficient_core_replay": 9.670042544485113e-14,
+      "execution_replay": 1.1804556130659377e-15,
+      "affine_mean_maxabs": 0.0,
+      "stored_floats": 896262
+    },
+    {
+      "key": "0_seed1816",
+      "coefficient_core_replay": 9.50350909079134e-14,
+      "execution_replay": 1.2356528733846207e-15,
+      "affine_mean_maxabs": 0.0,
+      "stored_floats": 896262
+    },
+    {
+      "key": "0.5_seed816",
+      "coefficient_core_replay": 3.108624468950438e-14,
+      "execution_replay": 1.3349954391798774e-15,
+      "affine_mean_maxabs": 0.0,
+      "stored_floats": 896262
+    },
+    {
+      "key": "0.5_seed1816",
+      "coefficient_core_replay": 2.5979218776228663e-14,
+      "execution_replay": 1.2684690376377868e-15,
+      "affine_mean_maxabs": 0.0,
+      "stored_floats": 896262
+    },
+    {
+      "key": "1_seed816",
+      "coefficient_core_replay": 1.1324274851176597e-14,
+      "execution_replay": 1.399673774967992e-15,
+      "affine_mean_maxabs": 0.0,
+      "stored_floats": 896262
+    },
+    {
+      "key": "1_seed1816",
+      "coefficient_core_replay": 1.6542323066914832e-14,
+      "execution_replay": 1.3813740826358386e-15,
+      "affine_mean_maxabs": 0.0,
+      "stored_floats": 896262
+    }
+  ],
+  "restart_pairs": [
+    {
+      "power": 0,
+      "keys": [
+        "0_seed816",
+        "0_seed1816"
+      ],
+      "core_cosines": [
+        0.9993579535095676,
+        0.9989657678129731,
+        0.9979076612555914,
+        0.973242908461705,
+        0.9430083664257403,
+        0.8636429986909359
+      ],
+      "minimum_core_cosine": 0.8636429986909359
+    },
+    {
+      "power": 0.5,
+      "keys": [
+        "0.5_seed816",
+        "0.5_seed1816"
+      ],
+      "core_cosines": [
+        0.9986527454627514,
+        0.9980334788311968,
+        0.9971913059730347,
+        0.9871242958312286,
+        0.9762221510926664,
+        0.9523113593187279
+      ],
+      "minimum_core_cosine": 0.9523113593187279
+    },
+    {
+      "power": 1,
+      "keys": [
+        "1_seed816",
+        "1_seed1816"
+      ],
+      "core_cosines": [
+        0.9968419761656657,
+        0.9945209101280584,
+        0.9943809187553974,
+        0.9900044085021559,
+        0.9898116121559629,
+        0.9895906100199577
+      ],
+      "minimum_core_cosine": 0.9895906100199577
+    }
+  ],
+  "all_replay_checks_pass": true,
+  "scope": "Independent native-factor decode and whole-group restart agreement; no new model forwards or semantic identity."
+}
