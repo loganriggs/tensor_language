@@ -1,0 +1,27 @@
+{
+  "created_utc": "2026-09-21T14:47:46.992407+00:00",
+  "records": [
+    {
+      "corrections": 32,
+      "candidate_source_multiplications": 1084608,
+      "candidate_floats": 1095052,
+      "baseline_width": 312,
+      "baseline_source_multiplications": 1081080,
+      "baseline_floats": 1091676
+    },
+    {
+      "corrections": 64,
+      "candidate_source_multiplications": 1121568,
+      "candidate_floats": 1131980,
+      "baseline_width": 323,
+      "baseline_source_multiplications": 1119195,
+      "baseline_floats": 1129758
+    }
+  ],
+  "metrics": [
+    "native_isotropic",
+    "calibration_shaped"
+  ],
+  "method": "Reuse independent pair mode-Gram subspaces and exact pair compiler. Largest common integer width fitting both candidate source multiplication and coefficient storage budgets.",
+  "scope": "Simple weight-derived comparator at matched resource ceilings, not optimizer-matched or globally optimal. Same opened states and paired output sharing; all native fidelity measures must remain separate from cost. No adoption or fresh evidence."
+}

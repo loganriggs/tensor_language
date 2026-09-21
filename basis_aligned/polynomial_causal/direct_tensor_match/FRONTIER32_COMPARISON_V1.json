@@ -1,0 +1,74 @@
+{
+  "candidate": {
+    "maximum": 1.0042887023665197,
+    "native_error": 0.5851655977062536,
+    "covariance_error": 0.0775103689454728,
+    "per_mode_errors": [
+      0.019134289711526663,
+      0.022172348562497834,
+      0.08979905188981684
+    ],
+    "euclidean_jacobian_errors": [
+      0.19832911399955455,
+      0.16847565114142102,
+      0.17278297472292922
+    ],
+    "stored_floats": 1095052,
+    "source_total_multiplications": 1084608
+  },
+  "baselines": [
+    {
+      "key": "native_isotropic_312",
+      "instrument_pass": true,
+      "stored_floats": 1091676,
+      "source_products": 936,
+      "per_mode_errors": [
+        0.018339447814576193,
+        0.03424623294539681,
+        0.13591912799120073
+      ],
+      "native_isotropic_equal_pair_error": 0.5241362212218988,
+      "calibration_shaped_error": 0.14105820345446612
+    },
+    {
+      "key": "native_isotropic_323",
+      "instrument_pass": true,
+      "stored_floats": 1129758,
+      "source_products": 969,
+      "per_mode_errors": [
+        0.017688003708303493,
+        0.03259770059751093,
+        0.1357521817420139
+      ],
+      "native_isotropic_equal_pair_error": 0.5145003550688224,
+      "calibration_shaped_error": 0.13792838823838463
+    },
+    {
+      "key": "calibration_shaped_312",
+      "instrument_pass": true,
+      "stored_floats": 1091676,
+      "source_products": 936,
+      "per_mode_errors": [
+        0.023873307769098226,
+        0.023296885588798482,
+        0.10688080897968925
+      ],
+      "native_isotropic_equal_pair_error": 0.612685366446977,
+      "calibration_shaped_error": 0.08349604078946983
+    },
+    {
+      "key": "calibration_shaped_323",
+      "instrument_pass": true,
+      "stored_floats": 1129758,
+      "source_products": 969,
+      "per_mode_errors": [
+        0.023572513329586885,
+        0.022508255474279974,
+        0.10598703998306963
+      ],
+      "native_isotropic_equal_pair_error": 0.603047090780272,
+      "calibration_shaped_error": 0.08126934951069847
+    }
+  ],
+  "scope": "32correction candidate fails only original covariance coefficient bar; component and Jacobian bars pass. Baselines at312/323 widths fit both candidate resource ceilings for32/64 respectively; candidate uses opened-state coefficient refits, baseline uses target mode-Gram selection, so not matched optimization effort. No adoption or fresh claim."
+}
