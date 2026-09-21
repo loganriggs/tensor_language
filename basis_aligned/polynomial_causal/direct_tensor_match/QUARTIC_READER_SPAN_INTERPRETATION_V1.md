@@ -1,0 +1,13 @@
+**The learned quartic dictionary misses substantial local input sensitivity.**
+
+The32-feature bank has four products per feature, hence128 left and128 right linear readers. Their span has rank256. Every function computed solely from these readers is invariant to the remaining896 input directions, regardless of how its root graph or output writer is changed.
+
+For the true native pure quartic target at16 calibration anchors, the aggregate unread Jacobian norm is49.14%of the full Jacobian norm. Individual fractions range43.72–64.11%. The registered>10%aggregate and12/16anchor prediction PASSES. Top32 missing-sensitivity directions capture72.09%of unread squared energy;90%requires273 directions. The<=32concentration prediction FAILS.
+
+An independent FP64 first-anchor Jacobian agrees with FP32 to4.32e-7. The student is invariant to projected finite perturbations to1.03e-15relative; the native quartic changes0.12–0.59%under perturbations of norm1%of each input norm. Integrity PASSES. Toy chain-rule/autograd agreement is3.9e-16; fully visible and fully unread controls recover0%and100%. The16-anchor shape smoke passed after correcting a wrong working-directory import. The failed initial smoke command did not halt the shell's enqueue command; therefore the corrected smoke was not a pre-enqueue gate. Native execution finished successfully in0.92s; retain that workflow correction.
+
+A CPU spectral consequence was then checked against explicit SVD projection controls. Keeping the existing256 readers and adding the best32 new directions still leaves at least25.96%of the original local Jacobian norm unrepresentable. Reaching10%requires capturing95.86%of the missing squared sensitivity, not merely90%. These are local derivative bounds under isotropic input perturbations, not lower bounds on ordinary prediction error. The optimal added reader directions might also be costly to implement within the restricted quadratic-feature graph.
+
+This result favors changing leaf capacity or the input dictionary over further output-only refits. It does not prove every256-reader dictionary fails: rotating the entire reader span can trade captured and missed sensitivity. A full native Jacobian-Gram spectral bound would distinguish a poor learned span from an unavoidable256-reader restriction. It also does not identify semantic units or establish selective manipulation. The target still omits residual/bias terms and intervening normalization.
+
+[Native result](QUARTIC_READER_SPAN_V1.json) · [Augmentation bound](READER_AUGMENTATION_BOUND_V1.json) · [Frozen readout floors](WIDE_QUARTIC_READOUT_SPAN_INTERPRETATION_V1.md) · [Preregistration](QUARTIC_READER_SPAN_PLAN_V1.md).

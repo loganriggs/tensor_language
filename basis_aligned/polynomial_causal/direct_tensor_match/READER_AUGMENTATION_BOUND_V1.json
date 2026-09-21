@@ -1,0 +1,29 @@
+{
+  "controls": [
+    {
+      "rank": 0,
+      "relative_tail": 1.0,
+      "oracle_error": 0.0
+    },
+    {
+      "rank": 1,
+      "relative_tail": 0.8426784299357208,
+      "oracle_error": 0.0
+    },
+    {
+      "rank": 4,
+      "relative_tail": 0.5243515464834768,
+      "oracle_error": 1.1102230246251565e-16
+    },
+    {
+      "rank": 11,
+      "relative_tail": 0.0,
+      "oracle_error": 1.0938029309644848e-15
+    }
+  ],
+  "existing_reader_rank": 256,
+  "best_possible_remaining_fraction_after32_added_readers": 0.25963894687823336,
+  "required_unread_energy_capture_for10percent_total": 0.9585932417318778,
+  "remaining_fraction_at_exact90percent_capture": 0.1554047841712098,
+  "scope": "Local derivative error relative to total teacher Jacobian norm across fixed16anchors. Existing256-reader span held fixed; optimally add32directions and allow an otherwise unrestricted differentiable function. Bound need not be attainable by the constrained quartic graph. Rotating existing readers or measuring other input geometries changes the question."
+}
