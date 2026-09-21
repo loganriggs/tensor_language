@@ -32781,3 +32781,131 @@ Previousprogress3dedeff6a. Test feature1 against explicitlyprojectednativequarti
 ### 2026-09-21T21:20Z — Claude: v741 LANDED (EDIT; 44 forwards): 5/5 — Logan's objection (21 Sep 21:10 UTC) answered: the four SVD shapes are a convention; a random rotation of the 4-space costs exactly the same (+0.0734 = +0.0734); no rotation makes heads single-shape (CPU: dominant-shape energy 0.74 SVD, 0.73 varimax, random rotations 0.62-0.76) — the kernels are a CONTINUUM in a 4-dimensional space, not four families (the 'families' wording of v725 is retracted); and a NAMED basis nearly spans it: {exp(-d/6), exp(-d/3), d^-0.5, d^-1} (92% energy) costs +0.0745 inside the program (SVD-4 +0.0734, free kernels +0.0723) and +0.969 in the kernels-only program (free +0.956); adding exp(-d/1) and a tap at d = 2 (named-6, 93%) costs +0.0728
 Reading to keep: every head's positional kernel is, to within 0.002 CE, a mix of two short exponential windows (~3 and ~6 tokens) and two power-law tails (1/sqrt(d), 1/d); the previous-token taps are window-minus-window; the specific SVD curves carry no meaning beyond spanning the same space.
 Files: ops/run_attention_named_basis_v741.py; circuits/followups/attention_named_basis_v741_result.json.
+
+### 2026-09-21T21:20:50.570120+00:00 — Codex: native root removal fails; prefix audit successor completed
+Native1.71s instrumentPASS,fidelityFAILall8cells(11.7–31.1%),FineWebselectivityFAILratios1.691/1.980<2. Nativecaseeffectnewline-.0997/-.6333,elsewhere+.0956/+.3956;code newlinenearezero. ActualCPU successor removesoneprefix:weakdose ratio1.625–1.823allFAIL;FineWebnewline negative13/16,14/16,elsewherepositive16/16. No selectivecapitalizationcircuitadoption. Samecapture scalarvslogit error decomposition needed beforeblamingnonlinearities or addingcapacity.
+
+### 2026-09-21T21:22:11.376302+00:00 — Codex: samecapture scalar/logit geometry diagnostic claimed
+Previousprogressf5d71c26e. Separate root1scalarapproximation fromfinalRMS/softcap sensitivity onexactROOT_CASE_ABLATION rows. CPUanalyticJacobian controls versusAD/finitedifference first;managedcaptureonly, no fit. Registeredscalar>=10%allcells andweaklinearweightederrorwithin20%actual; preservefailure.
+
+### 2026-09-21T21:26:03.150858+00:00 — Codex: removalgeometry result and concentration successor completed
+Native2.20s previouserrorreplay0PASS;scalar>=10everycellFAIL;weakweightedmatchPASS. FWnewline raw5.34%/weighted24.89%/actual26.08%,full31.07%. ActualCPU sensitivityaudit: topdecilepositions88.86%weightederror/17.90%reference;weightNeff12.79/106. In-sampleaffineoracle still12.55%FWnewline,13.56%code newline;notadopted. Nextfittingvariableisdownstream-sensitivitymetriconseparatecalibration,notblindcapacity;allselectivity/semanticgapsremain.
+
+### 2026-09-21T21:28:59.257726+00:00 — Codex: fixedfeature16root sensitivity-fit comparison claimed
+Previousprogress69ce0bf62. Fix U/V and16writers, refitrootformsdirecttonativeprojectedquartic underuniformvsstate-sensitivitydiagonalweights on6144historicalcalstates. Evaluate2048openedsecondpanel,root1primaryplusallrootaverage;compilebothsamepairedgraph. CPUfiveweightedLScontrols<5e-16andJacobiandiagonal1e-16PASS. No basisgrowthorfeaturelearning.
+
+### 2026-09-21T21:32:19.219272+00:00 — Codex: sensitivityreadout transfer fails; leverage successor performed
+V2capture/exportPASS4.50e-7;transferFAIL root1eval14.79%vsuniform14.61%,meanroots47.32vs46.49%;price/valuePASSboth384/322048. V1epsiloncorrectionmaxweightdifference5.93e-13,noverdictchange,retained. ActualCPU root1designleverageaudit:highest10%evalleverageholds2.02%sensitiveweightederror,medianbelowtrain;notasimplehighleverageoutlierfailure. Inputdictionarylimits/featurelearningnextvariable,notmorefixedwriterfitting. No semanticadoption.
+
+### 2026-09-21T21:35:10.178934+00:00 — Codex: matchedfeature-direction pilot claimed
+Previousprogressdc1aa0073. Fixedwriterfitsdidnottransfer;allowU/Vlearningatsame32x4widthand16writers,100Adamsteps uniformvssensitivity, sameinheritedinit,profile16rootridge. FiveCPUenvelopegradientcontrolsPASScancellation6.4e-11max,rest<2e-14. Targetcomponentprediction/causalfidelitystillneedsnativefinitechecks.
+
+### 2026-09-21T21:38:47.054348+00:00 — Codex: featurelearning transfer fails; nativeGaussian successor done
+100Adamsteps2arms26.46s,export4.02e-7PASS,transferFAIL,price/valuePASSboth384/322048. Sensitive meanrootcal22.24→6.14%,eval47.32→49.23%;root1eval14.79→16.19%. Primarycalroot1also worsens2.61→4.28, so notsolelyoverfitting. ActualCPU256nativeGaussianprobes:aggregateerrors147.35%inherited/117.02%sensitivelearned,bothworsezero100%;learnedfunctionmoves72.53%relativeinherited. Broadweightfunctionmismatch remains;hybridnativeweightconstraintswouldneedtruthnotinheritedregularization.
+
+### 2026-09-21T21:40:18.744504+00:00 — Codex: hybrid nativeweight-generated feature fit claimed
+Previousprogress09dabafed. Datafittingbadglobally; addnativeGaussianfunctionalconstraints ratherthaninheritedfunctionpenalty. Synthetic-onlyvshybridlambda1,2048train/1024fresh,100Adamstepssame32x4/16writers/init. CPUrelative-mixtureidentity/zero-lambdacheckexecuted. Preservefeature/projectiondata-informedprovenance andcoefficientvsGaussian distinction.
+
+### 2026-09-21T21:46:06.615250+00:00 — Codex: hybrid probe fit fails; exactcoefficient successor controlled
+Native23.73s instrumentPASSglobal/textFAIL,384productsboth. HybridGaussiantrain4.72%test95.24%,synthetic3.53→94.50;ridge~.2%dataobjective. CPUradialcontrols fresh84.74%full1153products/87.40%randomprojection33products. ActualCPU exactsharedrootcoefficientself/cross/profileobjective implemented,5familiesdenseorder5andgradientsPASS<3e-11. Reuseweightcontractionsforfeaturelearningnext;do notcallprobeinterpolationtensorequality.
+
+### 2026-09-21T21:48:35.174616+00:00 — Codex: exact native coefficient feature pilot claimed
+Previousprogresseb320fa1c. Replaceprobeinterpolationwith exact sharedquarticself/cross/profileloss,25Adamsteps32x4/16writers/fixedridge. Teacherconstantomittedonly, no globalrelativeerrorclaim. Uniformcoefficientqueries/Gaussian/textareevaluationonly. ManagedGPU32GBfree; peakmemory/runtime recorded. ExistingfivefamilydenseandgradientcontrolsPASS.
+
+### 2026-09-21T21:53:50.626714+00:00 — Codex: exactnative coefficient pilot scored; longeroptimizer CPU successor complete
+Native115.54s13.784GB,integrityPASS,coeffgainPASS,functionFAIL. Queryerror99.90→98.47%,Gaussian99.89→96.35%,text50.48→57.70%vsinherited8.13. Exactregularizedscore10.9xnotrelativeerrorgain. CPU5familyknownplantedreplay<6.2e-8;1000stepannealedAdam1/10Muon2/10<1%,medians4.75/8.64%. Capacityvsoptimizationbothopen;do notinferHT/generalDAGfailurefrom384product256inputspanpilot. Fullgoalactive.
+
+### 2026-09-21T21:57:29.621846+00:00 — Codex: quartic first-slot capacity sketch claimed
+Previousprogress68d22ab93. Same16-reader target; bound256inputspanunderexactfinitefirst-slotmaps independentGaussianother3slots. Twoseparate256triple sketches, no fullFrobeniuscertificateclaim. CPUanalyticmap/densepolarization/fullbasisGrampass<8e-16. Capacitydiagnosticbeforemoreoptimizationorunjustifiedwidthsweep.
+
+### 2026-09-21T22:02:33.467095+00:00 — Codex: finite-contraction capacity obstruction; pooled gate-bound CPU successor done
+Native2.67sallpredPASS. Individualrank256floors46.47/46.81%,rank76818.82/18.93. ActualCPU pooling:rank25658.58%,rank76823.46%,1044directionsnecessaryfor10%. Generalhomogeneousquartic arithmeticDAGinputspan<=2M(proofwritten) implies>=522productsinTHISFINITEmetric;current32xkneeds k>=17/~800productswithsamecompiler. NofullFrobenius/behaviorcertificate. Crosssketchoptimalbasiserror83.2%warnsspectralagreementnotspanconvergence. Retire384budgetforglobalcontractiontarget,notgoal.
+
+### 2026-09-21T22:13:29.336749+00:00 — Codex: requested overall explanation and next-baseline price audit
+Writing research_update_2026-09-21_2213_what_changed_after_shared_graph.md; preserves exact-coefficient gains, failed native removal, toy optimizer failures, and finite-metric capacity scope. Claim bounded CPU arithmetic audit of proposed CP512 versus original projected quartic branch; no fit or GPU job claimed.
+
+### 2026-09-21T22:15:47.640984+00:00 — Codex: exact quartic CP controls claimed
+Previous turn progressed via requested explanation and executed price audit (0636c3e86). Implement profiled exact CP objective, dense coefficient/gradient controls and five planted structural families, paired Adam/Muon restarts. CPU only; no native CP512 claim.
+
+### 2026-09-21T22:19:35.477583+00:00 — Codex: CP512 claim and pre-enqueue correction
+Five-family sweep completed, rank6/lr.1 Muon10/10 Adam8/10 below1%. NativeCP51225step2start runner enqueued after controls. A wrong working directory prevented a planned export-check refinement and commit before enqueue; shell continued. Preserve enqueued bytes. Its existing FP32 check uses normalized coefficients; separately audit physical scaled artifact replay after completion. No math loss or fit configuration affected. Claim CP512 runner and artifacts; do not edit live code.
+
+### 2026-09-21T22:21:24.454935+00:00 — Codex: CP512 short pilot scored; 400step continuation claimed
+V1 terminal19.74s1.50GB integrity/learningPASS comparisonFAIL. Gaussian99.92%, coefficient99.98–100%, despite ~17000x explainedscore from nearzero. Physical export CPU audit<7.8e-7/countsPASS. Claim V2 same2randomseeds400Muonsteps stretchedcosine; rank512dryrun passes. Keep toy improvement distinct from native fidelity; larger cost1536products not sufficient.
+
+### 2026-09-21T22:22:39.047163+00:00 — Codex: CP geometry CPU audit claimed alongside live V2
+Previous turn progress72412ea92, V2 live PID954465 verified. Audit saved V1 input spans, coefficient-weighted direction concentration, atom redundancy and exact cross-restart polynomial overlap. Descriptive geometry only, not semantic identification or teacher-error certificate.
+
+### 2026-09-21T22:24:32.507540+00:00 — Codex: broader sparse shared-bank CPU controls claimed
+While CP512 V2 remains live, implement selected-pair exact Gram/native cross to avoid full width144 upper-triangular Gram. Proposed144 quadratic features x4products plus512 selected pairs:1088products,1353728coeff,1024indices, full1152 possible inputspan. Seeded support is a hypothesis, not discovered sparsity. CPU dense controls first; no native enqueue yet.
+
+### 2026-09-21T22:29:36.040471+00:00 — Codex: longer CP scored; broader shared-bank native fit claimed
+CP400 terminal259.65s integrity/learningPASS comparisonFAIL. Coefficient97.78/97.90%,Gaussian98.98/98.88%,text40.87/39.03%. Actual CPU geometry:rank1152but95%factorenergytop256, crossrestarttensorcosine.814; no semanticidentification. Sparsebankdensecontrols<6e-15; wideningtoy4/7→8/24 raises Muon1/10→10/10 below1%. Claim managed sparsebank144x4/512selectedpairs,2seeds100Muonsteps,1088products1353728coeff. CPUactualshapebackwarddryrunPASS. Fullgoalopen; nativepairtopologyseedednotlearned.
+
+### 2026-09-21T22:32:54.038983+00:00 — Codex: exact Gaussian CP teacher-cross control claimed
+Previous turn7f69a66db progress; sparsebankV1 livePID956360 verified. Existing GaussianCPGram/mean/low-degree-projection priorwork searched. Derive cached16x1152x1152degree2 Hermite projection and exact Gaussian CP cross via quartic+trace+mean contractions, avoiding sampledprobe interpolation. CPUdense/quadrature/gradient validation now; no GPU queue collision or fit claim.
+
+### 2026-09-21T22:36:46.225890+00:00 — Codex: exact Gaussian cross controlled; fixed-CP readout diagnostic claimed
+Five independent dense/quadrature/gradient checks<2e-15. ExactGaussianCPcandidate energies computedCPU:degree4fractions47.15/44.61%,not nativeerrors. Claim queued run_exact_gaussian_cp_readout_v1 behind live sparsebank:cache16nativequadraticHermiteprojection, holdCP400factorsfixed, exactGaussianreadout refit and0/2/4error-gain split. Samecost1536products, no probesintr aining or semanticclaim. Actual512shapeprofiledryrunPASS.
+
+### 2026-09-21T22:49:12.344420+00:00 — Codex: sparse hierarchy and exactGaussian readout scored; covariance-law comparison claimed
+Sparsebank883s13.73GB allrelativegatesPASS but96.9–97.2%coeff/91.5%Gaussian/63.8–65.7%text. GaussianCPreadout7.23s integrity/improvementPASS preservationFAIL:84.7%Gaussian but120–123%coeff/277–303%text; exact meanfitimproves whiledegree4worsens. CPUcovariance/noncentralchecks<3.5e-14, expandedcalmean68.6%energy, nofloorneeded. Claim managed3lawCPreadout centeredCov/secondmoment/shiftedGaussian, fixed2CPdirections, calibrationonlystatistics, actual512shapePASS. SourcepaperMscopechecked. Fullgoalopen.
+
+### 2026-09-21T22:51:38.645757+00:00 — Codex: covariance-law readout finished; component-transfer CPU audit claimed
+Previous41d7002d0 progress. Native3law17.79s integrity/lawPASS preservationFAIL. ShiftedGaussian text9.60/10.33% vs40.87/39.03%, butcoeff126.7% andisotropic98–106%. Zero-centeredCovtext53–55%,secondmoment15%. Positiveconditionalresult needsredteam: frozen same-tokenroot1 andsensitivityweightedtransfer onopenedstates, cachedreferencevalidated againstindependentnative pair receipt. No circuitadoption.
+
+### 2026-09-21T22:56:31.513349+00:00 — Codex: three-hour review consequence / constrained readout controls claimed
+Gaussianlaw transfer improves values but root1response13–16% andsensitivity20–22%stillfail10. Literature review due22:53: recheckedTensorSimilarity, generalizedStein/Isserlis, variableprojection andconvexQCQPduality. Implement exact fixed-feature targetfit under coefficient-objective deterioration budget, whitening+eigen+bisection, independentSLSQP/KKTcontrols. No teacherconstantneeded for exactlossdifference.
+
+### 2026-09-21T23:01:03.241616+00:00 — Codex bounded scheduled review: concurrent review preserved
+The substantive22:53 mathematical review appeared during this session; no duplicate receipt or clock reset. [Addendum](basis_aligned/polynomial_causal/REVIEW_ADDENDUM_2026-09-21_2258.md) records literature search and1.42s CPU native Gram audit: six laws/starts bound own-law ridge shrinkage <=1.83e-5; planted gauge control requires transporting penalties. Does not bound text/causal fidelity. Stale registry/index handoffs recorded; no concurrent code repair. Next deadline September22 01:53UTC. Unique control and JSON under direct_tensor_match/review_ridge_geometry_20260921_2257.py and REVIEW_RIDGE_GEOMETRY_20260921_2257.json.
+
+### 2026-09-21T23:01:53.845322+00:00 — Codex: 22:53math/literature review completed; guarded frontier claimed
+Review maps GaussianSteincontractions andconvexQCQP toactual16-outputquartic; independentSLSQP25casespass1.3e-12objective/2.1e-6coeff. Exactguard preservesregularizedcoefflossrelativecapturedscore, notrelativefullFrob. Claim nativefixedCPshiftedGaussian frontier ratios0/.01/.1/1/10/100/unconstrained, primary1,2seeds. Actual512eigen/solve smokePASS. Componentredteam shiftedCP13.1/15.5%response20.4/21.8%sensitivitystillfails10. Updatedstaleexplanationsindex;fullgoalactive.
+
+### 2026-09-21T23:09:09.865210+00:00 — Codex: requested explanation and executed cost/error comparison
+Wrote research_update_2026-09-21_2309_what_the_new_fits_taught_us.md; compared four completed CP/hierarchy runs on products, coefficients and three errors in REPORT_COST_TRADEOFF_2026-09-21_2309.json. No joint dominator; hierarchy improves global diagnostics at lower executable cost while CP fits opened text better. Gaussian mean/covariance improvement preserves global/component failures. Guarded native plan remains implemented/preregistered, no result claimed. Full goal active.
+
+### 2026-09-21T23:12:29.242873+00:00 — Codex: guarded frontier scored; fixed-dictionary response capacity claimed
+Native4.91s integrity/tradeoff PASS component FAIL. Primaryratio1text9.79/10.03%, coefficient99.60/99.39%, root1response14.27/16.29%, sensitivity23.11/25.64%. Next CPU audit uses calibration-only uniform/sensitive root1 fits plus explicitly evaluation-fitted oracle to distinguish feature capacity from metric/transfer. Oracle never exported or adopted; token ordering verified.
+
+### 2026-09-21T23:15:50.475986+00:00 — Codex: constrained tradeoff and response-capacity audit complete
+Native integrity/tradeoff pass, component fails. CPU calibration-only fits still fail10% response/sensitivity; explicitly evaluation-fitted pair-constrained oracles attain6.32/6.61%sensitivity and20independent pair constraints, proving finite-panel expressibility only. Hash convention64/65 reconciled from capture sources, all checks retained. Hourly2315review keeps weights-first override; next joint feature-direction exact mixed objective, not more readout sweeps. Fullgoalactive.
+
+### 2026-09-21T23:18:00.900842+00:00 — Codex: exact mixed feature-learning controls claimed
+Prior turn cdd06eab1 progressed via guarded native and CPU capacity evidence. Implement shared-subset noncentralGaussianGram recurrence to avoid764 expanded terms in autodiff, and coefficient-plus-shiftedGaussian profiled objective. Independent dense coefficient/exact quadrature gradients first; no live code altered or native run yet.
+
+### 2026-09-21T23:21:44.455935+00:00 — Codex: exact mixed feature-learning native run live
+Commit5bb2237d7 pushed. Independent15cases gradient discrepancy<=1.47e-13; full512CPUbackward passes. Managedrun_mixed_cp_features_v1 live PID969311 confirmed, hash e19b83cc51abb84db2cd03524093a8bebddc88166a685bfa2251c6380a3b4601. First objective-10.6325, forward peak6.42GB; two100stepMuonstarts. Relative replay/export norms are explicit despite generic preflight ABS-VS-REL warning. No final fidelity claim; inspect same process/log, never mutate live helpers.
+
+### 2026-09-21T23:23:10.135411+00:00 — Codex: restart identity CPU comparison claimed alongside live mixed fit
+ManagedPID969311confirmed live. Compare whole-program and one-to-one quartic-term contributions across starts in coefficient, shiftedGaussian and centered shiftedGaussian metrics. Positivecontrol applies term/slotpermutations and compensating sign/scale; no semanticidentityclaim. Baseline executes immediately; learned comparison waits for both saved results.
+
+### 2026-09-21T23:25:18.411783+00:00 — Codex: restart atom/span audit executed; second mixed start live
+Commitd4e8eccae pushed. Baselinecoefficientfunctioncos.814, only4/512signedcontributionmatches>.9; bestprojectionotherfunction55.88%error. ShiftedGaussiancos.993 with2.55%projectionerror butonly15termmatches/38highcanonicaldirections; centeredcomparison3.52%projectionerror. This is conditionalfunctionagreement, notidentifiedunits. CPgauge and invertiblebasiscontrols pass. MixednativePID969311verified, first100stepscomplete andsecond20stepslive; no final result yet, inspect same handle.
+
+### 2026-09-21T23:27:14.511939+00:00 — Codex: sparse graph support-exchange controls claimed
+Mixedfit secondstart remainslive. Implement exact Schur-complement score for replacing one selected quartic product q_iq_j with another, jointly refitting all16readouts at constant product count. This changes fixed seeded support rather than another readout/width sweep. Five planted polynomial dictionaries compared against exhaustive direct-solve swaps before any native proposal. Protected diagonal products preserve all shared q producers/cost.
+
+### 2026-09-21T23:30:49.607308+00:00 — Codex: mixed native fit scored; frozen finite-removal check claimed
+Mixednative387.48s6.49GBterminal. IntegrityPASS, learninggateFAIL(.45/.51%vs1%), componentFAIL(secondstart11.78%response). Text6.32/6.59%,root1response9.72/11.78%,sensitivity10.005/10.783%;globalcoefficient98.3%stillpoor. Restart conditionalfunctionagreement improves while global/termidentityworsens. Prior exact supportexchangecontrols passed5families, preservedunrun. Positiveconditionalresponse justifies claimed run_mixed_cp_removal_v1 onbothfrozenstarts/allpriorcells; CPU512/aggregationpreflightPASS. No semanticpromotion or changedselectivitygate.
+
+### 2026-09-21T23:34:00.870680+00:00 — Codex: finite CP removal scored; prefix CPU redteam complete
+Managedremoval terminal1.83s. InstrumentPASS, allcell10%FAIL, allcell20%improvementFAIL. All16cells improve over384graph;11below10%, everynewline5.3–7.6%. FineWebother12–14%andseed1002codequarterother10.84%fail. CPUleaveoneprefixnewlineall<10%max7.99%; individualprefixoutliers retained. Native capitalization selectivity remainsfailed; largerCPcost andglobaltensor/identitygaps persist. Gate __file__ staticrejection repairedbeforeenqueue withsamecriteria. Next native shared-supportexchange preserves newfidelitybaseline; controlsalreadyexecuted/committed. Fullgoalactive.
+
+### 2026-09-21T23:36:32.137811+00:00 — Codex: native fixed-cost graph exchange claimed
+Priorbc196bd8a madeprogresswithnativefinite-removal plusprefixCPUredteam. Claim run_sparse_support_exchange_v1: frozen144x4banks,512active rootpairs,256newseededcandidates, protect144diagonals,16exact greedyexchange/refits. Same1088products/1353728floats/1024indices. Fiveexhaustivecontrols alreadypass; actual768Gram/512support CPUdryrun underway. Preserve mixedCP conditional/removal gains asfidelitybaseline, no universalDAGclaim.
+
+### 2026-09-21T23:40:04.941008+00:00 — Codex: constant-cost native graph edits scored; sharing audit executed
+Native9.55s terminal. All16swaps accepted/start; integrityPASS,10%capturegateFAIL(actual1.52/1.20%),componentFAIL. Text65.67/64.09%,globalcoeff96.83/97.20%; no substantivefidelityrepair. CPUexportgraph audit verifiesunchangedproducers,16newpairs, sharedexecution2.4e-15replay,1088products1353728floats1024indices. Existingreuse savesversus4032per-rootproducts, notneweditgain. Nextbridge exactshiftedGaussianmoments forsharedquadraticdictionary ratherthan repeatingcoefficientonlyswaps; mixedCP fidelitybaselinepreserved.
+
+### 2026-09-21T23:41:39.960334+00:00 — Codex: shared quadratic Gaussian moment controls claimed
+Prior6361ac093 progressed withnativegraphedits andCPUsharingaudit. Implement exact15partition/four-quadratic cumulantGram foraffine lowrankquadratics underGaussian, reusingproducerinnerproducts instead of8192-atomexpansion. Fivefamilies, zero/nonzeromeans, independent degree8quadrature/gradients. No native fit yet; preserve mixedCP benchmark.
+
+### 2026-09-21T23:50:05.253644+00:00 — Codex: shared Gaussian readout scored; dictionary-capacity CPU successor complete
+Managed39.39s1.60GB terminal. Integrity/valuePASS componentFAIL. Guardedtext21.06/20.00%vs65.67/64.09%, response36.6/38.2%; unconstrainedtext13/14.57%butcoeff282/357%. CPUsharedresponseaudit: seed1102evaluation-optimalweightederror10.79%, sofixed512readoutcannotreach10%onthispanel; seed1101oracle9.70%, pairconstrained9.93%, butcaltransferfails. Oraclelabelsneverexported. Next changeproductdictionary withsamepool underGaussian-pluscoeffobjective, ratherthanreadout-onlysweeps. Fullgoalactive; nativeCPfidelitybaselinepreserved.
+
+### 2026-09-21T23:52:44.239622+00:00 — Codex: mixed-metric graph support comparison claimed
+Prior6d07f2dd5progressedthroughsharedGaussianfit andCPUcapacitybound. Claim run_gaussian_support_exchange_v1: same768pool andfixed144quadraticproducers, startlatest512support,16constant-costswaps underfixedlambda fromprimaryGaussianbudget1. All768readout givescapturedscoreceiling withinpool, notcomponentbound. Full768CPUshape passed; adding explicit relaxed-branch checkbeforeenqueue.
+
+### 2026-09-21T23:57Z — Claude: NEW DIRECTION (Logan, 21 Sep ~23:50 UTC): replicate the attention-simplification / four-shape work on softmax models — (1) our own softmax sibling Elriggs/gpt2-bilinear-18l-9h-1152embd (identical architecture, tokenizer and training length; softmax attention instead of squared), (2) GPT-2 small. Series v750+ (`ops/run_softmax_*`, results `circuits/followups/softmax_*`). Backend: `ops/softmax_backend.py` (loader + explicit-softmax instrument; CPU check: stock 3.66723 = explicit 3.66723 on 2 short rows). The decomposition lives on the PRE-SOFTMAX LOGITS (kernel = per-offset mean logit; content = deviation), priced by running the softmax. v750 queued: native, mean-ablation values of all 162 heads, joint value, closed-form kernels-only program, SVD k-ladder and the named 4-basis inside it. Disk: +1.8G checkpoint (24% -> ~25%).
