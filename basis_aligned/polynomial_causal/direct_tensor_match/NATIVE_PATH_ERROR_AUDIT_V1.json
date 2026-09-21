@@ -1,0 +1,140 @@
+{
+  "rows": [
+    {
+      "family": "natural",
+      "cohort": "all",
+      "mean_excess_by_path": [
+        3.730247709564523,
+        1.1191537609161166,
+        -2.095372772391695,
+        -6.249963362754174,
+        2.966896292255428,
+        -0.04519505854730945
+      ],
+      "total_mean_excess": -0.574233430957111,
+      "graph_carry_diagonal_energy_fraction": 2.0141759965287687,
+      "baseline_carry_diagonal_energy_fraction": 1.849700148259924
+    },
+    {
+      "family": "natural",
+      "cohort": "continuation",
+      "mean_excess_by_path": [
+        6.696789564341001,
+        1.9085999386420673,
+        -4.665645575189344,
+        6.397184481382027,
+        -4.171120965003567,
+        -0.14823739542087228
+      ],
+      "total_mean_excess": 6.017570048751312,
+      "graph_carry_diagonal_energy_fraction": 3.5307653425574728,
+      "baseline_carry_diagonal_energy_fraction": 3.504505852504307
+    },
+    {
+      "family": "natural",
+      "cohort": "spaced_word",
+      "mean_excess_by_path": [
+        12.649372821506045,
+        3.383063137266321,
+        -8.467933357906805,
+        10.65631412185822,
+        -6.957274507201653,
+        0.06193160229096524
+      ],
+      "total_mean_excess": 11.325473817813092,
+      "graph_carry_diagonal_energy_fraction": 1.7865409390529958,
+      "baseline_carry_diagonal_energy_fraction": 1.9621365536058948
+    },
+    {
+      "family": "hybrid",
+      "cohort": "all",
+      "mean_excess_by_path": [
+        3.8791365288706317,
+        1.2198108297539907,
+        -2.194400298318712,
+        -6.145590535741521,
+        2.8998520757816872,
+        -0.045638492249321164
+      ],
+      "total_mean_excess": -0.38682989190324424,
+      "graph_carry_diagonal_energy_fraction": 1.9656693319228051,
+      "baseline_carry_diagonal_energy_fraction": 1.8153729436490986
+    },
+    {
+      "family": "hybrid",
+      "cohort": "continuation",
+      "mean_excess_by_path": [
+        15.841854788639314,
+        4.2519652278229865,
+        -10.019228313847783,
+        9.772888860426367,
+        -5.900476978380343,
+        -0.16797226173172733
+      ],
+      "total_mean_excess": 13.779031322928812,
+      "graph_carry_diagonal_energy_fraction": 2.681676858152901,
+      "baseline_carry_diagonal_energy_fraction": 2.547270604218674
+    },
+    {
+      "family": "hybrid",
+      "cohort": "spaced_word",
+      "mean_excess_by_path": [
+        12.666523207973153,
+        3.5521619291717585,
+        -8.351296674220999,
+        10.225613919979045,
+        -6.327626858712901,
+        0.03347832212693332
+      ],
+      "total_mean_excess": 11.798853846316991,
+      "graph_carry_diagonal_energy_fraction": 1.621846886844575,
+      "baseline_carry_diagonal_energy_fraction": 1.7535504099951482
+    },
+    {
+      "family": "change",
+      "cohort": "all",
+      "mean_excess_by_path": [
+        0.14888881930611764,
+        0.10065706883788512,
+        -0.09902752592701564,
+        0.10437282701265527,
+        -0.06704421647374344,
+        -0.00044343370201168275
+      ],
+      "total_mean_excess": 0.18740353905388726,
+      "graph_carry_diagonal_energy_fraction": 1.753033438507716,
+      "baseline_carry_diagonal_energy_fraction": 1.8802074216551081
+    },
+    {
+      "family": "change",
+      "cohort": "continuation",
+      "mean_excess_by_path": [
+        9.145065224298307,
+        2.343365289180918,
+        -5.353582738658443,
+        3.37570437904432,
+        -1.7293560133767745,
+        -0.019734866310855234
+      ],
+      "total_mean_excess": 7.761461274177472,
+      "graph_carry_diagonal_energy_fraction": 2.621819406926901,
+      "baseline_carry_diagonal_energy_fraction": 2.824535427461373
+    },
+    {
+      "family": "change",
+      "cohort": "spaced_word",
+      "mean_excess_by_path": [
+        0.01715038646709588,
+        0.16909879190544186,
+        0.1166366836858056,
+        -0.43070020187918256,
+        0.6296476484887525,
+        -0.028453280164031952
+      ],
+      "total_mean_excess": 0.4733800285038814,
+      "graph_carry_diagonal_energy_fraction": 1.6847873784457768,
+      "baseline_carry_diagonal_energy_fraction": 1.8885379231067376
+    }
+  ],
+  "note": "Mean and diagonal energy are distinct. Individual path energies are not additive because signed cross terms remain. Largest mean term need not have largest error energy."
+}
