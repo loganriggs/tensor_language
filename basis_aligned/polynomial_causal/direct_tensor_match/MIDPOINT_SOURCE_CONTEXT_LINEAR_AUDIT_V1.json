@@ -1,0 +1,113 @@
+{
+  "records": [
+    {
+      "domain": "fineweb",
+      "family": "source_only",
+      "program": "baseline",
+      "linear_error": 0.30251036729096525,
+      "native_error": 0.2771642889794581,
+      "native_cosine": 0.9608266295796111,
+      "predicted_norm_ratio": 0.9580239175352396
+    },
+    {
+      "domain": "fineweb",
+      "family": "source_only",
+      "program": "rank8",
+      "linear_error": 0.29885072515070205,
+      "native_error": 0.27466635713918836,
+      "native_cosine": 0.9615418649999448,
+      "predicted_norm_ratio": 0.9594523933720379
+    },
+    {
+      "domain": "fineweb",
+      "family": "source_only",
+      "program": "rank32",
+      "linear_error": 0.29525761412771506,
+      "native_error": 0.27227973733430894,
+      "native_cosine": 0.9622187428186446,
+      "predicted_norm_ratio": 0.9611396717677496
+    },
+    {
+      "domain": "fineweb",
+      "family": "context_only",
+      "program": "baseline",
+      "linear_error": 0.6052695589883759,
+      "native_error": 0.5712371628729569,
+      "native_cosine": 0.820794744556706,
+      "predicted_norm_ratio": 0.8247833456966132
+    },
+    {
+      "domain": "fineweb",
+      "family": "context_only",
+      "program": "rank8",
+      "linear_error": 0.5962856358668672,
+      "native_error": 0.5646223104494237,
+      "native_cosine": 0.8253528993407004,
+      "predicted_norm_ratio": 0.8277532966714556
+    },
+    {
+      "domain": "fineweb",
+      "family": "context_only",
+      "program": "rank32",
+      "linear_error": 0.5878040891170022,
+      "native_error": 0.5582036645543194,
+      "native_cosine": 0.8297171969475602,
+      "predicted_norm_ratio": 0.8344031368092619
+    },
+    {
+      "domain": "code",
+      "family": "source_only",
+      "program": "baseline",
+      "linear_error": 0.2424850180641458,
+      "native_error": 0.23575252596438412,
+      "native_cosine": 0.9719720117260967,
+      "predicted_norm_ratio": 0.9543980230649226
+    },
+    {
+      "domain": "code",
+      "family": "source_only",
+      "program": "rank8",
+      "linear_error": 0.2381812425547909,
+      "native_error": 0.2315407391326137,
+      "native_cosine": 0.9728707943438208,
+      "predicted_norm_ratio": 0.9634529195700571
+    },
+    {
+      "domain": "code",
+      "family": "source_only",
+      "program": "rank32",
+      "linear_error": 0.23225492990104468,
+      "native_error": 0.2269183802172064,
+      "native_cosine": 0.9739494008305153,
+      "predicted_norm_ratio": 0.9656195353741951
+    },
+    {
+      "domain": "code",
+      "family": "context_only",
+      "program": "baseline",
+      "linear_error": 0.4439466120723084,
+      "native_error": 0.4212743696430089,
+      "native_cosine": 0.9070810820272809,
+      "predicted_norm_ratio": 0.8907047610150006
+    },
+    {
+      "domain": "code",
+      "family": "context_only",
+      "program": "rank8",
+      "linear_error": 0.4332623881152216,
+      "native_error": 0.4114919948931205,
+      "native_cosine": 0.9114510798350816,
+      "predicted_norm_ratio": 0.9031605555057177
+    },
+    {
+      "domain": "code",
+      "family": "context_only",
+      "program": "rank32",
+      "linear_error": 0.4204225318472312,
+      "native_error": 0.4009943416858337,
+      "native_cosine": 0.9160863234347293,
+      "predicted_norm_ratio": 0.9128284025924138
+    }
+  ],
+  "scope": "Same sites/donors and full vocabulary-centered norms before versus after native final RMS/softcap. Native cosine and amplitude are descriptive pooled measures, not semantic alignment."
+}

@@ -14,6 +14,7 @@ PANEL_PREFIX='SELECTIVE_CONFIRMATION'
 DONOR_PREFIX='SELECTIVE_CONFIRMATION_DONORS'
 EXTRA_CHANNEL_FILE=None
 EXTRA_PRODUCT_FILE=None
+SOURCE_CONTEXT_FAMILIES=False
 def main():
  if os.environ.get('BQLIB_DRYRUN') or os.environ.get('BQLIB_NO_MODEL'):print(json.dumps(dict(forwards=48,candidates=['constant','projected64','projected256','program64','program256'])));return
  import torch
@@ -22,17 +23,21 @@ def main():
  from circuit_fast_screen_producer import Bilin18TorchBackend
  from native_feature_capture import capture
  from logit_effect_partition import partition
+ from midpoint_program import product_source_delta
  torch.set_num_threads(4);torch.set_grad_enabled(False);torch.backends.cuda.matmul.allow_tf32=False;start=time.perf_counter();out=P/OUTPUT_NAME;assert not out.exists()
  model=Bilin18TorchBackend.load('cuda').model.float();b16=model.transformer.h[16];b17=model.transformer.h[17];_,ru=torch.linalg.qr(model.lm_head.weight.double(),mode='reduced');invru=torch.linalg.inv(ru);L=b17.mlp.Left.weight.double();R=b17.mlp.Right.weight.double();C=ru@b17.mlp.Down.weight.double();mu=torch.load(P/'MIDPOINT_NATIVE_V1.pt',weights_only=True)['stats']['calibration']['native']['mean'].cuda();programs={w:{k:v.cuda().double() for k,v in torch.load(P/f'MIDPOINT_COVERAGE_{w}_R4_V1.pt',weights_only=True).items()} for w in [64,256]};donors=torch.load(P/f'{DONOR_PREFIX}_V1.pt',weights_only=True);records=[];checks=[]
  extra={} if EXTRA_CHANNEL_FILE is None else {name:{k:v.cuda().double() for k,v in e.items()} for name,e in torch.load(P/EXTRA_CHANNEL_FILE,weights_only=True).items()}
  for e in extra.values():
   ids=e['indices'].long();checks.extend([float((e['L']-L[ids]).abs().max()),float((e['R']-R[ids]).abs().max())])
  product_extra={} if EXTRA_PRODUCT_FILE is None else {name:{k:v.cuda().double() for k,v in e.items()} for name,e in torch.load(P/EXTRA_PRODUCT_FILE,weights_only=True).items()}
+ source_metric=torch.load(P/'MIDPOINT_CENTERED_V1.pt',weights_only=True)['metric_sqrt'].cuda().double() if SOURCE_CONTEXT_FAMILIES else None
+ mean_n=torch.load(P/'MIDPOINT_CALIBRATION_ROWS_V1.pt',weights_only=True)['n'].double().mean((0,1)).cuda() if SOURCE_CONTEXT_FAMILIES else None
  logits=lambda x:30*torch.tanh(model.lm_head(F.rms_norm(x,(1152,)))/30)
  for domain in ['fineweb','code']:
-  tokens=torch.load(P/f'{PANEL_PREFIX}_{domain.upper()}_V1.pt',weights_only=True);states=[];teacher=[];preds={k:[] for k in ['constant','projected64','projected256','program64','program256']+['channel_'+name for name in extra]+['product_'+name for name in product_extra]}
+  tokens=torch.load(P/f'{PANEL_PREFIX}_{domain.upper()}_V1.pt',weights_only=True);states=[];teacher=[];normalized_inputs=[];preds={k:[] for k in ['constant','projected64','projected256','program64','program256']+['channel_'+name for name in extra]+['product_'+name for name in product_extra]}
   for row in tokens:
    c=capture(model,row[None,:256].cuda());h=c['h17'].double().flatten(0,1);m=(b17.lambdas[0]*(c['m16']-b16.mlp.Down_bias)).double().flatten(0,1);s=(h.square().mean(-1,keepdim=True)+torch.finfo(torch.float32).eps).sqrt();n=(h-m/2)/s;m=m/s;y=((n@L.T)*(m@R.T)+(m@L.T)*(n@R.T))@C.T-mu;teacher.append(y@invru.T);states.append(c['final'].flatten(0,1));preds['constant'].append(torch.zeros_like(y))
+   if SOURCE_CONTEXT_FAMILIES:normalized_inputs.append((n,m))
    for w,e in programs.items():
     scalar=((n@e['A'])*(m@e['B']))@e['readout']-e['offset'];reduced=scalar@e['reduced_writers'].T;preds[f'program{w}'].append(reduced@invru.T);preds[f'projected{w}'].append(((y@e['scalar_readers'])@e['reduced_writers'].T)@invru.T)
     if len(states)==1:checks.append(float((reduced@e['scalar_readers']-scalar).norm()/scalar.norm()))
@@ -57,12 +62,24 @@ def main():
     ids=idx if family=='removal' else torch.where(valid&(docs==doc))[0].cuda();dst=mapping[ids.cpu()].cuda();state=states[ids];base=logits(state);delta=-true[ids] if family=='removal' else true[dst]-true[ids];reference=(logits(state+delta.float())-base).double()
     for key,approx in preds.items():
      delta=-approx[ids] if family=='removal' else approx[dst]-approx[ids];effect=(logits(state+delta.float())-base).double();records.append(dict(domain=domain,candidate=key,family=family,sites=len(ids),**partition(reference,effect)))
+  if SOURCE_CONTEXT_FAMILIES:
+   nn=torch.cat([z[0] for z in normalized_inputs]);mm=torch.cat([z[1] for z in normalized_inputs])
+   for doc in range(len(tokens)):
+    ids=torch.where(valid&(docs==doc))[0].cuda();dst=mapping[ids.cpu()].cuda();dm=mm[dst]-mm[ids];state=states[ids];base=logits(state)
+    for family in ['source_only','context_only']:
+     ni=nn[ids] if family=='source_only' else nn[ids]-mean_n
+     delta=(((ni@L.T)*(dm@R.T)+(ni@R.T)*(dm@L.T))@C.T)@invru.T
+     reference=(logits(state+delta.float())-base).double()
+     for name,e in product_extra.items():
+      approx=product_source_delta(e,ni,dm,context_only=family=='context_only')@invru.T
+      effect=(logits(state+approx.float())-base).double()
+      records.append(dict(domain=domain,candidate='product_'+name,family=family,sites=len(ids),linear_reference_energy=float(((delta@ru.T)@source_metric).square().sum()),linear_error_energy=float((((approx-delta)@ru.T)@source_metric).square().sum()),**partition(reference,effect)))
  summary={}
  for d in ['fineweb','code']:
   summary[d]={}
   for key in preds:
    result={}
-   for family in ['replacement','removal','same_token']:
+   for family in ['replacement','removal','same_token']+(['source_only','context_only'] if SOURCE_CONTEXT_FAMILIES and key.startswith('product_') else []):
     rr=[x for x in records if x['domain']==d and x['candidate']==key and x['family']==family];sites=sum(x['sites'] for x in rr)
     if family=='replacement':result[family]=dict(ce_added=sum(x['ce_added'] for x in rr)/sites)
     else:
