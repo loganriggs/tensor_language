@@ -1,0 +1,80 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T12:19:42.618411+00:00",
+    "steps": 1800,
+    "rate": 0.03,
+    "optimizer": "Muon",
+    "seeds": [
+      0,
+      1
+    ],
+    "threshold": 0.01,
+    "required_cases": 4,
+    "pred_a": "Reduced-space/full-space coefficient errors and gradients agree including deliberately nonzero outside residual.",
+    "pred_b": "At least4of5planted product graphs recoverwithin1%inoneof2randomstarts withknownfixedsupports.",
+    "scope": "Second-stage random product fitting with support guidance. Does not count densecore ascheapgraph. Native first-stage experiment stilllive; no native second-stagequeuebeforeterminalinterpretation."
+  },
+  "records": [
+    {
+      "case": 0,
+      "seed": 0,
+      "regularized_root_error": 8.38571287072687e-06
+    },
+    {
+      "case": 0,
+      "seed": 1,
+      "regularized_root_error": 8.64293775692631e-06
+    },
+    {
+      "case": 1,
+      "seed": 0,
+      "regularized_root_error": 0.00034628983236578584
+    },
+    {
+      "case": 1,
+      "seed": 1,
+      "regularized_root_error": 0.00013604456637638472
+    },
+    {
+      "case": 2,
+      "seed": 0,
+      "regularized_root_error": 0.01517771191196996
+    },
+    {
+      "case": 2,
+      "seed": 1,
+      "regularized_root_error": 0.009084818927046616
+    },
+    {
+      "case": 3,
+      "seed": 0,
+      "regularized_root_error": 7.100108038631236e-05
+    },
+    {
+      "case": 3,
+      "seed": 1,
+      "regularized_root_error": 0.0006032019244884694
+    },
+    {
+      "case": 4,
+      "seed": 0,
+      "regularized_root_error": 0.0004958036874759704
+    },
+    {
+      "case": 4,
+      "seed": 1,
+      "regularized_root_error": 1.3156235944624541e-05
+    }
+  ],
+  "best_restart_errors": [
+    8.38571287072687e-06,
+    0.00013604456637638472,
+    0.009084818927046616,
+    7.100108038631236e-05,
+    1.3156235944624541e-05
+  ],
+  "recovered_cases": 5,
+  "recovery_pass": true,
+  "seconds": 32.108654007315636,
+  "scope": "Product coefficients randomly initialized within known fixed shared/pair supports. Establishes stage2recovery with oracle support guidance, not discovery of supports or native success."
+}
