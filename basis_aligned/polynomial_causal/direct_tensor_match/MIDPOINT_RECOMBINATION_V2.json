@@ -1,0 +1,107 @@
+{
+  "replay": 3.320787991539456e-08,
+  "records": [
+    {
+      "shift_documents": 0,
+      "program": "original1024",
+      "replacement_error": 0.18921768838619454,
+      "source_swap_effect_error": null,
+      "effect_energy_over_paired_variation": null
+    },
+    {
+      "shift_documents": 0,
+      "program": "pruned512",
+      "replacement_error": 0.20004987839478214,
+      "source_swap_effect_error": null,
+      "effect_energy_over_paired_variation": null
+    },
+    {
+      "shift_documents": 1,
+      "program": "original1024",
+      "replacement_error": 0.15989463894092712,
+      "source_swap_effect_error": 0.18706852527118495,
+      "effect_energy_over_paired_variation": 1.443452353901913
+    },
+    {
+      "shift_documents": 1,
+      "program": "pruned512",
+      "replacement_error": 0.16349895487862864,
+      "source_swap_effect_error": 0.1949973361718209,
+      "effect_energy_over_paired_variation": 1.443452353901913
+    },
+    {
+      "shift_documents": 7,
+      "program": "original1024",
+      "replacement_error": 0.1639283635546072,
+      "source_swap_effect_error": 0.18987829137029816,
+      "effect_energy_over_paired_variation": 1.4437621735852466
+    },
+    {
+      "shift_documents": 7,
+      "program": "pruned512",
+      "replacement_error": 0.16751596587963066,
+      "source_swap_effect_error": 0.19771269692770022,
+      "effect_energy_over_paired_variation": 1.4437621735852466
+    },
+    {
+      "shift_documents": 16,
+      "program": "original1024",
+      "replacement_error": 0.1621314287028599,
+      "source_swap_effect_error": 0.19193617170615376,
+      "effect_energy_over_paired_variation": 1.4253802393867598
+    },
+    {
+      "shift_documents": 16,
+      "program": "pruned512",
+      "replacement_error": 0.1657428232329636,
+      "source_swap_effect_error": 0.20010487747541383,
+      "effect_energy_over_paired_variation": 1.4253802393867598
+    }
+  ],
+  "context_controls": [
+    {
+      "shift_documents": 1,
+      "average_context_effect_error": 0.5210285110204131
+    },
+    {
+      "shift_documents": 1,
+      "program": "original1024",
+      "context_interaction_relative_error": 0.32922676350981717
+    },
+    {
+      "shift_documents": 1,
+      "program": "pruned512",
+      "context_interaction_relative_error": 0.34426771486635654
+    },
+    {
+      "shift_documents": 7,
+      "average_context_effect_error": 0.5152392704659593
+    },
+    {
+      "shift_documents": 7,
+      "program": "original1024",
+      "context_interaction_relative_error": 0.3381161852225077
+    },
+    {
+      "shift_documents": 7,
+      "program": "pruned512",
+      "context_interaction_relative_error": 0.3532394541397911
+    },
+    {
+      "shift_documents": 16,
+      "average_context_effect_error": 0.5144334500132371
+    },
+    {
+      "shift_documents": 16,
+      "program": "original1024",
+      "context_interaction_relative_error": 0.34197661641698046
+    },
+    {
+      "shift_documents": 16,
+      "program": "pruned512",
+      "context_interaction_relative_error": 0.3576811441794528
+    }
+  ],
+  "seconds": 8.587825938127935,
+  "scope": "Exact original folded weights on cached calibration normalized n,m. Cross-document same-position cyclic source-only recombination, fixed n. No new marginal inputs, no normalization recomputation, no native final logits. Program constants frozen; delta cancels constants. New combinations are a reuse screen, not fresh-text OOD or semantic intervention identification."
+}
