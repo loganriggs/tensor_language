@@ -1,0 +1,452 @@
+{
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_recover": true,
+    "pred_c_selectivity": true
+  },
+  "records": [
+    {
+      "baseline_squared_error": 4.395234170408571e-14,
+      "baseline_price": {
+        "products": 6,
+        "additions": 1,
+        "stored_coefficients": 3,
+        "edges": 16,
+        "nodes": 13,
+        "trainable_coefficients": 3
+      },
+      "baseline_objective": 0.030040000000043948,
+      "candidates": [
+        {
+          "target": 5,
+          "source": 6,
+          "scale": 0.9999999999999993,
+          "proposal_relative_error": 4.712160915387238e-08,
+          "squared_relative_error": 4.600830167831919e-14,
+          "price": {
+            "products": 5,
+            "additions": 1,
+            "stored_coefficients": 4,
+            "edges": 15,
+            "nodes": 13,
+            "trainable_coefficients": 4
+          },
+          "objective": 0.02505000000004601,
+          "accepted": true
+        },
+        {
+          "target": 6,
+          "source": 5,
+          "scale": 0.9999999999999981,
+          "proposal_relative_error": 5.3726900748371896e-08,
+          "squared_relative_error": 1.52502996840569e-15,
+          "price": {
+            "products": 5,
+            "additions": 0,
+            "stored_coefficients": 3,
+            "edges": 13,
+            "nodes": 12,
+            "trainable_coefficients": 3
+          },
+          "objective": 0.025030000000001527,
+          "accepted": true
+        }
+      ],
+      "accepted": true,
+      "selected_objective": 0.025030000000001527,
+      "family": "product",
+      "fresh_error": 3.918938434250807e-08,
+      "export_error": 0.0,
+      "accepted_price": {
+        "products": 5,
+        "additions": 0,
+        "stored_coefficients": 3,
+        "edges": 13,
+        "nodes": 12,
+        "trainable_coefficients": 3
+      }
+    },
+    {
+      "baseline_squared_error": 2.031486762659219e-14,
+      "baseline_price": {
+        "products": 7,
+        "additions": 3,
+        "stored_coefficients": 3,
+        "edges": 22,
+        "nodes": 16,
+        "trainable_coefficients": 3
+      },
+      "baseline_objective": 0.03506000000002032,
+      "candidates": [
+        {
+          "target": 9,
+          "source": 7,
+          "scale": 1.0000000000000144,
+          "proposal_relative_error": 1.775678290100785e-07,
+          "squared_relative_error": 7.60555235105686e-16,
+          "price": {
+            "products": 6,
+            "additions": 1,
+            "stored_coefficients": 3,
+            "edges": 17,
+            "nodes": 14,
+            "trainable_coefficients": 3
+          },
+          "objective": 0.030040000000000757,
+          "accepted": true
+        },
+        {
+          "target": 7,
+          "source": 9,
+          "scale": 0.999999999999954,
+          "proposal_relative_error": 1.7756782901008388e-07,
+          "squared_relative_error": 7.946063162932264e-14,
+          "price": {
+            "products": 6,
+            "additions": 2,
+            "stored_coefficients": 4,
+            "edges": 19,
+            "nodes": 15,
+            "trainable_coefficients": 4
+          },
+          "objective": 0.03006000000007946,
+          "accepted": false
+        },
+        {
+          "target": 5,
+          "source": 8,
+          "scale": 0.9999999999998962,
+          "proposal_relative_error": 2.837748697814486e-07,
+          "squared_relative_error": 7.946063163568728e-14,
+          "price": {
+            "products": 6,
+            "additions": 3,
+            "stored_coefficients": 4,
+            "edges": 21,
+            "nodes": 16,
+            "trainable_coefficients": 4
+          },
+          "objective": 0.03007000000007946,
+          "accepted": false
+        },
+        {
+          "target": 8,
+          "source": 5,
+          "scale": 1.0000000000000224,
+          "proposal_relative_error": 2.8688766714320066e-07,
+          "squared_relative_error": 7.605553738782796e-16,
+          "price": {
+            "products": 6,
+            "additions": 2,
+            "stored_coefficients": 3,
+            "edges": 19,
+            "nodes": 15,
+            "trainable_coefficients": 3
+          },
+          "objective": 0.03005000000000076,
+          "accepted": false
+        }
+      ],
+      "accepted": true,
+      "selected_objective": 0.030040000000000757,
+      "family": "sum_squares",
+      "fresh_error": 2.7276058218672664e-08,
+      "export_error": 0.0,
+      "accepted_price": {
+        "products": 6,
+        "additions": 1,
+        "stored_coefficients": 3,
+        "edges": 17,
+        "nodes": 14,
+        "trainable_coefficients": 3
+      }
+    },
+    {
+      "baseline_squared_error": 1.6582374749804993e-15,
+      "baseline_price": {
+        "products": 7,
+        "additions": 3,
+        "stored_coefficients": 3,
+        "edges": 22,
+        "nodes": 16,
+        "trainable_coefficients": 3
+      },
+      "baseline_objective": 0.03506000000000166,
+      "candidates": [
+        {
+          "target": 7,
+          "source": 9,
+          "scale": 1.0000000000000009,
+          "proposal_relative_error": 2.1073424255446988e-08,
+          "squared_relative_error": 2.105672242551157e-15,
+          "price": {
+            "products": 6,
+            "additions": 2,
+            "stored_coefficients": 4,
+            "edges": 19,
+            "nodes": 15,
+            "trainable_coefficients": 4
+          },
+          "objective": 0.030060000000002106,
+          "accepted": true
+        },
+        {
+          "target": 9,
+          "source": 7,
+          "scale": 0.9999999999999987,
+          "proposal_relative_error": 2.107342425544701e-08,
+          "squared_relative_error": 2.933680475850078e-16,
+          "price": {
+            "products": 6,
+            "additions": 1,
+            "stored_coefficients": 3,
+            "edges": 17,
+            "nodes": 14,
+            "trainable_coefficients": 3
+          },
+          "objective": 0.030040000000000292,
+          "accepted": true
+        },
+        {
+          "target": 8,
+          "source": 5,
+          "scale": 0.9999999999999974,
+          "proposal_relative_error": 7.742870483855344e-08,
+          "squared_relative_error": 9.803913648384716e-17,
+          "price": {
+            "products": 6,
+            "additions": 2,
+            "stored_coefficients": 3,
+            "edges": 19,
+            "nodes": 15,
+            "trainable_coefficients": 3
+          },
+          "objective": 0.030050000000000097,
+          "accepted": false
+        },
+        {
+          "target": 5,
+          "source": 8,
+          "scale": 0.9999999999999959,
+          "proposal_relative_error": 8.560065398421918e-08,
+          "squared_relative_error": 2.105672243062571e-15,
+          "price": {
+            "products": 6,
+            "additions": 3,
+            "stored_coefficients": 4,
+            "edges": 21,
+            "nodes": 16,
+            "trainable_coefficients": 4
+          },
+          "objective": 0.030070000000002105,
+          "accepted": false
+        }
+      ],
+      "accepted": true,
+      "selected_objective": 0.030040000000000292,
+      "family": "sum_products",
+      "fresh_error": 1.7526094282078794e-08,
+      "export_error": 0.0,
+      "accepted_price": {
+        "products": 6,
+        "additions": 1,
+        "stored_coefficients": 3,
+        "edges": 17,
+        "nodes": 14,
+        "trainable_coefficients": 3
+      }
+    },
+    {
+      "baseline_squared_error": 1.4695820896726952e-13,
+      "baseline_price": {
+        "products": 6,
+        "additions": 4,
+        "stored_coefficients": 6,
+        "edges": 22,
+        "nodes": 17,
+        "trainable_coefficients": 6
+      },
+      "baseline_objective": 0.030100000000146957,
+      "candidates": [
+        {
+          "target": 8,
+          "source": 10,
+          "scale": 1.000000086650239,
+          "proposal_relative_error": 4.7638268436462193e-07,
+          "squared_relative_error": 2.6339950338552265e-13,
+          "price": {
+            "products": 5,
+            "additions": 3,
+            "stored_coefficients": 6,
+            "edges": 19,
+            "nodes": 16,
+            "trainable_coefficients": 6
+          },
+          "objective": 0.0250900000002634,
+          "accepted": true
+        },
+        {
+          "target": 10,
+          "source": 8,
+          "scale": 0.9999999133495416,
+          "proposal_relative_error": 4.763827256433494e-07,
+          "squared_relative_error": 1.2092719355243353e-14,
+          "price": {
+            "products": 5,
+            "additions": 2,
+            "stored_coefficients": 5,
+            "edges": 17,
+            "nodes": 15,
+            "trainable_coefficients": 5
+          },
+          "objective": 0.025070000000012093,
+          "accepted": true
+        }
+      ],
+      "accepted": true,
+      "selected_objective": 0.025070000000012093,
+      "family": "affine_product",
+      "fresh_error": 1.0683793171791508e-07,
+      "export_error": 0.0,
+      "accepted_price": {
+        "products": 5,
+        "additions": 2,
+        "stored_coefficients": 5,
+        "edges": 17,
+        "nodes": 15,
+        "trainable_coefficients": 5
+      }
+    },
+    {
+      "baseline_squared_error": 2.9426077633671e-14,
+      "baseline_price": {
+        "products": 5,
+        "additions": 3,
+        "stored_coefficients": 3,
+        "edges": 18,
+        "nodes": 14,
+        "trainable_coefficients": 3
+      },
+      "baseline_objective": 0.025060000000029427,
+      "candidates": [
+        {
+          "target": 7,
+          "source": 10,
+          "scale": 1.0000000000000018,
+          "proposal_relative_error": 0.0,
+          "squared_relative_error": 2.958110862223948e-14,
+          "price": {
+            "products": 4,
+            "additions": 2,
+            "stored_coefficients": 4,
+            "edges": 15,
+            "nodes": 13,
+            "trainable_coefficients": 4
+          },
+          "objective": 0.020060000000029582,
+          "accepted": true
+        },
+        {
+          "target": 8,
+          "source": 11,
+          "scale": 0.9999999999999999,
+          "proposal_relative_error": 0.0,
+          "squared_relative_error": 2.958110862243539e-14,
+          "price": {
+            "products": 3,
+            "additions": 2,
+            "stored_coefficients": 4,
+            "edges": 13,
+            "nodes": 12,
+            "trainable_coefficients": 4
+          },
+          "objective": 0.01506000000002958,
+          "accepted": true
+        },
+        {
+          "target": 10,
+          "source": 7,
+          "scale": 1.0000000000000004,
+          "proposal_relative_error": 0.0,
+          "squared_relative_error": 1.2135648958618896e-14,
+          "price": {
+            "products": 4,
+            "additions": 1,
+            "stored_coefficients": 3,
+            "edges": 13,
+            "nodes": 12,
+            "trainable_coefficients": 3
+          },
+          "objective": 0.020040000000012135,
+          "accepted": false
+        },
+        {
+          "target": 11,
+          "source": 8,
+          "scale": 1.0000000000000022,
+          "proposal_relative_error": 0.0,
+          "squared_relative_error": 6.221576822548755e-15,
+          "price": {
+            "products": 3,
+            "additions": 1,
+            "stored_coefficients": 3,
+            "edges": 11,
+            "nodes": 11,
+            "trainable_coefficients": 3
+          },
+          "objective": 0.01504000000000622,
+          "accepted": true
+        }
+      ],
+      "accepted": true,
+      "selected_objective": 0.01504000000000622,
+      "family": "quartic_square",
+      "fresh_error": 7.887697272860763e-08,
+      "export_error": 0.0,
+      "accepted_price": {
+        "products": 3,
+        "additions": 1,
+        "stored_coefficients": 3,
+        "edges": 11,
+        "nodes": 11,
+        "trainable_coefficients": 3
+      }
+    }
+  ],
+  "negative": {
+    "baseline_squared_error": 0.0,
+    "baseline_price": {
+      "products": 2,
+      "additions": 2,
+      "stored_coefficients": 4,
+      "edges": 9,
+      "nodes": 9,
+      "trainable_coefficients": 4
+    },
+    "baseline_objective": 0.01006,
+    "candidates": [
+      {
+        "target": 6,
+        "source": 4,
+        "scale": 0.999999999999997,
+        "proposal_relative_error": 0.009999500037551848,
+        "squared_relative_error": 0.6711409395973154,
+        "price": {
+          "products": 1,
+          "additions": 1,
+          "stored_coefficients": 4,
+          "edges": 6,
+          "nodes": 6,
+          "trainable_coefficients": 4
+        },
+        "objective": 0.6761909395973154,
+        "accepted": false
+      }
+    ],
+    "accepted": false,
+    "selected_objective": 0.01006,
+    "case": "amplified_difference"
+  },
+  "seconds": 2.082369863986969,
+  "scope": "Approximate sharing plus joint fixed-graph coefficient refitting, bounded four-proposal search. Five planted near-duplicate intermediate families; Gaussian quadrature objective, fresh artificial probes. Correlation-only proposals tested against downstream amplified-difference control. Not native discovery or uniqueness."
+}

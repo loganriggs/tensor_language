@@ -1,0 +1,30 @@
+{
+  "baseline": {
+    "products": 24,
+    "additions": 44920,
+    "stored_coefficients": 46096,
+    "edges": 46160,
+    "nodes": 2368
+  },
+  "proposals": [
+    {
+      "target": 1205,
+      "source": 1203,
+      "scale": 0.9440267136340343,
+      "proposal_relative_error": 0.057755999518935376,
+      "cost": {
+        "products": 24,
+        "additions": 44917,
+        "stored_coefficients": 46093,
+        "edges": 46157,
+        "nodes": 2368
+      },
+      "frozen_program_errors_by_panel": [
+        0.014722953584078801,
+        0.011777598018879048
+      ]
+    }
+  ],
+  "seconds": 1.167824158910662,
+  "scope": "Local functional similarity <=10% on at most512old calibration rows proposes at most4internal-node merges. Global function errors measured against archived approximate program on old cached panels, not native teacher and not fresh/OOD. No refitting or adoption; global cost counts remaining consumers."
+}
