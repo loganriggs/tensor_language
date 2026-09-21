@@ -1,0 +1,77 @@
+{
+  "rows": [
+    {
+      "geometry": "folded_euclidean",
+      "error": "0.2",
+      "input_rank": 956,
+      "output_rank": 962,
+      "dense_core": 440063052,
+      "input_output_factors": 2209536
+    },
+    {
+      "geometry": "folded_euclidean",
+      "error": "0.1",
+      "input_rank": 1089,
+      "output_rank": 1088,
+      "dense_core": 645733440,
+      "input_output_factors": 2507904
+    },
+    {
+      "geometry": "folded_euclidean",
+      "error": "0.05",
+      "input_rank": 1134,
+      "output_rank": 1133,
+      "dense_core": 729136485,
+      "input_output_factors": 2611584
+    },
+    {
+      "geometry": "residual_euclidean",
+      "error": "0.2",
+      "input_rank": 1036,
+      "output_rank": 967,
+      "dense_core": 519439522,
+      "input_output_factors": 2307456
+    },
+    {
+      "geometry": "residual_euclidean",
+      "error": "0.1",
+      "input_rank": 1118,
+      "output_rank": 1090,
+      "dense_core": 681817890,
+      "input_output_factors": 2543616
+    },
+    {
+      "geometry": "residual_euclidean",
+      "error": "0.05",
+      "input_rank": 1142,
+      "output_rank": 1134,
+      "dense_core": 740108502,
+      "input_output_factors": 2621952
+    },
+    {
+      "geometry": "activation_covariance",
+      "error": "0.2",
+      "input_rank": 117,
+      "output_rank": 403,
+      "dense_core": 2781909,
+      "input_output_factors": 599040
+    },
+    {
+      "geometry": "activation_covariance",
+      "error": "0.1",
+      "input_rank": 416,
+      "output_rank": 818,
+      "dense_core": 70950048,
+      "input_output_factors": 1421568
+    },
+    {
+      "geometry": "activation_covariance",
+      "error": "0.05",
+      "input_rank": 708,
+      "output_rank": 1030,
+      "dense_core": 258515580,
+      "input_output_factors": 2002176
+    }
+  ],
+  "scope": "Necessary-rank dense Tucker prices, not sparse-core lower bounds or jointly attainable fits. Factors priced in1152dim reduced frames; shared ambient frames extra."
+}
