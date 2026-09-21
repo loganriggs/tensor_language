@@ -1,0 +1,329 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T10:53:14.522925+00:00",
+    "target": "Same six native quadratic source measurements and three conditional components; no fresh selection.",
+    "parents": {
+      "mixed": 0.5,
+      "isotropic": 1.0,
+      "covariance": 0.0
+    },
+    "ranks": [
+      384,
+      448,
+      512
+    ],
+    "primary": "mixed_448",
+    "edit": "Factor concatenated native left/right/square reader matrix by SVD into shared linear input nodes followed by per-product linear maps. Refit all allowed output coefficients exactly with unchanged parent metric; update affine mean corrections. Rank1152 no-refit control replays original.",
+    "pred_a": "Every factorized/native execution and full-width control replay<1e-8.",
+    "pred_b": "Primary all3values<=.15 and<=1.10 original mixed parent; all3fixed-h earlier-input Jacobian errors<=1.10 parent.",
+    "pred_c": "Primary native-isotropic and covariance-shaped coefficient errors each<=1.10 parent.",
+    "pred_d": "Primary literal total source multiplications<=.80 parent and storedfloats<parent, including both projection stages. Shared nodes counted once; common affine/later-state costs excluded equally.",
+    "null": "The current product graph requires broad reader span; sharing linear intermediates saves nominal arithmetic but loses component or response fidelity.",
+    "controls": "Five planted shared linear dictionaries, actual two-stage vs dense source/component execution, literal multiplication formula. All pass before native fit.",
+    "selection": "No candidate adoption selected from ranks, fresh panels or alternative metrics. Secondary ranks/families descriptive. No new data or forwards.",
+    "preflight_sha256": "a7480dd8eb733e9945e2a01b187be0508b4c5d505f29751bfed8c10fb1091d4c"
+  },
+  "parents": {
+    "mixed": {
+      "native_error": 0.32745159027815895,
+      "covariance_error": 0.06907422636591233,
+      "per_mode_errors": [
+        0.013364174128080525,
+        0.01539627449456342,
+        0.10271365733462179
+      ],
+      "euclidean_jacobian_errors": [
+        0.12204622957642923,
+        0.09967960426118185,
+        0.12474582908759792
+      ],
+      "stored_floats": 1342028,
+      "activation_products": 592,
+      "projection_multiplications": 1327104,
+      "source_total_multiplications": 1331088,
+      "source_additions": 1329338
+    },
+    "isotropic": {
+      "native_error": 0.3204236400049646,
+      "covariance_error": 0.08607186417251692,
+      "per_mode_errors": [
+        0.013434762235522384,
+        0.018184057282099,
+        0.09807384253228561
+      ],
+      "euclidean_jacobian_errors": [
+        0.12655198801269477,
+        0.10311458368989142,
+        0.12584983472134675
+      ],
+      "stored_floats": 1342028,
+      "activation_products": 592,
+      "projection_multiplications": 1327104,
+      "source_total_multiplications": 1331088,
+      "source_additions": 1329338
+    },
+    "covariance": {
+      "native_error": 0.45614972532499387,
+      "covariance_error": 0.05194963565488055,
+      "per_mode_errors": [
+        0.015139777808616998,
+        0.015116851027362333,
+        0.1419349377805037
+      ],
+      "euclidean_jacobian_errors": [
+        0.13406851539918024,
+        0.11806318733400513,
+        0.15203920195574833
+      ],
+      "stored_floats": 1342028,
+      "activation_products": 592,
+      "projection_multiplications": 1327104,
+      "source_total_multiplications": 1331088,
+      "source_additions": 1329338
+    }
+  },
+  "records": [
+    {
+      "key": "mixed_384",
+      "parent": "mixed",
+      "rank": 384,
+      "full_reader_control_replay": 1.6800073349119664e-15,
+      "execution_replay": 1.059866326378936e-15,
+      "component_execution_replay": 8.902971945052282e-16,
+      "relative_reader_error": 0.26196520194046063,
+      "stored_floats": 899660,
+      "activation_products": 592,
+      "projection_multiplications": 884736,
+      "source_total_multiplications": 888720,
+      "source_additions": 886586,
+      "native_error": 0.8025617988242364,
+      "covariance_error": 0.2483702300058427,
+      "per_mode_errors": [
+        0.08586224018282718,
+        0.05841700795835595,
+        0.28793800265759384
+      ],
+      "euclidean_jacobian_errors": [
+        0.39277780882320995,
+        0.28655157376555523,
+        0.29612466433585816
+      ]
+    },
+    {
+      "key": "mixed_448",
+      "parent": "mixed",
+      "rank": 448,
+      "full_reader_control_replay": 1.6800073349119664e-15,
+      "execution_replay": 1.1327107192869893e-15,
+      "component_execution_replay": 9.69247824480533e-16,
+      "relative_reader_error": 0.20933256644316964,
+      "stored_floats": 1047116,
+      "activation_products": 592,
+      "projection_multiplications": 1032192,
+      "source_total_multiplications": 1036176,
+      "source_additions": 1033978,
+      "native_error": 0.7535392836932142,
+      "covariance_error": 0.2209281493956458,
+      "per_mode_errors": [
+        0.0748058598600537,
+        0.047622935175606985,
+        0.22774882823630874
+      ],
+      "euclidean_jacobian_errors": [
+        0.358603965967072,
+        0.2622822527863782,
+        0.26578699482478757
+      ]
+    },
+    {
+      "key": "mixed_512",
+      "parent": "mixed",
+      "rank": 512,
+      "full_reader_control_replay": 1.6800073349119664e-15,
+      "execution_replay": 1.1838941919040675e-15,
+      "component_execution_replay": 1.044266610504708e-15,
+      "relative_reader_error": 0.16653139795587096,
+      "stored_floats": 1194572,
+      "activation_products": 592,
+      "projection_multiplications": 1179648,
+      "source_total_multiplications": 1183632,
+      "source_additions": 1181370,
+      "native_error": 0.6981711665545045,
+      "covariance_error": 0.19660581681955608,
+      "per_mode_errors": [
+        0.06160518887194446,
+        0.042357860149652864,
+        0.18555333271134247
+      ],
+      "euclidean_jacobian_errors": [
+        0.32291204716905764,
+        0.238015346192868,
+        0.24018996010811072
+      ]
+    },
+    {
+      "key": "isotropic_384",
+      "parent": "isotropic",
+      "rank": 384,
+      "full_reader_control_replay": 2.0678925264076632e-15,
+      "execution_replay": 9.35729055409577e-16,
+      "component_execution_replay": 7.450466430311241e-16,
+      "relative_reader_error": 0.25580419291439566,
+      "stored_floats": 899660,
+      "activation_products": 592,
+      "projection_multiplications": 884736,
+      "source_total_multiplications": 888720,
+      "source_additions": 886586,
+      "native_error": 0.8082654028961586,
+      "covariance_error": 0.3262264378451178,
+      "per_mode_errors": [
+        0.06623614810786795,
+        0.07725996721834617,
+        0.40994236274454593
+      ],
+      "euclidean_jacobian_errors": [
+        0.4436028413607209,
+        0.30613601923307826,
+        0.31402401463861485
+      ]
+    },
+    {
+      "key": "isotropic_448",
+      "parent": "isotropic",
+      "rank": 448,
+      "full_reader_control_replay": 2.0678925264076632e-15,
+      "execution_replay": 9.32625270302565e-16,
+      "component_execution_replay": 7.089416244013332e-16,
+      "relative_reader_error": 0.2033814979063412,
+      "stored_floats": 1047116,
+      "activation_products": 592,
+      "projection_multiplications": 1032192,
+      "source_total_multiplications": 1036176,
+      "source_additions": 1033978,
+      "native_error": 0.7588321170285975,
+      "covariance_error": 0.2773829874922942,
+      "per_mode_errors": [
+        0.0627184571350133,
+        0.06268123812904565,
+        0.3201544838615129
+      ],
+      "euclidean_jacobian_errors": [
+        0.3979301961505647,
+        0.27808964639658623,
+        0.2806818988241297
+      ]
+    },
+    {
+      "key": "isotropic_512",
+      "parent": "isotropic",
+      "rank": 512,
+      "full_reader_control_replay": 2.0678925264076632e-15,
+      "execution_replay": 1.0575473202417165e-15,
+      "component_execution_replay": 8.814562712242728e-16,
+      "relative_reader_error": 0.16078940480404488,
+      "stored_floats": 1194572,
+      "activation_products": 592,
+      "projection_multiplications": 1179648,
+      "source_total_multiplications": 1183632,
+      "source_additions": 1181370,
+      "native_error": 0.7031447261122501,
+      "covariance_error": 0.23905765904559081,
+      "per_mode_errors": [
+        0.05366009751553535,
+        0.0520268525713856,
+        0.249781024119103
+      ],
+      "euclidean_jacobian_errors": [
+        0.3535533727829435,
+        0.2500431970887191,
+        0.2507466814898479
+      ]
+    },
+    {
+      "key": "covariance_384",
+      "parent": "covariance",
+      "rank": 384,
+      "full_reader_control_replay": 1.926293318382512e-15,
+      "execution_replay": 1.3461701261347385e-15,
+      "component_execution_replay": 9.48549429310672e-16,
+      "relative_reader_error": 0.3650603415539994,
+      "stored_floats": 899660,
+      "activation_products": 592,
+      "projection_multiplications": 884736,
+      "source_total_multiplications": 888720,
+      "source_additions": 886586,
+      "native_error": 0.7794650006443591,
+      "covariance_error": 0.20358127103487067,
+      "per_mode_errors": [
+        0.07250739939601687,
+        0.042414362705590285,
+        0.19899304559744174
+      ],
+      "euclidean_jacobian_errors": [
+        0.3591895763606271,
+        0.2659050303116985,
+        0.2744044214293401
+      ]
+    },
+    {
+      "key": "covariance_448",
+      "parent": "covariance",
+      "rank": 448,
+      "full_reader_control_replay": 1.926293318382512e-15,
+      "execution_replay": 1.3525704586773924e-15,
+      "component_execution_replay": 9.978781307464023e-16,
+      "relative_reader_error": 0.306306653966904,
+      "stored_floats": 1047116,
+      "activation_products": 592,
+      "projection_multiplications": 1032192,
+      "source_total_multiplications": 1036176,
+      "source_additions": 1033978,
+      "native_error": 0.7278099578487172,
+      "covariance_error": 0.1793081135706754,
+      "per_mode_errors": [
+        0.06197930680837107,
+        0.03660312343275414,
+        0.1885253411556578
+      ],
+      "euclidean_jacobian_errors": [
+        0.3237880057182693,
+        0.23949865608059143,
+        0.24922780778992434
+      ]
+    },
+    {
+      "key": "covariance_512",
+      "parent": "covariance",
+      "rank": 512,
+      "full_reader_control_replay": 1.926293318382512e-15,
+      "execution_replay": 1.32579408746321e-15,
+      "component_execution_replay": 9.13350782040653e-16,
+      "relative_reader_error": 0.25521965328555096,
+      "stored_floats": 1194572,
+      "activation_products": 592,
+      "projection_multiplications": 1179648,
+      "source_total_multiplications": 1183632,
+      "source_additions": 1181370,
+      "native_error": 0.6761737013169592,
+      "covariance_error": 0.15700468248859312,
+      "per_mode_errors": [
+        0.045844154054427336,
+        0.031689328003585523,
+        0.17611199174463193
+      ],
+      "euclidean_jacobian_errors": [
+        0.2889680545897483,
+        0.21580619963371897,
+        0.22773143746714045
+      ]
+    }
+  ],
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_component_fidelity": false,
+    "pred_c_metric_fidelity": false,
+    "pred_d_total_arithmetic": true
+  },
+  "seconds": 19.27669734414667,
+  "scope": "SVD proposes shared linear input nodes; fixed projected readers then exact constrained output refit in each parent metric. Actual factorized execution and original component definitions retained. Opened448 diagnostic only, no fresh or semantic identification."
+}

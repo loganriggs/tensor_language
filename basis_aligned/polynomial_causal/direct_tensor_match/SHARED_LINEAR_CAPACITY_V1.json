@@ -1,0 +1,139 @@
+{
+  "rows": [
+    {
+      "parent": "mixed",
+      "minimum_necessary_rank_by_metric": {
+        "native": 631,
+        "covariance": 429
+      },
+      "minimum_necessary_joint_rank": 631,
+      "maximum_rank_for_20percent_multiplication_saving": 460,
+      "necessary_minimum_source_multiplications": 1457808,
+      "twenty_percent_target_impossible_from_span_bound": true,
+      "bounds_at_primary_rank448": {
+        "native": 0.48174287172090563,
+        "covariance": 0.07295082764292876
+      },
+      "bounds_at_maximum_saving_rank": {
+        "native": 0.47321001292177944,
+        "covariance": 0.07116476436847231
+      }
+    },
+    {
+      "parent": "isotropic",
+      "minimum_necessary_rank_by_metric": {
+        "native": 643,
+        "covariance": 323
+      },
+      "minimum_necessary_joint_rank": 643,
+      "maximum_rank_for_20percent_multiplication_saving": 460,
+      "necessary_minimum_source_multiplications": 1485456,
+      "twenty_percent_target_impossible_from_span_bound": true,
+      "bounds_at_primary_rank448": {
+        "native": 0.48174287172090563,
+        "covariance": 0.07295082764292876
+      },
+      "bounds_at_maximum_saving_rank": {
+        "native": 0.47321001292177944,
+        "covariance": 0.07116476436847231
+      }
+    },
+    {
+      "parent": "covariance",
+      "minimum_necessary_rank_by_metric": {
+        "native": 421,
+        "covariance": 566
+      },
+      "minimum_necessary_joint_rank": 566,
+      "maximum_rank_for_20percent_multiplication_saving": 460,
+      "necessary_minimum_source_multiplications": 1308048,
+      "twenty_percent_target_impossible_from_span_bound": true,
+      "bounds_at_primary_rank448": {
+        "native": 0.48174287172090563,
+        "covariance": 0.07295082764292876
+      },
+      "bounds_at_maximum_saving_rank": {
+        "native": 0.47321001292177944,
+        "covariance": 0.07116476436847231
+      }
+    }
+  ],
+  "independent_saved_graph_checks": [
+    {
+      "key": "mixed_384",
+      "execution_replay": 1.059866326378936e-15,
+      "metric_lower_bound_consistent": true
+    },
+    {
+      "key": "mixed_448",
+      "execution_replay": 1.1327107192869893e-15,
+      "metric_lower_bound_consistent": true
+    },
+    {
+      "key": "mixed_512",
+      "execution_replay": 1.1838941919040675e-15,
+      "metric_lower_bound_consistent": true
+    },
+    {
+      "key": "isotropic_384",
+      "execution_replay": 9.35729055409577e-16,
+      "metric_lower_bound_consistent": true
+    },
+    {
+      "key": "isotropic_448",
+      "execution_replay": 9.32625270302565e-16,
+      "metric_lower_bound_consistent": true
+    },
+    {
+      "key": "isotropic_512",
+      "execution_replay": 1.0575473202417165e-15,
+      "metric_lower_bound_consistent": true
+    },
+    {
+      "key": "covariance_384",
+      "execution_replay": 1.3461701261347385e-15,
+      "metric_lower_bound_consistent": true
+    },
+    {
+      "key": "covariance_448",
+      "execution_replay": 1.3525704586773924e-15,
+      "metric_lower_bound_consistent": true
+    },
+    {
+      "key": "covariance_512",
+      "execution_replay": 1.32579408746321e-15,
+      "metric_lower_bound_consistent": true
+    }
+  ],
+  "lower_bound_at_ranks": {
+    "384": {
+      "native": 0.5288110580148238,
+      "covariance": 0.0832448773647675
+    },
+    "448": {
+      "native": 0.48174287172090563,
+      "covariance": 0.07295082764292876
+    },
+    "460": {
+      "native": 0.47321001292177944,
+      "covariance": 0.07116476436847231
+    },
+    "512": {
+      "native": 0.43720557305634733,
+      "covariance": 0.06391354716920031
+    },
+    "576": {
+      "native": 0.3947874864057059,
+      "covariance": 0.05586648727363217
+    },
+    "766": {
+      "native": 0.27807432092090295,
+      "covariance": 0.036146808070611054
+    },
+    "1024": {
+      "native": 0.12671370377128757,
+      "covariance": 0.01487673487542649
+    }
+  },
+  "scope": "Necessary one-mode unfolding bound for any rank-r shared linear input bottleneck, even allowing an arbitrary unpriced dense quadratic core. Total multiplication comparison assumes the current 560mixed+32square graph with dense two-stage reader matrices. Not a general circuit lower bound and not a functional-error bound. No new tests or calibration inputs."
+}

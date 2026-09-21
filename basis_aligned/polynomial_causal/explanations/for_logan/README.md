@@ -2,6 +2,8 @@
 
 **Start here — [Overall review: from folded weights to a simpler arithmetic program](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 10:42 UTC. Explains the original QR → decomposition → graph plan, distinguishes the broad and local targets, and summarizes completed evidence through the 10:37 fresh tests.
 
+**Latest structural result — [Shared linear graphs and their limits](research_update_2026-09-21_1056_shared_linear_graph_and_limits.md).** Exact independent-coordinate blocks are absent in the numerical screen. Sharing a dense linear input layer saves22%of source arithmetic but fails fidelity; a capacity-versus-cost bound rules out its registered target.
+
 **Latest fresh result — [Metric transfer across FineWeb and code](research_update_2026-09-21_1037_fresh_metric_transfer.md).** All three wider graphs pass absolute limits; none passes all matched-baseline comparisons. The primary has10relative failures, with several supported by paired uncertainty intervals.
 
 **Latest completed study — [Two-geometry fit results](research_update_2026-09-21_1033_two_geometry_fit_results.md).** Wider mixed fit reaches10.27%third-component error, but fails covariance guard and trails the matched covariance baseline. All wider candidates frozen for fresh behavioral comparison; cross-component re-pairing gave no gain.
