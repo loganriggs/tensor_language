@@ -2,6 +2,8 @@
 
 **Start here — [Overall review: folding → decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 09:40 UTC. The two-stage proposal, exact QR, what was implemented, why experiments narrowed, and the main results through the 09:34 update.
 
+**Latest baselines — [Matched storage and full arithmetic](research_update_2026-09-21_1020_cost_matched_pair_baselines.md).** Wider independent pair programs reach8.81%third-component diagnostic error. Shared graphs use fewer nonlinear products, but this does not establish lower total arithmetic.
+
 **Latest controls — [Reader span versus sparse core](research_update_2026-09-21_1015_span_and_sparse_core_controls.md).** Dense-core relaxations isolate two representation limits. Fixed-basis pair sparsity fails despite correct reuse accounting; the width/metric fit remains live.
 
 **Latest mathematical result — [Capacity and two explicit metrics](research_update_2026-09-21_1009_capacity_and_two_metrics.md).** The399-product reader span implies at least27.81%native isotropic coefficient error. A registered two-width comparison tests isotropic and covariance-shaped fitting; no outcome yet.

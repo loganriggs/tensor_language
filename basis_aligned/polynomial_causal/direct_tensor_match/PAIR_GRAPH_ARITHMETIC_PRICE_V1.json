@@ -1,0 +1,63 @@
+{
+  "records": [
+    {
+      "program": "native_isotropic_256",
+      "activation_products": 768,
+      "projection_coefficient_multiplications": 884736,
+      "readout_coefficient_multiplications": 1536,
+      "total_source_multiplications": 887040,
+      "source_additions": 886046,
+      "pair_block_extra_additions": 548,
+      "index_int64_values": 2304
+    },
+    {
+      "program": "native_isotropic_384",
+      "activation_products": 1152,
+      "projection_coefficient_multiplications": 1327104,
+      "readout_coefficient_multiplications": 2304,
+      "total_source_multiplications": 1330560,
+      "source_additions": 1329152,
+      "pair_block_extra_additions": 902,
+      "index_int64_values": 3456
+    },
+    {
+      "program": "calibration_shaped_256",
+      "activation_products": 768,
+      "projection_coefficient_multiplications": 884736,
+      "readout_coefficient_multiplications": 1536,
+      "total_source_multiplications": 887040,
+      "source_additions": 886046,
+      "pair_block_extra_additions": 548,
+      "index_int64_values": 2304
+    },
+    {
+      "program": "calibration_shaped_384",
+      "activation_products": 1152,
+      "projection_coefficient_multiplications": 1327104,
+      "readout_coefficient_multiplications": 2304,
+      "total_source_multiplications": 1330560,
+      "source_additions": 1329148,
+      "pair_block_extra_additions": 898,
+      "index_int64_values": 3456
+    },
+    {
+      "program": "shared_mixed_367_plus32",
+      "activation_products": 399,
+      "projection_coefficient_multiplications": 882432,
+      "readout_coefficient_multiplications": 2234,
+      "total_source_multiplications": 885065,
+      "source_additions": 883894,
+      "index_int64_values": 1
+    },
+    {
+      "program": "shared_mixed_560_plus32",
+      "activation_products": 592,
+      "projection_coefficient_multiplications": 1327104,
+      "readout_coefficient_multiplications": 3392,
+      "total_source_multiplications": 1331088,
+      "source_additions": 1329338,
+      "index_int64_values": 1
+    }
+  ],
+  "scope": "Literal scalar arithmetic for dense source projections, distinct activation products and output mixtures, before common affine/normalization/later-state operations. Both additions/subtractions count one. Constant multiplications retained; no fused hardware timing inferred. Baseline index arrays counted separately from float coefficients."
+}

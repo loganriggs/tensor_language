@@ -183,3 +183,7 @@ Commonreader span of367mixed+32squares<=766 givesnecessary nativeequalpairFroben
 ## 21 September, 10:15 — Span and sparse-core controls
 
 Nativecoefficient fixedproductoptimum59.43%; arbitrarydensecore incurrentspan45.32%, mode-Gram766span36.55%, lowerbound27.81%. Densecore isexpensive relaxation, notcircuit. Fixedorthonormalbasis topK distinctpair selectorverified5plantedcases<1e-15; HOSVD766 K399/592 native89.27/88.31%, currentspanSVD98.37/97.96%. Sharedproduct chargedonce, sixoutputcoeffseparate, inactivefeaturespruned. No optimized-basisTucker/lowrankcore impossibilityclaim. [Report](../../explanations/for_logan/research_update_2026-09-21_1015_span_and_sparse_core_controls.md).
+
+## 21 September, 10:20 — Matched wider baselines and arithmetic price
+
+Pairbanks384each1152products1340940floats vswidegraph592/1342028. Nativeisotropic componenterrors1.62/3.06/11.26%, calibration-shaped1.87/2.05/8.81%; oldcov256baseline replays<1e-7. Allcompiledexecutorspass. Denseprojectionworkidentical1327104mults; source totalbaseline1330560 vsgraph1331088, so feweractivationproducts notruntimeclaim. GPUfitstilllive; retainoriginalpredictions andadditionalmatchedstoragecomparisons. [Report](../../explanations/for_logan/research_update_2026-09-21_1020_cost_matched_pair_baselines.md).

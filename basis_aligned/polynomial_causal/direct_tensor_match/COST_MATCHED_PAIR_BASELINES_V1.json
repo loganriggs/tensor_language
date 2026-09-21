@@ -1,0 +1,282 @@
+{
+  "records": [
+    {
+      "key": "native_isotropic_256",
+      "width": 256,
+      "metric": "native_isotropic",
+      "instrument_pass": true,
+      "components": [
+        {
+          "mode": 1,
+          "source_products": 256,
+          "execution_replay": 4.0364618056248616e-13,
+          "component_error": 0.02309994861364883,
+          "native_isotropic_error": 0.545730895058537,
+          "calibration_shaped_error": 0.18012890427912023,
+          "compiler": {
+            "pencil_condition": 8.873544090721355,
+            "eigenbasis_condition": 106.79151226238305,
+            "real_basis_condition": 111.54456479535591,
+            "matrix_replay": [
+              4.1301310515460095e-12,
+              4.245225688127161e-12
+            ]
+          }
+        },
+        {
+          "mode": 2,
+          "source_products": 256,
+          "execution_replay": 2.2958768417215305e-13,
+          "component_error": 0.035333094610128596,
+          "native_isotropic_error": 0.5815972702650919,
+          "calibration_shaped_error": 0.16243861622340594,
+          "compiler": {
+            "pencil_condition": 1748.494433086244,
+            "eigenbasis_condition": 111.63037070985662,
+            "real_basis_condition": 117.14108147418763,
+            "matrix_replay": [
+              3.0779349202835297e-12,
+              3.4071717363297104e-12
+            ]
+          }
+        },
+        {
+          "mode": 3,
+          "source_products": 256,
+          "execution_replay": 8.700975474459276e-14,
+          "component_error": 0.16269023053224962,
+          "native_isotropic_error": 0.5960370708640625,
+          "calibration_shaped_error": 0.12867126747686483,
+          "compiler": {
+            "pencil_condition": 136.03284261987093,
+            "eigenbasis_condition": 126.60645525102636,
+            "real_basis_condition": 146.66109317944947,
+            "matrix_replay": [
+              2.7713909381686653e-13,
+              3.8041710909771275e-13
+            ]
+          }
+        }
+      ],
+      "source_products": 768,
+      "stored_floats": 897804,
+      "index_integers": 2304,
+      "per_mode_errors": [
+        0.02309994861364883,
+        0.035333094610128596,
+        0.16269023053224962
+      ],
+      "native_isotropic_equal_pair_error": 0.5748442642563896,
+      "calibration_shaped_error": 0.15852341706245834
+    },
+    {
+      "key": "native_isotropic_384",
+      "width": 384,
+      "metric": "native_isotropic",
+      "instrument_pass": true,
+      "components": [
+        {
+          "mode": 1,
+          "source_products": 384,
+          "execution_replay": 4.17975270447483e-13,
+          "component_error": 0.016188265376345535,
+          "native_isotropic_error": 0.4171272285310204,
+          "calibration_shaped_error": 0.13545848926877657,
+          "compiler": {
+            "pencil_condition": 13.784522799436484,
+            "eigenbasis_condition": 211.69611317037572,
+            "real_basis_condition": 215.28348927746225,
+            "matrix_replay": [
+              5.700352227825251e-12,
+              5.684799054224218e-12
+            ]
+          }
+        },
+        {
+          "mode": 2,
+          "source_products": 384,
+          "execution_replay": 6.536825372533628e-13,
+          "component_error": 0.03055398453213081,
+          "native_isotropic_error": 0.4732857804707683,
+          "calibration_shaped_error": 0.12728360340128347,
+          "compiler": {
+            "pencil_condition": 2287.192890870761,
+            "eigenbasis_condition": 167.69454454757536,
+            "real_basis_condition": 177.250106486696,
+            "matrix_replay": [
+              7.0513689808717726e-12,
+              8.654192928901651e-12
+            ]
+          }
+        },
+        {
+          "mode": 3,
+          "source_products": 384,
+          "execution_replay": 1.0573140592699795e-13,
+          "component_error": 0.11255538727628324,
+          "native_isotropic_error": 0.4989622089759283,
+          "calibration_shaped_error": 0.10273904130255046,
+          "compiler": {
+            "pencil_condition": 284.0192963380169,
+            "eigenbasis_condition": 220.26962484042855,
+            "real_basis_condition": 247.69105773480956,
+            "matrix_replay": [
+              6.211387712591111e-13,
+              9.192941902036596e-13
+            ]
+          }
+        }
+      ],
+      "source_products": 1152,
+      "stored_floats": 1340940,
+      "index_integers": 3456,
+      "per_mode_errors": [
+        0.016188265376345535,
+        0.03055398453213081,
+        0.11255538727628324
+      ],
+      "native_isotropic_equal_pair_error": 0.4643841228853302,
+      "calibration_shaped_error": 0.12261787338116964
+    },
+    {
+      "key": "calibration_shaped_256",
+      "width": 256,
+      "metric": "calibration_shaped",
+      "instrument_pass": true,
+      "components": [
+        {
+          "mode": 1,
+          "source_products": 256,
+          "execution_replay": 5.551795634493053e-13,
+          "component_error": 0.030584094925781367,
+          "native_isotropic_error": 0.6393704915101165,
+          "calibration_shaped_error": 0.10630398687974627,
+          "compiler": {
+            "pencil_condition": 1329.734244488498,
+            "eigenbasis_condition": 288.00301428151073,
+            "real_basis_condition": 298.40583189391225,
+            "matrix_replay": [
+              1.6127302993574096e-12,
+              1.7731162315223032e-12
+            ]
+          }
+        },
+        {
+          "mode": 2,
+          "source_products": 256,
+          "execution_replay": 9.252815612991197e-13,
+          "component_error": 0.02755844139043711,
+          "native_isotropic_error": 0.6726886324059658,
+          "calibration_shaped_error": 0.09948073941210304,
+          "compiler": {
+            "pencil_condition": 24637.87526677692,
+            "eigenbasis_condition": 302.0738790828757,
+            "real_basis_condition": 316.7269139379135,
+            "matrix_replay": [
+              4.649752022453812e-12,
+              4.639629763397588e-12
+            ]
+          }
+        },
+        {
+          "mode": 3,
+          "source_products": 256,
+          "execution_replay": 1.6254856241599515e-13,
+          "component_error": 0.11941807156805138,
+          "native_isotropic_error": 0.6730452547562729,
+          "calibration_shaped_error": 0.0800348546243442,
+          "compiler": {
+            "pencil_condition": 9496.095940751973,
+            "eigenbasis_condition": 351.73478417755683,
+            "real_basis_condition": 385.35866160825924,
+            "matrix_replay": [
+              6.68906609696359e-13,
+              6.125929560310797e-13
+            ]
+          }
+        }
+      ],
+      "source_products": 768,
+      "stored_floats": 897804,
+      "index_integers": 2304,
+      "per_mode_errors": [
+        0.030584094925781367,
+        0.02755844139043711,
+        0.11941807156805138
+      ],
+      "native_isotropic_equal_pair_error": 0.6618898540119881,
+      "calibration_shaped_error": 0.09592103192252803
+    },
+    {
+      "key": "calibration_shaped_384",
+      "width": 384,
+      "metric": "calibration_shaped",
+      "instrument_pass": true,
+      "components": [
+        {
+          "mode": 1,
+          "source_products": 384,
+          "execution_replay": 1.7692775753281592e-12,
+          "component_error": 0.018692583665713913,
+          "native_isotropic_error": 0.5094358947750753,
+          "calibration_shaped_error": 0.07503753872143769,
+          "compiler": {
+            "pencil_condition": 884.4449608595177,
+            "eigenbasis_condition": 596.2385523602732,
+            "real_basis_condition": 622.8505246598537,
+            "matrix_replay": [
+              4.4255466833666976e-12,
+              5.117748366614762e-12
+            ]
+          }
+        },
+        {
+          "mode": 2,
+          "source_products": 384,
+          "execution_replay": 6.9442520251179706e-12,
+          "component_error": 0.020499346791718956,
+          "native_isotropic_error": 0.5664128281523049,
+          "calibration_shaped_error": 0.07422577171983512,
+          "compiler": {
+            "pencil_condition": 116530.98462409638,
+            "eigenbasis_condition": 448.10553282511864,
+            "real_basis_condition": 474.59582496366926,
+            "matrix_replay": [
+              1.5285837083604912e-11,
+              1.6793912813169592e-11
+            ]
+          }
+        },
+        {
+          "mode": 3,
+          "source_products": 384,
+          "execution_replay": 9.12755803977004e-13,
+          "component_error": 0.0880520271159737,
+          "native_isotropic_error": 0.5794302817715729,
+          "calibration_shaped_error": 0.060760241311655354,
+          "compiler": {
+            "pencil_condition": 31306.822955469597,
+            "eigenbasis_condition": 445.71710713623514,
+            "real_basis_condition": 501.3110628334485,
+            "matrix_replay": [
+              1.5303575860862732e-12,
+              1.9407549551314394e-12
+            ]
+          }
+        }
+      ],
+      "source_products": 1152,
+      "stored_floats": 1340940,
+      "index_integers": 3456,
+      "per_mode_errors": [
+        0.018692583665713913,
+        0.020499346791718956,
+        0.0880520271159737
+      ],
+      "native_isotropic_equal_pair_error": 0.5525962583461993,
+      "calibration_shaped_error": 0.07031335655247616
+    }
+  ],
+  "seconds": 8.459337178152055,
+  "scope": "Independent pair-specific mode-Gram subspaces, not optimized global minima. Symmetric-pair compiler provides exact within-subspace product sharing. One residual writer stored once. Width384 costs1340940floats vswidegraph1342028; products1152vs592. Opened448diagnostics, nativez/h stillsupplied; no fresh/adoption claim."
+}
