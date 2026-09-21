@@ -81,6 +81,14 @@ The completed native initialization check uses the same architecture as the curr
 
 The full objective still requires a faithful native program, fresh/OOD prediction, stable identification, selective removal or editing, reusable components and an explicit extraction interface. The present result is a successful toy decomposition-to-graph pipeline with clear native applicability questions.
 
+**Native follow-up: the new initialization did not win**
+
+The four-arm comparison has completed. Refitting the inherited graph gives **7.893% covariance error**, versus **8.194%** from the algebraic proposal. The inherited initialization also wins under the original-coordinate objective. All four programs compile at the intended cost, but neither initialization meets all original fidelity requirements. The toy success therefore has not transferred into a better native circuit.
+
+Using the remaining legal arithmetic budget for fourteen additional private directions also fails: the best covariance allocation reaches **7.808%**, still above the **7.734%** limit, and that candidate fails the strict compiler reconstruction check. Both failures remain recorded. A structural null comparison is now testing whether the native pair input spaces are more aligned than independently randomized orientations; that would be compatibility evidence, not identified semantic reuse.
+
+[Controlled native refit](../../direct_tensor_match/PENCIL_JOINT_REFIT_V1.json), [private-capacity result](../../direct_tensor_match/PRIVATE_CAPACITY_V1.json), [structural null plan](../../direct_tensor_match/PAIR_SUPPORT_NULL_PLAN_V1.json), [three-hour math/literature review](../../THREE_HOURLY_MATHEMATICAL_REVIEW_2026-09-21_1350.md).
+
 **Evidence**
 
 - [Penalty sweep](../../direct_tensor_match/REGULARIZED_JOINT_TOY_V1.json) and [selection-rule audit](../../direct_tensor_match/REGULARIZED_JOINT_SELECTION_AUDIT_V1.json).
