@@ -1,0 +1,47 @@
+{
+  "records": [
+    {
+      "domain": "fineweb",
+      "program": "baseline",
+      "best_scalar": 0.9951640619797695,
+      "native_error": 0.5712371628729569,
+      "best_scalar_error": 0.5712232377171745
+    },
+    {
+      "domain": "fineweb",
+      "program": "rank8",
+      "best_scalar": 0.9971001053811472,
+      "native_error": 0.5646223104494237,
+      "best_scalar_error": 0.5646172079824521
+    },
+    {
+      "domain": "fineweb",
+      "program": "rank32",
+      "best_scalar": 0.9943840816806842,
+      "native_error": 0.5582036645543194,
+      "best_scalar_error": 0.5581839957303358
+    },
+    {
+      "domain": "code",
+      "program": "baseline",
+      "best_scalar": 1.0183858015911116,
+      "native_error": 0.4212743696430089,
+      "best_scalar_error": 0.4209559485601994
+    },
+    {
+      "domain": "code",
+      "program": "rank8",
+      "best_scalar": 1.009179457936714,
+      "native_error": 0.4114919948931205,
+      "best_scalar_error": 0.4114084698538228
+    },
+    {
+      "domain": "code",
+      "program": "rank32",
+      "best_scalar": 1.0035690397374393,
+      "native_error": 0.4009943416858337,
+      "best_scalar_error": 0.4009811068065933
+    }
+  ],
+  "scope": "Least-squares single scalar on already computed centered logit-effect arrays, using pooled norm and dot. Diagnostic oracle, not a model intervention or heldout fit. Does not describe scaling residual writes through nonlinearities."
+}

@@ -1,0 +1,107 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_omission": false,
+    "pred_c_bound": true
+  },
+  "records": [
+    {
+      "domain": "fineweb",
+      "family": "source_only",
+      "program": "baseline",
+      "omitted_squared_error_fraction": 0.5664029317986595,
+      "linear_output_floor": 0.22766853304200163,
+      "linear_program_error": 0.30251036729096525
+    },
+    {
+      "domain": "fineweb",
+      "family": "source_only",
+      "program": "rank8",
+      "omitted_squared_error_fraction": 0.559589492925656,
+      "linear_output_floor": 0.22355742038525075,
+      "linear_program_error": 0.29885072515070205
+    },
+    {
+      "domain": "fineweb",
+      "family": "source_only",
+      "program": "rank32",
+      "omitted_squared_error_fraction": 0.5217238263264605,
+      "linear_output_floor": 0.21326591062111705,
+      "linear_program_error": 0.29525761412771506
+    },
+    {
+      "domain": "fineweb",
+      "family": "context_only",
+      "program": "baseline",
+      "omitted_squared_error_fraction": 0.5325987677126125,
+      "linear_output_floor": 0.4417218790841342,
+      "linear_program_error": 0.6052695589883759
+    },
+    {
+      "domain": "fineweb",
+      "family": "context_only",
+      "program": "rank8",
+      "omitted_squared_error_fraction": 0.5321846902117182,
+      "linear_output_floor": 0.4349962729635203,
+      "linear_program_error": 0.5962856358668672
+    },
+    {
+      "domain": "fineweb",
+      "family": "context_only",
+      "program": "rank32",
+      "omitted_squared_error_fraction": 0.5140592302007811,
+      "linear_output_floor": 0.42144332892405234,
+      "linear_program_error": 0.5878040891170022
+    },
+    {
+      "domain": "code",
+      "family": "source_only",
+      "program": "baseline",
+      "omitted_squared_error_fraction": 0.5348245619930145,
+      "linear_output_floor": 0.17733341719968146,
+      "linear_program_error": 0.2424850180641458
+    },
+    {
+      "domain": "code",
+      "family": "source_only",
+      "program": "rank8",
+      "omitted_squared_error_fraction": 0.5249617152836145,
+      "linear_output_floor": 0.17257241337040194,
+      "linear_program_error": 0.2381812425547909
+    },
+    {
+      "domain": "code",
+      "family": "source_only",
+      "program": "rank32",
+      "omitted_squared_error_fraction": 0.49632428437009063,
+      "linear_output_floor": 0.16362426312624304,
+      "linear_program_error": 0.23225492990104468
+    },
+    {
+      "domain": "code",
+      "family": "context_only",
+      "program": "baseline",
+      "omitted_squared_error_fraction": 0.48973389295495756,
+      "linear_output_floor": 0.3106782331900258,
+      "linear_program_error": 0.4439466120723084
+    },
+    {
+      "domain": "code",
+      "family": "context_only",
+      "program": "rank8",
+      "omitted_squared_error_fraction": 0.4867270795704136,
+      "linear_output_floor": 0.3022690936976986,
+      "linear_program_error": 0.43326238811522166
+    },
+    {
+      "domain": "code",
+      "family": "context_only",
+      "program": "rank32",
+      "omitted_squared_error_fraction": 0.4755381861963756,
+      "linear_output_floor": 0.28992033762414876,
+      "linear_program_error": 0.4204225318472312
+    }
+  ],
+  "pythagorean": 1.975107756473449e-15,
+  "scope": "Exact native output-span projection oracle. Linear metric lower bound, not a bound after nonlinearities and not a compressed algorithm. No native states used to choose span."
+}

@@ -15,6 +15,7 @@ DONOR_PREFIX='SELECTIVE_CONFIRMATION_DONORS'
 EXTRA_CHANNEL_FILE=None
 EXTRA_PRODUCT_FILE=None
 SOURCE_CONTEXT_FAMILIES=False
+OUTPUT_SPAN_CONTROLS=False
 def main():
  if os.environ.get('BQLIB_DRYRUN') or os.environ.get('BQLIB_NO_MODEL'):print(json.dumps(dict(forwards=48,candidates=['constant','projected64','projected256','program64','program256'])));return
  import torch
@@ -74,12 +75,18 @@ def main():
       approx=product_source_delta(e,ni,dm,context_only=family=='context_only')@invru.T
       effect=(logits(state+approx.float())-base).double()
       records.append(dict(domain=domain,candidate='product_'+name,family=family,sites=len(ids),linear_reference_energy=float(((delta@ru.T)@source_metric).square().sum()),linear_error_energy=float((((approx-delta)@ru.T)@source_metric).square().sum()),**partition(reference,effect)))
+      if OUTPUT_SPAN_CONTROLS:
+       target_red=delta@ru.T;approx_red=approx@ru.T;projected=(target_red@e['span_readers'])@e['span_writers'].T
+       reference_energy=float((target_red@source_metric).square().sum());omitted=float(((target_red-projected)@source_metric).square().sum());inspace=float(((approx_red-projected)@source_metric).square().sum());total=float(((approx_red-target_red)@source_metric).square().sum())
+       projected_effect=(logits(state+(projected@invru.T).float())-base).double()
+       records.append(dict(domain=domain,candidate='span_'+name,family=family,sites=len(ids),linear_reference_energy=reference_energy,linear_error_energy=omitted,in_span_error_energy=inspace,program_error_energy=total,pythagorean_relative_error=abs(total-omitted-inspace)/max(total,1e-30),**partition(reference,projected_effect)))
  summary={}
  for d in ['fineweb','code']:
   summary[d]={}
-  for key in preds:
+  for key in list(preds)+(['span_'+name for name in product_extra] if OUTPUT_SPAN_CONTROLS else []):
    result={}
-   for family in ['replacement','removal','same_token']+(['source_only','context_only'] if SOURCE_CONTEXT_FAMILIES and key.startswith('product_') else []):
+   families=['source_only','context_only'] if key.startswith('span_') else ['replacement','removal','same_token']+(['source_only','context_only'] if SOURCE_CONTEXT_FAMILIES and key.startswith('product_') else [])
+   for family in families:
     rr=[x for x in records if x['domain']==d and x['candidate']==key and x['family']==family];sites=sum(x['sites'] for x in rr)
     if family=='replacement':result[family]=dict(ce_added=sum(x['ce_added'] for x in rr)/sites)
     else:

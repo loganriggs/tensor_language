@@ -1,0 +1,23 @@
+{
+  "checks": [
+    {
+      "program": "baseline",
+      "span_rank": 264,
+      "replay": 3.1541609402465946e-15,
+      "orthogonality": 3.1086244689504383e-15
+    },
+    {
+      "program": "rank8",
+      "span_rank": 272,
+      "replay": 3.1820185537938063e-15,
+      "orthogonality": 2.886579864025407e-15
+    },
+    {
+      "program": "rank32",
+      "span_rank": 296,
+      "replay": 3.4160757421369556e-15,
+      "orthogonality": 3.219646771412954e-15
+    }
+  ],
+  "scope": "Span of exported output basis and added correction writers in vocabulary-centered metric. This can be a superset of actual effective readout range, giving a valid but potentially loose coefficient-error lower bound. Oracle uses exact native output values; not an executable compressed replacement."
+}
