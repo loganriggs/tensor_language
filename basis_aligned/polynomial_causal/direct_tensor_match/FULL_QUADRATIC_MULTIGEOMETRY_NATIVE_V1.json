@@ -1,0 +1,233 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_mixed": false,
+    "pred_c_isotropic": false
+  },
+  "records": [
+    {
+      "arm": "mixed",
+      "predictions": {
+        "pred_a_replay": true,
+        "pred_b_full": false,
+        "pred_c_mode": true,
+        "pred_d_natural": true
+      },
+      "natural_summary": [
+        {
+          "domain": "fineweb",
+          "effect_error": 0.04209038959665653,
+          "ce_added": 0.004304094240069389
+        },
+        {
+          "domain": "stdlib",
+          "effect_error": 0.020660387019935295,
+          "ce_added": 0.00017571449279785156
+        }
+      ],
+      "primary": [
+        {
+          "domain": "fineweb",
+          "family": "same_cohort",
+          "kind": "full",
+          "cohort": "continuation",
+          "sites": 110,
+          "effect_error": 0.1405949771818559,
+          "native_effect_rms": 1.0602893053048548,
+          "native_ce_added": 0.30865090880542995,
+          "student_ce_added": 0.31277486475353894
+        },
+        {
+          "domain": "fineweb",
+          "family": "same_cohort",
+          "kind": "full",
+          "cohort": "spaced_word",
+          "sites": 2980,
+          "effect_error": 0.11079890560357368,
+          "native_effect_rms": 0.7757370274001436,
+          "native_ce_added": 0.13012968765809232,
+          "student_ce_added": 0.13291246194967488
+        },
+        {
+          "domain": "fineweb",
+          "family": "same_cohort",
+          "kind": "mode",
+          "cohort": "continuation",
+          "sites": 110,
+          "effect_error": 0.04938968822059583,
+          "native_effect_rms": 0.34015618306002027,
+          "native_ce_added": 0.031231375368819994,
+          "student_ce_added": 0.0324377358044413
+        },
+        {
+          "domain": "fineweb",
+          "family": "same_cohort",
+          "kind": "mode",
+          "cohort": "spaced_word",
+          "sites": 2980,
+          "effect_error": 0.0775366026987129,
+          "native_effect_rms": 0.06424480116948873,
+          "native_ce_added": -0.0014682971684874704,
+          "student_ce_added": -0.0014656360579917095
+        },
+        {
+          "domain": "stdlib",
+          "family": "same_cohort",
+          "kind": "full",
+          "cohort": "continuation",
+          "sites": 174,
+          "effect_error": 0.11882840118377049,
+          "native_effect_rms": 0.7512770632635107,
+          "native_ce_added": 0.03368792366022351,
+          "student_ce_added": 0.04532565364892455
+        },
+        {
+          "domain": "stdlib",
+          "family": "same_cohort",
+          "kind": "full",
+          "cohort": "spaced_word",
+          "sites": 160,
+          "effect_error": 0.08444839141141983,
+          "native_effect_rms": 0.5172831247713454,
+          "native_ce_added": 0.008599110320210457,
+          "student_ce_added": 0.008171454817056657
+        },
+        {
+          "domain": "stdlib",
+          "family": "same_cohort",
+          "kind": "mode",
+          "cohort": "continuation",
+          "sites": 174,
+          "effect_error": 0.02934910944115351,
+          "native_effect_rms": 0.21612732412915922,
+          "native_ce_added": 0.013827694076830628,
+          "student_ce_added": 0.013934753952954692
+        },
+        {
+          "domain": "stdlib",
+          "family": "same_cohort",
+          "kind": "mode",
+          "cohort": "spaced_word",
+          "sites": 160,
+          "effect_error": 0.04629667592787275,
+          "native_effect_rms": 0.08297349852752506,
+          "native_ce_added": -0.014207510277628899,
+          "student_ce_added": -0.013964476576074959
+        }
+      ]
+    },
+    {
+      "arm": "isotropic",
+      "predictions": {
+        "pred_a_replay": true,
+        "pred_b_full": false,
+        "pred_c_mode": false,
+        "pred_d_natural": false
+      },
+      "natural_summary": [
+        {
+          "domain": "fineweb",
+          "effect_error": 0.08409073197730478,
+          "ce_added": 0.012102065607905388
+        },
+        {
+          "domain": "stdlib",
+          "effect_error": 0.06773105013771646,
+          "ce_added": 0.026899009943008423
+        }
+      ],
+      "primary": [
+        {
+          "domain": "fineweb",
+          "family": "same_cohort",
+          "kind": "full",
+          "cohort": "continuation",
+          "sites": 110,
+          "effect_error": 0.3649464711863596,
+          "native_effect_rms": 1.0602893053048548,
+          "native_ce_added": 0.30865090880542995,
+          "student_ce_added": 0.3466357106850906
+        },
+        {
+          "domain": "fineweb",
+          "family": "same_cohort",
+          "kind": "full",
+          "cohort": "spaced_word",
+          "sites": 2980,
+          "effect_error": 0.14784757111085026,
+          "native_effect_rms": 0.7757370274001436,
+          "native_ce_added": 0.13012968765809232,
+          "student_ce_added": 0.13186524210360226
+        },
+        {
+          "domain": "fineweb",
+          "family": "same_cohort",
+          "kind": "mode",
+          "cohort": "continuation",
+          "sites": 110,
+          "effect_error": 0.6245490265028592,
+          "native_effect_rms": 0.34015618306002027,
+          "native_ce_added": 0.031231375368819994,
+          "student_ce_added": 0.035748036425899375
+        },
+        {
+          "domain": "fineweb",
+          "family": "same_cohort",
+          "kind": "mode",
+          "cohort": "spaced_word",
+          "sites": 2980,
+          "effect_error": 0.45194823661611017,
+          "native_effect_rms": 0.06424480116948873,
+          "native_ce_added": -0.0014682971684874704,
+          "student_ce_added": -0.0005357256371702924
+        },
+        {
+          "domain": "stdlib",
+          "family": "same_cohort",
+          "kind": "full",
+          "cohort": "continuation",
+          "sites": 174,
+          "effect_error": 0.49529434480432827,
+          "native_effect_rms": 0.7512770632635107,
+          "native_ce_added": 0.03368792366022351,
+          "student_ce_added": 0.006456215063045765
+        },
+        {
+          "domain": "stdlib",
+          "family": "same_cohort",
+          "kind": "full",
+          "cohort": "spaced_word",
+          "sites": 160,
+          "effect_error": 0.1420663086182499,
+          "native_effect_rms": 0.5172831247713454,
+          "native_ce_added": 0.008599110320210457,
+          "student_ce_added": 0.018031834065914153
+        },
+        {
+          "domain": "stdlib",
+          "family": "same_cohort",
+          "kind": "mode",
+          "cohort": "continuation",
+          "sites": 174,
+          "effect_error": 0.6364056320543457,
+          "native_effect_rms": 0.21612732412915922,
+          "native_ce_added": 0.013827694076830628,
+          "student_ce_added": 0.010628473291965737
+        },
+        {
+          "domain": "stdlib",
+          "family": "same_cohort",
+          "kind": "mode",
+          "cohort": "spaced_word",
+          "sites": 160,
+          "effect_error": 0.5570292147224652,
+          "native_effect_rms": 0.08297349852752506,
+          "native_ce_added": -0.014207510277628899,
+          "student_ce_added": -0.004712962592020631
+        }
+      ]
+    }
+  ],
+  "seconds": 8.77375056501478,
+  "scope": "Both frozen objective alternatives tested under identical opened-panel rules; no selection/adoption from training improvements alone."
+}

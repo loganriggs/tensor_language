@@ -1,0 +1,45 @@
+{
+  "records": [
+    {
+      "program": "pruned",
+      "covariance_error": 0.10802444732156535,
+      "isotropic_error": 0.3938787177223155,
+      "response_error": 0.07446543380446652,
+      "dominated_by": [
+        "mixed"
+      ]
+    },
+    {
+      "program": "response_refit",
+      "covariance_error": 0.11165271517456614,
+      "isotropic_error": 0.40238638889847755,
+      "response_error": 0.03531375529388633,
+      "dominated_by": [
+        "mixed"
+      ]
+    },
+    {
+      "program": "learned",
+      "covariance_error": 0.10565386981717712,
+      "isotropic_error": 0.551531424617614,
+      "response_error": 0.018809147847127776,
+      "dominated_by": []
+    },
+    {
+      "program": "mixed",
+      "covariance_error": 0.10578015788674094,
+      "isotropic_error": 0.380476065864168,
+      "response_error": 0.029861020393927903,
+      "dominated_by": []
+    },
+    {
+      "program": "isotropic",
+      "covariance_error": 0.30781008162050955,
+      "isotropic_error": 0.36413799270572084,
+      "response_error": 0.3358569196481627,
+      "dominated_by": []
+    }
+  ],
+  "stored_floats_each": 14067072,
+  "scope": "All errors use the same original target, historical coordinates/directions, and affine-corrected program budget. Coefficient comparisons themselves exclude affine terms. Dominance concerns these three fitting measures only, not native/OOD/causal behavior or identifiable circuit units."
+}

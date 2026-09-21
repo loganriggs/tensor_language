@@ -1,0 +1,81 @@
+{
+  "predictions": {
+    "pred_a_finite": true,
+    "pred_b_mixed_guard": true,
+    "pred_c_optimization": false
+  },
+  "records": [
+    {
+      "arm": "mixed",
+      "initial_loss": 0.028908407663069687,
+      "selected_loss": 0.026557326011057893,
+      "selected_step": 100,
+      "covariance_error": 0.10578015788674094,
+      "isotropic_error": 0.380476065864168,
+      "response_error": 0.029861020393927903,
+      "fp32_export_drift": 1.1288995569324098e-06,
+      "stored_floats": 14067072,
+      "program_sha256": "95309229fad5df5e4c6d65135ce51df1ac09d0e2b652bc501211e62e1fa3e646",
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.028908407663069687
+        },
+        {
+          "step": 25,
+          "loss": 0.03006654871062499
+        },
+        {
+          "step": 50,
+          "loss": 0.027012688521279644
+        },
+        {
+          "step": 75,
+          "loss": 0.02660501738782325
+        },
+        {
+          "step": 100,
+          "loss": 0.026557326011057893
+        }
+      ],
+      "seconds": 164.3272315231152
+    },
+    {
+      "arm": "isotropic",
+      "initial_loss": 0.1367466991082873,
+      "selected_loss": 0.1325964777317516,
+      "selected_step": 100,
+      "covariance_error": 0.30781008162050955,
+      "isotropic_error": 0.36413799270572084,
+      "response_error": 0.3358569196481627,
+      "fp32_export_drift": 6.326469865055524e-07,
+      "stored_floats": 14067072,
+      "program_sha256": "18d6d4be59463b3944e511f2c7e1988ab3d45e502211a136d7821145124e9440",
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.1367466991082873
+        },
+        {
+          "step": 25,
+          "loss": 0.13568084394007296
+        },
+        {
+          "step": 50,
+          "loss": 0.13296349080203868
+        },
+        {
+          "step": 75,
+          "loss": 0.13264251584050377
+        },
+        {
+          "step": 100,
+          "loss": 0.1325964777317516
+        }
+      ],
+      "seconds": 76.1101825768128
+    }
+  ],
+  "seconds": 241.7881042440422,
+  "scope": "Two fitting objectives, identical data-informed inherited reader start and covariance parameter coordinates. Isotropic loss itself uses only weight tensor; affine repair/calibration coordinates remain data-informed. Best objective checkpoint within100steps, no validation-based selection. Full3686product quadratic target, not arbitrary DAG/HT search; native behavior pending."
+}
