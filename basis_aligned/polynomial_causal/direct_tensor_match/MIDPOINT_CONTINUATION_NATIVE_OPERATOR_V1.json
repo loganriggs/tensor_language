@@ -1,0 +1,55 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_native_grounding": false,
+    "pred_c_near_optimal": true
+  },
+  "records": [
+    {
+      "candidate": "frozen_product",
+      "weighted_coefficient_error": 0.31468664395804696,
+      "weighted_norm_over_target": 0.9518361754263486,
+      "paired_calibration_error": 0.255550900300329
+    },
+    {
+      "candidate": "optimal_native_rank1",
+      "weighted_coefficient_error": 0.31454955105260124,
+      "weighted_norm_over_target": 0.9492410547024611,
+      "paired_calibration_error": 0.2576341953710569
+    },
+    {
+      "candidate": "frozen_with_background",
+      "weighted_coefficient_error": 0.07253243929534685,
+      "weighted_norm_over_target": 0.9971345864690145,
+      "paired_calibration_error": 0.10240573383358058
+    },
+    {
+      "candidate": "background_alone",
+      "weighted_coefficient_error": 0.9546341392979159,
+      "weighted_norm_over_target": 0.30557870955123434,
+      "paired_calibration_error": 0.9169443227312621
+    }
+  ],
+  "native_replay": 3.320787991539456e-08,
+  "scalar_matrix_replay": 4.8172219422081765e-15,
+  "discarded_covariance_trace": [
+    0.0,
+    0.0
+  ],
+  "rank1_lower_bound_error": 0.3145495510525999,
+  "frozen_to_native_optimal_coefficient_cosine": 0.9999532462650231,
+  "background_relative_norm": 0.30557870955123434,
+  "frozen_residual_error": 0.0759793059031921,
+  "top_singular_energy_fractions": [
+    0.9010585799326079,
+    0.07638985871193163,
+    0.013462368253917957,
+    0.0038376095876893595,
+    0.0014932969369590775,
+    0.0007875507352971948,
+    0.00042410434902326837,
+    0.0002798778538277013
+  ],
+  "seconds": 5.021358208032325,
+  "scope": "Original trained last-MLP weights, fixed learned output observer q=K w/(wTKw). Centered intermediate-input bilinear scalar, not full model. Rank-one optimum is exact for retained separable covariance metric; trace cutoff quantified. Other fitted terms explicitly included as background. Paired rows are calibration, not fresh/OOD."
+}

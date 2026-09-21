@@ -1,0 +1,125 @@
+{
+  "records": [
+    {
+      "candidate": "frozen",
+      "cohort": "all",
+      "sites": 7680,
+      "native_centered_logit_rms": 0.32948523062132984,
+      "error_centered_logit_rms": 0.07808665251758577,
+      "relative_error": 0.2369959113807109
+    },
+    {
+      "candidate": "frozen",
+      "cohort": "continuation",
+      "sites": 514,
+      "native_centered_logit_rms": 0.9146003794946191,
+      "error_centered_logit_rms": 0.11753859640377341,
+      "relative_error": 0.128513609920785
+    },
+    {
+      "candidate": "frozen",
+      "cohort": "spaced_word",
+      "sites": 4787,
+      "native_centered_logit_rms": 0.08576104415689716,
+      "error_centered_logit_rms": 0.053114714289912275,
+      "relative_error": 0.6193338107304356
+    },
+    {
+      "candidate": "rank1",
+      "cohort": "all",
+      "sites": 7680,
+      "native_centered_logit_rms": 0.32948523062132984,
+      "error_centered_logit_rms": 0.07873390566839909,
+      "relative_error": 0.23896034890524806
+    },
+    {
+      "candidate": "rank1",
+      "cohort": "continuation",
+      "sites": 514,
+      "native_centered_logit_rms": 0.9146003794946191,
+      "error_centered_logit_rms": 0.11852066249884838,
+      "relative_error": 0.1295873751597822
+    },
+    {
+      "candidate": "rank1",
+      "cohort": "spaced_word",
+      "sites": 4787,
+      "native_centered_logit_rms": 0.08576104415689716,
+      "error_centered_logit_rms": 0.053065286341172246,
+      "relative_error": 0.618757465733404
+    },
+    {
+      "candidate": "rank2",
+      "cohort": "all",
+      "sites": 7680,
+      "native_centered_logit_rms": 0.32948523062132984,
+      "error_centered_logit_rms": 0.0599020311772951,
+      "relative_error": 0.18180490538023295
+    },
+    {
+      "candidate": "rank2",
+      "cohort": "continuation",
+      "sites": 514,
+      "native_centered_logit_rms": 0.9146003794946191,
+      "error_centered_logit_rms": 0.1043109159868605,
+      "relative_error": 0.11405081205465889
+    },
+    {
+      "candidate": "rank2",
+      "cohort": "spaced_word",
+      "sites": 4787,
+      "native_centered_logit_rms": 0.08576104415689716,
+      "error_centered_logit_rms": 0.042351229424861664,
+      "relative_error": 0.4938282858051659
+    },
+    {
+      "candidate": "rank3",
+      "cohort": "all",
+      "sites": 7680,
+      "native_centered_logit_rms": 0.32948523062132984,
+      "error_centered_logit_rms": 0.039673685825972034,
+      "relative_error": 0.12041112055662408
+    },
+    {
+      "candidate": "rank3",
+      "cohort": "continuation",
+      "sites": 514,
+      "native_centered_logit_rms": 0.9146003794946191,
+      "error_centered_logit_rms": 0.05231861315018635,
+      "relative_error": 0.057203795584576576
+    },
+    {
+      "candidate": "rank3",
+      "cohort": "spaced_word",
+      "sites": 4787,
+      "native_centered_logit_rms": 0.08576104415689716,
+      "error_centered_logit_rms": 0.02867818589450882,
+      "relative_error": 0.334396417119677
+    },
+    {
+      "candidate": "rank8",
+      "cohort": "all",
+      "sites": 7680,
+      "native_centered_logit_rms": 0.32948523062132984,
+      "error_centered_logit_rms": 0.026964523188817556,
+      "relative_error": 0.08183833654081842
+    },
+    {
+      "candidate": "rank8",
+      "cohort": "continuation",
+      "sites": 514,
+      "native_centered_logit_rms": 0.9146003794946191,
+      "error_centered_logit_rms": 0.04864673605089475,
+      "relative_error": 0.05318906173839058
+    },
+    {
+      "candidate": "rank8",
+      "cohort": "spaced_word",
+      "sites": 4787,
+      "native_centered_logit_rms": 0.08576104415689716,
+      "error_centered_logit_rms": 0.025506846376895324,
+      "relative_error": 0.2974176285707453
+    }
+  ],
+  "scope": "Centered logit RMS per vocabulary coordinate and evaluated site; no threshold change or reclassification of failed spaced-word fidelity gate. CE and logit reconstruction remain distinct."
+}

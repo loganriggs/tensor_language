@@ -21,14 +21,14 @@ Here $a,b,w\in\mathbb R^{1152}$ and $\alpha,\beta$ are frozen calibration center
 
 Local specification: one variable product, two dense readers and one dense writer (3,456 weights plus two centering constants), with the readout-frame mapping shared. This price excludes upstream computation, normalization and the native background; it is not a whole-model extraction or acceleration claim.
 
-The term arose from a six-product local approximation to eight terms of an earlier512-product folded-path approximation. Therefore, it is not automatically a unique exact summand of the original native operator. Its closeness to a corresponding original-weight observable needs direct testing.
+The term arose from a six-product local approximation to eight terms of an earlier512-product folded-path approximation. Therefore, it is not automatically a unique exact summand of the original native operator. Direct original-weight testing now shows that it is nearly the optimal rank-one component of the fixed writer-derived scalar observer: coefficient cosine0.999953, frozen/native-optimal errors31.469%/31.455%. The remaining modes are needed to reconstruct the complete observer.
 
 ## Evidence ledger
 
 | Requirement | Evidence | Remaining gap |
 |---|---|---|
 | Computational specification | Frozen scalar readers/product/output writer above; legal residual intervention | Upstream production still supplied by the model |
-| Weight-derived discovery | Folded source-dependent path; output-sharing factors, joint local refactor | Multiple approximation stages; native-observable grounding needed |
+| Weight-derived discovery | Folded source-dependent path; output-sharing factors, joint local refactor | Original scalar observer checked; full observer and low-energy cohort fidelity remain incomplete |
 | Stable identification | Two converged covariance-half fits have 1.47% removal-effect disagreement on16 unused documents | Teacher and initial selection used all calibration rows; broader split/gauge/OOD robustness absent |
 | Held-out prediction | Frozen continuation hypothesis passes32 new FineWeb rows | Same corpus family; no broad OOD result |
 | Selective manipulation | Removal harms alphabetic-continuation examples while spaced-word average CE stays near zero; norm-matched writer control weaker | Conditions use observed next tokens; broader collateral tasks and controlled minimal pairs absent |
@@ -47,9 +47,17 @@ Do not label this monosemantic, a general word-boundary detector, or a UTF-8 cir
 
 ## Next decisive checks
 
-1. Compare the extracted feature with an original-weight observable along its output direction, rather than only against its approximate teacher.
+1. Preserve the original-observer grounding result and failed full-fidelity gate. Rank-three native effect error is5.72% on continuation sites but33.44% on spaced-word sites; near-zero spaced-word CE is not sufficient.
 2. Test a frozen prediction on code or controlled tokenization examples, keeping current-token identity and perturbation magnitude explicit.
 3. Fold the scalar readers backward through the preceding MLP and test whether their production can be extracted more simply without losing the behavioral effect.
 4. Check composition, interventions on unrelated behaviors and robustness across discovery splits before adoption.
 
 Evidence: `MIDPOINT_STABLE_GROUP_REMOVAL_NATIVE_V1.json`, `MIDPOINT_STABLE_GROUP_PROFILE_V1.json`, `MIDPOINT_STABLE_GROUP_BOUNDARY_AUDIT_V1.json`, `MIDPOINT_CONTINUATION_GROUP_NATIVE_V1.json`, and `MIDPOINT_CONTINUATION_GROUP_AUDIT_V1.json` in the parent directory. [Timed explanation](../../explanations/for_logan/research_update_2026-09-21_0346_continuation_candidate.md).
+
+## Original-weight grounding update, 03:56 UTC
+
+[Grounding report](../../explanations/for_logan/research_update_2026-09-21_0356_original_weight_grounding.md): exact projection of the original centered source-dependent operator has continuation/spaced CE damage0.13290/0.00017 on the reused32-row panel. Its leading mode gives0.12615/−0.00021 and is nearly identical to the discovered product. This supports the dominant native-component interpretation, not a unique global circuit identity.
+
+Two upstream scalar reads now have exact quadratic forms through MLP16. Isotropic90%coefficient-energy ranks480/485 prevent calling this a small standalone upstream extraction. Native normalization and last-MLP input remain external.
+
+Metric limit: the frozen product has99.35% isotropic coefficient error, versus31.47% covariance-weighted error. Isotropic-optimal rank1 still has95.51% isotropic error and98.99% covariance error. The dominant-component statement is explicitly conditional on the calibration input metric, not a globally simple polynomial tensor.

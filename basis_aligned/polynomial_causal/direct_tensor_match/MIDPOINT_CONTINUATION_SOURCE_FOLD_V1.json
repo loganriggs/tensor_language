@@ -1,0 +1,73 @@
+{
+  "records": [
+    {
+      "reader": "a",
+      "replay": 3.877404922877978e-15,
+      "rank_for_coefficient_energy": {
+        "0.9": 480,
+        "0.99": 824,
+        "0.999": 998
+      },
+      "truncation": [
+        {
+          "rank": 1,
+          "coefficient_relative_error": 0.9729813609855039
+        },
+        {
+          "rank": 4,
+          "coefficient_relative_error": 0.9448543543412128
+        },
+        {
+          "rank": 16,
+          "coefficient_relative_error": 0.9024300245453033
+        },
+        {
+          "rank": 64,
+          "coefficient_relative_error": 0.8007618346644808
+        },
+        {
+          "rank": 256,
+          "coefficient_relative_error": 0.5307826088296443
+        }
+      ],
+      "positive_eigenvalues": 574,
+      "negative_eigenvalues": 578
+    },
+    {
+      "reader": "b",
+      "replay": 3.180068455406475e-15,
+      "rank_for_coefficient_energy": {
+        "0.9": 485,
+        "0.99": 826,
+        "0.999": 1000
+      },
+      "truncation": [
+        {
+          "rank": 1,
+          "coefficient_relative_error": 0.9782737855402742
+        },
+        {
+          "rank": 4,
+          "coefficient_relative_error": 0.9506045181060735
+        },
+        {
+          "rank": 16,
+          "coefficient_relative_error": 0.9106246601492792
+        },
+        {
+          "rank": 64,
+          "coefficient_relative_error": 0.8095105787818497
+        },
+        {
+          "rank": 256,
+          "coefficient_relative_error": 0.5375938536507504
+        }
+      ],
+      "positive_eigenvalues": 565,
+      "negative_eigenvalues": 587
+    }
+  ],
+  "lambda17": 1.0234375,
+  "seconds": 0.5539837540127337,
+  "scope": "Exact fold of two scalar reads through preceding bilinear MLP output, excluding Down_bias consistently. z is normalized MLP16 input; its producing normalization and final recipient RMS remain explicit. Isotropic coefficient Frobenius ranks, not Gaussian functional loss or data-informed/native accuracy. h remains an external native input and itself contains upstream computations; no whole-model extraction claim."
+}
