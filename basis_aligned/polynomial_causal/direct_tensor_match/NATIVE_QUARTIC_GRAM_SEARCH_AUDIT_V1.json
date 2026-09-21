@@ -1,0 +1,38 @@
+{
+  "rows": [
+    {
+      "rank": 2,
+      "median_error": 0.09226569781013172,
+      "worst_error": 0.5092930972282467,
+      "below_5pct": 26,
+      "below_1e6": 0,
+      "canonical_median_error": 0.12203429046516057,
+      "dense_leaf_coefficients_per_scalar": 30,
+      "shared_monomial_products_per_context": 15,
+      "root_squares_per_four_output_context": 8
+    },
+    {
+      "rank": 4,
+      "median_error": 0.009575221689421352,
+      "worst_error": 0.11797775545952516,
+      "below_5pct": 58,
+      "below_1e6": 0,
+      "canonical_median_error": 0.0633513626878916,
+      "dense_leaf_coefficients_per_scalar": 60,
+      "shared_monomial_products_per_context": 15,
+      "root_squares_per_four_output_context": 16
+    },
+    {
+      "rank": 8,
+      "median_error": 8.268111541646812e-05,
+      "worst_error": 0.0008277618890993251,
+      "below_5pct": 64,
+      "below_1e6": 2,
+      "canonical_median_error": 0.012064979965168142,
+      "dense_leaf_coefficients_per_scalar": 120,
+      "shared_monomial_products_per_context": 15,
+      "root_squares_per_four_output_context": 32
+    }
+  ],
+  "scope": "Dense leaf pricing: 15 coefficients per quadratic feature per scalar output; shared monomial dictionary computed once per context, root squares4r. Excludes output frame and normalization. Error comparisons same rank, not equal price to original native network."
+}
