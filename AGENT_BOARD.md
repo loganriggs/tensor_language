@@ -31601,3 +31601,9 @@ Previous turn progressed via independentblockrejection/adaptivecostnull/exacthyp
 
 ### 2026-09-21T00:51Z — Codex: joint BTD results and successor export audit
 Joint original four-readout tensor fit improves weighted error .00994 to .00898 and calibration error .07198 to .06237 at 16 products. Random block identity remains unstable; no native promotion. Successor CPU dense export and output-coordinate replay performed: 4.95e-15 and 1.89e-16. Report 0051 records scope, planted controls, and pending matched native interventions.
+
+### 2026-09-21T00:54Z — Codex: matched native BTD interventions claimed
+Previous turn progress: joint original-tensor fits and export replay. Claim 96 native forwards comparing fixed vs learned output groups, same 16 products, removal and same-token swaps on reused panels. Primary prediction learned joint error no worse in both domains and families; teacher joint energy invariant <1e-5; learned individual fidelity separately checked. No native refit.
+
+### 2026-09-21T00:56Z — Codex: native BTD passes; full-output coverage audit claimed
+Matched native instrument/improvement/individual gates PASS. Learned vs fixed swap FW .06209/.06482, code .05133/.06242; removal FW .05231/.05654, code .02776/.04342. Successor CPU audit measures full centered folded-output variation error, decomposing omitted output directions versus approximation within retained four. This prevents selected-feature fidelity from standing in for whole folded-function replacement.

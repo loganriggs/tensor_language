@@ -1,0 +1,19 @@
+{
+  "results": {
+    "fixed": {
+      "full_variation_relative_error": 0.4697035760720699,
+      "omitted_output_relative_error": 0.4653621249201657,
+      "retained_approximation_relative_error": 0.06371453574090838,
+      "normalized_cross_term": 1.3578423504133083e-17,
+      "squared_error_identity_residual": 8.300473195188508e-18
+    },
+    "learned": {
+      "full_variation_relative_error": 0.46862498498577676,
+      "omitted_output_relative_error": 0.4653621249201657,
+      "retained_approximation_relative_error": 0.05520388793113643,
+      "normalized_cross_term": 1.0592379342378303e-17,
+      "squared_error_identity_residual": 3.140401278807445e-17
+    }
+  },
+  "scope": "Original calibration only. Full vocabulary-centered folded-output variation before final normalization/softcap; fixed mean retained. Not native intervention error. Four-output omitted variation explicitly included."
+}
