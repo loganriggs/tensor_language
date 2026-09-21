@@ -1,0 +1,157 @@
+{
+  "rows": [
+    {
+      "seed": 1001,
+      "arm": "calibration_uniform",
+      "solver": {
+        "rank": 512,
+        "relative_smallest_singular": 0.002855573026907588,
+        "stationarity": 6.865152609389278e-16
+      },
+      "calibration": {
+        "value_error": 0.05541167431880465,
+        "sensitive_error": 0.15985986731374233
+      },
+      "evaluation": {
+        "value_error": 0.07172930621047745,
+        "sensitive_error": 0.1492931199833563
+      },
+      "same_token_response_error": 0.14528925028943274
+    },
+    {
+      "seed": 1001,
+      "arm": "calibration_sensitive",
+      "solver": {
+        "rank": 512,
+        "relative_smallest_singular": 0.002642300820930012,
+        "stationarity": 5.308123173911686e-16
+      },
+      "calibration": {
+        "value_error": 0.08461800146412252,
+        "sensitive_error": 0.09235366848367811
+      },
+      "evaluation": {
+        "value_error": 0.10595376925901917,
+        "sensitive_error": 0.16013995737355222
+      },
+      "same_token_response_error": 0.4629891428754179
+    },
+    {
+      "seed": 1001,
+      "arm": "evaluation_sensitive_ORACLE",
+      "solver": {
+        "rank": 512,
+        "relative_smallest_singular": 0.0022593246395443013,
+        "stationarity": 4.1909849033623305e-16
+      },
+      "calibration": {
+        "value_error": 0.1282373320466189,
+        "sensitive_error": 0.2007199709587215
+      },
+      "evaluation": {
+        "value_error": 0.06701097306683113,
+        "sensitive_error": 0.06206113312700579
+      },
+      "same_token_response_error": 0.2941272038678757
+    },
+    {
+      "seed": 1001,
+      "arm": "evaluation_sensitive_pairs_ORACLE",
+      "solver": {
+        "rank": 512,
+        "relative_smallest_singular": 0.0022593246395443013,
+        "unconstrained_stationarity": 4.1909849033623305e-16,
+        "pair_constraint_rank": 20,
+        "pair_constraint_error": 3.5020860488925497e-15,
+        "constrained_stationarity": 1.215490442681795e-16
+      },
+      "calibration": {
+        "value_error": 0.12044187136248619,
+        "sensitive_error": 0.19482502274510655
+      },
+      "evaluation": {
+        "value_error": 0.06529779059130837,
+        "sensitive_error": 0.0632407469134655
+      },
+      "same_token_response_error": 3.5464483294998137e-06
+    },
+    {
+      "seed": 1002,
+      "arm": "calibration_uniform",
+      "solver": {
+        "rank": 512,
+        "relative_smallest_singular": 0.00022098623190071475,
+        "stationarity": 1.2981489718857566e-15
+      },
+      "calibration": {
+        "value_error": 0.05494010158600116,
+        "sensitive_error": 0.16584684282027132
+      },
+      "evaluation": {
+        "value_error": 0.0722927940977137,
+        "sensitive_error": 0.166664489968997
+      },
+      "same_token_response_error": 0.12090143750758234
+    },
+    {
+      "seed": 1002,
+      "arm": "calibration_sensitive",
+      "solver": {
+        "rank": 512,
+        "relative_smallest_singular": 0.00014344520662108823,
+        "stationarity": 6.343827050559901e-16
+      },
+      "calibration": {
+        "value_error": 0.0882125194580295,
+        "sensitive_error": 0.09744463797324013
+      },
+      "evaluation": {
+        "value_error": 0.10539369713418942,
+        "sensitive_error": 0.1675470059178891
+      },
+      "same_token_response_error": 0.24458537102301678
+    },
+    {
+      "seed": 1002,
+      "arm": "evaluation_sensitive_ORACLE",
+      "solver": {
+        "rank": 512,
+        "relative_smallest_singular": 9.263708806687672e-05,
+        "stationarity": 6.607574164696644e-16
+      },
+      "calibration": {
+        "value_error": 0.13090364048803865,
+        "sensitive_error": 0.22869912238091852
+      },
+      "evaluation": {
+        "value_error": 0.07555399021579474,
+        "sensitive_error": 0.06475617315145106
+      },
+      "same_token_response_error": 0.29696209994442696
+    },
+    {
+      "seed": 1002,
+      "arm": "evaluation_sensitive_pairs_ORACLE",
+      "solver": {
+        "rank": 512,
+        "relative_smallest_singular": 9.263708806687672e-05,
+        "unconstrained_stationarity": 6.607574164696644e-16,
+        "pair_constraint_rank": 20,
+        "pair_constraint_error": 4.7175460160134565e-14,
+        "constrained_stationarity": 1.0645566746673657e-16
+      },
+      "calibration": {
+        "value_error": 0.12467338019375106,
+        "sensitive_error": 0.22740461144031995
+      },
+      "evaluation": {
+        "value_error": 0.07300625166908942,
+        "sensitive_error": 0.06611126740578657
+      },
+      "same_token_response_error": 3.5464483485765835e-06
+    }
+  ],
+  "pair_replay": 3.546448329546665e-06,
+  "seconds": 1.3179042669944465,
+  "scope": "Root1 only, fixed CP400 feature directions. SVD least squares rcond1e-12 with column scaling; no ridge. Calibration output labels are used in two arms: this is data-based diagnostic, not weights-only fitting. Evaluation-fitted oracle measures representational capacity on opened rows, NOT generalization or a deployable candidate. No coefficients exported. No full-model finite removal or OOD claim."
+}
