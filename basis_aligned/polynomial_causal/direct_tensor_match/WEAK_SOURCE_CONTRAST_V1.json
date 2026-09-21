@@ -1,0 +1,47 @@
+{
+  "original_output_eigenvalues": [
+    1.1631537528685805,
+    0.6929560145488359,
+    0.1401625945102419,
+    0.0037276380723177535
+  ],
+  "weakest_output_energy_fraction": 0.001863819036158899,
+  "arms": [
+    {
+      "arm": "exact",
+      "component_errors": [
+        2.8480271712765805e-08,
+        5.8889884555977315e-08
+      ]
+    },
+    {
+      "arm": "whole_quadratic_read",
+      "component_errors": [
+        0.07932872314943629,
+        0.06974672051633651
+      ]
+    },
+    {
+      "arm": "centered_quadratic_remainder",
+      "component_errors": [
+        0.01403731914958541,
+        0.006377340391059826
+      ]
+    }
+  ],
+  "output_reweighting_bounds": [
+    {
+      "output_whitening_power": 0,
+      "rank512_coefficient_lower_bound": 0.06397800866425835
+    },
+    {
+      "output_whitening_power": 0.5,
+      "rank512_coefficient_lower_bound": 0.07427098938939336
+    },
+    {
+      "output_whitening_power": 1,
+      "rank512_coefficient_lower_bound": 0.09650495424313539
+    }
+  ],
+  "scope": "Opened-state counterfactual removal of the weakest original output contrast; both whole-read and centered-remainder variants. No target scope reduction or semantic claim. Rank512 bound is a necessary common-input-span bound for256mixed products after specified output reweighting."
+}
