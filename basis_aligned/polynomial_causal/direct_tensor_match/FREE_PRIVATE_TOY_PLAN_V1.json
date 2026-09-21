@@ -1,0 +1,19 @@
+{
+  "created_utc": "2026-09-21T12:49:09.849489+00:00",
+  "steps": 1800,
+  "rate": 0.03,
+  "optimizers": [
+    "adam",
+    "muon"
+  ],
+  "seeds": [
+    0,
+    1
+  ],
+  "threshold": 0.01,
+  "required_cases": 4,
+  "selection": "Lowest geometricmeanerror overall10runs peroptimizer; require4of5within1%usingbestof2starts.",
+  "pred_a": "Five independent oracle/fulltensor/envelope/throughKroneckergradient andfinite-differencecontrols pass.",
+  "pred_b": "Selectedoptimizer recovers>=4of5plantedtargetswithin1%.",
+  "scope": "Freeprivate inputspan withfixedsharedspaces. Nativeintent warmstartfromstrongalternatingfit, not failedspectraljump. No nativefitbeforetoyinterpretation."
+}

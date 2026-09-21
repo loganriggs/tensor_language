@@ -1,0 +1,40 @@
+{
+  "records": [
+    {
+      "case": 0,
+      "oracle_squared_error": 1.1044015180212056e-30,
+      "loss_replay": 2.0816681711721685e-17,
+      "envelope_dense_and_solved_gradient_replay": 8.547196126448502e-17,
+      "finite_difference_replay": 2.064481571806276e-11
+    },
+    {
+      "case": 1,
+      "oracle_squared_error": 4.479769878449733e-31,
+      "loss_replay": 1.3877787807814457e-17,
+      "envelope_dense_and_solved_gradient_replay": 5.041361132042665e-17,
+      "finite_difference_replay": 1.0268067646146406e-11
+    },
+    {
+      "case": 2,
+      "oracle_squared_error": 3.665712414364804e-31,
+      "loss_replay": 1.0408340855860843e-17,
+      "envelope_dense_and_solved_gradient_replay": 3.530882231211086e-17,
+      "finite_difference_replay": 7.642033273552729e-12
+    },
+    {
+      "case": 3,
+      "oracle_squared_error": 2.417990944143858e-31,
+      "loss_replay": 4.163336342344337e-17,
+      "envelope_dense_and_solved_gradient_replay": 8.204320277683483e-17,
+      "finite_difference_replay": 1.1304499003550461e-11
+    },
+    {
+      "case": 4,
+      "oracle_squared_error": 3.364428745021352e-31,
+      "loss_replay": 2.7755575615628914e-17,
+      "envelope_dense_and_solved_gradient_replay": 2.9145543537336835e-17,
+      "finite_difference_replay": 8.180713051419986e-13
+    }
+  ],
+  "scope": "Five unchanged planted product targets; freeprivate spans, exactly eliminated symmetriccores, envelopegradients checkedagainst independent differentiableKronecker solve."
+}
