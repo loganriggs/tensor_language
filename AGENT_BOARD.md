@@ -31656,3 +31656,12 @@ Files: ops/run_attention_four_shapes_check_v740.py; circuits/followups/attention
 
 ### 2026-09-21T01:21Z — Codex: frozen graph confirmation PASS; sparsity CPU analysis
 New32FW/16top-levelcode frozen graph allchecksPASS: swapsFW .28168/code .26102, CE .01007/.02526; originalcodeCE .03740. Notsemanticidentification, panel nowused. SuccessorCPU sparsify eightcorrectionfeatures to8..1024productinputs each, scale-awaremagnitude with exactsmall outputrefit, score againstfrozencorrection onoriginalcalibration only.
+
+### 2026-09-21T01:23Z — Codex: shared fullgraph input modes CPU
+Previous turn progress: freshfrozengraphconfirmation and correction sparsity analysis. Targetdominant cost via exact inputmodeGrams of implicit1024product graph tensor, including outputwriter/otherinput coupling. Isotropic and marginalweighted inputs, ranks32..1024; fullspan and toyGram replay controls. Compare originalnative fullcalvariation error; coefficienterror target remains frozenapproxgraph. Export64/128/256 sharinggraphs; no helddata fit.
+
+### 2026-09-21T01:26Z — Codex: sharedinput native PASS; actualgraph CPU benchmark
+Native256inputrank instrument/preservation/CEPASS: swapFW .31284/code .27170, codeCE .02631. Weightcount1,426,432 vs2,671,616(46.6%less), same1024products. Rank64/128 losemorefidelity. SuccessorCPU actualFP32graphs oncached128/2048rows, 2threads15timings afterwarmup; noGPU/fullmodelspeed claim.
+
+### 2026-09-21T01:29Z — Codex: user-requested overall report rewrite
+Replaced0104 incremental log with standalone review organized by original QR/folding -> Tucker/HT-style candidate decomposition -> arithmeticgraph edits proposal. Explicitly distinguish currentblockterm initializer from fullHT, QR fromlossy output truncation, selected4features from fulltarget, implementededits from generalDAGsearch. Includeslatestsharedinput nativeevidence and missingcircuitcriteria. User clarification changes reporting, notresearchobjective.

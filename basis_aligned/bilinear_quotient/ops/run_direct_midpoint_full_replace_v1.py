@@ -39,7 +39,12 @@ def main():
    for name,e in extra.items():
     phi=(n@e['L'].T)*(m@e['R'].T)+(n@e['R'].T)*(m@e['L'].T)-e['channel_mean'];reduced=phi@e['reduced_writers'].T+e['full_mean']-mu;preds['channel_'+name].append(reduced@invru.T)
    for name,e in product_extra.items():
-    phi=(n@e['A'])*(m@e['B'])-e['product_mean'];reduced=phi@e['reduced_writers'].T+e['full_mean']-mu;preds['product_'+name].append(reduced@invru.T)
+    products=(((n@e['Pn'])@e['Tn'])*((m@e['Pm'])@e['Tm'])) if 'Pn' in e else (n@e['A'])*(m@e['B'])
+    phi=products-e['product_mean']
+    if 'group_writers' in e:
+     groups=e['group_writers'].shape[1];reduced=phi.reshape(len(phi),groups,-1).sum(-1)@e['group_writers'].T+(phi@e['correction_left'])@e['correction_writers'].T
+    else:reduced=phi@e['reduced_writers'].T
+    reduced=reduced+e['full_mean']-mu;preds['product_'+name].append(reduced@invru.T)
   states=torch.cat(states);true=torch.cat(teacher);preds={k:torch.cat(v) for k,v in preds.items()};targets=tokens[:,1:257].reshape(-1).cuda();flat=tokens[:,:256].flatten();mapping=donors[domain]['same_token'];valid=mapping>=0;docs=torch.arange(len(flat))//256;assert torch.all(docs[valid]!=docs[mapping[valid]]) and torch.all(flat[valid]==flat[mapping[valid]])
   for doc in range(len(tokens)):
    idx=torch.arange(doc*256+16,(doc+1)*256,device='cuda');state=states[idx];base=logits(state);basece=F.cross_entropy(base,targets[idx],reduction='none');checks.append(float((logits(state+(true[idx]-true[idx]).float())-base).abs().max()))

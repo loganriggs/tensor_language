@@ -1,0 +1,128 @@
+{
+  "records": [
+    {
+      "metric": "isotropic",
+      "input_rank": 32,
+      "products": 1024,
+      "weight_coefficients": 451584,
+      "full_calibration_variation_error": 0.41467534674992373,
+      "original_mean_full_error": 0.5863436169980725,
+      "change_over_full_variation": 0.35656494163541724,
+      "relative_coefficient_error_to_frozen": 0.7650462434655968
+    },
+    {
+      "metric": "isotropic",
+      "input_rank": 64,
+      "products": 1024,
+      "weight_coefficients": 590848,
+      "full_calibration_variation_error": 0.3582923221842456,
+      "original_mean_full_error": 0.4548922857279593,
+      "change_over_full_variation": 0.2915791497829175,
+      "relative_coefficient_error_to_frozen": 0.7075102597628614
+    },
+    {
+      "metric": "isotropic",
+      "input_rank": 128,
+      "products": 1024,
+      "weight_coefficients": 869376,
+      "full_calibration_variation_error": 0.3142929878324832,
+      "original_mean_full_error": 0.37435849668222965,
+      "change_over_full_variation": 0.23819913792876907,
+      "relative_coefficient_error_to_frozen": 0.6243612594765136
+    },
+    {
+      "metric": "isotropic",
+      "input_rank": 256,
+      "products": 1024,
+      "weight_coefficients": 1426432,
+      "full_calibration_variation_error": 0.2662833836631732,
+      "original_mean_full_error": 0.3078891861569947,
+      "change_over_full_variation": 0.17532788530201965,
+      "relative_coefficient_error_to_frozen": 0.4840477759241621
+    },
+    {
+      "metric": "isotropic",
+      "input_rank": 512,
+      "products": 1024,
+      "weight_coefficients": 2540544,
+      "full_calibration_variation_error": 0.21082863648174247,
+      "original_mean_full_error": 0.2249127994989437,
+      "change_over_full_variation": 0.08501259812408801,
+      "relative_coefficient_error_to_frozen": 0.259856899093341
+    },
+    {
+      "metric": "isotropic",
+      "input_rank": 1024,
+      "products": 1024,
+      "weight_coefficients": 4768768,
+      "full_calibration_variation_error": 0.18921768861812394,
+      "original_mean_full_error": 0.18921768861812346,
+      "change_over_full_variation": 1.6159387120013175e-14,
+      "relative_coefficient_error_to_frozen": 0.0
+    },
+    {
+      "metric": "separable_moment",
+      "input_rank": 32,
+      "products": 1024,
+      "weight_coefficients": 451584,
+      "full_calibration_variation_error": 0.3040994621074747,
+      "original_mean_full_error": 0.30411107770871537,
+      "change_over_full_variation": 0.22273212834836922,
+      "relative_coefficient_error_to_frozen": 0.0715130668319036
+    },
+    {
+      "metric": "separable_moment",
+      "input_rank": 64,
+      "products": 1024,
+      "weight_coefficients": 590848,
+      "full_calibration_variation_error": 0.266331110436216,
+      "original_mean_full_error": 0.26633569270463664,
+      "change_over_full_variation": 0.1715088588850281,
+      "relative_coefficient_error_to_frozen": 0.05493807831112733
+    },
+    {
+      "metric": "separable_moment",
+      "input_rank": 128,
+      "products": 1024,
+      "weight_coefficients": 869376,
+      "full_calibration_variation_error": 0.22789603385823531,
+      "original_mean_full_error": 0.22789800702920474,
+      "change_over_full_variation": 0.11169081079044693,
+      "relative_coefficient_error_to_frozen": 0.035490074297958286
+    },
+    {
+      "metric": "separable_moment",
+      "input_rank": 256,
+      "products": 1024,
+      "weight_coefficients": 1426432,
+      "full_calibration_variation_error": 0.19292280105533383,
+      "original_mean_full_error": 0.19292341532347654,
+      "change_over_full_variation": 0.03173264788068469,
+      "relative_coefficient_error_to_frozen": 0.010000325765167095
+    },
+    {
+      "metric": "separable_moment",
+      "input_rank": 512,
+      "products": 1024,
+      "weight_coefficients": 2540544,
+      "full_calibration_variation_error": 0.189497321717733,
+      "original_mean_full_error": 0.18949734172486174,
+      "change_over_full_variation": 0.008674705293456233,
+      "relative_coefficient_error_to_frozen": 0.002791486076296318
+    },
+    {
+      "metric": "separable_moment",
+      "input_rank": 1024,
+      "products": 1024,
+      "weight_coefficients": 4768768,
+      "full_calibration_variation_error": 0.18921768861775923,
+      "original_mean_full_error": 0.18921768861776037,
+      "change_over_full_variation": 4.3276537292598003e-10,
+      "relative_coefficient_error_to_frozen": 2.359339238109953e-08
+    }
+  ],
+  "toy_gram_replay": 1.5258508375121445e-16,
+  "full_span_replay": 3.4959922699376136e-10,
+  "seconds": 5.42913966299966,
+  "scope": "Shared input subspaces from exact modeGrams of frozen approximate graph, with fixed output metric. Both isotropic and separable input metrics. Means recentered calibration only, original-mean error also reported. Fullnative target calibrationerror separate from coefficienterror relative tofrozen approximation. Noheldfitting."
+}

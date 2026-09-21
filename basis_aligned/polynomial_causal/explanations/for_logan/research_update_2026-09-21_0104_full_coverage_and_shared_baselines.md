@@ -1,189 +1,220 @@
-# Folding and decomposition update — 2026-09-21 01:04 UTC
+# Overall review: from tensor decomposition to shared arithmetic graphs
 
-We have a validated improvement from jointly fitting output-sharing blocks. The larger finding is that our earlier four-output experiments covered only part of the folded function. The current work expands that coverage and compares against a simpler baseline that reuses the model's existing computations.
+Rewritten 21 September 2026, 01:27 UTC. This replaces the incremental experiment log previously at this path.
 
-**Updated at 01:07 UTC:** the coverage sweep and full native replacement test have finished. Results are in the addendum below; the earlier sections preserve the experiment rationale. The shared-channel baseline still has calibration results only.
+**Your original two-stage idea is still the direction:** first use tensor decompositions to discover useful computations; then simplify their arithmetic graph, allowing computations to be shared. We now have a concrete example of that pipeline that approximates a selected folded section of the model. We do **not** yet have a general automatic graph-search system or a set of identified semantic circuits.
 
-## The function we are simplifying
+The strongest progress is that a weight-derived decomposition can be converted into a graph, improved with a small shared correction, and made substantially smaller by sharing its input projections. Native-model tests show useful fidelity, with meaningful remaining error. The initial Tucker/HT experiments did not establish that those methods are incapable of finding circuits.
 
-For the homogeneous bilinear portion of the final MLP,
+## 1. What we set out to do
 
-$$
-B(x)=D[(Lx)\odot(Rx)],
-$$
-
-let $h$ be its input and $m$ the previous MLP's polynomial residual contribution. Define the midpoint $n=h-m/2$. Then
+For the 18-block model, the residual width is 1,152, the bilinear width is 4,608, and the vocabulary has 50,304 tokens. A bilinear MLP computes
 
 $$
-B(h)-B(h-m)
-=D[(Ln)\odot(Rm)+(Rn)\odot(Lm)].
+B(x)=D[(Lx)\odot(Rx)].
 $$
 
-This is the complete contribution involving that source within the final bilinear numerator: it includes both its self-interaction and cross-interactions with the remaining residual input. It is bilinear in the intermediate coordinates $n,m$. Substituting the earlier computations would produce a higher-degree expression.
+Each row of $L$ or $R$ reads one scalar feature from $x$. The elementwise product $\odot$ multiplies corresponding features. The columns of $D$ specify where those products write into the residual stream.
 
-We keep the native normalization denominator explicit; the evaluated $n,m$ coordinates already include that denominator. Final residual context, RMS normalization and logit softcapping remain native operations. Supplying these intermediate states still requires the upstream model. This is not an ablation or replacement of the entire previous MLP.
-
-An **output direction** is a fixed vector describing where a scalar feature writes in residual or reduced-logit space. A **product** multiplies two learned scalar input projections. An **output-sharing block** combines several products that use one output direction. None of these definitions implies a human-interpretable concept.
-
-## Completed: learning output groups helps native interventions
-
-We fitted the original weight-derived four-readout tensor jointly, allowing its output directions to change. Both arms use 16 products. The learned model has the form
-
-$$
-\widehat T_{gij}
-=\sum_{b=1}^{4}W_{gb}\sum_{\ell=1}^{4}A_{ib\ell}B_{jb\ell}.
-$$
-
-The fitted tensor's weighted coefficient error fell from 0.994% to 0.898%; calibration scalar reconstruction error fell from 7.20% to 6.24%. More importantly, the subsequent native-model test improved all four joint comparisons:
-
-| Joint centered-logit intervention error | Fixed output groups | Learned output groups |
-|---|---:|---:|
-| FineWeb removal | 5.65% | 5.23% |
-| FineWeb same-token swap | 6.48% | 6.21% |
-| Code removal | 4.34% | 2.78% |
-| Code same-token swap | 6.24% | 5.13% |
-
-An intervention error compares the predicted logit change with the native computation's logit change. It is not token prediction error. These panels have been reused for diagnostics; fresh confirmation is still required. The joint native reference is invariant under the changed output coordinates, verified to relative energy discrepancy $5.1\times10^{-14}$.
-
-The learned blocks also passed the registered individual swap-fidelity screen. However, random restarts disagreed about block identity, and individual labels change between fits. We have improved a computation, not identified unique semantic units.
-
-## Completed: full-function coverage is the dominant limitation
-
-The selected four output directions omit **46.54% of the calibration variation norm** of the full vocabulary-centered folded contribution. Their retained energy is about 78.3%; norm error and energy fraction are different quantities.
-
-| Full calibration variation error | Fixed output groups | Learned output groups |
-|---|---:|---:|
-| Including omitted output directions | 46.97% | 46.86% |
-| Omitted-direction floor alone | 46.54% | 46.54% |
-
-Thus the improvement inside four features hardly changes full-function error. We must expand output coverage instead of treating excellent selected-feature fidelity as a full replacement.
-
-## Running: broader output coverage and full native replacement
-
-The active sweep fits **4, 16, 64 and 256 output directions**, with **1, 4 or 16 products per direction**, comparing isotropic coefficient error with a separable calibration second-moment metric. The target is the original folded weights; the output basis and moments use calibration data only. Evaluation includes omitted directions and uses reused FineWeb/code panels.
-
-At 256 outputs and four products each, the candidate uses 1,024 products. Counting input projections and residual output writers, its proposed implementation uses 2,654,208 weight coefficients: 6 times fewer than the direct native midpoint representation. Its linear coefficient multiplications are 10 times fewer. These are arithmetic counts for this section, not measured runtime or whole-model speedups.
-
-I implemented an exact grouped evaluator that replaces dense product-to-group bookkeeping with grouped sums and precontracts the residual writer. Its toy replay error is $2.01\times10^{-16}$. Native artifact replay and timing remain to be checked.
-
-The queued native test compares:
-
-- The calibration-mean predictor.
-- Exact projections onto 64 and 256 output directions.
-- The corresponding fitted rank-four programs.
-
-It measures replacement cross-entropy change and full-contribution removal/swap errors. Exact projections isolate the cost of omitted output directions from imperfect product reconstruction.
-
-## New completed calibration baseline: reuse native channels
-
-Independent output fits may duplicate useful computations. As a comparison, retain a subset of native channel computations,
-
-$$
-p_k(n,m)=(L_kn)(R_km)+(R_kn)(L_km),
-$$
-
-and refit their output writers jointly to the entire folded output. Each channel contains two products, with its readers shared across the two inputs. This baseline does not impose a low-dimensional output subspace.
-
-I compared correlation-based channel selection with random selection and solved the output least-squares problem using the empirical joint moment of the original calibration features. This is a data-informed baseline with fixed native readers, not random-initialized feature discovery.
-
-| Retained channels | Products | Correlation selection: calibration full-variation error | Random selection |
-|---|---:|---:|---:|
-| 128 | 256 | 29.66% | 62.37% |
-| 512 | 1,024 | 18.33% | 24.47% |
-| 1,024 | 2,048 | 10.59% | 13.20% |
-
-At 512 channels it uses the same 1,024-product budget as the 256-output/rank-four candidate, with 1,769,472 weight coefficients. **These numbers are training/calibration results only.** The higher-width fits can overfit; held-out and native intervention performance are untested. The comparison motivates evaluating retained native sharing before claiming that a newly learned decomposition is economical.
-
-## What this changes about the research direction
+The proposed workflow was:
 
 ```mermaid
 flowchart TD
- A[Original folded weights] --> B[Learn output-sharing blocks]
- B --> C[Selected-feature native fidelity improved]
- C --> D[Audit full output coverage]
- D --> E[Expand output directions and product budgets]
- A --> F[Retain native shared channels and refit writers]
- E --> G[Compare full-function fidelity and literal costs]
- F --> G
- G --> H[Native replacement and interventions]
- H --> I[Fresh OOD checks, shared DAG search, stable feature identity]
+ A[Choose a section of the trained model] --> B[Fold linear maps and express its tensor implicitly]
+ B --> C[Stage 1: fit Tucker, HT, block terms or other candidate structures]
+ C --> D[Candidate linear features, products and output directions]
+ D --> E[Stage 2: simplify the arithmetic graph and share computations]
+ E --> F[Compare reconstruction error and actual program cost]
+ F --> G[Freeze the program and test it in the native model]
+ G --> H[Check transfer, interventions, reuse and feature identity]
 ```
 
-The evidence supports direct optimization and covariance-aware metrics as useful tools. It does not establish that unrestricted Tucker or HT failed, that the fitted blocks are monosemantic, or that low reconstruction error identifies a unique circuit. Previous signed-block tests explicitly demonstrated that a good sum can conceal unreliable individual components.
+A **tensor decomposition** proposes how to build the function. An **arithmetic graph**, or DAG, records which linear combinations and products are actually computed, and which later computations reuse them. A **circuit**, in the stronger sense we want, needs additional evidence about its behavior and interventions. A compact graph alone is not that evidence.
 
-The next decision depends on the running coverage and native replacement results, followed by a held-out test of the shared-channel baseline. General DAG editing, cross-branch reuse, circuit composition and stable semantic identity remain unfinished. The broader goal remains active.
+## 2. Where QR and folding enter
 
-## Evidence files
+Let $U$ be the unembedding: the matrix mapping residual vectors to vocabulary logits. Before final nonlinear operations, the MLP's projected contribution is
 
-- `direct_tensor_match/MIDPOINT_BTD_NATIVE_V1.json`: completed native comparison.
-- `direct_tensor_match/MIDPOINT_BTD_COVERAGE_V1.json`: four-output coverage audit.
-- `direct_tensor_match/MIDPOINT_CHANNEL_REFIT_V1.json`: completed calibration baseline.
-- `direct_tensor_match/MIDPOINT_COVERAGE_COSTS_V1.json`: explicit arithmetic accounting.
-- `direct_tensor_match/MIDPOINT_COVERAGE_PLAN_V1.md`: running coverage sweep.
-- `direct_tensor_match/MIDPOINT_FULL_REPLACE_PLAN_V1.md`: queued full native test.
+$$
+F(x)=UD[(Lx)\odot(Rx)].
+$$
 
-All paths above are relative to `basis_aligned/polynomial_causal/`. Status is as observed at the report timestamp; pending results are not inferred from calibration fits.
+Our implementation uses the thin QR factorization
 
-## 01:07 UTC addendum: broader results are now complete
+$$
+U=Q R_U,\qquad Q^\top Q=I,
+$$
 
-The 256-output, four-products-per-output program uses 1,024 products. Covariance-weighted fitting materially outperformed isotropic fitting under the full functional metric:
+and folds $R_U$ into the MLP output matrix:
 
-| Full folded-output variation error | Isotropic | Covariance-weighted | Exact output-projection floor |
-|---|---:|---:|---:|
-| FineWeb | 65.70% | 28.02% | 23.31% |
-| Code | 50.84% | 17.97% | 14.79% |
+$$
+\widetilde D=R_U D,\qquad
+F(x)=Q\underbrace{\widetilde D[(Lx)\odot(Rx)]}_{\widetilde F(x)}.
+$$
 
-All registered coverage-sweep checks passed. These are pre-final-normalization errors and remain distinct from native behavior.
+We can therefore work with 1,152 reduced output coordinates instead of 50,304 vocabulary coordinates. This step is **exact**: multiplying by the fixed $Q$ restores the linear vocabulary-space contribution, and preserves Euclidean error. Directly QR-factorizing $UD$, as you proposed, is another way to express this output-space reduction; the implementation here QR-factorizes $U$ and then contracts with $D$.
 
-| Native full-contribution metric | FineWeb | Code |
+**QR is not the lossy decomposition.** Choosing only 4 or 256 output directions later is a separate approximation. Those two operations were too easy to confuse in the earlier report.
+
+We can also fold earlier linear output projections into $L$ and $R$. If an input is assembled as $x=Ez$, its contribution becomes
+
+$$
+\widetilde F(z)=\widetilde D[(LEz)\odot(REz)].
+$$
+
+This defines an **order-three tensor**: one output index and two input indices. “Order three” counts indices; the function is quadratic, not cubic. We evaluate and contract this tensor implicitly rather than allocate its enormous dense array.
+
+Substituting a previous bilinear computation into those input features produces quartic terms and an **order-five tensor**. We explored that route too. RMS normalization, attention normalization and softcapping remain explicit operations; these are not folded into a fixed polynomial tensor.
+
+## 3. What happened in the decomposition stage
+
+We tested planted toy structures, optimizer choices, learning rates, restarts and different notions of reconstruction error. We then tried quadratic and quartic structures on trained weights, including sparse Tucker-style cores, CP/product sums, shared quadratic features and hierarchical constructions.
+
+A Tucker-style candidate has the form
+
+$$
+s=P^\top z,\qquad
+h_g=\sum_{p,q}G_{gpq}s_ps_q,\qquad
+y=Wh.
+$$
+
+Here $s_p$ are learned input features, $G$ specifies their interactions, and $W$ gives each computed feature's output effect. HT extends the organization into a hierarchy over tensor input slots. A general DAG additionally permits reuse across branches.
+
+**There was no single “Tucker/HT failed” result.** The experiments exposed several different issues:
+
+- **Optimization:** representable toy functions sometimes fitted poorly from one initialization or learning rate, then recovered under a different fit. A bad endpoint is not a rank lower bound.
+- **Choice of structure:** a function cheap as a shared computation can be expensive in a flat product representation or an unfavorable hierarchy.
+- **Choice of error metric:** matching every coefficient equally can spend capacity on directions that matter little on model states. Conversely, fitting a data-weighted metric does not establish global coefficient accuracy.
+- **Feature identity:** different decompositions can compute almost the same function while assigning different meanings to their intermediate variables. Sparse or low-rank representations do not resolve this automatically.
+
+The global quartic fits were not sufficiently good or economical to yield the desired circuits. We therefore retained intermediate computations and worked on a more tractable folded path, rather than claiming a successful decomposition of the fully expanded network.
+
+## 4. Which folded function are we working on now?
+
+The current target is the part of the **last bilinear MLP** that depends on the previous MLP's polynomial residual contribution.
+
+Let $h$ be the last MLP's input, and let $m$ be that previous contribution. The target is
+
+$$
+B(h)-B(h-m).
+$$
+
+An early approach concentrated on the previous contribution's self-interaction. But its cross-interactions with the rest of the residual stream also matter. The midpoint identity retains all of them:
+
+$$
+n=h-\frac{m}{2},
+$$
+
+$$
+\boxed{
+B(h)-B(h-m)
+=D[(Ln)\odot(Rm)+(Rn)\odot(Lm)].
+}
+$$
+
+This is bilinear in the intermediate vectors $n$ and $m$. It lets us retain the earlier computation instead of expanding every quartic coefficient. In evaluation, both inputs receive the appropriate native normalization scaling; the recipient residual context and final nonlinear operations remain native.
+
+**Scope:** this is a complete source-dependent contribution within the last MLP. It is not the entire model, and it still needs the upstream model to supply $n$ and $m$.
+
+## 5. Why the report switched from four features to “full coverage”
+
+Initially we reconstructed four selected output features very well. A 16-product program reproduced their joint native swap effects with roughly 5–6% error on a new panel.
+
+That result was real, but its target was limited. The four output directions omitted 46.5% of the calibration variation norm of the whole folded contribution. Good reconstruction of those four features was not a good reconstruction of everything.
+
+We then expanded to 256 output directions and counted the error from **all omitted directions**. That is what the old title meant by “full coverage.” It should have said **evaluation against the full folded contribution**. The representation still omits directions and is approximate.
+
+The current stage-one initializer is an **output-sharing block decomposition**, not an end-to-end HT fit: choose an output basis, then use a rank-four matrix factorization for the bilinear form associated with each output direction. This is one of the candidate structures in the broader Tucker/block-term family.
+
+At four products per output direction, this gives 1,024 products. With the same selected output basis, changing the input-fitting metric made a large difference:
+
+| Full folded-output variation error | Isotropic input metric | Calibration-weighted input metric |
 |---|---:|---:|
-| Replacement CE increase, nats/token | 0.00958 | 0.04257 |
-| Full removal-effect relative error | 23.88% | 16.10% |
-| Full same-token swap-effect relative error | 31.15% | 26.71% |
-| Exact256-output projection swap error | 27.10% | 22.91% |
+| FineWeb diagnostic panel | 65.7% | 28.0% |
+| Related-code diagnostic panel | 50.8% | 18.0% |
 
-The instrument passed and replacement CE stayed below the registered 0.05 threshold on both panels. **The intervention gate failed:** FineWeb swap error was 31.15%, exceeding the preregistered 30% bar. This is not a promoted circuit. Exact output projection passes that bar, so both omitted-output error and product approximation matter.
+These errors are measured before the final native normalization and softcap. They are not token error rates or intervention errors.
 
-For context, the calibration-mean replacement adds 0.13849 nats/token on FineWeb and 0.87762 on code. The broader learned program substantially improves on that baseline, but low CE does not establish faithful interventions, stable identities, or composition.
+**Your covariance suggestion helped.** We explored both isotropic objectives and calibration-informed moments, including a paired-input moment in earlier smaller experiments. The latest program also uses calibration data for output refitting. Its discovery starts from weights, but it is not data-free. Both columns above use the same calibration-selected output basis; this is a comparison of input metrics, not an entirely data-free method against a data-informed one.
 
-A successor CPU check replayed the actual exported256-output program through the grouped evaluator on original calibration positions and passed below1e-12 relative error. This validates the exact rewrite, not measured speed. The next outstanding comparison is held-out/native evaluation of the shared-channel baseline at the same product budget.
+## 6. What we have actually implemented from stage two
 
-## 01:11 UTC addendum: shared-channel baseline and regularization
+The current candidate starts with 1,024 learned products, originally arranged in 256 groups of four. Each group shares an output direction. We have tested concrete graph changes rather than treating that grouping as permanent.
 
-The equal-product native comparison has finished. The shared native-channel baseline does not outperform the learned256-output program, despite its better calibration reconstruction.
+**First, let individual products write beyond their original groups.** An unconstrained output refit overfitted. Regularizing the refit toward zero also lost useful structure. Regularizing toward the original weight-derived writers worked better.
 
-| Full same-token swap error | Learned256-output program | Shared channels | Shared channels + ridge |
-|---|---:|---:|---:|
-| FineWeb | 31.15% | 40.64% | 38.63% |
-| Code | 26.71% | 35.29% | 33.05% |
+**Second, compress the useful correction into shared features.** Eight linear combinations of the existing products retained the correction's benefit. Each product is computed once and feeds both its original group and the correction. No new products are required.
 
-Code replacement CE increases are0.04257,0.07990 and0.06768 nats/token respectively. Both channel versions fail the0.05 code threshold. Instrument checks pass. Regularization helps but does not reverse the comparison.
+**Third, share the input projections.** The latest experiment finds common input subspaces from contractions of the joint tensor, taking both the other input factors and output writers into account. This is more informed than compressing each matrix independently.
 
-Ridge0.1 was selected using complementary16-document halves of the original calibration panel: mean conditional validation error fell from42.41% to34.67%. Channel selection used the full calibration panel, so this is conditional output-fit validation rather than an independent validation of channel selection. No held native outcomes selected the penalty.
+The graph now has this structure:
 
-The successor experiment exposes all1,024 learned products individually and refits their output writes, allowing them to escape the original256 output groups. This instantiates the proposed graph edit of splitting an output-shared feature. It increases output-weight storage and does not yet save products. Initial conditional calibration validation warns of severe overfitting: unregularized average error295.6%, reduced to42.9% with ridge0.1. Native testing is pending. A useful next control is regularizing around the original weight-derived writers rather than around zero, preserving their prior structure while fitting residual errors.
+```mermaid
+flowchart TD
+ N[Normalized midpoint input] --> PN[256 shared linear input features]
+ M[Normalized previous-source input] --> PM[256 shared linear input features]
+ PN --> A[Linear combinations for product inputs]
+ PM --> B[Linear combinations for product inputs]
+ A --> P[1024 products, computed once]
+ B --> P
+ P --> G[256 original output-group sums]
+ P --> C[8 shared linear correction features]
+ G --> Y[Output writes and calibration mean]
+ C --> Y
+```
 
-## 01:15 UTC addendum: a weight-anchored graph correction helps
+The eight correction features are continuous linear combinations of products. They are not automatically eight interpretable concepts.
 
-The zero-centered output refit discarded useful weight-derived structure. Penalizing departure from the original writers instead, with penalty10 selected by conditional calibration-document validation, improved native results at the same1,024product count:
-
-| Metric | Original grouped writers | Dense anchored correction |
+| Executable graph | Products | Weight coefficients |
 |---|---:|---:|
-| FineWeb swap error | 31.15% | 30.55% |
-| Code swap error | 26.71% | 26.37% |
-| FineWeb replacement CE added | 0.00958 | 0.00955 |
-| Code replacement CE added | 0.04257 | 0.03032 |
+| Products with grouped output writers | 1,024 | 2,654,208 |
+| Add eight shared correction features | 1,024 | 2,671,616 |
+| Also share 256 input features on each side | 1,024 | 1,426,432 |
 
-The relative-improvement and CE checks pass, but FineWeb remains above the earlier absolute30% intervention bar. We do not promote this as a completed circuit.
+Means are accounted for separately. These counts cover the folded section, not upstream computation or the whole model. The latest graph cuts weight storage by about 47% relative to the corrected graph. A small CPU benchmark also ran faster, but we have not established whole-model or GPU speedup.
 
-A successor computation compresses the output correction into shared linear features of the existing products. For product vector $p$, the write becomes the original grouped write plus $(p^\top A_r)B_r^\top$. This retains all1,024products and adds only linear combinations. Rank8 adds17,408coefficients, bringing weight storage to2,671,616; its conditional calibration error is18.92%. An exact flat-versus-graph replay passed below1e-12. Rank8/32 native tests are queued with a rank0 mean-only control. The broader contribution is moving from a decomposition into a graph with reusable corrections; feature semantics and identification remain unproved.
+**What remains missing from stage two:** a general search that proposes arbitrary graph edits, changes topology, merges intermediate computations across depths and jointly refits them. We have tested selected edits and exported executable graphs. We have not built the full automatic search procedure you proposed.
 
-## 01:16 UTC addendum: compact graph correction passes its preservation test
+## 7. What the native-model tests say
 
-The rank8 correction passed its registered instrument, dense-correction preservation and CE-gain tests. Its swap errors are30.76% on FineWeb and26.59% on code; replacement CE increases are0.00963 and0.02982 nats/token. It retains the benefit with only17,408 extra weight coefficients and no new products. The original absolute30% FineWeb intervention bar remains unmet.
+There are two distinct questions:
 
-The mean-only control leaves swaps exactly unchanged, as algebra requires; its code CE increase is0.03688 versus0.02982 with the correction. Thus part of the replacement benefit comes from mean adjustment, and the learned correction supplies additional improvement.
+- **Replacement:** if we substitute the approximation, how much does next-token cross-entropy increase? Lower is better; zero would preserve the native loss on that panel.
+- **Intervention:** if we remove or swap the computation, how closely does the approximation reproduce the native logit change? This is a relative error in the change, not in the original logits.
 
-The actual structured graph computes each of1,024 products once, routes them to256 original group sums and8 shared correction features, then writes both to the output. A CPU replay of this graph against its flat matrix export passed below1e-12 on128 original calibration positions. Means and coefficients are counted separately. This is a concrete reuse-capable graph, but it is not yet a general discrete graph search or a set of identified semantic circuits.
+For the corrected graph **before input sharing**, we froze its weights and tested new documents: 32 FineWeb documents and 16 previously unused top-level Python files from this repository.
 
-Latest follow-up: [01:21 frozen graph confirmation](research_update_2026-09-21_0121_frozen_graph_confirmation.md).
+| New-panel result | FineWeb | Related local code |
+|---|---:|---:|
+| Replacement cross-entropy increase, nats/token | 0.0101 | 0.0253 |
+| Full-contribution removal-effect error | 22.29% | 15.53% |
+| Full-contribution same-token swap-effect error | 28.17% | 26.10% |
+
+The correction lowered code replacement loss from 0.0374 to 0.0253 nats/token. The registered confirmation checks passed. The code panel is not broad external OOD, and pretraining overlap is unknown.
+
+The **new input-sharing graph** has so far been tested on the older reused diagnostic panels. Its swap errors were 31.28% on FineWeb and 27.17% on code, within the registered 5% relative degradation allowance against the larger graph on those same panels. It passed that preservation test, but has not received its own fresh-panel confirmation. Its FineWeb result remains above the earlier 30% absolute intervention threshold.
+
+Do not compare the early 5–6% figure directly with these 28–31% figures: the former concerned four selected output features; the latter includes the entire varying folded contribution.
+
+## 8. What the shared baselines taught us
+
+We also tried retaining native channels and refitting their output writers, instead of learning new factors. At the same 1,024-product budget, that baseline looked better on calibration data but transferred worse in native interventions. Regularization helped without reversing the comparison.
+
+This is why the report contains negative results: they prevent us from mistaking a good training fit for a useful circuit. Likewise, splitting a good combined computation into positive and negative components produced unreliable individual interventions, and exact algebraic controls showed that different components could implement the same total function.
+
+Our current conclusion is therefore specific:
+
+**Decomposition has supplied useful building blocks, and several graph edits have improved their fidelity or cost. Covariance information and weight-anchored fitting helped. We have not shown that the resulting features are uniquely identified, monosemantic, reusable across arbitrary contexts, or composable with other replacements.**
+
+The next work should test the smaller shared-input graph beyond reused panels, pursue graph changes that save products as well as projections, and establish the behavioral meaning and selective manipulability of intermediate features. Merely getting another low reconstruction error would not complete the goal.
+
+## Evidence and further detail
+
+This is the overall review. Individual measurements and caveats are retained in:
+
+- [Fresh corrected-graph confirmation](research_update_2026-09-21_0121_frozen_graph_confirmation.md).
+- [Full-coverage sweep results](../../direct_tensor_match/MIDPOINT_COVERAGE_SWEEP_V1.json).
+- [Weight-anchored output refit](../../direct_tensor_match/MIDPOINT_PRODUCT_REFIT_NATIVE_V1.json).
+- [Shared-input graph results](../../direct_tensor_match/MIDPOINT_SHARED_GRAPH_NATIVE_V1.json).
+
+The full research objective remains open. The current object is a compact, partially validated arithmetic approximation of a defined folded path—not yet the final interpretable circuit discovery system.
