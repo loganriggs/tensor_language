@@ -1,0 +1,35 @@
+{
+  "records": [
+    {
+      "dimension": 3,
+      "unregularized_reference_error": 2.6991730803767677e-08,
+      "lifted_lstsq_error": 8.985752385984545e-16,
+      "envelope_directional_error": 2.1862235312609898e-07
+    },
+    {
+      "dimension": 4,
+      "unregularized_reference_error": 1.8897977350957626e-10,
+      "lifted_lstsq_error": 1.478961366893923e-16,
+      "envelope_directional_error": 2.9291035823517964e-10
+    },
+    {
+      "dimension": 5,
+      "unregularized_reference_error": 5.005973123783676e-11,
+      "lifted_lstsq_error": 1.5397055905185103e-16,
+      "envelope_directional_error": 2.0532018494266366e-10
+    },
+    {
+      "dimension": 6,
+      "unregularized_reference_error": 1.7377901987021463e-10,
+      "lifted_lstsq_error": 1.1195581595665363e-16,
+      "envelope_directional_error": 2.2048362154750776e-10
+    },
+    {
+      "dimension": 7,
+      "unregularized_reference_error": 1.0145360825601524e-10,
+      "lifted_lstsq_error": 2.1558147409118698e-16,
+      "envelope_directional_error": 1.0768199612595893e-10
+    }
+  ],
+  "correction": "Initial reference omitted the 1e-10 Gram ridge and failed at2.70e-8. Correct augmented least squares includes the identical ridge; numerical tolerances unchanged."
+}

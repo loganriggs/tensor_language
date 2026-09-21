@@ -1,0 +1,1641 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_family_recovery": false,
+    "pred_c_common_configuration": false
+  },
+  "records": [
+    {
+      "coefficient_error": 2.1073424255447017e-08,
+      "response_error": 2.0842660422697464e-10,
+      "signed_coefficient_squared": 4.440892098500626e-16,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 0.9606787061903224,
+          "response_squared": 0.914769568765753
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.042117068633108934,
+          "response_squared": 0.03181481051008115
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.03415540647961901,
+          "response_squared": 0.026029110409418046
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.02061254632163223,
+          "response_squared": 0.014649466952067765
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.0032453917026458168,
+          "response_squared": 0.002316454287749567
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.0016250638664701,
+          "response_squared": 0.0011490738201382414
+        },
+        {
+          "step": 600,
+          "coefficient_squared": 0.0004803193024440766,
+          "response_squared": 0.0003293551463896653
+        },
+        {
+          "step": 700,
+          "coefficient_squared": 8.195423306589511e-05,
+          "response_squared": 5.663297763227461e-05
+        },
+        {
+          "step": 800,
+          "coefficient_squared": 9.659568984687894e-06,
+          "response_squared": 6.621565202977839e-06
+        },
+        {
+          "step": 900,
+          "coefficient_squared": 8.645916733662773e-07,
+          "response_squared": 5.878906380221982e-07
+        },
+        {
+          "step": 1000,
+          "coefficient_squared": 6.563620491562006e-08,
+          "response_squared": 4.446737444067304e-08
+        },
+        {
+          "step": 1100,
+          "coefficient_squared": 4.58087101584681e-09,
+          "response_squared": 3.099392619008053e-09
+        },
+        {
+          "step": 1200,
+          "coefficient_squared": 3.094897671473973e-10,
+          "response_squared": 2.0931277049553116e-10
+        },
+        {
+          "step": 1300,
+          "coefficient_squared": 2.1076695944088897e-11,
+          "response_squared": 1.4252729864671211e-11
+        },
+        {
+          "step": 1400,
+          "coefficient_squared": 1.5001333508735115e-12,
+          "response_squared": 1.014619176625217e-12
+        },
+        {
+          "step": 1500,
+          "coefficient_squared": 1.1524114995609125e-13,
+          "response_squared": 7.811192437742226e-14
+        },
+        {
+          "step": 1600,
+          "coefficient_squared": 9.769962616701378e-15,
+          "response_squared": 6.707655797694405e-15
+        },
+        {
+          "step": 1700,
+          "coefficient_squared": 1.1102230246251565e-15,
+          "response_squared": 6.596932014113298e-16
+        },
+        {
+          "step": 1800,
+          "coefficient_squared": 4.440892098500626e-16,
+          "response_squared": 7.576981170044597e-17
+        },
+        {
+          "step": 1900,
+          "coefficient_squared": 0.0,
+          "response_squared": 1.0265513438952632e-17
+        },
+        {
+          "step": 2000,
+          "coefficient_squared": 2.220446049250313e-16,
+          "response_squared": 1.6471770595052455e-18
+        },
+        {
+          "step": 2100,
+          "coefficient_squared": -6.661338147750939e-16,
+          "response_squared": 3.233980248081293e-19
+        },
+        {
+          "step": 2200,
+          "coefficient_squared": 0.0,
+          "response_squared": 9.186055411267055e-20
+        },
+        {
+          "step": 2300,
+          "coefficient_squared": 0.0,
+          "response_squared": 4.8440365358776203e-20
+        },
+        {
+          "step": 2400,
+          "coefficient_squared": 2.220446049250313e-16,
+          "response_squared": 4.1012131341963425e-20
+        },
+        {
+          "step": 2500,
+          "coefficient_squared": -2.220446049250313e-16,
+          "response_squared": 4.0690941374135674e-20
+        },
+        {
+          "step": 2600,
+          "coefficient_squared": 4.440892098500626e-16,
+          "response_squared": 4.153352901409135e-20
+        },
+        {
+          "step": 2700,
+          "coefficient_squared": -4.440892098500626e-16,
+          "response_squared": 4.231904886465076e-20
+        },
+        {
+          "step": 2800,
+          "coefficient_squared": 2.220446049250313e-16,
+          "response_squared": 4.28614686162212e-20
+        },
+        {
+          "step": 2900,
+          "coefficient_squared": 2.220446049250313e-16,
+          "response_squared": 4.3203802963974776e-20
+        }
+      ],
+      "family": "independent_products",
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 1.4901161193847656e-08,
+      "response_error": 2.3130778364320284e-10,
+      "signed_coefficient_squared": 2.220446049250313e-16,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 0.9428945958864156,
+          "response_squared": 0.9347770003278637
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.04407788793622203,
+          "response_squared": 0.03592577369916481
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.03404896629008625,
+          "response_squared": 0.027480038988805293
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.005680215850965897,
+          "response_squared": 0.004533778017426641
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.0001306649462389231,
+          "response_squared": 8.921966201803963e-05
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 5.855887138750404e-06,
+          "response_squared": 4.497542190572692e-06
+        },
+        {
+          "step": 600,
+          "coefficient_squared": 3.9679292473948635e-07,
+          "response_squared": 3.0739901604483524e-07
+        },
+        {
+          "step": 700,
+          "coefficient_squared": 3.837796613836986e-08,
+          "response_squared": 2.883105534115453e-08
+        },
+        {
+          "step": 800,
+          "coefficient_squared": 4.575126055783585e-09,
+          "response_squared": 3.370206969572117e-09
+        },
+        {
+          "step": 900,
+          "coefficient_squared": 5.491651577926859e-10,
+          "response_squared": 4.0144054444995406e-10
+        },
+        {
+          "step": 1000,
+          "coefficient_squared": 6.248956907484171e-11,
+          "response_squared": 4.5553852488162824e-11
+        },
+        {
+          "step": 1100,
+          "coefficient_squared": 6.7976735351749085e-12,
+          "response_squared": 4.950503365049442e-12
+        },
+        {
+          "step": 1200,
+          "coefficient_squared": 7.247535904753022e-13,
+          "response_squared": 5.27732584684574e-13
+        },
+        {
+          "step": 1300,
+          "coefficient_squared": 7.771561172376096e-14,
+          "response_squared": 5.675133682199724e-14
+        },
+        {
+          "step": 1400,
+          "coefficient_squared": 9.325873406851315e-15,
+          "response_squared": 6.337164950967212e-15
+        },
+        {
+          "step": 1500,
+          "coefficient_squared": 8.881784197001252e-16,
+          "response_squared": 7.568992709994216e-16
+        },
+        {
+          "step": 1600,
+          "coefficient_squared": 0.0,
+          "response_squared": 9.982159790366145e-17
+        },
+        {
+          "step": 1700,
+          "coefficient_squared": 2.220446049250313e-16,
+          "response_squared": 1.5102302411220234e-17
+        },
+        {
+          "step": 1800,
+          "coefficient_squared": 6.661338147750939e-16,
+          "response_squared": 2.7646437928947055e-18
+        },
+        {
+          "step": 1900,
+          "coefficient_squared": -2.220446049250313e-16,
+          "response_squared": 6.631759027035942e-19
+        },
+        {
+          "step": 2000,
+          "coefficient_squared": 2.220446049250313e-16,
+          "response_squared": 2.2889209276454387e-19
+        },
+        {
+          "step": 2100,
+          "coefficient_squared": -2.220446049250313e-16,
+          "response_squared": 1.169987297224694e-19
+        },
+        {
+          "step": 2200,
+          "coefficient_squared": 0.0,
+          "response_squared": 8.100144049310321e-20
+        },
+        {
+          "step": 2300,
+          "coefficient_squared": 0.0,
+          "response_squared": 6.694030638684862e-20
+        },
+        {
+          "step": 2400,
+          "coefficient_squared": 0.0,
+          "response_squared": 6.055406620377566e-20
+        },
+        {
+          "step": 2500,
+          "coefficient_squared": 2.220446049250313e-16,
+          "response_squared": 5.732480772362458e-20
+        },
+        {
+          "step": 2600,
+          "coefficient_squared": 4.440892098500626e-16,
+          "response_squared": 5.557448631818061e-20
+        },
+        {
+          "step": 2700,
+          "coefficient_squared": -4.440892098500626e-16,
+          "response_squared": 5.459129732132399e-20
+        },
+        {
+          "step": 2800,
+          "coefficient_squared": 2.220446049250313e-16,
+          "response_squared": 5.403416491628805e-20
+        },
+        {
+          "step": 2900,
+          "coefficient_squared": 0.0,
+          "response_squared": 5.371433138968485e-20
+        }
+      ],
+      "family": "independent_products",
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.0,
+      "response_error": 1.585767222056379e-10,
+      "signed_coefficient_squared": -4.440892098500626e-16,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 0.9866336176216142,
+          "response_squared": 0.9315154757878813
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.013559559486204353,
+          "response_squared": 0.009813704058018471
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.0003911646734253704,
+          "response_squared": 0.0002538910616805383
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 7.226898894874267e-07,
+          "response_squared": 4.566260112299658e-07
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 3.3610070282463766e-10,
+          "response_squared": 2.1282862992886717e-10
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 4.6629367034256575e-15,
+          "response_squared": 2.6209525443946645e-15
+        },
+        {
+          "step": 600,
+          "coefficient_squared": 0.0,
+          "response_squared": 1.8692571926182138e-19
+        },
+        {
+          "step": 700,
+          "coefficient_squared": -2.220446049250313e-16,
+          "response_squared": 2.50087244522541e-20
+        },
+        {
+          "step": 800,
+          "coefficient_squared": 0.0,
+          "response_squared": 2.514719967264119e-20
+        },
+        {
+          "step": 900,
+          "coefficient_squared": 2.220446049250313e-16,
+          "response_squared": 2.5146636409620908e-20
+        },
+        {
+          "step": 1000,
+          "coefficient_squared": 0.0,
+          "response_squared": 2.5146699602541236e-20
+        },
+        {
+          "step": 1100,
+          "coefficient_squared": 4.440892098500626e-16,
+          "response_squared": 2.5146630805765952e-20
+        },
+        {
+          "step": 1200,
+          "coefficient_squared": -2.220446049250313e-16,
+          "response_squared": 2.514665610852543e-20
+        },
+        {
+          "step": 1300,
+          "coefficient_squared": 6.661338147750939e-16,
+          "response_squared": 2.5146644176489783e-20
+        },
+        {
+          "step": 1400,
+          "coefficient_squared": -2.220446049250313e-16,
+          "response_squared": 2.514667730594067e-20
+        },
+        {
+          "step": 1500,
+          "coefficient_squared": 4.440892098500626e-16,
+          "response_squared": 2.5146650249971507e-20
+        },
+        {
+          "step": 1600,
+          "coefficient_squared": -2.220446049250313e-16,
+          "response_squared": 2.5146658133272955e-20
+        },
+        {
+          "step": 1700,
+          "coefficient_squared": 0.0,
+          "response_squared": 2.514667525467417e-20
+        },
+        {
+          "step": 1800,
+          "coefficient_squared": 0.0,
+          "response_squared": 2.5146604257542056e-20
+        },
+        {
+          "step": 1900,
+          "coefficient_squared": 2.220446049250313e-16,
+          "response_squared": 2.5146608816146566e-20
+        },
+        {
+          "step": 2000,
+          "coefficient_squared": 2.220446049250313e-16,
+          "response_squared": 2.514664035352163e-20
+        },
+        {
+          "step": 2100,
+          "coefficient_squared": 0.0,
+          "response_squared": 2.5146636970430634e-20
+        },
+        {
+          "step": 2200,
+          "coefficient_squared": -2.220446049250313e-16,
+          "response_squared": 2.5146614174861503e-20
+        },
+        {
+          "step": 2300,
+          "coefficient_squared": 4.440892098500626e-16,
+          "response_squared": 2.514660029436822e-20
+        },
+        {
+          "step": 2400,
+          "coefficient_squared": 2.220446049250313e-16,
+          "response_squared": 2.514664361691953e-20
+        },
+        {
+          "step": 2500,
+          "coefficient_squared": 0.0,
+          "response_squared": 2.5146642948232285e-20
+        },
+        {
+          "step": 2600,
+          "coefficient_squared": 0.0,
+          "response_squared": 2.5146630280948098e-20
+        },
+        {
+          "step": 2700,
+          "coefficient_squared": 2.220446049250313e-16,
+          "response_squared": 2.5146640237591923e-20
+        },
+        {
+          "step": 2800,
+          "coefficient_squared": -2.220446049250313e-16,
+          "response_squared": 2.514662647775385e-20
+        },
+        {
+          "step": 2900,
+          "coefficient_squared": 0.0,
+          "response_squared": 2.5146620496239978e-20
+        }
+      ],
+      "family": "shared_input",
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.0,
+      "response_error": 1.2509478523245221e-09,
+      "signed_coefficient_squared": -4.440892098500626e-16,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 0.9334600993784393,
+          "response_squared": 0.8882328352368662
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.018241271148962346,
+          "response_squared": 0.013955405004453006
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.00026608632597535653,
+          "response_squared": 0.00016595957566131118
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 2.5638808853756245e-07,
+          "response_squared": 1.5647245931251098e-07
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 3.273469051379152e-09,
+          "response_squared": 2.352588913376452e-09
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 1.5187850976872141e-13,
+          "response_squared": 1.1069388818120343e-13
+        },
+        {
+          "step": 600,
+          "coefficient_squared": 1.1519564184769848e-06,
+          "response_squared": 8.325915159485038e-07
+        },
+        {
+          "step": 700,
+          "coefficient_squared": 9.05588715127692e-10,
+          "response_squared": 6.188421154152775e-10
+        },
+        {
+          "step": 800,
+          "coefficient_squared": 3.419486915845482e-14,
+          "response_squared": 2.363932891984082e-14
+        },
+        {
+          "step": 900,
+          "coefficient_squared": 1.1102230246251565e-15,
+          "response_squared": 1.6810429144369574e-18
+        },
+        {
+          "step": 1000,
+          "coefficient_squared": 8.206768598029157e-13,
+          "response_squared": 5.627802071422739e-13
+        },
+        {
+          "step": 1100,
+          "coefficient_squared": 1.222724099747552e-08,
+          "response_squared": 8.50762096952426e-09
+        },
+        {
+          "step": 1200,
+          "coefficient_squared": 1.425526363618701e-13,
+          "response_squared": 9.790060404684807e-14
+        },
+        {
+          "step": 1300,
+          "coefficient_squared": -4.440892098500626e-16,
+          "response_squared": 9.774307967354307e-18
+        },
+        {
+          "step": 1400,
+          "coefficient_squared": -2.220446049250313e-16,
+          "response_squared": 1.5659334348931271e-18
+        },
+        {
+          "step": 1500,
+          "coefficient_squared": 2.220446049250313e-16,
+          "response_squared": 1.5649392609371733e-18
+        },
+        {
+          "step": 1600,
+          "coefficient_squared": 6.661338147750939e-16,
+          "response_squared": 1.5649321235583002e-18
+        },
+        {
+          "step": 1700,
+          "coefficient_squared": 2.220446049250313e-16,
+          "response_squared": 1.5649230500315899e-18
+        },
+        {
+          "step": 1800,
+          "coefficient_squared": -2.220446049250313e-16,
+          "response_squared": 1.5649182955920042e-18
+        },
+        {
+          "step": 1900,
+          "coefficient_squared": -6.661338147750939e-16,
+          "response_squared": 1.5649121657445073e-18
+        },
+        {
+          "step": 2000,
+          "coefficient_squared": 2.220446049250313e-16,
+          "response_squared": 1.5649029473984497e-18
+        },
+        {
+          "step": 2100,
+          "coefficient_squared": 2.220446049250313e-16,
+          "response_squared": 1.5648990586522387e-18
+        },
+        {
+          "step": 2200,
+          "coefficient_squared": 0.0,
+          "response_squared": 1.5648947509292875e-18
+        },
+        {
+          "step": 2300,
+          "coefficient_squared": 4.440892098500626e-16,
+          "response_squared": 1.5648885611262093e-18
+        },
+        {
+          "step": 2400,
+          "coefficient_squared": 1.5543122344752192e-15,
+          "response_squared": 1.5648856250162621e-18
+        },
+        {
+          "step": 2500,
+          "coefficient_squared": 2.220446049250313e-16,
+          "response_squared": 1.564881578647691e-18
+        },
+        {
+          "step": 2600,
+          "coefficient_squared": 6.661338147750939e-16,
+          "response_squared": 1.5648786175451259e-18
+        },
+        {
+          "step": 2700,
+          "coefficient_squared": -2.220446049250313e-16,
+          "response_squared": 1.5648756193832855e-18
+        },
+        {
+          "step": 2800,
+          "coefficient_squared": -4.440892098500626e-16,
+          "response_squared": 1.564873150963318e-18
+        },
+        {
+          "step": 2900,
+          "coefficient_squared": 0.0,
+          "response_squared": 1.564871945387537e-18
+        }
+      ],
+      "family": "shared_input",
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.00014472932600410608,
+      "response_error": 0.00011653037810479141,
+      "signed_coefficient_squared": 2.094657780560282e-08,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.0048502589055939,
+          "response_squared": 0.9492599591854199
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.001748272279467943,
+          "response_squared": 0.001442607183839304
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 3.10887873045118e-06,
+          "response_squared": 2.1528161808629243e-06
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 7.827396997228671e-08,
+          "response_squared": 5.050474154727887e-08
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 7.583912564612656e-08,
+          "response_squared": 4.8831550919755536e-08
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 7.303977023198624e-08,
+          "response_squared": 4.704445667093419e-08
+        },
+        {
+          "step": 600,
+          "coefficient_squared": 6.995849810564889e-08,
+          "response_squared": 4.507550401914241e-08
+        },
+        {
+          "step": 700,
+          "coefficient_squared": 6.66508261915055e-08,
+          "response_squared": 4.296040229927118e-08
+        },
+        {
+          "step": 800,
+          "coefficient_squared": 6.317424228186039e-08,
+          "response_squared": 4.0735654528970134e-08
+        },
+        {
+          "step": 900,
+          "coefficient_squared": 5.9588215250982986e-08,
+          "response_squared": 3.843912815739711e-08
+        },
+        {
+          "step": 1000,
+          "coefficient_squared": 5.595333130159472e-08,
+          "response_squared": 3.6109517090779306e-08
+        },
+        {
+          "step": 1100,
+          "coefficient_squared": 5.23296712628962e-08,
+          "response_squared": 3.3785303857704876e-08
+        },
+        {
+          "step": 1200,
+          "coefficient_squared": 4.877475445752564e-08,
+          "response_squared": 3.150343963117757e-08
+        },
+        {
+          "step": 1300,
+          "coefficient_squared": 4.5341381760266566e-08,
+          "response_squared": 2.9297951237414904e-08
+        },
+        {
+          "step": 1400,
+          "coefficient_squared": 4.2075696704557666e-08,
+          "response_squared": 2.7198672592110063e-08
+        },
+        {
+          "step": 1500,
+          "coefficient_squared": 3.901568934594477e-08,
+          "response_squared": 2.5230265409902576e-08
+        },
+        {
+          "step": 1600,
+          "coefficient_squared": 3.619033916990587e-08,
+          "response_squared": 2.3411638405118265e-08
+        },
+        {
+          "step": 1700,
+          "coefficient_squared": 3.361943123891818e-08,
+          "response_squared": 2.1755804197486066e-08
+        },
+        {
+          "step": 1800,
+          "coefficient_squared": 3.1313998505311234e-08,
+          "response_squared": 2.0270142873783212e-08
+        },
+        {
+          "step": 1900,
+          "coefficient_squared": 2.9277259727678016e-08,
+          "response_squared": 1.895698449986434e-08
+        },
+        {
+          "step": 2000,
+          "coefficient_squared": 2.7505846489361816e-08,
+          "response_squared": 1.781438881574727e-08
+        },
+        {
+          "step": 2100,
+          "coefficient_squared": 2.599112969292604e-08,
+          "response_squared": 1.6836990952311103e-08
+        },
+        {
+          "step": 2200,
+          "coefficient_squared": 2.472045412815759e-08,
+          "response_squared": 1.60167932172405e-08
+        },
+        {
+          "step": 2300,
+          "coefficient_squared": 2.3678133675986136e-08,
+          "response_squared": 1.5343807315750222e-08
+        },
+        {
+          "step": 2400,
+          "coefficient_squared": 2.284611300140681e-08,
+          "response_squared": 1.4806481028947928e-08
+        },
+        {
+          "step": 2500,
+          "coefficient_squared": 2.2204231786560048e-08,
+          "response_squared": 1.439187273804858e-08
+        },
+        {
+          "step": 2600,
+          "coefficient_squared": 2.1730080401738395e-08,
+          "response_squared": 1.4085563864983004e-08
+        },
+        {
+          "step": 2700,
+          "coefficient_squared": 2.1398481653278613e-08,
+          "response_squared": 1.3871324050914925e-08
+        },
+        {
+          "step": 2800,
+          "coefficient_squared": 2.1180637688189553e-08,
+          "response_squared": 1.37305696661699e-08
+        },
+        {
+          "step": 2900,
+          "coefficient_squared": 2.1043081499527706e-08,
+          "response_squared": 1.3641686856911796e-08
+        }
+      ],
+      "family": "shared_output",
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.001056621638009312,
+      "response_error": 0.0008445132415651598,
+      "signed_coefficient_squared": 1.1164492859094817e-06,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 0.8848379354633293,
+          "response_squared": 0.8795087138500194
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.004797696148832296,
+          "response_squared": 0.0035544863996081304
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.0030139835042639605,
+          "response_squared": 0.0021317138867673734
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.003001117106984806,
+          "response_squared": 0.002131222306255361
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.002961619890520016,
+          "response_squared": 0.0021286833091452764
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.002845489366109176,
+          "response_squared": 0.00208898079913611
+        },
+        {
+          "step": 600,
+          "coefficient_squared": 0.002447557676879207,
+          "response_squared": 0.0018465944999732013
+        },
+        {
+          "step": 700,
+          "coefficient_squared": 0.0013000301721575174,
+          "response_squared": 0.0009682588472463653
+        },
+        {
+          "step": 800,
+          "coefficient_squared": 0.00031301304546027514,
+          "response_squared": 0.00021732852265619098
+        },
+        {
+          "step": 900,
+          "coefficient_squared": 9.203755246378616e-05,
+          "response_squared": 6.125301739951911e-05
+        },
+        {
+          "step": 1000,
+          "coefficient_squared": 3.96777645017554e-05,
+          "response_squared": 2.597247540347279e-05
+        },
+        {
+          "step": 1100,
+          "coefficient_squared": 2.130554329160538e-05,
+          "response_squared": 1.3834564163690374e-05
+        },
+        {
+          "step": 1200,
+          "coefficient_squared": 1.3062393320328875e-05,
+          "response_squared": 8.442629540344616e-06
+        },
+        {
+          "step": 1300,
+          "coefficient_squared": 8.751934599038332e-06,
+          "response_squared": 5.639718473922243e-06
+        },
+        {
+          "step": 1400,
+          "coefficient_squared": 6.253762879548927e-06,
+          "response_squared": 4.021538465616497e-06
+        },
+        {
+          "step": 1500,
+          "coefficient_squared": 4.695817864774908e-06,
+          "response_squared": 3.0151194555393327e-06
+        },
+        {
+          "step": 1600,
+          "coefficient_squared": 3.6699152909935845e-06,
+          "response_squared": 2.35371222075264e-06
+        },
+        {
+          "step": 1700,
+          "coefficient_squared": 2.9658142510768913e-06,
+          "response_squared": 1.9004563539628147e-06
+        },
+        {
+          "step": 1800,
+          "coefficient_squared": 2.466964079017585e-06,
+          "response_squared": 1.5797027415972853e-06
+        },
+        {
+          "step": 1900,
+          "coefficient_squared": 2.1048797784750653e-06,
+          "response_squared": 1.3471014007716229e-06
+        },
+        {
+          "step": 2000,
+          "coefficient_squared": 1.8373748398303738e-06,
+          "response_squared": 1.1753827237133107e-06
+        },
+        {
+          "step": 2100,
+          "coefficient_squared": 1.6374255393802877e-06,
+          "response_squared": 1.0471044627251222e-06
+        },
+        {
+          "step": 2200,
+          "coefficient_squared": 1.4871330773491558e-06,
+          "response_squared": 9.507283712827876e-07
+        },
+        {
+          "step": 2300,
+          "coefficient_squared": 1.37428078894608e-06,
+          "response_squared": 8.783875325806515e-07
+        },
+        {
+          "step": 2400,
+          "coefficient_squared": 1.2902779218393328e-06,
+          "response_squared": 8.245551847251047e-07
+        },
+        {
+          "step": 2500,
+          "coefficient_squared": 1.2288725230735758e-06,
+          "response_squared": 7.852127567479404e-07
+        },
+        {
+          "step": 2600,
+          "coefficient_squared": 1.185301820916251e-06,
+          "response_squared": 7.573015141197476e-07
+        },
+        {
+          "step": 2700,
+          "coefficient_squared": 1.1556945751500787e-06,
+          "response_squared": 7.383373792929081e-07
+        },
+        {
+          "step": 2800,
+          "coefficient_squared": 1.136619779851244e-06,
+          "response_squared": 7.261204625333252e-07
+        },
+        {
+          "step": 2900,
+          "coefficient_squared": 1.1247255022883702e-06,
+          "response_squared": 7.185028628915036e-07
+        }
+      ],
+      "family": "shared_output",
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.002645373847917212,
+      "response_error": 0.0024092736103395584,
+      "signed_coefficient_squared": 6.998002795244318e-06,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 0.8845904681178869,
+          "response_squared": 0.7754553435446392
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.03864000019968916,
+          "response_squared": 0.026370212361817174
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.022576664588031425,
+          "response_squared": 0.01652492021171389
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.017639534419501057,
+          "response_squared": 0.012364726145478067
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.010560441088678374,
+          "response_squared": 0.007134383750225317
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.005215783087269665,
+          "response_squared": 0.003651962615762427
+        },
+        {
+          "step": 600,
+          "coefficient_squared": 0.004239898844168755,
+          "response_squared": 0.0029361993782180103
+        },
+        {
+          "step": 700,
+          "coefficient_squared": 0.0039902328101917295,
+          "response_squared": 0.002707797321730028
+        },
+        {
+          "step": 800,
+          "coefficient_squared": 0.0038866450342207592,
+          "response_squared": 0.0025953874399915885
+        },
+        {
+          "step": 900,
+          "coefficient_squared": 0.0037604814919962593,
+          "response_squared": 0.0024686509511819585
+        },
+        {
+          "step": 1000,
+          "coefficient_squared": 0.0035182479022710655,
+          "response_squared": 0.0022605976751560813
+        },
+        {
+          "step": 1100,
+          "coefficient_squared": 0.0029637725662043923,
+          "response_squared": 0.001874925605607972
+        },
+        {
+          "step": 1200,
+          "coefficient_squared": 0.0017768746273021385,
+          "response_squared": 0.0011764856970377985
+        },
+        {
+          "step": 1300,
+          "coefficient_squared": 0.0006355791981562664,
+          "response_squared": 0.00046874493043180164
+        },
+        {
+          "step": 1400,
+          "coefficient_squared": 0.0002397639312057276,
+          "response_squared": 0.00018978673903820742
+        },
+        {
+          "step": 1500,
+          "coefficient_squared": 0.00011979927272798285,
+          "response_squared": 9.860809619542476e-05
+        },
+        {
+          "step": 1600,
+          "coefficient_squared": 7.107910191850308e-05,
+          "response_squared": 5.970638246235135e-05
+        },
+        {
+          "step": 1700,
+          "coefficient_squared": 4.663369453572486e-05,
+          "response_squared": 3.953287169460316e-05
+        },
+        {
+          "step": 1800,
+          "coefficient_squared": 3.274033601385895e-05,
+          "response_squared": 2.78285851561975e-05
+        },
+        {
+          "step": 1900,
+          "coefficient_squared": 2.4203155313484714e-05,
+          "response_squared": 2.0551094838340316e-05
+        },
+        {
+          "step": 2000,
+          "coefficient_squared": 1.8675373635979042e-05,
+          "response_squared": 1.5811591314531646e-05
+        },
+        {
+          "step": 2100,
+          "coefficient_squared": 1.4964094774860826e-05,
+          "response_squared": 1.2623478367429237e-05
+        },
+        {
+          "step": 2200,
+          "coefficient_squared": 1.2410400674456312e-05,
+          "response_squared": 1.0430627997446436e-05
+        },
+        {
+          "step": 2300,
+          "coefficient_squared": 1.062720017963592e-05,
+          "response_squared": 8.901806797760795e-06
+        },
+        {
+          "step": 2400,
+          "coefficient_squared": 9.375820161139359e-06,
+          "response_squared": 7.831103208439079e-06
+        },
+        {
+          "step": 2500,
+          "coefficient_squared": 8.502799869747335e-06,
+          "response_squared": 7.085629170315057e-06
+        },
+        {
+          "step": 2600,
+          "coefficient_squared": 7.905069661306996e-06,
+          "response_squared": 6.576116089363099e-06
+        },
+        {
+          "step": 2700,
+          "coefficient_squared": 7.509340333999859e-06,
+          "response_squared": 6.239254233386345e-06
+        },
+        {
+          "step": 2800,
+          "coefficient_squared": 7.258916159713635e-06,
+          "response_squared": 6.026293247418016e-06
+        },
+        {
+          "step": 2900,
+          "coefficient_squared": 7.10457396424502e-06,
+          "response_squared": 5.895127424526999e-06
+        }
+      ],
+      "family": "squares",
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.0010932457632294283,
+      "response_error": 0.0008673578112663754,
+      "signed_coefficient_squared": 1.1951862988190953e-06,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 0.8859667754828947,
+          "response_squared": 0.7992432095867975
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.03898890416892287,
+          "response_squared": 0.025026735336213
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.011723432406913314,
+          "response_squared": 0.0064888122556292435
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.0007324691824532881,
+          "response_squared": 0.0004830226823721714
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 9.601007387405325e-05,
+          "response_squared": 6.350701569337116e-05
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 2.535556961813512e-05,
+          "response_squared": 1.689528990030104e-05
+        },
+        {
+          "step": 600,
+          "coefficient_squared": 1.212158282193343e-05,
+          "response_squared": 8.129962511493752e-06
+        },
+        {
+          "step": 700,
+          "coefficient_squared": 8.47294359518358e-06,
+          "response_squared": 5.6919418545972735e-06
+        },
+        {
+          "step": 800,
+          "coefficient_squared": 6.671198441665638e-06,
+          "response_squared": 4.457378209513873e-06
+        },
+        {
+          "step": 900,
+          "coefficient_squared": 5.458288625970198e-06,
+          "response_squared": 3.6172355284916353e-06
+        },
+        {
+          "step": 1000,
+          "coefficient_squared": 4.560873078762739e-06,
+          "response_squared": 2.997494283558993e-06
+        },
+        {
+          "step": 1100,
+          "coefficient_squared": 3.873663030784513e-06,
+          "response_squared": 2.526946295337403e-06
+        },
+        {
+          "step": 1200,
+          "coefficient_squared": 3.3370177163760673e-06,
+          "response_squared": 2.1630381537912695e-06
+        },
+        {
+          "step": 1300,
+          "coefficient_squared": 2.9120227451606695e-06,
+          "response_squared": 1.8774745560598755e-06
+        },
+        {
+          "step": 1400,
+          "coefficient_squared": 2.5717914931000507e-06,
+          "response_squared": 1.650719251375702e-06
+        },
+        {
+          "step": 1500,
+          "coefficient_squared": 2.29711849319969e-06,
+          "response_squared": 1.4689399236722684e-06
+        },
+        {
+          "step": 1600,
+          "coefficient_squared": 2.073956650860964e-06,
+          "response_squared": 1.3221348131387397e-06
+        },
+        {
+          "step": 1700,
+          "coefficient_squared": 1.8918420061631025e-06,
+          "response_squared": 1.2029405394225965e-06
+        },
+        {
+          "step": 1800,
+          "coefficient_squared": 1.7428625818105559e-06,
+          "response_squared": 1.1058512518502275e-06
+        },
+        {
+          "step": 1900,
+          "coefficient_squared": 1.6209590603111224e-06,
+          "response_squared": 1.0266933118173263e-06
+        },
+        {
+          "step": 2000,
+          "coefficient_squared": 1.521436509221985e-06,
+          "response_squared": 9.622628463139466e-07
+        },
+        {
+          "step": 2100,
+          "coefficient_squared": 1.4406143087342116e-06,
+          "response_squared": 9.10069418127774e-07
+        },
+        {
+          "step": 2200,
+          "coefficient_squared": 1.3755682948257686e-06,
+          "response_squared": 8.681499478337249e-07
+        },
+        {
+          "step": 2300,
+          "coefficient_squared": 1.3239348430893472e-06,
+          "response_squared": 8.349294802840231e-07
+        },
+        {
+          "step": 2400,
+          "coefficient_squared": 1.2837562373135825e-06,
+          "response_squared": 8.091130116642084e-07
+        },
+        {
+          "step": 2500,
+          "coefficient_squared": 1.2533527127267519e-06,
+          "response_squared": 7.895974072224906e-07
+        },
+        {
+          "step": 2600,
+          "coefficient_squared": 1.2312107142697926e-06,
+          "response_squared": 7.753956534486346e-07
+        },
+        {
+          "step": 2700,
+          "coefficient_squared": 1.2158801179218415e-06,
+          "response_squared": 7.655681041760226e-07
+        },
+        {
+          "step": 2800,
+          "coefficient_squared": 1.2058762655087207e-06,
+          "response_squared": 7.591576201132186e-07
+        },
+        {
+          "step": 2900,
+          "coefficient_squared": 1.1995865292213637e-06,
+          "response_squared": 7.551281217060775e-07
+        }
+      ],
+      "family": "squares",
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.03222679415540535,
+      "response_error": 0.030110717296695608,
+      "signed_coefficient_squared": 0.0010385662615348683,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 0.8950371689038589,
+          "response_squared": 0.7709423159762611
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.009932037328655333,
+          "response_squared": 0.006709298988766788
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.003259954623161755,
+          "response_squared": 0.0027881260571512765
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.0027522033877285254,
+          "response_squared": 0.0024058081387688763
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.0024593414189504345,
+          "response_squared": 0.002201371670696279
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.0021726786907763094,
+          "response_squared": 0.001994044730277696
+        },
+        {
+          "step": 600,
+          "coefficient_squared": 0.001954761380481785,
+          "response_squared": 0.0018026869883002064
+        },
+        {
+          "step": 700,
+          "coefficient_squared": 0.0017941277509598847,
+          "response_squared": 0.0016254815459462847
+        },
+        {
+          "step": 800,
+          "coefficient_squared": 0.0016730741707284842,
+          "response_squared": 0.0014793817787717826
+        },
+        {
+          "step": 900,
+          "coefficient_squared": 0.0015886176068682372,
+          "response_squared": 0.0013798811987113
+        },
+        {
+          "step": 1000,
+          "coefficient_squared": 0.0015329758143647347,
+          "response_squared": 0.0013190729538970754
+        },
+        {
+          "step": 1100,
+          "coefficient_squared": 0.0014957265662252088,
+          "response_squared": 0.0012820199565407682
+        },
+        {
+          "step": 1200,
+          "coefficient_squared": 0.0014686547695588197,
+          "response_squared": 0.0012577732902018205
+        },
+        {
+          "step": 1300,
+          "coefficient_squared": 0.0014463664131560976,
+          "response_squared": 0.0012399342869114673
+        },
+        {
+          "step": 1400,
+          "coefficient_squared": 0.0014254942252274199,
+          "response_squared": 0.0012248761337473187
+        },
+        {
+          "step": 1500,
+          "coefficient_squared": 0.0014038993691418704,
+          "response_squared": 0.0012103567385512066
+        },
+        {
+          "step": 1600,
+          "coefficient_squared": 0.001380120311762934,
+          "response_squared": 0.0011947218005582108
+        },
+        {
+          "step": 1700,
+          "coefficient_squared": 0.0013530641199976938,
+          "response_squared": 0.0011765054649882675
+        },
+        {
+          "step": 1800,
+          "coefficient_squared": 0.0013219278475919975,
+          "response_squared": 0.0011543276443933346
+        },
+        {
+          "step": 1900,
+          "coefficient_squared": 0.001286375177027344,
+          "response_squared": 0.0011271285202325986
+        },
+        {
+          "step": 2000,
+          "coefficient_squared": 0.0012469666351158097,
+          "response_squared": 0.0010947954093908216
+        },
+        {
+          "step": 2100,
+          "coefficient_squared": 0.0012056094524375287,
+          "response_squared": 0.0010589031454901962
+        },
+        {
+          "step": 2200,
+          "coefficient_squared": 0.0011654379800956076,
+          "response_squared": 0.0010227339384257634
+        },
+        {
+          "step": 2300,
+          "coefficient_squared": 0.0011297433204209288,
+          "response_squared": 0.0009900035270905673
+        },
+        {
+          "step": 2400,
+          "coefficient_squared": 0.0011006396687929247,
+          "response_squared": 0.0009631934779065614
+        },
+        {
+          "step": 2500,
+          "coefficient_squared": 0.0010785901676750869,
+          "response_squared": 0.0009429463152583571
+        },
+        {
+          "step": 2600,
+          "coefficient_squared": 0.0010628817028872643,
+          "response_squared": 0.0009286115596035735
+        },
+        {
+          "step": 2700,
+          "coefficient_squared": 0.0010523094042296237,
+          "response_squared": 0.0009190247617960267
+        },
+        {
+          "step": 2800,
+          "coefficient_squared": 0.0010455821918029522,
+          "response_squared": 0.0009129556131683613
+        },
+        {
+          "step": 2900,
+          "coefficient_squared": 0.0010414313859143935,
+          "response_squared": 0.0009092243221247356
+        }
+      ],
+      "family": "cancelling_terms",
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.037001353334640705,
+      "response_error": 0.03947025581299081,
+      "signed_coefficient_squared": 0.0013691001485949266,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 0.810513012928614,
+          "response_squared": 0.767500361600437
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.013105808406829183,
+          "response_squared": 0.010198337458503513
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.004257879547086231,
+          "response_squared": 0.0035546071105575197
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.0034520686318324514,
+          "response_squared": 0.002930351777488378
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.003132177826712602,
+          "response_squared": 0.0027631672301502495
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.0030368782675271886,
+          "response_squared": 0.002749149521769834
+        },
+        {
+          "step": 600,
+          "coefficient_squared": 0.0029970296512282788,
+          "response_squared": 0.002756527438406977
+        },
+        {
+          "step": 700,
+          "coefficient_squared": 0.0029725956504746973,
+          "response_squared": 0.002763102556002835
+        },
+        {
+          "step": 800,
+          "coefficient_squared": 0.0029533042423612885,
+          "response_squared": 0.002766968719999841
+        },
+        {
+          "step": 900,
+          "coefficient_squared": 0.0029345619039484747,
+          "response_squared": 0.0027682844275941513
+        },
+        {
+          "step": 1000,
+          "coefficient_squared": 0.002912968446966869,
+          "response_squared": 0.0027670428867716187
+        },
+        {
+          "step": 1100,
+          "coefficient_squared": 0.0028839018324537955,
+          "response_squared": 0.0027630041270428948
+        },
+        {
+          "step": 1200,
+          "coefficient_squared": 0.0028353159461052,
+          "response_squared": 0.002754901023240247
+        },
+        {
+          "step": 1300,
+          "coefficient_squared": 0.0027158438538648086,
+          "response_squared": 0.002718660713637317
+        },
+        {
+          "step": 1400,
+          "coefficient_squared": 0.0024230302730532402,
+          "response_squared": 0.0025295855557208617
+        },
+        {
+          "step": 1500,
+          "coefficient_squared": 0.0020856889813147825,
+          "response_squared": 0.002259494636579075
+        },
+        {
+          "step": 1600,
+          "coefficient_squared": 0.0018659733203811874,
+          "response_squared": 0.002083682635870541
+        },
+        {
+          "step": 1700,
+          "coefficient_squared": 0.0017497582633070336,
+          "response_squared": 0.00199289544035855
+        },
+        {
+          "step": 1800,
+          "coefficient_squared": 0.001678356471849885,
+          "response_squared": 0.0019376238112971632
+        },
+        {
+          "step": 1900,
+          "coefficient_squared": 0.0016260232001172885,
+          "response_squared": 0.0018955548338271662
+        },
+        {
+          "step": 2000,
+          "coefficient_squared": 0.001582538796518707,
+          "response_squared": 0.0018568388345370835
+        },
+        {
+          "step": 2100,
+          "coefficient_squared": 0.0015435422104290723,
+          "response_squared": 0.0018169928391546023
+        },
+        {
+          "step": 2200,
+          "coefficient_squared": 0.0015075336970202806,
+          "response_squared": 0.0017746866908380547
+        },
+        {
+          "step": 2300,
+          "coefficient_squared": 0.001474594315693301,
+          "response_squared": 0.0017308854791346722
+        },
+        {
+          "step": 2400,
+          "coefficient_squared": 0.0014455470370680072,
+          "response_squared": 0.0016881243926308385
+        },
+        {
+          "step": 2500,
+          "coefficient_squared": 0.001421283918237482,
+          "response_squared": 0.0016494805117369022
+        },
+        {
+          "step": 2600,
+          "coefficient_squared": 0.0014023034238928038,
+          "response_squared": 0.0016174588920957313
+        },
+        {
+          "step": 2700,
+          "coefficient_squared": 0.001388513757289545,
+          "response_squared": 0.0015932514512293381
+        },
+        {
+          "step": 2800,
+          "coefficient_squared": 0.0013792382310093836,
+          "response_squared": 0.001576541271177187
+        },
+        {
+          "step": 2900,
+          "coefficient_squared": 0.001373299877161616,
+          "response_squared": 0.0015656693616084968
+        }
+      ],
+      "family": "cancelling_terms",
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1
+    }
+  ],
+  "controls": {
+    "dense_value_error": 1.8834828324504834e-16,
+    "dense_gradient_error": 3.5311513464333493e-16
+  },
+  "configurations": [
+    {
+      "optimizer": "adam",
+      "lr": 0.05,
+      "worst_coefficient_error": 0.037001353334640705,
+      "mean_coefficient_error": 0.007416815403979156,
+      "individual_recoveries": 8
+    }
+  ],
+  "selected": {
+    "optimizer": "adam",
+    "lr": 0.05,
+    "worst_coefficient_error": 0.037001353334640705,
+    "mean_coefficient_error": 0.007416815403979156,
+    "individual_recoveries": 8
+  },
+  "seconds": 17.20524227898568,
+  "scope": "Five structural families; random initial student at planted minimal width4, teacher may have redundant cancelling terms. Exact symmetric coefficient plus artificial directional-response objective; conditional output solves each step, tiny1e-10relative Gram ridge. Selection minimizes worst then mean coefficient error across all10family/start cases. Functional recovery does not identify unique factors or prove native optimizer superiority."
+}

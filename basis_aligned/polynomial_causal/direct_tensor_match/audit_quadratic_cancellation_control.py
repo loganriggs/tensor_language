@@ -1,0 +1,7 @@
+"""Test whether redundant teacher terms change the objective or its gradient."""
+from pathlib import Path
+import json,torch
+from learned_quadratic_factors import Objective,dense
+p=Path(__file__).resolve().parent;torch.set_num_threads(2);torch.manual_seed(954);rand=lambda *s:torch.randn(*s,dtype=torch.float64);a,b,c=rand(4,8),rand(4,8),rand(5,4);aa,bb,cc=rand(2,8),rand(2,8),rand(5,2);a=torch.cat([a,aa,aa]);b=torch.cat([b,bb,bb]);c=torch.cat([c,cc,-cc],1);an,bn=a.norm(dim=1),b.norm(dim=1);a/=an[:,None];b/=bn[:,None];c=c*an*bn;c/=dense(c,a,b).norm();x,v=rand(96,8),rand(96,8);full=Objective(c,a,b,x,v);reduced=Objective(c[:,:4],a[:4],b[:4],x,v);params=[rand(5,4).requires_grad_(),rand(4,8).requires_grad_(),rand(4,8).requires_grad_()];lf=sum(full.losses(*params));lr=sum(reduced.losses(*params));gf=torch.autograd.grad(lf,params);gr=torch.autograd.grad(lr,params);res=dict(dense_teacher_error=float((dense(c,a,b)-dense(c[:,:4],a[:4],b[:4])).norm()),relative_loss_difference=float(((lf-lr).abs()/lr.abs()).detach()),relative_gradient_difference=max(float((a-b).norm()/b.norm()) for a,b in zip(gf,gr)),scope='Same difficult base function with and without exactly cancelling teacher terms. Equality rules out attributing the observed3%fit floor simply to redundant target contractions; nonconvex optimization remains unresolved.')
+assert max(res[k] for k in ('dense_teacher_error','relative_loss_difference','relative_gradient_difference'))<1e-12
+(p/'QUADRATIC_CANCELLATION_CONTROL_V1.json').write_text(json.dumps(res,indent=2)+'\n');print(res)

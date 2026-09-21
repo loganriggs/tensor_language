@@ -1,0 +1,1692 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_family_recovery": false,
+    "pred_c_common_configuration": false
+  },
+  "records": [
+    {
+      "coefficient_error": 0.23777285540695706,
+      "response_error": 0.21042119333214498,
+      "signed_coefficient_squared": 0.05653593076837771,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.8168303270369797,
+          "response_squared": 1.999427634594939
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.5163329193296994,
+          "response_squared": 0.40636321318716134
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.23397749072660745,
+          "response_squared": 0.19893848034810638
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.12472804826596806,
+          "response_squared": 0.09712735444005677
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.0729005466983137,
+          "response_squared": 0.05556255301385487
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.05898951351817461,
+          "response_squared": 0.04601555773235797
+        }
+      ],
+      "family": "independent_products",
+      "optimizer": "adam",
+      "lr": 0.01,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.20861016397870916,
+      "response_error": 0.1822575092184492,
+      "signed_coefficient_squared": 0.043518200515223926,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.8798164766080885,
+          "response_squared": 2.254187377032037
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.33160867502176106,
+          "response_squared": 0.2427272310531713
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.14782653312485672,
+          "response_squared": 0.11299146118350233
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.05525765170424313,
+          "response_squared": 0.04432113606153295
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.04693878980549848,
+          "response_squared": 0.03633259001394912
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.04415042555975113,
+          "response_squared": 0.03377821879379939
+        }
+      ],
+      "family": "independent_products",
+      "optimizer": "adam",
+      "lr": 0.01,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.07579014241999374,
+      "response_error": 0.07651065870849097,
+      "signed_coefficient_squared": 0.005744145688042934,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.8168303270369797,
+          "response_squared": 1.999427634594939
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.07778735741038734,
+          "response_squared": 0.06680699801138432
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.014934187645760266,
+          "response_squared": 0.013814322740406742
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.008389144862057218,
+          "response_squared": 0.008658643456715603
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.00655649423100213,
+          "response_squared": 0.006774224740734177
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.005905895077264578,
+          "response_squared": 0.006035394914333106
+        }
+      ],
+      "family": "independent_products",
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.07927961593108217,
+      "response_error": 0.06757510252817697,
+      "signed_coefficient_squared": 0.006285257502179897,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.8798164766080885,
+          "response_squared": 2.254187377032037
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.04800743983919964,
+          "response_squared": 0.0382339645363766
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.018835495885689113,
+          "response_squared": 0.014692203096166746
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.008765959329087192,
+          "response_squared": 0.0065537915849452595
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.006559214247014333,
+          "response_squared": 0.004777273925553398
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.006315153978938781,
+          "response_squared": 0.004588782859863653
+        }
+      ],
+      "family": "independent_products",
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.9281778145365447,
+      "response_error": 0.8663158666532168,
+      "signed_coefficient_squared": 0.8615140553978364,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.8168303270369797,
+          "response_squared": 1.999427634594939
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 1.167706801573524,
+          "response_squared": 1.202771369893352
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.9712172349123818,
+          "response_squared": 0.9155695828856071
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.9123404453496733,
+          "response_squared": 0.8151101412412181
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.8785447353086113,
+          "response_squared": 0.7717947830192576
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.8646480206926916,
+          "response_squared": 0.7538954481949196
+        }
+      ],
+      "family": "independent_products",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.6390195301332151,
+      "response_error": 0.5604034790133597,
+      "signed_coefficient_squared": 0.408345959891675,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.8798164766080885,
+          "response_squared": 2.254187377032037
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.9093470305254976,
+          "response_squared": 0.892789754343431
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.5989388140061112,
+          "response_squared": 0.5155487281051601
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.4884544826969306,
+          "response_squared": 0.38244479775950185
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.4334382272069188,
+          "response_squared": 0.3328058590327555
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.41246604752250304,
+          "response_squared": 0.3169467557776416
+        }
+      ],
+      "family": "independent_products",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.24385152816551878,
+      "response_error": 0.21254688347863376,
+      "signed_coefficient_squared": 0.0594635677886588,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.8168303270369797,
+          "response_squared": 1.999427634594939
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.7074783204473147,
+          "response_squared": 0.6339493226324822
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.29865501568178066,
+          "response_squared": 0.22229194473648012
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.1282643153285732,
+          "response_squared": 0.09633099942889893
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.07458940551204085,
+          "response_squared": 0.057596509534588426
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.061439559997150006,
+          "response_squared": 0.04681219322485689
+        }
+      ],
+      "family": "independent_products",
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.1236152297943658,
+      "response_error": 0.11733007759747585,
+      "signed_coefficient_squared": 0.015280725037113863,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.8798164766080885,
+          "response_squared": 2.254187377032037
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.31953946473848927,
+          "response_squared": 0.24620354314381415
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.13817706441824518,
+          "response_squared": 0.11774924550556808
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.039778028855299574,
+          "response_squared": 0.03295616295166849
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.02065538604874706,
+          "response_squared": 0.017638191783519
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.016128841264052785,
+          "response_squared": 0.014368124891978437
+        }
+      ],
+      "family": "independent_products",
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.10475902571539158,
+      "response_error": 0.08904911565223265,
+      "signed_coefficient_squared": 0.010974453468838075,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.6499813762053763,
+          "response_squared": 1.595735456636542
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.1847699581923714,
+          "response_squared": 0.13921673394623818
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.04530986600535525,
+          "response_squared": 0.03226057199797194
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.020511405578247377,
+          "response_squared": 0.014821624363069679
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.013423708037761273,
+          "response_squared": 0.009790438996958748
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.011372470306398652,
+          "response_squared": 0.00823902438436071
+        }
+      ],
+      "family": "shared_input",
+      "optimizer": "adam",
+      "lr": 0.01,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.11489085854831194,
+      "response_error": 0.09417021034240927,
+      "signed_coefficient_squared": 0.013199909377968222,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.8910143948416394,
+          "response_squared": 1.448452911096986
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.22169234638779112,
+          "response_squared": 0.13619518547164314
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.059043758305646676,
+          "response_squared": 0.037721503082400146
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.025657778908793505,
+          "response_squared": 0.016412681166679138
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.01637554394323515,
+          "response_squared": 0.010888423737023699
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.01370544228945092,
+          "response_squared": 0.009195320715936706
+        }
+      ],
+      "family": "shared_input",
+      "optimizer": "adam",
+      "lr": 0.01,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.0,
+      "response_error": 1.467626403104855e-09,
+      "signed_coefficient_squared": 0.0,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.6499813762053763,
+          "response_squared": 1.595735456636542
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.014199846056562437,
+          "response_squared": 0.01020456436636325
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 3.2848376418925795e-07,
+          "response_squared": 1.8690983548675858e-07
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 5.338396391607603e-12,
+          "response_squared": 3.156403481466907e-12
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 8.881784197001252e-16,
+          "response_squared": 2.536486890488044e-16
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.0,
+          "response_squared": 4.270096094974337e-18
+        }
+      ],
+      "family": "shared_input",
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 1.4901161193847656e-08,
+      "response_error": 7.2522399034101494e-09,
+      "signed_coefficient_squared": 2.220446049250313e-16,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.8910143948416394,
+          "response_squared": 1.448452911096986
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.00831545260269917,
+          "response_squared": 0.005785169001101108
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 3.522246645459859e-07,
+          "response_squared": 2.1164165270314166e-07
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 2.227551476607914e-11,
+          "response_squared": 1.0822887260702386e-11
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 3.552713678800501e-15,
+          "response_squared": 1.6522756281408433e-15
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 2.220446049250313e-16,
+          "response_squared": 9.199834023880747e-17
+        }
+      ],
+      "family": "shared_input",
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.6687392453878858,
+      "response_error": 0.5993312684587034,
+      "signed_coefficient_squared": 0.4472121783219589,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.6499813762053763,
+          "response_squared": 1.595735456636542
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.9608707873332663,
+          "response_squared": 0.9136976660065541
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.6973732300146392,
+          "response_squared": 0.6248643796896639
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.5538450688311658,
+          "response_squared": 0.4708778706700501
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.48092541199092964,
+          "response_squared": 0.393553847499057
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.45281325695748786,
+          "response_squared": 0.3647668244738997
+        }
+      ],
+      "family": "shared_input",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.7005662652987525,
+      "response_error": 0.5583303261052401,
+      "signed_coefficient_squared": 0.49079309207464217,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.8910143948416394,
+          "response_squared": 1.448452911096986
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 1.043884344758218,
+          "response_squared": 0.7670137743562206
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.7903560888247799,
+          "response_squared": 0.5066240050764422
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.6295834241788207,
+          "response_squared": 0.399901563080199
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.5385239078127905,
+          "response_squared": 0.3417562417738059
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.4989330913319585,
+          "response_squared": 0.31680591430877136
+        }
+      ],
+      "family": "shared_input",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.0373742288528539,
+      "response_error": 0.02512400427808086,
+      "signed_coefficient_squared": 0.0013968329823454972,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.6499813762053763,
+          "response_squared": 1.595735456636542
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.26122423507049475,
+          "response_squared": 0.1904555979424122
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.037839666153034246,
+          "response_squared": 0.027774206998970066
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.008089014721402554,
+          "response_squared": 0.005014845312968393
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.0028340653410705574,
+          "response_squared": 0.0013207946215574014
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.0015785655206801419,
+          "response_squared": 0.0007060878894215802
+        }
+      ],
+      "family": "shared_input",
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.052008353596279276,
+      "response_error": 0.04047803801043579,
+      "signed_coefficient_squared": 0.002704868843795616,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.8910143948416394,
+          "response_squared": 1.448452911096986
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.2685488187298839,
+          "response_squared": 0.1814103335586619
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.0677325887968021,
+          "response_squared": 0.04055548205966192
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.018229678178006248,
+          "response_squared": 0.009429026841531893
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.004483020875227117,
+          "response_squared": 0.0026017604962537194
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.002909666894101104,
+          "response_squared": 0.0017554456379091866
+        }
+      ],
+      "family": "shared_input",
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.06380075242386747,
+      "response_error": 0.055978075686076836,
+      "signed_coefficient_squared": 0.004070536009851631,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.7820303609423735,
+          "response_squared": 1.9515293474460649
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.19517049049066162,
+          "response_squared": 0.17003397054149472
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.01685282871408566,
+          "response_squared": 0.011407772288345068
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.006757112650541461,
+          "response_squared": 0.00471330228329767
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.004829006859741634,
+          "response_squared": 0.0035812450207025567
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.004202727526720905,
+          "response_squared": 0.0032133735176748507
+        }
+      ],
+      "family": "shared_output",
+      "optimizer": "adam",
+      "lr": 0.01,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.07006335404409267,
+      "response_error": 0.04830622635814699,
+      "signed_coefficient_squared": 0.004908873579907877,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 2.2873979304651506,
+          "response_squared": 2.42525451605317
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.2910630244027387,
+          "response_squared": 0.222304232120908
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.012163878771735076,
+          "response_squared": 0.0059090557687204275
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.007539653625212136,
+          "response_squared": 0.0033838839218541168
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.005731935385297146,
+          "response_squared": 0.0026575416325665593
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.005049505510675176,
+          "response_squared": 0.0023889300241210897
+        }
+      ],
+      "family": "shared_output",
+      "optimizer": "adam",
+      "lr": 0.01,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.004895246744751343,
+      "response_error": 0.004019389993348044,
+      "signed_coefficient_squared": 2.3963440691998617e-05,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.7820303609423735,
+          "response_squared": 1.9515293474460649
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.004045777359198642,
+          "response_squared": 0.0027157388875843334
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.00011906684993867595,
+          "response_squared": 0.00010537090068783298
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 4.059166525216538e-05,
+          "response_squared": 2.946970274687365e-05
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 2.8693380837552227e-05,
+          "response_squared": 1.9604032324393434e-05
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 2.4755575080748205e-05,
+          "response_squared": 1.6719248071160856e-05
+        }
+      ],
+      "family": "shared_output",
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.005780070420267504,
+      "response_error": 0.004517784499814639,
+      "signed_coefficient_squared": 3.3409214063251355e-05,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 2.2873979304651506,
+          "response_squared": 2.42525451605317
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.008713232251043476,
+          "response_squared": 0.0041967291849175385
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.0011208320804678702,
+          "response_squared": 0.0006095792290737715
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.00024141070039429547,
+          "response_squared": 0.00013622875823937887
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 6.887807020850009e-05,
+          "response_squared": 4.112890307920822e-05
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 3.8073394256654667e-05,
+          "response_squared": 2.318421950677358e-05
+        }
+      ],
+      "family": "shared_output",
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.839619858573741,
+      "response_error": 0.7898934294810306,
+      "signed_coefficient_squared": 0.7049615069113888,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.7820303609423735,
+          "response_squared": 1.9515293474460649
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 1.091253405063738,
+          "response_squared": 1.1951747380792512
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.8968461030823801,
+          "response_squared": 0.9127889926619416
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.7961819956759117,
+          "response_squared": 0.7599559936059516
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.7366606557059864,
+          "response_squared": 0.669117716735746
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.7104021335733578,
+          "response_squared": 0.6314548626257277
+        }
+      ],
+      "family": "shared_output",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.5874559325249399,
+      "response_error": 0.5612807468283114,
+      "signed_coefficient_squared": 0.3451044726587467,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 2.2873979304651506,
+          "response_squared": 2.42525451605317
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 1.1708265332939192,
+          "response_squared": 1.1717264212009817
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.7713960776018287,
+          "response_squared": 0.7695220388761744
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.5355338091117631,
+          "response_squared": 0.5171273713567088
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.4037662281780661,
+          "response_squared": 0.37642904058269117
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.35482961461257584,
+          "response_squared": 0.32516854127433537
+        }
+      ],
+      "family": "shared_output",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.10690068489981698,
+      "response_error": 0.09087322327443167,
+      "signed_coefficient_squared": 0.011427756432049957,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.7820303609423735,
+          "response_squared": 1.9515293474460649
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.4940205760438321,
+          "response_squared": 0.3782234191742272
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.09665530963977549,
+          "response_squared": 0.07144626156364572
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.05252010438372643,
+          "response_squared": 0.035069179998804066
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.025845568836743372,
+          "response_squared": 0.017790239049340874
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.013619538967141182,
+          "response_squared": 0.009753688918324944
+        }
+      ],
+      "family": "shared_output",
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.04338952389343131,
+      "response_error": 0.03243544719961993,
+      "signed_coefficient_squared": 0.0018826507836986464,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 2.2873979304651506,
+          "response_squared": 2.42525451605317
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.1718270720384706,
+          "response_squared": 0.1193186331009527
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.03142192626353378,
+          "response_squared": 0.02059835747419477
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.007281708660673566,
+          "response_squared": 0.005113288561336226
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.0031277374568254844,
+          "response_squared": 0.0017998612277165505
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.0020910071308335434,
+          "response_squared": 0.0011712142425043819
+        }
+      ],
+      "family": "shared_output",
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.2496852757394384,
+      "response_error": 0.17971563057819254,
+      "signed_coefficient_squared": 0.06234273692107939,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.7439348002359245,
+          "response_squared": 1.4845433879095187
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.3114324323020701,
+          "response_squared": 0.1692678595890189
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.09024537495944251,
+          "response_squared": 0.04366489880186093
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.07620007095677828,
+          "response_squared": 0.03749084797895945
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.06693695417366796,
+          "response_squared": 0.03395254588241624
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.06312104951981601,
+          "response_squared": 0.032573556423948644
+        }
+      ],
+      "family": "squares",
+      "optimizer": "adam",
+      "lr": 0.01,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.24902874121938695,
+      "response_error": 0.1713068136794328,
+      "signed_coefficient_squared": 0.06201531395331239,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 2.342877392345994,
+          "response_squared": 2.020420797769773
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.17878368529800248,
+          "response_squared": 0.09604557861530372
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.09776448716885877,
+          "response_squared": 0.05216875974451398
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.08033571833927722,
+          "response_squared": 0.03928787198379245
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.06748433140448507,
+          "response_squared": 0.03209166616439472
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.06291685893212229,
+          "response_squared": 0.029791635860293073
+        }
+      ],
+      "family": "squares",
+      "optimizer": "adam",
+      "lr": 0.01,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.056603548776760215,
+      "response_error": 0.04579205359629929,
+      "signed_coefficient_squared": 0.003203961734123073,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.7439348002359245,
+          "response_squared": 1.4845433879095187
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.05377062549865452,
+          "response_squared": 0.032960753428327605
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.02337830117533679,
+          "response_squared": 0.01614398236811843
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.01073949174367872,
+          "response_squared": 0.007592434071864157
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.005572027454789019,
+          "response_squared": 0.0037324624991178605
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.0035162644317092706,
+          "response_squared": 0.0023159832014793347
+        }
+      ],
+      "family": "squares",
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.12900831816588912,
+      "response_error": 0.09922430504796109,
+      "signed_coefficient_squared": 0.016643146155991273,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 2.342877392345994,
+          "response_squared": 2.020420797769773
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.08812974475260482,
+          "response_squared": 0.04957322550438587
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.03776541202717687,
+          "response_squared": 0.018113302915769753
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.02960672328873759,
+          "response_squared": 0.01510817692605508
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.021044679603167582,
+          "response_squared": 0.011637177978663833
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.01699050255984913,
+          "response_squared": 0.009946929160456097
+        }
+      ],
+      "family": "squares",
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.9117864818996604,
+      "response_error": 0.8631118814460803,
+      "signed_coefficient_squared": 0.8313545885749598,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.7439348002359245,
+          "response_squared": 1.4845433879095187
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 1.1659733584808125,
+          "response_squared": 1.0665066548791085
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.9894407213269537,
+          "response_squared": 0.9478144945967859
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.9111947234049693,
+          "response_squared": 0.8503234563401065
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.8593121367356494,
+          "response_squared": 0.7845440404232348
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.8362387368746332,
+          "response_squared": 0.7519190135328083
+        }
+      ],
+      "family": "squares",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.7196406223431028,
+      "response_error": 0.6332959397607211,
+      "signed_coefficient_squared": 0.5178826253263682,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 2.342877392345994,
+          "response_squared": 2.020420797769773
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 1.2633754958578693,
+          "response_squared": 1.1003852772524854
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.8911547371441546,
+          "response_squared": 0.7820781029799265
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.6849864491337591,
+          "response_squared": 0.5789510180479368
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.5711200865141137,
+          "response_squared": 0.45891775439035726
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.5266024619428956,
+          "response_squared": 0.41061243204292935
+        }
+      ],
+      "family": "squares",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.20081241308580508,
+      "response_error": 0.14946605082835088,
+      "signed_coefficient_squared": 0.04032562524934402,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.7439348002359245,
+          "response_squared": 1.4845433879095187
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.626292633742262,
+          "response_squared": 0.4266366763621669
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.10184043063278314,
+          "response_squared": 0.055985172453716994
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.06783227252077006,
+          "response_squared": 0.037752981301507386
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.0494834886673281,
+          "response_squared": 0.027904779926721836
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.041764875962839065,
+          "response_squared": 0.02328835487985933
+        }
+      ],
+      "family": "squares",
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.10425166640075224,
+      "response_error": 0.08505433793363235,
+      "signed_coefficient_squared": 0.010868409947333735,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 2.342877392345994,
+          "response_squared": 2.020420797769773
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.34402374983095263,
+          "response_squared": 0.19739054682918977
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.04645616654278739,
+          "response_squared": 0.034613153903539425
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.016369953469157705,
+          "response_squared": 0.010896071839474568
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.012811326593085148,
+          "response_squared": 0.008453554742374013
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.011264167037079886,
+          "response_squared": 0.007490411396112017
+        }
+      ],
+      "family": "squares",
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.11117406854602037,
+      "response_error": 0.09726594661232697,
+      "signed_coefficient_squared": 0.012359673517075235,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.6718289060447498,
+          "response_squared": 1.6001432162599751
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.2363846665219472,
+          "response_squared": 0.18595298911739744
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.052837296258099874,
+          "response_squared": 0.045197499506784075
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.018120961151776978,
+          "response_squared": 0.013571225218563446
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.013762925301928025,
+          "response_squared": 0.01049092550642623
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.012590888074327514,
+          "response_squared": 0.00963128143365084
+        }
+      ],
+      "family": "cancelling_terms",
+      "optimizer": "adam",
+      "lr": 0.01,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.16610872780066976,
+      "response_error": 0.15400920391677092,
+      "signed_coefficient_squared": 0.027592109451557,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 2.0015987677545604,
+          "response_squared": 1.8760824859859344
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.10735910530954333,
+          "response_squared": 0.107875268021286
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.07153425463361288,
+          "response_squared": 0.0772356501106247
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.05293761070574112,
+          "response_squared": 0.055078514617820075
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.035934959802558245,
+          "response_squared": 0.033162650446772676
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.0289339632274206,
+          "response_squared": 0.025181169242169166
+        }
+      ],
+      "family": "cancelling_terms",
+      "optimizer": "adam",
+      "lr": 0.01,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.06241605746874741,
+      "response_error": 0.05747217212210121,
+      "signed_coefficient_squared": 0.0038957642299419794,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.6718289060447498,
+          "response_squared": 1.6001432162599751
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.0094559308359814,
+          "response_squared": 0.007095439011707115
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.0055508930547911745,
+          "response_squared": 0.004428309227542958
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.004672432146327845,
+          "response_squared": 0.0038389056835925594
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.004245660858374746,
+          "response_squared": 0.003555844827158868
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.003964195031498143,
+          "response_squared": 0.0033560012684556526
+        }
+      ],
+      "family": "cancelling_terms",
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.05826409418863823,
+      "response_error": 0.051771051643088484,
+      "signed_coefficient_squared": 0.0033947046716225073,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 2.0015987677545604,
+          "response_squared": 1.8760824859859344
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.014007573798528355,
+          "response_squared": 0.009925913061073325
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.004349396458068757,
+          "response_squared": 0.0032962527125335516
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.003809877107768146,
+          "response_squared": 0.002922280423457132
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.0035340352235135888,
+          "response_squared": 0.002761525275491911
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.003420295737478264,
+          "response_squared": 0.00269533698001095
+        }
+      ],
+      "family": "cancelling_terms",
+      "optimizer": "adam",
+      "lr": 0.05,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.846683501086999,
+      "response_error": 0.749848586967624,
+      "signed_coefficient_squared": 0.7168729510129381,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.6718289060447498,
+          "response_squared": 1.6001432162599751
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 1.1012806071950694,
+          "response_squared": 1.0317497573544072
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.9221456447193661,
+          "response_squared": 0.8207725160406494
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.8113058072230134,
+          "response_squared": 0.6792635848311946
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.749174120194656,
+          "response_squared": 0.5990799496512983
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.7224690471740376,
+          "response_squared": 0.5684330599597218
+        }
+      ],
+      "family": "cancelling_terms",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.6450484380783872,
+      "response_error": 0.5580203651188198,
+      "signed_coefficient_squared": 0.4160874874673669,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 2.0015987677545604,
+          "response_squared": 1.8760824859859344
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.9842601874630966,
+          "response_squared": 0.8066035849075412
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.695619947537347,
+          "response_squared": 0.5505330024440719
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.5379421930456951,
+          "response_squared": 0.41039697365041794
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.4543283961572417,
+          "response_squared": 0.3409937885256873
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.4223381352224253,
+          "response_squared": 0.31618081490256356
+        }
+      ],
+      "family": "cancelling_terms",
+      "optimizer": "muon",
+      "lr": 0.01,
+      "seed": 1
+    },
+    {
+      "coefficient_error": 0.05223832284911245,
+      "response_error": 0.05086943322263319,
+      "signed_coefficient_squared": 0.002728842374088104,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.6718289060447498,
+          "response_squared": 1.6001432162599751
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.43282333855395855,
+          "response_squared": 0.3239882263568198
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.02925634171977066,
+          "response_squared": 0.019722067613729598
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.004253224335526886,
+          "response_squared": 0.003496754718535596
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.0030973812718213542,
+          "response_squared": 0.002798333733098486
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.0027503446733843093,
+          "response_squared": 0.0026388412418724746
+        }
+      ],
+      "family": "cancelling_terms",
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 0
+    },
+    {
+      "coefficient_error": 0.06027657759685321,
+      "response_error": 0.053082108757712,
+      "signed_coefficient_squared": 0.0036332658067894665,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 2.0015987677545604,
+          "response_squared": 1.8760824859859344
+        },
+        {
+          "step": 100,
+          "coefficient_squared": 0.20575356474717027,
+          "response_squared": 0.1770658861880273
+        },
+        {
+          "step": 200,
+          "coefficient_squared": 0.043677603840640136,
+          "response_squared": 0.03804974977599075
+        },
+        {
+          "step": 300,
+          "coefficient_squared": 0.011095593618134284,
+          "response_squared": 0.007165513415295225
+        },
+        {
+          "step": 400,
+          "coefficient_squared": 0.0041060456357748815,
+          "response_squared": 0.003133646633218515
+        },
+        {
+          "step": 500,
+          "coefficient_squared": 0.0037027659277169014,
+          "response_squared": 0.0028534361612384276
+        }
+      ],
+      "family": "cancelling_terms",
+      "optimizer": "muon",
+      "lr": 0.05,
+      "seed": 1
+    }
+  ],
+  "controls": {
+    "dense_value_error": 1.8834828324504834e-16,
+    "dense_gradient_error": 3.5311513464333493e-16
+  },
+  "configurations": [
+    {
+      "optimizer": "adam",
+      "lr": 0.01,
+      "worst_coefficient_error": 0.2496852757394384,
+      "mean_coefficient_error": 0.15758938234228453,
+      "individual_recoveries": 0
+    },
+    {
+      "optimizer": "adam",
+      "lr": 0.05,
+      "worst_coefficient_error": 0.12900831816588912,
+      "mean_coefficient_error": 0.04720371090172909,
+      "individual_recoveries": 4
+    },
+    {
+      "optimizer": "muon",
+      "lr": 0.01,
+      "worst_coefficient_error": 0.9281778145365447,
+      "mean_coefficient_error": 0.7486737689863229,
+      "individual_recoveries": 0
+    },
+    {
+      "optimizer": "muon",
+      "lr": 0.05,
+      "worst_coefficient_error": 0.24385152816551878,
+      "mean_coefficient_error": 0.1024718529134789,
+      "individual_recoveries": 0
+    }
+  ],
+  "selected": {
+    "optimizer": "adam",
+    "lr": 0.05,
+    "worst_coefficient_error": 0.12900831816588912,
+    "mean_coefficient_error": 0.04720371090172909,
+    "individual_recoveries": 4
+  },
+  "seconds": 13.067931232973933,
+  "scope": "Five structural families; random initial student at planted minimal width4, teacher may have redundant cancelling terms. Exact symmetric coefficient plus artificial directional-response objective. Selection minimizes worst then mean coefficient error across all10family/start cases. Functional recovery does not identify unique factors or prove native optimizer superiority."
+}
