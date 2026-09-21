@@ -2,6 +2,8 @@
 
 **Start here — [Overall review: folding → decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 09:40 UTC. The two-stage proposal, exact QR, what was implemented, why experiments narrowed, and the main results through the 09:34 update.
 
+**Latest controls — [Reader span versus sparse core](research_update_2026-09-21_1015_span_and_sparse_core_controls.md).** Dense-core relaxations isolate two representation limits. Fixed-basis pair sparsity fails despite correct reuse accounting; the width/metric fit remains live.
+
 **Latest mathematical result — [Capacity and two explicit metrics](research_update_2026-09-21_1009_capacity_and_two_metrics.md).** The399-product reader span implies at least27.81%native isotropic coefficient error. A registered two-width comparison tests isotropic and covariance-shaped fitting; no outcome yet.
 
 **Latest result and metric clarification — [Direct component fitting and native coefficient geometry](research_update_2026-09-21_1000_component_loss_and_metric_correction.md).** Direct product fitting still fails. Recent 7–9% coefficient errors used calibration-shaped coordinates; native isotropic error is about 60%, and an exact fixed-dictionary readout cannot repair it.

@@ -1,0 +1,115 @@
+{
+  "planted_checks": [
+    {
+      "seed": 0,
+      "distinct_products": 1,
+      "active_input_features": 2,
+      "dense_recovery_error": 3.467607257390431e-16,
+      "execution_replay": 4.2692960884087055e-16,
+      "core_coefficients": 3
+    },
+    {
+      "seed": 1,
+      "distinct_products": 2,
+      "active_input_features": 2,
+      "dense_recovery_error": 8.135238430891302e-16,
+      "execution_replay": 8.964308837477865e-16,
+      "core_coefficients": 6
+    },
+    {
+      "seed": 2,
+      "distinct_products": 3,
+      "active_input_features": 5,
+      "dense_recovery_error": 3.4731361706368765e-16,
+      "execution_replay": 3.905351645039618e-16,
+      "core_coefficients": 9
+    },
+    {
+      "seed": 3,
+      "distinct_products": 4,
+      "active_input_features": 5,
+      "dense_recovery_error": 4.1050610403272366e-16,
+      "execution_replay": 4.273805588419576e-16,
+      "core_coefficients": 12
+    },
+    {
+      "seed": 4,
+      "distinct_products": 5,
+      "active_input_features": 5,
+      "dense_recovery_error": 3.9353482823692e-16,
+      "execution_replay": 5.935119264715064e-16,
+      "core_coefficients": 15
+    }
+  ],
+  "records": [
+    {
+      "basis": "native_HOSVD766",
+      "distinct_products": 399,
+      "eligible_input_features": 766,
+      "active_input_features": 111,
+      "core_coefficients": 2394,
+      "stored_float_coefficients": 141798,
+      "pair_index_integers": 798,
+      "native_isotropic_equal_pair_error": 0.8926737139225588,
+      "energy_replay": 1.2878587085651816e-14,
+      "execution_replay": 1.5000984850852348e-15,
+      "per_mode_errors": [
+        0.107792428731331,
+        0.07458801080702143,
+        0.40439835437973565
+      ]
+    },
+    {
+      "basis": "native_HOSVD766",
+      "distinct_products": 592,
+      "eligible_input_features": 766,
+      "active_input_features": 137,
+      "core_coefficients": 3552,
+      "stored_float_coefficients": 172908,
+      "pair_index_integers": 1184,
+      "native_isotropic_equal_pair_error": 0.8831165996024588,
+      "energy_replay": 2.275957200481571e-14,
+      "execution_replay": 1.5303096633830709e-15,
+      "per_mode_errors": [
+        0.10743857654165892,
+        0.07476186337916253,
+        0.39030595824887554
+      ]
+    },
+    {
+      "basis": "current_span_SVD766",
+      "distinct_products": 399,
+      "eligible_input_features": 766,
+      "active_input_features": 204,
+      "core_coefficients": 2394,
+      "stored_float_coefficients": 248934,
+      "pair_index_integers": 798,
+      "native_isotropic_equal_pair_error": 0.9837047562532647,
+      "energy_replay": 1.787459069646502e-14,
+      "execution_replay": 1.8565614795726623e-16,
+      "per_mode_errors": [
+        0.16823358324735502,
+        0.33859504829577397,
+        1.4429940362493563
+      ]
+    },
+    {
+      "basis": "current_span_SVD766",
+      "distinct_products": 592,
+      "eligible_input_features": 766,
+      "active_input_features": 249,
+      "core_coefficients": 3552,
+      "stored_float_coefficients": 301932,
+      "pair_index_integers": 1184,
+      "native_isotropic_equal_pair_error": 0.9796202820198114,
+      "energy_replay": 1.176836406102666e-14,
+      "execution_replay": 1.903034075664894e-16,
+      "per_mode_errors": [
+        0.164982946529063,
+        0.3383453373740147,
+        1.4343196338697108
+      ]
+    }
+  ],
+  "scope": "Native isotropic coefficient-optimal group-sparse core in each fixed orthonormal basis. Product pair shared across all6outputs, unused feature columns removed before price. Basis optimization, low-rank core slices and further graph factoring not performed. Nativez/h and existing affine convention retained; opened448 is diagnostic, not fresh."
+}

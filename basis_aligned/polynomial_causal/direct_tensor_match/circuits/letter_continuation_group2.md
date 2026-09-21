@@ -179,3 +179,7 @@ Same-prefix all3cache replay passes. Six CPU actual-product readout fits51.4s: p
 ## 21 September, 10:09 — Native capacity bound and two geometries
 
 Commonreader span of367mixed+32squares<=766 givesnecessary nativeequalpairFrobeniuserror>=27.81%, versustrained59.8%; not anoptimizerorDAGimpossibilityclaim. New560+32graph spansup to1152 at592products1342028floats. Registeredwidths367/560 x nativeobjectiveweight0/.5/1 x inherited/random starts,1500Adam.01 andexactreadout. Primarywide.5 retainsall3values, nativegain20% andcovdegradation<=10% vs samewidthcovcontrol. Costincreaseexplicit, nofaircostadoptionclaim. [Report](../../explanations/for_logan/research_update_2026-09-21_1009_capacity_and_two_metrics.md).
+
+## 21 September, 10:15 — Span and sparse-core controls
+
+Nativecoefficient fixedproductoptimum59.43%; arbitrarydensecore incurrentspan45.32%, mode-Gram766span36.55%, lowerbound27.81%. Densecore isexpensive relaxation, notcircuit. Fixedorthonormalbasis topK distinctpair selectorverified5plantedcases<1e-15; HOSVD766 K399/592 native89.27/88.31%, currentspanSVD98.37/97.96%. Sharedproduct chargedonce, sixoutputcoeffseparate, inactivefeaturespruned. No optimized-basisTucker/lowrankcore impossibilityclaim. [Report](../../explanations/for_logan/research_update_2026-09-21_1015_span_and_sparse_core_controls.md).

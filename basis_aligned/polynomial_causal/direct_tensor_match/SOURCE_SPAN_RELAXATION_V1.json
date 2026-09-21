@@ -1,0 +1,65 @@
+{
+  "toy_checks": [
+    {
+      "seed": 0,
+      "svd_gram_tail_replay": 0.0,
+      "random_span_squared_error": 0.7742628294494456,
+      "lower_bound_squared": 0.3232360585906125,
+      "diagonal_sharpness_replay": 8.326672684688674e-17
+    },
+    {
+      "seed": 1,
+      "svd_gram_tail_replay": 5.551115123125783e-17,
+      "random_span_squared_error": 0.8412768526270179,
+      "lower_bound_squared": 0.35598443013233666,
+      "diagonal_sharpness_replay": 5.551115123125783e-17
+    },
+    {
+      "seed": 2,
+      "svd_gram_tail_replay": 1.1102230246251565e-16,
+      "random_span_squared_error": 0.8657536123279105,
+      "lower_bound_squared": 0.29970525738156406,
+      "diagonal_sharpness_replay": 1.3877787807814457e-16
+    },
+    {
+      "seed": 3,
+      "svd_gram_tail_replay": 1.1102230246251565e-16,
+      "random_span_squared_error": 0.788749517466674,
+      "lower_bound_squared": 0.3529600442332198,
+      "diagonal_sharpness_replay": 1.1102230246251565e-16
+    },
+    {
+      "seed": 4,
+      "svd_gram_tail_replay": 1.1102230246251565e-16,
+      "random_span_squared_error": 0.7747541080411569,
+      "lower_bound_squared": 0.34315061630012733,
+      "diagonal_sharpness_replay": 5.551115123125783e-17
+    }
+  ],
+  "native_span_relaxations": [
+    {
+      "span_width": 766,
+      "necessary_native_error": 0.278074320920903,
+      "feasible_dense_core_projection_error": 0.36550884647222603,
+      "full_symmetric_core_entries": 1762566
+    },
+    {
+      "span_width": 1024,
+      "necessary_native_error": 0.12671370377128766,
+      "feasible_dense_core_projection_error": 0.17525449019728512,
+      "full_symmetric_core_entries": 3148800
+    },
+    {
+      "span_width": 1152,
+      "necessary_native_error": 0.0,
+      "feasible_dense_core_projection_error": 0.0,
+      "full_symmetric_core_entries": 3984768
+    }
+  ],
+  "current_dictionary_span": {
+    "reader_span_rank": 766,
+    "reader_condition_number": 48.36829224934896,
+    "best_dense_core_error_in_current_span": 0.4531634109006427
+  },
+  "scope": "Native isotropic equal-pair coefficient geometry. Dense-core projections allow arbitrary quadratic forms within the chosen input span, so their storage/product prices exceed the sparse dictionary. HOSVD span is feasible but not asserted globally optimal for a symmetric two-mode projection. This analysis separates span and atom restrictions; it does not validate circuits."
+}
