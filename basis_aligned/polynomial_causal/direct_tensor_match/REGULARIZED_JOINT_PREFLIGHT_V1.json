@@ -1,0 +1,126 @@
+{
+  "records": [
+    {
+      "case": 0,
+      "rho": 1e-06,
+      "loss_replay": 7.112366251504909e-17,
+      "gradient_replay": 1.1819884685450666e-16,
+      "finite_difference": 7.55299451454805e-11,
+      "regularized_oracle_reconstruction_error": 5.264859173754586e-07
+    },
+    {
+      "case": 0,
+      "rho": 0.0001,
+      "loss_replay": 2.1337098754514727e-16,
+      "gradient_replay": 1.3739098745017147e-16,
+      "finite_difference": 3.374672104261567e-10,
+      "regularized_oracle_reconstruction_error": 5.264111452789676e-05
+    },
+    {
+      "case": 0,
+      "rho": 0.01,
+      "loss_replay": 3.41740524767431e-16,
+      "gradient_replay": 2.151376113248742e-16,
+      "finite_difference": 1.2038628427468723e-10,
+      "regularized_oracle_reconstruction_error": 0.005190814475250681
+    },
+    {
+      "case": 1,
+      "rho": 1e-06,
+      "loss_replay": 1.9081958235744878e-17,
+      "gradient_replay": 7.62147484023215e-17,
+      "finite_difference": 1.8561072817613322e-12,
+      "regularized_oracle_reconstruction_error": 3.018952221387929e-07
+    },
+    {
+      "case": 1,
+      "rho": 0.0001,
+      "loss_replay": 1.3010426069826053e-16,
+      "gradient_replay": 1.2210712878704195e-16,
+      "finite_difference": 3.234672946161865e-11,
+      "regularized_oracle_reconstruction_error": 3.018563492810822e-05
+    },
+    {
+      "case": 1,
+      "rho": 0.01,
+      "loss_replay": 3.2612801348363973e-16,
+      "gradient_replay": 1.2511781292198642e-16,
+      "finite_difference": 5.02579505790024e-11,
+      "regularized_oracle_reconstruction_error": 0.0029806208183529533
+    },
+    {
+      "case": 2,
+      "rho": 1e-06,
+      "loss_replay": 2.671474153004283e-16,
+      "gradient_replay": 9.674811369376309e-17,
+      "finite_difference": 5.16992837429342e-11,
+      "regularized_oracle_reconstruction_error": 2.3818463507921864e-07
+    },
+    {
+      "case": 2,
+      "rho": 0.0001,
+      "loss_replay": 3.0878077872387166e-16,
+      "gradient_replay": 8.851991957784603e-17,
+      "finite_difference": 1.4343280729800512e-10,
+      "regularized_oracle_reconstruction_error": 2.3810421661117376e-05
+    },
+    {
+      "case": 2,
+      "rho": 0.01,
+      "loss_replay": 2.723515857283587e-16,
+      "gradient_replay": 8.466659684094395e-17,
+      "finite_difference": 1.5619784285436644e-10,
+      "regularized_oracle_reconstruction_error": 0.0023080516199456
+    },
+    {
+      "case": 3,
+      "rho": 1e-06,
+      "loss_replay": 7.45931094670027e-17,
+      "gradient_replay": 6.283275916997059e-17,
+      "finite_difference": 4.2267043684485195e-10,
+      "regularized_oracle_reconstruction_error": 5.236776699454242e-07
+    },
+    {
+      "case": 3,
+      "rho": 0.0001,
+      "loss_replay": 1.0928757898653885e-16,
+      "gradient_replay": 2.0563073241322465e-16,
+      "finite_difference": 8.926077064985716e-11,
+      "regularized_oracle_reconstruction_error": 5.236206078922166e-05
+    },
+    {
+      "case": 3,
+      "rho": 0.01,
+      "loss_replay": 2.983724378680108e-16,
+      "gradient_replay": 1.3022891425769157e-16,
+      "finite_difference": 4.910341924735384e-11,
+      "regularized_oracle_reconstruction_error": 0.005179782246159501
+    },
+    {
+      "case": 4,
+      "rho": 1e-06,
+      "loss_replay": 5.724587470723463e-17,
+      "gradient_replay": 9.289676473804915e-17,
+      "finite_difference": 2.283474867526003e-10,
+      "regularized_oracle_reconstruction_error": 1.9780863222914087e-07
+    },
+    {
+      "case": 4,
+      "rho": 0.0001,
+      "loss_replay": 3.122502256758253e-17,
+      "gradient_replay": 1.2415952810872835e-16,
+      "finite_difference": 7.325229138543943e-11,
+      "regularized_oracle_reconstruction_error": 1.977865249898921e-05
+    },
+    {
+      "case": 4,
+      "rho": 0.01,
+      "loss_replay": 1.6306400674181987e-16,
+      "gradient_replay": 1.0084213435556075e-16,
+      "finite_difference": 3.2059591092981066e-11,
+      "regularized_oracle_reconstruction_error": 0.001956035756913899
+    }
+  ],
+  "exact_overlap_control": true,
+  "scope": "Explicit penalized objective, independent full loss and differentiable normal solve; unpenalized reconstruction recorded separately."
+}

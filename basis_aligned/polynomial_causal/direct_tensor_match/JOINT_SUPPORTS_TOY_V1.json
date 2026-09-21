@@ -1,0 +1,337 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T13:20:56.105883+00:00",
+    "steps": 1800,
+    "rate": 0.03,
+    "optimizers": [
+      "adam",
+      "muon"
+    ],
+    "seeds": [
+      0,
+      1
+    ],
+    "threshold": 0.01,
+    "required_cases": 4,
+    "selection": "Lowest geometricmeanerror overall10runs peroptimizer; require4of5within1%usingbestof2starts.",
+    "pred_a": "Five target-derived support/oracle/gradient controls pass.",
+    "pred_b": "Selectedoptimizer recovers>=4of5plantedtargetswithin1%.",
+    "scope": "Same five targets, widths, optimizers, schedule and random restarts. Input directions restricted to exact Hessian ranges and pairwise range intersections derived only from targets. This is not directly informative for full-rank native supports.",
+    "failure_handling_amendment": "Retain singular fits as instrument failures and finish remaining arms. Only optimizers with all ten valid completed runs have a defined aggregate selection score. No threshold change or retry of completed arms."
+  },
+  "records": [
+    {
+      "case": 0,
+      "optimizer": "adam",
+      "seed": 0,
+      "error": 9.394339490671257e-10,
+      "basis_norms": [
+        0.20450512833653658,
+        0.32350998297105327,
+        0.9011481870104617,
+        2.266143333879006,
+        2.1057997112004276,
+        2.7248480655142306
+      ],
+      "instrument": true
+    },
+    {
+      "case": 0,
+      "optimizer": "adam",
+      "seed": 1,
+      "error": 1.3806541831232446e-13,
+      "basis_norms": [
+        0.36078999784542926,
+        2.6799640803224256,
+        0.8045171130143154,
+        2.876149271886196,
+        2.532731564081429,
+        2.2979429961433846
+      ],
+      "instrument": true
+    },
+    {
+      "case": 0,
+      "optimizer": "muon",
+      "seed": 0,
+      "error": 5.358876432113483e-08,
+      "basis_norms": [
+        0.20451056809247886,
+        0.3234998622370192,
+        0.9011782140914119,
+        9.047194993820163,
+        11.08978839939094,
+        7.5660607650564575
+      ],
+      "instrument": true
+    },
+    {
+      "case": 0,
+      "optimizer": "muon",
+      "seed": 1,
+      "error": 3.8242326157652794e-08,
+      "basis_norms": [
+        0.3607902453127523,
+        2.679962880470555,
+        0.8045179499117417,
+        8.92037025674222,
+        11.013370226519465,
+        7.497824114507094
+      ],
+      "instrument": true
+    },
+    {
+      "case": 1,
+      "optimizer": "adam",
+      "seed": 0,
+      "instrument": false,
+      "error": null,
+      "failure": {
+        "step": 1344,
+        "error": "Degenerate shared/private overlap",
+        "denominators": [
+          0.001812150315316341,
+          0.0030684192229185614,
+          9.281619917089756e-11
+        ]
+      }
+    },
+    {
+      "case": 1,
+      "optimizer": "adam",
+      "seed": 1,
+      "instrument": true,
+      "error": 0.027812679053934537,
+      "basis_norms": [
+        1.973568578681914,
+        1.603410299570678,
+        2.015997626782032,
+        3.8937033653722013,
+        3.067190822990742,
+        3.452284239511139
+      ]
+    },
+    {
+      "case": 1,
+      "optimizer": "muon",
+      "seed": 0,
+      "instrument": false,
+      "error": null,
+      "failure": {
+        "step": 263,
+        "error": "Degenerate shared/private overlap"
+      }
+    },
+    {
+      "case": 1,
+      "optimizer": "muon",
+      "seed": 1,
+      "instrument": false,
+      "error": null,
+      "failure": {
+        "step": 247,
+        "error": "Degenerate shared/private overlap"
+      }
+    },
+    {
+      "case": 2,
+      "optimizer": "adam",
+      "seed": 0,
+      "instrument": true,
+      "error": 0.025115567165371774,
+      "basis_norms": [
+        2.2522161205382636,
+        2.013481409279937,
+        2.3206684996839337,
+        3.56153947614793,
+        3.8550846492403292,
+        3.979013793979483
+      ]
+    },
+    {
+      "case": 2,
+      "optimizer": "adam",
+      "seed": 1,
+      "instrument": true,
+      "error": 0.0248996507478589,
+      "basis_norms": [
+        2.8031080622364173,
+        2.066517363456147,
+        2.231255766145196,
+        4.102896475635098,
+        3.8722092820186895,
+        4.291628247140407
+      ]
+    },
+    {
+      "case": 2,
+      "optimizer": "muon",
+      "seed": 0,
+      "instrument": false,
+      "error": null,
+      "failure": {
+        "step": 457,
+        "error": "Degenerate shared/private overlap"
+      }
+    },
+    {
+      "case": 2,
+      "optimizer": "muon",
+      "seed": 1,
+      "instrument": false,
+      "error": null,
+      "failure": {
+        "step": 964,
+        "error": "Degenerate shared/private overlap"
+      }
+    },
+    {
+      "case": 3,
+      "optimizer": "adam",
+      "seed": 0,
+      "instrument": true,
+      "error": 2.18899799567688e-14,
+      "basis_norms": [
+        0.20447908559818737,
+        0.3235136709059176,
+        0.9011477922632674,
+        2.051458421166593,
+        2.127893238694424,
+        2.824648428788733
+      ]
+    },
+    {
+      "case": 3,
+      "optimizer": "adam",
+      "seed": 1,
+      "instrument": true,
+      "error": 1.4703632484193334e-14,
+      "basis_norms": [
+        0.3607888263326692,
+        2.6799645960074576,
+        0.8045178056537547,
+        3.7102636563653664,
+        2.519931549333354,
+        2.0580366902424165
+      ]
+    },
+    {
+      "case": 3,
+      "optimizer": "muon",
+      "seed": 0,
+      "instrument": true,
+      "error": 4.465112821021118e-08,
+      "basis_norms": [
+        0.20448884709123252,
+        0.32380190598783937,
+        0.9011684462359474,
+        8.635558315846954,
+        7.965557305763523,
+        9.226102374867855
+      ]
+    },
+    {
+      "case": 3,
+      "optimizer": "muon",
+      "seed": 1,
+      "instrument": true,
+      "error": 1.0691991243053337e-07,
+      "basis_norms": [
+        0.36078075558831213,
+        2.6799675166600103,
+        0.8045265882874231,
+        8.262125892412113,
+        8.251178609821006,
+        8.60633877493222
+      ]
+    },
+    {
+      "case": 4,
+      "optimizer": "adam",
+      "seed": 0,
+      "instrument": false,
+      "error": null,
+      "failure": {
+        "step": 671,
+        "error": "Degenerate shared/private overlap"
+      }
+    },
+    {
+      "case": 4,
+      "optimizer": "adam",
+      "seed": 1,
+      "instrument": true,
+      "error": 0.024413825070268468,
+      "basis_norms": [
+        2.357826750329556,
+        1.413055059203281,
+        2.6987601185627828,
+        3.628157571889354,
+        3.0875078946653245,
+        3.4958436132598094
+      ]
+    },
+    {
+      "case": 4,
+      "optimizer": "muon",
+      "seed": 0,
+      "instrument": true,
+      "error": 0.01619609424574367,
+      "basis_norms": [
+        3.449519653067204,
+        3.6388639478839413,
+        3.1864883628839173,
+        10.765909270944961,
+        12.799860199631153,
+        14.112177926726014
+      ]
+    },
+    {
+      "case": 4,
+      "optimizer": "muon",
+      "seed": 1,
+      "instrument": true,
+      "error": 0.023101580465634475,
+      "basis_norms": [
+        3.5052637159913695,
+        3.925041266179367,
+        3.4612720859090755,
+        11.331840368958272,
+        10.897223417925906,
+        13.569469264395073
+      ]
+    }
+  ],
+  "summaries": [
+    {
+      "optimizer": "adam",
+      "best_restart_errors": [
+        1.3806541831232446e-13,
+        0.027812679053934537,
+        0.0248996507478589,
+        1.4703632484193334e-14,
+        0.024413825070268468
+      ],
+      "valid_runs": 8,
+      "recovered_cases": 2,
+      "geometric_mean_error": null
+    },
+    {
+      "optimizer": "muon",
+      "best_restart_errors": [
+        3.8242326157652794e-08,
+        null,
+        null,
+        4.465112821021118e-08,
+        0.01619609424574367
+      ],
+      "valid_runs": 6,
+      "recovered_cases": 2,
+      "geometric_mean_error": null
+    }
+  ],
+  "winner": null,
+  "recovery_pass": false,
+  "resumed_seconds": 32.52946017915383,
+  "scope": "Five planted instances; target-derived exact supports. Original singularity rejection unchanged. Failed arms excluded from native eligibility, not silently dropped from optimizer scores."
+}

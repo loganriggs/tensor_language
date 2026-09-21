@@ -15,5 +15,6 @@
   "selection": "Lowest geometricmeanerror overall10runs peroptimizer; require4of5within1%usingbestof2starts.",
   "pred_a": "Five target-derived support/oracle/gradient controls pass.",
   "pred_b": "Selectedoptimizer recovers>=4of5plantedtargetswithin1%.",
-  "scope": "Same five targets, widths, optimizers, schedule and random restarts. Input directions restricted to exact Hessian ranges and pairwise range intersections derived only from targets. This is not directly informative for full-rank native supports."
+  "scope": "Same five targets, widths, optimizers, schedule and random restarts. Input directions restricted to exact Hessian ranges and pairwise range intersections derived only from targets. This is not directly informative for full-rank native supports.",
+  "failure_handling_amendment": "Retain singular fits as instrument failures and finish remaining arms. Only optimizers with all ten valid completed runs have a defined aggregate selection score. No threshold change or retry of completed arms."
 }

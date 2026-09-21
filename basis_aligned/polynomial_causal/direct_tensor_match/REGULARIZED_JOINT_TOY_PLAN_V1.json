@@ -1,0 +1,25 @@
+{
+  "created_utc": "2026-09-21T13:28:06.620260+00:00",
+  "rhos": [
+    1e-06,
+    0.0001,
+    0.01
+  ],
+  "optimizers": [
+    "adam",
+    "muon"
+  ],
+  "steps": 1800,
+  "rate": 0.03,
+  "seeds": [
+    0,
+    1
+  ],
+  "threshold": 0.01,
+  "required_cases": 4,
+  "pred_a": "All15 envelope/independent normal solve controls and exact-overlap control pass; each fit remains finite and dense penalized replay <1e-8.",
+  "pred_b": "At least one penalty/optimizer setting recovers >=4/5 planted cases within1% unpenalized coefficient error, using best of two random starts.",
+  "selection": "Require ten valid runs per setting; select lowest geometric mean of raw reconstruction errors across those ten runs, retaining all failures. Report original penalized fitting objective separately.",
+  "null": "Positive core penalty prevents singular solves but does not recover the unknown shared dictionaries.",
+  "scope": "Five unchanged supported targets, original widths, same budgets. rho adds an explicit rotation-invariant private-core amplitude penalty; it is not a sparsity count. No native fit without toy interpretation."
+}
