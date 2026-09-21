@@ -1,0 +1,24 @@
+{
+  "created_utc": "2026-09-21T16:18:31.120384+00:00",
+  "lambdas": [
+    null,
+    0,
+    1e-06,
+    1e-05,
+    0.0001,
+    0.001,
+    0.01,
+    0.1,
+    1.0,
+    10.0,
+    100.0,
+    1000.0,
+    10000.0
+  ],
+  "selection": "Minimize pooled left-out chunk error energy over seven folds; zero-update wins exact ties. Scale columns using training rows only. Freeze lambda before reading other25chunk scores.",
+  "predictions": [
+    "Selected conditional CV error <=.95 original error",
+    "Full seven-chunk refit with selected lambda does not worsen other25 historical aggregate"
+  ],
+  "scope": "Only existing32 component3 second-read coefficients. Otherhistorical result diagnostic only; features not cross-fitted, no certified independent documents. No export or adoption without original guards and independent native tests."
+}

@@ -1,0 +1,683 @@
+{
+  "effective_degrees_of_freedom": 0.03195214189590265,
+  "design_eigenvalues": [
+    0.23088794334819698,
+    0.25052831349906407,
+    0.3047759731685601,
+    0.35255931260585976,
+    0.3632055481094389,
+    0.4011952602004998,
+    0.43451496804816886,
+    0.4717287449077785,
+    0.49088553867970236,
+    0.5187312314663214,
+    0.5655238665209582,
+    0.5860159110134107,
+    0.6237935041082208,
+    0.6757511543211089,
+    0.7091880283152387,
+    0.7780908210836067,
+    0.7887635312378941,
+    0.8682968944575645,
+    0.8909738892364754,
+    1.037409797951104,
+    1.0802009115330662,
+    1.1584311363111826,
+    1.1688730836630865,
+    1.3081209050078861,
+    1.4431531621203202,
+    1.5334729631862636,
+    1.581167334697722,
+    1.6346236740998332,
+    1.819552813087964,
+    2.0694509644365335,
+    2.388014831113023,
+    3.4721179884639435
+  ],
+  "fold_optima": [
+    {
+      "chunk": 24,
+      "best_lambda": 1.0
+    },
+    {
+      "chunk": 25,
+      "best_lambda": 0.1
+    },
+    {
+      "chunk": 26,
+      "best_lambda": 0.1
+    },
+    {
+      "chunk": 27,
+      "best_lambda": 10.0
+    },
+    {
+      "chunk": 29,
+      "best_lambda": null
+    },
+    {
+      "chunk": 30,
+      "best_lambda": 10.0
+    },
+    {
+      "chunk": 31,
+      "best_lambda": 1.0
+    }
+  ],
+  "plan": {
+    "created_utc": "2026-09-21T16:18:31.120384+00:00",
+    "lambdas": [
+      null,
+      0,
+      1e-06,
+      1e-05,
+      0.0001,
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0,
+      100.0,
+      1000.0,
+      10000.0
+    ],
+    "selection": "Minimize pooled left-out chunk error energy over seven folds; zero-update wins exact ties. Scale columns using training rows only. Freeze lambda before reading other25chunk scores.",
+    "predictions": [
+      "Selected conditional CV error <=.95 original error",
+      "Full seven-chunk refit with selected lambda does not worsen other25 historical aggregate"
+    ],
+    "scope": "Only existing32 component3 second-read coefficients. Otherhistorical result diagnostic only; features not cross-fitted, no certified independent documents. No export or adoption without original guards and independent native tests."
+  },
+  "selection_index": 11,
+  "selected_lambda": 1000.0,
+  "cv_error_ratio": 0.9998060266143628,
+  "records": [
+    {
+      "lam": null,
+      "folds": [
+        {
+          "chunk": 24,
+          "error_energy": 39327.95342222401,
+          "original_error_energy": 39327.95342222401
+        },
+        {
+          "chunk": 25,
+          "error_energy": 37102.10366879989,
+          "original_error_energy": 37102.10366879989
+        },
+        {
+          "chunk": 26,
+          "error_energy": 24626.845825099375,
+          "original_error_energy": 24626.845825099375
+        },
+        {
+          "chunk": 27,
+          "error_energy": 6833.487584164085,
+          "original_error_energy": 6833.487584164085
+        },
+        {
+          "chunk": 29,
+          "error_energy": 20788.390761312396,
+          "original_error_energy": 20788.390761312396
+        },
+        {
+          "chunk": 30,
+          "error_energy": 40769.225426460674,
+          "original_error_energy": 40769.225426460674
+        },
+        {
+          "chunk": 31,
+          "error_energy": 15976.5692918018,
+          "original_error_energy": 15976.5692918018
+        }
+      ],
+      "pooled_error_energy": 185424.57597986225
+    },
+    {
+      "lam": 0,
+      "folds": [
+        {
+          "chunk": 24,
+          "error_energy": 40142.99308203857,
+          "original_error_energy": 39327.95342222401
+        },
+        {
+          "chunk": 25,
+          "error_energy": 27377.735771471147,
+          "original_error_energy": 37102.10366879989
+        },
+        {
+          "chunk": 26,
+          "error_energy": 14824.77569874727,
+          "original_error_energy": 24626.845825099375
+        },
+        {
+          "chunk": 27,
+          "error_energy": 8983.672311749018,
+          "original_error_energy": 6833.487584164085
+        },
+        {
+          "chunk": 29,
+          "error_energy": 4140721.2862258786,
+          "original_error_energy": 20788.390761312396
+        },
+        {
+          "chunk": 30,
+          "error_energy": 44144.00388225574,
+          "original_error_energy": 40769.225426460674
+        },
+        {
+          "chunk": 31,
+          "error_energy": 16431.5686187514,
+          "original_error_energy": 15976.5692918018
+        }
+      ],
+      "pooled_error_energy": 4292626.035590892
+    },
+    {
+      "lam": 1e-06,
+      "folds": [
+        {
+          "chunk": 24,
+          "error_energy": 40142.96451734382,
+          "original_error_energy": 39327.95342222401
+        },
+        {
+          "chunk": 25,
+          "error_energy": 27377.708999845916,
+          "original_error_energy": 37102.10366879989
+        },
+        {
+          "chunk": 26,
+          "error_energy": 14824.772309409218,
+          "original_error_energy": 24626.845825099375
+        },
+        {
+          "chunk": 27,
+          "error_energy": 8983.665263315117,
+          "original_error_energy": 6833.487584164085
+        },
+        {
+          "chunk": 29,
+          "error_energy": 4140713.559480573,
+          "original_error_energy": 20788.390761312396
+        },
+        {
+          "chunk": 30,
+          "error_energy": 44143.99399554783,
+          "original_error_energy": 40769.225426460674
+        },
+        {
+          "chunk": 31,
+          "error_energy": 16431.561112178322,
+          "original_error_energy": 15976.5692918018
+        }
+      ],
+      "pooled_error_energy": 4292618.225678213
+    },
+    {
+      "lam": 1e-05,
+      "folds": [
+        {
+          "chunk": 24,
+          "error_energy": 40142.707440422244,
+          "original_error_energy": 39327.95342222401
+        },
+        {
+          "chunk": 25,
+          "error_energy": 27377.468072072956,
+          "original_error_energy": 37102.10366879989
+        },
+        {
+          "chunk": 26,
+          "error_energy": 14824.74180891844,
+          "original_error_energy": 24626.845825099375
+        },
+        {
+          "chunk": 27,
+          "error_energy": 8983.601830535466,
+          "original_error_energy": 6833.487584164085
+        },
+        {
+          "chunk": 29,
+          "error_energy": 4140644.0201120554,
+          "original_error_energy": 20788.390761312396
+        },
+        {
+          "chunk": 30,
+          "error_energy": 44143.90501698271,
+          "original_error_energy": 40769.225426460674
+        },
+        {
+          "chunk": 31,
+          "error_energy": 16431.49355543672,
+          "original_error_energy": 15976.5692918018
+        }
+      ],
+      "pooled_error_energy": 4292547.9378364235
+    },
+    {
+      "lam": 0.0001,
+      "folds": [
+        {
+          "chunk": 24,
+          "error_energy": 40140.137199041885,
+          "original_error_energy": 39327.95342222401
+        },
+        {
+          "chunk": 25,
+          "error_energy": 27375.06046195209,
+          "original_error_energy": 37102.10366879989
+        },
+        {
+          "chunk": 26,
+          "error_energy": 14824.437155434858,
+          "original_error_energy": 24626.845825099375
+        },
+        {
+          "chunk": 27,
+          "error_energy": 8982.967811981931,
+          "original_error_energy": 6833.487584164085
+        },
+        {
+          "chunk": 29,
+          "error_energy": 4139948.7589801024,
+          "original_error_energy": 20788.390761312396
+        },
+        {
+          "chunk": 30,
+          "error_energy": 44143.01541003457,
+          "original_error_energy": 40769.225426460674
+        },
+        {
+          "chunk": 31,
+          "error_energy": 16430.81822713876,
+          "original_error_energy": 15976.5692918018
+        }
+      ],
+      "pooled_error_energy": 4291845.195245687
+    },
+    {
+      "lam": 0.001,
+      "folds": [
+        {
+          "chunk": 24,
+          "error_energy": 40114.487593686186,
+          "original_error_energy": 39327.95342222401
+        },
+        {
+          "chunk": 25,
+          "error_energy": 27351.15018067324,
+          "original_error_energy": 37102.10366879989
+        },
+        {
+          "chunk": 26,
+          "error_energy": 14821.425571051037,
+          "original_error_energy": 24626.845825099375
+        },
+        {
+          "chunk": 27,
+          "error_energy": 8976.658375651621,
+          "original_error_energy": 6833.487584164085
+        },
+        {
+          "chunk": 29,
+          "error_energy": 4133009.365335097,
+          "original_error_energy": 20788.390761312396
+        },
+        {
+          "chunk": 30,
+          "error_energy": 44134.13710877393,
+          "original_error_energy": 40769.225426460674
+        },
+        {
+          "chunk": 31,
+          "error_energy": 16424.08877383612,
+          "original_error_energy": 15976.5692918018
+        }
+      ],
+      "pooled_error_energy": 4284831.312938769
+    },
+    {
+      "lam": 0.01,
+      "folds": [
+        {
+          "chunk": 24,
+          "error_energy": 39863.28727183368,
+          "original_error_energy": 39327.95342222401
+        },
+        {
+          "chunk": 25,
+          "error_energy": 27127.738031286404,
+          "original_error_energy": 37102.10366879989
+        },
+        {
+          "chunk": 26,
+          "error_energy": 14794.622315499846,
+          "original_error_energy": 24626.845825099375
+        },
+        {
+          "chunk": 27,
+          "error_energy": 8916.473698430329,
+          "original_error_energy": 6833.487584164085
+        },
+        {
+          "chunk": 29,
+          "error_energy": 4064901.0282187248,
+          "original_error_energy": 20788.390761312396
+        },
+        {
+          "chunk": 30,
+          "error_energy": 44047.03581184632,
+          "original_error_energy": 40769.225426460674
+        },
+        {
+          "chunk": 31,
+          "error_energy": 16359.09801769466,
+          "original_error_energy": 15976.5692918018
+        }
+      ],
+      "pooled_error_energy": 4216009.283365316
+    },
+    {
+      "lam": 0.1,
+      "folds": [
+        {
+          "chunk": 24,
+          "error_energy": 37843.60099832772,
+          "original_error_energy": 39327.95342222401
+        },
+        {
+          "chunk": 25,
+          "error_energy": 25891.30686905307,
+          "original_error_energy": 37102.10366879989
+        },
+        {
+          "chunk": 26,
+          "error_energy": 14738.094893752763,
+          "original_error_energy": 24626.845825099375
+        },
+        {
+          "chunk": 27,
+          "error_energy": 8501.783994448468,
+          "original_error_energy": 6833.487584164085
+        },
+        {
+          "chunk": 29,
+          "error_energy": 3486307.5264382507,
+          "original_error_energy": 20788.390761312396
+        },
+        {
+          "chunk": 30,
+          "error_energy": 43290.85924254797,
+          "original_error_energy": 40769.225426460674
+        },
+        {
+          "chunk": 31,
+          "error_energy": 15881.275299213728,
+          "original_error_energy": 15976.5692918018
+        }
+      ],
+      "pooled_error_energy": 3632454.4477355946
+    },
+    {
+      "lam": 1.0,
+      "folds": [
+        {
+          "chunk": 24,
+          "error_energy": 33447.98856869098,
+          "original_error_energy": 39327.95342222401
+        },
+        {
+          "chunk": 25,
+          "error_energy": 27200.94000594052,
+          "original_error_energy": 37102.10366879989
+        },
+        {
+          "chunk": 26,
+          "error_energy": 16597.366119118073,
+          "original_error_energy": 24626.845825099375
+        },
+        {
+          "chunk": 27,
+          "error_energy": 7483.687604645287,
+          "original_error_energy": 6833.487584164085
+        },
+        {
+          "chunk": 29,
+          "error_energy": 1267611.6092095796,
+          "original_error_energy": 20788.390761312396
+        },
+        {
+          "chunk": 30,
+          "error_energy": 40060.87270084658,
+          "original_error_energy": 40769.225426460674
+        },
+        {
+          "chunk": 31,
+          "error_energy": 14987.712188390615,
+          "original_error_energy": 15976.5692918018
+        }
+      ],
+      "pooled_error_energy": 1407390.1763972116
+    },
+    {
+      "lam": 10.0,
+      "folds": [
+        {
+          "chunk": 24,
+          "error_energy": 36420.59079522475,
+          "original_error_energy": 39327.95342222401
+        },
+        {
+          "chunk": 25,
+          "error_energy": 34040.47355504471,
+          "original_error_energy": 37102.10366879989
+        },
+        {
+          "chunk": 26,
+          "error_energy": 21908.726519334312,
+          "original_error_energy": 24626.845825099375
+        },
+        {
+          "chunk": 27,
+          "error_energy": 6793.783235895758,
+          "original_error_energy": 6833.487584164085
+        },
+        {
+          "chunk": 29,
+          "error_energy": 85735.38693071381,
+          "original_error_energy": 20788.390761312396
+        },
+        {
+          "chunk": 30,
+          "error_energy": 39391.99578350289,
+          "original_error_energy": 40769.225426460674
+        },
+        {
+          "chunk": 31,
+          "error_energy": 15375.727190941132,
+          "original_error_energy": 15976.5692918018
+        }
+      ],
+      "pooled_error_energy": 239666.68401065737
+    },
+    {
+      "lam": 100.0,
+      "folds": [
+        {
+          "chunk": 24,
+          "error_energy": 38920.427238106546,
+          "original_error_energy": 39327.95342222401
+        },
+        {
+          "chunk": 25,
+          "error_energy": 36703.6304229996,
+          "original_error_energy": 37102.10366879989
+        },
+        {
+          "chunk": 26,
+          "error_energy": 24263.53198063076,
+          "original_error_energy": 24626.845825099375
+        },
+        {
+          "chunk": 27,
+          "error_energy": 6815.4733220991775,
+          "original_error_energy": 6833.487584164085
+        },
+        {
+          "chunk": 29,
+          "error_energy": 22343.735540622776,
+          "original_error_energy": 20788.390761312396
+        },
+        {
+          "chunk": 30,
+          "error_energy": 40534.0059462564,
+          "original_error_energy": 40769.225426460674
+        },
+        {
+          "chunk": 31,
+          "error_energy": 15883.712265975299,
+          "original_error_energy": 15976.5692918018
+        }
+      ],
+      "pooled_error_energy": 185464.51671669056
+    },
+    {
+      "lam": 1000.0,
+      "folds": [
+        {
+          "chunk": 24,
+          "error_energy": 39285.57037355525,
+          "original_error_energy": 39327.95342222401
+        },
+        {
+          "chunk": 25,
+          "error_energy": 37060.97544412137,
+          "original_error_energy": 37102.10366879989
+        },
+        {
+          "chunk": 26,
+          "error_energy": 24589.23508470257,
+          "original_error_energy": 24626.845825099375
+        },
+        {
+          "chunk": 27,
+          "error_energy": 6831.452998128174,
+          "original_error_energy": 6833.487584164085
+        },
+        {
+          "chunk": 29,
+          "error_energy": 20874.444237003838,
+          "original_error_energy": 20788.390761312396
+        },
+        {
+          "chunk": 30,
+          "error_energy": 40744.17999286404,
+          "original_error_energy": 40769.225426460674
+        },
+        {
+          "chunk": 31,
+          "error_energy": 15966.789960645412,
+          "original_error_energy": 15976.5692918018
+        }
+      ],
+      "pooled_error_energy": 185352.64809102064
+    },
+    {
+      "lam": 10000.0,
+      "folds": [
+        {
+          "chunk": 24,
+          "error_energy": 39323.6981712476,
+          "original_error_energy": 39327.95342222401
+        },
+        {
+          "chunk": 25,
+          "error_energy": 37097.97753344456,
+          "original_error_energy": 37102.10366879989
+        },
+        {
+          "chunk": 26,
+          "error_energy": 24623.07144651139,
+          "original_error_energy": 24626.845825099375
+        },
+        {
+          "chunk": 27,
+          "error_energy": 6833.281652890158,
+          "original_error_energy": 6833.487584164085
+        },
+        {
+          "chunk": 29,
+          "error_energy": 20796.274111789873,
+          "original_error_energy": 20788.390761312396
+        },
+        {
+          "chunk": 30,
+          "error_energy": 40766.70482154201,
+          "original_error_energy": 40769.225426460674
+        },
+        {
+          "chunk": 31,
+          "error_energy": 15975.58617968465,
+          "original_error_energy": 15976.5692918018
+        }
+      ],
+      "pooled_error_energy": 185416.59391711024
+    }
+  ],
+  "final_scores": [
+    {
+      "group": "fitted",
+      "before": 0.08871488328278791,
+      "after": 0.08864254194386784,
+      "ratio": 0.9991845636691029
+    },
+    {
+      "group": "other_historical",
+      "before": 0.077024934103588,
+      "after": 0.07701512621375027,
+      "ratio": 0.9998726660405248
+    }
+  ],
+  "delta_weights": [
+    1.17832812186211,
+    0.677280082424786,
+    1.2705269230721383,
+    -0.34534330074337233,
+    1.5660815871607814,
+    0.9517224207892016,
+    1.352541959529733,
+    0.23201008471269172,
+    0.1671745779839037,
+    0.9488476536796164,
+    -0.0023165582669976846,
+    1.8859746385980989,
+    0.8416674686309386,
+    0.3294051667014201,
+    1.5062134700154457,
+    1.5710298980892208,
+    -0.5779518347839545,
+    0.8333955131395175,
+    1.6787758314622625,
+    -0.5952005052654935,
+    1.2544124485794885,
+    1.0043471407884879,
+    1.0332665424930116,
+    0.8569186607055485,
+    0.2788478121489132,
+    0.7924974683504822,
+    0.5582955535702863,
+    0.35180164673203007,
+    1.3760954645181303,
+    0.6886806819223281,
+    -0.3800632273982573,
+    1.6436664715575091
+  ],
+  "execution_replay": 5.695137441470434e-15,
+  "predictions": {
+    "cv_improves_5pct": false,
+    "other_historical_no_worse": true
+  },
+  "scope": "Conditional coefficient selection only: graph, feature directions, affine correction and metric were already constructed using historical data. Leave-one-chunk-out is not independent full-pipeline validation; no document independence, no exported/adopted replacement. Original safeguards not imposed during folds, so no fidelity-pass claim."
+}
