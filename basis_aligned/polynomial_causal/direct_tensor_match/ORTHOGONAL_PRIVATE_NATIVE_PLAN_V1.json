@@ -1,0 +1,85 @@
+{
+  "created_utc": "2026-09-21T13:12:40.573422+00:00",
+  "metrics": [
+    "calibration_shaped",
+    "native_isotropic"
+  ],
+  "parents": {
+    "calibration_shaped": "calibration_shaped_pairwise_0",
+    "native_isotropic": "native_isotropic_pairwise_26301"
+  },
+  "seeds": [
+    0,
+    26301
+  ],
+  "steps": 1800,
+  "rate": 0.03,
+  "optimizer": "muon",
+  "optimizer_evidence": [
+    {
+      "optimizer": "adam",
+      "best_restart_errors": [
+        3.777139562903739e-15,
+        6.955560142226423e-16,
+        7.467064217795082e-16,
+        2.3000566759574274e-07,
+        7.820318111245267e-16
+      ],
+      "recovered_cases": 5,
+      "geometric_mean_error": 1.1656718793028654e-06
+    },
+    {
+      "optimizer": "muon",
+      "best_restart_errors": [
+        7.335952323485944e-08,
+        1.9769545201348385e-08,
+        1.0957186570057518e-08,
+        4.070945117154193e-08,
+        1.098109782624618e-08
+      ],
+      "recovered_cases": 5,
+      "geometric_mean_error": 3.0639230847517875e-08
+    }
+  ],
+  "primary": "Covariance restart chosen by fitting objective, retaining compilerfailures rather than selecting around them.",
+  "baseline": {
+    "native_error": 0.5525962583461952,
+    "covariance_error": 0.0703133565524768,
+    "per_mode_errors": [
+      0.018692583665713903,
+      0.020499346791718828,
+      0.08805202711597365
+    ],
+    "euclidean_jacobian_errors": [
+      0.187428758387592,
+      0.15902999281611183,
+      0.16001348745745214
+    ],
+    "stored_floats": 1340940,
+    "index_integers": 3456,
+    "activation_products": 1152,
+    "projection_multiplications": 1327104,
+    "source_total_multiplications": 1330560,
+    "source_additions": 1329148
+  },
+  "stored_floats": 1058124,
+  "source_multiplications": 1047648,
+  "products": 1056,
+  "scope": "Same fixed shared dictionaries, whole-block product graph and fidelity/cost gates. Orthonormal full private bases replace complement-plus-coupling coordinates; warm functions and optimal cores match independently. Native improvement is unproven.",
+  "hashes": {
+    "orthogonal_private_varpro.py": "7ac13c9095868742f1381ee516cb819418935f22daf92f3436aa5310efcba3b6",
+    "export_orthogonal_private.py": "baa1b1efbc62b53edbd748bbc645bf89bf119807b4d697926c3e673e4fe1cc3c",
+    "pairwise_reader_graph.py": "408d43a44a72547ad451bc918792c08f4d12370171f4f2655b037cb4388c7116",
+    "pairwise_graph_assessment.py": "9e592cf80486fa0de84a4de4ee156a37db772ca64635ba7b86c31b3d06bcc854",
+    "quadratic_pair_blocks.py": "45b8fa4b2ee41e260f984f7908f6e0a448ce7cb0a96e0423a0112d716458b259",
+    "SHARED_PRODUCT_NATIVE_INPUTS_V1.pt": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+    "ALTERNATING_COMPLETION_PROGRAMS_V1.pt": "19d6de3e151ab119e8cee07e048802406c4b7b4acb556127ec53bffee1245d93",
+    "ORTHOGONAL_PRIVATE_TOY_V1.json": "a82905bafafc02f98cb0a310dc8080508c42c8a61d12d44d8cf3ddc179114712",
+    "ORTHOGONAL_PRIVATE_NATIVE_PREFLIGHT_V1.json": "e079c3a9e86a016694caf23d997287277e41c05b720141d0f5e0275411902671"
+  },
+  "warm_objectives": {
+    "calibration_shaped": 0.00639036330866076,
+    "native_isotropic": 0.2516655796450978
+  },
+  "warm_improvement_factor": 0.9801
+}

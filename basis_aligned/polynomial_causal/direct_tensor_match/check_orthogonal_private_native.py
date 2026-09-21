@@ -3,8 +3,11 @@ import json,torch
 from pairwise_reader_graph import GROUPS
 from free_private_varpro import FreePrivateMetric,parameters_from_private
 from orthogonal_private_varpro import OrthogonalPrivateMetric
+from export_orthogonal_private import export
+from pairwise_graph_assessment import Assessment
 P=Path(__file__).parent;torch.set_num_threads(2)
 data=torch.load(P/'SHARED_PRODUCT_NATIVE_INPUTS_V1.pt',weights_only=True);programs=torch.load(P/'ALTERNATING_COMPLETION_PROGRAMS_V1.pt',weights_only=True)
+audit=Assessment(data)
 Q=torch.stack([q for pair in data['pairs'] for q in pair['Qs']]);S=torch.linalg.inv(data['inverse_root']);rows=[]
 for key in ('calibration_shaped_pairwise_0','native_isotropic_pairwise_26301'):
  transform=S if key.startswith('calibration') else torch.eye(1152,dtype=Q.dtype);program=programs[key]
@@ -25,5 +28,13 @@ for key in ('calibration_shaped_pairwise_0','native_isotropic_pairwise_26301'):
   eps=1e-6;fd=float((new.loss([v+eps*u for v,u in zip(params,direction)])[0]-new.loss([v-eps*u for v,u in zip(params,direction)])[0])/(2*eps))
   fd_relative=abs(fd+float(norm))/float(norm);assert fd_relative<1e-4
   descent=[dict(step=t,loss=float(new.loss([v+t*u for v,u in zip(params,direction)])[0])) for t in (1e-4,1e-3,.01,.1)]
- rows.append(dict(key=key,loss=float(loss.detach()),loss_replay=discrepancy,matrix_replay=matrix_replay,min_core_denominator=denominators,gradient_norm=float(norm),finite_difference_relative=fd_relative,descent=descent))
+ 
+ with torch.no_grad():
+  inverse=data['inverse_root'] if key.startswith('calibration') else transform
+  graph,compiler=export(states,new.scales,program,transform,inverse);graph=audit.correct(graph);scores=audit.assess(graph)
+  field='covariance_error' if key.startswith('calibration') else 'native_error'
+  assert abs(scores[field]-float(dense.detach().sqrt()))<1e-8
+  assert scores['stored_floats']==scores['physical_storage_floats']==1058124
+  assert scores['source_total_multiplications']==1047648
+ rows.append(dict(key=key,export_scores=scores,loss=float(loss.detach()),loss_replay=discrepancy,matrix_replay=matrix_replay,min_core_denominator=denominators,gradient_norm=float(norm),finite_difference_relative=fd_relative,descent=descent))
 (P/'ORTHOGONAL_PRIVATE_NATIVE_PREFLIGHT_V1.json').write_text(json.dumps(dict(records=rows,scope='Same native warm functions and core optima in equivalent full-private orthonormal coordinates. No fitting or adoption claim.'),indent=2)+'\n');print(json.dumps(rows,indent=2))

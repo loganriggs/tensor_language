@@ -1,0 +1,284 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T13:10:57.289979+00:00",
+    "steps": 1800,
+    "rate": 0.03,
+    "optimizers": [
+      "adam",
+      "muon"
+    ],
+    "seeds": [
+      0,
+      1
+    ],
+    "threshold": 0.01,
+    "required_cases": 4,
+    "selection": "Lowest geometricmeanerror overall10runs peroptimizer; require4of5within1%usingbestof2starts.",
+    "pred_a": "Five oracle/dense/envelope/through-solve controls and both native warm-equivalence checks pass.",
+    "pred_b": "Selectedoptimizer recovers>=4of5plantedtargetswithin1%.",
+    "scope": "Equivalent orthonormal full-private bases, fixed shared spaces, exact conditional cores. Same five fixtures and Adam/Muon schedule as predecessor. Native warm equivalence independently verified. No native fit before toy interpretation."
+  },
+  "records": [
+    {
+      "case": 0,
+      "optimizer": "adam",
+      "seed": 0,
+      "error": 3.777139562903739e-15,
+      "private_basis_norms": [
+        3.1152778762381566,
+        3.0936844931027303,
+        3.076212370975123
+      ]
+    },
+    {
+      "case": 0,
+      "optimizer": "adam",
+      "seed": 1,
+      "error": 1.3755148752641166e-12,
+      "private_basis_norms": [
+        4.008843133429471,
+        3.1816313987058797,
+        3.1644825346572314
+      ]
+    },
+    {
+      "case": 0,
+      "optimizer": "muon",
+      "seed": 0,
+      "error": 9.804334461084647e-08,
+      "private_basis_norms": [
+        8.667006794920747,
+        8.327510218339308,
+        8.495413326363646
+      ]
+    },
+    {
+      "case": 0,
+      "optimizer": "muon",
+      "seed": 1,
+      "error": 7.335952323485944e-08,
+      "private_basis_norms": [
+        8.712361949043943,
+        8.785800784853668,
+        8.577907010253487
+      ]
+    },
+    {
+      "case": 1,
+      "optimizer": "adam",
+      "seed": 0,
+      "error": 0.02763121484618532,
+      "private_basis_norms": [
+        6.3563166290433655,
+        4.429240729700594,
+        4.249069022310295
+      ]
+    },
+    {
+      "case": 1,
+      "optimizer": "adam",
+      "seed": 1,
+      "error": 6.955560142226423e-16,
+      "private_basis_norms": [
+        4.406690960417346,
+        4.329114936850283,
+        4.763185263973
+      ]
+    },
+    {
+      "case": 1,
+      "optimizer": "muon",
+      "seed": 0,
+      "error": 3.0357825818925343e-08,
+      "private_basis_norms": [
+        11.755611372051334,
+        12.326663136097887,
+        11.764685964239437
+      ]
+    },
+    {
+      "case": 1,
+      "optimizer": "muon",
+      "seed": 1,
+      "error": 1.9769545201348385e-08,
+      "private_basis_norms": [
+        11.75812386555214,
+        11.887976972461678,
+        11.888898328608857
+      ]
+    },
+    {
+      "case": 2,
+      "optimizer": "adam",
+      "seed": 0,
+      "error": 7.467064217795082e-16,
+      "private_basis_norms": [
+        4.887243331486104,
+        5.0508606866736345,
+        4.933064499028406
+      ]
+    },
+    {
+      "case": 2,
+      "optimizer": "adam",
+      "seed": 1,
+      "error": 0.019164076415872137,
+      "private_basis_norms": [
+        5.24854548303604,
+        7.235479016341721,
+        5.142108933142431
+      ]
+    },
+    {
+      "case": 2,
+      "optimizer": "muon",
+      "seed": 0,
+      "error": 1.9240636216365682e-08,
+      "private_basis_norms": [
+        16.511569890101548,
+        15.061952869605165,
+        15.074908139258998
+      ]
+    },
+    {
+      "case": 2,
+      "optimizer": "muon",
+      "seed": 1,
+      "error": 1.0957186570057518e-08,
+      "private_basis_norms": [
+        14.986417110223986,
+        15.182275624436029,
+        15.373686260254829
+      ]
+    },
+    {
+      "case": 3,
+      "optimizer": "adam",
+      "seed": 0,
+      "error": 2.3000566759574274e-07,
+      "private_basis_norms": [
+        2.936596301378073,
+        3.82780447397811,
+        3.0654093235759623
+      ]
+    },
+    {
+      "case": 3,
+      "optimizer": "adam",
+      "seed": 1,
+      "error": 0.03803091596197845,
+      "private_basis_norms": [
+        4.860065535236789,
+        2.833924882525002,
+        3.107279463092668
+      ]
+    },
+    {
+      "case": 3,
+      "optimizer": "muon",
+      "seed": 0,
+      "error": 4.070945117154193e-08,
+      "private_basis_norms": [
+        8.136342014479974,
+        8.53367060884661,
+        8.411607197928802
+      ]
+    },
+    {
+      "case": 3,
+      "optimizer": "muon",
+      "seed": 1,
+      "error": 7.383065676629683e-08,
+      "private_basis_norms": [
+        8.40215490001661,
+        8.489198096502465,
+        8.24672504367729
+      ]
+    },
+    {
+      "case": 4,
+      "optimizer": "adam",
+      "seed": 0,
+      "error": 8.014557773588551e-16,
+      "private_basis_norms": [
+        4.255556082252409,
+        4.281676430767672,
+        4.332358705334769
+      ]
+    },
+    {
+      "case": 4,
+      "optimizer": "adam",
+      "seed": 1,
+      "error": 7.820318111245267e-16,
+      "private_basis_norms": [
+        4.517330604663354,
+        4.021243589413344,
+        4.194808828925004
+      ]
+    },
+    {
+      "case": 4,
+      "optimizer": "muon",
+      "seed": 0,
+      "error": 2.427394711659956e-08,
+      "private_basis_norms": [
+        11.77252055750647,
+        12.035539193561117,
+        11.792956622780512
+      ]
+    },
+    {
+      "case": 4,
+      "optimizer": "muon",
+      "seed": 1,
+      "error": 1.098109782624618e-08,
+      "private_basis_norms": [
+        11.89919793994964,
+        12.014315243921349,
+        12.256770943816825
+      ]
+    }
+  ],
+  "summaries": [
+    {
+      "optimizer": "adam",
+      "best_restart_errors": [
+        3.777139562903739e-15,
+        6.955560142226423e-16,
+        7.467064217795082e-16,
+        2.3000566759574274e-07,
+        7.820318111245267e-16
+      ],
+      "recovered_cases": 5,
+      "geometric_mean_error": 1.1656718793028654e-06
+    },
+    {
+      "optimizer": "muon",
+      "best_restart_errors": [
+        7.335952323485944e-08,
+        1.9769545201348385e-08,
+        1.0957186570057518e-08,
+        4.070945117154193e-08,
+        1.098109782624618e-08
+      ],
+      "recovered_cases": 5,
+      "geometric_mean_error": 3.0639230847517875e-08
+    }
+  ],
+  "winner": {
+    "optimizer": "muon",
+    "best_restart_errors": [
+      7.335952323485944e-08,
+      1.9769545201348385e-08,
+      1.0957186570057518e-08,
+      4.070945117154193e-08,
+      1.098109782624618e-08
+    ],
+    "recovered_cases": 5,
+    "geometric_mean_error": 3.0639230847517875e-08
+  },
+  "recovery_pass": true,
+  "seconds": 41.799823347013444,
+  "scope": "Five unchanged whole-block producttargets; shared spans given, full private bases randomly initialized, symmetriccoreseliminated. Optimizercomparison specifictothisparameterization."
+}

@@ -2,6 +2,27 @@
   "records": [
     {
       "key": "calibration_shaped_pairwise_0",
+      "export_scores": {
+        "native_error": 0.5973311092103257,
+        "covariance_error": 0.07993974798972575,
+        "execution_replay": 3.2230094681663524e-15,
+        "per_mode_errors": [
+          0.02227949730518256,
+          0.023611225607481454,
+          0.10930612235859892
+        ],
+        "euclidean_jacobian_errors": [
+          0.20221839297798316,
+          0.172840370407614,
+          0.17872774976555927
+        ],
+        "stored_floats": 1058124,
+        "physical_storage_floats": 1058124,
+        "index_integers": 4224,
+        "projection_multiplications": 1044480,
+        "activation_products": 1056,
+        "source_total_multiplications": 1047648
+      },
       "loss": 0.006390363308660311,
       "loss_replay": 5.516420653606247e-16,
       "matrix_replay": [
@@ -37,6 +58,27 @@
     },
     {
       "key": "native_isotropic_pairwise_26301",
+      "export_scores": {
+        "native_error": 0.5016628146923965,
+        "covariance_error": 0.13615973513359952,
+        "execution_replay": 3.4271480576197365e-15,
+        "per_mode_errors": [
+          0.019770940414644177,
+          0.0341472158439362,
+          0.12251068636642094
+        ],
+        "euclidean_jacobian_errors": [
+          0.19844426405266513,
+          0.18362810114814515,
+          0.17872681807027266
+        ],
+        "stored_floats": 1058124,
+        "physical_storage_floats": 1058124,
+        "index_integers": 4224,
+        "projection_multiplications": 1044480,
+        "activation_products": 1056,
+        "source_total_multiplications": 1047648
+      },
       "loss": 0.251665579645097,
       "loss_replay": 8.326672684688674e-16,
       "matrix_replay": [
