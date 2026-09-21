@@ -1,0 +1,82 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T11:59:46.902339+00:00",
+    "optimizer": "Muon",
+    "rate": 0.03,
+    "steps": 600,
+    "seeds": [
+      0,
+      1
+    ],
+    "cases": 5,
+    "threshold": 0.01,
+    "required_cases": 4,
+    "question": "Can optimizing shared/private subspaces with exactly eliminated dense cores recover the same five planted targets that sparse mixed topology struggled to recover?",
+    "pred_a": "Five oracle/dense/gradient/finite-difference controls pass.",
+    "pred_b": "At least4of5targets reach1%explicit coefficient error in one of two fully random starts.",
+    "scope": "Relaxed decomposition diagnostic, not a priced circuit. Native use needs both input geometries and original guards; no native launch before recovery."
+  },
+  "records": [
+    {
+      "case": 0,
+      "seed": 0,
+      "error": 0.02244552112373357
+    },
+    {
+      "case": 0,
+      "seed": 1,
+      "error": 2.5653382584193058e-06
+    },
+    {
+      "case": 1,
+      "seed": 0,
+      "error": 0.020180614930650487
+    },
+    {
+      "case": 1,
+      "seed": 1,
+      "error": 0.0032268142029815553
+    },
+    {
+      "case": 2,
+      "seed": 0,
+      "error": 0.03650466037489657
+    },
+    {
+      "case": 2,
+      "seed": 1,
+      "error": 0.026786169439489697
+    },
+    {
+      "case": 3,
+      "seed": 0,
+      "error": 3.8387987116066565e-06
+    },
+    {
+      "case": 3,
+      "seed": 1,
+      "error": 0.13233436269718568
+    },
+    {
+      "case": 4,
+      "seed": 0,
+      "error": 0.02134188138500293
+    },
+    {
+      "case": 4,
+      "seed": 1,
+      "error": 0.060409917651108445
+    }
+  ],
+  "best_restart_errors": [
+    2.5653382584193058e-06,
+    0.0032268142029815553,
+    0.026786169439489697,
+    3.8387987116066565e-06,
+    0.02134188138500293
+  ],
+  "recovered_cases": 3,
+  "recovery_pass": false,
+  "seconds": 4.362262365408242,
+  "scope": "Random shared/private subspace learning with dense quadratic cores eliminated exactly. No product topology, native fit, sparsity or circuit claim."
+}
