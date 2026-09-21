@@ -1,0 +1,45 @@
+{
+  "predictions": {
+    "pred_a_finite": true,
+    "pred_b_coefficient": false,
+    "pred_c_response": true
+  },
+  "records": [
+    {
+      "coefficient_error": 0.10565386981322018,
+      "response_error": 0.018809147847127776,
+      "signed_coefficient_squared": 0.01116274020650888,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 0.01246632879070725,
+          "response_squared": 0.00124706131381394
+        }
+      ],
+      "start": "inherited"
+    },
+    {
+      "coefficient_error": 0.4481721538592623,
+      "response_error": 0.03539511270496979,
+      "signed_coefficient_squared": 0.20085827949485027,
+      "history": [
+        {
+          "step": 0,
+          "coefficient_squared": 1.1074537788057408,
+          "response_squared": 0.05985027926438144
+        }
+      ],
+      "start": "random"
+    }
+  ],
+  "initial": {
+    "coefficient_error": 0.11165271510674181,
+    "response_error": 0.035313755306026824
+  },
+  "selected": "inherited",
+  "fp32_export_drift": 1.5747151478550702e-06,
+  "stored_floats": 14067072,
+  "program_sha256": "ba841c93ebbd3adb6991e99bc7d43e31bcaca02a6b99773194d32dc96c1d3c8a",
+  "seconds": 183.4558965517208,
+  "scope": "Full original lastMLP polynomial in historical covariance geometry, both input factors learned at fixed width. Conditional output weights solved every step. Historical source-response direction constraint retained;100steps is a pilot, not convergence proof. Inherited reader coordinates scaled sqrt1152 to match random initialization row scales. No heldout data used, no new semantic unit or general graph search claim."
+}
