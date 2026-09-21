@@ -1,3 +1,5 @@
+**Latest experiment — [Response-aware feature learning](research_update_2026-09-21_2026_response_learning.md).** Native responses improve in some settings, but absolute fidelity still fails and code baseline damage increases.
+
 **Start here — [Overall review: the two-stage decomposition and arithmetic-circuit plan](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 20:05 UTC. Explains folding and QR, what each stage does, the main results, and what remains unvalidated.
 
 **Latest graph result — [A smaller shared-root program](research_update_2026-09-21_1956_shared_root_program.md).** Exact pair sharing reduces the16-output program to384products; model-level validation remains outstanding.
