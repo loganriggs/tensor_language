@@ -1,0 +1,94 @@
+{
+  "predictions": {
+    "pred_a_positive_control": true,
+    "pred_b_wide_extrapolation": false
+  },
+  "records": [
+    {
+      "width": 4,
+      "initialization": "inherited",
+      "readout_columns": 10,
+      "conditional_effective_degrees_of_freedom": 9.998628134830964,
+      "training_leverage_mean": 0.004882142643960432,
+      "evaluation_leverage_mean": 0.0038940586843973853,
+      "evaluation_over_training_mean": 0.7976126402645407,
+      "training_quantiles": [
+        0.001999635169339268,
+        0.009856110218608194,
+        0.04739821341833444,
+        0.3021305772725398
+      ],
+      "evaluation_quantiles": [
+        0.0018438191031366177,
+        0.00868996862195027,
+        0.03003210138271425,
+        0.16835149950703943
+      ]
+    },
+    {
+      "width": 4,
+      "initialization": "random",
+      "readout_columns": 10,
+      "conditional_effective_degrees_of_freedom": 9.998829400604674,
+      "training_leverage_mean": 0.004882240918264001,
+      "evaluation_leverage_mean": 0.0036106785364285647,
+      "evaluation_over_training_mean": 0.7395535363528166,
+      "training_quantiles": [
+        0.0024268626535757596,
+        0.009947423206559964,
+        0.046801503626479606,
+        0.09855750871229695
+      ],
+      "evaluation_quantiles": [
+        0.0019206789395496081,
+        0.00761294782728052,
+        0.02947863270603835,
+        0.07103347754372524
+      ]
+    },
+    {
+      "width": 32,
+      "initialization": "inherited",
+      "readout_columns": 528,
+      "conditional_effective_degrees_of_freedom": 527.757895474591,
+      "training_leverage_mean": 0.25769428489970264,
+      "evaluation_leverage_mean": 0.32126279065286867,
+      "evaluation_over_training_mean": 1.246681860941959,
+      "training_quantiles": [
+        0.22738714299077767,
+        0.4393378577936313,
+        0.7216627032770712,
+        0.9408010340973341
+      ],
+      "evaluation_quantiles": [
+        0.2498839141771592,
+        0.5947136275622104,
+        1.3337644791519934,
+        3.7822525341897277
+      ]
+    },
+    {
+      "width": 32,
+      "initialization": "random",
+      "readout_columns": 528,
+      "conditional_effective_degrees_of_freedom": 527.7283894516747,
+      "training_leverage_mean": 0.25767987766195055,
+      "evaluation_leverage_mean": 0.39824947263458665,
+      "evaluation_over_training_mean": 1.5455202643221095,
+      "training_quantiles": [
+        0.22781103591596336,
+        0.43754677116296004,
+        0.719156282299264,
+        0.9207267576191634
+      ],
+      "evaluation_quantiles": [
+        0.3132832976524397,
+        0.7501526320480305,
+        1.661273541929039,
+        2.981348973575072
+      ]
+    }
+  ],
+  "seconds": 0.17641400592401624,
+  "scope": "Conditional ridge-readout leverage in training RMS-scaled root features, frozen100stepprograms. This measures feature-design extrapolation, not a causal explanation, generalization theorem, or total degrees of freedom of learned features. Same oldpanels; no fit or output-frame assumptions."
+}
