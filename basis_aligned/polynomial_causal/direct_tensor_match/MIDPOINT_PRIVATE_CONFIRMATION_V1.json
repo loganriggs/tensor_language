@@ -1,0 +1,212 @@
+{
+  "predictions": {
+    "pred_a_frozen": true,
+    "pred_b_interventions": true,
+    "pred_c_predictive": true
+  },
+  "secondary": {
+    "full_effects_below_30_percent": true
+  },
+  "summary": {
+    "fineweb": {
+      "constant": {
+        "replacement": {
+          "ce_added": 0.16012112100919088
+        },
+        "removal": {
+          "centered_effect_relative_error": 1.0
+        },
+        "same_token": {
+          "centered_effect_relative_error": 1.0
+        }
+      },
+      "projected64": {
+        "replacement": {
+          "ce_added": 0.015222457035755118
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.27139395771112607
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.33762134780532593
+        }
+      },
+      "projected256": {
+        "replacement": {
+          "ce_added": 0.006990589605023464
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.19786926600040114
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.24914561455910478
+        }
+      },
+      "program64": {
+        "replacement": {
+          "ce_added": 0.015136418088028828
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.28616761479132097
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.3522965933154717
+        }
+      },
+      "program256": {
+        "replacement": {
+          "ce_added": 0.008814318051251272
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.22945187488405783
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.2854591469909135
+        }
+      },
+      "product_private512": {
+        "replacement": {
+          "ce_added": 0.00643891441480567
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.2062109458501571
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.26106427257797726
+        },
+        "source_only": {
+          "centered_effect_relative_error": 0.22671456968494627
+        },
+        "context_only": {
+          "centered_effect_relative_error": 0.5213388474133532
+        }
+      },
+      "product_original1024": {
+        "replacement": {
+          "ce_added": 0.008386328218815227
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.22140763740378086
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.28211127131454117
+        },
+        "source_only": {
+          "centered_effect_relative_error": 0.23255610277822616
+        },
+        "context_only": {
+          "centered_effect_relative_error": 0.5248823059254522
+        }
+      }
+    },
+    "code": {
+      "constant": {
+        "replacement": {
+          "ce_added": 1.0224426150321961
+        },
+        "removal": {
+          "centered_effect_relative_error": 1.0
+        },
+        "same_token": {
+          "centered_effect_relative_error": 1.0
+        }
+      },
+      "projected64": {
+        "replacement": {
+          "ce_added": 0.02673122283692161
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.17787207098229207
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.2787755591187009
+        }
+      },
+      "projected256": {
+        "replacement": {
+          "ce_added": 0.017289266781881453
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.12844077766962772
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.2051675604345946
+        }
+      },
+      "program64": {
+        "replacement": {
+          "ce_added": 0.03503503523146113
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.1906932076246763
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.2938921233971575
+        }
+      },
+      "program256": {
+        "replacement": {
+          "ce_added": 0.0271461001286904
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.15218237825312944
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.23695282015472907
+        }
+      },
+      "product_private512": {
+        "replacement": {
+          "ce_added": 0.018942740101677676
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.1318905322505224
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.2136032277893705
+        },
+        "source_only": {
+          "centered_effect_relative_error": 0.19177252031099082
+        },
+        "context_only": {
+          "centered_effect_relative_error": 0.38447977180984266
+        }
+      },
+      "product_original1024": {
+        "replacement": {
+          "ce_added": 0.019175971485674383
+        },
+        "removal": {
+          "centered_effect_relative_error": 0.1470437744307541
+        },
+        "same_token": {
+          "centered_effect_relative_error": 0.23617054968114776
+        },
+        "source_only": {
+          "centered_effect_relative_error": 0.20325760039547722
+        },
+        "context_only": {
+          "centered_effect_relative_error": 0.3962457535752769
+        }
+      }
+    }
+  },
+  "program_hashes": {
+    "MIDPOINT_COVERAGE_64_R4_V1.pt": "4b053776e0d0e788500ef0031caa1a8b65a90b7e74dd86afcf3b1b4836447662",
+    "MIDPOINT_COVERAGE_256_R4_V1.pt": "d45e2771288d7b87047e31946fba68a38659524f5887771249d43c6f70cbcd6f",
+    "MIDPOINT_PRIVATE_FROZEN_V1.pt": "e8d20447c356d38f81203dfb67e2dcb76478c30ac8dce3b1e1f0355f52b509cf"
+  },
+  "prices": {
+    "private512": {
+      "weight_coefficients": 2654208,
+      "serialized_nonweight_entries": 2688,
+      "products": 512
+    },
+    "original1024": {
+      "weight_coefficients": 2671616,
+      "serialized_nonweight_entries": 2176,
+      "products": 1024
+    }
+  },
+  "scope": "Frozen before panel construction. New documents in this decompositionstudy, relatedlocalcode not broad externalOOD; pretrainedoverlapunknown. All four intervention families retained and CEtradeoff explicit. No postfit."
+}

@@ -1,0 +1,66 @@
+{
+  "source": "MIDPOINT_PRIVATE_CONFIRMATION_V1.json",
+  "all_eight_point_errors_improve": true,
+  "max_error_ratio": 0.9932490417907092,
+  "weight_reduction_fraction": 0.006515906477577604,
+  "product_reduction_fraction": 0.5,
+  "rows": [
+    {
+      "domain": "fineweb",
+      "family": "removal",
+      "old_error": 0.22140763740378086,
+      "new_error": 0.2062109458501571,
+      "ratio": 0.9313632911139845
+    },
+    {
+      "domain": "fineweb",
+      "family": "same_token",
+      "old_error": 0.28211127131454117,
+      "new_error": 0.26106427257797726,
+      "ratio": 0.925394690405342
+    },
+    {
+      "domain": "fineweb",
+      "family": "source_only",
+      "old_error": 0.23255610277822616,
+      "new_error": 0.22671456968494627,
+      "ratio": 0.9748811877069913
+    },
+    {
+      "domain": "fineweb",
+      "family": "context_only",
+      "old_error": 0.5248823059254522,
+      "new_error": 0.5213388474133532,
+      "ratio": 0.9932490417907092
+    },
+    {
+      "domain": "code",
+      "family": "removal",
+      "old_error": 0.1470437744307541,
+      "new_error": 0.1318905322505224,
+      "ratio": 0.8969474074037208
+    },
+    {
+      "domain": "code",
+      "family": "same_token",
+      "old_error": 0.23617054968114776,
+      "new_error": 0.2136032277893705,
+      "ratio": 0.9044448093877697
+    },
+    {
+      "domain": "code",
+      "family": "source_only",
+      "old_error": 0.20325760039547722,
+      "new_error": 0.19177252031099082,
+      "ratio": 0.9434949538804948
+    },
+    {
+      "domain": "code",
+      "family": "context_only",
+      "old_error": 0.3962457535752769,
+      "new_error": 0.38447977180984266,
+      "ratio": 0.9703063524106662
+    }
+  ],
+  "scope": "CPU audit of frozen confirmation summary; point estimates, no uncertainty claim."
+}
