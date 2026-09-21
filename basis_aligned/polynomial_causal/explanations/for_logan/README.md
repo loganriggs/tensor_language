@@ -1,6 +1,6 @@
 # Requested full reports for Logan
 
-**Start here — [Overall review: from folded weights to smaller arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 08:40 UTC. Explains the two-stage plan, what QR does, why the target narrowed, the actual savings, and the remaining failures. Read this before the chronological experiment updates.
+**Start here — [Overall review: folding → decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 09:40 UTC. The two-stage proposal, exact QR, what was implemented, why experiments narrowed, and the main results through the 09:34 update.
 
 **Latest experiment — [Expanded moment calibration](research_update_2026-09-21_0934_expanded_moment_calibration.md).** More calibration improves fixed-direction transfer, but the relative component gate still fails. Full-batch direction refitting is preregistered, with no outcome yet.
 
@@ -44,7 +44,7 @@
 
 [21 September,04:18 — Upstream extraction: small programs and a retained behavioral failure](research_update_2026-09-21_0418_upstream_extraction.md).
 
-**Overall decomposition review: [QR → tensor decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September, 05:16 UTC, through the 05:04 results: the original two-stage plan, QR, the three experiment scopes, fair baselines and remaining gaps.
+**Overall decomposition review:** [QR → tensor decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md). See the rewritten synthesis linked at the top.
 
 [Exact-RMS upstream closure corrected and fresh-boundary confirmed](research_update_2026-09-18_upstream_exact_preflight.md).
 
