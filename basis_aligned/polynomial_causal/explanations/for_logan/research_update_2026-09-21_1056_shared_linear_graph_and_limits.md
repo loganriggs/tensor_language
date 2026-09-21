@@ -99,3 +99,5 @@ The full goal remains unresolved: faithful OOD behavior, extraction without nati
 - [Actual factorized executor](../../direct_tensor_match/shared_linear_source_graph.py), [fit implementation](../../direct_tensor_match/fit_shared_linear_graph.py), [independent saved-program and capacity audit](../../direct_tensor_match/SHARED_LINEAR_CAPACITY_V1.json).
 
 No new text collection or model forwards were needed. Earlier data provenance and native-interface limitations still apply. Both positive instrument results and negative scientific results are retained.
+
+**Export correction (21 September 2026, 11:09 UTC):** Selected basis slices retained unused backing storage in the serialized programs. They have been packed with every tensor value bitwise unchanged, so actual floating storage now equals the reported logical coefficient count. Reconstruction and arithmetic results are unchanged. [Packing receipt](../../direct_tensor_match/READER_GRAPH_PACKING_V1.json).

@@ -20,7 +20,7 @@ def main():
   for p in parent.values():
    U=torch.linalg.qr(p['shared_reader'],mode='reduced').Q;projectors.append(U@U.T)
   _,U=torch.linalg.eigh(sum(projectors));parent_factor=factor_bundle(parent,I[:,:0],{str(j):torch.empty(0,dtype=torch.int64) for j in range(3)})
-  parents[metric]=dict(**assess(parent),**price(parent_factor));original=source_reads(z,parent_factor)
+  parents[metric]=dict(**assess(parent),**price(parent_factor));parents[metric]['index_integers']=sum(p['product_indices'].numel() for p in parent.values());original=source_reads(z,parent_factor)
   for rank,count in plan['layouts']:
    basis=U[:,-rank:];selections={};selection_records={}
    for j in range(3):selections[str(j)],selection_records[str(j)]=select_blocks(parent[str(j)],basis,transform,count)

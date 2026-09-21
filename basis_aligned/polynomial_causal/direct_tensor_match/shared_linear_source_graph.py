@@ -20,7 +20,7 @@ def expand(p):
 
 def factor(p,basis):
  out={k:v for k,v in p.items() if k not in ('left_reader','right_reader','square_reader')}
- out['input_basis']=basis
+ out['input_basis']=basis.clone()
  for family in ('left','right','square'):out[family+'_map']=basis.T@p[family+'_reader']
  return out
 

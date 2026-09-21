@@ -37,7 +37,7 @@ def factor_bundle(bundle,basis,selections):
   selected=selections[key];mask=torch.ones(p['shared_reader'].shape[1],dtype=torch.bool);mask[selected]=False;private=torch.where(mask)[0]
   q={k:v for k,v in p.items() if k!='shared_reader'}
   q.update(shared_indices=selected,private_indices=private,shared_map=basis.T@p['shared_reader'][:,selected],private_reader=p['shared_reader'][:,private].clone());pairs[key]=q
- return dict(input_basis=basis,pairs=pairs)
+ return dict(input_basis=basis.clone(),pairs=pairs)
 
 def expand(program):
  basis=program['input_basis'];out={}

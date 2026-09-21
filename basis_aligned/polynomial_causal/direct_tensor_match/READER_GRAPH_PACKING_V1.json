@@ -1,0 +1,129 @@
+{
+  "artifacts": [
+    {
+      "file": "SHARED_LINEAR_GRAPH_PROGRAMS_V1.pt",
+      "before_sha256": "067d65553e1f3879c17271f981c6c55cf4f95e2b2835ff9ca05e7db9cad076b2",
+      "after_sha256": "d8380b3a9da28e7498ed876526ea815c6c511242f895a1c12eda64bbfbd0eca6",
+      "before": {
+        "mixed_384": {
+          "logical_float_coefficients": 899660,
+          "backing_storage_floats": 1784396
+        },
+        "mixed_448": {
+          "logical_float_coefficients": 1047116,
+          "backing_storage_floats": 1858124
+        },
+        "mixed_512": {
+          "logical_float_coefficients": 1194572,
+          "backing_storage_floats": 1931852
+        },
+        "isotropic_384": {
+          "logical_float_coefficients": 899660,
+          "backing_storage_floats": 1784396
+        },
+        "isotropic_448": {
+          "logical_float_coefficients": 1047116,
+          "backing_storage_floats": 1858124
+        },
+        "isotropic_512": {
+          "logical_float_coefficients": 1194572,
+          "backing_storage_floats": 1931852
+        },
+        "covariance_384": {
+          "logical_float_coefficients": 899660,
+          "backing_storage_floats": 1784396
+        },
+        "covariance_448": {
+          "logical_float_coefficients": 1047116,
+          "backing_storage_floats": 1858124
+        },
+        "covariance_512": {
+          "logical_float_coefficients": 1194572,
+          "backing_storage_floats": 1931852
+        }
+      },
+      "after": {
+        "mixed_384": {
+          "logical_float_coefficients": 899660,
+          "backing_storage_floats": 899660
+        },
+        "mixed_448": {
+          "logical_float_coefficients": 1047116,
+          "backing_storage_floats": 1047116
+        },
+        "mixed_512": {
+          "logical_float_coefficients": 1194572,
+          "backing_storage_floats": 1194572
+        },
+        "isotropic_384": {
+          "logical_float_coefficients": 899660,
+          "backing_storage_floats": 899660
+        },
+        "isotropic_448": {
+          "logical_float_coefficients": 1047116,
+          "backing_storage_floats": 1047116
+        },
+        "isotropic_512": {
+          "logical_float_coefficients": 1194572,
+          "backing_storage_floats": 1194572
+        },
+        "covariance_384": {
+          "logical_float_coefficients": 899660,
+          "backing_storage_floats": 899660
+        },
+        "covariance_448": {
+          "logical_float_coefficients": 1047116,
+          "backing_storage_floats": 1047116
+        },
+        "covariance_512": {
+          "logical_float_coefficients": 1194572,
+          "backing_storage_floats": 1194572
+        }
+      },
+      "all_tensor_values_bitwise_unchanged": true
+    },
+    {
+      "file": "LOCAL_SHARED_READER_PROGRAMS_V1.pt",
+      "before_sha256": "23e1789492a5e1f91e4c2eaaae78f0ebec20d5d10b769d64e97d688c54ebe301",
+      "after_sha256": "26d8df78e9651ec82e0a024f1030a7155d19d77f44c2d45218ca9b4232351fc5",
+      "before": {
+        "calibration_shaped_128_160": {
+          "logical_float_coefficients": 996876,
+          "backing_storage_floats": 2176524
+        },
+        "calibration_shaped_64_128": {
+          "logical_float_coefficients": 996876,
+          "backing_storage_floats": 2250252
+        },
+        "native_isotropic_128_160": {
+          "logical_float_coefficients": 996876,
+          "backing_storage_floats": 2176524
+        },
+        "native_isotropic_64_128": {
+          "logical_float_coefficients": 996876,
+          "backing_storage_floats": 2250252
+        }
+      },
+      "after": {
+        "calibration_shaped_128_160": {
+          "logical_float_coefficients": 996876,
+          "backing_storage_floats": 996876
+        },
+        "calibration_shaped_64_128": {
+          "logical_float_coefficients": 996876,
+          "backing_storage_floats": 996876
+        },
+        "native_isotropic_128_160": {
+          "logical_float_coefficients": 996876,
+          "backing_storage_floats": 996876
+        },
+        "native_isotropic_64_128": {
+          "logical_float_coefficients": 996876,
+          "backing_storage_floats": 996876
+        }
+      },
+      "all_tensor_values_bitwise_unchanged": true
+    }
+  ],
+  "correction": "Basis slices kept unused SVD/eigenvector storage. Architecture coefficient counts and arithmetic were correct; old serialized models retained extra backing values. Packed every tensor contiguously, preserving intentional repeated within-program references and every tensor value. Earlier shared-linear LFS artifact replaced by equivalent packed export; no scientific metrics/gates changed."
+}

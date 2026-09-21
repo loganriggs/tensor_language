@@ -1,6 +1,6 @@
 # Plain-language explanations
 
-Current overview: [QR, decomposition and arithmetic circuits](for_logan/research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md). Latest follow-up: [shared linear graph edits and capacity limits](for_logan/research_update_2026-09-21_1056_shared_linear_graph_and_limits.md).
+Current overview: [QR, decomposition and arithmetic circuits](for_logan/research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md). Latest follow-up: [overlapping local reader graphs](for_logan/research_update_2026-09-21_1109_overlapping_local_reader_graph.md).
 
 Latest decomposition evidence: [Mean correction and feature stability](for_logan/research_update_2026-09-20_2015_mean_correction_and_feature_stability.md).
 

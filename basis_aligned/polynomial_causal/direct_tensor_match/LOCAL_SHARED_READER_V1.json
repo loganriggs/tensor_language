@@ -1,0 +1,377 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T11:02:31.908880+00:00",
+    "primary": "calibration_shaped_128_160",
+    "metrics": [
+      "calibration_shaped",
+      "native_isotropic"
+    ],
+    "layouts": [
+      [
+        128,
+        160
+      ],
+      [
+        64,
+        128
+      ]
+    ],
+    "method": "Select complete pencil reader blocks per pair for a shared projection, keep all other reader columns as direct private bypasses. Common orthonormal basis from sum of three native reader-span projectors; block selection minimizes sum of individual coefficient perturbation costs by exact-cardinality knapsack. This is a heuristic for total error. Refit pair output coefficients exactly with normalized Gram ridge1e-12 and retain original affine correction formula.",
+    "pred_a": "Five planted sharing controls and native dense polynomial replay<1e-8; normal equation residual<1e-8; refit objective cannot increase.",
+    "pred_b": "Primary all3component errors<=.15 and<=1.10same pairbaseline; all3fixed-h zJacobian errors<=1.10baseline.",
+    "pred_c": "Primary native and covariance coefficient errors<=1.10same baseline.",
+    "pred_d": "Primary source scalar multiplications<=.80same baseline and stored floats lower, with both shared maps and private projections counted.",
+    "null": "No adequate overlap in useful input directions: arithmetic saving costs source/component fidelity.",
+    "feasibility": "Both layouts have983040projectionmults and986496total source mults vs1330560baseline, while union span remains800or832. Previous common-bottleneck rank-cost obstruction does not reject these spans; this is not proof of fidelity.",
+    "scope": "Five planted controls pass after correcting scalar randn helper in the test only. Four nativeCPUfits, no new data, all448states previously examined, no new semantic/adoption claim."
+  },
+  "parents": {
+    "calibration_shaped": {
+      "native_error": 0.5525962583461952,
+      "covariance_error": 0.0703133565524768,
+      "per_mode_errors": [
+        0.018692583665713903,
+        0.020499346791718828,
+        0.08805202711597365
+      ],
+      "euclidean_jacobian_errors": [
+        0.187428758387592,
+        0.15902999281611183,
+        0.16001348745745214
+      ],
+      "stored_floats": 1340940,
+      "index_integers": 3456,
+      "activation_products": 1152,
+      "projection_multiplications": 1327104,
+      "source_total_multiplications": 1330560,
+      "source_additions": 1329148
+    },
+    "native_isotropic": {
+      "native_error": 0.46438412288532915,
+      "covariance_error": 0.12261787338114949,
+      "per_mode_errors": [
+        0.016188265376345403,
+        0.030553984532129746,
+        0.11255538727628268
+      ],
+      "euclidean_jacobian_errors": [
+        0.18077894518530532,
+        0.16861138050125718,
+        0.16572475346692656
+      ],
+      "stored_floats": 1340940,
+      "index_integers": 3456,
+      "activation_products": 1152,
+      "projection_multiplications": 1327104,
+      "source_total_multiplications": 1330560,
+      "source_additions": 1329152
+    }
+  },
+  "records": [
+    {
+      "key": "calibration_shaped_128_160",
+      "metric": "calibration_shaped",
+      "shared_width": 128,
+      "selected_columns_per_pair": 160,
+      "maximum_common_input_span": 800,
+      "execution_replay": 1.24296667571436e-15,
+      "selection_records": {
+        "0": {
+          "separable_block_cost": 75509643.85551606,
+          "selected_blocks": 110
+        },
+        "1": {
+          "separable_block_cost": 96835239.08006771,
+          "selected_blocks": 108
+        },
+        "2": {
+          "separable_block_cost": 62418875.570847854,
+          "selected_blocks": 139
+        }
+      },
+      "refit": {
+        "0": {
+          "normal_equation_residual": 6.760544816703338e-16,
+          "old_regularized_objective": 0.6936218393418585,
+          "new_regularized_objective": 0.19189950316576307,
+          "product_gram_condition": 1432.4449572824055
+        },
+        "1": {
+          "normal_equation_residual": 6.852597056695093e-16,
+          "old_regularized_objective": 0.7040337553062691,
+          "new_regularized_objective": 0.13797794406748848,
+          "product_gram_condition": 607.7106410982765
+        },
+        "2": {
+          "normal_equation_residual": 5.351598000980741e-16,
+          "old_regularized_objective": 0.2771251606955945,
+          "new_regularized_objective": 0.09131988843584615,
+          "product_gram_condition": 1224.3097789073022
+        }
+      },
+      "before_refit": {
+        "native_error": 1.7488849420060784,
+        "covariance_error": 0.747168154939509,
+        "per_mode_errors": [
+          0.16578286378977397,
+          0.2928428170819033,
+          1.5151037419810105
+        ],
+        "euclidean_jacobian_errors": [
+          1.2455014603124763,
+          1.232428806657664,
+          1.2921773648435861
+        ]
+      },
+      "stored_floats": 996876,
+      "index_integers": 4608,
+      "activation_products": 1152,
+      "projection_multiplications": 983040,
+      "source_total_multiplications": 986496,
+      "source_additions": 984956,
+      "native_error": 0.9944844787003755,
+      "covariance_error": 0.3746986948027402,
+      "per_mode_errors": [
+        0.13621952582827868,
+        0.10413942864740175,
+        0.4790161997645881
+      ],
+      "euclidean_jacobian_errors": [
+        0.5511280683191045,
+        0.41941172408842126,
+        0.4470121048745594
+      ]
+    },
+    {
+      "key": "calibration_shaped_64_128",
+      "metric": "calibration_shaped",
+      "shared_width": 64,
+      "selected_columns_per_pair": 128,
+      "maximum_common_input_span": 832,
+      "execution_replay": 1.2902544652835988e-15,
+      "selection_records": {
+        "0": {
+          "separable_block_cost": 61505539.28772665,
+          "selected_blocks": 94
+        },
+        "1": {
+          "separable_block_cost": 91541466.54355565,
+          "selected_blocks": 92
+        },
+        "2": {
+          "separable_block_cost": 50211976.66966586,
+          "selected_blocks": 119
+        }
+      },
+      "refit": {
+        "0": {
+          "normal_equation_residual": 5.737976353391284e-16,
+          "old_regularized_objective": 0.7683247899733497,
+          "new_regularized_objective": 0.18522706478653508,
+          "product_gram_condition": 1864.9315483005716
+        },
+        "1": {
+          "normal_equation_residual": 6.605512478872701e-16,
+          "old_regularized_objective": 0.771444827698839,
+          "new_regularized_objective": 0.1318926734506308,
+          "product_gram_condition": 733.4351039778176
+        },
+        "2": {
+          "normal_equation_residual": 4.649860008224792e-16,
+          "old_regularized_objective": 0.28374499702939376,
+          "new_regularized_objective": 0.08522197492836577,
+          "product_gram_condition": 1961.260332728158
+        }
+      },
+      "before_refit": {
+        "native_error": 1.7054309289889529,
+        "covariance_error": 0.7796397917466168,
+        "per_mode_errors": [
+          0.13257959805375874,
+          0.24590279606647303,
+          1.8703472351421933
+        ],
+        "euclidean_jacobian_errors": [
+          1.1844782752634666,
+          1.212462336047316,
+          1.291471213538698
+        ]
+      },
+      "stored_floats": 996876,
+      "index_integers": 4608,
+      "activation_products": 1152,
+      "projection_multiplications": 983040,
+      "source_total_multiplications": 986496,
+      "source_additions": 985020,
+      "native_error": 0.9719277636630994,
+      "covariance_error": 0.36621565284097773,
+      "per_mode_errors": [
+        0.13687063360237786,
+        0.08953079848556579,
+        0.4835649544750818
+      ],
+      "euclidean_jacobian_errors": [
+        0.5390280669631476,
+        0.40488199940694397,
+        0.42949598718212906
+      ]
+    },
+    {
+      "key": "native_isotropic_128_160",
+      "metric": "native_isotropic",
+      "shared_width": 128,
+      "selected_columns_per_pair": 160,
+      "maximum_common_input_span": 800,
+      "execution_replay": 8.37602304828361e-16,
+      "selection_records": {
+        "0": {
+          "separable_block_cost": 346255420.4939801,
+          "selected_blocks": 105
+        },
+        "1": {
+          "separable_block_cost": 308729916.2040112,
+          "selected_blocks": 106
+        },
+        "2": {
+          "separable_block_cost": 187130706.16703007,
+          "selected_blocks": 139
+        }
+      },
+      "refit": {
+        "0": {
+          "normal_equation_residual": 6.247483300998639e-15,
+          "old_regularized_objective": 3.260179966927614,
+          "new_regularized_objective": 0.8272155627731623,
+          "product_gram_condition": 148.8999759205254
+        },
+        "1": {
+          "normal_equation_residual": 2.9229620504614853e-15,
+          "old_regularized_objective": 3.1064438812880386,
+          "new_regularized_objective": 0.8126066512615943,
+          "product_gram_condition": 113.92766343258857
+        },
+        "2": {
+          "normal_equation_residual": 3.614862773195375e-15,
+          "old_regularized_objective": 1.9890303610734146,
+          "new_regularized_objective": 0.8032823112728725,
+          "product_gram_condition": 276.57069733215627
+        }
+      },
+      "before_refit": {
+        "native_error": 1.6688972615707576,
+        "covariance_error": 0.6194497865557336,
+        "per_mode_errors": [
+          0.20647745199004602,
+          0.450408559274601,
+          2.159912993588979
+        ],
+        "euclidean_jacobian_errors": [
+          1.2048927897817956,
+          1.0797548670350607,
+          1.1477515579793056
+        ]
+      },
+      "stored_floats": 996876,
+      "index_integers": 4608,
+      "activation_products": 1152,
+      "projection_multiplications": 983040,
+      "source_total_multiplications": 986496,
+      "source_additions": 984960,
+      "native_error": 0.9024235009672313,
+      "covariance_error": 0.5472337190167452,
+      "per_mode_errors": [
+        0.11357312380467394,
+        0.1921616809689775,
+        0.8386850757352882
+      ],
+      "euclidean_jacobian_errors": [
+        0.539674284931894,
+        0.3763481903134471,
+        0.4814509698734193
+      ]
+    },
+    {
+      "key": "native_isotropic_64_128",
+      "metric": "native_isotropic",
+      "shared_width": 64,
+      "selected_columns_per_pair": 128,
+      "maximum_common_input_span": 832,
+      "execution_replay": 1.0730139769401436e-15,
+      "selection_records": {
+        "0": {
+          "separable_block_cost": 225416210.26434037,
+          "selected_blocks": 88
+        },
+        "1": {
+          "separable_block_cost": 238939835.67005095,
+          "selected_blocks": 90
+        },
+        "2": {
+          "separable_block_cost": 127215206.97639471,
+          "selected_blocks": 120
+        }
+      },
+      "refit": {
+        "0": {
+          "normal_equation_residual": 6.925865912997544e-15,
+          "old_regularized_objective": 2.2504807512983263,
+          "new_regularized_objective": 0.7717388112874226,
+          "product_gram_condition": 255.4925958333343
+        },
+        "1": {
+          "normal_equation_residual": 4.004846076066024e-15,
+          "old_regularized_objective": 2.5675194591915314,
+          "new_regularized_objective": 0.7975419214784347,
+          "product_gram_condition": 160.60575726867188
+        },
+        "2": {
+          "normal_equation_residual": 4.087039352264052e-15,
+          "old_regularized_objective": 1.615310618265805,
+          "new_regularized_objective": 0.7666415112486162,
+          "product_gram_condition": 390.52312604798556
+        }
+      },
+      "before_refit": {
+        "native_error": 1.464389614423685,
+        "covariance_error": 0.5708043387007338,
+        "per_mode_errors": [
+          0.1592227423546249,
+          0.28021477572574144,
+          2.4315955331043497
+        ],
+        "euclidean_jacobian_errors": [
+          0.9933057576664662,
+          1.1336002930784483,
+          1.1026547812075163
+        ]
+      },
+      "stored_floats": 996876,
+      "index_integers": 4608,
+      "activation_products": 1152,
+      "projection_multiplications": 983040,
+      "source_total_multiplications": 986496,
+      "source_additions": 985024,
+      "native_error": 0.8824062261773546,
+      "covariance_error": 0.5067030708048942,
+      "per_mode_errors": [
+        0.11215464867016214,
+        0.18174205377078578,
+        0.738878562905262
+      ],
+      "euclidean_jacobian_errors": [
+        0.5089442637237173,
+        0.3898032919000298,
+        0.44104779768039126
+      ]
+    }
+  ],
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_components": false,
+    "pred_c_metrics": false,
+    "pred_d_arithmetic": true
+  },
+  "seconds": 14.993505812715739,
+  "scope": "Graph edit with private bypasses, unchanged six source targets and three components. Shared basis from parent span projectors, block choice from weights-only coefficient perturbations, readout refit in parent geometry. Opened448diagnostics, no fresh validation.",
+  "accounting_correction": "Original pair baseline needs3456product indices. The temporary identity-wrapped evaluator had an extra1152private-routing indices; these are excluded from original baseline counts. Candidate4608indices unchanged. No floating, arithmetic, reconstruction or verdict changed."
+}
