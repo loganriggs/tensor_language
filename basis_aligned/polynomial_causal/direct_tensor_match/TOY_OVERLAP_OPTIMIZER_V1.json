@@ -1,0 +1,497 @@
+{
+  "plan": {
+    "created_utc": "2026-09-21T11:13:55.813660+00:00",
+    "optimizers": [
+      "adam",
+      "muon"
+    ],
+    "rates": [
+      0.01,
+      0.03
+    ],
+    "seeds": [
+      0,
+      1
+    ],
+    "steps": 600,
+    "selection": "Minimize geometric mean final-best root regularized coefficient error across all five fixtures and both starts; no native outcomes used.",
+    "recovery_gate": "Selected setting recovers at least4of5planted targets within1%coefficient error in at leastone of two fully random starts. Otherwise diagnose or extend toy optimization before native queue.",
+    "native_intent": "Jointly learn all shared/private reader directions at fixed overlapping128/160layout, all996876floats/986496source mults, two input metrics and warm/randomstarts. Original component/Jacobian/dualmetric/20%arithmetic gates retained.",
+    "gradient_controls": "Five dense loss and envelope-gradient checks pass; exact planted parameter objective<1e-7. No feature semantic recovery asserted."
+  },
+  "records": [
+    {
+      "case": 0,
+      "optimizer": "adam",
+      "rate": 0.01,
+      "seed": 0,
+      "initial_objective": 0.588026146981699,
+      "best_objective": 0.0024748197707014086,
+      "regularized_root_error": 0.049747560449748776,
+      "best_step": 600
+    },
+    {
+      "case": 0,
+      "optimizer": "adam",
+      "rate": 0.01,
+      "seed": 1,
+      "initial_objective": 0.8281082234701485,
+      "best_objective": 0.006459349405695555,
+      "regularized_root_error": 0.08037007780073101,
+      "best_step": 600
+    },
+    {
+      "case": 0,
+      "optimizer": "adam",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.588026146981699,
+      "best_objective": 0.002287249978386696,
+      "regularized_root_error": 0.04782520233503144,
+      "best_step": 600
+    },
+    {
+      "case": 0,
+      "optimizer": "adam",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.8281082234701485,
+      "best_objective": 0.001768505709511333,
+      "regularized_root_error": 0.0420536051904154,
+      "best_step": 600
+    },
+    {
+      "case": 0,
+      "optimizer": "muon",
+      "rate": 0.01,
+      "seed": 0,
+      "initial_objective": 0.588026146981699,
+      "best_objective": 0.009616450120236892,
+      "regularized_root_error": 0.09806350044862203,
+      "best_step": 600
+    },
+    {
+      "case": 0,
+      "optimizer": "muon",
+      "rate": 0.01,
+      "seed": 1,
+      "initial_objective": 0.8281082234701485,
+      "best_objective": 0.01724232688177115,
+      "regularized_root_error": 0.13131004105463964,
+      "best_step": 600
+    },
+    {
+      "case": 0,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.588026146981699,
+      "best_objective": 0.002620447472249839,
+      "regularized_root_error": 0.051190306428559686,
+      "best_step": 600
+    },
+    {
+      "case": 0,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.8281082234701485,
+      "best_objective": 0.0003767358439814202,
+      "regularized_root_error": 0.019409684283403998,
+      "best_step": 600
+    },
+    {
+      "case": 1,
+      "optimizer": "adam",
+      "rate": 0.01,
+      "seed": 0,
+      "initial_objective": 0.8822939328205897,
+      "best_objective": 0.006062666732498297,
+      "regularized_root_error": 0.07786312819620271,
+      "best_step": 600
+    },
+    {
+      "case": 1,
+      "optimizer": "adam",
+      "rate": 0.01,
+      "seed": 1,
+      "initial_objective": 0.6819692952572072,
+      "best_objective": 0.0027236782771465165,
+      "regularized_root_error": 0.052188871200156424,
+      "best_step": 600
+    },
+    {
+      "case": 1,
+      "optimizer": "adam",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.8822939328205897,
+      "best_objective": 0.0011533880352356065,
+      "regularized_root_error": 0.03396156703150793,
+      "best_step": 600
+    },
+    {
+      "case": 1,
+      "optimizer": "adam",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.6819692952572072,
+      "best_objective": 0.0018563481503838983,
+      "regularized_root_error": 0.04308535888656259,
+      "best_step": 600
+    },
+    {
+      "case": 1,
+      "optimizer": "muon",
+      "rate": 0.01,
+      "seed": 0,
+      "initial_objective": 0.8822939328205897,
+      "best_objective": 0.033603676441759545,
+      "regularized_root_error": 0.18331305584098354,
+      "best_step": 600
+    },
+    {
+      "case": 1,
+      "optimizer": "muon",
+      "rate": 0.01,
+      "seed": 1,
+      "initial_objective": 0.6819692952572072,
+      "best_objective": 0.01967060882140211,
+      "regularized_root_error": 0.14025194765635915,
+      "best_step": 600
+    },
+    {
+      "case": 1,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.8822939328205897,
+      "best_objective": 0.001519777967259439,
+      "regularized_root_error": 0.03898432976542548,
+      "best_step": 600
+    },
+    {
+      "case": 1,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.6819692952572072,
+      "best_objective": 0.00262049483342397,
+      "regularized_root_error": 0.05119076902551836,
+      "best_step": 600
+    },
+    {
+      "case": 2,
+      "optimizer": "adam",
+      "rate": 0.01,
+      "seed": 0,
+      "initial_objective": 0.9189009974520129,
+      "best_objective": 0.011329473223592752,
+      "regularized_root_error": 0.10643999823183366,
+      "best_step": 600
+    },
+    {
+      "case": 2,
+      "optimizer": "adam",
+      "rate": 0.01,
+      "seed": 1,
+      "initial_objective": 0.8686121792906849,
+      "best_objective": 0.014516489760270795,
+      "regularized_root_error": 0.12048439633525494,
+      "best_step": 600
+    },
+    {
+      "case": 2,
+      "optimizer": "adam",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.9189009974520129,
+      "best_objective": 0.008342873743762155,
+      "regularized_root_error": 0.0913393329500613,
+      "best_step": 600
+    },
+    {
+      "case": 2,
+      "optimizer": "adam",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.8686121792906849,
+      "best_objective": 0.0042277003374309174,
+      "regularized_root_error": 0.06502076850846134,
+      "best_step": 600
+    },
+    {
+      "case": 2,
+      "optimizer": "muon",
+      "rate": 0.01,
+      "seed": 0,
+      "initial_objective": 0.9189009974520129,
+      "best_objective": 0.026991842701167057,
+      "regularized_root_error": 0.16429194350657325,
+      "best_step": 600
+    },
+    {
+      "case": 2,
+      "optimizer": "muon",
+      "rate": 0.01,
+      "seed": 1,
+      "initial_objective": 0.8686121792906849,
+      "best_objective": 0.024774500171683405,
+      "regularized_root_error": 0.15739917462198905,
+      "best_step": 600
+    },
+    {
+      "case": 2,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.9189009974520129,
+      "best_objective": 0.010097752723048506,
+      "regularized_root_error": 0.10048757496849303,
+      "best_step": 600
+    },
+    {
+      "case": 2,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.8686121792906849,
+      "best_objective": 0.005074565835502698,
+      "regularized_root_error": 0.07123598694131146,
+      "best_step": 600
+    },
+    {
+      "case": 3,
+      "optimizer": "adam",
+      "rate": 0.01,
+      "seed": 0,
+      "initial_objective": 0.9093367757553046,
+      "best_objective": 5.203425748871264e-06,
+      "regularized_root_error": 0.002281101871655728,
+      "best_step": 600
+    },
+    {
+      "case": 3,
+      "optimizer": "adam",
+      "rate": 0.01,
+      "seed": 1,
+      "initial_objective": 0.8987818883269598,
+      "best_objective": 0.033689000314148856,
+      "regularized_root_error": 0.18354563550830855,
+      "best_step": 600
+    },
+    {
+      "case": 3,
+      "optimizer": "adam",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.9093367757553046,
+      "best_objective": 3.408887616629386e-10,
+      "regularized_root_error": 1.846317312010421e-05,
+      "best_step": 600
+    },
+    {
+      "case": 3,
+      "optimizer": "adam",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.8987818883269598,
+      "best_objective": 3.0881661707134654e-05,
+      "regularized_root_error": 0.005557127109139637,
+      "best_step": 600
+    },
+    {
+      "case": 3,
+      "optimizer": "muon",
+      "rate": 0.01,
+      "seed": 0,
+      "initial_objective": 0.9093367757553046,
+      "best_objective": 0.020799216774456657,
+      "regularized_root_error": 0.14421933564698133,
+      "best_step": 600
+    },
+    {
+      "case": 3,
+      "optimizer": "muon",
+      "rate": 0.01,
+      "seed": 1,
+      "initial_objective": 0.8987818883269598,
+      "best_objective": 0.03972359285056019,
+      "regularized_root_error": 0.19930778421968418,
+      "best_step": 600
+    },
+    {
+      "case": 3,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.9093367757553046,
+      "best_objective": 1.5107378311303896e-10,
+      "regularized_root_error": 1.2291207553086025e-05,
+      "best_step": 600
+    },
+    {
+      "case": 3,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.8987818883269598,
+      "best_objective": 0.00218075807149809,
+      "regularized_root_error": 0.04669858746791053,
+      "best_step": 600
+    },
+    {
+      "case": 4,
+      "optimizer": "adam",
+      "rate": 0.01,
+      "seed": 0,
+      "initial_objective": 0.9111452791493522,
+      "best_objective": 0.0010274477309484276,
+      "regularized_root_error": 0.032053825527515865,
+      "best_step": 600
+    },
+    {
+      "case": 4,
+      "optimizer": "adam",
+      "rate": 0.01,
+      "seed": 1,
+      "initial_objective": 0.7540039619839587,
+      "best_objective": 4.501406096794429e-06,
+      "regularized_root_error": 0.0021216517378670864,
+      "best_step": 600
+    },
+    {
+      "case": 4,
+      "optimizer": "adam",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.9111452791493522,
+      "best_objective": 7.625865464973754e-05,
+      "regularized_root_error": 0.008732620148027597,
+      "best_step": 600
+    },
+    {
+      "case": 4,
+      "optimizer": "adam",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.7540039619839587,
+      "best_objective": 1.2945699845445802e-08,
+      "regularized_root_error": 0.0001137791714042856,
+      "best_step": 600
+    },
+    {
+      "case": 4,
+      "optimizer": "muon",
+      "rate": 0.01,
+      "seed": 0,
+      "initial_objective": 0.9111452791493522,
+      "best_objective": 0.03343802062395029,
+      "regularized_root_error": 0.18286065903837898,
+      "best_step": 600
+    },
+    {
+      "case": 4,
+      "optimizer": "muon",
+      "rate": 0.01,
+      "seed": 1,
+      "initial_objective": 0.7540039619839587,
+      "best_objective": 0.00047502659142388087,
+      "regularized_root_error": 0.021795104758268104,
+      "best_step": 600
+    },
+    {
+      "case": 4,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 0,
+      "initial_objective": 0.9111452791493522,
+      "best_objective": 1.6030891429134422e-10,
+      "regularized_root_error": 1.2661315661942255e-05,
+      "best_step": 600
+    },
+    {
+      "case": 4,
+      "optimizer": "muon",
+      "rate": 0.03,
+      "seed": 1,
+      "initial_objective": 0.7540039619839587,
+      "best_objective": 1.4264330457554783e-10,
+      "regularized_root_error": 1.1943337246161468e-05,
+      "best_step": 600
+    }
+  ],
+  "summaries": [
+    {
+      "optimizer": "adam",
+      "rate": 0.01,
+      "geometric_mean_error": 0.037785522340701046,
+      "best_restart_errors": [
+        0.049747560449748776,
+        0.052188871200156424,
+        0.10643999823183366,
+        0.002281101871655728,
+        0.0021216517378670864
+      ],
+      "recovered_cases": 2
+    },
+    {
+      "optimizer": "adam",
+      "rate": 0.03,
+      "geometric_mean_error": 0.008415601120471851,
+      "best_restart_errors": [
+        0.0420536051904154,
+        0.03396156703150793,
+        0.06502076850846134,
+        1.846317312010421e-05,
+        0.0001137791714042856
+      ],
+      "recovered_cases": 2
+    },
+    {
+      "optimizer": "muon",
+      "rate": 0.01,
+      "geometric_mean_error": 0.1256479287324908,
+      "best_restart_errors": [
+        0.09806350044862203,
+        0.14025194765635915,
+        0.15739917462198905,
+        0.14421933564698133,
+        0.021795104758268104
+      ],
+      "recovered_cases": 0
+    },
+    {
+      "optimizer": "muon",
+      "rate": 0.03,
+      "geometric_mean_error": 0.004064997254944915,
+      "best_restart_errors": [
+        0.019409684283403998,
+        0.03898432976542548,
+        0.07123598694131146,
+        1.2291207553086025e-05,
+        1.1943337246161468e-05
+      ],
+      "recovered_cases": 2
+    }
+  ],
+  "winner": {
+    "optimizer": "muon",
+    "rate": 0.03,
+    "geometric_mean_error": 0.004064997254944915,
+    "best_restart_errors": [
+      0.019409684283403998,
+      0.03898432976542548,
+      0.07123598694131146,
+      1.2291207553086025e-05,
+      1.1943337246161468e-05
+    ],
+    "recovered_cases": 2
+  },
+  "seconds": 39.12841366697103,
+  "predictions": {
+    "instrument": true,
+    "optimization_recovery": false
+  },
+  "scope": "Selection uses five planted graph fixtures and two fully random starts per setting. This is optimizer evidence for this topology, not a universal Adam/Muon ranking or native success guarantee."
+}
