@@ -1,0 +1,48 @@
+{
+  "created_utc": "2026-09-21T14:29:42.858277+00:00",
+  "parent": "PENCIL_JOINT_REFIT_PROGRAMS_V1 inherited",
+  "geometries": [
+    "calibration_shaped",
+    "native_isotropic"
+  ],
+  "allocations": [
+    [
+      2,
+      1,
+      11
+    ],
+    [
+      3,
+      2,
+      9
+    ],
+    [
+      4,
+      3,
+      7
+    ],
+    [
+      13,
+      1,
+      0
+    ]
+  ],
+  "primary": {
+    "geometry": "calibration_shaped",
+    "allocation": [
+      2,
+      1,
+      11
+    ]
+  },
+  "variables": "14 signed-square amplitudes on fixed second-read residual eigenvectors; first reads and all existing graph coefficients frozen.",
+  "objective": "Minimize maximum squared ratio to the unchanged two aggregate coefficient, three component-value and three source-Jacobian bars. These are convex quadratic functions of amplitudes with first read fixed. Opened-state proposal only.",
+  "solver": "SLSQP analytic quadratics and gradients,1000iterations,ftol1e-12; retain primal violation and nonnegative active-multiplier KKT residual. Numerical stationarity is not a rigorous infeasibility certificate.",
+  "controls": "10 planted-compatible and symmetric-incompatible quadratic programs pass across dimensions2,3,5,8,14.",
+  "predictions": {
+    "instrument": "Quadratic loss/profile/direct graph replay<1e-8, finite objective, exact1155-per-square price, KKT residual reported.",
+    "fidelity": "Primary final maximum squared ratio<=1, confirmed independently through actual graph assessment.",
+    "cost": "All programs retain original20%source-multiplication savings."
+  },
+  "scope": "Direct functional weighting includes448 opened native states. No fresh/OOD or semantic identification claim. Both weight-only and covariance-derived direction banks are included; amplitude fitting itself is data-informed in both."
+}
