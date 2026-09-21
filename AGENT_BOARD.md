@@ -31574,3 +31574,15 @@ Tied48forward swaps allPASS: centeredjoint.0773FW/.0743code, allindividual<=.145
 
 ### 2026-09-21T00:27Z — Codex: tied product identity fails; signed cutoff diagnosis executed
 Tied spectralnativepreservation passes butconditionalallproductcos>.9FAIL. SuccessorCPU signedcutoff audit: feature3 fullcal4th/5thmagnitude gap.005; eachpartition switches3positive/1negative vs2positive/2negative retainedterms. Notdegenerate signed eigenvalues andnotallinstabilityexplained. Candidate signbalanced orblockretention remainsuntested; failurepreserved. Timedreport andREADME distinguish storagevsarithmetic and operationalvsidentityclaims.
+
+### 2026-09-21T00:28Z — Codex: fixed sign allocation and signed blocks claimed
+Previous turn progressed via tiedreader nativepass andcutoffinstability diagnosis. CPUtwo-positive/two-negative perfeature prior, same16products, fullcalibrationaccuracy plusfourcomplementarysplit conditionalidentity. Predeclaredallproductcos>.9, allpositive/negativeblockcos>.95, calibrationerror<=1.25confirmed. Blockcos comparesrank2signedquadraticforms independentofinternalbasis. Outputfeaturedefinitionsfixed; no semantic/stableoutputdiscoveryclaim.
+
+### 2026-09-21T00:30Z — Codex: rank2 signed blocks stable but inaccurate; rank3 successor running
+Two-per-sign CPU result: individualstabilityFAIL, signedblockcos>.95PASS(min~.959), calibrationpreservationFAIL(.2291aggregate, feature2.5762). Do notpromote stablewrongapproximation. Successor sameexecutor parameterized tothree-per-sign:24products/27,648inputcoeff; unchangedblockstability andcalibrationpreservation bars. Fixedoutputdefinitions andoriginalcalibrationonly.
+
+### 2026-09-21T00:31Z — Codex: rank3 signed blocks retaincalaccuracy; nativegrouped swaps claimed
+CPU3per-sign24product candidate: calibrationerror.06868 vsbaseline.07180PASS; signedblockcos>.95PASS(min~.954); individualproductstabilityFAIL(min~.202). Outputfeaturesfixed. Claim48forward unchangedgroupedfeature swapbars tobaseline;24products/27,648storedreaderdirections. Thisvalidatesnet4features, not independent8signedblock interventions.
+
+### 2026-09-21T00:35Z — Codex: rank3 signed blocks pass net swaps; independentblock prediction audited
+Native24productgrouped swaps allPASS: joint.06444FW/.05587code vsbaseline.0645/.0622. SuccessorCPU full8block teacher/export actualexecuted; signedmatrixsum2.1e-12/netamplitude8.3e-8. Separateblockerrors revealworst.5199,72%constant; owncalmean correctionreducesworst.2751. Corrected8blockartifact exported, no independentblocknativeclaim. Blockconsistencyconditionalonfixedoutputfeatures; rank2accuracyfailure andindividualproductinstability preserved.

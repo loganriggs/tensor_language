@@ -1,0 +1,17 @@
+{
+  "block_relative_calibration_errors": [
+    0.23344969960319512,
+    0.03993661745675335,
+    0.05726783811418125,
+    0.06830358465119468,
+    0.5198774495186266,
+    0.1406676403554975,
+    0.1018833182691896,
+    0.06454677639961584
+  ],
+  "teacher_block_sum_replay": 2.087983328137649e-12,
+  "centered_net_replay": 8.27855838812477e-08,
+  "products": 24,
+  "input_coefficients": 27648,
+  "scope": "Eight fixedmetric signed coefficient blocks; eachPSD matrix is evaluated on different n,m so its activation neednot bepositive. Full spectralteacher blocks, rank3studentblocks. Native8blockeffects nottested; not8distinctoutputdirections."
+}

@@ -1,0 +1,13 @@
+from pathlib import Path
+import torch,json
+p=Path('/workspace/tensor_language/basis_aligned/polynomial_causal/direct_tensor_match');torch.set_num_threads(2);torch.set_grad_enabled(False);old=torch.load(p/'MIDPOINT_EXTRACTED_PROGRAM_V1.pt',weights_only=True);K=torch.load(p/'MIDPOINT_FACTOR_PROGRAMS_V1.pt',weights_only=True)['K'].double();K=(K+K.transpose(1,2))/2;M=torch.load(p/'MIDPOINT_TIED_READERS_V1.pt',weights_only=True)['common_moment'];e,V=torch.linalg.eigh(M+1e-6*M.trace()/1152*torch.eye(1152));S=(V*e.sqrt()[None,:])@V.T;I=(V*e.rsqrt()[None,:])@V.T;source=torch.load(p/'MIDPOINT_SIGN_BLOCK3_V1.pt',weights_only=True)['program'];rows=torch.load(p/'MIDPOINT_CALIBRATION_ROWS_V1.pt',weights_only=True);n=rows['n'].flatten(0,1).double();m=rows['m'].flatten(0,1).double();blocks=[];means=[];truths=[];checks=[]
+for g,k in enumerate(K):
+ z=S@k@S;vals,U=torch.linalg.eigh((z+z.T)/2);pair=[]
+ for mask in [vals>0,vals<0]:
+  d=(I@U[:,mask])*vals[mask].abs().sqrt()[None,:];b=d@d.T;pair.append(b);blocks.append(b);t=((n@b)*m).sum(1);means.append(t.mean());truths.append(t-t.mean())
+ checks.append(float((pair[0]-pair[1]-k).norm()/k.norm()))
+readout=torch.zeros(24,8,dtype=torch.float64)
+for g in range(4):readout[6*g:6*g+3,2*g]=1;readout[6*g+3:6*g+6,2*g+1]=1
+V=source['directions'].double();offset=torch.stack(means);pred=((n@V)*(m@V))@readout-offset;truth=torch.stack(truths,dim=1);errors=((pred-truth).square().sum(0)/truth.square().sum(0)).sqrt();writers=torch.stack([old['reduced_writers'][:,g]*(1 if sign==0 else -1) for g in range(4) for sign in range(2)],dim=1);signed=torch.tensor([1,-1]*4,dtype=torch.float64);net=(truth*signed).reshape(-1,4,2).sum(-1);original=torch.einsum('bi,gij,bj->bg',n,K,m)-old['offset'].double();netreplay=float((net-original).norm()/original.norm());assert max(checks)<1e-8 and netreplay<1e-5
+result=dict(block_relative_calibration_errors=errors.tolist(),teacher_block_sum_replay=max(checks),centered_net_replay=netreplay,products=24,input_coefficients=27648,scope='Eight fixedmetric signed coefficient blocks; eachPSD matrix is evaluated on different n,m so its activation neednot bepositive. Full spectralteacher blocks, rank3studentblocks. Native8blockeffects nottested; not8distinctoutputdirections.')
+out=p/'MIDPOINT_SIGNED_BLOCK_EXPORT_V1.json';assert not out.exists();out.write_text(json.dumps(result,indent=2)+'\n');torch.save(dict(program=dict(directions=source['directions'],readout=readout.float(),offset=offset.float(),reduced_writers=writers),teacher_blocks=torch.stack(blocks).float(),scope=result['scope']),p/'MIDPOINT_SIGNED_BLOCK_PROGRAM_V1.pt');print(json.dumps(result,indent=2))

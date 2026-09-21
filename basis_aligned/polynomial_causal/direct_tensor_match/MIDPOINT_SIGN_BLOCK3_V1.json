@@ -1,0 +1,267 @@
+{
+  "per_sign": 3,
+  "products": 24,
+  "input_coefficients": 27648,
+  "calibration": {
+    "relative_errors": [
+      0.031234273824663292,
+      0.061053663642166835,
+      0.14458813958591465,
+      0.06111448627440788
+    ],
+    "aggregate_error": 0.06867878147486434
+  },
+  "predictions": {
+    "individual_stability": false,
+    "signed_block_stability": true,
+    "calibration_preservation": true
+  },
+  "records": [
+    {
+      "partition": "contiguous",
+      "features": [
+        {
+          "feature": 0,
+          "matched_product_cosines": [
+            0.7438601393634983,
+            0.5762460127804463,
+            0.8507339892439655,
+            0.9999968278238384,
+            0.97797672885263,
+            0.857915717701841
+          ],
+          "minimum_product_cosine": 0.5762460127804463,
+          "positive_block_cosine": 0.9861367546266827,
+          "negative_block_cosine": 0.9999841409699666
+        },
+        {
+          "feature": 1,
+          "matched_product_cosines": [
+            0.99688725746429,
+            0.9107079976442528,
+            0.9651582579084524,
+            0.9993673840791973,
+            0.47475456378910497,
+            0.6232382735634469
+          ],
+          "minimum_product_cosine": 0.47475456378910497,
+          "positive_block_cosine": 0.9979273655864419,
+          "negative_block_cosine": 0.999218841113481
+        },
+        {
+          "feature": 2,
+          "matched_product_cosines": [
+            0.9742764698799931,
+            0.5390006942395184,
+            0.2956667658203432,
+            0.9998178751760182,
+            0.9866283462174966,
+            0.9460250812218429
+          ],
+          "minimum_product_cosine": 0.2956667658203432,
+          "positive_block_cosine": 0.9535481929845544,
+          "negative_block_cosine": 0.9997548615066303
+        },
+        {
+          "feature": 3,
+          "matched_product_cosines": [
+            0.9999932477926355,
+            0.9320005252262648,
+            0.9515177395519707,
+            0.9997319707127982,
+            0.9821593913347767,
+            0.8879865313005724
+          ],
+          "minimum_product_cosine": 0.8879865313005724,
+          "positive_block_cosine": 0.9999236403583558,
+          "negative_block_cosine": 0.9997102683055283
+        }
+      ]
+    },
+    {
+      "partition": "parity",
+      "features": [
+        {
+          "feature": 0,
+          "matched_product_cosines": [
+            0.9727970670703915,
+            0.9629334749316317,
+            0.9367226708406206,
+            0.999998101326192,
+            0.9926569675062692,
+            0.9815950922473833
+          ],
+          "minimum_product_cosine": 0.9367226708406206,
+          "positive_block_cosine": 0.994649104536659,
+          "negative_block_cosine": 0.9999950118233675
+        },
+        {
+          "feature": 1,
+          "matched_product_cosines": [
+            0.9958065715829016,
+            0.9906874011878459,
+            0.9887824036730121,
+            0.9986357670292034,
+            0.9376892790553162,
+            0.48576905887730853
+          ],
+          "minimum_product_cosine": 0.48576905887730853,
+          "positive_block_cosine": 0.9959939816877117,
+          "negative_block_cosine": 0.9985270031184635
+        },
+        {
+          "feature": 2,
+          "matched_product_cosines": [
+            0.9866809357391865,
+            0.8868781057174489,
+            0.40791381656923204,
+            0.9999141739135758,
+            0.9933169504192256,
+            0.9663037193320732
+          ],
+          "minimum_product_cosine": 0.40791381656923204,
+          "positive_block_cosine": 0.973631993401974,
+          "negative_block_cosine": 0.9999079828143687
+        },
+        {
+          "feature": 3,
+          "matched_product_cosines": [
+            0.9999307424526737,
+            0.8960093901534923,
+            0.8118618735483661,
+            0.9997454618746741,
+            0.9616804728180703,
+            0.9268605218020904
+          ],
+          "minimum_product_cosine": 0.8118618735483661,
+          "positive_block_cosine": 0.9999246238781884,
+          "negative_block_cosine": 0.9997335783094471
+        }
+      ]
+    },
+    {
+      "partition": "random0",
+      "features": [
+        {
+          "feature": 0,
+          "matched_product_cosines": [
+            0.9253768870664624,
+            0.8689148721882042,
+            0.9510596502599341,
+            0.9999988045807684,
+            0.9939211284384195,
+            0.972418582944721
+          ],
+          "minimum_product_cosine": 0.8689148721882042,
+          "positive_block_cosine": 0.9956782212189973,
+          "negative_block_cosine": 0.9999954323426378
+        },
+        {
+          "feature": 1,
+          "matched_product_cosines": [
+            0.9995908644973006,
+            0.9802961801293392,
+            0.9916994838463692,
+            0.9999590225629271,
+            0.8690277249798848,
+            0.9581167394585692
+          ],
+          "minimum_product_cosine": 0.8690277249798848,
+          "positive_block_cosine": 0.9998032302641918,
+          "negative_block_cosine": 0.9999086540840798
+        },
+        {
+          "feature": 2,
+          "matched_product_cosines": [
+            0.9966415039872458,
+            0.9024802961861818,
+            0.8439669087560899,
+            0.999933386463751,
+            0.9924835188252288,
+            0.9636255951943281
+          ],
+          "minimum_product_cosine": 0.8439669087560899,
+          "positive_block_cosine": 0.9918247585850486,
+          "negative_block_cosine": 0.9999568293403839
+        },
+        {
+          "feature": 3,
+          "matched_product_cosines": [
+            0.9998685092643543,
+            0.9303631604727468,
+            0.8735204201525275,
+            0.9995392834517561,
+            0.9802622750403054,
+            0.9392940295138194
+          ],
+          "minimum_product_cosine": 0.8735204201525275,
+          "positive_block_cosine": 0.9998638775503095,
+          "negative_block_cosine": 0.999522876949987
+        }
+      ]
+    },
+    {
+      "partition": "random1",
+      "features": [
+        {
+          "feature": 0,
+          "matched_product_cosines": [
+            0.9933696500817738,
+            0.9858151347618407,
+            0.9209699233109863,
+            0.9999970537758387,
+            0.9941250228426232,
+            0.9686548853727069
+          ],
+          "minimum_product_cosine": 0.9209699233109863,
+          "positive_block_cosine": 0.9938754121835643,
+          "negative_block_cosine": 0.9999939525340381
+        },
+        {
+          "feature": 1,
+          "matched_product_cosines": [
+            0.9968399278024788,
+            0.9495150188724001,
+            0.9654639542496717,
+            0.9992760267665345,
+            0.8391707798547395,
+            0.2015844791664402
+          ],
+          "minimum_product_cosine": 0.2015844791664402,
+          "positive_block_cosine": 0.9977051212302676,
+          "negative_block_cosine": 0.9991147467868248
+        },
+        {
+          "feature": 2,
+          "matched_product_cosines": [
+            0.9822820970535231,
+            0.6434533943370635,
+            0.30122104550823453,
+            0.9999038008567945,
+            0.9974677618870335,
+            0.9942976281188037
+          ],
+          "minimum_product_cosine": 0.30122104550823453,
+          "positive_block_cosine": 0.9662642905165771,
+          "negative_block_cosine": 0.9998533457018237
+        },
+        {
+          "feature": 3,
+          "matched_product_cosines": [
+            0.9999827847652464,
+            0.6984575782043165,
+            0.5332257820678759,
+            0.9999007841539583,
+            0.9611658432500553,
+            0.875675109234563
+          ],
+          "minimum_product_cosine": 0.5332257820678759,
+          "positive_block_cosine": 0.9999706916222951,
+          "negative_block_cosine": 0.9998940909599828
+        }
+      ]
+    }
+  ],
+  "seconds": 7.9834001150447875,
+  "scope": "Fixedprior 3 positive/3 negative terms per fixed outputfeature. Conditionalproduct andsignedblock stability. Calibrationmetric only; nativebehavior notvalidated. Comparison doesnotchange earliercutofffailure."
+}
