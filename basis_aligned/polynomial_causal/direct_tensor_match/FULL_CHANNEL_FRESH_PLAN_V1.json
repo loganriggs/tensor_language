@@ -1,0 +1,17 @@
+{
+  "created_utc": "2026-09-21T16:48:48.632270+00:00",
+  "tokens_sha256": "979dfb0e56627bb186fd922e4d6bfbee55d8893757cd25d130a53e114dd09279",
+  "program": "FULL_CHANNEL_COVARIANCE_PROGRAM_V1.pt; verify SHA against export receipt before evaluation",
+  "predictions": [
+    "native residual replay<1e-5",
+    "both raw/affine domain relative fullMLP effecterrors<.1",
+    "affine effecterror<raw eachdomain",
+    "corrected meanCEadded document-bootstrap95%upper<.02nats/token eachdomain"
+  ],
+  "bootstrap": {
+    "seed": 938,
+    "replicates": 2000,
+    "unit": "document, equal239tokens"
+  },
+  "scope": "32newFWdocuments and16newstdlibfiles, excluded all8priorpanels/cachedFWexcerpts. No retuning; standalone normalizedinput boundary retained. Raw20.009%,affine11.668%factor savings."
+}
