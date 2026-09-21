@@ -1,0 +1,46 @@
+{
+  "records": [
+    {
+      "structure": "indefinite_shared",
+      "value_replay": 4.440892098500626e-16,
+      "gradient_replay": 3.69807889929513e-16,
+      "random_start_error": 2.861852522569418e-16,
+      "recovered": true
+    },
+    {
+      "structure": "private_outputs",
+      "value_replay": 1.7763568394002505e-15,
+      "gradient_replay": 2.84941212250194e-16,
+      "random_start_error": 5.07390658623058e-16,
+      "recovered": true
+    },
+    {
+      "structure": "shared_left",
+      "value_replay": 0.0,
+      "gradient_replay": 2.293556943570032e-16,
+      "random_start_error": 3.201933684902413e-16,
+      "recovered": true
+    },
+    {
+      "structure": "signed_outputs",
+      "value_replay": 4.440892098500626e-16,
+      "gradient_replay": 2.455752778240864e-16,
+      "random_start_error": 1.9199519536172268e-07,
+      "recovered": true
+    },
+    {
+      "structure": "paired_squares",
+      "value_replay": 2.220446049250313e-16,
+      "gradient_replay": 2.256943309002533e-16,
+      "random_start_error": 2.7072567944184857e-16,
+      "recovered": true
+    }
+  ],
+  "all_instrument_checks_pass": true,
+  "all_fits_recovered": true,
+  "steps": 4000,
+  "schedule": "cosine",
+  "optimizer": "Adam",
+  "learning_rate": 0.05,
+  "seconds": 7.8016395850572735
+}

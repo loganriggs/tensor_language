@@ -1,0 +1,62 @@
+{
+  "records": [
+    {
+      "key": "0.01_spectral",
+      "dense_coefficient_error": 0.1030465793527027,
+      "coefficient_error_replay": 4.718447854656915e-16,
+      "per_mode_errors": [
+        0.03551388073191983,
+        0.024871970396297967,
+        0.17543208593165302
+      ],
+      "scalar_error_replay": 1.0547118733938987e-15,
+      "centered_linear_replay": 1.011632525680646e-17,
+      "centered_mean_replay": 1.0229546281874629e-14,
+      "stored_scale_recomputed_relative_error": 1.780588670453773e-08
+    },
+    {
+      "key": "0.01_spectral_1pct_perturbed",
+      "dense_coefficient_error": 0.10597616895941668,
+      "coefficient_error_replay": 2.42861286636753e-15,
+      "per_mode_errors": [
+        0.037654329587818704,
+        0.026068797388201656,
+        0.1799157168102334
+      ],
+      "scalar_error_replay": 3.0531133177191805e-16,
+      "centered_linear_replay": 9.92573875215714e-18,
+      "centered_mean_replay": 6.0657092957319965e-15,
+      "stored_scale_recomputed_relative_error": 1.780588670453773e-08
+    },
+    {
+      "key": "0.05_spectral",
+      "dense_coefficient_error": 0.13692951005674067,
+      "coefficient_error_replay": 3.0175861809311755e-13,
+      "per_mode_errors": [
+        0.05203672561170583,
+        0.031004119659437092,
+        0.21983932406213577
+      ],
+      "scalar_error_replay": 1.1449174941446927e-15,
+      "centered_linear_replay": 1.55589549420305e-17,
+      "centered_mean_replay": 2.737440236705306e-15,
+      "stored_scale_recomputed_relative_error": 1.780588670453773e-08
+    },
+    {
+      "key": "0.05_spectral_1pct_perturbed",
+      "dense_coefficient_error": 0.11339385988182261,
+      "coefficient_error_replay": 2.771394225220547e-14,
+      "per_mode_errors": [
+        0.039757972934102145,
+        0.029215486240767596,
+        0.1982394671270361
+      ],
+      "scalar_error_replay": 1.1102230246251565e-15,
+      "centered_linear_replay": 1.1595624549290175e-17,
+      "centered_mean_replay": 7.758465378261856e-15,
+      "stored_scale_recomputed_relative_error": 1.780588670453773e-08
+    }
+  ],
+  "all_export_checks_pass": true,
+  "scope": "Independent dense quadratic evaluation and original-coordinate metric replay. Same opened inputs; not new intervention or OOD evidence."
+}

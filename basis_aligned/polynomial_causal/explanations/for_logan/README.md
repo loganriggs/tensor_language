@@ -2,6 +2,8 @@
 
 **Start here — [Overall review: QR → tensor decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September, 06:29 UTC. Explains the original two-stage plan, implemented pieces, broad and local results, and why later optimization failures have different causes. Covers documented results through 05:54 UTC.
 
+**Latest — [Joint product fitting and the exact-readout control](research_update_2026-09-21_0654_joint_products_and_readout_control.md).** The512-product model saves storage but fails per-component fidelity; dense audit and least-squares control retain the failure. Mixed-product fitting is the next structural comparison.
+
 **Latest experiment follow-up — [Shared cores and the limits of cross-component reuse](research_update_2026-09-21_0638_shared_cores_and_reuse.md).** Local two-stage improvement; two native panels retain a code-swap tradeoff; common and partial feature-sharing screens fail.
 
 [21 September, 05:54 — Rank limits, Gaussian fitting and input geometry](research_update_2026-09-21_0554_rank_limits_and_input_geometry.md).

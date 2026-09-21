@@ -1,0 +1,120 @@
+{
+  "records": [
+    {
+      "key": "0.01_spectral",
+      "coefficient_error_before": 0.10304657935270223,
+      "coefficient_error_after": 0.10296072612760795,
+      "per_mode_errors_before": [
+        0.03551388073191968,
+        0.02487197039629803,
+        0.17543208593165407
+      ],
+      "per_mode_errors_after": [
+        0.03526072430785118,
+        0.024827185632913574,
+        0.17549107235063796
+      ],
+      "ratios_to_baseline": [
+        1.152910415280403,
+        0.9008919546421768,
+        1.4695520144091598
+      ],
+      "fidelity_pass": false,
+      "discarded_gram_directions": 0,
+      "gram_condition": 3069.258950247818,
+      "normal_equation_error": 3.964584802760495e-15,
+      "dense_program_replay": 2.127300426240737e-15,
+      "stored_floats": 604428,
+      "source_products": 512
+    },
+    {
+      "key": "0.01_spectral_1pct_perturbed",
+      "coefficient_error_before": 0.10597616895941911,
+      "coefficient_error_after": 0.10556959498837015,
+      "per_mode_errors_before": [
+        0.03765432958781876,
+        0.026068797388201392,
+        0.17991571681023372
+      ],
+      "per_mode_errors_after": [
+        0.03624854915617602,
+        0.02590488363637039,
+        0.18225220216160198
+      ],
+      "ratios_to_baseline": [
+        1.1852090585573625,
+        0.9399978555366006,
+        1.526169321490923
+      ],
+      "fidelity_pass": false,
+      "discarded_gram_directions": 0,
+      "gram_condition": 1705.135733660322,
+      "normal_equation_error": 3.956368316533025e-15,
+      "dense_program_replay": 2.2982422780316682e-15,
+      "stored_floats": 604428,
+      "source_products": 512
+    },
+    {
+      "key": "0.05_spectral",
+      "coefficient_error_before": 0.1369295100564389,
+      "coefficient_error_after": 0.13435390040998538,
+      "per_mode_errors_before": [
+        0.052036725611705366,
+        0.031004119659435947,
+        0.21983932406213663
+      ],
+      "per_mode_errors_after": [
+        0.05306092864077978,
+        0.030157312542808425,
+        0.21811384645282367
+      ],
+      "ratios_to_baseline": [
+        1.7349189069489444,
+        1.0943036655523402,
+        1.8264726412113235
+      ],
+      "fidelity_pass": false,
+      "discarded_gram_directions": 0,
+      "gram_condition": 179283.31278332983,
+      "normal_equation_error": 3.337702963036917e-14,
+      "dense_program_replay": 7.08320581886731e-15,
+      "stored_floats": 604428,
+      "source_products": 512
+    },
+    {
+      "key": "0.05_spectral_1pct_perturbed",
+      "coefficient_error_before": 0.11339385988185033,
+      "coefficient_error_after": 0.11317389318964438,
+      "per_mode_errors_before": [
+        0.0397579729341022,
+        0.029215486240768057,
+        0.19823946712703722
+      ],
+      "per_mode_errors_after": [
+        0.03950182742023188,
+        0.02821662559823335,
+        0.19789067730801155
+      ],
+      "ratios_to_baseline": [
+        1.291580622615115,
+        1.023882906602965,
+        1.6571250011495198
+      ],
+      "fidelity_pass": false,
+      "discarded_gram_directions": 0,
+      "gram_condition": 21506.418406039757,
+      "normal_equation_error": 5.1439595996741225e-15,
+      "dense_program_replay": 2.4892234988350844e-15,
+      "stored_floats": 604428,
+      "source_products": 512
+    }
+  ],
+  "primary": "0.01_spectral",
+  "predictions": {
+    "pred_a_least_squares": true,
+    "pred_b_fidelity": false,
+    "pred_c_same_cost": true
+  },
+  "seconds": 3.9100246280431747,
+  "scope": "Exact fixed-product readout refit at numerical rank cutoff1e-12, preserving centered affine target. All same opened rows; primary unchanged from prior coefficient selection."
+}

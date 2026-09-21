@@ -1,0 +1,27 @@
+{
+  "source_products": 384,
+  "outputs": 6,
+  "input_width": 1152,
+  "learning_rates": [
+    0.01,
+    0.05
+  ],
+  "starts": [
+    "spectral",
+    "spectral_1pct_perturbed"
+  ],
+  "steps": 4000,
+  "schedule": "cosine",
+  "optimizer": "Adam",
+  "dtype": "float64",
+  "native_forwards": 0,
+  "selection": "Lowest coefficient objective only; no native outcome selection.",
+  "input_sha256": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+  "initialization_sha256": "7329e220cc77ba9422bbe2b0c18ae17807ddf49ac232b46aed4e62ceef19699b",
+  "predictions": {
+    "pred_a_instrument": "Implicit/dense dimensionless coefficient loss discrepancy<1e-8; finite factors.",
+    "pred_b_fidelity": "Each selected component opened error<=.15 and<=1.10 independent pair baseline.",
+    "pred_c_simplicity": "At most384 products versus768, floats<=1.01 writer-deduplicated baseline897804."
+  },
+  "scope": "General mixed-product CP of six original folded quadratic forms; expanded metric and fixed exact old affine branches. Compare half products at approximately matched storage, not equal product budget."
+}
