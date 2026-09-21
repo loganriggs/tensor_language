@@ -1,0 +1,69 @@
+{
+  "pair_checks": [
+    {
+      "mode": 1,
+      "reader_min_over_max": 0.0033511409400313933,
+      "pencil_min_over_max": 0.0007520299669989629,
+      "reader_numerical_rank": 256,
+      "pencil_numerical_rank": 256
+    },
+    {
+      "mode": 2,
+      "reader_min_over_max": 0.003157294047319853,
+      "pencil_min_over_max": 4.058791552300984e-05,
+      "reader_numerical_rank": 256,
+      "pencil_numerical_rank": 256
+    },
+    {
+      "mode": 3,
+      "reader_min_over_max": 0.0025949851388900468,
+      "pencil_min_over_max": 0.00010530643395299014,
+      "reader_numerical_rank": 256,
+      "pencil_numerical_rank": 256
+    }
+  ],
+  "pairwise_principal_cosines": [
+    {
+      "modes": [
+        1,
+        2
+      ],
+      "cosine_max": 0.9997451512842529,
+      "cosine_median": 0.7903077751115012,
+      "cosine_min": 0.0073118604406886435,
+      "cosine_above_099": 7,
+      "numerical_exact_intersection": 0
+    },
+    {
+      "modes": [
+        1,
+        3
+      ],
+      "cosine_max": 0.9997764763877784,
+      "cosine_median": 0.7738293536520566,
+      "cosine_min": 0.008850452401207591,
+      "cosine_above_099": 8,
+      "numerical_exact_intersection": 0
+    },
+    {
+      "modes": [
+        2,
+        3
+      ],
+      "cosine_max": 0.9999831806004938,
+      "cosine_median": 0.8428965239395366,
+      "cosine_min": 0.0005882219710776171,
+      "cosine_above_099": 19,
+      "numerical_exact_intersection": 0
+    }
+  ],
+  "union_singular_min": 0.002359598680585909,
+  "union_singular_max": 1.7318973018190578,
+  "numerical_union_rank": 768,
+  "rank_tolerance_relative": 1e-10,
+  "exact_shared_bank_dimension_lower_bound": 768,
+  "dense_input_cost_separate": 884736,
+  "dense_common_input_cost_lower_bound": 884736,
+  "dense_common_plus_inner_cost": 1474560,
+  "interpretation": "Numerically certified full subspace union only at stated tolerance. Exact linear bank must contain quadratic ranges when pencil nonsingular. No exact feature overlap found if union full rank; approximation/nonlinear sharing remain possible. Dense cost assumes generic matrices, not a lower bound on sparse arithmetic operations."
+}

@@ -1,5 +1,8 @@
 # A rank limit explains one failure; input geometry explains another concern
 
+**Data-provenance correction, 06:12 UTC:** the earlier FineWeb cache stores token chunks and can take multiple chunks from one document. Its row indices do not establish document identities. Earlier “document” counts and cross-document donor claims based only on those indices should be read as chunk-level evidence; document-level independence and uncertainty require a document-identified replication. The numerical results below are unchanged.
+
+
 21 September 2026, 05:54 UTC.
 
 **We can now rule out the requested Gaussian fitting improvement within the rank-16 family we tested.** A lower bound is 8.02% error, while the requested improvement required 7.22%. The optimized fit reaches 8.98%. This is a specific capacity limit, not a general failure of Tucker, HT or arithmetic circuits.

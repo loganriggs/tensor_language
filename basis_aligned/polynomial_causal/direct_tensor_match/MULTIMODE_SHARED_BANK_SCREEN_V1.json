@@ -1,0 +1,55 @@
+{
+  "predictions": {
+    "pred_a_baseline_replay": true,
+    "pred_b_common256": false
+  },
+  "separate_per_mode_errors": [
+    0.030584097290179208,
+    0.027558449717525742,
+    0.1194180747806927
+  ],
+  "records": [
+    {
+      "shared_width": 256,
+      "per_mode_errors": [
+        0.05340522097088257,
+        0.03130332081469609,
+        0.2036434528525025
+      ],
+      "ratios_to_separate": [
+        1.7461761406321252,
+        1.1358883077805644,
+        1.705298408356414
+      ],
+      "aggregate_error": 0.05207187074036983,
+      "projected_program_price": {
+        "shared_input_coefficients": 294912,
+        "three_inner_transforms_coefficients": 196608,
+        "source_products_if_regular_pair_compilers_succeed": 768
+      },
+      "per_mode_absolute_pass": false
+    },
+    {
+      "shared_width": 320,
+      "per_mode_errors": [
+        0.04068265688026327,
+        0.028641341791376715,
+        0.1946619170707895
+      ],
+      "ratios_to_separate": [
+        1.3301898857523837,
+        1.039294375588998,
+        1.6300875510535535
+      ],
+      "aggregate_error": 0.041045817593612074,
+      "projected_program_price": {
+        "shared_input_coefficients": 368640,
+        "three_inner_transforms_coefficients": 307200,
+        "source_products_if_regular_pair_compilers_succeed": 960
+      },
+      "per_mode_absolute_pass": false
+    }
+  ],
+  "seconds": 2.958771266043186,
+  "scope": "Originalnative modes1/2/3, commoninputprojection candidates with pair-normalizedGrams; no corecompiler or nativepromotion. Per-modeopenedscalarerrors preventleadingmodeaggregate concealment. Prices are prospective corecompiler costs, not executable savings."
+}

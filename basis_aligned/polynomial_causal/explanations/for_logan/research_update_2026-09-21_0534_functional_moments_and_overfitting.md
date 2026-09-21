@@ -1,5 +1,8 @@
 # A better fitting score is not yet a transferable circuit
 
+**Data-provenance correction, 06:12 UTC:** the earlier FineWeb cache stores token chunks and can take multiple chunks from one document. Its row indices do not establish document identities. Earlier “document” counts and cross-document donor claims based only on those indices should be read as chunk-level evidence; document-level independence and uncertainty require a document-identified replication. The numerical results below are unchanged.
+
+
 21 September 2026, 05:34 UTC.
 
 **Direct functional fitting fixes the training error but does not transfer to other documents.** Allowing the source directions to move gives almost perfect training reconstruction and worse evaluation error. Freezing those directions avoids the severe overfit, but leaves roughly 40% error. Neither candidate passes the registered fidelity screen.

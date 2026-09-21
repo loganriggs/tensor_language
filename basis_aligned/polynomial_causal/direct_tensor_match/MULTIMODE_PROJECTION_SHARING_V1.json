@@ -1,0 +1,84 @@
+{
+  "scope": "Opened seven distinct cached prefixes; no fresh native confirmation or semantic claim.",
+  "primary_width": 320,
+  "baseline_errors": [
+    0.03058409729022641,
+    0.027558449717507608,
+    0.11941807478056159
+  ],
+  "baseline_stored_floats": 900108,
+  "records": [
+    {
+      "width": 256,
+      "per_mode_errors": [
+        0.050370929244939674,
+        0.03191319308828394,
+        0.20560687181626436
+      ],
+      "ratios_to_baseline": [
+        1.6469647204868274,
+        1.1580184449929276,
+        1.721739964356989
+      ],
+      "source_products": 768,
+      "stored_floats": 506892,
+      "storage_ratio": 0.5631457558426323,
+      "stored_indices": 2304,
+      "dense_replay": [
+        1.6062443305212596e-15,
+        3.1955397651562863e-15,
+        1.1258109673631635e-14
+      ]
+    },
+    {
+      "width": 320,
+      "per_mode_errors": [
+        0.03808678793734255,
+        0.03131208430588912,
+        0.18638932089506355
+      ],
+      "ratios_to_baseline": [
+        1.245313457380144,
+        1.1362063043044421,
+        1.5608133127046802
+      ],
+      "source_products": 768,
+      "stored_floats": 629772,
+      "storage_ratio": 0.6996627071418097,
+      "stored_indices": 2304,
+      "dense_replay": [
+        1.790947131679241e-15,
+        3.956940788614142e-15,
+        1.388660816881111e-14
+      ]
+    },
+    {
+      "width": 384,
+      "per_mode_errors": [
+        0.034250743000264545,
+        0.030495843215064204,
+        0.15808074302680408
+      ],
+      "ratios_to_baseline": [
+        1.11988732821648,
+        1.1065877626523564,
+        1.3237589311106182
+      ],
+      "source_products": 768,
+      "stored_floats": 752652,
+      "storage_ratio": 0.8361796584409871,
+      "stored_indices": 2304,
+      "dense_replay": [
+        1.8003996771820795e-15,
+        3.893459179327364e-15,
+        1.6425594901063334e-14
+      ]
+    }
+  ],
+  "predictions": {
+    "pred_a_replay": true,
+    "pred_b_fidelity": false,
+    "pred_c_storage": true
+  },
+  "seconds": 3.4765465839300305
+}

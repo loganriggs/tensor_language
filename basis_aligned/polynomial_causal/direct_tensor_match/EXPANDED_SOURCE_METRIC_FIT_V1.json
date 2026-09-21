@@ -1,0 +1,42 @@
+{
+  "predictions": {
+    "pred_a_export": true,
+    "pred_b_rank64": false
+  },
+  "records": [
+    {
+      "rank_per_source": 16,
+      "source_products": 32,
+      "stored_scalars": 41508,
+      "old24_gaussian_error": 0.10309477870111436,
+      "expanded_training_error": 0.3633188717387484,
+      "opened_distinct_normalized_error": 0.3843358730695117,
+      "source_export_replay": 1.6291424443675347e-15
+    },
+    {
+      "rank_per_source": 64,
+      "source_products": 128,
+      "stored_scalars": 152196,
+      "old24_gaussian_error": 0.06291469720981244,
+      "expanded_training_error": 0.19823395262216847,
+      "opened_distinct_normalized_error": 0.24528000725277133,
+      "source_export_replay": 1.669267951063524e-15
+    },
+    {
+      "rank_per_source": 128,
+      "source_products": 256,
+      "stored_scalars": 299780,
+      "old24_gaussian_error": 0.04608844432367855,
+      "expanded_training_error": 0.1205231414324286,
+      "opened_distinct_normalized_error": 0.16343149968132947,
+      "source_export_replay": 1.6564196468693533e-15
+    }
+  ],
+  "weighting_condition": 452.20114888184565,
+  "training_mean_squared_mahalanobis": 1152.0000000000005,
+  "evaluation_mean_squared_mahalanobis": 1465.8503062473424,
+  "evaluation_training_geometry_ratio": 1.2724395019508175,
+  "training_documents": 256,
+  "seconds": 2.2169714490883052,
+  "scope": "Expanded secondmoment about fixed old24mean, all old affine/centering terms preserved. No fitting to evaluation outcomes. Seven previouslyopened evaluation prefixes; no fresh or nativeintervention confirmation."
+}

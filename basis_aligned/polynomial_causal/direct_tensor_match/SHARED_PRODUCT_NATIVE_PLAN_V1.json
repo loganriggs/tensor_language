@@ -1,0 +1,27 @@
+{
+  "source_products": 512,
+  "outputs": 6,
+  "input_width": 1152,
+  "learning_rates": [
+    0.01,
+    0.05
+  ],
+  "starts": [
+    "spectral",
+    "spectral_1pct_perturbed"
+  ],
+  "steps": 4000,
+  "schedule": "cosine",
+  "optimizer": "Adam",
+  "dtype": "float64",
+  "native_forwards": 0,
+  "selection": "Lowest coefficient objective only; opened native errors never select the winner.",
+  "baseline": "MULTIMODE_PAIR_BASELINES_V1.json",
+  "input_sha256": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+  "predictions": {
+    "pred_a_instrument": "Implicit vs dense coefficient loss difference<1e-8; finite factors.",
+    "pred_b_fidelity": "Every selected component normalized error<=.15 and <=1.10 independent pair baseline.",
+    "pred_c_simplicity": "512 products versus768; total stored floats<.90 independent baseline."
+  },
+  "scope": "Original folded quadratic forms in expanded source metric; old exact centered affine terms retained. Fits shared product dictionary, not fixed projected inputs. Seven opened cached prefixes diagnostic only; no native promotion without fresh tests."
+}

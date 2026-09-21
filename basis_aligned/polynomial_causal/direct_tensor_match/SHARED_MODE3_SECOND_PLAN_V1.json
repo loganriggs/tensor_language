@@ -1,0 +1,85 @@
+{
+  "program_sha256": "030e3e8ca0ef183a9b4ea63be2e2c8fd4c3251ab647ecec6d224bc18c409c766",
+  "donor_sha256": "f8da2b50d8657d5b930f2ec98a2f3dc86c5b8daef45786c426002c4c3185acdc",
+  "fold_sha256": "d81bd4c3d997d1776011498b6b4ef93c8143e67fde304d59df045864c1561b23",
+  "tokens_sha256": {
+    "fineweb": "bc9f41523351602b635af71cac97c5fb0e408ade2be207ff203716f159500aed",
+    "stdlib": "e30a90d23703bb9cdceb8ef8b4f1d413cd4b398ea484d403ee0512bc036b4192"
+  },
+  "recipient_documents": {
+    "fineweb": [
+      "<urn:uuid:2d4fc080-d435-428d-ac54-a89ca1918f25>",
+      "<urn:uuid:2a0c1d4a-73cd-4386-9b7f-dd7a3b70ef0a>",
+      "<urn:uuid:586d7262-d8ea-4e6a-8053-8ab783215e38>",
+      "<urn:uuid:bad42aa8-e5cc-4efe-8306-fa98f9a1c1dc>",
+      "<urn:uuid:a7c77d7d-dd70-45d3-8117-5c67dd1a9b18>",
+      "<urn:uuid:23ceeb51-43ce-45be-8719-50016382f44e>",
+      "<urn:uuid:2219f4a1-2f01-4087-b8b7-a5344f9790d2>",
+      "<urn:uuid:51a40ca6-62dc-49ef-9930-2419a87ac8b3>",
+      "<urn:uuid:c24d8f3a-08b6-4168-9f69-0903f7ab7893>",
+      "<urn:uuid:62c04b66-3ea1-4ccd-8a24-a53907535ef9>",
+      "<urn:uuid:6fbf90c8-4609-48d9-9d41-3a9943fa5fe9>",
+      "<urn:uuid:732737a8-f461-4be0-9903-a4fe2af5715f>",
+      "<urn:uuid:13d0d50b-5798-48ee-a91d-96b834287c31>",
+      "<urn:uuid:a6a01339-b446-4316-940c-da310b176b81>",
+      "<urn:uuid:d2e82e25-4621-43af-8ec1-94ae43a89bf5>",
+      "<urn:uuid:1ba03ec0-997f-4ea4-af6e-8b60a32a8223>",
+      "<urn:uuid:254fdcc9-84ad-4754-8abe-c3afb3c20a3f>",
+      "<urn:uuid:577602b4-c59a-4bf2-a993-53ecf38aca0e>",
+      "<urn:uuid:d39ff588-1f93-476b-8387-d77c5eb0976b>",
+      "<urn:uuid:6bcc9b2b-d47e-4ce7-bba8-36c32486e7b6>",
+      "<urn:uuid:abb5c4b2-2a3f-4139-bc42-270a7a9dc870>",
+      "<urn:uuid:5ab655f3-f950-433c-b46e-09a7367cc46b>",
+      "<urn:uuid:6300379b-545c-4b31-baa3-0786f9e9323b>",
+      "<urn:uuid:2b8b2f66-3027-41e7-ab94-22b8fcd1233c>",
+      "<urn:uuid:2b505539-fa5b-46fc-97b5-35a7b844ce6c>",
+      "<urn:uuid:4f999f11-1ac8-4f85-8969-5f8331b55489>",
+      "<urn:uuid:ad04e71a-9059-4ecb-bf71-7557f0c48d3d>",
+      "<urn:uuid:bcd82b09-b924-4fd2-8baf-3bd8443d923b>",
+      "<urn:uuid:50022c7f-1410-4d50-be9e-05411ec98289>",
+      "<urn:uuid:7c6c3dfe-4385-4cde-8766-4414580a8350>",
+      "<urn:uuid:a6f89f97-77ec-4701-b616-b8cc74c8e0ed>",
+      "<urn:uuid:aadbf6ea-e05a-4c65-8f15-6fb38e6031ea>"
+    ],
+    "stdlib": [
+      "/venv/main/lib/python3.12/codeop.py",
+      "/venv/main/lib/python3.12/colorsys.py",
+      "/venv/main/lib/python3.12/compileall.py",
+      "/venv/main/lib/python3.12/configparser.py",
+      "/venv/main/lib/python3.12/contextlib.py",
+      "/venv/main/lib/python3.12/copy.py",
+      "/venv/main/lib/python3.12/copyreg.py",
+      "/venv/main/lib/python3.12/crypt.py",
+      "/venv/main/lib/python3.12/csv.py",
+      "/venv/main/lib/python3.12/dataclasses.py",
+      "/venv/main/lib/python3.12/difflib.py",
+      "/venv/main/lib/python3.12/dis.py",
+      "/venv/main/lib/python3.12/doctest.py",
+      "/venv/main/lib/python3.12/enum.py",
+      "/venv/main/lib/python3.12/filecmp.py",
+      "/venv/main/lib/python3.12/fileinput.py"
+    ]
+  },
+  "mode_index": 2,
+  "donor_concentration": {
+    "fineweb": {
+      "pairs": 5073,
+      "max_site_fraction": 0.001379854162223637,
+      "max_document_fraction": 0.037256062030792236
+    },
+    "stdlib": {
+      "pairs": 3190,
+      "max_site_fraction": 0.001880877767689526,
+      "max_document_fraction": 0.07115987688302994
+    }
+  },
+  "predictions": {
+    "primary": "shared_plain256",
+    "natural_max_error": 0.15,
+    "hybrid_max_error": 0.15,
+    "change_max_error": 0.2,
+    "relative_to_independent128_max": 1.1,
+    "all_domains_and_cohorts": true
+  },
+  "scope": "Second32newdocument-indexedFW prefixes and16newstdlibfiles. Plain256 primary selected onfirstpanel, frozenbeforesecondoutcomes; no parameterrefit. Samebalanced donor rule and gates; native mode3 removal reference, nativeinputs retained."
+}

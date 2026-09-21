@@ -1,5 +1,8 @@
 # Joint quartic fitting improves the tensor score but worsens the function
 
+**Data-provenance correction, 06:12 UTC:** the earlier FineWeb cache stores token chunks and can take multiple chunks from one document. Its row indices do not establish document identities. Earlier “document” counts and cross-document donor claims based only on those indices should be read as chunk-level evidence; document-level independence and uncertainty require a document-identified replication. The numerical results below are unchanged.
+
+
 21 September 2026, 05:24 UTC.
 
 **Directly fitting the composed quartic numerator worked as an optimization, but failed the functional accuracy screen.** For the weak third native component, covariance-weighted coefficient error fell from 80.86% to 13.97%, while normalized calibration-function error rose from 37.71% to 48.97%. We should not promote this replacement to a circuit on that evidence.

@@ -1,0 +1,84 @@
+{
+  "predictions": {
+    "pred_a_compiler": true,
+    "pred_b_primary": true,
+    "pred_c_products": true
+  },
+  "records": [
+    {
+      "kind": "plain",
+      "width": 128,
+      "status": "COMPILED",
+      "source_products": 128,
+      "stored_float_scalars": 152324,
+      "stored_integer_indices": 384,
+      "matrix_replay": [
+        2.402237836273787e-13,
+        3.490094230227451e-13
+      ],
+      "source_program_replay": 8.486097124213083e-14,
+      "old_training_normalized_error": 0.1503572447630113,
+      "opened_distinct_normalized_error": 0.19428785535793774
+    },
+    {
+      "kind": "plain",
+      "width": 256,
+      "status": "COMPILED",
+      "source_products": 256,
+      "stored_float_scalars": 300036,
+      "stored_integer_indices": 768,
+      "matrix_replay": [
+        6.375870130894207e-13,
+        6.173663438933655e-13
+      ],
+      "source_program_replay": 2.5311100180808004e-13,
+      "old_training_normalized_error": 0.09146782914215366,
+      "opened_distinct_normalized_error": 0.11941807480512867
+    },
+    {
+      "kind": "affine",
+      "width": 128,
+      "status": "COMPILED",
+      "source_products": 128,
+      "stored_float_scalars": 152324,
+      "stored_integer_indices": 384,
+      "matrix_replay": [
+        1.469377572932855e-13,
+        1.6005978338657284e-13
+      ],
+      "source_program_replay": 5.5853706594694435e-14,
+      "old_training_normalized_error": 0.1368443966439517,
+      "opened_distinct_normalized_error": 0.171601835934683
+    },
+    {
+      "kind": "affine",
+      "width": 256,
+      "status": "COMPILED",
+      "source_products": 256,
+      "stored_float_scalars": 300036,
+      "stored_integer_indices": 768,
+      "matrix_replay": [
+        5.253250512358946e-13,
+        7.213413345657548e-13
+      ],
+      "source_program_replay": 3.653898746443273e-13,
+      "old_training_normalized_error": 0.08803074015294303,
+      "opened_distinct_normalized_error": 0.11198695165179626
+    }
+  ],
+  "affine_source_gram": [
+    [
+      202336972.33715206,
+      -67832353.77511089
+    ],
+    [
+      -67832353.77511089,
+      673192243.6798275
+    ]
+  ],
+  "independent128_error": 0.16343149968132947,
+  "independent128_products": 256,
+  "independent128_scalars": 299780,
+  "seconds": 1.5902022069785744,
+  "scope": "Two-stage fixed-weight construction: commoninput Tucker projection of originalsourceforms, exact shared-product core compilation. Sameoldaffinebranches and expandedtraininggeometry. Seven opened evaluation prefixes, no outcome optimization, fresh/nativeintervention evidence pending."
+}

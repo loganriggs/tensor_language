@@ -21,6 +21,9 @@ OUTPUT_FILE='MIDPOINT_SOURCE_INTERCHANGE_V1.json'
 PRIMARY='covariance_16'
 ANCHOR='isotropic_0'
 FORWARDS=48
+MODE_INDEX=0
+FOLD_FILE='MIDPOINT_CONTINUATION_SOURCE_FOLD_V1.pt'
+INCLUDE_NATURAL=False
 def main():
  if os.environ.get('BQLIB_DRYRUN') or os.environ.get('BQLIB_NO_MODEL'):
   import torch
@@ -37,7 +40,8 @@ def main():
  from token_boundary_conditions import annotate
  torch.set_num_threads(4);torch.set_grad_enabled(False);torch.backends.cuda.matmul.allow_tf32=False;start=time.perf_counter();out=P/OUTPUT_FILE;assert not out.exists()
  plan=json.loads((P/PLAN_FILE).read_text());assert hashlib.sha256((P/PROGRAM_FILE).read_bytes()).hexdigest()==plan['program_sha256'];assert hashlib.sha256((P/DONOR_FILE).read_bytes()).hexdigest()==plan['donor_sha256']
- programs={k:{n:t.cuda().double() for n,t in p.items()} for k,p in torch.load(P/PROGRAM_FILE,weights_only=True).items()};mode={k:t.cuda().double() for k,t in torch.load(P/'MIDPOINT_NATIVE_OBSERVER_MODES_V1.pt',weights_only=True).items()};a=mode['A'][:,0];b=mode['B'][:,0];e=programs[ANCHOR];writer=e['residual_writer'];fold=torch.load(P/'MIDPOINT_CONTINUATION_SOURCE_FOLD_V1.pt',weights_only=True);Qa=fold['a']['matrix'].cuda();Qb=fold['b']['matrix'].cuda()
+ if 'fold_sha256' in plan:assert hashlib.sha256((P/FOLD_FILE).read_bytes()).hexdigest()==plan['fold_sha256']
+ programs={k:{n:t.cuda().double() for n,t in p.items()} for k,p in torch.load(P/PROGRAM_FILE,weights_only=True).items()};mode={k:t.cuda().double() for k,t in torch.load(P/'MIDPOINT_NATIVE_OBSERVER_MODES_V1.pt',weights_only=True).items()};a=mode['A'][:,MODE_INDEX];b=mode['B'][:,MODE_INDEX];e=programs[ANCHOR];writer=e['residual_writer'];fold=torch.load(P/FOLD_FILE,weights_only=True);Qa=fold['a']['matrix'].cuda();Qb=fold['b']['matrix'].cuda()
  tokens=torch.load(P/TOKEN_FILE,weights_only=True);donors=torch.load(P/DONOR_FILE,weights_only=True);model=Bilin18TorchBackend.load('cuda').model.float();b16=model.transformer.h[16];b17=model.transformer.h[17];enc=tiktoken.get_encoding('gpt2');checks=[];qchecks=[];records=[]
  logits=lambda x:30*torch.tanh(model.lm_head(F.rms_norm(x,(1152,)))/30)
  def native_write(h,m):
@@ -60,6 +64,7 @@ def main():
     for state,base,ce,w in zip(states,base_logits,ces,ww):
      changed=logits(state-w.float());effect=(changed-base).double();effect-=effect.mean(-1,keepdim=True);effects.append(effect);damages.append(F.cross_entropy(changed,targets,reduction='none')-ce)
     families={'hybrid':effects[1],'change':effects[1]-effects[0]};dc={'hybrid':damages[1],'change':damages[1]-damages[0]}
+    if INCLUDE_NATURAL:families['natural']=effects[0];dc['natural']=damages[0]
     if name=='native':ref={k:v for k,v in families.items()};refce=dc
     for family,value in families.items():
      err=(value-ref[family]).square().sum(-1);energy=ref[family].square().sum(-1);ceerr=dc[family]-refce[family]
@@ -74,7 +79,7 @@ def main():
   summary[domain]={}
   for name in writes:
    summary[domain][name]={}
-   for family in ['hybrid','change']:
+   for family in (['natural','hybrid','change'] if INCLUDE_NATURAL else ['hybrid','change']):
     summary[domain][name][family]={}
     for cohort in ['all','continuation','spaced_word']:
      rr=[r for r in records if r['domain']==domain and r['candidate']==name and r['family']==family and r['cohort']==cohort];n=sum(r['sites'] for r in rr);assert n>0;den=sum(r['reference_energy'] for r in rr)

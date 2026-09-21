@@ -1,5 +1,9 @@
 # Latest requested update for Logan
 
+**Start here — [Overall review: QR → tensor decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September, 06:29 UTC. Explains the original two-stage plan, implemented pieces, broad and local results, and why later optimization failures have different causes. Covers documented results through 05:54 UTC.
+
+**Latest experiment follow-up — [Shared cores and the limits of cross-component reuse](research_update_2026-09-21_0638_shared_cores_and_reuse.md).** Local two-stage improvement; two native panels retain a code-swap tradeoff; common and partial feature-sharing screens fail.
+
 [21 September, 05:54 — Rank limits, Gaussian fitting and input geometry](research_update_2026-09-21_0554_rank_limits_and_input_geometry.md).
 
 [21 September, 05:34 — Functional moments, overfitting and a fixed-product control](research_update_2026-09-21_0534_functional_moments_and_overfitting.md).
@@ -14,7 +18,6 @@
 
 [21 September,04:18 — Upstream extraction: small programs and a retained behavioral failure](research_update_2026-09-21_0418_upstream_extraction.md).
 
-**Start here — [Overall review: folded weights → tensor decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September, 05:16 UTC, through the 05:04 results. Explains QR, the two stages, the three experiment scopes, fair baselines, successes and remaining failures.
 
 **Latest Claude attention-simplification update: [20 September — Simplifying all of attention: every head valued by mean ablation, and what a program recovers relative to that](research_update_2026-09-20_attention_simplified.md).** All 162 heads priced by mean ablation; the pattern side as a fitted program at +0.060 CE (recovery 0.985) with head values preserved (Spearman 0.82) at 3.7x fewer numbers; the write side found wide (rank 32 for all heads +0.275); the manipulability failure localized to one head's program and repaired by rank.
 

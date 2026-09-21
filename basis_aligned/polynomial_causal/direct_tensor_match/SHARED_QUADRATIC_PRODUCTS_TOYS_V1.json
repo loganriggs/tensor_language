@@ -1,0 +1,48 @@
+{
+  "records": [
+    {
+      "structure": "shared_outputs",
+      "gradient_replay": 2.5005644722532925e-16,
+      "value_replay": 8.881784197001252e-16,
+      "random_start_recovery_error": 6.085307397134482e-16,
+      "recovered": true,
+      "steps": 1200
+    },
+    {
+      "structure": "private_outputs",
+      "gradient_replay": 2.035412180859297e-16,
+      "value_replay": 0.0,
+      "random_start_recovery_error": 0.00110951693410254,
+      "recovered": false,
+      "steps": 1200
+    },
+    {
+      "structure": "rotated_inputs",
+      "gradient_replay": 2.706473545580725e-16,
+      "value_replay": 4.440892098500626e-16,
+      "random_start_recovery_error": 3.195227909266035e-15,
+      "recovered": true,
+      "steps": 1200
+    },
+    {
+      "structure": "signed_overlap",
+      "gradient_replay": 3.349553023918704e-16,
+      "value_replay": 4.440892098500626e-16,
+      "random_start_recovery_error": 0.007854624521104556,
+      "recovered": false,
+      "steps": 1200
+    },
+    {
+      "structure": "repeated_products",
+      "gradient_replay": 1.9218849155717928e-16,
+      "value_replay": 0.0,
+      "random_start_recovery_error": 2.4337650703926953e-14,
+      "recovered": true,
+      "steps": 1200
+    }
+  ],
+  "all_instrument_checks_pass": true,
+  "all_fits_recovered": false,
+  "seconds": 2.448484377004206,
+  "scope": "Five planted symmetric shared-product structures; loss and gradients independently match dense tensors. Recovery failures retained; no trained-model result."
+}

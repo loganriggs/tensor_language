@@ -1,0 +1,85 @@
+{
+  "program_sha256": "030e3e8ca0ef183a9b4ea63be2e2c8fd4c3251ab647ecec6d224bc18c409c766",
+  "donor_sha256": "29b2534f6cf60dde7feb4a5b1257676a0b1aa51a1eed71114457e83250e8cff4",
+  "fold_sha256": "d81bd4c3d997d1776011498b6b4ef93c8143e67fde304d59df045864c1561b23",
+  "tokens_sha256": {
+    "fineweb": "0cdf513d5b21cf033967b9ba5066cf92660d5549f2f9238647330446d50da939",
+    "stdlib": "184e0e064b9bcd88c6fabdf5dce32f719da9215e1f1209702cfac6494bc3bfda"
+  },
+  "recipient_documents": {
+    "fineweb": [
+      "<urn:uuid:ba819eb7-e6e6-415a-87f4-0347b6a4f017>",
+      "<urn:uuid:07b8e00d-b445-4736-a593-cd1c147dce21>",
+      "<urn:uuid:c970d9a2-a5ce-4050-9ea3-58d7bbd609a8>",
+      "<urn:uuid:5c2cac9e-2fda-4194-959b-6ede0668ad2a>",
+      "<urn:uuid:a42b6d10-fba9-4678-af39-5b242fdfe790>",
+      "<urn:uuid:8ba5fa5a-1f92-4f5a-95e3-85dbb7befbfe>",
+      "<urn:uuid:4ad1d60f-e986-44b4-8b58-e833a6dddba8>",
+      "<urn:uuid:7bc4fe2c-c860-45d0-91f4-7cb5d3800e66>",
+      "<urn:uuid:e1430de0-6fdd-4e79-aae2-7aab1fe60c60>",
+      "<urn:uuid:67af6fe6-95e8-403c-821b-a7c16c3999bc>",
+      "<urn:uuid:04e33fa0-23c2-4de1-a4d2-8ecba512086d>",
+      "<urn:uuid:c6c03e75-ef3c-4e66-80ce-d937222af5e1>",
+      "<urn:uuid:095340b9-8a67-45ac-afb3-250bec8e3efd>",
+      "<urn:uuid:3cad8aa8-a0c4-4556-81a3-03253c1cb027>",
+      "<urn:uuid:bc4b6cd6-d4ac-4bf3-bab0-19fb2348af7f>",
+      "<urn:uuid:4e3586b2-b180-48e7-8eca-e52077fbc716>",
+      "<urn:uuid:4b0a1b87-7a7c-423b-8494-7ff2d0f7858a>",
+      "<urn:uuid:50d5903c-1959-477a-95fb-1f1658d14df8>",
+      "<urn:uuid:23f64b6d-abc6-4a30-89a1-ca35d63ccff5>",
+      "<urn:uuid:041772aa-f4ca-4850-800f-b3ff4bbb2106>",
+      "<urn:uuid:d1d36f84-d2f7-4fa6-8dbe-a5e18237d2a4>",
+      "<urn:uuid:420fbd96-f522-489c-bff9-429c76a641d3>",
+      "<urn:uuid:07f0d7eb-c5f6-4de5-b87d-ffedbc8204de>",
+      "<urn:uuid:8d6f8d90-4567-4181-af0e-5e3351fb33fc>",
+      "<urn:uuid:f039feac-7cd1-42b5-a7a2-50a40c01413d>",
+      "<urn:uuid:b6df3900-0d4b-4cea-bf7c-a64bbdb5605f>",
+      "<urn:uuid:88a599b8-b398-421c-a39a-1915faeef50f>",
+      "<urn:uuid:ac28337a-329e-4000-b4c2-e2ad740c875d>",
+      "<urn:uuid:c2cf1d87-5e7b-4582-9457-3d1ce73c9035>",
+      "<urn:uuid:aa71c29b-fc84-4974-ab2d-24a501adf539>",
+      "<urn:uuid:21a5925e-ed7e-4979-8809-00abb075824e>",
+      "<urn:uuid:3537285b-3b4f-41eb-b665-5e517f23cbda>"
+    ],
+    "stdlib": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ]
+  },
+  "mode_index": 2,
+  "donor_concentration": {
+    "fineweb": {
+      "pairs": 4972,
+      "max_site_fraction": 0.0014078841777518392,
+      "max_document_fraction": 0.03720836713910103
+    },
+    "stdlib": {
+      "pairs": 3153,
+      "max_site_fraction": 0.0028544242959469557,
+      "max_document_fraction": 0.06850618124008179
+    }
+  },
+  "predictions": {
+    "primary": "shared_affine256",
+    "natural_max_error": 0.15,
+    "hybrid_max_error": 0.15,
+    "change_max_error": 0.2,
+    "relative_to_independent128_max": 1.1,
+    "all_domains_and_cohorts": true
+  },
+  "scope": "32 document-identified FW prefixes excluding knowncachedexcerpts,16 reusedstdlib snippets. Context256 versusfit64. Source interchange balanced bydonorreuse, samecurrenttoken/differentdocument on FW. Attention17fixed; recomputeRMS/lastMLP. Reference native mode3 removal, notfullsource orsemanticconfirmation."
+}
