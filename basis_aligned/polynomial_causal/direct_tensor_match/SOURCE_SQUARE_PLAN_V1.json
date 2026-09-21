@@ -1,0 +1,37 @@
+{
+  "created_utc": "2026-09-21T14:25:22.041755+00:00",
+  "geometries": [
+    "calibration_shaped",
+    "native_isotropic"
+  ],
+  "maximum_added": 14,
+  "source_ceiling": 1064448.0,
+  "baseline": {
+    "native_error": 0.5525962583461952,
+    "covariance_error": 0.0703133565524768,
+    "per_mode_errors": [
+      0.018692583665713903,
+      0.020499346791718828,
+      0.08805202711597365
+    ],
+    "euclidean_jacobian_errors": [
+      0.187428758387592,
+      0.15902999281611183,
+      0.16001348745745214
+    ],
+    "stored_floats": 1340940,
+    "index_integers": 3456,
+    "activation_products": 1152,
+    "projection_multiplications": 1327104,
+    "source_total_multiplications": 1330560,
+    "source_additions": 1329148
+  },
+  "proposal": "Append signed-square corrections to only second source reads, from leading absolute eigenvalues of source residual in each fitting geometry. Existing graph and directions fixed. Profile0..14 per pair and enumerate all allocations with total<=14.",
+  "selection": "Primary: minimize fitting-geometry coefficient error. Exploratory comparison: minimize maximum ratio across dual coefficient, component and Jacobian bars, using opened states. Ties use fewer corrections.",
+  "predictions": {
+    "instrument": "Source execution and profile/assessment replay<1e-8; exact physical price matches1155 per square.",
+    "fidelity": "Primary covariance candidate meets all existing coefficient/component/Jacobian bars.",
+    "cost": "Both geometries and selectors remain within original20%source-saving ceiling."
+  },
+  "scope": "Source-asymmetric residual hypothesis, not extra private-core capacity or fresh validation. No optimizer, no threshold changes. State-dependent selector explicitly exploratory."
+}
