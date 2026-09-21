@@ -1,0 +1,988 @@
+{
+  "convergence": [
+    {
+      "metric": "full",
+      "minimum_term_cosine_after_2000": 0.9999999999999998,
+      "old_loss": 0.0038916912549735103,
+      "new_loss": 0.0038916912549735103
+    },
+    {
+      "metric": "half0",
+      "minimum_term_cosine_after_2000": 0.9999999999999996,
+      "old_loss": 0.004427843268841616,
+      "new_loss": 0.004427843268841616
+    },
+    {
+      "metric": "half1",
+      "minimum_term_cosine_after_2000": 0.9999999350391738,
+      "old_loss": 0.0032725675746296612,
+      "new_loss": 0.0032725675659979847
+    },
+    {
+      "metric": "isotropic",
+      "minimum_term_cosine_after_2000": 0.9999992297935643,
+      "old_loss": 0.10670885937615304,
+      "new_loss": 0.10670885910232639
+    }
+  ],
+  "convergence_guard_pass": true,
+  "alignment_permutation": [
+    3,
+    4,
+    1,
+    0,
+    5,
+    2
+  ],
+  "singletons": [
+    {
+      "mask": 1,
+      "components": [
+        0
+      ],
+      "relative_function_changes": {
+        "full": 0.09063962831940381,
+        "isotropic": 0.08355609746299657
+      },
+      "stable": true
+    },
+    {
+      "mask": 2,
+      "components": [
+        1
+      ],
+      "relative_function_changes": {
+        "full": 0.8330094287614821,
+        "isotropic": 0.4735081339004178
+      },
+      "stable": false
+    },
+    {
+      "mask": 4,
+      "components": [
+        2
+      ],
+      "relative_function_changes": {
+        "full": 0.016465146422185252,
+        "isotropic": 0.01666049730926128
+      },
+      "stable": true
+    },
+    {
+      "mask": 8,
+      "components": [
+        3
+      ],
+      "relative_function_changes": {
+        "full": 0.015616558312279377,
+        "isotropic": 0.01578954047851541
+      },
+      "stable": true
+    },
+    {
+      "mask": 16,
+      "components": [
+        4
+      ],
+      "relative_function_changes": {
+        "full": 0.7237875390558725,
+        "isotropic": 0.6721329133636277
+      },
+      "stable": false
+    },
+    {
+      "mask": 32,
+      "components": [
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.07194938659575584,
+        "isotropic": 0.07457875434640589
+      },
+      "stable": true
+    }
+  ],
+  "maximum_stable_partition": [
+    {
+      "mask": 1,
+      "components": [
+        0
+      ],
+      "relative_function_changes": {
+        "full": 0.09063962831940381,
+        "isotropic": 0.08355609746299657
+      },
+      "stable": true
+    },
+    {
+      "mask": 18,
+      "components": [
+        1,
+        4
+      ],
+      "relative_function_changes": {
+        "full": 0.06448707187201547,
+        "isotropic": 0.05707091591071541
+      },
+      "stable": true
+    },
+    {
+      "mask": 4,
+      "components": [
+        2
+      ],
+      "relative_function_changes": {
+        "full": 0.016465146422185252,
+        "isotropic": 0.01666049730926128
+      },
+      "stable": true
+    },
+    {
+      "mask": 8,
+      "components": [
+        3
+      ],
+      "relative_function_changes": {
+        "full": 0.015616558312279377,
+        "isotropic": 0.01578954047851541
+      },
+      "stable": true
+    },
+    {
+      "mask": 32,
+      "components": [
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.07194938659575584,
+        "isotropic": 0.07457875434640589
+      },
+      "stable": true
+    }
+  ],
+  "all_subsets": [
+    {
+      "mask": 1,
+      "components": [
+        0
+      ],
+      "relative_function_changes": {
+        "full": 0.09063962831940381,
+        "isotropic": 0.08355609746299657
+      },
+      "stable": true
+    },
+    {
+      "mask": 2,
+      "components": [
+        1
+      ],
+      "relative_function_changes": {
+        "full": 0.8330094287614821,
+        "isotropic": 0.4735081339004178
+      },
+      "stable": false
+    },
+    {
+      "mask": 3,
+      "components": [
+        0,
+        1
+      ],
+      "relative_function_changes": {
+        "full": 0.4075532568403114,
+        "isotropic": 0.34468776486752084
+      },
+      "stable": false
+    },
+    {
+      "mask": 4,
+      "components": [
+        2
+      ],
+      "relative_function_changes": {
+        "full": 0.016465146422185252,
+        "isotropic": 0.01666049730926128
+      },
+      "stable": true
+    },
+    {
+      "mask": 5,
+      "components": [
+        0,
+        2
+      ],
+      "relative_function_changes": {
+        "full": 0.023914547080706266,
+        "isotropic": 0.06889944365089086
+      },
+      "stable": true
+    },
+    {
+      "mask": 6,
+      "components": [
+        1,
+        2
+      ],
+      "relative_function_changes": {
+        "full": 0.133612235888456,
+        "isotropic": 0.39458481185967803
+      },
+      "stable": false
+    },
+    {
+      "mask": 7,
+      "components": [
+        0,
+        1,
+        2
+      ],
+      "relative_function_changes": {
+        "full": 0.12916488078849964,
+        "isotropic": 0.3113435856503597
+      },
+      "stable": false
+    },
+    {
+      "mask": 8,
+      "components": [
+        3
+      ],
+      "relative_function_changes": {
+        "full": 0.015616558312279377,
+        "isotropic": 0.01578954047851541
+      },
+      "stable": true
+    },
+    {
+      "mask": 9,
+      "components": [
+        0,
+        3
+      ],
+      "relative_function_changes": {
+        "full": 0.06890185331702257,
+        "isotropic": 0.05017103186069515
+      },
+      "stable": true
+    },
+    {
+      "mask": 10,
+      "components": [
+        1,
+        3
+      ],
+      "relative_function_changes": {
+        "full": 0.4299441374822071,
+        "isotropic": 0.2771173680980241
+      },
+      "stable": false
+    },
+    {
+      "mask": 11,
+      "components": [
+        0,
+        1,
+        3
+      ],
+      "relative_function_changes": {
+        "full": 0.3197297506513414,
+        "isotropic": 0.24447119804492948
+      },
+      "stable": false
+    },
+    {
+      "mask": 12,
+      "components": [
+        2,
+        3
+      ],
+      "relative_function_changes": {
+        "full": 0.01506910687420933,
+        "isotropic": 0.015691178067046386
+      },
+      "stable": true
+    },
+    {
+      "mask": 13,
+      "components": [
+        0,
+        2,
+        3
+      ],
+      "relative_function_changes": {
+        "full": 0.02298126597329019,
+        "isotropic": 0.046647467697999066
+      },
+      "stable": true
+    },
+    {
+      "mask": 14,
+      "components": [
+        1,
+        2,
+        3
+      ],
+      "relative_function_changes": {
+        "full": 0.12871061457171878,
+        "isotropic": 0.2585411185711876
+      },
+      "stable": false
+    },
+    {
+      "mask": 15,
+      "components": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "relative_function_changes": {
+        "full": 0.1249112618460872,
+        "isotropic": 0.23179797402467353
+      },
+      "stable": false
+    },
+    {
+      "mask": 16,
+      "components": [
+        4
+      ],
+      "relative_function_changes": {
+        "full": 0.7237875390558725,
+        "isotropic": 0.6721329133636277
+      },
+      "stable": false
+    },
+    {
+      "mask": 17,
+      "components": [
+        0,
+        4
+      ],
+      "relative_function_changes": {
+        "full": 0.37524356012603416,
+        "isotropic": 0.40126560698791364
+      },
+      "stable": false
+    },
+    {
+      "mask": 18,
+      "components": [
+        1,
+        4
+      ],
+      "relative_function_changes": {
+        "full": 0.06448707187201547,
+        "isotropic": 0.05707091591071541
+      },
+      "stable": true
+    },
+    {
+      "mask": 19,
+      "components": [
+        0,
+        1,
+        4
+      ],
+      "relative_function_changes": {
+        "full": 0.08141939844118372,
+        "isotropic": 0.06931141555518587
+      },
+      "stable": true
+    },
+    {
+      "mask": 20,
+      "components": [
+        2,
+        4
+      ],
+      "relative_function_changes": {
+        "full": 0.1425725573377436,
+        "isotropic": 0.4879509934350093
+      },
+      "stable": false
+    },
+    {
+      "mask": 21,
+      "components": [
+        0,
+        2,
+        4
+      ],
+      "relative_function_changes": {
+        "full": 0.13564387781536424,
+        "isotropic": 0.3500421250181778
+      },
+      "stable": false
+    },
+    {
+      "mask": 22,
+      "components": [
+        1,
+        2,
+        4
+      ],
+      "relative_function_changes": {
+        "full": 0.016714062484653333,
+        "isotropic": 0.04937750139208839
+      },
+      "stable": true
+    },
+    {
+      "mask": 23,
+      "components": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "relative_function_changes": {
+        "full": 0.02310587932315494,
+        "isotropic": 0.06310089890502556
+      },
+      "stable": true
+    },
+    {
+      "mask": 24,
+      "components": [
+        3,
+        4
+      ],
+      "relative_function_changes": {
+        "full": 0.3996874320104466,
+        "isotropic": 0.30752525470960235
+      },
+      "stable": false
+    },
+    {
+      "mask": 25,
+      "components": [
+        0,
+        3,
+        4
+      ],
+      "relative_function_changes": {
+        "full": 0.2968786320793684,
+        "isotropic": 0.264285576649553
+      },
+      "stable": false
+    },
+    {
+      "mask": 26,
+      "components": [
+        1,
+        3,
+        4
+      ],
+      "relative_function_changes": {
+        "full": 0.041609375565202736,
+        "isotropic": 0.035580913840809573
+      },
+      "stable": true
+    },
+    {
+      "mask": 27,
+      "components": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "relative_function_changes": {
+        "full": 0.06684169948736586,
+        "isotropic": 0.050771359219618666
+      },
+      "stable": true
+    },
+    {
+      "mask": 28,
+      "components": [
+        2,
+        3,
+        4
+      ],
+      "relative_function_changes": {
+        "full": 0.13712828512537306,
+        "isotropic": 0.2820950817464491
+      },
+      "stable": false
+    },
+    {
+      "mask": 29,
+      "components": [
+        0,
+        2,
+        3,
+        4
+      ],
+      "relative_function_changes": {
+        "full": 0.13096873624112967,
+        "isotropic": 0.24787141464240905
+      },
+      "stable": false
+    },
+    {
+      "mask": 30,
+      "components": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "relative_function_changes": {
+        "full": 0.01534429253547197,
+        "isotropic": 0.03387232875742953
+      },
+      "stable": true
+    },
+    {
+      "mask": 31,
+      "components": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "relative_function_changes": {
+        "full": 0.022211048868898808,
+        "isotropic": 0.04826852640805304
+      },
+      "stable": true
+    },
+    {
+      "mask": 32,
+      "components": [
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.07194938659575584,
+        "isotropic": 0.07457875434640589
+      },
+      "stable": true
+    },
+    {
+      "mask": 33,
+      "components": [
+        0,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.06249367055972573,
+        "isotropic": 0.05371849359856159
+      },
+      "stable": true
+    },
+    {
+      "mask": 34,
+      "components": [
+        1,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.41210640067305604,
+        "isotropic": 0.30904062721746434
+      },
+      "stable": false
+    },
+    {
+      "mask": 35,
+      "components": [
+        0,
+        1,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.5288354688033662,
+        "isotropic": 0.3178884371757141
+      },
+      "stable": false
+    },
+    {
+      "mask": 36,
+      "components": [
+        2,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.029902808719384485,
+        "isotropic": 0.06541591824969198
+      },
+      "stable": true
+    },
+    {
+      "mask": 37,
+      "components": [
+        0,
+        2,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.013541446127595572,
+        "isotropic": 0.04557419049344778
+      },
+      "stable": true
+    },
+    {
+      "mask": 38,
+      "components": [
+        1,
+        2,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.13181726190784904,
+        "isotropic": 0.285060526430447
+      },
+      "stable": false
+    },
+    {
+      "mask": 39,
+      "components": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.1323951228554052,
+        "isotropic": 0.29139592703471007
+      },
+      "stable": false
+    },
+    {
+      "mask": 40,
+      "components": [
+        3,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.05355215174821859,
+        "isotropic": 0.04962145201759895
+      },
+      "stable": true
+    },
+    {
+      "mask": 41,
+      "components": [
+        0,
+        3,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.04069475619734926,
+        "isotropic": 0.035349006913651664
+      },
+      "stable": true
+    },
+    {
+      "mask": 42,
+      "components": [
+        1,
+        3,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.321009804520715,
+        "isotropic": 0.2306335352867948
+      },
+      "stable": false
+    },
+    {
+      "mask": 43,
+      "components": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.3672664122317353,
+        "isotropic": 0.2333276463792963
+      },
+      "stable": false
+    },
+    {
+      "mask": 44,
+      "components": [
+        2,
+        3,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.028384603206256888,
+        "isotropic": 0.046748333479593854
+      },
+      "stable": true
+    },
+    {
+      "mask": 45,
+      "components": [
+        0,
+        2,
+        3,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.01266664221195735,
+        "isotropic": 0.032783032886504755
+      },
+      "stable": true
+    },
+    {
+      "mask": 46,
+      "components": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.12731155464752128,
+        "isotropic": 0.22023612619568267
+      },
+      "stable": false
+    },
+    {
+      "mask": 47,
+      "components": [
+        0,
+        1,
+        2,
+        3,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.1277648358878326,
+        "isotropic": 0.22231642390151216
+      },
+      "stable": false
+    },
+    {
+      "mask": 48,
+      "components": [
+        4,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.3810619030058839,
+        "isotropic": 0.34990462856512466
+      },
+      "stable": false
+    },
+    {
+      "mask": 49,
+      "components": [
+        0,
+        4,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.4714314158558402,
+        "isotropic": 0.36303724527276937
+      },
+      "stable": false
+    },
+    {
+      "mask": 50,
+      "components": [
+        1,
+        4,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.06749462003265344,
+        "isotropic": 0.06599091263503372
+      },
+      "stable": true
+    },
+    {
+      "mask": 51,
+      "components": [
+        0,
+        1,
+        4,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.056948334761981044,
+        "isotropic": 0.05247481651362143
+      },
+      "stable": true
+    },
+    {
+      "mask": 52,
+      "components": [
+        2,
+        4,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.13871539115621673,
+        "isotropic": 0.31537319792979485
+      },
+      "stable": false
+    },
+    {
+      "mask": 53,
+      "components": [
+        0,
+        2,
+        4,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.13748879407450149,
+        "isotropic": 0.32408864618529826
+      },
+      "stable": false
+    },
+    {
+      "mask": 54,
+      "components": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.029015955165484737,
+        "isotropic": 0.06128537977549223
+      },
+      "stable": true
+    },
+    {
+      "mask": 55,
+      "components": [
+        0,
+        1,
+        2,
+        4,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.011225344529370691,
+        "isotropic": 0.04810656484210504
+      },
+      "stable": true
+    },
+    {
+      "mask": 56,
+      "components": [
+        3,
+        4,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.299073337943878,
+        "isotropic": 0.2483687862198175
+      },
+      "stable": false
+    },
+    {
+      "mask": 57,
+      "components": [
+        0,
+        3,
+        4,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.33433532480491157,
+        "isotropic": 0.2516227759778543
+      },
+      "stable": false
+    },
+    {
+      "mask": 58,
+      "components": [
+        1,
+        3,
+        4,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.05464320873522476,
+        "isotropic": 0.04996430911031043
+      },
+      "stable": true
+    },
+    {
+      "mask": 59,
+      "components": [
+        0,
+        1,
+        3,
+        4,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.04403933447431952,
+        "isotropic": 0.03931240515282603
+      },
+      "stable": true
+    },
+    {
+      "mask": 60,
+      "components": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.1337699353068508,
+        "isotropic": 0.23500301146275934
+      },
+      "stable": false
+    },
+    {
+      "mask": 61,
+      "components": [
+        0,
+        2,
+        3,
+        4,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.13246690743309578,
+        "isotropic": 0.23742056720394455
+      },
+      "stable": false
+    },
+    {
+      "mask": 62,
+      "components": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.02756115913324853,
+        "isotropic": 0.04787465178231009
+      },
+      "stable": true
+    },
+    {
+      "mask": 63,
+      "components": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "relative_function_changes": {
+        "full": 0.010335180155992966,
+        "isotropic": 0.03735561367567137
+      },
+      "stable": true
+    }
+  ],
+  "scope": "Exploratory exhaustive partition of six matched CP term functions into stable sums. Labels aligned once in full geometry, same alignment used isotropically. Threshold10% relative change selected for this successor analysis; optimizing grouping on these two splits is discovery, not independent validation. Full graph/teacher selection used all32documents."
+}

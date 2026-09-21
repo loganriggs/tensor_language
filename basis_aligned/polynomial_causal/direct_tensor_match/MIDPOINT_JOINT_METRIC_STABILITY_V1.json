@@ -1,0 +1,473 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_split_components": false,
+    "pred_c_cross_split_function": true
+  },
+  "records": [
+    {
+      "metric": "full",
+      "winner": 0,
+      "relative_squared_error": 0.003891691254973511,
+      "relative_norm_error": 0.06238342131506985,
+      "winning_loss_improvement_last1000": 0.0,
+      "converged": true,
+      "restart_relative_squared_errors": [
+        0.0038916912549735103,
+        0.0038916912549735107,
+        0.0038916912549735107,
+        0.0038916912549735146,
+        0.0038916912549735107,
+        0.0038916912549735107,
+        0.003891691254973511,
+        0.003891691254973511
+      ]
+    },
+    {
+      "metric": "half0",
+      "winner": 4,
+      "relative_squared_error": 0.004427843268841617,
+      "relative_norm_error": 0.06654204136364932,
+      "winning_loss_improvement_last1000": 0.0,
+      "converged": true,
+      "restart_relative_squared_errors": [
+        0.004427843268841617,
+        0.004427843268841617,
+        0.004427843268841617,
+        0.004427843268841617,
+        0.004427843268841616,
+        0.004427843268841617,
+        0.006254087600370409,
+        0.004427843268841617
+      ]
+    },
+    {
+      "metric": "half1",
+      "winner": 6,
+      "relative_squared_error": 0.0032725675746296617,
+      "relative_norm_error": 0.057206359564559446,
+      "winning_loss_improvement_last1000": 3.94028112373219e-09,
+      "converged": true,
+      "restart_relative_squared_errors": [
+        0.003272567580032392,
+        0.0032725675836170827,
+        0.0032725676165509393,
+        0.003272567597135484,
+        0.003272567598772007,
+        0.0032725675861509785,
+        0.0032725675746296612,
+        0.0032725675957093075
+      ]
+    },
+    {
+      "metric": "isotropic",
+      "winner": 1,
+      "relative_squared_error": 0.10670885937615304,
+      "relative_norm_error": 0.3266632201153859,
+      "winning_loss_improvement_last1000": 2.6179288811492383e-09,
+      "converged": true,
+      "restart_relative_squared_errors": [
+        0.10670886125163383,
+        0.10670885937615304,
+        0.12399400225108936,
+        0.1305826318601727,
+        0.130582631862303,
+        0.12249944916507825,
+        0.12249944916507825,
+        0.14748147263902334
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "full",
+      "right": "half0",
+      "geometry": "full",
+      "min_term_cosine": 0.9889130685588013,
+      "mean_term_cosine": 0.9972064408278433,
+      "function_difference_relative_to_target": 0.004858921880218056,
+      "permutation": [
+        2,
+        5,
+        4,
+        3,
+        1,
+        0
+      ],
+      "term_cosines": [
+        0.9999610766678836,
+        0.9998029252304059,
+        0.994750858204069,
+        0.999978237388058,
+        0.9889130685588013,
+        0.9998324789178411
+      ]
+    },
+    {
+      "left": "full",
+      "right": "half0",
+      "geometry": "isotropic",
+      "min_term_cosine": 0.993415582086866,
+      "mean_term_cosine": 0.9981628718902078,
+      "function_difference_relative_to_target": 0.016217642386229573,
+      "permutation": [
+        2,
+        5,
+        4,
+        3,
+        1,
+        0
+      ],
+      "term_cosines": [
+        0.9999600282192562,
+        0.9995301245465968,
+        0.993415582086866,
+        0.9999777954762639,
+        0.9966939122293621,
+        0.9993997887829025
+      ]
+    },
+    {
+      "left": "full",
+      "right": "half1",
+      "geometry": "full",
+      "min_term_cosine": 0.9516886261084451,
+      "mean_term_cosine": 0.9874786530192988,
+      "function_difference_relative_to_target": 0.005829904935562518,
+      "permutation": [
+        1,
+        2,
+        5,
+        0,
+        4,
+        3
+      ],
+      "term_cosines": [
+        0.9999657585138976,
+        0.999063049875518,
+        0.9751091461407374,
+        0.9999576725787177,
+        0.9516886261084451,
+        0.9990876648984773
+      ]
+    },
+    {
+      "left": "full",
+      "right": "half1",
+      "geometry": "isotropic",
+      "min_term_cosine": 0.9778659908737144,
+      "mean_term_cosine": 0.9932125799927526,
+      "function_difference_relative_to_target": 0.021050844489997098,
+      "permutation": [
+        1,
+        2,
+        5,
+        0,
+        4,
+        3
+      ],
+      "term_cosines": [
+        0.9999649008118995,
+        0.9980259388947896,
+        0.9778659908737144,
+        0.9999566809912134,
+        0.9854070740890103,
+        0.9980548942958881
+      ]
+    },
+    {
+      "left": "full",
+      "right": "isotropic",
+      "geometry": "full",
+      "min_term_cosine": 0.22079795279530273,
+      "mean_term_cosine": 0.7287842320689611,
+      "function_difference_relative_to_target": 0.03885922388123302,
+      "permutation": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "term_cosines": [
+        0.9985631917269286,
+        0.9398876717991476,
+        0.22079795279530273,
+        0.9998463545330735,
+        0.2782622874409866,
+        0.9353479341183285
+      ]
+    },
+    {
+      "left": "full",
+      "right": "isotropic",
+      "geometry": "isotropic",
+      "min_term_cosine": 0.37721607183339934,
+      "mean_term_cosine": 0.7884388159952865,
+      "function_difference_relative_to_target": 0.11791893475370574,
+      "permutation": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "term_cosines": [
+        0.9984391879672886,
+        0.8841784304338748,
+        0.37721607183339934,
+        0.9998367065197719,
+        0.6205525831229389,
+        0.8504099160944454
+      ]
+    },
+    {
+      "left": "half0",
+      "right": "half1",
+      "geometry": "full",
+      "min_term_cosine": 0.8960757740976284,
+      "mean_term_cosine": 0.9735683977299812,
+      "function_difference_relative_to_target": 0.010314714058203507,
+      "permutation": [
+        3,
+        4,
+        1,
+        0,
+        5,
+        2
+      ],
+      "term_cosines": [
+        0.9987903107967461,
+        0.8960757740976284,
+        0.9998644657490856,
+        0.9998782531297511,
+        0.947749883744743,
+        0.9990516988619332
+      ]
+    },
+    {
+      "left": "half0",
+      "right": "half1",
+      "geometry": "isotropic",
+      "min_term_cosine": 0.9486654702569263,
+      "mean_term_cosine": 0.9855162092126003,
+      "function_difference_relative_to_target": 0.034606155107026415,
+      "permutation": [
+        3,
+        4,
+        1,
+        0,
+        5,
+        2
+      ],
+      "term_cosines": [
+        0.9977554407507643,
+        0.9691221494150378,
+        0.9998613116283197,
+        0.999875556702966,
+        0.9486654702569263,
+        0.9978173265215883
+      ]
+    },
+    {
+      "left": "half0",
+      "right": "isotropic",
+      "geometry": "full",
+      "min_term_cosine": 0.30746615352353246,
+      "mean_term_cosine": 0.7638779764463332,
+      "function_difference_relative_to_target": 0.040390781150289295,
+      "permutation": [
+        5,
+        4,
+        0,
+        3,
+        2,
+        1
+      ],
+      "term_cosines": [
+        0.9338886577361024,
+        0.4030858930779791,
+        0.9983028393906982,
+        0.9998585200542442,
+        0.30746615352353246,
+        0.9406657948954424
+      ]
+    },
+    {
+      "left": "half0",
+      "right": "isotropic",
+      "geometry": "isotropic",
+      "min_term_cosine": 0.45492133914753,
+      "mean_term_cosine": 0.8082876082130177,
+      "function_difference_relative_to_target": 0.12282066427257578,
+      "permutation": [
+        5,
+        4,
+        0,
+        3,
+        2,
+        1
+      ],
+      "term_cosines": [
+        0.8463510812669143,
+        0.670197277740613,
+        0.9981669648772998,
+        0.9998474427229184,
+        0.45492133914753,
+        0.8802415435228309
+      ]
+    },
+    {
+      "left": "half1",
+      "right": "isotropic",
+      "geometry": "full",
+      "min_term_cosine": 0.20930264004258442,
+      "mean_term_cosine": 0.7348892136051544,
+      "function_difference_relative_to_target": 0.03884277540907225,
+      "permutation": [
+        3,
+        0,
+        1,
+        5,
+        2,
+        4
+      ],
+      "term_cosines": [
+        0.999784128994054,
+        0.9985191849717715,
+        0.9397787331097684,
+        0.9377793630701088,
+        0.20930264004258442,
+        0.3241712314426386
+      ]
+    },
+    {
+      "left": "half1",
+      "right": "isotropic",
+      "geometry": "isotropic",
+      "min_term_cosine": 0.24217035988439437,
+      "mean_term_cosine": 0.745738762737321,
+      "function_difference_relative_to_target": 0.12442286358378278,
+      "permutation": [
+        3,
+        0,
+        1,
+        5,
+        4,
+        2
+      ],
+      "term_cosines": [
+        0.9997739687310621,
+        0.9983882045606784,
+        0.8733572393681828,
+        0.8498015889563079,
+        0.5109412149233001,
+        0.24217035988439437
+      ]
+    }
+  ],
+  "transfer": [
+    {
+      "fit": "full",
+      "evaluate": "full",
+      "relative_norm_error": 0.062383421315069854,
+      "error_ratio_to_own_fit": 1.0000000000000002
+    },
+    {
+      "fit": "full",
+      "evaluate": "half0",
+      "relative_norm_error": 0.06670118122104308,
+      "error_ratio_to_own_fit": 1.0023915686103477
+    },
+    {
+      "fit": "full",
+      "evaluate": "half1",
+      "relative_norm_error": 0.05741899597436261,
+      "error_ratio_to_own_fit": 1.0037170064905667
+    },
+    {
+      "fit": "full",
+      "evaluate": "isotropic",
+      "relative_norm_error": 0.34562246745922703,
+      "error_ratio_to_own_fit": 1.0580391246285523
+    },
+    {
+      "fit": "half0",
+      "evaluate": "full",
+      "relative_norm_error": 0.0625523252611281,
+      "error_ratio_to_own_fit": 1.0027075133504653
+    },
+    {
+      "fit": "half0",
+      "evaluate": "half0",
+      "relative_norm_error": 0.06654204136364934,
+      "error_ratio_to_own_fit": 1.0000000000000004
+    },
+    {
+      "fit": "half0",
+      "evaluate": "half1",
+      "relative_norm_error": 0.05794082885521696,
+      "error_ratio_to_own_fit": 1.0128389447650246
+    },
+    {
+      "fit": "half0",
+      "evaluate": "isotropic",
+      "relative_norm_error": 0.3472876840754942,
+      "error_ratio_to_own_fit": 1.063136780298753
+    },
+    {
+      "fit": "half1",
+      "evaluate": "full",
+      "relative_norm_error": 0.06261893267648541,
+      "error_ratio_to_own_fit": 1.0037752235522015
+    },
+    {
+      "fit": "half1",
+      "evaluate": "half0",
+      "relative_norm_error": 0.0673200663501994,
+      "error_ratio_to_own_fit": 1.0116922320176234
+    },
+    {
+      "fit": "half1",
+      "evaluate": "half1",
+      "relative_norm_error": 0.05720635956455944,
+      "error_ratio_to_own_fit": 0.9999999999999999
+    },
+    {
+      "fit": "half1",
+      "evaluate": "isotropic",
+      "relative_norm_error": 0.34772436199180395,
+      "error_ratio_to_own_fit": 1.0644735635342684
+    },
+    {
+      "fit": "isotropic",
+      "evaluate": "full",
+      "relative_norm_error": 0.07117115862388415,
+      "error_ratio_to_own_fit": 1.1408665495345551
+    },
+    {
+      "fit": "isotropic",
+      "evaluate": "half0",
+      "relative_norm_error": 0.0758840693389872,
+      "error_ratio_to_own_fit": 1.140392867184283
+    },
+    {
+      "fit": "isotropic",
+      "evaluate": "half1",
+      "relative_norm_error": 0.06583456267892657,
+      "error_ratio_to_own_fit": 1.1508259427805378
+    },
+    {
+      "fit": "isotropic",
+      "evaluate": "isotropic",
+      "relative_norm_error": 0.3266632201153858,
+      "error_ratio_to_own_fit": 0.9999999999999997
+    }
+  ],
+  "gram_replay": 9.33861439719012e-16,
+  "warm_replay": 2.3448679358901696e-09,
+  "seconds": 16.95076071890071,
+  "scope": "Fixed teacher/selected neighborhood, four input metrics, same output metric. Splits only covariance estimation; original upstream feature selection used all documents. Common-geometry component matching and cross-metric loss, not fresh OOD validation, native interventions or semantics."
+}
