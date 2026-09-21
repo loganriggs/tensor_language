@@ -1,0 +1,21 @@
+{
+  "learning_rates": [
+    0.005,
+    0.02
+  ],
+  "starts": [
+    "pruned",
+    "pruned_1pct_perturbed"
+  ],
+  "steps": 4000,
+  "ridge": 1e-10,
+  "schedule": "cosine",
+  "optimizer": "Adam on left/right with analytic ridge readout",
+  "selection": "Lowest profiled weight objective only; preserve private third program.",
+  "input_sha256": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+  "graph_sha256": "b5cba0025b48504bb8e3178f55cc05cd2d731dafaf38eb79067ca93e9faa89bd",
+  "native_forwards": 0,
+  "source_products": 512,
+  "stored_float_budget": 906782,
+  "scope": "Allthree targets scored; firsttwo share256mixedproducts, thirdprivate256. Nativeopened gates15% and1.10baseline; matchedcoefficientstorage. No freshconfirmation yet."
+}

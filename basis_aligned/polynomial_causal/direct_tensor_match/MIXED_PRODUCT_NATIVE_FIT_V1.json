@@ -1,0 +1,283 @@
+{
+  "plan": {
+    "source_products": 384,
+    "outputs": 6,
+    "input_width": 1152,
+    "learning_rates": [
+      0.01,
+      0.05
+    ],
+    "starts": [
+      "spectral",
+      "spectral_1pct_perturbed"
+    ],
+    "steps": 4000,
+    "schedule": "cosine",
+    "optimizer": "Adam",
+    "dtype": "float64",
+    "native_forwards": 0,
+    "selection": "Lowest coefficient objective only; no native outcome selection.",
+    "input_sha256": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+    "initialization_sha256": "7329e220cc77ba9422bbe2b0c18ae17807ddf49ac232b46aed4e62ceef19699b",
+    "predictions": {
+      "pred_a_instrument": "Implicit/dense dimensionless coefficient loss discrepancy<1e-8; finite factors.",
+      "pred_b_fidelity": "Each selected component opened error<=.15 and<=1.10 independent pair baseline.",
+      "pred_c_simplicity": "At most384 products versus768, floats<=1.01 writer-deduplicated baseline897804."
+    },
+    "scope": "General mixed-product CP of six original folded quadratic forms; expanded metric and fixed exact old affine branches. Compare half products at approximately matched storage, not equal product budget."
+  },
+  "records": [
+    {
+      "key": "0.01_spectral",
+      "initial_coefficient_error": 0.11768718756629369,
+      "coefficient_error": 0.0775787408477501,
+      "dense_loss_replay": 1.0148132334464322e-16,
+      "best_step": 4000,
+      "per_mode_errors": [
+        0.024839477458528506,
+        0.018676837858936635,
+        0.19736670381419638
+      ],
+      "stored_floats": 898572,
+      "source_products": 384,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.013850274117263991
+        },
+        {
+          "step": 400,
+          "loss": 0.010331677629356347
+        },
+        {
+          "step": 800,
+          "loss": 0.008194790614727646
+        },
+        {
+          "step": 1200,
+          "loss": 0.007237474060551345
+        },
+        {
+          "step": 1600,
+          "loss": 0.0067840917116945105
+        },
+        {
+          "step": 2000,
+          "loss": 0.006487377100926395
+        },
+        {
+          "step": 2400,
+          "loss": 0.0062568617733950544
+        },
+        {
+          "step": 2800,
+          "loss": 0.006114714284132757
+        },
+        {
+          "step": 3200,
+          "loss": 0.006049843142545086
+        },
+        {
+          "step": 3600,
+          "loss": 0.0060229434779752
+        },
+        {
+          "step": 4000,
+          "loss": 0.006018461031522371
+        }
+      ]
+    },
+    {
+      "key": "0.01_spectral_1pct_perturbed",
+      "initial_coefficient_error": 0.11810456851830248,
+      "coefficient_error": 0.08271732726879495,
+      "dense_loss_replay": 4.2500725161431774e-17,
+      "best_step": 913,
+      "per_mode_errors": [
+        0.02621718184975884,
+        0.019777185215123935,
+        0.23768924099018257
+      ],
+      "stored_floats": 898572,
+      "source_products": 384,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.013948689104894404
+        },
+        {
+          "step": 400,
+          "loss": 0.008821127848137897
+        },
+        {
+          "step": 800,
+          "loss": 0.007032509161402227
+        },
+        {
+          "step": 1200,
+          "loss": 0.0771282379499046
+        },
+        {
+          "step": 1600,
+          "loss": 0.042596625265728306
+        },
+        {
+          "step": 2000,
+          "loss": 0.033346938662840664
+        },
+        {
+          "step": 2400,
+          "loss": 0.029091870399871784
+        },
+        {
+          "step": 2800,
+          "loss": 0.02684644164832939
+        },
+        {
+          "step": 3200,
+          "loss": 0.025688597035214755
+        },
+        {
+          "step": 3600,
+          "loss": 0.025216334720911487
+        },
+        {
+          "step": 4000,
+          "loss": 0.025138076934659637
+        }
+      ]
+    },
+    {
+      "key": "0.05_spectral",
+      "initial_coefficient_error": 0.11768718756629369,
+      "coefficient_error": 0.11768718756629369,
+      "dense_loss_replay": 1.0408340855860843e-16,
+      "best_step": 0,
+      "per_mode_errors": [
+        0.030776576891936407,
+        0.03253290906207734,
+        0.26408505215738415
+      ],
+      "stored_floats": 898572,
+      "source_products": 384,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.013850274117263991
+        },
+        {
+          "step": 400,
+          "loss": 0.06589355757992561
+        },
+        {
+          "step": 800,
+          "loss": 0.051089496078916774
+        },
+        {
+          "step": 1200,
+          "loss": 0.031244498507747426
+        },
+        {
+          "step": 1600,
+          "loss": 0.026306403812457784
+        },
+        {
+          "step": 2000,
+          "loss": 0.02334923319722293
+        },
+        {
+          "step": 2400,
+          "loss": 0.021469131864232455
+        },
+        {
+          "step": 2800,
+          "loss": 0.020300112326598157
+        },
+        {
+          "step": 3200,
+          "loss": 0.019643812698434477
+        },
+        {
+          "step": 3600,
+          "loss": 0.019365230278867013
+        },
+        {
+          "step": 4000,
+          "loss": 0.01931844673603796
+        }
+      ]
+    },
+    {
+      "key": "0.05_spectral_1pct_perturbed",
+      "initial_coefficient_error": 0.11810456851830248,
+      "coefficient_error": 0.11402837290952958,
+      "dense_loss_replay": 2.6194324487249787e-15,
+      "best_step": 4000,
+      "per_mode_errors": [
+        0.028377418163960524,
+        0.026319300223880848,
+        0.28443797538363197
+      ],
+      "stored_floats": 898572,
+      "source_products": 384,
+      "history": [
+        {
+          "step": 0,
+          "loss": 0.013948689104894404
+        },
+        {
+          "step": 400,
+          "loss": 0.04056197159052596
+        },
+        {
+          "step": 800,
+          "loss": 0.02652539655272908
+        },
+        {
+          "step": 1200,
+          "loss": 0.020793426595258662
+        },
+        {
+          "step": 1600,
+          "loss": 0.01763522427422437
+        },
+        {
+          "step": 2000,
+          "loss": 0.015656889151661524
+        },
+        {
+          "step": 2400,
+          "loss": 0.014421375587959714
+        },
+        {
+          "step": 2800,
+          "loss": 0.01365237474737846
+        },
+        {
+          "step": 3200,
+          "loss": 0.013218390878784033
+        },
+        {
+          "step": 3600,
+          "loss": 0.013033547048147595
+        },
+        {
+          "step": 4000,
+          "loss": 0.013002469828394739
+        }
+      ]
+    }
+  ],
+  "winner": "0.01_spectral",
+  "winner_ratios_to_baseline": [
+    0.8121697110369289,
+    0.6777172899922388,
+    1.6527372776430238
+  ],
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_fidelity": false,
+    "pred_c_simplicity": true
+  },
+  "seconds": 238.304211323848
+}

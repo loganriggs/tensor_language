@@ -1,0 +1,116 @@
+{
+  "family": "mixed",
+  "parent_winner": "0.01_spectral",
+  "source_products": 384,
+  "pair_assignment_counts": [
+    167,
+    129,
+    88
+  ],
+  "median_effective_pair_consumers": 1.3350187730877343,
+  "energy_weighted_effective_pair_consumers": 1.3966394730949039,
+  "fraction_products_above_1p5_effective_consumers": 0.3776041666666667,
+  "unrestricted": {
+    "coefficient_error": 0.07756187232551842,
+    "per_mode_errors": [
+      0.024682810380451364,
+      0.018685842686130077,
+      0.1976208355524394
+    ],
+    "readout_nonzeros": 2304
+  },
+  "private": {
+    "coefficient_error": 0.32196410733133124,
+    "per_mode_errors": [
+      0.0722581035469718,
+      0.09801403889908515,
+      0.36296905956975245
+    ],
+    "readout_nonzeros": 768
+  },
+  "coefficient_error_ratio": 4.151061567726011,
+  "least_squares_checks": {
+    "unrestricted": [
+      {
+        "output": 0,
+        "products": 384,
+        "discarded": 0,
+        "normal_relative_error": 2.2844035736697864e-15
+      },
+      {
+        "output": 1,
+        "products": 384,
+        "discarded": 0,
+        "normal_relative_error": 3.2603409680992214e-15
+      },
+      {
+        "output": 2,
+        "products": 384,
+        "discarded": 0,
+        "normal_relative_error": 5.54826960488953e-15
+      },
+      {
+        "output": 3,
+        "products": 384,
+        "discarded": 0,
+        "normal_relative_error": 3.77392106631619e-15
+      },
+      {
+        "output": 4,
+        "products": 384,
+        "discarded": 0,
+        "normal_relative_error": 3.3737771929979526e-15
+      },
+      {
+        "output": 5,
+        "products": 384,
+        "discarded": 0,
+        "normal_relative_error": 5.565692508072292e-15
+      }
+    ],
+    "private": [
+      {
+        "output": 0,
+        "products": 167,
+        "discarded": 0,
+        "normal_relative_error": 1.983184374333227e-15
+      },
+      {
+        "output": 1,
+        "products": 167,
+        "discarded": 0,
+        "normal_relative_error": 1.4958204656986178e-15
+      },
+      {
+        "output": 2,
+        "products": 129,
+        "discarded": 0,
+        "normal_relative_error": 2.639424645664688e-15
+      },
+      {
+        "output": 3,
+        "products": 129,
+        "discarded": 0,
+        "normal_relative_error": 2.127028829958966e-15
+      },
+      {
+        "output": 4,
+        "products": 88,
+        "discarded": 0,
+        "normal_relative_error": 1.7920015137220067e-15
+      },
+      {
+        "output": 5,
+        "products": 88,
+        "discarded": 0,
+        "normal_relative_error": 1.5197111957855414e-15
+      }
+    ]
+  },
+  "predictions": {
+    "pred_a_normal_equations": true,
+    "pred_b_sharing_necessity": true
+  },
+  "seconds": 1.4059528219513595,
+  "scope": "Fixed learned atoms, no optimization of input directions or outcome-based edge assignment. Pair-private control tests this deterministic edit, not the optimal partition or impossibility of alternative private circuits. Energy is coefficient contribution before cancellation, not semantic/causal importance; parent fidelity failures remain."
+}

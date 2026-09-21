@@ -1,0 +1,60 @@
+{
+  "parent_winner": "0.01_spectral",
+  "source_products": 512,
+  "initial_shared_coefficient_error": 0.10296072612756763,
+  "naive_private_coefficient_error": 0.33074496237859746,
+  "greedy_private_coefficient_error": 0.3140921810568068,
+  "ratio_to_shared": 3.050601844703861,
+  "private_pair_counts": [
+    273,
+    151,
+    88
+  ],
+  "edge_curve": [
+    {
+      "deleted_pair_edges": 128,
+      "remaining_pair_edges": 1408,
+      "predicted_coefficient_error": 0.10787556104744561
+    },
+    {
+      "deleted_pair_edges": 256,
+      "remaining_pair_edges": 1280,
+      "predicted_coefficient_error": 0.11701789523011591
+    },
+    {
+      "deleted_pair_edges": 384,
+      "remaining_pair_edges": 1152,
+      "predicted_coefficient_error": 0.12947872595441423
+    },
+    {
+      "deleted_pair_edges": 512,
+      "remaining_pair_edges": 1024,
+      "predicted_coefficient_error": 0.14736005812228176
+    },
+    {
+      "deleted_pair_edges": 640,
+      "remaining_pair_edges": 896,
+      "predicted_coefficient_error": 0.17113081088560633
+    },
+    {
+      "deleted_pair_edges": 768,
+      "remaining_pair_edges": 768,
+      "predicted_coefficient_error": 0.20024276490289286
+    },
+    {
+      "deleted_pair_edges": 896,
+      "remaining_pair_edges": 640,
+      "predicted_coefficient_error": 0.23707633394536745
+    },
+    {
+      "deleted_pair_edges": 1024,
+      "remaining_pair_edges": 512,
+      "predicted_coefficient_error": 0.31409218105679654
+    }
+  ],
+  "predicted_dense_loss_replay": 1.0269562977782698e-14,
+  "schur_weight_replay": 8.443617417696754e-14,
+  "normal_equation_replay": 1.0181707456858317e-15,
+  "seconds": 0.6445383888203651,
+  "scope": "Greedy output-pair edge deletion with analytic exact refits for fixed square atoms. Stronger than largest-energy assignment, not global optimality or a semantic result. Parent fidelity still fails."
+}

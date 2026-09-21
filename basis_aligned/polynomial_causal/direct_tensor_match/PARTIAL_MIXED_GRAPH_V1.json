@@ -1,0 +1,29 @@
+{
+  "parent_winner": "0.01_spectral",
+  "shared_products": 256,
+  "private_products": 256,
+  "total_products": 512,
+  "stored_float_scalars": 897804,
+  "stored_integer_indices": 768,
+  "per_mode_errors": [
+    0.06644477902984441,
+    0.051023553833675905,
+    0.11941807156784633
+  ],
+  "ratios_to_baseline": [
+    2.1725270619995642,
+    1.851466768149195,
+    0.9999999730969096
+  ],
+  "first_two_coefficient_error": 0.29357956733203433,
+  "greedy_predicted_loss_replay": 1.4488410471358293e-14,
+  "schur_weights_replay": 2.6021686954975838e-14,
+  "dense_source_replay": 1.876875951188942e-15,
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_fidelity": false,
+    "pred_c_simplicity": true
+  },
+  "seconds": 1.033232742920518,
+  "scope": "Opened seven-prefix diagnostic. Product deletion uses only exact coefficient objective; third component unchanged except numerical RMS replay. Allthree componenttargets retained; no native/OOD adoption yet."
+}

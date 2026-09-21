@@ -109,3 +109,7 @@ Expanded256-chunk metric and shared-input Tucker plus exact pair-core arithmetic
 ## 21 September, 06:54 — Joint products and fixed-readout falsifier
 
 Four4000step shared-square fits: selected512product model has604428floats, modeerrors3.55/2.49/17.54% vsseparate3.06/2.76/11.94%; fidelityFAIL. Independentdense/original-coordinate audit passes. Exactreadoutleast-squares discardsnoGram directions butweakmode17.55% stillfails. Lowerbound6.39%coefficienterror doesnotprove fitted10.30%optimal. Mixed384products changesprimitive atmatchedstorage; fiveplantedcontrols recover. See [report](../../explanations/for_logan/research_update_2026-09-21_0654_joint_products_and_readout_control.md). No nativepromotion ornewsemanticclaim.
+
+## 21 September, 07:07 — Mixed-product and graph-sharing tests
+
+Jointmixed384 atmatchedstorage improvesmode1/2 to2.48/1.87% butmode3 19.74%fails. Denseauditpasses. Removingcross-componentreadoutsharing increasescoefficienterror7.76->32.20% mixed,10.30->33.07% squares; greedyprivate squareassignmentstill31.41%. These arefixed-dictionary computationalsharingtests, notsemanticidentification/orglobaloptimality. Partialgraph256mixedshared+256private exactlymatches897804floatbaseline with512vs768products, butunrefittedmode1/2 6.64/5.10%failsrelativebars. Variableprojectionrefit registered; nativeinputclosure remainsopen. See [report](../../explanations/for_logan/research_update_2026-09-21_0707_mixed_products_and_graph_reuse.md).
