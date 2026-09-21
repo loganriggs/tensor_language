@@ -1,12 +1,12 @@
+**Start here — [Overall review: the two-stage decomposition and arithmetic-circuit plan](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 20:05 UTC. Explains folding and QR, what each stage does, the main results, and what remains unvalidated.
+
 **Latest graph result — [A smaller shared-root program](research_update_2026-09-21_1956_shared_root_program.md).** Exact pair sharing reduces the16-output program to384products; model-level validation remains outstanding.
 
-**Start here: [Overall review — QR, decomposition, then shared arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 19:07 UTC. Explains the original two-stage plan, separates the three experimental targets, and summarizes successes, failures, and the latest weight-matching comparison.
 
 # Requested full reports for Logan
 
 **Latest graph-search update — [Graph edits and native capacity](research_update_2026-09-21_1841_graph_search_and_native_capacity.md).** New sharing/substitution operators pass planted controls; native fidelity still fails. Output-rank bounds distinguish the old approximation from the true native quartic target.
 
-**Start here — [Overall review: QR → tensor decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 18:04 UTC. Starts from the two-stage plan, distinguishes local graphs from the full-layer target, and includes the latest learned-direction and mixed-objective results. This is the overall review; the individual reports below are experiment details.
 
 **Latest two-stage experiment — [Learned features and graph refitting](research_update_2026-09-21_1742_learned_features_and_graph_refitting.md).** Five structural controls, four successful graph simplifications, and a full-layer learned-direction candidate that improves fitting but fails native intervention checks.
 
@@ -88,7 +88,6 @@
 
 [21 September,04:18 — Upstream extraction: small programs and a retained behavioral failure](research_update_2026-09-21_0418_upstream_extraction.md).
 
-**Overall decomposition review:** [QR → tensor decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md). See the rewritten synthesis linked at the top.
 
 [Exact-RMS upstream closure corrected and fresh-boundary confirmed](research_update_2026-09-18_upstream_exact_preflight.md).
 

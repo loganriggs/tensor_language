@@ -1,67 +1,66 @@
-**Overall review: from folded weights to a smaller arithmetic program**
+**Overall review: what happened to the decomposition → arithmetic-circuit plan?**
 
-Rewritten 21 September 2026, 19:07 UTC. Results through the completed wide-dictionary Gaussian functional comparison. The existing filename is retained so earlier links still work.
+Rewritten 21 September 2026, 20:05 UTC, covering results through 19:56 UTC. The filename stays the same so existing links work.
 
-**We are still pursuing the two-stage approach you remember.** First, use tensor decompositions to propose useful features. Then convert those features into an arithmetic graph and simplify it, allowing intermediate computations to be reused. QR reduces the output coordinates before either stage.
+**Yes—we are still following the two-stage plan you remember.** Fold a section of the model into one function, use a decomposition to find useful intermediate features, then simplify their computation into a graph that shares work. QR reduces the output coordinates before fitting.
 
-The results so far are useful but incomplete: we have working fitting and graph-editing tools, positive controls on known toy structures, and a full-last-MLP compression baseline. **We have not yet found a substantially simpler circuit that reliably preserves the native computation and its intervention behavior.** The general Tucker/HT-to-flexible-graph search remains unfinished.
+We have made progress on both stages, but have not completed the general search procedure or found a validated, interpretable replacement circuit. The clearest recent success is a concrete quartic program reduced from **656 to 384 products**, with far fewer stored coefficients. That graph preserves its fitted parent very accurately; the parent itself still approximates the original model computation imperfectly. Model-level validation of this latest graph remains outstanding.
 
-This report explains the trajectory. The linked experiment records supply the details.
-
-**1. The intended pipeline**
+**The plan, in one picture**
 
 ```mermaid
 flowchart TD
-    A[Choose the model section to reconstruct] --> B[Fold its weights into one joint function]
-    B --> C[QR: reduce output coordinates exactly]
-    C --> D[Stage 1: decomposition proposes features]
-    D --> E[Stage 2: build and simplify a shared arithmetic graph]
-    E --> F[Refit coefficients and compare error versus cost]
-    F --> E
-    F --> G[Freeze candidate and test new inputs and interventions]
+    A[Choose a model section] --> B[Fold its weights into a joint function]
+    B --> C[QR: represent the output in fewer coordinates]
+    C --> D[Stage 1: fit a structured decomposition]
+    D --> E[Candidate scalar features and products]
+    E --> F[Stage 2: share and simplify the arithmetic graph]
+    F --> G[Refit and compare accuracy against computation cost]
+    G --> F
+    G --> H[Freeze a candidate and test model behavior and interventions]
 ```
 
-| Term | Meaning in this project |
-|---|---|
-| Folding | Combine weights, or substitute one computation into another, to study their joint function. |
-| Coefficient tensor | An array specifying the coefficients of a polynomial. We usually work with it implicitly. |
-| Feature | A scalar intermediate value: a projection, product, or combination of products. It need not correspond to one semantic concept. |
-| Rank / width | How many intermediate directions or features a representation permits. |
-| Arithmetic circuit / DAG | A graph of linear combinations and products; a computed value can feed several later nodes. |
-| Reconstruction error | The discrepancy from a specified target, measured in a specified geometry or on specified inputs. Different errors below are not interchangeable. |
+The important distinction is between **finding a compact approximation** and **computing that approximation more cheaply**. Stage 1 can introduce approximation error. An exact stage-2 rewrite preserves that error; it does not repair it.
 
-**2. What we reconstruct, and why QR helps**
+**1. What folding and QR do**
 
-For the last bilinear MLP, write its projected polynomial contribution as
+A bilinear MLP forms two sets of linear projections, multiplies corresponding entries, and writes the results back into the residual stream:
+
+$$
+B(x)=D\big[(Lx)\odot(Rx)\big].
+$$
+
+Here $x$ has 1,152 coordinates, and $L$ and $R$ each produce 4,608 scalar projections. Each paired multiplication is one **product**. With the unembedding $U$, its projected contribution is
 
 $$
 F(x)=UD\big[(Lx)\odot(Rx)\big].
 $$
 
-Here $x$ has 1,152 coordinates. $L$ and $R$ each produce 4,608 linear projections, $\odot$ multiplies corresponding projections, $D$ writes their products into the residual stream, and $U$ maps that stream to 50,304 vocabulary coordinates.
+**Folding** means combining these weights so we study the joint function, rather than compressing each matrix independently. Earlier linear output projections can also be absorbed into $L$ and $R$.
 
-Your proposal was to reduce $UD$ directly. The implementation can equivalently start with a thin QR of $U$:
+You proposed QR on $UD$. The implementation uses a thin QR on $U$ and then folds in $D$:
 
 $$
 U=Q R_U,\qquad Q^\top Q=I,\qquad C=R_U D.
 $$
 
-We then fit the smaller-output function
+We fit
 
 $$
-\widetilde F(x)=C\big[(Lx)\odot(Rx)\big],\qquad F(x)=Q\widetilde F(x).
+\widetilde F(x)=C\big[(Lx)\odot(Rx)\big],
+\qquad F(x)=Q\widetilde F(x).
 $$
 
-For a replacement in the same output subspace,
+This reduces 50,304 vocabulary coordinates to 1,152 output coordinates. Within this output subspace, Euclidean error is preserved exactly:
 
 $$
 \|F(x)-Q\widehat{\widetilde F}(x)\|_2
 =\|\widetilde F(x)-\widehat{\widetilde F}(x)\|_2.
 $$
 
-Thus we optimize 1,152 output coordinates instead of 50,304 without losing Euclidean accuracy. **QR is exact preprocessing; it does not itself simplify the MLP's products.**
+QR therefore makes fitting cheaper without discarding output information. **It does not reduce the number of MLP products**, and this error identity applies before nonlinear downstream operations.
 
-The joint tensor being fitted is
+The **joint tensor** is simply the coefficient array for this quadratic function:
 
 $$
 T_{vij}=\frac12\sum_k C_{vk}
@@ -70,130 +69,128 @@ T_{vij}=\frac12\sum_k C_{vk}
 \widetilde F_v(x)=\sum_{i,j}T_{vij}x_i x_j.
 $$
 
-It is third order because it has three indices, but its function is quadratic. Substituting two pure bilinear layers gives a quartic function and an order-five tensor: one output index and four input indices.
+“Third order” means three indices: one output and two inputs. It does **not** mean degree three. Composing two pure bilinear layers instead gives degree four and an order-five coefficient tensor. We generally compute contractions implicitly rather than store these enormous arrays.
 
-RMSNorm and softcapping remain explicit operations. A polynomial formed by composing two MLPs while omitting the intervening normalization is a defined research target, not the full model's exact forward function.
+**2. The two decomposition stages**
 
-**3. What the two stages are supposed to contribute**
-
-Stage 1 asks: **which intermediate computations make the joint function compact?** A Tucker candidate is
+**Stage 1 proposes useful features.** For example, symmetric Tucker writes
 
 $$
 s=P^\top x,\qquad
 h_g=\sum_{p,q}G_{gpq}s_p s_q,\qquad
-\widehat{\widetilde F}=Wh.
+\hat F=Wh.
 $$
 
-$P$ supplies input features; $G_{gpq}$ weights the interaction of features $p$ and $q$ inside computed feature $g$; $W_{:,g}$ gives that feature's output effect. Few features and few nonzero interactions are different constraints. A dense low-rank quadratic form can also be cheap, so entry sparsity alone is not the right cost measure.
+| Object | Meaning |
+|---|---|
+| $s_p$ | A learned scalar linear feature of the input. |
+| $s_p s_q$ | An interaction between two features. |
+| $G_{gpq}$ | How strongly that interaction contributes to computed feature $h_g$. |
+| $h_g$ | A quadratic feature assembled from interactions. |
+| $W_{:,g}$ | That feature’s output effect. |
 
-HT extends this into a tree of bilinear computations: linear features become quadratic features, which combine into quartic features, and so on. Its tree groups tensor slots; each leaf can still read the full input. Ordinary HT seeks a compact tensor representation. Our final graph allows broader sharing across branches and depths.
+Tucker limits the sizes of these feature dictionaries. Sparse Tucker additionally encourages few interactions. **HT—hierarchical Tucker—organizes such combinations into a tree:** linear features become quadratic features, then quartic features, and so on. Its branches group tensor input slots, not necessarily disjoint coordinates of $x$.
 
-Stage 2 asks: **can we compute these features more economically together?** For example,
+**Stage 2 simplifies the resulting program.** A DAG is a directed acyclic computation graph: once a value is computed, several later operations can reuse it. For example,
 
 $$
 y=u(ab+ac)+v(db+dc)
 $$
 
-can be rewritten as
+can become
 
 $$
 t=b+c,\qquad p=at,\qquad q=dt,\qquad y=up+vq.
 $$
 
+That uses two products instead of four. Similar sharing can occur among quadratic intermediates in a quartic program. We count each shared product once, but also count additions and stored coefficients, including dense projections.
+
+Implemented pieces include exact sharing, approximate merging with refitting, product deletion, feature substitution, and structured readout simplification. **We do not yet have a complete general Tucker/HT-to-arbitrary-DAG optimizer.** The experiments have tested particular structured families and particular graph edits.
+
+A feature is a scalar computation, not automatically a semantic concept. Several unrelated conditions may share the same output effect. Neither sparsity nor output sharing establishes monosemanticity.
+
+**3. What happened during the exploration**
+
+The work split into three scopes. This was the main source of confusion in the previous report.
+
+| Scope | What is reconstructed | What it tells us |
+|---|---|---|
+| Selected local circuits | Particular components or output measurements | Whether sharing and refitting work on manageable subproblems. |
+| Full final MLP | All 4,608 products and their output effects | Whether a proposed decomposition beats a fair whole-layer baseline. |
+| Two-layer quartic branch | The pure degree-four contribution through MLP16 and MLP17 | Whether hierarchical features and deeper sharing can give a smaller program. |
+
+Blocks are numbered from zero. The quartic branch is **not the entire two-block computation**: residual cross terms, biases, attention and normalization must remain accounted for separately.
+
+**First, the toy tests separated coding failures from difficult optimization.** Five-family suites included independent products, shared inputs, shared outputs, squares and cancellation. Known solutions and numerical replay checks validate the basic machinery. Random starts are less reliable: in the wider quartic suite, long Adam runs recovered six of ten starts across four of five families. Adam did better than Muon in those tests; that is not a universal optimizer ranking. Some planted graph edits succeed while deliberately harmful merges are rejected. [Toy and wider-fit evidence](../../direct_tensor_match/WIDE_NATIVE_QUARTIC_INTERPRETATION_V1.md).
+
+**Second, some narrow Tucker choices were genuinely too small.** In the folded Euclidean coefficient metric, reaching 10% error on the full final-MLP tensor requires input rank at least 1,089 and output rank at least 1,088. These are separate necessary bounds from matrix unfoldings. Activation-covariance weighting lowers them to 416 and 818. An optimizer cannot rescue a rank below those bounds.
+
+This rules out particular small dense Tucker representations, not sparse high-rank programs or HT in general. The original 4,608-product network is itself an example of structured computation with broad tensor ranks. [Rank evidence and costs](../../direct_tensor_match/FULL_TENSOR_MODE_INTERPRETATION_V1.md).
+
+**Third, we established a full-layer baseline instead of comparing only against weak decompositions.** Keep 3,686 original products, refit their output weights, and add an affine correction. Including the correction, that saves 20.0% of products and 11.7% of stored coefficients. Natural logit-effect errors are 4.44% on FineWeb and 2.12% on code. However, all four intervention cohorts fail the 10% error criterion. Later learned/mixed-objective versions improve some numbers but still pass only one of four cohorts. Ordinary forward agreement is easier than preserving changed-input behavior. [Full-layer comparison](../../direct_tensor_match/FULL_QUADRATIC_FINITE_RESPONSE_INTERPRETATION_V1.md).
+
+**Fourth, wider quartic decompositions improved fitting more than transfer.** After 1,000 steps, expanding from four to 32 quadratic features reduced fitting-panel error from 6.15% to 2.16%, but second-panel error worsened from 12.93% to 15.05%. More capacity was useful, but did not by itself solve the generalization problem. [Wider-fit evidence](../../direct_tensor_match/WIDE_NATIVE_QUARTIC_INTERPRETATION_V1.md).
+
+**4. Did direct matching from the weights help?**
+
+It gave us working joint objectives, exact readout solves and useful impossibility checks. **It has not yet yielded the best transferable approximation simply by minimizing tensor error.**
+
+Holding the learned 32-feature quartic dictionary fixed, changing only its output-weight objective gave:
+
+| Fitting objective | Second-panel polynomial-output error |
+|---|---:|
+| Empirical function values | 15.05% |
+| Unweighted coefficient matching | 54.38% |
+| Second-moment-weighted coefficient matching | 21.44% |
+| Exact Gaussian functional loss with that second moment | 19.44% |
+
+Activation information helps here, but these weight-based readout fits do not beat empirical fitting. The dictionary itself was learned using data, so these rows are not all end-to-end weights-only discovery. A separate random-dictionary, unweighted control also performed poorly. [Weight matching](../../direct_tensor_match/WIDE_QUARTIC_WEIGHT_READOUT_V1.json) · [Gaussian functional comparison](../../direct_tensor_match/WIDE_QUARTIC_GAUSSIAN_INTERPRETATION_V1.md).
+
+The distinction matters: **coefficient error and function error are different objectives**. Quartic function error depends on eighth-order input moments. A covariance matrix alone does not specify those moments without additional assumptions. Exact optimization of a Gaussian surrogate does not make the actual model inputs Gaussian.
+
+Subsequent fits added local derivative matching—agreement about how outputs change when inputs change. This produced a more useful parent for the latest graph work, while retaining a tradeoff between value accuracy and sensitivity accuracy. [Joint value/derivative fit](../../direct_tensor_match/QUARTIC_JOINT_READOUT_INTERPRETATION_V1.md).
+
+**5. The clearest recent two-stage result**
+
+We now have a specific instance of the plan, rather than only proposed graph edits:
+
 ```mermaid
-flowchart LR
-    B[b] --> T[t = b + c]
-    C[c] --> T
-    A[a] --> P[p = a times t]
-    T --> P
-    D[d] --> Q[q = d times t]
-    T --> Q
-    P --> Y[y = u p + v q]
-    Q --> Y
+flowchart TD
+    X[Input to the quartic branch] --> Q[32 learned quadratic features: 128 products]
+    Q --> H[Fit 16 quadratic forms of those features]
+    H --> S[Compile pairs of forms using shared products]
+    S --> O[16 output features with a learned residual-stream readout]
 ```
 
-This uses two products instead of four. A shared computation is charged once. We also count additions and stored coefficients, so expensive dense projections cannot hide behind a small product count.
+Start with 32 quadratic features, each formed from four products of linear projections. The original readout uses all 528 distinct pairs of those features: 128 + 528 = 656 products.
 
-Implemented edits now include exact sharing, approximate merging with refitting, product deletion, replacing a feature with a combination of peers, and simplifying the readout. **These are components of the intended search, not a completed general-purpose graph optimizer.**
+We then fit a readout restricted to 16 shared output directions. Each receives a quadratic form of the 32 features. Finally, the compiler shares products between pairs of those forms.
 
-**4. What actually happened after adopting this direction**
-
-The experiments branched into three targets. This distinction was obscured by the earlier report.
-
-| Branch | Target | Main finding |
-|---|---|---|
-| Local two-layer circuits | Selected measurements and output components | Sharing produces some savings, but fidelity and transfer remain limiting. |
-| Full last MLP | All 4,608 products of the final MLP and their output effects | A useful pruning/refitting baseline exists; intervention accuracy remains inadequate. |
-| Two-layer quartic path | The pure degree-four MLP16→MLP17 contribution | Small dictionaries lack capacity; wider fits improve training much more than transfer. |
-
-MLP16 and MLP17 are the final two blocks, numbered from zero.
-
-**First: we checked the algorithms on planted structure.** Five-family suites included independent products, shared inputs, shared outputs, squares, and cancellation. Some representations recover all families with enough fitting; other parameterizations still miss families from random starts despite succeeding near the planted solution. In one quadratic suite, nine of ten runs recovered the function below 1% error; graph deletion reached the planted product budget in four of five selected examples. In the newer quartic dictionary suite, long Adam runs recovered six of ten starts, covering four of five families. Adam outperformed Muon in those particular tests. These are distinct suites, not contradictory scores for one experiment.
-
-The graph operators also pass planted sharing tests and reject examples where nearly identical features carry an important downstream difference. That provides evidence against simple implementation errors. It does not establish easy optimization or recovery of uniquely meaningful features. [Quadratic controls](research_update_2026-09-21_1742_learned_features_and_graph_refitting.md) · [Quartic controls](../../direct_tensor_match/WIDE_NATIVE_QUARTIC_INTERPRETATION_V1.md).
-
-**Second: some narrow Tucker hypotheses were ruled out mathematically.** For 10% coefficient error on the full last-MLP tensor, matrix-unfolding spectra require input rank at least 1,089 and output rank at least 1,088 out of 1,152 dimensions. With activation-covariance weighting, those separate lower bounds become 416 and 818. These are necessary conditions, not a promise that those ranks suffice.
-
-So the answer to “did Tucker fail because we assumed too small a rank?” is **yes for some tested narrow full-tensor choices**. No optimizer can overcome those bounds. But this does not rule out a broad sparse arithmetic program, and it is not a general failure theorem for HT. [Rank evidence](../../direct_tensor_match/FULL_TENSOR_MODE_INTERPRETATION_V1.md).
-
-**Third: local graph savings did not become a faithful full replacement.** One selected two-layer calculation saved about 15.7% of source arithmetic but retained failures against competing baselines. Later edits reduced an archived approximate quartic program from 24 to 18 products, but incurred 27.1% calibration error relative to that approximation. Those edits were rejected. Reducing the cost of an already approximate program does not demonstrate fidelity to the native model. [Local result](research_update_2026-09-21_1451_local_graph_fidelity_pass.md) · [Graph results](research_update_2026-09-21_1841_graph_search_and_native_capacity.md).
-
-**Fourth: the full-last-MLP baseline gave us a meaningful comparison.** Retaining 3,686 native products, refitting their writers, and adding an affine correction removes 20.0% of products and 11.7% of stored coefficients. The correction's cost is included. This baseline inherits the original input directions; it is not a newly discovered feature dictionary.
-
-| Same-budget last-MLP replacement | FineWeb natural effect error | Code natural effect error | Intervention cohorts passing the 10% limit |
-|---|---:|---:|---:|
-| Prune native products and refit | 4.44% | 2.12% | 0 / 4 |
-| Learn directions, covariance + response objective | 6.64% | 2.78% | 0 / 4 |
-| Add an isotropic coefficient penalty | 4.21% | 2.07% | 1 / 4 |
-| Later finite-response objective | 4.20% | 2.05% | 1 / 4 |
-
-Natural effect error measures logit discrepancy relative to the original MLP's contribution, with downstream normalization and softcapping evaluated. Intervention tests swap an upstream MLP contribution and recompute the downstream path. They test a stronger requirement than ordinary forward agreement.
-
-The lesson is that learning directions can improve the fitting score while worsening behavior. The mixed objectives recover modest improvements, but three intervention cohorts still fail. Follow-ups use the same already opened evaluation documents, so they are diagnostic comparisons, not independent confirmation. [Mixed-objective comparison](../../direct_tensor_match/FULL_QUADRATIC_MULTIGEOMETRY_INTERPRETATION_V1.md) · [Finite-response follow-up](../../direct_tensor_match/FULL_QUADRATIC_FINITE_RESPONSE_INTERPRETATION_V1.md).
-
-**Fifth: expanding the quartic dictionary revealed a transfer problem.** A readout of all products of $m$ quadratic features has at most $m(m+1)/2$ output directions. On the cached native quartic targets, reaching 1% error requires at least 414–430 output directions, hence at least 29 quadratic features under this architecture. This motivated trying 32 rather than four features.
-
-| Quartic dictionary, inherited initialization | Fitting-panel error after 1,000 steps | Second-panel error |
+| Program | Products | Stored floating-point coefficients |
 |---|---:|---:|
-| Four quadratic features | 6.15% | 12.93% |
-| 32 quadratic features | 2.16% | 15.05% |
+| Unconstrained joint-fit parent | 656 | 903,168 |
+| 16-output fit, separate quadratic forms | 640 | 330,240 |
+| Same 16-output function, paired shared computation | **384** | **322,048** |
 
-More capacity helped fitting but did not improve transfer. The 32-feature program uses 656 products and 903,168 stored coefficients. Its target still excludes residual cross terms, biases, and intervening normalization. These percentages are polynomial-output errors and cannot be compared directly to the last-MLP logit errors above. [Capacity and graph scope](research_update_2026-09-21_1841_graph_search_and_native_capacity.md) · [Wider fits](../../direct_tensor_match/WIDE_NATIVE_QUARTIC_INTERPRETATION_V1.md).
+The final graph also stores 768 integer indices. These prices include the learned dense projections; the common unembedding and external normalization/background are outside the comparison.
 
-**5. Did direct weight-based matching help?**
+There are **two different accuracy questions**:
 
-It made the joint fits practical and supplied useful global constraints. It has not yet solved the discovery problem.
+- **Did the graph rewrite preserve the fitted function?** Yes: measured relative output discrepancy is below $6\times10^{-7}$ on both opened panels.
+- **Does that fitted function match the original quartic target?** Approximately: its errors are **8.28% and 13.61%** on those panels. These are polynomial-output errors, not language-model error rates.
 
-The latest controlled comparison holds the learned 32-feature quartic dictionary fixed and changes only how its output weights are fitted:
+The eight-output primary fit failed its specified fidelity test; the 16-output secondary fit did better. We retained that failure. The initial sharing compiler also missed its product budget because one numerically difficult pair required a fallback. Changing equivalent coordinates fixed that pair while keeping the original numerical tolerance.
 
-| Output-weight objective | Second-panel functional error |
-|---|---:|
-| Fit empirical function values | 15.05% |
-| Match isotropic coefficient tensor | 54.38% |
-| Match second-moment-weighted coefficient tensor | 21.44% |
-| Match exact second-moment Gaussian functional loss | 19.44% |
+This is meaningful arithmetic compression, but it is not yet a validated causal circuit or demonstrated whole-model speedup. The next test installs the frozen program into the model’s actual quartic-branch replacement interface and compares it with both its parent and a much cheaper 26-product baseline. [Exact graph result](../../direct_tensor_match/PAIRED_ROOT_INTERPRETATION_V2.md) · [Native validation plan](../../direct_tensor_match/PAIRED_ROOT_BRANCH_PLAN_V1.md).
 
-The coefficient objectives improved their own scores and passed numerical checks, but worsened function matching on these inputs. Activation information helps relative to isotropic matching, yet does not beat the empirical baseline. These are weight-based readout fits of a **data-informed dictionary**, not end-to-end weight-only discovery. A separate random-dictionary/isotropic control is fully weight-only and reconstructs almost none of the panel output. [Recorded comparison](../../direct_tensor_match/WIDE_QUARTIC_WEIGHT_READOUT_V1.json).
+**6. What to take away from the direction so far**
 
-A follow-up included the complete Gaussian functional moments. It improved the activation-informed result to **19.44%**, but still missed the empirical baseline. Its predicted feature-moment geometry differs from the calibration panel by **21.76%**, even after correcting overall scale, compared with **8.47%** between the two empirical panels. Exact Gaussian algebra therefore does not establish that the Gaussian law fits these model inputs. [Gaussian comparison and moment audit](../../direct_tensor_match/WIDE_QUARTIC_GAUSSIAN_INTERPRETATION_V1.md).
+The two-stage idea remains viable, and now has one substantial concrete sharing result. The hard part is simultaneously getting a small program, faithful behavior on new inputs and interventions, and understandable, stable intermediate features. No candidate from this branch has established all three.
 
-Why can those results coexist? Coefficient Frobenius error, covariance-shaped coefficient error, and expected functional error weight discrepancies differently. Quadratic functional loss involves fourth-order input moments; quartic loss involves eighth-order moments. Covariance alone needs extra distributional assumptions to determine them. Better optimization of one metric need not improve another.
+The next decision should come from the native comparison: does the 384-product program preserve behavior sufficiently better than the 26-product alternative to justify its cost? Separately, the wider search still needs to combine decomposition proposals with more flexible graph edits and refitting.
 
-The next capacity checks separate output fitting from missing input information. Even an oracle output fit on the second panel cannot reduce the fixed wide dictionary below **7.58%**. Its input readers also miss substantial isotropic local sensitivity. But that conclusion depends on geometry: optimal 256-reader derivative-error floors are **19.13% / 15.45%** under isotropic perturbations, versus **3.76% / 2.92%** under centered activation covariance. Uncentered weighting gives still smaller floors because about **96%** of its derivative energy comes from the mean direction. These are local derivative bounds, not natural prediction errors or identified circuits. [Capacity checks and the covariance correction](../../direct_tensor_match/QUARTIC_READER_RANK_INTERPRETATION_V1.md).
+For clarity, the old title’s **“full coverage”** meant accounting for the entire chosen target, including error outside a fitted subspace. It did not mean we had decomposed the whole model. **“Shared baselines”** meant giving competitors the same opportunity to reuse computations, rather than claiming savings against an unnecessarily duplicated baseline.
 
-A recent **stage-two graph test** does produce a substantial cost reduction. Keeping 32 learned quadratic features, we group their root computation into eight shared output directions and diagonalize each root quadratic form. This reduces **656 → 384 products** and **903,168 → 312,576 stored coefficients**. Native quartic errors become **8.60% / 13.70%**, versus the joint-fit parent's **7.74% / 13.61%**. The primary narrowly fails its calibration-fidelity limit, so this is a useful smaller approximation, not an adopted circuit. The next solver fits output sharing directly under the joint objective rather than truncating the parent's predictions. [Graph result and cost accounting](../../direct_tensor_match/SHARED_ROOT_BLOCK_INTERPRETATION_V1.md).
+**Evidence and metric guide**
 
-**6. Where the original plan stands**
-
-| Piece | Status |
-|---|---|
-| Joint folding and exact QR reduction | Implemented. |
-| Direct fitting with and without activation information | Implemented; objective choice materially changes results. |
-| Controlled decomposition and graph-edit tests | Working, with both successes and retained failures. |
-| General HT/Tucker initialization followed by flexible graph search | Partial implementation. |
-| Shared computation that beats fair native baselines while preserving interventions | Not established. |
-| Stable, interpretable, reusable semantic circuit units | Not established by this branch. |
-
-“Full coverage” in the old title meant accounting for the entire **chosen target**, including error outside the fitted subspace. It did not mean the whole model was decomposed. “Shared baselines” meant competitors were also allowed to reuse computations, so our graph would not win merely against a duplicated implementation.
-
-The remaining research question is whether we can combine adequate capacity, a functional objective that transfers, and graph edits that produce real savings. The evidence separates three obstacles: ranks that cannot represent the target, optimization that fails even on known structure, and fitting objectives that disagree with the behavior we want to preserve. They require different remedies; calling all three “Tucker/HT failed” hides what we learned.
+The links above lead to the experiment interpretations, numerical artifacts, controls and implementation. This is a synthesis of existing experiments, not a new run. The latest quartic comparisons use already opened panels; they are diagnostic evidence, not independent final OOD confirmation. Full-layer logit-effect errors, quartic polynomial errors, coefficient Frobenius errors and derivative errors have different targets and denominators and should not be ranked against one another.
