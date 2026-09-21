@@ -1,8 +1,8 @@
 # Latest requested update for Logan
 
-**Latest local result — [Graph reconstruction passes at15.7%source-cost saving](research_update_2026-09-21_1451_local_graph_fidelity_pass.md).** Opened-state reconstruction and all72fresh absolute checks pass; five fresh relative-baseline checks fail. Unchanged replication registered; full circuit identification remains open.
+**Start here — [Overall review: QR → tensor decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 15:15 UTC. Explains the original two-stage plan, what is implemented, why work narrowed to six quadratic reads, and the latest local success and fresh-data failures.
 
-**Start here — [Overall review: folded weights → decomposition → arithmetic circuits](research_update_2026-09-21_0104_full_coverage_and_shared_baselines.md).** Rewritten 21 September 2026, 14:15 UTC. Explains the original two-stage plan, the exact QR step, the move to a smaller diagnostic target, and what the completed results do and do not establish.
+**Latest experiment detail — [Local graph reconstruction and fresh follow-ups](research_update_2026-09-21_1451_local_graph_fidelity_pass.md).** Local reconstruction passes at 15.7% source-cost saving. Both fresh panels pass absolute checks but retain relative baseline failures; two failures remain after pooling. The full folded replacement and circuit-identification goals remain open.
 
 **Latest two-stage result — [Algebraic proposals and local graph refitting](research_update_2026-09-21_1345_algebraic_proposals_and_refitting.md).** Exact planted sharing is recovered algebraically. A bounded sixteen-candidate search plus refitting passes noisy toy gates; internal-feature ambiguity remains. Native refitting favors the inherited solution and still fails fidelity; see the follow-up in the report.
 

@@ -1,10 +1,20 @@
 **From folded weights to a smaller program: overall research review**
 
-Rewritten 21 September 2026, 14:15 UTC. This replaces the “full coverage and shared baselines” account, retaining its filename so existing links work. It summarizes the direction and completed results rather than listing every experiment.
+Rewritten 21 September 2026, 15:15 UTC; results through 15:09 UTC. This replaces the “full coverage and shared baselines” account, retaining its filename so existing links work. It summarizes the direction and completed results rather than listing every experiment.
 
 **Your recollection is correct: the intended method has two stages.** First, fit a structured tensor to discover useful intermediate computations. Second, turn those computations into an arithmetic graph, simplify it, and refit it. QR prepares the output coordinates before either stage.
 
-We have made progress on both stages, particularly on controlled examples. **We have not yet produced a faithful, cheaper replacement for the full folded section, or completed a general Tucker/HT-to-arbitrary-circuit search.** Most recent experiments address a smaller diagnostic problem. That scope change was too easy to miss in the previous report.
+**Where we are now:** QR is implemented. Structured decomposition and particular graph simplifications work, including on controlled examples. A smaller model-derived graph now passes our local reconstruction requirements while using **15.7% fewer source multiplications** than its original comparison program. However, it still loses some fresh-data comparisons against a stronger, similarly priced baseline.
+
+**We have not completed a general Tucker/HT-to-arbitrary-circuit search or obtained a faithful replacement for the full folded section.** The recent success concerns six quadratic measurements feeding three selected components. That change of scope was too easy to miss in the previous report.
+
+| Part of the original plan | Current status |
+|---|---|
+| Fold weights and use QR to reduce the output coordinates | Implemented; QR preserves the chosen pre-nonlinearity function exactly. |
+| Fit structured tensors to propose features | Implemented for several restricted families; the general HT route remains incomplete. |
+| Convert features into a shared arithmetic graph and refit | Implemented for particular graph structures and edits; arbitrary graph search remains incomplete. |
+| Obtain a smaller, accurate full folded replacement | Not achieved. The latest passing reconstruction is a smaller diagnostic. |
+| Establish reusable, understandable circuits | Not achieved; approximation accuracy alone does not establish feature meaning or identity. |
 
 ```mermaid
 flowchart TD
@@ -115,7 +125,7 @@ We have implemented particular shared-product graphs, algebraic conversions, pru
 
 **What happened when we tried this on the model**
 
-The research narrowed in response to imperfect broad fits:
+The broad fits did not give a sufficiently accurate small program. We therefore narrowed the target to understand where the method was breaking:
 
 | Phase | Actual target and result | What it established |
 |---|---|---|
@@ -124,26 +134,63 @@ The research narrowed in response to imperfect broad fits:
 | More flexible sharing | Features could be shared by pairs of components instead of by all three. | Better tensor fits, but the initial dense computation exceeded the cost budget. |
 | Compile and refit a cheaper graph | Convert the forms to explicit reusable products, then optimize directions and coefficients. | Much of the conversion error was recovered. The cheaper graph still failed fidelity requirements. |
 | Algebraic feature proposals | Derive candidate groups from pairs of quadratic forms, then refit. | Successful controlled examples; the native-model comparison still favored the earlier initialization. |
+| Allow a somewhat larger correction dictionary | Add products and alternate fits of the two reads entering each component. | A graph with 64 added products passes local reconstruction at 15.7% source-cost saving. |
+| Freeze that graph and test two new panels | Evaluate FineWeb and code without changing its coefficients. | All absolute error checks pass, but some relative baseline comparisons fail. |
 
 The local target computes reads $q_j(z)=z^\top Q_jz$. These feed three downstream component calculations with explicit normalization. It receives intermediate states from the original model; **it is not an extracted token-to-output program**.
 
-**The main native result, with the comparison spelled out**
+**The latest result, in plain terms**
 
-The following rows refer to that same local target. “Covariance-shaped coefficient error” measures tensor reconstruction in an activation-informed geometry. “Component 3 error” measures one downstream scalar calculation on examined states. Neither is language-model accuracy.
+A **read** here is a scalar quadratic measurement,
 
-| Representation | Covariance-shaped coefficient error | Component 3 value error | Multiplications in the selected source computation |
-|---|---:|---:|---:|
-| Original pair-program baseline | 7.031% | 8.81% | 1,330,560 |
-| Dense pairwise-shared fit | 7.577% | 10.55% | 1,548,240 |
-| First cheap graph conversion | 11.150% | 14.21% | 1,047,648 |
-| Latest controlled refit, inherited initialization | **7.893%** | **10.67%** | **1,047,648** |
-| Required limits | At most 7.734% | At most 9.69% | At most 1,064,448 |
+$$
+q_j(z)=z^\top Q_jz.
+$$
 
-The latest graph saves **21.26% of these source multiplications**, but fails reconstruction requirements. The dense fit is more accurate in coefficient space but too expensive. This is the central remaining gap between fitting a tensor and obtaining an acceptable simpler program. The table shows representative limits; acceptance also checks other components, original-coordinate error and derivatives.
+There are six reads, used in pairs to compute three downstream scalar components. The graph tries to share work across these reads. The original model still supplies the intermediate inputs and normalization context. Thus the experiment asks, “Can we compute these particular measurements more cheaply while preserving their downstream effects?” It does not yet ask the replacement to compute everything from tokens.
 
-The algebraically proposed initialization, given the same native refitting budget, finished at **8.194%** covariance-shaped error, worse than **7.893%** from the inherited graph. Both compiled successfully. A good toy initialization has therefore not yet become a better native circuit. [Completed native comparison](../../direct_tensor_match/PENCIL_JOINT_REFIT_V1.json).
+The early cheap graph reduced source arithmetic by about 21%, but its approximation was too inaccurate. We added correction products and refitted their coefficients. Holding one read fixed makes the other read's conditional fit convex; alternating these fits improves the joint result but does not prove a global optimum.
 
-These latest graph results use already examined states. Earlier candidates received fresh FineWeb/code comparisons, but none passed every relative baseline comparison. The latest graph has no new fresh/OOD validation establishing success.
+| Added correction products | Source multiplications | Saving versus original pair program | Local reconstruction result |
+|---|---:|---:|---|
+| 14 | 1,063,818 | 20.05% | Fails |
+| 32 | 1,084,608 | 18.49% | Passes values and derivatives; narrowly fails the coefficient-error limit |
+| 64 | 1,121,568 | **15.71%** | **Passes all registered local reconstruction limits** |
+
+The original comparison program uses 1,330,560 source multiplications. The passing graph has 1,120 nonlinear products in total and stores 1,131,980 floating-point coefficients. Projections also require multiplications, so product count and total arithmetic are different measures. These counts exclude common downstream work and are **not measured whole-model speedups**.
+
+The original goal of at least 20% savings still failed. The 15.7% result is a separately evaluated cost–accuracy tradeoff, with the same reconstruction limits.
+
+For the passing graph:
+
+- Covariance-shaped coefficient error is **7.628%**.
+- Original-coordinate coefficient error is **57.737%**.
+- The three downstream component errors are **1.727%, 2.174%, and 8.346%** on the examined states.
+
+These percentages measure different things. The first two compare tensor coefficients in different input geometries; the third compares component values. None is language-model prediction accuracy. The large original-coordinate error means that passing the activation-informed checks does not imply a uniformly accurate tensor approximation. “Passing” means satisfying registered tolerances, including comparisons to an already approximate baseline.
+
+Actual exported graph execution, derivatives and FP32 replay were checked. We also constructed two stronger comparison programs that already share work within each pair of reads. Each fits within the candidate's arithmetic and storage budgets; one uses original-coordinate geometry and one uses covariance-shaped geometry. The graph passes the examined-state component and derivative comparisons against both. **Optimization effort is not matched:** the candidate received adaptive functional fitting that these baselines did not.
+
+[Fit and cost results](../../direct_tensor_match/TWO_READ_CORRECTION_FRONTIER64_V1.json) · [Export checks and baseline comparisons](../../direct_tensor_match/FRONTIER64_EXPORT_AUDIT_V1.json).
+
+**What happened on fresh data**
+
+We froze the graph and tested two new panels, totaling 64 FineWeb documents and 32 code files. A **natural** test uses the original state. A **donor-hybrid** test replaces the selected source contribution with one from a different document at a matching token. A **change** test checks the difference between those effects.
+
+Each panel has 72 checks spanning components, intervention types, token cohorts and domains. Both panels pass every absolute error limit. Both also retain relative failures against the similarly priced baselines. Passing an absolute limit therefore does not establish that the proposed graph improves on the alternative program.
+
+In the pooled results, two relative failures remain against the covariance-shaped baseline, both for component three on code at positions followed by a whitespace-prefixed word:
+
+| Test | Graph error / baseline error | Required maximum |
+|---|---:|---:|
+| Natural effect | 1.137 | 1.10 |
+| Donor-hybrid effect | 1.106 | 1.10 |
+
+A ratio of 1.137 means 13.7% more error than the baseline. Both pooled confidence intervals cross the 1.10 threshold, so the size of the disadvantage remains uncertain; the registered point-estimate failures remain failures. Pooling does not erase the individual-panel failures.
+
+A follow-up on those already examined code files finds the same failures in the scalar component **before** final normalization and logit softcapping. The endpoint is therefore not what introduces these threshold failures. Some error is shared between natural and hybrid states and cancels when taking their difference. This is a diagnostic observation, not a new independent validation or proof of a constant bias.
+
+**The current conclusion is a useful local compression result with incomplete transfer, not an accepted circuit.** [Fresh replication comparison](../../direct_tensor_match/FRONTIER_REPLICATION_COMPARISON_V1.json) · [Source-error diagnosis](../../direct_tensor_match/FRONTIER_SCALAR_INTERPRETATION_V1.md).
 
 **What the controlled examples taught us**
 
@@ -175,6 +222,12 @@ Consequently, “we assumed too little Tucker rank” is not a sufficient accoun
 
 “Shared baselines” are comparison programs that already reuse computations. Beating a deliberately duplicated implementation would overstate the gain. We compare against stronger programs and track reconstruction, stored coefficients and arithmetic separately; some comparisons match storage rather than every cost simultaneously.
 
-The remaining milestone is concrete: **a compiled shared program that meets fidelity requirements while reducing total cost against a strong baseline, followed by fresh behavioral validation.** Stable feature identity, semantic interpretation and selective manipulation still need separate evidence. A sum of conditions sharing an output direction need not be one human-readable concept.
+The local reconstruction milestone has now been reached at a smaller cost saving. **Fresh relative validation remains unresolved, and extending the method back to the broader folded target remains a separate task.** Stable feature identity, semantic interpretation and selective manipulation still need separate evidence. A sum of conditions sharing an output direction need not be one human-readable concept.
 
 Supporting detail: [historical broad results](research_update_2026-09-21_0738_decomposition_detailed_review.md), [cost comparisons](research_update_2026-09-21_1020_cost_matched_pair_baselines.md), [conversion gap](research_update_2026-09-21_1237_stage_one_gain_and_graph_conversion_gap.md), [parameterization and feature discovery](research_update_2026-09-21_1320_parameterization_and_shared_feature_discovery.md), and [algebraic proposals with completed native follow-up](research_update_2026-09-21_1345_algebraic_proposals_and_refitting.md).
+
+**How this changes the next step**
+
+The two-stage direction is still the organizing plan. The experiments show that decomposition can supply useful features, but translating those features into cheap reusable arithmetic is a separate optimization problem. More width improves fidelity at a real computational cost; allowing pairwise sharing can help where forcing every component to share one dictionary fails; initialization and parameterization strongly affect recovery.
+
+The next local question is which read errors and cancellations cause the retained code failures. The broader question is whether graph edits can recover that accuracy at a competitive cost and then scale back to the larger folded function. General HT initialization, broad graph-topology search, optimizer-matched baselines, and stable interpretable features remain unfinished parts of the original proposal. They should not disappear from the research agenda merely because the small diagnostic is easier to optimize.
