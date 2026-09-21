@@ -1,0 +1,175 @@
+{
+  "primary_failed_cells": [
+    {
+      "domain": "fineweb",
+      "family": "same_cohort",
+      "kind": "full",
+      "edit": "both",
+      "cohort": "spaced_word",
+      "sites": 2980,
+      "effect_error": 0.10420012450005009,
+      "native_effect_rms": 0.08803143771862773,
+      "native_ce_added": -0.0012002015048825502,
+      "student_ce_added": -0.0012053318321704864
+    },
+    {
+      "domain": "fineweb",
+      "family": "same_cohort",
+      "kind": "full",
+      "edit": "context",
+      "cohort": "continuation",
+      "sites": 110,
+      "effect_error": 0.11754696906695271,
+      "native_effect_rms": 0.2728404639372187,
+      "native_ce_added": 0.01437846459871666,
+      "student_ce_added": 0.015195668031546202
+    },
+    {
+      "domain": "fineweb",
+      "family": "same_cohort",
+      "kind": "full",
+      "edit": "context",
+      "cohort": "spaced_word",
+      "sites": 2980,
+      "effect_error": 0.11754700215941581,
+      "native_effect_rms": 0.11045667282938884,
+      "native_ce_added": -0.0019458244235923627,
+      "student_ce_added": -0.00201171964481973
+    },
+    {
+      "domain": "fineweb",
+      "family": "same_cohort",
+      "kind": "full",
+      "edit": "source",
+      "cohort": "spaced_word",
+      "sites": 2980,
+      "effect_error": 0.11474741755051153,
+      "native_effect_rms": 0.10461007345457035,
+      "native_ce_added": -0.0015867341391042175,
+      "student_ce_added": -0.0016940521138826472
+    },
+    {
+      "domain": "stdlib",
+      "family": "same_cohort",
+      "kind": "full",
+      "edit": "context",
+      "cohort": "continuation",
+      "sites": 174,
+      "effect_error": 0.11323987129039556,
+      "native_effect_rms": 0.15617743996329214,
+      "native_ce_added": 0.008926316537765851,
+      "student_ce_added": 0.008382872199297122
+    }
+  ],
+  "primary_mode_error_range": [
+    0.034542242533127716,
+    0.09164454409747884
+  ],
+  "support": [
+    {
+      "domain": "fineweb",
+      "family": "same_cohort",
+      "cohort": "continuation",
+      "sites": 110,
+      "distinct_current_tokens": 36,
+      "distinct_donor_sites": 85,
+      "distinct_recipient_documents": 29,
+      "distinct_donor_documents": 29,
+      "largest_token_fraction": 0.05454545454545454,
+      "largest_donor_fraction": 0.045454545454545456,
+      "donor_weight_effective_count": 67.22222222222223
+    },
+    {
+      "domain": "fineweb",
+      "family": "same_cohort",
+      "cohort": "spaced_word",
+      "sites": 2980,
+      "distinct_current_tokens": 393,
+      "distinct_donor_sites": 2851,
+      "distinct_recipient_documents": 32,
+      "distinct_donor_documents": 32,
+      "largest_token_fraction": 0.0825503355704698,
+      "largest_donor_fraction": 0.0016778523489932886,
+      "donor_weight_effective_count": 2709.090909090909
+    },
+    {
+      "domain": "fineweb",
+      "family": "opposite_cohort",
+      "cohort": "continuation",
+      "sites": 62,
+      "distinct_current_tokens": 41,
+      "distinct_donor_sites": 50,
+      "distinct_recipient_documents": 24,
+      "distinct_donor_documents": 27,
+      "largest_token_fraction": 0.06451612903225806,
+      "largest_donor_fraction": 0.06451612903225806,
+      "donor_weight_effective_count": 40.8936170212766
+    },
+    {
+      "domain": "fineweb",
+      "family": "opposite_cohort",
+      "cohort": "spaced_word",
+      "sites": 269,
+      "distinct_current_tokens": 41,
+      "distinct_donor_sites": 50,
+      "distinct_recipient_documents": 32,
+      "distinct_donor_documents": 24,
+      "largest_token_fraction": 0.43866171003717475,
+      "largest_donor_fraction": 0.43866171003717475,
+      "donor_weight_effective_count": 4.7119229016083874
+    },
+    {
+      "domain": "stdlib",
+      "family": "same_cohort",
+      "cohort": "continuation",
+      "sites": 174,
+      "distinct_current_tokens": 39,
+      "distinct_donor_sites": 135,
+      "distinct_recipient_documents": 16,
+      "distinct_donor_documents": 16,
+      "largest_token_fraction": 0.10344827586206896,
+      "largest_donor_fraction": 0.034482758620689655,
+      "donor_weight_effective_count": 100.92
+    },
+    {
+      "domain": "stdlib",
+      "family": "same_cohort",
+      "cohort": "spaced_word",
+      "sites": 160,
+      "distinct_current_tokens": 22,
+      "distinct_donor_sites": 155,
+      "distinct_recipient_documents": 16,
+      "distinct_donor_documents": 16,
+      "largest_token_fraction": 0.29375,
+      "largest_donor_fraction": 0.0125,
+      "donor_weight_effective_count": 150.58823529411765
+    },
+    {
+      "domain": "stdlib",
+      "family": "opposite_cohort",
+      "cohort": "continuation",
+      "sites": 13,
+      "distinct_current_tokens": 5,
+      "distinct_donor_sites": 12,
+      "distinct_recipient_documents": 4,
+      "distinct_donor_documents": 9,
+      "largest_token_fraction": 0.5384615384615384,
+      "largest_donor_fraction": 0.15384615384615385,
+      "donor_weight_effective_count": 11.266666666666667
+    },
+    {
+      "domain": "stdlib",
+      "family": "opposite_cohort",
+      "cohort": "spaced_word",
+      "sites": 36,
+      "distinct_current_tokens": 5,
+      "distinct_donor_sites": 12,
+      "distinct_recipient_documents": 12,
+      "distinct_donor_documents": 4,
+      "largest_token_fraction": 0.8055555555555556,
+      "largest_donor_fraction": 0.1388888888888889,
+      "donor_weight_effective_count": 9.818181818181818
+    }
+  ],
+  "scope": "Descriptive support and inherited repeated-donor dependence. Kish donor weight count is not independent sample size; no iid or document-only confidence interval claimed for crossed donor-recipient outcomes."
+}
