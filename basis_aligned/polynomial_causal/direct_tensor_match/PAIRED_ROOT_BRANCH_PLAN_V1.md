@@ -1,0 +1,11 @@
+**Native installation screen for the frozen paired16 program.**
+
+Use FULL_CHANNEL_FRESH_TOKENS_V1.pt:32FineWeb documents and16stdlib files, context256, scored positions16:255 and next-token labels17:256. These panels are already opened by earlier model experiments. Code is a domain shift relative to the quartic dictionary's FineWeb calibration, but this is not untouched final OOD confirmation. No parameters are fitted or selected here.
+
+Replace only the homogeneous quartic B17(lambda17 D16[(L16x)(R16x)]) term, where x is the actual normalized MLP16 input. The replacement is a physical residual-space numerator. Keep the actual MLP17 RMS denominator, all residual/bias/cross terms, attention background, final normalization and logit softcap. Reuse native_quartic_branch.py and native_feature_capture.py. This edits one algebraic term; it is not a whole-block replacement or selective semantic intervention.
+
+Arms: exact recomputation, zero branch ablation, narrow26 (WIDE_NATIVE_QUARTIC_4_INHERITED_LONG), jointparent656 (lambda1), paired384 (PAIRED_ROOT_RANK_16_V2). Include the separate16-form spectral program only as a replay instrument, not another selected candidate. Prices of the three fitted branches:26products/48384coeff;656/903168;384/322048 plus768integerindices.
+
+Pred_a_instrument: final-state and exactbranch/logit replay<1e-5, paired-vs-spectral16 residual numerator replay<1e-4 on every document. Pred_b_preservation: paired meanCEadded<.02nats/token and KL<.02 ineachdomain. Pred_c_baselines: paired relative branch-effect logit error<=1.1parent and<=.9narrow26 ineachdomain. A zero ablation effect is undefined, not passing. Report per-document damage, argmax agreement and errors; lower CEadded is better. Keep negative outcomes and do not replace thresholds or primary after observation.
+
+Fidelity normalization: pooled candidate logit-error norm divided by pooled native-to-branch-ablation logit-change norm. This differs from polynomial-input reconstruction errors. The subtraction instrument retains native computation, so standalone program prices are not an end-to-end speedup claim. Hash every input artifact before execution and report digests. The V2 rewrite passed FP32replay and value-margin controls, but that alone does not certify these native effects.
