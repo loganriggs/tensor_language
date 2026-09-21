@@ -1,0 +1,25 @@
+{
+  "calibration_directions": 2048,
+  "product_features": 3686,
+  "output_coordinates": 1152,
+  "response_feature_matrix_shape": [
+    2048,
+    3686
+  ],
+  "response_nullity_lower_bound": 1638,
+  "output_coefficient_nullity_lower_bound": 1886976,
+  "random_start_result": {
+    "coefficient_error": 0.4481721538592623,
+    "response_error": 0.03539511270496979,
+    "signed_coefficient_squared": 0.20085827949485027,
+    "history": [
+      {
+        "step": 0,
+        "coefficient_squared": 1.1074537788057408,
+        "response_squared": 0.05985027926438144
+      }
+    ],
+    "start": "random"
+  },
+  "scope": "At fixed readers the directional design G has shape N by K. rank(G)<=N, so at least K-N coefficient combinations per output are invisible to this empirical response loss. Exact coefficient matching remains in the combined objective and constrains these directions. This dimension bound neither proves actual rank nor determines generalization; it explains why a small empirical response loss alone cannot identify the full polynomial."
+}
