@@ -1,0 +1,292 @@
+{
+  "controls": [
+    {
+      "seed": 0,
+      "dimension": 3,
+      "response_error": 4.0440857029400635e-16,
+      "gradient_error": 7.287813737730054e-16,
+      "objective_error": 1.6317798810782873e-16
+    },
+    {
+      "seed": 1,
+      "dimension": 4,
+      "response_error": 5.997567202479509e-16,
+      "gradient_error": 6.210542741158353e-16,
+      "objective_error": 1.1339467346797431e-16
+    },
+    {
+      "seed": 2,
+      "dimension": 5,
+      "response_error": 3.212600827329432e-16,
+      "gradient_error": 6.074449563633271e-16,
+      "objective_error": 2.3721899123590347e-16
+    },
+    {
+      "seed": 3,
+      "dimension": 6,
+      "response_error": 8.60156201149554e-16,
+      "gradient_error": 1.054907500761703e-15,
+      "objective_error": 1.3278857760449584e-16
+    },
+    {
+      "seed": 4,
+      "dimension": 7,
+      "response_error": 1.0340378727381436e-15,
+      "gradient_error": 1.0055452950018586e-15,
+      "objective_error": 2.9422577197743805e-16
+    }
+  ],
+  "rows": [
+    {
+      "family": "independent",
+      "optimizer": "adam",
+      "seed": 0,
+      "value_error": 0.3099648549081557,
+      "response_error": 0.3209277357570281,
+      "objective": 0.08885487479718872
+    },
+    {
+      "family": "independent",
+      "optimizer": "adam",
+      "seed": 1,
+      "value_error": 0.046630788161792294,
+      "response_error": 0.04925693705775644,
+      "objective": 0.0014765887940085274
+    },
+    {
+      "family": "independent",
+      "optimizer": "adam",
+      "seed": "warm",
+      "value_error": 3.641424986027672e-06,
+      "response_error": 3.7461930682443445e-06,
+      "objective": 2.014830780032393e-06
+    },
+    {
+      "family": "independent",
+      "optimizer": "muon",
+      "seed": 0,
+      "value_error": 0.39965500563973844,
+      "response_error": 0.41740402568230073,
+      "objective": 0.13276935797110942
+    },
+    {
+      "family": "independent",
+      "optimizer": "muon",
+      "seed": 1,
+      "value_error": 0.29444594489996556,
+      "response_error": 0.304783657353801,
+      "objective": 0.052165231372486284
+    },
+    {
+      "family": "independent",
+      "optimizer": "muon",
+      "seed": "warm",
+      "value_error": 6.258757964318148e-05,
+      "response_error": 6.424068903140488e-05,
+      "objective": 1.9854143990344733e-06
+    },
+    {
+      "family": "shared_input",
+      "optimizer": "adam",
+      "seed": 0,
+      "value_error": 0.25326049844348264,
+      "response_error": 0.2559075864348955,
+      "objective": 0.09261648199103516
+    },
+    {
+      "family": "shared_input",
+      "optimizer": "adam",
+      "seed": 1,
+      "value_error": 0.47648821953412934,
+      "response_error": 0.4745247313557695,
+      "objective": 0.2516724793087286
+    },
+    {
+      "family": "shared_input",
+      "optimizer": "adam",
+      "seed": "warm",
+      "value_error": 1.3048609618064328e-05,
+      "response_error": 1.3406270058209441e-05,
+      "objective": 2.9195147148356954e-06
+    },
+    {
+      "family": "shared_input",
+      "optimizer": "muon",
+      "seed": 0,
+      "value_error": 0.4454874995122403,
+      "response_error": 0.44841502533869526,
+      "objective": 0.24019146503732672
+    },
+    {
+      "family": "shared_input",
+      "optimizer": "muon",
+      "seed": 1,
+      "value_error": 0.5518026640693368,
+      "response_error": 0.5540701354426806,
+      "objective": 0.2855002653684747
+    },
+    {
+      "family": "shared_input",
+      "optimizer": "muon",
+      "seed": "warm",
+      "value_error": 3.1655459841918545e-05,
+      "response_error": 3.23614612988555e-05,
+      "objective": 2.301057531799159e-06
+    },
+    {
+      "family": "shared_output",
+      "optimizer": "adam",
+      "seed": 0,
+      "value_error": 0.05777497391389743,
+      "response_error": 0.059959882904309356,
+      "objective": 0.0008753301920380015
+    },
+    {
+      "family": "shared_output",
+      "optimizer": "adam",
+      "seed": 1,
+      "value_error": 0.040732976604384075,
+      "response_error": 0.04228692734501112,
+      "objective": 0.000595888324577192
+    },
+    {
+      "family": "shared_output",
+      "optimizer": "adam",
+      "seed": "warm",
+      "value_error": 0.00027321927506254376,
+      "response_error": 0.0003060258063346986,
+      "objective": 1.2192183994764252e-06
+    },
+    {
+      "family": "shared_output",
+      "optimizer": "muon",
+      "seed": 0,
+      "value_error": 0.05985964445797674,
+      "response_error": 0.06151071257497862,
+      "objective": 0.0007498270237093521
+    },
+    {
+      "family": "shared_output",
+      "optimizer": "muon",
+      "seed": 1,
+      "value_error": 0.05664911832245626,
+      "response_error": 0.06063965997971536,
+      "objective": 0.0005939840541302118
+    },
+    {
+      "family": "shared_output",
+      "optimizer": "muon",
+      "seed": "warm",
+      "value_error": 0.0004925090627751667,
+      "response_error": 0.0005580234243999828,
+      "objective": 1.2488157794011929e-06
+    },
+    {
+      "family": "squares",
+      "optimizer": "adam",
+      "seed": 0,
+      "value_error": 0.04218016455067769,
+      "response_error": 0.043409745955376056,
+      "objective": 0.0011787398598346191
+    },
+    {
+      "family": "squares",
+      "optimizer": "adam",
+      "seed": 1,
+      "value_error": 0.23559293319161553,
+      "response_error": 0.24825570395941993,
+      "objective": 0.03372646465831447
+    },
+    {
+      "family": "squares",
+      "optimizer": "adam",
+      "seed": "warm",
+      "value_error": 0.0007333688300652436,
+      "response_error": 0.0007584043834788387,
+      "objective": 3.0668702542903626e-06
+    },
+    {
+      "family": "squares",
+      "optimizer": "muon",
+      "seed": 0,
+      "value_error": 0.02145602922272307,
+      "response_error": 0.02190792457945537,
+      "objective": 0.00030345305945141473
+    },
+    {
+      "family": "squares",
+      "optimizer": "muon",
+      "seed": 1,
+      "value_error": 0.010593540966457808,
+      "response_error": 0.011025788956529212,
+      "objective": 7.383977338661325e-05
+    },
+    {
+      "family": "squares",
+      "optimizer": "muon",
+      "seed": "warm",
+      "value_error": 0.0003550809866759499,
+      "response_error": 0.00036855056555413704,
+      "objective": 2.976633624458924e-06
+    },
+    {
+      "family": "cancellation",
+      "optimizer": "adam",
+      "seed": 0,
+      "value_error": 0.00080082827980667,
+      "response_error": 0.0008268379442810186,
+      "objective": 1.2700676944427569e-06
+    },
+    {
+      "family": "cancellation",
+      "optimizer": "adam",
+      "seed": 1,
+      "value_error": 0.08736582321862078,
+      "response_error": 0.0930204860991564,
+      "objective": 0.0013975262782261713
+    },
+    {
+      "family": "cancellation",
+      "optimizer": "adam",
+      "seed": "warm",
+      "value_error": 5.6569917281052445e-05,
+      "response_error": 5.732077565500597e-05,
+      "objective": 1.3274912359808954e-06
+    },
+    {
+      "family": "cancellation",
+      "optimizer": "muon",
+      "seed": 0,
+      "value_error": 0.04243717460466189,
+      "response_error": 0.04301708755796699,
+      "objective": 0.0002631634995839323
+    },
+    {
+      "family": "cancellation",
+      "optimizer": "muon",
+      "seed": 1,
+      "value_error": 0.03230231560164974,
+      "response_error": 0.033073630911874694,
+      "objective": 0.0001399821274240781
+    },
+    {
+      "family": "cancellation",
+      "optimizer": "muon",
+      "seed": "warm",
+      "value_error": 8.32296869544399e-05,
+      "response_error": 8.485429773922054e-05,
+      "objective": 1.1118611574223358e-06
+    }
+  ],
+  "recovered_random_starts": {
+    "adam": 1,
+    "muon": 0
+  },
+  "warm_all_pass": {
+    "adam": true,
+    "muon": true
+  },
+  "selected_optimizer": "adam",
+  "seconds": 9.424677927047014,
+  "scope": "Five known structures; two random starts plus near-teacher starts, matched initializations, one300step budget/rate per start class. Functional value/response test on independent Gaussian probes; not coefficient recovery, semantic identity or universal optimizer ranking."
+}

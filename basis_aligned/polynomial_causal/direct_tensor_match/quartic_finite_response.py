@@ -24,6 +24,31 @@ def joint_design(x,y,delta,response,u,v,response_weight=1.):
     a=value_energy.rsqrt();b=(response_weight/response_energy).sqrt()
     return torch.cat([features(x,u,v)*a,response_features(x,delta,u,v)*b]),torch.cat([y*a,response*b])
 
+def fit(x,y,delta,response,initial,response_weight=1.,steps=300,rate=.01,optimizer='adam'):
+    import math
+    from empirical_quartic_dictionary import readout
+    from shared_quadratic_bank import normalize_bank
+    shape=initial[0].shape
+    parameters=[torch.nn.Parameter(z.flatten(0,1).clone()) for z in initial]
+    opt=torch.optim.Adam(parameters,lr=rate) if optimizer=='adam' else torch.optim.Muon(parameters,lr=rate,weight_decay=0.,adjust_lr_fn='match_rms_adamw')
+    best=None;history=[]
+    for step in range(steps+1):
+        u,v=normalize_bank(*(z.reshape(shape) for z in parameters))
+        design,target=joint_design(x,y,delta,response,u,v,response_weight)
+        with torch.no_grad():c,_,ridge=readout(design,target)
+        scales=design.square().mean(0).sqrt().clamp_min(1e-12)
+        residual=design/scales@c-target
+        loss=residual.square().sum()+ridge*c.square().sum()
+        value=float(loss.detach())
+        if best is None or value<best[0]:best=(value,step,u.detach().clone(),v.detach().clone(),(c/scales[:,None]).T.detach().clone())
+        if step%50==0 or step==steps:history.append(dict(step=step,objective=value))
+        if step==steps:break
+        opt.zero_grad();loss.backward();opt.step()
+        for group in opt.param_groups:group['lr']=rate*(.01+.99*.5*(1+math.cos(math.pi*(step+1)/steps)))
+    value,step,u,v,c=best
+    return dict(objective=value,selected_step=step,history=history),dict(U=u,V=v,C=c)
+
+
 def controls():
     records=[]
     for seed in range(5):
