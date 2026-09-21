@@ -30,5 +30,11 @@
   "edge_width": 64,
   "pred_a": "Native forms replay saved source targets<1e-10; permutations preserve all two-read coefficient Gram matrices, and common permutation preserves full six-read coefficient Gram matrix<1e-10relative.",
   "pred_b": "Native support statistic exceeds every null statistic separately in each geometry and each permutation family.",
-  "scope": "Hold trained MLP16 L/R fixed. Permute folded output channel coefficients jointly across all6reads or independently by pair. Preserves channel coefficient distributions/correlations as declared, but not each quadratic form spectrum. Complements the spectral-preserving Haar orientation null; not causal or semantic evidence."
+  "scope": "Hold trained MLP16 L/R fixed. Permute folded output channel coefficients jointly across all6reads or independently by pair. Preserves channel coefficient distributions/correlations as declared, but not each quadratic form spectrum. Complements the spectral-preserving Haar orientation null; not causal or semantic evidence.",
+  "hashes": {
+    "PAIR_SUPPORT_ARCHITECTURE_INPUTS_V1.pt": "e09067dab2c4126c3642bb42c5b39b75e678138216e78076765a380343571f6e",
+    "pair_support_architecture.py": "eda4b971be5c2221ad5bde27134e39c4c55db341b4afe71d961fa018f2ebd862",
+    "SHARED_PRODUCT_NATIVE_INPUTS_V1.pt": "ced91200316ff8adaa60f26767bf4a1d8e25871e548075637e0799d6fc45a68d",
+    "PAIR_SUPPORT_NULL_V1.json": "72ba18c2caaf433d5014be84e0fd9db5a4819825f6cd66732ef9c6923a91ab35"
+  }
 }
