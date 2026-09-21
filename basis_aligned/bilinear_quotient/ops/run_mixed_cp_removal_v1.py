@@ -17,7 +17,7 @@ def cp_values(program,x):
 def main():
  import torch,tiktoken
  import torch.nn.functional as F
- sys.path.insert(0,str(P));sys.path.insert(0,str(Path(__file__).resolve().parent))
+ sys.path.insert(0,str(P));sys.path.insert(0,str(ROOT/'basis_aligned/bilinear_quotient/ops'))
  from run_root_case_ablation_v1 import case_pairs,summarize
  from native_quartic_branch import bilinear,pure_branch
  torch.set_num_threads(2);torch.set_grad_enabled(False);enc=tiktoken.get_encoding('gpt2');pairs=case_pairs(enc)
