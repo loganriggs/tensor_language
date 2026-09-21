@@ -1,0 +1,199 @@
+{
+  "records": [
+    {
+      "domain": "fineweb",
+      "kind": "full",
+      "cohort": "all",
+      "effect_error_ci95": [
+        0.06559445028134518,
+        0.08602337811346088
+      ],
+      "removal_ce_difference_ci95": [
+        0.0006680096758755555,
+        0.0015117192013524316
+      ],
+      "worst_document_effect_error": 0.126103882367966,
+      "documents_above_10pct": 4,
+      "documents_with_effect": 32
+    },
+    {
+      "domain": "fineweb",
+      "kind": "full",
+      "cohort": "continuation",
+      "effect_error_ci95": [
+        0.08088712381149883,
+        0.09425629305516312
+      ],
+      "removal_ce_difference_ci95": [
+        0.0077505664301009405,
+        0.016139381153080855
+      ],
+      "worst_document_effect_error": 0.12854420198335723,
+      "documents_above_10pct": 8,
+      "documents_with_effect": 32
+    },
+    {
+      "domain": "fineweb",
+      "kind": "full",
+      "cohort": "spaced_word",
+      "effect_error_ci95": [
+        0.06515766772429094,
+        0.12132734173309632
+      ],
+      "removal_ce_difference_ci95": [
+        -0.0002396316483352609,
+        -2.6792973831019148e-05
+      ],
+      "worst_document_effect_error": 0.20053570155907427,
+      "documents_above_10pct": 7,
+      "documents_with_effect": 32
+    },
+    {
+      "domain": "fineweb",
+      "kind": "mode",
+      "cohort": "all",
+      "effect_error_ci95": [
+        0.06070938491037955,
+        0.07380779427565891
+      ],
+      "removal_ce_difference_ci95": [
+        0.0004402895734711671,
+        0.0010558255149293139
+      ],
+      "worst_document_effect_error": 0.10400620179714021,
+      "documents_above_10pct": 2,
+      "documents_with_effect": 32
+    },
+    {
+      "domain": "fineweb",
+      "kind": "mode",
+      "cohort": "continuation",
+      "effect_error_ci95": [
+        0.07489153348916006,
+        0.08789632437577231
+      ],
+      "removal_ce_difference_ci95": [
+        0.00534757400381176,
+        0.011691728055158503
+      ],
+      "worst_document_effect_error": 0.12369529667807071,
+      "documents_above_10pct": 4,
+      "documents_with_effect": 32
+    },
+    {
+      "domain": "fineweb",
+      "kind": "mode",
+      "cohort": "spaced_word",
+      "effect_error_ci95": [
+        0.030575331788966504,
+        0.06593941129284768
+      ],
+      "removal_ce_difference_ci95": [
+        -0.00013679283195010486,
+        1.1042243421506511e-06
+      ],
+      "worst_document_effect_error": 0.09259614494473818,
+      "documents_above_10pct": 0,
+      "documents_with_effect": 32
+    },
+    {
+      "domain": "stdlib",
+      "kind": "full",
+      "cohort": "all",
+      "effect_error_ci95": [
+        0.06092145781096847,
+        0.06833132387419547
+      ],
+      "removal_ce_difference_ci95": [
+        -0.0009107255614576979,
+        0.0010630291641132601
+      ],
+      "worst_document_effect_error": 0.08083419480514192,
+      "documents_above_10pct": 0,
+      "documents_with_effect": 16
+    },
+    {
+      "domain": "stdlib",
+      "kind": "full",
+      "cohort": "continuation",
+      "effect_error_ci95": [
+        0.05209020761164223,
+        0.06244664768230323
+      ],
+      "removal_ce_difference_ci95": [
+        0.000635064290655809,
+        0.007906161489511135
+      ],
+      "worst_document_effect_error": 0.07858293370141828,
+      "documents_above_10pct": 0,
+      "documents_with_effect": 16
+    },
+    {
+      "domain": "stdlib",
+      "kind": "full",
+      "cohort": "spaced_word",
+      "effect_error_ci95": [
+        0.07568478788971617,
+        0.09719779742306439
+      ],
+      "removal_ce_difference_ci95": [
+        -0.003784453190250314,
+        -0.0008570997929875403
+      ],
+      "worst_document_effect_error": 0.19375195255449193,
+      "documents_above_10pct": 5,
+      "documents_with_effect": 16
+    },
+    {
+      "domain": "stdlib",
+      "kind": "mode",
+      "cohort": "all",
+      "effect_error_ci95": [
+        0.034031738746704523,
+        0.03866559236997684
+      ],
+      "removal_ce_difference_ci95": [
+        2.8308722576336886e-05,
+        0.0008167011936089973
+      ],
+      "worst_document_effect_error": 0.04405905624701136,
+      "documents_above_10pct": 0,
+      "documents_with_effect": 16
+    },
+    {
+      "domain": "stdlib",
+      "kind": "mode",
+      "cohort": "continuation",
+      "effect_error_ci95": [
+        0.04564566309870579,
+        0.052698767126671195
+      ],
+      "removal_ce_difference_ci95": [
+        -0.0005655778797232824,
+        0.006184136764172868
+      ],
+      "worst_document_effect_error": 0.05773432626151226,
+      "documents_above_10pct": 0,
+      "documents_with_effect": 16
+    },
+    {
+      "domain": "stdlib",
+      "kind": "mode",
+      "cohort": "spaced_word",
+      "effect_error_ci95": [
+        0.038848498626025706,
+        0.049849272173248596
+      ],
+      "removal_ce_difference_ci95": [
+        -0.0022848654727997153,
+        -0.0003464056419284787
+      ],
+      "worst_document_effect_error": 0.05532884526625665,
+      "documents_above_10pct": 0,
+      "documents_with_effect": 16
+    }
+  ],
+  "bootstrap_draws": 5000,
+  "seed": 941,
+  "scope": "Document-cluster uncertainty on opened diagnostic panel; not independent validation or a replacement for registered point-estimate outcomes. Zero-site rows retained during cluster resampling; zero-denominator draws excluded."
+}
