@@ -1,0 +1,224 @@
+{
+  "predictions": {
+    "pred_a_integrity": true,
+    "pred_b_learning": false,
+    "pred_c_component": false
+  },
+  "rows": [
+    {
+      "seed": 1001,
+      "coefficient_weight": 789.2401687717042,
+      "initial": {
+        "text_error": 0.09789842684981069,
+        "gaussian_error": 0.987597452269455,
+        "sampled_coefficient_error": 0.9960225897375335,
+        "root1_sensitivity_error": 0.2311187385308343,
+        "root1_same_token_error": 0.14266519159644017
+      },
+      "final": {
+        "text_error": 0.06322183197464418,
+        "gaussian_error": 0.9944878357424666,
+        "sampled_coefficient_error": 0.982691503716062,
+        "root1_sensitivity_error": 0.10004954937241482,
+        "root1_same_token_error": 0.09722686334985291
+      },
+      "initial_objective": -10.632525252364196,
+      "selected_objective": -10.680580052190107,
+      "relative_objective_improvement": 0.004519603639335411,
+      "selected_step": 100,
+      "coefficient_objective_change": -0.003543005029718372,
+      "baseline_replay": 8.213411363326561e-09,
+      "export_error": 1.0141345480326674e-07,
+      "history": [
+        {
+          "seed": 1001,
+          "step": 0,
+          "objective": -10.632525252364196,
+          "elapsed": 4.3064786600880325,
+          "peak_memory_bytes": 6421140992
+        },
+        {
+          "seed": 1001,
+          "step": 10,
+          "objective": -10.670282804331746,
+          "elapsed": 23.504456888418645,
+          "peak_memory_bytes": 6421140992
+        },
+        {
+          "seed": 1001,
+          "step": 20,
+          "objective": -10.67411550262504,
+          "elapsed": 42.54218722041696,
+          "peak_memory_bytes": 6421140992
+        },
+        {
+          "seed": 1001,
+          "step": 30,
+          "objective": -10.676308698161273,
+          "elapsed": 61.57627749117091,
+          "peak_memory_bytes": 6421140992
+        },
+        {
+          "seed": 1001,
+          "step": 40,
+          "objective": -10.677849493823322,
+          "elapsed": 80.60906056733802,
+          "peak_memory_bytes": 6421140992
+        },
+        {
+          "seed": 1001,
+          "step": 50,
+          "objective": -10.678931265139749,
+          "elapsed": 99.64183713216335,
+          "peak_memory_bytes": 6421140992
+        },
+        {
+          "seed": 1001,
+          "step": 60,
+          "objective": -10.679678549339094,
+          "elapsed": 118.67287776106969,
+          "peak_memory_bytes": 6421140992
+        },
+        {
+          "seed": 1001,
+          "step": 70,
+          "objective": -10.680155145209378,
+          "elapsed": 137.7455183682032,
+          "peak_memory_bytes": 6421140992
+        },
+        {
+          "seed": 1001,
+          "step": 80,
+          "objective": -10.680424947387207,
+          "elapsed": 156.83627336705104,
+          "peak_memory_bytes": 6421140992
+        },
+        {
+          "seed": 1001,
+          "step": 90,
+          "objective": -10.680544630968928,
+          "elapsed": 175.92872411804274,
+          "peak_memory_bytes": 6421140992
+        },
+        {
+          "seed": 1001,
+          "step": 100,
+          "objective": -10.680580052190107,
+          "elapsed": 195.0190518470481,
+          "peak_memory_bytes": 6421140992
+        }
+      ],
+      "sha256": "c0ea4433c4f78415eea30164c6168cedf9835c3d0a88ddf6279a4137644e3898"
+    },
+    {
+      "seed": 1002,
+      "coefficient_weight": 1031.4898537461972,
+      "initial": {
+        "text_error": 0.10033986644718101,
+        "gaussian_error": 0.981609498100077,
+        "sampled_coefficient_error": 0.9938502725058783,
+        "root1_sensitivity_error": 0.2563657029983881,
+        "root1_same_token_error": 0.1629403506453415
+      },
+      "final": {
+        "text_error": 0.06587528077048484,
+        "gaussian_error": 0.9930964765133641,
+        "sampled_coefficient_error": 0.9839778068610598,
+        "root1_sensitivity_error": 0.10783296370021367,
+        "root1_same_token_error": 0.11781472046971245
+      },
+      "initial_objective": -8.133641374801241,
+      "selected_objective": -8.17525848227131,
+      "relative_objective_improvement": 0.005116663687558494,
+      "selected_step": 100,
+      "coefficient_objective_change": -0.003727795458265163,
+      "baseline_replay": 3.1107551933347824e-08,
+      "export_error": 9.433252381119995e-08,
+      "history": [
+        {
+          "seed": 1002,
+          "step": 0,
+          "objective": -8.133641374801241,
+          "elapsed": 196.39919996540993,
+          "peak_memory_bytes": 6489380352
+        },
+        {
+          "seed": 1002,
+          "step": 10,
+          "objective": -8.167242541812366,
+          "elapsed": 215.4889168473892,
+          "peak_memory_bytes": 6489380352
+        },
+        {
+          "seed": 1002,
+          "step": 20,
+          "objective": -8.170060595360566,
+          "elapsed": 234.581376996357,
+          "peak_memory_bytes": 6489380352
+        },
+        {
+          "seed": 1002,
+          "step": 30,
+          "objective": -8.171809039670931,
+          "elapsed": 253.67153928615153,
+          "peak_memory_bytes": 6489380352
+        },
+        {
+          "seed": 1002,
+          "step": 40,
+          "objective": -8.173036217656298,
+          "elapsed": 272.76225645141676,
+          "peak_memory_bytes": 6489380352
+        },
+        {
+          "seed": 1002,
+          "step": 50,
+          "objective": -8.173919905128708,
+          "elapsed": 291.8528049523011,
+          "peak_memory_bytes": 6489380352
+        },
+        {
+          "seed": 1002,
+          "step": 60,
+          "objective": -8.17452434007097,
+          "elapsed": 310.9414560291916,
+          "peak_memory_bytes": 6489380352
+        },
+        {
+          "seed": 1002,
+          "step": 70,
+          "objective": -8.1749127963723,
+          "elapsed": 330.0309089003131,
+          "peak_memory_bytes": 6489380352
+        },
+        {
+          "seed": 1002,
+          "step": 80,
+          "objective": -8.17513241888642,
+          "elapsed": 349.1184334070422,
+          "peak_memory_bytes": 6489380352
+        },
+        {
+          "seed": 1002,
+          "step": 90,
+          "objective": -8.175229737481045,
+          "elapsed": 368.20799157908186,
+          "peak_memory_bytes": 6489380352
+        },
+        {
+          "seed": 1002,
+          "step": 100,
+          "objective": -8.17525848227131,
+          "elapsed": 387.2968828394078,
+          "peak_memory_bytes": 6489380352
+        }
+      ],
+      "sha256": "4a430782115234cf867ed5688c35cea7046c05376035aeee370af69f4a53100a"
+    }
+  ],
+  "products": 1536,
+  "coefficients": 2385920,
+  "seconds": 387.4822844620794,
+  "peak_memory_bytes": 6489658880,
+  "scope": "Fixed weighted coefficient-plus-shiftedGaussian objective, joint nonconvex feature learning with profiled readout. Lambda derived from preceding weight/statistics-only budget1 solve and held fixed. NOT a maintained coefficient constraint. Opened evaluation only; no OOD/finite-removal/semantic claim."
+}

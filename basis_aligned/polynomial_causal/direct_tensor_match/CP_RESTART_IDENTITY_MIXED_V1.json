@@ -1,0 +1,142 @@
+{
+  "rows": [
+    {
+      "program": "coefficient",
+      "coefficient": {
+        "span_rank_first": 512,
+        "span_rank_second": 512,
+        "second_function_projection_error_in_first_span": 0.5587730978670686,
+        "subspace_canonical_median": 0.06951060032878642,
+        "subspace_directions_above_09": 7,
+        "subspace_directions_above_099": 1,
+        "function_cosine": 0.8142559681284764,
+        "relative_function_difference": 0.6095617498906839,
+        "assignment_mean_contribution_cosine": 0.09891627766064837,
+        "assignment_median_contribution_cosine": 0.04048909536531628,
+        "matched_above_09": 4,
+        "matched_above_099": 1,
+        "maximum_contribution_cosine": 0.9987093771388065,
+        "terms": 512
+      },
+      "shifted_gaussian": {
+        "span_rank_first": 512,
+        "span_rank_second": 512,
+        "second_function_projection_error_in_first_span": 0.025509993933387178,
+        "subspace_canonical_median": 0.32102994896173387,
+        "subspace_directions_above_09": 38,
+        "subspace_directions_above_099": 11,
+        "function_cosine": 0.9930179642038335,
+        "relative_function_difference": 0.11913843096002577,
+        "assignment_mean_contribution_cosine": 0.3430671772846382,
+        "assignment_median_contribution_cosine": 0.2586022153159785,
+        "matched_above_09": 15,
+        "matched_above_099": 2,
+        "maximum_contribution_cosine": 0.9989848086561514,
+        "terms": 512
+      },
+      "centered_shifted_gaussian": {
+        "span_rank_first": 512,
+        "span_rank_second": 512,
+        "second_function_projection_error_in_first_span": 0.035243985741644404,
+        "subspace_canonical_median": 0.3208361861806215,
+        "subspace_directions_above_09": 38,
+        "subspace_directions_above_099": 11,
+        "function_cosine": 0.9916365565152889,
+        "relative_function_difference": 0.1293455864376549,
+        "assignment_mean_contribution_cosine": 0.3057228361338421,
+        "assignment_median_contribution_cosine": 0.2231967574811855,
+        "matched_above_09": 13,
+        "matched_above_099": 2,
+        "maximum_contribution_cosine": 0.9989129290556297,
+        "terms": 512
+      }
+    },
+    {
+      "program": "mixed",
+      "coefficient": {
+        "span_rank_first": 512,
+        "span_rank_second": 512,
+        "second_function_projection_error_in_first_span": 0.7264820936245087,
+        "subspace_canonical_median": 0.05252843859377203,
+        "subspace_directions_above_09": 4,
+        "subspace_directions_above_099": 1,
+        "function_cosine": 0.650842887254674,
+        "relative_function_difference": 0.8439390202066314,
+        "assignment_mean_contribution_cosine": 0.06965238381832074,
+        "assignment_median_contribution_cosine": 0.03334463855408333,
+        "matched_above_09": 3,
+        "matched_above_099": 1,
+        "maximum_contribution_cosine": 0.9970764310071218,
+        "terms": 512
+      },
+      "shifted_gaussian": {
+        "span_rank_first": 512,
+        "span_rank_second": 512,
+        "second_function_projection_error_in_first_span": 0.016154497340357593,
+        "subspace_canonical_median": 0.38874037475957995,
+        "subspace_directions_above_09": 50,
+        "subspace_directions_above_099": 12,
+        "function_cosine": 0.9998596609020107,
+        "relative_function_difference": 0.01675324281499811,
+        "assignment_mean_contribution_cosine": 0.3964299894746659,
+        "assignment_median_contribution_cosine": 0.36000395391186885,
+        "matched_above_09": 5,
+        "matched_above_099": 1,
+        "maximum_contribution_cosine": 0.9924440496256371,
+        "terms": 512
+      },
+      "centered_shifted_gaussian": {
+        "span_rank_first": 512,
+        "span_rank_second": 512,
+        "second_function_projection_error_in_first_span": 0.026187376807459344,
+        "subspace_canonical_median": 0.3891433551997932,
+        "subspace_directions_above_09": 50,
+        "subspace_directions_above_099": 12,
+        "function_cosine": 0.9996311572617818,
+        "relative_function_difference": 0.027159349168398298,
+        "assignment_mean_contribution_cosine": 0.3229611887186559,
+        "assignment_median_contribution_cosine": 0.26899910115461945,
+        "matched_above_09": 5,
+        "matched_above_099": 1,
+        "maximum_contribution_cosine": 0.9919311027180897,
+        "terms": 512
+      }
+    }
+  ],
+  "gauge_control": {
+    "cp_gauge": {
+      "span_rank_first": 7,
+      "span_rank_second": 7,
+      "second_function_projection_error_in_first_span": 1.252932048130401e-08,
+      "subspace_canonical_median": 0.9999999999999997,
+      "subspace_directions_above_09": 7,
+      "subspace_directions_above_099": 7,
+      "function_cosine": 1.0,
+      "relative_function_difference": 0.0,
+      "assignment_mean_contribution_cosine": 1.0,
+      "assignment_median_contribution_cosine": 1.0,
+      "matched_above_09": 7,
+      "matched_above_099": 7,
+      "maximum_contribution_cosine": 1.0000000000000004,
+      "terms": 7
+    },
+    "arbitrary_dictionary_basis": {
+      "span_rank_first": 7,
+      "span_rank_second": 7,
+      "second_function_projection_error_in_first_span": 3.0690442002997366e-08,
+      "subspace_canonical_median": 0.9999999999999994,
+      "subspace_directions_above_09": 7,
+      "subspace_directions_above_099": 7,
+      "function_cosine": 0.9999999999999999,
+      "relative_function_difference": 1.7719134951979126e-08,
+      "assignment_mean_contribution_cosine": 0.5709047374768347,
+      "assignment_median_contribution_cosine": 0.6884360250962293,
+      "matched_above_09": 0,
+      "matched_above_099": 0,
+      "maximum_contribution_cosine": 0.895588765666565,
+      "terms": 7
+    }
+  },
+  "seconds": 1.7801424241624773,
+  "scope": "Candidate-candidate comparisons only in fixed16-output coordinate metric. Hungarian assignment maximizes signed contribution cosine, counting actual output effect; opposite effects are not identity. Invariant to CP term/slot permutation and compensating factor/readout scaling. Raw Gaussian agreement may be dominated by means; centered comparison removes means but not other low-degree chaos. High aggregate agreement is not stable individual units or causal identification."
+}
