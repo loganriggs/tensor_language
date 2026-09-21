@@ -1,0 +1,103 @@
+{
+  "rows": {
+    "original_calibration": {
+      "states": 2048,
+      "mean_squared_norm": 785.053893408659,
+      "mean_energy_fraction": 0.6814704016048682,
+      "closure": 1.8419322767076392e-15,
+      "metrics": {
+        "centered_covariance": {
+          "trace": 366.94609303220363,
+          "minimum_eigenvalue": 0.0038917255319905705,
+          "maximum_eigenvalue": 17.007534694546713,
+          "top4_trace_fraction": 0.13445936905427983,
+          "directions_for90percent": 438,
+          "directions_for99percent": 892,
+          "below_trace_scaled_floor": 0,
+          "proposed_absolute_floor": 3.185295946460101e-07
+        },
+        "second_moment": {
+          "trace": 1151.999986440864,
+          "minimum_eigenvalue": 0.003892022823955094,
+          "maximum_eigenvalue": 789.4578256852974,
+          "top4_trace_fraction": 0.7198322209695802,
+          "directions_for90percent": 156,
+          "directions_for99percent": 699,
+          "below_trace_scaled_floor": 0,
+          "proposed_absolute_floor": 9.999999882299164e-07
+        }
+      }
+    },
+    "expanded_calibration": {
+      "states": 6144,
+      "mean_squared_norm": 790.448458392393,
+      "mean_energy_fraction": 0.686153183894851,
+      "closure": 7.827215012562122e-15,
+      "metrics": {
+        "centered_covariance": {
+          "trace": 361.55152782863775,
+          "minimum_eigenvalue": 0.02290142979683368,
+          "maximum_eigenvalue": 16.47413894219305,
+          "top4_trace_fraction": 0.11778822213562885,
+          "directions_for90percent": 612,
+          "directions_for99percent": 1046,
+          "below_trace_scaled_floor": 0,
+          "proposed_absolute_floor": 3.1384681235124804e-07
+        },
+        "second_moment": {
+          "trace": 1151.9999862210427,
+          "minimum_eigenvalue": 0.02316022074598016,
+          "maximum_eigenvalue": 794.3724190878532,
+          "top4_trace_fraction": 0.7198247952135159,
+          "directions_for90percent": 225,
+          "directions_for99percent": 892,
+          "below_trace_scaled_floor": 0,
+          "proposed_absolute_floor": 9.999999880390996e-07
+        }
+      }
+    },
+    "opened_evaluation": {
+      "states": 2048,
+      "mean_squared_norm": 774.2356047318767,
+      "mean_energy_fraction": 0.6720795248443743,
+      "closure": 1.610258295815217e-15,
+      "metrics": {
+        "centered_covariance": {
+          "trace": 377.7643835301613,
+          "minimum_eigenvalue": 0.004498670370489418,
+          "maximum_eigenvalue": 16.892380028717348,
+          "top4_trace_fraction": 0.1308658128664208,
+          "directions_for90percent": 439,
+          "directions_for99percent": 898,
+          "below_trace_scaled_floor": 0,
+          "proposed_absolute_floor": 3.279204718143761e-07
+        },
+        "second_moment": {
+          "trace": 1151.9999882620384,
+          "minimum_eigenvalue": 0.004501767208000692,
+          "maximum_eigenvalue": 777.9879502082864,
+          "top4_trace_fraction": 0.7103040716941983,
+          "directions_for90percent": 161,
+          "directions_for99percent": 710,
+          "below_trace_scaled_floor": 0,
+          "proposed_absolute_floor": 9.999999898107971e-07
+        }
+      }
+    }
+  },
+  "relative_statistic_shifts": {
+    "mean": {
+      "original_to_expanded": 0.06437651598853446,
+      "expanded_to_opened_evaluation": 0.08800981684346122
+    },
+    "covariance": {
+      "original_to_expanded": 0.5508569841641345,
+      "expanded_to_opened_evaluation": 0.737231166155322
+    },
+    "second_moment": {
+      "original_to_expanded": 0.09280739135270023,
+      "expanded_to_opened_evaluation": 0.1279756267451444
+    }
+  },
+  "scope": "Input statistics only, not polynomial reconstruction or OOD validation. Gaussian law N(0,secondmoment) matches second moments but not nonzero mean; N(0,covariance) is centered surrogate, not actual activation law."
+}
