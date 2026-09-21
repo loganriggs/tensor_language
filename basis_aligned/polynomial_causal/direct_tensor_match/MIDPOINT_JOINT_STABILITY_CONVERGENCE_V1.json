@@ -1,0 +1,54 @@
+{
+  "restarts": [
+    6,
+    9
+  ],
+  "history": [
+    {
+      "additional_sweeps": 0,
+      "relative_squared_errors": [
+        0.003891691277945848,
+        0.0038954418427036967
+      ],
+      "min_matched_term_cosine": 0.9065603542075099,
+      "mean_matched_term_cosine": 0.9732022198023597
+    },
+    {
+      "additional_sweeps": 100,
+      "relative_squared_errors": [
+        0.003891691271564442,
+        0.003895409598723353
+      ],
+      "min_matched_term_cosine": 0.9079076215034345,
+      "mean_matched_term_cosine": 0.9735994569395886
+    },
+    {
+      "additional_sweeps": 500,
+      "relative_squared_errors": [
+        0.003891691260089647,
+        0.003895266396865928
+      ],
+      "min_matched_term_cosine": 0.9136426562668047,
+      "mean_matched_term_cosine": 0.9752873827254951
+    },
+    {
+      "additional_sweeps": 2000,
+      "relative_squared_errors": [
+        0.003891691255066529,
+        0.003894430251784169
+      ],
+      "min_matched_term_cosine": 0.9414545195089872,
+      "mean_matched_term_cosine": 0.9833963607292424
+    },
+    {
+      "additional_sweeps": 10000,
+      "relative_squared_errors": [
+        0.0038916912549735194,
+        0.003891691255282309
+      ],
+      "min_matched_term_cosine": 0.9999999953097709,
+      "mean_matched_term_cosine": 0.9999999986910505
+    }
+  ],
+  "scope": "Selected worst matched near-best endpoint and best endpoint from prior fixed screen; extra fitting on same core, no new data. Tests whether endpoint component discrepancy persists after more convergence; cannot prove robustness to data/metric changes or semantic meaning."
+}

@@ -1,0 +1,515 @@
+{
+  "control": {
+    "oracle_relative_squared_error": 1.6143855081582028e-20,
+    "random_recovery_relative_error": 1.048426682854944e-10
+  },
+  "groups": [
+    {
+      "group": 0,
+      "products": [
+        0,
+        18,
+        13,
+        6,
+        14,
+        65,
+        30,
+        17
+      ],
+      "baseline_subset_ids": [
+        0,
+        18,
+        13,
+        6,
+        14,
+        17
+      ],
+      "baseline_relative_squared_error": 0.004536489726986442,
+      "unfolding_lower_bound": 0.0013312527339360732,
+      "winner_relative_squared_error": 0.0043674752314308415,
+      "winner_error_vs_subset": 0.9627433311376911,
+      "accepted": false,
+      "random_restart_near_winner": false,
+      "runs": [
+        {
+          "optimizer": "adam",
+          "lr": 0.01,
+          "initialization": "subset",
+          "relative_squared_error": 0.004488699031586681,
+          "error_vs_subset": 0.989465269784374,
+          "best_step": 400
+        },
+        {
+          "optimizer": "adam",
+          "lr": 0.01,
+          "initialization": "random0",
+          "relative_squared_error": 0.036500523190872894,
+          "error_vs_subset": 8.045983874655423,
+          "best_step": 400
+        },
+        {
+          "optimizer": "adam",
+          "lr": 0.01,
+          "initialization": "random1",
+          "relative_squared_error": 0.02409209518369982,
+          "error_vs_subset": 5.310735091139295,
+          "best_step": 400
+        },
+        {
+          "optimizer": "adam",
+          "lr": 0.05,
+          "initialization": "subset",
+          "relative_squared_error": 0.0043674752314308415,
+          "error_vs_subset": 0.9627433311376911,
+          "best_step": 400
+        },
+        {
+          "optimizer": "adam",
+          "lr": 0.05,
+          "initialization": "random0",
+          "relative_squared_error": 0.009496951828029778,
+          "error_vs_subset": 2.0934582462591704,
+          "best_step": 400
+        },
+        {
+          "optimizer": "adam",
+          "lr": 0.05,
+          "initialization": "random1",
+          "relative_squared_error": 0.008487338210189054,
+          "error_vs_subset": 1.8709043161059098,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.01,
+          "initialization": "subset",
+          "relative_squared_error": 0.004520662957226245,
+          "error_vs_subset": 0.9965112298908014,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.01,
+          "initialization": "random0",
+          "relative_squared_error": 0.5871471329349516,
+          "error_vs_subset": 129.4276341996677,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.01,
+          "initialization": "random1",
+          "relative_squared_error": 0.40839268626583547,
+          "error_vs_subset": 90.02394160322012,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.05,
+          "initialization": "subset",
+          "relative_squared_error": 0.00448398015383526,
+          "error_vs_subset": 0.9884250651249543,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.05,
+          "initialization": "random0",
+          "relative_squared_error": 0.01076250853017554,
+          "error_vs_subset": 2.3724309274089324,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.05,
+          "initialization": "random1",
+          "relative_squared_error": 0.011540420680941644,
+          "error_vs_subset": 2.5439098015125152,
+          "best_step": 400
+        }
+      ]
+    },
+    {
+      "group": 1,
+      "products": [
+        4,
+        12,
+        10,
+        57,
+        22,
+        48,
+        40,
+        26
+      ],
+      "baseline_subset_ids": [
+        4,
+        12,
+        10,
+        22,
+        40,
+        26
+      ],
+      "baseline_relative_squared_error": 0.012026122887878275,
+      "unfolding_lower_bound": 0.011049920632141412,
+      "winner_relative_squared_error": 0.011605848631890096,
+      "winner_error_vs_subset": 0.9650532212329384,
+      "accepted": false,
+      "random_restart_near_winner": false,
+      "runs": [
+        {
+          "optimizer": "adam",
+          "lr": 0.01,
+          "initialization": "subset",
+          "relative_squared_error": 0.01181553687820463,
+          "error_vs_subset": 0.9824892850641078,
+          "best_step": 400
+        },
+        {
+          "optimizer": "adam",
+          "lr": 0.01,
+          "initialization": "random0",
+          "relative_squared_error": 0.05213150027259994,
+          "error_vs_subset": 4.334855111546038,
+          "best_step": 400
+        },
+        {
+          "optimizer": "adam",
+          "lr": 0.01,
+          "initialization": "random1",
+          "relative_squared_error": 0.06310895030674762,
+          "error_vs_subset": 5.247655532470757,
+          "best_step": 400
+        },
+        {
+          "optimizer": "adam",
+          "lr": 0.05,
+          "initialization": "subset",
+          "relative_squared_error": 0.011605848631890096,
+          "error_vs_subset": 0.9650532212329384,
+          "best_step": 400
+        },
+        {
+          "optimizer": "adam",
+          "lr": 0.05,
+          "initialization": "random0",
+          "relative_squared_error": 0.012398817316348005,
+          "error_vs_subset": 1.0309904057978143,
+          "best_step": 400
+        },
+        {
+          "optimizer": "adam",
+          "lr": 0.05,
+          "initialization": "random1",
+          "relative_squared_error": 0.03265785774067428,
+          "error_vs_subset": 2.715576586498359,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.01,
+          "initialization": "subset",
+          "relative_squared_error": 0.011954707620087166,
+          "error_vs_subset": 0.9940616549109862,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.01,
+          "initialization": "random0",
+          "relative_squared_error": 0.6448257698562578,
+          "error_vs_subset": 53.61875775493777,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.01,
+          "initialization": "random1",
+          "relative_squared_error": 0.4592685348097659,
+          "error_vs_subset": 38.189243457065075,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.05,
+          "initialization": "subset",
+          "relative_squared_error": 0.011787821199261394,
+          "error_vs_subset": 0.9801846621027732,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.05,
+          "initialization": "random0",
+          "relative_squared_error": 0.024659828714858643,
+          "error_vs_subset": 2.050521930032372,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.05,
+          "initialization": "random1",
+          "relative_squared_error": 0.036173358385333955,
+          "error_vs_subset": 3.0078986155874787,
+          "best_step": 400
+        }
+      ]
+    },
+    {
+      "group": 2,
+      "products": [
+        8,
+        5,
+        34,
+        143,
+        187,
+        46,
+        62,
+        27
+      ],
+      "baseline_subset_ids": [
+        8,
+        5,
+        34,
+        46,
+        62,
+        27
+      ],
+      "baseline_relative_squared_error": 0.000899603103309711,
+      "unfolding_lower_bound": 0.000897874502428398,
+      "winner_relative_squared_error": 0.0008990773683074605,
+      "winner_error_vs_subset": 0.9994155922758422,
+      "accepted": false,
+      "random_restart_near_winner": false,
+      "runs": [
+        {
+          "optimizer": "adam",
+          "lr": 0.01,
+          "initialization": "subset",
+          "relative_squared_error": 0.0008990773683074605,
+          "error_vs_subset": 0.9994155922758422,
+          "best_step": 271
+        },
+        {
+          "optimizer": "adam",
+          "lr": 0.01,
+          "initialization": "random0",
+          "relative_squared_error": 0.018836880703459097,
+          "error_vs_subset": 20.939101515053387,
+          "best_step": 400
+        },
+        {
+          "optimizer": "adam",
+          "lr": 0.01,
+          "initialization": "random1",
+          "relative_squared_error": 0.015982047680219595,
+          "error_vs_subset": 17.765665348885946,
+          "best_step": 400
+        },
+        {
+          "optimizer": "adam",
+          "lr": 0.05,
+          "initialization": "subset",
+          "relative_squared_error": 0.0008990773683074605,
+          "error_vs_subset": 0.9994155922758422,
+          "best_step": 287
+        },
+        {
+          "optimizer": "adam",
+          "lr": 0.05,
+          "initialization": "random0",
+          "relative_squared_error": 0.004241457944259908,
+          "error_vs_subset": 4.714810263165221,
+          "best_step": 400
+        },
+        {
+          "optimizer": "adam",
+          "lr": 0.05,
+          "initialization": "random1",
+          "relative_squared_error": 0.005602938527802533,
+          "error_vs_subset": 6.228233881351541,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.01,
+          "initialization": "subset",
+          "relative_squared_error": 0.0008990773698000391,
+          "error_vs_subset": 0.9994155939349946,
+          "best_step": 389
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.01,
+          "initialization": "random0",
+          "relative_squared_error": 0.5374082319709252,
+          "error_vs_subset": 597.3837017610965,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.01,
+          "initialization": "random1",
+          "relative_squared_error": 0.4063549650598697,
+          "error_vs_subset": 451.7047168521959,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.05,
+          "initialization": "subset",
+          "relative_squared_error": 0.0008990773794003216,
+          "error_vs_subset": 0.9994156046066813,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.05,
+          "initialization": "random0",
+          "relative_squared_error": 0.0047054284940404425,
+          "error_vs_subset": 5.230560540230241,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.05,
+          "initialization": "random1",
+          "relative_squared_error": 0.004281691997103429,
+          "error_vs_subset": 4.759534489544051,
+          "best_step": 400
+        }
+      ]
+    },
+    {
+      "group": 3,
+      "products": [
+        1,
+        28,
+        45,
+        25,
+        77,
+        50,
+        33,
+        15
+      ],
+      "baseline_subset_ids": [
+        1,
+        28,
+        45,
+        25,
+        33,
+        15
+      ],
+      "baseline_relative_squared_error": 0.021007298452772057,
+      "unfolding_lower_bound": 0.020579330243823243,
+      "winner_relative_squared_error": 0.020902655042928146,
+      "winner_error_vs_subset": 0.9950187117073066,
+      "accepted": false,
+      "random_restart_near_winner": false,
+      "runs": [
+        {
+          "optimizer": "adam",
+          "lr": 0.01,
+          "initialization": "subset",
+          "relative_squared_error": 0.020903033467702708,
+          "error_vs_subset": 0.9950367256739959,
+          "best_step": 400
+        },
+        {
+          "optimizer": "adam",
+          "lr": 0.01,
+          "initialization": "random0",
+          "relative_squared_error": 0.04817335210077021,
+          "error_vs_subset": 2.2931721662864937,
+          "best_step": 400
+        },
+        {
+          "optimizer": "adam",
+          "lr": 0.01,
+          "initialization": "random1",
+          "relative_squared_error": 0.09006364240611847,
+          "error_vs_subset": 4.287254860904495,
+          "best_step": 400
+        },
+        {
+          "optimizer": "adam",
+          "lr": 0.05,
+          "initialization": "subset",
+          "relative_squared_error": 0.020902655042928146,
+          "error_vs_subset": 0.9950187117073066,
+          "best_step": 288
+        },
+        {
+          "optimizer": "adam",
+          "lr": 0.05,
+          "initialization": "random0",
+          "relative_squared_error": 0.021372916693072324,
+          "error_vs_subset": 1.0174043435962143,
+          "best_step": 400
+        },
+        {
+          "optimizer": "adam",
+          "lr": 0.05,
+          "initialization": "random1",
+          "relative_squared_error": 0.024318408493974812,
+          "error_vs_subset": 1.157617127620988,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.01,
+          "initialization": "subset",
+          "relative_squared_error": 0.020925056504522758,
+          "error_vs_subset": 0.9960850773632701,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.01,
+          "initialization": "random0",
+          "relative_squared_error": 0.6376151828095267,
+          "error_vs_subset": 30.352079028295474,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.01,
+          "initialization": "random1",
+          "relative_squared_error": 0.43740273834909693,
+          "error_vs_subset": 20.821465422241317,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.05,
+          "initialization": "subset",
+          "relative_squared_error": 0.020902655115102864,
+          "error_vs_subset": 0.9950187151430038,
+          "best_step": 388
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.05,
+          "initialization": "random0",
+          "relative_squared_error": 0.03719329393133675,
+          "error_vs_subset": 1.7704939078650945,
+          "best_step": 400
+        },
+        {
+          "optimizer": "muon",
+          "lr": 0.05,
+          "initialization": "random1",
+          "relative_squared_error": 0.05576102490712317,
+          "error_vs_subset": 2.654364388285497,
+          "best_step": 400
+        }
+      ]
+    }
+  ],
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_two_useful_edits": false,
+    "pred_c_two_repeatable_fits": false
+  },
+  "seconds": 10.02915185992606,
+  "scope": "Joint local edits of a frozen approximation under fixed independent calibration-role covariance metric. Exhaustive subset comparator refits outputs. Lower bounds are necessary, not attained certificates. No semantic identity or native intervention claim."
+}

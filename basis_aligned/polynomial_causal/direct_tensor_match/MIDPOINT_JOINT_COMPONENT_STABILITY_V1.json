@@ -1,0 +1,226 @@
+{
+  "records": [
+    {
+      "group": 0,
+      "best_restart": 6,
+      "near_best_restarts": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13,
+        14
+      ],
+      "matches": [
+        {
+          "restart": 0,
+          "relative_loss_to_best": 1.0000005661355935,
+          "min_matched_term_cosine": 0.9999721221613252,
+          "mean_matched_term_cosine": 0.9999922264148596,
+          "permutation": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "restart": 1,
+          "relative_loss_to_best": 1.0000005661944653,
+          "min_matched_term_cosine": 0.9999721190311166,
+          "mean_matched_term_cosine": 0.9999922255402897,
+          "permutation": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "restart": 2,
+          "relative_loss_to_best": 1.000000566832865,
+          "min_matched_term_cosine": 0.9999720850017828,
+          "mean_matched_term_cosine": 0.9999922160382383,
+          "permutation": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "restart": 3,
+          "relative_loss_to_best": 1.0000005527175864,
+          "min_matched_term_cosine": 0.9999728398579105,
+          "mean_matched_term_cosine": 0.9999924266260075,
+          "permutation": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "restart": 4,
+          "relative_loss_to_best": 1.0000005550777276,
+          "min_matched_term_cosine": 0.9999727102878626,
+          "mean_matched_term_cosine": 0.9999923907044824,
+          "permutation": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "restart": 5,
+          "relative_loss_to_best": 1.0000009339147629,
+          "min_matched_term_cosine": 0.9999522392204313,
+          "mean_matched_term_cosine": 0.9999866776548062,
+          "permutation": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "restart": 7,
+          "relative_loss_to_best": 1.000012393666793,
+          "min_matched_term_cosine": 0.9993079830707992,
+          "mean_matched_term_cosine": 0.9998066462490809,
+          "permutation": [
+            0,
+            5,
+            4,
+            3,
+            2,
+            1
+          ]
+        },
+        {
+          "restart": 8,
+          "relative_loss_to_best": 1.0000739729353383,
+          "min_matched_term_cosine": 0.9958356225015029,
+          "mean_matched_term_cosine": 0.998835028246245,
+          "permutation": [
+            2,
+            0,
+            5,
+            4,
+            3,
+            1
+          ]
+        },
+        {
+          "restart": 9,
+          "relative_loss_to_best": 1.0009637364554334,
+          "min_matched_term_cosine": 0.9065603542075099,
+          "mean_matched_term_cosine": 0.9732022198023597,
+          "permutation": [
+            4,
+            2,
+            1,
+            5,
+            0,
+            3
+          ]
+        },
+        {
+          "restart": 10,
+          "relative_loss_to_best": 1.0000029388479492,
+          "min_matched_term_cosine": 0.9998411123551513,
+          "mean_matched_term_cosine": 0.9999556415258081,
+          "permutation": [
+            3,
+            0,
+            2,
+            5,
+            4,
+            1
+          ]
+        },
+        {
+          "restart": 11,
+          "relative_loss_to_best": 1.0000319776863311,
+          "min_matched_term_cosine": 0.9982025108155257,
+          "mean_matched_term_cosine": 0.9994974051190253,
+          "permutation": [
+            1,
+            4,
+            5,
+            0,
+            3,
+            2
+          ]
+        },
+        {
+          "restart": 13,
+          "relative_loss_to_best": 1.0000149521867314,
+          "min_matched_term_cosine": 0.9991634547608522,
+          "mean_matched_term_cosine": 0.9997662313049053,
+          "permutation": [
+            0,
+            4,
+            5,
+            1,
+            3,
+            2
+          ]
+        },
+        {
+          "restart": 14,
+          "relative_loss_to_best": 1.0000181145335072,
+          "min_matched_term_cosine": 0.9990254478710944,
+          "mean_matched_term_cosine": 0.999724779126533,
+          "permutation": [
+            1,
+            5,
+            4,
+            2,
+            0,
+            3
+          ]
+        }
+      ],
+      "normalized_factor_min_singular_values": [
+        0.20012993122623576,
+        0.15933816817500615,
+        0.0029332760284875954
+      ],
+      "normalized_factor_condition_numbers": [
+        10.751853075075482,
+        11.269222528370417,
+        485.70726744914526
+      ],
+      "numerical_full_column_rank": [
+        true,
+        true,
+        true
+      ],
+      "relative_squared_error": 0.003891691277945848,
+      "all_near_best_terms_cosine_above_point99": false
+    }
+  ],
+  "scope": "Same metric, neighborhood and teacher. Terms matched by signed three-mode tensor cosine with optimal permutation; invariant to compensating factor signs/scales. Near-best defined as <=1% above best loss before checking matches. Numerical full column rank supports but does not rigorously certify the sufficient Kruskal inequality for uniqueness of the represented rank6 tensor; does not guarantee unique approximation optimum or semantic identity."
+}
