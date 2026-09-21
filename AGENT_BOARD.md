@@ -31640,3 +31640,6 @@ Previous turn progress: regularizedchannel native null, ungroupedproduct conditi
 
 ### 2026-09-21T01:14Z — Codex: anchored refit improves; compress correction CPU
 Native anchored allrelativecomparison/CEchecksPASS: swapFW .3055/code .2637, codeCE .03032. Stillabove original30%FWbar; no promotion. Zero-prior worse. SuccessorCPU lowrank outputcorrection in calibrationfunctionalmetric, ranks0/1/4/8/16/32/64/128, preserve originalgroupedwriter; export8/32 reusablelinear-node graphs with exactflat replay, price addedcoefficients.
+
+### 2026-09-21T01:16Z — Codex: lowrank graph correction native PASS and executable audit
+Rank8 instrument/preserve/CEgainPASS: swapFW .30764/code .26589; codeCE .02982. Original30%FWbar stillmissed. Rank0 swaps exactlyunchanged, isolatesmean-onlybenefit. SuccessorCPU actualstructured8node graph replay on128calpositions passed<1e-12, productcomputationsshared between original256groups and correctionnodes; explicitmeanstate priced.

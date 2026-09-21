@@ -177,3 +177,11 @@ The zero-centered output refit discarded useful weight-derived structure. Penali
 The relative-improvement and CE checks pass, but FineWeb remains above the earlier absolute30% intervention bar. We do not promote this as a completed circuit.
 
 A successor computation compresses the output correction into shared linear features of the existing products. For product vector $p$, the write becomes the original grouped write plus $(p^\top A_r)B_r^\top$. This retains all1,024products and adds only linear combinations. Rank8 adds17,408coefficients, bringing weight storage to2,671,616; its conditional calibration error is18.92%. An exact flat-versus-graph replay passed below1e-12. Rank8/32 native tests are queued with a rank0 mean-only control. The broader contribution is moving from a decomposition into a graph with reusable corrections; feature semantics and identification remain unproved.
+
+## 01:16 UTC addendum: compact graph correction passes its preservation test
+
+The rank8 correction passed its registered instrument, dense-correction preservation and CE-gain tests. Its swap errors are30.76% on FineWeb and26.59% on code; replacement CE increases are0.00963 and0.02982 nats/token. It retains the benefit with only17,408 extra weight coefficients and no new products. The original absolute30% FineWeb intervention bar remains unmet.
+
+The mean-only control leaves swaps exactly unchanged, as algebra requires; its code CE increase is0.03688 versus0.02982 with the correction. Thus part of the replacement benefit comes from mean adjustment, and the learned correction supplies additional improvement.
+
+The actual structured graph computes each of1,024 products once, routes them to256 original group sums and8 shared correction features, then writes both to the output. A CPU replay of this graph against its flat matrix export passed below1e-12 on128 original calibration positions. Means and coefficients are counted separately. This is a concrete reuse-capable graph, but it is not yet a general discrete graph search or a set of identified semantic circuits.
