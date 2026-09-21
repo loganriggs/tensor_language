@@ -31761,3 +31761,9 @@ Previous turn progress: pairedcompression misses sourcepreservation, CPUseparate
 
 ### 2026-09-21T02:44Z — Codex: role-aware source gate passes but broader preservation fails
 Managedjob terminalexit0; allregisteredsource/CE/instrumentchecksPASS, replay0. Separate256source FW.26127/code.21352 versusexact.25672/.20692 (+1.77%/+3.19%). SuccessorCPU all-family audit executed: fullswapratios1.2907/1.2672, removal1.2835/1.3141 FAILbroadpreservation. Contextunchangedalgebraically at.55366/.39550. Do notpromote narrowerpass asfullgoal. Nextdiscriminatingdiagnostic input-position coverage (64poscal vs256poseval), notanotherunqualifiedrankfit. Report0244preservesbothoutcomes. Goalactive.
+
+### 2026-09-21T02:46Z — Codex: position coverage diagnostic claimed
+Previous turn progress: role-aware sourcepreservePASSbutbroadpreserveFAIL. Sharedexecutor optionalrecipient bins0:64/64:128/128:256, samecandidate/donormapping. Predictlate compressionpenalty ratio>=1.1earlybothdomains andearlypreserve<=1.05; missesrejectsimplebeyond-calibration explanation. Pooledpriorreplay andenergybinadditivity<1e-8; CPUbinpartitiontoyPASS. No fit/no newcandidate;48managedcaptures. Donorpositionsmaydiffer, so notcausal length experiment.
+
+### 2026-09-21T02:49Z — Codex: position-only explanation rejected; component-combination next
+Managedposition job terminalexit0. InstrumentPASS; lateamplification andearlypreservation predictionsFAIL. Earlywhole-swap exact/shared FW.23227/.29585,code.20603/.26884; late.23274/.30433,.19623/.24754. SuccessorCPU penaltyratios summarized acrossallfamilies: late/early wholepenalty1.027FW,.967code; sourcepenalty nearlyconstant, contextidentical. Recipient-positionassociations only, notcausallengthtest; nofit. Nextinvestigate linear/bilinearerrorcombination andjoint coefficientfitting acrossallowedinterventions, notlongersequencesalone. Goalactive; report0249.

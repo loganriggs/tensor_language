@@ -1,0 +1,731 @@
+{
+  "predictions": {
+    "pred_a_instrument": true,
+    "pred_b_late": false,
+    "pred_c_early": false
+  },
+  "checks_max": 3.688802130665498e-16,
+  "records": [
+    {
+      "domain": "fineweb",
+      "program": "exact_linear",
+      "family": "removal",
+      "position_bin": "0:64",
+      "sites": 1536,
+      "effect_error": 0.19037292651321852,
+      "reference_energy": 46201714.94191757,
+      "error_energy": 1674435.6757630832
+    },
+    {
+      "domain": "fineweb",
+      "program": "exact_linear",
+      "family": "removal",
+      "position_bin": "64:128",
+      "sites": 2048,
+      "effect_error": 0.1859668906611951,
+      "reference_energy": 63366865.219524376,
+      "error_energy": 2191459.6695756614
+    },
+    {
+      "domain": "fineweb",
+      "program": "exact_linear",
+      "family": "removal",
+      "position_bin": "128:256",
+      "sites": 4096,
+      "effect_error": 0.1694796674408646,
+      "reference_energy": 106476288.68354094,
+      "error_energy": 3058356.523856116
+    },
+    {
+      "domain": "fineweb",
+      "program": "exact_linear",
+      "family": "same_token",
+      "position_bin": "0:64",
+      "sites": 1127,
+      "effect_error": 0.23227196662289057,
+      "reference_energy": 23657337.04894639,
+      "error_energy": 1276319.6379709882
+    },
+    {
+      "domain": "fineweb",
+      "program": "exact_linear",
+      "family": "same_token",
+      "position_bin": "64:128",
+      "sites": 1533,
+      "effect_error": 0.2337421191832603,
+      "reference_energy": 33712796.15321774,
+      "error_energy": 1841911.370717069
+    },
+    {
+      "domain": "fineweb",
+      "program": "exact_linear",
+      "family": "same_token",
+      "position_bin": "128:256",
+      "sites": 2969,
+      "effect_error": 0.23274329704625796,
+      "reference_energy": 63244551.00900865,
+      "error_energy": 3425922.057934431
+    },
+    {
+      "domain": "fineweb",
+      "program": "exact_linear",
+      "family": "source_only",
+      "position_bin": "0:64",
+      "sites": 1127,
+      "effect_error": 0.26877491519611785,
+      "reference_energy": 15896827.649793774,
+      "error_energy": 1148386.1146787526
+    },
+    {
+      "domain": "fineweb",
+      "program": "exact_linear",
+      "family": "source_only",
+      "position_bin": "64:128",
+      "sites": 1533,
+      "effect_error": 0.2614494097369996,
+      "reference_energy": 24922508.25875309,
+      "error_energy": 1703597.8368057448
+    },
+    {
+      "domain": "fineweb",
+      "program": "exact_linear",
+      "family": "source_only",
+      "position_bin": "128:256",
+      "sites": 2969,
+      "effect_error": 0.25002556374793006,
+      "reference_energy": 47732401.5951683,
+      "error_energy": 2983885.240432629
+    },
+    {
+      "domain": "fineweb",
+      "program": "exact_linear",
+      "family": "context_only",
+      "position_bin": "0:64",
+      "sites": 1127,
+      "effect_error": 0.5666552695670407,
+      "reference_energy": 3347398.3993681376,
+      "error_energy": 1074843.5824033457
+    },
+    {
+      "domain": "fineweb",
+      "program": "exact_linear",
+      "family": "context_only",
+      "position_bin": "64:128",
+      "sites": 1533,
+      "effect_error": 0.5430511585207698,
+      "reference_energy": 5124298.298458265,
+      "error_energy": 1511178.9389651376
+    },
+    {
+      "domain": "fineweb",
+      "program": "exact_linear",
+      "family": "context_only",
+      "position_bin": "128:256",
+      "sites": 2969,
+      "effect_error": 0.5547680484901101,
+      "reference_energy": 8791555.21260154,
+      "error_energy": 2705755.7392589864
+    },
+    {
+      "domain": "fineweb",
+      "program": "paired256",
+      "family": "removal",
+      "position_bin": "0:64",
+      "sites": 1536,
+      "effect_error": 0.23636311133434212,
+      "reference_energy": 46201714.94191757,
+      "error_energy": 2581175.2520164223
+    },
+    {
+      "domain": "fineweb",
+      "program": "paired256",
+      "family": "removal",
+      "position_bin": "64:128",
+      "sites": 2048,
+      "effect_error": 0.23219583273506117,
+      "reference_energy": 63366865.219524376,
+      "error_energy": 3416418.501953199
+    },
+    {
+      "domain": "fineweb",
+      "program": "paired256",
+      "family": "removal",
+      "position_bin": "128:256",
+      "sites": 4096,
+      "effect_error": 0.22659039690027952,
+      "reference_energy": 106476288.68354094,
+      "error_energy": 5466834.233478751
+    },
+    {
+      "domain": "fineweb",
+      "program": "paired256",
+      "family": "same_token",
+      "position_bin": "0:64",
+      "sites": 1127,
+      "effect_error": 0.2959929370084097,
+      "reference_energy": 23657337.04894639,
+      "error_energy": 2072662.3258496588
+    },
+    {
+      "domain": "fineweb",
+      "program": "paired256",
+      "family": "same_token",
+      "position_bin": "64:128",
+      "sites": 1533,
+      "effect_error": 0.297384005556526,
+      "reference_energy": 33712796.15321774,
+      "error_energy": 2981466.8724001464
+    },
+    {
+      "domain": "fineweb",
+      "program": "paired256",
+      "family": "same_token",
+      "position_bin": "128:256",
+      "sites": 2969,
+      "effect_error": 0.30472014524206925,
+      "reference_energy": 63244551.00900865,
+      "error_energy": 5872532.744850162
+    },
+    {
+      "domain": "fineweb",
+      "program": "paired256",
+      "family": "source_only",
+      "position_bin": "0:64",
+      "sites": 1127,
+      "effect_error": 0.282185039880812,
+      "reference_energy": 15896827.649793774,
+      "error_energy": 1265838.898886518
+    },
+    {
+      "domain": "fineweb",
+      "program": "paired256",
+      "family": "source_only",
+      "position_bin": "64:128",
+      "sites": 1533,
+      "effect_error": 0.2750234770778945,
+      "reference_energy": 24922508.25875309,
+      "error_energy": 1885086.5100220647
+    },
+    {
+      "domain": "fineweb",
+      "program": "paired256",
+      "family": "source_only",
+      "position_bin": "128:256",
+      "sites": 2969,
+      "effect_error": 0.263109727215832,
+      "reference_energy": 47732401.5951683,
+      "error_energy": 3304358.008535104
+    },
+    {
+      "domain": "fineweb",
+      "program": "paired256",
+      "family": "context_only",
+      "position_bin": "0:64",
+      "sites": 1127,
+      "effect_error": 0.5666552695670407,
+      "reference_energy": 3347398.3993681376,
+      "error_energy": 1074843.5824033457
+    },
+    {
+      "domain": "fineweb",
+      "program": "paired256",
+      "family": "context_only",
+      "position_bin": "64:128",
+      "sites": 1533,
+      "effect_error": 0.5430511585207698,
+      "reference_energy": 5124298.298458265,
+      "error_energy": 1511178.9389651376
+    },
+    {
+      "domain": "fineweb",
+      "program": "paired256",
+      "family": "context_only",
+      "position_bin": "128:256",
+      "sites": 2969,
+      "effect_error": 0.5547680484901101,
+      "reference_energy": 8791555.21260154,
+      "error_energy": 2705755.7392589864
+    },
+    {
+      "domain": "fineweb",
+      "program": "separate256",
+      "family": "removal",
+      "position_bin": "0:64",
+      "sites": 1536,
+      "effect_error": 0.23577482327528176,
+      "reference_energy": 46201714.94191757,
+      "error_energy": 2568342.5820427686
+    },
+    {
+      "domain": "fineweb",
+      "program": "separate256",
+      "family": "removal",
+      "position_bin": "64:128",
+      "sites": 2048,
+      "effect_error": 0.2317973183107415,
+      "reference_energy": 63366865.219524376,
+      "error_energy": 3404701.4639535164
+    },
+    {
+      "domain": "fineweb",
+      "program": "separate256",
+      "family": "removal",
+      "position_bin": "128:256",
+      "sites": 4096,
+      "effect_error": 0.22589262220435383,
+      "reference_energy": 106476288.68354094,
+      "error_energy": 5433216.346967512
+    },
+    {
+      "domain": "fineweb",
+      "program": "separate256",
+      "family": "same_token",
+      "position_bin": "0:64",
+      "sites": 1127,
+      "effect_error": 0.29585334912731076,
+      "reference_energy": 23657337.04894639,
+      "error_energy": 2070707.885145248
+    },
+    {
+      "domain": "fineweb",
+      "program": "separate256",
+      "family": "same_token",
+      "position_bin": "64:128",
+      "sites": 1533,
+      "effect_error": 0.29698096386809714,
+      "reference_energy": 33712796.15321774,
+      "error_energy": 2973390.841922609
+    },
+    {
+      "domain": "fineweb",
+      "program": "separate256",
+      "family": "same_token",
+      "position_bin": "128:256",
+      "sites": 2969,
+      "effect_error": 0.30432799896736157,
+      "reference_energy": 63244551.00900865,
+      "error_energy": 5857427.671740175
+    },
+    {
+      "domain": "fineweb",
+      "program": "separate256",
+      "family": "source_only",
+      "position_bin": "0:64",
+      "sites": 1127,
+      "effect_error": 0.27387672207812397,
+      "reference_energy": 15896827.649793774,
+      "error_energy": 1192396.5433504535
+    },
+    {
+      "domain": "fineweb",
+      "program": "separate256",
+      "family": "source_only",
+      "position_bin": "64:128",
+      "sites": 1533,
+      "effect_error": 0.26594374542025045,
+      "reference_energy": 24922508.25875309,
+      "error_energy": 1762671.2064440395
+    },
+    {
+      "domain": "fineweb",
+      "program": "separate256",
+      "family": "source_only",
+      "position_bin": "128:256",
+      "sites": 2969,
+      "effect_error": 0.2544180513332787,
+      "reference_energy": 47732401.5951683,
+      "error_energy": 3089648.897175306
+    },
+    {
+      "domain": "fineweb",
+      "program": "separate256",
+      "family": "context_only",
+      "position_bin": "0:64",
+      "sites": 1127,
+      "effect_error": 0.5666552695670407,
+      "reference_energy": 3347398.3993681376,
+      "error_energy": 1074843.5824033457
+    },
+    {
+      "domain": "fineweb",
+      "program": "separate256",
+      "family": "context_only",
+      "position_bin": "64:128",
+      "sites": 1533,
+      "effect_error": 0.5430511585207698,
+      "reference_energy": 5124298.298458265,
+      "error_energy": 1511178.9389651376
+    },
+    {
+      "domain": "fineweb",
+      "program": "separate256",
+      "family": "context_only",
+      "position_bin": "128:256",
+      "sites": 2969,
+      "effect_error": 0.5547680484901101,
+      "reference_energy": 8791555.21260154,
+      "error_energy": 2705755.7392589864
+    },
+    {
+      "domain": "code",
+      "program": "exact_linear",
+      "family": "removal",
+      "position_bin": "0:64",
+      "sites": 768,
+      "effect_error": 0.12118164667479293,
+      "reference_energy": 31589547.0393856,
+      "error_energy": 463892.22947205725
+    },
+    {
+      "domain": "code",
+      "program": "exact_linear",
+      "family": "removal",
+      "position_bin": "64:128",
+      "sites": 1024,
+      "effect_error": 0.12415892049879572,
+      "reference_energy": 50879780.756886095,
+      "error_energy": 784334.0822774806
+    },
+    {
+      "domain": "code",
+      "program": "exact_linear",
+      "family": "removal",
+      "position_bin": "128:256",
+      "sites": 2048,
+      "effect_error": 0.10788578700695836,
+      "reference_energy": 130331130.97287706,
+      "error_energy": 1516968.7419382618
+    },
+    {
+      "domain": "code",
+      "program": "exact_linear",
+      "family": "same_token",
+      "position_bin": "0:64",
+      "sites": 617,
+      "effect_error": 0.20602789412965494,
+      "reference_energy": 12086496.6166328,
+      "error_energy": 513041.48245684436
+    },
+    {
+      "domain": "code",
+      "program": "exact_linear",
+      "family": "same_token",
+      "position_bin": "64:128",
+      "sites": 888,
+      "effect_error": 0.20878271784827582,
+      "reference_energy": 16679237.28785643,
+      "error_energy": 727051.6773862101
+    },
+    {
+      "domain": "code",
+      "program": "exact_linear",
+      "family": "same_token",
+      "position_bin": "128:256",
+      "sites": 1727,
+      "effect_error": 0.19623266577211324,
+      "reference_energy": 43880523.74289586,
+      "error_energy": 1689718.6979147927
+    },
+    {
+      "domain": "code",
+      "program": "exact_linear",
+      "family": "source_only",
+      "position_bin": "0:64",
+      "sites": 617,
+      "effect_error": 0.21940159491793665,
+      "reference_energy": 6668980.358045043,
+      "error_energy": 321025.1066505903
+    },
+    {
+      "domain": "code",
+      "program": "exact_linear",
+      "family": "source_only",
+      "position_bin": "64:128",
+      "sites": 888,
+      "effect_error": 0.22362806332233523,
+      "reference_energy": 9119580.360785462,
+      "error_energy": 456065.7516805294
+    },
+    {
+      "domain": "code",
+      "program": "exact_linear",
+      "family": "source_only",
+      "position_bin": "128:256",
+      "sites": 1727,
+      "effect_error": 0.19741012241505457,
+      "reference_energy": 26274272.95205079,
+      "error_energy": 1023928.2916403344
+    },
+    {
+      "domain": "code",
+      "program": "exact_linear",
+      "family": "context_only",
+      "position_bin": "0:64",
+      "sites": 617,
+      "effect_error": 0.4250591134787061,
+      "reference_energy": 1689620.7422050769,
+      "error_energy": 305272.6499208093
+    },
+    {
+      "domain": "code",
+      "program": "exact_linear",
+      "family": "context_only",
+      "position_bin": "64:128",
+      "sites": 888,
+      "effect_error": 0.4146671584224899,
+      "reference_energy": 2583064.9330096734,
+      "error_energy": 444155.050580701
+    },
+    {
+      "domain": "code",
+      "program": "exact_linear",
+      "family": "context_only",
+      "position_bin": "128:256",
+      "sites": 1727,
+      "effect_error": 0.3803477036251587,
+      "reference_energy": 6901599.952621408,
+      "error_energy": 998415.648152278
+    },
+    {
+      "domain": "code",
+      "program": "paired256",
+      "family": "removal",
+      "position_bin": "0:64",
+      "sites": 768,
+      "effect_error": 0.16634534195314063,
+      "reference_energy": 31589547.0393856,
+      "error_energy": 874107.1786502914
+    },
+    {
+      "domain": "code",
+      "program": "paired256",
+      "family": "removal",
+      "position_bin": "64:128",
+      "sites": 1024,
+      "effect_error": 0.16323101658929018,
+      "reference_energy": 50879780.756886095,
+      "error_energy": 1355659.4382487151
+    },
+    {
+      "domain": "code",
+      "program": "paired256",
+      "family": "removal",
+      "position_bin": "128:256",
+      "sites": 2048,
+      "effect_error": 0.14019645320885493,
+      "reference_energy": 130331130.97287706,
+      "error_energy": 2561664.308340367
+    },
+    {
+      "domain": "code",
+      "program": "paired256",
+      "family": "same_token",
+      "position_bin": "0:64",
+      "sites": 617,
+      "effect_error": 0.26933638199854043,
+      "reference_energy": 12086496.6166328,
+      "error_energy": 876779.6850770352
+    },
+    {
+      "domain": "code",
+      "program": "paired256",
+      "family": "same_token",
+      "position_bin": "64:128",
+      "sites": 888,
+      "effect_error": 0.26199704207967817,
+      "reference_energy": 16679237.28785643,
+      "error_energy": 1144903.712545567
+    },
+    {
+      "domain": "code",
+      "program": "paired256",
+      "family": "same_token",
+      "position_bin": "128:256",
+      "sites": 1727,
+      "effect_error": 0.24812129584206702,
+      "reference_energy": 43880523.74289586,
+      "error_energy": 2701468.3503217855
+    },
+    {
+      "domain": "code",
+      "program": "paired256",
+      "family": "source_only",
+      "position_bin": "0:64",
+      "sites": 617,
+      "effect_error": 0.23596792215995213,
+      "reference_energy": 6668980.358045043,
+      "error_energy": 371334.5635829583
+    },
+    {
+      "domain": "code",
+      "program": "paired256",
+      "family": "source_only",
+      "position_bin": "64:128",
+      "sites": 888,
+      "effect_error": 0.2397579745419484,
+      "reference_energy": 9119580.360785462,
+      "error_energy": 524228.9210779738
+    },
+    {
+      "domain": "code",
+      "program": "paired256",
+      "family": "source_only",
+      "position_bin": "128:256",
+      "sites": 1727,
+      "effect_error": 0.21166271633855585,
+      "reference_energy": 26274272.95205079,
+      "error_energy": 1177116.474140497
+    },
+    {
+      "domain": "code",
+      "program": "paired256",
+      "family": "context_only",
+      "position_bin": "0:64",
+      "sites": 617,
+      "effect_error": 0.4250591134787061,
+      "reference_energy": 1689620.7422050769,
+      "error_energy": 305272.6499208093
+    },
+    {
+      "domain": "code",
+      "program": "paired256",
+      "family": "context_only",
+      "position_bin": "64:128",
+      "sites": 888,
+      "effect_error": 0.4146671584224899,
+      "reference_energy": 2583064.9330096734,
+      "error_energy": 444155.050580701
+    },
+    {
+      "domain": "code",
+      "program": "paired256",
+      "family": "context_only",
+      "position_bin": "128:256",
+      "sites": 1727,
+      "effect_error": 0.3803477036251587,
+      "reference_energy": 6901599.952621408,
+      "error_energy": 998415.648152278
+    },
+    {
+      "domain": "code",
+      "program": "separate256",
+      "family": "removal",
+      "position_bin": "0:64",
+      "sites": 768,
+      "effect_error": 0.16621325694434688,
+      "reference_energy": 31589547.0393856,
+      "error_energy": 872719.5760345664
+    },
+    {
+      "domain": "code",
+      "program": "separate256",
+      "family": "removal",
+      "position_bin": "64:128",
+      "sites": 1024,
+      "effect_error": 0.16276878478309378,
+      "reference_energy": 50879780.756886095,
+      "error_energy": 1347992.4924557384
+    },
+    {
+      "domain": "code",
+      "program": "separate256",
+      "family": "removal",
+      "position_bin": "128:256",
+      "sites": 2048,
+      "effect_error": 0.13999259964343871,
+      "reference_energy": 130331130.97287706,
+      "error_energy": 2554220.1150907455
+    },
+    {
+      "domain": "code",
+      "program": "separate256",
+      "family": "same_token",
+      "position_bin": "0:64",
+      "sites": 617,
+      "effect_error": 0.2688435238022991,
+      "reference_energy": 12086496.6166328,
+      "error_energy": 873573.7856312805
+    },
+    {
+      "domain": "code",
+      "program": "separate256",
+      "family": "same_token",
+      "position_bin": "64:128",
+      "sites": 888,
+      "effect_error": 0.2617089044395821,
+      "reference_energy": 16679237.28785643,
+      "error_energy": 1142386.8257208555
+    },
+    {
+      "domain": "code",
+      "program": "separate256",
+      "family": "same_token",
+      "position_bin": "128:256",
+      "sites": 1727,
+      "effect_error": 0.24754375798500733,
+      "reference_energy": 43880523.74289586,
+      "error_energy": 2688906.8775800182
+    },
+    {
+      "domain": "code",
+      "program": "separate256",
+      "family": "source_only",
+      "position_bin": "0:64",
+      "sites": 617,
+      "effect_error": 0.22704804161760264,
+      "reference_energy": 6668980.358045043,
+      "error_energy": 343791.3606879788
+    },
+    {
+      "domain": "code",
+      "program": "separate256",
+      "family": "source_only",
+      "position_bin": "64:128",
+      "sites": 888,
+      "effect_error": 0.2302372323292609,
+      "reference_energy": 9119580.360785462,
+      "error_energy": 483421.5056018385
+    },
+    {
+      "domain": "code",
+      "program": "separate256",
+      "family": "source_only",
+      "position_bin": "128:256",
+      "sites": 1727,
+      "effect_error": 0.2037165386433637,
+      "reference_energy": 26274272.95205079,
+      "error_energy": 1090393.5759686357
+    },
+    {
+      "domain": "code",
+      "program": "separate256",
+      "family": "context_only",
+      "position_bin": "0:64",
+      "sites": 617,
+      "effect_error": 0.4250591134787061,
+      "reference_energy": 1689620.7422050769,
+      "error_energy": 305272.6499208093
+    },
+    {
+      "domain": "code",
+      "program": "separate256",
+      "family": "context_only",
+      "position_bin": "64:128",
+      "sites": 888,
+      "effect_error": 0.4146671584224899,
+      "reference_energy": 2583064.9330096734,
+      "error_energy": 444155.050580701
+    },
+    {
+      "domain": "code",
+      "program": "separate256",
+      "family": "context_only",
+      "position_bin": "128:256",
+      "sites": 1727,
+      "effect_error": 0.3803477036251587,
+      "reference_energy": 6901599.952621408,
+      "error_energy": 998415.648152278
+    }
+  ],
+  "scope": "Position-stratified existing interventions with fixed donor mapping. Recipient-position bins only; donor positions may differ. Calibration positions0:64; diagnostic early evaluation starts16. No fitting or new candidate selection."
+}

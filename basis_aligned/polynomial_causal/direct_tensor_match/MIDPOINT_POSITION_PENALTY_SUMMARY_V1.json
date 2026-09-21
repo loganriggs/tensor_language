@@ -1,0 +1,85 @@
+{
+  "records": [
+    {
+      "domain": "fineweb",
+      "family": "removal",
+      "early_mid_late_ratios": [
+        1.2384892515633559,
+        1.246444017462457,
+        1.3328597206692834
+      ],
+      "late_over_early_penalty": 1.0761980525763972
+    },
+    {
+      "domain": "fineweb",
+      "family": "same_token",
+      "early_mid_late_ratios": [
+        1.2737367898023135,
+        1.2705496335269204,
+        1.307569338535563
+      ],
+      "late_over_early_penalty": 1.026561648375172
+    },
+    {
+      "domain": "fineweb",
+      "family": "source_only",
+      "early_mid_late_ratios": [
+        1.0189817077173422,
+        1.017190077758339,
+        1.0175681539099621
+      ],
+      "late_over_early_penalty": 0.998612778034508
+    },
+    {
+      "domain": "fineweb",
+      "family": "context_only",
+      "early_mid_late_ratios": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "late_over_early_penalty": 1.0
+    },
+    {
+      "domain": "code",
+      "family": "removal",
+      "early_mid_late_ratios": [
+        1.3716042115717595,
+        1.3109713271441705,
+        1.2976000224608784
+      ],
+      "late_over_early_penalty": 0.9460455221072283
+    },
+    {
+      "domain": "code",
+      "family": "same_token",
+      "early_mid_late_ratios": [
+        1.3048889566046518,
+        1.2534988869613635,
+        1.26148089061014
+      ],
+      "late_over_early_penalty": 0.9667342835765425
+    },
+    {
+      "domain": "code",
+      "family": "source_only",
+      "early_mid_late_ratios": [
+        1.0348513724457018,
+        1.0295542916606102,
+        1.0319457591695824
+      ],
+      "late_over_early_penalty": 0.9971922409792505
+    },
+    {
+      "domain": "code",
+      "family": "context_only",
+      "early_mid_late_ratios": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "late_over_early_penalty": 1.0
+    }
+  ],
+  "scope": "Successor CPU ratio audit of same fixed interventions. Recipient-position association, not causal sequence-length manipulation. Broad early degradation rejects an exclusively late-position account."
+}
