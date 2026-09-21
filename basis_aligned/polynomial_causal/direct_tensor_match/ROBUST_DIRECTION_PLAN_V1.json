@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-09-21T15:46:39.088304+00:00",
+  "hypothesis": "One new squared linear feature proposed from active-constraint dual gradient reduces robust minimax objective more than seededrandom samecost direction.",
+  "arms": [
+    "directed",
+    "random_seed920"
+  ],
+  "procedure": "Append one dense direction with zero initial weight; jointly refit32existing second-read correction weights plus newweight for atmost8exactseparation rounds.",
+  "cost": "Both arms add1155source multiplications and1154storedfloats under existing paired-read executor:1122723mults and1133134floats. This is a new explicitly priced frontier; originalfixedcostfailure retained.",
+  "pred_a": "Dual-gradient objective and existing-direction stationarity replay; conditionalquadratic andexportcontrols pass.",
+  "pred_b": "Directed arm has lower retained global objective than random, and maximum<=1.",
+  "scope": "No additional textdata fitting. Original8guards and globalworstread target; generatedinterface andnewresourcebaseline required before anyadoption."
+}

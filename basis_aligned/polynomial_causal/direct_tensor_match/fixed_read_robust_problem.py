@@ -7,10 +7,12 @@ from local_shared_reader_graph import decode
 from conditional_source_constraints import ConditionalSourceConstraints
 P=Path(__file__).resolve().parent
 
-def build():
+def build(extra_direction=None):
  torch.set_num_threads(2)
  d=torch.load(P/'SHARED_PRODUCT_NATIVE_INPUTS_V1.pt',weights_only=True);graph=torch.load(P/'FRONTIER_FRESH_GRAPH_V1.pt',weights_only=True);bundle=expand(graph);H=torch.cat([decode(bundle[str(j)]) for j in range(3)]);base=json.loads((P/'SOURCE_SQUARE_PLAN_V1.json').read_text())['baseline'];metric=ConditionalSourceConstraints(d,H,base)
- V=graph['pairs']['2']['private_reader'][:,-32:];V=V/V.norm(dim=0);atoms=torch.einsum('ik,jk->kij',V,V);z,h,s=metric.z,metric.h,metric.s;n=32
+ V=graph['pairs']['2']['private_reader'][:,-32:];V=V/V.norm(dim=0)
+ if extra_direction is not None:V=torch.cat((V,extra_direction[:,None]/extra_direction.norm()),1)
+ atoms=torch.einsum('ik,jk->kij',V,V);z,h,s=metric.z,metric.h,metric.s;n=V.shape[1]
  centered=(z-d['mu'])@V;psi=centered.square()-torch.einsum('ik,ij,jk->k',V,d['old_covariance'],V);gradpsi=2*centered[:,None,:]*V[None]
  G=torch.zeros(8,n,n,dtype=H.dtype);b=torch.zeros(8,n,dtype=H.dtype);c=metric.ratios_full(H).detach();pair=d['pairs'][2]
  for k,(M,name) in enumerate(((metric.I,'native_error'),(metric.S,'covariance_error'))):
